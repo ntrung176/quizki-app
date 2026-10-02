@@ -1,0 +1,462 @@
+{
+  "id": "minna2.b30",
+  "bai": 30,
+  "titleVi": "Hoàn thành đáng tiếc, đồng thời",
+  "know": [
+    {
+      "id": "minna2.b30.teshimau",
+      "point": "teshimau",
+      "jp": "〜てしまいます／〜てしまいました",
+      "vi": "Đã ~ mất rồi, lỡ ~ (hoàn thành / đáng tiếc)",
+      "en": "Already ~ / end up ~ing (completion / regret)",
+      "gloss": "財布[さいふ]を 忘[わす]れてしまいました — quên ví mất rồi",
+      "glossEn": "財布[さいふ]を 忘[わす]れてしまいました — I forgot my wallet"
+    },
+    {
+      "id": "minna2.b30.chatta",
+      "point": "chatta",
+      "jp": "〜ちゃった／〜じゃった（口語[こうご]）",
+      "vi": "Dạng khẩu ngữ rút gọn của てしまった (thân mật)",
+      "en": "A shortened colloquial form of てしまった (informal)",
+      "gloss": "食[た]べちゃった ← 食[た]べてしまった ／ 飲[の]んじゃった ← 飲[の]んでしまった",
+      "glossEn": "食[た]べちゃった ← 食[た]べてしまった ／ 飲[の]んじゃった ← 飲[の]んでしまった"
+    },
+    {
+      "id": "minna2.b30.nagara",
+      "point": "nagara",
+      "jp": "〜ながら、〜",
+      "vi": "Vừa ~ vừa ~ / trong khi ~ (hai hành động đồng thời, cùng chủ thể)",
+      "en": "While ~ing / ~ing at the same time (two simultaneous actions with the same subject)",
+      "gloss": "音楽[おんがく]を 聴[き]きながら、散歩[さんぽ]します",
+      "glossEn": "音楽[おんがく]を 聴[き]きながら、散歩[さんぽ]します"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b30-tsm-saifu",
+      "item": "minna2.b30.teshimau",
+      "err": "teshimau-te-wrong",
+      "vi": "Tôi đã đánh rơi ví tiền mất rồi.",
+      "t1": {
+        "stem": "財布[さいふ]を ＿。",
+        "choices": [
+          "落[お]としてしまいました",
+          "落[お]とすてしまいました",
+          "落[お]としてしまいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "財布[さいふ]を",
+          "落[お]として",
+          "しまいました。"
+        ],
+        "traps": [
+          "落[お]とすてしまいました。",
+          "落[お]とすてしまいます。"
+        ]
+      },
+      "t3": {
+        "target": "財布を落としてしまいました。",
+        "accept": [
+          "さいふをおとしてしまいました。"
+        ]
+      },
+      "why": "落とす (nhóm I: す→して) → 落として + しまいました. ✗ 落[お]とすてしまいました — cần te-form trước しまう, không dùng từ điển-form trực tiếp."
+    },
+    {
+      "id": "c-b30-tsm-kagi",
+      "item": "minna2.b30.teshimau",
+      "err": "teshimau-te-wrong",
+      "vi": "Tôi đã quên chìa khoá mất rồi. (đáng tiếc)",
+      "t1": {
+        "stem": "鍵[かぎ]を ＿。",
+        "choices": [
+          "忘[わす]れてしまいました",
+          "忘[わす]れしまいました",
+          "忘[わす]れてしまいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "鍵[かぎ]を",
+          "忘[わす]れて",
+          "しまいました。"
+        ],
+        "traps": [
+          "忘[わす]れしまいました。",
+          "忘[わす]れてしまいません。"
+        ]
+      },
+      "t3": {
+        "target": "鍵を忘れてしまいました。",
+        "accept": [
+          "かぎをわすれてしまいました。"
+        ]
+      },
+      "why": "忘れる (nhóm II) → 忘れて + しまいました. ✗ 忘[わす]れしまいました — không được bỏ て ở giữa."
+    },
+    {
+      "id": "c-b30-tsm-taberu",
+      "item": "minna2.b30.teshimau",
+      "err": "teshimau-te-wrong",
+      "vi": "Tôi đã ăn quá nhiều mất rồi. (thật tiếc quá.)",
+      "t1": {
+        "stem": "食[た]べ過[す]ぎて ＿。",
+        "choices": [
+          "しまいました",
+          "しまいます",
+          "いました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食[た]べ過[す]ぎて",
+          "しまいました。"
+        ],
+        "traps": [
+          "しまいません。",
+          "いました。"
+        ]
+      },
+      "t3": {
+        "target": "食べ過ぎてしまいました。",
+        "accept": [
+          "たべすぎてしまいました。"
+        ]
+      },
+      "why": "て-form đã cho sẵn (食べ過ぎて), chỉ cần thêm しまいました. ✗ いました — ています khác nghĩa (đang ở trạng thái), không phải \"đã ~ mất rồi\"."
+    },
+    {
+      "id": "c-b30-tsm-denchi",
+      "item": "minna2.b30.teshimau",
+      "err": "teshimau-te-wrong",
+      "vi": "Pin đã hết rồi. (thật phiền.)",
+      "t1": {
+        "stem": "電池[でんち]が ＿。",
+        "choices": [
+          "切[き]れてしまいました",
+          "切[き]れしまいました",
+          "切[き]ってしまいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電池[でんち]が",
+          "切[き]れて",
+          "しまいました。"
+        ],
+        "traps": [
+          "切[き]れしまいました。",
+          "切[き]ってしまいました。"
+        ]
+      },
+      "t3": {
+        "target": "電池が切れてしまいました。",
+        "accept": [
+          "でんちがきれてしまいました。"
+        ]
+      },
+      "why": "切れる (nhóm II: 切れ→切れて) → 切れてしまいました. ✗ 切[き]ってしまいました — 切る (nhóm I: cắt) khác nghĩa với 切れる (nhóm II: hết/đứt). ✗ 切[き]れしまいました — bỏ て là sai."
+    },
+    {
+      "id": "c-b30-cha-taberu",
+      "item": "minna2.b30.chatta",
+      "err": "chatta-form",
+      "vi": "Tôi đã ăn hết bánh mất rồi. (nói thân mật với bạn)",
+      "t1": {
+        "stem": "ケーキを 全部[ぜんぶ] ＿。",
+        "choices": [
+          "食[た]べちゃった",
+          "食[た]べじゃった",
+          "食[た]べちゃいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ケーキを",
+          "全部[ぜんぶ]",
+          "食[た]べ",
+          "ちゃった。"
+        ],
+        "traps": [
+          "食[た]べてちゃった。",
+          "食[た]べてしまます。"
+        ]
+      },
+      "t3": {
+        "target": "ケーキを全部食べちゃった。",
+        "accept": [
+          "けーきをぜんぶたべちゃった。"
+        ]
+      },
+      "why": "食べてしまった (lịch sự/bình thường) → 食べちゃった (khẩu ngữ thân mật). ✗ 食[た]べじゃった — じゃった chỉ dùng cho động từ nhóm I kết thúc んで: 飲[の]んでしまった→飲[の]んじゃった; 食べる là nhóm II nên phải dùng ちゃった."
+    },
+    {
+      "id": "c-b30-cha-wasureru",
+      "item": "minna2.b30.chatta",
+      "err": "chatta-form",
+      "vi": "Ôi, tôi quên mất passport rồi! (nói với bạn bè)",
+      "t1": {
+        "stem": "パスポートを ＿ よ！",
+        "choices": [
+          "忘[わす]れちゃった",
+          "忘[わす]れじゃった",
+          "忘[わす]れちゃいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "パスポートを",
+          "忘[わす]れ",
+          "ちゃった",
+          "よ！"
+        ],
+        "traps": [
+          "忘[わす]れじゃった",
+          "忘[わす]れてしまいました"
+        ]
+      },
+      "t3": {
+        "target": "パスポートを忘れちゃったよ！",
+        "accept": [
+          "ぱすぽーとをわすれちゃったよ！"
+        ]
+      },
+      "why": "忘れてしまった → 忘れちゃった (て+しまった = ちゃった). ✗ 忘[わす]れじゃった — じゃった dùng cho động từ nhóm I kết thúc んで (飲んでしまった→飲んじゃった); 忘れる là nhóm II nên ちゃった."
+    },
+    {
+      "id": "c-b30-nag-ongaku",
+      "item": "minna2.b30.nagara",
+      "err": "nagara-stem-wrong",
+      "vi": "Tôi vừa nghe nhạc vừa đi dạo.",
+      "t1": {
+        "stem": "音楽[おんがく]を ＿ながら、散歩[さんぽ]します。",
+        "choices": [
+          "聴[き]き",
+          "聴[き]いて",
+          "聴[き]く"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "音楽[おんがく]を",
+          "聴[き]き",
+          "ながら、",
+          "散歩[さんぽ]します。"
+        ],
+        "traps": [
+          "聴[き]いて",
+          "聴[き]きて"
+        ]
+      },
+      "t3": {
+        "target": "音楽を聴きながら、散歩します。",
+        "accept": [
+          "おんがくをききながら、さんぽします。"
+        ]
+      },
+      "why": "ながら tiếp sau ます-stem của động từ (聴く → 聴き + ながら). ✗ 聴[き]いてながら — không dùng te-form trước ながら. ✗ 聴[き]くながら — không dùng từ điển-form trước ながら."
+    },
+    {
+      "id": "c-b30-nag-shokuji",
+      "item": "minna2.b30.nagara",
+      "err": "nagara-stem-wrong",
+      "vi": "Bố vừa ăn cơm vừa xem TV.",
+      "t1": {
+        "stem": "父[ちち]は ご飯[はん]を 食[た]べ＿、テレビを 見[み]ます。",
+        "choices": [
+          "ながら",
+          "てから",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "父[ちち]は",
+          "ご飯[はん]を",
+          "食[た]べながら、",
+          "テレビを",
+          "見[み]ます。"
+        ],
+        "traps": [
+          "食[た]べてから、",
+          "テレビのために、"
+        ]
+      },
+      "t3": {
+        "target": "父はご飯を食べながら、テレビを見ます。",
+        "accept": [
+          "ちちはごはんをたべながら、てれびをみます。"
+        ]
+      },
+      "why": "食べる (nhóm II) → ます-stem 食べ + ながら (đồng thời). ✗ 食[た]べてから = \"sau khi ăn xong\" — nghĩa tuần tự, không đồng thời."
+    },
+    {
+      "id": "c-b30-nag-aruku",
+      "item": "minna2.b30.nagara",
+      "err": "nagara-stem-wrong",
+      "vi": "Vừa đi bộ vừa nhìn điện thoại là nguy hiểm.",
+      "t1": {
+        "stem": "歩[ある]き＿ スマホを 見[み]るのは 危[あぶ]ないです。",
+        "choices": [
+          "ながら",
+          "てから",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "歩[ある]き",
+          "ながら",
+          "スマホを",
+          "見[み]るのは",
+          "危[あぶ]ないです。"
+        ],
+        "traps": [
+          "歩[ある]いてから",
+          "歩[ある]くために"
+        ]
+      },
+      "t3": {
+        "target": "歩きながらスマホを見るのは危ないです。",
+        "accept": [
+          "あるきながらすまほをみるのはあぶないです。"
+        ]
+      },
+      "why": "歩く (nhóm I) → ます-stem 歩き + ながら (đồng thời). ✗ 歩[ある]いてから = \"sau khi đi bộ xong\" — tuần tự, không phải đồng thời."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b30-saifu",
+      "item": "minna2.b30.teshimau",
+      "err": "teshimau-te-wrong",
+      "tts": "あ、さいふをわすれてしまいました。どうしましょう。",
+      "script": "あ、財布[さいふ]を 忘[わす]れてしまいました。どうしましょう。",
+      "ask": "Người nói đang lo lắng về điều gì?",
+      "choices": [
+        "Quên ví tiền ở nhà",
+        "Bị mất chìa khoá",
+        "Trễ tàu điện"
+      ],
+      "answer": 0,
+      "why": "忘れてしまいました = đã quên mất rồi (đáng tiếc); 財布[さいふ] = ví tiền."
+    },
+    {
+      "id": "l-b30-nagara-coffee",
+      "item": "minna2.b30.nagara",
+      "err": "nagara-stem-wrong",
+      "tts": "わたしはまいあさこーひーをのみながら、しんぶんをよみます。",
+      "script": "私[わたし]は 毎朝[まいあさ] コーヒーを 飲[の]みながら、新聞[しんぶん]を 読[よ]みます。",
+      "ask": "Người nói làm gì vào mỗi buổi sáng?",
+      "choices": [
+        "Vừa uống cà phê vừa đọc báo",
+        "Uống cà phê rồi mới đọc báo",
+        "Đọc báo rồi mới uống cà phê"
+      ],
+      "answer": 0,
+      "why": "飲[の]みながら = vừa uống vừa (đồng thời). ✗ Lựa chọn 2 và 3 là てから (tuần tự)."
+    },
+    {
+      "id": "l-b30-chatta",
+      "item": "minna2.b30.chatta",
+      "err": "chatta-form",
+      "tts": "えー、ほんとう？ けーきをぜんぶたべちゃったの？",
+      "script": "えー、本当[ほんとう]？ ケーキを 全部[ぜんぶ] 食[た]べちゃったの？",
+      "ask": "Người nói muốn hỏi điều gì?",
+      "choices": [
+        "Bạn đã ăn hết bánh rồi sao?",
+        "Bạn chưa ăn bánh à?",
+        "Bánh này có ngon không?"
+      ],
+      "answer": 0,
+      "why": "食[た]べちゃった = 食べてしまった (khẩu ngữ) = đã ăn hết mất rồi. の ở cuối = câu hỏi xác nhận thân mật."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b30-ga-suki-tsm",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 30 ・ 〜てしまいました",
+      "vi": "Vì tôi thích rượu, tôi đã uống quá nhiều mất rồi.",
+      "t1": {
+        "stem": "お酒[さけ]＿ 好[す]きですから、飲[の]み過[す]ぎてしまいました。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お酒[さけ]が",
+          "好[す]きですから、",
+          "飲[の]み過[す]ぎて",
+          "しまいました。"
+        ],
+        "traps": [
+          "お酒[さけ]を"
+        ]
+      },
+      "t3": {
+        "target": "お酒が好きですから、飲み過ぎてしまいました。",
+        "accept": [
+          "おさけがすきですから、のみすぎてしまいました。"
+        ]
+      },
+      "why": "好き は常に が を取る (Bài 9). ✗ お酒[さけ]を好きです — 好き・上手・わかる の対象は を ではなく が. てしまいました は Bài 30 の構文だが、が の選択は変わらない。"
+    },
+    {
+      "id": "a-b30-tari-nagara",
+      "item": "minna1.b19.tari",
+      "err": "tari-form",
+      "ambush": true,
+      "src": 19,
+      "context": "Bài 30 ・ 〜ながら vs 〜たり〜たり",
+      "vi": "Tôi vừa nghe nhạc vừa làm bài tập về nhà. [Chọn dạng ĐÚNG diễn tả hai việc đồng thời]",
+      "t1": {
+        "stem": "音楽[おんがく]を 聴[き]き＿、宿題[しゅくだい]をします。",
+        "choices": [
+          "ながら",
+          "たり",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "音楽[おんがく]を",
+          "聴[き]き",
+          "ながら、",
+          "宿題[しゅくだい]を",
+          "します。"
+        ],
+        "traps": [
+          "聴[き]いたり、",
+          "聴[き]いてから、"
+        ]
+      },
+      "t3": {
+        "target": "音楽を聴きながら、宿題をします。",
+        "accept": [
+          "おんがくをききながら、しゅくだいをします。"
+        ]
+      },
+      "why": "ながら = hai việc ĐỒNG THỜI cùng một người (Bài 30). ✗ たり = liệt kê hành động lúc này lúc khác (Bài 19), không phải đồng thời. ✗ てから = tuần tự (xong việc này mới làm việc kia)."
+    }
+  ]
+}

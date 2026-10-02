@@ -1,0 +1,1543 @@
+{
+  "bai": 21,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 21 dạy cách nói ý kiến/suy nghĩ (〜と思います), thuật lại lời người khác (〜と言いました), hỏi/dự đoán (〜でしょう？), và giới thiệu chủ đề (Nについて). Chú ý: vế đứng trước と phải ở 普通形 (thể thông thường học từ Bài 20).",
+    "steps": [
+      "1. Xác định chủ đề bài đọc: đây là ý kiến cá nhân, lời thuật lại, hay dự đoán?",
+      "2. Tìm cụm 〜と思います → người nói đang bày tỏ ý kiến/suy nghĩ của MÌNH.",
+      "3. Tìm 〜と言いました → người nói đang THUẬT LẠI lời người khác (cần biết AI nói gì).",
+      "4. Tìm 〜でしょう？ → câu hỏi dự đoán/xác nhận, thường có giọng lên.",
+      "5. Tìm Nについて → chú ý danh từ đứng trước について để biết \"về chủ đề gì\".",
+      "6. Kiểm tra vế trước と: đúng 普通形 chưa? (動詞: する/した/している/しない; 形容詞い: いい/よくない; NA/N: 〜だ/だった/じゃない)."
+    ],
+    "tips": [
+      "〜と思います: chủ ngữ = người NÓI (私). Nếu hỏi ý kiến ai → その人は〜と思っています.",
+      "Trước と trong 〜と思います/〜と言いました: Nです → Nだ (不: Nじゃない); NAです → NAだ; いAdj: そのままでOK (いい→いい、高い→高い).",
+      "〜でしょう？ cuối câu với giọng lên = hỏi xác nhận. Không có か thêm vào sau でしょう。",
+      "について = \"về (chủ đề)\". 〜についての + N = danh từ chỉ chủ đề.",
+      "と言いました: thường có 「」 dẫn lời; nếu không có ngoặc thì vế trước と ở 普通形.",
+      "区別: と思います (ý kiến mình) ≠ と言いました (lời người khác đã nói)."
+    ],
+    "grammarFocus": [
+      "〜と思います",
+      "〜と言いました",
+      "〜でしょう？",
+      "Nについて"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 20,
+        "items": [
+          "普通形（V/Aい/ANa/N の通常体）",
+          "〜けど（nhưng/mà）",
+          "〜ないと（phải làm）"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜たことがあります",
+          "〜たり〜たりします",
+          "〜くなります・〜になります"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "Vることができます",
+          "Vるまえに"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vています（đang diễn ra / trạng thái）"
+        ]
+      },
+      {
+        "bai": 12,
+        "items": [
+          "NはNより〜",
+          "〜の中で〜が一番"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）",
+          "Nがわかります"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "明日の天気について",
+      "titleVi": "Về thời tiết ngày mai",
+      "japanese": "ミラーさんは天気予報を見ました。明日は雨が降ると思います。田中さんは明日はいい天気だと言いました。でも、ミラーさんは寒くなると思います。明日、かさが必要でしょう？",
+      "vietnamese": "Anh Miller đã xem dự báo thời tiết. Anh nghĩ rằng ngày mai trời sẽ mưa. Anh Tanaka nói rằng ngày mai trời đẹp. Nhưng anh Miller nghĩ trời sẽ trở lạnh. Ngày mai chắc cần ô nhỉ?",
+      "sentences": [
+        {
+          "jp": "ミラーさんは天気予報を見ました。",
+          "vi": "Anh Miller đã xem dự báo thời tiết.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "見ました",
+              "read": "みました",
+              "vi": "đã xem (Vました — quá khứ Bài 4)"
+            },
+            {
+              "w": "天気予報",
+              "read": "てんきよほう",
+              "vi": "dự báo thời tiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（Bài 6）",
+              "vi": "天気予報を見ました — xem dự báo. を là trợ từ tân ngữ."
+            }
+          ]
+        },
+        {
+          "jp": "明日は雨が降ると思います。",
+          "vi": "Anh nghĩ rằng ngày mai trời sẽ mưa.",
+          "vocab": [
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降る",
+              "read": "ふる",
+              "vi": "(mưa/tuyết) rơi, xuống"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "普通形 + と思います = người nói nghĩ/cho rằng～. Ở đây: 降る (辞書形 = 普通形) + と思います."
+            },
+            {
+              "point": "普通形（Bài 20）",
+              "vi": "降る = thể từ điển (辞書形), dùng trực tiếp trước と trong と思います."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは明日はいい天気だと言いました。",
+          "vi": "Anh Tanaka nói rằng ngày mai trời đẹp.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói (quá khứ của 言います)"
+            },
+            {
+              "w": "いい天気",
+              "read": "いいてんき",
+              "vi": "thời tiết tốt/đẹp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "普通形 + と言いました = thuật lại lời ai đó đã nói. N + だ trước と (いい天気だ)."
+            }
+          ]
+        },
+        {
+          "jp": "でも、ミラーさんは寒くなると思います。",
+          "vi": "Nhưng anh Miller nghĩ trời sẽ trở lạnh.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "寒く",
+              "read": "さむく",
+              "vi": "lạnh (dạng 〜く của 寒い)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "なる",
+              "read": "なる",
+              "vi": "trở nên, thành (thể từ điển)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "Aい → Aくなる = trở nên～. Ở đây: 寒くなる (thể từ điển) trước と."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "寒くなる (普通形) + と思います = nghĩ rằng sẽ trở lạnh."
+            }
+          ]
+        },
+        {
+          "jp": "明日、かさが必要でしょう？",
+          "vi": "Ngày mai chắc cần ô nhỉ?",
+          "vocab": [
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "かさ",
+              "read": "かさ",
+              "vi": "ô (che mưa)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜でしょう？（Bài 21）",
+              "vi": "N + でしょう？ = dự đoán/hỏi xác nhận mang sắc thái \"chắc là～nhỉ?\". Giọng lên cuối câu."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "雨が降ると思います",
+          "label": "〜と思います（普通形）"
+        },
+        {
+          "excerpt": "明日はいい天気だと言いました",
+          "label": "〜と言いました（N+だ）"
+        },
+        {
+          "excerpt": "寒くなると思います",
+          "label": "〜くなる＋と思います"
+        },
+        {
+          "excerpt": "かさが必要でしょう？",
+          "label": "〜でしょう？"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは明日の天気についてどう思っていますか。",
+          "evi": [
+            1,
+            3
+          ],
+          "options": [
+            "いい天気になると思っています",
+            "雨が降ると思っています",
+            "雪が降ると思っています",
+            "風が強いと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết có hai câu là bằng chứng trực tiếp: 「明日は雨が降ると思います」(Miller nghĩ ngày mai trời sẽ mưa) và 「寒くなると思います」(Miller nghĩ sẽ trở lạnh) — cả hai đều dùng 〜と思います để bày tỏ suy nghĩ của chính Miller. Đáp án 0 sai vì đó là ý kiến của Tanaka (「いい天気だ」), KHÔNG phải Miller. Đáp án 2 sai vì bài không hề nhắc đến tuyết (雪). Đáp án 3 sai vì bài không đề cập gió (風が強い).",
+          "tip": "Câu hỏi dạng「〜はどう思っていますか」→ tìm câu có 〜と思います hoặc 〜と思っています với CHỦ NGỮ là người được hỏi. Đừng nhầm ý kiến của Miller với ý kiến của Tanaka.",
+          "qt": {
+            "q": "Ông Miller nghĩ thời tiết ngày mai sẽ thế nào?",
+            "o": [
+              "Ông ấy nghĩ trời sẽ đẹp",
+              "Ông ấy nghĩ trời sẽ mưa",
+              "Ông ấy nghĩ trời sẽ có tuyết",
+              "Ông ấy nghĩ gió sẽ mạnh"
+            ]
+          }
+        },
+        {
+          "q": "田中さんは何と言いましたか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "明日は雨が降ると言いました",
+            "明日は寒くなると言いました",
+            "明日はいい天気だと言いました",
+            "明日はかさが必要だと言いました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi rõ: 「田中さんは明日はいい天気だと言いました」— Tanaka đã NÓI rằng ngày mai thời tiết đẹp. Đây là câu dùng 〜と言いました để thuật lại lời Tanaka. Đáp án 0 sai vì \"雨が降る\" là suy nghĩ của Miller (〜と思います), không phải lời Tanaka. Đáp án 1 sai vì \"寒くなる\" cũng là suy nghĩ của Miller, không phải lời Tanaka. Đáp án 3 sai vì câu về cái ô (かさ) là câu hỏi dự đoán cuối bài (〜でしょう？), không ai \"nói\" điều đó.",
+          "tip": "Câu hỏi「〜は何と言いましたか」→ tìm câu có 〜と言いました với CHỦ NGỮ là người được hỏi. Phân biệt rõ: 〜と言いました (thuật lại lời người khác) ≠ 〜と思います (ý kiến của người nói).",
+          "qt": {
+            "q": "Ông Tanaka đã nói gì?",
+            "o": [
+              "Ông ấy nói ngày mai trời sẽ mưa",
+              "Ông ấy nói ngày mai trời sẽ trở lạnh",
+              "Ông ấy nói ngày mai trời đẹp",
+              "Ông ấy nói ngày mai cần có ô"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "日本の生活についての話",
+      "titleVi": "Cuộc trò chuyện về cuộc sống ở Nhật",
+      "japanese": "ワンさんとカリナさんはきょう、日本の生活について話しました。\nワンさんは「日本のスーパーはとても便利だと思います」と言いました。\nカリナさんも「私もそう思います。でも、物価が高いと思います」と言いました。\nワンさんは日本語の勉強について、毎日れんしゅうすることが大切だと思っています。\n日本語の先生はカリナさんに「もっとかん字を勉強してください」と言いました。\nだから、カリナさんはまいにち三十分かん字を書いています。\nワンさんはさくら大学のりゅうがく生活について、いちばん楽しいことは友だちと話すことだと思います。\nカリナさんは「日本のアニメについてもっと知りたいです」と言いました。\nワンさんは「日本語がわかるから、アニメがもっと楽しくなるでしょう？」と言いました。\nふたりは来月、いっしょに日本語のスピーチコンテストに出たいと思っています。\nカリナさんはきっとうまくいくだろうと思っています。",
+      "vietnamese": "Hôm nay anh Wang và chị Karina đã nói chuyện về cuộc sống ở Nhật.\nAnh Wang nói: \"Tôi nghĩ siêu thị ở Nhật rất tiện lợi.\"\nChị Karina cũng nói: \"Tôi cũng nghĩ vậy. Nhưng tôi nghĩ giá cả đắt.\"\nVề việc học tiếng Nhật, anh Wang nghĩ rằng điều quan trọng là luyện tập mỗi ngày.\nThầy giáo tiếng Nhật nói với chị Karina: \"Hãy học thêm kanji đi.\"\nVì vậy nên chị Karina đang viết kanji 30 phút mỗi ngày.\nVề cuộc sống du học tại Đại học Sakura, anh Wang nghĩ điều vui nhất là nói chuyện với bạn bè.\nChị Karina nói: \"Tôi muốn biết thêm về anime Nhật Bản.\"\nAnh Wang nói: \"Vì hiểu được tiếng Nhật nên anime sẽ càng vui hơn nhỉ?\"\nCả hai đang nghĩ muốn cùng tham gia cuộc thi hùng biện tiếng Nhật vào tháng tới.\nChị Karina nghĩ rằng chắc chắn sẽ ổn thôi.",
+      "sentences": [
+        {
+          "jp": "ワンさんとカリナさんはきょう、日本の生活について話しました。",
+          "vi": "Hôm nay anh Wang và chị Karina đã nói chuyện về cuộc sống ở Nhật.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "きょう",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "話しました",
+              "read": "はなしました",
+              "vi": "đã nói chuyện"
+            },
+            {
+              "w": "について",
+              "read": "について",
+              "vi": "về (chủ đề)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "日本の生活について = về cuộc sống ở Nhật. について đứng sau danh từ chủ đề."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「日本のスーパーはとても便利だと思います」と言いました。",
+          "vi": "Anh Wang nói: \"Tôi nghĩ siêu thị ở Nhật rất tiện lợi.\"",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (NA)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "NAだ + と思います: 便利だ（普通形）+ と思います = nghĩ rằng tiện lợi."
+            },
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "Toàn bộ vế trong 「」 là lời dẫn; rồi + と言いました = thuật lại lời đó."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんも「私もそう思います。でも、物価が高いと思います」と言いました。",
+          "vi": "Chị Karina cũng nói: \"Tôi cũng nghĩ vậy. Nhưng tôi nghĩ giá cả đắt.\"",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "かりな",
+              "vi": "Karina"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "そう思います",
+              "read": "そうおもいます",
+              "vi": "nghĩ vậy"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "物価",
+              "read": "ぶっか",
+              "vi": "giá cả"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao"
+            },
+            {
+              "w": "思います",
+              "read": "おもいます",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "高い (Aい 普通形) + と思います = nghĩ rằng đắt. Aい trước と giữ nguyên dạng từ điển."
+            },
+            {
+              "point": "Nも（Bài 1）",
+              "vi": "カリナさんも = Karina CŨNG (đồng ý với Wang). も thay は."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは日本語の勉強について、毎日れんしゅうすることが大切だと思っています。",
+          "vi": "Về việc học tiếng Nhật, anh Wang nghĩ rằng điều quan trọng là luyện tập mỗi ngày.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học tập, việc học"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "しゅうする",
+              "read": "しゅうする",
+              "vi": "luyện tập, rèn luyện"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "れんしゅう",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "日本語の勉強について = về việc học tiếng Nhật. について nêu chủ đề bình luận."
+            },
+            {
+              "point": "〜と思っています（Bài 21+Bài 14）",
+              "vi": "と思っています = đang/vẫn nghĩ rằng～ (quan điểm liên tục, dùng ている từ Bài 14)."
+            },
+            {
+              "point": "Vることができます → Vること（Bài 18）",
+              "vi": "れんしゅうすること = việc luyện tập (danh từ hóa bằng こと)."
+            }
+          ]
+        },
+        {
+          "jp": "日本語の先生はカリナさんに「もっとかん字を勉強してください」と言いました。",
+          "vi": "Thầy giáo tiếng Nhật nói với chị Karina: \"Hãy học thêm kanji đi.\"",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa, nhiều hơn"
+            },
+            {
+              "w": "字",
+              "read": "じ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói (quá khứ của 言います)"
+            },
+            {
+              "w": "かん字",
+              "read": "かんじ",
+              "vi": "chữ kanji"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "「〜てください」と言いました = (ai đó) nói rằng～. Lời trong 「」 giữ nguyên lịch thể; chủ thể là thầy giáo."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "勉強してください = hãy học. て形 + ください = yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "だから、カリナさんはまいにち三十分かん字を書いています。",
+          "vi": "Vì vậy nên chị Karina đang viết kanji 30 phút mỗi ngày.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, do đó (kết nối câu theo lý do — Bài 9)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "字",
+              "read": "じ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "書いています",
+              "read": "かいています",
+              "vi": "đang viết (thói quen/trạng thái tiếp diễn)"
+            },
+            {
+              "w": "三十分",
+              "read": "さんじゅっぷん",
+              "vi": "30 phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "だから（Bài 9）",
+              "vi": "だから đứng đầu câu, nối kết quả từ nguyên nhân đã nêu ở câu trước (thầy bảo học thêm kanji → だから = vì vậy)."
+            },
+            {
+              "point": "Vています（Bài 14–15）",
+              "vi": "書いています = đang viết (hành động lặp lại/thói quen hằng ngày)."
+            },
+            {
+              "point": "数量詞（Bài 11）",
+              "vi": "三十分 = 30 phút. 〜分 là đơn vị thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんはさくら大学のりゅうがく生活について、いちばん楽しいことは友だちと話すことだと思います。",
+          "vi": "Về cuộc sống du học tại Đại học Sakura, anh Wang nghĩ điều vui nhất là nói chuyện với bạn bè.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "りゅう",
+              "read": "りゅう",
+              "vi": "sự lưu trú, loài rồng"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "いちばん",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị"
+            },
+            {
+              "w": "友だち",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "りゅうがく",
+              "read": "りゅうがく",
+              "vi": "du học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "さくら大学のりゅうがく生活について = về cuộc sống du học tại Đại học Sakura."
+            },
+            {
+              "point": "〜の中で〜が一番（Bài 12）",
+              "vi": "いちばん楽しいこと = điều vui nhất. Ôn ngữ pháp so sánh Bài 12."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "Vこと + だ + と思います: 友だちと話すことだ（普通形）+ と思います."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは「日本のアニメについてもっと知りたいです」と言いました。",
+          "vi": "Chị Karina nói: \"Tôi muốn biết thêm về anime Nhật Bản.\"",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "アニメ",
+              "read": "アニメ",
+              "vi": "anime, hoạt hình Nhật"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "知りたい",
+              "read": "しりたい",
+              "vi": "muốn biết (たい形)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "日本のアニメについて = về anime Nhật. について đứng sau danh từ."
+            },
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "Lời nói trong 「」 rồi + と言いました = thuật lại."
+            },
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "知りたいです = muốn biết. ます形 + たい + です."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「日本語がわかるから、アニメがもっと楽しくなるでしょう？」と言いました。",
+          "vi": "Anh Wang nói: \"Vì hiểu được tiếng Nhật nên anime sẽ càng vui hơn nhỉ?\"",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "アニメ",
+              "read": "アニメ",
+              "vi": "anime, hoạt hình Nhật"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "楽しくなる",
+              "read": "たのしくなる",
+              "vi": "trở nên vui hơn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜でしょう？（Bài 21）",
+              "vi": "楽しくなる（普通形）+ でしょう？ = chắc sẽ vui hơn nhỉ? Hỏi dự đoán/xác nhận."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "楽しくなる = trở nên vui. Aいく + なる = thay đổi trạng thái."
+            },
+            {
+              "point": "〜から（lý do）（Bài 9）",
+              "vi": "わかるから = vì hiểu～. から sau 普通形 nêu lý do. (Đã đổi từ と điều kiện → から để trong scope Bài 9.)"
+            },
+            {
+              "point": "Nがわかります（Bài 9）",
+              "vi": "日本語がわかる = hiểu tiếng Nhật. わかる dùng が."
+            }
+          ]
+        },
+        {
+          "jp": "ふたりは来月、いっしょに日本語のスピーチコンテストに出たいと思っています。",
+          "vi": "Cả hai đang nghĩ muốn cùng tham gia cuộc thi hùng biện tiếng Nhật vào tháng tới.",
+          "vocab": [
+            {
+              "w": "ふたり",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "スピーチ",
+              "read": "スピーチ",
+              "vi": "bài diễn văn, bài phát biểu"
+            },
+            {
+              "w": "コンテスト",
+              "read": "コンテスト",
+              "vi": "cuộc thi, hội thi"
+            },
+            {
+              "w": "出たい",
+              "read": "でたい",
+              "vi": "muốn tham gia (たい形)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "スピーチコンテスト",
+              "read": "スピーチコンテスト",
+              "vi": "cuộc thi hùng biện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "出たい = muốn tham gia. ます形 (出ます) → 出たい."
+            },
+            {
+              "point": "〜と思っています（Bài 21+Bài 14）",
+              "vi": "出たい（普通形）+ と思っています = đang nghĩ muốn tham gia. ている = quan điểm tiếp diễn."
+            },
+            {
+              "point": "いっしょに（Bài 4）",
+              "vi": "いっしょに = cùng nhau."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはきっとうまくいくだろうと思っています。",
+          "vi": "Chị Karina nghĩ rằng chắc chắn sẽ ổn thôi.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "きっと",
+              "read": "きっと",
+              "vi": "chắc chắn, nhất định"
+            },
+            {
+              "w": "うまい",
+              "read": "うまい",
+              "vi": "giỏi, ngon"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "うまくいく",
+              "read": "うまくいく",
+              "vi": "trở nên tốt, suôn sẻ"
+            },
+            {
+              "w": "だろう",
+              "read": "だろう",
+              "vi": "chắc là, có lẽ (dự đoán — 普通形 của でしょう)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思っています（Bài 21+Bài 14）",
+              "vi": "うまくいくだろう（普通形）+ と思っています = đang nghĩ rằng chắc sẽ ổn. ている = quan điểm tiếp diễn."
+            },
+            {
+              "point": "普通形（Bài 20）",
+              "vi": "うまくいくだろう: V辞書形 + だろう → 普通形 của dự đoán."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日本の生活について話しました",
+          "label": "Nについて"
+        },
+        {
+          "excerpt": "便利だと思います",
+          "label": "〜と思います（NA+だ）"
+        },
+        {
+          "excerpt": "物価が高いと思います",
+          "label": "〜と思います（Aい）"
+        },
+        {
+          "excerpt": "日本語の勉強について",
+          "label": "Nについて"
+        },
+        {
+          "excerpt": "もっとかん字を勉強してください」と言いました",
+          "label": "〜と言いました（引用）"
+        },
+        {
+          "excerpt": "アニメがもっと楽しくなるでしょう？",
+          "label": "〜でしょう？"
+        },
+        {
+          "excerpt": "きっとうまくいくだろうと思っています",
+          "label": "〜と思っています（普通形+だろう）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワンさんは日本語の勉強についてどう思っていますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "毎日かん字を書くことが大切だと思っています",
+            "毎日れんしゅうすることが大切だと思っています",
+            "先生に会うことが大切だと思っています",
+            "アニメを見ることが大切だと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi rõ: 「ワンさんは日本語の勉強について、毎日れんしゅうすることが大切だと思っています」— Wang đang nghĩ rằng \"luyện tập mỗi ngày là quan trọng\". Đây là câu dùng 〜と思っています (ý kiến tiếp diễn) với chủ đề 日本語の勉強について. Đáp án 0 sai vì \"毎日かん字を書く\" là hành động của Karina (không phải quan điểm của Wang về học tiếng Nhật). Đáp án 2 sai vì bài không nhắc Wang nói gì về việc gặp thầy giáo. Đáp án 3 sai vì xem anime là điều Karina muốn biết thêm, không phải quan điểm học tập của Wang.",
+          "tip": "Câu hỏi「〜についてどう思っていますか」→ tìm câu có Nについて + 〜と思っています với đúng TÊN người được hỏi làm chủ ngữ. Đừng nhầm hành động thực tế (viết kanji mỗi ngày) với ý kiến (luyện tập là quan trọng).",
+          "qt": {
+            "q": "Anh Wang nghĩ gì về việc học tiếng Nhật?",
+            "o": [
+              "Anh ấy nghĩ rằng việc viết chữ Hán mỗi ngày là quan trọng.",
+              "Anh ấy nghĩ rằng việc luyện tập mỗi ngày là quan trọng.",
+              "Anh ấy nghĩ rằng việc gặp giáo viên là quan trọng.",
+              "Anh ấy nghĩ rằng việc xem anime là quan trọng."
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはどうして毎日かん字を書いていますか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "アニメが好きだから",
+            "スピーチコンテストに出るから",
+            "先生が「もっとかん字を勉強してください」と言ったから",
+            "ワンさんにたのまれたから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết trình bày theo trình tự nhân quả rất rõ: 「日本語の先生はカリナさんに「もっとかん字を勉強してください」と言いました。だから、カリナさんはまいにち三十分かん字を書いています」— thầy yêu cầu (〜と言いました) → だから (vì vậy) → Karina hành động. Từ だから là chìa khóa nối lý do và kết quả. Đáp án 0 sai vì Karina muốn biết thêm về anime nhưng bài không nói đó là lý do viết kanji. Đáp án 1 sai vì cuộc thi hùng biện là kế hoạch tháng sau, không phải lý do viết kanji mỗi ngày. Đáp án 3 sai vì bài không hề nói Wang nhờ Karina làm gì.",
+          "tip": "Câu hỏi dạng「どうして〜していますか」(tại sao đang làm) → tìm từ だから hoặc 〜から trong bài làm dấu nối LÝ DO → KẾT QUẢ. Đặc biệt chú ý câu ngay trước だから.",
+          "qt": {
+            "q": "Tại sao chị Karina viết chữ Hán mỗi ngày?",
+            "o": [
+              "Vì chị ấy thích anime.",
+              "Vì chị ấy sẽ tham gia cuộc thi hùng biện.",
+              "Vì giáo viên đã nói: 「もっとかん字を勉強してください」 (Hãy học thêm chữ Hán).",
+              "Vì anh Wang đã nhờ chị ấy."
+            ]
+          }
+        },
+        {
+          "q": "ふたりは来月、何をしたいと思っていますか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "いっしょにアニメを見たいと思っています",
+            "さくら大学で日本語を勉強したいと思っています",
+            "いっしょに日本語のスピーチコンテストに出たいと思っています",
+            "日本のスーパーへ行きたいと思っています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi rõ: 「ふたりは来月、いっしょに日本語のスピーチコンテストに出たいと思っています」— hai người đang có ý muốn (〜たいと思っています) tham gia cuộc thi hùng biện tiếng Nhật cùng nhau vào tháng tới. Chú ý chủ ngữ là ふたり (cả hai) + thời gian 来月 + hành động いっしょに〜に出る. Đáp án 0 sai vì xem anime là điều Karina muốn biết thêm, không phải kế hoạch chung tháng tới. Đáp án 1 sai vì hai người ĐÃ đang học ở đó, không phải kế hoạch mới. Đáp án 3 sai vì đi siêu thị không được nhắc đến trong phần kế hoạch tháng tới.",
+          "tip": "Câu hỏi「〜は何をしたいと思っていますか」→ tìm câu có 〜たいと思っています với đúng CHỦ NGỮ (ふたり) và đúng THỜI GIAN (来月). Chú ý ba yếu tố: ai + khi nào + làm gì.",
+          "qt": {
+            "q": "Tháng sau, hai người muốn làm gì?",
+            "o": [
+              "Họ muốn cùng nhau xem anime.",
+              "Họ muốn học tiếng Nhật tại Đại học Sakura.",
+              "Họ muốn cùng nhau tham gia cuộc thi hùng biện tiếng Nhật.",
+              "Họ muốn đến siêu thị ở Nhật Bản."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "クラスのアンケートの結果",
+      "titleVi": "Kết quả khảo sát của lớp",
+      "japanese": "さくら大学　クラスのアンケートの結果\nこのアンケートは日本語クラスの学生二十人にしました。\n先週、クラスのみんなに「好きなたべものは何ですか」とアンケートをしました。\n田中さんは、みんなが日本のたべものが好きだと思っていました。\n順位｜たべもの｜票\n１｜すし｜１２票\n２｜ラーメン｜９票\n３｜カレー｜７票\n４｜てんぷら｜４票\n先生は「来月もアンケートをしましょう」と言いました。\nアンケートの結果は来週、クラスのけいじばんにはります。",
+      "vietnamese": "Đại học Sakura　Kết quả khảo sát của lớp\nKhảo sát này đã được thực hiện với 20 học viên của lớp tiếng Nhật.\nTuần trước, cả lớp đã làm khảo sát \"Món ăn bạn thích là gì?\".\nChị Tanaka đã nghĩ rằng mọi người thích món ăn Nhật.\nHạng｜Món ăn｜Số phiếu\n1｜Sushi｜12 phiếu\n2｜Ramen｜9 phiếu\n3｜Cà ri｜7 phiếu\n4｜Tempura｜4 phiếu\nThầy giáo nói: \"Tháng sau chúng ta cũng làm khảo sát nhé.\"\nKết quả khảo sát tuần sau sẽ được dán ở bảng tin của lớp.",
+      "sentences": [
+        {
+          "jp": "さくら大学　クラスのアンケートの結果",
+          "vi": "Đại học Sakura — Kết quả khảo sát của lớp",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "アンケート",
+              "read": "アンケート",
+              "vi": "khảo sát, phiếu thăm dò"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1 ôn）",
+              "vi": "クラスのアンケート = khảo sát của lớp. の nối 2 danh từ (sở hữu/thuộc về)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "アンケートの結果",
+              "why": "Tiêu đề cho biết cả bài là bảng KẾT QUẢ khảo sát — khung để đọc bảng phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "このアンケートは日本語クラスの学生二十人にしました。",
+          "vi": "Khảo sát này đã được thực hiện với 20 học viên của lớp tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "アンケート",
+              "read": "アンケート",
+              "vi": "khảo sát, phiếu thăm dò"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học viên, sinh viên"
+            },
+            {
+              "w": "二十人",
+              "read": "にじゅうにん",
+              "vi": "20 người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをＮにＶました（Bài 6 ôn）",
+              "vi": "アンケートを（学生二十人に）しました = đã làm khảo sát (với 20 học viên). に đánh dấu đối tượng."
+            },
+            {
+              "point": "助数詞〜人（Bài 11 ôn）",
+              "vi": "二十人 = 20 người. 〜人 là đơn vị đếm người đã học ở Bài 11."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生二十人",
+              "why": "Nêu quy mô khảo sát (20 học viên) — bối cảnh để hiểu tổng số phiếu ở bảng dưới không vượt quá 20."
+            }
+          ]
+        },
+        {
+          "jp": "先週、クラスのみんなに「好きなたべものは何ですか」とアンケートをしました。",
+          "vi": "Tuần trước, cả lớp đã làm khảo sát \"Món ăn bạn thích là gì?\".",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            },
+            {
+              "w": "好きな",
+              "read": "すきな",
+              "vi": "yêu thích"
+            },
+            {
+              "w": "たべもの",
+              "read": "たべもの",
+              "vi": "thức ăn"
+            },
+            {
+              "w": "何",
+              "read": "なに",
+              "vi": "gì"
+            },
+            {
+              "w": "アンケート",
+              "read": "アンケート",
+              "vi": "bảng khảo sát"
+            },
+            {
+              "w": "しました",
+              "read": "しました",
+              "vi": "đã làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはＮが好きです（Bài 9 ôn）",
+              "vi": "好きなたべもの = món ăn (mà người ta) thích. 好き là NA, trước N phải thêm な."
+            },
+            {
+              "point": "アンケートをします（Bài 6 ôn）",
+              "vi": "アンケートをしました = đã làm khảo sát. Vをします là mẫu Bài 6."
+            }
+          ],
+          "keys": [
+            {
+              "w": "好きなたべものは何ですか",
+              "why": "Câu hỏi khảo sát gốc — giải thích vì sao có bảng món ăn + số phiếu phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは、みんなが日本のたべものが好きだと思っていました。",
+          "vi": "Chị Tanaka đã nghĩ rằng mọi người thích món ăn Nhật.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "日本のたべもの",
+              "read": "にほんのたべもの",
+              "vi": "món ăn Nhật Bản"
+            },
+            {
+              "w": "たべる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "思っていました",
+              "read": "おもっていました",
+              "vi": "đã (từng) nghĩ rằng (quá khứ của と思っています)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思っていました（Bài 21）",
+              "vi": "好きだ（普通形）+ と思っていました = đã từng nghĩ rằng～. Đây là mẫu MỚI của Bài 21, chia ở thì quá khứ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "と思っていました",
+              "why": "Đây là ý kiến TRƯỚC KHẢO SÁT của Tanaka — cần so với bảng thật để thấy có đúng hay không (không phải câu hỏi nhưng là mồi bẫy đọc)."
+            }
+          ]
+        },
+        {
+          "jp": "順位｜たべもの｜票",
+          "vi": "Hạng｜Món ăn｜Số phiếu",
+          "vocab": [
+            {
+              "w": "順位",
+              "read": "じゅんい",
+              "vi": "thứ hạng"
+            },
+            {
+              "w": "たべる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "票",
+              "read": "ひょう",
+              "vi": "phiếu (bầu chọn)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "順位",
+              "why": "Tiêu đề cột 1 — câu hỏi hỏi \"hạng mấy\" phải nhìn cột này."
+            },
+            {
+              "w": "票",
+              "why": "Tiêu đề cột 3 — câu hỏi hỏi \"bao nhiêu phiếu\" phải nhìn cột này."
+            }
+          ]
+        },
+        {
+          "jp": "１｜すし｜１２票",
+          "vi": "1｜Sushi｜12 phiếu",
+          "vocab": [
+            {
+              "w": "すし",
+              "read": "すし",
+              "vi": "sushi"
+            },
+            {
+              "w": "１２票",
+              "read": "じゅうにひょう",
+              "vi": "12 phiếu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞（Bài 11 ôn）",
+              "vi": "１２票 = 12 phiếu — 票 là đơn vị đếm phiếu bầu, giống cách đếm số lượng ở Bài 11."
+            }
+          ],
+          "keys": [
+            {
+              "w": "すし｜１２票",
+              "why": "すし đứng hạng 1 với 12 phiếu — căn cứ trực tiếp cho câu hỏi về món hạng nhất/số phiếu cao nhất."
+            }
+          ]
+        },
+        {
+          "jp": "２｜ラーメン｜９票",
+          "vi": "2｜Ramen｜9 phiếu",
+          "vocab": [
+            {
+              "w": "ラーメン",
+              "read": "ラーメン",
+              "vi": "mì ramen"
+            },
+            {
+              "w": "９票",
+              "read": "きゅうひょう",
+              "vi": "9 phiếu"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ラーメン｜９票",
+              "why": "Hàng nhiễu sát cạnh hạng 1 — dễ nhầm nếu đọc lướt bảng."
+            }
+          ]
+        },
+        {
+          "jp": "３｜カレー｜７票",
+          "vi": "3｜Cà ri｜7 phiếu",
+          "vocab": [
+            {
+              "w": "カレー",
+              "read": "カレー",
+              "vi": "cà ri"
+            },
+            {
+              "w": "７票",
+              "read": "ななひょう",
+              "vi": "7 phiếu"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "４｜てんぷら｜４票",
+          "vi": "4｜Tempura｜4 phiếu",
+          "vocab": [
+            {
+              "w": "てんぷら",
+              "read": "てんぷら",
+              "vi": "tempura (món chiên xù)"
+            },
+            {
+              "w": "４票",
+              "read": "よんひょう",
+              "vi": "4 phiếu"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "先生は「来月もアンケートをしましょう」と言いました。",
+          "vi": "Thầy giáo nói: \"Tháng sau chúng ta cũng làm khảo sát nhé.\"",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "アンケート",
+              "read": "アンケート",
+              "vi": "khảo sát, phiếu thăm dò"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "アンケートをしましょう",
+              "read": "アンケートをしましょう",
+              "vi": "hãy cùng làm khảo sát (Vましょう)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "「来月もアンケートをしましょう」と言いました = thầy đã nói rằng～. Mẫu MỚI của Bài 21 để thuật lại lời thầy."
+            },
+            {
+              "point": "Vましょう（Bài 6 ôn）",
+              "vi": "しましょう = hãy cùng làm. ます形 + ましょう để rủ rê."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "アンケートの結果は来週、クラスのけいじばんにはります。",
+          "vi": "Kết quả khảo sát tuần sau sẽ được dán ở bảng tin của lớp.",
+          "vocab": [
+            {
+              "w": "アンケート",
+              "read": "アンケート",
+              "vi": "khảo sát, phiếu thăm dò"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "けいじばん",
+              "read": "けいじばん",
+              "vi": "bảng tin, bảng thông báo"
+            },
+            {
+              "w": "はります",
+              "read": "はります",
+              "vi": "dán (Vます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにＶます（Bài 6 ôn）",
+              "vi": "けいじばんにはります = dán ở bảng tin. に đánh dấu địa điểm đặt/dán."
+            }
+          ],
+          "keys": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "みんなが日本のたべものが好きだと思っていました",
+          "label": "〜と思っていました（Bài 21 — quá khứ）"
+        },
+        {
+          "excerpt": "来月もアンケートをしましょう」と言いました",
+          "label": "〜と言いました（Bài 21）"
+        },
+        {
+          "excerpt": "アンケートをしました",
+          "label": "Vをします（Bài 6 ôn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "Giới thiệu khảo sát",
+          "topic": 2,
+          "qs": [],
+          "note": "Nêu bối cảnh khảo sát (quy mô 20 học viên, câu hỏi khảo sát) và ý kiến TRƯỚC của Tanaka — chưa có số liệu, chỉ là mồi để so sánh với bảng thật."
+        },
+        {
+          "from": 4,
+          "to": 8,
+          "kind": "point",
+          "label": "Bảng xếp hạng",
+          "topic": 4,
+          "qs": [
+            1
+          ],
+          "note": "Bảng chứa toàn bộ căn cứ trả lời: dò đúng HÀNG theo món ăn rồi đọc cột 順位 hoặc 票. Bẫy = chọn nhầm hàng sát cạnh."
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Lời thầy giáo & thông báo tiếp theo",
+          "topic": 9,
+          "qs": [],
+          "note": "Câu chốt của thầy giáo và ghi chú về việc dán kết quả tuần sau — không liên quan số liệu, không phải căn cứ câu hỏi."
+        }
+      ],
+      "questions": [
+        {
+          "q": "ラーメンは何位で、何票でしたか。",
+          "options": [
+            "１位で、１２票でした",
+            "２位で、９票でした",
+            "３位で、７票でした",
+            "４位で、４票でした"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Dò bảng theo hàng có món ラーメン: 「２｜ラーメン｜９票」— ラーメン đứng HẠNG 2 với 9 PHIẾU, khớp cả 2 điều kiện (hạng + số phiếu) của đáp án 1. Đáp án 0 sai vì 1 vị/12 phiếu là hàng của すし (hạng 1). Đáp án 2 sai vì 3 vị/7 phiếu là hàng của カレー (hạng 3). Đáp án 3 sai vì 4 vị/4 phiếu là hàng của てんぷら (hạng 4) — đều là các hàng SÁT CẠNH dễ nhầm.",
+          "tip": "Câu hỏi hỏi CẢ hạng lẫn số phiếu của 1 món → phải dò đúng HÀNG có tên món đó trong bảng, đọc đủ cả 3 cột trên cùng 1 hàng, đừng ghép nhầm số liệu của hàng bên cạnh.",
+          "evi": [
+            4,
+            6
+          ],
+          "qt": {
+            "q": "Ramen đứng thứ mấy và được bao nhiêu phiếu?",
+            "o": [
+              "Đứng thứ nhất, được 12 phiếu",
+              "Đứng thứ hai, được 9 phiếu",
+              "Đứng thứ ba, được 7 phiếu",
+              "Đứng thứ tư, được 4 phiếu"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

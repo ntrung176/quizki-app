@@ -1,0 +1,1263 @@
+{
+  "bai": 15,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 15 luyện 3 mẫu cốt lõi: xin phép (Vてもいいです), cấm (Vてはいけません), và Vています mô tả trạng thái bền/nghề nghiệp/nơi cư trú. Khi đọc hiểu, chú ý từ \"いいです\" (được phép) khác hẳn \"いけません\" (không được).",
+    "steps": [
+      "Đọc tiêu đề và ngữ cảnh: đây là nội quy nơi nào, hay ai đang giới thiệu về bản thân?",
+      "Tìm mẫu Vてもいいです: xác nhận hành động được phép.",
+      "Tìm mẫu Vてはいけません: xác nhận hành động bị cấm — đây là thông tin quan trọng nhất trong nội quy.",
+      "Gặp Vています: phân biệt nghĩa \"đang làm\" (Bài 14) và \"làm nghề / ở nơi\" (Bài 15). Đọc toàn câu để hiểu đúng.",
+      "知っています / 知りません dùng như trạng thái — \"đã biết và hiện vẫn biết\" hay \"không biết\".",
+      "Với câu hỏi đọc hiểu, tìm lại đúng câu trong bài, đối chiếu xem được phép hay bị cấm, rồi chọn đáp án."
+    ],
+    "tips": [
+      "いいです = tốt/được phép; いけません = không được. Hai từ trông gần giống nhau nhưng ý nghĩa trái ngược!",
+      "Vていいです khác Vてもいいです chỉ ở も — cả hai đều dùng được ở N5, nghĩa giống nhau.",
+      "Vています mô tả nghề: 働いています = đang làm việc (không phải đang làm ở thời điểm nói mà là \"có việc làm\").",
+      "住んでいます là dạng て của 住みます (ở, cư trú) — đây là trạng thái, không phải hành động đang diễn ra.",
+      "知っていますか → はい、知っています / いいえ、知りません (KHÔNG nói 知っていません).",
+      "Đọc kỹ chủ ngữ: 図書館で vs 図書館の中で — để hiểu đúng phạm vi của quy định."
+    ],
+    "grammarFocus": [
+      "Vてもいいです",
+      "Vてはいけません",
+      "Vています（trạng thái/nghề/cư trú）",
+      "知っています・知りません"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vてください",
+          "Vています（đang diễn ra）"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "Vたいです"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）"
+        ]
+      },
+      {
+        "bai": 7,
+        "items": [
+          "人にNをあげます / もらいます"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをVます（tha động từ）",
+          "いっしょにVませんか"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "Nへ行きます",
+          "NでVます（phương tiện）"
+        ]
+      },
+      {
+        "bai": 4,
+        "items": [
+          "Vます・Vません",
+          "〜時・〜分"
+        ]
+      },
+      {
+        "bai": 3,
+        "items": [
+          "NはNにあります・います"
+        ]
+      },
+      {
+        "bai": 1,
+        "items": [
+          "NはNです",
+          "NのN"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "図書館のルール",
+      "titleVi": "Nội quy thư viện",
+      "japanese": "ここは大学の図書館です。図書館の中で本を読んでもいいです。でも、食べてはいけません。飲んでもいいですか。いいえ、飲んではいけません。静かにしてください。",
+      "vietnamese": "Đây là thư viện của trường đại học. Trong thư viện được phép đọc sách. Nhưng không được ăn. Có được phép uống không? Không, không được uống. Hãy giữ yên lặng.",
+      "sentences": [
+        {
+          "jp": "ここは大学の図書館です。",
+          "vi": "Đây là thư viện của trường đại học.",
+          "vocab": [
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "ở đây, nơi này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Câu giới thiệu địa điểm: \"ここ\" là chủ đề, \"大学の図書館\" là vị ngữ."
+            },
+            {
+              "point": "NのN",
+              "vi": "大学の図書館 = thư viện của trường đại học."
+            }
+          ]
+        },
+        {
+          "jp": "図書館の中で本を読んでもいいです。",
+          "vi": "Trong thư viện được phép đọc sách.",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです",
+              "vi": "読んで (て形 của 読む) + もいいです = được phép đọc. Đây là mẫu xin phép hoặc cho phép."
+            }
+          ]
+        },
+        {
+          "jp": "でも、食べてはいけません。",
+          "vi": "Nhưng không được ăn.",
+          "vocab": [
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてはいけません",
+              "vi": "食べて (て形 của 食べる) + はいけません = không được ăn. Mẫu cấm đoán."
+            }
+          ]
+        },
+        {
+          "jp": "飲んでもいいですか。いいえ、飲んではいけません。",
+          "vi": "Có được phép uống không? Không, không được uống.",
+          "vocab": [
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいですか",
+              "vi": "飲んでもいいですか = câu hỏi xin phép \"có được uống không?\"."
+            },
+            {
+              "point": "Vてはいけません",
+              "vi": "飲んではいけません = \"không được uống\" — câu trả lời phủ định quyền."
+            }
+          ]
+        },
+        {
+          "jp": "静かにしてください。",
+          "vi": "Hãy giữ yên lặng.",
+          "vocab": [
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh, im lặng (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください",
+              "vi": "静かにして (て形 của する) + ください = \"Hãy làm yên tĩnh\". Ôn Bài 14."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "本を読んでもいいです",
+          "label": "Vてもいいです"
+        },
+        {
+          "excerpt": "食べてはいけません",
+          "label": "Vてはいけません"
+        },
+        {
+          "excerpt": "飲んでもいいですか",
+          "label": "Vてもいいですか（xin phép）"
+        },
+        {
+          "excerpt": "飲んではいけません",
+          "label": "Vてはいけません（cấm）"
+        },
+        {
+          "excerpt": "静かにしてください",
+          "label": "Vてください（Bài 14）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "図書館の中で何をしてもいいですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "食べてもいいです",
+            "飲んでもいいです",
+            "本を読んでもいいです",
+            "話してもいいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu rõ「図書館の中で本を読んでもいいです」— đây là bằng chứng trực tiếp: đọc sách là hành động DUY NHẤT được phép. Đáp án 0 sai vì bài nói rõ「食べてはいけません」(không được ăn). Đáp án 1 sai vì bài hỏi「飲んでもいいですか」rồi tự trả lời「いいえ、飲んではいけません」(không được uống). Đáp án 3 sai vì bài không cho phép nói chuyện — ngược lại còn yêu cầu「静かにしてください」(hãy giữ yên lặng).",
+          "tip": "Tìm câu có「〜てもいいです」để biết điều ĐƯỢC PHÉP, tìm「〜てはいけません」để biết điều BỊ CẤM. Hai mẫu này là đối lập nhau — đọc kỹ từng chữ để không nhầm.",
+          "qt": {
+            "q": "Trong thư viện, được phép làm gì?",
+            "o": [
+              "Được phép ăn",
+              "Được phép uống",
+              "Được phép đọc sách",
+              "Được phép nói chuyện"
+            ]
+          }
+        },
+        {
+          "q": "図書館の中で飲んでもいいですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "はい、飲んでもいいです",
+            "いいえ、飲んではいけません",
+            "はい、少し飲んでもいいです",
+            "いいえ、でも食べてもいいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết hỏi và tự trả lời rất rõ:「飲んでもいいですか。いいえ、飲んではいけません」— không được uống trong thư viện. Đáp án 0 sai vì câu trả lời trong bài là「いいえ」(không), không phải「はい」(có). Đáp án 2 sai vì bài không nói \"uống một chút thì được\" — quy định cấm hoàn toàn, không có ngoại lệ. Đáp án 3 sai gấp đôi: uống bị cấm, và ăn cũng bị cấm (「食べてはいけません」).",
+          "tip": "Khi câu hỏi dùng「〜てもいいですか」, tìm ngay câu trả lời「はい／いいえ」trong bài. Nếu có「いいえ、〜てはいけません」thì đáp án chắc chắn là CẤM.",
+          "qt": {
+            "q": "Trong thư viện, có được uống không?",
+            "o": [
+              "Vâng, được phép uống",
+              "Không, không được phép uống",
+              "Vâng, có thể uống một chút",
+              "Không, nhưng được phép ăn"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "自己紹介とクラスのルール",
+      "titleVi": "Tự giới thiệu và nội quy lớp học",
+      "japanese": "はじめまして。私はカリナです。インドネシア人です。\n今、さくら大学の近くに住んでいます。大学で日本語を勉強しています。\nミラーさんも知っていますか。ミラーさんはIMCで働いています。\nミラーさんのうちを知っていますか。いいえ、知りません。\nクラスのルールを紹介します。授業中、日本語で話してもいいです。英語で話してはいけません。\n辞書を使ってもいいです。でも、スマホを使ってはいけません。\n先生に質問してもいいです。いっしょにがんばりましょう。",
+      "vietnamese": "Xin chào, rất vui được gặp. Tôi là Karina. Tôi là người Indonesia.\nHiện tại tôi đang sống gần Đại học Sakura. Tôi đang học tiếng Nhật tại trường đại học.\nBạn có biết anh Miller không? Anh Miller đang làm việc tại IMC.\nBạn có biết nhà anh Miller không? Không, tôi không biết.\nTôi xin giới thiệu nội quy của lớp. Trong giờ học, được phép nói bằng tiếng Nhật. Không được nói bằng tiếng Anh.\nĐược phép dùng từ điển. Nhưng không được dùng điện thoại thông minh.\nĐược phép hỏi thầy/cô giáo. Hãy cùng nhau cố gắng nào!",
+      "sentences": [
+        {
+          "jp": "はじめまして。私はカリナです。インドネシア人です。",
+          "vi": "Xin chào, rất vui được gặp. Tôi là Karina. Tôi là người Indonesia.",
+          "vocab": [
+            {
+              "w": "はじめまして",
+              "read": "はじめまして",
+              "vi": "chào lần đầu gặp mặt"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "インドネシア",
+              "read": "インドネシア",
+              "vi": "Indonesia"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "インドネシア人",
+              "read": "インドネシアじん",
+              "vi": "người Indonesia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Câu giới thiệu bản thân cơ bản — ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "今、さくら大学の近くに住んでいます。",
+          "vi": "Hiện tại tôi đang sống gần Đại học Sakura.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện tại"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, khu vực gần"
+            },
+            {
+              "w": "住む",
+              "read": "すむ",
+              "vi": "ở, cư trú, sinh sống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（cư trú）",
+              "vi": "住んでいます = đang sống/cư trú (trạng thái bền vững, không phải hành động nhất thời)."
+            },
+            {
+              "point": "NにVます（vị trí）",
+              "vi": "さくら大学の近くに住む = sống ở gần Đại học Sakura. Ôn Bài 3 (NにNがあります・います)."
+            }
+          ]
+        },
+        {
+          "jp": "大学で日本語を勉強しています。",
+          "vi": "Tôi đang học tiếng Nhật tại trường đại học.",
+          "vocab": [
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強する",
+              "read": "べんきょうする",
+              "vi": "học, nghiên cứu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（trạng thái/hoạt động lặp lại）",
+              "vi": "勉強しています ở đây = đang theo học (thói quen/hoạt động đang diễn ra trong giai đoạn hiện tại)."
+            },
+            {
+              "point": "NでVます（địa điểm hoạt động）",
+              "vi": "大学で勉強する = học ở trường đại học. Ôn Bài 4."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんも知っていますか。",
+          "vi": "Bạn có biết anh Miller không?",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "知っていますか",
+              "vi": "知っていますか = \"Bạn có biết không?\" — hỏi về trạng thái biết/không biết. Đây là 知っています của Bài 15."
+            },
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\" — hỏi liệu người nghe cũng biết Miller (giống Karina). Ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはIMCで働いています。",
+          "vi": "Anh Miller đang làm việc tại IMC.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "IMC",
+              "read": "アイ・エム・シー",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（nghề nghiệp）",
+              "vi": "働いています = đang có việc làm tại IMC (mô tả trạng thái nghề nghiệp hiện tại). Đây là dùng Vています Bài 15."
+            },
+            {
+              "point": "NでVます（địa điểm hoạt động）",
+              "vi": "IMCで働く = làm việc tại IMC. Ôn Bài 4."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんのうちを知っていますか。いいえ、知りません。",
+          "vi": "Bạn có biết nhà anh Miller không? Không, tôi không biết.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "うち",
+              "read": "うち",
+              "vi": "nhà, gia đình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "知っていますか / 知りません",
+              "vi": "知っていますか = hỏi về điều đã biết. Trả lời phủ định: 知りません (KHÔNG dùng 知っていません)."
+            },
+            {
+              "point": "NのN",
+              "vi": "ミラーさんのうち = nhà của anh Miller. Ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "クラスのルールを紹介します。",
+          "vi": "Tôi xin giới thiệu nội quy của lớp.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "quy tắc, nội quy"
+            },
+            {
+              "w": "紹介する",
+              "read": "しょうかいする",
+              "vi": "giới thiệu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます",
+              "vi": "ルールを紹介します = giới thiệu (các) nội quy. Ôn Bài 6 (NをVます)."
+            }
+          ]
+        },
+        {
+          "jp": "授業中、日本語で話してもいいです。英語で話してはいけません。",
+          "vi": "Trong giờ học, được phép nói bằng tiếng Nhật. Không được nói bằng tiếng Anh.",
+          "vocab": [
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "英語",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "授業中",
+              "read": "じゅぎょうちゅう",
+              "vi": "trong giờ học, trong lúc học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです",
+              "vi": "話してもいいです = được phép nói (thể て của 話す là 話して)."
+            },
+            {
+              "point": "Vてはいけません",
+              "vi": "英語で話してはいけません = không được nói tiếng Anh."
+            },
+            {
+              "point": "Nで（ngôn ngữ/công cụ）",
+              "vi": "日本語で / 英語で = bằng tiếng Nhật / tiếng Anh. Ôn Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "辞書を使ってもいいです。でも、スマホを使ってはいけません。",
+          "vi": "Được phép dùng từ điển. Nhưng không được dùng điện thoại thông minh.",
+          "vocab": [
+            {
+              "w": "辞書",
+              "read": "じしょ",
+              "vi": "từ điển"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです",
+              "vi": "使ってもいいです = được phép dùng (thể て của 使う là 使って)."
+            },
+            {
+              "point": "Vてはいけません",
+              "vi": "スマホを使ってはいけません = không được dùng điện thoại."
+            }
+          ]
+        },
+        {
+          "jp": "先生に質問してもいいです。",
+          "vi": "Được phép hỏi thầy/cô giáo.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "thầy/cô giáo"
+            },
+            {
+              "w": "質問する",
+              "read": "しつもんする",
+              "vi": "đặt câu hỏi, hỏi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです",
+              "vi": "質問してもいいです = được phép hỏi."
+            },
+            {
+              "point": "人にVます",
+              "vi": "先生に質問する = hỏi thầy/cô. に chỉ đối tượng tiếp nhận. Ôn Bài 7."
+            }
+          ]
+        },
+        {
+          "jp": "いっしょにがんばりましょう。",
+          "vi": "Hãy cùng nhau cố gắng nào!",
+          "vocab": [
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "がんばる",
+              "read": "がんばる",
+              "vi": "cố gắng"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vましょう",
+              "vi": "がんばりましょう = \"hãy cùng cố gắng\" — rủ cùng làm. Ôn Bài 6 (〜ましょう)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "住んでいます",
+          "label": "Vています（cư trú）"
+        },
+        {
+          "excerpt": "IMCで働いています",
+          "label": "Vています（nghề nghiệp）"
+        },
+        {
+          "excerpt": "知っていますか",
+          "label": "知っています（Bài 15）"
+        },
+        {
+          "excerpt": "いいえ、知りません",
+          "label": "知りません（không biết）"
+        },
+        {
+          "excerpt": "日本語で話してもいいです",
+          "label": "Vてもいいです"
+        },
+        {
+          "excerpt": "英語で話してはいけません",
+          "label": "Vてはいけません"
+        },
+        {
+          "excerpt": "スマホを使ってはいけません",
+          "label": "Vてはいけません（cấm）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは今どこに住んでいますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "IMCの近くに住んでいます",
+            "さくら大学の近くに住んでいます",
+            "大学の中に住んでいます",
+            "駅の近くに住んでいます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ「今、さくら大学の近くに住んでいます」— đây là bằng chứng trực tiếp về nơi Karina đang ở. Đáp án 0 sai vì IMC là nơi Miller làm việc, không phải nơi Karina ở. Đáp án 2 sai vì bài nói「近く」(gần), không phải「中」(bên trong) đại học. Đáp án 3 sai vì bài không đề cập đến ga tàu.",
+          "tip": "Câu hỏi về nơi ở → tìm「住んでいます」trong bài rồi đọc phần trước nó: đó chính là địa điểm. Coi chừng nhầm giữa「近く」(gần) và「中」(bên trong).",
+          "qt": {
+            "q": "Chị Karina hiện sống ở đâu?",
+            "o": [
+              "Sống gần IMC",
+              "Sống gần Đại học Sakura",
+              "Sống bên trong trường đại học",
+              "Sống gần nhà ga"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはどこで働いていますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "さくら大学で働いています",
+            "IMCで働いています",
+            "図書館で働いています",
+            "病院で働いています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ「ミラーさんはIMCで働いています」— Miller làm việc tại IMC. Đáp án 0 sai vì さくら大学 là nơi Karina học, không phải nơi Miller làm việc. Đáp án 2 sai vì 図書館 (thư viện) là Passage 1, không liên quan đến Miller. Đáp án 3 sai vì bài không nhắc đến 病院 (bệnh viện).",
+          "tip": "Câu hỏi về nghề hoặc nơi làm việc → tìm「働いています」trong bài. Phần trước nó (NでVます) chỉ địa điểm — đó là đáp án.",
+          "qt": {
+            "q": "Anh Miller làm việc ở đâu?",
+            "o": [
+              "Làm việc tại Đại học Sakura",
+              "Làm việc tại IMC",
+              "Làm việc tại thư viện",
+              "Làm việc tại bệnh viện"
+            ]
+          }
+        },
+        {
+          "q": "授業中、してはいけないのはどれですか。",
+          "evi": [
+            7,
+            8,
+            9
+          ],
+          "options": [
+            "日本語で話してもいいです",
+            "辞書を使ってもいいです",
+            "スマホを使ってはいけません",
+            "先生に質問してもいいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu hỏi hỏi điều gì BỊ CẤM (してはいけない). Bài viết ghi rõ「スマホを使ってはいけません」— không được dùng điện thoại thông minh. Đáp án 0 sai vì「日本語で話してもいいです」— nói tiếng Nhật là ĐƯỢC PHÉP. Đáp án 1 sai vì「辞書を使ってもいいです」— dùng từ điển là ĐƯỢC PHÉP. Đáp án 3 sai vì「先生に質問してもいいです」— hỏi thầy/cô là ĐƯỢC PHÉP. Chỉ có đáp án 2 dùng「〜てはいけません」(mẫu cấm), ba đáp án kia đều dùng「〜てもいいです」(mẫu cho phép).",
+          "tip": "Câu hỏi dạng「してはいけないのは」→ tìm ngay đáp án có「〜てはいけません」. Đáp án có「〜てもいいです」đều là SAI vì đó là điều được phép, không phải bị cấm.",
+          "qt": {
+            "q": "Trong giờ học, việc nào không được phép làm?",
+            "o": [
+              "Được phép nói bằng tiếng Nhật",
+              "Được phép sử dụng từ điển",
+              "Không được phép sử dụng điện thoại thông minh",
+              "Được phép hỏi giáo viên"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "コンピューター室のルール",
+      "titleVi": "Nội quy phòng máy tính",
+      "japanese": "コンピューター室のルール\nここでインターネットを使ってもいいです。友達と静かに話してもいいです。パソコンは9時から18時まで使ってもいいです。\nこのコンピューター室は大学の3階にあります。\nすること｜いいですか\n飲み物を飲みます｜いいえ、いけません\n写真をとります｜いいえ、いけません\nコピーします｜はい、いいです\nメールを送ります｜はい、いいです\n※先生はいつも教室にいます。分からないことを聞いてもいいです。かばんは机の下に置いてください。",
+      "vietnamese": "Nội quy phòng máy tính\nỞ đây được phép dùng internet. Được phép nói chuyện nhỏ nhẹ với bạn. Máy tính được dùng từ 9 giờ đến 18 giờ.\nViệc làm｜Có được không?\nUống đồ uống｜Không, không được\nChụp ảnh｜Không, không được\nPhotocopy｜Có, được\nGửi email｜Có, được\n※Thầy/cô luôn ở trong phòng. Được phép hỏi điều không hiểu. Hãy để cặp dưới gầm bàn.",
+      "sentences": [
+        {
+          "jp": "コンピューター室のルール",
+          "vi": "Nội quy phòng máy tính.",
+          "vocab": [
+            {
+              "w": "コンピューター",
+              "read": "コンピューター",
+              "vi": "máy vi tính"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "quy tắc, nội quy"
+            },
+            {
+              "w": "コンピューター室",
+              "read": "コンピューターしつ",
+              "vi": "phòng máy tính"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "コンピューター室のルール = nội quy của phòng máy tính. Ôn Bài 1 (NのN)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "コンピューター室のルール",
+              "why": "Tiêu đề cho biết đây là nội quy phòng máy tính — bối cảnh chung cho toàn bảng."
+            }
+          ]
+        },
+        {
+          "jp": "ここでインターネットを使ってもいいです。友達と静かに話してもいいです。パソコンは9時から18時まで使ってもいいです。",
+          "vi": "Ở đây được phép dùng internet. Được phép nói chuyện nhỏ nhẹ với bạn. Máy tính được dùng từ 9 giờ đến 18 giờ.",
+          "vocab": [
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "ở đây"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "使って",
+              "read": "つかって",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "được phép"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "静かに",
+              "read": "しずかに",
+              "vi": "một cách yên tĩnh"
+            },
+            {
+              "w": "話して",
+              "read": "はなして",
+              "vi": "nói chuyện"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "được phép"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "18時",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            },
+            {
+              "w": "使って",
+              "read": "つかって",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "được phép"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです",
+              "vi": "使ってもいいです / 話してもいいです = được phép dùng / được phép nói (lặp lại 2 lần trong câu này). Mẫu MỚI Bài 15."
+            },
+            {
+              "point": "Nで（địa điểm）",
+              "vi": "ここで = ở đây. Ôn Bài 4 (NでVます)."
+            },
+            {
+              "point": "NからNまで",
+              "vi": "9時から18時まで = từ 9 giờ đến 18 giờ. Ôn Bài 4 (NからNまで)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "インターネットを使ってもいいです",
+              "why": "Xác nhận việc dùng internet ĐƯỢC PHÉP — nhiễu dễ nhầm với việc bị cấm trong bảng."
+            },
+            {
+              "w": "静かに話してもいいです",
+              "why": "Xác nhận nói chuyện nhỏ nhẹ ĐƯỢC PHÉP — liên quan câu hỏi về việc được làm."
+            },
+            {
+              "w": "9時から18時まで",
+              "why": "Khung giờ dùng phòng — chi tiết bổ trợ, không phải căn cứ câu hỏi việc được/cấm."
+            }
+          ]
+        },
+        {
+          "jp": "このコンピューター室は大学の3階にあります。",
+          "vi": "Phòng máy tính này ở tầng 3 của trường đại học.",
+          "vocab": [
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "コンピューター室",
+              "read": "コンピューターしつ",
+              "vi": "phòng máy tính"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "3階",
+              "read": "さんがい",
+              "vi": "tầng 3"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có; ở"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにあります",
+              "vi": "コンピューター室は3階にあります = phòng máy tính ở tầng 3. Ôn Bài 3 (NはNにあります)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "大学の3階にあります",
+              "why": "Vị trí phòng máy tính — chi tiết bổ trợ, không liên quan câu hỏi việc được/cấm."
+            }
+          ]
+        },
+        {
+          "jp": "すること｜いいですか",
+          "vi": "Việc làm｜Có được không?",
+          "vocab": [
+            {
+              "w": "すること",
+              "read": "すること",
+              "vi": "việc làm, việc cần làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vること（danh từ hóa）",
+              "vi": "すること = \"việc làm\" — đây là tiêu đề cột bảng, không phải câu hỏi thật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "すること｜いいですか",
+              "why": "Header bảng: cột trái là việc làm, cột phải là được phép hay không."
+            }
+          ]
+        },
+        {
+          "jp": "飲み物を飲みます｜いいえ、いけません",
+          "vi": "Uống đồ uống｜Không, không được.",
+          "vocab": [
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてはいけません（rút gọn trong bảng）",
+              "vi": "いけません = không được — dạng rút gọn của Vてはいけません trong ô bảng. Mẫu MỚI Bài 15."
+            }
+          ],
+          "keys": [
+            {
+              "w": "飲み物を飲みます｜いいえ、いけません",
+              "why": "Uống đồ uống là việc BỊ CẤM — căn cứ trực tiếp cho câu hỏi việc nào không được phép."
+            }
+          ]
+        },
+        {
+          "jp": "写真をとります｜いいえ、いけません",
+          "vi": "Chụp ảnh｜Không, không được.",
+          "vocab": [
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, hình chụp"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "とる",
+              "read": "とる",
+              "vi": "chụp (ảnh)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてはいけません（rút gọn trong bảng）",
+              "vi": "いけません = không được — chụp ảnh trong phòng máy tính bị cấm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "写真をとります｜いいえ、いけません",
+              "why": "Chụp ảnh cũng BỊ CẤM — dòng nhiễu gần giống dòng uống đồ uống, dễ chọn nhầm."
+            }
+          ]
+        },
+        {
+          "jp": "コピーします｜はい、いいです",
+          "vi": "Photocopy｜Có, được.",
+          "vocab": [
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "bản sao, photo"
+            },
+            {
+              "w": "コピーします",
+              "read": "コピーします",
+              "vi": "photocopy, sao chép"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです（rút gọn trong bảng）",
+              "vi": "いいです = được — dạng rút gọn của Vてもいいです trong ô bảng. Mẫu MỚI Bài 15."
+            }
+          ],
+          "keys": [
+            {
+              "w": "コピーします｜はい、いいです",
+              "why": "Photocopy là việc ĐƯỢC PHÉP trong bảng — căn cứ chính cho câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "メールを送ります｜はい、いいです",
+          "vi": "Gửi email｜Có, được.",
+          "vocab": [
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, thư điện tử"
+            },
+            {
+              "w": "送る",
+              "read": "おくる",
+              "vi": "gửi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです（rút gọn trong bảng）",
+              "vi": "いいです = được — dạng rút gọn của Vてもいいです trong ô bảng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "メールを送ります｜はい、いいです",
+              "why": "Gửi email cũng ĐƯỢC PHÉP — dòng nhiễu gần giống dòng photocopy, cả hai đều \"はい、いいです\"."
+            }
+          ]
+        },
+        {
+          "jp": "※先生はいつも教室にいます。分からないことを聞いてもいいです。かばんは机の下に置いてください。",
+          "vi": "※Thầy/cô luôn ở trong phòng. Được phép hỏi điều không hiểu. Hãy để cặp dưới gầm bàn.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "thầy/cô giáo"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "cặp, túi xách"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "cái bàn"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "bên dưới"
+            },
+            {
+              "w": "置く",
+              "read": "おく",
+              "vi": "đặt, để"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにVます（vị trí）",
+              "vi": "教室にいます = ở trong phòng. Ôn Bài 3 (NはNにあります・います)."
+            },
+            {
+              "point": "Vてもいいです",
+              "vi": "聞いてもいいです = được phép hỏi. Mẫu MỚI Bài 15, xuất hiện lần thứ 3."
+            },
+            {
+              "point": "Vてください",
+              "vi": "机の下に置いてください = hãy đặt xuống dưới bàn. Ôn Bài 14 (Vてください)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "先生はいつも教室にいます",
+              "why": "Chú thích ※ cho biết luôn có thầy/cô — chi tiết bổ trợ, không phải bẫy cấm/được phép."
+            },
+            {
+              "w": "聞いてもいいです",
+              "why": "Hỏi thầy/cô khi không hiểu cũng ĐƯỢC PHÉP — mẫu てもいいです lặp lại lần 3."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "インターネットを使ってもいいです",
+          "label": "Vてもいいです（Bài 15）"
+        },
+        {
+          "excerpt": "飲み物を飲みます｜いいえ、いけません",
+          "label": "いけません＝Vてはいけません（rút gọn）"
+        },
+        {
+          "excerpt": "コピーします｜はい、いいです",
+          "label": "いいです＝Vてもいいです（rút gọn）"
+        },
+        {
+          "excerpt": "聞いてもいいです",
+          "label": "Vてもいいです（Bài 15, lần 3）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "コンピューター室で、してもいいことはどれですか。",
+          "options": [
+            "飲み物を飲みます",
+            "写真をとります",
+            "コピーします",
+            "大きい声で話します"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bảng ghi rõ「コピーします｜はい、いいです」— photocopy là việc ĐƯỢC PHÉP (「メールを送ります」cũng được phép nhưng không phải option). Đáp án 0 sai vì bảng ghi「飲み物を飲みます｜いいえ、いけません」(uống đồ uống không được). Đáp án 1 sai vì bảng ghi「写真をとります｜いいえ、いけません」(chụp ảnh không được). Đáp án 3 sai vì bài chỉ cho phép「友達と静かに話してもいいです」(nói NHỎ NHẸ), không phải nói to.",
+          "tip": "Dò từng hàng bảng: cột phải ghi「はい、いいです」thì việc đó ĐƯỢC PHÉP, ghi「いいえ、いけません」thì BỊ CẤM. Đừng nhầm nói nhỏ (được) với nói to (không nhắc tới là được phép).",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Trong phòng máy tính, việc nào được phép làm?",
+            "o": [
+              "Uống đồ uống",
+              "Chụp ảnh",
+              "Sao chép",
+              "Nói chuyện lớn tiếng"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề + mở đầu",
+          "topic": 1,
+          "note": "Giới thiệu phòng máy tính, giờ dùng, vị trí và các việc chung được phép (internet, nói chuyện nhỏ).",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "kind": "turn",
+          "label": "Header bảng",
+          "topic": 3,
+          "note": "Chuyển sang bảng dò việc làm — cột phải là \"được phép hay không\".",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng 4 việc làm",
+          "topic": 6,
+          "note": "Hai việc bị cấm (uống, chụp ảnh) và hai việc được phép (photocopy, gửi email) — căn cứ chính của câu hỏi.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "turn",
+          "label": "Chú ý ※",
+          "topic": 8,
+          "note": "Thông tin bổ trợ về thầy/cô, việc được phép hỏi và chỗ để cặp — không phải bẫy cấm/được phép.",
+          "qs": []
+        }
+      ]
+    }
+  ]
+}

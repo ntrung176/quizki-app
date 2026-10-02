@@ -1,0 +1,3507 @@
+{
+  "bai": 54,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 54 luyện ba mẫu ĐÁNH GIÁ SO VỚI KỲ VỌNG: ①「というより」= \"đúng hơn phải nói là…\" — dùng khi muốn SỬA LẠI cách diễn đạt (A không chính xác bằng B); ②「にしては」= \"so với cái CHUẨN CỤ THỂ của X thì (bất ngờ/ngoài dự đoán)\" — X là mốc rõ ràng, cụ thể (ví dụ: 初心者にしては上手, 値段が高いにしては…); ③「わりに(は)」= \"so với X thì (không tương xứng)\" — X là mốc ƯỚC LƯỢNG CHUNG, kết quả trái kỳ vọng nhẹ. Đọc văn đánh giá/cảm nghĩ: chú ý xem tác giả lấy cái gì làm CHUẨN để so sánh, từ đó chọn mẫu phù hợp.",
+    "steps": [
+      "Đọc lướt để nắm CHỦ ĐỀ đánh giá: đang nhận xét phim, quán ăn, hay con người?",
+      "Tìm ba mẫu target: というより / にしては / わりに — gạch dưới mỗi lần gặp.",
+      "Với にしては: xác định \"mốc chuẩn cụ thể\" (X) là gì — danh từ hay mệnh đề ngay trước にしては.",
+      "Với わりに: xác định \"mức chung kỳ vọng\" (X) là gì — thường là giá, thời gian, tuổi, nỗ lực bỏ ra.",
+      "Câu hỏi sắc thái: nếu hỏi \"tại sao dùng にしては chứ không dùng わりに?\" → hỏi mốc CỤ THỂ vs CHUNG.",
+      "Ôn lại と思う(B21): tìm câu tác giả nêu ý kiến chủ quan — phân biệt \"sự thật\" với \"đánh giá\"."
+    ],
+    "tips": [
+      "【にしては vs わりに】にしては cần mốc CỤ THỂ rõ ràng: 一年しか勉強していないにしては (chỉ học 1 năm thôi mà…). わりに dùng mốc CHUNG chung hơn: 値段のわりに (so với mức giá vậy mà…). Nếu mốc là danh từ đếm được, cụ thể → ưu tiên にしては; nếu là mức độ/ước lượng → わりに.",
+      "【というより】không phải so sánh mà là SỬA LẠI CÁCH NÓI: A というより B = \"nói A thì chưa đúng, B mới đúng hơn\". Dấu hiệu: thường có cụm như 正確に言うと / むしろ / というか đi kèm.",
+      "【接続まとめ】というより: 普通形/N + というより (không chia thêm); にしては: 普通形 (Nの場合はNそのまま) + にしては; わりに: 普通形 + わりに, Nの + わりに, Aい + わりに, なAな + わりに.",
+      "【読解の罠】わりに thường kèm khen/chê rõ: \"思ったより良い/悪い\". Đừng nhầm với のに (B45 — than thở, bất mãn); のに nhấn mạnh cảm xúc thất vọng, còn わりに chỉ ghi nhận sự chênh lệch khách quan hơn.",
+      "【はず・べき ôn lại】はず(B51) = \"lẽ ra phải thế này (theo suy luận)\"; べき(B53) = \"đáng lẽ phải làm\". Khác với わりに/にしては = chỉ so sánh thực tế với chuẩn, không phán xét đạo đức."
+    ],
+    "grammarFocus": [
+      "〜というより（普通形/N + というより）",
+      "〜にしては（普通形/N + にしては）",
+      "〜わりに(は)（普通形/Nの/Aい/なAな + わりに）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ・べきではない",
+          "〜ものだ"
+        ]
+      },
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ・〜はずがない"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "映画の感想",
+      "titleVi": "Cảm nhận về bộ phim",
+      "japanese": "先週、友達に勧められた映画を見た。正直に言うと、面白いというより、不思議な映画だったと思う。ストーリーが難しくて、最初はよく分からなかった。でも、二時間という長さのわりに、あまり疲れなかった。主役の俳優は、デビューして一年しかたっていないにしては、演技がとても上手だった。見終わったあと、もう一度見てみようと思った。名作というより、じっくり考えさせる映画だと感じた。",
+      "vietnamese": "Tuần trước tôi xem bộ phim được bạn giới thiệu. Nói thật thì tôi nghĩ đó là bộ phim kỳ lạ hơn là thú vị. Cốt truyện khó, lúc đầu không hiểu lắm. Nhưng so với độ dài hai tiếng thì không mệt lắm. Diễn viên chính, so với việc chỉ mới ra mắt được một năm thì diễn xuất rất tốt. Sau khi xem xong, tôi nghĩ muốn xem lại một lần nữa. Tôi cảm thấy đó là bộ phim khiến người ta suy nghĩ sâu hơn là một kiệt tác.",
+      "sentences": [
+        {
+          "jp": "先週、友達に勧められた映画を見た。",
+          "vi": "Tuần trước tôi xem bộ phim được bạn giới thiệu.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "勧めます",
+              "read": "すすめます",
+              "vi": "giới thiệu, đề nghị"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "bộ phim"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身形（Bài 37）",
+              "vi": "勧められた = được giới thiệu. 勧める(他動詞) → 勧められる(受身). Mệnh đề bổ nghĩa danh từ 映画 (Bài 22)."
+            }
+          ]
+        },
+        {
+          "jp": "正直に言うと、面白いというより、不思議な映画だったと思う。",
+          "vi": "Nói thật thì tôi nghĩ đó là bộ phim kỳ lạ hơn là thú vị.",
+          "vocab": [
+            {
+              "w": "正直に",
+              "read": "しょうじきに",
+              "vi": "thật thà, thẳng thắn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "面白い",
+              "read": "おもしろい",
+              "vi": "thú vị, hay"
+            },
+            {
+              "w": "不思議な",
+              "read": "ふしぎな",
+              "vi": "kỳ lạ, bí ẩn"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim (điện ảnh)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "接続: Aい普通形 + というより + B. 面白いというより不思議 = \"thú vị thì chưa đúng, đúng hơn phải nói là kỳ lạ\". Dùng để SỬA LẠI cách nói — A không chuẩn bằng B. ≠ にしては/わりに (so sánh kỳ vọng)."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "Diễn đạt ý kiến/cảm nhận chủ quan của người viết."
+            }
+          ]
+        },
+        {
+          "jp": "ストーリーが難しくて、最初はよく分からなかった。",
+          "vi": "Cốt truyện khó, lúc đầu không hiểu lắm.",
+          "vocab": [
+            {
+              "w": "ストーリー",
+              "read": "ストーリー",
+              "vi": "cốt truyện"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "難しくて = khó và (nên)… Nối tính từ い để liên kết hai vế."
+            }
+          ]
+        },
+        {
+          "jp": "でも、二時間という長さのわりに、あまり疲れなかった。",
+          "vi": "Nhưng so với độ dài hai tiếng thì không mệt lắm.",
+          "vocab": [
+            {
+              "w": "長さ",
+              "read": "ながさ",
+              "vi": "độ dài"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "疲れます",
+              "read": "つかれます",
+              "vi": "mệt mỏi"
+            },
+            {
+              "w": "二時間",
+              "read": "にじかん",
+              "vi": "hai tiếng đồng hồ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のわりに（Bài 54 TARGET）",
+              "vi": "接続: Nの + わりに. 二時間という長さのわりに = \"so với cái độ dài hai tiếng (ước lượng chung) thì\". わりに dùng mốc CHUNG CHUNG (mức thời gian bình thường hai tiếng thì hay mệt), kết quả KHÔNG TƯƠNG XỨNG với kỳ vọng đó. ≠ にしては: mốc わりに là ước lượng, không cần chuẩn cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "主役の俳優は、デビューして一年しかたっていないにしては、演技がとても上手だった。",
+          "vi": "Diễn viên chính, so với việc chỉ mới ra mắt được một năm thì diễn xuất rất tốt.",
+          "vocab": [
+            {
+              "w": "主役",
+              "read": "しゅやく",
+              "vi": "vai chính"
+            },
+            {
+              "w": "俳優",
+              "read": "はいゆう",
+              "vi": "diễn viên"
+            },
+            {
+              "w": "デビュー",
+              "read": "デビュー",
+              "vi": "ra mắt"
+            },
+            {
+              "w": "一年",
+              "read": "いちねん",
+              "vi": "một năm"
+            },
+            {
+              "w": "たっていない",
+              "read": "たっていない",
+              "vi": "chưa trôi qua"
+            },
+            {
+              "w": "演技",
+              "read": "えんぎ",
+              "vi": "diễn xuất"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, khéo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては（Bài 54 TARGET）",
+              "vi": "接続: 普通形 + にしては. デビューして一年しかたっていないにしては = \"so với cái CHUẨN CỤ THỂ là chỉ mới ra mắt 1 năm thì\". にしては nhấn sắc thái BẤT NGỜ/NGOÀI DỰ ĐOÁN, mốc X là điều kiện/hoàn cảnh cụ thể rõ ràng. ≠ わりに: わりに mốc mờ hơn, còn にしては phải có X xác định được."
+            }
+          ]
+        },
+        {
+          "jp": "見終わったあと、もう一度見てみようと思った。",
+          "vi": "Sau khi xem xong, tôi nghĩ muốn xem lại một lần nữa.",
+          "vocab": [
+            {
+              "w": "見終わった",
+              "read": "みおわった",
+              "vi": "xem xong"
+            },
+            {
+              "w": "あと",
+              "read": "あと",
+              "vi": "sau đó"
+            },
+            {
+              "w": "もう一度",
+              "read": "もういちど",
+              "vi": "một lần nữa"
+            },
+            {
+              "w": "見てみよう",
+              "read": "みてみよう",
+              "vi": "thử xem"
+            },
+            {
+              "w": "思った",
+              "read": "おもった",
+              "vi": "đã nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで（Bài 34）",
+              "vi": "見終わったあと = sau khi xem xong. V過去形 + あとで = sau khi làm xong."
+            },
+            {
+              "point": "V意向形 + と思った（Bài 21 + 31）",
+              "vi": "見てみようと思った = nghĩ muốn thử xem lại. V意向形 + とする/と思う."
+            }
+          ]
+        },
+        {
+          "jp": "名作というより、じっくり考えさせる映画だと感じた。",
+          "vi": "Tôi cảm thấy đó là bộ phim khiến người ta suy nghĩ sâu hơn là một kiệt tác.",
+          "vocab": [
+            {
+              "w": "名作",
+              "read": "めいさく",
+              "vi": "kiệt tác, tác phẩm nổi tiếng"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "chậm rãi, kỹ lưỡng"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim (điện ảnh)"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET — lặp lại）",
+              "vi": "名作というより = \"nói là kiệt tác thì chưa đúng, đúng hơn là…\". というより xuất hiện lần hai — xác nhận đây là mẫu cốt lõi của bài. Cấu trúc N + というより + mệnh đề/N."
+            },
+            {
+              "point": "V使役形 mệnh đề bổ nghĩa（Bài 48 + 22）",
+              "vi": "考えさせる映画 = bộ phim khiến người ta suy nghĩ. 使役形 bổ nghĩa danh từ (Bài 22)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "面白いというより、不思議な映画だった",
+          "label": "〜というより（sửa lại cách nói）"
+        },
+        {
+          "excerpt": "二時間という長さのわりに、あまり疲れなかった",
+          "label": "〜のわりに（Sắc thái: mốc chung, kết quả không tương xứng）"
+        },
+        {
+          "excerpt": "デビューして一年しかたっていないにしては、演技がとても上手だった",
+          "label": "〜にしては（mốc cụ thể, bất ngờ）"
+        },
+        {
+          "excerpt": "名作というより、じっくり考えさせる映画だ",
+          "label": "〜というより（lặp lại — nhận định cuối）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "書いた人はこの映画をどう思いましたか。",
+          "evi": [
+            1,
+            6
+          ],
+          "options": [
+            "面白い名作だと思いました",
+            "不思議で、じっくり考えさせる映画だと思いました",
+            "長くて疲れる映画だと思いました",
+            "主役の演技が下手だと思いました"
+          ],
+          "answer": 1,
+          "explainVi": "Văn bản dùng というより hai lần để SỬA LẠI nhận định: (1)「面白いというより、不思議な映画だった」= không phải \"thú vị\" mà là \"kỳ lạ\"; (2)「名作というより、じっくり考えさせる映画だと感じた」= không phải \"kiệt tác\" mà là \"phim khiến suy nghĩ sâu\". Vậy đáp án đúng là ② \"kỳ lạ, khiến người ta suy nghĩ\". Đáp án ① sai vì \"面白い/名作\" bị tác giả phủ nhận bằng というより. Đáp án ③ sai vì tác giả nói「あまり疲れなかった」(không mệt lắm). Đáp án ④ sai vì tác giả khen diễn xuất (上手だった).",
+          "tip": "というより = tín hiệu tác giả đang TỰ SỬA nhận định. Từ ngay SAU というより mới là cách mô tả tác giả thực sự muốn dùng — đó là đáp án đúng cho câu hỏi \"tác giả nghĩ gì\".",
+          "qt": {
+            "q": "Người viết nghĩ thế nào về bộ phim này?",
+            "o": [
+              "Tôi nghĩ đây là một kiệt tác thú vị",
+              "Tôi nghĩ đây là một bộ phim kỳ lạ khiến người xem suy ngẫm kỹ",
+              "Tôi nghĩ đây là một bộ phim dài và gây mệt mỏi",
+              "Tôi nghĩ diễn xuất của diễn viên chính không hay"
+            ]
+          }
+        },
+        {
+          "q": "「デビューして一年しかたっていないにしては、演技がとても上手だった」の意味として正しいものはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "デビューして一年しかたっていないので、演技が下手だった",
+            "一年しかたっていないという条件を考えると、予想以上に演技が上手だった",
+            "一年以上たっているので、演技がうまくなって当然だ",
+            "演技は上手だが、一年でやめるべきだと思った"
+          ],
+          "answer": 1,
+          "explainVi": "Câu「デビューして一年しかたっていないにしては、演技がとても上手だった」dùng にしては với mốc X CỤ THỂ là \"chỉ mới ra mắt 1 năm\" — thông thường 1 năm kinh nghiệm thì chưa diễn giỏi, nhưng thực tế演技がとても上手 → BẤT NGỜ ngoài dự đoán. Đáp án đúng là ②. Đáp án ① sai vì にしては không nói演技が下手. Đáp án ③ sai vì câu nói CHỈ mới 1 năm (しか), không phải \"hơn 1 năm\". Đáp án ④ hoàn toàn không liên quan đến nội dung câu.",
+          "tip": "にしては luôn đi kèm KẾT QUẢ NGƯỢC với kỳ vọng từ mốc X. Xác định: (1) X là gì (mốc cụ thể)? (2) Kết quả có ngạc nhiên không? Nếu có → にしては đúng.",
+          "qt": {
+            "q": "Cách hiểu đúng của câu 「デビューして一年しかたっていないにしては、演技がとても上手だった」 là gì?",
+            "o": [
+              "Vì mới ra mắt được một năm nên diễn xuất không hay",
+              "Xét đến điều kiện mới ra mắt được một năm, diễn xuất hay hơn mong đợi",
+              "Vì đã hơn một năm trôi qua nên việc diễn xuất hay lên là điều đương nhiên",
+              "Diễn xuất hay, nhưng tôi nghĩ nên nghỉ sau một năm"
+            ]
+          }
+        },
+        {
+          "q": "「にしては」と「わりに」の違いについて、この文章の例から考えると正しいのはどれですか。",
+          "evi": [
+            3,
+            4
+          ],
+          "options": [
+            "「にしては」も「わりに」も、どちらも使える",
+            "「にしては」は具体的な基準（デビュー一年）をもとに意外性を表し、「わりに」は大まかな基準（二時間という長さ）との差を表す",
+            "「にしては」はほめるとき、「わりに」はけなすときに使う",
+            "「にしては」は名詞だけに、「わりに」は動詞だけに使う"
+          ],
+          "answer": 1,
+          "explainVi": "Văn bản cho hai ví dụ tương phản rõ ràng: (A)「デビューして一年しかたっていないにしては、演技がとても上手」— mốc X là hoàn cảnh CỤ THỂ, xác định được (\"chỉ mới ra mắt 1 năm\"); (B)「二時間という長さのわりに、あまり疲れなかった」— mốc X là ước lượng CHUNG (\"phim 2 tiếng thì thường mệt\"). Đáp án đúng là ②. Đáp án ① sai vì hai mẫu KHÔNG thể hoán đổi tự do — sắc thái khác nhau. Đáp án ③ sai vì cả hai đều có thể dùng để khen (bất ngờ tốt); đáp án ④ sai vì cả hai đều kết hợp được với nhiều loại từ.",
+          "tip": "Hỏi \"Mốc X có đếm/đo cụ thể được không?\" — CÓ (1年, 初心者...) → にしては; KHÔNG (giá chung, thời gian nói chung...) → わりに.",
+          "qt": {
+            "q": "Dựa vào các ví dụ trong đoạn văn này, cách hiểu nào sau đây là đúng về sự khác nhau giữa 「にしては」 và 「わりに」?",
+            "o": [
+              "Cả 「にしては」 và 「わりに」 đều có thể dùng được",
+              "「にしては」 biểu thị sự bất ngờ dựa trên một tiêu chuẩn cụ thể (một năm kể từ khi ra mắt), còn 「わりに」 biểu thị sự khác biệt so với một tiêu chuẩn khái quát (độ dài hai tiếng)",
+              "「にしては」 được dùng khi khen, còn 「わりに」 được dùng khi chê",
+              "「にしては」 chỉ dùng với danh từ, còn 「わりに」 chỉ dùng với động từ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "手紙のよさ",
+      "titleVi": "Vẻ đẹp của những lá thư",
+      "japanese": "最近は、メールやSNSで連絡をとる人が多い。確かにメールは便利だが、私は時々友達に手紙を書く。手紙を送る作業は、面倒というより、心を落ち着かせる大切な時間だと感じている。\n去年の誕生日に、小学生の甥から手紙をもらった。まだ７歳の子供が書いた手紙にしては、とても丁寧な文章で驚いた。文字は少し下手だったが、私のことを思いながら一生懸命書いてくれた気持ちが伝わってきた。短い文章のわりに、その手紙は何度も読み返したくなる不思議な力を持っていた。\nスマホでは、送信ボタンを押すだけで、すぐに自分の気持ちを送ることができる。しかし、時間をかけて自分の手で紙に文字を書くことには、特別な意味がある。つまり、手紙は単なる連絡の手段というより、相手へ思いを届ける大切な贈り物なのだ。だからこそ、私はこれからも大切な人に手紙を書き続けたいと思っている。",
+      "vietnamese": "Dạo này, nhiều người liên lạc với nhau qua email hay mạng xã hội. Đúng là email rất tiện lợi, nhưng thỉnh thoại tôi vẫn viết thư cho bạn bè. Tôi cảm thấy việc gửi thư, nói là phiền phức thì không đúng, mà đúng hơn là khoảng thời gian quan trọng giúp tâm hồn lắng đọng.\nVào dịp sinh nhật năm ngoái, tôi nhận được một lá thư từ cháu trai học tiểu học. So với việc được viết bởi một đứa trẻ mới 7 tuổi thì câu văn rất lịch sự khiến tôi ngạc nhiên. Chữ viết dù hơi xấu, nhưng tôi cảm nhận được tình cảm chân thành khi cháu vừa nghĩ đến tôi vừa cố gắng viết. So với sự ngắn gọn của đoạn văn, lá thư ấy lại mang một sức hút kỳ lạ khiến tôi muốn đọc đi đọc lại nhiều lần.\nVới điện thoại thông minh, chỉ cần bấm nút gửi là ta có thể truyền đạt suy nghĩ của mình ngay lập tức. Thế nhưng, việc dành thời gian tự tay viết từng nét chữ lên giấy lại mang một ý nghĩa đặc biệt. Nói cách khác, thư từ không chỉ đơn thuần là phương tiện liên lạc, mà đúng hơn là một món quà ý nghĩa gửi gắm tình cảm đến người nhận. Chính vì vậy, tôi muốn tiếp tục viết thư cho những người quan trọng đối với mình từ nay về sau.",
+      "sentences": [
+        {
+          "jp": "最近は、メールやSNSで連絡をとる人が多い。",
+          "vi": "Dạo này, nhiều người liên lạc với nhau qua email hay mạng xã hội.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "dạo này, gần đây"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "SNS",
+              "read": "SNS",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "連絡をとる",
+              "read": "れんらくをとる",
+              "vi": "giữ liên lạc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋人が多い（Bài 22）",
+              "vi": "Mệnh đề bổ nghĩa danh từ. 連絡をとる bổ nghĩa cho 人."
+            }
+          ],
+          "keys": [
+            {
+              "w": "最近は",
+              "why": "Dấu hiệu mở đầu nêu bối cảnh và hiện tượng phổ biến trong xã hội hiện nay."
+            }
+          ]
+        },
+        {
+          "jp": "確かにメールは便利だが、私は時々友達に手紙を書く。",
+          "vi": "Đúng là email rất tiện lợi, nhưng thỉnh thoảng tôi vẫn viết thư cho bạn bè.",
+          "vocab": [
+            {
+              "w": "確かに",
+              "read": "たしかに",
+              "vi": "quả thực, đúng là"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "時々",
+              "read": "ときどき",
+              "vi": "thỉnh thoảng"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形＋が（Bài 8/16）",
+              "vi": "便利だが = tiện lợi nhưng... Dùng để nối hai vế tương phản nhẹ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "確かにメールは便利だが",
+              "why": "Cấu trúc nhượng bộ đối lập để chuẩn bị dẫn dắt vào quan điểm và thói quen riêng của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "手紙を送る作業は、面倒というより、心を落ち着かせる大切な時間だと感じている。",
+          "vi": "Tôi cảm thấy việc gửi thư, nói là phiền phức thì không đúng, mà đúng hơn là khoảng thời gian quan trọng giúp tâm hồn lắng đọng.",
+          "vocab": [
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "送る",
+              "read": "おくる",
+              "vi": "gửi"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "thao tác, công việc"
+            },
+            {
+              "w": "面倒な",
+              "read": "めんどうな",
+              "vi": "phiền phức"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "落ち着かせる",
+              "read": "おちつかせる",
+              "vi": "làm cho lắng đọng, bình tĩnh"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "接続: なAdj(bỏ な) + というより. 面倒というより = nói là phiền phức thì chưa đúng, đúng hơn phải nói là... Dùng để chỉnh sửa lại nhận định cho chính xác hơn."
+            },
+            {
+              "point": "使役形（Bài 38）",
+              "vi": "落ち着かせる = làm cho tâm hồn lắng đọng/bình tĩnh lại."
+            }
+          ],
+          "keys": [
+            {
+              "w": "面倒というより",
+              "why": "Cấu trúc định vị cách nhìn nhận, gạt bỏ định kiến viết thư là phiền phức để nêu cảm nhận thực tế."
+            },
+            {
+              "w": "心を落ち着かせる大切な時間",
+              "why": "Căn cứ trực tiếp trả lời câu hỏi 1 về suy nghĩ tích cực của tác giả đối với việc viết thư."
+            }
+          ]
+        },
+        {
+          "jp": "去年の誕生日に、小学生の甥から手紙をもらった。",
+          "vi": "Vào dịp sinh nhật năm ngoái, tôi nhận được một lá thư từ cháu trai học tiểu học.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời, chào đời"
+            },
+            {
+              "w": "小学生",
+              "read": "しょうがくせい",
+              "vi": "học sinh tiểu học"
+            },
+            {
+              "w": "甥",
+              "read": "おい",
+              "vi": "cháu trai (con của anh/chị/em)"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nから〜をもらう（Bài 7/24）",
+              "vi": "Nhận cái gì từ ai đó."
+            }
+          ]
+        },
+        {
+          "jp": "まだ７歳の子供が書いた手紙にしては、とても丁寧な文章で驚いた。",
+          "vi": "So với việc được viết bởi một đứa trẻ mới 7 tuổi thì câu văn rất lịch sự khiến tôi ngạc nhiên.",
+          "vocab": [
+            {
+              "w": "子供",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "丁寧な",
+              "read": "ていねいな",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "文章",
+              "read": "ぶんしょう",
+              "vi": "câu văn, đoạn văn"
+            },
+            {
+              "w": "驚きます",
+              "read": "おどろきます",
+              "vi": "ngạc nhiên, ngỡ ngàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては（Bài 54 TARGET）",
+              "vi": "接続: N / 普通形 + にしては. 子供が書いた手紙にしては = so với mốc chuẩn cụ thể là thư do đứa trẻ 7 tuổi viết thì kết quả (câu văn rất lịch事) là bất ngờ, ngoài dự đoán."
+            }
+          ]
+        },
+        {
+          "jp": "文字は少し下手だったが、私のことを思いながら一生懸命書いてくれた気持ちが伝わってきた。",
+          "vi": "Chữ viết dù hơi xấu, nhưng tôi cảm nhận được tình cảm chân thành khi cháu vừa nghĩ đến tôi vừa cố gắng viết.",
+          "vocab": [
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ viết"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "下手な",
+              "read": "へたな",
+              "vi": "dở, xấu"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "一生懸命",
+              "read": "いっしょうけんめい",
+              "vi": "hết sức, cố gắng"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "伝わります",
+              "read": "つたわります",
+              "vi": "truyền đến, cảm nhận được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vます-stem ＋ ながら（Bài 28）",
+              "vi": "思いながら = vừa nghĩ đến vừa..."
+            },
+            {
+              "point": "Vてくれる（Bài 24）",
+              "vi": "書いてくれた = viết cho tôi (thể hiện sự biết ơn)."
+            },
+            {
+              "point": "Vてくる（Bài 38）",
+              "vi": "伝わってきた = tình cảm truyền dần đến tâm trí người đọc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一生懸命書いてくれた気持ちが伝わってきた",
+              "why": "Căn cứ then chốt cho câu hỏi 2 giải thích lý do bức thư vụng về nhưng lại lay động cảm xúc người nhận."
+            }
+          ]
+        },
+        {
+          "jp": "短い文章のわりに、その手紙は何度も読み返したくなる不思議な力を持っていた。",
+          "vi": "So với sự ngắn gọn của đoạn văn, lá thư ấy lại mang một sức hút kỳ lạ khiến tôi muốn đọc đi đọc lại nhiều lần.",
+          "vocab": [
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn"
+            },
+            {
+              "w": "文章",
+              "read": "ぶんしょう",
+              "vi": "đoạn văn"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó, ấy"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "何度も",
+              "read": "なんども",
+              "vi": "nhiều lần"
+            },
+            {
+              "w": "読み返したくなる",
+              "read": "よみかえしたくなる",
+              "vi": "trở nên muốn đọc lại"
+            },
+            {
+              "w": "不思議な",
+              "read": "ふしぎな",
+              "vi": "kỳ lạ, bí ẩn"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh"
+            },
+            {
+              "w": "持っていた",
+              "read": "もっていた",
+              "vi": "đã có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わりに（Bài 54 TARGET）",
+              "vi": "接続: Nの / Aい + わりに. 短い文章のわりに = so với mốc chung là đoạn văn ngắn thì kết quả (khiến muốn đọc đi đọc lại nhiều lần) là không tương xứng/ngoài mong đợi."
+            },
+            {
+              "point": "Vた心理・mong muốn（Bài 13/29）",
+              "vi": "読み返したくなる = trở nên muốn đọc lại."
+            }
+          ],
+          "keys": [
+            {
+              "w": "何度も読み返したくなる",
+              "why": "Cụm từ trích dẫn trong câu hỏi 2, báo hiệu cần dừng mắt để đối chiếu nguyên nhân ở câu liền trước."
+            }
+          ]
+        },
+        {
+          "jp": "スマホでは、送信ボタンを押すだけで、すぐに自分の気持ちを送ることができる。",
+          "vi": "Với điện thoại thông minh, chỉ cần bấm nút gửi là ta có thể truyền đạt suy nghĩ của mình ngay lập tức.",
+          "vocab": [
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "送信ボタン",
+              "read": "そうしんボタン",
+              "vi": "nút gửi"
+            },
+            {
+              "w": "送信",
+              "read": "そうしん",
+              "vi": "gửi, truyền đi"
+            },
+            {
+              "w": "ボタン",
+              "read": "ボタン",
+              "vi": "nút bấm"
+            },
+            {
+              "w": "押す",
+              "read": "おす",
+              "vi": "nhấn, bấm"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm xúc"
+            },
+            {
+              "w": "送る",
+              "read": "おくる",
+              "vi": "gửi"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋だけ（Bài 26）",
+              "vi": "押すだけで = chỉ cần bấm..."
+            },
+            {
+              "point": "Vることができる（Bài 18）",
+              "vi": "送ることができる = có thể gửi."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、時間をかけて自分の手で紙に文字を書くことには、特別な意味がある。",
+          "vi": "Thế nhưng, việc dành thời gian tự tay viết từng nét chữ lên giấy lại mang một ý nghĩa đặc biệt.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "時間をかける",
+              "read": "じかんをかける",
+              "vi": "dành thời gian, tốn thời gian"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「しかし」（Bài 21）",
+              "vi": "Dùng để chuyển ý, thể hiện sự đối lập giữa tính tiện lợi của smartphone và giá trị của thư tay."
+            },
+            {
+              "point": "Vること（Bài 18）",
+              "vi": "文字を書くこと = việc viết chữ (danh từ hóa động từ)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý quan trọng chuyển từ sự tiện lợi tức thì của smartphone sang giá trị riêng của thư tay."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、手紙は単なる連絡の手段というより、相手へ思いを届ける大切な贈り物なのだ。",
+          "vi": "Nói cách khác, thư từ không chỉ đơn thuần là phương tiện liên lạc, mà đúng hơn là một món quà ý nghĩa gửi gắm tình cảm đến người nhận.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "phương tiện, cách thức"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "思い",
+              "read": "おもい",
+              "vi": "suy nghĩ, tâm tư"
+            },
+            {
+              "w": "届ける",
+              "read": "とどける",
+              "vi": "gửi đến, chuyển đến"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "贈り物",
+              "read": "おくりもの",
+              "vi": "món quà"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "接続: N + というより. 連絡の手段というより贈り物 = không chỉ là phương tiện liên lạc mà đúng hơn là món quà. Tác giả tự đính chính nhận định để nhấn mạnh bản chất thực sự của lá thư."
+            },
+            {
+              "point": "〜のだ/んだ（Bài 26）",
+              "vi": "贈り物なのだ = dùng để giải thích bản chất, đưa ra kết luận thuyết phục."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tổng kết mang tính quyết định, báo hiệu câu chứa tư tưởng cốt lõi của toàn bài."
+            },
+            {
+              "w": "相手へ思いを届ける大切な贈り物なのだ",
+              "why": "Căn cứ trực tiếp của câu hỏi 3 khẳng định thông điệp sâu sắc nhất về bản chất của thư tay."
+            }
+          ]
+        },
+        {
+          "jp": "だからこそ、私はこれからも大切な人に手紙を書き続けたいと思っている。",
+          "vi": "Chính vì vậy, tôi muốn tiếp tục viết thư cho những người quan trọng đối với mình từ nay về sau.",
+          "vocab": [
+            {
+              "w": "だからこそ",
+              "read": "だからこそ",
+              "vi": "chính vì thế"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "大切な",
+              "read": "たいせつな",
+              "vi": "quan trọng, quý giá"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "書き続けたい",
+              "read": "かきつづけたい",
+              "vi": "muốn tiếp tục viết"
+            },
+            {
+              "w": "思っている",
+              "read": "おもっている",
+              "vi": "đang nghĩ, định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vます-stem ＋ 続ける（Bài 28）",
+              "vi": "書き続けたい = muốn tiếp tục viết."
+            },
+            {
+              "point": "〜と思っている（Bài 21）",
+              "vi": "Bày tỏ ý định, nguyện vọng kéo dài của tác giả."
+            }
+          ],
+          "keys": [
+            {
+              "w": "だからこそ",
+              "why": "Liên từ nhấn mạnh lý do đi đến quyết định và ý chí duy trì thói quen viết thư của tác giả."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "面倒というより、心を落ち着かせる大切な時間",
+          "label": "〜というより（sửa lại cách diễn đạt）"
+        },
+        {
+          "excerpt": "子供が書いた手紙にしては、とても丁寧な文章",
+          "label": "〜にしては（so với mốc chuẩn cụ thể）"
+        },
+        {
+          "excerpt": "短い文章のわりに、その手紙は何度も読み返したくなる",
+          "label": "〜わりに（so với mốc chung, kết quả trái kỳ vọng）"
+        },
+        {
+          "excerpt": "単なる連絡の手段というより、相手へ思いを届ける大切な贈り物",
+          "label": "〜というより（khẳng định bản chất đúng hơn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「面倒というより、心を落ち着かせる大切な時間だ」とあるが、筆者は手紙を書くことについてどう考えているか。",
+          "options": [
+            "手順が多くて非常にめんどくさい作業だと思っている",
+            "時間がかかるが、気持ちを静めるよい時間だと思っている",
+            "メールより時間がかからないので便利だと思っている",
+            "友達からの返事を待つのが楽しい時間だと思っている"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ ở câu 3 [sentence 2]: 「手紙を送る作業は、面倒というより、心を落ち着かせる大切な時間だと感じている」 (Việc gửi thư, nói là phiền phức thì không đúng, mà đúng hơn là khoảng thời gian quan trọng giúp tâm hồn lắng đọng). Tác giả phủ nhận nhận định \"phiền phức\" bằng mẫu というより để khẳng định đây là khoảng thời gian làm tâm hồn lắng đọng/bình tĩnh (心を落ち着かせる = 気持ちを静める). Do đó đáp án ② đúng. Đáp án ① sai vì tác giả bảo \"nói là phiền phức thì không đúng\". Đáp án ③ sai vì viết thư tốn thời gian hơn email chứ không phải ít thời gian hơn. Đáp án ④ sai vì đoạn văn không đề cập đến việc chờ thư phản hồi.",
+          "tip": "Mẫu 〜というより được tác giả dùng để tự sửa lại cách nói: cụm từ SAU というより chính là ý kiến thực sự của tác giả. Chỉ cần tìm phương án đồng nghĩa với cụm từ đứng sau というより.",
+          "evi": [
+            2
+          ],
+          "qt": {
+            "q": "Trong câu “không phải là phiền phức mà là khoảng thời gian quý giá giúp tâm trí bình tâm lại”, người viết nghĩ thế nào về việc viết thư?",
+            "o": [
+              "Người viết nghĩ đó là công việc vô cùng phiền phức vì có nhiều bước.",
+              "Người viết nghĩ tuy mất thời gian nhưng đó là khoảng thời gian tốt giúp tâm trí bình tâm lại.",
+              "Người viết nghĩ việc đó tiện lợi vì không tốn thời gian như gửi email.",
+              "Người viết nghĩ đó là khoảng thời gian vui vẻ khi chờ hồi âm từ bạn bè."
+            ]
+          }
+        },
+        {
+          "q": "筆者が甥からの手紙を何度も読み返したくなったのはなぜか。",
+          "options": [
+            "７歳にしては文字がとてもきれいに書かれていたから",
+            "パソコンで書かれた長くて詳しい文章だったから",
+            "短い文章だが、自分を思って一生懸命書いてくれた気持ちが伝わったから",
+            "手紙と一緒に誕生日の素敵な贈り物が入っていたから"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ ở câu 6 [sentence 5] và câu 7 [sentence 6]: 「文字は少し下手だったが、私のことを思いながら一生懸命書いてくれた気持ちが伝わってきた。短い文章のわりに、その手紙は何度も読み返したくなる不思議な力を持っていた。」 Thư dù ngắn và chữ hơi xấu, nhưng tác giả cảm nhận được sự chân thành khi người cháu vừa nghĩ đến mình vừa cố gắng viết, nên muốn đọc đi đọc lại. Do đó đáp án ③ đúng. Đáp án ① sai vì chữ viết của cháu hơi xấu (文字は少し下手だった). Đáp án ② sai vì lá thư là thư tay ngắn chứ không phải gõ bằng máy tính dài. Đáp án ④ sai vì bài đọc không nhắc tới món quà sinh nhật nào đi kèm.",
+          "tip": "Khi câu hỏi hỏi nguyên nhân (なぜ), hãy tìm câu chứa từ nối chỉ kết quả/nguyên nhân (わりに, が, から) ở ngay trước câu trích dẫn để lấy căn cứ trực tiếp.",
+          "evi": [
+            5,
+            6
+          ],
+          "qt": {
+            "q": "Vì sao người viết muốn đọc đi đọc lại lá thư của cháu trai?",
+            "o": [
+              "Vì chữ viết rất đẹp so với một đứa trẻ mới 7 tuổi.",
+              "Vì đó là một bài viết dài và chi tiết được đánh máy trên máy tính.",
+              "Vì tuy bài viết ngắn nhưng người viết cảm nhận được tình cảm của cháu trai khi nghĩ đến mình và cố gắng viết thư.",
+              "Vì trong thư còn có một món quà sinh nhật tuyệt vời."
+            ]
+          }
+        },
+        {
+          "q": "この文章で、筆者が一番伝えたいことは何か。",
+          "options": [
+            "スマホは便利なので、手紙よりもスマホで気持ちを伝えるべきだ",
+            "子供には小さいうちから正しい手紙の書き方を教えることが大切だ",
+            "時間をかけて手で文字を書く手紙は、相手に思いを届ける大切な贈り物だ",
+            "メールやSNSは面倒なので、これからは使わないほうがよい"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ ở câu 9, 10, 11 [sentence 8, 9, 10] đoạn cuối: 「時間をかけて自分の手で紙に文字を書くことには、特別な意味がある。つまり、手紙は単なる連絡の手段というより、相手へ思いを届ける大切な贈り物なのだ。」 Tác giả đúc kết luận điểm toàn bài ở đoạn cuối qua từ nối つまり và noda: viết thư tay mang ý nghĩa đặc biệt, là món quà gửi gắm tình cảm. Do đó đáp án ③ đúng. Đáp án ① sai vì trái ngược với quan điểm tác giả. Đáp án ② sai vì tác giả chỉ khen cháu chứ không khuyên dạy trẻ em viết thư. Đáp án ④ sai vì tác giả thừa nhận email/smartphone rất tiện lợi chứ không hề khuyên dừng sử dụng.",
+          "tip": "Câu hỏi ý người viết (筆者はどう考えているか / 一番伝えたいこと) thường nằm ở đoạn kết bài, chứa các từ nối đúc kết như つまり, だからこそ và mẫu kết câu khẳng định quan điểm như 〜のだ.",
+          "evi": [
+            8,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Trong bài viết này, điều người viết muốn truyền tải nhất là gì?",
+            "o": [
+              "Điện thoại thông minh rất tiện lợi, vì vậy nên truyền tải tình cảm bằng điện thoại thay vì viết thư.",
+              "Điều quan trọng là dạy trẻ cách viết thư đúng ngay từ khi còn nhỏ.",
+              "Lá thư được viết bằng tay sau khi dành thời gian là món quà quý giá giúp gửi gắm tình cảm đến người nhận.",
+              "Email và mạng xã hội phiền phức, vì vậy từ nay tốt hơn là không nên dùng nữa."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Quan điểm tác giả",
+          "topic": 2,
+          "note": "Nêu hiện tượng email/SNS phổ biến và khẳng định viết thư là khoảng thời gian tĩnh tâm quý giá (căn cứ câu 1).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "body",
+          "label": "Trải nghiệm thực tế",
+          "topic": 5,
+          "note": "Dẫn chứng mẩu chuyện bức thư của cháu 7 tuổi tuy chữ xấu nhưng chan chứa tình cảm chân thành (căn cứ câu 2).",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Đối chiếu・Bước ngoặt",
+          "topic": 8,
+          "note": "So sánh sự nhanh chóng của công nghệ với ý nghĩa đặc biệt của việc tự tay nắn nót từng con chữ.",
+          "qs": [
+            3
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "point",
+          "label": "Tổng kết・Thông điệp cốt lõi",
+          "topic": 9,
+          "note": "Đúc kết thông điệp chính: thư tay là món quà trao gửi tấm lòng và khẳng định mong muốn tiếp tục viết thư (căn cứ câu 3).",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "小さな発見——値段と価値のあいだ",
+      "titleVi": "Khám phá nhỏ — Khoảng cách giữa giá và giá trị",
+      "japanese": "先日、会社の近くに新しいカフェができたので、同僚の佐藤さんと一緒に行ってみた。\n外観は、おしゃれというより、こぢんまりとした落ち着いた雰囲気だった。\nメニューを見ると、値段のわりに種類が多くて、思ったより選ぶのが楽しかった。\n私はコーヒーとケーキを注文した。料金は高めだったが、コーヒーの味は値段のわりによかったと思う。\n佐藤さんは「このケーキ、甘いというより、後味がさっぱりしていて好きです」と言っていた。\nそのカフェには若いスタッフが多かった。接客態度は、経験が少ないにしては、とても丁寧だった。\nカフェを出てから、佐藤さんが「あのカフェ、また来たいですね」と言った。\n私も同じ気持ちだったが、なぜそう思うのか、うまく言葉にできなかった。\nしばらく考えてみると、「居心地がいいというより、なんとなく安心できる場所」という感じかもしれない。\n値段が安いから行きたいのではなく、その雰囲気のわりに、値段が高く感じないのだと気づいた。\nまた、スタッフが若いにしては料理の説明がしっかりしていて、それも好印象につながったと思う。\nこういう体験をすると、「値段というより、体験全体の価値が大切なのだ」とよく分かる。\n学生のころ、良いものは値段が高いと思っていた。でも今は少し違う考えを持つようになった。\n値段が高くても、必ずしもいい体験ができるとは言えない。\n逆に、値段のわりに満足度が高い場所には、何か特別な工夫があると思う。\nそのカフェの場合、スタッフ全員が、話し方がやさしいというより、相手のことを考えて話しているように感じた。\nお客さんが何を求めているかをしっかり考えているのだ、とも言えるかもしれない。\n次の週末も、また二人でそのカフェに行こうと思っている。",
+      "vietnamese": "Hôm trước, vì có quán cà phê mới mở gần công ty, tôi và đồng nghiệp Sato cùng đến thử.\nNgoại quan, đúng hơn là gọn gàng ấm cúng chứ không phải sành điệu, tạo cảm giác thư thái.\nNhìn vào menu, so với giá thì nhiều món chọn, chọn đồ vui hơn tưởng.\nTôi gọi cà phê và bánh. Giá hơi cao, nhưng tôi thấy vị cà phê khá tốt so với mức giá đó.\nChị Sato nói \"Cái bánh này, đúng hơn là hậu vị thanh mát chứ không phải ngọt, tôi thích\".\nQuán có nhiều nhân viên trẻ. So với việc ít kinh nghiệm thì thái độ phục vụ rất lịch sự.\nRa khỏi quán, chị Sato nói \"Quán đó, muốn đến lại nhỉ\".\nTôi cũng cùng cảm giác nhưng không nói ra được lý do bằng lời.\nSuy nghĩ một lúc, cảm giác đó có lẽ là \"nơi không phải dễ chịu mà đúng hơn là cảm thấy yên tâm\".\nKhông phải muốn đến vì giá rẻ, mà là so với không khí đó thì không cảm thấy giá đắt.\nHơn nữa, so với việc nhân viên còn trẻ thì giải thích món ăn rõ ràng, điều đó cũng tạo ấn tượng tốt.\nKhi có trải nghiệm như vậy, người ta hiểu rõ \"đúng hơn là giá tiền, giá trị toàn bộ trải nghiệm mới quan trọng\".\nHồi còn là sinh viên, tôi nghĩ đồ tốt thì giá cao. Nhưng bây giờ tôi có suy nghĩ hơi khác rồi.\nChắc hẳn không phải cứ giá cao thì nhất định có trải nghiệm tốt.\nNgược lại, tôi nghĩ những nơi độ hài lòng cao so với giá thì có sự cố gắng đặc biệt nào đó.\nVới quán cà phê đó, tôi cảm thấy toàn bộ nhân viên, đúng hơn là nói chuyện nhẹ nhàng, họ đang nói chuyện có suy nghĩ đến đối phương.\nCó thể nói rằng họ đang thật sự suy nghĩ xem khách hàng muốn gì.\nCuối tuần tới, tôi đang nghĩ hai người sẽ cùng đến quán đó lần nữa.",
+      "sentences": [
+        {
+          "jp": "先日、会社の近くに新しいカフェができたので、同僚の佐藤さんと一緒に行ってみた。",
+          "vi": "Hôm trước, vì có quán cà phê mới mở gần công ty, tôi và đồng nghiệp Sato cùng đến thử.",
+          "vocab": [
+            {
+              "w": "先日",
+              "read": "せんじつ",
+              "vi": "hôm trước, mấy ngày trước"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "佐藤",
+              "read": "さとう",
+              "vi": "Sato (họ người)"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "できたので = vì có (quán mới). ので nêu lý do khách quan."
+            },
+            {
+              "point": "Vてみた（Bài 40）",
+              "vi": "行ってみた = đã thử đến. てみる = thử làm gì đó."
+            }
+          ]
+        },
+        {
+          "jp": "外観は、おしゃれというより、こぢんまりとした落ち着いた雰囲気だった。",
+          "vi": "Ngoại quan, đúng hơn là gọn gàng ấm cúng chứ không phải sành điệu, tạo cảm giác thư thái.",
+          "vocab": [
+            {
+              "w": "外観",
+              "read": "がいかん",
+              "vi": "ngoại quan, vẻ ngoài"
+            },
+            {
+              "w": "おしゃれ",
+              "read": "おしゃれ",
+              "vi": "sành điệu, thời trang"
+            },
+            {
+              "w": "こぢんまり",
+              "read": "こぢんまり",
+              "vi": "nhỏ nhắn, vừa vặn"
+            },
+            {
+              "w": "落ち着いた",
+              "read": "おちついた",
+              "vi": "thư thái, trầm lặng"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "không khí, bầu không khí"
+            },
+            {
+              "w": "こぢんまりとした",
+              "read": "こぢんまりとした",
+              "vi": "gọn gàng, nhỏ gọn ấm cúng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "接続: Nな/Aな + というより. おしゃれというより = \"sành điệu thì chưa đúng, đúng hơn là…\". というより SỬA LẠI nhận định A thành B chính xác hơn."
+            }
+          ]
+        },
+        {
+          "jp": "メニューを見ると、値段のわりに種類が多くて、思ったより選ぶのが楽しかった。",
+          "vi": "Nhìn vào menu, so với giá thì nhiều món chọn, chọn đồ vui hơn tưởng.",
+          "vocab": [
+            {
+              "w": "メニュー",
+              "read": "メニュー",
+              "vi": "thực đơn, menu"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá cả"
+            },
+            {
+              "w": "種類",
+              "read": "しゅるい",
+              "vi": "chủng loại, loại"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn lựa"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のわりに（Bài 54 TARGET）",
+              "vi": "接続: Nの + わりに. 値段のわりに = \"so với mức giá (chung) đó thì\". わりに dùng mốc CHUNG CHUNG, kết quả KHÔNG TƯƠNG XỨNG kỳ vọng theo hướng tốt bất ngờ."
+            },
+            {
+              "point": "〜と（điều kiện tự nhiên, Bài 23）",
+              "vi": "見ると = hễ nhìn vào thì. と tự nhiên, kết quả tất yếu theo nhận thức."
+            }
+          ]
+        },
+        {
+          "jp": "私はコーヒーとケーキを注文した。料金は高めだったが、コーヒーの味は値段のわりによかったと思う。",
+          "vi": "Tôi gọi cà phê và bánh. Giá hơi cao, nhưng tôi thấy vị cà phê khá tốt so với mức giá đó.",
+          "vocab": [
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh ngọt, bánh kem"
+            },
+            {
+              "w": "注文します",
+              "read": "ちゅうもんします",
+              "vi": "gọi món, đặt hàng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "chi phí, tiền"
+            },
+            {
+              "w": "高め",
+              "read": "たかめ",
+              "vi": "hơi cao (về giá)"
+            },
+            {
+              "w": "味",
+              "read": "あじ",
+              "vi": "vị, mùi vị"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のわりに（Bài 54 TARGET — lặp lại）",
+              "vi": "値段のわりによかった = tốt hơn kỳ vọng so với mức giá. わりに lần hai, xác nhận vai trò trọng tâm."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "よかったと思う = tôi thấy/nghĩ là ngon. Ý kiến chủ quan của người viết."
+            }
+          ]
+        },
+        {
+          "jp": "佐藤さんは「このケーキ、甘いというより、後味がさっぱりしていて好きです」と言っていた。",
+          "vi": "Chị Sato nói \"Cái bánh này, đúng hơn là hậu vị thanh mát chứ không phải ngọt, tôi thích\".",
+          "vocab": [
+            {
+              "w": "佐藤",
+              "read": "さとう",
+              "vi": "Sato (họ người)"
+            },
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh ngọt, bánh kem"
+            },
+            {
+              "w": "甘い",
+              "read": "あまい",
+              "vi": "ngọt"
+            },
+            {
+              "w": "後味",
+              "read": "あとあじ",
+              "vi": "hậu vị"
+            },
+            {
+              "w": "さっぱり",
+              "read": "さっぱり",
+              "vi": "thanh mát, sảng khoái"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "さっぱりします",
+              "read": "さっぱりします",
+              "vi": "thanh mát, không ngậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "甘いというより後味がさっぱり = \"ngọt thì chưa mô tả đúng, đúng hơn là hậu vị thanh mát\". というより trong lời trực tiếp của nhân vật khác → mẫu xuất hiện tự nhiên trong đối thoại."
+            },
+            {
+              "point": "〜と言っていた（Bài 21）",
+              "vi": "Trích lại lời của Sato (truyền đạt gián tiếp, た thể)."
+            }
+          ]
+        },
+        {
+          "jp": "そのカフェには若いスタッフが多かった。接客態度は、経験が少ないにしては、とても丁寧だった。",
+          "vi": "Quán có nhiều nhân viên trẻ. So với việc ít kinh nghiệm thì thái độ phục vụ rất lịch sự.",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ tuổi"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "接客",
+              "read": "せっきゃく",
+              "vi": "phục vụ khách hàng"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, chu đáo"
+            },
+            {
+              "w": "接客態度",
+              "read": "せっきゃくたいど",
+              "vi": "thái độ phục vụ khách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては（Bài 54 TARGET）",
+              "vi": "接続: 普通形 + にしては. 経験が少ないにしては = \"so với cái CHUẨN CỤ THỂ là ít kinh nghiệm thì\". にしては BẤT NGỜ/NGOÀI DỰ ĐOÁN: ít kinh nghiệm thường kém, nhưng thực tế lịch sự. Mốc X (経験が少ない) rõ ràng, cụ thể. ≠ わりに: わりに mốc ước lượng chung hơn."
+            }
+          ]
+        },
+        {
+          "jp": "カフェを出てから、佐藤さんが「あのカフェ、また来たいですね」と言った。",
+          "vi": "Ra khỏi quán, chị Sato nói \"Quán đó, muốn đến lại nhỉ\".",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra, rời khỏi"
+            },
+            {
+              "w": "佐藤",
+              "read": "さとう",
+              "vi": "Sato (họ người)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "出てから = sau khi ra. て形 + から = trình tự: làm xong A rồi mới B."
+            },
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "また来たい = muốn đến lại. Vたい diễn đạt ý muốn."
+            }
+          ]
+        },
+        {
+          "jp": "私も同じ気持ちだったが、なぜそう思うのか、うまく言葉にできなかった。",
+          "vi": "Tôi cũng cùng cảm giác nhưng không nói ra được lý do bằng lời.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống, cùng"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm xúc"
+            },
+            {
+              "w": "なぜ",
+              "read": "なぜ",
+              "vi": "tại sao"
+            },
+            {
+              "w": "そう",
+              "read": "そう",
+              "vi": "như vậy"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "một cách khéo léo"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, từ ngữ"
+            },
+            {
+              "w": "できなかった",
+              "read": "できなかった",
+              "vi": "đã không thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のか（Bài 26 んです系）",
+              "vi": "なぜそう思うのか = lý do tại sao nghĩ vậy. のか = câu hỏi nội tâm, tự hỏi chính mình."
+            },
+            {
+              "point": "V可能形 + できなかった（Bài 27）",
+              "vi": "言葉にできなかった = không nói ra được. できる → できなかった (phủ định khả năng)."
+            }
+          ]
+        },
+        {
+          "jp": "しばらく考えてみると、「居心地がいいというより、なんとなく安心できる場所」という感じかもしれない。",
+          "vi": "Suy nghĩ một lúc, cảm giác đó có lẽ là \"nơi mà nói 'dễ chịu' thì chưa hẳn, đúng hơn phải gọi là nơi khiến mình thấy yên tâm\".",
+          "vocab": [
+            {
+              "w": "しばらく",
+              "read": "しばらく",
+              "vi": "một lúc, một khoảng thời gian"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "居心地",
+              "read": "いごこち",
+              "vi": "cảm giác thoải mái (khi ở chỗ nào)"
+            },
+            {
+              "w": "なんとなく",
+              "read": "なんとなく",
+              "vi": "không hiểu sao, thế nào ấy"
+            },
+            {
+              "w": "安心します",
+              "read": "あんしんします",
+              "vi": "yên tâm, an tâm"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "感じ",
+              "read": "かんじ",
+              "vi": "cảm giác, ấn tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "居心地がいいというより安心できる = \"dễ chịu thì chưa đúng lắm, đúng hơn là yên tâm\". というより trong suy nghĩ nội tâm — dùng để tự sửa lại cách diễn đạt của mình."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "〜かもしれない = có lẽ là. Diễn đạt suy đoán chưa chắc chắn."
+            }
+          ]
+        },
+        {
+          "jp": "値段が安いから行きたいのではなく、その雰囲気のわりに、値段が高く感じないのだと気づいた。",
+          "vi": "Không phải muốn đến vì giá rẻ, mà là so với không khí đó thì không cảm thấy giá đắt.",
+          "vocab": [
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "bầu không khí"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            },
+            {
+              "w": "気づきます",
+              "read": "きづきます",
+              "vi": "nhận ra, nhận thức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のわりに（Bài 54 TARGET）",
+              "vi": "その雰囲気のわりに = \"so với cái không khí/bầu không khí đó (chung) thì\". わりに dùng không khí/chất lượng tổng thể làm mốc ước lượng — rất tự nhiên với わりに."
+            },
+            {
+              "point": "〜のではなく〜（Bài 26）",
+              "vi": "〜のではなく = không phải (vì). のではなく dùng để phủ định lý do A rồi đưa ra B đúng hơn."
+            }
+          ]
+        },
+        {
+          "jp": "また、スタッフが若いにしては料理の説明がしっかりしていて、それも好印象につながったと思う。",
+          "vi": "Hơn nữa, so với việc nhân viên còn trẻ thì giải thích món ăn rõ ràng, điều đó cũng tạo ấn tượng tốt.",
+          "vocab": [
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "chắc chắn, chăm chỉ"
+            },
+            {
+              "w": "印象",
+              "read": "いんしょう",
+              "vi": "ấn tượng"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "dẫn đến, liên kết"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "hơn nữa, thêm nữa"
+            },
+            {
+              "w": "しっかりします",
+              "read": "しっかりします",
+              "vi": "rõ ràng, chắc chắn"
+            },
+            {
+              "w": "好印象",
+              "read": "こういんしょう",
+              "vi": "ấn tượng tốt"
+            },
+            {
+              "w": "つながります",
+              "read": "つながります",
+              "vi": "liên quan, dẫn đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては（Bài 54 TARGET — lặp lại）",
+              "vi": "スタッフが若いにしては = \"so với chuẩn cụ thể là nhân viên còn trẻ thì\". にしては lần hai trong bài dài — mốc CỤ THỂ (若い) + kết quả BẤT NGỜ (しっかり)."
+            }
+          ]
+        },
+        {
+          "jp": "こういう体験をすると、「値段というより、体験全体の価値が大切なのだ」とよく分かる。",
+          "vi": "Khi có trải nghiệm như vậy, người ta hiểu rõ \"đúng hơn là giá tiền, giá trị toàn bộ trải nghiệm mới quan trọng\".",
+          "vocab": [
+            {
+              "w": "こういう",
+              "read": "こういう",
+              "vi": "loại như vậy, như thế này"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "値段というより体験全体の価値 = \"giá tiền thì chưa đúng, đúng hơn là giá trị toàn bộ\". というより trong kết luận tổng quát — đây là \"luận điểm\" của cả đoạn văn."
+            },
+            {
+              "point": "〜と（điều kiện tự nhiên, Bài 23）",
+              "vi": "こういう体験をすると = hễ có trải nghiệm như vậy thì. Kết quả nhận thức tất yếu."
+            }
+          ]
+        },
+        {
+          "jp": "学生のころ、良いものは値段が高いと思っていた。でも今は少し違う考えを持つようになった。",
+          "vi": "Hồi còn là sinh viên, tôi nghĩ đồ tốt thì giá cao. Nhưng bây giờ tôi có suy nghĩ hơi khác rồi.",
+          "vocab": [
+            {
+              "w": "学生のころ",
+              "read": "がくせいのころ",
+              "vi": "hồi còn là sinh viên"
+            },
+            {
+              "w": "良いもの",
+              "read": "よいもの",
+              "vi": "đồ tốt"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思っていた（Bài 21）",
+              "vi": "思っていた = đã từng nghĩ (trạng thái liên tục trong quá khứ). Vている + た = hành động/trạng thái kéo dài trong quá khứ."
+            },
+            {
+              "point": "〜ようになった（Bài 36）",
+              "vi": "持つようになった = đã trở nên có (suy nghĩ mới). ようになる = thay đổi tiệm tiến."
+            }
+          ]
+        },
+        {
+          "jp": "値段が高くても、必ずしもいい体験ができるとは言えない。",
+          "vi": "Dù giá có cao thì cũng không hẳn lúc nào cũng nói được là sẽ có trải nghiệm tốt.",
+          "vocab": [
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "必ずしも〜ない",
+              "read": "かならずしも〜ない",
+              "vi": "không nhất thiết, không phải luôn luôn"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "言えます",
+              "read": "いえます",
+              "vi": "có thể nói (khả năng của 言う)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "値段が高くても = dù giá cao đi nữa. ても = \"dù…cũng/vẫn\" (Bài 25). Ở đây nối với phủ định để bác bỏ hệ quả tưởng là đương nhiên."
+            },
+            {
+              "point": "必ずしも〜とは言えない（Bài 21 と + Bài 27 可能形）",
+              "vi": "必ずしもいい体験ができるとは言えない = không hẳn có thể nói rằng sẽ có trải nghiệm tốt. と (trích dẫn) + 言える (khả năng) + ない — phủ định nhẹ, khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "逆に、値段のわりに満足度が高い場所には、何か特別な工夫があると思う。",
+          "vi": "Ngược lại, tôi nghĩ những nơi độ hài lòng cao so với giá thì có sự cố gắng đặc biệt nào đó.",
+          "vocab": [
+            {
+              "w": "逆に",
+              "read": "ぎゃくに",
+              "vi": "ngược lại"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "満足",
+              "read": "まんぞく",
+              "vi": "hài lòng, thỏa mãn"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "特別な",
+              "read": "とくべつな",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "sự sáng tạo, cố gắng, dụng tâm"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "満足度",
+              "read": "まんぞくど",
+              "vi": "mức độ hài lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のわりに（Bài 54 TARGET）",
+              "vi": "値段のわりに満足度が高い = \"mức độ hài lòng cao so với giá (ước lượng chung)\". わりに dùng để so sánh: giá ở mức đó mà hài lòng cao vượt kỳ vọng."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa + N（Bài 22）",
+              "vi": "満足度が高い + 場所 = \"nơi mà mức độ hài lòng cao\"."
+            }
+          ]
+        },
+        {
+          "jp": "そのカフェの場合、スタッフ全員が、話し方がやさしいというより、相手のことを考えて話しているように感じた。",
+          "vi": "Với quán cà phê đó, tôi cảm thấy toàn bộ nhân viên, đúng hơn là nói chuyện nhẹ nhàng, họ đang nói chuyện có suy nghĩ đến đối phương.",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "toàn bộ, tất cả mọi người"
+            },
+            {
+              "w": "話し方",
+              "read": "はなしかた",
+              "vi": "cách nói chuyện"
+            },
+            {
+              "w": "やさしい",
+              "read": "やさしい",
+              "vi": "nhẹ nhàng, dịu dàng"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người đối diện"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "話し方がやさしいというより相手のことを考えて話している = \"nhẹ nhàng thì chưa đúng lắm, đúng hơn là có suy nghĩ đến đối phương\". というより làm rõ điều gì tạo nên ấn tượng tốt — luận điểm chính của đoạn cuối."
+            },
+            {
+              "point": "〜ように感じた（Bài 36 ようだ系）",
+              "vi": "〜ように感じた = cảm thấy như là… Diễn đạt ấn tượng chủ quan."
+            }
+          ]
+        },
+        {
+          "jp": "お客さんが何を求めているかをしっかり考えているのだ、とも言えるかもしれない。",
+          "vi": "Có thể nói rằng họ đang thật sự suy nghĩ xem khách hàng muốn gì.",
+          "vocab": [
+            {
+              "w": "お客さん",
+              "read": "おきゃくさん",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "何",
+              "read": "なに",
+              "vi": "cái gì"
+            },
+            {
+              "w": "求めている",
+              "read": "もとめている",
+              "vi": "đang tìm kiếm, mong muốn"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "kỹ càng, chắc chắn"
+            },
+            {
+              "w": "考えている",
+              "read": "かんがえている",
+              "vi": "đang suy nghĩ, cân nhắc"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞 〜か（Bài 40）",
+              "vi": "何を求めているか = (cái) khách hàng muốn gì. 疑問詞 + か làm mệnh đề danh từ (Bài 40)."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "言えるかもしれない = có thể nói được. Người viết không quá khẳng định — dùng かもしれない để giữ thái độ khiêm tốn."
+            }
+          ]
+        },
+        {
+          "jp": "次の週末も、また二人でそのカフェに行こうと思っている。",
+          "vi": "Cuối tuần tới, tôi đang nghĩ hai người sẽ cùng đến quán đó lần nữa.",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "次の週末",
+              "read": "つぎのしゅうまつ",
+              "vi": "cuối tuần tới"
+            },
+            {
+              "w": "二人で",
+              "read": "ふたりで",
+              "vi": "hai người cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V意向形 + と思っている（Bài 21 + 31）",
+              "vi": "行こうと思っている = đang nghĩ sẽ đi. 意向形 + と思う = kế hoạch/dự định chủ quan. ている = trạng thái đang nghĩ hiện tại."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "おしゃれというより、こぢんまりとした落ち着いた雰囲気だった",
+          "label": "〜というより（sửa lại nhận định）"
+        },
+        {
+          "excerpt": "値段のわりに種類が多くて",
+          "label": "〜のわりに（Sắc thái: mốc chung, kết quả vượt kỳ vọng）"
+        },
+        {
+          "excerpt": "経験が少ないにしては、とても丁寧だった",
+          "label": "〜にしては（mốc cụ thể, bất ngờ）"
+        },
+        {
+          "excerpt": "値段というより、体験全体の価値が大切なのだ",
+          "label": "〜というより（luận điểm cốt lõi）"
+        },
+        {
+          "excerpt": "値段のわりに満足度が高い場所",
+          "label": "〜のわりに（so sánh mức độ hài lòng vs giá）"
+        },
+        {
+          "excerpt": "話し方がやさしいというより、相手のことを考えて話している",
+          "label": "Sắc thái: というより làm rõ bản chất sâu hơn"
+        }
+      ],
+      "questions": [
+        {
+          "q": "このカフェについて、書いた人が一番伝えたいことは何ですか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "このカフェは値段が安くて、種類が多い",
+            "若いスタッフが多いので、サービスが悪い",
+            "値段より体験全体の価値が大切で、このカフェはその良い例だ",
+            "カフェのケーキは甘すぎて、あまりよくなかった"
+          ],
+          "answer": 2,
+          "explainVi": "Câu chủ đề của đoạn văn được nêu rõ ở đoạn giữa:「値段というより、体験全体の価値が大切なのだ」— tác giả dùng というより để định lại luận điểm: không phải \"giá rẻ\" mà là \"giá trị toàn bộ trải nghiệm\". Quán này là ví dụ minh họa cụ thể (わりに và にしては mô tả kỳ vọng bị vượt qua). Đáp án ③ nắm đúng luận điểm này. Đáp án ① sai vì tác giả không nói giá rẻ (料金は高めだった). Đáp án ② sai vì tác giả khen dịch vụ (丁寧だった). Đáp án ④ sai vì người nói ケーキ ngon là Sato (甘いというより後味がさっぱり), không phải tác giả chê.",
+          "tip": "というより trong câu CUỐI hoặc câu TỔNG KẾT = luận điểm trung tâm của đoạn văn. Câu đó nói gì → đó là \"điều tác giả muốn truyền đạt nhất\".",
+          "qt": {
+            "q": "Về quán cà phê này, điều người viết muốn truyền đạt nhất là gì?",
+            "o": [
+              "Quán cà phê này có giá rẻ và nhiều món để lựa chọn",
+              "Vì có nhiều nhân viên trẻ nên dịch vụ kém",
+              "Giá trị của toàn bộ trải nghiệm quan trọng hơn giá cả, và quán cà phê này là một ví dụ điển hình",
+              "Bánh ngọt của quán cà phê quá ngọt và không được ngon lắm"
+            ]
+          }
+        },
+        {
+          "q": "「スタッフが若いにしては料理の説明がしっかりしていて」の文で、「にしては」はどんな意味を表していますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "若いから説明がしっかりしているのは当然だ",
+            "若いという具体的な条件から予想される水準より、説明がうまかったことへの驚き",
+            "若いスタッフが多いという事実が気に入らない",
+            "若いスタッフは説明をすべきではないという主張"
+          ],
+          "answer": 1,
+          "explainVi": "Câu「スタッフが若いにしては料理の説明がしっかりしていて」dùng にしては với mốc X CỤ THỂ là \"nhân viên còn trẻ\" (若い). Kỳ vọng thông thường: nhân viên trẻ → giải thích chưa rành. Thực tế: しっかりしていて (rất rõ ràng) → BẤT NGỜ. Đáp án đúng là ②. Đáp án ① sai vì にしては KHÔNG nói kết quả là \"đương nhiên\" — đây là ý nghĩa ngược lại. Đáp án ③ sai vì câu không hề thể hiện thái độ phàn nàn. Đáp án ④ sai vì câu không có nội dung \"không nên giải thích\".",
+          "tip": "にしては luôn ngụ ý \"kết quả TRÁI với kỳ vọng từ X\". Nếu bạn thấy \"đương nhiên\" hay \"vì thế nên\" thì đó là SAI — にしては không nối nguyên nhân-kết quả tự nhiên.",
+          "qt": {
+            "q": "Trong câu 「スタッフが若いにしては料理の説明がしっかりしていて」, 「にしては」 biểu thị ý nghĩa gì?",
+            "o": [
+              "Vì còn trẻ nên việc giải thích rõ ràng là đương nhiên",
+              "Sự ngạc nhiên rằng phần giải thích tốt hơn mức người ta dự đoán từ điều kiện cụ thể là còn trẻ",
+              "Không thích sự thật là có nhiều nhân viên trẻ",
+              "Ý kiến cho rằng nhân viên trẻ không nên giải thích"
+            ]
+          }
+        },
+        {
+          "q": "「値段のわりに満足度が高い」と「スタッフが若いにしては丁寧だった」の文で、「わりに」と「にしては」の使い分けについて正しいのはどれですか。",
+          "evi": [
+            10,
+            14
+          ],
+          "options": [
+            "「わりに」も「にしては」も同じ意味で、どちらでも使える",
+            "「わりに」は値段という大まかな基準との差を表し、「にしては」は若さという具体的な条件を基準にした意外性を表す",
+            "「にしては」は良い評価のとき、「わりに」は悪い評価のときだけ使う",
+            "「わりに」はN3で新しい表現で、「にしては」はN4で学ぶ表現だ"
+          ],
+          "answer": 1,
+          "explainVi": "Đoạn văn cung cấp hai ví dụ song song: (A)「値段のわりに満足度が高い」— mốc X là \"giá tiền\" (ước lượng CHUNG: giá ở mức đó người ta kỳ vọng bình thường); (B)「スタッフが若いにしては丁寧だった」— mốc X là \"nhân viên còn trẻ\" (điều kiện CỤ THỂ, quan sát được). Đáp án đúng là ②. Đáp án ① sai vì hai mẫu KHÔNG đồng nghĩa và không hoán đổi tự do — ví dụ *値段にしては (nghe lạ) vs 値段のわりに (tự nhiên). Đáp án ③ sai vì cả hai đều dùng cho khen/chê tùy ngữ cảnh. Đáp án ④ sai hoàn toàn về cấp độ JLPT.",
+          "tip": "わりに ưa đi với danh từ ĐO LƯỜNG ĐƯỢC nhưng KHÔNG CỐ ĐỊNH (値段、年齢、時間...). にしては ưa đi với hoàn cảnh/điều kiện CỐ ĐỊNH RÕ RÀNG (一年しか〜ない, 初心者, 若い...). Mốc càng \"đong đếm chính xác\" → にしては càng đúng.",
+          "qt": {
+            "q": "Trong các câu 「値段のわりに満足度が高い」 và 「スタッフが若いにしては丁寧だった」, cách dùng 「わりに」 và 「にしては」 nào là đúng?",
+            "o": [
+              "「わりに」 và 「にしては」 có cùng ý nghĩa và có thể dùng thay cho nhau",
+              "「わりに」 biểu thị sự khác biệt so với tiêu chuẩn chung là giá cả, còn 「にしては」 biểu thị sự bất ngờ dựa trên điều kiện cụ thể là sự trẻ tuổi",
+              "「にしては」 chỉ dùng khi đánh giá tốt, còn 「わりに」 chỉ dùng khi đánh giá xấu",
+              "「わりに」 là cách diễn đạt mới học ở N3, còn 「にしては」 là cách diễn đạt học ở N4"
+            ]
+          }
+        },
+        {
+          "q": "書いた人が「また二人でそのカフェに行こうと思っている」理由として、文章の内容から最も適切なものはどれですか。",
+          "evi": [
+            3,
+            5,
+            11
+          ],
+          "options": [
+            "値段がとても安いからです",
+            "佐藤さんに行こうと誘われたからです",
+            "値段のわりに満足度が高く、スタッフの接客も期待以上だったからです",
+            "ケーキがとても甘くておいしかったからです"
+          ],
+          "answer": 2,
+          "explainVi": "Toàn bộ đoạn văn dẫn đến kết luận: tác giả muốn quay lại vì「値段のわりによかった」(cà phê tốt hơn kỳ vọng với mức giá đó) +「若いにしては丁寧」(nhân viên lịch sự hơn dự đoán) +「体験全体の価値」(giá trị trải nghiệm vượt mức giá tiền). Đáp án đúng là ③. Đáp án ① sai vì tác giả nói「料金は高めだった」— giá KHÔNG rẻ. Đáp án ② sai vì chính tác giả chủ động (行こうと思っている), không bị Sato rủ. Đáp án ④ sai vì người nói ケーキ ngon là Sato chứ không phải tác giả, và từ \"ngọt\" còn bị Sato phủ nhận bằng というより.",
+          "tip": "Câu hỏi \"tại sao làm X?\" → tìm câu dùng わりに/にしては/というより trong đoạn văn — đó chứa lý do thực sự. Đừng nhầm giữa lời của TÁC GIẢ và lời của NHÂN VẬT KHÁC (佐藤さん).",
+          "qt": {
+            "q": "Dựa trên nội dung bài viết, lý do phù hợp nhất khiến người viết 「また二人でそのカフェに行こうと思っている」 là gì?",
+            "o": [
+              "Vì giá cả rất rẻ",
+              "Vì được Sato mời đi",
+              "Vì mức độ hài lòng cao so với giá cả và cách phục vụ của nhân viên cũng vượt quá mong đợi",
+              "Vì bánh ngọt rất ngọt và ngon"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "レンタサイクル＆レンタカーご案内を読む",
+      "titleVi": "Tờ hướng dẫn thuê xe đạp & xe hơi ở thị trấn Sakura",
+      "japanese": "さくら町　レンタサイクル＆レンタカーご案内\nさくら町駅前の観光案内所では、町を回るのに便利なレンタサイクルとレンタカーを貸し出しています。自然が多いさくら町を楽しむのにおすすめです。\nプラン｜半日（4時間まで）｜1日\n普通自転車｜300円｜500円\n電動アシスト自転車｜800円｜1,300円\n軽自動車｜3,000円｜5,000円\n料金は、会員証の有無や予約の時期、曜日で次のように変わります。\n条件｜金額の変化\n会員証を提示した場合｜料金から10％引き\n2週間前までに予約した場合｜料金から300円引き\n土曜・日曜・祝日に利用する場合｜料金に500円追加\n※返却が予定時刻より遅れた場合、1時間につき300円の延長料金がかかります。軽自動車を利用する方は、保険（1日500円）に必ずご加入ください。\n電動アシスト自転車は、値段のわりに軽くてこぎやすく、坂の多いさくら町にはちょうどいいと思う。\n軽自動車は、観光用にしては装備がしっかりしていて、カーナビも初めから付いている。ただ、便利というより、駅から遠い場所へ行くときだけ借りるべきだと思う。\nお問い合わせ・ご予約は、駅前観光案内所（電話：0120-55-6789、午前9時〜午後6時）までお願いします。",
+      "vietnamese": "Hướng dẫn thuê xe đạp & xe hơi ở thị trấn Sakura\nTại quầy hướng dẫn du lịch trước ga thị trấn Sakura có cho thuê xe đạp và xe hơi rất tiện lợi để đi vòng quanh thị trấn. Rất khuyên dùng để tận hưởng thị trấn Sakura nhiều thiên nhiên.\nLoại xe｜Nửa ngày (đến 4 tiếng)｜1 ngày\nXe đạp thường｜300 yên｜500 yên\nXe đạp trợ lực điện｜800 yên｜1.300 yên\nXe hơi cỡ nhỏ｜3.000 yên｜5.000 yên\nGiá tiền thay đổi theo việc có thẻ hội viên hay không, thời điểm đặt trước, và ngày trong tuần như sau.\nĐiều kiện｜Thay đổi số tiền\nTrường hợp xuất trình thẻ hội viên｜Giảm 10% từ giá tiền\nTrường hợp đặt trước từ 2 tuần trở lên｜Giảm 300 yên từ giá tiền\nTrường hợp sử dụng vào thứ Bảy, Chủ Nhật, ngày lễ｜Cộng thêm 500 yên vào giá tiền\n※ Nếu trả xe trễ hơn giờ hẹn, mỗi 1 tiếng trễ sẽ tính thêm 300 yên phí gia hạn. Người thuê xe hơi cỡ nhỏ bắt buộc phải tham gia bảo hiểm (500 yên/ngày).\nXe đạp trợ lực điện thì so với giá tiền lại nhẹ và dễ đạp, nghĩ rằng rất hợp với thị trấn Sakura nhiều dốc.\nXe hơi cỡ nhỏ, so với xe cho khách du lịch thì trang bị khá đầy đủ, có sẵn cả định vị dẫn đường ngay từ đầu. Nhưng, đúng hơn là tiện lợi, chỉ nên thuê khi cần đi đến nơi xa ga mà thôi.\nMọi thắc mắc và đặt trước xin liên hệ quầy hướng dẫn du lịch trước ga (điện thoại: 0120-55-6789, 9 giờ sáng đến 6 giờ chiều).",
+      "sentences": [
+        {
+          "jp": "さくら町　レンタサイクル＆レンタカーご案内",
+          "vi": "Hướng dẫn thuê xe đạp & xe hơi ở thị trấn Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "さくら町",
+              "read": "さくらまち",
+              "vi": "thị trấn Sakura"
+            },
+            {
+              "w": "レンタサイクル",
+              "read": "レンタサイクル",
+              "vi": "xe đạp cho thuê"
+            },
+            {
+              "w": "レンタカー",
+              "read": "レンタカー",
+              "vi": "ô tô cho thuê"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông tin"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông tin hướng dẫn"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "さくら町駅前の観光案内所では、町を回るのに便利なレンタサイクルとレンタカーを貸し出しています。自然が多いさくら町を楽しむのにおすすめです。",
+          "vi": "Tại quầy hướng dẫn du lịch trước ga thị trấn Sakura có cho thuê xe đạp và xe hơi rất tiện lợi để đi vòng quanh thị trấn. Rất khuyên dùng để tận hưởng thị trấn Sakura nhiều thiên nhiên.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "回る",
+              "read": "まわる",
+              "vi": "đi vòng quanh"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "レンタサイクル",
+              "read": "レンタサイクル",
+              "vi": "xe đạp cho thuê"
+            },
+            {
+              "w": "レンタカー",
+              "read": "レンタカー",
+              "vi": "xe hơi cho thuê"
+            },
+            {
+              "w": "貸し出します",
+              "read": "かしだします",
+              "vi": "cho thuê, cho mượn"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "楽しむ",
+              "read": "たのしむ",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "khuyên dùng, gợi ý"
+            },
+            {
+              "w": "観光案内所",
+              "read": "かんこうあんないじょ",
+              "vi": "quầy hướng dẫn du lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに便利（Bài 38 ôn）",
+              "vi": "回るのに便利 = tiện lợi cho việc đi vòng quanh. Vる＋のに＋tính từ đánh giá công dụng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "レンタサイクルとレンタカーを貸し出しています",
+              "why": "câu giới thiệu chung: xác nhận có 2 loại phương tiện cho thuê — nền cho bảng giá ngay sau"
+            }
+          ]
+        },
+        {
+          "jp": "プラン｜半日（4時間まで）｜1日",
+          "vi": "Loại xe｜Nửa ngày (đến 4 tiếng)｜1 ngày",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "半日",
+              "read": "はんにち",
+              "vi": "nửa ngày"
+            },
+            {
+              "w": "4時間",
+              "read": "よじかん",
+              "vi": "4 giờ"
+            },
+            {
+              "w": "1日",
+              "read": "いちにち",
+              "vi": "1 ngày"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "プラン｜半日（4時間まで）｜1日",
+              "why": "header bảng giá: 3 cột loại xe/nửa ngày/1 ngày — khung để dò cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "普通自転車｜300円｜500円",
+          "vi": "Xe đạp thường｜300 yên｜500 yên",
+          "vocab": [
+            {
+              "w": "普通",
+              "read": "ふつう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "普通自転車",
+              "read": "ふつうじてんしゃ",
+              "vi": "xe đạp thường"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "電動アシスト自転車｜800円｜1,300円",
+          "vi": "Xe đạp trợ lực điện｜800 yên｜1.300 yên",
+          "vocab": [
+            {
+              "w": "電動アシスト自転車",
+              "read": "でんどうアシストじてんしゃ",
+              "vi": "xe đạp trợ lực điện"
+            },
+            {
+              "w": "電動",
+              "read": "でんどう",
+              "vi": "chạy bằng điện"
+            },
+            {
+              "w": "アシスト",
+              "read": "アシスト",
+              "vi": "trợ lực"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "800円",
+              "read": "はっぴゃくえん",
+              "vi": "800 yên"
+            },
+            {
+              "w": "1,300円",
+              "read": "せんさんびゃくえん",
+              "vi": "1.300 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "電動アシスト自転車｜800円｜1,300円",
+              "why": "căn cứ chính câu hỏi 1: giá gốc 1日 = 1,300円, phải trừ 2 điều kiện giảm giá ở bảng dưới"
+            }
+          ]
+        },
+        {
+          "jp": "軽自動車｜3,000円｜5,000円",
+          "vi": "Xe hơi cỡ nhỏ｜3.000 yên｜5.000 yên",
+          "vocab": [
+            {
+              "w": "軽自動車",
+              "read": "けいじどうしゃ",
+              "vi": "xe ô tô hạng nhẹ"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "軽自動車｜3,000円｜5,000円",
+              "why": "căn cứ chính câu hỏi 2: giá gốc 半日 = 3,000円, phải cộng 2 điều kiện phụ thu ở bảng dưới"
+            }
+          ]
+        },
+        {
+          "jp": "料金は、会員証の有無や予約の時期、曜日で次のように変わります。",
+          "vi": "Giá tiền thay đổi theo việc có thẻ hội viên hay không, thời điểm đặt trước, và ngày trong tuần như sau.",
+          "vocab": [
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "有無",
+              "read": "うむ",
+              "vi": "có hay không"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời điểm, thời kỳ"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "会員証",
+              "read": "かいいんしょう",
+              "vi": "thẻ hội viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで変わります（Bài 21 ôn — で chỉ căn cứ）",
+              "vi": "曜日で変わります = thay đổi theo ngày trong tuần. で ở đây chỉ căn cứ/nguyên nhân khiến kết quả khác nhau (giống cấu trúc Nで変わります đã học)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員証の有無や予約の時期、曜日で次のように変わります",
+              "why": "câu chuyển mạch: báo trước có 3 loại điều kiện làm giá thay đổi — dẫn vào bảng điều kiện ngay sau"
+            }
+          ]
+        },
+        {
+          "jp": "条件｜金額の変化",
+          "vi": "Điều kiện｜Thay đổi số tiền",
+          "vocab": [
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "金額",
+              "read": "きんがく",
+              "vi": "số tiền"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "条件｜金額の変化",
+              "why": "header bảng điều kiện: khung tra 3 điều kiện tăng/giảm giá cho cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "会員証を提示した場合｜料金から10％引き",
+          "vi": "Trường hợp xuất trình thẻ hội viên｜Giảm 10% từ giá tiền",
+          "vocab": [
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "提示します",
+              "read": "ていじします",
+              "vi": "xuất trình, đưa ra"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合は（Bài 45 ôn）",
+              "vi": "提示した場合 = trường hợp (đã) xuất trình. 場合は nêu tình huống giả định trong văn bản trang trọng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員証を提示した場合｜料金から10％引き",
+              "why": "căn cứ 1/2 câu hỏi 1: điều kiện có thẻ hội viên → giảm 10%"
+            }
+          ]
+        },
+        {
+          "jp": "2週間前までに予約した場合｜料金から300円引き",
+          "vi": "Trường hợp đặt trước từ 2 tuần trở lên｜Giảm 300 yên từ giá tiền",
+          "vocab": [
+            {
+              "w": "2週間前",
+              "read": "にしゅうかんまえ",
+              "vi": "trước 2 tuần"
+            },
+            {
+              "w": "2週間",
+              "read": "にしゅうかん",
+              "vi": "2 tuần"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "予約した",
+              "read": "よやくした",
+              "vi": "đã đặt trước"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "300円引き",
+              "read": "さんびゃくえんびき",
+              "vi": "giảm 300 yên"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17 ôn）",
+              "vi": "2週間前までに = trong vòng trước 2 tuần (hạn chót). までに nhấn hạn phải hoàn thành trước đó."
+            }
+          ],
+          "keys": [
+            {
+              "w": "2週間前までに予約した場合｜料金から300円引き",
+              "why": "căn cứ 2/2 câu hỏi 1: điều kiện đặt trước ≥2 tuần → giảm thêm 300円, ghép với hàng trên mới ra đáp án đủ"
+            }
+          ]
+        },
+        {
+          "jp": "土曜・日曜・祝日に利用する場合｜料金に500円追加",
+          "vi": "Trường hợp sử dụng vào thứ Bảy, Chủ Nhật, ngày lễ｜Cộng thêm 500 yên vào giá tiền",
+          "vocab": [
+            {
+              "w": "土曜",
+              "read": "どよう",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜",
+              "read": "にちよう",
+              "vi": "Chủ Nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "土曜・日曜・祝日に利用する場合｜料金に500円追加",
+              "why": "căn cứ 1/2 câu hỏi 2: dùng cuối tuần/lễ → cộng thêm 500円 vào giá gốc"
+            }
+          ]
+        },
+        {
+          "jp": "※返却が予定時刻より遅れた場合、1時間につき300円の延長料金がかかります。軽自動車を利用する方は、保険（1日500円）に必ずご加入ください。",
+          "vi": "※ Nếu trả xe trễ hơn giờ hẹn, mỗi 1 tiếng trễ sẽ tính thêm 300 yên phí gia hạn. Người thuê xe hơi cỡ nhỏ bắt buộc phải tham gia bảo hiểm (500 yên/ngày).",
+          "vocab": [
+            {
+              "w": "返却",
+              "read": "へんきゃく",
+              "vi": "trả lại"
+            },
+            {
+              "w": "予定時刻",
+              "read": "よていじこく",
+              "vi": "thời gian dự kiến"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "dự kiến"
+            },
+            {
+              "w": "時刻",
+              "read": "じこく",
+              "vi": "thời gian"
+            },
+            {
+              "w": "遅れた",
+              "read": "おくれた",
+              "vi": "bị trễ"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "延長料金",
+              "read": "えんちょうりょうきん",
+              "vi": "phí gia hạn"
+            },
+            {
+              "w": "延長",
+              "read": "えんちょう",
+              "vi": "gia hạn"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "phát sinh"
+            },
+            {
+              "w": "軽自動車",
+              "read": "けいじどうしゃ",
+              "vi": "xe ô tô hạng nhẹ"
+            },
+            {
+              "w": "利用する",
+              "read": "りようする",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "保険",
+              "read": "ほけん",
+              "vi": "bảo hiểm"
+            },
+            {
+              "w": "1日500円",
+              "read": "いちにちごひゃくえん",
+              "vi": "500 yên mỗi ngày"
+            },
+            {
+              "w": "1日",
+              "read": "いちにち",
+              "vi": "1 ngày"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định"
+            },
+            {
+              "w": "ご加入ください",
+              "read": "ごかにゅうください",
+              "vi": "vui lòng tham gia"
+            },
+            {
+              "w": "ご加入",
+              "read": "ごかにゅう",
+              "vi": "tham gia"
+            },
+            {
+              "w": "加入",
+              "read": "かにゅう",
+              "vi": "tham gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜につき（Bài 11 ぐらい系 ôn mở rộng）",
+              "vi": "1時間につき300円 = cứ mỗi 1 tiếng thì 300円. につき đóng vai trò như mỗi đơn vị."
+            },
+            {
+              "point": "ご＋V(ます形)＋ください（Bài 50 ôn）",
+              "vi": "ご加入ください = xin hãy tham gia. Kính ngữ nhẹ nhàng yêu cầu khách làm gì."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1時間につき300円の延長料金がかかります",
+              "why": "căn cứ 2/2 câu hỏi 2: trễ giờ trả xe → cộng thêm phí theo số giờ trễ, ghép với hàng phụ thu cuối tuần mới ra đáp án đủ"
+            }
+          ]
+        },
+        {
+          "jp": "電動アシスト自転車は、値段のわりに軽くてこぎやすく、坂の多いさくら町にはちょうどいいと思う。",
+          "vi": "Xe đạp trợ lực điện thì so với giá tiền lại nhẹ và dễ đạp, nghĩ rằng rất hợp với thị trấn Sakura nhiều dốc.",
+          "vocab": [
+            {
+              "w": "電動",
+              "read": "でんどう",
+              "vi": "chạy bằng điện, dùng điện"
+            },
+            {
+              "w": "アシスト",
+              "read": "アシスト",
+              "vi": "sự hỗ trợ, trợ lực"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "軽い",
+              "read": "かるい",
+              "vi": "nhẹ"
+            },
+            {
+              "w": "坂",
+              "read": "さか",
+              "vi": "con dốc"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "ちょうど",
+              "read": "ちょうど",
+              "vi": "đúng, vừa đúng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "こぎやすい",
+              "read": "こぎやすい",
+              "vi": "dễ đạp (xe đạp)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のわりに（Bài 54 TARGET）",
+              "vi": "接続: Nの + わりに. 値段のわりに軽くてこぎやすく = \"so với giá tiền (mốc CHUNG chung) thì lại nhẹ và dễ đạp\". わりに ghi nhận kết quả TỐT hơn kỳ vọng từ mức giá, không cần chuẩn cụ thể."
+            },
+            {
+              "point": "Vやすい（Bài 28 ôn）",
+              "vi": "こぎやすい = dễ đạp. V(ます形)＋やすい diễn đạt tính dễ làm."
+            },
+            {
+              "point": "〜と思う（Bài 21 ôn）",
+              "vi": "ちょうどいいと思う = nghĩ rằng vừa hợp. Ý kiến chủ quan của người viết thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "軽自動車は、観光用にしては装備がしっかりしていて、カーナビも初めから付いている。ただ、便利というより、駅から遠い場所へ行くときだけ借りるべきだと思う。",
+          "vi": "Xe hơi cỡ nhỏ, so với xe cho khách du lịch thì trang bị khá đầy đủ, có sẵn cả định vị dẫn đường ngay từ đầu. Nhưng, đúng hơn là tiện lợi, chỉ nên thuê khi cần đi đến nơi xa ga mà thôi.",
+          "vocab": [
+            {
+              "w": "軽自動車",
+              "read": "けいじどうしゃ",
+              "vi": "xe hơi cỡ nhỏ"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "装備",
+              "read": "そうび",
+              "vi": "trang bị"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "chắc chắn, chăm chỉ"
+            },
+            {
+              "w": "カーナビ",
+              "read": "カーナビ",
+              "vi": "định vị dẫn đường trên xe"
+            },
+            {
+              "w": "初め",
+              "read": "はじめ",
+              "vi": "ban đầu, lúc đầu"
+            },
+            {
+              "w": "付く",
+              "read": "つく",
+              "vi": "gắn kèm, dính vào"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "遠い",
+              "read": "とおい",
+              "vi": "xa (tính từ い)"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "借りる",
+              "read": "かりる",
+              "vi": "mượn, vay"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "観光用",
+              "read": "かんこうよう",
+              "vi": "dùng cho du lịch, dành cho khách du lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては（Bài 54 TARGET）",
+              "vi": "接続: N + にしては. 観光用にしては装備がしっかり = \"so với cái CHUẨN CỤ THỂ là xe cho thuê du lịch thì trang bị lại đầy đủ (bất ngờ)\". にしては nhấn mốc X rõ ràng, xác định được (観光用の車)."
+            },
+            {
+              "point": "〜というより（Bài 54 TARGET）",
+              "vi": "便利というより = \"tiện lợi thì chưa đúng hẳn, đúng hơn phải nói là…\". というより SỬA LẠI cách đánh giá trước khi đưa lời khuyên べきだ."
+            },
+            {
+              "point": "〜べきだ（Bài 53 ôn）",
+              "vi": "借りるべきだ = nên thuê (lời khuyên mang tính chủ quan mạnh). べき diễn đạt \"đáng lẽ nên làm\" theo Bài 53."
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ・ご予約は、駅前観光案内所（電話：0120-55-6789、午前9時〜午後6時）までお願いします。",
+          "vi": "Mọi thắc mắc và đặt trước xin liên hệ quầy hướng dẫn du lịch trước ga (điện thoại: 0120-55-6789, 9 giờ sáng đến 6 giờ chiều).",
+          "vocab": [
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "hỏi thăm/liên hệ"
+            },
+            {
+              "w": "ご予約",
+              "read": "ごよやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "駅前観光案内所",
+              "read": "えきまえかんこうあんないじょ",
+              "vi": "quầy thông tin du lịch trước ga"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga"
+            },
+            {
+              "w": "観光案内所",
+              "read": "かんこうあんないじょ",
+              "vi": "quầy thông tin du lịch"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch/tham quan"
+            },
+            {
+              "w": "案内所",
+              "read": "あんないじょ",
+              "vi": "quầy thông tin"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "所",
+              "read": "じょ",
+              "vi": "nơi/quầy"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "午前9時",
+              "read": "ごぜんくじ",
+              "vi": "9 giờ sáng"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "午後6時",
+              "read": "ごごろくじ",
+              "vi": "6 giờ chiều"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "6時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            },
+            {
+              "w": "お願いします",
+              "read": "おねがいします",
+              "vi": "vui lòng/nhờ giúp"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời nhờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでお願いします（Bài 7 ôn mở rộng）",
+              "vi": "観光案内所までお願いします = xin liên hệ đến quầy hướng dẫn. まで chỉ điểm đến của yêu cầu liên hệ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "値段のわりに軽くてこぎやすく",
+          "label": "〜のわりに（mốc chung: giá tiền）"
+        },
+        {
+          "excerpt": "観光用にしては装備がしっかりしていて",
+          "label": "〜にしては（mốc cụ thể: xe cho thuê du lịch）"
+        },
+        {
+          "excerpt": "便利というより、駅から遠い場所へ行くときだけ借りるべきだ",
+          "label": "〜というより＋べきだ（Bài 53 ôn）"
+        },
+        {
+          "excerpt": "2週間前までに予約した場合",
+          "label": "Nまでに（Bài 17 ôn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu chung",
+          "topic": 0,
+          "note": "Tiêu đề tờ hướng dẫn thuê xe đạp/xe hơi + câu giới thiệu quầy du lịch cho thuê 2 loại phương tiện — bối cảnh chung, chưa có căn cứ câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng giá gốc theo loại xe",
+          "topic": 4,
+          "note": "Bảng 1 (loại xe｜nửa ngày｜1 ngày): dòng 電動アシスト自転車 (1,300円/1日) là giá gốc câu hỏi 1; dòng 軽自動車 (3,000円/半日) là giá gốc câu hỏi 2.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng điều kiện tăng/giảm giá",
+          "topic": 7,
+          "note": "Bảng 2 (điều kiện｜thay đổi tiền): 2 hàng giảm giá (thẻ hội viên -10%, đặt sớm -300円) là căn cứ câu hỏi 1; hàng phụ thu cuối tuần (+500円) là căn cứ 1/2 câu hỏi 2.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 11,
+          "kind": "turn",
+          "label": "Điều kiện ※ trả trễ & bảo hiểm",
+          "topic": 11,
+          "note": "Dòng ※ bẫy: phí gia hạn theo giờ trễ (300円/giờ) là căn cứ 2/2 câu hỏi 2 — phải cộng dồn với phụ thu cuối tuần mới ra tổng đúng; bảo hiểm bắt buộc chỉ áp dụng cho 軽自動車 (không liên quan 2 câu hỏi tính tiền).",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "body",
+          "label": "Lời bình giá trị so với kỳ vọng",
+          "topic": 12,
+          "note": "Hai câu dùng わりに/にしては/というより để đánh giá xe đạp trợ lực điện và xe hơi so với kỳ vọng — minh họa mẫu TRỌNG TÂM bài 54, không phải căn cứ tính tiền của 2 câu hỏi giá.",
+          "qs": []
+        },
+        {
+          "from": 14,
+          "to": 14,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 14,
+          "note": "Câu kết: số điện thoại và giờ làm việc của quầy hướng dẫn — không phải căn cứ đáp án.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは電動アシスト自転車を1日借ります。会員証を持っていて、2週間前に予約しました。カリナさんはいくら払いますか。",
+          "options": [
+            "900円",
+            "1,000円",
+            "1,170円",
+            "1,300円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0 (900円). Giá gốc 1日 của 電動アシスト自転車 là 1,300円（dòng bảng giá）. Karina đặt trước 2 tuần → giảm 300円theo hàng「2週間前までに予約した場合｜料金から300円引き」: 1,300−300=1,000円. Sau đó có thẻ hội viên → giảm tiếp 10% theo hàng「会員証を提示した場合｜料金から10％引き」: 1,000×0.9=900円. Đáp án 1 (1,000円) sai vì mới trừ 300円 đặt sớm mà quên tính thêm 10% hội viên. Đáp án 2 (1,170円) sai vì tính nhầm hướng — chỉ trừ 10% mà quên trừ 300円. Đáp án 3 (1,300円) sai vì không áp dụng giảm giá nào cả, bỏ qua cả 2 điều kiện đề bài cho.",
+          "tip": "Câu hỏi cho ĐỦ 2 điều kiện giảm giá (hội viên + đặt sớm) → phải áp dụng CẢ HAI theo đúng thứ tự trong bảng, không được chỉ tính 1 điều kiện rồi dừng lại.",
+          "evi": [
+            2,
+            4,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Karina thuê xe đạp trợ lực điện trong 1 ngày. Cô ấy có thẻ hội viên và đã đặt trước 2 tuần. Karina phải trả bao nhiêu tiền?",
+            "o": [
+              "900 yên",
+              "1.000 yên",
+              "1.170 yên",
+              "1.300 yên"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんは軽自動車を半日借ります。日曜日に利用して、返却が2時間遅れました。保険料を除いて、レンタル料金はいくらですか。",
+          "options": [
+            "3,000円",
+            "3,500円",
+            "3,800円",
+            "4,100円"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3 (4,100円). Giá gốc 半日 của 軽自動車 là 3,000円（dòng bảng giá）. Sử dụng vào Chủ Nhật → cộng thêm 500円 theo hàng「土曜・日曜・祝日に利用する場合｜料金に500円追加」: 3,000+500=3,500円. Trả xe trễ 2 tiếng → cộng thêm phí gia hạn theo dòng ※「1時間につき300円の延長料金」: 300×2=600円, vậy 3,500+600=4,100円. Đáp án 0 (3,000円) sai vì bỏ qua cả 2 khoản phụ thu. Đáp án 1 (3,500円) sai vì chỉ tính phụ thu Chủ Nhật mà quên phí trễ giờ. Đáp án 2 (3,800円) sai vì tính phí trễ giờ chỉ 1 tiếng (300円) thay vì đúng 2 tiếng (600円) như đề bài cho. Lưu ý: câu hỏi chỉ hỏi tiền THUÊ XE (レンタル料金) — bảo hiểm bắt buộc (500円/1日, dòng ※) là khoản phí RIÊNG, không cộng vào đây.",
+          "tip": "Phí trả trễ tính THEO SỐ GIỜ trễ (1時間につき300円) — phải nhân đúng số giờ đề bài cho (ở đây 2 tiếng = 600円), không được mặc định chỉ 1 lần 300円.",
+          "evi": [
+            2,
+            5,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Wan thuê một chiếc ô tô cỡ nhỏ trong nửa ngày. Anh ấy sử dụng xe vào Chủ nhật và trả xe muộn 2 giờ. Không tính phí bảo hiểm, phí thuê xe là bao nhiêu?",
+            "o": [
+              "3.000 yên",
+              "3.500 yên",
+              "3.800 yên",
+              "4.100 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3434 @@
+{
+  "bai": 55,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 55 tập trung vào 〜うちに — mẫu diễn đạt sắc thái TRANH THỦ: \"làm điều X trong khi trạng thái Y còn đang duy trì, vì nếu để Y thay đổi thì sẽ muộn/khó hơn\". Dạng phủ định ないうちに nghĩa là \"trước khi điều X chưa xảy ra thì làm đi\". Đọc hiểu bài này = nhận ra SẮC THÁI TRANH THỦ và phân biệt うちに với まえに (mốc thời gian rõ) cũng như với 間に (trung tính về thời khoảng — sẽ học Bài 56).",
+    "steps": [
+      "Xác định mệnh đề trước うちに: đó là TRẠNG THÁI đang duy trì (若い、熱い、忘れない、子供が小さい…). Hỏi \"trạng thái này có thay đổi theo thời gian không?\" — có → うちに phù hợp.",
+      "Phân biệt cấu trúc: Vる/Vている/Aい/なAな/Nの＋うちに (trạng thái đang kéo dài); Vない＋うちに (trước khi điều xấu xảy ra).",
+      "Khi gặp câu hỏi \"vì sao dùng うちに chứ không dùng まえに?\": まえに chỉ mốc thời gian đơn giản (中に入るまえに靴を脱ぐ), còn うちに thêm ý TRANH THỦ + lo rằng trạng thái sẽ thay đổi.",
+      "Tìm highlight: câu có うちに thường đi kèm từ khuyến khích (〜てください、〜ましょう、〜たほうがいい、〜べき) — đây là dấu hiệu sắc thái \"làm ngay kẻo muộn\".",
+      "Câu hỏi suy luận: đọc kỹ xem tác giả lo sợ trạng thái nào sẽ kết thúc → đó là lý do chọn うちに."
+    ],
+    "tips": [
+      "使い分け うちに vs まえに: \"食べるまえに手を洗う\"（trước khi ăn thì rửa tay — mốc rõ, không cần tranh thủ）≠ \"温かいうちに食べてください\"（tranh thủ ăn khi còn nóng — trạng thái sẽ đổi）. Nếu thay được bằng まえに mà câu không mất sắc thái thì có thể chưa phải うちに thuần túy.",
+      "使い分け うちに vs 間に (Bài 56): うちに nhấn sắc thái TRANH THỦ + lo ngại; 間に trung tính \"trong khoảng thời gian đó thì\". Ví dụ (chỉ trong tiếng Việt): \"Tranh thủ làm khi còn trẻ\" = うちに; \"Trong lúc ngủ thì có người gọi điện\" = 間に (sẽ học Bài 56).",
+      "ないうちに bẫy: tuyệt đối không nhầm 暗くならないうちに帰る（về trước khi trời tối）với 暗くなるまえに帰る — nghĩa gần nhau nhưng うちに nhấn mạnh hơn \"đừng để đến lúc trời tối mới về kẻo nguy\".",
+      "Nhận diện 接続: Vる→そのうちに/若いうちに; Vている→忙しくないうちに/生きているうちに; Aい→熱いうちに; なA→元気なうちに; N→子供のうちに; Vない→忘れないうちに/遅くならないうちに.",
+      "Trong câu hỏi trắc nghiệm, nếu đáp án có chữ \"tranh thủ\" hoặc \"kẻo muộn\" → đó là dấu hiệu của うちに. Đáp án nói \"trước khi X\" mà không có sắc thái lo lắng → cẩn thận, có thể là まえに bị ngụy trang."
+    ],
+    "grammarFocus": [
+      "〜うちに（Vる/Vている/Aい/なAな/Nの＋うちに）— tranh thủ trong lúc còn",
+      "〜ないうちに（Vない＋うちに）— trước khi X chưa xảy ra"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ（bổn phận, lời khuyên mạnh）"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "〜ようになります（thay đổi tiệm tiến）",
+          "〜ようにします"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "Vるまえに（mốc thời gian rõ — đối chiếu うちに）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜たほうがいいです（lời khuyên）",
+          "〜かもしれません"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "Vる予定です"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（nguyên nhân）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "今しかできないこと",
+      "titleVi": "Những điều chỉ có thể làm ngay bây giờ",
+      "japanese": "若いうちに、いろいろな経験をしておくべきだと思います。体が元気なうちに、世界中を旅してみたいです。やる気があるうちに、新しいことに挑戦するのが一番いいでしょう。知識や技術は、学べるうちに、できるだけ身につけておいたほうがいいです。忘れないうちに、大切なことはメモしておきましょう。日が暮れないうちに家に帰るつもりです。チャンスは長く続かないので、つかめるうちにつかむべきです。「今しかできない」と思ったら、すぐに動くことが大切だと私は思います。",
+      "vietnamese": "Tôi nghĩ nên tích lũy nhiều trải nghiệm trong khi còn trẻ. Trong khi cơ thể còn khỏe mạnh, tôi muốn thử đi du lịch khắp thế giới. Khi còn có động lực, thử thách điều mới là tốt nhất. Kiến thức và kỹ năng, nên tích lũy càng nhiều càng tốt trong khi còn có thể học được. Trước khi quên, hãy ghi chú lại những điều quan trọng. Tôi dự định về nhà trước khi trời tối. Cơ hội không kéo dài mãi, nên nắm bắt trong khi còn có thể nắm. Tôi nghĩ khi cảm thấy \"chỉ bây giờ mới có thể làm\" thì hành động ngay là điều quan trọng.",
+      "sentences": [
+        {
+          "jp": "若いうちに、いろいろな経験をしておくべきだと思います。",
+          "vi": "Tôi nghĩ nên tích lũy nhiều trải nghiệm trong khi còn trẻ.",
+          "vocab": [
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "しておきます",
+              "read": "しておきます",
+              "vi": "làm trước để dành (Vておく Bài 30)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Aい＋うちに）",
+              "vi": "若いうちに = trong khi còn trẻ. 接続: Aい＋うちに. Sắc thái TRANH THỦ: tuổi trẻ sẽ qua đi, hãy làm điều X trước khi trạng thái này đổi. Phân biệt: まえに（Bài 18）chỉ nêu mốc thời gian rõ, không có sắc thái lo ngại; 間に（Bài 56 — sẽ học sau）trung tính, không nhấn tranh thủ."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "しておくべきだ = nên làm (bổn phận/lẽ phải). Ôn lại Bài 53."
+            }
+          ]
+        },
+        {
+          "jp": "体が元気なうちに、世界中を旅してみたいです。",
+          "vi": "Trong khi cơ thể còn khỏe mạnh, tôi muốn thử đi du lịch khắp thế giới.",
+          "vocab": [
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể"
+            },
+            {
+              "w": "元気な",
+              "read": "げんきな",
+              "vi": "khỏe mạnh"
+            },
+            {
+              "w": "世界中",
+              "read": "せかいじゅう",
+              "vi": "khắp thế giới"
+            },
+            {
+              "w": "旅します",
+              "read": "たびします",
+              "vi": "du lịch, đi du hành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（なA＋うちに）",
+              "vi": "元気なうちに = trong khi còn khỏe. 接続: なAな＋うちに (元気 là tính từ な). Tranh thủ sức khỏe trước khi cơ thể suy yếu — sắc thái lo rằng trạng thái sẽ đổi."
+            },
+            {
+              "point": "Vてみたいです（Bài 13 + 40）",
+              "vi": "Vてみたい = muốn thử làm. Ôn lại Bài 13, 40."
+            }
+          ]
+        },
+        {
+          "jp": "やる気があるうちに、新しいことに挑戦するのが一番いいでしょう。",
+          "vi": "Khi còn có động lực, thử thách điều mới là tốt nhất.",
+          "vocab": [
+            {
+              "w": "やる気",
+              "read": "やるき",
+              "vi": "động lực, hứng khởi"
+            },
+            {
+              "w": "新しいこと",
+              "read": "あたらしいこと",
+              "vi": "điều mới"
+            },
+            {
+              "w": "挑戦します",
+              "read": "ちょうせんします",
+              "vi": "thử thách, thử sức"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（がある＋うちに: trạng thái còn duy trì）",
+              "vi": "やる気があるうちに = trong khi còn có động lực. がある (động từ trạng thái \"có/còn\") + うちに → tranh thủ lúc trạng thái còn duy trì (không phải Vている)."
+            },
+            {
+              "point": "〜が一番いいでしょう（Bài 12 + 32）",
+              "vi": "一番いい = tốt nhất; でしょう = phán đoán. Ôn lại Bài 12."
+            }
+          ]
+        },
+        {
+          "jp": "知識や技術は、学べるうちに、できるだけ身につけておいたほうがいいです。",
+          "vi": "Kiến thức và kỹ năng, nên tích lũy càng nhiều càng tốt trong khi còn có thể học được.",
+          "vocab": [
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật, kỹ năng"
+            },
+            {
+              "w": "学べる",
+              "read": "まなべる",
+              "vi": "có thể học"
+            },
+            {
+              "w": "できるだけ",
+              "read": "できるだけ",
+              "vi": "càng nhiều càng tốt, hết sức có thể"
+            },
+            {
+              "w": "身につけます",
+              "read": "みにつけます",
+              "vi": "tích lũy, thành thạo (kiến thức/kỹ năng)"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（V可能形＋うちに）",
+              "vi": "学べるうちに = trong khi còn có thể học. 学べる là V可能形（Bài 27）. 接続: Vる（可能形）＋うちに. Sắc thái: tranh thủ năng lực \"học được\" trước khi cơ hội mất."
+            },
+            {
+              "point": "〜たほうがいいです（Bài 32）",
+              "vi": "〜ておいたほうがいい = nên làm trước để dành. Lời khuyên nhẹ, ôn lại Bài 32."
+            }
+          ]
+        },
+        {
+          "jp": "忘れないうちに、大切なことはメモしておきましょう。",
+          "vi": "Trước khi quên, hãy ghi chú lại những điều quan trọng.",
+          "vocab": [
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "大切な",
+              "read": "たいせつな",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "メモします",
+              "read": "メモします",
+              "vi": "ghi chú, ghi lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないうちに（Vない＋うちに）",
+              "vi": "忘れないうちに = trước khi quên (khi chưa quên). 接続: Vない＋うちに. Sắc thái: hành động NGAY trước khi trạng thái xấu (quên mất) xảy ra. Khác まえに（Bài 18）: \"忘れるまえに\"も成立するが、うちに nhấn mạnh hơn sự lo ngại và tính cấp bách."
+            },
+            {
+              "point": "〜ておきましょう（Bài 30）",
+              "vi": "Vておく = làm trước để dành, chuẩn bị. ましょう = lời đề nghị cùng làm. Ôn lại Bài 30."
+            }
+          ]
+        },
+        {
+          "jp": "日が暮れないうちに家に帰るつもりです。",
+          "vi": "Tôi dự định về nhà trước khi trời tối.",
+          "vocab": [
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày, mặt trời"
+            },
+            {
+              "w": "暮れる",
+              "read": "くれる",
+              "vi": "lặn, hết ngày"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "trở về"
+            },
+            {
+              "w": "日が暮れます",
+              "read": "ひがくれます",
+              "vi": "trời tối, mặt trời lặn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないうちに（Vない＋うちに）",
+              "vi": "日が暮れないうちに = trước khi trời tối. Sắc thái: trời sẽ tối (trạng thái sẽ thay đổi) → hành động ngay. So sánh: \"日が暮れるまえに\"（Bài 18）nói mốc thời gian thuần túy; \"日が暮れないうちに\" thêm sắc thái cấp bách, lo ngại."
+            },
+            {
+              "point": "〜つもりです（Bài 31）",
+              "vi": "dự định làm. Ôn lại Bài 31."
+            }
+          ]
+        },
+        {
+          "jp": "チャンスは長く続かないので、つかめるうちにつかむべきです。",
+          "vi": "Cơ hội không kéo dài mãi, nên nắm bắt trong khi còn có thể nắm.",
+          "vocab": [
+            {
+              "w": "チャンス",
+              "read": "チャンス",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "続きます",
+              "read": "つづきます",
+              "vi": "tiếp tục, kéo dài"
+            },
+            {
+              "w": "つかめる",
+              "read": "つかめる",
+              "vi": "có thể nắm bắt"
+            },
+            {
+              "w": "つかむ",
+              "read": "つかむ",
+              "vi": "nắm bắt, tóm lấy"
+            },
+            {
+              "w": "つかみます",
+              "read": "つかみます",
+              "vi": "nắm bắt, nắm lấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（V可能形＋うちに）",
+              "vi": "つかめるうちに = trong khi còn có thể nắm bắt. つかめる（可能形 Bài 27）＋うちに. Hàm ý: nếu không nắm ngay thì cơ hội sẽ trôi qua."
+            },
+            {
+              "point": "〜べきです（Bài 53）",
+              "vi": "つかむべきです = nên nắm bắt (lẽ phải). Ôn lại Bài 53."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "続かないので = vì không kéo dài. Nêu lý do."
+            }
+          ]
+        },
+        {
+          "jp": "「今しかできない」と思ったら、すぐに動くことが大切だと私は思います。",
+          "vi": "Tôi nghĩ khi cảm thấy \"chỉ bây giờ mới có thể làm\" thì hành động ngay là điều quan trọng.",
+          "vocab": [
+            {
+              "w": "今しか",
+              "read": "いましか",
+              "vi": "chỉ bây giờ"
+            },
+            {
+              "w": "できない",
+              "read": "できない",
+              "vi": "không thể làm"
+            },
+            {
+              "w": "思ったら",
+              "read": "おもったら",
+              "vi": "nếu nghĩ rằng"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "動く",
+              "read": "うごく",
+              "vi": "hành động"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "思います",
+              "read": "おもいます",
+              "vi": "nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "と思ったら = khi cảm thấy. たら nêu điều kiện/thời điểm. Ôn lại Bài 25."
+            },
+            {
+              "point": "Vることが大切（Bài 38）",
+              "vi": "動くことが大切 = việc hành động là quan trọng. Vること = danh từ hoá động từ (Bài 38)."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "Người viết đưa ra quan điểm tổng kết bài."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "若いうちに",
+          "label": "うちに — Sắc thái TRANH THỦ（Aい形）"
+        },
+        {
+          "excerpt": "元気なうちに",
+          "label": "うちに（なA形）"
+        },
+        {
+          "excerpt": "忘れないうちに",
+          "label": "ないうちに — trước khi X chưa xảy ra"
+        },
+        {
+          "excerpt": "日が暮れないうちに",
+          "label": "ないうちに — Sắc thái cấp bách"
+        },
+        {
+          "excerpt": "つかめるうちにつかむべきです",
+          "label": "うちに（V可能形）＋べき"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「若いうちに経験をしておくべきだ」の「うちに」はどんな意味ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "若くなる前に経験しなければならないという義務を表しています",
+            "若いという状態が続いている間に、変わる前に経験しておくべきだというニュアンスを表しています",
+            "若いときだけに経験できることがあるという事実を説明しています",
+            "若さと経験を比較して、どちらが大切かを述べています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng (B): \"〜うちに\" của 「若いうちに」 nghĩa là \"trong khi trạng thái 若い còn đang duy trì, trước khi nó thay đổi\" — tức là sắc thái TRANH THỦ tích cực. Câu văn nói 「しておくべきだ」 (nên làm trước) càng khẳng định sắc thái đó. Tại sao các đáp án khác sai? Đáp án (A) — \"义务trước khi trở nên trẻ\" — vô nghĩa và sai cấu trúc (若くなる前に = trước khi trở nên trẻ là phi lý). Đáp án (C) — chỉ nêu sự thật \"có những việc chỉ làm được lúc trẻ\" — bỏ qua hoàn toàn sắc thái TRANH THỦ của うちに. Đáp án (D) — \"so sánh tuổi trẻ và kinh nghiệm\" — không liên quan gì đến cấu trúc うちに.",
+          "tip": "Hễ thấy うちに mà trước nó là một TRẠNG THÁI có thể thay đổi theo thời gian (若い、元気な、忘れない…) → đó là \"tranh thủ khi còn\". Nếu câu chỉ nêu mốc thời gian đơn thuần, không lo trạng thái đổi → là まえに, không phải うちに.",
+          "qt": {
+            "q": "Trong câu 「若いうちに経験をしておくべきだ」, 「うちに」 có nghĩa như thế nào?",
+            "o": [
+              "Diễn tả nghĩa vụ rằng phải trải nghiệm trước khi trở nên trẻ",
+              "Diễn tả sắc thái rằng nên trải nghiệm khi trạng thái còn trẻ đang tiếp diễn, trước khi nó thay đổi",
+              "Giải thích sự thật rằng có những điều chỉ có thể trải nghiệm khi còn trẻ",
+              "So sánh tuổi trẻ với trải nghiệm và nêu điều nào quan trọng hơn"
+            ]
+          }
+        },
+        {
+          "q": "「忘れないうちに」と「忘れるまえに」のニュアンスの違いとして正しいものはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "意味も使い方も全く同じです",
+            "「忘れないうちに」は文語体で、「忘れるまえに」は口語体です",
+            "「忘れないうちに」はまだ忘れていない今すぐ行動すべきという緊迫感を表し、「忘れるまえに」は単純な時間的な前後関係を表します",
+            "「忘れないうちに」は相手への命令で、「忘れるまえに」は自分への提案です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng (C): 「忘れないうちに」dùng cấu trúc Vない＋うちに = \"trong khi CHƯA quên\" → hàm ý cấp bách, lo ngại rằng nếu để một chút là quên mất. Còn 「忘れるまえに」(Bài 18) chỉ nêu mốc thời gian đơn giản \"trước khi quên\", không mang sắc thái lo lắng/thúc giục. Tại sao các đáp án khác sai? (A) — \"hoàn toàn giống nhau\" — sai vì hai cấu trúc khác nhau về sắc thái. (B) — phân biệt văn viết/khẩu ngữ — sai hoàn toàn, không có quy tắc đó. (D) — \"うちに = lệnh; まえに = tự đề nghị\" — sai, cả hai đều có thể dùng trong nhiều ngữ cảnh, đây không phải tiêu chí phân biệt.",
+          "tip": "ないうちに = \"trước khi X (xấu) xảy ra\" + có sắc thái LO NGẠI, CẤP BÁCH; まえに = đơn giản là \"trước khi\" không kèm cảm xúc. Nếu câu có vẻ thúc giục/lo sợ mà dùng phủ định → ないうちに.",
+          "qt": {
+            "q": "Khác biệt về sắc thái giữa 「忘れないうちに」 và 「忘れるまえに」 là gì?",
+            "o": [
+              "Ý nghĩa và cách dùng hoàn toàn giống nhau",
+              "「忘れないうちに」 là văn viết, còn 「忘れるまえに」 là khẩu ngữ",
+              "「忘れないうちに」 thể hiện cảm giác cấp bách rằng nên hành động ngay khi vẫn chưa quên, còn 「忘れるまえに」 chỉ thể hiện quan hệ trước sau về mặt thời gian",
+              "「忘れないうちに」 là mệnh lệnh dành cho đối phương, còn 「忘れるまえに」 là lời đề nghị dành cho bản thân"
+            ]
+          }
+        },
+        {
+          "q": "この文章が一番伝えたいことは何ですか。",
+          "evi": [
+            0,
+            7
+          ],
+          "options": [
+            "若いときは勉強だけに集中するべきです",
+            "チャンスを逃したら、また次のチャンスを待てばいいです",
+            "今の状態が変わる前に、積極的に行動することが大切です",
+            "メモを取る習慣が最も重要なスキルです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng (C): Toàn bài lặp lại liên tục chuỗi うちに — 「若いうちに」、「元気なうちに」、「学べるうちに」、「忘れないうちに」、「つかめるうちに」— tất cả đều truyền tải cùng một thông điệp: \"Hành động ngay khi trạng thái tốt còn duy trì, đừng để nó thay đổi mới tiếc\". Câu cuối 「今しかできないと思ったら、すぐに動くことが大切」khẳng định thêm. Tại sao các đáp án khác sai? (A) — \"chỉ tập trung học tập\" — ngược với bài (bài khuyến khích trải nghiệm đa dạng). (B) — \"chờ cơ hội tiếp theo\" — đi ngược thông điệp \"đừng bỏ lỡ hiện tại\". (D) — \"ghi chú là kỹ năng quan trọng nhất\" — chỉ là chi tiết nhỏ, không phải chủ đề chính.",
+          "tip": "Câu hỏi \"chủ đề chính\" của bài có うちに → tìm đáp án có cụm \"tranh thủ / hành động khi còn\" hoặc \"trạng thái sẽ thay đổi → làm ngay\". Đáp án nào thiếu sắc thái lo ngại đó thì loại.",
+          "qt": {
+            "q": "Bài viết này muốn truyền tải điều gì nhất?",
+            "o": [
+              "Khi còn trẻ, chỉ nên tập trung vào việc học",
+              "Nếu bỏ lỡ cơ hội thì chỉ cần chờ cơ hội tiếp theo",
+              "Điều quan trọng là hành động tích cực trước khi trạng thái hiện tại thay đổi",
+              "Thói quen ghi chép là kỹ năng quan trọng nhất"
+            ]
+          }
+        },
+        {
+          "q": "「つかめるうちにつかむべきです」という文で「つかめる」の形は何ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "つかむの受身形（〜られる Bài 37）",
+            "つかむの可能形（〜える Bài 27）",
+            "つかむの使役形（〜させる Bài 48）",
+            "つかむの意向形（〜よう Bài 31）"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng (B): 「つかめる」là dạng CÓ THỂ (可能形) của động từ godan つかむ: -mu → -meru (Bài 27). Cụm 「つかめるうちに」= \"trong khi còn có thể nắm bắt được\" — V可能形＋うちに là mẫu thường gặp, thể hiện sắc thái TRANH THỦ năng lực trước khi cơ hội mất. Tại sao các đáp án khác sai? (A) Thụ động (受身) của つかむ phải là 「つかまれる」, không phải つかめる. (C) Sai khiến (使役) là 「つかませる」. (D) Ý hướng (意向形) là 「つかもう」.",
+          "tip": "Godan verb kết thúc -u → 可能形 đổi -u thành -eru (つかむ→つかめる, 読む→読める). Nếu thấy V可能形＋うちに → nghĩa là \"tranh thủ khi năng lực/cơ hội còn\".",
+          "qt": {
+            "q": "Trong câu 「つかめるうちにつかむべきです」, 「つかめる」 thuộc dạng nào?",
+            "o": [
+              "Thể bị động của つかむ (〜られる, Bài 37)",
+              "Thể khả năng của つかむ (〜える, Bài 27)",
+              "Thể sai khiến của つかむ (〜させる, Bài 48)",
+              "Thể ý chí của つかむ (〜よう, Bài 31)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "手で書くメモの価値",
+      "titleVi": "Giá trị của việc ghi chú bằng tay",
+      "japanese": "最近は、スマートフォンやパソコンでメモを取る人が増えています。確かに、デジタルメモはいつでも検索できて便利です。しかし、手で紙に書くことにも大きな意味があります。\n頭の中にアイデアがあるうちに、紙にペンで書き出すことで、自分の考えをはっきり整理できます。また、まだ言葉になっていないあいまいな考えでも、忘れないうちに書き留めておくことが大切です。メモを書くときは、手と頭を同時に動かすので、新しいアイデアが生まれやすくなると言われています。\nそのため、忙しい毎日の中でも、ノートを開く時間を作るといいでしょう。デジタル機器は便利ですが、画面を見ているだけでは気づかないこともあります。記憶が新しいうちに自分自身の文字を見直すことで、過去の自分と会話をしている感覚になり、新しい発見があるのです。",
+      "vietnamese": "Gần đây, số người ghi chú bằng điện thoại thông minh hay máy tính đang tăng lên. Đúng là ghi chú kỹ thuật số rất tiện lợi vì có thể tìm kiếm bất cứ lúc nào. Tuy nhiên, việc dùng tay viết ra giấy cũng có ý nghĩa rất lớn.\nTrong khi ý tưởng còn ở trong đầu, bằng việc viết ra giấy bằng bút, bạn có thể sắp xếp suy nghĩ của mình một cách rõ ràng. Ngoài ra, dù là suy nghĩ mơ hồ chưa thành lời, việc ghi chép lại trước khi quên là rất quan trọng. Khi viết ghi chú, vì vận động đồng thời cả tay và đầu, người ta nói rằng ý tưởng mới sẽ dễ sinh ra hơn.\nVì thế, dù trong mỗi ngày bận rộn, nên tạo ra thời gian để mở cuốn sổ tay ra. Thiết bị kỹ thuật số tuy tiện lợi, nhưng chỉ nhìn vào màn hình thì cũng có những điều bạn không nhận ra. Bằng việc xem lại chữ viết của chính mình trong khi ký ức còn mới, bạn sẽ có cảm giác như đang trò chuyện với bản thân trong quá khứ, và có những phát hiện mới.",
+      "sentences": [
+        {
+          "jp": "最近は、スマートフォンやパソコンでメモを取る人が増えています。",
+          "vi": "Gần đây, số người ghi chú bằng điện thoại thông minh hay máy tính đang tăng lên.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "メモを取る",
+              "read": "メモをとる",
+              "vi": "ghi chú, take notes"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（Bài 15 + 28）",
+              "vi": "増えています = đang tăng lên (diễn tả xu hướng/trạng thái đang diễn ra)."
+            }
+          ]
+        },
+        {
+          "jp": "確かに、デジタルメモはいつでも検索できて便利です。",
+          "vi": "Đúng là ghi chú kỹ thuật số rất tiện lợi vì có thể tìm kiếm bất cứ lúc nào.",
+          "vocab": [
+            {
+              "w": "確かに",
+              "read": "たしかに",
+              "vi": "quả thực, đúng là"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "検索します",
+              "read": "けんさくします",
+              "vi": "tìm kiếm (thông tin/dữ liệu)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "可能形＋て（Bài 27 + 16）",
+              "vi": "検索できて = có thể tìm kiếm và... (thể khả năng chuyển sang thể て để nối lý do/tính chất)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "確かに",
+              "why": "Dấu hiệu của bước nhượng bộ, thừa nhận ưu điểm của kỹ thuật số trước khi chuyển ý."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、手で紙に書くことにも大きな意味があります。",
+          "vi": "Tuy nhiên, việc dùng tay viết ra giấy cũng có ý nghĩa rất lớn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「しかし」（Bài 14）",
+              "vi": "しかし = tuy nhiên. Từ nối chuyển ngoặt ý kiến, dẫn vào quan điểm chính của tác giả."
+            },
+            {
+              "point": "V辞書形＋こと（Bài 18）",
+              "vi": "書くこと = việc viết. Danh từ hóa động từ để làm chủ ngữ/bổ ngữ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし、手で紙に書くことにも大きな意味があります",
+              "why": "Liên từ chuyển ý 'しかし' dẫn dắt luận điểm đối lập và nêu bật chủ đề trọng tâm của bài viết."
+            }
+          ]
+        },
+        {
+          "jp": "頭の中にアイデアがあるうちに、紙にペンで書き出すことで、自分の考えをはっきり整理できます。",
+          "vi": "Trong khi ý tưởng còn ở trong đầu, bằng việc viết ra giấy bằng bút, bạn có thể sắp xếp suy nghĩ của mình một cách rõ ràng.",
+          "vocab": [
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu, trí óc"
+            },
+            {
+              "w": "アイデア",
+              "read": "アイデア",
+              "vi": "ý tưởng"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "ペン",
+              "read": "ペン",
+              "vi": "bút"
+            },
+            {
+              "w": "書き出します",
+              "read": "かきだします",
+              "vi": "viết ra, ghi ra"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "はっきり",
+              "read": "はっきり",
+              "vi": "rõ ràng"
+            },
+            {
+              "w": "整理します",
+              "read": "せいりします",
+              "vi": "sắp xếp, chỉnh lý"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Vある＋うちに — Bài 55 trọng tâm）",
+              "vi": "あるうちに = trong khi còn đang có (ý tưởng). 接続: VPlain/trạng thái + うちに. Sắc thái TRANH THỦ: ý tưởng ở trong đầu rất dễ quên hoặc vụt mất, cần nhanh chóng viết ra."
+            },
+            {
+              "point": "V辞書形＋ことで（Bài 41）",
+              "vi": "書き出すことで = bằng việc viết ra. Diễn tả phương thức, cách thức thực hiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "自分の考えをはっきり整理できます",
+              "why": "Nêu lợi ích cụ thể đầu tiên: viết ra giấy giúp sắp xếp và làm sáng tỏ suy nghĩ."
+            }
+          ]
+        },
+        {
+          "jp": "また、まだ言葉になっていないあいまいな考えでも、忘れないうちに書き留めておくことが大切です。",
+          "vi": "Ngoài ra, dù là suy nghĩ mơ hồ chưa thành lời, việc ghi chép lại trước khi quên là rất quan trọng.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "あいまい",
+              "read": "あいまい",
+              "vi": "sự mơ hồ, không rõ ràng"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "書き留めます",
+              "read": "かきとめます",
+              "vi": "ghi chép lại, note lại"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "あいまいな",
+              "read": "あいまいな",
+              "vi": "mơ hồ, mập mờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないうちに（Vない＋うちに — Bài 55 trọng tâm）",
+              "vi": "忘れないうちに = trước khi chưa quên / trong khi chưa quên. 接続: Vない＋うちに. Diễn tả việc thực hiện hành động X trước khi trạng thái Y (quên) xảy ra."
+            },
+            {
+              "point": "Vておきます（Bài 30）",
+              "vi": "書き留めておく = ghi lại trước/sẵn. Diễn tả chuẩn bị trước cho sau này."
+            }
+          ],
+          "keys": [
+            {
+              "w": "忘れないうちに書き留めておくことが大切です",
+              "why": "Cụm '大切です' thể hiện đánh giá tầm quan trọng của việc ghi lại các ý nghĩ còn mơ hồ."
+            }
+          ]
+        },
+        {
+          "jp": "メモを書くときは、手と頭を同時に動かすので、新しいアイデアが生まれやすくなると言われています。",
+          "vi": "Khi viết ghi chú, vì vận động đồng thời cả tay và đầu, người ta nói rằng ý tưởng mới sẽ dễ sinh ra hơn.",
+          "vocab": [
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "同時",
+              "read": "どうじ",
+              "vi": "đồng thời, cùng lúc"
+            },
+            {
+              "w": "動かします",
+              "read": "うごかします",
+              "vi": "vận động, cử động, di chuyển"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "アイデア",
+              "read": "アイデア",
+              "vi": "ý tưởng"
+            },
+            {
+              "w": "生まれます",
+              "read": "うまれます",
+              "vi": "sinh ra, nảy sinh"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜やすい（Bài 44）",
+              "vi": "生まれやすくなる = trở nên dễ nảy sinh hơn. Vます-stem + やすい."
+            },
+            {
+              "point": "受身形「〜と言われている」（Bài 37）",
+              "vi": "と言われている = được cho là / người ta nói rằng... Nêu ý kiến chung của xã hội."
+            }
+          ],
+          "keys": [
+            {
+              "w": "手と頭を同時に動かすので",
+              "why": "Mệnh đề nguyên nhân '〜ので' giải thích trực tiếp lý do tại sao ý tưởng mới dễ nảy sinh."
+            },
+            {
+              "w": "新しいアイデアが生まれやすくなると言われています",
+              "why": "Cụm 'と言われている' trình bày nhận định chung về hiệu quả kích thích sáng tạo khi viết tay."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、忙しい毎日の中でも、ノートを開く時間を作るといいでしょう。",
+          "vi": "Vì thế, dù trong mỗi ngày bận rộn, nên tạo ra thời gian để mở cuốn sổ tay ra.",
+          "vocab": [
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "lý do; mục đích"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong; giữa"
+            },
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở; sổ tay"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "tạo ra; dành ra"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「そのため」（Bài 45）",
+              "vi": "そのため = vì thế, do đó. Nối kết quả/lời khuyên rút ra từ lý do ở đoạn trước."
+            },
+            {
+              "point": "〜といい（Bài 32）",
+              "vi": "作るといいでしょう = tạo ra... thì tốt (đưa ra gợi ý/lời khuyên nhẹ nhàng)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ノートを開く時間を作るといいでしょう",
+              "why": "Mẫu câu khuyên nhủ '〜といいでしょう' thể hiện đề xuất hành động cụ thể của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル機器は便利ですが、画面を見ているだけでは気づかないこともあります。",
+          "vi": "Thiết bị kỹ thuật số tuy tiện lợi, nhưng chỉ nhìn vào màn hình thì cũng có những điều bạn không nhận ra.",
+          "vocab": [
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "機器",
+              "read": "きき",
+              "vi": "thiết bị, máy móc"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "気づきます",
+              "read": "きづきます",
+              "vi": "nhận ra, nhận biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけ（Bài 26）",
+              "vi": "見ているだけ = chỉ nhìn. Giới hạn phạm vi hành động."
+            },
+            {
+              "point": "VPlain＋こともある（Bài 19）",
+              "vi": "気づかないこともある = cũng có khi/điều không nhận ra. Diễn tả khả năng thỉnh thoảng xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "記憶が新しいうちに自分自身の文字を見直すことで、過去の自分と会話をしている感覚になり、新しい発見があるのです。",
+          "vi": "Bằng việc xem lại chữ viết của chính mình trong khi ký ức còn mới, bạn sẽ có cảm giác như đang trò chuyện với bản thân trong quá khứ, và có những phát hiện mới.",
+          "vocab": [
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "ký ức, ghi nhớ"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ viết, ký tự"
+            },
+            {
+              "w": "見直します",
+              "read": "みなおします",
+              "vi": "xem lại, nhìn lại"
+            },
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "感覚",
+              "read": "かんかく",
+              "vi": "cảm giác"
+            },
+            {
+              "w": "発見",
+              "read": "はっけん",
+              "vi": "phát hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Aい＋うちに — Bài 55 trọng tâm）",
+              "vi": "新しいうちに = trong khi còn mới. 接続: Aい＋うちに. Tranh thủ lúc ký ức còn tươi mới trước khi nhạt phai."
+            },
+            {
+              "point": "〜のです（Bài 26）",
+              "vi": "発見があるのです = chính là có phát hiện mới. Dùng để nhấn mạnh kết luận/giải thích cốt lõi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "新しい発見があるのです",
+              "why": "Đuôi câu khẳng định '〜のです' đúc kết giá trị sâu sắc khi tự mình đọc lại nét chữ trong quá khứ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "頭の中にアイデアがあるうちに",
+          "label": "うちに — Tranh thủ trong lúc (Vある＋うちに)"
+        },
+        {
+          "excerpt": "忘れないうちに",
+          "label": "ないうちに — Trước khi... chưa (Vない＋うちに)"
+        },
+        {
+          "excerpt": "記憶が新しいうちに",
+          "label": "うちに — Tranh thủ khi trạng thái còn duy trì (Aい＋うちに)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「手で紙に書くことにも大きな意味がある」とあるが、どういうことか。",
+          "options": [
+            "デジタル機器よりも紙のノートのほうがいつでも早く検索できるということ。",
+            "手で紙に書き留めることで、考えを整理したり新しい発想が得られたりする価値があるということ。",
+            "パソコンやスマートフォンを使うとアイデアを忘れてしまう危険があるということ。",
+            "忙しい毎日の中で手紙を書く習慣を身につけるべきだということ。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「手で紙に書き留めることで」 — Cụm từ 「大きな意味がある」 (có ý nghĩa lớn) ở câu [2] được tác giả giải thích chi tiết ở câu [3], [4], [5] và [8]: viết ra giấy giúp sắp xếp suy nghĩ rõ ràng, ghi lại ý tưởng trước khi quên và gợi mở những phát hiện mới. Các phương án khác sai: 「デジタル機器よりも」 sai vì câu [1] khẳng định ghi chú kỹ thuật số mới dễ tìm kiếm hơn; 「パソコンやスマートフォン」 sai vì bài đọc không nói dùng thiết bị điện tử sẽ làm mất ý tưởng; 「忙しい毎日の中で」 sai vì bài đọc không nói đến việc viết thư (手紙).",
+          "tip": "Khi gặp dạng câu hỏi 「〜とあるが、どういうことか」 (Cụm từ X có nghĩa là gì?), hãy đọc ngay các câu đứng phía sau để tìm nội dung giải thích chi tiết cho luận điểm được gạch chân.",
+          "evi": [
+            2,
+            3,
+            4,
+            5,
+            8
+          ],
+          "qt": {
+            "q": "「手で紙に書くことにも大きな意味がある」 nghĩa là gì?",
+            "o": [
+              "Nghĩa là sổ giấy luôn có thể tìm kiếm nhanh hơn thiết bị kỹ thuật số.",
+              "Nghĩa là việc ghi lại bằng tay trên giấy có giá trị ở chỗ giúp sắp xếp suy nghĩ và có được những ý tưởng mới.",
+              "Nghĩa là nếu sử dụng máy tính hoặc điện thoại thông minh thì có nguy cơ quên mất ý tưởng.",
+              "Nghĩa là nên hình thành thói quen viết thư trong những ngày bận rộn."
+            ]
+          }
+        },
+        {
+          "q": "メモを自分の手で紙に書くと、なぜ新しいアイデアが生まれやすくなるのか。",
+          "options": [
+            "手と頭を同時に動かして作業を進めることができるから。",
+            "デジタル機器と違って画面を見ずに集中して書くことができるから。",
+            "あいまいな考えを誰かに相談しながらまとめられるから。",
+            "過去に忘れてしまった記憶をすぐに思い出すことができるから。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「手と頭を同時に動かして」 — Câu [5] chỉ rõ nguyên nhân trực tiếp: 「手と頭を同時に動かすので、新しいアイデアが生まれやすくなる」 (vì vận động đồng thời cả tay và đầu nên ý tưởng mới dễ nảy sinh hơn). Các phương án khác sai: 「デジタル機器と違って」 sai vì bài không nói việc 'không nhìn màn hình'; 「あいまいな考えを誰かに」 sai vì bài không đề cập đến việc thảo luận với ai; 「過去に忘れてしまった記憶」 sai vì bài không nói việc viết tay giúp nhớ lại ngay lập tức những ký ức đã quên từ lâu.",
+          "tip": "Khi gặp câu hỏi nguyên nhân 「なぜ〜のか」, hãy tìm các từ nối chỉ lý do như 「〜ので」「〜から」「そのため」 trong bài đọc để xác định câu chứa đáp án trực tiếp.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Tại sao khi tự tay ghi chú trên giấy, những ý tưởng mới lại dễ nảy sinh?",
+            "o": [
+              "Vì có thể vừa vận động tay và đầu óc để tiếp tục công việc.",
+              "Vì khác với thiết bị kỹ thuật số, có thể tập trung viết mà không nhìn vào màn hình.",
+              "Vì có thể vừa trao đổi với ai đó vừa sắp xếp những suy nghĩ mơ hồ.",
+              "Vì có thể nhanh chóng nhớ lại những ký ức đã quên trong quá khứ."
+            ]
+          }
+        },
+        {
+          "q": "筆者は、メモを取ることについてどう考えているか。",
+          "options": [
+            "デジタル機器は使いにくいため、メモはすべて紙のノートに変えるべきだ。",
+            "アイデアや記憶が消えたり変わったりしないうちに、手で紙に書く時間を作ることが大切だ。",
+            "忘れてしまわないように、日常のメモはパソコンで取る方が効果的だ。",
+            "新しいアイデアを出すためには、メモを書かずに頭の中だけで整理した方がいい。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「アイデアや記憶が消えたり」 — Tác giả nhấn mạnh quan điểm xuyên suốt bài (đặc biệt câu [3], [4], [6], [8]): cần tranh thủ lúc ý tưởng còn ở trong đầu (あるうちに), khi chưa quên (忘れないうちに), khi ký ức còn mới (新しいうちに) để dành thời gian viết ra giấy và xem lại. Các phương án khác sai: 「デジタル機器は使いにくい」 sai vì tác giả thừa nhận ghi chú điện tử tiện lợi ở câu [1], không khuyên bỏ hoàn toàn; 「忘れてしまわないように」 sai vì tác giả khuyên viết tay vào sổ chứ không bảo dùng máy tính; 「新しいアイデアを出すため」 sai vì tác giả khuyên nên ghi chú ra giấy thay vì chỉ giữ trong đầu.",
+          "tip": "Dạng câu hỏi quan điểm tác giả 「筆者はどう考えているか」 đòi hỏi tổng hợp ý chính của toàn bài, tập trung vào các câu đưa ra lời khuyên (như 「〜ことが大切だ」「〜といいでしょう」) và từ khóa ngữ pháp trọng tâm.",
+          "evi": [
+            3,
+            4,
+            6,
+            8
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về việc ghi chú?",
+            "o": [
+              "Vì thiết bị kỹ thuật số khó sử dụng nên mọi ghi chú đều nên được chuyển sang sổ giấy.",
+              "Điều quan trọng là dành thời gian viết bằng tay trên giấy trước khi ý tưởng và ký ức biến mất hoặc thay đổi.",
+              "Để không quên, ghi chú hằng ngày sẽ hiệu quả hơn nếu được ghi bằng máy tính.",
+              "Để nảy sinh ý tưởng mới, tốt hơn là chỉ sắp xếp trong đầu mà không viết ghi chú."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "turn",
+          "label": "Đặt vấn đề & Bước ngoặt",
+          "topic": 2,
+          "note": "Mở đầu bằng thực trạng dùng thiết bị số và thừa nhận tính tiện dụng, sau đó dùng 'しかし' ở câu 2 để khẳng định ý nghĩa lớn của viết tay; bẫy sa đà vào việc ủng hộ kỹ thuật số.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "body",
+          "label": "Lợi ích và cơ chế sáng tạo",
+          "topic": 5,
+          "note": "Phân tích chi tiết tác dụng sắp xếp suy nghĩ và cơ chế tay - não kết hợp giúp nảy sinh ý tưởng mới; chứa căn cứ giải thích cho câu 2.",
+          "qs": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "point",
+          "label": "Lời khuyên & Kết luận",
+          "topic": 6,
+          "note": "Khuyên tạo thói quen mở sổ tay và chỉ ra giá trị khám phá mới khi đọc lại nét chữ của chính mình; chứa thông điệp chính của tác giả.",
+          "qs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "時間は待ってくれない",
+      "titleVi": "Thời gian không chờ ai",
+      "japanese": "日本に留学して、もうすぐ一年が経ちます。最初の頃は、言葉の壁にぶつかって、何度もくじけそうになりました。しかし、今では少しずつ日本語で会話ができるようになりました。それでも、まだやり残していることがたくさんあると感じています。先輩の田村さんにそのことを話すと、「日本にいるうちに、できることは全部やってみなさい」とアドバイスしてくれました。「日本語の環境に慣れているうちに、たくさん話して耳を鍛えるべきだよ」とも言いました。確かに、帰国したら日本語を使う機会はずっと減るでしょう。田村さんの言葉を聞いて、私はもっと積極的に行動しようと決めました。まず、日本人の友達がまだ少ないうちに、もっとサークルに参加して交流の輪を広げたいと思いました。また、興味があるうちに、茶道や書道などの日本文化を体験してみるつもりです。料理が上手な下宿のおばさんにも、帰国しないうちに料理を習いたいと頼みました。おばさんは「もちろん、教えてあげるよ。記憶が薄れないうちに毎回ちゃんとメモしなさいね」と言ってくれました。そして、忙しくなる前期試験が始まらないうちに、できるだけ多くの場所を旅したいとも考えています。つまり、今の自分には時間も体力も好奇心もあります。この三つが揃っているうちに行動しなければ、後で「あのとき動けばよかった」と後悔するかもしれません。田村さんは笑いながら「若いうちの苦労は買ってでもしろと言うでしょう？それが本当に分かるのは、もっと歳を取ってからだよ」と言いました。その言葉がずっと頭に残っています。いつかこの留学の日々を振り返ったとき、「あのうちにやっておいてよかった」と思えるように、毎日を大切に過ごしたいと思います。",
+      "vietnamese": "Du học ở Nhật đã gần một năm rồi. Lúc đầu, đụng phải rào cản ngôn ngữ, đã nhiều lần suýt nản lòng. Nhưng bây giờ tôi đã dần có thể hội thoại bằng tiếng Nhật. Dù vậy, tôi vẫn cảm thấy còn rất nhiều điều chưa làm được. Khi kể chuyện đó với đàn anh Tamura, anh ấy khuyên \"Trong khi còn ở Nhật, hãy thử làm hết những gì có thể\". Anh ấy còn nói \"Trong khi còn quen với môi trường tiếng Nhật, nên nói nhiều để rèn luyện thính giác\". Đúng vậy, khi về nước thì cơ hội dùng tiếng Nhật sẽ giảm đi nhiều. Nghe lời anh Tamura, tôi quyết định sẽ hành động tích cực hơn. Trước hết, khi bạn bè người Nhật còn ít, tôi muốn tham gia thêm câu lạc bộ để mở rộng vòng giao lưu. Ngoài ra, trong khi còn hứng thú, tôi dự định thử trải nghiệm văn hóa Nhật như trà đạo, thư pháp. Tôi cũng đã nhờ bà chủ nhà trọ nấu ăn rất giỏi dạy nấu ăn trước khi về nước. Bà ấy nói \"Tất nhiên, tôi sẽ dạy cho. Trước khi ký ức phai nhạt thì mỗi lần phải ghi chú cẩn thận nhé\". Và tôi cũng nghĩ muốn đi du lịch nhiều nơi càng nhiều càng tốt trước khi kỳ thi đầu khóa bận rộn bắt đầu. Tóm lại, bản thân tôi hiện tại có cả thời gian, thể lực lẫn sự tò mò. Nếu không hành động trong khi cả ba thứ này đang đủ, sau này có thể hối hận \"giá hồi đó mà đã làm\". Anh Tamura cười và nói \"Người ta nói trẻ khổ cũng nên tìm lấy mà khổ đó chứ? Cái đó thực sự hiểu được thì phải lớn tuổi hơn mới biết\". Câu nói đó cứ đọng mãi trong đầu tôi. Khi nhìn lại những ngày du học này trong tương lai, tôi muốn sống từng ngày quý giá để có thể nghĩ \"May mà hồi đó đã làm\".",
+      "sentences": [
+        {
+          "jp": "日本に留学して、もうすぐ一年が経ちます。",
+          "vi": "Du học ở Nhật đã gần một năm rồi.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "留学します",
+              "read": "りゅうがくします",
+              "vi": "du học"
+            },
+            {
+              "w": "もうすぐ",
+              "read": "もうすぐ",
+              "vi": "sắp, gần"
+            },
+            {
+              "w": "経ちます",
+              "read": "たちます",
+              "vi": "trôi qua (thời gian)"
+            },
+            {
+              "w": "一年",
+              "read": "いちねん",
+              "vi": "một năm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（Bài 16）",
+              "vi": "留学して = đã du học và… Vてnối hai mệnh đề theo trình tự."
+            }
+          ]
+        },
+        {
+          "jp": "最初の頃は、言葉の壁にぶつかって、何度もくじけそうになりました。",
+          "vi": "Lúc đầu, đụng phải rào cản ngôn ngữ, đã nhiều lần suýt nản lòng.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "壁",
+              "read": "かべ",
+              "vi": "bức tường"
+            },
+            {
+              "w": "ぶつかる",
+              "read": "ぶつかる",
+              "vi": "va chạm, đâm vào"
+            },
+            {
+              "w": "くじける",
+              "read": "くじける",
+              "vi": "nản lòng, thoái chí"
+            },
+            {
+              "w": "頃",
+              "read": "ころ",
+              "vi": "khoảng thời gian, hồi"
+            },
+            {
+              "w": "言葉の壁",
+              "read": "ことばのかべ",
+              "vi": "rào cản ngôn ngữ"
+            },
+            {
+              "w": "ぶつかります",
+              "read": "ぶつかります",
+              "vi": "đụng phải, va chạm"
+            },
+            {
+              "w": "何度も",
+              "read": "なんども",
+              "vi": "nhiều lần"
+            },
+            {
+              "w": "くじけます",
+              "read": "くじけます",
+              "vi": "nản lòng, chùn bước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうになりました（Bài 43 + 19）",
+              "vi": "くじけそうになりました = đã suýt nản lòng. Vそう（様態 Bài 43）+ になる（Bài 19）= gần đến trạng thái đó."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、今では少しずつ日本語で会話ができるようになりました。",
+          "vi": "Nhưng bây giờ tôi đã dần có thể hội thoại bằng tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "dần dần, từng chút"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ができるようになりました（Bài 27 + 36）",
+              "vi": "会話ができるようになりました = đã trở nên có thể hội thoại. 可能形（Bài 27）+ ようになる（Bài 36）= thay đổi tiệm tiến đến khả năng mới."
+            }
+          ]
+        },
+        {
+          "jp": "それでも、まだやり残していることがたくさんあると感じています。",
+          "vi": "Dù vậy, tôi vẫn cảm thấy còn rất nhiều điều chưa làm được.",
+          "vocab": [
+            {
+              "w": "それでも",
+              "read": "それでも",
+              "vi": "dù vậy, dù thế"
+            },
+            {
+              "w": "残す",
+              "read": "のこす",
+              "vi": "để lại, giữ lại"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm nhận, cảm thấy"
+            },
+            {
+              "w": "やり残します",
+              "read": "やりのこします",
+              "vi": "làm còn dang dở, bỏ sót"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "やり残していること = điều (mà) còn chưa làm xong. Mệnh đề vている bổ nghĩa cho こと."
+            }
+          ]
+        },
+        {
+          "jp": "先輩の田村さんにそのことを話すと、「日本にいるうちに、できることは全部やってみなさい」とアドバイスしてくれました。",
+          "vi": "Khi kể chuyện đó với đàn anh Tamura, anh ấy khuyên \"Trong khi còn ở Nhật, hãy thử làm hết những gì có thể\".",
+          "vocab": [
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "đàn anh, người đi trước"
+            },
+            {
+              "w": "田村",
+              "read": "たむら",
+              "vi": "Tamura (tên họ)"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "全部",
+              "read": "ぜんぶ",
+              "vi": "tất cả, toàn bộ"
+            },
+            {
+              "w": "アドバイス",
+              "read": "アドバイス",
+              "vi": "lời khuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Vている＋うちに）",
+              "vi": "日本にいるうちに = trong khi còn ở Nhật. 接続: Vている＋うちに. Sắc thái TRANH THỦ: thời gian ở Nhật có hạn — hãy làm ngay. Đây là lời khuyên mang hàm ý lo ngại \"nếu về nước thì không còn cơ hội\"."
+            },
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "話すと = khi kể/vừa kể thì. と điều kiện tự nhiên/kết quả tất yếu."
+            }
+          ]
+        },
+        {
+          "jp": "「日本語の環境に慣れているうちに、たくさん話して耳を鍛えるべきだよ」とも言いました。",
+          "vi": "Anh ấy còn nói \"Trong khi còn quen với môi trường tiếng Nhật, nên nói nhiều để rèn luyện thính giác\".",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "慣れます",
+              "read": "なれます",
+              "vi": "quen, quen thuộc"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "耳",
+              "read": "みみ",
+              "vi": "tai, thính giác"
+            },
+            {
+              "w": "鍛えます",
+              "read": "きたえます",
+              "vi": "rèn luyện, tôi luyện"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Vている＋うちに）",
+              "vi": "慣れているうちに = trong khi còn đang quen. 接続: Vている（慣れている）＋うちに. Trạng thái \"quen với môi trường tiếng Nhật\" sẽ phai khi về nước → tranh thủ."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "鍛えるべきだ = nên rèn luyện (bổn phận, lẽ phải). Ôn lại Bài 53."
+            }
+          ]
+        },
+        {
+          "jp": "確かに、帰国したら日本語を使う機会はずっと減るでしょう。",
+          "vi": "Đúng vậy, khi về nước thì cơ hội dùng tiếng Nhật sẽ giảm đi nhiều.",
+          "vocab": [
+            {
+              "w": "確かに",
+              "read": "たしかに",
+              "vi": "đúng vậy, chắc chắn"
+            },
+            {
+              "w": "帰国します",
+              "read": "きこくします",
+              "vi": "về nước"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "hơn hẳn, hơn nhiều"
+            },
+            {
+              "w": "減ります",
+              "read": "へります",
+              "vi": "giảm, ít đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "帰国したら = khi về nước. たら diễn đạt điều kiện/thời điểm trong tương lai."
+            },
+            {
+              "point": "〜でしょう（Bài 32）",
+              "vi": "Phán đoán về tương lai. Ôn lại Bài 32."
+            }
+          ]
+        },
+        {
+          "jp": "田村さんの言葉を聞いて、私はもっと積極的に行動しようと決めました。",
+          "vi": "Nghe lời anh Tamura, tôi quyết định sẽ hành động tích cực hơn.",
+          "vocab": [
+            {
+              "w": "田村",
+              "read": "たむら",
+              "vi": "Tamura (họ người)"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, ngôn ngữ"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "積極",
+              "read": "せっきょく",
+              "vi": "sự tích cực, chủ động"
+            },
+            {
+              "w": "行動します",
+              "read": "こうどうします",
+              "vi": "hành động"
+            },
+            {
+              "w": "決めます",
+              "read": "きめます",
+              "vi": "quyết định"
+            },
+            {
+              "w": "積極的に",
+              "read": "せっきょくてきに",
+              "vi": "một cách tích cực, chủ động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V意向形 + と決めました（Bài 31）",
+              "vi": "行動しようと決めました = quyết định sẽ hành động. V意向形（しよう）+ と + 決める = quyết tâm làm điều gì."
+            }
+          ]
+        },
+        {
+          "jp": "まず、日本人の友達がまだ少ないうちに、もっとサークルに参加して交流の輪を広げたいと思いました。",
+          "vi": "Trước hết, khi bạn bè người Nhật còn ít, tôi muốn tham gia thêm câu lạc bộ để mở rộng vòng giao lưu.",
+          "vocab": [
+            {
+              "w": "日本人",
+              "read": "にっぽんじん",
+              "vi": "người Nhật Bản"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "サークル",
+              "read": "サークル",
+              "vi": "câu lạc bộ (ở trường)"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "輪",
+              "read": "わ",
+              "vi": "vòng, nhóm"
+            },
+            {
+              "w": "広げます",
+              "read": "ひろげます",
+              "vi": "mở rộng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（まだ＋Aい＋うちに）",
+              "vi": "友達がまだ少ないうちに = tranh thủ khi bạn bè (người Nhật) hãy còn ít — tức giai đoạn mới sang, trước khi quan hệ ổn định → chủ động giao lưu ngay. 接続: (まだ)＋Aい（少ない）＋うちに."
+            },
+            {
+              "point": "〜たいと思いました（Bài 13 + 21）",
+              "vi": "したいと思いました = nghĩ muốn làm. Ôn lại Bài 13, 21."
+            }
+          ]
+        },
+        {
+          "jp": "また、興味があるうちに、茶道や書道などの日本文化を体験してみるつもりです。",
+          "vi": "Ngoài ra, trong khi còn hứng thú, tôi dự định thử trải nghiệm văn hóa Nhật như trà đạo, thư pháp.",
+          "vocab": [
+            {
+              "w": "興味",
+              "read": "きょうみ",
+              "vi": "hứng thú, sự quan tâm"
+            },
+            {
+              "w": "茶道",
+              "read": "さどう",
+              "vi": "trà đạo"
+            },
+            {
+              "w": "書道",
+              "read": "しょどう",
+              "vi": "thư pháp"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "体験します",
+              "read": "たいけんします",
+              "vi": "trải nghiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（があるうちに）",
+              "vi": "興味があるうちに = trong khi còn có hứng thú. がある（có = trạng thái）＋うちに. Hứng thú có thể phai đi → tranh thủ khi còn."
+            },
+            {
+              "point": "〜つもりです（Bài 31）",
+              "vi": "つもりです = dự định. Ôn lại Bài 31."
+            }
+          ]
+        },
+        {
+          "jp": "料理が上手な下宿のおばさんにも、帰国しないうちに料理を習いたいと頼みました。",
+          "vi": "Tôi cũng đã nhờ bà chủ nhà trọ nấu ăn rất giỏi dạy nấu ăn trước khi về nước.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "下宿",
+              "read": "げしゅく",
+              "vi": "nhà trọ (có bữa ăn)"
+            },
+            {
+              "w": "おばさん",
+              "read": "おばさん",
+              "vi": "bà, cô (gọi người lớn tuổi hơn)"
+            },
+            {
+              "w": "帰国",
+              "read": "きこく",
+              "vi": "về nước"
+            },
+            {
+              "w": "習います",
+              "read": "ならいます",
+              "vi": "học (từ ai đó)"
+            },
+            {
+              "w": "頼みます",
+              "read": "たのみます",
+              "vi": "nhờ vả, xin"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないうちに（Vない＋うちに）",
+              "vi": "帰国しないうちに = trước khi về nước. 接続: Vない（帰国しない）＋うちに. Sắc thái: lo rằng khi về nước thì cơ hội học nấu ăn với bà chủ sẽ không còn."
+            },
+            {
+              "point": "〜たいと頼みました（Bài 13）",
+              "vi": "Vたいと頼む = nhờ ai được phép làm gì mình muốn."
+            }
+          ]
+        },
+        {
+          "jp": "おばさんは「もちろん、教えてあげるよ。記憶が薄れないうちに毎回ちゃんとメモしなさいね」と言ってくれました。",
+          "vi": "Bà ấy nói \"Tất nhiên, tôi sẽ dạy cho. Trước khi ký ức phai nhạt thì mỗi lần phải ghi chú cẩn thận nhé\".",
+          "vocab": [
+            {
+              "w": "おばさん",
+              "read": "おばさん",
+              "vi": "bà, cô (gọi người lớn tuổi hơn)"
+            },
+            {
+              "w": "もちろん",
+              "read": "もちろん",
+              "vi": "tất nhiên, đương nhiên"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "ký ức, trí nhớ"
+            },
+            {
+              "w": "薄れます",
+              "read": "うすれます",
+              "vi": "phai đi, mờ nhạt"
+            },
+            {
+              "w": "毎回",
+              "read": "まいかい",
+              "vi": "mỗi lần, mỗi buổi"
+            },
+            {
+              "w": "ちゃんと",
+              "read": "ちゃんと",
+              "vi": "đàng hoàng, cẩn thận"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "メモします",
+              "read": "メモします",
+              "vi": "ghi chú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないうちに（Vない＋うちに）",
+              "vi": "記憶が薄れないうちに = trước khi ký ức phai nhạt. 接続: Vない（薄れない）＋うちに. Khuyên hành động ngay khi ký ức còn tươi."
+            },
+            {
+              "point": "Vてあげる（Bài 24）",
+              "vi": "教えてあげる = dạy cho (vì lợi ích của em). てあげる Bài 24."
+            }
+          ]
+        },
+        {
+          "jp": "そして、忙しくなる前期試験が始まらないうちに、できるだけ多くの場所を旅したいとも考えています。",
+          "vi": "Và tôi cũng nghĩ muốn đi du lịch nhiều nơi càng nhiều càng tốt trước khi kỳ thi đầu khóa bận rộn bắt đầu.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "前期",
+              "read": "ぜんき",
+              "vi": "học kỳ đầu, kỳ trước"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "始まります",
+              "read": "はじまります",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "できるだけ",
+              "read": "できるだけ",
+              "vi": "càng nhiều càng tốt"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "nơi, địa điểm"
+            },
+            {
+              "w": "旅",
+              "read": "たび",
+              "vi": "chuyến đi, du lịch"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "前期試験",
+              "read": "ぜんきしけん",
+              "vi": "kỳ thi đầu khóa, thi giữa kỳ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないうちに（Vない＋うちに）",
+              "vi": "始まらないうちに = trước khi bắt đầu. 接続: Vない（始まらない）＋うちに. Tranh thủ đi chơi trước khi kỳ thi làm cho bận không thể đi được."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、今の自分には時間も体力も好奇心もあります。",
+          "vi": "Tóm lại, bản thân tôi hiện tại có cả thời gian, thể lực lẫn sự tò mò.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, có nghĩa là"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "体力",
+              "read": "たいりょく",
+              "vi": "thể lực, sức khỏe thể chất"
+            },
+            {
+              "w": "好奇",
+              "read": "こうき",
+              "vi": "hiếu kỳ, tính tò mò"
+            },
+            {
+              "w": "好奇心",
+              "read": "こうきしん",
+              "vi": "sự tò mò, tâm lý khám phá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも〜も〜も（Bài 6 応用）",
+              "vi": "NもNもNも = cả N lẫn N lẫn N. Liệt kê toàn bộ: thời gian, thể lực, tò mò."
+            }
+          ]
+        },
+        {
+          "jp": "この三つが揃っているうちに行動しなければ、後で「あのとき動けばよかった」と後悔するかもしれません。",
+          "vi": "Nếu không hành động trong khi cả ba thứ này đang đủ, sau này có thể hối hận \"giá hồi đó mà đã làm\".",
+          "vocab": [
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái (đếm đồ vật nhỏ)"
+            },
+            {
+              "w": "揃います",
+              "read": "そろいます",
+              "vi": "đầy đủ,齐全"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau khi, sau đó"
+            },
+            {
+              "w": "動く",
+              "read": "うごく",
+              "vi": "chuyển động, hoạt động"
+            },
+            {
+              "w": "後悔します",
+              "read": "こうかいします",
+              "vi": "hối hận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Vている＋うちに）",
+              "vi": "揃っているうちに = trong khi cả ba thứ đang đủ. 接続: Vている（揃っている）＋うちに. Đây là trung tâm luận điểm: tranh thủ khi điều kiện đủ."
+            },
+            {
+              "point": "〜なければ〜（Bài 17）",
+              "vi": "行動しなければ = nếu không hành động thì. Điều kiện phủ định bắt buộc."
+            },
+            {
+              "point": "〜ばよかった（Bài 35）",
+              "vi": "動けばよかった = giá mà đã hành động. Tiếc nuối về quá khứ."
+            },
+            {
+              "point": "〜かもしれません（Bài 32）",
+              "vi": "後悔するかもしれない = có thể sẽ hối hận. Khả năng."
+            }
+          ]
+        },
+        {
+          "jp": "田村さんは笑いながら「若いうちの苦労は買ってでもしろと言うでしょう？それが本当に分かるのは、もっと歳を取ってからだよ」と言いました。",
+          "vi": "Anh Tamura cười và nói \"Người ta nói trẻ khổ cũng nên tìm lấy mà khổ đó chứ? Cái đó thực sự hiểu được thì phải lớn tuổi hơn mới biết\".",
+          "vocab": [
+            {
+              "w": "田村",
+              "read": "たむら",
+              "vi": "Tamura (họ người)"
+            },
+            {
+              "w": "笑いながら",
+              "read": "わらいながら",
+              "vi": "vừa cười vừa"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "苦労",
+              "read": "くろう",
+              "vi": "gian khổ, vất vả"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "歳",
+              "read": "とし",
+              "vi": "tuổi, tuổi tác"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "歳を取ります",
+              "read": "としをとります",
+              "vi": "lớn tuổi, già đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（応用：若いうちの〜）",
+              "vi": "若いうちの苦労 = gian khổ trong khi còn trẻ. うちに→うちの（修飾 N）. Thành ngữ dân gian Nhật: \"苦労は買ってでもしろ\" = gian khổ thì cũng nên chủ động tìm lấy mà trải."
+            },
+            {
+              "point": "Vながら（Bài 28）",
+              "vi": "笑いながら = vừa cười vừa. Hai hành động đồng thời. Ôn lại Bài 28."
+            }
+          ]
+        },
+        {
+          "jp": "その言葉がずっと頭に残っています。",
+          "vi": "Câu nói đó cứ đọng mãi trong đầu tôi.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "mãi, suốt, liên tục"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu, trí óc"
+            },
+            {
+              "w": "残ります",
+              "read": "のこります",
+              "vi": "còn lại, đọng lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（trạng thái Bài 15）",
+              "vi": "残っています = đang còn đọng lại (trạng thái kết quả). Ôn lại Bài 15."
+            }
+          ]
+        },
+        {
+          "jp": "いつかこの留学の日々を振り返ったとき、「あのうちにやっておいてよかった」と思えるように、毎日を大切に過ごしたいと思います。",
+          "vi": "Khi nhìn lại những ngày du học này trong tương lai, tôi muốn sống từng ngày quý giá để có thể nghĩ \"May mà hồi đó đã làm\".",
+          "vocab": [
+            {
+              "w": "いつか",
+              "read": "いつか",
+              "vi": "một ngày nào đó"
+            },
+            {
+              "w": "留学",
+              "read": "りゅうがく",
+              "vi": "du học"
+            },
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "振り返ります",
+              "read": "ふりかえります",
+              "vi": "nhìn lại, hồi tưởng"
+            },
+            {
+              "w": "思える",
+              "read": "おもえる",
+              "vi": "dường như, cảm thấy"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "過ごします",
+              "read": "すごします",
+              "vi": "trải qua, sống (thời gian)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "振り返ったとき = khi nhìn lại. Vたとき = thời điểm sau khi hành động hoàn tất."
+            },
+            {
+              "point": "〜うちに（응용: あのうちに）",
+              "vi": "あのうちに = hồi đó, trong khoảng thời gian đó. うちに được dùng để hồi tưởng lại khoảng thời gian đặc biệt đã qua — \"hồi còn ở trong khoảng thời gian đó mà làm thì tốt quá\". Câu kết mang sắc thái TRANH THỦ của toàn bài."
+            },
+            {
+              "point": "〜ように（Bài 36）",
+              "vi": "やっておいてよかったと思えるように = để có thể nghĩ là tốt mà đã làm. Vるように = mục đích/mong muốn."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日本にいるうちに、できることは全部やってみなさい",
+          "label": "うちに（Vている）— Sắc thái TRANH THỦ"
+        },
+        {
+          "excerpt": "慣れているうちに、たくさん話して耳を鍛えるべきだよ",
+          "label": "うちに（Vている）＋べき"
+        },
+        {
+          "excerpt": "帰国しないうちに料理を習いたい",
+          "label": "ないうちに — trước khi X xảy ra"
+        },
+        {
+          "excerpt": "記憶が薄れないうちに毎回ちゃんとメモしなさいね",
+          "label": "ないうちに — Sắc thái cấp bách"
+        },
+        {
+          "excerpt": "この三つが揃っているうちに行動しなければ",
+          "label": "うちに（Vている）— Sắc thái lo ngại"
+        },
+        {
+          "excerpt": "若いうちの苦労は買ってでもしろ",
+          "label": "うちに（応用：〜うちの＋N）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田村さんが「日本にいるうちに、できることは全部やってみなさい」と言った理由として、文章の内容から最も適切なものはどれですか。",
+          "evi": [
+            4,
+            6
+          ],
+          "options": [
+            "日本の文化はとても複雑なので、留学中に全て学ぶべきだからです",
+            "帰国したら日本語を使う機会が減るなど、今の状況や環境がいつか変わるからです",
+            "留学生はみんな時間を無駄にしているからです",
+            "日本にいる期間が短すぎて、もう残り少ないからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng (B): Bằng chứng trực tiếp trong bài là câu 「帰国したら日本語を使う機会はずっと減るでしょう」 — \"Khi về nước thì cơ hội dùng tiếng Nhật sẽ giảm nhiều\". Chính vì hoàn cảnh hiện tại (đang ở Nhật, có môi trường tiếng Nhật) SẼ THAY ĐỔI khi về nước, nên anh Tamura dùng 「日本にいるうちに」 để thúc giục tranh thủ. Đây chính là lý do cốt lõi của うちに. Tại sao các đáp án khác sai? (A) — \"vì văn hóa Nhật phức tạp\" — không đề cập trong bài. (C) — \"du học sinh lãng phí thời gian\" — không có trong bài. (D) — \"thời gian ở lại còn ít\" — bài không nói thế, và đây cũng không phải lý do Tamura đưa ra.",
+          "tip": "Câu hỏi \"lý do dùng うちに\" → tìm trong bài câu nêu lý do trạng thái sẽ thay đổi (帰国したら〜減る). Lý do PHẢI là \"hoàn cảnh/trạng thái sẽ đổi\", không phải áp lực thời gian đơn thuần.",
+          "qt": {
+            "q": "Dựa vào nội dung bài viết, lý do phù hợp nhất khiến anh Tamura nói: “Hãy thử làm tất cả những gì có thể khi còn ở Nhật” là gì?",
+            "o": [
+              "Vì văn hóa Nhật Bản rất phức tạp nên cần học tất cả trong thời gian du học",
+              "Vì hoàn cảnh và môi trường hiện tại rồi sẽ thay đổi, chẳng hạn như sau khi về nước, cơ hội sử dụng tiếng Nhật sẽ giảm đi",
+              "Vì tất cả du học sinh đều đang lãng phí thời gian",
+              "Vì thời gian ở Nhật quá ngắn và chỉ còn lại rất ít"
+            ]
+          }
+        },
+        {
+          "q": "「帰国しないうちに料理を習いたい」と「帰国するまえに料理を習いたい」の意味の違いとして正しいものはどれですか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "意味は全く同じで、どちらも使えます",
+            "「帰国しないうちに」は帰国という出来事が起きる前に急いでやらなければという焦りや危機感があるが、「帰国するまえに」は単なる時間的な前後関係を示します",
+            "「帰国しないうちに」は正式な書き言葉で、「帰国するまえに」はくだけた話し言葉です",
+            "「帰国しないうちに」は帰国した後でも習えることを示し、「帰国するまえに」は帰国後は習えないことを示します"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng (B): 「帰国しないうちに」dùng cấu trúc Vない＋うちに — nghĩa là \"trong khi chưa về nước, trước khi sự kiện 帰国 xảy ra\" kèm sắc thái lo ngại \"nếu về rồi thì không còn cơ hội\". 「帰国するまえに」(Bài 18) chỉ đơn giản chỉ mốc thời gian, không hàm ý lo lắng hay cấp bách. Tại sao các đáp án khác sai? (A) — \"hoàn toàn giống nhau\" — sai, vì sắc thái khác nhau rõ ràng. (C) — phân biệt văn viết/khẩu ngữ — không đúng, không có quy tắc đó. (D) — \"うちに = có thể học sau khi về nước; まえに = không thể\" — hoàn toàn đảo ngược logic, sai.",
+          "tip": "ないうちに = Vない＋うちに, luôn kèm sắc thái \"LO NGẠI nếu để X xảy ra thì trễ\"; まえに = mốc thời gian TRUNG TÍNH. Đề hỏi \"sự khác biệt\" → tìm đáp án nhắc đến \"lo lắng/cấp bách\" cho ないうちに.",
+          "qt": {
+            "q": "Đâu là điểm khác nhau đúng về ý nghĩa giữa “tranh thủ học nấu ăn trước khi về nước” và “học nấu ăn trước khi về nước”?",
+            "o": [
+              "Ý nghĩa hoàn toàn giống nhau, có thể dùng cách nào cũng được",
+              "“Tranh thủ học trước khi về nước, khi vẫn còn cơ hội” hàm ý sự vội vàng hoặc lo ngại rằng cần làm việc đó trước khi việc về nước xảy ra, còn “trước khi về nước” chỉ đơn thuần chỉ quan hệ trước sau về thời gian",
+              "“Tranh thủ học trước khi về nước, khi vẫn còn cơ hội” là văn viết trang trọng, còn “trước khi về nước” là lời nói thân mật",
+              "“Tranh thủ học trước khi về nước, khi vẫn còn cơ hội” cho biết rằng sau khi về nước vẫn có thể học, còn “trước khi về nước” cho biết sau khi về nước thì không thể học"
+            ]
+          }
+        },
+        {
+          "q": "「この三つが揃っているうちに行動しなければ、後で後悔するかもしれません」の「三つ」とは何ですか。",
+          "evi": [
+            13,
+            14
+          ],
+          "options": [
+            "日本語・文化・料理の三つです",
+            "友達・サークル・下宿の三つです",
+            "時間・体力・好奇心の三つです",
+            "田村さん・おばさん・先生の三つです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng (C): Bằng chứng trực tiếp là câu liền trước: 「今の自分には時間も体力も好奇心もあります」— \"Bản thân tôi hiện tại có cả thời gian, thể lực lẫn sự tò mò.\" Ba thứ đó = 時間（thời gian）＋ 体力（thể lực）＋ 好奇心（sự tò mò）. Câu tiếp ngay sau 「この三つが揃っているうちに行動しなければ」dùng うちに vì cả ba thứ này có thể thay đổi (mất thời gian, yếu sức, giảm tò mò). Tại sao các đáp án khác sai? (A) — 日本語・文化・料理 — không phải ba thứ được liệt kê. (B) — 友達・サークル・下宿 — đây là hoạt động, không phải \"ba thứ đang có\". (D) — 田村さん・おばさん・先生 — là người, không phải trạng thái.",
+          "tip": "Khi bài hỏi \"X là gì?\", tìm câu ngay TRƯỚC câu chứa X trong đoạn văn — thường tác giả vừa liệt kê xong rồi mới đặt câu kết luận dùng うちに.",
+          "qt": {
+            "q": "Trong câu “Nếu không hành động khi cả ba điều này vẫn còn hội tụ, sau này có thể sẽ hối tiếc”, “ba điều” là những gì?",
+            "o": [
+              "Tiếng Nhật, văn hóa và nấu ăn",
+              "Bạn bè, câu lạc bộ và chỗ trọ",
+              "Thời gian, thể lực và tính hiếu kỳ",
+              "Anh Tamura, cô chủ nhà trọ và giáo viên"
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章全体で最も伝えたいこととして正しいものはどれですか。",
+          "evi": [
+            7,
+            17
+          ],
+          "options": [
+            "留学中は遊んでばかりいないで、勉強に集中するべきです",
+            "今の状態（若さ・環境・意欲など）がいつか変わる前に、積極的に行動してやっておくことが大切です",
+            "田村さんのアドバイスは役に立たないので、自分で判断することが大切です",
+            "日本文化を学ぶより、日本語の勉強をもっとするべきです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng (B): Toàn bộ bài sử dụng chuỗi うちに liên tục — 「日本にいるうちに」、「慣れているうちに」、「少ないうちに」、「興味があるうちに」、「帰国しないうちに」、「記憶が薄れないうちに」、「揃っているうちに」— tất cả đều nói \"trạng thái tốt hiện tại sẽ đổi → hãy hành động ngay\". Câu cuối bài 「あのうちにやっておいてよかった」 là câu kết luận hoàn hảo của chủ đề đó. Tại sao các đáp án khác sai? (A) — \"chỉ tập trung học tập, không chơi\" — ngược với bài: bài khuyến khích trải nghiệm văn hóa, du lịch, giao lưu. (C) — \"lời khuyên của Tamura vô ích\" — sai hoàn toàn, bài nói câu nói của Tamura \"cứ đọng mãi trong đầu\". (D) — \"học tiếng Nhật quan trọng hơn văn hóa\" — không có trong bài, bài không so sánh hai điều này.",
+          "tip": "Bài đọc có nhiều câu うちに liên tiếp → chủ đề chính LUÔN LÀ \"tranh thủ hành động khi trạng thái tốt còn duy trì\". Đáp án nào mang sắc thái ngược lại (chờ đợi, chỉ học, bỏ qua cơ hội) → loại ngay.",
+          "qt": {
+            "q": "Đâu là điều đúng với thông điệp mà tác giả muốn truyền tải nhất trong toàn bài viết?",
+            "o": [
+              "Khi du học, không nên chỉ mải vui chơi mà cần tập trung vào việc học",
+              "Điều quan trọng là chủ động hành động và làm những việc cần làm trước khi tình trạng hiện tại (tuổi trẻ, môi trường, nhiệt huyết, v.v.) thay đổi",
+              "Lời khuyên của anh Tamura không có ích, vì vậy điều quan trọng là tự mình phán đoán",
+              "Thay vì học văn hóa Nhật Bản, nên học tiếng Nhật nhiều hơn"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "温泉ホテルの早割キャンペーンを読む",
+      "titleVi": "Đọc thông báo khuyến mãi đặt sớm của khách sạn onsen",
+      "japanese": "雪見温泉ホテル　早割キャンペーンのお知らせ\n寒くなる前に、静かな山の温泉でゆっくり過ごしませんか。今月のうちに予約すると、料金がとてもお得になります。\n当ホテルでは四季それぞれの美しい景色が楽しめます。季節ごとに料金が変わりますので、下の表をご確認ください。\n季節｜通常料金（1泊2食付き、大人1名）｜早割料金（宿泊日の30日前までの予約）\n春（3月〜5月）｜13,000円｜10,000円\n夏（6月〜8月）｜11,000円｜9,000円\n秋（9月〜11月）｜14,000円｜11,000円\n冬（12月〜2月）｜16,000円｜13,000円\n子どもは、どの季節も大人料金の半額でご利用いただけます。\n※早割料金は、宿泊日の30日前までに予約された方のみ対象です。安いうちにぜひお申し込みください。\n※土曜日にご宿泊の場合、どの季節も一律2,000円の追加料金がかかります。\n※当ホテルの会員カードをお持ちの方は、上の料金からさらに1,000円引きになります。\nお得なうちに、ご家族やご友人とぜひお越しください。お申し込みはお電話またはホームページで承っております。\n電話：0570-88-9900（午前9時〜午後6時、年中無休）",
+      "vietnamese": "Khách sạn onsen Yukimi — Thông báo chiến dịch đặt sớm\nTrước khi trời lạnh hơn, bạn có muốn thư thái ở suối nước nóng yên tĩnh trên núi không? Nếu đặt phòng trong tháng này, giá sẽ rất hời.\nỞ khách sạn chúng tôi, quý khách có thể thưởng thức cảnh sắc đẹp của cả bốn mùa. Giá thay đổi theo từng mùa, xin quý khách xem bảng dưới đây.\nMùa｜Giá thường (1 đêm 2 bữa, 1 người lớn)｜Giá đặt sớm (đặt trước ngày ở ≥30 ngày)\nXuân (tháng 3〜5)｜13.000 yên｜10.000 yên\nHè (tháng 6〜8)｜11.000 yên｜9.000 yên\nThu (tháng 9〜11)｜14.000 yên｜11.000 yên\nĐông (tháng 12〜2)｜16.000 yên｜13.000 yên\nTrẻ em, ở mọi mùa, được tính bằng nửa giá người lớn.\n※Giá đặt sớm chỉ áp dụng cho những vị khách đặt trước ngày ở từ 30 ngày trở lên. Trong khi còn rẻ, xin quý khách hãy đặt ngay.\n※Nếu ở lại vào tối thứ Bảy, mọi mùa đều tính thêm phụ phí đồng nhất 2.000 yên.\n※Quý khách có thẻ hội viên của khách sạn sẽ được giảm thêm 1.000 yên từ mức giá ở trên.\nTrong khi vẫn còn giá hời, xin mời quý khách cùng gia đình hoặc bạn bè ghé thăm. Chúng tôi nhận đặt phòng qua điện thoại hoặc trang web.\nĐiện thoại: 0570-88-9900 (9 giờ sáng〜6 giờ chiều, mở cửa quanh năm).",
+      "sentences": [
+        {
+          "jp": "雪見温泉ホテル　早割キャンペーンのお知らせ",
+          "vi": "Khách sạn onsen Yukimi — Thông báo chiến dịch đặt sớm.",
+          "vocab": [
+            {
+              "w": "雪見",
+              "read": "ゆきみ",
+              "vi": "Yukimi (tên riêng, nghĩa: ngắm tuyết)"
+            },
+            {
+              "w": "温泉",
+              "read": "おんせん",
+              "vi": "suối nước nóng, onsen"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "キャンペーン",
+              "vi": "chiến dịch khuyến mãi"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "早割",
+              "read": "はやわり",
+              "vi": "giảm giá đặt sớm (early-bird)"
+            }
+          ]
+        },
+        {
+          "jp": "寒くなる前に、静かな山の温泉でゆっくり過ごしませんか。今月のうちに予約すると、料金がとてもお得になります。",
+          "vi": "Trước khi trời lạnh hơn, bạn có muốn thư thái ở suối nước nóng yên tĩnh trên núi không? Nếu đặt phòng trong tháng này, giá sẽ rất hời.",
+          "vocab": [
+            {
+              "w": "寒くなる",
+              "read": "さむくなる",
+              "vi": "trở nên lạnh"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "静かな",
+              "read": "しずかな",
+              "vi": "yên tĩnh"
+            },
+            {
+              "w": "山",
+              "read": "やま",
+              "vi": "núi"
+            },
+            {
+              "w": "温泉",
+              "read": "おんせん",
+              "vi": "suối nước nóng, onsen"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "từ từ, thoải mái"
+            },
+            {
+              "w": "過ごします",
+              "read": "すごします",
+              "vi": "trải qua, sống (thời gian)"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "得",
+              "read": "とく",
+              "vi": "lợi ích, món hời"
+            },
+            {
+              "w": "お得",
+              "read": "おとく",
+              "vi": "hời, có lợi (về giá)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まえに（Bài 18 — đối chiếu うちに）",
+              "vi": "寒くなるまえに = trước khi trời lạnh hơn. まえに chỉ nêu mốc thời gian đơn giản, không mang sắc thái tranh thủ như うちに."
+            },
+            {
+              "point": "〜うちに（N＋のうちに）",
+              "vi": "今月のうちに = tranh thủ trong tháng này (trước khi tháng này kết thúc, giá sẽ đổi). 接続: Nの＋うちに. Đây là mẫu TRỌNG TÂM bài 55, lần xuất hiện thứ 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "今月のうちに予約すると、料金がとてもお得になります",
+              "why": "câu mở đầu nêu điều kiện tranh thủ うちに — báo trước rằng có mốc thời hạn 30 ngày sẽ nêu ở dòng ※ bên dưới, liên quan cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "当ホテルでは四季それぞれの美しい景色が楽しめます。季節ごとに料金が変わりますので、下の表をご確認ください。",
+          "vi": "Ở khách sạn chúng tôi, quý khách có thể thưởng thức cảnh sắc đẹp của cả bốn mùa. Giá thay đổi theo từng mùa, xin quý khách xem bảng dưới đây.",
+          "vocab": [
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "四季",
+              "read": "しき",
+              "vi": "bốn mùa"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái, từng cái"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "cảnh sắc, phong cảnh"
+            },
+            {
+              "w": "楽しめます",
+              "read": "たのしめます",
+              "vi": "có thể thưởng thức (可能形 của 楽しむ)"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa, mùa vụ"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng (biểu)"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "〜ごとに",
+              "read": "ごとに",
+              "vi": "cứ mỗi… (mỗi mùa một khác)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "景色が楽しめます = có thể thưởng thức cảnh sắc. 楽しめる là 可能形 của 楽しむ. Ôn lại Bài 27."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "料金が変わりますので = vì giá thay đổi nên. Nêu lý do dẫn tới hành động đọc bảng."
+            }
+          ]
+        },
+        {
+          "jp": "季節｜通常料金（1泊2食付き、大人1名）｜早割料金（宿泊日の30日前までの予約）",
+          "vi": "Mùa｜Giá thường (1 đêm 2 bữa, 1 người lớn)｜Giá đặt sớm (đặt trước ngày ở ≥30 ngày).",
+          "vocab": [
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "通常料金",
+              "read": "つうじょうりょうきん",
+              "vi": "giá thông thường"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá; phí"
+            },
+            {
+              "w": "1泊",
+              "read": "いっぱく",
+              "vi": "một đêm lưu trú"
+            },
+            {
+              "w": "1泊2食付き",
+              "read": "いっぱくにしょくつき",
+              "vi": "một đêm gồm hai bữa"
+            },
+            {
+              "w": "2食",
+              "read": "にしょく",
+              "vi": "hai bữa ăn"
+            },
+            {
+              "w": "付き",
+              "read": "つき",
+              "vi": "bao gồm"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "大人1名",
+              "read": "おとないちめい",
+              "vi": "một người lớn"
+            },
+            {
+              "w": "1名",
+              "read": "いちめい",
+              "vi": "một người"
+            },
+            {
+              "w": "早",
+              "read": "はや",
+              "vi": "sớm"
+            },
+            {
+              "w": "早割",
+              "read": "はやわり",
+              "vi": "giảm giá đặt sớm"
+            },
+            {
+              "w": "早割料金",
+              "read": "はやわりりょうきん",
+              "vi": "giá ưu đãi đặt sớm"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú"
+            },
+            {
+              "w": "宿泊日",
+              "read": "しゅくはくび",
+              "vi": "ngày lưu trú"
+            },
+            {
+              "w": "日",
+              "read": "び",
+              "vi": "ngày"
+            },
+            {
+              "w": "30日",
+              "read": "さんじゅうにち",
+              "vi": "30 ngày"
+            },
+            {
+              "w": "30日前",
+              "read": "さんじゅうにちまえ",
+              "vi": "trước 30 ngày"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 3 cột: mùa, giá thông thường, giá đặt sớm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "早割料金（宿泊日の30日前までの予約）",
+              "why": "điều kiện cột giá đặt sớm — phải đặt ≥30 ngày trước ngày ở, khớp với dòng ※ và cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "春（3月〜5月）｜13,000円｜10,000円",
+          "vi": "Xuân (tháng 3〜5)｜13.000 yên｜10.000 yên.",
+          "vocab": [
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "3月",
+              "read": "さんがつ",
+              "vi": "tháng 3"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "5月",
+              "read": "ごがつ",
+              "vi": "tháng 5"
+            },
+            {
+              "w": "13,000円",
+              "read": "いちまんさんぜんえん",
+              "vi": "13.000 yên"
+            },
+            {
+              "w": "10,000円",
+              "read": "いちまんえん",
+              "vi": "10.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "3月〜5月 = từ tháng 3 đến tháng 5. Ôn lại Bài 4."
+            }
+          ]
+        },
+        {
+          "jp": "夏（6月〜8月）｜11,000円｜9,000円",
+          "vi": "Hè (tháng 6〜8)｜11.000 yên｜9.000 yên.",
+          "vocab": [
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "6月",
+              "read": "ろくがつ",
+              "vi": "tháng 6"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "8月",
+              "read": "はちがつ",
+              "vi": "tháng 8"
+            },
+            {
+              "w": "11,000円",
+              "read": "いちまんいっせんえん",
+              "vi": "11.000 yên"
+            },
+            {
+              "w": "9,000円",
+              "read": "きゅうせんえん",
+              "vi": "9.000 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "9,000円",
+              "why": "giá đặt sớm mùa hè — là mức giá gốc dùng để tính câu hỏi 1 (cần cộng phụ phí thứ Bảy, trừ thẻ hội viên)"
+            }
+          ]
+        },
+        {
+          "jp": "秋（9月〜11月）｜14,000円｜11,000円",
+          "vi": "Thu (tháng 9〜11)｜14.000 yên｜11.000 yên.",
+          "vocab": [
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "9月",
+              "read": "くがつ",
+              "vi": "tháng 9"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "14,000円",
+              "read": "いちまんよんせんえん",
+              "vi": "14.000 yên"
+            },
+            {
+              "w": "11,000円",
+              "read": "いちまんいっせんえん",
+              "vi": "11.000 yên"
+            }
+          ]
+        },
+        {
+          "jp": "冬（12月〜2月）｜16,000円｜13,000円",
+          "vi": "Đông (tháng 12〜2)｜16.000 yên｜13.000 yên.",
+          "vocab": [
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "12月",
+              "read": "じゅうにがつ",
+              "vi": "tháng 12"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "2月",
+              "read": "にがつ",
+              "vi": "tháng 2"
+            },
+            {
+              "w": "16,000円",
+              "read": "いちまんろくせんえん",
+              "vi": "16.000 yên"
+            },
+            {
+              "w": "13,000円",
+              "read": "いちまんさんぜんえん",
+              "vi": "13.000 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "16,000円",
+              "why": "giá THÔNG THƯỜNG mùa đông — là căn cứ trực tiếp câu hỏi 2 (khách không đủ điều kiện đặt sớm nên trả giá này)"
+            }
+          ]
+        },
+        {
+          "jp": "子どもは、どの季節も大人料金の半額でご利用いただけます。",
+          "vi": "Trẻ em, ở mọi mùa, được tính bằng nửa giá người lớn.",
+          "vocab": [
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa (trong năm)"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "nửa giá"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "どの季節も",
+              "read": "どのきせつも",
+              "vi": "mùa nào cũng"
+            },
+            {
+              "w": "ご利用いただけます",
+              "read": "ごりよういただけます",
+              "vi": "quý khách có thể sử dụng (kính ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どのNも（Bài 16 応用）",
+              "vi": "どの季節も = mùa nào cũng. Ôn lại どの (Bài 16), mở rộng với も."
+            }
+          ]
+        },
+        {
+          "jp": "※早割料金は、宿泊日の30日前までに予約された方のみ対象です。安いうちにぜひお申し込みください。",
+          "vi": "※Giá đặt sớm chỉ áp dụng cho những vị khách đặt trước ngày ở từ 30 ngày trở lên. Trong khi còn rẻ, xin quý khách hãy đặt ngay.",
+          "vocab": [
+            {
+              "w": "早",
+              "read": "はや",
+              "vi": "sớm"
+            },
+            {
+              "w": "早割",
+              "read": "はやわり",
+              "vi": "giảm giá đặt sớm"
+            },
+            {
+              "w": "早割料金",
+              "read": "はやわりりょうきん",
+              "vi": "giá ưu đãi đặt sớm"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá; phí"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú"
+            },
+            {
+              "w": "宿泊日",
+              "read": "しゅくはくび",
+              "vi": "ngày lưu trú"
+            },
+            {
+              "w": "日",
+              "read": "び",
+              "vi": "ngày"
+            },
+            {
+              "w": "30日",
+              "read": "さんじゅうにち",
+              "vi": "30 ngày"
+            },
+            {
+              "w": "30日前",
+              "read": "さんじゅうにちまえ",
+              "vi": "trước 30 ngày"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng áp dụng"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ"
+            },
+            {
+              "w": "安いうち",
+              "read": "やすいうち",
+              "vi": "khi còn rẻ"
+            },
+            {
+              "w": "うち",
+              "read": "うち",
+              "vi": "trong lúc; khi còn"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định; rất mong"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký; đăng đơn"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký (kính ngữ)"
+            },
+            {
+              "w": "お申し込みください",
+              "read": "おもうしこみください",
+              "vi": "xin hãy đăng ký"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのみ（Bài 27 応用: しか〜ない）",
+              "vi": "方のみ対象 = chỉ vị khách đó mới là đối tượng. のみ = \"chỉ\" (trang trọng hơn しか〜ない)."
+            },
+            {
+              "point": "〜うちに（Aい＋うちに）",
+              "vi": "安いうちに = tranh thủ trong khi giá còn rẻ. 接続: Aい（安い）＋うちに. Sắc thái: giá sẽ tăng trở lại sau khi hết hạn 30 ngày → hành động ngay. Mẫu TRỌNG TÂM bài 55, lần xuất hiện thứ 2."
+            }
+          ],
+          "keys": [
+            {
+              "w": "宿泊日の30日前までに予約された方のみ対象です",
+              "why": "điều kiện cứng để được giá đặt sớm — dùng để loại khách đặt muộn (câu hỏi 2) và xác nhận khách đặt sớm (câu hỏi 1)"
+            },
+            {
+              "w": "安いうちにぜひお申し込みください",
+              "why": "うちに trọng tâm bài — nhắc lại sắc thái tranh thủ, đồng thời là dấu hiệu ※ hay bị bỏ sót"
+            }
+          ]
+        },
+        {
+          "jp": "※土曜日にご宿泊の場合、どの季節も一律2,000円の追加料金がかかります。",
+          "vi": "※Nếu ở lại vào tối thứ Bảy, mọi mùa đều tính thêm phụ phí đồng nhất 2.000 yên.",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú, chỗ ở (đêm)"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa (trong năm)"
+            },
+            {
+              "w": "一律",
+              "read": "いちりつ",
+              "vi": "đồng nhất, như nhau"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phụ phí, phí phụ thu"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn (chi phí/thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nの場合（Bài 45 応用）",
+              "vi": "土曜日にご宿泊の場合 = trường hợp ở lại vào thứ Bảy. Nêu điều kiện đặc biệt."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜日にご宿泊の場合、どの季節も一律2,000円の追加料金がかかります",
+              "why": "phụ phí thứ Bảy +2,000円 — điều kiện thứ 2 phải cộng vào cho câu hỏi 1 (khách ở thứ Bảy)"
+            }
+          ]
+        },
+        {
+          "jp": "※当ホテルの会員カードをお持ちの方は、上の料金からさらに1,000円引きになります。",
+          "vi": "※Quý khách có thẻ hội viên của khách sạn sẽ được giảm thêm 1.000 yên từ mức giá ở trên.",
+          "vocab": [
+            {
+              "w": "当",
+              "read": "とう",
+              "vi": "của chúng tôi; này"
+            },
+            {
+              "w": "当ホテル",
+              "read": "とうホテル",
+              "vi": "khách sạn chúng tôi"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "会員カード",
+              "read": "かいいんカード",
+              "vi": "thẻ hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ"
+            },
+            {
+              "w": "お持ち",
+              "read": "おもち",
+              "vi": "có; sở hữu (kính ngữ)"
+            },
+            {
+              "w": "お持ちの方",
+              "read": "おもちのかた",
+              "vi": "người sở hữu"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "bên trên"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá; phí"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa; thêm"
+            },
+            {
+              "w": "1,000円",
+              "read": "いっせんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "1,000円引き",
+              "read": "いっせんえんびき",
+              "vi": "giảm 1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nになります（Bài 19）",
+              "vi": "1,000円引きになります = sẽ trở thành mức giảm 1,000 yên. Ôn lại になる Bài 19."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員カードをお持ちの方は、上の料金からさらに1,000円引きになります",
+              "why": "điều kiện giảm thêm 1,000円 cho hội viên — điều kiện thứ 3 phải trừ vào cho câu hỏi 1 (khách có thẻ hội viên)"
+            }
+          ]
+        },
+        {
+          "jp": "お得なうちに、ご家族やご友人とぜひお越しください。お申し込みはお電話またはホームページで承っております。",
+          "vi": "Trong khi vẫn còn giá hời, xin mời quý khách cùng gia đình hoặc bạn bè ghé thăm. Chúng tôi nhận đặt phòng qua điện thoại hoặc trang web.",
+          "vocab": [
+            {
+              "w": "得",
+              "read": "とく",
+              "vi": "lợi ích, món hời"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "友人",
+              "read": "ゆうじん",
+              "vi": "bạn bè, người bạn"
+            },
+            {
+              "w": "お越しください",
+              "read": "おこしください",
+              "vi": "xin mời đến (kính ngữ)"
+            },
+            {
+              "w": "くださる",
+              "read": "くださる",
+              "vi": "cho, ban cho"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "または",
+              "read": "または",
+              "vi": "hoặc là"
+            },
+            {
+              "w": "ホームページ",
+              "read": "ホームページ",
+              "vi": "trang web"
+            },
+            {
+              "w": "承っております",
+              "read": "うけたまわっております",
+              "vi": "chúng tôi xin tiếp nhận (khiêm nhường ngữ)"
+            },
+            {
+              "w": "ご家族",
+              "read": "ごかぞく",
+              "vi": "gia đình (kính ngữ)"
+            },
+            {
+              "w": "ご友人",
+              "read": "ごゆうじん",
+              "vi": "bạn bè (kính ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（なA＋うちに）",
+              "vi": "お得なうちに = tranh thủ trong khi vẫn còn hời. 接続: なAな（お得な）＋うちに. Câu kết lặp lại mẫu trọng tâm bài 55, lần xuất hiện thứ 3, khẳng định thông điệp \"làm ngay kẻo hết giá tốt\"."
+            }
+          ]
+        },
+        {
+          "jp": "電話：0570-88-9900（午前9時〜午後6時、年中無休）",
+          "vi": "Điện thoại: 0570-88-9900 (9 giờ sáng〜6 giờ chiều, mở cửa quanh năm).",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng (trước 12h)"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12h)"
+            },
+            {
+              "w": "年中",
+              "read": "ねんじゅう",
+              "vi": "quanh năm, suốt năm"
+            },
+            {
+              "w": "無休",
+              "read": "むきゅう",
+              "vi": "không nghỉ"
+            },
+            {
+              "w": "年中無休",
+              "read": "ねんじゅうむきゅう",
+              "vi": "mở cửa quanh năm, không nghỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "午前9時〜午後6時 = từ 9 giờ sáng đến 6 giờ chiều. Ôn lại Bài 4."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "今月のうちに予約すると",
+          "label": "うちに（Nの）— Sắc thái TRANH THỦ"
+        },
+        {
+          "excerpt": "安いうちにぜひお申し込みください",
+          "label": "うちに（Aい）— trọng tâm bài 55"
+        },
+        {
+          "excerpt": "お得なうちに",
+          "label": "うちに（なA）— nhắc lại kết bài"
+        },
+        {
+          "excerpt": "景色が楽しめます",
+          "label": "V可能形（Bài 27 — ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời",
+          "topic": 1,
+          "note": "Giới thiệu tên khách sạn và khuyến khích đặt sớm trong tháng — うちに xuất hiện lần 1, định hướng chủ đề nhưng chưa có số liệu cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng giá theo mùa",
+          "topic": 3,
+          "note": "Bảng chính: dò cột mùa để tìm giá gốc — câu hỏi 1 cần giá đặt sớm mùa hè (dòng 5), câu hỏi 2 cần giá thông thường mùa đông (dòng 7).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "body",
+          "label": "Ưu đãi trẻ em",
+          "topic": 8,
+          "note": "Thông tin phụ, không liên quan trực tiếp đến 2 câu hỏi (cả 2 đều hỏi giá người lớn).",
+          "qs": []
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "turn",
+          "label": "Ba dòng ※ điều kiện phụ thu/giảm giá",
+          "topic": 9,
+          "note": "Bẫy quan trọng nhất: ※1 nêu hạn 30 ngày (quyết định có được giá đặt sớm không — cả 2 câu hỏi), ※2 cộng phụ phí thứ Bảy (câu hỏi 1), ※3 trừ giảm hội viên (câu hỏi 1). Đọc thiếu 1 dòng ※ là tính sai.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "body",
+          "label": "Lời mời kết & liên hệ",
+          "topic": 12,
+          "note": "Nhắc lại うちに lần cuối, thông tin điện thoại — không phải căn cứ tính phí.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "リンさん夫婦は、宿泊日の45日前に夏（8月）の予約をしました。土曜日に宿泊する予定で、当ホテルの会員カードを持っています。大人1名につき、いくら払いますか。",
+          "options": [
+            "9,000円",
+            "10,000円",
+            "11,000円",
+            "12,000円"
+          ],
+          "answer": 1,
+          "explainVi": "45日前の予約なので「宿泊日の30日前までの予約」（早割条件）を満たし、夏の早割料金は表より9,000円。土曜日宿泊なので※の追加料金2,000円を足すと11,000円。さらに会員カードを持っているので※の1,000円引きが適用され、11,000円−1,000円＝10,000円。よって答えは1（10,000円）。0（9,000円）は追加料金を足し忘れた金額で誤り。2（11,000円）は会員割引を引き忘れた金額で誤り。3（12,000円）はどの条件からも出てこない金額で誤り。",
+          "tip": "料金計算は「①季節で早割/通常を判定→②表の基本料金→③土曜日なら+2,000円→④会員なら−1,000円」の順で1つずつ足し引きする。条件を1つでも見落とすと金額がずれるので、※を全部読むこと。",
+          "evi": [
+            5,
+            9,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Vợ chồng anh Lín đã đặt phòng mùa hè (tháng 8) trước ngày lưu trú 45 ngày. Họ dự định ở vào thứ Bảy và có thẻ thành viên của khách sạn. Mỗi người lớn phải trả bao nhiêu?",
+            "o": [
+              "9.000 yên",
+              "10.000 yên",
+              "11.000 yên",
+              "12.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "木村さんは、宿泊日の20日前に冬（1月）の予約をしました。日曜日に宿泊する予定で、会員カードは持っていません。大人1名につき、いくら払いますか。",
+          "options": [
+            "13,000円",
+            "15,000円",
+            "16,000円",
+            "18,000円"
+          ],
+          "answer": 2,
+          "explainVi": "「早割料金は、宿泊日の30日前までに予約された方のみ対象」なので、20日前の予約では早割は適用されず、通常料金になる。冬の通常料金は表より16,000円。日曜日宿泊なので土曜日の追加料金2,000円は関係なく、会員カードもないので割引もない。よって答えは2（16,000円）。0（13,000円）は冬の早割料金で、30日前の条件を満たしていないので誤り。1（15,000円）はどの条件の組み合わせからも出ない金額。3（18,000円）は通常料金に土曜日の追加料金を足した金額だが、木村さんは日曜日宿泊なので追加料金はかからず誤り。",
+          "tip": "「宿泊日の◯日前」という数字が出たら、必ずまず※の「30日前まで」と比較して早割の対象かどうかを判定する。30日未満なら通常料金からスタートし、曜日と会員の条件だけを確認すればいい。",
+          "evi": [
+            7,
+            9
+          ],
+          "qt": {
+            "q": "Anh Kimura đã đặt phòng mùa đông (tháng 1) trước ngày lưu trú 20 ngày. Anh ấy dự định ở vào Chủ nhật và không có thẻ thành viên. Mỗi người lớn phải trả bao nhiêu?",
+            "o": [
+              "13.000 yên",
+              "15.000 yên",
+              "16.000 yên",
+              "18.000 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2443 @@
+{
+  "bai": 48,
+  "level": "N4",
+  "strategy": {
+    "intro": "使役形（thể sai khiến）là ngữ pháp cốt lõi của Bài 48: dùng để diễn đạt \"bắt/để/cho ai đó làm gì\". Bài đọc xoay quanh hai bối cảnh tự nhiên nhất của 使役: giáo dục con cái (để con tự quyết định vs bắt con học) và nơi công sở (xếp cho phép nhân viên thử sức). Chú ý phân biệt trợ từ を vs に đi kèm 使役, và phân biệt 使役 với 受身（Bài 37）.",
+    "steps": [
+      "Nhận diện 使役形: godan (-u→-aseru: 書く→書かせる, 飲む→飲ませる); ichidan (-ru→-saseru: 食べる→食べさせる); する→させる; くる→こさせる.",
+      "Xác định trợ từ sau chủ thể bị sai khiến: 自動詞 (nội động từ: 泣く, 行く) → causee dùng を（子供を泣かせる, 子供を行かせる）; 他動詞 có tân ngữ riêng (本を読む) → causee dùng に, tân ngữ dùng を（子供に本を読ませる）.",
+      "Phân biệt ý nghĩa: \"bắt buộc\" (親は子供に勉強させます) vs \"cho phép/để\" (好きなことをさせます). Ngữ cảnh quyết định.",
+      "Nhận diện Vさせてください (xin phép tự làm) và Vさせていただきます (xin phép khiêm tốn — đã học cấu trúc いただきます Bài 41).",
+      "Câu hỏi suy luận: \"ai được cho phép vs ai bị bắt buộc?\" → đọc lại ngữ cảnh + chủ từ của câu 使役.",
+      "Ôn lại: 受身形（Bài 37）có hình thức gần giống 使役（〜られる vs 〜させる）— phân biệt bằng ý nghĩa \"được làm\" vs \"bắt/cho làm\"."
+    ],
+    "tips": [
+      "使役 vs 受身: 食べさせる（bắt ăn / cho ăn）≠ 食べられる（được ăn / bị ăn）— suffix 異なる: させる vs られる.",
+      "Godan: thay -u bằng -aseru: 行く→行かせる, 読む→読ませる, 書く→書かせる, 飲む→飲ませる, 話す→話させる.",
+      "Ichidan: thay -ru bằng -saseru: 食べる→食べさせる, 見る→見させる, 起きる→起きさせる.",
+      "を hay に? Nhớ: 自動詞 (nội động từ, không có tân ngữ riêng) → causee dùng を（子供を行かせる, 子供を泣かせる）; 他動詞 (có tân ngữ riêng) → causee dùng に, tân ngữ dùng を（子供に本を読ませる）.",
+      "さ せていただきます = させてもらいます nhưng TRANG TRỌNG hơn — dùng khi nói với cấp trên hoặc tình huống chính thức.",
+      "Đừng nhầm させてください (xin để tôi làm) với してください (xin hãy làm): chủ thể hành động khác nhau."
+    ],
+    "grammarFocus": [
+      "V使役形（godan: -u→-aseru / ichidan: -ru→-saseru / する→させる）",
+      "NをVさせます（bắt/để N làm V — tha động từ）",
+      "NにVさせます（bắt/để N làm V — tự động từ）",
+      "Vさせてください（xin phép tự làm）",
+      "Vさせていただきます（xin phép — khiêm tốn）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 47,
+        "items": [
+          "〜そうです（伝聞）",
+          "〜らしいです",
+          "Nによると"
+        ]
+      },
+      {
+        "bai": 46,
+        "items": [
+          "Vているところです",
+          "Vたばかりです"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接）"
+        ]
+      },
+      {
+        "bai": 41,
+        "items": [
+          "Vていただきます（謙譲）",
+          "Vてもらいます"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので",
+          "Nのために・Vるために"
+        ]
+      },
+      {
+        "bai": 37,
+        "items": [
+          "V受身形（〜られる）— phân biệt với 使役"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります",
+          "Vるようにします"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "子育ての方針",
+      "titleVi": "Phương châm nuôi dạy con",
+      "japanese": "私の友達のマリアさんは子供が二人います。マリアさんは子供に好きなことをさせています。\n例えば、上の子には絵を描かせています。下の子には自分で料理を作らせています。\nマリアさんは「子供を無理に勉強させても、やる気がなくなると思います」と言っています。\n「やりたいことをさせれば、自分から頑張るようになります」とも話していました。\n私もマリアさんの考えはいいと思います。でも、時には厳しく教えることも大切だと思います。\nどちらのやり方が正しいか、難しい問題ですね。",
+      "vietnamese": "Người bạn của tôi là chị Maria có hai con. Chị Maria cho các con làm điều các con thích.\nVí dụ, chị để đứa lớn vẽ tranh. Chị để đứa nhỏ tự nấu ăn.\nChị Maria nói \"Tôi nghĩ nếu bắt con học ép thì sẽ mất động lực\".\nChị cũng nói \"Nếu để con làm điều con muốn thì con sẽ tự cố gắng\".\nTôi cũng nghĩ cách nghĩ của chị Maria là hay. Nhưng tôi cũng nghĩ đôi khi việc dạy nghiêm khắc cũng quan trọng.\nCách nào đúng thì đó là vấn đề khó nhỉ.",
+      "sentences": [
+        {
+          "jp": "私の友達のマリアさんは子供が二人います。マリアさんは子供に好きなことをさせています。",
+          "vi": "Người bạn của tôi là chị Maria có hai con. Chị Maria cho các con làm điều các con thích.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "マリア",
+              "read": "マリア",
+              "vi": "Maria"
+            },
+            {
+              "w": "子供",
+              "read": "こども",
+              "vi": "trẻ em, con cái"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "います",
+              "read": "います",
+              "vi": "có, ở (người/động vật)"
+            },
+            {
+              "w": "好きなこと",
+              "read": "すきなこと",
+              "vi": "điều yêu thích"
+            },
+            {
+              "w": "させています",
+              "read": "させています",
+              "vi": "đang cho phép/khiến làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにVさせています",
+              "vi": "子供に〜させています = đang để con (làm). に đi với tự động từ hoặc khi chỉ đối tượng được cho phép. Vていますở đây = trạng thái / thói quen đang diễn ra."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、上の子には絵を描かせています。下の子には自分で料理を作らせています。",
+          "vi": "Ví dụ, chị để đứa lớn vẽ tranh. Chị để đứa nhỏ tự nấu ăn.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "trên, phía trên"
+            },
+            {
+              "w": "子",
+              "read": "こ",
+              "vi": "đứa trẻ, con cái"
+            },
+            {
+              "w": "絵",
+              "read": "え",
+              "vi": "tranh, hình vẽ"
+            },
+            {
+              "w": "描きます",
+              "read": "かきます",
+              "vi": "vẽ"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "自分で",
+              "read": "じぶんで",
+              "vi": "tự mình"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, nấu"
+            },
+            {
+              "w": "上の子",
+              "read": "うえのこ",
+              "vi": "đứa con lớn hơn"
+            },
+            {
+              "w": "下の子",
+              "read": "したのこ",
+              "vi": "đứa con nhỏ hơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにVさせています（hai ví dụ）",
+              "vi": "描かせています = để vẽ (godan: 描く→描かせる); 作らせています = để làm (godan: 作る→作らせる). Cả hai đều dùng に vì 描く/作る là 他動詞 có tân ngữ riêng (絵を/料理を) → causee dùng に, tân ngữ dùng を."
+            }
+          ]
+        },
+        {
+          "jp": "マリアさんは「子供を無理に勉強させても、やる気がなくなると思います」と言っています。",
+          "vi": "Chị Maria nói \"Tôi nghĩ nếu bắt con học ép thì sẽ mất động lực\".",
+          "vocab": [
+            {
+              "w": "マリア",
+              "read": "マリア",
+              "vi": "Maria (tên người)"
+            },
+            {
+              "w": "子供",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "無理に",
+              "read": "むりに",
+              "vi": "cưỡng ép, ép buộc"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học tập"
+            },
+            {
+              "w": "やる気",
+              "read": "やるき",
+              "vi": "động lực, hứng khởi"
+            },
+            {
+              "w": "なくなる",
+              "read": "なくなる",
+              "vi": "mất đi, hết"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "なくなります",
+              "read": "なくなります",
+              "vi": "mất đi, không còn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVさせても（Bài 25 〜ても）",
+              "vi": "子供を勉強させても = dù có bắt con học (đi nữa). ても（Bài 25）nối với 使役形 để nói \"dù bắt làm thì cũng…\". Ở đây を vì 勉強する dùng không kèm tân ngữ riêng (như 自動詞) → causee dùng を."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "Diễn đạt ý kiến cá nhân. Nhớ: 使役 ở đây là \"bắt ép\" (無理に), khác nghĩa \"cho phép\"."
+            }
+          ]
+        },
+        {
+          "jp": "「やりたいことをさせれば、自分から頑張るようになります」とも話していました。",
+          "vi": "Chị cũng nói \"Nếu để con làm điều con muốn thì con sẽ tự cố gắng\".",
+          "vocab": [
+            {
+              "w": "自分から",
+              "read": "じぶんから",
+              "vi": "tự mình chủ động"
+            },
+            {
+              "w": "頑張ります",
+              "read": "がんばります",
+              "vi": "cố gắng"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "やりたいこと",
+              "read": "やりたいこと",
+              "vi": "điều muốn làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vさせれば（〜ば Bài 35）",
+              "vi": "させれば = nếu để (làm). 使役形 + ば = điều kiện tự nhiên \"nếu cho làm thì…\". させる (ichidan với させ-) → させれば."
+            },
+            {
+              "point": "〜ようになります（Bài 36）",
+              "vi": "頑張るようになります = trở nên cố gắng (thay đổi tiệm tiến). Ôn lại Bài 36."
+            }
+          ]
+        },
+        {
+          "jp": "私もマリアさんの考えはいいと思います。でも、時には厳しく教えることも大切だと思います。",
+          "vi": "Tôi cũng nghĩ cách nghĩ của chị Maria là hay. Nhưng tôi cũng nghĩ đôi khi việc dạy nghiêm khắc cũng quan trọng.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "マリア",
+              "read": "マリア",
+              "vi": "Maria"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt"
+            },
+            {
+              "w": "思います",
+              "read": "おもいます",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "時には",
+              "read": "ときには",
+              "vi": "đôi khi"
+            },
+            {
+              "w": "厳しく",
+              "read": "きびしく",
+              "vi": "nghiêm khắc"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることも〜（Bài 38）",
+              "vi": "教えること = việc dạy bảo (danh từ hoá động từ bằng こと, Bài 38)."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "Người viết đưa ra ý kiến cân bằng — không phủ nhận hoàn toàn quan điểm của Maria."
+            }
+          ]
+        },
+        {
+          "jp": "どちらのやり方が正しいか、難しい問題ですね。",
+          "vi": "Cách nào đúng thì đó là vấn đề khó nhỉ.",
+          "vocab": [
+            {
+              "w": "やり方",
+              "read": "やりかた",
+              "vi": "cách làm (V方 Bài 44)"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "どちら",
+              "read": "どちら",
+              "vi": "cái nào (trong hai)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞〜か（Bài 40）",
+              "vi": "どちら〜か = \"cái nào…\" dùng như mệnh đề danh từ (Bài 40). Câu kết gọn thể hiện tính mở của vấn đề."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "子供に好きなことをさせています",
+          "label": "NにVさせています（cho phép）"
+        },
+        {
+          "excerpt": "絵を描かせています",
+          "label": "使役形 godan（描く→描かせる）"
+        },
+        {
+          "excerpt": "子供を無理に勉強させても",
+          "label": "使役形 + ても（bắt buộc）"
+        },
+        {
+          "excerpt": "やりたいことをさせれば",
+          "label": "使役形 + ば（điều kiện）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "マリアさんはどうして子供を無理に勉強させないのですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "子供が二人いて、忙しいからです",
+            "子供が勉強するのが好きだからです",
+            "無理に勉強させても、やる気がなくなると思っているからです",
+            "勉強より料理の方が大切だと思っているからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết trích trực tiếp lời Maria:「子供を無理に勉強させても、やる気がなくなると思います」— \"dù có bắt con học ép thì tôi nghĩ con sẽ mất động lực\". Đây là LÝ DO cụ thể Maria KHÔNG bắt ép con học — câu dùng 使役形（勉強させる）+ ても（dù có…đi nữa, Bài 25）. Đáp án 0 sai vì số con không liên quan đến phương châm giáo dục. Đáp án 1 sai vì bài không hề nói con thích học — ngược lại, Maria lo con mất hứng khi bị ép. Đáp án 3 sai vì bài không đề cập so sánh nấu ăn với học tập.",
+          "tip": "Câu hỏi \"どうして〜ないのですか\" → tìm mệnh đề giải thích lý do trong phần trích dẫn「」hoặc câu tiếp theo. Dấu hiệu 使役形 + ても luôn kèm kết quả tiêu cực trong ngữ cảnh \"bắt ép\".",
+          "qt": {
+            "q": "Vì sao chị Maria không bắt con học bằng mọi cách?",
+            "o": [
+              "Vì chị ấy có hai con và bận rộn",
+              "Vì các con thích học",
+              "Vì chị ấy nghĩ rằng dù có bắt con học bằng mọi cách, chúng cũng sẽ mất động lực",
+              "Vì chị ấy nghĩ nấu ăn quan trọng hơn học tập"
+            ]
+          }
+        },
+        {
+          "q": "「上の子には絵を描かせています」の文で、「描かせる」はどんな使役形ですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "ichidan（一段）動詞の使役形です",
+            "godan（五段）動詞の使役形です",
+            "する動詞の使役形です",
+            "受身形です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. 描く（かく）là godan động từ (kết thúc bằng -ku) → biến đổi 使役形 theo quy tắc godan: thay -u bằng -aseru: 描く → 描かせる. Đáp án 0 sai vì ichidan（一段, động từ nhóm 2）biến đổi thành 〜させる (thay -る bằng -させる): ví dụ 食べる → 食べさせる — hoàn toàn khác dạng かせる. Đáp án 2 sai vì する → させる (bất quy tắc, không có かせる). Đáp án 3 sai vì 受身形（bị động）của 描く là 描かれる（〜られる）, không phải 描かせる.",
+          "tip": "Phân biệt nhanh 使役形 vs 受身形: đuôi 〜させる/〜かせる = 使役（bắt/cho làm）; đuôi 〜られる/〜かれる = 受身（bị/được làm）. Godan: -u → -aseru (描く→描かせる, 飲む→飲ませる); Ichidan: -る → -させる (食べる→食べさせる).",
+          "qt": {
+            "q": "Trong câu 「上の子には絵を描かせています」 (“Tôi để đứa con lớn vẽ tranh”), 「描かせる」 là dạng sai khiến của loại động từ nào?",
+            "o": [
+              "Dạng sai khiến của động từ ichidan (一段)",
+              "Dạng sai khiến của động từ godan (五段)",
+              "Dạng sai khiến của động từ する",
+              "Dạng bị động"
+            ]
+          }
+        },
+        {
+          "q": "この文章から、書いた人（私）はどんな意見を持っていると分かりますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "子供には自由にさせるだけで十分だと思っています",
+            "子供は厳しく勉強させた方がいいと思っています",
+            "マリアさんの方針はいいが、時には厳しく教えることも大切だと思っています",
+            "マリアさんの考えに全然同意していません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu rõ hai vế cân bằng:「マリアさんの考えはいいと思います」(tôi cũng nghĩ cách nghĩ của chị Maria là hay) →「でも、時には厳しく教えることも大切だと思います」(nhưng đôi khi việc dạy nghiêm khắc cũng quan trọng). でも nối hai ý trái chiều — người viết công nhận CẢ HAI phía, không nghiêng hẳn về bên nào. Đáp án 0 sai vì でも phủ định ý \"chỉ tự do là đủ\". Đáp án 1 sai vì người viết KHÔNG ủng hộ hẳn việc bắt ép. Đáp án 3 sai vì câu mở đầu「マリアさんの考えはいいと思います」cho thấy người viết ĐỒNG Ý một phần với Maria.",
+          "tip": "Câu hỏi về ý kiến của người viết → chú ý các liên từ đối lập: でも/しかし/が. Chúng thường chia đoạn thành hai vế, và ý kiến thật sự của người viết nằm Ở VỀ THỨ HAI (sau でも).",
+          "qt": {
+            "q": "Có thể hiểu người viết (tôi) có ý kiến như thế nào từ bài viết này?",
+            "o": [
+              "Tôi nghĩ chỉ cần để trẻ tự do làm những gì chúng muốn là đủ",
+              "Tôi nghĩ tốt hơn là nên bắt trẻ học thật nghiêm khắc",
+              "Tôi nghĩ phương châm của chị Maria là tốt, nhưng đôi khi việc dạy dỗ nghiêm khắc cũng quan trọng",
+              "Tôi hoàn toàn không đồng ý với suy nghĩ của chị Maria"
+            ]
+          }
+        },
+        {
+          "q": "「やりたいことをさせれば、自分から頑張るようになります」はどんな意味ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "頑張らせたら、やりたいことができるようになります",
+            "やりたいことをやらせてあげれば、子供は自分から努力するようになります",
+            "子供に好きなことをさせると、勉強しなくなります",
+            "やりたいことが見つかれば、親が頑張らなくてもいいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu gốc gồm ba yếu tố: (1)「やりたいことをさせれば」= 使役形（させる）+ ば（điều kiện, Bài 35）→ \"nếu để/cho làm điều con muốn\"; (2)「自分から」= tự mình chủ động; (3)「頑張るようになります」= 〜ようになる（Bài 36）→ \"trở nên cố gắng\". Kết hợp: \"Nếu để con làm điều con muốn thì con sẽ TỰ trở nên nỗ lực\". Đáp án 0 sai vì đảo ngược quan hệ nhân quả (bắt cố gắng → được làm điều thích, không phải ngược lại). Đáp án 2 sai vì bài không nói con sẽ ngừng học. Đáp án 3 sai vì chủ thể \"tự cố gắng\" là con, không phải cha mẹ.",
+          "tip": "Câu dạng「させれば、〜ようになります」= công thức \"NẾU CHO PHÉP làm X → TỰ NHIÊN sẽ thay đổi thành Y\". させれば = 使役 + ば (điều kiện); ようになる = thay đổi tiệm tiến. Hai mẫu này thường đi cùng nhau khi nói về kết quả tích cực của việc để người khác tự do.",
+          "qt": {
+            "q": "「やりたいことをさせれば、自分から頑張るようになります」 (“Nếu để trẻ làm điều chúng muốn, chúng sẽ tự mình nỗ lực”) có nghĩa là gì?",
+            "o": [
+              "Nếu bắt trẻ cố gắng, chúng sẽ có thể làm điều mình muốn",
+              "Nếu để trẻ làm điều chúng muốn, trẻ sẽ dần tự mình nỗ lực",
+              "Nếu để trẻ làm điều chúng thích, chúng sẽ không còn học nữa",
+              "Nếu tìm được điều mình muốn làm, cha mẹ không cần cố gắng nữa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "部長の教え",
+      "titleVi": "Bài học từ trưởng phòng",
+      "japanese": "私は先月、新しいプロジェクトのリーダーになりました。初めてだったので、とても緊張していました。\n部長の田中さんは私に「まず、チームの仕事のやり方を自分で観察してください」と言いました。\n一週間後、田中部長は「どうでしたか」と聞きました。\n「チームのみんなはとても優秀です。でも、もっと自由にやらせてあげた方がいいと思います」と報告しました。\n田中部長は「なるほど。では、山本さんに新しい提案書を作らせてみましょう」とおっしゃいました。\n次の日、私は山本さんに「今回の提案書を作っていただけますか」と頼みました。\n山本さんは喜んで引き受けてくれました。\n提案書が完成したとき、私はその内容がとても素晴らしいと思いました。\n「こんなにいい提案書を書かせていただきありがとうございます」と山本さんが言いました。\nでも、チームの中には自分から動こうとしない人もいます。\n田中部長は「そういう人には、小さいことから少しずつやらせてみてください」とアドバイスしました。\nまた、「失敗させても、そこから学ばせることが大切です」とも言いました。\n私は「少し試させてください」とお願いして、自分でやってみることにしました。\n先週、後輩の鈴木さんが「私にも何かやらせていただけませんか」と聞いてきました。\n「では、発表の準備を手伝わせてください」と自分から言ってくれたのは嬉しかったです。\nリーダーとして、メンバーを成長させることが私の一番大切な仕事だと思っています。\n田中部長のように上手に人を動かせるリーダーになりたいと、毎日思っています。",
+      "vietnamese": "Tháng trước tôi trở thành trưởng nhóm của một dự án mới. Vì là lần đầu nên tôi rất hồi hộp.\nTrưởng phòng Tanaka nói với tôi \"Trước hết, hãy tự quan sát cách làm việc của cả nhóm\".\nMột tuần sau, trưởng phòng Tanaka hỏi \"Thấy thế nào?\".\nTôi báo cáo \"Mọi người trong nhóm đều rất xuất sắc. Nhưng tôi nghĩ nên để họ làm việc tự do hơn\".\nTrưởng phòng Tanaka nói \"Tôi hiểu. Vậy hãy để anh Yamamoto làm bản đề xuất mới thử xem\".\nNgày hôm sau, tôi nhờ anh Yamamoto \"Phiền anh làm bản đề xuất lần này được không?\".\nAnh Yamamoto vui vẻ nhận lời.\nKhi bản đề xuất hoàn thành, tôi thấy nội dung rất tuyệt vời.\nAnh Yamamoto nói \"Cảm ơn anh đã cho tôi được viết bản đề xuất hay như vậy\".\nNhưng trong nhóm cũng có người không chủ động làm việc.\nTrưởng phòng Tanaka khuyên \"Với những người như vậy, hãy để họ thử làm từ những việc nhỏ dần dần\".\nTrưởng phòng cũng nói \"Dù để họ thất bại thì việc để họ học từ đó cũng quan trọng\".\nTôi xin \"Xin cho phép tôi thử một chút\" rồi quyết định tự mình thử làm.\nTuần trước, đàn em Suzuki hỏi \"Xin phép anh cho tôi làm gì đó được không?\".\nTôi vui khi em ấy tự nói \"Xin cho phép tôi được phụ chuẩn bị buổi thuyết trình\".\nVới tư cách là trưởng nhóm, tôi nghĩ việc để các thành viên trưởng thành là công việc quan trọng nhất của tôi.\nTôi nghĩ mỗi ngày mình muốn trở thành trưởng nhóm có thể điều phối con người khéo léo như trưởng phòng Tanaka.",
+      "sentences": [
+        {
+          "jp": "私は先月、新しいプロジェクトのリーダーになりました。初めてだったので、とても緊張していました。",
+          "vi": "Tháng trước tôi trở thành trưởng nhóm của một dự án mới. Vì là lần đầu nên tôi rất hồi hộp.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "プロジェクト",
+              "read": "プロジェクト",
+              "vi": "dự án"
+            },
+            {
+              "w": "リーダー",
+              "read": "リーダー",
+              "vi": "lãnh đạo, trưởng nhóm"
+            },
+            {
+              "w": "なりました",
+              "read": "なりました",
+              "vi": "đã trở thành"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "緊張していました",
+              "read": "きんちょうしていました",
+              "vi": "đã rất căng thẳng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になりました（Bài 19）",
+              "vi": "リーダーになりました = đã trở thành trưởng nhóm. 〜になる = chuyển đổi thành trạng thái mới."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "初めてだったので = vì là lần đầu. ので nêu lý do lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "部長の田中さんは私に「まず、チームの仕事のやり方を自分で観察してください」と言いました。",
+          "vi": "Trưởng phòng Tanaka nói với tôi \"Trước hết, hãy tự quan sát cách làm việc của cả nhóm\".",
+          "vocab": [
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "nhóm, đội"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "やり方",
+              "read": "やりかた",
+              "vi": "cách làm （V方 Bài 44）"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "観察します",
+              "read": "かんさつします",
+              "vi": "quan sát"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết, đầu tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "観察してください = hãy quan sát đi. Yêu cầu lịch sự dùng て形 + ください."
+            },
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "Trích dẫn trực tiếp lời trưởng phòng trong「」."
+            }
+          ]
+        },
+        {
+          "jp": "一週間後、田中部長は「どうでしたか」と聞きました。",
+          "vi": "Một tuần sau, trưởng phòng Tanaka hỏi \"Thấy thế nào?\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "一週間後",
+              "read": "いっしゅうかんご",
+              "vi": "một tuần sau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜後（Bài 34）",
+              "vi": "N後 = sau N thời gian. 一週間後 = sau một tuần."
+            }
+          ]
+        },
+        {
+          "jp": "「チームのみんなはとても優秀です。でも、もっと自由にやらせてあげた方がいいと思います」と報告しました。",
+          "vi": "Tôi báo cáo \"Mọi người trong nhóm đều rất xuất sắc. Nhưng tôi nghĩ nên để họ làm việc tự do hơn\".",
+          "vocab": [
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "đội, nhóm"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "優秀",
+              "read": "ゆうしゅう",
+              "vi": "xuất sắc"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "自由に",
+              "read": "じゆうに",
+              "vi": "tự do"
+            },
+            {
+              "w": "やらせてあげた",
+              "read": "やらせてあげた",
+              "vi": "đã cho phép làm"
+            },
+            {
+              "w": "方がいい",
+              "read": "ほうがいい",
+              "vi": "nên, tốt hơn là"
+            },
+            {
+              "w": "思います",
+              "read": "おもいます",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "報告しました",
+              "read": "ほうこくしました",
+              "vi": "đã báo cáo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "やらせてあげます（使役 + Vてあげる Bài 24）",
+              "vi": "やらせてあげる = để/cho họ làm (kết hợp 使役形 với てあげる Bài 24). Nghĩa \"để làm vì lợi ích của người đó\"."
+            },
+            {
+              "point": "Vた方がいい（Bài 32）",
+              "vi": "〜た方がいいと思います = tôi nghĩ nên làm vậy hơn. Ôn lại Bài 32."
+            }
+          ]
+        },
+        {
+          "jp": "田中部長は「なるほど。では、山本さんに新しい提案書を作らせてみましょう」とおっしゃいました。",
+          "vi": "Trưởng phòng Tanaka nói \"Tôi hiểu. Vậy hãy để anh Yamamoto làm bản đề xuất mới thử xem\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "なるほど",
+              "read": "なるほど",
+              "vi": "tôi hiểu rồi, ra vậy"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất, đề nghị"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, tạo ra"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "提案書",
+              "read": "ていあんしょ",
+              "vi": "bản đề xuất"
+            },
+            {
+              "w": "おっしゃいます",
+              "read": "おっしゃいます",
+              "vi": "nói (kính ngữ nói về người khác)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにVさせてみましょう",
+              "vi": "山本さんに作らせてみましょう = hãy thử để anh Yamamoto làm. 作る là 他動詞 có tân ngữ riêng (提案書を) → causee 山本さん dùng に, tân ngữ dùng を. Vてみる（Bài 40）= thử làm."
+            },
+            {
+              "point": "〜させる godan（作る→作らせる）",
+              "vi": "作る（godan, -ru kết thúc nhưng là godan）→ 作らせる: thay -u bằng -aseru: 作る→作らせる."
+            }
+          ]
+        },
+        {
+          "jp": "次の日、私は山本さんに「今回の提案書を作っていただけますか」と頼みました。",
+          "vi": "Ngày hôm sau, tôi nhờ anh Yamamoto \"Phiền anh làm bản đề xuất lần này được không?\".",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo"
+            },
+            {
+              "w": "次の日",
+              "read": "つぎのひ",
+              "vi": "ngày hôm sau"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto"
+            },
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất"
+            },
+            {
+              "w": "提案書",
+              "read": "ていあんしょ",
+              "vi": "bản đề xuất"
+            },
+            {
+              "w": "作って",
+              "read": "つくって",
+              "vi": "làm, tạo"
+            },
+            {
+              "w": "いただけますか",
+              "read": "いただけますか",
+              "vi": "có thể vui lòng làm giúp không?"
+            },
+            {
+              "w": "頼みました",
+              "read": "たのみました",
+              "vi": "đã nhờ, đã yêu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていただけますか（Bài 41）",
+              "vi": "作っていただけますか = phiền anh làm được không? Dạng nhờ vả trang trọng（いただく = もらう khiêm tốn, Bài 41）. Chú ý: đây là nhờ người khác làm, khác với 使役させていただきます."
+            }
+          ]
+        },
+        {
+          "jp": "山本さんは喜んで引き受けてくれました。",
+          "vi": "Anh Yamamoto vui vẻ nhận lời.",
+          "vocab": [
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "喜んで",
+              "read": "よろこんで",
+              "vi": "vui vẻ, vui mừng"
+            },
+            {
+              "w": "引き受けます",
+              "read": "ひきうけます",
+              "vi": "nhận lời, nhận làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "引き受けてくれました = đã vui lòng nhận (cho tôi). てくれる = người khác làm gì đó vì lợi ích của người nói. Ôn lại Bài 24."
+            }
+          ]
+        },
+        {
+          "jp": "提案書が完成したとき、私はその内容がとても素晴らしいと思いました。",
+          "vi": "Khi bản đề xuất hoàn thành, tôi thấy nội dung rất tuyệt vời.",
+          "vocab": [
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất"
+            },
+            {
+              "w": "提案書",
+              "read": "ていあんしょ",
+              "vi": "bản đề xuất"
+            },
+            {
+              "w": "完成した",
+              "read": "かんせいした",
+              "vi": "đã hoàn thành"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó, ấy"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "素晴らしい",
+              "read": "すばらしい",
+              "vi": "tuyệt vời"
+            },
+            {
+              "w": "思いました",
+              "read": "おもいました",
+              "vi": "đã nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "完成したとき = khi hoàn thành. V過去形 + とき = thời điểm sau khi hành động hoàn tất. Ôn lại Bài 23."
+            },
+            {
+              "point": "〜と思いました（Bài 21）",
+              "vi": "Cảm nhận tại thời điểm đọc xong bản đề xuất."
+            }
+          ]
+        },
+        {
+          "jp": "「こんなにいい提案書を書かせていただきありがとうございます」と山本さんが言いました。",
+          "vi": "Anh Yamamoto nói \"Cảm ơn anh đã cho tôi được viết bản đề xuất hay như vậy\".",
+          "vocab": [
+            {
+              "w": "こんなに",
+              "read": "こんなに",
+              "vi": "hay đến vậy, đến mức này"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất, đề nghị"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vさせていただきます（xin phép khiêm tốn）",
+              "vi": "書かせていただきありがとうございます = cảm ơn vì đã cho tôi được viết. 書かせていただく = khiêm tốn nói về việc được người cấp trên/đáng tôn trọng CHO PHÉP làm. Cấu trúc: 使役形（書かせ）+ ていただく（Bài 41）."
+            }
+          ]
+        },
+        {
+          "jp": "でも、チームの中には自分から動こうとしない人もいます。",
+          "vi": "Nhưng trong nhóm cũng có người không chủ động làm việc.",
+          "vocab": [
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "đội, nhóm"
+            },
+            {
+              "w": "中には",
+              "read": "なかには",
+              "vi": "trong số, ở trong"
+            },
+            {
+              "w": "自分から",
+              "read": "じぶんから",
+              "vi": "tự mình, chủ động"
+            },
+            {
+              "w": "動こうとしない",
+              "read": "うごこうとしない",
+              "vi": "không định hành động"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "います",
+              "read": "います",
+              "vi": "có, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V意向形 + とする（Bài 31）",
+              "vi": "動こうとしない = cố ý không chủ động hành động. V意向形（動こう）+ とする = cố/định làm; phủ định = không định/không chủ động."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "動こうとしない + 人 = người (mà) không chủ động. Mệnh đề trước bổ nghĩa cho 人."
+            }
+          ]
+        },
+        {
+          "jp": "田中部長は「そういう人には、小さいことから少しずつやらせてみてください」とアドバイスしました。",
+          "vi": "Trưởng phòng Tanaka khuyên \"Với những người như vậy, hãy để họ thử làm từ những việc nhỏ dần dần\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "そういう",
+              "read": "そういう",
+              "vi": "như vậy, loại đó"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ (tính từ い)"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "dần dần, từng chút một"
+            },
+            {
+              "w": "アドバイス",
+              "read": "アドバイス",
+              "vi": "lời khuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにVさせてみてください",
+              "vi": "そういう人に〜やらせてみてください = hãy để những người đó thử làm. Kết hợp: 使役形（やらせ）+ てみる（Bài 40）+ てください（Bài 14）."
+            }
+          ]
+        },
+        {
+          "jp": "また、「失敗させても、そこから学ばせることが大切です」とも言いました。",
+          "vi": "Trưởng phòng cũng nói \"Dù để họ thất bại thì việc để họ học từ đó cũng quan trọng\".",
+          "vocab": [
+            {
+              "w": "失敗します",
+              "read": "しっぱいします",
+              "vi": "thất bại"
+            },
+            {
+              "w": "学びます",
+              "read": "まなびます",
+              "vi": "học hỏi, học tập"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "使役形 + ても（Bài 25）",
+              "vi": "失敗させても = dù cho thất bại đi nữa. 使役形（失敗させる: する→させる）+ ても = dù có…thì. Ôn lại Bài 25."
+            },
+            {
+              "point": "Vさせること（Bài 38）",
+              "vi": "学ばせること = việc để học hỏi. 使役形 + こと = danh từ hoá hành động \"bắt/để làm\"."
+            }
+          ]
+        },
+        {
+          "jp": "私は「少し試させてください」とお願いして、自分でやってみることにしました。",
+          "vi": "Tôi xin \"Xin cho phép tôi thử một chút\" rồi quyết định tự mình thử làm.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "試させてください",
+              "read": "ためさせてください",
+              "vi": "hãy cho tôi thử"
+            },
+            {
+              "w": "お願いして",
+              "read": "おねがいして",
+              "vi": "nhờ, đề nghị"
+            },
+            {
+              "w": "自分で",
+              "read": "じぶんで",
+              "vi": "tự mình"
+            },
+            {
+              "w": "やってみる",
+              "read": "やってみる",
+              "vi": "thử làm"
+            },
+            {
+              "w": "ことにしました",
+              "read": "ことにしました",
+              "vi": "đã quyết định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vさせてください（xin phép tự làm）",
+              "vi": "試させてください = xin cho tôi được thử. 使役形（試させ）+ てください = xin phép để bản thân làm điều gì. Chú ý: MÌNH xin để MÌNH làm — khác hoàn toàn với させる bắt người khác."
+            },
+            {
+              "point": "Vることにしました（Bài 31）",
+              "vi": "やってみることにしました = đã quyết định sẽ thử. V辞書形 + ことにする = quyết định làm."
+            }
+          ]
+        },
+        {
+          "jp": "先週、後輩の鈴木さんが「私にも何かやらせていただけませんか」と聞いてきました。",
+          "vi": "Tuần trước, đàn em Suzuki hỏi \"Xin phép anh cho tôi làm gì đó được không?\".",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "後輩",
+              "read": "こうはい",
+              "vi": "đàn em, người vào sau"
+            },
+            {
+              "w": "鈴木",
+              "read": "すずき",
+              "vi": "Suzuki"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "cái gì đó"
+            },
+            {
+              "w": "やらせていただけませんか",
+              "read": "やらせていただけませんか",
+              "vi": "có thể cho tôi làm gì đó không?"
+            },
+            {
+              "w": "聞いてきました",
+              "read": "きいてきました",
+              "vi": "đã đến hỏi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vさせていただけませんか（xin phép khiêm tốn — dạng hỏi）",
+              "vi": "やらせていただけませんか = có thể cho tôi làm không? Đây là Vさせていただく ở dạng nghi vấn khiêm tốn nhất. Suzuki xin phép người cấp trên (tôi)."
+            },
+            {
+              "point": "V + てきました（Bài 43）",
+              "vi": "聞いてきました = đã đến hỏi (hành động đến gần người nói). てくる Bài 43."
+            }
+          ]
+        },
+        {
+          "jp": "「では、発表の準備を手伝わせてください」と自分から言ってくれたのは嬉しかったです。",
+          "vi": "Tôi vui khi em ấy tự nói \"Xin cho phép tôi được phụ chuẩn bị buổi thuyết trình\".",
+          "vocab": [
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "buổi thuyết trình, công bố"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "手伝います",
+              "read": "てつだいます",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui, vui mừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vさせてください（Suzuki xin phép）",
+              "vi": "手伝わせてください = xin cho tôi được giúp. 手伝う（godan）→ 手伝わせる → 手伝わせてください. Suzuki chủ động xin để bản thân đóng góp."
+            },
+            {
+              "point": "〜のは〜（Bài 38）",
+              "vi": "言ってくれたのは嬉しかった = việc em ấy nói như vậy thì tôi vui. のは danh từ hoá mệnh đề làm chủ ngữ."
+            }
+          ]
+        },
+        {
+          "jp": "リーダーとして、メンバーを成長させることが私の一番大切な仕事だと思っています。",
+          "vi": "Với tư cách là trưởng nhóm, tôi nghĩ việc để các thành viên trưởng thành là công việc quan trọng nhất của tôi.",
+          "vocab": [
+            {
+              "w": "リーダー",
+              "read": "リーダー",
+              "vi": "trưởng nhóm, lãnh đạo"
+            },
+            {
+              "w": "メンバー",
+              "read": "メンバー",
+              "vi": "thành viên"
+            },
+            {
+              "w": "成長します",
+              "read": "せいちょうします",
+              "vi": "trưởng thành, phát triển"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "リーダーとして",
+              "read": "リーダーとして",
+              "vi": "với tư cách là trưởng nhóm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVさせること（使役 + こと）",
+              "vi": "メンバーを成長させること = việc để các thành viên trưởng thành. 成長する là 自動詞 (nội động từ) → causee dùng を (KHÔNG dùng に). こと danh từ hoá mệnh đề 使役 làm chủ ngữ (Bài 38)."
+            },
+            {
+              "point": "Vることが〜（Bài 38）",
+              "vi": "成長させることが仕事 = việc giúp họ trưởng thành là công việc. こと danh từ hoá mệnh đề làm chủ ngữ."
+            }
+          ]
+        },
+        {
+          "jp": "田中部長のように上手に人を動かせるリーダーになりたいと、毎日思っています。",
+          "vi": "Tôi nghĩ mỗi ngày mình muốn trở thành trưởng nhóm có thể điều phối con người khéo léo như trưởng phòng Tanaka.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "上手に",
+              "read": "じょうずに",
+              "vi": "khéo léo, giỏi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "動かします",
+              "read": "うごかします",
+              "vi": "điều phối, thúc đẩy (người)"
+            },
+            {
+              "w": "リーダー",
+              "read": "リーダー",
+              "vi": "trưởng nhóm, lãnh đạo"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "〜のように",
+              "read": "〜のように",
+              "vi": "giống như〜, như〜"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "動かせる = có thể điều phối. 動かす（godan）→ 動かせる（可能形 Bài 27）. Chú ý: 動かす khác 動く — ở đây là 動かす（tha động từ: điều phối ai đó）."
+            },
+            {
+              "point": "Vたいと思っています（Bài 13 + 21）",
+              "vi": "なりたいと思っています = đang nghĩ muốn trở thành. Vたい（Bài 13）+ と思う（Bài 21）+ ている（trạng thái suy nghĩ liên tục）."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "もっと自由にやらせてあげた方がいい",
+          "label": "使役形 + てあげる（cho phép vì lợi ích người khác）"
+        },
+        {
+          "excerpt": "山本さんに新しい提案書を作らせてみましょう",
+          "label": "NにVさせてみる（để thử）"
+        },
+        {
+          "excerpt": "書かせていただきありがとうございます",
+          "label": "Vさせていただく（được phép làm — khiêm tốn）"
+        },
+        {
+          "excerpt": "失敗させても、そこから学ばせることが大切です",
+          "label": "使役形 + ても / させること"
+        },
+        {
+          "excerpt": "少し試させてください",
+          "label": "Vさせてください（xin phép tự làm）"
+        },
+        {
+          "excerpt": "手伝わせてください",
+          "label": "使役形 godan（手伝う→手伝わせる）"
+        },
+        {
+          "excerpt": "メンバーを成長させることが私の一番大切な仕事",
+          "label": "NをVさせること（danh từ hoá 使役）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中部長が「山本さんに提案書を作らせてみましょう」と言った理由は何ですか。",
+          "evi": [
+            3,
+            4
+          ],
+          "options": [
+            "山本さんが「作りたい」と頼んだからです",
+            "チームのメンバーにもっと自由にやらせた方がいいという報告を受けたからです",
+            "山本さんが一番優秀だからです",
+            "提案書を書ける人がいなかったからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Trình tự sự kiện trong bài rất rõ: người viết báo cáo「チームのみんなはとても優秀です。でも、もっと自由にやらせてあげた方がいいと思います」(nhưng tôi nghĩ nên để họ làm tự do hơn) → ngay sau đó trưởng phòng Tanaka phản hồi「では、山本さんに新しい提案書を作らせてみましょう」(vậy thì hãy để anh Yamamoto làm bản đề xuất thử xem). では（vậy thì）là tín hiệu Tanaka đang THỰC HIỆN đề xuất \"cho tự do hơn\" dựa trên báo cáo vừa nhận. Đáp án 0 sai vì bài không nhắc Yamamoto chủ động xin làm. Đáp án 2 sai vì dù cả nhóm được khen ゆうしゅう (xuất sắc), lý do Tanaka chọn Yamamoto là để TRY OUT chính sách \"tự do hơn\", không phải vì năng lực vượt trội riêng. Đáp án 3 sai vì bài nói rõ cả nhóm đều xuất sắc.",
+          "tip": "Câu hỏi về LÝ DO hành động → tìm câu trước đó có では / だから / そのため hoặc chuỗi sự kiện nguyên nhân-kết quả. では sau một nhận định = \"vậy thì (thực hiện theo đó)\".",
+          "qt": {
+            "q": "Trưởng phòng Tanaka nói “hãy thử để anh Yamamoto làm bản đề xuất” vì lý do gì?",
+            "o": [
+              "Vì anh Yamamoto đã đề nghị: “Tôi muốn làm”",
+              "Vì ông ấy nhận được báo cáo rằng nên để các thành viên trong nhóm làm việc tự do hơn",
+              "Vì anh Yamamoto là người xuất sắc nhất",
+              "Vì không có ai có thể viết bản đề xuất"
+            ]
+          }
+        },
+        {
+          "q": "「書かせていただきありがとうございます」という山本さんの言葉はどんな意味ですか。",
+          "evi": [
+            8
+          ],
+          "options": [
+            "書いてもらったことへのお礼を言っています",
+            "書く機会を与えてもらったことへの感謝を、謙遜して述べています",
+            "書かせてしまって申し訳ないと謝っています",
+            "自分が書けることを誇りに思っていると伝えています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Cấu trúc「書かせていただく」= 使役形（書かせ）+ ていただく（Bài 41）= \"được phép viết nhờ ơn người trên cho phép\". Yamamoto nói「こんなにいい提案書を書かせていただきありがとうございます」= cảm ơn vì đã được trao cơ hội viết bản đề xuất tuyệt vời đến vậy. Không phải người khác viết cho Yamamoto (→ loại 0). Không phải xin lỗi (→ loại 2: 申し訳ない là xin lỗi, nhưng ありがとう là cảm ơn). Không phải tự hào về năng lực (→ loại 3: 誇りに思う là kiêu hãnh, hoàn toàn sai sắc thái khiêm nhường của させていただく).",
+          "tip": "させていただく = \"được phép làm nhờ ơn người khác\" → cảm xúc đi kèm luôn là BIẾT ƠN (ありがとう / 感謝). Nếu câu có ありがとう + させていただく → đây là lời cảm ơn vì được trao cơ hội, không bao giờ là xin lỗi hay tự hào.",
+          "qt": {
+            "q": "Câu nói “Cảm ơn vì đã cho tôi được viết” của anh Yamamoto có ý nghĩa gì?",
+            "o": [
+              "Anh ấy đang cảm ơn vì đã có người viết giúp mình",
+              "Anh ấy khiêm nhường bày tỏ lòng biết ơn vì được trao cơ hội viết",
+              "Anh ấy đang xin lỗi vì đã khiến người khác phải viết",
+              "Anh ấy đang nói rằng mình tự hào vì có thể viết"
+            ]
+          }
+        },
+        {
+          "q": "「失敗させても、そこから学ばせることが大切です」という田中部長のアドバイスはどんな考え方を示していますか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "失敗した人には仕事をさせない方がいいという考え方",
+            "失敗は避けるべきで、完璧にやらせることが大切という考え方",
+            "失敗を経験させて、そこから学ばせることも成長につながるという考え方",
+            "失敗したら、すぐに別の人にやらせるべきという考え方"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu gốc dùng hai 使役形 liên tiếp:「失敗させても」= 使役形（失敗させる: する→させる）+ ても（Bài 25, dù có…đi nữa）→ \"dù để thất bại đi nữa\";「学ばせることが大切」= 使役形（学ばせる: godan 学ぶ→学ばせる）+ こと（Bài 38, danh từ hoá）→ \"việc để họ học là quan trọng\". Kết hợp: THẤT BẠI không phải xấu — nó là nguyên liệu để dạy. Đáp án 0 và 1 sai hoàn toàn vì đi ngược lại tinh thần câu — Tanaka KHUYẾN KHÍCH để thất bại, không né tránh. Đáp án 3 sai vì không hề nhắc đến việc thay người khi thất bại.",
+          "tip": "使役形 + ても + 使役形 + こと = cấu trúc kép \"dù để X thì Y cũng quan trọng\". Hai 使役形 liên tiếp trong một câu → bài muốn bạn phân tích từng vế một; đừng đọc lướt.",
+          "qt": {
+            "q": "Lời khuyên của Trưởng phòng Tanaka, “Dù để họ mắc lỗi, điều quan trọng là để họ học hỏi từ đó”, thể hiện cách suy nghĩ nào?",
+            "o": [
+              "Cách nghĩ cho rằng tốt hơn là không giao việc cho người đã mắc lỗi",
+              "Cách nghĩ cho rằng cần tránh sai lầm và điều quan trọng là yêu cầu họ làm mọi việc hoàn hảo",
+              "Cách nghĩ cho rằng để họ trải nghiệm thất bại và học hỏi từ đó cũng giúp họ trưởng thành",
+              "Cách nghĩ cho rằng nếu mắc lỗi thì nên giao việc ngay cho người khác"
+            ]
+          }
+        },
+        {
+          "q": "「Vさせてください」と「Vさせていただきます」の違いは何ですか。文章の内容から考えてください。",
+          "evi": [
+            8,
+            12,
+            14
+          ],
+          "options": [
+            "意味は同じで、どちらも使えます",
+            "「させてください」は相手に頼む表現、「させていただきます」は許可をもらって行動することへの謙遜した表現です",
+            "「させてください」は部下が使い、「させていただきます」は上司が使います",
+            "「させてください」は丁寧で、「させていただきます」はカジュアルです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài có hai ví dụ thực tế để đối chiếu: (1)「少し試させてください」(người viết nói với trưởng phòng Tanaka) = xin cho tôi được thử → đang YÊU CẦU để được phép làm, chưa được phép; (2)「手伝わせてください」(Suzuki nói với người viết) = xin cho tôi được giúp → tương tự, đang xin phép; (3)「書かせていただきありがとうございます」(Yamamoto nói sau khi ĐÃ được phép và đã làm xong) = cảm ơn vì đã được phép viết → diễn đạt khiêm tốn NHÌN LẠI hành động đã được người trên cho phép. させていただく TRANG TRỌNG hơn, thể hiện ý \"nhờ ơn người khác mà tôi được làm\". Đáp án 0 sai hoàn toàn — hai mẫu khác nhau về sắc thái và thời điểm dùng. Đáp án 2 sai vì trong bài cả hai mẫu đều do cấp dưới dùng. Đáp án 3 sai ngược: させていただく MỚI là trang trọng và khiêm nhường hơn.",
+          "tip": "させてください = \"xin CHO PHÉP tôi làm\" (đang xin trước); させていただく = \"tôi đã được phép làm / nhờ ơn anh/chị mà tôi làm được\" (sau khi có phép hoặc nói khiêm tốn về sự cho phép). Dấu hiệu: させてください đứng độc lập; させていただく thường đi cùng ありがとう hoặc đứng ở đầu câu hành động chính thức.",
+          "qt": {
+            "q": "Sự khác nhau giữa “Vさせてください” và “Vさせていただきます” là gì? Hãy suy nghĩ dựa trên nội dung bài đọc.",
+            "o": [
+              "Ý nghĩa giống nhau và có thể dùng cách nào cũng được",
+              "“させてください” là cách nói nhờ đối phương; “させていただきます” là cách nói khiêm nhường về việc hành động sau khi được cho phép",
+              "“させてください” được cấp dưới dùng, còn “させていただきます” được cấp trên dùng",
+              "“させてください” là cách nói lịch sự, còn “させていただきます” là cách nói thân mật"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Tuyển sinh lớp học cho trẻ em ở trung tâm văn hóa",
+      "japanese": "さくら文化センター　子ども教室のお知らせ\nさくら文化センターでは、子どものための教室を三つ開いています。お子さんに好きなことを習わせたい方は、ぜひお申し込みください。\n経験豊富な先生が、一人一人に合わせて優しく指導させていただきます。\n教室｜対象年齢｜曜日・時間｜料金\n水泳教室｜4歳〜6歳｜火　16時〜17時｜月3,000円\nピアノ教室｜5歳〜9歳｜木　15時〜16時｜月4,000円\n英語教室｜6歳〜12歳｜土　10時〜11時｜月3,500円\n※水泳教室に参加させる方は、お子さんに水着とタオルを持たせてください。\n※ピアノ教室と英語教室は、曜日が違いますので、二つ習わせることもできます。\n※お休みする場合は、前の日までにご連絡ください。\n※お申し込みは、来週の金曜日までにお願いします。\n電話：077-234-5678（月〜金　9時〜18時）　場所：さくら文化センター2階",
+      "vietnamese": "Trung tâm văn hóa Sakura　Thông báo lớp học cho trẻ em\nTrung tâm văn hóa Sakura đang mở ba lớp học dành cho trẻ em. Quý phụ huynh muốn để con mình học điều con thích, xin vui lòng đăng ký.\nCác thầy cô giàu kinh nghiệm sẽ nhẹ nhàng hướng dẫn phù hợp với từng bé.\nLớp học｜Độ tuổi phù hợp｜Thứ・Giờ｜Học phí\nLớp bơi｜4 tuổi〜6 tuổi｜Thứ Ba　16 giờ〜17 giờ｜3.000 yên/tháng\nLớp piano｜5 tuổi〜9 tuổi｜Thứ Năm　15 giờ〜16 giờ｜4.000 yên/tháng\nLớp tiếng Anh｜6 tuổi〜12 tuổi｜Thứ Bảy　10 giờ〜11 giờ｜3.500 yên/tháng\n※Quý vị nào cho con tham gia lớp bơi, xin hãy để con mang theo đồ bơi và khăn tắm.\n※Lớp piano và lớp tiếng Anh khác ngày nên có thể để con học cả hai lớp cùng lúc.\n※Nếu nghỉ học, xin liên hệ trước một ngày.\n※Xin đăng ký trước thứ Sáu tuần sau.\nĐiện thoại: 077-234-5678 (Thứ Hai〜Thứ Sáu　9 giờ〜18 giờ)　Địa điểm: Trung tâm văn hóa Sakura tầng 2",
+      "sentences": [
+        {
+          "jp": "さくら文化センター　子ども教室のお知らせ",
+          "vi": "Trung tâm văn hóa Sakura　Thông báo lớp học cho trẻ em",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "文化センター",
+              "read": "ぶんかセンター",
+              "vi": "trung tâm văn hóa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1,2）",
+              "vi": "子ども教室のお知らせ = thông báo về lớp học cho trẻ em. Tiêu đề thông báo, danh từ ghép bằng の."
+            }
+          ],
+          "keys": [
+            {
+              "w": "子ども教室",
+              "why": "Chủ đề chính của cả tờ thông báo — mọi câu hỏi đều xoay quanh việc chọn lớp cho trẻ."
+            }
+          ]
+        },
+        {
+          "jp": "さくら文化センターでは、子どものための教室を三つ開いています。お子さんに好きなことを習わせたい方は、ぜひお申し込みください。",
+          "vi": "Trung tâm văn hóa Sakura đang mở ba lớp học dành cho trẻ em. Quý phụ huynh muốn để con mình học điều con thích, xin vui lòng đăng ký.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba (cái)"
+            },
+            {
+              "w": "開きます",
+              "read": "ひらきます",
+              "vi": "mở, tổ chức"
+            },
+            {
+              "w": "お子さん",
+              "read": "おこさん",
+              "vi": "con của quý vị (lịch sự)"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "習わせたい",
+              "read": "ならわせたい",
+              "vi": "muốn cho học"
+            },
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "〜のための",
+              "read": "〜のための",
+              "vi": "dành cho〜"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị, người (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（Bài 14,15）",
+              "vi": "教室を開いています = đang mở lớp học (trạng thái duy trì)."
+            },
+            {
+              "point": "使役形＋たいです（Bài 48 + Bài 13）",
+              "vi": "習わせたい = muốn CHO con học. 習う（godan）→ 習わせる（使役形: -u→-aseru）→ 習わせたい（gắn たい của Bài 13 vào 使役形, diễn đạt mong muốn của PHỤ HUYNH chứ không phải của con）."
+            },
+            {
+              "point": "NにVさせたい方へ（đối tượng của 使役）",
+              "vi": "お子さんに〜習わせたい方 = quý vị muốn để con mình học〜. に đứng trước 使役形 chỉ người được cho làm (con), 方 chỉ chủ ngữ ẩn (phụ huynh)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "教室を三つ開いています",
+              "why": "Cho biết có đúng 3 lớp — khung để dò bảng bên dưới."
+            },
+            {
+              "w": "習わせたい方は、ぜひお申し込みください",
+              "why": "Lời mời đăng ký — dẫn tới điều kiện hạn đăng ký ở dòng ※ cuối bài."
+            }
+          ]
+        },
+        {
+          "jp": "経験豊富な先生が、一人一人に合わせて優しく指導させていただきます。",
+          "vi": "Các thầy cô giàu kinh nghiệm sẽ nhẹ nhàng hướng dẫn phù hợp với từng bé.",
+          "vocab": [
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "豊富",
+              "read": "ほうふ",
+              "vi": "phong phú, dồi dào"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "thầy cô, giáo viên"
+            },
+            {
+              "w": "合わせて",
+              "read": "あわせて",
+              "vi": "phù hợp với, kết hợp"
+            },
+            {
+              "w": "優しい",
+              "read": "やさしい",
+              "vi": "dịu dàng, hiền từ"
+            },
+            {
+              "w": "指導します",
+              "read": "しどうします",
+              "vi": "hướng dẫn, chỉ đạo"
+            },
+            {
+              "w": "経験豊富",
+              "read": "けいけんほうふ",
+              "vi": "giàu kinh nghiệm"
+            },
+            {
+              "w": "一人一人",
+              "read": "ひとりひとり",
+              "vi": "từng người một"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vさせていただきます（Bài 48, khiêm tốn）",
+              "vi": "指導させていただきます = xin phép được hướng dẫn (khiêm tốn khi trung tâm tự nói về việc mình sẽ làm cho khách). 指導する（する動詞）→ 指導させる（使役形: する→させる）+ ていただきます（Bài 41, khiêm nhường）."
+            }
+          ]
+        },
+        {
+          "jp": "教室｜対象年齢｜曜日・時間｜料金",
+          "vi": "Lớp học｜Độ tuổi phù hợp｜Thứ・Giờ｜Học phí",
+          "vocab": [
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng (áp dụng)"
+            },
+            {
+              "w": "年齢",
+              "read": "ねんれい",
+              "vi": "tuổi tác, độ tuổi"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "học phí, cước phí"
+            },
+            {
+              "w": "対象年齢",
+              "read": "たいしょうねんれい",
+              "vi": "độ tuổi áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（情報検索）",
+              "vi": "Hàng tiêu đề (header) của bảng, xác định 4 cột: tên lớp / độ tuổi / thứ-giờ / học phí — dùng để dò các hàng bên dưới."
+            }
+          ],
+          "keys": [
+            {
+              "w": "対象年齢",
+              "why": "Cột tuổi — căn cứ để loại lớp không hợp tuổi ở cả 2 câu hỏi."
+            },
+            {
+              "w": "曜日・時間",
+              "why": "Cột ngày-giờ — căn cứ chính cho câu hỏi 1 (chỉ rảnh thứ Bảy)."
+            },
+            {
+              "w": "料金",
+              "why": "Cột học phí — căn cứ để tính tiền ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "水泳教室｜4歳〜6歳｜火　16時〜17時｜月3,000円",
+          "vi": "Lớp bơi｜4 tuổi〜6 tuổi｜Thứ Ba　16 giờ〜17 giờ｜3.000 yên/tháng",
+          "vocab": [
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "水泳教室",
+              "read": "すいえいきょうしつ",
+              "vi": "lớp học bơi"
+            },
+            {
+              "w": "4歳",
+              "read": "よんさい",
+              "vi": "4 tuổi"
+            },
+            {
+              "w": "6歳",
+              "read": "ろくさい",
+              "vi": "6 tuổi"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "16時",
+              "read": "じゅうろくじ",
+              "vi": "16 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞・時刻（Bài 4,11）",
+              "vi": "16時〜17時 = từ 16 giờ đến 17 giờ, giống mẫu NからNまで (Bài 4)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "4歳〜6歳",
+              "why": "Con 6 tuổi VẪN hợp tuổi lớp này — bẫy câu hỏi 1 vì tuổi đúng nhưng ngày sai (火 không phải 土)."
+            },
+            {
+              "w": "火",
+              "why": "Ngày học là thứ Ba — KHÔNG khớp điều kiện \"chỉ rảnh thứ Bảy\" của câu hỏi 1, dù tuổi hợp."
+            }
+          ]
+        },
+        {
+          "jp": "ピアノ教室｜5歳〜9歳｜木　15時〜16時｜月4,000円",
+          "vi": "Lớp piano｜5 tuổi〜9 tuổi｜Thứ Năm　15 giờ〜16 giờ｜4.000 yên/tháng",
+          "vocab": [
+            {
+              "w": "ピアノ",
+              "read": "ぴあの",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "5歳",
+              "read": "ごさい",
+              "vi": "5 tuổi"
+            },
+            {
+              "w": "9歳",
+              "read": "きゅうさい",
+              "vi": "9 tuổi"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "15時",
+              "read": "じゅうごじ",
+              "vi": "15 giờ"
+            },
+            {
+              "w": "16時",
+              "read": "じゅうろくじ",
+              "vi": "16 giờ"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "4,000円",
+              "read": "よんせんえん",
+              "vi": "4.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞（Bài 11）",
+              "vi": "5歳〜9歳 = từ 5 đến 9 tuổi, đơn vị đếm tuổi 〜歳 (Bài 11)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "5歳〜9歳",
+              "why": "Con 7 tuổi trong câu hỏi 2 nằm trong khoảng này — điều kiện tuổi thỏa mãn để tính học phí piano."
+            },
+            {
+              "w": "月4,000円",
+              "why": "Học phí lớp piano — 1 trong 2 số cần cộng ở câu hỏi 2 (7,500円)."
+            }
+          ]
+        },
+        {
+          "jp": "英語教室｜6歳〜12歳｜土　10時〜11時｜月3,500円",
+          "vi": "Lớp tiếng Anh｜6 tuổi〜12 tuổi｜Thứ Bảy　10 giờ〜11 giờ｜3.500 yên/tháng",
+          "vocab": [
+            {
+              "w": "英語",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "6歳",
+              "read": "ろくさい",
+              "vi": "6 tuổi"
+            },
+            {
+              "w": "12歳",
+              "read": "じゅうにさい",
+              "vi": "12 tuổi"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "10時",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "11時",
+              "read": "じゅういちじ",
+              "vi": "11 giờ"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ôn bảng scope（Bài 4,11）",
+              "vi": "Hàng thứ 3 của bảng — vẫn theo cấu trúc cột giống 2 hàng trên, chỉ đổi số liệu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "6歳〜12歳",
+              "why": "Con 6 tuổi (câu hỏi 1) và con 7 tuổi (câu hỏi 2) đều nằm trong khoảng này."
+            },
+            {
+              "w": "土",
+              "why": "Ngày học là thứ Bảy — KHỚP điều kiện \"chỉ rảnh thứ Bảy\" của câu hỏi 1, đây là đáp án đúng."
+            },
+            {
+              "w": "月3,500円",
+              "why": "Học phí lớp tiếng Anh — số còn lại cần cộng ở câu hỏi 2 (7,500円)."
+            }
+          ]
+        },
+        {
+          "jp": "※水泳教室に参加させる方は、お子さんに水着とタオルを持たせてください。",
+          "vi": "※Quý vị nào cho con tham gia lớp bơi, xin hãy để con mang theo đồ bơi và khăn tắm.",
+          "vocab": [
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "お子さん",
+              "read": "おこさん",
+              "vi": "con (cách nói lịch sự)"
+            },
+            {
+              "w": "水着",
+              "read": "みずぎ",
+              "vi": "đồ bơi"
+            },
+            {
+              "w": "タオル",
+              "read": "タオル",
+              "vi": "khăn tắm"
+            },
+            {
+              "w": "持ちます",
+              "read": "もちます",
+              "vi": "mang, cầm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにVさせる方は（使役形 làm mệnh đề bổ nghĩa, Bài 22+48）",
+              "vi": "参加させる方 = quý vị (mà) cho con tham gia. 参加する（する動詞）→ 参加させる（使役形: する→させる）đứng trước 方 để bổ nghĩa danh từ (Bài 22)."
+            },
+            {
+              "point": "NにVさせてください（使役形＋Bài 14）",
+              "vi": "持たせてください = xin hãy để con MANG theo. 持つ（godan）→ 持たせる（-u→-aseru）→ 持たせてください. Đây là 使役 mang nghĩa \"cho phép/yêu cầu con làm\", khác 参加させてください（xin để tôi tham gia）đã học ở bài đọc trên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水泳教室",
+              "why": "Dòng ※ chỉ áp dụng riêng cho lớp bơi — không liên quan tới câu hỏi về piano/tiếng Anh."
+            }
+          ]
+        },
+        {
+          "jp": "※ピアノ教室と英語教室は、曜日が違いますので、二つ習わせることもできます。",
+          "vi": "※Lớp piano và lớp tiếng Anh khác ngày nên có thể để con học cả hai lớp cùng lúc.",
+          "vocab": [
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "英語",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "二つ",
+              "read": "ふたつ",
+              "vi": "hai (cái)"
+            },
+            {
+              "w": "習う",
+              "read": "ならう",
+              "vi": "học, học tập (kỹ năng)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "曜日が違いますので = vì thứ khác nhau nên〜. ので nêu lý do lịch sự."
+            },
+            {
+              "point": "Vさせることができます（使役形＋Bài 18）",
+              "vi": "習わせることができます = có thể cho (con) học. 使役形（習わせる）+ ことができます (Bài 18, khả năng) = phụ huynh CÓ THỂ để con học cả hai vì lịch không trùng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "曜日が違います",
+              "why": "Lý do 2 lớp KHÔNG trùng lịch — điều kiện then chốt cho phép câu hỏi 2 cộng học phí cả hai lớp."
+            },
+            {
+              "w": "二つ習わせることもできます",
+              "why": "Xác nhận trực tiếp: được đăng ký CẢ HAI lớp cùng lúc — căn cứ chính của câu hỏi 2 (phải cộng 2 học phí)."
+            }
+          ]
+        },
+        {
+          "jp": "※お休みする場合は、前の日までにご連絡ください。",
+          "vi": "※Nếu nghỉ học, xin liên hệ trước một ngày.",
+          "vocab": [
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "お休みします",
+              "read": "おやすみします",
+              "vi": "nghỉ (lịch sự)"
+            },
+            {
+              "w": "前の日",
+              "read": "まえのひ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "ご連絡ください",
+              "read": "ごれんらくください",
+              "vi": "xin liên hệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nの場合は（Bài 23 mở rộng）",
+              "vi": "お休みする場合は = trong trường hợp nghỉ học. 場合 nối sau V辞書形/N, tương tự とき (Bài 23) nhưng nhấn mạnh \"tình huống giả định\"."
+            },
+            {
+              "point": "Nまでに（Bài 17, ôn lại）",
+              "vi": "前の日までに = trước ngày hôm trước (tính đến hạn đó). Ôn lại までに đã học ở dòng dưới."
+            }
+          ]
+        },
+        {
+          "jp": "※お申し込みは、来週の金曜日までにお願いします。",
+          "vi": "※Xin đăng ký trước thứ Sáu tuần sau.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "金曜日",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "金曜日までに = trước (hạn) thứ Sáu. までに chỉ hạn chót phải hoàn thành, khác までchỉ mốc kết thúc kéo dài."
+            }
+          ]
+        },
+        {
+          "jp": "電話：077-234-5678（月〜金　9時〜18時）　場所：さくら文化センター2階",
+          "vi": "Điện thoại: 077-234-5678 (Thứ Hai〜Thứ Sáu　9 giờ〜18 giờ)　Địa điểm: Trung tâm văn hóa Sakura tầng 2",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "2階",
+              "read": "にかい",
+              "vi": "tầng 2"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "月〜金9時〜18時 = từ thứ Hai đến thứ Sáu, 9 giờ đến 18 giờ — thông tin liên hệ cuối tờ thông báo, dạng rút gọn của NからNまで."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "好きなことを習わせたい方",
+          "label": "使役形＋たい（Bài 48, phụ huynh muốn cho con học）"
+        },
+        {
+          "excerpt": "指導させていただきます",
+          "label": "使役形＋ていただきます（Bài 48, khiêm tốn）"
+        },
+        {
+          "excerpt": "水泳教室に参加させる方",
+          "label": "使役形 する動詞（参加する→参加させる）＋mệnh đề bổ nghĩa"
+        },
+        {
+          "excerpt": "お子さんに水着とタオルを持たせてください",
+          "label": "使役形＋てください（Bài 48, xin để con làm）"
+        },
+        {
+          "excerpt": "二つ習わせることもできます",
+          "label": "使役形＋ことができます（Bài 18+48）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời",
+          "topic": 0,
+          "note": "Giới thiệu trung tâm có 3 lớp cho trẻ và lời mời đăng ký — chưa có căn cứ trả lời câu hỏi nào, chỉ định hướng đọc tiếp xuống bảng.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "kind": "body",
+          "label": "Cam kết giáo viên",
+          "topic": 2,
+          "note": "Câu quảng cáo về chất lượng giảng dạy, không chứa số liệu hay điều kiện — không phải căn cứ trả lời.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng 3 lớp học",
+          "topic": 3,
+          "note": "Khối cốt lõi: header (dòng 3) định nghĩa 4 cột, 3 hàng (bơi/piano/tiếng Anh) chứa tuổi + thứ/giờ + học phí — căn cứ chính để dò cả câu hỏi 1 (tuổi + thứ Bảy) và câu hỏi 2 (tuổi 7 + cộng học phí piano và tiếng Anh).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Điều kiện ※ theo lớp",
+          "topic": 8,
+          "note": "Dòng ※ đầu chỉ áp dụng riêng lớp bơi (bẫy nếu nhầm sang câu hỏi khác); dòng ※ thứ hai là căn cứ TRỰC TIẾP cho câu hỏi 2 — xác nhận piano và tiếng Anh được học song song vì khác ngày.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "body",
+          "label": "Điều kiện nghỉ/đăng ký & liên hệ",
+          "topic": 10,
+          "note": "Hạn báo nghỉ, hạn đăng ký và thông tin liên hệ — không liên quan trực tiếp đến 2 câu hỏi hiện có (không có nhân vật nào hỏi về hạn hay liên hệ).",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんの子どもは6歳です。土曜日だけ時間があります。子どもをどの教室に参加させることができますか。",
+          "options": [
+            "水泳教室",
+            "ピアノ教室",
+            "英語教室",
+            "水泳教室とピアノ教室"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2 (英語教室). Bài toán ghép 2 điều kiện: (1) tuổi con = 6 tuổi, (2) phụ huynh CHỈ rảnh thứ Bảy. Dò bảng: 水泳教室（4歳〜6歳・火）→ tuổi hợp NHƯNG là thứ Ba, sai điều kiện ngày; ピアノ教室（5歳〜9歳・木）→ tuổi hợp NHƯNG là thứ Năm, sai điều kiện ngày; 英語教室（6歳〜12歳・土）→ tuổi hợp VÀ đúng thứ Bảy — thỏa cả 2 điều kiện. Đáp án 0 và 1 sai vì tuy độ tuổi phù hợp nhưng ngày học không phải thứ Bảy. Đáp án 3 sai vì gộp 2 lớp sai ngày lại vẫn không giải quyết được điều kiện \"chỉ rảnh thứ Bảy\".",
+          "tip": "Câu hỏi ghép 2 điều kiện (tuổi + ngày rảnh) → dò TỪNG cột trong bảng cho từng điều kiện, chỉ giữ lại hàng thỏa MÃN CẢ HAI, đừng chỉ nhìn 1 cột rồi chọn vội.",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Con của anh Santos 6 tuổi. Chỉ có thời gian vào thứ Bảy. Có thể cho con tham gia lớp học nào?",
+            "o": [
+              "Lớp bơi",
+              "Lớp piano",
+              "Lớp tiếng Anh",
+              "Lớp bơi và lớp piano"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんの子どもは7歳で、ピアノ教室と英語教室に参加させたいです。カリナさんは月にいくら払いますか。",
+          "options": [
+            "3,500円",
+            "4,000円",
+            "7,500円",
+            "10,500円"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2 (7,500円). Con 7 tuổi thỏa điều kiện tuổi của cả ピアノ教室（5歳〜9歳）và 英語教室（6歳〜12歳）, và dòng ※ ghi rõ「ピアノ教室と英語教室は、曜日が違いますので、二つ習わせることもできます」(khác ngày nên có thể học cả hai). Vậy phải cộng học phí 2 lớp: ピアノ教室 4,000円 ＋ 英語教室 3,500円 ＝ 7,500円. Đáp án 0 chỉ là học phí riêng lớp tiếng Anh (thiếu 1 vế). Đáp án 1 chỉ là học phí riêng lớp piano (thiếu 1 vế). Đáp án 3 là số tiền cộng nhầm (cộng cả học phí lớp bơi không liên quan), không khớp bài toán.",
+          "tip": "Câu hỏi \"いくら払いますか\" khi cho tham gia 2 lớp → luôn kiểm tra dòng ※ xem có cho phép học cùng lúc không, rồi CỘNG đúng 2 cột 料金 tương ứng — đáp án nhiễu thường chỉ lấy 1 vế hoặc cộng nhầm lớp không liên quan.",
+          "evi": [
+            5,
+            6,
+            8
+          ],
+          "qt": {
+            "q": "Con của chị Karina 7 tuổi, và chị muốn cho con tham gia lớp piano và lớp tiếng Anh. Mỗi tháng chị Karina phải trả bao nhiêu?",
+            "o": [
+              "3.500 yên",
+              "4.000 yên",
+              "7.500 yên",
+              "10.500 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

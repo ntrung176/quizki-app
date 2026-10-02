@@ -1,0 +1,458 @@
+{
+  "id": "minna2.b41",
+  "bai": 41,
+  "titleVi": "Biểu đạt phán đoán, suy đoán",
+  "know": [
+    {
+      "id": "minna2.b41.you-mitai",
+      "point": "you-mitai",
+      "jp": "〜ようです ／ 〜みたいです",
+      "vi": "Có vẻ như ~ (từ bằng chứng / khẩu ngữ)",
+      "en": "It seems that ~ (based on evidence / colloquial)",
+      "gloss": "雨[あめ]が 降[ふ]っているようです ／ 彼[かれ]は 怒[おこ]っているみたいです",
+      "glossEn": "雨[あめ]が 降[ふ]っているようです ／ 彼[かれ]は 怒[おこ]っているみたいです"
+    },
+    {
+      "id": "minna2.b41.rashii",
+      "point": "rashii",
+      "jp": "〜らしいです",
+      "vi": "Hình như ~, nghe nói ~ (thông tin gián tiếp)",
+      "en": "Apparently ~; I hear that ~ (indirect information)",
+      "gloss": "田中[たなか]さんは 来[こ]ないらしいです",
+      "glossEn": "田中[たなか]さんは 来[こ]ないらしいです"
+    },
+    {
+      "id": "minna2.b41.hazu",
+      "point": "hazu",
+      "jp": "〜はずです ／ 〜はずがありません",
+      "vi": "Chắc chắn là ~ / Không thể có chuyện ~ (kỳ vọng / phủ định mạnh)",
+      "en": "Surely ~ / There is no way that ~ (expectation / strong negation)",
+      "gloss": "彼女[かのじょ]は 知[し]っているはずです ／ あの 人[ひと]が 嘘[うそ]をつくはずがありません",
+      "glossEn": "彼女[かのじょ]は 知[し]っているはずです ／ あの 人[ひと]が 嘘[うそ]をつくはずがありません"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b41-you-ame",
+      "item": "minna2.b41.you-mitai",
+      "err": "you-futsuu-wrong",
+      "vi": "Bên ngoài có vẻ như đang mưa (nhìn thấy nước trên mặt đường).",
+      "t1": {
+        "stem": "道路[どうろ]が 濡[ぬ]れています。外[そと]は 雨[あめ]が ＿。",
+        "choices": [
+          "降[ふ]っているようです",
+          "降[ふ]っていますようです",
+          "降[ふ]るようになります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "外[そと]は",
+          "雨[あめ]が",
+          "降[ふ]っている",
+          "ようです。"
+        ],
+        "traps": [
+          "降[ふ]っています",
+          "降[ふ]っていますようです。"
+        ]
+      },
+      "t3": {
+        "target": "外は雨が降っているようです。",
+        "accept": [
+          "そとはあめがふっているようです。"
+        ]
+      },
+      "why": "ようです cần thể thường (普通形[ふつうけい]) trước nó。✗ 降[ふ]っていますようです — không dùng thể lịch sự trước ようです。"
+    },
+    {
+      "id": "c-b41-you-byouki",
+      "item": "minna2.b41.you-mitai",
+      "err": "you-futsuu-wrong",
+      "vi": "Trông mặt anh ấy hơi xanh — có vẻ như bị ốm.",
+      "t1": {
+        "stem": "顔色[かおいろ]が 悪[わる]いですね。病気[びょうき]の ＿。",
+        "choices": [
+          "ようです",
+          "ようではありません",
+          "ようになります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "病気[びょうき]の",
+          "ようです。"
+        ],
+        "traps": [
+          "ようでした。",
+          "ようになります。"
+        ]
+      },
+      "t3": {
+        "target": "病気のようです。",
+        "accept": [
+          "びょうきのようです。"
+        ]
+      },
+      "why": "名詞[めいし] + のようです: trạng thái quan sát được từ bằng chứng (màu da xấu)。✗ ようになります = trở nên ~, nghĩa khác hoàn toàn。"
+    },
+    {
+      "id": "c-b41-mitai-neru",
+      "item": "minna2.b41.you-mitai",
+      "err": "mitai-form-wrong",
+      "vi": "Bạn ơi, hình như Tanaka-san ngủ rồi (nói thân mật).",
+      "t1": {
+        "stem": "田中[たなか]さんは もう 寝[ね]ている ＿。",
+        "choices": [
+          "みたいです",
+          "みたいではありません",
+          "みたいになります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "もう",
+          "寝[ね]ている",
+          "みたいです。"
+        ],
+        "traps": [
+          "寝[ね]ていますみたいです。",
+          "らしいです。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんはもう寝ているみたいです。",
+        "accept": [
+          "たなかさんはもうねているみたいです。"
+        ]
+      },
+      "why": "みたいです = ようです (thân mật、khẩu ngữ)。Dùng sau thể thường: 寝[ね]ている (chứ không phải 寝[ね]ています)。✗ 寝[ね]ていますみたいです — sai khi thêm みたいです sau thể lịch sự。"
+    },
+    {
+      "id": "c-b41-mitai-kawatta",
+      "item": "minna2.b41.you-mitai",
+      "err": "mitai-form-wrong",
+      "vi": "Tình hình có vẻ thay đổi rồi (nói với bạn thân).",
+      "t1": {
+        "stem": "状況[じょうきょう]が 変[か]わった ＿ですね。",
+        "choices": [
+          "みたい",
+          "ようではありません",
+          "みたいになり"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "状況[じょうきょう]が",
+          "変[か]わった",
+          "みたいですね。"
+        ],
+        "traps": [
+          "変[か]わりましたみたいです。",
+          "ようですね。"
+        ]
+      },
+      "t3": {
+        "target": "状況が変わったみたいですね。",
+        "accept": [
+          "じょうきょうがかわったみたいですね。"
+        ]
+      },
+      "why": "変[か]わった (た形[けい]・普通形[ふつうけい]) + みたいです = có vẻ đã đổi rồi (thân mật)。✗ 変[か]わりましたみたいです — không dùng thể lịch sự trước みたいです。"
+    },
+    {
+      "id": "c-b41-rashii-yasumi",
+      "item": "minna2.b41.rashii",
+      "err": "rashii-vs-sou",
+      "vi": "Nghe nói hôm nay lớp học nghỉ (thông tin từ người khác).",
+      "t1": {
+        "stem": "今日[きょう]は 授業[じゅぎょう]が 休[やす]み ＿。",
+        "choices": [
+          "らしいです",
+          "そうです",
+          "ようです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]は",
+          "授業[じゅぎょう]が",
+          "休[やす]み",
+          "らしいです。"
+        ],
+        "traps": [
+          "休[やす]みそうです。",
+          "休[やす]みようです。"
+        ]
+      },
+      "t3": {
+        "target": "今日は授業が休みらしいです。",
+        "accept": [
+          "きょうはじゅぎょうがやすみらしいです。"
+        ]
+      },
+      "why": "らしいです = thông tin nghe từ nguồn bên ngoài (ai đó nói、nghe đồn)。✗ そうです (様態[ようたい]) dùng khi nhìn thấy trực tiếp bằng mắt。"
+    },
+    {
+      "id": "c-b41-rashii-yuumei",
+      "item": "minna2.b41.rashii",
+      "err": "rashii-vs-sou",
+      "vi": "Nghe nói nhà hàng đó rất nổi tiếng (thông tin gián tiếp).",
+      "t1": {
+        "stem": "あのレストランは とても 有名[ゆうめい] ＿。",
+        "choices": [
+          "らしいです",
+          "そうです",
+          "ようです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あのレストランは",
+          "とても",
+          "有名[ゆうめい]",
+          "らしいです。"
+        ],
+        "traps": [
+          "有名[ゆうめい]そうです。",
+          "ようです。"
+        ]
+      },
+      "t3": {
+        "target": "あのレストランはとても有名らしいです。",
+        "accept": [
+          "あのれすとらんはとてもゆうめいらしいです。"
+        ]
+      },
+      "why": "な形容詞[けいようし] (有名[ゆうめい]) + らしい: không cần な trước らしい (✗ 有名[ゆうめい]ならしい)。らしい dùng cho thông tin gián tiếp nghe từ người khác。"
+    },
+    {
+      "id": "c-b41-hazu-kuru",
+      "item": "minna2.b41.hazu",
+      "err": "hazu-form-wrong",
+      "vi": "Cô ấy đã hứa nên chắc chắn sẽ đến.",
+      "t1": {
+        "stem": "彼女[かのじょ]は 約束[やくそく]しましたから、来[く]る ＿。",
+        "choices": [
+          "はずです",
+          "はずがありません",
+          "ようです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "約束[やくそく]しましたから、",
+          "来[く]る",
+          "はずです。"
+        ],
+        "traps": [
+          "来[く]るはずではありません。",
+          "らしいです。"
+        ]
+      },
+      "t3": {
+        "target": "彼女は約束しましたから、来るはずです。",
+        "accept": [
+          "かのじょはやくそくしましたから、くるはずです。"
+        ]
+      },
+      "why": "はずです = kỳ vọng chắc chắn dựa trên căn cứ。✗ はずではありません — sai dạng phủ định; phải dùng はずがありません。"
+    },
+    {
+      "id": "c-b41-hazuga-uso",
+      "item": "minna2.b41.hazu",
+      "err": "hazu-form-wrong",
+      "vi": "Người chăm chỉ và thật thà như vậy không thể nào nói dối.",
+      "t1": {
+        "stem": "あんなに 真面目[まじめ]な 人[ひと]が 嘘[うそ]をつく ＿。",
+        "choices": [
+          "はずがありません",
+          "はずです",
+          "らしいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "嘘[うそ]を",
+          "つく",
+          "はずが",
+          "ありません。"
+        ],
+        "traps": [
+          "つくはずではありません。",
+          "はずがないです。"
+        ]
+      },
+      "t3": {
+        "target": "嘘をつくはずがありません。",
+        "accept": [
+          "うそをつくはずがありません。"
+        ]
+      },
+      "why": "はずがありません = phủ định mạnh \"không thể có chuyện ~\"。✗ はずではありません — không phải dạng chuẩn; ✗ はずがないです — kém lịch sự hơn trong văn viết。"
+    },
+    {
+      "id": "c-b41-hazu-shitte",
+      "item": "minna2.b41.hazu",
+      "err": "hazu-form-wrong",
+      "vi": "Anh ấy đã học bài này rồi nên hẳn là biết.",
+      "t1": {
+        "stem": "彼[かれ]は この 内容[ないよう]を 勉強[べんきょう]しましたから、知[し]っている ＿。",
+        "choices": [
+          "はずです",
+          "はずがありません",
+          "みたいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "知[し]っている",
+          "はずです。"
+        ],
+        "traps": [
+          "知[し]っていますはずです。",
+          "はずがありません。"
+        ]
+      },
+      "t3": {
+        "target": "知っているはずです。",
+        "accept": [
+          "しっているはずです。"
+        ]
+      },
+      "why": "知[し]っている (thể thường・進行[しんこう]) + はずです = hẳn là đang biết (có căn cứ)。✗ 知[し]っていますはずです — không dùng thể lịch sự trước はず。"
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b41-you",
+      "item": "minna2.b41.you-mitai",
+      "err": "you-futsuu-wrong",
+      "tts": "きのうから へやの でんきが ついています。だれかが いるようです。",
+      "script": "昨日[きのう]から 部屋[へや]の 電気[でんき]が ついています。誰[だれ]かが いるようです。",
+      "ask": "Người nói suy đoán điều gì?",
+      "choices": [
+        "Có ai đó trong phòng",
+        "Phòng đang tối",
+        "Bóng đèn bị hỏng"
+      ],
+      "answer": 0,
+      "why": "電気[でんき]がついています (đèn sáng) → 誰[だれ]かがいるようです = có vẻ có người (suy đoán từ bằng chứng thực tế)。"
+    },
+    {
+      "id": "l-b41-rashii",
+      "item": "minna2.b41.rashii",
+      "err": "rashii-vs-sou",
+      "tts": "やまださんは らいしゅう かいしゃを やめるらしいですよ。",
+      "script": "山田[やまだ]さんは 来週[らいしゅう] 会社[かいしゃ]を やめるらしいですよ。",
+      "ask": "Thông tin về Yamada-san là gì?",
+      "choices": [
+        "Nghe nói tuần sau nghỉ việc",
+        "Chắc chắn tuần sau đi du lịch",
+        "Hình như tuần trước đã nghỉ"
+      ],
+      "answer": 0,
+      "why": "らしいです = thông tin nghe từ người khác。やめる (辞書形[じしょけい]) + らしい = nghe nói sẽ nghỉ。Không phải thấy trực tiếp。"
+    },
+    {
+      "id": "l-b41-hazu",
+      "item": "minna2.b41.hazu",
+      "err": "hazu-form-wrong",
+      "tts": "あのかたは いしゃの しかくを もっているはずです。なぜなら いがくぶを そつぎょうしたと きいています。",
+      "script": "あの方[かた]は 医者[いしゃ]の 資格[しかく]を 持[も]っているはずです。なぜなら 医学部[いがくぶ]を 卒業[そつぎょう]したと 聞[き]いています。",
+      "ask": "Người nói nghĩ sao về người kia?",
+      "choices": [
+        "Chắc chắn có bằng bác sĩ vì đã tốt nghiệp khoa y",
+        "Hình như đang học y khoa",
+        "Không thể nào là bác sĩ"
+      ],
+      "answer": 0,
+      "why": "はずです = kỳ vọng chắc chắn dựa trên căn cứ (đã tốt nghiệp khoa y)。Căn cứ rõ ràng → dùng はず、không dùng らしい。"
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b41-hazu-tara",
+      "item": "minna1.b25.tara",
+      "err": "tara-to-confuse",
+      "ambush": true,
+      "src": 25,
+      "context": "Bài 41 ・ はずです + điều kiện たら (Bài 25)",
+      "vi": "Nếu đã hứa thì chắc chắn anh ấy sẽ đến — bẫy nhầm たら/と trong mệnh đề điều kiện.",
+      "t1": {
+        "stem": "約束[やくそく]した ＿、彼[かれ]は 来[く]るはずです。",
+        "choices": [
+          "なら",
+          "と",
+          "たら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "約束[やくそく]した",
+          "なら、",
+          "来[く]るはずです。"
+        ],
+        "traps": [
+          "と、",
+          "たら、"
+        ]
+      },
+      "t3": {
+        "target": "約束したなら、来るはずです。",
+        "accept": [
+          "やくそくしたなら、くるはずです。"
+        ]
+      },
+      "why": "なら (Bài 25) = điều kiện giả định dựa trên thông tin đã có → kết quả chắc chắn。はずです (Bài 41) = kỳ vọng。✗ と = điều kiện tự nhiên (không dùng cho ý chí/phán đoán)。✗ たら + はずです = lủng củng; なら phù hợp nhất khi tiền đề đã là sự thật được biết。Bẫy kép: ôn たら/なら trong khung はずです。"
+    },
+    {
+      "id": "a-b41-you-wordorder",
+      "item": "minna1.b01.desu",
+      "err": "word-order",
+      "ambush": true,
+      "src": 1,
+      "context": "Bài 41 ・ ようです + trật tự từ",
+      "vi": "Bên ngoài có vẻ lạnh — bẫy đặt ようです sai vị trí.",
+      "t1": {
+        "stem": "外[そと]は ＿ ようです。",
+        "choices": [
+          "寒[さむ]い",
+          "ようです 寒[さむ]い",
+          "寒[さむ]いです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "外[そと]は",
+          "寒[さむ]い",
+          "ようです。"
+        ],
+        "traps": [
+          "寒[さむ]いですようです。",
+          "ようです 寒[さむ]い。"
+        ]
+      },
+      "t3": {
+        "target": "外は寒いようです。",
+        "accept": [
+          "そとはさむいようです。"
+        ]
+      },
+      "why": "い形容詞[けいようし] + ようです: 寒[さむ]い (thể thường) trực tiếp + ようです。✗ 寒[さむ]いですようです — không thêm です trước ようです。Bẫy: nhầm trật tự từ hoặc thêm lịch sự dư thừa。"
+    }
+  ]
+}

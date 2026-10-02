@@ -1,0 +1,1488 @@
+{
+  "bai": 23,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 23 giới thiệu 3 mẫu ngữ pháp mới: 「〜とき」(khi …), 「〜と」(hễ … thì / điều kiện tất yếu), và 「Vないで」(không làm … mà …). Bài đọc tập trung vào tình huống chỉ đường, dùng máy, và thói quen hằng ngày — các bối cảnh điển hình của Bài 23.",
+    "steps": [
+      "Xác định từ nối: tìm「とき」(khi), 「と」(hễ … thì), 「ないで」(không … mà) — đây là tín hiệu ngữ pháp cốt lõi của bài.",
+      "Với「AとB」kiểu điều kiện tất yếu: A là nguyên nhân/điều kiện, B là kết quả luôn xảy ra (dịch \"hễ A thì B\").",
+      "Với「〜とき」: chú ý hình thức động từ trước とき — thể từ điển (Vる＋とき) = thời điểm chưa làm; thể た (Vた＋とき) = thời điểm sau khi đã làm.",
+      "Với「Vないで」: có nghĩa \"không V mà (làm gì khác)\" — phần sau câu cho biết hành động thay thế.",
+      "Câu hỏi đọc hiểu: đọc từng lựa chọn, loại trừ những gì bài không nói, giữ lại câu dẫn bằng ngôn ngữ của bài.",
+      "Ôn lại: mệnh đề bổ nghĩa danh từ (Bài 22), thể ない (Bài 17), thể từ điển (Bài 18), thể た (Bài 19)."
+    ],
+    "tips": [
+      "「〜と」điều kiện tất yếu: vế sau PHẢI là kết quả tự nhiên — KHÔNG dùng ý chí (Vましょう / Vてください) ở vế sau.",
+      "「〜とき」≠「〜と」: とき nói về thời điểm; と nói về quan hệ nguyên nhân–kết quả tất yếu.",
+      "「ないで」khác「なくて」: ないで nối hai hành động (không làm X mà làm Y); なくて nối tính từ/lý do.",
+      "Hình thức trước とき: động từ thể từ điển (Vる) + とき → chưa làm; Vた＋とき → đã làm xong rồi mới đến thời điểm đó.",
+      "Bẫy: 「このボタンを押すと、ドアが開きます」→ đây là と tất yếu, KHÔNG phải とき — có hai mệnh đề nguyên nhân–kết quả."
+    ],
+    "grammarFocus": [
+      "〜とき（V辞書形・Vた・Aい・NAな・N）＋とき",
+      "〜と（điều kiện tự nhiên/kết quả tất yếu）",
+      "Vないで（không V mà …）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる/Vた/Vている/Vない＋N）"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "辞書形（thể từ điển）",
+          "Vることができます",
+          "Vるまえに"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "ない形（thể ない）",
+          "Vないでください",
+          "Vなければなりません"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "た形（thể た）",
+          "Vたことがあります"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています（đang diễn ra）"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "NへVます（di chuyển）"
+        ]
+      },
+      {
+        "bai": 10,
+        "items": [
+          "位置語（右・左・前・まっすぐ）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "ATMの使い方",
+      "titleVi": "Cách dùng máy ATM",
+      "japanese": "このATMは簡単です。カードを入れると、画面に数字が出ます。暗証番号を押すとき、周りの人に見せないでください。お金を取るとき、カードを忘れないでください。操作が分からないとき、近くの銀行員に聞いてください。カードを入れないで、お金を引き出すことはできません。",
+      "vietnamese": "Chiếc ATM này rất đơn giản. Hễ cho thẻ vào thì màn hình sẽ hiện ra các con số. Khi bấm mã PIN, xin đừng để người xung quanh nhìn thấy. Khi lấy tiền ra, xin đừng quên thẻ. Khi không hiểu cách thao tác, hãy hỏi nhân viên ngân hàng gần đó. Nếu không cho thẻ vào thì không thể rút tiền được.",
+      "sentences": [
+        {
+          "jp": "このATMは簡単です。カードを入れると、画面に数字が出ます。",
+          "vi": "Chiếc ATM này rất đơn giản. Hễ cho thẻ vào thì màn hình sẽ hiện ra các con số.",
+          "vocab": [
+            {
+              "w": "ATM",
+              "read": "エーティーエム",
+              "vi": "máy rút tiền tự động"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (ngân hàng)"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "数字",
+              "read": "すうじ",
+              "vi": "con số, chữ số"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tất yếu）",
+              "vi": "「カードを入れる」→「画面に数字が出る」: hễ làm A thì B xảy ra tự nhiên. Dùng thể từ điển + と."
+            }
+          ]
+        },
+        {
+          "jp": "暗証番号を押すとき、周りの人に見せないでください。",
+          "vi": "Khi bấm mã PIN, xin đừng để người xung quanh nhìn thấy.",
+          "vocab": [
+            {
+              "w": "暗証",
+              "read": "あんしょう",
+              "vi": "mật mã, mã số bí mật"
+            },
+            {
+              "w": "番号",
+              "read": "ばんごう",
+              "vi": "số thứ tự, số hiệu"
+            },
+            {
+              "w": "押す",
+              "read": "おす",
+              "vi": "bấm, nhấn"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "見せる",
+              "read": "みせる",
+              "vi": "cho xem, để lộ"
+            },
+            {
+              "w": "暗証番号",
+              "read": "あんしょうばんごう",
+              "vi": "mã PIN, mã số bí mật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（V辞書形＋とき）",
+              "vi": "「押す」(thể từ điển) + とき → \"khi đang bấm\" — thao tác chưa hoàn tất."
+            },
+            {
+              "point": "Vないでください",
+              "vi": "「見せないでください」= xin đừng để lộ. ない形 + でください = yêu cầu không làm gì."
+            }
+          ]
+        },
+        {
+          "jp": "お金を取るとき、カードを忘れないでください。",
+          "vi": "Khi lấy tiền ra, xin đừng quên thẻ.",
+          "vocab": [
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（V辞書形＋とき）",
+              "vi": "「取る」+ とき → khi lấy tiền ra (thao tác chưa xong)."
+            },
+            {
+              "point": "Vないでください",
+              "vi": "「忘れないでください」= xin đừng quên. Tái dùng mẫu Bài 17."
+            }
+          ]
+        },
+        {
+          "jp": "操作が分からないとき、近くの銀行員に聞いてください。",
+          "vi": "Khi không hiểu cách thao tác, hãy hỏi nhân viên ngân hàng gần đó.",
+          "vocab": [
+            {
+              "w": "操作",
+              "read": "そうさ",
+              "vi": "thao tác, cách vận hành"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần đây, gần đó"
+            },
+            {
+              "w": "銀行",
+              "read": "ぎんこう",
+              "vi": "ngân hàng"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi"
+            },
+            {
+              "w": "銀行員",
+              "read": "ぎんこういん",
+              "vi": "nhân viên ngân hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Vない＋とき）",
+              "vi": "「分からない」(thể ない) + とき → \"khi không hiểu\". Thể ない + とき hoàn toàn hợp lệ."
+            },
+            {
+              "point": "Vてください",
+              "vi": "「聞いてください」= hãy hỏi. Mẫu yêu cầu lịch sự Bài 14."
+            }
+          ]
+        },
+        {
+          "jp": "カードを入れないで、お金を引き出すことはできません。",
+          "vi": "Nếu không cho thẻ vào thì không thể rút tiền được.",
+          "vocab": [
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "引き出す",
+              "read": "ひきだす",
+              "vi": "rút ra (tiền)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "(danh hóa động từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないで",
+              "vi": "「カードを入れないで」= không cho thẻ vào mà … — ないで nêu điều không làm trước hành động chính."
+            },
+            {
+              "point": "Vることができません",
+              "vi": "「引き出すことはできません」= không thể rút. Mẫu Bài 18 tái sử dụng."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "カードを入れると、画面に数字が出ます",
+          "label": "〜と（điều kiện tất yếu）"
+        },
+        {
+          "excerpt": "暗証番号を押すとき",
+          "label": "〜とき（V辞書形）"
+        },
+        {
+          "excerpt": "周りの人に見せないでください",
+          "label": "Vないでください"
+        },
+        {
+          "excerpt": "カードを入れないで、お金を引き出すことはできません",
+          "label": "Vないで"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ATMでお金を取るとき、何に気をつけなければなりませんか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "カードを取り忘れないようにする",
+            "銀行員に暗証番号を教える",
+            "画面の数字を周りの人に見せる",
+            "カードを取ってから暗証番号を押す"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Bài viết rõ:「お金を取るとき、カードを忘れないでください」(khi lấy tiền, xin đừng quên thẻ) → phải chú ý không bỏ quên thẻ trong máy. Đáp án 1 sai vì bài dặn ĐỪNG để lộ mã PIN (「周りの人に見せないでください」), không phải bảo nói cho nhân viên biết. Đáp án 2 sai vì ngược hẳn: bài yêu cầu KHÔNG cho người khác nhìn thấy màn hình, không phải để họ nhìn. Đáp án 3 sai vì bài không nói thứ tự đó; thứ tự thực tế là cho thẻ vào TRƯỚC, rồi mới bấm mã PIN.",
+          "tip": "Câu hỏi hỏi \"cẩn thận điều gì khi lấy tiền\" → tìm câu có「お金を取るとき」trong bài, chú ý từ khóa「忘れないで」(đừng quên). Đáp án đúng luôn dùng ngôn ngữ gần với bài gốc.",
+          "qt": {
+            "q": "Ở ATM, khi lấy tiền, bạn phải chú ý điều gì?",
+            "o": [
+              "Chú ý không để quên lấy thẻ",
+              "Cho nhân viên ngân hàng biết mã PIN",
+              "Cho những người xung quanh xem các con số trên màn hình",
+              "Lấy thẻ rồi mới bấm mã PIN"
+            ]
+          }
+        },
+        {
+          "q": "このATMで操作が分からないとき、どうすればいいですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "カードをもう一度入れます",
+            "近くの銀行員に聞きます",
+            "画面のボタンを全部押します",
+            "ATMの前で待ちます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nói rõ:「操作が分からないとき、近くの銀行員に聞いてください」(khi không hiểu cách thao tác, hãy hỏi nhân viên ngân hàng gần đó). Đây là mẫu「Vないとき + Vてください」— thời điểm (とき) xác định điều kiện, hành động trong vế sau là giải pháp. Đáp án 0 sai vì bài không hề nói cho thẻ vào lại. Đáp án 2 sai vì bài không khuyên bấm tất cả nút (nguy hiểm). Đáp án 3 sai vì bài không đề cập đứng chờ.",
+          "tip": "Gặp câu hỏi \"どうすればいい\" (phải làm gì) → tìm câu lệnh「〜てください」trong bài ứng với tình huống đó. Câu có「とき」ngay trước là chìa khóa.",
+          "qt": {
+            "q": "Nếu không biết cách thao tác với máy ATM này thì phải làm thế nào?",
+            "o": [
+              "Cho thẻ vào lại một lần nữa",
+              "Hỏi nhân viên ngân hàng ở gần đó",
+              "Bấm tất cả các nút trên màn hình",
+              "Đợi trước máy ATM"
+            ]
+          }
+        },
+        {
+          "q": "カードを入れないで、ATMでお金を引き出すことができますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "はい、できます",
+            "はい、簡単にできます",
+            "いいえ、できません",
+            "いいえ、でも暗証番号があればできます"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết:「カードを入れないで、お金を引き出すことはできません」(không cho thẻ vào thì không thể rút tiền). Đây là mẫu「Vないで + できません」— ないで nêu điều KHÔNG làm, vế sau khẳng định kết quả tất yếu là không thể. Đáp án 0 và 1 sai vì bài phủ định rõ ràng bằng「できません」. Đáp án 3 sai vì bài không đề cập ngoại lệ về mã PIN — mã PIN chỉ được nhắc trong câu khác với chức năng khác (bảo mật).",
+          "tip": "Câu hỏi dạng \"〜ことができますか\" (có thể không?) → tìm ngay「できません」hoặc「できます」trong bài. Chú ý「ないで」trước động từ chính — đó là điều kiện phủ định dẫn đến kết quả.",
+          "qt": {
+            "q": "Có thể rút tiền ở ATM mà không cho thẻ vào không?",
+            "o": [
+              "Vâng, có thể",
+              "Vâng, có thể dễ dàng",
+              "Không, không thể",
+              "Không, nhưng nếu có mã PIN thì có thể"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "図書館からの手紙",
+      "titleVi": "Thư từ thư viện",
+      "japanese": "田中さん、こんにちは。カリナです。\n先週、初めてさくら大学の図書館へ行きました。\nバスを降りると、大きい建物が見えました。とてもきれいでした。\n図書館に入るとき、学生証を見せなければなりませんでした。\n中は広くて、静かでした。本がたくさんありました。\n日本語の本を読むとき、分からない言葉があると、すぐ辞書を引きます。\n辞書を持っていませんでしたから、スマホで調べました。\n図書館では、「携帯電話で話さないでください」と書いています。\nだから、電話が来たとき、外へ出て話しました。\n帰るとき、借りたい本が三冊ありましたが、カードがありませんでしたから、借りることができませんでした。\n次に行くとき、カードを忘れないでちゃんと持って行きます。田中さんも一緒に行きませんか。",
+      "vietnamese": "Chào anh Tanaka. Đây là Karina.\nTuần trước, lần đầu tiên em đến thư viện của Đại học Sakura.\nHễ xuống xe buýt thì nhìn thấy một toà nhà lớn. Rất đẹp.\nKhi vào thư viện, em phải cho xem thẻ sinh viên.\nBên trong rộng và yên tĩnh. Sách rất nhiều.\nKhi đọc sách tiếng Nhật, hễ có từ không hiểu thì em tra từ điển ngay.\nVì em không mang từ điển nên đã tra bằng điện thoại.\nTrong thư viện có ghi: \"Xin đừng nói chuyện điện thoại\".\nVì vậy, khi có cuộc gọi đến, em ra ngoài rồi nói chuyện.\nKhi về, có ba cuốn sách em muốn mượn, nhưng vì không có thẻ nên không mượn được.\nLần tới khi đến, em sẽ không quên thẻ mà mang theo đàng hoàng. Anh Tanaka cũng đi cùng không?",
+      "sentences": [
+        {
+          "jp": "田中さん、こんにちは。カリナです。",
+          "vi": "Chào anh Tanaka. Đây là Karina.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (tên người)"
+            },
+            {
+              "w": "こんにちは",
+              "read": "こんにちは",
+              "vi": "xin chào"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（lược は）",
+              "vi": "Câu mở đầu thư, giới thiệu người viết. Mẫu cơ bản Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "先週、初めてさくら大学の図書館へ行きました。",
+          "vi": "Tuần trước, lần đầu tiên em đến thư viện của Đại học Sakura.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます（di chuyển）",
+              "vi": "「図書館へ行きました」= đến thư viện. Mẫu Bài 5 tái sử dụng."
+            }
+          ]
+        },
+        {
+          "jp": "バスを降りると、大きい建物が見えました。とてもきれいでした。",
+          "vi": "Hễ xuống xe buýt thì nhìn thấy một toà nhà lớn. Rất đẹp.",
+          "vocab": [
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "降りる",
+              "read": "おりる",
+              "vi": "xuống (xe, tàu)"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "建物",
+              "read": "たてもの",
+              "vi": "toà nhà, công trình"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tất yếu）",
+              "vi": "「バスを降りる」+ と → hễ xuống xe thì tòa nhà hiện ra trong tầm mắt — kết quả tự nhiên, khách quan."
+            },
+            {
+              "point": "NA＋でした（quá khứ tính từ な） — Bài 12",
+              "vi": "きれい dùng でした ở quá khứ, không phải かったです."
+            }
+          ]
+        },
+        {
+          "jp": "図書館に入るとき、学生証を見せなければなりませんでした。",
+          "vi": "Khi vào thư viện, em phải cho xem thẻ sinh viên.",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "見せる",
+              "read": "みせる",
+              "vi": "cho xem, xuất trình"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ sinh viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（V辞書形＋とき）",
+              "vi": "「入る」(thể từ điển) + とき → khi bước vào (thời điểm chưa vào xong)."
+            },
+            {
+              "point": "Vなければなりませんでした",
+              "vi": "「見せなければなりませんでした」= đã phải xuất trình. Quá khứ của Vなければなりません (Bài 17)."
+            }
+          ]
+        },
+        {
+          "jp": "中は広くて、静かでした。本がたくさんありました。",
+          "vi": "Bên trong rộng và yên tĩnh. Sách rất nhiều.",
+          "vocab": [
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて・〜で（nối tính từ）",
+              "vi": "「広くて、静か」= rộng và yên tĩnh. Nối tính từ い + くて, tính từ な + で. Mẫu Bài 16."
+            }
+          ]
+        },
+        {
+          "jp": "日本語の本を読むとき、分からない言葉があると、すぐ辞書を引きます。",
+          "vi": "Khi đọc sách tiếng Nhật, hễ có từ không hiểu thì em tra từ điển ngay.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ, từ ngữ"
+            },
+            {
+              "w": "辞書",
+              "read": "じしょ",
+              "vi": "từ điển"
+            },
+            {
+              "w": "引く",
+              "read": "ひく",
+              "vi": "tra (từ điển)"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay, lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（V辞書形＋とき）",
+              "vi": "「読む」+ とき = khi đọc sách. Thể từ điển + とき chỉ thời điểm hành động đang xảy ra."
+            },
+            {
+              "point": "〜と（điều kiện tất yếu）",
+              "vi": "「分からない言葉がある」+ と = hễ có từ không biết thì. Cả hai mẫu cùng xuất hiện trong một câu."
+            },
+            {
+              "point": "Vない＋N（mệnh đề bổ nghĩa）",
+              "vi": "「分からない言葉」= từ (mà em) không hiểu. Mẫu Bài 22."
+            }
+          ]
+        },
+        {
+          "jp": "辞書を持っていませんでしたから、スマホで調べました。",
+          "vi": "Vì em không mang từ điển nên đã tra bằng điện thoại.",
+          "vocab": [
+            {
+              "w": "辞書",
+              "read": "じしょ",
+              "vi": "từ điển"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "mang, cầm, có"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "調べる",
+              "read": "しらべる",
+              "vi": "tra, tìm kiếm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていませんでした（phủ định quá khứ lịch sự của Vています）",
+              "vi": "「持っていませんでした」= không có mang theo (trạng thái phủ định ở quá khứ). Vている (Bài 15) biến quá khứ lịch sự + phủ định."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "「〜から」= vì … nên …. Diễn đạt nguyên nhân. Mẫu Bài 9."
+            }
+          ]
+        },
+        {
+          "jp": "図書館では、「携帯電話で話さないでください」と書いています。",
+          "vi": "Trong thư viện có ghi: \"Xin đừng nói chuyện điện thoại\".",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "携帯",
+              "read": "けいたい",
+              "vi": "điện thoại di động, mang theo"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói chuyện"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "携帯電話",
+              "read": "けいたいでんわ",
+              "vi": "điện thoại di động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないでください",
+              "vi": "「話さないでください」= xin đừng nói chuyện. Yêu cầu phủ định Bài 17."
+            },
+            {
+              "point": "引用のと＋書いています（と trích dẫn nội dung — Bài 21; Vています trạng thái hiển thị — Bài 14）",
+              "vi": "「〜と書いています」= (biển) đang ghi rằng …. と là trợ từ trích dẫn nội dung (引用のと), Bài 21; 書いています là Vています chỉ trạng thái hiển thị, Bài 14."
+            }
+          ]
+        },
+        {
+          "jp": "だから、電話が来たとき、外へ出て話しました。",
+          "vi": "Vì vậy, khi có cuộc gọi đến, em ra ngoài rồi nói chuyện.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại, cuộc gọi"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "ra ngoài"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Vた＋とき）",
+              "vi": "「電話が来た」(thể た) + とき → khi cuộc gọi đã đến (thời điểm sau khi sự việc xảy ra)."
+            },
+            {
+              "point": "Vて（nối trình tự）",
+              "vi": "「出て話しました」= ra ngoài rồi mới nói chuyện — て nối hai hành động theo thứ tự. Bài 16."
+            }
+          ]
+        },
+        {
+          "jp": "帰るとき、借りたい本が三冊ありましたが、カードがありませんでしたから、借りることができませんでした。",
+          "vi": "Khi về, có ba cuốn sách em muốn mượn, nhưng vì không có thẻ nên không mượn được.",
+          "vocab": [
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "借りる",
+              "read": "かりる",
+              "vi": "mượn, vay"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thư viện)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "三冊",
+              "read": "さんさつ",
+              "vi": "ba cuốn (sách)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（V辞書形＋とき）",
+              "vi": "「帰る」+ とき = khi (đang) về (thể từ điển — chưa về xong)."
+            },
+            {
+              "point": "Vたい＋N（mệnh đề bổ nghĩa）",
+              "vi": "「借りたい本」= cuốn sách (mà em) muốn mượn. Kết hợp Bài 13 (Vたい) + Bài 22 (bổ nghĩa N)."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "「カードがありませんでしたから」= vì không có thẻ. Mẫu Bài 9."
+            },
+            {
+              "point": "Vることができません",
+              "vi": "「借りることができませんでした」= không thể mượn được. Mẫu Bài 18."
+            },
+            {
+              "point": "助数詞 〜冊",
+              "vi": "「三冊」= ba cuốn sách. Danh từ đếm sách Bài 11."
+            }
+          ]
+        },
+        {
+          "jp": "次に行くとき、カードを忘れないでちゃんと持って行きます。田中さんも一緒に行きませんか。",
+          "vi": "Lần tới khi đến, em sẽ không quên thẻ mà mang theo đàng hoàng. Anh Tanaka cũng đi cùng không?",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "lần tới, kế tiếp"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "ちゃんと",
+              "read": "ちゃんと",
+              "vi": "đàng hoàng, chắc chắn"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "一緒に",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "持って行く",
+              "read": "もっていく",
+              "vi": "mang đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（V辞書形＋とき）",
+              "vi": "「行く」+ とき = khi đến (lần tới). Thể từ điển vì hành động chưa xảy ra."
+            },
+            {
+              "point": "Vないで",
+              "vi": "「忘れないで（ちゃんと持って行く）」= không quên mà mang theo — ないで nêu hành động không làm trước hành động thay thế."
+            },
+            {
+              "point": "いっしょにVませんか",
+              "vi": "「一緒に行きませんか」= đi cùng không? Lời mời Bài 6."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "バスを降りると、大きい建物が見えました",
+          "label": "〜と（điều kiện tất yếu）"
+        },
+        {
+          "excerpt": "図書館に入るとき、学生証を見せなければなりませんでした",
+          "label": "〜とき（V辞書形）"
+        },
+        {
+          "excerpt": "分からない言葉があると、すぐ辞書を引きます",
+          "label": "〜と（điều kiện tất yếu）"
+        },
+        {
+          "excerpt": "話さないでください",
+          "label": "Vないでください"
+        },
+        {
+          "excerpt": "電話が来たとき",
+          "label": "〜とき（Vた）"
+        },
+        {
+          "excerpt": "カードを忘れないでちゃんと持って行きます",
+          "label": "Vないで"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんはどうして図書館でスマホを使いましたか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "辞書を持っていなかったから",
+            "図書館に辞書がなかったから",
+            "日本語の本が難しかったから",
+            "スマホのほうが辞書より便利だから"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Bài viết rõ:「辞書を持っていませんでしたから、スマホで調べました」(vì không mang từ điển nên tra bằng điện thoại). Từ「から」chỉ LÝ DO trực tiếp — đây là lý do Karina dùng điện thoại. Đáp án 1 sai vì bài không nói thư viện không có từ điển; bài chỉ nói Karina không MANG theo. Đáp án 2 sai vì sách \"khó\" không được đề cập là lý do; việc tra từ điển chỉ xảy ra khi gặp từ không hiểu. Đáp án 3 sai vì bài không so sánh điện thoại với từ điển về độ tiện lợi — lý do đơn giản là không có từ điển.",
+          "tip": "Câu hỏi dạng \"どうして〜ましたか\" (tại sao làm vậy?) → tìm「〜から」hoặc「〜ので」trong bài — đó là LÝ DO. Loại ngay đáp án không có trong bài, dù nghe hợp lý.",
+          "qt": {
+            "q": "Karina đã dùng điện thoại thông minh ở thư viện vì sao?",
+            "o": [
+              "Vì cô ấy không mang theo từ điển",
+              "Vì ở thư viện không có từ điển",
+              "Vì sách tiếng Nhật khó",
+              "Vì điện thoại thông minh tiện hơn từ điển"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは図書館で本を借りましたか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "はい、三冊借りました",
+            "はい、でも一冊だけ借りました",
+            "いいえ、カードがありませんでしたから、借りることができませんでした",
+            "いいえ、借りたい本がなかったから借りませんでした"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết:「借りたい本が三冊ありましたが、カードがありませんでしたから、借りることができませんでした」(có ba cuốn muốn mượn nhưng vì không có thẻ nên không mượn được). Có hai thông tin quan trọng: (1) có sách muốn mượn (ba cuốn); (2) không mượn được vì không có thẻ thư viện. Đáp án 0 sai vì bài nói「借りることができませんでした」— không mượn được, không phải đã mượn. Đáp án 1 sai vì Karina không mượn cuốn nào. Đáp án 3 sai vì bài nói có sách muốn mượn (「借りたい本が三冊あった」), lý do không mượn được là không có thẻ, không phải không có sách muốn.",
+          "tip": "Câu hỏi dạng \"〜ましたか\" (có làm không?) → tìm「〜ができませんでした」hoặc「〜ました」trong bài. Chú ý từ「が」(nhưng) — thường đảo ngược kỳ vọng: \"muốn làm NHƯNG không làm được\".",
+          "qt": {
+            "q": "Karina có mượn sách ở thư viện không?",
+            "o": [
+              "Có, cô ấy đã mượn ba quyển",
+              "Có, nhưng chỉ mượn một quyển",
+              "Không, vì cô ấy không có thẻ nên không thể mượn được",
+              "Không, vì không có quyển sách nào cô ấy muốn mượn nên cô ấy đã không mượn"
+            ]
+          }
+        },
+        {
+          "q": "図書館に入るとき、何を見せなければなりませんでしたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "パスポート",
+            "学生証",
+            "本を借りるカード",
+            "スマホ"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết:「図書館に入るとき、学生証を見せなければなりませんでした」(khi vào thư viện phải xuất trình thẻ sinh viên). Đây là mẫu「〜とき + Vなければなりませんでした」— xác định thời điểm (とき) và nghĩa vụ (phải làm). Đáp án 0 sai vì bài không đề cập hộ chiếu. Đáp án 2 sai vì \"thẻ mượn sách\" (本を借りるカード) là thứ Karina KHÔNG có khi về; bài không nói cần nó để VÀO thư viện. Đáp án 3 sai vì bài không nói phải cho nhân viên xem điện thoại.",
+          "tip": "Câu hỏi hỏi \"phải xuất trình cái gì\" → tìm câu có「見せなければなりません」trong bài, đọc phần trước động từ đó để tìm tân ngữ. Cẩn thận với bẫy: bài có hai loại thẻ (学生証 và カード) dùng ở hai tình huống khác nhau.",
+          "qt": {
+            "q": "Khi vào thư viện, cô ấy phải xuất trình gì?",
+            "o": [
+              "Hộ chiếu",
+              "Thẻ sinh viên",
+              "Thẻ mượn sách",
+              "Điện thoại thông minh"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "アパートのお知らせ",
+      "titleVi": "Thông báo của chung cư",
+      "japanese": "アパートのお知らせ\nこのアパートに住んでいる人へ、大切なお知らせです。\n下の表を見てください。\nとき｜すること\n火事のとき｜すぐ外へ出てください\n雨のとき｜窓を閉めてください\n休みのとき｜1階の事務所に言ってください\n大きい音がすると、隣の人が困ります。夜は音を出さないでください。\n分からないことがあるとき、1階の事務所へ来てください。",
+      "vietnamese": "Thông báo của chung cư\nĐây là thông báo quan trọng gửi đến những người đang sống ở chung cư này.\nXin hãy xem bảng dưới đây.\nTình huống｜Việc cần làm\nKhi có hỏa hoạn｜Hãy ra ngoài ngay\nKhi trời mưa｜Hãy đóng cửa sổ\nKhi (bạn) nghỉ (đi vắng dài ngày)｜Hãy báo cho văn phòng ở tầng 1\nHễ phát ra tiếng động lớn thì người bên cạnh sẽ khó chịu. Buổi tối xin đừng gây tiếng động.\nKhi có điều gì không hiểu, hãy đến văn phòng ở tầng 1.",
+      "sentences": [
+        {
+          "jp": "アパートのお知らせ",
+          "vi": "Thông báo của chung cư",
+          "vocab": [
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "chung cư, căn hộ"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N（tiêu đề, lược trợ từ）",
+              "vi": "Tiêu đề thông báo, chỉ ghi danh từ, không cần です. Ôn cách viết N Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "お知らせ",
+              "why": "Tiêu đề — xác định đây là văn bản thông báo, không phải thư cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "このアパートに住んでいる人へ、大切なお知らせです。",
+          "vi": "Đây là thông báo quan trọng gửi đến những người đang sống ở chung cư này.",
+          "vocab": [
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "chung cư, căn hộ"
+            },
+            {
+              "w": "住む",
+              "read": "すむ",
+              "vi": "sống, cư trú"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vている＋N（mệnh đề bổ nghĩa）",
+              "vi": "「住んでいる人」= người đang sống. Vている (Bài 14) + N bổ nghĩa (Bài 22)."
+            },
+            {
+              "point": "NAな＋N",
+              "vi": "「大切なお知らせ」= thông báo quan trọng. Tính từ な nối danh từ, Bài 8."
+            }
+          ]
+        },
+        {
+          "jp": "下の表を見てください。",
+          "vi": "Xin hãy xem bảng dưới đây.",
+          "vocab": [
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, bên dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng (biểu)"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "xem, nhìn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください",
+              "vi": "「見てください」= xin hãy xem. Mẫu yêu cầu lịch sự Bài 14, ôn lại."
+            }
+          ]
+        },
+        {
+          "jp": "とき｜すること",
+          "vi": "Tình huống｜Việc cần làm",
+          "vocab": [
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "すること",
+              "read": "すること",
+              "vi": "việc cần làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋こと（danh hóa động từ）",
+              "vi": "「すること」= việc (cần) làm. Vる + こと biến động từ thành danh từ, Bài 18."
+            }
+          ],
+          "keys": [
+            {
+              "w": "とき",
+              "why": "Header cột 1 của bảng — mọi hàng dưới là các điều kiện thời điểm để dò."
+            },
+            {
+              "w": "すること",
+              "why": "Header cột 2 — nội dung cần làm ứng với từng とき, là căn cứ trả lời câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "火事のとき｜すぐ外へ出てください",
+          "vi": "Khi có hỏa hoạn｜Hãy ra ngoài ngay",
+          "vocab": [
+            {
+              "w": "火事",
+              "read": "かじ",
+              "vi": "hỏa hoạn, cháy"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "ra, đi ra"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay, lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N＋とき",
+              "vi": "「火事のとき」= khi có hỏa hoạn. Danh từ + の + とき, mẫu mới Bài 23."
+            },
+            {
+              "point": "NへVます（di chuyển）",
+              "vi": "「外へ出て」= ra bên ngoài. Mẫu Bài 5, ôn lại."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火事のとき",
+              "why": "Điều kiện hàng 1 — nếu câu hỏi hỏi về hỏa hoạn thì dò đúng hàng này."
+            },
+            {
+              "w": "すぐ外へ出てください",
+              "why": "Việc cần làm ứng với 火事のとき — đáp án đúng của câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "雨のとき｜窓を閉めてください",
+          "vi": "Khi trời mưa｜Hãy đóng cửa sổ",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "閉める",
+              "read": "しめる",
+              "vi": "đóng (lại)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N＋とき",
+              "vi": "「雨のとき」= khi trời mưa. Cùng mẫu N + とき, Bài 23."
+            },
+            {
+              "point": "Vてください",
+              "vi": "「閉めてください」= hãy đóng lại. Ôn Bài 14."
+            }
+          ],
+          "keys": [
+            {
+              "w": "雨のとき",
+              "why": "Điều kiện hàng 2 — nhiễu gần với hàng 火事のとき, dễ nhầm nếu đọc lướt."
+            },
+            {
+              "w": "窓を閉めてください",
+              "why": "Việc cần làm ứng với 雨のとき, khác với việc ở hàng 火事."
+            }
+          ]
+        },
+        {
+          "jp": "休みのとき｜1階の事務所に言ってください",
+          "vi": "Khi (bạn) nghỉ (đi vắng dài ngày)｜Hãy báo cho văn phòng ở tầng 1",
+          "vocab": [
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "nghỉ, kỳ nghỉ"
+            },
+            {
+              "w": "事務所",
+              "read": "じむしょ",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, báo"
+            },
+            {
+              "w": "階",
+              "read": "かい",
+              "vi": "tầng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N＋とき",
+              "vi": "「休みのとき」= khi nghỉ. Cùng mẫu N + とき, Bài 23."
+            },
+            {
+              "point": "Nに言ってください",
+              "vi": "「事務所に言ってください」= hãy báo cho văn phòng. Ôn Vてください Bài 14, に chỉ đối tượng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "休みのとき",
+              "why": "Điều kiện hàng 3 — nhiễu cuối bảng, người đọc cần chọn đúng hàng theo câu hỏi."
+            },
+            {
+              "w": "1階の事務所に言ってください",
+              "why": "Việc cần làm ứng với 休みのとき — chứa số tầng cụ thể, dễ dùng làm đáp án."
+            }
+          ]
+        },
+        {
+          "jp": "大きい音がすると、隣の人が困ります。夜は音を出さないでください。",
+          "vi": "Hễ phát ra tiếng động lớn thì người bên cạnh sẽ khó chịu. Buổi tối xin đừng gây tiếng động.",
+          "vocab": [
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "音",
+              "read": "おと",
+              "vi": "âm thanh, tiếng động"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, hàng xóm"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "困る",
+              "read": "こまる",
+              "vi": "khó chịu, khốn khổ"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tất yếu）",
+              "vi": "「音がする」+ と → hễ có tiếng động lớn thì người bên cạnh khó chịu — kết quả tự nhiên, mẫu mới Bài 23."
+            },
+            {
+              "point": "Vないでください",
+              "vi": "「音を出さないでください」= xin đừng gây tiếng động. Ôn Bài 17."
+            }
+          ],
+          "keys": [
+            {
+              "w": "大きい音がすると",
+              "why": "Chú ý ※ ngoài bảng — quy định thêm về tiếng động, không nằm trong 3 hàng とき chính."
+            },
+            {
+              "w": "夜は音を出さないでください",
+              "why": "Quy định giờ giấc (buổi tối) — dễ bị nhầm với 3 điều kiện とき trong bảng."
+            }
+          ]
+        },
+        {
+          "jp": "分からないことがあるとき、1階の事務所へ来てください。",
+          "vi": "Khi có điều gì không hiểu, hãy đến văn phòng ở tầng 1.",
+          "vocab": [
+            {
+              "w": "分からない",
+              "read": "わからない",
+              "vi": "không hiểu, không biết"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều, việc"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "事務所",
+              "read": "じむしょ",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "来てください",
+              "read": "きてください",
+              "vi": "hãy đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Vない＋とき）",
+              "vi": "「分からないことがある」+ とき → khi có điều không hiểu. Thể ない + とき, mẫu mới Bài 23."
+            },
+            {
+              "point": "Vる＋こと（danh hóa）",
+              "vi": "「分からないこと」= điều không hiểu. Ôn Bài 18."
+            }
+          ],
+          "keys": [
+            {
+              "w": "分からないことがあるとき",
+              "why": "Câu kết — lặp lại địa chỉ 1階の事務所, dễ gây nhiễu nếu câu hỏi hỏi về 休みのとき."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "火事のとき｜すぐ外へ出てください",
+          "label": "N＋とき（mẫu mới）"
+        },
+        {
+          "excerpt": "大きい音がすると、隣の人が困ります",
+          "label": "〜と（điều kiện tất yếu, mẫu mới）"
+        },
+        {
+          "excerpt": "夜は音を出さないでください",
+          "label": "Vないでください（ôn Bài 17）"
+        },
+        {
+          "excerpt": "1階の事務所に言ってください",
+          "label": "Vてください（ôn Bài 14）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "休みのとき、何をしなければなりませんか。",
+          "options": [
+            "すぐ外へ出ます",
+            "窓を閉めます",
+            "1階の事務所に言います",
+            "音を出さないようにします"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bảng ghi rõ hàng thứ ba:「休みのとき｜1階の事務所に言ってください」(khi nghỉ, hãy báo cho văn phòng ở tầng 1). Đáp án 0 sai vì đó là việc cần làm khi 火事のとき (có hỏa hoạn), không phải khi nghỉ. Đáp án 1 sai vì đó là việc cần làm khi 雨のとき (trời mưa). Đáp án 3 sai vì đó là quy định riêng về tiếng động buổi tối, không liên quan đến việc nghỉ.",
+          "tip": "Câu hỏi hỏi về một とき cụ thể (休みのとき) → dò đúng HÀNG có chữ đó trong bảng, đừng nhầm sang hàng 火事 hoặc 雨 ở trên/dưới.",
+          "evi": [
+            3,
+            6
+          ],
+          "qt": {
+            "q": "Khi nghỉ, bạn phải làm gì?",
+            "o": [
+              "Đi ra ngoài ngay",
+              "Đóng cửa sổ",
+              "Báo với văn phòng ở tầng 1",
+              "Cố gắng không phát ra tiếng động"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & lời dẫn",
+          "topic": 0,
+          "note": "Giới thiệu đây là thông báo chung cư, dẫn vào bảng phía dưới.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng とき／すること",
+          "topic": 3,
+          "note": "Bảng 3 hàng điều kiện — chứa căn cứ chính để trả lời câu hỏi về 休みのとき.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Quy định thêm ※",
+          "topic": 7,
+          "note": "Hai câu ngoài bảng dễ gây nhiễu vì cũng nói về とき và địa chỉ văn phòng tầng 1.",
+          "qs": []
+        }
+      ]
+    }
+  ]
+}

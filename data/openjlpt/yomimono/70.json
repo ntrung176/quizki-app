@@ -1,0 +1,4048 @@
+{
+  "bai": 70,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 70 luyện hai mẫu so sánh/đối lập cốt lõi: 〜に対して và 〜に比べて. に対して có HAI nghĩa cần phân biệt: (a) ĐỐI TƯỢNG \"nhằm vào/đối với N\" (ex: 先生に対して失礼な態度 = thái độ thất lễ đối với thầy) và (b) TƯƠNG PHẢN \"trái lại/trong khi đó\" (ex: 兄は静かなのに対して、弟はよくしゃべる). に比べて = \"so với N thì\" — chỉ so sánh thuần túy, không hàm ý đối lập cảm xúc. に対する + N = dạng bổ nghĩa danh từ (子供に対する教育 = nền giáo dục dành cho trẻ em). 使い分け quan trọng: に対して (đối tượng/đối lập) ≠ について (chủ đề, B67) ≠ にとって (góc nhìn/đánh giá, B69) ≠ に比べて (so sánh số lượng/mức độ). Đọc hiểu: chú ý ngữ cảnh để xác định に対して mang nghĩa (a) hay (b), và chọn đúng mẫu trong câu hỏi phân biệt.",
+    "steps": [
+      "接続 của に対して: N + に対して（＋ V/A/文）. Dạng bổ nghĩa: N + に対する + N. 接続 của に比べて: N + に比べて（＋ V/A）.",
+      "Nhận diện nghĩa (a) hay (b) của に対して: nếu N là người/tổ chức/ý kiến mà hành động hướng tới → nghĩa (a) đối tượng; nếu câu có cấu trúc \"A は〜のに対して、B は〜\" → nghĩa (b) tương phản.",
+      "に比べて so sánh hai vế rõ ràng (A に比べて B は〜): tìm tiêu chí so sánh (nhiều hơn/ít hơn/khác nhau).",
+      "Phân biệt với について (B67): について = \"về chủ đề X\" (trung tính, chỉ hướng chú ý); に対して = \"đối với X\" (có chiều hướng hành động hoặc đối lập cụ thể).",
+      "Phân biệt với にとって (B69): にとって = \"đối với X mà nói thì\" (đánh giá chủ quan từ góc nhìn X); に対して = hành động/thái độ nhằm vào X hoặc đối lập với X.",
+      "Câu hỏi suy luận: \"Tác giả dùng に対して hay に比べて — khác nhau ở điểm gì?\" → xem ngữ cảnh có đối lập cảm xúc hay chỉ so sánh số liệu."
+    ],
+    "tips": [
+      "使い分け 1 — に対して vs について: \"環境問題について話す\" (nói về vấn đề môi trường — chỉ chủ đề) ≠ \"環境問題に対して取り組む\" (hành động nhằm vào/đối phó với vấn đề môi trường — có chiều hướng hành động cụ thể). Bài thi hay hỏi chọn đúng mẫu theo ngữ cảnh.",
+      "使い分け 2 — に対して vs にとって: \"学生に対して厳しい先生\" (thầy giáo nghiêm khắc với học sinh — đối tượng hành động) ≠ \"学生にとって難しい授業\" (bài học khó đối với học sinh — góc nhìn đánh giá). に対して có hành động/thái độ; にとって có đánh giá chủ quan.",
+      "使い分け 3 — に対して（tương phản B) vs というより（B54): \"A は〜のに対して B は〜\" = hai vế đối lập, song song; \"〜というより〜\" = điều chỉnh lại cách nói (\"đúng hơn phải gọi là\"). Hai mẫu khác chiều dùng.",
+      "に対する + N: đây là dạng bổ nghĩa (thay に対して khi đứng trước danh từ). Ví dụ: 若者に対する期待 = kỳ vọng dành cho giới trẻ. Không dùng に対して + N.",
+      "Nhận dạng trong đề thi: thấy \"〜のに対して\" giữa hai mệnh đề → nghĩa tương phản; thấy \"〜に対して、Vます/します\" không có vế đối → nghĩa đối tượng."
+    ],
+    "grammarFocus": [
+      "〜に対して（N + に対して）— (a) đối với N / nhằm vào N; (b) trong khi đó / trái lại",
+      "〜に対する + N — dạng bổ nghĩa: \"dành cho/đối với N\"",
+      "〜に比べて（N + に比べて）— \"so với N thì\""
+    ],
+    "reviewFrom": [
+      {
+        "bai": 69,
+        "items": [
+          "〜として（với tư cách）",
+          "〜にとって（đối với X mà nói thì）"
+        ]
+      },
+      {
+        "bai": 67,
+        "items": [
+          "〜について（về chủ đề）",
+          "〜に関して（trang trọng hơn）"
+        ]
+      },
+      {
+        "bai": 68,
+        "items": [
+          "〜によって（tùy theo/bằng cách）"
+        ]
+      },
+      {
+        "bai": 62,
+        "items": [
+          "〜のに（vậy mà, nghịch kỳ vọng）"
+        ]
+      },
+      {
+        "bai": 54,
+        "items": [
+          "〜というより（đúng hơn phải nói là）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "田舎と都会の暮らし",
+      "titleVi": "Cuộc sống nông thôn và thành thị",
+      "japanese": "私は去年まで田舎に住んでいたが、今年から都会で働いている。田舎に比べて、都会は物価が高く、生活費がかなりかかる。しかし、都会は交通が便利なのに対して、田舎は車がなければ不便だ。田舎では、近所の人々に対して挨拶をかかさない習慣があり、人との絆が深い。都会では、隣の人のことを知らないまま暮らす場合も少なくない。この点に対して、都会の人たちがどう感じているかは人それぞれだろう。田舎に比べて都会のほうが便利だとは言えるが、どちらが自分に合っているかは、生活スタイルによって違う。どちらの暮らしにも、それぞれの良さがあると思う。",
+      "vietnamese": "Đến năm ngoái tôi vẫn sống ở nông thôn, nhưng từ năm nay đã lên thành phố làm việc. So với nông thôn, vật giá ở thành phố cao hơn và chi phí sinh hoạt tốn kém hơn đáng kể. Nhưng thành phố giao thông thuận tiện, trong khi nông thôn thì nếu không có xe hơi sẽ bất tiện. Ở nông thôn có tập tục không bao giờ bỏ qua việc chào hỏi những người hàng xóm, tình làng nghĩa xóm sâu đậm. Ở thành phố cũng không ít trường hợp sống mà không biết người bên cạnh là ai. Đối với điểm này, người thành phố cảm thấy thế nào thì mỗi người mỗi khác. Có thể nói thành phố tiện lợi hơn nông thôn, nhưng nơi nào phù hợp với bản thân thì tùy theo phong cách sống mà khác nhau. Tôi nghĩ mỗi nơi đều có cái hay riêng của nó.",
+      "sentences": [
+        {
+          "jp": "私は去年まで田舎に住んでいたが、今年から都会で働いている。",
+          "vi": "Đến năm ngoái tôi vẫn sống ở nông thôn, nhưng từ năm nay đã lên thành phố làm việc.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "nông thôn, vùng quê"
+            },
+            {
+              "w": "住みます",
+              "read": "すみます",
+              "vi": "sống, cư trú"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "thành phố, đô thị"
+            },
+            {
+              "w": "働きます",
+              "read": "はたらきます",
+              "vi": "làm việc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていた（Bài 28 Vています習慣の過去）",
+              "vi": "住んでいた = đã từng sống (trạng thái/thói quen trong quá khứ). Vていた = Vています ở quá khứ."
+            },
+            {
+              "point": "〜が（nhưng, đối lập Bài 20）",
+              "vi": "いたが、働いている = …vẫn sống ở đó, nhưng (nay) đang làm việc. が nối hai vế đối lập nhẹ."
+            }
+          ]
+        },
+        {
+          "jp": "田舎に比べて、都会は物価が高く、生活費がかなりかかる。",
+          "vi": "So với nông thôn, vật giá ở thành phố cao hơn và chi phí sinh hoạt tốn kém hơn đáng kể.",
+          "vocab": [
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê, nông thôn"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "thành phố, đô thị"
+            },
+            {
+              "w": "物価",
+              "read": "ぶっか",
+              "vi": "vật giá, giá cả hàng hóa"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "かなり",
+              "read": "かなり",
+              "vi": "khá, đáng kể"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "生活費",
+              "read": "せいかつひ",
+              "vi": "chi phí sinh hoạt"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn (tiền/thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "接続: N（田舎）+ に比べて。意味: \"so với nông thôn thì\". に比べて = so sánh thuần túy mức độ/số lượng giữa hai đối tượng. ≠ に対して（đối tượng/đối lập）— に比べて chỉ đơn giản là đặt hai vế cạnh nhau để đo độ chênh lệch."
+            },
+            {
+              "point": "Aくて（nối tính từ い Bài 16）",
+              "vi": "高く（て）= cao hơn và (tiếp tục nối). て形 của tính từ い nối hai đặc điểm."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、都会は交通が便利なのに対して、田舎は車がなければ不便だ。",
+          "vi": "Nhưng thành phố giao thông thuận tiện, trong khi nông thôn thì nếu không có xe hơi sẽ bất tiện.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "thành phố, đô thị"
+            },
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi, thuận tiện"
+            },
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê, nông thôn"
+            },
+            {
+              "w": "車",
+              "read": "くるま",
+              "vi": "ô tô, xe hơi"
+            },
+            {
+              "w": "不便",
+              "read": "ふべん",
+              "vi": "bất tiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに対して（Bài 70 — nghĩa (b) tương phản）",
+              "vi": "接続: 普通形 + のに対して（ở đây: 便利な + のに対して）。意味 (b): \"trong khi đó / trái lại\" — nêu hai thực tế đối lập song song. Đây là に対して nghĩa TƯƠNG PHẢN (≠ nghĩa đối tượng). ≠ に比べて (chỉ so sánh số liệu); ≠ のに (Bài 62 — có sắc thái bất mãn); ≠ について (về chủ đề)."
+            },
+            {
+              "point": "〜なければ（Bài 35 ば điều kiện）",
+              "vi": "車がなければ = nếu không có xe. なければ = nếu không có/làm V."
+            }
+          ]
+        },
+        {
+          "jp": "田舎では、近所の人々に対して挨拶をかかさない習慣があり、人との絆が深い。",
+          "vi": "Ở nông thôn có tập tục không bao giờ bỏ qua việc chào hỏi những người hàng xóm, tình làng nghĩa xóm sâu đậm.",
+          "vocab": [
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê, nông thôn"
+            },
+            {
+              "w": "近所",
+              "read": "きんじょ",
+              "vi": "hàng xóm, gần nhà"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người"
+            },
+            {
+              "w": "挨拶",
+              "read": "あいさつ",
+              "vi": "lời chào hỏi"
+            },
+            {
+              "w": "かかす",
+              "read": "かかす",
+              "vi": "bỏ lỡ, thiếu sót"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "tập tục, thói quen"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "絆",
+              "read": "きずな",
+              "vi": "dây liên kết, tình nghĩa"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu đậm, sâu sắc"
+            },
+            {
+              "w": "欠かします",
+              "read": "かかします",
+              "vi": "bỏ qua, thiếu sót (欠かさない = không bao giờ bỏ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "接続: N（近所の人々）+ に対して。意味 (a): \"đối với/nhằm vào N\" — hành động chào hỏi hướng đến đối tượng cụ thể là hàng xóm. Đây là に対して nghĩa ĐỐI TƯỢNG. ≠ について (về hàng xóm — chỉ là chủ đề); ≠ にとって (từ góc nhìn hàng xóm mà nói)."
+            },
+            {
+              "point": "Vない習慣（mệnh đề bổ nghĩa Bài 22）",
+              "vi": "挨拶をかかさない習慣 = tập tục (mà) không bỏ qua lời chào. Vない bổ nghĩa cho 習慣."
+            }
+          ]
+        },
+        {
+          "jp": "都会では、隣の人のことを知らないまま暮らす場合も少なくない。",
+          "vi": "Ở thành phố cũng không ít trường hợp sống mà không biết người bên cạnh là ai.",
+          "vocab": [
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "thành phố, đô thị"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, hàng xóm sát nhà"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "暮らします",
+              "read": "くらします",
+              "vi": "sống, sinh sống"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "少なくない",
+              "read": "すくなくない",
+              "vi": "không ít, khá nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま（Bài 58）",
+              "vi": "知らないまま暮らす = sống mà vẫn giữ nguyên trạng thái \"không biết\". まま = giữ nguyên trạng thái rồi làm việc khác (Bài 58)."
+            }
+          ]
+        },
+        {
+          "jp": "この点に対して、都会の人たちがどう感じているかは人それぞれだろう。",
+          "vi": "Đối với điểm này, người thành phố cảm thấy thế nào thì mỗi người mỗi khác.",
+          "vocab": [
+            {
+              "w": "この点",
+              "read": "このてん",
+              "vi": "điểm này"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "đô thị"
+            },
+            {
+              "w": "人たち",
+              "read": "ひとたち",
+              "vi": "mọi người"
+            },
+            {
+              "w": "どう",
+              "read": "どう",
+              "vi": "như thế nào"
+            },
+            {
+              "w": "感じている",
+              "read": "かんじている",
+              "vi": "đang cảm thấy"
+            },
+            {
+              "w": "人それぞれ",
+              "read": "ひとそれぞれ",
+              "vi": "mỗi người mỗi khác"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "この点に対して = đối với điểm này. N（この点）+ に対して — hành động/cảm nghĩ hướng về đối tượng là \"điểm này\". Đối chiếu: この点について = \"về điểm này\" (chỉ chủ đề trung tính); この点に対して = hướng tới điểm đó với thái độ/cảm nhận cụ thể."
+            },
+            {
+              "point": "疑問詞 + か（Bài 40）",
+              "vi": "どう感じているか = cảm thấy thế nào. 疑問詞 + か làm mệnh đề danh từ nhúng."
+            }
+          ]
+        },
+        {
+          "jp": "田舎に比べて都会のほうが便利だとは言えるが、どちらが自分に合っているかは、生活スタイルによって違う。",
+          "vi": "Có thể nói thành phố tiện lợi hơn nông thôn, nhưng nơi nào phù hợp với bản thân thì tùy theo phong cách sống mà khác nhau.",
+          "vocab": [
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê, nông thôn"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "thành phố, đô thị"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "合います",
+              "read": "あいます",
+              "vi": "phù hợp, thích hợp"
+            },
+            {
+              "w": "生活スタイル",
+              "read": "せいかつスタイル",
+              "vi": "phong cách sống"
+            },
+            {
+              "w": "スタイル",
+              "read": "スタイル",
+              "vi": "phong cách, kiểu dáng"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "田舎に比べて都会のほうが便利だ = thành phố tiện hơn so với nông thôn. に比べて + ほうが〜 = so sánh có kết luận rõ (Bài 12 ôn)."
+            },
+            {
+              "point": "〜によって（Bài 68）",
+              "vi": "生活スタイルによって違う = khác nhau tùy theo phong cách sống. によって = tùy theo (Bài 68)."
+            }
+          ]
+        },
+        {
+          "jp": "どちらの暮らしにも、それぞれの良さがあると思う。",
+          "vi": "Tôi nghĩ mỗi nơi đều có cái hay riêng của nó.",
+          "vocab": [
+            {
+              "w": "暮らし",
+              "read": "くらし",
+              "vi": "đời sống, cuộc sống sinh hoạt"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái, riêng từng cái"
+            },
+            {
+              "w": "良さ",
+              "read": "よさ",
+              "vi": "điều tốt, cái hay"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "どちら",
+              "read": "どちら",
+              "vi": "nơi nào, cái nào (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "あると思う = tôi nghĩ là có. と思う = ý kiến chủ quan của tác giả (Bài 21)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "田舎に比べて、都会は物価が高く",
+          "label": "〜に比べて（so sánh mức độ）"
+        },
+        {
+          "excerpt": "都会は交通が便利なのに対して、田舎は車がなければ不便だ",
+          "label": "Sắc thái: に対して（b）tương phản song song"
+        },
+        {
+          "excerpt": "近所の人々に対して挨拶をかかさない",
+          "label": "〜に対して（a）đối tượng hành động"
+        },
+        {
+          "excerpt": "この点に対して",
+          "label": "に対して（a）đối với điểm cụ thể"
+        },
+        {
+          "excerpt": "田舎に比べて都会のほうが便利だ",
+          "label": "〜に比べて + ほうが（so sánh có kết luận）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「都会は交通が便利なのに対して、田舎は車がなければ不便だ」の「に対して」はどんな意味ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "都会の交通を批判しています",
+            "都会と田舎の違いを話題として紹介しています",
+            "都会と田舎の二つの事実を対比・対立させて説明しています",
+            "都会の交通に対する態度を述べています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là lựa chọn 2 vì câu có cấu trúc \"A は〜のに対して、B は〜\": 「都会は交通が便利なのに対して、田舎は車がなければ不便だ」— hai thực tế đối lập nhau được đặt song song. Đây chính xác là に対して nghĩa (b) TƯƠNG PHẢN (\"trong khi đó/trái lại\"). Lựa chọn 0 (\"phê phán giao thông thành phố\") và lựa chọn 3 (\"nêu thái độ đối với giao thông\") đều hiểu nhầm là nghĩa (a) đối tượng — không đúng vì câu không có hành động/thái độ nào nhằm vào thành phố, chỉ đối chiếu hai thực tế. Lựa chọn 1 hiểu là について (giới thiệu chủ đề trung tính) — sai vì về (b) に対して có chiều đối lập rõ ràng, không chỉ đơn thuần nêu chủ đề.",
+          "tip": "Thấy cấu trúc \"A は〜のに対して、B は〜\" giữa hai mệnh đề → đây là に対して nghĩa (b) TƯƠNG PHẢN. Nếu chỉ có \"N に対して + hành động/thái độ\" không có vế B đối lập → đó là nghĩa (a) đối tượng.",
+          "qt": {
+            "q": "「都会は交通が便利なのに対して、田舎は車がなければ不便だ」(Thành thị thuận tiện về giao thông, trái lại ở nông thôn sẽ bất tiện nếu không có xe) — 「に対して」có nghĩa là gì?",
+            "o": [
+              "Đang chỉ trích giao thông ở thành thị",
+              "Đang giới thiệu sự khác biệt giữa thành thị và nông thôn làm chủ đề",
+              "Đang giải thích bằng cách đối chiếu, đặt hai sự thật về thành thị và nông thôn đối lập nhau",
+              "Đang nêu thái độ đối với giao thông ở thành thị"
+            ]
+          }
+        },
+        {
+          "q": "「近所の人々に対して挨拶をかかさない」と「この点に対して都会の人たちがどう感じているか」、二つの「に対して」の共通点は何ですか。",
+          "evi": [
+            3,
+            5
+          ],
+          "options": [
+            "どちらも「〜に比べて」と同じ意味で使われています",
+            "どちらも対象となるN（人・点）に向けて行動や感情が向かっています",
+            "どちらも二つの事柄を比較・対立させています",
+            "どちらも「〜について（話題）」と同じ意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là lựa chọn 1. Cả hai câu đều dùng に対して nghĩa (a) ĐỐI TƯỢNG: hành động/cảm xúc hướng tới N cụ thể. 「近所の人々に対して挨拶をかかさない」= hành động chào hỏi nhằm vào đối tượng là \"hàng xóm\". 「この点に対して都会の人たちがどう感じているか」= cảm nhận hướng về đối tượng là \"điểm này\". Điểm chung: đều có N cụ thể làm đích hướng tới. Lựa chọn 0 nhầm với に比べて (so sánh) — sai vì không câu nào so sánh hai vế. Lựa chọn 2 nhầm với nghĩa (b) tương phản — sai vì không câu nào có cấu trúc A のに対して B. Lựa chọn 3 nhầm với について (chủ đề) — sai vì không chỉ nêu chủ đề mà có chiều hướng hành động/cảm xúc rõ ràng.",
+          "tip": "Sau に対して có hành động hoặc cảm xúc CỤ THỂ nhằm vào N (chào hỏi, giải thích, cảm nhận, phản ứng…) → nghĩa (a) đối tượng. Hỏi \"hành động/cảm xúc đó hướng đến AI/CÁI GÌ?\" — N trả lời cho câu hỏi đó chính là đối tượng.",
+          "qt": {
+            "q": "Điểm chung giữa hai cách dùng 「に対して」 trong 「近所の人々に対して挨拶をかかさない」(không quên chào hỏi những người sống gần nhà) và 「この点に対して都会の人たちがどう感じているか」(người thành thị cảm thấy thế nào về điểm này) là gì?",
+            "o": [
+              "Cả hai đều được dùng với nghĩa giống như 「〜に比べて」",
+              "Trong cả hai, hành động hoặc cảm xúc đều hướng về N (người/điểm) làm đối tượng",
+              "Cả hai đều so sánh hoặc đặt hai sự việc đối lập nhau",
+              "Cả hai đều có nghĩa giống như 「〜について」(về — chủ đề)"
+            ]
+          }
+        },
+        {
+          "q": "この文章の内容と合っているものはどれですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "田舎に比べて都会のほうが人との絆が深い",
+            "都会は物価が安く、生活費があまりかからない",
+            "田舎のほうが交通が便利で、都会は不便だ",
+            "田舎と都会のどちらが合っているかは、生活スタイルによって違う"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là lựa chọn 3 vì bài viết nêu rõ: 「どちらが自分に合っているかは、生活スタイルによって違う」— \"nơi nào phù hợp với bản thân thì tùy phong cách sống\". Lựa chọn 0 sai — bài nói 「田舎では人との絆が深い」, tức nông thôn có tình nghĩa sâu hơn (ngược lại). Lựa chọn 1 sai — bài nêu rõ 「都会は物価が高く、生活費がかなりかかる」, vật giá thành phố ĐẮT hơn chứ không rẻ. Lựa chọn 2 sai — bài viết khẳng định ngược lại: 「都会は交通が便利なのに対して、田舎は車がなければ不便だ」, thành phố mới tiện còn nông thôn bất tiện.",
+          "tip": "Câu hỏi nội dung đúng/sai → quay lại bài tìm câu văn trực tiếp ứng với từng đáp án. Các đáp án sai thường LẬT NGƯỢC thông tin (A tiện→sai thành B tiện) hoặc NHẦM CHỦ THỂ. Dùng に比べて và のに対して trong bài như \"cột mốc\" định hướng — chúng cho thấy vế nào HƠNV/KÉM HƠN.",
+          "qt": {
+            "q": "Câu nào phù hợp với nội dung bài viết này?",
+            "o": [
+              "So với nông thôn, ở thành thị sự gắn kết giữa người với người sâu sắc hơn",
+              "Giá cả ở thành thị rẻ và chi phí sinh hoạt không tốn nhiều",
+              "Giao thông ở nông thôn thuận tiện hơn, còn ở thành thị thì bất tiện",
+              "Việc nông thôn hay thành thị phù hợp hơn còn tùy thuộc vào lối sống"
+            ]
+          }
+        },
+        {
+          "q": "「田舎に比べて都会のほうが便利だとは言えるが〜」の「に比べて」を「に対して」に替えると、意味はどう変わりますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "意味はほとんど変わらず、どちらでも使えます",
+            "「に対して」にすると「田舎に対して都会の便利さが批判されている」という意味になってしまいます",
+            "「に比べて」は数値的な比較、「に対して」は二つを対立させるか、都会が田舎に向かって何かをするという意味になるため、ここでは不自然です",
+            "「に対して」のほうが「比べて」より丁寧な言い方です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là lựa chọn 2. 「田舎に比べて都会のほうが便利だ」= に比べて dùng để SO SÁNH MỨC ĐỘ thuần túy giữa hai đối tượng (thành phố tiện lợi hơn nông thôn). Nếu thay bằng に対して: nghĩa (a) sẽ thành \"thành phố có hành động/thái độ gì đó nhằm vào nông thôn\" — rất kỳ lạ, thành phố không thể \"làm gì\" với nông thôn; nghĩa (b) cần cấu trúc A のに対して B — cũng không phù hợp vì câu chỉ có một vế kết luận. Lựa chọn 0 sai — hai mẫu KHÔNG thay thế nhau được tự do. Lựa chọn 1 sai — không có nghĩa \"phê phán\" nào trong câu. Lựa chọn 3 sai — không phải vấn đề lịch sự/trang trọng mà là vấn đề ngữ nghĩa hoàn toàn khác nhau.",
+          "tip": "に比べて = đo chênh lệch số lượng/mức độ giữa hai đối tượng (A より B の方が〜). に対して = (a) hành động/thái độ HƯỚNG TỚI N, hoặc (b) hai vế ĐỐI LẬP. Nếu câu chỉ đo \"hơn/kém\" mà không có hành động nhằm vào hay đối lập cảm xúc → dùng に比べて.",
+          "qt": {
+            "q": "Nếu thay 「に比べて」 trong 「田舎に比べて都会のほうが便利だとは言えるが〜」(Có thể nói thành thị thuận tiện hơn so với nông thôn, nhưng...) bằng 「に対して」 thì nghĩa sẽ thay đổi thế nào?",
+            "o": [
+              "Ý nghĩa hầu như không thay đổi; có thể dùng cách nào cũng được",
+              "Nếu dùng 「に対して」 thì câu sẽ mang nghĩa “sự tiện lợi của thành thị đang bị chỉ trích đối với nông thôn”",
+              "「に比べて」 dùng để so sánh về mặt số liệu; 「に対して」 dùng để đặt hai bên đối lập hoặc mang nghĩa thành thị làm gì đó hướng về nông thôn, nên ở đây không tự nhiên",
+              "「に対して」 là cách nói lịch sự hơn 「比べて」"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "電子書籍と紙の本の読書",
+      "titleVi": "Đọc sách điện tử và sách giấy",
+      "japanese": "近年、スマートフォンや専用の端末で電子書籍を読む人が増えている。紙の本に比べて、電子書籍は多くの本を一つの端末に入れて簡単に持ち歩けるという利点がある。\nしかし、画面で読む形式に対して、読みにくさや疲れを感じる人も少なくない。若い世代が画面での読書に慣れているのに対して、年配の世代は紙のページをめくる感触を大切にする傾向がある。また、電子書籍が手軽に情報を探せるのに対して、紙の本は内容が深く記憶に残りやすいと言われている。\nつまり、読書に対する目的によって、適した媒体は異なるのである。速く情報を集めたい時には電子書籍が役に立つ一方、じっくりと考えながら物語を楽しみたい時には紙の本が向いている。\nどちらか一方だけを選ぶのではなく、それぞれの特徴を理解し、自分の目的に合わせて使い分けることが大切である。",
+      "vietnamese": "Những năm gần đây, số người đọc sách điện tử trên điện thoại thông minh hoặc thiết bị chuyên dụng ngày càng tăng. So với sách giấy, sách điện tử có ưu điểm là có thể lưu trữ nhiều cuốn sách vào một thiết bị duy nhất và mang theo dễ dàng.\nTuy nhiên, đối với hình thức đọc trên màn hình, cũng không ít người cảm thấy khó đọc và mỏi mắt. Trong khi thế hệ trẻ đã quen với việc đọc trên màn hình, thì thế hệ lớn tuổi lại có xu hướng coi trọng cảm giác lật từng trang sách giấy. Hơn nữa, trong khi sách điện tử có thể tìm kiếm thông tin một cách nhanh chóng tiện lợi, thì sách giấy lại được cho là giúp nội dung dễ lưu lại sâu trong ký ức hơn.\nNói cách khác, tùy theo mục đích đối với việc đọc sách mà phương tiện phù hợp sẽ khác nhau. Khi muốn thu thập thông tin nhanh chóng thì sách điện tử rất hữu ích, mặt khác khi muốn vừa suy ngẫm kỹ càng vừa thưởng thức câu chuyện thì sách giấy lại phù hợp hơn.\nĐiều quan trọng không phải là chỉ chọn một trong hai, mà là hiểu rõ đặc điểm của từng loại và sử dụng linh hoạt sao cho phù hợp với mục đích của bản thân.",
+      "sentences": [
+        {
+          "jp": "近年、スマートフォンや専用の端末で電子書籍を読む人が増えている。",
+          "vi": "Những năm gần đây, số người đọc sách điện tử trên điện thoại thông minh hoặc thiết bị chuyên dụng ngày càng tăng.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "chuyên dụng"
+            },
+            {
+              "w": "端末",
+              "read": "たんまつ",
+              "vi": "thiết bị đầu cuối, thiết bị điện tử"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử (e-book)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vている（Bài 43 xu hướng biến đổi）",
+              "vi": "増えている = đang tăng lên (diễn tả xu hướng biến đổi đang tiếp diễn của xã hội)."
+            }
+          ]
+        },
+        {
+          "jp": "紙の本に比べて、電子書籍は多くの本を一つの端末に入れて簡単に持ち歩けるという利点がある。",
+          "vi": "So với sách giấy, sách điện tử có ưu điểm là có thể lưu trữ nhiều cuốn sách vào một thiết bị duy nhất và mang theo dễ dàng.",
+          "vocab": [
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "端末",
+              "read": "たんまつ",
+              "vi": "thiết bị đầu cuối (điện thoại, máy tính bảng...)"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ dàng"
+            },
+            {
+              "w": "持ち歩きます",
+              "read": "もちあるきます",
+              "vi": "mang theo bên mình, mang đi lại"
+            },
+            {
+              "w": "利点",
+              "read": "りてん",
+              "vi": "ưu điểm, lợi thế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "接続: N + に比べて。意味: \"so với N thì\" — so sánh thuần túy đặc điểm, mức độ giữa hai đối tượng (ở đây là sách giấy vs sách điện tử)."
+            },
+            {
+              "point": "〜という（Bài 54 định nghĩa/nội dung）",
+              "vi": "〜という利点 = ưu điểm là / rằng... Giải thích cụ thể nội dung cho danh từ 利点."
+            },
+            {
+              "point": "V可能形（Bài 27 thể khả năng）",
+              "vi": "持ち歩ける = có thể mang theo bên mình (dạng khả năng của 持ち歩く)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "紙の本に比べて",
+              "why": "Cụm từ so sánh chỉ ra ưu điểm mang theo tiện lợi ban đầu của sách điện tử so với sách giấy."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、画面で読む形式に対して、読みにくさや疲れを感じる人も少なくない。",
+          "vi": "Tuy nhiên, đối với hình thức đọc trên màn hình, cũng không ít người cảm thấy khó đọc và mỏi mắt.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "形式",
+              "read": "けいしき",
+              "vi": "hình thức"
+            },
+            {
+              "w": "疲れ",
+              "read": "つかれ",
+              "vi": "sự mệt mỏi, mỏi mệt"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "少なくない",
+              "read": "すくなくない",
+              "vi": "không ít, khá nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "接続: N + に対して。意味 (a): \"đối với / nhằm vào N\" — chỉ đối tượng tiếp nhận cảm nhận, thái độ (ở đây là đối với hình thức đọc trên màn hình)."
+            },
+            {
+              "point": "Vます-stem + にくい → danh từ hóa 〜さ（Bài 40 & Bài 44）",
+              "vi": "読みにくさ = sự khó đọc, mức độ khó đọc (danh từ hóa tính từ đuôi い: 読みにくい → 読みにくさ)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý quan trọng mở ra mặt hạn chế của sách điện tử và lý do nhiều người vẫn chuộng sách giấy."
+            }
+          ]
+        },
+        {
+          "jp": "若い世代が画面での読書に慣れているのに対して、年配の世代は紙のページをめくる感触を大切にする傾向がある。",
+          "vi": "Trong khi thế hệ trẻ đã quen với việc đọc trên màn hình, thì thế hệ lớn tuổi lại có xu hướng coi trọng cảm giác lật từng trang sách giấy.",
+          "vocab": [
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "慣れます",
+              "read": "なれます",
+              "vi": "quen với, thích nghi"
+            },
+            {
+              "w": "年配",
+              "read": "ねんぱい",
+              "vi": "lớn tuổi, đứng tuổi"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "ページ",
+              "read": "ページ",
+              "vi": "trang sách"
+            },
+            {
+              "w": "めくる",
+              "read": "めくる",
+              "vi": "lật, giở"
+            },
+            {
+              "w": "感触",
+              "read": "かんしょく",
+              "vi": "cảm giác khi chạm vào, xúc giác"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "傾向",
+              "read": "けいこう",
+              "vi": "khuynh hướng, xu hướng"
+            },
+            {
+              "w": "めくります",
+              "read": "めくります",
+              "vi": "lật, giở (trang sách)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに対して（Bài 70 — nghĩa (b) tương phản）",
+              "vi": "接続: 普通形 + のに対して（ở đây: 慣れている + のに対して）。意味 (b): \"trong khi đó / trái lại\" — đặt hai thực tế của hai đối tượng (thế hệ trẻ vs thế hệ lớn tuổi) tương phản song song."
+            },
+            {
+              "point": "〜傾向がある（N3）",
+              "vi": "Vる + 傾向がある = có xu hướng làm V."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ページをめくる感触",
+              "why": "Chi tiết cảm giác lật trang cụ thể giải thích lý do thế hệ lớn tuổi vẫn yêu thích sách giấy."
+            }
+          ]
+        },
+        {
+          "jp": "また、電子書籍が手軽に情報を探せるのに対して、紙の本は内容が深く記憶に残りやすいと言われている。",
+          "vi": "Hơn nữa, trong khi sách điện tử có thể tìm kiếm thông tin một cách nhanh chóng tiện lợi, thì sách giấy lại được cho là giúp nội dung dễ lưu lại sâu trong ký ức hơn.",
+          "vocab": [
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "手軽",
+              "read": "てがる",
+              "vi": "tiện lợi, nhanh gọn, đơn giản"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "探します",
+              "read": "さがします",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "ký ức, trí nhớ"
+            },
+            {
+              "w": "残ります",
+              "read": "のこります",
+              "vi": "đọng lại, lưu lại"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに対して（Bài 70 — nghĩa (b) tương phản）",
+              "vi": "接続: 普通形 + のに対して（ở đây: 探せる + のに対して）。意味 (b): \"trong khi... thì trái lại...\" — đối chiếu hai đặc tính đối lập giữa sách điện tử và sách giấy."
+            },
+            {
+              "point": "Vます-stem + やすい（Bài 44）",
+              "vi": "残りやすい = dễ lưu lại, dễ đọng lại."
+            },
+            {
+              "point": "〜と言われている（Bài 50 / N3 thể bị động phán đoán）",
+              "vi": "người ta nói rằng..., được cho là..."
+            }
+          ],
+          "keys": [
+            {
+              "w": "深く記憶に残りやすい",
+              "why": "Ưu điểm vượt trội của sách giấy về độ ghi nhớ sâu, là căn cứ trả lời nguyên nhân người đọc thích sách giấy."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、読書に対する目的によって、適した媒体は異なるのである。",
+          "vi": "Nói cách khác, tùy theo mục đích đối với việc đọc sách mà phương tiện phù hợp sẽ khác nhau.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対する",
+              "read": "たいする",
+              "vi": "đối với"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "によって",
+              "read": "によって",
+              "vi": "tùy theo"
+            },
+            {
+              "w": "適した",
+              "read": "てきした",
+              "vi": "phù hợp"
+            },
+            {
+              "w": "媒体",
+              "read": "ばいたい",
+              "vi": "phương tiện"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対する + N（Bài 70 — dạng bổ nghĩa danh từ）",
+              "vi": "接続: N1 + に対する + N2。意味: \"N2 đối với / dành cho N1\" (ở đây: mục đích đối với việc đọc sách)."
+            },
+            {
+              "point": "〜によって（Bài 68）",
+              "vi": "接続: N + によって。意味: \"tùy theo N mà...\" — chỉ sự thay đổi tương ứng theo từng trường hợp."
+            },
+            {
+              "point": "〜のである（Bài 26 のだ dạng văn viết）",
+              "vi": "kết luận bản chất, giải thích cốt lõi vấn đề một cách trang trọng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tóm lược dẫn dắt ý chính về việc tùy thuộc vào mục đích đọc mà phương tiện phù hợp sẽ khác nhau."
+            }
+          ]
+        },
+        {
+          "jp": "速く情報を集めたい時には電子書籍が役に立つ一方、じっくりと考えながら物語を楽しみたい時には紙の本が向いている。",
+          "vi": "Khi muốn thu thập thông tin nhanh chóng thì sách điện tử rất hữu ích, mặt khác khi muốn vừa suy ngẫm kỹ càng vừa thưởng thức câu chuyện thì sách giấy lại phù hợp hơn.",
+          "vocab": [
+            {
+              "w": "速く",
+              "read": "はやく",
+              "vi": "nhanh"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "集めたい",
+              "read": "あつめたい",
+              "vi": "muốn thu thập"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách, ấn phẩm"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử"
+            },
+            {
+              "w": "役に立つ",
+              "read": "やくにたつ",
+              "vi": "có ích"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một mặt"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "kỹ lưỡng, thong thả"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ"
+            },
+            {
+              "w": "物語",
+              "read": "ものがたり",
+              "vi": "câu chuyện"
+            },
+            {
+              "w": "楽しみたい",
+              "read": "たのしみたい",
+              "vi": "muốn thưởng thức"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "紙の本",
+              "read": "かみのほん",
+              "vi": "sách giấy"
+            },
+            {
+              "w": "向いている",
+              "read": "むいている",
+              "vi": "phù hợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方（で）（Bài 66）",
+              "vi": "接続: 普通形 + 一方（で）。意味: \"mặt khác / song song với đó\" — nêu hai mặt song song của vấn đề."
+            },
+            {
+              "point": "Vます-stem + ながら（Bài 28）",
+              "vi": "考えながら = vừa suy nghĩ vừa... (hai hành động thực hiện đồng thời)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Từ liên kết đối chiếu làm rõ hai mục đích: đọc nhanh lấy thông tin (sách điện tử) và đọc suy ngẫm (sách giấy)."
+            }
+          ]
+        },
+        {
+          "jp": "どちらか一方だけを選ぶのではなく、それぞれの特徴を理解し、自分の目的に合わせて使い分けることが大切である。",
+          "vi": "Điều quan trọng không phải là chỉ chọn một trong hai, mà là hiểu rõ đặc điểm của từng loại và sử dụng linh hoạt sao cho phù hợp với mục đích của bản thân.",
+          "vocab": [
+            {
+              "w": "どちらか一方",
+              "read": "どちらかいっぽう",
+              "vi": "một trong hai"
+            },
+            {
+              "w": "どちらか",
+              "read": "どちらか",
+              "vi": "một trong hai"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một bên"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "理解し",
+              "read": "りかいし",
+              "vi": "hiểu"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "合わせて",
+              "read": "あわせて",
+              "vi": "phù hợp với"
+            },
+            {
+              "w": "使い分ける",
+              "read": "つかいわける",
+              "vi": "sử dụng tùy trường hợp"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく（Bài 64）",
+              "vi": "接続: 普通形 + のではなく。意味: \"không phải là... mà là...\" — phủ định quan niệm phiến diện để khẳng định giải pháp đúng đắn."
+            },
+            {
+              "point": "〜に合わせて（Bài 68 / N3）",
+              "vi": "接続: N + に合わせて。意味: \"phù hợp với / tương ứng với N\"."
+            },
+            {
+              "point": "〜ことが大切である（Bài 38 / N3）",
+              "vi": "Vる + ことが大切だ/である = việc làm V là điều rất quan trọng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "それぞれの特徴を理解し",
+              "why": "Cụm tiền đề quan trọng thể hiện nhận thức toàn diện về ưu nhược điểm trước khi quyết định sử dụng."
+            },
+            {
+              "w": "使い分けることが大切である",
+              "why": "Cụm đuôi câu khẳng định chủ trương cốt lõi của tác giả là phải linh hoạt sử dụng tùy theo mục đích cá nhân."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "紙の本に比べて、電子書籍は多くの本を一つの端末に入れて簡単に持ち歩ける",
+          "label": "〜に比べて（So sánh mức độ/đặc tính giữa hai đối tượng）"
+        },
+        {
+          "excerpt": "若い世代が画面での読書に慣れているのに対して、年配の世代は紙のページをめくる感触を大切にする傾向がある",
+          "label": "〜のに対して（Ý nghĩa tương phản: trong khi A thì B）"
+        },
+        {
+          "excerpt": "読書に対する目的によって、適した媒体は異なる",
+          "label": "〜に対する + N（Dạng bổ nghĩa danh từ: đối với/dành cho N）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「読書に対する目的によって、適した媒体は異なる」とあるが、どういうことか。",
+          "evi": [
+            5,
+            6
+          ],
+          "options": [
+            "情報を速く集めるか、じっくり読むかによって、電子書籍と紙の本のどちらが適しているかが変わるということ。",
+            "年齢や世代の違いに関係なく、すべての読書において電子書籍のほうが紙の本よりも優れているということ。",
+            "電子書籍と紙の本はどちらも同じ特徴を持っているため、どちらを使っても効果は同じであるということ。",
+            "読書をする時は、常に紙の本と電子書籍の両方を同時に開いて使わなければならないということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「情報を速く集めるか」 — ngay sau câu [5] 「読書に対する目的によって、適した媒体は異なる」 (Tùy theo mục đích đối với việc đọc sách mà phương tiện phù hợp sẽ khác nhau), câu [6] đã cụ thể hóa luận điểm này: khi cần thu thập thông tin nhanh chóng thì sách điện tử hữu ích, còn khi muốn vừa suy ngẫm vừa thưởng thức câu chuyện thì sách giấy lại phù hợp hơn. Phương án 「年齢や世代の違いに」 sai vì khẳng định phiến diện \"sách điện tử vượt trội hơn trong mọi trường hợp\", trái với ý tác giả đề cao thế mạnh của cả hai. Phương án 「電子書籍と紙の本は」 sai vì bài viết chỉ rõ hai loại sách có những đặc trưng khác biệt rõ rệt chứ không hề giống nhau. Phương án 「読書をする時は」 sai vì hiểu nhầm cụm từ \"使い分ける\" (dùng linh hoạt tùy hoàn cảnh) thành việc bắt buộc phải mở đồng thời cả hai loại sách cùng một lúc.",
+          "tip": "Với câu hỏi giải thích từ khóa hoặc câu luận điểm 「〜とあるが、どういうことか」, hãy quan sát ngay câu giải thích hoặc dẫn chứng nằm liền kề phía sau (ở đây câu [6] cụ thể hóa cho câu [5]).",
+          "qt": {
+            "q": "Có câu “Tùy theo mục đích đọc sách mà phương tiện phù hợp sẽ khác nhau”, điều đó có nghĩa là gì?",
+            "o": [
+              "Tùy việc muốn thu thập thông tin nhanh hay đọc thong thả, loại nào phù hợp hơn giữa sách điện tử và sách giấy sẽ thay đổi.",
+              "Điều đó có nghĩa là sách điện tử vượt trội hơn sách giấy trong mọi việc đọc sách, bất kể tuổi tác hay sự khác biệt giữa các thế hệ.",
+              "Điều đó có nghĩa là sách điện tử và sách giấy có cùng đặc điểm, nên dùng loại nào cũng mang lại hiệu quả như nhau.",
+              "Điều đó có nghĩa là khi đọc sách, lúc nào cũng phải mở và sử dụng đồng thời cả sách giấy lẫn sách điện tử."
+            ]
+          }
+        },
+        {
+          "q": "電子書籍が普及している中で、紙の本を好む人がいるのはなぜか。",
+          "evi": [
+            2,
+            3,
+            4
+          ],
+          "options": [
+            "電子書籍は一つの端末に多くの本を入れることができず、持ち歩くのに不便だから。",
+            "紙の本にはページをめくる感触があり、読んだ内容が深く記憶に残りやすいから。",
+            "年配の世代はスマートフォンなどの専用端末を操作することが全くできないから。",
+            "電子書籍は手軽に情報を探すことができず、読むのに多くの時間がかかるから。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「紙の本にはページをめくる」 — căn cứ vào câu [3] 「年配の世代は紙のページをめくる感触を大切にする」 (thế hệ lớn tuổi coi trọng cảm giác lật trang giấy) và câu [4] 「紙の本は内容が深く記憶に残りやすい」 (sách giấy giúp nội dung dễ đọng sâu trong trí nhớ). Phương án 「電子書籍は一つの端末に」 sai vì câu [1] đã nêu rõ sách điện tử có ưu điểm là chứa được nhiều sách và rất dễ mang theo. Phương án 「年配の世代は」 sai vì bài viết chỉ nói người lớn tuổi coi trọng cảm giác lật trang giấy, không hề nói họ hoàn toàn không biết thao tác máy móc. Phương án 「電子書籍は手軽に情報を」 sai vì câu [4] khẳng định sách điện tử tìm kiếm thông tin rất dễ dàng và nhanh gọn.",
+          "tip": "Dạng câu hỏi lý do 「なぜ〜のか」 yêu cầu xác định căn cứ nguyên nhân trong bài. Hãy dò tìm từ khóa về ưu điểm của sách giấy (感触, 記憶に残る) và loại trừ ngay các phương án bóp méo thông tin trái ngược với bài đọc.",
+          "qt": {
+            "q": "Giữa lúc sách điện tử đang phổ biến, vì sao vẫn có người thích sách giấy?",
+            "o": [
+              "Vì sách điện tử không thể chứa nhiều sách trong một thiết bị nên bất tiện khi mang theo.",
+              "Vì sách giấy có cảm giác lật từng trang, và nội dung đã đọc dễ được ghi nhớ sâu sắc.",
+              "Vì người thuộc thế hệ lớn tuổi hoàn toàn không thể sử dụng các thiết bị chuyên dụng như điện thoại thông minh.",
+              "Vì sách điện tử không thể giúp tìm thông tin dễ dàng và mất nhiều thời gian để đọc."
+            ]
+          }
+        },
+        {
+          "q": "電子書籍と紙の本の利用について、筆者はどのように考えているか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "電子書籍は紙の本に比べて便利なので、今後はすべての本を電子書籍に変えるべきだ。",
+            "画面での読書は疲れやすいため、電子書籍の利用をやめて紙の本だけを読むべきだ。",
+            "それぞれの特徴を理解した上で、自分の読書の目的に合わせて使い分けるべきだ。",
+            "若い世代は電子書籍だけを使い、年配の世代は紙の本だけを使うように分けるべきだ。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「それぞれの特徴を理解した」 — ở câu kết luận [7], tác giả nêu rõ quan điểm chủ đạo: 「どちらか一方だけを選ぶのではなく、それぞれの特徴を理解し、自分の目的に合わせて使い分けることが大切である」 (không phải chọn một trong hai mà điều quan trọng là hiểu rõ đặc tính từng loại để dùng linh hoạt theo mục đích cá nhân). Phương án 「電子書籍は紙の本に比べて」 và 「画面での読書は」 sai vì có tính chất tuyệt đối hóa cực đoan (chỉ dùng sách điện tử hoặc chỉ dùng sách giấy). Phương án 「若い世代は電子書籍だけを」 sai vì tác giả khuyên phân chia phương tiện dựa trên mục đích đọc, chứ không phân chia cứng nhắc theo độ tuổi hay thế hệ.",
+          "tip": "Câu hỏi ý kiến tác giả 「筆者はどう考えているか」 ở bài 中文 thường nằm ở câu đúc kết cuối bài. Chú ý các dấu hiệu nhận biết như 「〜ことが大切だ」「〜べきだ」 và cảnh giác với các phương án chứa từ ngữ cực đoan như 「すべて」「〜だけ」.",
+          "qt": {
+            "q": "Tác giả nghĩ như thế nào về việc sử dụng sách điện tử và sách giấy?",
+            "o": [
+              "Vì sách điện tử tiện lợi hơn sách giấy nên từ nay về sau nên chuyển tất cả sách sang sách điện tử.",
+              "Vì đọc trên màn hình dễ gây mệt mỏi nên nên ngừng sử dụng sách điện tử và chỉ đọc sách giấy.",
+              "Sau khi hiểu đặc điểm của từng loại, nên sử dụng linh hoạt tùy theo mục đích đọc sách của bản thân.",
+              "Nên phân chia sao cho thế hệ trẻ chỉ dùng sách điện tử, còn thế hệ lớn tuổi chỉ dùng sách giấy."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Mở đề・Thực trạng và ưu điểm sách điện tử",
+          "topic": 0,
+          "note": "Nêu thực trạng người dùng sách điện tử gia tăng và điểm mạnh tiện lợi mang theo của thiết bị điện tử.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 4,
+          "kind": "turn",
+          "label": "Bước ngoặt・Lý do chuộng sách giấy",
+          "topic": 2,
+          "note": "Chuyển ý nêu hạn chế gây mỏi mắt của sách điện tử và hai ưu điểm đặc thù khiến người đọc vẫn yêu thích sách giấy; bẫy nếu vội cho rằng sách điện tử tốt hơn hoàn toàn.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "kind": "body",
+          "label": "Phân tích・Mục đích và phương tiện tương ứng",
+          "topic": 5,
+          "note": "Tóm lược và đối chiếu cụ thể: muốn tìm thông tin nhanh thì dùng sách điện tử, muốn đọc sâu thưởng thức thì dùng sách giấy.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "point",
+          "label": "Kết luận・Chủ trương của tác giả",
+          "topic": 7,
+          "note": "Khẳng định thông điệp cốt lõi: không thiên lệch về một bên mà phải hiểu đặc trưng của từng loại để dùng linh hoạt theo mục đích.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "二つの世代、二つの価値観",
+      "titleVi": "Hai thế hệ, hai quan niệm giá trị",
+      "japanese": "私の父は昭和の生まれで、長年、同じ会社で働き続けてきた。\n父の世代の人々は、会社に対して強い忠誠心を持ち、残業も当然のこととして受け入れていた。\n仕事に対する姿勢は非常に真剣で、プライベートより仕事を優先することが多かったそうだ。\n一方、私たち若い世代は、父の世代に比べて、ワークライフバランスをより重視する傾向がある。\n上司に対して意見を言うことも、以前の世代に比べて珍しくなくなった。\nもちろん、働き方に対する考え方は人によってさまざまだ。\nしかし全体的に見ると、若い世代は父の世代に比べて、自由な時間を大切にしているようだ。\nそれに対して、父の世代は仕事こそが人生の中心だと考えていたと父は言っていた。\nどちらが正しいかというより、それぞれの時代の状況によって、価値観が変わってきたのではないだろうか。\nたとえば、父の時代は経済成長が著しく、会社に尽くすことで社会全体が豊かになっていった。\nそのような時代の要求に対して、父の世代は誠実に応えてきたと言える。\n今の時代は、経済の状況が父の時代に比べて安定せず、将来への不安が大きいとよく言われる。\nその不安に対して、若い世代はどう向き合っているのだろうか。\nある調査によると、今の若者は将来に対して不安を感じながらも、今の生活の質を大切にしたいと考えている人が多いらしい。\nそれは、仕事だけに自分の価値を求めるのではなく、趣味や家族との時間にも意味を見出そうとしているからだ。\nこの変化に対して、父は最初「理解できない」と言っていた。\nしかし、私が父に対して自分の考えを丁寧に説明したところ、父は少しずつ理解してくれた。\nつまり、世代間の価値観の違いに対して、対話こそが大切だと私は思う。\n父の時代に比べて情報が豊かな今だからこそ、異なる価値観に対して理解を深めることができるはずだ。\nどちらの世代の経験も、これからの社会にとって必要なものだと私は信じている。",
+      "vietnamese": "Cha tôi sinh ra trong thời Shōwa và đã gắn bó với cùng một công ty suốt nhiều năm.\nNhững người thuộc thế hệ cha tôi có lòng trung thành mạnh mẽ đối với công ty, và cũng xem làm thêm giờ là điều đương nhiên.\nNghe nói thái độ đối với công việc của họ rất nghiêm túc, và thường ưu tiên công việc hơn cuộc sống riêng tư.\nCòn thế hệ trẻ chúng tôi so với thế hệ cha, có xu hướng coi trọng cân bằng công việc và cuộc sống hơn.\nViệc bày tỏ ý kiến với cấp trên cũng đã không còn hiếm gặp so với các thế hệ trước.\nTất nhiên, quan điểm đối với cách làm việc rất đa dạng tùy người.\nNhưng nhìn chung, thế hệ trẻ so với thế hệ cha tôi có vẻ trân trọng thời gian tự do hơn.\nTrái lại, cha tôi nói rằng thế hệ cha ông cho rằng công việc chính là trung tâm của cuộc đời.\nThay vì nói cái nào đúng, có lẽ quan niệm giá trị đã thay đổi tùy theo hoàn cảnh của từng thời đại.\nChẳng hạn, thời cha tôi kinh tế tăng trưởng mạnh mẽ, và xã hội ngày càng giàu có nhờ mọi người cống hiến cho công ty.\nCó thể nói thế hệ cha tôi đã thành thật đáp lại những yêu cầu của thời đại ấy.\nThời nay người ta hay nói rằng tình hình kinh tế không ổn định so với thời cha tôi và lo lắng về tương lai lớn hơn.\nĐối mặt với nỗi lo đó, thế hệ trẻ đang ứng xử như thế nào?\nTheo một cuộc khảo sát, có vẻ nhiều người trẻ ngày nay dù cảm thấy lo lắng về tương lai vẫn muốn trân trọng chất lượng cuộc sống hiện tại.\nĐó là vì họ không tìm kiếm giá trị bản thân chỉ ở công việc, mà còn tìm ý nghĩa trong sở thích và thời gian bên gia đình.\nĐối với sự thay đổi này, lúc đầu cha nói \"không thể hiểu được\".\nNhưng khi tôi giải thích suy nghĩ của mình một cách lịch sự với cha, cha đã dần dần hiểu ra.\nTức là, tôi cho rằng chính sự đối thoại mới là điều quan trọng đối với sự khác biệt giá trị giữa các thế hệ.\nChính vì thông tin phong phú hơn so với thời cha tôi, chúng ta có thể sẽ hiểu sâu hơn những quan niệm giá trị khác nhau.\nTôi tin rằng kinh nghiệm của cả hai thế hệ đều là thứ cần thiết cho xã hội tương lai.",
+      "sentences": [
+        {
+          "jp": "私の父は昭和の生まれで、長年、同じ会社で働き続けてきた。",
+          "vi": "Cha tôi sinh ra trong thời Shōwa và đã gắn bó với cùng một công ty suốt nhiều năm.",
+          "vocab": [
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "cha (cách nói khiêm tốn)"
+            },
+            {
+              "w": "昭和",
+              "read": "しょうわ",
+              "vi": "thời Shōwa (1926–1989)"
+            },
+            {
+              "w": "生まれ",
+              "read": "うまれ",
+              "vi": "người sinh ra, xuất thân"
+            },
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm, suốt năm tháng dài"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "働き続けます",
+              "read": "はたらきつづけます",
+              "vi": "tiếp tục làm việc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vつづけてきた（Bài 43 〜てくる）",
+              "vi": "働き続けてきた = đã tiếp tục làm việc (đến hiện tại). Vてきた = hành động kéo dài từ quá khứ đến nay (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "父の世代の人々は、会社に対して強い忠誠心を持ち、残業も当然のこととして受け入れていた。",
+          "vi": "Những người thuộc thế hệ cha tôi có lòng trung thành mạnh mẽ đối với công ty, và cũng xem làm thêm giờ là điều đương nhiên.",
+          "vocab": [
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "忠誠",
+              "read": "ちゅうせい",
+              "vi": "lòng trung thành"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "残業",
+              "read": "ざんぎょう",
+              "vi": "làm thêm giờ, tăng ca"
+            },
+            {
+              "w": "当然",
+              "read": "とうぜん",
+              "vi": "đương nhiên, tất nhiên"
+            },
+            {
+              "w": "受け入れます",
+              "read": "うけいれます",
+              "vi": "chấp nhận, tiếp nhận"
+            },
+            {
+              "w": "忠誠心",
+              "read": "ちゅうせいしん",
+              "vi": "lòng trung thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "会社に対して強い忠誠心を持つ = có lòng trung thành đối với công ty. N（会社）+ に対して — tình cảm/thái độ hướng tới đối tượng cụ thể. ≠ について (「会社について話す」= nói về công ty — chỉ chủ đề trung tính)."
+            },
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "当然のこととして受け入れる = tiếp nhận với tư cách là điều đương nhiên. として = \"với tư cách/coi là\" (Bài 69)."
+            }
+          ]
+        },
+        {
+          "jp": "仕事に対する姿勢は非常に真剣で、プライベートより仕事を優先することが多かったそうだ。",
+          "vi": "Nghe nói thái độ đối với công việc của họ rất nghiêm túc, và thường ưu tiên công việc hơn cuộc sống riêng tư.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "thái độ, tư thế"
+            },
+            {
+              "w": "非常に",
+              "read": "ひじょうに",
+              "vi": "rất, vô cùng"
+            },
+            {
+              "w": "真剣",
+              "read": "しんけん",
+              "vi": "nghiêm túc, nghiêm chỉnh"
+            },
+            {
+              "w": "プライベート",
+              "read": "プライベート",
+              "vi": "cuộc sống riêng tư"
+            },
+            {
+              "w": "優先します",
+              "read": "ゆうせんします",
+              "vi": "ưu tiên"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対する + N（Bài 70 — dạng bổ nghĩa）",
+              "vi": "仕事に対する姿勢 = thái độ đối với công việc. N（仕事）+ に対する + N（姿勢）— dạng bổ nghĩa: に対する đứng trước danh từ. ≠ に対して (dùng trước V/A/文, không trước N trực tiếp). Đây là điểm 接続 quan trọng cần nhớ."
+            },
+            {
+              "point": "〜そうだ伝聞（Bài 63）",
+              "vi": "多かったそうだ = nghe nói là nhiều/thường. 普通形 + そうだ = nghe nói/truyền đạt thông tin từ nguồn khác (Bài 63)."
+            }
+          ]
+        },
+        {
+          "jp": "一方、私たち若い世代は、父の世代に比べて、ワークライフバランスをより重視する傾向がある。",
+          "vi": "Còn thế hệ trẻ chúng tôi so với thế hệ cha, có xu hướng coi trọng cân bằng công việc và cuộc sống hơn.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, còn về phía"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "ワークライフバランス",
+              "read": "ワークライフバランス",
+              "vi": "cân bằng công việc và cuộc sống"
+            },
+            {
+              "w": "重視します",
+              "read": "じゅうしします",
+              "vi": "coi trọng, đề cao"
+            },
+            {
+              "w": "傾向",
+              "read": "けいこう",
+              "vi": "xu hướng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "父の世代に比べて = so với thế hệ cha. N + に比べて. Câu so sánh thuần túy về mức độ coi trọng. ≠ に対して（không có hành động/thái độ nhằm vào thế hệ cha, chỉ đo độ chênh lệch）."
+            },
+            {
+              "point": "〜傾向がある（表現）",
+              "vi": "重視する傾向がある = có xu hướng coi trọng. 傾向がある là cụm danh từ kết hợp với mệnh đề bổ nghĩa Vる (Bài 22)."
+            }
+          ]
+        },
+        {
+          "jp": "上司に対して意見を言うことも、以前の世代に比べて珍しくなくなった。",
+          "vi": "Việc bày tỏ ý kiến với cấp trên cũng đã không còn hiếm gặp so với các thế hệ trước.",
+          "vocab": [
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, các thế hệ trước"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "珍しい",
+              "read": "めずらしい",
+              "vi": "hiếm gặp, lạ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "上司に対して意見を言う = bày tỏ ý kiến với cấp trên. N（上司）+ に対して — hành động \"nói ý kiến\" hướng đến đối tượng \"cấp trên\"."
+            },
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "以前の世代に比べて = so với thế hệ trước. Câu dùng cả hai mẫu: に対して (đối tượng hành động) và に比べて (so sánh) trong cùng một câu."
+            },
+            {
+              "point": "〜くなくなった（Bài 19 〜くなる）",
+              "vi": "珍しくなくなった = đã trở nên không còn hiếm. Aくない → くなる = trở thành (thay đổi trạng thái)."
+            }
+          ]
+        },
+        {
+          "jp": "もちろん、働き方に対する考え方は人によってさまざまだ。",
+          "vi": "Tất nhiên, quan điểm đối với cách làm việc rất đa dạng tùy người.",
+          "vocab": [
+            {
+              "w": "もちろん",
+              "read": "もちろん",
+              "vi": "tất nhiên"
+            },
+            {
+              "w": "働き方",
+              "read": "はたらきかた",
+              "vi": "cách làm việc"
+            },
+            {
+              "w": "働き",
+              "read": "はたらき",
+              "vi": "sự làm việc"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対する",
+              "read": "たいする",
+              "vi": "đối với"
+            },
+            {
+              "w": "考え方",
+              "read": "かんがえかた",
+              "vi": "cách suy nghĩ"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "によって",
+              "read": "によって",
+              "vi": "tùy theo"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対する + N（Bài 70 — dạng bổ nghĩa）",
+              "vi": "働き方に対する考え方 = quan điểm đối với cách làm việc. N（働き方）+ に対する + N（考え方）— dạng bổ nghĩa (に対する trước danh từ)."
+            },
+            {
+              "point": "〜によって（Bài 68）",
+              "vi": "人によってさまざまだ = đa dạng tùy theo người. によって = tùy theo (Bài 68)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし全体的に見ると、若い世代は父の世代に比べて、自由な時間を大切にしているようだ。",
+          "vi": "Nhưng nhìn chung, thế hệ trẻ so với thế hệ cha tôi có vẻ trân trọng thời gian tự do hơn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "自由",
+              "read": "じゆう",
+              "vi": "tự do"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "大切にします",
+              "read": "たいせつにします",
+              "vi": "trân trọng, coi trọng"
+            },
+            {
+              "w": "全体的に",
+              "read": "ぜんたいてきに",
+              "vi": "nhìn chung, tổng thể mà nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "父の世代に比べて = so với thế hệ cha. に比べて so sánh thói quen/mức độ trân trọng thời gian."
+            },
+            {
+              "point": "〜ようだ（Bài 64）",
+              "vi": "大切にしているようだ = có vẻ trân trọng. ようだ = suy đoán dựa trên quan sát/chứng cứ trực tiếp (Bài 64)."
+            }
+          ]
+        },
+        {
+          "jp": "それに対して、父の世代は仕事こそが人生の中心だと考えていたと父は言っていた。",
+          "vi": "Trái lại, cha tôi nói rằng thế hệ cha ông cho rằng công việc chính là trung tâm của cuộc đời.",
+          "vocab": [
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời, nhân sinh"
+            },
+            {
+              "w": "中心",
+              "read": "ちゅうしん",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ, cho rằng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "điều đó (chỉ điều vừa nói)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (b) tương phản）",
+              "vi": "それに対して = trái lại, còn về phía đó thì. それ（= thế hệ trẻ coi trọng thời gian tự do）+ に対して → đối lập với thế hệ cha. Đây là に対して nghĩa TƯƠNG PHẢN（b）: câu mở đầu bằng それに対して để dẫn vào vế đối lập."
+            },
+            {
+              "point": "〜こそ（強調）",
+              "vi": "仕事こそが = chính công việc mới là. こそ nhấn mạnh điều quan trọng nhất."
+            }
+          ]
+        },
+        {
+          "jp": "どちらが正しいかというより、それぞれの時代の状況によって、価値観が変わってきたのではないだろうか。",
+          "vi": "Thay vì nói cái nào đúng, có lẽ quan niệm giá trị đã thay đổi tùy theo hoàn cảnh của từng thời đại.",
+          "vocab": [
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái, từng cái"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "hoàn cảnh, tình huống"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "価値観",
+              "read": "かちかん",
+              "vi": "quan niệm giá trị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というより（Bài 54）",
+              "vi": "どちらが正しいかというより = thay vì nói cái nào đúng hơn thì đúng hơn phải nói là…. というより = điều chỉnh cách nói (Bài 54)."
+            },
+            {
+              "point": "〜によって（Bài 68）",
+              "vi": "時代の状況によって = tùy theo hoàn cảnh thời đại. によって = tùy theo (Bài 68)."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "変わってきた = đã dần thay đổi (đến hiện tại). てくる = quá trình diễn ra đến nay (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、父の時代は経済成長が著しく、会社に尽くすことで社会全体が豊かになっていった。",
+          "vi": "Chẳng hạn, thời cha tôi kinh tế tăng trưởng mạnh mẽ, và xã hội ngày càng giàu có nhờ mọi người cống hiến cho công ty.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ như, chẳng hạn"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "著しい",
+              "read": "いちじるしい",
+              "vi": "nổi bật, đáng kể"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "尽くします",
+              "read": "つくします",
+              "vi": "cống hiến hết mình, tận tụy"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "経済成長",
+              "read": "けいざいせいちょう",
+              "vi": "tăng trưởng kinh tế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることで（Bài 42 Vるのに/ために）",
+              "vi": "尽くすことで = bằng cách tận tụy cống hiến. Vること + で = bằng hành động V, chỉ phương tiện/nguyên nhân."
+            },
+            {
+              "point": "〜ていった（Bài 43 〜ていく）",
+              "vi": "豊かになっていった = ngày càng trở nên giàu có (diễn ra và dần đi xa). ていく = tiếp diễn và đi xa, tiến dần (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "そのような時代の要求に対して、父の世代は誠実に応えてきたと言える。",
+          "vi": "Có thể nói thế hệ cha tôi đã thành thật đáp lại những yêu cầu của thời đại ấy.",
+          "vocab": [
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "要求",
+              "read": "ようきゅう",
+              "vi": "yêu cầu, đòi hỏi"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "誠実に",
+              "read": "せいじつに",
+              "vi": "một cách thành thật, chân thành"
+            },
+            {
+              "w": "応えます",
+              "read": "こたえます",
+              "vi": "đáp lại, hưởng ứng"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            },
+            {
+              "w": "そのような",
+              "read": "そのような",
+              "vi": "như vậy, như thế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "時代の要求に対して応える = đáp lại những yêu cầu của thời đại. N（要求）+ に対して — hành động \"応える\" hướng đến đối tượng \"要求\". Đây là nghĩa（a）đối tượng. ≠ に比べて（không phải so sánh）."
+            },
+            {
+              "point": "〜と言える（Bài 21 応用）",
+              "vi": "〜と言える = có thể nói rằng. 普通形 + と言える = nhận định có thể đưa ra được."
+            }
+          ]
+        },
+        {
+          "jp": "今の時代は、経済の状況が父の時代に比べて安定せず、将来への不安が大きいとよく言われる。",
+          "vi": "Thời nay người ta hay nói rằng tình hình kinh tế không ổn định so với thời cha tôi và lo lắng về tương lai lớn hơn.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình huống, tình trạng"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "安定します",
+              "read": "あんていします",
+              "vi": "ổn định"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "lo lắng, bất an"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "父の時代に比べて安定せず = không ổn định so với thời cha. に比べて = so sánh mức độ ổn định."
+            },
+            {
+              "point": "〜とよく言われる（受身 Bài 37）",
+              "vi": "〜とよく言われる = người ta hay nói rằng. 受身 = thụ động (Bài 37)."
+            }
+          ]
+        },
+        {
+          "jp": "その不安に対して、若い世代はどう向き合っているのだろうか。",
+          "vi": "Đối mặt với nỗi lo đó, thế hệ trẻ đang ứng xử như thế nào?",
+          "vocab": [
+            {
+              "w": "その不安",
+              "read": "そのふあん",
+              "vi": "nỗi bất an đó"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "bất an, lo lắng"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "どう",
+              "read": "どう",
+              "vi": "như thế nào"
+            },
+            {
+              "w": "向き合っている",
+              "read": "むきあっている",
+              "vi": "đang đối mặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "その不安に対して = đối mặt với nỗi lo đó. N（不安）+ に対して — thái độ/hành động hướng đến đối tượng là nỗi lo lắng."
+            },
+            {
+              "point": "〜のだろうか（Bài 20 + 32）",
+              "vi": "どう向き合っているのだろうか = đang đối mặt thế nào nhỉ? のだ（giải thích tình huống）+ だろうか（câu hỏi suy đoán）."
+            }
+          ]
+        },
+        {
+          "jp": "ある調査によると、今の若者は将来に対して不安を感じながらも、今の生活の質を大切にしたいと考えている人が多いらしい。",
+          "vi": "Theo một cuộc khảo sát, có vẻ nhiều người trẻ ngày nay dù cảm thấy lo lắng về tương lai vẫn muốn trân trọng chất lượng cuộc sống hiện tại.",
+          "vocab": [
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "cuộc khảo sát, điều tra"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "người trẻ, giới trẻ"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "質",
+              "read": "しつ",
+              "vi": "chất lượng"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "生活の質",
+              "read": "せいかつのしつ",
+              "vi": "chất lượng cuộc sống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nによると（Bài 47）",
+              "vi": "ある調査によると = theo một cuộc khảo sát. によると = theo (nguồn thông tin) (Bài 47)."
+            },
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "将来に対して不安を感じる = cảm thấy lo lắng đối với tương lai. N（将来）+ に対して — cảm xúc/thái độ hướng về đối tượng \"tương lai\"."
+            },
+            {
+              "point": "〜らしい（Bài 65）",
+              "vi": "多いらしい = có vẻ nhiều (nghe nói/suy đoán từ căn cứ bên ngoài). らしい = truyền đạt khách quan (Bài 65)."
+            }
+          ]
+        },
+        {
+          "jp": "それは、仕事だけに自分の価値を求めるのではなく、趣味や家族との時間にも意味を見出そうとしているからだ。",
+          "vi": "Đó là vì họ không tìm kiếm giá trị bản thân chỉ ở công việc, mà còn tìm ý nghĩa trong sở thích và thời gian bên gia đình.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "求めます",
+              "read": "もとめます",
+              "vi": "tìm kiếm, đòi hỏi"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "見出します",
+              "read": "みいだします",
+              "vi": "tìm ra, phát hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく（Bài 20 応用）",
+              "vi": "求めるのではなく = không phải là tìm kiếm. のではなく = \"không phải là X mà là\" — phủ định và đưa ra điều thực sự muốn nói."
+            },
+            {
+              "point": "Vようとする（Bài 31 応用）",
+              "vi": "見出そうとしている = đang cố tìm ra. ようとする = cố gắng làm V (V意向形 + とする)."
+            }
+          ]
+        },
+        {
+          "jp": "この変化に対して、父は最初「理解できない」と言っていた。",
+          "vi": "Đối với sự thay đổi này, lúc đầu cha nói \"không thể hiểu được\".",
+          "vocab": [
+            {
+              "w": "この変化",
+              "read": "このへんか",
+              "vi": "sự thay đổi này"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "sự thay đổi"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "ban đầu"
+            },
+            {
+              "w": "理解できない",
+              "read": "りかいできない",
+              "vi": "không thể hiểu"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự hiểu, hiểu"
+            },
+            {
+              "w": "できない",
+              "read": "できない",
+              "vi": "không thể"
+            },
+            {
+              "w": "言っていた",
+              "read": "いっていた",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "この変化に対して = đối với sự thay đổi này. N（変化）+ に対して — phản ứng/thái độ của cha hướng về đối tượng là \"sự thay đổi\". ≠ この変化について（\"về sự thay đổi này\" — chỉ chủ đề, B67）."
+            },
+            {
+              "point": "〜と言っていた（Bài 21）",
+              "vi": "「理解できない」と言っていた = đã nói là \"không thể hiểu\". と言う + ていた (quá khứ kéo dài)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、私が父に対して自分の考えを丁寧に説明したところ、父は少しずつ理解してくれた。",
+          "vi": "Nhưng khi tôi giải thích suy nghĩ của mình một cách lịch sự với cha, cha đã dần dần hiểu ra.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, ý kiến"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "cẩn thận, chu đáo"
+            },
+            {
+              "w": "説明した",
+              "read": "せつめいした",
+              "vi": "đã giải thích"
+            },
+            {
+              "w": "ところ",
+              "read": "ところ",
+              "vi": "khi, sau khi"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "hiểu"
+            },
+            {
+              "w": "理解してくれた",
+              "read": "りかいしてくれた",
+              "vi": "đã hiểu cho tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "父に対して説明する = giải thích với cha. N（父）+ に対して — hành động \"giải thích\" hướng về đối tượng \"cha\". Đây là に対して nghĩa (a) rõ nhất: có người nhận + hành động cụ thể nhằm vào họ."
+            },
+            {
+              "point": "〜たところ（Bài 46）",
+              "vi": "説明したところ = khi vừa giải thích xong. Vたところ = vừa mới xong V / sau khi V thì (Bài 46)."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "理解してくれた = đã hiểu ra (cho tôi). てくれる = người khác làm gì vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、世代間の価値観の違いに対して、対話こそが大切だと私は思う。",
+          "vi": "Tức là, tôi cho rằng chính sự đối thoại mới là điều quan trọng đối với sự khác biệt giá trị giữa các thế hệ.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại"
+            },
+            {
+              "w": "世代間",
+              "read": "せだいかん",
+              "vi": "giữa các thế hệ"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "価値観",
+              "read": "かちかん",
+              "vi": "quan niệm giá trị"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "価値観の違いに対して = đối với sự khác biệt về giá trị. N（違い）+ に対して — câu trả lời/thái độ hướng về đối tượng là \"sự khác biệt\"."
+            },
+            {
+              "point": "〜こそ（強調）",
+              "vi": "対話こそが大切だ = chính sự đối thoại mới là quan trọng. こそ nhấn mạnh điều then chốt."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "大切だと私は思う = tôi cho rằng điều quan trọng. と思う = ý kiến của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "父の時代に比べて情報が豊かな今だからこそ、異なる価値観に対して理解を深めることができるはずだ。",
+          "vi": "Chính vì thông tin phong phú hơn so với thời cha tôi, chúng ta có thể sẽ hiểu sâu hơn những quan niệm giá trị khác nhau.",
+          "vocab": [
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "比べて",
+              "read": "くらべて",
+              "vi": "so với"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "豊かな",
+              "read": "ゆたかな",
+              "vi": "phong phú"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "hiện nay"
+            },
+            {
+              "w": "だからこそ",
+              "read": "だからこそ",
+              "vi": "chính vì vậy"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "価値観",
+              "read": "かちかん",
+              "vi": "quan niệm giá trị"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "対",
+              "read": "たい",
+              "vi": "đối với"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "理解を深める",
+              "read": "りかいをふかめる",
+              "vi": "đào sâu sự hiểu biết"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "hiểu"
+            },
+            {
+              "w": "深める",
+              "read": "ふかめる",
+              "vi": "đào sâu, làm sâu sắc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "はず",
+              "read": "はず",
+              "vi": "chắc là, lẽ ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70）",
+              "vi": "父の時代に比べて = so với thời cha tôi. に比べて so sánh độ phong phú thông tin."
+            },
+            {
+              "point": "〜に対して（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "異なる価値観に対して理解を深める = hiểu sâu hơn đối với các giá trị khác nhau. N（価値観）+ に対して — hiểu biết hướng về đối tượng là các giá trị."
+            },
+            {
+              "point": "〜はずだ（Bài 51）",
+              "vi": "できるはずだ = lẽ ra có thể làm được. Suy luận có căn cứ: thông tin phong phú → PHẢI có thể hiểu sâu hơn (Bài 51)."
+            }
+          ]
+        },
+        {
+          "jp": "どちらの世代の経験も、これからの社会にとって必要なものだと私は信じている。",
+          "vi": "Tôi tin rằng kinh nghiệm của cả hai thế hệ đều là thứ cần thiết cho xã hội tương lai.",
+          "vocab": [
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay, trong tương lai"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "信じます",
+              "read": "しんじます",
+              "vi": "tin tưởng, tin rằng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "これからの社会にとって = đối với xã hội tương lai mà nói thì. N + にとって = đánh giá/nhìn nhận từ góc nhìn N (Bài 69). ≠ に対して（ở đây không phải hành động hướng vào \"xã hội\", mà là đánh giá từ góc nhìn của xã hội）."
+            },
+            {
+              "point": "Vている（Bài 15 状態）",
+              "vi": "信じている = đang tin tưởng (trạng thái liên tục). Vている = trạng thái/ quan điểm tiếp tục."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "会社に対して強い忠誠心を持ち",
+          "label": "〜に対して（a）đối tượng: tình cảm hướng về"
+        },
+        {
+          "excerpt": "仕事に対する姿勢は非常に真剣で",
+          "label": "〜に対する + N（dạng bổ nghĩa）"
+        },
+        {
+          "excerpt": "父の世代に比べて、ワークライフバランスをより重視する",
+          "label": "〜に比べて（so sánh thế hệ）"
+        },
+        {
+          "excerpt": "それに対して、父の世代は仕事こそが人生の中心だと",
+          "label": "Sắc thái: それに対して（b）tương phản — dẫn vào vế đối lập"
+        },
+        {
+          "excerpt": "私が父に対して自分の考えを丁寧に説明した",
+          "label": "〜に対して（a）đối tượng rõ nhất: hành động nhằm vào người nhận"
+        },
+        {
+          "excerpt": "父の時代に比べて情報が豊かな今だからこそ",
+          "label": "〜に比べて（so sánh thời đại）"
+        },
+        {
+          "excerpt": "異なる価値観に対して理解を深めること",
+          "label": "Sắc thái: に対して（a）đối tượng + に比べて trong cùng câu"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「仕事に対する姿勢は非常に真剣で」の「に対する」を正しく説明しているものはどれですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "仕事について話す内容を指しており、「について」と同じ意味です",
+            "仕事と比較して姿勢が厳しいという意味で、「に比べて」と同じです",
+            "仕事を対象として向かっていく態度・姿勢を修飾する、に対する + N の形です",
+            "仕事にとって大切な姿勢という意味で、「にとって」と同じです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là lựa chọn 2. 「仕事に対する姿勢」có cấu trúc N（仕事）+ に対する + N（姿勢）— に対する là dạng bổ nghĩa của に対して, đứng trước danh từ để bổ nghĩa, nghĩa là \"thái độ hướng về/nhằm vào công việc\". Đây không thể là について vì 「仕事についての姿勢」hàm nghĩa \"thái độ về chủ đề công việc\" — trung tính hơn, không có chiều hướng hành động. Cũng không phải に比べて vì không có sự so sánh nào ở đây. Và không phải にとって vì 「仕事にとっての姿勢」sẽ nghĩa là \"thái độ từ góc nhìn của công việc\" — vô nghĩa vì công việc không có quan điểm.",
+          "tip": "Khi thấy \"N + に対する + N\" (に対する đứng TRƯỚC danh từ) → đây là dạng bổ nghĩa danh từ của に対して, nghĩa \"dành cho/đối với N\". Không dùng に対して trực tiếp trước danh từ (に対して + V/A/文, còn に対する + N).",
+          "qt": {
+            "q": "「仕事に対する姿勢は非常に真剣で」 (Thái độ đối với công việc rất nghiêm túc) — 「に対する」 được giải thích chính xác như thế nào?",
+            "o": [
+              "Chỉ nội dung nói về công việc, có cùng nghĩa với 「について」",
+              "Có nghĩa là thái độ nghiêm khắc khi so sánh với công việc, giống 「に比べて」",
+              "Có dạng 「に対する + N」, bổ nghĩa cho thái độ hoặc tư thế hướng đến công việc với tư cách là đối tượng",
+              "Có nghĩa là thái độ quan trọng đối với công việc, giống 「にとって」"
+            ]
+          }
+        },
+        {
+          "q": "「それに対して、父の世代は仕事こそが人生の中心だと考えていた」の「に対して」と同じ意味で使われている文はどれですか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "会社に対して強い忠誠心を持つ",
+            "父の世代に比べて自由な時間を大切にしている",
+            "若い世代は自由な時間を重視するのに対して、父の世代は仕事を中心に考えていた",
+            "父に対して丁寧に説明した"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là lựa chọn 2. 「それに対して、父の世代は仕事こそが人生の中心だと考えていた」— \"それ\" chỉ việc \"thế hệ trẻ coi trọng thời gian tự do\", rồi に対して dẫn vào vế ngược lại của thế hệ cha: nghĩa (b) TƯƠNG PHẢN. Lựa chọn 2 「若い世代は自由な時間を重視するのに対して、父の世代は仕事を中心に考えていた」có cấu trúc A のに対して B — hai vế đối lập song song, cũng là nghĩa (b) tương phản. Lựa chọn 0 「会社に対して強い忠誠心を持つ」và lựa chọn 3 「父に対して丁寧に説明した」đều là nghĩa (a) đối tượng (hành động hướng tới N cụ thể). Lựa chọn 1 dùng に比べて (so sánh mức độ) — khác nghĩa hoàn toàn.",
+          "tip": "に対して nghĩa (b) tương phản có hai dấu hiệu: hoặc \"それに対して…\" mở đầu vế tiếp theo, hoặc cấu trúc \"A は〜のに対して、B は〜\" nối hai vế đối lập. Nếu câu chỉ có \"N に対して + hành động\" mà không có vế B đối lập → nghĩa (a) đối tượng.",
+          "qt": {
+            "q": "Trong 「それに対して、父の世代は仕事こそが人生の中心だと考えていた」 (Ngược lại, thế hệ của cha tôi cho rằng công việc mới là trung tâm của cuộc đời), câu nào dùng 「に対して」 với cùng ý nghĩa?",
+            "o": [
+              "Có lòng trung thành mạnh mẽ đối với công ty",
+              "So với thế hệ của cha tôi, họ coi trọng thời gian rảnh hơn",
+              "Trong khi thế hệ trẻ coi trọng thời gian rảnh, thế hệ của cha tôi lại lấy công việc làm trung tâm",
+              "Giải thích cặn kẽ với cha"
+            ]
+          }
+        },
+        {
+          "q": "「父の時代に比べて情報が豊かな今だからこそ、異なる価値観に対して理解を深めることができるはずだ」について、筆者が「はずだ」を使った理由は何ですか。",
+          "evi": [
+            18
+          ],
+          "options": [
+            "単なる希望や願望を述べているからです",
+            "誰かから聞いた情報を伝えているからです",
+            "情報が豊かという事実から論理的に「できるはず」と推論しているからです",
+            "「できるかもしれない」より確実性が低いことを表すためです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là lựa chọn 2. Tác giả dùng はずだ vì có căn cứ logic rõ ràng: 「父の時代に比べて情報が豊かな今」— thông tin phong phú hơn thời cha → từ thực tế đó SUY RA LOGIC rằng 「異なる価値観に対して理解を深めることができるはずだ」. はずだ (Bài 51) = suy luận có căn cứ khách quan, độ chắc chắn cao. Lựa chọn 0 sai — したい/願望 (mong muốn) thì dùng たい/ほしい chứ không phải はずだ. Lựa chọn 1 sai — truyền đạt thông tin từ nguồn khác dùng そうだ/らしい (Bài 63/65). Lựa chọn 3 sai — ngược lại: はずだ CÓ ĐỘ CHẮC CHẮN CAO HƠN かもしれない (có thể), không phải thấp hơn.",
+          "tip": "はずだ = \"lẽ ra phải thế / đương nhiên phải thế\" — có căn cứ logic cụ thể đứng trước (thực tế A → suy ra B はずだ). かもしれない = chỉ đoán không có căn cứ chắc. そうだ/らしい = nghe nói/thấy dấu hiệu. したい = mong muốn chủ quan.",
+          "qt": {
+            "q": "Về câu 「父の時代に比べて情報が豊かな今だからこそ、異なる価値観に対して理解を深めることができるはずだ」 (Chính vì hiện nay thông tin phong phú hơn so với thời của cha tôi nên hẳn chúng ta có thể hiểu sâu hơn về những giá trị quan khác biệt), tại sao tác giả dùng 「はずだ」?",
+            "o": [
+              "Vì đang nêu một hy vọng hay mong muốn đơn thuần",
+              "Vì đang truyền đạt thông tin nghe được từ ai đó",
+              "Vì từ sự thật rằng thông tin phong phú, tác giả suy luận một cách logic rằng “hẳn là có thể làm được”",
+              "Để biểu thị mức độ chắc chắn thấp hơn 「できるかもしれない」"
+            ]
+          }
+        },
+        {
+          "q": "「これからの社会にとって必要なものだ」の「にとって」を「に対して」に変えると、どう変わりますか。",
+          "evi": [
+            19
+          ],
+          "options": [
+            "意味は変わらず、どちらでも使えます",
+            "「社会に対して必要だ」では意味が不自然・不成立になります。にとって＝評価の視点（社会から見ると必要）、に対して＝行動・態度の対象であり、ここでは異なる意味になります",
+            "「に対して」のほうが「にとって」より丁寧です",
+            "「に対して」は比較の意味になるため、より論理的な文になります"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là lựa chọn 1. 「これからの社会にとって必要なものだ」dùng にとって (Bài 69) = \"đối với X mà nói thì / từ góc nhìn của X\" — ở đây nghĩa là \"khi nhìn từ góc độ của xã hội tương lai thì đây là thứ cần thiết\". Nếu thay bằng に対して: nghĩa (a) sẽ thành \"hành động/thái độ nhằm vào xã hội\" — câu vô nghĩa vì \"kinh nghiệm\" không phải là hành động hướng vào xã hội; nghĩa (b) sẽ cần vế đối lập B mà câu không có. Lựa chọn 0 sai — hai mẫu KHÔNG đồng nghĩa, không dùng thay nhau được. Lựa chọn 2 sai — không phải vấn đề lịch sự. Lựa chọn 3 sai — に対して không mang nghĩa so sánh (に比べて mới là so sánh).",
+          "tip": "にとって = \"từ góc nhìn/lập trường của X mà đánh giá\" — thường dùng với tính từ đánh giá (必要・大切・難しい・嬉しい…). に対して = hành động/thái độ NHẰM VÀO N, hoặc hai vế ĐỐI LẬP. Hỏi: \"đây là ĐÁNH GIÁ từ góc nhìn X hay HÀNH ĐỘNG nhằm vào X?\" — đánh giá → にとって; hành động → に対して.",
+          "qt": {
+            "q": "Nếu đổi 「にとって」 trong 「これからの社会にとって必要なものだ」 (là điều cần thiết đối với xã hội từ nay về sau) thành 「に対して」 thì ý nghĩa sẽ thay đổi thế nào?",
+            "o": [
+              "Ý nghĩa không thay đổi; có thể dùng cả hai cách",
+              "「社会に対して必要だ」 sẽ không tự nhiên hoặc không thành nghĩa. 「にとって」 chỉ góc nhìn đánh giá (xét từ phía xã hội thì là cần thiết), còn 「に対して」 chỉ đối tượng của hành động hoặc thái độ; ở đây chúng mang ý nghĩa khác nhau",
+              "「に対して」 lịch sự hơn 「にとって」",
+              "Vì 「に対して」 mang nghĩa so sánh nên câu sẽ logic hơn"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "にじいろヨガスタジオ　本店・駅前店　ご案内",
+      "titleVi": "Thông báo: Phòng tập Yoga Nijiiro — Chi nhánh Trung tâm・Chi nhánh trước ga",
+      "japanese": "にじいろヨガスタジオ　本店・駅前店　ご案内\nにじいろヨガスタジオは、ゆったりくつろげる本店と、仕事帰りに通いやすい駅前店の２つの教室を運営しています。本店に比べて、駅前店は駅から徒歩1分で、営業時間も長いのが特徴です。\n項目｜本店｜駅前店\n営業時間｜10時〜21時｜7時〜22時\n定休日｜火曜日｜なし\n基本月会費｜8,000円｜9,500円\nシャワー室｜あり（無料）｜あり（1回200円）\n託児サービス｜あり（無料・要予約）｜なし\n本店は託児サービスが整っているのに対して、駅前店は営業時間が長く、早朝や深夜にも通えるのが特徴です。会員からの要望に対しては、スタッフが個別に対応しています。\nコース｜曜日・時間｜追加料金\n朝ヨガ｜平日7時〜8時（駅前店のみ）｜無料\n夜間集中コース｜平日20時〜22時｜1,500円\n土日特別レッスン｜土・日｜1,000円\n※本店に比べて駅前店の会費は高めですが、平日の昼間（13時〜16時）に通う会員は、駅前店でも月会費が1,000円引きになります。\n※学生証を提示すると、どちらの店舗でも基本月会費が半額になります。ただし追加料金には適用されません。\n※託児サービスに対しては、必ず前日までにご予約ください。当日の申し込みはできません。\nお問い合わせ：にじいろヨガスタジオ　電話03-2277-6688（10時〜20時、定休日を除く）",
+      "vietnamese": "Phòng tập Yoga Nijiiro — Thông báo Chi nhánh Trung tâm・Chi nhánh trước ga\nPhòng tập Yoga Nijiiro vận hành 2 cơ sở: chi nhánh trung tâm rộng rãi thư giãn và chi nhánh trước ga tiện đường đi làm về. So với chi nhánh trung tâm, chi nhánh trước ga cách ga chỉ đi bộ 1 phút và có giờ mở cửa dài hơn.\nHạng mục｜Chi nhánh trung tâm｜Chi nhánh trước ga.\nGiờ mở cửa｜10 giờ〜21 giờ｜7 giờ〜22 giờ.\nNgày nghỉ định kỳ｜Thứ Ba｜Không nghỉ.\nHọc phí tháng cơ bản｜8.000 yên｜9.500 yên.\nPhòng tắm vòi sen｜Có (miễn phí)｜Có (200 yên/lần).\nDịch vụ giữ trẻ｜Có (miễn phí, cần đặt trước)｜Không có.\nTrong khi chi nhánh trung tâm có đầy đủ dịch vụ giữ trẻ, thì chi nhánh trước ga có giờ mở cửa dài hơn, có thể đi sớm hoặc muộn. Đối với yêu cầu của hội viên, nhân viên sẽ xử lý riêng từng trường hợp.\nKhóa học｜Thứ・giờ｜Phí phụ thu.\nYoga buổi sáng｜Trong tuần 7 giờ〜8 giờ (chỉ chi nhánh trước ga)｜Miễn phí.\nKhóa tập trung buổi tối｜Trong tuần 20 giờ〜22 giờ｜1.500 yên.\nBuổi học đặc biệt cuối tuần｜Thứ Bảy・Chủ Nhật｜1.000 yên.\n※So với chi nhánh trung tâm, học phí chi nhánh trước ga cao hơn, nhưng hội viên đi vào buổi trưa trong tuần (13 giờ〜16 giờ) sẽ được giảm 1.000 yên học phí tháng dù ở chi nhánh trước ga.\n※Nếu xuất trình thẻ học sinh, học phí tháng cơ bản giảm nửa giá ở cả hai cơ sở. Tuy nhiên không áp dụng cho phí phụ thu.\n※Đối với dịch vụ giữ trẻ, xin vui lòng đặt trước chậm nhất là ngày hôm trước. Không nhận đăng ký trong ngày.\nLiên hệ: Phòng tập Yoga Nijiiro, điện thoại 03-2277-6688 (10 giờ〜20 giờ, trừ ngày nghỉ định kỳ).",
+      "sentences": [
+        {
+          "jp": "にじいろヨガスタジオ　本店・駅前店　ご案内",
+          "vi": "Phòng tập Yoga Nijiiro — Thông báo Chi nhánh Trung tâm・Chi nhánh trước ga.",
+          "vocab": [
+            {
+              "w": "ヨガ",
+              "read": "ヨガ",
+              "vi": "yoga"
+            },
+            {
+              "w": "スタジオ",
+              "read": "スタジオ",
+              "vi": "phòng tập, studio"
+            },
+            {
+              "w": "本店",
+              "read": "ほんてん",
+              "vi": "chi nhánh chính, cửa hàng gốc"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "駅前店",
+              "read": "えきまえてん",
+              "vi": "chi nhánh trước ga"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn (lịch sự)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "本店・駅前店",
+              "why": "tiêu đề — xác định bài này so sánh 2 cơ sở, cần dò bảng theo từng cột riêng"
+            }
+          ]
+        },
+        {
+          "jp": "にじいろヨガスタジオは、ゆったりくつろげる本店と、仕事帰りに通いやすい駅前店の２つの教室を運営しています。本店に比べて、駅前店は駅から徒歩1分で、営業時間も長いのが特徴です。",
+          "vi": "Phòng tập Yoga Nijiiro vận hành 2 cơ sở: chi nhánh trung tâm rộng rãi thư giãn và chi nhánh trước ga tiện đường đi làm về. So với chi nhánh trung tâm, chi nhánh trước ga cách ga chỉ đi bộ 1 phút và có giờ mở cửa dài hơn.",
+          "vocab": [
+            {
+              "w": "ヨガ",
+              "read": "ヨガ",
+              "vi": "yoga"
+            },
+            {
+              "w": "スタジオ",
+              "read": "スタジオ",
+              "vi": "phòng tập, studio"
+            },
+            {
+              "w": "ゆったり",
+              "read": "ゆったり",
+              "vi": "thong thả, thoải mái"
+            },
+            {
+              "w": "くつろげる",
+              "read": "くつろげる",
+              "vi": "có thể thư giãn (khả năng của くつろぐ)"
+            },
+            {
+              "w": "本店",
+              "read": "ほんてん",
+              "vi": "chi nhánh chính, cửa hàng gốc"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "通いやすい",
+              "read": "かよいやすい",
+              "vi": "dễ đi lại, tiện đi"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "２つ",
+              "read": "２つ",
+              "vi": "hai cái, hai điều"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "運営します",
+              "read": "うんえいします",
+              "vi": "vận hành, điều hành"
+            },
+            {
+              "w": "比べる",
+              "read": "くらべる",
+              "vi": "so sánh, đối chiếu"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "徒歩",
+              "read": "とほ",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "営業",
+              "read": "えいぎょう",
+              "vi": "hoạt động kinh doanh, mở cửa"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm, đặc trưng"
+            },
+            {
+              "w": "仕事帰り",
+              "read": "しごとがえり",
+              "vi": "trên đường về sau giờ làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形＋やすい（Bài 27 応用）",
+              "vi": "通いやすい = dễ đi lại. 可能形（通える）gốc + やすい, ôn lại 可能形 Bài 27."
+            },
+            {
+              "point": "〜に比べて（Bài 70 — mẫu trọng tâm）",
+              "vi": "接続: N（本店）+ に比べて。 本店に比べて、駅前店は…営業時間も長い = \"so với chi nhánh trung tâm, chi nhánh trước ga có…giờ mở cửa dài hơn\". に比べて = so sánh thuần túy mức độ giữa 2 cơ sở. Mẫu TRỌNG TÂM bài 70, xuất hiện lần 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "本店に比べて、駅前店は駅から徒歩1分で、営業時間も長い",
+              "why": "câu so sánh chính — nêu 2 điểm khác biệt (khoảng cách ga, giờ mở cửa) làm nền cho toàn bộ bảng bên dưới"
+            }
+          ]
+        },
+        {
+          "jp": "項目｜本店｜駅前店",
+          "vi": "Hạng mục｜Chi nhánh trung tâm｜Chi nhánh trước ga.",
+          "vocab": [
+            {
+              "w": "項目",
+              "read": "こうもく",
+              "vi": "hạng mục, mục"
+            },
+            {
+              "w": "本店",
+              "read": "ほんてん",
+              "vi": "chi nhánh chính, cửa hàng gốc"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 3 cột của bảng 1: hạng mục, chi nhánh trung tâm, chi nhánh trước ga."
+            }
+          ],
+          "keys": [
+            {
+              "w": "本店｜駅前店",
+              "why": "header bảng 1 — 2 cột chi nhánh dùng để đối chiếu từng hạng mục cho cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "営業時間｜10時〜21時｜7時〜22時",
+          "vi": "Giờ mở cửa｜10 giờ〜21 giờ｜7 giờ〜22 giờ.",
+          "vocab": [
+            {
+              "w": "営業",
+              "read": "えいぎょう",
+              "vi": "hoạt động kinh doanh, mở cửa"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "営業時間",
+              "read": "えいぎょうじかん",
+              "vi": "giờ mở cửa, giờ hoạt động"
+            }
+          ]
+        },
+        {
+          "jp": "定休日｜火曜日｜なし",
+          "vi": "Ngày nghỉ định kỳ｜Thứ Ba｜Không nghỉ.",
+          "vocab": [
+            {
+              "w": "定休",
+              "read": "ていきゅう",
+              "vi": "ngày nghỉ định kỳ"
+            },
+            {
+              "w": "火曜日",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "定休日",
+              "read": "ていきゅうび",
+              "vi": "ngày nghỉ định kỳ"
+            }
+          ]
+        },
+        {
+          "jp": "基本月会費｜8,000円｜9,500円",
+          "vi": "Học phí tháng cơ bản｜8.000 yên｜9.500 yên.",
+          "vocab": [
+            {
+              "w": "基本月会費",
+              "read": "きほんつきかいひ",
+              "vi": "phí hội viên cơ bản theo tháng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "月会費",
+              "read": "つきかいひ",
+              "vi": "phí hội viên hàng tháng"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "phí hội viên"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "9,500円",
+              "read": "きゅうせんごひゃくえん",
+              "vi": "9.500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "基本月会費｜8,000円｜9,500円",
+              "why": "hàng học phí gốc — số liệu nền để tính cả 2 câu hỏi trước khi cộng/trừ các khoản ※"
+            }
+          ]
+        },
+        {
+          "jp": "シャワー室｜あり（無料）｜あり（1回200円）",
+          "vi": "Phòng tắm vòi sen｜Có (miễn phí)｜Có (200 yên/lần).",
+          "vocab": [
+            {
+              "w": "シャワー室",
+              "read": "シャワーしつ",
+              "vi": "phòng tắm vòi sen"
+            },
+            {
+              "w": "シャワー",
+              "read": "シャワー",
+              "vi": "vòi sen"
+            },
+            {
+              "w": "室",
+              "read": "しつ",
+              "vi": "phòng"
+            },
+            {
+              "w": "あり",
+              "read": "あり",
+              "vi": "có, sẵn có"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "200円",
+              "read": "にひゃくえん",
+              "vi": "200 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "シャワー室｜あり（無料）｜あり（1回200円）",
+              "why": "hàng phòng tắm — chi nhánh trước ga tính phí 200円/lần, cần cộng thêm nếu nhân vật câu hỏi 2 có dùng shower"
+            }
+          ]
+        },
+        {
+          "jp": "託児サービス｜あり（無料・要予約）｜なし",
+          "vi": "Dịch vụ giữ trẻ｜Có (miễn phí, cần đặt trước)｜Không có.",
+          "vocab": [
+            {
+              "w": "託児サービス",
+              "read": "たくじサービス",
+              "vi": "dịch vụ giữ trẻ"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "要予約",
+              "read": "よう よやく",
+              "vi": "cần đặt trước"
+            }
+          ],
+          "keys": [
+            {
+              "w": "託児サービス｜あり（無料・要予約）｜なし",
+              "why": "hàng giữ trẻ — chỉ chi nhánh trung tâm có, chi nhánh trước ga hoàn toàn không có dịch vụ này"
+            }
+          ]
+        },
+        {
+          "jp": "本店は託児サービスが整っているのに対して、駅前店は営業時間が長く、早朝や深夜にも通えるのが特徴です。会員からの要望に対しては、スタッフが個別に対応しています。",
+          "vi": "Trong khi chi nhánh trung tâm có đầy đủ dịch vụ giữ trẻ, thì chi nhánh trước ga có giờ mở cửa dài hơn, có thể đi sớm hoặc muộn. Đối với yêu cầu của hội viên, nhân viên sẽ xử lý riêng từng trường hợp.",
+          "vocab": [
+            {
+              "w": "本店",
+              "read": "ほんてん",
+              "vi": "chi nhánh chính, cửa hàng gốc"
+            },
+            {
+              "w": "託児",
+              "read": "たくじ",
+              "vi": "trông trẻ, giữ trẻ"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "整う",
+              "read": "ととのう",
+              "vi": "được chuẩn bị đầy đủ, hoàn thiện"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "営業",
+              "read": "えいぎょう",
+              "vi": "hoạt động kinh doanh, mở cửa"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "早朝",
+              "read": "そうちょう",
+              "vi": "sáng sớm"
+            },
+            {
+              "w": "深夜",
+              "read": "しんや",
+              "vi": "đêm khuya"
+            },
+            {
+              "w": "通える",
+              "read": "かよえる",
+              "vi": "có thể đi lại"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "要望",
+              "read": "ようぼう",
+              "vi": "yêu cầu, nguyện vọng"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "個別に",
+              "read": "こべつに",
+              "vi": "riêng từng trường hợp, cá biệt"
+            },
+            {
+              "w": "対応します",
+              "read": "たいおうします",
+              "vi": "xử lý, ứng phó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに対して（Bài 70 — nghĩa (b) tương phản）",
+              "vi": "接続: 普通形 + のに対して（ở đây: 整っている + のに対して）。 本店は託児サービスが整っているのに対して、駅前店は営業時間が長く… = \"trong khi chi nhánh trung tâm có đầy đủ giữ trẻ, thì chi nhánh trước ga giờ mở cửa dài hơn\" — hai đặc điểm khác nhau được đặt song song đối lập. Mẫu TRỌNG TÂM bài 70 nghĩa (b), xuất hiện lần 2."
+            },
+            {
+              "point": "〜に対しては（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "会員からの要望に対しては = đối với yêu cầu từ hội viên thì. N（要望）+ に対しては — hành động \"xử lý riêng\" hướng đến đối tượng là yêu cầu của khách. Mẫu TRỌNG TÂM bài 70 nghĩa (a), xuất hiện lần 3."
+            }
+          ],
+          "keys": [
+            {
+              "w": "本店は託児サービスが整っているのに対して、駅前店は営業時間が長く",
+              "why": "câu tóm tắt khác biệt cốt lõi giữa 2 cơ sở — căn cứ chọn chi nhánh phù hợp theo nhu cầu (giữ trẻ vs giờ giấc)"
+            }
+          ]
+        },
+        {
+          "jp": "コース｜曜日・時間｜追加料金",
+          "vi": "Khóa học｜Thứ・giờ｜Phí phụ thu.",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phí phụ thu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 3 cột của bảng 2: khóa học, thứ/giờ, phí phụ thu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "コース｜曜日・時間｜追加料金",
+              "why": "header bảng 2 — dùng để dò khóa 夜間集中コース cho câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "朝ヨガ｜平日7時〜8時（駅前店のみ）｜無料",
+          "vi": "Yoga buổi sáng｜Trong tuần 7 giờ〜8 giờ (chỉ chi nhánh trước ga)｜Miễn phí.",
+          "vocab": [
+            {
+              "w": "朝ヨガ",
+              "read": "あさヨガ",
+              "vi": "yoga buổi sáng"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "ヨガ",
+              "read": "ヨガ",
+              "vi": "yoga"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "7時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "駅前店",
+              "read": "えきまえてん",
+              "vi": "chi nhánh trước ga"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "店",
+              "read": "てん",
+              "vi": "cửa hàng, chi nhánh"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ]
+        },
+        {
+          "jp": "夜間集中コース｜平日20時〜22時｜1,500円",
+          "vi": "Khóa tập trung buổi tối｜Trong tuần 20 giờ〜22 giờ｜1.500 yên.",
+          "vocab": [
+            {
+              "w": "夜間集中コース",
+              "read": "やかんしゅうちゅうコース",
+              "vi": "khóa học tập trung buổi tối"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "20時",
+              "read": "にじゅうじ",
+              "vi": "20 giờ"
+            },
+            {
+              "w": "22時",
+              "read": "にじゅうにじ",
+              "vi": "22 giờ"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜間集中コース｜平日20時〜22時｜1,500円",
+              "why": "khóa học buổi tối — dữ kiện phụ phí 1.500円 cần cộng vào học phí đã giảm nửa (học sinh) cho câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "土日特別レッスン｜土・日｜1,000円",
+          "vi": "Buổi học đặc biệt cuối tuần｜Thứ Bảy・Chủ Nhật｜1.000 yên.",
+          "vocab": [
+            {
+              "w": "土日特別レッスン",
+              "read": "どにちとくべつレッスン",
+              "vi": "bài học đặc biệt cuối tuần"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ bảy và chủ nhật"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ bảy"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "chủ nhật"
+            },
+            {
+              "w": "特別レッスン",
+              "read": "とくべつレッスン",
+              "vi": "bài học đặc biệt"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "レッスン",
+              "read": "レッスン",
+              "vi": "bài học"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            }
+          ]
+        },
+        {
+          "jp": "※本店に比べて駅前店の会費は高めですが、平日の昼間（13時〜16時）に通う会員は、駅前店でも月会費が1,000円引きになります。",
+          "vi": "※So với chi nhánh trung tâm, học phí chi nhánh trước ga cao hơn, nhưng hội viên đi vào buổi trưa trong tuần (13 giờ〜16 giờ) sẽ được giảm 1.000 yên học phí tháng dù ở chi nhánh trước ga.",
+          "vocab": [
+            {
+              "w": "本店",
+              "read": "ほんてん",
+              "vi": "chi nhánh chính"
+            },
+            {
+              "w": "比べて",
+              "read": "くらべて",
+              "vi": "so sánh"
+            },
+            {
+              "w": "駅前店",
+              "read": "えきまえてん",
+              "vi": "chi nhánh trước ga"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "店",
+              "read": "てん",
+              "vi": "cửa hàng, chi nhánh"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "phí hội viên"
+            },
+            {
+              "w": "高め",
+              "read": "たかめ",
+              "vi": "hơi cao"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "13時",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "16時",
+              "read": "じゅうろくじ",
+              "vi": "16 giờ"
+            },
+            {
+              "w": "通う",
+              "read": "かよう",
+              "vi": "đi lại thường xuyên"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "月会費",
+              "read": "つきかいひ",
+              "vi": "phí hội viên hàng tháng"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm, trừ"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に比べて（Bài 70 — mẫu trọng tâm）",
+              "vi": "本店に比べて駅前店の会費は高め = so với chi nhánh trung tâm, học phí chi nhánh trước ga cao hơn. に比べて so sánh mức phí giữa 2 cơ sở. Mẫu TRỌNG TÂM bài 70, xuất hiện lần 4."
+            },
+            {
+              "point": "〜になります（Bài 19）",
+              "vi": "1,000円引きになります = trở thành giảm 1.000 yên. Ôn lại になる Bài 19."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日の昼間（13時〜16時）に通う会員は、駅前店でも月会費が1,000円引き",
+              "why": "điều kiện giảm giá buổi trưa trong tuần — dữ kiện trừ tiền cho câu hỏi 2 nếu nhân vật đi giờ này"
+            }
+          ]
+        },
+        {
+          "jp": "※学生証を提示すると、どちらの店舗でも基本月会費が半額になります。ただし追加料金には適用されません。",
+          "vi": "※Nếu xuất trình thẻ học sinh, học phí tháng cơ bản giảm nửa giá ở cả hai cơ sở. Tuy nhiên không áp dụng cho phí phụ thu.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "提示します",
+              "read": "ていじします",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "店舗",
+              "read": "てんぽ",
+              "vi": "cửa hàng, cơ sở"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "hội phí"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "nửa giá"
+            },
+            {
+              "w": "ただし",
+              "read": "ただし",
+              "vi": "tuy nhiên, nhưng có một điều"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "適用されます",
+              "read": "てきようされます",
+              "vi": "được áp dụng"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh, sinh viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên, Bài 23）",
+              "vi": "提示すると半額になります = nếu xuất trình thì trở thành nửa giá. と = kết quả tất yếu."
+            },
+            {
+              "point": "受身（Bài 37）",
+              "vi": "適用されません = không được áp dụng. 受身 = thụ động, dùng cho quy định khách quan."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証を提示すると、どちらの店舗でも基本月会費が半額になります",
+              "why": "bẫy ※ quan trọng — giảm giá học sinh CHỈ áp cho học phí cơ bản, quyết định đáp án câu hỏi 1"
+            },
+            {
+              "w": "ただし追加料金には適用されません",
+              "why": "phần sau của cùng dòng ※ — KHÔNG áp giảm giá học sinh cho phí phụ thu khóa học, quyết định đáp án câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "※託児サービスに対しては、必ず前日までにご予約ください。当日の申し込みはできません。",
+          "vi": "※Đối với dịch vụ giữ trẻ, xin vui lòng đặt trước chậm nhất là ngày hôm trước. Không nhận đăng ký trong ngày.",
+          "vocab": [
+            {
+              "w": "託児",
+              "read": "たくじ",
+              "vi": "trông trẻ, giữ trẻ"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngay trong ngày"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対しては（Bài 70 — nghĩa (a) đối tượng）",
+              "vi": "託児サービスに対しては = đối với dịch vụ giữ trẻ thì. N（サービス）+ に対しては — yêu cầu (đặt trước) hướng đến đối tượng là dịch vụ này. Mẫu TRỌNG TÂM bài 70 nghĩa (a), xuất hiện lần 5."
+            },
+            {
+              "point": "NまでにV（Bài 17）",
+              "vi": "前日までにご予約ください = xin đặt trước hạn chót là ngày hôm trước. Ôn lại までに Bài 17."
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：にじいろヨガスタジオ　電話03-2277-6688（10時〜20時、定休日を除く）",
+          "vi": "Liên hệ: Phòng tập Yoga Nijiiro, điện thoại 03-2277-6688 (10 giờ〜20 giờ, trừ ngày nghỉ định kỳ).",
+          "vocab": [
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi thông tin"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "hỏi, liên hệ"
+            },
+            {
+              "w": "にじいろヨガスタジオ",
+              "read": "にじいろヨガスタジオ",
+              "vi": "studio yoga Nijiiro"
+            },
+            {
+              "w": "にじいろ",
+              "read": "にじいろ",
+              "vi": "cầu vồng"
+            },
+            {
+              "w": "ヨガスタジオ",
+              "read": "ヨガスタジオ",
+              "vi": "studio yoga"
+            },
+            {
+              "w": "ヨガ",
+              "read": "ヨガ",
+              "vi": "yoga"
+            },
+            {
+              "w": "スタジオ",
+              "read": "スタジオ",
+              "vi": "studio"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "10時",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "20時",
+              "read": "にじゅうじ",
+              "vi": "20 giờ"
+            },
+            {
+              "w": "定休日",
+              "read": "ていきゅうび",
+              "vi": "ngày nghỉ cố định"
+            },
+            {
+              "w": "定休",
+              "read": "ていきゅう",
+              "vi": "nghỉ định kỳ"
+            },
+            {
+              "w": "休日",
+              "read": "きゅうじつ",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "除く",
+              "read": "のぞく",
+              "vi": "loại trừ"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "本店に比べて、駅前店は駅から徒歩1分で、営業時間も長い",
+          "label": "〜に比べて（so sánh 2 cơ sở — mẫu trọng tâm）"
+        },
+        {
+          "excerpt": "本店は託児サービスが整っているのに対して、駅前店は営業時間が長く",
+          "label": "〜のに対して（b）tương phản — mẫu trọng tâm"
+        },
+        {
+          "excerpt": "会員からの要望に対しては、スタッフが個別に対応しています",
+          "label": "〜に対しては（a）đối tượng — mẫu trọng tâm"
+        },
+        {
+          "excerpt": "通いやすい",
+          "label": "V可能形＋やすい（ôn Bài 27）"
+        },
+        {
+          "excerpt": "1,000円引きになります",
+          "label": "〜になります（ôn Bài 19）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & so sánh tổng quan 2 cơ sở",
+          "topic": 1,
+          "note": "Giới thiệu 2 chi nhánh và câu に比べて mở đầu — định hướng toàn bài là so sánh đối chiếu.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng so sánh giờ・phí・tiện ích 2 cơ sở",
+          "topic": 5,
+          "note": "Bảng chính: dò cột 駅前店 để lấy học phí gốc 9,500円 (căn cứ chung câu 1 và 2) và phí shower 200円 (câu 2).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "turn",
+          "label": "Câu tổng kết đối lập に対して/のに対して",
+          "topic": 8,
+          "note": "Câu chứa cả 2 nghĩa của に対して (tương phản + đối tượng) — điểm ngữ pháp trọng tâm, dễ bị hỏi phân biệt sắc thái.",
+          "qs": []
+        },
+        {
+          "from": 9,
+          "to": 12,
+          "kind": "body",
+          "label": "Bảng khóa học và phụ phí",
+          "topic": 11,
+          "note": "Bảng phụ: khóa 夜間集中コース phụ phí 1,500円 — dữ kiện cộng thêm cho câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 13,
+          "to": 15,
+          "kind": "turn",
+          "label": "Các dòng ※ điều kiện giảm/không giảm",
+          "topic": 14,
+          "note": "Ba dòng ※ chứa bẫy: giảm giá buổi trưa (chỉ áp phí cơ bản), giảm giá học sinh (KHÔNG áp phụ phí), điều kiện đặt trước giữ trẻ — phải ghép đúng dòng cho từng câu hỏi.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 16,
+          "to": 16,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 16,
+          "note": "Số điện thoại và giờ làm việc — không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "グエンさんは学生で、学生証を持っています。駅前店の夜間集中コース（平日20時〜22時）に通いたいです。1か月の費用はいくらですか。",
+          "options": [
+            "4,750円",
+            "6,250円",
+            "9,500円",
+            "11,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1（6,250円）。表「基本月会費｜8,000円｜9,500円」から、駅前店の基本月会費は9,500円だとわかる。※「学生証を提示すると…基本月会費が半額になります」から、学生のグエンさんは基本会費が半額の4,750円になる（9,500÷2）。しかし同じ※に「ただし追加料金には適用されません」とあるため、表「夜間集中コース｜平日20時〜22時｜1,500円」の追加料金1,500円には学生割引が使えず、そのまま加算する。よって4,750＋1,500＝6,250円。0（4,750円）は追加料金を足し忘れた間違い。2（9,500円）は学生割引を忘れた基本会費のみの金額。3（11,000円）は学生割引を無視してそのまま9,500＋1,500を計算した金額（さらに計算も合っていない実際は11,000円になるが割引を適用すべき点を見落としている）。",
+          "tip": "学生割引や地域割引など「※」の割引条件を見たら、必ず「どの料金に適用されるか」を確認する。「ただし追加料金には適用されません」のような一文を見落とすと、割引を余分な項目にまで広げて計算ミスをする。基本会費と追加料金は別々に計算してから合計すること。",
+          "evi": [
+            5,
+            11,
+            14
+          ],
+          "qt": {
+            "q": "Nguyen là học sinh và có thẻ học sinh. Anh ấy muốn theo học khóa tập trung buổi tối (các ngày trong tuần, từ 20:00 đến 22:00) tại cơ sở trước ga. Chi phí một tháng là bao nhiêu?",
+            "o": [
+              "4.750 yên",
+              "6.250 yên",
+              "9.500 yên",
+              "11.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんは駅前店の会員で、平日の昼間（14時ごろ）に通っています。この日、シャワー室を1回利用しました。会費と利用料を合わせて、この月はいくら払いますか。",
+          "options": [
+            "8,500円",
+            "8,700円",
+            "9,500円",
+            "9,700円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1（8,700円）。表「基本月会費｜8,000円｜9,500円」から、駅前店の基本月会費は9,500円。※「平日の昼間（13時〜16時）に通う会員は、駅前店でも月会費が1,000円引きになります」から、14時に通うサントスさんはこの割引が適用され、9,500－1,000＝8,500円になる。さらに表「シャワー室｜あり（無料）｜あり（1回200円）」から、駅前店のシャワー利用は1回200円なので、8,500＋200＝8,700円。0（8,500円）はシャワー利用料を足し忘れた金額。2（9,500円）は昼間割引を忘れた基本会費のみ。3（9,700円）は昼間割引を適用せずシャワー代だけ足した金額（9,500＋200）。",
+          "tip": "「昼間に通う」という条件を見たら、真っ先に※の時間帯割引（13時〜16時）に当てはまるか確認する。次に、その日に使った追加サービス（シャワー室など）の料金を別途足す。割引と追加料金は別の行にあるので、両方を見落とさず順番に計算すること。",
+          "evi": [
+            5,
+            6,
+            13
+          ],
+          "qt": {
+            "q": "Santos là hội viên của cơ sở trước ga và thường đến vào ban ngày các ngày trong tuần (khoảng 14:00). Hôm đó, anh ấy đã sử dụng phòng tắm một lần. Tháng này, anh ấy phải trả tổng cộng bao nhiêu cho hội phí và phí sử dụng?",
+            "o": [
+              "8.500 yên",
+              "8.700 yên",
+              "9.500 yên",
+              "9.700 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

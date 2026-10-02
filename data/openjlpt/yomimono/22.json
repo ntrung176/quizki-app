@@ -1,0 +1,1522 @@
+{
+  "bai": 22,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 22 luyện MỆNH ĐỀ BỔ NGHĨA DANH TỪ (quan hệ mệnh đề): dùng vế động từ/tính từ đặt TRƯỚC danh từ để miêu tả. Ví dụ「昨日買った本」(quyển sách đã mua hôm qua) hay「日本語を教えている先生」(giáo viên đang dạy tiếng Nhật). Đọc hiểu kiểu này = xác định đúng danh từ TRUNG TÂM và vế bổ nghĩa đứng trước nó.",
+    "steps": [
+      "Tìm danh từ trung tâm (thường đứng sau toàn bộ cụm mệnh đề bổ nghĩa).",
+      "Nhìn động từ/tính từ ngay trước danh từ đó: thể từ điển (する→する), thể た (した), thể ている (している), thể ない (しない) → xác định thì và ý nghĩa.",
+      "Mệnh đề bổ nghĩa có thể có chủ ngữ riêng — chủ ngữ trong mệnh đề dùng が (không dùng は): 私が読んだ本 (quyển sách TÔI đã đọc).",
+      "Với Vる＋時間・約束・用事: V thể từ điển + danh từ thời gian/hẹn/việc → đọc như một cụm (例: 映画を見る約束 = lời hẹn đi xem phim).",
+      "Câu hỏi đọc hiểu thường hỏi: \"Người/vật này là ai/cái gì?\" → trả lời bằng cụm mệnh đề bổ nghĩa trong bài.",
+      "Để ý thể thông thường (普通形) trong mệnh đề: cả V/A-い/NA/N đều dùng thể thông thường (từ Bài 20)."
+    ],
+    "tips": [
+      "Trong mệnh đề bổ nghĩa, chủ ngữ dùng が chứ không dùng は: 私が撮った写真 (KHÔNG phải: 私は撮った写真).",
+      "Thể ている trong mệnh đề bổ nghĩa = đang làm hoặc trạng thái hiện tại: 眼鏡をかけている人 = người đang đeo kính.",
+      "Thể た trong mệnh đề bổ nghĩa = đã xảy ra: 昨日食べたケーキ = cái bánh đã ăn hôm qua.",
+      "Thể ない trong mệnh đề bổ nghĩa = phủ định/chưa làm: まだ読んでいない本 = quyển sách chưa đọc.",
+      "Tính từ い・な CŨNG bổ nghĩa trực tiếp cho danh từ (Bài 8): おいしいレストラン, 有名な店 — không phải ngữ pháp mới nhưng hay kết hợp ở Bài 22.",
+      "時間・約束・用事 hay xuất hiện với V thể từ điển: 会う時間、行く約束、する用事."
+    ],
+    "grammarFocus": [
+      "Vる＋N（mệnh đề bổ nghĩa, hiện tại/tương lai）",
+      "Vた＋N（mệnh đề bổ nghĩa, quá khứ）",
+      "Vている＋N（mệnh đề bổ nghĩa, đang/trạng thái）",
+      "Vない＋N（mệnh đề bổ nghĩa, phủ định）",
+      "Vる＋時間・約束・用事",
+      "形容詞＋N（ôn lại bổ nghĩa bằng tính từ）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 20,
+        "items": [
+          "普通形（thể thông thường V/A/NA/N）",
+          "〜けど（nhưng/tuy nhiên）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います（tôi nghĩ rằng）",
+          "〜と言いました（nói rằng）"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "た形（thể た quá khứ）",
+          "Vたことがあります（đã từng）"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "辞書形（thể từ điển）",
+          "Vることができます（có thể làm）"
+        ]
+      },
+      {
+        "bai": 15,
+        "items": [
+          "Vています（trạng thái）",
+          "知っています・知りません"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください（xin hãy）",
+          "Vています（đang làm）"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "いAdjN・なAdjN（tính từ bổ nghĩa danh từ）",
+          "とても"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです（thích）",
+          "〜がわかります（hiểu）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "昨日行ったレストラン",
+      "titleVi": "Nhà hàng đã đến hôm qua",
+      "japanese": "昨日、私が行ったレストランはとてもよかったです。そこは魚料理が有名なレストランです。私が食べた魚はとてもおいしかったです。また行きたいと思います。友達にも教えたいです。",
+      "vietnamese": "Nhà hàng tôi đến hôm qua rất tuyệt. Đó là nhà hàng nổi tiếng với món cá. Món cá tôi ăn rất ngon. Tôi nghĩ mình muốn đến lại lần nữa. Tôi cũng muốn giới thiệu cho bạn bè.",
+      "sentences": [
+        {
+          "jp": "昨日、私が行ったレストランはとてもよかったです。",
+          "vi": "Nhà hàng tôi đã đến hôm qua rất tuyệt.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "行った",
+              "read": "いった",
+              "vi": "đã đi"
+            },
+            {
+              "w": "レストラン",
+              "read": "れすとらん",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "よかったです",
+              "read": "よかったです",
+              "vi": "đã rất tốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ）",
+              "vi": "「私が行ったレストラン」= nhà hàng (mà) tôi đã đi. 行った bổ nghĩa cho レストラン. Chủ ngữ trong mệnh đề dùng が (私が, không phải 私は)."
+            }
+          ]
+        },
+        {
+          "jp": "そこは魚料理が有名なレストランです。",
+          "vi": "Đó là nhà hàng nổi tiếng với món cá.",
+          "vocab": [
+            {
+              "w": "魚",
+              "read": "さかな",
+              "vi": "cá"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "有名な",
+              "read": "ゆうめいな",
+              "vi": "nổi tiếng (tính từ な)"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "そこ",
+              "read": "そこ",
+              "vi": "ở đó, nơi đó"
+            },
+            {
+              "w": "魚料理",
+              "read": "さかなりょうり",
+              "vi": "món cá, ẩm thực cá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "有名なN（tính từ な bổ nghĩa N）",
+              "vi": "「有名なレストラン」= nhà hàng nổi tiếng. 有名 là tính từ な, thêm な trước danh từ."
+            },
+            {
+              "point": "NがN（chủ ngữ với が）",
+              "vi": "「魚料理が有名な」= nổi tiếng (về) món cá. が chỉ điểm nổi bật."
+            }
+          ]
+        },
+        {
+          "jp": "私が食べた魚はとてもおいしかったです。",
+          "vi": "Món cá tôi đã ăn rất ngon.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "食べた",
+              "read": "たべた",
+              "vi": "đã ăn"
+            },
+            {
+              "w": "魚",
+              "read": "さかな",
+              "vi": "cá"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "おいしかったです",
+              "read": "おいしかったです",
+              "vi": "đã rất ngon"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ）",
+              "vi": "「私が食べた魚」= con cá (mà) tôi đã ăn. 食べた bổ nghĩa cho 魚."
+            }
+          ]
+        },
+        {
+          "jp": "また行きたいと思います。",
+          "vi": "Tôi nghĩ mình muốn đến lại lần nữa.",
+          "vocab": [
+            {
+              "w": "行きたい",
+              "read": "いきたい",
+              "vi": "muốn đi (Vたい)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, lần nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "〜と思います = tôi nghĩ rằng〜. Mệnh đề trước と dùng thể thông thường."
+            },
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "Vたい = muốn làm V. 行きたい = muốn đi."
+            }
+          ]
+        },
+        {
+          "jp": "友達にも教えたいです。",
+          "vi": "Tôi cũng muốn giới thiệu cho bạn bè.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "教えたい",
+              "read": "おしえたい",
+              "vi": "muốn dạy/giới thiệu (Vたい của 教える)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNをVます（Bài 7）",
+              "vi": "友達に教える = giới thiệu/nói cho bạn. に chỉ người nhận hành động."
+            },
+            {
+              "point": "Nも（Bài 1）",
+              "vi": "も = cũng. 友達にも = cho cả bạn bè nữa."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "私が行ったレストラン",
+          "label": "Vた＋N (mệnh đề bổ nghĩa quá khứ)"
+        },
+        {
+          "excerpt": "魚料理が有名なレストラン",
+          "label": "有名な＋N (tính từ な bổ nghĩa)"
+        },
+        {
+          "excerpt": "私が食べた魚",
+          "label": "Vた＋N (mệnh đề bổ nghĩa)"
+        },
+        {
+          "excerpt": "また行きたいと思います",
+          "label": "〜と思います (Bài 21)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "そのレストランは何が有名ですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "肉料理が有名です",
+            "野菜料理が有名です",
+            "魚料理が有名です",
+            "ケーキが有名です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết rõ:「そこは魚料理が有名なレストランです」(đó là nhà hàng nổi tiếng với món cá). Danh từ trung tâm là レストラン, được bổ nghĩa bởi tính từ な「魚料理が有名な」. Đáp án 0 (肉料理) sai vì bài không nhắc đến thịt. Đáp án 1 (野菜料理) sai vì bài không nhắc đến rau. Đáp án 3 (ケーキ) sai vì bài không nhắc đến bánh.",
+          "tip": "Câu hỏi dạng \"Nは何がV?\" → tìm đúng danh từ nổi tiếng trong bài. Đọc câu có「有名な」và lấy chủ ngữ của が ngay trước đó.",
+          "qt": {
+            "q": "Nhà hàng đó nổi tiếng về món gì?",
+            "o": [
+              "Nhà hàng nổi tiếng về món thịt.",
+              "Nhà hàng nổi tiếng về món rau.",
+              "Nhà hàng nổi tiếng về món cá.",
+              "Nhà hàng nổi tiếng về bánh ngọt."
+            ]
+          }
+        },
+        {
+          "q": "私が食べた魚はどうでしたか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "あまりおいしくなかったです",
+            "とてもおいしかったです",
+            "たかかったです",
+            "あまりよくなかったです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết:「私が食べた魚はとてもおいしかったです」(món cá tôi đã ăn rất ngon). Cụm「私が食べた魚」là mệnh đề bổ nghĩa: 食べた (Vた) bổ nghĩa cho 魚 — \"cá mà tôi đã ăn\". とても + おいしかった = rất ngon. Đáp án 0 (あまりおいしくなかった = không ngon lắm) và đáp án 3 (あまりよくなかった = không tốt lắm) mâu thuẫn trực tiếp với とても. Đáp án 2 (たかかった = đắt) không được đề cập trong bài.",
+          "tip": "Thấy mệnh đề bổ nghĩa「私が食べたN」→ hỏi về N đó thì tìm ngay vị ngữ của câu chứa N (là... / đã... như thế nào). Từ khóa とても / あまり thường là manh mối dễ loại sai.",
+          "qt": {
+            "q": "Con cá tôi đã ăn như thế nào?",
+            "o": [
+              "Không ngon lắm.",
+              "Rất ngon.",
+              "Đắt.",
+              "Không tốt lắm."
+            ]
+          }
+        },
+        {
+          "q": "私はこれからどうしたいと思っていますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "別のレストランに行きたいです",
+            "そのレストランにまた行きたいです",
+            "魚料理を作りたいです",
+            "友達に電話したいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết:「また行きたいと思います」(tôi nghĩ muốn đến lại). また = lần nữa, 行きたい = muốn đi. Bài cũng viết thêm「友達にも教えたいです」(muốn giới thiệu cho bạn) nhưng đó không phải ý muốn đi đâu. Đáp án 0 (別のレストラン = nhà hàng khác) sai vì bài nói muốn quay lại chính nhà hàng đó (そのレストラン). Đáp án 2 (作りたい = muốn nấu) và đáp án 3 (電話したい = muốn gọi điện) không có trong bài.",
+          "tip": "Câu hỏi \"〜どうしたいと思っていますか\" → tìm câu chứa Vたいと思います trong bài. Chú ý phân biệt また行く (nhà hàng cũ) với 別の〜 (chỗ khác).",
+          "qt": {
+            "q": "Từ giờ trở đi, tôi muốn làm gì?",
+            "o": [
+              "Tôi muốn đến một nhà hàng khác.",
+              "Tôi muốn lại đến nhà hàng đó.",
+              "Tôi muốn nấu món cá.",
+              "Tôi muốn gọi điện cho bạn."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "さくら大学のミラーさん",
+      "titleVi": "Anh Miller ở Đại học Sakura",
+      "japanese": "これはさくら大学で日本語を教えているミラー先生の話です。\nミラー先生はアメリカから来た先生で、日本語がとても上手です。\nミラー先生のクラスには、日本語をまだ話せない学生もいます。\nでも、毎日勉強している学生はどんどん上手になります。\n先週、ミラー先生は学生が書いた作文を読みました。\nとても上手に書いた作文もありましたが、まだ上手じゃない作文もありました。\n今日は田中さんと昼ごはんを食べる約束があります。\n田中さんはミラー先生がいつも行くカフェで待っています。\nそのカフェはコーヒーがおいしくて、静かなカフェです。\nミラー先生は今、授業が終わる時間を待っています。",
+      "vietnamese": "Đây là câu chuyện về thầy Miller, người đang dạy tiếng Nhật tại Đại học Sakura.\nThầy Miller là giáo viên đến từ Mỹ, tiếng Nhật rất giỏi.\nTrong lớp của thầy Miller cũng có những sinh viên chưa nói được tiếng Nhật.\nNhưng những sinh viên đang học mỗi ngày ngày càng tiến bộ hơn.\nTuần trước, thầy Miller đã đọc bài văn mà các sinh viên viết.\nCó những bài văn được viết rất khéo, nhưng cũng có những bài vẫn chưa tốt.\nHôm nay thầy có hẹn ăn trưa với anh Tanaka.\nAnh Tanaka đang đợi ở quán cà phê mà thầy Miller vẫn hay đến.\nQuán cà phê đó là quán yên tĩnh và cà phê ngon.\nThầy Miller đang đợi thời gian giờ học kết thúc.",
+      "sentences": [
+        {
+          "jp": "これはさくら大学で日本語を教えているミラー先生の話です。",
+          "vi": "Đây là câu chuyện về thầy Miller, người đang dạy tiếng Nhật tại Đại học Sakura.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教えている",
+              "read": "おしえている",
+              "vi": "đang dạy (Vている)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "thầy giáo, giáo viên"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện"
+            },
+            {
+              "w": "さくら大学",
+              "read": "さくらだいがく",
+              "vi": "Đại học Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vている＋N（mệnh đề bổ nghĩa trạng thái）",
+              "vi": "「日本語を教えているミラー先生」= thầy Miller ĐANG DẠY tiếng Nhật. Vている đứng trước N để bổ nghĩa."
+            }
+          ]
+        },
+        {
+          "jp": "ミラー先生はアメリカから来た先生で、日本語がとても上手です。",
+          "vi": "Thầy Miller là giáo viên đến từ Mỹ, tiếng Nhật rất giỏi.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "アメリカ",
+              "read": "アメリカ",
+              "vi": "nước Mỹ"
+            },
+            {
+              "w": "来た",
+              "read": "きた",
+              "vi": "đã đến (thể た của 来る)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ）",
+              "vi": "「アメリカから来た先生」= giáo viên ĐẾN TỪ Mỹ (đã đến từ Mỹ). 来た bổ nghĩa cho 先生."
+            },
+            {
+              "point": "NがN（Bài 9）",
+              "vi": "日本語が上手です = giỏi tiếng Nhật. が chỉ lĩnh vực giỏi/tệ."
+            }
+          ]
+        },
+        {
+          "jp": "ミラー先生のクラスには、日本語をまだ話せない学生もいます。",
+          "vi": "Trong lớp của thầy Miller cũng có những sinh viên chưa nói được tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "話せない",
+              "read": "はなせない",
+              "vi": "không nói được (thể ない khả năng của 話す)"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn còn, chưa (dùng với phủ định = chưa)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形ない＋N（話せない = không nói được）",
+              "vi": "「日本語をまだ話せない学生」= sinh viên CHƯA nói được tiếng Nhật. 話せない là thể khả năng phủ định (話せる→話せない) bổ nghĩa cho 学生. Phân biệt: 話さない (không nói, ý chí) ≠ 話せない (không nói được, năng lực)."
+            },
+            {
+              "point": "まだ〜ない（Bài 7）",
+              "vi": "まだ + phủ định = chưa (hành động/trạng thái chưa xảy ra)."
+            }
+          ]
+        },
+        {
+          "jp": "でも、毎日勉強している学生はどんどん上手になります。",
+          "vi": "Nhưng những sinh viên đang học mỗi ngày ngày càng tiến bộ hơn.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "勉強している",
+              "read": "べんきょうしている",
+              "vi": "đang học, đang học tập"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "どんどん",
+              "read": "どんどん",
+              "vi": "ngày càng, liên tục (trạng từ tiến triển)"
+            },
+            {
+              "w": "上手になります",
+              "read": "じょうずになります",
+              "vi": "trở nên giỏi hơn"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vている＋N（mệnh đề bổ nghĩa）",
+              "vi": "「毎日勉強している学生」= sinh viên ĐANG HỌC mỗi ngày. Vている bổ nghĩa cho 学生."
+            },
+            {
+              "point": "〜になります（Bài 19）",
+              "vi": "上手になります = trở nên giỏi. NA/A + になる = trở nên ~."
+            }
+          ]
+        },
+        {
+          "jp": "先週、ミラー先生は学生が書いた作文を読みました。",
+          "vi": "Tuần trước, thầy Miller đã đọc bài văn mà các sinh viên viết.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "書いた",
+              "read": "かいた",
+              "vi": "đã viết (thể た của 書く)"
+            },
+            {
+              "w": "作文",
+              "read": "さくぶん",
+              "vi": "bài văn, bài luận"
+            },
+            {
+              "w": "読みました",
+              "read": "よみました",
+              "vi": "đã đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ）",
+              "vi": "「学生が書いた作文」= bài văn (mà) sinh viên ĐÃ VIẾT. 書いた bổ nghĩa cho 作文. Chủ ngữ trong mệnh đề dùng が (学生が)."
+            }
+          ]
+        },
+        {
+          "jp": "とても上手に書いた作文もありましたが、まだ上手じゃない作文もありました。",
+          "vi": "Có những bài văn được viết rất khéo, nhưng cũng có những bài vẫn chưa tốt.",
+          "vocab": [
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "上手じゃない",
+              "read": "じょうずじゃない",
+              "vi": "không giỏi, chưa tốt (phủ định của 上手な)"
+            },
+            {
+              "w": "書いた",
+              "read": "かいた",
+              "vi": "đã viết"
+            },
+            {
+              "w": "作文",
+              "read": "さくぶん",
+              "vi": "bài văn, bài luận"
+            },
+            {
+              "w": "上手に",
+              "read": "じょうずに",
+              "vi": "một cách khéo léo, giỏi (trạng từ)"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn còn, chưa (dùng với phủ định = chưa)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ）",
+              "vi": "「上手に書いた作文」= bài văn được viết khéo léo. 書いた bổ nghĩa cho 作文."
+            },
+            {
+              "point": "NAじゃない＋N（tính từ な phủ định bổ nghĩa N）",
+              "vi": "「まだ上手じゃない作文」= bài văn vẫn chưa tốt. 上手 là tính từ な, thể phủ định 上手じゃない bổ nghĩa cho 作文. Trong scope Bài 8/22."
+            },
+            {
+              "point": "Nも〜が、Nも（Bài 1 + Bài 16）",
+              "vi": "〜もありましたが、〜もありました = cũng có〜, nhưng cũng có〜. が nối hai vế tương phản nhẹ."
+            }
+          ]
+        },
+        {
+          "jp": "今日は田中さんと昼ごはんを食べる約束があります。",
+          "vi": "Hôm nay thầy có hẹn ăn trưa với anh Tanaka.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "昼ごはん",
+              "read": "ひるごはん",
+              "vi": "bữa trưa, cơm trưa"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn (thể từ điển)"
+            },
+            {
+              "w": "約束",
+              "read": "やくそく",
+              "vi": "lời hẹn, cuộc hẹn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋約束があります",
+              "vi": "「昼ごはんを食べる約束」= lời hẹn (đi) ăn trưa. V thể từ điển + 約束 là mẫu chuẩn của Bài 22."
+            },
+            {
+              "point": "〜があります（Bài 9）",
+              "vi": "約束があります = có lời hẹn. がある dùng cho sự kiện/lịch trình."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはミラー先生がいつも行くカフェで待っています。",
+          "vi": "Anh Tanaka đang đợi ở quán cà phê mà thầy Miller vẫn hay đến.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn, vẫn hay"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi, đến (thể từ điển)"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "待っています",
+              "read": "まっています",
+              "vi": "đang đợi (Vている của 待つ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋N（mệnh đề bổ nghĩa hiện tại/thói quen）",
+              "vi": "「ミラー先生がいつも行くカフェ」= quán cà phê mà thầy Miller LUÔN ĐẾN. 行く (thể từ điển) bổ nghĩa cho カフェ, diễn tả thói quen."
+            },
+            {
+              "point": "Vています（Bài 14）",
+              "vi": "待っています = đang đợi. Vている diễn tả hành động đang tiếp diễn."
+            }
+          ]
+        },
+        {
+          "jp": "そのカフェはコーヒーがおいしくて、静かなカフェです。",
+          "vi": "Quán cà phê đó là quán yên tĩnh và cà phê ngon.",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "静かな",
+              "read": "しずかな",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "おいしくて",
+              "read": "おいしくて",
+              "vi": "ngon và (Vて của おいしい, nối tính từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いAdjくて・なAdjで（Bài 16）",
+              "vi": "おいしくて、静かな = ngon VÀ yên tĩnh. て/で nối tính từ liệt kê."
+            },
+            {
+              "point": "静かなN（Bài 8）",
+              "vi": "「静かなカフェ」= quán cà phê yên tĩnh. な tính từ bổ nghĩa N."
+            }
+          ]
+        },
+        {
+          "jp": "ミラー先生は今、授業が終わる時間を待っています。",
+          "vi": "Thầy Miller đang đợi thời gian giờ học kết thúc.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "待っています",
+              "read": "まっています",
+              "vi": "đang đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋時間（があります）",
+              "vi": "「授業が終わる時間」= thời gian (giờ) học kết thúc. V thể từ điển + 時間 là mẫu chuẩn Bài 22."
+            },
+            {
+              "point": "Vている（Bài 14）",
+              "vi": "待っています = đang đợi (hành động đang tiếp diễn lúc này)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日本語を教えているミラー先生",
+          "label": "Vている＋N (mệnh đề bổ nghĩa trạng thái)"
+        },
+        {
+          "excerpt": "アメリカから来た先生",
+          "label": "Vた＋N (mệnh đề bổ nghĩa quá khứ)"
+        },
+        {
+          "excerpt": "日本語をまだ話せない学生",
+          "label": "V可能形ない＋N (話せない = không nói được)"
+        },
+        {
+          "excerpt": "毎日勉強している学生",
+          "label": "Vている＋N (mệnh đề bổ nghĩa)"
+        },
+        {
+          "excerpt": "学生が書いた作文",
+          "label": "Vた＋N + chủ ngữ が trong mệnh đề"
+        },
+        {
+          "excerpt": "昼ごはんを食べる約束",
+          "label": "Vる＋約束 (mẫu Bài 22)"
+        },
+        {
+          "excerpt": "ミラー先生がいつも行くカフェ",
+          "label": "Vる＋N (thói quen)"
+        },
+        {
+          "excerpt": "授業が終わる時間",
+          "label": "Vる＋時間 (mẫu Bài 22)"
+        },
+        {
+          "excerpt": "静かなカフェ",
+          "label": "静かな＋N (tính từ な bổ nghĩa)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラー先生はどこで日本語を教えていますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "IMCで教えています",
+            "さくら大学で教えています",
+            "アメリカの大学で教えています",
+            "カフェで教えています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Ngay câu đầu bài:「さくら大学で日本語を教えているミラー先生」(thầy Miller đang dạy tiếng Nhật tại Đại học Sakura). Đây là mệnh đề bổ nghĩa Vている: 教えている bổ nghĩa cho 先生, nơi dạy là さくら大学. Đáp án 0 (IMC) không có trong bài. Đáp án 2 (アメリカの大学) sai vì thầy là người đến từ Mỹ (アメリカから来た) chứ không phải dạy ở Mỹ. Đáp án 3 (カフェ) là nơi gặp bạn, không phải nơi dạy.",
+          "tip": "Mệnh đề bổ nghĩa Vている＋N thường cho biết đặc điểm/công việc của người. Tìm「〜ているN」→ xem vị trí/nơi chốn đứng trước động từ (で).",
+          "qt": {
+            "q": "Thầy Miller dạy tiếng Nhật ở đâu?",
+            "o": [
+              "Dạy ở IMC",
+              "Dạy ở Đại học Sakura",
+              "Dạy ở một trường đại học ở Mỹ",
+              "Dạy ở quán cà phê"
+            ]
+          }
+        },
+        {
+          "q": "先週、ミラー先生は何をしましたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "学生と昼ごはんを食べました",
+            "学生が書いた作文を読みました",
+            "田中さんとカフェに行きました",
+            "授業の準備をしました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết rõ:「先週、ミラー先生は学生が書いた作文を読みました」(tuần trước thầy đã đọc bài văn mà sinh viên đã viết). Cụm「学生が書いた作文」là mệnh đề bổ nghĩa Vた: 書いた bổ nghĩa cho 作文, chủ ngữ trong mệnh đề dùng が (学生が). Đáp án 0 (昼ごはん) sai vì ăn trưa là kế hoạch hôm NAY, không phải tuần trước. Đáp án 2 (田中さんとカフェ) cũng là kế hoạch hôm nay. Đáp án 3 (授業の準備) không được đề cập.",
+          "tip": "Câu hỏi có 先週 → tìm sự kiện trong bài cũng có 先週. Cẩn thận phân biệt thời điểm: 先週 (tuần trước) vs 今日 (hôm nay) vs 今 (bây giờ).",
+          "qt": {
+            "q": "Tuần trước, thầy Miller đã làm gì?",
+            "o": [
+              "Đã ăn trưa với học viên",
+              "Đã đọc bài văn do học viên viết",
+              "Đã đi đến quán cà phê với anh Tanaka",
+              "Đã chuẩn bị cho buổi học"
+            ]
+          }
+        },
+        {
+          "q": "今日の約束は何ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "学生と勉強する約束です",
+            "田中さんと昼ごはんを食べる約束です",
+            "カフェでコーヒーを飲む約束です",
+            "アメリカに帰る約束です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết:「今日は田中さんと昼ごはんを食べる約束があります」(hôm nay có hẹn ăn trưa với anh Tanaka). Đây là mẫu Vる＋約束: 食べる (thể từ điển) bổ nghĩa cho 約束. Đáp án 0 (学生と勉強する) sai vì không có hẹn đó trong bài. Đáp án 2 (コーヒーを飲む) sai vì quán cà phê chỉ là nơi gặp mặt, hẹn là ăn trưa chứ không phải uống cà phê. Đáp án 3 (アメリカに帰る) không được đề cập.",
+          "tip": "Mẫu Vる＋約束: V thể từ điển đứng TRƯỚC 約束 = lời hẹn làm việc gì. Câu hỏi về 約束 → tìm cụm「〜する約束」trong bài, chú ý ai hẹn với ai.",
+          "qt": {
+            "q": "Cuộc hẹn hôm nay là gì?",
+            "o": [
+              "Cuộc hẹn học cùng học viên",
+              "Cuộc hẹn ăn trưa với anh Tanaka",
+              "Cuộc hẹn uống cà phê ở quán cà phê",
+              "Cuộc hẹn trở về Mỹ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "忘れ物のお知らせを読む",
+      "titleVi": "Đọc thông báo: Bảng tìm đồ thất lạc ở nhà ga",
+      "japanese": "さくら駅の忘れ物のお知らせ\n昨日、さくら駅の中で忘れ物が三つありました。忘れた物がある人は、下の表を見て、駅の受付に来てください。\n忘れ物｜どんな物｜ある場所\nかさ｜黒くて大きいかさ｜受付の前のいす\n本｜山田さんが忘れた本｜電車の中の棚\nかばん｜駅の人が持って来た茶色いかばん｜駅員室\n※忘れ物を取りに来て、名前と電話番号を紙に書いてください。\n受付の時間は朝７時から夜１０時までです。",
+      "vietnamese": "Thông báo về đồ thất lạc ở ga Sakura\nHôm qua, trong ga Sakura có ba món đồ bị bỏ quên. Ai có đồ thất lạc thì hãy xem bảng dưới đây rồi đến quầy lễ tân của ga.\nĐồ thất lạc | Là đồ như thế nào | Nơi đang có đồ\nCây dù | Cây dù màu đen và to | Ghế trước quầy lễ tân\nQuyển sách | Quyển sách mà anh Yamada đã bỏ quên | Kệ trong toa tàu điện\nCái cặp | Cái cặp màu nâu mà nhân viên ga đã mang đến | Phòng nhân viên ga\n※Hãy đến lấy đồ thất lạc rồi viết tên và số điện thoại vào giấy.\nGiờ làm việc của quầy lễ tân là từ 7 giờ sáng đến 10 giờ tối.",
+      "sentences": [
+        {
+          "jp": "さくら駅の忘れ物のお知らせ",
+          "vi": "Thông báo về đồ thất lạc ở ga Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "忘れ物",
+              "read": "わすれもの",
+              "vi": "đồ bỏ quên, đồ thất lạc"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "さくら駅",
+              "read": "さくらえき",
+              "vi": "ga Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1）",
+              "vi": "「さくら駅の忘れ物のお知らせ」= thông báo về đồ thất lạc của ga Sakura. の nối các danh từ như tiêu đề."
+            }
+          ],
+          "keys": [
+            {
+              "w": "忘れ物",
+              "why": "Từ khóa chủ đề của cả thông báo — mọi dòng sau đều xoay quanh việc tìm lại đồ này."
+            }
+          ]
+        },
+        {
+          "jp": "昨日、さくら駅の中で忘れ物が三つありました。忘れた物がある人は、下の表を見て、駅の受付に来てください。",
+          "vi": "Hôm qua, trong ga Sakura có ba món đồ bị bỏ quên. Ai có đồ thất lạc thì hãy xem bảng dưới đây rồi đến quầy lễ tân của ga.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "忘れ物",
+              "read": "わすれもの",
+              "vi": "đồ bỏ quên, đồ thất lạc"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba (cái)"
+            },
+            {
+              "w": "忘れた",
+              "read": "わすれた",
+              "vi": "đã quên, đã bỏ quên (thể た của 忘れます)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng (biểu)"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "ありました",
+              "read": "ありました",
+              "vi": "đã có (quá khứ của あります)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ, Bài 22）",
+              "vi": "「忘れた物がある人」= người có đồ (mà mình) đã bỏ quên. 忘れた bổ nghĩa cho 物, cả cụm 物がある lại bổ nghĩa cho 人."
+            },
+            {
+              "point": "助数詞（Bài 11）",
+              "vi": "三つ = ba cái, dùng đơn vị đếm đồ vật chung đã học ở Bài 11."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "来てください = xin hãy đến."
+            }
+          ],
+          "keys": [
+            {
+              "w": "忘れ物が三つありました",
+              "why": "Cho biết CÓ 3 món đồ — khớp với đúng 3 hàng của bảng bên dưới."
+            },
+            {
+              "w": "忘れた物がある人は",
+              "why": "Mệnh đề bổ nghĩa Vた＋N (mẫu Bài 22) chỉ rõ ai cần đọc bảng: người có đồ đã mất."
+            }
+          ]
+        },
+        {
+          "jp": "忘れ物｜どんな物｜ある場所",
+          "vi": "Đồ thất lạc | Là đồ như thế nào | Nơi đang có đồ",
+          "vocab": [
+            {
+              "w": "忘れ物",
+              "read": "わすれもの",
+              "vi": "đồ bỏ quên, đồ thất lạc"
+            },
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "như thế nào (Bài 8)"
+            },
+            {
+              "w": "物",
+              "read": "もの",
+              "vi": "đồ vật, vật"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "nơi, địa điểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng header bảng",
+              "vi": "Đây là hàng tiêu đề của bảng: Tên đồ | Đặc điểm (mệnh đề bổ nghĩa) | Nơi đang có đồ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "どんな物｜ある場所",
+              "why": "Header 2 cột quan trọng nhất: cột giữa tả đặc điểm bằng mệnh đề bổ nghĩa, cột phải cho vị trí — câu hỏi cần dò đúng 2 cột này."
+            }
+          ]
+        },
+        {
+          "jp": "かさ｜黒くて大きいかさ｜受付の前のいす",
+          "vi": "Cây dù | Cây dù màu đen và to | Ghế trước quầy lễ tân",
+          "vocab": [
+            {
+              "w": "黒くて",
+              "read": "くろくて",
+              "vi": "đen và (thể て của 黒い, nối tính từ)"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "to, lớn"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "かさ",
+              "read": "かさ",
+              "vi": "cây dù, ô"
+            },
+            {
+              "w": "いす",
+              "read": "いす",
+              "vi": "cái ghế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いAdjくて＋いAdj＋N（Bài 8＋Bài 16）",
+              "vi": "「黒くて大きいかさ」= cây dù (vừa) đen (vừa) to. くて nối 2 tính từ い rồi cùng bổ nghĩa cho かさ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "黒くて大きいかさ",
+              "why": "Mệnh đề bổ nghĩa bằng tính từ tả đặc điểm cây dù — không phải đồ mà câu hỏi tìm (loại khi so với かばん màu nâu)."
+            }
+          ]
+        },
+        {
+          "jp": "本｜山田さんが忘れた本｜電車の中の棚",
+          "vi": "Quyển sách | Quyển sách mà anh Yamada đã bỏ quên | Kệ trong toa tàu điện",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "山田さん",
+              "read": "やまださん",
+              "vi": "anh/chị Yamada"
+            },
+            {
+              "w": "忘れた",
+              "read": "わすれた",
+              "vi": "đã quên"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "棚",
+              "read": "たな",
+              "vi": "kệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ, Bài 22）",
+              "vi": "「山田さんが忘れた本」= quyển sách mà anh Yamada đã bỏ quên. 忘れた bổ nghĩa cho 本; chủ ngữ trong mệnh đề dùng が (山田さんが, không phải 山田さんは)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "山田さんが忘れた本",
+              "why": "Đồ của anh Yamada, không phải đồ câu hỏi tìm — dùng để loại trừ khi dò bảng."
+            }
+          ]
+        },
+        {
+          "jp": "かばん｜駅の人が持って来た茶色いかばん｜駅員室",
+          "vi": "Cái cặp | Cái cặp màu nâu mà nhân viên ga đã mang đến | Phòng nhân viên ga",
+          "vocab": [
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "cái cặp, túi xách"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "茶色い",
+              "read": "ちゃいろい",
+              "vi": "màu nâu"
+            },
+            {
+              "w": "駅員",
+              "read": "えきいん",
+              "vi": "nhân viên ga"
+            },
+            {
+              "w": "駅の人",
+              "read": "えきのひと",
+              "vi": "nhân viên ga"
+            },
+            {
+              "w": "持って来た",
+              "read": "もってきた",
+              "vi": "đã mang đến (thể た của 持って来ます)"
+            },
+            {
+              "w": "駅員室",
+              "read": "えきいんしつ",
+              "vi": "phòng nhân viên ga"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa quá khứ, Bài 22）",
+              "vi": "「駅の人が持って来た茶色いかばん」= cái cặp màu nâu mà nhân viên ga đã mang đến. 持って来た bổ nghĩa cho かばん; chủ ngữ trong mệnh đề dùng が (駅の人が)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "駅の人が持って来た茶色いかばん",
+              "why": "Mệnh đề bổ nghĩa Vた＋N căn cứ TRỰC TIẾP: cặp màu NÂU khớp đúng đồ câu hỏi tìm."
+            },
+            {
+              "w": "駅員室",
+              "why": "Vị trí đáp án — cột \"ある場所\" của hàng かばん, câu trả lời cho câu hỏi duy nhất."
+            }
+          ]
+        },
+        {
+          "jp": "※忘れ物を取りに来て、名前と電話番号を紙に書いてください。",
+          "vi": "Hãy đến lấy đồ thất lạc rồi viết tên và số điện thoại vào giấy.",
+          "vocab": [
+            {
+              "w": "忘れ物",
+              "read": "わすれもの",
+              "vi": "đồ bỏ quên, đồ thất lạc"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "番号",
+              "read": "ばんごう",
+              "vi": "số thứ tự, số hiệu"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "書いてください",
+              "read": "かいてください",
+              "vi": "xin hãy viết"
+            },
+            {
+              "w": "取りに来て",
+              "read": "とりにきて",
+              "vi": "đến để lấy, rồi (Vに来ます thể て, mục đích + nối câu)"
+            },
+            {
+              "w": "電話番号",
+              "read": "でんわばんごう",
+              "vi": "số điện thoại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vに来ます（Bài 13）＋Vて（Bài 16）",
+              "vi": "取りに来て = đến để lấy rồi (nối với vế sau). に来ます diễn tả mục đích di chuyển (Bài 13), thể て nối 2 hành động liên tiếp (Bài 16): đến lấy đồ RỒI viết giấy."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "書いてください = xin hãy viết."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※忘れ物を取りに来て、名前と電話番号を紙に書いてください",
+              "why": "Bẫy ※: phải viết tên + số điện thoại khi đến lấy đồ, không thể lấy ngay không cần thủ tục."
+            }
+          ]
+        },
+        {
+          "jp": "受付の時間は朝７時から夜１０時までです。",
+          "vi": "Giờ làm việc của quầy lễ tân là từ 7 giờ sáng đến 10 giờ tối.",
+          "vocab": [
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "朝７時から夜１０時まで = từ 7 giờ sáng đến 10 giờ tối."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "忘れた物がある人",
+          "label": "Vた＋N (mệnh đề bổ nghĩa, mẫu Bài 22)"
+        },
+        {
+          "excerpt": "山田さんが忘れた本",
+          "label": "Vた＋N + chủ ngữ が trong mệnh đề (Bài 22)"
+        },
+        {
+          "excerpt": "駅の人が持って来た茶色いかばん",
+          "label": "Vた＋N (mệnh đề bổ nghĩa, mẫu Bài 22)"
+        },
+        {
+          "excerpt": "黒くて大きいかさ",
+          "label": "いAdjくて＋いAdj＋N (ôn Bài 8/16)"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời xem bảng",
+          "topic": 1,
+          "note": "Tiêu đề thông báo + số lượng đồ thất lạc (ba món) + hướng dẫn xem bảng rồi đến quầy lễ tân. Không chứa căn cứ đáp án trực tiếp.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "kind": "body",
+          "label": "Header bảng",
+          "topic": 2,
+          "note": "Hàng tiêu đề bảng: Tên đồ | Đặc điểm (mệnh đề bổ nghĩa) | Nơi đang có đồ.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng 3 món đồ thất lạc",
+          "topic": 5,
+          "note": "Ba hàng dữ liệu tả từng món đồ bằng mệnh đề bổ nghĩa (Vた＋N) và vị trí đang giữ — căn cứ chính cho câu hỏi duy nhất (hàng かばん).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "turn",
+          "label": "Điều kiện ※ & giờ làm việc",
+          "topic": 6,
+          "note": "Dòng ※ nêu thủ tục bắt buộc (viết tên + số điện thoại) và giờ mở cửa quầy lễ tân — không trả lời trực tiếp câu hỏi nhưng dễ gây nhiễu nếu bỏ qua.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは茶色いかばんを忘れました。かばんはどこにありますか。",
+          "options": [
+            "受付の前のいす",
+            "電車の中の棚",
+            "駅員室",
+            "駅の外"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bảng cho thấy hàng thứ ba:「かばん｜駅の人が持って来た茶色いかばん｜駅員室」— cái cặp màu NÂU (茶色い) mà nhân viên ga mang đến đang ở 駅員室 (phòng nhân viên ga). Đây là mệnh đề bổ nghĩa Vた＋N (mẫu Bài 22):「駅の人が持って来た」bổ nghĩa cho かばん. Đáp án 0 (受付の前のいす) sai vì đó là vị trí của かさ (cây dù), không phải かばん. Đáp án 1 (電車の中の棚) sai vì đó là vị trí của 本 (quyển sách) của anh Yamada. Đáp án 3 (駅の外) không được nhắc đến trong bảng.",
+          "tip": "Câu hỏi hỏi về かばん màu 茶色い → tìm đúng HÀNG có かばん trong bảng, đọc cột \"ある場所\" ngay bên phải. Đừng nhầm với hàng かさ hay 本 ở phía trên.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Anh/chị Lee đã để quên chiếc cặp màu nâu. Chiếc cặp ở đâu?",
+            "o": [
+              "Chiếc ghế trước quầy tiếp tân",
+              "Giá để đồ bên trong tàu điện",
+              "Phòng nhân viên nhà ga",
+              "Bên ngoài nhà ga"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "bai": 6,
+  "bunpou": [
+    {
+      "stem": "毎朝[まいあさ]、コーヒー＿ 飲[の]みます。",
+      "choices": [
+        "を",
+        "が",
+        "に",
+        "は"
+      ],
+      "answer": 0,
+      "explain": "コーヒー là tân ngữ trực tiếp của động từ 飲[の]みます nên dùng trợ từ を. が chỉ chủ ngữ, không dùng cho tân ngữ động từ volitional."
+    },
+    {
+      "stem": "レストラン＿ ご飯[はん]を 食[た]べます。",
+      "choices": [
+        "で",
+        "に",
+        "を",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "で chỉ nơi diễn ra hành động (ăn uống, học tập…); に chỉ điểm đến hoặc vị trí tồn tại, không dùng cho nơi diễn ra hành động."
+    },
+    {
+      "stem": "いっしょに 映画[えいが]を 見[み]＿。（rủ lịch sự）",
+      "choices": [
+        "ませんか。",
+        "ましょう。",
+        "ますか。",
+        "ません。"
+      ],
+      "answer": 0,
+      "explain": "ませんか là dạng rủ lịch sự khi chưa biết ý kiến đối phương; ましょう dùng khi đôi bên đã đồng ý rồi."
+    },
+    {
+      "stem": "もう 行[い]き＿！（đề nghị cùng đi, cả hai đã sẵn lòng）",
+      "choices": [
+        "ましょう。",
+        "ませんか。",
+        "ますか。",
+        "ません。"
+      ],
+      "answer": 0,
+      "explain": "ましょう diễn đạt \"hãy cùng làm\" khi cả hai đã đồng thuận; ませんか mang sắc thái hỏi ý kiến, không hợp với ngữ cảnh \"đã sẵn lòng\"."
+    },
+    {
+      "stem": "週末[しゅうまつ]に 何[なに]＿ しますか。",
+      "choices": [
+        "を",
+        "が",
+        "に",
+        "は"
+      ],
+      "answer": 0,
+      "explain": "何[なに] là tân ngữ của します nên cần を; が dùng cho chủ ngữ hoặc đối tượng của tính từ/động từ trạng thái."
+    },
+    {
+      "stem": "図書館[としょかん]＿ 本[ほん]を 読[よ]みます。",
+      "choices": [
+        "で",
+        "に",
+        "へ",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "で chỉ nơi thực hiện hành động 読[よ]みます; に thường chỉ điểm đến (行[い]く/来[く]る) hoặc vị trí tồn tại."
+    },
+    {
+      "stem": "コンビニ＿ パンを 買[か]います。",
+      "choices": [
+        "で",
+        "に",
+        "を",
+        "は"
+      ],
+      "answer": 0,
+      "explain": "Mua hàng là hành động xảy ra tại cửa hàng → で; を đã được dùng cho tân ngữ パン nên không thể lặp lại ở đây."
+    },
+    {
+      "stem": "昼[ひる]ごはんに 何[なに]を 食[た]べ＿。（câu hỏi thông thường）",
+      "choices": [
+        "ますか。",
+        "ませんか。",
+        "ましょう。",
+        "ません。"
+      ],
+      "answer": 0,
+      "explain": "ますか là câu hỏi trung tính, không kèm lời rủ; ませんか mang hàm rủ nên không hợp ngữ cảnh \"hỏi thông thường\"."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "を",
+      "で",
+      "が",
+      "に",
+      "と",
+      "は",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "映画[えいが]館[かん]＿ 映画[えいが]を 見[み]ます。",
+        "answer": "で",
+        "explain": "で chỉ nơi diễn ra hành động 見[み]ます; không nhầm với に (điểm đến di chuyển)."
+      },
+      {
+        "stem": "毎晩[まいばん]、テレビ＿ 見[み]ます。",
+        "answer": "を",
+        "explain": "テレビ là tân ngữ trực tiếp của 見[み]ます → を; dễ nhầm が nhưng が dành cho chủ ngữ."
+      },
+      {
+        "stem": "デパート＿ 服[ふく]を 買[か]います。",
+        "answer": "で",
+        "explain": "Hành động mua diễn ra ở デパート → で; に sai vì không di chuyển đến デパート trong câu này."
+      },
+      {
+        "stem": "いっしょに コーヒー＿ 飲[の]みませんか。",
+        "answer": "を",
+        "explain": "コーヒー là tân ngữ của 飲[の]みます → を; ませんか đã là dạng rủ, không cần thêm trợ từ đặc biệt."
+      },
+      {
+        "stem": "家[いえ]＿ 日本語[にほんご]を 勉強[べんきょう]します。",
+        "answer": "で",
+        "explain": "Hành động 勉強[べんきょう]します xảy ra tại nhà → で; に ở đây sai vì nhà không phải điểm đến di chuyển."
+      },
+      {
+        "stem": "朝[あさ]、パン＿ ジュース＿ 食[た]べます。",
+        "answer": "と",
+        "explain": "と liệt kê hai danh từ ngang hàng (bánh mì VÀ nước trái cây); や cũng liệt kê nhưng không có trong bank."
+      },
+      {
+        "stem": "公園[こうえん]＿ 音楽[おんがく]を 聴[き]きます。",
+        "answer": "で",
+        "explain": "公園[こうえん] là nơi diễn ra hành động nghe nhạc → で."
+      },
+      {
+        "stem": "友[とも]だち＿ ごはんを 食[た]べましょう。",
+        "answer": "と",
+        "explain": "と chỉ \"cùng với\" người đi kèm; dễ nhầm に nhưng に ở đây sẽ mang nghĩa \"đưa cơm cho bạn\"."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "飲[の]みます",
+      "prompt": "Dạng rủ lịch sự (chưa biết ý kiến người kia)?",
+      "choices": [
+        "飲[の]みませんか。",
+        "飲[の]みましょう。",
+        "飲[の]みますか。",
+        "飲[の]みません。"
+      ],
+      "answer": 0,
+      "explain": "ませんか rủ lịch sự khi chưa rõ ý đối phương; ましょう chỉ dùng sau khi cả hai đã đồng ý."
+    },
+    {
+      "base": "食[た]べます",
+      "prompt": "Dạng đề nghị cùng làm (đôi bên đã đồng thuận)?",
+      "choices": [
+        "食[た]べましょう。",
+        "食[た]べませんか。",
+        "食[た]べますか。",
+        "食[た]べません。"
+      ],
+      "answer": 0,
+      "explain": "ましょう = \"hãy cùng ăn nào\", dùng khi đôi bên đã sẵn sàng; ませんか thì vẫn đang hỏi ý."
+    },
+    {
+      "base": "見[み]ます",
+      "prompt": "Thể phủ định lịch sự?",
+      "choices": [
+        "見[み]ません。",
+        "見[み]ないです。",
+        "見[み]ませんか。",
+        "見[み]ましょう。"
+      ],
+      "answer": 0,
+      "explain": "Phủ định lịch sự của ます-form là ません; ないです là phủ định thể thông thường (casual)."
+    },
+    {
+      "base": "買[か]います",
+      "prompt": "Dạng rủ lịch sự (ませんか)?",
+      "choices": [
+        "買[か]いませんか。",
+        "買[か]いましょう。",
+        "買[か]いますか。",
+        "買[か]いません。"
+      ],
+      "answer": 0,
+      "explain": "Ghép gốc 買[か]い + ませんか = lời mời lịch sự; ましょう là đề nghị cùng làm chứ không phải hỏi."
+    },
+    {
+      "base": "読[よ]みます",
+      "prompt": "Dạng đề nghị cùng đọc (ましょう)?",
+      "choices": [
+        "読[よ]みましょう。",
+        "読[よ]みませんか。",
+        "読[よ]みます。",
+        "読[よ]みません。"
+      ],
+      "answer": 0,
+      "explain": "読[よ]みましょう = \"hãy cùng đọc\"; ませんか vẫn là dạng hỏi, chưa hẳn đề nghị cùng làm."
+    },
+    {
+      "base": "します",
+      "prompt": "Rủ \"cùng làm thể thao không?\" — dùng dạng nào?",
+      "choices": [
+        "しませんか。",
+        "しましょう。",
+        "しますか。",
+        "しません。"
+      ],
+      "answer": 0,
+      "explain": "しませんか phù hợp khi \"rủ\" (mời) và chưa biết đối phương có đồng ý không; しましょう dùng khi đã đồng thuận."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "レストランで",
+        "ごはんを",
+        "食[た]べましょう。"
+      ],
+      "vi": "Hãy cùng ăn cơm ở nhà hàng nào.",
+      "explain": "Trật tự: [nơi で] + [tân ngữ を] + [động từ ましょう]; で đứng ngay sau danh từ chỉ nơi."
+    },
+    {
+      "chips": [
+        "週末[しゅうまつ]に",
+        "何[なに]を",
+        "しますか。"
+      ],
+      "vi": "Cuối tuần bạn làm gì?",
+      "explain": "Thời gian (週末[しゅうまつ]に) đứng đầu câu, tiếp theo tân ngữ (何[なに]を), cuối cùng vị ngữ (しますか)."
+    },
+    {
+      "chips": [
+        "いっしょに",
+        "映画[えいが]を",
+        "見[み]ませんか。"
+      ],
+      "vi": "Bạn có muốn cùng đi xem phim không?",
+      "explain": "いっしょに (cùng nhau) đứng trước tân ngữ; cuối câu là ませんか để tạo lời rủ lịch sự."
+    },
+    {
+      "chips": [
+        "図書館[としょかん]で",
+        "本[ほん]を",
+        "読[よ]みます。"
+      ],
+      "vi": "Tôi đọc sách ở thư viện.",
+      "explain": "[Nơi で] + [tân ngữ を] + [động từ]: trật tự chuẩn của câu hành động có nơi chốn trong Bài 6."
+    },
+    {
+      "chips": [
+        "コンビニで",
+        "パンと",
+        "コーヒーを",
+        "買[か]います。"
+      ],
+      "vi": "Tôi mua bánh mì và cà phê ở cửa hàng tiện lợi.",
+      "explain": "と nối hai tân ngữ (パンとコーヒー) thành cụm; を đứng sau cụm tân ngữ, trước động từ."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "いっしょに ひるごはんを たべませんか。",
+      "ask": "Người nói đang làm gì?",
+      "choices": [
+        "Rủ ăn trưa cùng",
+        "Hỏi giờ ăn trưa",
+        "Đề nghị nấu cơm"
+      ],
+      "answer": 0,
+      "script": "いっしょに 昼[ひる]ごはんを 食[た]べませんか。",
+      "explain": "ませんか sau động từ = lời rủ/mời, không phải hỏi thông tin; いっしょに xác nhận đây là rủ cùng đi."
+    },
+    {
+      "tts": "きょう、としょかんで にほんごを べんきょうします。",
+      "ask": "Người nói học tiếng Nhật ở đâu?",
+      "choices": [
+        "Ở thư viện",
+        "Ở nhà",
+        "Ở trường"
+      ],
+      "answer": 0,
+      "script": "今日[きょう]、図書館[としょかん]で 日本語[にほんご]を 勉強[べんきょう]します。",
+      "explain": "としょかんで = \"ở thư viện\" (で nơi hành động); nghe rõ từ としょかん (図書館[としょかん]) là đủ."
+    },
+    {
+      "tts": "えいがかんで えいがを みましょう。それから、レストランで ばんごはんを たべましょう。",
+      "ask": "Người nói đề nghị làm bao nhiêu việc?",
+      "choices": [
+        "Hai việc: xem phim rồi ăn tối",
+        "Một việc: chỉ xem phim",
+        "Hai việc: ăn tối rồi xem phim"
+      ],
+      "answer": 0,
+      "script": "映画[えいが]館[かん]で 映画[えいが]を 見[み]ましょう。それから、レストランで 晩[ばん]ごはんを 食[た]べましょう。",
+      "explain": "Có hai ましょう riêng biệt; それから (sau đó) xác định thứ tự: phim trước, ăn tối sau."
+    },
+    {
+      "tts": "まいあさ、コーヒーを のみますか。",
+      "ask": "Câu hỏi hỏi về điều gì?",
+      "choices": [
+        "Thói quen uống cà phê mỗi sáng",
+        "Chỗ mua cà phê",
+        "Giờ uống cà phê"
+      ],
+      "answer": 0,
+      "script": "毎朝[まいあさ]、コーヒーを 飲[の]みますか。",
+      "explain": "まいあさ (毎朝[まいあさ] = mỗi sáng) + のみますか hỏi thói quen; không đề cập địa điểm hay giờ."
+    },
+    {
+      "tts": "デパートで なにを かいますか。",
+      "ask": "Người nói hỏi điều gì?",
+      "choices": [
+        "Hỏi mua gì ở cửa hàng bách hóa",
+        "Hỏi đi đâu mua đồ",
+        "Hỏi giá tiền"
+      ],
+      "answer": 0,
+      "script": "デパートで 何[なに]を 買[か]いますか。",
+      "explain": "なにを かいますか hỏi \"mua gì\"; địa điểm デパートで đã xác định, chỉ còn hỏi nội dung mua."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi uống cà phê mỗi sáng.",
+      "target": "毎朝コーヒーを飲みます。",
+      "accept": [
+        "まいあさこーひーをのみます。",
+        "毎朝、コーヒーを飲みます。"
+      ],
+      "explain": "Cấu trúc: [thời gian] + [tân ngữ を] + [動詞ます]; コーヒー là đồ uống → tân ngữ → を."
+    },
+    {
+      "vi": "Tôi ăn cơm ở nhà hàng.",
+      "target": "レストランでご飯を食べます。",
+      "accept": [
+        "れすとらんでごはんをたべます。"
+      ],
+      "explain": "[Nơi で] đứng trước [tân ngữ を]; cấu trúc Bài 6: Nơi + で + tân ngữ + を + Vます."
+    },
+    {
+      "vi": "Bạn có muốn cùng xem phim không?",
+      "target": "いっしょに映画を見ませんか。",
+      "accept": [
+        "いっしょにえいがをみませんか。",
+        "一緒に映画を見ませんか。"
+      ],
+      "explain": "Lời rủ lịch sự: いっしょに + [tân ngữ を] + Vませんか; ませんか là dấu hiệu rủ chưa biết ý đối phương."
+    },
+    {
+      "vi": "Hãy cùng đọc sách ở thư viện nào.",
+      "target": "図書館で本を読みましょう。",
+      "accept": [
+        "としょかんでほんをよみましょう。"
+      ],
+      "explain": "Đề nghị cùng làm → ましょう; [Nơi で] + [tân ngữ を] + Vましょう."
+    },
+    {
+      "vi": "Cuối tuần bạn làm gì?",
+      "target": "週末に何をしますか。",
+      "accept": [
+        "しゅうまつになにをしますか。",
+        "週末何をしますか。"
+      ],
+      "explain": "週末[しゅうまつ]に là trạng ngữ thời gian; 何[なに]をしますか hỏi nội dung hành động."
+    }
+  ]
+}

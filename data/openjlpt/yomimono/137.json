@@ -1,0 +1,3212 @@
+{
+  "bai": 137,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng nắm bắt mạch lập luận và thái độ của tác giả thông qua các cấu trúc biểu đạt nghĩa vụ, phán đoán và khẳng định chắc chắn. Người đọc cần phân biệt rõ sắc thái giữa lời khuyên mang tính bổn phận/đạo lý (べきだ), phán đoán logic/nguyên nhân tất yếu (はずだ / わけだ), niềm tin tuyệt đối mang tính chủ quan (に違いない) và lời khẳng định bản chất duy nhất mang tính phân tích sắc bén (にほかならない).",
+    "steps": [
+      "Bước 1: Quét nhanh các câu chứa đuôi phán đoán và khẳng định (〜べきだ, 〜にほかならない, 〜に違いない) ở phần kết đoạn hoặc kết bài để định vị quan điểm cốt lõi của tác giả.",
+      "Bước 2: Phân tích tiền đề dẫn đến 〜はずだ / 〜わけだ để xác định kết luận đó là suy luận dựa trên dữ liệu/lý lẽ dự kiến hay là sự lý giải nguyên do tất yếu.",
+      "Bước 3: Chú ý sự xuất hiện của 〜べきではない hoặc 〜わけにはいかない để nhận diện những giới hạn, cấm đoán mang tính đạo đức, tâm lý hoặc quy chuẩn xã hội mà người viết đặt ra.",
+      "Bước 4: Nhận diện cấu trúc khẳng định tuyệt đối 〜にほかならない để nắm bắt nguyên nhân then chốt hoặc bản chất độc nhất của vấn đề đang bàn luận.",
+      "Bước 5: Đối chiếu các phương án trả lời với văn cảnh bài đọc, cảnh giác bẫy đánh đồng giữa suy đoán chủ quan (に違いない) với sự tất yếu về mặt logic (はずだ/わけだ)."
+    ],
+    "tips": [
+      "使い分け (べきだ vs に違いない): 〜べきだ đưa ra yêu cầu/lời khuyên về mặt đạo đức và bổn phận ('nên làm'), trong khi 〜に違いない là phán đoán xác tín cực mạnh về sự thật của một sự việc ('chắc chắn là').",
+      "使い分け (はずだ vs わけだ): 〜はずだ là phán đoán dựa trên căn cứ/thông tin chuẩn bị trước ('chắc hẳn là'), còn 〜わけだ là kết luận tất yếu rút ra từ tiền đề vừa được làm sáng tỏ ('hóa ra là, thảo nào').",
+      "使い分け (はずがない vs わけがない vs わけにはいかない): はずがない (logic không thể xảy ra), わけがない (hoàn toàn phi lý vô căn cứ), わけにはいかない (không thể làm vì ràng buộc xã hội/lương tâm).",
+      "Dấu hiệu nhận đáp án: Vế trước 〜にほかならない thường liên kết với các từ chỉ lý do như 〜からだ / 〜ためだ để nhấn mạnh 'chính vì lý do đó chứ không gì khác'.",
+      "Bẫy thường gặp: Phân biệt 〜べきだった (hối hận/tiếc nuối vì đã không làm trong quá khứ) với 〜はずだった (dự tính/kỳ vọng theo logic nhưng thực tế lại xảy ra khác đi)."
+    ],
+    "grammarFocus": [
+      "～べきだ／べきではない — 接続: V辞書形 (する → すべき) + だ／ではない. Sắc thái: Thể hiện việc nên làm hoặc không nên làm theo quy chuẩn đạo đức, lương tâm và lẽ phải; mang tính mệnh lệnh đạo lý mạnh hơn ～たほうがいい.",
+      "～にほかならない — 接続: N ／ 普通形 + にほかならない. Sắc thái: Khẳng định mạnh mẽ bản chất 'chính là / không gì khác ngoài X', thường dùng trong văn viết lập luận; mang tính phân tích nguyên nhân sâu sắc hơn ～に違いない.",
+      "～に違いない — 接続: 普通形 (なAdj/N bỏ だ) + に違いない. Sắc thái: Phán đoán có độ chắc chắn cực cao dựa trên trực giác hoặc chứng cứ mạnh mẽ ('chắc chắn là'); mang tính chủ quan cá nhân hơn so với ～はずだ.",
+      "～はずだ／はずがない — 接続: 普通形 (なAdj+な / N+の) + はずだ／はずがない. Sắc thái: Phán đoán logic dựa trên thông tin, quy luật hoặc căn cứ khách quan ('chắc phải là' / 'không thể nào là'); khác với niềm tin cảm tính của ～に違いない.",
+      "～わけだ／わけがない／わけにはいかない — 接続: 普通形 (なAdj+な / N+な/である) + わけだ／わけがない／わけにはいかない. Sắc thái: わけだ diễn giải sự việc theo logic tất yếu ('thảo nào/thế là'); わけがない phủ định hoàn toàn về mặt lý lẽ; わけにはいかない diễn tả sự kiềm chế không thể làm do rào cản xã hội/đạo đức."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ（普通形 + はず）",
+          "〜はずがない",
+          "〜はずだった",
+          "〜はずなのに"
+        ]
+      },
+      {
+        "bai": 52,
+        "items": [
+          "〜にちがいない（普通形 + にちがいない; なAdj/N bỏ だ）",
+          "〜かもしれない（普通形 + かもしれない; なAdj/N bỏ だ）"
+        ]
+      },
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ（Vる + べきだ: nên/lẽ phải",
+          "〜べきではない（không nên",
+          "〜ものだ（chân lý/lẽ thường・hồi tưởng・cảm thán）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "厳しい意見を受け入れる姿勢",
+      "titleVi": "Thái độ đón nhận những ý kiến khắt khe",
+      "japanese": "仕事で他人から厳しい意見を言われると、誰でも最初から気分が良いはずがない。しかし、相手が批判するのは、チーム全体の成果をより良くしたいという思いにほかならない。たとえ自分と異なる視点であっても、感情的になって怒るわけにはいかない。自分のやり方だけにこだわるべきではなく、一度立ち止まって相手の意図を考えるべきだ。客観的に見直すことで、自分では気づかなかった問題点を発見できるわけだ。\n反対意見を素直に受け止めることは、決して自分の能力を否定されたわけではない。むしろ、お互いに率直な意見を言い合える職場こそが、強い信頼関係の証にほかならない。厳しい助言に耳を傾ける努力を重ねれば、将来的に自己の大きな成長につながるに違いない。多様な考え方を受け入れて協力することこそ、社会人が身につけるべき重要な姿勢のはずだ。",
+      "vietnamese": "Khi bị người khác góp ý gay gắt trong công việc, chắc chắn ban đầu chẳng ai có thể cảm thấy dễ chịu ngay được. Tuy nhiên, việc đối phương phê bình chính là xuất phát từ mong muốn làm cho thành quả của toàn đội ngũ trở nên tốt hơn chứ không gì khác. Dẫu đó là góc nhìn khác với mình, ta cũng không thể nào nổi giận một cách cảm tính được. Ta không nên chỉ khăng khăng giữ lấy cách làm của riêng mình, mà nên dừng lại một chút để suy ngẫm về ý định của đối phương. Bằng việc nhìn nhận lại một cách khách quan, ta nhận ra rằng mình có thể phát hiện được những vấn đề mà bản thân không tự nhận thấy.\nViệc thẳng thắn tiếp nhận ý kiến phản đối tuyệt đối không có nghĩa là năng lực của bản thân bị phủ nhận. Trái lại, chính một nơi làm việc mà mọi người có thể thẳng thắn trao đổi ý kiến với nhau chính là minh chứng cho mối quan hệ tin cậy bền chặt. Nếu không ngừng nỗ lực lắng nghe những lời khuyên nghiêm khắc, chắc chắn điều đó sẽ mang lại sự trưởng thành vượt bậc cho bản thân trong tương lai. Việc đón nhận các cách nghĩ đa dạng và cùng nhau hợp tác chính là thái độ quan trọng mà một người trưởng thành trong xã hội nên trau dồi.",
+      "sentences": [
+        {
+          "jp": "仕事で他人から厳しい意見を言われると、誰でも最初から気分が良いはずがない。",
+          "vi": "Khi bị người khác góp ý gay gắt trong công việc, chắc chắn ban đầu chẳng ai có thể cảm thấy dễ chịu ngay được.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "厳しい",
+              "read": "きびしい",
+              "vi": "nghiêm khắc, gay gắt"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "気分",
+              "read": "きぶん",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずがない",
+              "vi": "【接続】V-普 / Aい / Aな (な) / Nの ＋ はずがない。【Sắc thái】Phủ định hoàn toàn khả năng xảy ra dựa trên suy luận logic hoặc lẽ thường ('chắc chắn không thể nào...').【Đối chiếu】Khác với 〜ないはずだ (phán đoán phủ định nhẹ: 'chắc là không') thì 〜はずがない mang tính quả quyết tuyệt đối, loại trừ hoàn toàn khả năng."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、相手が批判するのは、チーム全体の成果をより良くしたいという思いにほかならない。",
+          "vi": "Tuy nhiên, việc đối phương phê bình chính là xuất phát từ mong muốn làm cho thành quả của toàn đội ngũ trở nên tốt hơn chứ không gì khác.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "phê bình, chỉ trích mang tính xây dựng"
+            },
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "nhóm, đội"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn thể, toàn bộ"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả đạt được"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "思い",
+              "read": "おもい",
+              "vi": "suy nghĩ, tâm tư"
+            },
+            {
+              "w": "ほかなる",
+              "read": "ほかなる",
+              "vi": "chính là, không gì khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にほかならない",
+              "vi": "【接続】N / 普通形（である） ＋ にほかならない。【Sắc thái】Khẳng định mạnh mẽ nguyên nhân, lý do hoặc bản chất duy nhất của sự việc ('chính là...', 'không gì khác ngoài...'), thường dùng trong văn nghị luận trang trọng.【Đối chiếu】So với 〜にすぎない (chỉ là, mang ý hạ thấp mức độ) thì 〜にほかならない dùng để nâng cao tầm quan trọng và nhấn mạnh bản chất cốt lõi; trang trọng và đanh thép hơn だからだ."
+            }
+          ]
+        },
+        {
+          "jp": "たとえ自分と異なる視点であっても、感情的になって怒るわけにはいかない。",
+          "vi": "Dẫu đó là góc nhìn khác với mình, ta cũng không thể nào nổi giận một cách cảm tính được.",
+          "vocab": [
+            {
+              "w": "たとえ",
+              "read": "たとえ",
+              "vi": "dù cho"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "視点",
+              "read": "してん",
+              "vi": "góc nhìn"
+            },
+            {
+              "w": "感情",
+              "read": "かんじょう",
+              "vi": "cảm xúc"
+            },
+            {
+              "w": "感情的",
+              "read": "かんじょうてき",
+              "vi": "mang tính cảm xúc"
+            },
+            {
+              "w": "なって",
+              "read": "なって",
+              "vi": "trở nên"
+            },
+            {
+              "w": "怒る",
+              "read": "おこる",
+              "vi": "nổi giận"
+            },
+            {
+              "w": "わけにはいかない",
+              "read": "わけにはいかない",
+              "vi": "không thể, không được phép"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけにはいかない",
+              "vi": "【接続】V-辞書形 ＋ わけにはいかない。【Sắc thái】Vì rào cản đạo đức, chuẩn mực xã hội, tâm lý hoặc trách nhiệm nên 'không thể làm' (dù có thể muốn làm).【Đối chiếu】So với V-られない (bất khả năng về mặt thể chất/kỹ năng) thì わけにはいかない thể hiện sự kiềm chế có ý thức trước chuẩn mực đạo lý; khác với 〜てはいけない (quy định cấm đoán từ bên ngoài)."
+            }
+          ]
+        },
+        {
+          "jp": "自分のやり方だけにこだわるべきではなく、一度立ち止まって相手の意図を考えるべきだ。",
+          "vi": "Ta không nên chỉ khăng khăng giữ lấy cách làm của riêng mình, mà nên dừng lại một chút để suy ngẫm về ý định của đối phương.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "やり方",
+              "read": "やりかた",
+              "vi": "cách làm, phương pháp làm"
+            },
+            {
+              "w": "こだわる",
+              "read": "こだわる",
+              "vi": "cố chấp, khăng khăng, câu nệ"
+            },
+            {
+              "w": "一度",
+              "read": "いちど",
+              "vi": "một lần"
+            },
+            {
+              "w": "立ち止まる",
+              "read": "たちどまる",
+              "vi": "dừng bước, chững lại"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "意図",
+              "read": "いと",
+              "vi": "ý đồ, chủ ý, mục đích"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ／べきではない",
+              "vi": "【接続】V-辞書形 ＋ べきだ / べきではない (riêng する có dạng するべき / すべき).【Sắc thái】Thể hiện đạo lý, nghĩa vụ đương nhiên, chuẩn mực hành vi đúng đắn mà một người 'nên / không nên' làm theo lẽ thường xã hội.【Đối chiếu】Mạnh hơn 〜たほうがいい (chỉ là lời khuyên mang tính gợi ý/lựa chọn cá nhân); không dùng khi nói về các quy định/luật pháp bắt buộc cứng nhắc (vốn dùng 〜なければならない)."
+            }
+          ]
+        },
+        {
+          "jp": "客観的に見直すことで、自分では気づかなかった問題点を発見できるわけだ。",
+          "vi": "Bằng việc nhìn nhận lại một cách khách quan, ta nhận ra rằng mình có thể phát hiện được những vấn đề mà bản thân không tự nhận thấy.",
+          "vocab": [
+            {
+              "w": "客観",
+              "read": "きゃっかん",
+              "vi": "sự khách quan"
+            },
+            {
+              "w": "見直す",
+              "read": "みなおす",
+              "vi": "xem xét lại, nhìn nhận lại"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "気づく",
+              "read": "きづく",
+              "vi": "nhận ra, nhận thấy"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "発見",
+              "read": "はっけん",
+              "vi": "phát hiện, tìm ra"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "客観的",
+              "read": "きゃっかんてき",
+              "vi": "khách quan"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけだ",
+              "vi": "【接続】V-普 / Aい / Aな (な) / N (である) ＋ わけだ。【Sắc thái】Diễn giải kết luận logic tất yếu rút ra từ sự thật/tiền đề phía trước ('thảo nào...', 'điều đó có nghĩa là...', 'tất yếu là...').【Đối chiếu】Khác với 〜はずだ (phán đoán mang tính dự đoán dựa trên căn cứ) thì わけだ khẳng định bản chất/hệ quả hiển nhiên của một quá trình logic đã được chứng minh."
+            }
+          ]
+        },
+        {
+          "jp": "反対意見を素直に受け止めることは、決して自分の能力を否定されたわけではない。",
+          "vi": "Việc thẳng thắn tiếp nhận ý kiến phản đối tuyệt đối không có nghĩa là năng lực của bản thân bị phủ nhận.",
+          "vocab": [
+            {
+              "w": "反対",
+              "read": "はんたい",
+              "vi": "phản đối"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "素直",
+              "read": "すなお",
+              "vi": "thành thật, cởi mở, ngoan ngoãn tiếp thu"
+            },
+            {
+              "w": "受け止める",
+              "read": "うけとめる",
+              "vi": "đón nhận, lắng nghe thấu đáo"
+            },
+            {
+              "w": "決して",
+              "read": "けっして",
+              "vi": "tuyệt đối không, không bao giờ"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "否定",
+              "read": "ひてい",
+              "vi": "phủ định, bác bỏ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけではない",
+              "vi": "【接続】V-普 / Aい / Aな (な) / N (な/である) ＋ わけではない。【Sắc thái】Phủ định một phần, bác bỏ suy đoán tuyệt đối hóa hoặc làm rõ một nhận định sai lầm thường gặp ('không hẳn là...', 'không có nghĩa là...').【Đối chiếu】Khác với phủ định hoàn toàn (〜ではない), 〜わけではない chỉ phủ định cách hiểu phiến diện/quá mức trong khi vẫn thừa nhận một phần thực tế."
+            }
+          ]
+        },
+        {
+          "jp": "むしろ、お互いに率直な意見を言い合える職場こそが、強い信頼関係の証にほかならない。",
+          "vi": "Trái lại, chính một nơi làm việc mà mọi người có thể thẳng thắn trao đổi ý kiến với nhau chính là minh chứng cho mối quan hệ tin cậy bền chặt.",
+          "vocab": [
+            {
+              "w": "むしろ",
+              "read": "むしろ",
+              "vi": "mà ngược lại, thà rằng"
+            },
+            {
+              "w": "お互い",
+              "read": "おたがい",
+              "vi": "lẫn nhau, đôi bên"
+            },
+            {
+              "w": "率直",
+              "read": "そっちょく",
+              "vi": "thẳng thắn, bộc trực"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "合える",
+              "read": "あえる",
+              "vi": "hòa hợp, kết hợp"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc, cơ quan"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "証",
+              "read": "あかし",
+              "vi": "bằng chứng, minh chứng"
+            },
+            {
+              "w": "ほかなる",
+              "read": "ほかなる",
+              "vi": "chính là, không gì khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にほかならない",
+              "vi": "【接続】N ＋ にほかならない。【Sắc thái】Khẳng định dứt khoát sự việc đó không thể là gì khác ngoài danh từ đi kèm ('chính là...', 'đích thị là...').【Đối chiếu】Khác với 〜に違いない (phán đoán xác suất cao của người nói) thì 〜にほかならない thể hiện định nghĩa/kết luận bản chất mang tính chân lý xác thực."
+            }
+          ]
+        },
+        {
+          "jp": "厳しい助言に耳を傾ける努力を重ねれば、将来的に自己の大きな成長につながるに違いない。",
+          "vi": "Nếu không ngừng nỗ lực lắng nghe những lời khuyên nghiêm khắc, chắc chắn điều đó sẽ mang lại sự trưởng thành vượt bậc cho bản thân trong tương lai.",
+          "vocab": [
+            {
+              "w": "厳しい",
+              "read": "きびしい",
+              "vi": "nghiêm khắc"
+            },
+            {
+              "w": "助言",
+              "read": "じょげん",
+              "vi": "lời khuyên, chỉ dẫn"
+            },
+            {
+              "w": "耳",
+              "read": "みみ",
+              "vi": "tai, thính giác"
+            },
+            {
+              "w": "傾ける",
+              "read": "かたむける",
+              "vi": "nghiêng, dốc lòng"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "重ねる",
+              "read": "かさねる",
+              "vi": "lặp lại, chồng chất"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "自己",
+              "read": "じこ",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "trưởng thành, phát triển"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "dẫn đến, liên kết"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "耳を傾ける",
+              "read": "みみをかたむける",
+              "vi": "lắng nghe chăm chú, tiếp thu chân thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に違いない",
+              "vi": "【接続】V-普 / Aい / Aな (語幹) / N ＋ に違いない。【Sắc thái】Thể hiện sự tin tưởng, xác tín chắc chắn của người nói dựa trên trực giác hoặc suy luận cá nhân ('chắc chắn là...', 'không thể sai được').【Đối chiếu】So với 〜はずだ (phán đoán dựa trên dữ kiện/logic khách quan) thì 〜に違いない mang tính chủ quan và mức độ quả quyết mạnh mẽ hơn."
+            }
+          ]
+        },
+        {
+          "jp": "多様な考え方を受け入れて協力することこそ、社会人が身につけるべき重要な姿勢のはずだ。",
+          "vi": "Việc đón nhận các cách nghĩ đa dạng và cùng nhau hợp tác chính là thái độ quan trọng mà một người trưởng thành trong xã hội nên trau dồi.",
+          "vocab": [
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, phong phú"
+            },
+            {
+              "w": "考え方",
+              "read": "かんがえかた",
+              "vi": "cách suy nghĩ, tư duy"
+            },
+            {
+              "w": "受け入れる",
+              "read": "うけいれる",
+              "vi": "tiếp nhận, chấp nhận"
+            },
+            {
+              "w": "協力",
+              "read": "きょうりょく",
+              "vi": "sự hợp tác"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "身",
+              "read": "み",
+              "vi": "bản thân, thân thể"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, thái độ tiếp cận"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đã đi làm / thành viên xã hội trưởng thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずだ",
+              "vi": "【接続】V-普 / Aい / Aな (な) / Nの ＋ はずだ。【Sắc thái】Phán đoán có căn cứ vững chắc, người nói tin rằng theo lẽ tự nhiên/quy luật thì điều đó là tất yếu ('chắc chắn là...', 'lẽ ra là...').【Đối chiếu】Khác với だろう (dự đoán mơ hồ không cần căn cứ) và に違いない (khẳng định mang cảm xúc chủ quan), はずだ nhấn mạnh tính hợp lý theo quy chuẩn xã hội."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "チーム全体の成果をより良くしたいという思いにほかならない",
+          "label": "Bản chất của sự phê bình trong công việc"
+        },
+        {
+          "excerpt": "自分のやり方だけにこだわるべきではなく、一度立ち止まって相手の意図を考えるべきだ",
+          "label": "Thái độ đúng đắn khi nhận ý kiến trái chiều"
+        },
+        {
+          "excerpt": "強い信頼関係の証にほかならない",
+          "label": "Ý nghĩa của việc thẳng thắn góp ý"
+        },
+        {
+          "excerpt": "将来的に自己の大きな成長につながるに違いない",
+          "label": "Lợi ích lâu dài của việc lắng nghe góp ý"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者によると、職場で相手が自分に対して厳しい意見や批判をするのはなぜか。",
+          "options": [
+            "チーム全体の仕事の成果をさらに高めたいと考えているから。",
+            "相手の能力の低さを皆の前で指摘して注意を与えたいから。",
+            "自分のやり方や仕事へのこだわりを相手に押しつけたいから。",
+            "感情的になって不満を相手に直接ぶつけたいから。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [1]: 『しかし、相手が批判するのは、チーム全体の成果をより良くしたいという思いにほかならない。』 (Tuy nhiên, việc đối phương phê bình chính là vì mong muốn cải thiện thành quả của toàn đội ngũ).\n- Phương án 0: Đúng với nội dung câu [1].\n- Phương án 1: Sai vì câu [5] khẳng định việc góp ý không phải là phủ nhận năng lực của đối phương (決して自分の能力を否定されたわけではない).\n- Phương án 2: Sai vì bài viết phê phán việc khăng khăng áp đặt cách làm cá nhân ở câu [3] (自分のやり方だけにこだわるべきではなく).\n- Phương án 3: Sai vì câu [2] nêu rõ không được hành xử theo cảm tính (感情的になって怒るわけにはいかない).",
+          "tip": "Tìm từ khóa '批判するのは' trong đoạn 1 để đối chiếu lý do thực sự.",
+          "evi": [
+            1
+          ],
+          "qt": {
+            "q": "Theo tác giả, tại sao đồng nghiệp đưa ra ý kiến khắt khe hoặc phê bình mình ở nơi làm việc?",
+            "o": [
+              "Vì họ muốn nâng cao hơn nữa kết quả công việc của cả nhóm.",
+              "Vì họ muốn chỉ ra trước mọi người rằng người kia kém năng lực và nhắc nhở họ.",
+              "Vì họ muốn áp đặt cách làm và sự chú trọng vào công việc của mình lên người kia.",
+              "Vì họ muốn trở nên mất bình tĩnh và trực tiếp trút sự bất mãn lên người kia."
+            ]
+          }
+        },
+        {
+          "q": "自分と異なる意見を言われた時、筆者はどのように対応するべきだと述べているか。",
+          "options": [
+            "相手の意見が間違っていることを証明するために直ちに反論する。",
+            "自分のやり方に固執せず、一度立ち止まって相手の意図を冷静に考える。",
+            "自分の能力が否定されたと受け止めて、仕事のやり方を全て相手に任せる。",
+            "職場の人間関係を壊さないように、自分の意見を主張することを一切やめる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [3]: 『自分のやり方だけにこだわるべきではなく、一度立ち止まって相手の意図を考えるべきだ。』 (Không nên chỉ khăng khăng cách làm của mình mà nên dừng lại suy ngẫm ý định đối phương) và câu [4]: 『客観的に見直すことで、自分では気づかなかった問題点を発見できるわけだ。』\n- Phương án 1: Đúng với lời khuyên của tác giả.\n- Phương án 0: Sai vì câu [2] nói không thể phản ứng tức giận theo cảm tính (感情的になって怒るわけにはいかない).\n- Phương án 2: Sai vì câu [5] nói tiếp nhận ý kiến không có nghĩa là bị phủ nhận năng lực, và tác giả không bảo bỏ mặc cho người khác.\n- Phương án 3: Sai vì mục đích là cùng trao đổi thẳng thắn (câu [6]) chứ không phải từ bỏ hoàn toàn quan điểm cá nhân.",
+          "tip": "Chú ý mẫu câu thể hiện quan điểm '〜べきだ / べきではない' ở câu [3].",
+          "evi": [
+            2,
+            3,
+            4
+          ],
+          "qt": {
+            "q": "Khi được nghe ý kiến khác với ý kiến của mình, tác giả cho rằng nên ứng xử như thế nào?",
+            "o": [
+              "Lập tức phản bác để chứng minh ý kiến của đối phương là sai.",
+              "Không cố chấp với cách làm của mình, dừng lại một chút và bình tĩnh suy nghĩ về ý định của đối phương.",
+              "Cho rằng năng lực của mình đã bị phủ nhận và giao toàn bộ cách làm việc cho đối phương.",
+              "Để không làm tổn hại các mối quan hệ ở nơi làm việc, hoàn toàn ngừng bày tỏ ý kiến của mình."
+            ]
+          }
+        },
+        {
+          "q": "筆者は「率直な意見を言い合える職場」についてどのように捉えているか。",
+          "options": [
+            "常に意見が対立して人間関係が悪化しやすい危険な職場である。",
+            "お互いの間に確かな信頼関係が築かれている証拠である。",
+            "個人の能力差がはっきり現れて仕事がやりにくくなる場所である。",
+            "新入社員が自分の主張を無理に通そうとしてトラブルが起きる環境である。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [6]: 『むしろ、お互いに率直な意見を言い合える職場こそが、強い信頼関係の証にほかならない。』 (Trái lại, một nơi làm việc mà mọi người có thể thẳng thắn trao đổi ý kiến chính là minh chứng cho mối quan hệ tin cậy bền chặt).\n- Phương án 1: Đúng với khẳng định của tác giả tại câu [6].\n- Phương án 0: Sai vì tác giả đánh giá môi trường này rất tích cực (minh chứng cho sự tin cậy), không phải nơi làm rạn nứt quan hệ.\n- Phương án 2: Sai vì không hề đề cập đến việc 'làm việc khó khăn do chênh lệch năng lực'.\n- Phương án 3: Sai vì bài viết bàn về văn hóa hợp tác của người đi làm nói chung chứ không nói về xung đột do nhân viên mới.",
+          "tip": "Tìm cụm '率直な意見を言い合える職場' và mẫu câu nhấn mạnh '〜にほかならない' ở câu [6].",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Tác giả nhìn nhận thế nào về “nơi làm việc nơi mọi người có thể thẳng thắn trao đổi ý kiến với nhau”?",
+            "o": [
+              "Đó là một nơi làm việc nguy hiểm, nơi ý kiến luôn đối lập và các mối quan hệ dễ xấu đi.",
+              "Đó là bằng chứng cho thấy giữa mọi người đã xây dựng được mối quan hệ tin cậy vững chắc.",
+              "Đó là nơi chênh lệch năng lực giữa các cá nhân bộc lộ rõ và công việc trở nên khó khăn.",
+              "Đó là môi trường nơi nhân viên mới cố ép mọi người chấp nhận ý kiến của mình, dẫn đến rắc rối."
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も伝えたいことは何か。",
+          "options": [
+            "他人の厳しい意見を素直に受け入れ、多様な考えを活かして協力することが成長への大切な姿勢である。",
+            "仕事で失敗しないためには、他人に意見を求めず自分だけの力で問題を解決するべきである。",
+            "感情的な対立を避けるために、職場では相手に対する厳しい批判や反論は一切避けるべきである。",
+            "厳しい意見を言う人はチームの成果よりも自分のプライドを重視しているに違いない。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu kết [7] và [8]: 『厳しい助言に耳を傾ける努力を重ねれば、将来的に自己の大きな成長につながるに違いない。多様な考え方を受け入れて協力することこそ、社会人が身につけるべき重要な姿勢のはずだ。』 Tác giả đúc kết thông điệp: việc tiếp thu ý kiến khắt khe và hợp tác với các góc nhìn đa dạng là thái độ cốt lõi giúp bản thân phát triển.\n- Phương án 0: Khái quát đầy đủ thông điệp toàn bài và đoạn kết.\n- Phương án 1: Ngược hoàn toàn với tư tưởng bài viết (bài khuyên không nên cố chấp giữ cách làm của mình - câu [3]).\n- Phương án 2: Sai vì tác giả khuyến khích môi trường thẳng thắn trao đổi (câu [6]).\n- Phương án 3: Sai vì tác giả khẳng định việc phê bình xuất phát từ mong muốn nâng cao thành quả chung của nhóm (câu [1]).",
+          "tip": "Đọc kỹ câu đúc kết ở cuối bài văn (câu [7], [8]) để nắm được thông điệp cốt lõi của tác giả.",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn truyền đạt nhất trong bài viết này là gì?",
+            "o": [
+              "Thẳng thắn tiếp nhận những ý kiến khắt khe của người khác, phát huy các cách nghĩ đa dạng và hợp tác là thái độ quan trọng để trưởng thành.",
+              "Để không mắc sai lầm trong công việc, nên giải quyết vấn đề bằng sức mình mà không hỏi ý kiến người khác.",
+              "Để tránh xung đột cảm xúc, ở nơi làm việc nên hoàn toàn tránh phê bình gay gắt hoặc phản bác người khác.",
+              "Những người đưa ra ý kiến khắt khe chắc chắn coi trọng lòng tự tôn của mình hơn kết quả của cả nhóm."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "読書と主体的な思考の力",
+      "titleVi": "Sức mạnh của việc đọc sách và tư duy tự chủ",
+      "japanese": "現代社会では、インターネットを通じて誰でも簡単に膨大な知識を手に入れることができる。\nしかし、ただ情報を集めるだけで賢くなったと考えるのは、大きな誤解であるに違いない。\n単に検索した答えを覚えるだけでは、深く物事を理解したわけではない。\n私たちは、知識をどのように自分の頭で考えるべきかを真剣に見つめ直すべきである。\n\n多くの人は、本を読む時間がないと言うが、本当に読む時間がないわけがない。\n一日に数十分でもスマートフォンを置けば、本を開く時間が作れるはずだ。\n本を読むことの価値は、他人の考えをそのまま受け入れることではなく、著者の意見に対して疑問を持つことにある。\n疑問を持たずに書かれた言葉を丸呑みにしてしまっては、主体的な思考力が育つはずがない。\nしたがって、読書の際には自分の意見と著者の主張を常に比較しながら読むべきだ。\n\n難しい本に出会ったとき、理解が難しい場合でも、すぐに諦めるわけにはいかない。\n苦労して考え抜いた経験こそが、読解力だけでなく生きる知恵を育てる基礎になるに違いない。\n困難な読書を通じて得られる自信は、努力を重ねた結果にほかならない。\n自分の頭で粘り強く考え続けることなしに、本当の知性が身につくわけがないのだ。\n私たちは便利な要約だけに頼るのではなく、時には時間のかかる読書に向き合うべきではないだろうか。\n\n情報が溢れる時代だからこそ、自らの基準を持って情報を正しく選ぶ必要がある。\n他人の評価や流行に流されて、自分の頭で考えることを放棄するべきではない。\n正確な知識と批判的な思考力を持っていれば、偽の情報に簡単に騙されるはずがない。\n人間が真の自由を手に入れる道は、生涯を通じて自ら学び、思考し続けることにほかならない。\n読書という行為は、単なる知識の吸収ではなく、自分自身の精神を磨き上げる作業なのだ。\nだからこそ、私たちは毎日の生活の中に読書と思索の時間を取り入れるべきである。",
+      "vietnamese": "Trong xã hội hiện đại, thông qua Internet, bất kỳ ai cũng có thể dễ dàng tiếp cận lượng tri thức khổng lồ.\nTuy nhiên, việc cho rằng chỉ cần thu thập thông tin là đã trở nên thông thái chắc chắn là một sự hiểu lầm lớn.\nChỉ đơn thuần ghi nhớ câu trả lời tìm kiếm được không có nghĩa là ta đã thấu hiểu sâu sắc bản chất sự việc.\nChúng ta nên nghiêm túc nhìn nhận lại việc mình nên dùng chính bộ não của mình để suy ngẫm về tri thức như thế nào.\n\nNhiều người nói rằng không có thời gian đọc sách, nhưng tuyệt đối không thể có chuyện thực sự không có thời gian.\nNếu chịu đặt điện thoại thông minh xuống dù chỉ vài chục phút mỗi ngày, chắc chắn chúng ta sẽ có thể tạo ra thời gian để mở một cuốn sách.\nGiá trị của việc đọc sách không nằm ở việc tiếp nhận nguyên xi suy nghĩ của người khác, mà nằm ở chỗ biết hoài nghi trước ý kiến của tác giả.\nNếu cứ nuốt trọn từng câu chữ mà không chút hoài nghi, thì năng lực tư duy chủ động làm sao có thể phát triển được.\nDo đó, khi đọc sách, chúng ta nên vừa đọc vừa liên tục so sánh quan điểm của bản thân với lập luận của tác giả.\n\nKhi bắt gặp một cuốn sách khó hiểu, dẫu việc tiếp thu có gian nan, ta cũng không thể nào bỏ cuộc ngay được.\nChính trải nghiệm dốc sức suy nghĩ đến cùng chắc chắn sẽ là nền tảng nuôi dưỡng không chỉ khả năng đọc hiểu mà cả trí tuệ để sống.\nSự tự tin có được qua việc chinh phục những cuốn sách khó chính là kết quả của việc không ngừng nỗ lực, không gì khác.\nNếu không kiên trì dùng trí não để suy ngẫm liên tục, thì trí tuệ thực sự tuyệt đối không thể nào hình thành được.\nThay vì chỉ ỷ lại vào các bản tóm tắt tiện lợi, chẳng phải đôi khi chúng ta nên đối diện với việc đọc sách tốn nhiều thời gian hay sao?\n\nChính vì đang ở trong thời đại tràn ngập thông tin, chúng ta càng cần phải có tiêu chuẩn của riêng mình để chọn lọc thông tin một cách đúng đắn.\nChúng ta không nên bị cuốn theo đánh giá của người khác hay trào lưu mà từ bỏ việc tự mình suy nghĩ.\nNếu sở hữu kiến thức chính xác và năng lực tư duy phản biện, chúng ta chắc chắn không thể dễ dàng bị lừa bởi những thông tin giả mạo.\nCon đường để con người có được tự do thực sự chính là không ngừng tự học và tư duy suốt cả cuộc đời, không gì khác.\nHành vi đọc sách không đơn thuần là tiếp thu tri thức, mà là một quá trình rèn giũa và tôi luyện tâm hồn của chính bản thân.\nChính vì vậy, chúng ta nên đưa thời gian đọc sách và suy ngẫm vào trong nếp sống sinh hoạt hằng ngày.",
+      "sentences": [
+        {
+          "jp": "現代社会では、インターネットを通じて誰でも簡単に膨大な知識を手に入れることができる。",
+          "vi": "Trong xã hội hiện đại, thông qua Internet, bất kỳ ai cũng có thể dễ dàng tiếp cận lượng tri thức khổng lồ.",
+          "vocab": [
+            {
+              "w": "現代社会",
+              "read": "げんだいしゃかい",
+              "vi": "xã hội hiện đại"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "Internet"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua"
+            },
+            {
+              "w": "誰でも",
+              "read": "だれでも",
+              "vi": "bất kỳ ai"
+            },
+            {
+              "w": "誰",
+              "read": "だれ",
+              "vi": "ai"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ dàng"
+            },
+            {
+              "w": "膨大",
+              "read": "ぼうだい",
+              "vi": "khổng lồ"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "手に入れる",
+              "read": "てにいれる",
+              "vi": "có được, thu nhận"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜を通じて（をつうじて）",
+              "vi": "接続: N ＋ を通じて. Sắc thái: Diễn đạt phương tiện, trung gian gián tiếp hoặc xuyên suốt một khoảng thời gian/không gian ('thông qua'). Đối chiếu: 〜を通して (gần nghĩa nhưng を通して nhấn vào trải nghiệm thực tế trực tiếp hơn, còn を通じて mang tính văn viết trang trọng, trung gian trừu tượng)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、ただ情報を集めるだけで賢くなったと考えるのは、大きな誤解であるに違いない。",
+          "vi": "Tuy nhiên, việc cho rằng chỉ cần thu thập thông tin là đã trở nên thông thái chắc chắn là một sự hiểu lầm lớn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "賢い",
+              "read": "かしこい",
+              "vi": "thông minh, sáng suốt"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "誤解",
+              "read": "ごかい",
+              "vi": "sự hiểu lầm"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に違いない",
+              "vi": "接続: 普通形（Aな/N bỏ だ）＋ に違いない. Sắc thái: Thể hiện phán đoán với mức độ xác tín cực cao của người nói dựa trên cảm nhận trực tiếp hoặc trực giác mạnh mẽ ('chắc chắn là, không sai được'). Đối chiếu: 〜はずだ (phán đoán dựa trên lý lẽ, quy luật logic khách quan) ≠ 〜かもしれない (khả năng thấp, chỉ khoảng 50%)."
+            }
+          ]
+        },
+        {
+          "jp": "単に検索した答えを覚えるだけでは、深く物事を理解したわけではない。",
+          "vi": "Chỉ đơn thuần ghi nhớ câu trả lời tìm kiếm được không có nghĩa là ta đã thấu hiểu sâu sắc bản chất sự việc.",
+          "vocab": [
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "検索",
+              "read": "けんさく",
+              "vi": "tìm kiếm, tra cứu"
+            },
+            {
+              "w": "答え",
+              "read": "こたえ",
+              "vi": "câu trả lời"
+            },
+            {
+              "w": "覚える",
+              "read": "おぼえる",
+              "vi": "nhớ, cảm thấy"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "sự vật sự việc"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけではない",
+              "vi": "接続: 普通形（Aな＋な/である, N＋の/である）＋ わけではない. Sắc thái: Phủ định một phần, bác bỏ suy đoán đương nhiên theo hoàn cảnh ('không hẳn là / không có nghĩa là'). Đối chiếu: 〜わけがない (phủ định tuyệt đối 'tuyệt đối không thể nào') ≠ 〜のではない (phủ định lý do đơn thuần)."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは、知識をどのように自分の頭で考えるべきかを真剣に見つめ直すべきである。",
+          "vi": "Chúng ta nên nghiêm túc nhìn nhận lại việc mình nên dùng chính bộ não của mình để suy ngẫm về tri thức như thế nào.",
+          "vocab": [
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "真剣に",
+              "read": "しんけんに",
+              "vi": "nghiêm túc, đứng đắn"
+            },
+            {
+              "w": "見つめる",
+              "read": "みつめる",
+              "vi": "nhìn chăm chú, nhìn nhận"
+            },
+            {
+              "w": "見つめ直す",
+              "read": "みつめなおす",
+              "vi": "nhìn nhận lại, xem xét lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ／べきである",
+              "vi": "接続: V-る ＋ べきだ（する → すべきだ／するべきだ）. Sắc thái: Thể hiện đạo lý, lương tâm hoặc lẽ phải thông thường mà một người đương nhiên nên/cần phải làm ('nên / phải'). Đối chiếu: 〜なければならない (bắt buộc do quy định, hoàn cảnh cưỡng chế) ≠ 〜たほうがいい (lời khuyên nhẹ nhàng mang tính lợi ích cá nhân)."
+            }
+          ]
+        },
+        {
+          "jp": "多くの人は、本を読む時間がないと言うが、本当に読む時間がないわけがない。",
+          "vi": "Nhiều người nói rằng không có thời gian đọc sách, nhưng tuyệt đối không thể có chuyện thực sự không có thời gian.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "多くの人",
+              "read": "おおくのひと",
+              "vi": "nhiều người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけがない",
+              "vi": "接続: 普通形（Aな＋な/である, N＋の/である）＋ わけがない. Sắc thái: Bác bỏ hoàn toàn khả năng xảy ra của một sự việc dựa trên logic và thực tế rõ ràng ('tuyệt đối không thể nào có chuyện'). Đối chiếu: 〜はずがない (nhấn mạnh phán đoán lý tính từ căn cứ) ≠ 〜わけではない (chỉ phủ định một phần)."
+            }
+          ]
+        },
+        {
+          "jp": "一日に数十分でもスマートフォンを置けば、本を開く時間が作れるはずだ。",
+          "vi": "Nếu chịu đặt điện thoại thông minh xuống dù chỉ vài chục phút mỗi ngày, chắc chắn chúng ta sẽ có thể tạo ra thời gian để mở một cuốn sách.",
+          "vocab": [
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            },
+            {
+              "w": "数十分",
+              "read": "すうじゅっぷん",
+              "vi": "vài chục phút"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "置けば",
+              "read": "おけば",
+              "vi": "nếu đặt, bỏ xuống"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "作れる",
+              "read": "つくれる",
+              "vi": "có thể tạo ra"
+            },
+            {
+              "w": "はずだ",
+              "read": "はずだ",
+              "vi": "chắc là, lẽ ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずだ",
+              "vi": "接続: 普通形（Aな＋な, N＋の）＋ はずだ. Sắc thái: Đưa ra phán đoán có cơ sở logic vững chắc, theo lẽ tự nhiên điều đó đương nhiên sẽ xảy ra ('chắc chắn là / chắc hẳn là'). Đối chiếu: 〜に違いない (xác tín cao dựa trên trực giác/chủ quan) ≠ 〜だろう (dự đoán thông thường, độ tin cậy thấp hơn)."
+            }
+          ]
+        },
+        {
+          "jp": "本を読むことの価値は、他人の考えをそのまま受け入れることではなく、著者の意見に対して疑問を持つことにある。",
+          "vi": "Giá trị của việc đọc sách không nằm ở việc tiếp nhận nguyên xi suy nghĩ của người khác, mà nằm ở chỗ biết hoài nghi trước ý kiến của tác giả.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "そのまま",
+              "read": "そのまま",
+              "vi": "nguyên như vậy, giữ nguyên"
+            },
+            {
+              "w": "受け入れる",
+              "read": "うけいれる",
+              "vi": "tiếp nhận, chấp nhận"
+            },
+            {
+              "w": "著者",
+              "read": "ちょしゃ",
+              "vi": "tác giả"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "nghi vấn, thắc mắc"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（にたいして）",
+              "vi": "接続: N ＋ に対して. Sắc thái: Chỉ đối tượng hướng tới của hành động, thái độ hoặc sự việc ('đối với / hướng vào'). Đối chiếu: 〜にとって (đứng trên góc độ/lập trường của ai đó để đánh giá) ≠ 〜について (nói về đề tài/chủ đề gì)."
+            }
+          ]
+        },
+        {
+          "jp": "疑問を持たずに書かれた言葉を丸呑みにしてしまっては、主体的な思考力が育つはずがない。",
+          "vi": "Nếu cứ nuốt trọn từng câu chữ mà không chút hoài nghi, thì năng lực tư duy chủ động làm sao có thể phát triển được.",
+          "vocab": [
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "丸呑み",
+              "read": "まるのみ",
+              "vi": "nuốt chửng, tiếp thu mù quáng"
+            },
+            {
+              "w": "主体",
+              "read": "しゅたい",
+              "vi": "chủ thể"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "育つ",
+              "read": "そだつ",
+              "vi": "lớn lên, trưởng thành"
+            },
+            {
+              "w": "主体的",
+              "read": "しゅたいてき",
+              "vi": "mang tính chủ động, tự chủ"
+            },
+            {
+              "w": "思考力",
+              "read": "しこうりょく",
+              "vi": "năng lực tư duy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずがない",
+              "vi": "接続: 普通形（Aな＋な, N＋の）＋ はずがない. Sắc thái: Phán đoán phủ định logic chắc chắn, coi điều đó là không thể xảy ra theo quy luật tự nhiên ('không thể nào / làm sao mà...'). Đối chiếu: 〜わけがない (tương tự nhưng わけがない mang tính bác bỏ thực tế gay gắt hơn) ≠ 〜ないはずだ (nghiêng về dự đoán có khả năng không xảy ra)."
+            }
+          ]
+        },
+        {
+          "jp": "したがって、読書の際には自分の意見と著者の主張を常に比較しながら読むべきだ。",
+          "vi": "Do đó, khi đọc sách, chúng ta nên vừa đọc vừa liên tục so sánh quan điểm của bản thân với lập luận của tác giả.",
+          "vocab": [
+            {
+              "w": "したがって",
+              "read": "したがって",
+              "vi": "do đó, vì vậy"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "著者",
+              "read": "ちょしゃ",
+              "vi": "tác giả"
+            },
+            {
+              "w": "主張",
+              "read": "しゅちょう",
+              "vi": "chủ trương, lập luận"
+            },
+            {
+              "w": "常に",
+              "read": "つねに",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "比較",
+              "read": "ひかく",
+              "vi": "so sánh"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ",
+              "vi": "接続: V-る ＋ べきだ. Sắc thái: Khẳng định phương pháp hoặc nghĩa vụ đúng đắn nên làm theo chuẩn mực hành vi ('nên / cần phải'). Đối chiếu: 〜たほうがいい (khuyên nhủ thông thường dựa trên lợi ích) ≠ 〜なければならない (bắt buộc mang tính cưỡng chế)."
+            }
+          ]
+        },
+        {
+          "jp": "難しい本に出会ったとき、理解が難しい場合でも、すぐに諦めるわけにはいかない。",
+          "vi": "Khi bắt gặp một cuốn sách khó hiểu, dẫu việc tiếp thu có gian nan, ta cũng không thể nào bỏ cuộc ngay được.",
+          "vocab": [
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "出会う",
+              "read": "であう",
+              "vi": "gặp gỡ, bắt gặp"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "諦める",
+              "read": "あきらめる",
+              "vi": "từ bỏ, bỏ cuộc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけにはいかない",
+              "vi": "接続: V-る ＋ わけにはいかない. Sắc thái: Thể hiện rằng xét về mặt đạo lý, trách nhiệm, tâm lý hoặc hoàn cảnh xã hội thì không thể làm việc đó ('không thể / không thể cứ thế mà...'). Đối chiếu: 〜ことができない (không thể do thiếu năng lực thể chất/kỹ năng) ≠ 〜てはいけない (cấm đoán theo quy tắc)."
+            }
+          ]
+        },
+        {
+          "jp": "苦労して考え抜いた経験こそが、読解力だけでなく生きる知恵を育てる基礎になるに違いない。",
+          "vi": "Chính trải nghiệm dốc sức suy nghĩ đến cùng chắc chắn sẽ là nền tảng nuôi dưỡng không chỉ khả năng đọc hiểu mà cả trí tuệ để sống.",
+          "vocab": [
+            {
+              "w": "苦労",
+              "read": "くろう",
+              "vi": "sự vất vả, khổ cực"
+            },
+            {
+              "w": "考え抜く",
+              "read": "かんがえぬく",
+              "vi": "suy nghĩ thấu đáo, nghĩ đến cùng"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "読解",
+              "read": "どっかい",
+              "vi": "đọc hiểu, luận giải văn bản"
+            },
+            {
+              "w": "生きる",
+              "read": "いきる",
+              "vi": "sống, tồn tại"
+            },
+            {
+              "w": "知恵",
+              "read": "ちえ",
+              "vi": "trí tuệ, sự khôn ngoan"
+            },
+            {
+              "w": "育てる",
+              "read": "そだてる",
+              "vi": "nuôi dưỡng, bồi dưỡng"
+            },
+            {
+              "w": "基礎",
+              "read": "きそ",
+              "vi": "nền tảng, căn bản"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "読解力",
+              "read": "どっかいりょく",
+              "vi": "năng lực đọc hiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に違いない",
+              "vi": "接続: 普通形（Aな/N bỏ だ）＋ に違いない. Sắc thái: Khẳng định niềm tin chắc nịch của người nói về chân lý hoặc kết quả tất yếu ('chắc chắn là'). Đối chiếu: 〜に決まっている (khẩu ngữ hơn, mang cảm tính chủ quan cực đoan) ≠ 〜はずだ (dựa trên lập luận logic khách quan)."
+            }
+          ]
+        },
+        {
+          "jp": "困難な読書を通じて得られる自信は、努力を重ねた結果にほかならない。",
+          "vi": "Sự tự tin có được qua việc chinh phục những cuốn sách khó chính là kết quả của việc không ngừng nỗ lực, không gì khác.",
+          "vocab": [
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn, gian nan"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "自信",
+              "read": "じしん",
+              "vi": "sự tự tin"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "重ねる",
+              "read": "かさねる",
+              "vi": "chồng chất, tích lũy (nỗ lực)"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "ほかなる",
+              "read": "ほかなる",
+              "vi": "chính là, không gì khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にほかならない",
+              "vi": "接続: N ＋ にほかならない. Sắc thái: Khẳng định mạnh mẽ nguyên nhân hoặc bản chất duy nhất của vấn đề, không có cách giải thích nào khác ('chính là / không gì khác ngoài'). Đối chiếu: 〜にすぎない (hạ thấp mức độ 'chỉ là... không hơn') ≠ 〜わけだ (giải thích nguyên nhân tự nhiên thông thường)."
+            }
+          ]
+        },
+        {
+          "jp": "自分の頭で粘り強く考え続けることなしに、本当の知性が身につくわけがないのだ。",
+          "vi": "Nếu không kiên trì dùng trí não để suy ngẫm liên tục, thì trí tuệ thực sự tuyệt đối không thể nào hình thành được.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "粘り強い",
+              "read": "ねばりづよい",
+              "vi": "kiên trì, bền bỉ"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "知性",
+              "read": "ちせい",
+              "vi": "trí tuệ, tri thức"
+            },
+            {
+              "w": "身につく",
+              "read": "みにつく",
+              "vi": "tiếp thu được, ngấm vào người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけがない",
+              "vi": "接続: 普通形（Aな＋な/である, N＋の/である）＋ わけがない. Sắc thái: Phủ định tuyệt đối dựa trên tính tất yếu của vấn đề ('làm sao có thể / tuyệt đối không thể nào'). Đối chiếu: 〜はずがない (tương đương nhưng わけがない mang tính bác bỏ nguyên lý thực tế) ≠ 〜わけではない (phủ định một phần)."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは便利な要約だけに頼るのではなく、時には時間のかかる読書に向き合うべきではないだろうか。",
+          "vi": "Thay vì chỉ ỷ lại vào các bản tóm tắt tiện lợi, chẳng phải đôi khi chúng ta nên đối diện với việc đọc sách tốn nhiều thời gian hay sao?",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "要約",
+              "read": "ようやく",
+              "vi": "tóm tắt"
+            },
+            {
+              "w": "頼る",
+              "read": "たよる",
+              "vi": "dựa dẫm, ỷ lại"
+            },
+            {
+              "w": "時には",
+              "read": "ときには",
+              "vi": "đôi khi, có lúc"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, đối mặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきではない（べきではないだろうか）",
+              "vi": "接続: V-る ＋ べきではない. Kết hợp với だろうか để tạo câu hỏi tu từ gợi mở: 'Chẳng phải chúng ta nên/không nên... hay sao?'. Sắc thái: Đề xuất một thái độ/nghĩa vụ đúng đắn một cách lịch sự, giàu sức thuyết phục. Đối chiếu: 〜てはいけないのではないか (cấm đoán cứng hơn) ≠ 〜ほうがいいのではないか (lời khuyên nhẹ nhàng hơn)."
+            }
+          ]
+        },
+        {
+          "jp": "情報が溢れる時代だからこそ、自らの基準を持って情報を正しく選ぶ必要がある。",
+          "vi": "Chính vì đang ở trong thời đại tràn ngập thông tin, chúng ta càng cần phải có tiêu chuẩn của riêng mình để chọn lọc thông tin một cách đúng đắn.",
+          "vocab": [
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "溢れる",
+              "read": "あふれる",
+              "vi": "tràn ngập, đầy ắp"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "基準",
+              "read": "きじゅん",
+              "vi": "tiêu chuẩn, thước đo"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "正しく",
+              "read": "まさしく",
+              "vi": "đúng đắn, chính xác"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からこそ",
+              "vi": "接続: 普通形 ＋ からこそ. Sắc thái: Nhấn mạnh lý do duy nhất, cốt yếu dẫn tới hành động hoặc kết quả ở vế sau ('chính vì... nên mới'). Đối chiếu: 〜から/〜ので (chỉ nêu nguyên nhân thông thường, không có sắc thái nhấn mạnh)."
+            }
+          ]
+        },
+        {
+          "jp": "他人の評価や流行に流されて、自分の頭で考えることを放棄するべきではない。",
+          "vi": "Chúng ta không nên bị cuốn theo đánh giá của người khác hay trào lưu mà từ bỏ việc tự mình suy nghĩ.",
+          "vocab": [
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "流行",
+              "read": "りゅうこう",
+              "vi": "trào lưu, xu thế"
+            },
+            {
+              "w": "流される",
+              "read": "ながされる",
+              "vi": "bị cuốn theo"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "放棄",
+              "read": "ほうき",
+              "vi": "từ bỏ, buông xuôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきではない",
+              "vi": "接続: V-る ＋ べきではない（する → すべきではない／するべきではない）. Sắc thái: Thể hiện sự phê phán, khuyên can mang tính đạo lý và chuẩn mực ('không nên / không được làm'). Đối chiếu: 〜てはいけない (cấm đoán theo quy tắc/luật lệ) ≠ 〜ないほうがいい (khuyên can nhẹ nhàng dựa trên thiệt hại cá nhân)."
+            }
+          ]
+        },
+        {
+          "jp": "正確な知識と批判的な思考力を持っていれば、偽の情報に簡単に騙されるはずがない。",
+          "vi": "Nếu sở hữu kiến thức chính xác và năng lực tư duy phản biện, chúng ta chắc chắn không thể dễ dàng bị lừa bởi những thông tin giả mạo.",
+          "vocab": [
+            {
+              "w": "正確",
+              "read": "せいかく",
+              "vi": "chính xác"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "sự phê phán, chỉ trích"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "偽",
+              "read": "にせ",
+              "vi": "giả mạo, sai lệch"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ"
+            },
+            {
+              "w": "騙す",
+              "read": "だます",
+              "vi": "lừa gạt (bị động: 騙される)"
+            },
+            {
+              "w": "批判的",
+              "read": "ひはんてき",
+              "vi": "có tính phản biện, phê phán"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずがない",
+              "vi": "接続: 普通形（Aな＋な, N＋の）＋ はずがない. Sắc thái: Phán đoán phủ định logic tuyệt đối, cho rằng điều đó là phi lý không thể xảy ra dựa trên tiền đề điều kiện đã nêu ('chắc chắn không thể nào'). Đối chiếu: 〜に違いない (khẳng định chắc chắn) ≠ 〜わけがない (phủ định bản chất sự việc)."
+            }
+          ]
+        },
+        {
+          "jp": "人間が真の自由を手に入れる道は、生涯を通じて自ら学び、思考し続けることにほかならない。",
+          "vi": "Con đường để con người có được tự do thực sự chính là không ngừng tự học và tư duy suốt cả cuộc đời, không gì khác.",
+          "vocab": [
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người"
+            },
+            {
+              "w": "真の",
+              "read": "まことの",
+              "vi": "chân chính"
+            },
+            {
+              "w": "自由",
+              "read": "じゆう",
+              "vi": "tự do"
+            },
+            {
+              "w": "手に入れる",
+              "read": "てにいれる",
+              "vi": "có được"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào"
+            },
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "con đường"
+            },
+            {
+              "w": "生涯",
+              "read": "しょうがい",
+              "vi": "suốt đời"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua, trong suốt"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "tự mình"
+            },
+            {
+              "w": "学び",
+              "read": "まなび",
+              "vi": "học hỏi"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "tư duy"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "ほかならない",
+              "read": "ほかならない",
+              "vi": "không gì khác ngoài, chính là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にほかならない",
+              "vi": "接続: N / V-ること ＋ にほかならない. Sắc thái: Khẳng định đanh thép bản chất chân lý cốt lõi, loại trừ mọi khả năng khác ('chính là / không gì khác ngoài'). Đối chiếu: 〜にすぎない (hạ thấp 'chẳng qua chỉ là') ≠ 〜というわけだ (kết luận logic thông thường)."
+            }
+          ]
+        },
+        {
+          "jp": "読書という行為は、単なる知識の吸収ではなく、自分自身の精神を磨き上げる作業なのだ。",
+          "vi": "Hành vi đọc sách không đơn thuần là tiếp thu tri thức, mà là một quá trình rèn giũa và tôi luyện tâm hồn của chính bản thân.",
+          "vocab": [
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "行為",
+              "read": "こうい",
+              "vi": "hành vi, hành động"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ đơn thuần là"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "吸収",
+              "read": "きゅうしゅう",
+              "vi": "hấp thu, tiếp thu"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "精神",
+              "read": "せいしん",
+              "vi": "tinh thần, tâm hồn"
+            },
+            {
+              "w": "磨く",
+              "read": "みがく",
+              "vi": "mài dũa, đánh bóng"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "磨き上げる",
+              "read": "みがきあげる",
+              "vi": "mài giũa, tôi luyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜という",
+              "vi": "接続: N1 ＋ という ＋ N2. Sắc thái: Định nghĩa, nêu tên gọi hoặc giải thích bản chất cho danh từ đi sau ('cái gọi là / hành vi mang tên...'). Đối chiếu: 〜といった (liệt kê ví dụ tiêu biểu 'như là...')."
+            }
+          ]
+        },
+        {
+          "jp": "だからこそ、私たちは毎日の生活の中に読書と思索の時間を取り入れるべきである。",
+          "vi": "Chính vì vậy, chúng ta nên đưa thời gian đọc sách và suy ngẫm vào trong nếp sống sinh hoạt hằng ngày.",
+          "vocab": [
+            {
+              "w": "だからこそ",
+              "read": "だからこそ",
+              "vi": "chính vì vậy"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong, trong"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "思索",
+              "read": "しさく",
+              "vi": "suy ngẫm"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "取り入れる",
+              "read": "とりいれる",
+              "vi": "đưa vào, kết hợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきである",
+              "vi": "接続: V-る ＋ べきである (thể trang trọng của べきだ). Sắc thái: Khẳng định mạnh mẽ một lý tưởng, nghĩa vụ hoặc phương châm hành động đúng đắn cần thực hiện ('cần phải / nên'). Đối chiếu: 〜なければならない (quy định bắt buộc) ≠ 〜たほうがいい (khuyên bảo nhẹ nhàng)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ただ情報を集めるだけで賢くなったと考えるのは、大きな誤解であるに違いない",
+          "label": "Sự ngộ nhận về việc tích lũy thông tin"
+        },
+        {
+          "excerpt": "本を読むことの価値は、他人の考えをそのまま受け入れることではなく、著者の意見に対して疑問を持つことにある",
+          "label": "Giá trị cốt lõi của việc đọc sách chủ động"
+        },
+        {
+          "excerpt": "人間が真の自由を手に入れる道は、生涯を通じて自ら学び、思考し続けることにほかならない",
+          "label": "Ý nghĩa tối thượng của tư duy tự chủ"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者によると、「本を読む時間がない」という主張についてどのように述べているか。",
+          "options": [
+            "現代人は忙しすぎるため、本を読む時間を作るのは不可能である。",
+            "スマートフォンを使う時間を少し減らすだけで、読書の時間を作ることは可能である。",
+            "仕事や勉強で忙しい人は、無理をしてまで本を読むべきではない。",
+            "要約アプリを使えば、本を読む時間を作らなくても同じ効果が得られる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [4] (thực tế không thể có chuyện không có thời gian) và câu [5] ('Nếu chịu đặt điện thoại thông minh xuống dù chỉ vài chục phút mỗi ngày, chắc chắn chúng ta sẽ tạo ra được thời gian đọc sách').\n- Phương án 0 sai: Tác giả khẳng định hoàn toàn có thể tạo ra thời gian (câu [5]), không hề coi là bất khả thi.\n- Phương án 2 sai: Tác giả khuyến khích mọi người dành thời gian suy ngẫm đọc sách chứ không bảo từ bỏ.\n- Phương án 3 sai: Tác giả ở câu [13] phản đối việc chỉ dựa dẫm vào các bản tóm tắt tiện lợi.",
+          "tip": "Chú ý vào sự liên kết giữa câu phủ định phán đoán 'わけがない' ở câu [4] và câu nêu giải pháp cụ thể với 'はずだ' ở câu [5].",
+          "evi": [
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Theo tác giả, ông/bà nhận định thế nào về ý kiến “không có thời gian đọc sách”?",
+            "o": [
+              "Vì người hiện đại quá bận rộn nên không thể dành thời gian đọc sách.",
+              "Chỉ cần giảm bớt một chút thời gian dùng điện thoại thông minh là có thể dành thời gian đọc sách.",
+              "Những người bận rộn vì công việc hay học tập không nên cố ép mình đọc sách.",
+              "Nếu dùng ứng dụng tóm tắt thì cũng có thể đạt được hiệu quả tương tự mà không cần dành thời gian đọc sách."
+            ]
+          }
+        },
+        {
+          "q": "筆者は、読書において最も大切だと考えていることは何か。",
+          "options": [
+            "著者の意見を完璧に暗記し、その通りに行動すること。",
+            "インターネットの要約を効率よく使って、短い時間で多くの知識を集めること。",
+            "書かれている内容を盲信せず、自分の考えと比較しながら批判的に読むこと。",
+            "自分にとって分かりやすい簡単な本だけを選んで、素早く読み終えること。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào chuỗi câu [6], [7], [8]: Tác giả nêu rõ giá trị của việc đọc sách là biết đặt nghi vấn trước ý kiến tác giả (câu [6]), không tiếp thu mù quáng (câu [7]) và phải liên tục so sánh với quan điểm của bản thân (câu [8]).\n- Phương án 0 sai: Đi ngược lại ý 'không nuốt trọn lời văn' và 'không tiếp nhận nguyên xi suy nghĩ người khác'.\n- Phương án 1 sai: Trái ngược với quan điểm ở câu [13] (không nên chỉ ỷ lại vào bản tóm tắt tiện lợi).\n- Phương án 3 sai: Đi ngược lại câu [9] và [11] (tác giả khuyến khích đối mặt và chinh phục sách khó để rèn luyện trí tuệ).",
+          "tip": "Tìm từ khóa mang tính chủ trương hành vi '〜べきだ' ở câu [8] và đối chiếu với các câu phủ định ở trước.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Theo tác giả, điều gì là quan trọng nhất khi đọc sách?",
+            "o": [
+              "Ghi nhớ hoàn toàn ý kiến của tác giả và hành động theo đúng như vậy.",
+              "Sử dụng hiệu quả các bản tóm tắt trên Internet để thu thập nhiều kiến thức trong thời gian ngắn.",
+              "Không tin tuyệt đối vào nội dung được viết, mà đọc một cách phản biện trong khi so sánh với suy nghĩ của bản thân.",
+              "Chỉ chọn những cuốn sách đơn giản, dễ hiểu với bản thân và đọc xong thật nhanh."
+            ]
+          }
+        },
+        {
+          "q": "第3段落の「困難な読書を通じて得られる自信は、努力を重ねた結果にほかならない」という文から、筆者のどのような意図が読み取れるか。",
+          "options": [
+            "難しい本を読む苦労を乗り越えることこそが、真の知性と自己肯定感を育てるということ。",
+            "理解できない本は読む価値がないため、時間を無駄にせず諦めるべきだということ。",
+            "努力さえすれば、誰でも専門家と同じレベルの論文が書けるようになるということ。",
+            "読書で得られる自信は一時的なものにすぎず、実生活には役立たないということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào ngữ cảnh đoạn 3 (câu [9] đến [12]): Tác giả nhấn mạnh khi gặp sách khó không được bỏ cuộc, việc dốc sức suy nghĩ chính là nền tảng nuôi dưỡng trí tuệ cuộc sống và tạo ra sự tự tin vững chắc ('にほかならない' - khẳng định kết quả duy nhất của nỗ lực).\n- Phương án 1 sai: Trái ngược hoàn toàn với câu [9] ('không thể nào bỏ cuộc ngay được').\n- Phương án 2 sai: Bài viết không hề đề cập tới việc 'viết luận văn chuyên gia'.\n- Phương án 3 sai: Trái ngược với câu [10] (tác giả khẳng định đó là nền tảng trí tuệ để sống).",
+          "tip": "Mẫu ngữ pháp '〜にほかならない' dùng để khẳng định mạnh mẽ bản chất cốt lõi của vấn đề, gắn liền với thông điệp đúc kết tích cực của tác giả.",
+          "evi": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "qt": {
+            "q": "Từ câu “Sự tự tin có được thông qua việc đọc những cuốn sách khó chính là kết quả của quá trình nỗ lực bền bỉ” ở đoạn 3, có thể hiểu được ý định nào của tác giả?",
+            "o": [
+              "Chính việc vượt qua khó khăn khi đọc sách khó sẽ nuôi dưỡng trí tuệ đích thực và lòng tự trọng.",
+              "Vì những cuốn sách không thể hiểu được là không đáng đọc nên nên từ bỏ để khỏi lãng phí thời gian.",
+              "Chỉ cần nỗ lực thì bất kỳ ai cũng sẽ có thể viết được những bài luận ở cùng trình độ với chuyên gia.",
+              "Sự tự tin có được từ việc đọc sách chỉ là nhất thời và không có ích trong cuộc sống thực tế."
+            ]
+          }
+        },
+        {
+          "q": "この文章全体で、筆者が最も主張したいことは何か。",
+          "options": [
+            "現代社会ではインターネットの情報だけで十分であり、本を読む必要性は薄れている。",
+            "情報は多ければ多いほど良いため、流行の知識をできるだけ多く記憶するべきである。",
+            "読書を通じて自ら深く考え、主体的な知性と批判的思考力を磨き続けることが不可欠である。",
+            "他人の書いた本を批判することは失礼なので、著者の主張に常に賛同するべきである。"
+          ],
+          "answer": 2,
+          "explainVi": "Toàn bài viết hướng tới chủ đề xuyên suốt: Đọc sách không phải thu thập thông tin thụ động mà là quá trình rèn giũa tư duy chủ động, rèn năng lực phản biện để đạt được tự do và trí tuệ thực sự (câu [17], [18], [19]).\n- Phương án 0 sai: Tác giả nhấn mạnh tầm quan trọng của việc đọc sách sâu sắc (câu [13], [19]).\n- Phương án 1 sai: Tác giả phê phán việc chỉ thu thập thông tin (câu [1]) và chạy theo trào lưu (câu [15]).\n- Phương án 3 sai: Tác giả khuyến khích đặt câu hỏi và phản biện (câu [6], [8]).",
+          "tip": "Với câu hỏi tổng thể toàn bài, hãy quan sát kỹ phần kết luận ở đoạn 4, đặc biệt là các câu đúc kết có chứa '〜にほかならない' (câu [17]) và '〜べきである' (câu [19]).",
+          "evi": [
+            3,
+            8,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Trong toàn bài viết này, tác giả muốn nhấn mạnh điều gì nhất?",
+            "o": [
+              "Trong xã hội hiện đại, chỉ cần thông tin trên Internet là đủ nên nhu cầu đọc sách đã giảm.",
+              "Thông tin càng nhiều càng tốt, vì vậy nên ghi nhớ càng nhiều kiến thức theo xu hướng càng tốt.",
+              "Việc tự mình suy nghĩ sâu sắc thông qua đọc sách, đồng thời không ngừng rèn luyện trí tuệ chủ động và năng lực tư duy phản biện là điều thiết yếu.",
+              "Chỉ trích sách do người khác viết là bất lịch sự, vì vậy luôn phải đồng tình với ý kiến của tác giả."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "みどりコワーキングのご案内",
+      "titleVi": "Thông báo hướng dẫn Coworking Midori",
+      "japanese": "【みどりコワーキング】会員プランと特別割引のご案内\n当施設を快適にご利用いただくため、利用者はルールを守るべきです。\n充実した設備と静かな環境を提供できるのは、会員皆様のご協力の成果にほかならないからです。\nプラン名｜月額基本料金｜利用可能時間｜個室利用\nデイタイム｜6,000円｜平日 9:00〜17:00｜不可（オープンスペースのみ）\nナイト＆ホリデー｜7,500円｜平日 17:00〜22:00・土日祝 終日｜不可（オープンスペースのみ）\nフルタイム｜11,000円｜全日 9:00〜22:00｜1日2時間まで無料\nプレミアム｜15,000円｜24時間利用可能｜いつでも使い放題\n※各プランとも、登録初月に入会金3,000円を支払う必要があります。\n※個室の追加利用は、デイタイム・ナイト会員の場合、1時間あたり500円支払うべきです。\n【各種割引・注意事項】\n・学生割引：学生証を提示すれば、月額基本料金から一律2,000円引きとなります。\n・半年一括払い割引：半年分を一括で前払いする場合、月額基本料金が10％割引になります（学割と併用可能）。\n・早朝・深夜（22:00〜翌9:00）の利用はプレミアム会員専用であり、他プランの会員は入室できるわけがありません。\n・平日の夕方以降に毎日勉強したい社会人なら、ナイト＆ホリデープランを選ぶのが最も経済的なはずです。\n・契約当月に解約することはできないため、利用期間をあらかじめ確認しておくべきです。",
+      "vietnamese": "【Midori Coworking】Thông báo về các gói hội viên và ưu đãi giảm giá đặc biệt\nĐể sử dụng cơ sở vật chất của chúng tôi một cách thoải mái, người dùng nên tuân thủ các quy tắc.\nViệc có thể cung cấp trang thiết bị đầy đủ và môi trường yên tĩnh chính là thành quả từ sự hợp tác của toàn thể hội viên.\nTên gói｜Phí cơ bản hàng tháng｜Thời gian có thể sử dụng｜Sử dụng phòng riêng\nDaytime (Ban ngày)｜6.000 yên｜Ngày thường 9:00〜17:00｜Không được (chỉ dùng không gian mở)\nNight & Holiday (Tối & Ngày nghỉ)｜7.500 yên｜Ngày thường 17:00〜22:00 / Thứ 7, CN, ngày lễ cả ngày｜Không được (chỉ dùng không gian mở)\nFulltime (Toàn thời gian)｜11.000 yên｜Mọi ngày 9:00〜22:00｜Miễn phí tối đa 2 giờ mỗi ngày\nPremium (Cao cấp)｜15.000 yên｜Có thể sử dụng 24 giờ｜Dùng thoải mái không giới hạn bất kỳ lúc nào\n※ Đối với tất cả các gói, cần phải nộp phí nhập hội 3.000 yên vào tháng đầu tiên đăng ký.\n※ Việc sử dụng thêm phòng riêng đối với hội viên gói Daytime và Night thì nên trả 500 yên cho mỗi giờ.\n【Các loại giảm giá & Lưu ý】\n・ Giảm giá học sinh/sinh viên: Nếu xuất trình thẻ học sinh/sinh viên, sẽ được giảm cố định 2.000 yên từ phí cơ bản hàng tháng.\n・ Giảm giá thanh toán 6 tháng một lần: Trường hợp thanh toán trước trọn gói nửa năm, phí cơ bản hàng tháng sẽ được giảm 10% (có thể áp dụng cùng lúc với giảm giá học sinh/sinh viên).\n・ Việc sử dụng vào sáng sớm / đêm muộn (22:00〜9:00 sáng hôm sau) chỉ dành riêng cho hội viên Premium, hội viên các gói khác không thể nào vào phòng được.\n・ Nếu là người đi làm muốn học mỗi ngày vào buổi tối ngày thường trở đi, chắc hẳn việc chọn gói Night & Holiday là tiết kiệm nhất.\n・ Vì không thể hủy hợp đồng ngay trong tháng ký kết, nên cần kiểm tra trước thời gian sử dụng.",
+      "sentences": [
+        {
+          "jp": "【みどりコワーキング】会員プランと特別割引のご案内",
+          "vi": "【Midori Coworking】Thông báo về các gói hội viên và ưu đãi giảm giá đặc biệt",
+          "vocab": [
+            {
+              "w": "みどりコワーキング",
+              "read": "みどりコワーキング",
+              "vi": "Coworking Midori"
+            },
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "Midori"
+            },
+            {
+              "w": "コワーキング",
+              "read": "コワーキング",
+              "vi": "coworking"
+            },
+            {
+              "w": "会員プラン",
+              "read": "かいいんプラン",
+              "vi": "gói hội viên"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "特別割引",
+              "read": "とくべつわりびき",
+              "vi": "giảm giá đặc biệt"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông tin hướng dẫn"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông tin"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "当施設を快適にご利用いただくため、利用者はルールを守るべきです。",
+          "vi": "Để sử dụng cơ sở vật chất của chúng tôi một cách thoải mái, người dùng nên tuân thủ các quy tắc.",
+          "vocab": [
+            {
+              "w": "当施設",
+              "read": "とうしせつ",
+              "vi": "cơ sở này"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, cơ quan"
+            },
+            {
+              "w": "快適",
+              "read": "かいてき",
+              "vi": "thoải mái"
+            },
+            {
+              "w": "ご利用",
+              "read": "ごりよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "được nhận, được sử dụng"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "mục đích, để"
+            },
+            {
+              "w": "利用者",
+              "read": "りようしゃ",
+              "vi": "người sử dụng"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "quy tắc"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "tuân thủ, bảo vệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～べきだ",
+              "vi": "Nên / Phải làm gì đó (thể hiện nghĩa vụ, bổn phận hoặc hành động đúng đắn)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "守るべきです",
+              "why": "Nhấn mạnh nghĩa vụ người sử dụng cần tuân thủ quy định chung của không gian."
+            }
+          ]
+        },
+        {
+          "jp": "充実した設備と静かな環境を提供できるのは、会員皆様のご協力の成果にほかならないからです。",
+          "vi": "Việc có thể cung cấp trang thiết bị đầy đủ và môi trường yên tĩnh chính là thành quả từ sự hợp tác của toàn thể hội viên.",
+          "vocab": [
+            {
+              "w": "充実",
+              "read": "じゅうじつ",
+              "vi": "đầy đủ, phong phú"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "trang thiết bị"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "提供",
+              "read": "ていきょう",
+              "vi": "cung cấp"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị (kính ngữ)"
+            },
+            {
+              "w": "協力",
+              "read": "きょうりょく",
+              "vi": "sự hợp tác"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả"
+            },
+            {
+              "w": "ほかなる",
+              "read": "ほかなる",
+              "vi": "chính là, không gì khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にほかならない",
+              "vi": "Chính là / Không gì khác ngoài (khẳng định mạnh mẽ nguyên nhân, lý do duy nhất)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "成果にほかならない",
+              "why": "Khẳng định dứt khoát môi trường làm việc tốt đẹp chính là nhờ sự đóng góp của mọi người."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜月額基本料金｜利用可能時間｜個室利用",
+          "vi": "Tên gói｜Phí cơ bản hàng tháng｜Thời gian có thể sử dụng｜Sử dụng phòng riêng",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức theo tháng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "基本料金",
+              "read": "きほんりょうきん",
+              "vi": "giá cước cơ bản"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "デイタイム｜6,000円｜平日 9:00〜17:00｜不可（オープンスペースのみ）",
+          "vi": "Daytime (Ban ngày)｜6.000 yên｜Ngày thường 9:00〜17:00｜Không được (chỉ dùng không gian mở)",
+          "vocab": [
+            {
+              "w": "デイタイム",
+              "read": "デイタイム",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "6,000円",
+              "read": "ろくせんえん",
+              "vi": "6.000 yên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày trong tuần"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "17:00",
+              "read": "じゅうななじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "不可",
+              "read": "ふか",
+              "vi": "không được phép, không áp dụng"
+            },
+            {
+              "w": "オープンスペース",
+              "read": "オープンスペース",
+              "vi": "không gian mở"
+            },
+            {
+              "w": "オープン",
+              "read": "オープン",
+              "vi": "mở"
+            },
+            {
+              "w": "スペース",
+              "read": "スペース",
+              "vi": "không gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のみ",
+              "vi": "N ＋ のみ: Trợ từ mang nghĩa 'chỉ' (mang sắc thái trang trọng, văn viết hơn 「だけ」). Trong câu diễn đạt việc 'chỉ (được sử dụng) không gian mở'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "6,000円",
+              "why": "Mức phí cơ bản hàng tháng của gói ban ngày Daytime."
+            }
+          ]
+        },
+        {
+          "jp": "ナイト＆ホリデー｜7,500円｜平日 17:00〜22:00・土日祝 終日｜不可（オープンスペースのみ）",
+          "vi": "Night & Holiday (Tối & Ngày nghỉ)｜7.500 yên｜Ngày thường 17:00〜22:00 / Thứ 7, CN, ngày lễ cả ngày｜Không được (chỉ dùng không gian mở)",
+          "vocab": [
+            {
+              "w": "ナイト＆ホリデー",
+              "read": "ナイトアンドホリデー",
+              "vi": "ban đêm và ngày nghỉ"
+            },
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "ホリデー",
+              "read": "ホリデー",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "7,500円",
+              "read": "ななせんごひゃくえん",
+              "vi": "7.500 yên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày trong tuần"
+            },
+            {
+              "w": "17:00",
+              "read": "じゅうななじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "22:00",
+              "read": "にじゅうにじ",
+              "vi": "22 giờ"
+            },
+            {
+              "w": "土日祝",
+              "read": "どにちしゅく",
+              "vi": "thứ bảy, chủ nhật và ngày lễ"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ bảy và chủ nhật"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "終日",
+              "read": "しゅうじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "不可",
+              "read": "ふか",
+              "vi": "không được phép, không áp dụng"
+            },
+            {
+              "w": "オープンスペース",
+              "read": "オープンスペース",
+              "vi": "không gian mở"
+            },
+            {
+              "w": "オープン",
+              "read": "オープン",
+              "vi": "mở"
+            },
+            {
+              "w": "スペース",
+              "read": "スペース",
+              "vi": "không gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のみ",
+              "vi": "N ＋ のみ: Trợ từ biểu thị sự giới hạn mang nghĩa 'chỉ', thường dùng trong thông báo và văn phong trang trọng. Trong câu biểu thị chỉ được phép dùng khu vực không gian mở."
+            }
+          ],
+          "keys": [
+            {
+              "w": "7,500円",
+              "why": "Mức phí cơ bản hàng tháng của gói Night & Holiday."
+            },
+            {
+              "w": "平日 17:00〜22:00・土日祝 終日",
+              "why": "Khung giờ hoạt động buổi tối và toàn bộ ngày nghỉ cho gói Night & Holiday."
+            }
+          ]
+        },
+        {
+          "jp": "フルタイム｜11,000円｜全日 9:00〜22:00｜1日2時間まで無料",
+          "vi": "Fulltime (Toàn thời gian)｜11.000 yên｜Mọi ngày 9:00〜22:00｜Miễn phí tối đa 2 giờ mỗi ngày",
+          "vocab": [
+            {
+              "w": "フルタイム",
+              "read": "フルタイム",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "11,000円",
+              "read": "いちまんいっせんえん",
+              "vi": "11.000 yên"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày, tất cả các ngày"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "22:00",
+              "read": "にじゅうにじ",
+              "vi": "22 giờ"
+            },
+            {
+              "w": "1日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            },
+            {
+              "w": "2時間",
+              "read": "にじかん",
+              "vi": "2 tiếng"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "11,000円",
+              "why": "Mức phí gói Fulltime bao gồm ưu đãi 2 giờ phòng riêng mỗi ngày."
+            }
+          ]
+        },
+        {
+          "jp": "プレミアム｜15,000円｜24時間利用可能｜いつでも使い放題",
+          "vi": "Premium (Cao cấp)｜15.000 yên｜Có thể sử dụng 24 giờ｜Dùng thoải mái không giới hạn bất kỳ lúc nào",
+          "vocab": [
+            {
+              "w": "プレミアム",
+              "read": "プレミアム",
+              "vi": "gói Premium"
+            },
+            {
+              "w": "15,000円",
+              "read": "いちまんごせんえん",
+              "vi": "15.000 yên"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "使い放題",
+              "read": "つかいほうだい",
+              "vi": "dùng không giới hạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜放題",
+              "vi": "V-ます (bỏ ます) ＋ 放題: Biểu thị hành động được thực hiện thỏa thích, thoải mái mà không bị giới hạn về thời gian hay chi phí. Trong câu 「使い放題」 mang nghĩa 'sử dụng thỏa thích / không giới hạn'."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "※各プランとも、登録初月に入会金3,000円を支払う必要があります。",
+          "vi": "※ Đối với tất cả các gói, cần phải nộp phí nhập hội 3.000 yên vào tháng đầu tiên đăng ký.",
+          "vocab": [
+            {
+              "w": "各",
+              "read": "かく",
+              "vi": "mỗi, từng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "登録初月",
+              "read": "とうろくしょげつ",
+              "vi": "tháng đầu đăng ký"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "gia nhập hội viên"
+            },
+            {
+              "w": "入会金",
+              "read": "にゅうかいきん",
+              "vi": "phí gia nhập"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "支払う",
+              "read": "しはらう",
+              "vi": "chi trả"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜必要がある",
+              "vi": "V-る ＋ 必要がある: Biểu thị sự cần thiết hoặc nghĩa vụ, yêu cầu mang tính khách quan phải làm gì. Trong câu mang ý 'cần phải / bắt buộc phải thanh toán phí gia nhập 3.000 yên'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "入会金3,000円",
+              "why": "Phí bắt buộc phải đóng khi đăng ký mới vào tháng đầu tiên cho mọi gói."
+            }
+          ]
+        },
+        {
+          "jp": "※個室の追加利用は、デイタイム・ナイト会員の場合、1時間あたり500円支払うべきです。",
+          "vi": "※ Việc sử dụng thêm phòng riêng đối với hội viên gói Daytime và Night thì nên trả 500 yên cho mỗi giờ.",
+          "vocab": [
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "thêm, bổ sung"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "追加利用",
+              "read": "ついかりよう",
+              "vi": "sử dụng thêm"
+            },
+            {
+              "w": "デイタイム",
+              "read": "デイタイム",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "1時間あたり",
+              "read": "いちじかんあたり",
+              "vi": "mỗi giờ"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "支払う",
+              "read": "しはらう",
+              "vi": "chi trả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～べきだ",
+              "vi": "Nên / Phải (quy tắc trả phí dịch vụ bổ sung theo giờ)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "1時間あたり500円",
+              "why": "Mức phí phụ thu phòng riêng cho gói không có sẵn quyền lợi phòng riêng."
+            }
+          ]
+        },
+        {
+          "jp": "【各種割引・注意事項】",
+          "vi": "【Các loại giảm giá & Lưu ý】",
+          "vocab": [
+            {
+              "w": "各種",
+              "read": "かくしゅ",
+              "vi": "các loại, từng loại"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "事項",
+              "read": "じこう",
+              "vi": "hạng mục, điều khoản"
+            },
+            {
+              "w": "注意事項",
+              "read": "ちゅういじこう",
+              "vi": "các điều khoản lưu ý"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "・学生割引：学生証を提示すれば、月額基本料金から一律2,000円引きとなります。",
+          "vi": "・ Giảm giá học sinh/sinh viên: Nếu xuất trình thẻ học sinh/sinh viên, sẽ được giảm cố định 2.000 yên từ phí cơ bản hàng tháng.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình, đưa ra"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "一律",
+              "read": "いちりつ",
+              "vi": "đồng loạt, ngang bằng, như nhau"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh / sinh viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば",
+              "vi": "V-ば (thể điều kiện, nhóm 3: する → すれば): Nêu lên điều kiện giả định 'nếu... thì...'. Trong câu mang nghĩa 'nếu xuất trình thẻ sinh viên (thì sẽ được giảm giá)'."
+            },
+            {
+              "point": "〜となる",
+              "vi": "N ＋ となる: Biểu thị sự biến đổi sang trạng thái mới hoặc quy định, kết quả mang tính trang trọng (trang trọng hơn 「〜になる」). Trong câu chỉ việc giá cước 'sẽ trở thành mức giảm đồng loạt 2.000 yên'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一律2,000円引き",
+              "why": "Mức giảm giá trực tiếp từ phí cơ bản hàng tháng dành cho học sinh, sinh viên."
+            }
+          ]
+        },
+        {
+          "jp": "・半年一括払い割引：半年分を一括で前払いする場合、月額基本料金が10％割引になります（学割と併用可能）。",
+          "vi": "・ Giảm giá thanh toán 6 tháng một lần: Trường hợp thanh toán trước trọn gói nửa năm, phí cơ bản hàng tháng sẽ được giảm 10% (có thể áp dụng cùng lúc với giảm giá học sinh/sinh viên).",
+          "vocab": [
+            {
+              "w": "半年",
+              "read": "はんとし",
+              "vi": "nửa năm, 6 tháng"
+            },
+            {
+              "w": "一括払い",
+              "read": "いっかつばらい",
+              "vi": "thanh toán một lần"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "一括",
+              "read": "いっかつ",
+              "vi": "gộp một lần, trọn gói"
+            },
+            {
+              "w": "前払い",
+              "read": "まえばらい",
+              "vi": "trả trước"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "併用",
+              "read": "へいよう",
+              "vi": "sử dụng kết hợp, áp dụng đồng thời"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合（は）",
+              "vi": "V-る ＋ 場合（は）: Dùng để đưa ra tình huống, điều kiện hoặc trường hợp cụ thể. Trong câu mang nghĩa 'trong trường hợp trả trước gộp 1 lần cho nửa năm'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "10％割引",
+              "why": "Tỷ lệ giảm giá phí cơ bản khi thanh toán trước 6 tháng."
+            }
+          ]
+        },
+        {
+          "jp": "・早朝・深夜（22:00〜翌9:00）の利用はプレミアム会員専用であり、他プランの会員は入室できるわけがありません。",
+          "vi": "・ Việc sử dụng vào sáng sớm / đêm muộn (22:00〜9:00 sáng hôm sau) chỉ dành riêng cho hội viên Premium, hội viên các gói khác không thể nào vào phòng được.",
+          "vocab": [
+            {
+              "w": "早朝",
+              "read": "そうちょう",
+              "vi": "sáng sớm"
+            },
+            {
+              "w": "深夜",
+              "read": "しんや",
+              "vi": "đêm khuya"
+            },
+            {
+              "w": "22:00〜翌9:00",
+              "read": "にじゅうにじからよくくじまで",
+              "vi": "từ 22:00 đến 9:00 hôm sau"
+            },
+            {
+              "w": "22:00",
+              "read": "にじゅうにじ",
+              "vi": "22:00"
+            },
+            {
+              "w": "翌9:00",
+              "read": "よくくじ",
+              "vi": "9:00 hôm sau"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "プレミアム",
+              "read": "プレミアム",
+              "vi": "gói Premium"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "dành riêng"
+            },
+            {
+              "w": "会員専用",
+              "read": "かいいんせんよう",
+              "vi": "dành riêng cho hội viên"
+            },
+            {
+              "w": "他",
+              "read": "ほか",
+              "vi": "khác"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "他プラン",
+              "read": "ほかプラン",
+              "vi": "gói khác"
+            },
+            {
+              "w": "入室",
+              "read": "にゅうしつ",
+              "vi": "vào phòng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "わけ",
+              "read": "わけ",
+              "vi": "lẽ, chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～わけがない",
+              "vi": "Tuyệt đối không thể nào / Không có lý do gì để (phủ định tính khả thi một cách dứt khoát)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "入室できるわけがありません",
+              "why": "Quy định nghiêm ngặt về việc hội viên gói thường không có quyền vào phòng khung giờ đêm/sáng sớm."
+            }
+          ]
+        },
+        {
+          "jp": "・平日の夕方以降に毎日勉強したい社会人なら、ナイト＆ホリデープランを選ぶのが最も経済的なはずです。",
+          "vi": "・ Nếu là người đi làm muốn học mỗi ngày vào buổi tối ngày thường trở đi, chắc hẳn việc chọn gói Night & Holiday là tiết kiệm nhất.",
+          "vocab": [
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "夕方",
+              "read": "ゆうがた",
+              "vi": "chiều tối, hoàng hôn"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "từ ... trở đi, sau ..."
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "ホリデー",
+              "read": "ホリデー",
+              "vi": "ngày nghỉ, kỳ nghỉ"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất, tối nhất"
+            },
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đã đi làm, người ngoài xã hội"
+            },
+            {
+              "w": "経済的",
+              "read": "けいざいてき",
+              "vi": "tiết kiệm, mang tính kinh tế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～はずだ",
+              "vi": "Chắc chắn là / Chắc hẳn là (phán đoán logic dựa trên căn cứ rõ ràng)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "・契約当月に解約することはできないため、利用期間をあらかじめ確認しておくべきです。",
+          "vi": "・ Vì không thể hủy hợp đồng ngay trong tháng ký kết, nên cần kiểm tra trước thời gian sử dụng.",
+          "vocab": [
+            {
+              "w": "契約",
+              "read": "けいやく",
+              "vi": "hợp đồng, giao kèo"
+            },
+            {
+              "w": "当月",
+              "read": "とうげつ",
+              "vi": "tháng hiện tại, tháng đó"
+            },
+            {
+              "w": "解約",
+              "read": "かいやく",
+              "vi": "hủy bỏ hợp đồng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "期間",
+              "read": "きかん",
+              "vi": "thời lượng, khoảng thời gian"
+            },
+            {
+              "w": "あらかじめ",
+              "read": "あらかじめ",
+              "vi": "sẵn, trước"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～べきだ",
+              "vi": "Nên làm gì (lời khuyên xác đáng/chuẩn bị cần thiết trước khi ký hợp đồng)"
+            }
+          ],
+          "keys": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "利用者はルールを守るべきです",
+          "label": "べきだ"
+        },
+        {
+          "excerpt": "成果にほかならないからです",
+          "label": "にほかならない"
+        },
+        {
+          "excerpt": "入室できるわけがありません",
+          "label": "わけがない"
+        },
+        {
+          "excerpt": "最も経済的なはずです",
+          "label": "はずだ"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "施設紹介・利用方針",
+          "topic": 0,
+          "note": "Giới thiệu chung và nguyên tắc tuân thủ nội quy",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 9,
+          "kind": "body",
+          "label": "料金プランと利用条件",
+          "topic": 3,
+          "note": "Bảng giá 4 gói dịch vụ, thời gian sử dụng, phí thành viên và phụ thu phòng riêng",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 15,
+          "kind": "point",
+          "label": "割引制度と注意事項",
+          "topic": 10,
+          "note": "Quy định giảm giá sinh viên, đóng nửa năm, giờ mở cửa và hủy hợp đồng",
+          "qs": [
+            1
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学院生のタンさんは、平日の夜（19:00〜21:00）と日曜日にオープンスペースで勉強するために初めて会員登録します。最初の1か月目に支払う合計金額として最も適切なものはどれですか（半年一括払いは利用しません）。",
+          "options": [
+            "5,500円",
+            "8,500円",
+            "10,500円",
+            "12,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ bảng giá và các lưu ý:\n1. Nhu cầu thời gian: Tối ngày thường (19:00〜21:00) và Chủ nhật -> Phù hợp gói 「ナイト＆ホリデー」 (7.500 yên/tháng, dòng 5).\n2. Đối tượng sinh viên: Xuất trình thẻ sinh viên được giảm cố định 2.000 yên/tháng (dòng 11) -> 7.500 - 2.000 = 5.500 yên.\n3. Đăng ký lần đầu (tháng đầu tiên): Bắt buộc nộp thêm phí nhập hội 3.000 yên (dòng 8).\nTổng cộng tháng đầu: 5.500 + 3.000 = 8.500 yên (Đáp án 2, index 1).",
+          "tip": "Khi tính chi phí tháng đầu tiên, cần chú ý cộng thêm phí nhập hội (入会金) và trừ giảm giá sinh viên (学割).",
+          "evi": [
+            5,
+            8,
+            11
+          ],
+          "qt": {
+            "q": "Tan, một học viên cao học, đăng ký hội viên lần đầu để học ở không gian chung vào các buổi tối ngày thường (19:00–21:00) và Chủ nhật. Tổng số tiền phù hợp nhất cần trả trong tháng đầu tiên là bao nhiêu (không sử dụng hình thức thanh toán trước trọn gói 6 tháng)?",
+            "o": [
+              "5.500 yên",
+              "8.500 yên",
+              "10.500 yên",
+              "12.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "会社員の佐藤さんは、平日の昼間（10:00〜16:00）にオープンスペースで仕事をしたいと考えています。さらに、週に1回（1回2時間、月4回で合計8時間）、個室でオンライン会議を行います。佐藤さんが毎月支払う料金が最も安くなる組み合わせはどれですか（入会金は含みません）。",
+          "options": [
+            "デイタイムプランに加入し、個室の追加料金（月4,000円）を支払う。",
+            "最初から個室が2時間まで無料のフルタイムプランに加入する。",
+            "24時間いつでも個室が使い放題のプレミアムプランに加入する。",
+            "ナイト＆ホリデープランに加入し、個室の追加料金を支払う。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ theo nhu cầu của anh Sato:\n- Thời gian: Ban ngày các ngày thường (10:00〜16:00) -> Khung giờ của gói 「デイタイム」 (9:00〜17:00, dòng 4) hoặc gói 「フルタイム」 (9:00〜22:00, dòng 6).\n- Nhu cầu phòng riêng: 8 giờ/tháng (2 giờ x 4 lần/tháng).\nSo sánh chi phí:\n+ Gói デイタイム (6.000 yên) + Phụ thu phòng riêng 8 giờ x 500 yên/giờ (dòng 9) = 6.000 + 4.000 = 10.000 yên/tháng.\n+ Gói フルタイム: 11.000 yên/tháng (đã miễn phí 2 giờ/ngày).\n+ Gói プレミアム: 15.000 yên/tháng.\n+ Gói ナイト＆ホリデー: Chỉ dùng từ 17:00 trở đi nên không thể đáp ứng nhu cầu làm việc ban ngày.\nDo đó, chọn gói デイタイム và trả thêm tiền phòng riêng (10.000 yên) là phương án tiết kiệm nhất (Đáp án 1, index 0).",
+          "tip": "So sánh tổng chi phí của gói thấp kèm phụ thu theo giờ so với gói cao hơn đã bao gồm quyền lợi phòng riêng.",
+          "evi": [
+            4,
+            6,
+            9
+          ],
+          "qt": {
+            "q": "Anh Sato, một nhân viên công ty, muốn làm việc trong không gian chung vào ban ngày các ngày thường (10:00–16:00). Ngoài ra, mỗi tuần một lần (mỗi lần 2 tiếng, 4 lần một tháng, tổng cộng 8 tiếng), anh sẽ họp trực tuyến trong phòng riêng. Tổ hợp nào giúp phí hằng tháng của anh Sato thấp nhất (không tính phí gia nhập)?",
+            "o": [
+              "Đăng ký gói ban ngày và trả phí phụ thu phòng riêng (4.000 yên/tháng).",
+              "Đăng ký ngay từ đầu gói toàn thời gian, trong đó tối đa 2 giờ sử dụng phòng riêng được miễn phí.",
+              "Đăng ký gói cao cấp, cho phép sử dụng phòng riêng không giới hạn bất cứ lúc nào trong 24 giờ.",
+              "Đăng ký gói đêm và ngày nghỉ, đồng thời trả phí phụ thu phòng riêng."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

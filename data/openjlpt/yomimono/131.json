@@ -1,0 +1,3693 @@
+{
+  "bai": 131,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này giúp học viên rèn luyện kỹ năng nhận diện và phân tích mối quan hệ nguyên nhân - kết quả trong bài đọc hiểu N3. Trọng tâm của bài là nắm bắt chính xác sự đối lập sắc thái giữa lời cảm ơn mang kết quả tích cực (〜おかげで), sự quy kết trách nhiệm cho kết quả tiêu cực (〜せいで), nguyên nhân khách quan (〜ために) và căn cứ logic lý giải nguồn gốc sự việc (〜ことから).",
+    "steps": [
+      "Bước 1: Quét nhanh các liên từ và cấu trúc chỉ quan hệ nhân quả (おかげで, せいで, ために, ことから) để chia tách rõ vế nguyên nhân (trước) và vế kết quả/kết luận (sau).",
+      "Bước 2: Phân tích tính chất của mệnh đề kết quả: nếu là kết quả có lợi, thành công thì định hướng tìm nguyên nhân tích cực với 〜おかげで; nếu là tổn thất, thất bại thì tìm nguyên nhân tiêu cực với 〜せいで.",
+      "Bước 3: Nhận diện cấu trúc 〜ことから khi vế sau giải thích nguồn gốc tên gọi (〜と呼ばれる, 〜と名付けられた) hoặc phán đoán một sự thật khách quan dựa trên dấu vết, đặc điểm cụ thể.",
+      "Bước 4: Kiểm tra tính ý chí của động từ và ngữ cảnh để phân biệt 〜ために chỉ nguyên nhân khách quan (vế sau không chứa ý chí/mệnh lệnh) với 〜ために chỉ mục đích hành động.",
+      "Bước 5: Lưu ý trợ từ nghi vấn 〜か trong 〜おかげか / 〜せいか biểu thị nguyên nhân chưa chắc chắn (có lẽ vì...), cảnh giác để loại bỏ các phương án trả lời khẳng định tuyệt đối 100%."
+    ],
+    "tips": [
+      "使い分け (おかげで vs せいで): Cùng chỉ nguyên nhân - kết quả nhưng おかげで dùng cho kết quả tốt với lòng biết ơn (hoặc mỉa mai), còn せいで chuyên dùng để đổ lỗi, phàn nàn về kết quả xấu.",
+      "使い分け (ことから vs ために): ことから đưa ra căn cứ/manh mối thực tế dẫn đến kết luận, tên gọi hoặc sự phán đoán; trong khi ために biểu thị trực tiếp nguyên nhân phát sinh sự việc/kết quả khách quan.",
+      "使い分け (ために nguyên nhân vs ために mục đích): ために nguyên nhân vế trước là trạng thái/động từ vô ý chí/danh từ sự cố và vế sau không dùng mệnh lệnh/nhờ vả; ために mục đích vế trước là động từ có ý chí.",
+      "Bẫy mức độ khẳng định với 〜か: Khi gặp 〜せいか hoặc 〜おかげか, tác giả chỉ phỏng đoán mơ hồ 'dường như/có lẽ do...', tuyệt đối không chọn các đáp án diễn đạt quan hệ nhân quả tất yếu hay chắc chắn.",
+      "Dấu hiệu chọn đáp án của 〜ことから: Thường xuất hiện trong các bài thuyết minh, giải thích nguồn gốc địa danh, loài vật hoặc suy luận khoa học đi kèm đuôi câu 〜と名付けられた, 〜と推測される, 〜ことがわかる."
+    ],
+    "grammarFocus": [
+      "～おかげで／おかげか — 接続: 普通形 / なAdj+な / Nの + おかげで／おかげか. Sắc thái: Biểu thị nguyên nhân dẫn đến kết quả tốt đẹp kèm lòng biết ơn (hoặc mỉa mai); おかげか diễn tả phán đoán không chắc chắn. Đối chiếu: Trái ngược hoàn toàn với せいで (tiêu cực, đổ lỗi).",
+      "～ことから — 接続: 普通形 (なAdj+な / N+である) + ことから. Sắc thái: Đưa ra lý do, căn cứ từ một sự thật cụ thể để dẫn đến tên gọi, kết luận hay sự thay đổi trong văn phong nghị luận/thuyết minh. Đối chiếu: Khác với ために (nhân quả diễn tiến), ことから nhấn mạnh manh mối phán đoán.",
+      "～ために（原因） — 接続: 普通形 / なAdj+な / Nの + ために. Sắc thái: Chỉ nguyên nhân dẫn đến kết quả khách quan hoặc sự cố bất lợi, vế sau không đi với ý chí/nhờ vả/mệnh lệnh. Đối chiếu: Phân biệt với ために chỉ mục đích (động từ có ý chí) và おかげで (kết quả biết ơn).",
+      "～せいで／せいか — 接続: 普通形 / なAdj+な / Nの + せいで／せいか. Sắc thái: Quy kết nguyên nhân và đổ lỗi cho một sự việc gây ra hậu quả xấu; せいか mang nghĩa 'có lẽ do...'. Đối chiếu: Đối lập trực tiếp với おかげで (tích cực)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（普通形/なAdj+な/N+の＋おかげで）",
+          "〜せいで（普通形/なAdj+な/N+の＋せいで）",
+          "〜せいか（普通形/なAdj+な/N+の＋せいか）"
+        ]
+      },
+      {
+        "bai": 60,
+        "items": [
+          "〜ように（mục đích）",
+          "〜ために（mục đích）"
+        ]
+      },
+      {
+        "bai": 68,
+        "items": [
+          "〜によって（(d) nguyên nhân sự kiện）",
+          "〜による＋N（bổ nghĩa danh từ）",
+          "〜により（dạng trang trọng của によって"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "水の都の再生",
+      "titleVi": "Sự hồi sinh của Thành phố của nước",
+      "japanese": "この町は、昔から水がきれいだったことから、「水の都」と呼ばれて親しまれてきた。しかし近年は、工場の排水が増えたせいで川が汚れ、観光客も減少してしまった。川の環境が悪化したために、町全体の活気まで失われかけていたのだ。そこで住民たちは、美しい自然を取り戻そうと清掃活動を始めた。\n市民が地道な活動を続けたおかげで、数年後には川に清らかな水が戻ってきた。水がきれいになったことから、今では町の特産品であるお酒や野菜の評判も再び高まっている。また、自然が豊かになったおかげか、都会から移住してくる若者も増えてきた。以前は過疎化のせいで暗い雰囲気が漂っていた商店街も、新しい店ができたために活気に満ちている。一人の小さな行動が地域を変えるということを、この町の歩みは教えてくれている。",
+      "vietnamese": "Thị trấn này từ xưa xuất phát từ việc nguồn nước trong sạch nên đã được mọi người thân thương gọi là \"Thành phố của nước\". Tuy nhiên những năm gần đây, do nước thải từ các nhà máy gia tăng mà con sông bị ô nhiễm, lượng khách du lịch cũng giảm sút. Vì môi trường sông ngòi bị suy thoái, đến cả sức sống của toàn bộ thị trấn cũng suýt chút nữa bị đánh mất. Do đó, người dân đã bắt đầu các hoạt động dọn dẹp vệ sinh nhằm giành lại thiên nhiên tươi đẹp.\nNhờ người dân kiên trì tiếp tục các hoạt động bền bỉ, vài năm sau dòng nước trong lành đã trở lại trên con sông. Xuất phát từ việc nguồn nước đã trong sạch trở lại, hiện nay danh tiếng của rượu và rau củ vốn là đặc sản của thị trấn cũng tăng cao trở lại. Ngoài ra, có lẽ nhờ thiên nhiên trở nên trù phú mà số lượng người trẻ từ thành phố chuyển về đây sinh sống cũng ngày càng tăng lên. Khu phố mua sắm trước đây vì tình trạng giảm dân số mà bao trùm bầu không khí ảm đạm, nay nhờ có các cửa hàng mới mở mà đã tràn ngập sức sống. Chặng đường phát triển của thị trấn này đã dạy cho chúng ta rằng hành động nhỏ của một người có thể thay đổi cả một cộng đồng.",
+      "sentences": [
+        {
+          "jp": "この町は、昔から水がきれいだったことから、「水の都」と呼ばれて親しまれてきた。",
+          "vi": "Thị trấn này từ xưa xuất phát từ việc nguồn nước trong sạch nên đã được mọi người thân thương gọi là \"Thành phố của nước\".",
+          "vocab": [
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "都",
+              "read": "みやこ",
+              "vi": "đô thị, thủ phủ"
+            },
+            {
+              "w": "呼ぶ",
+              "read": "よぶ",
+              "vi": "gọi, kêu gọi"
+            },
+            {
+              "w": "親しまれる",
+              "read": "したしまれる",
+              "vi": "được yêu thích, được yêu mến, thân thuộc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "【接続】V/A/Na/N(普) + ことから（Naだ→な/である, Nだ→である）. 【Sắc thái】Chỉ căn cứ, lý do hoặc nguồn gốc dẫn đến một tên gọi, phán đoán, sự việc. Mang tính khách quan, văn viết trang trọng. 【Đối chiếu】Khác với 〜から/〜ので (chỉ nguyên nhân - kết quả thông thường), 〜ことから nhấn mạnh 'xuất phát từ đặc điểm/thực tế X mà dẫn tới kết quả/tên gọi Y'."
+            }
+          ]
+        },
+        {
+          "jp": "しかし近年は、工場の排水が増えたせいで川が汚れ、観光客も減少してしまった。",
+          "vi": "Tuy nhiên những năm gần đây, do nước thải từ các nhà máy gia tăng mà con sông bị ô nhiễm, lượng khách du lịch cũng giảm sút.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy, xưởng"
+            },
+            {
+              "w": "排水",
+              "read": "はいすい",
+              "vi": "nước thải"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "川",
+              "read": "かわ",
+              "vi": "sông, suối"
+            },
+            {
+              "w": "汚れる",
+              "read": "よごれる",
+              "vi": "bị bẩn, dính bẩn"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "減少",
+              "read": "げんしょう",
+              "vi": "giảm sút, suy giảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで",
+              "vi": "【接続】V/A/Na/N(普) + せいで（Naだ→な, Nだ→の）. 【Sắc thái】Chỉ nguyên nhân dẫn đến kết quả tiêu cực, mang hàm ý trách móc, đổ lỗi hoặc tiếc nuối. 【Đối chiếu】Trái ngược với 〜おかげで (dùng cho kết quả tốt/biết ơn); khác với 〜ために (nguyên nhân khách quan trung tính, không chứa sắc thái đổ lỗi)."
+            }
+          ]
+        },
+        {
+          "jp": "川の環境が悪化したために、町全体の活気まで失われかけていたのだ。",
+          "vi": "Vì môi trường sông ngòi bị suy thoái, đến cả sức sống của toàn bộ thị trấn cũng suýt chút nữa bị đánh mất.",
+          "vocab": [
+            {
+              "w": "川",
+              "read": "かわ",
+              "vi": "sông, suối"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "悪化",
+              "read": "あっか",
+              "vi": "xấu đi, suy thoái"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "活気",
+              "read": "かっき",
+              "vi": "sức sống, sự sôi nổi"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（原因）",
+              "vi": "【接続】V/A/Na/N(普) + ため（に）（Naだ→な, Nだ→の）. 【Sắc thái】Chỉ nguyên nhân, lý do dẫn đến kết quả một cách khách quan, trang trọng trong văn viết hoặc phát biểu; vế sau không chứa câu mệnh lệnh, ý chí. 【Đối chiếu】Khác với 〜せいで (mang cảm xúc tiêu cực/đổ lỗi) và 〜おかげで (mang cảm xúc tích cực/cảm ơn), 〜ために hoàn toàn trung tính và trang trọng hơn 〜から/ので."
+            }
+          ]
+        },
+        {
+          "jp": "そこで住民たちは、美しい自然を取り戻そうと清掃活動を始めた。",
+          "vi": "Do đó, người dân đã bắt đầu các hoạt động dọn dẹp vệ sinh nhằm giành lại thiên nhiên tươi đẹp.",
+          "vocab": [
+            {
+              "w": "そこで",
+              "read": "そこで",
+              "vi": "vì thế, do đó"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân, người dân"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "取り戻す",
+              "read": "とりもどす",
+              "vi": "lấy lại, giành lại"
+            },
+            {
+              "w": "清掃",
+              "read": "せいそう",
+              "vi": "dọn dẹp, quét dọn"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようとする / ようと",
+              "vi": "【接続】V-意向形 + と（する）. 【Sắc thái】Diễn tả ý định, nỗ lực cố gắng làm một việc gì đó. 【Đối chiếu】Khác với 〜たい (chỉ ước muốn chủ quan), 〜ようとする/ようと nhấn mạnh hành động hoặc nỗ lực hướng tới mục tiêu."
+            }
+          ]
+        },
+        {
+          "jp": "市民が地道な活動を続けたおかげで、数年後には川に清らかな水が戻ってきた。",
+          "vi": "Nhờ người dân kiên trì tiếp tục các hoạt động bền bỉ, vài năm sau dòng nước trong lành đã trở lại trên con sông.",
+          "vocab": [
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân"
+            },
+            {
+              "w": "地道な",
+              "read": "じみちな",
+              "vi": "bền bỉ, âm thầm"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "続けた",
+              "read": "つづけた",
+              "vi": "đã tiếp tục"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ"
+            },
+            {
+              "w": "数年後",
+              "read": "すうねんご",
+              "vi": "vài năm sau"
+            },
+            {
+              "w": "川",
+              "read": "かわ",
+              "vi": "sông"
+            },
+            {
+              "w": "清らかな",
+              "read": "きよらかな",
+              "vi": "trong lành, thanh khiết"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "戻ってきた",
+              "read": "もどってきた",
+              "vi": "đã quay trở lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで",
+              "vi": "【接続】V/A/Na/N(普) + おかげで（Naだ→な, Nだ→の）. 【Sắc thái】Chỉ nguyên nhân dẫn đến kết quả tốt đẹp, mang sắc thái biết ơn, cảm kích. 【Đối chiếu】Trái ngược với 〜せいで (kết quả xấu/đổ lỗi); khác với 〜ために/〜ことから (nguyên nhân trung tính/khách quan)."
+            }
+          ]
+        },
+        {
+          "jp": "水がきれいになったことから、今では町の特産品であるお酒や野菜の評判も再び高まっている。",
+          "vi": "Xuất phát từ việc nguồn nước đã trong sạch trở lại, hiện nay danh tiếng của rượu và rau củ vốn là đặc sản của thị trấn cũng tăng cao trở lại.",
+          "vocab": [
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "酒",
+              "read": "さけ",
+              "vi": "rượu"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau, rau củ"
+            },
+            {
+              "w": "評判",
+              "read": "ひょうばん",
+              "vi": "danh tiếng, sự đánh giá"
+            },
+            {
+              "w": "再び",
+              "read": "ふたたび",
+              "vi": "lần nữa"
+            },
+            {
+              "w": "高まる",
+              "read": "たかまる",
+              "vi": "tăng cao, dâng cao"
+            },
+            {
+              "w": "特産品",
+              "read": "とくさんひん",
+              "vi": "đặc sản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "【接続】V/A/Na/N(普) + ことから（Naだ→な/である, Nだ→である）. 【Sắc thái】Biểu thị căn cứ, đầu mối thực tế làm phát sinh kết quả hoặc phán đoán. 【Đối chiếu】Khác với 〜おかげで (nhấn mạnh lòng biết ơn/tích cực), 〜ことから nhấn mạnh mối liên hệ logic nguyên nhân - căn cứ thực tế dẫn tới sự việc."
+            }
+          ]
+        },
+        {
+          "jp": "また、自然が豊かになったおかげか、都会から移住してくる若者も増えてきた。",
+          "vi": "Ngoài ra, có lẽ nhờ thiên nhiên trở nên trù phú mà số lượng người trẻ từ thành phố chuyển về đây sinh sống cũng ngày càng tăng lên.",
+          "vocab": [
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "phong phú, giàu có, trù phú"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "thành phố, đô thị"
+            },
+            {
+              "w": "移住",
+              "read": "いじゅう",
+              "vi": "di cư, chuyển đến sinh sống"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげか",
+              "vi": "【接続】V/A/Na/N(普) + おかげか（Naだ→な, Nだ→の）. 【Sắc thái】'Có lẽ nhờ...', nêu nguyên nhân mang tính tích cực nhưng người nói không hoàn toàn chắc chắn (mang chút phỏng đoán). 【Đối chiếu】So với 〜おかげで (khẳng định chắc chắn nguyên nhân), 〜おかげか có thêm phán đoán 'có lẽ/không biết có phải do...'; trái ngược với 〜せいか ('có lẽ do...' mang nghĩa tiêu cực)."
+            }
+          ]
+        },
+        {
+          "jp": "以前は過疎化のせいで暗い雰囲気が漂っていた商店街も、新しい店ができたために活気に満ちている。",
+          "vi": "Khu phố mua sắm trước đây vì tình trạng giảm dân số mà bao trùm bầu không khí ảm đạm, nay nhờ việc có các cửa hàng mới mở mà đã tràn ngập sức sống.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "過疎",
+              "read": "かそ",
+              "vi": "sự thưa dân, giảm dân số"
+            },
+            {
+              "w": "暗い",
+              "read": "くらい",
+              "vi": "tối tăm, tối"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "bầu không khí"
+            },
+            {
+              "w": "漂う",
+              "read": "ただよう",
+              "vi": "bao trùm, phảng phất, trôi nổi"
+            },
+            {
+              "w": "商店",
+              "read": "しょうてん",
+              "vi": "cửa hàng, tiệm"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "活気",
+              "read": "かっき",
+              "vi": "sức sống, sinh khí"
+            },
+            {
+              "w": "満ちる",
+              "read": "みちる",
+              "vi": "tràn ngập, đầy ắp"
+            },
+            {
+              "w": "過疎化",
+              "read": "かそか",
+              "vi": "hiện tượng giảm dân số vùng nông thôn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで ＆ 〜ために",
+              "vi": "【接続】Nの + せいで / V(普) + ために. 【Sắc thái】Đối chiếu hai vế: '過疎化のせいで' chỉ nguyên nhân tiêu cực trong quá khứ (đổ lỗi cho giảm dân số), còn 'できたために' chỉ nguyên nhân dẫn tới kết quả khách quan ở hiện tại. 【Đối chiếu】〜せいで dùng cho bối cảnh u ám (暗い雰囲気), 〜ために dùng để giải thích khách quan sự chuyển biến sôi nổi (活気に満ちている)."
+            }
+          ]
+        },
+        {
+          "jp": "一人の小さな行動が地域を変えるということを、この町の歩みは教えてくれている。",
+          "vi": "Chặng đường phát triển của thị trấn này đã dạy cho chúng ta rằng hành động nhỏ của một người có thể thay đổi cả một cộng đồng.",
+          "vocab": [
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một người"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, cộng đồng"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "歩み",
+              "read": "あゆみ",
+              "vi": "bước tiến, hành trình"
+            },
+            {
+              "w": "教えてくれている",
+              "read": "おしえてくれている",
+              "vi": "đang chỉ cho biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜という（こと）",
+              "vi": "【接続】V/A/Na/N(普) + ということ. 【Sắc thái】Danh từ hóa mệnh đề, dùng để giải thích hoặc đúc kết một nội dung, chân lý hoặc bài học. 【Đối chiếu】Khác với 〜こと đơn thuần, 〜ということ mang tính đúc kết nội dung truyền đạt hoặc nhận thức một cách trang trọng hơn."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "水がきれいだったことから",
+          "label": "Ngữ pháp 〜ことから (căn cứ/nguồn gốc)"
+        },
+        {
+          "excerpt": "工場の排水が増えたせいで",
+          "label": "Ngữ pháp 〜せいで (nguyên nhân tiêu cực/đổ lỗi)"
+        },
+        {
+          "excerpt": "活動を続けたおかげで",
+          "label": "Ngữ pháp 〜おかげで (nguyên nhân tích cực/biết ơn)"
+        },
+        {
+          "excerpt": "自然が豊かになったおかげか",
+          "label": "Ngữ pháp 〜おかげか (phỏng đoán nguyên nhân tích cực)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "かつてこの町で観光客が減少し、活気が失われかけた理由は何ですか。",
+          "options": [
+            "工場の排水が増えて川が汚れ、自然環境が悪化したため。",
+            "商店街の店がすべて閉店し、若者が都会に出て行ったため。",
+            "住民たちが清掃活動を完全にやめてしまったため。",
+            "町の特産品であるお酒や野菜の評判が落ちて売れなくなったため。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0 vì câu [1] và [2] nêu rõ: '工場の排水が増えたせいで川が汚れ、観光客も減少してしまった。川の環境が悪化したために、町全体の活気まで失われかけていたのだ' (Do nước thải nhà máy tăng làm sông ô nhiễm, khách du lịch giảm sút... vì môi trường sông suy thoái mà sức sống toàn thị trấn suýt mất đi).\n- Phương án 1 sai vì bài không nói tất cả tiệm đóng cửa mà chỉ nói không khí ảm đạm do giảm dân số (過疎化).\n- Phương án 2 sai vì người dân bắt đầu hoạt động dọn dẹp để cứu dòng sông chứ không phải dừng dọn dẹp.\n- Phương án 3 sai vì việc rượu và rau mất danh tiếng là hệ quả sau đó chứ không phải lý do trực tiếp ban đầu được tác giả nêu ra để giải thích cho việc khách giảm và sông bẩn.",
+          "tip": "Chú ý mẫu 〜せいで và 〜ために ở câu [1] và [2] chỉ nguyên nhân trực tiếp dẫn đến việc sông bị bẩn và du khách giảm.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Trước đây, vì sao lượng khách du lịch ở thị trấn này giảm và sức sống của thị trấn dần mất đi?",
+            "o": [
+              "Do lượng nước thải từ các nhà máy tăng lên, khiến sông bị ô nhiễm và môi trường tự nhiên xấu đi.",
+              "Do tất cả các cửa hàng trong khu phố mua sắm đóng cửa và người trẻ chuyển đến thành phố.",
+              "Do người dân đã hoàn toàn ngừng các hoạt động dọn vệ sinh.",
+              "Do danh tiếng của các đặc sản địa phương như rượu và rau củ giảm sút, khiến chúng không còn bán được."
+            ]
+          }
+        },
+        {
+          "q": "住民の清掃活動の後、町にはどのような変化が起きましたか。",
+          "options": [
+            "若者が町を出ていく一方で、工場がすべて閉鎖された。",
+            "川の水が戻り、特産品の評判が再び高まり移住者も増えた。",
+            "観光客は戻らなかったが、新しい工場が次々と建設された。",
+            "川はきれいになったが、商店街は過疎化が進んで人がいなくなった。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Căn cứ theo câu [4], [5], [6], [7]: nước sông trong lành trở lại (川に清らかな水が戻ってきた), danh tiếng đặc sản rượu/rau củ tăng cao (特産品であるお酒や野菜の評判も再び高まっている), thanh niên từ thành thị chuyển về sinh sống tăng (移住してくる若者も増えてきた), phố xá sôi nổi trở lại.\n- Phương án 0 sai vì người trẻ chuyển đến chứ không phải rời đi, bài cũng không nói nhà máy đóng cửa.\n- Phương án 2 sai vì các yếu tố phục hồi diễn ra tích cực, không hề đề cập việc xây thêm nhà máy mới.\n- Phương án 3 sai vì câu [7] cho biết 商店街 hiện nay tràn ngập sức sống (活気に満ちている) chứ không phải không còn ai.",
+          "tip": "Tổng hợp thông tin từ chuỗi biến đổi tích cực ở đoạn 2 (おかげで, ことから, おかげか, ために).",
+          "evi": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Sau khi người dân tổ chức các hoạt động dọn vệ sinh, thị trấn đã có những thay đổi như thế nào?",
+            "o": [
+              "Trong khi người trẻ rời khỏi thị trấn, tất cả các nhà máy đều đóng cửa.",
+              "Nước sông trong lành trở lại, danh tiếng của các đặc sản địa phương được nâng cao trở lại và số người chuyển đến cũng tăng lên.",
+              "Khách du lịch không quay trở lại, nhưng hết nhà máy mới này đến nhà máy mới khác được xây dựng.",
+              "Sông đã sạch hơn, nhưng tình trạng dân số suy giảm ở khu phố mua sắm ngày càng nghiêm trọng và nơi đó trở nên vắng người."
+            ]
+          }
+        },
+        {
+          "q": "本文中の「自然が豊かになったおかげか」という表現のニュアンスとして最も適切なものはどれか。",
+          "options": [
+            "自然が豊かになったことが原因で、悪い結果が起きて困っている気持ち。",
+            "自然が豊かになったことが若者の移住につながったのだろうと、確信は持てないが良い方向に推測している気持ち。",
+            "自然が豊かになったことに対して強い不満と批判を抱いている気持ち。",
+            "自然が豊かになったことと若者の移住には全く何の関係もないと断定する気持ち。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Mẫu 〜おかげか là sự kết hợp giữa おかげで (nhờ - nguyên nhân mang tính tích cực) và trợ từ nghi vấn か (phỏng đoán/không dám khẳng định chắc chắn 100%). Do đó mang sắc thái 'có lẽ nhờ vào điều tốt đẹp đó mà có được kết quả tích cực'.\n- Phương án 0 sai vì đây là kết quả tốt (若者も増えてきた), không phải kết quả xấu.\n- Phương án 2 sai vì おかげ mang nghĩa biết ơn/tích cực, hoàn toàn không mang nghĩa bất mãn hay chỉ trích.\n- Phương án 3 sai vì người nói phỏng đoán có mối quan hệ nhân quả tích cực chứ không hề phủ định mối liên hệ.",
+          "tip": "Nắm vững ngữ pháp N3: 〜おかげか dùng khi phỏng đoán nguyên nhân mang lại kết quả tích cực nhưng người nói không chắc chắn tuyệt đối.",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Cách diễn đạt 「自然が豊かになったおかげか」 (“có lẽ nhờ thiên nhiên trở nên phong phú”) trong bài thể hiện sắc thái nào phù hợp nhất?",
+            "o": [
+              "Cảm giác phiền lòng vì thiên nhiên trở nên phong phú đã gây ra kết quả xấu.",
+              "Cảm giác suy đoán theo hướng tích cực rằng thiên nhiên trở nên phong phú có lẽ đã dẫn đến việc người trẻ chuyển đến, dù không thể chắc chắn.",
+              "Cảm giác bất mãn và chỉ trích mạnh mẽ đối với việc thiên nhiên trở nên phong phú.",
+              "Cảm giác khẳng định dứt khoát rằng thiên nhiên trở nên phong phú hoàn toàn không liên quan gì đến việc người trẻ chuyển đến."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も伝えたいことは何か。",
+          "options": [
+            "一度汚れてしまった川や自然環境を元に戻すことは不可能である。",
+            "町の発展のためには、何よりも工場の数を増やすことが大切だ。",
+            "個人の小さな取り組みや努力の積み重ねが、地域社会を良い方向へ変える力になる。",
+            "若者が都会から移住してこない限り、過疎化した町が再生することはない。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Căn cứ vào câu kết bài [8]: '一人の小さな行動が地域を変えるということを、この町の歩みは教えてくれている' (Chặng đường phát triển của thị trấn này đã dạy cho chúng ta rằng hành động nhỏ của một người có thể thay đổi cả cộng đồng).\n- Phương án 0 sai vì bài chứng minh rằng thiên nhiên đã được phục hồi thành công nhờ nỗ lực của người dân.\n- Phương án 1 sai vì bài chỉ ra nước thải nhà máy từng là nguyên nhân gây ô nhiễm.\n- Phương án 3 sai vì việc người trẻ di cư chỉ là một trong các kết quả tốt đẹp đạt được sau nỗ lực làm sạch sông của cư dân chứ không phải điều kiện tiên quyết duy nhất.",
+          "tip": "Chú ý câu chủ đề và câu kết luận của bài văn nghị luận (câu [8]) để nắm được thông điệp tác giả muốn gửi gắm.",
+          "evi": [
+            3,
+            4,
+            8
+          ],
+          "qt": {
+            "q": "Điều mà tác giả muốn truyền tải nhất trong bài viết này là gì?",
+            "o": [
+              "Không thể khôi phục lại dòng sông và môi trường tự nhiên một khi chúng đã bị ô nhiễm.",
+              "Để thị trấn phát triển, điều quan trọng nhất là tăng số lượng nhà máy.",
+              "Những nỗ lực nhỏ của mỗi cá nhân, khi được tích lũy, có thể tạo sức mạnh giúp cộng đồng địa phương thay đổi theo hướng tốt đẹp.",
+              "Nếu người trẻ không chuyển từ thành phố đến, thị trấn bị giảm dân số sẽ không thể hồi sinh."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "「曲げわっぱ」に見る伝統工芸の再生と知恵",
+      "titleVi": "Sự hồi sinh và tri thức đổi mới của nghề thủ công truyền thống qua hộp cơm Magewappa",
+      "japanese": "日本の伝統的な工芸品である「曲げわっぱ」は、杉やヒノキの薄い板を曲げて作られることから、その名が付けられました。木の美しい木目と優しい手触りがあるために、昔から多くの人々に愛用されてきました。しかし、昭和の高度経済成長期には、軽くて安いプラスチック製品が普及したせいで、木の弁当箱の需要は急激に落ち込みました。手入れに手間がかかるというイメージが広まったせいか、若い世代が伝統工芸から離れてしまった時期もありました。その結果、多くの職人が後継者不足に悩むことになり、技術の継承が危ぶまれていました。\n\n状況が変わり始めたのは、自然素材の良さや環境への優しさが世界的に見直されるようになったことからです。木の弁当箱にはご飯の余分な水分を吸い、おいしさを保つ効果があることが科学的にも証明されました。また、インターネットやSNSが発達したおかげで、職人たちが自分たちの手仕事の魅力を直接消費者に伝えられるようになりました。見た目が美しく写真映えするおかげか、曲げわっぱは若い女性や海外の観光客の間で再び大人気となっています。このように、新しい情報発信の方法を得たことで、伝統工芸は再び息を吹き返したのです。\n\nさらに、現代のライフスタイルに合わせたデザインの改良が進んだために、使いやすさも大幅に向上しました。例えば、洗剤で洗える特殊なコーティングを施した製品が開発されたおかげで、忙しい現代人でも気軽に使えるようになりました。近年では、使い捨て容器を減らそうとする環境意識が高まったことから、日常的に弁当箱を持ち歩く人が増えています。プラスチックゴミによる環境破壊が問題視されているために、自然に還る木製品の価値が再評価されているのです。伝統の技を守りながらも、現代のニーズに柔軟に対応したことが、この成功をもたらしたと言えます。\n\nもちろん、職人の高齢化という問題が完全に解決したわけではありません。自動化できない手作業の部分が多いために、生産量を急に増やすことが難しいという課題も残っています。それでも、ものづくりの精神を大切にする文化が根付いているおかげで、新しく弟子入りを希望する若者も現れています。時代の変化を単なる危機と捉えるのではなく、可能性として受け入れたことから、新たな道が開けたのでしょう。古い伝統と新しい知恵を結びつける工夫こそが、これからの工芸品を未来へつなぐ鍵となるはずです。",
+      "vietnamese": "Hộp cơm 'Magewappa' - một sản phẩm thủ công mỹ nghệ truyền thống của Nhật Bản - được đặt tên như vậy xuất phát từ thực tế là nó được tạo nên bằng cách uốn cong những tấm ván mỏng từ gỗ tuyết tùng hoặc gỗ bách. Vì sở hữu những đường vân gỗ tuyệt đẹp cùng cảm giác chạm vào êm ái, nó đã được đông đảo mọi người ưa chuộng sử dụng từ xa xưa. Thế nhưng, vào thời kỳ kinh tế tăng trưởng cao thời Chiêu Hòa (Showa), do sự phổ biến của các sản phẩm nhựa vừa nhẹ vừa rẻ, nhu cầu về hộp cơm bằng gỗ đã sụt giảm nghiêm trọng. Có lẽ vì định kiến rằng việc lau chùi bảo quản tốn nhiều công sức đã lan rộng, từng có một thời kỳ thế hệ trẻ dần quay lưng với đồ thủ công truyền thống. Kết quả là, nhiều nghệ nhân đã phải trăn trở với tình trạng thiếu người kế nghiệp, và việc kế thừa kỹ nghệ truyền thống từng rơi vào tình thế đáng lo ngại.\n\nTình hình bắt đầu thay đổi từ việc những ưu điểm của chất liệu tự nhiên và sự thân thiện với môi trường được toàn thế giới nhìn nhận, đánh giá lại. Khoa học cũng đã chứng minh rằng hộp cơm bằng gỗ có công dụng hút bớt độ ẩm dư thừa của cơm và giữ trọn độ thơm ngon. Thêm vào đó, nhờ sự phát triển mạnh mẽ của internet và mạng xã hội, các nghệ nhân đã có thể truyền tải trực tiếp sức hút từ những sản phẩm làm bằng tay của mình tới người tiêu dùng. Có lẽ nhờ vẻ ngoài đẹp mắt và lên hình rất ăn ảnh, Magewappa lại trở nên vô cùng được ưa chuộng trong giới phụ nữ trẻ và du khách quốc tế. Như vậy, bằng việc có được phương thức truyền thông mới, ngành thủ công truyền thống đã hồi sinh trở lại.\n\nHơn nữa, vì các cải tiến về thiết kế cho phù hợp với lối sống hiện đại đã được đẩy mạnh, tính tiện dụng của sản phẩm cũng được nâng cao đáng kể. Chẳng hạn, nhờ việc phát triển các sản phẩm được phủ lớp tráng đặc biệt có thể rửa bằng nước rửa chén, ngay cả những người hiện đại bận rộn cũng có thể thoải mái sử dụng mỗi ngày. Những năm gần đây, xuất phát từ việc ý thức bảo vệ môi trường nhằm giảm thiểu đồ dùng một lần được nâng cao, số người mang theo hộp cơm bên mình ngày càng tăng. Do tình trạng hủy hoại môi trường từ rác thải nhựa đang bị coi là vấn đề nan giải, giá trị của các sản phẩm gỗ có thể phân hủy tự nhiên đang được tái đánh giá cao. Có thể nói rằng, việc vừa gìn giữ kỹ nghệ truyền thống lại vừa thích ứng linh hoạt với nhu cầu thời hiện đại đã đem lại thành công này.\n\nTất nhiên, không phải là vấn đề già hóa nghệ nhân đã được giải quyết hoàn toàn. Vì có nhiều công đoạn thủ công không thể tự động hóa được, vấn đề nan giải là khó có thể đột ngột gia tăng sản lượng vẫn còn tồn tại. Dù vậy, nhờ nền văn hóa luôn trân trọng tinh thần chế tác thủ công đã bén rễ sâu sắc, những người trẻ mới có nguyện vọng xin bái sư học nghề cũng đang dần xuất hiện. Có lẽ chính từ việc không coi sự thay đổi của thời đại đơn thuần là khủng hoảng mà đón nhận nó như một cơ hội tiềm năng, một con đường mới đã được mở ra. Chính công sức tìm tòi nhằm gắn kết truyền thống xưa cũ với tri thức mới mẻ chắc chắn sẽ là chìa khóa kết nối các sản phẩm thủ công này tới tương lai.",
+      "sentences": [
+        {
+          "jp": "日本の伝統的な工芸品である「曲げわっぱ」は、杉やヒノキの薄い板を曲げて作られることから、その名が付けられました。",
+          "vi": "Hộp cơm 'Magewappa' - một sản phẩm thủ công truyền thống của Nhật Bản - được đặt tên như vậy từ thực tế là nó được làm bằng cách uốn cong những tấm ván mỏng từ gỗ tuyết tùng hoặc gỗ bách.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "伝統的な",
+              "read": "でんとうてきな",
+              "vi": "mang tính truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "thủ công mỹ nghệ"
+            },
+            {
+              "w": "工芸品",
+              "read": "こうげいひん",
+              "vi": "đồ thủ công"
+            },
+            {
+              "w": "曲げわっぱ",
+              "read": "まげわっぱ",
+              "vi": "hộp gỗ uốn cong truyền thống"
+            },
+            {
+              "w": "杉",
+              "read": "すぎ",
+              "vi": "cây tuyết tùng"
+            },
+            {
+              "w": "ヒノキ",
+              "read": "ひのき",
+              "vi": "cây bách Nhật"
+            },
+            {
+              "w": "薄い",
+              "read": "うすい",
+              "vi": "mỏng"
+            },
+            {
+              "w": "板",
+              "read": "いた",
+              "vi": "tấm ván"
+            },
+            {
+              "w": "曲げて",
+              "read": "まげて",
+              "vi": "uốn"
+            },
+            {
+              "w": "作られる",
+              "read": "つくられる",
+              "vi": "được làm"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó, ấy"
+            },
+            {
+              "w": "名",
+              "read": "な",
+              "vi": "tên"
+            },
+            {
+              "w": "付けられました",
+              "read": "つけられました",
+              "vi": "được đặt"
+            },
+            {
+              "w": "名が付けられました",
+              "read": "ながつけられました",
+              "vi": "được đặt tên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "【接続】V/A/N(普) + ことから（N・Naだ→な/である）。【Sắc thái】Biểu thị căn cứ khách quan hoặc nguồn gốc xuất phát để đặt tên/gọi tên một sự vật hay rút ra một phán đoán. Thường dịch là 'từ việc...', 'xuất phát từ thực tế là...'. 【Đối chiếu】Khác với 〜から/ので (chỉ nguyên nhân - kết quả thông thường mang tính chủ quan hoặc diễn tiến tự nhiên), 〜ことから nhấn mạnh vào 'căn cứ thực tế hiển nhiên dẫn đến nhận định hoặc tên gọi'."
+            }
+          ]
+        },
+        {
+          "jp": "木の美しい木目と優しい手触りがあるために、昔から多くの人々に愛用されてきました。",
+          "vi": "Vì có những đường vân gỗ tuyệt đẹp và cảm giác chạm vào êm ái, nó đã được nhiều người ưa chuộng sử dụng từ xa xưa.",
+          "vocab": [
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "木目",
+              "read": "もくめ",
+              "vi": "vân gỗ"
+            },
+            {
+              "w": "優しい",
+              "read": "やさしい",
+              "vi": "dịu dàng, hiền từ"
+            },
+            {
+              "w": "手触り",
+              "read": "てざわり",
+              "vi": "cảm giác khi chạm tay vào"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "愛用する",
+              "read": "あいようする",
+              "vi": "ưa chuộng sử dụng, thích dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（原因）",
+              "vi": "【接続】V/A/Naな/Nの + ために。【Sắc thái】Chỉ nguyên nhân, lý do dẫn đến một kết quả mang tính khách quan, trang trọng, thường dùng trong văn viết/nghị luận. Vế sau không chứa ý chí hay mệnh lệnh. 【Đối chiếu】Khách quan và trang trọng hơn 〜から/ので; khác với 〜せいで (hướng tới kết quả tiêu cực/trách móc) và 〜おかげで (hướng tới kết quả tích cực/biết ơn)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、昭和の高度経済成長期には、軽くて安いプラスチック製品が普及したせいで、木の弁当箱の需要は急激に落ち込みました。",
+          "vi": "Thế nhưng, vào thời kỳ kinh tế tăng trưởng cao thời Chiêu Hòa (Showa), do sự phổ biến của các sản phẩm nhựa vừa nhẹ vừa rẻ, nhu cầu về hộp cơm bằng gỗ đã sụt giảm nghiêm trọng.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "昭和",
+              "read": "しょうわ",
+              "vi": "thời Shōwa (1926–1989)"
+            },
+            {
+              "w": "高度",
+              "read": "こうど",
+              "vi": "trình độ cao, độ cao"
+            },
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "軽い",
+              "read": "かるい",
+              "vi": "nhẹ"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "プラスチック",
+              "read": "プラスチック",
+              "vi": "nhựa, chất dẻo"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "普及する",
+              "read": "ふきゅうする",
+              "vi": "phổ biến rộng rãi"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "弁当",
+              "read": "べんとう",
+              "vi": "cơm hộp"
+            },
+            {
+              "w": "需要",
+              "read": "じゅよう",
+              "vi": "nhu cầu"
+            },
+            {
+              "w": "急激",
+              "read": "きゅうげき",
+              "vi": "đột ngột, nhanh chóng và dữ dội"
+            },
+            {
+              "w": "落ち込む",
+              "read": "おちこむ",
+              "vi": "sụt giảm, sa sút"
+            },
+            {
+              "w": "高度経済成長期",
+              "read": "こうどけいざいせいちょうき",
+              "vi": "thời kỳ tăng trưởng kinh tế cao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで",
+              "vi": "【接続】V/A/Naな/Nの + せいで。【Sắc thái】Chỉ nguyên nhân dẫn đến kết quả xấu, mang sắc thái đổ lỗi, phàn nàn, trách móc. 【Đối chiếu】Trái ngược hoàn toàn với 〜おかげで (kết quả tốt/biết ơn); tiêu cực và mang tính quy kết trách nhiệm hơn so với 〜ので/ために (nguyên nhân trung tính)."
+            }
+          ]
+        },
+        {
+          "jp": "手入れに手間がかかるというイメージが広まったせいか、若い世代が伝統工芸から離れてしまった時期もありました。",
+          "vi": "Có lẽ vì định kiến rằng việc bảo quản, chăm sóc tốn nhiều công sức đã lan rộng, từng có một thời kỳ thế hệ trẻ quay lưng với đồ thủ công truyền thống.",
+          "vocab": [
+            {
+              "w": "手入れ",
+              "read": "ていれ",
+              "vi": "chăm sóc, bảo dưỡng"
+            },
+            {
+              "w": "手間",
+              "read": "てま",
+              "vi": "công sức, thời gian"
+            },
+            {
+              "w": "手間がかかる",
+              "read": "てまがかかる",
+              "vi": "tốn công"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, cần đến"
+            },
+            {
+              "w": "イメージ",
+              "read": "いめーじ",
+              "vi": "hình ảnh, ấn tượng"
+            },
+            {
+              "w": "広まった",
+              "read": "ひろまった",
+              "vi": "đã lan rộng"
+            },
+            {
+              "w": "せいか",
+              "read": "せいか",
+              "vi": "có lẽ vì"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "伝統工芸",
+              "read": "でんとうこうげい",
+              "vi": "thủ công truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "thủ công mỹ nghệ"
+            },
+            {
+              "w": "離れてしまった",
+              "read": "はなれてしまった",
+              "vi": "đã rời xa"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời kỳ, giai đoạn"
+            },
+            {
+              "w": "ありました",
+              "read": "ありました",
+              "vi": "đã có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいか",
+              "vi": "【接続】V/A/Naな/Nの + せいか。【Sắc thái】Người nói suy đoán rằng 'không biết có phải do... hay không mà dẫn đến kết quả xấu', thể hiện sự phỏng đoán không chắc chắn 100% về nguyên nhân tiêu cực. 【Đối chiếu】Khác 〜せいで (khẳng định chắc chắn nguyên nhân xấu), 〜せいか chỉ là phỏng đoán mềm mại; đối lập với 〜おかげか (phỏng đoán nguyên nhân mang lại kết quả tốt)."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、多くの職人が後継者不足に悩むことになり、技術の継承が危ぶまれていました。",
+          "vi": "Kết quả là, nhiều nghệ nhân đã phải trăn trở với tình trạng thiếu người kế nghiệp, và việc kế thừa kỹ nghệ truyền thống từng rơi vào tình thế đáng lo ngại.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "後継",
+              "read": "こうけい",
+              "vi": "kế thừa, nối dõi"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "悩む",
+              "read": "なやむ",
+              "vi": "khổ sở, băn khoăn"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa, truyền lại"
+            },
+            {
+              "w": "危ぶまれる",
+              "read": "あやぶまれる",
+              "vi": "bị lo ngại, bị đe dọa (tính an toàn/tiếp nối)"
+            },
+            {
+              "w": "後継者不足",
+              "read": "こうけいしゃぶそく",
+              "vi": "tình trạng thiếu người kế nghiệp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことになる",
+              "vi": "【接続】V辞書形/Vない + ことになる。【Sắc thái】Diễn tả một tình thế hoặc kết quả xảy ra do hoàn cảnh khách quan đưa đẩy chứ không phải do ý chí chủ quan tự quyết định ngay từ đầu. 【Đối chiếu】Khác với 〜ことにする (thể hiện quyết định chủ quan của bản thân)."
+            }
+          ]
+        },
+        {
+          "jp": "状況が変わり始めたのは、自然素材の良さや環境への優しさが世界的に見直されるようになったことからです。",
+          "vi": "Tình hình bắt đầu thay đổi từ việc những ưu điểm của chất liệu tự nhiên và sự thân thiện với môi trường được toàn thế giới nhìn nhận, đánh giá lại.",
+          "vocab": [
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình hình"
+            },
+            {
+              "w": "変わり始めた",
+              "read": "かわりはじめた",
+              "vi": "bắt đầu thay đổi"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "tự nhiên"
+            },
+            {
+              "w": "自然素材",
+              "read": "しぜんそざい",
+              "vi": "vật liệu tự nhiên"
+            },
+            {
+              "w": "素材",
+              "read": "そざい",
+              "vi": "chất liệu"
+            },
+            {
+              "w": "良さ",
+              "read": "よさ",
+              "vi": "điểm tốt, ưu điểm"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "環境への優しさ",
+              "read": "かんきょうへのやさしさ",
+              "vi": "sự thân thiện với môi trường"
+            },
+            {
+              "w": "優しさ",
+              "read": "やさしさ",
+              "vi": "sự thân thiện"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "世界的に",
+              "read": "せかいてきに",
+              "vi": "trên toàn thế giới"
+            },
+            {
+              "w": "見直される",
+              "read": "みなおされる",
+              "vi": "được đánh giá lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "【接続】V/A/N(普) + ことから（đứng cuối câu dạng 〜ことからだ／〜ことからです）。【Sắc thái】Nêu ra căn cứ, nguyên do khách quan làm mốc khởi đầu giải thích cho sự biến chuyển hoặc hiện tượng nêu ở vế trước. 【Đối chiếu】Khác 〜からだ (giải thích lý do đơn thuần), 〜ことからだ nhấn mạnh vào một 'sự việc/thực tế cụ thể' làm khởi nguồn cho sự đổi thay."
+            }
+          ]
+        },
+        {
+          "jp": "木の弁当箱にはご飯の余分な水分を吸い、おいしさを保つ効果があることが科学的にも証明されました。",
+          "vi": "Khoa học cũng đã chứng minh rằng hộp cơm bằng gỗ có công dụng hút bớt hơi ẩm dư thừa của cơm và giữ trọn độ ngon.",
+          "vocab": [
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "弁当",
+              "read": "べんとう",
+              "vi": "cơm hộp"
+            },
+            {
+              "w": "ご飯",
+              "read": "ごはん",
+              "vi": "cơm"
+            },
+            {
+              "w": "余分",
+              "read": "よぶん",
+              "vi": "thừa thãi, dư thừa"
+            },
+            {
+              "w": "水分",
+              "read": "すいぶん",
+              "vi": "độ ẩm, lượng nước"
+            },
+            {
+              "w": "吸う",
+              "read": "すう",
+              "vi": "hút, hít"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "保つ",
+              "read": "たもつ",
+              "vi": "duy trì, giữ gìn"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả, tác dụng"
+            },
+            {
+              "w": "科学",
+              "read": "かがく",
+              "vi": "khoa học"
+            },
+            {
+              "w": "証明される",
+              "read": "しょうめいされる",
+              "vi": "được chứng minh"
+            },
+            {
+              "w": "科学的",
+              "read": "かがくてき",
+              "vi": "mang tính khoa học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことがある（〜効果がある）",
+              "vi": "【接続】N + がある。【Sắc thái】Diễn đạt sự tồn tại của một đặc tính, công dụng cụ thể ('có hiệu quả/tác dụng...'). Ở đây đi kèm mệnh đề bổ nghĩa để làm rõ tính năng tự nhiên của hộp gỗ."
+            }
+          ]
+        },
+        {
+          "jp": "また、インターネットやSNSが発達したおかげで、職人たちが自分たちの手仕事の魅力を直接消費者に伝えられるようになりました。",
+          "vi": "Thêm vào đó, nhờ có sự phát triển của internet và mạng xã hội, các nghệ nhân đã có thể truyền tải trực tiếp sức hút từ những sản phẩm làm bằng tay của mình tới người tiêu dùng.",
+          "vocab": [
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "SNS",
+              "read": "SNS",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "発達する",
+              "read": "はったつする",
+              "vi": "phát triển"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "手仕事",
+              "read": "てしごと",
+              "vi": "công việc thủ công, đồ làm bằng tay"
+            },
+            {
+              "w": "魅力",
+              "read": "みりょく",
+              "vi": "sức hút, vẻ quyến rũ"
+            },
+            {
+              "w": "直接",
+              "read": "ちょくせつ",
+              "vi": "trực tiếp"
+            },
+            {
+              "w": "消費",
+              "read": "しょうひ",
+              "vi": "tiêu thụ, tiêu dùng"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "消費者",
+              "read": "しょうひしゃ",
+              "vi": "người tiêu dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで",
+              "vi": "【接続】V/A/Naな/Nの + おかげで。【Sắc thái】Biểu thị nguyên nhân mang lại kết quả tốt đẹp, thể hiện lòng biết ơn hoặc sự may mắn trước một điều kiện thuận lợi. 【Đối chiếu】Trái ngược hoàn toàn với 〜せいで (chỉ nguyên nhân gây ra kết quả xấu); tích cực hơn 〜ので/ために (nguyên nhân trung tính)."
+            }
+          ]
+        },
+        {
+          "jp": "見た目が美しく写真映えするおかげか、曲げわっぱは若い女性や海外の観光客の間で再び大人気となっています。",
+          "vi": "Có lẽ nhờ có vẻ ngoài đẹp mắt và lên hình rất ăn ảnh, Magewappa lại trở nên vô cùng được ưa chuộng trong giới phụ nữ trẻ và du khách quốc tế.",
+          "vocab": [
+            {
+              "w": "見た目",
+              "read": "みため",
+              "vi": "vẻ bề ngoài"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, hình chụp"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "曲げる",
+              "read": "まげる",
+              "vi": "uốn cong, bẻ cong"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "女性",
+              "read": "じょせい",
+              "vi": "nữ giới, phụ nữ"
+            },
+            {
+              "w": "海外",
+              "read": "かいがい",
+              "vi": "nước ngoài, hải ngoại"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "再び",
+              "read": "ふたたび",
+              "vi": "lần nữa"
+            },
+            {
+              "w": "大人気",
+              "read": "だいにんき",
+              "vi": "rất được yêu thích, vô cùng phổ biến"
+            },
+            {
+              "w": "写真映え",
+              "read": "しゃしんばえ",
+              "vi": "lên ảnh đẹp, ăn ảnh"
+            },
+            {
+              "w": "観光客",
+              "read": "かんこうきゃく",
+              "vi": "khách du lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげか",
+              "vi": "【接続】V/A/Naな/Nの + おかげか。【Sắc thái】Người nói suy đoán rằng 'có lẽ nhờ có... mà đạt được kết quả tốt', thể hiện sự phỏng đoán khiêm tốn, không hoàn toàn chắc chắn về lý do tích cực. 【Đối chiếu】Khác 〜おかげで (khẳng định chắc chắn nguyên nhân tốt), 〜おかげか mang tính ước lượng phỏng đoán; đối lập với 〜せいか (phỏng đoán lý do tiêu cực)."
+            }
+          ]
+        },
+        {
+          "jp": "このように、新しい情報発信の方法を得たことで、伝統工芸は再び息を吹き返したのです。",
+          "vi": "Như vậy, bằng việc có được phương thức truyền thông mới, ngành thủ công truyền thống đã hồi sinh trở lại.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "発信",
+              "read": "はっしん",
+              "vi": "sự phát đi, truyền đi"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "có được, đạt được"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "再び",
+              "read": "ふたたび",
+              "vi": "lần nữa"
+            },
+            {
+              "w": "息",
+              "read": "いき",
+              "vi": "hơi thở"
+            },
+            {
+              "w": "情報発信",
+              "read": "じょうほうはっしん",
+              "vi": "truyền tải thông tin, phát đi thông tin"
+            },
+            {
+              "w": "息を吹き返す",
+              "read": "いきをふきかえす",
+              "vi": "hồi sinh, sống lại, phục hồi sức sống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで",
+              "vi": "【接続】V/A/N(普) + ことで。【Sắc thái】Chỉ nguyên nhân, phương tiện hoặc cơ hội dẫn đến một hành động hay sự thay đổi tiếp theo ('nhờ vào việc...', 'thông qua việc...')."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、現代のライフスタイルに合わせたデザインの改良が進んだために、使いやすさも大幅に向上しました。",
+          "vi": "Hơn nữa, vì các cải tiến về thiết kế cho phù hợp với lối sống hiện đại đã được đẩy mạnh, tính tiện dụng cũng được nâng cao đáng kể.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "ライフスタイル",
+              "read": "らいふすたいる",
+              "vi": "lối sống, phong cách sống"
+            },
+            {
+              "w": "合わせる",
+              "read": "あわせる",
+              "vi": "thống nhất, khớp lại"
+            },
+            {
+              "w": "デザイン",
+              "read": "デザイン",
+              "vi": "thiết kế"
+            },
+            {
+              "w": "改良",
+              "read": "かいりょう",
+              "vi": "sự cải tiến"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "使いやすさ",
+              "read": "つかいやすさ",
+              "vi": "độ dễ sử dụng, tính tiện dụng"
+            },
+            {
+              "w": "大幅に",
+              "read": "おおはばに",
+              "vi": "đáng kể, mạnh mẽ"
+            },
+            {
+              "w": "向上する",
+              "read": "こうじょうする",
+              "vi": "nâng cao, tiến bộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（原因）",
+              "vi": "【接続】V/A/Naな/Nの + ために。【Sắc thái】Chỉ nguyên nhân khách quan dẫn đến sự tiến triển hay nâng cao về mặt chất lượng. Trang trọng, dùng nhiều trong văn luận giải. 【Đối chiếu】Khác với 〜ために mang nghĩa mục đích (Vる + ために: Để làm gì), ở đây đi với động từ chỉ sự chuyển biến/tình trạng (進んだために) để chỉ nguyên nhân."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、洗剤で洗える特殊なコーティングを施した製品が開発されたおかげで、忙しい現代人でも気軽に使えるようになりました。",
+          "vi": "Chẳng hạn, nhờ việc phát triển các sản phẩm được phủ lớp tráng đặc biệt có thể rửa bằng nước rửa chén, ngay cả những người hiện đại bận rộn cũng có thể thoải mái sử dụng.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "洗剤",
+              "read": "せんざい",
+              "vi": "chất tẩy rửa"
+            },
+            {
+              "w": "洗える",
+              "read": "あらえる",
+              "vi": "có thể rửa, giặt"
+            },
+            {
+              "w": "特殊",
+              "read": "とくしゅ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "特殊な",
+              "read": "とくしゅな",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "コーティング",
+              "read": "こーてぃんぐ",
+              "vi": "lớp phủ"
+            },
+            {
+              "w": "施した",
+              "read": "ほどこした",
+              "vi": "đã phủ, áp dụng"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "開発",
+              "read": "かいはつ",
+              "vi": "phát triển"
+            },
+            {
+              "w": "開発された",
+              "read": "かいはつされた",
+              "vi": "được phát triển"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại"
+            },
+            {
+              "w": "現代人",
+              "read": "げんだいじん",
+              "vi": "người hiện đại"
+            },
+            {
+              "w": "気軽に",
+              "read": "きがるに",
+              "vi": "dễ dàng, thoải mái"
+            },
+            {
+              "w": "使える",
+              "read": "つかえる",
+              "vi": "có thể sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで",
+              "vi": "【接続】V/A/Naな/Nの + おかげで。【Sắc thái】Nhấn mạnh sự biết ơn đối với một yếu tố kỹ thuật mới đã mang lại sự tiện lợi vượt bậc cho người dùng. 【Đối chiếu】So với 〜ので/から, 〜おかげで diễn tả cảm xúc vui mừng, đánh giá cao kết quả đạt được."
+            }
+          ]
+        },
+        {
+          "jp": "近年では、使い捨て容器を減らそうとする環境意識が高まったことから、日常的に弁当箱を持ち歩く人が増えています。",
+          "vi": "Những năm gần đây, xuất phát từ việc ý thức bảo vệ môi trường nhằm giảm thiểu hộp dùng một lần được nâng cao, số người mang theo hộp cơm mỗi ngày ngày càng tăng.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "gần đây, những năm gần đây"
+            },
+            {
+              "w": "使い捨て",
+              "read": "つかいすて",
+              "vi": "sự dùng một lần"
+            },
+            {
+              "w": "容器",
+              "read": "ようき",
+              "vi": "hộp đựng, vật đựng"
+            },
+            {
+              "w": "減らす",
+              "read": "へらす",
+              "vi": "giảm bớt"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "意識",
+              "read": "いしき",
+              "vi": "ý thức, sự chú ý"
+            },
+            {
+              "w": "高まる",
+              "read": "たかまる",
+              "vi": "tăng cao, dâng cao"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "đời sống thường nhật"
+            },
+            {
+              "w": "弁当",
+              "read": "べんとう",
+              "vi": "cơm hộp"
+            },
+            {
+              "w": "持ち歩く",
+              "read": "もちあるく",
+              "vi": "mang theo bên mình"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "使い捨て容器",
+              "read": "つかいすてようき",
+              "vi": "hộp/hộp đựng dùng một lần"
+            },
+            {
+              "w": "環境意識",
+              "read": "かんきょういしき",
+              "vi": "ý thức về môi trường"
+            },
+            {
+              "w": "日常的に",
+              "read": "にちじょうてきに",
+              "vi": "một cách thường nhật, hàng ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "【接続】V/A/N(普) + ことから。【Sắc thái】Biểu thị căn cứ/bối cảnh xã hội dẫn đến sự thay đổi trong hành vi của cộng đồng (người mang cơm tăng lên). 【Đối chiếu】So với 〜ので, 〜ことから mang tính văn viết trang trọng, thể hiện mối quan hệ logic chặt chẽ dựa trên một hiện tượng hay xu thế có thật."
+            }
+          ]
+        },
+        {
+          "jp": "プラスチックゴミによる環境破壊が問題視されているために、自然に還る木製品の価値が再評価されているのです。",
+          "vi": "Do tình trạng hủy hoại môi trường từ rác thải nhựa đang bị coi là vấn đề nghiêm trọng, giá trị của các sản phẩm gỗ có thể phân hủy tự nhiên đang được tái đánh giá cao.",
+          "vocab": [
+            {
+              "w": "プラスチックゴミ",
+              "read": "ぷらすちっくごみ",
+              "vi": "rác nhựa"
+            },
+            {
+              "w": "プラスチック",
+              "read": "ぷらすちっく",
+              "vi": "nhựa"
+            },
+            {
+              "w": "ゴミ",
+              "read": "ごみ",
+              "vi": "rác"
+            },
+            {
+              "w": "環境破壊",
+              "read": "かんきょうはかい",
+              "vi": "phá hoại môi trường"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "破壊",
+              "read": "はかい",
+              "vi": "phá hoại"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "問題視されている",
+              "read": "もんだいしされている",
+              "vi": "đang bị coi là vấn đề"
+            },
+            {
+              "w": "問題視",
+              "read": "もんだいし",
+              "vi": "coi là vấn đề"
+            },
+            {
+              "w": "自然に還る",
+              "read": "しぜんにかえる",
+              "vi": "trở về với tự nhiên"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "tự nhiên"
+            },
+            {
+              "w": "還る",
+              "read": "かえる",
+              "vi": "trở về"
+            },
+            {
+              "w": "木製品",
+              "read": "もくせいひん",
+              "vi": "sản phẩm gỗ"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "再評価されている",
+              "read": "さいひょうかされている",
+              "vi": "đang được đánh giá lại"
+            },
+            {
+              "w": "再評価",
+              "read": "さいひょうか",
+              "vi": "đánh giá lại"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "đánh giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（原因）",
+              "vi": "【接続】V/A/Naな/Nの + ために。【Sắc thái】Nêu nguyên nhân sâu xa mang tính toàn cầu (ô nhiễm môi trường) dẫn đến hệ quả tất yếu trong xu hướng tiêu dùng. 【Đối chiếu】Khác với 〜から (khẩu ngữ), 〜ために rất phổ biến trong các bài luận văn, thời sự để trình bày nguyên nhân - kết quả mang tính xã hội."
+            }
+          ]
+        },
+        {
+          "jp": "伝統の技を守りながらも、現代のニーズに柔軟に対応したことが、この成功をもたらしたと言えます。",
+          "vi": "Có thể nói rằng, việc vừa gìn giữ kỹ nghệ truyền thống lại vừa thích ứng linh hoạt với nhu cầu thời hiện đại đã đem lại thành công này.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "技",
+              "read": "わざ",
+              "vi": "kỹ thuật, ngón nghề"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "ニーズ",
+              "read": "ニーズ",
+              "vi": "nhu cầu (needs)"
+            },
+            {
+              "w": "柔軟",
+              "read": "じゅうなん",
+              "vi": "linh hoạt, mềm dẻo"
+            },
+            {
+              "w": "対応する",
+              "read": "たいおうする",
+              "vi": "ứng phó, thích ứng"
+            },
+            {
+              "w": "成功",
+              "read": "せいこう",
+              "vi": "thành công"
+            },
+            {
+              "w": "もたらす",
+              "read": "もたらす",
+              "vi": "đem lại, mang đến"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "【接続】Vます-stem + ながら（も）。【Sắc thái】Biểu thị sự tương phản / nhượng bộ ('mặc dù... nhưng vẫn...'). Ở đây diễn tả việc giữ gìn truyền thống song song với việc thích nghi với cái mới."
+            }
+          ]
+        },
+        {
+          "jp": "もちろん、職人の高齢化という問題が完全に解決したわけではありません。",
+          "vi": "Tất nhiên, không phải là vấn đề già hóa nghệ nhân đã được giải quyết hoàn toàn.",
+          "vocab": [
+            {
+              "w": "もちろん",
+              "read": "もちろん",
+              "vi": "đương nhiên, tất nhiên"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "完全",
+              "read": "かんぜん",
+              "vi": "sự hoàn hảo, hoàn toàn"
+            },
+            {
+              "w": "解決する",
+              "read": "かいけつする",
+              "vi": "giải quyết"
+            },
+            {
+              "w": "高齢化",
+              "read": "こうれいか",
+              "vi": "sự già hóa (dân số/lực lượng lao động)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけではない",
+              "vi": "【接続】V/A/Naな/N(の/である) + わけではない。【Sắc thái】Phủ định một phần ('không hẳn là...', 'không có nghĩa là...'). Dùng để nói rõ rằng tình hình chưa hoàn toàn triệt để như người ta tưởng."
+            }
+          ]
+        },
+        {
+          "jp": "自動化できない手作業の部分が多いために、生産量を急に増やすことが難しいという課題も残っています。",
+          "vi": "Vì có nhiều công đoạn thủ công không thể tự động hóa được, vấn đề nan giải là khó có thể đột ngột gia tăng sản lượng vẫn còn tồn tại.",
+          "vocab": [
+            {
+              "w": "自動",
+              "read": "じどう",
+              "vi": "sự tự động"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "手作業",
+              "read": "てさぎょう",
+              "vi": "làm thủ công bằng tay"
+            },
+            {
+              "w": "部分",
+              "read": "ぶぶん",
+              "vi": "phần, bộ phận"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "生産",
+              "read": "せいさん",
+              "vi": "sự sản xuất, sản xuất"
+            },
+            {
+              "w": "急",
+              "read": "きゅう",
+              "vi": "đột xuất, gấp"
+            },
+            {
+              "w": "増やす",
+              "read": "ふやす",
+              "vi": "làm tăng lên"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "課題",
+              "read": "かだい",
+              "vi": "thách thức, vấn đề nan giải"
+            },
+            {
+              "w": "残る",
+              "read": "のこる",
+              "vi": "ở lại, còn lại"
+            },
+            {
+              "w": "自動化",
+              "read": "じどうか",
+              "vi": "tự động hóa"
+            },
+            {
+              "w": "生産量",
+              "read": "せいさんりょう",
+              "vi": "sản lượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（原因）",
+              "vi": "【接続】V/A/Naな/Nの + ために。【Sắc thái】Nêu nguyên nhân mang tính đặc thù kỹ thuật (nhiều phần thủ công) dẫn đến khó khăn thực tế (không thể tăng sản lượng nhanh chóng)."
+            }
+          ]
+        },
+        {
+          "jp": "それでも、ものづくりの精神を大切にする文化が根付いているおかげで、新しく弟子入りを希望する若者も現れています。",
+          "vi": "Dù vậy, nhờ nền văn hóa luôn trân trọng tinh thần chế tác thủ công đã bén rễ sâu sắc, những người trẻ mới có nguyện vọng xin bái sư học nghề cũng đang dần xuất hiện.",
+          "vocab": [
+            {
+              "w": "それでも",
+              "read": "それでも",
+              "vi": "dù vậy, tuy vậy"
+            },
+            {
+              "w": "精神",
+              "read": "せいしん",
+              "vi": "tinh thần"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "根付く",
+              "read": "ねづく",
+              "vi": "bén rễ, cắm rễ, ăn sâu"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "弟子入り",
+              "read": "でしいり",
+              "vi": "bái sư học nghề, làm đệ tử"
+            },
+            {
+              "w": "希望する",
+              "read": "きぼうする",
+              "vi": "nguyện vọng, mong muốn"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "現れる",
+              "read": "あらわれる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "ものづくり",
+              "read": "ものづくり",
+              "vi": "nghề chế tác, sản xuất thủ công / tinh thần làm đồ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで",
+              "vi": "【接続】V/A/Naな/Nの + おかげで。【Sắc thái】Thể hiện sự vui mừng, đánh giá tích cực trước hiện tượng có thế hệ trẻ kế thừa nhờ vào nền tảng văn hóa tốt đẹp."
+            }
+          ]
+        },
+        {
+          "jp": "時代の変化を単なる危機と捉えるのではなく、可能性として受け入れたことから、新たな道が開けたのでしょう。",
+          "vi": "Có lẽ chính từ việc không coi sự thay đổi của thời đại đơn thuần là khủng hoảng mà đón nhận nó như một cơ hội tiềm năng, một con đường mới đã được mở ra.",
+          "vocab": [
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "危機",
+              "read": "きき",
+              "vi": "khủng hoảng, nguy cơ"
+            },
+            {
+              "w": "捉える",
+              "read": "とらえる",
+              "vi": "nắm bắt, nhìn nhận, coi là"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "受け入れる",
+              "read": "うけいれる",
+              "vi": "đón nhận, tiếp nhận"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "con đường, đạo"
+            },
+            {
+              "w": "開ける",
+              "read": "あける",
+              "vi": "mở"
+            },
+            {
+              "w": "道が開ける",
+              "read": "みちがひらける",
+              "vi": "mở ra con đường mới, khai thông hướng đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "【接続】V/A/N(普) + ことから。【Sắc thái】Nêu lên thái độ, tư duy đổi mới làm căn cứ, nguồn gốc sâu xa cho sự thành công và phát triển mới."
+            }
+          ]
+        },
+        {
+          "jp": "古い伝統と新しい知恵を結びつける工夫こそが、これからの工芸品を未来へつなぐ鍵となるはずです。",
+          "vi": "Chính công sức tìm tòi nhằm gắn kết truyền thống xưa cũ với tri thức mới mẻ chắc chắn sẽ là chìa khóa kết nối các sản phẩm thủ công này tới tương lai.",
+          "vocab": [
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "知恵",
+              "read": "ちえ",
+              "vi": "trí tuệ, tri thức, sáng kiến"
+            },
+            {
+              "w": "結びつける",
+              "read": "むすびつける",
+              "vi": "gắn kết, kết nối"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "công sức tìm tòi sáng tạo, sự khéo léo"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "つなぐ",
+              "read": "つなぐ",
+              "vi": "kết nối, truyền lại"
+            },
+            {
+              "w": "鍵となる",
+              "read": "かぎとなる",
+              "vi": "trở thành chìa khóa then chốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずだ",
+              "vi": "【接続】V/A/Naな/Nの + はずだ。【Sắc thái】Thể hiện phán đoán có căn cứ vững chắc của người nói ('chắc chắn là...', 'lẽ đương nhiên là...')."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "杉やヒノキの薄い板を曲げて作られることから",
+          "label": "Nguồn gốc tên gọi Magewappa"
+        },
+        {
+          "excerpt": "手入れに手間がかかるというイメージが広まったせいか",
+          "label": "Nguyên nhân suy giảm trong quá khứ"
+        },
+        {
+          "excerpt": "インターネットやSNSが発達したおかげで",
+          "label": "Yếu tố giúp truyền thông trực tiếp"
+        },
+        {
+          "excerpt": "古い伝統と新しい知恵を結びつける工夫こそが、これからの工芸品を未来へつなぐ鍵となるはずです",
+          "label": "Thông điệp và chìa khóa tương lai"
+        }
+      ],
+      "questions": [
+        {
+          "q": "かつて「曲げわっぱ」の需要が大きく落ち込んだ理由として、本文で挙げられているものはどれか。",
+          "options": [
+            "プラスチック製品の普及や、手入れが大変だというイメージが広まったため。",
+            "職人たちが後継者を育てることを完全に拒否してしまったため。",
+            "杉やヒノキなどの天然木材が国内で全く手に入らなくなったため。",
+            "科学的な研究によって、木の弁当箱には効果がないと証明されたため。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 2 và câu 3 (chỉ số câu [2, 3]): '軽くて安いプラスチック製品が普及したせいで...' (do đồ nhựa rẻ và nhẹ phổ biến) và '手入れに手間がかかるというイメージが広まったせいか...' (có lẽ vì định kiến tốn công chăm sóc lan rộng). Do đó phương án 1 là chính xác.\n- Phương án 2 sai vì bài chỉ nói nghệ nhân trăn trở vì thiếu người kế nghiệp (後継者不足に悩む), không nói họ từ chối đào tạo.\n- Phương án 3 sai vì không có thông tin nào nói cạn kiệt gỗ tuyết tùng hay gỗ bách.\n- Phương án 4 sai vì khoa học chứng minh điều ngược lại: hộp gỗ có tác dụng hút ẩm và giữ cơm ngon (câu 6).",
+          "tip": "Tìm thông tin về giai đoạn suy thoái (高度経済成長期) và các từ khóa chỉ nguyên nhân tiêu cực như '〜せいで', '〜せいか'.",
+          "evi": [
+            2,
+            3
+          ],
+          "qt": {
+            "q": "Theo bài đọc, lý do nào được nêu khiến nhu cầu về “曲げわっぱ” (hộp cơm gỗ uốn cong) từng giảm mạnh?",
+            "o": [
+              "Do sản phẩm nhựa trở nên phổ biến và hình thành quan niệm rằng việc bảo quản, chăm sóc chúng rất vất vả.",
+              "Do những người thợ thủ công hoàn toàn từ chối đào tạo người kế nghiệp.",
+              "Do gỗ tự nhiên như tuyết tùng và bách Nhật hoàn toàn không còn mua được trong nước.",
+              "Do nghiên cứu khoa học chứng minh rằng hộp cơm gỗ không có tác dụng gì."
+            ]
+          }
+        },
+        {
+          "q": "曲げわっぱが現代において再び注目され、人気を集めるようになったきっかけとして最も適切なものはどれか。",
+          "options": [
+            "工場での完全自動化に成功し、大量生産によって価格を大幅に下げたこと。",
+            "自然素材の価値の再評価に加え、SNSによる魅力の発信や現代風の改良が行われたこと。",
+            "プラスチック製品の製造が法律によって全面的に禁止されたこと。",
+            "すべて昔ながらの作りのままにして、現代人のライフスタイルに一切合わせなかったこと。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào các câu 5, 7, 8, 10, 11 (chỉ số câu [5, 7, 8, 10, 11]): Bài đọc nêu rõ sự hồi sinh bắt đầu từ việc chất liệu tự nhiên được đánh giá lại (câu 5), nhờ mạng xã hội mà nghệ nhân truyền tải trực tiếp sức hút đến người mua (câu 7, 8), và cải tiến thiết kế cho phù hợp lối sống hiện đại như phủ lớp tráng rửa được bằng nước rửa chén (câu 10, 11). Do đó phương án 2 chính xác.\n- Phương án 1 sai vì bài viết nêu ở câu 16 rằng không thể tự động hóa nhiều công đoạn thủ công nên khó tăng sản lượng.\n- Phương án 3 sai vì bài không đề cập đến luật cấm sản xuất đồ nhựa.\n- Phương án 4 sai vì bài nhấn mạnh việc 'cải tiến thiết kế phù hợp lối sống hiện đại' và 'thích ứng linh hoạt với nhu cầu'.",
+          "tip": "Tổng hợp các lý do phục hồi xuất hiện ở đoạn 2 và đoạn 3 (SNS, cải tiến thiết kế, ý thức môi trường).",
+          "evi": [
+            5,
+            7,
+            8,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Điều nào phù hợp nhất với những yếu tố khiến “曲げわっぱ” (hộp cơm gỗ uốn cong) được chú ý trở lại và trở nên được ưa chuộng trong thời hiện đại?",
+            "o": [
+              "Thành công trong việc tự động hóa hoàn toàn nhà máy và giảm mạnh giá nhờ sản xuất hàng loạt.",
+              "Bên cạnh việc giá trị của vật liệu tự nhiên được đánh giá lại, sức hấp dẫn của sản phẩm được giới thiệu qua mạng xã hội và thiết kế được cải tiến theo phong cách hiện đại.",
+              "Việc sản xuất các sản phẩm nhựa bị pháp luật cấm hoàn toàn.",
+              "Giữ nguyên tất cả cách làm ngày xưa và tuyệt đối không điều chỉnh cho phù hợp với lối sống của người hiện đại."
+            ]
+          }
+        },
+        {
+          "q": "現在でも「曲げわっぱ」などの伝統工芸が抱えている課題として、正しいものはどれか。",
+          "options": [
+            "手作業に頼る部分が多いため、急激な増産に対応することが難しいこと。",
+            "若者の中に弟子入りを希望する人が一人も現れなくなったこと。",
+            "洗剤で洗えるコーティングが施されたため、使いにくくなってしまったこと。",
+            "海外の観光客からの需要が完全に失われてしまったこと。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 15 và 16 (chỉ số câu [15, 16]): '自動化できない手作業の部分が多いために、生産量を急に増やすことが難しいという課題も残っています' (Vì có nhiều công đoạn thủ công không thể tự động hóa, vấn đề nan giải là khó tăng sản lượng đột ngột vẫn còn). Phương án 1 diễn đạt đúng nội dung này.\n- Phương án 2 sai vì câu 17 cho biết nhờ trân trọng văn hóa chế tác mà 'đã có những bạn trẻ mong muốn bái sư học nghề' (弟子入りを希望する若者も現れている).\n- Phương án 3 sai vì lớp tráng giúp sản phẩm dễ dùng hơn (câu 11), chứ không phải làm khó dùng.\n- Phương án 4 sai vì câu 8 nêu rõ Magewappa rất được ưa chuộng bởi cả du khách nước ngoài.",
+          "tip": "Chú ý đoạn 4 nói về những thách thức còn tồn tại (課題).",
+          "evi": [
+            15,
+            16
+          ],
+          "qt": {
+            "q": "Điều nào đúng về những khó khăn mà các nghề thủ công truyền thống như “曲げわっぱ” (hộp cơm gỗ uốn cong) vẫn đang gặp phải hiện nay?",
+            "o": [
+              "Vì nhiều công đoạn vẫn dựa vào làm thủ công nên khó đáp ứng việc tăng sản lượng đột ngột.",
+              "Không còn người trẻ nào muốn học nghề bằng cách làm đệ tử.",
+              "Vì được phủ lớp bảo vệ có thể rửa bằng chất tẩy rửa nên sản phẩm trở nên khó sử dụng.",
+              "Nhu cầu từ khách du lịch nước ngoài đã hoàn toàn biến mất."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も伝えたい主張（教訓）はどのようなものか。",
+          "options": [
+            "伝統を守るためには、いかなる時代の変化にも屈せず、昔のやり方を頑固に変えないことが重要である。",
+            "伝統の精神を受け継ぎつつも、時代の変化を好機と捉え、新しい工夫と柔軟に結びつけることが未来につながる。",
+            "便利さを追求する現代社会においては、手間のかかる伝統工芸品はやがて完全に消滅してしまうだろう belt。",
+            "伝統工芸の衰退はすべてプラスチック製品のせいであり、現代技術の導入は避けるべきである。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào các câu 14, 18, 19 (chỉ số câu [14, 18, 19]): Tác giả nhấn mạnh '伝統の技を守りながらも、現代のニーズに柔軟に対応した' (vừa giữ kỹ nghệ vừa thích ứng linh hoạt), '時代の変化を単なる危機と捉えるのではなく、可能性として受け入れた' (đón nhận thay đổi như cơ hội) và kết luận '古い伝統と新しい知恵を結びつける工夫こそが、これからの工芸品を未来へつなぐ鍵となる' (kết hợp truyền thống xưa và tri thức mới chính là chìa khóa tới tương lai). Do đó phương án 2 phản ánh chính xác nhất thông điệp của tác giả.\n- Phương án 1 sai vì đi ngược lại quan điểm linh hoạt thích ứng và kết hợp cái mới của tác giả.\n- Phương án 3 sai vì tác giả có cái nhìn tích cực, tin tưởng vào tương lai của đồ thủ công khi biết đổi mới.\n- Phương án 4 sai vì tác giả hoan nghênh việc ứng dụng công nghệ/tri thức mới (SNS, lớp tráng rửa được).",
+          "tip": "Đọc kỹ phần kết luận ở cuối đoạn 3 và đoạn 4 để nắm bắt thông điệp triết lý, suy luận chủ đề toàn bài.",
+          "evi": [
+            14,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Thông điệp (bài học) mà tác giả muốn truyền tải nhất trong bài viết này là gì?",
+            "o": [
+              "Để gìn giữ truyền thống, điều quan trọng là không khuất phục trước bất kỳ thay đổi nào của thời đại và kiên quyết không thay đổi cách làm xưa.",
+              "Tiếp nối tinh thần truyền thống, đồng thời xem những thay đổi của thời đại là cơ hội và kết hợp chúng một cách linh hoạt với những sáng kiến mới sẽ giúp mở ra tương lai.",
+              "Trong xã hội hiện đại theo đuổi sự tiện lợi, các sản phẩm thủ công truyền thống tốn nhiều công sức rồi sẽ hoàn toàn biến mất.",
+              "Sự suy tàn của nghề thủ công truyền thống hoàn toàn là do sản phẩm nhựa gây ra, vì vậy cần tránh đưa công nghệ hiện đại vào."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "みどりコワーキングスペース ご利用案内・料金プラン",
+      "titleVi": "Không gian làm việc chung Midori - Hướng dẫn sử dụng và Bảng giá",
+      "japanese": "みどりコワーキングスペース ご利用案内・料金プラン\n駅前が再開発されたおかげで、駅から徒歩1分でお越しいただけます。\n24時間いつでも利用できることから、社会人や学生に大変好評です。\n最新の防音設備を導入したおかげで、静かで集中できる環境が整っています。\n【月額基本プラン一覧】\nプラン名｜利用可能時間｜月額料金｜利用条件\nデイプラン｜平日 9:00〜18:00｜8,000円｜平日昼間のみ利用可能\nナイトプラン｜平日 18:00〜23:00｜7,000円｜夜間学習・仕事向け\nフルタイムプラン｜全日 24時間｜12,000円｜土日祝日も利用可能\n学生プラン｜全日 9:00〜22:00｜6,000円｜学生証の提示が必要\n【追加オプション・割引制度】\nサービス・割引名｜料金・内容｜対象条件\n専用ロッカー利用｜月額 1,500円｜全プラン追加可能\n個室ブース利用｜1時間 500円｜事前予約が必要\n早割キャンペーン｜月額料金 1,000円引き｜利用開始の前月20日までに申し込み\nペア割引｜月額料金 各500円引き｜2名以上で同時に新規契約\n※席数が限られていることから、個室ブースのご利用は1日最大3時間までです。\n※利用者のマナー違反のせいで設備が破損した場合は、修理費用を請求します。\n※機器点検のために、毎月第1月曜日の深夜2:00〜5:00は一時休館となります。\n※早割とペア割引は併用可能ですが、学生プランは割引対象外となります。",
+      "vietnamese": "Không gian làm việc chung Midori - Hướng dẫn sử dụng và Bảng giá\nNhờ khu vực trước ga được tái quy hoạch, quý khách có thể đến nơi chỉ với 1 phút đi bộ từ ga.\nXuất phát từ việc có thể sử dụng bất kỳ lúc nào suốt 24 giờ, nơi đây rất được người đi làm và học sinh sinh viên ưa chuộng.\nNhờ lắp đặt thiết bị cách âm tối tân, môi trường yên tĩnh và tập trung đã được hoàn thiện.\n【Danh sách các gói cước cơ bản theo tháng】\nTên gói｜Thời gian có thể sử dụng｜Cước phí tháng｜Điều kiện sử dụng\nGói ban ngày｜Ngày thường 9:00〜18:00｜8.000 yên｜Chỉ có thể dùng vào ban ngày các ngày trong tuần\nGói ban đêm｜Ngày thường 18:00〜23:00｜7.000 yên｜Dành cho người học tập và làm việc buổi tối\nGói toàn thời gian｜Cả ngày 24 giờ｜12.000 yên｜Dùng được cả thứ Bảy, Chủ nhật và ngày lễ\nGói sinh viên｜Mọi ngày 9:00〜22:00｜6.000 yên｜Cần xuất trình thẻ học sinh/sinh viên\n【Dịch vụ bổ sung & Chế độ giảm giá】\nTên dịch vụ/giảm giá｜Mức phí/Nội dung｜Điều kiện áp dụng\nSử dụng tủ đồ riêng｜1.500 yên/tháng｜Có thể thêm vào tất cả các gói\nSử dụng phòng riêng kín｜500 yên/giờ｜Cần đặt trước\nChương trình đặt sớm｜Giảm 1.000 yên phí tháng｜Đăng ký trước ngày 20 của tháng liền trước tháng bắt đầu dùng\nGiảm giá cặp đôi｜Mỗi người giảm 500 yên phí tháng｜Cùng đăng ký mới từ 2 người trở lên cùng lúc\n※Xuất phát từ việc số lượng chỗ ngồi có hạn, thời gian sử dụng phòng riêng tối đa 3 tiếng mỗi ngày.\n※Trường hợp trang thiết bị bị hư hỏng do ý thức/hành vi sai quy định của người dùng, chúng tôi sẽ yêu cầu bồi thường chi phí sửa chữa.\n※Vì lý do kiểm tra thiết bị, không gian sẽ tạm ngừng hoạt động từ 2:00 đến 5:00 sáng Thứ Hai tuần đầu tiên mỗi tháng.\n※Ưu đãi đặt sớm và giảm giá cặp đôi có thể kết hợp cùng nhau, tuy nhiên gói sinh viên không thuộc đối tượng áp dụng giảm giá.",
+      "sentences": [
+        {
+          "jp": "みどりコワーキングスペース ご利用案内・料金プラン",
+          "vi": "Không gian làm việc chung Midori - Hướng dẫn sử dụng và Bảng giá",
+          "vocab": [
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "コワーキングスペース",
+              "read": "こわーきんぐすぺーす",
+              "vi": "không gian làm việc chung"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "料金プラン",
+              "read": "りょうきんぷらん",
+              "vi": "gói cước phí"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜",
+              "vi": "Kết nối: ご + Danh từ (thường là từ Hán-Nhật). Ý nghĩa: Tiền tố kính ngữ biểu thị thái độ lịch sự, trang trọng khi cung cấp thông tin/dịch vụ tới khách hàng (ở đây là 'hướng dẫn sử dụng')."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "駅前が再開発されたおかげで、駅から徒歩1分でお越しいただけます。",
+          "vi": "Nhờ khu vực trước ga được tái quy hoạch, quý khách có thể đến nơi chỉ với 1 phút đi bộ từ ga.",
+          "vocab": [
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "khu trước ga"
+            },
+            {
+              "w": "再開発された",
+              "read": "さいかいはつされた",
+              "vi": "đã được tái phát triển"
+            },
+            {
+              "w": "再開発",
+              "read": "さいかいはつ",
+              "vi": "tái phát triển"
+            },
+            {
+              "w": "開発",
+              "read": "かいはつ",
+              "vi": "phát triển"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga"
+            },
+            {
+              "w": "徒歩1分",
+              "read": "とほいっぷん",
+              "vi": "1 phút đi bộ"
+            },
+            {
+              "w": "徒歩",
+              "read": "とほ",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "1分",
+              "read": "いっぷん",
+              "vi": "1 phút"
+            },
+            {
+              "w": "お越し",
+              "read": "おこし",
+              "vi": "đến, tới (kính ngữ)"
+            },
+            {
+              "w": "お越しいただけます",
+              "read": "おこしいただけます",
+              "vi": "có thể đến (kính ngữ)"
+            },
+            {
+              "w": "いただけます",
+              "read": "いただけます",
+              "vi": "có thể nhận, được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで",
+              "vi": "Nhờ có ~ (nguyên nhân đem lại kết quả tốt)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "24時間いつでも利用できることから、社会人や学生に大変好評です。",
+          "vi": "Xuất phát từ việc có thể sử dụng bất kỳ lúc nào suốt 24 giờ, nơi đây rất được người đi làm và học sinh sinh viên ưa chuộng.",
+          "vocab": [
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "利用できる",
+              "read": "りようできる",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đi làm"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "rất, vô cùng"
+            },
+            {
+              "w": "好評",
+              "read": "こうひょう",
+              "vi": "được đánh giá cao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "Từ việc ~, xuất phát từ lý do ~ (nêu căn cứ dẫn đến nhận định/kết quả)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "最新の防音設備を導入したおかげで、静かで集中できる環境が整っています。",
+          "vi": "Nhờ lắp đặt thiết bị cách âm tối tân, môi trường yên tĩnh và tập trung đã được hoàn thiện.",
+          "vocab": [
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất"
+            },
+            {
+              "w": "防音",
+              "read": "ぼうおん",
+              "vi": "cách âm, chống ồn"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "trang thiết bị"
+            },
+            {
+              "w": "導入",
+              "read": "どうにゅう",
+              "vi": "đưa vào sử dụng, lắp đặt"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "整う",
+              "read": "ととのう",
+              "vi": "được chuẩn bị đầy đủ, hoàn thiện"
+            },
+            {
+              "w": "防音設備",
+              "read": "ぼうおんせつび",
+              "vi": "thiết bị cách âm"
+            },
+            {
+              "w": "環境が整う",
+              "read": "かんきょうがととのう",
+              "vi": "môi trường được chuẩn bị chu đáo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで",
+              "vi": "Nhờ có ~ (nguyên nhân mang lại kết quả tích cực)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "【月額基本プラン一覧】",
+          "vi": "【Danh sách các gói cước cơ bản theo tháng】",
+          "vocab": [
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "theo tháng, số tiền hàng tháng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "一覧",
+              "read": "いちらん",
+              "vi": "danh sách, bảng tổng hợp"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "プラン名｜利用可能時間｜月額料金｜利用条件",
+          "vi": "Tên gói｜Thời gian có thể sử dụng｜Cước phí tháng｜Điều kiện sử dụng",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "利用条件",
+              "read": "りようじょうけん",
+              "vi": "điều kiện sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "デイプラン｜平日 9:00〜18:00｜8,000円｜平日昼間のみ利用可能",
+          "vi": "Gói ban ngày｜Ngày thường 9:00〜18:00｜8.000 yên｜Chỉ có thể dùng vào ban ngày các ngày trong tuần",
+          "vocab": [
+            {
+              "w": "デイプラン",
+              "read": "でいぷらん",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "9:00〜18:00",
+              "read": "くじからじゅうはちじまで",
+              "vi": "từ 9:00 đến 18:00"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "平日昼間",
+              "read": "へいじつひるま",
+              "vi": "ban ngày các ngày thường"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể, khả dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のみ",
+              "vi": "Kết nối: N + のみ. Ý nghĩa: 'Chỉ...', dùng để giới hạn phạm vi (mang sắc thái trang trọng, văn viết hơn だけ), ở đây giới hạn việc sử dụng 'chỉ vào ban ngày các ngày trong tuần'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日昼間のみ利用可能",
+              "why": "Giới hạn thời gian sử dụng chỉ dành cho ban ngày từ thứ Hai đến thứ Sáu"
+            }
+          ]
+        },
+        {
+          "jp": "ナイトプラン｜平日 18:00〜23:00｜7,000円｜夜間学習・仕事向け",
+          "vi": "Gói ban đêm｜Ngày thường 18:00〜23:00｜7.000 yên｜Dành cho người học tập và làm việc buổi tối",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "buổi tối, ban đêm"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "〜向け",
+              "read": "むけ",
+              "vi": "hướng tới, dành cho"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "Kết nối: N + 向け. Ý nghĩa: 'Dành riêng cho / hướng tới đối tượng N' (được thiết kế/phù hợp với mục đích hoặc đối tượng đó), ở đây là gói dịch vụ thiết kế phù hợp cho việc 'học tập và làm việc ban đêm'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日 18:00〜23:00",
+              "why": "Khung giờ cố định buổi tối các ngày trong tuần cho gói Night Plan"
+            }
+          ]
+        },
+        {
+          "jp": "フルタイムプラン｜全日 24時間｜12,000円｜土日祝日も利用可能",
+          "vi": "Gói toàn thời gian｜Cả ngày 24 giờ｜12.000 yên｜Dùng được cả thứ Bảy, Chủ nhật và ngày lễ",
+          "vocab": [
+            {
+              "w": "フルタイム",
+              "read": "ふるたいむ",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "フルタイムプラン",
+              "read": "ふるたいむぷらん",
+              "vi": "gói toàn thời gian"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày; mọi ngày"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "12,000円",
+              "read": "いちまんにせんえん",
+              "vi": "12.000 yên"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ bảy và chủ nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "土日祝日",
+              "read": "どにちしゅくじつ",
+              "vi": "thứ bảy, chủ nhật và ngày lễ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể; khả thi"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "全日 24時間",
+              "why": "Cho phép sử dụng không giới hạn giờ giấc và tất cả các ngày trong tuần"
+            }
+          ]
+        },
+        {
+          "jp": "学生プラン｜全日 9:00〜22:00｜6,000円｜学生証の提示が必要",
+          "vi": "Gói sinh viên｜Mọi ngày 9:00〜22:00｜6.000 yên｜Cần xuất trình thẻ học sinh/sinh viên",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "tất cả các ngày"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình, đưa ra"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh/sinh viên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "学生証の提示が必要",
+              "why": "Điều kiện bắt buộc xuất trình thẻ để được hưởng mức giá học sinh sinh viên"
+            }
+          ]
+        },
+        {
+          "jp": "【追加オプション・割引制度】",
+          "vi": "【Dịch vụ bổ sung & Chế độ giảm giá】",
+          "vocab": [
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "thêm vào, bổ sung"
+            },
+            {
+              "w": "オプション",
+              "read": "オプション",
+              "vi": "tùy chọn, dịch vụ thêm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ, hệ thống"
+            },
+            {
+              "w": "割引制度",
+              "read": "わりびきせいど",
+              "vi": "chế độ giảm giá"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "サービス・割引名｜料金・内容｜対象条件",
+          "vi": "Tên dịch vụ/giảm giá｜Mức phí/Nội dung｜Điều kiện áp dụng",
+          "vocab": [
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng (áp dụng)"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "対象条件",
+              "read": "たいしょうじょうけん",
+              "vi": "điều kiện đối tượng áp dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "専用ロッカー利用｜月額 1,500円｜全プラン追加可能",
+          "vi": "Sử dụng tủ đồ riêng｜1.500 yên/tháng｜Có thể thêm vào tất cả các gói",
+          "vocab": [
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "chuyên dụng; riêng"
+            },
+            {
+              "w": "ロッカー",
+              "read": "ろっかー",
+              "vi": "tủ khóa"
+            },
+            {
+              "w": "専用ロッカー",
+              "read": "せんようろっかー",
+              "vi": "tủ khóa riêng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức phí hàng tháng"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "全プラン",
+              "read": "ぜんぷらん",
+              "vi": "tất cả các gói"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "thêm; bổ sung"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể; khả thi"
+            },
+            {
+              "w": "追加可能",
+              "read": "ついかかのう",
+              "vi": "có thể thêm"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "月額 1,500円",
+              "why": "Mức phí cộng thêm hàng tháng nếu thuê tủ đồ cá nhân"
+            }
+          ]
+        },
+        {
+          "jp": "個室ブース利用｜1時間 500円｜事前予約が必要",
+          "vi": "Sử dụng phòng riêng kín｜500 yên/giờ｜Cần đặt trước",
+          "vocab": [
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "ブース",
+              "read": "ぶーす",
+              "vi": "buồng; booth"
+            },
+            {
+              "w": "個室ブース",
+              "read": "こしつぶーす",
+              "vi": "buồng riêng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước; trước đó"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước;予約"
+            },
+            {
+              "w": "事前予約",
+              "read": "じぜんよやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "事前予約が必要",
+              "why": "Yêu cầu phải đăng ký đặt trước mới được sử dụng buồng riêng"
+            }
+          ]
+        },
+        {
+          "jp": "早割キャンペーン｜月額料金 1,000円引き｜利用開始の前月20日までに申し込み",
+          "vi": "Chương trình đặt sớm｜Giảm 1.000 yên phí tháng｜Đăng ký trước ngày 20 của tháng liền trước tháng bắt đầu dùng",
+          "vocab": [
+            {
+              "w": "早割",
+              "read": "はやわり",
+              "vi": "ưu đãi đặt sớm"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "きゃんぺーん",
+              "vi": "chiến dịch khuyến mãi"
+            },
+            {
+              "w": "早割キャンペーン",
+              "read": "はやわりきゃんぺーん",
+              "vi": "khuyến mãi đặt sớm"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức phí hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí; giá tiền"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "円引き",
+              "read": "えんびき",
+              "vi": "giảm số yên tương ứng"
+            },
+            {
+              "w": "1,000円引き",
+              "read": "せんえんびき",
+              "vi": "giảm 1.000 yên"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "開始",
+              "read": "かいし",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "利用開始",
+              "read": "りようかいし",
+              "vi": "bắt đầu sử dụng"
+            },
+            {
+              "w": "前月",
+              "read": "ぜんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "20日",
+              "read": "はつか",
+              "vi": "ngày 20"
+            },
+            {
+              "w": "前月20日",
+              "read": "ぜんげつはつか",
+              "vi": "ngày 20 của tháng trước"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký;申し込み"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜までに",
+              "vi": "Kết nối: N (thời gian) / V-る + までに. Ý nghĩa: 'Muộn nhất là trước/đến thời điểm...', chỉ mốc thời gian hạn chót mà một hành động phải được hoàn thành, ở đây là phải đăng ký chậm nhất vào ngày 20 của tháng trước."
+            }
+          ],
+          "keys": [
+            {
+              "w": "前月20日までに申し込み",
+              "why": "Hạn chót ngày 20 tháng trước để đủ điều kiện giảm giá đặt sớm 1.000 yên"
+            }
+          ]
+        },
+        {
+          "jp": "ペア割引｜月額料金 各500円引き｜2名以上で同時に新規契約",
+          "vi": "Giảm giá cặp đôi｜Mỗi người giảm 500 yên phí tháng｜Cùng đăng ký mới từ 2 người trở lên cùng lúc",
+          "vocab": [
+            {
+              "w": "ペア",
+              "read": "ぺあ",
+              "vi": "cặp đôi"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "ペア割引",
+              "read": "ぺあわりびき",
+              "vi": "giảm giá theo cặp"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức phí hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí; giá tiền"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "各",
+              "read": "かく",
+              "vi": "mỗi"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "円引き",
+              "read": "えんびき",
+              "vi": "giảm số yên tương ứng"
+            },
+            {
+              "w": "500円引き",
+              "read": "ごひゃくえんびき",
+              "vi": "giảm 500 yên"
+            },
+            {
+              "w": "各500円引き",
+              "read": "かくごひゃくえんびき",
+              "vi": "mỗi người giảm 500 yên"
+            },
+            {
+              "w": "2名",
+              "read": "にめい",
+              "vi": "2 người"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "2名以上",
+              "read": "にめいいじょう",
+              "vi": "từ 2 người trở lên"
+            },
+            {
+              "w": "同時に",
+              "read": "どうじに",
+              "vi": "đồng thời"
+            },
+            {
+              "w": "新規",
+              "read": "しんき",
+              "vi": "mới"
+            },
+            {
+              "w": "契約",
+              "read": "けいやく",
+              "vi": "hợp đồng"
+            },
+            {
+              "w": "新規契約",
+              "read": "しんきけいやく",
+              "vi": "hợp đồng mới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜以上",
+              "vi": "Kết nối: Số lượng/Số từ + 以上. Ý nghĩa: 'Từ ... trở lên' (bao gồm cả mốc số lượng đó), ở đây quy định điều kiện áp dụng giảm giá là từ 2 người trở lên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "2名以上で同時に新規契約",
+              "why": "Điều kiện cần 2 người trở lên cùng làm hợp đồng mới để được giảm 500 yên/người"
+            }
+          ]
+        },
+        {
+          "jp": "※席数が限られていることから、個室ブースのご利用は1日最大3時間までです。",
+          "vi": "※Xuất phát từ việc số lượng chỗ ngồi có hạn, thời gian sử dụng phòng riêng tối đa 3 tiếng mỗi ngày.",
+          "vocab": [
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi"
+            },
+            {
+              "w": "席数",
+              "read": "せきすう",
+              "vi": "số chỗ ngồi"
+            },
+            {
+              "w": "限られている",
+              "read": "かぎられている",
+              "vi": "bị giới hạn"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "ブース",
+              "read": "ぶーす",
+              "vi": "buồng; booth"
+            },
+            {
+              "w": "個室ブース",
+              "read": "こしつぶーす",
+              "vi": "buồng riêng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "1日",
+              "read": "いちにち",
+              "vi": "một ngày; mỗi ngày"
+            },
+            {
+              "w": "最大",
+              "read": "さいだい",
+              "vi": "tối đa"
+            },
+            {
+              "w": "3時間",
+              "read": "さんじかん",
+              "vi": "3 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことから",
+              "vi": "Do việc ~, căn cứ từ ~ (nêu nguyên nhân/căn cứ)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "1日最大3時間まで",
+              "why": "Giới hạn trần thời gian sử dụng buồng riêng mỗi ngày"
+            }
+          ]
+        },
+        {
+          "jp": "※利用者のマナー違反のせいで設備が破損した場合は、修理費用を請求します。",
+          "vi": "※Trường hợp trang thiết bị bị hư hỏng do ý thức/hành vi sai quy định của người dùng, chúng tôi sẽ yêu cầu bồi thường chi phí sửa chữa.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "マナー",
+              "read": "マナー",
+              "vi": "phép lịch sự, cách cư xử"
+            },
+            {
+              "w": "違反",
+              "read": "いはん",
+              "vi": "vi phạm"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "trang thiết bị"
+            },
+            {
+              "w": "破損",
+              "read": "はそん",
+              "vi": "hư hại, đổ vỡ"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "việc sửa chữa"
+            },
+            {
+              "w": "費用",
+              "read": "ひよう",
+              "vi": "chi phí"
+            },
+            {
+              "w": "請求",
+              "read": "せいきゅう",
+              "vi": "yêu cầu chi trả, bắt đền"
+            },
+            {
+              "w": "マナー違反",
+              "read": "まなーいはん",
+              "vi": "vi phạm quy tắc ứng xử/lịch sự"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで",
+              "vi": "Do, tại vì ~ (nguyên nhân dẫn đến kết quả xấu, mang ý trách móc/đổ lỗi)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "※機器点検のために、毎月第1月曜日の深夜2:00〜5:00は一時休館となります。",
+          "vi": "※Vì lý do kiểm tra thiết bị, không gian sẽ tạm ngừng hoạt động từ 2:00 đến 5:00 sáng Thứ Hai tuần đầu tiên mỗi tháng.",
+          "vocab": [
+            {
+              "w": "機器",
+              "read": "きき",
+              "vi": "thiết bị, máy móc"
+            },
+            {
+              "w": "点検",
+              "read": "てんけん",
+              "vi": "kiểm tra (thiết bị, quy trình)"
+            },
+            {
+              "w": "毎月",
+              "read": "まいつき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "深夜",
+              "read": "しんや",
+              "vi": "nửa đêm, khuya khoắt"
+            },
+            {
+              "w": "一時",
+              "read": "いちじ",
+              "vi": "tạm thời, nhất thời"
+            },
+            {
+              "w": "休館",
+              "read": "きゅうかん",
+              "vi": "đóng cửa (nhà/phòng tiện ích)"
+            },
+            {
+              "w": "機器点検",
+              "read": "ききてんけん",
+              "vi": "kiểm tra thiết bị/máy móc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（原因）",
+              "vi": "Vì, do ~ (chỉ nguyên nhân, lý do)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "毎月第1月曜日の深夜2:00〜5:00",
+              "why": "Lịch đóng cửa định kỳ ban đêm để kiểm tra hệ thống"
+            }
+          ]
+        },
+        {
+          "jp": "※早割とペア割引は併用可能ですが、学生プランは割引対象外となります。",
+          "vi": "※Ưu đãi đặt sớm và giảm giá cặp đôi có thể kết hợp cùng nhau, tuy nhiên gói sinh viên không thuộc đối tượng áp dụng giảm giá.",
+          "vocab": [
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "ペア",
+              "read": "ペア",
+              "vi": "đôi, cặp"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "併用",
+              "read": "へいよう",
+              "vi": "sử dụng đồng thời, kết hợp cùng nhau"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng (áp dụng)"
+            },
+            {
+              "w": "対象外",
+              "read": "たいしょうがい",
+              "vi": "nằm ngoài đối tượng áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が",
+              "vi": "Kết nối: Mệnh đề (thể lịch sự/thông thường) + が. Ý nghĩa: Liên từ nối biểu thị quan hệ tương phản hoặc nhượng bộ ('nhưng / tuy nhiên'), nối hai vế đối lập giữa việc được phép dùng kết hợp ưu đãi và việc loại trừ đối với gói sinh viên."
+            },
+            {
+              "point": "〜となる",
+              "vi": "Kết nối: N + となる (となります). Ý nghĩa: Biểu thị kết quả, trạng thái hoặc quy định mang tính khách quan, trang trọng (tương đương になる), ở đây diễn đạt quy định 'trở thành đối tượng không được giảm giá'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生プランは割引対象外",
+              "why": "Quy định loại trừ khuyến mãi đối với gói sinh viên"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "再開発されたおかげで",
+          "label": "〜おかげで (Nhờ có ~)"
+        },
+        {
+          "excerpt": "防音設備を導入したおかげで",
+          "label": "〜おかげで (Nhờ có ~)"
+        },
+        {
+          "excerpt": "利用できることから",
+          "label": "〜ことから (Xuất phát từ việc/do ~)"
+        },
+        {
+          "excerpt": "席数が限られていることから",
+          "label": "〜ことから (Do thực tế là ~)"
+        },
+        {
+          "excerpt": "マナー違反のせいで",
+          "label": "〜せいで (Do lỗi/tại vì ~)"
+        },
+        {
+          "excerpt": "機器点検のために",
+          "label": "〜ために (Vì lý do ~)"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "施設の特徴とアクセス",
+          "topic": 1,
+          "note": "Giới thiệu vị trí thuận tiện và không gian yên tĩnh của cơ sở",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 9,
+          "kind": "body",
+          "label": "月額基本プラン一覧",
+          "topic": 5,
+          "note": "Bảng chi tiết các gói cước cơ bản theo đối tượng và thời gian",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 15,
+          "kind": "point",
+          "label": "追加オプションと割引制度",
+          "topic": 11,
+          "note": "Biểu phí tiện ích bổ sung và điều kiện của các chương trình giảm giá",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 16,
+          "to": 19,
+          "kind": "turn",
+          "label": "ご利用上の注意・制限事項",
+          "topic": 16,
+          "note": "Các quy định về phòng riêng, bảo trì và giới hạn áp dụng khuyến mãi",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "会社員の田中さんは、平日の19:00から22:00まで勉強するために利用したいと考えている。また、専用ロッカーを契約し、同僚と2名で利用開始の前月25日に同時に新規契約する場合、田中さんの毎月の支払額はいくらになるか。",
+          "options": [
+            "7,000円",
+            "7,500円",
+            "8,000円",
+            "8,500円"
+          ],
+          "answer": 2,
+          "explainVi": "1. Tanaka-san muốn học từ 19:00〜22:00 ngày thường nên gói phù hợp là 'ナイトプラン' (7.000 yên/tháng).\n2. Thuê thêm tủ đồ riêng (専用ロッカー) cộng thêm 1.500 yên/tháng.\n3. Đăng ký vào ngày 25 tháng trước, tức sau ngày 20 nên KHÔNG đủ điều kiện hưởng '早割' (giảm 1.000 yên).\n4. Cùng đồng nghiệp đăng ký mới 2 người cùng lúc nên được hưởng 'ペア割引' giảm 500 yên/người.\n=> Tổng chi phí mỗi tháng của Tanaka-san: 7.000 + 1.500 - 500 = 8.000 yên.",
+          "tip": "Xác định gói cước cơ bản dựa trên khung giờ sử dụng, sau đó đối chiếu từng điều kiện về ngày đăng ký và dịch vụ đi kèm để tính tổng phí chính xác.",
+          "evi": [
+            7,
+            12,
+            14,
+            15
+          ],
+          "qt": {
+            "q": "Là nhân viên công ty, anh Tanaka muốn sử dụng không gian để học từ 19:00 đến 22:00 vào ngày thường. Ngoài ra, nếu đăng ký tủ khóa riêng và cùng một đồng nghiệp đồng thời ký hợp đồng mới vào ngày 25 của tháng trước khi bắt đầu sử dụng, mỗi tháng anh Tanaka phải trả bao nhiêu?",
+            "o": [
+              "7.000 yên",
+              "7.500 yên",
+              "8.000 yên",
+              "8.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "みどりコワーキングスペースの利用について、文章の内容と合っているものはどれか。",
+          "options": [
+            "学生証を提示して前月15日に友人と2名で申し込めば、学生プランの月額料金から1,500円引きになる。",
+            "学生プランを利用し、個室ブースを事前予約すれば、追加料金なしで1日5時間まで利用できる。",
+            "学生プランを契約すれば、土日を含めて9:00〜22:00の間、月額6,000円で利用できる。",
+            "機器点検のために、平日の昼間（9:00〜18:00）は月に1回休館となる。"
+          ],
+          "answer": 2,
+          "explainVi": "Lựa chọn 3 đúng vì theo bảng gói cước cơ bản (dòng 9), '学生プラン' có thời gian là '全日 9:00〜22:00' (bao gồm cả thứ Bảy, Chủ nhật) với mức phí 6.000 yên/tháng khi xuất trình thẻ học sinh/sinh viên.\n- Lựa chọn 1 sai vì dòng ghi chú 19 nêu rõ '学生プランは割引対象外' (gói sinh viên không được áp dụng giảm giá).\n- Lựa chọn 2 sai vì phòng riêng kín (dòng 13, 16) tính phí 500 yên/giờ và tối đa chỉ 3 tiếng/ngày.\n- Lựa chọn 4 sai vì lịch kiểm tra thiết bị tạm ngừng hoạt động (dòng 18) là '毎月第1月曜日の深夜2:00〜5:00', không phải ban ngày ngày thường.",
+          "tip": "Đọc kỹ các dòng ghi chú có dấu ※ ở cuối văn bản để nắm các trường hợp ngoại lệ và quy định hạn chế thời gian.",
+          "evi": [
+            9,
+            13,
+            16,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Về việc sử dụng không gian làm việc chung Midori, nội dung nào phù hợp với bài đọc?",
+            "o": [
+              "Nếu xuất trình thẻ sinh viên và đăng ký cùng một người bạn vào ngày 15 của tháng trước, phí hằng tháng của gói sinh viên sẽ được giảm 1.500 yên.",
+              "Nếu sử dụng gói sinh viên và đặt trước phòng làm việc riêng, có thể sử dụng tối đa 5 giờ mỗi ngày mà không mất thêm phí.",
+              "Nếu ký hợp đồng gói sinh viên, có thể sử dụng từ 9:00 đến 22:00, bao gồm cả thứ Bảy và Chủ nhật, với phí hằng tháng là 6.000 yên.",
+              "Để kiểm tra thiết bị, địa điểm sẽ đóng cửa một lần mỗi tháng vào ban ngày các ngày thường (9:00–18:00)."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

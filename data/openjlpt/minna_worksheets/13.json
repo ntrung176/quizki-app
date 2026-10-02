@@ -1,0 +1,380 @@
+{
+  "bai": 13,
+  "bunpou": [
+    {
+      "stem": "わたしは 新[あたら]しい 車[くるま]＿ ほしいです。",
+      "choices": [
+        "が",
+        "を",
+        "に",
+        "は"
+      ],
+      "answer": 0,
+      "explain": "ほしいです yêu cầu vật mong muốn dùng trợ từ が; nhầm sang を là lỗi rất phổ biến — を chỉ dùng với động từ hành động."
+    },
+    {
+      "stem": "カメラ＿ ほしいです。",
+      "choices": [
+        "が",
+        "を",
+        "で",
+        "に"
+      ],
+      "answer": 0,
+      "explain": "N が ほしいです: が đánh dấu vật mong muốn; を ở đây sai vì ほしい là tính từ, không phải động từ."
+    },
+    {
+      "stem": "すしが ＿。",
+      "choices": [
+        "食[た]べたいです",
+        "食[た]べるたいです",
+        "食[た]べますたいです",
+        "食[た]べないたいです"
+      ],
+      "answer": 0,
+      "explain": "たいです gắn vào ます-stem (食べ-): 食べたいです = \"muốn ăn\"; tuyệt đối không dùng 辞書形 (食べる) hay ます trước たい."
+    },
+    {
+      "stem": "日本[にほん]へ ＿。",
+      "choices": [
+        "行[い]きたいです",
+        "行[い]くたいです",
+        "行[い]きますたいです",
+        "行[い]かたいです"
+      ],
+      "answer": 0,
+      "explain": "ます-stem của 行きます là 行き: 行きたいです = \"muốn đi\"; 行くたい (辞書形+たい) là sai ngữ pháp."
+    },
+    {
+      "stem": "今日[きょう]は 仕事[しごと]を ＿。",
+      "choices": [
+        "したくないです",
+        "しないたいです",
+        "したいじゃないです",
+        "しますたくない"
+      ],
+      "answer": 0,
+      "explain": "たい chia như い-adj: phủ định là たくない(です); したいじゃない là sai vì たい không dùng じゃない."
+    },
+    {
+      "stem": "デパートへ 買[か]い物[もの]＿ 行[い]きます。",
+      "choices": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "Cấu trúc mục đích: [nơi]へ + [Vstem / danh từ hành động] + に + 行きます; に ở đây chỉ mục đích chuyển động."
+    },
+    {
+      "stem": "図書館[としょかん]へ 本[ほん]を 借[か]り＿ 来[き]ました。",
+      "choices": [
+        "に",
+        "を",
+        "で",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "Vstem (借り) + に + 来ました: に chỉ mục đích của chuyển động đến (来る); cấu trúc giống 〜に行く."
+    },
+    {
+      "stem": "週末[しゅうまつ]は ＿ 行[い]きたいです。",
+      "choices": [
+        "どこかへ",
+        "どこへも",
+        "どこかを",
+        "どこへか"
+      ],
+      "answer": 0,
+      "explain": "どこか = \"đâu đó\" (không xác định); へ là trợ từ hướng đi; cố định là どこかへ; どこへも + phủ định = \"không đi đâu cả\"."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "が",
+      "に",
+      "を",
+      "へ",
+      "は",
+      "で",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "新[あたら]しい パソコン＿ ほしいです。",
+        "answer": "が",
+        "explain": "ほしいです dùng が cho vật mong muốn; nhầm を là lỗi thường gặp."
+      },
+      {
+        "stem": "お金[かね]＿ ほしいですから、アルバイトを します。",
+        "answer": "が",
+        "explain": "N が ほしい: が đánh dấu vật mong muốn; を sai vì ほしい không phải động từ hành động."
+      },
+      {
+        "stem": "レストラン＿ 食事[しょくじ]に 来[き]ました。",
+        "answer": "へ",
+        "explain": "へ chỉ hướng di chuyển đến đích (レストランへ来る); に cũng chấp nhận được nhưng へ nhấn mạnh hướng đi."
+      },
+      {
+        "stem": "スーパーへ 買[か]い物し＿ 行[い]きます。",
+        "answer": "に",
+        "explain": "Mục đích chuyển động: [Vstem / danh từ hành động] + に + 行く; に chỉ mục đích, không phải để."
+      },
+      {
+        "stem": "日本[にほん]の 料理[りょうり]を 食[た]べ＿ 行[い]きたいです。",
+        "answer": "に",
+        "explain": "Vstem (食べ) + に + 行きたい: に chỉ mục đích; cấu trúc bắt buộc dùng に, không dùng を hay で."
+      },
+      {
+        "stem": "何[なに]か 食[た]べたいです＿、おなかが すいています。",
+        "answer": "は",
+        "explain": "は ở đây dùng như \"nhưng\" (tương phản nhẹ nhàng) sau mệnh đề đầu; が cũng dùng được nhưng は tự nhiên hơn trong văn viết."
+      },
+      {
+        "stem": "暇[ひま]な 時間[じかん]＿ ほしいです。",
+        "answer": "が",
+        "explain": "N が ほしい: が đánh dấu vật/điều mong muốn (thời gian rảnh); が là bắt buộc với ほしい."
+      },
+      {
+        "stem": "公園[こうえん]へ 散歩[さんぽ]し＿ 行[い]きましょう。",
+        "answer": "に",
+        "explain": "Danh từ hành động (散歩し) + に + 行く là cấu trúc mục đích chuẩn; không dùng を hay で."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "食[た]べます",
+      "prompt": "Muốn làm → thể たい?",
+      "choices": [
+        "食[た]べたいです",
+        "食[た]べるたいです",
+        "食[た]べますたいです",
+        "食[た]べたくないです"
+      ],
+      "answer": 0,
+      "explain": "Bỏ ます, thêm たいです: 食べ + たいです = 食べたいです; 食べるたい (辞書形+たい) là sai; 食べたくない là phủ định."
+    },
+    {
+      "base": "行[い]きます",
+      "prompt": "Muốn làm → thể たい?",
+      "choices": [
+        "行[い]きたいです",
+        "行[い]くたいです",
+        "行[い]きますたいです",
+        "行[い]きないたいです"
+      ],
+      "answer": 0,
+      "explain": "ます-stem của 行きます là 行き: 行きたいです; 行くたい là lỗi dùng 辞書形 trước たい."
+    },
+    {
+      "base": "飲[の]みたいです",
+      "prompt": "Phủ định thể たい?",
+      "choices": [
+        "飲[の]みたくないです",
+        "飲[の]みないたいです",
+        "飲[の]みたいじゃないです",
+        "飲[の]みませんたい"
+      ],
+      "answer": 0,
+      "explain": "たい chia như い-adj: phủ định là たくない(です); たいじゃない là lỗi phổ biến vì nhầm たい với な-adj."
+    },
+    {
+      "base": "勉強[べんきょう]します",
+      "prompt": "Dạng mục đích (Vstem + に) đi trước 行きます?",
+      "choices": [
+        "勉強[べんきょう]しに",
+        "勉強[べんきょう]するに",
+        "勉強[べんきょう]をに",
+        "勉強[べんきょう]してに"
+      ],
+      "answer": 0,
+      "explain": "します → ます-stem = し: 勉強しに + 行きます; không dùng 辞書形 (する) hay thể て trước に mục đích."
+    },
+    {
+      "base": "ほしいです",
+      "prompt": "Phủ định?",
+      "choices": [
+        "ほしくないです",
+        "ほしくありません",
+        "ほしいじゃないです",
+        "ほしないです"
+      ],
+      "answer": 0,
+      "explain": "ほしい là い-adj: phủ định bỏ い thêm くない → ほしくないです; ほしいじゃない là sai (nhầm với な-adj)."
+    },
+    {
+      "base": "見[み]ます",
+      "prompt": "Muốn làm → thể たい?",
+      "choices": [
+        "見[み]たいです",
+        "見[み]るたいです",
+        "見[み]ますたいです",
+        "見[み]たくないです"
+      ],
+      "answer": 0,
+      "explain": "ます-stem của 見ます là 見: 見たいです; 見るたい là sai (辞書形); 見たくない là phủ định."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "わたしは",
+        "新[あたら]しい",
+        "パソコンが",
+        "ほしいです。"
+      ],
+      "vi": "Tôi muốn có máy tính mới.",
+      "explain": "N が ほしい: chủ đề (わたしは) + tính ngữ (新しい) + N が + ほしいです; が đứng ngay sau danh từ mong muốn."
+    },
+    {
+      "chips": [
+        "日本[にほん]へ",
+        "料理[りょうり]を",
+        "食[た]べに",
+        "行[い]きたいです。"
+      ],
+      "vi": "Tôi muốn đến Nhật để ăn đồ ăn Nhật.",
+      "explain": "Hướng đi (日本へ) + tân ngữ (料理を) + mục đích (食べに) + muốn đi (行きたい); mục đích Vstemに đứng trước 行く."
+    },
+    {
+      "chips": [
+        "週末[しゅうまつ]は",
+        "どこかへ",
+        "行[い]きたいです。"
+      ],
+      "vi": "Cuối tuần tôi muốn đi đâu đó.",
+      "explain": "どこかへ = \"đến đâu đó\"; へ chỉ hướng đi; thứ tự: thời gian + hướng đi + động từ たい."
+    },
+    {
+      "chips": [
+        "図書館[としょかん]へ",
+        "本[ほん]を",
+        "借[か]りに",
+        "行[い]きます。"
+      ],
+      "vi": "Tôi đến thư viện để mượn sách.",
+      "explain": "Đích đến (図書館へ) + tân ngữ (本を) + mục đích (借りに) + 行きます; cấu trúc mục đích bắt buộc Vstemに trước 行く."
+    },
+    {
+      "chips": [
+        "何[なに]か",
+        "食[た]べたいですが、",
+        "お金[かね]が",
+        "ありません。"
+      ],
+      "vi": "Tôi muốn ăn gì đó nhưng không có tiền.",
+      "explain": "Mệnh đề 1 (muốn) + が (nhưng) + mệnh đề 2 (không có); お金がありません = \"không có tiền\" với が chủ ngữ."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "たんじょうびに あたらしい カメラが ほしいです。",
+      "ask": "Người nói muốn gì cho sinh nhật?",
+      "choices": [
+        "Máy ảnh mới",
+        "Điện thoại mới",
+        "Túi mới"
+      ],
+      "answer": 0,
+      "script": "誕生日[たんじょうび]に 新[あたら]しい カメラが ほしいです。",
+      "explain": "Nghe rõ あたらしい カメラ = \"máy ảnh mới\"; ほしいです xác nhận đây là vật mong muốn."
+    },
+    {
+      "tts": "にほんへ りょうりを たべに いきたいです。",
+      "ask": "Người nói muốn làm gì ở Nhật?",
+      "choices": [
+        "Đi ăn đồ Nhật",
+        "Đi học tiếng Nhật",
+        "Đi làm việc"
+      ],
+      "answer": 0,
+      "script": "日本[にほん]へ 料理[りょうり]を 食[た]べに 行[い]きたいです。",
+      "explain": "たべに いきたい = \"muốn đi để ăn\"; mục đích là ăn đồ ăn (りょうり), không phải học hay làm việc."
+    },
+    {
+      "tts": "としょかんへ にほんごを べんきょうしに いきます。",
+      "ask": "Người nói đến đâu để làm gì?",
+      "choices": [
+        "Thư viện — học tiếng Nhật",
+        "Trường — học tiếng Nhật",
+        "Thư viện — mượn sách"
+      ],
+      "answer": 0,
+      "script": "図書館[としょかん]へ 日本語[にほんご]を 勉強[べんきょう]しに 行[い]きます。",
+      "explain": "としょかん = thư viện; べんきょうしに = mục đích học; hai yếu tố này kết hợp cho đáp án đúng."
+    },
+    {
+      "tts": "きょうは しごとを したくないです。",
+      "ask": "Người nói cảm thấy thế nào về công việc hôm nay?",
+      "choices": [
+        "Không muốn làm việc",
+        "Muốn làm việc chăm chỉ",
+        "Muốn nghỉ phép"
+      ],
+      "answer": 0,
+      "script": "今日[きょう]は 仕事[しごと]を したくないです。",
+      "explain": "したくない = phủ định của したい (muốn làm) → \"không muốn làm\"; không nghe thấy \"chăm chỉ\" hay \"nghỉ phép\"."
+    },
+    {
+      "tts": "なにか たべたいですが、おかねが ありません。",
+      "ask": "Vì sao người nói không thể ăn?",
+      "choices": [
+        "Vì không có tiền",
+        "Vì không đói",
+        "Vì không có thời gian"
+      ],
+      "answer": 0,
+      "script": "何[なに]か 食[た]べたいですが、お金[かね]が ありません。",
+      "explain": "おかねが ありません = \"không có tiền\" là lý do rõ ràng trong câu; không nghe thấy thời gian hay đói bụng."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi muốn có một chiếc xe mới.",
+      "target": "わたしは新しい車がほしいです。",
+      "accept": [
+        "わたしはあたらしいくるまがほしいです。",
+        "私は新しい車がほしいです。"
+      ],
+      "explain": "N が ほしいです: vật mong muốn (車) dùng が; tính ngữ (新しい) đứng trước danh từ."
+    },
+    {
+      "vi": "Tôi muốn ăn sushi.",
+      "target": "すしが食べたいです。",
+      "accept": [
+        "すしがたべたいです。",
+        "わたしはすしが食べたいです。"
+      ],
+      "explain": "N が + Vstem + たいです: すし là đối tượng của たい nên dùng が (thay cho を thông thường)."
+    },
+    {
+      "vi": "Tôi đến trung tâm thương mại để mua sắm.",
+      "target": "デパートへ買い物に行きます。",
+      "accept": [
+        "でぱーとへかいものにいきます。",
+        "デパートに買い物に行きます。"
+      ],
+      "explain": "Đích đến + へ (hoặc に) + danh từ hành động + に + 行きます; 買い物に行く là cụm cố định."
+    },
+    {
+      "vi": "Hôm nay tôi không muốn làm việc.",
+      "target": "今日は仕事をしたくないです。",
+      "accept": [
+        "きょうはしごとをしたくないです。",
+        "今日は仕事したくないです。"
+      ],
+      "explain": "したくない = phủ định của したい: bỏ い thêm くない; tân ngữ 仕事 dùng を như bình thường."
+    },
+    {
+      "vi": "Cuối tuần tôi muốn đi đâu đó.",
+      "target": "週末はどこかへ行きたいです。",
+      "accept": [
+        "しゅうまつはどこかへいきたいです。",
+        "週末はどこかに行きたいです。"
+      ],
+      "explain": "どこかへ = \"đến đâu đó\"; 行きたい = ます-stem (行き) + たい; へ/に đều chấp nhận cho hướng đi."
+    }
+  ]
+}

@@ -1,0 +1,472 @@
+{
+  "id": "minna2.b27",
+  "bai": 27,
+  "titleVi": "Phỏng đoán, hội thoại thể thông thường",
+  "know": [
+    {
+      "id": "minna2.b27.deshou",
+      "point": "deshou",
+      "jp": "〜でしょう",
+      "vi": "Phỏng đoán: có lẽ ~, chắc là ~",
+      "en": "Speculation: perhaps ~, it is probably ~",
+      "gloss": "多分[たぶん] 雨[あめ]が 降[ふ]る でしょう。",
+      "glossEn": "多分[たぶん] 雨[あめ]が 降[ふ]る でしょう。"
+    },
+    {
+      "id": "minna2.b27.deshou-confirm",
+      "point": "deshou-confirm",
+      "jp": "〜でしょう？",
+      "vi": "Xác nhận nhẹ: ~ đúng không?",
+      "en": "Soft confirmation: ~, right?",
+      "gloss": "田中[たなか]さんも 来[く]るでしょう？",
+      "glossEn": "田中[たなか]さんも 来[く]るでしょう？"
+    },
+    {
+      "id": "minna2.b27.kamoshirenai",
+      "point": "kamoshirenai",
+      "jp": "〜かもしれません",
+      "vi": "Không chắc: có thể là ~, có lẽ ~ (kém chắc hơn でしょう)",
+      "en": "It may be ~ (probability ≈40%, uncertain)",
+      "gloss": "明日[あした] 台風[たいふう]が 来[く]るかもしれません。",
+      "glossEn": "V普通形[ふつうけい]／A／N ＋ かもしれない — used with any person ・ 例: 空[そら]が 曇[くも]っているので、雨[あめ]が 降[ふ]る かもしれない。（It is cloudy, so it may rain）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b27-ds-tenki",
+      "item": "minna2.b27.deshou",
+      "err": "deshou-form",
+      "vi": "Theo dự báo thời tiết, ngày mai có lẽ sẽ có bão.",
+      "t1": {
+        "stem": "天気予報[てんきよほう]によると、明日[あした] 台風[たいふう]が 来[く]る ＿。",
+        "choices": [
+          "でしょう",
+          "でしょうか",
+          "かもしれません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "天気予報[てんきよほう]によると、",
+          "明日[あした]",
+          "台風[たいふう]が",
+          "来[く]る",
+          "でしょう。"
+        ],
+        "traps": [
+          "来[く]るでしょうか。",
+          "でしょうか。"
+        ]
+      },
+      "t3": {
+        "target": "天気予報によると、明日台風が来るでしょう。",
+        "accept": [
+          "てんきよほうによると、あしたたいふうがくるでしょう。"
+        ]
+      },
+      "why": "でしょう sau thể thường (来[く]る) diễn tả phỏng đoán tương đối chắc. ✗ でしょうか = hỏi ý kiến, không phải khẳng định."
+    },
+    {
+      "id": "c-b27-ds-kion",
+      "item": "minna2.b27.deshou",
+      "err": "deshou-form",
+      "vi": "Hôm nay nhiệt độ chắc là cao nhất trong năm đó.",
+      "t1": {
+        "stem": "今日[きょう]の 気温[きおん]は 今年[ことし]で 最高[さいこう]＿。",
+        "choices": [
+          "でしょう",
+          "だと思います",
+          "かもしれません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]の 気温[きおん]は",
+          "今年[ことし]で",
+          "最高[さいこう]",
+          "でしょう。"
+        ],
+        "traps": [
+          "最高[さいこう]だと思[おも]います。",
+          "です。"
+        ]
+      },
+      "t3": {
+        "target": "今日の気温は今年で最高でしょう。",
+        "accept": [
+          "きょうのきおんはことしでさいこうでしょう。"
+        ]
+      },
+      "why": "最高[さいこう] là danh từ/な形容詞: 最高[さいこう] + でしょう (thể thường = 最高[さいこう]だ → bỏ だ trước でしょう). ✗ だと思[おも]います diễn đạt ý kiến cá nhân, không phải dự báo khách quan."
+    },
+    {
+      "id": "c-b27-ds-yuki",
+      "item": "minna2.b27.deshou",
+      "err": "deshou-form",
+      "vi": "Vùng núi chắc là đã có tuyết rồi.",
+      "t1": {
+        "stem": "山[やま]のほうは もう 雪[ゆき]が 降[ふ]って ＿。",
+        "choices": [
+          "いるでしょう",
+          "いますでしょう",
+          "いるかもしれません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "山[やま]のほうは",
+          "もう",
+          "雪[ゆき]が",
+          "降[ふ]って",
+          "いる",
+          "でしょう。"
+        ],
+        "traps": [
+          "降[ふ]っていますでしょう。",
+          "降[ふ]っています。"
+        ]
+      },
+      "t3": {
+        "target": "山のほうはもう雪が降っているでしょう。",
+        "accept": [
+          "やまのほうはもうゆきがふっているでしょう。"
+        ]
+      },
+      "why": "でしょう tiếp theo thể thường: ています → ている + でしょう. ✗ ていますでしょう — dùng thể lịch sự trước でしょう là sai ngữ pháp."
+    },
+    {
+      "id": "c-b27-dc-yakusoku",
+      "item": "minna2.b27.deshou-confirm",
+      "err": "deshou-kakuron",
+      "vi": "Cuộc hẹn vào thứ Sáu, đúng không?",
+      "t1": {
+        "stem": "約束[やくそく]は 金曜日[きんようび]＿",
+        "choices": [
+          "でしょう？",
+          "ですか？",
+          "だと思います。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "約束[やくそく]は",
+          "金曜日[きんようび]",
+          "でしょう？"
+        ],
+        "traps": [
+          "ですか？",
+          "でしょうか。"
+        ]
+      },
+      "t3": {
+        "target": "約束は金曜日でしょう？",
+        "accept": [
+          "やくそくはきんようびでしょう？"
+        ]
+      },
+      "why": "でしょう？ (lên giọng cuối) = hỏi xác nhận điều mình đã nghĩ đúng. ✗ ですか = câu hỏi thông thường, không hàm ý đang xác nhận lại."
+    },
+    {
+      "id": "c-b27-dc-yamada",
+      "item": "minna2.b27.deshou-confirm",
+      "err": "deshou-kakuron",
+      "vi": "Anh Yamada cũng biết chuyện đó rồi chứ?",
+      "t1": {
+        "stem": "山田[やまだ]さんも もう 知[し]っている ＿",
+        "choices": [
+          "でしょう？",
+          "でしょうか？",
+          "かもしれませんか？"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "山田[やまだ]さんも",
+          "もう",
+          "知[し]っている",
+          "でしょう？"
+        ],
+        "traps": [
+          "知[し]っているでしょうか？",
+          "知[し]っていますか？"
+        ]
+      },
+      "t3": {
+        "target": "山田さんももう知っているでしょう？",
+        "accept": [
+          "やまださんももうしっているでしょう？"
+        ]
+      },
+      "why": "知[し]っている (thể thường) + でしょう？ = xác nhận giả định của mình. ✗ でしょうか = hỏi ý kiến lịch sự, khác sắc thái."
+    },
+    {
+      "id": "c-b27-km-ame",
+      "item": "minna2.b27.kamoshirenai",
+      "err": "kamoshirenai-form",
+      "vi": "Chiều nay có thể sẽ mưa, nên mang theo ô đi.",
+      "t1": {
+        "stem": "今日[きょう]の 午後[ごご]、雨[あめ]が 降[ふ]る ＿ から、傘[かさ]を 持[も]っていきましょう。",
+        "choices": [
+          "かもしれません",
+          "でしょう",
+          "と思います"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]の 午後[ごご]、",
+          "雨[あめ]が",
+          "降[ふ]る",
+          "かもしれません",
+          "から、",
+          "傘[かさ]を",
+          "持[も]って",
+          "いきましょう。"
+        ],
+        "traps": [
+          "降[ふ]るでしょう",
+          "降[ふ]ると思[おも]います"
+        ]
+      },
+      "t3": {
+        "target": "今日の午後、雨が降るかもしれませんから、傘を持っていきましょう。",
+        "accept": [
+          "きょうのごご、あめがふるかもしれませんから、かさをもっていきましょう。"
+        ]
+      },
+      "why": "かもしれません = không chắc chắn (có thể). Dùng khi không có thông tin rõ ràng, phù hợp hơn でしょう ở đây vì người nói còn nghi ngờ."
+    },
+    {
+      "id": "c-b27-km-jishin",
+      "item": "minna2.b27.kamoshirenai",
+      "err": "kamoshirenai-form",
+      "vi": "Vùng đó có thể đã xảy ra động đất.",
+      "t1": {
+        "stem": "あの 地域[ちいき]で 地震[じしん]が あった ＿。",
+        "choices": [
+          "かもしれません",
+          "でしょう",
+          "でしょうか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 地域[ちいき]で",
+          "地震[じしん]が",
+          "あった",
+          "かもしれません。"
+        ],
+        "traps": [
+          "あったでしょう。",
+          "あったでしょうか。"
+        ]
+      },
+      "t3": {
+        "target": "あの地域で地震があったかもしれません。",
+        "accept": [
+          "あのちいきでじしんがあったかもしれません。"
+        ]
+      },
+      "why": "あった (た-form = thể thường quá khứ) + かもしれません = không chắc về quá khứ. ✗ あったでしょう mang sắc thái chắc hơn."
+    },
+    {
+      "id": "c-b27-km-kawari",
+      "item": "minna2.b27.kamoshirenai",
+      "err": "kamoshirenai-form",
+      "vi": "Lịch có thể thay đổi, nên hãy xác nhận lại.",
+      "t1": {
+        "stem": "予定[よてい]が 変[か]わる ＿ から、確認[かくにん]してください。",
+        "choices": [
+          "かもしれません",
+          "でしょう",
+          "と思います"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "予定[よてい]が",
+          "変[か]わる",
+          "かもしれません",
+          "から、",
+          "確認[かくにん]して",
+          "ください。"
+        ],
+        "traps": [
+          "変[か]わるでしょう",
+          "変[か]わると思[おも]います"
+        ]
+      },
+      "t3": {
+        "target": "予定が変わるかもしれませんから、確認してください。",
+        "accept": [
+          "よていがかわるかもしれませんから、かくにんしてください。"
+        ]
+      },
+      "why": "変[か]わる (thể thường hiện tại/tương lai) + かもしれません. Người nói không chắc nên dùng かもしれません thay でしょう."
+    },
+    {
+      "id": "c-b27-km-kumori",
+      "item": "minna2.b27.kamoshirenai",
+      "err": "kamoshirenai-form",
+      "vi": "Ngày mai trời có thể âm u.",
+      "t1": {
+        "stem": "明日[あした]は 曇[くも]り ＿。",
+        "choices": [
+          "かもしれません",
+          "でしょうか",
+          "だと思いますか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "明日[あした]は",
+          "曇[くも]り",
+          "かもしれません。"
+        ],
+        "traps": [
+          "曇[くも]りでしょうか。",
+          "曇[くも]りです。"
+        ]
+      },
+      "t3": {
+        "target": "明日は曇りかもしれません。",
+        "accept": [
+          "あしたはくもりかもしれません。"
+        ]
+      },
+      "why": "曇[くも]り là danh từ: 曇[くも]り + かもしれません (KHÔNG thêm だ trước かもしれません với danh từ). ✗ 曇[くも]りだかもしれません là sai."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b27-tenki",
+      "item": "minna2.b27.deshou",
+      "err": "deshou-form",
+      "tts": "あした、たいふうがくるでしょう。きをつけてください。",
+      "script": "明日[あした]、台風[たいふう]が 来[く]るでしょう。気[き]をつけてください。",
+      "ask": "Người nói dự báo điều gì?",
+      "choices": [
+        "Ngày mai có bão",
+        "Ngày mai trời nắng",
+        "Ngày mai có thể có mưa nhỏ"
+      ],
+      "answer": 0,
+      "why": "台風[たいふう]が 来[く]るでしょう = phỏng đoán chắc chắn có bão đến vào ngày mai."
+    },
+    {
+      "id": "l-b27-yakusoku",
+      "item": "minna2.b27.deshou-confirm",
+      "err": "deshou-kakuron",
+      "tts": "やくそくはもくようびでしょう？— はい、そうです。",
+      "script": "約束[やくそく]は 木曜日[もくようび]でしょう？— はい、そうです。",
+      "ask": "Cuộc hẹn là ngày nào?",
+      "choices": [
+        "Thứ Năm",
+        "Thứ Sáu",
+        "Thứ Tư"
+      ],
+      "answer": 0,
+      "why": "でしょう？ (lên giọng) = xác nhận. 木曜日[もくようび] = thứ Năm. Người kia xác nhận そうです."
+    },
+    {
+      "id": "l-b27-okure",
+      "item": "minna2.b27.kamoshirenai",
+      "err": "kamoshirenai-form",
+      "tts": "たなかさんはおくれるかもしれません。もうすこしまちましょう。",
+      "script": "田中[たなか]さんは 遅[おく]れるかもしれません。もう少[すこ]し 待[ま]ちましょう。",
+      "ask": "Người nói nói gì về anh Tanaka?",
+      "choices": [
+        "Anh Tanaka có thể đến muộn",
+        "Anh Tanaka chắc chắn đến muộn",
+        "Anh Tanaka không đến"
+      ],
+      "answer": 0,
+      "why": "かもしれません = không chắc chắn, có thể. 遅[おく]れる = đến muộn."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b27-futsuu-iadj",
+      "item": "minna1.b20.futsuu-iadj",
+      "err": "futsuu-da",
+      "ambush": true,
+      "src": 20,
+      "context": "Bài 27 ・ 〜でしょう",
+      "vi": "Bài thi hôm nay chắc là khó nhỉ.",
+      "t1": {
+        "stem": "今日[きょう]のテストは 難[むずか]し＿でしょう。",
+        "choices": [
+          "い",
+          "いだ",
+          "くて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]の",
+          "テストは",
+          "難[むずか]しい",
+          "でしょう。"
+        ],
+        "traps": [
+          "難[むずか]しいだでしょう。",
+          "難[むずか]しくて"
+        ]
+      },
+      "t3": {
+        "target": "今日のテストは難しいでしょう。",
+        "accept": [
+          "きょうのてすとはむずかしいでしょう。"
+        ]
+      },
+      "why": "い形容詞[けいようし] (難[むずか]しい) trước でしょう giữ nguyên い, KHÔNG thêm だ. ✗ 難[むずか]しいだでしょう — い形容詞[けいようし] thể thường không dùng だ (lỗi Bài 20)."
+    },
+    {
+      "id": "a-b27-futsuu-nadj",
+      "item": "minna1.b20.futsuu-nadj-noun",
+      "err": "futsuu-da",
+      "ambush": true,
+      "src": 20,
+      "context": "Bài 27 ・ 〜かもしれません",
+      "vi": "Buổi tiệc tối nay có thể sẽ rất vui.",
+      "t1": {
+        "stem": "今夜[こんや]のパーティーは ＿かもしれません。",
+        "choices": [
+          "にぎやか",
+          "にぎやかだ",
+          "にぎやかな"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今夜[こんや]の",
+          "パーティーは",
+          "にぎやか",
+          "かもしれません。"
+        ],
+        "traps": [
+          "にぎやかだかもしれません。",
+          "にぎやかなかもしれません。"
+        ]
+      },
+      "t3": {
+        "target": "今夜のパーティーはにぎやかかもしれません。",
+        "accept": [
+          "こんやのぱーてぃーはにぎやかかもしれません。"
+        ]
+      },
+      "why": "な形容詞[けいようし] (にぎやか) trước かもしれません: bỏ だ, giữ nguyên stem. ✗ にぎやかだかもしれません — lỗi thêm だ với な形容詞[けいようし] (lỗi Bài 20)."
+    }
+  ]
+}

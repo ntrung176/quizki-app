@@ -1,0 +1,498 @@
+{
+  "id": "minna2.b48",
+  "bai": 48,
+  "titleVi": "Điều kiện giả định, giả thiết",
+  "know": [
+    {
+      "id": "minna2.b48.ba-cond",
+      "point": "ba-cond",
+      "jp": "〜ば (動詞[どうし]・い形容詞[けいようし])",
+      "vi": "Nếu ~ thì (điều kiện giả định — động từ & tính từ い)",
+      "en": "〜ば: a general hypothetical condition — the following clause is NOT a specific past event; do not use it to describe a past state",
+      "gloss": "行[い]く→行[い]けば ／ 安[やす]い→安[やす]ければ ／ する→すれば",
+      "glossEn": "動詞[どうし]ば形[けい]／形容詞[けいようし]ければ ・ 例: もっと 勉強[べんきょう]すれば、試験[しけん]に 合格[ごうかく]できると 思[おも]います（If I study more, I may pass the exam — a general hypothetical）"
+    },
+    {
+      "id": "minna2.b48.ba-hodo",
+      "point": "ba-hodo",
+      "jp": "〜ば〜ほど",
+      "vi": "Càng ~ thì càng ~ (tỷ lệ thuận)",
+      "en": "The more... , the more... (a proportional relationship — ば-form + the same verb + ほど)",
+      "gloss": "練習[れんしゅう]すればするほど 上手[じょうず]になります",
+      "glossEn": "Vば + V(辞書形[じしょけい]) + ほど ＝ the more..., the more... (a proportional relationship) ・ 例: 日本語[にほんご]は 勉強[べんきょう]すれば するほど 上手[じょうず]になる。（The more you study Japanese, the more proficient you become）"
+    },
+    {
+      "id": "minna2.b48.ba-yokatta",
+      "point": "ba-yokatta",
+      "jp": "〜ばよかった（のに）",
+      "vi": "Giá mà ~ thì tốt (hối tiếc về quá khứ)",
+      "en": "I wish I had ~; it would have been better if ~ (regret about the past)",
+      "gloss": "早[はや]く起[お]きればよかった",
+      "glossEn": "早[はや]く起[お]きればよかった (I should have gotten up early.)"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b48-bc-jikan",
+      "item": "minna2.b48.ba-cond",
+      "err": "ba-form-verb-wrong",
+      "vi": "Nếu có thời gian thì tôi muốn đi du lịch.",
+      "t1": {
+        "stem": "時間[じかん]が ＿、旅行[りょこう]したいです。",
+        "choices": [
+          "あれば",
+          "あるば",
+          "あったら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "時間[じかん]が",
+          "あれば、",
+          "旅行[りょこう]したいです。"
+        ],
+        "traps": [
+          "あるば、",
+          "あったら、"
+        ]
+      },
+      "t3": {
+        "target": "時間があれば、旅行したいです。",
+        "accept": [
+          "じかんがあれば、りょこうしたいです。"
+        ]
+      },
+      "why": "ある → あれば (nhóm I: う段→え段＋ば). ✗ あるば — không thêm ば trực tiếp vào từ điển-form. ✗ あったら — たら là điều kiện khác, không phải ば."
+    },
+    {
+      "id": "c-b48-bc-renshuu",
+      "item": "minna2.b48.ba-cond",
+      "err": "ba-form-verb-wrong",
+      "vi": "Nếu luyện tập thì sẽ giỏi hơn.",
+      "t1": {
+        "stem": "＿ もっと上手[じょうず]になります。",
+        "choices": [
+          "練習[れんしゅう]すれば",
+          "練習[れんしゅう]するば",
+          "練習[れんしゅう]したら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "練習[れんしゅう]すれば",
+          "もっと",
+          "上手[じょうず]に",
+          "なります。"
+        ],
+        "traps": [
+          "練習[れんしゅう]するば",
+          "練習[れんしゅう]しれば"
+        ]
+      },
+      "t3": {
+        "target": "練習すればもっと上手になります。",
+        "accept": [
+          "れんしゅうすればもっとじょうずになります。"
+        ]
+      },
+      "why": "する → すれば (nhóm III đặc biệt: irregular). ✗ するば — する không chia ば theo quy tắc thông thường."
+    },
+    {
+      "id": "c-b48-bc-chizu",
+      "item": "minna2.b48.ba-cond",
+      "err": "ba-form-verb-wrong",
+      "vi": "Nếu xem bản đồ thì sẽ tìm ra đường tắt.",
+      "t1": {
+        "stem": "地図[ちず]を ＿、近道[ちかみち]がわかります。",
+        "choices": [
+          "見[み]れば",
+          "見[み]るば",
+          "見[み]たら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "地図[ちず]を",
+          "見[み]れば、",
+          "近道[ちかみち]が",
+          "わかります。"
+        ],
+        "traps": [
+          "見[み]るば、",
+          "見[み]いば、"
+        ]
+      },
+      "t3": {
+        "target": "地図を見れば、近道がわかります。",
+        "accept": [
+          "ちずをみれば、ちかみちがわかります。"
+        ]
+      },
+      "why": "見る (nhóm II) → 見れば (る→れば). ✗ 見るば — không thêm ば vào từ điển-form."
+    },
+    {
+      "id": "c-b48-bc-yasui",
+      "item": "minna2.b48.ba-cond",
+      "err": "ba-form-iadj-wrong",
+      "vi": "Nếu rẻ thì tôi sẽ mua cái đó.",
+      "t1": {
+        "stem": "もし ＿、それを 買[か]います。",
+        "choices": [
+          "安[やす]ければ",
+          "安[やす]いば",
+          "安[やす]くば"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もし",
+          "安[やす]ければ、",
+          "それを",
+          "買[か]います。"
+        ],
+        "traps": [
+          "安[やす]いば、",
+          "安[やす]いなら、"
+        ]
+      },
+      "t3": {
+        "target": "もし安ければ、それを買います。",
+        "accept": [
+          "もしやすければ、それをかいます。"
+        ]
+      },
+      "why": "い形容詞: い→ければ (安い→安ければ). ✗ 安いば — い形容詞 KHÔNG thêm ば trực tiếp."
+    },
+    {
+      "id": "c-b48-bc-yoitenki",
+      "item": "minna2.b48.ba-cond",
+      "err": "ba-form-iadj-wrong",
+      "vi": "Nếu thời tiết đẹp thì chúng ta sẽ đi dã ngoại.",
+      "t1": {
+        "stem": "天気[てんき]が ＿、ピクニックに 行[い]きましょう。",
+        "choices": [
+          "よければ",
+          "よいば",
+          "いいば"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "天気[てんき]が",
+          "よければ、",
+          "ピクニックに",
+          "行[い]きましょう。"
+        ],
+        "traps": [
+          "よいば、",
+          "いいならば、"
+        ]
+      },
+      "t3": {
+        "target": "天気がよければ、ピクニックに行きましょう。",
+        "accept": [
+          "てんきがよければ、ぴくにっくにいきましょう。"
+        ]
+      },
+      "why": "いい/よい の ければ形: よい→よければ (いい は文語 よい に戻す). ✗ いいば — いい は ければ に変換する前に よい が語幹."
+    },
+    {
+      "id": "c-b48-bh-renshuu",
+      "item": "minna2.b48.ba-hodo",
+      "err": "ba-form-verb-wrong",
+      "vi": "Càng luyện tập nhiều thì càng giỏi hơn.",
+      "t1": {
+        "stem": "練習[れんしゅう]すれば ＿ 上手[じょうず]になります。",
+        "choices": [
+          "するほど",
+          "するとき",
+          "するなら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "練習[れんしゅう]すれば",
+          "するほど",
+          "上手[じょうず]に",
+          "なります。"
+        ],
+        "traps": [
+          "したほど",
+          "するなら"
+        ]
+      },
+      "t3": {
+        "target": "練習すればするほど上手になります。",
+        "accept": [
+          "れんしゅうすればするほどじょうずになります。"
+        ]
+      },
+      "why": "〜ば〜ほど: động từ lặp lại (すれば + する + ほど). ✗ したほど — ほど cần cùng thì với ば-form (hiện tại)."
+    },
+    {
+      "id": "c-b48-bh-kangaeru",
+      "item": "minna2.b48.ba-hodo",
+      "err": "ba-form-verb-wrong",
+      "vi": "Càng suy nghĩ thì càng khó.",
+      "t1": {
+        "stem": "考[かんが]えれば 考[かんが]える ＿、難[むずか]しくなります。",
+        "choices": [
+          "ほど",
+          "だけ",
+          "ため"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "考[かんが]えれば",
+          "考[かんが]えるほど、",
+          "難[むずか]しく",
+          "なります。"
+        ],
+        "traps": [
+          "考[かんが]えれば考[かんが]えるだけ",
+          "考[かんが]えるほど、"
+        ]
+      },
+      "t3": {
+        "target": "考えれば考えるほど、難しくなります。",
+        "accept": [
+          "かんがえればかんがえるほど、むずかしくなります。"
+        ]
+      },
+      "why": "〜ば〜ほど: [Vば] + [V(辞書形)] + ほど. ✗ だけ は \"chỉ có\" không phải \"càng...thì càng\"."
+    },
+    {
+      "id": "c-b48-by-hayaoki",
+      "item": "minna2.b48.ba-yokatta",
+      "err": "ba-yokatta-wrong",
+      "vi": "Giá mà dậy sớm thì tốt rồi (đã không bị muộn).",
+      "t1": {
+        "stem": "早[はや]く ＿、遅刻[ちこく]しなかった。",
+        "choices": [
+          "起[お]きればよかった",
+          "起[お]きたらよかった",
+          "起[お]きるとよかった"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "早[はや]く",
+          "起[お]きれば",
+          "よかった、",
+          "遅刻[ちこく]しなかった。"
+        ],
+        "traps": [
+          "起[お]きたらよかった",
+          "起[お]きるとよかった"
+        ]
+      },
+      "t3": {
+        "target": "早く起きればよかった、遅刻しなかった。",
+        "accept": [
+          "はやくおきればよかった、ちこくしなかった。"
+        ]
+      },
+      "why": "〜ばよかった: Vば + よかった (hối tiếc điều không làm được). ✗ 起きたらよかった — たらよかった dùng cho hành động đã làm rồi tiếc, không phải chưa làm."
+    },
+    {
+      "id": "c-b48-by-kaiketsu",
+      "item": "minna2.b48.ba-yokatta",
+      "err": "ba-yokatta-wrong",
+      "vi": "Giá mà giải quyết vấn đề đó thì tốt.",
+      "t1": {
+        "stem": "その問題[もんだい]を ＿、うまくいったのに。",
+        "choices": [
+          "解決[かいけつ]すればよかった",
+          "解決[かいけつ]してよかった",
+          "解決[かいけつ]したらよかった"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "その 問題[もんだい]を",
+          "解決[かいけつ]すれば",
+          "よかった、",
+          "うまくいったのに。"
+        ],
+        "traps": [
+          "解決[かいけつ]してよかった",
+          "解決[かいけつ]するとよかった"
+        ]
+      },
+      "t3": {
+        "target": "その問題を解決すればよかった、うまくいったのに。",
+        "accept": [
+          "そのもんだいをかいけつすればよかった、うまくいったのに。"
+        ]
+      },
+      "why": "する → すれば (sai khiến group III) + よかった。 ✗ 解決してよかった nghĩa khác: \"may mà đã giải quyết\" (tốt vì đã làm)."
+    },
+    {
+      "id": "c-b48-bc-kaizen",
+      "item": "minna2.b48.ba-cond",
+      "err": "ba-form-verb-wrong",
+      "vi": "Nếu cải thiện phương pháp đó thì vấn đề sẽ được giải quyết.",
+      "t1": {
+        "stem": "その方法[ほうほう]を ＿、問題[もんだい]が解決[かいけつ]します。",
+        "choices": [
+          "改善[かいぜん]すれば",
+          "改善[かいぜん]するば",
+          "改善[かいぜん]したなら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "その 方法[ほうほう]を",
+          "改善[かいぜん]すれば、",
+          "問題[もんだい]が",
+          "解決[かいけつ]します。"
+        ],
+        "traps": [
+          "改善[かいぜん]するば、",
+          "改善[かいぜん]して、"
+        ]
+      },
+      "t3": {
+        "target": "その方法を改善すれば、問題が解決します。",
+        "accept": [
+          "そのほうほうをかいぜんすれば、もんだいがかいけつします。"
+        ]
+      },
+      "why": "する → すれば (nhóm III). Câu dùng vocab 改善・方法・解決 của bài 48. ✗ するば — không tồn tại."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b48-ba-hodo",
+      "item": "minna2.b48.ba-hodo",
+      "err": "ba-form-verb-wrong",
+      "tts": "にほんごは べんきょうすれば するほど たのしく なりますよ。",
+      "script": "日本語[にほんご]は 勉強[べんきょう]すれば するほど 楽[たの]しく なりますよ。",
+      "ask": "Câu này diễn đạt điều gì?",
+      "choices": [
+        "Tiếng Nhật càng học nhiều thì càng vui",
+        "Tiếng Nhật khó nên không muốn học nữa",
+        "Tiếng Nhật chỉ vui khi mới bắt đầu học"
+      ],
+      "answer": 0,
+      "why": "〜ばするほど = càng ~ thì càng ~; 楽しくなります = trở nên vui hơn."
+    },
+    {
+      "id": "l-b48-ba-cond",
+      "item": "minna2.b48.ba-cond",
+      "err": "ba-form-verb-wrong",
+      "tts": "じかんが あれば、いっしょに えいがを みに いきましょう。",
+      "script": "時間[じかん]が あれば、一緒[いっしょ]に 映画[えいが]を 見[み]に 行[い]きましょう。",
+      "ask": "Người nói đề nghị gì với điều kiện nào?",
+      "choices": [
+        "Nếu có thời gian thì đi xem phim cùng nhau",
+        "Nếu hôm nay trời đẹp thì đi xem phim",
+        "Vì có thời gian nên sẽ xem phim một mình"
+      ],
+      "answer": 0,
+      "why": "あれば = nếu có (ある→あれば); 一緒に映画を見に行きましょう = đề nghị cùng đi xem phim."
+    },
+    {
+      "id": "l-b48-ba-yokatta",
+      "item": "minna2.b48.ba-yokatta",
+      "err": "ba-yokatta-wrong",
+      "tts": "ちずを みれば よかった。とおまわりを して しまいました。",
+      "script": "地図[ちず]を 見[み]れば よかった。遠回[とおまわ]りを して しまいました。",
+      "ask": "Người nói cảm thấy thế nào?",
+      "choices": [
+        "Tiếc vì không xem bản đồ nên đi đường vòng",
+        "Vui vì đã xem bản đồ và đi đường tắt",
+        "Không chắc đường nên đang hỏi người khác"
+      ],
+      "answer": 0,
+      "why": "見ればよかった = giá mà xem (hối tiếc chưa làm); 遠回りをしてしまいました = đã đi đường vòng mất rồi."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b48-to-cond",
+      "item": "minna1.b23.to-cond",
+      "err": "to-vs-tara",
+      "ambush": true,
+      "src": 23,
+      "context": "Bài 48 ・ 〜ば (giả định) vs 〜と (điều kiện tự nhiên)",
+      "vi": "Nếu đi thẳng thì sẽ thấy đường tắt. (Chỉ đường — điều kiện tự nhiên)",
+      "t1": {
+        "stem": "まっすぐ 行[い]く ＿、近道[ちかみち]が 見[み]えます。",
+        "choices": [
+          "と",
+          "ば",
+          "たら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "まっすぐ",
+          "行[い]くと、",
+          "近道[ちかみち]が",
+          "見[み]えます。"
+        ],
+        "traps": [
+          "行[い]けば、",
+          "行[い]ったら、"
+        ]
+      },
+      "t3": {
+        "target": "まっすぐ行くと、近道が見えます。",
+        "accept": [
+          "まっすぐいくと、ちかみちがみえます。"
+        ]
+      },
+      "why": "指道[しどう]・自然[しぜん]な結果[けっか] → と (Bài 23). ✗ ば はより主観的[しゅかんてき]な仮定[かてい]; 指道では と が自然."
+    },
+    {
+      "id": "a-b48-tara-form",
+      "item": "minna1.b25.tara",
+      "err": "tara-to-confuse",
+      "ambush": true,
+      "src": 25,
+      "context": "Bài 48 ・ 〜ば vs 〜たら (điều kiện sau khi sự việc xảy ra)",
+      "vi": "Khi (sau khi) về nhà thì hãy gọi điện cho tôi nhé. (Trình tự sự kiện)",
+      "t1": {
+        "stem": "家[いえ]に 帰[かえ]っ ＿、電話[でんわ]してください。",
+        "choices": [
+          "たら",
+          "ば",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "家[いえ]に",
+          "帰[かえ]ったら、",
+          "電話[でんわ]して",
+          "ください。"
+        ],
+        "traps": [
+          "帰[かえ]れば、",
+          "帰[かえ]ると、"
+        ]
+      },
+      "t3": {
+        "target": "家に帰ったら、電話してください。",
+        "accept": [
+          "いえにかえったら、でんわしてください。"
+        ]
+      },
+      "why": "〜たら là điều kiện \"sau khi sự việc xảy ra\" + yêu cầu (Bài 25). Phần てください là Bài 14 — bẫy kép. ✗ 帰れば + てください không tự nhiên vì ば + mệnh lệnh bị hạn chế."
+    }
+  ]
+}

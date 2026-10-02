@@ -1,0 +1,498 @@
+{
+  "id": "minna2.b50",
+  "bai": 50,
+  "titleVi": "Thời điểm, ôn tập tổng hợp N4",
+  "know": [
+    {
+      "id": "minna2.b50.tokoro-ru",
+      "point": "tokoro-ru",
+      "jp": "〜るところです",
+      "vi": "Sắp ~ (chưa bắt đầu)",
+      "en": "Be about to ~ (not yet started)",
+      "gloss": "辞書形[じしょけい] ＋ ところです",
+      "glossEn": "辞書形[じしょけい] ＋ ところです (the dictionary form, used for something that is about to begin)"
+    },
+    {
+      "id": "minna2.b50.tokoro-te-iru",
+      "point": "tokoro-te-iru",
+      "jp": "〜ているところです",
+      "vi": "Đang trong lúc ~ (giữa chừng)",
+      "en": "Be in the middle of ~ (currently in progress)",
+      "gloss": "Vて ＋ いる ＋ ところです",
+      "glossEn": "Vて ＋ いる ＋ ところです (used for something currently in progress)"
+    },
+    {
+      "id": "minna2.b50.tokoro-ta",
+      "point": "tokoro-ta",
+      "jp": "〜たところです",
+      "vi": "Vừa mới ~ xong",
+      "en": "Have just ~ (just completed)",
+      "gloss": "た形[けい] ＋ ところです",
+      "glossEn": "た形[けい] ＋ ところです (used for something that has just been completed)"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b50-ru-shiken",
+      "item": "minna2.b50.tokoro-ru",
+      "err": "tokoro-tense-wrong",
+      "vi": "Tôi sắp bắt đầu thi.",
+      "t1": {
+        "stem": "試験[しけん]を 受[う]ける ＿。",
+        "choices": [
+          "ところです",
+          "たところです",
+          "ているところです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "試験[しけん]を",
+          "受[う]ける",
+          "ところです。"
+        ],
+        "traps": [
+          "受[う]けた",
+          "ています"
+        ]
+      },
+      "t3": {
+        "target": "試験を受けるところです。",
+        "accept": [
+          "しけんをうけるところです。"
+        ]
+      },
+      "why": "「sắp」bắt đầu → 辞書形 + ところです. ✗ 受けたところです = vừa mới thi xong (đã xong rồi)."
+    },
+    {
+      "id": "c-b50-ru-benkyou",
+      "item": "minna2.b50.tokoro-ru",
+      "err": "tokoro-tense-wrong",
+      "vi": "Tôi sắp ôn tập.",
+      "t1": {
+        "stem": "今から 復習[ふくしゅう]する ＿。",
+        "choices": [
+          "ところです",
+          "たところです",
+          "ていました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今[いま]から",
+          "復習[ふくしゅう]する",
+          "ところです。"
+        ],
+        "traps": [
+          "復習[ふくしゅう]した",
+          "ていました"
+        ]
+      },
+      "t3": {
+        "target": "今から復習するところです。",
+        "accept": [
+          "いまからふくしゅうするところです。"
+        ]
+      },
+      "why": "今から + 辞書形ところです = sắp làm (hành động chưa bắt đầu). ✗ したところです = vừa mới ôn xong."
+    },
+    {
+      "id": "c-b50-tiru-report",
+      "item": "minna2.b50.tokoro-te-iru",
+      "err": "tokoro-tense-wrong",
+      "vi": "Tôi đang viết báo cáo (đang dở).",
+      "t1": {
+        "stem": "レポートを 書[か]いて ＿。",
+        "choices": [
+          "いるところです",
+          "いたところです",
+          "いるつもりです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "レポートを",
+          "書[か]いて",
+          "いる",
+          "ところです。"
+        ],
+        "traps": [
+          "いました",
+          "いたところです"
+        ]
+      },
+      "t3": {
+        "target": "レポートを書いているところです。",
+        "accept": [
+          "れぽーとをかいているところです。"
+        ]
+      },
+      "why": "ているところです = đang trong lúc thực hiện (giữa chừng, nhấn mạnh thời điểm). ✗ いるつもりです = dự định."
+    },
+    {
+      "id": "c-b50-tiru-goukaku",
+      "item": "minna2.b50.tokoro-te-iru",
+      "err": "tokoro-tense-wrong",
+      "vi": "Anh ấy đang cố gắng để thi đỗ (đang nỗ lực giữa chừng).",
+      "t1": {
+        "stem": "彼[かれ]は 合格[ごうかく]するために 努力[どりょく]して ＿。",
+        "choices": [
+          "いるところです",
+          "たところです",
+          "いるでしょう"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "合格[ごうかく]するために",
+          "努力[どりょく]して",
+          "いる",
+          "ところです。"
+        ],
+        "traps": [
+          "努力[どりょく]した",
+          "いました"
+        ]
+      },
+      "t3": {
+        "target": "彼は合格するために努力しているところです。",
+        "accept": [
+          "かれはごうかくするためにどりょくしているところです。"
+        ]
+      },
+      "why": "ているところです nhấn mạnh hành động đang xảy ra tại thời điểm nói. ✗ たところです = đã nỗ lực xong."
+    },
+    {
+      "id": "c-b50-tiru-chukyuu",
+      "item": "minna2.b50.tokoro-te-iru",
+      "err": "tokoro-tense-wrong",
+      "vi": "Bây giờ tôi đang học trung cấp (đang học dở).",
+      "t1": {
+        "stem": "今[いま]、中級[ちゅうきゅう]を 勉強[べんきょう]して ＿。",
+        "choices": [
+          "いるところです",
+          "いたところです",
+          "おきます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今[いま]",
+          "中級[ちゅうきゅう]を",
+          "勉強[べんきょう]して",
+          "いる",
+          "ところです。"
+        ],
+        "traps": [
+          "勉強[べんきょう]した",
+          "いたところです"
+        ]
+      },
+      "t3": {
+        "target": "今、中級を勉強しているところです。",
+        "accept": [
+          "いま、ちゅうきゅうをべんきょうしているところです。",
+          "いまちゅうきゅうをべんきょうしているところです。"
+        ]
+      },
+      "why": "ているところです = đang giữa chừng. ✗ いたところです = vừa xong rồi (quá khứ)."
+    },
+    {
+      "id": "c-b50-ta-kentei",
+      "item": "minna2.b50.tokoro-ta",
+      "err": "tokoro-tense-wrong",
+      "vi": "Tôi vừa mới thi xong kỳ thi năng lực tiếng Nhật.",
+      "t1": {
+        "stem": "日本語能力試験[にほんごのうりょくしけん]を 受[う]けた ＿。",
+        "choices": [
+          "ところです",
+          "ところに",
+          "ところが"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語能力試験[にほんごのうりょくしけん]を",
+          "受[う]けた",
+          "ところです。"
+        ],
+        "traps": [
+          "受[う]ける",
+          "ていた"
+        ]
+      },
+      "t3": {
+        "target": "日本語能力試験を受けたところです。",
+        "accept": [
+          "にほんごのうりょくしけんをうけたところです。"
+        ]
+      },
+      "why": "た形 + ところです = vừa mới xong (行為がたった今完了した). ✗ 受けるところです = sắp thi."
+    },
+    {
+      "id": "c-b50-ta-goukaku",
+      "item": "minna2.b50.tokoro-ta",
+      "err": "tokoro-tense-wrong",
+      "vi": "Tôi vừa mới biết mình thi đỗ.",
+      "t1": {
+        "stem": "合格[ごうかく]した ＿ で、とても 嬉[うれ]しいです。",
+        "choices": [
+          "ところ",
+          "ところに",
+          "ところが"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "合格[ごうかく]した",
+          "ところ",
+          "で、",
+          "とても",
+          "嬉[うれ]しいです。"
+        ],
+        "traps": [
+          "合格[ごうかく]する",
+          "ている"
+        ]
+      },
+      "t3": {
+        "target": "合格したところで、とても嬉しいです。",
+        "accept": [
+          "ごうかくしたところで、とてもうれしいです。"
+        ]
+      },
+      "why": "たところで = vừa mới xong, dùng で để nối lý do/cảm xúc. ✗ するところ = sắp (chưa đỗ)."
+    },
+    {
+      "id": "c-b50-ta-matome",
+      "item": "minna2.b50.tokoro-ta",
+      "err": "tokoro-tense-wrong",
+      "vi": "Tôi vừa mới viết xong bản tổng kết.",
+      "t1": {
+        "stem": "まとめを 書[か]き 終[お]わった ＿。",
+        "choices": [
+          "ところです",
+          "るところです",
+          "ているところです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "まとめを",
+          "書[か]き 終[お]わった",
+          "ところです。"
+        ],
+        "traps": [
+          "書[か]き 終[お]わる",
+          "ていた"
+        ]
+      },
+      "t3": {
+        "target": "まとめを書き終わったところです。",
+        "accept": [
+          "まとめをかきおわったところです。"
+        ]
+      },
+      "why": "た形 + ところです = vừa xong. ✗ 書き終わるところです = sắp viết xong (chưa xong)."
+    },
+    {
+      "id": "c-b50-compare-all",
+      "item": "minna2.b50.tokoro-ta",
+      "err": "tokoro-tense-wrong",
+      "vi": "Chọn câu đúng: \"Tôi vừa mới ôn xong\" (không phải đang ôn hay sắp ôn).",
+      "t1": {
+        "stem": "復習[ふくしゅう]を 終[お]わった ＿。",
+        "choices": [
+          "ところです",
+          "るところです",
+          "ているところです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "復習[ふくしゅう]を",
+          "終[お]わった",
+          "ところです。"
+        ],
+        "traps": [
+          "終[お]わる",
+          "していた"
+        ]
+      },
+      "t3": {
+        "target": "復習を終わったところです。",
+        "accept": [
+          "ふくしゅうをおわったところです。"
+        ]
+      },
+      "why": "た形ところです (vừa xong) ≠ るところです (sắp) ≠ ているところです (đang giữa chừng). Vừa xong → た形."
+    },
+    {
+      "id": "c-b50-ru-choosen",
+      "item": "minna2.b50.tokoro-ru",
+      "err": "tokoro-tense-wrong",
+      "vi": "Tôi sắp thử thách kỳ thi N4.",
+      "t1": {
+        "stem": "N4に 挑戦[ちょうせん]する ＿。",
+        "choices": [
+          "ところです",
+          "たところです",
+          "ていきます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "N4に",
+          "挑戦[ちょうせん]する",
+          "ところです。"
+        ],
+        "traps": [
+          "挑戦[ちょうせん]した",
+          "ていきます"
+        ]
+      },
+      "t3": {
+        "target": "N4に挑戦するところです。",
+        "accept": [
+          "n4にちょうせんするところです。",
+          "えぬよんにちょうせんするところです。"
+        ]
+      },
+      "why": "Sắp thử thách (chưa bắt đầu) → 辞書形 + ところです. ✗ たところです = đã thử rồi."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b50-ta",
+      "item": "minna2.b50.tokoro-ta",
+      "err": "tokoro-tense-wrong",
+      "tts": "ちょうど レポートを かきおわった ところです。",
+      "script": "ちょうど レポートを 書[か]き 終[お]わった ところです。",
+      "ask": "Người nói đang ở giai đoạn nào với báo cáo?",
+      "choices": [
+        "Vừa mới viết xong",
+        "Đang viết dở",
+        "Sắp bắt đầu viết"
+      ],
+      "answer": 0,
+      "why": "た形 + ところです = vừa mới xong; ちょうど nhấn mạnh \"vừa đúng lúc này\"."
+    },
+    {
+      "id": "l-b50-tiru",
+      "item": "minna2.b50.tokoro-te-iru",
+      "err": "tokoro-tense-wrong",
+      "tts": "いま ごうかくするために べんきょうしている ところです。",
+      "script": "今[いま] 合格[ごうかく]するために 勉強[べんきょう]している ところです。",
+      "ask": "Người nói đang làm gì?",
+      "choices": [
+        "Đang học để thi đỗ (đang giữa chừng)",
+        "Vừa mới thi đỗ",
+        "Sắp bắt đầu học"
+      ],
+      "answer": 0,
+      "why": "ているところです = đang trong lúc thực hiện, nhấn mạnh hành động đang diễn ra ngay lúc này."
+    },
+    {
+      "id": "l-b50-ru",
+      "item": "minna2.b50.tokoro-ru",
+      "err": "tokoro-tense-wrong",
+      "tts": "これから にほんごのうりょくしけんを うける ところです。",
+      "script": "これから 日本語能力試験[にほんごのうりょくしけん]を 受[う]ける ところです。",
+      "ask": "Người nói sắp làm gì?",
+      "choices": [
+        "Sắp đi thi JLPT",
+        "Vừa mới thi xong",
+        "Đang thi"
+      ],
+      "answer": 0,
+      "why": "辞書形 + ところです = sắp (chưa bắt đầu); これから = từ bây giờ trở đi, xác nhận hành động chưa xảy ra."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b50-te-form-wrong",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 50 ・ 〜ているところです",
+      "vi": "Tôi đang ghi chú lại những điểm ngữ pháp quan trọng (đang dở).",
+      "t1": {
+        "stem": "文法力[ぶんぽうりょく]の ポイントを 書[か]＿ いるところです。",
+        "choices": [
+          "いて",
+          "きて",
+          "って"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "文法力[ぶんぽうりょく]の ポイントを",
+          "書[か]いて",
+          "いる",
+          "ところです。"
+        ],
+        "traps": [
+          "書[か]きて",
+          "書[か]って"
+        ]
+      },
+      "t3": {
+        "target": "文法力のポイントを書いているところです。",
+        "accept": [
+          "ぶんぽうりょくのぽいんとをかいているところです。"
+        ]
+      },
+      "why": "Câu dùng ているところです (Bài 50), nhưng bẫy ở chỗ chia 書く: く→いて (nhóm I). ✗ 書きて — không thêm て thẳng vào ます-stem."
+    },
+    {
+      "id": "a-b50-tara-form",
+      "item": "minna1.b25.tara",
+      "err": "tara-form",
+      "ambush": true,
+      "src": 25,
+      "context": "Bài 50 ・ 〜たところ ／ 〜たら",
+      "vi": "Vừa mới ôn xong thì bạn gọi điện.",
+      "t1": {
+        "stem": "復習[ふくしゅう]した ＿、友達[ともだち]が 電話[でんわ]してきました。",
+        "choices": [
+          "ところに",
+          "たら",
+          "から"
+        ],
+        "answer": 1
+      },
+      "t2": {
+        "chips": [
+          "復習[ふくしゅう]したら、",
+          "友達[ともだち]が",
+          "電話[でんわ]して",
+          "きました。"
+        ],
+        "traps": [
+          "復習[ふくしゅう]したところに",
+          "ので"
+        ]
+      },
+      "t3": {
+        "target": "復習したら、友達が電話してきました。",
+        "accept": [
+          "ふくしゅうしたら、ともだちがでんわしてきました。"
+        ]
+      },
+      "why": "「vừa xong thì (sự kiện bất ngờ xảy ra)」→ 〜たら (Bài 25), không phải ところに. ところに có thể dùng nhưng bối cảnh bất ngờ tự nhiên hơn với たら."
+    }
+  ]
+}

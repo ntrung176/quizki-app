@@ -1,0 +1,487 @@
+{
+  "id": "skm3.b55",
+  "bai": 55,
+  "titleVi": "Tranh thủ khi còn / trước khi",
+  "know": [
+    {
+      "id": "skm3.b55.uchi-ni",
+      "point": "uchi-ni",
+      "jp": "〜うちに",
+      "vi": "Tranh thủ làm trong khi trạng thái vẫn còn (trước khi trạng thái đổi)",
+      "en": "Take advantage of the opportunity while the state remains unchanged",
+      "gloss": "V(ている)・い形[けい]・な形[けい]な・N の うちに ＋ hành động tranh thủ ・ 例[れい]: お茶[ちゃ]が 熱[あつ]いうちに、飲[の]んでください。（Hãy uống trong khi trà còn nóng）／ 若[わか]いうちに、たくさん 旅行[りょこう]しておきなさい。（Hãy du lịch nhiều khi còn trẻ）",
+      "glossEn": "V-ている／Nの／い-adj／な-adj な ＋ うちに → do it before the state changes"
+    },
+    {
+      "id": "skm3.b55.nai-uchi-ni",
+      "point": "nai-uchi-ni",
+      "jp": "〜ないうちに",
+      "vi": "Trước khi (điều gì đó) xảy ra — nhấn mạnh chưa xảy ra",
+      "en": "Before something happens — emphasizing that it has not happened yet",
+      "gloss": "V ない-form ＋ うちに ＋ hành động ・ 例[れい]: 忘[わす]れないうちに、メモしておいてください。（Hãy ghi chú trước khi quên）／ 雨[あめ]が 降[ふ]らないうちに、家[いえ]に 帰[かえ]りましょう。（Hãy về nhà trước khi trời mưa）",
+      "glossEn": "V ない-form ＋ うちに ＋ an action ・ 例[れい]: 忘[わす]れないうちに、メモしておいてください。（Make a note before you forget）／ 雨[あめ]が 降[ふ]らないうちに、家[いえ]に 帰[かえ]りましょう。（Let's go home before it rains）"
+    },
+    {
+      "id": "skm3.b55.uchi-vs-aida",
+      "point": "uchi-vs-aida",
+      "jp": "うちに ≠ 間[あいだ]に",
+      "vi": "Phân biệt: うちに (tranh thủ → kết quả tức thời) ≠ 間に (khoảng thời gian → hành động kéo dài song song)",
+      "en": "Distinction: うちに (take the opportunity → an immediate result) ≠ 間に (a period of time → a sustained parallel action)",
+      "gloss": "うちに＝tranh thủ→kết quả tức thời； 間[あいだ]に＝hành động kéo dài song song trong khoảng ・ 例[れい]: 子[こ]どもが 寝[ね]ているうちに 掃除[そうじ]した（xong ngay trong lúc con ngủ）／ 子[こ]どもが 寝[ね]ている間[あいだ]に 本[ほん]を 読[よ]んだ（đọc sách suốt khoảng con ngủ）",
+      "glossEn": "うちに＝take the opportunity→an immediate result； 間[あいだ]に＝a sustained parallel action over the period ・ 例[れい]: 子[こ]どもが 寝[ね]ているうちに 掃除[そうじ]した（Finished cleaning while the child was asleep）／ 子[こ]どもが 寝[ね]ている間[あいだ]に 本[ほん]を 読[よ]んだ（Read a book throughout the time the child was asleep）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b55-disc-souji",
+      "item": "skm3.b55.uchi-vs-aida",
+      "err": "uchi-vs-aida",
+      "vi": "Trong khi con đang ngủ, tôi đã dọn phòng xong (tranh thủ → xong một lúc).",
+      "t1": {
+        "stem": "子[こ]どもが 寝[ね]ている＿、部屋[へや]を 掃除[そうじ]した。",
+        "choices": [
+          "うちに",
+          "間[あいだ]に",
+          "まえに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "子[こ]どもが",
+          "寝[ね]ている",
+          "うちに、",
+          "部屋[へや]を",
+          "掃除[そうじ]した。"
+        ],
+        "traps": [
+          "間[あいだ]に、",
+          "まえに、"
+        ]
+      },
+      "t3": {
+        "target": "子どもが寝ているうちに、部屋を掃除した。",
+        "accept": [
+          "こどもがねているうちに、へやをそうじした。"
+        ]
+      },
+      "why": "うちに = tranh thủ làm TRONG KHI trạng thái \"đang ngủ\" vẫn còn, kết quả hoàn thành nhanh. ✗ 間[あいだ]に thường đi với hành động kéo dài song song cùng khoảng (例: 寝[ね]ている間[あいだ]に 本[ほん]を 読[よ]んだ — đọc suốt trong lúc con ngủ)."
+    },
+    {
+      "id": "c-b55-disc-oyu",
+      "item": "skm3.b55.uchi-ni",
+      "err": "uchi-vs-maeni",
+      "vi": "Hãy uống trong khi trà còn nóng.",
+      "t1": {
+        "stem": "お茶[ちゃ]が 熱[あつ]い＿、飲[の]んでください。",
+        "choices": [
+          "うちに",
+          "まえに",
+          "間[あいだ]に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お茶[ちゃ]が",
+          "熱[あつ]い",
+          "うちに、",
+          "飲[の]んで",
+          "ください。"
+        ],
+        "traps": [
+          "まえに、",
+          "間[あいだ]に、"
+        ]
+      },
+      "t3": {
+        "target": "お茶が熱いうちに、飲んでください。",
+        "accept": [
+          "おちゃがあついうちに、のんでください。"
+        ]
+      },
+      "why": "「熱[あつ]い」は状態[じょうたい]を示[しめ]す。うちに = trạng thái (熱[あつ]い) vẫn còn → tranh thủ. ✗ まえに cần V-từ điển-form (冷[さ]めるまえに ✓) hoặc Nのまえに (食事[しょくじ]のまえに ✓) — KHÔNG nối trực tiếp với い形容詞: ✗ 熱[あつ]いまえに."
+    },
+    {
+      "id": "c-b55-disc-wasure",
+      "item": "skm3.b55.nai-uchi-ni",
+      "err": "naiuchi-vs-maeni",
+      "vi": "Hãy ghi chú trước khi quên đi (nhấn mạnh: khi ký ức vẫn chưa phai).",
+      "t1": {
+        "stem": "忘[わす]れない＿、メモしておいてください。",
+        "choices": [
+          "うちに",
+          "まえに",
+          "間[あいだ]に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "忘[わす]れない",
+          "うちに、",
+          "メモして",
+          "おいて",
+          "ください。"
+        ],
+        "traps": [
+          "まえに、",
+          "忘[わす]れる まえに、"
+        ]
+      },
+      "t3": {
+        "target": "忘れないうちに、メモしておいてください。",
+        "accept": [
+          "わすれないうちに、めもしておいてください。"
+        ]
+      },
+      "why": "忘[わす]れない うちに = \"trong khi vẫn chưa quên\" — nhấn mạnh trạng thái \"chưa quên\" còn đang kéo dài (sắc thái gấp, tranh thủ). 忘[わす]れるまえに = \"trước khi quên\" (thứ tự trung lập, không nhấn trạng thái). SKM N3 bẫy: ngữ cảnh có ý \"tranh thủ / trạng thái sắp đổi\" → chọn ないうちに; ngữ cảnh chỉ nêu thứ tự sự kiện → まえに."
+    },
+    {
+      "id": "c-b55-noun-wakai",
+      "item": "skm3.b55.uchi-ni",
+      "err": "uchi-vs-aida",
+      "vi": "Hãy du lịch nhiều khi còn trẻ.",
+      "t1": {
+        "stem": "若[わか]い＿に、たくさん 旅行[りょこう]しておきなさい。",
+        "choices": [
+          "うち",
+          "間[あいだ]",
+          "まえ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "若[わか]い",
+          "うちに、",
+          "たくさん",
+          "旅行[りょこう]して",
+          "おきなさい。"
+        ],
+        "traps": [
+          "間[あいだ]に、",
+          "若[わか]いまえに、"
+        ]
+      },
+      "t3": {
+        "target": "若いうちに、たくさん旅行しておきなさい。",
+        "accept": [
+          "わかいうちに、たくさんりょこうしておきなさい。"
+        ]
+      },
+      "why": "い形容詞[けいようし] ＋ うちに = tranh thủ trong khi trạng thái đó còn. ✗ 間[あいだ]に — 若[わか]い間[あいだ]に cũng có thể dùng nhưng うちに nhấn mạnh \"tranh thủ trước khi trạng thái trẻ mất đi\" hơn."
+    },
+    {
+      "id": "c-b55-nai-ame",
+      "item": "skm3.b55.nai-uchi-ni",
+      "err": "naiuchi-vs-maeni",
+      "vi": "Hãy về nhà trước khi trời mưa.",
+      "t1": {
+        "stem": "雨[あめ]が 降[ふ]ら＿うちに、家[いえ]に 帰[かえ]りましょう。",
+        "choices": [
+          "ない",
+          "なかった",
+          "ないで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "雨[あめ]が",
+          "降[ふ]らない",
+          "うちに、",
+          "家[いえ]に",
+          "帰[かえ]り",
+          "ましょう。"
+        ],
+        "traps": [
+          "降[ふ]る まえに、",
+          "降[ふ]らないで"
+        ]
+      },
+      "t3": {
+        "target": "雨が降らないうちに、家に帰りましょう。",
+        "accept": [
+          "あめがふらないうちに、いえにかえりましょう。"
+        ]
+      },
+      "why": "V ない-form ＋ うちに = trước khi V xảy ra. 降[ふ]らない うちに = trước khi trời đổ mưa. ✗ なかったうちに — quá khứ phủ định không dùng ở đây."
+    },
+    {
+      "id": "c-b55-disc-kaigai",
+      "item": "skm3.b55.uchi-vs-aida",
+      "err": "uchi-vs-aida",
+      "vi": "Trong lúc anh ấy vắng mặt (đang ra nước ngoài), ai đó đã vào phòng anh.",
+      "t1": {
+        "stem": "彼[かれ]が 海外[かいがい]に いる＿に、誰[だれ]かが 部屋[へや]に 入[はい]ったらしい。",
+        "choices": [
+          "間[あいだ]",
+          "うち",
+          "まえ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]が",
+          "海外[かいがい]に",
+          "いる",
+          "間[あいだ]に、",
+          "誰[だれ]かが",
+          "部屋[へや]に",
+          "入[はい]った",
+          "らしい。"
+        ],
+        "traps": [
+          "うちに、",
+          "前[まえ]に、"
+        ]
+      },
+      "t3": {
+        "target": "彼が海外にいる間に、誰かが部屋に入ったらしい。",
+        "accept": [
+          "かれがかいがいにいるあいだに、だれかがへやにはいったらしい。"
+        ]
+      },
+      "why": "間[あいだ]に = trong khoảng thời gian (anh ta đang ở nước ngoài) → một sự kiện tức thời xảy ra (ai đó vào phòng). ✗ うちに — うちに thường đi với ý \"tranh thủ / chủ ý\" của chủ ngữ, không phù hợp với việc xảy ra ngoài ý muốn ở đây."
+    },
+    {
+      "id": "c-b55-noun-kodomo",
+      "item": "skm3.b55.uchi-ni",
+      "err": "uchi-vs-maeni",
+      "vi": "Hãy học nhiều thứ khi còn là học sinh.",
+      "t1": {
+        "stem": "学生[がくせい]の＿に、いろんなことを 学[まな]びなさい。",
+        "choices": [
+          "うち",
+          "間[あいだ]",
+          "ころ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "学生[がくせい]の",
+          "うちに、",
+          "いろんな",
+          "ことを",
+          "学[まな]び",
+          "なさい。"
+        ],
+        "traps": [
+          "間[あいだ]に、",
+          "学生[がくせい]の ころに、"
+        ]
+      },
+      "t3": {
+        "target": "学生のうちに、いろんなことを学びなさい。",
+        "accept": [
+          "がくせいのうちに、いろんなことをまなびなさい。"
+        ]
+      },
+      "why": "N の うちに = trong khi còn là N (giai đoạn đó). 学生[がくせい]のうちに = trong khi còn là học sinh. ✗ ころに = \"thời đó / hồi nhỏ\" không mang sắc thái \"tranh thủ\"."
+    },
+    {
+      "id": "c-b55-nai-siru",
+      "item": "skm3.b55.nai-uchi-ni",
+      "err": "naiuchi-vs-maeni",
+      "vi": "Hãy mua vé trước khi hết chỗ.",
+      "t1": {
+        "stem": "席[せき]が なくなら＿うちに、チケットを 買[か]っておいた 方[ほう]がいい。",
+        "choices": [
+          "ない",
+          "なかった",
+          "ないで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "席[せき]が",
+          "なくならない",
+          "うちに、",
+          "チケットを",
+          "買[か]って",
+          "おいた 方[ほう]が",
+          "いい。"
+        ],
+        "traps": [
+          "なくなるまえに、",
+          "なくなったうちに、"
+        ]
+      },
+      "t3": {
+        "target": "席がなくならないうちに、チケットを買っておいた方がいい。",
+        "accept": [
+          "せきがなくならないうちに、ちけっとをかっておいたほうがいい。"
+        ]
+      },
+      "why": "なくならない うちに = trước khi chỗ hết (khi chỗ vẫn còn). Động từ なくなる (biến mất / hết) → ない-form + うちに. ✗ なくなったうちに — た-form + うちに sai ngữ pháp ở đây."
+    },
+    {
+      "id": "c-b55-disc-three",
+      "item": "skm3.b55.uchi-vs-aida",
+      "err": "uchi-vs-aida",
+      "vi": "Hãy tranh thủ hỏi trong khi còn nhớ (trạng thái \"còn nhớ\" sắp mất).",
+      "t1": {
+        "stem": "まだ 覚[おぼ]えている＿に、先生[せんせい]に 聞[き]きに 行[い]こう。",
+        "choices": [
+          "うち",
+          "間[あいだ]",
+          "まえ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "まだ",
+          "覚[おぼ]えている",
+          "うちに、",
+          "先生[せんせい]に",
+          "聞[き]きに",
+          "行[い]こう。"
+        ],
+        "traps": [
+          "間[あいだ]に、",
+          "忘[わす]れるまえに、"
+        ]
+      },
+      "t3": {
+        "target": "まだ覚えているうちに、先生に聞きに行こう。",
+        "accept": [
+          "まだおぼえているうちに、せんせいにききにいこう。"
+        ]
+      },
+      "why": "うちに = tranh thủ trong khi trạng thái \"覚[おぼ]えている\" vẫn còn. ✗ 間[あいだ]に — 覚[おぼ]えている間[あいだ]に = trong khoảng thời gian còn nhớ (nhấn mạnh độ kéo dài), ít mang sắc thái \"tranh thủ gấp\". Nếu muốn nhấn mạnh khẩn cấp / tranh thủ → chọn うちに."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b55-uchi-ocha",
+      "item": "skm3.b55.uchi-ni",
+      "err": "uchi-vs-aida",
+      "tts": "あついうちに、たべてね。さめたらおいしくないよ。",
+      "script": "熱[あつ]いうちに、食[た]べてね。冷[さ]めたらおいしくないよ。",
+      "ask": "Người nói muốn nói điều gì?",
+      "choices": [
+        "Hãy ăn trong khi còn nóng, để nguội sẽ không ngon",
+        "Trong lúc nấu hãy thêm gia vị vào",
+        "Hãy ăn xong trước khi đặt lên bàn"
+      ],
+      "answer": 0,
+      "why": "熱[あつ]いうちに = tranh thủ ăn trong khi trạng thái \"nóng\" vẫn còn. 冷[さ]めたらおいしくない = nếu nguội thì không ngon — xác nhận logic うちに."
+    },
+    {
+      "id": "l-b55-nai-uchi-kigae",
+      "item": "skm3.b55.nai-uchi-ni",
+      "err": "naiuchi-vs-maeni",
+      "tts": "あめがふらないうちに、そとのせんたくものをとりこんでください。",
+      "script": "雨[あめ]が 降[ふ]らないうちに、外[そと]の 洗濯物[せんたくもの]を 取[と]り込[こ]んでください。",
+      "ask": "Người nói yêu cầu làm gì và khi nào?",
+      "choices": [
+        "Thu quần áo ngoài trời vào trước khi trời mưa",
+        "Giặt quần áo khi trời đang mưa",
+        "Treo quần áo ra ngoài sau khi trời tạnh"
+      ],
+      "answer": 0,
+      "why": "降[ふ]らないうちに = trước khi trời đổ mưa (khi trời vẫn chưa mưa). 取[と]り込[こ]む = thu vào trong."
+    },
+    {
+      "id": "l-b55-disc-aida",
+      "item": "skm3.b55.uchi-vs-aida",
+      "err": "uchi-vs-aida",
+      "tts": "かあさんがでかけているあいだに、へやをかたづけておこう。",
+      "script": "お母[かあ]さんが 出[で]かけている間[あいだ]に、部屋[へや]を 片付[かたづ]けておこう。",
+      "ask": "Tại sao người nói dùng 間に chứ không phải うちに ở đây?",
+      "choices": [
+        "Vì muốn nói về một hành động thực hiện trong khoảng thời gian mẹ vắng nhà (song song)",
+        "Vì muốn tranh thủ trước khi trạng thái mẹ vắng nhà kết thúc bất ngờ",
+        "Vì うちに không dùng được với ている-form"
+      ],
+      "answer": 0,
+      "why": "間[あいだ]に ở đây nhấn mạnh khoảng thời gian mẹ vắng (đi ra ngoài) — dọn phòng là hành động diễn ra trong khoảng đó. うちに cũng có thể dùng được nhưng sẽ nhấn sắc thái \"tranh thủ / gấp gáp\" hơn; 間に thiên về khoảng thời gian song song."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b55-you-ni-naru",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "you-ni-naru-wrong",
+      "ambush": true,
+      "src": 31,
+      "context": "Bài 55 ・ うちに (+ ようになる B31)",
+      "vi": "Hãy luyện tập khi còn trẻ để bạn có thể nói được tiếng Nhật.",
+      "t1": {
+        "stem": "若[わか]いうちに 練習[れんしゅう]すれば、日本語[にほんご]が 話[はな]せる＿。",
+        "choices": [
+          "ようになります",
+          "ようにします",
+          "なります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "若[わか]い",
+          "うちに",
+          "練習[れんしゅう]すれば、",
+          "日本語[にほんご]が",
+          "話[はな]せる",
+          "ようになります。"
+        ],
+        "traps": [
+          "ようにします。",
+          "ようになりました。"
+        ]
+      },
+      "t3": {
+        "target": "若いうちに練習すれば、日本語が話せるようになります。",
+        "accept": [
+          "わかいうちにれんしゅうすれば、にほんごがはなせるようになります。"
+        ]
+      },
+      "why": "ようになります (B31) = trở nên có thể ~ (thay đổi dần). ✗ ようにします = cố gắng để ~ (ý chí, chủ thể tự cố). 話[はな]せる (khả năng, không-ý-chí) → cần ようになる, không dùng ようにする."
+    },
+    {
+      "id": "a-b55-te-iru-uchi",
+      "item": "minna1.b14.te-imasu",
+      "err": "te-iru-vs-masu",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 55 ・ ているうちに (+ ています B14)",
+      "vi": "Trong khi mẹ đang nấu ăn, hãy dọn bàn đi.",
+      "t1": {
+        "stem": "お母[かあ]さんが 料理[りょうり]を ＿うちに、テーブルを 準備[じゅんび]しておいてね。",
+        "choices": [
+          "している",
+          "する",
+          "します"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お母[かあ]さんが",
+          "料理[りょうり]を",
+          "している",
+          "うちに、",
+          "テーブルを",
+          "準備[じゅんび]して",
+          "おいてね。"
+        ],
+        "traps": [
+          "するうちに、",
+          "していますうちに、"
+        ]
+      },
+      "t3": {
+        "target": "お母さんが料理をしているうちに、テーブルを準備しておいてね。",
+        "accept": [
+          "おかあさんがりょうりをしているうちに、てーぶるをじゅんびしておいてね。"
+        ]
+      },
+      "why": "V ている-form ＋ うちに = trong khi đang làm V (trạng thái tiến hành). Cần bỏ ます trước うちに: ✗ しますうちに, ✗ するうちに (thể từ điển + うちに cũng dùng được nhưng nghĩa khác — ở đây \"đang nấu\" → cần ている). Lỗi PHỤC KÍCH: nhầm ます với ている (B14)."
+    }
+  ]
+}

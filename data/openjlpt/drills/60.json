@@ -1,0 +1,486 @@
+{
+  "id": "skm3.b60",
+  "bai": 60,
+  "titleVi": "Mục đích ý chí vs không ý chí",
+  "know": [
+    {
+      "id": "skm3.b60.you-ni-mokuteki",
+      "point": "you-ni-mokuteki",
+      "jp": "〜ように（目的[もくてき]：非意志[ひいし]・可能[かのう]・否定[ひてい]）",
+      "vi": "ように mục đích — dùng với động từ KHÔNG ý chí hoặc khả năng/phủ định",
+      "en": "ように for purpose — used with non-volitional, potential, or negative verbs",
+      "gloss": "V（非意志[ひいし]・可能[かのう]・〜ない）＋ように ・ 例: 会議[かいぎ]を 忘[わす]れないように、アラームをセットした。（Tôi đặt báo thức để không quên cuộc họp.）"
+    },
+    {
+      "id": "skm3.b60.tame-ni-mokuteki",
+      "point": "tame-ni-mokuteki",
+      "jp": "〜ために（目的[もくてき]：意志[いし]動詞[どうし]）",
+      "vi": "ために mục đích — dùng với động từ Ý CHÍ, thường cùng chủ thể",
+      "en": "ために for purpose — used with VOLITIONAL verbs, usually with the same subject",
+      "gloss": "V意志[いし]（同[おな]じ主語[しゅご]）＋ために ・ 例: N2に 合格[ごうかく]するために、毎日[まいにち] 勉強[べんきょう]している。（Để thi đỗ N2, tôi học mỗi ngày.）"
+    },
+    {
+      "id": "skm3.b60.you-ni-vs-tame-ni",
+      "point": "you-ni-vs-tame-ni",
+      "jp": "ように ≠ ために の 使[つか]い分[わ]け",
+      "vi": "Phân biệt: ように (phi ý chí / khả năng / phủ định) ≠ ために (ý chí rõ ràng)",
+      "en": "Distinguishing: ように (non-volitional / ability / negative) ≠ ために (clear volition)",
+      "gloss": "ように（可能[かのう]・状態[じょうたい]変化[へんか]） vs ために（意志[いし]行為[こうい]） ・ 例: 日本語[にほんご]が 上手[じょうず]に 話[はな]せるように、会話[かいわ]の 授業[じゅぎょう]を 取[と]っています。（Tôi học hội thoại để có thể nói tiếng Nhật giỏi — nhấn mạnh KHẢ NĂNG.）"
+    },
+    {
+      "id": "skm3.b60.you-ni-suru",
+      "point": "you-ni-suru",
+      "jp": "〜ようにする・〜ようになる",
+      "vi": "ようにする = cố gắng để đạt trạng thái; ようになる = dần dần trở thành",
+      "en": "ようにする = make an effort to achieve a state; ようになる = gradually become",
+      "gloss": "ようにする＝cố gắng duy trì; ようになる＝đã thay đổi/đạt được ・ 例: 健康[けんこう]のために、毎日[まいにち] 運動[うんどう]するようにしている。／ 日本語[にほんご]の 新聞[しんぶん]が 読[よ]めるようになりました。（Cố gắng tập mỗi ngày / Đã đọc được báo tiếng Nhật.）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b60-disc-kikoeru",
+      "item": "skm3.b60.you-ni-mokuteki",
+      "err": "youni-tame-confuse",
+      "vi": "Tôi nói to để mọi người nghe được.",
+      "t1": {
+        "stem": "みんなに 聞[き]こえる＿、大[おお]きな 声[こえ]で 話[はな]した。",
+        "choices": [
+          "ように",
+          "ために",
+          "からに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "みんなに",
+          "聞[き]こえる",
+          "ように、",
+          "大[おお]きな 声[こえ]で",
+          "話[はな]した。"
+        ],
+        "traps": [
+          "ために、",
+          "聞[き]くために、"
+        ]
+      },
+      "t3": {
+        "target": "みんなに聞こえるように、大きな声で話した。",
+        "accept": [
+          "みんなにきこえるように、おおきなこえではなした。"
+        ]
+      },
+      "why": "聞[き]こえる は 非意志動詞[ひいしどうし]（自然に聞こえる）→ ように を使[つか]う。✗ ために は意志動詞[いしどうし]専用[せんよう] — 聞くために なら意志だが 聞こえるために は不自然[ふしぜん]。"
+    },
+    {
+      "id": "c-b60-disc-goukaku",
+      "item": "skm3.b60.tame-ni-mokuteki",
+      "err": "tame-youni-confuse",
+      "vi": "Để thi đỗ kỳ thi N2, tôi học mỗi ngày.",
+      "t1": {
+        "stem": "N2に 合格[ごうかく]する＿、毎日[まいにち] 勉強[べんきょう]している。",
+        "choices": [
+          "ために",
+          "ように",
+          "からに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "N2に",
+          "合格[ごうかく]する",
+          "ために、",
+          "毎日[まいにち]",
+          "勉強[べんきょう]している。"
+        ],
+        "traps": [
+          "ように、",
+          "合格[ごうかく]できるように、"
+        ]
+      },
+      "t3": {
+        "target": "N2に合格するために、毎日勉強している。",
+        "accept": [
+          "n2にごうかくするために、まいにちべんきょうしている。"
+        ]
+      },
+      "why": "合格[ごうかく]する は意志動詞[いしどうし]、かつ主語[しゅご]が同[おな]じ → ために が自然[しぜん]。✗ ように も文法的[ぶんぽうてき]に使[つか]えるが、試験[しけん]では ために が標準[ひょうじゅん]。"
+    },
+    {
+      "id": "c-b60-disc-wasurenai",
+      "item": "skm3.b60.you-ni-mokuteki",
+      "err": "youni-tame-confuse",
+      "vi": "Tôi đặt báo thức để không quên cuộc họp.",
+      "t1": {
+        "stem": "会議[かいぎ]を 忘[わす]れない＿、アラームをセットした。",
+        "choices": [
+          "ように",
+          "ために",
+          "ことに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "会議[かいぎ]を",
+          "忘[わす]れない",
+          "ように、",
+          "アラームを",
+          "セットした。"
+        ],
+        "traps": [
+          "ために、",
+          "忘[わす]れないために、"
+        ]
+      },
+      "t3": {
+        "target": "会議を忘れないように、アラームをセットした。",
+        "accept": [
+          "かいぎをわすれないように、あらーむをせっとした。"
+        ]
+      },
+      "why": "否定[ひてい]形[けい]（〜ない）の目的節[もくてきせつ]は ように を使[つか]う。✗ 忘[わす]れないために は不自然[ふしぜん] — ために の前[まえ]は肯定[こうてい]の意志動詞[いしどうし]が原則[げんそく]。"
+    },
+    {
+      "id": "c-b60-disc-kai-ni",
+      "item": "skm3.b60.tame-ni-mokuteki",
+      "err": "tame-youni-confuse",
+      "vi": "Tôi đi siêu thị để mua nguyên liệu nấu ăn.",
+      "t1": {
+        "stem": "食材[しょくざい]を 買[か]う＿、スーパーへ 行[い]った。",
+        "choices": [
+          "ために",
+          "ように",
+          "ことに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食材[しょくざい]を",
+          "買[か]う",
+          "ために、",
+          "スーパーへ",
+          "行[い]った。"
+        ],
+        "traps": [
+          "ように、",
+          "買[か]えるように、"
+        ]
+      },
+      "t3": {
+        "target": "食材を買うために、スーパーへ行った。",
+        "accept": [
+          "しょくざいをかうために、すーぱーへいった。"
+        ]
+      },
+      "why": "買[か]う は意志動詞[いしどうし]、主語[しゅご]同[おな]じ → ために。同[おな]じ意味[いみ]で 買[か]いに行[い]った とも言[い]える（Vますに行く）。"
+    },
+    {
+      "id": "c-b60-disc-mieru",
+      "item": "skm3.b60.you-ni-mokuteki",
+      "err": "youni-tame-confuse",
+      "vi": "Anh ấy mặc vest để trông trưởng thành hơn.",
+      "t1": {
+        "stem": "大人[おとな]っぽく 見[み]える＿、スーツを 着[き]ている。",
+        "choices": [
+          "ように",
+          "ために",
+          "くらいに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "大人[おとな]っぽく",
+          "見[み]える",
+          "ように、",
+          "スーツを",
+          "着[き]ている。"
+        ],
+        "traps": [
+          "ために、",
+          "大人[おとな]に 見[み]えるために、"
+        ]
+      },
+      "t3": {
+        "target": "大人っぽく見えるように、スーツを着ている。",
+        "accept": [
+          "おとなっぽくみえるように、すーつをきている。"
+        ]
+      },
+      "why": "見[み]える は非意志動詞[ひいしどうし]（どう見[み]えるかは意志でコントロールできない）→ ように。✗ 見[み]えるために は不自然[ふしぜん]。"
+    },
+    {
+      "id": "c-b60-disc-hayaku-naru",
+      "item": "skm3.b60.you-ni-mokuteki",
+      "err": "youni-tame-confuse",
+      "vi": "Cô ấy tập luyện để có thể chạy nhanh hơn.",
+      "t1": {
+        "stem": "もっと 速[はや]く 走[はし]れる＿、毎日[まいにち] 練習[れんしゅう]している。",
+        "choices": [
+          "ように",
+          "ために",
+          "ことに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もっと",
+          "速[はや]く",
+          "走[はし]れる",
+          "ように、",
+          "毎日[まいにち]",
+          "練習[れんしゅう]している。"
+        ],
+        "traps": [
+          "ために、",
+          "走[はし]るために、"
+        ]
+      },
+      "t3": {
+        "target": "もっと速く走れるように、毎日練習している。",
+        "accept": [
+          "もっとはやくはしれるように、まいにちれんしゅうしている。"
+        ]
+      },
+      "why": "走[はし]れる は可能[かのう]形[けい]（〜できる）→ ように を使[つか]う。✗ 走[はし]れるために は不自然[ふしぜん]。"
+    },
+    {
+      "id": "c-b60-you-ni-suru",
+      "item": "skm3.b60.you-ni-suru",
+      "err": "youni-suru-naru-confuse",
+      "vi": "Để giữ sức khỏe, tôi cố gắng tập thể dục mỗi ngày.",
+      "t1": {
+        "stem": "健康[けんこう]のために、毎日[まいにち] 運動[うんどう]する＿している。",
+        "choices": [
+          "ように",
+          "ために",
+          "ことに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "健康[けんこう]のために、",
+          "毎日[まいにち]",
+          "運動[うんどう]する",
+          "ように",
+          "している。"
+        ],
+        "traps": [
+          "ことに",
+          "ためにして"
+        ]
+      },
+      "t3": {
+        "target": "健康のために、毎日運動するようにしている。",
+        "accept": [
+          "けんこうのために、まいにちうんどうするようにしている。"
+        ]
+      },
+      "why": "〜ようにしている = cố gắng duy trì hành vi có chủ đích. ✗ ことにしている cũng dùng được nhưng ở đây cần ように vì động từ trước là ý chí (する) và dạng câu là ようにしている。"
+    },
+    {
+      "id": "c-b60-you-ni-naru",
+      "item": "skm3.b60.you-ni-suru",
+      "err": "youni-suru-naru-confuse",
+      "vi": "Nhờ học chăm chỉ, tôi đã có thể đọc được báo tiếng Nhật.",
+      "t1": {
+        "stem": "勉強[べんきょう]して、日本語[にほんご]の 新聞[しんぶん]が 読[よ]める＿なりました。",
+        "choices": [
+          "ように",
+          "ために",
+          "ことに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]の",
+          "新聞[しんぶん]が",
+          "読[よ]める",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "ことに",
+          "ためになりました"
+        ]
+      },
+      "t3": {
+        "target": "日本語の新聞が読めるようになりました。",
+        "accept": [
+          "にほんごのしんぶんがよめるようになりました。"
+        ]
+      },
+      "why": "〜ようになりました = thay đổi dần dần, đã trở thành có thể → cấu trúc có thể形[かのう]+ようになる. ✗ ことになりました là tổ chức/hoàn cảnh quyết định, không phải thay đổi khả năng."
+    },
+    {
+      "id": "c-b60-shade-hanaseru",
+      "item": "skm3.b60.you-ni-vs-tame-ni",
+      "err": "youni-tame-confuse",
+      "vi": "Tình huống: muốn nhấn mạnh KHẢ NĂNG \"nói được\", không phải hành động \"nói\". Chọn mẫu đúng.",
+      "t1": {
+        "stem": "日本語[にほんご]が 上手[じょうず]に 話[はな]せる＿、会話[かいわ]の 授業[じゅぎょう]を 取[と]っています。",
+        "choices": [
+          "ように",
+          "ために",
+          "くせに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が",
+          "上手[じょうず]に",
+          "話[はな]せる",
+          "ように、",
+          "会話[かいわ]の",
+          "授業[じゅぎょう]を",
+          "取[と]っています。"
+        ],
+        "traps": [
+          "話[はな]すために、",
+          "話[はな]せるために、"
+        ]
+      },
+      "t3": {
+        "target": "日本語が上手に話せるように、会話の授業を取っています。",
+        "accept": [
+          "にほんごがじょうずにはなせるように、かいわのじゅぎょうをとっています。"
+        ]
+      },
+      "why": "話[はな]せる（可能[かのう]形[けい]）+ ように = nhấn mạnh mục tiêu ĐẠT ĐƯỢC KHẢ NĂNG. ✓ 話[はな]すために も正[ただ]しいが「ために」は行為[こうい]の目的、「ように」は状態[じょうたい]・能力[のうりょく]変化[へんか]の目的。"
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b60-kikoeru",
+      "item": "skm3.b60.you-ni-mokuteki",
+      "err": "youni-tame-confuse",
+      "tts": "うしろのひとにも きこえるように、もっとおおきなこえで はなしてください。",
+      "script": "後[うし]ろの 人[ひと]にも 聞[き]こえるように、もっと 大[おお]きな 声[こえ]で 話[はな]してください。",
+      "ask": "Người nói yêu cầu điều gì và tại sao dùng ように?",
+      "choices": [
+        "Nói to hơn để người phía sau nghe được — ように vì 聞こえる là phi ý chí",
+        "Nói nhỏ lại để không làm phiền — ように vì là câu phủ định",
+        "Nói nhanh hơn để tiết kiệm thời gian — ために vì là ý chí"
+      ],
+      "answer": 0,
+      "why": "聞[き]こえる（nghe được — tự nhiên, phi ý chí）→ ように. Người nghe không thể chủ động \"nghe\", chỉ có thể tạo điều kiện để \"nghe được\"."
+    },
+    {
+      "id": "l-b60-goukaku",
+      "item": "skm3.b60.tame-ni-mokuteki",
+      "err": "tame-youni-confuse",
+      "tts": "しけんに ごうかくするために、まいにちさんじかんべんきょうしています。",
+      "script": "試験[しけん]に 合格[ごうかく]するために、毎日[まいにち] 3時間[じかん] 勉強[べんきょう]しています。",
+      "ask": "Người nói đang làm gì và tại sao dùng ために không phải ように?",
+      "choices": [
+        "Học 3 tiếng mỗi ngày để thi đỗ — ために vì 合格する là động từ ý chí",
+        "Học 3 tiếng mỗi ngày để không bị trượt — ように vì có phủ định ngầm",
+        "Học 3 tiếng mỗi ngày để có thể thi — ように vì là khả năng"
+      ],
+      "answer": 0,
+      "why": "合格[ごうかく]する は意志動詞[いしどうし]（chủ thể quyết định hành động）→ ために. Chủ thể câu trước và sau giống nhau."
+    },
+    {
+      "id": "l-b60-you-ni-naru",
+      "item": "skm3.b60.you-ni-suru",
+      "err": "youni-suru-naru-confuse",
+      "tts": "さいきん、はやおきできるようになりました。",
+      "script": "最近[さいきん]、早起[はやお]きできるようになりました。",
+      "ask": "Câu này nói điều gì về người nói?",
+      "choices": [
+        "Gần đây người nói đã có thể dậy sớm (thay đổi dần dần)",
+        "Gần đây người nói cố gắng dậy sớm mỗi ngày",
+        "Gần đây người nói quyết định sẽ dậy sớm"
+      ],
+      "answer": 0,
+      "why": "〜ようになりました = thay đổi trạng thái/khả năng dần dần đã đạt được. ✗ ようにしています là CỐ GẮNG (chưa đạt); ことにしました là quyết định."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b60-youni-naru-wrong",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "you-ni-naru-wrong",
+      "ambush": true,
+      "src": 31,
+      "context": "Bài 60 · ようになる — phục kích biến thể ようにしました/ようになりました",
+      "vi": "Nhờ luyện tập, tôi ĐÃ CÓ THỂ hiểu tiếng Nhật bản địa. (Chọn hình thức đúng.)",
+      "t1": {
+        "stem": "練習[れんしゅう]のおかげで、ネイティブの 日本語[にほんご]が 分[わ]かる＿なりました。",
+        "choices": [
+          "ように",
+          "ために",
+          "ことに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "練習[れんしゅう]のおかげで、",
+          "ネイティブの",
+          "日本語[にほんご]が",
+          "分[わ]かる",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "ために",
+          "ことに"
+        ]
+      },
+      "t3": {
+        "target": "練習のおかげで、ネイティブの日本語が分かるようになりました。",
+        "accept": [
+          "れんしゅうのおかげで、ねいてぃぶのにほんごがわかるようになりました。"
+        ]
+      },
+      "why": "〜ようになりました = kết quả thay đổi đã đạt được (minna2 B31). ✗ ことになりました = hoàn cảnh/tổ chức quyết định. Phục kích: câu N3 dùng mẫu おかげで (B59) nhưng điểm bẫy là ようになる từ N4."
+    },
+    {
+      "id": "a-b60-sasete-form",
+      "item": "minna2.b36.sasete-kudasai",
+      "err": "sasete-kudasai-wrong",
+      "ambush": true,
+      "src": 36,
+      "context": "Bài 60 · ように — phục kích させてください (minna2.b36)",
+      "vi": "Xin hãy cho tôi được thuyết trình để mọi người hiểu được nội dung.",
+      "t1": {
+        "stem": "内容[ないよう]が 伝[つた]わるように、私[わたし]に 発表[はっぴょう]＿ください。",
+        "choices": [
+          "させて",
+          "してもいい",
+          "するように"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "内容[ないよう]が",
+          "伝[つた]わるように、",
+          "私[わたし]に",
+          "発表[はっぴょう]",
+          "させて",
+          "ください。"
+        ],
+        "traps": [
+          "してください",
+          "発表[はっぴょう]するように"
+        ]
+      },
+      "t3": {
+        "target": "内容が伝わるように、私に発表させてください。",
+        "accept": [
+          "ないようがつたわるように、わたしにはっぴょうさせてください。"
+        ]
+      },
+      "why": "内容[ないよう]が 伝[つた]わる（非意志[ひいし]）→ ように ✓. Sau đó: 発表[はっぴょう]させてください = xin cho tôi được trình bày (させてください — minna2 B36). Bẫy kép: ように mục đích N3 + させてください N4."
+    }
+  ]
+}

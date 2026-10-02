@@ -1,0 +1,407 @@
+{
+  "id": "minna1.b13",
+  "bai": 13,
+  "titleVi": "Mong muốn & mục đích — ほしい・〜たい",
+  "know": [
+    {
+      "id": "minna1.b13.hoshii",
+      "point": "hoshii",
+      "jp": "Nが ほしいです",
+      "vi": "Muốn có N",
+      "en": "Want to have N",
+      "gloss": "muốn (sở hữu) ～ — đối tượng dùng が",
+      "glossEn": "Want (to possess) ～ — the object is marked with が"
+    },
+    {
+      "id": "minna1.b13.tai",
+      "point": "tai",
+      "jp": "Vたいです",
+      "vi": "Muốn làm V",
+      "en": "Want to do V",
+      "gloss": "Vます-stem ＋ たい (ví dụ: 食べ→食べたい)",
+      "glossEn": "Vます-stem ＋ たい (example: 食べ→食べたい)"
+    },
+    {
+      "id": "minna1.b13.ni-purpose",
+      "point": "ni-purpose",
+      "jp": "Vstemに 行きます／来ます",
+      "vi": "Đi để làm V",
+      "en": "Go somewhere to do V",
+      "gloss": "nơi đến ＋ に ＋ 行く／来る (mục đích di chuyển)",
+      "glossEn": "Destination ＋ に ＋ 行く／来る (purpose of travel)"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b13-hoshii-kuruma",
+      "item": "minna1.b13.hoshii",
+      "err": "hoshii-ga",
+      "vi": "Tôi muốn có một chiếc xe mới.",
+      "t1": {
+        "stem": "わたしは 新[あたら]しい 車[くるま]＿ ほしいです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "新[あたら]しい",
+          "車[くるま]が",
+          "ほしいです。"
+        ],
+        "traps": [
+          "車[くるま]を",
+          "ほしいじゃないです。"
+        ]
+      },
+      "t3": {
+        "target": "わたしは新しい車がほしいです。",
+        "accept": [
+          "わたしはあたらしいくるまがほしいです。"
+        ]
+      },
+      "why": "ほしい dùng が cho đối tượng mong muốn — giống khuôn が của 好き (Bài 9)."
+    },
+    {
+      "id": "c-b13-hoshii-yasumi",
+      "item": "minna1.b13.hoshii",
+      "err": "hoshii-ga",
+      "vi": "Tôi muốn có thời gian rảnh.",
+      "t1": {
+        "stem": "わたしは 暇[ひま]な 時間[じかん]＿ ほしいです。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "暇[ひま]な",
+          "時間[じかん]が",
+          "ほしいです。"
+        ],
+        "traps": [
+          "時間[じかん]を",
+          "時間[じかん]は"
+        ]
+      },
+      "t3": {
+        "target": "わたしはひまな時間がほしいです。",
+        "accept": [
+          "わたしはひまなじかんがほしいです。"
+        ]
+      },
+      "why": "ほしい: đối tượng ＝ が. 時間[じかん] là danh từ muốn sở hữu → không dùng を."
+    },
+    {
+      "id": "c-b13-tai-taberu",
+      "item": "minna1.b13.tai",
+      "err": "tai-conj",
+      "vi": "Tôi muốn ăn sushi.",
+      "t1": {
+        "stem": "すしが ＿。",
+        "choices": [
+          "食[た]べたいです",
+          "食[た]べるたいです",
+          "食[た]べますたいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "すしが",
+          "食[た]べたいです。"
+        ],
+        "traps": [
+          "食[た]べるたいです。",
+          "食[た]べますたいです。"
+        ]
+      },
+      "t3": {
+        "target": "すしが食べたいです。",
+        "accept": [
+          "すしがたべたいです。"
+        ]
+      },
+      "why": "たい gắn vào ます-stem: 食べ＋たい (✗ 食べるたい / 食べますたい)."
+    },
+    {
+      "id": "c-b13-tai-nihon",
+      "item": "minna1.b13.tai",
+      "err": "tai-conj",
+      "vi": "Tôi muốn đi Nhật Bản.",
+      "t1": {
+        "stem": "日本[にほん]へ ＿。",
+        "choices": [
+          "行[い]きたいです",
+          "行[い]くたいです",
+          "行[い]きますたいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]へ",
+          "行[い]きたいです。"
+        ],
+        "traps": [
+          "行[い]くたいです。",
+          "行[い]きませんたい。"
+        ]
+      },
+      "t3": {
+        "target": "日本へ行きたいです。",
+        "accept": [
+          "にほんへいきたいです。"
+        ]
+      },
+      "why": "行く (iku) ます-stem là 行き → 行きたい (✗ 行くたい / 行きますたい)."
+    },
+    {
+      "id": "c-b13-tai-neg",
+      "item": "minna1.b13.tai",
+      "err": "tai-conj",
+      "vi": "Hôm nay tôi không muốn làm việc.",
+      "t1": {
+        "stem": "今日[きょう]は 仕事[しごと]を ＿。",
+        "choices": [
+          "したくないです",
+          "しないたいです",
+          "したいじゃないです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]は",
+          "仕事[しごと]を",
+          "したくないです。"
+        ],
+        "traps": [
+          "しないたいです。",
+          "したいくないです。"
+        ]
+      },
+      "t3": {
+        "target": "今日は仕事をしたくないです。",
+        "accept": [
+          "きょうはしごとをしたくないです。"
+        ]
+      },
+      "why": "たい là い-adj: phủ định → たくない (✗ たいじゃない ✗ しないたい)."
+    },
+    {
+      "id": "c-b13-ni-purpose-kaimono",
+      "item": "minna1.b13.ni-purpose",
+      "err": "ni-purpose-de",
+      "vi": "Tôi đến trung tâm thương mại để mua sắm.",
+      "t1": {
+        "stem": "デパートへ 買[か]い物[もの]＿ 行[い]きます。",
+        "choices": [
+          "に",
+          "を",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "デパートへ",
+          "買[か]い物[もの]に",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "買[か]い物[もの]を",
+          "買[か]い物[もの]で"
+        ]
+      },
+      "t3": {
+        "target": "デパートへ買い物に行きます。",
+        "accept": [
+          "でぱーとへかいものにいきます。"
+        ]
+      },
+      "why": "Mục đích di chuyển: Vます-stem ＋ に ＋ 行きます. に là trợ từ bắt buộc (✗ を / で)."
+    },
+    {
+      "id": "c-b13-ni-purpose-shokuji",
+      "item": "minna1.b13.ni-purpose",
+      "err": "ni-purpose-de",
+      "vi": "Anh ấy đến nhà hàng để ăn tối.",
+      "t1": {
+        "stem": "レストランへ 食事[しょくじ]＿ 来[き]ました。",
+        "choices": [
+          "に",
+          "を",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "レストランへ",
+          "食事[しょくじ]に",
+          "来[き]ました。"
+        ],
+        "traps": [
+          "食事[しょくじ]を",
+          "レストランで"
+        ]
+      },
+      "t3": {
+        "target": "レストランへ食事に来ました。",
+        "accept": [
+          "れすとらんへしょくじにきました。"
+        ]
+      },
+      "why": "Vstem (食事し ← しょくじする → 食事) ＋ に + 来ました. Mục đích dùng に."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b13-hoshii",
+      "item": "minna1.b13.hoshii",
+      "err": "hoshii-ga",
+      "tts": "たんじょうびに あたらしい カメラが ほしいです。",
+      "script": "誕生日[たんじょうび]に 新[あたら]しい カメラが ほしいです。",
+      "ask": "Người nói muốn gì cho sinh nhật?",
+      "choices": [
+        "Máy ảnh mới",
+        "Điện thoại mới",
+        "Túi mới"
+      ],
+      "answer": 0,
+      "why": "ほしい: đối tượng dùng が → カメラが ほしいです."
+    },
+    {
+      "id": "l-b13-ni-purpose",
+      "item": "minna1.b13.ni-purpose",
+      "err": "ni-purpose-de",
+      "tts": "としょかんへ にほんごを べんきょうしに いきます。",
+      "script": "図書館[としょかん]へ 日本語[にほんご]を 勉強[べんきょう]しに 行[い]きます。",
+      "ask": "Người nói đi đến đâu, để làm gì?",
+      "choices": [
+        "Thư viện — học tiếng Nhật",
+        "Trường — học tiếng Nhật",
+        "Thư viện — mượn sách"
+      ],
+      "answer": 0,
+      "why": "としょかんへ = đến thư viện; 勉強しに = để học (Vstem + に)."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b13-ga-hoshii",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ が với đối tượng (好き・ほしい)",
+      "vi": "Tôi muốn một chiếc xe mới.",
+      "t1": {
+        "stem": "わたしは 新[あたら]しい 車[くるま]＿ ほしいです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "新[あたら]しい",
+          "車[くるま]が",
+          "ほしいです。"
+        ],
+        "traps": [
+          "車[くるま]を"
+        ]
+      },
+      "t3": {
+        "target": "わたしは新しい車がほしいです。",
+        "accept": [
+          "わたしはあたらしいくるまがほしいです。"
+        ]
+      },
+      "why": "ほしい cùng nhóm với 好き (Bài 9) — đối tượng dùng が, không phải を."
+    },
+    {
+      "id": "a-b13-ga-camera",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ が với đối tượng (好き・ほしい)",
+      "vi": "Tôi muốn có máy ảnh.",
+      "t1": {
+        "stem": "カメラ＿ ほしいです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "カメラが",
+          "ほしいです。"
+        ],
+        "traps": [
+          "カメラを",
+          "カメラは"
+        ]
+      },
+      "t3": {
+        "target": "カメラがほしいです。",
+        "accept": [
+          "かめらがほしいです。"
+        ]
+      },
+      "why": "ほしい dùng が — giống 好き/わかります (Bài 9): ✗ カメラをほしい → ○ カメラがほしい."
+    },
+    {
+      "id": "a-b13-ga-jouzu",
+      "item": "minna1.b09.jouzu",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ が với đối tượng (上手)",
+      "vi": "Để đi Nhật, tôi muốn giỏi tiếng Nhật.",
+      "t1": {
+        "stem": "日本[にほん]へ 行[い]きたいですから、日本語[にほんご]＿ 上手[じょうず]に なりたいです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]へ 行[い]きたいですから、",
+          "日本語[にほんご]が",
+          "上手[じょうず]に なりたいです。"
+        ],
+        "traps": [
+          "日本語[にほんご]を"
+        ]
+      },
+      "t3": {
+        "target": "日本へ行きたいですから、日本語が上手になりたいです。",
+        "accept": [
+          "にほんへいきたいですから、にほんごがじょうずになりたいです。"
+        ]
+      },
+      "why": "上手 (Bài 9) dùng が cho đối tượng kỹ năng. Câu bài 13 nhưng bẫy khuôn B9."
+    }
+  ]
+}

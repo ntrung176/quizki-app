@@ -1,0 +1,3591 @@
+{
+  "bai": 57,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 57 luyện hai mẫu diễn đạt TÍNH TỨC THÌ và BẤT NGỜ: 〜たとたん（に）= \"ngay khoảnh khắc A thì B xảy ra bất ngờ\" — B thường NGOÀI Ý MUỐN, không điều khiển được, và dùng ở THÌ QUÁ KHỨ; 〜か〜ないかのうちに = \"vừa chớm A thì B đã xảy ra ngay\" — hai việc gần như ĐỒNG THỜI, A hầu như chưa hoàn tất thì B đã ập đến. Đối chiếu sắc thái: たとたん ≠ うちに（B55: tranh thủ trong lúc còn）≠ 間に（B56: xảy ra tại một điểm trong khoảng thời gian）— たとたん/か〜ないかのうちに nhấn TÍNH TỨC THÌ + BẤT NGỜ, không mang sắc thái \"tranh thủ\" hay \"khoảng thời gian\". Đọc hiểu: hỏi \"tại sao tác giả dùng たとたん chứ không dùng 間に?\" → trả lời bằng sắc thái bất ngờ/ngoài ý muốn.",
+    "steps": [
+      "Nhận diện 接続 của たとたん: Vた ＋ とたん（に）. Chú ý: vế trước luôn là thể た (quá khứ), vế sau dùng thì quá khứ. Hành động B thường bất ngờ, không chủ ý.",
+      "Nhận diện 接続 của か〜ないかのうちに: Vる ＋ か ＋ 同じVのない形 ＋ かのうちに (vd: 着くか着かないかのうちに). Đây là cấu trúc \"cái A vừa chớm/hầu như chưa xong thì B đã\".",
+      "Phân biệt たとたん vs 間に（B56）: 間に = sự việc B xảy ra trong khoảng thời gian A; たとたん = NGAY KHI A xong thì B ập đến bất ngờ. 間に không có sắc thái bất ngờ.",
+      "Phân biệt たとたん vs うちに（B55）: うちに = tranh thủ làm gì trong khi A còn; たとたん = không có ý \"tranh thủ\", B là kết quả không lường trước ngay lập tức.",
+      "Câu hỏi suy luận: \"Vì sao dùng たとたん chứ không dùng 間に?\" → trả lời: B xảy ra bất ngờ, không có khoảng thời gian chờ đợi, B ngoài ý muốn.",
+      "Ôn lại てしまう（B29）— thường đi kèm たとたん để nhấn sắc thái \"lỡ mà / không ngờ mà\"; và のに（B45）để diễn đạt bất mãn trước điều bất ngờ."
+    ],
+    "tips": [
+      "使い分け 1 — たとたん vs 間に（B56）: 「ドアを開けたとたん、猫が飛び出した」(ngay khoảnh khắc mở cửa — bất ngờ) ≠ 「ドアを開けている間に、猫が出た」(trong lúc đang mở cửa). たとたん = khoảnh khắc duy nhất, bất ngờ; 間に = khoảng thời gian.",
+      "使い分け 2 — たとたん vs うちに（B55）: 「外に出たとたん、雨が降った」(bất ngờ) ≠ 「外に出ないうちに、雨が降った」(trong lúc chưa ra ngoài). うちに mang sắc thái \"tranh thủ\" hoặc \"khoảng thời gian\", たとたん không có.",
+      "か〜ないかのうちに cực kỳ nhấn tính đồng thời: \"A hầu như chưa kịp hoàn tất thì B đã\". Câu sau thường xảy ra quá nhanh, ngoài dự kiến. 接続: Vる＋か＋Vない＋かのうちに.",
+      "B trong たとたん gần như luôn là kết quả NGOÀI Ý MUỐN (mèo nhảy ra, mưa rơi, điện thoại reo). Nếu B là điều chủ động, tốt đẹp → cân nhắc dùng 間に hoặc ようになる.",
+      "Dấu hiệu trong câu hỏi đọc hiểu: đề hỏi \"Vì sao tác giả dùng たとたん?\" → câu trả lời phải đề cập đến tính bất ngờ + tính tức thì, không phải khoảng thời gian."
+    ],
+    "grammarFocus": [
+      "〜たとたん（に）— Vた＋とたん（に）: ngay khoảnh khắc A thì B xảy ra bất ngờ, ngoài ý muốn",
+      "〜か〜ないかのうちに — Vる＋か＋Vない＋かのうちに: vừa chớm A thì B đã ập đến (hai việc gần như đồng thời)"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 56,
+        "items": [
+          "〜間に・〜間（đối chiếu: điểm trong khoảng thời gian vs tính tức thì）"
+        ]
+      },
+      {
+        "bai": 55,
+        "items": [
+          "〜うちに（đối chiếu: tranh thủ vs bất ngờ）"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（nghịch kỳ vọng — dùng cùng たとたん để diễn đạt bất mãn）"
+        ]
+      },
+      {
+        "bai": 43,
+        "items": [
+          "〜てきた（sự thay đổi đến gần — đi kèm diễn biến bất ngờ）"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "〜てしまう（hoàn thành với sắc thái tiếc/không cố ý）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "雨と電話",
+      "titleVi": "Mưa và cuộc điện thoại",
+      "japanese": "今日は晴れの予報だったのに、家を出たとたん、激しい雨が降ってきた。傘を持っていなかったので、すっかり濡れてしまった。近くのコンビニに入るか入らないかのうちに、雨はさらに強くなった。仕方なく、しばらく店の中で雨宿りをすることにした。やっと雨が弱まったとたん、今度は携帯電話が鳴り出した。上司からの電話で、「今日の会議の時間が変わった」という連絡だった。結局、傘を買ったとたんに雨が止んでしまい、なんとも間が悪い一日だった。こういう日は、何をしても思いどおりにいかないものだ。",
+      "vietnamese": "Hôm nay dự báo trời nắng, vậy mà vừa bước ra khỏi nhà thì trời đổ mưa to. Vì không mang ô nên bị ướt hết người. Vừa mới bước vào cửa hàng tiện lợi gần đó thì mưa lại càng to hơn. Đành ở trong cửa hàng trú mưa một lúc. Vừa mới thấy mưa nhỏ dần thì lần này điện thoại lại đổ chuông. Là điện thoại của sếp, thông báo \"giờ họp hôm nay thay đổi rồi\". Cuối cùng, vừa mua ô xong thì mưa lại tạnh, thật đúng là ngày xui xẻo. Những ngày như thế này, làm gì cũng không như ý.",
+      "sentences": [
+        {
+          "jp": "今日は晴れの予報だったのに、家を出たとたん、激しい雨が降ってきた。",
+          "vi": "Hôm nay dự báo trời nắng, vậy mà vừa bước ra khỏi nhà thì trời đổ mưa to.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "晴れ",
+              "read": "はれ",
+              "vi": "trời nắng, trời quang"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra, bước ra"
+            },
+            {
+              "w": "激しい",
+              "read": "はげしい",
+              "vi": "dữ dội, mạnh"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降ります",
+              "read": "ふります",
+              "vi": "(mưa) rơi, (tuyết) rơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接 Bài 45）",
+              "vi": "予報だったのに = dự báo là nắng vậy mà (trái kỳ vọng, bất mãn). のに diễn đạt sắc thái ngạc nhiên/bất mãn trước thực tế trái ngược (Bài 45)."
+            },
+            {
+              "point": "〜たとたん（に）",
+              "vi": "接続: 出た（Vた）＋ とたん。 家を出たとたん、激しい雨が降ってきた = ngay khoảnh khắc bước ra khỏi nhà thì mưa ập đến bất ngờ. Sắc thái: B（mưa to）là kết quả NGOÀI Ý MUỐN, xảy ra tức thì. 対比: 間に（B56）sẽ nói「家を出ている間に雨が降った」= trong lúc ra ngoài thì mưa, không có tính bất ngờ cao như たとたん."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "降ってきた = (mưa) bắt đầu rơi xuống (về phía người nói). てくる = sự thay đổi/sự việc đến gần người nói (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "傘を持っていなかったので、すっかり濡れてしまった。",
+          "vi": "Vì không mang ô nên bị ướt hết người.",
+          "vocab": [
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô (dù)"
+            },
+            {
+              "w": "持ちます",
+              "read": "もちます",
+              "vi": "mang, cầm, giữ"
+            },
+            {
+              "w": "すっかり",
+              "read": "すっかり",
+              "vi": "hoàn toàn, hết sạch"
+            },
+            {
+              "w": "濡れます",
+              "read": "ぬれます",
+              "vi": "bị ướt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "持っていなかったので = vì không mang theo. ので nêu lý do lịch sự."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "すっかり濡れてしまった = bị ướt hết người mất rồi (tiếc, không cố ý). てしまう = hoàn thành với sắc thái đáng tiếc (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "近くのコンビニに入るか入らないかのうちに、雨はさらに強くなった。",
+          "vi": "Vừa mới bước vào cửa hàng tiện lợi gần đó thì mưa lại càng to hơn.",
+          "vocab": [
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần đây, gần đó"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "bước vào, vào"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "càng, hơn nữa"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜ないかのうちに",
+              "vi": "接続: 入る（Vる）＋ か ＋ 入らない（Vない：同じ動詞）＋ かのうちに。 入るか入らないかのうちに = vừa mới chớm bước vào / chưa kịp vào hẳn thì. Sắc thái: nhấn mạnh A hầu như chưa hoàn tất thì B đã ập đến ngay, tính đồng thời gần như tuyệt đối. 対比: たとたん（に）nhấn khoảnh khắc A kết thúc → B bất ngờ; か〜ないかのうちに nhấn A còn chưa hoàn thành mà B đã đến."
+            },
+            {
+              "point": "〜くなった（Bài 19）",
+              "vi": "強くなった = trở nên mạnh hơn. いAdj（強い → 強く）+ なる = thay đổi trạng thái (Bài 19)."
+            }
+          ]
+        },
+        {
+          "jp": "仕方なく、しばらく店の中で雨宿りをすることにした。",
+          "vi": "Đành ở trong cửa hàng trú mưa một lúc.",
+          "vocab": [
+            {
+              "w": "仕方なく",
+              "read": "しかたなく",
+              "vi": "bất đắc dĩ"
+            },
+            {
+              "w": "しばらく",
+              "read": "しばらく",
+              "vi": "một lúc"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "cửa hàng"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "雨宿り",
+              "read": "あまやどり",
+              "vi": "trú mưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことにした（Bài 31 意向形 応用）",
+              "vi": "することにした = quyết định sẽ làm. ことにする = quyết định theo ý mình (áp dụng Bài 31)."
+            }
+          ]
+        },
+        {
+          "jp": "やっと雨が弱まったとたん、今度は携帯電話が鳴り出した。",
+          "vi": "Vừa mới thấy mưa nhỏ dần thì lần này điện thoại lại đổ chuông.",
+          "vocab": [
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng, mới (sau hồi lâu)"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "弱まります",
+              "read": "よわまります",
+              "vi": "yếu dần, nhỏ dần"
+            },
+            {
+              "w": "今度は",
+              "read": "こんどは",
+              "vi": "lần này, lần nữa"
+            },
+            {
+              "w": "携帯",
+              "read": "けいたい",
+              "vi": "điện thoại di động, mang theo"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "鳴り出す",
+              "read": "なりだす",
+              "vi": "bắt đầu reo, kêu lên"
+            },
+            {
+              "w": "携帯電話",
+              "read": "けいたいでんわ",
+              "vi": "điện thoại di động"
+            },
+            {
+              "w": "鳴ります",
+              "read": "なります",
+              "vi": "(chuông) reo, kêu"
+            },
+            {
+              "w": "出します",
+              "read": "だします",
+              "vi": "bắt đầu (làm gì)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん（に）",
+              "vi": "接続: 弱まった（Vた）＋ とたん。 雨が弱まったとたん、携帯電話が鳴り出した = ngay lúc mưa mới nhỏ bớt thì điện thoại lại reo lên. Sắc thái: 今度は（\"lần này lại\"）nhấn thêm tính liên tiếp của những điều bất ngờ, ngoài ý muốn."
+            },
+            {
+              "point": "Vます＋出す（複合動詞）",
+              "vi": "鳴り出した = bắt đầu reo. Vます（bỏ ます）+ 出す = bắt đầu làm V (khởi phát đột ngột)."
+            }
+          ]
+        },
+        {
+          "jp": "上司からの電話で、「今日の会議の時間が変わった」という連絡だった。",
+          "vi": "Là điện thoại của sếp, thông báo \"giờ họp hôm nay thay đổi rồi\".",
+          "vocab": [
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "sếp, cấp trên"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc, thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というN（Bài 33）",
+              "vi": "「今日の会議の時間が変わった」という連絡 = thông báo nói rằng \"giờ họp thay đổi\". という nối nội dung với danh từ (Bài 33)."
+            }
+          ]
+        },
+        {
+          "jp": "結局、傘を買ったとたんに雨が止んでしまい、なんとも間が悪い一日だった。",
+          "vi": "Cuối cùng, vừa mua ô xong thì mưa lại tạnh, thật đúng là ngày xui xẻo.",
+          "vocab": [
+            {
+              "w": "結局",
+              "read": "けっきょく",
+              "vi": "rốt cuộc"
+            },
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "買った",
+              "read": "かった",
+              "vi": "đã mua"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "止んで",
+              "read": "やんで",
+              "vi": "tạnh, ngừng"
+            },
+            {
+              "w": "なんとも",
+              "read": "なんとも",
+              "vi": "thật là, vô cùng"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "thời điểm, khoảng thời gian"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "間が悪い",
+              "read": "まがわるい",
+              "vi": "không đúng lúc, không may"
+            },
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたんに",
+              "vi": "接続: 買った（Vた）＋ とたんに。 傘を買ったとたんに雨が止んだ = ngay khi mua ô xong thì mưa tạnh liền. Sắc thái đặc trưng: B（mưa tạnh）xảy ra ngay tức thì và NGOÀI Ý MUỐN — trớ trêu, không lường trước được. とたん và とたんに đều đúng, とたんに nhấn mạnh hơn chút."
+            },
+            {
+              "point": "〜てしまい（Bài 29）",
+              "vi": "止んでしまい = tạnh mất rồi (với ý tiếc/trớ trêu). てしまう = hoàn thành đáng tiếc (Bài 29). Ở đây Vてしまい nối sang vế sau (dạng て)."
+            }
+          ]
+        },
+        {
+          "jp": "こういう日は、何をしても思いどおりにいかないものだ。",
+          "vi": "Những ngày như thế này, làm gì cũng không như ý.",
+          "vocab": [
+            {
+              "w": "こういう",
+              "read": "こういう",
+              "vi": "như thế này"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "何",
+              "read": "なに",
+              "vi": "cái gì"
+            },
+            {
+              "w": "して",
+              "read": "して",
+              "vi": "làm"
+            },
+            {
+              "w": "思いどおり",
+              "read": "おもいどおり",
+              "vi": "đúng như ý muốn"
+            },
+            {
+              "w": "いかない",
+              "read": "いかない",
+              "vi": "không diễn ra, không thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "何をしても = dù làm gì cũng. 疑問詞＋ても = dù/bất kể (Bài 25)."
+            },
+            {
+              "point": "〜ものだ（B53 応用）",
+              "vi": "〜ないものだ = đó là điều tất nhiên, lẽ thường. ものだ diễn đạt chân lý/lẽ thường trong cuộc sống (Bài 53)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "家を出たとたん、激しい雨が降ってきた",
+          "label": "〜たとたん（に）— bất ngờ tức thì"
+        },
+        {
+          "excerpt": "近くのコンビニに入るか入らないかのうちに、雨はさらに強くなった",
+          "label": "〜か〜ないかのうちに — vừa chớm thì đã"
+        },
+        {
+          "excerpt": "やっと雨が弱まったとたん、今度は携帯電話が鳴り出した",
+          "label": "〜たとたん（に）— ngoài ý muốn liên tiếp"
+        },
+        {
+          "excerpt": "傘を買ったとたんに雨が止んでしまい",
+          "label": "Sắc thái: たとたんに — trớ trêu, không lường trước"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「家を出たとたん、激しい雨が降ってきた」とあります。「たとたん」が使われている理由はどれですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "家を出ている間にずっと雨が降り続けたことを表すため",
+            "家を出た直後に、予期せず突然雨が降り始めたことを表すため",
+            "雨が降る前に、急いで家を出ようとしたことを表すため",
+            "雨が降りそうだったので、早めに家を出たことを表すため"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 2 (B). Bài văn viết「晴れの予報だったのに、家を出たとたん、激しい雨が降ってきた」— \"dự báo nắng vậy mà vừa bước ra khỏi nhà thì mưa to ập đến\". たとたん được dùng chính xác vì B（激しい雨が降ってきた）xảy ra NGAY TỨC THÌ ngay sau A（家を出た）và NGOÀI Ý MUỐN hoàn toàn — không ai ra đường mà muốn bị dội mưa. Các đáp án sai: A（0）nhầm với 間に（mưa suốt cả lúc ra ngoài, không có sắc thái bất ngờ）; C（2）và D（3）bịa thêm ý định/dự đoán không có trong bài.",
+          "tip": "Khi B xảy ra BẤT NGỜ, NGOÀI Ý MUỐN ngay tức thì sau A → dùng たとたん. Nếu chỉ đơn giản là \"trong lúc A thì B\" (không bất ngờ) → dùng 間に; nếu \"tranh thủ lúc A còn\" → dùng うちに.",
+          "qt": {
+            "q": "「家を出たとたん、激しい雨が降ってきた」(Vừa ra khỏi nhà thì mưa lớn bắt đầu đổ xuống) được dùng vì lý do nào?",
+            "o": [
+              "Để diễn tả rằng mưa cứ tiếp tục rơi suốt lúc ra khỏi nhà",
+              "Để diễn tả rằng ngay sau khi ra khỏi nhà, mưa bất ngờ đột nhiên bắt đầu rơi",
+              "Để diễn tả rằng đã định vội vã ra khỏi nhà trước khi trời mưa",
+              "Để diễn tả rằng đã ra khỏi nhà sớm vì trời có vẻ sắp mưa"
+            ]
+          }
+        },
+        {
+          "q": "「入るか入らないかのうちに、雨はさらに強くなった」はどういう意味ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "コンビニに入ってしばらく経ってから、雨が強くなった",
+            "コンビニに入るかどうか迷っている間に、雨が強くなった",
+            "コンビニにやっと入れた瞬間、雨が強くなった",
+            "コンビニに入り終わるか終わらないかというほどの瞬間に、もう雨が強くなっていた"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 4 (D).「入るか入らないかのうちに」dùng cấu trúc〜か〜ないかのうちに = \"A hầu như chưa kịp hoàn tất thì B đã ập đến\". Tức là: chưa kịp bước vào cửa hàng hẳn (入り終わるか終わらないか) thì mưa đã to hơn rồi. Các đáp án sai: A（0）sai vì \"sau một lúc\" trái với tính đồng thời tuyệt đối của mẫu này; B（1）sai vì \"do dự\" (迷う) không liên quan đến〜か〜ないかのうちに — mẫu này không nói về sự lưỡng lự mà nói về A chưa xong; C（2）\"vào được rồi mới\" cũng không đúng vì mẫu nhấn A còn CHƯA hoàn thành.",
+          "tip": "〜か〜ないかのうちに = \"A còn chưa kịp xong thì B đã\". Hình dung như cánh cửa chưa kịp đóng hẳn thì gió đã ùa vào — A và B gần như XẢY RA CÙNG LÚC, A chưa hoàn tất. Khác với たとたん là A đã hoàn tất XONG RỒI mới có B bất ngờ.",
+          "qt": {
+            "q": "「入るか入らないかのうちに、雨はさらに強くなった」(Gần như ngay lúc vừa vào cửa hàng tiện lợi thì mưa càng nặng hạt hơn) có nghĩa là gì?",
+            "o": [
+              "Mưa trở nên nặng hạt hơn một lúc sau khi đã vào cửa hàng tiện lợi",
+              "Mưa trở nên nặng hạt hơn trong lúc còn đang phân vân có nên vào cửa hàng tiện lợi hay không",
+              "Ngay khoảnh khắc cuối cùng cũng vào được cửa hàng tiện lợi, mưa trở nên nặng hạt hơn",
+              "Mưa đã trở nên nặng hạt ngay vào khoảnh khắc gần như vừa vào xong cửa hàng tiện lợi"
+            ]
+          }
+        },
+        {
+          "q": "この文章でたとたんが3回使われています。3回とも共通しているのはどんな特徴ですか。",
+          "evi": [
+            0,
+            4,
+            6
+          ],
+          "options": [
+            "Bは筆者が望んでいたことが実現したことを表している",
+            "Bは予定されていた出来事が順番に起きたことを表している",
+            "Bは筆者が意図していなかった、予期しない出来事が瞬時に起きたことを表している",
+            "Bの出来事が起きるまでに、かなりの時間がかかったことを表している"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3 (C). Ba lần たとたん trong bài ngắn: (1)「家を出たとたん、激しい雨が降ってきた」— ra ngoài → mưa to bất ngờ; (2)「雨が弱まったとたん、携帯電話が鳴り出した」— mưa vừa nhỏ → điện thoại reo bất ngờ; (3)「傘を買ったとたんに雨が止んでしまった」— mua ô xong → mưa tạnh ngay (trớ trêu). Tất cả B đều NGOÀI Ý MUỐN và KHÔNG LƯỜNG TRƯỚC được — đúng sắc thái cốt lõi của たとたん. A（0）sai vì không cái nào là điều tác giả mong muốn; B（1）sai vì không phải \"theo kế hoạch\"; D（3）sai vì たとたん nhấn TÍNH TỨC THÌ, không phải mất nhiều thời gian.",
+          "tip": "Nhìn vế B sau たとたん — nếu B là điều người nói KHÔNG muốn, không dự đoán được, xảy ra BỌ ngay → đó là dấu hiệu chắc chắn của たとたん. Nếu B là điều tốt đẹp có chủ ý → không phải たとたん.",
+          "qt": {
+            "q": "Trong bài này, 「たとたん」 được dùng 3 lần. Cả 3 lần đều có đặc điểm chung nào?",
+            "o": [
+              "B diễn tả việc điều mà người viết mong muốn đã trở thành hiện thực",
+              "B diễn tả những sự việc đã được dự định xảy ra lần lượt theo thứ tự",
+              "B diễn tả một sự việc bất ngờ mà người viết không chủ ý, xảy ra tức khắc",
+              "B diễn tả việc phải mất khá nhiều thời gian trước khi sự việc B xảy ra"
+            ]
+          }
+        },
+        {
+          "q": "「なんとも間が悪い一日だった」とあります。「間が悪い」日だと感じた最大の理由はどれですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "天気予報が外れたから",
+            "上司から急に電話がかかってきたから",
+            "傘を買ったとたんに雨が止んでしまったから",
+            "コンビニで長い時間雨宿りをしなければならなかったから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3 (C). Câu kết thúc bài viết rõ:「結局、傘を買ったとたんに雨が止んでしまい、なんとも間が悪い一日だった」— \"cuối cùng, vừa mua ô xong thì mưa tạnh, thật đúng là ngày xui\". Đây là tình huống TRỚ TRÊU NHẤT — mua ô CHỈ ĐỂ mưa tạnh ngay, công cốc. たとたんに＋てしまい cộng hưởng nhấn sắc thái \"đáng tiếc, không ngờ\". Các đáp án khác chỉ là những phiền phức nhỏ trong ngày, không phải lý do tác giả đúc kết「間が悪い一日」. A（0）dự báo sai chỉ là nguyên nhân ban đầu; B（1）điện thoại sếp gây bất tiện nhưng không phải khoảnh khắc \"xui nhất\"; D（3）trú mưa trong tiệm là hệ quả, không phải điểm nhấn.",
+          "tip": "Khi đề hỏi \"lý do lớn nhất\", tìm câu có たとたん＋てしまう ở cuối bài — đó thường là cú twist trớ trêu nhất tác giả dùng để tổng kết cảm xúc.",
+          "qt": {
+            "q": "Có câu 「なんとも間が悪い一日だった」(Đúng là một ngày thật không gặp may). Lý do lớn nhất khiến người viết cảm thấy đó là một ngày 「間が悪い」 (không gặp may) là gì?",
+            "o": [
+              "Vì dự báo thời tiết đã sai",
+              "Vì cấp trên đột nhiên gọi điện",
+              "Vì mưa tạnh ngay sau khi mua ô",
+              "Vì đã phải trú mưa trong cửa hàng tiện lợi suốt một thời gian dài"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "集中力とスマホの距離",
+      "titleVi": "Sự tập trung và khoảng cách với smartphone",
+      "japanese": "現代社会では、仕事や勉強に集中することが難しくなっている。多くの人がスマートフォンの通知を気にしながら生活しているからだ。画面が光ったとたんに集中が切れて、作業をやめてしまう人も少なくない。\nたとえば、本を読み始めた場面を考えてほしい。読み始めるか始めないかのうちにメッセージが届き、意識がスマホへ向いてしまう。しかし、メッセージを確認したとたん、それまでの内容を忘れてしまい、最初から読み直すことになる。これでは仕事や勉強の効率が下がってしまう。\n一方、スマホを遠い場所に置くことで、脳の集中力が高まるという研究がある。誘惑を減らすことで、より深い思考が可能になるのだ。\nそのため、自分から集中できる環境を作ることが大切だ。作業を始める前に、スマホを目に入らない場所へ移動させることが効果的だ。つまり、誘惑を視界から消すことが成功の鍵なのだ。集中できる環境を整えることで、短時間で大きな成果を上げることができる。",
+      "vietnamese": "Trong xã hội hiện đại, việc tập trung vào công việc hay học tập đang trở nên khó khăn hơn. Đó là vì nhiều người sống trong trạng thái luôn bận tâm đến thông báo của điện thoại thông minh. Không ít người ngay khoảnh khắc màn hình vừa lóe sáng thì sự tập trung bị ngắt quãng và dừng ngay công việc đang làm.\nVí dụ, hãy thử nghĩ đến tình huống bạn vừa bắt đầu đọc một cuốn sách. Vừa chớm bắt đầu đọc sách thì tin nhắn đã tới, khiến sự chú ý bị hướng ngay về phía điện thoại. Tuy nhiên, ngay khoảnh khắc vừa kiểm tra tin nhắn xong thì nội dung đọc trước đó đã quên sạch, rốt cuộc lại phải đọc lại từ đầu. Cứ như thế này thì hiệu suất công việc hay học tập sẽ bị giảm sút.\nMặt khác, có nghiên cứu cho rằng bằng việc đặt điện thoại ở vị trí xa, khả năng tập trung của bộ脳 sẽ tăng lên. Bằng việc giảm bớt các yếu tố cám dỗ, việc suy nghĩ sâu sắc hơn sẽ trở nên khả thi.\nVì thế, việc bản thân chủ động tạo ra một môi trường có thể tập trung là điều rất quan trọng. Trước khi bắt đầu làm việc, việc di chuyển điện thoại đến nơi không lọt vào tầm mắt sẽ mang lại hiệu quả. Tóm lại, việc xóa bỏ sự cám dỗ khỏi tầm mắt chính là chìa khóa của sự thành công. Bằng việc chuẩn bị một môi trường có thể tập trung, bạn có thể đạt được kết quả lớn trong một thời gian ngắn.",
+      "sentences": [
+        {
+          "jp": "現代社会では、仕事や勉強に集中することが難しくなっている。",
+          "vi": "Trong xã hội hiện đại, việc tập trung vào công việc hay học tập đang trở nên khó khăn hơn.",
+          "vocab": [
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó khăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜やすくなる／〜にくくなる（Bài 51）",
+              "vi": "難しくなっている = đang trở nên khó khăn hơn. いAdj（難しい → 難しく）+ なる + ている diễn tả xu hướng thay đổi trạng thái kéo dài."
+            }
+          ],
+          "keys": [
+            {
+              "w": "集中することが難しくなっている",
+              "why": "Từ khóa định hình thực trạng mất tập trung trong xã hội hiện đại, là đề tài mở đầu bài viết."
+            }
+          ]
+        },
+        {
+          "jp": "多くの人がスマートフォンの通知を気にしながら生活しているからだ。",
+          "vi": "Đó là vì nhiều người sống trong trạng thái luôn bận tâm đến thông báo của điện thoại thông minh.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "通知",
+              "read": "つうち",
+              "vi": "thông báo"
+            },
+            {
+              "w": "気にします",
+              "read": "きにします",
+              "vi": "bận tâm, chú ý"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "sinh hoạt, cuộc sống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（同時動作 Bài 28）",
+              "vi": "気にしながら = vừa sinh sống vừa bận tâm/chú ý. Vます-stem + ながら diễn tả 2 hành動 diễn ra song song."
+            }
+          ],
+          "keys": [
+            {
+              "w": "スマートフォンの通知を気にしながら",
+              "why": "Cụm từ chỉ nguyên nhân chính dẫn đến việc suy giảm khả năng tập trung của con người."
+            }
+          ]
+        },
+        {
+          "jp": "画面が光ったとたんに集中が切れて、作業をやめてしまう人も少なくない。",
+          "vi": "Không ít người ngay khoảnh khắc màn hình vừa lóe sáng thì sự tập trung bị ngắt quãng và dừng ngay công việc đang làm.",
+          "vocab": [
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "光ります",
+              "read": "ひかります",
+              "vi": "phát sáng, lóe sáng"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "切れます",
+              "read": "きれます",
+              "vi": "bị ngắt, bị đứt"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん（に）（Bài 57）",
+              "vi": "接続: 光った（Vた）＋ とたんに。 画面が光ったとたんに集中が切れて = ngay khoảnh khắc màn hình lóe sáng thì sự tập trung bị ngắt lập tức. Sắc thái: B（集中が切れる）là sự việc bất ngờ, ngoài ý muốn diễn ra ngay tức thì sau A."
+            },
+            {
+              "point": "〜てしまう（失敗・遺憾 Bài 29）",
+              "vi": "やめてしまう = lỡ dừng/bỏ dở công việc mất. てしまう diễn tả hành動 lỡ xảy ra ngoài ý muốn."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、本を読み始めた場面を考えてほしい。",
+          "vi": "Ví dụ, hãy thử nghĩ đến tình huống bạn vừa bắt đầu đọc một cuốn sách.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ như"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読み始めた",
+              "read": "よみはじめた",
+              "vi": "đã bắt đầu đọc"
+            },
+            {
+              "w": "場面",
+              "read": "ばめん",
+              "vi": "cảnh, tình huống"
+            },
+            {
+              "w": "考えてほしい",
+              "read": "かんがえてほしい",
+              "vi": "muốn bạn suy nghĩ, hãy nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜始める（複合動詞 Bài 47）",
+              "vi": "読み始めた = bắt đầu đọc. Vます-stem + 始める diễn tả sự khởi đầu của hành動."
+            },
+            {
+              "point": "〜てほしい（依頼・要望 Bài 48）",
+              "vi": "考えてほしい = mong/hãy suy nghĩ thử xem. Vて + ほしい diễn tả yêu cầu, mong muốn đối phương làm gì."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たとえば",
+              "why": "Liên từ báo hiệu tác giả bắt đầu đưa ra tình huống thực tế để minh họa cho vấn đề."
+            }
+          ]
+        },
+        {
+          "jp": "読み始めるか始めないかのうちにメッセージが届き、意識がスマホへ向いてしまう。",
+          "vi": "Vừa chớm bắt đầu đọc sách thì tin nhắn đã tới, khiến sự chú ý bị hướng ngay về phía điện thoại.",
+          "vocab": [
+            {
+              "w": "読み始める",
+              "read": "よみはじめる",
+              "vi": "bắt đầu đọc"
+            },
+            {
+              "w": "始めない",
+              "read": "はじめない",
+              "vi": "không bắt đầu"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn"
+            },
+            {
+              "w": "届き",
+              "read": "とどき",
+              "vi": "đến, được gửi tới"
+            },
+            {
+              "w": "意識",
+              "read": "いしき",
+              "vi": "ý thức, sự chú ý"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "向いて",
+              "read": "むいて",
+              "vi": "hướng về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜ないかのうちに（Bài 57）",
+              "vi": "接続: 読み始める（Vる）＋ か ＋ 始めない（Vない）＋ かのうちに。 読み始めるか始めないかのうちに = vừa chớm bắt đầu đọc / chưa kịp đọc xong trang đầu thì. Sắc thái: nhấn mạnh hành動 A hầu như chưa hoàn tất thì hành動 B đã ập đến ngay, tính đồng thời rất cao."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、メッセージを確認したとたん、それまでの内容を忘れてしまい、最初から読み直すことになる。",
+          "vi": "Tuy nhiên, ngay khoảnh khắc vừa kiểm tra tin nhắn xong thì nội dung đọc trước đó đã quên sạch, rốt cuộc lại phải đọc lại từ đầu.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn, thông điệp"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "ban đầu, từ đầu"
+            },
+            {
+              "w": "読み直す",
+              "read": "よみなおす",
+              "vi": "đọc lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん（に）（Bài 57）",
+              "vi": "接続: 確認した（Vた）＋ とたん。 メッセージを確認したとたん...忘れてしまい = ngay khi vừa xem tin nhắn thì quên mất nội dung. Hành動 B ngoài kiểm soát diễn ra lập tức."
+            },
+            {
+              "point": "〜直す（複合動詞 Bài 47）",
+              "vi": "読み直す = đọc lại. Vます-stem + 直す diễn tả làm lại hành動."
+            },
+            {
+              "point": "〜ことになる（決定・結果 Bài 42）",
+              "vi": "読み直すことになる = dẫn đến kết cục phải đọc lại từ đầu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý quan trọng đánh dấu sự gián đoạn và hệ quả xấu khi kiểm tra thông báo."
+            },
+            {
+              "w": "それまでの内容を忘れてしまい",
+              "why": "Căn cứ trực tiếp trả lời câu hỏi 1 về việc nội dung đọc trước đó biến mất khỏi đầu ngay khi xem tin nhắn."
+            }
+          ]
+        },
+        {
+          "jp": "これでは仕事や勉強の効率が下がってしまう。",
+          "vi": "Cứ như thế này thì hiệu suất công việc hay học tập sẽ bị giảm sút.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "下がります",
+              "read": "さがります",
+              "vi": "giảm xuống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "これでは（仮定・悲観）",
+              "vi": "これでは = nếu cứ tình trạng này thì (kết quả xấu). Dùng để chỉ ra hậu quả tiêu cực."
+            }
+          ],
+          "keys": [
+            {
+              "w": "これでは",
+              "why": "Chỉ thị từ tổng kết tình huống tiêu cực vừa nêu, dẫn ra kết quả làm giảm sút hiệu suất."
+            }
+          ]
+        },
+        {
+          "jp": "一方、スマホを遠い場所に置くことで、脳の集中力が高まるという研究がある。",
+          "vi": "Mặt khác, có nghiên cứu cho rằng bằng việc đặt điện thoại ở vị trí xa, khả năng tập trung của bộ脑 sẽ tăng lên.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            },
+            {
+              "w": "遠い",
+              "read": "とおい",
+              "vi": "xa"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "置く",
+              "read": "おく",
+              "vi": "đặt, để"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "bộ脑, não"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "高まります",
+              "read": "たかまります",
+              "vi": "tăng cao, nâng cao"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで（手段・方法 Bài 53）",
+              "vi": "置くことで = bằng việc đặt (xa). Vる + ことで chỉ phương thức, cách thức."
+            },
+            {
+              "point": "〜という（引用・定義 Bài 33）",
+              "vi": "高まるという研究 = nghiên cứu cho rằng/với nội dung rằng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ đối lập chuyển hướng bài viết sang kết quả nghiên cứu khoa học và phương hướng giải quyết."
+            }
+          ]
+        },
+        {
+          "jp": "誘惑を減らすことで、より深い思考が可能になるのだ。",
+          "vi": "Bằng việc giảm bớt các yếu tố cám dỗ, việc suy nghĩ sâu sắc hơn sẽ trở nên khả thi.",
+          "vocab": [
+            {
+              "w": "誘惑",
+              "read": "ゆうわく",
+              "vi": "sự cám dỗ, xao nhãng"
+            },
+            {
+              "w": "減らします",
+              "read": "へらします",
+              "vi": "cắt giảm, làm giảm"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả thi, có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜可能になる（状態変化 Bài 19）",
+              "vi": "可能になる = trở nên có thể/khả thi. なAdj + になる chỉ sự chuyển biến trạng thái."
+            }
+          ],
+          "keys": [
+            {
+              "w": "誘惑を減らすことで",
+              "why": "Căn cứ giải thích lý do cho câu hỏi 2: việc giảm bớt cám dỗ sẽ giúp kích hoạt tư duy sâu hơn."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、自分から集中できる環境を作ることが大切だ。",
+          "vi": "Vì thế, việc bản thân chủ動 tạo ra một môi trường có thể tập trung là điều rất quan trọng.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜こと（名詞化 Bài 38）",
+              "vi": "環境を作ることが大切だ = việc tạo môi trường là quan trọng. Vる + こと biến動詞 thành danh詞."
+            }
+          ],
+          "keys": [
+            {
+              "w": "自分から集中できる環境を作ることが大切だ",
+              "why": "Phát biểu quan điểm cốt lõi của tác giả về việc chủ động tạo môi trường, là căn cứ chính cho câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "作業を始める前に、スマホを目に入らない場所へ移動させることが効果的だ。",
+          "vi": "Trước khi bắt đầu làm việc, việc di chuyển điện thoại đến nơi không lọt vào tầm mắt sẽ mang lại hiệu quả.",
+          "vocab": [
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "移動",
+              "read": "いどう",
+              "vi": "di chuyển"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả, tác dụng"
+            },
+            {
+              "w": "効果的",
+              "read": "こうかてき",
+              "vi": "mang tính hiệu quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜前に（時 Bài 18）",
+              "vi": "始める前に = trước khi bắt đầu."
+            },
+            {
+              "point": "〜させる（使役形 Bài 48）",
+              "vi": "移動させる = làm/bắt di chuyển. V使役形 + こと diễn tả việc tác動 di chuyển vật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "目に入らない場所へ移動させる",
+              "why": "Hành động giải pháp cụ thể giúp trả lời câu hỏi 2 và câu hỏi 3 về cách xử lý thiết bị."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、誘惑を視界から消すことが成功の鍵なのだ。",
+          "vi": "Tóm lại, việc xóa bỏ sự cám dỗ khỏi tầm mắt chính là chìa khóa của sự thành công.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "誘惑",
+              "read": "ゆうわく",
+              "vi": "sự cám dỗ, xao nhãng"
+            },
+            {
+              "w": "視界",
+              "read": "しかい",
+              "vi": "tầm mắt, tầm nhìn"
+            },
+            {
+              "w": "消します",
+              "read": "けします",
+              "vi": "xóa bỏ, biến mất"
+            },
+            {
+              "w": "成功",
+              "read": "せいこう",
+              "vi": "thành công"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khóa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "つまり（接続詞）",
+              "vi": "つまり = tóm lại, nói cách khác. Liên từ dùng để diễn đạt lại ý cốt lõi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり、誘惑を視界から消すことが成功の鍵なのだ",
+              "why": "Câu tóm lược giải pháp mang tính then chốt của tác giả, là căn cứ trọng tâm cho cả câu hỏi 2 và 3."
+            }
+          ]
+        },
+        {
+          "jp": "集中できる環境を整えることで、短時間で大きな成果を上げることができる。",
+          "vi": "Bằng việc chuẩn bị một môi trường có thể tập trung, bạn có thể đạt được kết quả lớn trong một thời gian ngắn.",
+          "vocab": [
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "整えます",
+              "read": "ととのえます",
+              "vi": "chuẩn bị, sắp xếp, chu toàn"
+            },
+            {
+              "w": "短時間",
+              "read": "たんじかん",
+              "vi": "thời gian ngắn"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả"
+            },
+            {
+              "w": "上げます",
+              "read": "あげます",
+              "vi": "đạt được, nâng cao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことができる（可能 Bài 18/27）",
+              "vi": "成果を上げることができる = có thể gặt hái được thành quả lớn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "大きな成果を上げることができる",
+              "why": "Cụm từ khẳng định kết quả và lợi ích cao nhất khi thiết lập được môi trường tập trung (câu hỏi 3)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "画面が光ったとたんに集中が切れて",
+          "label": "〜たとたん（に）— ngay khoảnh khắc A thì B xảy ra bất ngờ"
+        },
+        {
+          "excerpt": "読み始めるか始めないかのうちにメッセージが届き",
+          "label": "〜か〜ないかのうちに — vừa chớm A thì B đã ập đến"
+        },
+        {
+          "excerpt": "メッセージを確認したとたん",
+          "label": "〜たとたん（に）— vừa mới A thì ngay lập tức B"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「メッセージを確認したとたん、それまでの内容を忘れてしまい」とあるが、これはどういう意味か。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "メッセージを読んだ瞬間に、直前まで読んでいた本のストーリーが頭から消えてしまうこと。",
+            "メッセージが届く前に、本の内容を全部覚えてしまうこと。",
+            "メッセージを送り終えてから、ゆっくり本を読み返そうとすること。",
+            "メッセージを見ている途中で、本の続きを読むのを諦めること。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「メッセージを読んだ瞬間に」 — Trong câu 5 「メッセージを確認したとたん、それまでの内容を忘れてしまい、最初から読み直すことになる」, cấu trúc 「〜たとたん」 diễn tả ngay khoảnh khắc kiểm tra tin nhắn thì nội dung sách vừa đọc xong bị xóa sạch khỏi đầu. Phương án 「メッセージが届く前に」 sai vì bảo \"nhớ hết trước khi tin nhắn đến\"; phương án 「メッセージを送り終えて」 sai vì nói \"gửi tin nhắn xong mới đọc lại\"; phương án 「メッセージを見ている途中」 sai vì bảo \"bỏ cuộc không đọc tiếp\".",
+          "tip": "Mẫu 「〜たとたん」 nhấn mạnh hành động B xảy ra ngay tức thì sau A. Tìm phương án có các từ đồng nghĩa như 「〜した瞬間に」(ngay khoảnh khắc) để chọn nhanh.",
+          "qt": {
+            "q": "「メッセージを確認したとたん、それまでの内容を忘れてしまい」（vừa xác nhận tin nhắn thì quên mất nội dung cho đến lúc đó） có nghĩa là gì?",
+            "o": [
+              "Ngay lúc đọc tin nhắn, câu chuyện của cuốn sách vừa đọc trước đó biến mất khỏi đầu.",
+              "Trước khi tin nhắn đến, nhớ hết toàn bộ nội dung cuốn sách.",
+              "Sau khi gửi tin nhắn xong, định thong thả đọc lại cuốn sách.",
+              "Đang xem tin nhắn thì từ bỏ việc đọc tiếp cuốn sách."
+            ]
+          }
+        },
+        {
+          "q": "なぜ作業を始める前に、スマホを目に入らない場所へ移動させたほうがよいのか。",
+          "evi": [
+            8,
+            10,
+            11
+          ],
+          "options": [
+            "スマホの通知音を大きくして、重要な連絡をすぐに確認するため。",
+            "スマホが視界に入るだけで、集中が切れる原因（誘惑）を減らせるから。",
+            "スマホの画面を見る回数を増やして、作業のスピードを上げるため。",
+            "スマホのバッテリーが減るのを防ぎ、長時間の作業に備えるため。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「スマホが視界に入るだけで」 — Căn cứ theo câu 8, 10 và 11: 「誘惑を減らすことで...」「スマホを目に入らない場所へ移動させることが効果的だ」「誘惑を視界から消すことが成功の鍵なのだ」— cất smartphone ra khỏi tầm mắt giúp giảm bớt yếu tố gây xao nhãng (誘惑). Phương án 「スマホの通知音を大きく」 sai vì đòi tăng âm lượng thông báo; phương án 「スマホの画面を見る回数を」 sai vì đòi nhìn màn hình nhiều hơn; phương án 「スマホのバッテリーが減る」 sai vì nói về tiết kiệm pin (không có trong bài).",
+          "tip": "Đối với câu hỏi lý do 「なぜ〜のか」, hãy tìm các từ chỉ nguyên nhân/kết quả như 「〜ことで」 và nội dung tóm tắt ở câu kết đoạn 「つまり〜」.",
+          "qt": {
+            "q": "Tại sao nên chuyển điện thoại đến nơi khuất tầm mắt trước khi bắt đầu làm việc?",
+            "o": [
+              "Để tăng âm lượng thông báo của điện thoại và xác nhận ngay những liên lạc quan trọng.",
+              "Vì chỉ cần điện thoại lọt vào tầm mắt cũng có thể làm giảm sự tập trung, nên việc này giúp giảm nguyên nhân gây mất tập trung (sự cám dỗ).",
+              "Để tăng số lần nhìn màn hình điện thoại và đẩy nhanh tốc độ làm việc.",
+              "Để ngăn pin điện thoại cạn và chuẩn bị cho công việc kéo dài."
+            ]
+          }
+        },
+        {
+          "q": "集中して仕事や勉強を進めることについて、筆者はどう考えているか。",
+          "evi": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "options": [
+            "スマホの通知が来たら、すぐに返信したほうが作業の効率がよくなる。",
+            "集中力が切れないように、スマホを見ながら勉強する習慣をつけるべきだ。",
+            "自分の意思だけに頼らず、スマホを遠ざけて誘惑のない環境を作ることが大切だ。",
+            "集中力を保つには、短時間で本を何冊も読む練習をするのが一番良い。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「自分の意思だけに頼らず」 — Tổng kết quan điểm của tác giả ở đoạn 4 (các câu 9-12): Tác giả cho rằng để tập trung công việc/học tập thì không nên chỉ phụ thuộc vào ý chí mà cần chủ động tạo môi trường bằng cách cất smartphone ra xa khỏi tầm mắt (誘惑を視界から消す). Phương án 「スマホの通知が来たら」 và 「集中力が切れないように」 đi ngược lại quan điểm bài viết; phương án 「集中力を保つには」 đưa ra giải pháp \"luyện đọc nhiều sách\" hoàn toàn không được nhắc đến.",
+          "tip": "Câu hỏi quan điểm tác giả 「筆者はどう考えているか」 thường nằm ở đoạn cuối bài (sau các từ nối tổng kết như つまり, そのため). Hãy chọn câu phản ánh đúng thông điệp cốt lõi thay vì các chi tiết vụn vặt.",
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về việc tập trung để làm việc hoặc học tập?",
+            "o": [
+              "Khi có thông báo điện thoại đến, nên trả lời ngay để hiệu quả công việc được cải thiện.",
+              "Nên tạo thói quen vừa nhìn điện thoại vừa học để không bị mất tập trung.",
+              "Điều quan trọng là không chỉ dựa vào ý chí của bản thân mà còn tạo môi trường không có cám dỗ bằng cách để điện thoại ra xa.",
+              "Để duy trì sự tập trung, luyện tập đọc nhiều cuốn sách trong thời gian ngắn là tốt nhất."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Thực trạng・Nguyên nhân",
+          "topic": 0,
+          "note": "Nêu thực trạng con người khó tập trung do luôn để tâm tới thông báo smartphone; chưa nêu giải pháp.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "turn",
+          "label": "Ví dụ・Hệ quả gián đoạn",
+          "topic": 5,
+          "note": "Đưa ví dụ đọc sách bị ngắt quãng; câu 5 chứa từ chuyển ý 'nhìn tin nhắn là quên nội dung' làm căn cứ câu 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "body",
+          "label": "Góc nhìn nghiên cứu",
+          "topic": 7,
+          "note": "Dùng '一方' dẫn chứng nghiên cứu: để điện thoại ra xa giúp giảm cám dỗ và suy nghĩ sâu; bước đệm cho câu 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 12,
+          "kind": "point",
+          "label": "Chủ trương・Giải pháp",
+          "topic": 9,
+          "note": "Tác giả đưa ra lời khuyên cốt lõi: chủ động giấu smartphone khỏi tầm mắt để đạt hiệu quả cao; căn cứ câu 2 và 3.",
+          "qs": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "新幹線での出来事",
+      "titleVi": "Chuyện trên tàu Shinkansen",
+      "japanese": "先月、仕事の出張で東京から大阪まで新幹線で移動した。\n久しぶりの出張だったので、少し緊張していた。\n新幹線に乗るか乗らないかのうちに、隣の席の男性が声をかけてきた。\n「すみません、この席は私の席のはずなんですが」と言われた。\n確認したら、私が間違った席に座っていたことがわかり、慌てて移動した。\n自分の席に座ったとたん、車掌さんがやって来て切符の確認をした。\n切符を見せたとたん、車掌さんが「この切符は明日の日付ですよ」と言った。\nそのとたん、頭が真っ白になってしまった。\n確かに、昨日のうちに日付を確認すべきだったのに、しなかった自分を後悔した。\n車掌さんが「追加料金を払えば今日乗れますよ」と教えてくれたので、すぐに払った。\nやっと落ち着いたとたん、今度はスマートフォンのバッテリーが切れてしまった。\n重要な資料をスマートフォンで確認するつもりだったので、本当に困った。\n新幹線の中で充電できる場所を探したが、私の席の近くにはコンセントがなかった。\n隣の女性が「よかったらどうぞ」とモバイルバッテリーを貸してくれた。\nその親切がとてもうれしくて、少し落ち着くことができた。\n大阪に着くか着かないかのうちに、上司から「会議の場所が変わった」というメッセージが届いた。\nその日は何かが起きたとたんに、また別のことが起きるという連続だった。\nしかし、見知らぬ人が親切にしてくれたので、最終的には仕事をうまく終えることができた。\n次の出張からは、前日のうちに切符の日付を確認しておこうと強く思った。\nあのような慌ただしい一日は、もう二度と経験したくない。",
+      "vietnamese": "Tháng trước, tôi đi công tác bằng Shinkansen từ Tokyo đến Osaka.\nVì lâu rồi mới đi công tác nên tôi hơi hồi hộp.\nVừa mới lên tàu thì người đàn ông ngồi cạnh đã lên tiếng hỏi tôi.\n\"Xin lỗi, đây phải là ghế của tôi chứ?\" — anh ấy nói.\nKiểm tra lại thì ra tôi ngồi nhầm ghế, tôi vội di chuyển.\nVừa ngồi vào ghế của mình thì nhân viên tàu đến kiểm tra vé.\nVừa đưa vé ra thì nhân viên nói \"Vé này ghi ngày mai đó\".\nNgay lúc đó, đầu óc tôi trở nên trắng xóa.\nĐáng lẽ hôm qua phải kiểm tra ngày trên vé, vậy mà không kiểm tra, tôi hối hận về bản thân mình.\nNhân viên cho biết \"Nếu trả thêm phụ phí thì hôm nay đi được đấy\", tôi liền trả ngay.\nVừa mới bình tĩnh lại thì lần này pin điện thoại thông minh lại cạn.\nVì định dùng điện thoại xem tài liệu quan trọng nên tôi thực sự lúng túng.\nTôi tìm chỗ sạc trên tàu nhưng gần ghế tôi không có ổ cắm.\nNgười phụ nữ ngồi cạnh nói \"Nếu bạn cần thì dùng đi\" và cho tôi mượn pin dự phòng.\nSự tốt bụng đó khiến tôi rất vui và tôi bình tĩnh trở lại được phần nào.\nVừa mới đến Osaka thì tin nhắn từ sếp về việc \"địa điểm họp thay đổi rồi\" cũng đến.\nHôm đó là ngày liên tiếp: vừa xảy ra chuyện này thì lại xảy ra chuyện khác.\nTuy nhiên, nhờ sự tốt bụng của người không quen, cuối cùng tôi đã hoàn thành công việc tốt đẹp.\nKể từ chuyến công tác tiếp theo, tôi quyết tâm sẽ kiểm tra ngày trên vé từ hôm trước.\nTôi không muốn trải qua một ngày tất bật như vậy thêm một lần nào nữa.",
+      "sentences": [
+        {
+          "jp": "先月、仕事の出張で東京から大阪まで新幹線で移動した。",
+          "vi": "Tháng trước, tôi đi công tác bằng Shinkansen từ Tokyo đến Osaka.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "công tác, đi công tác"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka"
+            },
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu Shinkansen (tàu cao tốc)"
+            },
+            {
+              "w": "移動します",
+              "read": "いどうします",
+              "vi": "di chuyển"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "東京から大阪まで = từ Tokyo đến Osaka. から〜まで chỉ phạm vi (Bài 4)."
+            },
+            {
+              "point": "Nで（phương tiện Bài 5）",
+              "vi": "新幹線で = bằng Shinkansen. で chỉ phương tiện di chuyển (Bài 5)."
+            }
+          ]
+        },
+        {
+          "jp": "久しぶりの出張だったので、少し緊張していた。",
+          "vi": "Vì lâu rồi mới đi công tác nên tôi hơi hồi hộp.",
+          "vocab": [
+            {
+              "w": "久しぶり",
+              "read": "ひさしぶり",
+              "vi": "lâu rồi mới, sau một thời gian dài"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "đi công tác"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút, hơi"
+            },
+            {
+              "w": "緊張します",
+              "read": "きんちょうします",
+              "vi": "hồi hộp, căng thẳng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "久しぶりの出張だったので = vì lâu rồi mới đi công tác. ので nêu lý do."
+            },
+            {
+              "point": "Vていた（Bài 14 ている＋た）",
+              "vi": "緊張していた = đã đang hồi hộp (trạng thái trước đó). ている quá khứ = trạng thái tồn tại trước một thời điểm."
+            }
+          ]
+        },
+        {
+          "jp": "新幹線に乗るか乗らないかのうちに、隣の席の男性が声をかけてきた。",
+          "vi": "Vừa mới lên tàu thì người đàn ông ngồi cạnh đã lên tiếng hỏi tôi.",
+          "vocab": [
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên (tàu, xe), đi (phương tiện)"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "cạnh, bên cạnh"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "ghế, chỗ ngồi"
+            },
+            {
+              "w": "男性",
+              "read": "だんせい",
+              "vi": "nam giới, đàn ông"
+            },
+            {
+              "w": "声をかけます",
+              "read": "こえをかけます",
+              "vi": "lên tiếng, bắt chuyện"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜ないかのうちに",
+              "vi": "接続: 乗る（Vる）＋ か ＋ 乗らない（Vない）＋ かのうちに。 乗るか乗らないかのうちに = vừa mới lên tàu (chưa kịp ổn định chỗ) thì. Sắc thái: A（乗る）hầu như chưa hoàn tất, nhưng B đã xảy ra ngay. 対比: たとたん = sau khi A hoàn tất → B bất ngờ; か〜ないかのうちに = ngay cả khi A còn chưa xong thì B đã đến."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "声をかけてきた = đã bắt chuyện (hành động hướng về phía người nói). てくる nhấn chiều hướng đến gần (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "「すみません、この席は私の席のはずなんですが」と言われた。",
+          "vi": "\"Xin lỗi, đây phải là ghế của tôi chứ?\" — anh ấy nói.",
+          "vocab": [
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi, ghế"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "私の席",
+              "read": "わたしのせき",
+              "vi": "ghế của tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のはずだ（Bài 51）",
+              "vi": "私の席のはずなんです = lẽ ra phải là ghế của tôi. のはず = suy luận có căn cứ (đã mua vé, số ghế khớp). Ôn Bài 51."
+            },
+            {
+              "point": "〜んですが（Bài 26）",
+              "vi": "なんですが = giải thích / nêu vấn đề (と言いたいことがあるが). んです giải thích ngữ cảnh (Bài 26)."
+            }
+          ]
+        },
+        {
+          "jp": "確認したら、私が間違った席に座っていたことがわかり、慌てて移動した。",
+          "vi": "Kiểm tra lại thì ra tôi ngồi nhầm ghế, tôi vội di chuyển.",
+          "vocab": [
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "間違います",
+              "read": "まちがいます",
+              "vi": "nhầm, sai"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi, ghế"
+            },
+            {
+              "w": "座ります",
+              "read": "すわります",
+              "vi": "ngồi"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "慌てます",
+              "read": "あわてます",
+              "vi": "vội vã, luống cuống"
+            },
+            {
+              "w": "移動",
+              "read": "いどう",
+              "vi": "di chuyển"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "確認したら、わかった = kiểm tra thì biết ra. たら = sau khi/nếu (Bài 25)."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "間違った席 = ghế (mà tôi) ngồi nhầm. Vた bổ nghĩa cho 席."
+            },
+            {
+              "point": "〜ことがわかった（Bài 38応用）",
+              "vi": "〜ことがわかった = nhận ra rằng〜. Vていた こと が わかる = phát hiện ra sự thật (Bài 38)."
+            }
+          ]
+        },
+        {
+          "jp": "自分の席に座ったとたん、車掌さんがやって来て切符の確認をした。",
+          "vi": "Vừa ngồi vào ghế của mình thì nhân viên tàu đến kiểm tra vé.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân, của mình"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi, ghế"
+            },
+            {
+              "w": "座る",
+              "read": "すわる",
+              "vi": "ngồi, an tọa"
+            },
+            {
+              "w": "車掌",
+              "read": "しゃしょう",
+              "vi": "nhân viên kiểm soát tàu"
+            },
+            {
+              "w": "やって来ます",
+              "read": "やってきます",
+              "vi": "đến, xuất hiện"
+            },
+            {
+              "w": "切符",
+              "read": "きっぷ",
+              "vi": "vé (tàu, xe)"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん",
+              "vi": "接続: 座った（Vた）＋ とたん。 席に座ったとたん、車掌さんが来た = vừa ngồi xuống thì nhân viên liền đến ngay. Sắc thái: B（kiểm tra vé）xảy ra tức thì ngay khi A（ngồi xuống）vừa xong, không kịp chuẩn bị."
+            }
+          ]
+        },
+        {
+          "jp": "切符を見せたとたん、車掌さんが「この切符は明日の日付ですよ」と言った。",
+          "vi": "Vừa đưa vé ra thì nhân viên nói \"Vé này ghi ngày mai đó\".",
+          "vocab": [
+            {
+              "w": "切符",
+              "read": "きっぷ",
+              "vi": "vé (tàu, xe)"
+            },
+            {
+              "w": "見せます",
+              "read": "みせます",
+              "vi": "cho xem, đưa ra"
+            },
+            {
+              "w": "車掌",
+              "read": "しゃしょう",
+              "vi": "nhân viên kiểm soát tàu"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "日付",
+              "read": "ひづけ",
+              "vi": "ngày tháng, ngày ghi trên vé"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん",
+              "vi": "接続: 見せた（Vた）＋ とたん。 切符を見せたとたん = vừa đưa vé ra thì. Chuỗi たとたん tiếp tục — B lại là điều bất ngờ, ngoài ý muốn."
+            }
+          ]
+        },
+        {
+          "jp": "そのとたん、頭が真っ白になってしまった。",
+          "vi": "Ngay lúc đó, đầu óc tôi trở nên trắng xóa.",
+          "vocab": [
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu, đầu óc"
+            },
+            {
+              "w": "真っ白",
+              "read": "まっしろ",
+              "vi": "trắng tinh, trắng xóa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そのとたん",
+              "vi": "そのとたん = ngay lúc đó, ngay tức thì. とたん có thể dùng độc lập như副詞 để chỉ \"khoảnh khắc đó ngay lập tức\"."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "真っ白になってしまった = trở nên trắng xóa mất rồi (không cố ý, bất ngờ). てしまう = kết quả ngoài ý muốn (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "確かに、昨日のうちに日付を確認すべきだったのに、しなかった自分を後悔した。",
+          "vi": "Đáng lẽ hôm qua phải kiểm tra ngày trên vé, vậy mà không kiểm tra, tôi hối hận về bản thân mình.",
+          "vocab": [
+            {
+              "w": "確かに",
+              "read": "たしかに",
+              "vi": "đúng thật, chắc chắn là"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "日付",
+              "read": "ひづけ",
+              "vi": "ngày tháng ghi trên vé"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "後悔します",
+              "read": "こうかいします",
+              "vi": "hối hận, ân hận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のうちに（Bài 55）",
+              "vi": "昨日のうちに = trong ngày hôm qua (tranh thủ lúc còn hôm qua). のうちに = trong khi/trước khi trạng thái thay đổi (Bài 55). Ôn lại B55."
+            },
+            {
+              "point": "〜べきだった（Bài 53）",
+              "vi": "確認すべきだった = đáng lẽ phải kiểm tra. べきだ = bổn phận/lẽ phải nên; dạng quá khứ = \"lẽ ra phải\" (Bài 53)."
+            },
+            {
+              "point": "〜のに（Bài 45）",
+              "vi": "すべきだったのに、しなかった = đáng lẽ phải làm vậy mà lại không làm. のに = nghịch kỳ vọng, bất mãn với bản thân (Bài 45)."
+            }
+          ]
+        },
+        {
+          "jp": "車掌さんが「追加料金を払えば今日乗れますよ」と教えてくれたので、すぐに払った。",
+          "vi": "Nhân viên cho biết \"Nếu trả thêm phụ phí thì hôm nay đi được đấy\", tôi liền trả ngay.",
+          "vocab": [
+            {
+              "w": "車掌",
+              "read": "しゃしょう",
+              "vi": "nhân viên kiểm soát tàu"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "払います",
+              "read": "はらいます",
+              "vi": "trả tiền"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "乗れます",
+              "read": "のれます",
+              "vi": "có thể đi (tàu), có thể lên được"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phụ phí, khoản tiền thêm"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức, liền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "払えば = nếu trả. V可能形（払える）→ ば形（払えば）= điều kiện giả định (Bài 35)."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "教えてくれた = đã cho biết (vì lợi ích của tôi). てくれる = người khác làm gì vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "やっと落ち着いたとたん、今度はスマートフォンのバッテリーが切れてしまった。",
+          "vi": "Vừa mới bình tĩnh lại thì lần này pin điện thoại thông minh lại cạn.",
+          "vocab": [
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng, mới được (sau hồi lâu)"
+            },
+            {
+              "w": "落ち着きます",
+              "read": "おちつきます",
+              "vi": "bình tĩnh lại, lấy lại bình tĩnh"
+            },
+            {
+              "w": "今度",
+              "read": "こんど",
+              "vi": "lần này, hôm nào đó"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "バッテリー",
+              "read": "バッテリー",
+              "vi": "pin, bộ pin"
+            },
+            {
+              "w": "切れます",
+              "read": "きれます",
+              "vi": "hết (pin), cắt đứt"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん",
+              "vi": "接続: 落ち着いた（Vた）＋ とたん。 やっと落ち着いたとたん = vừa mới bình tĩnh được (sau bao khó nhọc) thì ngay lập tức B đã xảy ra. やっと（mới được sau hồi lâu）+ たとたん tạo hiệu ứng ngữ nghĩa đặc biệt: vừa thở phào thì bất ngờ mới lại ập đến."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "バッテリーが切れてしまった = pin cạn mất rồi (đáng tiếc, ngoài ý muốn). てしまう (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "重要な資料をスマートフォンで確認するつもりだったので、本当に困った。",
+          "vi": "Vì định dùng điện thoại xem tài liệu quan trọng nên tôi thực sự lúng túng.",
+          "vocab": [
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "khó xử, lúng túng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つもりだった（Bài 31）",
+              "vi": "Vるつもりだった = đã định làm (nhưng không làm được). Vるつもりだ quá khứ = kế hoạch không thực hiện được (Bài 31)."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "つもりだったので = vì đã định như vậy. ので nêu lý do."
+            }
+          ]
+        },
+        {
+          "jp": "新幹線の中で充電できる場所を探したが、私の席の近くにはコンセントがなかった。",
+          "vi": "Tôi tìm chỗ sạc trên tàu nhưng gần ghế tôi không có ổ cắm.",
+          "vocab": [
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "充電",
+              "read": "じゅうでん",
+              "vi": "sạc điện"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm, chỗ"
+            },
+            {
+              "w": "探した",
+              "read": "さがした",
+              "vi": "đã tìm"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, khu vực gần"
+            },
+            {
+              "w": "コンセント",
+              "read": "コンセント",
+              "vi": "ổ cắm điện"
+            },
+            {
+              "w": "なかった",
+              "read": "なかった",
+              "vi": "không có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "充電できる場所 = nơi có thể sạc. Vる可能形 bổ nghĩa cho 場所."
+            },
+            {
+              "point": "〜が（逆接）",
+              "vi": "探したが = tìm rồi nhưng. が nối hai mệnh đề tương phản (dạng văn xuôi)."
+            }
+          ]
+        },
+        {
+          "jp": "隣の女性が「よかったらどうぞ」とモバイルバッテリーを貸してくれた。",
+          "vi": "Người phụ nữ ngồi cạnh nói \"Nếu bạn cần thì dùng đi\" và cho tôi mượn pin dự phòng.",
+          "vocab": [
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, kế bên"
+            },
+            {
+              "w": "女性",
+              "read": "じょせい",
+              "vi": "nữ giới, phụ nữ"
+            },
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin mời, xin vui lòng"
+            },
+            {
+              "w": "モバイル",
+              "read": "モバイル",
+              "vi": "di động"
+            },
+            {
+              "w": "バッテリー",
+              "read": "バッテリー",
+              "vi": "pin (battery)"
+            },
+            {
+              "w": "貸します",
+              "read": "かします",
+              "vi": "cho mượn"
+            },
+            {
+              "w": "よかったら",
+              "read": "よかったら",
+              "vi": "nếu bạn muốn, nếu tiện"
+            },
+            {
+              "w": "モバイルバッテリー",
+              "read": "モバイルバッテリー",
+              "vi": "pin dự phòng di động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "よかったら = nếu được / nếu muốn. よかったら là thành ngữ lịch sự mời người khác. たら = điều kiện (Bài 25)."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "貸してくれた = cho mượn (ân huệ dành cho tôi). てくれる = người khác làm vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "その親切がとてもうれしくて、少し落ち着くことができた。",
+          "vi": "Sự tốt bụng đó khiến tôi rất vui và tôi bình tĩnh trở lại được phần nào.",
+          "vocab": [
+            {
+              "w": "親切",
+              "read": "しんせつ",
+              "vi": "tốt bụng, lòng tốt"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui, vui mừng"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "落ち着きます",
+              "read": "おちつきます",
+              "vi": "bình tĩnh lại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて（nối tính từ Bài 16）",
+              "vi": "うれしくて = vui và (rồi). くて nối tính từ い chỉ nguyên nhân/trình tự."
+            },
+            {
+              "point": "〜ことができた（Bài 18）",
+              "vi": "落ち着くことができた = đã có thể bình tĩnh lại. Vることができる = có thể làm (Bài 18)."
+            }
+          ]
+        },
+        {
+          "jp": "大阪に着くか着かないかのうちに、上司から「会議の場所が変わった」というメッセージが届いた。",
+          "vi": "Vừa mới đến Osaka thì tin nhắn từ sếp về việc \"địa điểm họp thay đổi rồi\" cũng đến.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi, tới"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "sếp, cấp trên"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn"
+            },
+            {
+              "w": "届きます",
+              "read": "とどきます",
+              "vi": "đến nơi (tin nhắn, bưu kiện)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜ないかのうちに",
+              "vi": "接続: 着く（Vる）＋ か ＋ 着かない（Vない）＋ かのうちに。 大阪に着くか着かないかのうちに = vừa mới đến Osaka (chưa kịp xuống tàu / chân chưa kịp chạm đất) thì. Sắc thái: A（着く）hầu như chưa hoàn tất thì B（メッセージが届いた）đã ập đến. Nhấn mạnh tính đồng thời gần như tuyệt đối — gần hơn cả たとたん."
+            },
+            {
+              "point": "〜というN（Bài 33）",
+              "vi": "「会議の場所が変わった」というメッセージ = tin nhắn nói rằng địa điểm họp thay đổi. という nối nội dung với danh từ (Bài 33)."
+            }
+          ]
+        },
+        {
+          "jp": "その日は何かが起きたとたんに、また別のことが起きるという連続だった。",
+          "vi": "Hôm đó là ngày liên tiếp: vừa xảy ra chuyện này thì lại xảy ra chuyện khác.",
+          "vocab": [
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "xảy ra, xảy đến"
+            },
+            {
+              "w": "別の",
+              "read": "べつの",
+              "vi": "khác, khác biệt"
+            },
+            {
+              "w": "連続",
+              "read": "れんぞく",
+              "vi": "liên tiếp, chuỗi liên tục"
+            },
+            {
+              "w": "その日",
+              "read": "そのひ",
+              "vi": "ngày hôm đó"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたんに",
+              "vi": "接続: Vた ＋ とたんに。 起きたとたんに = \"ngay khi vừa xảy ra (việc gì) thì…\". とたん luôn dùng Vた (KHÔNG dùng Vる), nhấn TÍNH TỨC THÌ + sự việc sau bất ngờ."
+            },
+            {
+              "point": "〜という＋N（Bài 33）",
+              "vi": "Vという連続 = chuỗi liên tiếp mà mỗi lần đều…という kết nối nội dung mô tả với danh từ 連続."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、見知らぬ人が親切にしてくれたので、最終的には仕事をうまく終えることができた。",
+          "vi": "Tuy nhiên, vì một người lạ đã tử tế giúp đỡ nên cuối cùng tôi đã hoàn thành công việc tốt đẹp.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên, nhưng"
+            },
+            {
+              "w": "見知らぬ",
+              "read": "みしらぬ",
+              "vi": "không quen biết, xa lạ"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "親切",
+              "read": "しんせつ",
+              "vi": "lòng tốt, sự tốt bụng"
+            },
+            {
+              "w": "最終",
+              "read": "さいしゅう",
+              "vi": "cuối cùng, sau cùng"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "tốt đẹp, khéo léo"
+            },
+            {
+              "w": "終えます",
+              "read": "おえます",
+              "vi": "kết thúc, hoàn thành"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "最終的には",
+              "read": "さいしゅうてきには",
+              "vi": "cuối cùng, xét về mặt cuối cùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくれた + ので（Bài 24 + 39）",
+              "vi": "親切にしてくれたので = vì (người ta) đã tử tế (với mình) nên… てくれる (Bài 24, người khác làm cho mình) + ので (Bài 39, lý do). (Mẫu おかげで \"nhờ\" để dành Bài 59.)"
+            },
+            {
+              "point": "〜ことができた（Bài 18）",
+              "vi": "終えることができた = đã có thể hoàn thành. Vることができる (Bài 18)."
+            }
+          ]
+        },
+        {
+          "jp": "次の出張からは、前日のうちに切符の日付を確認しておこうと強く思った。",
+          "vi": "Kể từ chuyến công tác tiếp theo, tôi quyết tâm sẽ kiểm tra ngày trên vé từ hôm trước.",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, lần sau"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "đi công tác"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "切符",
+              "read": "きっぷ",
+              "vi": "vé (tàu, xe)"
+            },
+            {
+              "w": "日付",
+              "read": "ひづけ",
+              "vi": "ngày tháng, ngày ghi trên vé"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "強く",
+              "read": "つよく",
+              "vi": "mạnh mẽ, quyết tâm"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のうちに（Bài 55）",
+              "vi": "前日のうちに = trong ngày hôm trước (tranh thủ lúc còn là ngày hôm trước). のうちに = \"tranh thủ trong khi còn…\" (Bài 55). Đây là recycle B55 có chủ ý."
+            },
+            {
+              "point": "Vておく（Bài 30）",
+              "vi": "確認しておこう = sẽ kiểm tra trước rồi để đó. ておく = làm sẵn, chuẩn bị trước (Bài 30)."
+            },
+            {
+              "point": "〜と思った（Bài 21）",
+              "vi": "強く思った = đã nghĩ mạnh mẽ (quyết tâm). と思う = ý kiến/ý chí của người nói (Bài 21)."
+            }
+          ]
+        },
+        {
+          "jp": "あのような慌ただしい一日は、もう二度と経験したくない。",
+          "vi": "Tôi không muốn trải qua một ngày tất bật như vậy thêm một lần nào nữa.",
+          "vocab": [
+            {
+              "w": "あのような",
+              "read": "あのような",
+              "vi": "như thế kia"
+            },
+            {
+              "w": "慌ただしい",
+              "read": "あわただしい",
+              "vi": "bận rộn, hối hả"
+            },
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã, không còn"
+            },
+            {
+              "w": "二度と",
+              "read": "にどと",
+              "vi": "không bao giờ nữa"
+            },
+            {
+              "w": "経験したくない",
+              "read": "けいけんしたくない",
+              "vi": "không muốn trải qua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たくない（Bài 13応用）",
+              "vi": "Vたくない = không muốn làm. Vたい（Bài 13）dạng phủ định = V＋たくない."
+            },
+            {
+              "point": "二度と〜ない",
+              "vi": "二度と経験したくない = không muốn trải qua thêm lần nào nữa. 二度と + phủ định = \"không bao giờ lại…nữa\"."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "新幹線に乗るか乗らないかのうちに、隣の席の男性が声をかけてきた",
+          "label": "〜か〜ないかのうちに — A chưa xong thì B đã ập"
+        },
+        {
+          "excerpt": "自分の席に座ったとたん、車掌さんがやって来て切符の確認をした",
+          "label": "〜たとたん — tức thì, không kịp chuẩn bị"
+        },
+        {
+          "excerpt": "切符を見せたとたん、車掌さんが「この切符は明日の日付ですよ」と言った",
+          "label": "〜たとたん — B bất ngờ ngoài ý muốn"
+        },
+        {
+          "excerpt": "やっと落ち着いたとたん、今度はスマートフォンのバッテリーが切れてしまった",
+          "label": "Sắc thái: やっと〜たとたん — vừa thở phào thì lại bất ngờ"
+        },
+        {
+          "excerpt": "大阪に着くか着かないかのうちに、上司から「会議の場所が変わった」というメッセージが届いた",
+          "label": "〜か〜ないかのうちに — đồng thời gần như tuyệt đối"
+        },
+        {
+          "excerpt": "その日は何かが起きたとたんに、また別のことが起きるという連続だった",
+          "label": "Sắc thái: とたんに — chuỗi bất ngờ liên tiếp"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「乗るか乗らないかのうちに」と「座ったとたん」の両方が使われています。この二つはどう違いますか。",
+          "evi": [
+            2,
+            5
+          ],
+          "options": [
+            "「乗るか乗らないかのうちに」は行動Aが完全に終わったあとのBを表し、「座ったとたん」はAが未完了のときのBを表す",
+            "「乗るか乗らないかのうちに」はAが未完了でもBが起きることを表し、「座ったとたん」はAが完了した直後にBが起きることを表す",
+            "意味は同じで、どちらを使っても同じ状況を表せる",
+            "「乗るか乗らないかのうちに」は長い時間をかけて、「座ったとたん」は短い時間を表す"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 2 (B). Đây là câu hỏi phân biệt cốt lõi của bài. Bài văn dùng:「新幹線に乗るか乗らないかのうちに、隣の席の男性が声をかけてきた」— A（乗る: lên tàu）chưa hoàn tất, người đàn ông đã lên tiếng ngay; và「自分の席に座ったとたん、車掌さんがやって来た」— A（座った: đã ngồi xuống）XONG RỒI mới có B（nhân viên đến）bất ngờ. Sự khác biệt then chốt: か〜ないかのうちに = A còn chưa xong thì B đã; たとたん = A vừa xong thì B bất ngờ ập đến. A（0）hoàn toàn đảo ngược, sai; C（2）sai vì hai mẫu có sắc thái khác nhau rõ ràng; D（3）sai vì không liên quan đến thời gian dài/ngắn mà liên quan đến mức độ hoàn thành của A.",
+          "tip": "Hỏi \"A đã xong chưa khi B xảy ra?\" — Chưa xong → か〜ないかのうちに; Vừa xong rồi → たとたん (và B bất ngờ, ngoài ý muốn). Đây là điểm phân biệt duy nhất và quan trọng nhất.",
+          "qt": {
+            "q": "Cả 「乗るか乗らないかのうちに」(chưa kịp lên tàu thì…) và 「座ったとたん」(ngay khi vừa ngồi xuống) đều được sử dụng. Hai cách này khác nhau như thế nào?",
+            "o": [
+              "「乗るか乗らないかのうちに」 diễn tả B xảy ra sau khi hành động A đã hoàn toàn kết thúc, còn 「座ったとたん」 diễn tả B xảy ra khi A chưa hoàn thành",
+              "「乗るか乗らないかのうちに」 diễn tả B xảy ra dù A chưa hoàn thành, còn 「座ったとたん」 diễn tả B xảy ra ngay sau khi A hoàn thành",
+              "Ý nghĩa giống nhau, dùng cách nào cũng diễn tả được cùng một tình huống",
+              "「乗るか乗らないかのうちに」 diễn tả một khoảng thời gian dài, còn 「座ったとたん」 diễn tả một khoảng thời gian ngắn"
+            ]
+          }
+        },
+        {
+          "q": "「やっと落ち着いたとたん、今度はスマートフォンのバッテリーが切れてしまった」とあります。「やっと〜たとたん」はどんな気持ちを表していますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "長い時間待った後、予想どおりのことが起きて安心した気持ち",
+            "ようやく安心したと思ったら、また予期しないことが起きてしまったという驚きと落胆の気持ち",
+            "落ち着いたことで、次の問題に素早く対応できた満足感",
+            "バッテリーが切れることはあらかじめ予想していた気持ち"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 2 (B). Ba yếu tố ngôn ngữ cộng hưởng:「やっと落ち着いた」(やっと = cuối cùng/mới được sau hồi lâu khó nhọc → hàm ý \"vừa thở phào\") +「とたん」(ngay tức thì B bất ngờ ập đến) +「バッテリーが切れてしまった」(てしまう = đáng tiếc, ngoài ý muốn). Ba tầng này ghép lại tạo cảm giác: \"vừa tưởng ổn rồi thì lại có chuyện ngay\" — sự BẤT NGỜ và THẤT VỌNG cực độ. A（0）sai vì やっと + たとたん không biểu đạt an tâm mà là sốc thêm; C（2）sai vì không có sắc thái hài lòng; D（3）sai vì たとたん + てしまう rõ ràng là KHÔNG dự đoán trước.",
+          "tip": "Combo「やっと〜たとたん〜てしまった」= tín hiệu của cú PHẢN CHUYỂN gây thất vọng mạnh nhất. やっと = vừa thở phào, たとたん = thì bị ngay, てしまった = không muốn mà vẫn xảy ra.",
+          "qt": {
+            "q": "Có câu 「やっと落ち着いたとたん、今度はスマートフォンのバッテリーが切れてしまった」(vừa mới bình tĩnh lại thì lần này pin điện thoại thông minh lại hết). 「やっと〜たとたん」 thể hiện cảm xúc như thế nào?",
+            "o": [
+              "Cảm giác yên tâm sau khi chờ đợi lâu, vì điều mình dự đoán đã xảy ra",
+              "Cảm giác ngạc nhiên và thất vọng vì vừa nghĩ rằng cuối cùng cũng yên tâm được thì một việc ngoài dự đoán lại xảy ra",
+              "Sự hài lòng vì nhờ bình tĩnh lại mà đã xử lý nhanh vấn đề tiếp theo",
+              "Cảm giác đã dự đoán trước rằng pin sẽ hết"
+            ]
+          }
+        },
+        {
+          "q": "「確かに、昨日のうちに日付を確認すべきだったのに、しなかった」とあります。「のうちに」と「のに」はそれぞれ何を表していますか。",
+          "evi": [
+            8
+          ],
+          "options": [
+            "「昨日のうちに」は昨日の出来事を説明し、「のに」は理由を表す",
+            "「昨日のうちに」は昨日という時間的範囲内に行動すべきだったことを表し、「のに」はそれをしなかった後悔・自責を表す",
+            "「昨日のうちに」と「のに」はどちらも逆接を表す同じ機能を持つ",
+            "「昨日のうちに」は条件を、「のに」は結果を表す"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 2 (B). Câu「昨日のうちに日付を確認すべきだったのに、しなかった」dùng HAI mẫu khác nhau hoàn toàn: (1)「昨日のうちに」= うちに（B55）= \"trong phạm vi ngày hôm qua\" — tranh thủ trong khi vẫn còn là hôm qua; đây là うちに thời gian, KHÔNG phải tính đồng thời; (2)「〜のに、しなかった」= のに（B45）= nghịch kỳ vọng + tự trách mình — \"đáng lẽ phải làm vậy mà lại không làm\". A（0）sai vì のに không phải lý do (それは〜ので); C（2）sai vì うちに ở đây không phải nghịch kỳ vọng — chức năng hoàn toàn khác のに; D（3）sai vì cả hai đều không biểu đạt điều kiện/kết quả.",
+          "tip": "Đừng nhầm「〜のうちに」(thời gian — B55) với「〜のに」(nghịch kỳ vọng — B45). Một chữ khác nhau, chức năng hoàn toàn khác. Khi đề cho cả hai cùng câu, đó là bẫy cổ điển.",
+          "qt": {
+            "q": "Có câu 「確かに、昨日のうちに日付を確認すべきだったのに、しなかった」(Đúng là lẽ ra trong ngày hôm qua mình phải xác nhận ngày tháng, vậy mà đã không làm). 「のうちに」và「のに」lần lượt thể hiện điều gì?",
+            "o": [
+              "「昨日のうちに」 giải thích một sự việc xảy ra hôm qua, còn 「のに」 biểu thị lý do",
+              "「昨日のうちに」 biểu thị việc lẽ ra phải hành động trong khoảng thời gian hôm qua, còn 「のに」 biểu thị sự hối tiếc và tự trách vì đã không làm việc đó",
+              "「昨日のうちに」và「のに」đều có cùng chức năng biểu thị quan hệ tương phản",
+              "「昨日のうちに」biểu thị điều kiện, còn「のに」biểu thị kết quả"
+            ]
+          }
+        },
+        {
+          "q": "この文章で「たとたん」が何度も使われています。「たとたん」を使った場面に共通するのはどれですか。",
+          "evi": [
+            5,
+            6,
+            10
+          ],
+          "options": [
+            "AとBがどちらも筆者には良い出来事である",
+            "筆者がAの後にBが起きることを予想してから行動した",
+            "Aが終わった直後にBが予期しない形で突然起きており、Bは筆者の意図や期待と異なる",
+            "AとBは全く別の日に起きた出来事である"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3 (C). Bài dài có bốn lần たとたん, tất cả đều có B bất ngờ, ngoài ý muốn: (1)「座ったとたん、車掌さんがやって来た」— vừa ngồi xuống thì nhân viên đến ngay; (2)「切符を見せたとたん、「明日の日付ですよ」と言った」— đưa vé ra thì bị báo sai ngày; (3)「落ち着いたとたん、バッテリーが切れてしまった」— vừa bình tĩnh thì pin cạn; (4)「何かが起きたとたんに、また別のことが起きる」— xảy ra chuyện này thì lại có chuyện khác. Tất cả B đều là điều筆者 KHÔNG MONG và KHÔNG DỰ TÍNH. A（0）sai vì không cái nào là tốt đẹp; B（1）sai vì たとたん diễn đạt chính xác điều KHÔNG dự tính; D（3）sai vì tất cả xảy ra trong cùng một ngày.",
+          "tip": "Khi gặp câu hỏi \"điểm chung của tất cả những lần dùng たとたん\", đáp án luôn xoay quanh hai từ khóa: TỨC THÌ (ngay lập tức) + BẤT NGỜ/NGOÀI Ý MUỐN (予期しない/意図しない). Thiếu một trong hai thì không phải たとたん.",
+          "qt": {
+            "q": "Trong bài viết này, 「たとたん」 được dùng nhiều lần. Những tình huống dùng 「たとたん」có điểm chung nào?",
+            "o": [
+              "Cả A và B đều là những việc tốt đối với người viết",
+              "Người viết đã hành động sau khi dự đoán rằng B sẽ xảy ra sau A",
+              "Ngay sau khi A kết thúc, B bất ngờ xảy ra ngoài dự đoán, và B khác với ý định hoặc mong đợi của người viết",
+              "A và B là những sự việc xảy ra vào các ngày hoàn toàn khác nhau"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Nội quy an toàn của さくらウォーターランド＆スキーひろば",
+      "japanese": "さくらウォーターランド＆スキーひろば　ご利用案内・安全のお願い\n夏はプールになり、冬はスキー場になる、一年中お楽しみいただける施設です。ご利用の前に、下の表を必ずお読みください。\n場所｜おもな注意｜利用時間\n流れるプール｜浮き輪の貸し出しあり。走ってはいけません｜9:00〜17:00\nウォータースライダー｜順番を守ってください。立って滑ってはいけません｜9:00〜17:00\nスキーゲレンデ｜初級コースと上級コースに分かれています｜9:00〜16:00\nリフト｜3歳未満のお子様は保護者と一緒にお乗りください｜9:00〜16:00\n※スライダーの下のプールに飛び込んだとたんに、他のお客様とぶつかる事故が起きたことがあります。周りをよく確認してから飛び込んでください。\n※スキー場では、天気が変わるか変わらないかのうちに視界が悪くなることがあります。無理をせず、係員の指示に従ってください。\n料金｜大人（中学生以上）｜子ども（3歳〜小学生）\n1日券｜3,500円｜2,000円\n午後券（13時から）｜2,500円｜1,500円\n※会員カードをお持ちの方は、1日券が一枚につき500円引きになります。午後券は対象外です。\n※10名以上の団体でお申し込みの場合、どの券でも、お一人につき300円引きになります。\nお問い合わせ：さくらウォーターランド＆スキーひろば　0120-77-8899（9:00〜17:00、年中無休）",
+      "vietnamese": "Hướng dẫn sử dụng・Đề nghị an toàn của さくらウォーターランド＆スキーひろば\nĐây là cơ sở có thể vui chơi quanh năm — mùa hè là bể bơi, mùa đông là khu trượt tuyết. Trước khi sử dụng, xin quý khách nhất định đọc kỹ bảng dưới đây.\nKhu vực｜Lưu ý chính｜Giờ sử dụng\nBể bơi nước chảy｜Có cho thuê phao bơi. Không được chạy｜9:00〜17:00\nMáng trượt nước｜Xin xếp hàng theo thứ tự. Không được trượt ở tư thế đứng｜9:00〜17:00\nKhu trượt tuyết｜Chia thành đường sơ cấp và đường nâng cao｜9:00〜16:00\nGhế treo (lift)｜Trẻ dưới 3 tuổi phải đi cùng người bảo hộ｜9:00〜16:00\n※ Đã từng xảy ra tai nạn va chạm với khách khác ngay khoảnh khắc vừa nhảy xuống bể bơi ở dưới máng trượt. Xin hãy xác nhận kỹ xung quanh trước khi nhảy xuống.\n※ Ở khu trượt tuyết, tầm nhìn có thể xấu đi ngay khi thời tiết vừa mới chớm thay đổi. Xin đừng cố gắng quá sức, hãy làm theo hướng dẫn của nhân viên.\nGiá vé｜Người lớn (từ cấp 2 trở lên)｜Trẻ em (3 tuổi〜tiểu học)\nVé cả ngày｜3.500 yên｜2.000 yên\nVé buổi chiều (từ 13 giờ)｜2.500 yên｜1.500 yên\n※ Quý khách có thẻ hội viên được giảm 500 yên cho mỗi vé cả ngày. Vé buổi chiều không áp dụng.\n※ Nếu đăng ký theo đoàn từ 10 người trở lên, bất kể loại vé nào, mỗi người được giảm 300 yên.\nLiên hệ: さくらウォーターランド＆スキーひろば　0120-77-8899 (9:00〜17:00, mở cửa quanh năm)",
+      "sentences": [
+        {
+          "jp": "さくらウォーターランド＆スキーひろば　ご利用案内・安全のお願い",
+          "vi": "Hướng dẫn sử dụng・Đề nghị an toàn của さくらウォーターランド＆スキーひろば",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "ウォーター",
+              "read": "ウォーター",
+              "vi": "nước"
+            },
+            {
+              "w": "ランド",
+              "read": "ランド",
+              "vi": "vùng đất, công viên"
+            },
+            {
+              "w": "スキー",
+              "read": "スキー",
+              "vi": "trượt tuyết"
+            },
+            {
+              "w": "ひろば",
+              "read": "ひろば",
+              "vi": "quảng trường, sân chơi"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "安全",
+              "read": "あんぜん",
+              "vi": "an toàn"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời đề nghị, lời nhờ"
+            },
+            {
+              "w": "ご利用案内",
+              "read": "ごりようあんない",
+              "vi": "hướng dẫn sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご＋N（Bài 50 ôn）",
+              "vi": "ご利用案内 = 利用案内 được tôn kính hóa bằng ご, thường thấy ở tiêu đề thông báo trang trọng (Bài 50)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ご利用案内・安全のお願い",
+              "why": "tiêu đề báo trước 2 nội dung chính: hướng dẫn sử dụng + quy định an toàn — khung cho toàn bài"
+            }
+          ]
+        },
+        {
+          "jp": "夏はプールになり、冬はスキー場になる、一年中お楽しみいただける施設です。ご利用の前に、下の表を必ずお読みください。",
+          "vi": "Đây là cơ sở có thể vui chơi quanh năm — mùa hè là bể bơi, mùa đông là khu trượt tuyết. Trước khi sử dụng, xin quý khách nhất định đọc kỹ bảng dưới đây.",
+          "vocab": [
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "スキー",
+              "read": "スキー",
+              "vi": "trượt tuyết"
+            },
+            {
+              "w": "一年中",
+              "read": "いちねんじゅう",
+              "vi": "quanh năm"
+            },
+            {
+              "w": "楽しむ",
+              "read": "たのしむ",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng (biểu)"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "お楽しみいただける",
+              "read": "おたのしみいただける",
+              "vi": "quý khách có thể vui chơi (謙譲語 khiêm nhường)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nになり（Bài 19 ôn）",
+              "vi": "プールになり、スキー場になる = trở thành bể bơi, rồi trở thành khu trượt tuyết. Nになる (Bài 19) nối bằng て形/ます形 để liệt kê 2 trạng thái thay đổi theo mùa."
+            },
+            {
+              "point": "お＋Vいただける（謙譲語 応用, Bài 50 ôn）",
+              "vi": "お楽しみいただける = quý khách có thể vui chơi (thể khả năng của お〜いただく). Tiếp tục mẫu khiêm nhường đã học Bài 50."
+            }
+          ],
+          "keys": [
+            {
+              "w": "夏はプールになり、冬はスキー場になる",
+              "why": "thiết lập 2 chức năng theo mùa — cơ sở để hiểu vì sao bảng có cả mục プール và スキー場"
+            }
+          ]
+        },
+        {
+          "jp": "場所｜おもな注意｜利用時間",
+          "vi": "Khu vực｜Lưu ý chính｜Giờ sử dụng",
+          "vocab": [
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "khu vực, nơi"
+            },
+            {
+              "w": "おもい",
+              "read": "おもい",
+              "vi": "chính, chủ yếu"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "おもな注意",
+              "read": "おもなちゅうい",
+              "vi": "lưu ý chính"
+            },
+            {
+              "w": "利用時間",
+              "read": "りようじかん",
+              "vi": "giờ sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "場所｜おもな注意｜利用時間",
+              "why": "header bảng 1: 3 cột khu vực/lưu ý/giờ — khung để dò quy định từng khu"
+            }
+          ]
+        },
+        {
+          "jp": "流れるプール｜浮き輪の貸し出しあり。走ってはいけません｜9:00〜17:00",
+          "vi": "Bể bơi nước chảy｜Có cho thuê phao bơi. Không được chạy｜9:00〜17:00",
+          "vocab": [
+            {
+              "w": "流れるプール",
+              "read": "ながれるプール",
+              "vi": "bể bơi nước chảy"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "浮く",
+              "read": "うく",
+              "vi": "nổi, dư ra"
+            },
+            {
+              "w": "輪",
+              "read": "わ",
+              "vi": "vòng, nhóm"
+            },
+            {
+              "w": "貸し出し",
+              "read": "かしだし",
+              "vi": "sự cho thuê, cho mượn"
+            },
+            {
+              "w": "走る",
+              "read": "はしる",
+              "vi": "chạy, thiên về"
+            },
+            {
+              "w": "浮き輪",
+              "read": "うきわ",
+              "vi": "phao bơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てはいけません（N4 ôn）",
+              "vi": "走ってはいけません = không được chạy. てはいけません cấm đoán (đã học N4)."
+            }
+          ]
+        },
+        {
+          "jp": "ウォータースライダー｜順番を守ってください。立って滑ってはいけません｜9:00〜17:00",
+          "vi": "Máng trượt nước｜Xin xếp hàng theo thứ tự. Không được trượt ở tư thế đứng｜9:00〜17:00",
+          "vocab": [
+            {
+              "w": "ウォーター",
+              "read": "ウォーター",
+              "vi": "nước"
+            },
+            {
+              "w": "スライダー",
+              "read": "スライダー",
+              "vi": "máng trượt, cầu trượt"
+            },
+            {
+              "w": "順番",
+              "read": "じゅんばん",
+              "vi": "thứ tự, lượt"
+            },
+            {
+              "w": "守ります",
+              "read": "まもります",
+              "vi": "tuân thủ, giữ"
+            },
+            {
+              "w": "立って",
+              "read": "たって",
+              "vi": "đứng lên, ở tư thế đứng"
+            },
+            {
+              "w": "滑る",
+              "read": "すべる",
+              "vi": "trượt, trơn trượt"
+            },
+            {
+              "w": "ウォータースライダー",
+              "read": "ウォータースライダー",
+              "vi": "máng trượt nước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てはいけません（N4 ôn）",
+              "vi": "立って滑ってはいけません = không được trượt ở tư thế đứng. Vて + Vてはいけません nối 2 hành động rồi cấm đoán (N4)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ウォータースライダー｜順番を守ってください",
+              "why": "quy định khu vực máng trượt — liên quan trực tiếp đến dòng ※ cảnh báo たとたん bên dưới về việc nhảy xuống bể"
+            }
+          ]
+        },
+        {
+          "jp": "スキーゲレンデ｜初級コースと上級コースに分かれています｜9:00〜16:00",
+          "vi": "Khu trượt tuyết｜Chia thành đường sơ cấp và đường nâng cao｜9:00〜16:00",
+          "vocab": [
+            {
+              "w": "スキー",
+              "read": "スキー",
+              "vi": "trượt tuyết"
+            },
+            {
+              "w": "ゲレンデ",
+              "read": "ゲレンデ",
+              "vi": "dốc trượt tuyết, bãi trượt"
+            },
+            {
+              "w": "初級コース",
+              "read": "しょきゅうコース",
+              "vi": "đường trượt sơ cấp"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "上級コース",
+              "read": "じょうきゅうコース",
+              "vi": "đường trượt nâng cao"
+            },
+            {
+              "w": "分かれます",
+              "read": "わかれます",
+              "vi": "chia ra, phân chia"
+            },
+            {
+              "w": "スキーゲレンデ",
+              "read": "スキーゲレンデ",
+              "vi": "khu trượt tuyết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に分かれています（Bài 14 ôn）",
+              "vi": "分かれています = đang được chia ra (trạng thái). ている diễn đạt trạng thái đã hình thành (Bài 14)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "スキーゲレンデ｜初級コースと上級コースに分かれています｜9:00〜16:00",
+              "why": "giờ hoạt động khu trượt tuyết kết thúc SỚM HƠN bể bơi (16:00 so với 17:00) — dễ nhầm nếu đọc lướt"
+            }
+          ]
+        },
+        {
+          "jp": "リフト｜3歳未満のお子様は保護者と一緒にお乗りください｜9:00〜16:00",
+          "vi": "Ghế treo (lift)｜Trẻ dưới 3 tuổi phải đi cùng người bảo hộ｜9:00〜16:00",
+          "vocab": [
+            {
+              "w": "リフト",
+              "read": "リフト",
+              "vi": "ghế treo (lift trượt tuyết)"
+            },
+            {
+              "w": "お子様",
+              "read": "おこさま",
+              "vi": "trẻ em, quý tử"
+            },
+            {
+              "w": "保護",
+              "read": "ほご",
+              "vi": "bảo vệ, gìn giữ"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "乗る",
+              "read": "のる",
+              "vi": "lên xe, cưỡi"
+            },
+            {
+              "w": "3歳未満",
+              "read": "さんさいみまん",
+              "vi": "dưới 3 tuổi"
+            },
+            {
+              "w": "保護者",
+              "read": "ほごしゃ",
+              "vi": "người bảo hộ, phụ huynh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お＋V(ます形)＋ください（Bài 50 ôn）",
+              "vi": "お乗りください = xin hãy đi cùng. Kính ngữ nhẹ お＋V(ます形)＋ください đã học ở Bài 50."
+            }
+          ]
+        },
+        {
+          "jp": "※スライダーの下のプールに飛び込んだとたんに、他のお客様とぶつかる事故が起きたことがあります。周りをよく確認してから飛び込んでください。",
+          "vi": "※ Đã từng xảy ra tai nạn va chạm với khách khác ngay khoảnh khắc vừa nhảy xuống bể bơi ở dưới máng trượt. Xin hãy xác nhận kỹ xung quanh trước khi nhảy xuống.",
+          "vocab": [
+            {
+              "w": "スライダー",
+              "read": "スライダー",
+              "vi": "máng trượt, cầu trượt"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "飛び込みます",
+              "read": "とびこみます",
+              "vi": "nhảy xuống, nhảy vào"
+            },
+            {
+              "w": "他",
+              "read": "た",
+              "vi": "khác, ngoài ra"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "ぶつかる",
+              "read": "ぶつかる",
+              "vi": "va chạm, đâm vào"
+            },
+            {
+              "w": "事故",
+              "read": "じこ",
+              "vi": "tai nạn, sự cố"
+            },
+            {
+              "w": "起きる",
+              "read": "おきる",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "ぶつかります",
+              "read": "ぶつかります",
+              "vi": "va chạm, đụng phải"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたんに（mẫu trọng tâm bài 57）",
+              "vi": "接続: 飛び込んだ（Vた）＋ とたんに。 飛び込んだとたんに、事故が起きた = ngay khoảnh khắc vừa nhảy xuống thì tai nạn xảy ra bất ngờ. Sắc thái: đây là cảnh báo an toàn — B（事故）là điều NGOÀI Ý MUỐN, xảy ra tức thì, không kịp phòng tránh nếu không cẩn thận trước. Đây là lý do thông báo phải nhắc nhở \"確認してから\" (xác nhận trước khi làm)."
+            },
+            {
+              "point": "〜たことがあります（Bài 20 ôn）",
+              "vi": "事故が起きたことがあります = đã từng xảy ra tai nạn (kinh nghiệm/tiền lệ). Vた＋ことがある nêu kinh nghiệm từng xảy ra (Bài 20)."
+            },
+            {
+              "point": "〜てから（Bài 17 ôn）",
+              "vi": "確認してから飛び込んでください = xác nhận xong rồi mới nhảy xuống. てから nhấn thứ tự trước-sau (Bài 17)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "飛び込んだとたんに、他のお客様とぶつかる事故が起きたことがあります",
+              "why": "mẫu trọng tâm bài 57 trong bối cảnh cảnh báo — nhấn tai nạn xảy ra TỨC THÌ và BẤT NGỜ ngay khi vừa nhảy xuống, là căn cứ cho câu hỏi về lý do quy định an toàn"
+            }
+          ]
+        },
+        {
+          "jp": "※スキー場では、天気が変わるか変わらないかのうちに視界が悪くなることがあります。無理をせず、係員の指示に従ってください。",
+          "vi": "※ Ở khu trượt tuyết, tầm nhìn có thể xấu đi ngay khi thời tiết vừa mới chớm thay đổi. Xin đừng cố gắng quá sức, hãy làm theo hướng dẫn của nhân viên.",
+          "vocab": [
+            {
+              "w": "スキー",
+              "read": "スキー",
+              "vi": "trượt tuyết"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "視界",
+              "read": "しかい",
+              "vi": "tầm nhìn"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "無理をせず",
+              "read": "むりをせず",
+              "vi": "không cố gắng quá sức"
+            },
+            {
+              "w": "係員",
+              "read": "かかりいん",
+              "vi": "nhân viên phụ trách"
+            },
+            {
+              "w": "指示",
+              "read": "しじ",
+              "vi": "chỉ thị, hướng dẫn"
+            },
+            {
+              "w": "従います",
+              "read": "したがいます",
+              "vi": "tuân theo, làm theo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜ないかのうちに（mẫu trọng tâm bài 57）",
+              "vi": "接続: 変わる（Vる）＋ か ＋ 変わらない（Vない）＋ かのうちに。 天気が変わるか変わらないかのうちに視界が悪くなる = thời tiết hầu như CHƯA kịp thay đổi hẳn thì tầm nhìn đã xấu đi ngay. Sắc thái: nhấn A（thời tiết đổi）và B（tầm nhìn xấu）gần như đồng thời — đây cũng là lý do cảnh báo phải nghe theo係員 ngay lập tức, không chờ đợi."
+            },
+            {
+              "point": "〜ず（Bài 34 応用 — phủ định văn viết）",
+              "vi": "無理をせず = không cố gắng quá sức (rồi). ず là dạng phủ định trang trọng của ない, thường thấy trong văn bản hướng dẫn/thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "天気が変わるか変わらないかのうちに視界が悪くなることがあります",
+              "why": "mẫu trọng tâm bài 57 lần 2 — cảnh báo về thời tiết khu trượt tuyết, là căn cứ liên quan đến an toàn ở khu vực スキーゲレンデ／リフト"
+            }
+          ]
+        },
+        {
+          "jp": "料金｜大人（中学生以上）｜子ども（3歳〜小学生）",
+          "vi": "Giá vé｜Người lớn (từ cấp 2 trở lên)｜Trẻ em (3 tuổi〜tiểu học)",
+          "vocab": [
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, giá tiền"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "中学生",
+              "read": "ちゅうがくせい",
+              "vi": "học sinh trung học cơ sở"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "3歳",
+              "read": "さんさい",
+              "vi": "3 tuổi"
+            },
+            {
+              "w": "小学生",
+              "read": "しょうがくせい",
+              "vi": "học sinh tiểu học"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "料金｜大人（中学生以上）｜子ども（3歳〜小学生）",
+              "why": "header bảng giá — khung tra cứu cho cả 2 câu hỏi tính phí"
+            }
+          ]
+        },
+        {
+          "jp": "1日券｜3,500円｜2,000円",
+          "vi": "Vé cả ngày｜3.500 yên｜2.000 yên",
+          "vocab": [
+            {
+              "w": "1日券",
+              "read": "いちにちけん",
+              "vi": "vé một ngày"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "1日券｜3,500円｜2,000円",
+              "why": "giá gốc vé cả ngày — căn cứ chính câu hỏi 1 (trước khi trừ giảm giá hội viên)"
+            }
+          ]
+        },
+        {
+          "jp": "午後券（13時から）｜2,500円｜1,500円",
+          "vi": "Vé buổi chiều (từ 13 giờ)｜2.500 yên｜1.500 yên",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "午後券",
+              "read": "ごごけん",
+              "vi": "vé buổi chiều"
+            },
+            {
+              "w": "13時",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "2,500円",
+              "read": "にせんごひゃくえん",
+              "vi": "2.500 yên"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "午後券（13時から）｜2,500円｜1,500円",
+              "why": "ô nhiễu câu hỏi 1: giá 午後券 KHÔNG được giảm hội viên (ghi rõ ở dòng ※ dưới) — dễ nhầm nếu chọn loại vé này"
+            }
+          ]
+        },
+        {
+          "jp": "※会員カードをお持ちの方は、1日券が一枚につき500円引きになります。午後券は対象外です。",
+          "vi": "※ Quý khách có thẻ hội viên được giảm 500 yên cho mỗi vé cả ngày. Vé buổi chiều không áp dụng.",
+          "vocab": [
+            {
+              "w": "会員カード",
+              "read": "かいいんカード",
+              "vi": "thẻ hội viên"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ"
+            },
+            {
+              "w": "お持ち",
+              "read": "おもち",
+              "vi": "có, mang theo"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "1日券",
+              "read": "いちにちけん",
+              "vi": "vé một ngày"
+            },
+            {
+              "w": "一枚につき",
+              "read": "いちまいにつき",
+              "vi": "mỗi vé, mỗi tấm"
+            },
+            {
+              "w": "500円引き",
+              "read": "ごひゃくえんびき",
+              "vi": "giảm 500 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "午後券",
+              "read": "ごごけん",
+              "vi": "vé buổi chiều"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "対象外",
+              "read": "たいしょうがい",
+              "vi": "không thuộc đối tượng áp dụng"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜につき（N3 応用）",
+              "vi": "一枚につき = tính theo mỗi một vé. につき = \"tính theo/mỗi\" trong văn bản phí/giá."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1日券が一枚につき500円引きになります",
+              "why": "căn cứ trực tiếp câu hỏi 1: mức giảm giá hội viên 500円/vé, CHỈ áp dụng 1日券"
+            },
+            {
+              "w": "午後券は対象外です",
+              "why": "bẫy: xác nhận giảm giá hội viên KHÔNG áp dụng cho 午後券 — loại trừ phương án tính nhầm"
+            }
+          ]
+        },
+        {
+          "jp": "※10名以上の団体でお申し込みの場合、どの券でも、お一人につき300円引きになります。",
+          "vi": "※ Nếu đăng ký theo đoàn từ 10 người trở lên, dù là loại vé nào cũng được giảm 300 yên mỗi người.",
+          "vocab": [
+            {
+              "w": "10名以上",
+              "read": "じゅうめいいじょう",
+              "vi": "từ 10 người trở lên"
+            },
+            {
+              "w": "団体",
+              "read": "だんたい",
+              "vi": "đoàn thể, nhóm"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký,申し申し"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký, đơn đăng ký"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "どの券でも",
+              "read": "どのけんでも",
+              "vi": "bất kỳ loại vé nào"
+            },
+            {
+              "w": "券",
+              "read": "けん",
+              "vi": "vé"
+            },
+            {
+              "w": "お一人につき",
+              "read": "おひとりにつき",
+              "vi": "mỗi người"
+            },
+            {
+              "w": "300円引き",
+              "read": "さんびゃくえんびき",
+              "vi": "giảm 300 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どの＋N＋でも（N4 ôn）",
+              "vi": "どの券でも = dù là loại vé nào cũng (được giảm). どの〜でも diễn đạt \"bất kể, mọi\" một cách đơn giản."
+            }
+          ],
+          "keys": [
+            {
+              "w": "10名以上の団体でお申し込みの場合、どの券でも、お一人につき300円引き",
+              "why": "căn cứ chính câu hỏi 2: giảm giá đoàn 300円/người áp dụng cho MỌI loại vé (khác với giảm giá hội viên chỉ áp dụng 1日券)"
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくらウォーターランド＆スキーひろば　0120-77-8899（9:00〜17:00、年中無休）",
+          "vi": "Liên hệ: さくらウォーターランド＆スキーひろば　0120-77-8899 (9:00〜17:00, mở cửa quanh năm)",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "ウォーター",
+              "read": "ウォーター",
+              "vi": "nước"
+            },
+            {
+              "w": "ランド",
+              "read": "ランド",
+              "vi": "vùng đất, công viên"
+            },
+            {
+              "w": "スキー",
+              "read": "スキー",
+              "vi": "trượt tuyết"
+            },
+            {
+              "w": "ひろば",
+              "read": "ひろば",
+              "vi": "quảng trường, sân chơi"
+            },
+            {
+              "w": "年中",
+              "read": "ねんじゅう",
+              "vi": "quanh năm, suốt năm"
+            },
+            {
+              "w": "無休",
+              "read": "むきゅう",
+              "vi": "không nghỉ"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            },
+            {
+              "w": "年中無休",
+              "read": "ねんじゅうむきゅう",
+              "vi": "mở cửa quanh năm, không nghỉ"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "飛び込んだとたんに、他のお客様とぶつかる事故が起きたことがあります",
+          "label": "〜たとたん（に）— cảnh báo tai nạn tức thì, ngoài ý muốn"
+        },
+        {
+          "excerpt": "天気が変わるか変わらないかのうちに視界が悪くなることがあります",
+          "label": "〜か〜ないかのうちに — thời tiết chớm đổi thì tầm nhìn đã xấu"
+        },
+        {
+          "excerpt": "事故が起きたことがあります",
+          "label": "〜たことがあります（Bài 20 ôn）"
+        },
+        {
+          "excerpt": "お楽しみいただける",
+          "label": "お＋Vいただける（Bài 50 ôn — 謙譲語 応用）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu chung",
+          "topic": 0,
+          "note": "Tiêu đề thông báo + giới thiệu cơ sở 2 mùa (hè: プール／đông: スキー場) — thiết lập bối cảnh chung, chưa có căn cứ câu hỏi cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "body",
+          "label": "Bảng khu vực & quy định sử dụng",
+          "topic": 2,
+          "note": "Bảng 1 (khu vực｜lưu ý｜giờ): liệt kê quy định từng khu (プール・スライダー・ゲレンデ・リフト) — nền tảng dẫn vào 2 dòng ※ cảnh báo たとたん ngay sau.",
+          "qs": []
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "point",
+          "label": "Cảnh báo an toàn ※ (mẫu trọng tâm bài 57)",
+          "topic": 7,
+          "note": "Hai dòng ※ chứa CẢ HAI mẫu trọng tâm bài 57: たとたんに (tai nạn khi nhảy xuống bể) và か〜ないかのうちに (tầm nhìn xấu khi trời đổi) — căn cứ cho câu hỏi suy luận về lý do quy định an toàn.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 13,
+          "kind": "point",
+          "label": "Bảng giá vé & điều kiện giảm giá",
+          "topic": 9,
+          "note": "Bảng 2 (giá vé) + 2 dòng ※ giảm giá: hội viên (chỉ 1日券, -500円/vé) và đoàn ≥10 người (mọi loại vé, -300円/người) — hai điều kiện giảm giá CHỒNG NHAU khác phạm vi áp dụng, là bẫy chính của câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 14,
+          "to": 14,
+          "kind": "body",
+          "label": "Liên hệ",
+          "topic": 14,
+          "note": "Thông tin liên hệ cuối bài — không phải căn cứ đáp án của 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "木村さん夫婦（大人2人）と小学生の子ども1人が、会員カードを持って1日券で入場します。3人の料金は合計いくらですか。",
+          "options": [
+            "7,500円",
+            "6,000円",
+            "9,000円",
+            "9,500円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 1 (7,500円). Giá gốc 1日券: 大人3,500円×2人＋子ども2,000円×1人＝9,000円. Dòng ※ ghi rõ「会員カードをお持ちの方は、1日券が一枚につき500円引きになります」— gia đình có đúng 3 vé 1日券 nên được giảm 500円×3枚＝1,500円. Tổng: 9,000円−1,500円＝7,500円. Đáp án 1（1,500）sai vì đó chỉ là SỐ TIỀN ĐƯỢC GIẢM chứ không phải tổng phải trả. Đáp án 2（9,000円）sai vì bỏ quên áp dụng giảm giá hội viên. Đáp án 3（9,500円）sai vì cộng nhầm giá vé thay vì trừ giảm giá.",
+          "tip": "Mẹo: câu hỏi ghép ĐỐI TƯỢNG (2 người lớn + 1 trẻ em) + LOẠI VÉ (1日券) + ƯU ĐÃI (thẻ hội viên) — phải: (1) tính giá gốc theo bảng, (2) kiểm tra dòng ※ xem ưu đãi có áp dụng cho loại vé đó không, (3) trừ đúng số tiền theo số vé, không được bỏ sót bước nào.",
+          "evi": [
+            9,
+            10,
+            12
+          ],
+          "qt": {
+            "q": "Vợ chồng anh/chị Kimura (2 người lớn) và 1 con đang học tiểu học vào cửa bằng vé cả ngày và có thẻ hội viên. Tổng phí của 3 người là bao nhiêu?",
+            "o": [
+              "7.500 yên",
+              "6.000 yên",
+              "9.000 yên",
+              "9.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "「表」のすぐ下にある2つの「※」の注意（プールとスキー場についてのもの）に共通しているのはどんなことですか。",
+          "options": [
+            "どちらも、料金の割引についての条件を説明している",
+            "どちらも、油断していると一瞬で危険な状況になり得ることを伝えている",
+            "どちらも、天気が悪い日は施設を利用できないことを伝えている",
+            "どちらも、子どもだけでは利用できない設備について説明している"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 2 (B). Hai dòng ※ đầu tiên đều cảnh báo về AN TOÀN, không phải giá cả: (1)「スライダーの下のプールに飛び込んだとたんに、他のお客様とぶつかる事故が起きたことがあります」— vừa nhảy xuống là xảy ra tai nạn NGAY LẬP TỨC, ngoài ý muốn; (2)「天気が変わるか変わらないかのうちに視界が悪くなることがあります」— thời tiết CHƯA kịp thay đổi hẳn thì tầm nhìn đã xấu ngay. Cả hai đều dùng mẫu ngữ pháp diễn đạt TÍNH TỨC THÌ (たとたんに／か〜ないかのうちに) để cảnh báo rằng chỉ cần lơ là một chút, tình huống nguy hiểm có thể xảy đến trong tích tắc. Đáp án 0（0）sai vì đó là 2 dòng ※ khác (ở bảng giá, phía sau); đáp án 2（2）sai vì bài không nói thời tiết xấu thì đóng cửa, chỉ cảnh báo cẩn thận theo hướng dẫn nhân viên; đáp án 3（3）sai vì nội dung không nói về việc trẻ em không được dùng thiết bị.",
+          "tip": "Khi đề hỏi \"điểm chung của các dòng ※\", trước tiên phải XÁC ĐỊNH các dòng ※ đó nằm ở PHẦN NÀO của bài (an toàn hay giá cả) — đừng gộp nhầm dòng ※ giảm giá vào câu hỏi về an toàn. たとたんに và か〜ないかのうちに đều nhấn TỨC THÌ + BẤT NGỜ, đúng chủ đề Bài 57.",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Điểm chung của hai lưu ý có dấu 「※」 ngay bên dưới 「表」 (bảng), nói về hồ bơi và khu trượt tuyết, là gì?",
+            "o": [
+              "Cả hai đều giải thích các điều kiện về giảm giá",
+              "Cả hai đều cho biết rằng nếu mất cảnh giác, một tình huống nguy hiểm có thể xảy ra trong chớp mắt",
+              "Cả hai đều cho biết rằng không thể sử dụng cơ sở vào những ngày thời tiết xấu",
+              "Cả hai đều giải thích về những thiết bị trẻ em không thể sử dụng một mình"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

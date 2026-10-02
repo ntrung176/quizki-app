@@ -1,0 +1,4581 @@
+{
+  "bai": 147,
+  "level": "N2",
+  "strategy": {
+    "intro": "Bài học rèn luyện kỹ năng nắm bắt mạch nghị luận và cảm xúc của tác giả thông qua các mẫu diễn đạt phạm vi, bổ sung thông tin và bộc lộ thái độ chủ quan. Người đọc cần phân biệt rõ sắc thái khách quan trải rộng của 〜にわたって, tính chất song hành công việc của 〜かたわら, phép cộng dồn tăng tiến 〜ばかりか với các cấu trúc bộc lộ cảm xúc tiếc nuối (〜ものを), cảm thán cao độ (〜ことか), hay đánh giá tương xứng nhân quả (〜だけあって vs 〜だけに). Việc nắm chắc các liên kết này giúp định vị chính xác luận điểm chính và hàm ý sâu xa của bài đọc N2.",
+    "steps": [
+      "Bước 1: Xác định phạm vi không gian/thời gian hoặc bối cảnh chính của đoạn văn qua cụm từ đi với 〜にわたって và 〜に際して để định vị phạm vi ảnh hưởng của luận điểm.",
+      "Bước 2: Phân tích cấu trúc phân công công việc/hoạt động dài hạn có 〜かたわら để phân biệt rõ đâu là hoạt động chính và đâu là hoạt động phụ song song.",
+      "Bước 3: Nhận diện phép tăng tiến với 〜ばかりか để nắm trọn vẹn cả hai vế thông tin (thường vế sau mang ý nghĩa bổ sung vượt ngoài dự tính hoặc mức độ nghiêm trọng hơn).",
+      "Bước 4: Bóc tách sắc thái cảm xúc ẩn sau lập luận qua 〜ものを (tiếc nuối, trách móc thực tế trái ngược) và 〜ことか (cảm thán tột cùng đi kèm phó từ nghi vấn như どんなに/どれほど).",
+      "Bước 5: Đánh giá mối liên hệ nhân quả tương xứng qua 〜だけあって (khen ngợi, kỳ vọng đạt kết quả tốt) và 〜だけに (nhấn mạnh phản ứng/kết quả đặc thù cả tích cực lẫn tiêu cực) để đối chiếu chính xác phương án trả lời."
+    ],
+    "tips": [
+      "Mẹo 使い分け 1 (だけあって vs だけに): 〜だけあって luôn dẫn đến kết quả tích cực, lời khen xứng đáng (đúng như kỳ vọng); trong khi 〜だけに dùng được cho cả chiều hướng tiêu cực (chính vì kỳ vọng lớn nên càng thất vọng nặng).",
+      "Mẹo 使い分け 2 (にわたって vs において - B83): 〜にわたって nhấn mạnh sự trải dài toàn bộ về thời gian, không gian hoặc số lần; còn 〜において chỉ định vị bối cảnh/địa điểm xảy ra sự việc mà không hàm ý quy mô dàn trải.",
+      "Mẹo 使い分け 3 (ものを vs のに - B62): 〜ものを thường đặt ở cuối câu hoặc vế lửng để bộc lộ tiếc nuối sâu sắc hoặc ngầm trách móc hành động đã không xảy ra theo lẽ phải, mang đậm cảm xúc chủ quan hơn 〜のに.",
+      "Dấu hiệu nhận diện 〜ことか: Luôn tìm các phó từ nghi vấn chỉ mức độ ở vế trước (どんなに, どれほど, なんと) — đây là trọng tâm thể hiện quan điểm cảm thán của tác giả.",
+      "Bẫy 〜ばかりか vs 〜ばかりに (B75): 〜ばかりか mang nghĩa cộng dồn 'không chỉ A mà còn B', tránh nhầm với 〜ばかりに mang nghĩa 'chỉ vì lý do A mà dẫn đến hậu quả xấu B'."
+    ],
+    "grammarFocus": [
+      "～にわたって — 接続: N ＋ にわたって／にわたる＋N. Sắc thái: Trải dài suốt một khoảng thời gian, không gian, số lần hoặc quy mô rộng lớn. Đối chiếu: khác 〜において (B83) chỉ địa điểm/bối cảnh đơn thuần.",
+      "～ものを — 接続: 普通形 (なAな/である, Nな/である) ＋ ものを. Sắc thái: Thể hiện sự tiếc nuối, ân hận hoặc ngầm trách móc rằng 'giá mà/lẽ ra... thì đã tốt'. Đối chiếu: cảm xúc tiếc nuối mạnh hơn 〜のに (B62), thường đứng cuối câu hoặc ngắt vế.",
+      "～ことか — 接続: 疑問詞 (どんなに/どれほど/なんと...) ＋ 普通形 (なAな/である, Nである) ＋ ことか. Sắc thái: Bộc lộ cảm xúc cảm thán mãnh liệt 'biết bao/dường nào'. Đối chiếu: khác 〜限りだ (B92) không dùng từ để hỏi.",
+      "～だけあって — 接続: 普通形 (なAな, N) ＋ だけあって. Sắc thái: Quả đúng là/xứng danh là ~ nên kết quả phía sau rất tốt, dùng để khen ngợi. Đối chiếu: khác 〜だけに chỉ dùng cho cả tốt lẫn xấu.",
+      "～だけに — 接続: 普通形 (なAな/である, N/である) ＋ だけに. Sắc thái: Chính vì có lý do đặc thù/kỳ vọng cao nên mức độ kết quả (tốt hoặc xấu) càng tăng lên. Đối chiếu: khác 〜だけあって (B78) vốn chỉ dùng cho đánh giá tích cực.",
+      "～ばかりか — 接続: 普通形 (なAな/である, N/である) ＋ ばかりか. Sắc thái: Không chỉ dừng lại ở A mà còn thêm cả B (mức độ nặng hơn hoặc rộng hơn). Đối chiếu: khác 〜ばかりに (B75) mang nghĩa tiêu cực 'chỉ vì... mà'.",
+      "～に際して — 接続: N / Vる ＋ に際して／に際し／に際しての＋N. Sắc thái: Nhân dịp/khi bắt đầu thực hiện sự kiện trọng đại mang tính nghi thức, trang trọng. Đối chiếu: cùng nhóm 〜にあたって / 際に (B72).",
+      "～かたわら — 接続: Nの / Vる ＋ かたわら. Sắc thái: Vừa làm công việc chính, song song bên cạnh đó còn làm thêm hoạt động/nghề phụ khác trong thời gian dài. Đối chiếu: khác ながら chỉ hai hành động đồng thời ngắn hạn."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 76,
+        "items": [
+          "〜だけに (普通形 / N + だけに)"
+        ]
+      },
+      {
+        "bai": 78,
+        "items": [
+          "〜だけあって",
+          "だけあって ≠ だけに B76（chỉ khen ↔ cả tốt/xấu）"
+        ]
+      },
+      {
+        "bai": 83,
+        "items": [
+          "〜にわたって（は）／〜にわたる／〜にわたり",
+          "において ≠ にわたって ≠ で"
+        ]
+      },
+      {
+        "bai": 92,
+        "items": [
+          "〜ことか",
+          "疑問詞＋Vた → ことか"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "伝統の継承とデジタルアーカイブの意義",
+      "titleVi": "Ý nghĩa của việc kế thừa truyền thống và lưu trữ số hóa",
+      "japanese": "地域に息づく伝統工芸を次世代へ継承する試みが、数十年にわたって続けられている。時代の急激な変化の中で伝統を守り抜くことが、関係者にとってどれほど困難であったことか。長年の研鑽を積んだ名匠たちだけあって、生み出される作品の精緻さは見る者を圧倒する。職人たちは日々の制作に励むかたわら、後進への技術伝承にも力を注いできた。しかし、早期に対策を講じれば技術の断絶を防げたものを、人手不足により失われた技法も少なくない。\nそこで近年、保存事業に際して最新のデジタル技術を導入する動きが本格化した。この事業では、素材の選定から最終仕上げまでの全工程にわたって詳細なデータが記録されている。単に作業の様子を映像で保存するばかりか、職人の微妙な力加減や視線の動きまでも数値化している。もっと早くこうした記録を残しておけばさらなる発展に役立ったものを、と悔やまれる面もある。伝統の継承危機が叫ばれているだけに、この取り組みが持つ社会的意義は極めて大きい。今回の成果公開に際して、伝統文化の未来を切り拓く新たな道筋となることが期待されている。",
+      "vietnamese": "Những nỗ lực nhằm kế thừa và trao truyền các nghề thủ công truyền thống gắn bó với địa phương cho thế hệ mai sau đã được duy trì suốt nhiều thập kỷ qua. Giữa sự biến đổi nhanh chóng của thời đại, việc gìn giữ nguyên vẹn truyền thống quả thực đã muôn vàn gian nan biết bao đối với những người trong cuộc. Đúng là những bậc thầy nghệ nhân đã tích lũy nhiều năm khổ luyện, sự tinh xảo tuyệt mỹ của các tác phẩm do họ tạo ra luôn khiến người thưởng lãm phải kinh ngạc, choáng ngợp. Bên cạnh việc miệt mài chế tác hàng ngày, các nghệ nhân cũng dành nhiều tâm huyết cho công tác truyền dạy kỹ nghệ cho lớp người đi sau. Tuy nhiên, lẽ ra nếu sớm áp dụng các biện pháp ứng phó kịp thời thì đã có thể ngăn chặn được sự đứt gãy kỹ thuật, vậy mà trên thực tế không ít kỹ pháp độc đáo đã bị mai một do thiếu hụt người kế nghiệp.\nChính vì vậy, trong những năm gần đây, nhân việc thực hiện dự án bảo tồn, phong trào ứng dụng công nghệ kỹ thuật số tối tân đã được triển khai một cách bài bản và mạnh mẽ. Trong khuôn khổ dự án này, toàn bộ các dữ liệu chi tiết trải dài trên tất cả các công đoạn từ khâu tuyển chọn nguyên vật liệu cho đến khâu hoàn thiện cuối cùng đều được ghi chép và lưu trữ cẩn mật. Dự án không chỉ đơn thuần ghi lại hình ảnh quá trình tác nghiệp, mà thậm chí còn lượng hóa và số hóa cả những tinh chỉnh lực tinh vi cùng sự chuyển dịch ánh mắt của người thợ. Dẫu vẫn còn đôi chút tiếc nuối rằng giá như lưu lại những tư liệu chuẩn xác này sớm hơn thì đã hỗ trợ rất nhiều cho sự phát triển vượt bậc của nghề, song không thể phủ nhận giá trị của nó. Chính vì nguy cơ mai một truyền thống đang được gióng lên hồi chuông cảnh báo, ý nghĩa xã hội mà sáng kiến mang tính đột phá này mang lại là vô cùng to lớn. Nhân dịp công bố những thành quả nghiên cứu lần này, công chúng và giới chuyên môn đều kỳ vọng đây sẽ là bước ngoặt quan trọng mở ra con đường tương lai đầy hứa hẹn cho nền văn hóa truyền thống.",
+      "sentences": [
+        {
+          "jp": "地域に息づく伝統工芸を次世代へ継承する試みが、数十年にわたって続けられている。",
+          "vi": "Những nỗ lực nhằm kế thừa và trao truyền các nghề thủ công truyền thống gắn bó với địa phương cho thế hệ mai sau đã được duy trì suốt nhiều thập kỷ qua.",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực"
+            },
+            {
+              "w": "息づく",
+              "read": "いきづく",
+              "vi": "sinh động; tồn tại"
+            },
+            {
+              "w": "伝統工芸",
+              "read": "でんとうこうげい",
+              "vi": "thủ công truyền thống"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "thủ công mỹ nghệ"
+            },
+            {
+              "w": "次世代",
+              "read": "じせだい",
+              "vi": "thế hệ tiếp theo"
+            },
+            {
+              "w": "継承する",
+              "read": "けいしょうする",
+              "vi": "kế thừa; truyền lại"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa"
+            },
+            {
+              "w": "試み",
+              "read": "こころみ",
+              "vi": "nỗ lực; thử nghiệm"
+            },
+            {
+              "w": "数十年",
+              "read": "すうじゅうねん",
+              "vi": "vài chục năm"
+            },
+            {
+              "w": "わたって",
+              "read": "わたって",
+              "vi": "trải qua; kéo dài"
+            },
+            {
+              "w": "続けられている",
+              "read": "つづけられている",
+              "vi": "đang được tiếp tục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたって",
+              "vi": "【接続】Danh từ (chỉ thời gian, không gian, số lần, quy mô) + にわたって / にわたり / にわたる + N. 【Sắc thái】Diễn tả một hành động, hiện tượng hoặc trạng thái diễn ra trải dài, bao trùm toàn bộ một khoảng thời gian dài hoặc không gian, phạm vi rộng lớn. Mang văn phong trang trọng, khách quan. 【Đối chiếu】Khác với 〜を通じて／〜を通して (nhấn mạnh tính liên tục suốt tiến trình hoặc qua phương tiện trung gian), 〜にわたって nhấn mạnh vào độ dài thời gian hoặc quy mô bao quát của toàn bộ phạm vi đó."
+            }
+          ]
+        },
+        {
+          "jp": "時代の急激な変化の中で伝統を守り抜くことが、関係者にとってどれほど困難であったことか。",
+          "vi": "Giữa sự biến đổi nhanh chóng của thời đại, việc gìn giữ nguyên vẹn truyền thống quả thực đã muôn vàn gian nan biết bao đối với những người trong cuộc.",
+          "vocab": [
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "急激",
+              "read": "きゅうげき",
+              "vi": "nhanh chóng, đột ngột"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "守り抜く",
+              "read": "まもりぬく",
+              "vi": "bảo vệ đến cùng, gìn giữ trọn vẹn"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "どれほど",
+              "read": "どれほど",
+              "vi": "đến mức nào, bao nhiêu"
+            },
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn"
+            },
+            {
+              "w": "関係者",
+              "read": "かんけいしゃ",
+              "vi": "những người liên quan, người trong cuộc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことか",
+              "vi": "【接続】Vる / Vた / Aい / Aな (thường đi kèm phó từ cảm thán như どれほど、どんなに、なんと、何回...) + ことか. 【Sắc thái】Biểu thị cảm thán sâu sắc, nhấn mạnh mức độ to lớn, vô hạn (biết bao nhiêu, dường nào) của một cảm xúc, khó khăn hay trải nghiệm. 【Đối chiếu】So với 〜ものだ (cảm thán, hoài niệm chung), 〜ことか luôn gắn liền với từ nghi vấn chỉ mức độ để khuếch đại cảm xúc cực độ của người nói/người viết."
+            }
+          ]
+        },
+        {
+          "jp": "長年の研鑽を積んだ名匠たちだけあって、生み出される作品の精緻さは見る者を圧倒する。",
+          "vi": "Đúng là những bậc thầy nghệ nhân đã tích lũy nhiều năm khổ luyện, sự tinh xảo tuyệt mỹ của các tác phẩm do họ tạo ra luôn khiến người thưởng lãm phải kinh ngạc, choáng ngợp.",
+          "vocab": [
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm, lâu năm"
+            },
+            {
+              "w": "研鑽",
+              "read": "けんさん",
+              "vi": "sự khổ luyện, trau dồi tay nghề"
+            },
+            {
+              "w": "積む",
+              "read": "つむ",
+              "vi": "tích lũy, chất đống"
+            },
+            {
+              "w": "名匠",
+              "read": "めいしょう",
+              "vi": "bậc thầy nghệ nhân, danh nhân chế tác"
+            },
+            {
+              "w": "生み出す",
+              "read": "うみだす",
+              "vi": "tạo ra, sinh ra"
+            },
+            {
+              "w": "作品",
+              "read": "さくひん",
+              "vi": "tác phẩm"
+            },
+            {
+              "w": "精緻",
+              "read": "せいち",
+              "vi": "tinh xảo, tinh vi, tỉ mỉ"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "圧倒する",
+              "read": "あっとうする",
+              "vi": "áp đảo, khiến choáng ngợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけあって",
+              "vi": "【接続】Thể thông thường (N / な-adj + な/である) + だけあって. 【Sắc thái】Diễn tả lời khen ngợi, tán thưởng dựa trên một lý do, vị thế hoặc quá trình nổi bật: 'Đúng là vì... nên quả không hổ danh / thảo nào mà...'. Vế sau luôn là kết quả tương xứng và mang tính đánh giá cao. 【Đối chiếu】Khác với 〜だけに (dùng được cho cả kết quả tiêu cực hoặc tiếc nuối), 〜だけあって hầu như chỉ dùng cho các đánh giá tích cực, khâm phục, ca ngợi."
+            }
+          ]
+        },
+        {
+          "jp": "職人たちは日々の制作に励むかたわら、後進への技術伝承にも力を注いできた。",
+          "vi": "Bên cạnh việc miệt mài chế tác hàng ngày, các nghệ nhân cũng dành nhiều tâm huyết cho công tác truyền dạy kỹ nghệ cho lớp người đi sau.",
+          "vocab": [
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "制作",
+              "read": "せいさく",
+              "vi": "chế tác, làm ra tác phẩm"
+            },
+            {
+              "w": "励む",
+              "read": "はげむ",
+              "vi": "cố gắng, miệt mài"
+            },
+            {
+              "w": "後進",
+              "read": "こうしん",
+              "vi": "thế hệ sau, lớp người đi sau"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "伝承",
+              "read": "でんしょう",
+              "vi": "truyền thừa, lưu truyền"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "注ぐ",
+              "read": "そそぐ",
+              "vi": "rót, dồn sức"
+            },
+            {
+              "w": "技術伝承",
+              "read": "ぎじゅつでんしょう",
+              "vi": "sự truyền thụ kỹ thuật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かたわら",
+              "vi": "【接続】Vる / Nの + かたわら. 【Sắc thái】Diễn tả một người thực hiện một công việc chính, và 'bên cạnh đó / song song với đó' còn làm thêm một hoạt động khác mang tính thường xuyên, dài hạn. 【Đối chiếu】Khác với 〜ながら (hai hành động tức thời diễn ra cùng lúc trong chốc lát), 〜かたわら dùng cho hai hoạt động mang tính trách nhiệm, công việc hoặc dự án diễn ra song song trong đời sống."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、早期に対策を講じれば技術の断絶を防げたものを、人手不足により失われた技法も少なくない。",
+          "vi": "Tuy nhiên, lẽ ra nếu sớm áp dụng các biện pháp ứng phó kịp thời thì đã có thể ngăn chặn được sự đứt gãy kỹ thuật, vậy mà trên thực tế không ít kỹ pháp độc đáo đã bị mai một do thiếu hụt người kế nghiệp.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "giai đoạn sớm, kịp thời"
+            },
+            {
+              "w": "対策",
+              "read": "たいさく",
+              "vi": "biện pháp đối phó"
+            },
+            {
+              "w": "講じる",
+              "read": "こうじる",
+              "vi": "đưa ra, thực thi (biện pháp)"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "断絶",
+              "read": "だんぜつ",
+              "vi": "sự đứt gãy, gián đoạn"
+            },
+            {
+              "w": "防げる",
+              "read": "ふせげる",
+              "vi": "có thể phòng tránh"
+            },
+            {
+              "w": "人手",
+              "read": "ひとで",
+              "vi": "nhân lực, người làm việc"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, làm mất"
+            },
+            {
+              "w": "技法",
+              "read": "ぎほう",
+              "vi": "kỹ pháp, kỹ thuật chế tác"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "対策を講じる",
+              "read": "たいさくをこうじる",
+              "vi": "đề ra/áp dụng biện pháp đối phó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものを",
+              "vi": "【接続】Thể thông thường (V / Aい / Aな・N + な) + ものを (thường kết hợp với thể điều kiện 〜ば...ものを / 〜たら...ものを). 【Sắc thái】Diễn tả sự tiếc nuối, day dứt hoặc trách móc trước một sự việc đã xảy ra không như ý: 'Lẽ ra nếu làm... thì đã tốt rồi, vậy mà thực tế lại...'. 【Đối chiếu】So với 〜のに (tiếc nuối hoặc bất mãn thông thường), 〜ものを mang sắc thái hối tiếc và trách cứ sâu sắc hơn nhiều về việc giá như đã hành động khác đi trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "そこで近年、保存事業に際して最新のデジタル技術を導入する動きが本格化した。",
+          "vi": "Chính vì vậy, trong những năm gần đây, nhân việc thực hiện dự án bảo tồn, phong trào ứng dụng công nghệ kỹ thuật số tối tân đã được triển khai một cách bài bản và mạnh mẽ.",
+          "vocab": [
+            {
+              "w": "そこで",
+              "read": "そこで",
+              "vi": "vì thế, do đó"
+            },
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "gần đây, những năm gần đây"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "lưu trữ, bảo lưu"
+            },
+            {
+              "w": "事業",
+              "read": "じぎょう",
+              "vi": "dự án kinh doanh, sự nghiệp"
+            },
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất"
+            },
+            {
+              "w": "デジタル技術",
+              "read": "でじたるぎじゅつ",
+              "vi": "công nghệ số, kỹ thuật số"
+            },
+            {
+              "w": "導入",
+              "read": "どうにゅう",
+              "vi": "áp dụng, đưa vào sử dụng"
+            },
+            {
+              "w": "動き",
+              "read": "うごき",
+              "vi": "cử động, hành động"
+            },
+            {
+              "w": "本格",
+              "read": "ほんかく",
+              "vi": "chính thức, bài bản"
+            },
+            {
+              "w": "保存事業",
+              "read": "ほぞんじぎょう",
+              "vi": "dự án bảo tồn"
+            },
+            {
+              "w": "本格化",
+              "read": "ほんかくか",
+              "vi": "bắt đầu đi vào hoạt động chính thức/mạnh mẽ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に際して",
+              "vi": "【接続】Vる / N + に際して (hoặc に際し / に際しての + N). 【Sắc thái】Diễn tả thời điểm trang trọng khi bắt đầu hoặc thực hiện một sự kiện, kế hoạch mang tính chính thức (nhân dịp, vào lúc tiến hành). 【Đối chiếu】So với 〜にあたって (nhấn mạnh sự chuẩn bị hướng tới tương lai), 〜に際して thiên về bối cảnh văn thư, thông cáo, sự kiện chính thức; so với 〜のとき thì trang trọng và mang tính nghi thức hơn nhiều."
+            }
+          ]
+        },
+        {
+          "jp": "この事業では、素材の選定から最終仕上げまでの全工程にわたって詳細なデータが記録されている。",
+          "vi": "Trong khuôn khổ dự án này, toàn bộ các dữ liệu chi tiết trải dài trên tất cả các công đoạn từ khâu tuyển chọn nguyên vật liệu cho đến khâu hoàn thiện cuối cùng đều được ghi chép và lưu trữ cẩn mật.",
+          "vocab": [
+            {
+              "w": "事業",
+              "read": "じぎょう",
+              "vi": "dự án kinh doanh, sự nghiệp"
+            },
+            {
+              "w": "素材",
+              "read": "そざい",
+              "vi": "nguyên liệu, chất liệu"
+            },
+            {
+              "w": "選定",
+              "read": "せんてい",
+              "vi": "sự tuyển chọn, chọn lọc"
+            },
+            {
+              "w": "最終",
+              "read": "さいしゅう",
+              "vi": "cuối cùng, sau cùng"
+            },
+            {
+              "w": "仕上げ",
+              "read": "しあげ",
+              "vi": "khâu hoàn thiện cuối cùng"
+            },
+            {
+              "w": "工程",
+              "read": "こうてい",
+              "vi": "công đoạn, quy trình chế tác"
+            },
+            {
+              "w": "詳細",
+              "read": "しょうさい",
+              "vi": "chi tiết"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "全工程",
+              "read": "ぜんこうてい",
+              "vi": "toàn bộ quy trình, tất cả các công đoạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたって",
+              "vi": "【接続】N (toàn bộ quy trình, công đoạn, diện tích) + にわたって. 【Sắc thái】Nhấn mạnh tính bao quát toàn diện trên mọi khâu, mọi giai đoạn của một tiến trình làm việc phức tạp. 【Đối chiếu】Khác với 〜を通じて (nhấn mạnh qua phương tiện hay khoảng thời gian), 〜にわたって làm nổi bật chiều sâu và độ phủ kín toàn diện trên mọi bộ phận của quy trình."
+            }
+          ]
+        },
+        {
+          "jp": "単に作業の様子を映像で保存するばかりか、職人の微妙な力加減や視線の動きまでも数値化している。",
+          "vi": "Dự án không chỉ đơn thuần ghi lại hình ảnh quá trình tác nghiệp, mà thậm chí còn lượng hóa và số hóa cả những tinh chỉnh lực tinh vi cùng sự chuyển dịch ánh mắt của người thợ.",
+          "vocab": [
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "tình hình, cảnh tượng"
+            },
+            {
+              "w": "映像",
+              "read": "えいぞう",
+              "vi": "hình ảnh, video"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "lưu trữ, bảo lưu"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "微妙",
+              "read": "びみょう",
+              "vi": "tinh vi, tinh tế, phức tạp"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "加減",
+              "read": "かげん",
+              "vi": "sự điều chỉnh, gia giảm, mức độ"
+            },
+            {
+              "w": "視線",
+              "read": "しせん",
+              "vi": "ánh mắt, ánh nhìn"
+            },
+            {
+              "w": "動き",
+              "read": "うごき",
+              "vi": "cử động, hành động"
+            },
+            {
+              "w": "数値",
+              "read": "すうち",
+              "vi": "con số, giá trị số"
+            },
+            {
+              "w": "力加減",
+              "read": "ちからかげん",
+              "vi": "sự điều chỉnh lực, mức độ dùng lực"
+            },
+            {
+              "w": "数値化",
+              "read": "すうちか",
+              "vi": "số hóa, lượng hóa bằng số liệu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかりか",
+              "vi": "【接続】Thể thông thường (N / な-adj + な/である) + ばかりか (hoặc ばかりでなく). 【Sắc thái】Diễn đạt ý 'không chỉ dừng lại ở mức độ A, mà còn tiến xa hơn đến cả B' (B là điều bất ngờ hoặc mức độ sâu hơn). Thường đi kèm với も, さえ, まで. 【Đối chiếu】So với 〜だけでなく (mang tính liệt kê bổ sung trung tính), 〜ばかりか nhấn mạnh sự tăng tiến mạnh mẽ và thái độ ngạc nhiên, thán phục."
+            }
+          ]
+        },
+        {
+          "jp": "もっと早くこうした記録を残しておけばさらなる発展に役立ったものを、と悔やまれる面もある。",
+          "vi": "Dẫu vẫn còn đôi chút tiếc nuối rằng giá như lưu lại những tư liệu chuẩn xác này sớm hơn thì đã hỗ trợ rất nhiều cho sự phát triển vượt bậc của nghề, song không thể phủ nhận giá trị của nó.",
+          "vocab": [
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "こうした",
+              "read": "こうした",
+              "vi": "như thế này (chỉ thị từ, tóm lược điều vừa nói)"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "ghi chép, tư liệu lưu trữ"
+            },
+            {
+              "w": "残す",
+              "read": "のこす",
+              "vi": "để lại, giữ lại"
+            },
+            {
+              "w": "さらなる",
+              "read": "さらなる",
+              "vi": "hơn nữa, sâu rộng hơn"
+            },
+            {
+              "w": "発展",
+              "read": "はってん",
+              "vi": "phát triển, tiến bộ"
+            },
+            {
+              "w": "役立つ",
+              "read": "やくだつ",
+              "vi": "có ích, hữu dụng"
+            },
+            {
+              "w": "悔やまれる",
+              "read": "くやまれる",
+              "vi": "đáng tiếc, hối tiếc"
+            },
+            {
+              "w": "面",
+              "read": "めん",
+              "vi": "mặt, khía cạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものを",
+              "vi": "【接続】Vば / Vたら + ものを. 【Sắc thái】Thể hiện sự hối tiếc muộn màng trước một cơ hội đã qua: 'Giá mà làm... thì đã có ích rồi, thế mà...'. Vế sau thường kết hợp với các từ ngữ như と悔やまれる, と惜しまれる. 【Đối chiếu】Khác với 〜ばよかった (cảm thán thông thường), 〜ものを mang phong cách văn viết trang trọng, nhấn mạnh nỗi niềm trăn trở, nuối tiếc khôn nguôi."
+            }
+          ]
+        },
+        {
+          "jp": "伝統の継承危機が叫ばれているだけに、この取り組みが持つ社会的意義は極めて大きい。",
+          "vi": "Chính vì nguy cơ mai một truyền thống đang được gióng lên hồi chuông cảnh báo, ý nghĩa xã hội mà sáng kiến mang tính đột phá này mang lại là vô cùng to lớn.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa"
+            },
+            {
+              "w": "危機",
+              "read": "きき",
+              "vi": "nguy cơ, khủng hoảng"
+            },
+            {
+              "w": "叫ばれる",
+              "read": "さけばれる",
+              "vi": "được kêu gọi, được gióng lên cảnh báo"
+            },
+            {
+              "w": "取り組み",
+              "read": "とりくみ",
+              "vi": "nỗ lực, hoạt động"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "意義",
+              "read": "いぎ",
+              "vi": "ý nghĩa, giá trị"
+            },
+            {
+              "w": "極めて",
+              "read": "きわめて",
+              "vi": "vô cùng, cực kỳ"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "社会的意義",
+              "read": "しゃかいてきいぎ",
+              "vi": "ý nghĩa xã hội"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけに",
+              "vi": "【接続】Thể thông thường (N / な-adj + な/である) + だけに. 【Sắc thái】Diễn tả quan hệ nhân quả mang tính tương xứng: 'Chính vì bối cảnh/lý do A đặc thù như vậy, nên kết quả B càng trở nên sâu sắc / mức độ càng lớn hơn bình thường'. 【Đối chiếu】So với 〜から／〜ので (nguyên nhân thông thường), 〜だけに nhấn mạnh sự tương xứng và khuếch đại mức độ; so với 〜だけあって (chỉ kết quả khen ngợi), 〜だけに dùng tốt cho cả bối cảnh cảnh báo, lo âu, áp lực."
+            }
+          ]
+        },
+        {
+          "jp": "今回の成果公開に際して、伝統文化の未来を切り拓く新たな道筋となることが期待されている。",
+          "vi": "Nhân dịp công bố những thành quả nghiên cứu lần này, công chúng và giới chuyên môn đều kỳ vọng đây sẽ là bước ngoặt quan trọng mở ra con đường tương lai đầy hứa hẹn cho nền văn hóa truyền thống.",
+          "vocab": [
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này, chuyến này"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả đạt được"
+            },
+            {
+              "w": "公開",
+              "read": "こうかい",
+              "vi": "công bố, mở rộng cho công chúng"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "切る",
+              "read": "きる",
+              "vi": "cắt, ngắt"
+            },
+            {
+              "w": "拓く",
+              "read": "ひらく",
+              "vi": "khai phá, mở mang"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "道筋",
+              "read": "みちすじ",
+              "vi": "đường lối, phương hướng phát triển"
+            },
+            {
+              "w": "期待",
+              "read": "きたい",
+              "vi": "kỳ vọng"
+            },
+            {
+              "w": "切り拓く",
+              "read": "きりひらく",
+              "vi": "mở ra, khai phá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に際して",
+              "vi": "【接続】N + に際して. 【Sắc thái】Dùng trong bối cảnh các cột mốc quan trọng, sự kiện công bố chính thức nhằm bày tỏ kỳ vọng hoặc tuyên bố định hướng tương lai. 【Đối chiếu】So với 〜の際に (khi, lúc - trung tính), 〜に際して mang tính nghi thức, trang trọng cao."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "数十年にわたって",
+          "label": "Ngữ pháp N2: にわたって (Trải qua suốt ~)"
+        },
+        {
+          "excerpt": "防げたものを",
+          "label": "Ngữ pháp N2: ものを (Lẽ ra ~ vậy mà...)"
+        },
+        {
+          "excerpt": "名匠たちだけあって",
+          "label": "Ngữ pháp N2: だけあって (Xứng danh/Đúng là vì ~ nên)"
+        },
+        {
+          "excerpt": "叫ばれているだけに",
+          "label": "Ngữ pháp N2: だけに (Chính vì ~ nên càng)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「早期に対策を講じれば技術の断絶を防げたものを」という表現から、筆者のどのような心情が読み取れるか。",
+          "options": [
+            "対策が遅れたことで一部の技法が失われてしまったことに対する強い悔恨や無念さ。",
+            "人手不足という深刻な社会問題が早期に解決されたことに対する安堵感。",
+            "過去の職人たちが技術の公開を拒んだことに対する強い怒りと非難。",
+            "今後どのような対策を講じても伝統の復元は不可能であるという諦めの気持ち。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 5: 'しかし、早期に対策を講じれば技術の断絶を防げたものを、人手不足により失われた技法も少なくない'. Cấu trúc『〜ものを』bộc lộ sự tiếc nuối, day dứt sâu sắc (lẽ ra nếu làm A sớm thì đã không xảy ra hậu quả xấu B, vậy mà thực tế đã xảy ra). Do đó, đáp án đúng là 0: thể hiện sự tiếc nuối, ngậm ngùi (悔恨・無念さ) khi biện pháp bị chậm trễ khiến một số kỹ thuật bị thất truyền.\n- Phương án 1 sai vì tình trạng thiếu người vẫn diễn ra, không hề có sự an tâm (安堵感).\n- Phương án 2 sai vì bài viết không hề nói nghệ nhân từ chối công khai kỹ thuật hay thể hiện sự tức giận (怒りと非難).\n- Phương án 3 sai vì tác giả hướng tới giải pháp số hóa ở đoạn 2 chứ không hề bi quan bỏ cuộc (諦め).",
+          "tip": "Chú ý cấu trúc giả định 『〜ば...ものを』luôn thể hiện sự tiếc nuối, day dứt về điều lẽ ra có thể làm tốt hơn trong quá khứ.",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Từ cách diễn đạt 「早期に対策を講じれば技術の断絶を防げたものを」 (giá mà có biện pháp sớm thì đã có thể ngăn kỹ thuật bị đứt đoạn), có thể nhận ra tâm trạng nào của tác giả?",
+            "o": [
+              "Sự hối tiếc và nuối tiếc sâu sắc vì một số kỹ thuật đã bị mất do các biện pháp được thực hiện quá muộn.",
+              "Cảm giác nhẹ nhõm vì vấn đề xã hội nghiêm trọng là thiếu nhân lực đã được giải quyết sớm.",
+              "Sự tức giận và chỉ trích mạnh mẽ đối với những nghệ nhân trong quá khứ vì đã từ chối công khai kỹ thuật.",
+              "Tâm trạng cam chịu vì cho rằng dù sau này có áp dụng biện pháp nào thì cũng không thể khôi phục truyền thống."
+            ]
+          }
+        },
+        {
+          "q": "本文における伝統工芸の職人たちの様子として、正しいものはどれか。",
+          "options": [
+            "後進の育成だけに専念するため、自らの作品制作を一時的に中断している。",
+            "日々の作品制作に励む一方で、次世代への技術の継承作業にも力を尽くしている。",
+            "デジタル技術の導入に強く反対し、従来の手法のみを守るよう主張している。",
+            "長年の修業を経てもなお、作品の出来栄えに自信を持てずにいる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 4: '職人たちは日々の制作に励むかたわら、後進への技術伝承にも力を注いできた' (Các nghệ nhân bên cạnh việc miệt mài chế tác hàng ngày, cũng dồn tâm sức truyền dạy cho thế hệ sau). Mẫu『〜かたわら』cho thấy hai hoạt động diễn ra song song. Do đó đáp án 1 chính xác.\n- Phương án 0 sai vì họ không tạm dừng chế tác (制作を中断) mà làm song song cả hai việc.\n- Phương án 2 sai vì đoạn 2 cho thấy có sự phối hợp đưa công nghệ số vào và các thợ thủ công đã tham gia đo đạc dữ liệu, không hề có chi tiết phản đối kịch liệt (強く反対).\n- Phương án 3 sai vì câu 3 khẳng định tác phẩm của họ tinh xảo áp đảo người xem (生み出される作品の精緻さは見る者を圧倒する), không hề thiếu tự tin.",
+          "tip": "Tìm từ khóa '職人' và mẫu câu '〜かたわら' để đối chiếu hai công việc diễn ra đồng thời.",
+          "evi": [
+            2,
+            3
+          ],
+          "qt": {
+            "q": "Theo bài đọc, mô tả nào sau đây đúng về tình hình của các nghệ nhân thủ công truyền thống?",
+            "o": [
+              "Họ tạm ngừng sáng tác để chỉ tập trung đào tạo thế hệ kế cận.",
+              "Một mặt họ nỗ lực sáng tác tác phẩm hằng ngày, mặt khác cũng dốc sức truyền lại kỹ thuật cho thế hệ tiếp theo.",
+              "Họ mạnh mẽ phản đối việc áp dụng công nghệ số và chủ trương chỉ bảo vệ các phương pháp truyền thống.",
+              "Dù đã trải qua nhiều năm tu nghiệp, họ vẫn không tự tin vào chất lượng tác phẩm của mình."
+            ]
+          }
+        },
+        {
+          "q": "近年導入されたデジタル技術による保存事業の特徴として、本文で述べられているものはどれか。",
+          "options": [
+            "熟練職人の作業を映像で記録するだけに留め、作業手順の簡略化を目指している。",
+            "人手不足を解消するため、職人の代わりにすべての工程をロボットに代行させている。",
+            "素材選びから仕上げまでの全工程を記録し、職人の力加減や視線の動きまで数値化している。",
+            "過去に失われたすべての技法を人工知能によって完全に復元することに成功した。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu 7 và 8: '素材の選定から最終仕上げまでの全工程にわたって詳細なデータが記録されている。単に作業の様子を映像で保存するばかりか、職人の微妙な力加減や視線の動きまでも数値化している'. Do đó đáp án 2 hoàn toàn trùng khớp.\n- Phương án 0 sai vì câu 8 ghi rõ '単に...映像で保存するばかりか' (không chỉ dừng lại ở quay video).\n- Phương án 1 sai vì không hề có việc thay thế toàn bộ bằng robot.\n- Phương án 3 sai vì công nghệ số dùng để ghi chép lưu trữ các kỹ thuật hiện có, không nói là đã phục chế hoàn toàn tất cả kỹ thuật đã mất trong quá khứ.",
+          "tip": "Mẫu câu『〜ばかりか〜までも』nhấn mạnh phạm vi số hóa không chỉ là hình ảnh bên ngoài mà sâu đến tận mức độ lực và ánh mắt.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Theo bài đọc, đặc điểm nào được nêu về dự án lưu trữ sử dụng công nghệ số được đưa vào áp dụng trong những năm gần đây?",
+            "o": [
+              "Dự án chỉ ghi hình công việc của các nghệ nhân lành nghề và hướng đến việc đơn giản hóa các quy trình làm việc.",
+              "Để giải quyết tình trạng thiếu nhân lực, dự án để robot thay nghệ nhân thực hiện tất cả các công đoạn.",
+              "Dự án ghi lại toàn bộ quy trình từ khâu chọn nguyên liệu đến hoàn thiện, đồng thời số hóa cả lực tay và chuyển động ánh mắt của nghệ nhân.",
+              "Dự án đã thành công trong việc khôi phục hoàn toàn bằng trí tuệ nhân tạo tất cả các kỹ thuật đã mất trong quá khứ."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこのデジタルアーカイブの取り組みを「社会的意義が極めて大きい」と評価している理由は何か。",
+          "options": [
+            "伝統工芸品の大量生産が可能になり、海外への輸出利益が大幅に増大するから。",
+            "継承の危機に直面している伝統工芸において、技術を確実に後世へ残し未来を拓く道となるから。",
+            "職人の育成にかかる費用を完全に削減し、誰でも短期間で名匠になれるから。",
+            "伝統文化をすべてデジタル空間へ移行させ、職人による手作業を不要にするから。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 10 và 11: '伝統の継承危機が叫ばれているだけに、この取り組みが持つ社会的意義は極めて大きい。今回の成果公開に際して、伝統文化の未来を切り拓く新たな道筋となることが期待されている'. Chính vì nguy cơ đứt gãy truyền thống, việc số hóa mở ra con đường bảo tồn và kế thừa cho tương lai. Do đó đáp án 1 phản ánh đúng nhất.\n- Phương án 0 sai vì bài không đề cập đến việc sản xuất hàng loạt hay lợi nhuận xuất khẩu (大量生産・輸出利益).\n- Phương án 2 sai vì dự án không nhằm biến bất kỳ ai thành nghệ nhân trong thời gian ngắn hay cắt bỏ hoàn toàn chi phí.\n- Phương án 3 sai vì mục đích là lưu giữ và hỗ trợ kế thừa nghề thủ công chứ không phải xóa bỏ hoàn toàn lao động thủ công (手作業を不要にする).",
+          "tip": "Căn cứ vào mối quan hệ giữa câu '伝統の継承危機が叫ばれているだけに' và '未来を切り拓く新たな道筋'.",
+          "evi": [
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Vì sao tác giả đánh giá nỗ lực lưu trữ số này là 「社会的意義が極めて大きい」 (có ý nghĩa xã hội vô cùng to lớn)?",
+            "o": [
+              "Vì việc sản xuất hàng loạt các sản phẩm thủ công truyền thống trở nên khả thi và lợi nhuận xuất khẩu ra nước ngoài tăng mạnh.",
+              "Vì đây là con đường giúp lưu giữ chắc chắn kỹ thuật cho các thế hệ sau và mở ra tương lai cho ngành thủ công truyền thống đang đối mặt với nguy cơ mai một.",
+              "Vì chi phí đào tạo nghệ nhân được cắt giảm hoàn toàn và bất cứ ai cũng có thể trở thành bậc thầy chỉ trong thời gian ngắn.",
+              "Vì toàn bộ văn hóa truyền thống được chuyển sang không gian số, khiến việc làm thủ công của nghệ nhân không còn cần thiết."
+            ]
+          }
+        },
+        {
+          "q": "この文章全体を通して筆者が最も強く主張していることは何か。",
+          "options": [
+            "デジタル技術の活用は過去の反省を活かしつつ、危機にある伝統工芸を後世へ継ぐ重要な希望となる。",
+            "一度失われた伝統技術は二度と取り戻せないため、最新技術の開発よりも職人の待遇改善を優先すべきだ。",
+            "伝統工芸の衰退は時代の流れであり、映像記録さえあれば後継者の育成はもはや必要ない。",
+            "職人の勘や経験による技術は数値化できないため、デジタル保存には限界がある。"
+          ],
+          "answer": 0,
+          "explainVi": "Tổng hợp toàn bài: Đoạn 1 trình bày sự khó khăn trong việc gìn giữ nghề thủ công truyền thống suốt nhiều thập kỷ, cùng sự tiếc nuối khi một số kỹ thuật bị mai một do không hành động sớm. Đoạn 2 nêu giải pháp đột phá là dùng công nghệ số để lưu lại toàn bộ quy trình, biến đó thành hướng đi mở ra tương lai cho văn hóa truyền thống. Do đó đáp án 0 là khái quát chính xác và toàn diện nhất tư tưởng của tác giả.\n- Phương án 1 sai vì bài viết đánh giá rất cao dự án kỹ thuật số hiện tại chứ không bài xích công nghệ để ưu tiên đãi ngộ.\n- Phương án 2 sai vì bài viết luôn coi trọng việc trao truyền cho thế hệ sau (後進への技術伝承) và không cho rằng việc đào tạo là không cần thiết.\n- Phương án 3 sai vì bài viết chỉ ra rằng công nghệ đã lượng hóa được cả lực bấm và ánh mắt (力加減や視線の動きまでも数値化している), không hề phủ nhận hiệu quả của lưu trữ số.",
+          "tip": "Câu hỏi ý chính toàn bài cần bao quát cả hai vế: bối cảnh khó khăn/tiếc nuối trong quá khứ và vai trò mở đường của công nghệ số trong tương lai.",
+          "evi": [
+            0,
+            4,
+            7,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Xuyên suốt bài viết này, tác giả muốn nhấn mạnh nhất điều gì?",
+            "o": [
+              "Việc ứng dụng công nghệ số, đồng thời rút kinh nghiệm từ quá khứ, sẽ trở thành niềm hy vọng quan trọng giúp truyền lại cho thế hệ sau ngành thủ công truyền thống đang gặp nguy cơ.",
+              "Vì kỹ thuật truyền thống một khi đã mất thì không thể lấy lại, nên cần ưu tiên cải thiện đãi ngộ cho nghệ nhân hơn là phát triển công nghệ mới nhất.",
+              "Sự suy thoái của ngành thủ công truyền thống là xu thế của thời đại, và chỉ cần có ghi hình thì không còn cần đào tạo người kế thừa nữa.",
+              "Vì kỹ thuật dựa trên trực giác và kinh nghiệm của nghệ nhân không thể được số hóa, nên việc lưu trữ bằng công nghệ số có những giới hạn."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "伝統技法の継承とデジタルの光 — 失われゆく手仕事を未来へ",
+      "titleVi": "Kế thừa kỹ pháp truyền thống và ánh sáng kỹ thuật số — Đưa nghề thủ công dần mai một đến tương lai",
+      "japanese": "日本各地で過疎化と高齢化が進むなか、長年にわたって継承されてきた伝統文化や工芸技術の存続が深刻な危機に瀕している。長年地域に根ざしてきた伝統工芸だけあって、その技法には地域の風土や先人の深い知恵が凝縮されている。しかし、時代の急激な変化に伴い、後継者の不足が進むばかりか、原材料の調達までもが難しくなっている。復元が極めて困難な手仕事であるだけに、一つの技術が途絶えたときの損失は計り知れない。早期に行政や社会全体で手厚い支援を行っていれば技術を守れたものを、対策の遅れによって多くの貴重な技法が消え去ってしまった。これまで記録されることもなく静かに消滅していった工芸や民俗芸能が、いったいどれほど存在することか。\nこうした危機的状況を受け、近年では最新のデジタル技術を活用して職人の技を三次元データとして記録する試みが始まっている。今回のデジタル保存事業を全国展開するに際して、各地の工房と研究機関が緊密に連携する体制が整えられた。ある著名な漆芸家は、自ら工房で制作を続けるかたわら、若手技術者への指導やデジタル化の監修に情熱を注いでいる。熟練の職人が丹精込めて生み出す作品だけあって、その精緻な美しさは国内ばかりか海外の愛好家からも高い評価を受けている。半世紀にわたって培われた技術の記録作業は容易ではないが、職人の繊細な手の動きを高精度センサーで捉える取り組みが着実に進んでいる。伝統を守る責任が重いだけに、関係者たちのプロジェクトにかける熱意と集中力は並々ならぬものがある。\nもっとも、デジタル保存の重要性が叫ばれる以前は、技術の継承は完全に現場の徒弟制度に依存していた。かつて十分な予算と人員を割いて体系的な記録を残していれば後世に容易に引き継げたものを、個人の努力に頼り切っていたツケが今になって回ってきたのである。その漆芸家も、かつて大学で教鞭を執るかたわらで古い技法の復元を試みた際、すでに失われた技術の多さに直面したという。生涯を捧げて技を磨き上げた先代の職人たちが、どれほど多くの工夫と苦心を重ねていたことか。資料の散逸を防ぎ、文化財を次世代へと正しく受け渡すに際しては、単なるデータの蓄積以上の工夫が求められる。職人の直感や感覚といった数値化しにくい要素が多いだけに、記録の手法そのものも常に進化させなければならない。\n今後、数か月にわたる詳細な動作解析を通じて、暗黙知とされてきた職人技の構造がより明確に解き明かされる見込みである。デジタル技術は記録の手段という範囲を超えて、若者が伝統工芸に親しむ新たな契機を提供するばかりか、異分野との革新的な融合をも促進している。歴史ある技法と最新技術が融合した成果だけあって、完成した仮想体験プログラムは教育現場でも大きな注目を集めている。地域社会の衰退が懸念されているだけに、伝統の再生がもたらす地域活性化への期待はいっそう高まっている。伝統の新たな魅力を世界に発信するに際して、私たちは過去の反省を生かし、文化の価値を能動的に守り育てる姿勢を持たねばならない。古き良き文化を未来へ繋ぐ道筋がいかに多様で希望に満ちたものであることか、この取り組みは私たちに力強く教えてくれている。",
+      "vietnamese": "Trong bối cảnh tình trạng suy giảm dân số và già hóa diễn ra ở khắp các địa phương Nhật Bản, sự tồn tại của văn hóa truyền thống và các kỹ thuật thủ công mỹ nghệ được kế thừa qua nhiều năm đang đứng trước nguy cơ nghiêm trọng. Đúng là nghề thủ công truyền thống đã bén rễ lâu năm tại địa phương, trong kỹ pháp đó cô đọng cả phong thổ của vùng đất lẫn trí tuệ sâu sắc của các bậc tiền nhân. Thế nhưng, cùng với sự thay đổi nhanh chóng của thời đại, không chỉ tình trạng thiếu hụt người kế thừa ngày càng tăng mà ngay cả việc thu mua nguyên liệu thô cũng trở nên khó khăn. Chính vì đây là công việc thủ công vô cùng khó phục chế, nên tổn thất khi một kỹ thuật bị thất truyền là không thể đong đếm được. Lẽ ra nếu chính quyền và toàn xã hội thực hiện những hỗ trợ chu đáo từ sớm thì đã có thể bảo vệ được kỹ thuật, vậy mà do sự chậm trễ trong đối sách, nhiều kỹ pháp quý giá đã biến mất hoàn toàn. Không biết có biết bao nhiêu ngành thủ công mỹ nghệ và nghệ thuật dân gian đã âm thầm biến mất mà chẳng hề được ghi chép lại cho tới nay.\nTrước tình hình khủng hoảng này, những năm gần đây đã bắt đầu xuất hiện những nỗ lực tận dụng công nghệ kỹ thuật số mới nhất để ghi lại kỹ năng của nghệ nhân dưới dạng dữ liệu không gian ba chiều. Nhân dịp triển khai dự án lưu trữ kỹ thuật số lần này trên toàn quốc, một hệ thống liên kết chặt chẽ giữa các xưởng chế tác địa phương và các cơ quan nghiên cứu đã được thiết lập. Một nghệ nhân sơn mài nổi tiếng, bên cạnh việc đích thân tiếp tục sáng tác tại xưởng, còn dành trọn tâm huyết cho việc hướng dẫn các kỹ thuật viên trẻ và giám sát chuyên môn quá trình kỹ thuật số hóa. Đúng là tác phẩm do nghệ nhân lành nghề dồn hết tâm huyết tạo ra, vẻ đẹp tinh xảo ấy không chỉ trong nước mà còn nhận được sự đánh giá rất cao từ giới mộ điệu nước ngoài. Công việc ghi chép lại kỹ thuật được vun đắp suốt nửa thế kỷ tuy không hề dễ dàng, nhưng những nỗ lực nắm bắt chuyển động tinh tế của bàn tay nghệ nhân bằng cảm biến độ chính xác cao đang tiến triển vững chắc. Chính vì trách nhiệm bảo vệ truyền thống hết sức nặng nề, nên nhiệt huyết và sự tập trung mà những người liên quan dồn vào dự án là vô cùng phi thường.\nTuy nhiên, trước khi tầm quan trọng của việc lưu trữ kỹ thuật số được kêu gọi, việc kế thừa kỹ thuật hoàn toàn phụ thuộc vào chế độ sư đồ (học việc) tại chỗ. Lẽ ra ngày trước nếu dành đủ ngân sách và nhân lực để lưu lại các ghi chép có hệ thống thì đã có thể truyền lại cho đời sau một cách dễ dàng, vậy mà cái giá của việc ỷ lại hoàn toàn vào nỗ lực cá nhân nay đã phải trả. Bản thân nghệ nhân sơn mài đó cũng chia sẻ rằng, trước đây trong khi giảng dạy tại trường đại học, ông đã thử phục dựng lại các kỹ pháp cổ và đã phải đối mặt với số lượng kỹ thuật bị thất truyền quá nhiều. Không biết các thế hệ nghệ nhân đi trước, những người đã cống hiến trọn đời để tôi luyện tay nghề, đã phải dồn bao nhiêu tìm tòi công phu và tâm huyết nhọc nhằn biết chừng nào. Vào lúc ngăn ngừa sự thất lạc tư liệu và chuyển giao di sản văn hóa đúng đắn cho thế hệ sau, người ta đòi hỏi phải có những sáng kiến vượt lên trên việc lưu trữ dữ liệu đơn thuần. Chính vì có nhiều yếu tố khó số hóa như trực giác hay cảm giác của người thợ, nên bản thân phương pháp ghi chép cũng phải không ngừng cải tiến.\nTrong thời gian tới, thông qua phân tích động tác chi tiết trải dài trong vài tháng, cấu trúc của kỹ năng nghệ nhân vốn được coi là 'tri thức ẩn' dự kiến sẽ được sáng tỏ một cách rõ ràng hơn. Công nghệ kỹ thuật số đã vượt ra khỏi phạm vi một phương tiện lưu trữ, không chỉ đem lại cơ hội mới để giới trẻ tiếp cận gần gũi với nghề thủ công truyền thống mà còn thúc đẩy sự giao thoa đổi mới mang tính đột phá với các lĩnh vực khác nhau. Đúng là thành quả có được từ sự dung hợp giữa kỹ pháp giàu lịch sử và công nghệ tối tân, chương trình trải nghiệm thực tế ảo vừa hoàn thành đang thu hút sự chú ý rất lớn ngay cả trong môi trường giáo dục. Chính vì sự suy thoái của xã hội địa phương đang là nỗi lo âu lớn, nên kỳ vọng vào việc phục hưng truyền thống mang lại sự hồi sinh cho khu vực lại càng dâng cao hơn bao giờ hết. Nhân lúc truyền bá sức hấp dẫn mới của truyền thống ra thế giới, chúng ta phải vận dụng những bài học rút ra từ quá khứ và có thái độ chủ động gìn giữ, vun đắp giá trị của văn hóa. Con đường kết nối nét văn hóa truyền thống tốt đẹp tới tương lai đa dạng và tràn đầy hy vọng biết bao nhiêu, sáng kiến này đang chỉ dẫn cho chúng ta một cách đầy mạnh mẽ.",
+      "sentences": [
+        {
+          "jp": "日本各地で過疎化と高齢化が進むなか、長年にわたって継承されてきた伝統文化や工芸技術の存続が深刻な危機に瀕している。",
+          "vi": "Trong bối cảnh tình trạng suy giảm dân số và già hóa diễn ra ở khắp các địa phương Nhật Bản, sự tồn tại của văn hóa truyền thống và các kỹ thuật thủ công mỹ nghệ được kế thừa qua nhiều năm đang đứng trước nguy cơ nghiêm trọng.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "各地",
+              "read": "かくち",
+              "vi": "các vùng, khắp nơi"
+            },
+            {
+              "w": "過疎",
+              "read": "かそ",
+              "vi": "sự thưa dân, giảm dân số"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm, lâu năm"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "存続",
+              "read": "そんぞく",
+              "vi": "sự tồn tại, duy trì"
+            },
+            {
+              "w": "深刻",
+              "read": "しんこく",
+              "vi": "nghiêm trọng"
+            },
+            {
+              "w": "危機",
+              "read": "きき",
+              "vi": "nguy cơ, khủng hoảng"
+            },
+            {
+              "w": "過疎化",
+              "read": "かそか",
+              "vi": "sự suy giảm dân số ở vùng nông thôn"
+            },
+            {
+              "w": "危機に瀕する",
+              "read": "ききにひんする",
+              "vi": "đứng trước bờ vực khủng hoảng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたって",
+              "vi": "【接続】N ＋ にわたって。【Sắc thái】Diễn tả một sự việc, hiện tượng trải rộng trên toàn bộ một khoảng thời gian dài, không gian hoặc quy mô lớn mang tính trang trọng.【Đối chiếu】So với 〜を通じて (nhấn mạnh sự liên tục hoặc trung gian), 〜にわたって nhấn mạnh toàn bộ chiều dài thời gian hoặc phạm vi bao quát rộng lớn."
+            }
+          ]
+        },
+        {
+          "jp": "長年地域に根ざしてきた伝統工芸だけあって、その技法には地域の風土や先人の深い知恵が凝縮されている。",
+          "vi": "Đúng là nghề thủ công truyền thống đã bén rễ lâu năm tại địa phương, trong kỹ pháp đó cô đọng cả phong thổ của vùng đất lẫn trí tuệ sâu sắc của các bậc tiền nhân.",
+          "vocab": [
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm, lâu năm"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "根ざす",
+              "read": "ねざす",
+              "vi": "bén rễ, cắm rễ sâu vào"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "技法",
+              "read": "ぎほう",
+              "vi": "kỹ pháp, phương pháp kỹ thuật"
+            },
+            {
+              "w": "風土",
+              "read": "ふうど",
+              "vi": "phong thổ, đặc trưng khí hậu và tự nhiên của vùng đất"
+            },
+            {
+              "w": "先人",
+              "read": "せんじん",
+              "vi": "tiền nhân, thế hệ đi trước"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "知恵",
+              "read": "ちえ",
+              "vi": "trí tuệ"
+            },
+            {
+              "w": "凝縮",
+              "read": "ぎょうしゅく",
+              "vi": "cô đọng, ngưng tụ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけあって",
+              "vi": "【接続】V/A(thể thông thường) / N・Na(bỏ だ/な + である) ＋ だけあって。【Sắc thái】'Đúng là vì... nên quả thật...', dùng để khen ngợi, tán thưởng kết quả tương xứng với danh tiếng, đặc điểm vốn có.【Đối chiếu】Gần nghĩa với 〜だけに, nhưng 〜だけあって chuyên dùng cho đánh giá tích cực/khen ngợi trực tiếp, còn 〜だけに dùng cho cả áp lực, kỳ vọng hoặc hệ quả tiêu cực."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、時代の急激な変化に伴い、後継者の不足が進むばかりか、原材料の調達までもが難しくなっている。",
+          "vi": "Thế nhưng, cùng với sự thay đổi nhanh chóng của thời đại, không chỉ tình trạng thiếu hụt người kế thừa ngày càng tăng mà ngay cả việc thu mua nguyên liệu thô cũng trở nên khó khăn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "急激",
+              "read": "きゅうげき",
+              "vi": "đột ngột, nhanh chóng và dữ dội"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "伴う",
+              "read": "ともなう",
+              "vi": "gắn liền với, đi kèm"
+            },
+            {
+              "w": "後継",
+              "read": "こうけい",
+              "vi": "kế thừa, nối dõi"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "原材料",
+              "read": "げんざいりょう",
+              "vi": "nguyên vật liệu"
+            },
+            {
+              "w": "調達",
+              "read": "ちょうたつ",
+              "vi": "sự thu mua, cung ứng vật tư"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "後継者",
+              "read": "こうけいしゃ",
+              "vi": "người kế thừa, người nối nghiệp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかりか",
+              "vi": "【接続】V/A(thể thông thường) / N / Na+な/である ＋ ばかりか。【Sắc thái】'Không chỉ dừng lại ở A mà mức độ còn lan sang cả B (nặng hơn hoặc bất ngờ hơn)'. Văn phong trang trọng.【Đối chiếu】So với 〜だけでなく, 〜ばかりか nhấn mạnh sự tăng cấp và tính nghiêm trọng vượt ngoài dự tính ở vế sau."
+            }
+          ]
+        },
+        {
+          "jp": "復元が極めて困難な手仕事であるだけに、一つの技術が途絶えたときの損失は計り知れない。",
+          "vi": "Chính vì đây là công việc thủ công vô cùng khó phục chế, nên tổn thất khi một kỹ thuật bị thất truyền là không thể đong đếm được.",
+          "vocab": [
+            {
+              "w": "復元",
+              "read": "ふくげん",
+              "vi": "phục dựng, khôi phục nguyên trạng"
+            },
+            {
+              "w": "極めて",
+              "read": "きわめて",
+              "vi": "cực kỳ, vô cùng"
+            },
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn"
+            },
+            {
+              "w": "手仕事",
+              "read": "てしごと",
+              "vi": "công việc thủ công"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "途絶える",
+              "read": "とだえる",
+              "vi": "bị gián đoạn, dứt hẳn, thất truyền"
+            },
+            {
+              "w": "損失",
+              "read": "そんしつ",
+              "vi": "tổn thất, thiệt hại"
+            },
+            {
+              "w": "計る",
+              "read": "はかる",
+              "vi": "đo lường, tính toán"
+            },
+            {
+              "w": "知れる",
+              "read": "しれる",
+              "vi": "được biết đến, hiểu ra"
+            },
+            {
+              "w": "計り知れない",
+              "read": "はかりしれない",
+              "vi": "khôn lường, không thể đo đếm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけに",
+              "vi": "【接続】V/A(thể thông thường) / N / Na+な/である ＋ だけに。【Sắc thái】'Chính vì lý do A đặc thù nên mức độ hệ quả B càng sâu sắc/nặng nề hơn bình thường'.【Đối chiếu】Khác với 〜から/〜ので (chỉ nguyên nhân đơn thuần), 〜だけに nhấn mạnh sự tương xứng về mức độ nghiêm trọng hoặc cảm xúc kéo theo."
+            }
+          ]
+        },
+        {
+          "jp": "早期に行政や社会全体で手厚い支援を行っていれば技術を守れたものを、対策の遅れによって多くの貴重な技法が消え去ってしまった。",
+          "vi": "Lẽ ra nếu chính quyền và toàn xã hội thực hiện những hỗ trợ chu đáo từ sớm thì đã có thể bảo vệ được kỹ thuật, vậy mà do sự chậm trễ trong đối sách, nhiều kỹ pháp quý giá đã biến mất hoàn toàn.",
+          "vocab": [
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "giai đoạn đầu, sớm"
+            },
+            {
+              "w": "行政",
+              "read": "ぎょうせい",
+              "vi": "chính quyền, hành chính"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "手厚い",
+              "read": "てあつい",
+              "vi": "chu đáo, tận tình, hào phóng"
+            },
+            {
+              "w": "支援",
+              "read": "しえん",
+              "vi": "sự hỗ trợ, giúp đỡ"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "守れる",
+              "read": "まもれる",
+              "vi": "có thể bảo vệ, giữ gìn"
+            },
+            {
+              "w": "対策",
+              "read": "たいさく",
+              "vi": "biện pháp đối phó"
+            },
+            {
+              "w": "遅れ",
+              "read": "おくれ",
+              "vi": "sự chậm trễ, muộn"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "貴重",
+              "read": "きちょう",
+              "vi": "quý giá, quý báu"
+            },
+            {
+              "w": "技法",
+              "read": "ぎほう",
+              "vi": "kỹ pháp, phương pháp kỹ thuật"
+            },
+            {
+              "w": "消え去る",
+              "read": "きえさる",
+              "vi": "biến mất hoàn toàn, tiêu tan"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものを",
+              "vi": "【接続】V/A(thể thông thường) / Na+な / N+な ＋ ものを (thường đi với câu điều kiện 〜ば／たら ở vế trước).【Sắc thái】'Giá mà... thì đã... vậy mà thực tế lại trái ngược', bày tỏ sâu sắc sự tiếc nuối, hối hận hoặc trách móc trước kết quả xấu.【Đối chiếu】So với 〜のに, 〜ものを mang tính văn viết trang trọng hơn nhiều và ngụ ý mạnh mẽ về sự nuối tiếc một cơ hội đã bị bỏ lỡ trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "これまで記録されることもなく静かに消滅していった工芸や民俗芸能が、いったいどれほど存在することか。",
+          "vi": "Không biết có biết bao nhiêu ngành thủ công mỹ nghệ và nghệ thuật dân gian đã âm thầm biến mất mà chẳng hề được ghi chép lại cho tới nay.",
+          "vocab": [
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "消滅",
+              "read": "しょうめつ",
+              "vi": "sự tiêu biến, biến mất"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "芸能",
+              "read": "げいのう",
+              "vi": "nghệ thuật giải trí"
+            },
+            {
+              "w": "いったい",
+              "read": "いったい",
+              "vi": "rốt cuộc, rốt cuộc là"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "sự tồn tại"
+            },
+            {
+              "w": "民俗芸能",
+              "read": "みんぞくげいのう",
+              "vi": "nghệ thuật dân gian, diễn xướng dân gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことか",
+              "vi": "【接続】V/A(thể thông thường) / Na+な/である / N+である ＋ ことか (thường đi kèm どれほど, どんなに).【Sắc thái】'Biết bao nhiêu / Không biết dường nào', dùng để bộc lộ cảm thán sâu sắc về mức độ to lớn của sự việc.【Đối chiếu】So với câu trần thuật thông thường, 〜ことか khẳng định đỉnh điểm cảm xúc của người nói."
+            }
+          ]
+        },
+        {
+          "jp": "こうした危機的状況を受け、近年では最新のデジタル技術を活用して職人の技を三次元データとして記録する試みが始まっている。",
+          "vi": "Trước tình hình khủng hoảng này, những năm gần đây đã bắt đầu xuất hiện những nỗ lực tận dụng công nghệ kỹ thuật số mới nhất để ghi lại kỹ năng của nghệ nhân dưới dạng dữ liệu không gian ba chiều.",
+          "vocab": [
+            {
+              "w": "こうした",
+              "read": "こうした",
+              "vi": "như thế này; như vậy"
+            },
+            {
+              "w": "危機的状況",
+              "read": "ききてきじょうきょう",
+              "vi": "tình trạng khủng hoảng"
+            },
+            {
+              "w": "危機的",
+              "read": "ききてき",
+              "vi": "mang tính khủng hoảng"
+            },
+            {
+              "w": "危機",
+              "read": "きき",
+              "vi": "khủng hoảng"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình hình; tình trạng"
+            },
+            {
+              "w": "受け",
+              "read": "うけ",
+              "vi": "tiếp nhận; nhận"
+            },
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất"
+            },
+            {
+              "w": "デジタル技術",
+              "read": "でじたるぎじゅつ",
+              "vi": "công nghệ số"
+            },
+            {
+              "w": "デジタル",
+              "read": "でじたる",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật; công nghệ"
+            },
+            {
+              "w": "活用して",
+              "read": "かつようして",
+              "vi": "tận dụng; áp dụng"
+            },
+            {
+              "w": "活用",
+              "read": "かつよう",
+              "vi": "việc tận dụng"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân; thợ lành nghề"
+            },
+            {
+              "w": "技",
+              "read": "わざ",
+              "vi": "kỹ năng; kỹ nghệ"
+            },
+            {
+              "w": "三次元データ",
+              "read": "さんじげんでーた",
+              "vi": "dữ liệu ba chiều"
+            },
+            {
+              "w": "三次元",
+              "read": "さんじげん",
+              "vi": "ba chiều"
+            },
+            {
+              "w": "データ",
+              "read": "でーた",
+              "vi": "dữ liệu"
+            },
+            {
+              "w": "記録する",
+              "read": "きろくする",
+              "vi": "ghi chép; lưu lại"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "ghi chép; bản ghi"
+            },
+            {
+              "w": "試み",
+              "read": "こころみ",
+              "vi": "nỗ lực; thử nghiệm"
+            },
+            {
+              "w": "始まっている",
+              "read": "はじまっている",
+              "vi": "đã bắt đầu; đang diễn ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜を受ける",
+              "vi": "【接続】N ＋ を受けて。【Sắc thái】'Trước bối cảnh / Xuất phát từ tình huống N', diễn tả hành động kế tiếp nhằm phản ứng lại hoàn cảnh."
+            }
+          ]
+        },
+        {
+          "jp": "今回のデジタル保存事業を全国展開するに際して、各地の工房と研究機関が緊密に連携する体制が整えられた。",
+          "vi": "Nhân dịp triển khai dự án lưu trữ kỹ thuật số lần này trên toàn quốc, một hệ thống liên kết chặt chẽ giữa các xưởng chế tác địa phương và các cơ quan nghiên cứu đã được thiết lập.",
+          "vocab": [
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này, chuyến này"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "lưu trữ, bảo lưu"
+            },
+            {
+              "w": "事業",
+              "read": "じぎょう",
+              "vi": "dự án kinh doanh, sự nghiệp"
+            },
+            {
+              "w": "全国",
+              "read": "ぜんこく",
+              "vi": "toàn quốc"
+            },
+            {
+              "w": "展開",
+              "read": "てんかい",
+              "vi": "mở rộng, triển khai"
+            },
+            {
+              "w": "各地",
+              "read": "かくち",
+              "vi": "các vùng, khắp nơi"
+            },
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng chế tác, xưởng nghệ thuật"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "機関",
+              "read": "きかん",
+              "vi": "cơ quan, tổ chức"
+            },
+            {
+              "w": "緊密",
+              "read": "きんみつ",
+              "vi": "chặt chẽ, khăng khít"
+            },
+            {
+              "w": "連携",
+              "read": "れんけい",
+              "vi": "sự liên kết, phối hợp"
+            },
+            {
+              "w": "体制",
+              "read": "たいせい",
+              "vi": "thể chế, cơ chế, bộ máy"
+            },
+            {
+              "w": "整える",
+              "read": "ととのえる",
+              "vi": "chuẩn bị chu đáo, thiết lập hoàn chỉnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に際して",
+              "vi": "【接続】Vる / N ＋ に際して。【Sắc thái】'Nhân dịp / Vào thời điểm bắt đầu một sự kiện quan trọng mang tính nghi thức, công cộng'. Văn phong trang trọng.【Đối chiếu】So với 〜にあたって (nhấn mạnh tâm thế chuẩn bị tích cực), 〜に際して mang tính khách quan và trang trọng hơn khi nói về mốc thời điểm diễn ra sự kiện."
+            }
+          ]
+        },
+        {
+          "jp": "ある著名な漆芸家は、自ら工房で制作を続けるかたわら、若手技術者への指導やデジタル化の監修に情熱を注いでいる。",
+          "vi": "Một nghệ nhân sơn mài nổi tiếng, bên cạnh việc đích thân tiếp tục sáng tác tại xưởng, còn dành trọn tâm huyết cho việc hướng dẫn các kỹ thuật viên trẻ và giám sát chuyên môn quá trình kỹ thuật số hóa.",
+          "vocab": [
+            {
+              "w": "著名",
+              "read": "ちょめい",
+              "vi": "nổi tiếng, trứ danh"
+            },
+            {
+              "w": "漆",
+              "read": "うるし",
+              "vi": "sơn ta, chất sơn mài"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng thủ công, xưởng chế tác"
+            },
+            {
+              "w": "制作",
+              "read": "せいさく",
+              "vi": "sự chế tác, sáng tác"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "lớp trẻ, thế hệ trẻ"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "指導",
+              "read": "しどう",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "監修",
+              "read": "かんしゅう",
+              "vi": "giám sát chuyên môn, cố vấn nội dung"
+            },
+            {
+              "w": "情熱",
+              "read": "じょうねつ",
+              "vi": "nhiệt huyết"
+            },
+            {
+              "w": "注ぐ",
+              "read": "そそぐ",
+              "vi": "rót, dồn sức"
+            },
+            {
+              "w": "漆芸家",
+              "read": "しつげいか",
+              "vi": "nghệ nhân nghệ thuật sơn mài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かたわら",
+              "vi": "【接続】Vる / Nの ＋ かたわら。【Sắc thái】'Bên cạnh công việc chính A, song song thực hiện công việc hoặc hoạt động xã hội B kéo dài'.【Đối chiếu】Khác với 〜ながら (chỉ hai hành động xảy ra đồng thời trong chốc lát), 〜かたわら chỉ hai vai trò, nghề nghiệp được duy trì song song trong một khoảng thời gian dài."
+            }
+          ]
+        },
+        {
+          "jp": "熟練の職人が丹精込めて生み出す作品だけあって、その精緻な美しさは国内ばかりか海外の愛好家からも高い評価を受けている。",
+          "vi": "Đúng là tác phẩm do nghệ nhân lành nghề dồn hết tâm huyết tạo ra, vẻ đẹp tinh xảo ấy không chỉ trong nước mà còn nhận được sự đánh giá rất cao từ giới mộ điệu nước ngoài.",
+          "vocab": [
+            {
+              "w": "熟練",
+              "read": "じゅくれん",
+              "vi": "lành nghề, thành thục"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "丹精",
+              "read": "たんせい",
+              "vi": "tâm huyết, hết lòng"
+            },
+            {
+              "w": "込める",
+              "read": "こめる",
+              "vi": "dồn vào, gửi gắm"
+            },
+            {
+              "w": "生み出す",
+              "read": "うみだす",
+              "vi": "tạo ra, sinh ra"
+            },
+            {
+              "w": "作品",
+              "read": "さくひん",
+              "vi": "tác phẩm"
+            },
+            {
+              "w": "精緻",
+              "read": "せいち",
+              "vi": "tinh xảo, tỉ mỉ, sắc sảo"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "国内",
+              "read": "こくない",
+              "vi": "nội địa, trong nước"
+            },
+            {
+              "w": "海外",
+              "read": "かいがい",
+              "vi": "nước ngoài, hải ngoại"
+            },
+            {
+              "w": "愛好",
+              "read": "あいこう",
+              "vi": "sự yêu thích, hâm mộ"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "丹精込めて",
+              "read": "たんせいこめて",
+              "vi": "dồn hết tâm huyết, dốc lòng chế tác"
+            },
+            {
+              "w": "愛好家",
+              "read": "あいこうか",
+              "vi": "người hâm mộ, người say mê, giới mộ điệu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけあって",
+              "vi": "【接続】V/A(thể thông thường) / N ＋ だけあって。【Sắc thái】'Xứng đáng là... / Đúng là vì...', khen ngợi chất lượng tuyệt hảo xứng tầm với tay nghề của nghệ nhân.【Đối chiếu】So với 〜だけに, 〜だけあって mang tính tán thưởng công khai rõ nét hơn."
+            },
+            {
+              "point": "〜ばかりか",
+              "vi": "【接続】N ＋ ばかりか。【Sắc thái】'Không chỉ... mà còn...'.【Đối chiếu】Trang trọng hơn 〜だけでなく, nhấn mạnh mức độ lan tỏa từ phạm vi trong nước ra thế giới."
+            }
+          ]
+        },
+        {
+          "jp": "半世紀にわたって培われた技術の記録作業は容易ではないが、職人の繊細な手の動きを高精度センサーで捉える取り組みが着実に進んでいる。",
+          "vi": "Công việc ghi chép lại kỹ thuật được vun đắp suốt nửa thế kỷ tuy không hề dễ dàng, nhưng những nỗ lực nắm bắt chuyển động tinh tế của bàn tay nghệ nhân bằng cảm biến độ chính xác cao đang tiến triển vững chắc.",
+          "vocab": [
+            {
+              "w": "世紀",
+              "read": "せいき",
+              "vi": "thế kỷ"
+            },
+            {
+              "w": "培う",
+              "read": "つちかう",
+              "vi": "vun đắp, bồi dưỡng, trau dồi qua thời gian dài"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "容易",
+              "read": "ようい",
+              "vi": "dễ dàng"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "繊細",
+              "read": "せんさい",
+              "vi": "sự tinh tế, thanh mảnh"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "動き",
+              "read": "うごき",
+              "vi": "cử động, hành động"
+            },
+            {
+              "w": "精度",
+              "read": "せいど",
+              "vi": "độ chính xác"
+            },
+            {
+              "w": "センサー",
+              "read": "センサー",
+              "vi": "cảm biến"
+            },
+            {
+              "w": "捉える",
+              "read": "とらえる",
+              "vi": "nhìn nhận, nắm bắt"
+            },
+            {
+              "w": "取り組み",
+              "read": "とりくみ",
+              "vi": "nỗ lực, hoạt động"
+            },
+            {
+              "w": "着実に",
+              "read": "ちゃくじつに",
+              "vi": "một cách vững chắc, kiên định"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "高精度",
+              "read": "こうせいど",
+              "vi": "độ chính xác cao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたって",
+              "vi": "【接続】N ＋ にわたって / にわたる ＋ N。【Sắc thái】Trải qua toàn bộ một khoảng thời gian dài (nửa thế kỷ).【Đối chiếu】Nhấn mạnh sự bền bỉ tích lũy qua toàn bộ thời gian, trang trọng hơn 〜の間."
+            }
+          ]
+        },
+        {
+          "jp": "伝統を守る責任が重いだけに、関係者たちのプロジェクトにかける熱意と集中力は並々ならぬものがある。",
+          "vi": "Chính vì trách nhiệm bảo vệ truyền thống hết sức nặng nề, nên nhiệt huyết và sự tập trung mà những người liên quan dồn vào dự án là vô cùng phi thường.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ; gìn giữ"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng nề"
+            },
+            {
+              "w": "関係者たち",
+              "read": "かんけいしゃたち",
+              "vi": "những người liên quan"
+            },
+            {
+              "w": "関係者",
+              "read": "かんけいしゃ",
+              "vi": "người liên quan; bên liên quan"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "liên quan; quan hệ"
+            },
+            {
+              "w": "プロジェクト",
+              "read": "ぷろじぇくと",
+              "vi": "dự án"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "dồn vào; đặt vào"
+            },
+            {
+              "w": "熱意",
+              "read": "ねつい",
+              "vi": "nhiệt huyết"
+            },
+            {
+              "w": "集中力",
+              "read": "しゅうちゅうりょく",
+              "vi": "khả năng tập trung"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "並々ならぬ",
+              "read": "なみなみならぬ",
+              "vi": "phi thường; không tầm thường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけに",
+              "vi": "【接続】Aい / V / Naな / N ＋ だけに。【Sắc thái】'Chính vì trách nhiệm đặc thù nên mức độ quyết tâm càng cao hơn bình thường'.【Đối chiếu】So với 〜ので, mẫu này nhấn mạnh hệ quả tâm lý tương xứng với sức nặng của nguyên nhân."
+            }
+          ]
+        },
+        {
+          "jp": "もっとも、デジタル保存の重要性が叫ばれる以前は、技術の継承は完全に現場の徒弟制度に依存していた。",
+          "vi": "Tuy nhiên, trước khi tầm quan trọng của việc lưu trữ kỹ thuật số được kêu gọi, việc kế thừa kỹ thuật hoàn toàn phụ thuộc vào chế độ sư đồ (học việc) tại chỗ.",
+          "vocab": [
+            {
+              "w": "もっとも",
+              "read": "もっとも",
+              "vi": "tuy vậy, tuy nhiên (bổ sung ý ngược lại)"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "lưu trữ, bảo lưu"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "叫ぶ",
+              "read": "さけぶ",
+              "vi": "kêu gào, hô hào"
+            },
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa"
+            },
+            {
+              "w": "完全",
+              "read": "かんぜん",
+              "vi": "sự hoàn hảo, hoàn toàn"
+            },
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "徒弟",
+              "read": "とてい",
+              "vi": "học việc, người học nghề"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ, hệ thống"
+            },
+            {
+              "w": "依存",
+              "read": "いぞん",
+              "vi": "phụ thuộc, lệ thuộc"
+            },
+            {
+              "w": "徒弟制度",
+              "read": "とていせいど",
+              "vi": "chế độ sư đồ, quan hệ thầy - trò học việc truyền thống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜以前",
+              "vi": "【接続】N / Vる ＋ 以前。【Sắc thái】Chỉ mốc thời gian hoặc giai đoạn trước một sự kiện/nhận thức cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "かつて十分な予算と人員を割いて体系的な記録を残していれば後世に容易に引き継げたものを、個人の努力に頼り切っていたツケが今になって回ってきたのである。",
+          "vi": "Lẽ ra ngày trước nếu dành đủ ngân sách và nhân lực để lưu lại các ghi chép có hệ thống thì đã có thể truyền lại cho đời sau một cách dễ dàng, vậy mà cái giá của việc ỷ lại hoàn toàn vào nỗ lực cá nhân nay đã phải trả.",
+          "vocab": [
+            {
+              "w": "かつて",
+              "read": "かつて",
+              "vi": "trước đây, từng"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "予算",
+              "read": "よさん",
+              "vi": "ngân sách"
+            },
+            {
+              "w": "人員",
+              "read": "じんいん",
+              "vi": "nhân sự, nhân viên"
+            },
+            {
+              "w": "割く",
+              "read": "さく",
+              "vi": "dành ra (thời gian, ngân sách, nhân lực)"
+            },
+            {
+              "w": "体系",
+              "read": "たいけい",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "残す",
+              "read": "のこす",
+              "vi": "để lại, giữ lại"
+            },
+            {
+              "w": "後世",
+              "read": "こうせい",
+              "vi": "hậu thế, đời sau"
+            },
+            {
+              "w": "容易",
+              "read": "ようい",
+              "vi": "dễ dàng"
+            },
+            {
+              "w": "個人",
+              "read": "こじん",
+              "vi": "cá nhân"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "頼る",
+              "read": "たよる",
+              "vi": "trông cậy, phó mặc vào"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "体系的",
+              "read": "たいけいてき",
+              "vi": "có tính hệ thống"
+            },
+            {
+              "w": "頼り切る",
+              "read": "たよりきる",
+              "vi": "ỷ lại hoàn toàn, phụ thuộc hết mức"
+            },
+            {
+              "w": "ツケが回る",
+              "read": "つけがまわる",
+              "vi": "phải trả giá cho sai lầm trong quá khứ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものを",
+              "vi": "【接続】V(thể điều kiện 〜ば) ... V(thể thông thường) ＋ ものを。【Sắc thái】'Lẽ ra nếu làm... thì đã... thế nhưng thực tế lại không làm', nhấn mạnh sự hối tiếc muộn màng và tự kiểm điểm.【Đối chiếu】Sâu sắc và trang trọng hơn 〜のに, nhấn mạnh hậu quả đáng tiếc do hành động sai lầm trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "その漆芸家も、かつて大学で教鞭を執るかたわらで古い技法の復元を試みた際、すでに失われた技術の多さに直面したという。",
+          "vi": "Bản thân nghệ nhân sơn mài đó cũng chia sẻ rằng, trước đây trong khi giảng dạy tại trường đại học, ông đã thử phục dựng lại các kỹ pháp cổ và đã phải đối mặt với số lượng kỹ thuật bị thất truyền quá nhiều.",
+          "vocab": [
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó; ấy"
+            },
+            {
+              "w": "漆芸家",
+              "read": "しつげいか",
+              "vi": "nghệ nhân sơn mài"
+            },
+            {
+              "w": "漆芸",
+              "read": "しつげい",
+              "vi": "nghệ thuật sơn mài"
+            },
+            {
+              "w": "漆",
+              "read": "うるし",
+              "vi": "sơn ta; sơn mài"
+            },
+            {
+              "w": "かつて",
+              "read": "かつて",
+              "vi": "trước đây; đã từng"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "đại học"
+            },
+            {
+              "w": "教鞭を執る",
+              "read": "きょうべんをとる",
+              "vi": "đứng lớp; giảng dạy"
+            },
+            {
+              "w": "教鞭",
+              "read": "きょうべん",
+              "vi": "nghề dạy học"
+            },
+            {
+              "w": "執る",
+              "read": "とる",
+              "vi": "đảm nhiệm; thực hiện"
+            },
+            {
+              "w": "かたわら",
+              "read": "かたわら",
+              "vi": "bên cạnh; đồng thời"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ"
+            },
+            {
+              "w": "技法",
+              "read": "ぎほう",
+              "vi": "kỹ pháp; phương pháp kỹ thuật"
+            },
+            {
+              "w": "復元",
+              "read": "ふくげん",
+              "vi": "phục dựng; khôi phục"
+            },
+            {
+              "w": "試みた",
+              "read": "こころみた",
+              "vi": "đã thử; đã cố gắng"
+            },
+            {
+              "w": "試み",
+              "read": "こころみ",
+              "vi": "thử nghiệm; nỗ lực"
+            },
+            {
+              "w": "際",
+              "read": "さい",
+              "vi": "khi; dịp"
+            },
+            {
+              "w": "すでに",
+              "read": "すでに",
+              "vi": "đã; đã sẵn"
+            },
+            {
+              "w": "失われた",
+              "read": "うしなわれた",
+              "vi": "đã mất; bị thất truyền"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật; công nghệ"
+            },
+            {
+              "w": "多さ",
+              "read": "おおさ",
+              "vi": "độ nhiều; số lượng lớn"
+            },
+            {
+              "w": "直面した",
+              "read": "ちょくめんした",
+              "vi": "đã đối mặt"
+            },
+            {
+              "w": "直面",
+              "read": "ちょくめん",
+              "vi": "đối mặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かたわら",
+              "vi": "【接続】Vる ＋ かたわら(で)。【Sắc thái】Song song với công việc chính là giảng dạy đại học, thực hiện thêm công việc nghiên cứu/phục dựng kỹ thuật.【Đối chiếu】Khác với 〜ついでに (tiện thể), 〜かたわら chỉ hai công việc độc lập được duy trì đều đặn."
+            }
+          ]
+        },
+        {
+          "jp": "生涯を捧げて技を磨き上げた先代の職人たちが、どれほど多くの工夫と苦心を重ねていたことか。",
+          "vi": "Không biết các thế hệ nghệ nhân đi trước, những người đã cống hiến trọn đời để tôi luyện tay nghề, đã phải dồn bao nhiêu tìm tòi công phu và tâm huyết nhọc nhằn biết chừng nào.",
+          "vocab": [
+            {
+              "w": "生涯",
+              "read": "しょうがい",
+              "vi": "cả cuộc đời"
+            },
+            {
+              "w": "捧げる",
+              "read": "ささげる",
+              "vi": "cống hiến, dâng hiến"
+            },
+            {
+              "w": "技",
+              "read": "わざ",
+              "vi": "kỹ thuật, ngón nghề"
+            },
+            {
+              "w": "磨く",
+              "read": "みがく",
+              "vi": "mài dũa, đánh bóng"
+            },
+            {
+              "w": "先代",
+              "read": "せんだい",
+              "vi": "thế hệ trước"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "どれほど",
+              "read": "どれほど",
+              "vi": "đến mức nào, bao nhiêu"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "công phu tìm tòi, sáng kiến, cải tiến"
+            },
+            {
+              "w": "苦心",
+              "read": "くしん",
+              "vi": "lao tâm khổ tứ, nhọc công"
+            },
+            {
+              "w": "重ねる",
+              "read": "かさねる",
+              "vi": "lặp lại, chồng chất"
+            },
+            {
+              "w": "生涯を捧げる",
+              "read": "しょうがいをささげる",
+              "vi": "cống hiến trọn cuộc đời"
+            },
+            {
+              "w": "磨き上げる",
+              "read": "みがきあげる",
+              "vi": "mài giũa, tôi luyện đến mức hoàn hảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことか",
+              "vi": "【接続】V(thể thông thường) ＋ ことか (đi với どれほど).【Sắc thái】Cảm thán ở mức độ cực đại về sự nhọc công và tâm huyết của các bậc tiền nhân.【Đối chiếu】Tạo sức nặng biểu cảm mạnh mẽ hơn câu miêu tả khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "資料の散逸を防ぎ、文化財を次世代へと正しく受け渡すに際しては、単なるデータの蓄積以上の工夫が求められる。",
+          "vi": "Vào lúc ngăn ngừa sự thất lạc tư liệu và chuyển giao di sản văn hóa đúng đắn cho thế hệ sau, người ta đòi hỏi phải có những sáng kiến vượt lên trên việc lưu trữ dữ liệu đơn thuần.",
+          "vocab": [
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "散逸",
+              "read": "さんいつ",
+              "vi": "thất tán; phân tán"
+            },
+            {
+              "w": "防ぎ",
+              "read": "ふせぎ",
+              "vi": "ngăn chặn"
+            },
+            {
+              "w": "文化財",
+              "read": "ぶんかざい",
+              "vi": "di sản văn hóa"
+            },
+            {
+              "w": "次世代",
+              "read": "じせだい",
+              "vi": "thế hệ tiếp theo"
+            },
+            {
+              "w": "正しく",
+              "read": "ただしく",
+              "vi": "một cách chính xác"
+            },
+            {
+              "w": "受け渡す",
+              "read": "うけわたす",
+              "vi": "bàn giao; truyền lại"
+            },
+            {
+              "w": "受け",
+              "read": "うけ",
+              "vi": "nhận; tiếp nhận"
+            },
+            {
+              "w": "際して",
+              "read": "さいして",
+              "vi": "khi; nhân dịp"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "đơn thuần; chỉ là"
+            },
+            {
+              "w": "データ",
+              "read": "でーた",
+              "vi": "dữ liệu"
+            },
+            {
+              "w": "蓄積",
+              "read": "ちくせき",
+              "vi": "tích lũy"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "hơn; vượt quá"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "sự sáng tạo; cách làm khéo léo"
+            },
+            {
+              "w": "求められる",
+              "read": "もとめられる",
+              "vi": "được yêu cầu; đòi hỏi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に際して（は）",
+              "vi": "【接続】Vる / N ＋ に際しては。【Sắc thái】'Vào thời điểm / Trong quá trình thực hiện một nhiệm vụ quan trọng mang tính lịch sử/văn hóa'.【Đối chiếu】Trang trọng hơn 〜のとき, nhấn mạnh bối cảnh mang tính trách nhiệm cao."
+            }
+          ]
+        },
+        {
+          "jp": "職人の直感や感覚といった数値化しにくい要素が多いだけに、記録の手法そのものも常に進化させなければならない。",
+          "vi": "Chính vì có nhiều yếu tố khó số hóa như trực giác hay cảm giác của người thợ, nên bản thân phương pháp ghi chép cũng phải không ngừng cải tiến.",
+          "vocab": [
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "直感",
+              "read": "ちょっかん",
+              "vi": "trực giác"
+            },
+            {
+              "w": "感覚",
+              "read": "かんかく",
+              "vi": "cảm quan, giác quan"
+            },
+            {
+              "w": "数値",
+              "read": "すうち",
+              "vi": "con số, giá trị số"
+            },
+            {
+              "w": "要素",
+              "read": "ようそ",
+              "vi": "yếu tố, nhân tố"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "手法",
+              "read": "しゅほう",
+              "vi": "phương pháp, thủ pháp"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "常に",
+              "read": "つねに",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "進化",
+              "read": "しんか",
+              "vi": "sự tiến hóa, phát triển"
+            },
+            {
+              "w": "数値化",
+              "read": "すうちか",
+              "vi": "số hóa, định lượng thành con số"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけに",
+              "vi": "【接続】Aい / Naな / N / V ＋ だけに。【Sắc thái】'Chính vì tính chất phức tạp, khó định lượng nên đòi hỏi nỗ lực cải tiến phương pháp phải cao tương ứng'.【Đối chiếu】Làm nổi bật tính tất yếu của đòi hỏi cải tiến."
+            }
+          ]
+        },
+        {
+          "jp": "今後、数か月にわたる詳細な動作解析を通じて、暗黙知とされてきた職人技の構造がより明確に解き明かされる見込みである。",
+          "vi": "Trong thời gian tới, thông qua phân tích động tác chi tiết trải dài trong vài tháng, cấu trúc của kỹ năng nghệ nhân vốn được coi là 'tri thức ẩn' dự kiến sẽ được sáng tỏ một cách rõ ràng hơn.",
+          "vocab": [
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "sau này; từ nay về sau"
+            },
+            {
+              "w": "数か月",
+              "read": "すうかげつ",
+              "vi": "vài tháng"
+            },
+            {
+              "w": "わたる",
+              "read": "わたる",
+              "vi": "kéo dài; trải qua"
+            },
+            {
+              "w": "詳細な",
+              "read": "しょうさいな",
+              "vi": "chi tiết"
+            },
+            {
+              "w": "詳細",
+              "read": "しょうさい",
+              "vi": "chi tiết"
+            },
+            {
+              "w": "動作解析",
+              "read": "どうさかいせき",
+              "vi": "phân tích chuyển động"
+            },
+            {
+              "w": "動作",
+              "read": "どうさ",
+              "vi": "động tác; chuyển động"
+            },
+            {
+              "w": "解析",
+              "read": "かいせき",
+              "vi": "phân tích"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua"
+            },
+            {
+              "w": "暗黙知",
+              "read": "あんもくち",
+              "vi": "tri thức ngầm"
+            },
+            {
+              "w": "暗黙",
+              "read": "あんもく",
+              "vi": "ngầm; không nói ra"
+            },
+            {
+              "w": "知",
+              "read": "ち",
+              "vi": "tri thức; hiểu biết"
+            },
+            {
+              "w": "職人技",
+              "read": "しょくにんわざ",
+              "vi": "kỹ nghệ của nghệ nhân"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân; thợ lành nghề"
+            },
+            {
+              "w": "技",
+              "read": "わざ",
+              "vi": "kỹ năng; kỹ nghệ"
+            },
+            {
+              "w": "構造",
+              "read": "こうぞう",
+              "vi": "cấu trúc"
+            },
+            {
+              "w": "より",
+              "read": "より",
+              "vi": "hơn; càng"
+            },
+            {
+              "w": "明確に",
+              "read": "めいかくに",
+              "vi": "một cách rõ ràng"
+            },
+            {
+              "w": "明確",
+              "read": "めいかく",
+              "vi": "rõ ràng"
+            },
+            {
+              "w": "解き明かされる",
+              "read": "ときあかされる",
+              "vi": "được làm sáng tỏ; được giải mã"
+            },
+            {
+              "w": "見込み",
+              "read": "みこみ",
+              "vi": "triển vọng; dự kiến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたる",
+              "vi": "【接続】N ＋ にわたる ＋ N。【Sắc thái】Bổ nghĩa cho danh từ phía sau, diễn tả khoảng thời gian kéo dài liên tục suốt vài tháng.【Đối chiếu】Mang sắc thái bao quát toàn bộ khoảng thời gian nghiên cứu."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル技術は記録の手段という範囲を超えて、若者が伝統工芸に親しむ新たな契機を提供するばかりか、異分野との革新的な融合をも促進している。",
+          "vi": "Công nghệ kỹ thuật số đã vượt ra khỏi phạm vi một phương tiện lưu trữ, không chỉ đem lại cơ hội mới để giới trẻ tiếp cận gần gũi với nghề thủ công truyền thống mà còn thúc đẩy sự giao thoa đổi mới mang tính đột phá với các lĩnh vực khác nhau.",
+          "vocab": [
+            {
+              "w": "デジタル技術",
+              "read": "でじたるぎじゅつ",
+              "vi": "công nghệ số, kỹ thuật số"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "phương tiện, cách thức"
+            },
+            {
+              "w": "範囲",
+              "read": "はんい",
+              "vi": "phạm vi"
+            },
+            {
+              "w": "超える",
+              "read": "こえる",
+              "vi": "vượt qua, vượt quá"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "親しむ",
+              "read": "したしむ",
+              "vi": "thân thiết, gần gũi"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "契機",
+              "read": "けいき",
+              "vi": "cơ hội, thời cơ, bước ngoặt"
+            },
+            {
+              "w": "提供",
+              "read": "ていきょう",
+              "vi": "cung cấp"
+            },
+            {
+              "w": "分野",
+              "read": "ぶんや",
+              "vi": "lĩnh vực"
+            },
+            {
+              "w": "革新",
+              "read": "かくしん",
+              "vi": "đổi mới, cách tân"
+            },
+            {
+              "w": "融合",
+              "read": "ゆうごう",
+              "vi": "dung hợp, kết hợp hài hòa"
+            },
+            {
+              "w": "促進",
+              "read": "そくしん",
+              "vi": "sự thúc đẩy, xúc tiến"
+            },
+            {
+              "w": "異分野",
+              "read": "いぶんや",
+              "vi": "các lĩnh vực khác biệt/liên ngành"
+            },
+            {
+              "w": "革新的",
+              "read": "かくしんてき",
+              "vi": "mang tính đổi mới, đột phá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかりか",
+              "vi": "【接続】V(thể thông thường) ＋ ばかりか。【Sắc thái】'Không chỉ đem lại A mà còn thúc đẩy cả B (mở rộng hiệu quả ra ngoài dự kiến)'.【Đối chiếu】Mạnh mẽ và trang trọng hơn 〜だけでなく."
+            }
+          ]
+        },
+        {
+          "jp": "歴史ある技法と最新技術が融合した成果だけあって、完成した仮想体験プログラムは教育現場でも大きな注目を集めている。",
+          "vi": "Đúng là thành quả có được từ sự dung hợp giữa kỹ pháp giàu lịch sử và công nghệ tối tân, chương trình trải nghiệm thực tế ảo vừa hoàn thành đang thu hút sự chú ý rất lớn ngay cả trong môi trường giáo dục.",
+          "vocab": [
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "技法",
+              "read": "ぎほう",
+              "vi": "kỹ pháp, phương pháp kỹ thuật"
+            },
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "融合",
+              "read": "ゆうごう",
+              "vi": "sự dung hợp, hòa trộn"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả đạt được"
+            },
+            {
+              "w": "完成",
+              "read": "かんせい",
+              "vi": "sự hoàn thành"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "プログラム",
+              "read": "プログラム",
+              "vi": "chương trình"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "注目",
+              "read": "ちゅうもく",
+              "vi": "sự chú ý, quan tâm"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "仮想体験",
+              "read": "かそうたいけん",
+              "vi": "trải nghiệm thực tế ảo (VR)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけあって",
+              "vi": "【接続】N ＋ だけあって。【Sắc thái】'Quả xứng là kết tinh giữa truyền thống và công nghệ hiện đại', khen ngợi sức hút lớn của chương trình.【Đối chiếu】Khẳng định giá trị thực tế tương xứng với sự đầu tư công phu."
+            }
+          ]
+        },
+        {
+          "jp": "地域社会の衰退が懸念されているだけに、伝統の再生がもたらす地域活性化への期待はいっそう高まっている。",
+          "vi": "Chính vì sự suy thoái của xã hội địa phương đang là nỗi lo âu lớn, nên kỳ vọng vào việc phục hưng truyền thống mang lại sự hồi sinh cho khu vực lại càng dâng cao hơn bao giờ hết.",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "衰退",
+              "read": "すいたい",
+              "vi": "sự suy thoái, suy tàn"
+            },
+            {
+              "w": "懸念",
+              "read": "けねん",
+              "vi": "mối lo ngại, e ngại"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "再生",
+              "read": "さいせい",
+              "vi": "phục hưng, tái sinh"
+            },
+            {
+              "w": "もたらす",
+              "read": "もたらす",
+              "vi": "đem lại, mang lại"
+            },
+            {
+              "w": "活性",
+              "read": "かっせい",
+              "vi": "hoạt tính, sự tích cực"
+            },
+            {
+              "w": "期待",
+              "read": "きたい",
+              "vi": "kỳ vọng"
+            },
+            {
+              "w": "いっそう",
+              "read": "いっそう",
+              "vi": "càng hơn, lại càng"
+            },
+            {
+              "w": "高まる",
+              "read": "たかまる",
+              "vi": "tăng cao, dâng cao"
+            },
+            {
+              "w": "地域活性化",
+              "read": "ちいきかっせいか",
+              "vi": "hồi sinh/kích hoạt sự phát triển của địa phương"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけに",
+              "vi": "【接続】V(thể bị động) ＋ だけに。【Sắc thái】'Chính vì nỗi lo suy thoái hiện hữu rõ ràng nên niềm hy vọng vào sự hồi sinh lại càng mãnh liệt hơn'.【Đối chiếu】Nhấn mạnh sự tỷ lệ thuận giữa mức độ lo âu và mức độ kỳ vọng."
+            }
+          ]
+        },
+        {
+          "jp": "伝統の新たな魅力を世界に発信するに際して、私たちは過去の反省を生かし、文化の価値を能動的に守り育てる姿勢を持たねばならない。",
+          "vi": "Nhân lúc truyền bá sức hấp dẫn mới của truyền thống ra thế giới, chúng ta phải vận dụng những bài học rút ra từ quá khứ và có thái độ chủ động gìn giữ, vun đắp giá trị của văn hóa.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "魅力",
+              "read": "みりょく",
+              "vi": "sức hút, sức hấp dẫn"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "発信",
+              "read": "はっしん",
+              "vi": "truyền bá, phát đi thông điệp"
+            },
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "反省",
+              "read": "はんせい",
+              "vi": "nhìn nhận lại, kiểm điểm, tự suy xét"
+            },
+            {
+              "w": "生かす",
+              "read": "いかす",
+              "vi": "tận dụng, phát huy"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "育てる",
+              "read": "そだてる",
+              "vi": "nuôi dưỡng, bồi dưỡng"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, tâm thế, thái độ đối diện"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "能動的",
+              "read": "のうどうてき",
+              "vi": "mang tính chủ động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に際して",
+              "vi": "【接続】Vる ＋ に際して。【Sắc thái】'Khi đứng trước bước ngoặt / Vào thời điểm phát đi thông điệp ra thế giới'.【Đối chiếu】Văn phong trang trọng, định hướng hành động mang tầm chiến lược."
+            }
+          ]
+        },
+        {
+          "jp": "古き良き文化を未来へ繋ぐ道筋がいかに多様で希望に満ちたものであることか、この取り組みは私たちに力強く教えてくれている。",
+          "vi": "Con đường kết nối nét văn hóa truyền thống tốt đẹp tới tương lai đa dạng và tràn đầy hy vọng biết bao nhiêu, sáng kiến này đang chỉ dẫn cho chúng ta một cách đầy mạnh mẽ.",
+          "vocab": [
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "道筋",
+              "read": "みちすじ",
+              "vi": "con đường, lộ trình, hướng đi"
+            },
+            {
+              "w": "いかに",
+              "read": "いかに",
+              "vi": "như thế nào, biết bao"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, nhiều chiều"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "nguyện vọng, mong muốn"
+            },
+            {
+              "w": "満ちる",
+              "read": "みちる",
+              "vi": "tràn đầy, tràn ngập"
+            },
+            {
+              "w": "取り組み",
+              "read": "とりくみ",
+              "vi": "nỗ lực, hoạt động"
+            },
+            {
+              "w": "力強い",
+              "read": "ちからづよい",
+              "vi": "mạnh mẽ, có sức mạnh"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "希望に満ちる",
+              "read": "きぼうにみちる",
+              "vi": "tràn ngập hy vọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことか",
+              "vi": "【接続】N / Na + である ＋ ことか (kết hợp いかに).【Sắc thái】'Biết dường nào / Biết bao nhiêu', câu cảm thán đúc kết toàn bộ ý nghĩa nhân văn và niềm hy vọng lớn lao của tác giả.【Đối chiếu】Tạo dư âm cảm xúc sâu lắng ở câu kết bài."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "長年にわたって継承されてきた伝統文化や工芸技術の存続が深刻な危機に瀕している",
+          "label": "Khủng hoảng bảo tồn văn hoá truyền thống"
+        },
+        {
+          "excerpt": "早期に行政や社会全体で手厚い支援を行っていれば技術を守れたものを",
+          "label": "Sự nuối tiếc vì chậm trễ trong hỗ trợ bảo tồn"
+        },
+        {
+          "excerpt": "自ら工房で制作を続けるかたわら、若手技術者への指導やデジタル化の監修に情熱を注いでいる",
+          "label": "Nỗ lực kép của nghệ nhân truyền thống"
+        },
+        {
+          "excerpt": "歴史ある技法と最新技術が融合した成果だけあって、完成した仮想体験プログラムは教育現場でも大きな注目を集めている",
+          "label": "Thành quả dung hợp công nghệ và thủ công truyền thống"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「対策の遅れによって多くの貴重な技法が消え去ってしまった」とあるが、筆者がこのように述べる背景・理由として最も適切なものはどれか。",
+          "options": [
+            "早期に公的な支援や対策を講じていれば失われずに済んだはずの技術が多くあるから。",
+            "デジタル技術の導入が遅れたことで、若者の工芸への関心が完全に失われてしまったから。",
+            "伝統工芸の原材料が急速に枯渇し、復元することが物理的に不可能になったから。",
+            "職人たちが徒弟制度を拒絶し、自分たちの技術を秘密にして公開しようとしなかったから。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 4: 「早期に行政や社会全体で手厚い支援を行っていれば技術を守れたものを、対策の遅れによって多くの貴重な技法が消え去ってしまった。」(Mẫu 〜ものを mang sắc thái nuối tiếc: lẽ ra nếu hỗ trợ từ sớm thì đã bảo vệ được kỹ thuật, vậy mà vì chậm trễ đối sách nên nhiều kỹ pháp đã biến mất). Phương án 0 hoàn toàn khớp với ý này. Các phương án sai: (1) sai vì bài không nói giới trẻ mất hoàn toàn quan tâm do chậm đưa kỹ thuật số; (2) bài chỉ nêu thu mua nguyên liệu khó khăn chứ không nói do cạn kiệt mà không thể phục chế về mặt vật lý; (3) sai vì bài nói trước đây phụ thuộc vào chế độ sư đồ chứ không phải các nghệ nhân từ chối/giấu nghề.",
+          "tip": "Để ý mẫu ngữ pháp 〜ものを đi kèm câu điều kiện (〜ていれば...ものを) luôn thể hiện sự nuối tiếc một hành động lẽ ra đã cứu vãn được tình hình.",
+          "evi": [
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Có câu “do sự chậm trễ trong các biện pháp ứng phó, nhiều kỹ thuật quý giá đã biến mất”; đâu là bối cảnh hoặc lý do phù hợp nhất khiến tác giả viết như vậy?",
+            "o": [
+              "Có nhiều kỹ thuật lẽ ra đã không bị mai một nếu hỗ trợ công và các biện pháp ứng phó được thực hiện sớm.",
+              "Do việc đưa công nghệ số vào chậm trễ, giới trẻ đã hoàn toàn mất hứng thú với nghề thủ công.",
+              "Nguyên liệu của nghề thủ công truyền thống nhanh chóng cạn kiệt, khiến việc phục dựng trở nên bất khả thi về mặt vật lý.",
+              "Những người thợ thủ công từ chối chế độ truyền nghề kiểu thầy trò, giữ bí mật kỹ thuật và không chịu công khai chúng."
+            ]
+          }
+        },
+        {
+          "q": "本文に登場する漆芸家の現在の取り組みについて、文章の内容と合致するものはどれか。",
+          "options": [
+            "工房での制作をやめ、大学での講義とデジタルデータの作成だけに専念している。",
+            "自身の作品制作を続けながら、後進の育成や技術のデジタル化の監修にも携わっている。",
+            "海外の愛好家向けに作品を大量生産するため、最新センサーを用いた自動化を進めている。",
+            "失われた技術の復元を諦め、まったく新しい現代的な工芸品の開発に移行した。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 8: 「ある著名な漆芸家は、自ら工房で制作を続けるかたわら、若手技術者への指導やデジタル化の監修に情熱を注いでいる。」(Mẫu 〜かたわら chỉ việc vừa duy trì việc sáng tác tại xưởng, vừa hướng dẫn nghệ nhân trẻ và giám sát số hóa). Phương án 1 phản ánh chính xác nội dung này. Các phương án sai: (0) sai vì ông vẫn tiếp tục sáng tác tại xưởng (制作を続ける); (2) sai vì không có thông tin 'sản xuất hàng loạt bằng tự động hóa'; (3) sai vì ông không hề từ bỏ mà đang nỗ lực bảo tồn và chuyển giao.",
+          "tip": "Mẫu ngữ pháp 〜かたわら cho biết chủ thể duy trì song song cả công việc chính và vai trò/hoạt động khác.",
+          "evi": [
+            8,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Điều nào phù hợp với nội dung bài viết về những hoạt động hiện nay của nghệ nhân sơn mài được nhắc đến?",
+            "o": [
+              "Ông đã ngừng làm việc tại xưởng và chỉ tập trung vào việc giảng dạy ở đại học và tạo dữ liệu số.",
+              "Ông tiếp tục sáng tác tác phẩm của mình, đồng thời tham gia đào tạo thế hệ sau và giám sát việc số hóa kỹ thuật.",
+              "Ông đang thúc đẩy tự động hóa bằng cảm biến mới nhất để sản xuất hàng loạt tác phẩm dành cho những người yêu thích ở nước ngoài.",
+              "Ông từ bỏ việc phục dựng các kỹ thuật đã thất truyền và chuyển sang phát triển những món đồ thủ công hiện đại hoàn toàn mới."
+            ]
+          }
+        },
+        {
+          "q": "過去の技術継承のあり方について、筆者はどのように振り返っているか。",
+          "options": [
+            "徒弟制度こそが唯一無二の理想的な方法であり、デジタル化よりも優れていたと評価している。",
+            "各工房が独自に予算を確保して記録を残していたため、現在も多くの技法が再現可能であると考えている。",
+            "組織的な記録を行わず個人の努力に頼り切っていたことが、現在の技術断絶という問題につながったと反省している。",
+            "先代の職人たちが十分な工夫をしていなかったため、技術の体系化が遅れてしまったと非難している。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu 13: 「かつて十分な予算と人員を割いて体系的な記録を残していれば後世に容易に引き継げたものを、個人の努力に頼り切っていたツケが今になって回ってきたのである。」(Lẽ ra trước kia nếu lưu lại ghi chép bài bản thì đã dễ truyền lại, đằng này việc ỷ lại vào nỗ lực cá nhân đã khiến ngày nay phải trả giá). Phương án 2 thể hiện đúng sự tự kiểm điểm/nhìn nhận lại sai lầm trong quá khứ. Các phương án sai: (0) tác giả chỉ ra điểm hạn chế của việc phụ thuộc vào sư đồ chứ không ca ngợi nó hơn số hóa; (1) ngược với bài (bài nói trước đây không để lại ghi chép bài bản); (3) sai vì câu 15 khen ngợi các nghệ nhân tiền bối đã dồn rất nhiều工夫 và 苦心 chứ không hề trách móc họ.",
+          "tip": "Chú ý cụm từ '個人の努力に頼り切っていたツケが今になって回ってきた' để nhận ra thái độ nhìn nhận khuyết điểm trong quá khứ.",
+          "evi": [
+            12,
+            13,
+            15
+          ],
+          "qt": {
+            "q": "Tác giả nhìn nhận lại việc truyền thừa kỹ thuật trong quá khứ như thế nào?",
+            "o": [
+              "Tác giả đánh giá chế độ truyền nghề kiểu thầy trò là phương pháp lý tưởng duy nhất và ưu việt hơn số hóa.",
+              "Tác giả cho rằng hiện nay nhiều kỹ thuật vẫn có thể được tái hiện vì mỗi xưởng đã tự thu xếp ngân sách và lưu lại tư liệu.",
+              "Tác giả nhìn nhận rằng việc không ghi chép có hệ thống mà chỉ dựa hoàn toàn vào nỗ lực cá nhân đã dẫn đến vấn đề đứt gãy kỹ thuật hiện nay.",
+              "Tác giả chỉ trích những người thợ đời trước vì đã không đủ sáng tạo, khiến việc hệ thống hóa kỹ thuật bị chậm trễ."
+            ]
+          }
+        },
+        {
+          "q": "本文における「デジタル技術の役割」に関する記述として最も適切なものはどれか。",
+          "options": [
+            "職人の技術を記録するだけでなく、若者の関心を惹きつけ他分野との融合を促す契機となっている。",
+            "人間の職人を完全に不要にし、すべての伝統工芸品を機械によって自動再現することを目的としている。",
+            "過去に失われたすべての技術を自動的に推測し、完全に元通りの姿に復元する役割を果たしている。",
+            "教育現場における工芸の授業をすべて仮想空間の体験のみに置き換えるために活用されている。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 19: 「デジタル技術は記録の手段という範囲を超えて、若者が伝統工芸に親しむ新たな契機を提供するばかりか、異分野との革新的な融合をも促進している。」(Công nghệ số không chỉ là phương tiện lưu trữ mà còn đem lại cơ hội để giới trẻ tiếp cận và thúc đẩy dung hợp liên ngành). Phương án 0 tóm tắt trọn vẹn ý này. Các phương án sai: (1) cực đoan và sai lệch (không hề có ý định thay thế hoàn toàn nghệ nhân); (2) số hóa chỉ ghi lại chuyển động chứ không thể 'tự động suy đoán phục nguyên toàn bộ'; (3) bài chỉ nói chương trình VR thu hút sự chú ý trong giáo dục (câu 20) chứ không phải 'thay thế hoàn toàn mọi tiết học'.",
+          "tip": "Mẫu 〜ばかりか (không chỉ A mà còn B) thường mở rộng chức năng/ý nghĩa của sự vật lên một tầm mức cao hơn.",
+          "evi": [
+            19,
+            20
+          ],
+          "qt": {
+            "q": "Đâu là mô tả phù hợp nhất về “vai trò của công nghệ số” trong bài viết?",
+            "o": [
+              "Công nghệ số không chỉ ghi lại kỹ thuật của người thợ mà còn thu hút sự quan tâm của giới trẻ và trở thành cơ hội thúc đẩy sự kết hợp với các lĩnh vực khác.",
+              "Công nghệ số nhằm loại bỏ hoàn toàn người thợ thủ công và tự động tái tạo mọi sản phẩm thủ công truyền thống bằng máy móc.",
+              "Công nghệ số có vai trò tự động suy đoán mọi kỹ thuật đã thất truyền trong quá khứ và phục dựng chúng hoàn toàn nguyên trạng.",
+              "Công nghệ số được sử dụng để thay thế toàn bộ các giờ học thủ công ở trường bằng trải nghiệm trong không gian ảo."
+            ]
+          }
+        },
+        {
+          "q": "本文全体を通して、筆者が最も強く主張したいことは何か。（推論・筆者の主張）",
+          "options": [
+            "伝統工芸は時代の変化とともに消滅するのが自然であるため、記録だけを残して無理な継承は避けるべきだ。",
+            "過去の反省を踏まえ、最新技術も柔軟に取り入れながら、伝統文化の価値を能動的に守り未来へ繋ぐべきだ。",
+            "デジタル化さえ進めれば職人の育成は不要になるため、予算のすべてをデータ解析に投入すべきだ。",
+            "伝統文化を守るためには最新技術の介入を排除し、昔ながらの厳格な徒弟制度を復活させるべきだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào hai câu cuối (câu 22 & 23): 「伝統の新たな魅力を世界に発信するに際して、私たちは過去の反省を生かし、文化の価値を能動的に守り育てる姿勢を持たねばならない。古き良き文化を未来へ繋ぐ道筋がいかに多様で希望に満ちたものであることか...」. Tác giả khẳng định cần rút kinh nghiệm từ quá khứ, chủ động kết hợp giữa truyền thống và công nghệ hiện đại để đưa văn hóa tới tương lai. Phương án 1 thể hiện chính xác thông điệp này. Các phương án sai: (0) trái với tinh thần nhiệt huyết bảo tồn; (2) cực đoan, phủ nhận vai trò của nghệ nhân; (3) đi ngược lại việc ứng dụng công nghệ số được tác giả đánh giá rất tích cực.",
+          "tip": "Câu hỏi chủ đề/thông điệp bài văn thường nằm ở phần kết bài, nơi tác giả dùng các mẫu biểu thị bổn phận (〜ねばならない) và cảm thán (〜ことか) để đúc kết quan điểm.",
+          "evi": [
+            22,
+            23
+          ],
+          "qt": {
+            "q": "Xuyên suốt bài viết, điều tác giả muốn nhấn mạnh nhất là gì? (Suy luận và chủ trương của tác giả)",
+            "o": [
+              "Vì nghề thủ công truyền thống tự nhiên sẽ biến mất cùng với sự thay đổi của thời đại, nên chỉ cần lưu lại tư liệu và tránh cố gắng truyền thừa một cách gượng ép.",
+              "Rút kinh nghiệm từ quá khứ, cần linh hoạt ứng dụng cả công nghệ mới nhất để chủ động bảo vệ giá trị văn hóa truyền thống và trao truyền chúng cho tương lai.",
+              "Chỉ cần đẩy mạnh số hóa thì không cần đào tạo thợ thủ công, vì vậy nên dành toàn bộ ngân sách cho việc phân tích dữ liệu.",
+              "Để bảo vệ văn hóa truyền thống, cần loại bỏ sự can thiệp của công nghệ mới nhất và khôi phục chế độ truyền nghề nghiêm ngặt theo lối xưa."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "緑センター「イノベーションホール」ご利用・特別研修プランのご案内",
+      "titleVi": "Hướng dẫn sử dụng và Gói đào tạo đặc biệt tại \"Hội trường Đổi mới\" - Trung tâm Midori",
+      "japanese": "緑センター「イノベーションホール」ご利用・特別研修プランのご案内\n当センターは最新設備を備えているだけあって、毎年多くの企業から高い評価をいただいております。\n人気の施設であるだけに、特に週末のご予約は早期に埋まりますのでお早めにお申し込みください。\n【利用プランおよび料金一覧】\nプラン名｜利用時間｜通常料金（室料）｜特典・対象\nスタンダード半日プラン｜9:00〜13:00（4時間）｜40,000円｜本業のかたわらセミナーを開催する個人事業主にも最適\nビジネス全日プラン｜9:00〜18:00（9時間）｜80,000円｜プロジェクター無料貸出付き、一般企業向け\n特別集中合宿プラン｜9:00〜21:00（12時間）｜110,000円｜3日間にわたってご利用の場合、総額から20％割引\n【割引制度と追加オプション】\n※「連続利用割引」は、同一プランを2日以上にわたって利用される場合に室料が15％割引となります（特別集中合宿プランの割引とは併用不可）。\n※「早期予約割引」は利用日の30日前までの申請で室料が10％割引になるばかりか、マイク2本も無料となります。\n※飲食の持ち込みに際しては、清掃協力費として別途1団体につき一律5,000円を申し受けます。\n【キャンセル規定および注意事項】\n※利用日の8日前までのキャンセルは無料ですが、7日前から前日までは利用料金の50％、当日は100％の取消料が発生します。\n※事前にご連絡さえくだされば変更手数料は不要だったものを、無断で時間延長された場合は追加料金をいただきます。\n※利用者アンケートより：「設備が万全で、参加者との意見交換がどれほど有意義に行えたことか。」",
+      "vietnamese": "Hướng dẫn sử dụng và Gói đào tạo đặc biệt tại \"Hội trường Đổi mới\" - Trung tâm Midori\nXứng đáng là nơi được trang bị cơ sở vật chất tối tân, trung tâm chúng tôi hàng năm đều nhận được đánh giá rất cao từ nhiều doanh nghiệp.\nChính vì là cơ sở được ưa chuộng, các lịch đặt trước đặc biệt vào cuối tuần thường kín sớm nên quý khách vui lòng đăng ký sớm.\n【Danh mục các gói sử dụng và biểu phí】\nTên gói｜Thời gian sử dụng｜Phí thông thường (tiền phòng)｜Ưu đãi ・ Đối tượng\nGói tiêu chuẩn nửa ngày｜9:00〜13:00 (4 tiếng)｜40.000 yên｜Phù hợp nhất cho cả các cá nhân kinh doanh tổ chức hội thảo song song với công việc chính\nGói doanh nghiệp cả ngày｜9:00〜18:00 (9 tiếng)｜80.000 yên｜Kèm mượn máy chiếu miễn phí, dành cho doanh nghiệp thông thường\nGói tập huấn tập trung đặc biệt｜9:00〜21:00 (12 tiếng)｜110.000 yên｜Trường hợp sử dụng suốt 3 ngày, giảm giá 20% trên tổng số tiền\n【Chế độ giảm giá và các tùy chọn bổ sung】\n※ \"Giảm giá sử dụng liên tiếp\" áp dụng khi sử dụng cùng một gói kéo dài từ 2 ngày trở lên với mức giảm 15% tiền phòng (không áp dụng đồng thời với giảm giá của Gói tập huấn tập trung đặc biệt).\n※ \"Giảm giá đặt trước sớm\" không chỉ giảm 10% tiền phòng khi đăng ký trước ngày sử dụng từ 30 ngày trở lên, mà còn được miễn phí 2 micro.\n※ Khi mang đồ ăn thức uống vào, chúng tôi xin phép thu riêng phí hỗ trợ vệ sinh đồng giá 5.000 yên cho mỗi đoàn thể.\n【Quy định hủy đặt chỗ và các lưu ý】\n※ Việc hủy trước ngày sử dụng từ 8 ngày trở lên là miễn phí, nhưng từ 7 ngày trước đến trước 1 ngày sẽ phát sinh phí hủy 50% tiền sử dụng, vào đúng ngày là 100%.\n※ Lẽ ra phí thay đổi đã không cần thiết nếu quý khách liên hệ trước, nhưng trường hợp tự ý kéo dài thời gian sẽ bị tính thêm phụ phí.\n※ Trích từ phiếu khảo sát người dùng: \"Cơ sở vật chất hoàn hảo, việc trao đổi ý kiến với người tham gia đã diễn ra ý nghĩa biết bao.\"",
+      "sentences": [
+        {
+          "jp": "緑センター「イノベーションホール」ご利用・特別研修プランのご案内",
+          "vi": "Hướng dẫn sử dụng và Gói đào tạo đặc biệt tại \"Hội trường Đổi mới\" - Trung tâm Midori",
+          "vocab": [
+            {
+              "w": "緑",
+              "read": "みどり",
+              "vi": "màu xanh lá"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "イノベーション",
+              "read": "イノベーション",
+              "vi": "sự đổi mới, sáng tạo"
+            },
+            {
+              "w": "ホール",
+              "read": "ホール",
+              "vi": "hội trường"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "研修",
+              "read": "けんしゅう",
+              "vi": "đào tạo, tập huấn"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜 (接頭辞)",
+              "vi": "接続: ご + Danh từ Hán-Nhật (ご利用, ご案内). Ý nghĩa: Tiếp đầu ngữ kính ngữ/lịch sự thể hiện sự tôn trọng đối với hành vi của đối tác/khách hàng (ご利用) và tạo sự trang trọng, nhã nhặn trong văn phong dịch vụ/thông báo (ご案内)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "当センターは最新設備を備えているだけあって、毎年多くの企業から高い評価をいただいております。",
+          "vi": "Xứng đáng là nơi được trang bị cơ sở vật chất tối tân, trung tâm chúng tôi hàng năm đều nhận được đánh giá rất cao từ nhiều doanh nghiệp.",
+          "vocab": [
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất, tối tân"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "thiết bị, cơ sở vật chất"
+            },
+            {
+              "w": "備える",
+              "read": "そなえる",
+              "vi": "chuẩn bị, trang bị"
+            },
+            {
+              "w": "毎年",
+              "read": "まいとし",
+              "vi": "hàng năm, mỗi năm"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp, công ty"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "đánh giá"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～だけあって",
+              "vi": "Quả đúng là ~ nên (kết quả tương xứng với phẩm chất/đặc điểm nổi bật)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "人気の施設であるだけに、特に週末のご予約は早期に埋まりますのでお早めにお申し込みください。",
+          "vi": "Chính vì là cơ sở được ưa chuộng, các lịch đặt trước đặc biệt vào cuối tuần thường kín sớm nên quý khách vui lòng đăng ký sớm.",
+          "vocab": [
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "sự yêu thích, nổi tiếng"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, tiện ích"
+            },
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "giai đoạn sớm, từ sớm"
+            },
+            {
+              "w": "埋まる",
+              "read": "うまる",
+              "vi": "bị lấp đầy, kín chỗ"
+            },
+            {
+              "w": "早め",
+              "read": "はやめ",
+              "vi": "sớm hơn bình thường"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～だけに",
+              "vi": "Chính vì ~ nên càng (nhấn mạnh lý do đặc biệt dẫn đến kết quả đương nhiên)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "【利用プランおよび料金一覧】",
+          "vi": "【Danh mục các gói sử dụng và biểu phí】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, giá cả"
+            },
+            {
+              "w": "一覧",
+              "read": "いちらん",
+              "vi": "danh sách, bảng tổng kết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜および (及び)",
+              "vi": "接続: N1 + および + N2. Ý nghĩa: Liên từ mang nghĩa 'và / cùng với', dùng để liên kết các danh từ đẳng lập trong văn bản viết trang trọng, hành chính hoặc tiêu đề tài liệu."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "プラン名｜利用時間｜通常料金（室料）｜特典・対象",
+          "vi": "Tên gói｜Thời gian sử dụng｜Phí thông thường (tiền phòng)｜Ưu đãi ・ Đối tượng",
+          "vocab": [
+            {
+              "w": "プラン名",
+              "read": "ぷらんめい",
+              "vi": "tên gói"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "名",
+              "read": "めい",
+              "vi": "tên"
+            },
+            {
+              "w": "利用時間",
+              "read": "りようじかん",
+              "vi": "thời gian sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "通常料金",
+              "read": "つうじょうりょうきん",
+              "vi": "mức giá thông thường"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí; giá tiền"
+            },
+            {
+              "w": "室料",
+              "read": "しつりょう",
+              "vi": "phí phòng"
+            },
+            {
+              "w": "特典",
+              "read": "とくてん",
+              "vi": "ưu đãi; quyền lợi"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng áp dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "スタンダード半日プラン｜9:00〜13:00（4時間）｜40,000円｜本業のかたわらセミナーを開催する個人事業主にも最適",
+          "vi": "Gói tiêu chuẩn nửa ngày｜9:00〜13:00 (4 tiếng)｜40.000 yên｜Phù hợp nhất cho cả các cá nhân kinh doanh tổ chức hội thảo song song với công việc chính",
+          "vocab": [
+            {
+              "w": "スタンダード半日プラン",
+              "read": "すたんだーどはんにちぷらん",
+              "vi": "gói nửa ngày tiêu chuẩn"
+            },
+            {
+              "w": "スタンダード",
+              "read": "すたんだーど",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "半日",
+              "read": "はんにち",
+              "vi": "nửa ngày"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "9:00〜13:00",
+              "read": "くじからじゅうさんじ",
+              "vi": "9 giờ đến 13 giờ"
+            },
+            {
+              "w": "4時間",
+              "read": "よじかん",
+              "vi": "4 giờ"
+            },
+            {
+              "w": "40,000円",
+              "read": "よんまんえん",
+              "vi": "40.000 yên"
+            },
+            {
+              "w": "本業",
+              "read": "ほんぎょう",
+              "vi": "công việc chính"
+            },
+            {
+              "w": "かたわら",
+              "read": "かたわら",
+              "vi": "bên cạnh; đồng thời"
+            },
+            {
+              "w": "セミナー",
+              "read": "せみなー",
+              "vi": "hội thảo"
+            },
+            {
+              "w": "開催する",
+              "read": "かいさいする",
+              "vi": "tổ chức; mở"
+            },
+            {
+              "w": "開催",
+              "read": "かいさい",
+              "vi": "việc tổ chức"
+            },
+            {
+              "w": "個人事業主",
+              "read": "こじんじぎょうぬし",
+              "vi": "chủ doanh nghiệp cá thể"
+            },
+            {
+              "w": "個人",
+              "read": "こじん",
+              "vi": "cá nhân"
+            },
+            {
+              "w": "事業主",
+              "read": "じぎょうぬし",
+              "vi": "chủ doanh nghiệp"
+            },
+            {
+              "w": "事業",
+              "read": "じぎょう",
+              "vi": "kinh doanh; doanh nghiệp"
+            },
+            {
+              "w": "最適",
+              "read": "さいてき",
+              "vi": "phù hợp nhất; tối ưu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～かたわら",
+              "vi": "Bên cạnh công việc chính/hoạt động chính thì song song làm thêm việc khác"
+            }
+          ],
+          "keys": [
+            {
+              "w": "スタンダード半日プラン",
+              "why": "Tên gói nửa ngày với mức phí cơ bản 40.000 yên cho 4 tiếng."
+            },
+            {
+              "w": "40,000円",
+              "why": "Mức phí cơ bản của gói nửa ngày dùng để tính toán chi phí và phí hủy."
+            }
+          ]
+        },
+        {
+          "jp": "ビジネス全日プラン｜9:00〜18:00（9時間）｜80,000円｜プロジェクター無料貸出付き、一般企業向け",
+          "vi": "Gói doanh nghiệp cả ngày｜9:00〜18:00 (9 tiếng)｜80.000 yên｜Kèm mượn máy chiếu miễn phí, dành cho doanh nghiệp thông thường",
+          "vocab": [
+            {
+              "w": "ビジネス全日プラン",
+              "read": "びじねすぜんじつぷらん",
+              "vi": "gói cả ngày dành cho công việc"
+            },
+            {
+              "w": "ビジネス",
+              "read": "びじねす",
+              "vi": "kinh doanh"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "9:00〜18:00",
+              "read": "くじからじゅうはちじ",
+              "vi": "9 giờ đến 18 giờ"
+            },
+            {
+              "w": "9時間",
+              "read": "くじかん",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "80,000円",
+              "read": "はちまんえん",
+              "vi": "80.000 yên"
+            },
+            {
+              "w": "プロジェクター無料貸出付き",
+              "read": "ぷろじぇくたーむりょうかしだしつき",
+              "vi": "kèm cho mượn máy chiếu miễn phí"
+            },
+            {
+              "w": "プロジェクター",
+              "read": "ぷろじぇくたー",
+              "vi": "máy chiếu"
+            },
+            {
+              "w": "無料貸出付き",
+              "read": "むりょうかしだしつき",
+              "vi": "kèm cho mượn miễn phí"
+            },
+            {
+              "w": "無料貸出",
+              "read": "むりょうかしだし",
+              "vi": "cho mượn miễn phí"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "貸出付き",
+              "read": "かしだしつき",
+              "vi": "kèm cho mượn"
+            },
+            {
+              "w": "貸出",
+              "read": "かしだし",
+              "vi": "cho mượn"
+            },
+            {
+              "w": "付き",
+              "read": "つき",
+              "vi": "kèm theo"
+            },
+            {
+              "w": "一般企業向け",
+              "read": "いっぱんきぎょうむけ",
+              "vi": "dành cho doanh nghiệp nói chung"
+            },
+            {
+              "w": "一般企業",
+              "read": "いっぱんきぎょう",
+              "vi": "doanh nghiệp nói chung"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "chung; phổ thông"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho; hướng tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "接続: N + 向け. Ý nghĩa: Biểu thị đối tượng mục tiêu mà dịch vụ, sản phẩm hướng tới ('dành riêng cho / hướng đến N'), ở đây chỉ gói dịch vụ được thiết kế dành cho đối tượng doanh nghiệp thông thường."
+            },
+            {
+              "point": "〜付き",
+              "vi": "接続: N + 付き. Ý nghĩa: Biểu thị trạng thái có kèm theo, bao gồm sẵn một tiện ích hoặc điều kiện ('có đính kèm N'), ở đây chỉ gói dịch vụ có kèm theo việc cho mượn máy chiếu miễn phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ビジネス全日プラン",
+              "why": "Gói cả ngày với khung giờ 9:00〜18:00 phù hợp với nhu cầu sử dụng từ 10:00〜17:00."
+            },
+            {
+              "w": "80,000円",
+              "why": "Mức phí cơ sở của gói cả ngày dùng để tính chiết khấu sớm 10%."
+            },
+            {
+              "w": "プロジェクター無料貸出付き",
+              "why": "Đặc quyền miễn phí mượn máy chiếu đi kèm sẵn trong gói doanh nghiệp cả ngày."
+            }
+          ]
+        },
+        {
+          "jp": "特別集中合宿プラン｜9:00〜21:00（12時間）｜110,000円｜3日間にわたってご利用の場合、総額から20％割引",
+          "vi": "Gói tập huấn tập trung đặc biệt｜9:00〜21:00 (12 tiếng)｜110.000 yên｜Trường hợp sử dụng suốt 3 ngày, giảm giá 20% trên tổng số tiền",
+          "vocab": [
+            {
+              "w": "特別集中合宿プラン",
+              "read": "とくべつしゅうちゅうがっしゅくぷらん",
+              "vi": "gói trại tập trung đặc biệt"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "集中合宿",
+              "read": "しゅうちゅうがっしゅく",
+              "vi": "trại tập trung chuyên sâu"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "合宿",
+              "read": "がっしゅく",
+              "vi": "trại tập huấn; đào tạo tập trung"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "9:00〜21:00",
+              "read": "くじからにじゅういちじ",
+              "vi": "9 giờ đến 21 giờ"
+            },
+            {
+              "w": "12時間",
+              "read": "じゅうにじかん",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "110,000円",
+              "read": "じゅういちまんえん",
+              "vi": "110.000 yên"
+            },
+            {
+              "w": "3日間",
+              "read": "みっかかん",
+              "vi": "3 ngày"
+            },
+            {
+              "w": "わたって",
+              "read": "わたって",
+              "vi": "trải qua; kéo dài"
+            },
+            {
+              "w": "ご利用",
+              "read": "ごりよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "総額",
+              "read": "そうがく",
+              "vi": "tổng số tiền"
+            },
+            {
+              "w": "20％割引",
+              "read": "にじゅっぱーせんとわりびき",
+              "vi": "giảm 20 phần trăm"
+            },
+            {
+              "w": "20％",
+              "read": "にじゅっぱーせんと",
+              "vi": "20 phần trăm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá; chiết khấu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にわたって",
+              "vi": "Trải suốt / Kéo dài trong suốt khoảng thời gian ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "3日間にわたって",
+              "why": "Điều kiện sử dụng liên tục suốt 3 ngày để được hưởng ưu đãi giảm giá 20%."
+            }
+          ]
+        },
+        {
+          "jp": "【割引制度と追加オプション】",
+          "vi": "【Chế độ giảm giá và các tùy chọn bổ sung】",
+          "vocab": [
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ, quy chế"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "bổ sung, thêm vào"
+            },
+            {
+              "w": "オプション",
+              "read": "オプション",
+              "vi": "tùy chọn, dịch vụ thêm"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "※「連続利用割引」は、同一プランを2日以上にわたって利用される場合に室料が15％割引となります（特別集中合宿プランの割引とは併用不可）。",
+          "vi": "※ \"Giảm giá sử dụng liên tiếp\" áp dụng khi sử dụng cùng một gói kéo dài từ 2 ngày trở lên với mức giảm 15% tiền phòng (không áp dụng đồng thời với giảm giá của Gói tập huấn tập trung đặc biệt).",
+          "vocab": [
+            {
+              "w": "連続利用割引",
+              "read": "れんぞくりようわりびき",
+              "vi": "giảm giá sử dụng liên tục"
+            },
+            {
+              "w": "連続",
+              "read": "れんぞく",
+              "vi": "liên tục"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "同一",
+              "read": "どういつ",
+              "vi": "giống nhau/cùng một"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói/kế hoạch"
+            },
+            {
+              "w": "2日以上",
+              "read": "ふつかいじょう",
+              "vi": "từ 2 ngày trở lên"
+            },
+            {
+              "w": "わたって",
+              "read": "わたって",
+              "vi": "trải qua/kéo dài"
+            },
+            {
+              "w": "利用される",
+              "read": "りようされる",
+              "vi": "được sử dụng"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "室料",
+              "read": "しつりょう",
+              "vi": "tiền thuê phòng"
+            },
+            {
+              "w": "15％",
+              "read": "じゅうごパーセント",
+              "vi": "15 phần trăm"
+            },
+            {
+              "w": "となります",
+              "read": "となります",
+              "vi": "trở thành/được tính là"
+            },
+            {
+              "w": "特別集中合宿プラン",
+              "read": "とくべつしゅうちゅうがっしゅくプラン",
+              "vi": "gói trại tập trung đặc biệt"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "合宿",
+              "read": "がっしゅく",
+              "vi": "trại tập huấn"
+            },
+            {
+              "w": "併用不可",
+              "read": "へいようふか",
+              "vi": "không được dùng kết hợp"
+            },
+            {
+              "w": "併用",
+              "read": "へいよう",
+              "vi": "dùng kết hợp"
+            },
+            {
+              "w": "不可",
+              "read": "ふか",
+              "vi": "không được phép"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にわたって",
+              "vi": "Trải suốt / Kéo dài trong suốt khoảng thời gian ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "同一プランを2日以上にわたって利用される場合",
+              "why": "Điều kiện được áp dụng giảm giá sử dụng liên tiếp khi thuê cùng một gói từ 2 ngày trở lên."
+            },
+            {
+              "w": "室料が15％割引",
+              "why": "Tỷ lệ giảm giá 15% tiền phòng khi áp dụng chế độ giảm giá sử dụng liên tiếp."
+            },
+            {
+              "w": "特別集中合宿プランの割引とは併用不可",
+              "why": "Quy định giới hạn không cho phép áp dụng đồng thời với ưu đãi của gói tập huấn đặc biệt."
+            }
+          ]
+        },
+        {
+          "jp": "※「早期予約割引」は利用日の30日前までの申請で室料が10％割引になるばかりか、マイク2本も無料となります。",
+          "vi": "※ \"Giảm giá đặt trước sớm\" không chỉ giảm 10% tiền phòng khi đăng ký trước ngày sử dụng từ 30 ngày trở lên, mà còn được miễn phí 2 micro.",
+          "vocab": [
+            {
+              "w": "早期予約割引",
+              "read": "そうきよやくわりびき",
+              "vi": "giảm giá đặt chỗ sớm"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "sớm"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用日",
+              "read": "りようび",
+              "vi": "ngày sử dụng"
+            },
+            {
+              "w": "30日前",
+              "read": "さんじゅうにちまえ",
+              "vi": "trước 30 ngày"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "申請",
+              "read": "しんせい",
+              "vi": "đăng ký/đề nghị"
+            },
+            {
+              "w": "室料",
+              "read": "しつりょう",
+              "vi": "tiền thuê phòng"
+            },
+            {
+              "w": "10％",
+              "read": "じゅっパーセント",
+              "vi": "10 phần trăm"
+            },
+            {
+              "w": "割引になる",
+              "read": "わりびきになる",
+              "vi": "được giảm giá"
+            },
+            {
+              "w": "ばかりか",
+              "read": "ばかりか",
+              "vi": "không chỉ... mà còn..."
+            },
+            {
+              "w": "マイク",
+              "read": "マイク",
+              "vi": "micro"
+            },
+            {
+              "w": "2本",
+              "read": "にほん",
+              "vi": "2 chiếc (vật dài)"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "となります",
+              "read": "となります",
+              "vi": "trở thành/được tính là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ばかりか",
+              "vi": "Không chỉ ~ mà còn (thêm vào đó điều tích cực hoặc tiêu cực hơn)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "利用日の30日前までの申請",
+              "why": "Thời hạn đăng ký trước tối thiểu 30 ngày để đủ điều kiện hưởng giảm giá đặt trước sớm."
+            },
+            {
+              "w": "室料が10％割引",
+              "why": "Mức chiết khấu tiền phòng 10% được nhận khi đặt trước 30 ngày."
+            },
+            {
+              "w": "マイク2本も無料",
+              "why": "Đặc quyền bổ sung được mượn miễn phí 2 micro khi đăng ký sớm."
+            }
+          ]
+        },
+        {
+          "jp": "※飲食の持ち込みに際しては、清掃協力費として別途1団体につき一律5,000円を申し受けます。",
+          "vi": "※ Khi mang đồ ăn thức uống vào, chúng tôi xin phép thu riêng phí hỗ trợ vệ sinh đồng giá 5.000 yên cho mỗi đoàn thể.",
+          "vocab": [
+            {
+              "w": "飲食",
+              "read": "いんしょく",
+              "vi": "đồ ăn thức uống"
+            },
+            {
+              "w": "持ち込み",
+              "read": "もちこみ",
+              "vi": "mang vào"
+            },
+            {
+              "w": "に際して",
+              "read": "にさいして",
+              "vi": "khi/nhân dịp"
+            },
+            {
+              "w": "清掃協力費",
+              "read": "せいそうきょうりょくひ",
+              "vi": "phí hợp tác vệ sinh"
+            },
+            {
+              "w": "清掃",
+              "read": "せいそう",
+              "vi": "vệ sinh/dọn dẹp"
+            },
+            {
+              "w": "協力",
+              "read": "きょうりょく",
+              "vi": "hợp tác"
+            },
+            {
+              "w": "費",
+              "read": "ひ",
+              "vi": "chi phí"
+            },
+            {
+              "w": "別途",
+              "read": "べっと",
+              "vi": "riêng/thêm"
+            },
+            {
+              "w": "1団体",
+              "read": "いちだんたい",
+              "vi": "một đoàn/nhóm"
+            },
+            {
+              "w": "団体",
+              "read": "だんたい",
+              "vi": "đoàn/nhóm"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi"
+            },
+            {
+              "w": "一律",
+              "read": "いちりつ",
+              "vi": "đồng nhất/đồng giá"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "申し受けます",
+              "read": "もうしうけます",
+              "vi": "thu/nhận (phí)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～に際して",
+              "vi": "Khi / Nhân dịp thực hiện hành vi trang trọng, mang tính thủ tục"
+            }
+          ],
+          "keys": [
+            {
+              "w": "飲食の持ち込みに際しては",
+              "why": "Điều kiện phát sinh phí khi mang theo đồ ăn thức uống bên ngoài vào hội trường."
+            },
+            {
+              "w": "一律5,000円",
+              "why": "Mức phí hỗ trợ vệ sinh cố định 5.000 yên cho mỗi đoàn thể mang đồ ăn vào."
+            }
+          ]
+        },
+        {
+          "jp": "【キャンセル規定および注意事項】",
+          "vi": "【Quy định hủy đặt chỗ và các lưu ý】",
+          "vocab": [
+            {
+              "w": "キャンセル",
+              "read": "キャンセル",
+              "vi": "hủy"
+            },
+            {
+              "w": "規定",
+              "read": "きてい",
+              "vi": "quy định"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "事項",
+              "read": "じこう",
+              "vi": "điều khoản, hạng mục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜および (及び)",
+              "vi": "接続: N1 + および + N2. Ý nghĩa: Liên từ nối trang trọng mang nghĩa 'và / cũng như', dùng để liệt kê các đề mục quy định chính thức trong văn bản."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "※利用日の8日前までのキャンセルは無料ですが、7日前から前日までは利用料金の50％、当日は100％の取消料が発生します。",
+          "vi": "※ Việc hủy trước ngày sử dụng từ 8 ngày trở lên là miễn phí, nhưng từ 7 ngày trước đến trước 1 ngày sẽ phát sinh phí hủy 50% tiền sử dụng, vào đúng ngày là 100%.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "キャンセル",
+              "read": "キャンセル",
+              "vi": "hủy"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, đúng ngày"
+            },
+            {
+              "w": "発生",
+              "read": "はっせい",
+              "vi": "sự phát sinh, xảy ra"
+            },
+            {
+              "w": "取消料",
+              "read": "とりけしりょう",
+              "vi": "phí hủy (chỗ, hợp đồng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が (Liên từ nghịch đối)",
+              "vi": "接続: Mệnh đề (thể lịch sự/thông thường) + が. Ý nghĩa: Nối hai vế câu biểu thị quan hệ tương phản, đối lập ('tuy... nhưng...'), ở đây đối lập giữa việc hủy trước 8 ngày được miễn phí với việc hủy cận ngày sẽ bị tính phí."
+            },
+            {
+              "point": "〜から〜まで",
+              "vi": "接続: N (thời gian) + から + N (thời gian) + まで. Ý nghĩa: Biểu thị phạm vi thời gian từ điểm bắt đầu đến điểm kết thúc ('từ... đến...'), ở đây xác định khung thời gian áp dụng mức phạt 50% phí hủy (từ 7 ngày trước đến ngày hôm trước)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "利用日の8日前までのキャンセルは無料",
+              "why": "Mốc thời gian hủy trước 8 ngày được miễn hoàn toàn phí hủy."
+            },
+            {
+              "w": "7日前から前日までは利用料金の50％",
+              "why": "Khung thời gian từ 7 ngày đến trước 1 ngày bị tính 50% tổng chi phí sử dụng."
+            },
+            {
+              "w": "当日は100％の取消料",
+              "why": "Mức phạt hủy tối đa 100% khi hủy đúng ngày diễn ra sự kiện."
+            }
+          ]
+        },
+        {
+          "jp": "※事前にご連絡さえくだされば変更手数料は不要だったものを、無断で時間延長された場合は追加料金をいただきます。",
+          "vi": "※ Lẽ ra phí thay đổi đã không cần thiết nếu quý khách liên hệ trước, nhưng trường hợp tự ý kéo dài thời gian sẽ bị tính thêm phụ phí.",
+          "vocab": [
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước sự việc"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "くださる",
+              "read": "くださる",
+              "vi": "cho, ban cho"
+            },
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "sự thay đổi"
+            },
+            {
+              "w": "手数料",
+              "read": "てすうりょう",
+              "vi": "lệ phí"
+            },
+            {
+              "w": "不要",
+              "read": "ふよう",
+              "vi": "không cần thiết"
+            },
+            {
+              "w": "無断",
+              "read": "むだん",
+              "vi": "tự ý, không xin phép"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "延長",
+              "read": "えんちょう",
+              "vi": "kéo dài, gia hạn"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ものを",
+              "vi": "Lẽ ra nếu làm vậy thì đã... đằng này lại... (thể hiện sự tiếc nuối, trách móc)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "事前にご連絡さえくだされば",
+              "why": "Điều kiện để không bị thu phí thay đổi nếu thông báo trước cho ban quản lý."
+            }
+          ]
+        },
+        {
+          "jp": "※利用者アンケートより：「設備が万全で、参加者との意見交換がどれほど有意義に行えたことか。」",
+          "vi": "※ Trích từ phiếu khảo sát người dùng: \"Cơ sở vật chất hoàn hảo, việc trao đổi ý kiến với người tham gia đã diễn ra ý nghĩa biết bao.\"",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "アンケート",
+              "read": "アンケート",
+              "vi": "khảo sát, phiếu thăm dò"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "trang thiết bị"
+            },
+            {
+              "w": "万全",
+              "read": "ばんぜん",
+              "vi": "hoàn hảo, chu toàn"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "sự trao đổi"
+            },
+            {
+              "w": "どれほど",
+              "read": "どれほど",
+              "vi": "đến mức nào, bao nhiêu"
+            },
+            {
+              "w": "有意義",
+              "read": "ゆういぎ",
+              "vi": "có ý nghĩa, bổ ích"
+            },
+            {
+              "w": "行える",
+              "read": "おこなえる",
+              "vi": "có thể tiến hành, làm được"
+            },
+            {
+              "w": "意見交換",
+              "read": "いけんこうかん",
+              "vi": "trao đổi ý kiến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ことか",
+              "vi": "Biết bao / Rất nhiều xiết bao (cảm thán nhấn mạnh mức độ)"
+            }
+          ],
+          "keys": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "最新設備を備えているだけあって",
+          "label": "～だけあって"
+        },
+        {
+          "excerpt": "人気の施設であるだけに",
+          "label": "～だけに"
+        },
+        {
+          "excerpt": "本業のかたわら",
+          "label": "～かたわら"
+        },
+        {
+          "excerpt": "3日間にわたって",
+          "label": "～にわたって"
+        },
+        {
+          "excerpt": "2日以上にわたって",
+          "label": "～にわたって"
+        },
+        {
+          "excerpt": "10％割引になるばかりか",
+          "label": "～ばかりか"
+        },
+        {
+          "excerpt": "飲食の持ち込みに際しては",
+          "label": "～に際して"
+        },
+        {
+          "excerpt": "不要だったものを",
+          "label": "～ものを"
+        },
+        {
+          "excerpt": "どれほど有意義に行えたことか",
+          "label": "～ことか"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "施設案内と利用のお勧め",
+          "topic": 1,
+          "note": "Giới thiệu cơ sở vật chất tối tân và khuyến khích đăng ký sớm",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "body",
+          "label": "利用プランおよび料金一覧",
+          "topic": 4,
+          "note": "Bảng tổng kết 3 gói sử dụng, khung giờ, mức phí và ưu đãi đi kèm",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "割引制度と追加オプション",
+          "topic": 8,
+          "note": "Các điều kiện giảm giá liên tiếp, giảm giá đặt sớm và quy định mang đồ ăn",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 15,
+          "kind": "turn",
+          "label": "キャンセル規定および注意事項",
+          "topic": 12,
+          "note": "Biểu phí phạt hủy phòng theo mốc ngày, quy định đổi giờ và phản hồi người dùng",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "ある会社が新入社員研修のため、利用日の40日前に「10:00〜17:00」の時間帯で会場を1日予約し、昼食の弁当を持ち込む予定である。この場合、支払う総費用と無料で利用できる設備の組み合わせとして正しいものはどれか。",
+          "options": [
+            "77,000円（プロジェクターとマイク2本が無料）",
+            "72,000円（プロジェクターのみ無料）",
+            "85,000円（マイク2本のみ無料）",
+            "77,000円（プロジェクターのみ無料、マイクは有料）"
+          ],
+          "answer": 0,
+          "explainVi": "1. Khung giờ 10:00〜17:00 (7 tiếng) thuộc gói 'ビジネス全日プラン' (9:00〜18:00, giá gốc 80.000 yên), gói này có sẵn đặc quyền miễn phí mượn máy chiếu (dòng 6).\n2. Đăng ký trước 40 ngày thỏa mãn điều kiện trước từ 30 ngày trở lên (dòng 10) nên được áp dụng '早期予約割引': giảm 10% tiền phòng (80.000 x 0,9 = 72.000 yên) và được miễn phí mượn 2 micro.\n3. Mang theo cơm trưa vào hội trường phải trả thêm phí vệ sinh cố định 5.000 yên cho mỗi đoàn thể (dòng 11).\nTổng chi phí: 72.000 + 5.000 = 77.000 yên, thiết bị miễn phí gồm cả máy chiếu và 2 micro. Đáp án đúng là lựa chọn 1 (index 0).",
+          "tip": "Xác định gói phòng phù hợp với khung giờ cần dùng -> tính giảm giá đặt sớm trên tiền phòng -> cộng phụ phí vệ sinh do mang thức ăn -> tổng hợp toàn bộ trang thiết bị được mượn miễn phí.",
+          "evi": [
+            6,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Một công ty dự định đặt địa điểm trong một ngày vào khung giờ 「10:00〜17:00」 để đào tạo nhân viên mới, trước ngày sử dụng 40 ngày, và mang theo cơm hộp cho bữa trưa. Trong trường hợp này, tổ hợp tổng chi phí phải trả và thiết bị có thể sử dụng miễn phí nào là đúng?",
+            "o": [
+              "77.000 yên (được miễn phí sử dụng máy chiếu và 2 micro)",
+              "72.000 yên (chỉ được miễn phí sử dụng máy chiếu)",
+              "85.000 yên (chỉ được miễn phí sử dụng 2 micro)",
+              "77.000 yên (chỉ được miễn phí sử dụng máy chiếu, micro phải trả phí)"
+            ]
+          }
+        },
+        {
+          "q": "個人事業主のBさんは「スタンダード半日プラン」を2日間にわたって利用する予約を15日前に行っていたが、利用日の5日前にすべてキャンセルすることになった。Bさんが支払うべき取消料について、正しいものはどれか。",
+          "options": [
+            "「連続利用割引」が適用された利用料金（68,000円）の50％にあたる34,000円を支払う。",
+            "早期予約割引が適用されていないため、通常料金（80,000円）の全額（80,000円）を支払う。",
+            "30日以上前のキャンセルではないため、通常料金（80,000円）の50％にあたる40,000円を支払う。",
+            "利用日の8日前を過ぎているため、割引前の料金に対して100％の取消料（80,000円）を支払う。"
+          ],
+          "answer": 0,
+          "explainVi": "1. B đặt 'スタンダード半日プラン' (40.000 yên/ngày ở dòng 5) trong 2 ngày liên tiếp -> thỏa mãn điều kiện '連続利用割引' (từ 2 ngày trở lên ở dòng 9), được giảm 15% tiền phòng: 40.000 x 2 x 0,85 = 68.000 yên.\n2. B hủy trước 5 ngày, rơi vào khung thời gian 'từ 7 ngày trước đến trước 1 ngày' (dòng 13) với mức phí hủy là 50% tiền sử dụng (68.000 x 50% = 34.000 yên).\nDo đó đáp án chính xác là lựa chọn 1 (index 0).",
+          "tip": "Tính toán tổng chi phí đã qua chiết khấu của hợp đồng ban đầu (sử dụng liên tiếp 2 ngày) trước khi áp dụng tỷ lệ phần trăm của biểu phí hủy tương ứng với mốc thời gian báo hủy.",
+          "evi": [
+            5,
+            9,
+            13
+          ],
+          "qt": {
+            "q": "Anh B, một chủ doanh nghiệp cá thể, đã đặt 「Gói nửa ngày tiêu chuẩn」 trong 2 ngày và thực hiện đặt chỗ trước 15 ngày, nhưng đến 5 ngày trước ngày sử dụng thì phải hủy toàn bộ. Phương án nào sau đây đúng về phí hủy mà anh B phải trả?",
+            "o": [
+              "Trả 34.000 yên, tương đương 50% phí sử dụng sau khi áp dụng 「Giảm giá sử dụng liên tiếp」 (68.000 yên).",
+              "Vì không áp dụng giảm giá đặt chỗ sớm, trả toàn bộ mức giá thông thường (80.000 yên).",
+              "Vì không phải hủy trước 30 ngày, trả 40.000 yên, tương đương 50% mức giá thông thường (80.000 yên).",
+              "Vì đã qua mốc 8 ngày trước ngày sử dụng, trả phí hủy 100% mức giá trước khi giảm giá (80.000 yên)."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

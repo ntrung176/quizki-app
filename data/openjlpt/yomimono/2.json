@@ -1,0 +1,1290 @@
+{
+  "bai": 2,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 2 tập trung vào việc CHỈ VẬT bằng これ／それ／あれ (cái này/cái đó/cái kia) và hỏi đáp về đồ vật. Mọi câu vẫn là câu danh từ「NはNです／ではありません」— chưa có động từ. Chú ý khoảng cách giữa người nói và đồ vật để chọn đúng từ chỉ thị.",
+    "steps": [
+      "Trước tiên xác định ai đang nói và đồ vật nào đang được nhắc tới.",
+      "Phân biệt 3 khoảng cách: これ = gần người nói; それ = gần người nghe; あれ = xa cả hai.",
+      "Khi có này/その/あの, chú ý danh từ đứng SAU: この〜／その〜／あの〜 luôn đi kèm danh từ (không đứng một mình).",
+      "そうです = \"vâng, đúng vậy\" (đồng ý); そうではありません = \"không, không phải vậy\" (phủ định). Dùng để trả lời câu hỏi「〜ですか」.",
+      "NのN: chú ý N1 đứng trước の luôn là chủ sở hữu hoặc nguồn gốc (của ai, của nước nào).",
+      "Câu hỏi đọc hiểu: tìm câu chỉ thị (これ／それ／あれ) rồi đối chiếu với câu trả lời/mô tả ngay sau đó."
+    ],
+    "tips": [
+      "これ／それ／あれ đứng MỘT MÌNH làm chủ đề; この／その／あの PHẢI đi kèm danh từ ngay sau.",
+      "そうです không phải là \"đúng\" theo nghĩa chung — nó chỉ dùng để đồng ý với điều vừa được hỏi.",
+      "Khi thấy「〜のですか」→ hỏi về vật/điều liên quan; khi thấy「〜は〜ですか」→ hỏi Yes/No.",
+      "NのN: đọc ngược sang tiếng Việt: 日本のかばん = túi của Nhật (Nhật Bản → túi).",
+      "Câu hỏi「これは何ですか」→ đáp án là tên đồ vật; câu hỏi「〜はだれのですか」→ đáp án là người sở hữu."
+    ],
+    "grammarFocus": [
+      "これ・それ・あれ",
+      "この・その・あのＮ",
+      "そうです・そうではありません",
+      "NのN（sở hữu）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 1,
+        "items": [
+          "NはNです",
+          "NはNではありません",
+          "NはNですか",
+          "Nも",
+          "NのN（quan hệ thuộc về）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "これは何ですか",
+      "titleVi": "Cái này là gì?",
+      "japanese": "これはかばんです。日本のかばんです。それはミラーさんのかばんですか。いいえ、そうではありません。それはワットさんのかばんです。あれもかばんですか。いいえ、あれはかさです。",
+      "vietnamese": "Cái này là túi xách. Đây là túi của Nhật. Cái đó có phải là túi của anh Miller không? Không, không phải vậy. Cái đó là túi của anh Watt. Cái kia cũng là túi xách à? Không, cái kia là ô dù.",
+      "sentences": [
+        {
+          "jp": "これはかばんです。",
+          "vi": "Cái này là túi xách.",
+          "vocab": [
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "これ",
+              "read": "これ",
+              "vi": "cái này (gần người nói)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "これはNです",
+              "vi": "これ đứng làm chủ đề (trước は), chỉ vật gần người nói."
+            }
+          ]
+        },
+        {
+          "jp": "日本のかばんです。",
+          "vi": "(Đây là) túi của Nhật (Bản).",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "日本のかばん = túi xách (xuất xứ từ) Nhật Bản. の nối hai danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "それはミラーさんのかばんですか。",
+          "vi": "Cái đó có phải là túi của anh Miller không?",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "cái đó (gần người nghe)"
+            },
+            {
+              "w": "〜さん",
+              "read": "〜さん",
+              "vi": "anh/chị (gọi người khác lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNですか",
+              "vi": "Câu hỏi Yes/No. それ chỉ vật gần người NGHE."
+            },
+            {
+              "point": "NのN（sở hữu）",
+              "vi": "ミラーさんのかばん = túi của anh Miller."
+            }
+          ]
+        },
+        {
+          "jp": "いいえ、そうではありません。それはワットさんのかばんです。",
+          "vi": "Không, không phải vậy. Cái đó là túi của anh Watt.",
+          "vocab": [
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "そうではありません",
+              "read": "そうではありません",
+              "vi": "không phải vậy (phủ định câu hỏi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そうではありません",
+              "vi": "Trả lời phủ định lịch sự cho câu hỏi vừa được nêu. そう = \"như vậy\"."
+            },
+            {
+              "point": "NのN（sở hữu）",
+              "vi": "ワットさんのかばん = túi của anh Watt."
+            }
+          ]
+        },
+        {
+          "jp": "あれもかばんですか。",
+          "vi": "Cái kia cũng là túi xách à?",
+          "vocab": [
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "あれ",
+              "read": "あれ",
+              "vi": "cái kia (xa cả người nói lẫn người nghe)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\". Hỏi liệu vật kia cũng là cùng loại đồ vật."
+            },
+            {
+              "point": "NはNですか",
+              "vi": "Câu hỏi Yes/No với あれ làm chủ đề."
+            }
+          ]
+        },
+        {
+          "jp": "いいえ、あれはかさです。",
+          "vi": "Không, cái kia là ô dù.",
+          "vocab": [
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "かさ",
+              "read": "かさ",
+              "vi": "ô dù"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Trả lời phủ định rồi cung cấp thông tin đúng: あれ là ô dù chứ không phải túi."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "これはかばんです",
+          "label": "これはNです"
+        },
+        {
+          "excerpt": "日本のかばん",
+          "label": "NのN（nguồn gốc）"
+        },
+        {
+          "excerpt": "そうではありません",
+          "label": "そうではありません"
+        },
+        {
+          "excerpt": "それはワットさんのかばんです",
+          "label": "NのN（sở hữu）"
+        },
+        {
+          "excerpt": "あれもかばんですか",
+          "label": "Nも・あれ"
+        }
+      ],
+      "questions": [
+        {
+          "q": "それ（ワットさんのかばん）はどこのかばんですか。",
+          "evi": [
+            1,
+            3
+          ],
+          "options": [
+            "アメリカのかばんです",
+            "日本のかばんです",
+            "ブラジルのかばんです",
+            "わかりません"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết nói「これはかばんです。日本のかばんです」— chiếc túi được giới thiệu đầu tiên (これ) là túi Nhật. Sau đó xác nhận「それはワットさんのかばんです」— cái đó (それ) chính là chiếc túi vừa nói đến, tức túi Nhật. Đáp án A (アメリカ) và C (ブラジル) không có căn cứ nào trong bài; D (わかりません) sai vì bài đã nói rõ.",
+          "tip": "Khi thấy「NのN」(ví dụ 日本のかばん), N đứng TRƯỚC の là xuất xứ/chủ sở hữu. Tìm cụm「〜のかばんです」trong bài là ra đáp án ngay.",
+          "qt": {
+            "q": "Đó (chiếc cặp của ông Watt) là cặp của nước nào?",
+            "o": [
+              "Cặp của Mỹ",
+              "Cặp của Nhật Bản",
+              "Cặp của Brazil",
+              "Không biết"
+            ]
+          }
+        },
+        {
+          "q": "あれは何ですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "かばんです",
+            "かさです",
+            "ノートです",
+            "とけいです"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết nói「あれもかばんですか。いいえ、あれはかさです」— câu hỏi \"cái kia có phải là túi không?\" bị phủ định, rồi xác nhận rõ「あれはかさです」(cái kia là ô dù). Đáp án A (かばん) sai vì bài đã phủ định; C (ノート) và D (とけい) không được nhắc tới.",
+          "tip": "Khi thấy「いいえ、〜は〇〇です」sau câu hỏi, cụm ngay sau いいえ chính là đáp án đúng. Bỏ qua phần hỏi, chỉ cần đọc câu TRẢ LỜI phủ định.",
+          "qt": {
+            "q": "Kia là gì?",
+            "o": [
+              "Cặp",
+              "Ô",
+              "Vở",
+              "Đồng hồ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "デパートで",
+      "titleVi": "Ở bách hóa tổng hợp",
+      "japanese": "ここはデパートです。カリナさんはデパートの社員です。これはとけいです。スイスのとけいです。あれもとけいですか。いいえ、そうではありません。あれはカメラです。このとけいはミラーさんのとけいですか。いいえ、そうではありません。これはカリナさんのとけいです。そのカメラは日本のカメラですか。はい、そうです。あのかばんもミラーさんのかばんですか。いいえ、あのかばんはワットさんのかばんです。ミラーさんのかばんはこれです。イギリスのかばんです。",
+      "vietnamese": "Đây là bách hóa tổng hợp.Chị Karina là nhân viên của bách hóa.Cái này là đồng hồ. Đây là đồng hồ Thụy Sĩ. Cái kia cũng là đồng hồ à? Không, không phải vậy. Cái kia là máy ảnh.Chiếc đồng hồ này có phải là đồng hồ của anh Miller không? Không, không phải vậy. Cái này là đồng hồ của chị Karina.Chiếc máy ảnh đó có phải là máy ảnh Nhật không? Vâng, đúng vậy.Chiếc túi kia cũng là túi của anh Miller à? Không, chiếc túi kia là túi của anh Watt.Túi của anh Miller là cái này. Đây là túi Anh Quốc.",
+      "sentences": [
+        {
+          "jp": "ここはデパートです。",
+          "vi": "Đây là bách hóa tổng hợp.",
+          "vocab": [
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hóa tổng hợp"
+            },
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "nơi này, đây (chỉ địa điểm gần người nói)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "ここ (nơi này) là chủ đề; デパート là vị ngữ. Câu khẳng định địa điểm."
+            },
+            {
+              "point": "ここ",
+              "vi": "ここ = nơi này (chỉ địa điểm) — chính thức học ở Bài 3, dùng trước cho bài đọc tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはデパートの社員です。",
+          "vi": "Chị Karina là nhân viên của bách hóa.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hóa tổng hợp"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Giới thiệu nghề nghiệp/vị trí của Karina."
+            },
+            {
+              "point": "NのN（thuộc về）",
+              "vi": "デパートの社員 = nhân viên của bách hóa."
+            }
+          ]
+        },
+        {
+          "jp": "これはとけいです。スイスのとけいです。",
+          "vi": "Cái này là đồng hồ. Đây là đồng hồ Thụy Sĩ.",
+          "vocab": [
+            {
+              "w": "とけい",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "スイス",
+              "read": "スイス",
+              "vi": "Thụy Sĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "これはNです",
+              "vi": "これ chỉ vật gần người nói."
+            },
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "スイスのとけい = đồng hồ (xuất xứ từ) Thụy Sĩ."
+            }
+          ]
+        },
+        {
+          "jp": "あれもとけいですか。いいえ、そうではありません。あれはカメラです。",
+          "vi": "Cái kia cũng là đồng hồ à? Không, không phải vậy. Cái kia là máy ảnh.",
+          "vocab": [
+            {
+              "w": "とけい",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "カメラ",
+              "read": "カメラ",
+              "vi": "máy ảnh"
+            },
+            {
+              "w": "あれ",
+              "read": "あれ",
+              "vi": "cái kia (xa cả hai người)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\": hỏi liệu cái kia cũng là đồng hồ như cái vừa nói."
+            },
+            {
+              "point": "そうではありません",
+              "vi": "Phủ định câu hỏi ngay trước: không phải đồng hồ."
+            },
+            {
+              "point": "あれはNです",
+              "vi": "あれ chỉ vật xa, xác định lại là カメラ (máy ảnh)."
+            }
+          ]
+        },
+        {
+          "jp": "このとけいはミラーさんのとけいですか。いいえ、そうではありません。これはカリナさんのとけいです。",
+          "vi": "Chiếc đồng hồ này có phải là đồng hồ của anh Miller không? Không, không phải vậy. Cái này là đồng hồ của chị Karina.",
+          "vocab": [
+            {
+              "w": "とけい",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "この〜",
+              "read": "この〜",
+              "vi": "chiếc ~ này (gần người nói, đi kèm danh từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "このＮ",
+              "vi": "この + danh từ (とけい) = chiếc đồng hồ này. この không đứng một mình."
+            },
+            {
+              "point": "NのN（sở hữu）",
+              "vi": "ミラーさんのとけい = đồng hồ của anh Miller."
+            },
+            {
+              "point": "そうではありません",
+              "vi": "Trả lời phủ định cho câu hỏi 〜ですか."
+            }
+          ]
+        },
+        {
+          "jp": "そのカメラは日本のカメラですか。はい、そうです。",
+          "vi": "Chiếc máy ảnh đó có phải là máy ảnh Nhật không? Vâng, đúng vậy.",
+          "vocab": [
+            {
+              "w": "カメラ",
+              "read": "カメラ",
+              "vi": "máy ảnh"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "その〜",
+              "read": "その〜",
+              "vi": "chiếc ~ đó (gần người nghe, đi kèm danh từ)"
+            },
+            {
+              "w": "はい",
+              "read": "はい",
+              "vi": "vâng, có (khẳng định)"
+            },
+            {
+              "w": "そうです",
+              "read": "そうです",
+              "vi": "vâng, đúng vậy (xác nhận điều được hỏi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そのＮ",
+              "vi": "その + カメラ: chiếc máy ảnh đó — gần người nghe."
+            },
+            {
+              "point": "そうです",
+              "vi": "Câu trả lời khẳng định cho〜ですか: \"vâng, đúng như bạn hỏi\"."
+            },
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "日本のカメラ = máy ảnh Nhật Bản."
+            }
+          ]
+        },
+        {
+          "jp": "あのかばんもミラーさんのかばんですか。いいえ、あのかばんはワットさんのかばんです。",
+          "vi": "Chiếc túi kia cũng là túi của anh Miller à? Không, chiếc túi kia là túi của anh Watt.",
+          "vocab": [
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "あの〜",
+              "read": "あの〜",
+              "vi": "chiếc ~ kia (xa cả hai người, đi kèm danh từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "あのＮ",
+              "vi": "あの + かばん: chiếc túi kia — xa cả hai người."
+            },
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\": hỏi liệu túi kia cũng là của Miller."
+            },
+            {
+              "point": "NのN（sở hữu）",
+              "vi": "ワットさんのかばん = túi của anh Watt."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんのかばんはこれです。",
+          "vi": "Túi của anh Miller là cái này.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "これ",
+              "read": "これ",
+              "vi": "cái này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのNはこれです",
+              "vi": "Chủ đề là \"túi của Miller\" (NのN), vị ngữ là これ — chỉ vật đang ở gần người nói."
+            }
+          ]
+        },
+        {
+          "jp": "イギリスのかばんです。",
+          "vi": "(Đây là) túi Anh Quốc.",
+          "vocab": [
+            {
+              "w": "イギリス",
+              "read": "イギリス",
+              "vi": "Anh Quốc (Vương quốc Anh)"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "イギリスのかばん = túi xuất xứ từ Anh Quốc. Lược chủ đề vì đã rõ ở câu trước."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "スイスのとけい",
+          "label": "NのN（nguồn gốc）"
+        },
+        {
+          "excerpt": "そうではありません。あれはカメラです",
+          "label": "そうではありません"
+        },
+        {
+          "excerpt": "このとけいはミラーさんのとけいですか",
+          "label": "このＮ・NのN（sở hữu）"
+        },
+        {
+          "excerpt": "そのカメラは日本のカメラですか。はい、そうです",
+          "label": "そのＮ・そうです"
+        },
+        {
+          "excerpt": "あのかばんもミラーさんのかばんですか",
+          "label": "あのＮ・Nも"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは何ですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "学生です",
+            "デパートの社員です",
+            "IMCの社員です",
+            "先生です"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết nói rõ ngay từ đầu「カリナさんはデパートの社員です」— chị Karina là nhân viên bách hóa (デパート). Đáp án A (学生 = học sinh) và D (先生 = giáo viên) không có căn cứ; C (IMCの社員) là nơi làm việc của anh Miller ở Bài 1, không phải Karina.",
+          "tip": "Câu hỏi「〜は何ですか」hỏi về nghề nghiệp/danh tính — tìm câu「〜はNNです」có cùng tên người trong bài là ra đáp án.",
+          "qt": {
+            "q": "Chị Karina làm nghề gì?",
+            "o": [
+              "Là học sinh",
+              "Là nhân viên cửa hàng bách hóa",
+              "Là nhân viên IMC",
+              "Là giáo viên"
+            ]
+          }
+        },
+        {
+          "q": "あれは何ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "スイスのとけいです",
+            "かばんです",
+            "カメラです",
+            "かさです"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết nói「あれもとけいですか。いいえ、そうではありません。あれはカメラです」— câu hỏi \"cái kia có phải đồng hồ không?\" bị phủ định bằng「そうではありません」, rồi xác nhận「あれはカメラです」(cái kia là máy ảnh). Đáp án A (スイスのとけい) sai vì あれ không phải đồng hồ; B (かばん) và D (かさ) không được nhắc tới khi nói về あれ.",
+          "tip": "Gặp「そうではありません」→ thông tin NGAY SAU đó mới là sự thật. Bỏ qua câu hỏi, chỉ cần đọc câu xác nhận tiếp theo.",
+          "qt": {
+            "q": "Cái kia là gì?",
+            "o": [
+              "Đồng hồ của Thụy Sĩ",
+              "Cái túi",
+              "Máy ảnh",
+              "Cái ô"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんのかばんはどこのかばんですか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "日本のかばんです",
+            "スイスのかばんです",
+            "アメリカのかばんです",
+            "イギリスのかばんです"
+          ],
+          "answer": 3,
+          "explainVi": "Bài viết nói「ミラーさんのかばんはこれです。イギリスのかばんです」— túi của anh Miller (ミラーさんのかばん) được xác nhận là túi Anh Quốc (イギリス). Đáp án A (日本) là xuất xứ của chiếc đồng hồ スイス/とけい, không phải túi Miller; B (スイス) là xuất xứ đồng hồ; C (アメリカ) không được nhắc đến.",
+          "tip": "Câu hỏi「どこのNですか」hỏi xuất xứ — tìm cụm「〜のN」có cùng tên N trong bài (ở đây là かばん) là ra ngay.",
+          "qt": {
+            "q": "Túi của anh Miller là túi của nước nào?",
+            "o": [
+              "Túi của Nhật Bản",
+              "Túi của Thụy Sĩ",
+              "Túi của Mỹ",
+              "Túi của Anh"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら文房具店のねだん",
+      "titleVi": "Bảng giá cửa hàng văn phòng phẩm Sakura",
+      "japanese": "さくら文房具店　しなもののねだん\nいらっしゃいませ。さくら文房具店です。\nカリナさんはさくら文房具店の店員です。\nしなもの｜ねだん｜くに\nノート｜100円｜日本\nペン｜150円｜イギリス\nえんぴつ｜50円｜アメリカ\nかさ｜800円｜フランス\nこれはノートです。このノートは日本のノートです。\nそれはミラーさんのペンですか。いいえ、そうではありません。\nそのペンはカリナさんのペンです。\nあのかさもさくら文房具店のかさですか。はい、そうです。\nあのかさはフランスのかさです。",
+      "vietnamese": "Cửa hàng văn phòng phẩm Sakura — bảng giá đồ vật\nXin mời vào. Là cửa hàng văn phòng phẩm Sakura.\nChị Karina là nhân viên của cửa hàng văn phòng phẩm Sakura.\nĐồ vật｜Giá tiền｜Nước\nVở｜100 yên｜Nhật Bản\nBút｜150 yên｜Anh Quốc\nBút chì｜50 yên｜Mỹ\nÔ dù｜800 yên｜Pháp\nCái này là vở. Cuốn vở này là vở của Nhật Bản.\nCái đó có phải là bút của anh Miller không? Không, không phải vậy.\nCây bút đó là bút của chị Karina.\nChiếc ô kia cũng là ô của cửa hàng văn phòng phẩm Sakura à? Vâng, đúng vậy.\nChiếc ô kia là ô của Pháp.",
+      "sentences": [
+        {
+          "jp": "さくら文房具店　しなもののねだん",
+          "vi": "Cửa hàng văn phòng phẩm Sakura — bảng giá đồ vật",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "文房具",
+              "read": "ぶんぼうぐ",
+              "vi": "văn phòng phẩm"
+            },
+            {
+              "w": "ねだん",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "さくら文房具店",
+              "read": "さくらぶんぼうぐてん",
+              "vi": "cửa hàng văn phòng phẩm Sakura (tên riêng)"
+            },
+            {
+              "w": "しなもの",
+              "read": "しなもの",
+              "vi": "đồ vật, hàng hóa"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "さくら文房具店",
+              "why": "Tên cửa hàng — mọi câu hỏi giá/xuất xứ sau đều xoay quanh cửa hàng này."
+            }
+          ]
+        },
+        {
+          "jp": "いらっしゃいませ。さくら文房具店です。",
+          "vi": "Xin mời vào. Là cửa hàng văn phòng phẩm Sakura.",
+          "vocab": [
+            {
+              "w": "いらっしゃいませ",
+              "read": "いらっしゃいませ",
+              "vi": "xin chào mừng quý khách"
+            },
+            {
+              "w": "さくら文房具店",
+              "read": "さくらぶんぼうぐてん",
+              "vi": "Cửa hàng văn phòng phẩm Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "文房具",
+              "read": "ぶんぼうぐ",
+              "vi": "văn phòng phẩm"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "cửa hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nです",
+              "vi": "Vị ngữ さくら文房具店です khẳng định tên cửa hàng — câu danh từ đơn giản, Bài 1 ôn lại."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "カリナさんはさくら文房具店の店員です。",
+          "vi": "Chị Karina là nhân viên của cửa hàng văn phòng phẩm Sakura.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "文房具",
+              "read": "ぶんぼうぐ",
+              "vi": "văn phòng phẩm"
+            },
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（thuộc về）",
+              "vi": "さくら文房具店の店員 = nhân viên của cửa hàng Sakura — mẫu Bài 2 NのN chỉ nơi làm việc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "カリナさん",
+              "why": "Xác lập ai là nhân viên cửa hàng — dùng để đối chiếu ở câu hỏi về ai sở hữu bút."
+            }
+          ]
+        },
+        {
+          "jp": "しなもの｜ねだん｜くに",
+          "vi": "Đồ vật｜Giá tiền｜Nước",
+          "vocab": [
+            {
+              "w": "ねだん",
+              "read": "ねだん",
+              "vi": "giá tiền (tiêu đề cột)"
+            },
+            {
+              "w": "しなもの",
+              "read": "しなもの",
+              "vi": "đồ vật (tiêu đề cột)"
+            },
+            {
+              "w": "くに",
+              "read": "くに",
+              "vi": "nước, quốc gia (tiêu đề cột)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ねだん",
+              "why": "Tiêu đề cột giá — dò cột này để tìm giá từng món khi trả lời câu hỏi."
+            },
+            {
+              "w": "くに",
+              "why": "Tiêu đề cột xuất xứ — dò cột này để biết đồ vật đến từ nước nào (NのN)."
+            }
+          ]
+        },
+        {
+          "jp": "ノート｜100円｜日本",
+          "vi": "Vở｜100 yên｜Nhật Bản",
+          "vocab": [
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "100円",
+              "read": "ひゃくえん",
+              "vi": "100 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "日本のノート = vở (xuất xứ) Nhật Bản — hàng bảng đọc thành NのN."
+            }
+          ],
+          "keys": [
+            {
+              "w": "100円",
+              "why": "Giá của ノート — căn cứ nếu câu hỏi hỏi giá vở."
+            }
+          ]
+        },
+        {
+          "jp": "ペン｜150円｜イギリス",
+          "vi": "Bút｜150 yên｜Anh Quốc",
+          "vocab": [
+            {
+              "w": "ペン",
+              "read": "ペン",
+              "vi": "bút"
+            },
+            {
+              "w": "イギリス",
+              "read": "イギリス",
+              "vi": "Anh Quốc"
+            },
+            {
+              "w": "150円",
+              "read": "ひゃくごじゅうえん",
+              "vi": "150 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "イギリスのペン = bút (xuất xứ) Anh Quốc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "150円",
+              "why": "Giá của ペン — nhiễu gần với giá かさ nếu học viên đọc nhầm hàng."
+            }
+          ]
+        },
+        {
+          "jp": "えんぴつ｜50円｜アメリカ",
+          "vi": "Bút chì｜50 yên｜Mỹ",
+          "vocab": [
+            {
+              "w": "えんぴつ",
+              "read": "えんぴつ",
+              "vi": "bút chì"
+            },
+            {
+              "w": "アメリカ",
+              "read": "アメリカ",
+              "vi": "nước Mỹ"
+            },
+            {
+              "w": "50円",
+              "read": "ごじゅうえん",
+              "vi": "50 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "アメリカのえんぴつ = bút chì (xuất xứ) Mỹ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "50円",
+              "why": "Giá của えんぴつ — nhiễu giá thấp nhất, dễ bị chọn nhầm nếu đọc lướt hàng."
+            }
+          ]
+        },
+        {
+          "jp": "かさ｜800円｜フランス",
+          "vi": "Ô dù｜800 yên｜Pháp",
+          "vocab": [
+            {
+              "w": "フランス",
+              "read": "フランス",
+              "vi": "nước Pháp"
+            },
+            {
+              "w": "かさ",
+              "read": "かさ",
+              "vi": "ô dù"
+            },
+            {
+              "w": "800円",
+              "read": "はっぴゃくえん",
+              "vi": "800 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "フランスのかさ = ô dù (xuất xứ) Pháp — đây là hàng câu hỏi sẽ hỏi tới."
+            }
+          ],
+          "keys": [
+            {
+              "w": "800円",
+              "why": "Giá của かさ — chính là đáp án đúng cho câu hỏi về あのかさ."
+            },
+            {
+              "w": "フランス",
+              "why": "Xuất xứ của かさ — khớp với dòng xác nhận あのかさはフランスのかさです ở cuối bài."
+            }
+          ]
+        },
+        {
+          "jp": "これはノートです。このノートは日本のノートです。",
+          "vi": "Cái này là vở. Cuốn vở này là vở của Nhật Bản.",
+          "vocab": [
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "これ",
+              "read": "これ",
+              "vi": "cái này (gần người nói)"
+            },
+            {
+              "w": "この〜",
+              "read": "この〜",
+              "vi": "cuốn ~ này (đi kèm danh từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "これはNです",
+              "vi": "これ đứng làm chủ đề, chỉ vật gần người nói — mẫu Bài 2."
+            },
+            {
+              "point": "このＮ",
+              "vi": "この + ノート = cuốn vở này. この luôn đi kèm danh từ ngay sau, không đứng một mình."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "それはミラーさんのペンですか。いいえ、そうではありません。",
+          "vi": "Cái đó có phải là bút của anh Miller không? Không, không phải vậy.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "ペン",
+              "read": "ペン",
+              "vi": "bút"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "cái đó (gần người nghe)"
+            },
+            {
+              "w": "そうではありません",
+              "read": "そうではありません",
+              "vi": "không phải vậy (phủ định câu hỏi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNですか",
+              "vi": "Câu hỏi Yes/No — Bài 1 ôn lại."
+            },
+            {
+              "point": "そうではありません",
+              "vi": "Phủ định lịch sự câu hỏi vừa nêu — mẫu Bài 2, báo hiệu chủ nhân thật nằm ở câu sau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そうではありません",
+              "why": "Phủ định — chủ nhân thật của ペン KHÔNG phải Miller, tránh bẫy chọn nhầm."
+            }
+          ]
+        },
+        {
+          "jp": "そのペンはカリナさんのペンです。",
+          "vi": "Cây bút đó là bút của chị Karina.",
+          "vocab": [
+            {
+              "w": "ペン",
+              "read": "ペン",
+              "vi": "bút"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "その〜",
+              "read": "その〜",
+              "vi": "cây ~ đó (đi kèm danh từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そのＮ",
+              "vi": "その + ペン = cây bút đó — gần người nghe."
+            },
+            {
+              "point": "NのN（sở hữu）",
+              "vi": "カリナさんのペン = bút của chị Karina — xác nhận chủ nhân thật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "カリナさんのペン",
+              "why": "Xác nhận chủ nhân thật của ペン là Karina, không phải Miller."
+            }
+          ]
+        },
+        {
+          "jp": "あのかさもさくら文房具店のかさですか。はい、そうです。",
+          "vi": "Chiếc ô kia cũng là ô của cửa hàng văn phòng phẩm Sakura à? Vâng, đúng vậy.",
+          "vocab": [
+            {
+              "w": "あの",
+              "read": "あの",
+              "vi": "kia, đó"
+            },
+            {
+              "w": "かさ",
+              "read": "かさ",
+              "vi": "cái ô"
+            },
+            {
+              "w": "さくら文房具店",
+              "read": "さくらぶんぼうぐてん",
+              "vi": "Cửa hàng văn phòng phẩm Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "文房具",
+              "read": "ぶんぼうぐ",
+              "vi": "văn phòng phẩm"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "cửa hàng"
+            },
+            {
+              "w": "はい",
+              "read": "はい",
+              "vi": "vâng, đúng"
+            },
+            {
+              "w": "そうです",
+              "read": "そうです",
+              "vi": "đúng vậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "あのＮ",
+              "vi": "あの + かさ = chiếc ô kia — xa cả hai người."
+            },
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\" — Bài 1 ôn lại, hỏi liệu ô kia cũng thuộc cửa hàng Sakura."
+            },
+            {
+              "point": "そうです",
+              "vi": "Xác nhận đúng câu hỏi vừa nêu — mẫu Bài 2."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そうです",
+              "why": "Xác nhận かさ đúng là hàng của cửa hàng Sakura, dẫn tới giá 800円 trong bảng."
+            }
+          ]
+        },
+        {
+          "jp": "あのかさはフランスのかさです。",
+          "vi": "Chiếc ô kia là ô của Pháp.",
+          "vocab": [
+            {
+              "w": "フランス",
+              "read": "フランス",
+              "vi": "nước Pháp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（nguồn gốc）",
+              "vi": "フランスのかさ = ô dù (xuất xứ) Pháp — xác nhận lại thông tin ở bảng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "フランスのかさ",
+              "why": "Xác nhận lại xuất xứ của かさ khớp với hàng bảng 「かさ｜800円｜フランス」."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "このノートは日本のノートです",
+          "label": "このＮ・NのN（nguồn gốc）"
+        },
+        {
+          "excerpt": "それはミラーさんのペンですか。いいえ、そうではありません",
+          "label": "そうではありません"
+        },
+        {
+          "excerpt": "あのかさもさくら文房具店のかさですか。はい、そうです",
+          "label": "あのＮ・Nも・そうです"
+        },
+        {
+          "excerpt": "あのかさはフランスのかさです",
+          "label": "NのN（sở hữu/nguồn gốc）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Giới thiệu cửa hàng",
+          "topic": 0,
+          "note": "Tên cửa hàng và nhân viên (Karina) — chưa có căn cứ trả lời, chỉ để định vị bối cảnh.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng giá",
+          "topic": 7,
+          "note": "Bảng 3 cột しなもの／ねだん／くに — dò đúng hàng かさ để lấy giá 800円, đây là khối chứa căn cứ chính của câu hỏi.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 10,
+          "kind": "turn",
+          "label": "Bẫy chủ nhân ペン",
+          "topic": 9,
+          "note": "それはミラーさんのペンですか bị phủ định bằng そうではありません — bẫy nếu học viên dừng ở câu hỏi mà không đọc câu xác nhận sau.",
+          "qs": []
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "point",
+          "label": "Xác nhận かさ",
+          "topic": 12,
+          "note": "あのかさ được xác nhận そうです là hàng Sakura, rồi khớp xuất xứ フランス — cùng nhóm căn cứ với bảng giá cho câu hỏi.",
+          "qs": [
+            1
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "あのかさはいくらですか。",
+          "options": [
+            "100円です",
+            "150円です",
+            "50円です",
+            "800円です"
+          ],
+          "answer": 3,
+          "explainVi": "Bảng giá ghi rõ hàng「かさ｜800円｜フランス」— かさ (ô dù) có giá 800円. Câu cuối bài cũng xác nhận lại「あのかさもさくら文房具店のかさですか。はい、そうです。あのかさはフランスのかさです」— chiếc ô kia chính là ô trong bảng của cửa hàng Sakura. Đáp án A (100円) là giá ノート, B (150円) là giá ペン, C (50円) là giá えんぴつ — đều là giá của đồ vật khác trong bảng, không phải かさ.",
+          "tip": "Gặp bảng có nhiều hàng: xác định đúng TÊN đồ vật trong câu hỏi (ở đây là かさ) rồi dò đúng HÀNG đó trong bảng, không lấy nhầm giá của hàng bên cạnh.",
+          "evi": [
+            7,
+            11,
+            12
+          ],
+          "qt": {
+            "q": "Chiếc ô kia giá bao nhiêu?",
+            "o": [
+              "100 yên",
+              "150 yên",
+              "50 yên",
+              "800 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

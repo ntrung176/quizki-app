@@ -1,0 +1,368 @@
+{
+  "bai": 3,
+  "bunpou": [
+    {
+      "stem": "すみません、受付[うけつけ]は ＿ですか。",
+      "choices": [
+        "どこ",
+        "これ",
+        "どちらが",
+        "なん"
+      ],
+      "answer": 0,
+      "explain": "「どこですか」hỏi địa điểm (\"ở đâu?\"). 「これ」là đại từ chỉ vật; 「なん」hỏi tên/loại; 「どちらが」dùng khi so sánh hoặc hỏi lịch sự hơn, nhưng không đứng một mình trước「ですか」."
+    },
+    {
+      "stem": "(Người nói đang đứng ngay tại quầy) 受付[うけつけ]は ＿です。",
+      "choices": [
+        "ここ",
+        "あそこ",
+        "そこ",
+        "どこ"
+      ],
+      "answer": 0,
+      "explain": "「ここ」chỉ nơi ngay chỗ người nói đang đứng. 「そこ」gần người nghe; 「あそこ」xa cả hai; 「どこ」là từ hỏi, không dùng để trả lời."
+    },
+    {
+      "stem": "(Chỉ xa cả hai người) エレベーターは ＿です。",
+      "choices": [
+        "あそこ",
+        "ここ",
+        "そこ",
+        "どこ"
+      ],
+      "answer": 0,
+      "explain": "「あそこ」chỉ nơi xa cả người nói lẫn người nghe. 「ここ」gần người nói; 「そこ」gần người nghe; 「どこ」là từ hỏi."
+    },
+    {
+      "stem": "これは フランス＿ ワインです。",
+      "choices": [
+        "の",
+        "が",
+        "を",
+        "から"
+      ],
+      "answer": 0,
+      "explain": "「の」nối xuất xứ/nguồn gốc: フランスのワイン = rượu vang Pháp (rượu vang của/từ Pháp). 「から」chỉ điểm xuất phát của hành động, không dùng để nối xuất xứ trong cấu trúc này."
+    },
+    {
+      "stem": "食堂[しょくどう]は ＿ですか。",
+      "choices": [
+        "何階[なんがい]",
+        "何歳[なんさい]",
+        "いくつ",
+        "どれ"
+      ],
+      "answer": 0,
+      "explain": "「何階[なんがい]」hỏi số tầng (tầng mấy?). 「何歳」hỏi tuổi; 「いくつ」hỏi số lượng hoặc tuổi (trẻ em); 「どれ」hỏi lựa chọn — tất cả đều không liên quan đến tầng."
+    },
+    {
+      "stem": "このネクタイは ＿ですか。",
+      "choices": [
+        "いくら",
+        "何階[なんがい]",
+        "どこ",
+        "どれ"
+      ],
+      "answer": 0,
+      "explain": "「いくら」hỏi giá tiền (\"bao nhiêu?\"). 「何階」hỏi tầng; 「どこ」hỏi địa điểm; 「どれ」hỏi lựa chọn — không hợp khi hỏi về giá đồ vật."
+    },
+    {
+      "stem": "(Lịch sự, hỏi khách) お国[くに]は ＿ですか。",
+      "choices": [
+        "どちら",
+        "どこが",
+        "どれ",
+        "いくら"
+      ],
+      "answer": 0,
+      "explain": "「どちら」là dạng lịch sự của「どこ」khi hỏi quốc tịch với khách. 「どこが」thêm「が」không cần thiết; 「どれ」hỏi lựa chọn; 「いくら」hỏi giá."
+    },
+    {
+      "stem": "それは ＿ 靴[くつ]ですか。",
+      "choices": [
+        "どこの",
+        "どこ",
+        "どちらが",
+        "どこから"
+      ],
+      "answer": 0,
+      "explain": "「どこの靴」hỏi xuất xứ/nước sản xuất của đôi giày (\"giày của nước nào?\"). 「どこ」đơn lẻ hỏi địa điểm; 「どこから」hỏi xuất phát điểm hành động."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "は",
+      "の",
+      "も",
+      "か",
+      "が",
+      "を",
+      "に"
+    ],
+    "items": [
+      {
+        "stem": "トイレ＿ どこですか。",
+        "answer": "は",
+        "explain": "「は」đánh dấu chủ đề câu hỏi地点. 「が」nhấn mạnh chủ ngữ, không tự nhiên trong câu hỏi địa điểm thông thường."
+      },
+      {
+        "stem": "これ＿ 日本[にほん]の カメラです。",
+        "answer": "は",
+        "explain": "「これは」làm chủ đề câu trần thuật. 「が」dùng khi nhấn mạnh (「これが〜」nghe như \"chính cái này mới là…\"), không phù hợp câu giới thiệu thông thường."
+      },
+      {
+        "stem": "エレベーター＿ あそこです。",
+        "answer": "は",
+        "explain": "「は」làm chủ đề câu chỉ hướng dẫn địa điểm. 「が」thường dùng khi mới nhắc đến lần đầu trong văn cảnh tìm kiếm (が → は theo dòng hội thoại)."
+      },
+      {
+        "stem": "これ＿ どこ＿ 時計[とけい]ですか。",
+        "answer": "は",
+        "explain": "「これは」(chủ đề) + 「どこの時計」(hỏi xuất xứ). Ô trống đầu cần「は」làm chủ đề; ô trống sau là「の」thuộc câu hỏi."
+      },
+      {
+        "stem": "これはイタリア＿ バッグです。",
+        "answer": "の",
+        "explain": "「イタリアの」nối xuất xứ: túi xách của/từ Ý. 「が/は」không có chức năng nối xuất xứ giữa hai danh từ."
+      },
+      {
+        "stem": "会議室[かいぎしつ]は ３階[さんがい]＿ あります。",
+        "answer": "に",
+        "explain": "「〜に あります」chỉ nơi tồn tại: \"có ở …\". 「は」làm chủ đề cho 会議室 đã dùng rồi; 「で」chỉ địa điểm hoạt động (không dùng với あります)."
+      },
+      {
+        "stem": "この かばんは いくら＿。",
+        "answer": "か",
+        "explain": "「か」cuối câu tạo câu hỏi (いくらか = \"bao nhiêu?\"). Thiếu「か」thì câu không hoàn chỉnh (thiếu vị ngữ); thêm「ですか」cũng đúng nhưng ở đây chỉ điền 1 trợ từ."
+      },
+      {
+        "stem": "事務所[じむしょ]＿ あそこです。",
+        "answer": "は",
+        "explain": "「は」đánh dấu chủ đề「事務所」. Câu chỉ địa điểm thông thường dùng「は」; 「が」dùng khi muốn nhấn mạnh đặc biệt."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "ここです",
+      "prompt": "Đổi thành câu hỏi: ___ ですか？ (Hỏi nơi đó ở đâu)",
+      "choices": [
+        "どこですか",
+        "ここですか",
+        "あそこですか",
+        "そこですか"
+      ],
+      "answer": 0,
+      "explain": "「どこ」là từ hỏi địa điểm (\"ở đâu?\"). 「ここ/そこ/あそこですか」đều là câu hỏi xác nhận vị trí cụ thể, không phải hỏi mở."
+    },
+    {
+      "base": "エレベーターはあそこです。",
+      "prompt": "Đổi thành câu phủ định/không rõ: エレベーターは___。",
+      "choices": [
+        "どこですか",
+        "ここです",
+        "そこです",
+        "あそこじゃないです"
+      ],
+      "answer": 3,
+      "explain": "「あそこじゃないです」phủ định vị trí「あそこ」(không ở đằng kia). 「どこですか」là câu hỏi; 「ここ/そこです」là khẳng định vị trí khác."
+    },
+    {
+      "base": "これはどこの 時計[とけい]ですか。",
+      "prompt": "Trả lời: Đây là đồng hồ Nhật Bản. → これは___。",
+      "choices": [
+        "日本[にほん]の 時計[とけい]です",
+        "どこの 時計[とけい]です",
+        "日本[にほん]が 時計[とけい]です",
+        "日本[にほん]は 時計[とけい]です"
+      ],
+      "answer": 0,
+      "explain": "「日本の時計です」trả lời xuất xứ bằng cấu trúc「の」: đồng hồ của/từ Nhật Bản. 「日本が/は時計です」sai về trật tự và chức năng trợ từ."
+    },
+    {
+      "base": "食堂[しょくどう]は ２階[にかい]です。",
+      "prompt": "Đổi thành câu hỏi tầng: 食堂[しょくどう]は___。",
+      "choices": [
+        "何階[なんがい]ですか",
+        "いくらですか",
+        "どこですか",
+        "何歳[なんさい]ですか"
+      ],
+      "answer": 0,
+      "explain": "「何階」hỏi số tầng, thay thế trực tiếp cho「２階」. 「いくら」hỏi giá; 「どこ」hỏi địa điểm (không cụ thể bằng tầng); 「何歳」hỏi tuổi."
+    },
+    {
+      "base": "このカメラは いくらですか。",
+      "prompt": "Trả lời: 50.000 yên. → ___です。",
+      "choices": [
+        "５万円[ごまんえん]",
+        "何階[なんがい]",
+        "あそこ",
+        "フランスの"
+      ],
+      "answer": 0,
+      "explain": "「５万円[ごまんえん]です」là câu trả lời cho「いくらですか」(hỏi giá). Các lựa chọn còn lại là tầng, địa điểm và xuất xứ — hoàn toàn không liên quan đến giá."
+    },
+    {
+      "base": "お国[くに]はどこですか。",
+      "prompt": "Nói lịch sự hơn: お国[くに]は___ですか。",
+      "choices": [
+        "どちら",
+        "どこが",
+        "いくら",
+        "なんがい"
+      ],
+      "answer": 0,
+      "explain": "「どちら」là dạng lịch sự của「どこ」, dùng khi hỏi khách về quốc tịch/xuất xứ. 「どこが」không phù hợp; 「いくら/なんがい」không liên quan."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "すみません、",
+        "トイレは",
+        "どこですか。"
+      ],
+      "vi": "Xin lỗi, nhà vệ sinh ở đâu ạ?",
+      "explain": "Cấu trúc hỏi địa điểm: すみません (lịch sự mở đầu) + N は + どこですか. Từ hỏi「どこ」đứng sau「は」."
+    },
+    {
+      "chips": [
+        "エレベーターは",
+        "あそこです。"
+      ],
+      "vi": "Thang máy ở đằng kia.",
+      "explain": "N は + [địa điểm] + です: câu chỉ hướng đơn giản. 「あそこ」chỉ nơi xa cả hai người; không cần thêm trợ từ."
+    },
+    {
+      "chips": [
+        "これは",
+        "どこの",
+        "時計[とけい]ですか。"
+      ],
+      "vi": "Đây là đồng hồ của nước nào?",
+      "explain": "これは (chủ đề) + どこの (hỏi xuất xứ) + danh từ + ですか. 「どこの」phải đứng ngay trước danh từ被修飾語."
+    },
+    {
+      "chips": [
+        "会議室[かいぎしつ]は",
+        "何階[なんがい]ですか。"
+      ],
+      "vi": "Phòng họp ở tầng mấy?",
+      "explain": "Hỏi tầng: N は + 何階ですか. 「何階」(từ hỏi tầng) đứng trước「ですか」theo trật tự cố định."
+    },
+    {
+      "chips": [
+        "このネクタイは",
+        "いくらですか。"
+      ],
+      "vi": "Cái cà vạt này bao nhiêu tiền?",
+      "explain": "Hỏi giá: [この + N] は + いくらですか. 「いくら」đứng cuối trước「ですか」."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "すみません、じむしょは どこですか。じむしょは あそこです。",
+      "ask": "Văn phòng ở đâu?",
+      "choices": [
+        "Ở đằng kia (xa cả hai người)",
+        "Ở đây (ngay cạnh người nói)",
+        "Ở đó (cạnh người nghe)"
+      ],
+      "answer": 0,
+      "script": "すみません、事務所[じむしょ]は どこですか。— 事務所[じむしょ]は あそこです。",
+      "explain": "「あそこ」chỉ xa cả người nói lẫn người nghe. 「ここ」là gần người nói; 「そこ」là gần người nghe."
+    },
+    {
+      "tts": "かいぎしつは なんがいですか。かいぎしつは さんがいです。",
+      "ask": "Phòng họp ở tầng mấy?",
+      "choices": [
+        "Tầng 3",
+        "Tầng 1",
+        "Tầng 7"
+      ],
+      "answer": 0,
+      "script": "会議室[かいぎしつ]は 何階[なんがい]ですか。— 会議室[かいぎしつ]は ３階[さんがい]です。",
+      "explain": "「さんがい」= 3階[さんがい] (tầng 3). Cần phân biệt: いちがい (tầng 1), ななかい (tầng 7)."
+    },
+    {
+      "tts": "このかばんは どこの かばんですか。にほんの かばんです。",
+      "ask": "Cái túi đó là túi của nước nào?",
+      "choices": [
+        "Nhật Bản",
+        "Pháp",
+        "Ý"
+      ],
+      "answer": 0,
+      "script": "このかばんは どこの かばんですか。— 日本[にほん]の かばんです。",
+      "explain": "「にほんの」= của/từ Nhật Bản. Câu trả lời「日本のかばんです」dùng「の」nối xuất xứ."
+    },
+    {
+      "tts": "このネクタイは いくらですか。ななせんえんです。",
+      "ask": "Cái cà vạt giá bao nhiêu?",
+      "choices": [
+        "7.000 yên",
+        "3.000 yên",
+        "17.000 yên"
+      ],
+      "answer": 0,
+      "script": "このネクタイは いくらですか。— ７０００円[ななせんえん]です。",
+      "explain": "「ななせん」= 7.000. Cẩn thận: 「さんぜん」= 3.000; 「じゅうななせん」= 17.000."
+    },
+    {
+      "tts": "うけつけは ここです。エレベーターは あそこです。",
+      "ask": "Đâu là nhận xét ĐÚNG theo đoạn hội thoại?",
+      "choices": [
+        "Quầy lễ tân ở gần người nói, thang máy ở xa cả hai người",
+        "Quầy lễ tân ở đằng kia, thang máy ở đây",
+        "Cả hai đều ở gần người nghe"
+      ],
+      "answer": 0,
+      "script": "受付[うけつけ]は ここです。エレベーターは あそこです。",
+      "explain": "「ここ」(gần người nói) ↔ 「あそこ」(xa cả hai). Đáp án sai đảo ngược hoặc dùng「そこ」(gần người nghe) không có trong câu."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Xin lỗi, nhà vệ sinh ở đâu ạ?",
+      "target": "すみません、トイレはどこですか。",
+      "accept": [
+        "すみません、といれはどこですか。"
+      ],
+      "explain": "Cấu trúc hỏi địa điểm: すみません + N は + どこですか。「すみません」mở đầu lịch sự; 「どこ」hỏi địa điểm."
+    },
+    {
+      "vi": "Thang máy ở đằng kia.",
+      "target": "エレベーターはあそこです。",
+      "accept": [
+        "えれべーたーはあそこです。"
+      ],
+      "explain": "N は + địa điểm + です: chỉ hướng. 「あそこ」= xa cả người nói và người nghe (đằng kia)."
+    },
+    {
+      "vi": "Đây là rượu vang của Pháp.",
+      "target": "これはフランスのワインです。",
+      "accept": [
+        "これはふらんすのわいんです。"
+      ],
+      "explain": "これは + [xuất xứ の] + danh từ + です: 「の」nối xuất xứ (フランスのワイン = rượu vang Pháp)."
+    },
+    {
+      "vi": "Phòng họp ở tầng mấy?",
+      "target": "会議室は何階ですか。",
+      "accept": [
+        "かいぎしつはなんがいですか。"
+      ],
+      "explain": "N は + 何階[なんがい]ですか: hỏi số tầng. 「何階」thay thế trực tiếp cho số tầng."
+    },
+    {
+      "vi": "Cái cà vạt này bao nhiêu tiền?",
+      "target": "このネクタイはいくらですか。",
+      "accept": [
+        "このねくたいはいくらですか。"
+      ],
+      "explain": "[この + N] は + いくらですか: hỏi giá. 「いくら」đứng ngay trước「ですか」."
+    }
+  ]
+}

@@ -1,0 +1,1366 @@
+{
+  "bai": 8,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 8 luyện kỹ năng miêu tả sự vật, con người và địa điểm bằng tính từ い và tính từ な. Chú ý dạng phủ định của tính từ い (〜くないです) và tính từ な (〜じゃありません), cũng như cách tính từ đứng trước danh từ (〜なN / 〜いN) để bổ nghĩa.",
+    "steps": [
+      "Đọc câu chủ đề để biết đang miêu tả vật/nơi/người nào (chủ đề đứng trước は).",
+      "Xác định tính từ cuối câu: tính từ い kết thúc bằng い (omoshiroi, hiroi, takai...), tính từ な theo sau です/じゃありません (shizuka, kirei, benri...).",
+      "Phân biệt とても (rất/lắm) và あまり〜ない (không lắm/không mấy): あまり luôn đi với phủ định.",
+      "Khi tính từ đứng trước danh từ: tính từ い giữ nguyên (たかいビル), tính từ な thêm な (しずかなまち).",
+      "Câu hỏi どんな〜ですか hỏi về đặc điểm — đáp án phải là tính từ, không phải danh từ đơn thuần.",
+      "Kiểm tra câu hỏi đọc hiểu: đối chiếu từng chi tiết trong bài trước khi chọn đáp án."
+    ],
+    "tips": [
+      "Tính từ い phủ định: bỏ い cuối rồi thêm くないです (たかい → たかくないです). Không viết たかいじゃありません.",
+      "Tính từ な phủ định: NA + じゃありません (きれいじゃありません). Không thêm く.",
+      "あまり luôn kéo theo phủ định: あまり〜くないです / あまり〜じゃありません. Không dùng あまり với câu khẳng định.",
+      "とても = rất — đứng ngay trước tính từ. Không nhầm với たくさん (nhiều — chỉ lượng).",
+      "いい (tốt) là tính từ い đặc biệt, phủ định là よくないです (KHÔNG phải いくないです).",
+      "どんなN hỏi đặc điểm/tính chất → đáp án mang tính từ, khác với どのN (cái nào cụ thể)."
+    ],
+    "grammarFocus": [
+      "Ｎは〜いです・〜くないです（tính từ い）",
+      "〜なＮ・〜いＮ（tính từ bổ nghĩa danh từ）",
+      "NはＮＡです・ＮＡじゃありません（tính từ な）",
+      "どんなＮ（hỏi đặc điểm）",
+      "とても・あまり〜ない（mức độ）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 1,
+        "items": [
+          "NはNです",
+          "NはNではありません",
+          "NのN"
+        ]
+      },
+      {
+        "bai": 3,
+        "items": [
+          "NはＮにあります",
+          "ここ・そこ・あそこ"
+        ]
+      },
+      {
+        "bai": 4,
+        "items": [
+          "Ｖます・Ｖません",
+          "〜ね"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "NへVます（đi đến）",
+          "NでVます（phương tiện）"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをVます（tha động từ）",
+          "いっしょにVましょう"
+        ]
+      },
+      {
+        "bai": 7,
+        "items": [
+          "NでVます（công cụ）",
+          "NにNをあげます"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "ミラーさんの部屋",
+      "titleVi": "Căn phòng của anh Miller",
+      "japanese": "ミラーさんの部屋は広いです。でも、あまりきれいじゃありません。部屋に古いテーブルがあります。テーブルの上に本や雑誌があります。窓の近くに小さいいすがあります。とても古いいすです。ミラーさんはよく部屋で日本語を勉強します。",
+      "vietnamese": "Phòng của anh Miller rộng. Nhưng không mấy sạch sẽ/gọn gàng. Trong phòng có một cái bàn cũ. Trên bàn có sách và tạp chí. Gần cửa sổ có một cái ghế nhỏ. Đó là chiếc ghế rất cũ. Anh Miller thường học tiếng Nhật trong phòng.",
+      "sentences": [
+        {
+          "jp": "ミラーさんの部屋は広いです。",
+          "vi": "Phòng của anh Miller rộng.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｎは〜いです",
+              "vi": "NはNです nhưng vị ngữ là tính từ い: 部屋 (chủ đề) は 広い (tính từ い) です."
+            },
+            {
+              "point": "NのN",
+              "vi": "ミラーさんの部屋 = phòng CỦA anh Miller. の nối quan hệ sở hữu (ôn Bài 1)."
+            }
+          ]
+        },
+        {
+          "jp": "でも、あまりきれいじゃありません。",
+          "vi": "Nhưng không mấy sạch sẽ/gọn gàng.",
+          "vocab": [
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "あまり〜ない",
+              "vi": "あまり + phủ định = \"không mấy ~\". Ở đây: あまりきれいじゃありません = không mấy gọn gàng."
+            },
+            {
+              "point": "ＮＡじゃありません",
+              "vi": "きれい là tính từ な → phủ định bằng じゃありません (KHÔNG dùng くない)."
+            }
+          ]
+        },
+        {
+          "jp": "部屋に古いテーブルがあります。",
+          "vi": "Trong phòng có một cái bàn cũ.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "テーブル",
+              "read": "テーブル",
+              "vi": "bàn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いＮ",
+              "vi": "古い + テーブル: tính từ い đứng trước danh từ, giữ nguyên hình thức (〜いN)."
+            },
+            {
+              "point": "NにNがあります",
+              "vi": "部屋に〜があります = Trong phòng có ~ (ôn Bài 3: vật vô tri ở đâu)."
+            }
+          ]
+        },
+        {
+          "jp": "テーブルの上に本や雑誌があります。",
+          "vi": "Trên bàn có sách và tạp chí.",
+          "vocab": [
+            {
+              "w": "テーブル",
+              "read": "テーブル",
+              "vi": "bàn"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "雑誌",
+              "read": "ざっし",
+              "vi": "tạp chí"
+            },
+            {
+              "w": "テーブルの上",
+              "read": "テーブルのうえ",
+              "vi": "trên bàn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNがあります",
+              "vi": "Vị trí テーブルの上 + に + vật + があります (ôn Bài 3)."
+            }
+          ]
+        },
+        {
+          "jp": "窓の近くに小さいいすがあります。とても古いいすです。",
+          "vi": "Gần cửa sổ có một cái ghế nhỏ. Đó là chiếc ghế rất cũ.",
+          "vocab": [
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ (tính từ い)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "いす",
+              "read": "いす",
+              "vi": "ghế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いＮ",
+              "vi": "小さいいす và 古いいす: tính từ い bổ nghĩa trực tiếp cho danh từ."
+            },
+            {
+              "point": "とても〜い",
+              "vi": "とても 古い: とても tăng cường mức độ của tính từ い."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはよく部屋で日本語を勉強します。",
+          "vi": "Anh Miller thường học tiếng Nhật trong phòng.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học (bài)"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "thường xuyên, hay"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます",
+              "vi": "部屋で勉強します = học Ở phòng. で chỉ địa điểm hoạt động (ôn Bài 5/6)."
+            },
+            {
+              "point": "NをVます",
+              "vi": "日本語を勉強します = học tiếng Nhật. を đánh dấu tân ngữ (ôn Bài 6)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "広いです",
+          "label": "Ｎは〜いです（tính từ い）"
+        },
+        {
+          "excerpt": "あまりきれいじゃありません",
+          "label": "あまり〜ない + ＮＡじゃありません"
+        },
+        {
+          "excerpt": "古いテーブル",
+          "label": "〜いＮ（tính từ い bổ nghĩa danh từ）"
+        },
+        {
+          "excerpt": "とても古いいすです",
+          "label": "とても〜い"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんの部屋はどんな部屋ですか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "とてもきれいな部屋です",
+            "広いですが、あまりきれいじゃありません",
+            "せまい部屋です",
+            "きれいな部屋です"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết có HAI câu miêu tả phòng: 「広いです」(rộng) và 「あまりきれいじゃありません」(không mấy gọn gàng). Đáp án 1 ghi lại cả hai điểm đó — đúng. Đáp án 0 (とてもきれいな部屋です) sai vì bài nói ngược: phòng KHÔNG mấy sạch. Đáp án 2 (せまい部屋です) sai vì bài nói 広い (rộng), không phải せまい (chật). Đáp án 3 (きれいな部屋です) sai cùng lý do đáp án 0.",
+          "tip": "Câu hỏi「どんな部屋ですか」→ tìm TẤT CẢ tính từ miêu tả chủ đề đó trong bài, rồi ghép lại. Đáp án đúng thường gộp cả hai tính chất (khen + chê), không chỉ một chiều.",
+          "qt": {
+            "q": "Miller là phòng như thế nào?",
+            "o": [
+              "Một căn phòng rất sạch đẹp",
+              "Rộng nhưng không sạch lắm",
+              "Một căn phòng chật",
+              "Một căn phòng sạch đẹp"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは部屋で何をしますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "テレビを見ます",
+            "雑誌を読みます",
+            "日本語を勉強します",
+            "テーブルを買います"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết câu cuối: 「ミラーさんはよく部屋で日本語を勉強します」→ hay học tiếng Nhật trong phòng. Đáp án 2 (日本語を勉強します) khớp chính xác. Đáp án 0 (テレビを見ます) và 1 (雑誌を読みます) không có trong bài — trên bàn có 雑誌 nhưng bài không nói anh ấy ĐỌC tạp chí trong phòng. Đáp án 3 (テーブルを買います) hoàn toàn không được nhắc.",
+          "tip": "Câu hỏi「何をしますか」→ tìm 「〜をVます」trong bài. Đừng nhầm vật tồn tại (本や雑誌があります) với hành động (勉強します) — bài nhắc đến 雑誌 nhưng không nói ai đọc nó.",
+          "qt": {
+            "q": "Miller làm gì trong phòng?",
+            "o": [
+              "Xem tivi",
+              "Đọc tạp chí",
+              "Học tiếng Nhật",
+              "Mua bàn"
+            ]
+          }
+        },
+        {
+          "q": "テーブルはどんなテーブルですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "新しいテーブルです",
+            "大きいテーブルです",
+            "古いテーブルです",
+            "きれいなテーブルです"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết: 「部屋に古いテーブルがあります」→ trong phòng có cái bàn CŨ. Đáp án 2 (古いテーブルです) khớp từ bài. Đáp án 0 (新しいテーブルです) sai vì 新しい là mới, trái nghĩa với 古い. Đáp án 1 (大きいテーブルです) sai vì bài không miêu tả kích thước bàn. Đáp án 3 (きれいなテーブルです) sai vì bài chỉ nói phòng không mấy きれい, không nói về bàn.",
+          "tip": "Câu hỏi「どんなテーブルですか」→ dò trong bài xem tính từ nào đứng ngay trước \"テーブル\". Tính từ い + N: giữ nguyên (古いテーブル). Tìm thấy → đó là đáp án.",
+          "qt": {
+            "q": "Cái bàn là cái bàn như thế nào?",
+            "o": [
+              "Cái bàn mới",
+              "Cái bàn to",
+              "Cái bàn cũ",
+              "Cái bàn sạch đẹp"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "カリナさんのまち",
+      "titleVi": "Thành phố của chị Karina",
+      "japanese": "カリナさんはインドネシア人です。今、大阪にいます。大阪はどんなまちですか。大阪はにぎやかです。とても大きいまちです。大阪にも高いビルがあります。大阪のビルはあまりたかくないです。大阪の電車はとても便利です。カリナさんは毎日電車で会社へ行きます。大阪の食べ物はおいしいです。カリナさんはよく友達と大阪のレストランで食べます。カリナさんのアパートは会社の近くにあります。部屋はせまいです。でも、しずかです。アパートの近くにスーパーがあります。スーパーは安いです。とても便利です。大阪はとてもいいまちです。",
+      "vietnamese": "Chị Karina là người Indonesia. Hiện tại chị ở Osaka.Osaka là thành phố như thế nào? Osaka náo nhiệt. Đó là một thành phố rất lớn.Ở Osaka cũng có những tòa nhà cao. Các tòa nhà ở Osaka không mấy cao.Tàu điện ở Osaka rất tiện lợi. Chị Karina đi làm bằng tàu điện mỗi ngày.Đồ ăn ở Osaka ngon. Chị Karina thường ăn ở các nhà hàng Osaka cùng bạn bè.Căn hộ của chị Karina ở gần công ty. Phòng thì chật. Nhưng yên tĩnh.Gần căn hộ có siêu thị. Siêu thị rẻ. Rất tiện lợi.Osaka là thành phố rất tốt.",
+      "sentences": [
+        {
+          "jp": "カリナさんはインドネシア人です。今、大阪にいます。",
+          "vi": "Chị Karina là người Indonesia. Hiện tại chị ở Osaka.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "さん",
+              "read": "さん",
+              "vi": "anh/chị, ông/bà (hậu tố lịch sự)"
+            },
+            {
+              "w": "インドネシア",
+              "read": "インドネシア",
+              "vi": "Indonesia"
+            },
+            {
+              "w": "人",
+              "read": "じん",
+              "vi": "người (chỉ quốc tịch)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka"
+            },
+            {
+              "w": "います",
+              "read": "います",
+              "vi": "đang ở, có mặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "カリナさんはインドネシア人です: câu giới thiệu quốc tịch (ôn Bài 1)."
+            },
+            {
+              "point": "NにいますVます",
+              "vi": "大阪にいます: に chỉ địa điểm tồn tại của người/động vật (ôn Bài 3)."
+            }
+          ]
+        },
+        {
+          "jp": "大阪はどんなまちですか。大阪はにぎやかです。とても大きいまちです。",
+          "vi": "Osaka là thành phố như thế nào? Osaka náo nhiệt. Đó là một thành phố rất lớn.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "như thế nào (hỏi đặc điểm)"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "náo nhiệt, sầm uất (tính từ な)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "まち",
+              "read": "まち",
+              "vi": "thành phố, phố phường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どんなＮ",
+              "vi": "どんなまちですか = thành phố như thế nào? Câu hỏi về đặc điểm/tính chất."
+            },
+            {
+              "point": "NはＮＡです",
+              "vi": "にぎやか là tính từ な → にぎやかです (không có い ở cuối)."
+            },
+            {
+              "point": "とても〜いＮ",
+              "vi": "とても大きいまち: とても tăng cường + tính từ い bổ nghĩa trước danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "大阪にも高いビルがあります。大阪のビルはあまりたかくないです。",
+          "vi": "Ở Osaka cũng có những tòa nhà cao. Các tòa nhà ở Osaka không mấy cao.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "ビル",
+              "read": "ビル",
+              "vi": "tòa nhà cao tầng"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "たかい",
+              "read": "たかい",
+              "vi": "cao, đắt"
+            },
+            {
+              "w": "も",
+              "read": "も",
+              "vi": "cũng (trợ từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにもNがあります",
+              "vi": "大阪にも高いビルがあります: も = \"cũng\" — Osaka cũng có tòa nhà cao (ôn Bài 3)."
+            },
+            {
+              "point": "あまり〜くないです",
+              "vi": "あまりたかくないです: phủ định tính từ い (たかい → たかく + ないです) + あまり (không mấy)."
+            }
+          ]
+        },
+        {
+          "jp": "大阪の電車はとても便利です。カリナさんは毎日電車で会社へ行きます。",
+          "vi": "Tàu điện ở Osaka rất tiện lợi. Chị Karina đi làm bằng tàu điện mỗi ngày.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはＮＡです",
+              "vi": "便利 là tính từ な → 便利です. とても 便利です = rất tiện lợi."
+            },
+            {
+              "point": "NでVます",
+              "vi": "電車で会社へ行きます: で chỉ phương tiện di chuyển (ôn Bài 5)."
+            },
+            {
+              "point": "NへVます",
+              "vi": "会社へ行きます: へ chỉ hướng đến (ôn Bài 5)."
+            }
+          ]
+        },
+        {
+          "jp": "大阪の食べ物はおいしいです。カリナさんはよく友達と大阪のレストランで食べます。",
+          "vi": "Đồ ăn ở Osaka ngon. Chị Karina thường ăn ở các nhà hàng Osaka cùng bạn bè.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｎは〜いです",
+              "vi": "食べ物はおいしいです: câu miêu tả với tính từ い."
+            },
+            {
+              "point": "NとVます",
+              "vi": "友達と食べます: と = cùng với (bạn bè) (ôn Bài 4)."
+            },
+            {
+              "point": "NでVます",
+              "vi": "レストランで食べます: で chỉ địa điểm hoạt động (ôn Bài 6)."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんのアパートは会社の近くにあります。部屋はせまいです。でも、しずかです。",
+          "vi": "Căn hộ của chị Karina ở gần công ty. Phòng thì chật. Nhưng yên tĩnh.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "chung cư, căn hộ"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "せまい",
+              "read": "せまい",
+              "vi": "chật, nhỏ hẹp (tính từ い)"
+            },
+            {
+              "w": "しずか",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはＮにあります",
+              "vi": "アパートは会社の近くにあります: vị trí của vật vô tri (ôn Bài 3)."
+            },
+            {
+              "point": "Ｎは〜いです",
+              "vi": "部屋はせまいです: tính từ い miêu tả phòng."
+            },
+            {
+              "point": "NはＮＡです",
+              "vi": "しずか là tính từ な → しずかです. Đứng một mình sau です."
+            }
+          ]
+        },
+        {
+          "jp": "アパートの近くにスーパーがあります。スーパーは安いです。とても便利です。",
+          "vi": "Gần căn hộ có siêu thị. Siêu thị rẻ. Rất tiện lợi.",
+          "vocab": [
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "chung cư, căn hộ"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNがあります",
+              "vi": "アパートの近くにスーパーがあります: gần căn hộ có siêu thị (ôn Bài 3)."
+            },
+            {
+              "point": "Ｎは〜いです",
+              "vi": "スーパーは安いです: miêu tả tính chất siêu thị bằng tính từ い."
+            },
+            {
+              "point": "NはＮＡです",
+              "vi": "とても便利です: tính từ な (便利) đứng cuối câu với です."
+            }
+          ]
+        },
+        {
+          "jp": "大阪はとてもいいまちです。",
+          "vi": "Osaka là thành phố rất tốt.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt, hay (tính từ い đặc biệt)"
+            },
+            {
+              "w": "まち",
+              "read": "まち",
+              "vi": "thành phố, phố phường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "とても〜いＮです",
+              "vi": "大阪はとてもいいまちです: いい là tính từ い đặc biệt, bổ nghĩa trực tiếp trước danh từ まち; とても tăng cường mức độ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "どんなまちですか",
+          "label": "どんなＮ（hỏi đặc điểm）"
+        },
+        {
+          "excerpt": "にぎやかです",
+          "label": "ＮＡです（tính từ な）"
+        },
+        {
+          "excerpt": "あまりたかくないです",
+          "label": "あまり〜くないです（phủ định tính từ い）"
+        },
+        {
+          "excerpt": "とても便利です",
+          "label": "とても＋ＮＡです"
+        },
+        {
+          "excerpt": "部屋はせまいです",
+          "label": "Ｎは〜いです（tính từ い）"
+        },
+        {
+          "excerpt": "しずかです",
+          "label": "ＮＡです（tính từ な）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "大阪はどんなまちですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "しずかなまちです",
+            "にぎやかです。とても大きいまちです",
+            "あまりにぎやかじゃありません",
+            "たかいビルがたくさんあります"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết: 「大阪はにぎやかです。とても大きいまちです」→ náo nhiệt và rất lớn. Đáp án 1 gộp cả hai tính chất đó — đúng. Đáp án 0 (しずかなまちです) sai vì しずか (yên tĩnh) là tính chất của phòng chị Karina, không phải Osaka. Đáp án 2 (あまりにぎやかじゃありません) trái hoàn toàn với bài — bài nói にぎやか không phủ định. Đáp án 3 (たかいビルがたくさんあります) sai vì bài nói 「あまりたかくないです」— tòa nhà Osaka không mấy cao.",
+          "tip": "Câu hỏi「どんなまちですか」→ đọc 2–3 câu ngay sau câu đó trong bài — thường là câu trả lời trực tiếp. Chú ý đừng lấy nhầm tính chất của CHỦ ĐỀ KHÁC (phòng, siêu thị) ghép vào.",
+          "qt": {
+            "q": "Osaka là thành phố như thế nào?",
+            "o": [
+              "Là một thành phố yên tĩnh",
+              "Náo nhiệt. Là một thành phố rất lớn",
+              "Không náo nhiệt lắm",
+              "Có nhiều tòa nhà cao"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんのアパートはどんな部屋ですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "あまりしずかじゃありません",
+            "広いです。しずかです",
+            "せまいです。でも、しずかです",
+            "とても広いです"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết: 「部屋はせまいです。でも、しずかです」→ chật nhưng yên tĩnh. Đáp án 2 khớp chính xác cả hai ý: せまい + しずか. Đáp án 0 (あまりしずかじゃありません) sai vì bài nói phòng しずか — không phủ định. Đáp án 1 (広いです) sai vì bài nói ngược: せまい (chật), không phải 広い. Đáp án 3 (とても広いです) cũng sai lý do tương tự.",
+          "tip": "Khi bài có「でも」giữa hai tính từ → đáp án đúng PHẢI ghi cả hai vế (khen + chê hoặc ngược lại). Đáp án chỉ lấy một vế → sai.",
+          "qt": {
+            "q": "Phòng trong căn hộ của chị Karina như thế nào?",
+            "o": [
+              "Không yên tĩnh lắm",
+              "Rộng. Yên tĩnh",
+              "Chật. Nhưng yên tĩnh",
+              "Rất rộng"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは毎日何で会社へ行きますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "バスで行きます",
+            "電車で行きます",
+            "車で行きます",
+            "タクシーで行きます"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết: 「カリナさんは毎日電車で会社へ行きます」→ mỗi ngày đi bằng tàu điện. Đáp án 1 (電車で行きます) khớp từ bài. Các đáp án 0 (バス), 2 (車), 3 (タクシー) đều là phương tiện không được nhắc đến trong bài.",
+          "tip": "Câu hỏi「何で〜ますか」→ tìm「〔phương tiện〕で〜ます」trong bài. Trợ từ で sau phương tiện là dấu hiệu nhận biết trực tiếp.",
+          "qt": {
+            "q": "Mỗi ngày chị Karina đi đến công ty bằng gì?",
+            "o": [
+              "Đi bằng xe buýt",
+              "Đi bằng tàu điện",
+              "Đi bằng ô tô",
+              "Đi bằng taxi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "部屋のお知らせを読む",
+      "titleVi": "Đọc thông báo: Poster giới thiệu phòng cho thuê",
+      "japanese": "フラワー不動産　部屋のお知らせ\nフラワー不動産に新しい部屋が3つあります。どの部屋がいいですか。\n部屋｜特徴｜家賃\nフラワーハイツ｜広いです。とても静かです。｜55,000円\nさくらコーポ｜せまいです。でも、きれいです。｜38,000円\nみどりハイム｜広いです。あまり静かじゃありません。｜45,000円\n※部屋はどれも駅から近いです。電話の時間は9時から18時までです。\n電話：03-1234-5678（月〜金）",
+      "vietnamese": "Bất động sản Flower — Thông báo phòng cho thuê\nBất động sản Flower có 3 phòng mới. Phòng nào tốt nhỉ?\nPhòng｜Đặc điểm｜Tiền thuê\nFlower Heights｜Rộng. Rất yên tĩnh.｜55.000 yên\nSakura Corp｜Chật. Nhưng sạch sẽ, gọn gàng.｜38.000 yên\nMidori Haim｜Rộng. Không mấy yên tĩnh.｜45.000 yên\n※Phòng nào cũng gần ga. Giờ điện thoại là từ 9 giờ đến 18 giờ.\nĐiện thoại: 03-1234-5678 (Thứ Hai〜Thứ Sáu)",
+      "sentences": [
+        {
+          "jp": "フラワー不動産　部屋のお知らせ",
+          "vi": "Bất động sản Flower — Thông báo phòng cho thuê.",
+          "vocab": [
+            {
+              "w": "フラワー",
+              "read": "フラワー",
+              "vi": "hoa, bông hoa"
+            },
+            {
+              "w": "不動産",
+              "read": "ふどうさん",
+              "vi": "bất động sản"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "フラワー不動産",
+              "read": "フラワーふどうさん",
+              "vi": "Bất động sản Flower (tên riêng)"
+            }
+          ]
+        },
+        {
+          "jp": "フラワー不動産に新しい部屋が3つあります。どの部屋がいいですか。",
+          "vi": "Bất động sản Flower có 3 phòng mới. Phòng nào tốt nhỉ?",
+          "vocab": [
+            {
+              "w": "フラワー",
+              "read": "フラワー",
+              "vi": "hoa, bông hoa"
+            },
+            {
+              "w": "不動産",
+              "read": "ふどうさん",
+              "vi": "bất động sản"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "3つ",
+              "read": "みっつ",
+              "vi": "ba (cái)"
+            },
+            {
+              "w": "どの",
+              "read": "どの",
+              "vi": "cái nào (ôn Bài 2: この・その・あのN)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いＮ",
+              "vi": "新しい部屋: tính từ い (新しい) bổ nghĩa trực tiếp cho danh từ 部屋."
+            },
+            {
+              "point": "NにNがあります",
+              "vi": "フラワー不動産に部屋があります: に chỉ nơi tồn tại của vật vô tri (ôn Bài 3)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "新しい部屋が3つあります",
+              "why": "câu mở đầu nêu có 3 phòng — chưa phải căn cứ đáp án, chỉ dẫn chủ đề bảng dưới"
+            }
+          ]
+        },
+        {
+          "jp": "部屋｜特徴｜家賃",
+          "vi": "Phòng｜Đặc điểm｜Tiền thuê.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "家賃",
+              "read": "やちん",
+              "vi": "tiền thuê nhà"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 3 cột: tên phòng, đặc điểm, tiền thuê."
+            }
+          ],
+          "keys": [
+            {
+              "w": "特徴",
+              "why": "cột đặc điểm — chính là dữ kiện để dò câu hỏi (2 tính từ mô tả phòng)"
+            },
+            {
+              "w": "家賃",
+              "why": "cột tiền thuê — dùng để xác nhận đáp án sau khi tìm đúng phòng"
+            }
+          ]
+        },
+        {
+          "jp": "フラワーハイツ｜広いです。とても静かです。｜55,000円",
+          "vi": "Flower Heights｜Rộng. Rất yên tĩnh.｜55.000 yên.",
+          "vocab": [
+            {
+              "w": "フラワー",
+              "read": "フラワー",
+              "vi": "hoa, bông hoa"
+            },
+            {
+              "w": "ハイツ",
+              "read": "ハイツ",
+              "vi": "khu chung cư"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "フラワーハイツ",
+              "read": "フラワーハイツ",
+              "vi": "Flower Heights (tên phòng)"
+            },
+            {
+              "w": "55,000円",
+              "read": "ごまんごせんえん",
+              "vi": "55.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｎは〜いです",
+              "vi": "広いです: tính từ い miêu tả phòng (chủ đề フラワーハイツ ẩn, hiểu từ cột đầu)."
+            },
+            {
+              "point": "とても＋ＮＡです",
+              "vi": "とても静かです: とても tăng cường + tính từ な (静か) + です — mẫu MỚI của Bài 8."
+            }
+          ],
+          "keys": [
+            {
+              "w": "広いです",
+              "why": "フラワーハイツ rộng — khớp 1 nửa điều kiện câu hỏi (rộng) nhưng phòng này lại yên tĩnh nên không phải đáp án"
+            },
+            {
+              "w": "とても静かです",
+              "why": "フラワーハイツ rất yên tĩnh — KHÔNG khớp vế \"không mấy yên tĩnh\" trong câu hỏi, là nhiễu"
+            }
+          ]
+        },
+        {
+          "jp": "さくらコーポ｜せまいです。でも、きれいです。｜38,000円",
+          "vi": "Sakura Corp｜Chật. Nhưng sạch sẽ, gọn gàng.｜38.000 yên.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "コーポ",
+              "read": "コーポ",
+              "vi": "khu căn hộ, nhà tập thể"
+            },
+            {
+              "w": "せまい",
+              "read": "せまい",
+              "vi": "chật, nhỏ hẹp (tính từ い)"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "さくらコーポ",
+              "read": "さくらコーポ",
+              "vi": "Sakura Corp (tên phòng)"
+            },
+            {
+              "w": "38,000円",
+              "read": "さんまんはっせんえん",
+              "vi": "38.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｎは〜いです",
+              "vi": "せまいです: tính từ い miêu tả phòng さくらコーポ."
+            },
+            {
+              "point": "ＮＡです",
+              "vi": "きれいです: tính từ な (きれい) đứng cuối câu với です."
+            }
+          ],
+          "keys": [
+            {
+              "w": "せまいです",
+              "why": "さくらコーポ chật — KHÔNG khớp vế \"rộng\" trong câu hỏi, loại phòng này"
+            }
+          ]
+        },
+        {
+          "jp": "みどりハイム｜広いです。あまり静かじゃありません。｜45,000円",
+          "vi": "Midori Haim｜Rộng. Không mấy yên tĩnh.｜45.000 yên.",
+          "vocab": [
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "ハイム",
+              "read": "ハイム",
+              "vi": "khu nhà, tòa chung cư"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "みどりハイム",
+              "read": "みどりハイム",
+              "vi": "Midori Haim (tên phòng)"
+            },
+            {
+              "w": "45,000円",
+              "read": "よんまんごせんえん",
+              "vi": "45.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｎは〜いです",
+              "vi": "広いです: tính từ い miêu tả phòng みどりハイム."
+            },
+            {
+              "point": "あまり〜ない＋ＮＡじゃありません",
+              "vi": "あまり静かじゃありません: あまり + phủ định tính từ な (静かじゃありません) = không mấy yên tĩnh — mẫu MỚI của Bài 8."
+            }
+          ],
+          "keys": [
+            {
+              "w": "広いです",
+              "why": "みどりハイム rộng — khớp vế \"rộng\" của câu hỏi"
+            },
+            {
+              "w": "あまり静かじゃありません",
+              "why": "みどりハイム không mấy yên tĩnh — khớp đúng vế \"không mấy yên tĩnh\" của câu hỏi → cùng với 広いです là 2 căn cứ ghép đủ điều kiện"
+            }
+          ]
+        },
+        {
+          "jp": "※部屋はどれも駅から近いです。電話の時間は9時から18時までです。",
+          "vi": "※Phòng nào cũng gần ga. Giờ điện thoại là từ 9 giờ đến 18 giờ.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "近い",
+              "read": "ちかい",
+              "vi": "gần (tính từ い)"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "どれも",
+              "read": "どれも",
+              "vi": "cái nào cũng"
+            },
+            {
+              "w": "電話の時間",
+              "read": "でんわのじかん",
+              "vi": "giờ (nhận) điện thoại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｎは〜いです",
+              "vi": "駅から近いです: tính từ い (近い) miêu tả khoảng cách, áp dụng cho cả 3 phòng (どれも)."
+            },
+            {
+              "point": "NからNまで",
+              "vi": "9時から18時までです: từ 9 giờ đến 18 giờ (ôn Bài 4: NからNまで)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※部屋はどれも駅から近いです",
+              "why": "bẫy ※ — thông tin CHUNG cho cả 3 phòng (khoảng cách ga), không phân biệt được phòng nào nên KHÔNG dùng để chọn đáp án"
+            }
+          ]
+        },
+        {
+          "jp": "電話：03-1234-5678（月〜金）",
+          "vi": "Điện thoại: 03-1234-5678 (Thứ Hai〜Thứ Sáu).",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつ〜きん",
+              "vi": "thứ Hai đến thứ Sáu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng liên hệ",
+              "vi": "Dòng cuối ghi số điện thoại và ngày làm việc (thứ Hai đến thứ Sáu) để liên hệ hỏi thêm về phòng."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "とても静かです",
+          "label": "とても＋ＮＡです（tính từ な）"
+        },
+        {
+          "excerpt": "あまり静かじゃありません",
+          "label": "あまり〜ない＋ＮＡじゃありません（Bài 8 — mẫu mới）"
+        },
+        {
+          "excerpt": "新しい部屋",
+          "label": "〜いＮ（tính từ い bổ nghĩa danh từ）"
+        },
+        {
+          "excerpt": "せまいです。でも、きれいです",
+          "label": "Ｎは〜いです／ＮＡです（đối chiếu い・な）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời xem phòng",
+          "topic": 0,
+          "note": "Giới thiệu tên bất động sản và mục đích thông báo — chưa có căn cứ trả lời câu hỏi, chỉ định hướng chủ đề (tìm phòng).",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng 3 phòng: đặc điểm & giá",
+          "topic": 3,
+          "note": "Bảng chính trả lời câu hỏi: dò cột \"特徴\" của từng phòng để tìm phòng vừa RỘNG vừa KHÔNG mấy yên tĩnh (みどりハイム), rồi đọc cột giá 45,000円.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "turn",
+          "label": "Bẫy ※ & liên hệ",
+          "topic": 6,
+          "note": "Dòng ※ nêu thông tin CHUNG cho cả 3 phòng (gần ga) — không giúp phân biệt phòng nào, dễ bị đưa nhầm vào lý do chọn đáp án; dòng cuối là giờ liên hệ.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワンさんは広い部屋がいいです。その部屋は、あまり静かじゃありません。どの部屋がいいですか。",
+          "options": [
+            "フラワーハイツ",
+            "さくらコーポ",
+            "みどりハイム",
+            "どの部屋もよくないです"
+          ],
+          "answer": 2,
+          "explainVi": "Câu hỏi nêu 2 điều kiện: ①phòng rộng, ②không mấy yên tĩnh cũng thích. Dò cột \"特徴\": みどりハイム ghi 「広いです。あまり静かじゃありません」→ vừa rộng (①) vừa đúng kiểu \"không mấy yên tĩnh\" (②) — khớp cả hai. Vậy đáp án là 2. Đáp án 0 (フラワーハイツ) tuy rộng nhưng ghi 「とても静かです」(rất yên tĩnh) — khác hẳn đặc điểm みどりハイム mà câu hỏi đang mô tả, nên không phải phòng được nói tới. Đáp án 1 (さくらコーポ) ghi 「せまいです」(chật) → sai điều kiện ① ngay từ đầu. Đáp án 3 sai vì bảng có 2 phòng rộng thật (フラワーハイツ, みどりハイム).",
+          "tip": "Câu hỏi ghép 2 đặc điểm → đọc cột \"特徴\" từng hàng, tìm hàng khớp CẢ hai đặc điểm cùng lúc. あまり〜じゃありません (không mấy) khác hẳn とても〜です (rất) dù cùng nói về static (yên tĩnh) — đừng nhầm hai phòng chỉ vì cùng có chữ 静か.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Anh/chị Vân muốn một căn phòng rộng. Căn phòng đó không được yên tĩnh lắm. Căn phòng nào phù hợp?",
+            "o": [
+              "Flower Heights",
+              "Sakura Corpo",
+              "Midori Heim",
+              "Phòng nào cũng không phù hợp"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

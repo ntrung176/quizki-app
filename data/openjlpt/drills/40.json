@@ -1,0 +1,538 @@
+{
+  "id": "minna2.b40",
+  "bai": 40,
+  "titleVi": "Truyền đạt mệnh lệnh, yêu cầu",
+  "know": [
+    {
+      "id": "minna2.b40.you-ni-ii",
+      "point": "you-ni-ii",
+      "jp": "〜ように 言[い]いました",
+      "vi": "Truyền đạt mệnh lệnh / yêu cầu (nói với ai hãy làm gì)",
+      "en": "Communicating a command or request (telling someone to do something)",
+      "gloss": "部長[ぶちょう]は 田中[たなか]さんに 早[はや]く 来[く]るように 言[い]いました。",
+      "glossEn": "部長[ぶちょう]は 田中[たなか]さんに 早[はや]く 来[く]るように 言[い]いました。"
+    },
+    {
+      "id": "minna2.b40.nai-you-ni-ii",
+      "point": "nai-you-ni-ii",
+      "jp": "〜ないように 言[い]いました",
+      "vi": "Truyền đạt cấm đoán (nói với ai đừng làm gì)",
+      "en": "Communicating a prohibition (telling someone not to do something)",
+      "gloss": "先生[せんせい]は 学生[がくせい]に 遅刻[ちこく]しないように 言[い]いました。",
+      "glossEn": "先生[せんせい]は 学生[がくせい]に 遅刻[ちこく]しないように 言[い]いました。"
+    },
+    {
+      "id": "minna2.b40.to-itte",
+      "point": "to-itte",
+      "jp": "〜と 言[い]っていました",
+      "vi": "Báo cáo lại lời nói (nói rằng ~)",
+      "en": "Reporting what someone said (saying that ~)",
+      "gloss": "田中[たなか]さんは 会議[かいぎ]が 延期[えんき]になると 言[い]っていました。",
+      "glossEn": "田中[たなか]さんは 会議[かいぎ]が 延期[えんき]になると 言[い]っていました。"
+    },
+    {
+      "id": "minna2.b40.to-tsutaeru",
+      "point": "to-tsutaeru",
+      "jp": "〜と 伝[つた]えます",
+      "vi": "Truyền đạt / nhắn lại thông tin cho ai đó",
+      "en": "Conveying or passing on information to someone",
+      "gloss": "田中[たなか]さんに よろしくと 伝[つた]えてください。",
+      "glossEn": "田中[たなか]さんに よろしくと 伝[つた]えてください。"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b40-yn1-teishutsu",
+      "item": "minna2.b40.you-ni-ii",
+      "err": "you-ni-form",
+      "vi": "Trưởng phòng nói với Tanaka hãy nộp báo cáo sớm.",
+      "t1": {
+        "stem": "部長[ぶちょう]は 田中[たなか]さんに 報告書[ほうこくしょ]を 早[はや]めに 提出[ていしゅつ]する＿ 言[い]いました。",
+        "choices": [
+          "ように",
+          "と",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "部長[ぶちょう]は",
+          "田中[たなか]さんに",
+          "報告書[ほうこくしょ]を",
+          "早[はや]めに",
+          "提出[ていしゅつ]する",
+          "ように",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "提出[ていしゅつ]して",
+          "ために"
+        ]
+      },
+      "t3": {
+        "target": "部長は田中さんに報告書を早めに提出するように言いました。",
+        "accept": [
+          "ぶちょうはたなかさんにほうこくしょをはやめにていしゅつするようにいいました。"
+        ]
+      },
+      "why": "〜するように言いました = truyền đạt yêu cầu gián tiếp; trước ように là động từ thể từ điển (提出[ていしゅつ]する). ✗ てように — không dùng て-form trước ように. ✗ と言いました — dùng khi trích dẫn nội dung lời nói thông thường."
+    },
+    {
+      "id": "c-b40-yn2-kakunin",
+      "item": "minna2.b40.you-ni-ii",
+      "err": "you-ni-form",
+      "vi": "Người phụ trách nói với tôi hãy xác nhận lịch trình ngay lập tức.",
+      "t1": {
+        "stem": "担当者[たんとうしゃ]は わたしに スケジュールを すぐに 確認[かくにん]する＿ 言[い]いました。",
+        "choices": [
+          "ように",
+          "してください",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "担当者[たんとうしゃ]は",
+          "わたしに",
+          "スケジュールを",
+          "すぐに",
+          "確認[かくにん]する",
+          "ように",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "確認[かくにん]して",
+          "ために"
+        ]
+      },
+      "t3": {
+        "target": "担当者はわたしにスケジュールをすぐに確認するように言いました。",
+        "accept": [
+          "たんとうしゃはわたしにすけじゅーるをすぐにかくにんするようにいいました。"
+        ]
+      },
+      "why": "動詞辞書形[どうしじしょけい] + ように言いました が正解[せいかい]. ✗ してください = mệnh lệnh trực tiếp (không phải gián tiếp). ✗ ために = để làm (diễn tả mục đích, không phải truyền đạt yêu cầu)."
+    },
+    {
+      "id": "c-b40-yn3-kuru",
+      "item": "minna2.b40.you-ni-ii",
+      "err": "you-ni-form",
+      "vi": "Người chịu trách nhiệm nói với các nhân viên hãy đến họp đúng giờ.",
+      "t1": {
+        "stem": "責任者[せきにんしゃ]は 社員[しゃいん]たちに 時間[じかん]どおりに 会議[かいぎ]に 来[く]る＿ 言[い]いました。",
+        "choices": [
+          "ように",
+          "ために",
+          "ことに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "責任者[せきにんしゃ]は",
+          "社員[しゃいん]たちに",
+          "時間[じかん]どおりに",
+          "会議[かいぎ]に",
+          "来[く]る",
+          "ように",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "来[く]て",
+          "ために"
+        ]
+      },
+      "t3": {
+        "target": "責任者は社員たちに時間どおりに会議に来るように言いました。",
+        "accept": [
+          "せきにんしゃはしゃいんたちにじかんどおりにかいぎにくるようにいいました。"
+        ]
+      },
+      "why": "来る (くる) = động từ nhóm III, thể từ điển + ように言いました. ✗ ために = diễn tả mục đích (「するために」), không phải cấu trúc truyền đạt yêu cầu. ✗ ことに — ことにする là \"quyết định\", không phải truyền đạt lệnh."
+    },
+    {
+      "id": "c-b40-nyn1-chikoku",
+      "item": "minna2.b40.nai-you-ni-ii",
+      "err": "nai-you-ni-form",
+      "vi": "Thầy giáo nói với học sinh đừng đến trễ.",
+      "t1": {
+        "stem": "先生[せんせい]は 学生[がくせい]に 遅刻[ちこく]し＿ 言[い]いました。",
+        "choices": [
+          "ないように",
+          "ないで",
+          "なように"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]は",
+          "学生[がくせい]に",
+          "遅刻[ちこく]し",
+          "ないように",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "遅刻[ちこく]して",
+          "ないで"
+        ]
+      },
+      "t3": {
+        "target": "先生は学生に遅刻しないように言いました。",
+        "accept": [
+          "せんせいはがくせいにちこくしないようにいいました。"
+        ]
+      },
+      "why": "Vない-form + ように言いました = truyền đạt cấm đoán gián tiếp. 遅刻する → ない-form: 遅刻し + ない → 遅刻しない + ように言いました. ✗ しなように — thiếu い (ない-form không thể rút gọn ở đây). ✗ しないで言いました — cấu trúc sai, しないで = không làm (yêu cầu trực tiếp), không phải gián tiếp."
+    },
+    {
+      "id": "c-b40-nyn2-cancel",
+      "item": "minna2.b40.nai-you-ni-ii",
+      "err": "nai-you-ni-form",
+      "vi": "Giám đốc nói với chúng tôi đừng hủy cuộc hẹn.",
+      "t1": {
+        "stem": "社長[しゃちょう]は わたしたちに 予約[よやく]を キャンセルし＿ 言[い]いました。",
+        "choices": [
+          "ないように",
+          "ないで",
+          "なくように"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "社長[しゃちょう]は",
+          "わたしたちに",
+          "予約[よやく]を",
+          "キャンセルし",
+          "ないように",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "キャンセルしないで",
+          "なくように"
+        ]
+      },
+      "t3": {
+        "target": "社長はわたしたちに予約をキャンセルしないように言いました。",
+        "accept": [
+          "しゃちょうはわたしたちによやくをきゃんせるしないようにいいました。"
+        ]
+      },
+      "why": "キャンセルする → ない-form: キャンセルしない + ように言いました. ✗ なくように — 「なく」chỉ dùng với tính từ い (いくなく...) hoặc trợ động từ ない (なくて), không phải dạng ない-form của động từ. ✗ しないで直接 — dùng để nhờ vả trực tiếp, không phải truyền đạt lại lệnh gián tiếp."
+    },
+    {
+      "id": "c-b40-nyn3-okuru",
+      "item": "minna2.b40.nai-you-ni-ii",
+      "err": "nai-you-ni-form",
+      "vi": "Người phụ trách nói với Tanaka đừng gửi email đó.",
+      "t1": {
+        "stem": "担当者[たんとうしゃ]は 田中[たなか]さんに そのメールを 送[おく]ら＿ 言[い]いました。",
+        "choices": [
+          "ないように",
+          "ないで",
+          "するように"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "担当者[たんとうしゃ]は",
+          "田中[たなか]さんに",
+          "そのメールを",
+          "送[おく]ら",
+          "ないように",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "送[おく]るように",
+          "送[おく]って"
+        ]
+      },
+      "t3": {
+        "target": "担当者は田中さんにそのメールを送らないように言いました。",
+        "accept": [
+          "たんとうしゃはたなかさんにそのめーるをおくらないようにいいました。"
+        ]
+      },
+      "why": "送る (おくる, nhóm I: る → ら) → ない-form: 送ら + ない → 送らないように言いました. ✗ 送るように = truyền đạt yêu cầu THỰC HIỆN (ngược nghĩa với cấm đoán). ✗ 送って — て-form không dùng trước ように言いました."
+    },
+    {
+      "id": "c-b40-ti1-enki",
+      "item": "minna2.b40.to-itte",
+      "err": "to-itte-form",
+      "vi": "Tanaka nói rằng cuộc họp sẽ bị hoãn.",
+      "t1": {
+        "stem": "田中[たなか]さんは 会議[かいぎ]が 延期[えんき]になる＿ 言[い]っていました。",
+        "choices": [
+          "と",
+          "ように",
+          "ので"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "会議[かいぎ]が",
+          "延期[えんき]になる",
+          "と",
+          "言[い]って",
+          "いました。"
+        ],
+        "traps": [
+          "ように",
+          "ので",
+          "から"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは会議が延期になると言っていました。",
+        "accept": [
+          "たなかさんはかいぎがえんきになるといっていました。"
+        ]
+      },
+      "why": "〜と言っていました = báo cáo lại nội dung lời nói; trước と là thể thường (延期[えんき]になる = thể từ điển). ✗ ように言っていました = truyền đạt mệnh lệnh/yêu cầu — sai ngữ nghĩa. ✗ ので — ので nối lý do, không phải trích dẫn lời nói."
+    },
+    {
+      "id": "c-b40-ti2-shimeiri",
+      "item": "minna2.b40.to-itte",
+      "err": "to-itte-form",
+      "vi": "Người chịu trách nhiệm nói rằng deadline là ngày mai.",
+      "t1": {
+        "stem": "責任者[せきにんしゃ]は 締[し]め切[き]りは 明日[あした]だ＿ 言[い]っていました。",
+        "choices": [
+          "と",
+          "ように",
+          "ので"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "責任者[せきにんしゃ]は",
+          "締[し]め切[き]りは",
+          "明日[あした]だ",
+          "と",
+          "言[い]って",
+          "いました。"
+        ],
+        "traps": [
+          "ように",
+          "ので",
+          "から"
+        ]
+      },
+      "t3": {
+        "target": "責任者は締め切りは明日だと言っていました。",
+        "accept": [
+          "せきにんしゃはしめきりはあしただといっていました。"
+        ]
+      },
+      "why": "名詞 + だ = thể thường — dùng trước と trong 〜と言っていました. ✗ だように言っていました — không phải cấu trúc hợp lệ cho trích dẫn nội dung lời nói thông thường."
+    },
+    {
+      "id": "c-b40-tt1-yoroshiku",
+      "item": "minna2.b40.to-tsutaeru",
+      "err": "to-tsutaeru-form",
+      "vi": "Hãy nhắn hộ tôi với Tanaka rằng tôi gửi lời chào.",
+      "t1": {
+        "stem": "田中[たなか]さんに よろしく＿ 伝[つた]えてください。",
+        "choices": [
+          "と",
+          "ように",
+          "ため"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんに",
+          "よろしく",
+          "と",
+          "伝[つた]えて",
+          "ください。"
+        ],
+        "traps": [
+          "ように",
+          "ため",
+          "から"
+        ]
+      },
+      "t3": {
+        "target": "田中さんによろしくと伝えてください。",
+        "accept": [
+          "たなかさんによろしくとつたえてください。"
+        ]
+      },
+      "why": "〜と伝えます = nhắn lại / truyền đạt nội dung; trước と là nội dung muốn nhắn (よろしく). ✗ ように伝えます — dùng khi truyền đạt mệnh lệnh/yêu cầu cụ thể, không phải nhắn lời chào ngắn."
+    },
+    {
+      "id": "c-b40-tt2-renraku",
+      "item": "minna2.b40.to-tsutaeru",
+      "err": "to-tsutaeru-form",
+      "vi": "Xin nhắn với người phụ trách rằng tôi sẽ liên lạc lại sau.",
+      "t1": {
+        "stem": "担当者[たんとうしゃ]に あとで 連絡[れんらく]する＿ 伝[つた]えてもらえますか。",
+        "choices": [
+          "と",
+          "ように",
+          "ことを"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "担当者[たんとうしゃ]に",
+          "あとで",
+          "連絡[れんらく]する",
+          "と",
+          "伝[つた]えて",
+          "もらえますか。"
+        ],
+        "traps": [
+          "ように",
+          "ことを",
+          "から"
+        ]
+      },
+      "t3": {
+        "target": "担当者にあとで連絡すると伝えてもらえますか。",
+        "accept": [
+          "たんとうしゃにあとでれんらくするとつたえてもらえますか。"
+        ]
+      },
+      "why": "〜と伝えてもらえますか = nhờ ai nhắn hộ thông tin; trước と là thể thường (連絡[れんらく]する). ✗ ように伝える = nhắn mệnh lệnh/yêu cầu — ngữ nghĩa khác với nhắn thông tin trung tính."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b40-yn",
+      "item": "minna2.b40.you-ni-ii",
+      "err": "you-ni-form",
+      "tts": "かちょうは たなかさんに はやめに ほうこくしょを ていしゅつするように いいました。",
+      "script": "課長[かちょう]は 田中[たなか]さんに 早[はや]めに 報告書[ほうこくしょ]を 提出[ていしゅつ]するように 言[い]いました。",
+      "ask": "Trưởng ban nói với Tanaka điều gì?",
+      "choices": [
+        "Hãy nộp báo cáo sớm",
+        "Đừng nộp báo cáo",
+        "Hãy xác nhận lịch trình"
+      ],
+      "answer": 0,
+      "why": "提出[ていしゅつ]するように言いました = truyền đạt yêu cầu \"hãy nộp\". 早[はや]めに = sớm một chút."
+    },
+    {
+      "id": "l-b40-nyn",
+      "item": "minna2.b40.nai-you-ni-ii",
+      "err": "nai-you-ni-form",
+      "tts": "せんせいは がくせいたちに かいぎちゅうに すまーとふぉんを つかわないように いいました。",
+      "script": "先生[せんせい]は 学生[がくせい]たちに 会議中[かいぎちゅう]に スマートフォンを 使[つか]わないように 言[い]いました。",
+      "ask": "Thầy giáo dặn học sinh điều gì?",
+      "choices": [
+        "Đừng dùng smartphone trong giờ họp",
+        "Hãy dùng smartphone",
+        "Hãy đến họp đúng giờ"
+      ],
+      "answer": 0,
+      "why": "使わないように言いました = dặn \"đừng dùng\". 使わない = ない-form của 使います (nhóm I: 使わ + ない)."
+    },
+    {
+      "id": "l-b40-ti",
+      "item": "minna2.b40.to-itte",
+      "err": "to-itte-form",
+      "tts": "やまださんは かいぎが らいしゅうに えんきになると いっていました。",
+      "script": "山田[やまだ]さんは 会議[かいぎ]が 来週[らいしゅう]に 延期[えんき]になると 言[い]っていました。",
+      "ask": "Yamada nói rằng điều gì đã xảy ra với cuộc họp?",
+      "choices": [
+        "Cuộc họp bị hoãn đến tuần sau",
+        "Cuộc họp bị hủy",
+        "Cuộc họp diễn ra sớm hơn"
+      ],
+      "answer": 0,
+      "why": "延期[えんき]になると言っていました = nói rằng sẽ bị hoãn. 来週[らいしゅう] = tuần sau; 延期[えんき] = hoãn lại."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b40-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 40 ・ 〜ように言いました",
+      "vi": "Thầy giáo nói với Tanaka hãy viết cẩn thận (dùng thể て của 書く).",
+      "t1": {
+        "stem": "先生[せんせい]は 田中[たなか]さんに 丁寧[ていねい]に 書[か]＿ ように 言[い]いました。",
+        "choices": [
+          "いて",
+          "きて",
+          "って"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]は",
+          "田中[たなか]さんに",
+          "丁寧[ていねい]に",
+          "書[か]いて",
+          "ように",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "書[か]きて",
+          "書[か]って"
+        ]
+      },
+      "t3": {
+        "target": "先生は田中さんに丁寧に書いてように言いました。",
+        "accept": [
+          "せんせいはたなかさんにていねいにかいてようにいいました。"
+        ]
+      },
+      "why": "書く (nhóm I: く→いて). ✗ 書きて — thêm て trực tiếp vào ます-stem là lỗi điển hình của Bài 14. Câu có ように言いました của Bài 40 nhưng bẫy nằm ở te-form của 書く."
+    },
+    {
+      "id": "a-b40-futsuu-to",
+      "item": "minna1.b21.futsuu-to",
+      "err": "to-omou-desu",
+      "ambush": true,
+      "src": 21,
+      "context": "Bài 40 ・ 〜と言っていました",
+      "vi": "Tanaka nói rằng cuộc họp sẽ bắt đầu lúc 3 giờ (lỗi thể lịch sự trước と).",
+      "t1": {
+        "stem": "田中[たなか]さんは 会議[かいぎ]が 3時[じ]に 始[はじ]まる＿ 言[い]っていました。",
+        "choices": [
+          "と",
+          "ますと",
+          "からと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "会議[かいぎ]が",
+          "3時[じ]に",
+          "始[はじ]まる",
+          "と",
+          "言[い]って",
+          "いました。"
+        ],
+        "traps": [
+          "始[はじ]まります",
+          "ますと"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは会議が3時に始まると言っていました。",
+        "accept": [
+          "たなかさんはかいぎが3じにはじまるといっていました。"
+        ]
+      },
+      "why": "Trước と trong 〜と言っていました phải là thể thường (始まる[はじまる] = từ điển form), không phải 始まります (thể lịch sự) — lỗi Bài 21 (futsuu-to). Câu mang cấu trúc Bài 40 nhưng bẫy là thể thường trước と."
+    }
+  ]
+}

@@ -1,0 +1,4062 @@
+{
+  "bai": 31,
+  "level": "N4",
+  "intro": "意向形 (định/rủ) · 〜つもりです (dự định) · 〜予定です (lịch) · まだ〜ていません (chưa). Có ÔN LẠI ngữ pháp đã học (bài 1-30) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "来週、友達と旅行に行く予定です。",
+              "ul": "予定",
+              "choices": [
+                "よてい",
+                "よじょう",
+                "よさん",
+                "よきん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「予定」（よてい）nghĩa là 'kế hoạch, lịch dự kiến'. Đây là từ vựng N4 cơ bản. ① よてい — đúng, đọc chuẩn của 予定. ② よじょう — là cách đọc của 余剰 (dư thừa), không liên quan. ③ よさん — là cách đọc của 予算 (ngân sách), cùng bộ 予 nhưng chữ sau khác. ④ よきん — là cách đọc của 預金 (tiền gửi ngân hàng), cũng dùng âm よ nhưng sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "旅行に行く",
+                  "read": "りょこうにいく",
+                  "vi": "đi du lịch"
+                },
+                {
+                  "t": "予定",
+                  "vi": "kế hoạch, lịch dự kiến"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女はまだ宿題を提出していません。",
+              "ul": "提出",
+              "choices": [
+                "ていしゅつ",
+                "ていしゅう",
+                "たいしゅつ",
+                "だいしゅつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「提出」（ていしゅつ）nghĩa là 'nộp, trình nộp'. ① ていしゅつ — đúng, cả hai chữ đều đọc âm on: 提（てい）＋出（しゅつ）. ② ていしゅう — 収（しゅう）là âm của chữ khác, dễ nhầm vì cùng bắt đầu 「てい」. ③ たいしゅつ — 提 không có âm 「たい」; đây là âm của 大（だい/たい）. ④ だいしゅつ — hoàn toàn sai, 提 không đọc là 「だい」.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "提出",
+                  "vi": "nộp, trình nộp"
+                },
+                {
+                  "t": "していません",
+                  "vi": "chưa làm (dạng phủ định tiến hành)"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは来月、会社を退職するつもりです。",
+              "ul": "退職",
+              "choices": [
+                "たいしょく",
+                "たいしき",
+                "だいしょく",
+                "ていしょく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「退職」（たいしょく）nghĩa là 'nghỉ việc, từ chức'. ① たいしょく — đúng: 退（たい）＋職（しょく）. ② たいしき — 職 không đọc là 「しき」; 式（しき）là chữ khác. ③ だいしょく — 退 không có âm 「だい」; dễ nhầm với 大食（たいしょく — ăn nhiều）nhưng chính tả khác. ④ ていしょく — 「ていしょく」là cách đọc của 定職 (việc làm cố định) hoặc 定食 (suất ăn), không phải 退職.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "退職",
+                  "vi": "nghỉ việc, từ chức"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "có ý định, dự định"
+                }
+              ]
+            },
+            {
+              "prompt": "今週末に引越しをする予定なので、荷物を整理しています。",
+              "ul": "引越し",
+              "choices": [
+                "ひっこし",
+                "ひきこし",
+                "いんえつ",
+                "ひっかえし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「引越し」（ひっこし）nghĩa là 'chuyển nhà'. ① ひっこし — đúng: 引（ひ）＋越（っこ）＋し, có hiện tượng âm đôi (促音). ② ひきこし — sai vì thiếu âm đôi; đọc từng chữ một cách rời rạc. ③ いんえつ — nhầm sang âm on của 引 là「いん」nhưng 越 không đọc「えつ」trong trường hợp này. ④ ひっかえし — 越 không đọc là「かえし」; đây gần với 引き返し（ひきかえし）nghĩa hoàn toàn khác (quay trở lại).",
+              "glosses": [
+                {
+                  "t": "今週末",
+                  "read": "こんしゅうまつ",
+                  "vi": "cuối tuần này"
+                },
+                {
+                  "t": "引越し",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "kế hoạch"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "整理",
+                  "read": "せいり",
+                  "vi": "sắp xếp, dọn dẹp"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì (là)... nên"
+                },
+                {
+                  "t": "をする予定",
+                  "read": "をするよてい",
+                  "vi": "〜をする予定 = dự định/kế hoạch làm ~"
+                },
+                {
+                  "t": "しています",
+                  "read": "しています",
+                  "vi": "〜ています = đang ở trạng thái/đang làm ~ (tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼はまだ結婚の準備ができていません。",
+              "ul": "準備",
+              "choices": [
+                "じゅんび",
+                "じゅんぴ",
+                "しゅんび",
+                "じゅんべ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「準備」（じゅんび）nghĩa là 'chuẩn bị'. ① じゅんび — đúng: 準（じゅん）＋備（び）. ② じゅんぴ — 備 đọc là「び」(thanh đục), không phải「ぴ」(bán trọc). ③ しゅんび — 準 không đọc「しゅん」; 春（しゅん）là chữ khác trông tương tự. ④ じゅんべ — 備 không đọc「べ」; đây là bẫy đổi hàng âm (bi→be).",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "結婚",
+                  "read": "けっこん",
+                  "vi": "kết hôn"
+                },
+                {
+                  "t": "準備",
+                  "vi": "chuẩn bị"
+                },
+                {
+                  "t": "ができていません",
+                  "vi": "chưa hoàn thành, chưa sẵn sàng"
+                }
+              ]
+            },
+            {
+              "prompt": "来年の春に大学院に進学するつもりです。",
+              "ul": "進学",
+              "choices": [
+                "しんがく",
+                "しんかく",
+                "すすがく",
+                "じんがく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「進学」（しんがく）nghĩa là 'thăng học, lên học trường cao hơn'. ① しんがく — đúng: 進（しん）＋学（がく）. ② しんかく — 学 không đọc「かく」; 格（かく）là chữ khác. ③ すすがく — 進 đọc âm kun là「すす（む）」nhưng trong từ ghép Hán-Nhật này phải dùng âm on「しん」. ④ じんがく — 進 không có âm「じん」; 人（じん）là chữ khác.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "春",
+                  "read": "はる",
+                  "vi": "mùa xuân"
+                },
+                {
+                  "t": "大学院",
+                  "read": "だいがくいん",
+                  "vi": "trường sau đại học"
+                },
+                {
+                  "t": "進学",
+                  "vi": "lên học trường cao hơn, thăng học"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "dự định, có ý định"
+                }
+              ]
+            },
+            {
+              "prompt": "この書類はまだ確認が終わっていません。",
+              "ul": "確認",
+              "choices": [
+                "かくにん",
+                "かくいん",
+                "こくにん",
+                "かくねん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「確認」（かくにん）nghĩa là 'xác nhận, kiểm tra'. ① かくにん — đúng: 確（かく）＋認（にん）. ② かくいん — 認 không đọc「いん」; 院（いん）là chữ khác. ③ こくにん — 確 không đọc「こく」; 国（こく）trông khác nhưng âm「こく」gây nhầm. ④ かくねん — 認 không đọc「ねん」; 年（ねん）là chữ hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "確認",
+                  "vi": "xác nhận, kiểm tra"
+                },
+                {
+                  "t": "終わっていません",
+                  "read": "おわっていません",
+                  "vi": "chưa xong, chưa kết thúc"
+                }
+              ]
+            },
+            {
+              "prompt": "週末に部屋の掃除をしようと思っています。",
+              "ul": "掃除",
+              "choices": [
+                "そうじ",
+                "そうし",
+                "さいじ",
+                "そうぢ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「掃除」（そうじ）nghĩa là 'dọn dẹp, vệ sinh'. ① そうじ — đúng: 掃（そう）＋除（じ）. ② そうし — 除 đọc là「じ」(thanh đục), không phải「し」(vô thanh). ③ さいじ — 掃 không đọc「さい」; 祭（さい）là chữ khác về bộ thủ lẫn nghĩa. ④ そうぢ — 「ぢ」là cách viết cũ/sai phổ biến; tiếng Nhật hiện đại dùng「じ」cho từ này.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "掃除",
+                  "vi": "dọn dẹp, vệ sinh"
+                },
+                {
+                  "t": "しようと思っています",
+                  "read": "しようとおもっています",
+                  "vi": "đang nghĩ sẽ làm, có ý định làm"
+                }
+              ]
+            },
+            {
+              "prompt": "来月から新しいプロジェクトに参加する予定です。",
+              "ul": "参加",
+              "choices": [
+                "さんか",
+                "さんが",
+                "ざんか",
+                "しんか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「参加」（さんか）nghĩa là 'tham gia'. ① さんか — đúng: 参（さん）＋加（か）. ② さんが — 加 đọc là「か」(vô thanh), không phải「が」(thanh đục). ③ ざんか — 参 không đọc「ざん」; đây là bẫy đổi từ vô thanh sang thanh đục ở âm đầu. ④ しんか — 参 không đọc「しん」; 進化（しんか）là từ hoàn toàn khác có nghĩa 'tiến hóa'.",
+              "glosses": [
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "参加",
+                  "vi": "tham gia"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "kế hoạch, lịch dự kiến"
+                },
+                {
+                  "t": "プロジェクト",
+                  "read": "プロジェクト",
+                  "vi": "dự án"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんはまだ連絡してきていません。",
+              "ul": "連絡",
+              "choices": [
+                "れんらく",
+                "れんろく",
+                "りんらく",
+                "れいらく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「連絡」（れんらく）nghĩa là 'liên lạc'. ① れんらく — đúng: 連（れん）＋絡（らく）. ② れんろく — 絡 không đọc「ろく」; 録（ろく）là chữ khác. ③ りんらく — 連 không đọc「りん」; 輪（りん）hay 隣（りん）là chữ khác có âm này. ④ れいらく — 連 không đọc「れい」; 礼（れい）hay 例（れい）là những chữ khác.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "連絡",
+                  "vi": "liên lạc, liên hệ"
+                },
+                {
+                  "t": "してきていません",
+                  "vi": "vẫn chưa liên lạc (đến)"
+                }
+              ]
+            },
+            {
+              "prompt": "今夜、家族と夕食の計画を立てるつもりです。",
+              "ul": "計画",
+              "choices": [
+                "けいかく",
+                "けいがく",
+                "かいかく",
+                "けいきく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「計画」（けいかく）nghĩa là 'kế hoạch'. ① けいかく — đúng: 計（けい）＋画（かく）. ② けいがく — 画 khi đọc âm on trong từ này là「かく」(vô thanh), không phải「がく」(thanh đục). ③ かいかく — 計 không đọc「かい」; 改革（かいかく）là từ khác nghĩa 'cải cách'. ④ けいきく — không phải âm của bất kỳ chữ nào; đây là bẫy đổi nguyên âm i→i trong chuỗi âm.",
+              "glosses": [
+                {
+                  "t": "今夜",
+                  "read": "こんや",
+                  "vi": "tối nay"
+                },
+                {
+                  "t": "家族",
+                  "read": "かぞく",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "夕食",
+                  "read": "ゆうしょく",
+                  "vi": "bữa tối"
+                },
+                {
+                  "t": "計画",
+                  "vi": "kế hoạch"
+                },
+                {
+                  "t": "立てる",
+                  "read": "たてる",
+                  "vi": "lập (kế hoạch)"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "dự định"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女はまだ仕事の報告書を完成させていません。",
+              "ul": "完成",
+              "choices": [
+                "かんせい",
+                "かんじょう",
+                "こんせい",
+                "かんせん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「完成」（かんせい）nghĩa là 'hoàn thành, hoàn tất'. ① かんせい — đúng: 完（かん）＋成（せい）. ② かんじょう — 成 không đọc「じょう」; 勘定（かんじょう）là từ khác nghĩa 'thanh toán, tính tiền'. ③ こんせい — 完 không đọc「こん」; 混成（こんせい）là từ khác nghĩa 'hỗn hợp'. ④ かんせん — 成 không đọc「せん」; 感染（かんせん）là từ khác nghĩa 'lây nhiễm'.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "報告書",
+                  "read": "ほうこくしょ",
+                  "vi": "báo cáo (văn bản)"
+                },
+                {
+                  "t": "完成",
+                  "vi": "hoàn thành, hoàn tất"
+                },
+                {
+                  "t": "させていません",
+                  "vi": "chưa cho/làm cho hoàn tất"
+                }
+              ]
+            },
+            {
+              "prompt": "週末に友達と映画を見に行く約束があります。",
+              "ul": "約束",
+              "choices": [
+                "やくそく",
+                "やくぞく",
+                "やっそく",
+                "やくそっ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「約束」（やくそく）nghĩa là 'hẹn, lời hứa'. ① やくそく — đúng: 約（やく）＋束（そく）. ② やくぞく — 束 đọc là「そく」(vô thanh), không phải「ぞく」(thanh đục). ③ やっそく — 約 không tạo âm đôi 「やっ」trong trường hợp này; âm đôi xuất hiện khi âm tiếp theo bắt đầu bằng k/s/t/p. ④ やくそっ — âm đôi cuối「っ」không xuất hiện ở cuối từ trong tiếng Nhật chuẩn.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "約束",
+                  "vi": "hẹn, lời hứa, lịch hẹn"
+                },
+                {
+                  "t": "見に行く",
+                  "read": "みにいく",
+                  "vi": "đi xem"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "prompt": "来週から新しい習慣をつけるつもりです。",
+              "ul": "習慣",
+              "choices": [
+                "しゅうかん",
+                "しゅうがん",
+                "じゅうかん",
+                "しゅうはん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「習慣」（しゅうかん）nghĩa là 'thói quen'. ① しゅうかん — đúng: 習（しゅう）＋慣（かん）. ② しゅうがん — 慣 đọc là「かん」(vô thanh), không phải「がん」(thanh đục); 習慣 khác 週刊（しゅうかん）ở chữ sau nhưng âm giống nhau. ③ じゅうかん — 習 không đọc「じゅう」; 十（じゅう）hay 重（じゅう）là chữ khác. ④ しゅうはん — 慣 không đọc「はん」; 週半（しゅうはん）không phải từ thông dụng.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "習慣",
+                  "vi": "thói quen"
+                },
+                {
+                  "t": "つけるつもりです",
+                  "vi": "dự định tạo lập (thói quen)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼はまだ出発の手続きを済ませていません。",
+              "ul": "手続き",
+              "choices": [
+                "てつづき",
+                "てつぞき",
+                "しゅつづき",
+                "てっつき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「手続き」（てつづき）nghĩa là 'thủ tục'. ① てつづき — đúng: 手（て）＋続（つづ）＋き; 続 đọc theo âm kun là「つづ」. ② てつぞき — 続 đọc là「つづ」với thanh đục「づ」, không phải「ぞ」; đây là bẫy đổi âm trong cùng hàng. ③ しゅつづき — 手 không đọc「しゅ」trong từ này; âm kun của 手 là「て」. ④ てっつき — không có âm đôi「っ」trong từ này; bẫy thêm âm đôi sai chỗ.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "出発",
+                  "read": "しゅっぱつ",
+                  "vi": "khởi hành"
+                },
+                {
+                  "t": "手続き",
+                  "vi": "thủ tục"
+                },
+                {
+                  "t": "済ませていません",
+                  "read": "すませていません",
+                  "vi": "chưa hoàn tất, chưa giải quyết xong"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "来月、東京にしゅっちょうするよていです。",
+              "ul": "しゅっちょう",
+              "choices": [
+                "出張",
+                "出発",
+                "出勤",
+                "出演"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しゅっちょう」(出張) nghĩa là đi công tác, phù hợp ngữ cảnh nói về kế hoạch tương lai. ①「出張」(しゅっちょう) ĐÚNG — đi công tác. ②「出発」(しゅっぱつ) là khởi hành/xuất phát, không nói về việc được phân công đi đâu. ③「出勤」(しゅっきん) là đi làm (đến công ty hàng ngày), không phải đi công tác. ④「出演」(しゅつえん) là tham gia biểu diễn/xuất hiện trên sân khấu/TV, sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "しゅっちょう",
+                  "vi": "đi công tác"
+                },
+                {
+                  "t": "よてい",
+                  "read": "よてい",
+                  "vi": "dự kiến, kế hoạch"
+                }
+              ]
+            },
+            {
+              "prompt": "レポートはまだていしゅつしていません。",
+              "ul": "ていしゅつ",
+              "choices": [
+                "提出",
+                "提案",
+                "提供",
+                "提示"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ていしゅつ」(提出) nghĩa là nộp/trình nộp, phù hợp với ngữ cảnh chưa nộp báo cáo. ①「提出」(ていしゅつ) ĐÚNG — nộp (tài liệu, báo cáo). ②「提案」(ていあん) là đề xuất ý kiến, không phải nộp tài liệu. ③「提供」(ていきょう) là cung cấp, tài trợ, mang nghĩa khác. ④「提示」(ていじ) là trình bày/hiển thị (như ID, bằng chứng), không dùng cho báo cáo.",
+              "glosses": [
+                {
+                  "t": "レポート",
+                  "vi": "báo cáo, bài luận"
+                },
+                {
+                  "t": "まだていしゅつしていません",
+                  "vi": "vẫn chưa ~",
+                  "read": "まだていしゅつしていません"
+                },
+                {
+                  "t": "ていしゅつ",
+                  "vi": "nộp, trình nộp"
+                }
+              ]
+            },
+            {
+              "prompt": "今週末はかいものにいくつもりです。",
+              "ul": "かいもの",
+              "choices": [
+                "買い物",
+                "買い取り",
+                "買い付け",
+                "買い値"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かいもの」(買い物) nghĩa là đi mua sắm, cụm quen thuộc N5. ①「買い物」(かいもの) ĐÚNG — mua sắm (shopping). ②「買い取り」(かいとり) là mua lại/thu mua đồ cũ, mang nghĩa thương mại. ③「買い付け」(かいつけ) là đặt mua hàng (cho doanh nghiệp), không phải đi chợ thông thường. ④「買い値」(かいね) là giá mua, là danh từ chỉ giá tiền, không dùng trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "今週末",
+                  "read": "こんしゅうまつ",
+                  "vi": "cuối tuần này"
+                },
+                {
+                  "t": "かいもの",
+                  "vi": "mua sắm"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "định làm ~, có ý định ~"
+                },
+                {
+                  "t": "いく",
+                  "read": "いく",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "来年、にほんごのしかくをとるつもりです。",
+              "ul": "しかく",
+              "choices": [
+                "資格",
+                "資本",
+                "資料",
+                "資産"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しかく」(資格) nghĩa là chứng chỉ/bằng cấp, phù hợp với động từ「取る」(lấy bằng). ①「資格」(しかく) ĐÚNG — chứng chỉ, bằng cấp. ②「資本」(しほん) là vốn (tiền vốn kinh doanh), hoàn toàn khác nghĩa. ③「資料」(しりょう) là tài liệu tham khảo, không dùng với「取る」theo nghĩa này. ④「資産」(しさん) là tài sản, sai nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "しかく",
+                  "vi": "chứng chỉ, bằng cấp"
+                },
+                {
+                  "t": "とるつもりです",
+                  "read": "とるつもりです",
+                  "vi": "định lấy ~"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎはあしたのごぜんによていされています。",
+              "ul": "かいぎ",
+              "choices": [
+                "会議",
+                "会館",
+                "会計",
+                "会場"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かいぎ」(会議) nghĩa là cuộc họp, phù hợp nhất với ngữ cảnh có lịch dự kiến. ①「会議」(かいぎ) ĐÚNG — cuộc họp. ②「会館」(かいかん) là hội quán/nhà hội nghị (tòa nhà), không phải sự kiện. ③「会計」(かいけい) là kế toán hoặc thanh toán tiền, không có lịch họp. ④「会場」(かいじょう) là địa điểm tổ chức sự kiện (venue), không phải bản thân cuộc họp.",
+              "glosses": [
+                {
+                  "t": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "ごぜん",
+                  "read": "ごぜん",
+                  "vi": "buổi sáng (trước 12 giờ trưa)"
+                },
+                {
+                  "t": "よていされています",
+                  "read": "よていされています",
+                  "vi": "được lên lịch dự kiến"
+                }
+              ]
+            },
+            {
+              "prompt": "このしごとはまだおわっていません。",
+              "ul": "しごと",
+              "choices": [
+                "仕事",
+                "仕方",
+                "仕上げ",
+                "仕入れ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しごと」(仕事) nghĩa là công việc, phù hợp nhất với ngữ cảnh chưa hoàn thành. ①「仕事」(しごと) ĐÚNG — công việc. ②「仕方」(しかた) là cách thức/phương pháp (như「仕方がない」), không phải công việc. ③「仕上げ」(しあげ) là công đoạn hoàn thiện cuối cùng, mang nghĩa hẹp hơn. ④「仕入れ」(しいれ) là nhập hàng (trong kinh doanh), nghĩa khác hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "まだおわっていません",
+                  "read": "まだおわっていません",
+                  "vi": "vẫn chưa xong"
+                },
+                {
+                  "t": "この",
+                  "vi": "cái này, việc này"
+                }
+              ]
+            },
+            {
+              "prompt": "らいしゅう、ともだちとりょこうするよていです。",
+              "ul": "りょこう",
+              "choices": [
+                "旅行",
+                "旅館",
+                "旅費",
+                "旅客"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「りょこう」(旅行) nghĩa là đi du lịch, đây là động từ「する」được ghép. ①「旅行」(りょこう) ĐÚNG — đi du lịch/du ngoạn. ②「旅館」(りょかん) là nhà trọ kiểu Nhật (danh từ chỉ nơi chốn), không dùng với「する」theo nghĩa đi chơi. ③「旅費」(りょひ) là chi phí đi lại/du lịch (tiền bạc), không phải hành động đi. ④「旅客」(りょかく) là hành khách, danh từ chỉ người, sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "らいしゅう",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "りょこう",
+                  "vi": "du lịch, đi chơi xa"
+                },
+                {
+                  "t": "よていです",
+                  "read": "よていです",
+                  "vi": "dự kiến, có kế hoạch"
+                }
+              ]
+            },
+            {
+              "prompt": "プロジェクトのけいかくをたてるつもりです。",
+              "ul": "けいかく",
+              "choices": [
+                "計画",
+                "計算",
+                "計測",
+                "計器"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「けいかく」(計画) nghĩa là kế hoạch, cụm「計画を立てる」(lập kế hoạch) là cố định. ①「計画」(けいかく) ĐÚNG — kế hoạch; cụm「計画を立てる」là thành ngữ cố định. ②「計算」(けいさん) là tính toán (toán học/số liệu), không ghép với「立てる」. ③「計測」(けいそく) là đo lường, dùng trong ngữ cảnh kỹ thuật, không dùng「立てる」. ④「計器」(けいき) là thiết bị đo, là danh từ cụ thể, hoàn toàn sai.",
+              "glosses": [
+                {
+                  "t": "プロジェクト",
+                  "vi": "dự án"
+                },
+                {
+                  "t": "けいかく",
+                  "vi": "kế hoạch"
+                },
+                {
+                  "t": "たてるつもりです",
+                  "read": "たてるつもりです",
+                  "vi": "định lập ~, có ý định lập ~"
+                }
+              ]
+            },
+            {
+              "prompt": "あのえいがはまだみていません。",
+              "ul": "えいが",
+              "choices": [
+                "映画",
+                "映像",
+                "映写",
+                "映日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「えいが」(映画) nghĩa là bộ phim điện ảnh. ①「映画」(えいが) ĐÚNG — phim điện ảnh. ②「映像」(えいぞう) là hình ảnh/video nói chung (không nhất thiết là phim rạp). ③「映写」(えいしゃ) là chiếu phim (hành động chiếu), không phải tên bộ phim. ④「映日」không phải từ thực tế trong tiếng Nhật, là bẫy hình chữ.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "cái đó, bộ đó (xa người nói lẫn người nghe)"
+                },
+                {
+                  "t": "えいが",
+                  "vi": "phim điện ảnh"
+                },
+                {
+                  "t": "まだみていません",
+                  "read": "まだみていません",
+                  "vi": "vẫn chưa xem"
+                }
+              ]
+            },
+            {
+              "prompt": "こんどのやすみはくににかえるつもりです。",
+              "ul": "やすみ",
+              "choices": [
+                "休み",
+                "休息",
+                "休暇",
+                "休憩"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「やすみ」(休み) nghĩa là ngày nghỉ/kỳ nghỉ (từ thông thường nhất). ①「休み」(やすみ) ĐÚNG — ngày nghỉ/kỳ nghỉ (dùng hàng ngày). ②「休息」(きゅうそく) là nghỉ ngơi (nghỉ lấy sức, dùng văn viết), đọc là きゅうそく, không đọc là やすみ. ③「休暇」(きゅうか) là kỳ nghỉ phép (trong công ty), đọc là きゅうか, không phải やすみ. ④「休憩」(きゅうけい) là giải lao (nghỉ giữa giờ ngắn), đọc là きゅうけい, không phải やすみ.",
+              "glosses": [
+                {
+                  "t": "こんど",
+                  "read": "こんど",
+                  "vi": "lần này, lần tới"
+                },
+                {
+                  "t": "やすみ",
+                  "vi": "ngày nghỉ, kỳ nghỉ"
+                },
+                {
+                  "t": "くに",
+                  "read": "くに",
+                  "vi": "quê hương, đất nước"
+                },
+                {
+                  "t": "かえるつもりです",
+                  "read": "かえるつもりです",
+                  "vi": "định về ~"
+                }
+              ]
+            },
+            {
+              "prompt": "あしたからあたらしいしゅみをはじめるよていです。",
+              "ul": "しゅみ",
+              "choices": [
+                "趣味",
+                "趣旨",
+                "主味",
+                "趣向"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しゅみ」(趣味) nghĩa là sở thích/hobby. ①「趣味」(しゅみ) ĐÚNG — sở thích cá nhân (hobby). ②「趣旨」(しゅし) là mục đích/ý nghĩa (của văn bản, quy định), hoàn toàn khác nghĩa. ③「主味」không tồn tại như một từ thực trong tiếng Nhật, là bẫy hình chữ. ④「趣向」(しゅこう) là ý tưởng/cách tiếp cận sáng tạo (dùng trong văn nghệ), không dùng cho hobby.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "しゅみ",
+                  "vi": "sở thích, hobby"
+                },
+                {
+                  "t": "はじめるよていです",
+                  "read": "はじめるよていです",
+                  "vi": "dự kiến bắt đầu ~"
+                }
+              ]
+            },
+            {
+              "prompt": "かのじょにプロポーズするゆうきがまだありません。",
+              "ul": "ゆうき",
+              "choices": [
+                "勇気",
+                "元気",
+                "本気",
+                "熱気"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ゆうき」(勇気) nghĩa là can đảm/dũng cảm, phù hợp với ngữ cảnh chưa dám cầu hôn. ①「勇気」(ゆうき) ĐÚNG — lòng dũng cảm, can đảm. ②「元気」(げんき) là sức khỏe/tinh thần tốt (đọc là げんき), không phải ゆうき. ③「本気」(ほんき) là nghiêm túc/thật lòng (đọc là ほんき), không phải ゆうき và nghĩa khác. ④「熱気」(ねっき) là hơi nóng/bầu không khí sôi nổi (đọc là ねっき), không liên quan.",
+              "glosses": [
+                {
+                  "t": "かのじょ",
+                  "read": "かのじょ",
+                  "vi": "cô ấy, bạn gái"
+                },
+                {
+                  "t": "プロポーズ",
+                  "vi": "cầu hôn"
+                },
+                {
+                  "t": "ゆうき",
+                  "vi": "lòng dũng cảm, can đảm"
+                },
+                {
+                  "t": "まだありません",
+                  "vi": "vẫn chưa có",
+                  "read": "まだありません"
+                }
+              ]
+            },
+            {
+              "prompt": "らいねん、かいしゃをそうりつするつもりです。",
+              "ul": "そうりつ",
+              "choices": [
+                "創立",
+                "創作",
+                "創造",
+                "創刊"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「そうりつ」(創立) nghĩa là thành lập (công ty, tổ chức). ①「創立」(そうりつ) ĐÚNG — thành lập (công ty/tổ chức). ②「創作」(そうさく) là sáng tác/sáng tạo (nghệ thuật, văn chương), không dùng cho công ty. ③「創造」(そうぞう) là sáng tạo ra cái mới (khái niệm rộng), không dùng cụ thể để thành lập công ty. ④「創刊」(そうかん) là ra số đầu tiên của báo/tạp chí, hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "らいねん",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "そうりつ",
+                  "vi": "thành lập"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "có ý định, định ~"
+                }
+              ]
+            },
+            {
+              "prompt": "スポーツジムにはまだにゅうかいしていません。",
+              "ul": "にゅうかい",
+              "choices": [
+                "入会",
+                "入学",
+                "入社",
+                "入院"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にゅうかい」(入会) nghĩa là gia nhập/đăng ký thành viên (câu lạc bộ, phòng gym). ①「入会」(にゅうかい) ĐÚNG — gia nhập làm thành viên (hội, câu lạc bộ, gym). ②「入学」(にゅうがく) là nhập học (trường học), dùng cho giáo dục. ③「入社」(にゅうしゃ) là vào làm (công ty), dùng khi bắt đầu đi làm. ④「入院」(にゅういん) là nhập viện (vào bệnh viện), hoàn toàn khác ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "スポーツジム",
+                  "vi": "phòng tập thể thao (gym)"
+                },
+                {
+                  "t": "まだにゅうかいしていません",
+                  "vi": "vẫn chưa ~",
+                  "read": "まだにゅうかいしていません"
+                },
+                {
+                  "t": "にゅうかい",
+                  "vi": "đăng ký thành viên, gia nhập hội"
+                }
+              ]
+            },
+            {
+              "prompt": "しゅうまつにひっこしするよていがあります。",
+              "ul": "ひっこし",
+              "choices": [
+                "引っ越し",
+                "引き取り",
+                "引き受け",
+                "引き出し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ひっこし」(引っ越し) nghĩa là chuyển nhà. ①「引っ越し」(ひっこし) ĐÚNG — chuyển nhà. ②「引き取り」(ひきとり) là nhận lại/đem về (như nhận hàng, nhận lại đồ), nghĩa khác. ③「引き受け」(ひきうけ) là nhận lãnh trách nhiệm/nhận làm việc gì đó, không phải chuyển nhà. ④「引き出し」(ひきだし) là ngăn kéo (đồ nội thất) hoặc rút tiền (rút tiền ngân hàng), hoàn toàn sai.",
+              "glosses": [
+                {
+                  "t": "しゅうまつ",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "ひっこし",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "よていがあります",
+                  "read": "よていがあります",
+                  "vi": "có kế hoạch, có lịch ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "来週、友達と映画を見に行く＿があります。",
+              "choices": [
+                "予定",
+                "習慣",
+                "記念",
+                "目標"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi: tuần tới có ＿ đi xem phim với bạn. Đáp án đúng là「予定」(よてい) = lịch dự kiến, kế hoạch đã sắp xếp trước — dùng rất tự nhiên với cấu trúc「〜する予定があります」. ×「習慣」(しゅうかん) = thói quen, dùng cho hành động lặp lại thường xuyên, không nói về một sự kiện cụ thể tương lai. ×「記念」(きねん) = kỷ niệm, lưu niệm — không liên quan đến kế hoạch. ×「目標」(もくひょう) = mục tiêu — nói về đích đến/kết quả muốn đạt, không phải lịch cụ thể.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần tới"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "見に行く",
+                  "read": "みにいく",
+                  "vi": "đi xem"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "kế hoạch, lịch dự kiến"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "stem": "彼女はまだ宿題を＿いません。早く始めたほうがいいです。",
+              "choices": [
+                "終わって",
+                "始まって",
+                "覚えて",
+                "決めて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: cô ấy vẫn chưa ＿ bài tập xong. Cấu trúc「まだ〜ていません」diễn tả việc chưa hoàn thành. Đáp án đúng là「終わって」(おわって) = xong, kết thúc — ghép thành「まだ終わっていません」= chưa làm xong. ×「始まって」(はじまって) = bắt đầu (tự phát) — nếu chọn thì nghĩa là 'chưa bắt đầu' nhưng vế sau bảo 'nên bắt đầu sớm' → mâu thuẫn logic (nếu chưa bắt đầu thì lẽ ra đã nói điều này trước). ×「覚えて」(おぼえて) = ghi nhớ, học thuộc — không phù hợp với 'bài tập'. ×「決めて」(きめて) = quyết định — không có nghĩa hoàn thành bài tập.",
+              "glosses": [
+                {
+                  "t": "まだ",
+                  "read": "",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "終わって",
+                  "read": "おわって",
+                  "vi": "kết thúc, xong (dạng て)"
+                },
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "sớm thôi"
+                },
+                {
+                  "t": "始めたほうがいい",
+                  "read": "はじめたほうがいい",
+                  "vi": "nên bắt đầu"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "いません",
+                  "read": "いません",
+                  "vi": "chưa (làm), không có (dạng phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "今年の夏休みは北海道へ旅行する＿です。",
+              "choices": [
+                "つもり",
+                "ところ",
+                "はずが",
+                "くらい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: kỳ nghỉ hè năm nay dự định đi du lịch Hokkaido. Đáp án đúng là「つもり」= có ý định, dự định cá nhân — cấu trúc「〜するつもりです」biểu thị ý định người nói. ×「ところ」= nơi chốn, hoặc 'sắp/vừa/đang làm gì' — cần đi với dạng động từ cụ thể hơn (vừa làm/sắp làm), không dùng đơn lẻ như thế này để nói dự định. ×「はずが」= lẽ ra/đáng lẽ — thường dùng phủ định「はずがない」, không hợp văn cảnh tích cực nói kế hoạch. ×「くらい」= khoảng, mức độ — không dùng để nói dự định du lịch.",
+              "glosses": [
+                {
+                  "t": "今年",
+                  "read": "ことし",
+                  "vi": "năm nay"
+                },
+                {
+                  "t": "夏休み",
+                  "read": "なつやすみ",
+                  "vi": "kỳ nghỉ hè"
+                },
+                {
+                  "t": "北海道",
+                  "read": "ほっかいどう",
+                  "vi": "Hokkaido"
+                },
+                {
+                  "t": "旅行する",
+                  "read": "りょこうする",
+                  "vi": "đi du lịch"
+                },
+                {
+                  "t": "つもり",
+                  "read": "",
+                  "vi": "có ý định, dự định"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは来月、会社をやめる＿があるそうです。",
+              "choices": [
+                "計画",
+                "感情",
+                "経験",
+                "関係"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: nghe nói anh Tanaka có ＿ nghỉ việc tháng tới. Đáp án đúng là「計画」(けいかく) = kế hoạch — cấu trúc「〜する計画がある」= có kế hoạch làm gì. ×「感情」(かんじょう) = cảm xúc, tình cảm — không dùng với cấu trúc「〜する感情がある」để nói kế hoạch. ×「経験」(けいけん) = kinh nghiệm, trải nghiệm — nói về quá khứ/thành tích, không phải tương lai. ×「関係」(かんけい) = quan hệ, liên quan — không hợp văn cảnh này.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng tới"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "やめる",
+                  "read": "",
+                  "vi": "nghỉ, thôi việc"
+                },
+                {
+                  "t": "計画",
+                  "read": "けいかく",
+                  "vi": "kế hoạch"
+                },
+                {
+                  "t": "があるそうです",
+                  "read": "があるそうです",
+                  "vi": "〜ことがあるそうです = nghe nói có việc/dự định ~ (そうです: nghe nói)"
+                }
+              ]
+            },
+            {
+              "stem": "週末に部屋を＿つもりです。ずいぶん汚くなりました。",
+              "choices": [
+                "掃除する",
+                "注意する",
+                "研究する",
+                "利用する"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: cuối tuần dự định ＿ phòng vì đã khá bẩn rồi. Đáp án đúng là「掃除する」(そうじする) = dọn dẹp — hợp logic với 'phòng bẩn'. ×「注意する」(ちゅういする) = chú ý, cẩn thận — không dọn dẹp phòng được. ×「研究する」(けんきゅうする) = nghiên cứu — không liên quan đến phòng bẩn. ×「利用する」(りようする) = sử dụng, tận dụng — không có nghĩa dọn dẹp.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "掃除する",
+                  "read": "そうじする",
+                  "vi": "dọn dẹp, quét dọn"
+                },
+                {
+                  "t": "ずいぶん",
+                  "read": "",
+                  "vi": "khá là, rất"
+                },
+                {
+                  "t": "汚くなりました",
+                  "read": "きたなくなりました",
+                  "vi": "đã trở nên bẩn"
+                },
+                {
+                  "t": "つもりです",
+                  "read": "つもりです",
+                  "vi": "〜つもりです = dự định làm ~"
+                }
+              ]
+            },
+            {
+              "stem": "試験まであと三日しかないのに、まだ何も＿いません。",
+              "choices": [
+                "準備して",
+                "失敗して",
+                "卒業して",
+                "出発して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: còn ba ngày nữa là thi mà vẫn chưa ＿ gì cả. Đáp án đúng là「準備して」(じゅんびして) = chuẩn bị — cấu trúc「まだ何も準備していません」= chưa chuẩn bị gì, hoàn toàn hợp lý. ×「失敗して」(しっぱいして) = thất bại — chưa thi thì chưa thể thất bại, vô lý. ×「卒業して」(そつぎょうして) = tốt nghiệp — không liên quan đến chuẩn bị thi. ×「出発して」(しゅっぱつして) = xuất phát, khởi hành — nói về đi đâu đó, không phải chuẩn bị thi.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "あと三日",
+                  "read": "あとみっか",
+                  "vi": "còn ba ngày nữa"
+                },
+                {
+                  "t": "しかない",
+                  "read": "",
+                  "vi": "chỉ còn, chẳng còn bao nhiêu"
+                },
+                {
+                  "t": "まだ何も",
+                  "read": "",
+                  "vi": "vẫn chưa có gì"
+                },
+                {
+                  "t": "準備して",
+                  "read": "じゅんびして",
+                  "vi": "chuẩn bị (dạng て)"
+                },
+                {
+                  "t": "いません",
+                  "read": "いません",
+                  "vi": "chưa (làm), không có"
+                }
+              ]
+            },
+            {
+              "stem": "来年、日本に留学する＿を立てています。",
+              "choices": [
+                "計画",
+                "感想",
+                "理由",
+                "場合"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: đang lập ＿ du học Nhật Bản năm tới. Đáp án đúng là「計画」(けいかく) = kế hoạch — cụm「計画を立てる」(kế hoạch lập kế hoạch) là cách dùng rất chuẩn trong tiếng Nhật. ×「感想」(かんそう) = cảm tưởng, nhận xét — dùng sau khi trải nghiệm điều gì, không dùng về tương lai. ×「理由」(りゆう) = lý do — không ghép với「立てる」. ×「場合」(ばあい) = trường hợp — dùng trong điều kiện giả định, không hợp ở đây.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm tới"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "留学する",
+                  "read": "りゅうがくする",
+                  "vi": "du học"
+                },
+                {
+                  "t": "計画",
+                  "read": "けいかく",
+                  "vi": "kế hoạch"
+                },
+                {
+                  "t": "立てています",
+                  "read": "たてています",
+                  "vi": "đang lập, đang xây dựng"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんはまだ新しい仕事を＿いません。今も探しています。",
+              "choices": [
+                "見つけて",
+                "諦めて",
+                "続けて",
+                "選んで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: anh Yamada vẫn chưa ＿ công việc mới, vẫn đang tìm. Đáp án đúng là「見つけて」(みつけて) = tìm thấy — cấu trúc「まだ見つけていません」= chưa tìm thấy, logic với 'vẫn đang tìm'. ×「諦めて」(あきらめて) = từ bỏ — nếu 'chưa từ bỏ' thì vẫn đang tìm kiếm, nhưng ý nghĩa không trùng với văn cảnh thông tin cần truyền đạt ở đây. ×「続けて」(つづけて) = tiếp tục — 'chưa tiếp tục' nghe kỳ, vả lại vế sau 'vẫn đang tìm' phủ nhận điều này. ×「選んで」(えらんで) = chọn lựa — 'chưa chọn được' gần nghĩa nhưng không tự nhiên bằng 'chưa tìm thấy' khi ghép với 'đang tìm'.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "新しい仕事",
+                  "read": "あたらしいしごと",
+                  "vi": "công việc mới"
+                },
+                {
+                  "t": "見つけて",
+                  "read": "みつけて",
+                  "vi": "tìm thấy (dạng て)"
+                },
+                {
+                  "t": "今も",
+                  "read": "いまも",
+                  "vi": "vẫn còn bây giờ"
+                },
+                {
+                  "t": "探しています",
+                  "read": "さがしています",
+                  "vi": "đang tìm kiếm"
+                },
+                {
+                  "t": "いません",
+                  "read": "いません",
+                  "vi": "chưa (làm), không có"
+                },
+                {
+                  "t": "はまだ",
+                  "read": "はまだ",
+                  "vi": "はまだ〜ていません = vẫn chưa ~ (kết hợp với ていません phía sau)"
+                }
+              ]
+            },
+            {
+              "stem": "今週末、家族で近くの公園へ行く＿です。",
+              "choices": [
+                "予定",
+                "意見",
+                "習慣",
+                "期間"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: cuối tuần này có ＿ đi công viên gần đây với gia đình. Đáp án đúng là「予定」(よてい) = lịch dự kiến — cấu trúc「〜する予定です」rất phổ biến để nói về kế hoạch đã sắp xếp. ×「意見」(いけん) = ý kiến, quan điểm — không dùng để nói lịch đi chơi. ×「習慣」(しゅうかん) = thói quen — nói về điều lặp đi lặp lại, không phải kế hoạch cuối tuần cụ thể. ×「期間」(きかん) = khoảng thời gian, thời hạn — không hợp với cấu trúc「〜する期間です」trong văn cảnh này.",
+              "glosses": [
+                {
+                  "t": "今週末",
+                  "read": "こんしゅうまつ",
+                  "vi": "cuối tuần này"
+                },
+                {
+                  "t": "家族",
+                  "read": "かぞく",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "近くの公園",
+                  "read": "ちかくのこうえん",
+                  "vi": "công viên gần đây"
+                },
+                {
+                  "t": "行く予定",
+                  "read": "いくよてい",
+                  "vi": "dự kiến đi"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "lịch dự kiến, kế hoạch"
+                }
+              ]
+            },
+            {
+              "stem": "プロジェクトの報告書はまだ＿いません。明日までに出してください。",
+              "choices": [
+                "完成して",
+                "失敗して",
+                "発表して",
+                "検討して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: báo cáo dự án vẫn chưa ＿, vui lòng nộp trước ngày mai. Đáp án đúng là「完成して」(かんせいして) = hoàn thành — cấu trúc「まだ完成していません」= chưa hoàn thành, hợp logic với yêu cầu nộp trước ngày mai. ×「失敗して」(しっぱいして) = thất bại — 'báo cáo chưa thất bại' không có nghĩa. ×「発表して」(はっぴょうして) = trình bày, công bố — 'chưa phát biểu' không liên quan đến việc nộp báo cáo. ×「検討して」(けんとうして) = xem xét, cân nhắc — 'chưa xem xét' không hợp với yêu cầu nộp bản hoàn chỉnh.",
+              "glosses": [
+                {
+                  "t": "プロジェクト",
+                  "read": "",
+                  "vi": "dự án"
+                },
+                {
+                  "t": "報告書",
+                  "read": "ほうこくしょ",
+                  "vi": "báo cáo"
+                },
+                {
+                  "t": "完成して",
+                  "read": "かんせいして",
+                  "vi": "hoàn thành (dạng て)"
+                },
+                {
+                  "t": "明日までに",
+                  "read": "あしたまでに",
+                  "vi": "trước ngày mai"
+                },
+                {
+                  "t": "出してください",
+                  "read": "だしてください",
+                  "vi": "hãy nộp"
+                },
+                {
+                  "t": "いません",
+                  "read": "いません",
+                  "vi": "chưa (làm), không có"
+                },
+                {
+                  "t": "はまだ",
+                  "read": "はまだ",
+                  "vi": "はまだ〜ていません = vẫn chưa ~ (kết hợp với ていません phía sau)"
+                }
+              ]
+            },
+            {
+              "stem": "彼は将来、医者になる＿だと言っていました。",
+              "choices": [
+                "つもり",
+                "まま",
+                "ほど",
+                "ため"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: nghe nói anh ấy có ＿ trở thành bác sĩ trong tương lai. Đáp án đúng là「つもり」= có ý định, dự định cá nhân — cấu trúc「〜するつもりだ」diễn tả ý định của người trong câu. ×「まま」= nguyên trạng, giữ nguyên — dùng trong cấu trúc「〜したまま」(để nguyên như vậy), không nói ý định. ×「ほど」= mức độ, đến mức — dùng để so sánh hoặc diễn tả mức độ, không hợp ở đây. ×「ため」= vì, để (mục đích/nguyên nhân) — có thể nói「医者になるために」nhưng「医者になるためだ」không tự nhiên trong văn cảnh này.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "将来",
+                  "read": "しょうらい",
+                  "vi": "tương lai"
+                },
+                {
+                  "t": "医者",
+                  "read": "いしゃ",
+                  "vi": "bác sĩ"
+                },
+                {
+                  "t": "になる",
+                  "read": "",
+                  "vi": "trở thành"
+                },
+                {
+                  "t": "つもり",
+                  "read": "",
+                  "vi": "có ý định, dự định"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói là"
+                }
+              ]
+            },
+            {
+              "stem": "来月から新しいダイエットを始める＿を立てました。",
+              "choices": [
+                "計画",
+                "感想",
+                "場所",
+                "様子"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: đã lập ＿ bắt đầu chế độ ăn kiêng mới từ tháng tới. Đáp án đúng là「計画」(けいかく) = kế hoạch — cụm「計画を立てる」= lập kế hoạch là cố định trong tiếng Nhật. ×「感想」(かんそう) = cảm tưởng — nói về cảm nhận sau khi trải nghiệm, không dùng để lập kế hoạch tương lai. ×「場所」(ばしょ) = địa điểm — không ghép với「立てる」theo nghĩa lập kế hoạch. ×「様子」(ようす) = tình hình, vẻ dáng — không hợp cấu trúc「〜を立てる」.",
+              "glosses": [
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng tới"
+                },
+                {
+                  "t": "新しいダイエット",
+                  "read": "あたらしいダイエット",
+                  "vi": "chế độ ăn kiêng mới"
+                },
+                {
+                  "t": "始める",
+                  "read": "はじめる",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "計画",
+                  "read": "けいかく",
+                  "vi": "kế hoạch"
+                },
+                {
+                  "t": "立てました",
+                  "read": "たてました",
+                  "vi": "đã lập"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんはまだ引っ越しの荷物を＿いません。",
+              "choices": [
+                "片付けて",
+                "忘れて",
+                "慣れて",
+                "並べて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: anh Tanaka vẫn chưa ＿ đồ đạc chuyển nhà. Đáp án đúng là「片付けて」(かたづけて) = dọn dẹp, sắp xếp gọn — hợp logic với 'đồ đạc chuyển nhà'. ×「忘れて」(わすれて) = quên — 'chưa quên đồ đạc' không hợp nghĩa cần diễn đạt. ×「慣れて」(なれて) = quen — 'chưa quen đồ đạc' vô lý. ×「並べて」(ならべて) = xếp hàng, bày ra — gần nghĩa nhưng「片付ける」mang hàm ý dọn gọn/ngăn nắp hơn, và là từ tự nhiên nhất với「引っ越しの荷物」.",
+              "glosses": [
+                {
+                  "t": "引っ越し",
+                  "read": "ひっこし",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "片付けて",
+                  "read": "かたづけて",
+                  "vi": "dọn dẹp, sắp xếp gọn (dạng て)"
+                },
+                {
+                  "t": "まだ",
+                  "read": "",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "いません",
+                  "read": "",
+                  "vi": "chưa (kết hợp te-form)"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "stem": "今度の連休に友達の家を訪問する＿があります。",
+              "choices": [
+                "予定",
+                "資料",
+                "報告",
+                "反省"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: kỳ nghỉ lễ này có ＿ ghé thăm nhà bạn. Đáp án đúng là「予定」(よてい) = lịch dự kiến — cấu trúc「〜する予定があります」= có kế hoạch làm gì, rất thông dụng. ×「資料」(しりょう) = tài liệu — không dùng để nói kế hoạch ghé thăm. ×「報告」(ほうこく) = báo cáo — không hợp văn cảnh đi thăm bạn. ×「反省」(はんせい) = phản tỉnh, tự kiểm điểm — hoàn toàn không liên quan đến kế hoạch cuối tuần.",
+              "glosses": [
+                {
+                  "t": "今度の連休",
+                  "read": "こんどのれんきゅう",
+                  "vi": "kỳ nghỉ lễ lần này"
+                },
+                {
+                  "t": "友達の家",
+                  "read": "ともだちのいえ",
+                  "vi": "nhà bạn"
+                },
+                {
+                  "t": "訪問する",
+                  "read": "ほうもんする",
+                  "vi": "ghé thăm"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "lịch dự kiến"
+                },
+                {
+                  "t": "あります",
+                  "read": "",
+                  "vi": "có"
+                }
+              ]
+            },
+            {
+              "stem": "彼女は来年までに日本語能力試験に合格する＿です。",
+              "choices": [
+                "つもり",
+                "わけ",
+                "せい",
+                "くせ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu: cô ấy có ＿ vượt qua kỳ thi JLPT trước năm tới. Đáp án đúng là「つもり」= có ý định, dự định — cấu trúc「〜するつもりです」nói về ý định quyết tâm của người trong câu. ×「わけ」= lý do, vì thế (biểu thị kết luận logic) — cấu trúc「〜するわけです」hàm ý 'đó là điều đương nhiên/kết luận', không phù hợp nói ý định. ×「せい」= do, tại (nguyên nhân tiêu cực) — dùng để đổ lỗi, không nói ý định. ×「くせ」= tật, thói xấu — mang nghĩa tiêu cực, hoàn toàn không hợp văn cảnh quyết tâm thi cử.",
+              "glosses": [
+                {
+                  "t": "来年までに",
+                  "read": "らいねんまでに",
+                  "vi": "trước năm tới"
+                },
+                {
+                  "t": "日本語能力試験",
+                  "read": "にほんごのうりょくしけん",
+                  "vi": "kỳ thi năng lực tiếng Nhật (JLPT)"
+                },
+                {
+                  "t": "合格する",
+                  "read": "ごうかくする",
+                  "vi": "đậu, vượt qua kỳ thi"
+                },
+                {
+                  "t": "つもり",
+                  "read": "",
+                  "vi": "có ý định, dự định"
+                },
+                {
+                  "t": "です",
+                  "read": "",
+                  "vi": "là (lịch sự)"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "来年、日本に留学しようと思っています。",
+              "choices": [
+                "来年、日本に留学するつもりです。",
+                "来年、日本に留学したことがあります。",
+                "来年、日本に留学してもいいです。",
+                "来年、日本に留学するはずがありません。"
+              ],
+              "answer": 0,
+              "pt": "V意向形",
+              "explain": "「〜しようと思っています」là cấu trúc dùng V意向形 + と思っています, diễn đạt ý định cá nhân đang hình thành. Câu A「〜するつもりです」cũng diễn đạt ý định/dự định cá nhân → gần nghĩa nhất. Câu B「〜したことがあります」= đã từng làm, nói về kinh nghiệm quá khứ → sai nghĩa. Câu C「〜してもいいです」= được phép làm → sai. Câu D「〜するはずがありません」= không thể nào làm → sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "留学しよう",
+                  "read": "りゅうがく",
+                  "vi": "định du học (thể ý chí)"
+                },
+                {
+                  "t": "思っています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ / có ý định"
+                },
+                {
+                  "t": "日本に",
+                  "read": "にほんに",
+                  "vi": "đến Nhật Bản"
+                },
+                {
+                  "t": "するつもりです",
+                  "read": "するつもりです",
+                  "vi": "〜するつもりです = dự định làm ~"
+                },
+                {
+                  "t": "したことがあります",
+                  "read": "したことがあります",
+                  "vi": "〜たことがあります = đã từng làm ~"
+                },
+                {
+                  "t": "してもいいです",
+                  "read": "してもいいです",
+                  "vi": "〜てもいいです = làm ~ cũng được (cho phép)"
+                },
+                {
+                  "t": "するはずがありません",
+                  "read": "するはずがありません",
+                  "vi": "〜はずがありません = không thể nào ~ (khẳng định phủ định mạnh)"
+                }
+              ]
+            },
+            {
+              "prompt": "今週末、友達の引っ越しを手伝うつもりです。",
+              "choices": [
+                "今週末、友達の引っ越しを手伝おうと思っています。",
+                "今週末、友達の引っ越しを手伝ったことがあります。",
+                "今週末、友達の引っ越しを手伝わなければなりません。",
+                "今週末、友達の引っ越しを手伝ってもらいました。"
+              ],
+              "answer": 0,
+              "pt": "Vるつもりです",
+              "explain": "「〜つもりです」diễn đạt dự định cá nhân đã quyết. Câu A「〜手伝おうと思っています」dùng V意向形 cũng diễn đạt ý định cá nhân → gần nghĩa nhất. Câu B「〜手伝ったことがあります」= đã từng giúp (kinh nghiệm) → sai. Câu C「〜手伝わなければなりません」= phải giúp (nghĩa vụ bắt buộc) → khác sắc thái rõ. Câu D「〜手伝ってもらいました」= đã nhờ người ta giúp mình → đảo ngược chủ thể hành động, sai.",
+              "glosses": [
+                {
+                  "t": "今週末",
+                  "read": "こんしゅうまつ",
+                  "vi": "cuối tuần này"
+                },
+                {
+                  "t": "引っ越し",
+                  "read": "ひっこし",
+                  "vi": "việc chuyển nhà"
+                },
+                {
+                  "t": "手伝うつもりです",
+                  "read": "てつだう",
+                  "vi": "dự định giúp"
+                },
+                {
+                  "t": "友達の",
+                  "read": "ともだちの",
+                  "vi": "của bạn"
+                },
+                {
+                  "t": "おうと思っています",
+                  "read": "おうとおもっています",
+                  "vi": "〜(よ)うと思っています = đang định làm ~ (ý định)"
+                },
+                {
+                  "t": "ったことがあります",
+                  "read": "ったことがあります",
+                  "vi": "〜たことがあります = đã từng làm ~"
+                },
+                {
+                  "t": "わなければなりません",
+                  "read": "わなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "ってもらいました",
+                  "read": "ってもらいました",
+                  "vi": "〜てもらいました = nhờ/được ai đó làm ~ cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "飛行機は午後3時に出発する予定です。",
+              "choices": [
+                "飛行機は午後3時に出発することになっています。",
+                "飛行機は午後3時に出発するつもりです。",
+                "飛行機は午後3時に出発しようと思っています。",
+                "飛行機は午後3時に出発してしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vる予定です",
+              "explain": "「予定です」nói về lịch trình được xếp sẵn (khách quan, theo lịch bay). Câu A「〜ことになっています」= đã được quyết định/sắp xếp (từ phía ngoài) → gần nghĩa nhất vì cả hai đều chỉ sự kiện được lên lịch. Câu B「〜するつもりです」= ý định cá nhân của chủ thể → không dùng cho máy bay (vô tri). Câu C「〜しようと思っています」cũng là ý chí cá nhân → tương tự sai. Câu D「〜してしまいました」= đã khởi hành rồi (lỡ/hoàn tất) → sai thì và nghĩa.",
+              "glosses": [
+                {
+                  "t": "飛行機",
+                  "read": "ひこうき",
+                  "vi": "máy bay"
+                },
+                {
+                  "t": "出発する予定",
+                  "read": "しゅっぱつ",
+                  "vi": "dự kiến khởi hành (theo lịch)"
+                },
+                {
+                  "t": "午後3時",
+                  "read": "ごごさんじ",
+                  "vi": "3 giờ chiều"
+                },
+                {
+                  "t": "することになっています",
+                  "read": "することになっています",
+                  "vi": "〜ことになっています = theo quy định/kế hoạch thì sẽ ~"
+                },
+                {
+                  "t": "するつもりです",
+                  "read": "するつもりです",
+                  "vi": "〜つもりです = dự định làm ~"
+                },
+                {
+                  "t": "しようと思っています",
+                  "read": "しようとおもっています",
+                  "vi": "〜(よ)うと思っています = đang định làm ~"
+                },
+                {
+                  "t": "してしまいました",
+                  "read": "してしまいました",
+                  "vi": "〜てしまいました = đã lỡ/hoàn tất làm ~ (tiếc nuối)"
+                }
+              ]
+            },
+            {
+              "prompt": "宿題はまだ終わっていません。",
+              "choices": [
+                "宿題はまだ終わらせていません。",
+                "宿題はもう終わりました。",
+                "宿題は終わってしまいました。",
+                "宿題はもう終わらなくてもいいです。"
+              ],
+              "answer": 0,
+              "pt": "まだVていません",
+              "explain": "「まだ〜ていません」= chưa hoàn thành. Câu A「まだ終わらせていません」dùng 他動詞「終わらせる」(làm cho xong) + ていません → cũng diễn đạt trạng thái chưa hoàn tất, gần nghĩa nhất. Câu B「もう終わりました」= đã xong rồi → trái nghĩa. Câu C「終わってしまいました」= đã lỡ xong / đã xong hết rồi → nghĩa xong rồi, sai. Câu D「もう終わらなくてもいいです」= không cần xong nữa cũng được → sai nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "まだ終わっていません",
+                  "read": "おわっていません",
+                  "vi": "chưa xong (chưa hoàn thành)"
+                },
+                {
+                  "t": "はまだ終わっていません",
+                  "read": "はまだおわっていません",
+                  "vi": "はまだ〜ていません = vẫn chưa ~ (chưa xong)"
+                },
+                {
+                  "t": "終わらせていません",
+                  "read": "おわらせていません",
+                  "vi": "〜(さ)せていません = chưa cho/khiến ~ xong (thể sai khiến)"
+                },
+                {
+                  "t": "はもう終わりました",
+                  "read": "はもうおわりました",
+                  "vi": "はもう〜ました = đã ~ xong rồi"
+                },
+                {
+                  "t": "終わってしまいました",
+                  "read": "おわってしまいました",
+                  "vi": "〜てしまいました = đã ~ xong hẳn (hoàn tất)"
+                },
+                {
+                  "t": "終わらなくてもいいです",
+                  "read": "おわらなくてもいいです",
+                  "vi": "〜なくてもいいです = không cần ~ cũng được"
+                }
+              ]
+            },
+            {
+              "prompt": "音楽を聴きながら、毎朝ジョギングしています。",
+              "choices": [
+                "毎朝、音楽を聴いてジョギングするのが習慣です。",
+                "毎朝、音楽を聴いてからジョギングします。",
+                "毎朝、音楽を聴いてもジョギングしません。",
+                "毎朝、音楽を聴いてジョギングしてしまいます。"
+              ],
+              "answer": 0,
+              "pt": "V1stemながらV2 / Vています(習慣)",
+              "explain": "Câu gốc: vừa nghe nhạc vừa chạy bộ mỗi sáng (thói quen). Câu A diễn đạt lại bằng「〜のが習慣です」= là thói quen, giữ cả hai hành động đồng thời → gần nghĩa nhất. Câu B「聴いてから」= nghe xong rồi mới chạy (tuần tự, không đồng thời) → sai sắc thái 「ながら」. Câu C「聴いてもジョギングしません」= dù nghe nhạc cũng không chạy → trái nghĩa. Câu D「してしまいます」= lỡ chạy / chạy hết → sắc thái tiếc nuối, sai.",
+              "glosses": [
+                {
+                  "t": "音楽を聴きながら",
+                  "read": "おんがくをききながら",
+                  "vi": "vừa nghe nhạc vừa..."
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi sáng"
+                },
+                {
+                  "t": "ジョギングしています",
+                  "vi": "đang có thói quen chạy bộ"
+                },
+                {
+                  "t": "習慣です",
+                  "read": "しゅうかんです",
+                  "vi": "là thói quen"
+                },
+                {
+                  "t": "いてジョギングするのが",
+                  "read": "いてジョギングするのが",
+                  "vi": "〜のが習慣です = việc ~ là thói quen"
+                },
+                {
+                  "t": "いてからジョギングします",
+                  "read": "いてからジョギングします",
+                  "vi": "〜てから〜します = sau khi làm ~ thì làm ~"
+                },
+                {
+                  "t": "いてもジョギングしません",
+                  "read": "いてもジョギングしません",
+                  "vi": "〜ても〜しません = dù có ~ cũng không làm"
+                },
+                {
+                  "t": "いてジョギングしてしまいます",
+                  "read": "いてジョギングしてしまいます",
+                  "vi": "〜てしまいます = lỡ/hoàn toàn làm ~ (xu hướng ngoài ý muốn)"
+                }
+              ]
+            },
+            {
+              "prompt": "この漢字は書きにくいですね。",
+              "choices": [
+                "この漢字は書くのが難しいですね。",
+                "この漢字はまだ書いていませんね。",
+                "この漢字は書かなくてもいいですね。",
+                "この漢字は書いてもらいましたね。"
+              ],
+              "answer": 0,
+              "pt": "Vにくい",
+              "explain": "「〜にくい」= khó làm gì đó (tính chất của sự vật). Câu A「書くのが難しい」= việc viết thật khó → diễn đạt cùng ý khó viết, gần nghĩa nhất. Câu B「まだ書いていません」= chưa viết → nói về trạng thái chưa hoàn thành, sai. Câu C「書かなくてもいい」= không cần viết cũng được → sai nghĩa. Câu D「書いてもらいました」= nhờ người khác viết cho → đảo chủ thể, sai.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "書きにくい",
+                  "read": "かきにくい",
+                  "vi": "khó viết"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "くのが難しいですね",
+                  "read": "くのがむずかしいですね",
+                  "vi": "〜のが難しいです = việc ~ khó"
+                },
+                {
+                  "t": "はまだ書いていませんね",
+                  "read": "はまだかいていませんね",
+                  "vi": "はまだ〜ていません = vẫn chưa ~"
+                },
+                {
+                  "t": "かなくてもいいですね",
+                  "read": "かなくてもいいですね",
+                  "vi": "〜なくてもいいです = không cần ~ cũng được"
+                },
+                {
+                  "t": "いてもらいましたね",
+                  "read": "いてもらいましたね",
+                  "vi": "〜てもらいました = nhờ/được ai đó làm ~ cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "電気がつけてあります。",
+              "choices": [
+                "電気はもうつけられています。",
+                "電気をつけておきます。",
+                "電気がつけてしまいました。",
+                "電気はまだつけていません。"
+              ],
+              "answer": 0,
+              "pt": "Vてあります",
+              "explain": "「Vてあります」= ai đó đã làm và kết quả vẫn còn đó. Câu A「つけられています」dùng thể bị động + ている = đang ở trạng thái đã được bật → diễn đạt trạng thái kết quả tương tự, gần nghĩa nhất. Câu B「つけておきます」= bật trước để dùng sau (hành động tương lai) → sai thì. Câu C「つけてしまいました」= đã lỡ bật (tiếc nuối) → sắc thái khác. Câu D「まだつけていません」= chưa bật → trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "điện / đèn"
+                },
+                {
+                  "t": "つけてあります",
+                  "vi": "đã được bật sẵn (kết quả còn đó)"
+                },
+                {
+                  "t": "はもうつけられています",
+                  "read": "はもうつけられています",
+                  "vi": "はもう〜られています = đã được ~ (rồi), trạng thái bị động"
+                },
+                {
+                  "t": "をつけておきます",
+                  "read": "をつけておきます",
+                  "vi": "〜ておきます = làm ~ sẵn (chuẩn bị trước)"
+                },
+                {
+                  "t": "がつけてしまいました",
+                  "read": "がつけてしまいました",
+                  "vi": "〜てしまいました = đã lỡ/hoàn toàn làm ~"
+                },
+                {
+                  "t": "はまだつけていません",
+                  "read": "はまだつけていません",
+                  "vi": "はまだ〜ていません = vẫn chưa ~"
+                }
+              ]
+            },
+            {
+              "prompt": "試験の前に、単語を全部覚えておきます。",
+              "choices": [
+                "試験の前に、単語を全部覚える準備をします。",
+                "試験の前に、単語を全部覚えてあります。",
+                "試験の前に、単語を全部覚えてしまいました。",
+                "試験の前に、単語を全部覚えてもらいます。"
+              ],
+              "answer": 0,
+              "pt": "Vておきます",
+              "explain": "「〜ておきます」= làm trước để chuẩn bị cho tương lai. Câu A「覚える準備をします」= chuẩn bị để nhớ → diễn đạt cùng ý chuẩn bị trước kỳ thi, gần nghĩa nhất. Câu B「覚えてあります」= đã nhớ rồi (trạng thái hiện tại, do ai đó làm) → sai sắc thái. Câu C「覚えてしまいました」= đã nhớ hết rồi (lỡ/hoàn tất, quá khứ) → sai thì. Câu D「覚えてもらいます」= nhờ người khác nhớ hùm → đảo chủ thể, sai.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "単語",
+                  "read": "たんご",
+                  "vi": "từ vựng"
+                },
+                {
+                  "t": "覚えておきます",
+                  "read": "おぼえておきます",
+                  "vi": "học thuộc trước (để dùng sau)"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "全部覚える",
+                  "read": "ぜんぶおぼえる",
+                  "vi": "nhớ hết, học thuộc tất cả"
+                },
+                {
+                  "t": "準備をします",
+                  "read": "じゅんびをします",
+                  "vi": "chuẩn bị"
+                },
+                {
+                  "t": "えてあります",
+                  "read": "えてあります",
+                  "vi": "〜てあります = đã ~ sẵn (trạng thái kết quả do chủ ý)"
+                },
+                {
+                  "t": "えてしまいました",
+                  "read": "えてしまいました",
+                  "vi": "〜てしまいました = đã lỡ/hoàn toàn ~"
+                },
+                {
+                  "t": "えてもらいます",
+                  "read": "えてもらいます",
+                  "vi": "〜てもらいます = nhờ/được ai đó làm ~ cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に作文を直してもらいました。",
+              "choices": [
+                "先生が作文を直してくれました。",
+                "先生に作文を直してあげました。",
+                "先生は作文を直させました。",
+                "先生に作文を直してしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vてもらいます",
+              "explain": "「〜てもらいました」= tôi nhờ thầy sửa (chủ thể nhận lợi ích là người nói). Câu A「先生が〜てくれました」= thầy sửa cho tôi (chủ thể cho là thầy, người nhận là tôi) → cùng sự kiện, chỉ đổi góc nhìn ngữ pháp nhưng nghĩa thực tế giống nhau, gần nghĩa nhất. Câu B「先生に〜てあげました」= tôi sửa cho thầy → đảo ngược người thực hiện và người nhận, sai. Câu C「先生は〜直させました」= thầy bắt ai làm → nghĩa sai động từ cùng thành. Câu D「先生に〜してしまいました」= lỡ sửa → sắc thái tiếc nuối, sai.",
+              "glosses": [
+                {
+                  "t": "作文",
+                  "read": "さくぶん",
+                  "vi": "bài luận / bài văn"
+                },
+                {
+                  "t": "直してもらいました",
+                  "read": "なおしてもらいました",
+                  "vi": "đã nhờ (thầy) sửa cho mình"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "してくれました",
+                  "read": "してくれました",
+                  "vi": "〜てくれました = ai đó đã làm ~ cho mình"
+                },
+                {
+                  "t": "してあげました",
+                  "read": "してあげました",
+                  "vi": "〜てあげました = đã làm ~ cho ai đó"
+                },
+                {
+                  "t": "させました",
+                  "read": "させました",
+                  "vi": "〜させました = đã bắt/cho phép ai làm ~ (thể sai khiến)"
+                },
+                {
+                  "t": "してしまいました",
+                  "read": "してしまいました",
+                  "vi": "〜てしまいました = đã lỡ/hoàn toàn làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "窓が開いています。",
+              "choices": [
+                "窓は開いた状態です。",
+                "窓を開けてあります。",
+                "窓をまだ開けていません。",
+                "窓が開けてしまいました。"
+              ],
+              "answer": 0,
+              "pt": "自動詞+Vています(結果状態)",
+              "explain": "「窓が開いています」dùng 自動詞「開く」+ ています = cửa sổ đang ở trạng thái mở (không đề cập ai làm). Câu A「開いた状態です」= đang ở trạng thái đã mở → diễn đạt lại trạng thái kết quả bằng cách khác, gần nghĩa nhất. Câu B「窓を開けてあります」dùng 他動詞「開ける」+ てあります = ai đó đã mở và để nguyên → nhấn mạnh có người chủ ý làm, sắc thái khác dù kết quả tương tự. Câu C「まだ開けていません」= chưa mở → trái nghĩa. Câu D「開けてしまいました」= lỡ mở rồi + 他動詞 → sai.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開いています",
+                  "read": "あいています",
+                  "vi": "đang ở trạng thái mở (tự động từ)"
+                },
+                {
+                  "t": "状態",
+                  "read": "じょうたい",
+                  "vi": "trạng thái"
+                },
+                {
+                  "t": "けてあります",
+                  "read": "けてあります",
+                  "vi": "〜てあります = đã ~ sẵn (trạng thái do chủ ý)"
+                },
+                {
+                  "t": "をまだ開けていません",
+                  "read": "をまだあけていません",
+                  "vi": "をまだ〜ていません = vẫn chưa ~"
+                },
+                {
+                  "t": "けてしまいました",
+                  "read": "けてしまいました",
+                  "vi": "〜てしまいました = đã lỡ ~"
+                }
+              ]
+            },
+            {
+              "prompt": "たとえ雨が降っても、試合は続けます。",
+              "choices": [
+                "雨が降っても、試合は続けます。",
+                "雨が降ったら、試合は中止です。",
+                "雨が降るので、試合は続けません。",
+                "雨が降る前に、試合を終わらせます。"
+              ],
+              "answer": 0,
+              "pt": "たとえ〜ても",
+              "explain": "「たとえ〜ても」= dù cho ~ đi nữa (nhấn mạnh điều kiện cực đoan nhưng kết quả vẫn vậy). Câu A「雨が降っても」= dù mưa → cùng cấu trúc 〜ても, nghĩa gần nhất (chỉ bỏ「たとえ」nhấn mạnh). Câu B「雨が降ったら、中止」= nếu mưa thì hủy → điều kiện 〜たら + kết quả ngược, sai. Câu C「雨が降るので、続けません」= vì mưa nên không tiếp tục → nguyên nhân-kết quả ngược, sai. Câu D「雨が降る前に終わらせます」= trước khi mưa → hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "たとえ雨が降っても",
+                  "vi": "dù cho ~ đi nữa (nhấn mạnh cực đoan)",
+                  "read": "たとえあめがふっても"
+                },
+                {
+                  "t": "試合",
+                  "read": "しあい",
+                  "vi": "trận đấu"
+                },
+                {
+                  "t": "続けます",
+                  "read": "つづけます",
+                  "vi": "tiếp tục"
+                },
+                {
+                  "t": "中止",
+                  "read": "ちゅうし",
+                  "vi": "hủy bỏ, dừng lại"
+                },
+                {
+                  "t": "終わらせます",
+                  "read": "おわらせます",
+                  "vi": "làm kết thúc, chấm dứt"
+                },
+                {
+                  "t": "降ったら",
+                  "read": "ふったら",
+                  "vi": "〜たら = nếu/khi ~ thì (giả định)"
+                },
+                {
+                  "t": "降るので",
+                  "read": "ふるので",
+                  "vi": "〜ので = vì ~ nên (nguyên nhân khách quan)"
+                }
+              ]
+            },
+            {
+              "prompt": "もう切符を買ってあります。",
+              "choices": [
+                "切符はもう買っておきました。",
+                "切符はまだ買っていません。",
+                "切符を買ってもらいました。",
+                "切符を買ってしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vてあります",
+              "explain": "「買ってあります」= đã mua và kết quả còn đó (ai đó chủ ý làm sẵn). Câu A「買っておきました」= đã mua trước để dùng sau → cùng hàm ý chuẩn bị có chủ ý, gần nghĩa nhất. Câu B「まだ買っていません」= chưa mua → trái nghĩa. Câu C「買ってもらいました」= nhờ người khác mua cho → đổi chủ thể hành động, sai. Câu D「買ってしまいました」= đã lỡ mua / mua hết rồi → sắc thái tiếc nuối hoặc hoàn tất không mong muốn, sai.",
+              "glosses": [
+                {
+                  "t": "切符",
+                  "read": "きっぷ",
+                  "vi": "vé (tàu/xe)"
+                },
+                {
+                  "t": "買ってあります",
+                  "read": "かってあります",
+                  "vi": "đã mua sẵn (kết quả còn đó, có chủ ý)"
+                },
+                {
+                  "t": "はもう買っておきました",
+                  "read": "はもうかっておきました",
+                  "vi": "はもう〜ておきました = đã ~ sẵn từ trước rồi"
+                },
+                {
+                  "t": "はまだ買っていません",
+                  "read": "はまだかっていません",
+                  "vi": "はまだ〜ていません = vẫn chưa ~"
+                },
+                {
+                  "t": "ってもらいました",
+                  "read": "ってもらいました",
+                  "vi": "〜てもらいました = nhờ/được ai đó làm ~ cho mình"
+                },
+                {
+                  "t": "ってしまいました",
+                  "read": "ってしまいました",
+                  "vi": "〜てしまいました = đã lỡ/hoàn toàn ~"
+                }
+              ]
+            },
+            {
+              "prompt": "来月、会社の研修旅行がある予定です。",
+              "choices": [
+                "来月、会社の研修旅行が予定されています。",
+                "来月、会社の研修旅行に行くつもりです。",
+                "来月、会社の研修旅行に行こうと思っています。",
+                "来月、会社の研修旅行がなくなってしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vる予定です",
+              "explain": "「〜予定です」= lịch trình được xếp sẵn (khách quan). Câu A「予定されています」= được lên kế hoạch/dự kiến (thể bị động) → cùng nghĩa lịch trình từ phía tổ chức, gần nhất. Câu B「行くつもりです」= cá nhân dự định đi → ý chí cá nhân chứ không phải lịch công ty, sắc thái khác. Câu C「行こうと思っています」= đang nghĩ sẽ đi → ý định cá nhân, sắc thái khác. Câu D「なくなってしまいました」= đã bị hủy rồi → trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "研修旅行",
+                  "read": "けんしゅうりょこう",
+                  "vi": "chuyến đi tập huấn / công tác"
+                },
+                {
+                  "t": "ある予定",
+                  "vi": "dự kiến có / được lên lịch"
+                },
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "会社の",
+                  "read": "かいしゃの",
+                  "vi": "của công ty"
+                },
+                {
+                  "t": "予定されています",
+                  "read": "よていされています",
+                  "vi": "〜されています = được dự định/lên kế hoạch (thể bị động)"
+                },
+                {
+                  "t": "行くつもりです",
+                  "read": "いくつもりです",
+                  "vi": "〜つもりです = dự định làm ~"
+                },
+                {
+                  "t": "こうと思っています",
+                  "read": "こうとおもっています",
+                  "vi": "〜(よ)うと思っています = đang định làm ~"
+                },
+                {
+                  "t": "がなくなってしまいました",
+                  "read": "がなくなってしまいました",
+                  "vi": "〜てしまいました = đã bị mất hẳn/không còn nữa (đáng tiếc)"
+                }
+              ]
+            },
+            {
+              "prompt": "この部屋からは海が見えます。",
+              "choices": [
+                "この部屋からは海を見ることができます。",
+                "この部屋からは海を見てあります。",
+                "この部屋からは海がまだ見ていません。",
+                "この部屋からは海を見ておきます。"
+              ],
+              "answer": 0,
+              "pt": "NがVえます（自然に知覚）",
+              "explain": "「〜が見えます」= có thể thấy được (tự nhiên, không cần cố ý). Câu A「〜を見ることができます」= có thể nhìn thấy → diễn đạt khả năng cùng nghĩa, gần nhất (dù「見える」nhấn mạnh tự nhiên hơn「見ることができる」). Câu B「見てあります」= đã xem sẵn rồi → sắc thái chuẩn bị, sai. Câu C「まだ見ていません」= chưa xem → trái nghĩa và sai cấu trúc. Câu D「見ておきます」= xem trước để dùng sau → sai nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "海が見えます",
+                  "read": "うみがみえます",
+                  "vi": "thấy được biển (tự nhiên)"
+                },
+                {
+                  "t": "からは",
+                  "read": "からは",
+                  "vi": "からは = từ ~ (điểm xuất phát, nhấn mạnh)"
+                },
+                {
+                  "t": "ることができます",
+                  "read": "ることができます",
+                  "vi": "〜ことができます = có thể làm ~"
+                },
+                {
+                  "t": "てあります",
+                  "read": "てあります",
+                  "vi": "〜てあります = đã ~ sẵn (trạng thái kết quả)"
+                },
+                {
+                  "t": "がまだ見ていません",
+                  "read": "がまだみていません",
+                  "vi": "はまだ〜ていません = vẫn chưa ~"
+                },
+                {
+                  "t": "ておきます",
+                  "read": "ておきます",
+                  "vi": "〜ておきます = làm ~ sẵn (chuẩn bị trước)"
+                }
+              ]
+            },
+            {
+              "prompt": "財布を忘れたんですが、1000円しか持っていません。",
+              "choices": [
+                "財布を忘れたので、持っているのは1000円だけです。",
+                "財布を忘れましたが、1000円も持っています。",
+                "財布を忘れたら、1000円を持ってきます。",
+                "財布を忘れたので、1000円さえ持っていません。"
+              ],
+              "answer": 0,
+              "pt": "〜んです / Nしか〜ない",
+              "explain": "Câu gốc: giải thích lý do (「んですが」) + chỉ có 1000 yên (「しか〜ない」). Câu A「〜ので、〜だけです」= vì quên ví nên chỉ có 1000 yên → diễn đạt lại bằng「〜だけ」(chỉ) + 「〜ので」(lý do), gần nghĩa nhất. Câu B「1000円も持っています」=「も」= cũng có, mang nghĩa tích cực (còn có đến 1000 yên) → đổi sắc thái, sai. Câu C「忘れたら、1000円を持ってきます」= nếu quên thì sẽ mang → điều kiện tương lai, sai. Câu D「1000円さえ持っていません」=「さえ〜ない」= ngay cả 1000 yên cũng không có → phủ định mạnh hơn, trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "財布を忘れた",
+                  "read": "さいふをわすれた",
+                  "vi": "quên ví"
+                },
+                {
+                  "t": "1000円しか持っていません",
+                  "read": "せんえん",
+                  "vi": "chỉ có 1000 yên (không hơn)"
+                },
+                {
+                  "t": "んですが",
+                  "vi": "vì thế mà... (giải thích lý do)"
+                },
+                {
+                  "t": "っているのは1000円だけです",
+                  "read": "っているのはせんえんだけです",
+                  "vi": "〜のは〜だけです = cái mà ~ chỉ có ~ (nhấn mạnh giới hạn)"
+                },
+                {
+                  "t": "忘れましたが",
+                  "read": "わすれましたが",
+                  "vi": "〜たが = tuy đã ~ nhưng"
+                },
+                {
+                  "t": "持っています",
+                  "read": "もっています",
+                  "vi": "〜ています = đang có/đang ở trạng thái ~"
+                },
+                {
+                  "t": "持ってきます",
+                  "read": "もってきます",
+                  "vi": "〜てきます = mang/đem ~ đến (hướng về phía nói)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 31 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "来年、日本へ＿＿＿と思っています。",
+              "choices": [
+                "行こう",
+                "行くつもり",
+                "行ったら",
+                "行けば"
+              ],
+              "answer": 0,
+              "pt": "V意向形+と思っています",
+              "explain": "「V意向形＋と思っています」là cấu trúc diễn đạt ý định/dự định của người nói. 「行こう」là thể ý chí (意向形) của 「行く」, ghép với 「と思っています」= 'đang nghĩ sẽ đi'. ❌「行くつもり」là N/Vる形, không phải 意向形 nên không hợp với 〜と思っています trong cấu trúc này. ❌「行ったら」là 〜たら (điều kiện/nếu khi), không diễn đạt ý chí. ❌「行けば」là thể điều kiện 〜ば, cũng không diễn đạt ý định.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "行こうと思っています",
+                  "read": "いこうとおもっています",
+                  "vi": "đang nghĩ sẽ đi"
+                }
+              ]
+            },
+            {
+              "stem": "A：「どうして電話しなかったんですか。」B：「バッテリーが＿＿＿んです。」",
+              "choices": [
+                "切れている",
+                "切ってある",
+                "切っておく",
+                "切ってしまった"
+              ],
+              "answer": 0,
+              "pt": "B29 Vています(結果状態) + 〜んです giải thích",
+              "explain": "Câu B giải thích lý do bằng 「〜んです」(B26). Pin hết là trạng thái hiện tại → dùng 「切れている」(B29, 自動詞+ている = trạng thái kết quả). ❌「切ってある」là 他動詞＋てある, hàm ý ai đó cố ý làm — vô lý với pin. ❌「切っておく」là 〜ておく (làm trước chuẩn bị), không phù hợp ngữ cảnh. ❌「切ってしまった」nghĩa 'lỡ làm cho hết', sắc thái khác và không giải thích trạng thái hiện tại.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "電話しなかった",
+                  "read": "でんわしなかった",
+                  "vi": "không gọi điện"
+                },
+                {
+                  "t": "バッテリー",
+                  "vi": "pin"
+                },
+                {
+                  "t": "切れている",
+                  "read": "きれている",
+                  "vi": "đã hết (pin đang ở trạng thái hết)"
+                },
+                {
+                  "t": "んですか",
+                  "read": "んですか",
+                  "vi": "〜んですか = ...vậy à? (hỏi lý do, giải thích)"
+                },
+                {
+                  "t": "ってある",
+                  "read": "ってある",
+                  "vi": "〜てある = đã ~ sẵn (trạng thái do chủ ý, thường tha động từ)"
+                },
+                {
+                  "t": "っておく",
+                  "read": "っておく",
+                  "vi": "〜ておく = làm ~ trước/sẵn (chuẩn bị)"
+                },
+                {
+                  "t": "ってしまった",
+                  "read": "ってしまった",
+                  "vi": "〜てしまった = đã lỡ ~ (hoàn tất ngoài ý muốn)"
+                }
+              ]
+            },
+            {
+              "stem": "今年の夏、富士山に登る＿＿＿です。",
+              "choices": [
+                "つもり",
+                "予定",
+                "ところ",
+                "はず"
+              ],
+              "answer": 0,
+              "pt": "Vるつもりです",
+              "explain": "「Vるつもりです」diễn đạt dự định mang tính ý chí cá nhân, chủ quan — người nói có ý định leo. ❌「予定」cũng có nghĩa dự định nhưng mang tính kế hoạch đã lên lịch/bên ngoài xác nhận (B31). ❌「ところ」=sắp/đang/vừa làm, không diễn đạt dự định. ❌「はず」=lẽ ra phải/chắc chắn là, diễn đạt kỳ vọng/dự đoán dựa trên bằng chứng, không phải ý chí cá nhân.",
+              "glosses": [
+                {
+                  "t": "今年の夏",
+                  "read": "ことしのなつ",
+                  "vi": "mùa hè năm nay"
+                },
+                {
+                  "t": "富士山",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "登る",
+                  "read": "のぼる",
+                  "vi": "leo trèo"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "có ý định, dự định (cá nhân)"
+                }
+              ]
+            },
+            {
+              "stem": "会議は来週の月曜日に開く＿＿＿です。",
+              "choices": [
+                "予定",
+                "つもり",
+                "ために",
+                "ところ"
+              ],
+              "answer": 0,
+              "pt": "Vる予定です",
+              "explain": "「Vる予定です」diễn đạt lịch trình đã được sắp xếp từ bên ngoài (cuộc họp có lịch). ❌「つもり」là ý chí cá nhân chủ quan, không phù hợp khi nói về lịch họp của tổ chức. ❌「ために」=để (mục đích), không diễn đạt lịch trình. ❌「ところ」=sắp/đang/vừa xong, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "来週の月曜日",
+                  "read": "らいしゅうのげつようび",
+                  "vi": "thứ Hai tuần sau"
+                },
+                {
+                  "t": "開く",
+                  "read": "ひらく",
+                  "vi": "tổ chức, mở"
+                },
+                {
+                  "t": "予定です",
+                  "read": "よていです",
+                  "vi": "dự kiến, đã có lịch"
+                }
+              ]
+            },
+            {
+              "stem": "A：「宿題、もう終わりましたか。」B：「いいえ、まだ＿＿＿。」",
+              "choices": [
+                "終わっていません",
+                "終わりません",
+                "終わらなかったです",
+                "終わらないです"
+              ],
+              "answer": 0,
+              "pt": "まだVていません",
+              "explain": "「まだVていません」= chưa ~, nhấn mạnh hành động chưa hoàn thành tính đến hiện tại. ❌「終わりません」= không kết thúc (khẳng định không làm, sắc thái từ chối/không thể), khác nghĩa. ❌「終わらなかったです」= đã không kết thúc (quá khứ), không đúng vì đang hỏi 'đã xong chưa' → trả lời về trạng thái hiện tại. ❌「終わらないです」= không/sẽ không kết thúc (hiện tại phủ định đơn giản), không diễn đạt 'chưa hoàn thành'.",
+              "glosses": [
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "もう",
+                  "vi": "rồi (hỏi đã làm chưa)"
+                },
+                {
+                  "t": "まだ終わっていません",
+                  "read": "まだおわっていません",
+                  "vi": "chưa xong (trạng thái chưa hoàn thành)"
+                },
+                {
+                  "t": "終わりました",
+                  "read": "おわりました",
+                  "vi": "đã xong, đã kết thúc"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không (phủ định)"
+                },
+                {
+                  "t": "わりません",
+                  "read": "わりません",
+                  "vi": "〜ません = không ~ (phủ định thường)"
+                },
+                {
+                  "t": "わらなかったです",
+                  "read": "わらなかったです",
+                  "vi": "〜なかったです = đã không ~ (quá khứ phủ định)"
+                },
+                {
+                  "t": "わらないです",
+                  "read": "わらないです",
+                  "vi": "〜ないです = không ~ (phủ định thông thường)"
+                }
+              ]
+            },
+            {
+              "stem": "旅行の前に、ホテルを＿＿＿おきました。",
+              "choices": [
+                "予約して",
+                "予約した",
+                "予約しに",
+                "予約すれば"
+              ],
+              "answer": 0,
+              "pt": "B30 Vておきます",
+              "explain": "「Vておきます/ておきました」= làm trước để chuẩn bị/dùng sau (B30). Cần dạng て形 của 「予約する」= 「予約して」. ❌「予約した」là thể た (quá khứ), không thể ghép trực tiếp với 「おきました」. ❌「予約しに」= đi để đặt (mục đích di chuyển), sai cấu trúc. ❌「予約すれば」= nếu đặt (điều kiện), sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "旅行の前に",
+                  "read": "りょこうのまえに",
+                  "vi": "trước chuyến đi"
+                },
+                {
+                  "t": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "予約しておきました",
+                  "read": "よやくしておきました",
+                  "vi": "đã đặt trước (để chuẩn bị)"
+                }
+              ]
+            },
+            {
+              "stem": "彼女は音楽を聴き＿＿＿料理しています。",
+              "choices": [
+                "ながら",
+                "てから",
+                "ために",
+                "たら"
+              ],
+              "answer": 0,
+              "pt": "B28 V1stemながらV2",
+              "explain": "「V1 stem＋ながら＋V2」= vừa V1 vừa V2 (hai hành động đồng thời, B28). 「聴き」là stem của 「聴く」. ❌「てから」= sau khi làm V1 thì V2 (tuần tự), không đồng thời. ❌「ために」= để (mục đích). ❌「たら」= khi/nếu (điều kiện/thời điểm), không diễn đạt đồng thời.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "聴き",
+                  "read": "きき",
+                  "vi": "stem của 聴く"
+                },
+                {
+                  "t": "料理しています",
+                  "read": "りょうりしています",
+                  "vi": "đang nấu ăn"
+                }
+              ]
+            },
+            {
+              "stem": "この漢字はむずかしすぎて、書き＿＿＿です。",
+              "choices": [
+                "にくい",
+                "やすい",
+                "すぎる",
+                "たい"
+              ],
+              "answer": 0,
+              "pt": "B28 Vにくい",
+              "explain": "「V stem＋にくい」= khó V (B28). Chữ Hán khó quá → viết khó. ❌「やすい」= dễ V, nghĩa ngược lại. ❌「すぎる」= quá V (đã dùng 「むずかしすぎて」ở đầu câu rồi, lặp ý). ❌「たい」= muốn V, không liên quan đến độ khó.",
+              "glosses": [
+                {
+                  "t": "この漢字",
+                  "read": "このかんじ",
+                  "vi": "chữ Hán này"
+                },
+                {
+                  "t": "むずかしすぎて",
+                  "vi": "khó quá nên"
+                },
+                {
+                  "t": "書き",
+                  "read": "かき",
+                  "vi": "stem của 書く"
+                },
+                {
+                  "t": "書きにくい",
+                  "read": "かきにくい",
+                  "vi": "khó viết"
+                }
+              ]
+            },
+            {
+              "stem": "A：「窓が開いていますよ。」B：「あ、本当だ。私が＿＿＿おきました。」",
+              "choices": [
+                "開けて",
+                "開いて",
+                "開けば",
+                "開こうと"
+              ],
+              "answer": 0,
+              "pt": "B30 Vておきます (kết hợp B29 他動詞)",
+              "explain": "「開ける」là 他動詞 (mở — có chủ thể), ghép với 「ておきました」= đã mở sẵn trước (B30). ❌「開いて」dùng 自動詞 「開く」, hàm ý cửa tự mở, mất đi sắc thái cố ý chuẩn bị. ❌「開けば」= nếu mở (điều kiện 〜ば), sai cấu trúc. ❌「開こうと」= thể ý chí + と, không hợp với 「おきました」.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開いていますよ",
+                  "read": "あいていますよ",
+                  "vi": "đang mở đấy (trạng thái)"
+                },
+                {
+                  "t": "開けておきました",
+                  "read": "あけておきました",
+                  "vi": "đã mở sẵn (cố ý để như vậy)"
+                },
+                {
+                  "t": "本当だ",
+                  "read": "ほんとうだ",
+                  "vi": "đúng thật, thật vậy"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "彼は約束の時間に来なかった。たとえ忙しく＿＿＿、連絡するべきだった。",
+              "choices": [
+                "ても",
+                "たら",
+                "のに",
+                "なら"
+              ],
+              "answer": 0,
+              "pt": "B25 たとえ〜ても",
+              "explain": "「たとえ〜ても」= dù cho ~ đi nữa (B25), nhấn mạnh dù tình huống cực đoan vẫn phải làm. Tính từ-i 忙しい → 忙しくても. ❌「たら」= nếu/khi (điều kiện), không diễn đạt nhượng bộ. ❌「のに」= mặc dù/vậy mà (trách móc), cấu trúc khác. ❌「なら」= nếu/nếu trường hợp đó, không phải nhượng bộ.",
+              "glosses": [
+                {
+                  "t": "約束の時間",
+                  "read": "やくそくのじかん",
+                  "vi": "giờ hẹn"
+                },
+                {
+                  "t": "たとえ忙しくても",
+                  "read": "たとえいそがしくても",
+                  "vi": "dù cho có bận đến đâu"
+                },
+                {
+                  "t": "連絡するべきだった",
+                  "read": "れんらくするべきだった",
+                  "vi": "đáng lẽ phải liên lạc"
+                },
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy, hắn"
+                },
+                {
+                  "t": "来なかった",
+                  "read": "こなかった",
+                  "vi": "đã không đến"
+                }
+              ]
+            },
+            {
+              "stem": "A：「顔が赤いですね。」B：「さっきマラソンを走った＿＿＿。」",
+              "choices": [
+                "んです",
+                "はずです",
+                "ようです",
+                "でしょう"
+              ],
+              "answer": 0,
+              "pt": "B26 〜んです",
+              "explain": "「〜んです」(B26) giải thích lý do/tình huống trước đó — mặt đỏ vì vừa chạy marathon. ❌「はずです」= đáng lẽ phải vậy (dự đoán có cơ sở), không phải giải thích. ❌「ようです」= có vẻ như (phỏng đoán qua quan sát), nói của bản thân thì không dùng. ❌「でしょう」= chắc là (phỏng đoán/xác nhận), sai sắc thái.",
+              "glosses": [
+                {
+                  "t": "顔が赤い",
+                  "read": "かおがあかい",
+                  "vi": "mặt đỏ"
+                },
+                {
+                  "t": "さっき",
+                  "vi": "vừa xong, lúc nãy"
+                },
+                {
+                  "t": "マラソン",
+                  "vi": "marathon"
+                },
+                {
+                  "t": "走った",
+                  "read": "はしった",
+                  "vi": "đã chạy"
+                }
+              ]
+            },
+            {
+              "stem": "駅まで歩いて行こう＿＿＿しましたが、雨が降ってきたのでタクシーを呼びました。",
+              "choices": [
+                "と",
+                "に",
+                "が",
+                "で"
+              ],
+              "answer": 0,
+              "pt": "V意向形+としましたが (cố định gắng làm nhưng...)",
+              "explain": "「V意向形＋とする」= cố làm/định làm (hành động chưa hoàn thành). 「行こうとしましたが」= đã định đi nhưng~. Cần 「と」để tạo cấu trúc. ❌「に」dùng cho 〜に行く (mục đích di chuyển), không hợp. ❌「が」ở đây sẽ thành 「行こうがしました」, vô nghĩa. ❌「で」dùng chỉ phương tiện/nguyên nhân, không ghép với 意向形.",
+              "glosses": [
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "歩いて行こうとしましたが",
+                  "read": "あるいていこうとしましたが",
+                  "vi": "đã cố định đi bộ nhưng"
+                },
+                {
+                  "t": "雨が降ってきた",
+                  "read": "あめがふってきた",
+                  "vi": "mưa bắt đầu rơi"
+                },
+                {
+                  "t": "タクシー",
+                  "vi": "taxi"
+                },
+                {
+                  "t": "呼びました",
+                  "read": "よびました",
+                  "vi": "đã gọi"
+                }
+              ]
+            },
+            {
+              "stem": "母が荷物を運ぶのを手伝って＿＿＿。",
+              "choices": [
+                "あげました",
+                "もらいました",
+                "くれました",
+                "おきました"
+              ],
+              "answer": 0,
+              "pt": "B24 Vてあげます",
+              "explain": "「Vてあげます」= tôi/ai đó làm điều gì đó cho người khác (B24). Chủ thể là 「私」làm cho 「母」. ❌「もらいました」= (tôi) nhờ/được ai làm cho tôi, quan hệ ngược chiều. ❌「くれました」= ai đó làm cho tôi/nhóm tôi, chủ thể phải là người khác. ❌「おきました」= làm trước để chuẩn bị (B30), hoàn toàn sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (của tôi)"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ vật"
+                },
+                {
+                  "t": "運ぶ",
+                  "read": "はこぶ",
+                  "vi": "mang, vận chuyển"
+                },
+                {
+                  "t": "手伝ってあげました",
+                  "read": "てつだってあげました",
+                  "vi": "đã giúp (mẹ) — tôi làm cho mẹ"
+                }
+              ]
+            },
+            {
+              "stem": "この映画のチケットはまだ＿＿＿。早く買いに行きましょう。",
+              "choices": [
+                "買っていません",
+                "買いません",
+                "買わなかったです",
+                "買えていません"
+              ],
+              "answer": 0,
+              "pt": "まだVていません",
+              "explain": "「まだVていません」= vẫn chưa ~ (hành động chưa hoàn thành, B31). Vé phim chưa mua. ❌「買いません」= không mua (từ chối/không bao giờ), mâu thuẫn với vế sau 'đi mua'. ❌「買わなかったです」= đã không mua (quá khứ đơn), không diễn đạt 'vẫn chưa' mang đến hiện tại. ❌「買えていません」= chưa có thể mua được (nhấn mạnh khả năng), quá mạnh và không tự nhiên.",
+              "glosses": [
+                {
+                  "t": "映画のチケット",
+                  "read": "えいがのチケット",
+                  "vi": "vé phim"
+                },
+                {
+                  "t": "まだ買っていません",
+                  "read": "まだかっていません",
+                  "vi": "vẫn chưa mua"
+                },
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "nhanh lên"
+                },
+                {
+                  "t": "買いに行きましょう",
+                  "read": "かいにいきましょう",
+                  "vi": "cùng đi mua nhé"
+                },
+                {
+                  "t": "はまだ",
+                  "read": "はまだ",
+                  "vi": "はまだ〜ていません = vẫn chưa ~"
+                },
+                {
+                  "t": "わなかったです",
+                  "read": "わなかったです",
+                  "vi": "〜なかったです = đã không ~ (quá khứ, không hợp まだ)"
+                },
+                {
+                  "t": "えていません",
+                  "read": "えていません",
+                  "vi": "〜えていません = chưa thể ~ (khả năng, chưa làm được)"
+                }
+              ]
+            },
+            {
+              "stem": "来月、出張で大阪へ行く＿＿＿です。上司にも確認してもらいました。",
+              "choices": [
+                "予定",
+                "つもり",
+                "ところ",
+                "はず"
+              ],
+              "answer": 0,
+              "pt": "Vる予定です + B24 Vてもらいました",
+              "explain": "「Vる予定です」= có lịch/dự kiến theo kế hoạch bên ngoài (B31). Đi công tác + sếp đã xác nhận → đây là lịch trình được tổ chức, dùng 「予定」. ❌「つもり」là ý định cá nhân chủ quan, không phản ánh lịch công tác chính thức. ❌「ところ」= sắp/đang/vừa làm, không phải lịch trình tương lai. ❌「はず」= đáng lẽ/chắc là, diễn đạt dự đoán chứ không phải lịch đã xác nhận.",
+              "glosses": [
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "出張",
+                  "read": "しゅっちょう",
+                  "vi": "công tác"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka"
+                },
+                {
+                  "t": "予定です",
+                  "read": "よていです",
+                  "vi": "dự kiến (theo lịch đã sắp xếp)"
+                },
+                {
+                  "t": "上司",
+                  "read": "じょうし",
+                  "vi": "cấp trên"
+                },
+                {
+                  "t": "確認してもらいました",
+                  "read": "かくにんしてもらいました",
+                  "vi": "đã nhờ xác nhận"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "来年、日本へ留学する",
+                "と思っています。"
+              ],
+              "pieces": [
+                "ために",
+                "今から",
+                "お金を",
+                "ためよう"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "V意向形",
+              "explain": "Câu đúng: 「来年、日本へ留学するために今からお金をためようと思っています。」— Để đi du học Nhật Bản vào năm sau, tôi định tiết kiệm tiền từ bây giờ.\nSắp xếp: ô 1=「ために」, ô 2=「今から」, ô 3=「お金を」, ô 4=「ためよう」★\nPhía trước khung câu kết thúc bằng động từ 「留学する」 nên cần ghép ngay với ô 1 「ために」 thành mệnh đề chỉ mục đích 「留学するために」, còn phía sau khung là 「と思っています」 cần một động từ thể ý chí đứng trước. Mảnh ô 3 「お金を」 dính liền với mảnh ô 4 「ためよう」 thành cụm vị ngữ 「お金をためよう」, và mảnh ô 4 「ためよう」 bắt buộc phải gắn với 「と思っています」 sau khung để tạo nên mẫu ngữ pháp dự định 「〜ようと思っています」. Theo trật tự câu, mệnh đề phụ chỉ mục đích (ô 1) đứng trước, tiếp theo là trạng từ thời gian 「今から」 (ô 2), rồi đến cụm vị ngữ 「お金をためよう」 (ô 3, 4). Do đó, mảnh 「ためよう」 nằm ở ô 4 (ô ★) và không thể đứng ở vị trí khác vì nó bắt buộc phải đứng ngay sau trợ từ 「を」 (ô 3) và nối liền với 「と思っています」 phía sau khung.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "留学する",
+                  "read": "りゅうがくする",
+                  "vi": "đi du học"
+                },
+                {
+                  "t": "思っています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ, dự định là"
+                },
+                {
+                  "t": "ために",
+                  "vi": "để (mục đích)"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "お金",
+                  "read": "おかね",
+                  "vi": "tiền"
+                },
+                {
+                  "t": "ためよう",
+                  "vi": "hãy tích góp (ý chí)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "大学を卒業したら、",
+                "が、まだ両親には話していません。"
+              ],
+              "pieces": [
+                "なる",
+                "高校の",
+                "つもりです",
+                "教師に"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vるつもりです",
+              "explain": "Câu đúng: 「大学を卒業したら、高校の教師になるつもりですが、まだ両親には話していません。」— Sau khi tốt nghiệp đại học, tôi dự định trở thành giáo viên cấp ba, nhưng vẫn chưa nói với bố mẹ.\nSắp xếp: ô 1=「高校の」, ô 2=「教師に」, ô 3=「なる」★, ô 4=「つもりです」\nKhung đầu 「大学を卒業したら、」 nêu mốc thời gian, đòi hỏi thành phần phía sau nêu định hướng nghề nghiệp tương ứng. Mảnh 「高校の」 bổ nghĩa cho danh từ chỉ nghề nghiệp 「教師に」, và cụm này đi cùng động từ 「なる」 để tạo thành 「教師になる」. Mẫu ngữ pháp 「Vるつもりです」 đòi hỏi động từ thể từ điển đứng trước 「つもりです」, do đó mảnh 「なる」 bắt buộc đứng ở ô 3 ngay trước 「つもりです」 mà không thể đổi chỗ. Cuối cùng, vị ngữ 「つもりです」 ở ô 4 kết hợp tự nhiên với liên từ 「が」 ở khung sau tạo thành câu hoàn chỉnh.",
+              "glosses": [
+                {
+                  "t": "教師になる",
+                  "read": "きょうしになる",
+                  "vi": "trở thành giáo viên"
+                },
+                {
+                  "t": "大学",
+                  "read": "だいがく",
+                  "vi": "đại học"
+                },
+                {
+                  "t": "卒業したら",
+                  "read": "そつぎょうしたら",
+                  "vi": "khi tốt nghiệp"
+                },
+                {
+                  "t": "まだ",
+                  "read": "",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "両親",
+                  "read": "りょうしん",
+                  "vi": "bố mẹ"
+                },
+                {
+                  "t": "話していません",
+                  "read": "はなしていません",
+                  "vi": "chưa nói"
+                },
+                {
+                  "t": "高校",
+                  "read": "こうこう",
+                  "vi": "trường cấp ba"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "có ý định"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "田中さんの結婚式は",
+                "。"
+              ],
+              "pieces": [
+                "来月の",
+                "予定です",
+                "10日",
+                "に行われる"
+              ],
+              "order": [
+                0,
+                2,
+                3,
+                1
+              ],
+              "starSlot": 1,
+              "pt": "Vる予定です",
+              "explain": "Câu đúng: 「田中さんの結婚式は来月の10日に行われる予定です。」— Lễ kết hôn của anh Tanaka dự kiến sẽ được tổ chức vào ngày 10 tháng sau.\nSắp xếp: ô 1=「来月の」, ô 2=「10日」★, ô 3=「に行われる」, ô 4=「予定です」\nSau chủ ngữ 「田中さんの結婚式は」, khung câu cần mốc thời gian và vị ngữ thể hiện dự định ở cuối câu. Danh từ 「来月の」 bắt buộc phải dính liền trước danh từ thời gian 「10日」 để tạo cụm 「来月の10日」, còn động từ thể từ điển 「行われる」 phải đứng ngay trước 「予定です」 để tạo mẫu câu 「Vる予定です」. Cụm thời gian 「来月の10日」 nối với trợ từ và vị ngữ 「に行われる」 để đứng trước cấu trúc dự định. Đọc lại cả câu, mảnh 「10日」 rơi vào ô 2 (vị trí ★); mảnh này không thể đứng ở ô khác vì phải nhận sự bổ nghĩa từ 「来月の」 ở ô 1 và kết nối trực tiếp với trợ từ 「に」 của mảnh 「に行われる」 ở ô 3.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "結婚式",
+                  "read": "けっこんしき",
+                  "vi": "lễ cưới"
+                },
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "dự định"
+                },
+                {
+                  "t": "10日",
+                  "read": "とおか",
+                  "vi": "ngày 10"
+                },
+                {
+                  "t": "行われる",
+                  "read": "おこなわれる",
+                  "vi": "được tổ chức"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "旅行の荷物は",
+                "。"
+              ],
+              "pieces": [
+                "まだ",
+                "全部",
+                "まとめて",
+                "いません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "まだVていません",
+              "explain": "Câu đúng: 「旅行の荷物はまだ全部まとめていません。」— Hành lý du lịch thì tôi vẫn chưa thu dọn xong hết.\nSắp xếp: ô 1=「まだ」, ô 2=「全部」, ô 3=「まとめて」★, ô 4=「いません」\nSau chủ ngữ 「旅行の荷物は」, khung câu cần các trạng từ bổ nghĩa và động từ phủ định thể hiện trạng thái ở cuối câu. Mảnh động từ thể て 「まとめて」 bắt buộc phải đi liền trước trợ động từ 「いません」 để tạo dạng 「まとめていません」, còn phó từ 「まだ」 đứng trước 「全部」 để bổ nghĩa cho câu. Trật tự câu xếp hai phó từ 「まだ全部」 đứng trước cụm vị ngữ 「まとめていません」. Đọc lại cả câu, mảnh 「まとめて」 rơi vào ô 3 (vị trí ★); mảnh này không thể đặt ở vị trí khác vì bắt buộc phải đứng ngay sau phó từ 「全部」 và ghép trực tiếp với 「いません」 ở ô 4 để hoàn chỉnh thể động từ 「Vていません」.",
+              "glosses": [
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "du lịch, chuyến đi"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "まとめて",
+                  "vi": "thu dọn, gom lại (て形)"
+                },
+                {
+                  "t": "いません",
+                  "vi": "chưa (phủ định tiến hành)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "週末に友達と",
+                "と思っています。"
+              ],
+              "pieces": [
+                "映画を",
+                "見よう",
+                "一緒に",
+                "食べながら"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 1,
+              "pt": "V意向形 / V1stemながらV2",
+              "explain": "Câu đúng: 「週末に友達と一緒に食べながら映画を見ようと思っています。」— Cuối tuần tôi định vừa ăn vừa xem phim cùng với bạn.\nSắp xếp: ô 1=「一緒に」, ô 2=「食べながら」★, ô 3=「映画を」, ô 4=「見よう」\nSau thành phần 「週末に友達と」, khung câu cần trạng từ, hành động đi kèm và vị ngữ ý chí kết hợp 「と思っています」 ở cuối câu. Mảnh trạng từ 「一緒に」 gắn nối trực tiếp sau trợ từ 「と」 tạo thành cụm 「友達と一緒に」, đồng thời động từ thể ý chí 「見よう」 bắt buộc phải đi liền trước 「と思っています」. Hành động phụ 「食べながら」 đứng trước tân ngữ và hành động chính 「映画を見よう」 để biểu thị việc vừa ăn vừa xem phim. Đọc lại toàn bộ câu, mảnh 「食べながら」 nằm ở ô 2 (vị trí ★); mảnh này không thể đứng ở ô khác vì phải đứng ngay sau trạng từ 「一緒に」 ở ô 1 và đứng trước tân ngữ 「映画を」 cùng vị ngữ 「見よう」 ở ô 3 và ô 4.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "思っています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ, dự định"
+                },
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "見よう",
+                  "read": "みよう",
+                  "vi": "hãy xem (ý chí)"
+                },
+                {
+                  "t": "一緒に",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "食べながら",
+                  "read": "たべながら",
+                  "vi": "vừa ăn vừa"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "旅行の前に、ホテルを",
+                "。"
+              ],
+              "pieces": [
+                "早めに",
+                "予約して",
+                "おく",
+                "つもりです"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます / Vるつもりです",
+              "explain": "Câu đúng: 「旅行の前に、ホテルを早めに予約しておくつもりです。」— Trước chuyến đi, tôi định đặt khách sạn sớm sẵn.\nSắp xếp: ô 1=「早めに」, ô 2=「予約して」, ô 3=「おく」★, ô 4=「つもりです」\nSau thành phần 「旅行の前に、ホテルを」, khung câu cần trạng từ bổ nghĩa và cụm động từ diễn tả sự chuẩn bị trước cùng cấu trúc dự định. Mảnh 「予約して」 bắt buộc phải đi liền trước 「おく」 để tạo cấu trúc 「予約しておく」, và động từ thể từ điển 「おく」 phải đứng liền trước 「つもりです」 để hoàn chỉnh mẫu câu dự định 「Vるつもりです」. Trạng từ 「早めに」 đứng trước cụm động từ 「予約しておくつもりです」 để bổ nghĩa cho hành động. Đọc lại cả câu, mảnh 「おく」 rơi vào ô 3 (vị trí ★); mảnh này không thể đứng ở vị trí khác vì nó bắt buộc phải đứng sau động từ thể て 「予約して」 ở ô 2 và đứng trước danh từ 「つもりです」 ở ô 4 để làm động từ nguyên mẫu bổ nghĩa cho 「つもりです」.",
+              "glosses": [
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "chuyến đi"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "ホテル",
+                  "read": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "早めに",
+                  "read": "はやめに",
+                  "vi": "sớm một chút"
+                },
+                {
+                  "t": "予約して",
+                  "read": "よやくして",
+                  "vi": "đặt chỗ (て形)"
+                },
+                {
+                  "t": "おく",
+                  "vi": "làm trước (để dùng sau)"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "có ý định"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "レポートは",
+                "。"
+              ],
+              "pieces": [
+                "まだ",
+                "書き",
+                "終わって",
+                "いません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "まだVていません",
+              "explain": "Câu đúng: 「レポートはまだ書き終わっていません。」— Báo cáo vẫn chưa viết xong.\nSắp xếp: ô 1=「まだ」, ô 2=「書き」, ô 3=「終わって」★, ô 4=「いません」\nSau chủ ngữ 「レポートは」, chỗ trống cần một cụm vị ngữ diễn tả hành động chưa hoàn thành. Mảnh thể ます bỏ ます là 「書き」 bắt buộc dính liền ngay trước mảnh 「終わって」 để tạo thành động từ ghép, và mảnh 「終わって」 phải nối liền trước mảnh 「いません」. Phó từ 「まだ」 đứng ở đầu để bổ nghĩa cho cụm động từ phía sau, tạo thành trật tự logic 「まだ」 -> 「書き」 -> 「終わって」 -> 「いません」. Do đó ô 3 (vị trí ★) là mảnh 「終わって」; mảnh này không thể đứng ô khác vì nó phải nằm đúng ở giữa mảnh 「書き」 và mảnh 「いません」 thì mới tạo thành chuỗi động từ ghép phủ định hợp lý.",
+              "glosses": [
+                {
+                  "t": "レポート",
+                  "vi": "báo cáo, bài luận"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "書き終わって",
+                  "read": "かきおわって",
+                  "vi": "viết xong (て形)"
+                },
+                {
+                  "t": "いません",
+                  "vi": "chưa (phủ định tiến hành)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "来週、大阪へ出張する",
+                "。"
+              ],
+              "pieces": [
+                "予定",
+                "だと",
+                "社長に",
+                "報告しました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "Vる予定です / 〜と報告する",
+              "explain": "Câu đúng: 「来週、大阪へ出張する予定だと社長に報告しました。」— Tuần tới tôi đã báo cáo với giám đốc rằng có kế hoạch đi công tác Osaka.\nSắp xếp: ô 1=「予定」★, ô 2=「だと」, ô 3=「社長に」, ô 4=「報告しました」\nSau động từ thể nguyên mẫu 「来週、大阪へ出張する」, khung câu cần một danh từ nhận sự bổ nghĩa và một nội dung trích dẫn dẫn đến động từ báo cáo cuối câu. Danh từ 「予定」 bắt buộc dính liền ngay sau 「出張する」, nối liền với mảnh 「だと」 ngay sau nó để tạo thành nội dung trích dẫn \"rằng có kế hoạch đi công tác\". Cụm chỉ đối tượng 「社長に」 dính liền trước động me chính 「報告しました」, kết nối toàn bộ câu theo trật tự 「予定」 -> 「だと」 -> 「社長に」 -> 「報告しました」. Vì vậy, ô 1 (vị trí ★) phải là 「予定」; mảnh này không thể đứng ở ô khác vì đây là danh từ duy nhất có thể đứng trực tiếp sau động từ nguyên mẫu 「出張する」 để tiếp nhận mệnh đề bổ nghĩa.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka (thành phố)"
+                },
+                {
+                  "t": "出張する",
+                  "read": "しゅっちょうする",
+                  "vi": "đi công tác"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "kế hoạch, lịch dự kiến"
+                },
+                {
+                  "t": "だと",
+                  "vi": "rằng ~ (dẫn nội dung)"
+                },
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc"
+                },
+                {
+                  "t": "報告しました",
+                  "read": "ほうこくしました",
+                  "vi": "đã báo cáo"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この機械の電源は",
+                "。"
+              ],
+              "pieces": [
+                "まだ",
+                "入って",
+                "い",
+                "ません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vています(結果状態) / まだVていません",
+              "explain": "Câu đúng: 「この機械の電源はまだ入っていません。」— Nguồn điện của máy này vẫn chưa được bật.\nSắp xếp: ô 1=「まだ」, ô 2=「入って」★, ô 3=「い」, ô 4=「ません」\nSau chủ ngữ 「この機械の電源は」, khung câu cần một cụm vị ngữ diễn tả trạng thái nguồn điện chưa được bật. Mảnh động từ thể て là 「入って」 bắt buộc dính liền trước mảnh 「い」, và mảnh 「い」 phải nối trực tiếp với mảnh 「ません」 để hoàn chỉnh đuôi phủ định. Phó từ 「まだ」 đứng trước toàn bộ cụm động từ để nhấn mạnh ý \"vẫn chưa\", tạo nên trật tự ghép chuỗi logic là 「まだ」 -> 「入って」 -> 「い」 -> 「ません」. Vì vậy, ô 2 (vị trí ★) phải là mảnh 「入って」; mảnh này không thể đứng ở vị trí khác vì nó là động từ duy nhất mang thể て để nối liền với mảnh 「い」 và mảnh 「ません」 phía sau.",
+              "glosses": [
+                {
+                  "t": "機械",
+                  "read": "きかい",
+                  "vi": "máy móc"
+                },
+                {
+                  "t": "電源",
+                  "read": "でんげん",
+                  "vi": "nguồn điện"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "入って",
+                  "read": "はいって",
+                  "vi": "đã vào/bật (tự động, て形)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "たとえ雨が降っても、",
+                "。"
+              ],
+              "pieces": [
+                "試合は",
+                "予定どおり",
+                "行う",
+                "つもりです"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vるつもりです / たとえ〜ても",
+              "explain": "Câu đúng: 「たとえ雨が降っても、試合は予定どおり行うつもりです。」— Cho dù trời mưa đi nữa, tôi vẫn có ý định tổ chức trận đấu theo đúng kế hoạch.\nSắp xếp: ô 1=「試合は」, ô 2=「予定どおり」, ô 3=「行う」★, ô 4=「つもりです」\nPhía sau mệnh đề điều kiện 「たとえ雨が降っても、」, khung câu cần mệnh đề chính hoàn chỉnh nêu rõ chủ ngữ và quyết định thực hiện. Mảnh động từ thể nguyên mẫu 「行う」 bắt buộc dính liền ngay trước mảnh danh từ 「つもりです」 để diễn tả ý định, đồng thời phó từ 「予定どおり」 phải dính ngay trước 「行う」 để bổ nghĩa cho hành động này. Chủ ngữ 「試合は」 đứng ở đầu vế chính, tạo nên trật tự nối tiếp tự nhiên: 「試合は」 -> 「予定どおり」 -> 「行う」 -> 「つもりです」. Do đó, ô 3 (vị trí ★) phải là 「行う」; mảnh này không thể đứng ô khác vì nó bắt buộc phải giữ thể nguyên mẫu và đứng liền trước 「つもりです」 để tạo thành cấu trúc diễn tả ý định.",
+              "glosses": [
+                {
+                  "t": "たとえ雨が降っても",
+                  "vi": "dù cho〜đi nữa",
+                  "read": "たとえあめがふっても"
+                },
+                {
+                  "t": "雨が降っても",
+                  "read": "あめがふっても",
+                  "vi": "dù mưa"
+                },
+                {
+                  "t": "試合",
+                  "read": "しあい",
+                  "vi": "trận đấu"
+                },
+                {
+                  "t": "予定どおり",
+                  "read": "よていどおり",
+                  "vi": "đúng theo kế hoạch"
+                },
+                {
+                  "t": "行う",
+                  "read": "おこなう",
+                  "vi": "tiến hành, tổ chức"
+                },
+                {
+                  "t": "つもり",
+                  "read": "",
+                  "vi": "dự định"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "山田さんは毎朝",
+                "います。"
+              ],
+              "pieces": [
+                "ラジオを",
+                "聞きながら",
+                "ジョギングを",
+                "して"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vています(習慣) / V1stemながらV2",
+              "explain": "Câu đúng: 「山田さんは毎朝ラジオを聞きながらジョギングをしています。」— Anh Yamada mỗi sáng vừa nghe đài vừa chạy bộ.\nSắp xếp: ô 1=「ラジオを」, ô 2=「聞きながら」★, ô 3=「ジョギングを」, ô 4=「して」\nPhía sau ô 4 là 「います。」 nên vị trí này bắt buộc phải là động từ thể て 「して」 để hoàn chỉnh vị ngữ chỉ thói quen 「しています」. Mảnh 「ラジオを」 phải dính liền trước 「聞きながら」 để tạo thành cụm bổ nghĩa \"vừa nghe đài\", còn 「ジョギングを」 phải dính liền trước 「して」 để thành cụm \"chạy bộ\". Theo trật tự tiếng Nhật, cụm phụ chỉ hành động diễn ra đồng thời 「ラジオを聞きながら」 phải đứng trước cụm vị ngữ chính 「ジョギングをしています」. Do đó mảnh 「聞きながら」 rơi vào ô 2★ và không thể đứng ở ô 4 vì ô cuối bắt buộc phải là thể て 「して」 để đi với 「います。」.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "〜ています = đang/thường làm ~ (thói quen, tiếp diễn)"
+                },
+                {
+                  "t": "ラジオ",
+                  "vi": "đài radio"
+                },
+                {
+                  "t": "聞きながら",
+                  "read": "ききながら",
+                  "vi": "vừa nghe"
+                },
+                {
+                  "t": "ジョギングをして",
+                  "vi": "chạy bộ (て形)"
+                }
+              ]
+            },
+            {
+              "pt": "Nしか〜ない / V可能形",
+              "explain": "Câu đúng: 「バスでしか来られないので、駅まで迎えに行こうと思っています。」— Vì chỉ có thể đến bằng xe buýt nên tôi dự định sẽ đi ra tận ga để đón.\nSắp xếp: ô 1=「来られない」★, ô 2=「ので、」, ô 3=「駅まで」, ô 4=「迎えに」\nKhung trước cho sẵn 「バスでしか」 chỉ phương tiện duy nhất, bắt buộc phải đi liền với động từ thể khả năng phủ định 「来られない」 ở ô 1 (vị trí ★). Tiếp theo là liên từ chỉ nguyên nhân 「ので、」 ở ô 2 để nối vế câu. Vế sau dùng cụm 「駅まで迎えに」 để kết hợp tự nhiên với vị ngữ 「行こうと思っています。」 ở khung sau nhằm diễn tả mục đích đi đón.",
+              "glosses": [
+                {
+                  "t": "迎えに行こう",
+                  "read": "むかえにいこう",
+                  "vi": "hãy đi đón (ý chí)"
+                },
+                {
+                  "t": "バス",
+                  "read": "",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "思っています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ, dự định"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "来られない",
+                  "read": "こられない",
+                  "vi": "không thể đến (可能形 phủ định)"
+                }
+              ],
+              "frame": [
+                "バスでしか",
+                "行こうと思っています。"
+              ],
+              "pieces": [
+                "駅まで",
+                "来られない",
+                "迎えに",
+                "ので、"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 0
+            },
+            {
+              "frame": [
+                "会議の資料は",
+                "。"
+              ],
+              "pieces": [
+                "もう",
+                "全員分",
+                "コピーして",
+                "あります"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあります",
+              "explain": "Câu đúng: 「会議の資料はもう全員分コピーしてあります。」— Tài liệu họp thì đã được photo đủ cho tất cả mọi người rồi.\nSắp xếp: ô 1=「もう」, ô 2=「全員分」, ô 3=「コピーして」★, ô 4=「あります」\nSau chủ ngữ 「会議の資料は」, câu kết thúc ngay sau các ô trống nên cần một vị ngữ hoàn chỉnh phía sau. Mảnh 「コピーして」 bắt buộc phải dính liền trước 「あります」 để tạo thành cấu trúc 「コピーしてあります」 diễn tả trạng thái kết quả đã chuẩn bị sẵn, còn 「もう」 dính liền trước 「全員分」 để bổ nghĩa về số lượng. Theo trật tự tiếng Nhật, cụm trạng từ và lượng từ 「もう全員分」 đứng trước vị ngữ 「コピーしてあります」. Vì vậy mảnh 「コピーして」 phải ở ô 3★ và không thể chuyển sang ô 4 vì vị trí cuối câu bắt buộc là 「あります」.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "đã"
+                },
+                {
+                  "t": "全員分",
+                  "read": "ぜんいんぶん",
+                  "vi": "đủ phần cho mọi người"
+                },
+                {
+                  "t": "コピーして",
+                  "vi": "đã photo/copy (て形)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có sẵn rồi (kết quả てあります)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "子どもの時、ピアノを弾くのは",
+                "んです。"
+              ],
+              "pieces": [
+                "と思っていましたが",
+                "弾けなかった",
+                "簡単だ",
+                "なかなか"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "V可能形 / Vやすい / 〜んです",
+              "explain": "Câu đúng: 「子どもの時、ピアノを弾くのは簡単だと思っていましたがなかなか弾けなかったんです。」— Hồi còn nhỏ, tôi cứ nghĩ việc chơi đàn piano là đơn giản nhưng mãi mà không thể chơi được.\nSắp xếp: ô 1=「簡単だ」, ô 2=「と思っていましたが」, ô 3=「なかなか」★, ô 4=「弾けなかった」\nChủ ngữ ở khung trước là cụm danh từ hoá 「子どもの時、ピアノを弾くのは」 đòi hỏi vị ngữ chỉ tính chất 「簡単だ」 đứng ở ô 1. Mảnh 「と思っていましたが」 chứa trợ từ trích dẫn 「と」 bắt buộc phải đi liền sau thể thông thường 「簡単だ」 để tạo thành vế suy nghĩ trong quá khứ 「簡単だと思っていましたが」 mang ý tương phản. Ở vế sau, phó từ 「なかなか」 biểu thị sự khó khăn bắt buộc phải đi trước động từ khả năng dạng phủ định 「弾けなかった」 để tạo thành ngữ cố định 「なかなか弾けなかった」 nghĩa là mãi mà không chơi được. Do đó, 「なかなか」 bắt buộc phải đứng ở ô 3 mang ngôi sao trước động từ khả năng và không thể đảo sang vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "子どもの時",
+                  "read": "こどものとき",
+                  "vi": "lúc còn nhỏ, thời thơ ấu"
+                },
+                {
+                  "t": "ピアノ",
+                  "read": "ピアノ",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "んです",
+                  "vi": "đó (giải thích ngạc nhiên)"
+                },
+                {
+                  "t": "思っていました",
+                  "read": "おもっていました",
+                  "vi": "đã nghĩ"
+                },
+                {
+                  "t": "弾けなかった",
+                  "read": "ひけなかった",
+                  "vi": "không thể đàn được (quá khứ)"
+                },
+                {
+                  "t": "簡単だ",
+                  "read": "かんたんだ",
+                  "vi": "đơn giản"
+                },
+                {
+                  "t": "なかなか",
+                  "vi": "mãi không, rất khó"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "パーティーの前に飾りを",
+                "。"
+              ],
+              "pieces": [
+                "早めに",
+                "つけて",
+                "おこうと",
+                "思います"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます / V意向形 / 〜と思います",
+              "explain": "Câu đúng: 「パーティーの前に飾りを早めにつけておこうと思います。」— Tôi định sẽ treo đồ trang trí sớm trước bữa tiệc.\nSắp xếp: ô 1=「早めに」, ô 2=「つけて」, ô 3=「おこうと」★, ô 4=「思います」\nKhung câu có tân ngữ 「飾りを」 ở phía trước và dấu chấm kết thúc ở phía sau, cần một vị ngữ chỉ ý định hoàn chỉnh. Động từ thể て 「つけて」 bắt buộc dính liền với 「おこうと」 để tạo dạng ý định 「つけておこうと」, và đuôi 「と」 này dính liền trước 「思います」 để biểu thị ý định. Theo trật tự tiếng Nhật, trạng từ 「早めに」 đứng trước động từ 「つけて」 để bổ nghĩa cho hành động treo trang trí sớm. Mảnh 「おこうと」 bắt buộc nằm ở ô 3★ và không thể đứng ở ô 4 vì đuôi 「と」 phải đi liền trước động từ 「思います」 ở ô 4.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "飾り",
+                  "read": "かざり",
+                  "vi": "đồ trang trí"
+                },
+                {
+                  "t": "早めに",
+                  "read": "はやめに",
+                  "vi": "sớm một chút"
+                },
+                {
+                  "t": "つけて",
+                  "vi": "gắn/trang trí (て形)"
+                },
+                {
+                  "t": "おこうと",
+                  "vi": "sẽ làm trước (ておく意向形+と)"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "dự định, nghĩ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "来年、日本へ留学しよう",
+                "、今お金をためています。でも、ひつようなお金はまだ",
+                "。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "と思っています",
+                    "ています",
+                    "ましょうか",
+                    "ところです"
+                  ],
+                  "answer": 0,
+                  "explain": "Thể ý chí 「留学しよう」+「と思っています」= 'đang định/dự tính đi du học' (ý định ấp ủ). Các đáp án kia không ghép với thể ý chí 「〜よう」."
+                },
+                {
+                  "choices": [
+                    "たまっていません",
+                    "たまりました",
+                    "たまります",
+                    "たまるでしょう"
+                  ],
+                  "answer": 0,
+                  "explain": "「まだ〜ていません」= vẫn CHƯA (đủ tiền). 「たまりました」(đã đủ - ngược), 「たまります」(thì sai), 「たまるでしょう」(suy đoán) đều không hợp với 「まだ」."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "留学しよう",
+                  "read": "りゅうがくしよう",
+                  "vi": "định đi du học (thể ý chí)"
+                },
+                {
+                  "t": "お金をためています",
+                  "read": "おかねをためています",
+                  "vi": "đang tích tiền"
+                },
+                {
+                  "t": "でも",
+                  "vi": "nhưng"
+                },
+                {
+                  "t": "ひつような",
+                  "vi": "cần thiết"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ về thể ý chí (意向形).",
+          "items": [
+            {
+              "stem": "行きます → 意向形 → ＿",
+              "choices": [
+                "行こう",
+                "行きよう",
+                "行くよう",
+                "行こ"
+              ],
+              "answer": 0,
+              "explain": "Nhóm 1: đổi đuôi い→お kéo dài: 行く → 行こう. 「行きよう」/「行くよう」sai quy tắc; 「行こ」thiếu âm う.",
+              "glosses": [
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi (thể ます)"
+                },
+                {
+                  "t": "行こう",
+                  "read": "いこう",
+                  "vi": "đi nào (thể ý chí)"
+                },
+                {
+                  "t": "意向形",
+                  "read": "いこうけい",
+                  "vi": "thể ý chí (dạng động từ diễn tả ý định)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "夏休みに友達＿旅行する予定です。",
+              "choices": [
+                "と",
+                "が",
+                "を",
+                "へ"
+              ],
+              "answer": 0,
+              "explain": "「N と」= cùng với ai làm gì: 友達と旅行する (đi du lịch CÙNG bạn). 「が/を/へ」không hợp ngữ cảnh 'cùng với'.",
+              "glosses": [
+                {
+                  "t": "夏休み",
+                  "read": "なつやすみ",
+                  "vi": "nghỉ hè"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "旅行する予定です",
+                  "read": "りょこうするよていです",
+                  "vi": "dự kiến đi du lịch"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Năm sau tôi dự định đi Nhật.",
+              "target": "来年日本へ行くつもりです",
+              "model": "来年 日本へ 行くつもりです。",
+              "explain": "「Vる + つもりです」= dự định làm gì. 行く → 行くつもりです; 日本へ (hướng đến) dùng へ.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "行くつもりです",
+                  "read": "いくつもりです",
+                  "vi": "dự định đi (〜つもり)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

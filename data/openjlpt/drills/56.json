@@ -1,0 +1,525 @@
+{
+  "id": "skm3.b56",
+  "bai": 56,
+  "titleVi": "間に・間 — điểm trong khoảng vs suốt khoảng",
+  "know": [
+    {
+      "id": "skm3.b56.aida-ni",
+      "point": "aida-ni",
+      "jp": "〜間[あいだ]に",
+      "vi": "Trong khi (khoảng) — vị ngữ vế sau là sự kiện tức thời",
+      "en": "During the period ~, a single event occurs",
+      "gloss": "[Vている／Nの] 間[あいだ]に ＋ Vたいしゅん（tức thời）・ 例: 子供[こども]が 寝[ね]ている 間[あいだ]に 買[か]い物[もの]に 行[い]ってきた。（Trong lúc con đang ngủ, tranh thủ đi chợ）",
+      "glossEn": "V-ている間[あいだ]に ／ Nの間[あいだ]に → a punctual event within the period"
+    },
+    {
+      "id": "skm3.b56.aida",
+      "point": "aida",
+      "jp": "〜間[あいだ]（ずっと）",
+      "vi": "Suốt cả khoảng thời gian — vị ngữ vế sau kéo dài",
+      "en": "Throughout the entire period — the predicate in the following clause describes a continuing state.",
+      "gloss": "[Vている／Nの] 間[あいだ] ＋ ずっと Vている（kéo dài）・ 例: 会議[かいぎ]の 間[あいだ]、彼[かれ]は 一言[ひとこと]も 話[はな]さなかった。（Suốt buổi họp, anh ấy không nói một lời）",
+      "glossEn": "[Vている／Nの] 間[あいだ] ＋ ずっと Vている（continuing）・ 例: 会議[かいぎ]の 間[あいだ]、彼[かれ]は 一言[ひとこと]も 話[はな]さなかった。（Throughout the meeting, he did not say a word）"
+    },
+    {
+      "id": "skm3.b56.aida-ni-vs-aida",
+      "point": "aida-ni-vs-aida",
+      "jp": "間[あいだ]に vs 間[あいだ]（比較[ひかく]）",
+      "vi": "Phân biệt 間に (điểm trong khoảng) ≠ 間 (suốt khoảng)",
+      "en": "Distinguishing 間に (a point within a period) ≠ 間 (throughout the period)",
+      "gloss": "間[あいだ]に → sự kiện tức thời; 間[あいだ]（no に）→ trạng thái kéo dài ・ 例: 勉強[べんきょう]している 間[あいだ]に 弟[おとうと]が 部屋[へや]に 入[はい]ってきた ✓ ／ 先生[せんせい]が 話[はな]している 間[あいだ]、生徒[せいと]たちは 静[しず]かに 聞[き]いていた ✓（Phân biệt điểm tức thời vs kéo dài suốt khoảng）",
+      "glossEn": "間[あいだ]に → an instantaneous event; 間[あいだ]（without に）→ a continuing state ・ 例: 勉強[べんきょう]している 間[あいだ]に 弟[おとうと]が 部屋[へや]に 入[はい]ってきた ✓ ／ 先生[せんせい]が 話[はな]している 間[あいだ]、生徒[せいと]たちは 静[しず]かに 聞[き]いていた ✓（Distinguishing a point-in-time event from a state continuing throughout the period）"
+    },
+    {
+      "id": "skm3.b56.aida-particle",
+      "point": "aida-particle",
+      "jp": "間[あいだ]の 接続[せつぞく]",
+      "vi": "Cách nối vào 間に・間: Vている間 / Nの間 / い形容詞い間 / な形容詞な間",
+      "en": "How to connect with 間に・間: Vている間 / Nの間 / い形容詞い間 / な形容詞な間",
+      "gloss": "Vている 間[あいだ]（に）／ N の 間[あいだ]（に）／ い形 間[あいだ]（に）／ な形 な 間[あいだ]（に）・ 例: 旅行[りょこう]の 間[あいだ]に たくさん お土産[みやげ]を 買[か]った。（Trong chuyến du lịch, mua được nhiều đồ lưu niệm）",
+      "glossEn": "Vている 間[あいだ]（に）／ N の 間[あいだ]（に）／ い形 間[あいだ]（に）／ な形 な 間[あいだ]（に）・ 例: 旅行[りょこう]の 間[あいだ]に たくさん お土産[みやげ]を 買[か]った。（During the trip, I bought lots of souvenirs）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b56-disc-neru",
+      "item": "skm3.b56.aida-ni-vs-aida",
+      "err": "aida-ni-vs-aida",
+      "vi": "Con đang ngủ, tôi đã tranh thủ đi chợ (sự kiện tức thời — về 1 lần).",
+      "t1": {
+        "stem": "子供[こども]が 寝[ね]ている ＿ 買[か]い物[もの]に 行[い]ってきた。",
+        "choices": [
+          "間[あいだ]に",
+          "間[あいだ]",
+          "間[あいだ]ずっと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "子供[こども]が",
+          "寝[ね]ている",
+          "間[あいだ]に",
+          "買[か]い物[もの]に",
+          "行[い]ってきた。"
+        ],
+        "traps": [
+          "間[あいだ]、",
+          "間[あいだ]ずっと"
+        ]
+      },
+      "t3": {
+        "target": "子供が寝ている間に買い物に行ってきた。",
+        "accept": [
+          "こどもがねているあいだにかいものにいってきた。"
+        ]
+      },
+      "why": "買い物に行ってきた = hành động một lần tức thời xảy ra TRONG khoảng → 間[あいだ]に ✓. Nếu dùng 間[あいだ]（no に）vế sau phải kéo dài suốt (ずっと静かにしていた)."
+    },
+    {
+      "id": "c-b56-disc-zutt",
+      "item": "skm3.b56.aida-ni-vs-aida",
+      "err": "aida-ni-vs-aida",
+      "vi": "Trong suốt kỳ nghỉ hè, tôi đã chơi game mãi (hành động kéo dài).",
+      "t1": {
+        "stem": "夏休[なつやす]みの ＿ ずっとゲームをしていた。",
+        "choices": [
+          "間[あいだ]、",
+          "間[あいだ]に、",
+          "間[あいだ]に ずっと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "夏休[なつやす]みの",
+          "間[あいだ]、",
+          "ずっと",
+          "ゲームをして",
+          "いた。"
+        ],
+        "traps": [
+          "間[あいだ]に、",
+          "間[あいだ]にずっと"
+        ]
+      },
+      "t3": {
+        "target": "夏休みの間、ずっとゲームをしていた。",
+        "accept": [
+          "なつやすみのあいだ、ずっとげーむをしていた。"
+        ]
+      },
+      "why": "ずっとゲームをしていた = trạng thái kéo dài SUỐT khoảng → 間[あいだ]（no に）✓. Dùng 間に là sai vì 間に không đi với ずっと + hành động kéo dài."
+    },
+    {
+      "id": "c-b56-disc-denwa",
+      "item": "skm3.b56.aida-ni",
+      "err": "aida-ni-vs-aida",
+      "vi": "Trong lúc tôi đang tắm thì có điện thoại gọi đến.",
+      "t1": {
+        "stem": "シャワーを 浴[あ]びている ＿ 電話[でんわ]が 来[き]た。",
+        "choices": [
+          "間[あいだ]に",
+          "間[あいだ]",
+          "間[あいだ]ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "シャワーを",
+          "浴[あ]びている",
+          "間[あいだ]に",
+          "電話[でんわ]が",
+          "来[き]た。"
+        ],
+        "traps": [
+          "間[あいだ]、",
+          "間[あいだ]ながら"
+        ]
+      },
+      "t3": {
+        "target": "シャワーを浴びている間に電話が来た。",
+        "accept": [
+          "しゃわーをあびているあいだにでんわがきた。"
+        ]
+      },
+      "why": "電話が来た = sự kiện điểm (tức thời) xảy ra TRONG khoảng → 間[あいだ]に ✓. 間[あいだ]（no に）đòi hỏi vế sau kéo dài suốt, không hợp câu này."
+    },
+    {
+      "id": "c-b56-disc-kaigai",
+      "item": "skm3.b56.aida",
+      "err": "aida-ni-vs-aida",
+      "vi": "Trong suốt thời gian anh ấy ở nước ngoài, tôi đã trông nhà.",
+      "t1": {
+        "stem": "彼[かれ]が 海外[かいがい]にいる ＿ 私[わたし]が 家[いえ]を 見[み]ていた。",
+        "choices": [
+          "間[あいだ]、",
+          "間[あいだ]に、",
+          "うちに、"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]が",
+          "海外[かいがい]にいる",
+          "間[あいだ]、",
+          "私[わたし]が",
+          "家[いえ]を",
+          "見[み]ていた。"
+        ],
+        "traps": [
+          "間[あいだ]に、",
+          "うちに、"
+        ]
+      },
+      "t3": {
+        "target": "彼が海外にいる間、私が家を見ていた。",
+        "accept": [
+          "かれがかいがいにいるあいだ、わたしがいえをみていた。"
+        ]
+      },
+      "why": "家を見ていた = trạng thái kéo dài suốt → 間[あいだ]（no に）✓. Phân biệt với うちに: うちに nhấn mạnh \"tranh thủ trước khi trạng thái đổi\", còn 間 đơn thuần mô tả khoảng thời gian kéo dài."
+    },
+    {
+      "id": "c-b56-noun-aida-ni",
+      "item": "skm3.b56.aida-ni",
+      "err": "aida-particle-wrong",
+      "vi": "Trong kỳ nghỉ ngắn, tôi đã tranh thủ đọc một cuốn sách.",
+      "t1": {
+        "stem": "休憩[きゅうけい]の ＿ 本[ほん]を 1冊[いっさつ] 読[よ]んだ。",
+        "choices": [
+          "間[あいだ]に",
+          "間[あいだ]",
+          "うちに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "休憩[きゅうけい]の",
+          "間[あいだ]に",
+          "本[ほん]を",
+          "1冊[いっさつ]",
+          "読[よ]んだ。"
+        ],
+        "traps": [
+          "間[あいだ]、",
+          "うちに"
+        ]
+      },
+      "t3": {
+        "target": "休憩の間に本を1冊読んだ。",
+        "accept": [
+          "きゅうけいのあいだにほんを1さつよんだ。",
+          "きゅうけいのあいだにほんをいっさつよんだ。"
+        ]
+      },
+      "why": "N＋の間[あいだ]に: danh từ nối vào 間に qua の. Đọc một cuốn sách = hành động hoàn chỉnh trong khoảng → 間に ✓. うちに sẽ đúng nếu nhấn mạnh \"tranh thủ khi còn có cơ hội\"."
+    },
+    {
+      "id": "c-b56-meeting-aida",
+      "item": "skm3.b56.aida",
+      "err": "aida-ni-vs-aida",
+      "vi": "Suốt buổi họp, anh ta không nói một lời nào.",
+      "t1": {
+        "stem": "会議[かいぎ]の ＿ 彼[かれ]は 一言[ひとこと]も 話[はな]さなかった。",
+        "choices": [
+          "間[あいだ]",
+          "間[あいだ]に",
+          "うちに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "会議[かいぎ]の",
+          "間[あいだ]",
+          "彼[かれ]は",
+          "一言[ひとこと]も",
+          "話[はな]さなかった。"
+        ],
+        "traps": [
+          "間[あいだ]に",
+          "うちに"
+        ]
+      },
+      "t3": {
+        "target": "会議の間、彼は一言も話さなかった。",
+        "accept": [
+          "かいぎのあいだ、かれはひとこともはなさなかった。"
+        ]
+      },
+      "why": "一言も話さなかった = trạng thái kéo dài suốt buổi họp → 間[あいだ]（no に）✓. Không thể dùng 間に vì đây không phải sự kiện tức thời xảy ra."
+    },
+    {
+      "id": "c-b56-disc-uchi",
+      "item": "skm3.b56.aida-ni-vs-aida",
+      "err": "aida-uchi-confuse",
+      "vi": "Trời đang còn sáng (dịu mát), hãy đi dạo đi. (Nhấn mạnh: tranh thủ trước khi trạng thái đổi)",
+      "t1": {
+        "stem": "まだ 涼[すず]しい ＿ 散歩[さんぽ]に 行[い]こう。",
+        "choices": [
+          "うちに",
+          "間[あいだ]に",
+          "間[あいだ]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "まだ",
+          "涼[すず]しい",
+          "うちに",
+          "散歩[さんぽ]に",
+          "行[い]こう。"
+        ],
+        "traps": [
+          "間[あいだ]に",
+          "間[あいだ]、"
+        ]
+      },
+      "t3": {
+        "target": "まだ涼しいうちに散歩に行こう。",
+        "accept": [
+          "まだすずしいうちにさんぽにいこう。"
+        ]
+      },
+      "why": "うちに = tranh thủ \"trong khi trạng thái còn giữ nguyên, trước khi đổi\" (涼しいうちに = lúc còn mát). 間に không có sắc thái \"tranh thủ trước khi đổi\" này; 間に chỉ nêu thời điểm trong khoảng trung tính."
+    },
+    {
+      "id": "c-b56-ryokou",
+      "item": "skm3.b56.aida-ni",
+      "err": "aida-particle-wrong",
+      "vi": "Trong chuyến du lịch, tôi đã mua được nhiều đồ lưu niệm.",
+      "t1": {
+        "stem": "旅行[りょこう]の ＿ たくさん お土産[みやげ]を 買[か]った。",
+        "choices": [
+          "間[あいだ]に",
+          "間[あいだ]",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "旅行[りょこう]の",
+          "間[あいだ]に",
+          "たくさん",
+          "お土産[みやげ]を",
+          "買[か]った。"
+        ],
+        "traps": [
+          "間[あいだ]、",
+          "ながら"
+        ]
+      },
+      "t3": {
+        "target": "旅行の間にたくさんお土産を買った。",
+        "accept": [
+          "りょこうのあいだにたくさんおみやげをかった。"
+        ]
+      },
+      "why": "買った = hành động đã xảy ra trong khoảng du lịch → 間に ✓. たくさん nhấn mạnh số lượng, không đổi cấu trúc. ながら không hợp ở đây vì ながら yêu cầu hai hành động đồng thời cùng chủ thể."
+    },
+    {
+      "id": "c-b56-disc-benkyo",
+      "item": "skm3.b56.aida-ni-vs-aida",
+      "err": "aida-ni-vs-aida",
+      "vi": "Trong lúc tôi đang học thì em trai vào phòng.",
+      "t1": {
+        "stem": "勉強[べんきょう]している ＿ 弟[おとうと]が 部屋[へや]に 入[はい]ってきた。",
+        "choices": [
+          "間[あいだ]に",
+          "間[あいだ]、",
+          "間[あいだ]ずっと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "勉強[べんきょう]している",
+          "間[あいだ]に",
+          "弟[おとうと]が",
+          "部屋[へや]に",
+          "入[はい]ってきた。"
+        ],
+        "traps": [
+          "間[あいだ]、",
+          "間[あいだ]ずっと"
+        ]
+      },
+      "t3": {
+        "target": "勉強している間に弟が部屋に入ってきた。",
+        "accept": [
+          "べんきょうしているあいだにおとうとがへやにはいってきた。"
+        ]
+      },
+      "why": "入ってきた = chuyển động một lần, tức thời → 間[あいだ]に ✓. Nếu muốn nói \"suốt lúc học, em trai ở trong phòng\" (kéo dài) thì dùng 間（ずっと）."
+    },
+    {
+      "id": "c-b56-sensei-aida",
+      "item": "skm3.b56.aida",
+      "err": "aida-ni-vs-aida",
+      "vi": "Suốt thời gian thầy giáo giảng bài, học sinh chăm chú nghe.",
+      "t1": {
+        "stem": "先生[せんせい]が 話[はな]している ＿ 生徒[せいと]たちは 静[しず]かに 聞[き]いていた。",
+        "choices": [
+          "間[あいだ]、",
+          "間[あいだ]に、",
+          "うちに、"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]が",
+          "話[はな]している",
+          "間[あいだ]、",
+          "生徒[せいと]たちは",
+          "静[しず]かに",
+          "聞[き]いていた。"
+        ],
+        "traps": [
+          "間[あいだ]に、",
+          "うちに、"
+        ]
+      },
+      "t3": {
+        "target": "先生が話している間、生徒たちは静かに聞いていた。",
+        "accept": [
+          "せんせいがはなしているあいだ、せいとたちはしずかにきいていた。"
+        ]
+      },
+      "why": "静かに聞いていた = trạng thái liên tục suốt khoảng → 間[あいだ]（no に）✓. Lưu ý: 間 hay gặp khi hai chủ thể khác nhau và hành động vế sau duy trì song song."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b56-okiru",
+      "item": "skm3.b56.aida-ni",
+      "err": "aida-ni-vs-aida",
+      "tts": "はははおふろにはいっているあいだに、わたしはりょうりをつくった。",
+      "script": "母[はは]はお風呂[ふろ]に 入[はい]っている 間[あいだ]に、私[わたし]は 料理[りょうり]を 作[つく]った。",
+      "ask": "Người nói đã làm gì VÀO LÚC nào?",
+      "choices": [
+        "Nấu ăn trong lúc mẹ đang tắm",
+        "Tắm rồi mới nấu ăn sau",
+        "Mẹ và người nói cùng nấu ăn"
+      ],
+      "answer": 0,
+      "why": "間に = sự kiện \"nấu ăn\" xảy ra trong khoảng thời gian mẹ tắm. Đây là hành động tức thời (một lần) trong khoảng, không phải kéo dài suốt."
+    },
+    {
+      "id": "l-b56-kaigi",
+      "item": "skm3.b56.aida",
+      "err": "aida-ni-vs-aida",
+      "tts": "かいぎのあいだ、かれはずっとすまーとふぉんをみていた。",
+      "script": "会議[かいぎ]の 間[あいだ]、彼[かれ]はずっとスマートフォンを 見[み]ていた。",
+      "ask": "Câu này dùng 間 hay 間に, và vì sao?",
+      "choices": [
+        "間（no に）— vì hành động \"xem smartphone\" kéo dài suốt buổi họp",
+        "間に — vì xem smartphone là hành động tức thời",
+        "間に — vì có danh từ 会議 trước"
+      ],
+      "answer": 0,
+      "why": "ずっと…見ていた = trạng thái kéo dài suốt khoảng → 間（no に）✓. 間に không hợp khi vế sau là hành động liên tục, đặc biệt khi có ずっと."
+    },
+    {
+      "id": "l-b56-ryokou",
+      "item": "skm3.b56.aida-ni-vs-aida",
+      "err": "aida-ni-vs-aida",
+      "tts": "にほんにいるあいだに、ふじさんにのぼりたい。",
+      "script": "日本[にほん]にいる 間[あいだ]に、富士山[ふじさん]に 登[のぼ]りたい。",
+      "ask": "Người nói muốn làm gì và họ cảm thấy thế nào về thời điểm?",
+      "choices": [
+        "Muốn leo Phú Sĩ trong khi còn ở Nhật (sự kiện một lần trong khoảng)",
+        "Muốn ở Nhật suốt thời gian leo Phú Sĩ",
+        "Đã leo Phú Sĩ rồi và đang ở Nhật"
+      ],
+      "answer": 0,
+      "why": "日本にいる間に: 間に = muốn thực hiện hành động (登る = tức thời / một lần) TRONG khoảng đang ở Nhật. Sắc thái \"tranh thủ làm điều gì đó trước khi rời đi\"."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b56-nagara-stem",
+      "item": "minna2.b30.nagara",
+      "err": "nagara-stem-wrong",
+      "ambush": true,
+      "src": 30,
+      "context": "Bài 56 ・ 〜間（あいだ）— câu có ながら",
+      "vi": "Vừa nghe nhạc vừa học bài, đó là thói quen của tôi trong kỳ thi.",
+      "t1": {
+        "stem": "試験[しけん]の 間[あいだ]、音楽[おんがく]を ＿ながら 勉強[べんきょう]するのが 習慣[しゅうかん]だ。",
+        "choices": [
+          "聞[き]き",
+          "聞[き]いて",
+          "聞[き]く"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "音楽[おんがく]を",
+          "聞[き]き",
+          "ながら",
+          "勉強[べんきょう]するのが",
+          "習慣[しゅうかん]だ。"
+        ],
+        "traps": [
+          "聞[き]いてながら",
+          "聞[き]くながら"
+        ]
+      },
+      "t3": {
+        "target": "試験の間、音楽を聞きながら勉強するのが習慣だ。",
+        "accept": [
+          "しけんのあいだ、おんがくをききながらべんきょうするのがしゅうかんだ。"
+        ]
+      },
+      "why": "ながら nối vào ます-stem: 聞[き]く → ます-stem 聞[き]き → 聞[き]きながら ✓. ✗ 聞[き]いてながら: te-form + ながら là sai ngữ pháp hoàn toàn. 試験の間 dùng 間（no に）vì習慣 là hành động lặp/kéo dài suốt."
+    },
+    {
+      "id": "a-b56-toki-tense",
+      "item": "minna1.b23.toki-tense",
+      "err": "toki-tense-wrong",
+      "ambush": true,
+      "src": 23,
+      "context": "Bài 56 ・ 〜間に — câu có とき",
+      "vi": "Mỗi khi tôi đi du lịch, trong khoảng đó tôi hay tìm đồ ăn địa phương. (Vẫn đang đi — chưa quay về)",
+      "t1": {
+        "stem": "旅行[りょこう]する ＿ その 間[あいだ]に ご当地[とうち]グルメを 探[さが]すようにしている。",
+        "choices": [
+          "とき",
+          "したとき",
+          "しているとき"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "旅行[りょこう]する",
+          "とき",
+          "その",
+          "間[あいだ]に",
+          "ご当地[とうち]グルメを",
+          "探[さが]す",
+          "ようにしている。"
+        ],
+        "traps": [
+          "したとき",
+          "しているとき"
+        ]
+      },
+      "t3": {
+        "target": "旅行するときその間にご当地グルメを探すようにしている。",
+        "accept": [
+          "りょこうするときそのあいだにごとうちぐるめをさがすようにしている。"
+        ]
+      },
+      "why": "Vるとき = TRONG KHI (thời điểm hành động chưa hoàn thành; chủ thể vẫn đang trong trạng thái đi du lịch). ✗ したとき = SAU KHI đã đi rồi (thì quá khứ → đã xong). Đây là bẫy thì của động từ trước とき (lỗi B23)."
+    }
+  ]
+}

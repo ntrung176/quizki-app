@@ -1,0 +1,376 @@
+{
+  "bai": 1,
+  "bunpou": [
+    {
+      "stem": "私[わたし]＿ ミラーです。",
+      "choices": [
+        "は",
+        "が",
+        "を",
+        "も"
+      ],
+      "answer": 0,
+      "explain": "「は」là trợ từ chủ đề, dùng để giới thiệu bản thân: 私は〜です. 「が」nhấn mạnh chủ ngữ (không dùng khi tự giới thiệu); 「を」theo sau tân ngữ; 「も」có nghĩa \"cũng\" — không hợp khi giới thiệu lần đầu."
+    },
+    {
+      "stem": "ミラーさんは 会社員[かいしゃいん]＿。",
+      "choices": [
+        "ですか",
+        "ですよ",
+        "じゃありません",
+        "です"
+      ],
+      "answer": 3,
+      "explain": "Câu khẳng định đơn giản kết thúc bằng「です」. 「ですか」là câu hỏi; 「じゃありません」là phủ định; 「ですよ」thêm sắc thái nhấn mạnh và không tự nhiên trong câu trần thuật bình thường."
+    },
+    {
+      "stem": "田中[たなか]さんは 先生[せんせい]＿ ありません。",
+      "choices": [
+        "じゃ",
+        "では",
+        "もじゃ",
+        "ですじゃ"
+      ],
+      "answer": 0,
+      "explain": "Phủ định thân mật dùng「じゃありません」(じゃ = では rút gọn). 「では」cũng đúng về nghĩa nhưng không có trong đáp án; 「もじゃ」và「ですじゃ」không phải hình thức chuẩn."
+    },
+    {
+      "stem": "リンさんは ベトナム人[じん]です。私[わたし]＿ ベトナム人[じん]です。",
+      "choices": [
+        "も",
+        "は",
+        "はも",
+        "をも"
+      ],
+      "answer": 0,
+      "explain": "「も」thay thế「は」khi muốn nói \"cũng\": A は〜、B も〜. Dùng「は」sẽ mất nghĩa \"cũng\"; 「はも」và「をも」không phải hình thức chuẩn."
+    },
+    {
+      "stem": "これは 田中[たなか]さん＿ 名刺[めいし]です。",
+      "choices": [
+        "の",
+        "は",
+        "が",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「の」nối danh từ sở hữu: 田中さんの名刺 = danh thiếp của anh Tanaka. 「は」chỉ chủ đề; 「が」chỉ chủ ngữ; 「を」theo sau tân ngữ — cả ba đều sai về chức năng ở đây."
+    },
+    {
+      "stem": "ミラーさんは 学生[がくせい]＿ ですか。",
+      "choices": [
+        "じゃありません",
+        "ですじゃありません",
+        "ではありませんで",
+        "じゃありませんです"
+      ],
+      "answer": 0,
+      "explain": "Câu hỏi xác nhận phủ định dùng「じゃありませんか」(dạng ngắn). Các lựa chọn còn lại ghép từ không đúng thứ tự hoặc thêm「です」thừa sau「ありません」."
+    },
+    {
+      "stem": "あなたは 日本人[にほんじん]＿。",
+      "choices": [
+        "ですか",
+        "かです",
+        "です",
+        "ますか"
+      ],
+      "answer": 0,
+      "explain": "Câu hỏi Yes/No kết thúc bằng「ですか」(です + か). 「かです」sai thứ tự; 「です」là câu khẳng định; 「ますか」dùng cho động từ, không dùng sau danh từ."
+    },
+    {
+      "stem": "田中[たなか]さん＿ 会社員[かいしゃいん]ですか。",
+      "choices": [
+        "も",
+        "はも",
+        "をも",
+        "とも"
+      ],
+      "answer": 0,
+      "explain": "「も」đứng sau chủ đề để hỏi \"Anh Tanaka cũng là nhân viên công ty à?\", hàm ý người khác cũng đã được đề cập. 「はも/をも/とも」đều không phải hình thức trợ từ chuẩn của tiếng Nhật."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "は",
+      "の",
+      "も",
+      "か",
+      "が",
+      "を",
+      "と"
+    ],
+    "items": [
+      {
+        "stem": "私[わたし]＿ リンです。",
+        "answer": "は",
+        "explain": "「は」là trợ từ chủ đề, dùng để giới thiệu bản thân. 「が」nhấn mạnh chủ ngữ và không tự nhiên trong câu tự giới thiệu thông thường."
+      },
+      {
+        "stem": "ミラーさんは アメリカ人[じん]＿。",
+        "answer": "か",
+        "explain": "「か」cuối câu biến câu trần thuật thành câu hỏi Yes/No. Thiếu「か」thì câu thành khẳng định, không còn nghĩa hỏi."
+      },
+      {
+        "stem": "これは 私[わたし]＿ かばんです。",
+        "answer": "の",
+        "explain": "「の」nối danh từ chỉ sở hữu: 私のかばん = cặp của tôi. Nhầm sang「が」sẽ tạo ra cấu trúc sai về ngữ nghĩa."
+      },
+      {
+        "stem": "リンさんは 学生[がくせい]です。私[わたし]＿ 学生[がくせい]です。",
+        "answer": "も",
+        "explain": "「も」thay thế「は」khi muốn bổ sung nghĩa \"cũng\". Nếu dùng「は」lại thì chỉ là câu khẳng định bình thường, mất đi sắc thái đồng dạng với Linh."
+      },
+      {
+        "stem": "あの 人[ひと]＿ 先生[せんせい]です。",
+        "answer": "は",
+        "explain": "「は」đánh dấu chủ đề câu (người kia). 「が」dùng khi nhấn mạnh hay trong câu quan hệ, không hợp với cấu trúc N は N です bình thường."
+      },
+      {
+        "stem": "田中[たなか]さんは 先生[せんせい]＿ ありません。",
+        "answer": "は",
+        "explain": "Cấu trúc phủ định đầy đủ là「ではありません」(では = trợ từ は mang nghĩa đối lập + で từ copula). Đây là thể trang trọng của「じゃありません」."
+      },
+      {
+        "stem": "ミラーさん＿ 本[ほん]は どこですか。",
+        "answer": "の",
+        "explain": "「の」nối sở hữu: ミラーさんの本 = quyển sách của anh Miller. Nếu dùng「は」thì tách chủ đề, câu mất cấu trúc sở hữu."
+      },
+      {
+        "stem": "田中[たなか]さん＿ 学生[がくせい]ですか。",
+        "answer": "も",
+        "explain": "「も」hỏi xác nhận \"Anh Tanaka cũng là sinh viên (như người vừa đề cập) à?\". Nếu dùng「は」thì chỉ hỏi bình thường không có hàm ý \"cũng\"."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "会社員[かいしゃいん]です",
+      "prompt": "Thể phủ định (thân mật)?",
+      "choices": [
+        "会社員[かいしゃいん]じゃありません",
+        "会社員[かいしゃいん]ではありますません",
+        "会社員[かいしゃいん]ですじゃありません",
+        "会社員[かいしゃいん]じゃありませんです"
+      ],
+      "answer": 0,
+      "explain": "Phủ định thân mật: bỏ「です」, thêm「じゃありません」. Các lựa chọn còn lại hoặc sai thứ tự (ですじゃ…) hoặc thêm「です」thừa sau ありません."
+    },
+    {
+      "base": "学生[がくせい]です",
+      "prompt": "Thể phủ định (trang trọng)?",
+      "choices": [
+        "学生[がくせい]ではありません",
+        "学生[がくせい]じゃありません",
+        "学生[がくせい]ですではありません",
+        "学生[がくせい]ではあります"
+      ],
+      "answer": 0,
+      "explain": "Phủ định trang trọng là「ではありません」(では = thể trang trọng của じゃ). 「じゃありません」là thân mật; 「ではあります」là khẳng định có nhấn mạnh, không phủ định."
+    },
+    {
+      "base": "先生[せんせい]です",
+      "prompt": "Câu hỏi Yes/No?",
+      "choices": [
+        "先生[せんせい]ですか",
+        "先生[せんせい]か",
+        "先生[せんせい]かです",
+        "か先生[せんせい]ですか"
+      ],
+      "answer": 0,
+      "explain": "Câu hỏi Yes/No = thêm「か」vào cuối「です」→「ですか」. 「か」đứng sau danh từ trần (先生か) nghe thô; đảo vị trí (かです, か先生) đều sai ngữ pháp."
+    },
+    {
+      "base": "私[わたし]は 日本人[にほんじん]です。(Muốn nói bạn «cũng» là người Nhật)",
+      "prompt": "Dùng も thay thế は như thế nào?",
+      "choices": [
+        "私[わたし]も 日本人[にほんじん]です。",
+        "私[わたし]はも 日本人[にほんじん]です。",
+        "私[わたし]と 日本人[にほんじん]です。",
+        "私[わたし]は 日本人[にほんじん]もです。"
+      ],
+      "answer": 0,
+      "explain": "「も」thay thế hoàn toàn「は」→「私も」. Không thể dùng「はも」(hai trợ từ liền nhau) hay đặt「も」cuối câu (日本人もです) vì vị trí sai."
+    },
+    {
+      "base": "ミラーさんです",
+      "prompt": "Thể phủ định + câu hỏi (hỏi xác nhận nghi ngờ)?",
+      "choices": [
+        "ミラーさんじゃありませんか",
+        "ミラーさんですか",
+        "ミラーさんかです",
+        "ミラーさんじゃないですか"
+      ],
+      "answer": 0,
+      "explain": "Hỏi xác nhận dạng nghi ngờ: N じゃありませんか？(\"Có phải là … không?\"). 「ですか」chỉ hỏi thông thường; 「じゃないですか」là dạng thông tục (plain form), không phải mẫu Minna N5 chuẩn."
+    },
+    {
+      "base": "田中[たなか]さんの 本[ほん]です",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "田中[たなか]さんの 本[ほん]じゃありません",
+        "田中[たなか]さん 本[ほん]じゃありません",
+        "田中[たなか]さんの 本[ほん]ではあります",
+        "田中[たなか]さんの 本[ほん]ですじゃありません"
+      ],
+      "answer": 0,
+      "explain": "Phủ định: bỏ「です」, thêm「じゃありません」; giữ nguyên cụm sở hữu「の」. Bỏ「の」(lựa chọn 2) làm mất quan hệ sở hữu; 「ではあります」là khẳng định; 「ですじゃ」sai thứ tự."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "私[わたし]は",
+        "ミラー",
+        "です。"
+      ],
+      "vi": "Tôi là Miller.",
+      "explain": "Trật tự chuẩn: 主題[chủ đề]は + 述語[vị ngữ danh từ] + です。Câu tự giới thiệu cơ bản Bài 1."
+    },
+    {
+      "chips": [
+        "田中[たなか]さんは",
+        "先生[せんせい]",
+        "じゃありません。"
+      ],
+      "vi": "Anh Tanaka không phải là giáo viên.",
+      "explain": "Phủ định N は N じゃありません: chủ đề は + danh từ vị ngữ + じゃありません. Trợ từ は không thể đứng sau じゃ hay cuối câu."
+    },
+    {
+      "chips": [
+        "リンさんも",
+        "ベトナム人[じん]",
+        "ですか。"
+      ],
+      "vi": "Chị Linh cũng là người Việt Nam à?",
+      "explain": "Cấu trúc「も + N ですか」hỏi xác nhận mang nghĩa \"cũng\". も thay thế は, đứng ngay sau danh từ chủ đề."
+    },
+    {
+      "chips": [
+        "これは",
+        "田中[たなか]さんの",
+        "名刺[めいし]",
+        "です。"
+      ],
+      "vi": "Đây là danh thiếp của anh Tanaka.",
+      "explain": "これは (chủ đề) + [sở hữu の] + danh từ + です: trật tự bắt buộc. Cụm「田中さんの名刺」là một nhóm danh từ sở hữu đứng liền nhau."
+    },
+    {
+      "chips": [
+        "あなたは",
+        "会社員[かいしゃいん]",
+        "ですか。"
+      ],
+      "vi": "Bạn có phải là nhân viên công ty không?",
+      "explain": "Câu hỏi Yes/No: chủ đề は + vị ngữ danh từ + ですか. Thiếu「か」thì thành câu khẳng định; đảo vị trí sẽ sai hoàn toàn."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "ミラーさんは がくせいじゃありません。かいしゃいんです。",
+      "ask": "Anh Miller làm nghề gì?",
+      "choices": [
+        "Nhân viên công ty",
+        "Sinh viên",
+        "Giáo viên"
+      ],
+      "answer": 0,
+      "script": "ミラーさんは 学生[がくせい]じゃありません。会社員[かいしゃいん]です。",
+      "explain": "Câu đầu phủ định 学生, câu sau khẳng định 会社員 bằng cấu trúc N じゃありません / N です. Đáp án là 会社員[かいしゃいん]."
+    },
+    {
+      "tts": "わたしは ベトナムじんです。リンさんも ベトナムじんです。",
+      "ask": "Chị Linh là người nước nào?",
+      "choices": [
+        "Việt Nam",
+        "Nhật Bản",
+        "Mỹ"
+      ],
+      "answer": 0,
+      "script": "私[わたし]は ベトナム人[じん]です。リンさんも ベトナム人[じん]です。",
+      "explain": "「も」(cũng) sau リンさん cho thấy Linh cũng là người Việt Nam như người nói. Không có chi tiết nào về Nhật hay Mỹ."
+    },
+    {
+      "tts": "たなかさんは せんせいですか。いいえ、かいしゃいんです。",
+      "ask": "Anh Tanaka là nghề gì?",
+      "choices": [
+        "Nhân viên công ty",
+        "Giáo viên",
+        "Sinh viên"
+      ],
+      "answer": 0,
+      "script": "田中[たなか]さんは 先生[せんせい]ですか。いいえ、会社員[かいしゃいん]です。",
+      "explain": "Câu trả lời「いいえ」phủ định 先生, rồi khẳng định 会社員. Đây là mẫu hỏi-đáp Yes/No cơ bản Bài 1."
+    },
+    {
+      "tts": "これは たなかさんの めいしです。",
+      "ask": "Điền từ bạn nghe được: これは 田中さんの ___ です。",
+      "choices": [
+        "名刺[めいし]",
+        "本[ほん]",
+        "かばん"
+      ],
+      "answer": 0,
+      "script": "これは 田中[たなか]さんの 名刺[めいし]です。",
+      "explain": "Từ「めいし」= 名刺[めいし] (danh thiếp), nghe trực tiếp trong câu. 「ほん」(sách) và「かばん」(cặp) không xuất hiện trong đoạn nghe."
+    },
+    {
+      "tts": "わたしは にほんじんじゃありません。アメリカじんです。",
+      "ask": "Người nói là người nước nào?",
+      "choices": [
+        "Mỹ",
+        "Nhật Bản",
+        "Việt Nam"
+      ],
+      "answer": 0,
+      "script": "私[わたし]は 日本人[にほんじん]じゃありません。アメリカ人[じん]です。",
+      "explain": "Câu đầu phủ định 日本人, câu sau khẳng định アメリカ人. Dễ nhầm chọn Nhật Bản vì đó là từ xuất hiện đầu tiên, nhưng đã bị phủ định."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi là Linh.",
+      "target": "私はリンです。",
+      "accept": [
+        "わたしはりんです。",
+        "わたしはリンです。"
+      ],
+      "explain": "Mẫu tự giới thiệu cơ bản: 私[わたし]は + tên + です。Trợ từ「は」bắt buộc đánh dấu chủ đề."
+    },
+    {
+      "vi": "Anh Tanaka không phải là sinh viên.",
+      "target": "田中さんは学生じゃありません。",
+      "accept": [
+        "たなかさんはがくせいじゃありません。",
+        "田中さんは学生ではありません。",
+        "たなかさんはがくせいではありません。"
+      ],
+      "explain": "Phủ định: N は N じゃありません (thân mật) hoặc ではありません (trang trọng). Cả hai đều được chấp nhận."
+    },
+    {
+      "vi": "Anh Miller có phải là người Mỹ không?",
+      "target": "ミラーさんはアメリカ人ですか。",
+      "accept": [
+        "みらーさんはあめりかじんですか。",
+        "ミラーさんはあめりかじんですか。"
+      ],
+      "explain": "Câu hỏi Yes/No: N は N ですか。「か」cuối câu không có dấu chấm hỏi (?) trong văn viết tiếng Nhật chuẩn — dùng「。」."
+    },
+    {
+      "vi": "Đây là danh thiếp của tôi.",
+      "target": "これは私の名刺です。",
+      "accept": [
+        "これはわたしのめいしです。"
+      ],
+      "explain": "Cấu trúc sở hữu: これは + [người の] + vật + です. 「の」liên kết sở hữu, không thể bỏ hay thay bằng「が」."
+    },
+    {
+      "vi": "Anh Tanaka cũng là nhân viên công ty.",
+      "target": "田中さんも会社員です。",
+      "accept": [
+        "たなかさんもかいしゃいんです。"
+      ],
+      "explain": "「も」thay thế「は」để diễn đạt \"cũng\": N も N です. Không viết「田中さんは…も」vì「も」phải đứng ngay sau chủ đề."
+    }
+  ]
+}

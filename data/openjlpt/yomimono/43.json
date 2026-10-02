@@ -1,0 +1,2464 @@
+{
+  "bai": 43,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 43 luyện khả năng NHẬN XÉT qua quan sát trực tiếp bằng 〜そうです (様態): \"trông có vẻ…\", \"nhìn thấy rõ ràng …\". Lưu ý kỹ: 様態そう gắn vào ますstem của động từ (降りそう) hoặc gốc tính từ い/な (おいしそう、元気そう), KHÔNG gắn vào thể thông thường 普通形 — đó là 伝聞そう chưa học. Song song đó, Vて来ます・Vて行きます diễn đạt \"đi/đến kèm theo một hành động\" (ghé mua rồi đến, đi ăn rồi về).",
+    "steps": [
+      "Đọc lướt để xác định khung cảnh: ai đang quan sát điều gì, và phản ứng/hành động tiếp theo là gì.",
+      "Tìm 〜そうです: nhìn ますstem hoặc gốc tính từ đứng TRƯỚC そう để xác nhận đây là 様態 (quan sát), không phải 伝聞.",
+      "Phân biệt phủ định: 降りそうにありません (không có vẻ sẽ rơi) vs なさそうです — cả hai đều là 様態 phủ定.",
+      "Với Vて来ます／Vて行きます: xác định ai đi đâu và làm gì TRƯỚC khi đến/rời đi.",
+      "Câu hỏi trắc nghiệm thường hỏi: dựa vào quan sát/dấu hiệu nào mà nhân vật dự đoán — tìm câu そうです chứa thông tin đó.",
+      "Ôn lại: Vておきます (Bài 30), 〜のために (Bài 42), 〜ので (Bài 39), Vたほうがいいです (Bài 32)."
+    ],
+    "tips": [
+      "様態そう: A語幹 + そう (いい → よさそう！ không phải いいそう), ない→なさそう (đặc biệt!).",
+      "Đừng gắn 普通形 vào そうです ở bài này — 雨が降るそうです là 伝聞 (Bài 47), chưa học.",
+      "Vて来ます = làm V rồi đến (hành động hoàn thành trước khi đến); Vて行きます = làm V rồi đi.",
+      "Vそうにありません = lịch sự hơn、なさそうです = thân mật hơn — cùng nghĩa \"có vẻ không ~\".",
+      "Khi bầu trời tối, mây đen → dùng 降りそうです; khi trời quang → 降りそうにありません。",
+      "Câu nhiễu hay đặt 伝聞そう (普通形＋そう) — loại ngay vì đó là Bài 47, ngoài scope."
+    ],
+    "grammarFocus": [
+      "V/Aそうです（様態 — trông có vẻ）",
+      "Vそうにありません・なさそうです（có vẻ không）",
+      "Vて来ます・Vて行きます（hành động kèm di chuyển）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 42,
+        "items": [
+          "〜のに〜時間がかかります",
+          "Vるために"
+        ]
+      },
+      {
+        "bai": 40,
+        "items": [
+          "Vてみます",
+          "〜かどうか"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）",
+          "〜て（nguyên nhân–cảm xúc）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "Vたほうがいいです",
+          "〜かもしれません",
+          "〜でしょう"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vておきます",
+          "Vてあります"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "自動詞 Vています（結果状態）",
+          "Vてしまいました"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜と（điều kiện tự然）",
+          "〜とき"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "空の様子",
+      "titleVi": "Tình trạng bầu trời",
+      "japanese": "朝、田中さんは窓の外を見ました。空がとても暗くて、今にも雨が降りそうです。\n「傘を持って行ったほうがいいですね」と田中さんは思いました。\n風も強くなってきました。葉っぱが飛びそうです。\n田中さんはコンビニで傘を買って来ました。\n午後になっても、雨は降りそうにありません。空が少し明るくなってきました。\n「傘は要らなかったかもしれません」と田中さんは言いました。\n夕方、田中さんは傘を持って家に帰って行きました。",
+      "vietnamese": "Sáng sớm, anh Tanaka nhìn ra ngoài cửa sổ. Bầu trời tối tăm lắm, trông có vẻ mưa sắp rơi ngay bây giờ.\n\"Mang ô đi thì tốt hơn nhỉ\" — anh Tanaka nghĩ vậy.\nGió cũng đã trở nên mạnh hơn. Lá cây trông có vẻ sắp bay.\nAnh Tanaka ghé cửa hàng tiện lợi mua ô rồi đến (văn phòng).\nĐến buổi chiều mà mưa vẫn không có vẻ rơi. Bầu trời đã sáng lên một chút.\n\"Có lẽ đã không cần ô\" — anh Tanaka nói vậy.\nBuổi tối, anh Tanaka cầm ô về nhà.",
+      "sentences": [
+        {
+          "jp": "朝、田中さんは窓の外を見ました。空がとても暗くて、今にも雨が降りそうです。",
+          "vi": "Sáng sớm, anh Tanaka nhìn ra ngoài cửa sổ. Bầu trời tối tăm lắm, trông có vẻ mưa sắp rơi ngay bây giờ.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "暗い",
+              "read": "くらい",
+              "vi": "tối tăm, tối"
+            },
+            {
+              "w": "今にも",
+              "read": "いまにも",
+              "vi": "ngay lúc này, sắp sửa"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降ります",
+              "read": "ふります",
+              "vi": "(mưa/tuyết) rơi, đổ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vそうです（様態）",
+              "vi": "降りそうです = \"trông có vẻ sắp rơi\". Gắn vào ますstem (降り) + そうです. Đây là QUAN SÁT trực tiếp (bầu trời tối), không phải nghe đồn."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "暗くて = tối tăm và (nối tính từ い với hệ quả tiếp theo)."
+            }
+          ]
+        },
+        {
+          "jp": "「傘を持って行ったほうがいいですね」と田中さんは思いました。",
+          "vi": "\"Mang ô đi thì tốt hơn nhỉ\" — anh Tanaka nghĩ vậy.",
+          "vocab": [
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "持って",
+              "read": "もって",
+              "vi": "cầm, mang"
+            },
+            {
+              "w": "行った",
+              "read": "いった",
+              "vi": "đã đi"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "思いました",
+              "read": "おもいました",
+              "vi": "đã nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいです（Bài 32）",
+              "vi": "持って行ったほうがいいです = tốt hơn là nên mang đi. Lời khuyên/nhận định dựa trên quan sát そうです ở câu trước."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "思いました = anh đã nghĩ. と trích dẫn nội dung suy nghĩ."
+            }
+          ]
+        },
+        {
+          "jp": "風も強くなってきました。葉っぱが飛びそうです。",
+          "vi": "Gió cũng đã trở nên mạnh hơn. Lá cây trông có vẻ sắp bay.",
+          "vocab": [
+            {
+              "w": "風",
+              "read": "かぜ",
+              "vi": "gió"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "葉っぱ",
+              "read": "はっぱ",
+              "vi": "lá cây"
+            },
+            {
+              "w": "飛びます",
+              "read": "とびます",
+              "vi": "bay"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くなってきました（Bài 19＋Bài 43）",
+              "vi": "強くなってきました = đã dần trở nên mạnh (biến đổi từ từ đến thời điểm hiện tại). 〜くなります (B19) + て来ます."
+            },
+            {
+              "point": "Vそうです（様態）",
+              "vi": "飛びそうです = \"trông có vẻ sắp bay\". ますstem (飛び) + そうです. Quan sát lá đang rung mạnh."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはコンビニで傘を買って来ました。",
+          "vi": "Anh Tanaka ghé cửa hàng tiện lợi mua ô rồi đến (văn phòng).",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi"
+            },
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "買って",
+              "read": "かって",
+              "vi": "mua"
+            },
+            {
+              "w": "来ました",
+              "read": "きました",
+              "vi": "đã đến, đã về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて来ます",
+              "vi": "買って来ました = mua rồi đến (đây). Hành động 買う hoàn thành trước, sau đó người nói/người quan sát thấy anh đã ĐẾN với ô trong tay."
+            }
+          ]
+        },
+        {
+          "jp": "午後になっても、雨は降りそうにありません。空が少し明るくなってきました。",
+          "vi": "Đến buổi chiều mà mưa vẫn không có vẻ rơi. Bầu trời đã sáng lên một chút.",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降りる",
+              "read": "おりる",
+              "vi": "xuống (xe, tàu)"
+            },
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "明るい",
+              "read": "あかるい",
+              "vi": "sáng, rạng rỡ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vそうにありません（様態否定）",
+              "vi": "降りそうにありません = \"không có vẻ sẽ rơi\". Phủ定 lịch sự của 様態そう. Quan sát trực tiếp: trời sáng lên nên dự đoán không mưa."
+            },
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "午後になっても = dù đã đến buổi chiều (mà vẫn…). ても diễn đạt \"dù/dù cho\"."
+            }
+          ]
+        },
+        {
+          "jp": "「傘は要らなかったかもしれません」と田中さんは言いました。",
+          "vi": "\"Có lẽ đã không cần ô\" — anh Tanaka nói vậy.",
+          "vocab": [
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "要ります",
+              "read": "いります",
+              "vi": "cần, cần thiết"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれません（Bài 32）",
+              "vi": "要らなかったかもしれません = \"có lẽ đã không cần\". かもしれません diễn đạt khả năng (có thể/có lẽ) nhìn lại tình huống."
+            }
+          ]
+        },
+        {
+          "jp": "夕方、田中さんは傘を持って家に帰って行きました。",
+          "vi": "Buổi tối, anh Tanaka cầm ô về nhà.",
+          "vocab": [
+            {
+              "w": "夕方",
+              "read": "ゆうがた",
+              "vi": "chiều tối"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "持って",
+              "read": "もって",
+              "vi": "cầm, mang"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰って",
+              "read": "かえって",
+              "vi": "trở về"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて行きます",
+              "vi": "帰って行きました = đi về (rời khỏi đây). 帰る + て行く = hành động rời đi (theo hướng ĐI, tức là ra khỏi tầm nhìn người quan sát). Tương phản với て来ます (đến gần người quan sát)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "雨が降りそうです",
+          "label": "Vそうです（様態 — quan sát trực tiếp）"
+        },
+        {
+          "excerpt": "葉っぱが飛びそうです",
+          "label": "Vそうです（様態）"
+        },
+        {
+          "excerpt": "傘を買って来ました",
+          "label": "Vて来ます"
+        },
+        {
+          "excerpt": "雨は降りそうにありません",
+          "label": "Vそうにありません（様態否定）"
+        },
+        {
+          "excerpt": "傘を持って家に帰って行きました",
+          "label": "Vて行きます"
+        }
+      ],
+      "questions": [
+        {
+          "q": "朝、田中さんはどうして傘を持って行こうと思いましたか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "天気予報で「雨が降ります」と言いましたから",
+            "空がとても暗くて、雨が降りそうでしたから",
+            "友達が「傘を持って行ってください」と言いましたから",
+            "昨日も雨が降りましたから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ:「空がとても暗くて、今にも雨が降りそうです」— bầu trời tối tăm, trông có vẻ mưa sắp rơi. Đây là QUAN SÁT TRỰC TIẾP (様態そう: gắn vào ますstem 降り + そうです), nên Tanaka quyết định mang ô. Đáp án 0 sai vì bài không hề nhắc đến dự báo thời tiết (天気予報); đây là nhiễu điển hình — 様態そう là nhận xét từ mắt thấy, không phải nghe đài. Đáp án 2 và 3 sai vì không có bạn bè khuyên, cũng không có thông tin về hôm qua — bài chỉ mô tả quan sát buổi sáng hôm đó.",
+          "tip": "Câu hỏi lý do dùng 様態そう → tìm CHI TIẾT QUAN SÁT (trời tối, mây đen, lá rung) trong bài, không phải lời ai nói. Loại ngay đáp án nào nhắc đến thông tin nghe từ người khác hay dự báo.",
+          "qt": {
+            "q": "Buổi sáng, vì sao anh Tanaka nghĩ rằng nên mang ô theo?",
+            "o": [
+              "Vì bản tin thời tiết nói 「雨が降ります」 (trời sẽ mưa)",
+              "Vì bầu trời rất tối và có vẻ sắp mưa",
+              "Vì bạn đã nói 「傘を持って行ってください」 (hãy mang ô theo)",
+              "Vì hôm qua trời cũng đã mưa"
+            ]
+          }
+        },
+        {
+          "q": "午後、空はどうなりましたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "雨が降り始めました",
+            "空が暗くなって、嵐になりそうです",
+            "空が少し明るくなってきました",
+            "風が強くなって、傘が飛びそうです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi rõ:「空が少し明るくなってきました」— bầu trời đã sáng lên một chút (〜くなってきました = dần dần biến đổi đến hiện tại). Đáp án 0 sai và ngược hẳn với:「雨は降りそうにありません」(không có vẻ mưa rơi) — bài khẳng định mưa KHÔNG xảy ra. Đáp án 1 sai vì bài không nhắc đến bão (嵐); cũng không có dấu hiệu様態そう nào để đoán trời xấu thêm. Đáp án 3 sai vì gió mạnh và葉っぱ飛びそう được nêu vào buổi sáng, không phải buổi chiều.",
+          "tip": "Câu hỏi \"どうなりましたか\" → tìm đúng THỜI ĐIỂM trong bài (sáng/chiều/tối) rồi đọc câu mô tả tình trạng tương ứng. Đừng nhầm chi tiết của buổi sáng sang buổi chiều.",
+          "qt": {
+            "q": "Buổi chiều, bầu trời đã như thế nào?",
+            "o": [
+              "Trời bắt đầu mưa",
+              "Trời trở nên tối và có vẻ sắp có bão",
+              "Trời bắt đầu sáng lên một chút",
+              "Gió mạnh lên và có vẻ ô sắp bị bay đi"
+            ]
+          }
+        },
+        {
+          "q": "「Vて来ます」と「Vて行きます」について、この文章から正しいものはどれですか。",
+          "evi": [
+            3,
+            6
+          ],
+          "options": [
+            "「買って来ました」は「買ってから戻って来た」という意味です",
+            "「帰って行きました」は「帰るために来た」という意味です",
+            "「買って来ました」と「帰って行きました」は同じ意味です",
+            "「帰って行きました」は「帰ることができました」という意味です"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Câu「コンビニで傘を買って来ました」= Tanaka ghé mua ô (hành động hoàn thành) rồi ĐẾN (chỗ người quan sát). Vて来ます = làm V xong rồi di chuyển đến gần người nói/người quan sát — đáp án 0 diễn đạt đúng ý này (\"đã mua rồi đến đây\"). Đáp án 1 sai:「帰って行きました」= rời đi về nhà (hướng ĐI, xa người quan sát), KHÔNG phải \"đến để về\"; 行きます chỉ hướng ra xa, không phải mục đích. Đáp án 2 sai vì hai mẫu NGƯỢC chiều di chuyển hoàn toàn (て来る = đến gần, て行く = rời xa). Đáp án 3 sai vì「帰ることができました」mang nghĩa \"có thể về được\" (可能) — hoàn toàn khác nghĩa.",
+          "tip": "Phân biệt nhanh: Vて来ます = làm V rồi ĐẾN (hướng vào); Vて行きます = làm V rồi ĐI (hướng ra). Hỏi: \"người đó đang đến gần hay rời xa người quan sát?\" → đến gần = て来る, rời xa = て行く.",
+          "qt": {
+            "q": "Trong bài viết này, đâu là điều đúng về 「Vて来ます」 và 「Vて行きます」?",
+            "o": [
+              "「買って来ました」 có nghĩa là “đã mua rồi quay trở lại”",
+              "「帰って行きました」 có nghĩa là “đã đến để về nhà”",
+              "「買って来ました」 và 「帰って行きました」 có cùng nghĩa",
+              "「帰って行きました」 có nghĩa là “đã có thể về nhà”"
+            ]
+          }
+        },
+        {
+          "q": "田中さんが「傘は要らなかったかもしれません」と言ったのはなぜですか。（推測）",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "朝から雨が降っていましたから、傘を使いました",
+            "午後になっても雨が降りそうにありませんでしたから",
+            "コンビニの傘が安くありませんでしたから",
+            "傘を持っていませんでしたから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nêu hai dữ kiện liền nhau:「午後になっても、雨は降りそうにありません」(chiều vẫn không có vẻ mưa — 様態否定) +「空が少し明るくなってきました」(trời sáng lên). Từ hai quan sát đó, Tanaka suy ra \"có lẽ đã không cần ô\"「傘は要らなかったかもしれません」— dùng かもしれません (Bài 32) vì đây là nhận định nhìn lại, không chắc chắn. Đáp án 0 sai và ngược lại với bài — mưa KHÔNG rơi (降りそうにありません). Đáp án 2 và 3 sai vì bài không đề cập đến giá ô hay việc Tanaka không có ô; anh đã mua ô từ buổi sáng rồi.",
+          "tip": "Câu hỏi suy luận かもしれません → tìm CĂN CỨ QUAN SÁT (様態そう/そうにありません) dẫn đến nhận định đó. Thường cần ghép 2 dữ kiện: \"không có vẻ mưa\" + \"trời sáng lên\" → suy ra \"không cần ô\".",
+          "qt": {
+            "q": "Vì sao anh Tanaka nói 「傘は要らなかったかもしれません」 (có lẽ đã không cần ô)? (Suy đoán)",
+            "o": [
+              "Vì trời đã mưa từ sáng nên anh ấy đã dùng ô",
+              "Vì đến buổi chiều mà trời vẫn không có vẻ sắp mưa",
+              "Vì ô ở cửa hàng tiện lợi không rẻ",
+              "Vì anh ấy không có ô"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ピクニックの前日",
+      "titleVi": "Ngày trước buổi dã ngoại",
+      "japanese": "ワットさんとカリナさんは来週の土曜日にピクニックの計画を立てました。\n金曜日の夜、ワットさんは窓の外の空を見ました。\n西の空に大きな黒い雲がありました。「明日は雨が降りそうです」とワットさんは思いました。\nそれに、風も強くなりそうで、外でご飯を食べるのは難しそうです。\nワットさんはカリナさんにメッセージを送りました。\n「明日の天気が悪くなりそうなので、ピクニックの準備を変えたほうがいいと思います。屋根のある場所を探しておきましょうか。」\nカリナさんはすぐに返事をしました。\n「そうですね。私も今、空を見たんですが、雨が降りそうですね。テントを持って行ったほうがいいかもしれません。」\nワットさんは「テントはちょっと重そうですね。それより、近くの公園に屋根付きのベンチがあるのを知っていますか。」と答えました。\nカリナさんは「知りませんでした。それはいいですね。でも、もし雨がひどくなったら、中止したほうがよさそうです。」と言いました。\n「そうですね。天気が大丈夫そうなら行きましょう。もし雨なら、来週に変えましょう。」とワットさんは言いました。\n翌朝、ワットさんは早起きしました。窓の外を見たら、空はまだ少し曇っていましたが、雨は降りそうにありませんでした。\n「今日は大丈夫そうです！」ワットさんは嬉しくなって、カリナさんに電話しました。\nカリナさんは「よかったです。じゃ、10時に駅で会いましょう。サンドイッチを作って行きます！」と言いました。\nワットさんも「私は飲み物を買って来ます！」と言いました。\n二人はとても楽しいピクニックができました。",
+      "vietnamese": "Anh Watt và chị Karina đã lên kế hoạch dã ngoại vào thứ Bảy tuần tới.\nTối thứ Sáu, anh Watt nhìn ra bầu trời ngoài cửa sổ.\nỞ bầu trời phía tây có đám mây đen lớn. \"Ngày mai trông có vẻ sẽ mưa\" — anh Watt nghĩ vậy.\nHơn nữa, gió cũng có vẻ sẽ mạnh lên, và trông có vẻ khó ăn cơm ở ngoài trời.\nAnh Watt nhắn tin cho chị Karina.\n\"Vì thời tiết ngày mai có vẻ sẽ xấu, tôi nghĩ nên thay đổi kế hoạch dã ngoại. Chúng ta thử tìm chỗ có mái che trước nhé?\"\nChị Karina trả lời ngay.\n\"Đúng vậy. Tôi cũng vừa nhìn bầu trời, trông có vẻ mưa đấy. Có lẽ nên mang lều đi.\"\nAnh Watt trả lời: \"Lều trông có vẻ hơi nặng đấy. Thay vào đó, bạn có biết ở công viên gần đây có ghế có mái che không?\"\nChị Karina nói: \"Tôi không biết. Hay đấy nhỉ. Nhưng nếu mưa to quá thì có vẻ nên huỷ.\"\n\"Đúng rồi. Nếu thời tiết có vẻ ổn thì đi thôi. Nếu mưa thì đổi sang tuần tới.\" — anh Watt nói vậy.\nSáng hôm sau, anh Watt dậy sớm. Nhìn ra cửa sổ thì bầu trời vẫn còn hơi âm u, nhưng không có vẻ mưa.\n\"Hôm nay trông có vẻ ổn rồi!\" Anh Watt vui lên và gọi điện cho chị Karina.\nChị Karina nói: \"Thật mừng. Vậy 10 giờ gặp nhau ở ga nhé. Tôi sẽ làm bánh sandwich rồi đến!\"\nAnh Watt cũng nói: \"Tôi sẽ mua đồ uống rồi đến!\"\nHai người có buổi dã ngoại vui vẻ lắm.",
+      "sentences": [
+        {
+          "jp": "ワットさんとカリナさんは来週の土曜日にピクニックの計画を立てました。",
+          "vi": "Anh Watt và chị Karina đã lên kế hoạch dã ngoại vào thứ Bảy tuần tới.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "ピクニック",
+              "read": "ピクニック",
+              "vi": "dã ngoại, picnic"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "立てます",
+              "read": "たてます",
+              "vi": "lên (kế hoạch), dựng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNを立てます",
+              "vi": "土曜日にピクニックの計画を立てました = đã lên kế hoạch dã ngoại vào thứ Bảy. に chỉ thời điểm (Bài 4)."
+            }
+          ]
+        },
+        {
+          "jp": "金曜日の夜、ワットさんは窓の外の空を見ました。",
+          "vi": "Tối thứ Sáu, anh Watt nhìn ra bầu trời ngoài cửa sổ.",
+          "vocab": [
+            {
+              "w": "金曜日",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのNのN（Bài 2）",
+              "vi": "窓の外の空 = bầu trời ở phía ngoài cửa sổ. の liên tiếp nối danh từ chỉ quan hệ vị trí."
+            }
+          ]
+        },
+        {
+          "jp": "西の空に大きな黒い雲がありました。「明日は雨が降りそうです」とワットさんは思いました。",
+          "vi": "Ở bầu trời phía tây có đám mây đen lớn. \"Ngày mai trông có vẻ sẽ mưa\" — anh Watt nghĩ vậy.",
+          "vocab": [
+            {
+              "w": "西",
+              "read": "にし",
+              "vi": "phía tây"
+            },
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "黒い",
+              "read": "くろい",
+              "vi": "màu đen, tối"
+            },
+            {
+              "w": "雲",
+              "read": "くも",
+              "vi": "đám mây"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降ります",
+              "read": "ふります",
+              "vi": "(mưa) rơi, đổ"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNがあります（Bài 10）",
+              "vi": "西の空に雲がありました = ở bầu trời phía tây có mây. に chỉ vị trí tồn tại."
+            },
+            {
+              "point": "Vそうです（様態）",
+              "vi": "降りそうです = \"trông có vẻ sẽ rơi\". ますstem (降り) + そうです. Căn cứ: nhìn thấy mây đen → dự đoán."
+            }
+          ]
+        },
+        {
+          "jp": "それに、風も強くなりそうで、外でご飯を食べるのは難しそうです。",
+          "vi": "Hơn nữa, gió cũng có vẻ sẽ mạnh lên, và trông có vẻ khó ăn cơm ở ngoài trời.",
+          "vocab": [
+            {
+              "w": "それに",
+              "read": "それに",
+              "vi": "hơn nữa, ngoài ra"
+            },
+            {
+              "w": "風",
+              "read": "かぜ",
+              "vi": "gió"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "ご飯",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aそうです（様態）",
+              "vi": "強くなりそうです・難しそうです = \"có vẻ sẽ mạnh lên / có vẻ khó\". Gốc tính từ い (強 → 強そう; 難し → 難しそう) + そう. Quan sát → dự đoán."
+            },
+            {
+              "point": "Vるのは〜（Bài 38）",
+              "vi": "外でご飯を食べるのは難しそうです = \"việc ăn cơm ngoài trời có vẻ khó\". の nominalizes động từ."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんはカリナさんにメッセージを送りました。",
+          "vi": "Anh Watt nhắn tin cho chị Karina.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn, thông điệp"
+            },
+            {
+              "w": "送ります",
+              "read": "おくります",
+              "vi": "gửi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNをVます（Bài 7）",
+              "vi": "カリナさんにメッセージを送りました = gửi tin nhắn cho Karina. に chỉ đối tượng nhận."
+            }
+          ]
+        },
+        {
+          "jp": "「明日の天気が悪くなりそうなので、ピクニックの準備を変えたほうがいいと思います。屋根のある場所を探しておきましょうか。」",
+          "vi": "\"Vì thời tiết ngày mai có vẻ sẽ xấu, tôi nghĩ nên thay đổi kế hoạch dã ngoại. Chúng ta thử tìm chỗ có mái che trước nhé?\"",
+          "vocab": [
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "ピクニック",
+              "read": "ピクニック",
+              "vi": "dã ngoại"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "sự chuẩn bị"
+            },
+            {
+              "w": "変えます",
+              "read": "かえます",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "屋根",
+              "read": "やね",
+              "vi": "mái, mái nhà"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm, chỗ"
+            },
+            {
+              "w": "探します",
+              "read": "さがします",
+              "vi": "tìm kiếm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aそうなので（様態＋理由）",
+              "vi": "悪くなりそうなので = vì (có vẻ) sẽ trở nên xấu. Kết hợp 様態そう + ので (Bài 39) thành lý do."
+            },
+            {
+              "point": "Vたほうがいいです（Bài 32）",
+              "vi": "変えたほうがいいと思います = tôi nghĩ nên thay đổi. Lời khuyên dựa trên dự đoán thời tiết."
+            },
+            {
+              "point": "Vておきましょうか（Bài 30）",
+              "vi": "探しておきましょうか = chúng ta tìm trước nhé? Vておく = làm sẵn/chuẩn bị trước."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはすぐに返事をしました。",
+          "vi": "Chị Karina trả lời ngay.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "返事",
+              "read": "へんじ",
+              "vi": "câu trả lời, hồi âm"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay, ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（Bài 6）",
+              "vi": "返事をしました = đã trả lời. する kết hợp với danh từ hành động."
+            }
+          ]
+        },
+        {
+          "jp": "「そうですね。私も今、空を見たんですが、雨が降りそうですね。テントを持って行ったほうがいいかもしれません。」",
+          "vi": "\"Đúng vậy. Tôi cũng vừa nhìn bầu trời, trông có vẻ mưa đấy. Có lẽ nên mang lều đi.\"",
+          "vocab": [
+            {
+              "w": "そう",
+              "read": "そう",
+              "vi": "đúng vậy"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "見た",
+              "read": "みた",
+              "vi": "đã nhìn thấy"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降りそう",
+              "read": "ふりそう",
+              "vi": "có vẻ sẽ mưa"
+            },
+            {
+              "w": "テント",
+              "read": "テント",
+              "vi": "lều"
+            },
+            {
+              "w": "持って",
+              "read": "もって",
+              "vi": "cầm, mang"
+            },
+            {
+              "w": "行った",
+              "read": "いった",
+              "vi": "đã đi"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt"
+            },
+            {
+              "w": "かもしれません",
+              "read": "かもしれません",
+              "vi": "có lẽ, có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んですが（Bài 26）",
+              "vi": "見たんですが = tôi thì vừa nhìn (và thấy). んです giải thích bối cảnh, が mở ra thông tin tiếp theo."
+            },
+            {
+              "point": "Vそうです（様態）",
+              "vi": "雨が降りそうですね = cũng thấy trông có vẻ mưa nhỉ. Karina dùng 様態そう sau khi TỰ MÌNH quan sát."
+            },
+            {
+              "point": "〜かもしれません（Bài 32）",
+              "vi": "テントを持って行ったほうがいいかもしれません = có lẽ nên mang lều. かもしれません = khả năng/không chắc chắn."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんは「テントはちょっと重そうですね。それより、近くの公園に屋根付きのベンチがあるのを知っていますか。」と答えました。",
+          "vi": "Anh Watt trả lời: \"Lều trông có vẻ hơi nặng đấy. Thay vào đó, bạn có biết ở công viên gần đây có ghế có mái che không?\"",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "テント",
+              "read": "テント",
+              "vi": "lều, lều cắm trại"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "một chút, một chút thôi"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần đây, lân cận"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "屋根",
+              "read": "やね",
+              "vi": "mái, mái nhà"
+            },
+            {
+              "w": "ベンチ",
+              "read": "ベンチ",
+              "vi": "ghế băng, bench"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "答える",
+              "read": "こたえる",
+              "vi": "trả lời, đáp lại"
+            },
+            {
+              "w": "それより",
+              "read": "それより",
+              "vi": "thay vào đó, hơn thế"
+            },
+            {
+              "w": "屋根付き",
+              "read": "やねつき",
+              "vi": "có mái che"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aそうです（様態）",
+              "vi": "重そうですね = \"trông có vẻ nặng đấy\". 語幹 (重) + そう. Watt nhìn/biết lều rồi đưa ra nhận xét."
+            },
+            {
+              "point": "VるのをVます（Bài 38）",
+              "vi": "屋根付きのベンチがあるのを知っていますか = bạn có biết (rằng) có ghế mái che không? の nominalizes mệnh đề, を là tân ngữ của 知ります."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは「知りませんでした。それはいいですね。でも、もし雨がひどくなったら、中止したほうがよさそうです。」と言いました。",
+          "vi": "Chị Karina nói: \"Tôi không biết. Hay đấy nhỉ. Nhưng nếu mưa to quá thì có vẻ nên huỷ.\"",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "ひどい",
+              "read": "ひどい",
+              "vi": "nghiêm trọng, tệ, nặng"
+            },
+            {
+              "w": "中止します",
+              "read": "ちゅうしします",
+              "vi": "huỷ bỏ, dừng lại"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もし〜たら（Bài 25）",
+              "vi": "もし雨がひどくなったら = nếu mưa trở nên to (thì). Giả định điều kiện chưa xảy ra."
+            },
+            {
+              "point": "Aよさそうです（様態）",
+              "vi": "中止したほうがよさそうです = \"có vẻ nên huỷ\". いい → よさそう (đặc biệt！ không nói いいそう). Kết hợp Vたほうがいい + よさそう."
+            }
+          ]
+        },
+        {
+          "jp": "「そうですね。天気が大丈夫そうなら行きましょう。もし雨なら、来週に変えましょう。」とワットさんは言いました。",
+          "vi": "\"Đúng rồi. Nếu thời tiết có vẻ ổn thì đi thôi. Nếu mưa thì đổi sang tuần tới.\" — anh Watt nói vậy.",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "ổn, không sao"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NAそうなら（様態＋条件）",
+              "vi": "天気が大丈夫そうなら = nếu thời tiết trông có vẻ ổn (thì). Kết hợp 様態そう + なら (条件) cho điều kiện dựa trên quan sát."
+            },
+            {
+              "point": "Vましょう（Bài 6）",
+              "vi": "行きましょう・変えましょう = đi thôi / đổi thôi. Rủ cùng làm."
+            }
+          ]
+        },
+        {
+          "jp": "翌朝、ワットさんは早起きしました。窓の外を見たら、空はまだ少し曇っていましたが、雨は降りそうにありませんでした。",
+          "vi": "Sáng hôm sau, anh Watt dậy sớm. Nhìn ra cửa sổ thì bầu trời vẫn còn hơi âm u, nhưng không có vẻ mưa.",
+          "vocab": [
+            {
+              "w": "翌朝",
+              "read": "よくあさ",
+              "vi": "sáng hôm sau"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "早起きします",
+              "read": "はやおきします",
+              "vi": "dậy sớm"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "曇ります",
+              "read": "くもります",
+              "vi": "âm u, có mây"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降りる",
+              "read": "おりる",
+              "vi": "xuống (xe, tàu)"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn còn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（phát hiện）（Bài 25）",
+              "vi": "見たら = khi nhìn ra thì. たら diễn đạt phát hiện/kết quả khi hoàn thành hành động."
+            },
+            {
+              "point": "Vそうにありませんでした（様態否定・過去）",
+              "vi": "降りそうにありませんでした = không có vẻ sẽ rơi (quan sát sáng đó). Phủ定 様態そう ở thì quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "「今日は大丈夫そうです！」ワットさんは嬉しくなって、カリナさんに電話しました。",
+          "vi": "\"Hôm nay trông có vẻ ổn rồi!\" Anh Watt vui lên và gọi điện cho chị Karina.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "không sao, ổn"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui mừng, hạnh phúc"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "電話します",
+              "read": "でんわします",
+              "vi": "gọi điện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NAそうです（様態）",
+              "vi": "大丈夫そうです = \"trông có vẻ ổn\". 大丈夫 là tính từ な → 大丈夫そうです (không cần な trước そう)."
+            },
+            {
+              "point": "〜くなって（Bài 19）",
+              "vi": "嬉しくなって = trở nên vui và (rồi). 〜くなります + て形 nối tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは「よかったです。じゃ、10時に駅で会いましょう。サンドイッチを作って行きます！」と言いました。",
+          "vi": "Chị Karina nói: \"Thật mừng. Vậy 10 giờ gặp nhau ở ga nhé. Tôi sẽ làm bánh sandwich rồi đến!\"",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "よかった",
+              "read": "よかった",
+              "vi": "tốt quá, may quá"
+            },
+            {
+              "w": "じゃ",
+              "read": "じゃ",
+              "vi": "vậy thì"
+            },
+            {
+              "w": "10時",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "会いましょう",
+              "read": "あいましょう",
+              "vi": "hãy gặp nhau"
+            },
+            {
+              "w": "サンドイッチ",
+              "read": "サンドイッチ",
+              "vi": "bánh sandwich"
+            },
+            {
+              "w": "作って",
+              "read": "つくって",
+              "vi": "làm, chuẩn bị"
+            },
+            {
+              "w": "行きます",
+              "read": "いきます",
+              "vi": "sẽ đi"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて行きます",
+              "vi": "サンドイッチを作って行きます = làm sandwich xong rồi RỜI ĐI đến điểm hẹn (nói từ vị trí của Karina — cô ấy đang ở nhà, chuẩn bị xong rồi đi ra ngoài). Vて行きます = làm V xong rồi đi (hướng ra xa người nói). Đối xứng: Vて来ます = làm V xong rồi đến (chỗ người nói/điểm hẹn) — như Watt dùng ở câu tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんも「私は飲み物を買って来ます！」と言いました。",
+          "vi": "Anh Watt cũng nói: \"Tôi sẽ mua đồ uống rồi đến!\"",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watto"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "買って",
+              "read": "かって",
+              "vi": "mua"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "sẽ đến, sẽ mang tới"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて来ます",
+              "vi": "飲み物を買って来ます = mua đồ uống rồi đến (chỗ hẹn). て来ます = hành động hoàn thành trước khi ĐẾN. Đối xứng với Karina dùng て行きます ở câu trước — cùng ý nghĩa là \"mang theo thứ đó đến chỗ hẹn\"."
+            }
+          ]
+        },
+        {
+          "jp": "二人はとても楽しいピクニックができました。",
+          "vi": "Hai người có buổi dã ngoại vui vẻ lắm.",
+          "vocab": [
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "ピクニック",
+              "read": "ピクニック",
+              "vi": "dã ngoại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができました（Bài 27）",
+              "vi": "ピクニックができました = đã có thể làm buổi picnic / đã làm được. できます chỉ khả năng/thực hiện được."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "雨が降りそうです",
+          "label": "Vそうです（様態 — quan sát）"
+        },
+        {
+          "excerpt": "風も強くなりそうで",
+          "label": "Aそうで（様態＋nối）"
+        },
+        {
+          "excerpt": "外でご飯を食べるのは難しそうです",
+          "label": "Aそうです（様態）"
+        },
+        {
+          "excerpt": "天気が悪くなりそうなので",
+          "label": "Aそうなので（様態＋lý do）"
+        },
+        {
+          "excerpt": "テントはちょっと重そうですね",
+          "label": "Aそうです（様態 — nhận xét）"
+        },
+        {
+          "excerpt": "中止したほうがよさそうです",
+          "label": "よさそうです（様態特殊形）"
+        },
+        {
+          "excerpt": "天気が大丈夫そうなら",
+          "label": "NAそうなら（様態＋条件）"
+        },
+        {
+          "excerpt": "雨は降りそうにありませんでした",
+          "label": "Vそうにありません（様態否定・過去）"
+        },
+        {
+          "excerpt": "サンドイッチを作って行きます",
+          "label": "Vて行きます"
+        },
+        {
+          "excerpt": "飲み物を買って来ます",
+          "label": "Vて来ます"
+        }
+      ],
+      "questions": [
+        {
+          "q": "金曜日の夜、ワットさんはどうしてカリナさんにメッセージを送りましたか。",
+          "evi": [
+            2,
+            5
+          ],
+          "options": [
+            "カリナさんがピクニックを中止したいと言いましたから",
+            "天気が悪くなりそうなので、準備を変えたほうがいいと思いましたから",
+            "ピクニックの場所を変えることが決まりましたから",
+            "翌日の朝、起きられないかもしれませんでしたから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Watt viết trong tin nhắn:「明日の天気が悪くなりそうなので、ピクニックの準備を変えたほうがいいと思います」— thời tiết ngày mai CÓ VẺ sẽ xấu (様態そう: 悪くなりそう), nên nghĩ nên thay đổi kế hoạch. Đây là chuỗi logic: quan sát thấy mây đen phía tây (降りそうです) → lo thời tiết xấu → nhắn Karina. Đáp án 0 sai vì trong bài CHÍNH Watt chủ động nhắn trước, không phải Karina đề xuất huỷ. Đáp án 2 sai vì địa điểm CHƯA được quyết định — mới chỉ là đề xuất tìm chỗ mái che. Đáp án 3 hoàn toàn không có trong bài.",
+          "tip": "Câu hỏi lý do nhắn tin/liên lạc → đọc ngay NỘI DUNG TIN NHẮN đó trong bài (phần trong dấu「」). Lý do thường nằm ở mệnh đề〜なので ngay trong tin nhắn.",
+          "qt": {
+            "q": "Tối thứ Sáu, tại sao anh Watt nhắn tin cho chị Karina?",
+            "o": [
+              "Vì chị Karina nói muốn hủy buổi dã ngoại",
+              "Vì anh ấy nghĩ thời tiết có vẻ sẽ xấu đi nên tốt hơn là thay đổi việc chuẩn bị",
+              "Vì đã quyết định thay đổi địa điểm dã ngoại",
+              "Vì có thể anh ấy sẽ không thức dậy được vào sáng hôm sau"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんが「テントを持って行ったほうがいいかもしれません」と言ったのはなぜですか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "テントがとても軽そうでしたから",
+            "屋根付きのベンチがないと知っていましたから",
+            "自分も空を見て、雨が降りそうだと思いましたから",
+            "天気予報で「テントを持って行ってください」と言いましたから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Karina trả lời:「私も今、空を見たんですが、雨が降りそうですね」— cô TỰ MÌNH nhìn bầu trời và thấy 降りそうです (様態そう). Từ quan sát trực tiếp đó, cô đề xuất mang lều. Chú ý từ \"も\" — Karina cũng quan sát như Watt, xác nhận thêm nhận định. Đáp án 0 sai và ngược lại: trong bài chính Watt nhận xét「テントはちょっと重そうですね」(lều trông có vẻ nặng), không ai nói \"nhẹ\". Đáp án 1 sai vì Karina nói「知りませんでした」(không biết) khi Watt nhắc đến ghế mái — tức cô không biết trước. Đáp án 3 sai vì không có dự báo thời tiết nào được nhắc trong bài.",
+          "tip": "様態そう xuất hiện trong lời nhân vật → lý do hành động/đề xuất của người đó LUÔN LÀ quan sát trực tiếp dẫn đến suy đoán đó. Tìm câu「空を見た」hoặc tương tự làm bằng chứng.",
+          "qt": {
+            "q": "Tại sao chị Karina nói: 「テントを持って行ったほうがいいかもしれません」(Có lẽ nên mang theo lều)?",
+            "o": [
+              "Vì cái lều trông có vẻ rất nhẹ",
+              "Vì chị ấy biết rằng không có ghế băng có mái che",
+              "Vì chị ấy cũng nhìn lên trời và nghĩ rằng có vẻ trời sắp mưa",
+              "Vì dự báo thời tiết nói: 「テントを持って行ってください」(Hãy mang theo lều)"
+            ]
+          }
+        },
+        {
+          "q": "翌朝、二人はピクニックに行くことができましたか。その理由は何ですか。（推測）",
+          "evi": [
+            11,
+            15
+          ],
+          "options": [
+            "はい、行きました。テントがありましたから、雨でも大丈夫でした",
+            "いいえ、行きませんでした。雨がひどくなりましたから",
+            "はい、行きました。朝、雨が降りそうにありませんでしたから",
+            "いいえ、行きませんでした。カリナさんが来られませんでしたから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết mô tả:「雨は降りそうにありませんでした」(様態否定: quan sát sáng đó thấy không có vẻ mưa) — đây là lý do hai người quyết định đi. Kết quả cuối bài xác nhận:「二人はとても楽しいピクニックができました」(đã đi được và vui vẻ). Câu này cần nối hai thông tin: 様態否定 (điều kiện) → kết quả tốt. Đáp án 0 sai vì lều đã bị bác bỏ trước đó (Watt nói「重そう」và đề xuất ghế mái thay thế); hơn nữa kết quả là trời tốt nên không cần lều. Đáp án 1 sai hoàn toàn — mưa KHÔNG xảy ra, trái với 降りそうにありません. Đáp án 3 sai vì Karina nói「10時に駅で会いましょう」— cô hoàn toàn tham gia được.",
+          "tip": "Câu hỏi kết quả có/không đi được → tìm QUAN SÁT 様態そう/そうにありません buổi sáng hôm đó. 降りそうにありません (không có vẻ mưa) = điều kiện để đi được. Loại ngay đáp án nào nói mưa to hoặc ai đó vắng mặt.",
+          "qt": {
+            "q": "Sáng hôm sau, hai người có thể đi dã ngoại không? Lý do là gì? (suy đoán)",
+            "o": [
+              "Có, họ đã đi. Vì có lều nên dù trời mưa cũng không sao",
+              "Không, họ đã không đi. Vì trời mưa nặng hạt",
+              "Có, họ đã đi. Vì sáng hôm đó có vẻ trời sẽ không mưa",
+              "Không, họ đã không đi. Vì chị Karina không thể đến"
+            ]
+          }
+        },
+        {
+          "q": "「Vて来ます」と「Vて行きます」について、この文章で正しいのはどれですか。",
+          "evi": [
+            13,
+            14
+          ],
+          "options": [
+            "カリナさんは「サンドイッチを作って行きます」と言いました。これは「作ってから戻って来る」という意味です",
+            "ワットさんは「飲み物を買って来ます」と言いました。これは「買ってから集合場所に来る」という意味です",
+            "二つの表現はどちらも「戻って来る」という意味で、同じです",
+            "カリナさんの「作って行きます」は「作るために行く」という意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Watt nói「飲み物を買って来ます」= mua đồ uống xong rồi ĐẾN (điểm hẹn — hướng vào phía điểm hẹn, gần người nghe). Đây đúng nghĩa Vて来ます: làm V xong rồi di chuyển ĐẾN gần. Đáp án 0 sai:「作って行きます」của Karina = làm sandwich xong rồi RỜI ĐI (Karina đang ở nhà, nói \"tôi sẽ đến chỗ hẹn\"), không phải \"làm rồi về nhà\" — て行く là hướng RỜI XA người nói, không phải quay về. Đáp án 2 sai vì hai mẫu NGƯỢC chiều (て来る = đến gần, て行く = rời xa) — hoàn toàn không cùng nghĩa. Đáp án 3 sai nghĩa cơ bản:「作って行きます」không có ý \"đi để làm\" (đó là Vに行きます), mà là \"làm xong rồi đi\".",
+          "tip": "Phân biệt nhanh: Vて来ます = làm V rồi ĐẾN (hướng vào, gần mình); Vて行きます = làm V rồi RỜI ĐI (hướng ra, xa mình). Hỏi \"người đó đang đến nơi hẹn hay đi khỏi nơi đang đứng?\" → đến nơi hẹn (gần) = て来る; rời chỗ mình đi đến nơi hẹn (ra xa) = て行く.",
+          "qt": {
+            "q": "Về 「Vて来ます」 và 「Vて行きます」, câu nào đúng trong đoạn văn này?",
+            "o": [
+              "Chị Karina nói: 「サンドイッチを作って行きます」(Tôi sẽ làm bánh mì kẹp rồi mang đi). Câu này có nghĩa là “làm xong rồi quay về”",
+              "Anh Watt nói: 「飲み物を買って来ます」(Tôi sẽ mua đồ uống rồi mang đến). Câu này có nghĩa là “mua xong rồi đến điểm hẹn”",
+              "Cả hai cách diễn đạt đều có nghĩa là “quay về”, và giống nhau",
+              "「作って行きます」 của chị Karina có nghĩa là “đi để làm”"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Bản tin sự kiện mùa thu của thành phố Sakura",
+      "japanese": "さくら市ニュース　「秋を楽しもう」\nさくら市では、10月と11月に、楽しいイベントがあります。\n空が気持ちよさそうな日に、外で遊びませんか。\nイベント｜日にち｜場所・時間｜お金\n①紅葉ハイキング｜10月18日（日）｜山田山　9時〜12時｜300円\n②芋ほり体験｜10月25日（日）｜中村農園　10時〜13時｜500円\n③秋の音楽会｜11月8日（日）｜市民公園　14時〜16時｜無料\n①と②は、雨が降りそうな日は中止になりますので、ご注意ください。\nイベント｜持って行く物\n①紅葉ハイキング｜飲み物、歩きやすい靴\n②芋ほり体験｜軍手、汚れてもいい服\n※③は雨の日、市民体育館でやります。傘を持って来てください。\nリーさんとカリナさんは、去年、芋ほりに行って来ました。とても楽しかったです。\n申し込みはさくら市役所に電話するか、メールを送ってください。電話：092-321-4567　Eメール：aki-event@sakura.jp",
+      "vietnamese": "Bản tin thành phố Sakura　\"Cùng tận hưởng mùa thu\"\nỞ thành phố Sakura, vào tháng 10 và tháng 11 có những sự kiện vui.\nVào ngày bầu trời trông có vẻ dễ chịu, bạn có muốn ra ngoài chơi không?\nSự kiện｜Ngày｜Địa điểm・Giờ｜Tiền\n①Leo núi ngắm lá đỏ｜Ngày 18/10 (Chủ nhật)｜Núi Yamada　9 giờ〜12 giờ｜300 yên\n②Trải nghiệm đào khoai lang｜Ngày 25/10 (Chủ nhật)｜Nông trại Nakamura　10 giờ〜13 giờ｜500 yên\n③Buổi hòa nhạc mùa thu｜Ngày 8/11 (Chủ nhật)｜Công viên thành phố　14 giờ〜16 giờ｜Miễn phí\n① và ② nếu là ngày trông có vẻ sắp mưa thì sẽ bị huỷ, xin quý vị lưu ý.\nSự kiện｜Đồ mang theo\n①Leo núi ngắm lá đỏ｜Nước uống, giày dễ đi bộ\n②Trải nghiệm đào khoai lang｜Găng tay vải, quần áo có thể bị bẩn cũng được\n※③ nếu ngày mưa sẽ tổ chức ở nhà thi đấu thể thao thành phố. Xin hãy mang ô đến.\nAnh Lee và chị Karina năm ngoái đã đi đào khoai lang rồi trở về. Rất vui.\nĐăng ký bằng cách gọi điện đến tòa thị chính thành phố Sakura, hoặc gửi email. Điện thoại: 092-321-4567　Email: aki-event@sakura.jp",
+      "sentences": [
+        {
+          "jp": "さくら市ニュース　「秋を楽しもう」",
+          "vi": "Bản tin thành phố Sakura　\"Cùng tận hưởng mùa thu\"",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "楽しもう",
+              "read": "たのしもう",
+              "vi": "hãy tận hưởng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V意向形（Bài 31）",
+              "vi": "楽しもう = thể ý chí \"hãy tận hưởng\" của 楽しみます — tiêu đề bản tin dùng dạng rủ rê ngắn gọn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "秋を楽しもう",
+              "why": "Tiêu đề bản tin — xác định chủ đề chung là sự kiện mùa thu, chưa có căn cứ trả lời câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "さくら市では、10月と11月に、楽しいイベントがあります。",
+          "vi": "Ở thành phố Sakura, vào tháng 10 và tháng 11 có những sự kiện vui.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị (tính từ い)"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "10月",
+              "read": "じゅうがつ",
+              "vi": "tháng 10"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにNがあります（Bài 9,10）",
+              "vi": "10月と11月にイベントがあります = vào tháng 10 và 11 có sự kiện. に chỉ thời điểm xảy ra sự việc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "10月と11月",
+              "why": "Xác nhận phạm vi tháng của các sự kiện — dùng để lọc câu hỏi 1 (yêu cầu sự kiện tháng 11)."
+            }
+          ]
+        },
+        {
+          "jp": "空が気持ちよさそうな日に、外で遊びませんか。",
+          "vi": "Vào ngày bầu trời trông có vẻ dễ chịu, bạn có muốn ra ngoài chơi không?",
+          "vocab": [
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "気持ちよさそう",
+              "read": "きもちよさそう",
+              "vi": "có vẻ dễ chịu"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "遊びませんか",
+              "read": "あそびませんか",
+              "vi": "có muốn chơi không"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NAそうな＋N（様態）",
+              "vi": "気持ちよさそうな日 = \"ngày trông có vẻ dễ chịu\". 気持ちいい → 気持ちよさそう (いい đặc biệt: bỏ い thêm よさそう), rồi ＋な＋日 để bổ nghĩa danh từ."
+            },
+            {
+              "point": "〜ませんか（Bài 6）",
+              "vi": "遊びませんか = bạn có muốn chơi không? Lời rủ rê lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "イベント｜日にち｜場所・時間｜お金",
+          "vi": "Sự kiện｜Ngày｜Địa điểm・Giờ｜Tiền",
+          "vocab": [
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "日にち",
+              "read": "ひにち",
+              "vi": "ngày (cụ thể)"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（情報検索）",
+              "vi": "Hàng tiêu đề (header) của bảng, xác định 4 cột: tên sự kiện / ngày / địa điểm-giờ / tiền — dùng để dò các hàng bên dưới."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日にち",
+              "why": "Cột \"ngày\" của bảng — dùng để đối chiếu điều kiện tháng/ngày trong cả 2 câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "①紅葉ハイキング｜10月18日（日）｜山田山　9時〜12時｜300円",
+          "vi": "①Leo núi ngắm lá đỏ｜Ngày 18/10 (Chủ nhật)｜Núi Yamada　9 giờ〜12 giờ｜300 yên",
+          "vocab": [
+            {
+              "w": "紅葉",
+              "read": "こうよう",
+              "vi": "lá đỏ, mùa lá đỏ"
+            },
+            {
+              "w": "ハイキング",
+              "read": "ハイキング",
+              "vi": "đi bộ đường dài"
+            },
+            {
+              "w": "10月",
+              "read": "じゅうがつ",
+              "vi": "tháng 10"
+            },
+            {
+              "w": "18日",
+              "read": "じゅうはちにち",
+              "vi": "ngày 18"
+            },
+            {
+              "w": "日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "山田山",
+              "read": "やまだやま",
+              "vi": "núi Yamada"
+            },
+            {
+              "w": "山",
+              "read": "やま",
+              "vi": "núi"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "12時",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞・時刻（Bài 4,11）",
+              "vi": "9時〜12時 = từ 9 giờ đến 12 giờ. 〜 nối khoảng thời gian, giống NからNまで."
+            }
+          ],
+          "keys": [
+            {
+              "w": "10月18日",
+              "why": "Sự kiện ① nằm trong THÁNG 10 → không thoả điều kiện \"tháng 11\" của câu hỏi 1, bị loại ngay."
+            },
+            {
+              "w": "300円",
+              "why": "Giá vé ①, dễ nhầm với đáp án nhiễu khi so bảng giá."
+            }
+          ]
+        },
+        {
+          "jp": "②芋ほり体験｜10月25日（日）｜中村農園　10時〜13時｜500円",
+          "vi": "②Trải nghiệm đào khoai lang｜Ngày 25/10 (Chủ nhật)｜Nông trại Nakamura　10 giờ〜13 giờ｜500 yên",
+          "vocab": [
+            {
+              "w": "芋ほり",
+              "read": "いもほり",
+              "vi": "đào khoai"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "10月",
+              "read": "じゅうがつ",
+              "vi": "tháng 10"
+            },
+            {
+              "w": "25日",
+              "read": "にじゅうごにち",
+              "vi": "ngày 25"
+            },
+            {
+              "w": "日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "中村",
+              "read": "なかむら",
+              "vi": "Nakamura"
+            },
+            {
+              "w": "農園",
+              "read": "のうえん",
+              "vi": "nông trại"
+            },
+            {
+              "w": "10時",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "13時",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 2）",
+              "vi": "中村農園 = nông trại (của ông/bà) Nakamura. Tên riêng ghép danh từ, không cần の khi thành tên gọi cố định."
+            }
+          ],
+          "keys": [
+            {
+              "w": "10月25日",
+              "why": "Sự kiện ② cũng nằm trong THÁNG 10 → không thoả điều kiện \"tháng 11\" của câu hỏi 1, bị loại ngay."
+            }
+          ]
+        },
+        {
+          "jp": "③秋の音楽会｜11月8日（日）｜市民公園　14時〜16時｜無料",
+          "vi": "③Buổi hòa nhạc mùa thu｜Ngày 8/11 (Chủ nhật)｜Công viên thành phố　14 giờ〜16 giờ｜Miễn phí",
+          "vocab": [
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày, mặt trời"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "音楽会",
+              "read": "おんがくかい",
+              "vi": "buổi hòa nhạc"
+            },
+            {
+              "w": "市民公園",
+              "read": "しみんこうえん",
+              "vi": "công viên thành phố"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 2）",
+              "vi": "秋の音楽会 = buổi hòa nhạc của mùa thu / buổi hòa nhạc mùa thu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "11月8日",
+              "why": "Sự kiện ③ ĐÚNG tháng 11 và ĐÚNG ngày Karina muốn đi (câu hỏi 1 và câu hỏi 2 đều căn cứ ngày này)."
+            },
+            {
+              "w": "無料",
+              "why": "Giá vé của ③ — dễ bị đưa vào đáp án nhiễu về tiền, nhưng câu hỏi không hỏi giá."
+            }
+          ]
+        },
+        {
+          "jp": "①と②は、雨が降りそうな日は中止になりますので、ご注意ください。",
+          "vi": "① và ② nếu là ngày trông có vẻ sắp mưa thì sẽ bị huỷ, xin quý vị lưu ý.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降りそう",
+              "read": "ふりそう",
+              "vi": "có vẻ sẽ mưa"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "中止",
+              "read": "ちゅうし",
+              "vi": "hủy, đình chỉ"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành, được"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "ください",
+              "read": "ください",
+              "vi": "xin hãy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vそうな＋N（様態）",
+              "vi": "雨が降りそうな日 = \"ngày trông có vẻ sắp mưa\". ますstem (降り) + そう + な + 日, bổ nghĩa cho danh từ 日 — quan sát bầu trời để dự đoán."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "中止になりますので = vì sẽ trở thành huỷ bỏ nên (xin lưu ý). ので nối lý do lịch sự, trang trọng hơn から."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "ご注意ください = xin hãy chú ý. Dạng lịch sự trang trọng của 〜てください trong văn thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "①と②は",
+              "why": "Giới hạn phạm vi bị huỷ khi mưa CHỈ áp dụng cho ① và ②, không bao gồm ③ — căn cứ then chốt để loại ①② ở câu hỏi 1."
+            },
+            {
+              "w": "雨が降りそうな日は中止になります",
+              "why": "① và ② sẽ bị huỷ nếu trời có vẻ mưa → không thoả điều kiện \"dù mưa cũng không huỷ\" của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "イベント｜持って行く物",
+          "vi": "Sự kiện｜Đồ mang theo",
+          "vocab": [
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "物",
+              "read": "もの",
+              "vi": "đồ vật, vật"
+            },
+            {
+              "w": "持って行く物",
+              "read": "もっていくもの",
+              "vi": "đồ mang theo (đi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋N（mệnh đề bổ nghĩa danh từ・Bài 22）",
+              "vi": "持って行く物 = \"đồ (mà mình) mang đi\". Vる (持って行く) bổ nghĩa trực tiếp cho danh từ 物, không cần trợ từ nối."
+            }
+          ]
+        },
+        {
+          "jp": "①紅葉ハイキング｜飲み物、歩きやすい靴",
+          "vi": "①Leo núi ngắm lá đỏ｜Nước uống, giày dễ đi bộ",
+          "vocab": [
+            {
+              "w": "紅葉",
+              "read": "こうよう",
+              "vi": "lá đỏ, lá vàng mùa thu"
+            },
+            {
+              "w": "ハイキング",
+              "read": "ハイキング",
+              "vi": "leo núi, đi bộ đường dài"
+            },
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "靴",
+              "read": "くつ",
+              "vi": "giày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい（Bài 44 chưa học — KHÔNG dùng cấu trúc, chỉ mượn từ ghép quen thuộc）",
+              "vi": "歩きやすい靴 ở đây dùng như CỤM TỪ CỐ ĐỊNH quen thuộc (\"giày dễ đi\") xuất hiện tự nhiên trong quảng cáo, không phân tích thêm ngữ pháp mới."
+            }
+          ],
+          "keys": [
+            {
+              "w": "飲み物、歩きやすい靴",
+              "why": "Đồ mang theo của ① — đáp án nhiễu của câu hỏi 2 (dễ nhầm nếu không xác định đúng sự kiện ③)."
+            }
+          ]
+        },
+        {
+          "jp": "②芋ほり体験｜軍手、汚れてもいい服",
+          "vi": "②Trải nghiệm đào khoai lang｜Găng tay vải, quần áo có thể bị bẩn cũng được",
+          "vocab": [
+            {
+              "w": "芋",
+              "read": "いも",
+              "vi": "củ khoai, khoai"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "軍手",
+              "read": "ぐんて",
+              "vi": "găng tay vải (lao động)"
+            },
+            {
+              "w": "汚れます",
+              "read": "よごれます",
+              "vi": "bị bẩn, dơ"
+            },
+            {
+              "w": "服",
+              "read": "ふく",
+              "vi": "quần áo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです（Bài 15）",
+              "vi": "汚れてもいい服 = quần áo (mà) bị bẩn cũng được. Vてもいい bổ nghĩa trực tiếp cho danh từ 服 — không sao nếu quần áo bị bẩn khi đào khoai."
+            }
+          ],
+          "keys": [
+            {
+              "w": "軍手、汚れてもいい服",
+              "why": "Đồ mang theo của ② — đáp án nhiễu của câu hỏi 2 (nhầm sự kiện nếu không đối chiếu đúng ngày)."
+            }
+          ]
+        },
+        {
+          "jp": "※③は雨の日、市民体育館でやります。傘を持って来てください。",
+          "vi": "※③ nếu ngày mưa sẽ tổ chức ở nhà thi đấu thể thao thành phố. Xin hãy mang ô đến.",
+          "vocab": [
+            {
+              "w": "※③",
+              "read": "※③",
+              "vi": "ghi chú 3, mục 3"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "体育館",
+              "read": "たいいくかん",
+              "vi": "nhà thể chất"
+            },
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "雨の日",
+              "read": "あめのひ",
+              "vi": "ngày mưa"
+            },
+            {
+              "w": "市民体育館",
+              "read": "しみんたいいくかん",
+              "vi": "nhà thi đấu thể thao thành phố"
+            },
+            {
+              "w": "やります",
+              "read": "やります",
+              "vi": "làm, tổ chức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて来てください（Vて来ます＋Bài 14）",
+              "vi": "傘を持って来てください = xin hãy MANG Ô ĐẾN (đây). て来る = mang theo/đến gần nơi tổ chức, kết hợp Vてください thành lời đề nghị lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※③は雨の日、市民体育館でやります",
+              "why": "Bẫy ※: ③ KHÔNG bị huỷ khi mưa mà chuyển địa điểm — căn cứ chính của câu hỏi 1 (③ không huỷ dù mưa)."
+            },
+            {
+              "w": "傘を持って来てください",
+              "why": "Vật cần mang thêm khi trời mưa cho sự kiện ③ — căn cứ trực tiếp trả lời câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "リーさんとカリナさんは、去年、芋ほりに行って来ました。とても楽しかったです。",
+          "vi": "Anh Lee và chị Karina năm ngoái đã đi đào khoai lang rồi trở về. Rất vui.",
+          "vocab": [
+            {
+              "w": "リー",
+              "read": "りー",
+              "vi": "Lee"
+            },
+            {
+              "w": "さん",
+              "read": "さん",
+              "vi": "anh/chị, ông/bà"
+            },
+            {
+              "w": "カリナ",
+              "read": "かりな",
+              "vi": "Karina"
+            },
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "芋",
+              "read": "いも",
+              "vi": "khoai"
+            },
+            {
+              "w": "芋ほり",
+              "read": "いもほり",
+              "vi": "đào khoai"
+            },
+            {
+              "w": "行って来ました",
+              "read": "いってきました",
+              "vi": "đã đi và trở về"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "楽しかった",
+              "read": "たのしかった",
+              "vi": "đã vui"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vに行って来ます（Bài 13＋Bài 43）",
+              "vi": "芋ほりに行って来ました = đã đi đào khoai lang rồi (quay) trở về. Vに行きます (mục đích, Bài 13) kết hợp て来ます (đi rồi trở về đây, hoàn thành cả chuyến)."
+            }
+          ]
+        },
+        {
+          "jp": "申し込みはさくら市役所に電話するか、メールを送ってください。電話：092-321-4567　Eメール：aki-event@sakura.jp",
+          "vi": "Đăng ký bằng cách gọi điện đến tòa thị chính thành phố Sakura, hoặc gửi email. Điện thoại: 092-321-4567　Email: aki-event@sakura.jp",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "市役所",
+              "read": "しやくしょ",
+              "vi": "tòa thị chính, ủy ban thành phố"
+            },
+            {
+              "w": "電話します",
+              "read": "でんわします",
+              "vi": "gọi điện"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "送ります",
+              "read": "おくります",
+              "vi": "gửi"
+            },
+            {
+              "w": "aki",
+              "read": "aki",
+              "vi": "mùa thu, tên riêng Aki"
+            },
+            {
+              "w": "event",
+              "read": "event",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "sakura",
+              "read": "sakura",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "jp",
+              "read": "jp",
+              "vi": "tên miền Nhật Bản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NかN（Bài 6）",
+              "vi": "電話するか、メールを送ってください = gọi điện hoặc gửi email. か nối 2 lựa chọn thay thế nhau."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "気持ちよさそうな日",
+          "label": "NAそうな＋N（様態）"
+        },
+        {
+          "excerpt": "雨が降りそうな日",
+          "label": "Vそうな＋N（様態）"
+        },
+        {
+          "excerpt": "傘を持って来てください",
+          "label": "Vて来ます"
+        },
+        {
+          "excerpt": "芋ほりに行って来ました",
+          "label": "Vて行って来ます（行く＋来る）"
+        },
+        {
+          "excerpt": "汚れてもいい服",
+          "label": "Vてもいいです（Bài 15・ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đầu bản tin",
+          "topic": 0,
+          "note": "Tiêu đề + giới thiệu chung các sự kiện mùa thu tháng 10-11, chưa có căn cứ trả lời câu hỏi nào.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng sự kiện: ngày & giá",
+          "topic": 3,
+          "note": "Header + 3 hàng sự kiện với ngày, địa điểm, giờ, giá. Câu hỏi 1 dò cột ngày để lọc theo \"tháng 11\" (chỉ ③ đạt); câu hỏi 2 dò ngày 11/8 để xác định đúng sự kiện ③.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "turn",
+          "label": "Điều kiện huỷ khi mưa",
+          "topic": 7,
+          "note": "Bẫy giới hạn: chỉ ① và ② bị huỷ khi trời có vẻ mưa, ③ KHÔNG nằm trong diện này — căn cứ để loại ①② ở câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 10,
+          "kind": "body",
+          "label": "Bảng đồ mang theo của ①②",
+          "topic": 8,
+          "note": "Header + đồ mang theo của ① và ②, dùng làm đáp án nhiễu cho câu hỏi 2 (không phải đồ của ③).",
+          "qs": []
+        },
+        {
+          "from": 11,
+          "to": 11,
+          "kind": "turn",
+          "label": "Bẫy ※: phương án dự phòng của ③",
+          "topic": 11,
+          "note": "Dòng ※ cho biết ③ khi mưa vẫn tổ chức (đổi địa điểm) và cần mang ô — căn cứ chính cho cả câu hỏi 1 (không huỷ) và câu hỏi 2 (đồ cần mang).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "body",
+          "label": "Kinh nghiệm & liên hệ đăng ký",
+          "topic": 13,
+          "note": "Câu chuyện năm ngoái của Lee/Karina + thông tin liên hệ đăng ký, không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは、11月に子どもと一緒に、雨でも中止にならないイベントに参加したいです。ミラーさんはどのイベントに申し込みますか。",
+          "options": [
+            "①紅葉ハイキング",
+            "②芋ほり体験",
+            "③秋の音楽会",
+            "①と②の両方"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2（③秋の音楽会）. Bài viết ghi rõ:「①と②は、雨が降りそうな日は中止になりますので」— chỉ ① và ② mới bị huỷ khi trời có vẻ mưa; còn ③ có dòng ※ riêng:「③は雨の日、市民体育館でやります」— nghĩa là ③ vẫn tổ chức được (chuyển vào nhà) dù trời mưa, KHÔNG bị huỷ. Đề bài yêu cầu \"tháng 11 + dù mưa cũng không huỷ\": bảng cho thấy ① và ② đều vào tháng 10（10月18日／10月25日）nên bị loại ngay từ điều kiện THÁNG; chỉ có ③ vào 11月8日 và có phương án dự phòng khi mưa. Đáp án 0 và 1 sai vì cả hai đều tháng 10 (sai điều kiện tháng) và còn bị huỷ khi mưa (sai điều kiện thứ hai). Đáp án 3 sai vì đó là 2 sự kiện tháng 10 và SẼ bị huỷ khi mưa, ngược hoàn toàn với cả hai điều kiện đề bài.",
+          "tip": "Câu hỏi ghép 2 điều kiện \"tháng + không bị huỷ dù mưa\" → trước tiên lọc theo THÁNG trong bảng, sau đó đọc kỹ dòng chú ý về mưa／※ để tìm sự kiện KHÔNG bị huỷ (thường có phương án dự phòng như chuyển địa điểm trong nhà). Sự kiện phải thoả CẢ HAI điều kiện mới được chọn.",
+          "evi": [
+            6,
+            7,
+            11
+          ],
+          "qt": {
+            "q": "Miller muốn tham gia một sự kiện vào tháng 11 cùng với con và không bị hủy ngay cả khi trời mưa. Miller sẽ đăng ký sự kiện nào?",
+            "o": [
+              "① Đi bộ ngắm lá mùa thu",
+              "② Trải nghiệm đào khoai",
+              "③ Buổi hòa nhạc mùa thu",
+              "Cả ① và ②"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは、11月8日に音楽会へ行きたいですが、その日は雨が降りそうです。カリナさんは何を持って行かなければなりませんか。",
+          "options": [
+            "飲み物と歩きやすい靴",
+            "軍手と汚れてもいい服",
+            "傘",
+            "何も持って行かなくてもいいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2（傘）. Ngày 8/11 là③秋の音楽会 (theo bảng ngày tháng). Vì trời có vẻ sắp mưa, dòng ※ ghi rõ:「※③は雨の日、市民体育館でやります。傘を持って来てください」— khi mưa, sự kiện ③ chuyển vào nhà thi đấu VÀ người tham gia phải MANG Ô ĐẾN. Đáp án 0 sai vì \"飲み物と歩きやすい靴\" là đồ mang theo của ①紅葉ハイキング, không phải③. Đáp án 1 sai vì \"軍手と汚れてもいい服\" là đồ của②芋ほり体験. Đáp án 3 sai vì bài yêu cầu rõ ràng phải mang ô khi trời mưa.",
+          "tip": "Câu hỏi ghép điều kiện \"ngày/sự kiện + thời tiết mưa\" → trước tiên xác định ĐÚNG sự kiện theo ngày trong bảng, sau đó tìm dòng ※ riêng của sự kiện đó (không phải bảng 持って行く物 chung) để biết vật cần mang thêm khi mưa.",
+          "evi": [
+            6,
+            11
+          ],
+          "qt": {
+            "q": "Karina muốn đi buổi hòa nhạc vào ngày 8 tháng 11, nhưng hôm đó trời có vẻ sắp mưa. Karina phải mang theo gì?",
+            "o": [
+              "Đồ uống và giày dễ đi bộ",
+              "Găng tay lao động và quần áo có thể bị bẩn",
+              "Ô",
+              "Không cần mang theo thứ gì"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

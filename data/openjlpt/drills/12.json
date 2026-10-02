@@ -1,0 +1,337 @@
+{
+  "id": "minna1.b12",
+  "bai": 12,
+  "titleVi": "So sánh",
+  "know": [
+    {
+      "id": "minna1.b12.yori",
+      "point": "yori",
+      "jp": "〜は 〜より 〜です",
+      "vi": "So sánh hơn",
+      "en": "Comparative",
+      "gloss": "A ~ hơn B"
+    },
+    {
+      "id": "minna1.b12.houga",
+      "point": "houga",
+      "jp": "〜より 〜のほうが 〜です",
+      "vi": "Chọn cái hơn",
+      "en": "Choosing the better one",
+      "gloss": "B hơn A (chọn B)"
+    },
+    {
+      "id": "minna1.b12.ichiban",
+      "point": "ichiban",
+      "jp": "〜の中[なか]で 〜が 一番[いちばん]〜",
+      "vi": "So sánh nhất",
+      "en": "Superlative",
+      "gloss": "~ nhất trong nhóm"
+    },
+    {
+      "id": "minna1.b12.onaji",
+      "point": "onaji",
+      "jp": "〜は 〜と 同[おな]じです",
+      "vi": "Giống nhau",
+      "en": "Being the same",
+      "gloss": "A giống B"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b12-yori-tokyo",
+      "item": "minna1.b12.yori",
+      "err": "yori-order",
+      "vi": "Tokyo lớn hơn Osaka.",
+      "t1": {
+        "stem": "東京[とうきょう]は 大阪[おおさか]＿ 大[おお]きいです。",
+        "choices": [
+          "より",
+          "から",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "東京[とうきょう]は",
+          "大阪[おおさか]より",
+          "大[おお]きいです。"
+        ],
+        "traps": [
+          "大阪[おおさか]から",
+          "大阪[おおさか]のほうが"
+        ]
+      },
+      "t3": {
+        "target": "東京は大阪より大きいです。",
+        "accept": [
+          "とうきょうはおおさかよりおおきいです。"
+        ]
+      },
+      "why": "より đứng sau chuẩn so sánh (cái bị đem ra so): 大阪より."
+    },
+    {
+      "id": "c-b12-yori-densha",
+      "item": "minna1.b12.yori",
+      "err": "yori-order",
+      "vi": "Tàu điện nhanh hơn xe buýt.",
+      "t1": {
+        "stem": "電車[でんしゃ]は バス＿ 速[はや]いです。",
+        "choices": [
+          "より",
+          "と",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電車[でんしゃ]は",
+          "バスより",
+          "速[はや]いです。"
+        ],
+        "traps": [
+          "バスのほうが",
+          "バスと"
+        ]
+      },
+      "t3": {
+        "target": "電車はバスより速いです。",
+        "accept": [
+          "でんしゃはばすよりはやいです。"
+        ]
+      },
+      "why": "主題は + 基準より + tính từ. バスより = \"hơn xe buýt\"."
+    },
+    {
+      "id": "c-b12-houga-mikan",
+      "item": "minna1.b12.houga",
+      "err": "houga-replaced-wa",
+      "vi": "Tôi thích quýt hơn táo.",
+      "t1": {
+        "stem": "りんごより みかん＿ 好[す]きです。",
+        "choices": [
+          "のほうが",
+          "は",
+          "より"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "りんごより",
+          "みかんのほうが",
+          "好[す]きです。"
+        ],
+        "traps": [
+          "みかんは",
+          "みかんより"
+        ]
+      },
+      "t3": {
+        "target": "りんごよりみかんのほうが好きです。",
+        "accept": [
+          "りんごよりみかんのほうがすきです。"
+        ]
+      },
+      "why": "Cấu trúc cố định AよりBのほうが〜; không thay のほうが bằng は."
+    },
+    {
+      "id": "c-b12-houga-kyoto",
+      "item": "minna1.b12.houga",
+      "err": "houga-replaced-wa",
+      "vi": "Kyoto yên tĩnh hơn Tokyo.",
+      "t1": {
+        "stem": "東京[とうきょう]より 京都[きょうと]＿ 静[しず]かです。",
+        "choices": [
+          "のほうが",
+          "は",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "東京[とうきょう]より",
+          "京都[きょうと]のほうが",
+          "静[しず]かです。"
+        ],
+        "traps": [
+          "京都[きょうと]は"
+        ]
+      },
+      "t3": {
+        "target": "東京より京都のほうが静かです。",
+        "accept": [
+          "とうきょうよりきょうとのほうがしずかです。"
+        ]
+      },
+      "why": "のほうが nhấn mạnh cái được chọn (京都)."
+    },
+    {
+      "id": "c-b12-ichiban-class",
+      "item": "minna1.b12.ichiban",
+      "err": "ichiban-split",
+      "vi": "Trong lớp, anh Tanaka cao nhất.",
+      "t1": {
+        "stem": "クラスの中[なか]で 田中[たなか]さんが ＿ 背[せ]が 高[たか]いです。",
+        "choices": [
+          "一番[いちばん]",
+          "一番[いちばん]です",
+          "より"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "クラスの中[なか]で",
+          "田中[たなか]さんが",
+          "一番[いちばん]",
+          "背[せ]が 高[たか]いです。"
+        ],
+        "traps": [
+          "一番[いちばん]です",
+          "田中[たなか]さんは"
+        ]
+      },
+      "t3": {
+        "target": "クラスの中で田中さんが一番背が高いです。",
+        "accept": [
+          "くらすのなかでたなかさんがいちばんせがたかいです。"
+        ]
+      },
+      "why": "一番 đứng ngay trước tính từ — KHÔNG chèn です (✗ 一番です高い)."
+    },
+    {
+      "id": "c-b12-ichiban-sushi",
+      "item": "minna1.b12.ichiban",
+      "err": "ichiban-split",
+      "vi": "Trong các món Nhật, tôi thích sushi nhất.",
+      "t1": {
+        "stem": "日本[にほん]の 食[た]べ物[もの]の中[なか]で すし＿ 一番[いちばん] 好[す]きです。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]の 食[た]べ物[もの]の中[なか]で",
+          "すしが",
+          "一番[いちばん]",
+          "好[す]きです。"
+        ],
+        "traps": [
+          "すしを",
+          "一番[いちばん]です"
+        ]
+      },
+      "t3": {
+        "target": "日本の食べ物の中ですしが一番好きです。",
+        "accept": [
+          "にほんのたべもののなかですしがいちばんすきです。"
+        ]
+      },
+      "why": "〜の中で 〜が 一番〜. Đối tượng đứng nhất dùng が."
+    },
+    {
+      "id": "c-b12-onaji-shumi",
+      "item": "minna1.b12.onaji",
+      "err": "onaji-na",
+      "vi": "Sở thích giống nhau nhỉ.",
+      "t1": {
+        "stem": "＿ 趣味[しゅみ]ですね。",
+        "choices": [
+          "同[おな]じ",
+          "同[おな]じな",
+          "同[おな]じの"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "同[おな]じ",
+          "趣味[しゅみ]ですね。"
+        ],
+        "traps": [
+          "同[おな]じな",
+          "同[おな]じの"
+        ]
+      },
+      "t3": {
+        "target": "同じ趣味ですね。",
+        "accept": [
+          "おなじしゅみですね。"
+        ]
+      },
+      "why": "同じ là な-adj đặc biệt — KHÔNG thêm な trước danh từ (✗ 同じな趣味)."
+    },
+    {
+      "id": "c-b12-onaji-kaban",
+      "item": "minna1.b12.onaji",
+      "err": "onaji-na",
+      "vi": "Túi của tôi giống túi của bạn.",
+      "t1": {
+        "stem": "私[わたし]のかばんは あなたの＿ 同[おな]じです。",
+        "choices": [
+          "と",
+          "は",
+          "より"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]のかばんは",
+          "あなたのと",
+          "同[おな]じです。"
+        ],
+        "traps": [
+          "あなたのより",
+          "あなたのは"
+        ]
+      },
+      "t3": {
+        "target": "私のかばんはあなたのと同じです。",
+        "accept": [
+          "わたしのかばんはあなたのとおなじです。"
+        ]
+      },
+      "why": "Giống với cái gì dùng 〜と同じです."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b12-yori",
+      "item": "minna1.b12.yori",
+      "err": "yori-order",
+      "tts": "でんしゃは ばすより はやいです。",
+      "script": "電車[でんしゃ]は バスより 速[はや]いです。",
+      "ask": "Cái nào nhanh hơn?",
+      "choices": [
+        "Tàu điện",
+        "Xe buýt",
+        "Như nhau"
+      ],
+      "answer": 0,
+      "why": "AはBより〜 → A (tàu) hơn B (buýt)."
+    },
+    {
+      "id": "l-b12-ichiban",
+      "item": "minna1.b12.ichiban",
+      "err": "ichiban-split",
+      "tts": "くらすの なかで たなかさんが いちばん せが たかいです。",
+      "script": "クラスの 中[なか]で 田中[たなか]さんが 一番[いちばん] 背[せ]が 高[たか]いです。",
+      "ask": "Ai cao nhất trong lớp?",
+      "choices": [
+        "Anh Tanaka",
+        "Anh Yamada",
+        "Chị Maria"
+      ],
+      "answer": 0,
+      "why": "〜の中で 〜が 一番〜 = ~ nhất trong nhóm."
+    }
+  ]
+}

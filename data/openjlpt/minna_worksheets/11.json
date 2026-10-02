@@ -1,0 +1,382 @@
+{
+  "bai": 11,
+  "bunpou": [
+    {
+      "stem": "りんごを 3＿ ください。",
+      "choices": [
+        "個[こ]",
+        "枚[まい]",
+        "本[ほん]",
+        "冊[さつ]"
+      ],
+      "answer": 0,
+      "explain": "個[こ] dùng để đếm vật nhỏ tròn như quả táo; 枚[まい] dùng cho vật phẳng, 本[ほん] cho vật dài, 冊[さつ] cho sách."
+    },
+    {
+      "stem": "紙[かみ]を 2＿ 使[つか]いました。",
+      "choices": [
+        "枚[まい]",
+        "個[こ]",
+        "台[だい]",
+        "冊[さつ]"
+      ],
+      "answer": 0,
+      "explain": "枚[まい] dùng cho vật phẳng mỏng như tờ giấy, tờ tem; 個[こ] cho vật nhỏ, 冊[さつ] chỉ dùng cho sách."
+    },
+    {
+      "stem": "コンピューターを 1＿ 買[か]いました。",
+      "choices": [
+        "台[だい]",
+        "本[ほん]",
+        "枚[まい]",
+        "個[こ]"
+      ],
+      "answer": 0,
+      "explain": "台[だい] dùng để đếm máy móc, xe cộ; 本[ほん] cho vật dài như bút, chai, 枚[まい] cho vật phẳng."
+    },
+    {
+      "stem": "この 図書館[としょかん]で 本[ほん]を 3＿ 借[か]りました。",
+      "choices": [
+        "冊[さつ]",
+        "台[だい]",
+        "枚[まい]",
+        "個[こ]"
+      ],
+      "answer": 0,
+      "explain": "冊[さつ] là lượng từ chuyên dùng để đếm sách, tạp chí đóng bìa; các lựa chọn kia không dùng cho sách."
+    },
+    {
+      "stem": "マリアさんは 1週間[しゅうかん]＿ 2回[かい] プールへ 行[い]きます。",
+      "choices": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "answer": 0,
+      "explain": "Cấu trúc Nに〜回 diễn đạt tần suất: \"mỗi N lần\"; trợ từ に ở đây gắn với đơn vị thời gian, không phải を hay で."
+    },
+    {
+      "stem": "毎日[まいにち] 3時間[じかん]＿ 日本語[にほんご]を 勉強[べんきょう]します。",
+      "choices": [
+        "ぐらい",
+        "に",
+        "を",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "ぐらい (hoặc くらい) biểu thị con số ước lượng \"khoảng\"; に ở đây sai vì 毎日 không cần tần suất thêm."
+    },
+    {
+      "stem": "この レポートを 書[か]くのに 2日[にち]＿ かかりました。",
+      "choices": [
+        "ぐらい",
+        "に",
+        "から",
+        "まで"
+      ],
+      "answer": 0,
+      "explain": "ぐらい đứng sau số lượng/thời gian để chỉ \"khoảng, xấp xỉ\"; cấu trúc 〜のに〜かかります nghĩa là \"mất ~ để làm...\"."
+    },
+    {
+      "stem": "先週[せんしゅう] 映画[えいが]を 3＿ 見[み]ました。",
+      "choices": [
+        "回[かい]",
+        "枚[まい]",
+        "冊[さつ]",
+        "台[だい]"
+      ],
+      "answer": 0,
+      "explain": "回[かい] đếm số lần thực hiện hành động; 枚[まい] cho vật phẳng, 冊[さつ] cho sách, 台[だい] cho máy móc — đều không phù hợp."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "を",
+      "が",
+      "に",
+      "は",
+      "で",
+      "と",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "りんご＿ 3個[こ] 食[た]べました。",
+        "answer": "を",
+        "explain": "を đánh dấu tân ngữ trực tiếp của động từ 食べる; lượng từ 3個 đứng ngay sau tân ngữ."
+      },
+      {
+        "stem": "1日[いちにち]＿ 3回[かい] 薬[くすり]を 飲[の]みます。",
+        "answer": "に",
+        "explain": "Cấu trúc Nに〜回: に gắn với đơn vị thời gian để chỉ tần suất \"mỗi ngày 3 lần\"."
+      },
+      {
+        "stem": "図書館[としょかん]＿ 本[ほん]を 5冊[さつ] 借[か]りました。",
+        "answer": "で",
+        "explain": "で chỉ địa điểm diễn ra hành động (mượn sách tại thư viện); に chỉ hướng/đích đến, không dùng ở đây."
+      },
+      {
+        "stem": "先月[せんげつ]、コンピューター＿ 1台[だい] 買[か]いました。",
+        "answer": "を",
+        "explain": "を đánh dấu tân ngữ trực tiếp của 買う; lượng từ 1台 bổ sung số lượng cho danh từ コンピューター."
+      },
+      {
+        "stem": "パーティーに 友[とも]だち＿ 8人[にん] 来[き]ました。",
+        "answer": "が",
+        "explain": "が đánh dấu chủ ngữ của 来る; 友だちが来ました — 8人 là lượng từ bổ sung cho chủ ngữ."
+      },
+      {
+        "stem": "ミラーさん＿ 毎週[まいしゅう] 2回[かい] テニスを します。",
+        "answer": "は",
+        "explain": "は đánh dấu chủ đề câu (topic marker); câu trình bày thói quen của ミラーさん, không nhấn mạnh đối chiếu."
+      },
+      {
+        "stem": "弟[おとうと]＿ 毎日[まいにち] 2時間[じかん] ゲームを します。",
+        "answer": "も",
+        "explain": "も mang nghĩa \"cũng\" — hàm ý một người khác đã làm điều tương tự trước đó; dùng は thì không có nghĩa \"cũng\"."
+      },
+      {
+        "stem": "この 仕事[しごと]は 3日[みっか]＿ 終[お]わります。",
+        "answer": "で",
+        "explain": "で chỉ phạm vi thời gian hoàn thành (\"trong vòng 3 ngày\"); に chỉ thời điểm cụ thể, không phải khoảng thời gian."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "本[ほん] (sách)",
+      "prompt": "Đếm sách dùng lượng từ nào?",
+      "choices": [
+        "冊[さつ]",
+        "台[だい]",
+        "枚[まい]",
+        "本[ほん]"
+      ],
+      "answer": 0,
+      "explain": "冊[さつ] là lượng từ quy ước dành riêng cho sách, tạp chí, hồ sơ có trang; 台[だい] cho máy móc, 枚[まい] cho vật phẳng."
+    },
+    {
+      "base": "車[くるま] (xe hơi)",
+      "prompt": "Đếm xe hơi/máy móc dùng lượng từ nào?",
+      "choices": [
+        "台[だい]",
+        "冊[さつ]",
+        "個[こ]",
+        "回[かい]"
+      ],
+      "answer": 0,
+      "explain": "台[だい] dùng cho xe cộ và máy móc; 個[こ] cho vật nhỏ tròn, 回[かい] cho số lần hành động."
+    },
+    {
+      "base": "1人[にん]",
+      "prompt": "Cách đọc nào đúng cho \"1 người\"?",
+      "choices": [
+        "ひとり",
+        "いちにん",
+        "ひとにん",
+        "いちり"
+      ],
+      "answer": 0,
+      "explain": "1人 và 2人 đọc ngoại lệ là ひとり và ふたり; từ 3人 trở đi mới dùng âm Hán-Nhật (さんにん)."
+    },
+    {
+      "base": "2人[にん]",
+      "prompt": "Cách đọc nào đúng cho \"2 người\"?",
+      "choices": [
+        "ふたり",
+        "にり",
+        "にひと",
+        "ふたにん"
+      ],
+      "answer": 0,
+      "explain": "2人 đọc là ふたり (ngoại lệ thuần Nhật); にり, にひと hay ふたにん đều không tồn tại."
+    },
+    {
+      "base": "切手[きって] (tem thư)",
+      "prompt": "Đếm tem/tờ giấy dùng lượng từ nào?",
+      "choices": [
+        "枚[まい]",
+        "冊[さつ]",
+        "台[だい]",
+        "本[ほん]"
+      ],
+      "answer": 0,
+      "explain": "枚[まい] dùng cho vật phẳng mỏng như tem, tờ giấy, tấm ảnh; 冊[さつ] chỉ dùng cho sách."
+    },
+    {
+      "base": "1週間[しゅうかん]に 2回[かい]",
+      "prompt": "Câu nào dùng đúng cấu trúc Nに〜回?",
+      "choices": [
+        "1週間[しゅうかん]に 2回[かい] 泳[およ]ぎます。",
+        "1週間[しゅうかん]を 2回[かい] 泳[およ]ぎます。",
+        "1週間[しゅうかん]が 2回[かい] 泳[およ]ぎます。",
+        "1週間[しゅうかん]で 2回[かい] 泳[およ]ぎます。"
+      ],
+      "answer": 0,
+      "explain": "Cấu trúc tần suất bắt buộc dùng に: [đơn vị thời gian]に[số lần]回 + động từ; を/が/で đều sai ngữ pháp ở đây."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "マリアさんは",
+        "週[しゅう]に",
+        "2回[かい]",
+        "プールへ",
+        "行[い]きます。"
+      ],
+      "vi": "Maria mỗi tuần đi bể bơi 2 lần.",
+      "explain": "Trật tự: chủ đề + [đơn vị thời gian]に + [số lần]回 + địa điểm + động từ; tần suất (週に2回) đặt trước địa điểm."
+    },
+    {
+      "chips": [
+        "図書館[としょかん]で",
+        "本[ほん]を",
+        "3冊[さつ]",
+        "借[か]りました。"
+      ],
+      "vi": "Tôi đã mượn 3 cuốn sách ở thư viện.",
+      "explain": "Địa điểm+で đứng đầu, tiếp theo tân ngữ+を rồi lượng từ, cuối là động từ; lượng từ 3冊 đứng ngay sau tân ngữ."
+    },
+    {
+      "chips": [
+        "1日[いちにち]に",
+        "3回[かい]",
+        "薬[くすり]を",
+        "飲[の]んでください。"
+      ],
+      "vi": "Hãy uống thuốc 3 lần một ngày.",
+      "explain": "Tần suất [日]に[回] đặt đầu câu, rồi tân ngữ, rồi động từ dạng てください."
+    },
+    {
+      "chips": [
+        "コンピューターを",
+        "2台[だい]",
+        "買[か]いました。"
+      ],
+      "vi": "Tôi đã mua 2 cái máy tính.",
+      "explain": "Lượng từ 2台 đứng ngay sau tân ngữ+を trước động từ; không cần trợ từ riêng cho lượng từ."
+    },
+    {
+      "chips": [
+        "毎日[まいにち]",
+        "2時間[じかん]ぐらい",
+        "日本語[にほんご]を",
+        "勉強[べんきょう]します。"
+      ],
+      "vi": "Mỗi ngày tôi học tiếng Nhật khoảng 2 tiếng.",
+      "explain": "Trạng từ thời gian (毎日) đứng trước khoảng thời gian (2時間ぐらい); ぐらい bám trực tiếp vào con số."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "まりあさんは しゅうに にかい ぷーるへ いきます。",
+      "ask": "Maria đi bể bơi mấy lần một tuần?",
+      "choices": [
+        "2 lần",
+        "3 lần",
+        "1 lần"
+      ],
+      "answer": 0,
+      "script": "マリアさんは 週[しゅう]に 2回[かい] プールへ 行[い]きます。",
+      "explain": "Nghe thấy しゅうに にかい = 週に2回 \"2 lần một tuần\"; にかい = 2回 không phải 3回 (さんかい)."
+    },
+    {
+      "tts": "りんごを みっこ かいました。",
+      "ask": "Người nói mua mấy quả táo?",
+      "choices": [
+        "3 quả",
+        "2 quả",
+        "5 quả"
+      ],
+      "answer": 0,
+      "script": "りんごを 3個[こ] 買[か]いました。",
+      "explain": "みっこ là cách đọc thuần Nhật của 3個; ふたつ=2, いつつ=5 — phân biệt qua âm đầu み- vs ふた- vs いつ-."
+    },
+    {
+      "tts": "としょかんで ほんを ごさつ かりました。",
+      "ask": "Người nói mượn mấy cuốn sách?",
+      "choices": [
+        "5 cuốn",
+        "3 cuốn",
+        "2 cuốn"
+      ],
+      "answer": 0,
+      "script": "図書館[としょかん]で 本[ほん]を 5冊[さつ] 借[か]りました。",
+      "explain": "ごさつ = 5冊; さんさつ=3冊, にさつ=2冊 — phân biệt qua ご(5) vs さん(3) vs に(2)."
+    },
+    {
+      "tts": "まいにち にじかんぐらい にほんごを べんきょうします。",
+      "ask": "Người nói học tiếng Nhật bao lâu mỗi ngày?",
+      "choices": [
+        "Khoảng 2 tiếng",
+        "Khoảng 1 tiếng",
+        "Khoảng 3 tiếng"
+      ],
+      "answer": 0,
+      "script": "毎日[まいにち] 2時間[じかん]ぐらい 日本語[にほんご]を 勉強[べんきょう]します。",
+      "explain": "にじかん = 2時間; ぐらい là \"khoảng\"; いちじかん=1時間, さんじかん=3時間."
+    },
+    {
+      "tts": "かみを さんまい つかいました。",
+      "ask": "Người nói dùng mấy tờ giấy?",
+      "choices": [
+        "3 tờ",
+        "2 tờ",
+        "5 tờ"
+      ],
+      "answer": 0,
+      "script": "紙[かみ]を 3枚[まい] 使[つか]いました。",
+      "explain": "さんまい = 3枚; にまい=2枚, ごまい=5枚 — nhận biết さん(3) vs に(2) vs ご(5)."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi mượn 3 cuốn sách ở thư viện.",
+      "target": "図書館で本を3冊借りました。",
+      "accept": [
+        "としょかんでほんをさんさつかりました。",
+        "図書館で本を3さつ借りました。"
+      ],
+      "explain": "Địa điểm+で, tân ngữ+を, lượng từ 3冊 đứng sau tân ngữ, động từ quá khứ 借りました; lượng từ sách là 冊[さつ]."
+    },
+    {
+      "vi": "Anh ấy mỗi tuần đi gym 3 lần.",
+      "target": "彼は週に3回ジムへ行きます。",
+      "accept": [
+        "かれはしゅうにさんかいじむへいきます。",
+        "彼は週に3かいジムへ行きます。"
+      ],
+      "explain": "Cấu trúc tần suất: 週に3回 + điểm đến へ + 行きます; không dùng を hay で thay cho に sau đơn vị thời gian."
+    },
+    {
+      "vi": "Tôi đã mua 2 cái máy tính.",
+      "target": "コンピューターを2台買いました。",
+      "accept": [
+        "こんぴゅーたーをにだいかいました。",
+        "コンピューターを2だい買いました。"
+      ],
+      "explain": "Lượng từ máy móc là 台[だい]; lượng từ đứng sau tân ngữ+を, trước động từ."
+    },
+    {
+      "vi": "Mỗi ngày uống thuốc 3 lần.",
+      "target": "毎日3回薬を飲みます。",
+      "accept": [
+        "まいにちさんかいくすりをのみます。",
+        "毎日3かい薬を飲みます。",
+        "1日に3回薬を飲みます。"
+      ],
+      "explain": "毎日 hoặc 1日に đều diễn đạt \"mỗi ngày\"; 回[かい] là lượng từ đếm số lần hành động."
+    },
+    {
+      "vi": "Tôi dùng khoảng 2 tiếng để viết báo cáo này.",
+      "target": "このレポートを書くのに2時間ぐらいかかりました。",
+      "accept": [
+        "このれぽーとをかくのににじかんぐらいかかりました。",
+        "このレポートを書くのに2じかんぐらいかかりました。"
+      ],
+      "explain": "Cấu trúc [Vる]のに〜かかります = \"mất ~ để làm...\"; ぐらい đứng sau thời gian để chỉ ước lượng."
+    }
+  ]
+}

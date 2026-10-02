@@ -1,0 +1,359 @@
+{
+  "id": "minna1.b02",
+  "bai": 2,
+  "titleVi": "Chỉ định đồ vật — これ・それ・あれ",
+  "know": [
+    {
+      "id": "minna1.b02.kosoa",
+      "point": "kosoa",
+      "jp": "これ／それ／あれ",
+      "vi": "Đại từ chỉ định đồ vật",
+      "gloss": "cái này / cái đó / cái kia"
+    },
+    {
+      "id": "minna1.b02.kono",
+      "point": "kono",
+      "jp": "この／その／あの＋N",
+      "vi": "Chỉ định kèm danh từ",
+      "gloss": "N này / N đó / N kia"
+    },
+    {
+      "id": "minna1.b02.no",
+      "point": "no",
+      "jp": "〜の ／ 〜のです",
+      "vi": "Sở hữu & の thay danh từ",
+      "gloss": "của ～ / cái của ～"
+    },
+    {
+      "id": "minna1.b02.sou",
+      "point": "sou",
+      "jp": "そうです／そうじゃありません",
+      "vi": "Xác nhận / phủ nhận",
+      "gloss": "đúng vậy / không phải vậy"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b02-kosoa-hon",
+      "item": "minna1.b02.kosoa",
+      "err": "kore-kono",
+      "vi": "Cái này là sách.",
+      "t1": {
+        "stem": "＿は 本[ほん]です。",
+        "choices": [
+          "これ",
+          "この",
+          "ここ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これは",
+          "本[ほん]です。"
+        ],
+        "traps": [
+          "この",
+          "本[ほん]の"
+        ]
+      },
+      "t3": {
+        "target": "これは本です。",
+        "accept": [
+          "これはほんです。"
+        ]
+      },
+      "why": "これ đứng MỘT MÌNH làm chủ đề (＋は). この chỉ dùng khi kèm danh từ: この本."
+    },
+    {
+      "id": "c-b02-kosoa-nan",
+      "item": "minna1.b02.kosoa",
+      "err": "are-sore",
+      "vi": "(Hỏi về đồ vật trên tay người nghe) Cái đó là gì vậy?",
+      "t1": {
+        "stem": "＿は 何[なん]ですか。",
+        "choices": [
+          "それ",
+          "これ",
+          "あれ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "それは",
+          "何[なん]ですか。"
+        ],
+        "traps": [
+          "あれは",
+          "その"
+        ]
+      },
+      "t3": {
+        "target": "それは何ですか。",
+        "accept": [
+          "それはなんですか。"
+        ]
+      },
+      "why": "Đồ ở gần NGƯỜI NGHE → それ (これ = gần mình, あれ = xa cả hai)."
+    },
+    {
+      "id": "c-b02-kono-tokei",
+      "item": "minna1.b02.kono",
+      "err": "kore-kono",
+      "vi": "Cái đồng hồ này bao nhiêu tiền?",
+      "t1": {
+        "stem": "＿時計[とけい]は いくらですか。",
+        "choices": [
+          "この",
+          "これ",
+          "ここ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この時計[とけい]は",
+          "いくらですか。"
+        ],
+        "traps": [
+          "これ",
+          "時計[とけい]が"
+        ]
+      },
+      "t3": {
+        "target": "この時計はいくらですか。",
+        "accept": [
+          "このとけいはいくらですか。"
+        ]
+      },
+      "why": "Đứng TRƯỚC danh từ (時計) bắt buộc dùng この (✗ これ時計)."
+    },
+    {
+      "id": "c-b02-kono-hito",
+      "item": "minna1.b02.kono",
+      "err": "kore-kono",
+      "vi": "Người kia là ai vậy?",
+      "t1": {
+        "stem": "＿人[ひと]は 誰[だれ]ですか。",
+        "choices": [
+          "あの",
+          "あれ",
+          "あそこ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの人[ひと]は",
+          "誰[だれ]ですか。"
+        ],
+        "traps": [
+          "あれ",
+          "人[ひと]の"
+        ]
+      },
+      "t3": {
+        "target": "あの人は誰ですか。",
+        "accept": [
+          "あのひとはだれですか。"
+        ]
+      },
+      "why": "あの＋人 = \"người kia\". あれ là đại từ độc lập, không đứng trước danh từ."
+    },
+    {
+      "id": "c-b02-no-kaban",
+      "item": "minna1.b02.no",
+      "err": "no-drop",
+      "vi": "Cái này là cặp của tôi.",
+      "t1": {
+        "stem": "これは 私[わたし]＿かばんです。",
+        "choices": [
+          "の",
+          "は",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これは",
+          "私[わたし]の",
+          "かばんです。"
+        ],
+        "traps": [
+          "私[わたし]",
+          "かばんの"
+        ]
+      },
+      "t3": {
+        "target": "これは私のかばんです。",
+        "accept": [
+          "これはわたしのかばんです。"
+        ]
+      },
+      "why": "Khác tiếng Việt, sở hữu BẮT BUỘC có の giữa người và vật: 私のかばん (✗ 私かばん)."
+    },
+    {
+      "id": "c-b02-no-dare",
+      "item": "minna1.b02.no",
+      "err": "no-drop",
+      "vi": "Cái ô này là của ai vậy?",
+      "t1": {
+        "stem": "この傘[かさ]は 誰[だれ]＿ですか。",
+        "choices": [
+          "の",
+          "が",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この傘[かさ]は",
+          "誰[だれ]のですか。"
+        ],
+        "traps": [
+          "誰[だれ]ですか。",
+          "これ"
+        ]
+      },
+      "t3": {
+        "target": "この傘は誰のですか。",
+        "accept": [
+          "このかさはだれのですか。"
+        ]
+      },
+      "why": "誰の＋ですか — の thay cho 傘 đã rõ: \"của ai?\". ✗誰ですか = \"là ai?\" (hỏi người)."
+    },
+    {
+      "id": "c-b02-no-watashi",
+      "item": "minna1.b02.no",
+      "err": "no-drop",
+      "vi": "A: Cái chìa khóa đó là của bạn à? — B: Vâng, (cái) của tôi.",
+      "t1": {
+        "stem": "A:その鍵[かぎ]は あなたのですか。B:はい、私[わたし]＿です。",
+        "choices": [
+          "の",
+          "は",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "はい、",
+          "私[わたし]のです。"
+        ],
+        "traps": [
+          "私[わたし]です。",
+          "そうですか。"
+        ]
+      },
+      "t3": {
+        "target": "はい、私のです。",
+        "accept": [
+          "はい、わたしのです。"
+        ]
+      },
+      "why": "の thay danh từ đã rõ (鍵): 私のです = \"là cái của tôi\". ✗私です nghĩa là \"tôi là...\" — sai nghĩa."
+    },
+    {
+      "id": "c-b02-sou-meishi",
+      "item": "minna1.b02.sou",
+      "err": "sou-chigai",
+      "vi": "A: Đó là danh thiếp của anh Tanaka à? — B: Vâng, đúng vậy.",
+      "t1": {
+        "stem": "A:それは 田中[たなか]さんの名刺[めいし]ですか。B:はい、＿。",
+        "choices": [
+          "そうです",
+          "そうですか",
+          "そうじゃありません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "はい、",
+          "そうです。"
+        ],
+        "traps": [
+          "そうじゃありません。",
+          "そうですか。"
+        ]
+      },
+      "t3": {
+        "target": "はい、そうです。",
+        "accept": [
+          "はい、たなかさんのめいしです。"
+        ]
+      },
+      "why": "Câu hỏi xác nhận đúng sự thật → はい、そうです (khỏi lặp lại cả câu). そうですか = \"vậy à\" — không phải câu trả lời."
+    },
+    {
+      "id": "c-b02-sou-jisho",
+      "item": "minna1.b02.sou",
+      "err": "sou-chigai",
+      "vi": "A: Đó là từ điển à? — B: Không, không phải vậy. (Là sách thường.)",
+      "t1": {
+        "stem": "A:それは 辞書[じしょ]ですか。B:いいえ、＿。本[ほん]です。",
+        "choices": [
+          "そうじゃありません",
+          "そうです",
+          "そうですね"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "いいえ、",
+          "そうじゃありません。"
+        ],
+        "traps": [
+          "そうです。",
+          "そうません。"
+        ]
+      },
+      "t3": {
+        "target": "いいえ、そうじゃありません。",
+        "accept": [
+          "いいえ、そうではありません。",
+          "いいえ、ちがいます。"
+        ]
+      },
+      "why": "いいえ → phải phủ định: そうじゃありません（＝違います）. ✗いいえ、そうです mâu thuẫn; ✗そうません không tồn tại."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b02-are",
+      "item": "minna1.b02.kosoa",
+      "err": "are-sore",
+      "tts": "あれは にほんごの じしょです。",
+      "script": "あれは 日本語[にほんご]の 辞書[じしょ]です。",
+      "ask": "Quyển từ điển nằm ở đâu?",
+      "choices": [
+        "Xa cả người nói lẫn người nghe",
+        "Gần người nói",
+        "Gần người nghe"
+      ],
+      "answer": 0,
+      "why": "あれ = xa cả hai (これ gần người nói, それ gần người nghe)."
+    },
+    {
+      "id": "l-b02-no",
+      "item": "minna1.b02.no",
+      "err": "no-drop",
+      "tts": "そのかさは わたしのです。",
+      "script": "その傘[かさ]は 私[わたし]のです。",
+      "ask": "Cái ô là của ai?",
+      "choices": [
+        "Của người nói",
+        "Của người nghe",
+        "Của anh Tanaka"
+      ],
+      "answer": 0,
+      "why": "私のです — の thay cho 傘: \"(cái ô đó) là của tôi\"."
+    }
+  ]
+}

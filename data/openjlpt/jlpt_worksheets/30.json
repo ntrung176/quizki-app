@@ -1,0 +1,3567 @@
+{
+  "bai": 30,
+  "level": "N4",
+  "intro": "〜てあります (ai đó đã làm sẵn — kết quả còn đó) · 〜ておきます (làm trước để chuẩn bị). Có ÔN LẠI ngữ pháp đã học (bài 1-29) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "パーティーの前に、テーブルの上に料理を並べてあります。",
+              "ul": "並べて",
+              "choices": [
+                "ならべて",
+                "なべて",
+                "つらべて",
+                "なみべて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「並べる」（ならべる）nghĩa là \"xếp/bày\" các thứ theo hàng. Đọc đúng là「ならべて」. Ba phương án còn lại đều sai: 「なべて」thiếu âm 'ら', 「つらべて」nhầm âm đầu sang 'つら', 「なみべて」thêm âm 'み' không có trong chữ.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "テーブル",
+                  "vi": "bàn"
+                },
+                {
+                  "t": "上に",
+                  "read": "うえに",
+                  "vi": "trên (bề mặt)"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "並べてあります",
+                  "vi": "đã được bày sẵn (có chủ đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "会議室に資料を準備しておきました。",
+              "ul": "資料",
+              "choices": [
+                "しりょう",
+                "ざいりょう",
+                "じりょう",
+                "しょうりょう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「資料」（しりょう）nghĩa là \"tài liệu\". Đọc đúng là「しりょう」. 「ざいりょう」là cách đọc của「材料」(nguyên liệu), nhầm chữ「資」với「材」. 「じりょう」nhầm âm đầu từ し sang じ (trọc hoá sai). 「しょうりょう」thêm âm 'しょう' thừa không có trong chữ này.",
+              "glosses": [
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "資料",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "準備しておきました",
+                  "read": "じゅんびしておきました",
+                  "vi": "đã chuẩn bị sẵn (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "旅行の前日に、荷物を確認しておきます。",
+              "ul": "確認",
+              "choices": [
+                "かくにん",
+                "かくみん",
+                "こうにん",
+                "かくにき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「確認」（かくにん）nghĩa là \"xác nhận/kiểm tra\". Đọc đúng là「かくにん」. 「かくみん」nhầm âm 'に' thành 'み'. 「こうにん」nhầm âm đầu「確」từ かく sang こう (đây là âm của chữ khác như「後任」). 「かくにき」nhầm âm cuối 'ん' thành 'き'.",
+              "glosses": [
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "chuyến du lịch"
+                },
+                {
+                  "t": "前日",
+                  "read": "ぜんじつ",
+                  "vi": "ngày hôm trước"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý"
+                },
+                {
+                  "t": "確認",
+                  "vi": "xác nhận, kiểm tra"
+                },
+                {
+                  "t": "しておきます",
+                  "vi": "làm trước để dùng sau"
+                }
+              ]
+            },
+            {
+              "prompt": "ドアに案内を貼ってあります。",
+              "ul": "案内",
+              "choices": [
+                "あんない",
+                "あんがい",
+                "かんない",
+                "あんだい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「案内」（あんない）nghĩa là \"hướng dẫn/thông báo\". Đọc đúng là「あんない」. 「あんがい」nhầm 'な' thành 'が' (trọc hoá sai). 「かんない」nhầm âm đầu 'あ' thành 'か'. 「あんだい」nhầm âm 'な' thành 'だ' không có trong chữ.",
+              "glosses": [
+                {
+                  "t": "ドア",
+                  "vi": "cửa"
+                },
+                {
+                  "t": "案内",
+                  "vi": "hướng dẫn, thông báo"
+                },
+                {
+                  "t": "貼ってあります",
+                  "read": "はってあります",
+                  "vi": "đã được dán sẵn (có chủ đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーの飲み物は冷蔵庫に入れておきました。",
+              "ul": "冷蔵庫",
+              "choices": [
+                "れいぞうこ",
+                "れいとうこ",
+                "れいそうこ",
+                "れいぞうき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「冷蔵庫」（れいぞうこ）nghĩa là \"tủ lạnh\". Đọc đúng là「れいぞうこ」. 「れいとうこ」nhầm「蔵」(ぞう) với「凍」(とう) - đây là「冷凍庫」(ngăn đông). 「れいそうこ」nhầm 'ぞう' thành 'そう' (bỏ trọc hoá). 「れいぞうき」nhầm「庫」(こ) thành 'き' như trong「冷蔵機」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "飲み物",
+                  "read": "のみもの",
+                  "vi": "đồ uống"
+                },
+                {
+                  "t": "冷蔵庫",
+                  "vi": "tủ lạnh"
+                },
+                {
+                  "t": "入れておきました",
+                  "read": "いれておきました",
+                  "vi": "đã bỏ vào sẵn (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "会議の前に窓を開けてあります。",
+              "ul": "窓",
+              "choices": [
+                "まど",
+                "まと",
+                "かど",
+                "まだ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「窓」（まど）nghĩa là \"cửa sổ\". Đọc đúng là「まど」. 「まと」nhầm âm 'ど' thành 'と' (bỏ trọc hoá). 「かど」là chữ khác hoàn toàn nghĩa là \"góc\" (「角」). 「まだ」nhầm âm 'ど' thành 'だ' không liên quan.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "窓",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開けてあります",
+                  "read": "あけてあります",
+                  "vi": "đã được mở sẵn (có chủ đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "旅行の準備として地図を印刷しておきました。",
+              "ul": "印刷",
+              "choices": [
+                "いんさつ",
+                "いんさく",
+                "いんしゅつ",
+                "いんせつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「印刷」（いんさつ）nghĩa là \"in ấn\". Đọc đúng là「いんさつ」. 「いんさく」nhầm âm 'つ' thành 'く'. 「いんしゅつ」nhầm 'さ' thành 'しゅ' thừa âm. 「いんせつ」nhầm 'さつ' thành 'せつ', gần giống nhưng sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "du lịch"
+                },
+                {
+                  "t": "準備",
+                  "read": "じゅんび",
+                  "vi": "chuẩn bị"
+                },
+                {
+                  "t": "地図",
+                  "read": "ちず",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "印刷",
+                  "vi": "in ấn"
+                },
+                {
+                  "t": "しておきました",
+                  "vi": "đã làm trước để dùng sau"
+                },
+                {
+                  "t": "として",
+                  "read": "として",
+                  "vi": "〜として = với tư cách là ~, như là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "予約の番号をメモに書いてあります。",
+              "ul": "予約",
+              "choices": [
+                "よやく",
+                "ようやく",
+                "よやっ",
+                "よそく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「予約」（よやく）nghĩa là \"đặt trước/đặt chỗ\". Đọc đúng là「よやく」. 「ようやく」thêm âm 'う' dài thừa — đây là cách đọc của「ようやく」(\"cuối cùng\", trạng từ). 「よやっ」cắt ngắn sai âm cuối. 「よそく」nhầm「約」(やく) thành 'そく' — đây là「予測」(dự đoán).",
+              "glosses": [
+                {
+                  "t": "予約",
+                  "vi": "đặt trước, đặt chỗ"
+                },
+                {
+                  "t": "番号",
+                  "read": "ばんごう",
+                  "vi": "số (thứ tự/mã)"
+                },
+                {
+                  "t": "メモ",
+                  "vi": "ghi chú"
+                },
+                {
+                  "t": "書いてあります",
+                  "read": "かいてあります",
+                  "vi": "đã được ghi sẵn (có chủ đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーの会場はもう飾ってあります。",
+              "ul": "飾って",
+              "choices": [
+                "かざって",
+                "かさって",
+                "かじって",
+                "こさって"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「飾る」（かざる）nghĩa là \"trang trí\". Đọc đúng là「かざって」. 「かさって」nhầm 'ざ' thành 'さ' (bỏ trọc hoá). 「かじって」nhầm 'ざ' thành 'じ' —「かじる」lại nghĩa là \"cắn/gặm\". 「こさって」nhầm cả âm đầu 'か' thành 'こ' lẫn bỏ trọc hoá.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "会場",
+                  "read": "かいじょう",
+                  "vi": "địa điểm tổ chức"
+                },
+                {
+                  "t": "もう",
+                  "vi": "rồi, đã"
+                },
+                {
+                  "t": "飾ってあります",
+                  "vi": "đã được trang trí sẵn (có chủ đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "出発の前に連絡先を調べておきます。",
+              "ul": "連絡先",
+              "choices": [
+                "れんらくさき",
+                "れんらくせん",
+                "れいらくさき",
+                "れんらくしゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「連絡先」（れんらくさき）nghĩa là \"địa chỉ liên lạc\". Đọc đúng là「れんらくさき」. 「れんらくせん」nhầm「先」(さき) thành 'せん' — 'せん' là âm on của「先」nhưng trong「連絡先」đọc là 'さき' (âm kun). 「れいらくさき」nhầm 'れん' thành 'れい'. 「れんらくしゃ」nhầm「先」(さき) thành 'しゃ' như trong「連絡車」không đúng nghĩa.",
+              "glosses": [
+                {
+                  "t": "出発",
+                  "read": "しゅっぱつ",
+                  "vi": "khởi hành"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "連絡先",
+                  "vi": "địa chỉ/số liên lạc"
+                },
+                {
+                  "t": "調べておきます",
+                  "read": "しらべておきます",
+                  "vi": "tra cứu trước để dùng sau"
+                }
+              ]
+            },
+            {
+              "prompt": "ホテルの部屋にタオルが用意してあります。",
+              "ul": "用意",
+              "choices": [
+                "ようい",
+                "ようち",
+                "よい",
+                "ゆうい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「用意」（ようい）nghĩa là \"chuẩn bị sẵn\". Đọc đúng là「ようい」. 「ようち」nhầm 'い' thành 'ち' — 「用地」(ようち) nghĩa là \"khu đất\". 「よい」bỏ mất âm 'う' dài trong 'よう'. 「ゆうい」nhầm 'よう' thành 'ゆう' — 「有意」(ゆうい) là từ hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "タオル",
+                  "vi": "khăn tắm"
+                },
+                {
+                  "t": "用意してあります",
+                  "vi": "đã được chuẩn bị sẵn (có chủ đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "会議の前にホワイトボードに議題を書いてあります。",
+              "ul": "議題",
+              "choices": [
+                "ぎだい",
+                "きだい",
+                "ぎたい",
+                "ぎだく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「議題」（ぎだい）nghĩa là \"chủ đề/vấn đề của cuộc họp\". Đọc đúng là「ぎだい」. 「きだい」bỏ trọc hoá 'き' lẽ ra là 'ぎ'. 「ぎたい」nhầm 'だ' thành 'た' (bỏ trọc hoá của âm sau). 「ぎだく」nhầm 'い' thành 'く' ở âm cuối.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "ホワイトボード",
+                  "vi": "bảng trắng"
+                },
+                {
+                  "t": "議題",
+                  "vi": "chủ đề cuộc họp"
+                },
+                {
+                  "t": "書いてあります",
+                  "read": "かいてあります",
+                  "vi": "đã được ghi sẵn (có chủ đích)"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước (khi)"
+                }
+              ]
+            },
+            {
+              "prompt": "旅行のために地図を持参しておきました。",
+              "ul": "持参",
+              "choices": [
+                "じさん",
+                "もちさん",
+                "じぞん",
+                "じさい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「持参」（じさん）nghĩa là \"mang theo\". Đọc đúng là「じさん」(âm on-yomi của cả hai chữ). 「もちさん」nhầm đọc「持」theo âm kun là 'もち' thay vì âm on 'じ'. 「じぞん」nhầm 'さん' thành 'ぞん' — 「自存」không phải từ phổ thông. 「じさい」nhầm âm cuối 'ん' thành 'い'.",
+              "glosses": [
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "du lịch"
+                },
+                {
+                  "t": "地図",
+                  "read": "ちず",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "持参",
+                  "vi": "mang theo (có chủ đích)"
+                },
+                {
+                  "t": "しておきました",
+                  "vi": "đã làm trước để dùng sau"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "〜のために = vì ~, để ~ (mục đích/lợi ích)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーの招待状を送っておきました。",
+              "ul": "招待状",
+              "choices": [
+                "しょうたいじょう",
+                "しょうたいしょう",
+                "しょうだいじょう",
+                "しょうたいぞう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「招待状」（しょうたいじょう）nghĩa là \"thiệp mời\". Đọc đúng là「しょうたいじょう」. 「しょうたいしょう」nhầm「状」(じょう) thành 'しょう' — bỏ trọc hoá của 'じ'. 「しょうだいじょう」nhầm 'た' thành 'だ' (trọc hoá sai「待」). 「しょうたいぞう」nhầm 'じょう' thành 'ぞう' — hoàn toàn khác âm.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "招待状",
+                  "vi": "thiệp mời"
+                },
+                {
+                  "t": "送っておきました",
+                  "read": "おくっておきました",
+                  "vi": "đã gửi trước (để chuẩn bị)"
+                },
+                {
+                  "t": "しょうたいじょう",
+                  "read": "しょうたいじょう",
+                  "vi": "một cách đọc được đề xuất cho 招待状 (thiệp mời)"
+                },
+                {
+                  "t": "しょうたいしょう",
+                  "read": "しょうたいしょう",
+                  "vi": "một cách đọc được đề xuất cho 招待状 (thiệp mời)"
+                },
+                {
+                  "t": "しょうだいじょう",
+                  "read": "しょうだいじょう",
+                  "vi": "một cách đọc được đề xuất cho 招待状 (thiệp mời)"
+                },
+                {
+                  "t": "しょうたいぞう",
+                  "read": "しょうたいぞう",
+                  "vi": "một cách đọc được đề xuất cho 招待状 (thiệp mời)"
+                }
+              ]
+            },
+            {
+              "prompt": "出張の前にスケジュールを整理しておきます。",
+              "ul": "整理",
+              "choices": [
+                "せいり",
+                "せいれい",
+                "そうり",
+                "せいろ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「整理」（せいり）nghĩa là \"sắp xếp/dọn dẹp\". Đọc đúng là「せいり」. 「せいれい」thêm âm 'れ' thừa — 「整霊」không tồn tại; nhầm với「精霊」(せいれい, linh hồn). 「そうり」nhầm 'せい' thành 'そう' — 「総理」(そうり) là \"thủ tướng\". 「せいろ」nhầm 'り' thành 'ろ' — 「整路」không phải từ thông dụng.",
+              "glosses": [
+                {
+                  "t": "出張",
+                  "read": "しゅっちょう",
+                  "vi": "công tác (đi xa)"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "スケジュール",
+                  "vi": "lịch trình"
+                },
+                {
+                  "t": "整理",
+                  "vi": "sắp xếp, dọn dẹp"
+                },
+                {
+                  "t": "しておきます",
+                  "vi": "làm trước để dùng sau"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "パーティーの前に、テーブルの上にりょうりをならべてあります。",
+              "ul": "ならべて",
+              "choices": [
+                "並べ",
+                "揃え",
+                "置き",
+                "積み"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「並べる（ならべる）」nghĩa là sắp xếp, bày biện theo hàng lối — đúng với cảnh bày món ăn lên bàn tiệc có chủ đích. ②「揃える（そろえる）」nghĩa là tập hợp/chuẩn bị đầy đủ, không diễn tả hành động bày ra theo thứ tự vật lý. ③「置く（おく）」nghĩa là đặt xuống nhưng không hàm ý sắp xếp có thứ tự. ④「積む（つむ）」nghĩa là chồng/xếp chồng lên nhau — không phù hợp khi nói về bày thức ăn trên bàn.",
+              "glosses": [
+                {
+                  "t": "パーティーの前に",
+                  "vi": "trước bữa tiệc"
+                },
+                {
+                  "t": "テーブルの上に",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "りょうりを",
+                  "read": "りょうりを",
+                  "vi": "các món ăn"
+                },
+                {
+                  "t": "ならべてあります",
+                  "read": "ならべてあります",
+                  "vi": "đã được xếp/bày sẵn"
+                }
+              ]
+            },
+            {
+              "prompt": "りょこうのまえに、ホテルをよやくしておきました。",
+              "ul": "よやく",
+              "choices": [
+                "予約",
+                "予定",
+                "予告",
+                "予想"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「予約（よやく）」nghĩa là đặt chỗ/đặt trước — đúng với hành động đặt phòng khách sạn trước chuyến đi. ②「予定（よてい）」nghĩa là kế hoạch/dự định, không mang nghĩa hành động đặt chỗ cụ thể. ③「予告（よこく）」nghĩa là thông báo trước/báo trước, dùng cho thông tin chứ không dùng cho việc đặt dịch vụ. ④「予想（よそう）」nghĩa là dự đoán/ước tính — không liên quan đến hành động đặt chỗ.",
+              "glosses": [
+                {
+                  "t": "りょこうのまえに",
+                  "read": "りょこうのまえに",
+                  "vi": "trước chuyến du lịch"
+                },
+                {
+                  "t": "ホテルを",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "よやくしておきました",
+                  "read": "よやくしておきました",
+                  "vi": "đã đặt trước (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎしつのドアにかいぎのもくじをはってあります。",
+              "ul": "はって",
+              "choices": [
+                "貼っ",
+                "書い",
+                "掛け",
+                "付け"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「貼る（はる）」nghĩa là dán (bằng băng keo/hồ dán) lên bề mặt — đúng với hành động dán tờ giấy lên cửa. ②「書く（かく）」nghĩa là viết, nhưng chủ thể viết lên cửa trực tiếp thì không tự nhiên bằng dán giấy. ③「掛ける（かける）」nghĩa là treo lên — dùng cho vật treo bằng móc/dây, không dùng cho tờ giấy dán. ④「付ける（つける）」nghĩa là gắn/đính vào, nhưng ít tự nhiên hơn「貼る」khi nói về giấy tờ/thông báo.",
+              "glosses": [
+                {
+                  "t": "かいぎしつのドアに",
+                  "read": "かいぎしつのどあに",
+                  "vi": "trên cửa phòng họp"
+                },
+                {
+                  "t": "かいぎのもくじを",
+                  "read": "かいぎのもくじを",
+                  "vi": "mục lục của cuộc họp"
+                },
+                {
+                  "t": "はってあります",
+                  "read": "はってあります",
+                  "vi": "đã được dán sẵn"
+                }
+              ]
+            },
+            {
+              "prompt": "みんなが来る前に、いすをじゅんびしておきました。",
+              "ul": "じゅんび",
+              "choices": [
+                "準備",
+                "整備",
+                "装備",
+                "設備"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「準備（じゅんび）」nghĩa là chuẩn bị — đúng hoàn toàn với bối cảnh chuẩn bị ghế trước khi mọi người đến. ②「整備（せいび）」nghĩa là bảo dưỡng/sửa chữa kỹ thuật, thường dùng cho máy móc hay cơ sở hạ tầng. ③「装備（そうび）」nghĩa là trang bị/vũ khí/thiết bị chiến đấu — không dùng cho ghế thông thường. ④「設備（せつび）」nghĩa là cơ sở vật chất/thiết bị cố định — là danh từ chỉ thứ đã có sẵn, không dùng như động từ chuẩn bị.",
+              "glosses": [
+                {
+                  "t": "みんなが来る前に",
+                  "vi": "trước khi mọi người đến"
+                },
+                {
+                  "t": "いすを",
+                  "read": "いすを",
+                  "vi": "ghế"
+                },
+                {
+                  "t": "じゅんびしておきました",
+                  "read": "じゅんびしておきました",
+                  "vi": "đã chuẩn bị sẵn (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーのまえに、へやをそうじしておきます。",
+              "ul": "そうじ",
+              "choices": [
+                "掃除",
+                "整理",
+                "清算",
+                "洗浄"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「掃除（そうじ）」nghĩa là dọn dẹp/quét dọn nhà cửa — đúng với hành động làm sạch phòng trước tiệc. ②「整理（せいり）」nghĩa là sắp xếp/ngăn nắp, thiên về việc sắp xếp đồ vật có trật tự hơn là làm sạch. ③「清算（せいさん）」nghĩa là thanh toán/quyết toán — dùng trong tài chính, không dùng cho việc dọn phòng. ④「洗浄（せんじょう）」nghĩa là rửa sạch/tẩy rửa công nghiệp — mang tính chuyên môn/y tế, không tự nhiên cho việc dọn phòng hàng ngày.",
+              "glosses": [
+                {
+                  "t": "パーティーのまえに",
+                  "vi": "trước bữa tiệc",
+                  "read": "ぱーてぃーのまえに"
+                },
+                {
+                  "t": "へやを",
+                  "read": "へやを",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "そうじしておきます",
+                  "read": "そうじしておきます",
+                  "vi": "sẽ dọn dẹp trước (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎのしりょうはもうコピーしてあります。",
+              "ul": "しりょう",
+              "choices": [
+                "資料",
+                "材料",
+                "原料",
+                "燃料"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「資料（しりょう）」nghĩa là tài liệu/hồ sơ dùng trong họp hành hay học tập — đúng với bối cảnh photo tài liệu cuộc họp. ②「材料（ざいりょう）」nghĩa là nguyên liệu/vật liệu để làm ra thứ gì đó (nấu ăn, thủ công). ③「原料（げんりょう）」nghĩa là nguyên liệu thô/chưa qua xử lý — dùng trong sản xuất công nghiệp. ④「燃料（ねんりょう）」nghĩa là nhiên liệu (xăng, dầu) — hoàn toàn không liên quan đến cuộc họp.",
+              "glosses": [
+                {
+                  "t": "かいぎの",
+                  "read": "かいぎの",
+                  "vi": "của cuộc họp"
+                },
+                {
+                  "t": "しりょうは",
+                  "read": "しりょうは",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "もうコピーしてあります",
+                  "vi": "đã được photo/in sẵn rồi"
+                }
+              ]
+            },
+            {
+              "prompt": "たびの前に、スーツケースにふくをつめておきました。",
+              "ul": "つめて",
+              "choices": [
+                "詰め",
+                "積み",
+                "入れ",
+                "収め"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「詰める（つめる）」nghĩa là nhét/nhồi/xếp chặt vào vật chứa — đúng với hành động xếp quần áo vào vali. ②「積む（つむ）」nghĩa là chất/xếp chồng lên nhau thành đống — dùng cho hàng hóa chất lên xe, không tự nhiên cho vali. ③「入れる（いれる）」nghĩa là bỏ vào, đúng nhưng không diễn tả được sắc thái xếp chặt/gọn vào vali như「詰める」. ④「収める（おさめる）」nghĩa là cất/lưu giữ, thường dùng cho việc hoàn thành hay nộp kết quả, không tự nhiên cho hành lý.",
+              "glosses": [
+                {
+                  "t": "たびの前に",
+                  "read": "たびのまえに",
+                  "vi": "trước chuyến đi"
+                },
+                {
+                  "t": "スーツケースに",
+                  "vi": "vào vali"
+                },
+                {
+                  "t": "ふくを",
+                  "read": "ふくを",
+                  "vi": "quần áo"
+                },
+                {
+                  "t": "つめておきました",
+                  "read": "つめておきました",
+                  "vi": "đã nhồi/xếp sẵn (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーのばしょはもうきめてあります。",
+              "ul": "きめて",
+              "choices": [
+                "決め",
+                "定め",
+                "極め",
+                "固め"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「決める（きめる）」nghĩa là quyết định/chọn — đây là động từ thông dụng nhất cho hành động quyết định địa điểm, thời gian. ②「定める（さだめる）」cũng có nghĩa quyết định nhưng mang tính trang trọng/pháp lý hơn (quy định, luật lệ), không tự nhiên cho việc chọn địa điểm tiệc thông thường. ③「極める（きわめる）」nghĩa là đạt đến mức tột cùng/tinh thông — ví dụ「技を極める」(tinh thông kỹ năng), không dùng cho quyết định địa điểm. ④「固める（かためる）」nghĩa là làm cứng/củng cố — không dùng cho hành động quyết định.",
+              "glosses": [
+                {
+                  "t": "パーティーのばしょは",
+                  "read": "ぱーてぃーのばしょは",
+                  "vi": "địa điểm bữa tiệc"
+                },
+                {
+                  "t": "もうきめてあります",
+                  "read": "もうきめてあります",
+                  "vi": "đã được quyết định sẵn rồi"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎのまえに、プロジェクターをじゅんびしてあります。",
+              "ul": "じゅんびして",
+              "choices": [
+                "準備",
+                "用意",
+                "支度",
+                "手配"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu hỏi hỏi từ nào ứng với kana「ようい」. ②「用意（ようい）」đọc là「ようい」, nghĩa là chuẩn bị/sắp sẵn đồ dùng — đúng âm và đúng nghĩa. ①「準備（じゅんび）」cũng nghĩa là chuẩn bị nhưng đọc là「じゅんび」— sai âm. ③「支度（したく）」đọc là「したく」, nghĩa là chuẩn bị (thường dùng cho quần áo/ăn uống) — sai âm. ④「手配（てはい）」đọc là「てはい」, nghĩa là sắp xếp/thu xếp (như đặt xe, liên lạc) — sai âm.",
+              "glosses": [
+                {
+                  "t": "かいぎのまえに",
+                  "read": "かいぎのまえに",
+                  "vi": "trước cuộc họp"
+                },
+                {
+                  "t": "プロジェクターを",
+                  "vi": "máy chiếu"
+                },
+                {
+                  "t": "じゅんびしてあります",
+                  "read": "じゅんびしてあります",
+                  "vi": "đã được chuẩn bị/sắp xếp sẵn"
+                }
+              ]
+            },
+            {
+              "prompt": "りょこうのために、パスポートをこうしんしておきました。",
+              "ul": "こうしん",
+              "choices": [
+                "更新",
+                "交信",
+                "公信",
+                "更進"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「更新（こうしん）」nghĩa là gia hạn/cập nhật (hộ chiếu, hợp đồng, hồ sơ) — đúng với bối cảnh gia hạn passport trước du lịch. ②「交信（こうしん）」cùng âm nhưng nghĩa là liên lạc/giao tiếp (bằng sóng radio, điện báo) — sai nghĩa. ③「公信（こうしん）」không phải từ thông dụng trong tiếng Nhật hiện đại, không dùng cho hộ chiếu. ④「更進（こうしん）」không phải từ tiêu chuẩn — bẫy chữ Hán sáng tạo, không tồn tại trong từ điển thông dụng.",
+              "glosses": [
+                {
+                  "t": "りょこうのために",
+                  "read": "りょこうのために",
+                  "vi": "vì/cho chuyến du lịch"
+                },
+                {
+                  "t": "パスポートを",
+                  "vi": "hộ chiếu"
+                },
+                {
+                  "t": "こうしんしておきました",
+                  "read": "こうしんしておきました",
+                  "vi": "đã gia hạn/cập nhật sẵn"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーのためにケーキをちゅうもんしておきました。",
+              "ul": "ちゅうもん",
+              "choices": [
+                "注文",
+                "注目",
+                "注意",
+                "注射"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「注文（ちゅうもん）」nghĩa là đặt hàng/gọi món — đúng với hành động đặt bánh kem trước buổi tiệc. ②「注目（ちゅうもく）」nghĩa là chú ý/để ý đến — không dùng cho hành động mua hàng. ③「注意（ちゅうい）」nghĩa là cẩn thận/chú ý/cảnh báo — không liên quan đến đặt hàng. ④「注射（ちゅうしゃ）」nghĩa là tiêm/chích — hoàn toàn không liên quan đến tiệc tùng hay mua sắm.",
+              "glosses": [
+                {
+                  "t": "パーティーのために",
+                  "vi": "cho bữa tiệc"
+                },
+                {
+                  "t": "ケーキを",
+                  "vi": "bánh kem"
+                },
+                {
+                  "t": "ちゅうもんしておきました",
+                  "read": "ちゅうもんしておきました",
+                  "vi": "đã đặt hàng trước (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎしつのホワイトボードにもくてきがかいてあります。",
+              "ul": "かいて",
+              "choices": [
+                "書い",
+                "描い",
+                "刻み",
+                "記し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書く（かく）」nghĩa là viết (chữ, văn bản) — đúng với hành động viết mục đích lên bảng trắng. ②「描く（えがく/かく）」cũng đọc là「かく」nhưng thường dùng cho vẽ hình/tranh, không dùng cho chữ viết/nội dung họp. ③「刻む（きざむ）」nghĩa là khắc/chạm — dùng cho điêu khắc vật liệu cứng, quá nặng nề cho bảng trắng. ④「記す（しるす）」nghĩa là ghi chép (văn chương), đọc là「しるす」— sai âm so với「かく」.",
+              "glosses": [
+                {
+                  "t": "かいぎしつの",
+                  "read": "かいぎしつの",
+                  "vi": "của phòng họp"
+                },
+                {
+                  "t": "ホワイトボードに",
+                  "vi": "trên bảng trắng"
+                },
+                {
+                  "t": "もくてきが",
+                  "read": "もくてきが",
+                  "vi": "mục đích"
+                },
+                {
+                  "t": "かいてあります",
+                  "read": "かいてあります",
+                  "vi": "đã được viết sẵn"
+                }
+              ]
+            },
+            {
+              "prompt": "りょこうに行く前に、えんりょなくにもつをへらしておきます。",
+              "ul": "へらして",
+              "choices": [
+                "減らし",
+                "省き",
+                "切り",
+                "縮め"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「減らす（へらす）」nghĩa là giảm/bớt số lượng — đúng với bối cảnh giảm bớt hành lý trước khi đi. ②「省く（はぶく）」nghĩa là lược bỏ/tiết kiệm (thời gian, công đoạn), không tự nhiên cho việc giảm số lượng hành lý cụ thể. ③「切る（きる）」nghĩa là cắt — không dùng theo nghĩa bóng giảm hành lý trong văn cảnh này. ④「縮める（ちぢめる）」nghĩa là rút ngắn/thu nhỏ — dùng cho chiều dài/thời gian, không tự nhiên cho số lượng vật phẩm.",
+              "glosses": [
+                {
+                  "t": "りょこうに行く前に",
+                  "read": "りょこうにいくまえに",
+                  "vi": "trước khi đi du lịch"
+                },
+                {
+                  "t": "えんりょなく",
+                  "read": "えんりょなく",
+                  "vi": "không ngại ngần"
+                },
+                {
+                  "t": "にもつを",
+                  "read": "にもつを",
+                  "vi": "hành lý"
+                },
+                {
+                  "t": "へらしておきます",
+                  "read": "へらしておきます",
+                  "vi": "sẽ giảm bớt sẵn (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーのまえに、まどをあけてあります。",
+              "ul": "まどを",
+              "choices": [
+                "窓",
+                "扉",
+                "障子",
+                "戸"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「窓（まど）」đọc là「まど」— đúng âm và nghĩa là cửa sổ, hợp lý trong bối cảnh mở thông gió trước tiệc. ②「扉（とびら）」đọc là「とびら」— sai âm, nghĩa là cánh cửa lớn/cửa chính. ③「障子（しょうじ）」đọc là「しょうじ」— sai âm, là cửa giấy truyền thống Nhật Bản. ④「戸（と）」đọc là「と」— sai âm, là cửa ra vào dạng trượt.",
+              "glosses": [
+                {
+                  "t": "パーティーのまえに",
+                  "vi": "trước bữa tiệc",
+                  "read": "ぱーてぃーのまえに"
+                },
+                {
+                  "t": "まどを",
+                  "read": "まどを",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "あけてあります",
+                  "read": "あけてあります",
+                  "vi": "đã được mở sẵn"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎのために、しつもんをメモしておきました。",
+              "ul": "しつもん",
+              "choices": [
+                "質問",
+                "疾問",
+                "失問",
+                "実問"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「質問（しつもん）」nghĩa là câu hỏi — đúng với hành động ghi chú câu hỏi trước cuộc họp. ②「疾問（しつもん）」cùng âm nhưng「疾」nghĩa là bệnh tật/nhanh, không tạo thành từ thông dụng có nghĩa trong tiếng Nhật. ③「失問（しつもん）」cùng âm nhưng「失」nghĩa là mất/sai lầm — không phải từ tồn tại trong từ điển thông dụng. ④「実問（じつもん）」đọc thường là「じつもん」hoặc không tồn tại như từ độc lập tiêu chuẩn — là bẫy chữ Hán sáng tạo.",
+              "glosses": [
+                {
+                  "t": "かいぎのために",
+                  "read": "かいぎのために",
+                  "vi": "cho cuộc họp"
+                },
+                {
+                  "t": "しつもんを",
+                  "read": "しつもんを",
+                  "vi": "câu hỏi"
+                },
+                {
+                  "t": "メモしておきました",
+                  "vi": "đã ghi chú sẵn (để dùng sau)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "パーティーの前に、テーブルの上にお皿を＿てあります。",
+              "choices": [
+                "並べ",
+                "集め",
+                "隠し",
+                "片付け"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「並べ」(ならべ) — động từ「並べる」nghĩa là 'xếp hàng, bày ra'. Câu dùng cấu trúc〜てあります mô tả trạng thái có chủ đích: ai đó đã bày đĩa lên bàn sẵn để dùng cho tiệc. ✗「集め」(あつめ) = thu gom, gom lại — ý nghĩa ngược lại, không phù hợp ngữ cảnh bày biện. ✗「隠し」(かくし) = giấu đi — đĩa giấu đi thì không ai dùng được, vô lý. ✗「片付け」(かたづけ) = dọn dẹp, cất đi — đây là hành động sau tiệc, không phải chuẩn bị trước.",
+              "glosses": [
+                {
+                  "t": "パーティーの前に",
+                  "read": "",
+                  "vi": "trước bữa tiệc"
+                },
+                {
+                  "t": "テーブルの上に",
+                  "read": "",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "お皿",
+                  "read": "おさら",
+                  "vi": "đĩa"
+                },
+                {
+                  "t": "並べてあります",
+                  "read": "ならべてあります",
+                  "vi": "đã được xếp/bày sẵn"
+                }
+              ]
+            },
+            {
+              "stem": "会議室に入ると、ホワイトボードに議題が＿てありました。",
+              "choices": [
+                "書い",
+                "読み",
+                "消し",
+                "描い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「書い」(かい) — động từ「書く」nghĩa là 'viết'. Câu〜てありました diễn tả trạng thái: chương trình nghị sự đã được viết lên bảng trước khi mọi người vào. ✗「読み」(よみ) = đọc — không thể nói 'đọc sẵn lên bảng', cấu trúc không tự nhiên. ✗「消し」(けし) = xóa đi — trái nghĩa với mục đích chuẩn bị thông tin. ✗「描い」(えがい/かい) = vẽ (hình ảnh, tranh) — dùng cho tranh vẽ, không dùng cho chữ viết nghị sự.",
+              "glosses": [
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "ホワイトボード",
+                  "read": "",
+                  "vi": "bảng trắng"
+                },
+                {
+                  "t": "議題",
+                  "read": "ぎだい",
+                  "vi": "chủ đề/chương trình nghị sự"
+                },
+                {
+                  "t": "書いてありました",
+                  "read": "かいてありました",
+                  "vi": "đã được viết sẵn"
+                },
+                {
+                  "t": "入る",
+                  "read": "はいる",
+                  "vi": "đi vào, vào (phòng)"
+                }
+              ]
+            },
+            {
+              "stem": "旅行の前に、スーツケースに服を＿ておきました。",
+              "choices": [
+                "詰め",
+                "汚し",
+                "脱い",
+                "縫い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「詰め」(つめ) — động từ「詰める」nghĩa là 'nhồi vào, nhét vào, đóng gói'. Cấu trúc〜ておきました thể hiện hành động làm trước để chuẩn bị cho chuyến đi. ✗「汚し」(よごし) = làm bẩn — cố ý làm bẩn quần áo không hợp lý khi chuẩn bị đi du lịch. ✗「脱い」(ぬい) = cởi ra — cởi quần áo vào vali là vô nghĩa. ✗「縫い」(ぬい) = khâu, may — may quần áo vào vali không phải hành động chuẩn bị thông thường.",
+              "glosses": [
+                {
+                  "t": "旅行の前に",
+                  "read": "りょこうのまえに",
+                  "vi": "trước chuyến đi"
+                },
+                {
+                  "t": "スーツケース",
+                  "read": "",
+                  "vi": "vali"
+                },
+                {
+                  "t": "服",
+                  "read": "ふく",
+                  "vi": "quần áo"
+                },
+                {
+                  "t": "詰めておきました",
+                  "read": "つめておきました",
+                  "vi": "đã nhồi/xếp sẵn vào (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "stem": "パーティーの準備で、壁にかざりが＿てあります。",
+              "choices": [
+                "飾ら",
+                "壊れ",
+                "外さ",
+                "倒さ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「飾ら」(かざら) — động từ「飾る」nghĩa là 'trang trí, treo lên để làm đẹp'. Câu diễn tả trạng thái kết quả của hành động có chủ đích: ai đó đã trang trí tường sẵn. ✗「壊れ」(こわれ) = bị hỏng — là động từ vô ý (intransitive), không diễn tả chuẩn bị có chủ đích. ✗「外さ」(はずさ) = tháo ra, gỡ xuống — ngược chiều, phá bỏ trang trí. ✗「倒さ」(たおさ) = làm đổ, ngã — không liên quan đến trang trí tường.",
+              "glosses": [
+                {
+                  "t": "パーティーの準備",
+                  "read": "パーティーのじゅんび",
+                  "vi": "việc chuẩn bị tiệc"
+                },
+                {
+                  "t": "壁",
+                  "read": "かべ",
+                  "vi": "tường"
+                },
+                {
+                  "t": "かざり",
+                  "read": "",
+                  "vi": "đồ trang trí"
+                },
+                {
+                  "t": "飾ってあります",
+                  "read": "かざってあります",
+                  "vi": "đã được trang trí sẵn"
+                }
+              ]
+            },
+            {
+              "stem": "会議が始まる前に、資料を＿ておきます。",
+              "choices": [
+                "コピーし",
+                "返し",
+                "捨て",
+                "焼い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「コピーし」— động từ「コピーする」nghĩa là 'photocopy, sao chép'. Cấu trúc〜ておきます thể hiện làm việc gì trước để chuẩn bị. ✗「返し」(かえし) = trả lại — trả tài liệu đi thì không còn gì để dùng trong họp. ✗「捨て」(すて) = vứt bỏ — vứt tài liệu trước họp là phi lý. ✗「焼い」(やい) = đốt/nướng — đốt tài liệu trái hoàn toàn với mục đích chuẩn bị họp.",
+              "glosses": [
+                {
+                  "t": "会議が始まる前に",
+                  "read": "かいぎがはじまるまえに",
+                  "vi": "trước khi cuộc họp bắt đầu"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "コピーしておきます",
+                  "read": "",
+                  "vi": "sẽ photocopy sẵn (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "stem": "ホテルのチェックインのために、パスポートを＿ておきました。",
+              "choices": [
+                "用意し",
+                "失い",
+                "壊し",
+                "貸し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「用意し」(ようい) — động từ「用意する」nghĩa là 'chuẩn bị sẵn, sắp xếp trước'. Cấu trúc〜ておきました cho thấy đây là hành động chủ ý làm trước. ✗「失い」(うしない) = đánh mất — làm mất hộ chiếu là điều không mong muốn, trái nghĩa với chuẩn bị. ✗「壊し」(こわし) = phá hỏng — làm hỏng hộ chiếu thì không thể dùng. ✗「貸し」(かし) = cho mượn — cho mượn hộ chiếu đi thì không dùng cho bản thân được.",
+              "glosses": [
+                {
+                  "t": "ホテルのチェックイン",
+                  "read": "",
+                  "vi": "thủ tục nhận phòng khách sạn"
+                },
+                {
+                  "t": "パスポート",
+                  "read": "",
+                  "vi": "hộ chiếu"
+                },
+                {
+                  "t": "用意しておきました",
+                  "read": "ようい",
+                  "vi": "đã chuẩn bị sẵn (để dùng sau)"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "〜のために = vì ~, để ~ (mục đích/lợi ích)"
+                }
+              ]
+            },
+            {
+              "stem": "客が来る前に、部屋を＿ておいてください。",
+              "choices": [
+                "掃除し",
+                "汚し",
+                "壊し",
+                "閉め"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「掃除し」(そうじ) — động từ「掃除する」nghĩa là 'dọn dẹp, vệ sinh'. Cấu trúc〜ておいてください yêu cầu làm việc gì đó trước để chuẩn bị. ✗「汚し」(よごし) = làm bẩn — trái hẳn mục đích đón khách. ✗「壊し」(こわし) = phá hỏng — gây hại cho phòng, không phù hợp. ✗「閉め」(しめ) = đóng (cửa, cửa sổ) — tuy là hành động trong phòng nhưng không phải 'dọn dẹp' và không phải bối cảnh đón khách cần làm sạch.",
+              "glosses": [
+                {
+                  "t": "客が来る前に",
+                  "read": "きゃくがくるまえに",
+                  "vi": "trước khi khách đến"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "掃除しておいてください",
+                  "read": "そうじしておいてください",
+                  "vi": "hãy dọn dẹp sẵn (để chuẩn bị đón khách)"
+                }
+              ]
+            },
+            {
+              "stem": "旅行の計画のために、地図を＿ておきました。",
+              "choices": [
+                "調べ",
+                "汚し",
+                "失くし",
+                "破り"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「調べ」(しらべ) — động từ「調べる」nghĩa là 'tra cứu, tìm hiểu, nghiên cứu'. Tra bản đồ trước khi đi là hành động chuẩn bị hợp lý. ✗「汚し」(よごし) = làm bẩn bản đồ — không liên quan đến kế hoạch du lịch. ✗「失くし」(なくし) = làm mất bản đồ — ngược với mục đích chuẩn bị. ✗「破り」(やぶり) = xé rách — phá hủy bản đồ, không hợp lý trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "旅行の計画",
+                  "read": "りょこうのけいかく",
+                  "vi": "kế hoạch du lịch"
+                },
+                {
+                  "t": "地図",
+                  "read": "ちず",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "調べておきました",
+                  "read": "しらべておきました",
+                  "vi": "đã tra cứu/tìm hiểu sẵn"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "〜のために = vì ~, để ~ (mục đích/lợi ích)"
+                }
+              ]
+            },
+            {
+              "stem": "パーティーのために、飲み物をたくさん＿ておきました。",
+              "choices": [
+                "買っ",
+                "飲ん",
+                "捨て",
+                "隠し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「買っ」(かっ) — động từ「買う」nghĩa là 'mua'. Mua đồ uống trước tiệc là hành động chuẩn bị cụ thể và hợp lý nhất. ✗「飲ん」(のん) = uống — uống hết đồ uống trước tiệc thì không còn gì cho khách. ✗「捨て」(すて) = vứt bỏ — vứt đồ uống đi là lãng phí, phi lý. ✗「隠し」(かくし) = giấu đi — giấu đồ uống thì khách không uống được, không hợp ngữ cảnh tiệc.",
+              "glosses": [
+                {
+                  "t": "パーティーのために",
+                  "read": "",
+                  "vi": "để chuẩn bị cho bữa tiệc"
+                },
+                {
+                  "t": "飲み物",
+                  "read": "のみもの",
+                  "vi": "đồ uống"
+                },
+                {
+                  "t": "買っておきました",
+                  "read": "かっておきました",
+                  "vi": "đã mua sẵn (để dùng sau)"
+                },
+                {
+                  "t": "たくさん",
+                  "read": "たくさん",
+                  "vi": "nhiều, nhiều thứ"
+                }
+              ]
+            },
+            {
+              "stem": "会議の前に、プロジェクターを＿ておきます。",
+              "choices": [
+                "確認し",
+                "壊し",
+                "返し",
+                "忘れ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「確認し」(かくにん) — động từ「確認する」nghĩa là 'kiểm tra, xác nhận'. Kiểm tra máy chiếu trước họp là việc chuẩn bị thực tế. ✗「壊し」(こわし) = phá hỏng — cố tình làm hỏng thiết bị là vô lý. ✗「返し」(かえし) = trả lại — trả máy chiếu đi thì không dùng được trong họp. ✗「忘れ」(わすれ) = quên — quên kiểm tra thì không phải hành động chuẩn bị chủ động, không dùng với〜ておきます.",
+              "glosses": [
+                {
+                  "t": "会議の前に",
+                  "read": "かいぎのまえに",
+                  "vi": "trước cuộc họp"
+                },
+                {
+                  "t": "プロジェクター",
+                  "read": "",
+                  "vi": "máy chiếu"
+                },
+                {
+                  "t": "確認しておきます",
+                  "read": "かくにんしておきます",
+                  "vi": "sẽ kiểm tra/xác nhận sẵn (để chuẩn bị)"
+                }
+              ]
+            },
+            {
+              "stem": "旅館に着いたら、浴衣がたんすの中に＿てありました。",
+              "choices": [
+                "入れ",
+                "捨て",
+                "隠し",
+                "汚し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「入れ」(いれ) — động từ「入れる」nghĩa là 'bỏ vào, để vào'. Nhân viên nhà trọ đã để yukata vào tủ sẵn cho khách — đây là trạng thái có chủ đích điển hình của〜てあります. ✗「捨て」(すて) = vứt bỏ — vứt yukata vào tủ là cách nói vô lý. ✗「隠し」(かくし) = giấu đi — giấu yukata khách không dùng được. ✗「汚し」(よごし) = làm bẩn — làm bẩn yukata rồi để trong tủ không hợp ngữ cảnh dịch vụ khách sạn.",
+              "glosses": [
+                {
+                  "t": "旅館",
+                  "read": "りょかん",
+                  "vi": "nhà trọ kiểu Nhật"
+                },
+                {
+                  "t": "浴衣",
+                  "read": "ゆかた",
+                  "vi": "yukata (áo kimono mặc ở nhà trọ)"
+                },
+                {
+                  "t": "たんす",
+                  "read": "",
+                  "vi": "tủ đựng quần áo"
+                },
+                {
+                  "t": "入れてありました",
+                  "read": "いれてありました",
+                  "vi": "đã được để sẵn vào trong"
+                },
+                {
+                  "t": "着いた",
+                  "read": "ついた",
+                  "vi": "đã đến, đã tới (nơi)"
+                },
+                {
+                  "t": "中",
+                  "read": "なか",
+                  "vi": "bên trong, ở giữa"
+                }
+              ]
+            },
+            {
+              "stem": "出発の前の夜、目覚まし時計を＿ておきました。",
+              "choices": [
+                "セットし",
+                "壊し",
+                "隠し",
+                "捨て"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「セットし」— động từ「セットする」nghĩa là 'cài đặt, set'. Cài đồng hồ báo thức trước ngày đi là hành động chuẩn bị rất tự nhiên. ✗「壊し」(こわし) = làm hỏng — phá đồng hồ thì không dùng báo thức được. ✗「隠し」(かくし) = giấu đi — giấu đồng hồ thì không nghe được tiếng chuông. ✗「捨て」(すて) = vứt bỏ — vứt đồng hồ là hành động ngược lại với mục đích chuẩn bị.",
+              "glosses": [
+                {
+                  "t": "出発の前の夜",
+                  "read": "しゅっぱつのまえのよる",
+                  "vi": "tối trước ngày khởi hành"
+                },
+                {
+                  "t": "目覚まし時計",
+                  "read": "めざましどけい",
+                  "vi": "đồng hồ báo thức"
+                },
+                {
+                  "t": "セットしておきました",
+                  "read": "",
+                  "vi": "đã cài đặt sẵn (để dùng sau)"
+                }
+              ]
+            },
+            {
+              "stem": "パーティーの準備として、招待状を友達に＿ておきました。",
+              "choices": [
+                "送っ",
+                "破っ",
+                "隠し",
+                "汚し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「送っ」(おくっ) — động từ「送る」nghĩa là 'gửi'. Gửi thiệp mời trước tiệc là bước chuẩn bị tất yếu. ✗「破っ」(やぶっ) = xé rách — xé thiệp mời thì không ai nhận được lời mời. ✗「隠し」(かくし) = giấu đi — giấu thiệp thì bạn bè không biết có tiệc. ✗「汚し」(よごし) = làm bẩn — làm bẩn thiệp mời trước khi gửi là không lịch sự, không hợp lý.",
+              "glosses": [
+                {
+                  "t": "パーティーの準備として",
+                  "read": "じゅんびとして",
+                  "vi": "như một việc chuẩn bị cho tiệc"
+                },
+                {
+                  "t": "招待状",
+                  "read": "しょうたいじょう",
+                  "vi": "thiệp mời"
+                },
+                {
+                  "t": "送っておきました",
+                  "read": "おくっておきました",
+                  "vi": "đã gửi sẵn (để chuẩn bị)"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè, bạn"
+                }
+              ]
+            },
+            {
+              "stem": "会議室のドアに、会議中のサインが＿てあります。",
+              "choices": [
+                "貼ら",
+                "壊さ",
+                "外さ",
+                "隠さ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「貼ら」(はら) — động từ「貼る」nghĩa là 'dán'. Dán biển 'đang họp' lên cửa là hành động có chủ đích, kết quả còn tồn tại — đúng cấu trúc〜てあります. ✗「壊さ」(こわさ) = phá hỏng (cánh cửa) — không liên quan đến việc dán biển. ✗「外さ」(はずさ) = tháo ra, gỡ xuống — ngược chiều, gỡ biển ra. ✗「隠さ」(かくさ) = giấu đi — giấu biển thì người ngoài không thấy, mất tác dụng thông báo.",
+              "glosses": [
+                {
+                  "t": "会議室のドア",
+                  "read": "かいぎしつのドア",
+                  "vi": "cửa phòng họp"
+                },
+                {
+                  "t": "会議中のサイン",
+                  "read": "かいぎちゅうのサイン",
+                  "vi": "biển 'đang họp'"
+                },
+                {
+                  "t": "貼ってあります",
+                  "read": "はってあります",
+                  "vi": "đã được dán sẵn"
+                }
+              ]
+            },
+            {
+              "stem": "旅行に出かける前に、家の窓を全部＿ておきました。",
+              "choices": [
+                "閉め",
+                "開け",
+                "壊し",
+                "汚し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「閉め」(しめ) — động từ「閉める」nghĩa là 'đóng lại'. Đóng cửa sổ trước khi đi là hành động bảo vệ nhà cửa, điển hình cho〜ておきます (làm trước để tránh hậu quả). ✗「開け」(あけ) = mở ra — để cửa sổ mở khi đi vắng sẽ không an toàn, trái logic. ✗「壊し」(こわし) = làm vỡ/hỏng cửa sổ — phá hỏng nhà trước khi đi là vô lý. ✗「汚し」(よごし) = làm bẩn — làm bẩn cửa sổ không phải hành động chuẩn bị trước khi đi du lịch.",
+              "glosses": [
+                {
+                  "t": "旅行に出かける前に",
+                  "read": "りょこうにでかけるまえに",
+                  "vi": "trước khi đi du lịch"
+                },
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "閉めておきました",
+                  "read": "しめておきました",
+                  "vi": "đã đóng sẵn (để an toàn khi đi vắng)"
+                },
+                {
+                  "t": "家",
+                  "read": "いえ",
+                  "vi": "nhà"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "テーブルの上に料理が並べてあります。",
+              "choices": [
+                "テーブルの上に料理を並べるつもりです。",
+                "テーブルの上に料理が並べられています。",
+                "テーブルの上に料理を並べてしまいました。",
+                "テーブルの上に料理が並べておきます。"
+              ],
+              "answer": 1,
+              "pt": "Vてあります",
+              "explain": "Câu gốc dùng 「並べてあります」(Vてあります) — ai đó đã bày sẵn món ăn, kết quả (các món đang bày) vẫn còn đó. Đáp án B「並べられています」dùng thể bị động tiến hành/kết quả, diễn đạt cùng ý 'các món đang được bày ra' với trọng tâm kết quả hiện tại → gần nghĩa nhất. A「並べるつもりです」= có ý định bày → chưa làm, sai nghĩa. C「並べてしまいました」= lỡ bày rồi → hàm ý hối tiếc, lệch nghĩa. D「並べておきます」= sẽ bày sẵn (chủ động làm trước) → thì tương lai, sai.",
+              "glosses": [
+                {
+                  "t": "テーブルの上に",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "料理が",
+                  "read": "りょうりが",
+                  "vi": "các món ăn (chủ ngữ)"
+                },
+                {
+                  "t": "並べてあります",
+                  "read": "ならべてあります",
+                  "vi": "đã được bày sẵn (kết quả còn đó)"
+                }
+              ]
+            },
+            {
+              "prompt": "明日の会議のために、資料を準備しておきました。",
+              "choices": [
+                "明日の会議のために、資料をあらかじめ準備しました。",
+                "明日の会議のために、資料が準備してあります。",
+                "明日の会議のために、資料を準備してしまいました。",
+                "明日の会議のために、資料を準備することができました。"
+              ],
+              "answer": 0,
+              "pt": "Vておきます",
+              "explain": "「準備しておきました」(Vておきました) = đã làm sẵn trước với mục đích rõ ràng (cho cuộc họp ngày mai). Đáp án A「あらかじめ準備しました」dùng 「あらかじめ」(trước, sẵn) + động từ quá khứ thông thường → diễn đạt cùng ý 'đã chuẩn bị trước' → gần nghĩa nhất. B「準備してあります」= tài liệu đã được chuẩn bị (kết quả), nhấn mạnh trạng thái → khác điểm nhấn. C「準備してしまいました」= lỡ chuẩn bị rồi → hàm ý không chủ ý, lệch nghĩa. D「準備することができました」= đã có thể chuẩn bị → nhấn khả năng, sai.",
+              "glosses": [
+                {
+                  "t": "明日の会議のために",
+                  "read": "あしたのかいぎのために",
+                  "vi": "vì/để cho cuộc họp ngày mai"
+                },
+                {
+                  "t": "資料を",
+                  "read": "しりょうを",
+                  "vi": "tài liệu (tân ngữ)"
+                },
+                {
+                  "t": "準備しておきました",
+                  "read": "じゅんびしておきました",
+                  "vi": "đã chuẩn bị sẵn (làm trước để dùng sau)"
+                },
+                {
+                  "t": "あらかじめ",
+                  "read": "あらかじめ",
+                  "vi": "trước, từ trước"
+                }
+              ]
+            },
+            {
+              "prompt": "冷蔵庫にジュースが入れてあります。",
+              "choices": [
+                "冷蔵庫にジュースが入っています。",
+                "冷蔵庫にジュースが入れられました。",
+                "冷蔵庫にジュースを入れておきます。",
+                "冷蔵庫にジュースを入れてしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vてあります",
+              "explain": "「入れてあります」(tha động từ + てあります) = ai đó đã để nước ép vào tủ, kết quả là nước đang ở trong tủ. Đáp án A「入っています」dùng tự động từ「入る」+ ています (trạng thái kết quả) → nghĩa 'nước ép đang ở trong tủ' — cùng mô tả trạng thái hiện tại → gần nghĩa nhất (khác nhau ở chỗ có/không nêu chủ thể). B「入れられました」= thể bị động quá khứ, không mô tả trạng thái hiện tại. C「入れておきます」= sẽ để sẵn vào → tương lai. D「入れてしまいました」= lỡ để vào rồi → lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "冷蔵庫に",
+                  "read": "れいぞうこに",
+                  "vi": "trong tủ lạnh"
+                },
+                {
+                  "t": "ジュースが",
+                  "vi": "nước ép (chủ ngữ)"
+                },
+                {
+                  "t": "入れてあります",
+                  "read": "いれてあります",
+                  "vi": "đã được để sẵn vào (kết quả còn đó)"
+                }
+              ]
+            },
+            {
+              "prompt": "旅行の前に、ホテルを予約しておいたほうがいいですよ。",
+              "choices": [
+                "旅行の前に、ホテルを予約してあるほうがいいですよ。",
+                "旅行の前に、ホテルを予約しないほうがいいですよ。",
+                "旅行の前に、ホテルを予約することにしたほうがいいですよ。",
+                "旅行の前に、ホテルが予約してあるほうがいいですよ。"
+              ],
+              "answer": 3,
+              "pt": "Vておきます",
+              "explain": "「予約しておいたほうがいい」= nên làm sẵn trước (Vておく + たほうがいい). Đáp án D「予約してあるほうがいい」= nên ở trong trạng thái đã đặt sẵn → Vてある nhấn kết quả, nhưng lời khuyên vẫn tương đương 'nên đặt trước' → gần nghĩa nhất. A「予約してあるほうがいい」(chủ ngữ ホテルを) → sai trợ từ (phải là が với てある). B「予約しないほうがいい」= không nên đặt → nghĩa đối lập. C「予約することにしたほうがいい」= nên quyết định đặt → thêm tầng ý nghĩa quyết định, lệch.",
+              "glosses": [
+                {
+                  "t": "旅行の前に",
+                  "read": "りょこうのまえに",
+                  "vi": "trước khi đi du lịch"
+                },
+                {
+                  "t": "ホテルを予約しておいたほうがいい",
+                  "read": "ホテルをよやくしておいたほうがいい",
+                  "vi": "nên đặt khách sạn sẵn trước"
+                },
+                {
+                  "t": "ですよ",
+                  "vi": "đấy nhé (nhấn mạnh lời khuyên)"
+                }
+              ]
+            },
+            {
+              "prompt": "地図はもう印刷してあります。",
+              "choices": [
+                "地図はもう印刷されています。",
+                "地図はもう印刷しておきます。",
+                "地図はまだ印刷していません。",
+                "地図はもう印刷してしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vてあります (B29 Vています結果状態 ôn xoắn)",
+              "explain": "「印刷してあります」= ai đó đã in bản đồ, kết quả là bản đồ đang ở trạng thái đã in. Đáp án A「印刷されています」= thể bị động + ています (trạng thái kết quả) → cùng mô tả 'bản đồ đang ở trạng thái đã được in' → gần nghĩa nhất. B「印刷しておきます」= sẽ in sẵn → tương lai, sai. C「印刷していません」= chưa in → nghĩa đối lập. D「印刷してしまいました」= lỡ in rồi / in mất rồi → hàm ý bất ngờ/hối tiếc, lệch.",
+              "glosses": [
+                {
+                  "t": "地図は",
+                  "read": "ちずは",
+                  "vi": "bản đồ (chủ đề)"
+                },
+                {
+                  "t": "もう",
+                  "vi": "rồi, đã"
+                },
+                {
+                  "t": "印刷してあります",
+                  "read": "いんさつしてあります",
+                  "vi": "đã được in sẵn (kết quả còn đó)"
+                }
+              ]
+            },
+            {
+              "prompt": "子供のころ、毎朝牛乳を飲みながら新聞を読んでいました。",
+              "choices": [
+                "子供のころ、毎朝牛乳を飲むとき新聞を読んでいました。",
+                "子供のころ、毎朝牛乳を飲んだり新聞を読んだりしていました。",
+                "子供のころ、毎朝牛乳を飲んでから新聞を読んでいました。",
+                "子供のころ、毎朝牛乳を飲まないで新聞を読んでいました。"
+              ],
+              "answer": 0,
+              "pt": "V1stemながらV2 + Vています(習慣)",
+              "explain": "「飲みながら新聞を読む」= vừa uống sữa vừa đọc báo (2 việc đồng thời). Đáp án A「飲むとき新聞を読む」= khi uống sữa thì đọc báo → tuy không hoàn toàn đồng thời nhưng mô tả bối cảnh gần nhất → gần nghĩa nhất. B「飲んだり読んだりしていました」= khi thì uống khi thì đọc → 2 việc xen kẽ, không đồng thời. C「飲んでから読む」= uống xong rồi mới đọc → tuần tự, khác. D「飲まないで読む」= đọc báo mà không uống sữa → nghĩa đối lập.",
+              "glosses": [
+                {
+                  "t": "子供のころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "牛乳を飲みながら",
+                  "read": "ぎゅうにゅうをのみながら",
+                  "vi": "vừa uống sữa"
+                },
+                {
+                  "t": "新聞を読んでいました",
+                  "read": "しんぶんをよんでいました",
+                  "vi": "vừa đọc báo (thói quen quá khứ)"
+                }
+              ]
+            },
+            {
+              "prompt": "この部屋のエアコンは田中さんに直してもらいました。",
+              "choices": [
+                "田中さんがこの部屋のエアコンを直してくれました。",
+                "田中さんにこの部屋のエアコンを直してあげました。",
+                "田中さんはこの部屋のエアコンを直しておきました。",
+                "田中さんのおかげで、この部屋のエアコンが直っています。"
+              ],
+              "answer": 0,
+              "pt": "Vてもらいます",
+              "explain": "「直してもらいました」= tôi nhờ Tanaka sửa cho tôi (người nói là người nhận ơn). Đáp án A「田中さんが…直してくれました」= Tanaka đã sửa cho tôi (nhấn người cho), cùng sự kiện nhìn từ góc độ người nhận → gần nghĩa nhất. B「直してあげました」= tôi sửa cho Tanaka → chủ thể ngược, sai. C「直しておきました」= đã sửa sẵn trước → không có quan hệ nhờ/cho, sai. D「直っています」= đang ở trạng thái đã sửa xong → chỉ mô tả trạng thái, không nêu mối quan hệ nhờ/cho.",
+              "glosses": [
+                {
+                  "t": "この部屋のエアコンは",
+                  "read": "このへやのエアコンは",
+                  "vi": "điều hòa phòng này (chủ đề)"
+                },
+                {
+                  "t": "田中さんに",
+                  "read": "たなかさんに",
+                  "vi": "nhờ anh/chị Tanaka"
+                },
+                {
+                  "t": "直してもらいました",
+                  "read": "なおしてもらいました",
+                  "vi": "đã nhờ sửa giúp"
+                }
+              ]
+            },
+            {
+              "prompt": "雨が降っても、試合は中止しないそうです。",
+              "choices": [
+                "雨が降ったとしても、試合は行われるそうです。",
+                "雨が降ったら、試合は中止するそうです。",
+                "雨が降るので、試合は中止しないそうです。",
+                "雨が降らなければ、試合は中止しないそうです。"
+              ],
+              "answer": 0,
+              "pt": "V/Aても",
+              "explain": "「雨が降っても中止しない」= dù mưa vẫn không hủy (〜ても = nhượng bộ). Đáp án A「雨が降ったとしても行われる」= dù mưa vẫn diễn ra → cùng ý nhượng bộ, đồng nghĩa → gần nhất. B「雨が降ったら中止する」= nếu mưa thì hủy → điều kiện, nghĩa đối lập. C「雨が降るので中止しない」= vì mưa nên không hủy → quan hệ nhân quả, lệch nghĩa. D「雨が降らなければ中止しない」= nếu không mưa thì không hủy → điều kiện phủ định, lệch.",
+              "glosses": [
+                {
+                  "t": "雨が降っても",
+                  "read": "あめがふっても",
+                  "vi": "dù trời có mưa"
+                },
+                {
+                  "t": "試合は",
+                  "read": "しあいは",
+                  "vi": "trận đấu"
+                },
+                {
+                  "t": "中止しない",
+                  "read": "ちゅうししない",
+                  "vi": "không hủy"
+                },
+                {
+                  "t": "そうです",
+                  "vi": "nghe nói rằng"
+                },
+                {
+                  "t": "行われる",
+                  "read": "おこなわれる",
+                  "vi": "được tổ chức, diễn ra"
+                }
+              ]
+            },
+            {
+              "prompt": "財布を忘れてしまったので、何も買えませんでした。",
+              "choices": [
+                "財布がなかったから、何も買うことができませんでした。",
+                "財布を忘れたとき、何も買えませんでした。",
+                "財布を忘れたら、何も買えませんでした。",
+                "財布しか持っていなかったので、何も買えませんでした。"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました + V可能形",
+              "explain": "「忘れてしまった」= lỡ quên (hối tiếc) + 「買えませんでした」= không thể mua. Đáp án A「財布がなかったから何も買うことができなかった」= vì không có ví nên không thể mua gì → cùng nguyên nhân-kết quả, đồng nghĩa → gần nhất. B「財布を忘れたとき」= khi quên ví → 〜とき mô tả thời điểm, không phải nguyên nhân, lệch. C「財布を忘れたら」= nếu quên ví thì → điều kiện giả định, không hoàn toàn khớp. D「財布しか持っていなかったので」= chỉ mang theo ví → lệch nghĩa (ngược lại, có ví mà không có tiền).",
+              "glosses": [
+                {
+                  "t": "財布を忘れてしまったので",
+                  "read": "さいふをわすれてしまったので",
+                  "vi": "vì lỡ quên ví"
+                },
+                {
+                  "t": "何も買えませんでした",
+                  "read": "なにもかえませんでした",
+                  "vi": "không mua được gì cả"
+                },
+                {
+                  "t": "持っていなかった",
+                  "read": "もっていなかった",
+                  "vi": "đã không có, không mang theo"
+                },
+                {
+                  "t": "しか",
+                  "read": "しか",
+                  "vi": "chỉ, duy nhất (đi với phủ định)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーの前に、飲み物を買っておきましょう。",
+              "choices": [
+                "パーティーが始まる前に、飲み物を準備しておきましょう。",
+                "パーティーのために、飲み物が買ってあります。",
+                "パーティーの前に、飲み物を買ってしまいましょう。",
+                "パーティーのとき、飲み物を買えばいいです。"
+              ],
+              "answer": 0,
+              "pt": "Vておきます",
+              "explain": "「買っておきましょう」= hãy mua sẵn trước (Vておく). Đáp án A「始まる前に準備しておきましょう」= trước khi bắt đầu hãy chuẩn bị sẵn → cùng ý làm trước, đồng nghĩa → gần nhất. B「買ってあります」= đã mua sẵn (trạng thái) → khác thì, khác điểm nhấn. C「買ってしまいましょう」= hãy mua đi (hàm ý dứt khoát/nhanh thôi) → sắc thái khác. D「パーティーのとき買えばいい」= lúc tiệc mua cũng được → không có ý làm trước.",
+              "glosses": [
+                {
+                  "t": "パーティーの前に",
+                  "vi": "trước bữa tiệc"
+                },
+                {
+                  "t": "飲み物を買っておきましょう",
+                  "read": "のみものをかっておきましょう",
+                  "vi": "hãy mua sẵn đồ uống trước đi"
+                },
+                {
+                  "t": "始まる",
+                  "read": "はじまる",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "準備",
+                  "read": "じゅんび",
+                  "vi": "sự chuẩn bị"
+                }
+              ]
+            },
+            {
+              "prompt": "この薬は水なしでも飲みやすいです。",
+              "choices": [
+                "この薬は水がなくても簡単に飲めます。",
+                "この薬は水がないと飲めません。",
+                "この薬は水と一緒に飲むべきです。",
+                "この薬は水なしで飲んでしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vやすい",
+              "explain": "「飲みやすい」= dễ uống (Vやすい). Đáp án A「水がなくても簡単に飲める」= dù không có nước cũng uống được dễ dàng → cùng nghĩa 'dễ uống dù không có nước' → gần nhất. B「水がないと飲めない」= không có nước thì không uống được → nghĩa đối lập. C「水と一緒に飲むべき」= nên uống cùng nước → lệch nghĩa. D「飲んでしまいました」= lỡ uống rồi → sai nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "この薬は",
+                  "read": "このくすりは",
+                  "vi": "thuốc này"
+                },
+                {
+                  "t": "水なしでも",
+                  "read": "みずなしでも",
+                  "vi": "dù không có nước"
+                },
+                {
+                  "t": "飲みやすいです",
+                  "read": "のみやすいです",
+                  "vi": "dễ uống"
+                },
+                {
+                  "t": "簡単に",
+                  "read": "かんたんに",
+                  "vi": "một cách dễ dàng, đơn giản"
+                },
+                {
+                  "t": "一緒に",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau, cùng với"
+                }
+              ]
+            },
+            {
+              "prompt": "窓が開けてありますから、風が入ってきます。",
+              "choices": [
+                "窓が開いているから、風が入ってきます。",
+                "窓を開けておくから、風が入ってきます。",
+                "窓が開けられたから、風が入ってきました。",
+                "窓を開けてしまったから、風が入ってきます。"
+              ],
+              "answer": 0,
+              "pt": "Vてあります + B29自動詞",
+              "explain": "「開けてあります」(tha動詞+てあります) = ai đó đã mở cửa, kết quả cửa đang mở. Đáp án A「開いている」(自動詞「開く」+ている) = cửa đang ở trạng thái mở → cùng mô tả cửa đang mở, đồng nghĩa ở cấp độ trạng thái → gần nhất. B「開けておくから」= vì sẽ mở sẵn → tương lai. C「開けられたから」= vì đã được mở (bị động quá khứ) → sắc thái bị động, không mô tả trạng thái hiện tại. D「開けてしまったから」= vì lỡ mở rồi → hàm ý hối tiếc, lệch.",
+              "glosses": [
+                {
+                  "t": "窓が開けてあります",
+                  "read": "まどがあけてあります",
+                  "vi": "cửa sổ được mở sẵn (kết quả còn đó)"
+                },
+                {
+                  "t": "風が入ってきます",
+                  "read": "かぜがはいってきます",
+                  "vi": "gió thổi vào"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女は音楽を聴きながらジョギングするのが好きです。",
+              "choices": [
+                "彼女は音楽を聴くとき、ジョギングするのが好きです。",
+                "彼女はジョギングするとき音楽を聴くのをやめます。",
+                "彼女はジョギングが終わってから音楽を聴くのが好きです。",
+                "彼女は音楽もジョギングも好きではありません。"
+              ],
+              "answer": 0,
+              "pt": "V1stemながらV2",
+              "explain": "「聴きながらジョギングする」= vừa nghe nhạc vừa chạy bộ (同時). Đáp án A「音楽を聴くとき、ジョギングする」= khi nghe nhạc thì chạy bộ → 〜とき diễn đạt bối cảnh đồng thời → gần nghĩa nhất. B「聴くのをやめる」= ngừng nghe nhạc → nghĩa đối lập. C「終わってから聴く」= xong chạy rồi mới nghe → tuần tự. D「好きではない」= không thích → sai.",
+              "glosses": [
+                {
+                  "t": "音楽を聴きながら",
+                  "read": "おんがくをききながら",
+                  "vi": "vừa nghe nhạc"
+                },
+                {
+                  "t": "ジョギングするのが好き",
+                  "vi": "thích chạy bộ (đồng thời)"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "終わって",
+                  "read": "おわって",
+                  "vi": "kết thúc, xong (dạng て của 終わる)"
+                },
+                {
+                  "t": "やめます",
+                  "read": "やめます",
+                  "vi": "dừng lại, từ bỏ"
+                }
+              ]
+            },
+            {
+              "prompt": "鍵はテーブルの上に置いてあります。",
+              "choices": [
+                "鍵はテーブルの上にあります。",
+                "鍵をテーブルの上に置いておきます。",
+                "鍵はテーブルの上に置いてしまいました。",
+                "鍵はテーブルの上に置くことができます。"
+              ],
+              "answer": 0,
+              "pt": "Vてあります + B29Vています結果状態 ôn",
+              "explain": "「置いてあります」= ai đó đã đặt chìa khóa, kết quả là chìa khóa đang ở trên bàn. Đáp án A「テーブルの上にあります」= chìa khóa ở trên bàn → mô tả vị trí, cùng thông tin → gần nghĩa nhất (không nêu ai đặt nhưng kết quả như nhau). B「置いておきます」= sẽ đặt sẵn → tương lai. C「置いてしまいました」= lỡ đặt rồi → hàm ý hối tiếc. D「置くことができます」= có thể đặt được → khả năng, sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "鍵は",
+                  "read": "かぎは",
+                  "vi": "chìa khóa (chủ đề)"
+                },
+                {
+                  "t": "テーブルの上に",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "置いてあります",
+                  "read": "おいてあります",
+                  "vi": "đã được đặt sẵn (kết quả còn đó)"
+                }
+              ]
+            },
+            {
+              "prompt": "試験の前夜、単語をたくさん覚えておきました。",
+              "choices": [
+                "試験のために、前もって単語をたくさん勉強しました。",
+                "試験の前夜、単語を覚えてしまいました。",
+                "試験の前夜、単語が覚えてあります。",
+                "試験の前夜、単語を覚えることができました。"
+              ],
+              "answer": 0,
+              "pt": "Vておきます + B18Vるまえに ôn",
+              "explain": "「覚えておきました」= đã học thuộc sẵn trước (Vておく). Đáp án A「前もって単語をたくさん勉強しました」= đã học nhiều từ vựng từ trước → 「前もって」(từ trước, sẵn) + quá khứ thông thường → cùng ý 'chuẩn bị trước' → gần nhất. B「覚えてしまいました」= lỡ học thuộc rồi → hàm ý không chủ ý, lệch. C「単語が覚えてあります」= sai vì 覚える là 他動詞 nhưng 単語は/が với てある cần chủ thể đúng, hơn nữa hàm ý lạ. D「覚えることができました」= đã có thể học thuộc → nhấn khả năng, lệch ý.",
+              "glosses": [
+                {
+                  "t": "試験の前夜",
+                  "read": "しけんのぜんや",
+                  "vi": "đêm trước kỳ thi"
+                },
+                {
+                  "t": "単語をたくさん",
+                  "read": "たんごをたくさん",
+                  "vi": "nhiều từ vựng"
+                },
+                {
+                  "t": "覚えておきました",
+                  "read": "おぼえておきました",
+                  "vi": "đã học thuộc sẵn (làm trước để dùng)"
+                },
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "sự học tập"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 30 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "パーティーの前に、飲み物を冷蔵庫に入れ＿。",
+              "choices": [
+                "てあります",
+                "ておきます",
+                "てしまいます",
+                "てもらいます"
+              ],
+              "answer": 1,
+              "pt": "Vておきます (làm trước để dùng sau)",
+              "explain": "Câu nói về hành động 'bỏ đồ uống vào tủ lạnh trước bữa tiệc (để sẵn cho sau)' → dùng 「ておきます」(làm trước/làm sẵn để dùng sau). ① 「てあります」sai vì 「てあります」mô tả trạng thái kết quả do ai đó đã làm sẵn (nhìn thấy kết quả), còn đây đang nói về ý định làm trước. ③ 「てしまいます」sai vì diễn đạt việc lỡ làm/làm hết sạch, không phù hợp. ④ 「てもらいます」sai vì nghĩa là 'nhờ ai làm cho mình', không phải tự chuẩn bị.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "飲み物",
+                  "read": "のみもの",
+                  "vi": "đồ uống"
+                },
+                {
+                  "t": "冷蔵庫",
+                  "read": "れいぞうこ",
+                  "vi": "tủ lạnh"
+                },
+                {
+                  "t": "入れ",
+                  "read": "いれ",
+                  "vi": "bỏ vào"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                }
+              ]
+            },
+            {
+              "stem": "机の上に花瓶が置い＿。だれかが飾ったんですね。",
+              "choices": [
+                "てあります",
+                "ておきます",
+                "ています",
+                "てしまいました"
+              ],
+              "answer": 0,
+              "pt": "Vてあります (trạng thái kết quả còn đó — ai đó đã làm sẵn)",
+              "explain": "Câu mô tả trạng thái 'bình hoa đang được đặt trên bàn' — kết quả hành động của ai đó còn hiện diện → dùng 「てあります」. ② 「ておきます」sai vì nghĩa là 'làm trước để chuẩn bị', không mô tả trạng thái. ③ 「ています」sai vì 「置いています」thiếu sắc thái ý định của chủ thể khác đã làm sẵn; 「てあります」nhấn mạnh hành vi có chủ đích của ai đó. ④ 「てしまいました」sai vì nghĩa là 'lỡ đặt mất rồi', không phù hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "机の上",
+                  "read": "つくえのうえ",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "花瓶",
+                  "read": "かびん",
+                  "vi": "bình hoa"
+                },
+                {
+                  "t": "置い",
+                  "read": "おい",
+                  "vi": "đặt"
+                },
+                {
+                  "t": "飾った",
+                  "read": "かざった",
+                  "vi": "đã trang trí"
+                },
+                {
+                  "t": "だれか",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "んですね",
+                  "read": "んですね",
+                  "vi": "〜んですね = ra là ~ đấy nhỉ (diễn giải, nhận ra điều gì đó)"
+                },
+                {
+                  "t": "てあります",
+                  "read": "てあります",
+                  "vi": "〜てあります = (vật) đã được làm ~ và còn giữ nguyên trạng thái đó"
+                },
+                {
+                  "t": "ておきます",
+                  "read": "ておきます",
+                  "vi": "〜ておきます = làm ~ trước, chuẩn bị sẵn"
+                },
+                {
+                  "t": "ています",
+                  "read": "ています",
+                  "vi": "〜ています = đang ở trạng thái/tiếp diễn của ~"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまいました = đã lỡ/trót làm xong ~ (tiếc nuối hoặc hoàn tất hoàn toàn)"
+                }
+              ]
+            },
+            {
+              "stem": "試験があるから、今夜は単語を全部覚え＿つもりです。",
+              "choices": [
+                "ておく",
+                "てある",
+                "てしまう",
+                "てくれる"
+              ],
+              "answer": 0,
+              "pt": "Vておきます (làm trước — ý định chuẩn bị)",
+              "explain": "Người nói dự định học thuộc từ vựng trước kỳ thi → 「ておく」(て形 + おく, thể thông thường). ② 「てある」sai vì mô tả trạng thái kết quả do chủ thể khác tạo ra. ③ 「てしまう」sai vì nghĩa là 'lỡ làm/làm xong hết (có hối tiếc hoặc dứt khoát)'. ④ 「てくれる」sai vì nghĩa 'ai đó làm cho mình', không phải tự làm.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "単語",
+                  "read": "たんご",
+                  "vi": "từ vựng"
+                },
+                {
+                  "t": "覚え",
+                  "read": "おぼえ",
+                  "vi": "ghi nhớ"
+                },
+                {
+                  "t": "つもり",
+                  "vi": "dự định"
+                },
+                {
+                  "t": "今夜",
+                  "read": "こんや",
+                  "vi": "tối nay"
+                },
+                {
+                  "t": "があるから",
+                  "read": "があるから",
+                  "vi": "〜があるから = vì có ~ nên (nêu lý do)"
+                }
+              ]
+            },
+            {
+              "stem": "ホワイトボードに会議のスケジュールが書い＿から、確認してください。",
+              "choices": [
+                "てあります",
+                "ておきます",
+                "てもらいます",
+                "てしまいました"
+              ],
+              "answer": 0,
+              "pt": "Vてあります (trạng thái — ai đó đã viết sẵn, kết quả còn đó)",
+              "explain": "Lịch họp đã được viết lên bảng (trạng thái kết quả còn đó) → 「てあります」. ② 「ておきます」sai vì đó là hành động chuẩn bị từ góc nhìn người thực hiện, còn đây đang mô tả trạng thái từ góc nhìn người quan sát. ③ 「てもらいます」sai vì nghĩa 'nhờ ai viết cho'. ④ 「てしまいました」sai vì hàm ý lỡ tay hay hối tiếc.",
+              "glosses": [
+                {
+                  "t": "ホワイトボード",
+                  "vi": "bảng trắng"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "スケジュール",
+                  "vi": "lịch trình"
+                },
+                {
+                  "t": "書い",
+                  "read": "かい",
+                  "vi": "viết"
+                },
+                {
+                  "t": "確認して",
+                  "read": "かくにんして",
+                  "vi": "hãy xác nhận"
+                },
+                {
+                  "t": "確認してください",
+                  "read": "かくにんしてください",
+                  "vi": "〜てください = xin hãy làm ~ (yêu cầu lịch sự)"
+                },
+                {
+                  "t": "てあります",
+                  "read": "てあります",
+                  "vi": "〜てあります = (vật) đã được làm ~ và còn giữ nguyên trạng thái đó"
+                },
+                {
+                  "t": "ておきます",
+                  "read": "ておきます",
+                  "vi": "〜ておきます = làm ~ trước, chuẩn bị sẵn"
+                },
+                {
+                  "t": "てもらいます",
+                  "read": "てもらいます",
+                  "vi": "〜てもらいます = nhờ/được người khác làm ~ cho mình"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまいました = đã lỡ/trót làm xong ~ (tiếc nuối hoặc hoàn tất hoàn toàn)"
+                }
+              ]
+            },
+            {
+              "stem": "旅行に行く前に、ガイドブックを買っ＿ほうがいいですよ。",
+              "choices": [
+                "ておいた",
+                "てあった",
+                "てしまった",
+                "てくれた"
+              ],
+              "answer": 0,
+              "pt": "Vておきます (làm trước để chuẩn bị — thể quá khứ tư vấn)",
+              "explain": "Câu khuyên nên mua sách hướng dẫn trước khi đi → 「ておいた」(ておく thể quá khứ trong cấu trúc tư vấn 〜ほうがいい). ② 「てあった」sai vì trạng thái kết quả của ai đó, không phải lời khuyên tự chuẩn bị. ③ 「てしまった」sai vì nghĩa 'đã lỡ mua mất rồi'. ④ 「てくれた」sai vì nghĩa 'ai đó đã mua cho mình'.",
+              "glosses": [
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "chuyến du lịch"
+                },
+                {
+                  "t": "ガイドブック",
+                  "vi": "sách hướng dẫn"
+                },
+                {
+                  "t": "買っ",
+                  "read": "かっ",
+                  "vi": "mua"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "ほうがいいですよ",
+                  "read": "ほうがいいですよ",
+                  "vi": "〜たほうがいい(ですよ) = nên làm ~ đấy (lời khuyên)"
+                }
+              ]
+            },
+            {
+              "stem": "子どもが寝ているとき、テレビを消し＿。",
+              "choices": [
+                "ておきました",
+                "てありました",
+                "てしまいました",
+                "てあげました"
+              ],
+              "answer": 0,
+              "pt": "Vておきます (làm sẵn — tắt TV để không làm phiền)",
+              "explain": "Người nói chủ động tắt TV trước/trong lúc con ngủ để chuẩn bị cho yên tĩnh → 「ておきました」. ② 「てありました」sai vì mô tả trạng thái kết quả, không diễn tả ý định chuẩn bị. ③ 「てしまいました」sai vì hàm ý lỡ tắt/vô tình tắt. ④ 「てあげました」sai vì nghĩa 'tắt TV giúp ai (ơn huệ)', thay đổi nghĩa câu rõ ràng.",
+              "glosses": [
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "寝ている",
+                  "read": "ねている",
+                  "vi": "đang ngủ"
+                },
+                {
+                  "t": "テレビ",
+                  "vi": "tivi"
+                },
+                {
+                  "t": "消し",
+                  "read": "けし",
+                  "vi": "tắt"
+                },
+                {
+                  "t": "ておきました",
+                  "read": "ておきました",
+                  "vi": "〜ておきました = đã làm ~ trước, chuẩn bị sẵn"
+                },
+                {
+                  "t": "てありました",
+                  "read": "てありました",
+                  "vi": "〜てありました = (vật) đã được làm ~ sẵn và còn giữ nguyên trạng thái (quá khứ)"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまいました = đã lỡ/trót làm xong ~ (tiếc nuối hoặc hoàn tất hoàn toàn)"
+                },
+                {
+                  "t": "てあげました",
+                  "read": "てあげました",
+                  "vi": "〜てあげました = đã làm ~ giúp cho ai đó (ban ơn)"
+                }
+              ]
+            },
+            {
+              "stem": "引き出しの中に説明書が入れ＿。読んでみてください。",
+              "choices": [
+                "てあります",
+                "ておきます",
+                "ています",
+                "てくれます"
+              ],
+              "answer": 0,
+              "pt": "Vてあります (trạng thái — hướng dẫn đã được để sẵn)",
+              "explain": "Hướng dẫn sử dụng đã được để sẵn trong ngăn kéo (trạng thái kết quả còn đó) → 「てあります」. ② 「ておきます」sai vì đó là ý định làm trước, không mô tả trạng thái. ③ 「ています」sai vì 「入れています」nghĩa 'đang bỏ vào', thiếu hàm ý ý định có chủ đích. ④ 「てくれます」sai vì nghĩa 'ai đó bỏ vào giúp mình' — thay đổi chủ thể.",
+              "glosses": [
+                {
+                  "t": "引き出し",
+                  "read": "ひきだし",
+                  "vi": "ngăn kéo"
+                },
+                {
+                  "t": "説明書",
+                  "read": "せつめいしょ",
+                  "vi": "hướng dẫn sử dụng"
+                },
+                {
+                  "t": "入れ",
+                  "read": "いれ",
+                  "vi": "để vào"
+                },
+                {
+                  "t": "中",
+                  "read": "なか",
+                  "vi": "bên trong, ở giữa"
+                },
+                {
+                  "t": "読んでみてください",
+                  "read": "よんでみてください",
+                  "vi": "hãy thử đọc xem"
+                }
+              ]
+            },
+            {
+              "stem": "発表の前に、プレゼンを何度も練習し＿おかげで、うまくいきました。",
+              "choices": [
+                "ておいた",
+                "てあった",
+                "てしまった",
+                "てもらった"
+              ],
+              "answer": 0,
+              "pt": "Vておきます (chuẩn bị trước — おかげで nhờ vào đó)",
+              "explain": "Nhờ luyện tập trước nhiều lần nên buổi thuyết trình suôn sẻ → 「ておいた」(ておく thể quá khứ). ② 「てあった」sai vì trạng thái kết quả do ai đó làm, nhưng ở đây người nói tự luyện. ③ 「てしまった」sai vì mang hàm ý tiêu cực/lỡ làm, mâu thuẫn với うまくいきました. ④ 「てもらった」sai vì nghĩa 'nhờ ai luyện giúp mình'.",
+              "glosses": [
+                {
+                  "t": "発表",
+                  "read": "はっぴょう",
+                  "vi": "buổi trình bày"
+                },
+                {
+                  "t": "プレゼン",
+                  "vi": "bài thuyết trình"
+                },
+                {
+                  "t": "練習し",
+                  "read": "れんしゅうし",
+                  "vi": "luyện tập"
+                },
+                {
+                  "t": "おかげで",
+                  "vi": "nhờ vào đó"
+                },
+                {
+                  "t": "うまくいきました",
+                  "vi": "đã suôn sẻ"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "何度も",
+                  "read": "なんども",
+                  "vi": "nhiều lần"
+                }
+              ]
+            },
+            {
+              "stem": "「窓が開いていますよ。」「あ、本当だ。だれかが開け＿んですね。」",
+              "choices": [
+                "てあります",
+                "ておきます",
+                "てしまいました",
+                "てもらいます"
+              ],
+              "answer": 0,
+              "pt": "Vてあります (trạng thái kết quả — ai đó đã mở sẵn)",
+              "explain": "Câu suy luận 'ai đó đã mở cửa sổ (và nó còn mở đó)' → 「てあります」kết hợp 〜んですね. Lưu ý phân biệt: 「開いています」(自動詞・cửa đang ở trạng thái mở tự nhiên) vs 「開けてあります」(他動詞・ai đó đã mở có chủ đích). ② 「ておきます」sai vì diễn tả ý định làm trước. ③ 「てしまいました」sai vì hàm ý lỡ làm. ④ 「てもらいます」sai vì nghĩa nhờ ai làm cho mình.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開いています",
+                  "read": "あいています",
+                  "vi": "đang mở (tự nhiên)"
+                },
+                {
+                  "t": "開け",
+                  "read": "あけ",
+                  "vi": "mở (có chủ ý)"
+                },
+                {
+                  "t": "本当だ",
+                  "read": "ほんとうだ",
+                  "vi": "đúng thật, quả vậy"
+                },
+                {
+                  "t": "だれか",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "んですね",
+                  "read": "んですね",
+                  "vi": "〜んですね = ra là ~ đấy nhỉ (diễn giải, nhận ra điều gì đó)"
+                },
+                {
+                  "t": "てあります",
+                  "read": "てあります",
+                  "vi": "〜てあります = (vật) đã được làm ~ và còn giữ nguyên trạng thái đó"
+                },
+                {
+                  "t": "ておきます",
+                  "read": "ておきます",
+                  "vi": "〜ておきます = làm ~ trước, chuẩn bị sẵn"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまいました = đã lỡ/trót làm xong ~ (tiếc nuối hoặc hoàn tất hoàn toàn)"
+                },
+                {
+                  "t": "てもらいます",
+                  "read": "てもらいます",
+                  "vi": "〜てもらいます = nhờ/được người khác làm ~ cho mình"
+                }
+              ]
+            },
+            {
+              "stem": "雨が降っても困らないように、傘を持っ＿。",
+              "choices": [
+                "ておきました",
+                "てありました",
+                "てしまいました",
+                "てくれました"
+              ],
+              "answer": 0,
+              "pt": "Vておきます (chuẩn bị trước để đề phòng — Vても ôn tập)",
+              "explain": "Cấu trúc 「Vても困らないように〜ておきました」= chuẩn bị trước để đề phòng. ② 「てありました」sai vì mô tả trạng thái kết quả do người khác tạo ra, không phải tự chuẩn bị. ③ 「てしまいました」sai vì hàm ý vô tình/hối tiếc. ④ 「てくれました」sai vì nghĩa ai đó mang ô giúp mình.",
+              "glosses": [
+                {
+                  "t": "雨が降っても",
+                  "read": "あめがふっても",
+                  "vi": "dù trời mưa"
+                },
+                {
+                  "t": "困らない",
+                  "read": "こまらない",
+                  "vi": "không khó chịu"
+                },
+                {
+                  "t": "傘",
+                  "read": "かさ",
+                  "vi": "ô/dù"
+                },
+                {
+                  "t": "持っ",
+                  "read": "もっ",
+                  "vi": "mang theo"
+                },
+                {
+                  "t": "ように",
+                  "read": "ように",
+                  "vi": "〜ように = để mà ~, sao cho ~ (mục đích)"
+                },
+                {
+                  "t": "ておきました",
+                  "read": "ておきました",
+                  "vi": "〜ておきました = đã làm ~ trước, chuẩn bị sẵn"
+                },
+                {
+                  "t": "てありました",
+                  "read": "てありました",
+                  "vi": "〜てありました = (vật) đã được làm ~ sẵn và còn giữ nguyên trạng thái (quá khứ)"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまいました = đã lỡ/trót làm xong ~ (tiếc nuối hoặc hoàn tất hoàn toàn)"
+                },
+                {
+                  "t": "てくれました",
+                  "read": "てくれました",
+                  "vi": "〜てくれました = ai đó đã làm ~ cho mình (nhận ơn)"
+                }
+              ]
+            },
+            {
+              "stem": "子どものとき、毎朝ジョギングをし＿いたので、今も体が丈夫です。",
+              "choices": [
+                "て",
+                "ておいて",
+                "てから",
+                "ながら"
+              ],
+              "answer": 0,
+              "pt": "Vています(習慣) — ôn B28",
+              "explain": "「していた」là 「Vています(習慣)」ở thể quá khứ — thói quen trong quá khứ. Cần điền 「て」để tạo 「していた」. ② 「ておいて」sai vì làm thay đổi nghĩa thành chuẩn bị trước. ③ 「てから」sai vì nghĩa 'sau khi chạy xong'. ④ 「ながら」sai vì nghĩa 'vừa làm gì vừa chạy', không khớp cấu trúc câu.",
+              "glosses": [
+                {
+                  "t": "子どものとき",
+                  "read": "こどものとき",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi sáng"
+                },
+                {
+                  "t": "ジョギング",
+                  "vi": "chạy bộ"
+                },
+                {
+                  "t": "丈夫",
+                  "read": "じょうぶ",
+                  "vi": "khỏe mạnh"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể, thân thể"
+                },
+                {
+                  "t": "いたので",
+                  "read": "いたので",
+                  "vi": "〜ていたので = vì đã từng/đang ~ (nguyên nhân từ hành động tiếp diễn quá khứ)"
+                }
+              ]
+            },
+            {
+              "stem": "彼女は音楽を聴き＿、料理を作っています。",
+              "choices": [
+                "ながら",
+                "ておいて",
+                "てから",
+                "てしまって"
+              ],
+              "answer": 0,
+              "pt": "V1stemながらV2 — ôn B28",
+              "explain": "「聴きながら料理を作っています」= vừa nghe nhạc vừa nấu ăn → 「ながら」(V1 stem + ながら + V2). ② 「ておいて」sai vì nghĩa nghe nhạc chuẩn bị trước rồi nấu — vô nghĩa. ③ 「てから」sai vì nghĩa nghe nhạc xong rồi mới nấu. ④ 「てしまって」sai vì nghĩa đã nghe nhạc (xong/lỡ) rồi đang nấu.",
+              "glosses": [
+                {
+                  "t": "音楽を聴き",
+                  "read": "おんがくをきき",
+                  "vi": "nghe nhạc"
+                },
+                {
+                  "t": "料理を作っています",
+                  "read": "りょうりをつくっています",
+                  "vi": "đang nấu ăn"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                }
+              ]
+            },
+            {
+              "stem": "この漢字は画数が多くて、書き＿です。",
+              "choices": [
+                "にくい",
+                "やすい",
+                "てあります",
+                "ておきます"
+              ],
+              "answer": 0,
+              "pt": "Vにくい (khó V) — ôn B28",
+              "explain": "Chữ Hán nhiều nét → 「書きにくい」(khó viết). ② 「やすい」sai vì nghĩa ngược lại — dễ viết. ③ 「てあります」sai về từ loại (V stem không nối trực tiếp 「てあります」mà cần て形). ④ 「ておきます」cũng sai về cú pháp và nghĩa.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "画数が多くて",
+                  "read": "かくすうがおおくて",
+                  "vi": "nhiều nét"
+                },
+                {
+                  "t": "書き",
+                  "read": "かき",
+                  "vi": "viết"
+                }
+              ]
+            },
+            {
+              "stem": "鍵を忘れたので、弟に開けてもらいたかったが、弟は家にいなかった。それで、窓を割っ＿。",
+              "choices": [
+                "てしまいました",
+                "ておきました",
+                "てあります",
+                "てもらいました"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました (lỡ làm — kết quả không mong muốn) — ôn B29",
+              "explain": "Không có chìa khóa, em trai không ở nhà, nên cuối cùng lỡ đập vỡ cửa sổ (kết quả đáng tiếc) → 「てしまいました」. ② 「ておきました」sai vì nghĩa cố ý đập vỡ để chuẩn bị. ③ 「てあります」sai vì mô tả trạng thái ai đó đập sẵn. ④ 「てもらいました」sai vì nghĩa nhờ ai đập vỡ giúp mình.",
+              "glosses": [
+                {
+                  "t": "鍵を忘れた",
+                  "read": "かぎをわすれた",
+                  "vi": "quên chìa khóa"
+                },
+                {
+                  "t": "弟",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "開けてもらいたかった",
+                  "read": "あけてもらいたかった",
+                  "vi": "muốn nhờ mở giúp"
+                },
+                {
+                  "t": "窓を割っ",
+                  "read": "まどをわっ",
+                  "vi": "đập vỡ cửa sổ"
+                },
+                {
+                  "t": "家にいなかった",
+                  "read": "いえにいなかった",
+                  "vi": "đã không có ở nhà"
+                },
+                {
+                  "t": "それで",
+                  "read": "それで",
+                  "vi": "vì vậy, do đó"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまいました = đã lỡ/trót làm xong ~ (tiếc nuối hoặc hoàn tất hoàn toàn)"
+                },
+                {
+                  "t": "ておきました",
+                  "read": "ておきました",
+                  "vi": "〜ておきました = đã làm ~ trước, chuẩn bị sẵn"
+                },
+                {
+                  "t": "てあります",
+                  "read": "てあります",
+                  "vi": "〜てあります = (vật) đã được làm ~ và còn giữ nguyên trạng thái đó"
+                },
+                {
+                  "t": "てもらいました",
+                  "read": "てもらいました",
+                  "vi": "〜てもらいました = đã nhờ/được người khác làm ~ cho mình"
+                }
+              ]
+            },
+            {
+              "stem": "「もう部屋の予約はしましたか。」「はい、ホテルに電話して、部屋を予約し＿よ。」",
+              "choices": [
+                "ておきました",
+                "てありました",
+                "てしまいました",
+                "てもらいました"
+              ],
+              "answer": 0,
+              "pt": "Vておきます (chuẩn bị trước — đã đặt phòng sẵn)",
+              "explain": "Người trả lời đã chủ động gọi điện đặt phòng từ trước → 「ておきました」(đã làm sẵn). ② 「てありました」sai vì mô tả trạng thái kết quả từ góc nhìn người quan sát bên ngoài. ③ 「てしまいました」sai vì hàm ý lỡ đặt/đặt xong hết rồi (không tự nhiên khi trả lời hỏi). ④ 「てもらいました」sai vì nghĩa nhờ ai đặt phòng giúp mình, trong khi câu nói 'tôi tự gọi điện'.",
+              "glosses": [
+                {
+                  "t": "部屋の予約",
+                  "read": "へやのよやく",
+                  "vi": "đặt phòng"
+                },
+                {
+                  "t": "ホテルに電話して",
+                  "read": "ほてるにでんわして",
+                  "vi": "gọi điện cho khách sạn"
+                },
+                {
+                  "t": "予約し",
+                  "read": "よやくし",
+                  "vi": "đặt trước"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "予約はしましたか",
+                  "read": "よやくはしましたか",
+                  "vi": "〜はしましたか = đã làm ~ chưa? (hỏi xác nhận hoàn thành)"
+                },
+                {
+                  "t": "ておきました",
+                  "read": "ておきました",
+                  "vi": "〜ておきました = đã làm ~ trước, chuẩn bị sẵn"
+                },
+                {
+                  "t": "てありました",
+                  "read": "てありました",
+                  "vi": "〜てありました = (vật) đã được làm ~ sẵn và còn giữ nguyên trạng thái (quá khứ)"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまいました = đã lỡ/trót làm xong ~ (tiếc nuối hoặc hoàn tất hoàn toàn)"
+                },
+                {
+                  "t": "てもらいました",
+                  "read": "てもらいました",
+                  "vi": "〜てもらいました = đã nhờ/được người khác làm ~ cho mình"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "もう",
+                "ますか。"
+              ],
+              "pieces": [
+                "準備",
+                "が",
+                "して",
+                "あり"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあります",
+              "explain": "Câu hoàn chỉnh: 「もう準備がしてありますか。」= Đã chuẩn bị sẵn chưa ạ? Ô ★ (vị trí 3) cần mảnh「して」— ghép với「あり」thành「してあり」rồi nối「ますか」thành「してあります」. Cấu trúc〜てあります: tha động từ (する) + てあります = trạng thái kết quả do ai đó đã làm sẵn còn hiện diện. Trợ từ「が」theo sau danh từ「準備」là đúng với〜てあります (「準備を」→「準備が」). Nếu chọn「あり」vào ★ thì mảnh「して」bị dư ở sai vị trí; nếu chọn「準備」hay「が」vào ★ thì cấu trúc ngữ pháp không còn trọng tâm là〜てあります.",
+              "glosses": [
+                {
+                  "t": "してあります",
+                  "vi": "đã làm sẵn (kết quả còn đó)"
+                },
+                {
+                  "t": "もう",
+                  "vi": "đã, rồi"
+                },
+                {
+                  "t": "ますか",
+                  "read": "ますか",
+                  "vi": "もう〜ますか = đã ~ chưa? (hỏi về việc hoàn thành)"
+                },
+                {
+                  "t": "準備",
+                  "read": "じゅんび",
+                  "vi": "sự chuẩn bị"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "会議の前に",
+                "。"
+              ],
+              "pieces": [
+                "資料",
+                "を",
+                "コピーして",
+                "おきます"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます",
+              "explain": "Câu hoàn chỉnh: 「会議の前に資料をコピーしておきます。」= Trước buổi họp, tôi sẽ photo tài liệu để sẵn. Ô ★ (vị trí 3) cần mảnh「コピーして」— ghép với「おきます」thành「コピーしておきます」. Cấu trúc〜ておきます: tha động từ (コピーする) + ておきます = làm trước để chuẩn bị dùng sau. Đây là hành động chủ ý chuẩn bị từ góc nhìn người thực hiện. Nếu chọn「資料」vào ★ thì「コピーして」và「おきます」tách nhau → không tạo thành cấu trúc〜ておきます hoàn chỉnh. Nếu chọn「を」vào ★ thì trợ từ mất vị trí đúng sau tân ngữ.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "コピーしておきます",
+                  "vi": "photo để sẵn (làm trước để dùng sau)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "窓に",
+                "。"
+              ],
+              "pieces": [
+                "名前",
+                "が",
+                "書いて",
+                "ありました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあります",
+              "explain": "Câu hoàn chỉnh: 「窓に名前が書いてありました。」= Trên cửa sổ có tên được viết sẵn (ai đó đã viết và kết quả còn đó). Ô ★ (vị trí 3) cần mảnh「書いて」— ghép với「ありました」thành「書いてありました」.「書く」là tha động từ → dùng được với〜てあります (quá khứ: てありました) để diễn tả trạng thái kết quả do ai đó tạo ra. Trợ từ「が」sau「名前」đúng với cấu trúc〜てあります (tân ngữ→chủ ngữ). Nếu chọn「名前」hay「が」vào ★ thì「書いて」và「ありました」không liền nhau → mất cấu trúc〜てあります. Không nhầm với〜ていました (hành động đang diễn ra) hay〜ておきました (chuẩn bị trước).",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "名前",
+                  "read": "なまえ",
+                  "vi": "tên"
+                },
+                {
+                  "t": "書いてありました",
+                  "read": "かいてありました",
+                  "vi": "đã được viết sẵn (còn đó)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "旅行の前に",
+                "。"
+              ],
+              "pieces": [
+                "ホテル",
+                "を",
+                "予約して",
+                "おきました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます",
+              "explain": "Câu hoàn chỉnh: 「旅行の前にホテルを予約しておきました。」= Trước chuyến đi, tôi đã đặt khách sạn sẵn rồi. Ô ★ (vị trí 3) cần mảnh「予約して」— ghép với「おきました」thành「予約しておきました」(〜ておく quá khứ). Người nói tự mình gọi điện đặt phòng trước → hành động chủ ý chuẩn bị, dùng〜ておきます. Trợ từ「を」sau「ホテル」đúng với tha động từ「予約する」. Nếu chọn「ホテル」hay「を」vào ★ thì mảnh「予約して」và「おきました」không liền nhau → vỡ cấu trúc. Không nhầm với〜てもらいました (nhờ ai đặt giúp) hay〜てありました (trạng thái kết quả từ góc nhìn quan sát).",
+              "glosses": [
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "chuyến du lịch"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "予約しておきました",
+                  "read": "よやくしておきました",
+                  "vi": "đã đặt trước để sẵn"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "机の上に",
+                "。"
+              ],
+              "pieces": [
+                "花",
+                "が",
+                "飾って",
+                "あります"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあります",
+              "explain": "Câu đúng: 「机の上に花が飾ってあります。」— Trên bàn có hoa được trang trí sẵn.\nSắp xếp: ô 1=「花」, ô 2=「が」, ô 3=「飾って」★, ô 4=「あります」\nKhung câu đã cho vị trí địa điểm 「机の上に」, phía sau cần một đối tượng danh từ và vế động từ chỉ trạng thái. Hai mảnh 「飾って」 và 「あります」 bắt buộc phải dính liền nhau thành cụm 「飾ってあります」 vì 「あります」 đứng ngay sau động từ thể て, đồng thời danh từ 「花」 ghép liền với trợ từ 「が」 thành cụm chủ ngữ 「花が」. Cụm chủ ngữ 「花が」 ở ô 1 và ô 2 đứng ngay sau địa điểm 「机の上に」, theo sau là khối động từ 「飾ってあります」 ở cuối câu. Mảnh 「飾って」 bắt buộc nằm ở ô 3 (ô ★) để nối trực tiếp với ô 4 「あります」, không thể đứng ở ô 1 hay ô 2 vì động từ thể て không thể đứng trước trợ từ 「が」 hay ghép trực tiếp sau cụm chỉ địa điểm.",
+              "glosses": [
+                {
+                  "t": "机",
+                  "read": "つくえ",
+                  "vi": "cái bàn"
+                },
+                {
+                  "t": "上",
+                  "read": "うえ",
+                  "vi": "trên, phía trên"
+                },
+                {
+                  "t": "花",
+                  "read": "はな",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "飾ってあります",
+                  "read": "かざってあります",
+                  "vi": "được trang trí sẵn (ai đó đã làm)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "子どもが来る前に",
+                "ね。"
+              ],
+              "pieces": [
+                "ケーキ",
+                "を",
+                "買って",
+                "おこう"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます",
+              "explain": "Câu đúng: 「子どもが来る前にケーキを買っておこうね。」— Trước khi bọn trẻ đến, chúng ta mua sẵn bánh đi nhé.\nSắp xếp: ô 1=「ケーキ」, ô 2=「を」, ô 3=「買って」★, ô 4=「おこう」\nKhung câu đã có vế phụ chỉ thời gian 「子どもが来る前に」 và trợ từ tình thái 「ね」 ở cuối, nên chỗ trống cần một tân ngữ và một vị ngữ hoàn chỉnh. Hai mảnh 「買って」 và 「おこう」 bắt buộc phải dính liền nhau thành cụm động từ 「買っておこう」 vì 「おこう」 chỉ đứng ngay sau động từ thể て để thể hiện ý định chuẩn bị trước, đồng thời danh từ 「ケーキ」 nối liền với trợ từ 「を」 thành cụm tân ngữ 「ケーキを」. Khối tân ngữ 「ケーキを」 ở ô 1 và ô 2 được đặt trước khối động từ 「買っておこう」 ở ô 3 và ô 4 theo đúng quy tắc tân ngữ đứng trước vị ngữ. Vì mảnh 「買って」 bắt buộc phải ghép dính vào ô 4 「おこう」, mảnh 「買って」 phải ở ô 3 (ô ★) và không thể đứng ở ô 1 hay ô 2 do động từ thể て không thể đứng trước danh từ 「ケーキ」 hay trợ từ 「を」 trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "来る前に",
+                  "read": "くるまえに",
+                  "vi": "trước khi đến"
+                },
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh kem"
+                },
+                {
+                  "t": "買っておこう",
+                  "read": "かっておこう",
+                  "vi": "mua sẵn đi (chuẩn bị trước)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "その書類には",
+                "よ。"
+              ],
+              "pieces": [
+                "もう",
+                "サインが",
+                "して",
+                "あります"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあります",
+              "explain": "Câu đúng: 「その書類にはもうサインがしてありますよ。」— Tài liệu đó đã được ký sẵn rồi đấy.\nSắp xếp: ô 1=「もう」, ô 2=「サインが」, ô 3=「して」★, ô 4=「あります」\nKhung câu bắt đầu bằng 「その書類には」 và kết thúc bằng 「よ。」, cho thấy vị trí trống ở giữa cần một phó từ đứng đầu và một vị ngữ hoàn chỉnh để kết câu. Mảnh 「して」 và 「あります」 bắt buộc dính liền nhau tạo thành mẫu ngữ pháp 「してあります」 diễn tả trạng thái kết quả, đồng thời mảnh 「サインが」 chứa trợ từ chủ ngữ 「が」 phải nối ngay phía trước 「して」 để thành cụm chủ - vị. Phó từ 「もう」 sẽ đứng ở ô 1 để bổ nghĩa thời gian cho toàn bộ cụm vị ngữ phía sau. Do đó, mảnh 「して」 bắt buộc phải nằm ở ô 3 (vị trí ★) nhằm làm cầu nối thể て giữa 「サインが」 ở ô 2 và 「あります」 ở ô 4; mảnh này không thể đứng ở vị trí khác vì sẽ làm ngắt đoạn cấu trúc 「てあります」 và vi phạm trật tự kết hợp giữa trợ từ với động từ.",
+              "glosses": [
+                {
+                  "t": "その",
+                  "read": "",
+                  "vi": "đó"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "đã"
+                },
+                {
+                  "t": "サイン",
+                  "vi": "chữ ký"
+                },
+                {
+                  "t": "してあります",
+                  "vi": "đã được làm sẵn (kết quả còn đó)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "パーティーの前に",
+                "。"
+              ],
+              "pieces": [
+                "部屋",
+                "を",
+                "掃除して",
+                "おきます"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます",
+              "explain": "Câu đúng: 「パーティーの前に部屋を掃除しておきます。」— Trước bữa tiệc, tôi sẽ dọn dẹp phòng trước.\nSắp xếp: ô 1=「部屋」, ô 2=「を」, ô 3=「掃除して」★, ô 4=「おきます」\nKhung câu bắt đầu bằng 「パーティーの前に」 và kết thúc bằng dấu chấm, cho thấy khoảng trống cần một cụm tân ngữ và vị ngữ hoàn chỉnh. Mảnh ở ô 1 「部屋」 và mảnh ở ô 2 「を」 bắt buộc dính liền thành cụm tân ngữ 「部屋を」, đồng thời mảnh ở ô 3 「掃除して」 và mảnh ở ô 4 「おきます」 dính liền thành ngữ pháp 「掃除しておきます」 thể hiện sự chuẩn bị trước. Theo trật tự câu tiếng Nhật, cụm bổ ngữ 「部屋を」 phải đứng trước vị ngữ hoàn chỉnh. Mảnh ở ô 3 「掃除して」 làm cầu nối thể て liên kết trực tiếp với trợ động từ ở ô 4 「おきます」, do đó bắt buộc nằm ở ô 3 ★ và không thể đặt ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "掃除しておきます",
+                  "read": "そうじしておきます",
+                  "vi": "dọn dẹp sẵn (làm trước để dùng sau)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "音楽を聞き",
+                "。"
+              ],
+              "pieces": [
+                "ながら",
+                "料理を",
+                "する",
+                "のが好きです"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "V1stemながらV2",
+              "explain": "Câu hoàn chỉnh: 「音楽を聞きながら料理をするのが好きです。」= Tôi thích vừa nghe nhạc vừa nấu ăn. Ô ★ (vị trí 2) cần mảnh「料理を」— ghép tạo chuỗi「ながら│料理を│する│のが好きです」. Cấu trúc〜ながら (B28): V1 thể ます-stem +「ながら」+ V2 → 2 hành động đồng thời. Frame đã có「音楽を聞き」ở đầu, mảnh 0 là「ながら」→ sau đó cần tân ngữ của V2「料理を」ở ★ rồi mới đến「する」. Nếu chọn「ながら」vào ★ thì「ながら」xuất hiện hai lần, sai cú pháp. Nếu chọn「する」vào ★ thì tân ngữ「料理を」đứng sau động từ — không tự nhiên trong tiếng Nhật (SOV).",
+              "glosses": [
+                {
+                  "t": "聞きながら",
+                  "read": "ききながら",
+                  "vi": "vừa nghe (đồng thời)"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "料理をする",
+                  "read": "りょうりをする",
+                  "vi": "nấu ăn"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "電気が",
+                "ね。"
+              ],
+              "pieces": [
+                "消えて",
+                "いる",
+                "から、誰も",
+                "いないんです"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vています(結果状態)＋んです",
+              "explain": "Câu đúng: 「電気が消えているから、誰もいないんですね。」— Vì đèn đã tắt nên chắc là không có ai ở đấy nhỉ.\nSắp xếp: ô 1=「消えて」, ô 2=「いる」★, ô 3=「から、誰も」, ô 4=「いないんです」\nKhung câu bắt đầu bằng 「電気が」 và kết thúc bằng 「ね。」, cho thấy phần trống cần chứa một mệnh đề chỉ nguyên nhân và một mệnh đề chỉ kết quả. Mảnh ở ô 1 「消えて」 và mảnh ở ô 2 「いる」 bắt buộc dính liền với nhau thành cụm 「消えている」 để thể hiện trạng thái của đèn, không thể tách rời. Mảnh ở ô 3 「から、誰も」 dùng liên từ 「から」 để kết nối mệnh đề nguyên nhân 「電気が消えているから」 với mệnh đề phía sau. Mảnh ở ô 4 「いないんです」 đứng cuối khoảng trống để ghép nối với đuôi 「ね。」 tạo thành câu hoàn chỉnh. Mảnh ở ô 2 「いる」 giữ vai trò trợ động từ đi sau thể て và đứng trước liên từ 「から」, do đó bắt buộc phải nằm ở ô 2 ★ và không thể xếp ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "誰も〜ない",
+                  "read": "だれも〜ない",
+                  "vi": "không có ai"
+                },
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện"
+                },
+                {
+                  "t": "消えている",
+                  "read": "きえている",
+                  "vi": "đã tắt (trạng thái kết quả)"
+                },
+                {
+                  "t": "いないんです",
+                  "vi": "là không có ai (giải thích lý do)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "試験に合格したら",
+                "。"
+              ],
+              "pieces": [
+                "先生に",
+                "報告して",
+                "おき",
+                "たいです"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます＋たら",
+              "explain": "Câu đúng: 「試験に合格したら先生に報告しておきたいです。」— Nếu thi đỗ, tôi muốn báo cáo trước cho thầy giáo.\nSắp xếp: ô 1=「先生に」, ô 2=「報告して」, ô 3=「おき」★, ô 4=「たいです」\nKhung câu bắt đầu bằng mệnh đề điều kiện 「試験に合格したら」, nên phần còn lại cần một vị ngữ chỉ nguyện vọng của người nói. Ba mảnh 「報告して」, 「おき」 và 「たいです」 bắt buộc dính liền nhau theo cấu trúc V-て + おき + たいです tạo thành cụm 「報告しておきたいです」, không thể tách rời. Mảnh 「先生に」 chỉ đối tượng nhận hành động nên phải đứng trước động từ 「報告して」 ở ô 2. Đọc lại cả câu, mảnh 「おき」 nằm ở ô 3 vì bắt buộc nối tiếp sau thể て của 「報告して」 và làm chỗ tựa cho đuôi 「たいです」 ở ô 4, nên không thể chuyển sang vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "試験に合格したら",
+                  "read": "しけんにごうかくしたら",
+                  "vi": "nếu/khi thi đỗ (B25 たら)"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "報告しておきたい",
+                  "read": "ほうこくしておきたい",
+                  "vi": "muốn báo cáo sẵn (chuẩn bị trước)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "スーパーで",
+                "。"
+              ],
+              "pieces": [
+                "飲み物",
+                "を",
+                "買って",
+                "おきましょうか"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vておきます",
+              "explain": "Câu đúng: 「スーパーで飲み物を買っておきましょうか。」— Ở siêu thị, chúng ta mua đồ uống để sẵn nhé?\nSắp xếp: ô 1=「飲み物」, ô 2=「を」, ô 3=「買って」★, ô 4=「おきましょうか」\nSau trạng ngữ địa điểm 「スーパーで」, khung câu cần một vị ngữ hoàn chỉnh gồm tân ngữ và động từ. Danh từ 「飲み物」 (ô 1) phải dính liền với trợ từ 「を」 (ô 2) thành cụm tân ngữ 「飲み物を」, còn động từ thể て 「買って」 (ô 3) bắt buộc gắn liền với phụ động từ 「おきましょうか」 (ô 4) để tạo thành mẫu ngữ pháp 「買っておきましょうか」. Theo trật tự câu tiếng Nhật, tân ngữ 「飲み物を」 (ô 1, 2) đứng trước vị ngữ 「買っておきましょうか」 (ô 3, 4). Do đó, mảnh 「買って」 nằm ở ô 3 (ô ★) và không thể đứng ở ô khác vì nó bắt buộc phải đứng ngay sau trợ từ 「を」 (ô 2) để tiếp nhận tân ngữ và đứng ngay trước 「おきましょうか」 (ô 4) để hoàn thành cấu trúc 「〜ておきます」.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "飲み物",
+                  "read": "のみもの",
+                  "vi": "đồ uống"
+                },
+                {
+                  "t": "買っておきましょうか",
+                  "read": "かっておきましょうか",
+                  "vi": "mua sẵn nhé? (chuẩn bị trước)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ドアに",
+                "。"
+              ],
+              "pieces": [
+                "鍵",
+                "が",
+                "かけて",
+                "あります"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあります",
+              "explain": "Câu đúng: 「ドアに鍵がかけてあります。」— Cửa đã được khóa sẵn.\nSắp xếp: ô 1=「鍵」, ô 2=「が」, ô 3=「かけて」★, ô 4=「あります」\nSau trạng ngữ chỉ địa điểm 「ドアに」, khung câu cần một cụm chủ - vị hoàn chỉnh để diễn tả trạng thái của đồ vật. Danh từ 「鍵」 (ô 1) dính liền với trợ từ 「が」 (ô 2) tạo thành cụm chủ ngữ 「鍵が」, trong khi động từ thể て 「かけて」 (ô 3) bắt buộc đi liền với 「あります」 (ô 4) để tạo nên cấu trúc ngữ pháp 「かけてあります」. Theo trật tự từ trong tiếng Nhật, cụm chủ ngữ 「鍵が」 (ô 1, 2) phải đứng trước cụm vị ngữ 「かけてあります」 (ô 3, 4). Vì vậy, mảnh 「かけて」 rơi vào ô 3 (ô ★) và không thể đặt ở vị trí nào khác vì nó vừa phải nối sau trợ từ 「が」 (ô 2), vừa phải đứng ngay trước 「あります」 (ô 4) để kết hợp thành dạng 「〜てあります」.",
+              "glosses": [
+                {
+                  "t": "ドア",
+                  "vi": "cánh cửa"
+                },
+                {
+                  "t": "鍵",
+                  "read": "かぎ",
+                  "vi": "chìa khóa"
+                },
+                {
+                  "t": "かけてあります",
+                  "vi": "đã được khóa (ai đó đã làm, kết quả còn đó)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "日本語の勉強は",
+                "か。"
+              ],
+              "pieces": [
+                "難しくて",
+                "も",
+                "毎日続け",
+                "ています"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "V/Aても＋Vています(習慣)",
+              "explain": "Câu hoàn chỉnh: 「日本語の勉強は難しくても毎日続けていますか。」= Dù việc học tiếng Nhật khó, bạn có tiếp tục mỗi ngày không? Ô ★ (vị trí 3) cần mảnh「毎日続け」— ghép với「ています」thành「毎日続けています」(thói quen, B28). Cấu trúc Aくても (B25 nhượng bộ): dù khó → vẫn tiếp tục. Pieces theo thứ tự: 0=難しくて, 1=も, 2=毎日続け, 3=ています → ô ★ là vị trí 3. Nếu chọn「難しくて」vào ★ thì「も」(nhượng bộ) mất vị trí đúng → câu mất nghĩa nhượng bộ. Nếu chọn「も」vào ★ thì「難しくて」và「も」tách nhau → 「難しくても」không hình thành.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "việc học"
+                },
+                {
+                  "t": "難しくても",
+                  "read": "むずかしくても",
+                  "vi": "dù khó (B25 Aても)"
+                },
+                {
+                  "t": "毎日続けています",
+                  "read": "まいにちつづけています",
+                  "vi": "tiếp tục mỗi ngày (B28 thói quen)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このアプリは",
+                "。"
+              ],
+              "pieces": [
+                "使い",
+                "やすい",
+                "から、ダウンロードして",
+                "おきました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vやすい＋Vておきます",
+              "explain": "Câu hoàn chỉnh: 「このアプリは使いやすいから、ダウンロードしておきました。」= Vì ứng dụng này dễ dùng nên tôi đã tải về để sẵn rồi. Ô ★ (vị trí 2) cần mảnh「やすい」— ghép với「使い」thành「使いやすい」(V連用形 + やすい = dễ V, B28). Pieces: 0=使い, 1=やすい, 2=から、ダウンロードして, 3=おきました → ★ ở vị trí 2. Nếu chọn「使い」vào ★ thì「使い」xuất hiện hai lần (cả frame+piece), sai. Nếu chọn「から、ダウンロードして」vào ★ thì「使いやすい」không hình thành và「から」bị tách khỏi「おきました」. Không nhầm「やすい」với「にくい」(khó V, nghĩa đối lập).",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "アプリ",
+                  "vi": "ứng dụng"
+                },
+                {
+                  "t": "使いやすい",
+                  "read": "つかいやすい",
+                  "vi": "dễ sử dụng (B28 Vやすい)"
+                },
+                {
+                  "t": "ダウンロードしておきました",
+                  "vi": "đã tải về sẵn (B30 ておきます)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "あしたパーティーがあります。飲み物はもう買って",
+                "。へやもきのう掃除して",
+                "、じゅんびはばっちりです。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "おきました",
+                    "いました",
+                    "みました",
+                    "しまいました"
+                  ],
+                  "answer": 0,
+                  "explain": "Mua đồ uống TRƯỚC để chuẩn bị cho tiệc → 「買っておきました」(〜ておく = làm sẵn để dùng sau). 「いました」/「みました」/「しまいました」sai sắc thái chuẩn bị."
+                },
+                {
+                  "choices": [
+                    "あります",
+                    "おきます",
+                    "います",
+                    "いました"
+                  ],
+                  "answer": 0,
+                  "explain": "Phòng đã được dọn từ hôm qua và VẪN sạch (trạng thái còn đó) → 「掃除してあります」(〜てある). 「おきます」là thì tương lai; 「います/いました」không hợp."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "飲み物",
+                  "read": "のみもの",
+                  "vi": "đồ uống"
+                },
+                {
+                  "t": "買って",
+                  "read": "かって",
+                  "vi": "mua"
+                },
+                {
+                  "t": "掃除して",
+                  "read": "そうじして",
+                  "vi": "dọn dẹp"
+                },
+                {
+                  "t": "じゅんび",
+                  "vi": "chuẩn bị"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ về dạng 〜ておきます (làm sẵn để dùng sau).",
+          "items": [
+            {
+              "stem": "閉めます → 〜ておきます → ＿",
+              "choices": [
+                "閉めておきます",
+                "閉まておきます",
+                "閉めるておきます",
+                "閉んでおきます"
+              ],
+              "answer": 0,
+              "explain": "〜ておく gắn vào THỂ て: 閉める → 閉めて → 閉めておきます. Các dạng kia chia thể て sai.",
+              "glosses": [
+                {
+                  "t": "閉めます",
+                  "read": "しめます",
+                  "vi": "đóng (tha động từ)"
+                },
+                {
+                  "t": "閉めておきます",
+                  "read": "しめておきます",
+                  "vi": "đóng sẵn để đó"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "テーブルにお皿＿並べてあります。",
+              "choices": [
+                "が",
+                "を",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "Với 〜てあります, đối tượng (vốn là を của tha động từ) chuyển thành chủ thể đánh dấu 「が」: お皿が並べてあります (đĩa đã được bày sẵn).",
+              "glosses": [
+                {
+                  "t": "テーブル",
+                  "vi": "bàn"
+                },
+                {
+                  "t": "お皿",
+                  "read": "おさら",
+                  "vi": "cái đĩa"
+                },
+                {
+                  "t": "並べてあります",
+                  "read": "ならべてあります",
+                  "vi": "đã được bày sẵn (〜てある)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi đã đặt phòng khách sạn trước rồi.",
+              "target": "ホテルを予約しておきました",
+              "model": "ホテルを 予約しておきました。",
+              "explain": "「〜ておきました」= đã làm sẵn để chuẩn bị. 予約する (đặt chỗ) → 予約しておきました; ホテル dùng 「を」(tha động từ).",
+              "glosses": [
+                {
+                  "t": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "予約しておきました",
+                  "read": "よやくしておきました",
+                  "vi": "đã đặt trước (〜ておく)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

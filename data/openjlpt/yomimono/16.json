@@ -1,0 +1,1531 @@
+{
+  "bai": 16,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 16 tập trung vào TRÌNH TỰ và CÁCH THỨC: nối nhiều động từ bằng て để kể lần lượt các việc, dùng てから để nhấn \"sau khi làm xong A mới làm B\", và nối tính từ bằng くて・で. Đọc hiểu ở đây = nhận diện thứ tự sự kiện và phương tiện/cách thức.",
+    "steps": [
+      "Đọc lướt toàn đoạn để nắm chủ đề: đoạn này kể về ai, kể về buổi sáng/tối/chuyến đi nào?",
+      "Với mỗi chuỗi \"V1てV2てV3\", xác định đúng thứ tự: V1 xảy ra trước, V2 tiếp theo, V3 sau cùng.",
+      "Chú ý てから → hành động TRƯỚC てから phải hoàn thành XONG mới đến hành động SAU.",
+      "Với câu hỏi どうやって: tìm trong bài phương tiện (で) hoặc mô tả cách làm.",
+      "Với câu hỏi どの〜: đây là \"cái nào trong số nhiều\" — tìm tên cụ thể đã được nhắc.",
+      "Câu N1はN2が〜: N1 là chủ đề lớn, N2 là bộ phận/khía cạnh được nói đến. Đừng nhầm N1 và N2."
+    ],
+    "tips": [
+      "て nối động từ KHÔNG có nghĩa \"và\" đơn thuần — nó còn mang trình tự thời gian (việc trước → việc sau).",
+      "てから nhấn mạnh hơn: A phải XONG rồi mới B. Nếu thiếu から thì chỉ là \"làm A rồi B\" bình thường.",
+      "くて nối tính từ い (bỏ い → く, thêm て); で nối tính từ な / danh từ (thêm で trực tiếp).",
+      "どうやって hỏi CÁCH / PHƯƠNG TIỆN — câu trả lời thường có で (Nで) hoặc chuỗi てV.",
+      "どの luôn đi kèm danh từ ngay sau: どのバス = xe buýt nào, どの道 = con đường nào.",
+      "N1はN2が〜: N2 mang trợ từ が, không phải は — đừng nhầm hai vị trí chủ đề/chủ ngữ."
+    ],
+    "grammarFocus": [
+      "Ｖ1てＶ2…（nối nhiều động từ, trình tự）",
+      "〜くて（nối tính từ い）",
+      "〜で（nối tính từ な／danh từ）",
+      "Ｖてから（sau khi…）",
+      "N1はN2が〜（chủ đề - chủ ngữ）",
+      "どうやって（bằng cách nào）",
+      "どの〜（cái nào）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 4,
+        "items": [
+          "Ｖます・Ｖません",
+          "〜時・〜分",
+          "そして"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "Nへ行きます",
+          "Nで（phương tiện）"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをＶます",
+          "それから"
+        ]
+      },
+      {
+        "bai": 7,
+        "items": [
+          "Nで（công cụ）"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "〜いです・〜くないです（tính từ い）",
+          "〜なＮ（tính từ な）"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです",
+          "〜がわかります",
+          "〜から（lý do）"
+        ]
+      },
+      {
+        "bai": 11,
+        "items": [
+          "〜時間（số giờ）",
+          "〜ぐらい"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形（cách chia て）",
+          "Ｖています（đang diễn ra）"
+        ]
+      },
+      {
+        "bai": 15,
+        "items": [
+          "Ｖています（nghề nghiệp/cư trú）",
+          "知っています"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "さくら大学の図書館へ",
+      "titleVi": "Đến thư viện Đại học Sakura",
+      "japanese": "さくら大学の図書館はきれいで、広いです。ミラーさんはよく図書館で勉強します。「どうやって図書館へ行きますか。」「バスに乗って、大学の前で降りてから、少し歩きます。」どのバスに乗りますか。12番のバスです。",
+      "vietnamese": "Thư viện Đại học Sakura sạch đẹp và rộng. Anh Miller thường học ở thư viện. \"Bạn đến thư viện bằng cách nào?\" \"Tôi lên xe buýt, xuống trước cổng trường rồi đi bộ một chút.\" Lên xe buýt số mấy? Xe buýt số 12.",
+      "sentences": [
+        {
+          "jp": "さくら大学の図書館はきれいで、広いです。",
+          "vi": "Thư viện Đại học Sakura sạch đẹp và rộng.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch đẹp (tính từ な)"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜で（nối tính từ な）",
+              "vi": "きれいで = \"sạch đẹp, và…\" — tính từ な bỏ な, thêm で để nối sang tính từ/danh từ tiếp theo."
+            },
+            {
+              "point": "〜くて（nối tính từ い）",
+              "vi": "Câu này kiểu kết hợp: tính từ な + で, tính từ い + です kết thúc. Nếu nối 2 tính từ い: ひろくて〜."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはよく図書館で勉強します。",
+          "vi": "Anh Miller thường học ở thư viện.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học, học tập"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "thường xuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（địa điểm hành động）",
+              "vi": "図書館で = \"ở thư viện\" — で chỉ nơi thực hiện hành động."
+            }
+          ]
+        },
+        {
+          "jp": "「どうやって図書館へ行きますか。」",
+          "vi": "\"Bạn đến thư viện bằng cách nào?\"",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "どうやって",
+              "read": "どうやって",
+              "vi": "bằng cách nào, làm thế nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どうやって",
+              "vi": "Hỏi về PHƯƠNG TIỆN hoặc CÁCH THỨC di chuyển / thực hiện. Câu trả lời thường chứa で hoặc chuỗi てV."
+            }
+          ]
+        },
+        {
+          "jp": "「バスに乗って、大学の前で降りてから、少し歩きます。」",
+          "vi": "\"Tôi lên xe buýt, xuống trước cổng trường rồi đi bộ một chút.\"",
+          "vocab": [
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên (xe), đi (xe)"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "降ります",
+              "read": "おります",
+              "vi": "xuống (xe)"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "乗って → 降りてから → 歩きます: kể 3 việc theo thứ tự lần lượt bằng て."
+            },
+            {
+              "point": "Ｖてから",
+              "vi": "降りてから = \"sau khi xuống xe\" → nhấn mạnh phải xuống xong mới đi bộ."
+            }
+          ]
+        },
+        {
+          "jp": "どのバスに乗りますか。12番のバスです。",
+          "vi": "Lên xe buýt số mấy? Xe buýt số 12.",
+          "vocab": [
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "乗る",
+              "read": "のる",
+              "vi": "lên xe, cưỡi"
+            },
+            {
+              "w": "どの",
+              "read": "どの",
+              "vi": "cái nào, chiếc nào (hỏi chọn trong nhiều)"
+            },
+            {
+              "w": "〜番",
+              "read": "〜ばん",
+              "vi": "số thứ … (số hiệu)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どの〜",
+              "vi": "どのバス = \"xe buýt nào\" — どの đứng trước danh từ để hỏi chọn trong một tập hợp."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "きれいで、広いです",
+          "label": "〜で（nối tính từ な）"
+        },
+        {
+          "excerpt": "どうやって図書館へ行きますか",
+          "label": "どうやって"
+        },
+        {
+          "excerpt": "降りてから、少し歩きます",
+          "label": "Ｖてから"
+        },
+        {
+          "excerpt": "どのバスに乗りますか",
+          "label": "どの〜"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんはどうやって図書館へ行きますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "地下鉄に乗って、歩きます",
+            "バスに乗って、大学の前で降りてから、少し歩きます",
+            "タクシーに乗ります",
+            "自転車で行きます"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết ghi rõ: 「バスに乗って、大学の前で降りてから、少し歩きます」— đây là câu trả lời trực tiếp cho どうやって. Đáp án ① sai vì bài không nhắc 地下鉄（tàu điện ngầm）. Đáp án ③ sai vì không có từ タクシー. Đáp án ④ sai vì bài không đề cập 自転車（xe đạp）. Ba bước 乗って→降りてから→歩きます khớp chính xác với đáp án ②.",
+          "tip": "Câu hỏi どうやって → tìm chuỗi てV (乗って…降りてから…歩きます) trong bài. Loại ngay phương tiện không được nhắc tên.",
+          "qt": {
+            "q": "Ông Miller đi đến thư viện bằng cách nào?",
+            "o": [
+              "Đi tàu điện ngầm rồi đi bộ",
+              "Đi xe buýt, xuống trước trường đại học rồi đi bộ một đoạn",
+              "Đi taxi",
+              "Đi bằng xe đạp"
+            ]
+          }
+        },
+        {
+          "q": "図書館はどんな図書館ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "古くて、小さいです",
+            "きれいで、広いです",
+            "にぎやかで、楽しいです",
+            "静かで、暗いです"
+          ],
+          "answer": 1,
+          "explainVi": "Câu đầu bài ghi: 「さくら大学の図書館はきれいで、広いです」— きれい（sạch đẹp）và 広い（rộng）là hai tính từ mô tả thư viện, nối nhau bằng で. Đáp án ① sai: bài không nói 古い（cũ）hay 小さい（nhỏ）. Đáp án ③ sai: にぎやか・楽しい là mô tả công ty của Karina, không phải thư viện. Đáp án ④ sai: 静か（yên tĩnh）hay 暗い（tối）không xuất hiện trong đoạn này.",
+          "tip": "Câu hỏi どんな〜 → tìm tính từ mô tả chủ ngữ đó, thường nằm ngay đầu đoạn. Chú ý 〜で nối tính từ な, 〜くて nối tính từ い.",
+          "qt": {
+            "q": "Thư viện là thư viện như thế nào?",
+            "o": [
+              "Cũ và nhỏ",
+              "Sạch đẹp và rộng",
+              "Nhộn nhịp và vui",
+              "Yên tĩnh và tối"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは何番のバスに乗りますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "10番のバスです",
+            "11番のバスです",
+            "12番のバスです",
+            "15番のバスです"
+          ],
+          "answer": 2,
+          "explainVi": "Cuối đoạn bài ghi rõ: 「どのバスに乗りますか。12番のバスです」— con số 12 được nêu tường minh. Các đáp án 10, 11, 15 là số bịa, không xuất hiện trong bài. どの hỏi \"cái nào trong số nhiều\", câu trả lời luôn là tên/số cụ thể được nhắc.",
+          "tip": "Câu hỏi về số hiệu (番) → đọc số trong bài, không đoán. Con số cụ thể thường xuất hiện ngay sau câu hỏi どの〜.",
+          "qt": {
+            "q": "Ông Miller đi xe buýt số mấy?",
+            "o": [
+              "Xe buýt số 10",
+              "Xe buýt số 11",
+              "Xe buýt số 12",
+              "Xe buýt số 15"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "カリナさんの一日",
+      "titleVi": "Một ngày của Karina",
+      "japanese": "今日はカリナさんの一日を紹介します。\nカリナさんは毎朝6時半に起きて、シャワーを浴びて、朝ごはんを食べます。\nそれから、バスに乗って、会社へ行きます。\nカリナさんの会社はにぎやかで、楽しいです。\n昼ごはんはカリナさんがよく作ります。今日はサンドイッチを作りました。\n「どうやってサンドイッチを作りますか。」\n「パンに野菜と肉を乗せて、塩を少しかけてから、もう一枚のパンをのせます。」\n仕事は6時ごろに終わります。\n家に帰ってから、料理を作って、ごはんを食べます。\nカリナさんは料理が好きで、上手です。\n夜9時ごろにシャワーを浴びて、日本語を少し勉強してから、ねます。",
+      "vietnamese": "Hôm nay xin giới thiệu về một ngày của Karina.\nMỗi sáng Karina dậy lúc 6 rưỡi, tắm và ăn sáng.\nSau đó, cô lên xe buýt và đi làm.\nCông ty của Karina sôi động và vui vẻ.\nBữa trưa thường do Karina tự làm. Hôm nay cô làm bánh mì sandwich.\n\"Bạn làm sandwich bằng cách nào?\"\n\"Tôi xếp rau và thịt lên bánh mì, rắc chút muối rồi đặt thêm một lát bánh mì lên trên.\"\nCông việc kết thúc khoảng 6 giờ.\nSau khi về nhà, cô nấu ăn rồi ăn tối.\nKarina thích nấu ăn và nấu giỏi.\nKhoảng 9 giờ tối, cô tắm, học tiếng Nhật một chút rồi đi ngủ.",
+      "sentences": [
+        {
+          "jp": "今日はカリナさんの一日を紹介します。",
+          "vi": "Hôm nay xin giới thiệu về một ngày của Karina.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "紹介します",
+              "read": "しょうかいします",
+              "vi": "giới thiệu"
+            },
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをＶます",
+              "vi": "紹介します: động từ ngoại động, đối tượng mang を."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは毎朝6時半に起きて、シャワーを浴びて、朝ごはんを食べます。",
+          "vi": "Mỗi sáng Karina dậy lúc 6 rưỡi, tắm và ăn sáng.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi buổi sáng"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "シャワー",
+              "read": "シャワー",
+              "vi": "vòi hoa sen, tắm vòi"
+            },
+            {
+              "w": "浴びる",
+              "read": "あびる",
+              "vi": "tắm, hứng chịu"
+            },
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            },
+            {
+              "w": "6時半",
+              "read": "ろくじはん",
+              "vi": "6 giờ rưỡi"
+            },
+            {
+              "w": "シャワーを浴びます",
+              "read": "シャワーをあびます",
+              "vi": "tắm (vòi hoa sen)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2てＶ3（nối nhiều động từ, trình tự）",
+              "vi": "起きて → 浴びて → 食べます: 3 việc buổi sáng nối nhau theo thứ tự bằng て."
+            },
+            {
+              "point": "〜時・〜分",
+              "vi": "6時半 = 6 giờ 30 (半 = rưỡi). Ôn Bài 4."
+            }
+          ]
+        },
+        {
+          "jp": "それから、バスに乗って、会社へ行きます。",
+          "vi": "Sau đó, cô lên xe buýt và đi làm.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên (xe)"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "乗って → 行きます: lên xe rồi đến công ty."
+            },
+            {
+              "point": "Nへ行きます",
+              "vi": "会社へ行きます: đi đến công ty. Ôn Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんの会社はにぎやかで、楽しいです。",
+          "vi": "Công ty của Karina sôi động và vui vẻ.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "sôi động, náo nhiệt (tính từ な)"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜で（nối tính từ な）",
+              "vi": "にぎやかで = sôi động, và … — tính từ な dùng で để nối sang tính từ tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "昼ごはんはカリナさんがよく作ります。今日はサンドイッチを作りました。",
+          "vi": "Bữa trưa thường do Karina tự làm. Hôm nay cô làm bánh mì sandwich.",
+          "vocab": [
+            {
+              "w": "昼ごはん",
+              "read": "ひるごはん",
+              "vi": "bữa trưa"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "サンドイッチ",
+              "read": "サンドイッチ",
+              "vi": "bánh mì sandwich"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N1はN2が〜",
+              "vi": "昼ごはんは（chủ đề） カリナさんが（chủ ngữ/người thực hiện）作ります: \"Về bữa trưa thì Karina là người thường làm.\""
+            }
+          ]
+        },
+        {
+          "jp": "「どうやってサンドイッチを作りますか。」",
+          "vi": "\"Bạn làm sandwich bằng cách nào?\"",
+          "vocab": [
+            {
+              "w": "サンドイッチ",
+              "read": "サンドイッチ",
+              "vi": "bánh sandwich"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "どうやって",
+              "read": "どうやって",
+              "vi": "bằng cách nào, làm thế nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どうやって",
+              "vi": "Hỏi quy trình/cách làm. Câu trả lời thường là chuỗi てV…てV."
+            }
+          ]
+        },
+        {
+          "jp": "「パンに野菜と肉を乗せて、塩を少しかけてから、もう一枚のパンをのせます。」",
+          "vi": "\"Tôi xếp rau và thịt lên bánh mì, rắc chút muối rồi đặt thêm một lát bánh mì lên trên.\"",
+          "vocab": [
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau, rau củ"
+            },
+            {
+              "w": "肉",
+              "read": "にく",
+              "vi": "thịt"
+            },
+            {
+              "w": "乗せます",
+              "read": "のせます",
+              "vi": "đặt lên, xếp lên"
+            },
+            {
+              "w": "塩",
+              "read": "しお",
+              "vi": "muối"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "のせる",
+              "read": "のせる",
+              "vi": "chất lên, đặt lên"
+            },
+            {
+              "w": "かけます",
+              "read": "かけます",
+              "vi": "rắc, đổ lên"
+            },
+            {
+              "w": "一枚",
+              "read": "いちまい",
+              "vi": "một lát, một tờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "乗せて → かけてから → のせます: mô tả từng bước làm sandwich theo thứ tự."
+            },
+            {
+              "point": "Ｖてから",
+              "vi": "かけてから = \"sau khi rắc muối rồi mới\" đặt bánh lên. てから nhấn mạnh bước trước phải xong."
+            },
+            {
+              "point": "〜枚（trợ số từ）",
+              "vi": "一枚のパン = một lát bánh. Ôn trợ số từ Bài 11."
+            }
+          ]
+        },
+        {
+          "jp": "仕事は6時ごろに終わります。",
+          "vi": "Công việc kết thúc khoảng 6 giờ.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "6時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            },
+            {
+              "w": "ごろ",
+              "read": "ごろ",
+              "vi": "khoảng, vào khoảng"
+            },
+            {
+              "w": "終わります",
+              "read": "おわります",
+              "vi": "kết thúc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ぐらい／〜ごろ",
+              "vi": "6時ごろ = khoảng 6 giờ — ごろ dùng với thời điểm (giờ, ngày), ぐらい dùng với khoảng lượng. Ôn Bài 11."
+            }
+          ]
+        },
+        {
+          "jp": "家に帰ってから、料理を作って、ごはんを食べます。",
+          "vi": "Sau khi về nhà, cô nấu ăn rồi ăn tối.",
+          "vocab": [
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, việc nấu ăn"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖてから",
+              "vi": "帰ってから = \"sau khi về nhà\" — phải về đến nhà xong mới nấu."
+            },
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "作って → 食べます: nấu xong rồi ăn."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは料理が好きで、上手です。",
+          "vi": "Karina thích nấu ăn và nấu giỏi.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, khéo léo (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜で nối tính từ な (好きで…) — Bài 16",
+              "vi": "好きで = \"thích, và…\" — tính từ な (好き) bỏ な, thêm で để nối sang tính từ な tiếp theo: 上手です. Cùng cấu trúc với にぎやかで、楽しいです ở trên."
+            }
+          ]
+        },
+        {
+          "jp": "夜9時ごろにシャワーを浴びて、日本語を少し勉強してから、ねます。",
+          "vi": "Khoảng 9 giờ tối, cô tắm, học tiếng Nhật một chút rồi đi ngủ.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "シャワー",
+              "read": "シャワー",
+              "vi": "vòi hoa sen, tắm vòi"
+            },
+            {
+              "w": "浴びる",
+              "read": "あびる",
+              "vi": "tắm, hứng chịu"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "ねます",
+              "read": "ねます",
+              "vi": "ngủ, đi ngủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "浴びて → 勉強してから → ねます: tắm → học → ngủ, đúng thứ tự."
+            },
+            {
+              "point": "Ｖてから",
+              "vi": "勉強してから = \"sau khi học tiếng Nhật xong\" mới đi ngủ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "起きて、シャワーを浴びて、朝ごはんを食べます",
+          "label": "Ｖ1てＶ2てＶ3（trình tự）"
+        },
+        {
+          "excerpt": "にぎやかで、楽しいです",
+          "label": "〜で（nối tính từ な）"
+        },
+        {
+          "excerpt": "昼ごはんはカリナさんがよく作ります",
+          "label": "N1はN2が〜"
+        },
+        {
+          "excerpt": "どうやってサンドイッチを作りますか",
+          "label": "どうやって"
+        },
+        {
+          "excerpt": "かけてから、もう一枚のパンをのせます",
+          "label": "Ｖてから"
+        },
+        {
+          "excerpt": "料理が好きで、上手です",
+          "label": "〜で（nối tính từ な）"
+        },
+        {
+          "excerpt": "帰ってから、料理を作って",
+          "label": "Ｖてから + Ｖ1てＶ2"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは毎朝、まず何をしますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "シャワーを浴びます",
+            "朝ごはんを食べます",
+            "起きます",
+            "日本語を勉強します"
+          ],
+          "answer": 2,
+          "explainVi": "Bài ghi: 「毎朝6時半に起きて、シャワーを浴びて、朝ごはんを食べます」— chuỗi てV cho thấy thứ tự: 起きる（dậy）→ 浴びる（tắm）→ 食べる（ăn sáng）. まず = trước tiên, nên đáp án là việc đầu tiên: 起きます（③）. Đáp án ① シャワー là việc thứ hai. Đáp án ② 朝ごはん là việc thứ ba. Đáp án ④ 日本語を勉強します là việc ban đêm, không phải buổi sáng.",
+          "tip": "Câu hỏi まず（trước tiên）hay 最初 → tìm động từ ĐẦU TIÊN trong chuỗi V1てV2てV3. Động từ đầu chuỗi て = việc xảy ra trước nhất.",
+          "qt": {
+            "q": "Mỗi sáng, trước tiên chị Karina làm gì?",
+            "o": [
+              "Tắm vòi sen",
+              "Ăn sáng",
+              "Thức dậy",
+              "Học tiếng Nhật"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはどうやってサンドイッチを作りますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "パンに塩をかけてから、野菜と肉を乗せます",
+            "パンに野菜と肉を乗せて、塩を少しかけてから、もう一枚のパンをのせます",
+            "野菜と肉を切ってから、パンに乗せます",
+            "塩と野菜をまぜてから、パンにのせます"
+          ],
+          "answer": 1,
+          "explainVi": "Bài nêu rõ thứ tự: 「パンに野菜と肉を乗せて、塩を少しかけてから、もう一枚のパンをのせます」— bước 1: xếp rau+thịt lên bánh; bước 2: rắc muối（てから nhấn mạnh xong bước này mới làm bước 3）; bước 3: đặt lát bánh thứ hai. Đáp án ① sai vì đảo ngược thứ tự: rắc muối trước, rau+thịt sau — trái bài. Đáp án ③ sai vì nhắc cắt rau thịt (切る), bài không đề cập. Đáp án ④ sai vì nhắc trộn muối+rau (まぜる), bài không có.",
+          "tip": "Câu hỏi どうやって về quy trình → đọc chuỗi てV và chú ý てから (bước PHẢI xong trước). Đáp án sai thường đảo thứ tự hoặc thêm động từ không có trong bài.",
+          "qt": {
+            "q": "Chị Karina làm bánh sandwich như thế nào?",
+            "o": [
+              "Rắc muối lên bánh mì rồi cho rau và thịt lên",
+              "Cho rau và thịt lên bánh mì, rắc một ít muối rồi đặt thêm một lát bánh mì lên trên",
+              "Cắt rau và thịt rồi cho lên bánh mì",
+              "Trộn muối và rau rồi đặt lên bánh mì"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは夜、最後に何をしますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "料理を作ります",
+            "シャワーを浴びます",
+            "日本語を勉強します",
+            "ねます"
+          ],
+          "answer": 3,
+          "explainVi": "Câu cuối bài ghi: 「夜9時ごろにシャワーを浴びて、日本語を少し勉強してから、ねます」— chuỗi てV cho thứ tự ban đêm: 浴びる→勉強する→ねる. 最後（cuối cùng）= động từ cuối chuỗi: ねます（④）. Đáp án ① 料理 là việc sau khi về nhà, không phải cuối cùng trong ngày. Đáp án ② シャワー là việc đầu tiên ban đêm, không phải cuối. Đáp án ③ 日本語を勉強 là việc thứ hai, xảy ra trước ねます.",
+          "tip": "Câu hỏi 最後（cuối cùng）→ tìm động từ cuối chuỗi て, thường là dạng ます kết thúc câu (không có て tiếp theo sau nó).",
+          "qt": {
+            "q": "Buổi tối, cuối cùng chị Karina làm gì?",
+            "o": [
+              "Nấu ăn",
+              "Tắm vòi sen",
+              "Học tiếng Nhật",
+              "Đi ngủ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら駅からさくら図書館への行き方",
+      "titleVi": "Cách đi từ ga Sakura đến thư viện Sakura",
+      "japanese": "さくら駅からさくら図書館への行き方\nさくら駅の南口を出て、まっすぐ歩いてから、橋を渡ります。\n番号｜場所｜すること\n1｜駅の南口｜出て、右に曲がります\n2｜パン屋の前｜まっすぐ歩いて、橋を渡ります\n3｜交番の前｜左に曲がって、少し歩きます\n図書館はコンビニのとなりです。白くて、大きいたてものです。\nどうやって行きますか。駅から歩いて15分ぐらいです。バスは使いません。\n※雨の日は、駅前から12番のバスに乗って、図書館の前で降りてください。\n電話：0120-16-1616（月〜金　9時〜18時）",
+      "vietnamese": "Cách đi từ ga Sakura đến thư viện Sakura\nRa khỏi cổng Nam ga Sakura, đi thẳng rồi qua cầu.\nSố thứ tự｜Địa điểm｜Việc cần làm\n1｜Cổng Nam nhà ga｜Ra khỏi cổng rồi rẽ phải\n2｜Trước tiệm bánh mì｜Đi thẳng rồi qua cầu\n3｜Trước bốt cảnh sát｜Rẽ trái rồi đi thêm một chút\nThư viện ở ngay cạnh cửa hàng tiện lợi. Đó là tòa nhà màu trắng và to.\nĐi bằng cách nào? Đi bộ từ ga mất khoảng 15 phút. Không cần đi xe buýt.\n※Vào ngày mưa, hãy lên xe buýt số 12 từ trước ga rồi xuống trước thư viện.\nĐiện thoại: 0120-16-1616 (Thứ Hai〜Thứ Sáu, 9 giờ〜18 giờ)",
+      "sentences": [
+        {
+          "jp": "さくら駅からさくら図書館への行き方",
+          "vi": "Cách đi từ ga Sakura đến thư viện Sakura.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga tàu"
+            },
+            {
+              "w": "行き方",
+              "read": "いきかた",
+              "vi": "cách đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNへ（Bài 5 ôn）",
+              "vi": "駅から図書館へ = từ ga đến thư viện. Ôn lại へ chỉ hướng đến của Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "さくら駅の南口を出て、まっすぐ歩いてから、橋を渡ります。",
+          "vi": "Ra khỏi cổng Nam ga Sakura, đi thẳng rồi qua cầu.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "南口",
+              "read": "みなみぐち",
+              "vi": "cửa nam"
+            },
+            {
+              "w": "出て",
+              "read": "でて",
+              "vi": "ra khỏi"
+            },
+            {
+              "w": "まっすぐ",
+              "read": "まっすぐ",
+              "vi": "thẳng"
+            },
+            {
+              "w": "歩いて",
+              "read": "あるいて",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "橋",
+              "read": "はし",
+              "vi": "cầu"
+            },
+            {
+              "w": "渡ります",
+              "read": "わたります",
+              "vi": "băng qua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "出て → 歩いてから → 渡ります: kể lần lượt 3 việc bằng て, đúng thứ tự."
+            },
+            {
+              "point": "Ｖてから",
+              "vi": "歩いてから = \"sau khi đi bộ (thẳng)\" mới qua cầu — nhấn mạnh việc đi bộ phải xong trước."
+            }
+          ],
+          "keys": [
+            {
+              "w": "南口を出て、まっすぐ歩いてから、橋を渡ります",
+              "why": "câu tóm tắt cả hành trình ngày thường — đối chiếu với 3 hàng bảng bên dưới để xác nhận thứ tự đúng"
+            }
+          ]
+        },
+        {
+          "jp": "番号｜場所｜すること",
+          "vi": "Số thứ tự｜Địa điểm｜Việc cần làm.",
+          "vocab": [
+            {
+              "w": "番号",
+              "read": "ばんごう",
+              "vi": "số thứ tự, số hiệu"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm, nơi chốn"
+            }
+          ]
+        },
+        {
+          "jp": "1｜駅の南口｜出て、右に曲がります",
+          "vi": "1｜Cổng Nam nhà ga｜Ra khỏi cổng rồi rẽ phải.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "南口",
+              "read": "みなみぐち",
+              "vi": "cổng Nam, cửa Nam"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "右",
+              "read": "みぎ",
+              "vi": "bên phải"
+            },
+            {
+              "w": "曲がります",
+              "read": "まがります",
+              "vi": "rẽ, quẹo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "出て → 曲がります: ra cổng rồi rẽ phải — bước 1 của trình tự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1｜駅の南口｜出て、右に曲がります",
+              "why": "bước 1 của lộ trình ngày thường: tại cổng Nam thì rẽ phải"
+            }
+          ]
+        },
+        {
+          "jp": "2｜パン屋の前｜まっすぐ歩いて、橋を渡ります",
+          "vi": "2｜Trước tiệm bánh mì｜Đi thẳng rồi qua cầu.",
+          "vocab": [
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "まっすぐ",
+              "read": "まっすぐ",
+              "vi": "thẳng, đi thẳng"
+            },
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            },
+            {
+              "w": "橋",
+              "read": "はし",
+              "vi": "cầu"
+            },
+            {
+              "w": "渡る",
+              "read": "わたる",
+              "vi": "chuyển giao, truyền lại"
+            },
+            {
+              "w": "パン屋",
+              "read": "パンや",
+              "vi": "tiệm bánh mì"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "歩いて → 渡ります: đi thẳng rồi qua cầu — bước 2."
+            }
+          ],
+          "keys": [
+            {
+              "w": "2｜パン屋の前｜まっすぐ歩いて、橋を渡ります",
+              "why": "bước 2 của lộ trình ngày thường: tại trước tiệm bánh mì thì đi thẳng rồi qua cầu"
+            }
+          ]
+        },
+        {
+          "jp": "3｜交番の前｜左に曲がって、少し歩きます",
+          "vi": "3｜Trước bốt cảnh sát｜Rẽ trái rồi đi thêm một chút.",
+          "vocab": [
+            {
+              "w": "交番",
+              "read": "こうばん",
+              "vi": "bốt cảnh sát"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "左",
+              "read": "ひだり",
+              "vi": "bên trái"
+            },
+            {
+              "w": "曲がる",
+              "read": "まがる",
+              "vi": "rẽ, uốn cong"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "曲がって → 歩きます: rẽ trái rồi đi thêm một chút — bước 3, bước cuối trước khi tới thư viện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3｜交番の前｜左に曲がって、少し歩きます",
+              "why": "bước 3 (cuối) của lộ trình ngày thường: tại trước bốt cảnh sát thì rẽ trái rồi đi thêm chút"
+            }
+          ]
+        },
+        {
+          "jp": "図書館はコンビニのとなりです。白くて、大きいたてものです。",
+          "vi": "Thư viện ở ngay cạnh cửa hàng tiện lợi. Đó là tòa nhà màu trắng và to.",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi"
+            },
+            {
+              "w": "となり",
+              "read": "となり",
+              "vi": "bên cạnh"
+            },
+            {
+              "w": "白い",
+              "read": "しろい",
+              "vi": "màu trắng"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "to, lớn"
+            },
+            {
+              "w": "たてもの",
+              "read": "たてもの",
+              "vi": "tòa nhà, công trình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて（nối tính từ い）",
+              "vi": "白くて、大きいです → ở đây kết ở danh từ たてもの: 白くて、大きいたてもの = tòa nhà (vừa) trắng (vừa) to. くて nối 2 tính từ い."
+            }
+          ]
+        },
+        {
+          "jp": "どうやって行きますか。駅から歩いて15分ぐらいです。バスは使いません。",
+          "vi": "Đi bằng cách nào? Đi bộ từ ga mất khoảng 15 phút. Không cần đi xe buýt.",
+          "vocab": [
+            {
+              "w": "どうやって",
+              "read": "どうやって",
+              "vi": "bằng cách nào"
+            },
+            {
+              "w": "行きます",
+              "read": "いきます",
+              "vi": "đi"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "歩いて",
+              "read": "あるいて",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "15分",
+              "read": "じゅうごふん",
+              "vi": "15 phút"
+            },
+            {
+              "w": "ぐらい",
+              "read": "ぐらい",
+              "vi": "khoảng"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "使いません",
+              "read": "つかいません",
+              "vi": "không sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どうやって",
+              "vi": "Hỏi cách thức/phương tiện di chuyển. Câu trả lời ở đây là 歩いて15分ぐらい — đi bộ, không dùng phương tiện khác."
+            },
+            {
+              "point": "〜ぐらい（Bài 11 ôn）",
+              "vi": "15分ぐらい = khoảng 15 phút. Ôn lại ぐらい chỉ số lượng/thời gian ước chừng của Bài 11."
+            }
+          ],
+          "keys": [
+            {
+              "w": "駅から歩いて15分ぐらいです",
+              "why": "thời gian đi bộ bình thường — đối chiếu với dòng ※ (ngày mưa) để không nhầm 2 cách đi khác nhau"
+            },
+            {
+              "w": "バスは使いません",
+              "why": "khẳng định ngày thường KHÔNG đi xe buýt — bẫy nếu câu hỏi hỏi về ngày mưa mà chọn nhầm dòng này"
+            }
+          ]
+        },
+        {
+          "jp": "※雨の日は、駅前から12番のバスに乗って、図書館の前で降りてください。",
+          "vi": "※Vào ngày mưa, hãy lên xe buýt số 12 từ trước ga rồi xuống trước thư viện.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên (xe)"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "降ります",
+              "read": "おります",
+              "vi": "xuống (xe)"
+            },
+            {
+              "w": "〜番",
+              "read": "〜ばん",
+              "vi": "số thứ … (số hiệu)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖ1てＶ2（nối nhiều động từ, trình tự）",
+              "vi": "乗って → 降りてください: lên xe rồi xuống — nối trình tự bằng て."
+            },
+            {
+              "point": "Ｖてください（Bài 14 ôn）",
+              "vi": "降りてください = hãy xuống (xe) nhé. Yêu cầu lịch sự, ôn lại Bài 14."
+            }
+          ],
+          "keys": [
+            {
+              "w": "駅前から12番のバスに乗って",
+              "why": "ngày mưa lên xe buýt số 12 từ trước ga — số hiệu bus cần chọn, khớp đáp án câu hỏi"
+            },
+            {
+              "w": "図書館の前で降りてください",
+              "why": "điểm xuống xe là trước thư viện — xác nhận đích đến đúng, phân biệt với các phương án nhiễu bịa địa điểm khác"
+            }
+          ]
+        },
+        {
+          "jp": "電話：0120-16-1616（月〜金　9時〜18時）",
+          "vi": "Điện thoại: 0120-16-1616 (Thứ Hai〜Thứ Sáu, 9 giờ〜18 giờ).",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai (viết tắt)"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu (viết tắt)"
+            },
+            {
+              "w": "18時",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "月〜金 9時〜18時 = từ thứ Hai đến thứ Sáu, từ 9 giờ đến 18 giờ. Ôn lại からまで của Bài 4."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "出て、まっすぐ歩いてから、橋を渡ります",
+          "label": "Ｖてから"
+        },
+        {
+          "excerpt": "白くて、大きいたてものです",
+          "label": "〜くて（nối tính từ い）"
+        },
+        {
+          "excerpt": "どうやって行きますか",
+          "label": "どうやって"
+        },
+        {
+          "excerpt": "12番のバスに乗って、図書館の前で降りてください",
+          "label": "Ｖ1てＶ2＋Ｖてください"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & tóm tắt hành trình",
+          "topic": 1,
+          "note": "Nêu tên hành trình và tóm tắt cả đường đi bằng てから — chỉ định hướng chủ đề, chưa phải căn cứ chi tiết từng bước.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng 3 bước theo số thứ tự (lộ trình ngày thường)",
+          "topic": 4,
+          "note": "Bảng mô tả lộ trình đi bộ ngày thường theo từng bước: dò cột \"số thứ tự\" → đọc cột \"việc cần làm\". Không phải căn cứ của câu hỏi (câu hỏi hỏi về ngày mưa).",
+          "qs": []
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "body",
+          "label": "Mô tả thư viện & cách đi thường ngày",
+          "topic": 7,
+          "note": "Miêu tả tòa nhà và xác nhận ngày thường đi bộ, không dùng xe buýt — dễ nhầm với dòng ※ ngày mưa.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Bẫy ※ ngày mưa & liên hệ",
+          "topic": 8,
+          "note": "Dòng ※ nêu ngoại lệ: ngày mưa phải đi xe buýt số 12 — đây là căn cứ đúng duy nhất cho câu hỏi, không phải bảng 3 bước hay dòng \"バスは使いません\" (đó là chuyện ngày thường).",
+          "qs": [
+            1
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "雨の日、さくら駅からさくら図書館へどうやって行きますか。",
+          "options": [
+            "歩いて15分ぐらいです",
+            "駅前から12番のバスに乗って、図書館の前で降ります",
+            "交番の前でタクシーに乗ります",
+            "パン屋の前で電車に乗ります"
+          ],
+          "answer": 1,
+          "explainVi": "Dòng ※ ghi rõ: 「雨の日は、駅前から12番のバスに乗って、図書館の前で降りてください」— vậy cách đi ngày mưa là đáp án ②. Đáp án ① 「歩いて15分ぐらいです」là cách đi ngày thường (trời nắng), không phải cách đi ngày mưa nên sai. Đáp án ③ sai vì bài không có từ タクシー（taxi）. Đáp án ④ sai vì bài không có từ 電車（tàu điện）cũng như việc lên xe ở trước tiệm bánh mì.",
+          "tip": "Thấy điều kiện \"ngày mưa\" (雨の日) thì phải tìm ngay dòng ※ — ※ luôn nêu \"trường hợp khác thường\", đừng nhầm với cách đi ngày thường (đi bộ 15 phút).",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Ngày mưa, đi từ ga Sakura đến thư viện Sakura bằng cách nào?",
+            "o": [
+              "Mất khoảng 15 phút đi bộ",
+              "Lên xe buýt số 12 trước nhà ga và xuống trước thư viện",
+              "Lên taxi trước đồn cảnh sát",
+              "Lên tàu trước tiệm bánh mì"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3563 @@
+{
+  "bai": 60,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 60 luyện hai mẫu chỉ MỤC ĐÍCH: 〜ように và 〜ために — trông giống nhau nhưng sắc thái KHÁC NHAU cốt lõi. 〜ために = mục đích CÓ Ý CHÍ (người nói chủ động kiểm soát kết quả, cùng chủ ngữ, động từ ý chí Vる). 〜ように = mục đích KHÔNG DO Ý CHÍ TRỰC TIẾP (kết quả là khả năng/tự động/trạng thái — dùng với Vない, V可能形, V自動詞). Lưu ý: ために cũng mang nghĩa NGUYÊN NHÂN (Bài 39) — phân biệt bằng ngữ cảnh (trước/sau có mệnh đề điều kiện hay kết quả). Phân biệt sắc thái: ように ≠ ために ≠ Vに行く（mục đích di chuyển, Bài 13）. Đây KHÁC với ようになる/ようにする（Bài 36 — thay đổi thói quen/điều chỉnh）— ở đây là mục đích thuần túy.",
+    "steps": [
+      "接続 — ために: Vる（ý chí）+ ために / Nの + ために. Ví dụ: 合格するために、健康のために.",
+      "接続 — ように: Vない + ように / V可能形 + ように / V自動詞（変化）+ ように. Ví dụ: 忘れないように、話せるように、上達するように.",
+      "Nhận diện: động từ trước ように có phải \"ý chí\" không? Nếu KHÔNG (khả năng, phủ định, tự động) → ように. Nếu CÓ (chủ thể điều khiển được) → ために.",
+      "Phân biệt ために nguyên nhân（Bài 39）vs ために mục đích: nguyên nhân = vế sau là kết quả đã xảy ra; mục đích = vế sau là hành động để đạt được.",
+      "Chú ý chủ ngữ: ために mục đích yêu cầu cùng chủ ngữ trước và sau. ように không bắt buộc cùng chủ ngữ.",
+      "Câu hỏi suy luận: \"Vì sao dùng ように chứ không phải ために?\" → xét động từ trước mẫu: có ý chí không? Chủ ngữ có thể kiểm soát trực tiếp không?"
+    ],
+    "tips": [
+      "使い分け 1 — ために vs ように theo ý chí: 「日本語が上手になるために、毎日練習する」(ために × sai — \"上手になる\" là tự động, không kiểm soát trực tiếp) → đúng là 「上手になるように、毎日練習する」. Ngược lại: 「試験に合格するために、勉強する」(ために ○ — \"勉強する\" là hành động ý chí).",
+      "使い分け 2 — Vない + ように là dấu hiệu điển hình của ように mục đích: 「遅れないように早く出かけた」. Dạng phủ định trước ように luôn đúng; dạng phủ định trước ために rất hiếm và thường sai.",
+      "ために (nguyên nhân B39) vs ために (mục đích B60): \"雨のために試合が中止になった\"（nguyên nhân — vế sau xảy ra rồi）≠ \"試合に勝つために練習する\"（mục đích — vế sau là hành động cố ý）.",
+      "ように mục đích thường đi cùng hành động cụ thể ở vế sau: メモする、早起きする、練習する — tức là người nói làm gì đó để đạt trạng thái ở vế ように.",
+      "Nhận dạng trong câu hỏi: \"なぜ〜ように/ためにを使っていますか\" → xét (a) động từ trước mẫu, (b) cùng chủ ngữ hay khác, (c) có thể kiểm soát trực tiếp không."
+    ],
+    "grammarFocus": [
+      "〜ように（mục đích）— Vない/V可能形/V自動詞 + ように: mục đích không do ý chí trực tiếp / khả năng / trạng thái tự động",
+      "〜ために（mục đích）— Vる（ý chí）/Nの + ために: mục đích CÓ Ý CHÍ, cùng chủ ngữ, chủ thể kiểm soát trực tiếp"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（nhờ）",
+          "〜せいで（tại）"
+        ]
+      },
+      {
+        "bai": 48,
+        "items": [
+          "使役形（V使役 — sai khiến/cho phép）"
+        ]
+      },
+      {
+        "bai": 43,
+        "items": [
+          "〜てきた（tiếp diễn đến hiện tại）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）",
+          "〜ために（nguyên nhân）"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "〜つもりです（dự định）"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（thể khả năng）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "試験のための準備",
+      "titleVi": "Chuẩn bị cho kỳ thi",
+      "japanese": "来月、日本語能力試験を受けるために、毎日二時間勉強している。試験に落ちないように、単語帳も持ち歩くようにしている。読む力をつけるために、日本語の記事を毎朝読むことにした。難しい漢字を忘れないように、ノートに書いて繰り返し確認する。先生からは「リスニングが伸びるように、毎日聞く練習をしなさい」と言われた。その言葉のおかげで、今はポッドキャストも聞くようになった。合格するために、これからも努力を続けるつもりだ。自分の可能性を信じて、あきらめないように頑張りたいと思っている。",
+      "vietnamese": "Để dự kỳ thi Năng lực tiếng Nhật vào tháng sau, mỗi ngày tôi đang học hai tiếng. Để không trượt thi, tôi cũng mang theo sổ từ vựng bên mình. Để rèn lực đọc, tôi đã quyết định mỗi sáng đọc bài báo tiếng Nhật. Để không quên chữ Hán khó, tôi viết vào vở rồi kiểm tra lại nhiều lần. Thầy/cô có nói với tôi: \"Hãy luyện nghe mỗi ngày để khả năng nghe phát triển lên\". Nhờ những lời đó, bây giờ tôi đã nghe cả podcast rồi. Để đỗ kỳ thi, tôi định tiếp tục nỗ lực từ nay về sau. Tôi muốn tin vào khả năng của bản thân và cố gắng để không bỏ cuộc.",
+      "sentences": [
+        {
+          "jp": "来月、日本語能力試験を受けるために、毎日二時間勉強している。",
+          "vi": "Để dự kỳ thi Năng lực tiếng Nhật vào tháng sau, mỗi ngày tôi đang học hai tiếng.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "受けます",
+              "read": "うけます",
+              "vi": "dự (thi), nhận"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học tập"
+            },
+            {
+              "w": "日本語能力試験",
+              "read": "にほんごのうりょくしけん",
+              "vi": "kỳ thi Năng lực tiếng Nhật (JLPT)"
+            },
+            {
+              "w": "二時間",
+              "read": "にじかん",
+              "vi": "hai tiếng đồng hồ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 受けるために = để dự thi. 〜ために mục đích dùng khi hành động ở vế chính (勉強している) là hành động CÓ Ý CHÍ, cùng chủ ngữ với vế ために. Sắc thái: ≠ ように (dùng khi kết quả là trạng thái tự động/khả năng, không kiểm soát trực tiếp). ≠ ために nguyên nhân (Bài 39) — ở đây vế sau là hành động cố ý, không phải kết quả đã xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "試験に落ちないように、単語帳も持ち歩くようにしている。",
+          "vi": "Để không trượt thi, tôi cũng mang theo sổ từ vựng bên mình.",
+          "vocab": [
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi"
+            },
+            {
+              "w": "落ちます",
+              "read": "おちます",
+              "vi": "trượt (thi), rớt"
+            },
+            {
+              "w": "単語",
+              "read": "たんご",
+              "vi": "từ vựng"
+            },
+            {
+              "w": "持ち歩きます",
+              "read": "もちあるきます",
+              "vi": "mang theo người, mang đi"
+            },
+            {
+              "w": "単語帳",
+              "read": "たんごちょう",
+              "vi": "sổ từ vựng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích）",
+              "vi": "接続: Vない + ように. 落ちないように = để không trượt thi. 〜ように mục đích dùng khi vế ように là trạng thái/kết quả KHÔNG DO Ý CHÍ TRỰC TIẾP — \"không trượt thi\" là trạng thái tự động (không ai chủ động \"không trượt\"). Sắc thái: ≠ ために (ために + Vない rất hiếm và thường sai; ために đòi hỏi Vる ý chí). Vない + ように là dấu hiệu điển hình nhất của ように mục đích."
+            },
+            {
+              "point": "〜ようにする（Bài 36）",
+              "vi": "持ち歩くようにしている = đang cố duy trì thói quen mang theo. ようにする（Bài 36）= cố gắng/duy trì để trở thành — khác với ように mục đích trong câu này."
+            }
+          ]
+        },
+        {
+          "jp": "読む力をつけるために、日本語の記事を毎朝読むことにした。",
+          "vi": "Để rèn lực đọc, tôi đã quyết định mỗi sáng đọc bài báo tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "記事",
+              "read": "きじ",
+              "vi": "bài báo, bài viết"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "読む力",
+              "read": "よむちから",
+              "vi": "kỹ năng đọc, lực đọc"
+            },
+            {
+              "w": "つけます",
+              "read": "つけます",
+              "vi": "rèn, tạo thêm (kỹ năng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 力をつけるために = để rèn lực đọc. Hành động vế chính（読む）là ý chí trực tiếp của người nói."
+            },
+            {
+              "point": "Vることにした（Bài 36）",
+              "vi": "読むことにした = đã quyết định đọc. ことにする（Bài 36）= tự quyết định làm gì đó."
+            }
+          ]
+        },
+        {
+          "jp": "難しい漢字を忘れないように、ノートに書いて繰り返し確認する。",
+          "vi": "Để không quên chữ Hán khó, tôi viết vào vở rồi kiểm tra lại nhiều lần.",
+          "vocab": [
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "漢字",
+              "read": "かんじ",
+              "vi": "chữ Hán"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ ghi chép"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "繰り返し",
+              "read": "くりかえし",
+              "vi": "nhiều lần, lặp đi lặp lại"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — Vない）",
+              "vi": "接続: Vない + ように. 忘れないように = để không quên. \"Không quên\" là trạng thái tự động (không phải ý chí trực tiếp kiểm soát được) → bắt buộc dùng ように, không dùng ために."
+            },
+            {
+              "point": "Vて（nối trình tự Bài 16）",
+              "vi": "書いて確認する = viết rồi kiểm tra. て nối hai hành động liên tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "先生からは「リスニングが伸びるように、毎日聞く練習をしなさい」と言われた。",
+          "vi": "Thầy/cô có nói với tôi: \"Hãy luyện nghe mỗi ngày để khả năng nghe phát triển lên\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "リスニング",
+              "read": "リスニング",
+              "vi": "khả năng nghe"
+            },
+            {
+              "w": "伸びます",
+              "read": "のびます",
+              "vi": "phát triển, tiến bộ (tự động)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "聞く練習",
+              "read": "きくれんしゅう",
+              "vi": "luyện tập nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — V自動詞）",
+              "vi": "接続: V自動詞（伸びる）+ ように. 伸びるように = để khả năng nghe phát triển. 伸びる là tự động từ（自動詞）— sự phát triển xảy ra tự động, không ai trực tiếp điều khiển → dùng ように, không dùng ために. Sắc thái quan trọng: chủ ngữ của 伸びる（リスニング）≠ chủ ngữ của hành động vế sau（người nghe）— ように cho phép khác chủ ngữ; ために không cho."
+            },
+            {
+              "point": "V受身（Bài 37）",
+              "vi": "言われた = được nói (bị/được thầy nói). 受身（Bài 37）— người nói là đối tượng nhận hành động."
+            }
+          ]
+        },
+        {
+          "jp": "その言葉のおかげで、今はポッドキャストも聞くようになった。",
+          "vi": "Nhờ những lời đó, bây giờ tôi đã nghe cả podcast rồi.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, từ ngữ"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "ポッドキャスト",
+              "read": "ポッドキャスト",
+              "vi": "podcast"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで（Bài 59）",
+              "vi": "その言葉のおかげで = nhờ những lời đó. おかげで = nhờ (kết quả tốt, biết ơn) — Bài 59."
+            },
+            {
+              "point": "〜ようになった（Bài 36）",
+              "vi": "聞くようになった = đã (dần) nghe được rồi. ようになる（Bài 36）= thay đổi thói quen/khả năng. Phân biệt với ように mục đích: đây là ようになる（biến đổi）, không phải ように mục đích."
+            }
+          ]
+        },
+        {
+          "jp": "合格するために、これからも努力を続けるつもりだ。",
+          "vi": "Để đỗ kỳ thi, tôi định tiếp tục nỗ lực từ nay về sau.",
+          "vocab": [
+            {
+              "w": "合格します",
+              "read": "ごうかくします",
+              "vi": "đỗ (thi), vượt qua kỳ thi"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực, cố gắng"
+            },
+            {
+              "w": "続けます",
+              "read": "つづけます",
+              "vi": "tiếp tục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 合格するために = để đỗ thi. 合格する là hành động có ý chí, cùng chủ ngữ → ために."
+            },
+            {
+              "point": "〜つもりだ（Bài 31）",
+              "vi": "続けるつもりだ = định tiếp tục. つもり = dự định cá nhân（Bài 31）."
+            }
+          ]
+        },
+        {
+          "jp": "自分の可能性を信じて、あきらめないように頑張りたいと思っている。",
+          "vi": "Tôi muốn tin vào khả năng của bản thân và cố gắng để không bỏ cuộc.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "信じます",
+              "read": "しんじます",
+              "vi": "tin tưởng"
+            },
+            {
+              "w": "あきらめる",
+              "read": "あきらめる",
+              "vi": "từ bỏ, bỏ cuộc"
+            },
+            {
+              "w": "頑張ります",
+              "read": "がんばります",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "可能性",
+              "read": "かのうせい",
+              "vi": "khả năng, tiềm năng"
+            },
+            {
+              "w": "あきらめます",
+              "read": "あきらめます",
+              "vi": "bỏ cuộc, từ bỏ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — Vない）",
+              "vi": "接続: Vない + ように. あきらめないように = để không bỏ cuộc. \"Không bỏ cuộc\" là trạng thái kiểm soát gián tiếp → ように."
+            },
+            {
+              "point": "〜たいと思っている（Bài 13）",
+              "vi": "頑張りたいと思っている = đang nghĩ muốn cố gắng. Vたい（Bài 13）+ と思っている（Bài 21）= mong muốn đang được duy trì."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "試験を受けるために、毎日二時間勉強している",
+          "label": "〜ために（mục đích — Vる ý chí）"
+        },
+        {
+          "excerpt": "試験に落ちないように、単語帳も持ち歩く",
+          "label": "〜ように（mục đích — Vない）"
+        },
+        {
+          "excerpt": "リスニングが伸びるように",
+          "label": "Sắc thái: ように + V自動詞（khác chủ ngữ — ため không dùng được）"
+        },
+        {
+          "excerpt": "忘れないように、ノートに書いて繰り返し確認する",
+          "label": "〜ように（mục đích — Vない, trạng thái tự động）"
+        },
+        {
+          "excerpt": "合格するために、これからも努力を続けるつもりだ",
+          "label": "〜ために（mục đích — Vる ý chí, cùng chủ ngữ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「試験に落ちないように」の「ように」について、なぜ「ために」を使わないのですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "「ために」は丁寧な表現なので、普通体では使えないからです",
+            "「落ちない」は否定形で、意志的な動作ではないため、「ように」を使うからです",
+            "「ために」は名詞の後ろにしか使えないからです",
+            "「ように」と「ために」は意味が全く同じなので、どちらでも使えます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: \"落ちない\" là dạng phủ định — \"không trượt thi\" là trạng thái tự động, không ai chủ động điều khiển trực tiếp được. Đây là điều kiện điển hình của ように mục đích (Vない + ように). Lựa chọn 0 sai vì ために dùng được ở cả thể thường; lựa chọn 2 sai vì ために dùng được sau động từ chứ không bắt buộc sau danh từ; lựa chọn 3 sai vì ように và ために KHÔNG cùng nghĩa — sắc thái ý chí hoàn toàn khác nhau.",
+          "tip": "Thấy Vない trước ように → chọn ように ngay, không cần suy nghĩ thêm. ために + Vない rất hiếm và gần như luôn sai trong bài thi N3.",
+          "qt": {
+            "q": "Trong 「試験に落ちないように」 (để không trượt kỳ thi), tại sao không dùng 「ために」?",
+            "o": [
+              "Vì 「ために」 là cách diễn đạt lịch sự nên không thể dùng trong thể thông thường",
+              "Vì 「落ちない」 là dạng phủ định và không phải là hành động có chủ ý, nên dùng 「ように」",
+              "Vì 「ために」 chỉ có thể dùng sau danh từ",
+              "Vì 「ように」 và 「ために」 có nghĩa hoàn toàn giống nhau nên dùng cách nào cũng được"
+            ]
+          }
+        },
+        {
+          "q": "「リスニングが伸びるように、毎日聞く練習をしなさい」で「ように」が使われている理由として正しいのはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "「伸びる」は意志動詞なので、主語が同じ場合は「ように」を使うからです",
+            "「伸びる」は自動詞で、直接意志でコントロールできない変化であり、また「リスニング」と「人」で主語が異なるからです",
+            "「ために」は先生が使う場合には使えないからです",
+            "「毎日」という言葉があるときは必ず「ように」を使うからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: câu \"リスニングが伸びるように\" dùng ように vì hai lý do cốt lõi: (1) 伸びる là tự động từ（自動詞）— \"phát triển\" là biến đổi tự nhiên, không ai kiểm soát trực tiếp; (2) chủ ngữ của 伸びる là リスニング（khả năng nghe）, còn chủ ngữ hành động vế sau（毎日聞く練習をしなさい）là người học — hai chủ ngữ khác nhau, ために mục đích không cho phép khác chủ ngữ. Lựa chọn 0 sai vì 伸びる KHÔNG phải ý chí động từ; lựa chọn 2 sai vì ために không bị hạn chế theo người nói; lựa chọn 3 sai vì 毎日 không quyết định mẫu ngữ pháp.",
+          "tip": "Kiểm tra hai điều — (a) động từ trước ように/ために có phải tự động từ hoặc V可能形 không? (b) hai vế có khác chủ ngữ không? Có một trong hai → ように. Cả hai đều \"ý chí + cùng chủ ngữ\" → ために.",
+          "qt": {
+            "q": "Trong 「リスニングが伸びるように、毎日聞く練習をしなさい」, lý do nào giải thích đúng việc dùng 「ように」?",
+            "o": [
+              "Vì 「伸びる」 là động từ chỉ ý chí nên khi chủ ngữ giống nhau thì dùng 「ように」",
+              "Vì 「伸びる」 là nội động từ, chỉ một sự thay đổi không thể trực tiếp kiểm soát bằng ý chí, đồng thời chủ ngữ của 「リスニング」 và 「人」 khác nhau",
+              "Vì không thể dùng 「ために」 khi giáo viên nói",
+              "Vì khi có từ 「毎日」 thì nhất định phải dùng 「ように」"
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が試験のためにしていることは何ですか。",
+          "evi": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "options": [
+            "毎日二時間勉強して、単語帳を持ち歩き、記事を読み、ポッドキャストを聞いている",
+            "先生に毎日メッセージを送って質問している",
+            "毎週図書館へ行って日本語の本を借りている",
+            "試験の過去問を解くことだけをしている"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: đối chiếu từng việc trong đáp án 0 với bài: \"毎日二時間勉強\"（câu 1）, \"単語帳を持ち歩く\"（câu 2）, \"記事を毎朝読む\"（câu 3）, \"ポッドキャストを聞く\"（câu 6）— tất cả đều có trong bài. Lựa chọn 1, 2, 3 đều đề cập việc không được nhắc đến: gửi tin cho thầy, đi thư viện mượn sách, và chỉ giải đề cũ đều KHÔNG xuất hiện trong đoạn văn.",
+          "tip": "Với câu hỏi \"người viết đã làm gì\", quét từng câu văn tìm hành động ý chí（勉強する、持ち歩く、読む…）rồi đối chiếu với đáp án — chọn đáp án liệt kê đúng và đủ những gì có trong bài.",
+          "qt": {
+            "q": "Trong bài viết này, người viết đang làm những gì để chuẩn bị cho kỳ thi?",
+            "o": [
+              "Mỗi ngày học hai tiếng, mang theo sổ từ vựng, đọc bài viết và nghe podcast",
+              "Mỗi ngày gửi tin nhắn cho giáo viên và đặt câu hỏi",
+              "Mỗi tuần đến thư viện mượn sách tiếng Nhật",
+              "Chỉ làm các đề thi những năm trước"
+            ]
+          }
+        },
+        {
+          "q": "「合格するために」と「落ちないように」は、同じ試験に関する目的表現ですが、使い分けられています。その理由として最も適切なのはどれですか。",
+          "evi": [
+            1,
+            6
+          ],
+          "options": [
+            "「ために」は書き言葉、「ように」は話し言葉だから使い分けている",
+            "「合格する」は意志的に目標に向かう行動なので「ために」、「落ちない」は結果の状態（コントロールできない面がある）なので「ように」を使っている",
+            "どちらも同じ意味で、文のバランスのために変えているだけです",
+            "「ために」は肯定文、「ように」は否定文にのみ使えるという規則があるからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: \"合格する\" là động từ ý chí — người học chủ động nhắm đến mục tiêu đỗ thi, chủ ngữ cùng nhau → ために. Còn \"落ちない\" là dạng phủ định của tự động từ — \"không trượt\" là trạng thái kết quả, không trực tiếp kiểm soát được → ように. Lựa chọn 0 sai vì ために và ように không phân biệt văn viết/nói; lựa chọn 2 sai vì HAI mẫu có sắc thái khác nhau hoàn toàn, không thể hoán đổi; lựa chọn 3 sai vì ように dùng được với V可能形 và V自動詞 ở dạng khẳng định, không chỉ giới hạn phủ định.",
+          "tip": "Hỏi \"chủ thể có thể trực tiếp điều khiển kết quả không?\" — CÓ (合格する, 勉強する) → ために; KHÔNG (落ちない, 伸びる, 忘れない) → ように.",
+          "qt": {
+            "q": "「合格するために」 (để đỗ) và 「落ちないように」 (để không trượt) đều là cách diễn đạt mục đích liên quan đến cùng một kỳ thi nhưng được dùng khác nhau. Lý do nào sau đây phù hợp nhất?",
+            "o": [
+              "「ために」 được dùng trong văn viết, còn 「ように」 được dùng trong văn nói nên chúng được dùng khác nhau",
+              "「合格する」 là hành động có chủ ý hướng đến mục tiêu nên dùng 「ために」, còn 「落ちない」 nói về trạng thái kết quả (có mặt không thể kiểm soát được) nên dùng 「ように」",
+              "Cả hai đều có cùng nghĩa, chỉ thay đổi cách dùng để câu văn cân đối hơn",
+              "Có quy tắc rằng 「ために」 chỉ dùng trong câu khẳng định, còn 「ように」 chỉ dùng trong câu phủ định"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "毎日の散歩と頭のリフレッシュ",
+      "titleVi": "Đi bộ hàng ngày và sự thư thái đầu óc",
+      "japanese": "最近、仕事や勉強で忙しい人が増えている。毎日長い時間コンピュータの前に座り、体も心も疲れてしまう人が多い。健康な体を守るために、私は毎朝三十分散歩することにしている。\n歩くことは、体にいいだけではない。実は、頭を整理するためにも大きな効果がある。たとえば、仕事でいい考えが出ないとき、外を歩いている時間に新しいアイデアが浮かぶことがある。頭がしっかり働くように、歩きながら深く息を吸うことが大切だ。\n一方、時間がなくて歩けない日もあるかもしれない。しかし、短い時間でも外の空気を感じることは意味がある。そのため、大切な予定を忘れないように、毎朝の手帳に散歩の時間も書いておく。つまり、散歩は単なる運動ではなく、心をリフレッシュして毎日を元気に過ごすための重要な習慣なのだ。自分の生活を良くするために、明日から少し歩いてみてはどうだろうか。",
+      "vietnamese": "Dạo này, số người bận rộn với công việc hay học tập đang tăng lên. Nhiều người ngồi trước máy tính trong thời gian dài mỗi ngày nên cả cơ thể lẫn tâm trí đều dễ bị mệt mỏi. Để bảo vệ một cơ thể khỏe mạnh, tôi quyết định duy trì việc đi bộ 30 phút mỗi sáng.\nViệc đi bộ không chỉ tốt cho cơ thể. Thực ra, nó cũng có hiệu quả lớn trong việc sắp xếp lại đầu óc. Chẳng hạn, khi không nghĩ ra ý tưởng tốt trong công việc, đôi khi trong thời gian đi dạo bên ngoài, những ý tưởng mới lại nảy ra. Người ta nói rằng điều quan trọng là hít thở sâu trong khi đi bộ để đầu óc hoạt động tốt.\nMặt khác, cũng có thể có những ngày bận rộn không thể đi bộ được. Tuy nhiên, việc cảm nhận không khí bên ngoài dù chỉ trong thời gian ngắn cũng rất có ý nghĩa. Vì thế, để không quên lịch trình quan trọng, tôi viết sẵn cả thời gian đi dạo vào sổ tay mỗi sáng. Tóm lại, đi bộ không đơn thuần là vận động, mà là một thói quen quan trọng để làm mới tâm hồn và sống mỗi ngày một cách khỏe khoắn. Để làm cho cuộc sống của bản thân tốt đẹp hơn, từ ngày mai bạn thử đi bộ một chút xem sao?",
+      "sentences": [
+        {
+          "jp": "最近、仕事や勉強で忙しい人が増えている。",
+          "vi": "Dạo này, số người bận rộn với công việc hay học tập đang tăng lên.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "dạo này, gần đây"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học tập"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が増えている",
+              "vi": "Diễn tả xu hướng trạng thái đang tiếp diễn, tăng lên theo thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "毎日長い時間コンピュータの前に座り、体も心も疲れてしまう人が多い。",
+          "vi": "Nhiều người ngồi trước máy tính trong thời gian dài mỗi ngày nên cả cơ thể lẫn tâm trí đều dễ bị mệt mỏi.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "コンピュータ",
+              "read": "コンピュータ",
+              "vi": "máy tính"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "座ります",
+              "read": "すわります",
+              "vi": "ngồi"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "tâm trí, trái tim"
+            },
+            {
+              "w": "疲れます",
+              "read": "つかれます",
+              "vi": "mệt mỏi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "長い時間",
+              "read": "ながいじかん",
+              "vi": "thời gian dài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまう（Bài 29）",
+              "vi": "Diễn tả một kết quả không mong muốn hoặc lỡ xảy ra (mệt mỏi)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "体も心も疲れてしまう",
+              "why": "Mô tả thực trạng mệt mỏi về cả thể xác lẫn tinh thần của con người trong đời sống bận rộn."
+            }
+          ]
+        },
+        {
+          "jp": "健康な体を守るために、私は毎朝三十分散歩することにしている。",
+          "vi": "Để bảo vệ một cơ thể khỏe mạnh, tôi quyết định duy trì việc đi bộ 30 phút mỗi sáng.",
+          "vocab": [
+            {
+              "w": "健康な",
+              "read": "けんこうな",
+              "vi": "khỏe mạnh"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "守ります",
+              "read": "まもります",
+              "vi": "bảo vệ, giữ gìn"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo, đi bộ"
+            },
+            {
+              "w": "三十分",
+              "read": "さんじゅっぷん",
+              "vi": "30 phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 守るために = để bảo vệ. Hành động 散歩する ở vế chính là hành động CÓ Ý CHÍ, do người nói tự chủ động thực hiện."
+            },
+            {
+              "point": "〜ことにしている（Bài 36）",
+              "vi": "Biểu thị quyết định duy trì thói quen của bản thân."
+            }
+          ]
+        },
+        {
+          "jp": "歩くことは、体にいいだけではない。",
+          "vi": "Việc đi bộ không chỉ tốt cho cơ thể.",
+          "vocab": [
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけではない",
+              "vi": "Không chỉ A mà còn có khía cạnh khác."
+            }
+          ],
+          "keys": [
+            {
+              "w": "体にいいだけではない",
+              "why": "Cấu trúc mở rộng ý báo hiệu tác giả sắp trình bày thêm lợi ích quan trọng hơn về mặt tinh thần."
+            }
+          ]
+        },
+        {
+          "jp": "実は、頭を整理するためにも大きな効果がある。",
+          "vi": "Thực ra, nó cũng có hiệu quả lớn trong việc sắp xếp lại đầu óc.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra, thực tế là"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu, đầu óc"
+            },
+            {
+              "w": "整理します",
+              "read": "せいりします",
+              "vi": "sắp xếp, chỉnh lý"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 整理するためにも = cũng để sắp xếp. Chỉ mục đích có ý chí của chủ thể."
+            }
+          ],
+          "keys": [
+            {
+              "w": "実は",
+              "why": "Phó từ dẫn vào thông tin trọng tâm thực chất về hiệu quả sắp xếp lại suy nghĩ (căn cứ câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、仕事でいい考えが出ないとき、外を歩いている時間に新しいアイデアが浮かぶことがある。",
+          "vi": "Chẳng hạn, khi không nghĩ ra ý tưởng tốt trong công việc, đôi khi trong thời gian đi dạo bên ngoài, những ý tưởng mới lại nảy ra.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ như, chẳng hạn"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, ý tưởng"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "アイデア",
+              "read": "アイデア",
+              "vi": "ý tưởng"
+            },
+            {
+              "w": "浮かびます",
+              "read": "うかびます",
+              "vi": "nảy ra, hiện lên (ý tưởng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "たとえば（接続詞）",
+              "vi": "Từ nối đưa ra ví dụ cụ thể minh họa cho luận điểm ở câu trước."
+            },
+            {
+              "point": "Vることがある（Bài 19）",
+              "vi": "Diễn tả thỉnh thoảng có trường hợp xảy ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "新しいアイデアが浮かぶ",
+              "why": "Ví dụ cụ thể minh họa cho việc đầu óc được thông suốt và nảy ra ý tưởng mới khi đi dạo (căn cứ câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "頭がしっかり働くように、歩きながら深く息を吸うことが大切だ。",
+          "vi": "Người ta nói rằng điều quan trọng là hít thở sâu trong khi đi bộ để đầu óc hoạt động tốt.",
+          "vocab": [
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "chắc chắn, chăm chỉ"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "hoạt động, làm việc"
+            },
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            },
+            {
+              "w": "深く",
+              "read": "ふかく",
+              "vi": "sâu (hít thở)"
+            },
+            {
+              "w": "息",
+              "read": "いき",
+              "vi": "hơi thở"
+            },
+            {
+              "w": "吸います",
+              "read": "すいます",
+              "vi": "hít (thở)"
+            },
+            {
+              "w": "大切だ",
+              "read": "たいせつだ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích）",
+              "vi": "接続: V自動詞 + ように. 働くように = để (đầu óc) hoạt động tốt. 働く ở đây là tự động từ chỉ trạng thái hoạt động của não bộ, không thể kiểm soát trực tiếp bằng ý chí nên bắt buộc dùng ように thay vì ために."
+            },
+            {
+              "point": "Vます-stem + ながら（Bài 28）",
+              "vi": "Thực hiện đồng thời hai hành động (vừa đi bộ vừa hít thở)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "大切だ",
+              "why": "Từ ngữ thể hiện đánh giá của tác giả về tầm quan trọng của việc hít thở sâu khi đi bộ (căn cứ câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "一方、時間がなくて歩けない日もあるかもしれない。",
+          "vi": "Mặt khác, cũng có thể có những ngày bận rộn không thể đi bộ được.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "なくて",
+              "read": "なくて",
+              "vi": "không có"
+            },
+            {
+              "w": "歩けない",
+              "read": "あるけない",
+              "vi": "không thể đi bộ"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "一方（接続詞）",
+              "vi": "Từ nối chuyển ý, nêu lên góc độ/khía cạnh đối lập hoặc khác biệt."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "Phán đoán có lẽ, có thể xảy ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ chuyển hướng sang nhìn nhận khía cạnh đối lập khi bận rộn không có thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、短い時間でも外の空気を感じることは意味がある。",
+          "vi": "Tuy nhiên, việc cảm nhận không khí bên ngoài dù chỉ trong thời gian ngắn cũng rất có ý nghĩa.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "空気",
+              "read": "くうき",
+              "vi": "không khí"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm nhận"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "しかし（接続詞）",
+              "vi": "Từ nối nghịch yếu, phản bác lại mối lo lắng ở câu trước."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ nghịch triết nhấn mạnh dù chỉ có ít thời gian thì việc đi dạo vẫn có giá trị."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、大切な予定を忘れないように、毎朝の手帳に散歩の時間も書いておく。",
+          "vi": "Vì thế, để không quên lịch trình quan trọng, tôi viết sẵn cả thời gian đi dạo vào sổ tay mỗi sáng.",
+          "vocab": [
+            {
+              "w": "大切な",
+              "read": "たいせつな",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "dự định, lịch trình"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi buổi sáng"
+            },
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì thế, do đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そのため（接続詞）",
+              "vi": "Từ nối chỉ quan hệ nguyên nhân - kết quả / giải pháp."
+            },
+            {
+              "point": "〜ように（mục đích）",
+              "vi": "接続: Vない + ように. 忘れないように = để không quên. Mẫu Vない + ように là dấu hiệu điển hình của mục đích phòng ngừa trạng thái tự phát (quên), không dùng ために."
+            },
+            {
+              "point": "Vておく（Bài 30）",
+              "vi": "Làm sẵn một việc gì đó chuẩn bị trước."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため",
+              "why": "Liên từ nhân quả giải thích lý do tác giả ghi lịch đi dạo vào sổ tay mỗi sáng (căn cứ câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、散歩は単なる運動ではなく、心をリフレッシュして毎日を元気に過ごすための重要な習慣なのだ。",
+          "vi": "Tóm lại, đi bộ không đơn thuần là vận động, mà là một thói quen quan trọng để làm mới tâm hồn và sống mỗi ngày một cách khỏe khoắn.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ đơn thuần là"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động, thể dục"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "リフレッシュ",
+              "read": "リフレッシュ",
+              "vi": "sự làm mới, sảng khoái"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh, vui vẻ"
+            },
+            {
+              "w": "過ごします",
+              "read": "すごします",
+              "vi": "trải qua, sống (thời gian)"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "つまり（接続詞）",
+              "vi": "Từ nối đúc kết luận điểm, tổng kết ý của toàn bài."
+            },
+            {
+              "point": "〜ために＋N（mục đích bổ nghĩa danh từ）",
+              "vi": "接続: Vる + ための + N. 過ごすための習慣 = thói quen để sống khỏe mạnh. Mẫu ための dùng để bổ nghĩa trực tiếp cho danh từ 習慣."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tóm lược dẫn dắt trực tiếp đến kết luận và quan điểm cốt lõi của tác giả."
+            },
+            {
+              "w": "単なる運動ではなく",
+              "why": "Cấu trúc phủ định bộ phận để khẳng định bản chất thực sự của việc đi dạo như một thói quen sống (căn cứ câu 3)."
+            }
+          ]
+        },
+        {
+          "jp": "自分の生活を良くするために、明日から少し歩いてみてはどうだろうか。",
+          "vi": "Để làm cho cuộc sống của bản thân tốt đẹp hơn, từ ngày mai bạn thử đi bộ một chút xem sao?",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 良くするために = để làm cho tốt hơn. Thể hiện ý chí cải thiện cuộc sống."
+            },
+            {
+              "point": "〜てはどうだろうか",
+              "vi": "Mẫu gợi ý nhẹ nhàng đối với người đọc (\"Bạn thấy sao nếu thử...\")."
+            }
+          ],
+          "keys": [
+            {
+              "w": "てはどうだろうか",
+              "why": "Mẫu câu đề xuất kết bài khuyên người đọc nên bắt đầu thói quen đi bộ để nâng cao chất lượng cuộc sống (căn cứ câu 3)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "健康な体を守るために、私は毎朝三十分散歩することにしている。",
+          "label": "〜ために（mục đích — Vる ý chí）"
+        },
+        {
+          "excerpt": "頭がしっかり働くように、歩きながら深く息を吸うことが大切だ。",
+          "label": "〜ように（mục đích — V自動詞）"
+        },
+        {
+          "excerpt": "大切な予定を忘れないように、毎朝の手帳に散歩の時間も書いておく。",
+          "label": "〜ように（mục đích — Vない）"
+        },
+        {
+          "excerpt": "心をリフレッシュして毎日を元気に過ごすための重要な習慣なのだ。",
+          "label": "〜ために（mục đích bổ nghĩa danh từ — Vる＋ための＋N）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「頭を整理するためにも大きな効果がある」とあるが、どういうことか。",
+          "evi": [
+            4,
+            5,
+            6
+          ],
+          "options": [
+            "歩くことで体力をつけ、疲れにくい体を作ることができるということ",
+            "歩く時間の中で新しい考えが浮かび、頭の働きが良くなるということ",
+            "仕事の予定を手帳に書いて、忘れ物をなくすことができるということ",
+            "長時間コンピュータに向かうことで、集中力が高まるということ"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「歩く時間の中で新しい考え」 — Ở đoạn 2 (câu 5-7), tác giả giải thích việc đi bộ giúp sắp xếp đầu óc nghĩa là trong lúc đi bộ có thể nảy ra ý tưởng mới (新しいアイデアが浮かぶ) và giúp đầu óc hoạt động tốt hơn (頭がしっかり働く). Phương án 「歩くことで体力をつけ」 sai vì đây là hiệu quả về thể chất chứ không phải sắp xếp đầu óc; phương án 「仕事の予定を手帳に書いて」 sai vì đây là việc ghi sổ tay ở đoạn 3; phương án 「長時間コンピュータに向か」 sai vì ngồi máy tính lâu gây mệt mỏi chứ không làm tăng tập trung.",
+          "tip": "Đứng trước câu hỏi dạng 「どういうことか」(Nghĩa là thế nào?), hãy tìm các câu diễn giải chi tiết nằm ngay phía sau cụm từ gạch chân. Câu 6 và câu 7 trực tiếp làm rõ cho câu 5.",
+          "qt": {
+            "q": "Cụm 「頭を整理するためにも大きな効果がある」 (cũng có hiệu quả lớn trong việc sắp xếp suy nghĩ) có nghĩa là gì?",
+            "o": [
+              "Điều đó có nghĩa là đi bộ giúp tăng thể lực và tạo nên một cơ thể ít mệt mỏi hơn.",
+              "Điều đó có nghĩa là những ý tưởng mới nảy ra trong lúc đi bộ, giúp đầu óc hoạt động tốt hơn.",
+              "Điều đó có nghĩa là có thể ghi lịch trình công việc vào sổ tay để không quên đồ đạc.",
+              "Điều đó có nghĩa là tập trung cao hơn khi ngồi trước máy tính trong thời gian dài."
+            ]
+          }
+        },
+        {
+          "q": "筆者はなぜ毎朝の手帳に散歩の時間も書いているのか。",
+          "evi": [
+            7,
+            8,
+            9
+          ],
+          "options": [
+            "毎日たくさん歩いて、運動の記録を残したいから",
+            "忙しい日でも散歩の時間を忘れずに、習慣を続けるため",
+            "手帳に書かない場合、外の空気を感じることができないから",
+            "仕事の予定が多すぎて、散歩の時間を変更したいから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「忙しい日でも散歩の時間を」 — Ở đoạn 3 (câu 8-10), tác giả giải thích: dù có những ngày bận rộn nhưng để không quên lịch trình đi dạo quan trọng (大切な予定を忘れないように), tác giả đã ghi sẵn thời gian đi dạo vào sổ tay từ sáng. Phương án 「毎日たくさん歩いて」 sai vì tác giả không nói đến việc lưu giữ kỷ lục vận động; phương án 「手帳に書かない場合」 sai vì việc cảm nhận không khí không phụ thuộc trực tiếp vào việc viết sổ; phương án 「仕事の予定が多すぎて」 sai vì tác giả không có ý định thay đổi/dời lịch đi bộ.",
+          "tip": "Với câu hỏi lý do 「なぜ〜のか」, hãy chú ý các từ nối và từ chỉ mục đích như 「そのため」「〜ように」「〜ために」 ở ngay câu chứa hành động.",
+          "qt": {
+            "q": "Tại sao tác giả cũng ghi thời gian đi dạo vào sổ tay mỗi sáng?",
+            "o": [
+              "Vì muốn đi bộ thật nhiều mỗi ngày và ghi lại thành tích tập luyện.",
+              "Để không quên thời gian đi dạo ngay cả vào những ngày bận rộn và duy trì thói quen này.",
+              "Vì nếu không ghi vào sổ tay thì không thể cảm nhận được không khí ngoài trời.",
+              "Vì có quá nhiều lịch trình công việc nên muốn thay đổi thời gian đi dạo."
+            ]
+          }
+        },
+        {
+          "q": "散歩について、筆者はどのように考えているか。",
+          "evi": [
+            10,
+            11
+          ],
+          "options": [
+            "単なる体を動かす運動ではなく、心をリフレッシュして生活を良くする大切な習慣である",
+            "毎朝三十分以上走らない場合、健康な体を守る効果はない",
+            "仕事で忙しいときは、散歩をやめて勉強や仕事に集中すべきだ",
+            "外の空気を感じることよりも、コンピュータの前で考え続けることが重要だ"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「単なる体を動かす運動」 — Ở cuối bài (câu 11-12), tác giả tổng kết luận điểm: đi bộ không đơn thuần là vận động (単なる運動ではなく), mà là một thói quen quan trọng để làm mới tâm hồn và sống khỏe mạnh (心をリフレッシュして毎日を元気に過ごすための重要な習慣), từ đó giúp cuộc sống tốt đẹp hơn. Phương án 「毎朝三十分以上走らない」 sai vì bài viết nói về đi bộ (散歩) chứ không bắt buộc chạy (走る); phương án 「仕事で忙しいときは」 sai vì tác giả khuyên dù bận vẫn nên dành thời gian ngắn đi dạo; phương án 「外の空気を感じること」 sai vì trái ngược hoàn toàn với quan điểm của bài đọc.",
+          "tip": "Câu hỏi ý kiến người viết 「筆者はどう考えているか」 luôn nằm ở đoạn cuối bài. Hãy tập trung đọc kỹ 1-2 câu cuối cùng chứa các từ đúc kết như 「つまり」「〜のだ」「〜のではないだろうか」.",
+          "qt": {
+            "q": "Tác giả nghĩ như thế nào về việc đi dạo?",
+            "o": [
+              "Đó là một thói quen quan trọng giúp làm mới tinh thần và cải thiện cuộc sống, chứ không chỉ đơn thuần là vận động cơ thể.",
+              "Nếu không chạy bộ hơn 30 phút mỗi sáng thì việc bảo vệ sức khỏe không có tác dụng.",
+              "Khi bận công việc, nên ngừng đi dạo và tập trung vào học tập hoặc công việc.",
+              "Việc tiếp tục suy nghĩ trước máy tính quan trọng hơn cảm nhận không khí ngoài trời."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Thực trạng và thói quen",
+          "topic": 2,
+          "note": "Nêu bối cảnh cuộc sống bận rộn mệt mỏi và giải pháp duy trì thói quen đi bộ 30 phút mỗi sáng.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "body",
+          "label": "Lợi ích đối với trí óc",
+          "topic": 4,
+          "note": "Mở rộng lợi ích của đi bộ sang việc giúp sắp xếp suy nghĩ và tạo ý tưởng mới; chứa căn cứ giải thích cho câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "turn",
+          "label": "Xử lý tình huống và giải pháp",
+          "topic": 8,
+          "note": "Đưa ra ngoại lệ khi bận rộn và giải pháp ghi vào sổ tay để không quên duy trì thói quen; chứa căn cứ câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "point",
+          "label": "Kết luận・Ý nghĩa thói quen",
+          "topic": 10,
+          "note": "Khẳng định đi dạo là thói quen thiết yếu làm mới tâm hồn và kêu gọi độc giả hành động; chứa căn cứ câu hỏi 3.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "健康のための習慣",
+      "titleVi": "Những thói quen vì sức khỏe",
+      "japanese": "最近、体の調子が悪くなったので、生活を見直すことにした。\n医者からは「体重が増えないように、食事の量に気をつけてください」と言われた。\nそのため、毎食野菜をたくさん食べるようにしている。\nまた、体を動かすために、週三回ジムへ通うことにした。\n最初は続けられるかどうか心配だったが、今では習慣になってきた。\nジムで汗をかくために、少し強めのメニューを選ぶようにしている。\nもちろん、けがをしないように、準備運動も必ずするようにしている。\n仕事が忙しい日は、ジムへ行く時間が取れないことがある。\nそういうときでも体を動かせるように、会社まで歩いて通勤するようにしている。\n歩いて通勤することで、自然に運動量が増えてきた。\n食事についても、できるだけ自炊するために、週末にまとめて料理を作っている。\n外食が多いと塩分を取りすぎてしまうので、家で食べられるように準備を整えておく。\nまた、疲れが残らないように、毎晩十分な睡眠を取るよう努めている。\n以前は夜遅くまでスマホを見ていたが、健康のために、夜十一時以降は使わないようにした。\nこのような習慣を続けるために、毎日手帳に記録をつけるようにしている。\n記録を見ると、自分がどれだけ頑張ってきたかが分かるので、やる気が出てくる。\n体の調子がよくなるようにと願いながら、少しずつでも前に進もうと思っている。\n無理をせず、長く続けられるように、自分のペースで取り組むことが大切だと感じている。",
+      "vietnamese": "Gần đây vì sức khỏe kém đi, tôi đã quyết định xem lại lối sống của mình.\nBác sĩ đã nói với tôi: \"Hãy chú ý lượng ăn để cân không tăng lên\".\nVì vậy, tôi đang cố gắng ăn nhiều rau mỗi bữa.\nNgoài ra, để cơ thể vận động, tôi đã quyết định đi gym ba lần một tuần.\nLúc đầu tôi lo không biết có tiếp tục được không, nhưng bây giờ đã thành thói quen rồi.\nĐể đổ mồ hôi ở gym, tôi chọn bài tập hơi nặng một chút.\nTất nhiên, để không bị chấn thương, tôi cũng luôn khởi động trước.\nNhững ngày bận việc, có khi không lấy được thời gian đến gym.\nNgay cả những lúc như vậy, để có thể vận động cơ thể, tôi đi bộ đến công ty.\nNhờ đi bộ đi làm, lượng vận động tự nhiên tăng lên rồi.\nVề mặt ăn uống, để tự nấu ăn càng nhiều càng tốt, tôi nấu gộp vào cuối tuần.\nVì ăn ngoài nhiều dễ ăn quá nhiều muối, nên tôi chuẩn bị sẵn để có thể ăn ở nhà.\nNgoài ra, để không còn mệt mỏi, mỗi tối tôi cố gắng ngủ đủ giấc.\nTrước đây tôi hay dùng điện thoại đến khuya, nhưng vì sức khỏe, sau 11 giờ tối tôi không dùng nữa.\nĐể duy trì những thói quen như vậy, mỗi ngày tôi ghi chép vào sổ tay.\nKhi nhìn lại ghi chép, tôi hiểu mình đã cố gắng đến đâu, nên sinh ra động lực.\nVừa mong sức khỏe được cải thiện, tôi muốn tiến về phía trước dù từng chút một.\nTôi cảm thấy quan trọng là không cố quá sức, làm theo tốc độ của bản thân để có thể tiếp tục lâu dài.",
+      "sentences": [
+        {
+          "jp": "最近、体の調子が悪くなったので、生活を見直すことにした。",
+          "vi": "Gần đây vì sức khỏe kém đi, tôi đã quyết định xem lại lối sống của mình.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "調子",
+              "read": "ちょうし",
+              "vi": "tình trạng, điều kiện"
+            },
+            {
+              "w": "悪くなります",
+              "read": "わるくなります",
+              "vi": "trở nên xấu đi, kém đi"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, lối sống"
+            },
+            {
+              "w": "見直します",
+              "read": "みなおします",
+              "vi": "xem xét lại, xem lại"
+            },
+            {
+              "w": "体の調子",
+              "read": "からだのちょうし",
+              "vi": "tình trạng sức khỏe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "悪くなったので = vì sức khỏe kém đi. ので nêu lý do khách quan."
+            },
+            {
+              "point": "Vることにした（Bài 36）",
+              "vi": "見直すことにした = đã quyết định xem lại. ことにする = tự quyết định."
+            }
+          ]
+        },
+        {
+          "jp": "医者からは「体重が増えないように、食事の量に気をつけてください」と言われた。",
+          "vi": "Bác sĩ đã nói với tôi: \"Hãy chú ý lượng ăn để cân không tăng lên\".",
+          "vocab": [
+            {
+              "w": "医者",
+              "read": "いしゃ",
+              "vi": "bác sĩ"
+            },
+            {
+              "w": "体重",
+              "read": "たいじゅう",
+              "vi": "cân nặng"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên (tự động)"
+            },
+            {
+              "w": "食事",
+              "read": "しょくじ",
+              "vi": "bữa ăn, việc ăn uống"
+            },
+            {
+              "w": "量",
+              "read": "りょう",
+              "vi": "lượng, số lượng"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — V自動詞）",
+              "vi": "接続: V自動詞（増える）の否定形（増えない）+ ように. 体重が増えないように = để cân không tăng. 増える（tăng）là tự động từ, tự nhiên xảy ra → kết quả không do ý chí kiểm soát trực tiếp → ように. ≠ ために (体重を減らすために → ために vì 減らす là tha động từ ý chí)."
+            },
+            {
+              "point": "V受身（Bài 37）",
+              "vi": "言われた = được nói. V受身từ 言う → 言われる（Bài 37）."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、毎食野菜をたくさん食べるようにしている。",
+          "vi": "Vì vậy, tôi đang cố gắng ăn nhiều rau mỗi bữa.",
+          "vocab": [
+            {
+              "w": "毎食",
+              "read": "まいしょく",
+              "vi": "mỗi bữa ăn"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy, vì thế (kết quả)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようにする（Bài 36）",
+              "vi": "食べるようにしている = đang cố gắng ăn / đang duy trì thói quen ăn. ようにする（Bài 36）= cố ý duy trì/làm. Ở đây không phải ように mục đích mà là ようにする（điều chỉnh hành vi）."
+            }
+          ]
+        },
+        {
+          "jp": "また、体を動かすために、週三回ジムへ通うことにした。",
+          "vi": "Ngoài ra, để cơ thể vận động, tôi đã quyết định đi gym ba lần một tuần.",
+          "vocab": [
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "動かす",
+              "read": "うごかす",
+              "vi": "vận hành, làm chuyển động"
+            },
+            {
+              "w": "週",
+              "read": "しゅう",
+              "vi": "tuần"
+            },
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "通います",
+              "read": "かよいます",
+              "vi": "đi lại, lui tới (thường xuyên)"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm nữa"
+            },
+            {
+              "w": "体を動かします",
+              "read": "からだをうごかします",
+              "vi": "vận động cơ thể"
+            },
+            {
+              "w": "週三回",
+              "read": "しゅうさんかい",
+              "vi": "ba lần một tuần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 体を動かすために = để vận động cơ thể. 動かす là tha động từ ý chí（người làm chủ động）→ ために. Cùng chủ ngữ với hành động chính（通う）."
+            }
+          ]
+        },
+        {
+          "jp": "最初は続けられるかどうか心配だったが、今では習慣になってきた。",
+          "vi": "Lúc đầu tôi lo không biết có tiếp tục được không, nhưng bây giờ đã thành thói quen rồi.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "続けます",
+              "read": "つづけます",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かどうか（Bài 40）",
+              "vi": "続けられるかどうか = liệu có tiếp tục được không. かどうか = câu hỏi gián tiếp yes/no（Bài 40）."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "続けられる = có thể tiếp tục. V可能形（Bài 27）."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "習慣になってきた = đã dần trở thành thói quen. てくる = biến đổi tiếp diễn đến hiện tại（Bài 43）."
+            }
+          ]
+        },
+        {
+          "jp": "ジムで汗をかくために、少し強めのメニューを選ぶようにしている。",
+          "vi": "Để đổ mồ hôi ở gym, tôi chọn bài tập hơi nặng một chút.",
+          "vocab": [
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng tập thể dục (gym)"
+            },
+            {
+              "w": "汗をかきます",
+              "read": "あせをかきます",
+              "vi": "đổ mồ hôi"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "強め",
+              "read": "つよめ",
+              "vi": "hơi mạnh một chút, hơi nặng"
+            },
+            {
+              "w": "メニュー",
+              "read": "メニュー",
+              "vi": "bài tập, thực đơn"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn lựa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 汗をかくために = để đổ mồ hôi. 汗をかく là hành động có thể kiểm soát ý chí → ために."
+            },
+            {
+              "point": "〜ようにする（Bài 36）",
+              "vi": "選ぶようにしている = đang cố chọn / duy trì việc chọn. ようにしている = tiếp tục cố ý làm（Bài 36）."
+            }
+          ]
+        },
+        {
+          "jp": "もちろん、けがをしないように、準備運動も必ずするようにしている。",
+          "vi": "Tất nhiên, để không bị chấn thương, tôi cũng luôn khởi động trước.",
+          "vocab": [
+            {
+              "w": "もちろん",
+              "read": "もちろん",
+              "vi": "tất nhiên, dĩ nhiên"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn"
+            },
+            {
+              "w": "けが",
+              "read": "けが",
+              "vi": "chấn thương, vết thương"
+            },
+            {
+              "w": "準備運動",
+              "read": "じゅんびうんどう",
+              "vi": "khởi động, bài tập chuẩn bị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — Vない）",
+              "vi": "接続: Vない + ように. けがをしないように = để không bị chấn thương. \"Không bị chấn thương\" là trạng thái tự động muốn tránh → Vない + ように. ≠ ために（けがをしないために sai）."
+            }
+          ]
+        },
+        {
+          "jp": "仕事が忙しい日は、ジムへ行く時間が取れないことがある。",
+          "vi": "Những ngày bận việc, có khi không lấy được thời gian đến gym.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "取れない",
+              "read": "とれない",
+              "vi": "không thể thu xếp"
+            },
+            {
+              "w": "時間が取れない",
+              "read": "じかんがとれない",
+              "vi": "không thể thu xếp thời gian"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, xảy ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "仕事が忙しい日 = ngày bận việc. 形容詞（忙しい）bổ nghĩa cho 日."
+            },
+            {
+              "point": "〜ことがある（Bài 19応用）",
+              "vi": "取れないことがある = có lúc không lấy được. ことがある = thỉnh thoảng có trường hợp."
+            }
+          ]
+        },
+        {
+          "jp": "そういうときでも体を動かせるように、会社まで歩いて通勤するようにしている。",
+          "vi": "Ngay cả những lúc như vậy, để có thể vận động cơ thể, tôi đi bộ đến công ty.",
+          "vocab": [
+            {
+              "w": "そういう",
+              "read": "そういう",
+              "vi": "như vậy, loại đó"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "動かせます",
+              "read": "うごかせます",
+              "vi": "có thể vận động"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "通勤します",
+              "read": "つうきんします",
+              "vi": "đi làm (hàng ngày)"
+            },
+            {
+              "w": "そういうとき",
+              "read": "そういうとき",
+              "vi": "lúc như vậy, những khi đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — V可能形）",
+              "vi": "接続: V可能形（動かせる）+ ように. 体を動かせるように = để có thể vận động cơ thể. V可能形（動かせる）là một dạng điển hình của ように mục đích — \"có thể làm\" là trạng thái khả năng, không phải ý chí trực tiếp. Sắc thái: ≠ 体を動かすために（ために dùng khi hành động ý chí）."
+            }
+          ]
+        },
+        {
+          "jp": "歩いて通勤することで、自然に運動量が増えてきた。",
+          "vi": "Nhờ đi bộ đi làm, lượng vận động tự nhiên tăng lên rồi.",
+          "vocab": [
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            },
+            {
+              "w": "通勤",
+              "read": "つうきん",
+              "vi": "đi làm (bằng phương tiện)"
+            },
+            {
+              "w": "自然に",
+              "read": "しぜんに",
+              "vi": "một cách tự nhiên"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "運動量",
+              "read": "うんどうりょう",
+              "vi": "lượng vận động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "VることでN（Bài 38応用）",
+              "vi": "歩いて通勤することで = bằng cách đi bộ đi làm. のことで = thông qua hành động đó."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "増えてきた = đã tăng lên (dần dần đến hiện tại). てくる（Bài 43）."
+            }
+          ]
+        },
+        {
+          "jp": "食事についても、できるだけ自炊するために、週末にまとめて料理を作っている。",
+          "vi": "Về mặt ăn uống, để tự nấu ăn càng nhiều càng tốt, tôi nấu gộp vào cuối tuần.",
+          "vocab": [
+            {
+              "w": "食事",
+              "read": "しょくじ",
+              "vi": "bữa ăn"
+            },
+            {
+              "w": "できるだけ",
+              "read": "できるだけ",
+              "vi": "càng nhiều càng tốt, hết sức"
+            },
+            {
+              "w": "自炊します",
+              "read": "じすいします",
+              "vi": "tự nấu ăn"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "まとめる",
+              "read": "まとめる",
+              "vi": "tổng hợp, thu xếp"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "まとめて",
+              "read": "まとめて",
+              "vi": "gộp lại, cùng một lúc"
+            },
+            {
+              "w": "料理を作ります",
+              "read": "りょうりをつくります",
+              "vi": "nấu ăn, làm món ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 自炊するために = để tự nấu ăn. 自炊する là hành động ý chí → ために."
+            }
+          ]
+        },
+        {
+          "jp": "外食が多いと塩分を取りすぎてしまうので、家で食べられるように準備を整えておく。",
+          "vi": "Vì ăn ngoài nhiều dễ ăn quá nhiều muối, nên tôi chuẩn bị sẵn để có thể ăn ở nhà.",
+          "vocab": [
+            {
+              "w": "外食",
+              "read": "がいしょく",
+              "vi": "ăn ngoài"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "塩分",
+              "read": "えんぶん",
+              "vi": "hàm lượng muối, mặn"
+            },
+            {
+              "w": "取りすぎます",
+              "read": "とりすぎます",
+              "vi": "ăn/uống quá nhiều"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "整える",
+              "read": "ととのえる",
+              "vi": "chuẩn bị chu đáo, thiết lập hoàn chỉnh"
+            },
+            {
+              "w": "準備を整えます",
+              "read": "じゅんびをととのえます",
+              "vi": "chuẩn bị sẵn sàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "外食が多いと = khi ăn ngoài nhiều thì (tất yếu). と = điều kiện tự nhiên（Bài 23）."
+            },
+            {
+              "point": "〜てしまう（Bài 29）",
+              "vi": "取りすぎてしまう = sẽ lỡ ăn quá nhiều. てしまう = vô tình/không mong muốn（Bài 29）."
+            },
+            {
+              "point": "〜ように（mục đích — V可能形）",
+              "vi": "接続: V可能形（食べられる）+ ように. 家で食べられるように = để có thể ăn ở nhà. 食べられる（V可能形）= khả năng → ように. 準備を整えておく là hành động ý chí làm SAU ように."
+            }
+          ]
+        },
+        {
+          "jp": "また、疲れが残らないように、毎晩十分な睡眠を取るよう努めている。",
+          "vi": "Ngoài ra, để không còn mệt mỏi, mỗi tối tôi cố gắng ngủ đủ giấc.",
+          "vocab": [
+            {
+              "w": "疲れ",
+              "read": "つかれ",
+              "vi": "sự mệt mỏi"
+            },
+            {
+              "w": "残ります",
+              "read": "のこります",
+              "vi": "còn lại, đọng lại"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "十分な",
+              "read": "じゅうぶんな",
+              "vi": "đầy đủ, đủ giấc"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "努めます",
+              "read": "つとめます",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "睡眠を取ります",
+              "read": "すいみんをとります",
+              "vi": "ngủ, lấy giấc ngủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — Vない + V自動詞）",
+              "vi": "接続: V自動詞（残る）の否定形（残らない）+ ように. 疲れが残らないように = để mệt mỏi không còn đọng lại. 残る（còn lại）là tự động từ — trạng thái tự nhiên → ように."
+            }
+          ]
+        },
+        {
+          "jp": "以前は夜遅くまでスマホを見ていたが、健康のために、夜十一時以降は使わないようにした。",
+          "vi": "Trước đây tôi hay dùng điện thoại đến khuya, nhưng vì sức khỏe, sau 11 giờ tối tôi không dùng nữa.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, trước kia"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "từ ... trở đi, sau ..."
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "夜遅くまで",
+              "read": "よるおそくまで",
+              "vi": "đến tận khuya"
+            },
+            {
+              "w": "夜十一時以降",
+              "read": "よるじゅういちじいこう",
+              "vi": "sau 11 giờ tối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のために（mục đích — N）",
+              "vi": "接続: N（健康）の + ために. 健康のために = vì/để (có) sức khỏe. Nの + ために là dạng danh từ của ために mục đích."
+            },
+            {
+              "point": "〜ようにした（Bài 36応用 + ように mục đích）",
+              "vi": "使わないようにした = đã quyết định không dùng / làm cho thành không dùng. Vないようにする（Bài 36）= cố duy trì trạng thái không làm. Ở đây đã hành động cụ thể（した = quá khứ）."
+            }
+          ]
+        },
+        {
+          "jp": "このような習慣を続けるために、毎日手帳に記録をつけるようにしている。",
+          "vi": "Để duy trì những thói quen như vậy, mỗi ngày tôi ghi chép vào sổ tay.",
+          "vocab": [
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay"
+            },
+            {
+              "w": "記録をつけます",
+              "read": "きろくをつけます",
+              "vi": "ghi chép, lập hồ sơ"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "このような",
+              "read": "このような",
+              "vi": "như thế này, loại này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（mục đích）",
+              "vi": "接続: Vる（ý chí）+ ために. 続けるために = để duy trì. Hành động ý chí → ために."
+            },
+            {
+              "point": "〜ようにする（Bài 36）",
+              "vi": "記録をつけるようにしている = đang duy trì thói quen ghi chép. ようにしている = đang cố ý làm（Bài 36）."
+            }
+          ]
+        },
+        {
+          "jp": "記録を見ると、自分がどれだけ頑張ってきたかが分かるので、やる気が出てくる。",
+          "vi": "Khi nhìn lại ghi chép, tôi hiểu mình đã cố gắng đến đâu, nên sinh ra động lực.",
+          "vocab": [
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "頑張る",
+              "read": "がんばる",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "やる気",
+              "read": "やるき",
+              "vi": "động lực, ý chí làm việc"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "どれだけ",
+              "read": "どれだけ",
+              "vi": "đến mức nào, bao nhiêu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "見ると = khi nhìn vào thì. と = kết quả tự nhiên từ hành động."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "頑張ってきた = đã cố gắng đến hiện tại. てくる（Bài 43）= tiếp diễn dẫn đến hiện tại."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "分かるので = vì hiểu ra. ので = lý do."
+            }
+          ]
+        },
+        {
+          "jp": "体の調子がよくなるようにと願いながら、少しずつでも前に進もうと思っている。",
+          "vi": "Vừa mong sức khỏe được cải thiện, tôi muốn tiến về phía trước dù từng chút một.",
+          "vocab": [
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "調子",
+              "read": "ちょうし",
+              "vi": "tình trạng, điều kiện"
+            },
+            {
+              "w": "願います",
+              "read": "ねがいます",
+              "vi": "mong nguyện, ước"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "よくなります",
+              "read": "よくなります",
+              "vi": "trở nên tốt hơn"
+            },
+            {
+              "w": "前に進みます",
+              "read": "まえにすすみます",
+              "vi": "tiến về phía trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようにと願う",
+              "vi": "接続: V自動詞（よくなる）+ ようにと. 体の調子がよくなるようにと願う = mong sao cho sức khỏe trở nên tốt hơn. ようにと願う/祈る là cấu trúc cố định diễn đạt mong ước kết quả không kiểm soát trực tiếp. よくなる là tự động từ → ように."
+            },
+            {
+              "point": "V意向形（〜よう）＋と思う（Bài 31応用）",
+              "vi": "進もうと思っている = đang nghĩ muốn tiến về phía trước. V意向形（Bài 31）+ と思う = ý định/mong muốn."
+            }
+          ]
+        },
+        {
+          "jp": "無理をせず、長く続けられるように、自分のペースで取り組むことが大切だと感じている。",
+          "vi": "Tôi cảm thấy quan trọng là không cố quá sức, làm theo tốc độ của bản thân để có thể tiếp tục lâu dài.",
+          "vocab": [
+            {
+              "w": "無理をします",
+              "read": "むりをします",
+              "vi": "cố quá sức, ép bản thân"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "ペース",
+              "read": "ペース",
+              "vi": "tốc độ, nhịp độ"
+            },
+            {
+              "w": "取り組みます",
+              "read": "とりくみます",
+              "vi": "dấn thân, tiếp cận, làm"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — V可能形）",
+              "vi": "接続: V可能形（続けられる）+ ように. 長く続けられるように = để có thể tiếp tục lâu dài. 続けられる（V可能形）= khả năng → ように. Đây là câu kết thúc của bài — tổng kết sắc thái: ように dùng khi hướng đến TRẠNG THÁI/KHẢ NĂNG, ために khi hướng đến HÀNH ĐỘNG Ý CHÍ."
+            },
+            {
+              "point": "Vることが大切（Bài 38応用）",
+              "vi": "取り組むことが大切だ = quan trọng là dấn thân. Vること（danh từ hóa Bài 38）+ が大切。"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "体重が増えないように、食事の量に気をつけてください",
+          "label": "〜ように（mục đích — V自動詞否定）"
+        },
+        {
+          "excerpt": "体を動かすために、週三回ジムへ通うことにした",
+          "label": "〜ために（mục đích — Vる ý chí）"
+        },
+        {
+          "excerpt": "けがをしないように、準備運動も必ずするようにしている",
+          "label": "Sắc thái: ように（Vない）≠ ために（Vる ý chí）"
+        },
+        {
+          "excerpt": "体を動かせるように、会社まで歩いて通勤する",
+          "label": "〜ように（mục đích — V可能形）"
+        },
+        {
+          "excerpt": "家で食べられるように準備を整えておく",
+          "label": "〜ように（V可能形 + ように — khả năng）"
+        },
+        {
+          "excerpt": "健康のために、夜十一時以降は使わないようにした",
+          "label": "Sắc thái: のために（Nの + ために）vs ようにした"
+        },
+        {
+          "excerpt": "長く続けられるように、自分のペースで取り組む",
+          "label": "〜ように（V可能形）— tổng kết sắc thái"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「体重が増えないように」とありますが、ここで「ために」ではなく「ように」を使う理由は何ですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "「ために」は文章の最後にしか使えないからです",
+            "「増える」は自動詞で意志でコントロールできない変化なので、可能・変化の目的を表す「ように」を使うからです",
+            "否定文では「ために」を使うことができないからです",
+            "「ように」は医者が使う特別な言葉だからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 増える（tăng lên）là tự động từ（自動詞）— cân nặng tăng là biến đổi tự nhiên của cơ thể, không ai điều khiển trực tiếp được. \"体重が増えないように\" = Vない + ように, đúng với quy tắc ように mục đích dành cho biến đổi/khả năng. Lựa chọn 0 sai hoàn toàn — ために dùng được ở mọi vị trí trong câu; lựa chọn 2 sai vì ように cũng dùng được ở phủ định, không phải ために hoàn toàn không dùng phủ định; lựa chọn 3 sai vì ように không phải từ chuyên dùng của bác sĩ.",
+          "tip": "増える、減る、変わる、伸びる là các tự động từ biến đổi điển hình — khi xuất hiện trước ように/ために, luôn chọn ように.",
+          "qt": {
+            "q": "Ở đây có câu “để cân nặng không tăng”. Tại sao lại dùng 「ように」 thay vì 「ために」?",
+            "o": [
+              "Vì 「ために」 chỉ có thể được dùng ở cuối câu",
+              "Vì 「増える」 là tự động từ, diễn tả sự thay đổi không thể kiểm soát bằng ý chí, nên dùng 「ように」 để biểu thị mục đích liên quan đến khả năng hoặc sự thay đổi",
+              "Vì không thể dùng 「ために」 trong câu phủ định",
+              "Vì 「ように」 là từ ngữ đặc biệt mà bác sĩ sử dụng"
+            ]
+          }
+        },
+        {
+          "q": "文章の中で「ために」が使われているのはどれですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "体を動かせるように、会社まで歩いて通勤する",
+            "けがをしないように、準備運動も必ずするようにしている",
+            "体を動かすために、週三回ジムへ通うことにした",
+            "体の調子がよくなるようにと願いながら前に進む"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: \"体を動かすために\" — 動かす là tha động từ ý chí（他動詞）, người tập chủ động điều khiển cơ thể vận động, cùng chủ ngữ với hành động chính（通う）→ ために chính xác. Lựa chọn 0 sai: \"動かせるように\" dùng V可能形（động かせる）→ phải là ように; lựa chọn 1 sai: \"けがをしないように\" dùng Vない→ ように; lựa chọn 3 sai: \"よくなるようにと願う\" dùng V自動詞（よくなる）→ ように. Ba lựa chọn kia đều là ように, chỉ đáp án 2 là ために.",
+          "tip": "Muốn nhận ra ために trong đoạn văn, tìm chỗ có Vる（ý chí, tha động từ）ngay trước ために — đó là dấu hiệu rõ nhất. Nếu thấy V可能形, Vない, hoặc V自動詞 → chắc chắn là ように.",
+          "qt": {
+            "q": "Trong bài đọc, 「ために」 được dùng ở câu nào?",
+            "o": [
+              "Đi bộ đến công ty để có thể vận động cơ thể",
+              "Để không bị thương, tôi luôn khởi động",
+              "Tôi quyết định đi đến phòng tập thể dục ba lần một tuần để vận động cơ thể",
+              "Vừa mong cho tình trạng sức khỏe tốt lên, vừa tiến về phía trước"
+            ]
+          }
+        },
+        {
+          "q": "筆者が「健康のために」と「〜ように」の両方を使っているのはなぜですか。",
+          "evi": [
+            13
+          ],
+          "options": [
+            "「健康のために」は名詞の後ろにつける形で、「〜ように」は動詞の後ろにつく形で、使う場面が違うからです",
+            "「健康のために」は話し言葉で、「〜ように」は書き言葉だからです",
+            "意味は全く同じなので、文のリズムで使い分けているだけです",
+            "「健康のために」は過去のことに使い、「〜ように」は未来のことに使うからです"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: hai mẫu khác nhau ở cách nối (接続), không phải ở văn phong hay thời gian. \"健康のために\" = Danh từ（健康）＋ の ＋ ために — dạng danh từ của ために mục đích. Còn \"〜ように\" nối sau Vない / V可能形 / V自動詞. Đây là sự khác biệt về cú pháp cốt lõi, không liên quan đến văn nói/viết（lựa chọn 1 sai）hay quá khứ/tương lai（lựa chọn 3 sai）hay cùng nghĩa（lựa chọn 2 sai）.",
+          "tip": "Danh từ + の + ために → ために. Vない / V可能形 / V自動詞 + ように → ように. Chỉ cần nhìn từ loại đứng NGAY TRƯỚC là biết ngay.",
+          "qt": {
+            "q": "Tại sao tác giả dùng cả 「健康のために」 và 「〜ように」?",
+            "o": [
+              "Vì 「健康のために」 theo sau danh từ, còn 「〜ように」 theo sau động từ, nên chúng được dùng trong những trường hợp khác nhau",
+              "Vì 「健康のために」 là cách nói khẩu ngữ, còn 「〜ように」 là cách viết",
+              "Vì ý nghĩa hoàn toàn giống nhau, nên chỉ tùy theo nhịp điệu câu mà dùng khác nhau",
+              "Vì 「健康のために」 được dùng cho việc trong quá khứ, còn 「〜ように」 được dùng cho việc trong tương lai"
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が健康のためにしていることの説明として正しくないのはどれですか。",
+          "evi": [
+            2,
+            3,
+            12
+          ],
+          "options": [
+            "毎食野菜をたくさん食べるようにしている",
+            "週三回ジムへ通って準備運動もしている",
+            "毎晩十分な睡眠を取るよう努めている",
+            "毎朝医者のところへ行って体重を測っている"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng（sai so với bài）: \"毎朝医者のところへ行って体重を測っている\" — không có câu nào trong bài đề cập việc đến gặp bác sĩ mỗi sáng hay đo cân nặng thường xuyên. Bác sĩ chỉ xuất hiện một lần ở câu 2 đưa ra lời khuyên. Ba lựa chọn còn lại đều đúng: ăn nhiều rau（câu 3）, đi gym 3 lần/tuần và khởi động trước（câu 4, 7）, ngủ đủ giấc mỗi tối（câu 13）— tất cả có trong bài.",
+          "tip": "Với câu hỏi \"không đúng\" (正しくない), khoanh ngay đáp án mô tả chi tiết KHÔNG xuất hiện trong văn — thường là hành động cụ thể quá mức hoặc tần suất sai（毎朝医者 vs chỉ đề cập 1 lần）.",
+          "qt": {
+            "q": "Câu nào không đúng khi mô tả những việc tác giả làm vì sức khỏe trong bài đọc?",
+            "o": [
+              "Cố gắng ăn nhiều rau trong mỗi bữa",
+              "Đi đến phòng tập thể dục ba lần một tuần và cũng khởi động",
+              "Cố gắng ngủ đủ giấc mỗi tối",
+              "Đến chỗ bác sĩ mỗi sáng để cân"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "青葉市「健康と日本語」教室のご案内",
+      "titleVi": "Thông báo: Lớp học \"Sức khỏe & Tiếng Nhật\" của thành phố Aoba",
+      "japanese": "青葉市「健康と日本語」教室のご案内\n泳げるようになりたい、日本語が上手になるように練習したい――そんな市民のために、青葉市が三つの教室を開きます。健康のためにも、目標のためにも、ぜひご利用ください。\n教室名｜曜日・時間｜料金｜対象\n水泳教室（初級）｜火・木　19:00〜20:30｜6,000円｜泳げない人\n日本語会話教室｜月・水　18:30〜20:00｜4,000円｜日本語を上達させたい人\nウォーキング教室｜土　9:00〜10:30｜2,000円｜運動不足の人\n※会員証をお持ちの方は、どの教室も料金から1,000円引きになります。\n※今月のうちに申し込むと、早期割引で全教室500円引きになります（会員割引と合わせて使えます）。\n※水泳教室は、泳げるようになるまで同じクラスで練習しますので、初心者でも安心です。\n※日本語会話教室は、上達のために毎回宿題が出ますので、時間のある方におすすめします。\n※プールで滑らないように、水泳教室の方はサンダルではなく運動靴でお越しください。\n教室に参加した方からは「毎日体を動かす習慣がつくように少しずつ運動量を増やしている」「日本語で話せるようになるために毎回予習している」といった声が届いています。\n申し込みは、青葉市役所スポーツ課（電話：042-555-1234）まで、来月15日までにご連絡ください。",
+      "vietnamese": "Thông báo: Lớp học \"Sức khỏe & Tiếng Nhật\" của thành phố Aoba\nMuốn tập bơi được, muốn luyện tập để tiếng Nhật giỏi hơn — vì những người dân như vậy, thành phố Aoba mở ba lớp học. Vì sức khỏe, cũng vì mục tiêu của bạn, xin hãy sử dụng dịch vụ này.\nTên lớp｜Thứ・Giờ｜Học phí｜Đối tượng\nLớp bơi (sơ cấp)｜Thứ Ba・Năm　19:00〜20:30｜6.000 yên｜Người chưa biết bơi\nLớp hội thoại tiếng Nhật｜Thứ Hai・Tư　18:30〜20:00｜4.000 yên｜Người muốn nâng cao tiếng Nhật\nLớp đi bộ｜Thứ Bảy　9:00〜10:30｜2.000 yên｜Người thiếu vận động\n※ Người có thẻ hội viên được giảm 1.000 yên trên học phí của bất kỳ lớp nào.\n※ Nếu đăng ký trong tháng này, được giảm thêm 500 yên cho mọi lớp theo diện ưu đãi đăng ký sớm (có thể cộng dồn với giảm giá hội viên).\n※ Lớp bơi sẽ luyện tập cùng một lớp cho đến khi bơi được, nên người mới cũng có thể yên tâm.\n※ Lớp hội thoại tiếng Nhật có bài tập về nhà mỗi buổi để nâng cao trình độ, nên khuyến khích người có thời gian.\n※ Để không bị trượt ngã trên hồ bơi, người học lớp bơi xin đi giày thể thao thay vì dép.\nTừ những người đã tham gia lớp học, có ý kiến phản hồi như: \"Tôi đang tăng dần lượng vận động để hình thành thói quen vận động cơ thể mỗi ngày\", \"Để dần nói được tiếng Nhật, tôi ôn bài trước mỗi buổi học\".\nĐăng ký xin liên hệ Phòng Thể thao Tòa thị chính Aoba (điện thoại: 042-555-1234) trước ngày 15 tháng sau.",
+      "sentences": [
+        {
+          "jp": "青葉市「健康と日本語」教室のご案内",
+          "vi": "Thông báo: Lớp học \"Sức khỏe & Tiếng Nhật\" của thành phố Aoba",
+          "vocab": [
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "青葉市",
+              "read": "あおばし",
+              "vi": "thành phố Aoba"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "泳げるようになりたい、日本語が上手になるように練習したい――そんな市民のために、青葉市が三つの教室を開きます。健康のためにも、目標のためにも、ぜひご利用ください。",
+          "vi": "Muốn tập bơi được, muốn luyện tập để tiếng Nhật giỏi hơn — vì những người dân như vậy, thành phố Aoba mở ba lớp học. Vì sức khỏe, cũng vì mục tiêu của bạn, xin hãy sử dụng dịch vụ này.",
+          "vocab": [
+            {
+              "w": "泳げる",
+              "read": "およげる",
+              "vi": "có thể bơi (V可能形 của 泳ぐ)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "上手になる",
+              "read": "じょうずになる",
+              "vi": "trở nên giỏi (tự động)"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "そんな",
+              "read": "そんな",
+              "vi": "như vậy, đó"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái (đếm đồ vật nhỏ)"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "目標",
+              "read": "もくひょう",
+              "vi": "mục tiêu"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになりたい（Bài 60 target）",
+              "vi": "接続: V可能形（泳げる）+ ようになりたい. 泳げるようになりたい = muốn (dần) trở nên bơi được. V可能形＋ように（Bài 60）vì khả năng bơi là trạng thái đạt được dần dần, không do ý chí trực tiếp kiểm soát ngay lập tức."
+            },
+            {
+              "point": "〜ように（Bài 60 target）",
+              "vi": "接続: V自動詞（上手になる）+ ように. 上手になるように = để (tiếng Nhật) trở nên giỏi hơn. 上手になる là biến đổi tự động → ように, không dùng ために."
+            },
+            {
+              "point": "〜のために（Bài 60 target）",
+              "vi": "接続: N（そんな市民）の + ために. そんな市民のために = vì những người dân như vậy. Nの＋ために ở đây mang nghĩa \"vì lợi ích của\" — cách dùng mở rộng của ために mục đích."
+            },
+            {
+              "point": "〜のためにも（Bài 60 target）",
+              "vi": "健康のためにも、目標のためにも = vì sức khỏe cũng vì mục tiêu. Nの＋ために lặp lại 2 lần với も để nhấn mạnh cả hai lý do đều là mục đích của việc tham gia lớp học."
+            }
+          ],
+          "keys": [
+            {
+              "w": "泳げるようになりたい",
+              "why": "thiết lập chủ đề lớp bơi — mục tiêu \"bơi được\", khớp đối tượng của 水泳教室 trong bảng"
+            },
+            {
+              "w": "日本語が上手になるように",
+              "why": "thiết lập chủ đề lớp hội thoại — mục tiêu \"giỏi tiếng Nhật\", khớp đối tượng của 日本語会話教室"
+            }
+          ]
+        },
+        {
+          "jp": "教室名｜曜日・時間｜料金｜対象",
+          "vi": "Tên lớp｜Thứ・Giờ｜Học phí｜Đối tượng",
+          "vocab": [
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "học phí, phí"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "教室名",
+              "read": "きょうしつめい",
+              "vi": "tên lớp học"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "教室名｜曜日・時間｜料金｜対象",
+              "why": "header bảng chính: 4 cột lớp/thứ-giờ/phí/đối tượng — khung để dò cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "水泳教室（初級）｜火・木　19:00〜20:30｜6,000円｜泳げない人",
+          "vi": "Lớp bơi (sơ cấp)｜Thứ Ba・Năm　19:00〜20:30｜6.000 yên｜Người chưa biết bơi",
+          "vocab": [
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "初級",
+              "read": "しょきゅう",
+              "vi": "sơ cấp"
+            },
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "泳げる",
+              "read": "およげる",
+              "vi": "có thể bơi (可能形 của 泳ぐ)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "水泳教室",
+              "read": "すいえいきょうしつ",
+              "vi": "lớp học bơi"
+            },
+            {
+              "w": "泳げない人",
+              "read": "およげないひと",
+              "vi": "người không bơi được"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "水泳教室（初級）｜火・木　19:00〜20:30｜6,000円",
+              "why": "căn cứ chính câu hỏi 1: lớp bơi thứ Ba/Năm tối, học phí gốc 6,000円 — phải trừ giảm giá mới ra số tiền cuối"
+            }
+          ]
+        },
+        {
+          "jp": "日本語会話教室｜月・水　18:30〜20:00｜4,000円｜日本語を上達させたい人",
+          "vi": "Lớp hội thoại tiếng Nhật｜Thứ Hai・Tư　18:30〜20:00｜4.000 yên｜Người muốn nâng cao tiếng Nhật",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "上達させたい",
+              "read": "じょうたつさせたい",
+              "vi": "muốn làm cho tiến bộ (使役形 + たい)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "日本語会話教室",
+              "read": "にほんごかいわきょうしつ",
+              "vi": "lớp hội thoại tiếng Nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "使役形（Bài 48 ôn）",
+              "vi": "上達させたい = muốn làm cho (bản thân) tiến bộ. 使役形（させる）— Bài 48, kết hợp với たい diễn đạt mong muốn tự thúc đẩy mình."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日本語会話教室｜月・水　18:30〜20:00｜4,000円",
+              "why": "căn cứ câu hỏi 2: lớp hội thoại thứ Hai/Tư tối — điều kiện giờ cần khớp người rảnh tối những ngày này"
+            }
+          ]
+        },
+        {
+          "jp": "ウォーキング教室｜土　9:00〜10:30｜2,000円｜運動不足の人",
+          "vi": "Lớp đi bộ｜Thứ Bảy　9:00〜10:30｜2.000 yên｜Người thiếu vận động",
+          "vocab": [
+            {
+              "w": "ウォーキング",
+              "read": "ウォーキング",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "ウォーキング教室",
+              "read": "ウォーキングきょうしつ",
+              "vi": "lớp đi bộ"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "10:30",
+              "read": "じゅうじはん",
+              "vi": "10 giờ 30"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "thiếu hụt"
+            },
+            {
+              "w": "運動不足",
+              "read": "うんどうぶそく",
+              "vi": "thiếu vận động"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "運動不足の人",
+              "read": "うんどうぶそくのひと",
+              "vi": "người thiếu vận động"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ウォーキング教室｜土　9:00〜10:30｜2,000円",
+              "why": "ô nhiễu: lớp đi bộ giờ sáng thứ Bảy — dễ nhầm với lớp bơi nếu chỉ nhớ mang máng \"có lớp thứ Bảy\""
+            }
+          ]
+        },
+        {
+          "jp": "※会員証をお持ちの方は、どの教室も料金から1,000円引きになります。",
+          "vi": "※ Người có thẻ hội viên được giảm 1.000 yên trên học phí của bất kỳ lớp nào.",
+          "vocab": [
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "会員証",
+              "read": "かいいんしょう",
+              "vi": "thẻ hội viên"
+            },
+            {
+              "w": "お持ちの方",
+              "read": "おもちのかた",
+              "vi": "người có, quý vị mang theo (謙譲/尊敬 nhẹ)"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "sự giảm (giá)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お＋Vます形＋の方（尊敬語 Bài 50 ôn）",
+              "vi": "お持ちの方 = quý vị có (thẻ). お＋V(ます形)＋の方 là cách nói kính trọng chỉ người, ôn lại 謙譲・尊敬 phổ thông của Bài 50."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員証をお持ちの方は、どの教室も料金から1,000円引き",
+              "why": "điều kiện giảm giá 1: hội viên → trừ 1,000円 trên MỌI lớp — cần ghép với điều kiện đăng ký sớm ở dòng sau"
+            }
+          ]
+        },
+        {
+          "jp": "※今月のうちに申し込むと、早期割引で全教室500円引きになります（会員割引と合わせて使えます）。",
+          "vi": "※ Nếu đăng ký trong tháng này, được giảm thêm 500 yên cho mọi lớp theo diện ưu đãi đăng ký sớm (có thể cộng dồn với giảm giá hội viên).",
+          "vocab": [
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "うち",
+              "read": "うち",
+              "vi": "trong khoảng"
+            },
+            {
+              "w": "今月のうちに",
+              "read": "こんげつのうちに",
+              "vi": "trong tháng này"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "sớm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "早期割引",
+              "read": "そうきわりびき",
+              "vi": "giảm giá sớm"
+            },
+            {
+              "w": "全",
+              "read": "ぜん",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "全教室",
+              "read": "ぜんきょうしつ",
+              "vi": "tất cả lớp học"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm, trừ"
+            },
+            {
+              "w": "500円引き",
+              "read": "ごひゃくえんびき",
+              "vi": "giảm 500 yên"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành, được tính là"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "会員割引",
+              "read": "かいいんわりびき",
+              "vi": "giảm giá hội viên"
+            },
+            {
+              "w": "合わせて",
+              "read": "あわせて",
+              "vi": "kết hợp, cộng với"
+            },
+            {
+              "w": "使えます",
+              "read": "つかえます",
+              "vi": "có thể sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Bài 55 ôn）",
+              "vi": "今月のうちに = tranh thủ trong lúc còn là tháng này (trước khi sang tháng sau thì hết ưu đãi). うちに（Bài 55）nhấn mạnh tranh thủ thời gian còn lại."
+            },
+            {
+              "point": "〜と（điều kiện tự nhiên, Bài 23 ôn）",
+              "vi": "申し込むと = nếu đăng ký thì (tất yếu được giảm). と diễn đạt kết quả tự nhiên, chắc chắn xảy ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "今月のうちに申し込むと、早期割引で全教室500円引き",
+              "why": "điều kiện giảm giá 2: đăng ký TRONG THÁNG NÀY → trừ thêm 500円 — bẫy nếu đăng ký sau khi hết tháng sẽ KHÔNG được giảm này"
+            },
+            {
+              "w": "会員割引と合わせて使えます",
+              "why": "chốt: 2 giảm giá CỘNG DỒN được — cả hai câu hỏi tính phí đều phải cộng cả 1,000円 và 500円 nếu người hỏi thỏa cả 2 điều kiện"
+            }
+          ]
+        },
+        {
+          "jp": "※水泳教室は、泳げるようになるまで同じクラスで練習しますので、初心者でも安心です。",
+          "vi": "※ Lớp bơi sẽ luyện tập cùng một lớp cho đến khi bơi được, nên người mới cũng có thể yên tâm.",
+          "vocab": [
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "泳げる",
+              "read": "およげる",
+              "vi": "có thể bơi (可能形 của 泳ぐ)"
+            },
+            {
+              "w": "同じクラス",
+              "read": "おなじクラス",
+              "vi": "cùng một lớp"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "初心者",
+              "read": "しょしんしゃ",
+              "vi": "người mới bắt đầu"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになるまで（Bài 60 target + Bài 56 ôn）",
+              "vi": "接続: V可能形（泳げる）+ ようになる + まで. 泳げるようになるまで = cho đến khi (dần) bơi được. ようになる（Bài 60）diễn đạt thay đổi dần thành trạng thái mới; まで（Bài 56 ôn）chỉ mốc thời điểm kết thúc."
+            }
+          ]
+        },
+        {
+          "jp": "※日本語会話教室は、上達のために毎回宿題が出ますので、時間のある方におすすめします。",
+          "vi": "※ Lớp hội thoại tiếng Nhật có bài tập về nhà mỗi buổi để nâng cao trình độ, nên khuyến khích người có thời gian.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "上達",
+              "read": "じょうたつ",
+              "vi": "sự tiến bộ, sự nâng cao trình độ"
+            },
+            {
+              "w": "毎回",
+              "read": "まいかい",
+              "vi": "mỗi lần, mỗi buổi"
+            },
+            {
+              "w": "宿題",
+              "read": "しゅくだい",
+              "vi": "bài tập về nhà"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "món được khuyên, món nổi tiếng"
+            },
+            {
+              "w": "宿題が出ます",
+              "read": "しゅくだいがでます",
+              "vi": "có bài tập về nhà (bài tập được giao ra)"
+            },
+            {
+              "w": "おすすめします",
+              "read": "おすすめします",
+              "vi": "khuyến khích, giới thiệu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のために（Bài 60 target）",
+              "vi": "接続: N（上達）の + ために. 上達のために = vì (mục đích) sự tiến bộ. Nの＋ために là dạng danh từ của ために mục đích, khác với ように chỉ nối sau động từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "時間のある方におすすめします",
+              "why": "điều kiện đối tượng: lớp hội thoại cần người CÓ THỜI GIAN vì có bài tập về nhà — liên quan câu hỏi 2 nếu người hỏi bận rộn"
+            }
+          ]
+        },
+        {
+          "jp": "※プールで滑らないように、水泳教室の方はサンダルではなく運動靴でお越しください。",
+          "vi": "※ Để không bị trượt ngã trên hồ bơi, người học lớp bơi xin đi giày thể thao thay vì dép.",
+          "vocab": [
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "hồ bơi"
+            },
+            {
+              "w": "滑ります",
+              "read": "すべります",
+              "vi": "trượt, trơn trượt"
+            },
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "サンダル",
+              "read": "サンダル",
+              "vi": "dép"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "靴",
+              "read": "くつ",
+              "vi": "giày"
+            },
+            {
+              "w": "お越しください",
+              "read": "おこしください",
+              "vi": "xin mời đến (kính ngữ)"
+            },
+            {
+              "w": "くださる",
+              "read": "くださる",
+              "vi": "cho, ban cho"
+            },
+            {
+              "w": "運動靴",
+              "read": "うんどうぐつ",
+              "vi": "giày thể thao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — Vない, Bài 60 target）",
+              "vi": "接続: Vない + ように. 滑らないように = để không bị trượt ngã. \"Không bị trượt\" là trạng thái kết quả không do ý chí trực tiếp kiểm soát được → ように, không dùng ために."
+            }
+          ],
+          "keys": [
+            {
+              "w": "サンダルではなく運動靴でお越しください",
+              "why": "lưu ý riêng cho lớp bơi: giày dép — chi tiết phụ, không phải căn cứ tính phí nhưng test khả năng phân biệt thông tin liên quan/không liên quan câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "教室に参加した方からは「毎日体を動かす習慣がつくように少しずつ運動量を増やしている」「日本語で話せるようになるために毎回予習している」といった声が届いています。",
+          "vi": "Từ những người đã tham gia lớp học, có ý kiến phản hồi như: \"Tôi đang tăng dần lượng vận động để hình thành thói quen vận động cơ thể mỗi ngày\", \"Để dần nói được tiếng Nhật, tôi ôn bài trước mỗi buổi học\".",
+          "vocab": [
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "動かす",
+              "read": "うごかす",
+              "vi": "vận hành, làm chuyển động"
+            },
+            {
+              "w": "習慣がつきます",
+              "read": "しゅうかんがつきます",
+              "vi": "hình thành thói quen"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "増やします",
+              "read": "ふやします",
+              "vi": "làm tăng lên"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "話せる",
+              "read": "はなせる",
+              "vi": "có thể nói (V可能形)"
+            },
+            {
+              "w": "毎回",
+              "read": "まいかい",
+              "vi": "mỗi lần, mỗi buổi"
+            },
+            {
+              "w": "予習します",
+              "read": "よしゅうします",
+              "vi": "chuẩn bị bài trước, ôn bài trước"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "ý kiến, tiếng nói (phản hồi)"
+            },
+            {
+              "w": "届く",
+              "read": "とどく",
+              "vi": "đến, tới nơi"
+            },
+            {
+              "w": "運動量",
+              "read": "うんどうりょう",
+              "vi": "lượng vận động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích — V自動詞, Bài 60 target）",
+              "vi": "接続: V自動詞（習慣がつく）+ ように. 習慣がつくように = để hình thành thói quen. 習慣がつく（thói quen hình thành）là kết quả tự động, không ai trực tiếp \"làm cho thói quen hình thành\" được ngay → ように."
+            },
+            {
+              "point": "〜ために（mục đích — V可能形＋ようになる làm mục tiêu danh từ hóa, Bài 60 target）",
+              "vi": "接続: V可能形＋ようになる（話せるようになる）+ ために. 話せるようになるために = để dần nói được (tiếng Nhật). Ở đây \"話せるようになる\" là MỤC TIÊU (trạng thái muốn đạt), còn hành động chính vế sau（予習する）là hành động CÓ Ý CHÍ, cùng chủ ngữ với người nói → dùng ために vì cấu trúc hướng đến hành động ý chí cụ thể để đạt mục tiêu đó, khác câu trước dùng ように gắn trực tiếp vào kết quả tự động."
+            }
+          ]
+        },
+        {
+          "jp": "申し込みは、青葉市役所スポーツ課（電話：042-555-1234）まで、来月15日までにご連絡ください。",
+          "vi": "Đăng ký xin liên hệ Phòng Thể thao Tòa thị chính Aoba (điện thoại: 042-555-1234) trước ngày 15 tháng sau.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "市役所",
+              "read": "しやくしょ",
+              "vi": "tòa thị chính"
+            },
+            {
+              "w": "スポーツ",
+              "read": "スポーツ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "スポーツ課",
+              "read": "スポーツか",
+              "vi": "phòng Thể thao"
+            },
+            {
+              "w": "来月15日",
+              "read": "らいげつじゅうごにち",
+              "vi": "ngày 15 tháng sau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17 ôn）",
+              "vi": "来月15日までに = trước hạn là ngày 15 tháng sau. までに nhấn mạnh hạn chót đăng ký."
+            }
+          ],
+          "keys": [
+            {
+              "w": "来月15日までにご連絡ください",
+              "why": "hạn đăng ký chung — kết hợp với ※ đăng ký trong tháng này để biết mốc thời gian nào còn hưởng giảm giá sớm"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "泳げるようになりたい",
+          "label": "〜ようになりたい（Bài 60 — V可能形＋ように, mục đích không ý chí trực tiếp）"
+        },
+        {
+          "excerpt": "日本語が上手になるように練習したい",
+          "label": "〜ように（Bài 60 — V自動詞, mục đích）"
+        },
+        {
+          "excerpt": "そんな市民のために",
+          "label": "Nの＋ために（Bài 60 — mục đích, \"vì lợi ích của\"）"
+        },
+        {
+          "excerpt": "上達のために毎回宿題が出ます",
+          "label": "Nの＋ために（Bài 60 — mục đích）"
+        },
+        {
+          "excerpt": "泳げるようになるまで同じクラスで練習します",
+          "label": "〜ようになるまで（Bài 60 target ＋ まで Bài 56 ôn）"
+        },
+        {
+          "excerpt": "今月のうちに申し込むと",
+          "label": "〜うちに（Bài 55 ôn）"
+        },
+        {
+          "excerpt": "毎日体を動かす習慣がつくように",
+          "label": "〜ように（Bài 60 — V自動詞, mục đích）"
+        },
+        {
+          "excerpt": "日本語で話せるようになるために毎回予習している",
+          "label": "〜ために（Bài 60 — mục tiêu danh từ hóa + hành động ý chí）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời tham gia",
+          "topic": 0,
+          "note": "Tiêu đề thông báo lớp học của thành phố + lời mời chung nêu 2 mục tiêu (bơi được, giỏi tiếng Nhật) — thiết lập chủ đề, chưa có căn cứ đáp án cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng 3 lớp học (thứ・giờ・phí・đối tượng)",
+          "topic": 2,
+          "note": "Bảng chính: mỗi hàng là 1 lớp với thứ/giờ/phí gốc/đối tượng — dòng 水泳教室 và 日本語会話教室 là căn cứ chính của câu hỏi 1 và 2, dòng ウォーキング教室 là ô nhiễu.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "point",
+          "label": "Hai điều kiện giảm giá ※ (hội viên + đăng ký sớm)",
+          "topic": 6,
+          "note": "Hai dòng ※ nêu 2 mức giảm giá CỘNG DỒN được (1,000円 hội viên + 500円 đăng ký sớm trong tháng) — bắt buộc phải cộng cả hai để ra đúng số tiền cuối cùng ở câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Ghi chú riêng từng lớp (bẫy điều kiện)",
+          "topic": 9,
+          "note": "Dòng ※ về lớp bơi (học đến khi bơi được) và lớp hội thoại (có bài tập, cần người có thời gian) — bẫy cho câu hỏi 2 nếu người hỏi không có nhiều thời gian rảnh.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "body",
+          "label": "Ghi chú giày dép & cảm nhận học viên",
+          "topic": 11,
+          "note": "Dòng ※ về giày thể thao (chi tiết phụ, không liên quan tính phí/lịch) và lời cảm nhận của học viên (ôn lại sắc thái ように/ために) — không phải căn cứ đáp án, cần nhận ra là thông tin không liên quan tới 2 câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 12,
+          "to": 12,
+          "kind": "body",
+          "label": "Hạn đăng ký & liên hệ",
+          "topic": 12,
+          "note": "Thông tin liên hệ đăng ký và hạn chót — không phải căn cứ trực tiếp của câu hỏi tính phí nhưng cần đối chiếu mốc thời gian giảm giá sớm.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "山田さんは会員証を持っています。今月のうちに水泳教室（初級）に申し込むと、料金はいくらになりますか。",
+          "options": [
+            "4,500円",
+            "5,000円",
+            "5,500円",
+            "6,000円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0（4,500円）。水泳教室（初級）の元の料金は6,000円。会員証を持っているので1,000円引き（→5,000円）、さらに今月のうちに申し込むので早期割引500円引き（→4,500円）。2つの割引は「合わせて使えます」と書いてあるので、両方引いて4,500円になります。選択肢1（5,000円）は会員割引だけを引いた金額で、早期割引を忘れています。選択肢2（5,500円）は早期割引だけを引いた金額で、会員割引を忘れています。選択肢3（6,000円）は割引を一つも引いていない元の料金です。",
+          "tip": "Câu hỏi ghép 2 điều kiện giảm giá (hội viên + đăng ký sớm trong tháng) → phải TRỪ CẢ HAI lần từ giá gốc trong bảng, không được chỉ trừ một loại. Luôn kiểm tra dòng ※ có ghi \"合わせて使えます\" (cộng dồn được) hay không.",
+          "evi": [
+            3,
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Ông Yamada có thẻ hội viên. Nếu đăng ký lớp bơi (sơ cấp) trong tháng này, học phí sẽ là bao nhiêu?",
+            "o": [
+              "4.500 yên",
+              "5.000 yên",
+              "5.500 yên",
+              "6.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは月曜日と水曜日の夜だけ時間があり、宿題をする時間も十分にあります。カリナさんに合う教室はどれですか。",
+          "options": [
+            "水泳教室（初級）— 泳げるようになるまで同じクラスで練習できるから",
+            "日本語会話教室 — 月・水の夜に開かれていて、宿題をする時間もあるから",
+            "ウォーキング教室 — 運動不足の人に合っているから",
+            "どの教室も月曜日と水曜日の夜には開かれていないので、申し込めない"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1（日本語会話教室）。表を見ると、日本語会話教室は「月・水　18:30〜20:00」に開かれており、カリナさんの空いている時間（月・水の夜）と一致します。さらに※には「上達のために毎回宿題が出ますので、時間のある方におすすめします」とあり、カリナさんは宿題をする時間も十分にあるので条件に合います。選択肢0は水泳教室の説明ですが、開講日は火・木で、カリナさんの空いている曜日と合いません。選択肢2はウォーキング教室ですが、開講日は土曜日で、これもカリナさんの曜日と合いません。選択肢3は誤りで、実際には日本語会話教室が月・水の夜に開かれています。",
+          "tip": "Câu hỏi ghép điều kiện THỨ+GIỜ RẢNH và THỜI GIAN LÀM BÀI TẬP → phải dò cả cột 曜日・時間 trong bảng VÀ dòng ※ ghi chú riêng của từng lớp, không chỉ dựa vào tên lớp nghe \"hợp\".",
+          "evi": [
+            4,
+            9
+          ],
+          "qt": {
+            "q": "Cô Karina chỉ có thời gian vào các buổi tối thứ Hai và thứ Tư, và cũng có đủ thời gian làm bài tập về nhà. Lớp học nào phù hợp với cô ấy?",
+            "o": [
+              "Lớp bơi (sơ cấp) — vì cô ấy có thể luyện tập trong cùng một lớp cho đến khi biết bơi",
+              "Lớp hội thoại tiếng Nhật — vì lớp được tổ chức vào các buổi tối thứ Hai và thứ Tư, và cô ấy cũng có thời gian làm bài tập về nhà",
+              "Lớp đi bộ — vì lớp phù hợp với những người ít vận động",
+              "Không thể đăng ký lớp nào vì không có lớp nào được tổ chức vào các buổi tối thứ Hai và thứ Tư"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

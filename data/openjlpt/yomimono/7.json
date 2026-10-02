@@ -1,0 +1,1414 @@
+{
+  "bai": 7,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 7 xoay quanh hành động TẶNG / NHẬN và dùng CÔNG CỤ / NGÔN NGỮ để làm gì đó. Hai trọng tâm cần chú ý: (1) trợ từ に chỉ ĐỐI TƯỢNG NHẬN (tặng ai, dạy ai, mượn của ai); (2) trợ từ で chỉ CÔNG CỤ hoặc NGÔN NGỮ dùng để thực hiện hành động. Ngoài ra, もう〜ました (đã rồi) và まだ (chưa) thường xuất hiện trong câu hỏi Rồi hay Chưa.",
+    "steps": [
+      "Đọc lướt để biết CHỦ ĐỀ chính: ai tặng/nhận gì cho/từ ai, dùng công cụ gì.",
+      "Với câu có あげます / 貸します / 教えます: tìm に trước động từ — đó là người NHẬN (được tặng/mượn/dạy).",
+      "Với câu có もらいます / 借ります / 習います: tìm に trước động từ — đó là nguồn GỐC (người tặng/cho mượn/dạy mình).",
+      "Với で: xác định là công cụ (bút, điện thoại…) hay ngôn ngữ (日本語で) — cả hai đều dùng で.",
+      "Gặp もう〜ましたか → đáp \"はい、もう〜ました\" hoặc \"いいえ、まだです\". Ghi nhớ: まだ KHÔNG theo sau ません ở dạng câu hỏi kiểu này.",
+      "Trong câu hỏi trắc nghiệm, đọc kỹ trợ từ に và を — nhầm に/を là sai hoàn toàn."
+    ],
+    "tips": [
+      "あげます: mình/ai đó tặng CHO người khác (chiều ra ngoài). もらいます: mình NHẬN từ người khác (chiều vào trong). Đừng nhầm hai chiều này.",
+      "に là người, を là vật: 田中さん(に)、花(を)あげます — nhớ trật tự NI + WO trước động từ.",
+      "Nで〜 (công cụ): で đứng SAU danh từ chỉ công cụ, TRƯỚC động từ.",
+      "もう〜ました = đã xong. Trả lời câu hỏi もう〜ましたか → いいえ、まだです (KHÔNG nói まだません).",
+      "貸します / 借ります dễ nhầm: 貸します = cho mượn (mình là chủ); 借ります = đi mượn (mình là người mượn).",
+      "日本語で話します: ngôn ngữ + で + động từ nói/viết/đọc — nhớ で không bao giờ thay が hay を ở đây."
+    ],
+    "grammarFocus": [
+      "Nで（công cụ）Vます",
+      "人にNをあげます・貸します・教えます",
+      "人にNをもらいます・借ります・習います",
+      "Nで（ngôn ngữ）Vます",
+      "もう〜ました / まだ"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 1,
+        "items": [
+          "NはNです",
+          "NのN（sở hữu）"
+        ]
+      },
+      {
+        "bai": 4,
+        "items": [
+          "Vます・Vません・Vました",
+          "Vませんでした",
+          "〜ね"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "NへVます（đến/về）",
+          "人とVます（cùng ai）"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをVます（tha động từ）",
+          "いっしょにVませんか・Vましょう",
+          "それから"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "プレゼント",
+      "titleVi": "Món quà",
+      "japanese": "私はカリナさんに花をあげました。それから、カリナさんは私に日本語の本を貸しました。私はその本をうちで読みました。もう読みましたか。はい、もう読みました。",
+      "vietnamese": "Tôi đã tặng hoa cho chị Karina. Sau đó, chị Karina cho tôi mượn một cuốn sách tiếng Nhật. Tôi đã đọc cuốn sách đó ở nhà. Bạn đã đọc rồi chưa? Rồi, tôi đã đọc rồi.",
+      "sentences": [
+        {
+          "jp": "私はカリナさんに花をあげました。",
+          "vi": "Tôi đã tặng hoa cho chị Karina.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "花",
+              "read": "はな",
+              "vi": "hoa"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "あげました",
+              "read": "あげました",
+              "vi": "đã tặng (cho người khác)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNをあげます",
+              "vi": "カリナさんに = tặng CHO Karina (に chỉ người nhận); 花を = vật được tặng (を chỉ tân ngữ trực tiếp)."
+            }
+          ]
+        },
+        {
+          "jp": "それから、カリナさんは私に日本語の本を貸しました。",
+          "vi": "Sau đó, chị Karina cho tôi mượn một cuốn sách tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "貸しました",
+              "read": "かしました",
+              "vi": "đã cho mượn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "それから",
+              "vi": "Nối ý \"sau đó\" — ôn từ Bài 6."
+            },
+            {
+              "point": "人にNを貸します",
+              "vi": "私に = cho tôi mượn (に chỉ người nhận); 本を = vật cho mượn."
+            }
+          ]
+        },
+        {
+          "jp": "私はその本をうちで読みました。",
+          "vi": "Tôi đã đọc cuốn sách đó ở nhà.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "うち",
+              "read": "うち",
+              "vi": "nhà"
+            },
+            {
+              "w": "読みました",
+              "read": "よみました",
+              "vi": "đã đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます",
+              "vi": "本を読みました — を chỉ tân ngữ trực tiếp của động từ tha động từ 読みます."
+            },
+            {
+              "point": "Nで（địa điểm）",
+              "vi": "うちで = ở nhà (で chỉ nơi diễn ra hành động — lưu ý khác với で công cụ)."
+            }
+          ]
+        },
+        {
+          "jp": "もう読みましたか。はい、もう読みました。",
+          "vi": "Bạn đã đọc rồi chưa? Rồi, tôi đã đọc rồi.",
+          "vocab": [
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã, rồi (hoàn thành)"
+            },
+            {
+              "w": "はい",
+              "read": "はい",
+              "vi": "vâng, có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もう〜ましたか / もう〜ました",
+              "vi": "もう〜ましたか = Đã… rồi chưa? → Đã rồi: はい、もう〜ました. Chưa: いいえ、まだです."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "カリナさんに花をあげました",
+          "label": "人にNをあげます"
+        },
+        {
+          "excerpt": "私に日本語の本を貸しました",
+          "label": "人にNを貸します"
+        },
+        {
+          "excerpt": "もう読みましたか",
+          "label": "もう〜ましたか"
+        },
+        {
+          "excerpt": "はい、もう読みました",
+          "label": "もう〜ました（đã rồi）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "私はカリナさんに何をあげましたか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "本をあげました",
+            "花をあげました",
+            "日本語を教えました",
+            "本を貸しました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu đầu tiên của đoạn văn nói rõ:「私はカリナさんに花をあげました」(Tôi đã tặng hoa cho Karina). Từ chốt là「花を」(hoa) + động từ「あげました」(đã tặng — chiều từ mình ra người khác). Đáp án 0 (sách) sai vì sách là thứ Karina CHO MƯỢN lại cho người kể, không phải thứ người kể tặng đi. Đáp án 2 (dạy tiếng Nhật) và đáp án 3 (cho mượn sách) đều không xuất hiện trong câu đầu và nhầm chiều hành động.",
+          "tip": "Gặp câu hỏi「〜に何をあげましたか」→ tìm ngay câu có「〜にNをあげました」trong bài. Chú ý に chỉ NGƯỜI NHẬN, を chỉ VẬT tặng — hai trợ từ này không được nhầm.",
+          "qt": {
+            "q": "Tôi đã tặng chị Karina thứ gì?",
+            "o": [
+              "Tôi đã tặng sách",
+              "Tôi đã tặng hoa",
+              "Tôi đã dạy tiếng Nhật",
+              "Tôi đã cho mượn sách"
+            ]
+          }
+        },
+        {
+          "q": "私はもう本を読みましたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "いいえ、まだです",
+            "いいえ、読みませんでした",
+            "はい、もう読みました",
+            "はい、図書館で読みました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài hỏi「もう読みましたか」(Đã đọc rồi chưa?) và câu trả lời trong bài là「はい、もう読みました」(Rồi, đã đọc rồi). Đây là mẫu もう〜ました = đã hoàn thành. Đáp án 0「いいえ、まだです」sai vì bài nói đã đọc rồi, không phải chưa. Đáp án 1「いいえ、読みませんでした」sai vì có「はい」xác nhận. Đáp án 3 sai vì bài nói đọc ở nhà (うちで), không phải ở thư viện.",
+          "tip": "Mẫu もう〜ましたか → đáp「はい、もう〜ました」(đã rồi) hoặc「いいえ、まだです」(chưa). Nhớ: khi chưa thì dùng まだです, KHÔNG nói まだ読みませんでした trong ngữ cảnh này.",
+          "qt": {
+            "q": "Tôi đã đọc sách rồi chưa?",
+            "o": [
+              "Không, vẫn chưa",
+              "Không, tôi đã không đọc",
+              "Có, tôi đã đọc rồi",
+              "Có, tôi đã đọc ở thư viện"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは私に何をしましたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "花をあげました",
+            "日本語を教えました",
+            "日本語の本を貸しました",
+            "うちへ来ました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu thứ hai nói:「カリナさんは私に日本語の本を貸しました」(Karina cho tôi mượn sách tiếng Nhật). Động từ「貸しました」= cho mượn (Karina là chủ, tôi là người mượn). Đáp án 0 sai vì「花をあげました」là hành động của người kể (tặng hoa CHO Karina), không phải của Karina. Đáp án 1 sai vì bài không đề cập Karina dạy tiếng Nhật. Đáp án 3 sai vì không có chi tiết Karina đến nhà người kể.",
+          "tip": "Phân biệt chiều tặng/cho mượn: あげます = mình/ai đó CHO người khác (chiều ra); 貸します = chủ cho người khác MƯỢN (chủ là người cho mượn). Kiểm tra ai là chủ ngữ (は) để xác định chiều đúng.",
+          "qt": {
+            "q": "Chị Karina đã làm gì cho tôi?",
+            "o": [
+              "Đã tặng hoa",
+              "Đã dạy tiếng Nhật",
+              "Đã cho mượn sách tiếng Nhật",
+              "Đã đến nhà tôi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "日本語の勉強",
+      "titleVi": "Việc học tiếng Nhật",
+      "japanese": "ミラーさんはIMCの社員です。今、日本語を勉強します。\nミラーさんは田中さんに日本語を習います。田中さんはさくら大学の先生です。\n田中さんはミラーさんに日本語の辞書を貸しました。ミラーさんはその辞書で日本語を勉強します。\nミラーさんはカリナさんに英語を教えます。カリナさんはミラーさんに英語の本をもらいました。\nミラーさんとカリナさんは日本語で話します。二人はいっしょに図書館へ行きます。\n図書館でミラーさんはパソコンでメールを書きます。\nカリナさんはもう宿題をしましたか。いいえ、まだです。これから図書館でします。",
+      "vietnamese": "Anh Miller là nhân viên IMC. Hiện nay, anh học tiếng Nhật.\nAnh Miller học tiếng Nhật với thầy Tanaka. Thầy Tanaka là giáo viên Đại học Sakura.\nThầy Tanaka cho anh Miller mượn từ điển tiếng Nhật. Anh Miller dùng cuốn từ điển đó để học tiếng Nhật.\nAnh Miller dạy tiếng Anh cho chị Karina. Chị Karina được tặng sách tiếng Anh từ anh Miller.\nAnh Miller và chị Karina nói chuyện bằng tiếng Nhật. Cả hai cùng đến thư viện.\nỞ thư viện, anh Miller viết email bằng máy tính.\nChị Karina đã làm bài tập về nhà chưa? Chưa. Sắp tới chị sẽ làm ở thư viện.",
+      "sentences": [
+        {
+          "jp": "ミラーさんはIMCの社員です。今、日本語を勉強します。",
+          "vi": "Anh Miller là nhân viên IMC. Hiện nay, anh học tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "IMC",
+              "read": "アイ・エム・シー",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học (bài)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "IMCの社員です — ôn Bài 1, câu khẳng định."
+            },
+            {
+              "point": "NのN",
+              "vi": "IMCの社員 = nhân viên của IMC — ôn Bài 1."
+            },
+            {
+              "point": "NをVます",
+              "vi": "日本語を勉強します — ôn Bài 6, を chỉ tân ngữ."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは田中さんに日本語を習います。",
+          "vi": "Anh Miller học tiếng Nhật với (từ) thầy Tanaka.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "習います",
+              "read": "ならいます",
+              "vi": "học (từ thầy/người khác), tập theo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNを習います",
+              "vi": "田中さんに = học TỪ Tanaka (に chỉ nguồn — người dạy mình); 日本語を = môn/nội dung học."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはさくら大学の先生です。",
+          "vi": "Thầy Tanaka là giáo viên Đại học Sakura.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên, thầy cô"
+            },
+            {
+              "w": "さくら大学",
+              "read": "さくらだいがく",
+              "vi": "Đại học Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "さくら大学の先生 = giáo viên CỦA Đại học Sakura — ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはミラーさんに日本語の辞書を貸しました。",
+          "vi": "Thầy Tanaka cho anh Miller mượn từ điển tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "辞書",
+              "read": "じしょ",
+              "vi": "từ điển"
+            },
+            {
+              "w": "貸しました",
+              "read": "かしました",
+              "vi": "đã cho mượn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNを貸します",
+              "vi": "ミラーさんに = cho Miller mượn (に chỉ người NHẬN); 辞書を = vật cho mượn."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはその辞書で日本語を勉強します。",
+          "vi": "Anh Miller dùng cuốn từ điển đó để học tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "辞書",
+              "read": "じしょ",
+              "vi": "từ điển"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "cuốn đó (chỉ vật vừa nhắc)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（công cụ）Vます",
+              "vi": "辞書で = bằng/dùng từ điển (で chỉ công cụ thực hiện hành động 勉強します)."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはカリナさんに英語を教えます。",
+          "vi": "Anh Miller dạy tiếng Anh cho chị Karina.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "英語",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy, chỉ dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNを教えます",
+              "vi": "カリナさんに = dạy CHO Karina (に chỉ người nhận); 英語を = nội dung được dạy."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはミラーさんに英語の本をもらいました。",
+          "vi": "Chị Karina được tặng sách tiếng Anh từ anh Miller.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "英語",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "英語の本",
+              "read": "えいごのほん",
+              "vi": "sách tiếng Anh"
+            },
+            {
+              "w": "もらいました",
+              "read": "もらいました",
+              "vi": "đã nhận (được tặng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNをもらいます",
+              "vi": "ミラーさんに = nhận TỪ Miller (に chỉ nguồn — người tặng cho mình); 本を = vật được nhận."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんとカリナさんは日本語で話します。",
+          "vi": "Anh Miller và chị Karina nói chuyện bằng tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "話します",
+              "read": "はなします",
+              "vi": "nói, nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（ngôn ngữ）Vます",
+              "vi": "日本語で = bằng tiếng Nhật (で chỉ ngôn ngữ sử dụng để thực hiện hành động 話します)."
+            },
+            {
+              "point": "NとVます",
+              "vi": "ミラーさんとカリナさん — と nối hai chủ thể cùng làm việc — ôn Bài 4."
+            }
+          ]
+        },
+        {
+          "jp": "二人はいっしょに図書館へ行きます。",
+          "vi": "Cả hai cùng đến thư viện.",
+          "vocab": [
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます",
+              "vi": "図書館へ行きます — へ chỉ hướng/đích đến — ôn Bài 5."
+            },
+            {
+              "point": "いっしょにVます",
+              "vi": "cùng nhau làm gì đó — ôn Bài 6."
+            }
+          ]
+        },
+        {
+          "jp": "図書館でミラーさんはパソコンでメールを書きます。",
+          "vi": "Ở thư viện, anh Miller viết email bằng máy tính.",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, thư điện tử"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（công cụ）Vます",
+              "vi": "パソコンで = bằng máy tính (で chỉ công cụ viết email). Phân biệt với 図書館で = tại thư viện (で chỉ địa điểm)."
+            },
+            {
+              "point": "NをVます",
+              "vi": "メールを書きます — ôn Bài 6."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはもう宿題をしましたか。いいえ、まだです。",
+          "vi": "Chị Karina đã làm bài tập về nhà chưa? Chưa.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "宿題",
+              "read": "しゅくだい",
+              "vi": "bài tập về nhà"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã (hoàn thành)"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn chưa, còn chưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もう〜ましたか",
+              "vi": "Câu hỏi Đã…rồi chưa? → もう宿題をしましたか."
+            },
+            {
+              "point": "まだ（chưa）",
+              "vi": "いいえ、まだです = Chưa. Trả lời phủ định khi chưa hoàn thành, dùng まだです chứ không nói まだしませんでした."
+            }
+          ]
+        },
+        {
+          "jp": "これから図書館でします。",
+          "vi": "Sắp tới chị sẽ làm ở thư viện.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vます（ý định tương lai）",
+              "vi": "します ở đây chỉ dự định sẽ làm ngay sau đó — thể ます trong ngữ cảnh tương lai."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "田中さんに日本語を習います",
+          "label": "人にNを習います"
+        },
+        {
+          "excerpt": "その辞書で日本語を勉強します",
+          "label": "Nで（công cụ）Vます"
+        },
+        {
+          "excerpt": "カリナさんに英語を教えます",
+          "label": "人にNを教えます"
+        },
+        {
+          "excerpt": "ミラーさんに英語の本をもらいました",
+          "label": "人にNをもらいます"
+        },
+        {
+          "excerpt": "日本語で話します",
+          "label": "Nで（ngôn ngữ）Vます"
+        },
+        {
+          "excerpt": "パソコンでメールを書きます",
+          "label": "Nで（công cụ）Vます"
+        },
+        {
+          "excerpt": "もう宿題をしましたか",
+          "label": "もう〜ましたか"
+        },
+        {
+          "excerpt": "いいえ、まだです",
+          "label": "まだ（chưa）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは田中さんに何を習いますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "英語を習います",
+            "日本語を習います",
+            "日本語の辞書をもらいます",
+            "図書館で勉強します"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「ミラーさんは田中さんに日本語を習います」nói rõ Miller học「日本語を」(tiếng Nhật) từ Tanaka. Trợ từ に ở đây chỉ NGUỒN — người dạy mình (田中さん), còn を chỉ nội dung học (日本語). Đáp án 0 (tiếng Anh) sai vì Miller dạy tiếng Anh cho Karina chứ không học tiếng Anh từ Tanaka. Đáp án 2 sai vì「辞書をもらいます」là nhận từ điển, không phải nội dung学習. Đáp án 3 sai vì đó là địa điểm Miller đến, không phải thứ Miller học.",
+          "tip": "Động từ「習います」đi với に chỉ NGƯỜI DẠY (nguồn), を chỉ MÔN HỌC. Nhớ: 田中さんに日本語を習います = học tiếng Nhật TỪ Tanaka. に = từ ai, を = học gì.",
+          "qt": {
+            "q": "Ông Miller học gì từ ông Tanaka?",
+            "o": [
+              "Học tiếng Anh",
+              "Học tiếng Nhật",
+              "Nhận từ điển tiếng Nhật",
+              "Học ở thư viện"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは何で日本語を勉強しますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "パソコンで勉強します",
+            "英語の本で勉強します",
+            "辞書で勉強します",
+            "図書館で勉強します"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu「ミラーさんはその辞書で日本語を勉強します」dùng で sau「辞書」chỉ CÔNG CỤ thực hiện hành động học. Đây là mẫu Nで（công cụ）Vます. Đáp án 0 (パソコンで) sai vì パソコン là công cụ Miller dùng để VIẾT EMAIL, không phải để học tiếng Nhật. Đáp án 1 (英語の本) không có trong bài. Đáp án 3 (図書館で) sai vì図書館 là ĐỊA ĐIỂM (で chỉ nơi) chứ không phải công cụ — câu hỏi hỏi \"bằng gì\" (công cụ), không hỏi \"ở đâu\".",
+          "tip": "Câu hỏi「何で〜しますか」hỏi về CÔNG CỤ (bằng gì). Tìm câu có「Nで勉強します」trong bài. Cẩn thận: で sau địa điểm (図書館で) là nơi chốn, không phải công cụ — phân biệt bằng cách hỏi \"N đó có phải đồ vật/ngôn ngữ không?\"",
+          "qt": {
+            "q": "Ông Miller học tiếng Nhật bằng gì?",
+            "o": [
+              "Học bằng máy tính",
+              "Học bằng sách tiếng Anh",
+              "Học bằng từ điển",
+              "Học ở thư viện"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはもう宿題をしましたか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "はい、もうしました",
+            "いいえ、まだです",
+            "はい、図書館でしました",
+            "いいえ、しませんでした"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu trong bài:「カリナさんはもう宿題をしましたか。いいえ、まだです」— câu trả lời rõ ràng là「いいえ、まだです」(Chưa). Đây là cách trả lời phủ định chuẩn cho câu hỏi もう〜ましたか khi chưa hoàn thành. Đáp án 0 sai vì bài nói「いいえ」, không phải「はい」. Đáp án 2 sai vì「図書館でしました」hàm ý đã làm rồi, nhưng bài nói chưa (まだ) và sẽ làm ở thư viện sau (これから). Đáp án 3「いいえ、しませんでした」sai vì không dùng cách này khi trả lời câu hỏi もう〜ましたか — câu đúng phải là「まだです」.",
+          "tip": "Câu hỏi もう〜ましたか → chỉ có HAI đáp án chuẩn: đã làm =「はい、もう〜ました」; chưa làm =「いいえ、まだです」. Không bao giờ dùng しませんでした làm đáp án phủ định cho mẫu này.",
+          "qt": {
+            "q": "Cô Karina đã làm bài tập về nhà chưa?",
+            "o": [
+              "Vâng, đã làm rồi",
+              "Không, vẫn chưa",
+              "Vâng, đã làm ở thư viện",
+              "Không, đã không làm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "プレゼント売り場のお知らせ",
+      "titleVi": "Thông báo: Quầy quà tặng",
+      "japanese": "さくらデパート　プレゼント売り場のお知らせ\n田中さんはミラーさんに誕生日の時計をあげます。デパートの２階でその時計を買います。\nカリナさんはワットさんに花をもらいます。ワットさんはカードでお金を払います。\n品物｜階｜ねだん\n時計｜２階｜3,000円\n花｜１階｜800円\nネクタイ｜１階｜2,000円\n田中さんはネクタイも買いますか。いいえ、まだ買いません。それから、１階へ行きます。\nミラーさんとカリナさんは日本語でお礼を言います。二人はもう店員にお礼を言いました。",
+      "vietnamese": "Bách hóa Sakura — Thông báo quầy quà tặng\nThầy Tanaka tặng anh Miller một chiếc đồng hồ nhân sinh nhật. Thầy mua chiếc đồng hồ đó ở tầng 2 của bách hóa.\nChị Karina được anh Watt tặng hoa. Anh Watt trả tiền bằng thẻ.\nMón quà | Tầng | Giá\nĐồng hồ | Tầng 2 | 3.000 yên\nHoa | Tầng 1 | 800 yên\nCà vạt | Tầng 1 | 2.000 yên\nThầy Tanaka có mua cả cà vạt không? Không, thầy chưa mua. Sau đó, thầy sẽ đến tầng 1.\nAnh Miller và chị Karina nói lời cảm ơn bằng tiếng Nhật. Hai người đã nói lời cảm ơn với nhân viên bán hàng rồi.",
+      "sentences": [
+        {
+          "jp": "さくらデパート　プレゼント売り場のお知らせ",
+          "vi": "Bách hóa Sakura — Thông báo quầy quà tặng",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hóa tổng hợp"
+            },
+            {
+              "w": "プレゼント",
+              "read": "プレゼント",
+              "vi": "quà tặng"
+            },
+            {
+              "w": "売り場",
+              "read": "うりば",
+              "vi": "quầy bán, khu bán hàng"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "さくらデパート",
+              "read": "さくらデパート",
+              "vi": "Bách hóa Sakura (ôn Bài 3)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "プレゼント売り場のお知らせ = thông báo CỦA quầy quà tặng — ôn Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "プレゼント売り場のお知らせ",
+              "why": "Tiêu đề cho biết đây là tờ thông báo tra cứu bảng giá/tầng của quầy quà tặng."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはミラーさんに誕生日の時計をあげます。デパートの２階でその時計を買います。",
+          "vi": "Thầy Tanaka tặng anh Miller một chiếc đồng hồ nhân sinh nhật. Thầy mua chiếc đồng hồ đó ở tầng 2 của bách hóa.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller"
+            },
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            },
+            {
+              "w": "時計",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "あげます",
+              "read": "あげます",
+              "vi": "tặng"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "cửa hàng bách hóa"
+            },
+            {
+              "w": "２階",
+              "read": "にかい",
+              "vi": "tầng 2"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNをあげます",
+              "vi": "ミラーさんに時計を = tặng CHO Miller chiếc đồng hồ (に chỉ người nhận) — mẫu MỚI của Bài 7."
+            },
+            {
+              "point": "Nで（địa điểm）Vます",
+              "vi": "デパートの２階で = tại tầng 2 của bách hóa — で chỉ nơi diễn ra hành động買います, ôn Bài 3."
+            }
+          ],
+          "keys": [
+            {
+              "w": "誕生日の時計をあげます",
+              "why": "Xác nhận quà thầy Tanaka tặng là 時計 — căn cứ để dò đúng hàng trong bảng."
+            },
+            {
+              "w": "デパートの２階でその時計を買います",
+              "why": "Cho biết thầy mua ở tầng 2 — nhưng câu hỏi hỏi CĂN CỨ từ chính bảng giá, không chỉ câu này."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはワットさんに花をもらいます。ワットさんはカードでお金を払います。",
+          "vi": "Chị Karina được anh Watt tặng hoa. Anh Watt trả tiền bằng thẻ.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "花",
+              "read": "はな",
+              "vi": "hoa"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "払います",
+              "read": "はらいます",
+              "vi": "trả (tiền)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNをもらいます",
+              "vi": "ワットさんに花を = nhận hoa TỪ Watt (に chỉ nguồn — người tặng) — mẫu MỚI của Bài 7."
+            },
+            {
+              "point": "Nで（công cụ）Vます",
+              "vi": "カードで払います = trả bằng thẻ (で chỉ công cụ thanh toán) — mẫu MỚI của Bài 7."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ワットさんに花をもらいます",
+              "why": "Món quà Karina nhận là 花 — dò đúng hàng 花 trong bảng nếu câu hỏi hỏi về Karina."
+            }
+          ]
+        },
+        {
+          "jp": "品物｜階｜ねだん",
+          "vi": "Món quà | Tầng | Giá",
+          "vocab": [
+            {
+              "w": "品物",
+              "read": "しなもの",
+              "vi": "món hàng, món đồ"
+            },
+            {
+              "w": "階",
+              "read": "かい",
+              "vi": "tầng (lầu)"
+            },
+            {
+              "w": "ねだん",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng header bảng",
+              "vi": "Đây là hàng tiêu đề của bảng: Món quà | Tầng | Giá."
+            }
+          ],
+          "keys": [
+            {
+              "w": "品物｜階｜ねだん",
+              "why": "Header bảng — cần dò đúng cột 階 để trả lời câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "時計｜２階｜3,000円",
+          "vi": "Đồng hồ | Tầng 2 | 3.000 yên",
+          "vocab": [
+            {
+              "w": "時計",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "２階",
+              "read": "にかい",
+              "vi": "tầng 2"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞・Nの値段（ôn Bài 4）",
+              "vi": "２階 = tầng 2; 3,000円 = giá của 時計."
+            }
+          ],
+          "keys": [
+            {
+              "w": "時計｜２階｜3,000円",
+              "why": "Hàng bảng khớp トケイ — căn cứ TRỰC TIẾP trả lời câu hỏi: 時計 ở tầng 2."
+            }
+          ]
+        },
+        {
+          "jp": "花｜１階｜800円",
+          "vi": "Hoa | Tầng 1 | 800 yên",
+          "vocab": [
+            {
+              "w": "花",
+              "read": "はな",
+              "vi": "hoa"
+            },
+            {
+              "w": "１階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "800円",
+              "read": "はっぴゃくえん",
+              "vi": "800 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng",
+              "vi": "花 ở tầng 1, giá 800円 — hàng dễ nhầm với 時計 nếu đọc lướt."
+            }
+          ],
+          "keys": [
+            {
+              "w": "花｜１階｜800円",
+              "why": "Nhiễu gần: 花 cũng ở tầng 1 nhưng KHÔNG phải món thầy Tanaka mua — dễ chọn nhầm nếu không đọc kỹ câu 2."
+            }
+          ]
+        },
+        {
+          "jp": "ネクタイ｜１階｜2,000円",
+          "vi": "Cà vạt | Tầng 1 | 2.000 yên",
+          "vocab": [
+            {
+              "w": "ネクタイ",
+              "read": "ネクタイ",
+              "vi": "cà vạt"
+            },
+            {
+              "w": "２，０００円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng",
+              "vi": "ネクタイ cũng ở tầng 1, giá 2,000円 — nhiễu gần khác cho câu hỏi tầng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ネクタイ｜１階｜2,000円",
+              "why": "Nhiễu gần: cùng tầng 1 với 花 — nếu nhầm món sẽ chọn sai tầng."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはネクタイも買いますか。いいえ、まだ買いません。それから、１階へ行きます。",
+          "vi": "Thầy Tanaka có mua cả cà vạt không? Không, thầy chưa mua. Sau đó, thầy sẽ đến tầng 1.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "ネクタイ",
+              "read": "ネクタイ",
+              "vi": "cà vạt"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn chưa"
+            },
+            {
+              "w": "買いません",
+              "read": "かいません",
+              "vi": "không mua"
+            },
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó"
+            },
+            {
+              "w": "１階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "行きます",
+              "read": "いきます",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まだ（chưa）",
+              "vi": "いいえ、まだ買いません = Chưa mua — mẫu MỚI của Bài 7, trả lời phủ định cho câu hỏi もう/まだ."
+            },
+            {
+              "point": "Nも",
+              "vi": "ネクタイも = cà vạt CŨNG (nữa) — ôn Bài 1."
+            },
+            {
+              "point": "それから（ôn Bài 6）",
+              "vi": "それから = sau đó, nối hành động tiếp theo."
+            },
+            {
+              "point": "NへVます（ôn Bài 5）",
+              "vi": "１階へ行きます = đến tầng 1 — へ chỉ hướng đến."
+            }
+          ],
+          "keys": [
+            {
+              "w": "いいえ、まだ買いません",
+              "why": "Xác nhận thầy Tanaka CHƯA mua cà vạt — loại trừ đáp án nhiễu liên quan tầng 1/ネクタイ."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんとカリナさんは日本語でお礼を言います。二人はもう店員にお礼を言いました。",
+          "vi": "Anh Miller và chị Karina nói lời cảm ơn bằng tiếng Nhật. Hai người đã nói lời cảm ơn với nhân viên bán hàng rồi.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "お礼",
+              "read": "おれい",
+              "vi": "lời cảm ơn"
+            },
+            {
+              "w": "言います",
+              "read": "いいます",
+              "vi": "nói"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã, rồi"
+            },
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（ngôn ngữ）Vます",
+              "vi": "日本語でお礼を言います = nói lời cảm ơn BẰNG tiếng Nhật — mẫu MỚI của Bài 7."
+            },
+            {
+              "point": "もう〜ました",
+              "vi": "もう…言いました = đã nói rồi — mẫu MỚI của Bài 7, hoàn thành xong."
+            },
+            {
+              "point": "NとVます（ôn Bài 4）",
+              "vi": "ミラーさんとカリナさんは = Miller VÀ Karina (hai người) cùng làm."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ミラーさんに誕生日の時計をあげます",
+          "label": "人にNをあげます（mẫu mới Bài 7）"
+        },
+        {
+          "excerpt": "ワットさんに花をもらいます",
+          "label": "人にNをもらいます（mẫu mới Bài 7）"
+        },
+        {
+          "excerpt": "カードでお金を払います",
+          "label": "Nで（công cụ）Vます（mẫu mới Bài 7）"
+        },
+        {
+          "excerpt": "日本語でお礼を言います",
+          "label": "Nで（ngôn ngữ）Vます（mẫu mới Bài 7）"
+        },
+        {
+          "excerpt": "いいえ、まだ買いません",
+          "label": "まだ（mẫu mới Bài 7）"
+        },
+        {
+          "excerpt": "それから、１階へ行きます",
+          "label": "それから（ôn Bài 6）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & ai tặng/nhận gì",
+          "topic": 0,
+          "note": "Tiêu đề thông báo quầy quà tặng + 2 câu giới thiệu: Tanaka tặng Miller đồng hồ, Karina nhận hoa từ Watt. Xác định món quà của từng người trước khi dò bảng.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng giá quầy quà tặng",
+          "topic": 4,
+          "note": "Bảng 3 hàng (時計/花/ネクタイ) ánh xạ món quà → tầng → giá. Đây là khối chứa căn cứ TRỰC TIẾP trả lời câu hỏi — dò đúng hàng 時計 để lấy tầng.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Chưa mua & lời cảm ơn",
+          "topic": 7,
+          "note": "Bẫy まだ: Tanaka CHƯA mua cà vạt (dù cùng tầng 1 với hoa) — không liên quan trực tiếp câu hỏi về đồng hồ; câu cuối ôn lại もう cho lời cảm ơn.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんはデパートの何階で時計を買いますか。",
+          "options": [
+            "１階",
+            "２階",
+            "３階",
+            "４階"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1 (２階). Câu 2 nói rõ「田中さんはミラーさんに誕生日の時計をあげます」— món quà là 時計 (đồng hồ). Dò bảng ở hàng「時計｜２階｜3,000円」cho thấy 時計 nằm ở tầng 2. Đáp án 0 (１階) sai vì đó là tầng của 花 và ネクタイ, không phải 時計. Đáp án 2 và 3 (３階/４階) không xuất hiện trong bảng — bảng chỉ có 2 tầng (１階、２階).",
+          "tip": "Câu hỏi「何階で〜を買いますか」= bài toán dò bảng 2 bước: (1) xác định ĐÚNG món quà từ câu giới thiệu (時計, không phải 花 hay ネクタイ); (2) dò đúng hàng đó trong bảng để lấy cột 階. Đừng nhầm sang hàng 花／ネクタイ vì cả hai đều ở１階 — nhiễu gần rất dễ đánh lừa.",
+          "evi": [
+            1,
+            4
+          ],
+          "qt": {
+            "q": "Ông Tanaka mua đồng hồ ở tầng mấy của cửa hàng bách hóa?",
+            "o": [
+              "Tầng 1",
+              "Tầng 2",
+              "Tầng 3",
+              "Tầng 4"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3697 @@
+{
+  "bai": 59,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 59 luyện ba mẫu chỉ NGUYÊN NHÂN với sắc thái đối cực: 〜おかげで = NHỜ (nguyên nhân → kết quả TỐT, người nói mang ơn/biết ơn); 〜せいで = TẠI (nguyên nhân → kết quả XẤU, đổ lỗi/quy trách); 〜せいか = \"có lẽ tại\" (không chắc nguyên nhân, nói nhẹ, không đổ lỗi thẳng). Quan trọng nhất: CHỌN ĐÚNG CỰC kết quả — dùng nhầm おかげで/せいで là sai nghĩa hoàn toàn. Đối chiếu với ために (Bài 39): ために chỉ nguyên nhân TRUNG TÍNH (không hàm ý tốt/xấu) — 「先生のおかげで合格できた」(biết ơn) ≠ 「先生のために合格できた」(nghe như mục đích). Đọc hiểu: chú ý kết quả câu là tốt hay xấu để chọn đúng mẫu.",
+    "steps": [
+      "接続 — ghi nhớ cách chia: 普通形 + おかげで/せいで. なAdj: 〜なおかげで / 〜なせいで. N: 〜のおかげで / 〜のせいで. Ví dụ: 静かなおかげで, 先生のおかげで, 雨のせいで, 不注意なせいで.",
+      "「結果」là chìa khoá: đọc mệnh đề SAU おかげで/せいで — nếu kết quả TỐT → おかげで; nếu kết quả XẤU → せいで.",
+      "せいか: khác せいで ở chỗ KHÔNG chắc chắn nguyên nhân (thường đi với かもしれない hoặc câu khẳng định nhẹ). Không dùng せいか khi nguyên nhân đã rõ.",
+      "Câu hỏi suy luận về sắc thái: \"Vì sao dùng おかげで chứ không phải ために/ので?\" → ために=mục đích/trung tính, おかげで=biết ơn, ので=lý do thuần tuý không có sắc thái cảm xúc.",
+      "Ôn たびに (Bài 58) — hay xuất hiện cùng vì cùng chủ đề lặp lại/kết quả theo thói quen.",
+      "Ôn ば〜よかった (Bài 35) — biểu đạt hối tiếc do nguyên nhân xấu (hay đi kèm せいで)."
+    ],
+    "tips": [
+      "使い分け 1 — おかげで vs せいで vs ために: 「練習のおかげで上手になった」(nhờ/biết ơn → tốt) vs 「練習不足のせいで失敗した」(tại/đổ lỗi → xấu) vs 「練習のために毎日走った」(vì mục đích, trung tính — Bài 39). Bài thi hay cho kết quả rồi hỏi chọn mẫu — nhớ xét \"tốt hay xấu\" trước.",
+      "使い分け 2 — せいで vs せいか: 「遅刻したのは渋滞のせいだ」(đổ lỗi thẳng, chắc chắn) vs 「渋滞のせいか、バスが来ない」(có lẽ tại, không chắc). せいか thường đi kèm cảm giác không rõ nguyên nhân — không dùng khi đã chắc chắn.",
+      "おかげで/せいで CÓ THỂ dùng cho cả bản thân lẫn người khác làm nguyên nhân. Nhưng khi nói về lỗi của MÌNH: người Nhật thường tránh 〜のせいで mà dùng 〜せいで (không có の) hoặc 自分の不注意のせいで (nhận lỗi rõ ràng).",
+      "Nhận dạng câu hỏi đọc hiểu: \"〜おかげで\" xuất hiện → hỏi \"ai/cái gì là nguyên nhân\" hoặc \"tại sao dùng おかげで chứ không phải ので\" → tìm sắc thái biết ơn trong văn cảnh."
+    ],
+    "grammarFocus": [
+      "〜おかげで（普通形/なAdj+な/N+の＋おかげで）— NHỜ, kết quả tốt, biết ơn",
+      "〜せいで（普通形/なAdj+な/N+の＋せいで）— TẠI, kết quả xấu, đổ lỗi",
+      "〜せいか（普通形/なAdj+な/N+の＋せいか）— \"có lẽ tại\", không chắc nguyên nhân"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 58,
+        "items": [
+          "〜たびに（mỗi lần…đều）"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接: vậy mà, đáng lẽ）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）",
+          "〜ために（nguyên nhân/mục đích trung tính）"
+        ]
+      },
+      {
+        "bai": 35,
+        "items": [
+          "〜ば〜よかった（hối tiếc: đáng lẽ phải…）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "試験に合格した日",
+      "titleVi": "Ngày thi đỗ",
+      "japanese": "先月、日本語能力試験のN3を受けた。合格できたのは、田中先生のおかげだと思っている。先生は毎週丁寧に文法を教えてくれた。先生のおかげで、苦手だった文法が少しずつわかるようになった。しかし、合格の知らせを受けた日、友達のタオさんは試験を受けられなかった。前日の夜、緊張のせいで眠れなかったため、試験当日に体調が悪くなってしまったのだ。タオさんは「睡眠不足のせいか、試験中ずっと頭が痛かった」と話していた。次の試験では、タオさんにもいい結果が出るといいなと思っている。",
+      "vietnamese": "Tháng trước, tôi thi kỳ thi năng lực tiếng Nhật N3. Tôi nghĩ mình đỗ được là nhờ thầy Tanaka. Thầy đã dạy ngữ pháp tỉ mỉ cho tôi mỗi tuần. Nhờ thầy, dần dần tôi đã hiểu được ngữ pháp vốn là điểm yếu của mình. Nhưng vào ngày nhận được tin báo đỗ, bạn Thảo không thể đi thi. Vì tối hôm trước do căng thẳng mà không ngủ được, nên đến ngày thi thì sức khoẻ trở nên kém. Thảo kể \"có lẽ tại thiếu ngủ mà trong khi thi đầu đau suốt\". Tôi mong rằng kỳ thi tới Thảo cũng sẽ có kết quả tốt.",
+      "sentences": [
+        {
+          "jp": "先月、日本語能力試験のN3を受けた。",
+          "vi": "Tháng trước, tôi thi kỳ thi năng lực tiếng Nhật N3.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "受けます",
+              "read": "うけます",
+              "vi": "thi, tham gia (kỳ thi)"
+            },
+            {
+              "w": "日本語能力試験",
+              "read": "にほんごのうりょくしけん",
+              "vi": "kỳ thi năng lực tiếng Nhật (JLPT)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1）",
+              "vi": "日本語能力試験のN3 = N3 của kỳ thi năng lực tiếng Nhật. の nối hai danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "合格できたのは、田中先生のおかげだと思っている。",
+          "vi": "Tôi nghĩ mình đỗ được là nhờ thầy Tanaka.",
+          "vocab": [
+            {
+              "w": "合格します",
+              "read": "ごうかくします",
+              "vi": "đỗ (kỳ thi), đậu"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "田中先生",
+              "read": "たなかせんせい",
+              "vi": "thầy Tanaka"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のおかげだ",
+              "vi": "接続: N + の + おかげだ。 田中先生のおかげだ = \"là nhờ thầy Tanaka\". おかげ (おかげで/おかげだ) = NHỜ — dùng khi kết quả là TỐT và người nói biết ơn nguyên nhân. Sắc thái: ≠ ために (Bài 39, trung tính, không hàm ơn) ≠ せいで (kết quả xấu, đổ lỗi). 合格できた = kết quả tốt → chọn おかげ là đúng."
+            },
+            {
+              "point": "Vるのは〜（Bài 38）",
+              "vi": "合格できたのは = \"việc đỗ được thì…\". のは nêu chủ đề sự việc."
+            }
+          ]
+        },
+        {
+          "jp": "先生は毎週丁寧に文法を教えてくれた。",
+          "vi": "Thầy đã dạy ngữ pháp tỉ mỉ cho tôi mỗi tuần.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "毎週",
+              "read": "まいしゅう",
+              "vi": "mỗi tuần"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "tỉ mỉ, cẩn thận, chu đáo"
+            },
+            {
+              "w": "文法",
+              "read": "ぶんぽう",
+              "vi": "ngữ pháp"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy, chỉ bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "教えてくれた = đã dạy cho tôi. てくれる = người khác thực hiện hành động vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "先生のおかげで、苦手だった文法が少しずつわかるようになった。",
+          "vi": "Nhờ thầy, dần dần tôi đã hiểu được ngữ pháp vốn là điểm yếu của mình.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "苦手",
+              "read": "にがて",
+              "vi": "điểm yếu, không giỏi"
+            },
+            {
+              "w": "文法",
+              "read": "ぶんぽう",
+              "vi": "ngữ pháp"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "dần dần, từng chút một"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "わかります",
+              "read": "わかります",
+              "vi": "hiểu, nắm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のおかげで",
+              "vi": "接続: N + の + おかげで。 先生のおかげで = \"nhờ thầy\". おかげで đứng đầu mệnh đề, nêu nguyên nhân → kết quả tốt (わかるようになった = đã hiểu được). So sánh với ので (Bài 39): ので trung tính, không có sắc thái biết ơn. おかげで = có sắc thái mang ơn rõ ràng."
+            },
+            {
+              "point": "Vるようになった（Bài 36）",
+              "vi": "わかるようになった = đã dần dần hiểu được. ようになる = sự thay đổi trạng thái/khả năng (Bài 36)."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "苦手だった文法 = ngữ pháp (mà) vốn là điểm yếu. Vた bổ nghĩa cho 文法."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、合格の知らせを受けた日、友達のタオさんは試験を受けられなかった。",
+          "vi": "Nhưng vào ngày nhận được tin báo đỗ, bạn Thảo không thể đi thi.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "合格",
+              "read": "ごうかく",
+              "vi": "đỗ, đạt"
+            },
+            {
+              "w": "知らせ",
+              "read": "しらせ",
+              "vi": "tin báo"
+            },
+            {
+              "w": "受けた",
+              "read": "うけた",
+              "vi": "đã nhận"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "タオ",
+              "read": "タオ",
+              "vi": "Tao"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi"
+            },
+            {
+              "w": "受けられなかった",
+              "read": "うけられなかった",
+              "vi": "không thể dự thi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "合格の知らせを受けた日 = ngày nhận tin đỗ. Vた bổ nghĩa cho 日."
+            },
+            {
+              "point": "V可能形の否定（Bài 27）",
+              "vi": "受けられなかった = không thể thi được. 受ける → 受けられる (可能形) → 否定過去."
+            }
+          ]
+        },
+        {
+          "jp": "前日の夜、緊張のせいで眠れなかったため、試験当日に体調が悪くなってしまったのだ。",
+          "vi": "Vì tối hôm trước do căng thẳng mà không ngủ được, nên đến ngày thi thì sức khoẻ trở nên kém.",
+          "vocab": [
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "緊張",
+              "read": "きんちょう",
+              "vi": "căng thẳng, hồi hộp"
+            },
+            {
+              "w": "眠ります",
+              "read": "ねむります",
+              "vi": "ngủ"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, ngày đó"
+            },
+            {
+              "w": "体調",
+              "read": "たいちょう",
+              "vi": "tình trạng sức khoẻ"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のせいで",
+              "vi": "接続: N + の + せいで。 緊張のせいで = \"tại sự căng thẳng mà\". せいで dùng khi kết quả là XẤU (眠れなかった = không ngủ được). Sắc thái: có hàm ý đổ lỗi/quy trách nhiệm cho nguyên nhân. Đối chiếu: ≠ おかげで (kết quả tốt) ≠ ので (trung tính, lý do thuần tuý — Bài 39)."
+            },
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "悪くなってしまった = đã (lỡ) trở nên xấu đi. てしまう = hoàn thành với sắc thái tiếc/đáng tiếc (Bài 29)."
+            },
+            {
+              "point": "〜のだ（Bài 26）",
+              "vi": "なってしまったのだ = (giải thích lý do) thì ra đã trở nên vậy. のだ giải thích tình huống (Bài 26)."
+            }
+          ]
+        },
+        {
+          "jp": "タオさんは「睡眠不足のせいか、試験中ずっと頭が痛かった」と話していた。",
+          "vi": "Thảo kể \"có lẽ tại thiếu ngủ mà trong khi thi đầu đau suốt\".",
+          "vocab": [
+            {
+              "w": "タオ",
+              "read": "タオ",
+              "vi": "tên riêng Thảo"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "suốt, mãi"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "痛い",
+              "read": "いたい",
+              "vi": "đau"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "睡眠不足",
+              "read": "すいみんぶそく",
+              "vi": "thiếu ngủ"
+            },
+            {
+              "w": "試験中",
+              "read": "しけんちゅう",
+              "vi": "trong khi thi, suốt kỳ thi"
+            },
+            {
+              "w": "頭が痛い",
+              "read": "あたまがいたい",
+              "vi": "đau đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のせいか",
+              "vi": "接続: N + の + せいか。 睡眠不足のせいか = \"có lẽ tại thiếu ngủ\". せいか khác せいで ở chỗ người nói KHÔNG CHẮC về nguyên nhân — nói nhẹ, không đổ lỗi thẳng thừng. Kết quả vẫn là điều không tốt (đau đầu) nhưng liên kết nhân quả không xác định 100%. Sắc thái: nhẹ hơn せいで, thường kèm cảm giác \"chắc là do/có lẽ vì\"."
+            },
+            {
+              "point": "〜と話していた（Bài 21）",
+              "vi": "と話していた = đã kể/nói rằng. と + V = trích dẫn nội dung lời nói (Bài 21)."
+            }
+          ]
+        },
+        {
+          "jp": "次の試験では、タオさんにもいい結果が出るといいなと思っている。",
+          "vi": "Tôi mong rằng kỳ thi tới Thảo cũng sẽ có kết quả tốt.",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "タオ",
+              "read": "タオ",
+              "vi": "tên riêng Thảo"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "xuất hiện, có được"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜といいな（Bài 35 応用）",
+              "vi": "出るといいな = mong rằng sẽ có kết quả tốt. と + いい = mong muốn điều gì đó xảy ra."
+            },
+            {
+              "point": "〜と思っている（Bài 21）",
+              "vi": "と思っている = đang nghĩ/mong. Vている của と思う diễn đạt suy nghĩ liên tục."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "田中先生のおかげだと思っている",
+          "label": "〜のおかげだ（nhờ, biết ơn — kết quả tốt）"
+        },
+        {
+          "excerpt": "先生のおかげで、苦手だった文法が少しずつわかるようになった",
+          "label": "Sắc thái: おかげで — nguyên nhân tốt, biết ơn"
+        },
+        {
+          "excerpt": "緊張のせいで眠れなかった",
+          "label": "〜のせいで（tại, đổ lỗi — kết quả xấu）"
+        },
+        {
+          "excerpt": "睡眠不足のせいか、試験中ずっと頭が痛かった",
+          "label": "Sắc thái: せいか — có lẽ tại, không chắc nguyên nhân"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「田中先生のおかげだ」とあるが、なぜ「おかげ」を使っていますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "田中先生が試験の問題を作ったからです",
+            "合格という良い結果があり、先生への感謝の気持ちを表しているからです",
+            "先生のために勉強を頑張ったという目的を表しているからです",
+            "先生が試験を受けてくれたからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng vì văn bản ghi rõ「合格できたのは、田中先生のおかげだと思っている」— người viết đỗ (kết quả TỐT) và bày tỏ lòng biết ơn thầy. おかげで chỉ dùng được khi kết quả là điều tốt và người nói có cảm xúc biết ơn. Đáp án A sai vì thầy không ra đề thi. Đáp án C nhầm おかげで với ために — ために chỉ mục đích/nguyên nhân trung tính (「先生のために勉強した」= học vì/cho thầy), KHÔNG hàm ý biết ơn. Đáp án D sai hoàn toàn về sự kiện.",
+          "tip": "Nhìn KẾT QUẢ phía sau trước — kết quả TỐT + cảm giác biết ơn → おかげで; không thể hoán đổi với ために (trung tính, thiếu sắc thái ơn nghĩa).",
+          "qt": {
+            "q": "「田中先生のおかげだ」(nhờ thầy Tanaka) được dùng ở đây vì sao?",
+            "o": [
+              "Vì thầy Tanaka đã soạn đề thi",
+              "Vì đã có kết quả tốt là đỗ, và câu này thể hiện lòng biết ơn đối với thầy",
+              "Vì câu này thể hiện mục đích là đã cố gắng học tập vì thầy",
+              "Vì thầy đã đi thi giúp"
+            ]
+          }
+        },
+        {
+          "q": "タオさんが試験当日に体調が悪くなった原因は何ですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "田中先生の授業が難しかったからです",
+            "前日の夜、緊張のせいで眠れなかったからです",
+            "睡眠不足のせいで遅刻したからです",
+            "試験の問題が難しすぎたからです"
+          ],
+          "answer": 1,
+          "explainVi": "Văn bản ghi rõ chuỗi nhân quả:「前日の夜、緊張のせいで眠れなかったため、試験当日に体調が悪くなってしまった」— căng thẳng (緊張) → không ngủ được (眠れなかった) → sức khoẻ kém ngày thi. せいで được dùng vì nguyên nhân (căng thẳng) dẫn đến kết quả XẤU (không ngủ được). Đáp án A sai vì bài thầy không đề cập. Đáp án C nhầm: văn bản nói thiếu ngủ khiến đau đầu TRONG KHI thi, không phải đến trễ. Đáp án D không có bằng chứng trong văn bản.",
+          "tip": "Khi bài hỏi \"nguyên nhân là gì\", tìm đúng cụm「〜のせいで」trong đoạn — nguyên nhân liền trước せいで, kết quả xấu liền sau. Đọc cả chuỗi, đừng dừng ở từ khoá đầu tiên.",
+          "qt": {
+            "q": "Nguyên nhân khiến sức khỏe của bạn Thảo không tốt vào ngày thi là gì?",
+            "o": [
+              "Vì giờ học của thầy Tanaka khó",
+              "Vì tối hôm trước, do căng thẳng nên bạn ấy không ngủ được",
+              "Vì do thiếu ngủ nên bạn ấy đến muộn",
+              "Vì đề thi quá khó"
+            ]
+          }
+        },
+        {
+          "q": "タオさんが「睡眠不足のせいか」と言ったのはどういう意味ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "睡眠不足が原因だと確信して、はっきり責任を感じているということです",
+            "睡眠不足が原因かどうか確かではないが、おそらくそのせいだろうと感じているということです",
+            "睡眠不足とは関係なく、別の原因があるということです",
+            "睡眠不足のおかげで頭が痛くならなかったということです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng vì せいか biểu đạt sự KHÔNG CHẮC CHẮN về nguyên nhân — Thảo chỉ suy đoán \"có lẽ tại thiếu ngủ\"「睡眠不足のせいか、試験中ずっと頭が痛かった」, không khẳng định. Đáp án A sai vì nếu chắc chắn và muốn đổ lỗi thẳng, phải dùng せいで chứ không phải せいか. Đáp án C sai vì không có bằng chứng nguyên nhân khác. Đáp án D sai hoàn toàn về sự kiện (đau đầu là kết quả XẤU, không liên quan おかげで).",
+          "tip": "せいか = suy đoán nhẹ, không chắc nguyên nhân (\"có lẽ tại\"); せいで = đổ lỗi chắc chắn (\"tại\"). Thấy せいか → người nói đang phỏng đoán, không kết luận chắc.",
+          "qt": {
+            "q": "Câu 「睡眠不足のせいか」 mà bạn Thảo nói có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là bạn ấy chắc chắn nguyên nhân là do thiếu ngủ và cảm thấy rõ ràng mình phải chịu trách nhiệm",
+              "Có nghĩa là bạn ấy không chắc thiếu ngủ có phải là nguyên nhân hay không, nhưng cảm thấy có lẽ là do việc đó",
+              "Có nghĩa là việc đó không liên quan đến thiếu ngủ, mà có một nguyên nhân khác",
+              "Có nghĩa là nhờ thiếu ngủ nên bạn ấy đã không bị đau đầu"
+            ]
+          }
+        },
+        {
+          "q": "この文章でわかる「おかげで」と「せいで」の違いは何ですか。",
+          "evi": [
+            3,
+            5
+          ],
+          "options": [
+            "「おかげで」は過去のことに使い、「せいで」は現在のことに使います",
+            "「おかげで」は良い結果のとき（感謝）、「せいで」は悪い結果のとき（責任・非難）に使います",
+            "意味はほぼ同じで、どちらを使っても構いません",
+            "「おかげで」は自分のことに使い、「せいで」は他の人のことに使います"
+          ],
+          "answer": 1,
+          "explainVi": "Văn bản cung cấp bằng chứng đối chiếu trực tiếp: (1)「先生のおかげで、苦手だった文法がわかるようになった」— nguyên nhân tốt (thầy dạy) → kết quả tốt (hiểu được) → おかげで + biết ơn; (2)「緊張のせいで眠れなかった」— nguyên nhân xấu (căng thẳng) → kết quả xấu (mất ngủ) → せいで + đổ lỗi. Đáp án A sai: hai mẫu không phân biệt thì quá khứ/hiện tại. Đáp án C sai: nghĩa khác nhau hoàn toàn, không thể hoán đổi. Đáp án D sai: cả hai đều có thể dùng cho bản thân hoặc người khác.",
+          "tip": "Chốt quy tắc — KẾT QUẢ quyết định tất cả: tốt + biết ơn → おかげで; xấu + đổ lỗi → せいで. Thì quá khứ/hiện tại hay chủ thể là ai KHÔNG phân biệt hai mẫu này.",
+          "qt": {
+            "q": "Sự khác nhau giữa 「おかげで」 và 「せいで」 có thể hiểu được qua bài này là gì?",
+            "o": [
+              "「おかげで」 được dùng cho chuyện trong quá khứ, còn 「せいで」 được dùng cho chuyện hiện tại",
+              "「おかげで」 được dùng khi có kết quả tốt (biết ơn), còn 「せいで」 được dùng khi có kết quả xấu (trách nhiệm, khiển trách)",
+              "Ý nghĩa gần như giống nhau, dùng từ nào cũng được",
+              "「おかげで」 được dùng cho chuyện của bản thân, còn 「せいで」 được dùng cho chuyện của người khác"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "朝の散歩と生活習慣",
+      "titleVi": "Đi bộ buổi sáng và thói quen sinh hoạt",
+      "japanese": "最近、朝の散歩を始める人が増えている。私も一か月前から、毎朝三十分間近所の公園を歩いている。\n以前の私は、毎晩遅くまでパソコンを見ていたせいで、朝気持ちよく起きることができなかった。しかし、朝の散歩を始めてから体調が大きく変わった。朝の太陽の光を浴びながら歩くおかげで、夜はすぐに眠れるようになったのだ。そのおかげで、昼間の集中力も高まり、仕事での失敗も少なくなった。\n一方、私の同僚は「朝起きたときに頭が痛いのは、最近の暑さのせいか」と悩んでいた。しかし、彼女に理由を聞いたとき、毎夜遅くまでスマートフォンを使い続けていることがわかった。夜遅くの強い光のせいで、深い睡眠が取れなくなっていたのだ。\n健康な体を作るには、特別な運動をする必要はない。毎日の生活習慣を少し変えるだけで、体と心の調子は大きく良くなる。朝の散歩という小さな習慣が、私たちの生活を気持ちよいものに変えてくれるのだ。",
+      "vietnamese": "Gần đây, số người bắt đầu đi bộ vào buổi sáng đang tăng lên. Tôi cũng từ một tháng trước, mỗi sáng đều đi bộ 30 phút ở công viên gần nhà.\nTrước đây, tại vì mỗi tối tôi đều nhìn máy tính đến khuya nên buổi sáng không thể thức dậy một cách sảng khoái được. Tuy nhiên, từ sau khi bắt đầu đi bộ buổi sáng, thể trạng của tôi đã thay đổi lớn. Nhờ vừa đi bộ vừa tắm ánh nắng mặt trời buổi sáng, buổi tối tôi đã có thể ngủ ngay lập tức. Nhờ đó, sự tập trung ban ngày cũng tăng lên, và những thất bại trong công việc cũng ít đi.\nMặt khác, đồng nghiệp của tôi thì trăn trở: \"Việc bị đau đầu khi thức dậy vào buổi sáng có lẽ là tại cái nóng gần đây sao?\". Tuy nhiên, khi tôi hỏi cô ấy lý do, tôi mới biết cô ấy đêm nào cũng tiếp tục sử dụng điện thoại thông minh đến khuya. Tại ánh sáng mạnh lúc đêm muộn mà cô ấy đã không thể có được giấc ngủ sâu.\nĐể tạo nên một cơ thể khỏe mạnh, không cần thiết phải tập luyện thể thao đặc biệt. Chỉ cần thay đổi một chút thói quen sinh hoạt hàng ngày, tình trạng thể chất và tinh thần sẽ tốt lên rất nhiều. Thói quen nhỏ bé là đi bộ buổi sáng sẽ thay đổi cuộc sống của chúng ta trở nên dễ chịu hơn.",
+      "sentences": [
+        {
+          "jp": "最近、朝の散歩を始める人が増えている。",
+          "vi": "Gần đây, số người bắt đầu đi bộ vào buổi sáng đang tăng lên.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "tản bộ, đi dạo"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる + 人（Bài 22）",
+              "vi": "朝の散歩を始める人 = người bắt đầu đi bộ buổi sáng. Mệnh đề bổ nghĩa danh từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "朝の散歩",
+              "why": "Từ khóa chủ đề chính của bài viết xuất hiện ngay từ câu mở đầu."
+            }
+          ]
+        },
+        {
+          "jp": "私も一か月前から、毎朝三十分間近所の公園を歩いている。",
+          "vi": "Tôi cũng từ một tháng trước, mỗi sáng đều đi bộ 30 phút ở công viên gần nhà.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "一か月前",
+              "read": "いっかげつまえ",
+              "vi": "một tháng trước"
+            },
+            {
+              "w": "一か月",
+              "read": "いっかげつ",
+              "vi": "một tháng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "三十分間",
+              "read": "さんじゅっぷんかん",
+              "vi": "trong 30 phút"
+            },
+            {
+              "w": "近所",
+              "read": "きんじょ",
+              "vi": "khu lân cận"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "歩いている",
+              "read": "あるいている",
+              "vi": "đang đi bộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N（địa điểm）を歩く（Bài 13/23）",
+              "vi": "公園を歩いている = đi bộ trong/qua công viên. Trợ từ を chỉ phạm vi không gian di chuyển."
+            }
+          ]
+        },
+        {
+          "jp": "以前の私は、毎晩遅くまでパソコンを見ていたせいで、朝気持ちよく起きることができなかった。",
+          "vi": "Trước đây, tại vì mỗi tối tôi đều nhìn máy tính đến khuya nên buổi sáng không thể thức dậy một cách sảng khoái được.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "気持ちよく",
+              "read": "きもちよく",
+              "vi": "sảng khoái, dễ chịu"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "thức dậy"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで（Bài 59）",
+              "vi": "接続: V普通形 + せいで。見ていたせいで = \"tại vì nhìn (máy tính đến khuya)\". せいで dùng khi nguyên nhân dẫn đến KẾT QUẢ XẤU (không thể dậy sảng khoái), thể hiện sự than phiền/đổ lỗi."
+            },
+            {
+              "point": "Vることができる（Bài 18）",
+              "vi": "起きることができなかった = đã không thể thức dậy. Dạng khả năng của động từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "パソコンを見ていたせいで",
+              "why": "Cụm chỉ nguyên nhân trong quá khứ dẫn đến tình trạng mệt mỏi vào buổi sáng."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、朝の散歩を始めてから体調が大きく変わった。",
+          "vi": "Tuy nhiên, từ sau khi bắt đầu đi bộ buổi sáng, thể trạng của tôi đã thay đổi lớn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên (từ nối)"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "体調",
+              "read": "たいちょう",
+              "vi": "thể trạng, sức khỏe"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "散歩を始めてから = từ sau khi bắt đầu đi bộ. 指 chỉ mốc thời gian diễn ra sau một hành động."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý quan trọng, đánh dấu bước ngoặt sức khỏe thay đổi tốt hơn."
+            }
+          ]
+        },
+        {
+          "jp": "朝の太陽の光を浴びながら歩くおかげで、夜はすぐに眠れるようになったのだ。",
+          "vi": "Nhờ vừa đi bộ vừa tắm ánh nắng mặt trời buổi sáng, buổi tối tôi đã có thể ngủ ngay lập tức.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "太陽",
+              "read": "たいよう",
+              "vi": "mặt trời"
+            },
+            {
+              "w": "光",
+              "read": "ひかり",
+              "vi": "ánh sáng"
+            },
+            {
+              "w": "浴びます",
+              "read": "あびます",
+              "vi": "tắm (nắng), hứng"
+            },
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "眠れます",
+              "read": "ねむれます",
+              "vi": "ngủ được (thể khả năng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで（Bài 59）",
+              "vi": "接続: V普通形 + おかげで。歩くおかげで = \"nhờ đi bộ (tắm ánh nắng)\". おかげで chỉ NGUYÊN NHÂN dẫn đến KẾT QUẢ TỐT (ngủ ngon hơn), thể hiện cảm xúc biết ơn."
+            },
+            {
+              "point": "V1ながらV2（Bài 28）",
+              "vi": "光を浴びながら歩く = vừa tắm ánh sáng vừa đi bộ. Hai hành động diễn ra đồng thời."
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜はすぐに眠れるようになったのだ",
+              "why": "Căn cứ trực tiếp giải thích nội dung cho chỉ thị từ ở câu 5 để trả lời câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "そのおかげで、昼間の集中力も高まり、仕事での失敗も少なくなった。",
+          "vi": "Nhờ đó, sự tập trung ban ngày cũng tăng lên, và những thất bại trong công việc cũng ít đi.",
+          "vocab": [
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "高まる",
+              "read": "たかまる",
+              "vi": "tăng cao, dâng cao"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "集中力",
+              "read": "しゅうちゅうりょく",
+              "vi": "sức tập trung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そのおかげで（Bài 59）",
+              "vi": "接続: 指示詞＋おかげで。そのおかげで = \"nhờ điều đó (nhờ ngủ ngon)\". Nối tiếp kết quả tốt cho công việc phía sau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのおかげで",
+              "why": "Chỉ thị từ liên kết nguyên nhân - kết quả cần tra ngược về câu trước để trả lời câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "一方、私の同僚は「朝起きたときに頭が痛いのは、最近の暑さのせいか」と悩んでいた。",
+          "vi": "Mặt khác, đồng nghiệp của tôi thì trăn trở: \"Việc bị đau đầu khi thức dậy vào buổi sáng có lẽ là tại cái nóng gần đây sao?\".",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, ngược lại (từ nối)"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "起きる",
+              "read": "おきる",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "痛い",
+              "read": "いたい",
+              "vi": "đau"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "暑さ",
+              "read": "あつさ",
+              "vi": "cái nóng"
+            },
+            {
+              "w": "悩みにます",
+              "read": "なやみます",
+              "vi": "trăn trở, lo lắng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいか（Bài 59）",
+              "vi": "接続: N + の + せいか。暑さのせいか = \"có lẽ tại cái nóng sao\". せいか dùng khi phỏng đoán nguyên nhân gây ra kết quả xấu nhưng KHÔNG CHẮC CHẮN."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ chuyển sang đối tượng tương phản là người đồng nghiệp để so sánh thói quen."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、彼女に理由を聞いたとき、毎夜遅くまでスマートフォンを使い続けていることがわかった。",
+          "vi": "Tuy nhiên, khi tôi hỏi cô ấy lý do, tôi mới biết cô ấy đêm nào cũng tiếp tục sử dụng điện thoại thông minh đến khuya.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "彼女",
+              "read": "かのじょ",
+              "vi": "cô ấy"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "聞いた",
+              "read": "きいた",
+              "vi": "đã hỏi"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "毎夜",
+              "read": "まいよ",
+              "vi": "mỗi đêm"
+            },
+            {
+              "w": "遅く",
+              "read": "おそく",
+              "vi": "muộn"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, gọn"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "使い続けている",
+              "read": "つかいつづけている",
+              "vi": "đang tiếp tục sử dụng"
+            },
+            {
+              "w": "わかった",
+              "read": "わかった",
+              "vi": "đã nhận ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vます-stem + 続けます（Bài 28/44）",
+              "vi": "使い続けている = tiếp tục dùng không ngừng. Phức hợp động từ chỉ sự tiếp diễn hành động."
+            }
+          ],
+          "keys": [
+            {
+              "w": "スマートフォンを使い続けている",
+              "why": "Căn cứ chỉ ra thói quen xấu gây đau đầu của đồng nghiệp để trả lời câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "夜遅くの強い光のせいで、深い睡眠が取れなくなっていたのだ。",
+          "vi": "Tại ánh sáng mạnh lúc đêm muộn mà cô ấy đã không thể có được giấc ngủ sâu.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh, gắt"
+            },
+            {
+              "w": "光",
+              "read": "ひかり",
+              "vi": "ánh sáng"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "取れます",
+              "read": "とれます",
+              "vi": "lấy được, có được (thể khả năng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで（Bài 59）",
+              "vi": "接続: N + の + せいで。強い光のせいで = \"tại vì ánh sáng mạnh\". Dẫn đến kết quả xấu: không ngủ sâu được."
+            }
+          ],
+          "keys": [
+            {
+              "w": "強い光のせいで",
+              "why": "Cụm chỉ nguyên nhân cản trở giấc ngủ sâu của đồng nghiệp để làm rõ câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "健康な体を作るには、特別な運動をする必要はない。",
+          "vi": "Để tạo nên một cơ thể khỏe mạnh, không cần thiết phải tập luyện thể thao đặc biệt.",
+          "vocab": [
+            {
+              "w": "健康な",
+              "read": "けんこうな",
+              "vi": "khỏe mạnh"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động, thể thao"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる必要はない（Bài 42）",
+              "vi": "運動をする必要はない = không cần thiết phải vận động. Cấu trúc phủ định sự cần thiết."
+            }
+          ],
+          "keys": [
+            {
+              "w": "特別な運動をする必要はない",
+              "why": "Quan điểm phủ định của tác giả để dẫn dắt đến giải pháp thay đổi đơn giản hơn."
+            }
+          ]
+        },
+        {
+          "jp": "毎日の生活習慣を少し変えるだけで、体と心の調子は大きく良くなる。",
+          "vi": "Chỉ cần thay đổi một chút thói quen sinh hoạt hàng ngày, tình trạng thể chất và tinh thần sẽ tốt lên rất nhiều.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "調子",
+              "read": "ちょうし",
+              "vi": "tình trạng, thể trạng"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "良くなります",
+              "read": "よくなります",
+              "vi": "trở nên tốt hơn"
+            },
+            {
+              "w": "生活習慣",
+              "read": "せいかつしゅうかん",
+              "vi": "thói quen sinh hoạt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋だけで（Bài 48/54）",
+              "vi": "変えるだけで = chỉ cần thay đổi. だけで chỉ điều kiện tối thiểu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "毎日の生活習慣を少し変えるだけで",
+              "why": "Căn cứ trọng tâm thể hiện chủ trương của tác giả về sức khỏe để trả lời câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "朝の散歩という小さな習慣が、私たちの生活を気持ちよいものに変えてくれるのだ。",
+          "vi": "Thói quen nhỏ bé là đi bộ buổi sáng sẽ thay đổi cuộc sống của chúng ta trở nên dễ chịu hơn.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "気持ちよい",
+              "read": "きもちよい",
+              "vi": "dễ chịu, thoải mái"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "私達",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N1というN2（Bài 33）",
+              "vi": "朝の散歩という小さな習慣 = thói quen nhỏ tên/là đi bộ buổi sáng."
+            },
+            {
+              "point": "Vてくれる（Bài 24）",
+              "vi": "変えてくれるのだ = thay đổi (mang lại lợi ích tốt đẹp cho người nói/chúng ta)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "変えてくれるのだ",
+              "why": "Cấu trúc khẳng định mạnh mẽ nhấn mạnh thông điệp kết luận của tác giả."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "毎晩遅くまでパソコンを見ていたせいで",
+          "label": "〜のせいで（tại, đổ lỗi — nguyên nhân dẫn đến kết quả xấu）"
+        },
+        {
+          "excerpt": "朝の太陽の光を浴びながら歩くおかげで",
+          "label": "〜のおかげで（nhờ — nguyên nhân dẫn đến kết quả tốt, cảm ơn）"
+        },
+        {
+          "excerpt": "最近の暑さのせいか",
+          "label": "〜のせいか（có lẽ tại — nguyên nhân không chắc chắn）"
+        },
+        {
+          "excerpt": "夜遅くの強い光のせいで",
+          "label": "〜のせいで（tại — ảnh hưởng tiêu cực từ ánh sáng mạnh）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「そのおかげで」とあるが、何のおかげで筆者の仕事での失敗が少なくなったのか。",
+          "options": [
+            "毎晩遅くまでパソコンを見ていたこと",
+            "朝の太陽の光を浴びながら散歩して、夜すぐに眠れるようになったこと",
+            "同僚と一緒に毎朝三十分間公園を歩くようになったこと",
+            "体調を良くするために特別な運動を始めたこと"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「朝の太陽の光を浴びながら」 — trong đoạn 2 ghi rõ「朝の太陽の光を浴びながら歩くおかげで、夜はすぐに眠れるようになったのだ。そのおかげで、昼間の集中力も高まり、仕事での失敗も少なくなった。」. Từ chỉ thị 「そのおかげで」 ở câu 5 thay thế cho toàn bộ sự việc ở câu 4 (nhờ đi bộ tắm nắng sáng nên đêm ngủ ngay được). Phương án 「毎晩遅くまでパソコンを」 sai vì xem máy tính đến khuya là nguyên nhân khiến không dậy nổi (kết quả xấu, dùng せいで). Phương án 「同僚と一緒に毎朝」 sai vì tác giả đi bộ một mình chứ không đi cùng đồng nghiệp. Phương án 「体調を良くするために」 sai vì ở đoạn 4 tác giả khẳng định không cần vận động đặc biệt.",
+          "tip": "Từ chỉ thị 「その〜」 thường thay thế cho hành động/sự việc ở câu ngay trước đó. Xác định đúng câu trước chứa nguyên nhân tốt (おかげで) để chọn phương án chính xác.",
+          "evi": [
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Câu hỏi có câu 「そのおかげで」(nhờ điều đó); điều gì đã giúp tác giả giảm số lần mắc lỗi trong công việc?",
+            "o": [
+              "Việc thức khuya mỗi tối để nhìn máy tính",
+              "Việc đi dạo dưới ánh nắng buổi sáng và nhờ đó có thể ngủ ngay vào buổi tối",
+              "Việc bắt đầu đi bộ 30 phút mỗi sáng trong công viên cùng đồng nghiệp",
+              "Việc bắt đầu tập thể dục đặc biệt để cải thiện tình trạng sức khỏe"
+            ]
+          }
+        },
+        {
+          "q": "同僚はなぜ朝起きたときに頭が痛かったのか。",
+          "options": [
+            "最近の暑さのせいで熱中症になっていたから",
+            "毎朝三十分間の散歩をして疲れてしまったから",
+            "夜遅くまでスマートフォンを使い、深い睡眠が取れなかったから",
+            "仕事での失敗が多く、ストレスを感じていたから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「夜遅くまでスマートフォン」 — đoạn 3 làm rõ: ban đầu đồng nghiệp tưởng do cái nóng (暑さのせいか), nhưng khi tác giả hỏi lý do thì phát hiện ra cô ấy dùng điện thoại đến khuya, và「夜遅くの強い光のせいで、深い睡眠が取れなくなっていたのだ」(tại ánh sáng mạnh ban đêm mà không ngủ sâu được dẫn đến đau đầu). Phương án 「最近の暑さのせいで」 sai vì cái nóng chỉ là suy đoán ban đầu của đồng nghiệp chứ không phải nguyên nhân thật. Phương án 「毎朝三十分間の散歩を」 sai vì đồng nghiệp không đi bộ buổi sáng. Phương án 「仕事での失敗が多く」 sai vì việc thất bại trong công việc là của tác giả trước đây, không phải của đồng nghiệp.",
+          "tip": "Chú ý phân biệt giữa \"nguyên nhân nghi ngờ/đoán thử\" (〜せいか) và \"nguyên nhân thực sự được tác giả làm rõ\" ở các câu tiếp theo.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Tại sao đồng nghiệp bị đau đầu khi thức dậy vào buổi sáng?",
+            "o": [
+              "Vì bị sốc nhiệt do thời tiết gần đây nóng bức",
+              "Vì mệt do đi dạo 30 phút mỗi sáng",
+              "Vì sử dụng điện thoại thông minh đến khuya và không thể ngủ sâu",
+              "Vì mắc nhiều lỗi trong công việc và cảm thấy căng thẳng"
+            ]
+          }
+        },
+        {
+          "q": "健康な生活について、筆者はどのように考えているか。",
+          "options": [
+            "毎日特別な運動をしなければ、健康な体を作ることができない。",
+            "体調が悪くなったときは、薬を飲んですぐに休むことが一番大切だ。",
+            "朝の散歩のように、毎日の生活習慣を少し変えることが健康に役立つ。",
+            "夜にスマートフォンを見る時間を増やすと、仕事の効率が上がる。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「朝の散歩のように」 — ở đoạn cuối tác giả tổng kết luận điểm: 「健康な体を作るには、特別な運動をする必要はない。毎日の生活習慣を少し変えるだけで、体と心の調子は大きく良くなる。」 (không cần vận động đặc biệt, chỉ cần thay đổi một chút thói quen sinh hoạt như đi bộ buổi sáng là thể chất và tinh thần sẽ tốt lên). Phương án 「毎日特別な運動を」 sai vì trái ngược hoàn toàn với 「特別な運動をする必要はない」. Phương án 「体調が悪くなったときは」 sai vì bài đọc không đề cập đến việc uống thuốc. Phương án 「夜にスマートフォンを」 sai vì dùng điện thoại ban đêm gây mất ngủ và kết quả xấu (せいで).",
+          "tip": "Câu hỏi ý kiến tác giả (筆者はどう考えているか) thường nằm ở đoạn kết bài. Tìm câu chứa luận điểm tổng kết (như「〜だけで〜良くなる」) và chọn phương án diễn đạt lại ý đó.",
+          "evi": [
+            9,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ như thế nào về cuộc sống lành mạnh?",
+            "o": [
+              "Nếu không tập thể dục đặc biệt mỗi ngày thì không thể có được một cơ thể khỏe mạnh.",
+              "Khi sức khỏe trở nên không tốt, điều quan trọng nhất là uống thuốc và nghỉ ngơi ngay.",
+              "Thay đổi một chút thói quen sinh hoạt hằng ngày, như đi dạo buổi sáng, có ích cho sức khỏe.",
+              "Tăng thời gian xem điện thoại thông minh vào buổi tối sẽ nâng cao hiệu quả công việc."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Thói quen cũ",
+          "topic": 0,
+          "note": "Giới thiệu hiện tượng đi dạo buổi sáng và trạng thái uể oải trước đây của tác giả do thức khuya.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "body",
+          "label": "Thay đổi của tác giả",
+          "topic": 3,
+          "note": "Trình bày sự cải thiện sức khỏe và hiệu quả công việc nhờ đi dạo; chứa căn cứ trả lời câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "turn",
+          "label": "Ví dụ tương phản・Đồng nghiệp",
+          "topic": 7,
+          "note": "Chuyển sang trường hợp đồng nghiệp bị đau đầu do dùng điện thoại đêm; bẫy suy đoán nhầm do thời tiết.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "point",
+          "label": "Kết luận của tác giả",
+          "topic": 10,
+          "note": "Đưa ra thông điệp cốt lõi: chỉ cần thay đổi nhỏ trong sinh hoạt hằng ngày sẽ cải thiện toàn diện sức khỏe.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "旅行の失敗と先輩のアドバイス",
+      "titleVi": "Chuyến đi thất bại và lời khuyên của đàn anh",
+      "japanese": "去年の夏、私は初めて一人で海外旅行に行った。\n友人のソンさんのおかげで、旅行の計画を立てるのがとても楽になった。\nソンさんは旅行が好きで、行き先やホテルの選び方まで丁寧に教えてくれたのだ。\nソンさんのおかげで、初めての一人旅でも安心して出発することができた。\nしかし、旅行中にいくつかの失敗をしてしまった。\nまず、うっかり財布を部屋に忘れたせいで、朝ごはんを食べられない日があった。\n次に、地図の見方がわからなかったせいで、目的地とは違う駅に着いてしまった。\nそのとき、「もっとよく調べておけばよかった」と後悔した。\nさらに、初日は張り切りすぎたせいか、二日目の朝から足が痛くて、ゆっくりしか歩けなかった。\nしかし、旅の後半では地元の人が道を教えてくれたおかげで、予定より多くの観光地を回ることができた。\nその人は英語も日本語も話せたので、私はとても助かった。\n帰国後、ソンさんにすべての話をした。\nソンさんは「財布を忘れたのは自分の不注意のせいだから、次は気をつけてね」と言った。\nまた、「地元の人のおかげで観光できたのは、あなたが笑顔で話しかけたからだと思うよ」とも教えてくれた。\n旅をするたびに、いろいろな失敗があるが、それも経験になると言っていた。\n失敗のせいで落ち込むより、失敗のおかげで学べることに目を向けるほうがいいかもしれない。\nそう考えると、今回の旅行での失敗も、すべて次への準備になるのだと思う。\n来年もまた旅行に行くつもりだ。\n次は準備をもっとしっかりすれば、もっと楽しい旅になるといいと思っている。",
+      "vietnamese": "Mùa hè năm ngoái, lần đầu tiên tôi đi du lịch nước ngoài một mình.\nNhờ bạn Sơn mà việc lập kế hoạch du lịch trở nên rất dễ dàng.\nSơn thích du lịch, đã chỉ bảo tỉ mỉ cho tôi cả việc chọn điểm đến lẫn cách chọn khách sạn.\nNhờ Sơn, dù là chuyến đi một mình đầu tiên, tôi cũng có thể khởi hành an tâm.\nNhưng trong chuyến đi tôi đã phạm một số lỗi.\nĐầu tiên, có một ngày vì lỡ quên ví ở phòng mà không ăn được bữa sáng.\nTiếp đó, tại không biết cách xem bản đồ mà tôi đã đến ga khác chứ không phải ga cần đến.\nLúc đó tôi hối hận \"đáng lẽ phải tìm hiểu kỹ hơn mới phải\".\nHơn nữa, có lẽ tại ngày đầu đi nhiều quá mà từ sáng ngày thứ hai chân đau, chỉ đi được chậm thôi.\nNhưng ở nửa sau chuyến đi, nhờ người dân địa phương chỉ đường mà tôi đi được nhiều điểm tham quan hơn dự định.\nNgười đó nói được cả tiếng Anh lẫn tiếng Nhật nên tôi rất biết ơn.\nSau khi về nước, tôi kể hết mọi chuyện cho Sơn nghe.\nSơn nói \"việc quên ví là tại sự bất cẩn của bản thân, lần sau cẩn thận nhé\".\nSơn cũng nói \"tôi nghĩ việc được người dân địa phương giúp đi tham quan được là vì bạn chủ động tiếp chuyện với nụ cười\".\nSơn còn nói mỗi lần đi du lịch đều có những thất bại, nhưng đó cũng trở thành kinh nghiệm.\nCó lẽ thay vì buồn vì thất bại, tốt hơn là chú ý đến những điều học được nhờ thất bại.\nNghĩ như vậy, tôi nghĩ những thất bại trong chuyến đi lần này cũng đều trở thành sự chuẩn bị cho lần sau.\nNăm tới tôi cũng định đi du lịch nữa.\nTôi mong rằng lần sau nhờ chuẩn bị kỹ hơn, chuyến đi sẽ vui hơn.",
+      "sentences": [
+        {
+          "jp": "去年の夏、私は初めて一人で海外旅行に行った。",
+          "vi": "Mùa hè năm ngoái, lần đầu tiên tôi đi du lịch nước ngoài một mình.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "海外",
+              "read": "かいがい",
+              "vi": "nước ngoài, hải ngoại"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "一人で",
+              "read": "ひとりで",
+              "vi": "một mình"
+            },
+            {
+              "w": "海外旅行",
+              "read": "かいがいりょこう",
+              "vi": "du lịch nước ngoài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（cách thức Bài 7）",
+              "vi": "一人で = bằng mình, một mình. で chỉ cách thức tiến hành hành động."
+            }
+          ]
+        },
+        {
+          "jp": "友人のソンさんのおかげで、旅行の計画を立てるのがとても楽になった。",
+          "vi": "Nhờ bạn Sơn mà việc lập kế hoạch du lịch trở nên rất dễ dàng.",
+          "vocab": [
+            {
+              "w": "友人",
+              "read": "ゆうじん",
+              "vi": "bạn bè, người bạn"
+            },
+            {
+              "w": "ソン",
+              "read": "ソン",
+              "vi": "tên riêng Son"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "立てる",
+              "read": "たてる",
+              "vi": "dựng lên, lập nên"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "楽",
+              "read": "らく",
+              "vi": "dễ dàng, thoải mái"
+            },
+            {
+              "w": "計画を立てます",
+              "read": "けいかくをたてます",
+              "vi": "lập kế hoạch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のおかげで",
+              "vi": "接続: N + の + おかげで。 友人のソンさんのおかげで = \"nhờ bạn Sơn\". Kết quả: 楽になった (trở nên dễ) — kết quả TỐT → dùng おかげで đúng sắc thái. Nếu thay bằng せいで: nghĩa đảo ngược hoàn toàn (hàm ý kết quả xấu)."
+            },
+            {
+              "point": "Vるのが〜（Bài 38）",
+              "vi": "計画を立てるのが楽 = việc lập kế hoạch thì dễ. Vるのが = danh từ hoá động từ (Bài 38)."
+            },
+            {
+              "point": "〜くなった（Bài 19）",
+              "vi": "楽になった = đã trở nên dễ dàng. 〜くなる = trở nên (biến đổi trạng thái)."
+            }
+          ]
+        },
+        {
+          "jp": "ソンさんは旅行が好きで、行き先やホテルの選び方まで丁寧に教えてくれたのだ。",
+          "vi": "Sơn thích du lịch, đã chỉ bảo tỉ mỉ cho tôi cả việc chọn điểm đến lẫn cách chọn khách sạn.",
+          "vocab": [
+            {
+              "w": "ソン",
+              "read": "ソン",
+              "vi": "tên riêng Son"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "行き先",
+              "read": "いきさき",
+              "vi": "điểm đến"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "選び方",
+              "read": "えらびかた",
+              "vi": "cách chọn"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "tỉ mỉ, chu đáo"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（Bài 44）",
+              "vi": "選び方 = cách chọn. Vます（bỏ ます）+ 方 = cách làm gì (Bài 44)."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "教えてくれた = đã dạy/chỉ bảo cho (tôi). てくれる = người khác làm vì lợi ích người nói."
+            },
+            {
+              "point": "〜のだ（Bài 26）",
+              "vi": "くれたのだ = (giải thích thêm) đó là vì đã chỉ bảo vậy. のだ bổ sung giải thích ngữ cảnh."
+            }
+          ]
+        },
+        {
+          "jp": "ソンさんのおかげで、初めての一人旅でも安心して出発することができた。",
+          "vi": "Nhờ Sơn, dù là chuyến đi một mình đầu tiên, tôi cũng có thể khởi hành an tâm.",
+          "vocab": [
+            {
+              "w": "ソン",
+              "read": "ソン",
+              "vi": "tên riêng Son"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên, mới (chỉ khi đó)"
+            },
+            {
+              "w": "旅",
+              "read": "たび",
+              "vi": "chuyến đi, du lịch"
+            },
+            {
+              "w": "安心して",
+              "read": "あんしんして",
+              "vi": "một cách an tâm"
+            },
+            {
+              "w": "出発します",
+              "read": "しゅっぱつします",
+              "vi": "khởi hành, xuất phát"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "一人旅",
+              "read": "ひとりたび",
+              "vi": "chuyến đi một mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のおかげで（再出）",
+              "vi": "ソンさんのおかげで = \"nhờ Sơn\". Lần thứ hai mẫu おかげで xuất hiện — nhấn mạnh sự biết ơn. Kết quả: 出発することができた = có thể khởi hành an tâm → kết quả TỐT xác nhận おかげで là đúng."
+            },
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "初めての一人旅でも = dù là chuyến đi một mình đầu tiên đi nữa. でも = ても dạng danh từ."
+            },
+            {
+              "point": "Vることができた（Bài 18）",
+              "vi": "出発することができた = đã có thể khởi hành. ことができる = có khả năng làm (Bài 18)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、旅行中にいくつかの失敗をしてしまった。",
+          "vi": "Nhưng trong chuyến đi tôi đã phạm một số lỗi.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, lỗi lầm"
+            },
+            {
+              "w": "旅行中",
+              "read": "りょこうちゅう",
+              "vi": "trong chuyến đi, suốt chuyến đi"
+            },
+            {
+              "w": "いくつか",
+              "read": "いくつか",
+              "vi": "một số, vài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "失敗をしてしまった = đã (lỡ) phạm sai lầm. てしまう = hoàn thành với sắc thái đáng tiếc (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "まず、うっかり財布を部屋に忘れたせいで、朝ごはんを食べられない日があった。",
+          "vi": "Đầu tiên, có một ngày vì lỡ quên ví ở phòng mà không ăn được bữa sáng.",
+          "vocab": [
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết"
+            },
+            {
+              "w": "うっかり",
+              "read": "うっかり",
+              "vi": "vô ý, lỡ"
+            },
+            {
+              "w": "財布",
+              "read": "さいふ",
+              "vi": "ví tiền"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "忘れた",
+              "read": "わすれた",
+              "vi": "đã quên"
+            },
+            {
+              "w": "せいで",
+              "read": "せいで",
+              "vi": "vì, do"
+            },
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べられない",
+              "read": "たべられない",
+              "vi": "không thể ăn"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "あった",
+              "read": "あった",
+              "vi": "đã có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たせいで",
+              "vi": "接続: Vた + せいで。 財布を忘れたせいで = \"tại (đã) quên ví mà\". Vた + せいで: nguyên nhân là hành động đã xảy ra (quá khứ). Kết quả: 食べられない = không ăn được → kết quả XẤU → せいで đúng sắc thái."
+            },
+            {
+              "point": "V可能形の否定（Bài 27）",
+              "vi": "食べられない = không ăn được. 食べる → 食べられる (可能形) → 否定 食べられない."
+            }
+          ]
+        },
+        {
+          "jp": "次に、地図の見方がわからなかったせいで、目的地とは違う駅に着いてしまった。",
+          "vi": "Tiếp đó, tại không biết cách xem bản đồ mà tôi đã đến ga khác chứ không phải ga cần đến.",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo, kế đó"
+            },
+            {
+              "w": "地図",
+              "read": "ちず",
+              "vi": "bản đồ"
+            },
+            {
+              "w": "見方",
+              "read": "みかた",
+              "vi": "cách xem, cách nhìn"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga (tàu/metro)"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi, tới nơi"
+            },
+            {
+              "w": "目的地",
+              "read": "もくてきち",
+              "vi": "điểm đến, mục tiêu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なかったせいで",
+              "vi": "接続: Vなかった + せいで。 わからなかったせいで = \"tại không biết (cách xem)\". Vなかった + せいで: nguyên nhân là việc đã KHÔNG làm được. Kết quả: 違う駅に着いてしまった = đến ga sai → xấu → せいで."
+            },
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "着いてしまった = đã (lỡ) đến (ga sai). てしまう = kết quả ngoài ý muốn, đáng tiếc."
+            }
+          ]
+        },
+        {
+          "jp": "そのとき、「もっとよく調べておけばよかった」と後悔した。",
+          "vi": "Lúc đó tôi hối hận \"đáng lẽ phải tìm hiểu kỹ hơn mới phải\".",
+          "vocab": [
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa, nhiều hơn"
+            },
+            {
+              "w": "調べます",
+              "read": "しらべます",
+              "vi": "tìm hiểu, tra cứu"
+            },
+            {
+              "w": "後悔します",
+              "read": "こうかいします",
+              "vi": "hối hận, ân hận"
+            },
+            {
+              "w": "そのとき",
+              "read": "そのとき",
+              "vi": "lúc đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ておけば〜よかった（Bài 35 ば + よかった）",
+              "vi": "調べておけばよかった = \"đáng lẽ phải tìm hiểu kỹ trước mới phải\". 〜ばよかった = hối tiếc về việc đã không làm (Bài 35). Ôn: せいで (câu trước) nêu nguyên nhân xấu → dẫn đến hối hận ばよかった ở câu sau — hai mẫu thường đi cùng nhau trong văn kể chuyện."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、初日は張り切りすぎたせいか、二日目の朝から足が痛くて、ゆっくりしか歩けなかった。",
+          "vi": "Hơn nữa, có lẽ tại ngày đầu đi nhiều quá mà từ sáng ngày thứ hai chân đau, chỉ đi được chậm thôi.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "初日",
+              "read": "しょにち",
+              "vi": "ngày đầu tiên"
+            },
+            {
+              "w": "張り切りすぎた",
+              "read": "はりきりすぎた",
+              "vi": "quá hăng hái"
+            },
+            {
+              "w": "せいか",
+              "read": "せいか",
+              "vi": "có lẽ vì"
+            },
+            {
+              "w": "二日目",
+              "read": "ふつかめ",
+              "vi": "ngày thứ hai"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "足",
+              "read": "あし",
+              "vi": "chân"
+            },
+            {
+              "w": "痛くて",
+              "read": "いたくて",
+              "vi": "bị đau"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "chậm rãi"
+            },
+            {
+              "w": "歩けなかった",
+              "read": "あるけなかった",
+              "vi": "không thể đi bộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜すぎたせいか",
+              "vi": "接続: Vすぎた + せいか。 張り切りすぎたせいか = \"có lẽ tại đã hăng hái quá\". せいか: người nói KHÔNG CHẮC chắn đây là nguyên nhân duy nhất (chỉ suy đoán). Khác với せいで (chắc chắn đổ lỗi). Kết quả vẫn xấu (chân đau) nhưng liên kết nhân quả chỉ là suy đoán."
+            },
+            {
+              "point": "Vすぎます（Bài 44）",
+              "vi": "張り切りすぎた = đã hăng hái quá mức. Vます + すぎる = làm quá (Bài 44)."
+            },
+            {
+              "point": "〜しか〜ない（Bài 27）",
+              "vi": "ゆっくりしか歩けなかった = chỉ đi được chậm thôi. しか + 否定 = chỉ…mà thôi (Bài 27)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、旅の後半では地元の人が道を教えてくれたおかげで、予定より多くの観光地を回ることができた。",
+          "vi": "Nhưng ở nửa sau chuyến đi, nhờ người dân địa phương chỉ đường mà tôi đi được nhiều điểm tham quan hơn dự định.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "旅",
+              "read": "たび",
+              "vi": "chuyến đi, du lịch"
+            },
+            {
+              "w": "地元",
+              "read": "じもと",
+              "vi": "địa phương, nơi đó"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "đường, lối đi"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "予定より",
+              "read": "よていより",
+              "vi": "hơn dự định"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "回ります",
+              "read": "まわります",
+              "vi": "đi vòng quanh, ghé thăm"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "後半",
+              "read": "こうはん",
+              "vi": "nửa sau"
+            },
+            {
+              "w": "観光地",
+              "read": "かんこうち",
+              "vi": "điểm tham quan"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくれたおかげで",
+              "vi": "接続: Vてくれた（普通形）+ おかげで。 道を教えてくれたおかげで = \"nhờ đã chỉ đường cho\". Khi nguyên nhân là HÀNH ĐỘNG của người khác, dùng Vてくれた + おかげで để vừa biết ơn người đó (てくれた) vừa nêu nguyên nhân tốt (おかげで). Kết quả: 多くの観光地を回ることができた = đi được nhiều nơi hơn → tốt → おかげで."
+            },
+            {
+              "point": "NよりN（Bài 12）",
+              "vi": "予定より多く = nhiều hơn dự định. より = hơn (so sánh, Bài 12)."
+            }
+          ]
+        },
+        {
+          "jp": "その人は英語も日本語も話せたので、私はとても助かった。",
+          "vi": "Người đó nói được cả tiếng Anh lẫn tiếng Nhật nên tôi rất biết ơn.",
+          "vocab": [
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "英語",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "話せた",
+              "read": "はなせた",
+              "vi": "đã có thể nói"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "助かった",
+              "read": "たすかった",
+              "vi": "đã được giúp đỡ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "話せたので = vì nói được. ので lý do trung tính, lịch sự (Bài 39). Đây dùng ので không dùng おかげで vì câu này chỉ nêu thực tế, không nhấn mạnh sắc thái biết ơn như câu trước."
+            },
+            {
+              "point": "NもNも（Bài 4）",
+              "vi": "英語も日本語も = cả tiếng Anh lẫn tiếng Nhật. も…も = cả…lẫn…"
+            }
+          ]
+        },
+        {
+          "jp": "帰国後、ソンさんにすべての話をした。",
+          "vi": "Sau khi về nước, tôi kể hết mọi chuyện cho Sơn nghe.",
+          "vocab": [
+            {
+              "w": "帰国",
+              "read": "きこく",
+              "vi": "về nước"
+            },
+            {
+              "w": "ソン",
+              "read": "ソン",
+              "vi": "tên riêng Son"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "tất cả, hết"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "帰国後",
+              "read": "きこくご",
+              "vi": "sau khi về nước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nに話をします（Bài 7）",
+              "vi": "ソンさんに話をした = đã kể cho Sơn. Nに = người nhận hành động cho/kể."
+            }
+          ]
+        },
+        {
+          "jp": "ソンさんは「財布を忘れたのは自分の不注意のせいだから、次は気をつけてね」と言った。",
+          "vi": "Sơn nói \"việc quên ví là tại sự bất cẩn của bản thân, lần sau cẩn thận nhé\".",
+          "vocab": [
+            {
+              "w": "ソン",
+              "read": "ソン",
+              "vi": "tên riêng Son"
+            },
+            {
+              "w": "財布",
+              "read": "さいふ",
+              "vi": "ví (đựng tiền)"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "不注意",
+              "read": "ふちゅうい",
+              "vi": "bất cẩn, không chú ý"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "cẩn thận, chú ý"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のせいだ",
+              "vi": "接続: N + の + せいだ。 不注意のせいだ = \"là tại sự bất cẩn\". せいだ/せいで: đổ lỗi/quy trách nhiệm cho nguyên nhân xấu. Ở đây Sơn nói thẳng: nguyên nhân xấu (quên ví) = bất cẩn của chính mình → dùng せいだ thích hợp. Đối chiếu: nếu dùng おかげで ở đây nghĩa đảo ngược hoàn toàn."
+            },
+            {
+              "point": "Vるのは〜（Bài 38）",
+              "vi": "財布を忘れたのは = \"việc quên ví thì\". のは nêu chủ đề sự việc."
+            }
+          ]
+        },
+        {
+          "jp": "また、「地元の人のおかげで観光できたのは、あなたが笑顔で話しかけたからだと思うよ」とも教えてくれた。",
+          "vi": "Sơn cũng nói \"tôi nghĩ việc được người dân địa phương giúp đi tham quan được là vì bạn chủ động tiếp chuyện với nụ cười\".",
+          "vocab": [
+            {
+              "w": "地元",
+              "read": "じもと",
+              "vi": "địa phương, quê nhà"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "観光します",
+              "read": "かんこうします",
+              "vi": "tham quan, du lịch"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "笑顔",
+              "read": "えがお",
+              "vi": "nụ cười, khuôn mặt tươi cười"
+            },
+            {
+              "w": "話しかけます",
+              "read": "はなしかけます",
+              "vi": "chủ động bắt chuyện"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のおかげで（再出）",
+              "vi": "地元の人のおかげで観光できた = \"nhờ người dân địa phương mà có thể đi tham quan\". おかげで lần nữa xác nhận: nguyên nhân (người dân giúp đỡ) → kết quả tốt (tham quan được) → おかげで. Sắc thái: Sơn dùng おかげで để nhấn mạnh lòng biết ơn với người đã giúp."
+            },
+            {
+              "point": "〜からだ（Bài 9）",
+              "vi": "話しかけたからだ = vì đã chủ động bắt chuyện. からだ nêu lý do ở thể thông thường."
+            }
+          ]
+        },
+        {
+          "jp": "旅をするたびに、いろいろな失敗があるが、それも経験になると言っていた。",
+          "vi": "Sơn còn nói mỗi lần đi du lịch đều có những thất bại, nhưng đó cũng trở thành kinh nghiệm.",
+          "vocab": [
+            {
+              "w": "旅",
+              "read": "たび",
+              "vi": "chuyến đi, du lịch"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "いろいろな",
+              "read": "いろいろな",
+              "vi": "nhiều loại, đủ kiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに（Bài 58）",
+              "vi": "旅をするたびに = mỗi lần đi du lịch (thì đều). Vるたびに = mỗi lần làm V (Bài 58). Ôn lại Bài 58."
+            },
+            {
+              "point": "〜になる（Bài 19）",
+              "vi": "経験になる = trở thành kinh nghiệm. Nになる = trở thành N (Bài 19)."
+            }
+          ]
+        },
+        {
+          "jp": "失敗のせいで落ち込むより、失敗のおかげで学べることに目を向けるほうがいいかもしれない。",
+          "vi": "Có lẽ thay vì buồn vì thất bại, tốt hơn là chú ý đến những điều học được nhờ thất bại.",
+          "vocab": [
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "落ち込みます",
+              "read": "おちこみます",
+              "vi": "buồn, chán nản, thất vọng"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "学びます",
+              "read": "まなびます",
+              "vi": "học, học hỏi"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "向ける",
+              "read": "むける",
+              "vi": "hướng về, hướng tới"
+            },
+            {
+              "w": "目を向けます",
+              "read": "めをむけます",
+              "vi": "chú ý đến, hướng mắt về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のせいで vs 〜のおかげで（対比）",
+              "vi": "失敗のせいで落ち込む（buồn TẠI thất bại — nhìn nhận tiêu cực）vs 失敗のおかげで学べる（học được NHỜ thất bại — nhìn nhận tích cực）. Câu này đặt hai mẫu đối lập trực tiếp — nhấn mạnh bài học: cùng một nguyên nhân (失敗), cách nhìn nhận quyết định dùng おかげで hay せいで."
+            },
+            {
+              "point": "〜より〜ほうがいい（Bài 32）",
+              "vi": "〜より〜ほうがいいかもしれない = có lẽ tốt hơn là…thay vì…. よりのほうがいい = so sánh và khuyên (Bài 12 + 32)."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "学べること = điều có thể học được. Vる bổ nghĩa cho こと."
+            }
+          ]
+        },
+        {
+          "jp": "そう考えると、今回の旅行での失敗も、すべて次への準備になるのだと思う。",
+          "vi": "Nghĩ như vậy, tôi nghĩ những thất bại trong chuyến đi lần này cũng đều trở thành sự chuẩn bị cho lần sau.",
+          "vocab": [
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "sự chuẩn bị"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "そう考えると",
+              "read": "そうかんがえると",
+              "vi": "nếu nghĩ như vậy, khi nghĩ thế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện/khi Bài 23）",
+              "vi": "そう考えると = khi nghĩ như vậy thì. と = điều kiện tự nhiên/kết quả tất yếu (Bài 23)."
+            },
+            {
+              "point": "〜のだと思う（Bài 26 + 21）",
+              "vi": "なるのだと思う = tôi nghĩ đó là (sẽ trở thành). のだ giải thích + と思う ý kiến chủ quan."
+            }
+          ]
+        },
+        {
+          "jp": "来年もまた旅行に行くつもりだ。",
+          "vi": "Năm tới tôi cũng định đi du lịch nữa.",
+          "vocab": [
+            {
+              "w": "来年",
+              "read": "らいねん",
+              "vi": "năm tới, năm sau"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, một lần nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるつもりだ（Bài 31）",
+              "vi": "旅行に行くつもりだ = định đi du lịch. Vるつもり = ý định/dự định của bản thân (Bài 31)."
+            }
+          ]
+        },
+        {
+          "jp": "次は準備をもっとしっかりすれば、もっと楽しい旅になるといいと思っている。",
+          "vi": "Tôi mong rằng lần sau nhờ chuẩn bị kỹ hơn, chuyến đi sẽ vui hơn.",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "chắc chắn, kỹ càng"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "旅",
+              "read": "たび",
+              "vi": "chuyến đi, du lịch"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜すれば（điều kiện ば, Bài 35）",
+              "vi": "準備をもっとしっかりすれば = \"nếu chuẩn bị kỹ hơn\". ば nêu điều kiện giả định cho mong muốn tương lai. Lưu ý sắc thái: おかげで cần nguyên nhân ĐÃ tạo ra kết quả (đã xảy ra) → với mong muốn TƯƠNG LAI phải dùng ば/たら, KHÔNG dùng おかげで."
+            },
+            {
+              "point": "〜といいと思っている（Bài 35 応用）",
+              "vi": "なるといいと思っている = mong rằng sẽ trở thành. と + いい = mong muốn."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "友人のソンさんのおかげで、旅行の計画を立てるのがとても楽になった",
+          "label": "〜のおかげで（nhờ bạn — kết quả tốt）"
+        },
+        {
+          "excerpt": "ソンさんのおかげで、初めての一人旅でも安心して出発することができた",
+          "label": "Sắc thái: おかげで — biết ơn, kết quả tốt"
+        },
+        {
+          "excerpt": "財布を部屋に忘れたせいで、朝ごはんを食べられない日があった",
+          "label": "〜たせいで（tại đã quên — kết quả xấu）"
+        },
+        {
+          "excerpt": "地図の見方がわからなかったせいで、目的地とは違う駅に着いてしまった",
+          "label": "〜なかったせいで（tại không biết — kết quả xấu）"
+        },
+        {
+          "excerpt": "初日は張り切りすぎたせいか、二日目の朝から足が痛くて",
+          "label": "Sắc thái: せいか — có lẽ tại, không chắc nguyên nhân"
+        },
+        {
+          "excerpt": "地元の人が道を教えてくれたおかげで、予定より多くの観光地を回ることができた",
+          "label": "〜てくれたおかげで（nhờ người khác giúp）"
+        },
+        {
+          "excerpt": "失敗のせいで落ち込むより、失敗のおかげで学べること",
+          "label": "Sắc thái: おかげで vs せいで — cùng nguyên nhân, nhìn nhận khác nhau"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「ソンさんのおかげで、初めての一人旅でも安心して出発することができた」とあるが、なぜ「おかげで」を使っていますか。「ので」との違いは何ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "「おかげで」は書き言葉で、「ので」は話し言葉だからです",
+            "「おかげで」は良い結果と感謝の気持ちを同時に表し、「ので」は感謝なしに理由を述べるだけだからです",
+            "「おかげで」は目的を表し、「ので」は原因を表すからです",
+            "「おかげで」と「ので」は意味が全く同じです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng vì「ソンさんのおかげで、初めての一人旅でも安心して出発することができた」— kết quả TỐT (khởi hành an tâm được) + người viết biết ơn Sơn rõ ràng. おかげで = NHỜ: vừa chỉ nguyên nhân vừa mang sắc thái biết ơn. Ngược lại, ので (Bài 39) chỉ nêu lý do/nguyên nhân TRUNG TÍNH, không hàm ý cảm ơn — dùng「ソンさんのおかげで出発できた」nghe ơn nghĩa, còn「ソンさんのおかげがあったので出発できた」chỉ là giải thích. Đáp án A sai: おかげで/ので không phân biệt viết/nói. Đáp án C nhầm: おかげで chỉ nguyên nhân, không phải mục đích (ために mới là mục đích). Đáp án D sai vì nghĩa khác nhau hoàn toàn.",
+          "tip": "おかげで = nguyên nhân TỐT + biết ơn (cảm xúc); ので = nguyên nhân TRUNG TÍNH (không cảm xúc). Thấy kết quả tốt kèm lòng biết ơn → おかげで, không thay bằng ので hay ために.",
+          "qt": {
+            "q": "「ソンさんのおかげで、初めての一人旅でも安心して出発することができた」（Nhờ anh Son, tôi đã có thể yên tâm khởi hành dù đây là chuyến du lịch một mình đầu tiên） được viết như vậy. Tại sao lại dùng 「おかげで」? Nó khác gì với 「ので」?",
+            "o": [
+              "「おかげで」 là văn viết, còn 「ので」 là văn nói",
+              "「おかげで」 đồng thời thể hiện kết quả tốt và lòng biết ơn, còn 「ので」 chỉ nêu lý do mà không thể hiện lòng biết ơn",
+              "「おかげで」 diễn tả mục đích, còn 「ので」 diễn tả nguyên nhân",
+              "「おかげで」 và 「ので」 có nghĩa hoàn toàn giống nhau"
+            ]
+          }
+        },
+        {
+          "q": "この文章で「せいで」が使われる場面にはどんな共通点がありますか。",
+          "evi": [
+            5,
+            6,
+            15
+          ],
+          "options": [
+            "すべて、誰かへの感謝を表す場面です",
+            "すべて、悪い結果（困ったこと・失敗）が起きた場面です",
+            "すべて、旅行の計画に関係する場面です",
+            "すべて、ソンさんの行動が原因の場面です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng: ba lần せいで trong văn bản đều đi kèm kết quả tiêu cực — (1)「財布を忘れたせいで、朝ごはんを食べられない」(quên ví → không ăn sáng được); (2)「地図の見方がわからなかったせいで、目的地とは違う駅に着いた」(không biết xem bản đồ → đến ga sai); (3)「失敗のせいで落ち込む」(thất bại → chán nản). Cả ba đều là thất bại/điều không mong muốn. Đáp án A sai: せいで hoàn toàn không có sắc thái biết ơn — đó là おかげで. Đáp án C/D sai vì không liên quan đến điểm chung thực sự.",
+          "tip": "せいで luôn đi với kết quả XẤU — quên ví, đến sai chỗ, chán nản. Hễ thấy せいで là biết ngay đây là đổ lỗi/kết quả tiêu cực, không bao giờ dùng để kể điều tốt.",
+          "qt": {
+            "q": "Trong bài này, những tình huống dùng 「せいで」 có điểm chung gì?",
+            "o": [
+              "Tất cả đều là những tình huống thể hiện lòng biết ơn với ai đó",
+              "Tất cả đều là những tình huống xảy ra kết quả xấu (việc gây phiền toái, thất bại)",
+              "Tất cả đều là những tình huống liên quan đến việc lên kế hoạch cho chuyến đi",
+              "Tất cả đều là những tình huống do hành động của anh Son gây ra"
+            ]
+          }
+        },
+        {
+          "q": "「初日は張り切りすぎたせいか、足が痛くて…」で「せいか」が使われているのはなぜですか。",
+          "evi": [
+            8
+          ],
+          "options": [
+            "足が痛い原因が確実にわかっているからです",
+            "張り切りすぎたことへの感謝を表しているからです",
+            "足が痛くなった原因が張り切りすぎかどうか、はっきりわからないからです",
+            "足が痛いのは良い結果だからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án C đúng vì せいか biểu đạt sự KHÔNG CHẮC CHẮN về nguyên nhân — tác giả chỉ suy đoán「初日は張り切りすぎたせいか」(\"có lẽ tại ngày đầu đi hăng hái quá\") nhưng không khẳng định đây là nguyên nhân duy nhất chắc chắn. Đáp án A sai: nếu nguyên nhân chắc chắn rõ ràng thì phải dùng せいで (đổ lỗi thẳng), không dùng せいか. Đáp án B sai: せいか đi với kết quả XẤU (đau chân), không có sắc thái biết ơn nào cả — đó là nhiệm vụ của おかげで. Đáp án D sai vì đau chân là kết quả xấu, không thể là \"kết quả tốt\".",
+          "tip": "せいか = \"có lẽ tại\" (suy đoán, không chắc); せいで = \"tại\" (khẳng định, đổ lỗi). Dấu hiệu nhận ra: nguyên nhân mơ hồ, người nói không chắc 100% → せいか.",
+          "qt": {
+            "q": "Trong câu 「初日は張り切りすぎたせいか、足が痛くて…」 (Có lẽ vì ngày đầu tiên đã quá hăng hái nên chân bị đau…), tại sao lại dùng 「せいか」?",
+            "o": [
+              "Vì nguyên nhân khiến chân bị đau đã được xác định chắc chắn",
+              "Vì câu này thể hiện lòng biết ơn về việc đã quá hăng hái",
+              "Vì không rõ nguyên nhân khiến chân bị đau có phải là do đã quá hăng hái hay không",
+              "Vì chân bị đau là một kết quả tốt"
+            ]
+          }
+        },
+        {
+          "q": "「失敗のせいで落ち込むより、失敗のおかげで学べることに目を向けるほうがいい」この文で筆者が伝えたいことは何ですか。",
+          "evi": [
+            15
+          ],
+          "options": [
+            "失敗はなるべくしないほうがいいということです",
+            "失敗を悪い原因（せいで）として落ち込むのではなく、良い学び（おかげで）として前向きに受け止めるほうがいいということです",
+            "失敗したら、すぐにソンさんに相談すべきだということです",
+            "旅行中の失敗は経験にならないということです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng vì câu「失敗のせいで落ち込むより、失敗のおかげで学べることに目を向けるほうがいい」đặt hai mẫu đối lập trực tiếp với CÙNG nguyên nhân (失敗): nhìn tiêu cực → せいで (buồn, đổ lỗi); nhìn tích cực → おかげで (nhờ thất bại học được, biết ơn). Thông điệp tác giả: chọn cách nhìn おかげで sẽ tốt hơn. Đáp án A sai: tác giả không nói tránh thất bại mà nói hãy đổi cách nhìn nhận. Đáp án C sai: không có gợi ý phải hỏi Sơn. Đáp án D sai: tác giả nói ngược lại — thất bại CÓ THỂ trở thành kinh nghiệm.",
+          "tip": "Khi cùng một nguyên nhân mà dùng được cả おかげで lẫn せいで → đó là sắc thái chủ quan (người nói chọn cách nhìn). おかげで = tích cực/biết ơn; せいで = tiêu cực/đổ lỗi.",
+          "qt": {
+            "q": "Trong câu 「失敗のせいで落ち込むより、失敗のおかげで学べることに目を向けるほうがいい」 (Thay vì buồn nản vì thất bại, tốt hơn là hướng sự chú ý đến những điều có thể học được nhờ thất bại), tác giả muốn truyền đạt điều gì?",
+            "o": [
+              "Rằng tốt hơn hết là cố gắng hạn chế thất bại",
+              "Rằng thay vì buồn nản và xem thất bại là nguyên nhân xấu (せいで), tốt hơn là đón nhận thất bại theo hướng tích cực như một cơ hội học hỏi (おかげで)",
+              "Rằng nếu thất bại thì nên hỏi ý kiến anh Son ngay",
+              "Rằng những thất bại trong chuyến đi không trở thành kinh nghiệm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら日本語教室のご案内",
+      "titleVi": "Đọc tờ giới thiệu: Lớp học tiếng Nhật さくら日本語教室",
+      "japanese": "さくら日本語教室　新学期クラスのご案内\nさくら日本語教室では、初級から上級まで三つのレベルのクラスを開いています。経験豊かな先生方のおかげで、多くの受講生が試験に合格しています。\n今月中にお申し込みいただくと、入会金5,000円が半額になります。ぜひこの機会にご検討ください。\nクラス｜曜日｜時間｜月謝\n初級クラス｜火・木｜19時〜20時半｜8,000円\n中級クラス｜月・水｜19時半〜21時｜9,000円\n上級クラス｜土｜10時〜12時｜10,000円\n※以前このクラスに通っていた方は、月謝が1,000円引きになります。\n※教材費は月謝とは別に、1冊2,000円かかります。教材は初回の授業でお渡しします。\n※体調不良などのやむを得ない理由で欠席した場合、振替授業を無料で受けられます。\n受講生の声（田中さん）：「先生が毎回丁寧に教えてくださったおかげで、苦手だった文法が得意になり、N3に合格できました。感謝しています。」\n受講生の声（リンさん）：「最初はクラスのレベルが合わなかったせいか、授業についていくのが大変でしたが、今は先生のおかげで毎回楽しく通っています。」\nお申し込み・お問い合わせ：さくら日本語教室　03-4567-8901（月〜土　10時〜18時）",
+      "vietnamese": "Thông báo: Các lớp học kỳ mới tại さくら日本語教室\nさくら日本語教室 mở ba trình độ lớp học từ sơ cấp đến cao cấp. Nhờ các thầy cô giàu kinh nghiệm mà nhiều học viên đã thi đỗ.\nNếu đăng ký trong tháng này, lệ phí nhập học 5.000 yên sẽ được giảm một nửa. Xin hãy cân nhắc dịp này.\nLớp｜Thứ｜Giờ｜Học phí tháng\nLớp sơ cấp｜Thứ Ba, Thứ Năm｜19:00〜20:30｜8.000 yên\nLớp trung cấp｜Thứ Hai, Thứ Tư｜19:30〜21:00｜9.000 yên\nLớp cao cấp｜Thứ Bảy｜10:00〜12:00｜10.000 yên\n※ Ai từng học ở lớp này trước đây, học phí tháng sẽ được giảm 1.000 yên.\n※ Tiền giáo trình tính riêng ngoài học phí tháng, 1 cuốn 2.000 yên. Giáo trình sẽ được phát vào buổi học đầu tiên.\n※ Nếu nghỉ vì lý do bất khả kháng như ốm đau, có thể học bù miễn phí.\nCảm nhận học viên (bạn Tanaka): \"Nhờ thầy cô mỗi buổi đều dạy tỉ mỉ mà ngữ pháp vốn là điểm yếu của tôi đã trở nên giỏi, tôi đã đỗ N3. Tôi rất biết ơn.\"\nCảm nhận học viên (bạn Linh): \"Ban đầu có lẽ tại trình độ lớp không hợp mà việc theo kịp bài học rất vất vả, nhưng giờ nhờ thầy cô mà mỗi buổi tôi đều đi học vui vẻ.\"\nĐăng ký / Liên hệ: さくら日本語教室　03-4567-8901 (Thứ Hai〜Thứ Bảy　10:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "さくら日本語教室　新学期クラスのご案内",
+          "vi": "Thông báo: Các lớp học kỳ mới tại さくら日本語教室",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "学期",
+              "read": "がっき",
+              "vi": "học kỳ"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "新学期",
+              "read": "しんがっき",
+              "vi": "kỳ học mới"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn (lịch sự)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "新学期クラスのご案内",
+              "why": "Tiêu đề nêu chủ đề: thông báo mở lớp học kỳ mới — khung để đối chiếu bảng lớp/giờ/phí phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "さくら日本語教室では、初級から上級まで三つのレベルのクラスを開いています。経験豊かな先生方のおかげで、多くの受講生が試験に合格しています。",
+          "vi": "さくら日本語教室 mở ba trình độ lớp học từ sơ cấp đến cao cấp. Nhờ các thầy cô giàu kinh nghiệm mà nhiều học viên đã thi đỗ.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "初級",
+              "read": "しょきゅう",
+              "vi": "sơ cấp"
+            },
+            {
+              "w": "上級",
+              "read": "じょうきゅう",
+              "vi": "cao cấp"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái (đếm đồ vật nhỏ)"
+            },
+            {
+              "w": "レベル",
+              "read": "レベル",
+              "vi": "trình độ, cấp độ"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "合格",
+              "read": "ごうかく",
+              "vi": "thi đỗ, trúng tuyển"
+            },
+            {
+              "w": "経験豊か",
+              "read": "けいけんゆたか",
+              "vi": "giàu kinh nghiệm"
+            },
+            {
+              "w": "先生方",
+              "read": "せんせいがた",
+              "vi": "các thầy cô"
+            },
+            {
+              "w": "受講生",
+              "read": "じゅこうせい",
+              "vi": "học viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のおかげで（Bài 59 target）",
+              "vi": "接続: N + の + おかげで。 経験豊かな先生方のおかげで = \"nhờ các thầy cô giàu kinh nghiệm\". Kết quả: 多くの受講生が試験に合格しています = nhiều học viên thi đỗ → kết quả TỐT → おかげで đúng sắc thái. Đây là câu quảng cáo nên おかげで vừa nêu nguyên nhân vừa gián tiếp khen thầy cô."
+            },
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "初級から上級まで = từ sơ cấp đến cao cấp. から〜まで chỉ phạm vi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "初級から上級まで三つのレベル",
+              "why": "Có 3 lớp theo trình độ — cần xác định lớp phù hợp trước khi tra bảng giờ/phí."
+            }
+          ]
+        },
+        {
+          "jp": "今月中にお申し込みいただくと、入会金5,000円が半額になります。ぜひこの機会にご検討ください。",
+          "vi": "Nếu đăng ký trong tháng này, lệ phí nhập học 5.000 yên sẽ được giảm một nửa. Xin hãy cân nhắc dịp này.",
+          "vocab": [
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "nhập hội, gia nhập"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "nửa giá"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "検討",
+              "read": "けんとう",
+              "vi": "xem xét, cân nhắc"
+            },
+            {
+              "w": "今月中",
+              "read": "こんげつちゅう",
+              "vi": "trong tháng này"
+            },
+            {
+              "w": "入会金",
+              "read": "にゅうかいきん",
+              "vi": "lệ phí nhập học"
+            },
+            {
+              "w": "ご検討ください",
+              "read": "ごけんとうください",
+              "vi": "xin hãy cân nhắc (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tất yếu, Bài 61）",
+              "vi": "申し込むと = nếu đăng ký thì. と nêu điều kiện dẫn đến kết quả tất yếu (半額になる)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "入会金5,000円が半額になります",
+              "why": "Điều kiện giảm lệ phí nhập học 50% nếu đăng ký trong tháng — một trong các điều kiện cần cộng/trừ ở câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "クラス｜曜日｜時間｜月謝",
+          "vi": "Lớp｜Thứ｜Giờ｜Học phí tháng",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "月謝",
+              "read": "げっしゃ",
+              "vi": "học phí tháng"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "初級クラス｜火・木｜19時〜20時半｜8,000円",
+          "vi": "Lớp sơ cấp｜Thứ Ba, Thứ Năm｜19:00〜20:30｜8.000 yên",
+          "vocab": [
+            {
+              "w": "初級",
+              "read": "しょきゅう",
+              "vi": "sơ cấp"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "火・木",
+              "read": "か・もく",
+              "vi": "thứ Ba và thứ Năm"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "19時",
+              "read": "じゅうくじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "20時半",
+              "read": "にじゅうじはん",
+              "vi": "20 giờ 30"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "初級クラス｜火・木｜19時〜20時半｜8,000円",
+              "why": "Hàng bảng lớp sơ cấp — đối chiếu khi câu hỏi cho nhân vật muốn học lớp/giờ khác nhau."
+            }
+          ]
+        },
+        {
+          "jp": "中級クラス｜月・水｜19時半〜21時｜9,000円",
+          "vi": "Lớp trung cấp｜Thứ Hai, Thứ Tư｜19:30〜21:00｜9.000 yên",
+          "vocab": [
+            {
+              "w": "中級",
+              "read": "ちゅうきゅう",
+              "vi": "trung cấp"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "月・水",
+              "read": "げつ・すい",
+              "vi": "thứ Hai và thứ Tư"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "19時半",
+              "read": "じゅうくじはん",
+              "vi": "19 giờ 30"
+            },
+            {
+              "w": "21時",
+              "read": "にじゅういちじ",
+              "vi": "21 giờ"
+            },
+            {
+              "w": "9,000円",
+              "read": "きゅうせんえん",
+              "vi": "9.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "中級クラス｜月・水｜19時半〜21時｜9,000円",
+              "why": "Hàng bảng lớp trung cấp, học phí gốc 9,000円 — căn cứ chính câu hỏi 1 (nhân vật học lớp này)."
+            }
+          ]
+        },
+        {
+          "jp": "上級クラス｜土｜10時〜12時｜10,000円",
+          "vi": "Lớp cao cấp｜Thứ Bảy｜10:00〜12:00｜10.000 yên",
+          "vocab": [
+            {
+              "w": "上級",
+              "read": "じょうきゅう",
+              "vi": "cao cấp"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "10時",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "12時",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "10,000円",
+              "read": "いちまんえん",
+              "vi": "10.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "上級クラス｜土｜10時〜12時｜10,000円",
+              "why": "Hàng bảng lớp cao cấp — nhiễu cho câu hỏi nếu nhầm lớp/giờ."
+            }
+          ]
+        },
+        {
+          "jp": "※以前このクラスに通っていた方は、月謝が1,000円引きになります。",
+          "vi": "※ Ai từng học ở lớp này trước đây, học phí tháng sẽ được giảm 1.000 yên.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "通っていた",
+              "read": "かよっていた",
+              "vi": "đã từng theo học"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị, người"
+            },
+            {
+              "w": "月謝",
+              "read": "げっしゃ",
+              "vi": "học phí tháng"
+            },
+            {
+              "w": "1,000円引き",
+              "read": "せんえんびき",
+              "vi": "giảm 1.000 yên"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm, chiết khấu"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "以前このクラスに通っていた方 = người mà trước đây đã từng học lớp này. Vていた bổ nghĩa cho 方."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月謝が1,000円引きになります",
+              "why": "Điều kiện giảm 1,000円 học phí tháng cho học viên cũ — điều kiện thứ 2 cần cộng/trừ ở câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "※教材費は月謝とは別に、1冊2,000円かかります。教材は初回の授業でお渡しします。",
+          "vi": "※ Tiền giáo trình tính riêng ngoài học phí tháng, 1 cuốn 2.000 yên. Giáo trình sẽ được phát vào buổi học đầu tiên.",
+          "vocab": [
+            {
+              "w": "教材費",
+              "read": "きょうざいひ",
+              "vi": "phí tài liệu học tập"
+            },
+            {
+              "w": "月謝",
+              "read": "げっしゃ",
+              "vi": "học phí hàng tháng"
+            },
+            {
+              "w": "とは別に",
+              "read": "とはべつに",
+              "vi": "ngoài, tách riêng khỏi"
+            },
+            {
+              "w": "別に",
+              "read": "べつに",
+              "vi": "riêng, tách biệt"
+            },
+            {
+              "w": "1冊",
+              "read": "いっさつ",
+              "vi": "một quyển"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "教材",
+              "read": "きょうざい",
+              "vi": "tài liệu học tập"
+            },
+            {
+              "w": "初回",
+              "read": "しょかい",
+              "vi": "lần đầu"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "buổi học, tiết học"
+            },
+            {
+              "w": "渡し",
+              "read": "わたし",
+              "vi": "trao, giao"
+            },
+            {
+              "w": "お渡しします",
+              "read": "おわたしします",
+              "vi": "trao, giao cho"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "教材費は月謝とは別に、1冊2,000円かかります",
+              "why": "Phụ thu bắt buộc 2,000円 giáo trình — khoản CỘNG thêm vào tổng tiền ở câu hỏi 1, dễ bị bỏ sót."
+            }
+          ]
+        },
+        {
+          "jp": "※体調不良などのやむを得ない理由で欠席した場合、振替授業を無料で受けられます。",
+          "vi": "※ Nếu nghỉ vì lý do bất khả kháng như ốm đau, có thể học bù miễn phí.",
+          "vocab": [
+            {
+              "w": "体調",
+              "read": "たいちょう",
+              "vi": "tình trạng sức khoẻ"
+            },
+            {
+              "w": "不良",
+              "read": "ふりょう",
+              "vi": "kém, không tốt"
+            },
+            {
+              "w": "やむを得ない",
+              "read": "やむをえない",
+              "vi": "bất khả kháng, không thể tránh khỏi"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "欠席",
+              "read": "けっせき",
+              "vi": "vắng mặt, nghỉ"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "振替",
+              "read": "ふりかえ",
+              "vi": "sự học bù, chuyển đổi"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "体調不良",
+              "read": "たいちょうふりょう",
+              "vi": "ốm đau, sức khoẻ kém"
+            },
+            {
+              "w": "欠席した場合",
+              "read": "けっせきしたばあい",
+              "vi": "trường hợp nghỉ học"
+            },
+            {
+              "w": "振替授業",
+              "read": "ふりかえじゅぎょう",
+              "vi": "buổi học bù"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合（Bài 22 ứng dụng）",
+              "vi": "欠席した場合 = trong trường hợp nghỉ học. 場合 nêu tình huống giả định."
+            }
+          ],
+          "keys": [
+            {
+              "w": "振替授業を無料で受けられます",
+              "why": "Bẫy câu hỏi 1: học bù MIỄN PHÍ chỉ áp dụng khi nghỉ vì lý do bất khả kháng, KHÔNG liên quan đến việc tính tổng học phí tháng đầu."
+            }
+          ]
+        },
+        {
+          "jp": "受講生の声（田中さん）：「先生が毎回丁寧に教えてくださったおかげで、苦手だった文法が得意になり、N3に合格できました。感謝しています。」",
+          "vi": "Cảm nhận học viên (bạn Tanaka): \"Nhờ thầy cô mỗi buổi đều dạy tỉ mỉ mà ngữ pháp vốn là điểm yếu của tôi đã trở nên giỏi, tôi đã đỗ N3. Tôi rất biết ơn.\"",
+          "vocab": [
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "毎回",
+              "read": "まいかい",
+              "vi": "mỗi lần, mỗi buổi"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "教えてくださった",
+              "read": "おしえてくださった",
+              "vi": "đã dạy cho (tôn kính của てくれた)"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "苦手",
+              "read": "にがて",
+              "vi": "điểm yếu, không giỏi"
+            },
+            {
+              "w": "文法",
+              "read": "ぶんぽう",
+              "vi": "ngữ pháp"
+            },
+            {
+              "w": "得意になり",
+              "read": "とくいになり",
+              "vi": "trở nên giỏi"
+            },
+            {
+              "w": "合格",
+              "read": "ごうかく",
+              "vi": "thi đỗ, trúng tuyển"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "感謝しています",
+              "read": "かんしゃしています",
+              "vi": "đang biết ơn"
+            },
+            {
+              "w": "受講生の声",
+              "read": "じゅこうせいのこえ",
+              "vi": "cảm nhận/ý kiến học viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくださったおかげで（Bài 59 target）",
+              "vi": "接続: Vてくださった（普通形）+ おかげで。 教えてくださったおかげで = \"nhờ đã dạy cho (tôi)\". Khi nguyên nhân là hành động lịch sự của thầy cô, dùng Vてくださった + おかげで vừa tôn kính vừa nêu nguyên nhân tốt. Kết quả: 文法が得意になり、N3に合格できました = kết quả TỐT → おかげで đúng sắc thái, khớp với chủ đề Bài 59."
+            }
+          ],
+          "keys": [
+            {
+              "w": "教えてくださったおかげで、苦手だった文法が得意になり、N3に合格できました",
+              "why": "Câu chuyện おかげで điển hình: nguyên nhân tốt (thầy dạy tỉ mỉ) → kết quả tốt (đỗ N3) — dùng cho câu hỏi suy luận sắc thái."
+            }
+          ]
+        },
+        {
+          "jp": "受講生の声（リンさん）：「最初はクラスのレベルが合わなかったせいか、授業についていくのが大変でしたが、今は先生のおかげで毎回楽しく通っています。」",
+          "vi": "Cảm nhận học viên (bạn Linh): \"Ban đầu có lẽ tại trình độ lớp không hợp mà việc theo kịp bài học rất vất vả, nhưng giờ nhờ thầy cô mà mỗi buổi tôi đều đi học vui vẻ.\"",
+          "vocab": [
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "リン",
+              "read": "リン",
+              "vi": "tên riêng Rin"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "ban đầu, lúc đầu"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "レベル",
+              "read": "レベル",
+              "vi": "trình độ"
+            },
+            {
+              "w": "合わなかった",
+              "read": "あわなかった",
+              "vi": "đã không hợp"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "大変でした",
+              "read": "たいへんでした",
+              "vi": "đã vất vả"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "毎回",
+              "read": "まいかい",
+              "vi": "mỗi lần, mỗi buổi"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị (tính từ い)"
+            },
+            {
+              "w": "通う",
+              "read": "かよう",
+              "vi": "đi đến (thường xuyên), theo học"
+            },
+            {
+              "w": "ついていく",
+              "read": "ついていく",
+              "vi": "theo kịp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいか（Bài 59 target）",
+              "vi": "接続: 普通形 + せいか。 レベルが合わなかったせいか = \"có lẽ tại trình độ không hợp\". せいか dùng khi người nói KHÔNG CHẮC nguyên nhân duy nhất — kết quả vẫn xấu (授業についていくのが大変) nhưng nói nhẹ, không đổ lỗi thẳng cho lớp học. Đối chiếu ngay trong câu: nửa sau chuyển sang 先生のおかげで (kết quả tốt hiện tại) — cùng một người nhưng đổi cực tùy giai đoạn/kết quả."
+            }
+          ],
+          "keys": [
+            {
+              "w": "レベルが合わなかったせいか、授業についていくのが大変でした",
+              "why": "せいか (suy đoán, không chắc) — đối chiếu trực tiếp với おかげで trong cùng câu, dùng cho câu hỏi suy luận sắc thái."
+            },
+            {
+              "w": "今は先生のおかげで毎回楽しく通っています",
+              "why": "おかげで xuất hiện lần 2 — kết quả hiện tại đã TỐT, khác hẳn せいか ở nửa đầu câu."
+            }
+          ]
+        },
+        {
+          "jp": "お申し込み・お問い合わせ：さくら日本語教室　03-4567-8901（月〜土　10時〜18時）",
+          "vi": "Đăng ký / Liên hệ: さくら日本語教室　03-4567-8901 (Thứ Hai〜Thứ Bảy　10:00〜18:00)",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & ưu đãi đăng ký sớm",
+          "topic": 1,
+          "note": "Giới thiệu 3 lớp theo trình độ, khen thầy cô (おかげで), và điều kiện giảm 50% lệ phí nhập học nếu đăng ký trong tháng — nền tảng để tính tổng phí, chưa phải căn cứ trực tiếp riêng lẻ.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng lớp/giờ/học phí",
+          "topic": 5,
+          "note": "Bảng chứa cột 月謝 gốc của 3 lớp — hàng 中級クラス (9,000円) là căn cứ chính câu hỏi 1 khi ghép với các điều kiện giảm/phụ thu ※.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "point",
+          "label": "Điều kiện ※: giảm giá & phụ thu giáo trình",
+          "topic": 7,
+          "note": "Hai dòng ※ liền nhau: giảm 1,000円 cho học viên cũ, và phụ thu bắt buộc 2,000円 giáo trình — cả hai đều phải cộng/trừ vào học phí tháng đầu ở câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện ※: học bù miễn phí",
+          "topic": 9,
+          "note": "Điều kiện nghỉ học bất khả kháng được học bù miễn phí — bẫy nhẹ, KHÔNG liên quan đến việc tính tổng phí ở câu hỏi 1.",
+          "qs": []
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "point",
+          "label": "Cảm nhận học viên: おかげで/せいか",
+          "topic": 11,
+          "note": "Hai lời cảm nhận minh hoạ trực tiếp mẫu bài: Tanaka dùng おかげで (nguyên nhân tốt, biết ơn); Linh dùng せいか (suy đoán, không chắc) rồi chuyển sang おかげで — căn cứ câu hỏi 2 về sắc thái.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 12,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 12,
+          "note": "Số điện thoại và giờ làm việc, không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "経験豊かな先生方のおかげで、多くの受講生が試験に合格しています",
+          "label": "〜のおかげで（Bài 59 target — nhờ, kết quả tốt）"
+        },
+        {
+          "excerpt": "教えてくださったおかげで、苦手だった文法が得意になり、N3に合格できました",
+          "label": "〜てくださったおかげで（Bài 59 target）"
+        },
+        {
+          "excerpt": "レベルが合わなかったせいか、授業についていくのが大変でした",
+          "label": "〜せいか（Bài 59 target — có lẽ tại, không chắc）"
+        },
+        {
+          "excerpt": "今は先生のおかげで毎回楽しく通っています",
+          "label": "Sắc thái: おかげで vs せいか trong cùng lời cảm nhận"
+        },
+        {
+          "excerpt": "今月中にお申し込みいただくと、入会金5,000円が半額になります",
+          "label": "〜と（điều kiện tất yếu, Bài 61 ôn trước）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "グエンさんは中級クラスに申し込みたいです。以前このクラスに通っていたことがあり、今月中に申し込む予定です。教材も1冊必要です。グエンさんが最初の月に払うお金は全部でいくらですか。",
+          "options": [
+            "9,000円（月謝のみ）",
+            "10,500円（月謝8,000円＋教材費2,000円＋入会金半額2,500円）",
+            "12,500円（月謝8,000円＋入会金半額2,500円＋教材費2,000円）",
+            "14,000円（月謝9,000円＋入会金半額2,500円＋教材費2,000円＋振替授業料500円）"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án C đúng. Cần ghép ĐỦ các điều kiện: (1) 中級クラス月謝は9,000円だが、以前このクラスに通っていたので「月謝が1,000円引き」→ 9,000－1,000＝8,000円；(2) 今月中に申し込むので「入会金5,000円が半額」→ 2,500円；(3) 教材費は月謝とは別に1冊2,000円。合計：8,000＋2,500＋2,000＝12,500円。Đáp án A sai vì bỏ sót cả入会金 lẫn教材費. Đáp án B sai vì tính月謝8,000円 đúng nhưng cộng sai thứ tự khiến tổng chỉ 10,500円 (thiếu quan sát: 8,000＋2,000＋2,500＝12,500, không phải 10,500 — đáp án này cộng nhầm số). Đáp án D sai vì dùng nhầm月謝9,000円 (quên trừ giảm giá học viên cũ) và bịa thêm khoản \"振替授業料500円\" không có trong bài (振替授業 vốn miễn phí, chỉ áp dụng khi nghỉ bất khả kháng, không liên quan phí tháng đầu).",
+          "tip": "Câu hỏi ghép nhiều điều kiện tiền bạc → liệt kê TỪNG khoản riêng (học phí gốc, giảm giá, phụ thu) rồi cộng/trừ tuần tự; đừng vội cộng tổng theo trực giác, và loại ngay đáp án có số tiền không xuất hiện trong bài (như 500円 bịa).",
+          "evi": [
+            5,
+            7,
+            2,
+            8
+          ],
+          "qt": {
+            "q": "Anh Nguyễn muốn đăng ký lớp trung cấp. Trước đây anh ấy từng học lớp này và dự định đăng ký trong tháng này. Anh ấy cũng cần một quyển giáo trình. Tổng cộng anh Nguyễn phải trả bao nhiêu tiền trong tháng đầu tiên?",
+            "o": [
+              "9.000 yên (chỉ học phí tháng)",
+              "10.500 yên (học phí tháng 8.000 yên + phí giáo trình 2.000 yên + nửa phí nhập học 2.500 yên)",
+              "12.500 yên (học phí tháng 8.000 yên + nửa phí nhập học 2.500 yên + phí giáo trình 2.000 yên)",
+              "14.000 yên (học phí tháng 9.000 yên + nửa phí nhập học 2.500 yên + phí giáo trình 2.000 yên + phí học bù 500 yên)"
+            ]
+          }
+        },
+        {
+          "q": "リンさんの感想「最初はクラスのレベルが合わなかったせいか、授業についていくのが大変でしたが、今は先生のおかげで毎回楽しく通っています」について、正しい説明はどれですか。",
+          "options": [
+            "「せいか」も「おかげで」も同じ意味で、どちらも感謝を表しています",
+            "「せいか」はレベルが合わなかったことが確実な原因だと断定しており、「おかげで」は現在の悪い結果を表しています",
+            "「せいか」は原因がはっきりしないまま悪い結果（大変だった）を述べ、「おかげで」は今の良い結果（楽しく通っている）を先生のおかげだと感謝しています",
+            "「せいか」は先生への不満を表し、「おかげで」はクラスのレベルへの不満を表しています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án C đúng. Trong cùng một lời cảm nhận, リンさん dùng hai mẫu ĐỐI LẬP sắc thái: 「レベルが合わなかったせいか」— せいか biểu đạt SUY ĐOÁN không chắc chắn về nguyên nhân (có thể còn lý do khác), kèm kết quả XẤU (授業についていくのが大変でした); sau đó 「今は先生のおかげで毎回楽しく通っています」— おかげで nêu nguyên nhân TỐT (thầy cô) dẫn đến kết quả hiện tại TỐT (vui vẻ đi học), kèm sắc thái biết ơn. Đáp án A sai vì hai mẫu nghĩa hoàn toàn khác nhau, せいか không có sắc thái biết ơn. Đáp án B sai vì せいか là suy đoán KHÔNG chắc chắn, không phải khẳng định chắc như せいで; đáp án cũng sai khi nói おかげで chỉ kết quả xấu. Đáp án D sai vì おかげで không hề mang sắc thái phàn nàn — ngược lại là biết ơn.",
+          "tip": "Gặp một câu có cả せいか lẫn おかげで: せいか luôn đi với kết quả XẤU + không chắc nguyên nhân (giai đoạn đầu khó khăn); おかげで luôn đi với kết quả TỐT + biết ơn rõ ràng (giai đoạn sau cải thiện). Đọc theo trình tự thời gian trong câu để thấy sự chuyển biến.",
+          "evi": [
+            11
+          ],
+          "qt": {
+            "q": "Về cảm nhận của chị Lin 「Lúc đầu, có lẽ vì trình độ của lớp không phù hợp nên tôi rất vất vả để theo kịp bài học, nhưng bây giờ nhờ thầy cô mà lần nào tôi cũng vui vẻ đến lớp」, cách giải thích nào là đúng?",
+            "o": [
+              "Cả 「せいか」 và 「おかげで」 đều có cùng nghĩa, và cả hai đều thể hiện lòng biết ơn",
+              "「せいか」 khẳng định chắc chắn rằng việc trình độ không phù hợp là nguyên nhân, còn 「おかげで」 diễn tả kết quả xấu hiện tại",
+              "「せいか」 nêu một kết quả xấu (đã rất vất vả) trong khi nguyên nhân chưa rõ ràng, còn 「おかげで」 bày tỏ lòng biết ơn vì kết quả tốt hiện tại (vui vẻ đến lớp) là nhờ thầy cô",
+              "「せいか」 thể hiện sự bất mãn với thầy cô, còn 「おかげで」 thể hiện sự bất mãn với trình độ của lớp"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

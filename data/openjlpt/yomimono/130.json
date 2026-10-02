@@ -1,0 +1,3527 @@
+{
+  "bai": 130,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 130 tập trung rèn luyện kỹ năng đọc hiểu trung cấp N3 với nhóm ngữ pháp xác định vai trò, bối cảnh và đối tượng trong văn bản thông tin - nghị luận. Học viên cần phân biệt rõ sự khác nhau giữa tư cách/vai trò khách quan (～として), địa điểm/lĩnh vực diễn ra sự việc (～において), ví dụ tiêu biểu hàng đầu (～をはじめ), chủ đề bàn luận (～について／に関して) và đối tượng chịu thái độ/hành vi tác động (～に対して).",
+    "steps": [
+      "Xác định nhanh vai trò, danh nghĩa của chủ thể qua cụm 'N + として' để không nhầm lẫn quan điểm cá nhân với chức năng chuyên môn/tổ chức.",
+      "Khoanh vùng bối cảnh không gian, thời gian hoặc lĩnh vực triển khai luận điểm khi bắt gặp 'N + において／における'.",
+      "Nhận diện ví dụ đại diện đi liền trước '～をはじめ（として）' để suy luận ra tập hợp rộng hơn mà tác giả đang nhắc tới.",
+      "Tách biệt rõ nội dung/chủ đề được bàn luận ('～について／に関して') với đối tượng trực tiếp tiếp nhận hành động hay thái độ ('～に対して').",
+      "Quan sát các biến thể bổ nghĩa cho danh từ (～における + N, ～をはじめとする + N, ～に対する + N, ～に関する + N) để đối chiếu chính xác phương án trả lời."
+    ],
+    "tips": [
+      "【使い分け 1】'～に対して' chỉ đối tượng hướng tới của hành động, cảm xúc hoặc chính sách, khác với '～について／に関して' chỉ đóng vai trò là chủ đề, đề tài được đem ra nghiên cứu/thảo luận.",
+      "【使い分け 2】'～として' thể hiện vai trò, tư cách, chức năng khách quan (với tư cách là), khác với '～にとって' thể hiện góc nhìn, đánh giá mang tính chủ quan (đối với ai đó thì).",
+      "【使い分け 3】'～において' dùng tương đương trợ từ 'で' nhưng mang sắc thái trang trọng, học thuật; khi bổ nghĩa trực tiếp cho danh từ bắt buộc phải chuyển thành dạng '～における + N'.",
+      "【Dấu hiệu nhận biết】Đi trước '～をはじめ' luôn là ví dụ tiêu biểu nhất, vế sau thường đi kèm các từ chỉ số lượng nhiều hoặc danh từ bao quát toàn thể.",
+      "【Bẫy đọc hiểu】Cảnh giác các phương án nhiễu đánh tráo tư cách đại diện (～として) thành bản chất thật của nhân vật, hoặc đảo chiều quan hệ tác động trong câu chứa '～に対して'."
+    ],
+    "grammarFocus": [
+      "～として — 接続: N + として / N + としての + N. Sắc thái: Chỉ vai trò, tư cách, danh nghĩa hoặc chức năng của chủ thể. Đối chiếu: Khác ～にとって (đứng trên góc độ chủ quan để đánh giá).",
+      "～において／においては — 接続: N + において / N + における + N. Sắc thái: Chỉ địa điểm, thời gian, bối cảnh hoặc lĩnh vực sự việc diễn ra (văn viết trang trọng). Đối chiếu: Trang trọng hơn trợ từ で thông thường.",
+      "～をはじめ（として） — 接続: N + をはじめ（として） / N + をはじめとする + N. Sắc thái: Đưa ra ví dụ đại diện tiêu biểu nhất nhằm ngụ ý còn nhiều đối tượng khác. Đối chiếu: Trang trọng hơn các cách liệt kê đại diện như ～など.",
+      "～について／に関して — 接続: N + について / N + に関して（N + に関する + N）. Sắc thái: Đề cập đến chủ đề, đề tài hoặc nội dung thảo luận/nghiên cứu. Đối chiếu: に関して trang trọng hơn について; khác ～に対して (hướng tác động/thái độ).",
+      "～に対して／に対する — 接続: N + に対して / N + に対する + N. Sắc thái: Hướng thái độ, hành động, phản ứng hoặc chính sách tới một đối tượng cụ thể. Đối chiếu: Khác ～について (chủ đề bàn luận trung tính), khác ～に比べて (so sánh đối chiếu)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 67,
+        "items": [
+          "〜について（N＋について）",
+          "〜に関して（N＋に関して）",
+          "〜に関する＋N"
+        ]
+      },
+      {
+        "bai": 69,
+        "items": [
+          "〜として（N + として）",
+          "〜にとって（N + にとって）"
+        ]
+      },
+      {
+        "bai": 70,
+        "items": [
+          "〜に対して（N + に対して）",
+          "〜に対する + N",
+          "〜に比べて（N + に比べて）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "地域社会における図書館の新たな役割",
+      "titleVi": "Vai trò mới của thư viện trong xã hội địa phương",
+      "japanese": "現代のデジタル社会において、地域の図書館は新しい変化を迎えている。図書館は、単に本を借りる場所としてだけでなく、人々が集まる交流の場としても注目されている。例えば、子ども向けの読書会をはじめとする様々なイベントが開かれ、高齢者をはじめ地域住民が多く参加している。\n先日行われた市民に対する調査では、図書館の将来についての意見が多く集まった。特に、デジタル資料の利用方法に関する質問に対しては、より分かりやすい説明を求める声が多かった。利用者の多様な要望に対して、図書館側も新しいサービスを積極的に取り入れようとしている。\n地域文化の発展においては、誰もが気軽に学べる環境を守ることが欠かせない。これからも図書館が、市民の生活を支える大切な拠点として発展していくことが期待されている。",
+      "vietnamese": "Trong xã hội kỹ thuật số ngày nay, các thư viện địa phương đang đón nhận những thay đổi mới. Thư viện không chỉ được chú ý với tư cách là nơi mượn sách đơn thuần, mà còn với tư cách là không gian giao lưu tụ họp của mọi người. Ví dụ, nhiều sự kiện đa dạng tiêu biểu là các buổi đọc sách dành cho trẻ em được tổ chức, và đông đảo cư dân địa phương, trước hết là người cao tuổi, đang tham gia.\n\nTrong cuộc khảo sát đối với người dân được tiến hành gần đây, nhiều ý kiến về tương lai của thư viện đã được ghi nhận. Đặc biệt, đối với các câu hỏi liên quan đến cách sử dụng tài liệu số, có nhiều ý kiến yêu cầu sự hướng dẫn dễ hiểu hơn. Trước những nhu cầu đa dạng của người dùng, phía thư viện cũng đang nỗ lực tiếp thu một cách tích cực các dịch vụ mới.\n\nTrong sự phát triển của văn hóa địa phương, việc gìn giữ môi trường nơi bất kỳ ai cũng có thể học hỏi một cách thoải mái là điều không thể thiếu. Trong tương lai, thư viện được kỳ vọng sẽ tiếp tục phát triển với tư cách là một đầu mối quan trọng nâng đỡ đời sống của người dân.",
+      "sentences": [
+        {
+          "jp": "現代のデジタル社会において、地域の図書館は新しい変化を迎えている。",
+          "vi": "Trong xã hội kỹ thuật số ngày nay, các thư viện địa phương đang đón nhận những thay đổi mới.",
+          "vocab": [
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "迎える",
+              "read": "むかえる",
+              "vi": "đón nhận, bước vào (thời kỳ/giai đoạn mới)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜において",
+              "vi": "【接続】N ＋ において / においては / におけるN。Biểu thị bối cảnh, địa điểm, thời đại hoặc lĩnh vực diễn ra sự việc/trạng thái ('ở, tại, trong'). Phân biệt: 「〜において」 mang tính văn viết trang trọng, thường dùng cho bối cảnh trừu tượng hoặc phạm vi rộng lớn, khác với 「〜で」 dùng phổ biến trong khẩu ngữ hàng ngày cho địa điểm cụ thể, và khác với 「〜について」 vốn chỉ chủ đề của suy nghĩ/bàn luận."
+            }
+          ]
+        },
+        {
+          "jp": "図書館は、単に本を借りる場所としてだけでなく、人々が集まる交流の場としても注目されている。",
+          "vi": "Thư viện không chỉ được chú ý với tư cách là nơi mượn sách đơn thuần, mà còn với tư cách là không gian giao lưu tụ họp của mọi người.",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "借りる",
+              "read": "かりる",
+              "vi": "mượn, vay"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "集まる",
+              "read": "あつまる",
+              "vi": "tập hợp, tụ họp"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "場",
+              "read": "ば",
+              "vi": "bầu không khí, nơi, địa điểm"
+            },
+            {
+              "w": "注目",
+              "read": "ちゅうもく",
+              "vi": "sự chú ý, quan tâm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として",
+              "vi": "【接続】N ＋ として / としては / としても / としてのN。Biểu thị tư cách, vị trí, danh nghĩa hoặc vai trò của đối tượng ('với tư cách là...', 'với vai trò là...'). Phân biệt: 「〜として」 chỉ định vị tư cách khách quan, khác với 「〜にとって」(đứng từ góc nhìn, lập trường đánh giá chủ quan của ai đó) và khác với 「〜にしては」(dù ở tư cách/tiêu chuẩn đó nhưng thực tế lại trái ngược)."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、子ども向けの読書会をはじめとする様々なイベントが開かれ、高齢者をはじめ地域住民が多く参加している。",
+          "vi": "Ví dụ, nhiều sự kiện đa dạng tiêu biểu là các buổi đọc sách dành cho trẻ em được tổ chức, và đông đảo cư dân địa phương, trước hết là người cao tuổi, đang tham gia.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "様々",
+              "read": "さまざま",
+              "vi": "nhiều loại, đa dạng"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân, người dân địa phương"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "読書会",
+              "read": "どくしょかい",
+              "vi": "câu lạc bộ đọc sách, buổi đọc sách"
+            },
+            {
+              "w": "高齢者",
+              "read": "こうれいしゃ",
+              "vi": "người cao tuổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をはじめ（として）／〜をはじめとする",
+              "vi": "【接続】N ＋ をはじめ / をはじめとして / をはじめとするN。Đưa ra một ví dụ đại diện tiêu biểu nhất, rồi kéo theo những sự vật/đối tượng khác cùng nhóm ('tiêu biểu là...', 'trước hết phải kể đến...'). Phân biệt: 「〜をはじめ」 nhấn mạnh vai trò đại diện số một trong văn phong trang trọng, khác với 「〜など」 chỉ liệt kê thông thường không làm nổi bật tính đại diện, và khác với 「〜はもちろん」(A là đương nhiên, thêm vào đó còn có B)."
+            }
+          ]
+        },
+        {
+          "jp": "先日行われた市民に対する調査では、図書館の将来についての意見が多く集まった。",
+          "vi": "Trong cuộc khảo sát đối với người dân được tiến hành gần đây, nhiều ý kiến về tương lai của thư viện đã được ghi nhận.",
+          "vocab": [
+            {
+              "w": "先日",
+              "read": "せんじつ",
+              "vi": "hôm trước, gần đây"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "khảo sát, điều tra"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "集まる",
+              "read": "あつまる",
+              "vi": "tập hợp, tụ họp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対する／〜に対して",
+              "vi": "【接続】N ＋ に対するN / に対して。Chỉ đối tượng tiếp nhận hành động, thái độ hoặc sự quan tâm ('đối với...'). Phân biệt: 「〜に対する」 hướng thẳng vào đối tượng chịu tác động cụ thể, khác với 「〜にとって」(đánh giá xuất phát từ lập trường của ai đó: tốt/xấu/quan trọng) và khác với 「〜に対して」 ở nét nghĩa so sánh tương phản hai vế (A thì... trái lại B thì...)."
+            },
+            {
+              "point": "〜について",
+              "vi": "【接続】N ＋ について / についてのN。Chỉ chủ đề, đề tài hoặc nội dung của hành động suy nghĩ, phát biểu, điều tra, nghiên cứu ('về...'). Phân biệt: 「〜について」 là cách nói trung tính phổ quát, khác với 「〜に関して」 mang tính trang trọng và bao quát phạm vi liên quan rộng hơn, và khác với 「〜に対して」 nhắm vào đối tượng tiếp nhận tác động chứ không phải đề tài."
+            }
+          ]
+        },
+        {
+          "jp": "特に、デジタル資料の利用方法に関する質問に対しては、より分かりやすい説明を求める声が多かった。",
+          "vi": "Đặc biệt, đối với các câu hỏi liên quan đến cách sử dụng tài liệu số, có nhiều ý kiến yêu cầu sự hướng dẫn dễ hiểu hơn.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "利用方法",
+              "read": "りようほうほう",
+              "vi": "cách sử dụng"
+            },
+            {
+              "w": "関する",
+              "read": "かんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "より",
+              "read": "より",
+              "vi": "hơn"
+            },
+            {
+              "w": "分かりやすい",
+              "read": "わかりやすい",
+              "vi": "dễ hiểu"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "yêu cầu"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "多かった",
+              "read": "おおかった",
+              "vi": "đã nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する／〜に関して",
+              "vi": "【接続】N ＋ に関するN / に関して。Chỉ nội dung, mối quan hệ liên quan đến một đề tài ('liên quan đến...'). Phân biệt: 「〜に関して」 có tính trang trọng hơn 「〜について」, thường xuất hiện trong báo cáo, khảo sát, tin tức và bao hàm cả các vấn đề phụ trợ xoay quanh chủ đề chính."
+            },
+            {
+              "point": "〜に対して",
+              "vi": "【接続】N ＋ に対して / に対しては。Chỉ sự phản hồi, đáp lại một câu hỏi, đề xuất hoặc đối tượng cụ thể ('đối với...', 'đáp lại...')."
+            }
+          ]
+        },
+        {
+          "jp": "利用者の多様な要望に対して、図書館側も新しいサービスを積極的に取り入れようとしている。",
+          "vi": "Trước những nhu cầu đa dạng của người dùng, phía thư viện cũng đang nỗ lực tiếp thu một cách tích cực các dịch vụ mới.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用者",
+              "read": "りようしゃ",
+              "vi": "người sử dụng"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng"
+            },
+            {
+              "w": "多様な",
+              "read": "たような",
+              "vi": "đa dạng"
+            },
+            {
+              "w": "要望",
+              "read": "ようぼう",
+              "vi": "yêu cầu"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "側",
+              "read": "がわ",
+              "vi": "phía"
+            },
+            {
+              "w": "図書館側",
+              "read": "としょかんがわ",
+              "vi": "phía thư viện"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "積極",
+              "read": "せっきょく",
+              "vi": "tính tích cực"
+            },
+            {
+              "w": "積極的",
+              "read": "せっきょくてき",
+              "vi": "tích cực"
+            },
+            {
+              "w": "取り入れよう",
+              "read": "とりいれよう",
+              "vi": "định áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して",
+              "vi": "【接続】N ＋ に対して。Biểu thị hành động phản ứng, đáp ứng trước một tác động từ bên ngoài (nhu cầu, ý kiến, tình huống). Phân biệt: 「〜に対して」 nhấn mạnh phản ứng hướng tới đối tượng, khác với 「〜に応じて」(biến đổi tương ứng, tỉ lệ thuận theo mức độ/sự thay đổi của đối tượng)."
+            }
+          ]
+        },
+        {
+          "jp": "地域文化の発展においては、誰もが気軽に学べる環境を守ることが欠かせない。",
+          "vi": "Trong sự phát triển của văn hóa địa phương, việc gìn giữ môi trường nơi bất kỳ ai cũng có thể học hỏi một cách thoải mái là điều không thể thiếu.",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "発展",
+              "read": "はってん",
+              "vi": "sự phát triển"
+            },
+            {
+              "w": "気軽",
+              "read": "きがる",
+              "vi": "thoải mái, không ngần ngại"
+            },
+            {
+              "w": "学べる",
+              "read": "まなべる",
+              "vi": "có thể học"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "欠かせない",
+              "read": "かかせない",
+              "vi": "không thể thiếu, tất yếu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜においては",
+              "vi": "【接続】N ＋ においては。Là dạng nhấn mạnh chủ đề của 「〜において」 bằng trợ từ 「は」 ('xét trong bối cảnh/lĩnh vực...'). Phân biệt: 「においては」 làm nổi bật phạm vi/lĩnh vực để đưa ra điều kiện tiên quyết hoặc nhận định quan trọng ở vế sau, mang sắc thái trang trọng và tính nghị luận cao hơn trợ từ 「では」."
+            }
+          ]
+        },
+        {
+          "jp": "これからも図書館が、市民の生活を支える大切な拠点として発展していくことが期待されている。",
+          "vi": "Trong tương lai, thư viện được kỳ vọng sẽ tiếp tục phát triển với tư cách là một đầu mối quan trọng nâng đỡ đời sống người dân.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "支える",
+              "read": "ささえる",
+              "vi": "nâng đỡ, hỗ trợ"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "拠点",
+              "read": "きょてん",
+              "vi": "cứ điểm, đầu mối, trung tâm hoạt động"
+            },
+            {
+              "w": "発展",
+              "read": "はってん",
+              "vi": "phát triển, tiến bộ"
+            },
+            {
+              "w": "期待",
+              "read": "きたい",
+              "vi": "sự kỳ vọng, mong đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として",
+              "vi": "【接続】N ＋ として。Xác định vai trò, chức năng định danh của chủ thể trong cộng đồng ('với tư cách/vai trò là...'). Phân biệt: 「〜として」 định danh chức năng chính thức, khách quan của sự vật, khác với 「〜のように」(so sánh ví von 'giống như là')."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "単に本を借りる場所としてだけでなく、人々が集まる交流の場としても注目されている",
+          "label": "Sự mở rộng vai trò của thư viện"
+        },
+        {
+          "excerpt": "デジタル資料の利用方法に関する質問に対しては、より分かりやすい説明を求める声が多かった",
+          "label": "Ý kiến đóng góp về tài liệu số"
+        },
+        {
+          "excerpt": "市民の生活を支える大切な拠点として発展していくこと",
+          "label": "Kỳ vọng đối với tương lai của thư viện"
+        }
+      ],
+      "questions": [
+        {
+          "q": "現在の地域の図書館について、文章でどのように述べられているか。",
+          "options": [
+            "本を貸し出すだけでなく、地域住民の交流の場としても機能している。",
+            "デジタル化が進んだため、紙の本を借りる利用者がいなくなった。",
+            "高齢者専用の施設となり、子ども向けのイベントは減っている。",
+            "インターネットの普及により、利用者の要望がすべて解決された。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [1] và [2]: Thư viện ngày nay không chỉ là nơi mượn sách thuần túy mà còn là không gian giao lưu của cư dân (tổ chức câu lạc bộ đọc sách cho trẻ em, người cao tuổi tham gia đông đảo). Do đó đáp án 0 là chính xác.\n- Phương án 1 sai vì bài đọc không hề nói không còn ai mượn sách giấy.\n- Phương án 2 sai vì bài nêu rõ có cả sự kiện cho trẻ em (子ども向けの読書会) và người cao tuổi tham gia, không phải cơ sở dành riêng cho người già.\n- Phương án 3 sai vì thực tế người dân vẫn còn nhiều mong muốn chưa được giải quyết (cần hướng dẫn dễ hiểu hơn về tài liệu số).",
+          "tip": "Tìm từ khóa「交流の場」「イベント」ở đoạn 1 để nắm bắt vai trò mở rộng của thư viện.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Về các thư viện địa phương hiện nay, bài viết nói như thế nào?",
+            "o": [
+              "Không chỉ cho mượn sách mà còn hoạt động như nơi giao lưu của cư dân địa phương.",
+              "Do số hóa phát triển nên không còn người dùng nào mượn sách giấy.",
+              "Đã trở thành cơ sở chỉ dành cho người cao tuổi, và các sự kiện dành cho trẻ em đang giảm đi.",
+              "Do Internet phổ biến nên mọi yêu cầu của người sử dụng đã được giải quyết."
+            ]
+          }
+        },
+        {
+          "q": "市民に対する調査で、特にどのような要望が多かったか。",
+          "options": [
+            "図書館の開館時間を深夜まで延長してほしいという要望。",
+            "デジタル資料の使い方をもっと分かりやすく教えてほしいという声。",
+            "イベントの開催数を減らして静かに読書できる場所を増やすこと。",
+            "すべての本を電子書籍のみに変更してほしいという意見。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [4]:「特に、デジタル資料の利用方法に関する質問に対しては、より分かりやすい説明を求める声が多かった。」(Đặc biệt đối với tài liệu số, có nhiều tiếng nói yêu cầu giải thích dễ hiểu hơn). Do đó đáp án 1 chính xác.\n- Phương án 0 sai vì trong bài không hề nhắc đến việc kéo dài giờ mở cửa đến đêm khuya.\n- Phương án 2 sai vì bài không đề cập đến việc cắt giảm số lượng sự kiện.\n- Phương án 3 sai vì không có thông tin đòi chuyển toàn bộ sách sang dạng điện tử.",
+          "tip": "Chú ý phó từ nhấn mạnh「特に」ở câu [4] để xác định trọng tâm kết quả khảo sát.",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Trong cuộc khảo sát dành cho người dân, yêu cầu nào đặc biệt phổ biến?",
+            "o": [
+              "Yêu cầu kéo dài giờ mở cửa của thư viện đến tận khuya.",
+              "Ý kiến mong muốn được hướng dẫn cách sử dụng tài liệu số một cách dễ hiểu hơn.",
+              "Giảm số lượng sự kiện được tổ chức và tăng thêm những nơi có thể yên tĩnh đọc sách.",
+              "Ý kiến mong muốn chuyển toàn bộ sách sang chỉ còn sách điện tử."
+            ]
+          }
+        },
+        {
+          "q": "利用者の要望に対して、図書館側はどのような姿勢をとっているか。",
+          "options": [
+            "従来のやり方を変えずに、本を貸し出す業務だけに集中している。",
+            "デジタル資料の利用を中止し、昔ながらの運営方法に戻そうとしている。",
+            "利用者の様々な意見を受け止め、新しいサービスを前向きに導入しようとしている。",
+            "利用者の要望が多すぎるため、アンケート調査を行うのをやめた。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [5]:「利用者の多様な要望に対して、図書館側も新しいサービスを積極的に取り入れようとしている。」(Trước nguyện vọng đa dạng của người dùng, phía thư viện cũng đang tích cực tiếp thu các dịch vụ mới). Cụm từ「積極的に取り入れようとしている」thể hiện thái độ chủ động, cởi mở tiếp nhận dịch vụ mới (前向きに導入). Do đó đáp án 2 chính xác.\n- Phương án 0 sai vì thư viện đang đổi mới chứ không giữ nguyên cách làm cũ.\n- Phương án 1 sai vì thư viện không hề có ý định hủy bỏ tài liệu số.\n- Phương án 3 sai vì bài không hề nói thư viện dừng việc khảo sát.",
+          "tip": "Từ「積極的」(tích cực) trong bài đồng nghĩa với thái độ「前向き」(chủ động, cầu tiến) ở đáp án đúng.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Thư viện có thái độ như thế nào trước những yêu cầu của người sử dụng?",
+            "o": [
+              "Không thay đổi cách làm truyền thống và chỉ tập trung vào công việc cho mượn sách.",
+              "Đang định ngừng sử dụng tài liệu số và quay lại phương thức hoạt động ngày trước.",
+              "Tiếp nhận nhiều ý kiến khác nhau của người sử dụng và chủ động đưa vào các dịch vụ mới.",
+              "Vì có quá nhiều yêu cầu của người sử dụng nên đã ngừng tiến hành khảo sát."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も伝えたいことは何か。",
+          "options": [
+            "図書館は本を保管するだけの場所であり、地域活動に関わるべきではない。",
+            "これからの図書館は、時代の変化に対応しつつ市民生活を支える学びと交流の拠点であるべきだ。",
+            "地域文化を発展させるためには、子どもだけの利用に制限することが大切だ。",
+            "最新の電子機器を導入することだけが、図書館に残された唯一の役割である。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào đoạn kết (câu [6] và [7]), tác giả nhấn mạnh tầm quan trọng của việc gìn giữ môi trường học tập thoải mái cho mọi người và kỳ vọng thư viện sẽ tiếp tục phát triển như một đầu mối nâng đỡ đời sống người dân trong thời đại số. Do đó đáp án 1 phản ánh đúng và toàn diện nhất thông điệp bài viết.\n- Phương án 0 sai vì đi ngược hoàn toàn với luận điểm thư viện là nơi giao lưu cộng đồng.\n- Phương án 2 sai vì thư viện phục vụ toàn thể cư dân (誰もが気軽に学べる), không giới hạn riêng trẻ em.\n- Phương án 3 sai vì từ「だけ」(duy nhất) mang tính phiến diện tiêu cực, công nghệ chỉ là một phần trong vai trò văn hóa - xã hội của thư viện.",
+          "tip": "Tổng hợp ý tưởng ở câu mở đầu [0], [1] và kết bài [6], [7] để chọn phương án bao quát được toàn bộ tư tưởng của tác giả.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn truyền tải nhất trong bài viết này là gì?",
+            "o": [
+              "Thư viện chỉ là nơi lưu trữ sách và không nên tham gia vào các hoạt động cộng đồng.",
+              "Thư viện trong tương lai nên là cơ sở học tập và giao lưu hỗ trợ đời sống người dân, đồng thời thích ứng với những thay đổi của thời đại.",
+              "Để phát triển văn hóa địa phương, điều quan trọng là hạn chế việc sử dụng thư viện chỉ dành cho trẻ em.",
+              "Chỉ việc đưa vào các thiết bị điện tử mới nhất mới là vai trò duy nhất còn lại của thư viện."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "地域社会における公共図書館の新しい役割",
+      "titleVi": "Vai trò mới của thư viện công cộng trong cộng đồng địa phương",
+      "japanese": "現代の情報社会において、公共図書館の存在意義が大きく変化している。以前は単に本を借りる場所として利用されることが多かったが、現在はそれ以外の役割も求められている。インターネットの急速な普及に関して、紙の本の必要性を疑問視する声も一部にあった。しかし、多くの情報があふれる現代社会において、信頼できる情報を選ぶ力はより重要になっている。そのため、図書館は正しい情報に出会うための大切な施設として、今も高い評価を受けている。\n現在、多くの図書館は地域社会の交流の拠点としての機能を強めている。館内では読書会をはじめ、地域の歴史や文化を学ぶ講座など、さまざまなイベントが開かれている。また、住民が抱える日常生活の疑問や地域の課題について、司書が資料を探す手伝いをしている。特に、健康や仕事に関する相談に対して、専門的な本を紹介するサービスが好評である。このように、生涯学習を支える場としての図書館は、人々の生活に深く結びついている。\nさらに、図書館は多様な世代の利用者の要求に対して、柔軟に対応しようと努力している。子どもをはじめとする若い世代に向けては、電子書籍の貸出やデジタル機器を使った体験教室を用意している。一方で、新しい技術に対する不安を持つ高齢者のためのパソコン講座も行われている。教育の現場においては、学校と連携して子どもたちに読書の楽しさを伝える活動も活発である。デジタル化の進展について考えるとき、誰でも公平に情報を得られる環境を守ることが欠かせない。\nこれからの地域づくりにおいては、人と人とがつながる場所の存在がさらに重要になるだろう。公共図書館は、単なる静かな読書室ではなく、人々が集まり対話を生み出す空間として期待されている。多様な価値観が存在する社会の中で、利用者の声に対する細やかな配慮がこれからも求められる。本や情報に関するサービスを充実させることは、地域の未来を豊かにすることにつながる。地域の中心的な施設として、図書館が果たすべき役割は今後ますます広がっていくに違いない。",
+      "vietnamese": "Trong xã hội thông tin hiện đại, ý nghĩa tồn tại của thư viện công cộng đang thay đổi lớn. Trước đây, thư viện thường được sử dụng như một nơi đơn thuần để mượn sách, nhưng hiện tại người ta còn đòi hỏi nhiều vai trò khác nữa. Liên quan đến sự phổ biến nhanh chóng của internet, từng có một số ý kiến hoài nghi về sự cần thiết của sách giấy. Tuy nhiên, trong xã hội hiện đại ngập tràn thông tin, năng lực lựa chọn thông tin đáng tin cậy càng trở nên quan trọng hơn. Do đó, thư viện vẫn đang nhận được sự đánh giá cao như một cơ sở quan trọng để tiếp cận thông tin chính xác.\nHiện nay, nhiều thư viện đang đẩy mạnh chức năng như một điểm giao lưu của cộng đồng địa phương. Bên trong thư viện, nhiều sự kiện đa dạng đang được tổ chức, tiêu biểu là các câu lạc bộ đọc sách và những khóa học tìm hiểu lịch sử, văn hóa địa phương. Ngoài ra, đối với những thắc mắc trong cuộc sống hằng ngày hay vấn đề của địa phương mà người dân gặp phải, thủ thư luôn hỗ trợ tìm kiếm tài liệu. Đặc biệt, đối với những tư vấn liên quan đến sức khỏe hay công việc, dịch vụ giới thiệu sách chuyên môn nhận được phản hồi rất tốt. Như vậy, thư viện với tư cách là nơi hỗ trợ học tập suốt đời đang gắn bó sâu sắc với cuộc sống của người dân.\nHơn nữa, thư viện đang nỗ lực ứng phó linh hoạt đối với các yêu cầu của người sử dụng thuộc nhiều thế hệ khác nhau. Hướng tới thế hệ trẻ mà tiêu biểu là trẻ em, thư viện chuẩn bị việc cho mượn sách điện tử và các lớp học trải nghiệm sử dụng thiết bị kỹ thuật số. Mặt khác, các lớp học máy tính dành cho người cao tuổi có sự lo lắng đối với công nghệ mới cũng được tổ chức. Trong bối cảnh giáo dục, các hoạt động phối hợp với trường học để truyền tải niềm vui đọc sách tới các em nhỏ cũng diễn ra sôi nổi. Khi suy nghĩ về sự phát triển của số hóa, việc bảo vệ môi trường nơi bất kỳ ai cũng có thể tiếp cận thông tin một cách bình đẳng là điều không thể thiếu.\nTrong việc xây dựng cộng đồng địa phương từ nay về sau, sự tồn tại của những nơi kết nối con người với con người sẽ ngày càng trở nên quan trọng hơn nữa. Thư viện công cộng không đơn thuần là một phòng đọc yên tĩnh, mà đang được kỳ vọng như một không gian nơi mọi người tập hợp và tạo ra sự đối thoại. Trong một xã hội tồn tại nhiều giá trị quan đa dạng, sự quan tâm chu đáo đối với tiếng nói của người sử dụng vẫn sẽ tiếp tục được đòi hỏi từ nay về sau. Việc làm phong phú thêm các dịch vụ liên quan đến sách và thông tin sẽ góp phần làm giàu đẹp thêm tương lai của địa phương. Với tư cách là cơ sở trung tâm của khu vực, vai trò mà thư viện cần đảm nhận chắc chắn sẽ ngày càng mở rộng hơn nữa trong tương lai.",
+      "sentences": [
+        {
+          "jp": "現代の情報社会において、公共図書館の存在意義が大きく変化している。",
+          "vi": "Trong xã hội thông tin hiện đại, ý nghĩa tồn tại của thư viện công cộng đang thay đổi lớn.",
+          "vocab": [
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "公共",
+              "read": "こうきょう",
+              "vi": "công cộng"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "sự tồn tại"
+            },
+            {
+              "w": "意義",
+              "read": "いぎ",
+              "vi": "ý nghĩa, giá trị"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "sự thay đổi, biến đổi"
+            },
+            {
+              "w": "存在意義",
+              "read": "そんざいいぎ",
+              "vi": "ý nghĩa tồn tại, giá trị tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜において／においては",
+              "vi": "【接続】Danh từ + において／においては。\n【Sắc thái】Diễn tả bối cảnh, địa điểm, thời đại, hoặc lĩnh vực diễn ra một sự việc/tình trạng mang tính trang trọng, văn viết (văn bản, thuyết trình, tin tức).\n【Đối chiếu】Gần nghĩa với trợ từ「で」(dùng trong văn thoại/thông thường) và「における + N」(khi bổ nghĩa cho danh từ). Khác với「〜にわたって」(nhấn mạnh độ rộng suốt cả thời gian/không gian kéo dài)."
+            }
+          ]
+        },
+        {
+          "jp": "以前は単に本を借りる場所として利用されることが多かったが、現在はそれ以外の役割も求められている。",
+          "vi": "Trước đây, thư viện thường được sử dụng như một nơi đơn thuần để mượn sách, nhưng hiện tại người ta còn đòi hỏi nhiều vai trò khác nữa.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "借りる",
+              "read": "かりる",
+              "vi": "mượn, vay"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "現在",
+              "read": "げんざい",
+              "vi": "hiện tại, hiện nay"
+            },
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò, nhiệm vụ"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として",
+              "vi": "【接続】Danh từ + として / としての + Danh từ.\n【Sắc thái】Diễn tả tư cách, vai trò, lập trường, hoặc chức năng/thể loại của một đối tượng khi thực hiện hành động hoặc được đánh giá.\n【Đối chiếu】Khác với「〜にとって」(đứng trên lập trường của ai để đưa ra phán đoán/cảm nhận, vế sau thường là tính từ) và「〜として(は)」(đưa ra nhận xét tương ứng với một danh nghĩa)."
+            }
+          ]
+        },
+        {
+          "jp": "インターネットの急速な普及に関して、紙の本の必要性を疑問視する声も一部にあった。",
+          "vi": "Liên quan đến sự phổ biến nhanh chóng của internet, từng có một số ý kiến hoài nghi về sự cần thiết của sách giấy.",
+          "vocab": [
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "Internet"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng"
+            },
+            {
+              "w": "急速な",
+              "read": "きゅうそくな",
+              "vi": "nhanh chóng"
+            },
+            {
+              "w": "普及",
+              "read": "ふきゅう",
+              "vi": "phổ cập"
+            },
+            {
+              "w": "関して",
+              "read": "かんして",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "必要性",
+              "read": "ひつようせい",
+              "vi": "sự cần thiết"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "nghi vấn"
+            },
+            {
+              "w": "疑問視",
+              "read": "ぎもんし",
+              "vi": "coi là đáng ngờ"
+            },
+            {
+              "w": "疑問視する",
+              "read": "ぎもんしする",
+              "vi": "nghi ngờ"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một bộ phận"
+            },
+            {
+              "w": "あった",
+              "read": "あった",
+              "vi": "đã có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して／に関する",
+              "vi": "【接続】Danh từ + に関して（は） / に関する + Danh từ.\n【Sắc thái】Chỉ chủ đề, nội dung liên quan mang tính trang trọng, văn phong viết, thường đi với các động từ suy nghĩ, điều tra, phát biểu, bàn luận.\n【Đối chiếu】Trang trọng hơn「〜について」; cách dùng tương tự nhưng mang tính chuyên đề/học thuật hơn; khác với「〜をめぐって」(chỉ sự tranh luận, bất đồng xoay quanh một vấn đề giữa nhiều bên)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、多くの情報があふれる現代社会において、信頼できる情報を選ぶ力はより重要になっている。",
+          "vi": "Tuy nhiên, trong xã hội hiện đại ngập tràn thông tin, năng lực lựa chọn thông tin đáng tin cậy càng trở nên quan trọng hơn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "あふれる",
+              "read": "あふれる",
+              "vi": "tràn ngập, dồi dào"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "信頼できる",
+              "read": "しんらいできる",
+              "vi": "đáng tin cậy"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜において",
+              "vi": "【接続】Danh từ + において.\n【Sắc thái】Biểu thị hoàn cảnh, bối cảnh xã hội trừu tượng nơi một tính chất hoặc hiện tượng được nhấn mạnh.\n【Đối chiếu】Trang trọng hơn trợ từ「で」; mang tính văn viết học thuật."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、図書館は正しい情報に出会うための大切な施設として、今も高い評価を受けている。",
+          "vi": "Do đó, thư viện vẫn đang nhận được sự đánh giá cao như một cơ sở quan trọng để tiếp cận thông tin chính xác.",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "出会う",
+              "read": "であう",
+              "vi": "gặp gỡ, tiếp cận"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として",
+              "vi": "【接続】Danh từ + として.\n【Sắc thái】Nêu rõ vị thế, danh nghĩa được công nhận trong xã hội hoặc cộng đồng.\n【Đối chiếu】Nhấn mạnh vào vai trò chính thức, phân biệt với「〜わりに（は）」(so với tiêu chuẩn)."
+            }
+          ]
+        },
+        {
+          "jp": "現在、多くの図書館は地域社会の交流の拠点としての機能を強めている。",
+          "vi": "Hiện nay, nhiều thư viện đang đẩy mạnh chức năng như một điểm giao lưu của cộng đồng địa phương.",
+          "vocab": [
+            {
+              "w": "現在",
+              "read": "げんざい",
+              "vi": "hiện tại, hiện nay"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "拠点",
+              "read": "きょてん",
+              "vi": "căn cứ, điểm trung tâm, đầu mối"
+            },
+            {
+              "w": "機能",
+              "read": "きのう",
+              "vi": "chức năng"
+            },
+            {
+              "w": "強める",
+              "read": "つよめる",
+              "vi": "tăng cường, làm mạnh thêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜としての",
+              "vi": "【接続】Danh từ + としての + Danh từ.\n【Sắc thái】Bổ nghĩa trực tiếp cho danh từ phía sau, nhấn mạnh vai trò, tính chất đại diện hoặc chức năng định hình của đối tượng.\n【Đối chiếu】Khác với「〜としてのN」(vai trò) vs「〜によるN」(nguyên nhân/phương thức)."
+            }
+          ]
+        },
+        {
+          "jp": "館内では読書会をはじめ、地域の歴史や文化を学ぶ講座など、さまざまなイベントが開かれている。",
+          "vi": "Bên trong thư viện, nhiều sự kiện đa dạng đang được tổ chức, tiêu biểu là các câu lạc bộ đọc sách và những khóa học tìm hiểu lịch sử, văn hóa địa phương.",
+          "vocab": [
+            {
+              "w": "館内",
+              "read": "かんない",
+              "vi": "bên trong tòa nhà, nội khu khách sạn"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "講座",
+              "read": "こうざ",
+              "vi": "khóa học, lớp học chuyên đề"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng, nhiều loại"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "読書会",
+              "read": "どくしょかい",
+              "vi": "câu lạc bộ đọc sách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をはじめ（として／とする）",
+              "vi": "【接続】Danh từ + をはじめ（として） / をはじめとする + Danh từ.\n【Sắc thái】Đưa ra một ví dụ tiêu biểu, đại diện nhất trong một nhóm nhiều sự vật/hiện tượng cùng loại (theo sau là các đối tượng khác).\n【Đối chiếu】Trang trọng hơn「〜や、〜など」; khác với「〜はもちろん」(đương nhiên A đã vậy, B cũng...)."
+            }
+          ]
+        },
+        {
+          "jp": "また、住民が抱える日常生活の疑問や地域の課題について、司書が資料を探す手伝いをしている。",
+          "vi": "Ngoài ra, đối với những thắc mắc trong cuộc sống hằng ngày hay vấn đề của địa phương mà người dân gặp phải, thủ thư luôn hỗ trợ tìm kiếm tài liệu.",
+          "vocab": [
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân, người dân"
+            },
+            {
+              "w": "抱える",
+              "read": "かかえる",
+              "vi": "ôm giữ, mang trong mình (gánh nặng, khuyết điểm)"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "đời sống thường nhật"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "課題",
+              "read": "かだい",
+              "vi": "vấn đề, bài toán cần giải quyết"
+            },
+            {
+              "w": "司書",
+              "read": "ししょ",
+              "vi": "thủ thư (người quản lý thư viện)"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "探す",
+              "read": "さがす",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "手伝い",
+              "read": "てつだい",
+              "vi": "sự giúp đỡ, phụ giúp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について",
+              "vi": "【接続】Danh từ + について（は） / についての + Danh từ.\n【Sắc thái】Chỉ chủ đề, đối tượng của hành động tìm kiếm thông tin, trao đổi, suy nghĩ.\n【Đối chiếu】Phổ thông, tự nhiên trong cả văn nói lẫn văn viết; ít trang trọng hơn một bậc so với「〜に関して」."
+            }
+          ]
+        },
+        {
+          "jp": "特に、健康や仕事に関する相談に対して、専門的な本を紹介するサービスが好評である。",
+          "vi": "Đặc biệt, đối với những tư vấn liên quan đến sức khỏe hay công việc, dịch vụ giới thiệu sách chuyên môn nhận được phản hồi rất tốt.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "関する",
+              "read": "かんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "専門的な",
+              "read": "せんもんてきな",
+              "vi": "mang tính chuyên môn"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "紹介",
+              "read": "しょうかい",
+              "vi": "giới thiệu"
+            },
+            {
+              "w": "紹介する",
+              "read": "しょうかいする",
+              "vi": "giới thiệu"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "好評",
+              "read": "こうひょう",
+              "vi": "được đánh giá tốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する",
+              "vi": "【接続】Danh từ + に関する + Danh từ.\n【Sắc thái】Dạng bổ nghĩa cho danh từ của「〜に関して」, dùng chỉ phạm vi chuyên môn hoặc nội dung liên quan.\n【Đối chiếu】Tương đương「〜についてのN」nhưng trang trọng và mang tính học thuật/hành chính hơn."
+            },
+            {
+              "point": "〜に対して",
+              "vi": "【接続】Danh từ + に対して.\n【Sắc thái】Chỉ đối tượng trực tiếp hướng tới của hành động đáp ứng, phục vụ, giải quyết hoặc thái độ cư xử.\n【Đối chiếu】Khác với「〜に対して」(so sánh đối lập giữa hai vế) và khác với「〜にとって」(đánh giá chủ quan từ vị thế của đối tượng)."
+            }
+          ]
+        },
+        {
+          "jp": "このように、生涯学習を支える場としての図書館は、人々の生活に深く結びついている。",
+          "vi": "Như vậy, thư viện với tư cách là nơi hỗ trợ học tập suốt đời đang gắn bó sâu sắc với cuộc sống của người dân.",
+          "vocab": [
+            {
+              "w": "生涯",
+              "read": "しょうがい",
+              "vi": "cả cuộc đời"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "支える",
+              "read": "ささえる",
+              "vi": "chống đỡ, hỗ trợ"
+            },
+            {
+              "w": "場",
+              "read": "ば",
+              "vi": "bầu không khí, nơi, địa điểm"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "結びつく",
+              "read": "むすびつく",
+              "vi": "gắn bó, liên kết với"
+            },
+            {
+              "w": "生涯学習",
+              "read": "しょうがいがくしゅう",
+              "vi": "học tập suốt đời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜としての",
+              "vi": "【接続】Danh từ + としての + Danh từ.\n【Sắc thái】Xác định tư cách/chức năng làm nền tảng cho danh từ đứng sau.\n【Đối chiếu】Nhấn mạnh phương diện vai trò cụ thể trong xã hội."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、図書館は多様な世代の利用者の要求に対して、柔軟に対応しようと努力している。",
+          "vi": "Hơn nữa, thư viện đang nỗ lực ứng phó linh hoạt đối với các yêu cầu của người sử dụng thuộc nhiều thế hệ khác nhau.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, nhiều chiều"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "要求",
+              "read": "ようきゅう",
+              "vi": "yêu cầu, đòi hỏi"
+            },
+            {
+              "w": "柔軟",
+              "read": "じゅうなん",
+              "vi": "linh hoạt, mềm dẻo"
+            },
+            {
+              "w": "対応",
+              "read": "たいおう",
+              "vi": "phong thái xử lý, ứng phó"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して",
+              "vi": "【接続】Danh từ + に対して.\n【Sắc thái】Biểu thị thái độ ứng xử, phản hồi hoặc hành động giải quyết trực diện nhắm vào đối tượng (ở đây là yêu cầu của người dùng).\n【Đối chiếu】Khác với「〜に向けて」(hướng đến mục tiêu/đối tượng đích) ở chỗ「に対して」nhấn mạnh vào sự tương tác, đáp lại."
+            }
+          ]
+        },
+        {
+          "jp": "子どもをはじめとする若い世代に向けては、電子書籍の貸出やデジタル機器を使った体験教室を用意している。",
+          "vi": "Hướng tới thế hệ trẻ mà tiêu biểu là trẻ em, thư viện chuẩn bị việc cho mượn sách điện tử và các lớp học trải nghiệm sử dụng thiết bị kỹ thuật số.",
+          "vocab": [
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "向ける",
+              "read": "むける",
+              "vi": "hướng về, hướng tới"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "貸出",
+              "read": "かしだし",
+              "vi": "cho mượn"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "機器",
+              "read": "きき",
+              "vi": "thiết bị, máy móc"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "用意",
+              "read": "ようい",
+              "vi": "sự chuẩn bị"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử (ebook)"
+            },
+            {
+              "w": "体験教室",
+              "read": "たいけんきょうしつ",
+              "vi": "lớp học trải nghiệm thực tế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をはじめとする",
+              "vi": "【接続】Danh từ + をはじめとする + Danh từ.\n【Sắc thái】Dùng bổ nghĩa danh từ để nêu gương mặt tiêu biểu đại diện cho cả một tập hợp đối tượng.\n【Đối chiếu】Khác với「〜といった」(liệt kê ví dụ thông thường),「をはじめとする」nhấn mạnh đối tượng đứng đầu danh sách ví dụ."
+            },
+            {
+              "point": "〜に向けて（は）",
+              "vi": "【接続】Danh từ + に向けて.\n【Sắc thái】Chỉ đối tượng mà dịch vụ/chính sách nhắm tới hoặc hướng đến một mục tiêu trong tương lai.\n【Đối chiếu】Khác với「〜に対して」(ứng phó/đối kháng) ở chỗ「に向けて」mang tính định hướng phục vụ hoặc kế hoạch."
+            }
+          ]
+        },
+        {
+          "jp": "一方で、新しい技術に対する不安を持つ高齢者のためのパソコン講座も行われている。",
+          "vi": "Mặt khác, các lớp học máy tính dành cho người cao tuổi có sự lo lắng đối với công nghệ mới cũng được tổ chức.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "講座",
+              "read": "こうざ",
+              "vi": "khóa học, buổi giảng"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "高齢者",
+              "read": "こうれいしゃ",
+              "vi": "người cao tuổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対する",
+              "vi": "【接続】Danh từ + に対する + Danh từ.\n【Sắc thái】Bổ nghĩa cho danh từ, biểu thị tâm lý, cảm xúc hoặc thái độ (lo lắng, bất an) hướng vào một đối tượng cụ thể (công nghệ mới).\n【Đối chiếu】Tương đương「〜への」nhưng mang sắc thái hướng đích rõ ràng và trang trọng hơn."
+            }
+          ]
+        },
+        {
+          "jp": "教育の現場においては、学校と連携して子どもたちに読書の楽しさを伝える活動も活発である。",
+          "vi": "Trong bối cảnh giáo dục, các hoạt động phối hợp với trường học để truyền tải niềm vui đọc sách tới các em nhỏ cũng diễn ra sôi nổi.",
+          "vocab": [
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "連携",
+              "read": "れんけい",
+              "vi": "liên kết, phối hợp"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị (tính từ い)"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "活発",
+              "read": "かっぱつ",
+              "vi": "sôi nổi, tích cực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜において（は）",
+              "vi": "【接続】Danh từ + において（は）.\n【Sắc thái】Xác định địa bàn, bối cảnh hoặc phương diện (ở đây là lĩnh vực/môi trường giáo dục) trong văn phong trang trọng.\n【Đối chiếu】Tương đương với trợ từ「で」nhưng dùng trong văn viết/nghị luận, khác với「〜にあたって」(khi bước vào một thời điểm/sự kiện lớn)."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル化の進展について考えるとき、誰でも公平に情報を得られる環境を守ることが欠かせない。",
+          "vi": "Khi suy nghĩ về sự phát triển của số hóa, việc bảo vệ môi trường nơi bất kỳ ai cũng có thể tiếp cận thông tin một cách bình đẳng là điều không thể thiếu.",
+          "vocab": [
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "デジタル化",
+              "read": "デジタルか",
+              "vi": "số hóa"
+            },
+            {
+              "w": "進展",
+              "read": "しんてん",
+              "vi": "tiến triển"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi; lúc"
+            },
+            {
+              "w": "誰",
+              "read": "だれ",
+              "vi": "ai"
+            },
+            {
+              "w": "誰でも",
+              "read": "だれでも",
+              "vi": "bất kỳ ai"
+            },
+            {
+              "w": "公平",
+              "read": "こうへい",
+              "vi": "công bằng"
+            },
+            {
+              "w": "公平に",
+              "read": "こうへいに",
+              "vi": "một cách công bằng"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "得られる",
+              "read": "えられる",
+              "vi": "có thể nhận được"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ"
+            },
+            {
+              "w": "欠かせない",
+              "read": "かかせない",
+              "vi": "không thể thiếu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について",
+              "vi": "【接続】Danh từ + について（考える／述べる...）.\n【Sắc thái】Chỉ chủ đề được đưa ra để tư duy, xem xét, thảo luận.\n【Đối chiếu】Dùng phổ biến trong cả văn viết lẫn văn nói; tương đương「〜に関して」nhưng thân thuộc hơn."
+            }
+          ]
+        },
+        {
+          "jp": "これからの地域づくりにおいては、人と人とがつながる場所の存在がさらに重要になるだろう。",
+          "vi": "Trong việc xây dựng cộng đồng địa phương từ nay về sau, sự tồn tại của những nơi kết nối con người với con người sẽ ngày càng trở nên quan trọng hơn nữa.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "地域づくり",
+              "read": "ちいきづくり",
+              "vi": "xây dựng và phát triển cộng đồng địa phương"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "kết nối, gắn kết"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "sự tồn tại"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜において（は）",
+              "vi": "【接続】Danh từ + において（は）.\n【Sắc thái】Biểu thị lĩnh vực, quá trình hoạt động (xây dựng cộng đồng) mang tính trừu tượng trong văn nghị luận.\n【Đối chiếu】Trang trọng hơn「〜で」, bổ nghĩa cho toàn bộ mệnh đề kết luận phía sau."
+            }
+          ]
+        },
+        {
+          "jp": "公共図書館は、単なる静かな読書室ではなく、人々が集まり対話を生み出す空間として期待されている。",
+          "vi": "Thư viện công cộng không đơn thuần là một phòng đọc yên tĩnh, mà đang được kỳ vọng như một không gian nơi mọi người tập hợp và tạo ra sự đối thoại.",
+          "vocab": [
+            {
+              "w": "公共",
+              "read": "こうきょう",
+              "vi": "công cộng"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ đơn thuần là"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "集まる",
+              "read": "あつまる",
+              "vi": "tập hợp, tụ họp"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại, trò chuyện trao đổi"
+            },
+            {
+              "w": "生み出す",
+              "read": "うみだす",
+              "vi": "tạo ra, sinh ra"
+            },
+            {
+              "w": "空間",
+              "read": "くうかん",
+              "vi": "không gian"
+            },
+            {
+              "w": "期待",
+              "read": "きたい",
+              "vi": "kỳ vọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として",
+              "vi": "【接続】Danh từ + として.\n【Sắc thái】Chỉ sự kỳ vọng vào tư cách/vai trò mới mẻ của sự vật trong mắt xã hội.\n【Đối chiếu】Khác với「〜のように」(so sánh tương đồng)."
+            }
+          ]
+        },
+        {
+          "jp": "多様な価値観が存在する社会の中で、利用者の声に対する細やかな配慮がこれからも求められる。",
+          "vi": "Trong một xã hội tồn tại nhiều giá trị quan đa dạng, sự quan tâm chu đáo đối với tiếng nói của người sử dụng vẫn sẽ tiếp tục được đòi hỏi từ nay về sau.",
+          "vocab": [
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng"
+            },
+            {
+              "w": "多様な",
+              "read": "たような",
+              "vi": "đa dạng"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "価値観",
+              "read": "かちかん",
+              "vi": "quan niệm giá trị"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "tồn tại"
+            },
+            {
+              "w": "存在する",
+              "read": "そんざいする",
+              "vi": "tồn tại"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用者",
+              "read": "りようしゃ",
+              "vi": "người sử dụng"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "対する",
+              "read": "たいする",
+              "vi": "đối với"
+            },
+            {
+              "w": "細やか",
+              "read": "こまやか",
+              "vi": "chu đáo, tinh tế"
+            },
+            {
+              "w": "細やかな",
+              "read": "こまやかな",
+              "vi": "chu đáo, tinh tế"
+            },
+            {
+              "w": "配慮",
+              "read": "はいりょ",
+              "vi": "sự quan tâm"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "求められる",
+              "read": "もとめられる",
+              "vi": "được yêu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対する",
+              "vi": "【接続】Danh từ + に対する + Danh từ.\n【Sắc thái】Dạng bổ nghĩa danh từ chỉ sự quan tâm, đối ứng hướng tới đối tượng là ý kiến đóng góp của người sử dụng.\n【Đối chiếu】Khác với「〜についての」(nội dung liên quan) ở chỗ「に対する」nhấn mạnh vào hành động đối ứng, thái độ tiếp nhận."
+            }
+          ]
+        },
+        {
+          "jp": "本や情報に関するサービスを充実させることは、地域の未来を豊かにすることにつながる。",
+          "vi": "Việc làm phong phú thêm các dịch vụ liên quan đến sách và thông tin sẽ góp phần làm giàu đẹp thêm tương lai của địa phương.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "充実",
+              "read": "じゅうじつ",
+              "vi": "làm phong phú, đầy đủ, nâng cao"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "dẫn đến, liên kết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する",
+              "vi": "【接続】Danh từ + に関する + Danh từ.\n【Sắc thái】Bổ nghĩa cho danh từ, chỉ dịch vụ có nội dung liên quan tới sách báo và thông tin.\n【Đối chiếu】Trang trọng hơn「〜についての」, mang tính quy chuẩn trong văn bản chính thống."
+            }
+          ]
+        },
+        {
+          "jp": "地域の中心的な施設として、図書館が果たすべき役割は今後ますます広がっていくに違いない。",
+          "vi": "Với tư cách là cơ sở trung tâm của khu vực, vai trò mà thư viện cần đảm nhận chắc chắn sẽ ngày càng mở rộng hơn nữa trong tương lai.",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "中心",
+              "read": "ちゅうしん",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "果たす",
+              "read": "はたす",
+              "vi": "hoàn thành, đảm nhận (vai trò)"
+            },
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò"
+            },
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "ますます",
+              "read": "ますます",
+              "vi": "ngày càng, càng lúc càng"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "中心的一施設",
+              "read": "ちゅうしんてきなしせつ",
+              "vi": "cơ sở trung tâm, then chốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として",
+              "vi": "【接続】Danh từ + として.\n【Sắc thái】Nêu bật vị thế, tư cách chủ chốt của thư viện trong địa phương.\n【Đối chiếu】Khác với「〜にとって」(đối với góc nhìn của ai)."
+            },
+            {
+              "point": "〜に違いない",
+              "vi": "【接続】Thể thông thường (Tính từ -na/Danh từ bỏ だ) + に違いない.\n【Sắc thái】Thể hiện sự phán đoán, khẳng định chắc chắn tuyệt đối dựa trên cơ sở lập luận logic của người nói.\n【Đối chiếu】Mạnh mẽ và có căn cứ hơn「〜だろう／〜かもしれない」."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "現代の情報社会において、公共図書館の存在意義が大きく変化している。",
+          "label": "Sự chuyển dịch vai trò của thư viện"
+        },
+        {
+          "excerpt": "地域社会の交流の拠点としての機能を強めている。",
+          "label": "Thư viện là trung tâm giao lưu cộng đồng"
+        },
+        {
+          "excerpt": "誰でも公平に情報を得られる環境を守ることが欠かせない。",
+          "label": "Bình đẳng trong tiếp cận thông tin"
+        },
+        {
+          "excerpt": "人々が集まり対話を生み出す空間として期待されている。",
+          "label": "Không gian kết nối và đối thoại"
+        }
+      ],
+      "questions": [
+        {
+          "q": "現代社会において、公共図書館が高い評価を受けている理由として、最も適切なものはどれか。",
+          "options": [
+            "インターネットよりも多くの紙の本を早く購入できるから",
+            "あふれる情報の中から信頼できる正しい情報に出会える場所だから",
+            "誰でも無料で新しいパソコンや電子機器をもらえるから",
+            "すべての住民が本を借りるためだけに集まる場所だから"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [3] và [4]:「多くの情報があふれる現代社会において、信頼できる情報を選ぶ力はより重要になっている。そのため、図書館は正しい情報に出会うための大切な施設として、今も高い評価を受けている。」(Trong xã hội ngập tràn thông tin, năng lực lựa chọn thông tin đáng tin cậy trở nên quan trọng hơn, do đó thư viện được đánh giá cao như cơ sở để tiếp cận thông tin chính xác). Do đó phương án 2 (chỉ số 1) là chính xác.\n- Phương án 1 (chỉ số 0) sai vì bài không đề cập đến việc thư viện mua sách nhanh hơn internet.\n- Phương án 3 (chỉ số 2) sai vì thư viện chỉ tổ chức các lớp học trải nghiệm chứ không tặng miễn phí máy tính.\n- Phương án 4 (chỉ số 3) sai vì bài nêu rõ thư viện không chỉ đơn thuần là nơi mượn sách nữa (câu [1]).",
+          "tip": "Tìm từ khóa「高い評価を受けている」「理由」và đọc kỹ các câu có liên từ chỉ nguyên nhân kết quả như「そのため」ở đoạn 1.",
+          "evi": [
+            3,
+            4
+          ],
+          "qt": {
+            "q": "Trong xã hội hiện đại, đâu là lý do phù hợp nhất giải thích vì sao thư viện công cộng được đánh giá cao?",
+            "o": [
+              "Vì có thể mua nhiều sách giấy nhanh hơn so với Internet",
+              "Vì là nơi có thể tìm thấy thông tin chính xác, đáng tin cậy giữa vô vàn thông tin",
+              "Vì bất cứ ai cũng có thể nhận miễn phí máy tính mới và thiết bị điện tử",
+              "Vì là nơi tất cả cư dân chỉ tụ tập để mượn sách"
+            ]
+          }
+        },
+        {
+          "q": "現在の図書館が行っているサービスについて、文章の内容と合っているものはどれか。",
+          "options": [
+            "住民の健康や仕事に関する相談に対して、専門的な本を紹介している。",
+            "高齢者の利用を減らすために、すべての本を電子書籍に変更している。",
+            "若い世代に本を読ませないように、デジタル機器の教室だけを開いている。",
+            "学校との関係をなくし、図書館の中だけで完結する活動を行っている。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [8]:「特に、健康や仕事に関する相談に対して、専門的な本を紹介するサービスが好評である。」(Đặc biệt, dịch vụ giới thiệu sách chuyên môn đối với các tư vấn về sức khỏe hay công việc nhận được đánh giá rất tốt). Do đó phương án 1 (chỉ số 0) hoàn toàn chính xác.\n- Phương án 2 (chỉ số 1) sai vì thư viện mở lớp máy tính hỗ trợ người cao tuổi chứ không hề cắt giảm hay chuyển toàn bộ sang sách điện tử.\n- Phương án 3 (chỉ số 2) sai vì thư viện mở lớp trải nghiệm số và cho mượn ebook để phục vụ giới trẻ, không phải để ngăn đọc sách.\n- Phương án 4 (chỉ số 3) sai vì câu [13] nêu rõ thư viện liên kết chặt chẽ với trường học (学校と連携して).",
+          "tip": "Sử dụng phương pháp loại trừ các phương án chứa từ ngữ tiêu cực hoặc mang tính tuyệt đối sai lệch (「減らすために」「なくし」).",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Phát biểu nào phù hợp với nội dung bài đọc về các dịch vụ mà thư viện hiện nay cung cấp?",
+            "o": [
+              "Thư viện giới thiệu sách chuyên ngành để giải đáp các thắc mắc của cư dân về sức khỏe và công việc.",
+              "Để giảm số người cao tuổi sử dụng thư viện, thư viện chuyển tất cả sách thành sách điện tử.",
+              "Thư viện chỉ tổ chức các lớp học sử dụng thiết bị kỹ thuật số để người trẻ không đọc sách.",
+              "Thư viện chấm dứt quan hệ với trường học và tổ chức các hoạt động chỉ diễn ra trong thư viện."
+            ]
+          }
+        },
+        {
+          "q": "筆者は、デジタル化が進む社会における図書館の役割についてどのように考えていると推測できるか。",
+          "options": [
+            "紙の本は完全に不要になるため、すべての図書館を閉鎖すべきである。",
+            "ネット環境が整ったため、図書館は住民の個別な要求に対応する必要がなくなった。",
+            "デジタル化が進む中でも、誰もが公平に情報にアクセスできる環境を保障する役割が重要である。",
+            "技術の進歩に反対し、古い読書室の静かな形態だけを頑なに守り続けるべきである。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [14]「デジタル化の進展について考えるとき、誰でも公平に情報を得られる環境を守ることが欠かせない。」kết hợp với câu [16], tác giả nhấn mạnh rằng dù số hóa phát triển mạnh mẽ, thư viện vẫn giữ vai trò thiết yếu trong việc bảo đảm cơ hội tiếp cận thông tin công bằng cho mọi người và tạo ra không gian kết nối xã hội. Do đó phương án 3 (chỉ số 2) là câu trả lời đúng.\n- Phương án 1 (chỉ số 0) sai vì tác giả khẳng định vai trò thư viện ngày càng mở rộng chứ không bảo đóng cửa.\n- Phương án 2 (chỉ số 1) sai vì câu [10] nêu rõ thư viện nỗ lực đáp ứng linh hoạt yêu cầu đa dạng của người dùng.\n- Phương án 4 (chỉ số 3) sai vì câu [16] chỉ ra thư viện không còn chỉ là phòng đọc yên tĩnh mà là không gian mở tạo sự đối thoại.",
+          "tip": "Đối với câu hỏi suy luận quan điểm của tác giả, chú ý các câu mang tính đúc kết ở đoạn 3 và 4, tránh các phương án có tư tưởng cực đoan.",
+          "evi": [
+            14,
+            16
+          ],
+          "qt": {
+            "q": "Có thể suy đoán tác giả nghĩ như thế nào về vai trò của thư viện trong xã hội đang ngày càng số hóa?",
+            "o": [
+              "Vì sách giấy sẽ hoàn toàn không còn cần thiết nên nên đóng cửa tất cả thư viện.",
+              "Vì môi trường mạng đã được hoàn thiện nên thư viện không còn cần đáp ứng những yêu cầu riêng của cư dân.",
+              "Ngay cả khi xã hội ngày càng số hóa, vai trò bảo đảm một môi trường để mọi người đều có thể tiếp cận thông tin một cách công bằng vẫn rất quan trọng.",
+              "Nên phản đối tiến bộ kỹ thuật và kiên quyết chỉ duy trì hình thức phòng đọc yên tĩnh kiểu cũ."
+            ]
+          }
+        },
+        {
+          "q": "この文章全体で筆者が最も伝えたいことは何か。",
+          "options": [
+            "図書館は単に本を貸し出すだけでなく、地域をつなぎ未来を豊かにする中心的な拠点として発展していくべきだ。",
+            "デジタル機器の使い方が分からない高齢者は、これからの図書館を利用するべきではない。",
+            "読書会の開催は時間がかかるため、すべてインターネット上の活動に切り替えるべきだ。",
+            "図書館の司書の仕事は、単に本を棚に戻すことだけに限定されるべきである。"
+          ],
+          "answer": 0,
+          "explainVi": "Toàn bộ bài văn làm nổi bật sự chuyển mình của thư viện: từ nơi đơn thuần mượn sách trở thành trung tâm giao lưu văn hóa, học tập suốt đời và kết nối cộng đồng hướng tới tương lai phồn vinh. Điều này được tổng kết sâu sắc ở đoạn cuối qua các câu [16], [18], [19].\n- Phương án 2 (chỉ số 1) sai vì thư viện mở lớp giúp đỡ người già chứ không phân biệt đối xử.\n- Phương án 3 (chỉ số 2) sai vì bài văn hoàn toàn không nói việc tổ chức câu lạc bộ đọc sách tốn thời gian hay yêu cầu chuyển hết lên mạng.\n- Phương án 4 (chỉ số 3) sai vì bài nêu rõ thủ thư hỗ trợ tìm kiếm tài liệu chuyên môn và tư vấn giải quyết vấn đề cho người dân (câu [7], [8]).",
+          "tip": "Câu hỏi ý chính toàn bài thường đúc kết ở đoạn cuối cùng, nơi tác giả đưa ra thông điệp tổng quan và định hướng tương lai.",
+          "evi": [
+            15,
+            16,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn truyền tải nhất trong toàn bài viết này là gì?",
+            "o": [
+              "Thư viện nên phát triển thành một trung tâm không chỉ cho mượn sách mà còn kết nối cộng đồng và làm phong phú tương lai.",
+              "Người cao tuổi không biết cách sử dụng thiết bị kỹ thuật số thì không nên sử dụng thư viện trong tương lai.",
+              "Vì tổ chức buổi đọc sách mất thời gian nên nên chuyển tất cả sang các hoạt động trên Internet.",
+              "Công việc của thủ thư chỉ nên giới hạn ở việc xếp sách trở lại kệ."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "みどりビジネスセンター施設利用のご案内",
+      "titleVi": "Hướng dẫn sử dụng cơ sở Trung tâm Thương mại Midori",
+      "japanese": "みどりビジネスセンター施設利用のご案内\n当センターは、IT技術者をはじめとする専門家のための活動拠点として、充実した最新設備を提供しています。\n国内外のビジネス展開において、利用者の皆様が集中して快適に作業できる環境を整えております。\n利用プラン一覧および基本サービス内容について\nプラン名｜月額基本料｜利用可能時間帯｜会議室の無料枠\nデイプラン｜8,000円｜平日9:00〜17:00｜月2時間まで無料\nナイトプラン｜7,000円｜全日18:00〜23:00｜利用時は有料\nフルプラン｜13,000円｜全日24時間利用可能｜月5時間まで無料\n料金の各種割引制度および追加費用に関して\n大学生や創業1年未満の起業家に対する特別支援として、月額基本料から2,000円を割り引きます。\nデイプラン会員における休日の利用に対しては、1日あたり1,500円の追加料金が必要です。\n会議室の超過利用に関しては、どのプランにおいても30分ごとに500円が加算されます。\n予約の変更やキャンセル手続きに関するご注意\n予約のキャンセルに関しては、利用前日の18時までに連絡を行えば手数料は一切かかりません。\n当日のキャンセルに対しては、施設利用料金の全額をご負担いただきますのでご注意ください。\nなお、初回登録の手続きにおいては、運転免許証をはじめとする本人確認書類のご提示をお願いします。",
+      "vietnamese": "Hướng dẫn sử dụng cơ sở Trung tâm Thương mại Midori\nTrung tâm chúng tôi cung cấp trang thiết bị hiện đại, đầy đủ với tư cách là cơ sở hoạt động dành cho các chuyên gia, tiêu biểu là các kỹ sư CNTT.\nTrong quá trình phát triển kinh doanh trong và ngoài nước, chúng tôi tạo dựng môi trường để quý khách có thể tập trung làm việc một cách thoải mái.\nVề danh sách các gói sử dụng và nội dung dịch vụ cơ bản\nTên gói｜Phí cơ bản hàng tháng｜Khung giờ có thể sử dụng｜Số giờ miễn phí phòng họp\nGói ban ngày｜8.000 yên｜Ngày thường 9:00〜17:00｜Miễn phí tối đa 2 giờ/tháng\nGói ban đêm｜7.000 yên｜Tất cả các ngày 18:00〜23:00｜Có tính phí khi sử dụng\nGói toàn thời gian｜13.000 yên｜Tất cả các ngày, sử dụng được 24 giờ｜Miễn phí tối đa 5 giờ/tháng\nLiên quan đến các chế độ giảm giá và chi phí phát sinh thêm\nNhư một hình thức hỗ trợ đặc biệt dành cho sinh viên đại học và các doanh nhân khởi nghiệp dưới 1 năm, chúng tôi giảm 2.000 yên vào phí cơ bản hàng tháng.\nĐối với việc sử dụng vào ngày nghỉ của hội viên gói ban ngày, cần đóng thêm phụ phí 1.500 yên cho mỗi ngày.\nLiên quan đến việc sử dụng phòng họp vượt quá thời gian, ở bất kỳ gói nào cũng sẽ bị tính thêm 500 yên cho mỗi 30 phút.\nLưu ý liên quan đến thủ tục thay đổi hoặc hủy đặt chỗ\nLiên quan đến việc hủy đặt chỗ, nếu liên hệ trước 18:00 của ngày hôm trước ngày sử dụng thì hoàn toàn không mất phí.\nĐối với trường hợp hủy trong ngày, quý khách vui lòng chịu 100% phí sử dụng cơ sở nên hãy lưu ý.\nNgoài ra, trong thủ tục đăng ký lần đầu, xin vui lòng xuất trình giấy tờ tùy thân chứng minh danh tính như bằng lái xe.",
+      "sentences": [
+        {
+          "jp": "みどりビジネスセンター施設利用のご案内",
+          "vi": "Hướng dẫn sử dụng cơ sở Trung tâm Thương mại Midori",
+          "vocab": [
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "ビジネス",
+              "read": "ビジネス",
+              "vi": "kinh doanh, thương trường"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜",
+              "vi": "ご + N (danh từ gốc Hán). Tiền tố lịch sự / trang trọng trong văn phong hành chính, thương mại hướng tới khách hàng, mang ý nghĩa thông báo/hướng dẫn gửi tới quý khách."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "当センターは、IT技術者をはじめとする専門家のための活動拠点として、充実した最新設備を提供しています。",
+          "vi": "Trung tâm chúng tôi cung cấp trang thiết bị hiện đại, đầy đủ với tư cách là cơ sở hoạt động dành cho các chuyên gia, tiêu biểu là các kỹ sư CNTT.",
+          "vocab": [
+            {
+              "w": "当センター",
+              "read": "とうセンター",
+              "vi": "trung tâm này"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "IT",
+              "read": "アイティー",
+              "vi": "công nghệ thông tin"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "技術者",
+              "read": "ぎじゅつしゃ",
+              "vi": "kỹ thuật viên"
+            },
+            {
+              "w": "IT技術者",
+              "read": "アイティーぎじゅつしゃ",
+              "vi": "kỹ thuật viên CNTT"
+            },
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "bắt đầu; đứng đầu"
+            },
+            {
+              "w": "はじめとする",
+              "read": "はじめとする",
+              "vi": "bao gồm, đứng đầu là"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "専門家",
+              "read": "せんもんか",
+              "vi": "chuyên gia"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "拠点",
+              "read": "きょてん",
+              "vi": "cơ sở trung tâm"
+            },
+            {
+              "w": "活動拠点",
+              "read": "かつどうきょてん",
+              "vi": "cơ sở hoạt động"
+            },
+            {
+              "w": "充実",
+              "read": "じゅうじつ",
+              "vi": "đầy đủ, phong phú"
+            },
+            {
+              "w": "充実した",
+              "read": "じゅうじつした",
+              "vi": "đầy đủ, phong phú"
+            },
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "thiết bị"
+            },
+            {
+              "w": "最新設備",
+              "read": "さいしんせつび",
+              "vi": "thiết bị mới nhất"
+            },
+            {
+              "w": "提供",
+              "read": "ていきょう",
+              "vi": "cung cấp"
+            },
+            {
+              "w": "提供しています",
+              "read": "ていきょうしています",
+              "vi": "đang cung cấp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をはじめ（とする）",
+              "vi": "Đưa ra ví dụ tiêu biểu, dẫn đầu (tiêu biểu là kỹ sư IT)"
+            },
+            {
+              "point": "〜として",
+              "vi": "Với tư cách là, với vai trò là (với tư cách là cứ điểm hoạt động)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "活動拠点として",
+              "why": "Xác định vai trò, chức năng cốt lõi của trung tâm dành cho các chuyên gia."
+            }
+          ]
+        },
+        {
+          "jp": "国内外のビジネス展開において、利用者の皆様が集中して快適に作業できる環境を整えております。",
+          "vi": "Trong quá trình phát triển kinh doanh trong và ngoài nước, chúng tôi tạo dựng môi trường để quý khách có thể tập trung làm việc một cách thoải mái.",
+          "vocab": [
+            {
+              "w": "国内外",
+              "read": "こくないがい",
+              "vi": "trong và ngoài nước"
+            },
+            {
+              "w": "ビジネス",
+              "read": "ビジネス",
+              "vi": "kinh doanh, thương trường"
+            },
+            {
+              "w": "展開",
+              "read": "てんかい",
+              "vi": "triển khai, mở rộng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị (kính ngữ)"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "快適",
+              "read": "かいてき",
+              "vi": "thoải mái, tiện nghi"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "整える",
+              "read": "ととのえる",
+              "vi": "chuẩn bị chu đáo, thiết lập hoàn chỉnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜において",
+              "vi": "Ở, trong bối cảnh/lĩnh vực (trong bối cảnh triển khai kinh doanh)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "ビジネス展開において",
+              "why": "Nêu rõ bối cảnh và mục đích hỗ trợ công việc kinh doanh của người dùng."
+            }
+          ]
+        },
+        {
+          "jp": "利用プラン一覧および基本サービス内容について",
+          "vi": "Về danh sách các gói sử dụng và nội dung dịch vụ cơ bản",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "一覧",
+              "read": "いちらん",
+              "vi": "danh sách, bảng tóm tắt"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について",
+              "vi": "Về, liên quan đến chủ đề (về danh sách gói sử dụng)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "プラン名｜月額基本料｜利用可能時間帯｜会議室の無料枠",
+          "vi": "Tên gói｜Phí cơ bản hàng tháng｜Khung giờ có thể sử dụng｜Số giờ miễn phí phòng họp",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng (số tiền)"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "時間帯",
+              "read": "じかんたい",
+              "vi": "khung giờ, khoảng thời gian"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "無料枠",
+              "read": "むりょうわく",
+              "vi": "định mức miễn phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "会議室の無料枠",
+              "why": "Tiêu chí phân chia quyền lợi quan trọng giữa các gói dịch vụ."
+            }
+          ]
+        },
+        {
+          "jp": "デイプラン｜8,000円｜平日9:00〜17:00｜月2時間まで無料",
+          "vi": "Gói ban ngày｜8.000 yên｜Ngày thường 9:00〜17:00｜Miễn phí tối đa 2 giờ/tháng",
+          "vocab": [
+            {
+              "w": "デイプラン",
+              "read": "デイプラン",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "9:00〜17:00",
+              "read": "くじからじゅうしちじまで",
+              "vi": "từ 9 giờ đến 17 giờ"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "2時間",
+              "read": "にじかん",
+              "vi": "2 giờ"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まで",
+              "vi": "Lượng từ/Số từ + まで. Trợ từ biểu thị giới hạn mức trần hoặc phạm vi tối đa (\"tối đa đến / cho tới mức...\"), trong câu chỉ mức thời lượng tối đa 2 tiếng/tháng được miễn phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "8,000円",
+              "why": "Mức phí cơ bản của gói ban ngày, là căn cứ tính toán cho câu hỏi 1."
+            },
+            {
+              "w": "平日9:00〜17:00",
+              "why": "Khung giờ quy định cho gói ban ngày."
+            },
+            {
+              "w": "月2時間まで無料",
+              "why": "Hạn mức phòng họp miễn phí mỗi tháng của gói ban ngày, dùng để tính phụ phí cho câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "ナイトプラン｜7,000円｜全日18:00〜23:00｜利用時は有料",
+          "vi": "Gói ban đêm｜7.000 yên｜Tất cả các ngày 18:00〜23:00｜Có tính phí khi sử dụng",
+          "vocab": [
+            {
+              "w": "ナイトプラン",
+              "read": "ナイトプラン",
+              "vi": "gói ban đêm"
+            },
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "7,000円",
+              "read": "ななせんえん",
+              "vi": "7.000 yên"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "18:00〜23:00",
+              "read": "じゅうはちじからにじゅうさんじまで",
+              "vi": "từ 18 giờ đến 23 giờ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "時",
+              "read": "じ",
+              "vi": "lúc; khi"
+            },
+            {
+              "w": "利用時",
+              "read": "りようじ",
+              "vi": "khi sử dụng"
+            },
+            {
+              "w": "有料",
+              "read": "ゆうりょう",
+              "vi": "tính phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（は）",
+              "vi": "N + 時 (じ). Biểu thị thời điểm hoặc trường hợp phát sinh sự việc (\"khi / lúc / trong trường hợp...\"), ở đây chỉ điều kiện tính phí khi có phát sinh việc sử dụng phòng họp."
+            }
+          ],
+          "keys": [
+            {
+              "w": "利用時は有料",
+              "why": "Gói ban đêm không có khung miễn phí phòng họp, luôn phải trả tiền khi dùng."
+            }
+          ]
+        },
+        {
+          "jp": "フルプラン｜13,000円｜全日24時間利用可能｜月5時間まで無料",
+          "vi": "Gói toàn thời gian｜13.000 yên｜Tất cả các ngày, sử dụng được 24 giờ｜Miễn phí tối đa 5 giờ/tháng",
+          "vocab": [
+            {
+              "w": "フルプラン",
+              "read": "フルプラン",
+              "vi": "gói đầy đủ"
+            },
+            {
+              "w": "フル",
+              "read": "フル",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "13,000円",
+              "read": "いちまんさんぜんえん",
+              "vi": "13.000 yên"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "5時間",
+              "read": "ごじかん",
+              "vi": "5 giờ"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まで",
+              "vi": "Lượng từ/Số từ + まで. Biểu thị giới hạn mức trần/phạm vi tối đa (\"tối đa đến / cho tới mức...\"), trong câu chỉ mức thời lượng tối đa 5 tiếng/tháng được miễn phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "全日24時間利用可能",
+              "why": "Đặc quyền sử dụng không giới hạn thời gian của gói toàn thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "料金の各種割引制度および追加費用に関して",
+          "vi": "Liên quan đến các chế độ giảm giá và chi phí phát sinh thêm",
+          "vocab": [
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "各種",
+              "read": "かくしゅ",
+              "vi": "các loại, đa dạng"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ, hệ thống"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "費用",
+              "read": "ひよう",
+              "vi": "chi phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して",
+              "vi": "Liên quan đến, về vấn đề (liên quan đến chế độ giảm giá và phụ phí)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "大学生や創業1年未満の起業家に対する特別支援として、月額基本料から2,000円を割り引きます。",
+          "vi": "Như một hình thức hỗ trợ đặc biệt dành cho sinh viên đại học và các doanh nhân khởi nghiệp dưới 1 năm, chúng tôi giảm 2.000 yên vào phí cơ bản hàng tháng.",
+          "vocab": [
+            {
+              "w": "大学生",
+              "read": "だいがくせい",
+              "vi": "sinh viên đại học"
+            },
+            {
+              "w": "創業",
+              "read": "そうぎょう",
+              "vi": "thành lập doanh nghiệp"
+            },
+            {
+              "w": "1年",
+              "read": "いちねん",
+              "vi": "1 năm"
+            },
+            {
+              "w": "未満",
+              "read": "みまん",
+              "vi": "chưa đến; dưới"
+            },
+            {
+              "w": "起業",
+              "read": "きぎょう",
+              "vi": "khởi nghiệp"
+            },
+            {
+              "w": "起業家",
+              "read": "きぎょうか",
+              "vi": "doanh nhân khởi nghiệp"
+            },
+            {
+              "w": "に対する",
+              "read": "にたいする",
+              "vi": "đối với"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "支援",
+              "read": "しえん",
+              "vi": "hỗ trợ"
+            },
+            {
+              "w": "特別支援",
+              "read": "とくべつしえん",
+              "vi": "hỗ trợ đặc biệt"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức hàng tháng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "基本料",
+              "read": "きほんりょう",
+              "vi": "phí cơ bản"
+            },
+            {
+              "w": "月額基本料",
+              "read": "げつがくきほんりょう",
+              "vi": "phí cơ bản hàng tháng"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            },
+            {
+              "w": "割り引きます",
+              "read": "わりびきます",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対する",
+              "vi": "Đối với, hướng tới đối tượng (dành cho sinh viên và người khởi nghiệp)"
+            },
+            {
+              "point": "〜として",
+              "vi": "Với tư cách là, như là (như một sự hỗ trợ đặc biệt)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "大学生や創業1年未満の起業家に対する",
+              "why": "Xác định rõ hai đối tượng được hưởng chính sách ưu đãi giảm giá."
+            },
+            {
+              "w": "2,000円を割り引きます",
+              "why": "Số tiền giảm cụ thể áp dụng vào phí hàng tháng, là căn cứ tính toán cho câu 1 và câu 2."
+            }
+          ]
+        },
+        {
+          "jp": "デイプラン会員における休日の利用に対しては、1日あたり1,500円の追加料金が必要です。",
+          "vi": "Đối với việc sử dụng vào ngày nghỉ của hội viên gói ban ngày, cần đóng thêm phụ phí 1.500 yên cho mỗi ngày.",
+          "vocab": [
+            {
+              "w": "デイプラン",
+              "read": "でいぷらん",
+              "vi": "gói ngày"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "における",
+              "read": "における",
+              "vi": "trong; đối với"
+            },
+            {
+              "w": "休日",
+              "read": "きゅうじつ",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "に対しては",
+              "read": "にたいしては",
+              "vi": "đối với"
+            },
+            {
+              "w": "1日",
+              "read": "いちにち",
+              "vi": "1 ngày"
+            },
+            {
+              "w": "1日あたり",
+              "read": "いちにちあたり",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "bổ sung; thêm"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí; cước"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phí phụ thu"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜における",
+              "vi": "Ở, trong trường hợp (trong trường hợp hội viên gói ban ngày)"
+            },
+            {
+              "point": "〜に対して（は）",
+              "vi": "Đối với việc, hướng tới hành động (đối với việc sử dụng ngày nghỉ)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "デイプラン会員における休日の利用に対しては",
+              "why": "Điều kiện ràng buộc khi hội viên gói ngày muốn dùng vào ngày nghỉ."
+            },
+            {
+              "w": "1,500円の追加料金",
+              "why": "Mức phụ phí phát sinh cho mỗi ngày nghỉ, là căn cứ trực tiếp cho câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "会議室の超過利用に関しては、どのプランにおいても30分ごとに500円が加算されます。",
+          "vi": "Liên quan đến việc sử dụng phòng họp vượt quá thời gian, ở bất kỳ gói nào cũng sẽ bị tính thêm 500 yên cho mỗi 30 phút.",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "超過",
+              "read": "ちょうか",
+              "vi": "vượt quá"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "超過利用",
+              "read": "ちょうかりよう",
+              "vi": "sử dụng vượt mức"
+            },
+            {
+              "w": "に関しては",
+              "read": "にかんしては",
+              "vi": "về; liên quan đến"
+            },
+            {
+              "w": "どの",
+              "read": "どの",
+              "vi": "nào; bất kỳ ... nào"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "においても",
+              "read": "においても",
+              "vi": "dù ở; trong bất kỳ"
+            },
+            {
+              "w": "30分",
+              "read": "さんじゅっぷん",
+              "vi": "30 phút"
+            },
+            {
+              "w": "30分ごとに",
+              "read": "さんじゅっぷんごとに",
+              "vi": "cứ mỗi 30 phút"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "加算されます",
+              "read": "かさんされます",
+              "vi": "được cộng thêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（は）",
+              "vi": "Về, liên quan đến vấn đề (liên quan đến việc dùng quá giờ)"
+            },
+            {
+              "point": "〜において（も）",
+              "vi": "Ở, trong bất kỳ (ở bất kỳ gói nào)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "30分ごとに500円が加算",
+              "why": "Công thức tính phụ phí phòng họp khi dùng vượt định mức, là căn cứ tính toán cho câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "予約の変更やキャンセル手続きに関するご注意",
+          "vi": "Lưu ý liên quan đến thủ tục thay đổi hoặc hủy đặt chỗ",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ; đặt trước"
+            },
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "キャンセル",
+              "read": "きゃんせる",
+              "vi": "hủy"
+            },
+            {
+              "w": "キャンセル手続き",
+              "read": "きゃんせるてつづき",
+              "vi": "thủ tục hủy"
+            },
+            {
+              "w": "手続き",
+              "read": "てつづき",
+              "vi": "thủ tục"
+            },
+            {
+              "w": "に関する",
+              "read": "にかんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "ご注意",
+              "read": "ごちゅうい",
+              "vi": "lưu ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する",
+              "vi": "Liên quan đến (chú ý liên quan đến thủ tục hủy)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "予約のキャンセルに関しては、利用前日の18時までに連絡を行えば手数料は一切かかりません。",
+          "vi": "Liên quan đến việc hủy đặt chỗ, nếu liên hệ trước 18:00 của ngày hôm trước ngày sử dụng thì hoàn toàn không mất phí.",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ; đặt trước"
+            },
+            {
+              "w": "キャンセル",
+              "read": "きゃんせる",
+              "vi": "hủy"
+            },
+            {
+              "w": "に関しては",
+              "read": "にかんしては",
+              "vi": "về; liên quan đến"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用前日",
+              "read": "りようぜんじつ",
+              "vi": "ngày trước khi sử dụng"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "18時",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "行えば",
+              "read": "おこなえば",
+              "vi": "nếu thực hiện"
+            },
+            {
+              "w": "手数料",
+              "read": "てすうりょう",
+              "vi": "phí thủ tục"
+            },
+            {
+              "w": "一切",
+              "read": "いっさい",
+              "vi": "hoàn toàn; chút nào"
+            },
+            {
+              "w": "かかりません",
+              "read": "かかりません",
+              "vi": "không mất; không phát sinh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（は）",
+              "vi": "Về, liên quan đến (liên quan đến việc hủy đặt chỗ)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "利用前日の18時までに連絡を行えば手数料は一切かかりません",
+              "why": "Mốc thời gian quy định để được hủy đặt chỗ miễn phí 100%."
+            }
+          ]
+        },
+        {
+          "jp": "当日のキャンセルに対しては、施設利用料金の全額をご負担いただきますのでご注意ください。",
+          "vi": "Đối với trường hợp hủy trong ngày, quý khách vui lòng chịu 100% phí sử dụng cơ sở nên hãy lưu ý.",
+          "vocab": [
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "trong ngày, ngày diễn ra"
+            },
+            {
+              "w": "キャンセル",
+              "read": "キャンセル",
+              "vi": "hủy"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "全額",
+              "read": "ぜんがく",
+              "vi": "toàn bộ số tiền"
+            },
+            {
+              "w": "負担",
+              "read": "ふたん",
+              "vi": "gánh vác, chịu chi phí"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に対して（は）",
+              "vi": "Đối với hành động (đối với việc hủy trong ngày)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "当日のキャンセルに対しては、施設利用料金の全額をご負担",
+              "why": "Quy định phạt 100% phí khi hủy đúng ngày sử dụng."
+            }
+          ]
+        },
+        {
+          "jp": "なお、初回登録の手続きにおいては、運転免許証をはじめとする本人確認書類のご提示をお願いします。",
+          "vi": "Ngoài ra, trong thủ tục đăng ký lần đầu, xin vui lòng xuất trình giấy tờ tùy thân chứng minh danh tính như bằng lái xe.",
+          "vocab": [
+            {
+              "w": "初回",
+              "read": "しょかい",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "手続き",
+              "read": "てつづき",
+              "vi": "thủ tục"
+            },
+            {
+              "w": "運転",
+              "read": "うんてん",
+              "vi": "việc lái xe, vận hành"
+            },
+            {
+              "w": "免許",
+              "read": "めんきょ",
+              "vi": "giấy phép, bằng lái"
+            },
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "本人",
+              "read": "ほんにん",
+              "vi": "đương sự, chính người đó"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "tài liệu, giấy tờ"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình, đưa ra xem"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "運転免許証",
+              "read": "うんてんめんきょしょう",
+              "vi": "giấy phép lái xe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜において（は）",
+              "vi": "Trong trường hợp, ở thủ tục (trong thủ tục đăng ký lần đầu)"
+            },
+            {
+              "point": "〜をはじめ（とする）",
+              "vi": "Tiêu biểu là, dẫn đầu là (tiêu biểu như bằng lái xe)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "運転免許証をはじめとする本人確認書類のご提示",
+              "why": "Yêu cầu bắt buộc về giấy tờ tùy thân khi đăng ký lần đầu."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "IT技術者をはじめとする専門家のための活動拠点として",
+          "label": "〜をはじめ（とする）／〜として"
+        },
+        {
+          "excerpt": "国内外のビジネス展開において",
+          "label": "〜において"
+        },
+        {
+          "excerpt": "大学生や創業1年未満の起業家に対する特別支援として",
+          "label": "〜に対する／〜として"
+        },
+        {
+          "excerpt": "デイプラン会員における休日の利用に対しては",
+          "label": "〜における／〜に対して（は）"
+        },
+        {
+          "excerpt": "会議室の超過利用に関しては、どのプランにおいても",
+          "label": "〜に関して（は）／〜において（も）"
+        },
+        {
+          "excerpt": "運転免許証をはじめとする本人確認書類",
+          "label": "〜をはじめ（とする）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "施設の概要と理念",
+          "topic": 1,
+          "note": "Giới thiệu mục đích hoạt động và đối tượng phục vụ của trung tâm",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "body",
+          "label": "利用プラン一覧",
+          "topic": 4,
+          "note": "Bảng tổng hợp 3 gói dịch vụ: mức phí, thời gian và ưu đãi phòng họp",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "割引制度と追加料金",
+          "topic": 8,
+          "note": "Các điều kiện giảm giá, phụ phí ngày nghỉ và phí phòng họp quá giờ",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 15,
+          "kind": "turn",
+          "label": "キャンセルと初回手続き",
+          "topic": 12,
+          "note": "Quy định thời hạn hủy phòng, phí phạt và thủ tục đăng ký thành viên lần đầu",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学に通っているリンさんは、平日の10:00から16:00まで作業し、月に3時間会議室を利用したいと考えています。リンさんの1か月の利用料金はいくらになりますか。",
+          "options": [
+            "6,000円",
+            "7,000円",
+            "8,000円",
+            "9,000円"
+          ],
+          "answer": 1,
+          "explainVi": "1. Linh làm việc vào các ngày trong tuần từ 10:00 đến 16:00 nên phù hợp với 'デイプラン' (gói ban ngày: ngày thường 9:00〜17:00, phí gốc 8.000 yên, miễn phí 2 giờ phòng họp/tháng).\n2. Linh là sinh viên đại học nên được áp dụng chính sách hỗ trợ giảm 2.000 yên vào phí cơ bản hàng tháng (dòng 9: 大学生に対する特別支援として、2,000円を割り引きます) -> Phí gói sau giảm: 8.000 - 2.000 = 6.000 yên.\n3. Linh muốn dùng phòng họp 3 giờ/tháng. Gói ban ngày miễn phí 2 giờ, nên vượt quá 1 giờ (60 phút = hai block 30 phút). Theo quy định vượt giờ tính 500 yên/30 phút (dòng 11: 30分ごとに500円が加算) -> Phụ phí phòng họp: 500 x 2 = 1.000 yên.\n4. Tổng chi phí 1 tháng của Linh = 6.000 + 1.000 = 7.000 yên. Đáp án đúng là 7,000円 (lựa chọn thứ 2).",
+          "tip": "Đọc kỹ các ràng buộc: khung giờ làm việc để chọn gói tương ứng, đối tượng ưu đãi để trừ tiền giảm giá, số giờ phòng họp thực tế trừ đi định mức miễn phí rồi tính phụ phí vượt giờ.",
+          "evi": [
+            5,
+            9,
+            11
+          ],
+          "qt": {
+            "q": "Sinh viên đại học Lin muốn làm việc từ 10:00 đến 16:00 vào ngày thường và sử dụng phòng họp 3 giờ mỗi tháng. Phí sử dụng trong một tháng của Lin là bao nhiêu?",
+            "o": [
+              "6.000 yên",
+              "7.000 yên",
+              "8.000 yên",
+              "9.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "起業して半年（1年未満）のヤンさんはデイプランを利用しており、今週の日曜日に施設を利用する予定です。また、別の日の利用予約を取り消したいと考えています。ヤンさんに関する説明として最も適切なものはどれですか。",
+          "options": [
+            "大学生ではないため月額料金の割引は受けられず、日曜日の利用も追加料金は発生しない。",
+            "月額基本料から2,000円の割引が適用され、日曜日に利用する場合は1,500円の追加料金を支払う。",
+            "予約のキャンセルは利用日前日の15時に申し出た場合でも、利用料金の全額を負担しなければならない。",
+            "初回登録時に本人確認書類の提示は免除されるが、休日の利用には事前の特別審査が必要である。"
+          ],
+          "answer": 1,
+          "explainVi": "1. Yang khởi nghiệp được nửa năm (dưới 1 năm), theo dòng 9 '創業1年未満の起業家に対する特別支援として、月額基本料から2,000円を割り引きます' thì Yang được hưởng chính sách giảm 2.000 yên/tháng.\n2. Yang dùng gói Day Plan nhưng muốn dùng vào ngày Chủ Nhật (ngày nghỉ), theo dòng 10 'デイプラン会員における休日の利用に対しては、1日あたり1,500円の追加料金が必要です' thì phải trả thêm 1.500 yên/ngày.\n3. Do đó lựa chọn thứ 2 là hoàn toàn chính xác.\n* Lựa chọn 1 sai vì Yang vẫn được giảm giá và phải trả phụ phí ngày nghỉ.\n* Lựa chọn 3 sai vì nếu hủy trước 18:00 của ngày hôm trước (前日18時まで) thì hoàn toàn không mất phí (dòng 13).\n* Lựa chọn 4 sai vì bắt buộc phải xuất trình giấy tờ chứng minh danh tính khi đăng ký lần đầu (dòng 15) và không có quy định thẩm định đặc biệt.",
+          "tip": "Xác định rõ tư cách đối tượng (khởi nghiệp dưới 1 năm -> được giảm giá), loại gói và ngày đến (gói ngày dùng ngày nghỉ -> chịu phụ phí), quy định mốc thời gian hủy hẹn.",
+          "evi": [
+            9,
+            10,
+            13
+          ],
+          "qt": {
+            "q": "Anh Yan đã khởi nghiệp được nửa năm (dưới 1 năm), đang sử dụng gói ban ngày và dự định sử dụng cơ sở vào Chủ nhật tuần này. Anh ấy cũng muốn hủy đặt chỗ sử dụng vào một ngày khác. Mô tả nào sau đây về anh Yan là phù hợp nhất?",
+            "o": [
+              "Vì không phải là sinh viên đại học nên không được giảm phí hằng tháng, và việc sử dụng vào Chủ nhật cũng không phát sinh phụ phí.",
+              "Được giảm 2.000 yên từ phí cơ bản hằng tháng, và nếu sử dụng vào Chủ nhật thì phải trả thêm 1.500 yên.",
+              "Ngay cả khi thông báo hủy đặt chỗ lúc 15:00 ngày trước ngày sử dụng, vẫn phải chịu toàn bộ phí sử dụng.",
+              "Khi đăng ký lần đầu được miễn xuất trình giấy tờ xác minh danh tính, nhưng cần được xét duyệt đặc biệt trước khi sử dụng vào ngày nghỉ."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

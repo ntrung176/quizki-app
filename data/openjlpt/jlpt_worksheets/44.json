@@ -1,0 +1,4372 @@
+{
+  "bai": 44,
+  "level": "N4",
+  "intro": "Vすぎます／Aすぎます (~ quá mức, thường tiêu cực) · Vやすい／にくいです (dễ/khó làm ~) · V方[かた] (cách làm ~). Có ÔN LẠI ngữ pháp đã học (bài 1-43) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "昨日のパーティーで食べすぎて、今日はお腹が痛い。",
+              "ul": "食べすぎて",
+              "choices": [
+                "たべすぎて",
+                "くいすぎて",
+                "しょくすぎて",
+                "めしすぎて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食べ」là thân của động từ「食べる」(ăn), đọc là「たべ」. Kết hợp với「すぎて」thành「たべすぎて」(ăn quá nhiều rồi). Đáp án A「たべすぎて」là đúng. B「くいすぎて」là cách đọc của「食い」(dạng rút gọn thô của「食う」), không phải「食べ」. C「しょくすぎて」lấy âm on-yomi「しょく」ghép nhầm. D「めしすぎて」dùng từ「飯」(めし, cơm) hoàn toàn không liên quan.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "食べすぎて",
+                  "vi": "ăn quá nhiều (rồi)"
+                },
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "お腹",
+                  "read": "おなか",
+                  "vi": "bụng"
+                },
+                {
+                  "t": "痛い",
+                  "read": "いたい",
+                  "vi": "đau"
+                }
+              ]
+            },
+            {
+              "prompt": "この辞書は使いやすくて、初心者にもおすすめです。",
+              "ul": "辞書",
+              "choices": [
+                "じしょ",
+                "じしょう",
+                "じせい",
+                "じしゅ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「辞書」(từ điển) đọc là「じしょ」. Đáp án A「じしょ」là đúng. B「じしょう」thêm âm kéo dài không có trong từ này, dễ nhầm vì nghe gần. C「じせい」là từ khác hoàn toàn (「自制」tự kiềm chế). D「じしゅ」cũng là từ khác (「自主」tự chủ), không liên quan đến từ điển.",
+              "glosses": [
+                {
+                  "t": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "使いやすくて",
+                  "read": "つかいやすくて",
+                  "vi": "dễ sử dụng"
+                },
+                {
+                  "t": "初心者",
+                  "read": "しょしんしゃ",
+                  "vi": "người mới bắt đầu"
+                },
+                {
+                  "t": "おすすめ",
+                  "vi": "được khuyến nghị, đáng dùng"
+                }
+              ]
+            },
+            {
+              "prompt": "高すぎる値段のレストランには、なかなか行けない。",
+              "ul": "値段",
+              "choices": [
+                "ねだん",
+                "ねだい",
+                "かちだん",
+                "かかく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「値段」(giá cả) đọc là「ねだん」. Đáp án A「ねだん」là đúng. B「ねだい」đổi âm cuối「だん」thành「だい」— là cách đọc sai thường gặp vì nhiều từ có âm「だい」(「代」). C「かちだん」không tồn tại. D「かかく」là cách đọc của「価格」(giá trị/giá) — đây là từ đồng nghĩa gần nhưng không phải cách đọc của「値段」.",
+              "glosses": [
+                {
+                  "t": "高すぎる",
+                  "read": "たかすぎる",
+                  "vi": "đắt quá"
+                },
+                {
+                  "t": "値段",
+                  "vi": "giá cả"
+                },
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "なかなか",
+                  "vi": "không dễ, khó mà"
+                },
+                {
+                  "t": "行けない",
+                  "read": "いけない",
+                  "vi": "không thể đi"
+                }
+              ]
+            },
+            {
+              "prompt": "このナイフは切りにくいから、別のものを使ってください。",
+              "ul": "切りにくい",
+              "choices": [
+                "きりにくい",
+                "せつりにくい",
+                "きれにくい",
+                "さきにくい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「切り」là thân của「切る」(cắt), đọc là「きり」, kết hợp「にくい」thành「きりにくい」(khó cắt). Đáp án A「きりにくい」là đúng. B「せつりにくい」dùng âm on-yomi「せつ」của「切」ghép sai. C「きれにくい」dùng dạng khả năng「切れる」— sai vì khi ghép「にくい」phải dùng thân masu-form「切り」. D「さきにくい」là thân của「裂く」(xé) hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "ナイフ",
+                  "vi": "dao"
+                },
+                {
+                  "t": "切りにくい",
+                  "vi": "khó cắt"
+                },
+                {
+                  "t": "別の",
+                  "read": "べつの",
+                  "vi": "cái khác"
+                },
+                {
+                  "t": "使ってください",
+                  "read": "つかってください",
+                  "vi": "hãy sử dụng"
+                }
+              ]
+            },
+            {
+              "prompt": "料理の作り方をインターネットで調べました。",
+              "ul": "作り方",
+              "choices": [
+                "つくりかた",
+                "さくりかた",
+                "つくりほう",
+                "さくりほう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「作り方」(cách làm) đọc là「つくりかた」— thân「作り」(つくり) + 「方」đọc là「かた」trong nghĩa 'cách'. Đáp án A「つくりかた」là đúng. B「さくりかた」dùng âm on-yomi「さく」của「作」— sai vì trong cấu trúc「V方」thường dùng âm kun. C「つくりほう」đọc「方」là「ほう」(hướng/phía) — sai ngữ cảnh, vì「方」=cách đọc là「かた」. D kết hợp cả hai lỗi trên.",
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn, việc nấu ăn"
+                },
+                {
+                  "t": "作り方",
+                  "vi": "cách làm"
+                },
+                {
+                  "t": "インターネット",
+                  "vi": "internet"
+                },
+                {
+                  "t": "調べました",
+                  "read": "しらべました",
+                  "vi": "đã tra cứu"
+                }
+              ]
+            },
+            {
+              "prompt": "甘すぎるケーキを一人で全部食べてしまった。",
+              "ul": "甘すぎる",
+              "choices": [
+                "あまいすぎる",
+                "あますぎる",
+                "かんすぎる",
+                "あわすぎる"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「甘すぎる」(ngọt quá) ghép thân tính từ「甘い」→ bỏ「い」còn「甘」(あま) + 「すぎる」→「あますぎる」. Đáp án B「あますぎる」là đúng. A「あまいすぎる」giữ nguyên「い」rồi mới thêm「すぎる」— sai cú pháp, nhưng người học hay lầm. C「かんすぎる」dùng âm on-yomi「かん」của「甘」. D「あわすぎる」là cách đọc của「淡い」(nhạt) không liên quan.",
+              "glosses": [
+                {
+                  "t": "甘すぎる",
+                  "vi": "ngọt quá"
+                },
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh kem"
+                },
+                {
+                  "t": "一人で",
+                  "read": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "食べてしまった",
+                  "read": "たべてしまった",
+                  "vi": "đã ăn hết mất rồi"
+                }
+              ]
+            },
+            {
+              "prompt": "このペンは書きやすいので、毎日使っています。",
+              "ul": "書きやすい",
+              "choices": [
+                "かきやすい",
+                "しょきやすい",
+                "かいやすい",
+                "かけやすい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書き」là thân masu-form của「書く」(viết), đọc là「かき」+ 「やすい」→「かきやすい」. Đáp án A「かきやすい」là đúng. B「しょきやすい」dùng âm on-yomi「しょ」của「書」. C「かいやすい」bỏ「き」thành「かい」— gần với「買い」(かい, mua) gây nhầm. D「かけやすい」dùng dạng khả năng「書ける」(かける)— sai vì phải dùng thân masu-form.",
+              "glosses": [
+                {
+                  "t": "ペン",
+                  "vi": "bút"
+                },
+                {
+                  "t": "書きやすい",
+                  "vi": "dễ viết"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "使っています",
+                  "read": "つかっています",
+                  "vi": "đang dùng"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に質問の仕方を教えてもらいました。",
+              "ul": "質問",
+              "choices": [
+                "しつもん",
+                "しつぶん",
+                "しちもん",
+                "しちぶん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「質問」(câu hỏi) đọc là「しつもん」—「質」đọc「しつ」,「問」đọc「もん」. Đáp án A「しつもん」là đúng. B「しつぶん」đổi「もん」→「ぶん」(「文」= văn/câu) — gây nhầm vì「ぶん」cũng là từ thông dụng. C「しちもん」đổi「しつ」→「しち」(số 7) — phát âm gần nhau trong tiếng Nhật. D「しちぶん」kết hợp cả hai lỗi C và B.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "質問",
+                  "vi": "câu hỏi"
+                },
+                {
+                  "t": "仕方",
+                  "read": "しかた",
+                  "vi": "cách làm"
+                },
+                {
+                  "t": "教えてもらいました",
+                  "read": "おしえてもらいました",
+                  "vi": "đã được dạy cho"
+                }
+              ]
+            },
+            {
+              "prompt": "この機械は複雑で、操作しにくい。",
+              "ul": "機械",
+              "choices": [
+                "きかい",
+                "きけい",
+                "きがい",
+                "きょかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「機械」(máy móc) đọc là「きかい」—「機」đọc「き」,「械」đọc「かい」. Đáp án A「きかい」là đúng. B「きけい」đổi「かい」→「けい」(「系」= hệ thống) — gần âm, dễ nhầm. C「きがい」đổi「かい」→「がい」(「害」= hại) — trường hợp trọc/bán trọc thường gặp. D「きょかい」thêm âm「ょ」không có trong từ này, khó nhầm hơn nhưng vẫn là bẫy.",
+              "glosses": [
+                {
+                  "t": "機械",
+                  "vi": "máy móc"
+                },
+                {
+                  "t": "複雑で",
+                  "read": "ふくざつで",
+                  "vi": "phức tạp"
+                },
+                {
+                  "t": "操作しにくい",
+                  "read": "そうさしにくい",
+                  "vi": "khó thao tác"
+                }
+              ]
+            },
+            {
+              "prompt": "スーパーでお菓子を買いすぎてしまいました。",
+              "ul": "お菓子",
+              "choices": [
+                "おかし",
+                "おかじ",
+                "おかそ",
+                "おがし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「お菓子」(bánh kẹo) đọc là「おかし」—「菓」đọc「か」,「子」đọc「し」. Đáp án A「おかし」là đúng. B「おかじ」đổi「し」→「じ」(trọc hóa) — bẫy trọc/bán trọc phổ biến. C「おかそ」đổi âm cuối「し」→「そ」vô nghĩa nhưng gây phân tâm. D「おがし」trọc hóa「か」→「が」— bẫy khác cho âm giữa.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "お菓子",
+                  "vi": "bánh kẹo, đồ ăn vặt"
+                },
+                {
+                  "t": "買いすぎてしまいました",
+                  "read": "かいすぎてしまいました",
+                  "vi": "đã mua quá nhiều mất rồi"
+                }
+              ]
+            },
+            {
+              "prompt": "この靴は歩きにくくて、足が痛くなった。",
+              "ul": "靴",
+              "choices": [
+                "くつ",
+                "くず",
+                "かぐ",
+                "くしゅ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「靴」(giày) đọc là「くつ」— đây là từ thuần Nhật (kun-yomi). Đáp án A「くつ」là đúng. B「くず」đổi「つ」→「ず」(trọc hóa) — bẫy trọc âm cuối, vì「くず」là từ thật (cặn bã). C「かぐ」là cách đọc của「家具」(đồ nội thất) — không liên quan. D「くしゅ」thêm「し」chen vào giữa — cách phát âm sai phổ biến với người mới học.",
+              "glosses": [
+                {
+                  "t": "靴",
+                  "vi": "giày"
+                },
+                {
+                  "t": "歩きにくくて",
+                  "read": "あるきにくくて",
+                  "vi": "khó đi bộ (vì...)"
+                },
+                {
+                  "t": "足",
+                  "read": "あし",
+                  "vi": "chân"
+                },
+                {
+                  "t": "痛くなった",
+                  "read": "いたくなった",
+                  "vi": "đã trở nên đau"
+                }
+              ]
+            },
+            {
+              "prompt": "食べすぎは健康によくないと医者に言われた。",
+              "ul": "健康",
+              "choices": [
+                "けんこう",
+                "けんこ",
+                "けんごう",
+                "きんこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「健康」(sức khỏe) đọc là「けんこう」—「健」đọc「けん」,「康」đọc「こう」. Đáp án A「けんこう」là đúng. B「けんこ」thiếu âm kéo dài「う」— lỗi bỏ sót trường âm rất phổ biến. C「けんごう」trọc hóa「こう」→「ごう」— bẫy trọc hóa giữa từ. D「きんこう」đổi「けん」→「きん」— gần với「均衡」(cân bằng) hoặc「近郊」(vùng ngoại ô) gây nhầm.",
+              "glosses": [
+                {
+                  "t": "食べすぎ",
+                  "read": "たべすぎ",
+                  "vi": "việc ăn quá nhiều"
+                },
+                {
+                  "t": "健康",
+                  "vi": "sức khỏe"
+                },
+                {
+                  "t": "よくない",
+                  "vi": "không tốt"
+                },
+                {
+                  "t": "医者",
+                  "read": "いしゃ",
+                  "vi": "bác sĩ"
+                },
+                {
+                  "t": "言われた",
+                  "read": "いわれた",
+                  "vi": "được nói, bị bảo"
+                }
+              ]
+            },
+            {
+              "prompt": "このソフトは使い方が難しくて、覚えにくい。",
+              "ul": "難しくて",
+              "choices": [
+                "むずかしくて",
+                "なんしくて",
+                "きびしくて",
+                "むつかしくて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「難しい」(khó) đọc là「むずかしい」— dạng て-form là「むずかしくて」. Đáp án A「むずかしくて」là đúng. B「なんしくて」dùng âm on-yomi「なん」(「難」) ghép sai. C「きびしくて」là dạng て-form của「厳しい」(nghiêm khắc) — từ khác hoàn toàn về nghĩa, nhưng phát âm tương tự dễ gây nhầm. D「むつかしくて」là biến thể phương ngữ cũ của「むずかしい」— đôi khi gặp nhưng không phải cách đọc chuẩn hiện đại.",
+              "glosses": [
+                {
+                  "t": "ソフト",
+                  "vi": "phần mềm"
+                },
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "難しくて",
+                  "vi": "khó (nên...)"
+                },
+                {
+                  "t": "覚えにくい",
+                  "read": "おぼえにくい",
+                  "vi": "khó nhớ, khó học thuộc"
+                }
+              ]
+            },
+            {
+              "prompt": "値段が高すぎて、そのカメラは買えなかった。",
+              "ul": "買えなかった",
+              "choices": [
+                "かえなかった",
+                "こえなかった",
+                "かいなかった",
+                "くえなかった"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「買える」là dạng khả năng của「買う」(mua), đọc là「かえる」— phủ định quá khứ là「かえなかった」. Đáp án A「かえなかった」là đúng. B「こえなかった」là phủ định quá khứ của「越える」(vượt qua) — hoàn toàn khác nghĩa. C「かいなかった」dùng thân「買い」thay vì dạng khả năng「買え」— sai vì「かいない」không tồn tại. D「くえなかった」gần với「食えない」(không thể ăn) — nhầm sang động từ khác.",
+              "glosses": [
+                {
+                  "t": "値段",
+                  "read": "ねだん",
+                  "vi": "giá cả"
+                },
+                {
+                  "t": "高すぎて",
+                  "read": "たかすぎて",
+                  "vi": "đắt quá (nên...)"
+                },
+                {
+                  "t": "カメラ",
+                  "vi": "máy ảnh"
+                },
+                {
+                  "t": "買えなかった",
+                  "vi": "đã không thể mua được"
+                }
+              ]
+            },
+            {
+              "prompt": "このレシピの作り方はとても簡単で、初めての人でもできます。",
+              "ul": "簡単",
+              "choices": [
+                "かんたん",
+                "かんだん",
+                "かんたい",
+                "かんだい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「簡単」(đơn giản) đọc là「かんたん」—「簡」đọc「かん」,「単」đọc「たん」. Đáp án A「かんたん」là đúng. B「かんだん」trọc hóa「たん」→「だん」— bẫy trọc hóa rất phổ biến với người Việt vì không quen phân biệt trọc/bán trọc. C「かんたい」đổi âm cuối「ん」→「い」— gần với「感謝」hoặc「寒帯」gây phân tâm. D「かんだい」kết hợp cả trọc hóa và đổi âm cuối — bẫy kép.",
+              "glosses": [
+                {
+                  "t": "レシピ",
+                  "vi": "công thức nấu ăn"
+                },
+                {
+                  "t": "作り方",
+                  "read": "つくりかた",
+                  "vi": "cách làm"
+                },
+                {
+                  "t": "簡単",
+                  "vi": "đơn giản, dễ dàng"
+                },
+                {
+                  "t": "初めての人",
+                  "read": "はじめてのひと",
+                  "vi": "người lần đầu"
+                },
+                {
+                  "t": "でもできます",
+                  "vi": "cũng có thể làm được"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất, hết sức"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "ゆうべ、すしをたべすぎて、おなかがいたくなりました。",
+              "ul": "たべすぎて",
+              "choices": [
+                "食べ",
+                "炊べ",
+                "喰べ",
+                "飲べ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食べすぎる」là ăn quá nhiều, chữ đúng là 「食」(thực/ăn). 「炊」(xuy) có nghĩa là nấu cơm, không phải ăn. 「喰」là chữ Hán không chuẩn/thông tục cũng đọc là「く」, không dùng trong văn viết chuẩn N4. 「飲」(ẩm) nghĩa là uống, không phải ăn.",
+              "glosses": [
+                {
+                  "t": "たべすぎて",
+                  "read": "食べすぎて",
+                  "vi": "ăn quá nhiều (và)"
+                },
+                {
+                  "t": "おなかがいたく",
+                  "read": "お腹が痛く",
+                  "vi": "bụng đau"
+                },
+                {
+                  "t": "なりました",
+                  "vi": "đã trở nên"
+                },
+                {
+                  "t": "ゆうべ",
+                  "read": "ゆうべ",
+                  "vi": "tối qua, đêm qua"
+                },
+                {
+                  "t": "すし",
+                  "read": "すし",
+                  "vi": "sushi (cơm nắm/cuộn cá sống Nhật)"
+                }
+              ]
+            },
+            {
+              "prompt": "このケーキはあまりにもあまくて、たべにくいです。",
+              "ul": "たべにくい",
+              "choices": [
+                "食べにくい",
+                "炊べにくい",
+                "食べやすい",
+                "飲みにくい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食べにくい」nghĩa là khó ăn, kết hợp 「食べ」(ăn) + 「にくい」(khó). 「炊べにくい」sai vì 「炊」nghĩa là nấu cơm, không phải ăn. 「食べやすい」nghĩa ngược lại — dễ ăn. 「飲みにくい」nghĩa là khó uống, không phải khó ăn.",
+              "glosses": [
+                {
+                  "t": "あまりにも",
+                  "vi": "quá mức, thái quá"
+                },
+                {
+                  "t": "あまくて",
+                  "read": "甘くて",
+                  "vi": "ngọt (và)"
+                },
+                {
+                  "t": "たべにくい",
+                  "read": "食べにくい",
+                  "vi": "khó ăn"
+                },
+                {
+                  "t": "ケーキ",
+                  "read": "ケーキ",
+                  "vi": "bánh ngọt (cake)"
+                }
+              ]
+            },
+            {
+              "prompt": "このナイフはてにもちやすくて、りょうりがしやすいです。",
+              "ul": "もちやすくて",
+              "choices": [
+                "持ち",
+                "待ち",
+                "取り",
+                "握り"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「持ちやすい」nghĩa là dễ cầm/dễ cầm nắm, từ「持つ」(cầm, giữ). 「待ち」từ「待つ」nghĩa là chờ đợi, không liên quan. 「取り」từ「取る」nghĩa là lấy/lấy đi, không phải cầm giữ. 「握り」từ「握る」nghĩa là nắm chặt — có nghĩa gần nhưng câu hỏi hỏi về chữ 「持」, không phải 「握」.",
+              "glosses": [
+                {
+                  "t": "てにもちやすくて",
+                  "read": "手に持ちやすくて",
+                  "vi": "dễ cầm trên tay (và)"
+                },
+                {
+                  "t": "りょうりがしやすい",
+                  "read": "料理がしやすい",
+                  "vi": "dễ nấu ăn"
+                },
+                {
+                  "t": "ナイフ",
+                  "read": "ナイフ",
+                  "vi": "con dao (knife)"
+                }
+              ]
+            },
+            {
+              "prompt": "デパートでふくをかいすぎて、おかねがなくなりました。",
+              "ul": "かいすぎて",
+              "choices": [
+                "買い",
+                "貝い",
+                "飼い",
+                "替い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「買いすぎる」là mua quá nhiều, chữ đúng là 「買」(mãi/mua). 「貝」(bối) là con sò/vỏ ốc, đọc giống nhưng nghĩa hoàn toàn khác. 「飼い」từ「飼う」nghĩa là nuôi (thú vật), không phải mua. 「替い」không phải từ chuẩn; 「替」thường dùng trong「替える」(thay thế), không phải mua.",
+              "glosses": [
+                {
+                  "t": "かいすぎて",
+                  "read": "買いすぎて",
+                  "vi": "mua quá nhiều (và)"
+                },
+                {
+                  "t": "おかねがなくなりました",
+                  "read": "お金がなくなりました",
+                  "vi": "hết tiền rồi"
+                },
+                {
+                  "t": "デパート",
+                  "read": "デパート",
+                  "vi": "cửa hàng bách hóa, trung tâm mua sắm"
+                },
+                {
+                  "t": "ふく",
+                  "read": "ふく",
+                  "vi": "quần áo"
+                }
+              ]
+            },
+            {
+              "prompt": "このてぶくろはうすすぎて、ふゆにつかうにはさむいです。",
+              "ul": "うすすぎて",
+              "choices": [
+                "薄",
+                "薬",
+                "薰",
+                "藻"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「薄すぎる」nghĩa là quá mỏng, chữ đúng là 「薄」(bạc/mỏng). 「薬」(dược) nghĩa là thuốc, hình dạng hơi giống 「薄」nhưng nghĩa hoàn toàn khác. 「薰」(huân) nghĩa là hương thơm/xông khói, không liên quan. 「藻」(tảo) nghĩa là rong biển, không liên quan.",
+              "glosses": [
+                {
+                  "t": "うすすぎて",
+                  "read": "薄すぎて",
+                  "vi": "mỏng quá (và)"
+                },
+                {
+                  "t": "てぶくろ",
+                  "read": "手袋",
+                  "vi": "găng tay"
+                },
+                {
+                  "t": "ふゆにつかうには",
+                  "read": "冬に使うには",
+                  "vi": "để dùng vào mùa đông"
+                },
+                {
+                  "t": "さむい",
+                  "read": "さむい",
+                  "vi": "lạnh (thời tiết)"
+                }
+              ]
+            },
+            {
+              "prompt": "このはこのあけかたをおしえてください。",
+              "ul": "あけかた",
+              "choices": [
+                "開け",
+                "明け",
+                "空け",
+                "飽け"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「開け方」nghĩa là cách mở (hộp), từ「開ける」(mở). 「明け」từ「明ける」nghĩa là (trời) sáng/hết (ví dụ năm mới), không phải mở hộp. 「空け」từ「空ける」nghĩa là làm trống/dọn chỗ, khác với「開ける」mở ra. 「飽け」từ「飽きる」nghĩa là chán, không liên quan.",
+              "glosses": [
+                {
+                  "t": "はこ",
+                  "read": "箱",
+                  "vi": "cái hộp"
+                },
+                {
+                  "t": "あけかた",
+                  "read": "開け方",
+                  "vi": "cách mở"
+                },
+                {
+                  "t": "おしえてください",
+                  "read": "教えてください",
+                  "vi": "xin hãy chỉ cho tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "このりょうりはからすぎて、こどもにはむずかしいです。",
+              "ul": "からすぎて",
+              "choices": [
+                "辛",
+                "幸",
+                "辱",
+                "新"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「辛すぎる」nghĩa là quá cay, chữ đúng là 「辛」(tân/cay). 「幸」(hạnh) nghĩa là hạnh phúc/may mắn, đọc là「こう/さち」, không phải cay. 「辱」(nhục) nghĩa là nhục nhã/xấu hổ, hình dạng gần 「辛」nhưng nghĩa khác hoàn toàn. 「新」(tân/mới) đọc là「しん/あたら」, nghĩa là mới, không phải cay.",
+              "glosses": [
+                {
+                  "t": "からすぎて",
+                  "read": "辛すぎて",
+                  "vi": "cay quá (và)"
+                },
+                {
+                  "t": "こどもにはむずかしい",
+                  "read": "子どもには難しい",
+                  "vi": "khó đối với trẻ em"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "りょうり",
+                  "vi": "món ăn, nấu ăn, ẩm thực"
+                }
+              ]
+            },
+            {
+              "prompt": "このペンはかきやすくて、まいにちつかっています。",
+              "ul": "かきやすくて",
+              "choices": [
+                "書き",
+                "描き",
+                "欠き",
+                "掻き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書きやすい」nghĩa là dễ viết, từ「書く」(viết chữ). 「描き」từ「描く」nghĩa là vẽ (tranh), không phải viết chữ. 「欠き」từ「欠く」nghĩa là thiếu/khuyết, không liên quan đến viết. 「掻き」từ「掻く」nghĩa là cào/gãi, không phải viết.",
+              "glosses": [
+                {
+                  "t": "かきやすくて",
+                  "read": "書きやすくて",
+                  "vi": "dễ viết (và)"
+                },
+                {
+                  "t": "まいにちつかっています",
+                  "read": "毎日使っています",
+                  "vi": "đang dùng hằng ngày"
+                },
+                {
+                  "t": "ペン",
+                  "read": "ペン",
+                  "vi": "cây bút (pen)"
+                }
+              ]
+            },
+            {
+              "prompt": "このそうじきはおもすぎて、つかいにくいです。",
+              "ul": "おもすぎて",
+              "choices": [
+                "重",
+                "童",
+                "動",
+                "働"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「重すぎる」nghĩa là quá nặng, chữ đúng là 「重」(trọng/nặng). 「童」(đồng) nghĩa là trẻ em/đứa bé, hình dạng hơi giống 「重」nhưng nghĩa hoàn toàn khác. 「動」(động) nghĩa là di chuyển/chuyển động, không phải nặng. 「働」(động/làm việc) nghĩa là lao động, cũng không phải nặng.",
+              "glosses": [
+                {
+                  "t": "そうじき",
+                  "read": "掃除機",
+                  "vi": "máy hút bụi"
+                },
+                {
+                  "t": "おもすぎて",
+                  "read": "重すぎて",
+                  "vi": "nặng quá (và)"
+                },
+                {
+                  "t": "つかいにくい",
+                  "read": "使いにくい",
+                  "vi": "khó sử dụng"
+                }
+              ]
+            },
+            {
+              "prompt": "このじしょはみやすくて、べんきょうにやくにたちます。",
+              "ul": "みやすくて",
+              "choices": [
+                "見",
+                "見え",
+                "観",
+                "覧"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「見やすい」nghĩa là dễ nhìn/dễ xem, từ 「見る」(nhìn, xem). Khi ghép với 「やすい」phải dùng thể masu-stem: 「見」(み). 「見え」là thể tiếp diễn/khả năng「見える」, không ghép được với 「やすい」. 「観」(quan) đọc là「かん」hoặc「み」nhưng chỉ dùng trong「観る」(xem biểu diễn, phim); từ điển không dùng 「観」. 「覧」(lãm) đọc「らん」, dùng trong「ご覧」(xin xem), không ghép với 「やすい」theo cách này.",
+              "glosses": [
+                {
+                  "t": "じしょ",
+                  "read": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "みやすくて",
+                  "read": "見やすくて",
+                  "vi": "dễ nhìn/tra (và)"
+                },
+                {
+                  "t": "やくにたちます",
+                  "read": "役に立ちます",
+                  "vi": "có ích"
+                },
+                {
+                  "t": "べんきょう",
+                  "read": "べんきょう",
+                  "vi": "học tập, sự học"
+                }
+              ]
+            },
+            {
+              "prompt": "ごはんのたきかたをおかあさんにおそわりました。",
+              "ul": "たきかた",
+              "choices": [
+                "炊き",
+                "焚き",
+                "炒き",
+                "煮き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「炊き方」nghĩa là cách nấu cơm, từ「炊く」(nấu cơm/nấu gạo). 「焚き」từ「焚く」nghĩa là đốt lửa/thiêu, không phải nấu cơm. 「炒き」không phải từ chuẩn — 「炒める」(xào) không có dạng「炒く」. 「煮き」cũng không chuẩn — 「煮る」(ninh/luộc) không có dạng「煮く」.",
+              "glosses": [
+                {
+                  "t": "ごはん",
+                  "read": "ご飯",
+                  "vi": "cơm"
+                },
+                {
+                  "t": "たきかた",
+                  "read": "炊き方",
+                  "vi": "cách nấu cơm"
+                },
+                {
+                  "t": "おそわりました",
+                  "read": "教わりました",
+                  "vi": "đã được dạy/học từ"
+                },
+                {
+                  "t": "おかあさん",
+                  "read": "おかあさん",
+                  "vi": "mẹ"
+                }
+              ]
+            },
+            {
+              "prompt": "このくつははきやすくて、まいにちはいています。",
+              "ul": "はきやすくて",
+              "choices": [
+                "履き",
+                "吐き",
+                "掃き",
+                "剥き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「履きやすい」nghĩa là dễ đi (giày/dép), từ「履く」(đi giày, mang giày dép). 「吐き」từ「吐く」nghĩa là nôn/thở ra, cùng âm「はく」nhưng nghĩa hoàn toàn khác. 「掃き」từ「掃く」nghĩa là quét dọn, cũng đọc「はく」nhưng không liên quan đến giày. 「剥き」từ「剥く」nghĩa là lột vỏ, đọc「むく」, không phải「はく」.",
+              "glosses": [
+                {
+                  "t": "くつ",
+                  "read": "靴",
+                  "vi": "giày"
+                },
+                {
+                  "t": "はきやすくて",
+                  "read": "履きやすくて",
+                  "vi": "dễ đi (và)"
+                },
+                {
+                  "t": "はいています",
+                  "read": "履いています",
+                  "vi": "đang đi/mang"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "hằng ngày, mỗi ngày"
+                }
+              ]
+            },
+            {
+              "prompt": "このにもつはおもすぎて、ひとりでははこべません。",
+              "ul": "はこべません",
+              "choices": [
+                "運べ",
+                "箱べ",
+                "動べ",
+                "送べ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「運べません」là thể khả năng phủ định của「運ぶ」(chuyên chở/mang vác), chữ đúng là 「運」(vận). 「箱」(tương/hộp) nghĩa là cái hộp, đọc là「はこ」; dù phát âm giống「運べ」nhưng nghĩa hoàn toàn khác. 「動べ」không phải từ tiếng Nhật — 「動く」(di chuyển) không có dạng khả năng「動べ」. 「送べ」cũng không tồn tại — 「送る」(gửi) có dạng khả năng là「送れる」, không phải「送べ」.",
+              "glosses": [
+                {
+                  "t": "にもつ",
+                  "read": "荷物",
+                  "vi": "hành lý/đồ đạc"
+                },
+                {
+                  "t": "おもすぎて",
+                  "read": "重すぎて",
+                  "vi": "nặng quá (và)"
+                },
+                {
+                  "t": "ひとりでははこべません",
+                  "read": "一人では運べません",
+                  "vi": "một mình không mang được"
+                }
+              ]
+            },
+            {
+              "prompt": "このやかんのつかいかたがわかりません。おしえてもらえますか。",
+              "ul": "つかいかた",
+              "choices": [
+                "使い",
+                "遣い",
+                "仕い",
+                "使え"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「使い方」nghĩa là cách sử dụng, từ 「使う」(dùng/sử dụng), masu-stem là「使い」. 「遣い」từ「遣う」(dùng — thường dùng cho tiền/người:「お遣い」,「気遣い」), nghĩa hẹp hơn và không phải cách viết chuẩn cho dụng cụ. 「仕い」không phải từ tiếng Nhật chuẩn — 「仕」xuất hiện trong「仕事」nhưng không ghép「仕い方」. 「使え」là thể mệnh lệnh/khả năng của「使う」, không phải masu-stem để ghép với「方」.",
+              "glosses": [
+                {
+                  "t": "やかん",
+                  "read": "薬缶",
+                  "vi": "ấm đun nước"
+                },
+                {
+                  "t": "つかいかた",
+                  "read": "使い方",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "おしえてもらえますか",
+                  "read": "教えてもらえますか",
+                  "vi": "bạn có thể chỉ cho tôi không?"
+                },
+                {
+                  "t": "わかりません",
+                  "read": "わかりません",
+                  "vi": "không hiểu, không biết"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "このケーキは甘＿て、半分しか食べられなかった。",
+              "choices": [
+                "すぎ",
+                "やすく",
+                "にくく",
+                "かた"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói rằng bánh ngọt quá nên chỉ ăn được một nửa. Cấu trúc 「Aすぎる」 diễn tả tính chất vượt quá mức bình thường. Đáp án đúng: 「すぎ」(すぎる = quá mức). — 「やすく」có nghĩa là 'dễ làm gì', không phù hợp vì không nói đến việc dễ ăn hay khó ăn. — 「にくく」có nghĩa là 'khó làm gì', cũng không phù hợp ngữ cảnh. — 「かた」(方) là 'cách thức', hoàn toàn sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh ngọt"
+                },
+                {
+                  "t": "甘",
+                  "read": "あま",
+                  "vi": "ngọt"
+                },
+                {
+                  "t": "半分",
+                  "read": "はんぶん",
+                  "vi": "một nửa"
+                },
+                {
+                  "t": "食べられなかった",
+                  "read": "たべられなかった",
+                  "vi": "không ăn được"
+                },
+                {
+                  "t": "しか",
+                  "read": "しか",
+                  "vi": "chỉ, chỉ có (đi kèm phủ định phía sau)"
+                }
+              ]
+            },
+            {
+              "stem": "このナイフは手に持ちやすくて、料理が＿。",
+              "choices": [
+                "楽しい",
+                "しやすい",
+                "できる",
+                "難しい"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu nói con dao dễ cầm nên việc nấu ăn dễ làm. 「しやすい」= 'dễ làm', cấu trúc 「Vやすい」diễn tả hành động dễ thực hiện, phù hợp hoàn toàn. — 「楽しい」có nghĩa là 'vui vẻ', không diễn tả độ dễ/khó. — 「できる」có nghĩa là 'có thể làm được', không phải 'dễ làm'. — 「難しい」có nghĩa là 'khó khăn', trái nghĩa với ngữ cảnh câu.",
+              "glosses": [
+                {
+                  "t": "ナイフ",
+                  "vi": "con dao (bếp)"
+                },
+                {
+                  "t": "手に持ちやすくて",
+                  "read": "てにもちやすくて",
+                  "vi": "cầm tay dễ dàng"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "việc nấu ăn"
+                }
+              ]
+            },
+            {
+              "stem": "この説明書は字が小さすぎて、読み＿。",
+              "choices": [
+                "すぎる",
+                "やすい",
+                "にくい",
+                "かた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói chữ quá nhỏ nên khó đọc. Cấu trúc 「Vにくい」diễn tả hành động khó thực hiện. Đáp án đúng: 「にくい」. — 「すぎる」có nghĩa là 'quá mức', nhưng đứng sau danh động từ 「読み」không hợp cú pháp. — 「やすい」là 'dễ làm', trái nghĩa với ngữ cảnh (chữ nhỏ → khó đọc, không phải dễ đọc). — 「かた」(方) là 'cách thức', không phù hợp nghĩa.",
+              "glosses": [
+                {
+                  "t": "説明書",
+                  "read": "せつめいしょ",
+                  "vi": "sách hướng dẫn"
+                },
+                {
+                  "t": "字",
+                  "read": "じ",
+                  "vi": "chữ"
+                },
+                {
+                  "t": "小さすぎて",
+                  "read": "ちいさすぎて",
+                  "vi": "quá nhỏ"
+                },
+                {
+                  "t": "読み",
+                  "read": "よみ",
+                  "vi": "(thân động từ) đọc"
+                }
+              ]
+            },
+            {
+              "stem": "すみません、このアプリの使い＿を教えてもらえますか。",
+              "choices": [
+                "すぎ",
+                "やすさ",
+                "にくさ",
+                "方"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Câu hỏi nhờ chỉ 'cách dùng' ứng dụng. Cấu trúc 「V方（かた）」diễn tả cách thức thực hiện hành động. Đáp án đúng: 「方」(かた). — 「すぎ」là 'quá mức', không phù hợp vì không có ý 'dùng quá'. — 「やすさ」là 'sự dễ dàng (danh từ)', không phải 'cách dùng'. — 「にくさ」là 'sự khó khăn (danh từ)', cũng không phải 'cách dùng'.",
+              "glosses": [
+                {
+                  "t": "アプリ",
+                  "vi": "ứng dụng (app)"
+                },
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "教えてもらえますか",
+                  "read": "おしえてもらえますか",
+                  "vi": "có thể chỉ cho tôi không?"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, xin phép hỏi"
+                }
+              ]
+            },
+            {
+              "stem": "昨日の夜、食べ＿て、お腹が痛くなった。",
+              "choices": [
+                "やすく",
+                "にくく",
+                "すぎ",
+                "かた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói tối qua ăn quá nhiều nên bị đau bụng. 「食べすぎる」= 'ăn quá mức'. Đáp án đúng: 「すぎ」(dạng thân của すぎる, nối với て). — 「やすく」là 'dễ ăn', không phù hợp ngữ cảnh đau bụng. — 「にくく」là 'khó ăn', cũng không phù hợp vì ngữ cảnh là ăn quá nhiều. — 「かた」là 'cách ăn', hoàn toàn sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "食べ",
+                  "read": "たべ",
+                  "vi": "(thân động từ) ăn"
+                },
+                {
+                  "t": "お腹",
+                  "read": "おなか",
+                  "vi": "bụng"
+                },
+                {
+                  "t": "痛くなった",
+                  "read": "いたくなった",
+                  "vi": "bị đau"
+                },
+                {
+                  "t": "夜",
+                  "read": "よる",
+                  "vi": "buổi tối, ban đêm"
+                }
+              ]
+            },
+            {
+              "stem": "この包丁は重くて、女性には持ち＿。",
+              "choices": [
+                "すぎる",
+                "やすい",
+                "にくい",
+                "方だ"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói dao bếp nặng nên phụ nữ khó cầm. 「持ちにくい」= 'khó cầm', cấu trúc 「Vにくい」diễn tả hành động khó thực hiện. Đáp án đúng: 「にくい」. — 「すぎる」là 'quá mức', ghép vào 「持ち」thì thành 'cầm quá', không tự nhiên. — 「やすい」là 'dễ cầm', trái với ngữ cảnh (dao nặng → khó cầm). — 「方だ」là 'là cách...', sai cú pháp và nghĩa.",
+              "glosses": [
+                {
+                  "t": "包丁",
+                  "read": "ほうちょう",
+                  "vi": "con dao bếp"
+                },
+                {
+                  "t": "重くて",
+                  "read": "おもくて",
+                  "vi": "nặng"
+                },
+                {
+                  "t": "女性",
+                  "read": "じょせい",
+                  "vi": "phụ nữ"
+                },
+                {
+                  "t": "持ち",
+                  "read": "もち",
+                  "vi": "(thân động từ) cầm, giữ"
+                }
+              ]
+            },
+            {
+              "stem": "このスーパーは値段が高＿て、毎日は買いに来られない。",
+              "choices": [
+                "やすく",
+                "にくく",
+                "すぎ",
+                "かた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói siêu thị giá đắt quá nên không thể đến mua mỗi ngày. 「高すぎる」= 'quá đắt', cấu trúc 「Aすぎる」diễn tả tính chất vượt mức. Đáp án đúng: 「すぎ」. — 「やすく」là 'rẻ/dễ', trái nghĩa. — 「にくく」là 'khó làm', không ghép với tính từ 「高」theo nghĩa này. — 「かた」là 'cách thức', sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "値段",
+                  "read": "ねだん",
+                  "vi": "giá cả"
+                },
+                {
+                  "t": "高",
+                  "read": "たか",
+                  "vi": "đắt, cao"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "買いに来られない",
+                  "read": "かいにこられない",
+                  "vi": "không thể đến mua"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは料理の作り＿が上手で、動画を見て勉強した。",
+              "choices": [
+                "すぎ",
+                "やすさ",
+                "方",
+                "にくさ"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói Tanaka giỏi 'cách làm' món ăn và học qua video. 「作り方」= 'cách làm/chế biến', cấu trúc 「V方」diễn tả cách thực hiện. Đáp án đúng: 「方」(かた). — 「すぎ」là 'quá mức', không phù hợp ngữ cảnh khen giỏi. — 「やすさ」là 'sự dễ dàng (danh từ hóa)', không phải 'cách làm'. — 「にくさ」là 'sự khó khăn', không phù hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn"
+                },
+                {
+                  "t": "作り方",
+                  "read": "つくりかた",
+                  "vi": "cách làm, cách chế biến"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "動画",
+                  "read": "どうが",
+                  "vi": "video"
+                },
+                {
+                  "t": "見て",
+                  "read": "みて",
+                  "vi": "xem, nhìn (dạng て của 見る)"
+                },
+                {
+                  "t": "勉強した",
+                  "read": "べんきょうした",
+                  "vi": "đã học, đã ôn tập"
+                }
+              ]
+            },
+            {
+              "stem": "このペンはインクが出やすくて、書き＿。",
+              "choices": [
+                "にくい",
+                "すぎる",
+                "やすい",
+                "かた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói bút ra mực dễ nên viết dễ. 「書きやすい」= 'dễ viết', cấu trúc 「Vやすい」diễn tả hành động dễ thực hiện. Đáp án đúng: 「やすい」. — 「にくい」là 'khó viết', trái với ngữ cảnh (bút tốt → dễ viết). — 「すぎる」là 'quá mức', không phù hợp. — 「かた」là 'cách viết', không phù hợp nghĩa.",
+              "glosses": [
+                {
+                  "t": "ペン",
+                  "vi": "bút"
+                },
+                {
+                  "t": "インク",
+                  "vi": "mực"
+                },
+                {
+                  "t": "出やすくて",
+                  "read": "でやすくて",
+                  "vi": "ra mực dễ dàng"
+                },
+                {
+                  "t": "書き",
+                  "read": "かき",
+                  "vi": "(thân động từ) viết"
+                }
+              ]
+            },
+            {
+              "stem": "昨日、仕事のストレスで、お酒を飲み＿てしまって、頭が痛い。",
+              "choices": [
+                "やすく",
+                "にくく",
+                "すぎ",
+                "かた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói do stress công việc mà uống rượu quá nhiều rồi bị đau đầu. 「飲みすぎる」= 'uống quá mức'. Đáp án đúng: 「すぎ」. — 「やすく」là 'dễ uống', không giải thích được việc bị đau đầu. — 「にくく」là 'khó uống', trái nghĩa với ngữ cảnh. — 「かた」là 'cách uống', sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "ストレス",
+                  "vi": "căng thẳng"
+                },
+                {
+                  "t": "お酒",
+                  "read": "おさけ",
+                  "vi": "rượu, đồ uống có cồn"
+                },
+                {
+                  "t": "飲み",
+                  "read": "のみ",
+                  "vi": "(thân động từ) uống"
+                },
+                {
+                  "t": "頭が痛い",
+                  "read": "あたまがいたい",
+                  "vi": "đau đầu"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "てしまって",
+                  "read": "てしまって",
+                  "vi": "lỡ, trót làm xong (thể て của ~てしまう)"
+                }
+              ]
+            },
+            {
+              "stem": "この靴はサイズが小さ＿て、足が痛くなった。",
+              "choices": [
+                "やすく",
+                "にくく",
+                "すぎ",
+                "かた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói giày quá nhỏ nên chân bị đau. 「小さすぎる」= 'quá nhỏ', cấu trúc 「Aすぎる」. Đáp án đúng: 「すぎ」. — 「やすく」là 'dễ/rẻ', không ghép với 「小さ」theo nghĩa này. — 「にくく」là 'khó', không phù hợp ngữ cảnh. — 「かた」là 'cách thức', sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "靴",
+                  "read": "くつ",
+                  "vi": "giày"
+                },
+                {
+                  "t": "サイズ",
+                  "vi": "cỡ, kích cỡ"
+                },
+                {
+                  "t": "小さ",
+                  "read": "ちいさ",
+                  "vi": "nhỏ"
+                },
+                {
+                  "t": "足",
+                  "read": "あし",
+                  "vi": "chân"
+                },
+                {
+                  "t": "痛くなった",
+                  "read": "いたくなった",
+                  "vi": "bị đau"
+                }
+              ]
+            },
+            {
+              "stem": "日本語の漢字の読み＿を練習するために、毎日ノートに書いている。",
+              "choices": [
+                "すぎ",
+                "やすさ",
+                "方",
+                "にくさ"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói để luyện 'cách đọc' chữ Hán nên viết vào vở mỗi ngày. 「読み方」= 'cách đọc', cấu trúc 「V方」. Đáp án đúng: 「方」(かた). — 「すぎ」là 'quá mức', không phù hợp. — 「やすさ」là 'sự dễ đọc (danh từ)', không phải 'cách đọc'. — 「にくさ」là 'sự khó đọc', sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "読み方",
+                  "read": "よみかた",
+                  "vi": "cách đọc"
+                },
+                {
+                  "t": "練習する",
+                  "read": "れんしゅうする",
+                  "vi": "luyện tập"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "ノート",
+                  "vi": "vở, tập"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "書いている",
+                  "read": "かいている",
+                  "vi": "đang viết"
+                },
+                {
+                  "t": "ために",
+                  "read": "ために",
+                  "vi": "〜ため(に) = để (nhằm mục đích) — Vた/Vる/N の + ために"
+                }
+              ]
+            },
+            {
+              "stem": "このスープは塩が多＿て、ほとんど残してしまった。",
+              "choices": [
+                "やすく",
+                "にくく",
+                "すぎ",
+                "かた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói súp mặn quá nên để lại hầu hết. 「多すぎる」= 'quá nhiều (muối)', cấu trúc 「Aすぎる」. Đáp án đúng: 「すぎ」. — 「やすく」là 'dễ', không ghép với 「多」theo nghĩa này. — 「にくく」là 'khó', sai ngữ cảnh. — 「かた」là 'cách thức', sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "スープ",
+                  "vi": "súp, canh"
+                },
+                {
+                  "t": "塩",
+                  "read": "しお",
+                  "vi": "muối"
+                },
+                {
+                  "t": "多",
+                  "read": "おお",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "ほとんど",
+                  "vi": "hầu hết"
+                },
+                {
+                  "t": "残してしまった",
+                  "read": "のこしてしまった",
+                  "vi": "để lại, bỏ dở"
+                }
+              ]
+            },
+            {
+              "stem": "この椅子は背もたれが低くて、長時間座り＿。",
+              "choices": [
+                "すぎる",
+                "やすい",
+                "にくい",
+                "方だ"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói ghế tựa lưng thấp nên khó ngồi lâu. 「座りにくい」= 'khó ngồi', cấu trúc 「Vにくい」diễn tả hành động khó thực hiện. Đáp án đúng: 「にくい」. — 「すぎる」là 'quá mức', không phù hợp sau thân động từ 「座り」. — 「やすい」là 'dễ ngồi', trái với ngữ cảnh (tựa lưng thấp → không thoải mái). — 「方だ」là 'là cách', sai cú pháp.",
+              "glosses": [
+                {
+                  "t": "椅子",
+                  "read": "いす",
+                  "vi": "ghế"
+                },
+                {
+                  "t": "背もたれ",
+                  "read": "せもたれ",
+                  "vi": "tựa lưng ghế"
+                },
+                {
+                  "t": "低くて",
+                  "read": "ひくくて",
+                  "vi": "thấp"
+                },
+                {
+                  "t": "長時間",
+                  "read": "ちょうじかん",
+                  "vi": "thời gian dài"
+                },
+                {
+                  "t": "座り",
+                  "read": "すわり",
+                  "vi": "(thân động từ) ngồi"
+                }
+              ]
+            },
+            {
+              "stem": "先生、この問題の解き＿を説明していただけますか。",
+              "choices": [
+                "すぎ",
+                "やすさ",
+                "にくさ",
+                "方"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Câu hỏi thầy cô giải thích 'cách giải' bài toán. 「解き方」= 'cách giải', cấu trúc 「V方」diễn tả cách thực hiện hành động. Đáp án đúng: 「方」(かた). — 「すぎ」là 'quá mức', không phù hợp. — 「やすさ」là 'sự dễ giải (danh từ)', không phải 'cách giải'. — 「にくさ」là 'sự khó giải', cũng không phải 'cách giải'.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "問題",
+                  "read": "もんだい",
+                  "vi": "bài toán, câu hỏi"
+                },
+                {
+                  "t": "解き方",
+                  "read": "ときかた",
+                  "vi": "cách giải"
+                },
+                {
+                  "t": "説明していただけますか",
+                  "read": "せつめいしていただけますか",
+                  "vi": "thầy/cô có thể giải thích cho tôi không?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "この荷物は重すぎて、一人で運べません。",
+              "choices": [
+                "この荷物はとても重いので、一人で運ぶことができません。",
+                "この荷物は重くて、一人で運んでみます。",
+                "この荷物は重いから、二人で運びすぎます。",
+                "この荷物は重さのために、運びやすいです。"
+              ],
+              "answer": 0,
+              "pt": "Vすぎます／Aすぎます",
+              "explain": "Câu gốc dùng「重すぎて」(nặng quá nên không làm được), nghĩa là vì quá nặng nên không thể một mình mang. Đáp án A dùng「とても重いので、運ぶことができません」— cũng diễn đạt 'vì nặng nên không thể mang một mình', gần nghĩa nhất. Đáp án B sai vì「運んでみます」là 'thử mang', không khớp nghĩa. Đáp án C sai vì「運びすぎます」là 'mang quá mức', nghĩa hoàn toàn khác. Đáp án D sai vì「運びやすいです」nghĩa là 'dễ mang', trái nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ vật"
+                },
+                {
+                  "t": "重すぎて",
+                  "read": "おもすぎて",
+                  "vi": "nặng quá (nên)"
+                },
+                {
+                  "t": "運べません",
+                  "read": "はこべません",
+                  "vi": "không thể mang/vận chuyển"
+                },
+                {
+                  "t": "一人で",
+                  "read": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "二人で",
+                  "read": "ふたりで",
+                  "vi": "hai người (cùng nhau)"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "いので",
+                  "read": "いので",
+                  "vi": "い-tính từ + ので = vì (lý do khách quan, lịch sự hơn から)"
+                },
+                {
+                  "t": "ぶことができません",
+                  "read": "ぶことができません",
+                  "vi": "〜ことができません = không thể ~ (khả năng)"
+                },
+                {
+                  "t": "んでみます",
+                  "read": "んでみます",
+                  "vi": "〜てみます = thử làm ~ xem"
+                },
+                {
+                  "t": "いから",
+                  "read": "いから",
+                  "vi": "い-tính từ + から = vì (lý do, nhấn mạnh chủ quan)"
+                },
+                {
+                  "t": "びすぎます",
+                  "read": "びすぎます",
+                  "vi": "〜すぎます = quá ~ (vượt mức)"
+                },
+                {
+                  "t": "さのために",
+                  "read": "さのために",
+                  "vi": "tính từ+さ (danh từ hoá) + のために = vì (do) tính chất ~"
+                },
+                {
+                  "t": "びやすいです",
+                  "read": "びやすいです",
+                  "vi": "〜やすい = dễ ~"
+                }
+              ]
+            },
+            {
+              "prompt": "この説明書はわかりにくいです。",
+              "choices": [
+                "この説明書は理解するのが難しいです。",
+                "この説明書はわかりやすくて便利です。",
+                "この説明書はわかりすぎます。",
+                "この説明書はわかるために作られました。"
+              ],
+              "answer": 0,
+              "pt": "Vやすい／にくいです",
+              "explain": "「わかりにくい」là 'khó hiểu'. Đáp án A dùng「理解するのが難しい」— danh từ hóa bằng「の」+「難しい」, diễn đạt 'việc hiểu là khó', gần nghĩa nhất với câu gốc. Đáp án B sai vì「わかりやすい」là 'dễ hiểu', trái nghĩa. Đáp án C sai vì「わかりすぎます」là 'hiểu quá mức', nghĩa khác. Đáp án D sai vì「わかるために」là 'để hiểu', diễn đạt mục đích, không đồng nghĩa.",
+              "glosses": [
+                {
+                  "t": "説明書",
+                  "read": "せつめいしょ",
+                  "vi": "hướng dẫn sử dụng, tài liệu hướng dẫn"
+                },
+                {
+                  "t": "わかりにくい",
+                  "read": "",
+                  "vi": "khó hiểu"
+                },
+                {
+                  "t": "理解するのが",
+                  "read": "りかいするのが",
+                  "vi": "việc hiểu (điều đó)"
+                },
+                {
+                  "t": "難しいです",
+                  "read": "むずかしいです",
+                  "vi": "khó"
+                },
+                {
+                  "t": "便利です",
+                  "read": "べんりです",
+                  "vi": "tiện lợi"
+                },
+                {
+                  "t": "作られました",
+                  "read": "つくられました",
+                  "vi": "đã được làm ra"
+                },
+                {
+                  "t": "わかる",
+                  "read": "わかる",
+                  "vi": "hiểu, biết"
+                },
+                {
+                  "t": "はわかりやすくて",
+                  "read": "はわかりやすくて",
+                  "vi": "わかりやすい (dễ hiểu) + て nối câu"
+                },
+                {
+                  "t": "はわかりすぎます",
+                  "read": "はわかりすぎます",
+                  "vi": "〜すぎます = quá ~ (ở đây nghĩa hơi lạ: quá dễ hiểu)"
+                },
+                {
+                  "t": "ために",
+                  "read": "ために",
+                  "vi": "〜ために = để, vì mục đích"
+                }
+              ]
+            },
+            {
+              "prompt": "先生はパソコンの使い方を教えてくれました。",
+              "choices": [
+                "先生はパソコンをどう使うかを教えてくれました。",
+                "先生はパソコンの使い方を教えてもらいました。",
+                "先生はパソコンが使いやすいと言ってくれました。",
+                "先生はパソコンの使い方を習いに行きました。"
+              ],
+              "answer": 0,
+              "pt": "V方 + 〜てくれる",
+              "explain": "「使い方」là 'cách dùng',「教えてくれました」nghĩa là 'thầy đã dạy cho (mình)'. Đáp án A dùng「どう使うか」(how to use) + cùng「教えてくれました」→ gần nghĩa nhất. Đáp án B sai vì「教えてもらいました」chủ ngữ 'tôi' nhận ân huệ từ thầy — ngữ nghĩa gần nhưng góc độ khác (chủ ngữ câu đảo), không phải 'thầy dạy cho tôi'. Đáp án C sai vì nói máy tính 'dễ dùng', không liên quan. Đáp án D sai vì 'thầy đi học cách dùng', nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "教えてくれました",
+                  "read": "おしえてくれました",
+                  "vi": "đã dạy cho (tôi)"
+                },
+                {
+                  "t": "パソコン",
+                  "read": "パソコン",
+                  "vi": "máy vi tính"
+                },
+                {
+                  "t": "言って",
+                  "read": "いって",
+                  "vi": "nói (rồi)"
+                },
+                {
+                  "t": "習いに",
+                  "read": "ならいに",
+                  "vi": "để học"
+                },
+                {
+                  "t": "行きました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "をどう使うかを",
+                  "read": "をどうつかうかを",
+                  "vi": "どう〜か = câu hỏi gián tiếp \"làm thế nào để ~\", を đánh dấu tân ngữ mệnh đề"
+                },
+                {
+                  "t": "えてもらいました",
+                  "read": "えてもらいました",
+                  "vi": "〜てもらいました = đã được (ai đó) làm cho mình"
+                },
+                {
+                  "t": "使いやすいと",
+                  "read": "つかいやすいと",
+                  "vi": "やすい (dễ) + と (trích dẫn lời nói)"
+                }
+              ]
+            },
+            {
+              "prompt": "このペンは書きやすくて気に入っています。",
+              "choices": [
+                "このペンは書くのがとても楽で、好きです。",
+                "このペンは書きすぎて手が疲れます。",
+                "このペンは書き方がわかりません。",
+                "このペンで書くために買いました。"
+              ],
+              "answer": 0,
+              "pt": "Vやすい／にくいです",
+              "explain": "「書きやすい」là 'dễ viết' và「気に入っています」là 'đang thích'. Đáp án A dùng「書くのがとても楽で、好きです」— danh từ hóa の, 'việc viết rất nhẹ nhàng và thích' — gần nghĩa nhất. Đáp án B sai vì「書きすぎて」là 'viết quá nhiều nên', nghĩa tiêu cực, khác hẳn. Đáp án C sai vì 'không biết cách viết', ngược nghĩa. Đáp án D sai vì nói về mục đích mua, không liên quan đến cảm nhận về bút.",
+              "glosses": [
+                {
+                  "t": "書きやすくて",
+                  "read": "かきやすくて",
+                  "vi": "dễ viết và (nên)"
+                },
+                {
+                  "t": "気に入っています",
+                  "read": "きにいっています",
+                  "vi": "thích, ưng ý"
+                },
+                {
+                  "t": "楽で",
+                  "read": "らくで",
+                  "vi": "thoải mái, dễ dàng"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "手",
+                  "read": "て",
+                  "vi": "tay"
+                },
+                {
+                  "t": "疲れます",
+                  "read": "つかれます",
+                  "vi": "mệt mỏi"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                },
+                {
+                  "t": "ペン",
+                  "read": "ペン",
+                  "vi": "cây bút"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "くのが",
+                  "read": "くのが",
+                  "vi": "Vる+のが = danh từ hoá động từ làm chủ ngữ (việc viết...)"
+                },
+                {
+                  "t": "きすぎて",
+                  "read": "きすぎて",
+                  "vi": "〜すぎて = quá ~, và"
+                },
+                {
+                  "t": "書き方がわかりません",
+                  "read": "かきかたがわかりません",
+                  "vi": "Vます+方 = cách làm ~; 〜がわかりません = không biết/không rõ ~"
+                },
+                {
+                  "t": "くために",
+                  "read": "くために",
+                  "vi": "〜ために = để, nhằm mục đích"
+                }
+              ]
+            },
+            {
+              "prompt": "食べすぎて、おなかが痛くなりました。",
+              "choices": [
+                "たくさん食べたので、おなかが痛くなりました。",
+                "食べてみたら、おなかが痛かったです。",
+                "食べるのが好きなので、いつも痛いです。",
+                "食べるために、おなかが痛くなります。"
+              ],
+              "answer": 0,
+              "pt": "Vすぎます／Aすぎます",
+              "explain": "「食べすぎて」= 'ăn quá mức nên'. Đáp án A dùng「たくさん食べたので、おなかが痛くなった」— ăn nhiều nên đau bụng, diễn đạt cùng nguyên nhân-kết quả. Đáp án B sai vì「食べてみたら」là 'thử ăn thì', không hàm ý ăn quá. Đáp án C sai vì nói 'thích ăn nên luôn đau', logic khác. Đáp án D sai vì「食べるために」là 'để ăn', diễn đạt mục đích.",
+              "glosses": [
+                {
+                  "t": "食べすぎて",
+                  "read": "たべすぎて",
+                  "vi": "ăn quá nhiều (nên)"
+                },
+                {
+                  "t": "おなかが痛くなりました",
+                  "read": "",
+                  "vi": "bụng trở nên đau"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "たくさん",
+                  "read": "たくさん",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "いつも",
+                  "read": "いつも",
+                  "vi": "luôn luôn"
+                },
+                {
+                  "t": "食べたので",
+                  "read": "たべたので",
+                  "vi": "Vた+ので = vì đã ~"
+                },
+                {
+                  "t": "食べてみたら",
+                  "read": "たべてみたら",
+                  "vi": "〜てみたら = nếu thử làm ~ (thì)"
+                },
+                {
+                  "t": "かったです",
+                  "read": "かったです",
+                  "vi": "い-tính từ thể quá khứ lịch sự: đã (tính từ) rồi"
+                },
+                {
+                  "t": "べるのが",
+                  "read": "べるのが",
+                  "vi": "Vる+のが = danh từ hoá làm chủ ngữ (việc ăn...)"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "na-tính từ/danh từ + なので = vì là ~"
+                },
+                {
+                  "t": "べるために",
+                  "read": "べるために",
+                  "vi": "〜ために = để, nhằm mục đích"
+                },
+                {
+                  "t": "くなります",
+                  "read": "くなります",
+                  "vi": "い-tính từ + くなります = trở nên ~"
+                }
+              ]
+            },
+            {
+              "prompt": "このボタンは小さすぎて、押しにくいです。",
+              "choices": [
+                "このボタンはとても小さいので、押すのが難しいです。",
+                "このボタンは小さいから、押しやすいです。",
+                "このボタンは押しすぎると壊れます。",
+                "このボタンの押し方を教えてください。"
+              ],
+              "answer": 0,
+              "pt": "Vすぎます + Vにくい",
+              "explain": "「小さすぎて押しにくい」= nút quá nhỏ nên khó bấm. Đáp án A dùng「とても小さいので、押すのが難しい」— diễn đạt cùng ý dùng「ので」và danh từ hóa の. Đáp án B sai vì「押しやすい」là 'dễ bấm', trái nghĩa. Đáp án C sai vì nói 'bấm quá nhiều sẽ hỏng', nghĩa khác. Đáp án D sai vì hỏi 'cách bấm', không liên quan.",
+              "glosses": [
+                {
+                  "t": "小さすぎて",
+                  "read": "ちいさすぎて",
+                  "vi": "nhỏ quá (nên)"
+                },
+                {
+                  "t": "押しにくい",
+                  "read": "おしにくい",
+                  "vi": "khó nhấn/bấm"
+                },
+                {
+                  "t": "難しいです",
+                  "read": "むずかしいです",
+                  "vi": "khó"
+                },
+                {
+                  "t": "壊れます",
+                  "read": "こわれます",
+                  "vi": "sẽ bị hỏng"
+                },
+                {
+                  "t": "教えてください",
+                  "read": "おしえてください",
+                  "vi": "xin hãy chỉ cho (tôi)"
+                },
+                {
+                  "t": "ボタン",
+                  "read": "ボタン",
+                  "vi": "cái nút bấm"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "さいので",
+                  "read": "さいので",
+                  "vi": "い-tính từ + ので = vì"
+                },
+                {
+                  "t": "すのが",
+                  "read": "すのが",
+                  "vi": "Vる+のが = danh từ hoá (việc bấm...)"
+                },
+                {
+                  "t": "さいから",
+                  "read": "さいから",
+                  "vi": "い-tính từ + から = vì (chủ quan)"
+                },
+                {
+                  "t": "しやすいです",
+                  "read": "しやすいです",
+                  "vi": "〜やすい = dễ ~"
+                },
+                {
+                  "t": "しすぎると",
+                  "read": "しすぎると",
+                  "vi": "〜すぎると = nếu quá ~ thì (すぎる + と điều kiện)"
+                }
+              ]
+            },
+            {
+              "prompt": "妹はご飯の作り方をお母さんに教えてもらいました。",
+              "choices": [
+                "お母さんは妹にご飯の作り方を教えてあげました。",
+                "妹はご飯の作り方をお母さんから習いすぎました。",
+                "妹はご飯を作るのをお母さんに手伝ってもらいました。",
+                "妹はご飯の作り方がわかりにくいと言いました。"
+              ],
+              "answer": 0,
+              "pt": "V方 + 〜てもらう",
+              "explain": "「妹はお母さんに教えてもらった」= em gái được mẹ dạy (nhận ân huệ từ mẹ). Đáp án A đổi góc nhìn:「お母さんは妹に教えてあげた」= mẹ cho em gái (ban ân huệ ra) — cùng sự kiện, chỉ khác chủ ngữ quan sát, đồng nghĩa nhất. Đáp án B sai vì「習いすぎました」= học quá mức, không phù hợp. Đáp án C sai vì「手伝ってもらった」= được giúp nấu, khác 'được dạy cách nấu'. Đáp án D sai vì nói thấy khó hiểu, không liên quan.",
+              "glosses": [
+                {
+                  "t": "作り方",
+                  "read": "つくりかた",
+                  "vi": "cách nấu/làm"
+                },
+                {
+                  "t": "教えてもらいました",
+                  "read": "おしえてもらいました",
+                  "vi": "đã được dạy"
+                },
+                {
+                  "t": "妹",
+                  "read": "いもうと",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "習い",
+                  "read": "ならい",
+                  "vi": "học (từ ai đó)"
+                },
+                {
+                  "t": "手伝って",
+                  "read": "てつだって",
+                  "vi": "giúp đỡ"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                },
+                {
+                  "t": "ご飯",
+                  "read": "ごはん",
+                  "vi": "cơm, bữa ăn"
+                },
+                {
+                  "t": "お母さん",
+                  "read": "おかあさん",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "えてあげました",
+                  "read": "えてあげました",
+                  "vi": "〜てあげました = đã làm giúp cho người khác"
+                },
+                {
+                  "t": "すぎました",
+                  "read": "すぎました",
+                  "vi": "〜すぎました = đã quá ~ (すぎる quá khứ)"
+                },
+                {
+                  "t": "るのを",
+                  "read": "るのを",
+                  "vi": "Vる+のを = danh từ hoá động từ làm tân ngữ"
+                },
+                {
+                  "t": "がわかりにくいと",
+                  "read": "がわかりにくいと",
+                  "vi": "〜にくい (khó ~) + と (trích dẫn)"
+                }
+              ]
+            },
+            {
+              "prompt": "この道は暗くて歩きにくいですね。",
+              "choices": [
+                "この道は暗いので、歩くのが大変ですね。",
+                "この道は暗くて歩きやすいですね。",
+                "この道は歩きすぎて暗くなりましたね。",
+                "この道は歩くために暗くしました。"
+              ],
+              "answer": 0,
+              "pt": "Vにくい (+ ôn B39 〜ので ngầm)",
+              "explain": "「暗くて歩きにくい」= tối nên khó đi. Đáp án A dùng「暗いので、歩くのが大変」— ôn 〜ので và danh từ hóa の, cùng nghĩa. Đáp án B sai vì「歩きやすい」= 'dễ đi', trái nghĩa. Đáp án C sai vì「歩きすぎて暗くなった」= đi quá nhiều nên tối, vô lý về logic. Đáp án D sai vì「歩くために暗くした」= cố tình làm tối để đi, nghĩa ngược lại.",
+              "glosses": [
+                {
+                  "t": "暗くて",
+                  "read": "くらくて",
+                  "vi": "tối và (nên)"
+                },
+                {
+                  "t": "歩きにくい",
+                  "read": "あるきにくい",
+                  "vi": "khó đi bộ"
+                },
+                {
+                  "t": "道は",
+                  "read": "みちは",
+                  "vi": "con đường (thì)"
+                },
+                {
+                  "t": "大変ですね",
+                  "read": "たいへんですね",
+                  "vi": "vất vả nhỉ"
+                },
+                {
+                  "t": "いので",
+                  "read": "いので",
+                  "vi": "い-tính từ + ので = vì"
+                },
+                {
+                  "t": "くのが",
+                  "read": "くのが",
+                  "vi": "Vる+のが = danh từ hoá (việc đi bộ...)"
+                },
+                {
+                  "t": "きやすいですね",
+                  "read": "きやすいですね",
+                  "vi": "〜やすい = dễ ~, ね xác nhận"
+                },
+                {
+                  "t": "きすぎて",
+                  "read": "きすぎて",
+                  "vi": "〜すぎて = quá ~, và"
+                },
+                {
+                  "t": "くなりましたね",
+                  "read": "くなりましたね",
+                  "vi": "い-tính từ+くなりました = đã trở nên ~"
+                },
+                {
+                  "t": "くために",
+                  "read": "くために",
+                  "vi": "〜ために = để, nhằm mục đích"
+                },
+                {
+                  "t": "くしました",
+                  "read": "くしました",
+                  "vi": "い-tính từ+くしました = đã làm cho trở nên ~"
+                }
+              ]
+            },
+            {
+              "prompt": "昨日のパーティーで飲みすぎてしまいました。",
+              "choices": [
+                "昨日のパーティーで、飲む量が多すぎたと思います。",
+                "昨日のパーティーで飲んでみましたが、おいしかったです。",
+                "昨日のパーティーでは飲みやすいお酒がありました。",
+                "昨日のパーティーは飲むのが好きな人ばかりでした。"
+              ],
+              "answer": 0,
+              "pt": "Vすぎます",
+              "explain": "「飲みすぎてしまった」= đã uống quá mức (tiếc nuối). Đáp án A dùng「飲む量が多すぎたと思います」= 'lượng uống nhiều quá' — đồng nghĩa nhất. Đáp án B sai vì「飲んでみた」= thử uống, nhấn mạnh trải nghiệm không phải quá mức. Đáp án C sai vì nói 'có rượu dễ uống', không liên quan đến uống quá. Đáp án D sai vì mô tả người tham dự, không phải hành vi uống quá.",
+              "glosses": [
+                {
+                  "t": "飲みすぎて",
+                  "read": "のみすぎて",
+                  "vi": "uống quá nhiều"
+                },
+                {
+                  "t": "しまいました",
+                  "read": "",
+                  "vi": "lỡ làm rồi (hối tiếc)"
+                },
+                {
+                  "t": "パーティー",
+                  "read": "",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "昨日のパーティーで",
+                  "read": "きのうのパーティーで",
+                  "vi": "ở bữa tiệc hôm qua"
+                },
+                {
+                  "t": "量が",
+                  "read": "りょうが",
+                  "vi": "lượng (thì)"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "(tôi) nghĩ rằng"
+                },
+                {
+                  "t": "酒がありました",
+                  "read": "さけがありました",
+                  "vi": "đã có rượu"
+                },
+                {
+                  "t": "好きな",
+                  "read": "すきな",
+                  "vi": "thích (điều gì)"
+                },
+                {
+                  "t": "すぎたと",
+                  "read": "すぎたと",
+                  "vi": "〜すぎた (đã quá) + と思います (nghĩ rằng)"
+                },
+                {
+                  "t": "んでみましたが",
+                  "read": "んでみましたが",
+                  "vi": "〜てみましたが = đã thử làm nhưng"
+                },
+                {
+                  "t": "おいしかったです",
+                  "read": "おいしかったです",
+                  "vi": "おいしい thể quá khứ lịch sự = đã ngon"
+                },
+                {
+                  "t": "飲みやすいお酒",
+                  "read": "のみやすいおさけ",
+                  "vi": "〜やすい + danh từ = rượu dễ uống"
+                },
+                {
+                  "t": "むのが",
+                  "read": "むのが",
+                  "vi": "Vる+のが = danh từ hoá (việc uống...)"
+                },
+                {
+                  "t": "ばかりでした",
+                  "read": "ばかりでした",
+                  "vi": "〜ばかり = toàn là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "漢字の読み方がわからなくて、困っています。",
+              "choices": [
+                "漢字をどう読むかがわからなくて、困っています。",
+                "漢字の読み方がわかりやすくて、助かっています。",
+                "漢字の読み方を教えてもらうのが好きです。",
+                "漢字の読み方を覚えるために、毎日練習します。"
+              ],
+              "answer": 0,
+              "pt": "V方 + ôn B38 danh từ hóa",
+              "explain": "「読み方がわからない」= không biết cách đọc. Đáp án A dùng「どう読むか」= 'đọc như thế nào' — cùng nghĩa 'không biết cách đọc', đồng nghĩa nhất. Đáp án B sai vì「わかりやすい」= 'dễ hiểu', trái nghĩa. Đáp án C sai vì nói 'thích được dạy cách đọc', không diễn đạt sự bí. Đáp án D sai vì「覚えるために練習する」= 'để nhớ thì luyện', là kế hoạch, không phải bí.",
+              "glosses": [
+                {
+                  "t": "読み方",
+                  "read": "よみかた",
+                  "vi": "cách đọc"
+                },
+                {
+                  "t": "困っています",
+                  "read": "こまっています",
+                  "vi": "đang gặp khó khăn, bí"
+                },
+                {
+                  "t": "漢字の",
+                  "read": "かんじの",
+                  "vi": "của chữ Hán"
+                },
+                {
+                  "t": "助かっています",
+                  "read": "たすかっています",
+                  "vi": "đang được giúp, nhẹ cả người"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "覚えるために",
+                  "read": "おぼえるために",
+                  "vi": "để ghi nhớ"
+                },
+                {
+                  "t": "毎日練習します",
+                  "read": "まいにちれんしゅうします",
+                  "vi": "luyện tập mỗi ngày"
+                },
+                {
+                  "t": "わからなくて",
+                  "read": "わからなくて",
+                  "vi": "vì không hiểu (dạng phủ định + て của わかる)"
+                },
+                {
+                  "t": "をどう読むかが",
+                  "read": "をどうよむかが",
+                  "vi": "どう〜か = câu hỏi gián tiếp \"đọc thế nào\", が làm chủ ngữ mệnh đề"
+                },
+                {
+                  "t": "がわかりやすくて",
+                  "read": "がわかりやすくて",
+                  "vi": "わかりやすい (dễ hiểu) + て nối câu"
+                },
+                {
+                  "t": "教えてもらうのが",
+                  "read": "おしえてもらうのが",
+                  "vi": "〜てもらう (được dạy cho) + のが danh từ hoá làm chủ ngữ"
+                }
+              ]
+            },
+            {
+              "prompt": "このスーツケースは持ちやすくて、旅行に便利です。",
+              "choices": [
+                "このスーツケースは持つのが楽なので、旅行に役立ちます。",
+                "このスーツケースは持ちすぎて、旅行に行けません。",
+                "このスーツケースは持ち方が難しいです。",
+                "このスーツケースは旅行のために重いです。"
+              ],
+              "answer": 0,
+              "pt": "Vやすい + ôn B42 〜のに",
+              "explain": "「持ちやすくて旅行に便利」= dễ cầm nên tiện cho du lịch. Đáp án A dùng「持つのが楽なので、旅行に役立つ」= 'vì xách nhẹ nhàng nên có ích khi du lịch' — đồng nghĩa nhất, dùng danh từ hóa の và 〜ので. Đáp án B sai vì「持ちすぎて行けない」= cầm quá nhiều nên không đi được, nghĩa tiêu cực. Đáp án C sai vì nói 'cách cầm khó', trái nghĩa. Đáp án D sai vì nói 'nặng để đi du lịch', vô lý.",
+              "glosses": [
+                {
+                  "t": "スーツケース",
+                  "read": "",
+                  "vi": "vali"
+                },
+                {
+                  "t": "持ちやすくて",
+                  "read": "もちやすくて",
+                  "vi": "dễ cầm/xách và"
+                },
+                {
+                  "t": "便利",
+                  "read": "べんり",
+                  "vi": "tiện lợi"
+                },
+                {
+                  "t": "楽なので",
+                  "read": "らくなので",
+                  "vi": "vì thoải mái nên"
+                },
+                {
+                  "t": "旅行に",
+                  "read": "りょこうに",
+                  "vi": "cho việc du lịch"
+                },
+                {
+                  "t": "役立ちます",
+                  "read": "やくだちます",
+                  "vi": "có ích, hữu ích"
+                },
+                {
+                  "t": "行けません",
+                  "read": "いけません",
+                  "vi": "không thể đi"
+                },
+                {
+                  "t": "難しいです",
+                  "read": "むずかしいです",
+                  "vi": "khó"
+                },
+                {
+                  "t": "重いです",
+                  "read": "おもいです",
+                  "vi": "nặng"
+                },
+                {
+                  "t": "つのが",
+                  "read": "つのが",
+                  "vi": "Vる+のが = danh từ hoá (việc cầm/xách...)"
+                },
+                {
+                  "t": "ちすぎて",
+                  "read": "ちすぎて",
+                  "vi": "〜すぎて = quá ~, và"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "N + のために = vì, nhằm mục đích"
+                }
+              ]
+            },
+            {
+              "prompt": "子供のころ、よく母に髪を切ってもらいました。",
+              "choices": [
+                "子供のころ、母がよく髪を切ってくれました。",
+                "子供のころ、母のために髪を切ってあげました。",
+                "子供のころ、母に髪を切るのが好きでした。",
+                "子供のころ、母に髪を切ってきました。"
+              ],
+              "answer": 0,
+              "pt": "〜てもらう + ôn B43 Vて来ます",
+              "explain": "「母に切ってもらった」= được mẹ cắt tóc cho (mình nhận ân huệ). Đáp án A đổi sang「母が切ってくれた」= mẹ cắt cho mình — cùng sự kiện, chỉ khác hướng nhìn ân huệ, đồng nghĩa nhất. Đáp án B sai vì「切ってあげた」= mình cắt cho mẹ, ngược chiều hoàn toàn. Đáp án C sai vì「切るのが好き」= 'mẹ thích cắt', không nói về việc nhận ân huệ. Đáp án D「切ってきた」= đi cắt rồi về, dùng Vて来ます, nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "子供のころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "髪を切ってもらいました",
+                  "read": "かみをきってもらいました",
+                  "vi": "được cắt tóc cho"
+                },
+                {
+                  "t": "母に",
+                  "read": "ははに",
+                  "vi": "cho/bởi mẹ"
+                },
+                {
+                  "t": "好きでした",
+                  "read": "すきでした",
+                  "vi": "đã thích"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường, hay"
+                },
+                {
+                  "t": "ってくれました",
+                  "read": "ってくれました",
+                  "vi": "〜てくれました = (người khác) đã làm giúp cho mình"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "N + のために = vì, nhằm mục đích"
+                },
+                {
+                  "t": "ってあげました",
+                  "read": "ってあげました",
+                  "vi": "〜てあげました = đã làm giúp cho người khác"
+                },
+                {
+                  "t": "るのが",
+                  "read": "るのが",
+                  "vi": "Vる+のが = danh từ hoá làm chủ ngữ (việc cắt...)"
+                },
+                {
+                  "t": "ってきました",
+                  "read": "ってきました",
+                  "vi": "〜てきました = đã (làm) và tiếp diễn đến hiện tại / trở về"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女は話すのがとても上手です。",
+              "choices": [
+                "彼女はとても話し上手です。",
+                "彼女は話しすぎて困っています。",
+                "彼女は話すために練習しすぎます。",
+                "彼女は話しにくそうに見えます。"
+              ],
+              "answer": 0,
+              "pt": "〜のが好き/danh từ hóa の (B38)",
+              "explain": "「話すのが上手」= danh từ hóa の, 'giỏi chuyện nói chuyện'. Đáp án A dùng「話し上手」= danh từ ghép 'người nói chuyện giỏi' — đồng nghĩa nhất, cách diễn đạt tự nhiên tương đương. Đáp án B sai vì「話しすぎて困っている」= nói quá nhiều nên khổ, nghĩa tiêu cực. Đáp án C sai vì「話すために練習しすぎる」= luyện quá mức để nói, không mô tả năng lực. Đáp án D sai vì「話しにくそう」= trông có vẻ khó nói, trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "話すのが",
+                  "read": "はなすのが",
+                  "vi": "việc nói chuyện"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi, khéo léo"
+                },
+                {
+                  "t": "彼女は",
+                  "read": "かのじょは",
+                  "vi": "cô ấy (thì)"
+                },
+                {
+                  "t": "困っています",
+                  "read": "こまっています",
+                  "vi": "đang gặp khó khăn, phiền"
+                },
+                {
+                  "t": "見えます",
+                  "read": "みえます",
+                  "vi": "trông có vẻ"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "しすぎて",
+                  "read": "しすぎて",
+                  "vi": "〜すぎて = quá ~, và"
+                },
+                {
+                  "t": "すために",
+                  "read": "すために",
+                  "vi": "〜ために = để, nhằm mục đích"
+                },
+                {
+                  "t": "しすぎます",
+                  "read": "しすぎます",
+                  "vi": "〜すぎます = quá ~"
+                },
+                {
+                  "t": "しにくそうに",
+                  "read": "しにくそうに",
+                  "vi": "〜にくい + そう = trông có vẻ khó ~"
+                }
+              ]
+            },
+            {
+              "prompt": "この問題は難しすぎて、答えられませんでした。",
+              "choices": [
+                "この問題はとても難しかったので、答えることができませんでした。",
+                "この問題は難しいかどうか、まだわかりません。",
+                "この問題は答えにくそうに見えました。",
+                "この問題は難しくなくて、すぐ答えられました。"
+              ],
+              "answer": 0,
+              "pt": "Aすぎます + ôn B40 〜かどうか",
+              "explain": "「難しすぎて答えられなかった」= khó quá nên không trả lời được. Đáp án A dùng「とても難しかったので、答えることができなかった」— dùng〜ので và「Vことができる」→ cùng nghĩa nguyên nhân-không làm được. Đáp án B sai vì「難しいかどうかわからない」= 'không biết có khó không', dùng〜かどうか, không liên quan. Đáp án C sai vì「答えにくそうに見えた」= trông có vẻ khó trả lời, chỉ là cảm quan bên ngoài. Đáp án D sai vì 'không khó, trả lời được ngay', trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "難しすぎて",
+                  "read": "むずかしすぎて",
+                  "vi": "khó quá (nên)"
+                },
+                {
+                  "t": "答えられませんでした",
+                  "read": "こたえられませんでした",
+                  "vi": "không thể trả lời được"
+                },
+                {
+                  "t": "問題は",
+                  "read": "もんだいは",
+                  "vi": "vấn đề, câu hỏi (thì)"
+                },
+                {
+                  "t": "見えました",
+                  "read": "みえました",
+                  "vi": "đã trông có vẻ"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "すぐ",
+                  "read": "すぐ",
+                  "vi": "ngay lập tức"
+                },
+                {
+                  "t": "しかったので",
+                  "read": "しかったので",
+                  "vi": "い-tính từ quá khứ + ので = vì đã ~"
+                },
+                {
+                  "t": "答えることができませんでした",
+                  "read": "こたえることができませんでした",
+                  "vi": "〜ことができませんでした = đã không thể ~"
+                },
+                {
+                  "t": "しいかどうか",
+                  "read": "しいかどうか",
+                  "vi": "〜かどうか = có ~ hay không"
+                },
+                {
+                  "t": "まだわかりません",
+                  "read": "まだわかりません",
+                  "vi": "まだ (vẫn chưa) + わかりません (không biết/rõ)"
+                },
+                {
+                  "t": "えにくそうに",
+                  "read": "えにくそうに",
+                  "vi": "〜にくい + そう = trông có vẻ khó ~"
+                },
+                {
+                  "t": "しくなくて",
+                  "read": "しくなくて",
+                  "vi": "い-tính từ thể phủ định + て = không ~, và"
+                },
+                {
+                  "t": "えられました",
+                  "read": "えられました",
+                  "vi": "thể khả năng (られる) quá khứ = đã có thể trả lời được"
+                }
+              ]
+            },
+            {
+              "prompt": "父は毎朝、公園に走りに行って来ます。",
+              "choices": [
+                "父は毎朝、公園へ走りに行き、それから帰ってきます。",
+                "父は毎朝、公園で走りすぎて疲れます。",
+                "父は毎朝、公園に走って行くのが好きです。",
+                "父は毎朝、健康のために走ることにしています。"
+              ],
+              "answer": 0,
+              "pt": "Vて来ます (B43) + ôn B42 〜のために",
+              "explain": "「走りに行って来ます」= đi chạy (ở công viên) rồi về — Vて来ます hàm ý rời đi rồi quay lại. Đáp án A dùng「走りに行き、それから帰ってくる」= đi chạy, xong rồi về — diễn đạt rõ ràng cùng hành động đi-về, đồng nghĩa nhất. Đáp án B sai vì「走りすぎて疲れる」= chạy quá nhiều nên mệt, không có nghĩa đi-về. Đáp án C sai vì「走って行くのが好き」= thích đi chạy, chỉ nói sở thích, không nhấn mạnh đi rồi về. Đáp án D sai vì「健康のために走ることにしている」= đã quyết định chạy vì sức khỏe — nói về lý do/quyết tâm, không phải hành động đi-về.",
+              "glosses": [
+                {
+                  "t": "走りに行って来ます",
+                  "read": "はしりにいってきます",
+                  "vi": "đi chạy rồi về"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi sáng"
+                },
+                {
+                  "t": "公園",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "父は",
+                  "read": "ちちは",
+                  "vi": "bố (thì)"
+                },
+                {
+                  "t": "帰ってきます",
+                  "read": "かえってきます",
+                  "vi": "quay về (nhà)"
+                },
+                {
+                  "t": "疲れます",
+                  "read": "つかれます",
+                  "vi": "mệt mỏi"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "健康のために",
+                  "read": "けんこうのために",
+                  "vi": "vì sức khỏe"
+                },
+                {
+                  "t": "それから",
+                  "read": "それから",
+                  "vi": "sau đó, rồi thì"
+                },
+                {
+                  "t": "りすぎて",
+                  "read": "りすぎて",
+                  "vi": "〜すぎて = quá ~, và"
+                },
+                {
+                  "t": "走って行くのが",
+                  "read": "はしっていくのが",
+                  "vi": "〜て行く (làm rồi đi) + のが danh từ hoá làm chủ ngữ"
+                },
+                {
+                  "t": "ることにしています",
+                  "read": "ることにしています",
+                  "vi": "〜ことにしています = có thói quen/quyết định luôn làm ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 44 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "この漢字は書き＿から、何度も練習しました。",
+              "choices": [
+                "にくい",
+                "やすい",
+                "すぎます",
+                "方"
+              ],
+              "answer": 0,
+              "pt": "Vにくい",
+              "explain": "「書きにくい」= khó viết — tính chất của đối tượng (chữ Hán) khiến hành động khó. Cấu trúc「Vます stem＋にくい」đúng hoàn toàn. ① にくい ✓ — vì sao đúng: chữ Hán khó viết nên mới luyện nhiều lần. ② やすい — nghĩa ngược (dễ viết), mâu thuẫn với việc phải luyện nhiều lần. ③ すぎます — là dạng vị ngữ riêng (quá ~), không ghép sau masu-stem để làm bổ nghĩa cho danh từ; đứng cuối câu, không hợp văn cảnh. ④ 方 — 「書き方」= cách viết, nhưng câu nói về tính chất khó/dễ, không phải phương pháp.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "書き",
+                  "read": "かき",
+                  "vi": "viết (dạng masu-stem)"
+                },
+                {
+                  "t": "何度も",
+                  "read": "なんども",
+                  "vi": "nhiều lần"
+                },
+                {
+                  "t": "練習しました",
+                  "read": "れんしゅうしました",
+                  "vi": "đã luyện tập"
+                }
+              ]
+            },
+            {
+              "stem": "このアプリはとても使い＿、年配の人にも人気があります。",
+              "choices": [
+                "やすくて",
+                "にくくて",
+                "すぎて",
+                "方で"
+              ],
+              "answer": 0,
+              "pt": "Vやすい (te-form liên kết)",
+              "explain": "「使いやすくて」= dễ sử dụng và (liên kết nguyên nhân/bổ sung) → nên được người lớn tuổi ưa chuộng. ① やすくて ✓ — dễ dùng, hợp lý khi kết quả là được yêu thích. ② にくくて — khó dùng, mâu thuẫn với việc người lớn tuổi ưa chuộng. ③ すぎて — quá ~, hàm ý tiêu cực (quá dễ đến mức bất thường), không phù hợp ngữ cảnh khen. ④ 方で — 「使い方」= cách dùng; 「方で」không phải cấu trúc ngữ pháp nối mệnh đề.",
+              "glosses": [
+                {
+                  "t": "アプリ",
+                  "read": "",
+                  "vi": "ứng dụng"
+                },
+                {
+                  "t": "使い",
+                  "read": "つかい",
+                  "vi": "sử dụng (masu-stem)"
+                },
+                {
+                  "t": "年配の人",
+                  "read": "ねんぱいのひと",
+                  "vi": "người lớn tuổi"
+                },
+                {
+                  "t": "人気があります",
+                  "read": "にんきがあります",
+                  "vi": "được ưa chuộng"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "ゆうべ食べ＿、今もお腹が痛いです。",
+              "choices": [
+                "すぎて",
+                "やすくて",
+                "にくくて",
+                "方で"
+              ],
+              "answer": 0,
+              "pt": "Vすぎます (te-form, hệ quả tiêu cực)",
+              "explain": "「食べすぎて」= ăn quá nhiều rồi (hệ quả) nên bây giờ đau bụng — kết quả tiêu cực điển hình của「すぎ」. ① すぎて ✓ — ăn quá mức dẫn tới đau bụng, logic hoàn toàn. ② やすくて — dễ ăn và …, không có nghĩa gì trong ngữ cảnh này. ③ にくくて — khó ăn và …, mâu thuẫn (nếu khó ăn sao lại đau bụng vì ăn nhiều?). ④ 方で — 「食べ方」= cách ăn, không nối được với kết quả đau bụng.",
+              "glosses": [
+                {
+                  "t": "ゆうべ",
+                  "read": "",
+                  "vi": "tối qua"
+                },
+                {
+                  "t": "食べ",
+                  "read": "たべ",
+                  "vi": "ăn (masu-stem)"
+                },
+                {
+                  "t": "お腹が痛い",
+                  "read": "おなかがいたい",
+                  "vi": "đau bụng"
+                },
+                {
+                  "t": "今も",
+                  "read": "いまも",
+                  "vi": "đến bây giờ vẫn, hiện vẫn"
+                }
+              ]
+            },
+            {
+              "stem": "A：この機械の＿を教えてもらえますか。　B：もちろんです。",
+              "choices": [
+                "使い方",
+                "使いすぎ",
+                "使いやすさ",
+                "使いにくさ"
+              ],
+              "answer": 0,
+              "pt": "V方",
+              "explain": "「使い方を教えてもらえますか」= Nhờ bạn chỉ cách dùng được không? — yêu cầu hướng dẫn phương pháp. ① 使い方 ✓ — cách dùng, đúng ngữ cảnh hỏi cách vận hành máy. ② 使いすぎ — dùng quá nhiều; không hỏi được kiểu này (を教えてもらう 'cách dùng quá nhiều' vô nghĩa). ③ 使いやすさ — sự dễ dùng (danh từ hoá bằng さ); hỏi 'sự dễ dùng' không khớp với B trả lời hướng dẫn. ④ 使いにくさ — sự khó dùng; tương tự ③, không phải ý hỏi cách dùng.",
+              "glosses": [
+                {
+                  "t": "機械",
+                  "read": "きかい",
+                  "vi": "máy móc"
+                },
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "教えてもらえますか",
+                  "read": "おしえてもらえますか",
+                  "vi": "có thể nhờ dạy không (Vてもらえますか)"
+                },
+                {
+                  "t": "もちろん",
+                  "read": "もちろん",
+                  "vi": "tất nhiên, dĩ nhiên"
+                }
+              ]
+            },
+            {
+              "stem": "体に悪いと知っていたので、甘いものを食べる＿にしました。",
+              "choices": [
+                "のをやめること",
+                "すぎないよう",
+                "方をかえること",
+                "にくいよう"
+              ],
+              "answer": 1,
+              "pt": "Vすぎ (否定形で抑制) ＋ ～ので (B39 ôn)",
+              "explain": "「食べすぎないようにしました」= đã cố gắng không ăn quá nhiều — dùng「すぎない」(phủ định của すぎる) + ようにする. ① のをやめること — bỏ hẳn việc ăn; nghĩa quá mạnh và cấu trúc 「～ことにしました」thiếu 「こと」. ② すぎないよう ✓ — không ăn quá mức, phù hợp hành động kiểm soát. ③ 方をかえること — thay đổi cách ăn; không liên quan đến kiểm soát lượng ăn. ④ にくいよう — 'cố gắng để khó ăn' — vô nghĩa về mặt logic.",
+              "glosses": [
+                {
+                  "t": "体に悪い",
+                  "read": "からだにわるい",
+                  "vi": "hại cho sức khoẻ"
+                },
+                {
+                  "t": "知っていたので",
+                  "read": "しっていたので",
+                  "vi": "vì đã biết (~ので B39)"
+                },
+                {
+                  "t": "甘いもの",
+                  "read": "あまいもの",
+                  "vi": "đồ ngọt"
+                },
+                {
+                  "t": "すぎないよう",
+                  "read": "",
+                  "vi": "cố không vượt quá mức"
+                },
+                {
+                  "t": "方をかえること",
+                  "read": "かたをかえること",
+                  "vi": "việc thay đổi cách làm"
+                },
+                {
+                  "t": "やめる",
+                  "read": "やめる",
+                  "vi": "dừng lại, từ bỏ"
+                },
+                {
+                  "t": "にくい",
+                  "read": "にくい",
+                  "vi": "khó (làm)"
+                },
+                {
+                  "t": "食べる",
+                  "read": "たべる",
+                  "vi": "ăn"
+                },
+                {
+                  "t": "しました",
+                  "read": "しました",
+                  "vi": "đã làm, đã quyết định (dùng với ことにしました)"
+                }
+              ]
+            },
+            {
+              "stem": "弟はまだ小さいので、一人で料理の＿がわかりません。",
+              "choices": [
+                "やり方",
+                "やりすぎ",
+                "やりやすさ",
+                "やりにくさ"
+              ],
+              "answer": 0,
+              "pt": "V方 ＋ ～ので (B39 ôn)",
+              "explain": "「やり方がわかりません」= không biết cách làm — phương pháp/cách thức nấu ăn. ① やり方 ✓ — cách làm, phù hợp ngữ cảnh em còn nhỏ chưa biết cách. ② やりすぎ — làm quá mức; 「やりすぎがわかりません」vô nghĩa. ③ やりやすさ — sự dễ làm; không phù hợp khi muốn nói 'không biết cách'. ④ やりにくさ — sự khó làm; tương tự ③.",
+              "glosses": [
+                {
+                  "t": "弟",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "まだ小さいので",
+                  "read": "まだちいさいので",
+                  "vi": "vì còn nhỏ (~ので B39)"
+                },
+                {
+                  "t": "一人で",
+                  "read": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn"
+                },
+                {
+                  "t": "わかりません",
+                  "read": "わかりません",
+                  "vi": "không biết, không hiểu"
+                }
+              ]
+            },
+            {
+              "stem": "この道は細くて暗いので、夜は歩き＿です。",
+              "choices": [
+                "にくい",
+                "やすい",
+                "すぎます",
+                "方です"
+              ],
+              "answer": 0,
+              "pt": "Vにくい ＋ ～ので (B39 ôn)",
+              "explain": "「歩きにくい」= khó đi bộ — tính chất của con đường (hẹp, tối) khiến việc đi bộ khó khăn. ① にくい ✓ — đường hẹp tối → khó đi, logic hoàn toàn. ② やすい — dễ đi bộ, ngược nghĩa, mâu thuẫn với mô tả đường hẹp tối. ③ すぎます — 「歩きすぎます」= đi bộ quá nhiều, không phải nhận xét về tính chất đường. ④ 方です — 「歩き方」= cách đi bộ, không phải đánh giá tính chất.",
+              "glosses": [
+                {
+                  "t": "道",
+                  "read": "みち",
+                  "vi": "con đường"
+                },
+                {
+                  "t": "細くて暗い",
+                  "read": "ほそくてくらい",
+                  "vi": "hẹp và tối"
+                },
+                {
+                  "t": "夜",
+                  "read": "よる",
+                  "vi": "ban đêm"
+                },
+                {
+                  "t": "歩き",
+                  "read": "あるき",
+                  "vi": "đi bộ (masu-stem)"
+                }
+              ]
+            },
+            {
+              "stem": "新しいスマホは画面が大きすぎて、ポケットに＿。",
+              "choices": [
+                "入りにくいです",
+                "入りやすいです",
+                "入り方です",
+                "入りそうです"
+              ],
+              "answer": 0,
+              "pt": "Vにくい ＋ Aすぎて (B43 ôn)",
+              "explain": "「大きすぎて〜入りにくい」= quá to nên khó bỏ vào túi — kết hợp すぎて (nguyên nhân) và にくい (kết quả). ① 入りにくいです ✓ — khó nhét vào, hệ quả tự nhiên của màn hình quá to. ② 入りやすいです — dễ bỏ vào, mâu thuẫn với 大きすぎて. ③ 入り方です — cách bỏ vào, không phải nhận xét về độ khó/dễ. ④ 入りそうです — 「〜そう」(B43) = trông có vẻ sắp vào được, nghĩa lạc (nếu quá to thì trông không vào được).",
+              "glosses": [
+                {
+                  "t": "画面",
+                  "read": "がめん",
+                  "vi": "màn hình"
+                },
+                {
+                  "t": "大きすぎて",
+                  "read": "おおきすぎて",
+                  "vi": "quá to (hệ quả A+すぎ)"
+                },
+                {
+                  "t": "ポケット",
+                  "read": "",
+                  "vi": "túi áo"
+                },
+                {
+                  "t": "入り",
+                  "read": "はいり",
+                  "vi": "vào (masu-stem)"
+                },
+                {
+                  "t": "方です",
+                  "read": "かたです",
+                  "vi": "là cách làm/để"
+                },
+                {
+                  "t": "にくい",
+                  "read": "にくい",
+                  "vi": "khó (làm)"
+                },
+                {
+                  "t": "やすい",
+                  "read": "やすい",
+                  "vi": "dễ (làm)"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "スマホ",
+                  "read": "スマホ",
+                  "vi": "điện thoại thông minh (smartphone)"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "〜そうです (thể様態 dựa vào bề ngoài) = trông có vẻ ~"
+                }
+              ]
+            },
+            {
+              "stem": "先生に日本語の発音の仕方を＿、ずっと練習しています。",
+              "choices": [
+                "教えてもらって",
+                "教えてあげて",
+                "教えてみて",
+                "教えておいて"
+              ],
+              "answer": 0,
+              "pt": "Vてもらいます (B41 ôn) ＋ V方",
+              "explain": "「先生に教えてもらって」= được thầy dạy cho (mình) → rồi luyện mãi. ① 教えてもらって ✓ — nhận hành động từ thầy về phía mình (B41 Vてもらう). ② 教えてあげて — mình dạy cho người khác (B41 Vてあげる), chủ thể ngược lại. ③ 教えてみて — thử dạy (B40 Vてみる), nghĩa là thử xem, không phù hợp ngữ cảnh nhận sự dạy bảo. ④ 教えておいて — dạy trước/dạy để chuẩn bị (Vておく), không hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "発音",
+                  "read": "はつおん",
+                  "vi": "phát âm"
+                },
+                {
+                  "t": "仕方",
+                  "read": "しかた",
+                  "vi": "cách làm/phương pháp"
+                },
+                {
+                  "t": "教えてもらって",
+                  "read": "おしえてもらって",
+                  "vi": "được dạy cho (Vてもらう B41)"
+                },
+                {
+                  "t": "ずっと練習",
+                  "read": "ずっとれんしゅう",
+                  "vi": "liên tục luyện tập"
+                },
+                {
+                  "t": "おいて",
+                  "read": "おいて",
+                  "vi": "làm trước, để sẵn"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "練習しています",
+                  "read": "れんしゅうしています",
+                  "vi": "đang luyện tập"
+                },
+                {
+                  "t": "えてあげて",
+                  "read": "えてあげて",
+                  "vi": "〜てあげて = làm giúp cho người khác"
+                },
+                {
+                  "t": "えてみて",
+                  "read": "えてみて",
+                  "vi": "〜てみて = thử làm ~ xem"
+                }
+              ]
+            },
+            {
+              "stem": "彼女のスピーチは声が小さすぎて、後ろの席からは聞き＿でした。",
+              "choices": [
+                "にくかった",
+                "やすかった",
+                "すぎた",
+                "方だった"
+              ],
+              "answer": 0,
+              "pt": "Vにくい (quá khứ)",
+              "explain": "「聞きにくかった」= khó nghe (quá khứ) — giọng quá nhỏ nên ngồi phía sau khó nghe. ① にくかった ✓ — にくい chia quá khứ → にくかった, phù hợp. ② やすかった — dễ nghe (quá khứ), mâu thuẫn với 声が小さすぎて. ③ すぎた — quá nhiều (quá khứ), nhưng 「聞きすぎた」= nghe quá nhiều, không phải nhận xét về độ khó. ④ 方だった — 「聞き方」= cách nghe, chia quá khứ vô nghĩa trong ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "スピーチ",
+                  "read": "",
+                  "vi": "bài phát biểu"
+                },
+                {
+                  "t": "声が小さすぎて",
+                  "read": "こえがちいさすぎて",
+                  "vi": "giọng quá nhỏ"
+                },
+                {
+                  "t": "後ろの席",
+                  "read": "うしろのせき",
+                  "vi": "ghế phía sau"
+                },
+                {
+                  "t": "聞き",
+                  "read": "きき",
+                  "vi": "nghe (masu-stem)"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "からは",
+                  "read": "からは",
+                  "vi": "〜から+は = từ ~ (nhấn mạnh điểm xuất phát/vị trí)"
+                },
+                {
+                  "t": "でした",
+                  "read": "でした",
+                  "vi": "thể quá khứ lịch sự của です (danh từ/na-tính từ)"
+                }
+              ]
+            },
+            {
+              "stem": "この薬は飲み＿ように、食後に飲んでください。",
+              "choices": [
+                "やすい",
+                "にくい",
+                "すぎない",
+                "方の"
+              ],
+              "answer": 0,
+              "pt": "Vやすい (目的・條件)",
+              "explain": "「飲みやすいように」= để dễ uống — uống sau bữa ăn giúp thuốc dễ xuống. ① やすい ✓ — dễ uống, lý do khuyên uống sau bữa ăn. ② にくい — khó uống, mâu thuẫn (không ai hướng dẫn 'để khó uống'). ③ すぎない — không uống quá nhiều; 「飲みすぎないように」cũng là cấu trúc hợp lệ nhưng nghĩa thành 'để không uống quá nhiều', không khớp với chỉ dẫn 食後. ④ 方の — 「飲み方の」= của cách uống, không tạo được cụm ように có nghĩa.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "飲み",
+                  "read": "のみ",
+                  "vi": "uống (masu-stem)"
+                },
+                {
+                  "t": "食後に",
+                  "read": "しょくごに",
+                  "vi": "sau bữa ăn"
+                },
+                {
+                  "t": "飲んでください",
+                  "read": "のんでください",
+                  "vi": "hãy uống"
+                },
+                {
+                  "t": "ように",
+                  "read": "ように",
+                  "vi": "để mà, sao cho (mục đích)"
+                }
+              ]
+            },
+            {
+              "stem": "健康のために、毎日野菜を食べるようにしています。でも、好き嫌いが多くて、なかなか続け＿です。",
+              "choices": [
+                "にくい",
+                "やすい",
+                "すぎます",
+                "方です"
+              ],
+              "answer": 0,
+              "pt": "Vにくい ＋ Vるのために (B42 ôn)",
+              "explain": "「続けにくい」= khó duy trì — kén ăn nhiều nên khó tiếp tục ăn rau mỗi ngày. ① にくい ✓ — khó duy trì, hợp với なかなか (mãi không làm được). ② やすい — dễ tiếp tục, mâu thuẫn với なかなか và kén ăn. ③ すぎます — tiếp tục quá nhiều; 「続けすぎます」= tiếp tục quá mức, không hợp ý câu. ④ 方です — cách duy trì, không phải đánh giá độ khó.",
+              "glosses": [
+                {
+                  "t": "健康のために",
+                  "read": "けんこうのために",
+                  "vi": "vì sức khoẻ (Nのために B42)"
+                },
+                {
+                  "t": "好き嫌いが多くて",
+                  "read": "すききらいがおおくて",
+                  "vi": "kén ăn"
+                },
+                {
+                  "t": "なかなか",
+                  "read": "",
+                  "vi": "mãi không ~"
+                },
+                {
+                  "t": "続け",
+                  "read": "つづけ",
+                  "vi": "tiếp tục (masu-stem)"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "hằng ngày"
+                },
+                {
+                  "t": "野菜",
+                  "read": "やさい",
+                  "vi": "rau, rau củ"
+                },
+                {
+                  "t": "食べるようにしています",
+                  "read": "たべるようにしています",
+                  "vi": "đang cố gắng duy trì thói quen ăn"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは料理が上手で、教え＿ので、クラスで人気があります。",
+              "choices": [
+                "やすい",
+                "にくい",
+                "すぎる",
+                "方がいい"
+              ],
+              "answer": 0,
+              "pt": "Vやすい ＋ ～ので (B39 ôn)",
+              "explain": "「教えやすい」= dễ dạy / dạy dễ hiểu → nên được yêu thích. ① やすい ✓ — dạy dễ hiểu, giải thích tốt nên được yêu thích. ② にくい — dạy khó hiểu, mâu thuẫn với クラスで人気. ③ すぎる — dạy quá nhiều; 「教えすぎる」không hợp ngữ cảnh khen. ④ 方がいい — 「教え方がいい」= cách dạy tốt; về mặt cấu trúc 「教え方がいいので」hơi khác nhưng ở đây thiếu が nên sai hình thức.",
+              "glosses": [
+                {
+                  "t": "料理が上手",
+                  "read": "りょうりがじょうず",
+                  "vi": "giỏi nấu ăn"
+                },
+                {
+                  "t": "教え",
+                  "read": "おしえ",
+                  "vi": "dạy (masu-stem)"
+                },
+                {
+                  "t": "クラスで人気",
+                  "read": "クラスでにんき",
+                  "vi": "được yêu thích trong lớp"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "stem": "A：このパスワードの決め＿を説明してもらえますか。　B：はい、まず英数字を混ぜてください。",
+              "choices": [
+                "方",
+                "やすさ",
+                "にくさ",
+                "すぎ"
+              ],
+              "answer": 0,
+              "pt": "V方",
+              "explain": "「決め方」= cách thiết lập (mật khẩu) — B hướng dẫn cụ thể phương pháp. ① 方 ✓ — cách thiết lập, B giải thích quy trình → hoàn toàn hợp. ② やすさ — sự dễ thiết lập; 「決めやすさを説明」vô nghĩa thực tế. ③ にくさ — sự khó thiết lập; tương tự ②. ④ すぎ — 「決めすぎ」= thiết lập quá nhiều; không phải điều A hỏi.",
+              "glosses": [
+                {
+                  "t": "パスワード",
+                  "read": "",
+                  "vi": "mật khẩu"
+                },
+                {
+                  "t": "決め方",
+                  "read": "きめかた",
+                  "vi": "cách quyết định/thiết lập"
+                },
+                {
+                  "t": "説明してもらえますか",
+                  "read": "せつめいしてもらえますか",
+                  "vi": "có thể giải thích cho tôi không (B41 ôn)"
+                },
+                {
+                  "t": "英数字を混ぜて",
+                  "read": "えいすうじをまぜて",
+                  "vi": "trộn chữ và số"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, dạ"
+                },
+                {
+                  "t": "まず",
+                  "read": "まず",
+                  "vi": "trước tiên, đầu tiên"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn, xin hãy"
+                }
+              ]
+            },
+            {
+              "stem": "試験まで時間がないので、合格できそうに＿、できるだけがんばります。",
+              "choices": [
+                "ありませんが",
+                "なさそうですが",
+                "ないようですが",
+                "みえませんが"
+              ],
+              "answer": 0,
+              "pt": "Vそうにありません／なさそうです (B43 ôn)",
+              "explain": "「合格できそうにありません」OR「なさそうです」= trông có vẻ không thể đỗ — biểu hiện tiêu cực của 〜そう (B43). Câu đang hỏi dạng「合格できそうに＿」→ cần điền phần phủ định tiếp theo. ①「ありませんが」✓ — 「合格できそうにありません」là mẫu cố định B43 (Vそうにありません). ②「なさそうですが」— 「なさそう」tự nó đúng ngữ pháp (「なさそう」= 「なさそうです」) NHƯNG ghép với「〜そうに」trước tạo「〜そうになさそう」thừa, không tự nhiên. ③「ないようですが」— 「〜ようです」= suy đoán từ bằng chứng gián tiếp, không phải mẫu そう (B43); cũng không ghép sau 「〜そうに」. ④「みえませんが」— 「〜に見えません」= không trông có vẻ, khác mẫu そう đang luyện. → ①「ありませんが」(合格できそうにありません) là chuẩn mẫu B43.",
+              "glosses": [
+                {
+                  "t": "試験まで",
+                  "read": "しけんまで",
+                  "vi": "đến kỳ thi"
+                },
+                {
+                  "t": "合格できそうに",
+                  "read": "ごうかくできそうに",
+                  "vi": "có vẻ có thể đỗ"
+                },
+                {
+                  "t": "できるだけ",
+                  "read": "",
+                  "vi": "hết sức có thể"
+                },
+                {
+                  "t": "がんばります",
+                  "read": "",
+                  "vi": "cố gắng"
+                },
+                {
+                  "t": "よう",
+                  "read": "よう",
+                  "vi": "dường như, có vẻ"
+                },
+                {
+                  "t": "みえ",
+                  "read": "みえ",
+                  "vi": "trông như (từ 見える)"
+                },
+                {
+                  "t": "時間がないので",
+                  "read": "じかんがないので",
+                  "vi": "vì không có thời gian"
+                },
+                {
+                  "t": "ありませんが",
+                  "read": "ありませんが",
+                  "vi": "〜がありません+が = không có ~, nhưng"
+                },
+                {
+                  "t": "なさそうですが",
+                  "read": "なさそうですが",
+                  "vi": "い/na-tính từ phủ định + なさそう = trông có vẻ không ~"
+                },
+                {
+                  "t": "ないようですが",
+                  "read": "ないようですが",
+                  "vi": "〜ないよう(だ) = có vẻ như không ~, nhưng"
+                },
+                {
+                  "t": "みえませんが",
+                  "read": "みえませんが",
+                  "vi": "見えません = không thấy/không có vẻ như vậy, nhưng"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "Vすぎます",
+              "explain": "Câu đúng: 「この映画は話が長すぎて、途中で眠くなりました。」— Bộ phim này nội dung dài quá nên giữa chừng tôi đã buồn ngủ.\nSắp xếp: ô 1=「映画は」, ô 2=「話が」, ô 3=「長すぎて、」★, ô 4=「途中で」\nKhung trước có chỉ định từ 「この」 bắt buộc đi cùng danh từ 「映画は」 ở ô 1 để làm chủ đề chính của câu. Mảnh 「話が」 ở ô 2 đóng vai trò chủ ngữ phụ chỉ nội dung phim đi liền trước tính từ chỉ mức độ. Mảnh 「途中で」 ở ô 4 bổ nghĩa thời gian cho vị ngữ 「眠くなりました。」 ở khung sau. Mảnh ở ô ★ (ô 3) là 「長すぎて、」 mang điểm ngữ pháp tính từ bỏ い + 「すぎます」 ở thể て để chỉ lý do quá đà dẫn đến kết quả ở mệnh đề sau.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "眠くなりました",
+                  "read": "ねむくなりました",
+                  "vi": "đã trở nên buồn ngủ"
+                },
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "bộ phim, điện ảnh"
+                },
+                {
+                  "t": "話",
+                  "read": "はなし",
+                  "vi": "câu chuyện / nội dung phim"
+                },
+                {
+                  "t": "長すぎて",
+                  "read": "ながすぎて",
+                  "vi": "quá dài"
+                },
+                {
+                  "t": "途中",
+                  "read": "とちゅう",
+                  "vi": "giữa chừng"
+                }
+              ],
+              "frame": [
+                "この",
+                "眠くなりました。"
+              ],
+              "pieces": [
+                "映画は",
+                "話が",
+                "長すぎて、",
+                "途中で"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vやすい",
+              "explain": "Câu đúng: 「このペンはとても書きやすいので、毎日使っています。」— Cây bút này rất dễ viết nên hàng ngày tôi đều dùng.\nSắp xếp: ô 1=「ペンは」, ô 2=「とても」, ô 3=「書きやすい」★, ô 4=「ので、毎日」\nKhung trước chứa từ chỉ định 「この」 cần nối với danh từ 「ペンは」 ở ô 1 để tạo thành chủ ngữ. Phó từ 「とても」 ở ô 2 đứng trước để bổ nghĩa mức độ cho tính từ 「書きやすい」. Mảnh 「ので、毎日」 ở ô 4 nối mệnh đề lý do với hành động thói quen 「使っています。」 ở khung sau. Mảnh ở ô ★ (ô 3) là 「書きやすい」 mang điểm ngữ pháp động từ bỏ ます + 「やすい」 diễn tả tính chất dễ thực hiện của cây bút.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "使っています",
+                  "read": "つかっています",
+                  "vi": "đang dùng / đang sử dụng"
+                },
+                {
+                  "t": "ペン",
+                  "read": "ペン",
+                  "vi": "cây bút"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "書きやすい",
+                  "read": "かきやすい",
+                  "vi": "dễ viết"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày / hàng ngày"
+                }
+              ],
+              "frame": [
+                "この",
+                "使っています。"
+              ],
+              "pieces": [
+                "ペンは",
+                "とても",
+                "書きやすい",
+                "ので、毎日"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "V方",
+              "explain": "Câu đúng: 「この機械の使い方を誰に教えてもらいましたか。」— Cách sử dụng chiếc máy này là bạn đã được ai chỉ dạy cho vậy?\nSắp xếp: ô 1=「機械の」, ô 2=「使い方を」★, ô 3=「誰に」, ô 4=「教えて」.\nChỉ định từ 「この」 ở khung trước bắt buộc gắn với danh từ tạo thành 「この機械の」. Mẫu ngữ pháp chỉ cách làm V方 tạo thành danh từ 「使い方を」 làm tân ngữ cho hành động chỉ dạy. Từ để hỏi tác nhân 「誰に」 đứng trước động từ thể て 「教えて」 để liên kết với cấu trúc nhận hành động hỏi đối phương 「もらいましたか。」 ở khung sau.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "",
+                  "vi": "đã nhận được, được (chỉ cho)"
+                },
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng / cách dùng"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "chỉ cho, dạy cho"
+                },
+                {
+                  "t": "誰",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "機械",
+                  "read": "きかい",
+                  "vi": "máy móc, máy"
+                }
+              ],
+              "frame": [
+                "この",
+                "もらいましたか。"
+              ],
+              "pieces": [
+                "使い方を",
+                "教えて",
+                "誰に",
+                "機械の"
+              ],
+              "order": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vにくい",
+              "explain": "Câu đúng: 「この辞書は説明が複雑で、とても使いにくいです。」— Từ điển này giải thích phức tạp nên rất khó sử dụng.\nSắp xếp: ô 1=「説明が」, ô 2=「複雑で、」, ô 3=「とても」, ô 4=「使いにくい」★\nMẫu câu 「V stem + にくいです」 dùng để diễn tả hành động khó thực hiện. Sau chủ ngữ 「この辞書は」 cần bổ ngữ chỉ nguyên nhân 「説明が」「複雑で、」 để giải thích lý do. Trạng từ 「とても」 đứng trước động từ thể tính từ 「使いにくい」 ở ô ★ để bổ nghĩa mức độ, làm thành vị ngữ hoàn chỉnh trước 「です。」.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "辞書",
+                  "read": "じしょ",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "説明",
+                  "read": "せつめい",
+                  "vi": "lời giải thích / phần giải thích"
+                },
+                {
+                  "t": "複雑",
+                  "read": "ふくざつ",
+                  "vi": "phức tạp"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "使いにくい",
+                  "read": "つかいにくい",
+                  "vi": "khó dùng / khó sử dụng"
+                }
+              ],
+              "frame": [
+                "この辞書は",
+                "です。"
+              ],
+              "pieces": [
+                "説明が",
+                "複雑で、",
+                "とても",
+                "使いにくい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vすぎます (ôn: 〜ので B39)",
+              "explain": "Câu đúng: 「昨日お酒を飲みすぎたので、頭が痛いです。」— Vì hôm qua tôi uống quá nhiều rượu nên hôm nay bị đau đầu.\nSắp xếp: ô 1=「お酒を」, ô 2=「飲みすぎた」★, ô 3=「ので、」, ô 4=「頭が」\nKhung đầu câu cho sẵn 「昨日」 đòi hỏi tân ngữ chỉ đồ uống 「お酒を」 ở ô 1. Tiếp theo là động từ chia thể quá khứ biểu thị việc làm gì đó quá mức 「飲みすぎた」 ở ô 2 (vị trí ★). Mảnh 「ので、」 ở ô 3 đứng sau động từ thể thông thường để nối câu chỉ lý do, kết nối với chủ ngữ 「頭が」 ở ô 4 trước vị ngữ 「痛いです。」.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "痛いです",
+                  "read": "いたいです",
+                  "vi": "đau, bị đau"
+                },
+                {
+                  "t": "お酒",
+                  "read": "おさけ",
+                  "vi": "rượu"
+                },
+                {
+                  "t": "飲みすぎた",
+                  "read": "のみすぎた",
+                  "vi": "đã uống quá nhiều"
+                },
+                {
+                  "t": "頭",
+                  "read": "あたま",
+                  "vi": "cái đầu"
+                }
+              ],
+              "frame": [
+                "昨日",
+                "痛いです。"
+              ],
+              "pieces": [
+                "お酒を",
+                "飲みすぎた",
+                "ので、",
+                "頭が"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "V方 (ôn: Vてもらいます B41)",
+              "explain": "Câu đúng: 「先生に漢字の書き方を教えてもらいました。」— Tôi đã được thầy/cô dạy cho cách viết chữ Hán.\nSắp xếp: ô 1=「漢字の」, ô 2=「書き方を」★, ô 3=「教えて」, ô 4=「もらいました」.\nSau đầu câu 「先生に」 cần bổ ngữ danh từ chỉ đối tượng, trợ từ sở hữu 「の」 trong mảnh 「漢字の」 đứng ở ô 1 để bổ nghĩa cho danh từ 「書き方」. Mảnh 「書き方を」 mang trợ từ 「を」 đứng ở ô 2 (vị trí ★) đóng vai trò bổ ngữ trực tiếp cho động từ 「教えて」 ở ô 3. Mảnh 「教えて」 thể て kết hợp tiếp với động từ 「もらいました」 ở ô 4 đứng cuối câu trước dấu chấm. Mảnh 「書き方を」 bắt buộc ở ô 2 vì đứng sau danh từ bổ nghĩa 「漢字の」 và đứng trước động từ 「教えて」 tác động trực tiếp lên nó.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán, kanji"
+                },
+                {
+                  "t": "書き方",
+                  "read": "かきかた",
+                  "vi": "cách viết"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy cho"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã được (ai đó) cho/làm giúp"
+                }
+              ],
+              "frame": [
+                "先生に",
+                "。"
+              ],
+              "pieces": [
+                "漢字の",
+                "書き方を",
+                "教えて",
+                "もらいました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vやすい (ôn: Vてみます B40)",
+              "explain": "Câu đúng: 「このアプリは使いやすいので、使ってみてください。」— Ứng dụng này dễ sử dụng nên hãy dùng thử xem.\nSắp xếp: ô 1=「アプリは」, ô 2=「使いやすい」★, ô 3=「ので、」, ô 4=「使ってみ」\nĐầu khung có từ chỉ định 「この」 nên bắt buộc nối tiếp bằng danh từ làm chủ đề 「アプリは」 ở ô 1. Tính từ thể hiện sự dễ dàng 「使いやすい」 đứng ở ô 2 để bổ nghĩa cho chủ ngữ, theo sau là trợ từ chỉ lý do 「ので、」 ở ô 3 để nối với vế chỉ hành động. Vế sau cần dạng động từ thể て đi với 「み」 để kết hợp với đuôi khung 「てください。」 tạo thành cấu trúc nhờ vả thử làm gì 「使ってみてください。」, do đó mảnh 「使ってみ」 phải nằm ở ô 4. Mảnh ở ô ★ 「使いやすい」 chứa điểm ngữ pháp Vやすい (động từ bỏ ます + やすい) dùng để miêu tả đặc tính dễ sử dụng của ứng dụng, bắt buộc phải đứng sau chủ ngữ 「アプリは」 ở ô 1 và trước trợ từ chỉ lý do 「ので、」 ở ô 3 chứ không thể đặt ở ô khác làm sai cấu trúc câu.",
+              "glosses": [
+                {
+                  "t": "てみて",
+                  "read": "てみて",
+                  "vi": "〜てみてください = hãy thử làm ~ xem"
+                },
+                {
+                  "t": "やすいので",
+                  "read": "やすいので",
+                  "vi": "〜やすい (dễ) + ので (vì)"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn, xin hãy"
+                },
+                {
+                  "t": "使い",
+                  "read": "つかい",
+                  "vi": "dùng"
+                },
+                {
+                  "t": "アプリ",
+                  "read": "アプリ",
+                  "vi": "ứng dụng (app)"
+                },
+                {
+                  "t": "使っ",
+                  "read": "つかっ",
+                  "vi": "dùng"
+                }
+              ],
+              "frame": [
+                "この",
+                "てください。"
+              ],
+              "pieces": [
+                "使いやすい",
+                "アプリは",
+                "使ってみ",
+                "ので、"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vすぎます (ôn: Vそうにありません B43)",
+              "explain": "Câu đúng: 「彼はいつも働きすぎて、休みそうにありません。」— Anh ấy lúc nào cũng làm việc quá sức nên có vẻ không nghỉ ngơi.\nSắp xếp: ô 1=「いつも」, ô 2=「働きすぎて、」★, ô 3=「休み」, ô 4=「そうにありません」.\nSau chủ ngữ 「彼は」 ở đầu câu, phó từ 「いつも」 đứng ở ô 1 để bổ nghĩa tần suất cho động từ đứng sau. Mảnh 「働きすぎて、」 đứng ở ô 2 (vị trí ★) mô tả hành động làm việc quá mức và nối câu bằng hình thức て kèm dấu phẩy. Mảnh 「休み」 là thể masu bỏ masu của động từ 休みます đứng ở ô 3, làm tiền tố đi liền với mảnh 「そうにありません」 ở ô 4 để diễn tả đánh giá không có vẻ gì là sắp nghỉ ngơi. Mảnh 「働きすぎて、」 bắt buộc nằm ở ô 2 vì vừa nhận sự bổ nghĩa từ phó từ 「いつも」 ở ô 1, vừa có dấu phẩy ở cuối để làm vế nguyên nhân dẫn sang vế kết quả ở ô 3 và ô 4.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy, anh ta"
+                },
+                {
+                  "t": "いつも",
+                  "read": "いつも",
+                  "vi": "luôn luôn, lúc nào cũng"
+                },
+                {
+                  "t": "働きすぎて",
+                  "read": "はたらきすぎて",
+                  "vi": "vì làm việc quá sức"
+                },
+                {
+                  "t": "休み",
+                  "read": "やすみ",
+                  "vi": "nghỉ / nghỉ ngơi"
+                },
+                {
+                  "t": "そうに",
+                  "read": "そうに",
+                  "vi": "〜そうにありません = trông có vẻ không thể ~ (khả năng thấp)"
+                },
+                {
+                  "t": "ありません",
+                  "read": "ありません",
+                  "vi": "không có, không... (phủ định của あります)"
+                }
+              ],
+              "frame": [
+                "彼は",
+                "。"
+              ],
+              "pieces": [
+                "いつも",
+                "働きすぎて、",
+                "休み",
+                "そうにありません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "V方 (ôn: Vるのに〜 B42)",
+              "explain": "Câu đúng: 「このソフトの使い方を覚えるのに３日かかりました。」— Tôi đã mất 3 ngày để học cách sử dụng phần mềm này.\nSắp xếp: ô 1=「使い方を」★, ô 2=「覚えるのに」, ô 3=「３日」, ô 4=「かかりました」.\nMảnh 「使い方を」 ở ô 1 (vị trí ★) tiếp nối trực tiếp định ngữ 「このソフトの」 từ đầu khung và mang trợ từ 「を」 để làm tân ngữ cho động từ theo sau. Mảnh 「覚えるのに」 đứng ở ô 2 đóng vai trò chỉ mục đích/việc cần làm, đứng ngay sau tân ngữ ở ô 1. Mảnh 「３日」 chỉ số lượng thời gian đứng ở ô 3 để bổ nghĩa trực tiếp cho động từ tốn thời gian 「かかりました」 ở ô 4 trước dấu chấm. Mảnh 「使い方を」 bắt buộc đứng ở ô 1 vì vừa phù hợp đứng sau danh từ sở hữu 「このソフトの」, vừa là đối tượng trực tiếp để hành động 「覚えるのに」 ở ô 2 tác động vào.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "ソフト",
+                  "read": "ソフト",
+                  "vi": "phần mềm (software)"
+                },
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng, cách dùng"
+                },
+                {
+                  "t": "覚える",
+                  "read": "おぼえる",
+                  "vi": "nhớ, học thuộc"
+                },
+                {
+                  "t": "３日",
+                  "read": "みっか",
+                  "vi": "3 ngày"
+                },
+                {
+                  "t": "かかりました",
+                  "read": "かかりました",
+                  "vi": "đã mất, đã tốn (thời gian/chi phí)"
+                }
+              ],
+              "frame": [
+                "このソフトの",
+                "。"
+              ],
+              "pieces": [
+                "使い方を",
+                "覚えるのに",
+                "３日",
+                "かかりました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "Vにくい (ôn: Vるのに B42)",
+              "explain": "Câu đúng: 「この道は暗くて、歩きにくいので困ります。」— Con đường này tối và khó đi nên tôi rất khổ sở.\nSắp xếp: ô 1=「道は」, ô 2=「暗くて、」, ô 3=「歩きにくい」★, ô 4=「ので」\nKhung trước kết thúc bằng chỉ từ 「この」 nên bắt buộc phải đi kèm với danh từ ở ô 1 là 「道は」 để tạo thành chủ ngữ 「この道は」. Tiếp theo, tính từ 「暗い」 được chia ở thể te là 「暗くて、」 ở ô 2 để nối tiếp với tính từ mô tả trạng thái tiếp theo. Mảnh 「歩きにくい」 ở ô 3 mang mẫu ngữ pháp V-masu bỏ masu kết hợp với にくい biểu thị việc đi bộ gặp khó khăn, đứng trước liên từ chỉ lý do 「ので」 ở ô 4. Vị ngữ ở khung sau là 「困ります」 diễn tả sự phiền toái do nguyên nhân 「歩きにくいので」 gây ra, do đó mảnh 「歩きにくい」 chỉ có thể đứng ở ô 3 mang dấu ★.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "困ります",
+                  "read": "こまります",
+                  "vi": "khó xử, gặp khó khăn, phiền toái"
+                },
+                {
+                  "t": "歩きにくい",
+                  "read": "あるきにくい",
+                  "vi": "khó đi / khó bước đi"
+                },
+                {
+                  "t": "暗くて",
+                  "read": "くらくて",
+                  "vi": "vì tối, tối nên"
+                },
+                {
+                  "t": "道",
+                  "read": "みち",
+                  "vi": "con đường"
+                }
+              ],
+              "frame": [
+                "この",
+                "困ります。"
+              ],
+              "pieces": [
+                "歩きにくい",
+                "暗くて、",
+                "ので",
+                "道は"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vすぎます (ôn: Vてしまう B43)",
+              "explain": "Câu đúng: 「食べすぎて気持ちが悪くなってしまいました。」— Vì ăn quá nhiều nên tôi đã bị khó chịu trong người.\nSắp xếp: ô 1=「すぎて」, ô 2=「気持ちが」, ô 3=「悪く」, ô 4=「なって」★\nĐộng từ 食べ đi với mảnh ô 1 「すぎて」 để tạo thành cấu trúc 食べすぎて (ăn quá mức). Sau đó, tính từ い 「悪い」 đổi thành dạng tính từ đuôi く là 「悪く」 để kết hợp với mảnh ô 4 「なって」 tạo thành cụm 悪くなって (trở nên khó chịu). Mảnh ở ô ★ 「なって」 mang thể て bắt buộc phải đứng trước khung đuôi 「しまいました」 để hoàn thành mẫu ngữ pháp 悪くなってしまいました (lỡ trở nên xấu đi/khó chịu), do đó không thể đứng ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "食べすぎて",
+                  "read": "たべすぎて",
+                  "vi": "vì ăn quá nhiều"
+                },
+                {
+                  "t": "しまいました",
+                  "read": "しまいました",
+                  "vi": "đã lỡ, đã trót (ngoài ý muốn - dạng quá khứ của しまう)"
+                },
+                {
+                  "t": "気持ちが悪く",
+                  "read": "きもちがわるく",
+                  "vi": "cảm thấy khó chịu, buồn nôn"
+                },
+                {
+                  "t": "なって",
+                  "read": "",
+                  "vi": "trở nên / bị"
+                }
+              ],
+              "frame": [
+                "食べ",
+                "しまいました。"
+              ],
+              "pieces": [
+                "すぎて",
+                "気持ちが",
+                "悪く",
+                "なって"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "V方 (ôn: Vてあげます B41)",
+              "explain": "Câu đúng: 「田中さんにパソコンの直し方を教えてあげました。」— Tôi đã chỉ cho anh Tanaka cách sửa máy tính.\nSắp xếp: ô 1=「パソコンの」, ô 2=「直し」, ô 3=「方を」★, ô 4=「教えて」\nKhung đầu câu có danh từ chỉ người nhận 「田中さんに」, theo sau là bổ ngữ 「パソコンの」 ở ô 1 bổ nghĩa cho danh từ chỉ hành động 「直し」 ở ô 2. Động từ 「直します」 bỏ masu còn lại thân động từ 「直し」, ghép với 「方を」 ở ô 3★ để tạo thành danh từ ghép chỉ cách thức 「直し方」 (cách sửa) đi kèm trợ từ tân ngữ 「を」. Mảnh 「教えて」 ở ô 4 nhận cụm tân ngữ 「パソコンの直し方を」 và kết hợp với khung đuôi 「あげました。」 để tạo thành cấu trúc Vてあげます (làm gì giúp ai). Mảnh 「方を」 ở ô 3★ chứa hậu tố 「方」 (chỉ cách làm) cùng trợ từ 「を」, bắt buộc phải đứng ngay sau thân động từ 「直し」 và đứng trước động từ chỉ dạy 「教えて」, nên không thể xếp vào vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "直し方",
+                  "read": "なおしかた",
+                  "vi": "cách sửa chữa"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "〜てあげました = đã làm giúp cho người khác"
+                },
+                {
+                  "t": "パソコン",
+                  "read": "パソコン",
+                  "vi": "máy tính cá nhân"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "chỉ / dạy / hướng dẫn"
+                }
+              ],
+              "frame": [
+                "田中さんに",
+                "あげました。"
+              ],
+              "pieces": [
+                "直し",
+                "パソコンの",
+                "教えて",
+                "方を"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vやすい (ôn: V／Aそうです B43)",
+              "explain": "Câu đúng: 「この新しいかばんは軽くて、持ちやすそうです。」— Chiếc túi xách mới này nhẹ và trông có vẻ dễ mang.\nSắp xếp: ô 1=「新しい」, ô 2=「かばんは」, ô 3=「軽くて、」, ô 4=「持ちやすそう」★\nKhung trước có chỉ từ 「この」 nên bắt buộc phải kết hợp với tính từ và danh từ ở ô 1 và ô 2 thành cụm chủ ngữ 「この新しいかばんは」. Tiếp theo, ô 3 phải là tính từ thể te 「軽くて、」 để nối tiếp đặc điểm của chiếc túi với vế vị ngữ phía sau. Mảnh mang mẫu ngữ pháp đang học là 「持ちやすそう」 ở ô 4 kết hợp động từ bỏ masu với đuôi やすい rồi bỏ い cộng そうです để chỉ phán đoán qua vẻ ngoài, đứng ngay trước khung sau 「です。」 để hoàn thành câu.",
+              "glosses": [
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "〜そうです (thể様態) = trông có vẻ ~"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "軽くて",
+                  "read": "かるくて",
+                  "vi": "vì nhẹ, nhẹ nên"
+                },
+                {
+                  "t": "かばん",
+                  "read": "かばん",
+                  "vi": "cái túi, cặp"
+                },
+                {
+                  "t": "持ちやすそう",
+                  "read": "もちやすそう",
+                  "vi": "có vẻ dễ cầm, dễ mang"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                }
+              ],
+              "frame": [
+                "この",
+                "です。"
+              ],
+              "pieces": [
+                "軽くて、",
+                "かばんは",
+                "持ちやすそう",
+                "新しい"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vすぎます (ôn: Vて行きます B43)",
+              "explain": "Câu đúng: 「毎日練習しすぎて疲れがたまってきています。」— Ngày nào cũng luyện tập quá sức nên sự mệt mỏi đang tích tụ dần.\nSắp xếp: ô 1=「練習しすぎて」★, ô 2=「疲れが」, ô 3=「たまって」, ô 4=「きて」\nKhung trước là phó từ 「毎日」 kết hợp với động từ biểu thị hành động quá mức ở ô 1 là 「練習しすぎて」 mang dấu ★ để chỉ nguyên nhân dẫn đến kết quả tiêu cực. Đi liền sau đó là chủ ngữ của vế sau 「疲れが」 ở ô 2 kết hợp chặt chẽ với cụm vị ngữ 「たまって」 ở ô 3 để tạo thành cụm từ cố định 「疲れがたまる」 (mệt mỏi tích tụ). Mảnh 「きて」 ở ô 4 đi sau thể te 「たまって」 và đứng trước khung sau 「います。」 để tạo thành mẫu ngữ pháp Vてきています chỉ sự biến đổi đang dồn tụ dần đến hiện tại.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "hằng ngày"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "〜ています = đang ở trạng thái/kết quả ~ (thường đi với たまる: đang tích tụ)"
+                },
+                {
+                  "t": "疲れ",
+                  "read": "つかれ",
+                  "vi": "sự mệt mỏi"
+                },
+                {
+                  "t": "練習しすぎて",
+                  "read": "れんしゅうしすぎて",
+                  "vi": "vì luyện tập quá nhiều"
+                },
+                {
+                  "t": "きて",
+                  "read": "",
+                  "vi": "dần (diễn ra)"
+                },
+                {
+                  "t": "たまって",
+                  "read": "",
+                  "vi": "tích tụ, dồn lại"
+                }
+              ],
+              "frame": [
+                "毎日",
+                "います。"
+              ],
+              "pieces": [
+                "疲れが",
+                "練習しすぎて",
+                "きて",
+                "たまって"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "V方 (ôn: Vかどうか B40)",
+              "explain": "Câu đúng: 「このケーキの作り方が正しいかどうかわかりません。」— Tôi không biết liệu cách làm món bánh này có đúng hay không.\nSắp xếp: ô 1=「ケーキの」, ô 2=「作り方が」★, ô 3=「正しい」, ô 4=「かどうか」\nSau chỉ từ 「この」 ở đầu khung là bổ nghĩa chỉ đối tượng ở ô 1 「ケーキの」. Mảnh ở ô 2 「作り方が」 bổ sung chủ ngữ chỉ cách làm (mẫu V-方) đi với tính từ ở ô 3 「正しい」. Mảnh ở ô 4 「かどうか」 đóng vai trò tạo mệnh đề nghi vấn không có từ hỏi (nghĩa là có... hay không) đứng trước vế phủ định 「わかりません。」 ở cuối khung. Mảnh ở ô ★ 「作り方が」 chứa điểm ngữ pháp V-方 (cách làm ~) làm chủ ngữ trong mệnh đề phụ, đứng bắt buộc ở ô 2 sau 「ケーキの」 và không thể xếp vị trí khác.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "わかりません",
+                  "read": "わかりません",
+                  "vi": "không biết, không hiểu"
+                },
+                {
+                  "t": "作り方",
+                  "read": "つくりかた",
+                  "vi": "cách làm"
+                },
+                {
+                  "t": "ケーキ",
+                  "read": "ケーキ",
+                  "vi": "bánh ngọt"
+                },
+                {
+                  "t": "正しい",
+                  "read": "ただしい",
+                  "vi": "đúng, chính xác"
+                }
+              ],
+              "frame": [
+                "この",
+                "わかりません。"
+              ],
+              "pieces": [
+                "作り方が",
+                "ケーキの",
+                "正しい",
+                "かどうか"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 1
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "この本は字が小さくて、読み",
+                "。きのうは夜おそくまで読んで、目が疲れ",
+                "。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "にくいです",
+                    "やすいです",
+                    "すぎます",
+                    "ましょう"
+                  ],
+                  "answer": 0,
+                  "explain": "Chữ nhỏ → KHÓ đọc → 「読みにくいです」(〜にくい: khó làm ~). 「やすい」= dễ (ngược nghĩa); 「すぎます」= quá mức (không hợp 'chữ nhỏ nên...'); 「ましょう」rủ rê, sai."
+                },
+                {
+                  "choices": [
+                    "すぎました",
+                    "やすかったです",
+                    "にくいです",
+                    "かたです"
+                  ],
+                  "answer": 0,
+                  "explain": "Đọc khuya → mắt MỎI QUÁ → 「疲れすぎました」(〜すぎる: quá mức). 「やすい/にくい」(dễ/khó) và 「かた」(cách) đều sai nghĩa 'quá mức' ở đây."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "字",
+                  "read": "じ",
+                  "vi": "chữ"
+                },
+                {
+                  "t": "小さくて",
+                  "read": "ちいさくて",
+                  "vi": "nhỏ (nên...)"
+                },
+                {
+                  "t": "読みにくいです",
+                  "read": "よみにくいです",
+                  "vi": "khó đọc (〜にくい)"
+                },
+                {
+                  "t": "夜おそくまで",
+                  "read": "よるおそくまで",
+                  "vi": "đến tận khuya"
+                },
+                {
+                  "t": "目",
+                  "read": "め",
+                  "vi": "mắt"
+                },
+                {
+                  "t": "疲れすぎました",
+                  "read": "つかれすぎました",
+                  "vi": "mỏi quá (〜すぎる)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ về 〜すぎます (~ quá mức) — bỏ ます thêm すぎます.",
+          "items": [
+            {
+              "stem": "食べます → 〜すぎます → ＿",
+              "choices": [
+                "食べすぎます",
+                "食べるすぎます",
+                "食べてすぎます",
+                "食べそすぎます"
+              ],
+              "answer": 0,
+              "explain": "〜すぎる gắn THÂN ます (bỏ ます): 食べます → 食べ → 食べすぎます (ăn quá nhiều). 「食べるすぎます/食べてすぎます」sai thể nối; tính từ thì bỏ い/な (高い→高すぎる).",
+              "glosses": [
+                {
+                  "t": "食べます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                },
+                {
+                  "t": "食べすぎます",
+                  "vi": "ăn quá nhiều (〜すぎる)"
+                },
+                {
+                  "t": "べるすぎます",
+                  "read": "べるすぎます",
+                  "vi": "đáp án nhiễu: dùng nhầm thể từ điển (べる) + すぎます, sai công thức"
+                },
+                {
+                  "t": "べてすぎます",
+                  "read": "べてすぎます",
+                  "vi": "đáp án nhiễu: dùng nhầm thể て (べて) + すぎます, sai công thức"
+                },
+                {
+                  "t": "べそすぎます",
+                  "read": "べそすぎます",
+                  "vi": "đáp án nhiễu: dạng vô nghĩa べそ + すぎます"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "すし＿作り方を教えてください。",
+              "choices": [
+                "の",
+                "を",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "「Nの作り方」= cách làm N. すしの作り方 (cách làm sushi) — danh từ + 「の」+ V方. 「を」đi với 教える (作り方を教える) chứ không sau すし; 「に/で」sai.",
+              "glosses": [
+                {
+                  "t": "すし",
+                  "vi": "sushi"
+                },
+                {
+                  "t": "作り方",
+                  "read": "つくりかた",
+                  "vi": "cách làm (V方)"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "hãy chỉ cho"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn, xin hãy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Chữ Hán này khó nhớ.",
+              "target": "この漢字は覚えにくいです",
+              "model": "この 漢字は 覚えにくいです。",
+              "explain": "「Vにくい」= khó làm ~. 覚えます → 覚え + にくいです (khó ghi nhớ).",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "覚えにくいです",
+                  "read": "おぼえにくいです",
+                  "vi": "khó nhớ (〜にくい)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

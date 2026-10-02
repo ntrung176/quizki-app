@@ -1,0 +1,4035 @@
+{
+  "bai": 4,
+  "level": "N5",
+  "intro": "〜時／〜分 · Vます／Vません · Vました／Vませんでした · NからNまで · Nと. Có ÔN LẠI ngữ pháp đã học (bài 1-3) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "毎朝、七時に起きます。",
+              "ul": "毎朝",
+              "choices": [
+                "まいあさ",
+                "まいちょう",
+                "ごとあさ",
+                "まいそう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎朝」đọc là まいあさ. 「毎」(mai) là tiếp đầu ngữ âm Hán (on'yomi) mang nghĩa 'mỗi', 「朝」(asa) là âm Nhật thuần (kun'yomi) nghĩa 'buổi sáng'. Kết hợp thành まいあさ = 'mỗi buổi sáng'. Phương án まいちょう sai vì 「朝」trong vị trí này dùng kun'yomi おきます chứ không phải on'yomi ちょう (ちょう chỉ xuất hiện trong từ ghép Hán-Hán như 朝食). Phương án ごとあさ sai hoàn toàn – 毎 không bao giờ đọc là ごと. Phương án まいそう sai vì そう không phải cách đọc nào của 朝.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "七時",
+                  "read": "しちじ",
+                  "vi": "7 giờ"
+                },
+                {
+                  "t": "起きます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                }
+              ]
+            },
+            {
+              "prompt": "授業は九時から始まります。",
+              "ul": "九時",
+              "choices": [
+                "くじ",
+                "きゅうじ",
+                "ここのじ",
+                "くうじ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「九時」đọc là くじ. Khi chỉ giờ đồng hồ, 「九」đọc là く (biến thể on'yomi), không phải きゅう hay ここの. Quy tắc đếm giờ: 四時(よじ)、七時(しちじ)、九時(くじ) là ba trường hợp đặc biệt hay bị nhầm. Phương án きゅうじ sai vì dù きゅう là on'yomi thông thường của 九, khi ghép với 時 để chỉ giờ người Nhật dùng く. Phương án ここのじ sai vì ここの là cách đọc kun'yomi của 九 khi đếm số lượng (ここのつ), không dùng để đọc giờ. Phương án くうじ sai vì くう không phải cách đọc của 九.",
+              "glosses": [
+                {
+                  "t": "授業",
+                  "read": "じゅぎょう",
+                  "vi": "buổi học / tiết học"
+                },
+                {
+                  "t": "九時",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "始まります",
+                  "read": "はじまります",
+                  "vi": "bắt đầu"
+                }
+              ]
+            },
+            {
+              "prompt": "今日は午後三時に会社を出ます。",
+              "ul": "午後",
+              "choices": [
+                "ごご",
+                "ごこ",
+                "うしろ",
+                "あとご"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「午後」đọc là ごご. Cả hai chữ đều là on'yomi: 午(ご)＋後(ご). Nghĩa là 'buổi chiều' (sau 12 giờ trưa). Phương án ごこ sai vì 後 đọc là ご chứ không phải こ. Phương án うしろ sai vì うしろ là kun'yomi của 後 khi có nghĩa 'phía sau (không gian)', không dùng trong từ 午後. Phương án あとご sai hoàn toàn, あと là cách đọc khác của 後 nhưng không ghép theo thứ tự đó với 午.",
+              "glosses": [
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "午後",
+                  "vi": "buổi chiều / sau 12 giờ trưa"
+                },
+                {
+                  "t": "三時",
+                  "read": "さんじ",
+                  "vi": "3 giờ"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "出ます",
+                  "read": "でます",
+                  "vi": "ra / rời khỏi"
+                },
+                {
+                  "t": "午後三時に",
+                  "read": "ごごさんじに",
+                  "vi": "vào lúc 3 giờ chiều"
+                }
+              ]
+            },
+            {
+              "prompt": "昼休みは十二時から一時間です。",
+              "ul": "時間",
+              "choices": [
+                "じかん",
+                "じけん",
+                "ときかん",
+                "しかん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「時間」đọc là じかん. Đây là từ ghép Hán-Hán: 時(じ)＋間(かん). 「時間」có nghĩa là 'khoảng thời gian' hoặc dùng để đếm số giờ (一時間＝một tiếng). Phương án じけん sai vì じけん là cách đọc của 事件 (vụ việc/sự cố), không phải 時間. Phương án ときかん sai vì 時 đọc là とき (kun'yomi) khi đứng độc lập hoặc một số trường hợp nhất định, nhưng trong từ ghép 時間 phải dùng on'yomi じ. Phương án しかん sai vì し không phải cách đọc của 時 trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "昼休み",
+                  "read": "ひるやすみ",
+                  "vi": "giờ nghỉ trưa"
+                },
+                {
+                  "t": "十二時",
+                  "read": "じゅうにじ",
+                  "vi": "12 giờ"
+                },
+                {
+                  "t": "一時間",
+                  "read": "いちじかん",
+                  "vi": "một tiếng đồng hồ"
+                },
+                {
+                  "t": "時間",
+                  "vi": "khoảng thời gian / giờ (độ dài)"
+                }
+              ]
+            },
+            {
+              "prompt": "毎晩、十一時ごろ寝ます。",
+              "ul": "毎晩",
+              "choices": [
+                "まいばん",
+                "まいよる",
+                "ごとばん",
+                "まいひ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎晩」đọc là まいばん. 「毎」(まい) on'yomi + 「晩」(ばん) on'yomi. Cặp まい＋[thời gian] rất phổ biến: 毎朝(まいあさ)、毎日(まいにち)、毎晩(まいばん). Phương án まいよる sai vì 「晩」đọc là ばん, không phải よる; よる là cách đọc kun'yomi của 夜 (một chữ khác cùng nghĩa 'tối'). Phương án ごとばん sai vì 毎 không đọc là ごと (ごとに là dạng khác nhưng 毎 không đọc ごと). Phương án まいひ sai vì ひ là kun'yomi của 日, không liên quan đến 晩.",
+              "glosses": [
+                {
+                  "t": "毎晩",
+                  "vi": "mỗi tối"
+                },
+                {
+                  "t": "十一時",
+                  "read": "じゅういちじ",
+                  "vi": "11 giờ"
+                },
+                {
+                  "t": "ごろ",
+                  "vi": "khoảng (chỉ thời điểm)"
+                },
+                {
+                  "t": "寝ます",
+                  "read": "ねます",
+                  "vi": "ngủ / đi ngủ"
+                }
+              ]
+            },
+            {
+              "prompt": "図書館は何時まで開いていますか。",
+              "ul": "何時",
+              "choices": [
+                "なんじ",
+                "なにじ",
+                "いくじ",
+                "なんとき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何時」đọc là なんじ khi hỏi 'mấy giờ'. 「何」trước danh từ đếm thường đọc là なん (trước số đếm, danh từ bắt đầu bằng d/n/t): なんじ、なんにん、なんさい. Phương án なにじ sai vì なに là cách đọc của 何 khi đứng độc lập hoặc trước một số trường hợp, nhưng trước 時 luôn dùng なん. Phương án いくじ sai vì いく không phải cách đọc của 何 trong tiếng Nhật hiện đại chuẩn. Phương án なんとき sai vì 時 khi chỉ giờ đồng hồ đọc là じ, không phải とき.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "何時",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "まで",
+                  "vi": "đến (giới hạn thời gian/địa điểm)"
+                },
+                {
+                  "t": "開いています",
+                  "read": "あいています",
+                  "vi": "đang mở cửa"
+                }
+              ]
+            },
+            {
+              "prompt": "電車は朝六時半に出発します。",
+              "ul": "六時",
+              "choices": [
+                "ろくじ",
+                "むじ",
+                "ろっじ",
+                "りくじ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「六時」đọc là ろくじ. 「六」on'yomi là ろく, kun'yomi là む/むっつ. Khi chỉ giờ đồng hồ luôn dùng on'yomi ろく, không dùng む. Phương án むじ sai vì む là kun'yomi của 六, không dùng khi ghép với 時 để đọc giờ. Phương án ろっじ sai vì khi 六(ろく) đứng trước 時(じ), âm ろく không bị biến âm thành ろっ (khác với 六本(ろっぽん), 六分(ろっぷん) bị biến âm trước p/b). Phương án りくじ sai vì りく không phải cách đọc của 六.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "朝",
+                  "read": "あさ",
+                  "vi": "buổi sáng"
+                },
+                {
+                  "t": "六時",
+                  "vi": "6 giờ"
+                },
+                {
+                  "t": "半",
+                  "read": "はん",
+                  "vi": "rưỡi (30 phút)"
+                },
+                {
+                  "t": "出発します",
+                  "read": "しゅっぱつします",
+                  "vi": "khởi hành"
+                },
+                {
+                  "t": "朝六時半に",
+                  "read": "あさろくじはんに",
+                  "vi": "vào lúc 6 giờ rưỡi sáng"
+                }
+              ]
+            },
+            {
+              "prompt": "私は月曜日から金曜日まで働きます。",
+              "ul": "月曜日",
+              "choices": [
+                "げつようび",
+                "つきようび",
+                "がつようび",
+                "にちようび"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「月曜日」đọc là げつようび. 「月」có hai on'yomi: げつ (trong ngày trong tuần: 月曜日) và がつ (trong tháng: 一月・二月). Khi chỉ thứ Hai, bắt buộc dùng げつ. Phương án つきようび sai vì つき là kun'yomi của 月 (nghĩa 'mặt trăng/tháng'), không dùng trong tên các ngày trong tuần. Phương án がつようび sai vì がつ là on'yomi của 月 khi chỉ tháng (一月＝いちがつ), không dùng cho ngày trong tuần. Phương án にちようび sai vì にちようび là cách đọc của 日曜日 (Chủ nhật), một ngày khác.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "月曜日",
+                  "vi": "thứ Hai"
+                },
+                {
+                  "t": "金曜日",
+                  "read": "きんようび",
+                  "vi": "thứ Sáu"
+                },
+                {
+                  "t": "働きます",
+                  "read": "はたらきます",
+                  "vi": "làm việc"
+                }
+              ]
+            },
+            {
+              "prompt": "ミーティングは三十分で終わります。",
+              "ul": "三十分",
+              "choices": [
+                "さんじゅっぷん",
+                "さんじゅうぶん",
+                "みそふん",
+                "さんじっぷん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「三十分」đọc là さんじゅっぷん. Đây là cách đọc chuẩn nhất hiện nay (NHK 2016 công nhận さんじゅっぷん). Khi 分(ふん) đứng sau số kết thúc bằng く/っ, âm đầu ふ biến thành ぷ: いっぷん、さんじゅっぷん. Phương án さんじゅうぶん sai vì ぶん là cách đọc của 分 khi có nghĩa 'phần/phần chia' (自分、半分), không dùng để đếm số phút. Phương án みそふん sai hoàn toàn – みそ là cách đọc cổ của 三十 (30) trong một số từ cố định như みそか(晦日), nhưng không ghép với ふん để đọc phút. Phương án さんじっぷん cũng từng được chấp nhận nhưng ít dùng hơn さんじゅっぷん và không phải cách đọc chính thức hiện nay.",
+              "glosses": [
+                {
+                  "t": "ミーティング",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "三十分",
+                  "vi": "30 phút"
+                },
+                {
+                  "t": "終わります",
+                  "read": "おわります",
+                  "vi": "kết thúc"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "ba (số 3)"
+                },
+                {
+                  "t": "じゅっ",
+                  "read": "じゅっ",
+                  "vi": "mười (âm biến âm/xúc âm của 十 trước phụ âm)"
+                },
+                {
+                  "t": "ぷん",
+                  "read": "ぷん",
+                  "vi": "phút (đơn vị đếm phút, dạng bán trọc của ふん)"
+                },
+                {
+                  "t": "じゅうぶん",
+                  "read": "じゅうぶん",
+                  "vi": "mười phút / cũng là từ 十分 nghĩa \"đủ, hoàn toàn\" - dễ gây nhầm cách đọc"
+                },
+                {
+                  "t": "みそ",
+                  "read": "みそ",
+                  "vi": "ba mươi (cách đọc cổ/khẩu ngữ của số 30)"
+                },
+                {
+                  "t": "ふん",
+                  "read": "ふん",
+                  "vi": "phút (đơn vị đếm phút)"
+                }
+              ]
+            },
+            {
+              "prompt": "学校の授業は午前八時に始まります。",
+              "ul": "午前",
+              "choices": [
+                "ごぜん",
+                "ごまえ",
+                "うしろご",
+                "あさご"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「午前」đọc là ごぜん. 午(ご)＋前(ぜん) đều là on'yomi. Nghĩa là 'buổi sáng/trước trưa' (trước 12 giờ). Phương án ごまえ sai vì まえ là kun'yomi của 前, dùng khi chỉ vị trí không gian (前に＝phía trước), không dùng trong từ 午前. Phương án うしろご sai hoàn toàn và còn đảo ngược hai chữ. Phương án あさご sai vì あさ là kun'yomi của 朝 (một chữ khác), không phải cách đọc của 午 hay 前.",
+              "glosses": [
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "授業",
+                  "read": "じゅぎょう",
+                  "vi": "tiết học"
+                },
+                {
+                  "t": "午前",
+                  "vi": "buổi sáng / trước 12 giờ trưa"
+                },
+                {
+                  "t": "八時",
+                  "read": "はちじ",
+                  "vi": "8 giờ"
+                },
+                {
+                  "t": "始まります",
+                  "read": "はじまります",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "午前八時に",
+                  "read": "ごぜんはちじに",
+                  "vi": "vào lúc 8 giờ sáng"
+                }
+              ]
+            },
+            {
+              "prompt": "今年は何年ですか。",
+              "ul": "今年",
+              "choices": [
+                "ことし",
+                "こんねん",
+                "いまとし",
+                "きょうねん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「今年」đọc là ことし – đây là từ đọc đặc biệt (熟字訓: じゅくじくん), không theo quy tắc on/kun thông thường. Người học hay nhầm vì 今 thường đọc là いま (kun) hoặc こん (on), còn 年 thường đọc はねん (on) hoặc とし (kun). Nhưng từ 今年 là một đơn vị, đọc nguyên là ことし. Phương án こんねん sai vì là cách ghép on'yomi こん＋ねん, tuy nghe hợp lý nhưng người Nhật không dùng こんねん để chỉ 'năm nay' (こんねん là từ Hán không tự nhiên trong hội thoại). Phương án いまとし sai vì ghép kun'yomi いま＋とし, không phải từ tồn tại trong tiếng Nhật. Phương án きょうねん sai vì きょうねん là cách đọc của 去年(きょねん) (năm ngoái) bị đọc sai.",
+              "glosses": [
+                {
+                  "t": "今年",
+                  "vi": "năm nay"
+                },
+                {
+                  "t": "何年",
+                  "read": "なんねん",
+                  "vi": "năm bao nhiêu / năm thứ mấy"
+                }
+              ]
+            },
+            {
+              "prompt": "先月、日本語の試験を受けました。",
+              "ul": "先月",
+              "choices": [
+                "せんげつ",
+                "さきつき",
+                "ぜんげつ",
+                "まえつき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「先月」đọc là せんげつ. 先(せん) on'yomi + 月(げつ) on'yomi. Chuỗi thời gian dùng 先: 先月(せんげつ)＝tháng trước, 先週(せんしゅう)＝tuần trước. Phương án さきつき sai vì さき là kun'yomi của 先 và つき là kun'yomi của 月; tuy đều là kun'yomi đúng nhưng tổ hợp さきつき không phải từ tồn tại trong tiếng Nhật hiện đại. Phương án ぜんげつ sai vì ぜん là on'yomi của 前 (前月＝ぜんげつ cũng có nghĩa 'tháng trước' nhưng là chữ khác). Đây là bẫy quan trọng: 先月 và 前月 khác chữ dù cùng nghĩa. Phương án まえつき sai vì đây là cách ghép kun'yomi nhưng không tồn tại.",
+              "glosses": [
+                {
+                  "t": "先月",
+                  "vi": "tháng trước"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "受けました",
+                  "read": "うけました",
+                  "vi": "đã tham dự / đã thi"
+                }
+              ]
+            },
+            {
+              "prompt": "来週の火曜日に病院へ行きます。",
+              "ul": "火曜日",
+              "choices": [
+                "かようび",
+                "ひようび",
+                "すいようび",
+                "きようび"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「火曜日」đọc là かようび. 「火」on'yomi là か (kun'yomi là ひ). Trong tên các ngày trong tuần, tất cả đều dùng on'yomi: 月(げつ)・火(か)・水(すい)・木(もく)・金(きん)・土(ど)・日(にち). Phương án ひようび sai vì ひ là kun'yomi của 火, chỉ dùng khi nói về 'lửa' như 火事(かじ)、お火(おひ); trong ngày trong tuần không dùng kun'yomi. Phương án すいようび sai vì đó là cách đọc của 水曜日 (thứ Tư), ngày khác hoàn toàn. Phương án きようび sai vì き không phải cách đọc của 火.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "火曜日",
+                  "vi": "thứ Ba"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "父は毎日新聞を読みます。",
+              "ul": "毎日",
+              "choices": [
+                "まいにち",
+                "まいじつ",
+                "ごとにち",
+                "まいひ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎日」đọc là まいにち. 「毎」(まい) + 「日」(にち) – on'yomi. Chuỗi 毎＋[thời gian]: 毎日(まいにち)、毎週(まいしゅう)、毎月(まいつき)、毎年(まいとし/まいねん). Phương án まいじつ sai vì じつ là on'yomi khác của 日 (xuất hiện trong 祝日・じゅくじつ, 休日・きゅうじつ), nhưng trong 毎日 bắt buộc dùng にち. Phương án ごとにち sai vì 毎 không đọc là ごと (〜ごとに là cú pháp khác dùng chữ 毎 nhưng đọc là ごと trong ngữ cảnh đó; khi là danh từ 毎日 thì vẫn đọc là まいにち). Phương án まいひ sai vì ひ là kun'yomi của 日, không dùng trong từ ghép 毎日.",
+              "glosses": [
+                {
+                  "t": "父",
+                  "read": "ちち",
+                  "vi": "cha (cách gọi nội bộ gia đình)"
+                },
+                {
+                  "t": "毎日",
+                  "vi": "mỗi ngày / hằng ngày"
+                },
+                {
+                  "t": "新聞",
+                  "read": "しんぶん",
+                  "vi": "báo"
+                },
+                {
+                  "t": "読みます",
+                  "read": "よみます",
+                  "vi": "đọc"
+                }
+              ]
+            },
+            {
+              "prompt": "来年、日本へ留学したいです。",
+              "ul": "来年",
+              "choices": [
+                "らいねん",
+                "くるとし",
+                "きねん",
+                "らいとし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来年」đọc là らいねん. 「来」on'yomi là らい (kun'yomi là くる/きた). Trong từ ghép chỉ thời gian tương lai, dùng on'yomi らい: 来週(らいしゅう)、来月(らいげつ)、来年(らいねん). Phương án くるとし sai vì đây là cách ghép kun'yomi không tự nhiên; くる là dạng động từ của 来, còn とし là kun'yomi của 年, nhưng tổ hợp này không phải từ trong tiếng Nhật. Phương án きねん sai vì きねん là cách đọc của 記念 (kỷ niệm) hoặc 忌年, không liên quan đến 来年. Phương án らいとし sai vì とし là kun'yomi của 年; trong cặp từ chỉ thời gian 来年 dùng on'yomi らい＋ねん, không dùng kun'yomi とし (chú ý 今年＝ことし là trường hợp ngoại lệ đặc biệt).",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "留学したい",
+                  "read": "りゅうがくしたい",
+                  "vi": "muốn đi du học"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "まいあさろくじにおきます。",
+              "ul": "ろくじ",
+              "choices": [
+                "六時",
+                "入時",
+                "穴時",
+                "公時"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「六時」(ろくじ) nghĩa là 6 giờ. Chữ 六 (sáu) có nét gạch ngang và đường cong đặc trưng. Ba phương án sai: 「入」(にゅう/はいる) nghĩa là vào/tám, nhìn trông giống 六 nhưng không có nét ngang ở trên; 「穴」(あな) là cái lỗ/hang hốc, hoàn toàn khác nghĩa; 「公」(こう/おおやけ) nghĩa là công cộng/chính thức, không liên quan đến số.",
+              "glosses": [
+                {
+                  "t": "まいあさ",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "ろくじ",
+                  "read": "ろくじ",
+                  "vi": "6 giờ"
+                },
+                {
+                  "t": "おきます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                }
+              ]
+            },
+            {
+              "prompt": "じゅぎょうはくじはんからはじまります。",
+              "ul": "はん",
+              "choices": [
+                "半",
+                "分",
+                "平",
+                "干"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「半」(はん) — nghĩa là nửa, dùng để chỉ 30 phút (…時半 = … giờ rưỡi).\n(A) 「半」— đúng: đọc はん, nghĩa là nửa/rưỡi, dùng sau số giờ để chỉ 30 phút (…時半).\n(B) 「分」— sai: đọc ふん/ぶん, nghĩa là phút (đơn vị đo thời gian), không phải rưỡi.\n(C) 「平」— sai: đọc へい/ひら, nghĩa là bình thường/phẳng, không dùng cho thời gian.\n(D) 「干」— sai: đọc かん, nghĩa là phơi khô/can thiệp, không liên quan đến thời gian.",
+              "glosses": [
+                {
+                  "t": "じゅぎょう",
+                  "read": "じゅぎょう",
+                  "vi": "tiết học, buổi học"
+                },
+                {
+                  "t": "くじ",
+                  "read": "くじ",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "はん",
+                  "read": "はん",
+                  "vi": "rưỡi (30 phút)"
+                },
+                {
+                  "t": "はじまります",
+                  "read": "はじまります",
+                  "vi": "bắt đầu"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはまいにちでんしゃでかいしゃにいきます。",
+              "ul": "でんしゃ",
+              "choices": [
+                "電車",
+                "電気",
+                "電話",
+                "電池"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電車」(でんしゃ) nghĩa là tàu điện. Chữ 車 (くるま) có nghĩa là xe. Ba phương án sai đều bắt đầu bằng 電 nhưng chữ thứ hai khác: 「電気」(でんき) là điện/điện năng; 「電話」(でんわ) là điện thoại; 「電池」(でんち) là pin điện. Đây là bẫy đồng tiền tố 電.",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎはごぜんじゅうじからごごさんじまでです。",
+              "ul": "ごぜん",
+              "choices": [
+                "午前",
+                "午後",
+                "午中",
+                "午夜"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「午前」(ごぜん) nghĩa là buổi sáng, từ 0 giờ đến trước 12 giờ trưa (AM). Câu hỏi hỏi từ ごぜん, tức là AM. Ba phương án sai: 「午後」(ごご) là buổi chiều tối (PM), ngược nghĩa; 「午中」không phải từ thực trong tiếng Nhật; 「午夜」(ごや) không phải từ thông dụng ở N5, nghĩa gần giống nửa đêm.",
+              "glosses": [
+                {
+                  "t": "かいぎ",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "ごぜん",
+                  "read": "ごぜん",
+                  "vi": "buổi sáng (AM)"
+                },
+                {
+                  "t": "じゅうじ",
+                  "read": "じゅうじ",
+                  "vi": "10 giờ"
+                },
+                {
+                  "t": "ごご",
+                  "read": "ごご",
+                  "vi": "buổi chiều (PM)"
+                },
+                {
+                  "t": "さんじ",
+                  "read": "さんじ",
+                  "vi": "3 giờ"
+                },
+                {
+                  "t": "までです",
+                  "read": "までです",
+                  "vi": "〜までです = đến ~ (giờ/thời điểm kết thúc)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしのたんじょうびはしちがつここのかです。",
+              "ul": "しちがつ",
+              "choices": [
+                "七月",
+                "七日",
+                "七年",
+                "七人"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「七月」(しちがつ) nghĩa là tháng Bảy. Chữ 月 (つき/がつ) dùng để đếm tháng khi đọc là がつ. Ba phương án sai: 「七日」(なのか) là ngày mùng 7, không phải tháng; 「七年」(しちねん) là 7 năm; 「七人」(しちにん/ななにん) là 7 người. Tất cả đều dùng chữ 七 nhưng chữ đơn vị phía sau hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "たんじょうび",
+                  "read": "たんじょうび",
+                  "vi": "ngày sinh nhật"
+                },
+                {
+                  "t": "しちがつ",
+                  "read": "しちがつ",
+                  "vi": "tháng Bảy"
+                },
+                {
+                  "t": "ここのか",
+                  "read": "ここのか",
+                  "vi": "ngày mùng 9"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "すずきさんはまいばんにほんごをべんきょうします。",
+              "ul": "まいばん",
+              "choices": [
+                "毎晩",
+                "毎朝",
+                "毎週",
+                "毎月"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎晩」(まいばん) nghĩa là mỗi buổi tối/mỗi đêm. Chữ 晩 (ばん) có nghĩa là buổi tối/đêm. Ba phương án sai: 「毎朝」(まいあさ) là mỗi buổi sáng; 「毎週」(まいしゅう) là mỗi tuần; 「毎月」(まいつき/まいげつ) là mỗi tháng. Tất cả bắt đầu bằng 毎 (mỗi) nhưng đơn vị thời gian phía sau khác nhau.",
+              "glosses": [
+                {
+                  "t": "まいばん",
+                  "read": "まいばん",
+                  "vi": "mỗi buổi tối"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "べんきょうします",
+                  "read": "べんきょうします",
+                  "vi": "học bài"
+                },
+                {
+                  "t": "すずきさん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki (tên riêng)"
+                }
+              ]
+            },
+            {
+              "prompt": "がっこうはにちようびにやすみです。",
+              "ul": "にちようび",
+              "choices": [
+                "日曜日",
+                "月曜日",
+                "水曜日",
+                "火曜日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「日曜日」(にちようび) nghĩa là Chủ nhật. Các ngày trong tuần Nhật Bản đặt tên theo thiên thể: 日=Mặt trời (Chủ nhật). Ba phương án sai: 「月曜日」(げつようび) là thứ Hai (月=Mặt trăng); 「水曜日」(すいようび) là thứ Tư (水=Nước); 「火曜日」(かようび) là thứ Ba (火=Lửa). Từ đích trong câu là にちようび nên chỉ 日曜日 mới đúng.",
+              "glosses": [
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "にちようび",
+                  "read": "にちようび",
+                  "vi": "Chủ nhật"
+                },
+                {
+                  "t": "やすみ",
+                  "read": "やすみ",
+                  "vi": "ngày nghỉ"
+                }
+              ]
+            },
+            {
+              "prompt": "おとうとはまいにちはちじにがっこうにいきます。",
+              "ul": "はちじ",
+              "choices": [
+                "八時",
+                "入時",
+                "八寺",
+                "人時"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「八時」(はちじ) nghĩa là 8 giờ. Chữ 八 (hachi) có hai nét chéo tách ra. Ba phương án sai: 「入」(にゅう/はいる) trông rất giống 八 nhưng hai nét hội tụ vào trong, nghĩa là vào/tám (đọc khác); 「八寺」không tồn tại như một từ ghép thời gian — 寺 (てら) nghĩa là chùa; 「人時」không phải từ tiêu chuẩn N5.",
+              "glosses": [
+                {
+                  "t": "おとうと",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "はちじ",
+                  "read": "はちじ",
+                  "vi": "8 giờ"
+                },
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "hàng ngày"
+                }
+              ]
+            },
+            {
+              "prompt": "しごとはくじからごじまでです。",
+              "ul": "ごじ",
+              "choices": [
+                "五時",
+                "互時",
+                "吾時",
+                "午時"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「五時」(ごじ) nghĩa là 5 giờ. Chữ 五 (go) có nét ngang và nét cong đặc trưng. Ba phương án sai: 「互」(ご/たがい) cùng âm ご nhưng nghĩa là lẫn nhau/qua lại; 「吾」(ご/われ) cùng âm nhưng nghĩa là tôi/ta (dạng cổ); 「午」(ご) trong 午前/午後 cũng đọc là ご nhưng nghĩa là ngọ (12 giờ trưa), không phải số 5.",
+              "glosses": [
+                {
+                  "t": "しごと",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "くじ",
+                  "read": "くじ",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "ごじ",
+                  "read": "ごじ",
+                  "vi": "5 giờ"
+                },
+                {
+                  "t": "までです",
+                  "read": "までです",
+                  "vi": "〜までです = đến ~ (giờ/thời điểm kết thúc)"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうともだちとえいがをみました。",
+              "ul": "きのう",
+              "choices": [
+                "昨日",
+                "今日",
+                "明日",
+                "毎日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「昨日」(きのう) nghĩa là hôm qua. Ba phương án sai: 「今日」(きょう/こんにち) là hôm nay — ngày đang diễn ra; 「明日」(あした/あす) là ngày mai; 「毎日」(まいにち) là mỗi ngày. Câu dùng thể quá khứ みました, nên hôm qua (昨日) mới hợp nghĩa nhất.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "えいが",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "みました",
+                  "read": "みました",
+                  "vi": "đã xem"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはまいあさしちじにおきて、しゃわーをあびます。",
+              "ul": "しちじ",
+              "choices": [
+                "七時",
+                "七日",
+                "七月",
+                "七年"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「七時」(しちじ) nghĩa là 7 giờ. Từ đích trong câu là thời điểm trong ngày nên phải dùng 時 (じ = giờ). Ba phương án sai: 「七日」(なのか) là ngày mùng 7; 「七月」(しちがつ) là tháng 7; 「七年」(しちねん) là 7 năm. Cùng chữ 七 nhưng đơn vị đo lường phía sau khác nhau hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "まいあさ",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "しちじ",
+                  "read": "しちじ",
+                  "vi": "7 giờ"
+                },
+                {
+                  "t": "おきて",
+                  "read": "おきて",
+                  "vi": "thức dậy (rồi)"
+                },
+                {
+                  "t": "しゃわーをあびます",
+                  "read": "しゃわーをあびます",
+                  "vi": "tắm vòi sen"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                }
+              ]
+            },
+            {
+              "prompt": "としょかんはここのかにあきます。",
+              "ul": "ここのか",
+              "choices": [
+                "九日",
+                "九月",
+                "九時",
+                "九年"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「九日」(ここのか) nghĩa là ngày mùng 9 của tháng. Từ đích là ここのか, tức là ngày trong tháng dùng chữ 日. Ba phương án sai: 「九月」(くがつ) là tháng 9; 「九時」(くじ) là 9 giờ; 「九年」(きゅうねん) là 9 năm. Tất cả đều dùng chữ 九 nhưng đơn vị thời gian 日/月/時/年 tạo nghĩa khác nhau.",
+              "glosses": [
+                {
+                  "t": "としょかん",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "ここのか",
+                  "read": "ここのか",
+                  "vi": "ngày mùng 9"
+                },
+                {
+                  "t": "あきます",
+                  "read": "あきます",
+                  "vi": "mở cửa"
+                }
+              ]
+            },
+            {
+              "prompt": "いまからじゅっぷんでえきにつきます。",
+              "ul": "じゅっぷん",
+              "choices": [
+                "十分",
+                "十時",
+                "十日",
+                "十月"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「十分」(じゅっぷん) nghĩa là 10 phút. Chữ 分 (ふん/ぷん) dùng để đếm phút. Ba phương án sai: 「十時」(じゅうじ) là 10 giờ (đơn vị giờ); 「十日」(とおか) là ngày mùng 10; 「十月」(じゅうがつ) là tháng Mười. Câu hỏi đơn vị nào đi với じゅっぷん, chỉ có 分 (phút) là đúng.",
+              "glosses": [
+                {
+                  "t": "いまから",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "じゅっぷん",
+                  "read": "じゅっぷん",
+                  "vi": "10 phút"
+                },
+                {
+                  "t": "えき",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "つきます",
+                  "read": "つきます",
+                  "vi": "đến nơi"
+                }
+              ]
+            },
+            {
+              "prompt": "ことしわたしはだいがくにはいります。",
+              "ul": "ことし",
+              "choices": [
+                "今年",
+                "今日",
+                "今週",
+                "今月"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「今年」(ことし) nghĩa là năm nay. Chữ 年 (とし/ねん) có nghĩa là năm. Ba phương án sai: 「今日」(きょう) là hôm nay; 「今週」(こんしゅう) là tuần này; 「今月」(こんげつ) là tháng này. Tất cả đều có chữ 今 (bây giờ/này) nhưng đơn vị thời gian sau đó tạo nghĩa khác nhau hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "ことし",
+                  "read": "ことし",
+                  "vi": "năm nay"
+                },
+                {
+                  "t": "だいがく",
+                  "read": "だいがく",
+                  "vi": "đại học"
+                },
+                {
+                  "t": "はいります",
+                  "read": "はいります",
+                  "vi": "vào/nhập học"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "にほんごのじゅぎょうはかようびともくようびにあります。",
+              "ul": "かようび",
+              "choices": [
+                "火曜日",
+                "水曜日",
+                "土曜日",
+                "日曜日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「火曜日」(かようび) nghĩa là thứ Ba. Chữ 火 (ka) nghĩa là lửa — một trong Ngũ hành dùng đặt tên ngày. Ba phương án sai: 「水曜日」(すいようび) là thứ Tư (水=nước); 「土曜日」(どようび) là thứ Bảy (土=đất); 「日曜日」(にちようび) là Chủ nhật (日=mặt trời). Từ đích trong câu là かようび nên chỉ 火曜日 mới đúng.",
+              "glosses": [
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "じゅぎょう",
+                  "read": "じゅぎょう",
+                  "vi": "tiết học"
+                },
+                {
+                  "t": "かようび",
+                  "read": "かようび",
+                  "vi": "thứ Ba"
+                },
+                {
+                  "t": "もくようび",
+                  "read": "もくようび",
+                  "vi": "thứ Năm"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có/diễn ra (ある thể lịch sự, dùng cho vật/sự việc vô tri)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "毎朝、わたしは６時に＿。",
+              "choices": [
+                "起きます",
+                "寝ます",
+                "帰ります",
+                "来ます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói về buổi sáng lúc 6 giờ → hành động phù hợp là 「起きます」(thức dậy). ①「起きます」đúng vì đây là hành động thức dậy vào buổi sáng. ②「寝ます」(ngủ) sai vì ngủ là hành động ban đêm, không phải buổi sáng sớm. ③「帰ります」(về nhà) sai vì 6 giờ sáng không phải lúc về nhà. ④「来ます」(đến/tới) sai vì không có ngữ cảnh ai đến đâu.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "６時",
+                  "read": "ろくじ",
+                  "vi": "6 giờ"
+                },
+                {
+                  "t": "起きます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "図書館は９時から５時＿です。",
+              "choices": [
+                "まで",
+                "から",
+                "ごろ",
+                "ぐらい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cấu trúc 「から〜まで」nghĩa là 'từ…đến'. Vì câu đã có 「から」(từ 9 giờ), chỗ ＿ cần「まで」để hoàn thành nghĩa 'từ 9 giờ đến 5 giờ'. ①「まで」đúng vì đây là điểm kết thúc. ②「から」sai vì 「から」đã xuất hiện rồi, dùng lại thành 'từ 9 giờ từ 5 giờ' vô nghĩa. ③「ごろ」(khoảng, chừng) sai vì 「ごろ」chỉ dùng cho thời điểm ước chừng, không dùng với 「から」. ④「ぐらい」(khoảng) sai vì nó chỉ số lượng/thời lượng ước chừng, không dùng cho điểm kết thúc.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "９時から５時まで",
+                  "read": "くじからごじまで",
+                  "vi": "từ 9 giờ đến 5 giờ"
+                },
+                {
+                  "t": "まで",
+                  "read": "まで",
+                  "vi": "đến (mốc thời gian kết thúc)"
+                }
+              ]
+            },
+            {
+              "stem": "わたしは毎晩テレビを＿。",
+              "choices": [
+                "見ます",
+                "聞きます",
+                "読みます",
+                "書きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "テレビ (ti-vi) là thứ dùng để xem bằng mắt → dùng động từ 「見ます」. ①「見ます」đúng vì 'xem ti-vi' là cách diễn đạt tự nhiên trong tiếng Nhật (テレビを見る). ②「聞きます」(nghe) sai vì 「聞く」dùng cho âm thanh, nhạc, radio — không phải ti-vi. ③「読みます」(đọc) sai vì 「読む」dùng cho sách, báo, văn bản. ④「書きます」(viết) sai hoàn toàn về nghĩa với 「テレビ」.",
+              "glosses": [
+                {
+                  "t": "毎晩",
+                  "read": "まいばん",
+                  "vi": "mỗi buổi tối"
+                },
+                {
+                  "t": "テレビ",
+                  "read": "テレビ",
+                  "vi": "ti-vi"
+                },
+                {
+                  "t": "見ます",
+                  "read": "みます",
+                  "vi": "xem"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは午後２時に会社に＿。",
+              "choices": [
+                "来ました",
+                "起きました",
+                "寝ました",
+                "帰りました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói Tanaka-san đến công ty lúc 2 giờ chiều. Hành động phù hợp với 「会社に」(đến công ty) là 「来ました」(đã đến). ①「来ました」đúng vì đây là hành động di chuyển đến địa điểm (công ty). ②「起きました」(đã thức dậy) sai vì không thể 'thức dậy ở công ty'. ③「寝ました」(đã ngủ) sai về nghĩa. ④「帰りました」(đã về) sai vì 「帰る」là về nơi xuất phát (nhà), không phải đến nơi mới.",
+              "glosses": [
+                {
+                  "t": "午後２時",
+                  "read": "ごごにじ",
+                  "vi": "2 giờ chiều"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "来ました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                }
+              ]
+            },
+            {
+              "stem": "授業は何時に＿ますか。",
+              "choices": [
+                "始まり",
+                "終わり",
+                "休み",
+                "働き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi 'Buổi học bắt đầu lúc mấy giờ?' → cần động từ 「始まります」. ①「始まり(ます)」đúng vì 'buổi học bắt đầu' là cách hỏi tự nhiên về lịch sinh hoạt. ②「終わり(ます)」(kết thúc) sai vì câu hỏi về giờ bắt đầu không phải giờ kết thúc (nếu câu dùng「終わり」thì nghĩa hoàn toàn khác). ③「休み(ます)」(nghỉ) sai về nghĩa. ④「働き(ます)」(làm việc) sai vì chủ thể là 「授業」(buổi học), không phải người.",
+              "glosses": [
+                {
+                  "t": "授業",
+                  "read": "じゅぎょう",
+                  "vi": "buổi học, tiết học"
+                },
+                {
+                  "t": "何時",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "始まります",
+                  "read": "はじまります",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "ますか",
+                  "read": "ますか",
+                  "vi": "〜ますか = có ~ không? (thể lịch sự, nghi vấn)"
+                }
+              ]
+            },
+            {
+              "stem": "わたしは昨日の夜１２時に＿。",
+              "choices": [
+                "寝ました",
+                "起きました",
+                "働きました",
+                "食べました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói về hành động lúc 12 giờ đêm tối qua → hành động tự nhiên nhất là 「寝ました」(đã ngủ). ①「寝ました」đúng vì 12 giờ đêm là thời điểm ngủ. ②「起きました」(đã thức dậy) sai vì thức dậy lúc 12 giờ đêm là bất thường và không phù hợp ngữ cảnh. ③「働きました」(đã làm việc) sai vì thường không làm việc lúc nửa đêm trong sinh hoạt thường ngày. ④「食べました」(đã ăn) sai vì ăn lúc nửa đêm không phải lịch sinh hoạt bình thường.",
+              "glosses": [
+                {
+                  "t": "昨日の夜",
+                  "read": "きのうのよる",
+                  "vi": "tối qua"
+                },
+                {
+                  "t": "１２時",
+                  "read": "じゅうにじ",
+                  "vi": "12 giờ"
+                },
+                {
+                  "t": "寝ました",
+                  "read": "ねました",
+                  "vi": "đã ngủ"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "電車は東京から大阪＿３時間かかります。",
+              "choices": [
+                "まで",
+                "から",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cấu trúc 「から〜まで」= 'từ…đến'. Câu đã có 「から」(từ Tokyo), cần 「まで」(đến Osaka) để hoàn chỉnh. ①「まで」đúng, xác định điểm kết thúc. ②「から」sai vì 「から」đã dùng rồi. ③「に」sai vì 「に」chỉ điểm đến khi di chuyển (行く・来る・帰る), không dùng trong cấu trúc khoảng thời gian này. ④「で」sai vì 「で」chỉ phương tiện hoặc địa điểm diễn ra hành động.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "東京から大阪まで",
+                  "read": "とうきょうからおおさかまで",
+                  "vi": "từ Tokyo đến Osaka"
+                },
+                {
+                  "t": "３時間",
+                  "read": "さんじかん",
+                  "vi": "3 tiếng đồng hồ"
+                },
+                {
+                  "t": "かかります",
+                  "read": "かかります",
+                  "vi": "mất (thời gian/tiền)"
+                }
+              ]
+            },
+            {
+              "stem": "先生は毎日学校に＿。",
+              "choices": [
+                "来ます",
+                "帰ります",
+                "起きます",
+                "休みます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'Giáo viên mỗi ngày đến trường'. 「学校に」gắn với động từ di chuyển đến nơi đó. ①「来ます」đúng vì giáo viên đến trường mỗi ngày (góc nhìn từ trường học hoặc học sinh). ②「帰ります」(về) sai vì 「帰る」là về nơi xuất phát (nhà), không phải đến trường. ③「起きます」(thức dậy) sai vì không 'thức dậy ở trường'. ④「休みます」(nghỉ) sai nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "来ます",
+                  "read": "きます",
+                  "vi": "đến"
+                }
+              ]
+            },
+            {
+              "stem": "わたしは朝ごはんを＿から、学校へ行きます。",
+              "choices": [
+                "食べて",
+                "飲んで",
+                "見て",
+                "書いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu mô tả trình tự: 'Sau khi ăn sáng thì đi học'. Bữa sáng (朝ごはん) là thứ để 「食べる」(ăn). ①「食べて」đúng vì 'ăn bữa sáng' là cách dùng tự nhiên nhất. ②「飲んで」(uống) sai vì 「飲む」dùng cho thức uống, không phải bữa ăn (bữa ăn thì dùng「食べる」). ③「見て」(xem/nhìn) sai hoàn toàn về nghĩa với 「朝ごはん」. ④「書いて」(viết) sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "朝ごはん",
+                  "read": "あさごはん",
+                  "vi": "bữa sáng"
+                },
+                {
+                  "t": "食べてから",
+                  "read": "たべてから",
+                  "vi": "sau khi ăn"
+                },
+                {
+                  "t": "学校へ行きます",
+                  "read": "がっこうへいきます",
+                  "vi": "đi đến trường"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "すみません、今＿時ですか。",
+              "choices": [
+                "何",
+                "どの",
+                "どんな",
+                "どれ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi 'Bây giờ là mấy giờ?' → dùng 「何」(なん/なに) trước 「時」để tạo 「何時」(mấy giờ). ①「何」đúng vì 「何時」là cách hỏi giờ tiêu chuẩn trong tiếng Nhật. ②「どの」(cái nào trong số đó) sai vì dùng khi chọn trong một nhóm cụ thể, không dùng hỏi giờ. ③「どんな」(như thế nào, loại nào) sai vì hỏi về tính chất, không hỏi số giờ. ④「どれ」(cái nào) sai vì dùng khi chỉ vào vật cụ thể để chọn.",
+              "glosses": [
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "何時",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "ですか",
+                  "read": "ですか",
+                  "vi": "có phải…không? (câu hỏi lịch sự)"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi (dùng khi hỏi thăm)"
+                }
+              ]
+            },
+            {
+              "stem": "わたしの会社は９時から６時＿です。",
+              "choices": [
+                "まで",
+                "ごろ",
+                "だけ",
+                "しか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'Công ty của tôi làm từ 9 giờ đến 6 giờ'. Cần 「まで」để hoàn thành cấu trúc 「から〜まで」. ①「まで」đúng, xác định điểm kết thúc. ②「ごろ」(khoảng) sai vì 「ごろ」chỉ dùng cho thời điểm ước chừng, không dùng trong cấu trúc 「から〜」. ③「だけ」(chỉ, mà thôi) sai về nghĩa và cấu trúc. ④「しか」(chỉ có…thôi, dùng với phủ định) sai vì câu này không phủ định.",
+              "glosses": [
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "９時から６時まで",
+                  "read": "くじからろくじまで",
+                  "vi": "từ 9 giờ đến 6 giờ"
+                },
+                {
+                  "t": "まで",
+                  "read": "まで",
+                  "vi": "đến (giới hạn thời gian)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "わたしは毎朝コーヒーを＿。",
+              "choices": [
+                "飲みます",
+                "食べます",
+                "見ます",
+                "書きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "コーヒー (cà phê) là đồ uống → dùng 「飲みます」(uống). ①「飲みます」đúng vì 'uống cà phê' là cách dùng chuẩn. ②「食べます」(ăn) sai vì 「食べる」dùng cho thức ăn, không phải đồ uống. ③「見ます」(xem/nhìn) sai hoàn toàn về nghĩa với cà phê. ④「書きます」(viết) sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "コーヒー",
+                  "read": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "学生は午後３時に学校から＿。",
+              "choices": [
+                "帰ります",
+                "来ます",
+                "起きます",
+                "働きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「学校から」(từ trường) + động từ di chuyển rời đi → 「帰ります」(về nhà/về nơi xuất phát). ①「帰ります」đúng vì 'từ trường về' là cấu trúc tự nhiên 「〜から帰る」. ②「来ます」(đến) sai vì 「来る」là đến nơi, nhưng câu có 「から」(rời khỏi trường), không phải đến trường. ③「起きます」(thức dậy) sai nghĩa hoàn toàn. ④「働きます」(làm việc) sai vì 「学生」(học sinh) không làm việc ở trường theo nghĩa này.",
+              "glosses": [
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh/sinh viên"
+                },
+                {
+                  "t": "午後３時",
+                  "read": "ごごさんじ",
+                  "vi": "3 giờ chiều"
+                },
+                {
+                  "t": "学校から帰ります",
+                  "read": "がっこうからかえります",
+                  "vi": "về từ trường học"
+                }
+              ]
+            },
+            {
+              "stem": "わたしは月曜日から金曜日まで会社に＿。",
+              "choices": [
+                "行きます",
+                "来ます",
+                "帰ります",
+                "休みます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'Tôi đi làm từ thứ Hai đến thứ Sáu'. Người nói đi từ nhà đến công ty → dùng 「行きます」. ①「行きます」đúng vì góc nhìn của người nói là rời nhà đi đến công ty (dùng「行く」). ②「来ます」sai vì「来る」dùng khi di chuyển về phía người nghe/người nói, không phải đi ra ngoài. ③「帰ります」sai vì 「帰る」là về nhà, không phải đến công ty. ④「休みます」(nghỉ) sai nghĩa, ngược với ý muốn nói.",
+              "glosses": [
+                {
+                  "t": "月曜日から金曜日まで",
+                  "read": "げつようびからきんようびまで",
+                  "vi": "từ thứ Hai đến thứ Sáu"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "日曜日はどこにも行きません。うちで＿。",
+              "choices": [
+                "休みます",
+                "起きます",
+                "来ます",
+                "働きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Ngày Chủ nhật không đi đâu → hành động tự nhiên tiếp theo là 'nghỉ ngơi ở nhà' 「うちで休みます」. ①「休みます」đúng vì 'nghỉ ở nhà' hoàn toàn hợp lý sau khi nói không đi đâu. ②「起きます」(thức dậy) sai vì câu thứ nhất đã thiết lập ngày Chủ nhật ở nhà, không nói về thời điểm thức dậy. ③「来ます」(đến) sai vì câu vừa nói không đi đâu, không thể 'đến' nơi nào. ④「働きます」(làm việc) sai vì ngày Chủ nhật không đi đâu thì cũng không đi làm.",
+              "glosses": [
+                {
+                  "t": "日曜日",
+                  "read": "にちようび",
+                  "vi": "Chủ nhật"
+                },
+                {
+                  "t": "どこにも行きません",
+                  "read": "どこにもいきません",
+                  "vi": "không đi đâu cả"
+                },
+                {
+                  "t": "うちで休みます",
+                  "read": "うちでやすみます",
+                  "vi": "nghỉ ngơi ở nhà"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "まいあさしちじにおきます。",
+              "choices": [
+                "まいあさしちじにねます。",
+                "まいあさしちじにめがさめます。",
+                "まいあさごじにおきます。",
+                "まいあさしちじにたべます。"
+              ],
+              "answer": 1,
+              "pt": "〜時 (giờ) + Vます",
+              "explain": "Câu gốc「まいあさしちじにおきます」nghĩa là 'Mỗi sáng thức dậy lúc 7 giờ.'「めがさめます」(mắt mở ra = tỉnh giấc) là cách diễn đạt khác của hành động thức dậy, cùng nghĩa với「おきます」trong ngữ cảnh này. Đáp án B đúng. A dùng「ねます」là 'đi ngủ', ngược nghĩa. C đổi giờ thành「ごじ」(5 giờ), sai thông tin. D dùng「たべます」là 'ăn', hành động khác hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "まいあさ",
+                  "vi": "mỗi sáng"
+                },
+                {
+                  "t": "しちじに",
+                  "read": "七時に",
+                  "vi": "lúc 7 giờ"
+                },
+                {
+                  "t": "おきます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "ねます",
+                  "read": "ねます",
+                  "vi": "ngủ (寝る thể lịch sự)"
+                },
+                {
+                  "t": "めがさめます",
+                  "read": "めがさめます",
+                  "vi": "tỉnh giấc, tỉnh ngủ (目が覚める)"
+                },
+                {
+                  "t": "ごじに",
+                  "read": "ごじに",
+                  "vi": "vào lúc 5 giờ (に = trợ từ chỉ thời điểm)"
+                },
+                {
+                  "t": "たべます",
+                  "read": "たべます",
+                  "vi": "ăn (食べる thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうえいがをみませんでした。",
+              "choices": [
+                "きのうえいがをみました。",
+                "きのうえいがをみます。",
+                "きのうえいがはみませんでした。",
+                "きのうえいがをみません。"
+              ],
+              "answer": 2,
+              "pt": "Vませんでした (quá khứ phủ định)",
+              "explain": "Câu gốc「きのうえいがをみませんでした」nghĩa là 'Hôm qua tôi đã không xem phim.' Đáp án C dùng trợ từ「は」thay cho「を」để nhấn mạnh đối tượng bị phủ định — cấu trúc khác nhưng nghĩa tương đương 'hôm qua không xem phim'. A dùng「みました」là 'đã xem' — khẳng định quá khứ, ngược nghĩa. B dùng「みます」là hiện tại/tương lai. D dùng「みません」là phủ định hiện tại, không phải quá khứ.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "えいがを",
+                  "vi": "phim (tân ngữ)"
+                },
+                {
+                  "t": "みませんでした",
+                  "vi": "đã không xem"
+                },
+                {
+                  "t": "みました",
+                  "read": "みました",
+                  "vi": "đã xem (見る quá khứ lịch sự)"
+                },
+                {
+                  "t": "みます",
+                  "read": "みます",
+                  "vi": "xem (見る hiện tại/tương lai lịch sự)"
+                },
+                {
+                  "t": "えいがは",
+                  "read": "えいがは",
+                  "vi": "phim thì (は thay を, nhấn mạnh/đối lập chủ đề)"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎはくじからじゅういちじまでです。",
+              "choices": [
+                "かいぎはくじにはじまります。",
+                "かいぎはくじにはじまってじゅういちじにおわります。",
+                "かいぎはくじからじゅうにじまでです。",
+                "かいぎはじゅういちじからくじまでです。"
+              ],
+              "answer": 1,
+              "pt": "NからNまで (từ…đến)",
+              "explain": "Câu gốc「かいぎはくじからじゅういちじまでです」nghĩa là 'Cuộc họp từ 9 giờ đến 11 giờ.' Đáp án B diễn đạt lại bằng「はじまって〜おわります」(bắt đầu lúc 9 giờ và kết thúc lúc 11 giờ) — cùng thông tin, khác cấu trúc. A chỉ nói 'bắt đầu lúc 9 giờ', thiếu thông tin giờ kết thúc. C đổi giờ kết thúc thành「じゅうにじ」(12 giờ), sai thông tin. D đảo ngược thứ tự — 11 giờ trước 9 giờ, sai logic.",
+              "glosses": [
+                {
+                  "t": "かいぎは",
+                  "read": "会議は",
+                  "vi": "cuộc họp (chủ đề)"
+                },
+                {
+                  "t": "くじから",
+                  "read": "九時から",
+                  "vi": "từ 9 giờ"
+                },
+                {
+                  "t": "じゅういちじまで",
+                  "read": "十一時まで",
+                  "vi": "đến 11 giờ"
+                },
+                {
+                  "t": "くじに",
+                  "read": "くじに",
+                  "vi": "vào lúc 9 giờ (に = trợ từ thời điểm)"
+                },
+                {
+                  "t": "はじまります",
+                  "read": "はじまります",
+                  "vi": "bắt đầu (始まる thể lịch sự)"
+                },
+                {
+                  "t": "はじまって",
+                  "read": "はじまって",
+                  "vi": "bắt đầu, rồi... (thể て của 始まる, nối câu)"
+                },
+                {
+                  "t": "じゅういちじに",
+                  "read": "じゅういちじに",
+                  "vi": "vào lúc 11 giờ"
+                },
+                {
+                  "t": "おわります",
+                  "read": "おわります",
+                  "vi": "kết thúc (終わる thể lịch sự)"
+                },
+                {
+                  "t": "じゅうにじまで",
+                  "read": "じゅうにじまで",
+                  "vi": "đến 12 giờ"
+                },
+                {
+                  "t": "じゅういちじから",
+                  "read": "じゅういちじから",
+                  "vi": "từ 11 giờ"
+                },
+                {
+                  "t": "くじまで",
+                  "read": "くじまで",
+                  "vi": "đến 9 giờ"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはたなかさんとべんきょうします。",
+              "choices": [
+                "わたしはたなかさんのべんきょうします。",
+                "わたしはたなかさんもべんきょうします。",
+                "わたしとたなかさんはべんきょうします。",
+                "わたしはたなかさんにべんきょうします。"
+              ],
+              "answer": 2,
+              "pt": "Nと (cùng với)",
+              "explain": "Câu gốc「わたしはたなかさんとべんきょうします」nghĩa là 'Tôi học cùng Tanaka.' Đáp án C「わたしとたなかさんはべんきょうします」cũng nói 'Tôi và Tanaka học' — cùng nghĩa, chỉ đổi cấu trúc. A dùng「の」là trợ từ sở hữu, sai ngữ pháp. B dùng「も」là 'cũng', nghĩa khác. D dùng「に」là chỉ hướng/đối tượng, sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "vi": "tôi (chủ đề)"
+                },
+                {
+                  "t": "たなかさんと",
+                  "vi": "cùng với Tanaka"
+                },
+                {
+                  "t": "べんきょうします",
+                  "vi": "học"
+                },
+                {
+                  "t": "たなかさんの",
+                  "read": "たなかさんの",
+                  "vi": "của anh/chị Tanaka (の = trợ từ sở hữu)"
+                },
+                {
+                  "t": "たなかさんも",
+                  "read": "たなかさんも",
+                  "vi": "anh/chị Tanaka cũng (も = cũng)"
+                },
+                {
+                  "t": "わたしと",
+                  "read": "わたしと",
+                  "vi": "tôi và... (と = và, cùng với)"
+                },
+                {
+                  "t": "たなかさんは",
+                  "read": "たなかさんは",
+                  "vi": "anh/chị Tanaka thì (は = trợ từ chủ đề)"
+                },
+                {
+                  "t": "たなかさんに",
+                  "read": "たなかさんに",
+                  "vi": "cho/với anh chị Tanaka (に không dùng để chỉ người cùng làm)"
+                }
+              ]
+            },
+            {
+              "prompt": "としょかんはえきのちかくにあります。",
+              "choices": [
+                "としょかんはえきのちかくにいます。",
+                "えきのそばにとしょかんがあります。",
+                "としょかんはえきのちかくがあります。",
+                "えきはとしょかんのちかくにあります。"
+              ],
+              "answer": 1,
+              "pt": "NはNにあります (ôn B3)",
+              "explain": "Câu gốc「としょかんはえきのちかくにあります」nghĩa là 'Thư viện ở gần nhà ga.' Đáp án B đổi cấu trúc chủ ngữ và dùng「そば」(cạnh/gần) thay cho「ちかく」— cùng nghĩa, khác diễn đạt. A dùng「います」là dạng tồn tại cho người/động vật, không dùng cho thư viện (vật vô tri). C dùng「が」sai trợ từ (phải là「に」sau từ chỉ vị trí). D đảo chủ ngữ thành「えき」— nghĩa thành 'Nhà ga ở gần thư viện', khác nghĩa gốc.",
+              "glosses": [
+                {
+                  "t": "としょかんは",
+                  "read": "図書館は",
+                  "vi": "thư viện (chủ đề)"
+                },
+                {
+                  "t": "えきのちかくに",
+                  "read": "駅の近くに",
+                  "vi": "gần nhà ga"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, ở (vật vô tri)"
+                },
+                {
+                  "t": "そば",
+                  "read": "そば",
+                  "vi": "bên cạnh, gần"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "có/ở (いる dùng cho vật có sự sống, không hợp với 図書館)"
+                },
+                {
+                  "t": "としょかんが",
+                  "read": "としょかんが",
+                  "vi": "thư viện (が = trợ từ chủ ngữ)"
+                },
+                {
+                  "t": "ちかくが",
+                  "read": "ちかくが",
+                  "vi": "gần đây (が dùng sai vị trí, cần に)"
+                },
+                {
+                  "t": "えきは",
+                  "read": "えきは",
+                  "vi": "nhà ga thì (は = trợ từ chủ đề)"
+                },
+                {
+                  "t": "としょかんの",
+                  "read": "としょかんの",
+                  "vi": "của thư viện"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはきのうひるごはんをたべませんでした。",
+              "choices": [
+                "わたしはきのうひるはたべませんでした。",
+                "わたしはきのうひるごはんをたべました。",
+                "わたしはきょうひるごはんをたべませんでした。",
+                "わたしはきのうひるごはんをたべます。"
+              ],
+              "answer": 0,
+              "pt": "Vませんでした (quá khứ phủ định)",
+              "explain": "Câu gốc「わたしはきのうひるごはんをたべませんでした」nghĩa là 'Hôm qua tôi đã không ăn bữa trưa.' Đáp án A dùng「ひるはたべませんでした」(dùng「は」nhấn mạnh bữa trưa là thứ không ăn) — cùng nghĩa, lược bớt「ごはん」và đổi trợ từ. B dùng「たべました」là 'đã ăn' — khẳng định, ngược nghĩa. C đổi「きのう」thành「きょう」(hôm nay), sai thời điểm. D dùng「たべます」là hiện tại/tương lai, không phải quá khứ.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ひるごはんを",
+                  "vi": "bữa trưa (tân ngữ)"
+                },
+                {
+                  "t": "たべませんでした",
+                  "vi": "đã không ăn"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "ひるは",
+                  "read": "ひるは",
+                  "vi": "buổi trưa thì (は thay を, nhấn mạnh)"
+                },
+                {
+                  "t": "たべました",
+                  "read": "たべました",
+                  "vi": "đã ăn (食べる quá khứ lịch sự)"
+                },
+                {
+                  "t": "たべます",
+                  "read": "たべます",
+                  "vi": "ăn (食べる hiện tại/tương lai lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "このほんはわたしのせんせいのほんです。",
+              "choices": [
+                "このほんはわたしのせんせいがもっています。",
+                "そのほんはわたしのせんせいのほんです。",
+                "せんせいのほんはこのほんです。",
+                "このほんはわたしのほんです。"
+              ],
+              "answer": 2,
+              "pt": "NのN (ôn B1) + この (ôn B2)",
+              "explain": "Câu gốc「このほんはわたしのせんせいのほんです」nghĩa là 'Quyển sách này là sách của thầy/cô tôi.' Đáp án C đảo vị trí chủ đề và vị ngữ:「せんせいのほんはこのほんです」(Sách của thầy/cô là quyển sách này) — cùng nội dung, khác cấu trúc. A đổi cấu trúc sang「もっています」('đang giữ/có'), không đồng nghĩa hoàn toàn. B đổi「この」thành「その」— chỉ vật ở khoảng cách khác. D bỏ「せんせいの」— thành 'sách của tôi', sai chủ sở hữu.",
+              "glosses": [
+                {
+                  "t": "このほんは",
+                  "vi": "quyển sách này (chủ đề)"
+                },
+                {
+                  "t": "わたしのせんせいの",
+                  "vi": "của thầy/cô giáo tôi"
+                },
+                {
+                  "t": "ほんです",
+                  "vi": "là sách"
+                },
+                {
+                  "t": "せんせいが",
+                  "read": "せんせいが",
+                  "vi": "thầy/cô (が = trợ từ chủ ngữ)"
+                },
+                {
+                  "t": "もっています",
+                  "read": "もっています",
+                  "vi": "đang có/đang sở hữu (持っている thể đang tiếp diễn)"
+                },
+                {
+                  "t": "そのほんは",
+                  "read": "そのほんは",
+                  "vi": "cuốn sách đó thì"
+                }
+              ]
+            },
+            {
+              "prompt": "スーパーはあさくじからよるのくじまであいています。",
+              "choices": [
+                "スーパーはあさくじにあきます。",
+                "スーパーはくじからよるのくじまでやっています。",
+                "スーパーはあさくじからよるのじゅうじまであいています。",
+                "スーパーはよるのくじからあさくじまであいています。"
+              ],
+              "answer": 1,
+              "pt": "NからNまで (từ…đến giờ)",
+              "explain": "Câu gốc「スーパーはあさくじからよるのくじまであいています」nghĩa là 'Siêu thị mở cửa từ 9 giờ sáng đến 9 giờ tối.' Đáp án B dùng「やっています」(đang hoạt động/mở) thay cho「あいています」và lược「あさ」— cùng nghĩa, diễn đạt tự nhiên khác. A chỉ nói 'lúc 9 giờ mở cửa', thiếu giờ đóng cửa. C đổi giờ đóng thành「じゅうじ」(10 giờ), sai thông tin. D đảo thứ tự — từ 9 giờ tối đến 9 giờ sáng, logic ngược.",
+              "glosses": [
+                {
+                  "t": "スーパーは",
+                  "vi": "siêu thị (chủ đề)"
+                },
+                {
+                  "t": "あさくじから",
+                  "read": "朝九時から",
+                  "vi": "từ 9 giờ sáng"
+                },
+                {
+                  "t": "よるのくじまで",
+                  "read": "夜の九時まで",
+                  "vi": "đến 9 giờ tối"
+                },
+                {
+                  "t": "あいています",
+                  "vi": "đang mở cửa"
+                },
+                {
+                  "t": "じゅうじ",
+                  "read": "じゅうじ",
+                  "vi": "mười giờ (10 giờ)"
+                },
+                {
+                  "t": "くじに",
+                  "read": "くじに",
+                  "vi": "vào lúc 9 giờ"
+                },
+                {
+                  "t": "あきます",
+                  "read": "あきます",
+                  "vi": "mở cửa (開く thể lịch sự)"
+                },
+                {
+                  "t": "やっています",
+                  "read": "やっています",
+                  "vi": "đang mở cửa/đang hoạt động (やっている: đang kinh doanh)"
+                },
+                {
+                  "t": "くじからよるのくじまで",
+                  "read": "くじからよるのくじまで",
+                  "vi": "〜から〜まで = từ ~ (giờ) đến ~ (giờ); よるの くじ = ~ giờ tối"
+                }
+              ]
+            },
+            {
+              "prompt": "やまださんはまいにちろくじにおきます。",
+              "choices": [
+                "やまださんはいつもろくじにおきます。",
+                "やまださんはまいにちろくじにねます。",
+                "やまださんはまいにちしちじにおきます。",
+                "やまださんはまいにちろくじにいきます。"
+              ],
+              "answer": 0,
+              "pt": "〜時 + Vます (thói quen)",
+              "explain": "Câu gốc「やまださんはまいにちろくじにおきます」nghĩa là 'Mỗi ngày Yamada-san thức dậy lúc 6 giờ.' Đáp án A thay「まいにち」bằng「いつも」(luôn luôn) — cả hai đều diễn đạt thói quen thường xuyên, nghĩa tương đương. B dùng「ねます」là 'đi ngủ', hành động ngược. C đổi giờ thành「しちじ」(7 giờ), sai thông tin. D dùng「いきます」là 'đi', hành động khác.",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "ろくじに",
+                  "read": "六時に",
+                  "vi": "lúc 6 giờ"
+                },
+                {
+                  "t": "おきます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "やまだ",
+                  "read": "やまだ",
+                  "vi": "Yamada (họ người)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "kính ngữ gắn sau tên (ông/bà/anh/chị)"
+                },
+                {
+                  "t": "いつも",
+                  "read": "いつも",
+                  "vi": "luôn luôn, mọi khi"
+                },
+                {
+                  "t": "ねます",
+                  "read": "ねます",
+                  "vi": "ngủ (寝る thể lịch sự)"
+                },
+                {
+                  "t": "しちじに",
+                  "read": "しちじに",
+                  "vi": "vào lúc 7 giờ"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi (行く thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはきょうあまりべんきょうしませんでした。",
+              "choices": [
+                "わたしはきょうたくさんべんきょうしました。",
+                "わたしはきょうすこししかべんきょうしませんでした。",
+                "わたしはきのうあまりべんきょうしませんでした。",
+                "わたしはきょうあまりべんきょうしません。"
+              ],
+              "answer": 1,
+              "pt": "Vませんでした (quá khứ phủ định)",
+              "explain": "Câu gốc「わたしはきょうあまりべんきょうしませんでした」nghĩa là 'Hôm nay tôi không học mấy.' Đáp án B dùng「すこしか〜ませんでした」(chỉ học một chút) — cùng ý nghĩa học rất ít, diễn đạt khác. A dùng「たくさんべんきょうしました」là 'đã học nhiều' — ngược nghĩa hoàn toàn. C đổi「きょう」thành「きのう」(hôm qua), sai thời điểm. D dùng「しません」là phủ định hiện tại, không phải quá khứ.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không mấy (dùng với phủ định)"
+                },
+                {
+                  "t": "べんきょうしませんでした",
+                  "vi": "đã không học mấy"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "たくさん",
+                  "read": "たくさん",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "すこし",
+                  "read": "すこし",
+                  "vi": "một chút, một ít"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "しました",
+                  "read": "しました",
+                  "vi": "đã làm (する quá khứ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "にほんごのじゅぎょうはなんじからなんじまでですか。",
+              "choices": [
+                "にほんごのじゅぎょうはなんじにはじまりますか。",
+                "にほんごのじゅぎょうはなんじにはじまってなんじにおわりますか。",
+                "にほんごのじゅぎょうはなんじですか。",
+                "にほんごのじゅぎょうはなんじまでですか。"
+              ],
+              "answer": 1,
+              "pt": "NからNまで (hỏi khoảng thời gian)",
+              "explain": "Câu gốc「にほんごのじゅぎょうはなんじからなんじまでですか」hỏi 'Tiết tiếng Nhật từ mấy giờ đến mấy giờ?' Đáp án B diễn đạt lại bằng「はじまって〜おわりますか」(bắt đầu lúc mấy giờ và kết thúc lúc mấy giờ?) — hỏi cùng thông tin, khác cấu trúc. A chỉ hỏi giờ bắt đầu, thiếu giờ kết thúc. C chỉ hỏi 'mấy giờ' chung chung, không rõ bắt đầu hay kết thúc. D chỉ hỏi giờ kết thúc「まで」, thiếu giờ bắt đầu.",
+              "glosses": [
+                {
+                  "t": "にほんごのじゅぎょうは",
+                  "read": "日本語の授業は",
+                  "vi": "tiết học tiếng Nhật (chủ đề)"
+                },
+                {
+                  "t": "なんじから",
+                  "read": "何時から",
+                  "vi": "từ mấy giờ"
+                },
+                {
+                  "t": "なんじまで",
+                  "read": "何時まで",
+                  "vi": "đến mấy giờ"
+                },
+                {
+                  "t": "なんじに",
+                  "read": "なんじに",
+                  "vi": "vào mấy giờ (何時に)"
+                },
+                {
+                  "t": "はじまりますか",
+                  "read": "はじまりますか",
+                  "vi": "bắt đầu à? (始まる nghi vấn lịch sự)"
+                },
+                {
+                  "t": "はじまって",
+                  "read": "はじまって",
+                  "vi": "bắt đầu, rồi... (thể て nối câu)"
+                },
+                {
+                  "t": "おわりますか",
+                  "read": "おわりますか",
+                  "vi": "kết thúc à? (終わる nghi vấn lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはかれとえいがをみました。",
+              "choices": [
+                "わたしとかれはえいがをみました。",
+                "わたしはかれにえいがをみました。",
+                "わたしはかれもえいがをみました。",
+                "わたしはかれのえいがをみました。"
+              ],
+              "answer": 0,
+              "pt": "Nと (cùng với) + Vました (quá khứ)",
+              "explain": "Câu gốc 'Tôi đã xem phim cùng anh ấy.'「Nと」biểu thị 'cùng với'. Đáp án A「わたしとかれは」đổi cấu trúc thành 'Tôi và anh ấy đã xem phim' — cùng nghĩa. B dùng「に」chỉ đối tượng/hướng, không phải 'cùng với'. C dùng「も」là 'cũng', nghĩa là 'anh ấy cũng xem'. D dùng「の」là sở hữu — 'phim của anh ấy', sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "かれと",
+                  "vi": "cùng với anh ấy"
+                },
+                {
+                  "t": "えいがを",
+                  "vi": "phim (tân ngữ)"
+                },
+                {
+                  "t": "みました",
+                  "vi": "đã xem"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "anh ấy thì (は = chủ đề)"
+                },
+                {
+                  "t": "かれに",
+                  "read": "かれに",
+                  "vi": "cho/với anh ấy (に không hợp để chỉ người cùng làm)"
+                },
+                {
+                  "t": "かれも",
+                  "read": "かれも",
+                  "vi": "anh ấy cũng"
+                },
+                {
+                  "t": "かれの",
+                  "read": "かれの",
+                  "vi": "của anh ấy (の = sở hữu)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのたてものはわたしたちのがっこうです。",
+              "choices": [
+                "わたしたちのがっこうはあのたてものです。",
+                "このたてものはわたしたちのがっこうです。",
+                "あのたてものはわたしたちががっこうです。",
+                "あのたてものはわたしたちにがっこうです。"
+              ],
+              "answer": 0,
+              "pt": "あの (ôn B2) + NのN (ôn B1)",
+              "explain": "Câu gốc「あのたてものはわたしたちのがっこうです」nghĩa là 'Tòa nhà kia là trường của chúng tôi.' Đáp án A đảo chủ đề và vị ngữ:「わたしたちのがっこうはあのたてものです」(Trường của chúng tôi là tòa nhà kia) — cùng thông tin, khác cấu trúc câu. B đổi「あの」thành「この」— chỉ vật gần người nói hơn, thay đổi vị trí chỉ định. C dùng「が」sau「わたしたち」— sai ngữ pháp cấu trúc NのN. D dùng「に」— sai trợ từ, không có nghĩa trong ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "あのたてものは",
+                  "vi": "tòa nhà kia (chủ đề)"
+                },
+                {
+                  "t": "わたしたちの",
+                  "vi": "của chúng tôi"
+                },
+                {
+                  "t": "がっこうです",
+                  "read": "学校です",
+                  "vi": "là trường học"
+                },
+                {
+                  "t": "がっこうは",
+                  "read": "がっこうは",
+                  "vi": "trường học thì (は = chủ đề)"
+                },
+                {
+                  "t": "あのたてものです",
+                  "read": "あのたてものです",
+                  "vi": "là tòa nhà đó (です khẳng định)"
+                },
+                {
+                  "t": "このたてものは",
+                  "read": "このたてものは",
+                  "vi": "tòa nhà này thì"
+                },
+                {
+                  "t": "わたしたちが",
+                  "read": "わたしたちが",
+                  "vi": "chúng tôi (が dùng sai chỗ, cần の để chỉ sở hữu)"
+                },
+                {
+                  "t": "わたしたちに",
+                  "read": "わたしたちに",
+                  "vi": "cho/với chúng tôi (に dùng sai, cần の để chỉ sở hữu)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはごぜんしちじさんじゅっぷんにでかけました。",
+              "choices": [
+                "わたしはごぜんしちじはんにでかけました。",
+                "わたしはごぜんしちじにでかけました。",
+                "わたしはごごしちじさんじゅっぷんにでかけました。",
+                "わたしはごぜんはちじさんじゅっぷんにでかけました。"
+              ],
+              "answer": 0,
+              "pt": "〜時〜分 (giờ và phút) + Vました",
+              "explain": "Câu gốc「わたしはごぜんしちじさんじゅっぷんにでかけました」nghĩa là 'Tôi đã ra ngoài lúc 7 giờ 30 phút sáng.' Đáp án A dùng「しちじはん」(7 giờ rưỡi = 7:30) thay cho「しちじさんじゅっぷん」— cách nói khác nhau của cùng một thời điểm, nghĩa hoàn toàn giống nhau. B bỏ「さんじゅっぷん」— chỉ nói '7 giờ', thiếu phút. C đổi「ごぜん」thành「ごご」(PM), sai thời điểm trong ngày. D đổi「しちじ」thành「はちじ」(8 giờ), sai giờ.",
+              "glosses": [
+                {
+                  "t": "ごぜん",
+                  "read": "午前",
+                  "vi": "buổi sáng (AM)"
+                },
+                {
+                  "t": "しちじさんじゅっぷんに",
+                  "read": "七時三十分に",
+                  "vi": "lúc 7 giờ 30 phút"
+                },
+                {
+                  "t": "でかけました",
+                  "vi": "đã ra ngoài"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "しちじはんに",
+                  "read": "しちじはんに",
+                  "vi": "vào lúc 7 giờ rưỡi (半 = rưỡi)"
+                },
+                {
+                  "t": "しちじに",
+                  "read": "しちじに",
+                  "vi": "vào lúc 7 giờ"
+                },
+                {
+                  "t": "はちじ",
+                  "read": "はちじ",
+                  "vi": "8 giờ"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはきのうともだちといっしょにひるごはんをたべました。",
+              "choices": [
+                "わたしはきのうひとりでひるごはんをたべました。",
+                "わたしはきのうともだちといっしょにひるごはんをたべませんでした。",
+                "わたしはきょうともだちといっしょにひるごはんをたべました。",
+                "きのうわたしとともだちはいっしょにひるごはんをたべました。"
+              ],
+              "answer": 3,
+              "pt": "Vました (quá khứ) + Nと (cùng với)",
+              "explain": "Câu gốc「わたしはきのうともだちといっしょにひるごはんをたべました」nghĩa là 'Hôm qua tôi đã ăn bữa trưa cùng bạn.' Đáp án D đổi cấu trúc chủ ngữ thành「わたしとともだちは」(tôi và bạn) và đảo vị trí「きのう」lên đầu — cùng nghĩa, diễn đạt khác. A dùng「ひとりで」là 'một mình' — không có bạn bè, ngược nghĩa. B dùng「たべませんでした」là phủ định — 'đã không ăn', ngược nghĩa. C đổi「きのう」thành「きょう」(hôm nay), sai thời điểm.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ともだちといっしょに",
+                  "vi": "cùng với bạn bè"
+                },
+                {
+                  "t": "ひるごはんをたべました",
+                  "vi": "đã ăn bữa trưa"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ひとり",
+                  "read": "ひとり",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "たべませんでした",
+                  "read": "たべませんでした",
+                  "vi": "đã không ăn (食べる quá khứ phủ định lịch sự)"
+                },
+                {
+                  "t": "ともだちは",
+                  "read": "ともだちは",
+                  "vi": "bạn (bè) thì (は = chủ đề)"
+                },
+                {
+                  "t": "いっしょにひるごはんを",
+                  "read": "いっしょにひるごはんを",
+                  "vi": "〜と いっしょに = cùng với ai đó; ひるごはんを たべます = ăn cơm trưa (を đánh dấu tân ngữ)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 4 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "わたしはまいあさ 7＿におきます。",
+              "choices": [
+                "分",
+                "時",
+                "から",
+                "まで"
+              ],
+              "answer": 1,
+              "pt": "〜時 (giờ)",
+              "explain": "Câu hỏi điền trợ từ đơn vị sau số chỉ GIỜ. 「時（じ）」là đơn vị đọc giờ đồng hồ → đáp án 「時」. (A) 「分（ふん）」là đơn vị PHÚT, sai vì 7 phút không hợp ngữ cảnh thức dậy buổi sáng. (C) 「から」nghĩa 'từ', cần thêm mốc 'đến' mới thành nghĩa hoàn chỉnh. (D) 「まで」nghĩa 'đến', không dùng đứng một mình sau con số chỉ thời điểm.",
+              "glosses": [
+                {
+                  "t": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "7時",
+                  "read": "7じ",
+                  "vi": "7 giờ"
+                },
+                {
+                  "t": "おきます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "じゅぎょうは 9時＿12時までです。",
+              "choices": [
+                "も",
+                "と",
+                "から",
+                "まで"
+              ],
+              "answer": 2,
+              "pt": "NからNまで",
+              "explain": "Mẫu 「Nから Nまで」(từ N đến N) diễn tả khoảng thời gian bắt đầu–kết thúc. Chỗ trống đứng sau mốc bắt đầu (9時) nên cần 「から」→ đáp án. (A) 「も」nghĩa 'cũng', không tạo cấu trúc khoảng cách. (B) 「と」nối danh từ 'A và B', không diễn tả khoảng từ–đến. (D) 「まで」dùng cho mốc KẾT THÚC, đặt đây (sau 9時) sẽ trái ngược ý nghĩa.",
+              "glosses": [
+                {
+                  "t": "じゅぎょう",
+                  "vi": "buổi học"
+                },
+                {
+                  "t": "9時",
+                  "read": "9じ",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "12時",
+                  "read": "12じ",
+                  "vi": "12 giờ"
+                }
+              ]
+            },
+            {
+              "stem": "A：やまださんはきのうがっこうにきましたか。\nB：いいえ、＿。",
+              "choices": [
+                "きません",
+                "きませんでした",
+                "きました",
+                "きます"
+              ],
+              "answer": 1,
+              "pt": "Vませんでした (phủ định quá khứ)",
+              "explain": "Câu hỏi ở THÌ QUÁ KHỨ (きましたか) nên câu trả lời phủ định cũng phải ở quá khứ: 「きませんでした」→ đáp án. (A) 「きません」là phủ định HIỆN TẠI/TƯƠNG LAI, không khớp ngữ cảnh 'hôm qua'. (C) 「きました」là khẳng định quá khứ, mâu thuẫn với 「いいえ」. (D) 「きます」là khẳng định hiện tại/tương lai, sai cả thì lẫn phủ định.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "きませんでした",
+                  "vi": "đã không đến"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada (tên riêng)"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không"
+                },
+                {
+                  "t": "きましたか",
+                  "read": "きましたか",
+                  "vi": "đã đến à? (来る quá khứ nghi vấn lịch sự)"
+                },
+                {
+                  "t": "きます",
+                  "read": "きます",
+                  "vi": "đến (来る hiện tại/tương lai lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはコーヒーを＿。さとうはいりません。",
+              "choices": [
+                "のみます",
+                "のみません",
+                "のみました",
+                "のみませんでした"
+              ],
+              "answer": 0,
+              "pt": "Vます (động từ thể masu)",
+              "explain": "Câu đầu nói về thói quen hiện tại (uống cà phê), câu sau giải thích không cần đường → người nói CÓ uống cà phê. Cần thể khẳng định hiện tại 「のみます」→ đáp án. (B) 「のみません」là phủ định hiện tại, mâu thuẫn ý 'chỉ không cần đường'. (C) 「のみました」là khẳng định quá khứ, ngữ cảnh không chỉ rõ quá khứ. (D) 「のみませんでした」là phủ định quá khứ, cũng không phù hợp.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "のみます",
+                  "read": "飲みます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "さとう",
+                  "read": "砂糖",
+                  "vi": "đường"
+                },
+                {
+                  "t": "いりません",
+                  "vi": "không cần"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "のみません",
+                  "read": "のみません",
+                  "vi": "không uống (飲む phủ định lịch sự)"
+                },
+                {
+                  "t": "のみました",
+                  "read": "のみました",
+                  "vi": "đã uống (飲む quá khứ lịch sự)"
+                },
+                {
+                  "t": "のみませんでした",
+                  "read": "のみませんでした",
+                  "vi": "đã không uống (飲む quá khứ phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "たなかさんはかいぎですずきさん＿はなしました。",
+              "choices": [
+                "に",
+                "と",
+                "で",
+                "の"
+              ],
+              "answer": 1,
+              "pt": "Nと (cùng với)",
+              "explain": "「Nと」sau người chỉ 'cùng với N' khi thực hiện hành động → 「すずきさんと」= cùng với Suzuki. (A) 「に」chỉ hướng/đích, 「すずきさんに話す」nghĩa 'nói với/cho Suzuki', nhấn mạnh đối tượng nhận, không nhấn đồng hành. (C) 「で」chỉ phương tiện hoặc địa điểm, không dùng nối người đồng hành trong hành động này. (D) 「の」là trợ từ sở hữu, không hợp ngữ pháp ở đây.",
+              "glosses": [
+                {
+                  "t": "かいぎ",
+                  "read": "会議",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "はなしました",
+                  "read": "話しました",
+                  "vi": "đã nói chuyện"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                }
+              ]
+            },
+            {
+              "stem": "これはわたしのほん＿。",
+              "choices": [
+                "から",
+                "まで",
+                "と",
+                "です"
+              ],
+              "answer": 3,
+              "pt": "NのN (sở hữu – ôn B1)",
+              "explain": "Câu danh từ dạng 「NはNです」cần 「です」ở cuối để hoàn chỉnh. → đáp án 「です」. (A) 「から」= 'từ', tạo ra nghĩa phi lý. (B) 「まで」= 'đến', cũng phi lý. (C) 「と」= 'cùng với/và', không kết câu danh từ được.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                }
+              ]
+            },
+            {
+              "stem": "としょかんはえきのちかく＿あります。",
+              "choices": [
+                "が",
+                "で",
+                "に",
+                "を"
+              ],
+              "answer": 2,
+              "pt": "NはNにあります (ôn B3)",
+              "explain": "Mẫu 「NはNにあります」diễn tả vị trí của vật. Vị trí (えきのちかく) cần trợ từ 「に」chỉ nơi chốn tồn tại. → đáp án 「に」. (A) 「が」là chủ ngữ, sẽ đổi cấu trúc câu thành không tự nhiên. (B) 「で」chỉ nơi diễn ra hành động chủ động, không dùng cho 「あります」. (D) 「を」chỉ tân ngữ, không hợp với động từ tồn tại.",
+              "glosses": [
+                {
+                  "t": "としょかん",
+                  "read": "図書館",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "ちかく",
+                  "vi": "gần"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có/ở (vật)"
+                }
+              ]
+            },
+            {
+              "stem": "A：まいにちなんじにねますか。\nB：だいたい 11時 30＿にねます。",
+              "choices": [
+                "時",
+                "分",
+                "から",
+                "まで"
+              ],
+              "answer": 1,
+              "pt": "〜分 (phút)",
+              "explain": "11時30＿ → số '30' là phần phút, nên cần đơn vị 「分（ふん）」→ đáp án. (A) 「時」là đơn vị GIỜ, 「11時30時」vô nghĩa. (C) 「から」= 'từ', phá vỡ cấu trúc câu thời điểm đơn. (D) 「まで」= 'đến', cũng không hợp thời điểm đơn.",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "だいたい",
+                  "vi": "khoảng, đại khái"
+                },
+                {
+                  "t": "30分",
+                  "read": "30ふん",
+                  "vi": "30 phút"
+                },
+                {
+                  "t": "ねます",
+                  "read": "寝ます",
+                  "vi": "ngủ"
+                },
+                {
+                  "t": "なんじ",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "時",
+                  "read": "じ",
+                  "vi": "giờ (đơn vị chỉ giờ)"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはきのうえいがを＿。",
+              "choices": [
+                "みます",
+                "みません",
+                "みました",
+                "みませんでした"
+              ],
+              "answer": 2,
+              "pt": "Vました (quá khứ khẳng định)",
+              "explain": "「きのう」(hôm qua) báo hiệu THÌ QUÁ KHỨ, câu khẳng định → cần 「みました」→ đáp án. (A) 「みます」là hiện tại/tương lai, sai thì. (B) 「みません」là phủ định hiện tại/tương lai, sai cả thì lẫn ý. (D) 「みませんでした」là phủ định quá khứ, không khớp ý 'đã xem'.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "えいが",
+                  "read": "映画",
+                  "vi": "phim"
+                },
+                {
+                  "t": "みました",
+                  "read": "見ました",
+                  "vi": "đã xem"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "みます",
+                  "read": "みます",
+                  "vi": "xem (見る hiện tại/tương lai lịch sự)"
+                },
+                {
+                  "t": "みません",
+                  "read": "みません",
+                  "vi": "không xem (見る phủ định lịch sự)"
+                },
+                {
+                  "t": "みませんでした",
+                  "read": "みませんでした",
+                  "vi": "đã không xem (見る quá khứ phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "A：このかばんはだれのですか。\nB：それはやまだせんせい＿かばんです。",
+              "choices": [
+                "と",
+                "から",
+                "の",
+                "まで"
+              ],
+              "answer": 2,
+              "pt": "NのN (sở hữu – ôn B1)",
+              "explain": "「NのN」= sở hữu 'N của N', cần 「の」giữa hai danh từ → 「やまだせんせいのかばん」= túi của thầy Yamada. (A) 「と」nối đồng đẳng hoặc đồng hành, không tạo quan hệ sở hữu. (B) 「から」= 'từ', vô nghĩa ở đây. (D) 「まで」= 'đến', không phù hợp.",
+              "glosses": [
+                {
+                  "t": "このかばん",
+                  "vi": "cái túi này"
+                },
+                {
+                  "t": "やまだせんせい",
+                  "read": "山田先生",
+                  "vi": "thầy/cô Yamada"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "のですか",
+                  "read": "のですか",
+                  "vi": "のですか = là ... vậy? (の thay thế danh từ sở hữu + ですか hỏi)"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó thì (それ=cái đó, は=chủ đề)"
+                }
+              ]
+            },
+            {
+              "stem": "にほんごのじゅぎょうはなんじ＿なんじまでですか。",
+              "choices": [
+                "まで",
+                "と",
+                "から",
+                "に"
+              ],
+              "answer": 2,
+              "pt": "NからNまで",
+              "explain": "Mẫu hỏi khoảng thời gian: 「なんじ＿なんじまで」→ cần 「から」ở mốc ĐẦU để thành 「から〜まで」(từ〜đến). (A) 「まで」chỉ mốc KẾT THÚC, đặt ở vị trí đầu sẽ đảo ngược cấu trúc. (B) 「と」nối danh từ, không tạo cấu trúc khoảng thời gian. (D) 「に」chỉ thời điểm đơn hoặc đích, không tạo khoảng từ–đến.",
+              "glosses": [
+                {
+                  "t": "にほんごのじゅぎょう",
+                  "vi": "giờ học tiếng Nhật"
+                },
+                {
+                  "t": "なんじ",
+                  "read": "何時",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "から〜まで",
+                  "vi": "từ〜đến"
+                }
+              ]
+            },
+            {
+              "stem": "A：すずきさんはにほんごをべんきょうしますか。\nB：いいえ、にほんごは＿。ちゅうごくごをべんきょうします。",
+              "choices": [
+                "べんきょうします",
+                "べんきょうしました",
+                "べんきょうしません",
+                "べんきょうしませんでした"
+              ],
+              "answer": 2,
+              "pt": "Vません (phủ định hiện tại)",
+              "explain": "「いいえ」phủ định + ngữ cảnh thói quen hiện tại (không phải quá khứ) → cần phủ định hiện tại 「べんきょうしません」→ đáp án. (A) 「べんきょうします」là khẳng định, mâu thuẫn 「いいえ」. (B) 「べんきょうしました」là khẳng định quá khứ, sai thì. (D) 「べんきょうしませんでした」là phủ định quá khứ, câu không có dấu hiệu quá khứ.",
+              "glosses": [
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "べんきょうしません",
+                  "read": "勉強しません",
+                  "vi": "không học"
+                },
+                {
+                  "t": "ちゅうごくご",
+                  "read": "中国語",
+                  "vi": "tiếng Trung"
+                },
+                {
+                  "t": "すずきさん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki (tên riêng)"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không"
+                },
+                {
+                  "t": "べんきょうしますか",
+                  "read": "べんきょうしますか",
+                  "vi": "có học không? (勉強する nghi vấn lịch sự)"
+                },
+                {
+                  "t": "べんきょうしました",
+                  "read": "べんきょうしました",
+                  "vi": "đã học (勉強する quá khứ lịch sự)"
+                },
+                {
+                  "t": "べんきょうしませんでした",
+                  "read": "べんきょうしませんでした",
+                  "vi": "đã không học (勉強する quá khứ phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "A：えきはどこですか。\nB：えきはゆうびんきょくのとなり＿あります。",
+              "choices": [
+                "で",
+                "を",
+                "に",
+                "と"
+              ],
+              "answer": 2,
+              "pt": "NはNにあります (ôn B3)",
+              "explain": "Vị trí tồn tại của vật dùng 「Nにあります」→ 「ゆうびんきょくのとなりに」= ở bên cạnh bưu điện. Đáp án 「に」. (A) 「で」chỉ nơi diễn ra hành động, không dùng với 「あります」tồn tại. (B) 「を」là tân ngữ, không chỉ vị trí. (D) 「と」nối người/vật đồng đẳng, không chỉ nơi chốn.",
+              "glosses": [
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "ゆうびんきょく",
+                  "read": "郵便局",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "となり",
+                  "vi": "bên cạnh"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có/ở (vật)"
+                },
+                {
+                  "t": "どこですか",
+                  "read": "どこですか",
+                  "vi": "ở đâu vậy? (どこ=đâu, ですか hỏi nơi chốn)"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはともだち＿としょかんでべんきょうしました。",
+              "choices": [
+                "に",
+                "で",
+                "から",
+                "と"
+              ],
+              "answer": 3,
+              "pt": "Nと (cùng với) + Vました",
+              "explain": "「ともだち＿」diễn tả 'cùng với bạn' → dùng 「と」→ đáp án. (A) 「に」sau người chỉ đích/đối tượng nhận, 「ともだちに勉強する」= học cho bạn, không tự nhiên ở đây. (B) 「で」sau danh từ chỉ phương tiện hoặc nơi, không đồng hành. (C) 「から」= 'từ', không nối người đồng hành.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "としょかん",
+                  "read": "図書館",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "べんきょうしました",
+                  "read": "勉強しました",
+                  "vi": "đã học"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "A：あれはなんですか。\nB：あれはわたしのだいがくのたてもの＿。",
+              "choices": [
+                "と",
+                "から",
+                "まで",
+                "です"
+              ],
+              "answer": 3,
+              "pt": "NのN + NはNです (ôn B1/B2)",
+              "explain": "Câu trả lời dạng 「NはNです」cần 「です」kết câu. 「わたしのだいがくのたてものです」= Đó là tòa nhà trường tôi. → đáp án 「です」. (A) 「と」nối danh từ, không kết câu. (B) 「から」= 'từ', vô nghĩa. (C) 「まで」= 'đến', không hợp.",
+              "glosses": [
+                {
+                  "t": "あれ",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "だいがく",
+                  "read": "大学",
+                  "vi": "trường đại học"
+                },
+                {
+                  "t": "たてもの",
+                  "read": "建物",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (trợ động từ lịch sự)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "わたしはまいあさ",
+                "おきます。"
+              ],
+              "pieces": [
+                "しちじ",
+                "に",
+                "はん",
+                "ごろ"
+              ],
+              "order": [
+                0,
+                2,
+                3,
+                1
+              ],
+              "starSlot": 1,
+              "pt": "〜時〜分 (giờ/phút) + Vます",
+              "explain": "Câu đúng: わたしはまいあさしちじはんごろにおきます。— Cấu trúc thời gian ghép「じ」(giờ)+「はん」(rưỡi)+「ごろ」(khoảng) thành một khối rồi mới đặt trợ từ「に」. Ô ★ = vị trí 2 = 「はん」— người học hay đặt「に」ngay sau「じ」bỏ mất「はん」. Phương án đặt「に」trước「ごろ」sai vì「に」phải đứng sau toàn bộ mốc thời gian (bao gồm cả「ごろ」).",
+              "glosses": [
+                {
+                  "t": "しちじはん",
+                  "read": "七時半",
+                  "vi": "7 giờ rưỡi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "おきます",
+                  "read": "起きます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "ごろ",
+                  "vi": "khoảng"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "やまださんの",
+                "です。"
+              ],
+              "pieces": [
+                "じゅぎょうは",
+                "にほんごの",
+                "くじから",
+                "じゅういちじまで"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NからNまで (từ…đến)",
+              "explain": "Câu đúng: 「やまださんのにほんごのじゅぎょうはくじからじゅういちじまでです。」— Giờ học tiếng Nhật của anh Yamada từ 9 giờ đến 11 giờ.\nSắp xếp: ô 1=「にほんごの」, ô 2=「じゅぎょうは」, ô 3=「くじから」★, ô 4=「じゅういちじまで」\nKhung câu bắt đầu bằng 「やまださんの」 và kết thúc bằng vị ngữ 「です。」, đòi hỏi các mảnh ghép phải tạo thành một chủ đề hoàn chỉnh và biểu thị khoảng thời gian theo mẫu 「〜から〜まで」. Mảnh 「にほんごの」 mang trợ từ 「の」 bắt buộc phải bổ nghĩa cho danh từ theo sau nên dính liền với 「じゅぎょうは」 để hoàn chỉnh cụm chủ ngữ 「やまださんのにほんごのじゅぎょうは」. Tiếp theo, theo trật tự thời gian tự nhiên trong tiếng Nhật, mốc thời gian bắt đầu 「くじから」 phải đứng trước mốc kết thúc 「じゅういちじまで」 trước khi kết hợp với 「です。」. Mảnh ở ô ★ là 「くじから」 không thể đứng ở ô 1 hay ô 2 vì đứng sau trợ từ 「の」 của 「やまださんの」 bắt buộc phải là danh từ bổ nghĩa chứ không thể là cụm thời gian kèm 「から」, và cũng không thể đứng ở ô 4 vì đảo ngược trật tự mốc thời gian sẽ làm sai nghĩa 「từ 9 giờ đến 11 giờ」.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada (tên riêng)"
+                },
+                {
+                  "t": "じゅぎょう",
+                  "read": "授業",
+                  "vi": "buổi học"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "くじ",
+                  "read": "九時",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "じゅういちじ",
+                  "read": "十一時",
+                  "vi": "11 giờ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "かのじょはともだちと",
+                "えいがをみました。"
+              ],
+              "pieces": [
+                "きのう",
+                "いっしょに",
+                "えきの",
+                "ちかくで"
+              ],
+              "order": [
+                0,
+                2,
+                3,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "Nと (cùng với) + Vました (quá khứ)",
+              "explain": "Câu đúng: かのじょはともだちときのうえきのちかくでいっしょにえいがをみました。— Trật tự: thời gian (きのう)→ địa điểm (えきのちかくで)→ cách thức (いっしょに)→ động từ. Ô ★ = vị trí 4 = 「いっしょに」: người học hay bỏ từ này hoặc đặt sai vị trí; いっしょに phải đứng ngay trước động từ. Lưu ý「えきの」phải đứng trước「ちかくで」vì「の」nối danh từ sở hữu (えきのちかく = gần ga).",
+              "glosses": [
+                {
+                  "t": "かのじょ",
+                  "read": "彼女",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "ともだちと",
+                  "read": "友達と",
+                  "vi": "cùng với bạn bè"
+                },
+                {
+                  "t": "えいが",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "みました",
+                  "read": "見ました",
+                  "vi": "đã xem"
+                },
+                {
+                  "t": "きのう",
+                  "read": "昨日",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "えきのちかく",
+                  "read": "駅の近く",
+                  "vi": "gần ga"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "たなかさんと",
+                "ねませんでした。"
+              ],
+              "pieces": [
+                "やまださんは",
+                "きのうも",
+                "よるの",
+                "じゅうにじまで"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vませんでした (quá khứ phủ định) + Nと + も",
+              "explain": "Câu đúng: 「たなかさんとやまださんはきのうもよるのじゅうにじまでねませんでした。」— Anh Tanaka và anh Yamada hôm qua cũng đến tận 12 giờ đêm vẫn chưa ngủ.\nSắp xếp: ô 1=「やまださんは」, ô 2=「きのうも」★, ô 3=「よるの」, ô 4=「じゅうにじまで」.\nKhung đầu kết thúc bằng trợ từ nối 「たなかさんと」 đòi hỏi danh từ cùng loại đứng liền sau để hoàn thành chủ ngữ liên kết, nên ô 1 bắt buộc là 「やまださんは」. Trạng từ thời gian chỉ ngày mang trợ từ 「きのうも」 đứng ở ô 2 để thể hiện điểm ngữ pháp được kiểm tra. Cụm chỉ mốc thời gian chi tiết trong ngày 「よるの」 ở ô 3 bổ nghĩa trực tiếp cho mốc giới hạn 「じゅうにじまで」 ở ô 4 trước khi nối vào vị ngữ phủ định quá khứ ở khung cuối 「ねませんでした。」.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "read": "",
+                  "vi": "anh Tanaka"
+                },
+                {
+                  "t": "ねませんでした",
+                  "read": "",
+                  "vi": "đã không ngủ"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "",
+                  "vi": "anh Yamada"
+                },
+                {
+                  "t": "きのう",
+                  "read": "",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "よる",
+                  "read": "",
+                  "vi": "buổi tối"
+                },
+                {
+                  "t": "じゅうにじ",
+                  "read": "",
+                  "vi": "12 giờ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このほんは",
+                "です。"
+              ],
+              "pieces": [
+                "たなかさんの",
+                "せんせい",
+                "の",
+                "ほん"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NのN (sở hữu hai tầng – bài 4)",
+              "explain": "Câu đúng: 「このほんはたなかさんのせんせいのほんです。」— Cấu trúc NのN hai tầng: 「たなかさんの」(của Tanaka) ＋「せんせい」= thầy của Tanaka, rồi 「の」＋「ほん」= sách của thầy của Tanaka. Ô ★ (số 3) là 「の」thứ hai (nối thầy với sách). Đảo thứ tự làm sai quan hệ sở hữu.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "",
+                  "vi": "anh Tanaka"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "",
+                  "vi": "giáo viên"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "じむしょは",
+                "あります。"
+              ],
+              "pieces": [
+                "としょかんの",
+                "となりに",
+                "あのたてものの",
+                "なかの"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "NはNにあります ÔN + この/その/あのN",
+              "explain": "Câu đúng: 「じむしょはあのたてもののなかのとしょかんのとなりにあります。」— Văn phòng ở bên cạnh thư viện bên trong tòa nhà kia.\nSắp xếp: ô 1=「あのたてものの」, ô 2=「なかの」, ô 3=「としょかんの」, ô 4=「となりに」★\nKhung câu đã có sẵn chủ ngữ 「じむしょは」 và vị ngữ chỉ sự tồn tại 「あります。」 đòi hỏi một bổ ngữ chỉ nơi chốn đi với trợ từ 「に」 đứng ngay trước nó. Mảnh 「となりに」 bắt buộc phải đứng ở ô 4 để kết hợp thành vị ngữ hoàn chỉnh 「となりにあります」. Ba mảnh còn lại đều kết thúc bằng trợ từ 「の」 để định ngữ nối tiếp từ phạm vi lớn đến nhỏ, trong đó 「あのたてものの」 bổ nghĩa cho 「なかの」, rồi kết nối với 「としょかんの」. Do đó, mảnh đứng ở ô ★ phải là 「となりに」.",
+              "glosses": [
+                {
+                  "t": "じむしょ",
+                  "read": "事務所",
+                  "vi": "văn phòng"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                },
+                {
+                  "t": "としょかん",
+                  "read": "図書館",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "となりに",
+                  "vi": "bên cạnh"
+                },
+                {
+                  "t": "あのたてもの",
+                  "read": "あの建物",
+                  "vi": "tòa nhà kia"
+                },
+                {
+                  "t": "なか",
+                  "read": "",
+                  "vi": "bên trong"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "きのうは",
+                "ねませんでしたか。"
+              ],
+              "pieces": [
+                "ろくじまで",
+                "ぜんぜん",
+                "よるの",
+                "じゅういちじから"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "NからNまで + Vませんでした (câu hỏi)",
+              "explain": "Câu đúng: 「きのうはよるのじゅういちじからろくじまでぜんぜんねませんでしたか。」— Hôm qua từ 11 giờ đêm đến 6 giờ bạn hoàn toàn không ngủ chút nào à?\nSắp xếp: ô 1=「よるの」, ô 2=「じゅういちじから」, ô 3=「ろくじまで」★, ô 4=「ぜんぜん」\nKhung câu đã có sẵn mốc thời gian 「きのうは」 và vị ngữ phủ định nghi vấn 「ねませんでしたか。」. Trạng từ 「ぜんぜん」 bắt buộc phải đứng ở ô 4 ngay trước động từ phủ định. Cấu trúc chỉ khoảng thời gian đòi hỏi trật tự 「〜から〜まで」, trong đó định từ chỉ buổi 「よるの」 phải đứng trước mốc giờ bắt đầu 「じゅういちじから」 ở ô 1 và ô 2. Mảnh kết thúc khoảng thời gian 「ろくじまで」 bắt buộc phải đứng ở ô 3 để hoàn chỉnh cấu trúc ngữ pháp, do đó ô ★ phải là 「ろくじまで」.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "read": "",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ねませんでした",
+                  "read": "寝ませんでした",
+                  "vi": "đã không ngủ"
+                },
+                {
+                  "t": "ろくじ",
+                  "read": "",
+                  "vi": "6 giờ"
+                },
+                {
+                  "t": "ぜんぜん",
+                  "vi": "hoàn toàn (không)"
+                },
+                {
+                  "t": "よる",
+                  "read": "",
+                  "vi": "buổi tối"
+                },
+                {
+                  "t": "じゅういちじ",
+                  "read": "",
+                  "vi": "11 giờ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "あなたは",
+                "べんきょうしますか。"
+              ],
+              "pieces": [
+                "にほんごを",
+                "だれと",
+                "まいにち",
+                "いっしょに"
+              ],
+              "order": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "starSlot": 1,
+              "pt": "Nと (cùng với) + Vます + Nも ÔN",
+              "explain": "Câu đúng: 「あなたはまいにちだれといっしょににほんごをべんきょうしますか。」— Bạn học tiếng Nhật cùng với ai mỗi ngày thế?\nSắp xếp: ô 1=「まいにち」, ô 2=「だれと」★, ô 3=「いっしょに」, ô 4=「にほんごを」.\nSau chủ ngữ 「あなたは」 ở khung trước, trạng từ chỉ tần suất/thời gian 「まいにち」 đứng ở ô 1 theo trật tự tự nhiên của câu. Tiếp theo, mẫu ngữ pháp diễn đạt cùng thực hiện hành động với ai đòi hỏi cấu trúc 「[người]と + いっしょに」, do đó từ nghi vấn 「だれと」★ mang trợ từ と bắt buộc phải đứng ở ô 2 ngay trước 「いっしょに」 ở ô 3. Cuối cùng, danh từ chỉ tân ngữ chịu tác động của hành động học 「にほんごを」 đứng ở ô 4 để bổ nghĩa trực tiếp cho động từ 「べんきょうしますか。」 ở khung sau. Mảnh 「だれと」 mang điểm ngữ pháp hỏi đối tác thực hiện hành động nên bắt buộc đứng ở ô 2 để gắn kết với 「いっしょに」.",
+              "glosses": [
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị (ngôi thứ hai)"
+                },
+                {
+                  "t": "べんきょうします",
+                  "read": "勉強します",
+                  "vi": "học"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "だれと",
+                  "vi": "cùng với ai"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "毎日",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "たなかさんは",
+                "はたらきます。"
+              ],
+              "pieces": [
+                "ごごの",
+                "ごじまで",
+                "あさの",
+                "くじから"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "〜時 (giờ) + NからNまで + Vます",
+              "explain": "Câu đúng: 「たなかさんはあさのくじからごごのごじまではたらきます。」— Chị Tanaka làm việc từ 9 giờ sáng đến 5 giờ chiều.\nSắp xếp: ô 1=「あさの」, ô 2=「くじから」, ô 3=「ごごの」, ô 4=「ごじまで」★\nKhung câu đã cung cấp chủ ngữ 「たなかさんは」 và vị ngữ 「はたらきます。」 biểu thị hành động kéo dài trong một khoảng thời gian. Mẫu ngữ pháp 「NからNまで」 thể hiện thời gian bắt đầu và kết thúc, trong đó mốc bắt đầu luôn đi trước mốc kết thúc. Định từ chỉ buổi sáng 「あさの」 bổ nghĩa cho giờ bắt đầu 「くじから」 ở ô 1 và ô 2, tiếp theo là định từ buổi chiều 「ごごの」 bổ nghĩa cho giờ kết thúc 「ごじまで」 ở ô 3 và ô 4. Vì vậy, ô ★ đứng ngay trước vị ngữ bắt buộc phải là 「ごじまで」.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "read": "",
+                  "vi": "anh Tanaka"
+                },
+                {
+                  "t": "はたらきます",
+                  "read": "",
+                  "vi": "làm việc"
+                },
+                {
+                  "t": "ごご",
+                  "read": "",
+                  "vi": "buổi chiều"
+                },
+                {
+                  "t": "ごじ",
+                  "read": "",
+                  "vi": "5 giờ"
+                },
+                {
+                  "t": "あさ",
+                  "read": "",
+                  "vi": "buổi sáng"
+                },
+                {
+                  "t": "くじから",
+                  "read": "九時から",
+                  "vi": "từ 9 giờ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "あそこに",
+                "います。"
+              ],
+              "pieces": [
+                "がくせいの",
+                "さとうさんも",
+                "にほんごの",
+                "せんせいと"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "NはNにいます ÔN + Nと (và) + Nも",
+              "explain": "Câu đúng: 「あそこににほんごのせんせいとがくせいのさとうさんもいます。」— Ở đằng kia có giáo viên tiếng Nhật và cả bạn học sinh Sato nữa.\nSắp xếp: ô 1=「にほんごの」, ô 2=「せんせいと」, ô 3=「がくせいの」, ô 4=「さとうさんも」★\nKhung câu đã có sẵn nơi chốn 「あそこに」 và vị ngữ chỉ sự tồn tại của người 「います。」. Cụm danh từ thứ nhất gồm định từ 「にほんごの」 bổ nghĩa cho 「せんせいと」 để làm đối tượng đầu tiên được nối bằng trợ từ 「と」 ở ô 1 và ô 2. Cụm danh từ thứ hai gồm 「がくせいの」 bổ nghĩa cho 「さとうさんも」 ở ô 3 và ô 4, với trợ từ 「も」 biểu thị sự bổ sung và đứng ngay trước động từ. Do đó, mảnh ở ô ★ bắt buộc phải là 「さとうさんも」.",
+              "glosses": [
+                {
+                  "t": "あそこに",
+                  "vi": "ở chỗ kia"
+                },
+                {
+                  "t": "います",
+                  "vi": "có, tồn tại (người/động vật)"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "さとうさん",
+                  "read": "",
+                  "vi": "anh Sato"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "",
+                  "vi": "giáo viên"
+                }
+              ]
+            },
+            {
+              "pt": "なにも + Vません (phủ định toàn phần)",
+              "explain": "Câu đúng: 「わたしはきのうレストランでなにもたべませんでした。」— Hôm qua tôi đã không ăn gì ở nhà hàng.\nSắp xếp: ô 1=「きのう」, ô 2=「レストランで」, ô 3=「なにも」★, ô 4=「たべませんでした」。\nKhung đầu 「わたしは」 làm chủ ngữ, theo sau cần trạng từ chỉ thời gian quá khứ 「きのう」 ở ô 1 và cụm địa điểm có trợ từ 「レストランで」 ở ô 2 để làm rõ bối cảnh. Cấu trúc phủ định toàn phần 「なにも + Vません」 đòi hỏi từ nghi vấn dính trợ từ 「なにも」 phải đứng ở ô 3 ngay trước động詞 thể phủ định 「たべませんでした」 ở cuối câu. Mảnh ở ô ★ 「なにも」 bổ nghĩa trực tiếp cho động từ phủ định nên bắt buộc phải đứng trước 「たべませんでした」, không thể chèn lên trước trạng từ thời gian hay địa điểm.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "レストラン",
+                  "read": "れすとらん",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "たべませんでした",
+                  "read": "たべませんでした",
+                  "vi": "đã không ăn (食べる quá khứ phủ định lịch sự)"
+                },
+                {
+                  "t": "なにも",
+                  "read": "",
+                  "vi": "gì cả"
+                }
+              ],
+              "frame": [
+                "わたしは",
+                "。"
+              ],
+              "pieces": [
+                "レストランで",
+                "きのう",
+                "たべませんでした",
+                "なにも"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 2
+            },
+            {
+              "frame": [
+                "このかばんは",
+                "かばんですか。"
+              ],
+              "pieces": [
+                "Aさんの",
+                "それとも",
+                "かばんですか、",
+                "Bさんの"
+              ],
+              "order": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NはAですか、Bですか ÔN (A hay B) + NのN",
+              "explain": "Câu đúng: 「このかばんはAさんのかばんですか、それともBさんのかばんですか。」— Cái cặp này là của anh A hay là của anh B?\nSắp xếp: ô 1=「Aさんの」, ô 2=「かばんですか、」, ô 3=「それとも」★, ô 4=「Bさんの」\nKhung câu mở đầu bằng 「このかばんは」 và kết thúc bằng đuôi câu hỏi 「かばんですか。」, yêu cầu sắp xếp cấu trúc câu hỏi lựa chọn giữa hai vế. Mảnh 「Aさんの」 bắt buộc dính liền trước mảnh 「かばんですか、」 tạo thành vế hỏi thứ nhất 「Aさんのかばんですか、」, còn mảnh 「Bさんの」 dính liền trước đuôi câu 「かばんですか。」 ở cuối khung tạo thành vế hỏi thứ hai. Liên từ 「それとも」 nối hai câu hỏi độc lập nên phải đứng giữa hai vế, ngay sau dấu phẩy của vế thứ nhất và trước danh từ sở hữu của vế thứ hai. Do đó, mảnh 「それとも」 nằm ở ô 3 (ô ★) và không thể đứng ở vị trí khác vì liên từ nối hai lựa chọn bắt buộc phải đặt sau vế thứ nhất kết thúc tại ô 2.",
+              "glosses": [
+                {
+                  "t": "このかばん",
+                  "vi": "cái túi này"
+                },
+                {
+                  "t": "かばんですか",
+                  "vi": "là cái túi (ư)?"
+                },
+                {
+                  "t": "Aさんの",
+                  "vi": "của anh/chị A"
+                },
+                {
+                  "t": "それとも",
+                  "vi": "hay là"
+                },
+                {
+                  "t": "Bさんの",
+                  "vi": "của anh/chị B"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このまちの",
+                "やすみです。"
+              ],
+              "pieces": [
+                "どようびの",
+                "ごごも",
+                "ぎんこうと",
+                "ゆうびんきょくは"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "Nと (và) + Nは + Nも ÔN",
+              "explain": "Câu đúng: 「このまちのぎんこうとゆうびんきょくはどようびのごごもやすみです。」— Ngân hàng và bưu điện của thị trấn này thì chiều thứ Bảy cũng nghỉ.\nSắp xếp: ô 1=「ぎんこうと」, ô 2=「ゆうびんきょくは」, ô 3=「どようびの」, ô 4=「ごごも」★\nKhung câu mở đầu bằng cụm định từ 「このまちの」 và kết thúc bằng vị ngữ 「やすみです。」. Cụm chủ ngữ chỉ hai cơ quan bắt buộc bắt đầu bằng 「ぎんこうと」 ở ô 1 để nhận sự bổ nghĩa của khung câu và kết nối với 「ゆうびんきょくは」 mang trợ từ chủ đề ở ô 2. Tiếp theo là thành phần thời gian gồm danh từ 「どようびの」 bổ nghĩa cho buổi 「ごごも」 ở ô 3 và ô 4. Trợ từ 「も」 mang nghĩa đồng thời đứng liền trước vị ngữ, do đó ô ★ phải là 「ごごも」.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "まち",
+                  "read": "",
+                  "vi": "thành phố"
+                },
+                {
+                  "t": "やすみ",
+                  "read": "休み",
+                  "vi": "ngày nghỉ"
+                },
+                {
+                  "t": "どようび",
+                  "read": "",
+                  "vi": "thứ bảy"
+                },
+                {
+                  "t": "ごご",
+                  "read": "",
+                  "vi": "buổi chiều"
+                },
+                {
+                  "t": "ぎんこう",
+                  "read": "銀行",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "ゆうびんきょく",
+                  "read": "",
+                  "vi": "bưu điện"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "たなかさんはごぜん",
+                "しごとをしました。"
+              ],
+              "pieces": [
+                "くじ",
+                "から",
+                "ごごさんじ",
+                "まで"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NからNまで (giờ) + Vました",
+              "explain": "Câu đúng: たなかさんはごぜんくじからごごさんじまでしごとをしました。— 「ごぜん」(buổi sáng AM) + 「くじ」(9 giờ) + 「から」(từ) → 「ごご」(buổi chiều PM) + 「さんじ」(3 giờ) + 「まで」(đến). Ô ★ là 「ごごさんじ」: người học hay đặt 「まで」trước số giờ kết thúc, sai vì trợ từ đứng SAU danh từ. Thứ tự 「まで〜から」đảo ngược nghĩa hoặc vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                },
+                {
+                  "t": "ごぜん",
+                  "read": "午前",
+                  "vi": "buổi sáng (AM)"
+                },
+                {
+                  "t": "しごとをしました",
+                  "read": "しごとをしました",
+                  "vi": "đã làm việc"
+                },
+                {
+                  "t": "くじから",
+                  "read": "九時から",
+                  "vi": "từ 9 giờ"
+                },
+                {
+                  "t": "ごご",
+                  "read": "午後",
+                  "vi": "buổi chiều (PM)"
+                },
+                {
+                  "t": "さんじまで",
+                  "read": "三時まで",
+                  "vi": "đến 3 giờ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "きのうゆうがた",
+                "でかけましたか。"
+              ],
+              "pieces": [
+                "どこかへ",
+                "ともだちと",
+                "ふたりで",
+                "いっしょに"
+              ],
+              "order": [
+                1,
+                2,
+                3,
+                0
+              ],
+              "starSlot": 1,
+              "pt": "Nと (cùng với) + Vました (câu hỏi)",
+              "explain": "Câu đúng: きのうゆうがたともだちとふたりでいっしょにどこかへでかけましたか。— 「ともだちと」(cùng bạn – bài 4) → 「ふたりで」(hai người) → 「いっしょに」(cùng nhau) → 「どこかへ」(đến đâu đó) theo thứ tự: chủ thể kèm theo → số lượng → trạng từ → đích. Ô ★ là 「ふたりで」: hay bị đặt sau 「いっしょに」sai vì 「ふたりで」bổ nghĩa cách thức thực hiện còn 「いっしょに」bổ nghĩa hành động. 「どこかへ」phải đứng ngay trước động từ.",
+              "glosses": [
+                {
+                  "t": "きのうゆうがた",
+                  "read": "きのうゆうがた",
+                  "vi": "chiều tối hôm qua"
+                },
+                {
+                  "t": "でかけました",
+                  "read": "出かけました",
+                  "vi": "đã ra ngoài"
+                },
+                {
+                  "t": "どこかへ",
+                  "vi": "đến đâu đó"
+                },
+                {
+                  "t": "ともだちと",
+                  "read": "友達と",
+                  "vi": "cùng với bạn"
+                },
+                {
+                  "t": "ふたりで",
+                  "read": "二人で",
+                  "vi": "hai người (với nhau)"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "たなかさんはまいあさ　７時におきます。そして、かいしゃは　９時",
+                "はじまります。きのう、たなかさんはやまださんといっしょにひるごはんをたべました。ひるごはんは　12時から　１時",
+                "でした。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "に",
+                    "から",
+                    "まで",
+                    "が"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 1: điền vào sau「９時」để nói \"hãng bắt đầu lúc 9 giờ\". Đáp án đúng là「に」— trợ từ chỉ thời điểm cụ thể, dùng với động từ ます (はじまります = bắt đầu). Phương án sai: 「から」nghĩa là \"từ (điểm bắt đầu của khoảng)\", câu này chỉ nêu một mốc duy nhất nên cần chỉ định thời điểm bằng「に」chứ không phải khoảng; 「まで」nghĩa là \"cho đến\", không dùng một mình để chỉ lúc mấy giờ gì xảy ra; 「が」là trợ từ chủ ngữ, không liên quan đến thời gian ở đây."
+                },
+                {
+                  "choices": [
+                    "まで",
+                    "から",
+                    "に",
+                    "も"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 2: điền vào sau「１時」để hoàn thành cấu trúc「NからNまで」(từ...đến). Vế trước đã có「12時から」, nên cần「まで」để đóng khoảng thời gian: \"bữa trưa từ 12 giờ đến 1 giờ\". Phương án sai: 「から」không thể đứng ở vế kết thúc của NからNまで, nó chỉ dùng ở vế bắt đầu; 「に」chỉ thời điểm cụ thể, nhưng đây đã có「から」mở đầu khoảng rồi nên phải đóng bằng「まで」; 「も」nghĩa là \"cũng\", không liên quan đến cấu trúc khoảng thời gian này."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "７時に",
+                  "read": "しちじに",
+                  "vi": "lúc 7 giờ"
+                },
+                {
+                  "t": "おきます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "そして",
+                  "vi": "và rồi, tiếp theo"
+                },
+                {
+                  "t": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "９時",
+                  "read": "くじ",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "はじまります",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "やまださんと",
+                  "vi": "cùng với anh/chị Yamada"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "たべました",
+                  "vi": "đã ăn"
+                },
+                {
+                  "t": "12時から",
+                  "read": "じゅうにじから",
+                  "vi": "từ 12 giờ"
+                },
+                {
+                  "t": "１時",
+                  "read": "いちじ",
+                  "vi": "1 giờ"
+                },
+                {
+                  "t": "まで",
+                  "vi": "cho đến"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ「あびます」sang thể phủ định lịch sự (Vません) để nói 'không tắm mỗi sáng'.",
+          "items": [
+            {
+              "stem": "毎朝シャワーを＿。(あびます → 丁寧形・否定)",
+              "choices": [
+                "あびません",
+                "あびました",
+                "あびますか",
+                "あびませんでした"
+              ],
+              "answer": 0,
+              "explain": "Thể phủ định lịch sự hiện tại là「Vません」: bỏ「ます」thêm「ません」→「あびません」. ① ĐÚNG:「あびません」= không tắm (phủ định hiện tại/thói quen). ② SAI:「あびました」= đã tắm rồi (quá khứ khẳng định). ③ SAI:「あびますか」= có tắm không? (câu hỏi). ④ SAI:「あびませんでした」= đã không tắm (quá khứ phủ định).",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi sáng"
+                },
+                {
+                  "t": "シャワー",
+                  "vi": "vòi hoa sen / tắm vòi"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ chỉ tân ngữ"
+                },
+                {
+                  "t": "あびます",
+                  "vi": "tắm (tắm vòi)"
+                },
+                {
+                  "t": "丁寧形",
+                  "read": "ていねいけい",
+                  "vi": "thể lịch sự (dạng ます)"
+                },
+                {
+                  "t": "否定",
+                  "read": "ひてい",
+                  "vi": "phủ định"
+                },
+                {
+                  "t": "あびません",
+                  "read": "あびません",
+                  "vi": "không tắm (シャワーを浴びる: tắm vòi sen, 浴びる phủ định)"
+                },
+                {
+                  "t": "あびました",
+                  "read": "あびました",
+                  "vi": "đã tắm (浴びる quá khứ lịch sự)"
+                },
+                {
+                  "t": "あびませんでした",
+                  "read": "あびませんでした",
+                  "vi": "đã không tắm (浴びる quá khứ phủ định lịch sự)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "わたしは 9時＿5時まではたらきます。",
+              "choices": [
+                "から",
+                "まで",
+                "と",
+                "も"
+              ],
+              "answer": 0,
+              "explain": "Cấu trúc「NからNまで」có nghĩa 'từ N đến N'. Vị trí ＿ nằm SAU điểm bắt đầu (9時) nên cần「から」(từ). ① ĐÚNG:「から」= từ (điểm xuất phát thời gian). ② SAI:「まで」= đến — dùng sau điểm kết thúc (5時まで đã có sẵn rồi). ③ SAI:「と」= cùng với / và — trợ từ nối danh từ hoặc chỉ người đi cùng, không chỉ khoảng thời gian. ④ SAI:「も」= cũng — thêm nghĩa 'cũng' vào chủ ngữ/tân ngữ, không hợp nghĩa ở đây.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "9時",
+                  "read": "くじ",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "から",
+                  "vi": "từ (điểm bắt đầu)"
+                },
+                {
+                  "t": "5時",
+                  "read": "ごじ",
+                  "vi": "5 giờ"
+                },
+                {
+                  "t": "まで",
+                  "vi": "đến (điểm kết thúc)"
+                },
+                {
+                  "t": "はたらきます",
+                  "vi": "làm việc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi đã ăn tối cùng với Tanaka-san vào lúc 7 giờ.",
+              "target": "わたしはたなかさんと7時にばんごはんをたべました。",
+              "model": "わたしは たなかさんと 7時に ばんごはんを たべました。",
+              "explain": "① 「〜と」sau tên người = cùng với (Nと): 「たなかさんと」= cùng với Tanaka-san. ② 「7時に」= vào lúc 7 giờ — trợ từ「に」chỉ thời điểm cụ thể. ③ 「たべました」= đã ăn — thể quá khứ lịch sự (Vました). ④ Thứ tự câu Nhật: Chủ ngữ → cùng với ai → thời điểm → tân ngữ → động từ. SAI nếu dùng「たべます」(hiện tại) vì câu đã xảy ra rồi. SAI nếu bỏ「と」vì thiếu nghĩa 'cùng với'.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "たなかさん",
+                  "vi": "Tanaka-san"
+                },
+                {
+                  "t": "と",
+                  "vi": "cùng với"
+                },
+                {
+                  "t": "7時",
+                  "read": "しちじ",
+                  "vi": "7 giờ"
+                },
+                {
+                  "t": "に",
+                  "vi": "vào lúc (chỉ thời điểm)"
+                },
+                {
+                  "t": "ばんごはん",
+                  "vi": "bữa tối"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ tân ngữ"
+                },
+                {
+                  "t": "たべました",
+                  "vi": "đã ăn (quá khứ lịch sự)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

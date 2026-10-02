@@ -1,0 +1,4253 @@
+{
+  "bai": 148,
+  "level": "N2",
+  "intro": "Trong bài học này, chúng ta sẽ cùng luyện tập các mẫu ngữ pháp: ～ではあるまいし · ～にしたら · ～にすれば · ～てならない · ～ずにはいられない · ～わけにはいかない · ～たびに · ～に限り. Đây là nhóm cấu trúc trọng tâm thuộc chủ đề \"Cảm xúc và Góc nhìn\", giúp bạn diễn đạt những tâm trạng, cảm xúc mãnh liệt khó kìm nén cũng như cách nhìn nhận, đánh giá sự việc từ các lập trường khác nhau trong JLPT N2.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "彼は上司からの提案を快く承諾した。",
+              "ul": "承諾",
+              "choices": [
+                "しょうだく",
+                "じょうだく",
+                "しょうじゃく",
+                "じょうじゃく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しょうだく」là đáp án đúng vì 承 có âm On là 「しょう」(trong 承認, 承知) và 諾 đọc là 「だく」(trong 応諾). 「じょうだく」sai vì đọc nhầm 承 sang âm đục 「じょう」. 「しょうじゃく」và 「じょうじゃく」sai vì nhầm cách đọc của chữ 諾 (だく) thành 「じゃく」(nhầm sang âm của chữ 弱, 若).",
+              "glosses": [
+                {
+                  "t": "快く",
+                  "read": "こころよく",
+                  "vi": "vui vẻ, sẵn lòng"
+                },
+                {
+                  "t": "提案",
+                  "read": "ていあん",
+                  "vi": "đề xuất"
+                },
+                {
+                  "t": "上司",
+                  "read": "じょうし",
+                  "vi": "cấp trên"
+                }
+              ]
+            },
+            {
+              "prompt": "現状の問題点を正確に把握することが重要だ。",
+              "ul": "把握",
+              "choices": [
+                "ばあく",
+                "はあく",
+                "はそく",
+                "ばそく"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「はあく」là đáp án đúng vì 把 đọc là 「は」(trong 把握) và 握 đọc là 「あく」(trong 握手). 「ばあく」sai vì đọc nhầm chữ 把 sang âm đục 「ば」. 「はそく」và 「ばそく」sai do nhầm chữ 握 (あく) với chữ 捉 trong 捕捉 (ほそく) hoặc chữ 促 (そく).",
+              "glosses": [
+                {
+                  "t": "現状",
+                  "read": "げんじょう",
+                  "vi": "hiện trạng"
+                },
+                {
+                  "t": "問題点",
+                  "read": "もんだいてん",
+                  "vi": "vấn đề, điểm tồn đọng"
+                },
+                {
+                  "t": "正確に",
+                  "read": "せいかくに",
+                  "vi": "một cách chính xác"
+                }
+              ]
+            },
+            {
+              "prompt": "年齢とともに体力が衰えてきたのを感じる。",
+              "ul": "衰えて",
+              "choices": [
+                "こごえて",
+                "おびえて",
+                "ふるえて",
+                "おとろえて"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「おとろえて」là đáp án đúng vì động từ 衰える (suy giảm, sa sút) có âm Kun là 「おとろえる」. 「こごえて」sai vì đây là dạng chia của 凍える (đóng băng, cóng). 「おびえて」sai vì đây là dạng chia của 怯える/脅える (sợ hãi, hoảng sợ). 「ふるえて」sai vì đây là dạng chia của 震える (run rẩy).",
+              "glosses": [
+                {
+                  "t": "年齢",
+                  "read": "ねんれい",
+                  "vi": "tuổi tác"
+                },
+                {
+                  "t": "体力",
+                  "read": "たいりょく",
+                  "vi": "thể lực"
+                },
+                {
+                  "t": "感じる",
+                  "read": "かんじる",
+                  "vi": "cảm thấy"
+                }
+              ]
+            },
+            {
+              "prompt": "新薬の実験は厳密なルールの下で行われた。",
+              "ul": "厳密",
+              "choices": [
+                "ごんみつ",
+                "げんみつ",
+                "げんぶつ",
+                "ごんぶつ"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「げんみつ」là đáp án đúng vì 厳 có âm On là 「げん」(trong 厳重, 厳格) và 密 đọc là 「みつ」(trong 秘密, 親密). 「ごんみつ」sai vì 厳 không đọc là 「ごん」trong từ này. 「げんぶつ」và 「ごんぶつ」sai vì đọc nhầm 密 thành 「ぶつ」(nhầm sang chữ 物).",
+              "glosses": [
+                {
+                  "t": "新薬",
+                  "read": "しんやく",
+                  "vi": "thuốc mới"
+                },
+                {
+                  "t": "実験",
+                  "read": "じっけん",
+                  "vi": "thực nghiệm, thí nghiệm"
+                },
+                {
+                  "t": "行われた",
+                  "read": "おこなわれた",
+                  "vi": "được tiến hành"
+                }
+              ]
+            },
+            {
+              "prompt": "将来の独立に備えて、資金と知識を蓄えている。",
+              "ul": "蓄えて",
+              "choices": [
+                "たずさえて",
+                "たたえて",
+                "たくわえて",
+                "ととのえて"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「たくわえて」là đáp án đúng vì 蓄える (tích trữ, tích lũy) có âm Kun là 「たくわえる」. 「たずさえて」sai vì đây là dạng chia của động từ 携える (mang theo, cùng đi). 「たたえて」sai vì đây là dạng chia của 称える/讃える (tán dương, khen ngợi) hoặc 湛える (chứa chan). 「ととのえて」sai vì đây là dạng chia của 整える/調える (chuẩn bị, sắp xếp).",
+              "glosses": [
+                {
+                  "t": "将来",
+                  "read": "しょうらい",
+                  "vi": "tương lai"
+                },
+                {
+                  "t": "独立",
+                  "read": "どくりつ",
+                  "vi": "độc lập"
+                },
+                {
+                  "t": "資金",
+                  "read": "しきん",
+                  "vi": "tiền vốn"
+                },
+                {
+                  "t": "知識",
+                  "read": "ちしき",
+                  "vi": "kiến thức"
+                }
+              ]
+            },
+            {
+              "prompt": "政府は物価の上昇を抑えるために緊急の措置をとった。",
+              "ul": "措置",
+              "choices": [
+                "そち",
+                "ぞち",
+                "しょち",
+                "しょじ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「そち」là đáp án đúng vì 措 có âm On là 「そ」(trong 措辞) và 置 đọc là 「ち」(trong 設置, 位置). 「ぞち」sai vì 措 là âm trong, không bị biến âm đục thành 「ぞ」. 「しょち」sai vì người học hay nhầm với từ 処置 (しょち - xử trí, sơ cứu). 「しょじ」sai vì vừa nhầm âm đầu của 措 thành 「しょ」vừa nhầm 置 thành 「じ」(nhầm sang 所持).",
+              "glosses": [
+                {
+                  "t": "政府",
+                  "read": "せいふ",
+                  "vi": "chính phủ"
+                },
+                {
+                  "t": "物価",
+                  "read": "ぶっか",
+                  "vi": "vật giá"
+                },
+                {
+                  "t": "上昇",
+                  "read": "じょうしょう",
+                  "vi": "sự tăng lên"
+                },
+                {
+                  "t": "抑える",
+                  "read": "おさえる",
+                  "vi": "kìm hãm, hạn chế"
+                }
+              ]
+            },
+            {
+              "prompt": "家賃の支払いが遅れているため、大家から督促の手紙が届いた。",
+              "ul": "督促",
+              "choices": [
+                "どくそく",
+                "とくぞく",
+                "どくぞく",
+                "とくそく"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「とくそく」là đáp án đúng vì 督 đọc là 「とく」(trong 監督) và 促 đọc là 「そく」(trong 促進). 「どくそく」sai vì đọc nhầm 督 thành âm đục 「どく」(nhầm sang chữ 読, 独). 「とくぞく」sai vì 促 không đọc biến âm đục thành 「ぞく」. 「どくぞく」sai vì đục hóa sai cả hai chữ Hán.",
+              "glosses": [
+                {
+                  "t": "家賃",
+                  "read": "やちん",
+                  "vi": "tiền thuê nhà"
+                },
+                {
+                  "t": "支払い",
+                  "read": "しはらい",
+                  "vi": "việc thanh toán"
+                },
+                {
+                  "t": "大家",
+                  "read": "おおや",
+                  "vi": "chủ nhà"
+                },
+                {
+                  "t": "届いた",
+                  "read": "とどいた",
+                  "vi": "đã gửi đến"
+                }
+              ]
+            },
+            {
+              "prompt": "栄養が偏らないように、バランスの良い食事を心がけている。",
+              "ul": "偏らない",
+              "choices": [
+                "かたむかない",
+                "かたよらない",
+                "かたどらない",
+                "へだたらない"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「かたよらない」là đáp án đúng vì động từ 偏る (lệch, thiên lệch) có dạng phủ định là 偏らない (かたよらない). 「かたむかない」sai vì đây là dạng phủ định của 傾く (nghiêng, dốc). 「かたどらない」sai vì đây là dạng phủ định của 象る/模る (mô phỏng, tạo hình theo). 「へだたらない」sai vì đây là dạng phủ định của 隔たる (cách biệt, xa cách).",
+              "glosses": [
+                {
+                  "t": "栄養",
+                  "read": "えいよう",
+                  "vi": "dinh dưỡng"
+                },
+                {
+                  "t": "食事",
+                  "read": "しょくじ",
+                  "vi": "bữa ăn"
+                },
+                {
+                  "t": "心がけている",
+                  "read": "こころがけている",
+                  "vi": "để tâm, chú ý làm"
+                }
+              ]
+            },
+            {
+              "prompt": "新しい証拠の発見により、従来の学説が覆された。",
+              "ul": "覆された",
+              "choices": [
+                "おおわれた",
+                "くりかえされた",
+                "くつがえされた",
+                "そこなわれた"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「くつがえされた」là đáp án đúng vì động từ 覆す (lật ngược, bác bỏ) ở thể bị động là 覆された (くつがえされた). 「おおわれた」sai vì đây là thể bị động của 覆う (bao phủ, che đậy, cùng chữ Hán 覆 nhưng khác nghĩa và cách đọc). 「くりかえされた」sai vì đây là thể bị động của 繰り返す (lặp đi lặp lại). 「そこなわれた」sai vì đây là thể bị động của 損なう (làm tổn hại, hủy hoại).",
+              "glosses": [
+                {
+                  "t": "証拠",
+                  "read": "しょうこ",
+                  "vi": "bằng chứng"
+                },
+                {
+                  "t": "発見",
+                  "read": "はっけん",
+                  "vi": "sự phát hiện"
+                },
+                {
+                  "t": "従来",
+                  "read": "じゅうらい",
+                  "vi": "từ trước đến nay"
+                },
+                {
+                  "t": "学説",
+                  "read": "がくせつ",
+                  "vi": "học thuyết"
+                }
+              ]
+            },
+            {
+              "prompt": "犯人は巧みな手口で高齢者をだまし、大金を奪った。",
+              "ul": "巧みな",
+              "choices": [
+                "こうみな",
+                "つたないな",
+                "うつわな",
+                "たくみな"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「たくみな」là đáp án đúng vì 巧み (khéo léo, tinh vi) có âm Kun là 「たくみ」. 「こうみな」sai vì đọc nhầm âm On 「こう」(trong 巧妙) sang đuôi tính từ đuôi な. 「つたないな」sai vì つたない là tính từ của chữ 拙い (vụng về, trái nghĩa với 巧み). 「うつわな」sai vì nhầm sang chữ 器 (khí chất, đồ đựng).",
+              "glosses": [
+                {
+                  "t": "犯人",
+                  "read": "はんにん",
+                  "vi": "thủ phạm"
+                },
+                {
+                  "t": "手口",
+                  "read": "てぐち",
+                  "vi": "thủ đoạn, mánh khóe"
+                },
+                {
+                  "t": "高齢者",
+                  "read": "こうれいしゃ",
+                  "vi": "người cao tuổi"
+                },
+                {
+                  "t": "大金",
+                  "read": "たいきん",
+                  "vi": "số tiền lớn"
+                },
+                {
+                  "t": "奪った",
+                  "read": "うばった",
+                  "vi": "cướp đoạt, chiếm đoạt"
+                }
+              ]
+            },
+            {
+              "prompt": "相手の無理な要求に対して、毅然とした態度で拒絶した。",
+              "ul": "拒絶",
+              "choices": [
+                "きょづつ",
+                "きょぜつ",
+                "くぜつ",
+                "こぜつ"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「きょぜつ」là đáp án đúng vì 拒 có âm On là 「きょ」(trong 拒否) và 絶 đọc là 「ぜつ」(trong 絶滅, 断絶). 「きょづつ」sai vì phát âm nhầm 絶 thành 「づつ」. 「くぜつ」sai vì đọc sai âm On của 拒 thành 「く」. 「こぜつ」sai vì nhầm chữ 拒 (きょ) với chữ 固 (こ) trong 固辞 (こじ).",
+              "glosses": [
+                {
+                  "t": "要求",
+                  "read": "ようきゅう",
+                  "vi": "yêu cầu"
+                },
+                {
+                  "t": "毅然とした",
+                  "read": "きぜんとした",
+                  "vi": "kiên quyết, dứt khoát"
+                },
+                {
+                  "t": "態度",
+                  "read": "たいど",
+                  "vi": "thái độ"
+                }
+              ]
+            },
+            {
+              "prompt": "成績優秀な学生には、授業料の全額免除が認められる。",
+              "ul": "免除",
+              "choices": [
+                "べんじょ",
+                "めんじょう",
+                "めんじょ",
+                "べんじょう"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「めんじょ」là đáp án đúng vì 免 đọc là 「めん」(trong 免許, 免税) và 除 đọc là 「じょ」(trong 削除, 解除). 「べんじょ」sai vì đọc nhầm 免 thành âm đục 「べん」(dễ nhầm với 便所). 「めんじょう」sai vì thừa trường âm ở chữ 除 (じょ bị kéo dài thành じょう). 「べんじょう」sai vì vừa nhầm âm đầu vừa kéo dài trường âm sai.",
+              "glosses": [
+                {
+                  "t": "成績優秀",
+                  "read": "せいせきゆうしゅう",
+                  "vi": "thành tích xuất sắc"
+                },
+                {
+                  "t": "授業料",
+                  "read": "じゅぎょうりょう",
+                  "vi": "học phí"
+                },
+                {
+                  "t": "全額",
+                  "read": "ぜんがく",
+                  "vi": "toàn bộ số tiền"
+                },
+                {
+                  "t": "認められる",
+                  "read": "みとめられる",
+                  "vi": "được công nhận, chấp thuận"
+                }
+              ]
+            },
+            {
+              "prompt": "出張で海外に長期滞在することになった。",
+              "ul": "滞在",
+              "choices": [
+                "たいざい",
+                "ていざい",
+                "たいあり",
+                "ていあり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「たいざい」là đáp án đúng vì 滞 có âm On là 「たい」(trong 渋滞, 停滞) và 在 đọc là 「ざい」(trong 存在, 現在). 「ていざい」sai vì đọc nhầm 滞 sang âm 「てい」(nhầm với chữ 停 trong 停車). 「たいあり」và 「ていあり」sai vì nhầm âm On 「ざい」của chữ 在 thành âm Kun 「あり」.",
+              "glosses": [
+                {
+                  "t": "出張",
+                  "read": "しゅっちょう",
+                  "vi": "chuyến công tác"
+                },
+                {
+                  "t": "海外",
+                  "read": "かいがい",
+                  "vi": "nước ngoài"
+                },
+                {
+                  "t": "長期",
+                  "read": "ちょうき",
+                  "vi": "dài hạn, thời gian dài"
+                }
+              ]
+            },
+            {
+              "prompt": "医師から生活習慣を改善するよう強い勧告を受けた。",
+              "ul": "勧告",
+              "choices": [
+                "けんこく",
+                "かんごく",
+                "けんごく",
+                "かんこく"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「かんこく」là đáp án đúng vì 勧 đọc là 「かん」(trong 勧誘) và 告 đọc là 「こく」(trong 報告, 警告). 「けんこく」sai vì đọc nhầm chữ 勧 thành 「けん」(nhầm với 建 trong 建国). 「かんごく」sai vì đọc nhầm chữ 告 thành âm đục 「ごく」(nhầm sang 監獄). 「けんごく」sai do vừa nhầm âm của 勧 vừa đục hóa âm của 告.",
+              "glosses": [
+                {
+                  "t": "医師",
+                  "read": "いし",
+                  "vi": "bác sĩ"
+                },
+                {
+                  "t": "生活習慣",
+                  "read": "せいかつしゅうかん",
+                  "vi": "thói quen sinh hoạt"
+                },
+                {
+                  "t": "改善",
+                  "read": "かいぜん",
+                  "vi": "cải thiện"
+                },
+                {
+                  "t": "受けた",
+                  "read": "うけた",
+                  "vi": "đã nhận"
+                }
+              ]
+            },
+            {
+              "prompt": "司会者は参加者に積極的な発言を促した。",
+              "ul": "促した",
+              "choices": [
+                "もよおした",
+                "うながした",
+                "およぼした",
+                "わずらわした"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「うながした」là đáp án đúng vì động từ 促す (thúc giục, khuyến khích) đọc là 「うながす」, chia quá khứ là 「うながした」. 「もよおした」sai vì đây là dạng quá khứ của 催す (tổ chức, cảm thấy). 「およぼした」sai vì đây là dạng quá khứ của 及ぼす (gây ra, ảnh hưởng tới). 「わずらわした」sai vì đây là dạng quá khứ của 煩わした (làm phiền lòng).",
+              "glosses": [
+                {
+                  "t": "司会者",
+                  "read": "しかいしゃ",
+                  "vi": "người dẫn chương trình"
+                },
+                {
+                  "t": "参加者",
+                  "read": "さんかしゃ",
+                  "vi": "người tham gia"
+                },
+                {
+                  "t": "積極的な",
+                  "read": "せっきょくてきな",
+                  "vi": "tích cực, chủ động"
+                },
+                {
+                  "t": "発言",
+                  "read": "はつげん",
+                  "vi": "phát biểu"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "彼は研究にすべての情熱をかたむけている。",
+              "ul": "かたむけて",
+              "choices": [
+                "偏けて",
+                "傾けて",
+                "肩けて",
+                "堅けて"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「傾けて」 (chữ Khuynh 傾) có cách đọc là 「かたむけて」, trong cụm 「情熱を傾ける」 mang nghĩa là dốc hết đam mê, tâm huyết vào việc gì đó. 「偏けて」 dùng sai chữ Hán (chữ Thiên 偏 trong thiên lệch, lệch lạc). 「肩けて」 dùng sai chữ Hán (chữ Kiên 肩 là bờ vai). 「堅けて」 dùng sai chữ Hán (chữ Kiên 堅 là kiên cố, bền chắc).",
+              "glosses": [
+                {
+                  "t": "研究",
+                  "read": "けんきゅう",
+                  "vi": "nghiên cứu"
+                },
+                {
+                  "t": "情熱",
+                  "read": "じょうねつ",
+                  "vi": "nhiệt huyết, niềm đam mê"
+                }
+              ]
+            },
+            {
+              "prompt": "ビタミン不足をおぎなうために、サプリメントを飲んでいます。",
+              "ul": "おぎなう",
+              "choices": [
+                "備う",
+                "保う",
+                "補う",
+                "充う"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「補う」 (chữ Bổ 補) có cách đọc là 「おぎなう」, mang nghĩa là bổ sung, bù đắp vào phần còn thiếu hụt. 「備う」 là cách viết sai của động từ 「そなわる」 (chữ Bị 備 trong trang bị, chuẩn bị). 「保う」 không tồn tại (chữ Bảo 保 có dạng 「保つ - たもつ」). 「充う」 dùng sai chữ Hán (chữ Sung 充 thường đọc là 「あてる」 trong 「充てる」).",
+              "glosses": [
+                {
+                  "t": "ビタミン",
+                  "read": "",
+                  "vi": "vitamin"
+                },
+                {
+                  "t": "不足",
+                  "read": "ふそく",
+                  "vi": "sự thiếu hụt"
+                },
+                {
+                  "t": "ために",
+                  "read": "",
+                  "vi": "để, nhằm (chỉ mục đích)"
+                },
+                {
+                  "t": "サプリメント",
+                  "read": "",
+                  "vi": "thực phẩm bổ sung, viên uống bổ sung vi chất"
+                },
+                {
+                  "t": "飲んで",
+                  "read": "のんで",
+                  "vi": "uống"
+                },
+                {
+                  "t": "います",
+                  "read": "",
+                  "vi": "đang (biểu thị thói quen hoặc hành động đang diễn ra)"
+                }
+              ]
+            },
+            {
+              "prompt": "期限までに税金をしっかりとおさめなければならない。",
+              "ul": "おさめ",
+              "choices": [
+                "納め",
+                "収め",
+                "治め",
+                "修め"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「納め」 (chữ Nạp 納) trong động từ 「納める - おさめる」 mang nghĩa là nộp tiền, đóng thuế, đóng hội phí (ở đây là 「税金を納める」 - nộp thuế). 「収め」 (chữ Thu 収) dùng cho thu được kết quả tốt hoặc cất giữ (vd: 成功を収める). 「治め」 (chữ Trị 治) dùng cho cai trị đất nước hoặc dẹp yên bất ổn (vd: 国を治める). 「修め」 (chữ Tu 修) dùng cho tu dưỡng đạo đức hoặc trau dồi học vấn (vd: 学問を修める).",
+              "glosses": [
+                {
+                  "t": "期限",
+                  "read": "きげん",
+                  "vi": "kỳ hạn, hạn chót"
+                },
+                {
+                  "t": "税金",
+                  "read": "ぜいきん",
+                  "vi": "tiền thuế"
+                }
+              ]
+            },
+            {
+              "prompt": "生活習慣をあらためることで、健康を取り戻した。",
+              "ul": "あらためる",
+              "choices": [
+                "新める",
+                "改める",
+                "革める",
+                "整める"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「改める」 (chữ Cải 改) có cách đọc là 「あらためる」, mang nghĩa là sửa đổi, cải thiện thói quen hoặc xem xét lại cho đúng đắn. 「新める」 viết sai chữ Hán (chữ Tân 新 thường dùng trong 「新しい - あたらしい」). 「革める」 không tồn tại dạng động từ này (chữ Cách 革 thường dùng trong từ ghép âm Hán như 改革). 「整める」 viết sai chữ Hán (chữ Chỉnh 整 có dạng 「整える - ととのえる」).",
+              "glosses": [
+                {
+                  "t": "生活習慣",
+                  "read": "せいかつしゅうかん",
+                  "vi": "thói quen sinh hoạt"
+                },
+                {
+                  "t": "健康",
+                  "read": "けんこう",
+                  "vi": "sức khỏe"
+                },
+                {
+                  "t": "取り戻した",
+                  "read": "とりもどした",
+                  "vi": "lấy lại, phục hồi"
+                }
+              ]
+            },
+            {
+              "prompt": "ボランティア活動を通して、多くの命をすくうことができた。",
+              "ul": "すくう",
+              "choices": [
+                "助う",
+                "求う",
+                "保う",
+                "救う"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「救う」 (chữ Cứu 救) có cách đọc là 「すくう」, mang nghĩa là cứu vớt, cứu mạng hoặc giúp đỡ ai đó thoát khỏi cảnh hiểm nghèo. 「助う」 dùng sai chữ Hán (chữ Trợ 助 có dạng 「助ける - たすける」 hoặc 「助かる - たすかる」). 「求う」 dùng sai chữ Hán (chữ Cầu 求 đọc là 「もとめる」 trong 「求める」). 「保う」 không tồn tại (chữ Bảo 保 có dạng 「保つ - たもつ」).",
+              "glosses": [
+                {
+                  "t": "ボランティア",
+                  "read": "",
+                  "vi": "tình nguyện viên, hoạt động tình nguyện"
+                },
+                {
+                  "t": "活動",
+                  "read": "かつどう",
+                  "vi": "hoạt động"
+                },
+                {
+                  "t": "を通して",
+                  "read": "をとおして",
+                  "vi": "thông qua"
+                },
+                {
+                  "t": "多くの",
+                  "read": "おおくの",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "命",
+                  "read": "いのち",
+                  "vi": "tính mạng, sinh mệnh"
+                },
+                {
+                  "t": "ことができた",
+                  "read": "",
+                  "vi": "đã có thể"
+                }
+              ]
+            },
+            {
+              "prompt": "家族をやしなうために、彼は毎日一生懸命に働いている。",
+              "ul": "やしなう",
+              "choices": [
+                "養う",
+                "育う",
+                "培う",
+                "飼う"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「養う」 (chữ Dưỡng 養) có cách đọc là 「やしなう」, mang nghĩa là nuôi nấng, chu cấp phụng dưỡng gia đình hoặc bồi dưỡng năng lực. 「育う」 là chữ viết sai (chữ Dục 育 có dạng 「育てる - そだてる」 hoặc 「育つ - そだつ」). 「培う」 đọc là 「つちかう」 (chữ Bồi 培 mang nghĩa vun xới, trau dồi tri thức/tính cách). 「飼う」 đọc là 「かう」 (chữ Tự 飼 chỉ dùng cho nuôi dưỡng động vật, thú cưng).",
+              "glosses": [
+                {
+                  "t": "家族",
+                  "read": "かぞく",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "一生懸命",
+                  "read": "いっしょうけんめい",
+                  "vi": "chăm chỉ, hết sức"
+                },
+                {
+                  "t": "働いて",
+                  "read": "はたらいて",
+                  "vi": "làm việc"
+                }
+              ]
+            },
+            {
+              "prompt": "年長者をうやまう気持ちを常に大切にすべきだ。",
+              "ul": "うやまう",
+              "choices": [
+                "尊う",
+                "礼う",
+                "敬う",
+                "拝う"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「敬う」 (chữ Kính 敬) có cách đọc là 「うやまう」, mang nghĩa là tôn kính, kính trọng người lớn tuổi hoặc bề trên. 「尊う」 viết sai okurigana (chữ Tôn 尊 có dạng động từ là 「尊ぶ - とうとぶ / たっとぶ」). 「礼う」 không tồn tại dạng động từ này (chữ Lễ 礼 thường dùng trong danh từ 「お礼」 hay 「礼儀」). 「拝う」 dùng sai chữ Hán (chữ Bái 拝 có dạng động từ là 「拝む - おがむ」).",
+              "glosses": [
+                {
+                  "t": "年長者",
+                  "read": "ねんちょうしゃ",
+                  "vi": "người lớn tuổi, bậc tiền bối"
+                },
+                {
+                  "t": "気持ち",
+                  "read": "きもち",
+                  "vi": "tấm lòng, cảm xúc"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng, trân trọng"
+                }
+              ]
+            },
+            {
+              "prompt": "二人の選手は最後までタイムをきそい合った。",
+              "ul": "きそい",
+              "choices": [
+                "争い",
+                "競い",
+                "戦い",
+                "勝い"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「競い」 (chữ Cạnh 競) xuất phát từ động từ 「競う - きそう」, ghép lại tạo thành 「きそい合う」 mang nghĩa là cạnh tranh, đua tài (về thời gian, tốc độ, điểm số). 「争い」 đọc là 「あらそい」 (chữ Tranh 争 trong 「争う - あらそう」). 「戦い」 đọc là 「たたかい」 (chữ Chiến 戦 trong 「戦う - たたかう」). 「勝い」 là từ viết sai (chữ Thắng 勝 có dạng động từ là 「勝つ - かつ」).",
+              "glosses": [
+                {
+                  "t": "選手",
+                  "read": "せんしゅ",
+                  "vi": "vận động viên, tuyển thủ"
+                },
+                {
+                  "t": "最後",
+                  "read": "さいご",
+                  "vi": "cuối cùng"
+                }
+              ]
+            },
+            {
+              "prompt": "騒音は人々の睡眠をさまたげる大きな原因となる。",
+              "ul": "さまたげる",
+              "choices": [
+                "防げる",
+                "阻げる",
+                "害げる",
+                "妨げる"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「妨げる」 (chữ Phương 妨) có cách đọc là 「さまたげる」, mang nghĩa là cản trở, làm gián đoạn hoặc gây trở ngại (như cản trở giấc ngủ, làm phiền người khác). 「防げる」 đọc là 「ふせげる」 (thể khả năng của 「防ぐ - ふせぐ」 - chữ Phòng 防). 「阻げる」 dùng sai chữ Hán (chữ Trở 阻 có dạng động từ là 「阻む - はばむ」). 「害げる」 không tồn tại (chữ Hại 害 thường dùng trong 「害する - がいする」 hoặc 「損なう - そこなう」).",
+              "glosses": [
+                {
+                  "t": "騒音",
+                  "read": "そうおん",
+                  "vi": "tiếng ồn"
+                },
+                {
+                  "t": "睡眠",
+                  "read": "すいみん",
+                  "vi": "giấc ngủ"
+                },
+                {
+                  "t": "原因",
+                  "read": "げんいん",
+                  "vi": "nguyên nhân"
+                }
+              ]
+            },
+            {
+              "prompt": "無駄な作業をはぶくことで、業務の効率を高めた。",
+              "ul": "はぶく",
+              "choices": [
+                "省く",
+                "除く",
+                "略く",
+                "削く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「省く」 (chữ Tỉnh 省) có cách đọc là 「はぶく」, mang nghĩa là lược bỏ, cắt giảm những phần dư thừa hoặc lãng phí. 「除く」 đọc là 「のぞく」 (chữ Trừ 除 mang nghĩa loại bỏ, ngoại trừ). 「略く」 là chữ viết sai (chữ Lược 略 dùng ở dạng 「略す - りゃくす」). 「削く」 là chữ viết sai (chữ Tước 削 có dạng 「削る - けずる」 hoặc 「削ぐ - そぐ」).",
+              "glosses": [
+                {
+                  "t": "無駄",
+                  "read": "むだ",
+                  "vi": "sự lãng phí, vô ích"
+                },
+                {
+                  "t": "作業",
+                  "read": "さぎょう",
+                  "vi": "thao tác, công việc"
+                },
+                {
+                  "t": "効率",
+                  "read": "こうりつ",
+                  "vi": "hiệu suất"
+                }
+              ]
+            },
+            {
+              "prompt": "彼は裁判を起こして、自分の無実をうったえた。",
+              "ul": "うったえた",
+              "choices": [
+                "告えた",
+                "訴えた",
+                "訟えた",
+                "詰えた"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「訴えた」 (chữ Tố 訴) là thể quá khứ của 「訴える - うったえる」, mang nghĩa là khởi kiện trước tòa hoặc tha thiết giãi bày, kêu gọi (ở đây là giãi bày sự vô tội). 「告えた」 đọc là 「つげた」 (chữ Cáo 告 trong 「告げる - つげる」). 「訟えた」 dùng sai chữ Hán (chữ Tụng 訟 chỉ dùng trong từ ghép âm Hán như 訴訟 - そしょう). 「詰えた」 viết sai dạng (chữ Cật 詰 đọc là 「つめた」 trong 「詰める - つめる」).",
+              "glosses": [
+                {
+                  "t": "裁判",
+                  "read": "さいばん",
+                  "vi": "phiên tòa, xét xử"
+                },
+                {
+                  "t": "起こして",
+                  "read": "おこして",
+                  "vi": "khởi tố, gây ra"
+                },
+                {
+                  "t": "無実",
+                  "read": "むじつ",
+                  "vi": "sự vô tội"
+                }
+              ]
+            },
+            {
+              "prompt": "会社の規則にしたがって、手続きを進めてください。",
+              "ul": "したがって",
+              "choices": [
+                "順って",
+                "応って",
+                "従って",
+                "沿って"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「従って」 (chữ Tùng 従) là thể Te của động từ 「従う - したがう」, mang nghĩa là tuân theo, nghe theo quy tắc, chỉ thị. 「順って」 dùng sai chữ Hán (chữ Thuận 順 thường chỉ đọc âm On là じゅん trong 順番). 「応って」 dùng sai chữ Hán (chữ Ứng 応 thường dùng trong 「応じる - おうじる」 hoặc 「応える - こたえる」). 「沿って」 đọc là 「そって」 (chữ Duyên 沿 trong 「沿う - そう」 mang nghĩa men theo con đường hoặc bám sát theo chính sách).",
+              "glosses": [
+                {
+                  "t": "規則",
+                  "read": "きそく",
+                  "vi": "quy tắc, quy định"
+                },
+                {
+                  "t": "手続き",
+                  "read": "てつづき",
+                  "vi": "thủ tục"
+                },
+                {
+                  "t": "進めて",
+                  "read": "すすめて",
+                  "vi": "tiến hành"
+                }
+              ]
+            },
+            {
+              "prompt": "誤解をまねくような発言は控えるべきだ。",
+              "ul": "まねく",
+              "choices": [
+                "招く",
+                "呼く",
+                "誘く",
+                "導く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「招く」 (chữ Chiêu 招) có cách đọc là 「まねく」, trong văn cảnh này mang nghĩa là chuốc lấy, dẫn tới hậu quả tiêu cực (ở đây là 「誤解を招く」 - gây ra sự hiểu lầm). 「呼く」 là chữ viết sai (chữ Hô 呼 có dạng động từ là 「呼ぶ - よぶ」). 「誘く」 là chữ viết sai (chữ Dụ 誘 có dạng động từ là 「誘う - さそう」). 「導く」 đọc là 「みちびく」 (chữ Đạo 導 mang nghĩa dẫn dắt, chỉ đạo).",
+              "glosses": [
+                {
+                  "t": "誤解",
+                  "read": "ごかい",
+                  "vi": "sự hiểu lầm"
+                },
+                {
+                  "t": "発言",
+                  "read": "はつげん",
+                  "vi": "phát ngôn, lời nói"
+                },
+                {
+                  "t": "控える",
+                  "read": "ひかえる",
+                  "vi": "kiềm chế, hạn chế"
+                }
+              ]
+            },
+            {
+              "prompt": "この製品は性能の面で他社の製品よりおとることはない。",
+              "ul": "おとる",
+              "choices": [
+                "落る",
+                "低る",
+                "弱る",
+                "劣る"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「劣る」 (chữ Liệt 劣) có cách đọc là 「おとる」, mang nghĩa là thua kém, kém cỏi hơn đối tượng khác về mặt phẩm chất hoặc năng lực. 「落る」 viết sai okurigana (chữ Lạc 落 có dạng 「落ちる - おちる」 hoặc 「落とす - おとす」). 「低る」 không tồn tại (chữ Đê 低 có tính từ 「低い - ひくい」). 「弱る」 đọc là 「よわる」 (chữ Nhược 弱 mang nghĩa trở nên yếu đi, suy kiệt).",
+              "glosses": [
+                {
+                  "t": "製品",
+                  "read": "せいひん",
+                  "vi": "sản phẩm"
+                },
+                {
+                  "t": "性能",
+                  "read": "せいのう",
+                  "vi": "tính năng, hiệu năng"
+                },
+                {
+                  "t": "他社",
+                  "read": "たしゃ",
+                  "vi": "công ty khác"
+                }
+              ]
+            },
+            {
+              "prompt": "部屋の温度を一定にたもつためにエアコンをつけた。",
+              "ul": "たもつ",
+              "choices": [
+                "持つ",
+                "保つ",
+                "守つ",
+                "留つ"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「保つ」 (chữ Bảo 保) có cách đọc là 「たもつ」, mang nghĩa là duy trì, giữ gìn một trạng thái ổn định (như duy trì nhiệt độ, giữ bình tĩnh). 「持つ」 đọc là 「もつ」 (chữ Trì 持 mang nghĩa cầm, nắm, sở hữu). 「守つ」 viết sai okurigana (chữ Thủ 守 có dạng 「守る - まもる」 mang nghĩa bảo vệ, tuân thủ). 「留つ」 viết sai okurigana (chữ Lưu 留 có dạng 「留まる - とどまる / とまる」 hoặc 「留める - とどめる」).",
+              "glosses": [
+                {
+                  "t": "温度",
+                  "read": "おんど",
+                  "vi": "nhiệt độ"
+                },
+                {
+                  "t": "一定",
+                  "read": "いってい",
+                  "vi": "ổn định, cố định"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "社内の機密情報が外部に＿しないよう、社員全員にセキュリティ教育を行っている。",
+              "choices": [
+                "漏洩",
+                "普及",
+                "追放",
+                "暴露"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「漏洩」vì từ này có nghĩa là \"rò rỉ, lộ ra\" (thường dùng cho thông tin, bí mật nội bộ). Phương án 「普及」sai vì mang nghĩa \"phổ biến, lan rộng\" (như công nghệ, tri thức). Phương án 「追放」sai vì mang nghĩa \"trục xuất, xua đuổi\". Phương án 「暴露」sai vì mang nghĩa \"vạch trần, phơi bày\" bí mật hoặc hành vi xấu xa ra ánh sáng.",
+              "glosses": [
+                {
+                  "t": "社内",
+                  "read": "しゃない",
+                  "vi": "nội bộ công ty, trong công ty"
+                },
+                {
+                  "t": "機密情報",
+                  "read": "きみつじょうほう",
+                  "vi": "thông tin tuyệt mật"
+                },
+                {
+                  "t": "外部",
+                  "read": "がいぶ",
+                  "vi": "bên ngoài"
+                },
+                {
+                  "t": "しないよう",
+                  "read": "",
+                  "vi": "để không... (mẫu ngữ pháp chỉ mục đích tránh xảy ra sự việc)"
+                },
+                {
+                  "t": "社員",
+                  "read": "しゃいん",
+                  "vi": "nhân viên công ty"
+                },
+                {
+                  "t": "全員",
+                  "read": "ぜんいん",
+                  "vi": "toàn bộ, tất cả mọi người"
+                },
+                {
+                  "t": "セキュリティ",
+                  "read": "",
+                  "vi": "bảo mật, an ninh"
+                },
+                {
+                  "t": "教育",
+                  "read": "きょういく",
+                  "vi": "giáo dục, đào tạo"
+                },
+                {
+                  "t": "行っている",
+                  "read": "おこなっている",
+                  "vi": "đang tiến hành, thực hiện"
+                }
+              ]
+            },
+            {
+              "stem": "予期せぬトラブルが発生したため、イベントの開催を＿せざるを得なくなった。",
+              "choices": [
+                "催促",
+                "延期",
+                "棄権",
+                "辞退"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「延期」vì có nghĩa là \"hoãn lại, dời ngày\", rất phù hợp với việc lùi thời gian tổ chức sự kiện do sự cố ngoài ý muốn. Phương án 「催促」sai vì mang nghĩa \"hối thúc, thúc giục\" ai đó làm gì. Phương án 「棄権」sai vì mang nghĩa \"bỏ quyền thi đấu, bỏ quyền biểu quyết\". Phương án 「辞退」sai vì mang nghĩa \"từ chối, xin rút lui\" (không nhận lời mời, giải thưởng hoặc chức vụ).",
+              "glosses": [
+                {
+                  "t": "予期せぬ",
+                  "read": "よきせぬ",
+                  "vi": "không lường trước, bất ngờ"
+                },
+                {
+                  "t": "発生",
+                  "read": "はっせい",
+                  "vi": "phát sinh, xảy ra"
+                },
+                {
+                  "t": "開催",
+                  "read": "かいさい",
+                  "vi": "tổ chức"
+                }
+              ]
+            },
+            {
+              "stem": "彼はどんなに批判されても、自分の信念を最後まで＿通した。",
+              "choices": [
+                "見計らい",
+                "すれ違い",
+                "貫き",
+                "持ち寄り"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「貫き」vì kết hợp với 「通す」thành cụm 「貫き通す」nghĩa là \"kiên định, giữ vững (niềm tin, lập trường) đến cùng\". Phương án 「見計らい」sai vì trong cụm 「見計らう」mang nghĩa \"chọn thời điểm, ước lượng\". Phương án 「すれ違い」sai vì mang nghĩa \"đi lướt qua nhau, lệch giờ, bất đồng quan điểm\". Phương án 「持ち寄り」sai vì mang nghĩa \"mỗi người đem đến góp lại\".",
+              "glosses": [
+                {
+                  "t": "批判",
+                  "read": "ひはん",
+                  "vi": "phê phán, chỉ trích"
+                },
+                {
+                  "t": "信念",
+                  "read": "しんねん",
+                  "vi": "niềm tin, tín niệm"
+                },
+                {
+                  "t": "最後まで",
+                  "read": "さいごまで",
+                  "vi": "đến cùng, cho đến cuối"
+                }
+              ]
+            },
+            {
+              "stem": "会議が予定より長引いてしまい、次の約束の時間に＿遅れてしまった。",
+              "choices": [
+                "たやすく",
+                "やけに",
+                "もっぱら",
+                "大幅に"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「大幅に」vì mang nghĩa \"ở mức độ lớn, đáng kể\", đi với 「遅れる」để diễn đạt việc trễ hẹn rất nhiều thời gian. Phương án 「たやすく」sai vì mang nghĩa \"dễ dàng, đơn giản\". Phương án 「やけに」sai vì mang nghĩa \"hết sức, bất thường\" (khác với lẽ thường). Phương án 「もっぱら」sai vì mang nghĩa \"hầu như toàn là, chuyên tâm\".",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "長引いて",
+                  "read": "ながびいて",
+                  "vi": "kéo dài"
+                },
+                {
+                  "t": "約束",
+                  "read": "やくそく",
+                  "vi": "cuộc hẹn, lời hứa"
+                }
+              ]
+            },
+            {
+              "stem": "新商品の開発にあたって、消費者の＿な意見を幅広く集めた。",
+              "choices": [
+                "率直",
+                "過密",
+                "頑固",
+                "窮屈"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「率直」vì 「率直な意見」nghĩa là \"ý kiến thẳng thắn, bộc trực\", rất tự nhiên khi nói về việc thu nhận ý kiến đóng góp từ người tiêu dùng. Phương án 「過密」sai vì mang nghĩa \"quá đông đúc, quá dày đặc\" (thường dùng cho lịch trình). Phương án 「頑固」sai vì mang nghĩa \"ngoan cố, bướng bỉnh, cứng đầu\". Phương án 「窮屈」sai vì mang nghĩa \"chật chội, gò bó, không thoải mái\".",
+              "glosses": [
+                {
+                  "t": "新商品",
+                  "read": "しんしょうひん",
+                  "vi": "sản phẩm mới"
+                },
+                {
+                  "t": "開発",
+                  "read": "かいはつ",
+                  "vi": "phát triển"
+                },
+                {
+                  "t": "消費者",
+                  "read": "しょうひしゃ",
+                  "vi": "người tiêu dùng"
+                }
+              ]
+            },
+            {
+              "stem": "予算が限られているため、無駄な経費をできる限り＿する必要がある。",
+              "choices": [
+                "損なう",
+                "削減する",
+                "免れる",
+                "費やす"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「削減する」vì có nghĩa là \"cắt giảm, giảm bớt\" (chi phí, kinh phí, nhân sự). Phương án 「損なう」sai vì mang nghĩa \"làm tổn hại, làm hư hại\" (sức khỏe, tâm trạng, danh dự). Phương án 「免れる」sai vì mang nghĩa \"thoát khỏi, tránh được\" (tai nạn, trách nhiệm). Phương án 「費やす」sai vì mang nghĩa \"tiêu hao, dành nhiều\" (thời gian, tiền bạc vào việc gì).",
+              "glosses": [
+                {
+                  "t": "予算",
+                  "read": "よさん",
+                  "vi": "ngân sách"
+                },
+                {
+                  "t": "限られて",
+                  "read": "かぎられて",
+                  "vi": "bị giới hạn"
+                },
+                {
+                  "t": "経費",
+                  "read": "けいひ",
+                  "vi": "kinh phí, chi phí"
+                }
+              ]
+            },
+            {
+              "stem": "事故の原因については、現在警察が＿に調査を進めている。",
+              "choices": [
+                "露骨",
+                "安易",
+                "綿密",
+                "軽率"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「綿密」vì 「綿密に」mang nghĩa \"một cách tỉ mỉ, kỹ lưỡng, cẩn thận\", rất phù hợp khi nói về việc cảnh sát đang điều tra chi tiết. Phương án 「露骨」sai vì mang nghĩa \"lộ liễu, trắng trợn, không giấu giếm\" (cảm xúc hay ý đồ tiêu cực). Phương án 「安易」sai vì mang nghĩa \"dễ dãi, hời hợt, tùy tiện\". Phương án 「軽率」sai vì mang nghĩa \"khinh suất, bốc đồng, thiếu suy nghĩ chín chắn\".",
+              "glosses": [
+                {
+                  "t": "事故",
+                  "read": "じこ",
+                  "vi": "tai nạn, sự cố"
+                },
+                {
+                  "t": "原因",
+                  "read": "げんいん",
+                  "vi": "nguyên nhân"
+                },
+                {
+                  "t": "調査",
+                  "read": "ちょうさ",
+                  "vi": "điều tra"
+                }
+              ]
+            },
+            {
+              "stem": "彼は長年の研究の成果が認められ、学会で最高の栄誉を＿。",
+              "choices": [
+                "引き落とした",
+                "持ち込んだ",
+                "見せびらかした",
+                "勝ち取った"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「勝ち取った」vì mang nghĩa \"nỗ lực giành được, đoạt lấy vinh dự/thành tích\", đi kèm tự nhiên với 「栄誉」. Phương án 「引き落とした」sai vì mang nghĩa \"trừ tiền tự động từ tài khoản ngân hàng\". Phương án 「持ち込んだ」sai vì mang nghĩa \"mang vào bên trong, đưa vấn đề vào bàn bạc\". Phương án 「見せびらかした」sai vì mang nghĩa \"khoe khoang, phô trương trước mặt người khác\".",
+              "glosses": [
+                {
+                  "t": "長年",
+                  "read": "ながねん",
+                  "vi": "nhiều năm"
+                },
+                {
+                  "t": "研究",
+                  "read": "けんきゅう",
+                  "vi": "nghiên cứu"
+                },
+                {
+                  "t": "成果",
+                  "read": "せいか",
+                  "vi": "thành quả"
+                },
+                {
+                  "t": "栄誉",
+                  "read": "えいよ",
+                  "vi": "vinh dự, vinh quang"
+                }
+              ]
+            },
+            {
+              "stem": "今回のシステム障害について、担当者は「原因は＿不明です」と発表した。",
+              "choices": [
+                "依然として",
+                "あいにく",
+                "あえて",
+                "いっそ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「依然として」vì có nghĩa là \"vẫn như cũ, vẫn chưa có gì thay đổi\", thường đi với 「不明」hoặc 「変わらない」để biểu thị tình trạng chưa sáng tỏ. Phương án 「あいにく」sai vì mang nghĩa \"tiếc là, không may thay\" (dùng khi từ chối lịch sự). Phương án 「あえて」sai vì mang nghĩa \"dám, cố tình làm điều khó khăn/mạo hiểm\". Phương án 「いっそ」sai vì mang nghĩa \"thà rằng, dứt khoát là\".",
+              "glosses": [
+                {
+                  "t": "障害",
+                  "read": "しょうがい",
+                  "vi": "sự cố, trục trặc"
+                },
+                {
+                  "t": "担当者",
+                  "read": "たんとうしゃ",
+                  "vi": "người phụ trách"
+                },
+                {
+                  "t": "発表",
+                  "read": "はっぴょう",
+                  "vi": "công bố, phát biểu"
+                }
+              ]
+            },
+            {
+              "stem": "彼女はどんなに忙しくても、仕事の＿に資格試験の勉強をしている。",
+              "choices": [
+                "つじつま",
+                "合間",
+                "手分け",
+                "手加減"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「合間」vì 「仕事の合間に」có nghĩa là \"tranh thủ thời gian rảnh rỗi giữa các ca làm việc\", phù hợp với việc sắp xếp thời gian tự học. Phương án 「つじつま」sai vì dùng trong 「つじつまが合う」nghĩa là \"sự logic, hợp lý, ăn khớp của câu chuyện\". Phương án 「手分け」sai vì mang nghĩa \"chia nhau công việc ra làm\". Phương án 「手加減」sai vì mang nghĩa \"nương tay, giảm bớt mức độ nghiêm khắc\".",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "資格試験",
+                  "read": "しかくしけん",
+                  "vi": "kỳ thi lấy chứng chỉ"
+                },
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "học tập"
+                }
+              ]
+            },
+            {
+              "stem": "面接では、自分の強みを相手に＿伝えることが大切だ。",
+              "choices": [
+                "無闇に",
+                "大雑把に",
+                "的確に",
+                "おろそかに"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「的確に」vì mang nghĩa \"một cách chính xác, đúng trọng tâm\", đi với 「伝える」để chỉ việc truyền đạt thế mạnh một cách hiệu quả trong buổi phỏng vấn. Phương án 「無闇に」sai vì mang nghĩa \"một cách mù quáng, tùy tiện, không suy nghĩ\". Phương án 「大雑把に」sai vì mang nghĩa \"đại khái, qua loa, sơ sài\". Phương án 「おろそかに」sai vì mang nghĩa \"bỏ bê, lơ là, thiếu quan tâm chu đáo\".",
+              "glosses": [
+                {
+                  "t": "面接",
+                  "read": "めんせつ",
+                  "vi": "phỏng vấn"
+                },
+                {
+                  "t": "強み",
+                  "read": "つよみ",
+                  "vi": "điểm mạnh, sở trường"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                }
+              ]
+            },
+            {
+              "stem": "チーム全員が目標に向かって＿した結果、素晴らしい成果を収めることができた。",
+              "choices": [
+                "中断",
+                "挫折",
+                "沈黙",
+                "結束"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「結束」vì có nghĩa là \"đoàn kết, gắn bó chặt chẽ\", rất hợp lý trong ngữ cảnh các thành viên cùng hợp lực hướng đến mục tiêu chung. Phương án 「中断」sai vì mang nghĩa \"tạm ngưng, gián đoạn giữa chừng\". Phương án 「挫折」sai vì mang nghĩa \"vấp ngã, bỏ cuộc giữa chừng do gặp thất bại\". Phương án 「沈黙」sai vì mang nghĩa \"im lặng, không lên tiếng\".",
+              "glosses": [
+                {
+                  "t": "全員",
+                  "read": "ぜんいん",
+                  "vi": "toàn bộ thành viên"
+                },
+                {
+                  "t": "目標",
+                  "read": "もくひょう",
+                  "vi": "mục tiêu"
+                },
+                {
+                  "t": "成果",
+                  "read": "せいか",
+                  "vi": "thành quả"
+                }
+              ]
+            },
+            {
+              "stem": "景気の悪化に伴い、同社の今年度の売上は著しく＿している。",
+              "choices": [
+                "低迷",
+                "沈静",
+                "途絶",
+                "消滅"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「低迷」vì từ này dùng để chỉ tình hình kinh doanh, doanh số hoặc nền kinh tế \"sa sút, trì trệ, mức độ thấp kéo dài\". Phương án 「沈静」sai vì mang nghĩa \"lắng xuống, yên ắng trở lại\" (thường dùng cho tình hình căng thẳng, dư luận). Phương án 「途絶」sai vì mang nghĩa \"bị cắt đứt, gián đoạn hoàn toàn\" (liên lạc, giao thông). Phương án 「消滅」sai vì mang nghĩa \"biến mất, tiêu tan hoàn toàn\".",
+              "glosses": [
+                {
+                  "t": "景気",
+                  "read": "けいき",
+                  "vi": "tình hình kinh tế"
+                },
+                {
+                  "t": "悪化",
+                  "read": "あっか",
+                  "vi": "xấu đi, suy thoái"
+                },
+                {
+                  "t": "売上",
+                  "read": "うりあげ",
+                  "vi": "doanh thu"
+                },
+                {
+                  "t": "著しく",
+                  "read": "いちじるしく",
+                  "vi": "đáng kể, rõ rệt"
+                }
+              ]
+            },
+            {
+              "stem": "彼は長年の功績が認められ、若手社員の＿となる存在として表彰された。",
+              "choices": [
+                "目処",
+                "模範",
+                "兆候",
+                "手がかり"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「模範」vì 「模範となる」mang nghĩa \"trở thành tấm gương, hình mẫu sáng giá\" để mọi người noi theo. Phương án 「目処」sai vì mang nghĩa \"triển vọng, mục tiêu dự kiến đạt được\" (như trong 「目処が立つ」). Phương án 「兆候」sai vì mang nghĩa \"triệu chứng, điềm báo, dấu hiệu\" (thường là điều tiêu cực). Phương án 「手がかり」sai vì mang nghĩa \"manh mối, manh chiếu\" để tìm kiếm hoặc giải quyết vấn đề.",
+              "glosses": [
+                {
+                  "t": "功績",
+                  "read": "こうせき",
+                  "vi": "công tích, thành tích"
+                },
+                {
+                  "t": "若手社員",
+                  "read": "わかてしゃいん",
+                  "vi": "nhân viên trẻ"
+                },
+                {
+                  "t": "表彰",
+                  "read": "ひょうしょう",
+                  "vi": "biểu dương, khen thưởng"
+                }
+              ]
+            },
+            {
+              "stem": "説明書を読まずに機械を操作したため、＿事故が起きそうになった。",
+              "choices": [
+                "すんなり",
+                "うっすら",
+                "危うく",
+                "ことごとく"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「危うく」vì phó từ này thường đi kèm với 「〜そうになる」để biểu thị ý nghĩa \"suýt nữa thì, suýt xảy ra nguy hiểm\". Phương án 「すんなり」sai vì mang nghĩa \"trôi chảy, suôn sẻ, dễ dàng không vướng mắc\". Phương án 「うっすら」sai vì mang nghĩa \"mờ mờ, nhàn nhạt, thoang thoảng\" (như sương mù, ký ức mờ nhạt). Phương án 「ことごとく」sai vì mang nghĩa \"toàn bộ, tất cả không chừa thứ gì\" (thường dẫn đến kết cục tiêu cực).",
+              "glosses": [
+                {
+                  "t": "説明書",
+                  "read": "せつめいしょ",
+                  "vi": "sách hướng dẫn"
+                },
+                {
+                  "t": "操作",
+                  "read": "そうさ",
+                  "vi": "thao tác, vận hành"
+                },
+                {
+                  "t": "事故",
+                  "read": "じこ",
+                  "vi": "tai nạn, sự cố"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "彼のあいまいな説明では、何を言いたいのかよくわからない。",
+              "choices": [
+                "彼のはっきりしない説明では、何を言いたいのかよくわからない。",
+                "彼の大げさな説明では、何を言いたいのかよくわからない。",
+                "彼の短すぎる説明では、何を言いたいのかよくわからない。",
+                "彼の厳しすぎる説明では、何を言いたいのかよくわからない。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「彼のはっきりしない説明では、何を言いたいのかよくわからない。」 là đáp án đúng vì 「あいまいな」 đồng nghĩa với 「はっきりしない」 mang nghĩa mơ hồ, không rõ ràng. Câu 「彼の大げさな説明では、何を言いたいのかよくわからない。」 sai vì 「大げさな」 mang nghĩa phóng đại, làm quá mức. Câu 「彼の短すぎる説明では、何を言いたいのかよくわからない。」 sai vì 「短すぎる」 là quá ngắn. Câu 「彼の厳しすぎる説明では、何を言いたいのかよくわからない。」 sai vì 「厳しすぎる」 là quá khắt khe, gay gắt.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy, anh ta"
+                },
+                {
+                  "t": "あいまいな",
+                  "read": "",
+                  "vi": "mơ hồ, không rõ ràng"
+                },
+                {
+                  "t": "説明",
+                  "read": "せつめい",
+                  "vi": "giải thích, thuyết minh"
+                },
+                {
+                  "t": "では",
+                  "read": "",
+                  "vi": "với, nếu dựa vào (chỉ căn cứ phán đoán)"
+                },
+                {
+                  "t": "何",
+                  "read": "なに",
+                  "vi": "cái gì"
+                },
+                {
+                  "t": "言いたい",
+                  "read": "いいたい",
+                  "vi": "muốn nói"
+                },
+                {
+                  "t": "のか",
+                  "read": "",
+                  "vi": "liệu... hay không (câu hỏi gián tiếp)"
+                },
+                {
+                  "t": "よく",
+                  "read": "",
+                  "vi": "rõ, kỹ, tường tận"
+                },
+                {
+                  "t": "わからない",
+                  "read": "",
+                  "vi": "không hiểu, không rõ"
+                }
+              ]
+            },
+            {
+              "prompt": "弟は明日のサッカーの試合に向けて、ずいぶん張り切っている。",
+              "choices": [
+                "弟は明日のサッカーの試合に向けて、ひどく緊張している。",
+                "弟は明日のサッカーの試合に向けて、とてもやる気に満ちている。",
+                "弟は明日のサッカーの試合に向けて、すっかりあきらめている。",
+                "弟は明日のサッカーの試合に向けて、かなり心配している。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「弟は明日のサッカーの試合に向けて、とてもやる気に満ちている。」 là đáp án đúng vì 「張り切っている」 mang nghĩa hăng hái, đầy khí thế, tương đương với 「やる気に満ちている」. Câu 「弟は明日のサッカーの試合に向けて、ひどく緊張している。」 sai vì 「緊張している」 là căng thẳng, hồi hộp. Câu 「弟は明日のサッカーの試合に向けて、すっかりあきらめている。」 sai vì 「あきらめている」 là bỏ cuộc. Câu 「弟は明日のサッカーの試合に向けて、かなり心配している。」 sai vì 「心配している」 là lo lắng.",
+              "glosses": [
+                {
+                  "t": "弟",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "サッカー",
+                  "read": "",
+                  "vi": "bóng đá"
+                },
+                {
+                  "t": "試合",
+                  "read": "しあい",
+                  "vi": "trận đấu"
+                },
+                {
+                  "t": "に向けて",
+                  "read": "にむけて",
+                  "vi": "hướng tới, nhằm vào, chuẩn bị cho"
+                },
+                {
+                  "t": "ずいぶん",
+                  "read": "",
+                  "vi": "rất, khá là, cực kỳ"
+                },
+                {
+                  "t": "張り切っている",
+                  "read": "はりきっている",
+                  "vi": "hăng hái, tràn đầy khí thế"
+                }
+              ]
+            },
+            {
+              "prompt": "時間が足りなくなったので、自己紹介の時間は省くことにした。",
+              "choices": [
+                "時間が足りなくなったので、自己紹介の時間は短く延ばすことにした。",
+                "時間が足りなくなったので、自己紹介の時間はカットすることにした。",
+                "時間が足りなくなったので、自己紹介の時間は詳しく話すことにした。",
+                "時間が足りなくなったので、自己紹介の時間は後でやり直すことにした。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「時間が足りなくなったので、自己紹介の時間はカットすることにした。」 là đáp án đúng vì 「省く」 có nghĩa là lược bớt, cắt bỏ, đồng nghĩa với 「カットする」. Câu 「時間が足りなくなったので、自己紹介の時間は短く延ばすことにした。」 sai vì dùng sai ngữ nghĩa và 「延ばす」 là kéo dài. Câu 「時間が足りなくなったので、自己紹介の時間は詳しく話すことにした。」 sai vì 「詳しく話す」 là nói chi tiết, trái ngược việc lược bỏ. Câu 「時間が足りなくなったので、自己紹介の時間は後でやり直すことにした。」 sai vì 「やり直す」 là làm lại từ đầu.",
+              "glosses": [
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian"
+                },
+                {
+                  "t": "足りなくなった",
+                  "read": "たりなくなった",
+                  "vi": "không còn đủ, bị thiếu"
+                },
+                {
+                  "t": "ので",
+                  "read": "",
+                  "vi": "vì, do"
+                },
+                {
+                  "t": "自己紹介",
+                  "read": "じこしょうかい",
+                  "vi": "tự giới thiệu"
+                },
+                {
+                  "t": "省く",
+                  "read": "はぶく",
+                  "vi": "lược bỏ, cắt bớt"
+                },
+                {
+                  "t": "ことにした",
+                  "read": "",
+                  "vi": "đã quyết định (làm gì)"
+                }
+              ]
+            },
+            {
+              "prompt": "祖父はたまに一人で散歩に出かけることがある。",
+              "choices": [
+                "祖父はときどき一人で散歩に出かけることがある。",
+                "祖父はいつも一人で散歩に出かけることがある。",
+                "祖父は決して一人で散歩に出かけることがない。",
+                "祖父は毎日一人で散歩に出かけることがある。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「祖父はときどき一人で散歩に出かけることがある。」 là đáp án đúng vì 「たまに」 mang nghĩa thỉnh thoảng, đôi khi, đồng nghĩa với 「ときどき」. Câu 「祖父はいつも一人で散歩に出かけることがある。」 sai vì 「いつも」 chỉ tần suất luôn luôn, thường xuyên. Câu 「祖父は決して一人で散歩に出かけることがない。」 sai vì cấu trúc 「決して～ない」 có nghĩa là tuyệt đối không bao giờ. Câu 「祖父は毎日一人で散歩に出かけることがある。」 sai vì 「毎日」 có nghĩa là mỗi ngày.",
+              "glosses": [
+                {
+                  "t": "たまに",
+                  "read": "",
+                  "vi": "thỉnh thoảng, đôi khi"
+                },
+                {
+                  "t": "散歩",
+                  "read": "さんぽ",
+                  "vi": "đi dạo"
+                }
+              ]
+            },
+            {
+              "prompt": "宿題をさっさと終わらせて、遊びに行こう。",
+              "choices": [
+                "宿題を慎重に終わらせて、遊びに行こう。",
+                "宿題をゆっくり終わらせて、遊びに行こう。",
+                "宿題をすばやく終わらせて、遊びに行こう。",
+                "宿題をきちんと終わらせて、遊びに行こう。"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「宿題をすばやく終わらせて、遊びに行こう。」 là đáp án đúng vì 「さっさと」 diễn tả việc thực hiện nhanh nhẹn, dứt khoát, đồng nghĩa với 「すばやく」. Câu 「宿題を慎重に終わらせて、遊びに行こう。」 sai vì 「慎重に」 có nghĩa là thận trọng, cẩn trọng. Câu 「宿題をゆっくり終わらせて、遊びに行こう。」 sai vì 「ゆっくり」 có nghĩa là thong thả, từ từ. Câu 「宿題をきちんと終わらせて、遊びに行こう。」 sai vì 「きちんと」 có nghĩa là đàng hoàng, chỉn chu.",
+              "glosses": [
+                {
+                  "t": "さっさと",
+                  "read": "",
+                  "vi": "nhanh chóng, mau lẹ"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                }
+              ]
+            },
+            {
+              "prompt": "この村の人口は、わずか100人ほどしかいない。",
+              "choices": [
+                "この村の人口は、ちょうど100人ほどしかいない。",
+                "この村の人口は、たった100人ほどしかいない。",
+                "この村の人口は、およそ100人ほどしかいない。",
+                "この村の人口は、少なくとも100人ほどしかいない。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「この村の人口は、たった100人ほどしかいない。」 là đáp án đúng vì 「わずか」 chỉ số lượng rất ít ỏi, đồng nghĩa với 「たった」 (chỉ, vỏn vẹn). Câu 「この村の人口は、ちょうど100人ほどしかいない。」 sai vì 「ちょうど」 mang nghĩa vừa đúng, chuẩn xác. Câu 「この村の人口は、およそ100人ほどしかいない。」 sai vì 「およそ」 mang nghĩa khoảng chừng, ước chừng. Câu 「この村の人口は、少なくとも100人ほどしかいない。」 sai vì 「少なくとも」 mang nghĩa tối thiểu, ít nhất là.",
+              "glosses": [
+                {
+                  "t": "わずか",
+                  "read": "",
+                  "vi": "vỏn vẹn, chỉ có"
+                },
+                {
+                  "t": "人口",
+                  "read": "じんこう",
+                  "vi": "dân số"
+                }
+              ]
+            },
+            {
+              "prompt": "そんなみっともない格好で外を歩くのはやめなさい。",
+              "choices": [
+                "そんな派手な格好で外を歩くのはやめなさい。",
+                "そんな質素な格好で外を歩くのはやめなさい。",
+                "そんな危険な格好で外を歩くのはやめなさい。",
+                "そんな恥ずかしい格好で外を歩くのはやめなさい。"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「そんな恥ずかしい格好で外を歩くのはやめなさい。」 là đáp án đúng vì 「みっともない」 diễn tả vẻ ngoài khó coi, đáng xấu hổ, đồng nghĩa với 「恥ずかしい」 trong ngữ cảnh này. Câu 「そんな派手な格好で外を歩くのはやめなさい。」 sai vì 「派手な」 có nghĩa là lòe loẹt, sặc sỡ. Câu 「そんな質素な格好で外を歩くのはやめなさい。」 sai vì 「質素な」 có nghĩa là mộc mạc, giản dị. Câu 「そんな危険な格好で外を歩くのはやめなさい。」 sai vì 「危険な」 có nghĩa là nguy hiểm.",
+              "glosses": [
+                {
+                  "t": "みっともない",
+                  "read": "",
+                  "vi": "xấu hổ, khó coi"
+                },
+                {
+                  "t": "格好",
+                  "read": "かっこう",
+                  "vi": "vẻ ngoài, cách ăn mặc"
+                }
+              ]
+            },
+            {
+              "prompt": "どんな困難な状況でも、つねに冷静でいることが大切だ。",
+              "choices": [
+                "どんな困難な状況でも、たまに冷静でいることが大切だ。",
+                "どんな困難な状況でも、いつも冷静でいることが大切だ。",
+                "どんな困難な状況でも、一時的に冷静でいることが大切だ。",
+                "どんな困難な状況でも、できるだけ冷静でいることが大切だ。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「どんな困難な状況でも、いつも冷静でいることが大切だ。」 là đáp án đúng vì 「つねに」 chỉ trạng thái luôn luôn, thường trực, đồng nghĩa với 「いつも」. Câu 「どんな困難な状況でも、たまに冷静でいることが大切だ。」 sai vì 「たまに」 mang nghĩa thỉnh thoảng, đôi khi. Câu 「どんな困難な状況でも、一時的に冷静でいることが大切だ。」 sai vì 「一時的に」 mang nghĩa tạm thời, chốc lát. Câu 「どんな困難な状況でも、できるだけ冷静でいることが大切だ。」 sai vì 「できるだけ」 mang nghĩa cố gắng trong mức có thể, không diễn tả tính liên tục luôn luôn.",
+              "glosses": [
+                {
+                  "t": "どんな",
+                  "read": "",
+                  "vi": "dù... thế nào, bất cứ... nào"
+                },
+                {
+                  "t": "困難",
+                  "read": "こんなん",
+                  "vi": "khó khăn, gian nan"
+                },
+                {
+                  "t": "状況",
+                  "read": "じょうきょう",
+                  "vi": "hoàn cảnh, tình hình, tình thế"
+                },
+                {
+                  "t": "でも",
+                  "read": "",
+                  "vi": "cho dù, dẫu có"
+                },
+                {
+                  "t": "つねに",
+                  "read": "",
+                  "vi": "luôn luôn, thường trực"
+                },
+                {
+                  "t": "冷静",
+                  "read": "れいせい",
+                  "vi": "bình tĩnh, điềm tĩnh"
+                },
+                {
+                  "t": "でいる",
+                  "read": "",
+                  "vi": "duy trì trạng thái, ở trạng thái"
+                },
+                {
+                  "t": "こと",
+                  "read": "",
+                  "vi": "việc, điều"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                }
+              ]
+            },
+            {
+              "prompt": "先日の失礼な発言について、深くおわびいたします。",
+              "choices": [
+                "先日の失礼な発言について、詳しく説明いたします。",
+                "先日の失礼な発言について、心から謝罪いたします。",
+                "先日の失礼な発言について、強く抗議いたします。",
+                "先日の失礼な発言について、ありがたく感謝いたします。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「先日の失礼な発言について、心から謝罪いたします。」 là đáp án đúng vì 「おわびいたします」 là cách nói khiêm nhường thể hiện sự xin lỗi, đồng nghĩa với 「謝罪いたします」. Câu 「先日の失礼な発言について、詳しく説明いたします。」 sai vì 「説明いたします」 mang nghĩa giải thích chi tiết. Câu 「先日の失礼な発言について、強く抗議いたします。」 sai vì 「抗議いたします」 mang nghĩa kịch liệt phản đối, khiếu nại. Câu 「先日の失礼な発言について、ありがたく感謝いたします。」 sai vì 「感謝いたします」 mang nghĩa cảm ơn, biết ơn.",
+              "glosses": [
+                {
+                  "t": "おわびいたします",
+                  "read": "",
+                  "vi": "xin lỗi, tạ lỗi"
+                },
+                {
+                  "t": "発言",
+                  "read": "はつげん",
+                  "vi": "phát ngôn, lời nói"
+                }
+              ]
+            },
+            {
+              "prompt": "非常に厄介な問題が起きてしまい、頭を抱えている。",
+              "choices": [
+                "非常に面倒な問題が起きてしまい、頭を抱えている。",
+                "非常に退屈な問題が起きてしまい、頭を抱えている。",
+                "非常に単純な問題が起きてしまい、頭を抱えている。",
+                "非常に不思議な問題が起きてしまい、頭を抱えている。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「非常に面倒な問題が起きてしまい、頭を抱えている。」 là đáp án đúng vì 「厄介な」 mang nghĩa rắc rối, phiền toái, đồng nghĩa với 「面倒な」. Câu 「非常に退屈な問題が起きてしまい、頭を抱えている。」 sai vì 「退屈な」 mang nghĩa tẻ nhạt, chán ngắt. Câu 「非常に単純な問題が起きてしまい、頭を抱えている。」 sai vì 「単純な」 mang nghĩa đơn giản, không phức tạp. Câu 「非常に不思議な問題が起きてしまい、頭を抱えている。」 sai vì 「不思議な」 mang nghĩa kỳ lạ, khó hiểu.",
+              "glosses": [
+                {
+                  "t": "厄介な",
+                  "read": "やっかいな",
+                  "vi": "phiền phức, rắc rối"
+                },
+                {
+                  "t": "頭を抱えている",
+                  "read": "あたまをかかえている",
+                  "vi": "đau đầu suy nghĩ, bế tắc"
+                }
+              ]
+            },
+            {
+              "prompt": "この書類には同じ内容の記述が重複している部分がある。",
+              "choices": [
+                "この書類には同じ内容の記述が省略されている部分がある。",
+                "この書類には同じ内容の記述が強調されている部分がある。",
+                "この書類には同じ内容の記述が誤っている部分がある。",
+                "この書類には同じ内容の記述が重なっている部分がある。"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「この書類には同じ内容の記述が重なっている部分がある。」 là đáp án đúng vì 「重複している」 có nghĩa là bị trùng lặp, lặp lại nội dung, đồng nghĩa với 「重なっている」. Câu 「この書類には同じ内容の記述が省略されている部分がある。」 sai vì 「省略されている」 có nghĩa là bị lược bỏ. Câu 「この書類には同じ内容の記述が強調されている部分がある。」 sai vì 「強調されている」 có nghĩa là được nhấn mạnh. Câu 「この書類には同じ内容の記述が誤っている部分がある。」 sai vì 「誤っている」 có nghĩa là bị sai lệch, nhầm lẫn.",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "同じ",
+                  "read": "おなじ",
+                  "vi": "giống nhau, cùng"
+                },
+                {
+                  "t": "内容",
+                  "read": "ないよう",
+                  "vi": "nội dung"
+                },
+                {
+                  "t": "記述",
+                  "read": "きじゅつ",
+                  "vi": "ghi chép, trình bày"
+                },
+                {
+                  "t": "重複している",
+                  "read": "ちょうふくしている",
+                  "vi": "bị trùng lặp"
+                },
+                {
+                  "t": "部分",
+                  "read": "ぶぶん",
+                  "vi": "phần, chỗ, bộ phận"
+                },
+                {
+                  "t": "がある",
+                  "read": "",
+                  "vi": "có (tồn tại)"
+                }
+              ]
+            },
+            {
+              "prompt": "静かな部屋でいきなり電話が鳴り響いて驚いた。",
+              "choices": [
+                "静かな部屋で突然電話が鳴り響いて驚いた。",
+                "静かな部屋でだんだん電話が鳴り響いて驚いた。",
+                "静かな部屋でようやく電話が鳴り響いて驚いた。",
+                "静かな部屋でしだいに電話が鳴り響いて驚いた。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「静かな部屋で突然電話が鳴り響いて驚いた。」 là đáp án đúng vì 「いきなり」 diễn tả hành động xảy ra bất ngờ không báo trước, đồng nghĩa với 「突然」 (đột ngột). Câu 「静かな部屋でだんだん電話が鳴り響いて驚いた。」 sai vì 「だんだん」 có nghĩa là dần dần, tăng dần từng bước. Câu 「静かな部屋でようやく電話が鳴り響いて驚いた。」 sai vì 「ようやく」 có nghĩa là cuối cùng thì (sau một thời gian chờ đợi). Câu 「静かな部屋でしだいに電話が鳴り響いて驚いた。」 sai vì 「しだいに」 có nghĩa là dần dần biến đổi theo thời gian.",
+              "glosses": [
+                {
+                  "t": "いきなり",
+                  "read": "",
+                  "vi": "đột ngột, bất ngờ"
+                },
+                {
+                  "t": "鳴り響いて",
+                  "read": "なりひびいて",
+                  "vi": "reo vang, vang dội"
+                }
+              ]
+            },
+            {
+              "prompt": "警察はあらゆる可能性を考えて事件の捜査を進めている。",
+              "choices": [
+                "警察はいくつかの可能性を考えて事件の捜査を進めている。",
+                "警察は特別な可能性を考えて事件の捜査を進めている。",
+                "警察はすべての可能性を考えて事件の捜査を進めている。",
+                "警察はわずかな可能性を考えて事件の捜査を進めている。"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「警察はすべての可能性を考えて事件の捜査を進めている。」 là đáp án đúng vì 「あらゆる」 có nghĩa là tất cả, toàn bộ mọi khả năng, đồng nghĩa với 「すべての」. Câu 「警察はいくつかの可能性を考えて事件の捜査を進めている。」 sai vì 「いくつかの」 chỉ một vài, số lượng ít. Câu 「警察は特別な可能性を考えて事件の捜査を進めている。」 sai vì 「特別な」 có nghĩa là đặc biệt, riêng biệt. Câu 「警察はわずかな可能性を考えて事件の捜査を進めている。」 sai vì 「わずかな」 có nghĩa là ít ỏi, mong manh.",
+              "glosses": [
+                {
+                  "t": "警察",
+                  "read": "けいさつ",
+                  "vi": "cảnh sát"
+                },
+                {
+                  "t": "あらゆる",
+                  "read": "",
+                  "vi": "tất cả, mọi"
+                },
+                {
+                  "t": "可能性",
+                  "read": "かのうせい",
+                  "vi": "khả năng, tính khả thi"
+                },
+                {
+                  "t": "考えて",
+                  "read": "かんがえて",
+                  "vi": "suy nghĩ, cân nhắc"
+                },
+                {
+                  "t": "事件",
+                  "read": "じけん",
+                  "vi": "vụ án, sự việc"
+                },
+                {
+                  "t": "捜査",
+                  "read": "そうさ",
+                  "vi": "điều tra"
+                },
+                {
+                  "t": "進めている",
+                  "read": "すすめている",
+                  "vi": "đang tiến hành, xúc tiến"
+                }
+              ]
+            },
+            {
+              "prompt": "今回のイベントの参加者は、おおよそ500人だった。",
+              "choices": [
+                "今回のイベントの参加者は、正確に500人だった。",
+                "今回のイベントの参加者は、せいぜい500人だった。",
+                "今回のイベントの参加者は、ぴったり500人だった。",
+                "今回のイベントの参加者は、だいたい500人だった。"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "「今回のイベントの参加者は、だいたい500人だった。」 là đáp án đúng vì 「おおよそ」 mang nghĩa đại khái, khoảng chừng, đồng nghĩa với 「だいたい」. Câu 「今回のイベントの参加者は、正確に500人だった。」 sai vì 「正確に」 có nghĩa là chuẩn xác, chính xác từng người. Câu 「今回のイベントの参加者は、せいぜい500人だった。」 sai vì 「せいぜい」 có nghĩa là tối đa, nhiều nhất cũng chỉ đến mức đó. Câu 「今回のイベントの参加者は、ぴったり500人だった。」 sai vì 「ぴったり」 có nghĩa là vừa khít, đúng chóc số lượng.",
+              "glosses": [
+                {
+                  "t": "おおよそ",
+                  "read": "",
+                  "vi": "khoảng chừng, xấp xỉ"
+                },
+                {
+                  "t": "参加者",
+                  "read": "さんかしゃ",
+                  "vi": "người tham gia"
+                }
+              ]
+            },
+            {
+              "prompt": "一日中重い荷物を運んで、すっかりくたびれてしまった。",
+              "choices": [
+                "一日中重い荷物を運んで、すっかり飽きてしまった。",
+                "一日中重い荷物を運んで、すっかり疲れてしまった。",
+                "一日中重い荷物を運んで、すっかり慌ててしまった。",
+                "一日中重い荷物を運んで、すっかり困ってしまった。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「一日中重い荷物を運んで、すっかり疲れてしまった。」 là đáp án đúng vì 「くたびれてしまった」 mang nghĩa mệt nhoài, kiệt sức, đồng nghĩa với 「疲れてしまった」. Câu 「一日中重い荷物を運んで、すっかり飽きてしまった。」 sai vì 「飽きてしまった」 có nghĩa là đã chán ngấy. Câu 「一日中重い荷物を運んで、すっかり慌ててしまった。」 sai vì 「慌ててしまった」 có nghĩa là đã cuống cuồng, hoảng hốt. Câu 「一日中重い荷物を運んで、すっかり困ってしまった。」 sai vì 「困ってしまった」 có nghĩa là đã rơi vào bối rối, khó xử.",
+              "glosses": [
+                {
+                  "t": "一日中",
+                  "read": "いちにちじゅう",
+                  "vi": "suốt cả ngày, cả ngày"
+                },
+                {
+                  "t": "重い",
+                  "read": "おもい",
+                  "vi": "nặng"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "đồ đạc, hành lý, kiện hàng"
+                },
+                {
+                  "t": "運んで",
+                  "read": "はこんで",
+                  "vi": "vận chuyển, bê vác"
+                },
+                {
+                  "t": "すっかり",
+                  "read": "",
+                  "vi": "hoàn toàn, hết cả"
+                },
+                {
+                  "t": "くたびれてしまった",
+                  "read": "",
+                  "vi": "đã mệt nhoài, kiệt sức"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5 · 用法",
+          "level": "N3–N1",
+          "type": "mcq",
+          "instr": "Chọn câu DÙNG ĐÚNG từ cho sẵn.",
+          "items": [
+            {
+              "prompt": "抱える",
+              "choices": [
+                "一人で悩みを抱えるのは精神的によくないので、誰かに相談したほうがいい。",
+                "毎朝健康のために、公園で新鮮な空気を抱える運動をしている。",
+                "旅行の計画を立てるために、インターネットでたくさんの情報を抱える。",
+                "試験の直前になって、急いで英単語を頭の中に抱える。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu 「一人で悩みを抱えるのは精神的によくないので、誰かに相談したほうがいい。」 dùng đúng vì 「抱える」 thể hiện việc mang gánh nặng hoặc chịu đựng vấn đề, nỗi lo. Câu 「毎朝健康のために、公園で新鮮な空気を抱える運動をしている。」 dùng sai vì hít thở không khí phải dùng 「吸う」 thay vì 「抱える」. Câu 「旅行の計画を立てるために、インターネットでたくさんの情報を抱える。」 dùng sai vì thu thập thông tin phải dùng 「集める」. Câu 「試験の直前になって、急いで英単語を頭の中に抱える。」 dùng sai vì nhồi nhét từ vựng vào đầu nên dùng 「詰め込む」 hoặc 「暗記する」.",
+              "glosses": [
+                {
+                  "t": "抱える",
+                  "read": "かかえる",
+                  "vi": "ôm, gánh vác (nỗi lo, nợ nần)"
+                },
+                {
+                  "t": "悩み",
+                  "read": "なやみ",
+                  "vi": "phiền não, nỗi lo"
+                },
+                {
+                  "t": "精神的",
+                  "read": "せいしんてき",
+                  "vi": "về mặt tinh thần"
+                }
+              ]
+            },
+            {
+              "prompt": "蓄える",
+              "choices": [
+                "冬に備えて、家の周りに落ち葉を蓄える作業を始めた。",
+                "若いうちにしっかり知識や教養を蓄えることが、将来大きな力になる。",
+                "部屋の空気が乾燥しているので、加湿器を使って部屋に水分を蓄える。",
+                "友達と仲直りするために、手紙を書いて自分の気持ちを蓄える。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu 「若いうちにしっかり知識や教養を蓄えることが、将来大きな力になる。」 dùng đúng vì 「蓄える」 có nghĩa là tích lũy, trau dồi tri thức, sức lực hoặc tiền của. Câu 「冬に備えて、家の周りに落ち葉を蓄える作業を始めた。」 dùng sai vì gom lá rụng nên dùng 「集める」 hoặc 「片付ける」. Câu 「部屋の空気が乾燥しているので、加湿器を使って部屋に水分を蓄える。」 dùng sai vì cấp ẩm cho phòng phải dùng 「保つ」 hoặc 「補給する」. Câu 「友達と仲直りするために、手紙を書いて自分の気持ちを蓄える。」 dùng sai vì gửi gắm cảm xúc vào thư nên dùng 「込める」 hoặc 「伝える」.",
+              "glosses": [
+                {
+                  "t": "蓄える",
+                  "read": "たくわえる",
+                  "vi": "tích lũy (kiến thức, sức lực, tiền bạc)"
+                },
+                {
+                  "t": "教養",
+                  "read": "きょうよう",
+                  "vi": "học thức, giáo dưỡng"
+                },
+                {
+                  "t": "加湿器",
+                  "read": "かしつき",
+                  "vi": "máy tạo ẩm"
+                }
+              ]
+            },
+            {
+              "prompt": "至る",
+              "choices": [
+                "長時間の話し合いの末、ようやく双方が合意するに至る。",
+                "駅に早く至るために、近道を通って走っていった。",
+                "料理をおいしく至るために、調味料の分量を正確に量った。",
+                "先生に質問をして、答えを至るまでじっと待っていた。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu 「長時間の話し合いの末、ようやく双方が合意するに至る。」 dùng đúng vì 「至る」 dùng với nghĩa đạt đến, dẫn đến một kết quả hoặc trạng thái nào đó. Câu 「駅に早く至るために、近道を通って走っていった。」 dùng sai vì đi đến ga phải dùng 「着く」 hoặc 「到着する」. Câu 「料理をおいしく至るために、調味料の分量を正確に量った。」 dùng sai vì làm cho món ăn ngon nên dùng 「仕上げる」 hoặc 「作る」. Câu 「先生に質問をして、答えを至るまでじっと待っていた。」 dùng sai vì nhận được câu trả lời phải dùng 「もらう」 hoặc 「得る」.",
+              "glosses": [
+                {
+                  "t": "至る",
+                  "read": "いたる",
+                  "vi": "dẫn đến, đạt tới (kết quả, trạng thái)"
+                },
+                {
+                  "t": "合意",
+                  "read": "ごうい",
+                  "vi": "sự nhất trí, đồng thuận"
+                },
+                {
+                  "t": "近道",
+                  "read": "ちかみち",
+                  "vi": "đường tắt"
+                }
+              ]
+            },
+            {
+              "prompt": "普及",
+              "choices": [
+                "新入社員に会社の規則を普及するために、研修を実施した。",
+                "スマートフォンの普及によって、私たちの生活様式は劇的に変化した。",
+                "彼は世界中に平和のメッセージを普及する活動を行っている。",
+                "毎日の運動を普及することで、健康的な体を維持できる。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu 「スマートフォンの普及によって、私たちの生活様式は劇的に変化した。」 dùng đúng vì 「普及」 mang nghĩa sự phổ biến rộng rãi của thiết bị hoặc công nghệ đến số đông. Câu 「新入社員に会社の規則を普及するために、研修を実施した。」 dùng sai vì phổ biến quy định nội bộ nên dùng 「周知する」 hoặc 「徹底する」. Câu 「彼は世界中に平和のメッセージを普及する活動を行っている。」 dùng sai vì truyền bá thông điệp dùng 「広める」 hoặc 「発信する」. Câu 「毎日の運動を普及することで、健康的な体を維持できる。」 dùng sai vì duy trì thói quen cá nhân nên dùng 「習慣づける」 hoặc 「続ける」.",
+              "glosses": [
+                {
+                  "t": "普及",
+                  "read": "ふきゅう",
+                  "vi": "sự phổ biến, phổ cập"
+                },
+                {
+                  "t": "劇的",
+                  "read": "げきてき",
+                  "vi": "mang tính kịch tính, đột phá"
+                },
+                {
+                  "t": "研修",
+                  "read": "けんしゅう",
+                  "vi": "đào tạo, tập huấn"
+                }
+              ]
+            },
+            {
+              "prompt": "経由",
+              "choices": [
+                "この道路は工事中のため、通行を経由してください。",
+                "友達の誕生日プレゼントをデパートで経由して買った。",
+                "日本からヨーロッパへ行く際、ドバイを経由する便を利用した。",
+                "彼は大学を優秀な成績で経由して卒業した。"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu 「日本からヨーロッパへ行く際、ドバイを経由する便を利用した。」 dùng đúng vì 「経由」 có nghĩa là quá cảnh hoặc đi qua một địa điểm trung gian. Câu 「この道路は工事中のため、通行を経由してください。」 dùng sai vì tránh đường thi công phải dùng 「迂回する」 hoặc 「避ける」. Câu 「友達の誕生日プレゼントをデパートで経由して買った。」 dùng sai vì ghé qua trung tâm thương mại để mua nên dùng 「立ち寄って」. Câu 「彼は大学を優秀な成績で経由して卒業した。」 dùng sai vì trải qua quá trình học tập dùng 「経て」 hoặc 「修めて」.",
+              "glosses": [
+                {
+                  "t": "経由",
+                  "read": "けいゆ",
+                  "vi": "quá cảnh, thông qua, đi qua"
+                },
+                {
+                  "t": "工事中",
+                  "read": "こうじちゅう",
+                  "vi": "đang thi công"
+                },
+                {
+                  "t": "優秀",
+                  "read": "ゆうしゅう",
+                  "vi": "ưu tú, xuất sắc"
+                }
+              ]
+            },
+            {
+              "prompt": "深刻",
+              "choices": [
+                "少子高齢化が進み、地方では労働力不足が深刻な問題となっている。",
+                "この数学の問題は非常に深刻で、誰にも解けなかった。",
+                "彼女はいつも明るくて、深刻な性格をしている。",
+                "この料理は辛さが深刻すぎて、一口も食べられなかった。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu 「少子高齢化が進み、地方では労働力不足が深刻な問題となっている。」 dùng đúng vì 「深刻」 đi với 「問題」 để chỉ tình trạng nghiêm trọng, gay go. Câu 「この数学の問題は非常に深刻で、誰にも解けなかった。」 dùng sai vì bài toán khó, phức tạp phải dùng 「難しい」 hoặc 「複雑」. Câu 「彼女はいつも明るくて、深刻な性格をしている。」 dùng sai vì tính cách con người nghiêm túc dùng 「真面目な」 chứ không dùng 「深刻な」. Câu 「この料理は辛さが深刻すぎて、一口も食べられなかった。」 dùng sai vì vị cay nồng gắt phải dùng 「強烈」 hoặc 「激しい」.",
+              "glosses": [
+                {
+                  "t": "深刻",
+                  "read": "しんこく",
+                  "vi": "nghiêm trọng, trầm trọng"
+                },
+                {
+                  "t": "少子高齢化",
+                  "read": "しょうしこうれいか",
+                  "vi": "tỷ lệ sinh giảm và già hóa dân số"
+                },
+                {
+                  "t": "労働力不足",
+                  "read": "ろうどうりょくぶそく",
+                  "vi": "thiếu hụt lực lượng lao động"
+                }
+              ]
+            },
+            {
+              "prompt": "合図",
+              "choices": [
+                "駅の改札口で友達と会う合図を決めておいた。",
+                "審判の笛を合図に、サッカーの決勝戦が始まった。",
+                "この書類に間違いがないか、サインをして合図をしてください。",
+                "天気が悪くなってきたので、雨が降る合図かもしれない。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu 「審判の笛を合図に、サッカーの決勝戦が始まった。」 dùng đúng vì 「合図」 mang nghĩa là dấu hiệu, hiệu lệnh để bắt đầu hành động. Câu 「駅の改札口で友達と会う合図を決めておいた。」 dùng sai vì hẹn điểm gặp nhau phải dùng 「待ち合わせ場所」. Câu 「この書類に間違いがないか、サインをして合図をしてください。」 dùng sai vì ký tên xác nhận phải dùng 「確認」 hoặc 「署名」. Câu 「天気が悪くなってきたので、雨が降る合図かもしれない。」 dùng sai vì điềm báo, dấu hiệu thời tiết phải dùng 「前触れ」 hoặc 「兆候」.",
+              "glosses": [
+                {
+                  "t": "合図",
+                  "read": "あいず",
+                  "vi": "dấu hiệu, hiệu lệnh"
+                },
+                {
+                  "t": "審判",
+                  "read": "しんぱん",
+                  "vi": "trọng tài"
+                },
+                {
+                  "t": "決勝戦",
+                  "read": "けっしょうせん",
+                  "vi": "trận chung kết"
+                }
+              ]
+            },
+            {
+              "prompt": "おおかた",
+              "choices": [
+                "彼は走るのがとても速く、クラスでおおかた一番だ。",
+                "この部屋はおおかた広くて、家具をたくさん置くことができる。",
+                "明日のイベントの準備は、おおかた終わったので安心した。",
+                "おおかたの注意を払って、壊れやすいガラス製品を運んだ。"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu 「明日のイベントの準備は、おおかた終わったので安心した。」 dùng đúng vì 「おおかた」 là phó từ có nghĩa là hầu như, phần lớn (đại bộ phận). Câu 「彼は走るのがとても速く、クラスでおおかた一番だ。」 dùng sai vì đứng nhất áp đảo phải dùng 「断トツ」 hoặc 「圧倒的に」. Câu 「この部屋はおおかた広くて、家具をたくさん置くことができる。」 dùng sai vì mức độ rất rộng phải dùng 「かなり」 hoặc 「ずいぶん」. Câu 「おおかたの注意を払って、壊れやすいガラス製品を運んだ。」 dùng sai vì hết sức chú ý phải dùng 「細心の」 hoặc 「十分な」.",
+              "glosses": [
+                {
+                  "t": "おおかた",
+                  "read": "",
+                  "vi": "phần lớn, hầu như"
+                },
+                {
+                  "t": "安心",
+                  "read": "あんしん",
+                  "vi": "yên tâm"
+                },
+                {
+                  "t": "家具",
+                  "read": "かぐ",
+                  "vi": "đồ nội thất"
+                }
+              ]
+            },
+            {
+              "prompt": "めきめき",
+              "choices": [
+                "毎日熱心に練習した結果、彼の日本語の能力はめきめき上達した。",
+                "地震で建物がめきめき揺れて、とても怖かった。",
+                "朝起きると、頭がめきめき痛くて会社を休んだ。",
+                "雨がめきめき降ってきたので、傘を差して出かけた。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu 「毎日熱心に練習した結果、彼の日本語の能力はめきめき上達した。」 dùng đúng vì 「めきめき」 diễn tả sự tiến bộ, phát triển một cách rõ rệt, nhanh chóng. Câu 「地震で建物がめきめき揺れて、とても怖かった。」 dùng sai vì động đất rung lắc mạnh dùng 「激しく」 hoặc 「グラグラ」. Câu 「朝起きると、頭がめきめき痛くて会社を休んだ。」 dùng sai vì đau đầu nhức nhối dùng 「ズキズキ」 hoặc 「がんがん」. Câu 「雨がめきめき降ってきたので、傘を差して出かけた。」 dùng sai vì mưa to như trút nước dùng 「ザーザー」 hoặc 「急に」.",
+              "glosses": [
+                {
+                  "t": "めきめき",
+                  "read": "",
+                  "vi": "tiến bộ vượt bậc, trông thấy"
+                },
+                {
+                  "t": "上達",
+                  "read": "じょうたつ",
+                  "vi": "tiến bộ, thành thạo"
+                },
+                {
+                  "t": "熱心",
+                  "read": "ねっしん",
+                  "vi": "nhiệt tình, chăm chỉ"
+                }
+              ]
+            },
+            {
+              "prompt": "手分け",
+              "choices": [
+                "テストの前に教科書の内容を手分けしてノートにまとめた。",
+                "広い会場の掃除を一人でするのは大変なので、みんなで手分けして行おう。",
+                "電車が混んでいたので、友達と手分けして座席に座った。",
+                "料理の味付けを手分けするために、塩と砂糖を少しずつ加えた。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu 「広い会場の掃除を一人でするのは大変なので、みんなで手分けして行おう。」 dùng đúng vì 「手分け」 có nghĩa là chia việc, phân công nhau cùng làm. Câu 「テストの前に教科書の内容を手分けしてノートにまとめた。」 dùng sai vì một mình tóm tắt kiến thức phải dùng 「整理して」 hoặc 「分類して」. Câu 「電車が混んでいたので、友達と手分けして座席に座った。」 dùng sai vì ngồi tách xa nhau trên tàu phải dùng 「離れて」 hoặc 「別々に」. Câu 「料理の味付けを手分けするために、塩と砂糖を少しずつ加えた。」 dùng sai vì gia giảm nêm nếm gia vị phải dùng 「調整する」 hoặc 「整える」.",
+              "glosses": [
+                {
+                  "t": "手分け",
+                  "read": "てわけ",
+                  "vi": "chia nhau làm, phân công công việc"
+                },
+                {
+                  "t": "会場",
+                  "read": "かいじょう",
+                  "vi": "hội trường, địa điểm"
+                },
+                {
+                  "t": "味付け",
+                  "read": "あじつけ",
+                  "vi": "nêm nếm gia vị"
+                }
+              ]
+            },
+            {
+              "prompt": "あいにく",
+              "choices": [
+                "昨日の夜はあいにく勉強したので、今日のテストは自信がある。",
+                "新しい靴を履いて出かけたら、あいにく足にぴったり合っていた。",
+                "田中さんを訪ねたが、あいにく外出中で会うことができなかった。",
+                "この店はあいにく美味しくて、毎日たくさんのお客さんで賑わっている。"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu 「田中さんを訪ねたが、あいにく外出中で会うことができなかった。」 dùng đúng vì 「あいにく」 mang nghĩa thật không may, đáng tiếc do hoàn cảnh không thuận lợi. Câu 「昨日の夜はあいにく勉強したので、今日のテストは自信がある。」 dùng sai vì chăm chỉ học hành phải dùng 「一生懸命」 hoặc 「しっかり」. Câu 「新しい靴を履いて出かけたら、あいにく足にぴったり合っていた。」 dùng sai vì vừa khít một cách may mắn phải dùng 「ちょうど」 hoặc 「うまく」. Câu 「この店はあいにく美味しくて、毎日たくさんのお客さんで賑わっている。」 dùng sai vì khen món ăn ngon phải dùng 「とても」 hoặc 「非常に」.",
+              "glosses": [
+                {
+                  "t": "あいにく",
+                  "read": "",
+                  "vi": "thật không may, đáng tiếc"
+                },
+                {
+                  "t": "外出中",
+                  "read": "がいしゅつちゅう",
+                  "vi": "đang ra ngoài"
+                },
+                {
+                  "t": "賑わって",
+                  "read": "にぎわって",
+                  "vi": "tấp nập, nhộn nhịp"
+                }
+              ]
+            },
+            {
+              "prompt": "催促",
+              "choices": [
+                "提出期限を過ぎてもレポートを出さない学生に、早く出すよう催促した。",
+                "来週の旅行をとても楽しみに催促している。",
+                "先生からのアドバイスを素直に催促して行動に移した。",
+                "道を歩いていたら、知らない人に駅への行き方を催促された。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu 「提出期限を過ぎてもレポートを出さない学生に、早く出すよう催促した。」 dùng đúng vì 「催促」 có nghĩa là thúc giục, hối thúc ai làm việc gì. Câu 「来週の旅行をとても楽しみに催促している。」 dùng sai vì mong đợi chuyến đi phải dùng 「楽しみにしている」 hoặc 「期待している」. Câu 「先生からのアドバイスを素直に催促して行動に移した。」 dùng sai vì tiếp thu lời khuyên dùng 「受け入れて」 hoặc 「聞き入れて」. Câu 「道を歩いていたら、知らない人に駅への行き方を催促された。」 dùng sai vì bị hỏi đường phải dùng 「尋ねられた」 hoặc 「聞かれた」.",
+              "glosses": [
+                {
+                  "t": "催促",
+                  "read": "さいそく",
+                  "vi": "thúc giục, giục giã"
+                },
+                {
+                  "t": "提出期限",
+                  "read": "ていしゅつきげん",
+                  "vi": "hạn chót nộp"
+                },
+                {
+                  "t": "素直",
+                  "read": "すなお",
+                  "vi": "ngoan ngoãn, chân thành, dễ bảo"
+                }
+              ]
+            },
+            {
+              "prompt": "率直",
+              "choices": [
+                "この道は率直に伸びていて、迷うことなく目的地に着ける。",
+                "会議では遠慮せず、自分の率直な意見を述べてください。",
+                "彼は時間を率直に守る人なので、決して遅刻はしない。",
+                "この機械は操作が率直で、誰でも簡単に使える。"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu 「会議では遠慮せず、自分の率直な意見を述べてください。」 dùng đúng vì 「率直」 mang nghĩa thẳng thắn, bộc trực, không giấu giếm ý nghĩ. Câu 「この道は率直に伸びていて、迷うことなく目的地に着ける。」 dùng sai vì con đường thẳng tắp phải dùng 「まっすぐ」. Câu 「彼は時間を率直に守る人なので、決して遅刻はしない。」 dùng sai vì nghiêm túc tuân thủ giờ giấc phải dùng 「厳格に」 hoặc 「きちんと」. Câu 「この機械は操作が率直で、誰でも簡単に使える。」 dùng sai vì thao tác máy móc đơn giản phải dùng 「簡単」 hoặc 「単純」.",
+              "glosses": [
+                {
+                  "t": "率直",
+                  "read": "そっちょく",
+                  "vi": "thẳng thắn, bộc trực"
+                },
+                {
+                  "t": "遠慮",
+                  "read": "えんりょ",
+                  "vi": "ngại ngùng, khách khí"
+                },
+                {
+                  "t": "述べて",
+                  "read": "のべて",
+                  "vi": "bày tỏ, trình bày"
+                }
+              ]
+            },
+            {
+              "prompt": "架空",
+              "choices": [
+                "屋根の修理をするために、家の外側に架空の足場を組んだ。",
+                "彼の部屋はいつも架空で、物がほとんど置かれていない。",
+                "約束の時間を過ぎても、彼は架空のまま現れなかった。",
+                "この小説に登場する人物や地名は、すべて架空のものです。"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Câu 「この小説に登場する人物や地名は、すべて架空のものです。」 dùng đúng vì 「架空」 mang nghĩa là hư cấu, tưởng tượng, không có thật. Câu 「屋根の修理をするために、家の外側に架空の足場を組んだ。」 dùng sai vì giàn giáo tạm thời phải dùng 「仮設の」 hoặc 「一時的な」. Câu 「彼の部屋はいつも架空で、物がほとんど置かれていない。」 dùng sai vì phòng trống không có đồ đạc phải dùng 「がらんとして」 hoặc 「空っぽで」. Câu 「約束の時間を過ぎても、彼は架空のまま現れなかった。」 dùng sai vì không lộ diện/không đến phải dùng 「姿を見せない」 hoặc 「来ない」.",
+              "glosses": [
+                {
+                  "t": "架空",
+                  "read": "かくう",
+                  "vi": "hư cấu, tưởng tượng"
+                },
+                {
+                  "t": "登場",
+                  "read": "とうじょう",
+                  "vi": "xuất hiện, lên sân khấu"
+                },
+                {
+                  "t": "足場",
+                  "read": "あしば",
+                  "vi": "giàn giáo"
+                }
+              ]
+            },
+            {
+              "prompt": "追究",
+              "choices": [
+                "事故の再発を防ぐため、専門家が集まって原因を徹底的に追究した。",
+                "警察は逃げた犯人の行方を全力で追究している。",
+                "彼女は美しさを追究するために、毎日エステに通っている。",
+                "利益ばかりを追究する経営方針には反対だ。"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu 「事故の再発を防ぐため、専門家が集まって原因を徹底的に追究した。」 dùng đúng vì 「追究」 mang nghĩa điều tra, làm rõ đến cùng nguyên nhân hoặc chân tướng sự việc. Câu 「警察は逃げた犯人の行方を全力で追究している。」 dùng sai vì truy đuổi kẻ trộm/tội phạm phải dùng 「追跡」 hoặc 「追う」. Câu 「彼女は美しさを追究するために、毎日エステに通っている。」 dùng sai vì theo đuổi vẻ đẹp, lý tưởng phải dùng chữ Hán 「追求」. Câu 「利益ばかりを追究する経営方針には反対だ。」 dùng sai vì mưu cầu lợi nhuận kinh doanh phải dùng chữ Hán 「追求」.",
+              "glosses": [
+                {
+                  "t": "追究",
+                  "read": "ついきゅう",
+                  "vi": "truy cứu, điều tra làm rõ (nguyên nhân)"
+                },
+                {
+                  "t": "再発",
+                  "read": "さいはつ",
+                  "vi": "tái phát"
+                },
+                {
+                  "t": "経営方針",
+                  "read": "けいえいほうしん",
+                  "vi": "phương châm kinh doanh"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "子供＿、自分の部屋の掃除くらい自分でやりなさい。",
+              "choices": [
+                "ではあるまいし",
+                "にしたら",
+                "たびに",
+                "に限り"
+              ],
+              "answer": 0,
+              "pt": "～ではあるまいし",
+              "explain": "「ではあるまいし」dùng sau danh từ để diễn tả ý 'đâu phải là... (trẻ con) nữa mà', mang sắc thái phê bình, nhắc nhở đối phương nên hành xử cho đúng mực. 「にしたら」sai vì biểu thị lập trường, góc nhìn của một đối tượng ('nếu đứng ở vị trí của...'). 「たびに」sai vì có nghĩa là 'mỗi lần...', chỉ hành động lặp đi lặp lại có chu kỳ. 「に限り」sai vì có nghĩa là 'chỉ riêng, chỉ giới hạn trong...', dùng cho quy định hoặc thông báo trang trọng.",
+              "glosses": [
+                {
+                  "t": "子供",
+                  "read": "こども",
+                  "vi": "trẻ con"
+                },
+                {
+                  "t": "自分",
+                  "read": "じぶん",
+                  "vi": "bản thân, tự mình"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "掃除",
+                  "read": "そうじ",
+                  "vi": "dọn dẹp"
+                }
+              ]
+            },
+            {
+              "stem": "親＿心配なのだろうが、もう私も成人したのだから少しは自由にさせてほしい。",
+              "choices": [
+                "に限り",
+                "にしたら",
+                "ではあるまいし",
+                "わけにはいかない"
+              ],
+              "answer": 1,
+              "pt": "～にしたら",
+              "explain": "「にしたら」dùng để biểu đạt cảm xúc, suy nghĩ khi đứng trên góc nhìn hoặc lập trường của người khác ('đứng ở góc độ cha mẹ thì chắc là lo lắng, nhưng...'). 「に限り」sai vì mang nghĩa 'chỉ giới hạn trong trường hợp...', dùng để giới hạn đối tượng. 「ではあるまいし」sai vì có nghĩa là 'đâu phải là... mà', dùng để phê phán. 「わけにはいかない」sai vì biểu thị không thể làm điều gì do rào cản đạo đức, xã hội hoặc tâm lý.",
+              "glosses": [
+                {
+                  "t": "親",
+                  "read": "おや",
+                  "vi": "cha mẹ"
+                },
+                {
+                  "t": "心配",
+                  "read": "しんぱい",
+                  "vi": "lo lắng"
+                },
+                {
+                  "t": "成人",
+                  "read": "せいじん",
+                  "vi": "trưởng thành, người lớn"
+                },
+                {
+                  "t": "自由",
+                  "read": "じゆう",
+                  "vi": "tự do"
+                }
+              ]
+            },
+            {
+              "stem": "本人＿軽い冗談のつもりだったのかもしれないが、言われた相手は深く傷ついている。",
+              "choices": [
+                "たびに",
+                "ずにはいられない",
+                "にすれば",
+                "ではあるまいし"
+              ],
+              "answer": 2,
+              "pt": "～にすれば",
+              "explain": "「にすれば」dùng để đặt mình vào vị trí, góc nhìn của người khác để suy đoán hoặc nhận định sự việc ('đối với bản thân anh ấy / từ góc nhìn của anh ấy thì...'). 「たびに」sai vì có nghĩa là 'mỗi lần... lại...', dùng cho hành động có tính chu kỳ. 「ずにはいられない」sai vì có nghĩa là 'không thể không làm / không kìm được cảm xúc'. 「ではあるまいし」sai vì mang nghĩa 'đâu phải là... mà'.",
+              "glosses": [
+                {
+                  "t": "本人",
+                  "read": "ほんにん",
+                  "vi": "bản thân người đó"
+                },
+                {
+                  "t": "軽い",
+                  "read": "かるい",
+                  "vi": "nhẹ, bâng quơ"
+                },
+                {
+                  "t": "冗談",
+                  "read": "じょうだん",
+                  "vi": "trò đùa"
+                },
+                {
+                  "t": "相手",
+                  "read": "あいて",
+                  "vi": "đối phương, người nghe"
+                },
+                {
+                  "t": "傷ついて",
+                  "read": "きずついて",
+                  "vi": "bị tổn thương"
+                }
+              ]
+            },
+            {
+              "stem": "海外で一人暮らしを始めて以来、故郷に残してきた家族の健康が気になっ＿。",
+              "choices": [
+                "てならない",
+                "にしたら",
+                "たびに",
+                "に限り"
+              ],
+              "answer": 0,
+              "pt": "～てならない",
+              "explain": "「てならない」kết hợp với dạng て của động từ/tính từ chỉ cảm xúc, tâm trạng (気になって) để diễn tả cảm xúc tự nhiên dâng trào mãnh liệt không thể kìm nén được ('vô cùng lo lắng, không sao an tâm được'). 「にしたら」sai vì đi sau danh từ chỉ người để nêu góc nhìn ('từ lập trường của...'). 「たびに」sai vì mang nghĩa 'mỗi khi...'. 「に限り」sai vì mang nghĩa 'chỉ giới hạn trong...'.",
+              "glosses": [
+                {
+                  "t": "海外",
+                  "read": "かいがい",
+                  "vi": "nước ngoài"
+                },
+                {
+                  "t": "一人暮らし",
+                  "read": "ひとりぐらし",
+                  "vi": "sống một mình"
+                },
+                {
+                  "t": "故郷",
+                  "read": "こきょう",
+                  "vi": "quê hương"
+                },
+                {
+                  "t": "家族",
+                  "read": "かぞく",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "健康",
+                  "read": "けんこう",
+                  "vi": "sức khỏe"
+                }
+              ]
+            },
+            {
+              "stem": "あのコメディアンの独特な動きを見ると思わず笑わ＿。",
+              "choices": [
+                "わけにはいかない",
+                "ずにはいられない",
+                "てならない",
+                "ではあるまいし"
+              ],
+              "answer": 1,
+              "pt": "～ずにはいられない",
+              "explain": "「ずにはいられない」kết hợp với động từ thể ない (bỏ ない) để diễn tả hành động hoặc cảm xúc bột phát tự nhiên không thể kìm nén được ('không thể không cười / không kìm được tiếng cười'). 「わけにはいかない」sai vì biểu thị việc không thể làm gì do trách nhiệm hoặc chuẩn mực xã hội. 「てならない」sai vì kết hợp với thể て để chỉ cảm xúc (dạng đúng là 笑えてならない chứ không đi sau gốc 笑わ). 「ではあるまいし」sai vì đi sau danh từ với nghĩa 'đâu phải là...'.",
+              "glosses": [
+                {
+                  "t": "コメディアン",
+                  "read": "",
+                  "vi": "diễn viên hài"
+                },
+                {
+                  "t": "独特",
+                  "read": "どくとく",
+                  "vi": "độc đáo, kỳ lạ"
+                },
+                {
+                  "t": "動き",
+                  "read": "うごき",
+                  "vi": "cử động, điệu bộ"
+                },
+                {
+                  "t": "思わず",
+                  "read": "おもわず",
+                  "vi": "bất giác, không kìm được"
+                }
+              ]
+            },
+            {
+              "stem": "明日は絶対に遅刻できない重要な会議があるので、今夜はお酒を飲む＿。",
+              "choices": [
+                "たびに",
+                "にすれば",
+                "ずにはいられない",
+                "わけにはいかない"
+              ],
+              "answer": 3,
+              "pt": "～わけにはいかない",
+              "explain": "「わけにはいかない」đi sau động từ thể từ điển để biểu thị ý 'không thể làm điều đó được' do ràng buộc trách nhiệm, xã hội hoặc lý do tình thế ('không thể uống rượu được vì mai có cuộc họp quan trọng'). 「たびに」sai vì có nghĩa là 'mỗi lần...'. 「にすれば」sai vì biểu thị góc nhìn của người khác ('đứng ở góc độ...'). 「ずにはいられない」sai vì mang nghĩa 'không kìm được mà làm...', trái ngược hoàn toàn với ý tự kiềm chế trong câu.",
+              "glosses": [
+                {
+                  "t": "絶対",
+                  "read": "ぜったい",
+                  "vi": "tuyệt đối"
+                },
+                {
+                  "t": "遅刻",
+                  "read": "ちこく",
+                  "vi": "đi muộn"
+                },
+                {
+                  "t": "重要",
+                  "read": "じゅうよう",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "今夜",
+                  "read": "こんや",
+                  "vi": "tối nay"
+                },
+                {
+                  "t": "お酒",
+                  "read": "おさけ",
+                  "vi": "rượu"
+                }
+              ]
+            },
+            {
+              "stem": "この古いアルバムを開く＿、学生時代の楽しかった思い出が鮮やかによみがえる。",
+              "choices": [
+                "たびに",
+                "に限り",
+                "ではあるまいし",
+                "にしたら"
+              ],
+              "answer": 0,
+              "pt": "～たびに",
+              "explain": "「たびに」đi sau động từ thể từ điển hoặc danh từ + の để diễn tả ý 'mỗi lần làm V thì lại luôn xảy ra kết quả tương tự' ('cứ mỗi lần mở cuốn album này là kỷ niệm xưa lại ùa về'). 「に限り」sai vì có nghĩa là 'chỉ trong trường hợp, chỉ riêng...'. 「ではあるまいし」sai vì có nghĩa là 'đâu phải là... mà'. 「にしたら」sai vì có nghĩa là 'nếu đứng trên lập trường của...'.",
+              "glosses": [
+                {
+                  "t": "古い",
+                  "read": "ふるい",
+                  "vi": "cũ"
+                },
+                {
+                  "t": "アルバム",
+                  "read": "",
+                  "vi": "album ảnh"
+                },
+                {
+                  "t": "開く",
+                  "read": "ひらく",
+                  "vi": "mở ra"
+                },
+                {
+                  "t": "学生時代",
+                  "read": "がくせいじだい",
+                  "vi": "thời học sinh, sinh viên"
+                },
+                {
+                  "t": "思い出",
+                  "read": "おもいで",
+                  "vi": "kỷ niệm"
+                },
+                {
+                  "t": "鮮やか",
+                  "read": "あざやか",
+                  "vi": "rõ nét, sống động"
+                }
+              ]
+            },
+            {
+              "stem": "当店オープン記念として、本日ご来店されたお客様＿、全品を半額でご提供いたします。",
+              "choices": [
+                "ではあるまいし",
+                "に限り",
+                "にすれば",
+                "てならない"
+              ],
+              "answer": 1,
+              "pt": "～に限り",
+              "explain": "「に限り」đi sau danh từ để biểu thị sự giới hạn đặc biệt trong văn phong trang trọng, thông báo quy định ('chỉ riêng những khách hàng đến quán ngày hôm nay...'). 「ではあるまいし」sai vì có nghĩa là 'đâu phải là... mà', dùng để phê phán. 「にすれば」sai vì có nghĩa là 'đứng từ góc nhìn của...'. 「てならない」sai vì diễn tả cảm xúc trào dâng không kìm được.",
+              "glosses": [
+                {
+                  "t": "当店",
+                  "read": "とうてん",
+                  "vi": "cửa hàng này"
+                },
+                {
+                  "t": "オープン",
+                  "read": "",
+                  "vi": "khai trương, mở cửa"
+                },
+                {
+                  "t": "記念",
+                  "read": "きねん",
+                  "vi": "kỷ niệm"
+                },
+                {
+                  "t": "本日",
+                  "read": "ほんじつ",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "来店",
+                  "read": "らいてん",
+                  "vi": "đến quán, đến cửa hàng"
+                },
+                {
+                  "t": "お客様",
+                  "read": "おきゃくさま",
+                  "vi": "quý khách"
+                },
+                {
+                  "t": "全品",
+                  "read": "ぜんぴん",
+                  "vi": "tất cả sản phẩm"
+                },
+                {
+                  "t": "半額",
+                  "read": "はんがく",
+                  "vi": "nửa giá"
+                },
+                {
+                  "t": "提供",
+                  "read": "ていきょう",
+                  "vi": "cung cấp, phục vụ"
+                }
+              ]
+            },
+            {
+              "stem": "一度の失敗で人生が終わるわけ＿、そんなに落ち込まないで前を向きなさい。",
+              "choices": [
+                "にしたら",
+                "ずにはいられない",
+                "ではあるまいし",
+                "たびに"
+              ],
+              "answer": 2,
+              "pt": "～ではあるまいし",
+              "explain": "「ではあるまいし」kết hợp với cụm danh từ 'わけ' để nhấn mạnh 'đâu phải là cuộc đời sẽ chấm dứt sau một lần thất bại đâu mà', dùng để khuyên nhủ, động viên đối phương không nên bi quan quá mức. 「にしたら」sai vì dùng để biểu thị lập trường của một người ('đứng ở vị trí của...'). 「ずにはいられない」sai vì có nghĩa là 'không kìm được mà làm...'. 「たびに」sai vì có nghĩa là 'mỗi lần... lại...'.",
+              "glosses": [
+                {
+                  "t": "一度",
+                  "read": "いちど",
+                  "vi": "một lần"
+                },
+                {
+                  "t": "失敗",
+                  "read": "しっぱい",
+                  "vi": "thất bại"
+                },
+                {
+                  "t": "人生",
+                  "read": "じんせい",
+                  "vi": "cuộc đời, nhân sinh"
+                },
+                {
+                  "t": "落ち込まないで",
+                  "read": "おちこまないで",
+                  "vi": "đừng nản lòng, đừng suy sụp"
+                }
+              ]
+            },
+            {
+              "stem": "教師＿毎年のことかもしれないが、生徒たちにとっては一生に一度きりの大切な卒業式だ。",
+              "choices": [
+                "にしたら",
+                "てならない",
+                "に限り",
+                "わけにはいかない"
+              ],
+              "answer": 0,
+              "pt": "～にしたら",
+              "explain": "「にしたら」dùng sau danh từ chỉ người (教師) để biểu thị góc nhìn hoặc lập trường ('đối với giáo viên thì có thể là việc lặp lại hàng năm, nhưng...'). 「てならない」sai vì diễn tả cảm xúc tự nhiên không kìm nén được. 「に限り」sai vì diễn tả sự giới hạn đối tượng trong quy định ('chỉ riêng...'). 「わけにはいかない」sai vì có nghĩa là 'không thể... vì lý do đạo đức/xã hội'.",
+              "glosses": [
+                {
+                  "t": "教師",
+                  "read": "きょうし",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "毎年",
+                  "read": "まいとし",
+                  "vi": "hàng năm"
+                },
+                {
+                  "t": "生徒",
+                  "read": "せいと",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "一生",
+                  "read": "いっしょう",
+                  "vi": "cả đời"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "卒業式",
+                  "read": "そつぎょうしき",
+                  "vi": "lễ tốt nghiệp"
+                }
+              ]
+            },
+            {
+              "stem": "親の都合で引っ越しを繰り返すのは、子供＿大きなストレスになるはずだ。",
+              "choices": [
+                "ではあるまいし",
+                "に限り",
+                "にすれば",
+                "たびに"
+              ],
+              "answer": 2,
+              "pt": "～にすれば",
+              "explain": "「にすれば」dùng sau danh từ chỉ đối tượng (子供) để xem xét vấn đề từ vị trí hoặc tâm trạng của đối tượng đó ('nếu đứng ở vị trí của trẻ con thì chắc chắn là áp lực rất lớn'). 「ではあるまいし」sai vì có nghĩa là 'đâu phải là... mà'. 「に限り」sai vì có nghĩa là 'chỉ riêng...'. 「たびに」sai vì có nghĩa là 'mỗi lần...'.",
+              "glosses": [
+                {
+                  "t": "都合",
+                  "read": "つごう",
+                  "vi": "hoàn cảnh, lý do riêng"
+                },
+                {
+                  "t": "引っ越し",
+                  "read": "ひっこし",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "繰り返す",
+                  "read": "くりかえす",
+                  "vi": "lặp đi lặp lại"
+                },
+                {
+                  "t": "子供",
+                  "read": "こども",
+                  "vi": "trẻ con"
+                },
+                {
+                  "t": "ストレス",
+                  "read": "",
+                  "vi": "áp lực, căng thẳng"
+                }
+              ]
+            },
+            {
+              "stem": "長年可愛がっていたペットが亡くなり、悲しくて寂しく＿。",
+              "choices": [
+                "てならない",
+                "にすれば",
+                "ずにはいられない",
+                "ではあるまいし"
+              ],
+              "answer": 0,
+              "pt": "～てならない",
+              "explain": "「てならない」kết hợp với tính từ ở dạng thể て (寂しくて -> 寂しくてならない) để diễn tả cảm xúc đau buồn, trống vắng trào dâng tự nhiên và mãnh liệt không thể kìm nén được ('cảm thấy vô cùng cô đơn, buồn bã'). 「にすれば」sai vì biểu thị góc nhìn của người khác. 「ずにはいられない」sai vì diễn tả sự thôi thúc phải thực hiện một hành động cụ thể ('không thể không làm...'). 「ではあるまいし」sai vì mang nghĩa 'đâu phải là... mà'.",
+              "glosses": [
+                {
+                  "t": "長年",
+                  "read": "ながねん",
+                  "vi": "nhiều năm"
+                },
+                {
+                  "t": "可愛がっていた",
+                  "read": "かわいがっていた",
+                  "vi": "yêu thương, cưng chiều"
+                },
+                {
+                  "t": "ペット",
+                  "read": "",
+                  "vi": "thú cưng"
+                },
+                {
+                  "t": "亡くなり",
+                  "read": "なくなり",
+                  "vi": "qua đời, mất đi"
+                },
+                {
+                  "t": "悲しくて",
+                  "read": "かなしくて",
+                  "vi": "đau buồn"
+                }
+              ]
+            },
+            {
+              "stem": "困っているお年寄りを目の前にしたら、手を差し伸べ＿。",
+              "choices": [
+                "わけにはいかない",
+                "たびに",
+                "ずにはいられない",
+                "にしたら"
+              ],
+              "answer": 2,
+              "pt": "～ずにはいられない",
+              "explain": "「ずにはいられない」đi sau động từ thể ない (bỏ ない: 差し伸べず) để diễn tả sự thôi thúc mãnh liệt từ lương tâm, cảm thấy không thể ngồi yên mà nhất định phải giúp đỡ ('không thể không đưa tay ra giúp đỡ'). 「わけにはいかない」sai vì biểu thị việc không được phép hoặc không thể làm điều gì do nghĩa vụ/đạo đức. 「たびに」sai vì có nghĩa là 'mỗi lần...'. 「にしたら」sai vì có nghĩa là 'nếu đứng trên lập trường của...'.",
+              "glosses": [
+                {
+                  "t": "困っている",
+                  "read": "こまっている",
+                  "vi": "đang gặp khó khăn"
+                },
+                {
+                  "t": "お年寄り",
+                  "read": "おとしより",
+                  "vi": "người cao tuổi"
+                },
+                {
+                  "t": "目の前",
+                  "read": "めのまえ",
+                  "vi": "trước mắt"
+                }
+              ]
+            },
+            {
+              "stem": "チームのリーダーを任された以上、途中で投げ出す＿。",
+              "choices": [
+                "ではあるまいし",
+                "わけにはいかない",
+                "てならない",
+                "に限り"
+              ],
+              "answer": 1,
+              "pt": "～わけにはいかない",
+              "explain": "「わけにはいかない」đi sau động từ thể từ điển (投げ出す) để biểu đạt việc không thể hoặc không được phép làm điều gì vì trách nhiệm, bổn phận ('đã được giao làm đội trưởng thì không thể bỏ dở giữa chừng được'). 「ではあるまいし」sai vì có nghĩa là 'đâu phải là... mà'. 「てならない」sai vì diễn tả cảm xúc tự nhiên bột phát. 「に限り」sai vì dùng để giới hạn đối tượng trong quy định.",
+              "glosses": [
+                {
+                  "t": "リーダー",
+                  "read": "",
+                  "vi": "người lãnh đạo, đội trưởng"
+                },
+                {
+                  "t": "任された",
+                  "read": "まかされた",
+                  "vi": "được giao phó"
+                },
+                {
+                  "t": "以上",
+                  "read": "いじょう",
+                  "vi": "một khi đã..."
+                },
+                {
+                  "t": "途中",
+                  "read": "とちゅう",
+                  "vi": "giữa chừng"
+                },
+                {
+                  "t": "投げ出す",
+                  "read": "なげだす",
+                  "vi": "vứt bỏ, từ bỏ giữa chừng"
+                }
+              ]
+            },
+            {
+              "stem": "実家に帰省する＿、近所の風景が少しずつ変わっていることに気づく。",
+              "choices": [
+                "にすれば",
+                "ずにはいられない",
+                "ではあるまいし",
+                "たびに"
+              ],
+              "answer": 3,
+              "pt": "～たびに",
+              "explain": "「たびに」đi sau động từ thể từ điển (帰省する) để diễn tả ý 'mỗi lần về quê là mỗi lần lại nhận ra phong cảnh quanh xóm đang dần thay đổi'. 「にすれば」sai vì có nghĩa là 'nếu đứng từ góc độ của...'. 「ずにはいられない」sai vì có nghĩa là 'không kìm được mà làm...'. 「ではあるまいし」sai vì có nghĩa là 'đâu phải là... mà'.",
+              "glosses": [
+                {
+                  "t": "実家",
+                  "read": "じっか",
+                  "vi": "nhà bố mẹ đẻ, nhà ở quê"
+                },
+                {
+                  "t": "帰省",
+                  "read": "きせい",
+                  "vi": "về quê"
+                },
+                {
+                  "t": "近所",
+                  "read": "きんじょ",
+                  "vi": "hàng xóm, khu vực lân cận"
+                },
+                {
+                  "t": "風景",
+                  "read": "ふうけい",
+                  "vi": "phong cảnh"
+                },
+                {
+                  "t": "気づく",
+                  "read": "きづく",
+                  "vi": "nhận ra"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "",
+                "、自分の部屋くらい自分で片づけなさい。"
+              ],
+              "pieces": [
+                "散らかしたまま",
+                "子ども",
+                "にしておかないで",
+                "ではあるまいし"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "～ではあるまいし",
+              "explain": "Câu hoàn chỉnh:「子どもではあるまいし散らかしたままにしておかないで、自分の部屋くらい自分で片づけなさい。」(Đâu phải con nít nữa đâu mà bày bừa ra đó rồi không dọn, phòng của mình thì tự mà dọn đi chứ). Ngữ pháp「N＋ではあるまいし」(Đâu phải là N đâu mà...) đi liền sau danh từ「子ども」tạo thành cụm「子どもではあるまいし」. Tiếp theo là hành động bị khiển trách「散らかしたままにしておかないで」(đừng để nguyên tình trạng bừa bãi như thế). Do đó thứ tự đúng là 1 -> 3 -> 0 -> 2. Vị trí ★ (slot 2, vị trí thứ 3) là mảnh số 0 (散らかしたまま).",
+              "glosses": [
+                {
+                  "t": "自分",
+                  "read": "じぶん",
+                  "vi": "bản thân, tự mình"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "片づけなさい",
+                  "read": "かたづけなさい",
+                  "vi": "hãy dọn dẹp"
+                },
+                {
+                  "t": "散らかしたまま",
+                  "read": "ちらかしたまま",
+                  "vi": "để bừa bãi"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ con"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "プロの",
+                "味を求めるのは無理がある。"
+              ],
+              "pieces": [
+                "そこまで完璧な",
+                "ではあるまいし",
+                "料理人",
+                "家庭料理に"
+              ],
+              "order": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "starSlot": 1,
+              "pt": "～ではあるまいし",
+              "explain": "Câu hoàn chỉnh:「プロの料理人ではあるまいし家庭料理にそこまで完璧な味を求めるのは無理がある。」(Có phải đầu bếp chuyên nghiệp đâu mà đòi hỏi hương vị hoàn hảo đến mức ấy ở bữa cơm gia đình, quá vô lý). Sau「プロの」phải là danh từ chỉ người「料理人」, kết hợp mẫu「～ではあるまいし」thành「プロの料理人ではあるまいし」. Tiếp theo là tân ngữ「家庭料理に」bổ nghĩa cho việc đòi hỏi「そこまで完璧な味を求める」. Thứ tự ghép là 2 -> 1 -> 3 -> 0. Vị trí ★ (slot 1) là mảnh số 1 (ではあるまいし).",
+              "glosses": [
+                {
+                  "t": "プロ",
+                  "read": "",
+                  "vi": "chuyên nghiệp"
+                },
+                {
+                  "t": "味",
+                  "read": "あじ",
+                  "vi": "hương vị"
+                },
+                {
+                  "t": "求める",
+                  "read": "もとめる",
+                  "vi": "đòi hỏi, yêu cầu"
+                },
+                {
+                  "t": "無理",
+                  "read": "むり",
+                  "vi": "vô lý, quá sức"
+                },
+                {
+                  "t": "そこまで",
+                  "read": "",
+                  "vi": "đến mức đó"
+                },
+                {
+                  "t": "完璧な",
+                  "read": "かんぺきな",
+                  "vi": "hoàn hảo"
+                },
+                {
+                  "t": "料理人",
+                  "read": "りょうりにん",
+                  "vi": "đầu bếp"
+                },
+                {
+                  "t": "家庭料理",
+                  "read": "かていりょうり",
+                  "vi": "món ăn gia đình"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "親",
+                "プレッシャーに感じられる。"
+              ],
+              "pieces": [
+                "心配しての助言なのだろうが",
+                "にしたら",
+                "本人には",
+                "子どもの将来を"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "～にしたら",
+              "explain": "Câu hoàn chỉnh:「親にしたら子どもの将来を心配しての助言なのだろうが本人にはプレッシャーに感じられる。」(Nếu đứng từ góc nhìn của cha mẹ thì hẳn là lời khuyên vì lo cho tương lai con cái, nhưng đối với bản thân đứa trẻ thì lại thấy đó là áp lực). Cấu trúc「N＋にしたら」(nếu đứng từ lập trường/góc nhìn của N) đi với danh từ「親」thành「親にしたら」. Vế đối lập là「本人には」ở cuối để nối vào vị ngữ「プレッシャーに感じられる」. Thứ tự đúng là 1 -> 3 -> 0 -> 2. Vị trí ★ (slot 2) là mảnh số 0 (心配しての助言なのだろうが).",
+              "glosses": [
+                {
+                  "t": "親",
+                  "read": "おや",
+                  "vi": "cha mẹ"
+                },
+                {
+                  "t": "プレッシャー",
+                  "read": "",
+                  "vi": "áp lực"
+                },
+                {
+                  "t": "感じられる",
+                  "read": "かんじられる",
+                  "vi": "cảm thấy"
+                },
+                {
+                  "t": "心配して",
+                  "read": "しんぱいして",
+                  "vi": "lo lắng"
+                },
+                {
+                  "t": "助言",
+                  "read": "じょげん",
+                  "vi": "lời khuyên"
+                },
+                {
+                  "t": "本人",
+                  "read": "ほんにん",
+                  "vi": "bản thân người đó"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "con cái"
+                },
+                {
+                  "t": "将来",
+                  "read": "しょうらい",
+                  "vi": "tương lai"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "被害者",
+                "時間は戻ってこない。"
+              ],
+              "pieces": [
+                "いくら犯人が",
+                "失われた",
+                "側にしたら",
+                "謝罪したところで"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "～にしたら",
+              "explain": "Câu hoàn chỉnh:「被害者側にしたらいくら犯人が謝罪したところで失われた時間は戻ってこない。」(Nếu đứng ở góc độ phía nạn nhân thì dù thủ phạm có tạ lỗi đến mức nào đi nữa, khoảng thời gian đã mất cũng chẳng thể quay lại).「被害者側」ghép với「にしたら」(biến thể「～側にしたら」), sau đó là liên từ giả thiết điều kiện nghịch「いくら～たところで」(dù có... đi nữa) ->「いくら犯人が謝罪したところで」, rồi bổ nghĩa cho danh từ「時間」ở frame[1] bằng động từ「失われた」. Thứ tự: 2 -> 0 -> 3 -> 1. Vị trí ★ (slot 3) là mảnh số 1 (失われた).",
+              "glosses": [
+                {
+                  "t": "被害者",
+                  "read": "ひがいしゃ",
+                  "vi": "nạn nhân, người bị hại"
+                },
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian"
+                },
+                {
+                  "t": "戻ってこない",
+                  "read": "もどってこない",
+                  "vi": "không quay trở lại"
+                },
+                {
+                  "t": "いくら",
+                  "read": "",
+                  "vi": "dù có... bao nhiêu"
+                },
+                {
+                  "t": "犯人",
+                  "read": "はんにん",
+                  "vi": "thủ phạm, hung thủ"
+                },
+                {
+                  "t": "失われた",
+                  "read": "うしなわれた",
+                  "vi": "đã bị mất đi"
+                },
+                {
+                  "t": "側",
+                  "read": "がわ",
+                  "vi": "phía, bên"
+                },
+                {
+                  "t": "謝罪",
+                  "read": "しゃざい",
+                  "vi": "tạ lỗi, xin lỗi"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "経営陣",
+                "方針転換だ。"
+              ],
+              "pieces": [
+                "社員にとっては",
+                "受け入れがたい",
+                "にすれば",
+                "苦渋の決断だったとしても"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "～にすれば",
+              "explain": "Câu hoàn chỉnh:「経営陣にすれば苦渋の決断だったとしても社員にとっては受け入れがたい方針転換だ。」(Từ góc nhìn của ban điều hành thì dẫu là một quyết định đầy đau đớn khó khăn, nhưng đối với nhân viên thì đây là sự chuyển hướng chính sách khó lòng chấp nhận).「N＋にすれば」(đối với/từ góc độ N) kết hợp sau「経営陣」. Cụm「苦渋の決断だったとしても」đưa ra góc nhìn của ban lãnh đạo, đối chiếu với lập trường nhân viên「社員にとっては」và tính từ bổ nghĩa「受け入れがたい方針転換だ」. Thứ tự: 2 -> 3 -> 0 -> 1. Vị trí ★ (slot 2) là mảnh số 0 (社員にとっては).",
+              "glosses": [
+                {
+                  "t": "経営陣",
+                  "read": "けいえいじん",
+                  "vi": "ban điều hành, ban giám đốc"
+                },
+                {
+                  "t": "方針転換",
+                  "read": "ほうしんてんかん",
+                  "vi": "chuyển hướng đường lối/chính sách"
+                },
+                {
+                  "t": "社員",
+                  "read": "しゃいん",
+                  "vi": "nhân viên"
+                },
+                {
+                  "t": "受け入れがたい",
+                  "read": "うけいれがたい",
+                  "vi": "khó chấp nhận"
+                },
+                {
+                  "t": "苦渋",
+                  "read": "くじゅう",
+                  "vi": "đau đớn, khó xử"
+                },
+                {
+                  "t": "決断",
+                  "read": "けつだん",
+                  "vi": "quyết định dứt khoát"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生",
+                "深く心に残る言葉となった。"
+              ],
+              "pieces": [
+                "その生徒には",
+                "何気ない一言",
+                "だったとしても",
+                "にすれば"
+              ],
+              "order": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "starSlot": 1,
+              "pt": "～にすれば",
+              "explain": "Câu hoàn chỉnh:「先生にすれば何気ない一言だったとしてもその生徒には深く心に残る言葉となった。」(Đối với người thầy dẫu có là một lời nói bâng quơ vô tình, nhưng với người học trò ấy nó đã trở thành lời nói khắc sâu trong tim).「先生」kết hợp「にすれば」thành「先生にすれば」. Sau đó bổ nghĩa「何気ない一言だったとしても」, tiếp nối bằng đối tượng cảm nhận「その生徒には」trước khi vào frame[1]. Thứ tự sắp xếp là 3 -> 1 -> 2 -> 0. Vị trí ★ (slot 1) là mảnh số 1 (何気ない一言).",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy cô"
+                },
+                {
+                  "t": "深く",
+                  "read": "ふかく",
+                  "vi": "sâu sắc"
+                },
+                {
+                  "t": "心",
+                  "read": "こころ",
+                  "vi": "tâm trí, tấm lòng"
+                },
+                {
+                  "t": "残る",
+                  "read": "のこる",
+                  "vi": "đọng lại, khắc sâu"
+                },
+                {
+                  "t": "言葉",
+                  "read": "ことば",
+                  "vi": "lời nói, từ ngữ"
+                },
+                {
+                  "t": "生徒",
+                  "read": "せいと",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "何気ない",
+                  "read": "なにげない",
+                  "vi": "vô tình, không chủ ý"
+                },
+                {
+                  "t": "一言",
+                  "read": "ひとこと",
+                  "vi": "một lời"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "今回のコンクールで",
+                "。"
+              ],
+              "pieces": [
+                "悔やまれて",
+                "優勝を",
+                "逃してしまったことが",
+                "ならない"
+              ],
+              "order": [
+                1,
+                2,
+                0,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "～てならない",
+              "explain": "Câu hoàn chỉnh:「今回のコンクールで優勝を逃してしまったことが悔やまれてならない。」(Việc để tuột mất chức vô địch trong cuộc thi lần này khiến tôi tiếc nuối khôn nguôi). Cụm tân ngữ - động từ「優勝を逃してしまったことが」làm chủ ngữ cho cảm xúc. Mẫu ngữ pháp chỉ cảm xúc bột phát tự nhiên không kìm nén được「～てならない」đi với thể Te của tha/tự động từ cảm xúc:「悔やまれて＋ならない」. Thứ tự đúng là 1 -> 2 -> 0 -> 3. Vị trí ★ (slot 2) là mảnh số 0 (悔やまれて).",
+              "glosses": [
+                {
+                  "t": "今回",
+                  "read": "こんかい",
+                  "vi": "lần này"
+                },
+                {
+                  "t": "コンクール",
+                  "read": "",
+                  "vi": "cuộc thi"
+                },
+                {
+                  "t": "悔やまれて",
+                  "read": "くやまれて",
+                  "vi": "tiếc nuối, hối tiếc"
+                },
+                {
+                  "t": "優勝",
+                  "read": "ゆうしょう",
+                  "vi": "vô địch, quán quân"
+                },
+                {
+                  "t": "逃してしまった",
+                  "read": "のがしてしまった",
+                  "vi": "đã bỏ lỡ, tuột mất"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "あの二人が急に",
+                "ならない。"
+              ],
+              "pieces": [
+                "あるのではないかと",
+                "思えて",
+                "結婚すると聞いて",
+                "何か裏が"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "～てならない",
+              "explain": "Câu hoàn chỉnh:「あの二人が急に結婚すると聞いて何か裏があるのではないかと思えてならない。」(Khi nghe tin hai người đó đột nhiên kết hôn, tôi cứ có cảm giác không kìm được là ắt hẳn có ẩn khuất gì đó phía sau). Nối mạch nguyên nhân:「あの二人が急に結婚すると聞いて」. Tiếp theo là nội dung suy đoán:「何か裏があるのではないかと」, rồi đi vào động từ nhận thức tự phát「思えて」kết hợp với「ならない」tạo thành cấu trúc「～と思えてならない」(cứ cảm thấy/nghĩ rằng...). Thứ tự: 2 -> 3 -> 0 -> 1. Vị trí ★ (slot 3) là mảnh số 1 (思えて).",
+              "glosses": [
+                {
+                  "t": "二人",
+                  "read": "ふたり",
+                  "vi": "hai người"
+                },
+                {
+                  "t": "急に",
+                  "read": "きゅうに",
+                  "vi": "đột nhiên"
+                },
+                {
+                  "t": "思えて",
+                  "read": "おもえて",
+                  "vi": "cảm thấy, nghĩ rằng"
+                },
+                {
+                  "t": "結婚",
+                  "read": "けっこん",
+                  "vi": "kết hôn"
+                },
+                {
+                  "t": "聞いて",
+                  "read": "きいて",
+                  "vi": "nghe (nói)"
+                },
+                {
+                  "t": "何か",
+                  "read": "なにか",
+                  "vi": "có điều gì đó"
+                },
+                {
+                  "t": "裏",
+                  "read": "うら",
+                  "vi": "ẩn khuất, mặt trái"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "彼のあまりに",
+                "いられなかった。"
+              ],
+              "pieces": [
+                "周囲の人は",
+                "皆笑わずに",
+                "滑稽な失敗談を聞いて",
+                "は"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "～ずにはいられない",
+              "explain": "Câu hoàn chỉnh:「彼のあまりに滑稽な失敗談を聞いて周囲の人は皆笑わずにはいられなかった。」(Nghe câu chuyện thất bại quá đỗi buồn cười của anh ấy, những người xung quanh ai nấy đều không thể nhịn cười được). Cụm tính từ - danh từ「あまりに滑稽な失敗談を聞いて」ở vị trí đầu. Tiếp đến là chủ ngữ「周囲の人は」. Cuối cùng ghép thành ngữ pháp「V-ずにはいられない」(không thể không / không kìm được làm V):「皆笑わずに」+「は」+ frame[1]「いられなかった。」. Thứ tự: 2 -> 0 -> 1 -> 3. Vị trí ★ (slot 2) là mảnh số 1 (皆笑わずに).",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "あまりに",
+                  "read": "",
+                  "vi": "quá đỗi, quá mức"
+                },
+                {
+                  "t": "周囲",
+                  "read": "しゅうい",
+                  "vi": "xung quanh"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "皆",
+                  "read": "みんな",
+                  "vi": "mọi người, tất cả"
+                },
+                {
+                  "t": "笑わずに",
+                  "read": "わらわずに",
+                  "vi": "không cười"
+                },
+                {
+                  "t": "滑稽な",
+                  "read": "こっけいな",
+                  "vi": "buồn cười, khôi hài"
+                },
+                {
+                  "t": "失敗談",
+                  "read": "しっぱいだん",
+                  "vi": "câu chuyện thất bại"
+                },
+                {
+                  "t": "聞いて",
+                  "read": "きいて",
+                  "vi": "nghe"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "テレビで被災地の",
+                "いられなくなった。"
+              ],
+              "pieces": [
+                "できる支援を",
+                "厳しい現状を見て",
+                "せずには",
+                "何か自分に"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "～ずにはいられない",
+              "explain": "Câu hoàn chỉnh:「テレビで被災地の厳しい現状を見て何か自分にできる支援をせずにはいられなくなった。」(Xem hiện trạng khắc nghiệt của vùng chịu thiên tai trên tivi, tôi không thể kìm lòng mà muốn làm một sự hỗ trợ nào đó trong khả năng của bản thân). Frame[0]「テレビで被災地の」nối với danh từ「厳しい現状を見て」. Tiếp theo là mục tiêu hành động:「何か自分にできる支援を」, kết hợp đuôi ngữ pháp「せずには」+ frame[1]「いられなくなった。」(mẫu する -> せずにはいられない). Thứ tự: 1 -> 3 -> 0 -> 2. Vị trí ★ (slot 3) là mảnh số 2 (せずには).",
+              "glosses": [
+                {
+                  "t": "テレビ",
+                  "read": "",
+                  "vi": "tivi"
+                },
+                {
+                  "t": "被災地",
+                  "read": "ひさいち",
+                  "vi": "vùng bị thiên tai"
+                },
+                {
+                  "t": "できる",
+                  "read": "",
+                  "vi": "có thể làm được"
+                },
+                {
+                  "t": "支援",
+                  "read": "しえん",
+                  "vi": "hỗ trợ, chi viện"
+                },
+                {
+                  "t": "厳しい",
+                  "read": "きびしい",
+                  "vi": "khắc nghiệt, gay gắt"
+                },
+                {
+                  "t": "現状",
+                  "read": "げんじょう",
+                  "vi": "hiện trạng"
+                },
+                {
+                  "t": "見て",
+                  "read": "みて",
+                  "vi": "chứng kiến, nhìn thấy"
+                },
+                {
+                  "t": "何か",
+                  "read": "なにか",
+                  "vi": "điều gì đó"
+                },
+                {
+                  "t": "自分",
+                  "read": "じぶん",
+                  "vi": "bản thân"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "明日は大事な",
+                "いかない。"
+              ],
+              "pieces": [
+                "夜更かしする",
+                "あるので",
+                "最終面接が",
+                "わけには"
+              ],
+              "order": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "～わけにはいかない",
+              "explain": "Câu hoàn chỉnh:「明日は大事な最終面接があるので夜更かしするわけにはいかない。」(Vì ngày mai có buổi phỏng vấn vòng cuối rất quan trọng nên tối nay không thể thức khuya được).「明日は大事な」bổ nghĩa cho「最終面接が」->「最終面接があるので」(vế lý do). Vế sau là hành vi bị kiềm chế do lý do xã hội/tình thế:「夜更かしする」+「わけには」+ frame[1]「いかない。」(mẫu V-ru + わけにはいかない: không thể làm V vì lý do đạo đức/hoàn cảnh). Thứ tự: 2 -> 1 -> 0 -> 3. Vị trí ★ (slot 2) là mảnh số 0 (夜更かしする).",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "大事な",
+                  "read": "だいじな",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "夜更かし",
+                  "read": "よふかし",
+                  "vi": "thức khuya"
+                },
+                {
+                  "t": "最終面接",
+                  "read": "さいしゅうめんせつ",
+                  "vi": "phỏng vấn vòng cuối"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "チームリーダーとして",
+                "いかない。"
+              ],
+              "pieces": [
+                "わけには",
+                "任された以上",
+                "どんなに困難でも",
+                "途中で投げ出す"
+              ],
+              "order": [
+                1,
+                2,
+                3,
+                0
+              ],
+              "starSlot": 0,
+              "pt": "～わけにはいかない",
+              "explain": "Câu hoàn chỉnh:「チームリーダーとして任された以上どんなに困難でも途中で投げ出すわけにはいかない。」(Một khi đã được giao phó trách nhiệm làm trưởng nhóm thì dẫu có khó khăn đến đâu cũng không thể bỏ dở giữa chừng được). Cụm「任された以上」(một khi đã được giao) đi sau danh từ tư cách「チームリーダーとして」. Tiếp theo là trạng thái điều kiện nhượng bộ「どんなに困難でも」, rồi đến động từ「途中で投げ出す」và trợ từ「わけには」trước frame[1]「いかない。」. Thứ tự: 1 -> 2 -> 3 -> 0. Vị trí ★ (slot 0, vị trí đầu tiên) là mảnh số 1 (任された以上).",
+              "glosses": [
+                {
+                  "t": "チームリーダー",
+                  "read": "",
+                  "vi": "trưởng nhóm"
+                },
+                {
+                  "t": "任された",
+                  "read": "まかされた",
+                  "vi": "được giao phó"
+                },
+                {
+                  "t": "どんなに",
+                  "read": "",
+                  "vi": "dù... đến mức nào"
+                },
+                {
+                  "t": "困難",
+                  "read": "こんなん",
+                  "vi": "khó khăn"
+                },
+                {
+                  "t": "途中",
+                  "read": "とちゅう",
+                  "vi": "giữa chừng"
+                },
+                {
+                  "t": "投げ出す",
+                  "read": "なげだす",
+                  "vi": "từ bỏ, vứt bỏ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この",
+                "鮮やかによみがえる。"
+              ],
+              "pieces": [
+                "開くたびに",
+                "楽しかった思い出が",
+                "アルバムを",
+                "学生時代の"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 1,
+              "pt": "～たびに",
+              "explain": "Câu hoàn chỉnh:「このアルバムを開くたびに学生時代の楽しかった思い出が鮮やかによみがえる。」(Mỗi lần mở cuốn album này ra, những kỷ niệm tươi đẹp thời học sinh lại ùa về sống động trong tâm trí). Chỉ thị từ「この」bổ nghĩa cho danh từ「アルバムを」, kết hợp động từ và mẫu ngữ pháp「開くたびに」(mỗi khi/mỗi lần mở ra). Vế sau diễn tả sự việc luôn xảy ra:「学生時代の楽しかった思い出が」nối vào vị ngữ frame[1]「鮮やかによみがえる。」. Thứ tự: 2 -> 0 -> 3 -> 1. Vị trí ★ (slot 1) là mảnh số 0 (開くたびに).",
+              "glosses": [
+                {
+                  "t": "鮮やかに",
+                  "read": "あざやかに",
+                  "vi": "sống động, rõ nét"
+                },
+                {
+                  "t": "よみがえる",
+                  "read": "",
+                  "vi": "sống lại, ùa về"
+                },
+                {
+                  "t": "開く",
+                  "read": "ひらく",
+                  "vi": "mở"
+                },
+                {
+                  "t": "楽しかった",
+                  "read": "たのしかった",
+                  "vi": "vui vẻ"
+                },
+                {
+                  "t": "思い出",
+                  "read": "おもいで",
+                  "vi": "kỷ niệm"
+                },
+                {
+                  "t": "アルバム",
+                  "read": "",
+                  "vi": "cuốn album"
+                },
+                {
+                  "t": "学生時代",
+                  "read": "がくせいじだい",
+                  "vi": "thời học sinh, sinh viên"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "彼は",
+                "同僚たちにとても喜ばれている。"
+              ],
+              "pieces": [
+                "お土産を",
+                "出張に",
+                "買ってきてくれるので",
+                "行くたびに"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "～たびに",
+              "explain": "Câu hoàn chỉnh:「彼は出張に行くたびにお土産を買ってきてくれるので同僚たちにとても喜ばれている。」(Anh ấy cứ mỗi lần đi công tác lại mua quà về cho nên được các đồng nghiệp vô cùng quý mến). Chủ ngữ「彼は」đi với hành động lặp lại「出張に行くたびに」(mỗi lần đi công tác), theo sau là cụm tân ngữ - vị ngữ chỉ nguyên nhân「お土産を買ってきてくれるので」kết nối với vế sau. Thứ tự đúng là 1 -> 3 -> 0 -> 2. Vị trí ★ (slot 2) là mảnh số 0 (お土産を).",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "同僚",
+                  "read": "どうりょう",
+                  "vi": "đồng nghiệp"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "喜ばれている",
+                  "read": "よろこばれている",
+                  "vi": "được yêu quý, đón nhận vui vẻ"
+                },
+                {
+                  "t": "お土産",
+                  "read": "おみやげ",
+                  "vi": "quà lưu niệm"
+                },
+                {
+                  "t": "出張",
+                  "read": "しゅっちょう",
+                  "vi": "đi công tác"
+                },
+                {
+                  "t": "買ってきて",
+                  "read": "かってきて",
+                  "vi": "mua về"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "アンケートに",
+                "プレゼントいたします。"
+              ],
+              "pieces": [
+                "限り",
+                "特製グッズを",
+                "ご回答いただいた",
+                "方に"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "～に限り",
+              "explain": "Câu hoàn chỉnh:「アンケートにご回答いただいた方に限り特製グッズをプレゼントいたします。」(Chỉ những vị đã tham gia trả lời phiếu khảo sát mới được tặng phần quà đặc chế của chương trình). Cụm bổ nghĩa định ngữ「アンケートにご回答いただいた」bổ nghĩa cho danh từ chỉ người「方に」. Mẫu「N＋に限り」(chỉ riêng đối tượng N - văn phong trang trọng, thông báo) tạo thành「方に限り」, sau đó là tân ngữ「特製グッズを」trước vị ngữ frame[1]「プレゼントいたします。」. Thứ tự: 2 -> 3 -> 0 -> 1. Vị trí ★ (slot 2) là mảnh số 0 (限り).",
+              "glosses": [
+                {
+                  "t": "アンケート",
+                  "read": "",
+                  "vi": "phiếu khảo sát"
+                },
+                {
+                  "t": "プレゼント",
+                  "read": "",
+                  "vi": "quà tặng"
+                },
+                {
+                  "t": "限り",
+                  "read": "かぎり",
+                  "vi": "chỉ giới hạn trong"
+                },
+                {
+                  "t": "特製",
+                  "read": "とくせい",
+                  "vi": "đặc biệt chế tạo"
+                },
+                {
+                  "t": "グッズ",
+                  "read": "",
+                  "vi": "đồ dùng, quà tặng vật phẩm"
+                },
+                {
+                  "t": "ご回答",
+                  "read": "ごかいとう",
+                  "vi": "trả lời, phản hồi"
+                },
+                {
+                  "t": "方",
+                  "read": "かた",
+                  "vi": "người, quý vị"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "部下の佐藤さんは、今回の失敗を重く受け止めすぎて元気をなくしているようだ。指摘をした上司",
+                "、彼を成長させたい一心での助言だったのだろうが、本人には厳しい叱責に聞こえたのかもしれない。しかし、失敗を恐れて消極的になってしまっては、せっかくの成長の機会を逃すことになる。同じチームの先輩として、彼が早く立ち直って前を向いてくれることを",
+                "。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "にしたら",
+                    "にしては",
+                    "に限って",
+                    "に反して"
+                  ],
+                  "answer": 0,
+                  "explain": "「にしたら」 là đáp án chính xác vì mẫu ngữ pháp 「～にしたら」 diễn tả góc nhìn, lập trường của đối tượng được nhắc đến (\"nếu đứng trên lập trường/từ góc nhìn của người cấp trên đã nhắc nhở thì...\"). Các phương án khác không phù hợp về ngữ nghĩa: 「にしては」 diễn tả sự việc đi ngược lại so với tiêu chuẩn/mức độ thông thường, 「に限って」 mang nghĩa chỉ riêng ai đó hoặc đúng vào lúc không may, còn 「に反して」 biểu thị sự trái ngược với dự đoán hoặc mong đợi."
+                },
+                {
+                  "choices": [
+                    "願うわけにはいかない",
+                    "願ってならない",
+                    "願うほかない",
+                    "願うにすぎない"
+                  ],
+                  "answer": 1,
+                  "explain": "「願ってならない」 là đáp án chính xác vì mẫu ngữ pháp 「～てならない」 đi kèm với động từ/tính từ chỉ cảm xúc, nguyện vọng nội tâm để diễn tả cảm xúc tự nhiên trào dâng mãnh liệt không kìm nén được (\"rất mong mỏi / không khỏi cầu mong người đàn em sớm vực dậy\"). Các phương án khác không hợp mạch văn: 「願うわけにはいかない」 mang nghĩa không thể cầu mong vì rào cản tâm lý/xã hội, 「願うほかない」 mang nghĩa không còn cách nào khác ngoài cầu mong, còn 「願うにすぎない」 mang nghĩa chỉ đơn thuần là ước mong mà thôi."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "部下",
+                  "read": "ぶか",
+                  "vi": "cấp dưới"
+                },
+                {
+                  "t": "佐藤",
+                  "read": "さとう",
+                  "vi": "Sato (tên riêng)"
+                },
+                {
+                  "t": "今回",
+                  "read": "こんかい",
+                  "vi": "lần này"
+                },
+                {
+                  "t": "失敗",
+                  "read": "しっぱい",
+                  "vi": "thất bại, sai sót"
+                },
+                {
+                  "t": "重く",
+                  "read": "おもく",
+                  "vi": "nặng nề"
+                },
+                {
+                  "t": "受け止め",
+                  "read": "うけとめ",
+                  "vi": "tiếp nhận, đón nhận"
+                },
+                {
+                  "t": "指摘",
+                  "read": "してき",
+                  "vi": "chỉ ra, nhắc nhở"
+                },
+                {
+                  "t": "上司",
+                  "read": "じょうし",
+                  "vi": "cấp trên"
+                },
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "cậu ấy, anh ấy"
+                },
+                {
+                  "t": "成長",
+                  "read": "せいちょう",
+                  "vi": "trưởng thành, tiến bộ"
+                },
+                {
+                  "t": "一心",
+                  "read": "いっしん",
+                  "vi": "toàn tâm toàn ý, một lòng"
+                },
+                {
+                  "t": "助言",
+                  "read": "じょげん",
+                  "vi": "lời khuyên"
+                },
+                {
+                  "t": "本人",
+                  "read": "ほんにん",
+                  "vi": "bản thân người đó, đương sự"
+                },
+                {
+                  "t": "厳しい",
+                  "read": "きびしい",
+                  "vi": "nghiêm khắc, gay gắt"
+                },
+                {
+                  "t": "叱責",
+                  "read": "しっせき",
+                  "vi": "khiển trách, mắng mỏ"
+                },
+                {
+                  "t": "恐れて",
+                  "read": "おそれて",
+                  "vi": "lo sợ"
+                },
+                {
+                  "t": "消極的",
+                  "read": "しょうきょくてき",
+                  "vi": "tiêu cực, thụ động"
+                },
+                {
+                  "t": "せっかく",
+                  "read": "",
+                  "vi": "quý báu, cất công"
+                },
+                {
+                  "t": "機会",
+                  "read": "きかい",
+                  "vi": "cơ hội"
+                },
+                {
+                  "t": "逃す",
+                  "read": "のがす",
+                  "vi": "bỏ lỡ"
+                },
+                {
+                  "t": "同じ",
+                  "read": "おなじ",
+                  "vi": "cùng, giống"
+                },
+                {
+                  "t": "チーム",
+                  "read": "",
+                  "vi": "đội, nhóm"
+                },
+                {
+                  "t": "先輩",
+                  "read": "せんぱい",
+                  "vi": "tiền bối, người đi trước"
+                },
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "nhanh chóng, sớm"
+                },
+                {
+                  "t": "立ち直って",
+                  "read": "たちなおって",
+                  "vi": "vực dậy, hồi phục tinh thần"
+                },
+                {
+                  "t": "前を向いて",
+                  "read": "まえをむいて",
+                  "vi": "hướng về phía trước"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ.",
+          "items": [
+            {
+              "stem": "命を＿わけではあるまいし、失敗を恐れずに挑戦してみなさい。",
+              "choices": [
+                "取られる",
+                "取られて",
+                "取られろ",
+                "取られよう"
+              ],
+              "answer": 0,
+              "explain": "Cấu trúc 「～ではあるまいし」（ở dạng mở rộng 「～わけではあるまいし」）yêu cầu động từ đứng trước 「わけ」 phải chia ở thể thông thường (普通形). Trong các phương án, chỉ có 「取られる」 (thể từ điển bị động) là dạng thông thường phù hợp để bổ nghĩa cho danh từ 「わけ」, trong khi các dạng 「取られて」 (thể て), 「取られろ」 (thể mệnh lệnh) và 「取られよう」 (thể ý chí) không thể đi kèm trực tiếp với cấu trúc này.",
+              "glosses": [
+                {
+                  "t": "命",
+                  "read": "いのち",
+                  "vi": "sinh mệnh, tính mạng"
+                },
+                {
+                  "t": "失敗",
+                  "read": "しっぱい",
+                  "vi": "thất bại"
+                },
+                {
+                  "t": "恐れずに",
+                  "read": "おそれずに",
+                  "vi": "không sợ hãi"
+                },
+                {
+                  "t": "挑戦",
+                  "read": "ちょうせん",
+                  "vi": "thử thách, thử sức"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "初心者ではあるまいし、こんな基本的なミス＿気づかないのはおかしい。",
+              "choices": [
+                "に",
+                "を",
+                "で",
+                "へ"
+              ],
+              "answer": 0,
+              "explain": "Trong tiếng Nhật, động từ 「気づく」 (nhận ra, phát hiện) luôn đi kèm với trợ từ 「に」 để chỉ đối tượng được chú ý đến (cụm 「ミスに気づく」). Do đó, 「に」 là phương án chính xác. Các trợ từ 「を」, 「で」, 「へ」 không kết hợp với 「気づく」 trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "初心者",
+                  "read": "しょしんしゃ",
+                  "vi": "người mới bắt đầu"
+                },
+                {
+                  "t": "基本的",
+                  "read": "きほんてき",
+                  "vi": "cơ bản"
+                },
+                {
+                  "t": "ミス",
+                  "read": "",
+                  "vi": "lỗi sai, sai sót"
+                },
+                {
+                  "t": "気づかない",
+                  "read": "きづかない",
+                  "vi": "không nhận ra"
+                },
+                {
+                  "t": "おかしい",
+                  "read": "",
+                  "vi": "kỳ lạ, bất thường"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Đâu phải trẻ con nữa đâu, hãy thôi khóc vì chuyện nhỏ nhặt như thế đi.",
+              "target": "子供ではあるまいし、そんな些細なことで泣くのはやめなさい。",
+              "model": "子供 ではあるまいし、 そんな 些細な ことで 泣くのは やめなさい。",
+              "explain": "Mẫu ngữ pháp 「～ではあるまいし」 kết hợp trực tiếp sau danh từ 「子供」 để mang nghĩa \"đâu phải là trẻ con đâu mà...\". Vế sau kết hợp cụm chỉ nguyên nhân 「そんな些細なことで」 (vì chuyện nhỏ nhặt như vậy) và lời khuyên răn/mệnh lệnh nhẹ 「泣くのはやめなさい」 (hãy thôi khóc đi).",
+              "glosses": [
+                {
+                  "t": "子供",
+                  "read": "こども",
+                  "vi": "trẻ con"
+                },
+                {
+                  "t": "些細な",
+                  "read": "ささいな",
+                  "vi": "nhỏ nhặt, vụn vặt"
+                },
+                {
+                  "t": "泣く",
+                  "read": "なく",
+                  "vi": "khóc"
+                },
+                {
+                  "t": "やめなさい",
+                  "read": "",
+                  "vi": "hãy dừng lại, hãy thôi đi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

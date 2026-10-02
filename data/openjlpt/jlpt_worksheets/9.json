@@ -1,0 +1,3723 @@
+{
+  "bai": 9,
+  "level": "N5",
+  "intro": "NはNが好きです／嫌いです · NはNが上手です／下手です · NはNがわかります · 〜から · どうしてVますか. Có ÔN LẠI ngữ pháp đã học (bài 1-8) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "わたしは音楽が好きです。",
+              "ul": "音楽",
+              "choices": [
+                "おんがく",
+                "おとがく",
+                "おんらく",
+                "おうがく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「音楽」là từ Hán-Nhật đọc theo âm on-yomi: 音＝おん, 楽＝がく → **おんがく**. ❌ おとがく: 音 có kun-yomi là おと nhưng khi ghép với 楽 thành danh từ thì dùng on-yomi おん, không phải おと. ❌ おんらく: 楽 đọc là がく (có thanh), không phải らく (らく là nghĩa khác của 楽). ❌ おうがく: không có âm おう cho 音 trong từ này; おう là âm của chữ khác.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "音楽",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "が好きです",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは水泳が得意です。",
+              "ul": "得意",
+              "choices": [
+                "とくい",
+                "とくに",
+                "どくい",
+                "とっい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「得意」đọc là **とくい** (on-yomi: 得＝とく, 意＝い). Nghĩa: giỏi, sở trường. ❌ とくに: 特に (đặc biệt) là từ hoàn toàn khác, viết khác chữ. ❌ どくい: 得 đọc là とく, không có âm どく trong từ này (どく là âm của 毒 hoặc 読). ❌ とっい: không phải âm Nhật chuẩn; 意 đọc là い chứ không thể bỏ âm giữa.",
+              "glosses": [
+                {
+                  "t": "山田さんは",
+                  "vi": "anh/chị Yamada (chủ ngữ)"
+                },
+                {
+                  "t": "水泳",
+                  "read": "すいえい",
+                  "vi": "bơi lội"
+                },
+                {
+                  "t": "が得意です",
+                  "vi": "giỏi, sở trường"
+                }
+              ]
+            },
+            {
+              "prompt": "この映画はよく分かります。",
+              "ul": "映画",
+              "choices": [
+                "えいが",
+                "えが",
+                "えいかい",
+                "えいわ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「映画」đọc là **えいが** (映＝えい, 画＝が). ❌ えが: thiếu âm い dài trong 映 (えい không thể rút thành え). ❌ えいかい: 画 đọc là が chứ không phải かい; かい là âm của 会 hoặc 海. ❌ えいわ: 画 không đọc là わ; わ thường là âm của 和.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "映画",
+                  "vi": "phim, điện ảnh"
+                },
+                {
+                  "t": "はよく分かります",
+                  "vi": "hiểu rõ"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしは料理が好きではありません。",
+              "ul": "料理",
+              "choices": [
+                "りょうり",
+                "りょり",
+                "りょうに",
+                "らょうり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「料理」đọc là **りょうり** (料＝りょう, 理＝り). ❌ りょり: bỏ mất âm dài う trong 料 (りょう không thể rút thành りょ). ❌ りょうに: 理 đọc là り, không phải に; に là âm của 似・荷. ❌ らょうり: 料 đọc là りょう, không phải らょう; らょ không phải âm tiết tiếng Nhật chuẩn.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "料理",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "が好きではありません",
+                  "vi": "không thích"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は日本語を教えます。",
+              "ul": "教えます",
+              "choices": [
+                "おしえます",
+                "おそえます",
+                "おしいます",
+                "おじえます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「教えます」là thể ます của động từ 教える, đọc là **おしえます** (教＝おし). ❌ おそえます: 教 không đọc là おそ; おそ thường liên quan đến 遅. ❌ おしいます: いう không phải gốc của 教える; dạng gốc là おしえる chứ không phải おしいる. ❌ おじえます: 教 không có âm おじ; じ là âm ngã (voiced) không đúng ở đây.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "は",
+                  "vi": "chủ ngữ"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "を教えます",
+                  "vi": "dạy"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしは運動が苦手です。",
+              "ul": "苦手",
+              "choices": [
+                "にがて",
+                "くて",
+                "にがって",
+                "くがて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「苦手」đọc là **にがて** (苦＝にが, 手＝て). Đây là cách đọc kun-yomi đặc biệt của 苦 khi đứng trước 手. ❌ くて: 苦 có on-yomi là く nhưng trong từ 苦手 người ta đọc にが, không phải く; くて cũng là dạng て-form của tính từ. ❌ にがって: 手 chỉ đọc là て, không thêm っ vào giữa. ❌ くがて: kết hợp sai; không có âm くが cho 苦 trong từ này.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "運動",
+                  "read": "うんどう",
+                  "vi": "vận động, thể dục"
+                },
+                {
+                  "t": "が苦手です",
+                  "vi": "kém, không giỏi"
+                }
+              ]
+            },
+            {
+              "prompt": "あの人は絵が上手です。",
+              "ul": "上手",
+              "choices": [
+                "じょうず",
+                "うわて",
+                "じょうて",
+                "うえず"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「上手」khi mang nghĩa 'giỏi, khéo' đọc là **じょうず** (上＝じょう, 手＝ず). ❌ うわて: うわ là một cách đọc khác của 上 nhưng うわて mang nghĩa 'thế thượng phong trong đấu vật/kẻ mạnh hơn', không phải nghĩa 'giỏi kỹ năng'. ❌ じょうて: 手 trong 上手 đọc là ず (voiced), không phải て; nhầm với て thông thường. ❌ うえず: うえ là kun-yomi thường của 上 nhưng 上手 (giỏi) không dùng cách đọc này.",
+              "glosses": [
+                {
+                  "t": "あの人",
+                  "read": "あのひと",
+                  "vi": "người kia"
+                },
+                {
+                  "t": "は",
+                  "vi": "chủ ngữ"
+                },
+                {
+                  "t": "絵",
+                  "read": "え",
+                  "vi": "tranh vẽ"
+                },
+                {
+                  "t": "が上手です",
+                  "vi": "giỏi, khéo léo"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは英語が分かります。",
+              "ul": "英語",
+              "choices": [
+                "えいご",
+                "えご",
+                "えいぐ",
+                "えいこ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「英語」đọc là **えいご** (英＝えい, 語＝ご). ❌ えご: thiếu âm dài い trong 英 (えい ≠ え). ❌ えいぐ: 語 đọc là ご (âm voiced), khi viết rōmaji là 'go' nhưng kana là ご, không phải ぐ (ぐ là 'gu'). ❌ えいこ: 語 không đọc là こ; こ là âm unvoiced khác (như 語 kun-yomi là かた nhưng không phải こ).",
+              "glosses": [
+                {
+                  "t": "山田さんは",
+                  "vi": "anh/chị Yamada (chủ ngữ)"
+                },
+                {
+                  "t": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "が分かります",
+                  "vi": "hiểu"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしは歌が好きです。",
+              "ul": "歌",
+              "choices": [
+                "うた",
+                "かた",
+                "おた",
+                "うだ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「歌」đọc là **うた** (kun-yomi). ❌ かた: か là on-yomi của 歌 (như trong 歌手＝かしゅ) nhưng khi đứng một mình danh từ thì đọc là うた, không phải かた. ❌ おた: không phải âm của 歌; おた gợi liên tưởng đến 'otaku' (おたく) không liên quan. ❌ うだ: 歌 đọc là うた (thanh sắc た), không phải うだ (thanh nặng だ/voiced).",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "歌",
+                  "vi": "bài hát, ca hát"
+                },
+                {
+                  "t": "が好きです",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "prompt": "この本は難しくて、よく分かりません。",
+              "ul": "難しくて",
+              "choices": [
+                "むずかしくて",
+                "むつかしくて",
+                "むずがしくて",
+                "むずましくて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「難しい」đọc là **むずかしい**, dạng て-form là **むずかしくて**. ❌ むつかしくて: むつかしい là cách đọc cũ/phương ngữ của 難しい, không phải chuẩn hiện đại. ❌ むずがしくて: か (unvoiced) bị đổi thành が (voiced) sai; 難 không gây rendaku ở âm節 tiết này. ❌ むずましくて: không có âm むずまし cho 難しい; ま hoàn toàn không liên quan.",
+              "glosses": [
+                {
+                  "t": "この本は",
+                  "vi": "quyển sách này (chủ ngữ)"
+                },
+                {
+                  "t": "難しくて",
+                  "vi": "khó (dạng て-form)"
+                },
+                {
+                  "t": "よく分かりません",
+                  "vi": "không hiểu rõ"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしの趣味はスポーツを見ることです。",
+              "ul": "趣味",
+              "choices": [
+                "しゅみ",
+                "しゅうみ",
+                "しゅっみ",
+                "しゅいみ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「趣味」đọc là **しゅみ** (趣＝しゅ, 味＝み). ❌ しゅうみ: không thêm âm dài う vào 趣 (趣＝しゅ, không phải しゅう). ❌ しゅっみ: không có âm っ (tsu câm) trong từ này; 趣 không gây đôi phụ âm. ❌ しゅいみ: không có âm い xen vào giữa; い không phải một phần của 趣味.",
+              "glosses": [
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "趣味",
+                  "vi": "sở thích"
+                },
+                {
+                  "t": "はスポーツを見ることです",
+                  "vi": "là xem thể thao"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは毎日練習しています。",
+              "ul": "練習",
+              "choices": [
+                "れんしゅう",
+                "れしゅう",
+                "れんしゅ",
+                "れんじゅう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「練習」đọc là **れんしゅう** (練＝れん, 習＝しゅう). ❌ れしゅう: thiếu âm ん trong 練 (れん không thể rút thành れ). ❌ れんしゅ: 習 đọc là しゅう (âm dài う), không được cắt bỏ う thành しゅ. ❌ れんじゅう: 習 đọc là しゅう (unvoiced), không phải じゅう (voiced); じゅう là âm của 十 hoặc 重.",
+              "glosses": [
+                {
+                  "t": "田中さんは",
+                  "vi": "anh/chị Tanaka (chủ ngữ)"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "練習しています",
+                  "vi": "đang luyện tập"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしは漢字がよく分かります。",
+              "ul": "漢字",
+              "choices": [
+                "かんじ",
+                "かんし",
+                "かじ",
+                "かんず"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「漢字」đọc là **かんじ** (漢＝かん, 字＝じ). ❌ かんし: 字 đọc là じ (voiced), không phải し (unvoiced); し và じ khác nhau về thanh điệu. ❌ かじ: thiếu âm ん trong 漢 (かん ≠ か); bỏ ん làm nghĩa sai hoàn toàn. ❌ かんず: 字 đọc là じ, không phải ず; ず là âm của chữ khác như 頭.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "漢字",
+                  "vi": "chữ Hán, kanji"
+                },
+                {
+                  "t": "がよく分かります",
+                  "vi": "hiểu rõ"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは絵が得意ですから、よく描きます。",
+              "ul": "描きます",
+              "choices": [
+                "かきます",
+                "えがきます",
+                "かいきます",
+                "えかきます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「描きます」là thể ます của 描く, đọc là **かきます** (描＝か, kun-yomi). ❌ えがきます: 描く có thể đọc là えがく khi mang nghĩa 'miêu tả/phác họa hình ảnh trừu tượng', nhưng trong câu cụ thể 'vẽ tranh' thông thường dùng かく; ngoài ra えがきます dễ nhầm vì 絵 (え) đứng trước trong câu. ❌ かいきます: không có dạng 描かいます; かいきます gợi nhầm sang 書く→かきます nhưng biến đổi sai. ❌ えかきます: không phải âm chuẩn của 描きます; えか không phải on/kun của 描.",
+              "glosses": [
+                {
+                  "t": "山田さんは",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "絵が得意ですから",
+                  "vi": "vì giỏi vẽ tranh"
+                },
+                {
+                  "t": "よく描きます",
+                  "vi": "thường hay vẽ"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語の勉強は楽しいですが、少し難しいです。",
+              "ul": "勉強",
+              "choices": [
+                "べんきょう",
+                "べんきょ",
+                "べんきゅう",
+                "べんこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「勉強」đọc là **べんきょう** (勉＝べん, 強＝きょう). ❌ べんきょ: 強 đọc là きょう (âm dài う), không được cắt thành きょ; thiếu う làm sai âm. ❌ べんきゅう: きょう ≠ きゅう; きょう có âm よ trong tổ hợp きょ, còn きゅう có âm ゆ — hai âm hoàn toàn khác nhau. ❌ べんこう: きょう bị thay bằng こう; こう là âm của 行・校 chứ không phải 強.",
+              "glosses": [
+                {
+                  "t": "日本語の",
+                  "vi": "của tiếng Nhật"
+                },
+                {
+                  "t": "勉強",
+                  "vi": "việc học"
+                },
+                {
+                  "t": "は楽しいですが",
+                  "vi": "vui nhưng"
+                },
+                {
+                  "t": "少し難しいです",
+                  "vi": "hơi khó"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "わたしはおんがくをきくのがすきです。",
+              "ul": "きく",
+              "choices": [
+                "聞く",
+                "開く",
+                "問く",
+                "関く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「きく」ở đây nghĩa là 'nghe', Hán tự đúng là「聞く」(tai+cổng = nghe). Phương án「開く」đọc là「ひらく」nghĩa là 'mở', âm on「かい」khác. Phương án「問く」không phải Hán tự thực (「問」đọc là「とう/もん」nghĩa là 'hỏi'). Phương án「関く」cũng không tồn tại (「関」đọc là「かん」nghĩa là 'liên quan').",
+              "glosses": [
+                {
+                  "t": "おんがくを",
+                  "read": "",
+                  "vi": "âm nhạc (tân ngữ)"
+                },
+                {
+                  "t": "きくのが",
+                  "read": "聞くのが",
+                  "vi": "việc nghe"
+                },
+                {
+                  "t": "すきです",
+                  "read": "",
+                  "vi": "thích"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはにほんごがよくわかります。",
+              "ul": "わかります",
+              "choices": [
+                "分かります",
+                "分ります",
+                "文かります",
+                "別かります"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「わかります」nghĩa là 'hiểu/biết', Hán tự đúng là「分かります」(phần/chia → phân biệt → hiểu). Phương án「分ります」thiếu chữ「か」, viết sai okurigana. Phương án「文かります」dùng「文」(ぶん, văn bản) hoàn toàn sai nghĩa. Phương án「別かります」dùng「別」(べつ, khác biệt) cũng sai nghĩa và cách đọc.",
+              "glosses": [
+                {
+                  "t": "にほんごが",
+                  "read": "日本語が",
+                  "vi": "tiếng Nhật (chủ thể hiểu)"
+                },
+                {
+                  "t": "よく",
+                  "read": "",
+                  "vi": "tốt, thành thạo"
+                },
+                {
+                  "t": "わかります",
+                  "read": "わかります",
+                  "vi": "hiểu, biết"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "彼は = anh ấy/anh ta (chủ ngữ + trợ từ chủ đề は)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはテニスがとくいです。",
+              "ul": "とくい",
+              "choices": [
+                "得意",
+                "特意",
+                "徳意",
+                "得異"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「とくい」nghĩa là 'giỏi/sở trường', Hán tự đúng là「得意」(得=đạt được + 意=ý muốn). Phương án「特意」dùng「特」(とく, đặc biệt) sai bộ thủ — 「特」khác「得」. Phương án「徳意」dùng「徳」(とく, đức hạnh) hoàn toàn sai nghĩa. Phương án「得異」dùng「異」(い, dị/khác) không liên quan.",
+              "glosses": [
+                {
+                  "t": "テニスが",
+                  "read": "",
+                  "vi": "tennis (môn thể thao)"
+                },
+                {
+                  "t": "とくいです",
+                  "read": "得意です",
+                  "vi": "giỏi, sở trường"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "はははまいにちりょうりをつくるのがすきです。",
+              "ul": "つくる",
+              "choices": [
+                "作る",
+                "造る",
+                "削る",
+                "昨る"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「つくる」trong ngữ cảnh nấu ăn viết là「作る」(tạo ra, làm). Phương án「造る」cũng đọc là「つくる」nhưng dùng cho xây dựng quy mô lớn (đóng tàu, xây cầu), không dùng cho nấu ăn. Phương án「削る」đọc là「けずる」nghĩa là 'bào/gọt'. Phương án「昨る」không tồn tại (「昨」là 'hôm qua', đọc「さく」).",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "read": "毎日",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "りょうりを",
+                  "read": "料理を",
+                  "vi": "món ăn (tân ngữ)"
+                },
+                {
+                  "t": "つくるのが",
+                  "read": "つくるのが",
+                  "vi": "việc nấu/làm"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "prompt": "このえいがはながいですが、おもしろいです。",
+              "ul": "ながい",
+              "choices": [
+                "長い",
+                "永い",
+                "常い",
+                "張い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ながい」trong văn cảnh chiều dài/thời lượng viết là「長い」(dài). Phương án「永い」cũng đọc「ながい」nhưng mang nghĩa 'lâu dài/vĩnh cửu về thời gian', dùng trong văn thơ, không dùng mô tả phim. Phương án「常い」không tồn tại dạng tính từ (「常」= 'thường', đọc「じょう/つね」). Phương án「張い」không phải từ thực.",
+              "glosses": [
+                {
+                  "t": "えいがは",
+                  "read": "映画は",
+                  "vi": "bộ phim (chủ đề)"
+                },
+                {
+                  "t": "ながいですが",
+                  "read": "ながいですが",
+                  "vi": "tuy dài nhưng"
+                },
+                {
+                  "t": "おもしろいです",
+                  "read": "",
+                  "vi": "thú vị"
+                }
+              ]
+            },
+            {
+              "prompt": "あなたはどんなスポーツがすきですか。",
+              "ul": "すき",
+              "choices": [
+                "好き",
+                "姓き",
+                "妊き",
+                "如き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「すき」nghĩa là 'thích', Hán tự đúng là「好き」(女+子 = con gái bế em = yêu thích). Phương án「姓き」dùng「姓」(せい, họ tên) sai hoàn toàn nghĩa. Phương án「妊き」dùng「妊」(にん, mang thai) không liên quan. Phương án「如き」đọc là「ごとき」nghĩa là 'như thể', khác nghĩa lẫn cách đọc.",
+              "glosses": [
+                {
+                  "t": "どんな",
+                  "read": "",
+                  "vi": "loại nào, kiểu gì"
+                },
+                {
+                  "t": "スポーツが",
+                  "read": "",
+                  "vi": "thể thao (chủ thể)"
+                },
+                {
+                  "t": "すきですか",
+                  "read": "すきですか",
+                  "vi": "có thích không?"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはピアノをひくのがじょうずです。",
+              "ul": "じょうず",
+              "choices": [
+                "上手",
+                "上首",
+                "土手",
+                "上手い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「じょうず」nghĩa là 'giỏi/thành thạo', dạng tính từ-な, viết là「上手」(trên+tay = tay trên = giỏi). Phương án「上首」sai vì「首」(くび, cổ) không tạo từ này. Phương án「土手」đọc là「どて」nghĩa là 'bờ đê', hoàn toàn khác. Phương án「上手い」(うまい) cũng nghĩa là giỏi nhưng đây là tính từ-い, cách đọc khác「うまい」không phải「じょうず」.",
+              "glosses": [
+                {
+                  "t": "ピアノをひくのが",
+                  "read": "",
+                  "vi": "việc chơi đàn piano"
+                },
+                {
+                  "t": "じょうずです",
+                  "read": "じょうずです",
+                  "vi": "giỏi, thành thạo"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはまいあさしんぶんをよみます。",
+              "ul": "よみます",
+              "choices": [
+                "読みます",
+                "続みます",
+                "詠みます",
+                "語みます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「よむ」nghĩa là 'đọc (văn bản)', Hán tự đúng là「読む」. Phương án「続みます」dùng「続」(つづく, tiếp tục) sai nghĩa và cách đọc. Phương án「詠みます」đọc là「よみます」nhưng「詠」dùng cho 'ngâm thơ/xướng', không dùng đọc báo. Phương án「語みます」không tồn tại (「語」= 'ngôn ngữ', đọc「かたる/ご」).",
+              "glosses": [
+                {
+                  "t": "せんせいは",
+                  "read": "先生は",
+                  "vi": "giáo viên (chủ đề)"
+                },
+                {
+                  "t": "まいあさ",
+                  "read": "毎朝",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "しんぶんを",
+                  "read": "新聞を",
+                  "vi": "báo (tân ngữ)"
+                },
+                {
+                  "t": "よみます",
+                  "read": "よみます",
+                  "vi": "đọc"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはなぜにほんごをべんきょうしているかしっています。",
+              "ul": "なぜ",
+              "choices": [
+                "何故",
+                "何処",
+                "何時",
+                "何者"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「なぜ」nghĩa là 'tại sao/vì sao', Hán tự là「何故」(何=gì + 故=lý do). Phương án「何処」đọc là「どこ」nghĩa là 'ở đâu'. Phương án「何時」đọc là「いつ」nghĩa là 'khi nào'. Phương án「何者」đọc là「なにもの」nghĩa là 'là ai/kẻ nào'. Cả ba phương án sai đều bắt đầu bằng「何」nhưng từ ghép khác nhau.",
+              "glosses": [
+                {
+                  "t": "なぜ",
+                  "read": "なぜ",
+                  "vi": "vì sao, tại sao"
+                },
+                {
+                  "t": "にほんごを",
+                  "read": "日本語を",
+                  "vi": "tiếng Nhật (tân ngữ)"
+                },
+                {
+                  "t": "べんきょうしているか",
+                  "read": "勉強しているか",
+                  "vi": "đang học (lý do)"
+                },
+                {
+                  "t": "しっています",
+                  "read": "",
+                  "vi": "biết, nắm rõ"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはえをかくのがとてもうまいです。",
+              "ul": "かく",
+              "choices": [
+                "描く",
+                "書く",
+                "掻く",
+                "欠く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「えをかく」là 'vẽ tranh', Hán tự đúng là「描く」(mô tả bằng nét vẽ). Phương án「書く」cũng đọc「かく」nhưng nghĩa là 'viết (chữ)', dùng cho「字を書く」(viết chữ), không dùng cho tranh. Phương án「掻く」đọc là「かく」nghĩa là 'gãi ngứa'. Phương án「欠く」đọc là「かく」nghĩa là 'thiếu/vắng'.",
+              "glosses": [
+                {
+                  "t": "えを",
+                  "read": "絵を",
+                  "vi": "tranh (tân ngữ)"
+                },
+                {
+                  "t": "かくのが",
+                  "read": "かくのが",
+                  "vi": "việc vẽ (tranh)"
+                },
+                {
+                  "t": "とてもうまいです",
+                  "read": "",
+                  "vi": "rất giỏi"
+                },
+                {
+                  "t": "あのひと",
+                  "read": "あのひと",
+                  "vi": "người đó, người kia"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうともだちといっしょにおんがくをききました。",
+              "ul": "ともだち",
+              "choices": [
+                "友達",
+                "友違",
+                "有達",
+                "友建"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ともだち」nghĩa là 'bạn bè', viết là「友達」(友=bạn + 達=đạt/số nhiều). Phương án「友違」dùng「違」(ちがう, khác/sai) tạo nghĩa ngược lại. Phương án「有達」dùng「有」(ある/ゆう, có/tồn tại) sai bộ thủ — 「友」và「有」hình gần nhau nhưng khác. Phương án「友建」dùng「建」(たてる, xây dựng) không liên quan.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "read": "昨日",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ともだちと",
+                  "read": "ともだちと",
+                  "vi": "cùng với bạn bè"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "おんがくをききました",
+                  "read": "",
+                  "vi": "đã nghe nhạc"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはすいえいがにがてです。",
+              "ul": "にがて",
+              "choices": [
+                "苦手",
+                "苦才",
+                "苦て",
+                "古手"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にがて」nghĩa là 'không giỏi/điểm yếu', viết là「苦手」(苦=đắng/khó + 手=tay). Đây là từ đối nghĩa với「得意」. Phương án「苦才」dùng「才」(さい, tài năng) tạo nghĩa không tự nhiên và không phải từ thực. Phương án「苦て」thiếu Hán tự phần sau, viết sai. Phương án「古手」đọc là「ふるて」hoặc「こて」nghĩa là 'tay cũ/dày dạn kinh nghiệm', hoàn toàn trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "すいえいが",
+                  "read": "水泳が",
+                  "vi": "bơi lội (chủ thể)"
+                },
+                {
+                  "t": "にがてです",
+                  "read": "にがてです",
+                  "vi": "không giỏi, điểm yếu"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "田中さんは音楽が＿です。毎日ピアノを練習しています。",
+              "choices": [
+                "好き",
+                "嫌い",
+                "苦手",
+                "下手"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói Tanaka-san mỗi ngày luyện tập đàn piano, nên chỗ trống phải là 「好き」(thích). 「嫌い」(ghét) — ngược nghĩa, nếu ghét sẽ không luyện tập mỗi ngày. 「苦手」(không giỏi, ngại) — nếu không giỏi thì vẫn có thể luyện tập, nhưng văn cảnh 'mỗi ngày luyện tập' gợi ý đây là điều yêu thích. 「下手」(dở, kém) — mô tả kỹ năng thấp, không phù hợp vì người ta luyện tập vì thích, không phải vì dở.",
+              "glosses": [
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "練習しています",
+                  "read": "れんしゅうしています",
+                  "vi": "đang luyện tập"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "ピアノ",
+                  "read": "ピアノ",
+                  "vi": "đàn piano"
+                }
+              ]
+            },
+            {
+              "stem": "あの学生は日本語が＿です。先生もびっくりしました。",
+              "choices": [
+                "上手",
+                "下手",
+                "嫌い",
+                "苦手"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Giáo viên ngạc nhiên nên học sinh đó phải rất giỏi, do đó đáp án là 「上手」(giỏi, khéo). 「下手」(dở, kém) — nếu dở thì giáo viên cũng có thể ngạc nhiên, nhưng thông thường 'びっくり' trong văn cảnh tích cực mang nghĩa ngạc nhiên theo chiều tốt. 「嫌い」(ghét) — là tính từ cảm xúc, không mô tả kỹ năng. 「苦手」(không giỏi, ngại) — nghĩa tiêu cực, mâu thuẫn với việc giáo viên ngạc nhiên (theo nghĩa tốt).",
+              "glosses": [
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh, sinh viên"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "びっくりしました",
+                  "vi": "đã ngạc nhiên"
+                }
+              ]
+            },
+            {
+              "stem": "私は料理が＿です。よく自分でごはんを作ります。",
+              "choices": [
+                "好き",
+                "嫌い",
+                "遅い",
+                "少ない"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Người này thường tự nấu cơm, điều đó cho thấy họ thích nấu ăn, đáp án là 「好き」(thích). 「嫌い」(ghét) — nếu ghét nấu ăn sẽ không tự nấu. 「遅い」(chậm) — mô tả tốc độ, không phù hợp với cấu trúc「〜が＿です」theo nghĩa sở thích/kỹ năng. 「少ない」(ít) — mô tả số lượng, không liên quan đến cảm xúc hay kỹ năng.",
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "自分で",
+                  "read": "じぶんで",
+                  "vi": "tự mình"
+                },
+                {
+                  "t": "作ります",
+                  "read": "つくります",
+                  "vi": "làm, nấu"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường xuyên, hay"
+                },
+                {
+                  "t": "ごはん",
+                  "read": "ごはん",
+                  "vi": "cơm, bữa ăn"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは絵を描くことが＿です。時間があれば、いつも描いています。",
+              "choices": [
+                "好き",
+                "嫌い",
+                "早い",
+                "多い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Yamada-san hễ có thời gian là vẽ, chứng tỏ rất thích vẽ, đáp án là 「好き」(thích). 「嫌い」(ghét) — mâu thuẫn với việc vẽ mỗi khi có thời gian. 「早い」(nhanh) — mô tả tốc độ, không phù hợp cấu trúc sở thích. 「多い」(nhiều) — mô tả số lượng, không phù hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "絵を描くこと",
+                  "read": "えをかくこと",
+                  "vi": "việc vẽ tranh"
+                },
+                {
+                  "t": "時間があれば",
+                  "read": "じかんがあれば",
+                  "vi": "nếu có thời gian"
+                },
+                {
+                  "t": "いつも",
+                  "vi": "luôn luôn"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "描いています",
+                  "read": "かいています",
+                  "vi": "đang vẽ"
+                }
+              ]
+            },
+            {
+              "stem": "この漢字の読み方が＿ません。先生に聞きます。",
+              "choices": [
+                "わかり",
+                "好き",
+                "上手",
+                "多く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Không biết cách đọc chữ Hán nên hỏi giáo viên, đáp án là 「わかり」(hiểu, biết — dạng ます thân của わかる). 「好き」(thích) — là tính từ, không chia ません dạng này. 「上手」(giỏi) — cũng là tính từ, không ghép ません trực tiếp. 「多く」(nhiều — dạng trạng từ) — không hợp nghĩa trong câu này.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "読み方",
+                  "read": "よみかた",
+                  "vi": "cách đọc"
+                },
+                {
+                  "t": "聞きます",
+                  "read": "ききます",
+                  "vi": "hỏi, nghe"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                }
+              ]
+            },
+            {
+              "stem": "妹はスポーツが＿です。体育の時間はいつも休みます。",
+              "choices": [
+                "苦手",
+                "好き",
+                "上手",
+                "楽しい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Em gái hay nghỉ giờ thể dục, cho thấy cô ấy không giỏi/ngại thể thao, đáp án là 「苦手」(không giỏi, ngại). 「好き」(thích) — nếu thích sẽ không nghỉ. 「上手」(giỏi) — nếu giỏi cũng không lý do gì để nghỉ. 「楽しい」(vui, thú vị) — nếu thấy vui sẽ không nghỉ.",
+              "glosses": [
+                {
+                  "t": "妹",
+                  "read": "いもうと",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "体育",
+                  "read": "たいいく",
+                  "vi": "giờ thể dục"
+                },
+                {
+                  "t": "休みます",
+                  "read": "やすみます",
+                  "vi": "nghỉ, vắng mặt"
+                },
+                {
+                  "t": "スポーツ",
+                  "read": "スポーツ",
+                  "vi": "thể thao"
+                },
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian, giờ học"
+                },
+                {
+                  "t": "いつも",
+                  "read": "いつも",
+                  "vi": "luôn luôn"
+                }
+              ]
+            },
+            {
+              "stem": "兄はギターが＿です。コンサートで弾きました。",
+              "choices": [
+                "上手",
+                "下手",
+                "嫌い",
+                "少ない"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Anh trai chơi guitar ở buổi hòa nhạc, điều đó cho thấy kỹ năng tốt, đáp án là 「上手」(giỏi). 「下手」(dở, kém) — người dở thường không được mời biểu diễn ở concert. 「嫌い」(ghét) — nếu ghét sẽ không biểu diễn. 「少ない」(ít) — mô tả số lượng, không phù hợp ngữ cảnh kỹ năng.",
+              "glosses": [
+                {
+                  "t": "兄",
+                  "read": "あに",
+                  "vi": "anh trai"
+                },
+                {
+                  "t": "コンサートで",
+                  "vi": "ở buổi hòa nhạc"
+                },
+                {
+                  "t": "弾きました",
+                  "read": "ひきました",
+                  "vi": "đã chơi (nhạc cụ)"
+                },
+                {
+                  "t": "ギター",
+                  "read": "ギター",
+                  "vi": "đàn guitar"
+                }
+              ]
+            },
+            {
+              "stem": "私は車の運転が＿です。よく道に迷います。",
+              "choices": [
+                "下手",
+                "上手",
+                "好き",
+                "楽しい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hay bị lạc đường nên lái xe kém, đáp án là 「下手」(dở, kém). 「上手」(giỏi) — mâu thuẫn với việc hay lạc đường. 「好き」(thích) — mô tả cảm xúc không phải kỹ năng, không phù hợp văn cảnh. 「楽しい」(vui) — mô tả cảm xúc, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "車",
+                  "read": "くるま",
+                  "vi": "xe ô tô"
+                },
+                {
+                  "t": "運転",
+                  "read": "うんてん",
+                  "vi": "lái xe"
+                },
+                {
+                  "t": "道に迷います",
+                  "read": "みちにまよいます",
+                  "vi": "bị lạc đường"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường xuyên, hay"
+                }
+              ]
+            },
+            {
+              "stem": "この問題の意味が＿ません。もう一度説明してください。",
+              "choices": [
+                "わかり",
+                "好き",
+                "見え",
+                "聞こえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Không hiểu ý nghĩa câu hỏi nên nhờ giải thích lại, đáp án là 「わかり」(hiểu — dạng ます thân). 「好き」(thích) — không ghép với ません trong cấu trúc này. 「見え」(có thể nhìn thấy) — không liên quan đến việc hiểu ý nghĩa. 「聞こえ」(có thể nghe thấy) — cũng không liên quan đến việc hiểu nghĩa câu hỏi.",
+              "glosses": [
+                {
+                  "t": "問題",
+                  "read": "もんだい",
+                  "vi": "câu hỏi, vấn đề"
+                },
+                {
+                  "t": "意味",
+                  "read": "いみ",
+                  "vi": "ý nghĩa"
+                },
+                {
+                  "t": "説明してください",
+                  "read": "せつめいしてください",
+                  "vi": "xin hãy giải thích"
+                },
+                {
+                  "t": "もう一度",
+                  "read": "もういちど",
+                  "vi": "một lần nữa"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは数学が＿です。テストはいつも100点です。",
+              "choices": [
+                "得意",
+                "苦手",
+                "嫌い",
+                "下手"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Luôn đạt 100 điểm nên giỏi toán, đáp án là 「得意」(giỏi, sở trường). 「苦手」(không giỏi, ngại) — mâu thuẫn với điểm tuyệt đối. 「嫌い」(ghét) — mô tả cảm xúc tiêu cực, không phù hợp với kết quả xuất sắc. 「下手」(dở, kém) — mâu thuẫn với điểm 100.",
+              "glosses": [
+                {
+                  "t": "数学",
+                  "read": "すうがく",
+                  "vi": "toán học"
+                },
+                {
+                  "t": "テスト",
+                  "vi": "bài kiểm tra"
+                },
+                {
+                  "t": "100点",
+                  "read": "ひゃくてん",
+                  "vi": "100 điểm"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "いつも",
+                  "read": "いつも",
+                  "vi": "luôn luôn"
+                }
+              ]
+            },
+            {
+              "stem": "私は英語が少し＿ます。外国人と話すことができます。",
+              "choices": [
+                "わかり",
+                "嫌い",
+                "苦手",
+                "下手"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hiểu tiếng Anh một chút nên có thể nói chuyện với người nước ngoài, đáp án là 「わかり」(hiểu). 「嫌い」(ghét) — là tính từ, không chia ます dạng này và mâu thuẫn với việc có thể nói chuyện. 「苦手」(không giỏi) — cũng là tính từ, không chia ます trực tiếp. 「下手」(dở) — tương tự, là tính từ, không phù hợp cú pháp.",
+              "glosses": [
+                {
+                  "t": "英語",
+                  "read": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "外国人",
+                  "read": "がいこくじん",
+                  "vi": "người nước ngoài"
+                },
+                {
+                  "t": "話すことができます",
+                  "read": "はなすことができます",
+                  "vi": "có thể nói chuyện"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "子供のとき、私はにんじんが＿でした。全然食べませんでした。",
+              "choices": [
+                "嫌い",
+                "好き",
+                "得意",
+                "上手"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hoàn toàn không ăn cà rốt khi còn nhỏ, chứng tỏ ghét cà rốt, đáp án là 「嫌い」(ghét). 「好き」(thích) — mâu thuẫn với việc không ăn gì cả. 「得意」(sở trường) — nói về kỹ năng, không phù hợp với thức ăn. 「上手」(giỏi) — cũng nói về kỹ năng, không phù hợp văn cảnh.",
+              "glosses": [
+                {
+                  "t": "子供のとき",
+                  "read": "こどものとき",
+                  "vi": "khi còn nhỏ"
+                },
+                {
+                  "t": "にんじん",
+                  "vi": "củ cà rốt"
+                },
+                {
+                  "t": "全然",
+                  "read": "ぜんぜん",
+                  "vi": "hoàn toàn (không)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "全然食べませんでした",
+                  "read": "ぜんぜんたべませんでした",
+                  "vi": "hoàn toàn không ăn (đã không ăn chút nào)"
+                }
+              ]
+            },
+            {
+              "stem": "李さんは日本の文化に＿があります。毎日本を読んでいます。",
+              "choices": [
+                "興味",
+                "苦手",
+                "嫌い",
+                "上手"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Mỗi ngày đọc sách về văn hóa Nhật, cho thấy có hứng thú, đáp án là 「興味」(hứng thú, quan tâm) — cấu trúc 「〜に興味があります」. 「苦手」(không giỏi) — là tính từ, không đứng ở vị trí danh từ trước が. 「嫌い」(ghét) — mâu thuẫn với việc đọc sách mỗi ngày. 「上手」(giỏi) — là tính từ, không phù hợp cú pháp danh từ.",
+              "glosses": [
+                {
+                  "t": "日本の文化",
+                  "read": "にほんのぶんか",
+                  "vi": "văn hóa Nhật Bản"
+                },
+                {
+                  "t": "興味",
+                  "read": "きょうみ",
+                  "vi": "sự quan tâm, hứng thú"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "李さん",
+                  "read": "りさん",
+                  "vi": "anh/chị Lý"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại (dùng cho vật/khái niệm)"
+                },
+                {
+                  "t": "読んでいます",
+                  "read": "よんでいます",
+                  "vi": "đang đọc"
+                }
+              ]
+            },
+            {
+              "stem": "先生の説明がよく＿ました。ありがとうございました。",
+              "choices": [
+                "わかり",
+                "好き",
+                "上手",
+                "得意"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hiểu rõ lời giải thích của giáo viên và cảm ơn, đáp án là 「わかり」(hiểu — わかりました = đã hiểu). 「好き」(thích) — là tính từ, không chia ました dạng này trong cấu trúc câu này. 「上手」(giỏi) — là tính từ, không chia ました trực tiếp. 「得意」(sở trường) — cũng là tính từ, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "説明",
+                  "read": "せつめい",
+                  "vi": "sự giải thích"
+                },
+                {
+                  "t": "よく",
+                  "vi": "rõ, tốt, nhiều"
+                },
+                {
+                  "t": "ありがとうございました",
+                  "read": "ありがとうございました",
+                  "vi": "cảm ơn rất nhiều (thể lịch sự, quá khứ)"
+                }
+              ]
+            },
+            {
+              "stem": "私の国では日本語を話す人が＿です。だから、日本語を勉強しています。",
+              "choices": [
+                "少ない",
+                "多い",
+                "上手",
+                "好き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Vì người nói tiếng Nhật ít ở quê hương nên mới học tiếng Nhật (để trở thành người hiếm có, hoặc vì muốn giỏi), đáp án là 「少ない」(ít). 「多い」(nhiều) — nếu đã có nhiều người nói thì câu 'vì vậy mới học' không tự nhiên. 「上手」(giỏi) — là tính từ tính chất, không mô tả số lượng người. 「好き」(thích) — không phù hợp vì chủ ngữ là 'người nói tiếng Nhật', không phải cảm xúc.",
+              "glosses": [
+                {
+                  "t": "私の国",
+                  "read": "わたしのくに",
+                  "vi": "đất nước của tôi"
+                },
+                {
+                  "t": "日本語を話す人",
+                  "read": "にほんごをはなすひと",
+                  "vi": "người nói tiếng Nhật"
+                },
+                {
+                  "t": "勉強しています",
+                  "read": "べんきょうしています",
+                  "vi": "đang học"
+                },
+                {
+                  "t": "だから",
+                  "read": "だから",
+                  "vi": "vì vậy, cho nên"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "わたしは音楽が好きです。",
+              "choices": [
+                "わたしは音楽がきらいです。",
+                "わたしは音楽をよく聞きます。",
+                "わたしは音楽が好きじゃありません。",
+                "わたしは音楽がすきです。"
+              ],
+              "answer": 3,
+              "pt": "NはNが好きです",
+              "explain": "Câu gốc dùng「好きです」(thích). Đáp án 3「好きです」viết bằng hiragana nhưng hoàn toàn đồng nghĩa. Đáp án 0「きらいです」nghĩa là 'ghét' — ngược nghĩa. Đáp án 1「よく聞きます」nghĩa là 'thường nghe' — không diễn đạt cảm xúc 'thích'. Đáp án 2「好きじゃありません」là phủ định 'không thích' — cũng ngược nghĩa.",
+              "glosses": [
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "聞きます",
+                  "read": "ききます",
+                  "vi": "nghe (thường xuyên)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "きらい",
+                  "read": "きらい",
+                  "vi": "ghét, không thích"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường, hay"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "好きじゃありません",
+                  "read": "すきじゃありません",
+                  "vi": "好きじゃありません = không thích (thể phủ định lịch sự của 好きです)"
+                }
+              ]
+            },
+            {
+              "prompt": "どうしてジュースを飲みますか。",
+              "choices": [
+                "なぜジュースが好きですか。",
+                "どこでジュースを飲みますか。",
+                "いつジュースを飲みますか。",
+                "だれがジュースを飲みますか。"
+              ],
+              "answer": 0,
+              "pt": "どうしてVますか",
+              "explain": "「どうして」hỏi lý do. Đáp án 0「なぜ」cũng hỏi lý do/nguyên nhân, đồng nghĩa với「どうして」, là câu gần nghĩa nhất. Đáp án 1「どこで」hỏi địa điểm. Đáp án 2「いつ」hỏi thời gian. Đáp án 3「だれが」hỏi người thực hiện. Ba câu kia hỏi điều hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "read": "",
+                  "vi": "vì sao, tại sao"
+                },
+                {
+                  "t": "ジュース",
+                  "read": "",
+                  "vi": "nước ép"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "好きですか",
+                  "read": "すきですか",
+                  "vi": "có thích không?"
+                },
+                {
+                  "t": "なぜ",
+                  "read": "なぜ",
+                  "vi": "tại sao, vì sao"
+                },
+                {
+                  "t": "いつ",
+                  "read": "いつ",
+                  "vi": "khi nào, bao giờ"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "どこで",
+                  "read": "どこで",
+                  "vi": "どこで = ở đâu (nghi vấn địa điểm + trợ từ で chỉ nơi diễn ra hành động)"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはスポーツが上手です。",
+              "choices": [
+                "かれはスポーツがとくいです。",
+                "かれはスポーツがきらいです。",
+                "かれはスポーツがへたです。",
+                "かれはスポーツがわかりません。"
+              ],
+              "answer": 0,
+              "pt": "NはNが上手です",
+              "explain": "「上手です」nghĩa là 'giỏi/thành thạo'. Đáp án 0「とくいです」(得意) nghĩa là 'sở trường, giỏi về' — gần nghĩa nhất. Đáp án 1「きらいです」nghĩa là 'ghét' — không liên quan đến kỹ năng. Đáp án 2「へたです」nghĩa là 'kém/dở' — ngược nghĩa. Đáp án 3「わかりません」nghĩa là 'không hiểu/không biết' — sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "スポーツ",
+                  "read": "",
+                  "vi": "thể thao"
+                },
+                {
+                  "t": "上手です",
+                  "read": "じょうずです",
+                  "vi": "giỏi, thành thạo"
+                },
+                {
+                  "t": "とくい",
+                  "read": "得意",
+                  "vi": "sở trường, giỏi về"
+                },
+                {
+                  "t": "きらい",
+                  "read": "きらい",
+                  "vi": "ghét, không thích"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "彼は = anh ấy (chủ đề)"
+                },
+                {
+                  "t": "がへたです",
+                  "read": "がへたです",
+                  "vi": "~が下手です = kém/dở về ~ (へた là cách viết kana của 下手, tính từ đuôi な)"
+                },
+                {
+                  "t": "がわかりません",
+                  "read": "がわかりません",
+                  "vi": "~が分かりません = không hiểu/không biết về ~"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはひらがながわかります。",
+              "choices": [
+                "わたしはひらがながよめます。",
+                "わたしはひらがなをべんきょうします。",
+                "わたしはひらがながすきです。",
+                "わたしはひらがなをかきます。"
+              ],
+              "answer": 0,
+              "pt": "NはNがわかります",
+              "explain": "「わかります」nghĩa là 'hiểu/biết'. Đáp án 0「よめます」nghĩa là 'đọc được' — gần nghĩa nhất vì nếu hiểu hiragana thì có thể đọc được. Đáp án 1「べんきょうします」nghĩa là 'học/nghiên cứu' — nói về hành động học chứ không phải kết quả biết. Đáp án 2「すきです」nghĩa là 'thích' — nói về cảm xúc. Đáp án 3「かきます」nghĩa là 'viết' — hành động cụ thể, không đồng nghĩa.",
+              "glosses": [
+                {
+                  "t": "ひらがな",
+                  "read": "",
+                  "vi": "chữ hiragana"
+                },
+                {
+                  "t": "わかります",
+                  "read": "",
+                  "vi": "hiểu, biết"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "がよめます",
+                  "read": "がよめます",
+                  "vi": "~が読めます = có thể đọc được ~ (thể khả năng của 読む)"
+                },
+                {
+                  "t": "をべんきょうします",
+                  "read": "をべんきょうします",
+                  "vi": "~を勉強します = học ~"
+                },
+                {
+                  "t": "をかきます",
+                  "read": "をかきます",
+                  "vi": "~を書きます = viết ~"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはえいごが下手です。",
+              "choices": [
+                "あのひとはえいごがにがてです。",
+                "あのひとはえいごがじょうずです。",
+                "あのひとはえいごがすきじゃありません。",
+                "あのひとはえいごがわかりません。"
+              ],
+              "answer": 0,
+              "pt": "NはNが下手です",
+              "explain": "「下手です」nghĩa là 'kém/dở'. Đáp án 0「にがてです」(苦手) nghĩa là 'điểm yếu, kém về' — gần nghĩa nhất với「下手」. Đáp án 1「じょうずです」nghĩa là 'giỏi' — ngược nghĩa. Đáp án 2「すきじゃありません」nghĩa là 'không thích' — nói cảm xúc, không nói kỹ năng. Đáp án 3「わかりません」nghĩa là 'không hiểu' — khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "えいご",
+                  "read": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "下手です",
+                  "read": "へたです",
+                  "vi": "kém, dở"
+                },
+                {
+                  "t": "にがて",
+                  "read": "苦手",
+                  "vi": "điểm yếu, kém về"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "じょうず",
+                  "read": "じょうず",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "すきじゃありません",
+                  "read": "すきじゃありません",
+                  "vi": "好きじゃありません = không thích"
+                },
+                {
+                  "t": "がわかりません",
+                  "read": "がわかりません",
+                  "vi": "~が分かりません = không hiểu về ~"
+                }
+              ]
+            },
+            {
+              "prompt": "このえいがはおもしろいです。だから、みます。",
+              "choices": [
+                "このえいがはおもしろいから、みます。",
+                "このえいがはおもしろいですが、みます。",
+                "このえいがはおもしろくないから、みません。",
+                "このえいがはおもしろくないですが、みます。"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do）",
+              "explain": "Câu gốc dùng「だから」nối 2 câu: 'phim hay → vì vậy xem'. Đáp án 0 dùng「〜から」nối trực tiếp trong một câu, cùng nghĩa nhân quả — đồng nghĩa nhất. Đáp án 1「〜が」biểu thị nghịch lý 'tuy nhiên' — sai quan hệ. Đáp án 2 phủ định cả hai vế — ngược nghĩa hoàn toàn. Đáp án 3 mâu thuẫn (phim không hay nhưng vẫn xem) — sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "えいが",
+                  "read": "映画",
+                  "vi": "phim"
+                },
+                {
+                  "t": "おもしろい",
+                  "read": "",
+                  "vi": "thú vị, hay"
+                },
+                {
+                  "t": "だから",
+                  "read": "",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "みます",
+                  "read": "",
+                  "vi": "xem"
+                },
+                {
+                  "t": "みません",
+                  "read": "みません",
+                  "vi": "見ません = không xem/không nhìn (thể phủ định lịch sự của 見ます)"
+                },
+                {
+                  "t": "おもしろいですが",
+                  "read": "おもしろいですが",
+                  "vi": "〜ですが = tuy ~ nhưng... (thể lịch sự + が, nối ý trái ngược)"
+                },
+                {
+                  "t": "はおもしろくないから",
+                  "read": "はおもしろくないから",
+                  "vi": "〜ないから = vì không ~ nên... (lý do phủ định)"
+                },
+                {
+                  "t": "はおもしろくないですが",
+                  "read": "はおもしろくないですが",
+                  "vi": "〜ないですが = tuy không ~ nhưng... (thể lịch sự phủ định + が)"
+                }
+              ]
+            },
+            {
+              "prompt": "やまださんはりょうりがすきです。",
+              "choices": [
+                "やまださんはりょうりがきらいじゃありません。",
+                "やまださんはりょうりがじょうずです。",
+                "やまださんはりょうりをよくたべます。",
+                "やまださんはりょうりがわかります。"
+              ],
+              "answer": 0,
+              "pt": "NはNが好きです",
+              "explain": "「すきです」(好き) nghĩa là 'thích'. Phủ định của「きらい」(ghét) là「きらいじゃありません」— không ghét tức là (có thể) thích, đây là diễn đạt gần nghĩa nhất. Đáp án 1「じょうずです」nói về kỹ năng 'giỏi nấu' — không nhất thiết vì thích. Đáp án 2「よくたべます」là 'thường ăn' — hành động, không diễn đạt cảm xúc thích. Đáp án 3「わかります」nghĩa là 'hiểu/biết' — hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "read": "山田さん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "料理",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "すきです",
+                  "read": "好きです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "きらい",
+                  "read": "きらい",
+                  "vi": "ghét, không thích"
+                },
+                {
+                  "t": "じょうず",
+                  "read": "じょうず",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường, hay"
+                },
+                {
+                  "t": "きらいじゃありません",
+                  "read": "きらいじゃありません",
+                  "vi": "嫌いじゃありません = không ghét (tức là thích)"
+                },
+                {
+                  "t": "たべます",
+                  "read": "たべます",
+                  "vi": "食べます = ăn"
+                },
+                {
+                  "t": "がわかります",
+                  "read": "がわかります",
+                  "vi": "~が分かります = hiểu/biết về ~"
+                }
+              ]
+            },
+            {
+              "prompt": "どうしてにほんごをべんきょうしますか。",
+              "choices": [
+                "なぜにほんごをべんきょうしますか。",
+                "いつにほんごをべんきょうしますか。",
+                "なんでにほんごがすきですか。",
+                "どこでにほんごをべんきょうしますか。"
+              ],
+              "answer": 0,
+              "pt": "どうしてVますか",
+              "explain": "「どうして」hỏi lý do. Đáp án 0「なぜ」là từ đồng nghĩa chính xác với「どうして」, đều hỏi nguyên nhân/lý do — đồng nghĩa nhất. Đáp án 1「いつ」hỏi thời gian. Đáp án 2「なんで〜が好きですか」hỏi tại sao thích, đổi động từ thành「好き」— không hoàn toàn đồng nghĩa. Đáp án 3「どこで」hỏi địa điểm.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "read": "",
+                  "vi": "vì sao, tại sao"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "べんきょうします",
+                  "read": "勉強します",
+                  "vi": "học"
+                },
+                {
+                  "t": "なぜ",
+                  "read": "なぜ",
+                  "vi": "tại sao, vì sao"
+                },
+                {
+                  "t": "いつ",
+                  "read": "いつ",
+                  "vi": "khi nào, bao giờ"
+                },
+                {
+                  "t": "なんで",
+                  "read": "なんで",
+                  "vi": "tại sao (thân mật)"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "どこで",
+                  "read": "どこで",
+                  "vi": "どこで = ở đâu (nghi vấn địa điểm)"
+                }
+              ]
+            },
+            {
+              "prompt": "このテストはむずかしくないです。でも、わかりません。",
+              "choices": [
+                "このテストはかんたんですが、わかりません。",
+                "このテストはむずかしいから、わかりません。",
+                "このテストはかんたんだから、わかります。",
+                "このテストはむずかしくないから、わかります。"
+              ],
+              "answer": 0,
+              "pt": "NはNがわかります／NはAくないです",
+              "explain": "Câu gốc: 'không khó NHƯNG không hiểu' — nghịch lý. Đáp án 0「かんたんですが、わかりません」nghĩa là 'dễ nhưng không hiểu' — cùng cấu trúc nghịch lý, gần nghĩa nhất (「むずかしくない」≈「かんたん」). Đáp án 1 nói 'khó nên không hiểu' — đổi thành nhân quả thuận chiều và đổi nghĩa tính từ. Đáp án 2「かんたんだから、わかります」dễ nên hiểu — thuận chiều, ngược với câu gốc. Đáp án 3 tương tự đáp án 2.",
+              "glosses": [
+                {
+                  "t": "テスト",
+                  "read": "",
+                  "vi": "bài kiểm tra"
+                },
+                {
+                  "t": "むずかしくない",
+                  "read": "難しくない",
+                  "vi": "không khó"
+                },
+                {
+                  "t": "でも",
+                  "read": "",
+                  "vi": "nhưng"
+                },
+                {
+                  "t": "わかりません",
+                  "read": "",
+                  "vi": "không hiểu"
+                },
+                {
+                  "t": "むずかしい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "わかります",
+                  "read": "わかります",
+                  "vi": "分かります = hiểu, biết (thể khẳng định lịch sự)"
+                },
+                {
+                  "t": "はかんたんですが",
+                  "read": "はかんたんですが",
+                  "vi": "danh từ/na-tính từ + ですが = tuy ~ nhưng... (nối ý trái ngược)"
+                },
+                {
+                  "t": "はかんたんだから",
+                  "read": "はかんたんだから",
+                  "vi": "danh từ/na-tính từ + だから = vì ~ nên... (lý do, thể thường)"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはピアノがとくいです。",
+              "choices": [
+                "たなかさんはピアノがじょうずです。",
+                "たなかさんはピアノがすきです。",
+                "たなかさんはピアノがへたです。",
+                "たなかさんはピアノをよくひきます。"
+              ],
+              "answer": 0,
+              "pt": "NはNが上手です（ôn từ vựng liên quan）",
+              "explain": "「とくい」(得意) nghĩa là 'giỏi/sở trường về'. Đáp án 0「じょうずです」(上手) nghĩa là 'giỏi/thành thạo' — đồng nghĩa trực tiếp. Đáp án 1「すきです」nghĩa là 'thích' — nói cảm xúc, không nói kỹ năng. Đáp án 2「へたです」nghĩa là 'dở' — ngược nghĩa. Đáp án 3「よくひきます」nghĩa là 'thường chơi đàn' — hành động, không phản ánh kỹ năng.",
+              "glosses": [
+                {
+                  "t": "ピアノ",
+                  "read": "",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "とくい",
+                  "read": "得意",
+                  "vi": "sở trường, giỏi về"
+                },
+                {
+                  "t": "じょうず",
+                  "read": "上手",
+                  "vi": "giỏi, thành thạo"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường, hay"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "がへたです",
+                  "read": "がへたです",
+                  "vi": "~が下手です = kém/dở về ~"
+                },
+                {
+                  "t": "ひきます",
+                  "read": "ひきます",
+                  "vi": "弾きます = chơi (đàn), thể lịch sự của 弾く"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはにほんごがすきです。にほんごはおもしろいですから。",
+              "choices": [
+                "にほんごはおもしろいから、わたしはにほんごがすきです。",
+                "にほんごはおもしろいですが、わたしはすきじゃありません。",
+                "わたしはにほんごがきらいです。にほんごはむずかしいですから。",
+                "にほんごはおもしろくないから、わたしはすきです。"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do）／NはNが好きです",
+              "explain": "Câu gốc: 'tôi thích tiếng Nhật vì tiếng Nhật thú vị'. Đáp án 0 dùng「〜から」ghép trực tiếp theo cấu trúc chuẩn, giữ nguyên nghĩa nhân quả — đồng nghĩa nhất. Đáp án 1「〜が」đổi thành nghịch lý và phủ định cảm xúc. Đáp án 2 đổi thành 'ghét vì khó' — ngược nghĩa hoàn toàn. Đáp án 3「おもしろくないから」nghĩa là 'vì không thú vị nên thích' — mâu thuẫn logic.",
+              "glosses": [
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "おもしろい",
+                  "read": "",
+                  "vi": "thú vị"
+                },
+                {
+                  "t": "から",
+                  "read": "から",
+                  "vi": "vì…nên"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "きらい",
+                  "read": "きらい",
+                  "vi": "ghét, không thích"
+                },
+                {
+                  "t": "むずかしい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "ですから",
+                  "read": "ですから",
+                  "vi": "vì vậy, bởi vì (lịch sự)"
+                },
+                {
+                  "t": "すきじゃありません",
+                  "read": "すきじゃありません",
+                  "vi": "好きじゃありません = không thích"
+                },
+                {
+                  "t": "はおもしろくない",
+                  "read": "はおもしろくない",
+                  "vi": "~は面白くない = ~ không thú vị/không hay (phủ định của 面白い)"
+                },
+                {
+                  "t": "おもしろいですが",
+                  "read": "おもしろいですが",
+                  "vi": "〜ですが = tuy ~ nhưng... (thể lịch sự + が, nối ý trái ngược)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのせんせいはこわいですか。",
+              "choices": [
+                "あのせんせいはこわいひとですか。",
+                "あのせんせいはやさしいですか。",
+                "あのせんせいはこわくないですか。",
+                "あのせんせいはしんせつじゃありませんか。"
+              ],
+              "answer": 0,
+              "pt": "NはAいです（ôn B8）",
+              "explain": "Câu gốc hỏi 'giáo viên đó có đáng sợ không?'. Đáp án 0「こわいひとですか」dùng「こわい」bổ nghĩa cho「ひと」(người đáng sợ) — cùng nghĩa hỏi về đặc tính đáng sợ. Đáp án 1「やさしい」nghĩa là 'hiền/dịu dàng' — gần như ngược nghĩa. Đáp án 2「こわくないですか」là phủ định 'có phải là không đáng sợ không?' — hỏi ngược chiều. Đáp án 3「しんせつじゃありませんか」hỏi về tính 'không tử tế' — đổi chủ đề.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "こわい",
+                  "read": "",
+                  "vi": "đáng sợ"
+                },
+                {
+                  "t": "ひと",
+                  "read": "人",
+                  "vi": "người"
+                },
+                {
+                  "t": "やさしい",
+                  "read": "やさしい",
+                  "vi": "hiền, dịu dàng"
+                },
+                {
+                  "t": "こわくないですか",
+                  "read": "こわくないですか",
+                  "vi": "~くないですか = không phải là ~ à? (câu hỏi phủ định xác nhận, tính từ đuôi い)"
+                },
+                {
+                  "t": "しんせつじゃありませんか",
+                  "read": "しんせつじゃありませんか",
+                  "vi": "~じゃありませんか = chẳng phải là ~ à? (câu hỏi phủ định xác nhận, danh từ/tính từ đuôi な)"
+                }
+              ]
+            },
+            {
+              "prompt": "いもうとはりょうりがへたです。",
+              "choices": [
+                "いもうとはりょうりがにがてです。",
+                "いもうとはりょうりがとくいです。",
+                "いもうとはりょうりがきらいです。",
+                "いもうとはりょうりがわかりません。"
+              ],
+              "answer": 0,
+              "pt": "NはNが下手です",
+              "explain": "「へたです」nghĩa là 'kém/dở'. Đáp án 0「にがてです」nghĩa là 'điểm yếu, kém về' — gần nghĩa nhất với「下手」. Đáp án 1「とくいです」nghĩa là 'giỏi/sở trường' — ngược nghĩa. Đáp án 2「きらいです」nghĩa là 'ghét' — nói cảm xúc, không phải kỹ năng. Đáp án 3「わかりません」nghĩa là 'không hiểu' — khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "いもうと",
+                  "read": "妹",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "料理",
+                  "vi": "nấu ăn"
+                },
+                {
+                  "t": "へた",
+                  "read": "下手",
+                  "vi": "kém, dở"
+                },
+                {
+                  "t": "にがて",
+                  "read": "苦手",
+                  "vi": "điểm yếu, kém về"
+                },
+                {
+                  "t": "きらい",
+                  "read": "きらい",
+                  "vi": "ghét, không thích"
+                },
+                {
+                  "t": "がとくいです",
+                  "read": "がとくいです",
+                  "vi": "~が得意です = giỏi/thành thạo về ~"
+                },
+                {
+                  "t": "がわかりません",
+                  "read": "がわかりません",
+                  "vi": "~が分かりません = không hiểu/biết về ~"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうたなかさんにほんをあげました。",
+              "choices": [
+                "きのうたなかさんにほんをプレゼントしました。",
+                "きのうたなかさんからほんをもらいました。",
+                "きのうたなかさんはほんをかいました。",
+                "きのうたなかさんにほんをかしました。"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます（ôn B7）",
+              "explain": "「あげました」nghĩa là 'đã cho (ai đó)'. Đáp án 0「プレゼントしました」nghĩa là 'đã tặng/biếu' — gần nghĩa nhất. Đáp án 1「もらいました」nghĩa là 'đã nhận được' — ngược chiều trao nhận. Đáp án 2「かいました」nghĩa là 'đã mua' — hành động khác. Đáp án 3「かしました」nghĩa là 'đã cho mượn' — cho mượn khác với cho hẳn.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "read": "田中さん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "に",
+                  "read": "",
+                  "vi": "cho (trợ từ chỉ đối tượng nhận)"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あげました",
+                  "read": "",
+                  "vi": "đã cho (tôi cho người khác)"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "プレゼント",
+                  "read": "プレゼント",
+                  "vi": "quà tặng, tặng quà"
+                },
+                {
+                  "t": "プレゼントしました",
+                  "read": "ぷれぜんとしました",
+                  "vi": "プレゼントしました = đã tặng quà"
+                },
+                {
+                  "t": "をもらいました",
+                  "read": "をもらいました",
+                  "vi": "~をもらいました = đã nhận được ~ (từ ai đó)"
+                },
+                {
+                  "t": "をかいました",
+                  "read": "をかいました",
+                  "vi": "~を買いました = đã mua ~"
+                },
+                {
+                  "t": "をかしました",
+                  "read": "をかしました",
+                  "vi": "~を貸しました = đã cho mượn ~"
+                }
+              ]
+            },
+            {
+              "prompt": "このまちはとてもにぎやかです。",
+              "choices": [
+                "このまちはとてもひとがおおいです。",
+                "このまちはとてもしずかです。",
+                "このまちはあまりにぎやかじゃありません。",
+                "このまちはにぎやかなまちです。"
+              ],
+              "answer": 3,
+              "pt": "NはNAです／とても（ôn B8）",
+              "explain": "Câu gốc nói 'thị trấn này rất náo nhiệt' dùng「にぎやかです」. Đáp án 3「にぎやかなまちです」dùng「にぎやか」bổ nghĩa trực tiếp cho「まち」, cùng diễn đạt thị trấn là náo nhiệt — đồng nghĩa nhất về nội dung. Đáp án 0「ひとがおおい」nghĩa là 'nhiều người' — đây là nguyên nhân chứ không đồng nghĩa trực tiếp. Đáp án 1「しずかです」nghĩa là 'yên tĩnh' — ngược nghĩa. Đáp án 2「あまりにぎやかじゃありません」nghĩa là 'không mấy náo nhiệt' — phủ định, ngược nghĩa.",
+              "glosses": [
+                {
+                  "t": "まち",
+                  "read": "町",
+                  "vi": "thành phố, thị trấn"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "にぎやか",
+                  "read": "",
+                  "vi": "náo nhiệt, sôi động"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "おおい",
+                  "read": "おおい",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "しずか",
+                  "read": "しずか",
+                  "vi": "yên tĩnh"
+                },
+                {
+                  "t": "あまり",
+                  "read": "あまり",
+                  "vi": "không (mấy), không lắm"
+                },
+                {
+                  "t": "にぎやかじゃありません",
+                  "read": "にぎやかじゃありません",
+                  "vi": "賑やかじゃありません = không nhộn nhịp/sôi động"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 9 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "マリアさんは日本語＿わかります。",
+              "choices": [
+                "が",
+                "を",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "pt": "NはNがわかります",
+              "explain": "「わかります」(hiểu/biết) luôn đi với trợ từ「が」để chỉ đối tượng được hiểu/biết — cấu trúc「NはNがわかります」. ✗「を」dùng với động từ tác động trực tiếp (ăn, uống, v.v.), không dùng với「わかります」. ✗「に」chỉ hướng/địa điểm/đối tượng nhận. ✗「で」chỉ phương tiện hoặc địa điểm xảy ra hành động.",
+              "glosses": [
+                {
+                  "t": "マリアさん",
+                  "vi": "chị Maria"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "わかります",
+                  "vi": "hiểu, biết"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんはテニス＿上手です。",
+              "choices": [
+                "が",
+                "を",
+                "は",
+                "の"
+              ],
+              "answer": 0,
+              "pt": "NはNが上手です",
+              "explain": "「上手です」(giỏi) và「下手です」(kém) luôn dùng「が」để đánh dấu môn/lĩnh vực — cấu trúc「NはNが上手です」. ✗「を」không dùng với tính từ trạng thái. ✗「は」đã là chủ đề「田中さんは」rồi, không thể dùng「は」lần nữa cho「テニス」theo cấu trúc này. ✗「の」nối danh từ với danh từ, không phù hợp ở đây.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh Tanaka"
+                },
+                {
+                  "t": "テニス",
+                  "vi": "quần vợt"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi, thành thạo"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうしてジュースを飲みますか。B：のどが痛い＿、水が飲みたいです。",
+              "choices": [
+                "から",
+                "が",
+                "で",
+                "けど"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do）",
+              "explain": "「〜から」nối sau mệnh đề nguyên nhân, nghĩa là \"vì…nên\" — đây là cấu trúc trọng tâm bài 9. ✗「が」là trợ từ chủ thể hoặc liên kết tương phản nhẹ, không nêu lý do. ✗「で」chỉ phương tiện/địa điểm, không diễn đạt nguyên nhân theo cấu trúc N5. ✗「けど」có nghĩa \"nhưng/tuy nhiên\", diễn đạt tương phản chứ không phải lý do.",
+              "glosses": [
+                {
+                  "t": "のど",
+                  "vi": "cổ họng"
+                },
+                {
+                  "t": "痛い",
+                  "read": "いたい",
+                  "vi": "đau"
+                },
+                {
+                  "t": "水",
+                  "read": "みず",
+                  "vi": "nước"
+                },
+                {
+                  "t": "飲みたい",
+                  "read": "のみたい",
+                  "vi": "muốn uống"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "ジュース",
+                  "read": "ジュース",
+                  "vi": "nước ép, nước ngọt"
+                },
+                {
+                  "t": "飲みますか",
+                  "read": "のみますか",
+                  "vi": "飲みますか = có uống không?/uống à? (thể lịch sự nghi vấn của 飲む)"
+                }
+              ]
+            },
+            {
+              "stem": "アンさんは料理＿好きです。",
+              "choices": [
+                "が",
+                "を",
+                "で",
+                "に"
+              ],
+              "answer": 0,
+              "pt": "NはNが好きです",
+              "explain": "「好きです」(thích) và「嫌いです」(ghét) là tính từ な, luôn dùng「が」để chỉ đối tượng thích/ghét — cấu trúc「NはNが好きです」. ✗「を」dùng với động từ hành động trực tiếp, không dùng với tính từ な. ✗「で」chỉ phương tiện/địa điểm. ✗「に」chỉ hướng hoặc đối tượng nhận, không phù hợp với「好き」.",
+              "glosses": [
+                {
+                  "t": "アンさん",
+                  "vi": "chị An"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn, ẩm thực"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうして勉強しますか。B：試験がある＿勉強します。",
+              "choices": [
+                "から",
+                "けど",
+                "が",
+                "で"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do）",
+              "explain": "「〜から」theo sau nguyên nhân/lý do, đặt trước kết quả/quyết định. ✗「けど」nghĩa \"nhưng\", diễn đạt tương phản. ✗「が」ở đây chỉ là trợ từ chủ thể (「試験が」), không thể thay thế vị trí cuối mệnh đề nguyên nhân. ✗「で」chỉ phương tiện hoặc địa điểm, không dùng nối lý do theo cấu trúc này.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "ある",
+                  "vi": "có"
+                },
+                {
+                  "t": "勉強します",
+                  "read": "べんきょうします",
+                  "vi": "học bài"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは英語＿下手です。",
+              "choices": [
+                "が",
+                "を",
+                "は",
+                "で"
+              ],
+              "answer": 0,
+              "pt": "NはNが下手です",
+              "explain": "「下手です」(kém) cần「が」để chỉ lĩnh vực, giống「上手です」— cấu trúc「NはNが下手です」. ✗「を」không dùng với tính từ trạng thái. ✗「は」đã dùng cho chủ đề「山田さんは」, không thể dùng lại cho「英語」trong cấu trúc này. ✗「で」chỉ phương tiện/địa điểm.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh Yamada"
+                },
+                {
+                  "t": "英語",
+                  "read": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "下手",
+                  "read": "へた",
+                  "vi": "kém, không giỏi"
+                }
+              ]
+            },
+            {
+              "stem": "このケーキは甘い＿、子どもたちが大好きです。",
+              "choices": [
+                "から",
+                "けど",
+                "が",
+                "のに"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do）",
+              "explain": "「〜から」sau tính từ い (dạng thường) diễn đạt lý do: \"vì ngọt nên bọn trẻ rất thích\". ✗「けど」nghĩa \"nhưng\", ngược chiều logic với câu này. ✗「が」ở đây không phù hợp vì nó nối hai mệnh đề tương phản/nhẹ chứ không nêu nguyên nhân rõ ràng theo N5. ✗「のに」diễn đạt sự bất ngờ/phản kỳ vọng, không phải lý do.",
+              "glosses": [
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh ngọt"
+                },
+                {
+                  "t": "甘い",
+                  "read": "あまい",
+                  "vi": "ngọt"
+                },
+                {
+                  "t": "子どもたち",
+                  "read": "こどもたち",
+                  "vi": "bọn trẻ, các em nhỏ"
+                },
+                {
+                  "t": "大好き",
+                  "read": "だいすき",
+                  "vi": "rất thích"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうして早く起きますか。B：ジョギングをする＿早く起きます。",
+              "choices": [
+                "から",
+                "が",
+                "で",
+                "けど"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do）",
+              "explain": "「〜から」sau động từ dạng thường/lịch sự nêu lý do. ✗「が」nối mệnh đề tương phản hoặc làm trợ từ chủ thể, không nêu lý do. ✗「で」chỉ phương tiện/địa điểm. ✗「けど」nghĩa \"nhưng\", diễn đạt tương phản không phải nguyên nhân.",
+              "glosses": [
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "sớm, nhanh"
+                },
+                {
+                  "t": "起きます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "ジョギングをする",
+                  "vi": "chạy bộ"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            },
+            {
+              "stem": "あの学生は数学＿わかりません。",
+              "choices": [
+                "が",
+                "を",
+                "に",
+                "は"
+              ],
+              "answer": 0,
+              "pt": "NはNがわかります",
+              "explain": "Dạng phủ định「わかりません」cũng giữ trợ từ「が」— cấu trúc「NはNがわかりません」. ✗「を」không dùng với「わかります/わかりません」. ✗「に」chỉ hướng hoặc thời điểm. ✗「は」ở đây sẽ tạo ý đối lập (\"riêng toán thì không hiểu\"), sai nghĩa tự nhiên trong câu khẳng định đơn thuần.",
+              "glosses": [
+                {
+                  "t": "あの学生",
+                  "read": "あのがくせい",
+                  "vi": "học sinh kia"
+                },
+                {
+                  "t": "数学",
+                  "read": "すうがく",
+                  "vi": "toán học"
+                },
+                {
+                  "t": "わかりません",
+                  "vi": "không hiểu, không biết"
+                }
+              ]
+            },
+            {
+              "stem": "スミスさんは野菜＿嫌いです。",
+              "choices": [
+                "が",
+                "を",
+                "の",
+                "で"
+              ],
+              "answer": 0,
+              "pt": "NはNが嫌いです",
+              "explain": "「嫌いです」(ghét) là tính từ な, dùng「が」để chỉ đối tượng bị ghét — cấu trúc「NはNが嫌いです」, đối xứng với「好きです」. ✗「を」không dùng với tính từ な. ✗「の」nối danh từ với danh từ. ✗「で」chỉ phương tiện/địa điểm/nguyên nhân (thường kết hợp danh từ).",
+              "glosses": [
+                {
+                  "t": "スミスさん",
+                  "vi": "anh Smith"
+                },
+                {
+                  "t": "野菜",
+                  "read": "やさい",
+                  "vi": "rau củ"
+                },
+                {
+                  "t": "嫌い",
+                  "read": "きらい",
+                  "vi": "ghét, không thích"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうしてコーヒーを飲みませんか。B：コーヒー＿好きじゃありませんから。",
+              "choices": [
+                "が",
+                "を",
+                "は",
+                "に"
+              ],
+              "answer": 0,
+              "pt": "NはNが好きです + 〜から",
+              "explain": "Câu giải thích lý do bằng「〜から」kèm cấu trúc「NはNが好きじゃありません」— trợ từ cho đối tượng thích/ghét phải là「が」. ✗「を」không dùng với tính từ な. ✗「は」tạo nghĩa đối lập \"riêng cà phê thì không thích\", sai với ngữ cảnh trả lời trực tiếp. ✗「に」chỉ hướng/đối tượng nhận, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "好きじゃありません",
+                  "read": "すきじゃありません",
+                  "vi": "không thích"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì (lý do)"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "飲みませんか",
+                  "read": "のみませんか",
+                  "vi": "bạn không uống à?"
+                }
+              ]
+            },
+            {
+              "stem": "キムさんは音楽＿上手ですが、絵＿下手です。",
+              "choices": [
+                "が／は",
+                "を／が",
+                "が／が",
+                "は／は"
+              ],
+              "answer": 2,
+              "pt": "NはNが上手です／下手です",
+              "explain": "Cả「上手」lẫn「下手」đều cần「が」để chỉ lĩnh vực — vậy cả hai chỗ trống đều điền「が」. ✗「が／は」vế sau「絵は下手です」sẽ nghe như đối lập chủ đề, không tự nhiên trong câu ghép này. ✗「を／が」dùng「を」với tính từ là sai cơ bản. ✗「は／は」「音楽は上手です」sai cấu trúc vì「は」không thay thế「が」trong mẫu này.",
+              "glosses": [
+                {
+                  "t": "キムさん",
+                  "vi": "chị Kim"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "絵",
+                  "read": "え",
+                  "vi": "vẽ tranh"
+                },
+                {
+                  "t": "下手",
+                  "read": "へた",
+                  "vi": "kém"
+                },
+                {
+                  "t": "ですが",
+                  "read": "ですが",
+                  "vi": "nhưng, tuy nhiên"
+                }
+              ]
+            },
+            {
+              "stem": "A：ケンさんはどんな食べ物が好きですか。B：すし＿好きです。",
+              "choices": [
+                "が",
+                "を",
+                "は",
+                "に"
+              ],
+              "answer": 0,
+              "pt": "NはNが好きです + どんなNですか",
+              "explain": "Trả lời cho「どんな食べ物が好きですか」bằng cách giữ cấu trúc「NはNが好きです」—「すしが好きです」. ✗「を」sai cơ bản với「好き」là tính từ な. ✗「は」sẽ là「すしは好きです」—  nghe như đối lập (\"riêng sushi thì thích\"), không tự nhiên khi trả lời thẳng. ✗「に」không phù hợp với cấu trúc「好き」.",
+              "glosses": [
+                {
+                  "t": "どんな食べ物",
+                  "read": "どんなたべもの",
+                  "vi": "món ăn loại gì"
+                },
+                {
+                  "t": "すし",
+                  "vi": "sushi"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "ケンさん",
+                  "read": "ケンさん",
+                  "vi": "anh Ken"
+                }
+              ]
+            },
+            {
+              "stem": "この本はとても難しい＿、あまりわかりません。",
+              "choices": [
+                "から",
+                "が",
+                "けど",
+                "のに"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do）+ とても／あまり〜ない",
+              "explain": "「〜から」nêu lý do: \"vì rất khó nên không hiểu lắm\" — kết hợp ôn「とても」và「あまり〜ない」từ bài 8. ✗「が」nối tương phản nhẹ, không phù hợp vì logic ở đây là nhân→quả. ✗「けど」nghĩa \"nhưng\", logic ngược (\"khó nhưng không hiểu\" sẽ dùng「けど」nếu có yếu tố bất ngờ, song câu này là nhân quả thẳng). ✗「のに」diễn đạt bất ngờ/phàn nàn, không phải nhân quả đơn thuần.",
+              "glosses": [
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "あまりわかりません",
+                  "vi": "không hiểu lắm"
+                }
+              ]
+            },
+            {
+              "stem": "先生は日本語の歌＿上手ですが、私はあまり＿。",
+              "choices": [
+                "が／上手じゃありません",
+                "を／上手ではないです",
+                "が／上手くないです",
+                "は／上手ですか"
+              ],
+              "answer": 0,
+              "pt": "NはNが上手です + NAじゃありません",
+              "explain": "Phần đầu:「が」cho cấu trúc「NはNが上手です」. Phần sau:「あまり〜ない」ôn từ bài 8 — phủ định tính từ な phải là「上手じゃありません」(NA + じゃありません). ✗「を／上手ではないです」:「を」sai với「上手」; dù「上手ではないです」đúng ngữ pháp nhưng「を」trước đó đã sai. ✗「が／上手くないです」:「上手」là tính từ な, không chia theo dạng tính từ い → không thể「上手くない」. ✗「は／上手ですか」:「は」sai vị trí + câu hỏi không hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "日本語の歌",
+                  "read": "にほんごのうた",
+                  "vi": "bài hát tiếng Nhật"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không lắm"
+                },
+                {
+                  "t": "上手じゃありません",
+                  "read": "じょうずじゃありません",
+                  "vi": "không giỏi"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ですが",
+                  "read": "ですが",
+                  "vi": "nhưng, tuy nhiên"
+                },
+                {
+                  "t": "ではないです",
+                  "read": "ではないです",
+                  "vi": "~ではないです = không phải là ~ (thể phủ định lịch sự, tương đương じゃありません)"
+                },
+                {
+                  "t": "上手くないです",
+                  "read": "じょうずくないです",
+                  "vi": "~くないです = không ~ (thể phủ định của tính từ đuôi い)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "NはNが好きです",
+              "explain": "Câu đúng: 「わたしはにほんのおんがくがとてもすきです。」— Tôi rất thích âm nhạc Nhật Bản.\nSắp xếp: ô 1=「にほんの」, ô 2=「おんがくが」★, ô 3=「とても」, ô 4=「すき」.\nKhung đầu câu đã cho chủ ngữ 「わたしは」. Mảnh bổ nghĩa 「にほんの」 đứng ở ô 1 để bổ nghĩa cho danh từ chỉ đối tượng 「おんがくが」 ở ô 2. Trợ từ 「が」 đi liền với danh từ 「おんがく」 để chỉ đối tượng của sở thích (Nがすきです), vì vậy mảnh 「おんがくが」 bắt buộc phải nằm ở ô 2★. Phó từ chỉ mức độ 「とても」 đứng ở ô 3 ngay trước tính từ 「すき」 ở ô 4, kết hợp với 「です。」 ở khung sau để hoàn chỉnh câu.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "にほん",
+                  "read": "",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "おんがく",
+                  "read": "",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                }
+              ],
+              "frame": [
+                "わたしは",
+                "です。"
+              ],
+              "pieces": [
+                "すき",
+                "にほんの",
+                "おんがくが",
+                "とても"
+              ],
+              "order": [
+                1,
+                2,
+                3,
+                0
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NはNが嫌いです",
+              "explain": "Câu đúng: 「やまださんはからいりょうりがとてもきらいです。」— Yamada rất ghét món ăn cay.\nSắp xếp: ô 1=「からい」, ô 2=「りょうりが」★, ô 3=「とても」, ô 4=「きらい」\nKhung cho sẵn chủ ngữ 「やまださんは」 ở đầu và đuôi vị ngữ 「です。」 ở cuối. Tính từ 「からい」 đứng ở ô 1 để bổ nghĩa trực tiếp cho danh từ 「りょうりが」 ở ô 2. Cấu trúc chỉ sở thích, ghét bỏ dùng trợ từ 「が」 đi với danh từ được nói đến (「りょうりが」), theo sau là phó từ chỉ mức độ 「とても」 ở ô 3 bổ nghĩa cho tính từ 「きらい」 ở ô 4. Ô ★ phải là 「りょうりが」 vì mang trợ từ 「が」 đánh dấu đối tượng bị ghét, bắt buộc đứng sau tính từ bổ nghĩa 「からい」 và đứng trước phó từ mức độ 「とても」.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "からい",
+                  "read": "",
+                  "vi": "cay"
+                },
+                {
+                  "t": "きらい",
+                  "read": "きらい",
+                  "vi": "ghét, không thích"
+                }
+              ],
+              "frame": [
+                "やまださんは",
+                "です。"
+              ],
+              "pieces": [
+                "とても",
+                "りょうりが",
+                "からい",
+                "きらい"
+              ],
+              "order": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NはNが上手です",
+              "explain": "Câu đúng: 「たなかさんはピアノがじょうずです。」— Tanaka giỏi đàn piano.\nSắp xếp: ô 1=「たなか」, ô 2=「さんは」, ô 3=「ピアノが」, ô 4=「じょうずです」★.\nMẫu ngữ pháp khen ngợi năng khiếu có dạng 「NはNが上手です」. Danh từ riêng 「たなか」 ở ô 1 đi liền với danh từ xưng呼 kèm trợ từ chủ đề 「さんは」 ở ô 2 để làm chủ ngữ. Danh từ chỉ môn nghệ thuật 「ピアノが」 đặt ở ô 3 với trợ từ 「が」 làm đối tượng cho năng lực. Mảnh ở ô ★ 「じょうずです」 gồm tính từ 「じょうず」 ghép liền đuôi 「です」 bắt buộc phải nằm ở ô 4 kết thúc câu làm vị ngữ chính, không thể đứng vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "じょうず",
+                  "read": "",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "ピアノ",
+                  "read": "ピアノ",
+                  "vi": "đàn piano"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "じょうずです",
+                "たなか",
+                "ピアノが",
+                "さんは"
+              ],
+              "order": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NはNが下手です",
+              "explain": "Câu đúng: 「ミラーさんはひらがなのじがすこしへたです。」— Anh Miller viết chữ Hiragana hơi dở một chút.\nSắp xếp: ô 1=「ひらがなの」, ô 2=「じが」, ô 3=「すこし」, ô 4=「へた」★.\nKhung đầu câu đã cho sẵn chủ ngữ 「ミラーさんは」. Mảnh bổ nghĩa 「ひらがなの」 ở ô 1 đứng trước danh từ 「じが」 ở ô 2 để làm rõ loại chữ. Trợ từ 「が」 đi cùng danh từ 「じ」 chỉ đối tượng của khả năng (Nがへたです). Phó từ chỉ mức độ 「すこし」 nằm ở ô 3 ngay trước tính từ 「へた」 ở ô 4★ để thể hiện mức độ kém, kết hợp với 「です。」 ở khung sau để hoàn thành câu.",
+              "glosses": [
+                {
+                  "t": "ミラーさん",
+                  "read": "みらーさん",
+                  "vi": "anh Miller"
+                },
+                {
+                  "t": "ひらがな",
+                  "read": "",
+                  "vi": "chữ Hiragana"
+                },
+                {
+                  "t": "じ",
+                  "read": "",
+                  "vi": "chữ"
+                },
+                {
+                  "t": "すこし",
+                  "read": "",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "へた",
+                  "read": "",
+                  "vi": "kém"
+                }
+              ],
+              "frame": [
+                "ミラーさんは",
+                "です。"
+              ],
+              "pieces": [
+                "ひらがなの",
+                "じが",
+                "すこし",
+                "へた"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NはNがわかります",
+              "explain": "Câu đúng: 「マリアさんはにほんごがわかります。」— Maria hiểu tiếng Nhật.\nSắp xếp: ô 1=「マリア」, ô 2=「さんは」, ô 3=「にほんごが」★, ô 4=「わかり」\nSau chủ ngữ 「マリア」 ở khung đầu cần trợ từ chỉ chủ thể 「さんは」 ở ô 2. Đối tượng của động từ chỉ khả năng, sự hiểu biết 「わかります」 luôn đi với trợ từ 「が」, nên cụm 「にほんごが」 ở ô ★ phải đứng ngay trước động từ 「わかり」 ở ô 4. Vị ngữ kết thúc bằng đuôi 「ます。」 ở khung cuối.",
+              "glosses": [
+                {
+                  "t": "マリアさん",
+                  "read": "マリアさん",
+                  "vi": "chị Maria"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "わかり",
+                  "read": "",
+                  "vi": "hiểu"
+                }
+              ],
+              "frame": [
+                "",
+                "ます。"
+              ],
+              "pieces": [
+                "マリア",
+                "さんは",
+                "にほんごが",
+                "わかり"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "〜から（理由）",
+              "explain": "Câu đúng: 「わたしはスポーツがすきですから、まいにちいえでれんしゅうします。」— Vì tôi thích thể thao nên hàng ngày tôi luyện tập ở nhà.\nSắp xếp: ô 1=「スポーツが」, ô 2=「すきですから、」★, ô 3=「まいにち」, ô 4=「いえで」\nKhung đã cho sẵn chủ ngữ 「わたしは」 ở đầu và vị ngữ 「れんしゅうします。」 ở cuối. Danh từ chỉ đối tượng yêu thích 「スポーツが」 đứng ngay sau chủ ngữ. Mảnh ở ô ★ là 「すきですから、」 mang trợ từ chỉ lý do 「から」 nối vế chỉ nguyên nhân với vế kết quả. Trạng từ chỉ thời gian 「まいにち」 và danh từ chỉ nơi chốn 「いえで」 đứng ở vế sau để bổ nghĩa cho vị ngữ 「れんしゅうします。」。",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "れんしゅうします",
+                  "read": "れんしゅうします",
+                  "vi": "luyện tập"
+                },
+                {
+                  "t": "スポーツ",
+                  "read": "スポーツ",
+                  "vi": "thể thao"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "hằng ngày"
+                },
+                {
+                  "t": "いえ",
+                  "read": "",
+                  "vi": "nhà"
+                }
+              ],
+              "frame": [
+                "わたしは",
+                "れんしゅうします。"
+              ],
+              "pieces": [
+                "スポーツが",
+                "すきですから、",
+                "まいにち",
+                "いえで"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "どうして〜から",
+              "explain": "Câu đúng: 「A：どうしてにほんごをべんきょうしますか。　B：にほんのぶんかがとてもすきですから。」— A: Tại sao bạn học tiếng Nhật? B: Vì tôi rất thích văn hóa Nhật Bản.\nSắp xếp: ô 1=「にほんの」, ô 2=「ぶんかが」, ô 3=「とても」, ô 4=「すきです」★\nKhung đầu câu B có sẵn nhãn trả lời. Cụm bổ nghĩa 「にほんの」 ở ô 1 đi với danh từ 「ぶんかが」 ở ô 2 làm chủ ngữ của vế trả lời. Trạng từ mức độ 「とても」 ở ô 3 đứng trước tính từ chỉ sở thích 「すきです」 ở ô 4. Mảnh 「すきです」 ở ô ★ bắt buộc đứng ở vị trí cuối cùng trước trợ từ 「から。」 ở khung sau để tạo thành mẫu trả lời nguyên nhân 「〜ですから。」.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "にほん",
+                  "read": "",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "べんきょうします",
+                  "read": "べんきょうします",
+                  "vi": "học tập"
+                },
+                {
+                  "t": "ぶんか",
+                  "read": "",
+                  "vi": "văn hóa"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ],
+              "frame": [
+                "A：どうしてにほんごをべんきょうしますか。　B：",
+                "から。"
+              ],
+              "pieces": [
+                "にほんの",
+                "ぶんかが",
+                "とても",
+                "すきです"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "どんなNですか + NはNが好きです",
+              "explain": "Câu đúng: 「スミスさんはどんなたべものがすきですか。」— Anh Smith thích món ăn như thế nào?\nSắp xếp: ô 1=「さんは」, ô 2=「どんな」★, ô 3=「たべものが」, ô 4=「すき」\nSau tên riêng 「スミス」 ở khung đầu cần danh từ xưng hô và trợ từ chủ ngữ 「さんは」 ở ô 1. Từ hỏi 「どんな」 ở ô ★ đứng trước danh từ 「たべものが」 ở ô 3 để hỏi về chủng loại món ăn yêu thích. Tính từ 「すき」 đứng ở ô 4 để kết hợp với 「ですか。」 ở khung cuối tạo thành câu hỏi sở thích hoàn chỉnh.",
+              "glosses": [
+                {
+                  "t": "スミスさん",
+                  "read": "スミスさん",
+                  "vi": "anh/chị Smith"
+                },
+                {
+                  "t": "どんな",
+                  "read": "どんな",
+                  "vi": "như thế nào, loại gì"
+                },
+                {
+                  "t": "たべものが",
+                  "read": "たべものが",
+                  "vi": "食べ物が = đồ ăn (chủ ngữ, đi với すき/きらい/じょうず dùng trợ từ が)"
+                },
+                {
+                  "t": "すき",
+                  "read": "",
+                  "vi": "thích"
+                }
+              ],
+              "frame": [
+                "スミス",
+                "ですか。"
+              ],
+              "pieces": [
+                "さんは",
+                "どんな",
+                "たべものが",
+                "すき"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "あまり〜ない + NはNが好きじゃありません",
+              "explain": "Câu đúng: 「わたしはえがあまりすきじゃありません。」— Tôi không thích tranh cho lắm.\nSắp xếp: ô 1=「わたしは」, ô 2=「えが」, ô 3=「あまり」★, ô 4=「すき」\nChủ ngữ 「わたしは」 ở ô 1 đi với đối tượng chỉ sở thích 「えが」 ở ô 2. Trạng từ mức độ 「あまり」 ở ô ★ đứng trước tính từ sở thích và đi kèm với dạng phủ định ở cuối câu 「〜じゃありません」 để diễn tả ý không thích lắm. Mảnh 「すき」 ở ô 4 đứng trực tiếp trước khung 「じゃありません。」 để tạo thành dạng phủ định sở thích hoàn chỉnh.",
+              "glosses": [
+                {
+                  "t": "じゃありません",
+                  "read": "じゃありません",
+                  "vi": "~じゃありません = không phải là ~ (thể phủ định lịch sự của です)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "え",
+                  "read": "",
+                  "vi": "tranh"
+                },
+                {
+                  "t": "あまり",
+                  "read": "あまり",
+                  "vi": "không mấy, không lắm"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ],
+              "frame": [
+                "",
+                "じゃありません。"
+              ],
+              "pieces": [
+                "わたしは",
+                "えが",
+                "あまり",
+                "すき"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "〜から（理由）",
+              "explain": "Câu đúng: 「にほんのぶんかがすきですから、にほんにいきたいです。」— Vì thích văn hóa Nhật Bản nên tôi muốn đi Nhật Bản.\nSắp xếp: ô 1=「ぶんかが」, ô 2=「すきです」, ô 3=「から、」★, ô 4=「にほんに」\nKhung đầu 「にほんの」 bổ nghĩa cho danh từ 「ぶんかが」 ở ô 1. Danh từ này làm đối tượng của tính từ sở thích 「すきです」 ở ô 2. Trợ từ chỉ nguyên nhân 「から、」 ở ô ★ đứng ngay sau vị ngữ tính từ để nối vế lý do với vế kết quả. Mảnh 「にほんに」 ở ô 4 chỉ địa điểm hướng tới của động từ 「いきたいです。」 ở khung cuối.",
+              "glosses": [
+                {
+                  "t": "のぶんかが",
+                  "read": "のぶんかが",
+                  "vi": "の文化が = văn hóa của ~ (chủ ngữ)"
+                },
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "いきたいです",
+                  "read": "いきたいです",
+                  "vi": "muốn đi"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ],
+              "frame": [
+                "にほんの",
+                "いきたいです。"
+              ],
+              "pieces": [
+                "ぶんかが",
+                "すきです",
+                "から、",
+                "にほんに"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NにNをあげます（B7ôn）",
+              "explain": "Câu đúng: 「はなさんはかれにほんをあげました。」— Hana đã tặng sách cho bạn trai (anh ấy).\nSắp xếp: ô 1=「はなさんは」, ô 2=「かれに」★, ô 3=「ほんを」, ô 4=「あげました」\nChủ ngữ 「はなさんは」 đứng ở đầu câu chỉ người thực hiện hành động. Mẫu ngữ pháp cho/tặng vật gì cho ai có dạng 「N（người nhận）に N（vật）を あげます」, nên người nhận 「かれに」 phải đi liền sau chủ ngữ. Tiếp theo là tân ngữ trực tiếp 「ほんを」 đi với trợ từ を. Vị ngữ động từ 「あげました」 đứng ở cuối câu để hoàn thành câu. Do đó, mảnh 「かれに」 bắt buộc phải nằm ở ô 2 (ô ★).",
+              "glosses": [
+                {
+                  "t": "はなさん",
+                  "read": "はなさん",
+                  "vi": "chị Hana"
+                },
+                {
+                  "t": "かれに",
+                  "read": "かれに",
+                  "vi": "彼に = cho anh ấy (đối tượng nhận, đi với động từ あげる/貸す dùng trợ từ に)"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あげました",
+                  "read": "",
+                  "vi": "đã tặng"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "はなさんは",
+                "かれに",
+                "ほんを",
+                "あげました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NにNをもらいます（B7ôn）",
+              "explain": "Câu đúng: 「わたしはははにかばんをもらいました。」— Tôi đã nhận cái cặp từ mẹ.\nSắp xếp: ô 1=「わたしは」, ô 2=「ははに」★, ô 3=「かばんを」, ô 4=「もらいました」\nChủ ngữ 「わたしは」 chỉ người nhận đứng ở đầu câu. Cấu trúc nhận thứ gì từ ai là 「N（người cho）に N（vật）を もらいます」, do đó đối tượng cho 「ははに」 phải đứng ngay sau chủ ngữ. Tiếp đến là tân ngữ 「かばんを」 đi với trợ từ を chỉ vật được nhận. Động từ 「もらいました」 đóng vai trò vị ngữ đứng ở cuối câu. Vì vậy, vị trí ô 2 (ô ★) bắt buộc phải là mảnh 「ははに」.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "はは",
+                  "read": "",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "かばん",
+                  "read": "かばん",
+                  "vi": "cái túi, cặp"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "",
+                  "vi": "đã nhận"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "わたしは",
+                "ははに",
+                "かばんを",
+                "もらいました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "とても〜（B8ôn）",
+              "explain": "Câu đúng: 「このえいがはとてもおもしろいです。」— Bộ phim này rất thú vị.\nSắp xếp: ô 1=「この」, ô 2=「えいがは」, ô 3=「とても」★, ô 4=「おもしろい」\nChỉ thị từ 「この」 bắt buộc đứng trước danh từ 「えいがは」 để tạo thành chủ ngữ 「このえいがは」（bộ phim này）. Phó từ chỉ mức độ 「とても」（rất） phải đứng ngay trước tính từ 「おもしろい」 để bổ nghĩa cho tính từ đó. Cuối cùng, tính từ kết hợp với đuôi 「です。」 ở khung sau để hoàn thành câu. Do đó, mảnh 「とても」 phải đứng ở vị trí ô 3 (ô ★).",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "えいが",
+                  "read": "えいが",
+                  "vi": "phim, điện ảnh"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おもしろい",
+                  "read": "おもしろい",
+                  "vi": "thú vị, hay"
+                }
+              ],
+              "frame": [
+                "",
+                "です。"
+              ],
+              "pieces": [
+                "この",
+                "えいがは",
+                "とても",
+                "おもしろい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "どうして〜から + NAです（B8ôn）",
+              "explain": "Câu đúng: 「A：どうしてまいにちうんどうしますか。　B：わたしはけんこうがとてもたいせつですから。」— A: Tại sao mỗi ngày bạn đều tập thể dục? B: Vì đối với tôi sức khỏe rất quan trọng.\nSắp xếp: ô 1=「わたしは」, ô 2=「けんこうが」, ô 3=「とても」, ô 4=「たいせつです」★\nKhung lời thoại B bắt đầu bằng chủ ngữ 「わたしは」 ở ô 1, tiếp theo là đối tượng 「けんこうが」 ở ô 2 đi với phó từ mức độ 「とても」 ở ô 3. Ô 4 ★ là tính từ đuôi な làm vị ngữ 「たいせつです」 thể hiện điểm ngữ pháp giải thích lý do khi kết hợp với khung đuôi 「から。」. Mảnh ô 4 bắt buộc phải đứng trước 「から。」 để hoàn thành mẫu câu trả lời lý do và không thể xếp ở ô khác.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "hằng ngày"
+                },
+                {
+                  "t": "うんどうします",
+                  "read": "うんどうします",
+                  "vi": "vận động, tập thể dục"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "わたし",
+                  "read": "",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "たいせつ",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "けんこう",
+                  "read": "けんこう",
+                  "vi": "sức khỏe"
+                }
+              ],
+              "frame": [
+                "A：どうしてまいにちうんどうしますか。　B：",
+                "から。"
+              ],
+              "pieces": [
+                "とても",
+                "わたしは",
+                "たいせつです",
+                "けんこうが"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "どんなNですか + NはNが好きです（B8+B9ôn）",
+              "explain": "Câu đúng: 「きむらさんはどんなおんがくがすきですか。」— Anh Kimura thích thể loại âm nhạc như thế nào?\nSắp xếp: ô 1=「きむらさんは」, ô 2=「どんな」, ô 3=「おんがくが」, ô 4=「すき」★\nChủ ngữ 「きむらさんは」 đứng ở đầu câu chỉ đối tượng được hỏi. Từ hỏi 「どんな」（như thế nào） bắt buộc đứng trực tiếp trước danh từ 「おんがくが」 để tạo thành cụm 「どんなおんがくが」（âm nhạc thế nào）. Mẫu câu hỏi sở thích có dạng 「Nが すきですか」, nên tính từ 「すき」 đứng ngay sau trợ từ が và trước 「ですか。」 ở khung cuối câu. Do đó, ô 4 (ô ★) phải là mảnh 「すき」.",
+              "glosses": [
+                {
+                  "t": "きむらさん",
+                  "read": "きむらさん",
+                  "vi": "anh/chị Kimura"
+                },
+                {
+                  "t": "どんな",
+                  "read": "どんな",
+                  "vi": "như thế nào, loại gì"
+                },
+                {
+                  "t": "おんがく",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "すき",
+                  "read": "",
+                  "vi": "thích"
+                }
+              ],
+              "frame": [
+                "",
+                "ですか。"
+              ],
+              "pieces": [
+                "きむらさんは",
+                "どんな",
+                "おんがくが",
+                "すき"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "アンさんは料理が好きです。でも、ピアノは",
+                "です。どうしてですか。むずかしい",
+                "、あまり練習しませんでした。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "上手じゃありません",
+                    "上手です",
+                    "好きじゃありません",
+                    "下手が好きです"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 1 cần cụm vị ngữ diễn đạt 'không giỏi' về piano. Cấu trúc đúng: 「NはNが上手じゃありません」 — chủ đề là ピアノ (dùng は để tương phản với 料理が好き ở trước), vị ngữ là 上手じゃありません. Đáp án A (上手じゃありません) đúng — phủ định của tính từ な「上手な」, đúng cú pháp. Đáp án B (上手です) sai về nghĩa — câu sẽ thành 'giỏi piano' nhưng mạch văn đang nói ngược lại (vì sau đó nói khó và không luyện tập). Đáp án C (好きじゃありません) sai vì chỗ trống này hỏi về KHẢ NĂNG (上手/下手), không phải sở thích; câu đầu đã nói 料理が好き rồi, không lặp cấu trúc 好き ở đây. Đáp án D (下手が好きです) sai cả cấu trúc — 下手 là tính từ な không kết hợp với trợ từ が theo kiểu này; câu không có nghĩa ngữ pháp."
+                },
+                {
+                  "choices": [
+                    "から",
+                    "でも",
+                    "そして",
+                    "どうして"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 2 cần trợ từ kết thúc mệnh đề LÝ DO (vì…nên). Cấu trúc đúng: 「[lý do]から、[kết quả/chính câu]」. Ở đây mệnh đề lý do là むずかしい (khó), chỗ trống đứng sau nó để hoàn chỉnh cấu trúc lý do rồi nối sang kết quả あまり練習しませんでした. Đáp án A (から) đúng — đứng cuối mệnh đề lý do, đúng cú pháp「むずかしいから、あまり練習しませんでした」= 'vì khó nên không luyện mấy'. Đáp án B (でも) sai — でも là liên từ đối lập ('nhưng'), nối 2 câu độc lập chứ không tạo quan hệ nhân-quả; hơn nữa でも đứng đầu câu mới, không đứng sau tính từ trong cùng mệnh đề. Đáp án C (そして) sai — そして là liên từ bổ sung/liệt kê ('và rồi'), không mang nghĩa lý do. Đáp án D (どうして) sai — どうして là từ hỏi 'vì sao', dùng để đặt câu hỏi, không phải để nối lý do; hơn nữa câu văn này là câu trả lời chứ không phải câu hỏi."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "ピアノ",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "上手じゃありません",
+                  "read": "じょうずじゃありません",
+                  "vi": "không giỏi"
+                },
+                {
+                  "t": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì… nên (trợ từ lý do)"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không lắm (dùng với phủ định)"
+                },
+                {
+                  "t": "練習しませんでした",
+                  "read": "れんしゅうしませんでした",
+                  "vi": "đã không luyện tập"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ thích hợp vào ＿ để hoàn thành câu \"Tôi giỏi nấu ăn.\" theo mẫu NはNが上手です.",
+          "items": [
+            {
+              "stem": "わたしはりょうり＿じょうずです。(料理・上手) → 「が」をいれてください。\nわたしはりょうり＿じょうずです。",
+              "choices": [
+                "が",
+                "を",
+                "に",
+                "は"
+              ],
+              "answer": 0,
+              "explain": "Mẫu câu「NはNが上手です」dùng trợ từ「が」để chỉ lĩnh vực/môn mà chủ thể giỏi. 「料理が上手です」= giỏi nấu ăn. ・「を」dùng cho tân ngữ trực tiếp của động từ hành động, không dùng với「上手です」. ・「に」chỉ hướng/đích/địa điểm, không hợp ở đây. ・「は」là trợ từ chủ đề, nhưng ở đây「わたしは」đã là chủ đề rồi; lĩnh vực giỏi phải dùng「が」.",
+              "glosses": [
+                {
+                  "t": "りょうり",
+                  "read": "料理",
+                  "vi": "nấu ăn / món ăn"
+                },
+                {
+                  "t": "じょうずです",
+                  "read": "上手です",
+                  "vi": "giỏi, thành thạo"
+                },
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi, khéo"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy, làm ơn"
+                },
+                {
+                  "t": "いれて",
+                  "read": "いれて",
+                  "vi": "入れて = cho vào, thêm vào (thể て của 入れる, dùng trong 入れてください = xin hãy điền vào)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "A:「どうしてまいにちにほんごをべんきょうしますか。」\nB:「にほんごがすき＿、べんきょうします。」",
+              "choices": [
+                "から",
+                "ので",
+                "が",
+                "けど"
+              ],
+              "answer": 0,
+              "explain": "Mẫu「〜から」nối lý do với kết quả, nghĩa \"vì… nên…\". 「にほんごが好きから、べんきょうします」= Vì tôi thích tiếng Nhật nên học. ・「ので」cũng chỉ lý do nhưng lịch sự/văn viết hơn và ở trình độ N5 bài 9 mẫu chuẩn là「から」. ・「が」là trợ từ chủ thể hoặc liên từ nghĩa \"nhưng\", không chỉ lý do. ・「けど」nghĩa \"nhưng/tuy nhiên\", ngược chiều, không hợp với ý muốn nêu lý do thuận chiều.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "vi": "vì sao, tại sao"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "毎日",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "にほんごをべんきょうします",
+                  "read": "日本語を勉強します",
+                  "vi": "học tiếng Nhật"
+                },
+                {
+                  "t": "にほんごがすき",
+                  "read": "日本語が好き",
+                  "vi": "thích tiếng Nhật"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì… nên… (chỉ lý do)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi không giỏi tiếng Anh, vì tôi không thích tiếng Anh.",
+              "target": "わたしはえいごがへたです。えいごがきらいだから。",
+              "model": "わたし は えいご が へた です。えいご が きらい だ から。",
+              "explain": "Câu gồm hai vế: ①「わたしはえいごが下手です」theo mẫu「NはNが下手です」= tôi kém tiếng Anh; ②「えいごが嫌いだから」theo mẫu「〜から」= vì tôi ghét tiếng Anh. Vế lý do đặt sau, dùng「から」cuối câu (dạng giải thích bổ sung). ・「下手」(へた) là na-adjective, cần「です」để lịch sự. ・「嫌い」(きらい) cũng là na-adjective; trước「から」ở thể thông thường nên dùng「嫌いだから」chứ không phải「嫌いですから」(cả hai chấp nhận được nhưng「だから」là chuẩn giáo trình N5).",
+              "glosses": [
+                {
+                  "t": "えいご",
+                  "read": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "へたです",
+                  "read": "下手です",
+                  "vi": "kém, không giỏi"
+                },
+                {
+                  "t": "きらい",
+                  "read": "嫌い",
+                  "vi": "ghét, không thích"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì… nên… (lý do)"
+                },
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

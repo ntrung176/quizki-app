@@ -1,0 +1,3052 @@
+{
+  "bai": 28,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 28 tập trung vào ba mẫu về thói quen và đặc điểm của hành động: 「ながら」(vừa làm A vừa làm B), 「Vています」(thói quen lặp đi lặp lại), 「Vやすい・Vにくい」(dễ/khó làm). Bài đọc mô tả sinh hoạt hằng ngày — đọc hiểu ở đây cần chú ý AI đang làm GÌ ĐỒNG THỜI với gì, thói quen nào lặp lại, và hành động nào được đánh giá là dễ hay khó.",
+    "steps": [
+      "Đọc lướt để nắm nhân vật và khung thời gian (sáng, tối, hằng ngày...).",
+      "Tìm「ながら」: động từ TRƯỚC ながら là hoạt động PHỤ (song song), động từ SAU là hoạt động CHÍNH.",
+      "Nhận diện「Vています」— trong bài 28 nghĩa là THÓI QUEN (lặp đi lặp lại), khác với ý \"đang làm\" lúc đó.",
+      "Tìm đuôi「やすい / にくい」sau ます-stem của động từ → đánh giá \"dễ làm\" hay \"khó làm\".",
+      "Câu hỏi suy luận thường hỏi thói quen của ai, vì sao thấy khó/dễ, hoặc ai làm gì cùng lúc.",
+      "Gặp「んです」(bài 26) hay 可能形 (bài 27) xen lẫn → ôn lại nhanh trước khi đọc."
+    ],
+    "tips": [
+      "ながら: ĐỘNG TỪ PHỤ đứng trước (ます-stem＋ながら), KHÔNG phải thể て. Ví dụ: 音楽を聴きながら (nghe nhạc trong lúc đó).",
+      "Vています biểu thị THÓI QUEN khi kết hợp với phó từ 毎日/よく/いつも — đừng dịch thành \"đang làm\".",
+      "やすい/にくい ghép sau ます-stem: 読みやすい (dễ đọc), 書きにくい (khó viết). Kết quả là tính từ い, chia như tính từ thông thường.",
+      "んですか (bài 26) trong câu hỏi → người hỏi đang muốn giải thích/lý do, không chỉ hỏi thực tế.",
+      "可能形 (bài 27) hay xuất hiện cùng やすい: 読めます ≠ 読みやすい — cái trước là \"có thể đọc\", cái sau là \"dễ đọc\".",
+      "Sau ながら chủ thể HAI hành động phải là cùng một người — không dùng cho hai người khác nhau."
+    ],
+    "grammarFocus": [
+      "V1ますstemながらV2",
+      "Vています（習慣）",
+      "Vやすい",
+      "Vにくい"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（〜えます/られます）",
+          "Nしか〜ない"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです",
+          "Vんですか（giải thích/lý do）"
+        ]
+      },
+      {
+        "bai": 25,
+        "items": [
+          "〜たら",
+          "〜ても"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき",
+          "〜と（điều kiện tự nhiên）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります",
+          "Vたことがあります"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから",
+          "Vて（trình tự）"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vてください",
+          "Vています（đang diễn ra）"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです",
+          "〜から（lý do）"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "tính từ い/な",
+          "とても・あまり〜ない"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "毎朝の習慣",
+      "titleVi": "Thói quen mỗi buổi sáng",
+      "japanese": "ミラーさんは毎朝コーヒーを飲みながら新聞を読んでいます。それが習慣になっています。この新聞は字が大きいから、読みやすいです。ミラーさんは音楽を聴きながら朝ごはんを食べることもあります。でも、歩きながらスマホを見るのは危ないと思っています。毎日少しずつ日本語も練習しています。",
+      "vietnamese": "Anh Miller mỗi buổi sáng vừa uống cà phê vừa đọc báo. Đó đã trở thành thói quen của anh. Tờ báo này chữ to nên dễ đọc. Anh Miller cũng có khi vừa nghe nhạc vừa ăn sáng. Nhưng anh nghĩ vừa đi vừa nhìn điện thoại thì nguy hiểm. Mỗi ngày anh cũng luyện tập tiếng Nhật một chút.",
+      "sentences": [
+        {
+          "jp": "ミラーさんは毎朝コーヒーを飲みながら新聞を読んでいます。",
+          "vi": "Anh Miller mỗi buổi sáng vừa uống cà phê vừa đọc báo.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi buổi sáng"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            },
+            {
+              "w": "新聞",
+              "read": "しんぶん",
+              "vi": "báo (tờ báo)"
+            },
+            {
+              "w": "読みます",
+              "read": "よみます",
+              "vi": "đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "飲み（uống）＋ながら＋読んでいます（đang đọc）= vừa uống vừa đọc. Hành động phụ trước ながら, hành động chính sau."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "読んでいます ở đây diễn tả thói quen lặp đi lặp lại mỗi buổi sáng, kết hợp 毎朝 để nhận ra nghĩa thói quen."
+            }
+          ]
+        },
+        {
+          "jp": "それが習慣になっています。",
+          "vi": "Đó đã trở thành thói quen của anh.",
+          "vocab": [
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "đó, điều đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になっています（Bài 19）",
+              "vi": "になっています = đã trở thành và vẫn như vậy (trạng thái sau biến đổi). 習慣になっています = đã trở thành thói quen."
+            }
+          ]
+        },
+        {
+          "jp": "この新聞は字が大きいから、読みやすいです。",
+          "vi": "Tờ báo này chữ to nên dễ đọc.",
+          "vocab": [
+            {
+              "w": "新聞",
+              "read": "しんぶん",
+              "vi": "báo (tờ báo)"
+            },
+            {
+              "w": "字",
+              "read": "じ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "to, lớn"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい",
+              "vi": "読み（ます-stem của 読む）＋やすい = dễ đọc. やすい là tính từ い, chia bình thường."
+            },
+            {
+              "point": "NはNが〜（Bài 16）",
+              "vi": "この新聞は字が大きい = chủ đề (báo) + điểm được đánh giá (chữ) + tính chất (to). Cấu trúc N1はN2が〜."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは音楽を聴きながら朝ごはんを食べることもあります。",
+          "vi": "Anh Miller cũng có khi vừa nghe nhạc vừa ăn sáng.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "聴きます",
+              "read": "ききます",
+              "vi": "nghe (chú ý lắng nghe)"
+            },
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "聴き（nghe）＋ながら＋食べる = vừa nghe nhạc vừa ăn."
+            },
+            {
+              "point": "Vることもあります",
+              "vi": "こともあります = cũng có khi/đôi khi. Diễn tả hành động xảy ra thỉnh thoảng."
+            }
+          ]
+        },
+        {
+          "jp": "でも、歩きながらスマホを見るのは危ないと思っています。",
+          "vi": "Nhưng anh nghĩ vừa đi vừa nhìn điện thoại thì nguy hiểm.",
+          "vocab": [
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "見ます",
+              "read": "みます",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "危ない",
+              "read": "あぶない",
+              "vi": "nguy hiểm"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "歩き（đi bộ）＋ながら＋スマホを見る = vừa đi vừa nhìn điện thoại."
+            },
+            {
+              "point": "〜のは〜（Bài 22）",
+              "vi": "Vるの = danh từ hoá hành động. 歩きながら…見るのは = \"việc vừa đi vừa nhìn điện thoại\" là chủ đề."
+            },
+            {
+              "point": "〜と思っています（Bài 21）",
+              "vi": "と思っています = đang nghĩ / vẫn nghĩ rằng. Bày tỏ quan điểm bền vững."
+            }
+          ]
+        },
+        {
+          "jp": "毎日少しずつ日本語も練習しています。",
+          "vi": "Mỗi ngày anh cũng luyện tập tiếng Nhật một chút.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "dần dần từng chút một"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "練習します",
+              "read": "れんしゅうします",
+              "vi": "luyện tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（習慣）",
+              "vi": "練習しています＋毎日 = thói quen luyện tập hằng ngày. も = \"cũng\" (thêm vào thói quen đã kể)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "コーヒーを飲みながら新聞を読んでいます",
+          "label": "V1ながらV2 + Vています（習慣）"
+        },
+        {
+          "excerpt": "読みやすいです",
+          "label": "Vやすい"
+        },
+        {
+          "excerpt": "音楽を聴きながら朝ごはんを食べること",
+          "label": "V1ながらV2"
+        },
+        {
+          "excerpt": "歩きながらスマホを見るのは危ない",
+          "label": "ながら（hành động nguy hiểm）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは毎朝何をしながら新聞を読みますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "音楽を聴きながら読みます",
+            "コーヒーを飲みながら読みます",
+            "歩きながら読みます",
+            "日本語を練習しながら読みます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ ngay câu đầu:「コーヒーを飲みながら新聞を読んでいます」— hành động PHỤ đứng trước ながら là「コーヒーを飲み」(uống cà phê), hành động CHÍNH sau là「読んでいます」(đọc báo). Phương án 0 (nghe nhạc) sai vì nghe nhạc đi kèm với bữa ăn sáng「朝ごはんを食べること」, không phải với đọc báo. Phương án 2 (đi bộ) sai vì bài viết dùng「歩きながらスマホを見るのは危ない」— đây là điều anh Miller cho là NGUY HIỂM, không phải thói quen anh ấy làm. Phương án 3 không có căn cứ nào trong bài.",
+          "tip": "Với ながら, động từ TRƯỚC (ます-stem) là hành động PHỤ — đó chính là đáp án cho câu hỏi \"何をしながら〜しますか\". Đọc tìm mẫu [V-ます幹＋ながら＋V2] rồi chọn V1 là xong.",
+          "qt": {
+            "q": "Ông Miller vừa làm gì vừa đọc báo mỗi sáng?",
+            "o": [
+              "Vừa nghe nhạc vừa đọc",
+              "Vừa uống cà phê vừa đọc",
+              "Vừa đi bộ vừa đọc",
+              "Vừa luyện tiếng Nhật vừa đọc"
+            ]
+          }
+        },
+        {
+          "q": "この新聞はどうして読みやすいですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "写真が多いからです",
+            "内容が簡単だからです",
+            "字が大きいからです",
+            "値段が安いからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu trực tiếp:「この新聞は字が大きいから、読みやすいです」— cấu trúc「字が大きいから」là LÝ DO, và「読みやすいです」là KẾT QUẢ (やすい = dễ làm). Phương án 0 (nhiều ảnh) và phương án 1 (nội dung đơn giản) không được nhắc đến trong bài. Phương án 3 (giá rẻ) cũng không có căn cứ. Chỉ có lý do DUY NHẤT là chữ to được bài nêu rõ.",
+          "tip": "Câu hỏi \"どうして〜やすいですか\" → tìm cụm「Nは〜から、Vやすい」trong bài — phần「から」chứa lý do, đó chính là đáp án. Không có thêm lý do nào khác được nhắc → loại ngay các phương án không xuất hiện trong bài.",
+          "qt": {
+            "q": "Tại sao tờ báo này dễ đọc?",
+            "o": [
+              "Vì có nhiều ảnh",
+              "Vì nội dung đơn giản",
+              "Vì chữ to",
+              "Vì giá rẻ"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんが危ないと思っていることはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "コーヒーを飲みながら新聞を読むこと",
+            "音楽を聴きながら朝ごはんを食べること",
+            "毎日日本語を練習すること",
+            "歩きながらスマホを見ること"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3. Bài viết nêu rõ:「歩きながらスマホを見るのは危ないと思っています」— cấu trúc「Vるのは危ない」danh từ hoá hành động「歩きながらスマホを見る」rồi đánh giá là \"nguy hiểm\". Phương án 0 (vừa uống cà phê vừa đọc báo) và phương án 1 (vừa nghe nhạc vừa ăn sáng) là các thói quen anh Miller ĐANG THỰC HIỆN bình thường — không bị coi là nguy hiểm. Phương án 2 (luyện tập tiếng Nhật mỗi ngày) là thói quen tốt, hoàn toàn không liên quan đến 危ない.",
+          "tip": "Câu hỏi tìm điều \"危ないと思っている\" → tìm đúng cụm「〜のは危ない」trong bài. Phân biệt: bài viết MÔ TẢ (〜しています) là thói quen thực tế; bài viết ĐÁNH GIÁ (危ない) mới là điều người đó cho là nguy hiểm.",
+          "qt": {
+            "q": "Việc nào khiến ông Miller nghĩ là nguy hiểm?",
+            "o": [
+              "Vừa uống cà phê vừa đọc báo",
+              "Vừa nghe nhạc vừa ăn sáng",
+              "Luyện tiếng Nhật mỗi ngày",
+              "Vừa đi bộ vừa nhìn điện thoại"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "カリナさんの日記",
+      "titleVi": "Nhật ký của Karina",
+      "japanese": "今日は一日の生活について書きます。\n私は毎朝６時に起きています。起きてから、まずシャワーを浴びます。\n朝ごはんはいつも音楽を聴きながら食べています。音楽を聴くと、気持ちがよくなります。\n会社まで電車で行っています。電車の中でよく本を読んでいます。この本は字が小さくて、少し読みにくいです。でも、内容がおもしろいから、まだ読んでいます。\n会社では、パソコンを使いながらメモを取ることが多いです。同僚のワンさんはメモを取るのがとても速いです。私はワンさんより速く書けませんが、できるだけ丁寧に書いています。\nお昼は田中さんと話しながらお弁当を食べています。田中さんはいつも楽しい話をしてくれるから、お昼の時間がとても好きです。\n仕事が終わってから、ジムへ行くことがあります。ジムのマシンは使いやすいから、気に入っています。\n夜は日本語の勉強をしています。日本語の発音は難しいですが、少しずつ上手になっています。特に漢字は覚えにくいと思っていますが、毎日練習しています。\n寝る前に、今日あったことを手帳に書いています。この手帳は書きやすいから、ずっと使っています。これからも毎日練習したいと思います。",
+      "vietnamese": "Hôm nay tôi viết về cuộc sống một ngày của mình.\nTôi thức dậy lúc 6 giờ mỗi sáng. Sau khi thức dậy, trước tiên tôi tắm.\nBữa sáng tôi luôn vừa nghe nhạc vừa ăn. Khi nghe nhạc, tâm trạng trở nên dễ chịu.\nTôi đi làm bằng tàu điện ngầm mỗi ngày. Trong tàu tôi hay đọc sách. Cuốn sách này chữ nhỏ nên hơi khó đọc. Nhưng vì nội dung thú vị nên tôi vẫn đọc.\nỞ công ty, tôi hay vừa dùng máy tính vừa ghi chú. Đồng nghiệp Wang của tôi ghi chú rất nhanh. Tôi không viết nhanh bằng anh Wang, nhưng tôi cố gắng viết cẩn thận.\nBuổi trưa tôi vừa nói chuyện với anh Tanaka vừa ăn cơm hộp. Vì anh Tanaka luôn kể những chuyện vui nên tôi rất thích giờ ăn trưa.\nSau khi xong việc, tôi đôi khi đến phòng gym. Máy móc ở phòng gym dễ dùng nên tôi rất thích.\nBuổi tối tôi học tiếng Nhật. Phát âm tiếng Nhật khó nhưng tôi đang dần dần tiến bộ hơn. Đặc biệt tôi nghĩ kanji khó nhớ, nhưng tôi vẫn luyện tập mỗi ngày.\nTrước khi ngủ, tôi viết những gì xảy ra trong ngày vào sổ tay. Cuốn sổ này dễ viết nên tôi dùng mãi. Từ nay tôi muốn luyện tập mỗi ngày.",
+      "sentences": [
+        {
+          "jp": "今日は一日の生活について書きます。",
+          "vi": "Hôm nay tôi viết về cuộc sống một ngày của mình.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "Nについて書きます = viết về N. について là trợ từ kép \"về chủ đề...\"."
+            }
+          ]
+        },
+        {
+          "jp": "私は毎朝６時に起きています。",
+          "vi": "Tôi thức dậy lúc 6 giờ mỗi sáng.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "６時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            },
+            {
+              "w": "起きています",
+              "read": "おきています",
+              "vi": "đang thức dậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（習慣）",
+              "vi": "起きています＋毎朝 = thói quen thức dậy mỗi sáng. Không phải \"đang thức dậy\" lúc viết."
+            }
+          ]
+        },
+        {
+          "jp": "起きてから、まずシャワーを浴びます。",
+          "vi": "Sau khi thức dậy, trước tiên tôi tắm.",
+          "vocab": [
+            {
+              "w": "起きる",
+              "read": "おきる",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "シャワー",
+              "read": "シャワー",
+              "vi": "vòi hoa sen, tắm vòi sen"
+            },
+            {
+              "w": "浴びます",
+              "read": "あびます",
+              "vi": "tắm (dưới vòi sen/ánh nắng)"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên, đầu tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "起きてから = sau khi thức dậy. てから nêu thứ tự: làm xong A rồi mới làm B."
+            }
+          ]
+        },
+        {
+          "jp": "朝ごはんはいつも音楽を聴きながら食べています。",
+          "vi": "Bữa sáng tôi luôn vừa nghe nhạc vừa ăn.",
+          "vocab": [
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "聴きます",
+              "read": "ききます",
+              "vi": "nghe"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "聴き（ます-stem）＋ながら＋食べている = vừa nghe nhạc vừa ăn."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "食べています＋いつも = thói quen lặp đi lặp lại."
+            }
+          ]
+        },
+        {
+          "jp": "音楽を聴くと、気持ちがよくなります。",
+          "vi": "Khi nghe nhạc, tâm trạng trở nên dễ chịu.",
+          "vocab": [
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "聴く",
+              "read": "きく",
+              "vi": "nghe (nhạc, âm thanh)"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên）（Bài 23）",
+              "vi": "聴くと、よくなります = hễ nghe là (tự nhiên) tâm trạng tốt hơn. と nêu kết quả tất yếu."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "よくなります = trở nên tốt (biến đổi trạng thái của tính từ い)."
+            }
+          ]
+        },
+        {
+          "jp": "会社まで電車で行っています。",
+          "vi": "Tôi đi làm bằng tàu điện ngầm mỗi ngày.",
+          "vocab": [
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, tàu hoả"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（習慣）",
+              "vi": "行っています = thói quen đi (mỗi ngày). Nで（Bài 5）= bằng phương tiện."
+            }
+          ]
+        },
+        {
+          "jp": "電車の中でよく本を読んでいます。",
+          "vi": "Trong tàu tôi hay đọc sách.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "電車の中",
+              "read": "でんしゃのなか",
+              "vi": "trong tàu điện"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "thường xuyên, hay"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（習慣）",
+              "vi": "読んでいます＋よく = thói quen đọc sách thường xuyên."
+            }
+          ]
+        },
+        {
+          "jp": "この本は字が小さくて、少し読みにくいです。",
+          "vi": "Cuốn sách này chữ nhỏ nên hơi khó đọc.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "字",
+              "read": "じ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vにくい",
+              "vi": "読み（ます-stem）＋にくい = khó đọc. にくい là tính từ い."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "小さくて = chữ nhỏ, (và/nên)... Nối tính từ い với lý do tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "でも、内容がおもしろいから、まだ読んでいます。",
+          "vi": "Nhưng vì nội dung thú vị nên tôi vẫn đọc.",
+          "vocab": [
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "おもしろい",
+              "read": "おもしろい",
+              "vi": "thú vị, hấp dẫn"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn còn, vẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "おもしろいから = vì nội dung thú vị → nêu lý do vẫn đọc. から nêu nguyên nhân/lý do trực tiếp."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "まだ読んでいます = vẫn đang đọc (thói quen tiếp diễn). まだ nhấn mạnh hành động vẫn còn tiếp tục."
+            }
+          ]
+        },
+        {
+          "jp": "会社では、パソコンを使いながらメモを取ることが多いです。",
+          "vi": "Ở công ty, tôi hay vừa dùng máy tính vừa ghi chú.",
+          "vocab": [
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính (cá nhân)"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "dùng, sử dụng"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "メモを取ります",
+              "read": "メモをとります",
+              "vi": "ghi chú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "使い（ます-stem）＋ながら＋メモを取る = vừa dùng máy tính vừa ghi chú."
+            },
+            {
+              "point": "Vることが多い",
+              "vi": "Vること＋が多い = thường hay làm gì. こと danh từ hoá hành động (Bài 22)."
+            }
+          ]
+        },
+        {
+          "jp": "同僚のワンさんはメモを取るのがとても速いです。",
+          "vi": "Đồng nghiệp Wang của tôi ghi chú rất nhanh.",
+          "vocab": [
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "速い",
+              "read": "はやい",
+              "vi": "nhanh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "VるのがA（Bài 22）",
+              "vi": "メモを取るのが速い = ghi chú (việc đó) nhanh. の danh từ hoá hành động, trở thành chủ ngữ của が速い."
+            }
+          ]
+        },
+        {
+          "jp": "私はワンさんより速く書けませんが、できるだけ丁寧に書いています。",
+          "vi": "Tôi không viết nhanh hơn anh Wang, nhưng tôi viết cẩn thận hết mức có thể.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "ワン",
+              "read": "わん",
+              "vi": "Wan, tên người"
+            },
+            {
+              "w": "速く",
+              "read": "はやく",
+              "vi": "nhanh"
+            },
+            {
+              "w": "書けません",
+              "read": "かけません",
+              "vi": "không thể viết"
+            },
+            {
+              "w": "できるだけ",
+              "read": "できるだけ",
+              "vi": "hết mức có thể"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "cẩn thận, nắn nót"
+            },
+            {
+              "w": "書いています",
+              "read": "かいています",
+              "vi": "đang viết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NよりVない（Bài 27: 可能形）",
+              "vi": "ワンさんより速く書けません = không viết nhanh hơn Wang. より = \"hơn\" (so sánh). 書けません = thể phủ định của 書ける (可能形)."
+            },
+            {
+              "point": "できるだけ + Vています",
+              "vi": "できるだけ = hết mức có thể. できるだけ丁寧に書いています = viết cẩn thận hết mức có thể (thói quen cố gắng)."
+            }
+          ]
+        },
+        {
+          "jp": "お昼は田中さんと話しながらお弁当を食べています。",
+          "vi": "Buổi trưa tôi vừa nói chuyện với anh Tanaka vừa ăn cơm hộp.",
+          "vocab": [
+            {
+              "w": "お昼",
+              "read": "おひる",
+              "vi": "buổi trưa, bữa trưa"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "話します",
+              "read": "はなします",
+              "vi": "nói chuyện"
+            },
+            {
+              "w": "弁当",
+              "read": "べんとう",
+              "vi": "cơm hộp"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "お弁当",
+              "read": "おべんとう",
+              "vi": "cơm hộp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "話し（nói chuyện）＋ながら＋食べている = vừa nói chuyện vừa ăn."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "食べています = thói quen ăn trưa (cùng Tanaka)."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはいつも楽しい話をしてくれるから、お昼の時間がとても好きです。",
+          "vi": "Vì anh Tanaka luôn kể những chuyện vui nên tôi rất thích giờ ăn trưa.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chuyện kể"
+            },
+            {
+              "w": "お昼",
+              "read": "おひる",
+              "vi": "buổi trưa"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれる（Bài 24）",
+              "vi": "してくれる = làm (ơn) cho tôi (hành động đến từ người khác, có lợi cho người nói)."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "してくれるから、〜好きです = vì anh ấy luôn kể chuyện vui... Lý do dẫn đến yêu thích giờ ăn trưa."
+            }
+          ]
+        },
+        {
+          "jp": "仕事が終わってから、ジムへ行くことがあります。",
+          "vi": "Sau khi xong việc, tôi đôi khi đến phòng gym.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "終わります",
+              "read": "おわります",
+              "vi": "kết thúc, xong"
+            },
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng tập thể dục (gym)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "終わってから = sau khi xong việc. Trình tự thời gian."
+            },
+            {
+              "point": "Vることがあります（Bài 18）",
+              "vi": "Vること＋があります = đôi khi có. Diễn tả hành động xảy ra thỉnh thoảng."
+            }
+          ]
+        },
+        {
+          "jp": "ジムのマシンは使いやすいから、気に入っています。",
+          "vi": "Máy móc ở phòng gym dễ dùng nên tôi rất thích.",
+          "vocab": [
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng tập thể dục (gym)"
+            },
+            {
+              "w": "マシン",
+              "read": "マシン",
+              "vi": "máy móc, thiết bị"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "気に入ります",
+              "read": "きにいります",
+              "vi": "thích, ưng ý, hài lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい",
+              "vi": "使い（ます-stem）＋やすい = dễ dùng. Đánh giá tính chất của máy móc."
+            },
+            {
+              "point": "Vています（状態）",
+              "vi": "気に入っています = trạng thái đang thích (kết quả của việc bắt đầu thích)."
+            }
+          ]
+        },
+        {
+          "jp": "夜は日本語の勉強をしています。",
+          "vi": "Buổi tối tôi học tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối, đêm"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（習慣）",
+              "vi": "勉強をしています = thói quen học mỗi tối."
+            }
+          ]
+        },
+        {
+          "jp": "日本語の発音は難しいですが、少しずつ上手になっています。",
+          "vi": "Phát âm tiếng Nhật khó nhưng tôi đang dần dần tiến bộ hơn.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "発音",
+              "read": "はつおん",
+              "vi": "phát âm"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một, dần dần"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になっています（Bài 19）",
+              "vi": "上手になっています = đã và đang trở nên giỏi hơn (trạng thái kết quả của quá trình tiến bộ)."
+            }
+          ]
+        },
+        {
+          "jp": "特に漢字は覚えにくいと思っていますが、毎日練習しています。",
+          "vi": "Đặc biệt tôi nghĩ kanji khó nhớ, nhưng tôi vẫn luyện tập mỗi ngày.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "漢字",
+              "read": "かんじ",
+              "vi": "chữ Hán (kanji)"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "nhớ, học thuộc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "練習します",
+              "read": "れんしゅうします",
+              "vi": "luyện tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vにくい",
+              "vi": "覚え（ます-stem）＋にくい = khó nhớ. にくい mô tả đặc tính khó khăn của hành động."
+            },
+            {
+              "point": "〜と思っています（Bài 21）",
+              "vi": "と思っています = vẫn đang nghĩ/cảm thấy rằng. Biểu đạt quan điểm duy trì."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "練習しています＋毎日 = thói quen luyện tập hằng ngày."
+            }
+          ]
+        },
+        {
+          "jp": "寝る前に、今日あったことを手帳に書いています。",
+          "vi": "Trước khi ngủ, tôi viết những gì xảy ra trong ngày vào sổ tay.",
+          "vocab": [
+            {
+              "w": "寝ます",
+              "read": "ねます",
+              "vi": "ngủ"
+            },
+            {
+              "w": "前に",
+              "read": "まえに",
+              "vi": "trước khi"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay, nhật ký"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに（Bài 18）",
+              "vi": "寝るまえに = trước khi ngủ. まえに đứng sau thể từ điển."
+            },
+            {
+              "point": "今日あったこと（Bài 22）",
+              "vi": "V（た）＋こと = danh từ hoá: 今日あったこと = những gì đã xảy ra hôm nay."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "書いています = thói quen viết sổ mỗi tối trước khi ngủ."
+            }
+          ]
+        },
+        {
+          "jp": "この手帳は書きやすいから、ずっと使っています。",
+          "vi": "Cuốn sổ này dễ viết nên tôi dùng mãi.",
+          "vocab": [
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay, nhật ký"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "mãi, suốt, liên tục"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "dùng, sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい",
+              "vi": "書き（ます-stem）＋やすい = dễ viết. Đánh giá tính chất tiện dụng của sổ tay."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "使っています＋ずっと = thói quen dùng liên tục lâu nay."
+            }
+          ]
+        },
+        {
+          "jp": "これからも毎日練習したいと思います。",
+          "vi": "Từ nay tôi muốn luyện tập mỗi ngày.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay, về sau"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "練習します",
+              "read": "れんしゅうします",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたいと思います（Bài 13 + 21）",
+              "vi": "練習したい = muốn luyện tập. Vたい＋と思います = \"tôi nghĩ muốn làm\". Bày tỏ mong muốn và ý định cho tương lai."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "音楽を聴きながら食べています",
+          "label": "V1ながらV2 + Vています（習慣）"
+        },
+        {
+          "excerpt": "読みにくいです",
+          "label": "Vにくい"
+        },
+        {
+          "excerpt": "パソコンを使いながらメモを取ること",
+          "label": "V1ながらV2"
+        },
+        {
+          "excerpt": "使いやすいから、気に入っています",
+          "label": "Vやすい + から（lý do）"
+        },
+        {
+          "excerpt": "覚えにくいと思っています",
+          "label": "Vにくい + と思っています"
+        },
+        {
+          "excerpt": "書きやすいから、ずっと使っています",
+          "label": "Vやすい + から（lý do）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは電車の中で何をしていますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "音楽を聴いています",
+            "日本語の勉強をしています",
+            "本を読んでいます",
+            "メモを取っています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài nhật ký nêu rõ:「電車の中でよく本を読んでいます」— trong tàu Karina HAY (よく) đọc sách. Đây là thói quen (Vています + よく). Phương án 0 (nghe nhạc) sai vì nghe nhạc đi kèm bữa sáng「朝ごはんはいつも音楽を聴きながら食べています」, không phải trên tàu. Phương án 1 (học tiếng Nhật) sai vì học tiếng Nhật là thói quen buổi tối「夜は日本語の勉強をしています」. Phương án 3 (ghi chú) sai vì ghi chú là việc ở công ty「会社では、パソコンを使いながらメモを取ることが多い」.",
+          "tip": "Câu hỏi hỏi thói quen TẠI MỘT ĐỊA ĐIỂM CỤ THỂ → tìm cụm「場所＋で＋Vています」trong bài. Để loại sai, hãy xác định mỗi hoạt động xảy ra ở ĐÂU (trên tàu / ở công ty / buổi tối) trước khi chọn.",
+          "qt": {
+            "q": "Karina làm gì trên tàu điện?",
+            "o": [
+              "Nghe nhạc",
+              "Học tiếng Nhật",
+              "Đọc sách",
+              "Ghi chú"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはこの本についてどう思っていますか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "字が大きいから読みやすいです",
+            "内容がつまらないから読みにくいです",
+            "字が小さいですが、内容がおもしろいからまだ読んでいます",
+            "漢字が多くてとても難しいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu hai ý về cuốn sách:「この本は字が小さくて、少し読みにくいです」(chữ nhỏ → にくい = khó đọc) và ngay sau đó「内容がおもしろいから、まだ読んでいます」(nội dung thú vị nên vẫn đọc). Đáp án 2 tóm gọn cả hai ý này chính xác. Phương án 0 sai vì bài nói chữ NHỎ (小さい) → khó đọc, không phải chữ to → dễ đọc (đó là mô tả tờ BÁO trong đoạn ngắn, không phải cuốn sách này). Phương án 1 ngược ý bài: nội dung là THÍCH (おもしろい) chứ không phải chán. Phương án 3 không được đề cập khi nói về cuốn sách.",
+          "tip": "Khi bài đọc mô tả cả mặt TIÊU CỰC lẫn TÍCH CỰC về một vật/hành động (〜にくいです。でも〜おもしろいから〜), đáp án đúng thường là phương án TỔNG HỢP CẢ HAI. Để loại nhanh: kiểm tra「字が大きい/小さい」xem đúng chi tiết chưa.",
+          "qt": {
+            "q": "Karina nghĩ thế nào về cuốn sách này?",
+            "o": [
+              "Chữ to nên dễ đọc",
+              "Nội dung chán nên khó đọc",
+              "Chữ nhỏ, nhưng nội dung thú vị nên vẫn đang đọc",
+              "Có nhiều kanji nên rất khó"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはワンさんより速く書けますか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "はい、ワンさんより速く書けます",
+            "いいえ、ワンさんより速く書けませんが、できるだけ丁寧に書いています",
+            "いいえ、書くのが得意ではありません",
+            "はい、でも丁寧に書くのが難しいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nhật ký nêu rõ:「私はワンさんより速く書けません」(thể phủ định của 可能形 書ける — không viết nhanh hơn Wang) và「できるだけ丁寧に書いています」(cố gắng viết cẩn thận hết mức). Đáp án 1 trích lại chính xác hai vế này. Phương án 0 sai hoàn toàn vì câu bài là PHỦ ĐỊNH (書けません). Phương án 2 sai vì bài không nói Karina \"không giỏi viết\" (得意ではない) — cô ấy chỉ không nhanh bằng Wang. Phương án 3 sai vì bài không nói viết cẩn thận là KHÓ — ngược lại đó là điều cô ấy đang cố gắng làm.",
+          "tip": "Câu hỏi dạng「〜より〜できますか」→ tìm trong bài cụm「Nより〜可能形（肯定/否定）」. Thể phủ定「書けません」= không thể viết nhanh hơn → đáp án chứa \"いいえ\" là đúng hướng.",
+          "qt": {
+            "q": "Karina có thể viết nhanh hơn anh Wang không?",
+            "o": [
+              "Có, cô ấy có thể viết nhanh hơn anh Wang",
+              "Không, cô ấy không thể viết nhanh hơn anh Wang, nhưng đang viết cẩn thận hết sức có thể",
+              "Không, cô ấy không giỏi viết",
+              "Có, nhưng viết cẩn thận thì khó"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんが漢字についてどう感じているか、正しいものはどれですか。",
+          "evi": [
+            18
+          ],
+          "options": [
+            "漢字は覚えやすいと思っています",
+            "漢字の勉強はやめたいと思っています",
+            "漢字は覚えにくいと思いますが、毎日練習しています",
+            "漢字が書けないから、困っています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu rõ hai ý về kanji:「特に漢字は覚えにくいと思っています」(dùng にくい = khó nhớ + と思っています = quan điểm bền vững) VÀ「毎日練習しています」(thói quen luyện tập hằng ngày). Tổng hợp: khó nhưng không bỏ cuộc. Phương án 0 sai vì bài dùng「覚えにくい」(khó nhớ) — đối lập hoàn toàn với「覚えやすい」(dễ nhớ). Phương án 1 sai vì bài nói「毎日練習しています」— không có dấu hiệu muốn dừng. Phương án 3 sai vì bài không nhắc đến「書けない」hay「困っています」.",
+          "tip": "Câu hỏi về thái độ/cảm nhận → tìm mẫu「Vにくい・Vやすい + と思っています」rồi xem hành động THỰC TẾ (Vています) có mâu thuẫn không. \"Khó mà vẫn luyện\" = thái độ kiên trì — đáp án đúng luôn giữ cả hai ý trong một câu.",
+          "qt": {
+            "q": "Điều nào đúng về cảm nhận của Karina đối với kanji?",
+            "o": [
+              "Cô ấy nghĩ kanji dễ nhớ",
+              "Cô ấy muốn bỏ việc học kanji",
+              "Cô ấy nghĩ kanji khó nhớ, nhưng vẫn luyện tập mỗi ngày",
+              "Cô ấy gặp khó khăn vì không viết được kanji"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Lớp học buổi tối cho thói quen sinh hoạt",
+      "japanese": "さくら市国際交流センター　夜の生活習慣クラス\n毎日忙しい人のために、夜のクラスを開いています。先生と話しながら、新しい生活習慣を作りませんか。\nクラス｜曜日｜時間｜料金\n料理教室｜火｜19:00〜20:30｜800円\nヨガ教室｜木｜19:30〜20:30｜600円\n書道教室｜土｜18:00〜19:00｜500円\nどのクラスも毎週同じ曜日にありますから、通っているうちに習慣になっています。\nクラス｜特徴｜持ち物\n料理教室｜レシピを見ながら作りますから、覚えやすいです｜エプロン\nヨガ教室｜体が硬い人には少し難しいですが、続けやすいです｜タオル\n書道教室｜難しい漢字は書きにくいですが、先生が丁寧に教えていますから、心配しなくてもいいです｜筆\n※料理教室は材料を使いますから、前日の17時までに電話で予約してください。\n電話：082-234-5678（月〜金　9:00〜18:00）　Eメール：sakura-koryu@example.jp",
+      "vietnamese": "Trung tâm giao lưu quốc tế thành phố Sakura　Lớp học buổi tối cho thói quen sinh hoạt\nChúng tôi mở lớp buổi tối dành cho người bận rộn hằng ngày. Bạn có muốn vừa nói chuyện với giáo viên vừa tạo thói quen sinh hoạt mới không?\nLớp học｜Thứ｜Giờ｜Học phí\nLớp nấu ăn｜Thứ Ba｜19:00〜20:30｜800 yên\nLớp yoga｜Thứ Năm｜19:30〜20:30｜600 yên\nLớp thư pháp｜Thứ Bảy｜18:00〜19:00｜500 yên\nLớp nào cũng có vào đúng thứ đó mỗi tuần, nên khi đi học đều đặn sẽ trở thành thói quen.\nLớp học｜Đặc điểm｜Đồ cần mang\nLớp nấu ăn｜Vừa nhìn công thức vừa nấu nên dễ nhớ｜Tạp dề\nLớp yoga｜Hơi khó với người cứng người, nhưng dễ duy trì｜Khăn\nLớp thư pháp｜Chữ Hán khó thì hơi khó viết, nhưng giáo viên dạy tận tình nên không cần lo lắng｜Bút lông\n※Lớp nấu ăn có dùng nguyên liệu nên hãy đặt trước bằng điện thoại trước 17 giờ của ngày hôm trước.\nĐiện thoại: 082-234-5678 (Thứ Hai〜Thứ Sáu　9:00〜18:00)　Email: sakura-koryu@example.jp",
+      "sentences": [
+        {
+          "jp": "さくら市国際交流センター　夜の生活習慣クラス",
+          "vi": "Trung tâm giao lưu quốc tế thành phố Sakura — Lớp học buổi tối cho thói quen sinh hoạt.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            },
+            {
+              "w": "生活習慣",
+              "read": "せいかつしゅうかん",
+              "vi": "thói quen sinh hoạt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1）",
+              "vi": "夜の生活習慣クラス = lớp thói quen sinh hoạt của buổi tối. Tiêu đề thông báo, ghép danh từ bằng の."
+            }
+          ]
+        },
+        {
+          "jp": "毎日忙しい人のために、夜のクラスを開いています。先生と話しながら、新しい生活習慣を作りませんか。",
+          "vi": "Chúng tôi mở lớp buổi tối dành cho người bận rộn hằng ngày. Bạn có muốn vừa nói chuyện với giáo viên vừa tạo thói quen sinh hoạt mới không?",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "開きます",
+              "read": "ひらきます",
+              "vi": "mở (lớp học, sự kiện)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "話します",
+              "read": "はなします",
+              "vi": "nói chuyện"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "tạo ra, làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（習慣）",
+              "vi": "開いています = (thông báo) đang mở đều đặn — lớp học tồn tại như một hoạt động thường xuyên."
+            },
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "話し（nói chuyện）＋ながら＋作りませんか = vừa nói chuyện vừa tạo thói quen mới, mời rủ."
+            },
+            {
+              "point": "Vませんか（Bài 6）",
+              "vi": "作りませんか = bạn có muốn cùng tạo... không? Câu mời lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "クラス｜曜日｜時間｜料金",
+          "vi": "Lớp học, Thứ, Giờ, Học phí — đây là hàng tiêu đề của bảng thứ nhất.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, lệ phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "曜日",
+              "why": "tên cột điều kiện ngày rảnh — câu hỏi 1 dò theo cột này trước"
+            },
+            {
+              "w": "料金",
+              "why": "tên cột giá — câu hỏi 1 so sánh giá sau khi lọc ngày"
+            }
+          ]
+        },
+        {
+          "jp": "料理教室｜火｜19:00〜20:30｜800円",
+          "vi": "Lớp nấu ăn: thứ Ba, 19:00〜20:30, học phí 800 yên.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "料理教室",
+              "read": "りょうりきょうしつ",
+              "vi": "lớp học nấu ăn"
+            },
+            {
+              "w": "火",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "19:00",
+              "read": "じゅうきゅうじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "20:30",
+              "read": "にじゅうじさんじゅっぷん",
+              "vi": "20 giờ 30 phút"
+            },
+            {
+              "w": "800円",
+              "read": "はっぴゃくえん",
+              "vi": "800 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "19:00〜20:30 = từ 19 giờ đến 20 giờ 30, ghi tắt bằng dấu 〜 thay cho から〜まで."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火",
+              "why": "khớp điều kiện thứ Ba của câu hỏi 1 — lớp đúng ngày rảnh"
+            },
+            {
+              "w": "800円",
+              "why": "giá của lớp này, cần so với ヨガ教室 để chọn rẻ hơn ở câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "ヨガ教室｜木｜19:30〜20:30｜600円",
+          "vi": "Lớp yoga: thứ Năm, 19:30〜20:30, học phí 600 yên.",
+          "vocab": [
+            {
+              "w": "ヨガ",
+              "read": "ヨガ",
+              "vi": "yoga"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "ヨガ教室",
+              "read": "ヨガきょうしつ",
+              "vi": "lớp học yoga"
+            },
+            {
+              "w": "木",
+              "read": "もくようび",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "19:30",
+              "read": "じゅうきゅうじさんじゅっぷん",
+              "vi": "19 giờ 30 phút"
+            },
+            {
+              "w": "20:30",
+              "read": "にじゅうじさんじゅっぷん",
+              "vi": "20 giờ 30 phút"
+            },
+            {
+              "w": "600円",
+              "read": "ろっぴゃくえん",
+              "vi": "600 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "木",
+              "why": "khớp điều kiện thứ Năm của câu hỏi 1 — lớp đúng ngày rảnh"
+            },
+            {
+              "w": "600円",
+              "why": "giá rẻ hơn 料理教室 (800円) — căn cứ chọn đáp án câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "書道教室｜土｜18:00〜19:00｜500円",
+          "vi": "Lớp thư pháp: thứ Bảy, 18:00〜19:00, học phí 500 yên.",
+          "vocab": [
+            {
+              "w": "書道",
+              "read": "しょどう",
+              "vi": "thư pháp"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "書道教室",
+              "read": "しょどうきょうしつ",
+              "vi": "lớp học thư pháp"
+            },
+            {
+              "w": "土",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "18:00",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            },
+            {
+              "w": "19:00",
+              "read": "じゅうきゅうじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "土",
+              "why": "bẫy: giá rẻ nhất (500円) nhưng SAI ngày — Lee chỉ rảnh thứ Ba/Năm, không rảnh thứ Bảy"
+            }
+          ]
+        },
+        {
+          "jp": "どのクラスも毎週同じ曜日にありますから、通っているうちに習慣になっています。",
+          "vi": "Lớp nào cũng có vào đúng thứ đó mỗi tuần, nên khi đi học đều đặn sẽ trở thành thói quen.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "毎週",
+              "read": "まいしゅう",
+              "vi": "mỗi tuần"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, như cũ"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "通います",
+              "read": "かよいます",
+              "vi": "đi lại thường xuyên (đi học, đi làm)"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "どの",
+              "read": "どの",
+              "vi": "lớp nào (nghi vấn chỉ định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜も（Bài 1）",
+              "vi": "どのクラスも = lớp nào cũng (vậy). も nhấn mạnh áp dụng cho tất cả."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "曜日にありますから = vì có vào đúng thứ đó mỗi tuần → nêu lý do."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "習慣になっています = đã và đang trở thành thói quen (kết quả của việc đi học đều đặn lặp lại)."
+            }
+          ]
+        },
+        {
+          "jp": "クラス｜特徴｜持ち物",
+          "vi": "Lớp học, Đặc điểm, Đồ cần mang — đây là hàng tiêu đề của bảng thứ hai.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "持ち物",
+              "read": "もちもの",
+              "vi": "đồ mang theo"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "特徴",
+              "why": "tên cột đặc điểm — câu hỏi 2 (nỗi lo của Santos về 書道教室) dò ở cột này"
+            }
+          ]
+        },
+        {
+          "jp": "料理教室｜レシピを見ながら作りますから、覚えやすいです｜エプロン",
+          "vi": "Lớp nấu ăn: vừa nhìn công thức vừa nấu nên dễ nhớ. Đồ cần mang: tạp dề.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "レシピ",
+              "read": "レシピ",
+              "vi": "công thức nấu ăn"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "nhớ, học thuộc"
+            },
+            {
+              "w": "エプロン",
+              "read": "エプロン",
+              "vi": "tạp dề"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "見（nhìn）＋ながら＋作ります = vừa nhìn công thức vừa nấu."
+            },
+            {
+              "point": "Vやすい",
+              "vi": "覚え（ます-stem）＋やすい = dễ nhớ. Đánh giá vì vừa nhìn vừa làm nên dễ nhớ hơn."
+            }
+          ]
+        },
+        {
+          "jp": "ヨガ教室｜体が硬い人には少し難しいですが、続けやすいです｜タオル",
+          "vi": "Lớp yoga: hơi khó với người cứng người, nhưng dễ duy trì. Đồ cần mang: khăn.",
+          "vocab": [
+            {
+              "w": "ヨガ",
+              "read": "ヨガ",
+              "vi": "yoga"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "硬い",
+              "read": "かたい",
+              "vi": "cứng, cứng nhắc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "続けます",
+              "read": "つづけます",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "タオル",
+              "read": "タオル",
+              "vi": "khăn"
+            },
+            {
+              "w": "体が硬い",
+              "read": "からだがかたい",
+              "vi": "người cứng, khó dẻo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が（Bài 20, nghịch）",
+              "vi": "難しいですが、続けやすいです = tuy khó nhưng dễ duy trì. が nối 2 ý đối lập."
+            },
+            {
+              "point": "Vやすい",
+              "vi": "続け（ます-stem）＋やすい = dễ duy trì, dễ tiếp tục tập."
+            }
+          ],
+          "keys": [
+            {
+              "w": "体が硬い人には少し難しいです",
+              "why": "bẫy câu hỏi 2: đây là miêu tả của ヨガ教室, KHÔNG phải 書道教室 — dễ nhầm sang lớp thư pháp"
+            }
+          ]
+        },
+        {
+          "jp": "書道教室｜難しい漢字は書きにくいですが、先生が丁寧に教えていますから、心配しなくてもいいです｜筆",
+          "vi": "Lớp thư pháp: chữ Hán khó thì hơi khó viết, nhưng giáo viên dạy tận tình nên không cần lo lắng. Đồ cần mang: bút lông.",
+          "vocab": [
+            {
+              "w": "書道",
+              "read": "しょどう",
+              "vi": "thư pháp"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "漢字",
+              "read": "かんじ",
+              "vi": "chữ Hán, kanji"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "tận tình, cẩn thận"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy"
+            },
+            {
+              "w": "心配します",
+              "read": "しんぱいします",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "筆",
+              "read": "ふで",
+              "vi": "bút lông"
+            },
+            {
+              "w": "難しい漢字",
+              "read": "むずかしいかんじ",
+              "vi": "chữ Hán khó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vにくい",
+              "vi": "書き（ます-stem）＋にくい = khó viết. Đánh giá chữ Hán khó thì khó viết hơn."
+            },
+            {
+              "point": "Vています（Bài 15, trạng thái/nghề nghiệp）",
+              "vi": "教えています = (giáo viên) đang làm công việc dạy học, trạng thái duy trì."
+            },
+            {
+              "point": "Vなくてもいいです（Bài 17）",
+              "vi": "心配しなくてもいいです = không cần lo lắng cũng được. Diễn tả không bắt buộc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "難しい漢字は書きにくいですが",
+              "why": "khớp đúng nỗi lo của Santos (viết chữ Hán khó) ở câu hỏi 2"
+            },
+            {
+              "w": "心配しなくてもいいです",
+              "why": "căn cứ chính đáp án đúng câu hỏi 2 — trấn an không cần lo lắng"
+            }
+          ]
+        },
+        {
+          "jp": "※料理教室は材料を使いますから、前日の17時までに電話で予約してください。",
+          "vi": "Lớp nấu ăn có dùng nguyên liệu nên hãy đặt trước bằng điện thoại trước 17 giờ của ngày hôm trước.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "材料",
+              "read": "ざいりょう",
+              "vi": "nguyên liệu"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "dùng, sử dụng"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "17時までに = trước (hạn chót) 17 giờ. までに nhấn mạnh mốc hạn cuối phải xong trước đó."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "予約してください = hãy đặt trước giúp. Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※料理教室は材料を使いますから",
+              "why": "bẫy câu hỏi 2: dòng ※ về đặt trước điện thoại là của 料理教室, KHÔNG phải 書道教室"
+            }
+          ]
+        },
+        {
+          "jp": "電話：082-234-5678（月〜金　9:00〜18:00）　Eメール：sakura-koryu@example.jp",
+          "vi": "Điện thoại: 082-234-5678 (Thứ Hai〜Thứ Sáu, 9:00〜18:00). Email: sakura-koryu@example.jp",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "sakura",
+              "read": "sakura",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "koryu",
+              "read": "koryu",
+              "vi": "sự giao lưu"
+            },
+            {
+              "w": "example",
+              "read": "example",
+              "vi": "ví dụ, mẫu"
+            },
+            {
+              "w": "jp",
+              "read": "jp",
+              "vi": "tên miền Nhật Bản"
+            },
+            {
+              "w": "Eメール",
+              "read": "イーメール",
+              "vi": "email"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "月〜金 = từ thứ Hai đến thứ Sáu, viết tắt của 月曜日から金曜日まで."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "先生と話しながら、新しい生活習慣を作りませんか",
+          "label": "V1ながらV2"
+        },
+        {
+          "excerpt": "通っているうちに習慣になっています",
+          "label": "Vています（習慣）"
+        },
+        {
+          "excerpt": "レシピを見ながら作りますから、覚えやすいです",
+          "label": "V1ながらV2 + Vやすい"
+        },
+        {
+          "excerpt": "続けやすいです",
+          "label": "Vやすい"
+        },
+        {
+          "excerpt": "難しい漢字は書きにくいですが",
+          "label": "Vにくい"
+        },
+        {
+          "excerpt": "前日の17時までに電話で予約してください",
+          "label": "Nまでに（Bài 17, ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & mời gọi",
+          "topic": 0,
+          "note": "Giới thiệu lớp học buổi tối, nêu mẫu ながら trọng tâm bài 28.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng giờ & giá",
+          "topic": 2,
+          "note": "Bảng chính để lọc theo 曜日 rồi so 料金 — căn cứ trực tiếp câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng đặc điểm & đồ mang theo",
+          "topic": 7,
+          "note": "Bảng phụ mô tả từng lớp — căn cứ câu hỏi 2 (lo lắng của Santos về chữ Hán khó ở 書道教室); dễ nhầm đặc điểm giữa các lớp.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "turn",
+          "label": "Chú ý ※ & liên hệ",
+          "topic": 11,
+          "note": "Dòng ※ chỉ áp dụng cho 料理教室 (đặt trước điện thoại) — bẫy nếu gán nhầm sang 書道教室 ở câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは火曜日と木曜日の夜だけ時間があって、できるだけ料金が安いクラスに申し込みたいです。リーさんはどのクラスに申し込みますか。",
+          "options": [
+            "料理教室",
+            "ヨガ教室",
+            "書道教室",
+            "料理教室とヨガ教室"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1 (ヨガ教室). Bảng thứ nhất cho biết: 料理教室 vào thứ Ba (火) giá 800円, ヨガ教室 vào thứ Năm (木) giá 600円, 書道教室 vào thứ Bảy (土) giá 500円. Lee chỉ rảnh tối THỨ BA và THỨ NĂM (điều kiện 1: 曜日) → lọc ra 2 lớp khớp ngày là 料理教室 và ヨガ教室 (書道教室 bị loại vì rơi vào thứ Bảy, ngày Lee không rảnh). Trong 2 lớp còn lại, so giá (điều kiện 2): 料理教室 800円 đắt hơn ヨガ教室 600円 → chọn ヨガ教室 vì rẻ hơn. Phương án 0 sai vì tuy đúng ngày nhưng đắt hơn. Phương án 2 sai vì sai ngày (thứ Bảy Lee không rảnh) dù giá rẻ nhất. Phương án 3 sai vì đề chỉ hỏi MỘT lớp rẻ nhất trong số các lớp đúng ngày, không phải học cả hai.",
+          "tip": "Bài toán ghép NGÀY + GIÁ: trước tiên lọc theo cột 曜日 xem những lớp nào rơi đúng ngày rảnh — nếu còn ≥2 lớp thì mới so tiếp cột 料金 để chọn rẻ nhất. Đừng chọn nhầm lớp giá rẻ nhất nếu nó sai ngày (書道教室 rẻ nhất nhưng lại rơi vào thứ Bảy — ngày Lee không rảnh).",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Anh/chị Lee chỉ có thời gian vào buổi tối thứ Ba và thứ Năm, và muốn đăng ký lớp có học phí càng rẻ càng tốt. Anh/chị Lee sẽ đăng ký lớp nào?",
+            "o": [
+              "Lớp nấu ăn",
+              "Lớp yoga",
+              "Lớp thư pháp",
+              "Lớp nấu ăn và lớp yoga"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんは書道教室に申し込みたいですが、漢字を書くのが苦手で少し心配です。お知らせの内容と合っているものはどれですか。",
+          "options": [
+            "漢字が苦手な人は書道教室に申し込めません",
+            "難しい漢字は書きにくいですが、先生が丁寧に教えていますから心配しなくてもいいです",
+            "書道教室は材料を使いますから、前日までに電話で予約しなければなりません",
+            "書道教室は体が硬い人には少し難しいクラスです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng thứ hai ghi rõ về 書道教室:「難しい漢字は書きにくいですが、先生が丁寧に教えていますから、心配しなくてもいいです」— đúng khớp với lo lắng của Santos về việc viết chữ Hán khó. Phương án 0 sai vì bài không hề nói \"người kém chữ Hán không được đăng ký\" — ngược lại bài trấn an không cần lo. Phương án 2 sai vì dòng ※ về đặt trước bằng điện thoại (materials, 予約) là của 料理教室, không phải 書道教室. Phương án 3 sai vì \"người cứng người thấy hơi khó\" là miêu tả về ヨガ教室, không phải 書道教室.",
+          "tip": "Câu hỏi \"nội dung なる\" hay TRỘN đặc điểm của lớp NÀY sang lớp KHÁC làm nhiễu — luôn đối chiếu lại đúng HÀNG (lớp) trong bảng trước khi chọn, đừng chỉ nhớ mang máng.",
+          "evi": [
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Anh/chị Santos muốn đăng ký lớp thư pháp, nhưng không giỏi viết chữ Hán nên hơi lo lắng. Nội dung nào phù hợp với thông báo?",
+            "o": [
+              "Người không giỏi chữ Hán không thể đăng ký lớp thư pháp",
+              "「難しい漢字は書きにくいですが、先生が丁寧に教えていますから心配しなくてもいいです」 (Chữ Hán khó thì khó viết, nhưng giáo viên hướng dẫn cẩn thận nên không cần lo lắng)",
+              "Lớp thư pháp sử dụng nguyên liệu, vì vậy phải đặt trước qua điện thoại trước ngày học",
+              "Lớp thư pháp hơi khó đối với người có cơ thể cứng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "アルバイト募集を読む",
+      "titleVi": "Đọc tin tuyển việc làm thêm: Siêu thị さくらマート",
+      "japanese": "さくらマート　アルバイト募集\n駅前のさくらマートでは、いっしょに働く人を探しています。勉強しながら働きたい学生も歓迎です。\n仕事｜曜日｜時間｜時給\nレジ｜月・水・金｜17:00〜20:00｜1,000円\n品出し｜火・木｜9:00〜12:00｜950円\n品出し｜土・日｜9:00〜13:00｜1,050円\nレジの仕事は初めてでも大丈夫です。先輩が丁寧に教えますから、覚えやすいです。品出しは重い物を運ぶことがありますから、慣れるまで少し大変ですが、動きにくい服は着ないでください。\n大学生のリーさんも、授業がない日に品出しをしながらレジの仕事も少しずつ覚えています。\n※高校生は土・日の品出ししかできません。レジは高校生には申し込みにくいですから、大学生以上の方をお願いします。\n応募は電話でしてください。電話：045-123-4567（毎日　10:00〜19:00）",
+      "vietnamese": "Siêu thị Sakura — Tuyển việc làm thêm.\nSiêu thị Sakura trước ga đang tìm người cùng làm việc. Cũng hoan nghênh cả học sinh sinh viên muốn vừa học vừa làm.\nCông việc｜Thứ｜Giờ｜Lương giờ\nThu ngân｜Thứ Hai・Tư・Sáu｜17:00〜20:00｜1.000 yên\nXếp hàng lên kệ｜Thứ Ba・Năm｜9:00〜12:00｜950 yên\nXếp hàng lên kệ｜Thứ Bảy・Chủ nhật｜9:00〜13:00｜1.050 yên\nCông việc thu ngân dù lần đầu cũng không sao. Vì tiền bối dạy tận tình nên dễ nhớ. Xếp hàng lên kệ đôi khi phải khuân đồ nặng nên hơi vất vả cho đến khi quen, xin đừng mặc quần áo khó cử động.\nBạn Lee, sinh viên đại học, cũng vừa xếp hàng lên kệ vào ngày không có tiết học vừa dần dần học thêm việc thu ngân.\n※Học sinh cấp 3 chỉ có thể làm xếp hàng lên kệ vào thứ Bảy, Chủ nhật. Việc thu ngân khó nộp đơn với học sinh cấp 3, nên mong các bạn từ sinh viên đại học trở lên.\nVui lòng ứng tuyển bằng điện thoại. Điện thoại: 045-123-4567 (hằng ngày　10:00〜19:00)",
+      "sentences": [
+        {
+          "jp": "さくらマート　アルバイト募集",
+          "vi": "Siêu thị Sakura — Tuyển việc làm thêm.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "マート",
+              "read": "マート",
+              "vi": "siêu thị, chợ"
+            },
+            {
+              "w": "アルバイト",
+              "read": "アルバイト",
+              "vi": "việc làm thêm"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "tuyển, chiêu mộ"
+            },
+            {
+              "w": "さくらマート",
+              "read": "さくらマート",
+              "vi": "siêu thị Sakura (tên riêng)"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "駅前のさくらマートでは、いっしょに働く人を探しています。勉強しながら働きたい学生も歓迎です。",
+          "vi": "Siêu thị Sakura trước ga đang tìm người cùng làm việc. Cũng hoan nghênh cả học sinh sinh viên muốn vừa học vừa làm.",
+          "vocab": [
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "マート",
+              "read": "マート",
+              "vi": "siêu thị, chợ"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "働きます",
+              "read": "はたらきます",
+              "vi": "làm việc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "探します",
+              "read": "さがします",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "歓迎",
+              "read": "かんげい",
+              "vi": "hoan nghênh, chào đón"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（Bài 15, trạng thái）",
+              "vi": "探しています = đang trong quá trình tìm kiếm (trạng thái tiếp diễn)."
+            },
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "勉強し（ます-stem）＋ながら＋働きたい = vừa học vừa muốn làm việc. Đây là mẫu MỚI của bài 28."
+            }
+          ]
+        },
+        {
+          "jp": "仕事｜曜日｜時間｜時給",
+          "vi": "Công việc, Thứ, Giờ, Lương giờ — đây là hàng tiêu đề của bảng ca làm.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "時給",
+              "read": "じきゅう",
+              "vi": "lương theo giờ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "曜日",
+              "why": "tên cột ngày — câu hỏi 1 lọc ca làm theo ngày rảnh của Watt"
+            },
+            {
+              "w": "時間",
+              "why": "tên cột giờ — câu hỏi 1 cần khớp thêm buổi sáng/tối"
+            }
+          ]
+        },
+        {
+          "jp": "レジ｜月・水・金｜17:00〜20:00｜1,000円",
+          "vi": "Thu ngân: thứ Hai・Tư・Sáu, 17:00〜20:00, lương giờ 1.000 yên.",
+          "vocab": [
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "月",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "水",
+              "read": "すいようび",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "金",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "17:00",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "20:00",
+              "read": "にじゅうじ",
+              "vi": "20 giờ"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "17:00〜20:00 = từ 17 giờ đến 20 giờ, ghi tắt bằng 〜 thay cho から〜まで."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水",
+              "why": "khớp một phần ngày rảnh (thứ Tư) của Watt, nhưng giờ 17:00〜20:00 là buổi TỐI — không khớp \"午前中\" → bẫy câu hỏi 1"
+            },
+            {
+              "w": "17:00〜20:00",
+              "why": "giờ làm buổi tối, trái với điều kiện \"午前中\" (buổi sáng) của Watt"
+            }
+          ]
+        },
+        {
+          "jp": "品出し｜火・木｜9:00〜12:00｜950円",
+          "vi": "Xếp hàng lên kệ: thứ Ba・Năm, 9:00〜12:00, lương giờ 950 yên.",
+          "vocab": [
+            {
+              "w": "品",
+              "read": "しな",
+              "vi": "hàng hóa, sản phẩm"
+            },
+            {
+              "w": "品出し",
+              "read": "しなだし",
+              "vi": "bổ sung hàng lên kệ"
+            },
+            {
+              "w": "火",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もくようび",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "12:00",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "950円",
+              "read": "きゅうひゃくごじゅうえん",
+              "vi": "950 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "火・木",
+              "why": "bẫy: đúng buổi sáng nhưng SAI ngày — Watt rảnh thứ Tư/Bảy, không rảnh thứ Ba/Năm"
+            }
+          ]
+        },
+        {
+          "jp": "品出し｜土・日｜9:00〜13:00｜1,050円",
+          "vi": "Xếp hàng lên kệ: thứ Bảy・Chủ nhật, 9:00〜13:00, lương giờ 1.050 yên.",
+          "vocab": [
+            {
+              "w": "品",
+              "read": "しな",
+              "vi": "hàng hóa, sản phẩm"
+            },
+            {
+              "w": "品出し",
+              "read": "しなだし",
+              "vi": "bổ sung hàng lên kệ"
+            },
+            {
+              "w": "土",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "13:00",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "1,050円",
+              "read": "せんごじゅうえん",
+              "vi": "1.050 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "土",
+              "why": "khớp đúng ngày rảnh (thứ Bảy) của Watt"
+            },
+            {
+              "w": "9:00〜13:00",
+              "why": "khớp đúng buổi sáng của Watt — căn cứ chính đáp án câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "レジの仕事は初めてでも大丈夫です。先輩が丁寧に教えますから、覚えやすいです。品出しは重い物を運ぶことがありますから、慣れるまで少し大変ですが、動きにくい服は着ないでください。",
+          "vi": "Công việc thu ngân dù lần đầu cũng không sao. Vì tiền bối dạy tận tình nên dễ nhớ. Xếp hàng lên kệ đôi khi phải khuân đồ nặng nên hơi vất vả cho đến khi quen, xin đừng mặc quần áo khó cử động.",
+          "vocab": [
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "không sao, ổn"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, người đi trước"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "nhớ, học thuộc"
+            },
+            {
+              "w": "品",
+              "read": "しな",
+              "vi": "hàng hóa, vật phẩm"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "運びます",
+              "read": "はこびます",
+              "vi": "khuân, vận chuyển"
+            },
+            {
+              "w": "慣れます",
+              "read": "なれます",
+              "vi": "quen (với việc gì)"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả"
+            },
+            {
+              "w": "動きます",
+              "read": "うごきます",
+              "vi": "cử động, di chuyển"
+            },
+            {
+              "w": "服",
+              "read": "ふく",
+              "vi": "quần áo"
+            },
+            {
+              "w": "着る",
+              "read": "きる",
+              "vi": "mặc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい",
+              "vi": "覚え（ます-stem）＋やすい = dễ nhớ. Mẫu MỚI bài 28."
+            },
+            {
+              "point": "Vにくい",
+              "vi": "動き（ます-stem）＋にくい = khó cử động. Mẫu MỚI bài 28."
+            },
+            {
+              "point": "Vないでください（Bài 17）",
+              "vi": "着ないでください = xin đừng mặc. Yêu cầu phủ định lịch sự."
+            },
+            {
+              "point": "〜まで（Bài 4）",
+              "vi": "慣れるまで = cho đến khi quen. まで nêu mốc thời điểm giới hạn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "レジの仕事は初めてでも大丈夫です",
+              "why": "căn cứ bác bỏ phương án \"レジ cần kinh nghiệm\" ở câu hỏi 2"
+            },
+            {
+              "w": "品出しは重い物を運ぶことがありますから、慣れるまで少し大変ですが、動きにくい服は着ないでください",
+              "why": "khớp nguyên văn phương án đúng của câu hỏi 2"
+            }
+          ]
+        },
+        {
+          "jp": "大学生のリーさんも、授業がない日に品出しをしながらレジの仕事も少しずつ覚えています。",
+          "vi": "Bạn Lee, sinh viên đại học, cũng vừa xếp hàng lên kệ vào ngày không có tiết học vừa dần dần học thêm việc thu ngân.",
+          "vocab": [
+            {
+              "w": "大学生",
+              "read": "だいがくせい",
+              "vi": "sinh viên đại học"
+            },
+            {
+              "w": "リー",
+              "read": "リー",
+              "vi": "Lee, tên người"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, tiết học"
+            },
+            {
+              "w": "ない",
+              "read": "ない",
+              "vi": "không có"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "品",
+              "read": "しな",
+              "vi": "hàng hóa, sản phẩm"
+            },
+            {
+              "w": "品出し",
+              "read": "しなだし",
+              "vi": "bổ sung hàng lên kệ"
+            },
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "覚えています",
+              "read": "おぼえています",
+              "vi": "đang học, ghi nhớ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1ますstemながらV2",
+              "vi": "品出しをし（ます-stem）＋ながら＋覚えています = vừa xếp hàng lên kệ vừa học thêm thu ngân. Mẫu MỚI bài 28."
+            },
+            {
+              "point": "Vています（習慣）",
+              "vi": "覚えています＋少しずつ = thói quen học dần dần từng chút."
+            }
+          ],
+          "keys": [
+            {
+              "w": "品出しをしながらレジの仕事も少しずつ覚えています",
+              "why": "bác bỏ phương án \"đại học chỉ được làm 品出し\" ở câu hỏi 2 — Lee (sinh viên) làm CẢ 2 việc"
+            }
+          ]
+        },
+        {
+          "jp": "※高校生は土・日の品出ししかできません。レジは高校生には申し込みにくいですから、大学生以上の方をお願いします。",
+          "vi": "Học sinh cấp 3 chỉ có thể làm xếp hàng lên kệ vào thứ Bảy, Chủ nhật. Việc thu ngân khó nộp đơn với học sinh cấp 3, nên mong các bạn từ sinh viên đại học trở lên.",
+          "vocab": [
+            {
+              "w": "高校生",
+              "read": "こうこうせい",
+              "vi": "học sinh trung học phổ thông"
+            },
+            {
+              "w": "土",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "品",
+              "read": "しな",
+              "vi": "hàng hóa, sản phẩm"
+            },
+            {
+              "w": "品出し",
+              "read": "しなだし",
+              "vi": "bổ sung hàng lên kệ"
+            },
+            {
+              "w": "できません",
+              "read": "できません",
+              "vi": "không thể làm"
+            },
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "申し込みにくい",
+              "read": "もうしこみにくい",
+              "vi": "khó đăng ký"
+            },
+            {
+              "w": "大学生",
+              "read": "だいがくせい",
+              "vi": "sinh viên đại học"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người, vị"
+            },
+            {
+              "w": "お願いします",
+              "read": "おねがいします",
+              "vi": "xin vui lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない（Bài 27）",
+              "vi": "土・日の品出ししかできません = chỉ có thể làm xếp hàng lên kệ vào thứ Bảy Chủ nhật (không gì khác). Ôn lại bài 27."
+            },
+            {
+              "point": "Vにくい",
+              "vi": "申し込み（ます-stem）＋にくい = khó nộp đơn. Mẫu MỚI bài 28."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "申し込みにくいですから、大学生以上の方をお願いします = vì khó nộp đơn (với học sinh cấp 3) nên mong tuyển từ sinh viên đại học trở lên. から nêu lý do."
+            }
+          ],
+          "keys": [
+            {
+              "w": "高校生は土・日の品出ししかできません",
+              "why": "điều kiện đối tượng quyết định câu hỏi 1: Watt là học sinh cấp 3 nên CHỈ được xếp ca 品出し thứ Bảy/Chủ nhật"
+            },
+            {
+              "w": "レジは高校生には申し込みにくいですから",
+              "why": "loại trừ phương án レジ ở câu hỏi 1 vì Watt là học sinh cấp 3"
+            }
+          ]
+        },
+        {
+          "jp": "応募は電話でしてください。電話：045-123-4567（毎日　10:00〜19:00）",
+          "vi": "Vui lòng ứng tuyển bằng điện thoại. Điện thoại: 045-123-4567 (hằng ngày　10:00〜19:00)",
+          "vocab": [
+            {
+              "w": "応募",
+              "read": "おうぼ",
+              "vi": "ứng tuyển, ứng mộ"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "hằng ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（Bài 5, phương tiện）",
+              "vi": "電話で＋してください = làm bằng điện thoại. で nêu công cụ/phương tiện thực hiện."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "してください = xin hãy làm. Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "応募は電話でしてください",
+              "why": "bác bỏ phương án \"ứng tuyển bằng Eメール\" ở câu hỏi 2 — phải dùng điện thoại"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "勉強しながら働きたい学生も歓迎です",
+          "label": "V1ながらV2"
+        },
+        {
+          "excerpt": "先輩が丁寧に教えますから、覚えやすいです",
+          "label": "Vやすい"
+        },
+        {
+          "excerpt": "動きにくい服は着ないでください",
+          "label": "Vにくい + ないでください（Bài 17, ôn lại）"
+        },
+        {
+          "excerpt": "品出しをしながらレジの仕事も少しずつ覚えています",
+          "label": "V1ながらV2 + Vています（習慣）"
+        },
+        {
+          "excerpt": "レジは高校生には申し込みにくいですから",
+          "label": "Vにくい"
+        },
+        {
+          "excerpt": "土・日の品出ししかできません",
+          "label": "Nしか〜ない（Bài 27, ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & mời gọi",
+          "topic": 0,
+          "note": "Giới thiệu tin tuyển dụng, nêu mẫu ながら trọng tâm bài 28.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng ca làm & lương",
+          "topic": 2,
+          "note": "Bảng chính để lọc theo đối tượng + ngày + buổi — căn cứ câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "body",
+          "label": "Mô tả công việc & ví dụ Lee",
+          "topic": 6,
+          "note": "Miêu tả từng việc (レジ dễ, 品出し nặng) và ví dụ sinh viên làm cả 2 việc — căn cứ câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện ※ đối tượng & liên hệ",
+          "topic": 8,
+          "note": "Dòng ※ giới hạn học sinh cấp 3 chỉ làm 品出し thứ Bảy/Chủ nhật — căn cứ chính câu hỏi 1; dòng cuối nêu cách ứng tuyển bằng điện thoại — bẫy câu hỏi 2 (Eメール).",
+          "qs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワットさんは高校生で、水曜日と土曜日の午前中だけ時間があります。ワットさんはどの仕事ができますか。",
+          "options": [
+            "レジ（月・水・金）",
+            "品出し（火・木）",
+            "品出し（土・日）",
+            "レジ（月・水・金）と品出し（土・日）"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Watt là học sinh cấp 3, và bài viết nêu rõ:「高校生は土・日の品出ししかできません」— học sinh cấp 3 CHỈ được làm xếp hàng lên kệ vào thứ Bảy, Chủ nhật (điều kiện 1: là học sinh cấp 3). Watt rảnh thứ Tư và thứ Bảy buổi sáng (điều kiện 2: ngày rảnh), khớp với ca 品出し｜土・日｜9:00〜13:00 (buổi sáng). Phương án 0 (レジ thứ Hai・Tư・Sáu) sai vì レジ giờ làm là 17:00〜20:00 (buổi tối), không phải buổi sáng, và học sinh cấp 3 không được làm レジ. Phương án 1 (品出し thứ Ba・Năm) sai ngày — Watt không rảnh thứ Ba/Năm. Phương án 3 sai vì có ghép cả レジ, mà học sinh cấp 3 không đủ điều kiện làm レジ.",
+          "tip": "Bài toán ghép ĐỐI TƯỢNG (học sinh cấp 3) + NGÀY RẢNH: trước tiên áp dụng dòng ※ để loại các ca người đó KHÔNG đủ điều kiện làm, rồi mới dò cột 曜日／時間 xem ca còn lại có khớp ngày giờ rảnh không.",
+          "evi": [
+            5,
+            8
+          ],
+          "qt": {
+            "q": "Anh Wat là học sinh trung học phổ thông và chỉ có thời gian vào buổi sáng thứ Tư và thứ Bảy. Anh Wat có thể làm công việc nào?",
+            "o": [
+              "Thu ngân (thứ Hai, thứ Tư, thứ Sáu)",
+              "Xếp hàng lên kệ (thứ Ba, thứ Năm)",
+              "Xếp hàng lên kệ (thứ Bảy, Chủ nhật)",
+              "Thu ngân (thứ Hai, thứ Tư, thứ Sáu) và xếp hàng lên kệ (thứ Bảy, Chủ nhật)"
+            ]
+          }
+        },
+        {
+          "q": "この店のアルバイトについて、正しいものはどれですか。",
+          "options": [
+            "レジの仕事は経験がないと申し込めません",
+            "品出しは重い物を運ぶから、動きにくい服を着ないでください",
+            "大学生は品出しの仕事しか申し込めません",
+            "応募はEメールでしなければなりません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ:「品出しは重い物を運ぶことがありますから、慣れるまで少し大変ですが、動きにくい服は着ないでください」— khớp chính xác nội dung phương án 1. Phương án 0 sai vì bài nói ngược lại:「レジの仕事は初めてでも大丈夫です」(lần đầu cũng không sao). Phương án 2 sai vì bài cho ví dụ sinh viên Lee làm CẢ品出し LẪN レジ:「品出しをしながらレジの仕事も少しずつ覚えています」— không phải chỉ được làm 品出し. Phương án 3 sai vì bài yêu cầu ứng tuyển bằng ĐIỆN THOẠI:「応募は電話でしてください」, không phải Eメール (Eメール chỉ là 1 cách liên hệ chung, không phải cách ứng tuyển).",
+          "tip": "Câu hỏi \"nội dung nào khớp\" hay đảo ngược thông tin (初めてでも大丈夫 ↔ 経験がないと申し込めません) hoặc trộn quyền hạn giữa các đối tượng (大学生 vs 高校生) — luôn dò lại đúng câu gốc trước khi chọn.",
+          "evi": [
+            6,
+            9
+          ],
+          "qt": {
+            "q": "Điều nào sau đây đúng về công việc làm thêm ở cửa hàng này?",
+            "o": [
+              "Không thể ứng tuyển công việc thu ngân nếu chưa có kinh nghiệm",
+              "Vì công việc xếp hàng lên kệ có lúc phải mang đồ nặng, xin đừng mặc quần áo khó cử động",
+              "Sinh viên đại học chỉ có thể ứng tuyển công việc xếp hàng lên kệ",
+              "Phải ứng tuyển qua email"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

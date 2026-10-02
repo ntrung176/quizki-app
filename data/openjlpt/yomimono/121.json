@@ -1,0 +1,3579 @@
+{
+  "bai": 121,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng nắm bắt trục thời gian và ngữ cảnh văn bản qua các mẫu ngữ pháp định vị thời điểm quan trọng của N3. Trọng tâm là phân biệt lát cắt thời điểm khách quan tức thì (sắp, đang, vừa xong ngay lúc nói với 〜ところだ) đối lập với nhận thức thời gian chủ quan (vừa mới làm theo cảm nhận người nói với 〜たばかり), đồng thời đối chiếu giữa thời điểm trong văn bản hướng dẫn/quy định trang trọng (〜際に) với thời điểm bắt đầu một cột mốc, sự kiện trọng đại (〜にあたって).",
+    "steps": [
+      "Xác định chính xác dạng động từ đứng trước 〜ところだ (Vる: sắp sửa làm, Vている: đang làm, Vた: vừa dứt điểm ngay tức khắc) để định vị đúng tiến trình hành động của chủ thể.",
+      "Quan sát ngữ cảnh câu chứa 〜たばかり để nhận diện mốc thời gian theo cảm nhận chủ quan của tác giả (dù thực tế đã qua vài tháng nhưng người nói vẫn cảm thấy mới) nhằm tránh bẫy chọn sai dòng thời gian.",
+      "Khoanh vùng ngữ cảnh mang tính hướng dẫn, quy định hoặc thông báo chính thức khi bắt gặp 〜際に để tìm nhanh thông tin về điều kiện hoặc hành động cần thực hiện vào thời điểm đó.",
+      "Nhận diện sự kiện trọng đại đứng trước 〜にあたって／にあたり (khai trương, chuyển nhà, bắt đầu công việc mới) và tìm kiếm các thông tin về sự chuẩn bị, lưu ý hoặc lời chúc theo sau.",
+      "Đối chiếu các phương án lựa chọn với trình tự thời gian trước - trong - sau đã giải mã trong bài để loại bỏ các đáp án đảo lộn thứ tự hành động."
+    ],
+    "tips": [
+      "Bẫy thời gian giữa 〜たばかり và 〜たところだ: 〜たばかり nhấn mạnh cảm nhận chủ quan của người nói (thời gian thực tế có thể đã lâu), còn 〜たところだ bắt buộc là vừa dứt điểm ngay trước mắt trong tích tắc.",
+      "Dấu hiệu nhận diện dạng 〜ところだ: Đi với Vる thường có phó từ 「今から／これから」, đi với Vている có 「今」, đi với Vた có 「たった今」.",
+      "使い分け 〜際に vs 〜にあたって: 〜際に dùng cho mọi thời điểm/tình huống trong văn phong trang trọng (tương đương とき); còn 〜にあたって bắt buộc gắn với thời điểm khởi đầu của một sự kiện, cột mốc trọng đại (khai mạc, kết hôn, du học).",
+      "使い分け 〜たところだ vs 〜たばかり: Trong bài đọc, nếu câu hỏi kiểm tra tính khách quan của thời điểm vừa xảy ra xong xuôi thì đáp án thường bám vào 〜たところだ, còn thể hiện tâm lý 'vẫn còn mới mẻ' sẽ là 〜たばかり.",
+      "Dấu hiệu vế sau của 〜にあたって: Thường đi kèm với các từ thể hiện sự chuẩn bị, quyết tâm, lời khuyên hoặc nghi thức chào hỏi (準備、注意、心構え、挨拶)."
+    ],
+    "grammarFocus": [
+      "〜たばかり — Vた + ばかり（だ）: Vừa mới làm gì xong theo cảm nhận chủ quan của người nói (thời gian thực tế có thể ngắn hoặc đã qua khá lâu). Đối chiếu: Khác 〜たところだ ở tính đánh giá chủ quan.",
+      "〜するところだ／しているところだ／したところだ — Vる／Vている／Vた + ところだ: Diễn tả 3 lát cắt thời điểm cực ngắn (sắp sửa làm / đang trong lúc làm / vừa mới làm xong tức thì ngay tại chỗ). Đối chiếu: Nhấn mạnh khoảnh khắc khách quan ngay lúc nói.",
+      "〜際（に） — Vる／Vた／Nの + 際（に）: Khi, vào lúc (văn phong trang trọng, thông báo, hướng dẫn chính thức). Đối chiếu: Trang trọng hơn とき, dùng cho các bối cảnh trang trọng chung.",
+      "〜にあたって／にあたり — Vる／N + にあたって（にあたり）: Nhân dịp, khi bắt đầu tiến hành (một sự kiện, cột mốc hay bước ngoặt quan trọng). Đối chiếu: Hẹp và trang trọng hơn 際に vì chỉ dùng cho thời điểm khởi đầu của sự kiện lớn."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 55,
+        "items": [
+          "〜うちに（Vる/Vている/Aい/なAな/Nの＋うちに）",
+          "〜ないうちに（Vない＋うちに）"
+        ]
+      },
+      {
+        "bai": 56,
+        "items": [
+          "〜間に（Vている/Nの + 間に）",
+          "〜間（Vている/Nの + 間）"
+        ]
+      },
+      {
+        "bai": 57,
+        "items": [
+          "〜たとたん（に）",
+          "〜か〜ないかのうちに"
+        ]
+      },
+      {
+        "bai": 58,
+        "items": [
+          "〜たびに（Vる/Nの＋たびに）",
+          "〜まま（Vた/Vない/Aい/なAな/Nの＋まま）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "新システムの導入と業務改革について",
+      "titleVi": "Về việc triển khai hệ thống mới và cải cách công việc",
+      "japanese": "当社では、新しいデジタル管理システムを導入するにあたって、業務の効率化を目指しております。この新システムは今週稼働し始めたばかりで、操作に不慣れな社員も少なくないでしょう。そこで、現在担当部署が全社員向けのマニュアルを作成しているところです。システムをご利用になる際は、まず基本的な設定手順をご確認ください。また、不明な点が生じた際には、専用の相談窓口へお気軽にお問い合わせください。\n実は、先行導入した部署から最初の利用報告を受け取ったところで、作業時間が短縮されたという声が寄せられています。改革はまだ始まったばかりですが、一人ひとりの工夫が会社全体の成長につながります。これから本格的な運用へと移行するところですので、皆様のご理解とご協力をお願いいたします。新しい働き方を実現するにあたり、全員で力を合わせて業務改革を進めてまいりましょう。",
+      "vietnamese": "Tại công ty chúng tôi, nhân dịp đưa vào áp dụng hệ thống quản lý kỹ thuật số mới, chúng tôi đang hướng tới mục tiêu nâng cao hiệu quả công việc. Hệ thống mới này vừa mới bắt đầu đi vào vận hành trong tuần này, nên chắc hẳn không ít nhân viên còn chưa quen thao tác. Vì vậy, hiện tại bộ phận phụ trách đang trong quá trình biên soạn sách hướng dẫn dành cho toàn thể nhân viên. Khi sử dụng hệ thống, trước hết quý vị vui lòng kiểm tra các bước thiết lập cơ bản. Ngoài ra, khi phát sinh điểm chưa rõ, xin quý vị hãy thoải mái liên hệ hỏi tại bộ phận tư vấn chuyên trách.\nThực ra, chúng tôi vừa mới nhận được báo cáo sử dụng ban đầu từ bộ phận áp dụng thử nghiệm trước, và đã có những ý kiến ghi nhận rằng thời gian làm việc đã được rút ngắn. Cuộc cải cách tuy chỉ vừa mới bắt đầu, nhưng sự chủ động sáng tạo của từng cá nhân sẽ gắn liền với sự phát triển của toàn công ty. Vì từ giờ chúng ta sắp chuyển sang giai đoạn vận hành chính thức, kính mong nhận được sự thấu hiểu và hợp tác từ mọi người. Nhân dịp hiện thực hóa phương thức làm việc mới, chúng ta hãy cùng chung sức đẩy mạnh cải cách công việc.",
+      "sentences": [
+        {
+          "jp": "当社では、新しいデジタル管理システムを導入するにあたって、業務の効率化を目指しております。",
+          "vi": "Tại công ty chúng tôi, nhân dịp đưa vào áp dụng hệ thống quản lý kỹ thuật số mới, chúng tôi đang hướng tới mục tiêu nâng cao hiệu quả công việc.",
+          "vocab": [
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "導入",
+              "read": "どうにゅう",
+              "vi": "áp dụng, đưa vào sử dụng"
+            },
+            {
+              "w": "業務",
+              "read": "ぎょうむ",
+              "vi": "nghiệp vụ, công việc"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "目指す",
+              "read": "めざす",
+              "vi": "hướng tới, nhắm mục tiêu"
+            },
+            {
+              "w": "効率化",
+              "read": "こうりつか",
+              "vi": "nâng cao hiệu suất/hiệu quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にあたって",
+              "vi": "【接続】V辞書形／N ＋ にあたって。\n【Sắc thái】Diễn tả thời điểm chuẩn bị hoặc bắt đầu tiến hành một sự kiện quan trọng, một bước ngoặt lớn mang tính trang trọng; vế sau thường là hành vi chuẩn bị, phương châm hoặc thái độ.\n【Đối chiếu】Khác với「〜とき」(trung tính, dùng trong mọi tình huống đời thường) và「〜際（に）」(chỉ thời điểm chính thức nói chung mà không nhấn mạnh tính sự kiện bước ngoặt)."
+            }
+          ]
+        },
+        {
+          "jp": "この新システムは今週稼働し始めたばかりで、操作に不慣れな社員も少なくないでしょう。",
+          "vi": "Hệ thống mới này vừa mới bắt đầu đi vào vận hành trong tuần này, nên chắc hẳn không ít nhân viên còn chưa quen thao tác.",
+          "vocab": [
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "新システム",
+              "read": "しんシステム",
+              "vi": "hệ thống mới"
+            },
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "稼働",
+              "read": "かどう",
+              "vi": "vận hành"
+            },
+            {
+              "w": "始めた",
+              "read": "はじめた",
+              "vi": "đã bắt đầu"
+            },
+            {
+              "w": "操作",
+              "read": "そうさ",
+              "vi": "thao tác"
+            },
+            {
+              "w": "不慣れ",
+              "read": "ふなれ",
+              "vi": "không quen"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "少なくない",
+              "read": "すくなくない",
+              "vi": "không ít"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たばかり",
+              "vi": "【接続】Vた ＋ ばかり。\n【Sắc thái】Biểu thị hành động vừa mới xảy ra theo cảm nhận chủ quan của người nói (khoảng thời gian thực tế có thể là vừa xong, vài ngày hoặc vài tuần trước, miễn là người nói cảm thấy chưa lâu).\n【Đối chiếu】Khác với「〜たところだ」(chỉ vừa xong theo nghĩa khách quan, thời điểm rất sát lúc nói) và「〜たて」(chỉ dùng cho đồ vật/sản phẩm vừa làm xong còn nguyên tính tươi mới)."
+            }
+          ]
+        },
+        {
+          "jp": "そこで、現在担当部署が全社員向けのマニュアルを作成しているところです。",
+          "vi": "Vì vậy, hiện tại bộ phận phụ trách đang trong quá trình biên soạn sách hướng dẫn dành cho toàn thể nhân viên.",
+          "vocab": [
+            {
+              "w": "そこで",
+              "read": "そこで",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "現在",
+              "read": "げんざい",
+              "vi": "hiện tại"
+            },
+            {
+              "w": "担当部署",
+              "read": "たんとうぶしょ",
+              "vi": "bộ phận phụ trách"
+            },
+            {
+              "w": "担当",
+              "read": "たんとう",
+              "vi": "phụ trách"
+            },
+            {
+              "w": "部署",
+              "read": "ぶしょ",
+              "vi": "bộ phận"
+            },
+            {
+              "w": "全社員向け",
+              "read": "ぜんしゃいんむけ",
+              "vi": "dành cho toàn thể nhân viên"
+            },
+            {
+              "w": "全社員",
+              "read": "ぜんしゃいん",
+              "vi": "toàn thể nhân viên"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho"
+            },
+            {
+              "w": "マニュアル",
+              "read": "マニュアル",
+              "vi": "sổ tay hướng dẫn"
+            },
+            {
+              "w": "作成",
+              "read": "さくせい",
+              "vi": "soạn thảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜しているところだ",
+              "vi": "【接続】Vている ＋ ところだ。\n【Sắc thái】Nhấn mạnh hành động đang diễn ra tại đúng thời điểm hiện tại (ngay lúc đang nói/diễn biến sự việc).\n【Đối chiếu】Khác với「〜するところだ」(chuẩn bị làm, sắp bắt đầu) và「〜したところだ」(vừa làm xong xuôi tức thì)."
+            }
+          ]
+        },
+        {
+          "jp": "システムをご利用になる際は、まず基本的な設定手順をご確認ください。",
+          "vi": "Khi sử dụng hệ thống, trước hết quý vị vui lòng kiểm tra các bước thiết lập cơ bản.",
+          "vocab": [
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "際",
+              "read": "さい",
+              "vi": "khi/lúc"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết"
+            },
+            {
+              "w": "基本的",
+              "read": "きほんてき",
+              "vi": "mang tính cơ bản"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "設定手順",
+              "read": "せっていてじゅん",
+              "vi": "trình tự cài đặt"
+            },
+            {
+              "w": "設定",
+              "read": "せってい",
+              "vi": "cài đặt"
+            },
+            {
+              "w": "手順",
+              "read": "てじゅん",
+              "vi": "trình tự"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "xác nhận/kiểm tra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜際（に）",
+              "vi": "【接続】V辞書形／Vた／Nの ＋ 際（に）。\n【Sắc thái】Dùng trong văn phong trang trọng, thông báo công việc, văn bản chính thức với nghĩa 'khi / lúc / trong trường hợp'.\n【Đối chiếu】Trang trọng và lịch sự hơn「〜とき」(thường dùng trong hội thoại thân mật) và không mang tính chất thời điểm sự kiện bước ngoặt như「〜にあたって」."
+            }
+          ]
+        },
+        {
+          "jp": "また、不明な点が生じた際には、専用の相談窓口へお気軽にお問い合わせください。",
+          "vi": "Ngoài ra, khi phát sinh điểm chưa rõ, xin quý vị hãy thoải mái liên hệ hỏi tại bộ phận tư vấn chuyên trách.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra"
+            },
+            {
+              "w": "不明",
+              "read": "ふめい",
+              "vi": "không rõ"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm/vấn đề"
+            },
+            {
+              "w": "生じた",
+              "read": "しょうじた",
+              "vi": "đã phát sinh"
+            },
+            {
+              "w": "際",
+              "read": "さい",
+              "vi": "khi/lúc"
+            },
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "chuyên dụng"
+            },
+            {
+              "w": "相談窓口",
+              "read": "そうだんまどぐち",
+              "vi": "quầy tư vấn"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn"
+            },
+            {
+              "w": "窓口",
+              "read": "まどぐち",
+              "vi": "quầy tiếp nhận"
+            },
+            {
+              "w": "気軽",
+              "read": "きがる",
+              "vi": "thoải mái"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "liên hệ hỏi đáp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜た際（に）",
+              "vi": "【接続】Vた ＋ 際（に）。\n【Sắc thái】Biểu thị thời điểm sau khi một sự việc hay tình huống nào đó đã xảy ra trong bối cảnh công vụ, trang trọng.\n【Đối chiếu】Tương đương「〜たとき」về mặt ngữ nghĩa nhưng trang trọng hơn, thường dùng trong văn bản hướng dẫn nghiệp vụ hoặc chăm sóc khách hàng."
+            }
+          ]
+        },
+        {
+          "jp": "実は、先行導入した部署から最初の利用報告を受け取ったところで、作業時間が短縮されたという声が寄せられています。",
+          "vi": "Thực ra, chúng tôi vừa mới nhận được báo cáo sử dụng ban đầu từ bộ phận áp dụng thử nghiệm trước, và đã có những ý kiến ghi nhận rằng thời gian làm việc đã được rút ngắn.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra, thực tế là"
+            },
+            {
+              "w": "先行",
+              "read": "せんこう",
+              "vi": "đi trước, tiên phong"
+            },
+            {
+              "w": "導入",
+              "read": "どうにゅう",
+              "vi": "đưa vào sử dụng, áp dụng"
+            },
+            {
+              "w": "部署",
+              "read": "ぶしょ",
+              "vi": "phòng ban"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "報告",
+              "read": "ほうこく",
+              "vi": "báo cáo, thông báo"
+            },
+            {
+              "w": "受け取る",
+              "read": "うけとる",
+              "vi": "nhận lấy"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "短縮",
+              "read": "たんしゅく",
+              "vi": "rút ngắn (thời gian)"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "寄せる",
+              "read": "よせる",
+              "vi": "gửi đến, ghé vào"
+            },
+            {
+              "w": "先行導入",
+              "read": "せんこうどうにゅう",
+              "vi": "áp dụng/triển khai trước (thí điểm)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜したところだ",
+              "vi": "【接続】Vた ＋ ところだ（/ところで）。\n【Sắc thái】Nhấn mạnh thời điểm hành động vừa mới hoàn tất tức thì ngay trước thời điểm nói mang tính thời gian khách quan rất ngắn.\n【Đối chiếu】Khác với「〜たばかり」(chấp nhận khoảng thời gian dài hơn theo cảm nhận chủ quan của người nói) và「〜するところだ」(sắp sửa bắt đầu làm)."
+            }
+          ]
+        },
+        {
+          "jp": "改革はまだ始まったばかりですが、一人ひとりの工夫が会社全体の成長につながります。",
+          "vi": "Cuộc cải cách tuy chỉ vừa mới bắt đầu, nhưng sự chủ động sáng tạo của từng cá nhân sẽ gắn liền với sự phát triển của toàn công ty.",
+          "vocab": [
+            {
+              "w": "改革",
+              "read": "かいかく",
+              "vi": "cải cách, đổi mới"
+            },
+            {
+              "w": "始まる",
+              "read": "はじまる",
+              "vi": "bắt đầu (tự động từ)"
+            },
+            {
+              "w": "一人ひとり",
+              "read": "ひとりひとり",
+              "vi": "từng người một"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "tìm tòi công sức, sáng kiến"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "dẫn đến, liên kết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たばかり",
+              "vi": "【接続】Vた ＋ ばかり。\n【Sắc thái】Nhấn mạnh giai đoạn mới bắt đầu theo góc nhìn chủ quan, thường đi cùng まだ để thể hiện tính chất khởi đầu chưa lâu.\n【Đối chiếu】Khác với「〜したところだ」(chỉ mốc thời điểm vừa dứt điểm của hành vi) ở chỗ「〜たばかり」có thể diễn tả trạng thái kéo dài một khoảng thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "これから本格的な運用へと移行するところですので、皆様のご理解とご協力をお願いいたします。",
+          "vi": "Vì từ giờ chúng ta sắp chuyển sang giai đoạn vận hành chính thức, kính mong nhận được sự thấu hiểu và hợp tác từ mọi người.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "本格",
+              "read": "ほんかく",
+              "vi": "chính thức, bài bản"
+            },
+            {
+              "w": "運用",
+              "read": "うんよう",
+              "vi": "vận hành, vận dụng"
+            },
+            {
+              "w": "移行",
+              "read": "いこう",
+              "vi": "chuyển dịch, chuyển giao sang"
+            },
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị (kính ngữ)"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "協力",
+              "read": "きょうりょく",
+              "vi": "sự hợp tác"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "本格的",
+              "read": "ほんかくてき",
+              "vi": "mang tính chính thức, thực sự"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜するところだ",
+              "vi": "【接続】V辞書形 ＋ ところだ。\n【Sắc thái】Biểu thị hành động sắp sửa diễn ra ngay sau đây, thường kết hợp với các phó từ chỉ thời gian như「これから」「今から」.\n【Đối chiếu】Khác với「〜しているところだ」(đang trong quá trình tiến hành) và「〜したところだ」(vừa mới hoàn thành)."
+            }
+          ]
+        },
+        {
+          "jp": "新しい働き方を実現するにあたり、全員で力を合わせて業務改革を進めてまいりましょう。",
+          "vi": "Nhân dịp hiện thực hóa phương thức làm việc mới, chúng ta hãy cùng chung sức đẩy mạnh cải cách công việc.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "実現",
+              "read": "じつげん",
+              "vi": "hiện thực hóa, đạt được"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "toàn bộ mọi người"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "合わせる",
+              "read": "あわせる",
+              "vi": "thống nhất, khớp lại"
+            },
+            {
+              "w": "業務",
+              "read": "ぎょうむ",
+              "vi": "nghiệp vụ, công việc"
+            },
+            {
+              "w": "改革",
+              "read": "かいかく",
+              "vi": "cải cách"
+            },
+            {
+              "w": "進める",
+              "read": "すすめる",
+              "vi": "tiến hành, đẩy mạnh"
+            },
+            {
+              "w": "力を合わせる",
+              "read": "ちからをあわせる",
+              "vi": "chung sức, hợp lực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にあたり",
+              "vi": "【接続】V辞書形／N ＋ にあたり（biến thể mang tính trang trọng hơn của にあたって）。\n【Sắc thái】Diễn tả dịp trọng đại khi bắt đầu một mục tiêu hoặc kế hoạch lớn, hướng đến tương lai với ý chí và tinh thần quyết tâm cao.\n【Đối chiếu】Mang sắc thái trang trọng, tính văn viết cao hơn một bậc so với「〜にあたって」."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "導入するにあたって",
+          "label": "〜にあたって (Nhân dịp / Khi tiến hành việc quan trọng)"
+        },
+        {
+          "excerpt": "稼働し始めたばかり",
+          "label": "〜たばかり (Vừa mới - cảm nhận chủ quan)"
+        },
+        {
+          "excerpt": "マニュアルを作成しているところです",
+          "label": "〜しているところだ (Đang trong quá trình làm)"
+        },
+        {
+          "excerpt": "生じた際には",
+          "label": "〜際（に） (Khi / Trong trường hợp - trang trọng)"
+        },
+        {
+          "excerpt": "受け取ったところで",
+          "label": "〜したところだ (Vừa mới xong tức thì)"
+        },
+        {
+          "excerpt": "移行するところです",
+          "label": "〜するところだ (Sắp sửa làm)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "現在、担当部署は何を行っていますか。",
+          "options": [
+            "全社員が使うためのマニュアルを作成している。",
+            "すべての部署で新システムの本格運用を開始している。",
+            "不慣れな社員に対して個別に操作方法を指導している。",
+            "先行導入した部署の作業時間を集計している。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [2]: 「そこで、現在担当部署が全社員向けのマニュアルを作成しているところです。」 (Vì vậy, hiện tại bộ phận phụ trách đang trong quá trình biên soạn sách hướng dẫn dành cho toàn thể nhân viên).\n- Phương án 0 đúng vì diễn đạt chính xác hành động đang làm sách hướng dẫn cho toàn thể nhân viên.\n- Phương án 1 sai vì công ty chỉ mới sắp sửa chuyển sang vận hành chính thức chứ chưa bắt đầu trên toàn bộ (câu [7]).\n- Phương án 2 sai vì bài đọc chỉ nhắc nhở nếu có thắc mắc hãy liên hệ quầy tư vấn (câu [4]), không có thông tin bộ phận phụ trách đi kèm cặp từng cá nhân.\n- Phương án 3 sai vì báo cáo từ bộ phận thí điểm đã vừa mới nhận xong (câu [5]), không phải là công việc đang thực hiện.",
+          "tip": "Chú ý cấu trúc「〜しているところです」ở câu [2] để nhận diện hành động đang diễn ra tại thời điểm nói.",
+          "evi": [
+            2
+          ],
+          "qt": {
+            "q": "Hiện tại, bộ phận phụ trách đang làm gì?",
+            "o": [
+              "Đang soạn sổ tay hướng dẫn để toàn thể nhân viên sử dụng.",
+              "Đang bắt đầu vận hành chính thức hệ thống mới ở tất cả các bộ phận.",
+              "Đang hướng dẫn riêng cách thao tác cho những nhân viên chưa quen.",
+              "Đang tổng hợp thời gian làm việc của bộ phận đã triển khai trước."
+            ]
+          }
+        },
+        {
+          "q": "先行導入した部署からの報告について、正しいものはどれですか。",
+          "options": [
+            "操作が難しすぎて業務に大きな支障が出ているという報告だった。",
+            "作業時間が短縮されたという前向きな成果が報告された。",
+            "全社員がすでにシステムの設定を完了したという報告だった。",
+            "マニュアルの内容に多くの不備が見つかったという報告だった。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [5]: 「実は、先行導入した部署から最初の利用報告を受け取ったところで、作業時間が短縮されたという声が寄せられています。」 (Thực ra, chúng tôi vừa mới nhận được báo cáo sử dụng ban đầu từ bộ phận áp dụng thử nghiệm trước, và đã có những ý kiến ghi nhận rằng thời gian làm việc đã được rút ngắn).\n- Phương án 1 đúng vì phản ánh chính xác kết quả tích cực là rút ngắn thời gian làm việc.\n- Phương án 0 sai vì trái ngược với nội dung báo cáo trong bài.\n- Phương án 2 sai vì đây mới là báo cáo của bộ phận áp dụng trước (先行導入), các nhân viên khác vẫn đang trong giai đoạn làm quen và chuẩn bị.\n- Phương án 3 sai vì trong bài hoàn toàn không nhắc đến việc sách hướng dẫn có thiếu sót.",
+          "tip": "Tìm từ khóa「先行導入」và đọc kỹ mệnh đề bổ nghĩa cho danh từ「声」ở câu [5].",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Đâu là điều đúng về báo cáo từ bộ phận đã triển khai trước?",
+            "o": [
+              "Đó là báo cáo cho biết hệ thống quá khó sử dụng, gây trở ngại lớn cho công việc.",
+              "Đã có báo cáo về kết quả tích cực là thời gian làm việc được rút ngắn.",
+              "Đó là báo cáo cho biết toàn thể nhân viên đã hoàn tất cài đặt hệ thống.",
+              "Đó là báo cáo cho biết đã phát hiện nhiều thiếu sót trong nội dung sổ tay hướng dẫn."
+            ]
+          }
+        },
+        {
+          "q": "社員がシステムを利用する際、まず何をするように求められていますか。",
+          "options": [
+            "専用の相談窓口へ直接行って使い方の説明を受けること。",
+            "先行導入した部署の社員に個別に質問すること。",
+            "基本的な設定手順を事前に確認すること。",
+            "自分で新しい業務改革の提案書を作成すること。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [3]: 「システムをご利用になる際は、まず基本的な設定手順をご確認ください。」 (Khi sử dụng hệ thống, trước hết quý vị vui lòng kiểm tra các bước thiết lập cơ bản).\n- Phương án 2 đúng vì khớp hoàn toàn với nội dung kiểm tra trình tự thiết lập cơ bản.\n- Phương án 0 sai vì việc liên hệ cửa sổ tư vấn chỉ dành cho trường hợp phát sinh điểm chưa hiểu (câu [4]), không phải yêu cầu đầu tiên.\n- Phương án 1 sai vì bài viết không hướng dẫn đi hỏi nhân viên bộ phận thử nghiệm.\n- Phương án 3 sai vì tác giả chỉ kêu gọi sự nỗ lực chung, không bắt buộc từng người phải tự viết đề xuất cải cách.",
+          "tip": "Chú ý phó từ「まず」(trước tiên / trước hết) ở câu [3] để xác định yêu cầu mang tính ưu tiên hàng đầu.",
+          "evi": [
+            3
+          ],
+          "qt": {
+            "q": "Khi sử dụng hệ thống, nhân viên được yêu cầu làm gì trước tiên?",
+            "o": [
+              "Trực tiếp đến quầy tư vấn chuyên trách để được hướng dẫn cách sử dụng.",
+              "Hỏi riêng nhân viên của bộ phận đã triển khai hệ thống trước.",
+              "Kiểm tra trước các bước cài đặt cơ bản.",
+              "Tự mình soạn đề xuất về cải cách nghiệp vụ mới."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も伝えたいメッセージは何ですか。",
+          "options": [
+            "新システムの本格運用を前に、全社員が協力して前向きに業務改革に取り組んでほしいということ。",
+            "デジタルシステムには多くの不具合があるため、以前の作業方法に戻すべきだということ。",
+            "マニュアルが完成するまでは、社員はシステムに一切触れてはならないということ。",
+            "先行導入した部署の成果だけを重視し、他の部署の負担は考慮しないということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào các câu [6], [7], [8]: Tác giả khẳng định sự sáng tạo của mỗi cá nhân sẽ giúp công ty phát triển (câu [6]), sắp tới giai đoạn vận hành chính thức nên mong mọi người thấu hiểu hợp tác (câu [7]), và kêu gọi toàn thể nhân viên chung sức thúc đẩy cải cách công việc (câu [8]).\n- Phương án 0 đúng vì khái quát toàn diện tinh thần và mục đích kêu gọi hợp tác tích cực từ toàn thể nhân viên.\n- Phương án 1 sai vì bài viết ca ngợi hiệu quả rút ngắn thời gian và muốn thúc đẩy công nghệ mới chứ không hề bảo quay về cách cũ.\n- Phương án 2 sai vì hệ thống đã được đưa vào và nhân viên được hướng dẫn kiểm tra cài đặt để sử dụng.\n- Phương án 3 sai vì công ty chuẩn bị tài liệu và mở kênh tư vấn hỗ trợ cho tất cả mọi người.",
+          "tip": "Đây là câu hỏi suy luận chủ đề toàn bài; hãy tập trung vào các câu kết luận ở đoạn 2 mang tính kêu gọi hành động.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Thông điệp mà tác giả muốn truyền tải nhất trong bài viết này là gì?",
+            "o": [
+              "Trước khi hệ thống mới được vận hành chính thức, toàn thể nhân viên hãy cùng hợp tác và tích cực tiến hành cải cách nghiệp vụ.",
+              "Vì hệ thống kỹ thuật số có nhiều trục trặc nên nên quay lại phương pháp làm việc trước đây.",
+              "Cho đến khi sổ tay hướng dẫn hoàn thành, nhân viên tuyệt đối không được chạm vào hệ thống.",
+              "Chỉ coi trọng kết quả của bộ phận đã triển khai trước và không cân nhắc gánh nặng của các bộ phận khác."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "伝統工芸のデジタル化と技術継承に向けた新たな取り組み",
+      "titleVi": "Nỗ lực mới hướng tới số hóa và kế thừa kỹ thuật thủ công truyền thống",
+      "japanese": "近年、後継者不足に悩む伝統工芸の現場を守るため、若手クリエイターと職人が協力する新たな事業が始まろうとしている。私たちの研究会でも、伝統的な染色の技術をデジタル技術で保存するプロジェクトを立ち上げたばかりである。この試みを始めるにあたって、私たちはまず各地の工房を直接訪ねて職人の話を聞くことにした。長年培われてきた職人の技術は言葉で説明するのが難しく、道具を手にしたばかりの見習いには理解しにくい部分も多い。だからこそ、作業工程を正確に記録する際には、感覚的な動きもデータ化する必要があるのだ。\n\n私たちのチームは現在、染料の配合や布を染める手の角度を精密に測定しているところだ。先週は、熟練の職人から布の乾燥方法について詳しい説明を聞き終えたところである。職人が語る経験談には多くの知恵が含まれており、実際に話を伺う際には、一つひとつの表現に注意深く耳を傾けなければならない。これから次の工房へ向かう私たちは、さらに詳しい映像記録の撮影を開始するところだ。現場の協力を得てデータを集める作業は順調に進んでおり、継承のための基盤が少しずつ整ってきている。\n\nしかし、伝統工芸をデジタル化するにあたり、単に形だけを真似ればよいというわけではない。職人がその日の天候や湿度を見て微妙に作業を調整する「勘」こそが最も重要だからである。実際、過去の記録を参照する際にも、数字データだけでは再現できない細やかな工夫が見つかることが多い。私たちは今、そのような職人の直感をどのように若い世代へ伝えるべきか、意見を交わしているところだ。技術を伝えるにあたっては、形式的なマニュアルを作るだけでなく、職人の精神や思いを共有することが欠かせない。\n\nこのように、伝統の継承には過去の知恵を尊重しつつ、現代の技術を柔軟に取り入れる姿勢が求められる。まだ始まったばかりのプロジェクトではあるが、職人と若手が対話を重ねることで新たな可能性が見えてきた。私たちも関係者への最終報告書の作成を終えたところであり、今後は具体的な研修プログラムの提案を行う予定だ。新たな時代に向けた一歩を踏み出すにあたり、伝統の灯を絶やさないための努力を粘り強く続けていきたい。古いものと新しいものが手を取り合うことによって、伝統工芸は次の世代へと力強く受け継がれていくはずである。",
+      "vietnamese": "Những năm gần đây, nhằm bảo vệ các cơ sở thủ công truyền thống đang trăn trở vì thiếu người kế nghiệp, một dự án mới kết hợp giữa các nhà sáng tạo trẻ và nghệ nhân đang chuẩn bị bắt đầu. Tại hội nghiên cứu của chúng tôi cũng vừa mới khởi động một dự án nhằm lưu trữ kỹ thuật nhuộm truyền thống bằng công nghệ kỹ thuật số. Khi tiến hành thử nghiệm này, trước tiên chúng tôi quyết định trực tiếp đến thăm các xưởng thủ công ở khắp nơi để lắng nghe chia sẻ của các nghệ nhân. Kỹ thuật của nghệ nhân được tôi luyện qua nhiều năm tháng rất khó diễn giải bằng lời, và có nhiều phần mà những người học việc vừa mới cầm dụng cụ chưa lâu khó lòng thấu hiểu được. Chính vì thế, khi ghi chép lại quy trình thao tác một cách chính xác, cần phải số hóa cả những chuyển động mang tính cảm giác.\n\nHiện tại, nhóm chúng tôi đang đo đạc chính xác tỉ lệ pha trộn thuốc nhuộm và góc độ của bàn tay khi nhuộm vải. Tuần trước, chúng tôi cũng vừa hoàn thành việc nghe giải thích chi tiết từ một nghệ nhân lão luyện về phương pháp làm khô vải. Những câu chuyện kinh nghiệm mà nghệ nhân kể chứa đựng vô vàn trí tuệ, và khi thực tế lắng nghe họ chia sẻ, ta phải chăm chú lắng nghe từng cách diễn đạt một. Chuẩn bị hướng đến xưởng thủ công tiếp theo, chúng tôi sắp sửa bắt đầu quay lại các thước phim tư liệu chi tiết hơn. Công việc thu thập dữ liệu nhờ có sự hợp tác từ hiện trường đang tiến triển thuận lợi, và nền tảng cho việc kế thừa đang từng bước được hoàn thiện.\n\nThế nhưng, khi tiến hành số hóa thủ công truyền thống, không có nghĩa là chỉ cần bắt chước đơn thuần hình thức bên ngoài là đủ. Bởi lẽ chính \"trực giác nhạy bén\" của nghệ nhân—người quan sát thời tiết và độ ẩm trong ngày để tinh chỉnh thao tác một cách tinh tế—mới là điều quan trọng nhất. Trên thực tế, ngay cả khi tham khảo các ghi chép trong quá khứ, ta vẫn thường bắt gặp nhiều bí quyết khéo léo tỉ mỉ mà chỉ riêng dữ liệu con số không thể nào tái hiện được. Hiện nay chúng tôi đang trao đổi ý kiến xem nên truyền đạt lại trực giác nhà nghề ấy cho thế hệ trẻ bằng cách nào. Khi truyền thụ kỹ thuật, không chỉ việc tạo ra một cuốn tài liệu hướng dẫn mang tính hình thức, mà việc cùng sẻ chia tinh thần và tâm niệm của người nghệ nhân là điều không thể thiếu.\n\nNhư vậy, việc kế thừa truyền thống đòi hỏi một thái độ vừa tôn trọng trí tuệ quá khứ, vừa linh hoạt tiếp thu công nghệ hiện đại. Dù đây là dự án vẫn chỉ mới vừa bắt đầu, nhưng qua việc nghệ nhân và người trẻ không ngừng đối thoại, những tiềm năng mới đã dần hé lộ. Chúng tôi cũng vừa mới hoàn thành việc soạn thảo báo cáo tổng kết gửi tới các bên liên quan, và thời gian tới dự định sẽ đưa ra đề xuất về chương trình đào tạo cụ thể. Nhân dịp tiến một bước mới hướng tới thời đại tương lai, chúng tôi mong muốn tiếp tục kiên trì nỗ lực để không làm tắt đi ngọn lửa truyền thống. Nhờ việc cái cũ và cái mới cùng chung tay gắn kết, nghề thủ công truyền thống chắc chắn sẽ được kế thừa một cách mạnh mẽ sang các thế hệ mai sau.",
+      "sentences": [
+        {
+          "jp": "近年、後継者不足に悩む伝統工芸の現場を守るため、若手クリエイターと職人が協力する新たな事業が始まろうとしている。",
+          "vi": "Những năm gần đây, nhằm bảo vệ các cơ sở thủ công truyền thống đang trăn trở vì thiếu người kế nghiệp, một dự án mới kết hợp giữa các nhà sáng tạo trẻ và nghệ nhân đang chuẩn bị bắt đầu.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "gần đây, những năm gần đây"
+            },
+            {
+              "w": "後継",
+              "read": "こうけい",
+              "vi": "kế thừa, nối dõi"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "悩む",
+              "read": "なやむ",
+              "vi": "khổ sở, băn khoăn"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "lớp trẻ, thế hệ trẻ"
+            },
+            {
+              "w": "クリエイター",
+              "read": "クリエイター",
+              "vi": "người sáng tạo"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công lành nghề"
+            },
+            {
+              "w": "協力",
+              "read": "きょうりょく",
+              "vi": "sự hợp tác"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "事業",
+              "read": "じぎょう",
+              "vi": "dự án kinh doanh, sự nghiệp"
+            },
+            {
+              "w": "始まる",
+              "read": "はじまる",
+              "vi": "bắt đầu (tự động từ)"
+            },
+            {
+              "w": "後継者不足",
+              "read": "こうけいしゃぶそく",
+              "vi": "sự thiếu hụt người kế nghiệp"
+            },
+            {
+              "w": "伝統工芸",
+              "read": "でんとうこうげい",
+              "vi": "thủ công mỹ nghệ truyền thống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（よ）うとしている",
+              "vi": "接続: V-よう形 ＋ としている. Sắc thái: Diễn tả một sự việc, biến chuyển chuẩn bị diễn ra ngay trước mắt trong văn phong nghị luận trang trọng. Đối chiếu: Khác với 〜するところだ (nhấn mạnh thời điểm tức thì trong đời sống/tiến độ công việc), 〜（よ）うとしている mang tính văn viết cao, dùng nhiều cho hiện tượng hay sự kiện lớn."
+            }
+          ]
+        },
+        {
+          "jp": "私たちの研究会でも、伝統的な染色の技術をデジタル技術で保存するプロジェクトを立ち上げたばかりである。",
+          "vi": "Tại hội nghiên cứu của chúng tôi cũng vừa mới khởi động một dự án nhằm lưu trữ kỹ thuật nhuộm truyền thống bằng công nghệ kỹ thuật số.",
+          "vocab": [
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi/chúng ta"
+            },
+            {
+              "w": "研究会",
+              "read": "けんきゅうかい",
+              "vi": "nhóm nghiên cứu"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "伝統的",
+              "read": "でんとうてき",
+              "vi": "mang tính truyền thống"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "染色",
+              "read": "せんしょく",
+              "vi": "nhuộm màu"
+            },
+            {
+              "w": "デジタル技術",
+              "read": "デジタルぎじゅつ",
+              "vi": "công nghệ số"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật/công nghệ"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "bảo tồn/lưu giữ"
+            },
+            {
+              "w": "プロジェクト",
+              "read": "プロジェクト",
+              "vi": "dự án"
+            },
+            {
+              "w": "立ち上げた",
+              "read": "たちあげた",
+              "vi": "đã khởi động/thành lập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たばかり",
+              "vi": "接続: V-た ＋ ばかり. Sắc thái: Thể hiện hành động vừa mới xảy ra theo cảm nhận chủ quan của người nói (dù thời gian thực tế có thể đã qua một khoảng thời gian). Đối chiếu: Khác với 〜たところだ (nhấn mạnh thời điểm khách quan, vừa dứt điểm hành động trong tích tắc), 〜たばかり phụ thuộc vào tâm lý người nói xem khoảng thời gian đó là 'mới đây'."
+            }
+          ]
+        },
+        {
+          "jp": "この試みを始めるにあたって、私たちはまず各地の工房を直接訪ねて職人の話を聞くことにした。",
+          "vi": "Khi tiến hành thử nghiệm này, trước tiên chúng tôi quyết định trực tiếp đến thăm các xưởng thủ công ở khắp nơi để lắng nghe chia sẻ của các nghệ nhân.",
+          "vocab": [
+            {
+              "w": "試み",
+              "read": "こころみ",
+              "vi": "sự thử nghiệm, nỗ lực làm thử"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "各地",
+              "read": "かくち",
+              "vi": "các vùng, khắp nơi"
+            },
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng thủ công mỹ nghệ"
+            },
+            {
+              "w": "直接",
+              "read": "ちょくせつ",
+              "vi": "trực tiếp"
+            },
+            {
+              "w": "訪ねる",
+              "read": "たずねる",
+              "vi": "đến thăm, ghé thăm"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にあたって",
+              "vi": "接続: V-辞書形 / N ＋ にあたって. Sắc thái: Dùng khi chuẩn bị bước vào một sự kiện, kế hoạch quan trọng hay bước ngoặt mới; vế sau là hành động chuẩn bị, tâm thế. Đối chiếu: Khác với 〜際（に） (chỉ thời điểm trang trọng nói chung) và 〜とき (trung tính đời thường), 〜にあたって chỉ dùng đúng thời điểm trước khi/bắt đầu một sự kiện lớn."
+            }
+          ]
+        },
+        {
+          "jp": "長年培われてきた職人の技術は言葉で説明するのが難しく、道具を手にしたばかりの見習いには理解しにくい部分も多い。",
+          "vi": "Kỹ thuật của nghệ nhân được tôi luyện qua nhiều năm tháng rất khó diễn giải bằng lời, và có nhiều phần mà những người học việc vừa mới cầm dụng cụ chưa lâu khó lòng thấu hiểu được.",
+          "vocab": [
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm, lâu năm"
+            },
+            {
+              "w": "培う",
+              "read": "つちかう",
+              "vi": "bồi dưỡng, tôi luyện, tích lũy qua năm tháng"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, phương tiện"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "見習い",
+              "read": "みならい",
+              "vi": "người học việc, tập sự"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "部分",
+              "read": "ぶぶん",
+              "vi": "phần, bộ phận"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たばかり",
+              "vi": "接続: V-た ＋ ばかり. Sắc thái: Nhấn mạnh trạng thái người học việc mới tiếp cận nghề chưa bao lâu theo đánh giá của người nói. Đối chiếu: Khác với 〜たて (như 焼きたて - chỉ dùng hạn chế cho đồ vật/thức ăn mới làm xong), 〜たばかり đi được với hầu hết động từ để biểu đạt thời gian trôi qua ít ỏi."
+            }
+          ]
+        },
+        {
+          "jp": "だからこそ、作業工程を正確に記録する際には、感覚的な動きもデータ化する必要があるのだ。",
+          "vi": "Chính vì thế, khi ghi chép lại quy trình thao tác một cách chính xác, cần phải số hóa cả những chuyển động mang tính cảm giác.",
+          "vocab": [
+            {
+              "w": "だからこそ",
+              "read": "だからこそ",
+              "vi": "chính vì vậy"
+            },
+            {
+              "w": "作業工程",
+              "read": "さぎょうこうてい",
+              "vi": "quy trình công việc"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc"
+            },
+            {
+              "w": "工程",
+              "read": "こうてい",
+              "vi": "công đoạn/quy trình"
+            },
+            {
+              "w": "正確",
+              "read": "せいかく",
+              "vi": "chính xác"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "ghi chép"
+            },
+            {
+              "w": "際",
+              "read": "さい",
+              "vi": "khi/lúc"
+            },
+            {
+              "w": "感覚的",
+              "read": "かんかくてき",
+              "vi": "mang tính cảm tính"
+            },
+            {
+              "w": "感覚",
+              "read": "かんかく",
+              "vi": "cảm giác"
+            },
+            {
+              "w": "動き",
+              "read": "うごき",
+              "vi": "chuyển động"
+            },
+            {
+              "w": "データ化",
+              "read": "データか",
+              "vi": "số hóa"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "dữ liệu"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜際（に）",
+              "vi": "接続: V-辞書形 / V-た / N-の ＋ 際（に）. Sắc thái: Diễn tả thời điểm hoặc tình huống trong văn phong trang trọng, thông báo công vụ hoặc bài nghiên cứu. Đối chiếu: Trang trọng hơn nhiều so với 〜とき; khác với 〜にあたって (chỉ mở đầu sự kiện lớn), 〜際（に） áp dụng linh hoạt cho các thao tác cụ thể trong công việc."
+            }
+          ]
+        },
+        {
+          "jp": "私たちのチームは現在、染料の配合や布を染める手の角度を精密に測定しているところだ。",
+          "vi": "Hiện tại, nhóm chúng tôi đang đo đạc chính xác tỉ lệ pha trộn thuốc nhuộm và góc độ của bàn tay khi nhuộm vải.",
+          "vocab": [
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "nhóm, đội"
+            },
+            {
+              "w": "現在",
+              "read": "げんざい",
+              "vi": "hiện tại, hiện nay"
+            },
+            {
+              "w": "染料",
+              "read": "せんりょう",
+              "vi": "thuốc nhuộm, phẩm màu"
+            },
+            {
+              "w": "配合",
+              "read": "はいごう",
+              "vi": "sự pha trộn, phối chế theo tỉ lệ"
+            },
+            {
+              "w": "布",
+              "read": "ぬの",
+              "vi": "vải, tấm vải"
+            },
+            {
+              "w": "染める",
+              "read": "そめる",
+              "vi": "nhuộm, nhuộm màu"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "角度",
+              "read": "かくど",
+              "vi": "góc độ, khía cạnh"
+            },
+            {
+              "w": "精密",
+              "read": "せいみつ",
+              "vi": "chính xác, tinh vi, tỉ mỉ"
+            },
+            {
+              "w": "測定",
+              "read": "そくてい",
+              "vi": "sự đo lường, đo đạc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜しているところだ",
+              "vi": "接続: V-ている ＋ ところだ. Sắc thái: Nhấn mạnh vào chính khoảnh khắc hiện tại hành động đang diễn ra cụ thể ngay lúc nói. Đối chiếu: Khác với dạng V-ている thông thường (chỉ trạng thái kéo dài chung), 〜ているところだ đặc biệt nhấn mạnh tính thời điểm 'đang đúng lúc/giai đoạn thực hiện'."
+            }
+          ]
+        },
+        {
+          "jp": "先週は、熟練の職人から布の乾燥方法について詳しい説明を聞き終えたところである。",
+          "vi": "Tuần trước, chúng tôi cũng vừa hoàn thành việc nghe giải thích chi tiết từ một nghệ nhân lão luyện về phương pháp làm khô vải.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "熟練",
+              "read": "じゅくれん",
+              "vi": "lành nghề, thuần thục, điêu luyện"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "布",
+              "read": "ぬの",
+              "vi": "vải, tấm vải"
+            },
+            {
+              "w": "乾燥",
+              "read": "かんそう",
+              "vi": "làm khô, sấy khô"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "詳しい",
+              "read": "くわしい",
+              "vi": "chi tiết, cụ thể"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜したところだ",
+              "vi": "接続: V-た ＋ ところである. Sắc thái: Diễn tả một hành động vừa mới hoàn tất xong, nhấn mạnh mốc thời gian hoàn thành của sự việc. Đối chiếu: Khác với 〜たばかり (chủ quan, có thể dùng cho sự việc đã qua lâu nếu thấy mới), 〜したところだ chỉ dùng khi sự việc vừa xong cách mốc thời gian không xa hoặc mang tính báo cáo tiến độ."
+            }
+          ]
+        },
+        {
+          "jp": "職人が語る経験談には多くの知恵が含まれており、実際に話を伺う際には、一つひとつの表現に注意深く耳を傾けなければならない。",
+          "vi": "Những câu chuyện kinh nghiệm mà nghệ nhân kể chứa đựng vô vàn trí tuệ, và khi thực tế lắng nghe họ chia sẻ, ta phải chăm chú lắng nghe từng cách diễn đạt một.",
+          "vocab": [
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "語る",
+              "read": "かたる",
+              "vi": "phát biểu, kể lại"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "知恵",
+              "read": "ちえ",
+              "vi": "trí tuệ"
+            },
+            {
+              "w": "含む",
+              "read": "ふくむ",
+              "vi": "bao gồm, chứa"
+            },
+            {
+              "w": "実際",
+              "read": "じっさい",
+              "vi": "trên thực tế"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "伺う",
+              "read": "うかがう",
+              "vi": "hỏi, thăm hỏi"
+            },
+            {
+              "w": "一つひとつ",
+              "read": "ひとつひとつ",
+              "vi": "từng cái một, lần lượt"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt, biểu đạt"
+            },
+            {
+              "w": "注意深い",
+              "read": "ちゅういぶかい",
+              "vi": "cẩn thận, thận trọng"
+            },
+            {
+              "w": "耳",
+              "read": "みみ",
+              "vi": "tai, thính giác"
+            },
+            {
+              "w": "傾ける",
+              "read": "かたむける",
+              "vi": "nghiêng, dốc lòng"
+            },
+            {
+              "w": "経験談",
+              "read": "けいけんだん",
+              "vi": "câu chuyện kinh nghiệm, lời chia sẻ trải nghiệm"
+            },
+            {
+              "w": "耳を傾ける",
+              "read": "みみをかたむける",
+              "vi": "lắng tai nghe, chăm chú lắng nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜際（に）",
+              "vi": "接続: V-辞書形 ＋ 際（に）. Sắc thái: 'Khi / Trong lúc', dùng trong ngữ cảnh trang trọng, chỉ thời điểm tiến hành một hành vi quan trọng. Đối chiếu: Lịch sự và trang trọng hơn 〜とき, thể hiện thái độ tôn trọng đối với đối tượng phỏng vấn, khảo sát."
+            }
+          ]
+        },
+        {
+          "jp": "これから次の工房へ向かう私たちは、さらに詳しい映像記録の撮影を開始するところだ。",
+          "vi": "Chuẩn bị hướng đến xưởng thủ công tiếp theo, chúng tôi sắp sửa bắt đầu quay lại các thước phim tư liệu chi tiết hơn.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng thủ công, xưởng chế tác"
+            },
+            {
+              "w": "向かう",
+              "read": "むかう",
+              "vi": "hướng tới, đối mặt"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "詳しい",
+              "read": "くわしい",
+              "vi": "chi tiết, cụ thể"
+            },
+            {
+              "w": "映像",
+              "read": "えいぞう",
+              "vi": "hình ảnh, video"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "撮影",
+              "read": "さつえい",
+              "vi": "sự quay phim, chụp ảnh"
+            },
+            {
+              "w": "開始",
+              "read": "かいし",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "映像記録",
+              "read": "えいぞうきろく",
+              "vi": "ghi hình tư liệu, ghi chép hình ảnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜するところだ",
+              "vi": "接続: V-辞書形 ＋ ところだ. Sắc thái: Diễn tả hành động sắp sửa xảy ra ngay lập tức, chuẩn bị bắt tay vào làm ngay tức khắc (thường đi cùng これから, 今から). Đối chiếu: Khác với 〜ようとする (văn phong ý chí trừu tượng), 〜するところだ nhấn mạnh thời điểm hành động cận kề cụ thể trên thực tế."
+            }
+          ]
+        },
+        {
+          "jp": "現場の協力を得てデータを集める作業は順調に進んでおり、継承のための基盤が少しずつ整ってきている。",
+          "vi": "Công việc thu thập dữ liệu nhờ có sự hợp tác từ hiện trường đang tiến triển thuận lợi, và nền tảng cho việc kế thừa đang từng bước được hoàn thiện.",
+          "vocab": [
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "協力",
+              "read": "きょうりょく",
+              "vi": "sự hợp tác"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "順調",
+              "read": "じゅんちょう",
+              "vi": "thuận lợi, trôi chảy"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa"
+            },
+            {
+              "w": "基盤",
+              "read": "きばん",
+              "vi": "nền tảng, cơ sở cốt lõi"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "整う",
+              "read": "ととのう",
+              "vi": "được sắp đặt sẵn sàng, hoàn thiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てきている",
+              "vi": "接続: V-て ＋ きている. Sắc thái: Diễn tả một sự biến đổi hay quá trình tích lũy bắt đầu từ quá khứ và đang tiếp tục tiến triển đến hiện tại. Đối chiếu: Khác với 〜ていく (hướng về tương lai), 〜てくる nhấn vào kết quả tích lũy dần dần từ trước đến nay."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、伝統工芸をデジタル化するにあたり、単に形だけを真似ればよいというわけではない。",
+          "vi": "Thế nhưng, khi tiến hành số hóa thủ công truyền thống, không có nghĩa là chỉ cần bắt chước đơn thuần hình thức bên ngoài là đủ.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình dạng, hình thức"
+            },
+            {
+              "w": "真似る",
+              "read": "まねる",
+              "vi": "bắt chước, mô phỏng theo"
+            },
+            {
+              "w": "デジタル化",
+              "read": "デジタルか",
+              "vi": "số hóa, chuyển đổi số"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にあたり",
+              "vi": "接続: N / V-辞書形 ＋ にあたり. Sắc thái: 'Khi tiến hành / Nhân dịp', biến thể mang tính văn viết trang trọng của 〜にあたって, dùng khi bước vào một công đoạn hay dự án có tầm ảnh hưởng lớn. Đối chiếu: Khác với 〜とき (thông thường), 〜にあたり nêu bật tính chất nghiêm túc, có chủ đích của một hành trình."
+            }
+          ]
+        },
+        {
+          "jp": "職人がその日の天候や湿度を見て微妙に作業を調整する「勘」こそが最も重要だからである。",
+          "vi": "Bởi lẽ chính 'trực giác nhạy bén' của nghệ nhân—người quan sát thời tiết và độ ẩm trong ngày để tinh chỉnh thao tác một cách tinh tế—mới là điều quan trọng nhất.",
+          "vocab": [
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "天候",
+              "read": "てんこう",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "湿度",
+              "read": "しつど",
+              "vi": "độ ẩm không khí"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "微妙",
+              "read": "びみょう",
+              "vi": "tinh tế, vi diệu, khác biệt nhỏ"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "調整",
+              "read": "ちょうせい",
+              "vi": "điều chỉnh"
+            },
+            {
+              "w": "勘",
+              "read": "かん",
+              "vi": "trực giác, cảm quan nghề nghiệp, linh cảm"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất, tối nhất"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜こそ",
+              "vi": "接続: N ＋ こそ. Sắc thái: Nhấn mạnh đối tượng được nói đến chính là yếu tố cốt lõi, không gì khác có thể thay thế ('chính...'). Đối chiếu: Mạnh mẽ và khẳng định dứt khoát hơn trợ từ は hay が thông thường."
+            }
+          ]
+        },
+        {
+          "jp": "実際、過去の記録を参照する際にも、数字データだけでは再現できない細やかな工夫が見つかることが多い。",
+          "vi": "Trên thực tế, ngay cả khi tham khảo các ghi chép trong quá khứ, ta vẫn thường bắt gặp nhiều bí quyết khéo léo tỉ mỉ mà chỉ riêng dữ liệu con số không thể nào tái hiện được.",
+          "vocab": [
+            {
+              "w": "実際",
+              "read": "じっさい",
+              "vi": "trên thực tế"
+            },
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "参照",
+              "read": "さんしょう",
+              "vi": "tham khảo, đối chiếu tư liệu"
+            },
+            {
+              "w": "数字",
+              "read": "すうじ",
+              "vi": "con số, chữ số"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "再現",
+              "read": "さいげん",
+              "vi": "tái hiện, phục dựng lại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "細やか",
+              "read": "こまやか",
+              "vi": "tỉ mỉ, chu đáo, tinh tế"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "công phu tìm tòi, sáng kiến, cải tiến"
+            },
+            {
+              "w": "見つかる",
+              "read": "みつかる",
+              "vi": "được tìm thấy, tìm ra"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜際（に）",
+              "vi": "接続: V-辞書形 ＋ 際に（も）. Sắc thái: 'Khi / Trong lúc', kết hợp trợ từ も để nhấn mạnh 'ngay cả khi tham khảo...'. Đối chiếu: Vẫn giữ tính trang trọng của 〜際, nâng tầm nhận định mang tính phân tích học thuật."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは今、そのような職人の直感をどのように若い世代へ伝えるべきか、意見を交わしているところだ。",
+          "vi": "Hiện nay chúng tôi đang trao đổi ý kiến xem nên truyền đạt lại trực giác nhà nghề ấy cho thế hệ trẻ bằng cách nào.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "直感",
+              "read": "ちょっかん",
+              "vi": "trực giác, trực cảm"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "交わす",
+              "read": "かわす",
+              "vi": "trao đổi (lời nói, ý kiến)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜しているところだ",
+              "vi": "接続: V-ている ＋ ところだ. Sắc thái: Khẳng định trạng thái đang thảo luận tích cực ngay tại thời điểm hiện tại của nhóm nghiên cứu. Đối chiếu: Nhấn mạnh tiến độ công việc đang tiếp diễn, chưa kết thúc."
+            }
+          ]
+        },
+        {
+          "jp": "技術を伝えるにあたっては、形式的なマニュアルを作るだけでなく、職人の精神や思いを共有することが欠かせない。",
+          "vi": "Khi truyền thụ kỹ thuật, không chỉ việc tạo ra một cuốn tài liệu hướng dẫn mang tính hình thức, mà việc cùng sẻ chia tinh thần và tâm niệm của người nghệ nhân là điều không thể thiếu.",
+          "vocab": [
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "形式",
+              "read": "けいしき",
+              "vi": "hình thức"
+            },
+            {
+              "w": "マニュアル",
+              "read": "マニュアル",
+              "vi": "sách hướng dẫn, cẩm nang thao tác"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "精神",
+              "read": "せいしん",
+              "vi": "tinh thần"
+            },
+            {
+              "w": "思い",
+              "read": "おもい",
+              "vi": "suy nghĩ, tâm tư"
+            },
+            {
+              "w": "共有",
+              "read": "きょうゆう",
+              "vi": "sự chia sẻ, dùng chung"
+            },
+            {
+              "w": "欠かせない",
+              "read": "かかせない",
+              "vi": "không thể thiếu, mang tính tất yếu"
+            },
+            {
+              "w": "形式的",
+              "read": "けいしきてき",
+              "vi": "mang tính hình thức, máy móc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にあたっては",
+              "vi": "接続: V-辞書形 ＋ にあたっては. Sắc thái: Nhấn mạnh chủ đề (có は) khi tiến hành một nhiệm vụ quan trọng mang tính kế thừa, vế sau đưa ra điều kiện tiên quyết. Đối chiếu: Trang trọng và nêu bật trách nhiệm/tầm quan trọng hơn hẳn 〜とき."
+            }
+          ]
+        },
+        {
+          "jp": "このように、伝統の継承には過去の知恵を尊重しつつ、現代の技術を柔軟に取り入れる姿勢が求められる。",
+          "vi": "Như vậy, việc kế thừa truyền thống đòi hỏi một thái độ vừa tôn trọng trí tuệ quá khứ, vừa linh hoạt tiếp thu công nghệ hiện đại.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa"
+            },
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "知恵",
+              "read": "ちえ",
+              "vi": "trí tuệ"
+            },
+            {
+              "w": "尊重",
+              "read": "そんちょう",
+              "vi": "tôn trọng, coi trọng"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "柔軟",
+              "read": "じゅうなん",
+              "vi": "linh hoạt, mềm dẻo"
+            },
+            {
+              "w": "取り入れる",
+              "read": "とりいれる",
+              "vi": "tiếp thu, áp dụng, du nhập"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, tâm thế, thái độ đối diện"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つつ",
+              "vi": "接続: V-ます (bỏ ます) ＋ つつ. Sắc thái: Diễn tả hai hành động hoặc hai thái độ được thực hiện đồng thời, song song ('vừa... vừa...'), mang sắc thái văn viết trang trọng. Đối chiếu: Tương đương 〜ながら trong khẩu ngữ nhưng mang tính văn chương, nghị luận cao cấp hơn."
+            }
+          ]
+        },
+        {
+          "jp": "まだ始まったばかりのプロジェクトではあるが、職人と若手が対話を重ねることで新たな可能性が見えてきた。",
+          "vi": "Dù đây là dự án vẫn chỉ mới vừa bắt đầu, nhưng qua việc nghệ nhân và người trẻ không ngừng đối thoại, những tiềm năng mới đã dần hé lộ.",
+          "vocab": [
+            {
+              "w": "始まる",
+              "read": "はじまる",
+              "vi": "bắt đầu (tự động từ)"
+            },
+            {
+              "w": "プロジェクト",
+              "read": "プロジェクト",
+              "vi": "dự án (project)"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "lớp trẻ, thế hệ trẻ"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại, trò chuyện"
+            },
+            {
+              "w": "重ねる",
+              "read": "かさねる",
+              "vi": "lặp lại, chồng chất"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "対話を重ねる",
+              "read": "たいわをかさねる",
+              "vi": "liên tục đối thoại, trao đổi nhiều lần"
+            },
+            {
+              "w": "可能性",
+              "read": "かのうせい",
+              "vi": "khả năng, tiềm năng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たばかり",
+              "vi": "接続: V-た ＋ ばかり. Sắc thái: Diễn tả dự án mới triển khai trong cảm nhận người nói, dù đã thực hiện được một số bước khảo sát. Đối chiếu: Nhấn mạnh giai đoạn sơ khởi, đối lập với tiềm năng to lớn được mở ra ở vế sau."
+            }
+          ]
+        },
+        {
+          "jp": "私たちも関係者への最終報告書の作成を終えたところであり、今後は具体的な研修プログラムの提案を行う予定だ。",
+          "vi": "Chúng tôi cũng vừa mới hoàn thành việc soạn thảo báo cáo tổng kết gửi tới các bên liên quan, và thời gian tới dự định sẽ đưa ra đề xuất về chương trình đào tạo cụ thể.",
+          "vocab": [
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "最終",
+              "read": "さいしゅう",
+              "vi": "cuối cùng, sau cùng"
+            },
+            {
+              "w": "報告",
+              "read": "ほうこく",
+              "vi": "báo cáo, thông báo"
+            },
+            {
+              "w": "作成",
+              "read": "さくせい",
+              "vi": "sự soạn thảo, tạo ra"
+            },
+            {
+              "w": "終える",
+              "read": "おえる",
+              "vi": "hoàn thành, kết thúc"
+            },
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "具体",
+              "read": "ぐたい",
+              "vi": "sự cụ thể"
+            },
+            {
+              "w": "研修",
+              "read": "けんしゅう",
+              "vi": "đào tạo, tập huấn, bồi dưỡng"
+            },
+            {
+              "w": "プログラム",
+              "read": "プログラム",
+              "vi": "chương trình"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất, đề nghị"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            },
+            {
+              "w": "関係者",
+              "read": "かんけいしゃ",
+              "vi": "người liên quan, các bên hữu quan"
+            },
+            {
+              "w": "最終報告書",
+              "read": "さいしゅうほうこくしょ",
+              "vi": "báo cáo tổng kết cuối cùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜したところだ",
+              "vi": "接続: V-た ＋ ところであり (dạng nối tiếp). Sắc thái: Báo cáo cột mốc hoàn thành một nhiệm vụ cụ thể vừa mới dứt điểm để chuyển sang giai đoạn kế tiếp. Đối chiếu: Khác với 〜たばかり (tâm lý), 〜たところだ nêu rõ tiến độ công việc theo trình tự thời gian khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "新たな時代に向けた一歩を踏み出すにあたり、伝統の灯を絶やさないための努力を粘り強く続けていきたい。",
+          "vi": "Nhân dịp tiến một bước mới hướng tới thời đại tương lai, chúng tôi mong muốn tiếp tục kiên trì nỗ lực để không làm tắt đi ngọn lửa truyền thống.",
+          "vocab": [
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại"
+            },
+            {
+              "w": "向けた",
+              "read": "むけた",
+              "vi": "hướng tới"
+            },
+            {
+              "w": "一歩",
+              "read": "いっぽ",
+              "vi": "một bước"
+            },
+            {
+              "w": "踏み出す",
+              "read": "ふみだす",
+              "vi": "bước ra/tiến bước"
+            },
+            {
+              "w": "あたり",
+              "read": "あたり",
+              "vi": "nhân dịp/khi"
+            },
+            {
+              "w": "伝統の灯",
+              "read": "でんとうのともしび",
+              "vi": "ngọn lửa truyền thống"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "灯",
+              "read": "ともしび",
+              "vi": "ngọn đèn/ngọn lửa"
+            },
+            {
+              "w": "絶やさない",
+              "read": "たやさない",
+              "vi": "không để tắt"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "粘り強く",
+              "read": "ねばりづよく",
+              "vi": "bền bỉ"
+            },
+            {
+              "w": "続けて",
+              "read": "つづけて",
+              "vi": "tiếp tục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にあたり",
+              "vi": "接続: V-辞書形 ＋ にあたり. Sắc thái: Dùng trong phát biểu hoặc kết luận bài viết thể hiện quyết tâm khi bước sang một giai đoạn quan trọng mới. Đối chiếu: Mang tính tuyên ngôn, định hướng trang trọng hơn 〜とき."
+            }
+          ]
+        },
+        {
+          "jp": "古いものと新しいものが手を取り合うことによって、伝統工芸は次の世代へと力強く受け継がれていくはずである。",
+          "vi": "Nhờ việc cái cũ và cái mới cùng chung tay gắn kết, nghề thủ công truyền thống chắc chắn sẽ được kế thừa một cách mạnh mẽ sang các thế hệ mai sau.",
+          "vocab": [
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "取り合う",
+              "read": "とりあう",
+              "vi": "trao đổi qua lại (連絡を取り合う)"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "力強い",
+              "read": "ちからづよい",
+              "vi": "mạnh mẽ, có sức mạnh"
+            },
+            {
+              "w": "受け継ぐ",
+              "read": "うけつぐ",
+              "vi": "thừa kế, kế nghiệp, tiếp nối"
+            },
+            {
+              "w": "手を取り合う",
+              "read": "てをとりあう",
+              "vi": "nắm tay nhau, chung tay hợp tác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって",
+              "vi": "接続: N ＋ によって. Sắc thái: Chỉ phương thức, phương tiện hoặc cách thức để đạt được kết quả tích cực ('nhờ vào / bằng cách'). Đối chiếu: Mẫu N3 cơ bản, khác với nghĩa 'tùy theo' hoặc 'nguyên nhân'."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "作業工程を正確に記録する際には、感覚的な動きもデータ化する必要があるのだ。",
+          "label": "Tầm quan trọng của việc số hóa cả chuyển động trực giác"
+        },
+        {
+          "excerpt": "職人がその日の天候や湿度を見て微妙に作業を調整する「勘」こそが最も重要だからである。",
+          "label": "Cốt lõi nằm ở 'trực giác nhạy bén' của nghệ nhân"
+        },
+        {
+          "excerpt": "形式的なマニュアルを作るだけでなく、職人の精神や思いを共有することが欠かせない。",
+          "label": "Yếu tố quyết định trong kế thừa công nghệ: Chia sẻ tâm thức"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者たちの研究チームは、工房を訪れた際や現在においてどのような作業を行っているか。",
+          "options": [
+            "職人に代わって作業工程をマニュアル化し、新しい染色道具を販売している。",
+            "熟練職人から話を聞き終え、染料の配合や手の角度などの精密な測定を進めている。",
+            "デジタル技術を使って自動で布を染める機械の開発を完了したところである。",
+            "見習いの職人に対して、過去のデータをもとに染色の講義を行っているところだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Giải thích chi tiết:\n- Phương án 0 sai vì bài viết không hề đề cập đến việc nghiên cứu hay kinh doanh bán dụng cụ nhuộm mới (道具を販売).\n- Phương án 1 ĐÚNG: Căn cứ vào câu 5 (私たちのチームは現在、染料の配合や布を染める手の角度を精密に測定しているところだ) và câu 6 (先週は、熟練の職人から布の乾燥方法について詳しい説明を聞き終えたところである), nhóm đang đo đạc góc tay, độ pha thuốc và vừa hoàn thành việc nghe nghệ nhân giải thích.\n- Phương án 2 sai vì nhóm không chế tạo máy nhuộm vải tự động (自動で布を染める機械の開発).\n- Phương án 3 sai vì nhóm đến xưởng để học hỏi và nghiên cứu cùng nghệ nhân chứ không mở lớp giảng bài cho người học việc.",
+          "tip": "Đối chiếu các mốc hành động 〜しているところだ và 〜したところだ trong đoạn 2 để xác định chính xác công việc thực tế của nhóm nghiên cứu.",
+          "evi": [
+            5,
+            6
+          ],
+          "qt": {
+            "q": "Khi đến thăm các xưởng và hiện nay, nhóm nghiên cứu của tác giả đang thực hiện những công việc gì?",
+            "o": [
+              "Thay các nghệ nhân chuẩn hóa quy trình làm việc thành tài liệu hướng dẫn và bán dụng cụ nhuộm mới.",
+              "Sau khi nghe xong chuyện từ các nghệ nhân lành nghề, nhóm đang tiến hành đo chính xác tỷ lệ pha thuốc nhuộm, góc tay và những yếu tố khác.",
+              "Nhóm vừa hoàn thành việc phát triển một cỗ máy dùng công nghệ số để tự động nhuộm vải.",
+              "Nhóm đang giảng dạy về kỹ thuật nhuộm cho các nghệ nhân tập sự dựa trên dữ liệu trước đây."
+            ]
+          }
+        },
+        {
+          "q": "第3段落で、伝統工芸をデジタル化するにあたって最も重要だと述べられているものは何か。",
+          "options": [
+            "すべての工程を誰でも再現できるように数値化された形式的マニュアル。",
+            "過去の記録をそのままコピーして最新の機械に読み込ませる作業。",
+            "天候や湿度に合わせて微調整を行う職人の「勘」や精神・思いの共有。",
+            "最新のデジタルカメラを用いて工房内の作業風景をすべて撮影すること。"
+          ],
+          "answer": 2,
+          "explainVi": "Giải thích chi tiết:\n- Phương án 0 sai vì câu 14 nhấn mạnh không chỉ đơn thuần tạo cẩm nang mang tính hình thức (形式的なマニュアルを作るだけでなく...).\n- Phương án 1 sai vì câu 10 và 12 nêu rõ không thể chỉ bắt chước hình thức hay dựa hoàn toàn vào dữ liệu con số máy móc.\n- Phương án 2 ĐÚNG: Căn cứ câu 11 (職人がその日の天候や湿度を見て微妙に作業を調整する「勘」こそが最も重要) và câu 14 (職人の精神や思いを共有することが欠かせない), điều cốt lõi nhất là cảm quan trực giác và việc sẻ chia tâm niệm của nghệ nhân.\n- Phương án 3 sai vì việc quay chụp chỉ là phương tiện thu thập tư liệu, không phải là yếu tố cốt lõi quan trọng nhất được tác giả nhấn mạnh.",
+          "tip": "Chú ý cấu trúc 〜こそが最も重要 và 〜が欠かせない trong đoạn 3 để nắm bắt luận điểm trọng tâm của tác giả.",
+          "evi": [
+            11,
+            14
+          ],
+          "qt": {
+            "q": "Theo đoạn 3, điều gì được nêu là quan trọng nhất khi số hóa nghề thủ công truyền thống?",
+            "o": [
+              "Một tài liệu hướng dẫn mang tính hình thức, được số hóa để bất kỳ ai cũng có thể tái hiện mọi công đoạn.",
+              "Công việc sao chép nguyên trạng các ghi chép trước đây rồi nạp chúng vào máy móc mới nhất.",
+              "Chia sẻ sự cảm nhận và tinh thần, tâm tư của nghệ nhân, những người điều chỉnh công việc một cách tinh tế theo thời tiết và độ ẩm.",
+              "Dùng máy ảnh kỹ thuật số mới nhất để quay phim toàn bộ cảnh làm việc bên trong xưởng."
+            ]
+          }
+        },
+        {
+          "q": "本文における「立ち上げたばかり」（第1段落）や「作成を終えたところ」（第4段落）という表現の使い分けとして、最も適切な説明はどれか。",
+          "options": [
+            "「立ち上げたばかり」は客観的に数秒前の完了を表し、「作成を終えたところ」は主観的な感情を表している。",
+            "「立ち上げたばかり」は話者の主観で『まだ日が浅い』と捉えており、「作成を終えたところ」は作業完了という直近の進捗事実を示している。",
+            "「立ち上げたばかり」は過去に失敗したことを示し、「作成を終えたところ」は今後二度と行わないことを示している。",
+            "両者とも『1分以内に完了した直後の動作』のみに限定される表現であり、使い分けの違いはない。"
+          ],
+          "answer": 1,
+          "explainVi": "Giải thích chi tiết (Câu hỏi suy luận sắc thái ngữ pháp):\n- Phương án 0 sai vì quy gán ngược: 〜たばかり mới là cảm nhận chủ quan còn 〜たところだ là sự kiện hoàn thành mang tính khách quan/tiến độ.\n- Phương án 1 ĐÚNG: '〜たばかり' thể hiện cảm nhận chủ quan của người nói rằng dự án chỉ mới bắt đầu chưa bao lâu (dù thực tế đã triển khai khảo sát nhiều nơi), trong khi '〜作成を終えたところだ' thể hiện một sự thật vừa hoàn thành dứt điểm việc soạn báo cáo để chuyển tiếp sang bước tiếp theo trong tiến độ công việc.\n- Phương án 2 sai vì hoàn toàn bịa đặt ý nghĩa thất bại hay không làm lại.\n- Phương án 3 sai vì 〜たばかり không bị giới hạn trong 1 phút mà có thể dùng cho thời gian dài tùy theo cảm nhận chủ quan của người nói.",
+          "tip": "Phân biệt sắc thái: 〜たばかり mang tính cảm nhận tâm lý (mới làm chưa lâu) còn 〜たところだ nhấn vào thời điểm hoàn thành khách quan / báo cáo tiến độ.",
+          "evi": [
+            1,
+            17
+          ],
+          "qt": {
+            "q": "Cách giải thích nào phù hợp nhất về sự khác nhau trong cách dùng các cách diễn đạt “立ち上げたばかり” (vừa mới bắt đầu triển khai, đoạn 1) và “作成を終えたところ” (vừa hoàn thành việc soạn thảo, đoạn 4) trong bài?",
+            "o": [
+              "“立ち上げたばかり” diễn tả một cách khách quan việc hoàn thành cách đây vài giây, còn “作成を終えたところ” diễn tả cảm xúc chủ quan.",
+              "“立ち上げたばかり” thể hiện cách nhìn chủ quan của người nói rằng thời gian từ khi bắt đầu vẫn còn ngắn; “作成を終えたところ” nêu sự việc tiến độ vừa hoàn thành công việc.",
+              "“立ち上げたばかり” cho biết việc đã thất bại trong quá khứ, còn “作成を終えたところ” cho biết sẽ không làm việc đó lần nào nữa trong tương lai.",
+              "Cả hai đều chỉ giới hạn ở hành động vừa hoàn thành trong vòng một phút và không có khác biệt về cách dùng."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章を通じて最も伝えたいメッセージはどれか。",
+          "options": [
+            "伝統工芸は時代遅れであるため、すべて最新のデジタル技術に置き換えるべきである。",
+            "職人の精神や勘はデータ化が不可能なため、若手クリエイターが介入することは控えるべきだ。",
+            "伝統の継承には、過去の知恵や職人の思いを尊重しながら現代技術を柔軟に融合させることが不可欠である。",
+            "マニュアルを作成することさえできれば、職人の長年の経験がなくても容易に技術を継承できる。"
+          ],
+          "answer": 2,
+          "explainVi": "Giải thích chi tiết:\n- Phương án 0 sai vì tác giả khẳng định cần trân trọng và bảo tồn nghề truyền thống, không bảo thay thế hoàn toàn.\n- Phương án 1 sai vì tác giả khuyến khích đối thoại và cùng nhau hợp tác giữa nghệ nhân và người trẻ (câu 16).\n- Phương án 2 ĐÚNG: Căn cứ câu 15 (過去の知恵を尊重しつつ、現代の技術を柔軟に取り入れる), câu 18 và câu 19 (古いものと新しいものが手を取り合うことによって、伝統工芸は次の世代へと力強く受け継がれていくはずである).\n- Phương án 3 sai vì tác giả bác bỏ quan điểm chỉ cần cẩm nang hình thức là đủ (câu 14).",
+          "tip": "Đọc kỹ câu mở đầu và kết thúc của đoạn 4 để tóm lược thông điệp cốt lõi của toàn bài văn.",
+          "evi": [
+            15,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Thông điệp mà tác giả muốn truyền tải nhất qua bài viết này là gì?",
+            "o": [
+              "Vì nghề thủ công truyền thống đã lỗi thời nên cần thay thế tất cả bằng công nghệ số mới nhất.",
+              "Vì tinh thần và sự cảm nhận của nghệ nhân không thể số hóa, người sáng tạo trẻ nên tránh can thiệp.",
+              "Để kế thừa truyền thống, điều không thể thiếu là kết hợp linh hoạt công nghệ hiện đại trong khi vẫn tôn trọng trí tuệ của quá khứ và tâm tư của nghệ nhân.",
+              "Chỉ cần soạn được tài liệu hướng dẫn là có thể dễ dàng kế thừa kỹ thuật mà không cần kinh nghiệm lâu năm của nghệ nhân."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "スマイル家電「新生活おまかせプラン」のご案内",
+      "titleVi": "Hướng dẫn \"Gói trọn gói cuộc sống mới\" của Smile Kaden",
+      "japanese": "スマイル家電「新生活おまかせプラン」のご案内\n新生活を始めるにあたり、家電の準備でお困りではありませんか。\n当社は、引っ越しをしたばかりの方にも便利なレンタルプランを用意しております。\n今なら、Webからお申し込みいただく際にお得な割引が適用されます。\nプラン名｜月額料金｜セット内容｜配送・設置\nシングル｜3,000円｜冷蔵庫・洗濯機（2点）｜玄関前まで配送（無料）\nダブル｜5,000円｜冷蔵庫・洗濯機・電子レンジ（3点）｜室内設置込み（無料）\nファミリー｜8,000円｜大型冷蔵庫・洗濯機・レンジ・テレビ（4点）｜室内設置・初期設定込み（無料）\n【ご利用にあたっての注意事項】\n① ご契約にあたって、現住所が確認できる身分証明書が必要です。\n② 配送スタッフが作業しているところには、必ずご本人がお立ち会いください。\n③ 他社で家電を買ったばかりで設置のみ希望の場合、1点1,500円で承ります。\n④ 変更手続きをしたところだという場合でも、前日17時まで無料変更可能です。\n【お得な割引（重複して適用可能）】\n・Web予約割：Webからお申し込みの際に、初月の月額料金が1,000円引き。\n・学生割：学生証の提示で、毎月の月額料金が500円引き。\n・乗り換え割：他社を解約するところだという方は、初月の基本料が半額。\n※ご質問やお見積もりをご希望の際は、担当窓口までお問い合わせください。",
+      "vietnamese": "Hướng dẫn \"Gói trọn gói cuộc sống mới\" của Smile Kaden\nNhân dịp bắt đầu cuộc sống mới, bạn có đang gặp khó khăn trong việc chuẩn bị đồ gia dụng không?\nCông ty chúng tôi cung cấp các gói thuê tiện lợi, an tâm cho cả những người vừa mới chuyển nhà.\nNgay lúc này, khi đăng ký mới qua Web, bạn sẽ được áp dụng các ưu đãi giảm giá hấp dẫn.\nTên gói｜Giá theo tháng｜Nội dung bộ đồ｜Giao hàng & Lắp đặt\nSingle｜3.000 yên｜Tủ lạnh, máy giặt (2 món)｜Giao đến trước cửa nhà (miễn phí)\nDouble｜5.000 yên｜Tủ lạnh, máy giặt, lò vi sóng (3 món)｜Bao gồm lắp đặt trong nhà (miễn phí)\nFamily｜8.000 yên｜Tủ lạnh lớn, máy giặt, lò vi sóng, TV (4 món)｜Bao gồm lắp đặt trong nhà và cài đặt ban đầu (miễn phí)\n【Lưu ý khi sử dụng và phí phụ thu】\n① Khi ký hợp đồng, cần xuất trình giấy tờ tùy thân có ghi địa chỉ hiện tại.\n② Khi nhân viên giao hàng đang tiến hành công việc lắp đặt, bắt buộc chính người đăng ký phải có mặt trực tiếp.\n③ Trường hợp vừa mới mua đồ gia dụng ở nơi khác và chỉ có nhu cầu lắp đặt, chúng tôi nhận với phí 1.500 yên/món.\n④ Dù là trường hợp vừa mới thực hiện thủ tục thay đổi xong, quý khách vẫn có thể đổi miễn phí trước 17:00 ngày hôm trước.\n【Các chương trình giảm giá ưu đãi (có thể áp dụng đồng thời nếu thỏa mãn điều kiện)】\n・Giảm giá đặt qua Web: Khi đăng ký từ Web, tháng đầu tiên được giảm 1.000 yên vào giá thuê hàng tháng.\n・Giảm giá học sinh/sinh viên: Xuất trình thẻ học sinh/sinh viên sẽ được giảm 500 yên mỗi tháng trong suốt thời hạn hợp đồng.\n・Giảm giá chuyển đổi: Người đang dùng dịch vụ thuê của công ty khác và sắp sửa hủy hợp đồng sẽ được giảm nửa giá tháng đầu.\n※ Khi muốn xác nhận nội dung hợp đồng hoặc nhận báo giá, xin vui lòng liên hệ quầy hỗ trợ khách hàng.",
+      "sentences": [
+        {
+          "jp": "スマイル家電「新生活おまかせプラン」のご案内",
+          "vi": "Hướng dẫn \"Gói trọn gói cuộc sống mới\" của Smile Kaden",
+          "vocab": [
+            {
+              "w": "スマイル",
+              "read": "スマイル",
+              "vi": "nụ cười, tên riêng Smile"
+            },
+            {
+              "w": "家電",
+              "read": "かでん",
+              "vi": "đồ điện gia dụng"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "おまかせ",
+              "read": "おまかせ",
+              "vi": "sự phó thác, trọn gói"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông báo"
+            },
+            {
+              "w": "新生活",
+              "read": "しんせいかつ",
+              "vi": "cuộc sống mới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜 (接頭辞)",
+              "vi": "Kết hợp: ご + Danh từ (thường là từ Hán-Nhật). Ý nghĩa: Tiếp đầu ngữ lịch sự/tôn kính, tạo sắc thái trang trọng trong thông báo gửi tới khách hàng (ご案内: thông tin/hướng dẫn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "おまかせプラン",
+              "why": "Tên gói dịch vụ hỗ trợ trọn gói cho người bắt đầu cuộc sống mới."
+            }
+          ]
+        },
+        {
+          "jp": "新生活を始めるにあたり、家電の準備でお困りではありませんか。",
+          "vi": "Nhân dịp bắt đầu cuộc sống mới, bạn có đang gặp khó khăn trong việc chuẩn bị đồ gia dụng không?",
+          "vocab": [
+            {
+              "w": "新生活",
+              "read": "しんせいかつ",
+              "vi": "cuộc sống mới"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "あたり",
+              "read": "あたり",
+              "vi": "nhân dịp/khi"
+            },
+            {
+              "w": "家電",
+              "read": "かでん",
+              "vi": "đồ điện gia dụng"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "お困り",
+              "read": "おこまり",
+              "vi": "gặp khó khăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にあたり",
+              "vi": "Nhân dịp, khi tiến hành (một sự kiện, bước ngoặt quan trọng)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "始めるにあたり",
+              "why": "Chỉ thời điểm khởi đầu một giai đoạn quan trọng trong cuộc sống."
+            }
+          ]
+        },
+        {
+          "jp": "当社は、引っ越しをしたばかりの方にも便利なレンタルプランを用意しております。",
+          "vi": "Công ty chúng tôi cung cấp các gói thuê tiện lợi, an tâm cho cả những người vừa mới chuyển nhà.",
+          "vocab": [
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "chuyển nhà"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người/vị"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "レンタルプラン",
+              "read": "レンタルプラン",
+              "vi": "gói cho thuê"
+            },
+            {
+              "w": "レンタル",
+              "read": "レンタル",
+              "vi": "cho thuê"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói/kế hoạch"
+            },
+            {
+              "w": "用意",
+              "read": "ようい",
+              "vi": "chuẩn bị/cung cấp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～たばかり",
+              "vi": "Vừa mới làm xong (cảm giác thời gian còn rất mới)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "引っ越しをしたばかり",
+              "why": "Đối tượng khách hàng vừa hoàn tất việc chuyển nơi ở."
+            }
+          ]
+        },
+        {
+          "jp": "今なら、Webからお申し込みいただく際にお得な割引が適用されます。",
+          "vi": "Ngay lúc này, khi đăng ký mới qua Web, bạn sẽ được áp dụng các ưu đãi giảm giá hấp dẫn.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "Web",
+              "read": "ウェブ",
+              "vi": "web"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký/đăng nhập đơn"
+            },
+            {
+              "w": "際",
+              "read": "さい",
+              "vi": "khi/lúc"
+            },
+            {
+              "w": "お得",
+              "read": "おとく",
+              "vi": "có lợi/tiết kiệm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～際（に）",
+              "vi": "Khi, lúc (dùng trong văn phong trang trọng, thông báo chính thức)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "Webからお申し込みいただく際",
+              "why": "Điều kiện thao tác qua kênh trực tuyến để được hưởng ưu đãi."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜月額料金｜セット内容｜配送・設置",
+          "vi": "Tên gói｜Giá theo tháng｜Nội dung bộ đồ｜Giao hàng & Lắp đặt",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng, số tiền mỗi tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "配送",
+              "read": "はいそう",
+              "vi": "giao hàng"
+            },
+            {
+              "w": "設置",
+              "read": "せっち",
+              "vi": "lắp đặt"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "月額料金",
+              "why": "Cột thể hiện mức chi phí cố định phải trả hàng tháng."
+            }
+          ]
+        },
+        {
+          "jp": "シングル｜3,000円｜冷蔵庫・洗濯機（2点）｜玄関前まで配送（無料）",
+          "vi": "Single｜3.000 yên｜Tủ lạnh, máy giặt (2 món)｜Giao đến trước cửa nhà (miễn phí)",
+          "vocab": [
+            {
+              "w": "シングル",
+              "read": "シングル",
+              "vi": "đơn"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "冷蔵庫",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            },
+            {
+              "w": "洗濯機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "洗濯",
+              "read": "せんたく",
+              "vi": "giặt giũ"
+            },
+            {
+              "w": "2点",
+              "read": "にてん",
+              "vi": "2 món"
+            },
+            {
+              "w": "玄関前",
+              "read": "げんかんまえ",
+              "vi": "trước cửa ra vào"
+            },
+            {
+              "w": "玄関",
+              "read": "げんかん",
+              "vi": "cửa ra vào"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "phía trước"
+            },
+            {
+              "w": "配送",
+              "read": "はいそう",
+              "vi": "giao hàng"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まで",
+              "vi": "Kết hợp: N (địa điểm) + まで. Ý nghĩa: Trợ từ chỉ giới hạn/điểm mốc không gian cuối cùng (\"đến tận...\"). Trong câu: 「玄関前まで」(giao hàng đến tận trước cửa nhà)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "玄関前まで配送（無料）",
+              "why": "Gói Single chỉ hỗ trợ giao đến trước cửa nhà, không bao gồm lắp đặt."
+            }
+          ]
+        },
+        {
+          "jp": "ダブル｜5,000円｜冷蔵庫・洗濯機・電子レンジ（3点）｜室内設置込み（無料）",
+          "vi": "Double｜5.000 yên｜Tủ lạnh, máy giặt, lò vi sóng (3 món)｜Bao gồm lắp đặt trong nhà (miễn phí)",
+          "vocab": [
+            {
+              "w": "ダブル",
+              "read": "ダブル",
+              "vi": "đôi"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "冷蔵庫",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            },
+            {
+              "w": "洗濯機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "洗濯",
+              "read": "せんたく",
+              "vi": "giặt giũ"
+            },
+            {
+              "w": "電子レンジ",
+              "read": "でんしレンジ",
+              "vi": "lò vi sóng"
+            },
+            {
+              "w": "レンジ",
+              "read": "レンジ",
+              "vi": "lò vi sóng"
+            },
+            {
+              "w": "3点",
+              "read": "さんてん",
+              "vi": "3 món"
+            },
+            {
+              "w": "室内設置",
+              "read": "しつないせっち",
+              "vi": "lắp đặt trong nhà"
+            },
+            {
+              "w": "室内",
+              "read": "しつない",
+              "vi": "trong nhà"
+            },
+            {
+              "w": "設置",
+              "read": "せっち",
+              "vi": "lắp đặt"
+            },
+            {
+              "w": "込み",
+              "read": "こみ",
+              "vi": "đã bao gồm"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜込み",
+              "vi": "Kết hợp: N + 込み. Ý nghĩa: Hậu tố mang nghĩa \"đã bao gồm...\", biểu thị dịch vụ hoặc chi phí đã được tính gộp sẵn. Trong câu: 「室内設置込み」(đã bao gồm công lắp đặt trong phòng)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ダブル",
+              "why": "Tên gói gồm 3 món tủ lạnh, máy giặt, lò vi sóng theo yêu cầu của câu hỏi."
+            },
+            {
+              "w": "5,000円",
+              "why": "Mức cước gốc hàng tháng của gói Double."
+            },
+            {
+              "w": "室内設置込み（無料）",
+              "why": "Quyền lợi lắp đặt miễn phí tận phòng của gói Double."
+            }
+          ]
+        },
+        {
+          "jp": "ファミリー｜8,000円｜大型冷蔵庫・洗濯機・レンジ・テレビ（4点）｜室内設置・初期設定込み（無料）",
+          "vi": "Family｜8.000 yên｜Tủ lạnh lớn, máy giặt, lò vi sóng, TV (4 món)｜Bao gồm lắp đặt trong nhà và cài đặt ban đầu (miễn phí)",
+          "vocab": [
+            {
+              "w": "ファミリー",
+              "read": "ファミリー",
+              "vi": "gia đình"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "大型冷蔵庫",
+              "read": "おおがたれいぞうこ",
+              "vi": "tủ lạnh cỡ lớn"
+            },
+            {
+              "w": "大型",
+              "read": "おおがた",
+              "vi": "cỡ lớn"
+            },
+            {
+              "w": "冷蔵庫",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            },
+            {
+              "w": "洗濯機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "洗濯",
+              "read": "せんたく",
+              "vi": "giặt giũ"
+            },
+            {
+              "w": "レンジ",
+              "read": "レンジ",
+              "vi": "lò vi sóng"
+            },
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "tivi"
+            },
+            {
+              "w": "4点",
+              "read": "よんてん",
+              "vi": "4 món"
+            },
+            {
+              "w": "室内設置",
+              "read": "しつないせっち",
+              "vi": "lắp đặt trong nhà"
+            },
+            {
+              "w": "室内",
+              "read": "しつない",
+              "vi": "trong nhà"
+            },
+            {
+              "w": "設置",
+              "read": "せっち",
+              "vi": "lắp đặt"
+            },
+            {
+              "w": "初期設定",
+              "read": "しょきせってい",
+              "vi": "thiết lập ban đầu"
+            },
+            {
+              "w": "初期",
+              "read": "しょき",
+              "vi": "ban đầu"
+            },
+            {
+              "w": "設定",
+              "read": "せってい",
+              "vi": "thiết lập"
+            },
+            {
+              "w": "込み",
+              "read": "こみ",
+              "vi": "đã bao gồm"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜込み",
+              "vi": "Kết hợp: N + 込み. Ý nghĩa: Hậu tố mang nghĩa \"đã bao gồm...\", biểu thị các hạng mục dịch vụ đã được tính sẵn không phải trả thêm. Trong câu: 「室内設置・初期設定込み」(đã bao gồm lắp đặt trong nhà và cài đặt ban đầu)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "初期設定込み",
+              "why": "Gói Family có thêm dịch vụ cài đặt ban đầu cho các thiết bị."
+            }
+          ]
+        },
+        {
+          "jp": "【ご利用にあたっての注意事項】",
+          "vi": "【Lưu ý khi sử dụng và phí phụ thu】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "事項",
+              "read": "じこう",
+              "vi": "hạng mục, điều khoản"
+            },
+            {
+              "w": "注意事項",
+              "read": "ちゅういじこう",
+              "vi": "hạng mục cần lưu ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にあたって",
+              "vi": "Khi, trước khi tiến hành một quy trình/sự việc"
+            }
+          ],
+          "keys": [
+            {
+              "w": "注意事項",
+              "why": "Tiêu đề phần chứa các điều kiện ràng buộc và phụ phí."
+            }
+          ]
+        },
+        {
+          "jp": "① ご契約にあたって、現住所が確認できる身分証明書が必要です。",
+          "vi": "① Khi ký hợp đồng, cần xuất trình giấy tờ tùy thân có ghi địa chỉ hiện tại.",
+          "vocab": [
+            {
+              "w": "契約",
+              "read": "けいやく",
+              "vi": "hợp đồng"
+            },
+            {
+              "w": "現住所",
+              "read": "げんじゅうしょ",
+              "vi": "địa chỉ hiện tại"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "身分",
+              "read": "みぶん",
+              "vi": "thân phận, danh tính"
+            },
+            {
+              "w": "証明",
+              "read": "しょうめい",
+              "vi": "chứng minh, minh chứng"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "身分証明書",
+              "read": "みぶんしょうめいしょ",
+              "vi": "giấy tờ tùy thân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にあたって",
+              "vi": "Khi tiến hành (ký kết hợp đồng)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "現住所が確認できる身分証明書",
+              "why": "Yêu cầu về giấy tờ tùy thân có địa chỉ cư trú hiện tại."
+            }
+          ]
+        },
+        {
+          "jp": "② 配送スタッフが作業しているところには、必ずご本人がお立ち会いください。",
+          "vi": "② Khi nhân viên giao hàng đang tiến hành công việc lắp đặt, bắt buộc chính người đăng ký phải có mặt trực tiếp.",
+          "vocab": [
+            {
+              "w": "配送",
+              "read": "はいそう",
+              "vi": "gửi hàng, giao hàng"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, bắt buộc"
+            },
+            {
+              "w": "本人",
+              "read": "ほんにん",
+              "vi": "đương sự, chính người đó"
+            },
+            {
+              "w": "立ち会う",
+              "read": "たちあう",
+              "vi": "có mặt chứng kiến, túc trực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～しているところ",
+              "vi": "Đang trong lúc/thời điểm hành động đang diễn ra"
+            }
+          ],
+          "keys": [
+            {
+              "w": "必ずご本人がお立ち会いください",
+              "why": "Quy định bắt buộc chính chủ phải có mặt lúc nhân viên làm việc."
+            }
+          ]
+        },
+        {
+          "jp": "③ 他社で家電を買ったばかりで設置のみ希望の場合、1点1,500円で承ります。",
+          "vi": "③ Trường hợp vừa mới mua đồ gia dụng ở nơi khác và chỉ có nhu cầu lắp đặt, chúng tôi nhận với phí 1.500 yên/món.",
+          "vocab": [
+            {
+              "w": "他社",
+              "read": "たしゃ",
+              "vi": "công ty khác"
+            },
+            {
+              "w": "家電",
+              "read": "かでん",
+              "vi": "đồ điện gia dụng"
+            },
+            {
+              "w": "買った",
+              "read": "かった",
+              "vi": "đã mua"
+            },
+            {
+              "w": "設置のみ",
+              "read": "せっちのみ",
+              "vi": "chỉ lắp đặt"
+            },
+            {
+              "w": "設置",
+              "read": "せっち",
+              "vi": "lắp đặt"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "mong muốn"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "1点",
+              "read": "いってん",
+              "vi": "1 món"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            },
+            {
+              "w": "承ります",
+              "read": "うけたまわります",
+              "vi": "tiếp nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～たばかり",
+              "vi": "Vừa mới mua xong (thời gian gần)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "他社で家電を買ったばかり",
+              "why": "Đối tượng vừa mua đồ điện gia dụng từ đơn vị khác."
+            },
+            {
+              "w": "1点1,500円",
+              "why": "Mức phí phụ thu cho dịch vụ lắp đặt hộ từng món đồ."
+            }
+          ]
+        },
+        {
+          "jp": "④ 変更手続きをしたところだという場合でも、前日17時まで無料変更可能です。",
+          "vi": "④ Dù là trường hợp vừa mới thực hiện thủ tục thay đổi xong, quý khách vẫn có thể đổi miễn phí trước 17:00 ngày hôm trước.",
+          "vocab": [
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "手続き",
+              "read": "てつづき",
+              "vi": "thủ tục"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～したところだ",
+              "vi": "Vừa mới làm xong (thời điểm vừa hoàn thành hành động)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "前日17時まで無料変更可能",
+              "why": "Hạn chót thay đổi thông tin đăng ký không mất phí là trước 17h hôm trước."
+            }
+          ]
+        },
+        {
+          "jp": "【お得な割引（重複して適用可能）】",
+          "vi": "【Các chương trình giảm giá ưu đãi (có thể áp dụng đồng thời nếu thỏa mãn điều kiện)】",
+          "vocab": [
+            {
+              "w": "得",
+              "read": "とく",
+              "vi": "lợi ích, món hời"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "重複",
+              "read": "ちょうふく",
+              "vi": "trùng lặp, cộng dồn"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "sự áp dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả thi, có thể"
+            },
+            {
+              "w": "お得",
+              "read": "おとく",
+              "vi": "ưu đãi, có lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜可能",
+              "vi": "Kết hợp: N (danh động từ) + 可能. Ý nghĩa: Hậu tố tạo tính từ mang nghĩa \"có thể thực hiện N\". Trong câu: 「適用可能」(có thể áp dụng được)."
+            },
+            {
+              "point": "〜て (重複して)",
+              "vi": "Kết hợp: Vて. Ý nghĩa: Thể Te đóng vai trò như phó từ bổ nghĩa cách thức thực hiện cho động từ/vế phía sau. Trong câu: 「重複して」(áp dụng đồng thời / lặp lại nhiều ưu đãi cùng lúc)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "重複して適用可能",
+              "why": "Quy tắc cho phép áp dụng đồng thời nhiều khoản giảm giá."
+            }
+          ]
+        },
+        {
+          "jp": "・Web予約割：Webからお申し込みの際に、初月の月額料金が1,000円引き。",
+          "vi": "・Giảm giá đặt qua Web: Khi đăng ký từ Web, tháng đầu tiên được giảm 1.000 yên vào giá thuê hàng tháng.",
+          "vocab": [
+            {
+              "w": "Web予約割",
+              "read": "ウェブよやくわり",
+              "vi": "ưu đãi đặt trước qua web"
+            },
+            {
+              "w": "Web",
+              "read": "ウェブ",
+              "vi": "web"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "割",
+              "read": "わり",
+              "vi": "ưu đãi giảm giá"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "際",
+              "read": "さい",
+              "vi": "khi, dịp"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, cước phí"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～の際に",
+              "vi": "Khi, lúc thực hiện thao tác/đăng ký"
+            }
+          ],
+          "keys": [
+            {
+              "w": "初月の月額料金が1,000円引き",
+              "why": "Mức giảm 1.000 yên vào tiền cước tháng đầu khi đặt qua mạng."
+            }
+          ]
+        },
+        {
+          "jp": "・学生割：学生証の提示で、毎月の月額料金が500円引き。",
+          "vi": "・Giảm giá học sinh/sinh viên: Xuất trình thẻ học sinh/sinh viên sẽ được giảm 500 yên mỗi tháng trong suốt thời hạn hợp đồng.",
+          "vocab": [
+            {
+              "w": "学生割",
+              "read": "がくせいわり",
+              "vi": "ưu đãi sinh viên"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ sinh viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "毎月",
+              "read": "まいげつ",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, cước phí"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜で",
+              "vi": "Kết hợp: N (hành động) + で. Ý nghĩa: Trợ từ chỉ điều kiện/phương thức để đạt được kết quả ở vế sau (\"bằng việc..., khi...\"). Trong câu: 「提示で」(bằng việc xuất trình [thẻ sinh viên])."
+            },
+            {
+              "point": "〜引き",
+              "vi": "Kết hợp: Số tiền / tỷ lệ + 引き. Ý nghĩa: Hậu tố biểu thị việc giảm giá/chiết khấu trừ trực tiếp. Trong câu: 「500円引き」(được giảm 500 yên)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証の提示",
+              "why": "Điều kiện cần xuất trình thẻ sinh viên để nhận giảm giá."
+            },
+            {
+              "w": "毎月の月額料金が500円引き",
+              "why": "Mức giảm 500 yên định kỳ mỗi tháng cho sinh viên."
+            }
+          ]
+        },
+        {
+          "jp": "・乗り換え割：他社を解約するところだという方は、初月の基本料が半額。",
+          "vi": "・Giảm giá chuyển đổi: Người đang dùng dịch vụ thuê của công ty khác và sắp sửa hủy hợp đồng sẽ được giảm nửa giá tháng đầu.",
+          "vocab": [
+            {
+              "w": "乗り換え割",
+              "read": "のりかえわり",
+              "vi": "ưu đãi chuyển mạng"
+            },
+            {
+              "w": "乗り換え",
+              "read": "のりかえ",
+              "vi": "chuyển đổi"
+            },
+            {
+              "w": "割",
+              "read": "わり",
+              "vi": "ưu đãi giảm giá"
+            },
+            {
+              "w": "他社",
+              "read": "たしゃ",
+              "vi": "công ty khác"
+            },
+            {
+              "w": "解約する",
+              "read": "かいやくする",
+              "vi": "hủy hợp đồng"
+            },
+            {
+              "w": "解約",
+              "read": "かいやく",
+              "vi": "hủy hợp đồng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "基本料",
+              "read": "きほんりょう",
+              "vi": "phí cơ bản"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "một nửa giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～するところだ",
+              "vi": "Sắp sửa, chuẩn bị làm việc gì đó"
+            }
+          ],
+          "keys": [
+            {
+              "w": "解約するところだ",
+              "why": "Trạng thái chuẩn bị hủy hợp đồng với công ty khác."
+            },
+            {
+              "w": "初月の基本料が半額",
+              "why": "Mức ưu đãi giảm một nửa cước cơ bản tháng đầu tiên."
+            }
+          ]
+        },
+        {
+          "jp": "※ご質問やお見積もりをご希望の際は、担当窓口までお問い合わせください。",
+          "vi": "※ Khi muốn xác nhận nội dung hợp đồng hoặc nhận báo giá, xin vui lòng liên hệ quầy hỗ trợ khách hàng.",
+          "vocab": [
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "見積もり",
+              "read": "みつもり",
+              "vi": "báo giá, dự toán"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "nguyện vọng, mong muốn"
+            },
+            {
+              "w": "担当",
+              "read": "たんとう",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "窓口",
+              "read": "まどぐち",
+              "vi": "quầy phụ trách, kênh liên hệ"
+            },
+            {
+              "w": "問い合わせる",
+              "read": "といあわせる",
+              "vi": "hỏi thăm, liên hệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～の際は",
+              "vi": "Khi, lúc có nhu cầu (kính ngữ trang trọng)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "ご希望の際は",
+              "why": "Chỉ dẫn cách thức liên hệ tư vấn khi có nhu cầu."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "新生活を始めるにあたり",
+          "label": "～にあたり（Nhân dịp/Khi bắt đầu một sự kiện quan trọng）"
+        },
+        {
+          "excerpt": "引っ越しをしたばかりの方",
+          "label": "～たばかり（Vừa mới làm gì đó xong）"
+        },
+        {
+          "excerpt": "お申し込みいただく際に",
+          "label": "～際（に）（Khi/Lúc làm thủ tục - trang trọng）"
+        },
+        {
+          "excerpt": "作業しているところには",
+          "label": "～しているところ（Đang trong lúc/thời điểm thực hiện hành động）"
+        },
+        {
+          "excerpt": "家電を買ったばかりで",
+          "label": "～たばかり（Vừa mới mua xong）"
+        },
+        {
+          "excerpt": "変更手続きをしたところだ",
+          "label": "～したところだ（Vừa mới xong hành động）"
+        },
+        {
+          "excerpt": "お申し込みの際に",
+          "label": "～際（に）（Khi/Lúc tiến hành）"
+        },
+        {
+          "excerpt": "解約するところだ",
+          "label": "～するところだ（Sắp sửa/Chuẩn bị làm）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "Giới thiệu chung & ưu đãi mở đầu",
+          "topic": 0,
+          "note": "Lời chào, giới thiệu dịch vụ thuê đồ gia dụng cho người mới chuyển nhà và ưu đãi Web.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "body",
+          "label": "Bảng các gói dịch vụ & mức cước",
+          "topic": 4,
+          "note": "Bảng so sánh 3 gói Single, Double, Family kèm chi tiết thiết bị và hình thức lắp đặt.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 12,
+          "kind": "turn",
+          "label": "Quy định lưu ý & phụ phí phát sinh",
+          "topic": 8,
+          "note": "Các điều khoản về giấy tờ tùy thân, người túc trực lắp đặt, phí lắp đồ ngoài và thời hạn đổi đơn.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 13,
+          "to": 17,
+          "kind": "point",
+          "label": "Chương trình giảm giá & liên hệ",
+          "topic": 13,
+          "note": "Điều kiện cộng dồn 3 mức giảm giá (Web, sinh viên, chuyển dịch vụ) và thông tin hỗ trợ.",
+          "qs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "リンさんは大学に入学したばかりで、一人暮らしを始めるために冷蔵庫・洗濯機・電子レンジをレンタルし、部屋への設置も頼みたいと考えている。リンさんがWebから申し込み、学生証を提示した場合、初月に支払う料金はいくらか。",
+          "options": [
+            "3,500円",
+            "4,000円",
+            "4,500円",
+            "5,000円"
+          ],
+          "answer": 0,
+          "explainVi": "1. Xác định gói dịch vụ: Linh cần thuê 3 món (tủ lạnh, máy giặt, lò vi sóng) và cần lắp đặt trong phòng -> Gói phù hợp là ダブル (Double) với giá gốc 5.000 yên/tháng (đã bao gồm 室内設置込み miễn phí).\n2. Xác định các khoản giảm giá được áp dụng (có thể cộng dồn theo dòng 【お得な割引（重複して適用可能）】):\n- Đặt qua Web: Giảm 1.000 yên cho tháng đầu (Web予約割).\n- Có thẻ sinh viên: Giảm 500 yên mỗi tháng (学生割).\n- Linh chưa từng dùng dịch vụ thuê của bên khác nên không được áp dụng 乗り換え割.\n3. Tính toán: 5.000 - 1.000 (Web) - 500 (sinh viên) = 3.500 yên.",
+          "tip": "Đối chiếu danh sách thiết bị và dịch vụ lắp đặt trong bảng để tìm đúng gói cước, sau đó đọc kỹ phần giảm giá để cộng dồn các ưu đãi mà nhân vật thỏa mãn điều kiện.",
+          "evi": [
+            6,
+            13,
+            14,
+            15
+          ],
+          "qt": {
+            "q": "Linh vừa vào đại học, đang định thuê tủ lạnh, máy giặt và lò vi sóng để bắt đầu sống một mình, đồng thời muốn nhờ lắp đặt trong phòng. Nếu Linh đăng ký qua Web và xuất trình thẻ sinh viên thì tháng đầu tiên phải trả bao nhiêu?",
+            "o": [
+              "3.500 yên",
+              "4.000 yên",
+              "4.500 yên",
+              "5.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "このお知らせの内容と合っているものはどれか。",
+          "options": [
+            "配送スタッフが室内で作業している間は、契約者本人ではなく家族が立ち会ってもよい。",
+            "他社で家電を購入したばかりの人が設置だけを依頼する場合、1点につき1,500円がかかる。",
+            "申し込み内容の変更手続きをしたところだとしても、理由にかかわらずキャンセル料が発生する。",
+            "学生応援割を利用する場合、Webから申し込めば学生証を提示する必要はない。"
+          ],
+          "answer": 1,
+          "explainVi": "A sai vì mục ② quy định rõ: khi nhân viên đang lắp đặt thì bắt buộc chính người đăng ký phải có mặt (必ずご本人がお立ち会いください).\nB đúng vì mục ③ nêu rõ: người vừa mới mua đồ gia dụng ở công ty khác mà chỉ có nhu cầu lắp đặt thì phí là 1.500 yên/món (他社で家電を買ったばかりで設置のみ希望の場合、1点1,500円で承ります).\nC sai vì mục ④ quy định dù vừa mới thực hiện thủ tục thay đổi xong thì vẫn có thể đổi miễn phí trước 17h ngày hôm trước (前日17時まで無料変更可能です).\nD sai vì phần 学生割 bắt buộc phải xuất trình thẻ sinh viên (学生証の提示で).",
+          "tip": "Đọc kỹ từng phương án và đối chiếu chính xác với từng điều khoản chú ý ①, ②, ③, ④ và điều kiện giảm giá để loại trừ các đáp án sai.",
+          "evi": [
+            10,
+            11,
+            12,
+            15
+          ],
+          "qt": {
+            "q": "Nội dung nào phù hợp với thông báo này?",
+            "o": [
+              "Trong lúc nhân viên giao hàng đang làm việc trong nhà, người nhà có thể đứng chứng kiến thay cho chính người ký hợp đồng.",
+              "Nếu người vừa mới mua đồ điện gia dụng ở công ty khác chỉ yêu cầu lắp đặt, thì sẽ mất 1.500 yên cho mỗi món.",
+              "Dù vừa mới làm thủ tục thay đổi nội dung đăng ký, phí hủy vẫn phát sinh bất kể lý do.",
+              "Nếu sử dụng ưu đãi hỗ trợ sinh viên, chỉ cần đăng ký qua Web thì không cần xuất trình thẻ sinh viên."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

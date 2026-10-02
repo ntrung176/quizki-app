@@ -1,0 +1,3245 @@
+{
+  "bai": 63,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 63 tập trung phân biệt HAI cách dùng của そうだ — hai mẫu viết giống nhau nhưng 接続 KHÁC HOÀN TOÀN và mang sắc thái hoàn toàn khác nhau. 様態そう (trông có vẻ / sắp): 接続 = Vます-stem / Aい（bỏ い）/ なAdj ＋ そう → đoán từ VẺ NGOÀI, từ DẤU HIỆU nhìn thấy, việc CHƯA xảy ra (ví dụ: 雨が降りそう, おいしそう, 元気そう; ngoại lệ: いい→よさそう, ない→なさそう). 伝聞そう (nghe nói): 接続 = 普通形 ＋ そうだ → truyền đạt thông tin nghe từ nguồn khác, thường đi kèm 〜によると / 〜から聞いた (ví dụ: 雨が降るそうだ, おいしいそうだ, 学生だそうだ). MẤU CHỐT: nhìn vào phần TRƯỚC そうだ để nhận ra đang là 様態 hay 伝聞 — đây là bẫy thường gặp nhất ở N3.",
+    "steps": [
+      "接続 kiểm tra trước: nếu thấy Vます-stem / Aい（bỏ い）/ なAdj ngay trước そう → 様態 (trông có vẻ). Nếu thấy 普通形（Vる/Vた/Aい/なAdj＋な/N＋だ）ngay trước そうだ → 伝聞 (nghe nói).",
+      "様態そう nhấn mạnh QUAN SÁT TRỰC TIẾP dấu hiệu hiện tại và đoán điều SẮP xảy ra hoặc TRẠNG THÁI hiện tại trông như thế nào.",
+      "伝聞そうだ nhấn mạnh NGUỒN THÔNG TIN gián tiếp. Tìm dấu hiệu 〜によると / 〜から聞いた / 〜のニュースによると trong bài.",
+      "注意 — Ngoại lệ 様態: いい → よさそう（không phải いそう）; ない → なさそう（không phải なそう）.",
+      "Câu hỏi suy luận: \"Vì sao tác giả dùng 様態そう chứ không phải 伝聞そうだ?\" → trả lời: \"Vì tác giả NHÌN THẤY dấu hiệu trực tiếp, không phải nghe từ người khác.\"",
+      "Phân biệt với らしい (Bài 65 — chưa học): chưa dùng らしい ở bài này."
+    ],
+    "tips": [
+      "使い分け 1 — 様態 vs 伝聞 qua 接続: 「雨が降りそうだ」（降り = Vます-stem → 様態: trông có vẻ sắp mưa — nhìn mây đen）vs「雨が降るそうだ」（降る = 普通形 → 伝聞: nghe nói trời sẽ mưa — nghe từ dự báo thời tiết). Một chữ 変 thì nghĩa thay đổi hoàn toàn!",
+      "使い分け 2 — そうだ伝聞 vs はず（Bài 51）: 「試合は中止だそうだ」（nghe nói từ nguồn — 伝聞）vs「試合は中止のはずだ」（suy luận từ lý luận của chính mình — はず). 伝聞 = thông tin nghe từ bên ngoài; はず = lý luận từ căn cứ.",
+      "Dấu hiệu nhận 伝聞 trong đọc hiểu: 天気予報によると / ニュースによると / 友達から聞いた / 〜と言っていた + そうだ theo sau.",
+      "Sắc thái: 様態そう thường đi kèm với quan sát vẻ ngoài (空が暗い → 雨が降りそう; おいしそうなケーキ). 伝聞そう thường kết thúc câu, truyền nguyên thông tin đã nghe.",
+      "様態 ngoại lệ cần nhớ: よさそう（よい→よさ＋そう）và なさそう（ない→なさ＋そう）— không được viết いいそう hay ないそう khi muốn nói 様態."
+    ],
+    "grammarFocus": [
+      "〜そうだ（様態）: Vます-stem / Aい（bỏ い）/ なAdj ＋ そう — \"trông có vẻ / sắp\" (đoán từ dấu hiệu nhìn thấy)",
+      "〜そうだ（伝聞）: 普通形 ＋ そうだ — \"nghe nói\" (truyền đạt thông tin từ nguồn ngoài)",
+      "例外: いい → よさそう / ない → なさそう（様態のみ）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 43,
+        "items": [
+          "〜そうです（様態 N4 Bài 43 — deepened here）"
+        ]
+      },
+      {
+        "bai": 47,
+        "items": [
+          "〜そうです（伝聞 N4 Bài 47 — deepened here）",
+          "〜によると"
+        ]
+      },
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ（suy luận có căn cứ — đối chiếu với 伝聞そう）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（nhờ）"
+        ]
+      },
+      {
+        "bai": 61,
+        "items": [
+          "〜なら / 〜たら（điều kiện）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "天気と週末の計画",
+      "titleVi": "Thời tiết và kế hoạch cuối tuần",
+      "japanese": "今朝、空を見たら、雲がたくさんあって暗そうだった。天気予報によると、午後から雨が降るそうだ。だから、今日は外でバーベキューをするのは難しそうだ。友達からも「公園のイベントは中止になるそうだ」と聞いた。残念だが、家でゆっくり過ごすのも悪くなさそうだ。もし天気がよさそうなら、来週また計画しようと思う。なら、今日は家でおいしそうな料理を作って楽しもう。せっかくの休みなので、家の掃除もできそうだ。",
+      "vietnamese": "Sáng nay nhìn lên trời thấy nhiều mây và trông tối tăm. Theo dự báo thời tiết, nghe nói buổi chiều trời sẽ mưa. Vì vậy, hôm nay việc nướng thịt ngoài trời trông có vẻ khó. Bạn bè cũng nói rằng \"nghe nói sự kiện ở công viên sẽ bị hủy\". Đáng tiếc nhưng ở nhà thư giãn cũng có vẻ không tệ. Nếu thời tiết trông có vẻ đẹp thì tôi nghĩ tuần sau sẽ lên kế hoạch lại. Vậy thì hôm nay hãy vui vẻ nấu món ăn trông ngon lành ở nhà. Vì đây là kỳ nghỉ hiếm có nên cũng có vẻ dọn được nhà.",
+      "sentences": [
+        {
+          "jp": "今朝、空を見たら、雲がたくさんあって暗そうだった。",
+          "vi": "Sáng nay nhìn lên trời thấy nhiều mây và trông tối tăm.",
+          "vocab": [
+            {
+              "w": "今朝",
+              "read": "けさ",
+              "vi": "sáng nay"
+            },
+            {
+              "w": "空",
+              "read": "そら",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "雲",
+              "read": "くも",
+              "vi": "mây"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "暗い",
+              "read": "くらい",
+              "vi": "tối, tối tăm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 61）",
+              "vi": "見たら = khi nhìn thì. たら diễn đạt điều kiện/sau khi."
+            },
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 暗い（Aい）→ 暗（bỏ い）＋ そう → 暗そうだ. Sắc thái: nhìn bầu trời thực tế thấy nhiều mây → đoán \"trông có vẻ tối\". Đây là 様態 vì người viết TRỰC TIẾP NHÌN THẤY. Không phải nghe ai nói."
+            }
+          ]
+        },
+        {
+          "jp": "天気予報によると、午後から雨が降るそうだ。",
+          "vi": "Theo dự báo thời tiết, nghe nói buổi chiều trời sẽ mưa.",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降ります",
+              "read": "ふります",
+              "vi": "rơi, đổ (mưa)"
+            },
+            {
+              "w": "天気予報",
+              "read": "てんきよほう",
+              "vi": "dự báo thời tiết"
+            },
+            {
+              "w": "によると",
+              "read": "によると",
+              "vi": "theo (nguồn thông tin)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると（Bài 47）",
+              "vi": "天気予報によると = theo dự báo thời tiết. によると = theo (nguồn). Ôn Bài 47."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 降る（Vる = 普通形）＋ そうだ → 伝聞. Sắc thái: \"nghe nói trời sẽ mưa\" — thông tin nhận được TỪ DỰ BÁO THỜI TIẾT, không phải quan sát trực tiếp. So sánh: \"雨が降りそうだ\" = nhìn thấy mây đen mà đoán（様態）≠ \"雨が降るそうだ\" = nghe từ dự báo（伝聞）."
+            }
+          ]
+        },
+        {
+          "jp": "だから、今日は外でバーベキューをするのは難しそうだ。",
+          "vi": "Vì vậy, hôm nay việc nướng thịt ngoài trời trông có vẻ khó.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài, ngoài trời"
+            },
+            {
+              "w": "バーベキュー",
+              "read": "バーベキュー",
+              "vi": "tiệc nướng thịt (BBQ)"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのは（Bài 38）",
+              "vi": "バーベキューをするのは = việc nướng thịt. Vるの nominalizes the verb."
+            },
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 難しい（Aい）→ 難し（bỏ い）＋ そう → 難しそうだ. Sắc thái: nhìn vào tình hình (mưa sắp đến) mà đoán \"trông có vẻ khó\". Đây là 様態 — đánh giá qua quan sát tình thế."
+            }
+          ]
+        },
+        {
+          "jp": "友達からも「公園のイベントは中止になるそうだ」と聞いた。",
+          "vi": "Bạn bè cũng nói rằng \"nghe nói sự kiện ở công viên sẽ bị hủy\".",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "中止",
+              "read": "ちゅうし",
+              "vi": "hủy, dừng lại"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（伝聞）＋ と聞いた",
+              "vi": "接続: 中止になる（Vる = 普通形）＋ そうだ → 伝聞 \"nghe nói sự kiện sẽ bị hủy\". Câu này là 伝聞 lồng trong 伝聞: bạn nghe từ đâu đó (中止になるそうだ) rồi truyền cho người viết (と聞いた). Nguồn thông tin rõ: 友達から."
+            }
+          ]
+        },
+        {
+          "jp": "残念だが、家でゆっくり過ごすのも悪くなさそうだ。",
+          "vi": "Đáng tiếc nhưng ở nhà thư giãn cũng có vẻ không tệ.",
+          "vocab": [
+            {
+              "w": "残念",
+              "read": "ざんねん",
+              "vi": "đáng tiếc, tiếc nuối"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "từ từ, thư thái"
+            },
+            {
+              "w": "過ごします",
+              "read": "すごします",
+              "vi": "trải qua (thời gian), sống qua"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なさそうだ（様態 ngoại lệ）",
+              "vi": "接続: 悪くない → 悪くなさそうだ. Đây là ngoại lệ quan trọng: ない → なさそう（không phải ないそう）. Sắc thái: \"trông có vẻ không tệ\" — nhận xét từ quan sát/cảm giác của chính người viết. 様態 形式."
+            }
+          ]
+        },
+        {
+          "jp": "もし天気がよさそうなら、来週また計画しようと思う。",
+          "vi": "Nếu thời tiết trông có vẻ đẹp thì tôi nghĩ tuần sau sẽ lên kế hoạch lại.",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "計画します",
+              "read": "けいかくします",
+              "vi": "lên kế hoạch"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "もし",
+              "read": "もし",
+              "vi": "nếu (giả định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜よさそうだ（様態 ngoại lệ）",
+              "vi": "接続: いい → よさそう（không phải いそう）. Ngoại lệ quan trọng nhất của 様態: いい phải đổi thành よさ trước そう. Sắc thái: \"trông có vẻ đẹp trời\" — quan sát dự đoán, chưa xảy ra."
+            },
+            {
+              "point": "〜なら（Bài 61）",
+              "vi": "よさそうなら = nếu trông có vẻ đẹp. なら giả thiết theo thông tin đã biết/quan sát (Bài 61)."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "計画しようと思う = nghĩ sẽ lên kế hoạch. と思う ý định cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "なら、今日は家でおいしそうな料理を作って楽しもう。",
+          "vi": "Vậy thì hôm nay hãy vui vẻ nấu món ăn trông ngon lành ở nhà.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, nấu ăn"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, nấu"
+            },
+            {
+              "w": "楽しみます",
+              "read": "たのしみます",
+              "vi": "vui vẻ, thưởng thức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）— bổ nghĩa danh từ",
+              "vi": "接続: おいしい（Aい）→ おいし（bỏ い）＋ そうな → おいしそうな料理 = \"món ăn trông có vẻ ngon\". Khi 様態そう bổ nghĩa danh từ thì dùng そうな + N (giống なAdj). Sắc thái: đoán ngon dựa vào vẻ ngoài."
+            },
+            {
+              "point": "Vましょう（Bài 6 応用）",
+              "vi": "楽しもう = hãy vui vẻ (lời rủ/quyết định). 意向形 (Bài 31)."
+            }
+          ]
+        },
+        {
+          "jp": "せっかくの休みなので、家の掃除もできそうだ。",
+          "vi": "Vì đây là kỳ nghỉ hiếm có nên cũng có vẻ dọn được nhà.",
+          "vocab": [
+            {
+              "w": "せっかく",
+              "read": "せっかく",
+              "vi": "hiếm có, nhân dịp này"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "ngày nghỉ, kỳ nghỉ"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "掃除",
+              "read": "そうじ",
+              "vi": "dọn dẹp"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: できる → でき（Vます-stem）＋ そう → できそう. Sắc thái: \"trông có vẻ làm được, có khả năng làm được\" — dự đoán khả năng dựa trên tình huống trước mắt (様態)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "暗そうだった",
+          "label": "〜そうだ（様態）: Aい bỏ い + そう (quan sát trực tiếp)"
+        },
+        {
+          "excerpt": "雨が降るそうだ",
+          "label": "〜そうだ（伝聞）: 普通形 + そうだ (nghe từ dự báo)"
+        },
+        {
+          "excerpt": "難しそうだ",
+          "label": "〜そうだ（様態）: Aい bỏ い + そう"
+        },
+        {
+          "excerpt": "中止になるそうだ",
+          "label": "Sắc thái: 伝聞 lồng trong 伝聞 (nghe từ bạn bè)"
+        },
+        {
+          "excerpt": "悪くなさそうだ",
+          "label": "〜なさそう（様態 ngoại lệ: ない → なさそう）"
+        },
+        {
+          "excerpt": "よさそうなら",
+          "label": "〜よさそう（様態 ngoại lệ: いい → よさそう）"
+        },
+        {
+          "excerpt": "おいしそうな料理",
+          "label": "〜そうなN（様態 bổ nghĩa danh từ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「天気予報によると、午後から雨が降るそうだ」と「空を見たら暗そうだった」の違いは何ですか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "「降るそうだ」は観察から判断し、「暗そうだった」は他人から聞いた情報です",
+            "「降るそうだ」は聞いた情報（伝聞）で、「暗そうだった」は見た様子から判断（様態）です",
+            "両方とも直接見て判断しているので意味は同じです",
+            "「降るそうだ」は確実な予測で、「暗そうだった」は不確かな推測です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là B. 「雨が降るそうだ」: 降る = Vる（普通形）＋ そうだ → 伝聞「nghe nói». Nguồn thông tin được nêu rõ: 「天気予報によると」— người viết NGHE từ dự báo thời tiết, không tự nhìn thấy mưa. Còn「暗そうだった」: 暗い → 暗（bỏ い）＋ そう → 様態「trông có vẻ tối»— người viết TRỰC TIẾP nhìn bầu trời (「空を見たら」) mà đoán. Phương án A sai vì đảo ngược hai loại. Phương án C sai vì hai câu hoàn toàn khác nhau về 接続 và nguồn thông tin. Phương án D sai vì そうだ không phân biệt \"chắc chắn/không chắc\" — đó là sắc thái của はずだ hay かもしれない.",
+          "tip": "Nhìn ngay vào phần TRƯỚC そうだ — nếu là 普通形（Vる/Aい/なAdj+な/N+だ）→ 伝聞「nghe nói»; nếu là Vます-stem hoặc Aい bỏ い → 様態「trông có vẻ». Từ khóa 〜によると hoặc 〜から聞いた trong câu là dấu hiệu chắc chắn của 伝聞.",
+          "qt": {
+            "q": "「天気予報によると、午後から雨が降るそうだ」 (theo dự báo thời tiết, nghe nói từ chiều trời sẽ mưa) và 「空を見たら暗そうだった」 (nhìn lên trời thì thấy có vẻ âm u) khác nhau thế nào?",
+            "o": [
+              "「降るそうだ」 là nhận định dựa trên quan sát, còn 「暗そうだった」 là thông tin nghe từ người khác",
+              "「降るそうだ」 là thông tin nghe được (truyền đạt), còn 「暗そうだった」 là nhận định dựa trên vẻ ngoài đã thấy (dấu hiệu, trạng thái)",
+              "Cả hai đều là nhận định dựa trên việc trực tiếp nhìn thấy, nên có cùng ý nghĩa",
+              "「降るそうだ」 là dự đoán chắc chắn, còn 「暗そうだった」 là suy đoán không chắc chắn"
+            ]
+          }
+        },
+        {
+          "q": "「悪くなさそうだ」に使われている文法の形として正しいのはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "悪い → 悪いそうだ（伝聞）",
+            "悪くない → 悪くないそうだ（様態）",
+            "悪くない → 悪くなさそうだ（様態・ないの例外）",
+            "悪い → 悪そうだ（様態）"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C. 様態そうだ có ngoại lệ quan trọng: ない → なさそう（KHÔNG phải ないそう）. Do đó: 悪くない → 悪くなさそうだ là đúng — đây là 様態 biểu đạt \"trông có vẻ không tệ\" qua quan sát trực tiếp. Phương án A sai vì 悪いそうだ là 伝聞（普通形 悪い + そうだ）, không khớp với 悪くなさそうだ trong bài. Phương án B sai vì 悪くないそう vi phạm ngoại lệ ない — dạng này không tồn tại trong tiếng Nhật chuẩn. Phương án D (悪そうだ) là 様態 nhưng nghĩa khác: \"trông có vẻ xấu/tệ\" — đảo ngược nghĩa hoàn toàn.",
+          "tip": "Hai ngoại lệ 様態 PHẢI nhớ — いい → よさそう（không phải いそう）; ない → なさそう（không phải ないそう）. Thấy なさそう trong bài → chắc chắn là 様態 dạng phủ định.",
+          "qt": {
+            "q": "Dạng ngữ pháp nào được dùng trong 「悪くなさそうだ」?",
+            "o": [
+              "悪い → 悪いそうだ (nghe nói là xấu) (truyền đạt)",
+              "悪くない → 悪くないそうだ (nghe nói là không xấu) (dấu hiệu, trạng thái)",
+              "悪くない → 悪くなさそうだ (có vẻ không xấu) (dấu hiệu, trạng thái; ngoại lệ với ない)",
+              "悪い → 悪そうだ (có vẻ xấu) (dấu hiệu, trạng thái)"
+            ]
+          }
+        },
+        {
+          "q": "文章の中で「様態そう」と「伝聞そうだ」を正しく使い分けている例はどれですか。",
+          "evi": [
+            3,
+            5
+          ],
+          "options": [
+            "「天気がよさそうなら」（様態）と「中止になるそうだ」（伝聞）",
+            "「天気がよさそうなら」（伝聞）と「中止になるそうだ」（様態）",
+            "「暗そうだった」（伝聞）と「降るそうだ」（様態）",
+            "「おいしそうな」（伝聞）と「難しそうだ」（様態）"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là A. 「天気がよさそうなら」: いい → よさそう là ngoại lệ 様態（接続: よさ + そう, không phải いそう）— người viết dự đoán thời tiết từ quan sát, chưa có thông tin bên ngoài. 「中止になるそうだ」: なる（Vる = 普通形）＋ そうだ → 伝聞 — tin nhận từ bạn bè 「友達からも…と聞いた」. Phương án B sai vì đảo ngược: \"よさそうなら là 伝聞\" không đúng — よさそう không có 普通形 trước そう. Phương án C sai: 暗そうだった là 様態 (đúng) nhưng 降るそうだ là 伝聞 (không phải 様態). Phương案 D sai: おいしそうな là 様態 (Aい bỏ い + そうな) không phải 伝聞.",
+          "tip": "Khi bài hỏi \"cặp nào đúng\", kiểm tra 接続 từng phần — よさそう/なさそう luôn là 様態 ngoại lệ; 普通形 + そうだ kèm nguồn (によると/から聞いた) luôn là 伝聞.",
+          "qt": {
+            "q": "Ví dụ nào trong bài sử dụng đúng 「様態そう」 và 「伝聞そうだ」?",
+            "o": [
+              "「天気がよさそうなら」 (nếu thời tiết có vẻ đẹp) (dấu hiệu, trạng thái) và 「中止になるそうだ」 (nghe nói sẽ bị hủy) (truyền đạt)",
+              "「天気がよさそうなら」 (nếu thời tiết có vẻ đẹp) (truyền đạt) và 「中止になるそうだ」 (nghe nói sẽ bị hủy) (dấu hiệu, trạng thái)",
+              "「暗そうだった」 (có vẻ âm u) (truyền đạt) và 「降るそうだ」 (nghe nói sẽ mưa) (dấu hiệu, trạng thái)",
+              "「おいしそうな」 (nghe nói là ngon) (truyền đạt) và 「難しそうだ」 (có vẻ khó) (dấu hiệu, trạng thái)"
+            ]
+          }
+        },
+        {
+          "q": "筆者がバーベキューを「難しそうだ」と感じた直接の理由は何ですか。",
+          "evi": [
+            0,
+            1,
+            2
+          ],
+          "options": [
+            "バーベキューの道具がないからです",
+            "友達が来られないと言ったからです",
+            "天気予報で雨が降ると聞き、空も暗そうだったからです",
+            "先週もバーベキューをしたからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C. Bài viết nêu rõ hai căn cứ: ① 「空を見たら、雲がたくさんあって暗そうだった」— quan sát trực tiếp bầu trời (様態); ② 「天気予報によると、午後から雨が降るそうだ」— nghe từ dự báo thời tiết (伝聞). Kết hợp cả hai, người viết kết luận「バーベキューをするのは難しそうだ」. Phương án A sai vì không có đề cập gì đến việc thiếu dụng cụ nướng. Phương án B sai vì bạn bè chỉ nói về việc hủy sự kiện ở công viên, không phải lý do từ chối BBQ. Phương án D hoàn toàn bịa đặt — bài không đề cập đến tuần trước.",
+          "tip": "Câu hỏi \"lý do tại sao\" → dò ngược lên câu trước đó trong bài — tìm 様態（quan sát）hoặc 伝聞（nguồn tin）cụ thể được nhắc đến. だから hoặc そのため là từ nối chỉ hậu quả giúp xác định vị trí câu lý do.",
+          "qt": {
+            "q": "Lý do trực tiếp khiến tác giả cảm thấy việc tổ chức tiệc nướng ngoài trời 「難しそうだ」 (có vẻ khó) là gì?",
+            "o": [
+              "Vì không có dụng cụ nướng thịt",
+              "Vì bạn nói rằng không thể đến",
+              "Vì nghe dự báo thời tiết nói trời sẽ mưa, và bầu trời cũng có vẻ âm u",
+              "Vì tuần trước cũng đã tổ chức tiệc nướng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "本当の休息と脳の休ませ方",
+      "titleVi": "Nghỉ ngơi thực sự và cách cho脳 bộ thư giãn",
+      "japanese": "最近、仕事が終わっても疲れがとれないと感じる人が増えているそうだ。休みの日に家でスマートフォンの画面を長時間見ていると、体だけでなく脳も疲れてしまう。ベッドで体を休めているつもりでも、画面を見ていると脳は休まらないそうだ。\n本当の休息をとるためには、外に出て自然に触れることが効果的だそうだ。たとえば、緑が多い公園を静かに散歩すると、気分がすっきりして元気になりそうだ。また、少し体を動かすことで、頭が整理されて新しいアイデアも浮かびそうだ。\nしかし、忙しくて外に出られない日もあるだろう。その場合は、家で温かい飲み物を飲んだり、静かな音楽を聴いたりするだけでもよさそうだ。つまり、本当の休み方とは、ただ体を休めるだけでなく、脳に無駄な刺激を与えないことなのだ。",
+      "vietnamese": "Gần đây, nghe nói số người cảm thấy dù xong việc rồi nhưng vẫn không hết mệt mỏi đang tăng lên. Vào ngày nghỉ, nếu nhìn vào màn hình điện thoại thông minh ở nhà trong thời gian dài, không chỉ cơ thể mà cả脳 bộ cũng trở nên mệt mỏi. Dù tưởng là đang cho cơ thể nghỉ ngơi trên giường, nhưng nghe nói nếu vừa nhìn màn hình thì脳 vẫn không thể nghỉ ngơi được.\nĐể có được sự nghỉ ngơi thực sự, nghe nói việc đi ra ngoài và tiếp xúc với thiên nhiên là rất hiệu quả. Chẳng hạn, nếu đi dạo nhẹ nhàng ở công viên nhiều cây xanh, tinh thần sẽ sảng khoái và trông có vẻ sẽ khỏe khoắn trở lại. Ngoài ra, bằng việc vận động cơ thể một chút, đầu óc sẽ được sắp xếp lại và có vẻ sẽ nảy ra những ý tưởng mới.\nTuy nhiên, chắc cũng sẽ có những ngày bận rộn không thể ra ngoài được. Trong trường hợp đó, chỉ cần ở nhà uống đồ uống ấm hoặc nghe nhạc yên tĩnh thôi trông có vẻ cũng ổn. Tóm lại, cách nghỉ ngơi thực sự không chỉ là cho cơ thể nghỉ ngơi, mà là không tạo ra những kích thích không cần thiết cho脳 bộ.",
+      "sentences": [
+        {
+          "jp": "最近、仕事が終わっても疲れがとれないと感じる人が増えているそうだ。",
+          "vi": "Gần đây, nghe nói số người cảm thấy dù xong việc rồi nhưng vẫn không hết mệt mỏi đang tăng lên.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "疲れ",
+              "read": "つかれ",
+              "vi": "sự mệt mỏi"
+            },
+            {
+              "w": "とれる",
+              "read": "とれる",
+              "vi": "tan biến, khỏi"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 増えている（Vている普通形）＋ そうだ → 伝聞. Sắc thái: \"nghe nói số người... đang tăng lên\" (truyền đạt thông tin nghe từ bên ngoài)."
+            }
+          ]
+        },
+        {
+          "jp": "休みの日に家でスマートフォンの画面を長時間見ていると、体だけでなく脳も疲れてしまう。",
+          "vi": "Vào ngày nghỉ, nếu nhìn vào màn hình điện thoại thông minh ở nhà trong thời gian dài, không chỉ cơ thể mà cả脳 bộ cũng trở nên mệt mỏi.",
+          "vocab": [
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "長時間",
+              "read": "ちょうじかん",
+              "vi": "thời gian dài"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "não bộ"
+            },
+            {
+              "w": "疲れる",
+              "read": "つかれる",
+              "vi": "mệt mỏi, kiệt sức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく（Bài 53）",
+              "vi": "体だけでなく脳も = không chỉ cơ thể mà cả脳 bộ. Diễn đạt sự bổ sung thêm đối tượng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "体だけでなく脳も",
+              "why": "Cấu trúc 'không chỉ... mà cả...' nhấn mạnh nguyên nhân khiến não mệt mỏi dù cơ thể được nghỉ, làm rõ nghĩa câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "ベッドで体を休めているつもりでも、画面を見ていると脳は休まらないそうだ。",
+          "vi": "Dù tưởng là đang cho cơ thể nghỉ ngơi trên giường, nhưng nghe nói nếu vừa nhìn màn hình thì脳 vẫn không thể nghỉ ngơi được.",
+          "vocab": [
+            {
+              "w": "ベッド",
+              "read": "ベッド",
+              "vi": "giường (tiếng Anh: bed)"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "休まります",
+              "read": "やすまります",
+              "vi": "được nghỉ ngơi, thanh thản"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "não bộ"
+            },
+            {
+              "w": "休めます",
+              "read": "やすめます",
+              "vi": "cho nghỉ ngơi"
+            },
+            {
+              "w": "つもり",
+              "read": "つもり",
+              "vi": "nghĩ rằng/tưởng là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つもり（Bài 59）",
+              "vi": "休めているつもりでも = dù tưởng/nghĩ rằng đang cho thân thể nghỉ ngơi."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 休まらない（Vない普通形）＋ そうだ → 伝聞. Sắc thái: \"nghe nói脳 không thể nghỉ ngơi được\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "脳は休まらない",
+              "why": "Khẳng định trạng thái thực tế của não bộ, là từ khóa trực tiếp giải thích nội dung câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "本当の休息をとるためには、外に出て自然に触れることが効果的だそうだ。",
+          "vi": "Để có được sự nghỉ ngơi thực sự, nghe nói việc đi ra ngoài và tiếp xúc với thiên nhiên là rất hiệu quả.",
+          "vocab": [
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "休息",
+              "read": "きゅうそく",
+              "vi": "sự nghỉ ngơi, tĩnh dưỡng"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "触れます",
+              "read": "ふれます",
+              "vi": "chạm vào, tiếp xúc"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả, tác dụng"
+            },
+            {
+              "w": "効果的",
+              "read": "こうかてき",
+              "vi": "có hiệu quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（Bài 42）",
+              "vi": "とるためには = để có được (mục đích)."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 効果的だ（なAdj普通形）＋ そうだ → 伝聞. Sắc thái: \"nghe nói là có hiệu quả\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "本当の休息をとるためには",
+              "why": "Cụm từ chỉ mục đích định hướng cho giải pháp hồi phục năng lượng ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、緑が多い公園を静かに散歩すると、気分がすっきりして元気になりそうだ。",
+          "vi": "Chẳng hạn, nếu đi dạo nhẹ nhàng ở công viên nhiều cây xanh, tinh thần sẽ sảng khoái và trông có vẻ sẽ khỏe khoắn trở lại.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "緑",
+              "read": "みどり",
+              "vi": "màu xanh lá/cây xanh"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "散歩します",
+              "read": "さんぽします",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "気分",
+              "read": "きぶん",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "すっきり",
+              "read": "すっきり",
+              "vi": "sảng khoái, khoan khoái"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh, vui vẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 元気になります（Vます）→ 元気になり（bỏ ます）＋ そうだ → 様態. Sắc thái: phán đoán từ dấu hiệu/hành động (đi dạo thả lỏng) → \"trông có vẻ/sắp thấy khỏe ra\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たとえば",
+              "why": "Liên từ dẫn nhập ví dụ cụ thể về đi dạo để giải thích lý do tinh thần sảng khoái trong câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "また、少し体を動かすことで、頭が整理されて新しいアイデアも浮かびそうだ。",
+          "vi": "Ngoài ra, bằng việc vận動 cơ thể một chút, đầu óc sẽ được sắp xếp lại và có vẻ sẽ nảy ra những ý tưởng mới.",
+          "vocab": [
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "動かします",
+              "read": "うごかします",
+              "vi": "vận動, di chuyển"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "整理します",
+              "read": "せいりします",
+              "vi": "sắp xếp, thu dọn"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "アイデア",
+              "read": "アイデア",
+              "vi": "ý tưởng"
+            },
+            {
+              "w": "浮かびます",
+              "read": "うかびます",
+              "vi": "nảy ra, nổi lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで（Bài 47）",
+              "vi": "動かすことで = bằng việc/do việc vận動 cơ thể."
+            },
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 浮かびます（Vます）→ 浮かび（bỏ ます）＋ そうだ → 様態. Sắc thái: \"có vẻ sẽ nảy ra (ý tưởng)\" qua suy đoán tình huống."
+            }
+          ],
+          "keys": [
+            {
+              "w": "また",
+              "why": "Liên từ bổ sung thêm hiệu quả sắp xếp lại suy nghĩ khi vận động nhẹ."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、忙しくて外に出られない日もあるだろう。",
+          "vi": "Tuy nhiên, chắc cũng sẽ có những ngày bận rộn không thể ra ngoài được.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "忙しくて",
+              "read": "いそがしくて",
+              "vi": "bận rộn nên"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "出られない",
+              "read": "でられない",
+              "vi": "không thể ra ngoài"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だろう（Bài 32）",
+              "vi": "あるだろう = chắc là/có lẽ có. Suy đoán của người viết."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý báo hiệu trường hợp ngoại lệ khi không thể ra ngoài, dẫn vào căn cứ câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "その場合は、家で温かい飲み物を飲んだり、静かな音楽を聴いたりするだけでもよさそうだ。",
+          "vi": "Trong trường hợp đó, chỉ cần ở nhà uống đồ uống ấm hoặc nghe nhạc yên tĩnh thôi trông có vẻ cũng ổn.",
+          "vocab": [
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "温かい",
+              "read": "あたたかい",
+              "vi": "ấm áp"
+            },
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "聴く",
+              "read": "きく",
+              "vi": "nghe (nhạc, âm thanh)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たり〜たりする（Bài 19）",
+              "vi": "飲んだり〜聴いたりする = làm những việc như uống... nghe..."
+            },
+            {
+              "point": "〜そうだ（様態 例外）",
+              "vi": "接続: いい（Aい）→ よさ ＋ そうだ（ngoại lệ của 様態）. Sắc thái: phán đoán \"trông có vẻ tốt / có vẻ ổn\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "その場合は",
+              "why": "Cụm chỉ thị đưa ra cách giải quyết thay thế tại nhà, tránh bẫy suy nghĩ phiến diện ở câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、本当の休み方とは、ただ体を休めるだけでなく、脳に無駄な刺激を与えないことなのだ。",
+          "vi": "Tóm lại, cách nghỉ ngơi thực sự không chỉ là cho cơ thể nghỉ ngơi, mà là không tạo ra những kích thích không cần thiết cho脳 bộ.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nghĩa là"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "休む",
+              "read": "やすむ",
+              "vi": "nghỉ ngơi, vắng mặt"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "休める",
+              "read": "やすめる",
+              "vi": "cho nghỉ ngơi, tĩnh dưỡng"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "não bộ"
+            },
+            {
+              "w": "無駄",
+              "read": "むだ",
+              "vi": "lãng phí, vô ích, không cần thiết"
+            },
+            {
+              "w": "刺激",
+              "read": "しげき",
+              "vi": "kích thích, sự kích動"
+            },
+            {
+              "w": "与えます",
+              "read": "あたえます",
+              "vi": "trao, gây ra, tạo ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは（Bài 47）",
+              "vi": "本当の休み方とは = định nghĩa \"cách nghỉ ngơi thực sự là...\"."
+            },
+            {
+              "point": "〜のだ／なのだ（Bài 26）",
+              "vi": "ことなのだ = chính là điều... (khẳng định, lý giải kết luận)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり、本当の休み方とは",
+              "why": "Liên từ tóm lược kết hợp định nghĩa nêu rõ chủ trương cốt lõi của tác giả để chốt đáp án câu hỏi 3."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "増えているそうだ",
+          "label": "〜そうだ（伝聞）: 普通形 + そうだ (nghe nói)"
+        },
+        {
+          "excerpt": "休まらないそうだ",
+          "label": "〜そうだ（伝聞）: 普通形 + そうだ (nghe nói)"
+        },
+        {
+          "excerpt": "元気になりそうだ",
+          "label": "〜そうだ（様態）: Vます-stem + そうだ (trông có vẻ / sẽ)"
+        },
+        {
+          "excerpt": "よさそうだ",
+          "label": "〜そうだ（様態 例外）: いい → よさそう (trông có vẻ ổn)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「ベッドで体を休めているつもりでも、画面を見ていると脳は休まらないそうだ」とあるが、どういうことか。",
+          "options": [
+            "横になって体は休んでいても、スマートフォンを見ていると脳は疲れたままであるということ。",
+            "ベッドで休むよりも、スマートフォンで動画を見ながら休むほうが脳に良いということ。",
+            "体と脳の両方を休めるためには、一日中寝ている必要があるということ。",
+            "スマートフォンの画面を見ると、体は元気になっても脳だけが眠くなってしまうということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「横になって体は休んで」 — Trong bài, câu [1] và [2] chỉ ra rằng vào ngày nghỉ dù có nằm nghỉ trên giường nhưng nếu nhìn vào màn hình smartphone trong thời gian dài thì não vẫn bị mệt mỏi, không được nghỉ ngơi. Do đó 'dù tưởng là đang nghỉ ngơi nhưng não không nghỉ' có nghĩa là tuy thân thể nằm nghỉ nhưng xem smartphone khiến não vẫn mệt. Phương án 「ベッドで休むよりも」 sai vì ngược với nội dung bài (xem smartphone làm não mệt hơn). Phương án 「体と脳の両方を休める」 sai vì bài không đề cập đến việc cần 'nằm ngủ cả ngày' (一日中寝ている). Phương án 「スマートフォンの画面を」 sai vì bài không nói màn hình smartphone làm 'thân thể khỏe lên nhưng não buồn ngủ'.",
+          "tip": "Tìm ngay đoạn văn chứa cụm từ được trích dẫn (câu 1 và 2). Chú ý mối quan hệ giữa 体 (thân thể) và 脳 (não bộ): nằm nghỉ thì thân thể được thả lỏng, nhưng xem màn hình điện thoại thì não vẫn hoạt động và nạp thông tin nên không được nghỉ ngơi.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "「Tưởng rằng mình đang nghỉ ngơi trên giường, nhưng nếu nhìn vào màn hình thì não vẫn không được nghỉ ngơi」 có nghĩa là gì?",
+            "o": [
+              "Nằm nghỉ thì cơ thể được nghỉ ngơi, nhưng nếu nhìn vào điện thoại thông minh thì não vẫn tiếp tục mệt mỏi.",
+              "Có nghĩa là nghỉ ngơi bằng cách xem video trên điện thoại thông minh tốt cho não hơn là nghỉ trên giường.",
+              "Có nghĩa là để cả cơ thể và não được nghỉ ngơi, cần phải ngủ cả ngày.",
+              "Có nghĩa là khi nhìn vào màn hình điện thoại thông minh, cơ thể trở nên khỏe khoắn nhưng chỉ có não là buồn ngủ."
+            ]
+          }
+        },
+        {
+          "q": "筆者によると、なぜ休みに出かけて散歩をすると元気になりそうなのか。",
+          "options": [
+            "散歩をすることで新しいスマートフォンを買う時間ができるから。",
+            "外に出て自然に触れたり体を動かしたりすることで、気分がすっきりし頭が整理されるから。",
+            "激しい運動をすると体も脳も完全に疲れてすぐに眠れるから。",
+            "公園に行けば仕事や勉強を完全にやめることができると法律で決まっているから。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「外に出て自然に触れたり」 — Căn cứ vào các câu [3], [4], [5]: người viết cho rằng để thực sự nghỉ ngơi, việc ra ngoài tiếp xúc với thiên nhiên là hiệu quả (câu 3); đi dạo ở công viên nhiều cây xanh giúp tinh thần sảng khoái (câu 4) và vận động nhẹ giúp đầu óc được sắp xếp lại, nảy ra ý tưởng mới (câu 5). Phương án 「散歩をすることで」 sai vì bài không đề cập đến việc 'mua smartphone mới'. Phương án 「激しい運動をすると」 sai vì bài khuyên 'đi dạo nhẹ nhàng' (静かに散歩する, 少し体を動かす) chứ không phải 'vận động mạnh đến kiệt sức' (激しい運動). Phương án 「公園に行けば仕事や勉強を」 sai vì bài không nói đến 'luật pháp quy định' (法律で決まっている).",
+          "tip": "Đối với câu hỏi nguyên nhân 「なぜ〜のか」, tìm từ khóa 散歩 (đi dạo) và 元気 (khỏe/sảng khoái) ở đoạn 2. Đọc kỹ lý do được đưa ra ngay xung quanh đó: 自然に触れる (tiếp xúc thiên nhiên), 気分がすっきりする (tinh thần sảng khoái), 頭が整理される (đầu óc ngăn nắp).",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Theo tác giả, tại sao đi ra ngoài tản bộ vào ngày nghỉ lại có thể giúp bạn trở nên khỏe khoắn?",
+            "o": [
+              "Vì nhờ đi dạo, bạn có thời gian để mua một chiếc điện thoại thông minh mới.",
+              "Vì ra ngoài tiếp xúc với thiên nhiên và vận động cơ thể giúp tâm trạng sảng khoái, đầu óc được sắp xếp lại.",
+              "Vì vận động mạnh khiến cả cơ thể lẫn não hoàn toàn mệt mỏi nên có thể ngủ ngay.",
+              "Vì luật quy định rằng nếu đến công viên thì có thể hoàn toàn ngừng làm việc và học tập."
+            ]
+          }
+        },
+        {
+          "q": "本当の休み方について、筆者はどう考えているか。",
+          "options": [
+            "外に出て激しいスポーツをしない限り、本当の休息はとれない。",
+            "脳を休ませるために、一日中何も考えずにスマートフォンを見続けるべきだ。",
+            "外出するか家で過ごすかにかかわらず、脳に無駄な情報や刺激を与えずに休ませることが大切だ。",
+            "仕事の効率を上げるためには、休みの日でも家で勉強をし続けるほうがよい。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「外出するか家で過ごすかに」 — Ở đoạn cuối (câu 6, 7, 8), người viết tổng kết: nếu bận không ra ngoài được thì ở nhà uống nước ấm, nghe nhạc nhẹ cũng tốt; tóm lại điều quan trọng của việc nghỉ ngơi thực sự là không chỉ nghỉ thân thể mà còn phải không tạo ra những kích thích không cần thiết cho não bộ (脳に無駄な刺激を与えないこと). Phương án 「外に出て激しいスポーツを」 sai vì bài không bắt buộc phải 'thể thao mạnh' (激しいスポーツ), đi dạo nhẹ hoặc ở nhà nghe nhạc cũng được. Phương án 「脳を休ませるために」 sai vì xem smartphone liên tục chính là nguyên nhân làm não mệt mỏi. Phương án 「仕事の効率を上げるために」 sai vì bài khuyên nên nghỉ ngơi cho não chứ không bảo 'tiếp tục học ở nhà vào ngày nghỉ'.",
+          "tip": "Câu hỏi ý kiến người viết (筆者はどう考えているか) nằm ở đoạn cuối cùng, thường bắt đầu bằng các từ nối tổng kết như つまり (tóm lại). Ý chính của bài là nghỉ ngơi không chỉ là thả lỏng cơ thể mà cốt lõi là giúp não bộ được thư giãn, tránh tiếp nhận các kích thích mệt mỏi từ thiết bị điện tử.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Về cách nghỉ ngơi thực sự, tác giả nghĩ như thế nào?",
+            "o": [
+              "Không thể nghỉ ngơi thực sự nếu không ra ngoài chơi thể thao cường độ cao.",
+              "Để não nghỉ ngơi, nên nhìn vào điện thoại thông minh suốt cả ngày mà không suy nghĩ gì.",
+              "Dù ra ngoài hay ở nhà, điều quan trọng là nghỉ ngơi mà không để não tiếp nhận những thông tin hoặc kích thích không cần thiết.",
+              "Để nâng cao hiệu quả công việc, tốt hơn nên tiếp tục học ở nhà ngay cả vào ngày nghỉ."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Hiện tượng & Vấn đề mệt mỏi của não",
+          "topic": 1,
+          "note": "Nêu thực trạng mệt mỏi dù cơ thể nghỉ ngơi do dùng điện thoại, chứa căn cứ giải nghĩa cho câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "body",
+          "label": "Giải pháp ra ngoài và vận động",
+          "topic": 3,
+          "note": "Trình bày hiệu quả của việc ra ngoài hòa mình vào thiên nhiên và đi dạo, cung cấp căn cứ trả lời câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "turn",
+          "label": "Chuyển hướng: Giải pháp thay thế tại nhà",
+          "topic": 6,
+          "note": "Nêu ngoại lệ khi bận rộn không thể ra ngoài, tránh bẫy cho rằng bắt buộc phải ra ngoài mới là nghỉ ngơi.",
+          "qs": [
+            3
+          ]
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "point",
+          "label": "Chủ trương cốt lõi của tác giả",
+          "topic": 8,
+          "note": "Kết luận bản chất của việc nghỉ ngơi là không tạo kích thích vô ích cho não, chứa câu trả lời bao quát cho câu hỏi 3.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "イベント延期のニュースと天気の変化",
+      "titleVi": "Tin tức sự kiện hoãn và sự thay đổi thời tiết",
+      "japanese": "先日、地元で大きな音楽フェスティバルが開催される予定だった。\nしかし、主催者のウェブサイトによると、今年のフェスティバルは延期になるそうだ。\n理由は、会場の近くで工事が続いていて、当日はとても騒がしくなりそうだからだそうだ。\nこのニュースを聞いたとき、正直がっかりした。\nなぜなら、今年のフェスティバルはとても楽しそうだったからだ。\nプログラムを見ると、有名なバンドが三組も出演するそうで、チケットはもうすぐ売り切れそうだった。\nそのため、私はすでにチケットを買っておいたのだが、今は払い戻しを待っている状態だ。\nまた、友達のマイさんから連絡があり、「フェスの代わりに、来月、別の音楽イベントがあるそうだよ」と教えてくれた。\nマイさんによると、その新しいイベントはもっと規模が大きくなりそうだということだ。\nそれを聞いて、少し元気が出てきた。\n一方、天気の話になると、この地域の秋は変わりやすいそうで、晴れたと思ったらすぐ雨になることもあるそうだ。\nただ、来月の予定の週は、気象情報によると晴れが続くそうだ。\nまた、気温も過ごしやすくなりそうだという予報が出ている。\nそれならば、新しいイベントは屋外でも問題なさそうだ。\nおかげで、来月の計画を立てるのがとても楽しみになってきた。\nマイさんも「今度こそ絶対に行けそう」と喜んでいた。\nただ、チケットはまだ発売前なので、早めに確認しておく必要がありそうだ。\nはずなのに延期になってしまったフェスの分まで、今度のイベントでは思いきり楽しもうと思っている。",
+      "vietnamese": "Hôm trước, một lễ hội âm nhạc lớn dự định tổ chức ở địa phương.\nNhưng theo website của ban tổ chức, nghe nói lễ hội năm nay sẽ bị hoãn.\nLý do là công trình xây dựng gần địa điểm vẫn đang tiếp diễn và nghe nói hôm đó có vẻ sẽ rất ồn ào.\nKhi nghe tin này, thành thật mà nói tôi thất vọng.\nBởi vì lễ hội năm nay trông có vẻ rất vui.\nNhìn chương trình thì nghe nói đến ba ban nhạc nổi tiếng sẽ biểu diễn, và vé trông có vẻ sắp bán hết.\nVì vậy tôi đã mua vé trước rồi, bây giờ đang trong trạng thái chờ hoàn tiền.\nNgoài ra, bạn Mai liên lạc và nói \"thay vì lễ hội đó, nghe nói tháng sau có sự kiện âm nhạc khác đó\".\nTheo Mai, nghe nói sự kiện mới đó có vẻ sẽ quy mô hơn.\nNghe vậy tôi lại có chút phấn chấn hơn.\nMặt khác, nói đến chuyện thời tiết, nghe nói mùa thu ở vùng này hay thay đổi, vừa thấy nắng thì trời mưa ngay.\nNhưng tuần có sự kiện tháng sau, theo thông tin khí tượng nghe nói trời tiếp tục nắng.\nNgoài ra, cũng có dự báo rằng nhiệt độ có vẻ sẽ trở nên dễ chịu hơn.\nNếu vậy, sự kiện mới ngoài trời cũng có vẻ không có vấn đề gì.\nNhờ vậy, việc lên kế hoạch tháng sau trở nên rất vui.\nMai cũng vui mừng nói \"lần này chắc chắn có vẻ đi được rồi\".\nNhưng vé vẫn chưa bán nên có vẻ cần xác nhận sớm.\nLẽ ra phải tổ chức rồi nhưng vì bị hoãn, tôi nghĩ sẽ vui chơi hết mình ở sự kiện lần này bù cho lễ hội đó.",
+      "sentences": [
+        {
+          "jp": "先日、地元で大きな音楽フェスティバルが開催される予定だった。",
+          "vi": "Hôm trước, một lễ hội âm nhạc lớn dự định tổ chức ở địa phương.",
+          "vocab": [
+            {
+              "w": "先日",
+              "read": "せんじつ",
+              "vi": "hôm trước, mấy hôm trước"
+            },
+            {
+              "w": "地元",
+              "read": "じもと",
+              "vi": "địa phương, quê nhà"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "フェスティバル",
+              "read": "フェスティバル",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "開催されます",
+              "read": "かいさいされます",
+              "vi": "được tổ chức (thụ động)"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる予定だった（Bài 31）",
+              "vi": "開催される予定だった = dự định tổ chức. 予定だった = kế hoạch đã có nhưng (ngụ ý) không xảy ra."
+            },
+            {
+              "point": "V受身形（Bài 37）",
+              "vi": "開催される = được tổ chức. 受身 diễn đạt sự kiện xảy ra với chủ thể."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、主催者のウェブサイトによると、今年のフェスティバルは延期になるそうだ。",
+          "vi": "Nhưng theo website của ban tổ chức, nghe nói lễ hội năm nay sẽ bị hoãn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "主催",
+              "read": "しゅさい",
+              "vi": "chủ trì, đơn vị tổ chức chính"
+            },
+            {
+              "w": "ウェブサイト",
+              "read": "ウェブサイト",
+              "vi": "website"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "フェスティバル",
+              "read": "フェスティバル",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "延期",
+              "read": "えんき",
+              "vi": "hoãn lại, trì hoãn"
+            },
+            {
+              "w": "主催者",
+              "read": "しゅさいしゃ",
+              "vi": "ban tổ chức, người tổ chức"
+            },
+            {
+              "w": "によると",
+              "read": "によると",
+              "vi": "theo (nguồn thông tin)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると（Bài 47）",
+              "vi": "主催者のウェブサイトによると = theo website của ban tổ chức. によると = theo (nguồn). Dấu hiệu rõ của 伝聞."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 延期になる（Vる = 普通形）＋ そうだ → 伝聞 \"nghe nói sẽ bị hoãn\". Nguồn thông tin rõ: ウェブサイトによると. Đây là dạng chuẩn của 伝聞そうだ: 普通形 ＋ そうだ, kèm nguồn cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "理由は、会場の近くで工事が続いていて、当日はとても騒がしくなりそうだからだそうだ。",
+          "vi": "Lý do là công trình xây dựng gần địa điểm vẫn đang tiếp diễn và nghe nói hôm đó có vẻ sẽ rất ồn ào.",
+          "vocab": [
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "công trình xây dựng"
+            },
+            {
+              "w": "続きます",
+              "read": "つづきます",
+              "vi": "tiếp diễn, liên tục"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "hôm đó, ngày hôm đó"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "騒がしい",
+              "read": "さわがしい",
+              "vi": "ồn ào, huyên náo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）＋ からだそうだ",
+              "vi": "騒がしくなりそうだ: 騒がしい（Aい）→ 騒がし（bỏ い）＋ くなり（変化）＋ そうだ → 様態 \"trông có vẻ sẽ trở nên ồn ào\". Sau đó: からだそうだ = \"nghe nói vì lý do đó\" → 伝聞 bao ngoài. Câu này có CẢ HAI: 様態 bên trong, 伝聞 bao ngoài."
+            },
+            {
+              "point": "Vていて（Bài 14 応用）",
+              "vi": "工事が続いていて = công trình đang tiếp diễn (rồi và). Vていて nối trạng thái liên tục với kết quả."
+            }
+          ]
+        },
+        {
+          "jp": "このニュースを聞いたとき、正直がっかりした。",
+          "vi": "Khi nghe tin này, thành thật mà nói tôi thất vọng.",
+          "vocab": [
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "正直",
+              "read": "しょうじき",
+              "vi": "thành thật, thật ra"
+            },
+            {
+              "w": "がっかり",
+              "read": "がっかり",
+              "vi": "thất vọng"
+            },
+            {
+              "w": "がっかりします",
+              "read": "がっかりします",
+              "vi": "thất vọng, chán nản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "聞いたとき = khi nghe (đã nghe xong). Vた + とき = thời điểm sau khi hành động hoàn thành."
+            }
+          ]
+        },
+        {
+          "jp": "なぜなら、今年のフェスティバルはとても楽しそうだったからだ。",
+          "vi": "Bởi vì lễ hội năm nay trông có vẻ rất vui.",
+          "vocab": [
+            {
+              "w": "なぜなら",
+              "read": "なぜなら",
+              "vi": "bởi vì (nêu lý do)"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "フェスティバル",
+              "read": "フェスティバル",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだった（様態 quá khứ）",
+              "vi": "接続: 楽しい（Aい）→ 楽し（bỏ い）＋ そうだった → 様態 quá khứ \"trông có vẻ rất vui (nhìn vào chương trình)\". そうだった = quá khứ của 様態そうだ. Người viết nhìn vào nội dung chương trình mà đoán → 様態 (trực tiếp quan sát)."
+            }
+          ]
+        },
+        {
+          "jp": "プログラムを見ると、有名なバンドが三組も出演するそうで、チケットはもうすぐ売り切れそうだった。",
+          "vi": "Nhìn chương trình thì nghe nói đến ba ban nhạc nổi tiếng sẽ biểu diễn, và vé trông có vẻ sắp bán hết.",
+          "vocab": [
+            {
+              "w": "プログラム",
+              "read": "プログラム",
+              "vi": "chương trình"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "有名",
+              "read": "ゆうめい",
+              "vi": "nổi tiếng"
+            },
+            {
+              "w": "バンド",
+              "read": "バンド",
+              "vi": "ban nhạc"
+            },
+            {
+              "w": "出演します",
+              "read": "しゅつえんします",
+              "vi": "biểu diễn, xuất hiện trên sân khấu"
+            },
+            {
+              "w": "チケット",
+              "read": "チケット",
+              "vi": "vé"
+            },
+            {
+              "w": "もうすぐ",
+              "read": "もうすぐ",
+              "vi": "sắp, chẳng bao lâu nữa"
+            },
+            {
+              "w": "売り切れます",
+              "read": "うりきれます",
+              "vi": "bán hết, cháy hàng"
+            },
+            {
+              "w": "三組",
+              "read": "さんくみ",
+              "vi": "ba nhóm, ba ban"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "プログラムを見ると = khi nhìn chương trình thì (kết quả tự nhiên). と = điều kiện/kết quả tất yếu."
+            },
+            {
+              "point": "〜そうだ（伝聞）/ 〜そうだ（様態）phân biệt trong một câu",
+              "vi": "出演するそうで: 出演する（Vる 普通形）＋ そうで → 伝聞 \"nghe nói sẽ biểu diễn\". 売り切れそうだった: 売り切れる → 売り切れ（Vます-stem）＋ そうだった → 様態 \"trông có vẻ sắp bán hết\". Một câu chứa CÙNG LÚC cả 伝聞 lẫn 様態 — để thấy rõ sự khác biệt 接続."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、私はすでにチケットを買っておいたのだが、今は払い戻しを待っている状態だ。",
+          "vi": "Vì vậy tôi đã mua vé trước rồi, bây giờ đang trong trạng thái chờ hoàn tiền.",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "すでに",
+              "read": "すでに",
+              "vi": "đã, trước đó"
+            },
+            {
+              "w": "チケット",
+              "read": "チケット",
+              "vi": "vé"
+            },
+            {
+              "w": "買っておいた",
+              "read": "かっておいた",
+              "vi": "đã mua sẵn"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "払い戻し",
+              "read": "はらいもどし",
+              "vi": "hoàn tiền"
+            },
+            {
+              "w": "待っている",
+              "read": "まっている",
+              "vi": "đang chờ"
+            },
+            {
+              "w": "状態",
+              "read": "じょうたい",
+              "vi": "trạng thái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておく（Bài 30）",
+              "vi": "買っておいた = đã mua từ trước (để chuẩn bị). ておく = làm trước để chuẩn bị (Bài 30)."
+            },
+            {
+              "point": "Vている状態だ（Bài 15）",
+              "vi": "待っている状態だ = đang trong trạng thái chờ. Vている = trạng thái đang diễn ra liên tục."
+            }
+          ]
+        },
+        {
+          "jp": "また、友達のマイさんから連絡があり、「フェスの代わりに、来月、別の音楽イベントがあるそうだよ」と教えてくれた。",
+          "vi": "Ngoài ra, bạn Mai liên lạc và nói \"thay vì lễ hội đó, nghe nói tháng sau có sự kiện âm nhạc khác đó\".",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "マイ",
+              "read": "マイ",
+              "vi": "tên riêng Mai"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "フェス",
+              "read": "フェス",
+              "vi": "lễ hội, liên hoan"
+            },
+            {
+              "w": "代わりに",
+              "read": "かわりに",
+              "vi": "thay vì, thay thế"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "別の",
+              "read": "べつの",
+              "vi": "khác, một loại khác"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "教えてくれた = đã chỉ cho (tôi biết). てくれる = người khác làm vì lợi ích người nói (Bài 24)."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: ある（Vる = 普通形）＋ そうだよ → 伝聞 \"nghe nói có (sự kiện)\". よ ở cuối là trợ từ thân mật, không thay đổi cấu trúc. Nguồn: 友達のマイさんから（từ bạn Mai)."
+            }
+          ]
+        },
+        {
+          "jp": "マイさんによると、その新しいイベントはもっと規模が大きくなりそうだということだ。",
+          "vi": "Theo Mai, nghe nói sự kiện mới đó có vẻ sẽ quy mô hơn.",
+          "vocab": [
+            {
+              "w": "マイ",
+              "read": "マイ",
+              "vi": "tên riêng Mai"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "規模",
+              "read": "きぼ",
+              "vi": "quy mô"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn"
+            },
+            {
+              "w": "によると",
+              "read": "によると",
+              "vi": "theo (nguồn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）＋ ということだ（伝聞）",
+              "vi": "大きくなりそうだ: 大きい → 大きくなり（変化 Vます-stem）＋ そうだ → 様態 \"trông có vẻ sẽ trở nên lớn hơn\". Sau đó: ということだ = \"(nghe nói là như vậy)\" — bọc ngoài bằng 伝聞 gián tiếp. マイさんによると gắn với ということだ."
+            }
+          ]
+        },
+        {
+          "jp": "それを聞いて、少し元気が出てきた。",
+          "vi": "Nghe vậy tôi lại có chút phấn chấn hơn.",
+          "vocab": [
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khỏe mạnh, phấn chấn"
+            },
+            {
+              "w": "出てきます",
+              "read": "でてきます",
+              "vi": "dần xuất hiện, trở lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（nguyên nhân/cảm xúc Bài 39）",
+              "vi": "聞いて = nghe và (do đó). て形 chỉ nguyên nhân dẫn đến cảm xúc (Bài 39)."
+            },
+            {
+              "point": "Vてきた（Bài 43）",
+              "vi": "出てきた = dần xuất hiện, dần trở lên. てくる diễn đạt sự thay đổi dần dần theo hướng về phía người nói (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "一方、天気の話になると、この地域の秋は変わりやすいそうで、晴れたと思ったらすぐ雨になることもあるそうだ。",
+          "vi": "Mặt khác, nói đến chuyện thời tiết, nghe nói mùa thu ở vùng này hay thay đổi, vừa thấy nắng thì trời mưa ngay.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, một mặt"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "vùng, khu vực"
+            },
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "変わりやすい",
+              "read": "かわりやすい",
+              "vi": "dễ thay đổi, hay thay đổi"
+            },
+            {
+              "w": "晴れます",
+              "read": "はれます",
+              "vi": "nắng, trời quang"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になると（Bài 23 + 19）",
+              "vi": "天気の話になると = khi chuyển sang chủ đề thời tiết. になる（変化）＋ と（điều kiện）."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 変わりやすい（Aい = 普通形）＋ そうで → 伝聞 \"nghe nói (mùa thu) hay thay đổi\". そうで ở đây nối mệnh đề (形 = Vて). Lưu ý: 変わりやすい là Aい nên そうで ở đây là 伝聞 (普通形 + そう), KHÔNG phải 様態 (様態 là: やすい → やさそう)."
+            },
+            {
+              "point": "〜たらすぐ（Bài 61 たら応用）",
+              "vi": "晴れたらすぐ雨 = vừa nắng thì ngay lập tức mưa. たら diễn đạt điều kiện tuần tự nhanh chóng."
+            }
+          ]
+        },
+        {
+          "jp": "ただ、来月の予定の週は、気象情報によると晴れが続くそうだ。",
+          "vi": "Nhưng tuần có sự kiện tháng sau, theo thông tin khí tượng nghe nói trời tiếp tục nắng.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, dự kiến"
+            },
+            {
+              "w": "週",
+              "read": "しゅう",
+              "vi": "tuần"
+            },
+            {
+              "w": "気象",
+              "read": "きしょう",
+              "vi": "khí tượng"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "晴れ",
+              "read": "はれ",
+              "vi": "trời nắng, trời quang"
+            },
+            {
+              "w": "続きます",
+              "read": "つづきます",
+              "vi": "tiếp tục, kéo dài"
+            },
+            {
+              "w": "ただ",
+              "read": "ただ",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "気象情報",
+              "read": "きしょうじょうほう",
+              "vi": "thông tin khí tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると（Bài 47）",
+              "vi": "気象情報によると = theo thông tin khí tượng. Lại là dấu hiệu 伝聞."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 続く（Vる = 普通形）＋ そうだ → 伝聞 \"nghe nói trời tiếp tục nắng\". Nguồn rõ: 気象情報によると."
+            }
+          ]
+        },
+        {
+          "jp": "また、気温も過ごしやすくなりそうだという予報が出ている。",
+          "vi": "Ngoài ra, cũng có dự báo rằng nhiệt độ có vẻ sẽ trở nên dễ chịu hơn.",
+          "vocab": [
+            {
+              "w": "気温",
+              "read": "きおん",
+              "vi": "nhiệt độ không khí"
+            },
+            {
+              "w": "過ごしやすい",
+              "read": "すごしやすい",
+              "vi": "dễ chịu, thoải mái (để sống qua)"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）— bổ nghĩa / nominalizer",
+              "vi": "接続: 過ごしやすい（Aい）→ 過ごしやすくなり（Vます-stem）＋ そうだ → 様態 \"trông có vẻ sẽ trở nên dễ chịu\". という予報が出ている bao ngoài là cách nói \"có dự báo rằng…\". Cốt lõi vẫn là 様態そうだ."
+            }
+          ]
+        },
+        {
+          "jp": "それならば、新しいイベントは屋外でも問題なさそうだ。",
+          "vi": "Nếu vậy, sự kiện mới ngoài trời cũng có vẻ không có vấn đề gì.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "屋外",
+              "read": "おくがい",
+              "vi": "ngoài trời"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "それならば",
+              "read": "それならば",
+              "vi": "nếu vậy, trong trường hợp đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 61）",
+              "vi": "それならば = nếu vậy thì. なら = giả thiết theo thông tin đã biết (Bài 61)."
+            },
+            {
+              "point": "〜なさそうだ（様態 ngoại lệ）",
+              "vi": "接続: ない → なさそうだ（ない ngoại lệ). 問題なさそうだ = \"trông có vẻ không có vấn đề gì\". Dạng: 問題（N）＋ ない → なさそう. 様態形式, đánh giá trực tiếp từ tình huống quan sát."
+            }
+          ]
+        },
+        {
+          "jp": "おかげで、来月の計画を立てるのがとても楽しみになってきた。",
+          "vi": "Nhờ vậy, việc lên kế hoạch tháng sau trở nên rất vui.",
+          "vocab": [
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "立てる",
+              "read": "たてる",
+              "vi": "dựng lên, lập nên"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "楽しみ",
+              "read": "たのしみ",
+              "vi": "niềm vui, điều mong đợi"
+            },
+            {
+              "w": "おかげで",
+              "read": "おかげで",
+              "vi": "nhờ vào, nhờ (kết quả tốt)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで（Bài 59）",
+              "vi": "おかげで = nhờ (thông tin thời tiết tốt). おかげで kết quả tích cực (Bài 59). Ôn lại."
+            },
+            {
+              "point": "Vるのが（Bài 38）",
+              "vi": "計画を立てるのが = việc lên kế hoạch (chủ ngữ). Nominalizer の."
+            }
+          ]
+        },
+        {
+          "jp": "マイさんも「今度こそ絶対に行けそう」と喜んでいた。",
+          "vi": "Mai cũng vui mừng nói \"lần này chắc chắn có vẻ đi được rồi\".",
+          "vocab": [
+            {
+              "w": "マイ",
+              "read": "マイ",
+              "vi": "tên riêng Mai"
+            },
+            {
+              "w": "今度こそ",
+              "read": "こんどこそ",
+              "vi": "lần này nhất định, lần này chắc chắn"
+            },
+            {
+              "w": "絶対に",
+              "read": "ぜったいに",
+              "vi": "nhất định, tuyệt đối"
+            },
+            {
+              "w": "行ける",
+              "read": "いける",
+              "vi": "có thể đi"
+            },
+            {
+              "w": "喜びます",
+              "read": "よろこびます",
+              "vi": "vui mừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 行ける（V可能 Vます-stem）→ 行け＋そう → 様態 \"trông có vẻ đi được\". 行けそう = \"có vẻ có thể đi được\" — đánh giá từ quan sát tình hình. Không phải 伝聞 vì Mai nói về chính mình."
+            },
+            {
+              "point": "〜と言っていた応用",
+              "vi": "「今度こそ絶対に行けそう」と喜んでいた = vui mừng nói rằng. と + V状態 diễn đạt lời nói/phản ứng (Bài 21)."
+            }
+          ]
+        },
+        {
+          "jp": "ただ、チケットはまだ発売前なので、早めに確認しておく必要がありそうだ。",
+          "vi": "Nhưng vé vẫn chưa bán nên có vẻ cần xác nhận sớm.",
+          "vocab": [
+            {
+              "w": "チケット",
+              "read": "チケット",
+              "vi": "vé"
+            },
+            {
+              "w": "発売",
+              "read": "はつばい",
+              "vi": "bày bán, phát hành"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "早めに",
+              "read": "はやめに",
+              "vi": "sớm hơn, kịp thời"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "ただ",
+              "read": "ただ",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "発売前",
+              "read": "はつばいまえ",
+              "vi": "trước khi bán ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "発売前なので = vì chưa bán. ので nêu lý do."
+            },
+            {
+              "point": "Vておく（Bài 30）",
+              "vi": "確認しておく = xác nhận trước (để chuẩn bị). ておく = làm sẵn để sẵn sàng."
+            },
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: ある（Vる Vます-stem あり）＋ そうだ → 必要がありそうだ. Sắc thái: nhìn vào tình huống (vé chưa bán, sự kiện gần) → đoán \"trông có vẻ cần\". Đây là 様態: tự mình quan sát và nhận định."
+            }
+          ]
+        },
+        {
+          "jp": "はずなのに延期になってしまったフェスの分まで、今度のイベントでは思いきり楽しもうと思っている。",
+          "vi": "Lẽ ra phải tổ chức rồi nhưng vì bị hoãn, tôi nghĩ sẽ vui chơi hết mình ở sự kiện lần này bù cho lễ hội đó.",
+          "vocab": [
+            {
+              "w": "延期",
+              "read": "えんき",
+              "vi": "hoãn lại, trì hoãn"
+            },
+            {
+              "w": "フェス",
+              "read": "フェス",
+              "vi": "lễ hội, liên hoan"
+            },
+            {
+              "w": "分",
+              "read": "ぶん",
+              "vi": "phần, suất"
+            },
+            {
+              "w": "今度",
+              "read": "こんど",
+              "vi": "lần này, hôm nào đó"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "思いきり",
+              "read": "おもいきり",
+              "vi": "hết mình, không do dự"
+            },
+            {
+              "w": "楽しむ",
+              "read": "たのしむ",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "〜の分まで",
+              "read": "のぶんまで",
+              "vi": "bù cho phần ~, tính cả phần ~"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずなのに（Bài 51 ôn lại）",
+              "vi": "はずなのに延期になってしまった = \"lẽ ra phải tổ chức, vậy mà lại bị hoãn\". Ôn Bài 51: はずだ（kỳ vọng logic）＋ なのに（nghịch kỳ vọng）= \"đáng lẽ phải… vậy mà\". Sắc thái: tiếc nuối, bất ngờ."
+            },
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "延期になってしまった = đã bị hoãn (ngoài ý muốn, tiếc). てしまう = hoàn thành với sắc thái tiếc (Bài 29)."
+            },
+            {
+              "point": "〜と思っている（Bài 21 応用）",
+              "vi": "楽しもうと思っている = đang nghĩ sẽ vui chơi. 意向形 + と思っている = dự định đang ấp ủ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "今年のフェスティバルは延期になるそうだ",
+          "label": "〜そうだ（伝聞）: 普通形 + そうだ + によると"
+        },
+        {
+          "excerpt": "騒がしくなりそうだからだそうだ",
+          "label": "Sắc thái: 様態 bên trong + 伝聞 bao ngoài"
+        },
+        {
+          "excerpt": "とても楽しそうだったからだ",
+          "label": "〜そうだ（様態）: Aい bỏ い + そうだった (quá khứ)"
+        },
+        {
+          "excerpt": "出演するそうで",
+          "label": "〜そうだ（伝聞）: 普通形 Vる + そうで"
+        },
+        {
+          "excerpt": "売り切れそうだった",
+          "label": "〜そうだ（様態）: Vます-stem + そうだった"
+        },
+        {
+          "excerpt": "問題なさそうだ",
+          "label": "Sắc thái: なさそう（様態 ngoại lệ: ない→なさそう）"
+        },
+        {
+          "excerpt": "今度こそ絶対に行けそう",
+          "label": "〜そうだ（様態）: V可能 Vます-stem + そう"
+        },
+        {
+          "excerpt": "はずなのに延期になってしまった",
+          "label": "Sắc thái: はずなのに（kỳ vọng vấp thực tế — ôn Bài 51）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「フェスティバルは延期になるそうだ」と「楽しそうだったからだ」、この二つの「そう」の違いは何ですか。",
+          "evi": [
+            1,
+            4
+          ],
+          "options": [
+            "「延期になるそうだ」は様態（見て判断）で、「楽しそうだった」は伝聞（聞いた情報）です",
+            "「延期になるそうだ」は伝聞（ウェブサイトから聞いた情報）で、「楽しそうだった」は様態（プログラムを見て判断）です",
+            "両方とも様態で、自分で観察した結果を伝えています",
+            "両方とも伝聞で、どちらも外部の情報を伝えています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là B. 「延期になるそうだ」: なる（Vる = 普通形）＋ そうだ → 伝聞「nghe nói sẽ bị hoãn». Nguồn thông tin được nêu rõ ngay trước: 「主催者のウェブサイトによると」— người viết nhận tin từ website ban tổ chức, không tự mắt thấy. 「楽しそうだったからだ」: 楽しい → 楽し（bỏ い）＋ そうだった → 様態 quá khứ「trông có vẻ rất vui». Căn cứ là 「プログラムを見ると…」— người viết NHÌN chương trình mà tự đánh giá. Phương án A đảo ngược hoàn toàn. Phương án C sai vì 「延期になるそうだ」là 伝聞, không phải 様態. Phương án D sai vì 「楽しそうだった」là 様態, người viết tự nhận xét qua chương trình, không nghe từ ai.",
+          "tip": "「〜によると」ngay trước そうだ = dấu hiệu 100% là 伝聞. Còn そうだった（quá khứ）đi sau Aい bỏ い hoặc Vます-stem = 様態 quá khứ — bản chất không thay đổi dù ở thì nào.",
+          "qt": {
+            "q": "「フェスティバルは延期になるそうだ」(nghe nói lễ hội sẽ bị hoãn) và 「楽しそうだったからだ」(vì trông có vẻ rất vui), sự khác nhau giữa hai cách dùng 「そう」 này là gì?",
+            "o": [
+              "「延期になるそうだ」 là cách diễn tả vẻ ngoài (đánh giá qua quan sát), còn 「楽しそうだった」 là thông tin nghe được (truyền đạt điều đã nghe).",
+              "「延期になるそうだ」 là thông tin nghe được (thông tin nghe từ trang web), còn 「楽しそうだった」 là cách diễn tả vẻ ngoài (đánh giá sau khi xem chương trình).",
+              "Cả hai đều diễn tả vẻ ngoài và truyền đạt kết quả tự mình quan sát.",
+              "Cả hai đều là thông tin nghe được và truyền đạt thông tin từ bên ngoài."
+            ]
+          }
+        },
+        {
+          "q": "「騒がしくなりそうだからだそうだ」という文に、そうだはいくつ含まれていますか。また、それぞれどちらですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "一つのそうだ（伝聞）だけです",
+            "一つのそうだ（様態）だけです",
+            "二つ：「騒がしくなりそうだ」は様態、「〜からだそうだ」は伝聞です",
+            "二つ：両方とも伝聞です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C. Câu「騒がしくなりそうだからだそうだ」chứa ĐỒNG THỜI hai そうだ khác loại. そうだ đầu tiên:「騒がしくなりそうだ」— 騒がしい（Aい）→ 騒がし（bỏ い）くなり（Vます-stem）＋ そうだ → 様態「trông có vẻ sẽ trở nên ồn ào» — đây là nhận định về trạng thái SẮP xảy ra tại địa điểm. そうだ thứ hai:「からだそうだ」— から + だ（だ = 普通形 của だ）＋ そうだ → 伝聞「nghe nói lý do là vậy» — bọc toàn bộ câu lý do này trong thông tin nghe từ ウェブサイト. Phương án A và B đều chỉ thấy một trong hai. Phương án D sai vì そうだ đầu tiên là 様態 chứ không phải 伝聞.",
+          "tip": "Một câu có thể chứa CẢ HAI そうだ — 様態 bên trong mô tả trạng thái, 伝聞 bao ngoài truyền đạt nguồn tin. Khi thấy 〜そうだからだそうだ → đây là cấu trúc lồng: 様態 + 伝聞.",
+          "qt": {
+            "q": "Trong câu 「騒がしくなりそうだからだそうだ」 (nghe nói là vì có vẻ sẽ trở nên rất ồn ào), có bao nhiêu 「そうだ」? Mỗi cách dùng thuộc loại nào?",
+            "o": [
+              "Chỉ có một 「そうだ」, thuộc loại thông tin nghe được.",
+              "Chỉ có một 「そうだ」, thuộc loại diễn tả vẻ ngoài.",
+              "Có hai: 「騒がしくなりそうだ」 diễn tả vẻ ngoài, còn 「〜からだそうだ」 là thông tin nghe được.",
+              "Có hai: cả hai đều là thông tin nghe được."
+            ]
+          }
+        },
+        {
+          "q": "筆者が「問題なさそうだ」と判断した根拠は何ですか。",
+          "evi": [
+            11,
+            12
+          ],
+          "options": [
+            "主催者から「屋外でも大丈夫」という連絡があったからです",
+            "マイさんが「問題ない」と言ったからです",
+            "気象情報によると来月の予定週は晴れが続き、気温も過ごしやすくなりそうだからです",
+            "フェスが延期になったので、天気に関係なく問題ないからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C. Người viết kết luận「問題なさそうだ」dựa trên hai căn cứ ngay trước đó: ①「気象情報によると晴れが続くそうだ」— nghe từ thông tin khí tượng (伝聞) rằng trời sẽ tiếp tục nắng; ②「気温も過ごしやすくなりそうだ」— dự đoán nhiệt độ sẽ dễ chịu (様態). Liên từ「それならば」nối thẳng sang kết luận. Phương án A sai vì không có đoạn nào trong bài nói ban tổ chức liên lạc về \"屋外でも大丈夫\". Phương án B sai vì Mai chỉ nói về sự kiện mới có quy mô lớn hơn, không nói \"問題ない\". Phương án D hoàn toàn bịa đặt — việc lễ hội bị hoãn không liên quan đến nhận định thời tiết.",
+          "tip": "Câu hỏi \"căn cứ của kết luận\" → tìm それならば/だから ngay trước câu kết luận rồi đọc ngược lên 1-2 câu để tìm chứng cứ thực tế trong bài. Đáp án phải được nêu TƯỜNG MINH trong bài, không suy diễn thêm.",
+          "qt": {
+            "q": "Căn cứ nào khiến người viết nhận định 「問題なさそうだ」 (có vẻ không thành vấn đề)?",
+            "o": [
+              "Vì ban tổ chức đã liên lạc và nói rằng 「屋外でも大丈夫」 (ở ngoài trời cũng không sao).",
+              "Vì Mai nói 「問題ない」 (không vấn đề gì).",
+              "Theo thông tin thời tiết, trời sẽ tiếp tục nắng trong tuần dự kiến vào tháng sau và nhiệt độ có vẻ sẽ dễ chịu.",
+              "Vì lễ hội đã bị hoãn nên không có vấn đề gì, bất kể thời tiết."
+            ]
+          }
+        },
+        {
+          "q": "「今度こそ絶対に行けそう」でマイさんが使った「そう」はなぜ様態（伝聞ではない）ですか。",
+          "evi": [
+            15
+          ],
+          "options": [
+            "行けるは動詞なので、動詞は全部様態になるからです",
+            "マイさんが自分自身の予測・判断を言っていて、外部の情報源から聞いたわけではないからです",
+            "よと言ったから伝聞にならないからです",
+            "伝聞は必ずによるとが必要だからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là B. 「行けそう」: 行ける（V可能形 → Vます-stem 行け）＋ そう → 様態「có vẻ có thể đi được». Mai đang nói về đánh giá của CHÍNH MÌNH về tình huống của bản thân — không dẫn lại thông tin từ nguồn bên ngoài nào. Đây là 様態 vì: người phát ngôn tự quan sát/cảm nhận và đưa ra nhận định. Phương án A sai: không phải \"động từ thì tự động là 様態\" — nếu 普通形（Vる）đứng trước そうだ thì vẫn là 伝聞; 様態 yêu cầu đúng Vます-stem. Phương án C sai: よ chỉ là trợ từ thân mật cuối câu, không liên quan đến việc phân biệt 様態/伝聞. Phương án D sai: によると không bắt buộc — 伝聞 là về NGUỒN THÔNG TIN bên ngoài, không nhất thiết phải có によると.",
+          "tip": "様態 = người nói TỰ NHÌN/CẢM NHẬN rồi đoán (về mình hoặc xung quanh). 伝聞 = người nói TRUYỀN LẠI thông tin nghe được từ người/nguồn khác. Nếu câu nói là đánh giá về chính bản thân người nói hay tình huống trước mắt → 様態, dù không có によると.",
+          "qt": {
+            "q": "Vì sao 「そう」 mà Mai dùng trong 「今度こそ絶対に行けそう」 (lần này nhất định có vẻ sẽ đi được) là cách diễn tả vẻ ngoài, chứ không phải thông tin nghe được?",
+            "o": [
+              "Vì 行ける là động từ, mà tất cả động từ đều diễn tả vẻ ngoài.",
+              "Vì Mai đang nói lên dự đoán và nhận định của chính mình, chứ không phải điều cô ấy nghe từ một nguồn bên ngoài.",
+              "Vì cô ấy đã nói よ nên không phải là thông tin nghe được.",
+              "Vì cách diễn tả thông tin nghe được luôn cần có によると."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら市の週末イベント案内",
+      "titleVi": "Bản tin sự kiện cuối tuần thành phố Sakura",
+      "japanese": "さくら市　週末アウトドアイベント情報（10月）\nさくら市では、天気予報を確認しながら参加できる週末イベントを三つご案内します。雨が降りそうな場合は開催内容が変わることがありますので、ご予約の前に必ずお読みください。\nイベント｜日程｜場所｜料金\n青空マーケット｜10/12（土）｜中央広場｜大人500円　子ども無料\n湖畔ハイキング｜10/13（日）｜さくら湖畔｜大人1,200円　子ども700円\n星空観察会｜10/19（土）｜西山展望台｜大人1,500円　子ども900円\n天気予報によると、10/12は晴れるそうですが、10/13は午後から雨が降りそうです。\n※湖畔ハイキングは、雨が降りそうな場合、前日の18時までに中止を市のウェブサイトでお知らせします。\n※3名以上のグループでお申し込みの場合、お一人につき100円割引になります。\n※星空観察会は、天気予報で曇りか雨だそうな日は、翌週の同じ曜日に延期になります。双眼鏡は各自ご用意ください。\nなお、湖畔ハイキングは足元が悪くなりそうなので、雨具と履きなれた靴でご参加ください。\nお申し込み・お問い合わせ：さくら市イベント案内係（電話：042-555-8181、平日9時〜17時）",
+      "vietnamese": "Thành phố Sakura — Thông tin sự kiện ngoài trời cuối tuần (tháng 10)\nThành phố Sakura xin giới thiệu ba sự kiện cuối tuần mà quý vị có thể tham gia trong khi theo dõi dự báo thời tiết. Nếu trời có vẻ sắp mưa, nội dung tổ chức có thể thay đổi, vì vậy xin hãy đọc kỹ trước khi đặt chỗ.\nSự kiện｜Ngày｜Địa điểm｜Phí\nChợ trời ngoài trời｜12/10 (Thứ Bảy)｜Quảng trường trung tâm｜Người lớn 500 yên, trẻ em miễn phí\nĐi bộ đường dài quanh hồ｜13/10 (Chủ Nhật)｜Bờ hồ Sakura｜Người lớn 1.200 yên, trẻ em 700 yên\nBuổi ngắm sao｜19/10 (Thứ Bảy)｜Đài quan sát núi Tây｜Người lớn 1.500 yên, trẻ em 900 yên\nTheo dự báo thời tiết, nghe nói ngày 12/10 sẽ nắng, nhưng ngày 13/10 có vẻ sẽ mưa từ chiều.\n※ Với đi bộ đường dài quanh hồ, nếu trời có vẻ sắp mưa, sẽ thông báo hủy trên website thành phố trước 18 giờ ngày hôm trước.\n※ Nếu đăng ký theo nhóm từ 3 người trở lên, mỗi người được giảm 100 yên.\n※ Với buổi ngắm sao, nếu dự báo thời tiết cho hôm đó nghe nói là nhiều mây hoặc mưa, sẽ hoãn sang cùng thứ của tuần sau. Xin tự chuẩn bị ống nhòm.\nNgoài ra, vì đi bộ đường dài quanh hồ có vẻ sẽ khiến đường đi trơn trượt, xin hãy tham gia với áo mưa và giày đã đi quen.\nĐăng ký và liên hệ: Ban hướng dẫn sự kiện thành phố Sakura (điện thoại: 042-555-8181, ngày thường 9 giờ〜17 giờ)",
+      "sentences": [
+        {
+          "jp": "さくら市　週末アウトドアイベント情報（10月）",
+          "vi": "Thành phố Sakura — Thông tin sự kiện ngoài trời cuối tuần (tháng 10).",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "アウトドア",
+              "read": "アウトドア",
+              "vi": "ngoài trời"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            }
+          ],
+          "keys": [
+            {
+              "w": "週末アウトドアイベント情報",
+              "why": "Tiêu đề bản tin — xác định chủ đề toàn bài là các sự kiện ngoài trời cuối tuần."
+            }
+          ]
+        },
+        {
+          "jp": "さくら市では、天気予報を確認しながら参加できる週末イベントを三つご案内します。雨が降りそうな場合は開催内容が変わることがありますので、ご予約の前に必ずお読みください。",
+          "vi": "Thành phố Sakura xin giới thiệu ba sự kiện cuối tuần mà quý vị có thể tham gia trong khi theo dõi dự báo thời tiết. Nếu trời có vẻ sắp mưa, nội dung tổ chức có thể thay đổi, vì vậy xin hãy đọc kỹ trước khi đặt chỗ.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba (cái)"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降りる",
+              "read": "おりる",
+              "vi": "xuống (xe, tàu)"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "開催",
+              "read": "かいさい",
+              "vi": "tổ chức (sự kiện)"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "天気予報",
+              "read": "てんきよほう",
+              "vi": "dự báo thời tiết"
+            },
+            {
+              "w": "ご案内します",
+              "read": "ごあんないします",
+              "vi": "xin giới thiệu, xin hướng dẫn (khiêm nhường)"
+            },
+            {
+              "w": "開催内容",
+              "read": "かいさいないよう",
+              "vi": "nội dung tổ chức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 降る（Vます-stem 降り）＋ そう → 雨が降りそうな場合 = \"nếu trời có vẻ sắp mưa\". 様態 vì đây là cảnh báo chung dựa trên quan sát bầu trời, chưa xảy ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "天気予報を確認しながら",
+              "why": "Cho biết bảng sự kiện có thể thay đổi theo dự báo thời tiết — căn cứ để trả lời các câu hỏi liên quan đến hoãn/hủy."
+            },
+            {
+              "w": "雨が降りそうな場合は開催内容が変わる",
+              "why": "Điều kiện tổng quát: trời có vẻ mưa → nội dung tổ chức thay đổi, là tiền đề cho các dòng ※ chi tiết phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "イベント｜日程｜場所｜料金",
+          "vi": "Sự kiện | Ngày | Địa điểm | Phí.",
+          "vocab": [
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "日程",
+              "read": "にってい",
+              "vi": "lịch trình, ngày"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, cước phí"
+            }
+          ],
+          "keys": [
+            {
+              "w": "料金",
+              "why": "Tiêu đề cột giá — cột này cần dò khi tính tiền cho câu hỏi ghép điều kiện."
+            }
+          ]
+        },
+        {
+          "jp": "青空マーケット｜10/12（土）｜中央広場｜大人500円　子ども無料",
+          "vi": "Chợ trời ngoài trời | 12/10 (Thứ Bảy) | Quảng trường trung tâm | Người lớn 500 yên, trẻ em miễn phí.",
+          "vocab": [
+            {
+              "w": "青空マーケット",
+              "read": "あおぞらマーケット",
+              "vi": "chợ trời (chợ ngoài trời)"
+            },
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "中央",
+              "read": "ちゅうおう",
+              "vi": "trung tâm, trung ương"
+            },
+            {
+              "w": "広場",
+              "read": "ひろば",
+              "vi": "quảng trường"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "中央広場",
+              "read": "ちゅうおうひろば",
+              "vi": "quảng trường trung tâm"
+            }
+          ],
+          "keys": [
+            {
+              "w": "10/12（土）",
+              "why": "Ngày tổ chức chợ trời — dùng để đối chiếu dòng dự báo thời tiết 10/12 晴れる."
+            }
+          ]
+        },
+        {
+          "jp": "湖畔ハイキング｜10/13（日）｜さくら湖畔｜大人1,200円　子ども700円",
+          "vi": "Đi bộ đường dài quanh hồ | 13/10 (Chủ Nhật) | Bờ hồ Sakura | Người lớn 1.200 yên, trẻ em 700 yên.",
+          "vocab": [
+            {
+              "w": "湖畔",
+              "read": "こはん",
+              "vi": "bờ hồ"
+            },
+            {
+              "w": "ハイキング",
+              "read": "ハイキング",
+              "vi": "đi bộ đường dài"
+            },
+            {
+              "w": "10/13",
+              "read": "じゅうがつじゅうさんにち",
+              "vi": "ngày 13 tháng 10"
+            },
+            {
+              "w": "日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "1,200円",
+              "read": "せんにひゃくえん",
+              "vi": "1.200 yên"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "700円",
+              "read": "ななひゃくえん",
+              "vi": "700 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "大人1,200円",
+              "why": "Giá vé người lớn của hiking — con số gốc để tính giảm giá nhóm ≥3 người ở câu hỏi ghép điều kiện."
+            },
+            {
+              "w": "10/13（日）",
+              "why": "Ngày tổ chức hiking — trùng với ngày dự báo có mưa buổi chiều."
+            }
+          ]
+        },
+        {
+          "jp": "星空観察会｜10/19（土）｜西山展望台｜大人1,500円　子ども900円",
+          "vi": "Buổi ngắm sao | 19/10 (Thứ Bảy) | Đài quan sát núi Tây | Người lớn 1.500 yên, trẻ em 900 yên.",
+          "vocab": [
+            {
+              "w": "星空",
+              "read": "ほしぞら",
+              "vi": "bầu trời sao"
+            },
+            {
+              "w": "観察",
+              "read": "かんさつ",
+              "vi": "quan sát, ngắm"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "西山",
+              "read": "にしやま",
+              "vi": "tên riêng Nishiyama"
+            },
+            {
+              "w": "展望",
+              "read": "てんぼう",
+              "vi": "triển vọng, tầm nhìn"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "星空観察会",
+              "read": "ほしぞらかんさつかい",
+              "vi": "buổi ngắm sao"
+            },
+            {
+              "w": "展望台",
+              "read": "てんぼうだい",
+              "vi": "đài quan sát, đài ngắm cảnh"
+            }
+          ],
+          "keys": [
+            {
+              "w": "10/19（土）",
+              "why": "Ngày tổ chức ngắm sao — dùng khi xét điều kiện hoãn sự kiện theo dự báo mây/mưa."
+            }
+          ]
+        },
+        {
+          "jp": "天気予報によると、10/12は晴れるそうですが、10/13は午後から雨が降りそうです。",
+          "vi": "Theo dự báo thời tiết, nghe nói ngày 12/10 sẽ nắng, nhưng ngày 13/10 có vẻ sẽ mưa từ chiều.",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "晴れます",
+              "read": "はれます",
+              "vi": "trời nắng, trời quang"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降りる",
+              "read": "おりる",
+              "vi": "xuống (xe, tàu)"
+            },
+            {
+              "w": "によると",
+              "read": "によると",
+              "vi": "theo (nguồn thông tin)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 晴れる（Vる = 普通形）＋ そうです → 伝聞 \"nghe nói sẽ nắng\". Nguồn rõ: 天気予報によると. Đây là ví dụ chuẩn 伝聞そうだ target của bài."
+            },
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 降る（Vます-stem 降り）＋ そうです → 雨が降りそうです = \"trông có vẻ sắp mưa\". Câu này đặt CẢNH TRỰC TIẾP 様態 (dự đoán mưa từ tình hình chiều) SÁT bên 伝聞 (nghe nói nắng) để đối chiếu 2 loại そう trong cùng câu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "10/12は晴れるそうです",
+              "why": "Dự báo cho ngày chợ trời (10/12) — nắng, nên chợ trời không bị ảnh hưởng bởi điều khoản mưa."
+            },
+            {
+              "w": "10/13は午後から雨が降りそうです",
+              "why": "Dự báo cho ngày hiking (10/13) — có mưa chiều, là căn cứ kích hoạt điều khoản hủy hiking ở dòng ※ tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "※湖畔ハイキングは、雨が降りそうな場合、前日の18時までに中止を市のウェブサイトでお知らせします。",
+          "vi": "※ Với đi bộ đường dài quanh hồ, nếu trời có vẻ sắp mưa, sẽ thông báo hủy trên website thành phố trước 18 giờ ngày hôm trước.",
+          "vocab": [
+            {
+              "w": "湖畔",
+              "read": "こはん",
+              "vi": "bờ hồ"
+            },
+            {
+              "w": "ハイキング",
+              "read": "ハイキング",
+              "vi": "leo núi, đi bộ đường dài"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降りる",
+              "read": "おりる",
+              "vi": "xuống (xe, tàu)"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "中止",
+              "read": "ちゅうし",
+              "vi": "hủy, dừng lại"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "ウェブサイト",
+              "read": "ウェブサイト",
+              "vi": "website"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 降る（Vます-stem 降り）＋ そう → 雨が降りそうな場合 = \"trường hợp trời có vẻ sắp mưa\". 様態 lặp lại lần 2, nhấn điều kiện kích hoạt hủy sự kiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "雨が降りそうな場合",
+              "why": "Điều kiện kích hoạt việc hủy hiking — khớp với dự báo mưa chiều 10/13 ở dòng trên."
+            },
+            {
+              "w": "前日の18時までに",
+              "why": "Mốc thời gian thông báo hủy — dễ nhầm với giờ tổ chức sự kiện, cần phân biệt khi trả lời câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "※3名以上のグループでお申し込みの場合、お一人につき100円割引になります。",
+          "vi": "※ Nếu đăng ký theo nhóm từ 3 người trở lên, mỗi người được giảm 100 yên.",
+          "vocab": [
+            {
+              "w": "3名",
+              "read": "さんめい",
+              "vi": "3 người"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "お一人",
+              "read": "おひとり",
+              "vi": "mỗi người"
+            },
+            {
+              "w": "100円",
+              "read": "ひゃくえん",
+              "vi": "100 yên"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành, được áp dụng"
+            }
+          ],
+          "keys": [
+            {
+              "w": "3名以上のグループでお申し込みの場合、お一人につき100円割引",
+              "why": "Điều kiện giảm giá theo số người trong nhóm — bắt buộc phải ghép với giá gốc từng sự kiện để tính tổng phí."
+            }
+          ]
+        },
+        {
+          "jp": "※星空観察会は、天気予報で曇りか雨だそうな日は、翌週の同じ曜日に延期になります。双眼鏡は各自ご用意ください。",
+          "vi": "※ Với buổi ngắm sao, nếu dự báo thời tiết cho hôm đó nghe nói là nhiều mây hoặc mưa, sẽ hoãn sang cùng thứ của tuần sau. Xin tự chuẩn bị ống nhòm.",
+          "vocab": [
+            {
+              "w": "星空",
+              "read": "ほしぞら",
+              "vi": "bầu trời sao"
+            },
+            {
+              "w": "観察",
+              "read": "かんさつ",
+              "vi": "quan sát, ngắm"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "曇り",
+              "read": "くもり",
+              "vi": "nhiều mây, âm u"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "翌週",
+              "read": "よくしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "延期",
+              "read": "えんき",
+              "vi": "hoãn lại"
+            },
+            {
+              "w": "双眼鏡",
+              "read": "そうがんきょう",
+              "vi": "ống nhòm"
+            },
+            {
+              "w": "各自",
+              "read": "かくじ",
+              "vi": "mỗi người, từng hộ"
+            },
+            {
+              "w": "用意",
+              "read": "ようい",
+              "vi": "sự chuẩn bị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 曇りか雨だ（N＋だ = 普通形）＋ そうな＋日 → 伝聞 bổ nghĩa danh từ \"ngày mà nghe nói là nhiều mây hoặc mưa\". Nguồn: 天気予報で. So sánh với 様態そうな dùng cho おいしそうな料理 ở bài đọc dài — cùng cấu trúc そうな＋N nhưng loại そう khác nhau tùy 接続 trước đó."
+            }
+          ],
+          "keys": [
+            {
+              "w": "曇りか雨だそうな日は、翌週の同じ曜日に延期",
+              "why": "Điều kiện hoãn ngắm sao — khác hiking (hủy hẳn), đây là DỜI sang tuần sau cùng thứ, cần phân biệt kỹ khi trả lời."
+            }
+          ]
+        },
+        {
+          "jp": "なお、湖畔ハイキングは足元が悪くなりそうなので、雨具と履きなれた靴でご参加ください。",
+          "vi": "Ngoài ra, vì đi bộ đường dài quanh hồ có vẻ sẽ khiến đường đi trơn trượt, xin hãy tham gia với áo mưa và giày đã đi quen.",
+          "vocab": [
+            {
+              "w": "湖畔",
+              "read": "こはん",
+              "vi": "bờ hồ"
+            },
+            {
+              "w": "ハイキング",
+              "read": "ハイキング",
+              "vi": "leo núi, đi bộ đường dài"
+            },
+            {
+              "w": "足元",
+              "read": "あしもと",
+              "vi": "dưới chân, đường đi"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "雨具",
+              "read": "あまぐ",
+              "vi": "đồ đi mưa, áo mưa"
+            },
+            {
+              "w": "履きなれた",
+              "read": "はきなれた",
+              "vi": "đã đi quen (giày)"
+            },
+            {
+              "w": "なれる",
+              "read": "なれる",
+              "vi": "có thể trở thành, quen"
+            },
+            {
+              "w": "靴",
+              "read": "くつ",
+              "vi": "giày"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "なお",
+              "read": "なお",
+              "vi": "ngoài ra, thêm nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39 ôn lại）",
+              "vi": "悪くなりそうなので = vì trông có vẻ sẽ trở nên xấu đi, nên. ので nêu lý do (Bài 39)."
+            },
+            {
+              "point": "〜そうだ（様態）",
+              "vi": "接続: 悪い（Aい）→ 悪くなり（変化 Vます-stem）＋ そう → 様態 \"trông có vẻ sẽ trở nên trơn trượt\". Lần thứ 3 xuất hiện 様態そう trong bài, đều là dự đoán từ quan sát tình hình mưa."
+            }
+          ],
+          "keys": [
+            {
+              "w": "足元が悪くなりそうなので",
+              "why": "Lý do khuyên mang giày và áo mưa — không phải điều kiện hủy/giảm giá, dễ gây nhiễu nếu đọc lướt."
+            }
+          ]
+        },
+        {
+          "jp": "お申し込み・お問い合わせ：さくら市イベント案内係（電話：042-555-8181、平日9時〜17時）",
+          "vi": "Đăng ký và liên hệ: Ban hướng dẫn sự kiện thành phố Sakura (điện thoại: 042-555-8181, ngày thường 9 giờ〜17 giờ).",
+          "vocab": [
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "案内係",
+              "read": "あんないがかり",
+              "vi": "nhân viên hướng dẫn"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日9時〜17時",
+              "why": "Giờ liên hệ hành chính — dễ bị dùng làm nhiễu nếu câu hỏi hỏi về giờ tổ chức sự kiện."
+            }
+          ]
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu chung",
+          "topic": 0,
+          "note": "Nêu chủ đề bản tin và điều kiện chung: nội dung có thể đổi theo thời tiết.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng 3 sự kiện",
+          "topic": 2,
+          "note": "Bảng giá/ngày/nơi của 3 sự kiện — nguồn số liệu chính để tính phí và xác định ngày (kể cả thứ trong tuần của 10/19 dùng cho câu hỏi hoãn ngắm sao).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 6,
+          "kind": "point",
+          "label": "Dự báo thời tiết 10/12 & 10/13",
+          "topic": 6,
+          "note": "Câu chốt đối chiếu 伝聞（晴れるそうです）với 様態（雨が降りそうです）— căn cứ trực tiếp kích hoạt điều khoản hủy hiking.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "turn",
+          "label": "Ba dòng ※ điều kiện đặc biệt",
+          "topic": 7,
+          "note": "Bẫy chính: 3 điều kiện khác nhau (hủy hiking / giảm giá nhóm / hoãn ngắm sao) dễ nhầm lẫn nếu không đọc kỹ từng dòng ※.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "body",
+          "label": "Lưu ý trang bị & liên hệ",
+          "topic": 11,
+          "note": "Thông tin phụ (giày, áo mưa, số điện thoại) — không phải căn cứ tính phí, dùng để loại nhiễu.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さん家族（大人4人）は、10月13日の湖畔ハイキングに申し込みます。天気予報どおりに開催された場合、全部でいくら払いますか。",
+          "options": [
+            "4,000円",
+            "4,400円",
+            "4,800円",
+            "5,200円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 4,400円. Giá gốc hiking cho người lớn là 1,200円/người (dòng 5 湖畔ハイキング｜…｜大人1,200円). Nhóm 4 người ≥ 3 người nên được giảm 100円/người (dòng 8 ※3名以上のグループ…お一人につき100円割引): 1,200－100＝1,100円/người × 4 người＝4,400円. Phương án A (4,000円) là kết quả nếu quên tính 4 người mà chỉ trừ giá gốc 1 lần. Phương án C (4,800円) là kết quả nếu quên áp dụng giảm giá nhóm (1,200×4). Phương án D (5,200円) sai vì cộng nhầm thay vì trừ giảm giá.",
+          "tip": "Câu hỏi ghép 2 điều kiện: (1) đối chiếu bảng giá đúng sự kiện + đúng đối tượng (đại人), (2) áp dụng đúng dòng ※ giảm giá theo số người trong nhóm. Luôn kiểm tra ĐIỀU KIỆN của dòng ※ (ở đây là \"3名以上\") có khớp với tình huống không rồi mới nhân giá.",
+          "evi": [
+            4,
+            8
+          ],
+          "qt": {
+            "q": "Gia đình anh Tanaka (4 người lớn) đăng ký chuyến đi bộ đường dài ven hồ vào ngày 13 tháng 10. Nếu sự kiện được tổ chức như dự báo thời tiết, tổng cộng họ phải trả bao nhiêu?",
+            "o": [
+              "4.000 yên",
+              "4.400 yên",
+              "4.800 yên",
+              "5.200 yên"
+            ]
+          }
+        },
+        {
+          "q": "10月19日の星空観察会に申し込んだ人が、その日の天気予報で「曇りだそうだ」と知った場合、どうなりますか。",
+          "options": [
+            "イベントは中止になり、料金は全額返金されます",
+            "予定どおり西山展望台で開催されます",
+            "翌週の土曜日に延期になります",
+            "前日の18時までにウェブサイトで中止が知らされます"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là \"翌週の土曜日に延期になります\". Dòng bảng nêu 星空観察会｜10/19（土）— 10/19 là Thứ Bảy. Dòng ※ về 星空観察会 nêu rõ: 「天気予報で曇りか雨だそうな日は、翌週の同じ曜日に延期になります」— vì vậy sẽ hoãn sang Thứ Bảy tuần sau (翌週の同じ曜日 = 土曜日). Phương án A sai vì bài không nói ngắm sao bị HỦY hẳn hay hoàn tiền — đó là quy định riêng của hiking (bị hủy, không phải hoãn). Phương án B sai vì điều kiện \"曇りだそうだ\" đã kích hoạt việc hoãn theo đúng dòng ※. Phương án D là quy định của 湖畔ハイキング (thông báo qua website trước 18h ngày hôm trước), không áp dụng cho 星空観察会 — đây là bẫy nhầm lẫn 2 điều khoản ※ khác nhau.",
+          "tip": "Ba dòng ※ trong bài áp dụng cho BA sự kiện khác nhau với cách xử lý KHÁC nhau (hiking = hủy + thông báo web; nhóm = giảm giá; ngắm sao = hoãn sang tuần sau). Luôn xác định câu hỏi đang hỏi về sự kiện nào trước khi chọn dòng ※ tương ứng.",
+          "evi": [
+            5,
+            9
+          ],
+          "qt": {
+            "q": "Nếu một người đã đăng ký buổi ngắm sao ngày 19 tháng 10 biết được từ dự báo thời tiết hôm đó rằng 「曇りだそうだ」(nghe nói trời nhiều mây), thì chuyện gì sẽ xảy ra?",
+            "o": [
+              "Sự kiện sẽ bị hủy và toàn bộ phí sẽ được hoàn lại",
+              "Sự kiện sẽ được tổ chức theo lịch tại đài quan sát Nishiyama",
+              "Sự kiện sẽ được hoãn đến thứ Bảy tuần sau",
+              "Việc hủy sự kiện sẽ được thông báo trên trang web trước 18 giờ ngày hôm trước"
+            ]
+          }
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "晴れるそうですが",
+          "label": "〜そうだ（伝聞）: 普通形＋そうです、nguồn によると"
+        },
+        {
+          "excerpt": "雨が降りそうです",
+          "label": "〜そうだ（様態）: Vます-stem＋そう、quan sát tình hình"
+        },
+        {
+          "excerpt": "曇りか雨だそうな日",
+          "label": "〜そうな＋N（伝聞）: 普通形（N＋だ）＋そうな bổ nghĩa danh từ"
+        },
+        {
+          "excerpt": "3名以上のグループ",
+          "label": "Sắc thái: điều kiện giảm giá theo số người (ôn lại kỹ năng dò bảng)"
+        }
+      ]
+    }
+  ]
+}

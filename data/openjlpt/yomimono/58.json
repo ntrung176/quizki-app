@@ -1,0 +1,3619 @@
+{
+  "bai": 58,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 58 luyện hai mẫu diễn đạt sắc thái rất khác nhau: 〜たびに (\"mỗi lần A là đều B\" — sự lặp lại đều đặn, luôn xảy ra kết quả đó) và 〜まま (\"giữ nguyên trạng thái X rồi làm/để Y mà không thay đổi trạng thái đó\"). たびに ≠ と/ば (không phải điều kiện nhân quả — たびに nhấn lặp đi lặp lại đều đặn, không diễn đạt quy luật tự nhiên hay logic đơn giản). まま nhấn \"không có sự thay đổi\" giữa trạng thái X và hành động Y (靴をはいたまま部屋に入った = đi giày vào phòng mà không cởi ra). Đọc hiểu: phân biệt たびに (lặp lại theo thời gian) với まま (trạng thái không đổi kèm hành động/tình huống).",
+    "steps": [
+      "接続 〜たびに: Vる/Nの ＋ たびに。Chủ thể lặp lại hành động A, mỗi lần đều xảy ra B. Ví dụ: この曲を聞くたびに昔を思い出す。",
+      "接続 〜まま: Vた/Vない/Aい/なAな/Nの ＋ まま。Chú ý: động từ hành động dùng Vた＋まま (trạng thái đã làm rồi giữ nguyên), động từ trạng thái dùng Vている＋まま. Ví dụ: 電気をつけたまま寝た; 靴をはいたまま入る; 昔のまま。",
+      "Phân biệt たびに với と/ば: と/ば diễn đạt điều kiện → kết quả (nguyên nhân-kết quả logic). たびに nhấn vào SỰ LẶP LẠI đều đặn theo thói quen/cảm xúc. \"この歌を聞くたびに泣く\" (mỗi lần nghe đều khóc) ≠ \"この歌を聞くと泣く\" (nghe thì khóc, logic đơn giản).",
+      "Phân biệt まま với てから/あとで: まま = trạng thái X KHÔNG ĐỔI khi làm Y; てから/あとで = làm A xong rồi mới làm B (tuần tự). \"コートを着たまま話す\" (nói chuyện mà không cởi áo khoác) ≠ \"コートを脱いでから話す\" (cởi áo khoác xong mới nói)。",
+      "Câu hỏi suy luận: \"Vì sao tác giả dùng たびに chứ không dùng と?\" → tìm yếu tố LẶP LẠI ĐỀU ĐẶN trong bài. \"まま ở đây nhấn điều gì?\" → tìm trạng thái không thay đổi。",
+      "Ôn lại: うちに (B55 — tranh thủ khi còn), とたん (B57 — vừa xong liền ngay), てしまう (B29 — hoàn thành tiếc nuối) thường xuất hiện cùng chủ đề thói quen/kỷ niệm."
+    ],
+    "tips": [
+      "使い分け 1 — たびに vs と: 「試合を見るたびに緊張する」(mỗi lần xem đều hồi hộp — lặp đi lặp lại đều đặn, cảm xúc) ≠ 「試合を見ると緊張する」(kết quả tất yếu khi xem — điều kiện-kết quả tự nhiên). Dùng たびに khi nhấn mạnh thói quen cảm xúc lặp đi lặp lại。",
+      "使い分け 2 — まま vs てから: 「靴をはいたまま家に入った」(vào nhà mà không cởi giày — trạng thái không đổi) ≠ 「靴を脱いでから家に入った」(cởi giày xong rồi mới vào). まま = cùng trạng thái, không thay đổi; てから = đổi sang trạng thái khác rồi làm tiếp。",
+      "Dấu hiệu nhận たびに trong câu hỏi đọc hiểu: cụm \"〜する/するたびに〜\" — hỏi lý do lặp lại, cảm xúc mỗi lần, hoặc so sánh với điều kiện と/ば。",
+      "Dấu hiệu nhận まま: cụm \"〜たまま/〜ないまま/〜のまま＋hành động hoặc trạng thái\" — hỏi \"trạng thái nào được giữ nguyên?\" hoặc \"điều gì không thay đổi?\"。",
+      "まま có thể dùng độc lập (昔のまま = vẫn như xưa) hay kèm hành động (寝たまま = trong khi nằm, không ngồi dậy). Cả hai nhấn \"không có gì thay đổi\"。"
+    ],
+    "grammarFocus": [
+      "〜たびに（Vる/Nの＋たびに）— \"mỗi lần A là đều B\", lặp lại đều đặn",
+      "〜まま（Vた/Vない/Aい/なAな/Nの＋まま）— \"giữ nguyên trạng thái X, làm/để Y\""
+    ],
+    "reviewFrom": [
+      {
+        "bai": 57,
+        "items": [
+          "〜たとたん（vừa xong liền ngay, bất ngờ）"
+        ]
+      },
+      {
+        "bai": 55,
+        "items": [
+          "〜うちに（tranh thủ khi còn）"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "〜ようになる（trở nên, dần dần）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "〜てしまう（hoàn thành, tiếc nuối）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "祖母の家と古い歌",
+      "titleVi": "Nhà bà ngoại và bài hát cũ",
+      "japanese": "私には子どもの頃から好きな歌がある。その歌を聞くたびに、田舎の祖母の家を思い出す。祖母の家は昔のまま変わっておらず、木の床が温かい感じで落ち着く。去年、久しぶりに帰省したとき、祖母は玄関で待っていてくれた。そのとき、上着を着たまま中に入ってしまい、祖母に笑われた。あわてて上着を脱いだが、懐かしくて涙が出そうになった。今も、その歌を耳にするたびに、懐かしい気持ちがよみがえってくる。田舎に帰るたびに、祖母が同じ笑顔で迎えてくれるので、いつも安心する。",
+      "vietnamese": "Tôi có một bài hát yêu thích từ hồi còn nhỏ. Mỗi lần nghe bài hát đó, tôi lại nhớ đến nhà bà ngoại ở quê. Nhà bà ngoại vẫn giữ nguyên như xưa, không thay đổi, sàn gỗ ấm áp khiến lòng bình yên. Năm ngoái, sau bao lâu tôi mới về thăm quê, bà đã đứng đợi ở cổng. Lúc đó tôi đi luôn vào trong mà không cởi áo khoác, bị bà cười. Tôi vội vàng cởi áo ra, nhưng vì xúc động mà suýt rơi nước mắt. Bây giờ, mỗi lần vô tình nghe bài hát đó, cảm giác nhớ nhà lại ùa về. Mỗi lần về quê, bà đều đón tôi bằng nụ cười quen thuộc đó nên lúc nào tôi cũng cảm thấy bình yên.",
+      "sentences": [
+        {
+          "jp": "私には子どもの頃から好きな歌がある。",
+          "vi": "Tôi có một bài hát yêu thích từ hồi còn nhỏ.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em, con cái"
+            },
+            {
+              "w": "頃",
+              "read": "ころ",
+              "vi": "hồi, khoảng thời gian"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "歌",
+              "read": "うた",
+              "vi": "bài hát"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "好きな歌 = bài hát (mà tôi) yêu thích. なAdj bổ nghĩa cho 歌。"
+            },
+            {
+              "point": "〜から（Bài 9: lý do/từ khi）",
+              "vi": "子どもの頃から = từ hồi còn nhỏ. から chỉ điểm khởi đầu về thời gian。"
+            }
+          ]
+        },
+        {
+          "jp": "その歌を聞くたびに、田舎の祖母の家を思い出す。",
+          "vi": "Mỗi lần nghe bài hát đó, tôi lại nhớ đến nhà bà ngoại ở quê.",
+          "vocab": [
+            {
+              "w": "歌",
+              "read": "うた",
+              "vi": "bài hát"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "quê, vùng nông thôn"
+            },
+            {
+              "w": "祖母",
+              "read": "そぼ",
+              "vi": "bà ngoại/nội"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "思い出します",
+              "read": "おもいだします",
+              "vi": "nhớ lại, gợi nhớ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（聞く）＋ たびに。 聞くたびに思い出す = \"mỗi lần nghe là đều nhớ lại\" — diễn đạt sự lặp lại ĐỀU ĐẶN theo thói quen/cảm xúc. Sắc thái: たびに ≠ と (Bài 23) — と chỉ điều kiện tự然 (nghe là nhớ, logic đơn giản); たびに nhấn mạnh mỗi lần trong nhiều lần đều xảy ra kết quả đó (sắc thái lặp đi lặp lại, thường mang cảm xúc). たびに ≠ ば (Bài 35) — ば là điều kiện giả định, không nhấn lặp lại đều đặn。"
+            }
+          ]
+        },
+        {
+          "jp": "祖母の家は昔のまま変わっておらず、木の床が温かい感じで落ち着く。",
+          "vi": "Nhà bà ngoại vẫn giữ nguyên như xưa, không thay đổi, sàn gỗ ấm áp khiến lòng bình yên.",
+          "vocab": [
+            {
+              "w": "祖母",
+              "read": "そぼ",
+              "vi": "bà nội/bà ngoại"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, trước đây"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "gỗ, cây"
+            },
+            {
+              "w": "床",
+              "read": "ゆか",
+              "vi": "sàn nhà"
+            },
+            {
+              "w": "温かい",
+              "read": "あたたかい",
+              "vi": "ấm áp"
+            },
+            {
+              "w": "感じ",
+              "read": "かんじ",
+              "vi": "cảm giác, ấn tượng"
+            },
+            {
+              "w": "落ち着きます",
+              "read": "おちつきます",
+              "vi": "bình tâm, thư thái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま",
+              "vi": "接続: Nの ＋ まま。 昔のまま = \"vẫn y như ngày xưa, giữ nguyên trạng thái như trước\". まま nhấn mạnh \"không có gì thay đổi\" — trạng thái cũ được giữ nguyên. Ở đây Nのまま là dùng với danh từ (昔 = ngày xưa): nhà vẫn nguyên như vậy, không đổi。"
+            }
+          ]
+        },
+        {
+          "jp": "去年、久しぶりに帰省したとき、祖母は玄関で待っていてくれた。",
+          "vi": "Năm ngoái, sau bao lâu tôi mới về thăm quê, bà đã đứng đợi ở cổng.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "久しぶりに",
+              "read": "ひさしぶりに",
+              "vi": "sau một thời gian dài, lâu rồi mới"
+            },
+            {
+              "w": "帰省します",
+              "read": "きせいします",
+              "vi": "về quê"
+            },
+            {
+              "w": "祖母",
+              "read": "そぼ",
+              "vi": "bà nội/bà ngoại"
+            },
+            {
+              "w": "玄関",
+              "read": "げんかん",
+              "vi": "cổng vào, lối vào"
+            },
+            {
+              "w": "待ちます",
+              "read": "まちます",
+              "vi": "chờ, đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "帰省したとき = khi (tôi đã) về quê. Vた＋とき chỉ thời điểm hành động đã hoàn thành trước。"
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "待っていてくれた = đã (đứng) đợi cho (tôi). てくれる = người khác làm gì vì lợi ích người nói (Bài 24)。"
+            }
+          ]
+        },
+        {
+          "jp": "そのとき、上着を着たまま中に入ってしまい、祖母に笑われた。",
+          "vi": "Lúc đó tôi đi luôn vào trong mà không cởi áo khoác, bị bà cười.",
+          "vocab": [
+            {
+              "w": "そのとき",
+              "read": "そのとき",
+              "vi": "lúc đó"
+            },
+            {
+              "w": "上着",
+              "read": "うわぎ",
+              "vi": "áo khoác"
+            },
+            {
+              "w": "着たまま",
+              "read": "きたまま",
+              "vi": "vẫn mặc nguyên"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "入ってしまい",
+              "read": "はいってしまい",
+              "vi": "lỡ vào, đã vào mất"
+            },
+            {
+              "w": "祖母",
+              "read": "そぼ",
+              "vi": "bà nội/ngoại"
+            },
+            {
+              "w": "笑われた",
+              "read": "わらわれた",
+              "vi": "bị cười nhạo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま",
+              "vi": "接続: Vた（着た）＋ まま。 着たまま中に入った = \"vào trong mà vẫn mặc nguyên (áo khoác), không cởi ra\". まま = trạng thái \"đã mặc rồi\" KHÔNG THAY ĐỔI khi thực hiện hành động tiếp theo (vào nhà). Sắc thái: nhấn \"không có bước trung gian cởi áo\". Đây là dùng Vた＋まま điển hình。"
+            },
+            {
+              "point": "Vてしまいます（Bài 29）",
+              "vi": "入ってしまい = lỡ đi vào (sắc thái tiếc, không cố ý — quên cởi áo). てしまう = hoàn thành hành động với sắc thái tiếc nuối (Bài 29)。"
+            },
+            {
+              "point": "受身（Bài 37）",
+              "vi": "笑われた = bị cười. 受身形 (Bài 37): 人に笑われた = bị người ta cười。"
+            }
+          ]
+        },
+        {
+          "jp": "あわてて上着を脱いだが、懐かしくて涙が出そうになった。",
+          "vi": "Tôi vội vàng cởi áo ra, nhưng vì xúc động mà suýt rơi nước mắt.",
+          "vocab": [
+            {
+              "w": "あわてる",
+              "read": "あわてる",
+              "vi": "vội vàng, hoảng hốt"
+            },
+            {
+              "w": "上着",
+              "read": "うわぎ",
+              "vi": "áo khoác"
+            },
+            {
+              "w": "脱ぎます",
+              "read": "ぬぎます",
+              "vi": "cởi (quần áo)"
+            },
+            {
+              "w": "懐かしい",
+              "read": "なつかしい",
+              "vi": "xúc động nhớ, đầy kỷ niệm"
+            },
+            {
+              "w": "涙",
+              "read": "なみだ",
+              "vi": "nước mắt"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "あわてます",
+              "read": "あわてます",
+              "vi": "vội vàng, hốt hoảng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vそうになった（Bài 43）",
+              "vi": "涙が出そうになった = suýt rơi nước mắt. Vます (出し) bỏ ます + そうになる = sắp làm / suýt làm (Bài 43 そうだ様態 応用)。"
+            },
+            {
+              "point": "Aくて（Bài 16 nối tính từ）",
+              "vi": "懐かしくて = vì nhớ/xúc động mà. Aいくて nối nguyên nhân-kết quả (Bài 16)。"
+            }
+          ]
+        },
+        {
+          "jp": "今も、その歌を耳にするたびに、懐かしい気持ちがよみがえってくる。",
+          "vi": "Bây giờ, mỗi lần vô tình nghe bài hát đó, cảm giác nhớ nhà lại ùa về.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "歌",
+              "read": "うた",
+              "vi": "bài hát"
+            },
+            {
+              "w": "耳にします",
+              "read": "みみにします",
+              "vi": "tình cờ nghe thấy, lọt vào tai"
+            },
+            {
+              "w": "懐かしい",
+              "read": "なつかしい",
+              "vi": "xúc động nhớ, đầy kỷ niệm"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm giác, tâm trạng"
+            },
+            {
+              "w": "よみがえる",
+              "read": "よみがえる",
+              "vi": "hồi sinh, sống lại"
+            },
+            {
+              "w": "よみがえります",
+              "read": "よみがえります",
+              "vi": "sống lại, ùa về (cảm xúc)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（耳にする）＋ たびに。 耳にするたびに = \"mỗi lần (tình cờ) nghe thấy là đều…\" — lặp đi lặp lại đều đặn. Câu này tái khẳng định sắc thái たびに: không phải một lần hay điều kiện, mà là MỖI LẦN đều vậy。"
+            },
+            {
+              "point": "Vてきます（Bài 43）",
+              "vi": "よみがえってくる = ùa về, dần dần trở lại (di chuyển về phía người nói, theo nghĩa bóng). Vてくる nhấn sự trở lại/xuất hiện (Bài 43)。"
+            }
+          ]
+        },
+        {
+          "jp": "田舎に帰るたびに、祖母が同じ笑顔で迎えてくれるので、いつも安心する。",
+          "vi": "Mỗi lần về quê, bà đều đón tôi bằng nụ cười quen thuộc đó nên lúc nào tôi cũng cảm thấy bình yên.",
+          "vocab": [
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê, nông thôn"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "祖母",
+              "read": "そぼ",
+              "vi": "bà nội/bà ngoại"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "cùng, giống nhau"
+            },
+            {
+              "w": "笑顔",
+              "read": "えがお",
+              "vi": "nụ cười"
+            },
+            {
+              "w": "迎えます",
+              "read": "むかえます",
+              "vi": "đón tiếp"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "安心します",
+              "read": "あんしんします",
+              "vi": "yên tâm, bình yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（帰る）＋ たびに。 帰るたびに迎えてくれる = \"mỗi lần về là đều đón\". Lần thứ ba xuất hiện trong bài ngắn — nhấn mạnh tính lặp lại đều đặn theo thói quen/cảm xúc (đây là đặc trưng của たびに)。"
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "迎えてくれるので安心する = vì đón tôi nên yên tâm. ので chỉ lý do lịch sự (Bài 39)。"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "その歌を聞くたびに、田舎の祖母の家を思い出す",
+          "label": "〜たびに（lặp lại đều đặn, cảm xúc）"
+        },
+        {
+          "excerpt": "昔のまま変わっておらず",
+          "label": "〜まま（giữ nguyên như xưa, Nのまま）"
+        },
+        {
+          "excerpt": "上着を着たまま中に入ってしまい",
+          "label": "Sắc thái: Vたまま（trạng thái không thay đổi khi làm Y）"
+        },
+        {
+          "excerpt": "田舎に帰るたびに、祖母が同じ笑顔で迎えてくれる",
+          "label": "〜たびに（mỗi lần về quê đều vậy）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「その歌を聞くたびに田舎の祖母の家を思い出す」とあるが、「たびに」が表す意味として正しいものはどれですか。",
+          "evi": [
+            1,
+            6
+          ],
+          "options": [
+            "その歌を聞いたとき、一度だけ思い出したということ",
+            "その歌を聞くと、条件として必ず思い出すという自然な結果",
+            "その歌を聞く回数のうちの何回かで思い出すということ",
+            "その歌を聞くたびに毎回思い出す、繰り返す習慣・感情"
+          ],
+          "answer": 3,
+          "explainVi": "Câu gốc:「その歌を聞くたびに、田舎の祖母の家を思い出す」— たびに gắn với động từ 聞く (nghe), diễn đạt rằng MỖI LẦN nghe là ĐỀU nhớ, không thiếu lần nào. Đây là sự lặp lại đều đặn mang cảm xúc, đặc trưng của たびに. Đáp án 0 sai vì \"一度だけ\" (chỉ một lần) — mâu thuẫn với ý nghĩa lặp lại của たびに. Đáp án 1 sai vì \"条件として必ず…自然な結果\" là cách dùng của と (Bài 23) — と thiên về kết quả tất yếu/logic, không nhấn lặp đi lặp lại nhiều lần. Đáp án 2 sai vì \"何回かで思い出す\" (chỉ một số lần) — たびに nghĩa là MỖILẦN đều, không phải đôi khi. Đáp án 3 đúng: \"mỗi lần nghe đều nhớ — thói quen cảm xúc lặp lại đều đặn\".",
+          "tip": "たびに = \"cứ mỗi lần…là đều\" — hễ thấy từ khoá \"毎回\" (mỗi lần), \"繰り返し\" (lặp lại), hoặc cảm xúc/thói quen liên tục → nghĩ ngay đến たびに, không phải điều kiện と/ば.",
+          "qt": {
+            "q": "Trong câu 「その歌を聞くたびに田舎の祖母の家を思い出す」 (Mỗi lần nghe bài hát ấy, tôi lại nhớ đến nhà bà ở quê), 「たびに」 biểu thị ý nghĩa nào là đúng?",
+            "o": [
+              "Ý nói chỉ nhớ lại một lần khi nghe bài hát ấy",
+              "Một kết quả tự nhiên: cứ nghe bài hát ấy thì nhất định sẽ nhớ lại",
+              "Ý nói nhớ lại trong một vài lần trong số những lần nghe bài hát ấy",
+              "Cảm xúc hoặc thói quen lặp lại: mỗi lần nghe bài hát ấy đều nhớ lại"
+            ]
+          }
+        },
+        {
+          "q": "「上着を着たまま中に入ってしまい」の「まま」はどんなことを表していますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "上着を脱いでから部屋に入ったということ",
+            "上着を着ている状態のまま、脱がずに部屋に入ったということ",
+            "上着を着ることを忘れたまま、寒い部屋に入ったということ",
+            "上着をかけてから部屋に入ったということ"
+          ],
+          "answer": 1,
+          "explainVi": "Câu gốc:「上着を着たまま中に入ってしまい」— 着た (đã mặc) + まま = trạng thái \"đã mặc áo khoác rồi\" KHÔNG THAY ĐỔI khi thực hiện hành động tiếp theo (中に入る = vào trong). Không có bước cởi áo ở giữa. Đáp án 1 đúng: \"mặc nguyên áo khoác, không cởi, mà vào trong\". Đáp án 0 sai vì 脱いでから = \"cởi rồi mới vào\" — đây là てから (tuần tự), trái nghĩa với まま. Đáp án 2 sai vì \"着ることを忘れた\" (quên mặc) — bài nói ngược lại: đã mặc rồi mà không cởi ra. Đáp án 3 sai vì \"かけてから\" (treo áo rồi mới vào) — cũng là hành động trung gian, mâu thuẫn với まま.",
+          "tip": "まま = trạng thái X KHÔNG ĐỔI rồi làm Y — hễ thấy \"Vたまま＋hành động\" hỏi trạng thái nào được giữ nguyên, tìm động từ ngay trước まま, đó chính là trạng thái không thay đổi.",
+          "qt": {
+            "q": "Trong câu 「上着を着たまま中に入ってしまい」, 「まま」 biểu thị điều gì?",
+            "o": [
+              "Ý nói đã cởi áo khoác rồi mới vào phòng",
+              "Ý nói đã vào phòng trong khi vẫn mặc áo khoác, không cởi ra",
+              "Ý nói đã vào căn phòng lạnh mà quên mặc áo khoác",
+              "Ý nói đã treo áo khoác lên rồi mới vào phòng"
+            ]
+          }
+        },
+        {
+          "q": "「祖母の家は昔のまま変わっておらず」の「まま」と同じ使い方はどれですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "宿題を終わらせたまま、遊びに行った",
+            "熱があるのに、薬を飲まないまま寝てしまった",
+            "靴を脱いでから家に入った",
+            "急いで、コートを脱いでから話した"
+          ],
+          "answer": 1,
+          "explainVi": "Câu gốc:「祖母の家は昔のまま変わっておらず」— 昔のまま = Nのまま, nhấn \"trạng thái như ngày xưa, không thay đổi gì\". Cần tìm câu dùng まま theo nghĩa \"trạng thái không đổi khi làm/kéo dài sang hành động/tình huống khác\". Đáp án 1 đúng:「熱があるのに、薬を飲まないまま寝てしまった」= Vないまま — trạng thái \"không uống thuốc\" giữ nguyên khi ngủ, cùng cấu trúc まま = không thay đổi. Đáp án 0 sai:「宿題を終わらせたまま、遊びに行った」— nghe có vẻ đúng nhưng sắc thái hơi khác: Vたまま thường nhấn \"vẫn ở trạng thái đó\", còn Vないまま (đáp án 1) giống 昔のまま hơn ở chỗ \"không thay đổi, không có hành động bổ sung\". Đáp án 2 và 3 (脱いでから/脱いでから) đều dùng てから — tuần tự, trái nghĩa với まま.",
+          "tip": "まま có nhiều dạng nối — Nのまま, Vたまま, Vないまま — nhưng đều cùng một hạt nhân: \"không có gì thay đổi\". Khi so sánh câu với まま, loại ngay các đáp án có てから/てから (tuần tự = có thay đổi).",
+          "qt": {
+            "q": "Cách dùng 「まま」 trong câu 「祖母の家は昔のまま変わっておらず」 giống với cách dùng trong câu nào?",
+            "o": [
+              "Để nguyên bài tập về nhà đã làm xong rồi đi chơi",
+              "Dù bị sốt, tôi đã đi ngủ mà không uống thuốc",
+              "Sau khi cởi giày, tôi vào nhà",
+              "Vội vàng, tôi cởi áo khoác rồi nói chuyện"
+            ]
+          }
+        },
+        {
+          "q": "「たびに」と「と」はどう違いますか。この文章から考えてみましょう。",
+          "evi": [
+            1,
+            6
+          ],
+          "options": [
+            "「たびに」は一回限りの出来事、「と」は繰り返しの出来事を表す",
+            "「たびに」は繰り返す感情・習慣を強調し、「と」は自然な条件と結果を示す",
+            "「たびに」と「と」は同じ意味で、どちらでも使える",
+            "「たびに」は過去のことにしか使えない"
+          ],
+          "answer": 1,
+          "explainVi": "Câu bài:「その歌を聞くたびに、田舎の祖母の家を思い出す」và「今も、その歌を耳にするたびに、懐かしい気持ちがよみがえってくる」— たびに nhấn vào sự LẶP LẠI ĐỀU ĐẶN theo thời gian, mang cảm xúc (nhớ nhà, xúc động). Đáp án 1 đúng: \"たびに nhấn thói quen cảm xúc lặp đi lặp lại; と chỉ điều kiện tự nhiên → kết quả\". Nếu dùng と: 「聞くと思い出す」= nghe thì nhớ — điều kiện logic tất yếu, không nhấn nhiều lần lặp lại; không mang sắc thái cảm xúc riêng. Đáp án 0 sai: sự thật ngược lại — たびに mới là lặp lại, と không nhấn lặp. Đáp án 2 sai: hai mẫu KHÔNG đồng nghĩa — sắc thái khác nhau rõ rệt. Đáp án 3 sai: たびに dùng được cả quá khứ và hiện tại/tương lai, không bị giới hạn.",
+          "tip": "たびに = nhấn LẶP LẠI + CẢM XÚC/THÓI QUEN; と = nhấn KẾT QUẢ TẤT YẾU. Câu hỏi phân biệt hai mẫu này → hỏi \"có yếu tố lặp lại đều đặn theo cảm xúc không?\" — có → たびに, không → と.",
+          "qt": {
+            "q": "「たびに」 và 「と」 khác nhau như thế nào? Hãy thử suy nghĩ dựa trên đoạn văn này.",
+            "o": [
+              "「たびに」 biểu thị một sự việc chỉ xảy ra một lần, còn 「と」 biểu thị sự việc lặp đi lặp lại",
+              "「たびに」 nhấn mạnh cảm xúc hoặc thói quen lặp lại, còn 「と」 chỉ điều kiện và kết quả tự nhiên",
+              "「たびに」 và 「と」 có cùng nghĩa và có thể dùng thay cho nhau",
+              "「たびに」 chỉ có thể dùng cho những việc trong quá khứ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "散歩とアイデアの発想",
+      "titleVi": "Đi dạo và việc nảy ra ý tưởng",
+      "japanese": "私は仕事で新しいアイデアが出ないとき、よく近所を散歩することにしている。机の前にずっと座ったまま考えているだけでは、よい考えが浮かばないからだ。散歩を始めると、外の風を感じて気分がすっきりする。\n散歩をするたびに、普段は見落としていた小さな発見がある。たとえば、新しい店ができていたり、きれいな花が咲いていたりする。このように外の景色を見ると、頭の中が整理されていく。つまり、散歩は体を動かすだけでなく、心をリフレッシュさせる効果があるのだ。\nそのため、私は歩きながら思いついたことを忘れないうちにメモすることにしている。メモを見返すたびに、仕事に役立つ面白い考えが生まれる。散歩のあとは、明るい気持ちのまま次の作業に入れる。だから、忙しい日も私は散歩の時間を大切にしたいと考えている。",
+      "vietnamese": "Khi công việc không nảy ra ý tưởng mới, tôi thường chọn cách đi dạo quanh khu nhà. Đó là vì nếu chỉ ngồi nguyên một chỗ trước bàn làm việc mà suy nghĩ thì những ý tưởng tốt sẽ không thể nảy ra. Hễ bắt đầu đi dạo, cảm nhận được làn gió bên ngoài là tâm trạng lại trở nên khoan khoái.\nMỗi lần đi dạo, tôi lại có những phát hiện nhỏ mà bình thường bản thân bỏ lỡ. Ví dụ như có cửa hàng mới mở, hay có những bông hoa đẹp đang nở. Khi ngắm nhìn cảnh vật bên ngoài như thế này, đầu óc sẽ dần được sắp xếp trật tự lại. Tóm lại, đi dạo không chỉ là vận động cơ thể mà còn có hiệu quả làm mới lại tâm hồn.\nVì thế, tôi thường ghi chú lại những điều vừa nảy ra trong lúc đi dạo trước khi quên mất. Mỗi lần xem lại ghi chú, những ý tưởng thú vị có ích cho công việc lại ra đời. Sau khi đi dạo, tôi có thể bắt tay vào công việc tiếp theo với tâm trạng tích cực. Vì vậy, dù là những ngày bận rộn, tôi vẫn muốn trân trọng khoảng thời gian đi dạo.",
+      "sentences": [
+        {
+          "jp": "私は仕事で新しいアイデアが出ないとき、よく近所を散歩することにしている。",
+          "vi": "Khi công việc không nảy ra ý tưởng mới, tôi thường chọn cách đi dạo quanh khu nhà.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "アイデア",
+              "read": "アイデア",
+              "vi": "ý tưởng"
+            },
+            {
+              "w": "出ない",
+              "read": "でない",
+              "vi": "không nảy ra"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "thường"
+            },
+            {
+              "w": "近所",
+              "read": "きんじょ",
+              "vi": "khu phố lân cận"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "散歩する",
+              "read": "さんぽする",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "ことにしている",
+              "read": "ことにしている",
+              "vi": "duy trì thói quen"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "接続: Vない＋とき。 出ないとき = khi không nảy ra (ý tưởng). Chỉ thời điểm diễn ra tình huống."
+            },
+            {
+              "point": "〜ことにしている（Bài 36）",
+              "vi": "接続: Vる＋ことにしている。 散歩することにしている = chọn/tạo thói quen đi dạo. Diễn tả thói quen do bản thân tự quyết định và duy trì."
+            }
+          ],
+          "keys": [
+            {
+              "w": "散歩することにしている",
+              "why": "Nêu thói quen của tác giả khi bế tắc ý tưởng, đặt tiền đề mở đầu cho toàn bài."
+            }
+          ]
+        },
+        {
+          "jp": "机の前にずっと座ったまま考えているだけでは、よい考えが浮かばないからだ。",
+          "vi": "Đó là vì nếu chỉ ngồi nguyên một chỗ trước bàn làm việc mà suy nghĩ thì những ý tưởng tốt sẽ không thể nảy ra.",
+          "vocab": [
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn làm việc"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "hơn hẳn, hơn nhiều"
+            },
+            {
+              "w": "座ります",
+              "read": "すわります",
+              "vi": "ngồi"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ"
+            },
+            {
+              "w": "浮かびます",
+              "read": "うかびます",
+              "vi": "nảy ra, hiện lên (ý tưởng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま（Bài 58 - Trọng tâm）",
+              "vi": "接続: Vた＋まま。 座ったまま = giữ nguyên trạng thái ngồi. Cấu trúc 〜まま dùng để chỉ việc giữ nguyên một trạng thái X mà không thay đổi rồi thực hiện hành động Y."
+            },
+            {
+              "point": "〜だけでは（Bài 26）",
+              "vi": "接続: Vている＋だけでは。 考えているだけでは = nếu chỉ suy nghĩ không thôi thì (không đủ/không ra kết quả)."
+            },
+            {
+              "point": "〜からだ（Bài 9/39）",
+              "vi": "接続: Thể thông thường ＋ からだ。 浮かばないからだ = chính là vì không nảy ra được. Dùng ở cuối câu để giải thích lý do cho câu trước."
+            }
+          ],
+          "keys": [
+            {
+              "w": "よい考えが浮かばないからだ",
+              "why": "Cấu trúc giải thích lý do (からだ) vì sao ngồi yên một chỗ không tạo ra suy nghĩ tốt, căn cứ câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "散歩を始めると、外の風を感じて気分がすっきりする。",
+          "vi": "Hễ bắt đầu đi dạo, cảm nhận được làn gió bên ngoài là tâm trạng lại trở nên khoan khoái.",
+          "vocab": [
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "風",
+              "read": "かぜ",
+              "vi": "gió"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm nhận"
+            },
+            {
+              "w": "気分",
+              "read": "きぶん",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "すっきり",
+              "read": "すっきり",
+              "vi": "khoan khoái, sảng khoái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "接続: Vる＋と。 始めると = hễ/khi bắt đầu đi dạo thì... Diễn tả kết quả xảy ra một cách tự nhiên ngay sau hành động A."
+            }
+          ]
+        },
+        {
+          "jp": "散歩をするたびに、普段は見落としていた小さな発見がある。",
+          "vi": "Mỗi lần đi dạo, tôi lại có những phát hiện nhỏ mà bình thường bản thân bỏ lỡ.",
+          "vocab": [
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "普段",
+              "read": "ふだん",
+              "vi": "bình thường, ngày thường"
+            },
+            {
+              "w": "見落とします",
+              "read": "みおとします",
+              "vi": "bỏ sót, nhìn lướt qua mà không chú ý"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "発見",
+              "read": "はっけん",
+              "vi": "phát hiện, sự tìm ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに（Bài 58 - Trọng tâm）",
+              "vi": "接続: Vる＋たびに。 散歩をするたびに = cứ mỗi lần đi dạo là đều (có phát hiện mới). Cấu trúc 〜たびに nhấn mạnh sự lặp đi lặp lại đều đặn, hễ thực hiện A là chắc chắn xảy ra B."
+            }
+          ],
+          "keys": [
+            {
+              "w": "小さな発見がある",
+              "why": "Nêu tác dụng cụ thể của việc đi dạo là mang lại những phát hiện nhỏ trong đời sống, căn cứ câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、新しい店ができていたり、きれいな花が咲いていたりする。",
+          "vi": "Ví dụ như có cửa hàng mới mở, hay có những bông hoa đẹp đang nở.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "cửa hàng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "花",
+              "read": "はな",
+              "vi": "bông hoa"
+            },
+            {
+              "w": "咲きます",
+              "read": "さきます",
+              "vi": "nở (hoa)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たり〜たりする（Bài 19）",
+              "vi": "接続: Vた＋り... Vた＋りする。 できていたり、咲いていたりする = nào là cửa hàng mở, nào là hoa nở... Dùng để liệt kê tiêu biểu các trạng thái/hành động."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たとえば",
+              "why": "Liên từ đưa ví dụ cụ thể (quán mới mở, hoa nở) làm rõ cho các phát hiện nhỏ, căn cứ câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "このように外の景色を見ると、頭の中が整理されていく。",
+          "vi": "Khi ngắm nhìn cảnh vật bên ngoài như thế này, đầu óc sẽ dần được sắp xếp trật tự lại.",
+          "vocab": [
+            {
+              "w": "このように",
+              "read": "このように",
+              "vi": "như thế này"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "phong cảnh"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu óc"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "整理されていく",
+              "read": "せいりされていく",
+              "vi": "dần được sắp xếp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく（Bài 46）",
+              "vi": "接続: Vて＋いく。 整理されていく = dần dần được sắp xếp lại. Diễn tả sự biến đổi tiến triển dần theo thời gian hướng về tương lai."
+            }
+          ],
+          "keys": [
+            {
+              "w": "このように",
+              "why": "Chỉ thị từ tổng kết tác động của việc quan sát cảnh quan đến việc sắp xếp lại suy nghĩ, căn cứ câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、散歩は体を動かすだけでなく、心をリフレッシュさせる効果があるのだ。",
+          "vi": "Tóm lại, đi dạo không chỉ là vận動 cơ thể mà còn có hiệu quả làm mới lại tâm hồn.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "動かします",
+              "read": "うごかします",
+              "vi": "vận動, di chuyển"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "リフレッシュ",
+              "read": "リフレッシュ",
+              "vi": "sự làm mới, sảng khoái"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả, tác dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく（Bài 47）",
+              "vi": "接続: Vる＋だけでなく。 動かすだけでなく = không chỉ vận動. Cấu trúc bổ sung thông tin: không chỉ A mà còn B."
+            },
+            {
+              "point": "使役形（Bài 48）",
+              "vi": "接続: Vさせる。 リフレッシュさせる = làm cho tươi mới, sảng khoái. Thể sai khiến diễn tả tác động khiến tâm trí được thư giãn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tóm lược luận điểm (つまり) khẳng định hiệu quả làm mới tâm trí của việc đi dạo, căn cứ câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、私は歩きながら思いついたことを忘れないうちにメモすることにしている。",
+          "vi": "Vì thế, tôi thường ghi chú lại những điều vừa nảy ra trong lúc đi dạo trước khi quên mất.",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "歩きながら",
+              "read": "あるきながら",
+              "vi": "vừa đi bộ vừa..."
+            },
+            {
+              "w": "思いついた",
+              "read": "おもいついた",
+              "vi": "đã nảy ra, nghĩ ra"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều, việc"
+            },
+            {
+              "w": "忘れないうちに",
+              "read": "わすれないうちに",
+              "vi": "trước khi quên"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "ghi chú"
+            },
+            {
+              "w": "メモする",
+              "read": "メモする",
+              "vi": "ghi chú"
+            },
+            {
+              "w": "ことにしている",
+              "read": "ことにしている",
+              "vi": "duy trì thói quen"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（Bài 28）",
+              "vi": "接続: Vます-stem ＋ ながら。 歩きながら = vừa đi dạo vừa (suy nghĩ). Diễn tả hai hành động diễn ra đồng thời."
+            },
+            {
+              "point": "〜うちに（Bài 55）",
+              "vi": "接続: Vない＋うちに。 忘れないうちに = trong lúc chưa quên (tranh thủ làm ngay). Thực hiện hành động trước khi trạng thái thay đổi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため",
+              "why": "Liên từ chỉ hệ quả (そのため) dẫn tới thói quen ghi chú ý tưởng khi đi bộ, căn cứ câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "メモを見返すたびに、仕事に役立つ面白い考えが生まれる。",
+          "vi": "Mỗi lần xem lại ghi chú, những ý tưởng thú vị có ích cho công việc lại ra đời.",
+          "vocab": [
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "見返します",
+              "read": "みかえします",
+              "vi": "xem lại, nhìn lại"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "役立ちます",
+              "read": "やくだちます",
+              "vi": "có ích, có tác dụng"
+            },
+            {
+              "w": "面白い",
+              "read": "おもしろい",
+              "vi": "thú vị, hay"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "生まれます",
+              "read": "うまれます",
+              "vi": "sinh ra, nảy sinh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに（Bài 58 - Trọng tâm）",
+              "vi": "接続: Vる＋たびに。 見返すたびに = mỗi lần xem lại là đều (sinh ra ý tưởng mới). Nhấn mạnh sự lặp lại đều đặn mỗi khi xem lại ghi chú."
+            }
+          ],
+          "keys": [
+            {
+              "w": "仕事に役立つ面白い考えが生まれる",
+              "why": "Nêu kết quả của việc xem lại ghi chú giúp ích cho công việc thực tế, căn cứ câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "散歩のあとは、明るい気持ちのまま次の作業に入れる。",
+          "vi": "Sau khi đi dạo, tôi có thể bắt tay vào công việc tiếp theo với tâm trạng tích cực.",
+          "vocab": [
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "明るい",
+              "read": "あかるい",
+              "vi": "tươi sáng, tích cực"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま（Bài 58 - Trọng tâm）",
+              "vi": "接続: Nの/Aい＋まま。 明るい気持ちのまま = giữ nguyên tâm trạng vui vẻ/tích cực. Giữ nguyên trạng thái tâm lý tích cực để tiếp tục công việc."
+            },
+            {
+              "point": "可能形（Bài 27）",
+              "vi": "接続: Vれる/られる。 入れる = có thể bắt đầu/bước vào (công việc tiếp theo)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "明るい気持ちのまま",
+              "why": "Diễn tả trạng thái tâm lý tích cực để bắt đầu công việc tiếp theo sau khi đi dạo, căn cứ câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "だから、忙しい日も私は散歩の時間を大切にしたいと考えている。",
+          "vi": "Vì vậy, dù là những ngày bận rộn, tôi vẫn muốn trân trọng khoảng thời gian đi dạo.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, quý trọng"
+            },
+            {
+              "w": "大切にしたい",
+              "read": "たいせつにしたい",
+              "vi": "muốn coi trọng"
+            },
+            {
+              "w": "考えている",
+              "read": "かんがえている",
+              "vi": "đang nghĩ, cho rằng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と考えている（Bài 31）",
+              "vi": "接続: Thể thông thường ＋ と考えている。 大切にしたいと考えている = tôi đang suy nghĩ/nguyện vọng muốn coi trọng... Diễn tả suy nghĩ, định hướng kéo dài của tác giả."
+            }
+          ],
+          "keys": [
+            {
+              "w": "だから",
+              "why": "Liên từ kết luận toàn bài (だから) chốt lại chủ trương và giá trị thói quen của tác giả, căn cứ câu hỏi 3."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "座ったまま",
+          "label": "〜まま（giữ nguyên trạng thái ngồi, Vた＋まま）"
+        },
+        {
+          "excerpt": "散歩をするたびに",
+          "label": "〜たびに（mỗi lần đi dạo là đều..., Vる＋たびに）"
+        },
+        {
+          "excerpt": "メモを見返すたびに",
+          "label": "〜たびに（mỗi lần xem lại ghi chú, Vる＋たびに）"
+        },
+        {
+          "excerpt": "明るい気持ちのまま",
+          "label": "〜まま（giữ nguyên tâm trạng vui vẻ, Nのまま/Aいまま）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「「このように外の景色を見ると、頭の中が整理されていく」とあるが、どういうことですか。",
+          "options": [
+            "机の前でずっと考え続けることで、新しいアイデアが次々に浮かんでくるということ。",
+            "散歩中に街の変化やきれいな花などの発見があり、心がリフレッシュして考えがまとまるということ。",
+            "散歩中に見た店や花のことを忘れないように、すぐにメモを取り続けるということ。",
+            "仕事の忙しさを忘れるために、外を歩いて体を激しく運動させること。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「散歩中に街の変化や」 — Ở các câu [3], [4], [5], tác giả trình bày rằng mỗi lần đi dạo đều có những phát hiện nhỏ (cửa hàng mới mở, hoa nở...), việc ngắm nhìn cảnh vật bên ngoài giúp tinh thần sảng khoái và nhờ đó đầu óc dần được sắp xếp trật tự lại.\n\n- 「机の前でずっと考え」 sai vì câu [1] đã khẳng định việc ngồi lỳ trước bàn làm việc (机の前に座ったまま) không giúp nảy ra ý tưởng tốt.\n- 「散歩中に見た店や花」 sai vì việc ghi chú (メモ) được đề cập ở câu [7] với mục đích lưu lại ý tưởng công việc, không phải giải thích cho việc quan sát cảnh vật giúp sắp xếp đầu óc.\n- 「仕事の忙しさを忘れる」 sai vì tác giả nhấn mạnh đi dạo giúp làm mới tâm hồn (心をリフレッシュさせる), chứ không phải vận động mạnh để quên đi sự bận rộn.",
+          "tip": "Dạng câu hỏi 「どういうことか」 yêu cầu giải thích cụ thể cụm từ được gạch chân. Hãy đọc ngay các câu liền trước/sau (ở đây là câu [3], [4], [5]) để tìm từ khóa đồng nghĩa như 「小さな発見」「リフレッシュ」「整理」.",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "「「このように外の景色を見ると、頭の中が整理されていく」 (Khi ngắm cảnh bên ngoài như vậy, suy nghĩ trong đầu dần trở nên mạch lạc) có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là cứ tiếp tục suy nghĩ trước bàn làm việc thì những ý tưởng mới sẽ lần lượt nảy ra.",
+              "Có nghĩa là trong khi đi dạo, người ta phát hiện ra những điều như sự thay đổi của phố xá hay những bông hoa đẹp, nhờ đó tinh thần được làm mới và suy nghĩ trở nên mạch lạc.",
+              "Có nghĩa là tiếp tục ghi chú ngay để không quên những cửa hàng hay hoa đã thấy khi đi dạo.",
+              "Đi bộ bên ngoài và vận động cơ thể thật mạnh để quên đi sự bận rộn của công việc."
+            ]
+          }
+        },
+        {
+          "q": "筆者はなぜ歩きながら思いついたことを「メモすることにしている」のですか。",
+          "options": [
+            "散歩中に見た新しい店やきれいな花の名前を覚えておくため。",
+            "歩きながら浮かんだアイデアを忘れず、後で見返して仕事に活かすため。",
+            "机の前に座ったままではノートを書く時間が取れないから。",
+            "散歩から帰ったあとに気分をすっきりさせる方法が他にないから。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「歩きながら浮かんだ」 — Ở câu [7] và [8], tác giả viết 「歩きながら思いついたことを忘れないうちにメモすることにしている。メモを見返すたびに、仕事に役立つ面白い考えが生まれる。」 (Tôi ghi chú lại những điều vừa nảy ra trước khi quên... Mỗi lần xem lại ghi chú, những ý tưởng thú vị có ích cho công việc lại ra đời). Do đó, lý do ghi chú là để không quên ý tưởng và dùng nó cho công việc.\n\n- 「散歩中に見た新しい店や」 sai vì ghi chú là ghi lại \"điều vừa nảy ra\" (思いついたこと - ý tưởng), không phải tên cửa hàng hay tên hoa.\n- 「机の前に座ったままでは」 sai vì bài không đề cập đến việc không có thời gian viết sổ ở bàn làm việc.\n- 「散歩から帰ったあとに」 sai vì việc sảng khoái tinh thần là do bản thân hành động đi dạo mang lại, không phải mục đích của việc ghi chú.",
+          "tip": "Với câu hỏi lý do 「なぜ〜のか」, tìm trực tiếp câu chứa hành động 「メモすることにしている」 (câu [7]) và câu giải thích kết quả ngay sau đó (câu [8]). Từ khóa quan trọng: 「忘れないうちに」「仕事に役立つ」.",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Tại sao tác giả lại 「メモすることにしている」 (quyết định ghi chú) những điều nảy ra trong khi đi bộ?",
+            "o": [
+              "Để nhớ tên những cửa hàng mới hoặc những bông hoa đẹp nhìn thấy trong lúc đi dạo.",
+              "Để không quên những ý tưởng nảy ra khi đi bộ, rồi xem lại sau và vận dụng vào công việc.",
+              "Vì khi ngồi yên trước bàn làm việc thì không có thời gian ghi vào sổ.",
+              "Vì sau khi đi dạo về không còn cách nào khác để làm tinh thần sảng khoái."
+            ]
+          }
+        },
+        {
+          "q": "散歩について、筆者はどのように考えていますか。",
+          "options": [
+            "時間がある休日だけに限定して行い、体を鍛えるべきだ。",
+            "仕事で行き詰まったときでも、わざわざ外に出る必要はない。",
+            "単なる気分転換だけでなく、仕事のアイデアを生み出すためにも価値がある習慣だ。",
+            "歩くことよりも、机の前でじっくり考え続けることのほうが大切だ。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「単なる気分転換だけでなく」 — Toàn bài văn thể hiện quan điểm của tác giả về lợi ích toàn diện của việc đi dạo: không chỉ giải tỏa căng thẳng (心をリフレッシュさせる) mà còn giúp nảy ra ý tưởng công việc (仕事に役立つ考えが生まれる) và bắt đầu công việc tiếp theo một cách tích cực. Câu [10] chốt lại tác giả luôn trân trọng thời gian đi dạo ngay cả ngày bận rộn.\n\n- 「時間がある休日だけに」 sai vì tác giả duy trì thói quen này cả những ngày bận rộn (忙しい日も), không chỉ ngày nghỉ, và mục đích chính không phải chỉ để luyện tập thể thao.\n- 「仕事で行き詰まったとき」 sai vì khi không nảy ra ý tưởng, tác giả chọn đi dạo ra ngoài.\n- 「歩くことよりも」 sai vì tác giả cho rằng ngồi lỳ ở bàn làm việc không tạo ra ý tưởng tốt (câu [1]).",
+          "tip": "Câu hỏi ý kiến tác giả 「筆者はどう考えているか」 nằm ở cuối bài reading JLPT. Cần kết hợp câu chốt toàn bài (câu [10]) và luận điểm xuyên suốt (câu [6]: không chỉ vận động mà cònリフレッシュ; câu [8]: tạo ý tưởng công việc).",
+          "evi": [
+            1,
+            6,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ như thế nào về việc đi dạo?",
+            "o": [
+              "Chỉ nên đi vào những ngày nghỉ có thời gian và nên rèn luyện cơ thể.",
+              "Ngay cả khi công việc bế tắc, cũng không cần phải mất công ra ngoài.",
+              "Đó là một thói quen có giá trị không chỉ để thay đổi tâm trạng mà còn để nảy ra ý tưởng cho công việc.",
+              "Việc tiếp tục suy nghĩ kỹ trước bàn làm việc quan trọng hơn việc đi bộ."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Thói quen & Lý do",
+          "topic": 0,
+          "note": "Giới thiệu thói quen đi dạo khi bí ý tưởng và lý do ngồi một chỗ không hiệu quả; chú ý nguyên nhân ở câu 1.",
+          "qs": [
+            3
+          ]
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "body",
+          "label": "Triển khai・Tác dụng của đi dạo",
+          "topic": 6,
+          "note": "Phân tích cách việc quan sát xung quanh giúp sắp xếp suy nghĩ và làm mới tinh thần; căn cứ giải thích cụm từ ở câu 3-5 và tóm kết ở câu 6.",
+          "qs": [
+            1,
+            3
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "body",
+          "label": "Hành động・Ghi chép ý tưởng",
+          "topic": 7,
+          "note": "Nêu việc ghi chép tức thì khi đi bộ và lợi ích của việc xem lại ghi chú đối với công việc.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "point",
+          "label": "Tổng kết・Chủ trương tác giả",
+          "topic": 10,
+          "note": "Khẳng định tâm trạng tích cực khi bắt tay vào việc và chốt lại thông điệp muốn trân trọng thời gian đi dạo mỗi ngày.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "帰省のたびに気づくこと",
+      "titleVi": "Điều nhận ra mỗi lần về quê",
+      "japanese": "毎年夏になると、私は実家に帰省する。\n新幹線に乗るたびに、窓の外の景色を眺めながら、幼い頃のことをいろいろ考えてしまう。\n子どもの頃、初めて新幹線に乗ったとき、あまりの速さに驚いて、席を立ったまましばらく外を見ていたことを覚えている。\nそのときの興奮が、乗るたびに少しずつよみがえってくる気がする。\n実家に着いたとき、母はいつも玄関で迎えてくれる。\n去年は荷物が多くて、靴をはいたまま廊下まで入ってしまったが、母は何も言わずにただ笑っていた。\nその笑顔が昔のままで、少し胸が熱くなった。\n実家の部屋も、私が使っていたときのまま残されており、机の上の古い写真立てもそのままだ。\n帰省するたびに、時間が止まった感覚になるのだが、実は少しずつ変化しているのだろう。\nたとえば、以前は見えなかった白髪が母に増えていた。\nそれに気づいたとたん、胸が痛くなってしまった。\nうちに帰るたびに、母の老いを感じるようになったのは、自分も大人になったからかもしれない。\n父も同じで、帰省するたびに少し老けて見える。\nしかし、父は仕事のことを聞かれるたびに、嬉しそうに長々と話してくれる。\nテレビをつけたまま話し込んでいると、いつの間にか夜中になっていることもある。\nそんな時間が、私にはとても大切だ。\n帰省のたびに感じることは、遠くにいるうちに、ゆっくりではあるが確かに変わっていくものがあるということだ。\nだからこそ、帰るたびに、昔のままでいてほしいという気持ちと、元気で変わっていてほしいという気持ちが入り混じる。\nそれでも、実家に帰るたびに、心が温かくなるのは変わらない。\n来年もまた、同じ笑顔で迎えてもらえると信じている。",
+      "vietnamese": "Mỗi năm vào mùa hè, tôi về thăm nhà bố mẹ.\nMỗi lần lên Shinkansen, vừa ngắm cảnh bên ngoài cửa sổ vừa vô tình suy nghĩ đủ thứ về thời thơ ấu.\nHồi còn nhỏ, lần đầu tiên đi Shinkansen, tôi ngạc nhiên trước tốc độ quá nhanh mà đứng yên tại chỗ một lúc nhìn ra ngoài không chịu ngồi xuống — tôi vẫn còn nhớ chuyện đó.\nCó cảm giác sự hào hứng hồi đó lại ùa về mỗi lần tôi lên tàu.\nKhi đến nhà bố mẹ, mẹ lúc nào cũng đón tôi ở cổng vào.\nNăm ngoái vì hành lý nhiều, tôi đi giày thẳng vào hành lang rồi, nhưng mẹ không nói gì, chỉ cười thôi.\nNụ cười đó vẫn y như ngày xưa, lòng tôi hơi thắt lại.\nPhòng tôi ở nhà cũng được giữ nguyên như hồi tôi còn ở đó, cái khung ảnh cũ trên bàn cũng nguyên vẹn.\nMỗi lần về quê, tôi lại có cảm giác như thời gian đứng lại, nhưng thực ra mọi thứ đang dần dần thay đổi chứ.\nChẳng hạn, tóc bạc của mẹ nhiều hơn trước — trước đây tôi không thấy.\nVừa nhận ra điều đó, tôi đã thấy lòng đau.\nViệc mỗi lần về nhà lại cảm thấy mẹ già đi — có lẽ là vì bản thân tôi cũng đã lớn rồi.\nBố cũng vậy, mỗi lần về quê trông bố có vẻ già hơn một chút.\nThế nhưng, mỗi khi được hỏi về công việc, bố lại kể vui vẻ, say sưa mãi.\nKhi đang nói chuyện mà tivi cứ để nguyên bật, có khi không biết lúc nào đã nửa đêm mất rồi.\nVới tôi, những khoảnh khắc như vậy thật quý giá.\nĐiều tôi cảm nhận mỗi lần về quê là: trong khi còn ở xa, có những thứ đang chậm chậm mà chắc chắn thay đổi.\nChính vì vậy, mỗi lần về nhà, tôi lại có hai cảm xúc lẫn lộn: muốn mọi thứ vẫn như xưa, và muốn bố mẹ khỏe mạnh dù có thay đổi.\nDù vậy, việc lòng ấm lại mỗi khi về nhà thì không hề thay đổi.\nTôi tin rằng năm sau cũng vậy, mình sẽ được đón bằng nụ cười quen thuộc ấy.",
+      "sentences": [
+        {
+          "jp": "毎年夏になると、私は実家に帰省する。",
+          "vi": "Mỗi năm vào mùa hè, tôi về thăm nhà bố mẹ.",
+          "vocab": [
+            {
+              "w": "毎年",
+              "read": "まいとし",
+              "vi": "hàng năm"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "なる",
+              "read": "なる",
+              "vi": "trở nên, đến"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "実家",
+              "read": "じっか",
+              "vi": "nhà bố mẹ"
+            },
+            {
+              "w": "帰省する",
+              "read": "きせいする",
+              "vi": "về quê"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "夏になると帰省する = mỗi khi đến mùa hè là về quê — điều kiện tự nhiên lặp lại. Ôn Bài 23。"
+            }
+          ]
+        },
+        {
+          "jp": "新幹線に乗るたびに、窓の外の景色を眺めながら、幼い頃のことをいろいろ考えてしまう。",
+          "vi": "Mỗi lần lên Shinkansen, vừa ngắm cảnh bên ngoài cửa sổ vừa vô tình suy nghĩ đủ thứ về thời thơ ấu.",
+          "vocab": [
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên (tàu, xe)"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "phong cảnh, cảnh vật"
+            },
+            {
+              "w": "眺めます",
+              "read": "ながめます",
+              "vi": "ngắm, nhìn ngắm"
+            },
+            {
+              "w": "幼い",
+              "read": "おさない",
+              "vi": "còn nhỏ, thuở ấu thơ"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（乗る）＋ たびに。 乗るたびに = \"mỗi lần lên tàu là đều…\" — lặp đi lặp lại đều đặn。"
+            },
+            {
+              "point": "Vながら（Bài 28）",
+              "vi": "眺めながら考える = vừa ngắm vừa suy nghĩ. ながら = hai hành động đồng thời (Bài 28)。"
+            },
+            {
+              "point": "Vてしまう（Bài 29）",
+              "vi": "考えてしまう = vô tình cứ suy nghĩ mãi (không kiểm soát được, tiếc nuối nhẹ)。"
+            }
+          ]
+        },
+        {
+          "jp": "子どもの頃、初めて新幹線に乗ったとき、あまりの速さに驚いて、席を立ったまましばらく外を見ていたことを覚えている。",
+          "vi": "Hồi còn nhỏ, lần đầu tiên đi Shinkansen, tôi ngạc nhiên trước tốc độ quá nhanh mà đứng yên tại chỗ một lúc nhìn ra ngoài không chịu ngồi xuống — tôi vẫn còn nhớ chuyện đó.",
+          "vocab": [
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "乗る",
+              "read": "のる",
+              "vi": "lên xe, cưỡi"
+            },
+            {
+              "w": "あまりの",
+              "read": "あまりの",
+              "vi": "quá mức, quá đỗi"
+            },
+            {
+              "w": "速さ",
+              "read": "はやさ",
+              "vi": "tốc độ, sự nhanh"
+            },
+            {
+              "w": "驚きます",
+              "read": "おどろきます",
+              "vi": "ngạc nhiên, bất ngờ"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi, ghế"
+            },
+            {
+              "w": "立ちます",
+              "read": "たちます",
+              "vi": "đứng dậy, đứng"
+            },
+            {
+              "w": "しばらく",
+              "read": "しばらく",
+              "vi": "một lúc, một thời gian"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "覚えています",
+              "read": "おぼえています",
+              "vi": "còn nhớ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "乗ったとき = khi (đã) lên tàu. Vた＋とき = thời điểm hành động hoàn thành (Bài 23)。"
+            },
+            {
+              "point": "〜まま",
+              "vi": "接続: Vた（立った）＋ まま。 席を立ったまま外を見ていた = \"vừa đứng lên khỏi ghế (và giữ nguyên trạng thái đứng đó) mà nhìn ra ngoài\" — không ngồi xuống trong suốt thời gian đó. まま nhấn: trạng thái \"đã đứng rồi\" không thay đổi trong khi thực hiện hành động tiếp theo (xem cảnh)。"
+            },
+            {
+              "point": "mệnh đề bổ nghĩa（Bài 22）",
+              "vi": "見ていたこと = chuyện (mà tôi) đã ngắm. Vていた bổ nghĩa cho こと, rồi 覚えている = còn nhớ chuyện đó (Bài 22 + Bài 15)。"
+            }
+          ]
+        },
+        {
+          "jp": "そのときの興奮が、乗るたびに少しずつよみがえってくる気がする。",
+          "vi": "Có cảm giác sự hào hứng hồi đó lại ùa về mỗi lần tôi lên tàu.",
+          "vocab": [
+            {
+              "w": "興奮",
+              "read": "こうふん",
+              "vi": "sự hào hứng, phấn khích"
+            },
+            {
+              "w": "乗る",
+              "read": "のる",
+              "vi": "lên xe, cưỡi"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút, dần dần"
+            },
+            {
+              "w": "よみがえる",
+              "read": "よみがえる",
+              "vi": "hồi sinh, sống lại"
+            },
+            {
+              "w": "よみがえります",
+              "read": "よみがえります",
+              "vi": "sống lại, ùa về"
+            },
+            {
+              "w": "気がします",
+              "read": "きがします",
+              "vi": "có cảm giác, có vẻ như"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（乗る）＋ たびに。 乗るたびによみがえってくる = \"mỗi lần lên tàu là lại ùa về\" — lặp lại đều đặn (thứ 2 trong bài dài)。"
+            },
+            {
+              "point": "Vてきます（Bài 43）",
+              "vi": "よみがえってくる = dần ùa về (hướng về phía người nói/hiện tại). てくる = xuất hiện/đến gần (Bài 43)。"
+            }
+          ]
+        },
+        {
+          "jp": "実家に着いたとき、母はいつも玄関で迎えてくれる。",
+          "vi": "Khi đến nhà bố mẹ, mẹ lúc nào cũng đón tôi ở cổng vào.",
+          "vocab": [
+            {
+              "w": "実家",
+              "read": "じっか",
+              "vi": "nhà của bố mẹ, quê nhà"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi, tới nơi"
+            },
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (cách gọi khi nói về mình với người ngoài)"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "玄関",
+              "read": "げんかん",
+              "vi": "cổng chính, lối vào"
+            },
+            {
+              "w": "迎えます",
+              "read": "むかえます",
+              "vi": "đón tiếp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "着いたとき = khi đã đến nơi. Vた＋とき。"
+            },
+            {
+              "point": "Vてくれます（Bài 24）",
+              "vi": "迎えてくれる = đón (cho tôi). てくれる = người khác làm vì lợi ích người nói (Bài 24)。"
+            }
+          ]
+        },
+        {
+          "jp": "去年は荷物が多くて、靴をはいたまま廊下まで入ってしまったが、母は何も言わずにただ笑っていた。",
+          "vi": "Năm ngoái vì hành lý nhiều, tôi đi giày thẳng vào hành lang rồi, nhưng mẹ không nói gì, chỉ cười thôi.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "靴",
+              "read": "くつ",
+              "vi": "giày, dép"
+            },
+            {
+              "w": "廊下",
+              "read": "ろうか",
+              "vi": "hành lang"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (tôi)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "笑う",
+              "read": "わらう",
+              "vi": "cười"
+            },
+            {
+              "w": "はきます",
+              "read": "はきます",
+              "vi": "mang (giày, dép)"
+            },
+            {
+              "w": "何も",
+              "read": "なにも",
+              "vi": "không gì (+ phủ định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま",
+              "vi": "接続: Vた（はいた）＋ まま。 靴をはいたまま廊下まで入った = \"đi vào hành lang mà vẫn đang mang giày, không cởi ra\". まま = trạng thái \"đã mang giày\" giữ nguyên trong khi đi vào. Đây là ví dụ kinh điển của まま: hành động phụ (mang giày) không thay đổi khi thực hiện hành động chính (đi vào trong)。"
+            },
+            {
+              "point": "Aくて（Bài 16）",
+              "vi": "荷物が多くて = vì hành lý nhiều (nên). Aい + くて nối nguyên nhân。"
+            },
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "入ってしまった = lỡ đi vào (không cố ý, tiếc nuối). てしまう (Bài 29)。"
+            },
+            {
+              "point": "Vずに（Bài 17応用）",
+              "vi": "何も言わずに = không nói gì. Vずに = Vないで (cách nói văn phong trang trọng hơn)。"
+            }
+          ]
+        },
+        {
+          "jp": "その笑顔が昔のままで、少し胸が熱くなった。",
+          "vi": "Nụ cười đó vẫn y như ngày xưa, lòng tôi hơi thắt lại.",
+          "vocab": [
+            {
+              "w": "笑顔",
+              "read": "えがお",
+              "vi": "nụ cười"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "胸",
+              "read": "むね",
+              "vi": "lòng, ngực"
+            },
+            {
+              "w": "熱くなります",
+              "read": "あつくなります",
+              "vi": "ấm nóng lên, thắt lại (cảm xúc)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま",
+              "vi": "接続: Nの（昔の）＋ まま。 昔のままで = \"vẫn như ngày xưa, không thay đổi\". まま dùng với N: nhấn mạnh trạng thái không thay đổi so với một thời điểm cũ. Đây là cách dùng \"Nのまま\" thể hiện sự bất biến theo thời gian。"
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "熱くなった = đã trở nên ấm/thắt. Aい + くなる = trở nên (Bài 19)。"
+            }
+          ]
+        },
+        {
+          "jp": "実家の部屋も、私が使っていたときのまま残されており、机の上の古い写真立てもそのままだ。",
+          "vi": "Phòng tôi ở nhà cũng được giữ nguyên như hồi tôi còn ở đó, cái khung ảnh cũ trên bàn cũng nguyên vẹn.",
+          "vocab": [
+            {
+              "w": "実家",
+              "read": "じっか",
+              "vi": "nhà bố mẹ"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "使っていた",
+              "read": "つかっていた",
+              "vi": "đã từng sử dụng"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "まま",
+              "read": "まま",
+              "vi": "giữ nguyên trạng thái"
+            },
+            {
+              "w": "残されており",
+              "read": "のこされており",
+              "vi": "được để lại"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn học"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "bên trên"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "bức ảnh"
+            },
+            {
+              "w": "写真立て",
+              "read": "しゃしんたて",
+              "vi": "khung ảnh"
+            },
+            {
+              "w": "そのまま",
+              "read": "そのまま",
+              "vi": "nguyên như vậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま",
+              "vi": "接続: 「Vていたとき」＋ のまま。 使っていたときのまま = \"vẫn y như hồi còn dùng (phòng đó), không đổi gì\". Đây là dạng cụm phức tạp hơn: mệnh đề bổ nghĩa (Bài 22) + のまま, nhưng bản chất vẫn là まま = giữ nguyên trạng thái cũ。"
+            },
+            {
+              "point": "受身（Bài 37）",
+              "vi": "残されており = được giữ lại (受身 thụ động, Bài 37). Nói về trạng thái: phòng được ai đó (mẹ) giữ nguyên。"
+            }
+          ]
+        },
+        {
+          "jp": "帰省するたびに、時間が止まった感覚になるのだが、実は少しずつ変化しているのだろう。",
+          "vi": "Mỗi lần về quê, tôi lại có cảm giác như thời gian đứng lại, nhưng thực ra mọi thứ đang dần dần thay đổi chứ.",
+          "vocab": [
+            {
+              "w": "帰省",
+              "read": "きせい",
+              "vi": "về quê"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "止まります",
+              "read": "とまります",
+              "vi": "dừng lại, ngưng"
+            },
+            {
+              "w": "感覚",
+              "read": "かんかく",
+              "vi": "cảm giác"
+            },
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra, thật ra"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "変化します",
+              "read": "へんかします",
+              "vi": "thay đổi, biến đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（帰省する）＋ たびに。 帰省するたびに感覚になる = \"mỗi lần về quê đều có cảm giác như vậy\" — lặp lại đều đặn (thứ 3 trong bài dài)。"
+            },
+            {
+              "point": "〜のだろう（phán đoán, Bài 20 + 32）",
+              "vi": "時間が止まった感覚になるのだが…変化しているのだろう = \"có cảm giác thời gian đứng lại… nhưng chắc là vẫn đang đổi\". のだろう = chắc là/có lẽ (ví von ような/ようだ để dành Bài 64)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、以前は見えなかった白髪が母に増えていた。",
+          "vi": "Chẳng hạn, tóc bạc của mẹ nhiều hơn trước — trước đây tôi không thấy.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "chẳng hạn, ví dụ"
+            },
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, trước kia"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "白髪",
+              "read": "しらが",
+              "vi": "tóc bạc"
+            },
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (tôi)"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên, nhiều hơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa（Bài 22）",
+              "vi": "見えなかった白髪 = tóc bạc (mà trước đây không thấy). Vなかった bổ nghĩa cho 白髪 (Bài 22)。"
+            },
+            {
+              "point": "Vています（trạng thái Bài 29）",
+              "vi": "増えていた = đã trở nên nhiều hơn (trạng thái sau thay đổi). 自動詞 + ている = trạng thái kết quả (Bài 29)。"
+            }
+          ]
+        },
+        {
+          "jp": "それに気づいたとたん、胸が痛くなってしまった。",
+          "vi": "Vừa nhận ra điều đó, tôi đã thấy lòng đau.",
+          "vocab": [
+            {
+              "w": "気づきます",
+              "read": "きづきます",
+              "vi": "nhận ra, để ý"
+            },
+            {
+              "w": "胸",
+              "read": "むね",
+              "vi": "lòng, ngực"
+            },
+            {
+              "w": "痛くなります",
+              "read": "いたくなります",
+              "vi": "trở nên đau, nhói đau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん（Bài 57）",
+              "vi": "気づいたとたん = vừa nhận ra thì liền ngay (Bài 57). Vた＋とたん = vừa…thì ngay lập tức, bất ngờ。"
+            },
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "痛くなってしまった = đã lỡ thấy đau (cảm xúc bất ngờ, không kìm được)。"
+            }
+          ]
+        },
+        {
+          "jp": "うちに帰るたびに、母の老いを感じるようになったのは、自分も大人になったからかもしれない。",
+          "vi": "Việc mỗi lần về nhà lại cảm thấy mẹ già đi — có lẽ là vì bản thân tôi cũng đã lớn rồi.",
+          "vocab": [
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (tôi)"
+            },
+            {
+              "w": "老い",
+              "read": "おい",
+              "vi": "sự già nua, tuổi già"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn, trưởng thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（帰る）＋ たびに。 帰るたびに感じる = \"mỗi lần về là đều cảm thấy\" — lặp đi lặp lại đều đặn (thứ 4 trong bài dài)。"
+            },
+            {
+              "point": "Vるようになった（Bài 36）",
+              "vi": "感じるようになった = đã trở nên cảm thấy (dần dần, thay đổi). ようになる = dần dần trở thành (Bài 36)。"
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "からかもしれない = có thể là vì. Ôn Bài 32。"
+            }
+          ]
+        },
+        {
+          "jp": "父も同じで、帰省するたびに少し老けて見える。",
+          "vi": "Bố cũng vậy, mỗi lần về quê trông bố có vẻ già hơn một chút.",
+          "vocab": [
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "帰省",
+              "read": "きせい",
+              "vi": "về quê"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "老けます",
+              "read": "ふけます",
+              "vi": "già đi (về ngoại hình)"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（帰省する）＋ たびに。 帰省するたびに少し老けて見える = \"mỗi lần về quê thì trông lại già hơn một chút\" — lặp đi lặp lại đều đặn (thứ 5)。"
+            },
+            {
+              "point": "〜て見える（Bài 27 見える）",
+              "vi": "老けて見える = trông già đi. Vて ＋ 見える = nhìn thì thấy/trông ~ (ようだ/みたいだ để dành Bài 64)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、父は仕事のことを聞かれるたびに、嬉しそうに長々と話してくれる。",
+          "vi": "Thế nhưng, mỗi khi được hỏi về công việc, bố lại kể vui vẻ, say sưa mãi.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "父",
+              "read": "ちち",
+              "vi": "bố (cách gọi khi nói với người ngoài)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui mừng, vui sướng"
+            },
+            {
+              "w": "長々と",
+              "read": "ながながと",
+              "vi": "dài dòng, say sưa kể mãi"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: 受身形（聞かれる Bài 37）＋ たびに。 聞かれるたびに = \"mỗi lần được hỏi là đều\". Lưu ý: たびに cũng dùng được với 受身 (Bài 37)。"
+            },
+            {
+              "point": "Vそうに（Bài 43 そうだ様態）",
+              "vi": "嬉しそうに = (có vẻ) vui vẻ (Bài 43). Vます/Aい bỏ い + そう → trạng từ そうに。"
+            },
+            {
+              "point": "Vてくれます（Bài 24）",
+              "vi": "話してくれる = kể cho (tôi nghe). てくれる = làm vì lợi ích người nói (Bài 24)。"
+            }
+          ]
+        },
+        {
+          "jp": "テレビをつけたまま話し込んでいると、いつの間にか夜中になっていることもある。",
+          "vi": "Khi đang nói chuyện mà tivi cứ để nguyên bật, có khi không biết lúc nào đã nửa đêm mất rồi.",
+          "vocab": [
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "tivi"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "話し込みます",
+              "read": "はなしこみます",
+              "vi": "nói chuyện say sưa, mải nói"
+            },
+            {
+              "w": "いつの間にか",
+              "read": "いつのまにか",
+              "vi": "lúc nào không hay, bất ngờ"
+            },
+            {
+              "w": "夜中",
+              "read": "よなか",
+              "vi": "nửa đêm"
+            },
+            {
+              "w": "つけます",
+              "read": "つけます",
+              "vi": "bật (điện, tivi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま",
+              "vi": "接続: Vた（つけた）＋ まま。 テレビをつけたまま話し込んでいる = \"vừa nói chuyện mà tivi vẫn bật nguyên, không tắt\". まま = trạng thái \"đã bật rồi\" giữ nguyên trong suốt cuộc trò chuyện. Đây là ví dụ điển hình 電気をつけたまま (cấu trúc hay xuất hiện trong ví dụ giáo trình)。"
+            },
+            {
+              "point": "〜と（điều kiện Bài 23）",
+              "vi": "話し込んでいると夜中になっていることもある = khi đang nói chuyện say sưa thì đôi khi đã nửa đêm. と điều kiện/kết quả tự nhiên (Bài 23)。"
+            }
+          ]
+        },
+        {
+          "jp": "そんな時間が、私にはとても大切だ。",
+          "vi": "Với tôi, những khoảnh khắc như vậy thật quý giá.",
+          "vocab": [
+            {
+              "w": "そんな",
+              "read": "そんな",
+              "vi": "như thế, như vậy"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, quý giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜には（trợ từ に ＋ は）",
+              "vi": "私には = \"đối với tôi/với tôi thì\". に (đối tượng cảm nhận) + は (nhấn chủ đề). (Mẫu にとって \"đối với\" để dành Bài 69.)"
+            }
+          ]
+        },
+        {
+          "jp": "帰省のたびに感じることは、遠くにいるうちに、ゆっくりではあるが確かに変わっていくものがあるということだ。",
+          "vi": "Điều tôi cảm nhận mỗi lần về quê là: trong khi còn ở xa, có những thứ đang chậm chậm mà chắc chắn thay đổi.",
+          "vocab": [
+            {
+              "w": "帰省",
+              "read": "きせい",
+              "vi": "về quê"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "遠く",
+              "read": "とおく",
+              "vi": "xa, nơi xa"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "chậm rãi, từ từ"
+            },
+            {
+              "w": "確かに",
+              "read": "たしかに",
+              "vi": "chắc chắn, rõ ràng"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Nの（帰省の）＋ たびに。 帰省のたびに感じること = \"điều cảm nhận mỗi lần về quê\". Dùng với N: Nのたびに = mỗi dịp/lần N。"
+            },
+            {
+              "point": "〜うちに（Bài 55）",
+              "vi": "遠くにいるうちに = trong khi (vẫn) còn ở xa. うちに = tranh thủ/trong khoảng thời gian trạng thái còn giữ nguyên (Bài 55)。"
+            },
+            {
+              "point": "Vていく（Bài 43）",
+              "vi": "変わっていくものがある = có những thứ đang dần dần thay đổi đi. ていく = tiếp tục/đi xa dần (Bài 43)。"
+            }
+          ]
+        },
+        {
+          "jp": "だからこそ、帰るたびに、昔のままでいてほしいという気持ちと、元気で変わっていてほしいという気持ちが入り混じる。",
+          "vi": "Chính vì vậy, mỗi lần về nhà, tôi lại có hai cảm xúc lẫn lộn: muốn mọi thứ vẫn như xưa, và muốn bố mẹ khỏe mạnh dù có thay đổi.",
+          "vocab": [
+            {
+              "w": "だからこそ",
+              "read": "だからこそ",
+              "vi": "chính vì vậy, chính bởi thế"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khỏe mạnh"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "混じる",
+              "read": "こんじる",
+              "vi": "lẫn vào, pha trộn"
+            },
+            {
+              "w": "入り混じります",
+              "read": "いりまじります",
+              "vi": "lẫn lộn, hòa quyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（帰る）＋ たびに。 帰るたびに気持ちが入り混じる = \"mỗi lần về là đều cảm xúc lẫn lộn\" — lặp đi lặp lại (thứ 6 + đồng thời xuất hiện cùng まま)。"
+            },
+            {
+              "point": "〜まま",
+              "vi": "接続: Nの（昔の）＋ まま。 昔のままでいてほしい = \"muốn (mọi thứ) vẫn giữ nguyên như xưa\". Cách dùng まま với でいる: nhấn \"không thay đổi, cứ tiếp tục ở trạng thái cũ\"。"
+            },
+            {
+              "point": "Vてほしい（Bài 13 応用）",
+              "vi": "変わっていてほしい = muốn (bố mẹ) đang thay đổi (theo nghĩa tốt, còn sức sống). Vてほしい = muốn người khác làm V。"
+            }
+          ]
+        },
+        {
+          "jp": "それでも、実家に帰るたびに、心が温かくなるのは変わらない。",
+          "vi": "Dù vậy, việc lòng ấm lại mỗi khi về nhà thì không hề thay đổi.",
+          "vocab": [
+            {
+              "w": "それでも",
+              "read": "それでも",
+              "vi": "dù vậy, dù thế"
+            },
+            {
+              "w": "実家",
+              "read": "じっか",
+              "vi": "nhà của bố mẹ, quê nhà"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "tâm lòng, trong lòng"
+            },
+            {
+              "w": "温かくなります",
+              "read": "あたたかくなります",
+              "vi": "trở nên ấm áp"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（帰る）＋ たびに。 帰るたびに心が温かくなる = \"mỗi lần về thì lòng lại ấm\" — lặp đi lặp lại đều đặn, kết câu bài (thứ 7 trong bài dài)。"
+            },
+            {
+              "point": "Vるのは〜（Bài 38）",
+              "vi": "心が温かくなるのは変わらない = việc lòng ấm lên thì không thay đổi. Vるの danh từ hoá mệnh đề (Bài 38)。"
+            }
+          ]
+        },
+        {
+          "jp": "来年もまた、同じ笑顔で迎えてもらえると信じている。",
+          "vi": "Tôi tin rằng năm sau cũng vậy, mình sẽ được đón bằng nụ cười quen thuộc ấy.",
+          "vocab": [
+            {
+              "w": "来年",
+              "read": "らいねん",
+              "vi": "năm sau"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "笑顔",
+              "read": "えがお",
+              "vi": "nụ cười, khuôn mặt tươi cười"
+            },
+            {
+              "w": "迎える",
+              "read": "むかえる",
+              "vi": "đón, nghênh đón"
+            },
+            {
+              "w": "信じます",
+              "read": "しんじます",
+              "vi": "tin tưởng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらえる（Bài 41応用）",
+              "vi": "迎えてもらえる = có thể được đón. Vてもらう (Bài 41) + 可能形 (Bài 27) → てもらえる = được ai đó làm cho。"
+            },
+            {
+              "point": "〜と思います（Bài 21応用）",
+              "vi": "〜と信じている = đang tin rằng. と nối mệnh đề nội dung; 信じている = đang tin (trạng thái tiếp tục)。"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "新幹線に乗るたびに、窓の外の景色を眺めながら",
+          "label": "〜たびに（mỗi lần lên tàu đều…）"
+        },
+        {
+          "excerpt": "席を立ったまましばらく外を見ていた",
+          "label": "〜まま（đứng nguyên không ngồi xuống）"
+        },
+        {
+          "excerpt": "靴をはいたまま廊下まで入ってしまった",
+          "label": "Sắc thái: Vたまま（đi giày vào trong — không cởi ra）"
+        },
+        {
+          "excerpt": "昔のままで、少し胸が熱くなった",
+          "label": "〜まま（vẫn như xưa, Nのまま）"
+        },
+        {
+          "excerpt": "テレビをつけたまま話し込んでいると",
+          "label": "〜まま（bật tivi mà không tắt, điển hình）"
+        },
+        {
+          "excerpt": "帰省のたびに感じることは",
+          "label": "〜たびに（Nのたびに）"
+        },
+        {
+          "excerpt": "昔のままでいてほしいという気持ち",
+          "label": "Sắc thái: まま＋でいる（muốn giữ nguyên trạng thái）"
+        },
+        {
+          "excerpt": "実家に帰るたびに、心が温かくなる",
+          "label": "〜たびに（cảm xúc đều đặn mỗi lần về）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「靴をはいたまま廊下まで入ってしまった」について、「まま」はどんなことを表していますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "靴を脱いでから廊下に入ったということ",
+            "靴をはいている状態を変えずに、そのまま廊下に入ったということ",
+            "靴を廊下に置いてから部屋に入ったということ",
+            "靴が古くて履き替えられなかったということ"
+          ],
+          "answer": 1,
+          "explainVi": "Câu gốc:「靴をはいたまま廊下まで入ってしまった」— はいた (đã mang giày) + まま = trạng thái \"đã mang giày\" KHÔNG THAY ĐỔI khi đi vào hành lang. Không có bước cởi giày ở lối vào. てしまった cho thấy hành động này không cố ý (vì hành lý nhiều). Đáp án 1 đúng: \"không cởi giày, giữ nguyên trạng thái mang giày mà đi thẳng vào hành lang\". Đáp án 0 sai: 脱いでから = \"cởi rồi mới vào\" — đây là trình tự てから, trái nghĩa hoàn toàn với まま. Đáp án 2 sai: \"để giày ở hành lang\" không phải nội dung bài — bài chỉ nói đi vào mà không cởi giày. Đáp án 3 sai: \"giày cũ không thể thay\" — bài không đề cập nguyên nhân này; lý do thực là 荷物が多くて (hành lý nhiều).",
+          "tip": "Vたまま = \"đã làm rồi (V), giữ nguyên trạng thái đó mà làm tiếp\" — trạng thái từ trước まま không bị xoá đi. Loại ngay đáp án có てから/てから (có hành động trung gian làm thay đổi trạng thái).",
+          "qt": {
+            "q": "Trong câu 「靴をはいたまま廊下まで入ってしまった」(đã đi vào tận hành lang khi vẫn mang giày), 「まま」diễn tả điều gì?",
+            "o": [
+              "Việc cởi giày rồi mới đi vào hành lang",
+              "Việc đi vào hành lang mà không thay đổi trạng thái đang mang giày",
+              "Việc đặt giày ở hành lang rồi mới đi vào phòng",
+              "Việc giày đã cũ nên không thể thay giày khác"
+            ]
+          }
+        },
+        {
+          "q": "この文章で「たびに」が何度も使われています。「たびに」の意味として最も正しいのはどれですか。",
+          "evi": [
+            1,
+            8,
+            16
+          ],
+          "options": [
+            "一度だけ起きたことを表す",
+            "条件が成立したときの自然な結果を表す",
+            "繰り返されるたびに毎回同じことが起きることを表す",
+            "初めてのことが起きたときを表す"
+          ],
+          "answer": 2,
+          "explainVi": "Bài dài dùng たびに tới 7+ lần:「乗るたびに」「乗るたびに」「帰省するたびに」「帰るたびに」「聞かれるたびに」「帰省のたびに」「帰るたびに」「帰るたびに」— tất cả đều nhấn \"mỗi lần thực hiện hành động đó là ĐỀU xảy ra kết quả/cảm xúc đó, không thiếu lần nào\". Đáp án 2 đúng: \"mỗi lần lặp lại đều có cùng kết quả\". Đáp án 0 sai: \"một lần duy nhất\" — bài dùng たびに hàng chục lần, rõ ràng là lặp lại. Đáp án 1 sai: \"điều kiện tự nhiên\" là と (Bài 23) — 毎年夏になると帰省する (câu đầu bài) mới dùng と cho điều kiện, còn たびに nhấn lặp lại đều đặn theo thói quen/cảm xúc. Đáp án 3 sai: \"lần đầu tiên\" là はじめて — câu dùng はじめて ở giữa bài, không liên quan たびに.",
+          "tip": "たびに khác と ở chỗ — と nêu kết quả tất yếu (logic/tự nhiên), たびに nhấn ĐỀU LẶP LẠI (thói quen, cảm xúc). Nhìn thấy \"繰り返し\" hay nhiều lần cùng một cảm xúc → たびに.",
+          "qt": {
+            "q": "Trong bài viết này, 「たびに」 được dùng nhiều lần. Nghĩa nào sau đây của 「たびに」 là chính xác nhất?",
+            "o": [
+              "Diễn tả việc chỉ xảy ra một lần",
+              "Diễn tả kết quả tự nhiên khi một điều kiện được đáp ứng",
+              "Diễn tả việc mỗi lần lặp lại thì cùng một việc đều xảy ra",
+              "Diễn tả thời điểm một việc xảy ra lần đầu tiên"
+            ]
+          }
+        },
+        {
+          "q": "筆者は「帰るたびに昔のままでいてほしいという気持ちと、元気で変わっていてほしいという気持ちが入り混じる」と書いています。なぜこの二つの気持ちが同時にあるのですか。",
+          "evi": [
+            9,
+            17,
+            18
+          ],
+          "options": [
+            "毎回帰省のたびに喧嘩するから",
+            "両親が実際に変わってほしくないと思っているから",
+            "遠くにいるうちに両親は老いていくが、会うと昔のままの温かさを感じるから",
+            "実家が新しくなったから"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết nêu hai thực tế đối lập: (a) 변화 —「以前は見えなかった白髪が母に増えていた」(tóc bạc nhiều hơn),「帰省するたびに少し老けて見える」(bố trông già hơn mỗi lần về) → bố mẹ đang già đi;  (b) 温かさ —「その笑顔が昔のまま」(nụ cười vẫn y như xưa),「実家に帰るたびに、心が温かくなるのは変わらない」(lòng ấm mỗi lần về không đổi). Vì tồn tại cả hai thực tế này mà cảm xúc \"muốn mọi thứ vẫn như xưa\" và \"muốn bố mẹ khỏe mạnh dù thay đổi\" lẫn lộn nhau. Đáp án 2 đúng: \"vì bố mẹ già đi khi con ở xa, nhưng gặp mặt lại vẫn thấy sự ấm áp như xưa\". Đáp án 0 sai: bài không hề nhắc đến cãi nhau mỗi lần về. Đáp án 1 sai: tác giả KHÔNG đơn thuần muốn bố mẹ không thay đổi — bài rõ ràng nói hai cảm xúc lẫn lộn (không thuần một chiều). Đáp án 3 sai: bài không đề cập nhà mới.",
+          "tip": "Câu hỏi suy luận \"vì sao có hai cảm xúc?\" → tìm trong bài hai luồng thông tin đối lập (thay đổi VS không đổi). まま và たびに thường xuất hiện cùng nhau để thể hiện chính sự đối lập đó.",
+          "qt": {
+            "q": "Tác giả viết: 「帰るたびに昔のままでいてほしいという気持ちと、元気で変わっていてほしいという気持ちが入り混じる」(mỗi lần trở về, đan xen cảm giác mong mọi thứ vẫn như xưa và mong cha mẹ khỏe mạnh, có những thay đổi). Vì sao hai cảm xúc này cùng tồn tại?",
+            "o": [
+              "Vì mỗi lần về thăm nhà, họ đều cãi nhau",
+              "Vì cha mẹ thực sự nghĩ rằng họ không muốn thay đổi",
+              "Vì khi sống xa, cha mẹ dần già đi, nhưng khi gặp họ, tác giả cảm nhận được sự ấm áp như ngày xưa",
+              "Vì ngôi nhà của cha mẹ đã được sửa mới"
+            ]
+          }
+        },
+        {
+          "q": "「テレビをつけたまま話し込んでいると、夜中になっていることもある」の「まま」と似た使い方をしている文はどれですか。",
+          "evi": [
+            14
+          ],
+          "options": [
+            "テレビを消してから話し込んだ",
+            "コートを着たまま部屋で話し続けた",
+            "テレビをつけることを忘れたまま",
+            "夜中まで話してからテレビをつけた"
+          ],
+          "answer": 1,
+          "explainVi": "Câu gốc:「テレビをつけたまま話し込んでいる」— つけた (đã bật) + まま = trạng thái \"đã bật tivi\" KHÔNG THAY ĐỔI (không tắt) trong khi hai người nói chuyện say sưa. Đây là Vたまま điển hình: hành động phụ (bật tivi) giữ nguyên khi làm hành động chính (nói chuyện). Đáp án 1 đúng:「コートを着たまま部屋で話し続けた」= cũng là Vたまま — mặc áo khoác (着た) giữ nguyên trong khi tiếp tục nói chuyện (話し続けた), không cởi ra. Cùng cấu trúc \"Vたまま＋hành động tiếp theo\". Đáp án 0 sai: テレビを消してから = \"tắt tivi xong rồi nói chuyện\" — てから là tuần tự, trái nghĩa với まま. Đáp án 2 sai:「つけることを忘れたまま」= Vないまま — không bật tivi (quên bật), khác hoàn toàn với \"đã bật rồi giữ nguyên bật\". Đáp án 3 sai: \"nói chuyện xong rồi mới bật tivi\" — đảo ngược trình tự, không liên quan まま.",
+          "tip": "Để tìm câu TƯƠNG TỰ まま, kiểm tra: (1) có Vたまま hoặc Vないまま không? (2) trạng thái trước まま có bị thay đổi khi làm hành động sau không? Nếu \"không đổi\" → đúng mẫu. Loại nhanh các đáp án có てから (thay đổi trạng thái rồi mới làm).",
+          "qt": {
+            "q": "Câu nào sử dụng 「まま」 theo cách tương tự như trong câu 「テレビをつけたまま話し込んでいると、夜中になっていることもある」(khi mải trò chuyện trong lúc vẫn bật tivi, đôi khi trời đã khuya)?",
+            "o": [
+              "Mải trò chuyện sau khi tắt tivi",
+              "Tiếp tục trò chuyện trong phòng mà vẫn mặc áo khoác",
+              "Quên việc bật tivi trong khi vẫn…",
+              "Bật tivi sau khi trò chuyện đến tận khuya"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "会員カードのお知らせ",
+      "titleVi": "Thông báo: Thẻ hội viên rạp phim & phòng gym さくらフィットネス＆シネマ",
+      "japanese": "さくらフィットネス＆シネマ　会員カードのご案内\n映画館とジムが一つになった新しい会員カードができました。来るたびにポイントがたまりますので、体を動かすのが好きな方も、映画が好きな方も、ぜひご利用ください。\nコース｜月会費｜利用できる場所｜特典\nスタンダード｜3,000円｜ジムのみ｜映画は1回につき500円引き\nプレミアム｜5,000円｜ジム・映画館両方｜映画はいつでも無料\nVIP｜8,000円｜ジム・映画館両方｜映画無料＋飲み物1杯無料\nどのコースも、来るたびにポイントが1つたまり、10ポイントたまると次の月の会費が1,000円安くなります。\n学生証をお持ちの方は、どのコースも月会費が10％引きになります。\nまた、9月から11月の秋のキャンペーン中に申し込むと、初月の会費が半額になります。\n※夜8時以降にジムを利用する場合、混雑を避けるため、追加料金300円がかかります。\n※かばんを持ったまま入らないでください。ロッカーに預けたまま、運動着に着替えてからお入りください。\n※プレミアムとVIPの方は、映画館の座席が満席のとき、当日は座席の予約ができないことがあります。\n※申し込みは、来店当日から可能です。会員カードは即日発行いたします。\nお問い合わせ：さくらフィットネス＆シネマ　電話：03-4567-8901（毎日 10:00〜21:00）",
+      "vietnamese": "さくらフィットネス＆シネマ　Thông báo về thẻ hội viên\nThẻ hội viên mới đã ra đời, gộp chung rạp phim và phòng gym làm một. Mỗi lần đến đều được tích điểm, nên dù bạn là người thích vận động hay thích xem phim, đều rất mong bạn sử dụng.\nHạng thẻ｜Hội phí tháng｜Nơi được dùng｜Quyền lợi\nStandard｜3.000 yên｜Chỉ phòng gym｜Xem phim được giảm 500 yên mỗi lần\nPremium｜5.000 yên｜Cả gym và rạp phim｜Xem phim miễn phí bất cứ lúc nào\nVIP｜8.000 yên｜Cả gym và rạp phim｜Xem phim miễn phí ＋ 1 ly nước miễn phí\nDù hạng nào, mỗi lần đến đều được tích 1 điểm, tích đủ 10 điểm thì hội phí tháng sau được giảm 1.000 yên.\nNgười có thẻ học sinh thì dù hạng nào cũng được giảm 10% hội phí tháng.\nNgoài ra, nếu đăng ký trong đợt khuyến mãi mùa thu từ tháng 9 đến tháng 11 thì hội phí tháng đầu được giảm nửa giá.\n※Nếu sử dụng phòng gym sau 8 giờ tối, để tránh đông người, sẽ tính thêm phụ phí 300 yên.\n※Xin đừng mang cặp/túi vào phòng tập. Hãy gửi cặp/túi ở tủ khóa, thay đồ tập rồi mới vào.\n※Khách hạng Premium và VIP, khi ghế rạp phim đã hết chỗ, có thể không đặt được ghế ngay trong ngày.\n※Có thể đăng ký ngay trong ngày đến cửa hàng. Thẻ hội viên được cấp ngay trong ngày.\nLiên hệ: さくらフィットネス＆シネマ　Điện thoại: 03-4567-8901 (hằng ngày 10:00〜21:00)",
+      "sentences": [
+        {
+          "jp": "さくらフィットネス＆シネマ　会員カードのご案内",
+          "vi": "さくらフィットネス＆シネマ　Thông báo về thẻ hội viên",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "フィットネス",
+              "read": "フィットネス",
+              "vi": "thể dục thể hình"
+            },
+            {
+              "w": "シネマ",
+              "read": "シネマ",
+              "vi": "rạp chiếu phim, điện ảnh"
+            },
+            {
+              "w": "会員カード",
+              "read": "かいいんカード",
+              "vi": "thẻ hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn (lịch sự)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "会員カードのご案内",
+              "why": "Tiêu đề thông báo — xác định chủ đề: thẻ hội viên gym/rạp phim."
+            }
+          ]
+        },
+        {
+          "jp": "映画館とジムが一つになった新しい会員カードができました。来るたびにポイントがたまりますので、体を動かすのが好きな方も、映画が好きな方も、ぜひご利用ください。",
+          "vi": "Thẻ hội viên mới đã ra đời, gộp chung rạp phim và phòng gym làm một. Mỗi lần đến đều được tích điểm, nên dù bạn là người thích vận động hay thích xem phim, đều rất mong bạn sử dụng.",
+          "vocab": [
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim (điện ảnh)"
+            },
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "来る",
+              "read": "きたる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "たまる",
+              "read": "たまる",
+              "vi": "tích lũy, đọng lại"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "動かす",
+              "read": "うごかす",
+              "vi": "vận hành, làm chuyển động"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "映画館",
+              "read": "えいがかん",
+              "vi": "rạp chiếu phim"
+            },
+            {
+              "w": "体を動かします",
+              "read": "からだをうごかします",
+              "vi": "vận động cơ thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（来る）＋ たびに。 来るたびにポイントがたまります = \"mỗi lần đến là đều được tích điểm\" — lặp đi lặp lại đều đặn, xuất hiện ngay từ câu giới thiệu (mẫu trọng tâm Bài 58, lần 1)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "来るたびにポイントがたまります",
+              "why": "Câu giới thiệu quy tắc tích điểm — mỗi lần đến đều cộng điểm, liên quan gián tiếp câu hỏi 1 (giảm giá tích lũy không phải trọng tâm câu hỏi, nhưng cần phân biệt với giảm giá học sinh/khuyến mãi)."
+            }
+          ]
+        },
+        {
+          "jp": "コース｜月会費｜利用できる場所｜特典",
+          "vi": "Hạng thẻ｜Hội phí tháng｜Nơi được dùng｜Quyền lợi",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "hạng, gói"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "hội phí"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "特典",
+              "read": "とくてん",
+              "vi": "quyền lợi, ưu đãi"
+            },
+            {
+              "w": "月会費",
+              "read": "つきかいひ",
+              "vi": "hội phí tháng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "コース｜月会費｜利用できる場所｜特典",
+              "why": "Header bảng — 4 cột cần dò khi ghép điều kiện câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "スタンダード｜3,000円｜ジムのみ｜映画は1回につき500円引き",
+          "vi": "Standard｜3.000 yên｜Chỉ phòng gym｜Xem phim được giảm 500 yên mỗi lần",
+          "vocab": [
+            {
+              "w": "スタンダード",
+              "read": "スタンダード",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ, chỉ có"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim điện ảnh"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi, trên mỗi"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm, trừ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ジムのみ",
+              "why": "Hạng Standard KHÔNG dùng được rạp phim (chỉ giảm giá 500円 khi xem, không miễn phí) — căn cứ loại đáp án ở câu hỏi 2 (khách muốn dùng cả gym lẫn rạp phim)."
+            },
+            {
+              "w": "3,000円",
+              "why": "Hội phí gốc thấp nhất trong 3 hạng."
+            }
+          ]
+        },
+        {
+          "jp": "プレミアム｜5,000円｜ジム・映画館両方｜映画はいつでも無料",
+          "vi": "Premium｜5.000 yên｜Cả gym và rạp phim｜Xem phim miễn phí bất cứ lúc nào",
+          "vocab": [
+            {
+              "w": "プレミアム",
+              "read": "ぷれみあむ",
+              "vi": "cao cấp"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "ジム",
+              "read": "じむ",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "映画館",
+              "read": "えいがかん",
+              "vi": "rạp chiếu phim"
+            },
+            {
+              "w": "両方",
+              "read": "りょうほう",
+              "vi": "cả hai"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim điện ảnh"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "5,000円",
+              "why": "Hội phí gốc của hạng Premium — dùng để tính phí thực trả ở câu hỏi 1 (sau khi trừ giảm học sinh + khuyến mãi mùa thu)."
+            },
+            {
+              "w": "ジム・映画館両方",
+              "why": "Premium dùng được cả gym lẫn rạp phim — căn cứ chọn hạng ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "VIP｜8,000円｜ジム・映画館両方｜映画無料＋飲み物1杯無料",
+          "vi": "VIP｜8.000 yên｜Cả gym và rạp phim｜Xem phim miễn phí ＋ 1 ly nước miễn phí",
+          "vocab": [
+            {
+              "w": "VIP",
+              "read": "ぶいあいぴー",
+              "vi": "VIP"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "ジム",
+              "read": "じむ",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "映画館",
+              "read": "えいがかん",
+              "vi": "rạp chiếu phim"
+            },
+            {
+              "w": "両方",
+              "read": "りょうほう",
+              "vi": "cả hai"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim điện ảnh"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "1杯",
+              "read": "いっぱい",
+              "vi": "một cốc"
+            },
+            {
+              "w": "杯",
+              "read": "はい",
+              "vi": "cốc; ly"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "8,000円",
+              "why": "Hội phí đắt nhất — dễ bị nhầm là bắt buộc cho khách muốn dùng cả 2 nơi ở câu hỏi 2, nhưng Premium (rẻ hơn) cũng đủ điều kiện đó."
+            }
+          ]
+        },
+        {
+          "jp": "どのコースも、来るたびにポイントが1つたまり、10ポイントたまると次の月の会費が1,000円安くなります。",
+          "vi": "Dù hạng nào, mỗi lần đến đều được tích 1 điểm, tích đủ 10 điểm thì hội phí tháng sau được giảm 1.000 yên.",
+          "vocab": [
+            {
+              "w": "どの",
+              "read": "どの",
+              "vi": "nào; bất kỳ"
+            },
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa; gói"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến"
+            },
+            {
+              "w": "たび",
+              "read": "たび",
+              "vi": "mỗi lần"
+            },
+            {
+              "w": "ポイント",
+              "read": "ぽいんと",
+              "vi": "điểm"
+            },
+            {
+              "w": "1つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "たまり",
+              "read": "たまり",
+              "vi": "tích lại"
+            },
+            {
+              "w": "10ポイント",
+              "read": "じゅっぽいんと",
+              "vi": "10 điểm"
+            },
+            {
+              "w": "たまる",
+              "read": "たまる",
+              "vi": "tích đủ"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "phí hội viên"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "安くなります",
+              "read": "やすくなります",
+              "vi": "trở nên rẻ hơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: Vる（来る）＋ たびに。 来るたびにポイントが1つたまり = \"mỗi lần đến là đều được cộng 1 điểm\" — lặp lại đều đặn (mẫu trọng tâm Bài 58, lần 2). Đây là điều kiện tích lũy dài hạn, KHÁC với giảm giá học sinh/khuyến mãi ở 2 câu tiếp theo — dễ gây nhầm nếu không phân biệt rõ 3 loại giảm giá."
+            },
+            {
+              "point": "〜と（điều kiện Bài 23, ôn lại）",
+              "vi": "10ポイントたまると安くなります = tích đủ 10 điểm thì (đương nhiên) rẻ hơn — と chỉ điều kiện tất yếu, khác たびに (nhấn lặp lại đều đặn)。"
+            }
+          ]
+        },
+        {
+          "jp": "学生証をお持ちの方は、どのコースも月会費が10％引きになります。",
+          "vi": "Người có thẻ học sinh thì dù hạng nào cũng được giảm 10% hội phí tháng.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "hội phí"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh/sinh viên"
+            },
+            {
+              "w": "お持ちの方",
+              "read": "おもちのかた",
+              "vi": "người có, người mang theo (lịch sự)"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になります（Bài 19, ôn lại）",
+              "vi": "10％引きになる = trở thành giảm 10%. Aい/N + になる = trở nên/thành (Bài 19)。"
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証をお持ちの方は、どのコースも月会費が10％引き",
+              "why": "Điều kiện giảm giá 1: học sinh giảm 10% hội phí — căn cứ tính phí câu hỏi 1, ghép với điều kiện khuyến mãi mùa thu."
+            }
+          ]
+        },
+        {
+          "jp": "また、9月から11月の秋のキャンペーン中に申し込むと、初月の会費が半額になります。",
+          "vi": "Ngoài ra, nếu đăng ký trong đợt khuyến mãi mùa thu từ tháng 9 đến tháng 11 thì hội phí tháng đầu được giảm nửa giá.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra"
+            },
+            {
+              "w": "9月",
+              "read": "くがつ",
+              "vi": "tháng 9"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "きゃんぺーん",
+              "vi": "chiến dịch khuyến mãi"
+            },
+            {
+              "w": "中",
+              "read": "ちゅう",
+              "vi": "trong thời gian"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu tiên"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "phí hội viên"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "một nửa giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện Bài 23, ôn lại）",
+              "vi": "申し込むと半額になる = đăng ký thì (tất yếu) được nửa giá trong đợt này — と chỉ điều kiện áp dụng của khuyến mãi。"
+            }
+          ],
+          "keys": [
+            {
+              "w": "9月から11月の秋のキャンペーン中に申し込むと、初月の会費が半額",
+              "why": "Điều kiện giảm giá 2: khuyến mãi mùa thu (tháng 9-11) giảm nửa giá tháng đầu — ghép với giảm học sinh ở câu hỏi 1 để tính phí thực trả."
+            }
+          ]
+        },
+        {
+          "jp": "※夜8時以降にジムを利用する場合、混雑を避けるため、追加料金300円がかかります。",
+          "vi": "※Nếu sử dụng phòng gym sau 8 giờ tối, để tránh đông người, sẽ tính thêm phụ phí 300 yên.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "trở đi; sau đó"
+            },
+            {
+              "w": "ジム",
+              "read": "じむ",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "利用する",
+              "read": "りようする",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "việc sử dụng"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "混雑",
+              "read": "こんざつ",
+              "vi": "đông đúc"
+            },
+            {
+              "w": "避ける",
+              "read": "さける",
+              "vi": "tránh"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "để; nhằm"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phí phụ thu"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "bổ sung; thêm"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn; bị tính phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ため（Bài 42, ôn lại）",
+              "vi": "混雑を避けるため = để tránh đông người. Vる + ため chỉ mục đích (Bài 42)。"
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜8時以降にジムを利用する場合",
+              "why": "Dòng ※ nêu điều kiện giờ tối muộn"
+            },
+            {
+              "w": "追加料金300円がかかります",
+              "why": "Dòng ※ nêu phụ phí giờ tối muộn — căn cứ tính phí ở câu hỏi 2 (khách tập gym lúc 9 giờ tối)."
+            }
+          ]
+        },
+        {
+          "jp": "※かばんを持ったまま入らないでください。ロッカーに預けたまま、運動着に着替えてからお入りください。",
+          "vi": "※Xin đừng mang cặp/túi vào phòng tập. Hãy gửi cặp/túi ở tủ khóa, thay đồ tập rồi mới vào.",
+          "vocab": [
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "cặp, túi xách"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "ロッカー",
+              "read": "ロッカー",
+              "vi": "tủ khóa"
+            },
+            {
+              "w": "預けます",
+              "read": "あずけます",
+              "vi": "gửi, ký gửi"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "着替えます",
+              "read": "きがえます",
+              "vi": "thay quần áo"
+            },
+            {
+              "w": "運動着",
+              "read": "うんどうぎ",
+              "vi": "đồ tập thể thao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まま",
+              "vi": "接続: Vた（持った）＋ まま。 かばんを持ったまま入らないでください = \"xin đừng mang cặp mà vẫn giữ nguyên trạng thái đang cầm — không được vào\" — まま nhấn trạng thái \"đang cầm cặp\" KHÔNG ĐƯỢC giữ nguyên khi vào phòng tập (mẫu trọng tâm Bài 58, lần 1 trong dòng ※)."
+            },
+            {
+              "point": "〜まま",
+              "vi": "接続: Vた（預けた）＋ まま。 ロッカーに預けたまま、運動着に着替えてから = \"gửi ở tủ khóa rồi giữ nguyên trạng thái đó (không lấy ra), sau đó thay đồ tập rồi mới vào\". Câu này ghép まま (trạng thái không đổi: cặp vẫn ở trong tủ) với てから (Bài 16: làm xong rồi mới làm tiếp — thay đồ xong mới vào) để đối chiếu 2 sắc thái trong cùng 1 câu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "かばんを持ったまま入らないでください",
+              "why": "Dòng ※ bẫy quan trọng: nội quy KHÔNG được mang cặp vào — không liên quan trực tiếp phí, nhưng dễ gây rối nếu nhầm là điều kiện tính tiền."
+            }
+          ]
+        },
+        {
+          "jp": "※プレミアムとVIPの方は、映画館の座席が満席のとき、当日は座席の予約ができないことがあります。",
+          "vi": "※Khách hạng Premium và VIP, khi ghế rạp phim đã hết chỗ, có thể không đặt được ghế ngay trong ngày.",
+          "vocab": [
+            {
+              "w": "プレミアム",
+              "read": "ぷれみあむ",
+              "vi": "cao cấp"
+            },
+            {
+              "w": "VIP",
+              "read": "ぶいあいぴー",
+              "vi": "VIP"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người; vị"
+            },
+            {
+              "w": "映画館",
+              "read": "えいがかん",
+              "vi": "rạp chiếu phim"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim điện ảnh"
+            },
+            {
+              "w": "座席",
+              "read": "ざせき",
+              "vi": "chỗ ngồi"
+            },
+            {
+              "w": "満席",
+              "read": "まんせき",
+              "vi": "kín chỗ"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi; lúc"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "できない",
+              "read": "できない",
+              "vi": "không thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことがあります（Bài 22, ôn lại）",
+              "vi": "予約ができないことがあります = có khi/có trường hợp không đặt được. Vる/Vない + ことがある chỉ khả năng xảy ra không thường xuyên (Bài 22)。"
+            }
+          ],
+          "keys": [
+            {
+              "w": "プレミアムとVIPの方は",
+              "why": "Dòng ※ áp dụng chung cho cả 2 hạng"
+            },
+            {
+              "w": "座席の予約ができないことがあります",
+              "why": "Dòng ※ bẫy: cả Premium lẫn VIP đều có nguy cơ hết ghế như nhau — không phải căn cứ để phân biệt 2 hạng ở câu hỏi 2, chỉ là điều kiện phụ chung."
+            }
+          ]
+        },
+        {
+          "jp": "※申し込みは、来店当日から可能です。会員カードは即日発行いたします。",
+          "vi": "※Có thể đăng ký ngay trong ngày đến cửa hàng. Thẻ hội viên được cấp ngay trong ngày.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "来店",
+              "read": "らいてん",
+              "vi": "đến cửa hàng"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, ngày diễn ra sự kiện"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "即日",
+              "read": "そくじつ",
+              "vi": "ngay trong ngày"
+            },
+            {
+              "w": "発行します",
+              "read": "はっこうします",
+              "vi": "phát hành, cấp"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "お問い合わせ：さくらフィットネス＆シネマ　電話：03-4567-8901（毎日 10:00〜21:00）",
+          "vi": "Liên hệ: さくらフィットネス＆シネマ　Điện thoại: 03-4567-8901 (hằng ngày 10:00〜21:00)",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "フィットネス",
+              "read": "フィットネス",
+              "vi": "thể dục thể hình"
+            },
+            {
+              "w": "シネマ",
+              "read": "シネマ",
+              "vi": "rạp chiếu phim, điện ảnh"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 1,
+          "note": "Giới thiệu thẻ hội viên gộp gym + rạp phim và quy tắc たびに tích điểm — chưa có căn cứ trả lời câu hỏi cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng hạng thẻ × quyền lợi",
+          "topic": 2,
+          "note": "Bảng chính chứa コース・月会費・利用できる場所・特典 của 3 hạng — căn cứ trực tiếp để chọn hạng phù hợp (câu 2) và lấy giá gốc (câu 1).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "point",
+          "label": "Ba loại giảm giá (tích điểm/học sinh/khuyến mãi)",
+          "topic": 8,
+          "note": "Ba điều kiện giảm giá KHÁC NHAU: tích điểm dài hạn, giảm học sinh 10%, khuyến mãi mùa thu nửa giá tháng đầu — câu hỏi 1 cần GHÉP đúng 2 trong 3 điều kiện (học sinh + khuyến mãi), không dùng tích điểm.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "turn",
+          "label": "Ba dòng ※ bẫy",
+          "topic": 10,
+          "note": "Phụ phí giờ tối muộn (căn cứ câu 2), nội quy mang cặp vào phòng tập (bẫy không liên quan phí), và cảnh báo hết ghế cho Premium/VIP (bẫy chung không phân biệt 2 hạng).",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "body",
+          "label": "Đăng ký & liên hệ",
+          "topic": 13,
+          "note": "Thông tin đăng ký ngay trong ngày và số điện thoại liên hệ — không liên quan câu hỏi.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "来るたびにポイントがたまります",
+          "label": "〜たびに（mỗi lần đến đều tích điểm）"
+        },
+        {
+          "excerpt": "かばんを持ったまま入らないでください",
+          "label": "〜まま（giữ nguyên trạng thái đang cầm — cấm）"
+        },
+        {
+          "excerpt": "ロッカーに預けたまま、運動着に着替えてから",
+          "label": "Sắc thái: まま đối chiếu てから（Bài 16, ôn lại）"
+        },
+        {
+          "excerpt": "学生証をお持ちの方は、どのコースも月会費が10％引き",
+          "label": "Điều kiện giảm giá（ghép với khuyến mãi mùa thu）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "学生の田中さんは、10月にプレミアムコースに申し込みます。学生証を持っています。初月の会費はいくらになりますか。",
+          "options": [
+            "2,250円",
+            "4,500円",
+            "2,500円",
+            "5,000円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0 (2,250円). Bảng ghi プレミアム（5,000円）. Điều kiện 1:「学生証をお持ちの方は、どのコースも月会費が10％引き」→ 5,000円 × 0.9 = 4,500円. Điều kiện 2:「9月から11月の秋のキャンペーン中に申し込むと、初月の会費が半額になる」→ tháng 10 nằm trong đợt khuyến mãi mùa thu, nên tháng đầu tiếp tục giảm nửa: 4,500円 ÷ 2 = 2,250円. Đáp án 1 (4,500円) sai vì mới chỉ trừ giảm học sinh, quên ghép thêm khuyến mãi mùa thu tháng đầu. Đáp án 2 (2,500円) sai vì đó là phép tính nửa giá của 5,000円 rồi trừ tiếp 10% theo thứ tự SAI (nhầm cách tính, không khớp số liệu bài cho — bài không nói giảm chồng theo cách đó). Đáp án 3 (5,000円) sai vì bỏ qua cả 2 điều kiện giảm giá.",
+          "tip": "Câu hỏi ghép GIÁ GỐC + 2 điều kiện giảm giá (học sinh + khuyến mãi mùa thu): tính lần lượt theo đúng thứ tự bài nêu (giảm học sinh trước, rồi khuyến mãi mùa thu áp lên giá đã giảm), không bỏ sót điều kiện nào, không dùng nhầm tích điểm (điều kiện đó là giảm cho tháng SAU, không áp dụng cho tháng đầu).",
+          "evi": [
+            4,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Sinh viên Tanaka đăng ký gói Premium vào tháng 10. Bạn ấy có thẻ sinh viên. Phí hội viên tháng đầu tiên là bao nhiêu?",
+            "o": [
+              "2.250 yên",
+              "4.500 yên",
+              "2.500 yên",
+              "5.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんはジムと映画館の両方を使いたいです。よく夜9時ごろにジムへ行きます。ワンさんが選ぶべきコースと、気をつけることは何ですか。",
+          "options": [
+            "スタンダードコースを選ぶ。夜は追加料金がかかるので気をつける",
+            "プレミアムコースかVIPコースを選ぶ。夜8時以降は追加料金300円がかかることに気をつける",
+            "プレミアムコースを選ぶ。かばんを持ったままジムに入ってもいい",
+            "VIPコースを選ぶ。夜9時以降はジムを利用できないことに気をつける"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Điều kiện 1: ワンさんはジムと映画館の両方を使いたい → bảng ghi rõ「スタンダード｜3,000円｜ジムのみ」(chỉ gym) trong khi「プレミアム｜ジム・映画館両方」và「VIP｜ジム・映画館両方」đều dùng được cả 2 nơi → phải chọn Premium hoặc VIP (Standard không đủ điều kiện, bị loại). Điều kiện 2: よく夜9時ごろにジムへ行く → 9 giờ tối nằm sau mốc 8 giờ tối, theo dòng ※「夜8時以降にジムを利用する場合…追加料金300円がかかります」→ phải nhớ phụ phí 300円 mỗi lần này. Đáp án 0 sai vì Standard không dùng được rạp phim, không thỏa điều kiện \"cả 2 nơi\". Đáp án 2 sai vì dòng ※ ghi rõ \"かばんを持ったまま入らないでください\" — CẤM mang cặp vào, không phải \"được phép\". Đáp án 3 sai vì bài không nói VIP giới hạn giờ dùng gym, chỉ có phụ phí sau 8 giờ tối, không phải cấm hoàn toàn.",
+          "tip": "Câu hỏi ghép NƠI SỬ DỤNG (cả gym+rạp phim → loại Standard) với GIỜ ĐI (sau 8 giờ tối → nhớ phụ phí) — đọc kỹ bảng để loại hạng không đủ điều kiện trước, rồi mới xét dòng ※ liên quan đến giờ giấc.",
+          "evi": [
+            3,
+            4,
+            5,
+            9
+          ],
+          "qt": {
+            "q": "Wang muốn sử dụng cả phòng tập thể hình và rạp chiếu phim. Wang thường đến phòng tập khoảng 9 giờ tối. Wang nên chọn gói nào và cần chú ý điều gì?",
+            "o": [
+              "Chọn gói Standard. Chú ý vì buổi tối sẽ phát sinh phụ phí",
+              "Chọn gói Premium hoặc VIP. Chú ý rằng sau 8 giờ tối sẽ phát sinh phụ phí 300 yên",
+              "Chọn gói Premium. Có thể vào phòng tập khi vẫn mang theo túi",
+              "Chọn gói VIP. Chú ý rằng không thể sử dụng phòng tập sau 9 giờ tối"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

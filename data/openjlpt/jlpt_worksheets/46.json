@@ -1,0 +1,4642 @@
+{
+  "bai": 46,
+  "level": "N4",
+  "intro": "Vるところです (sắp ~) · Vているところです (đang ~ giữa chừng) · Vたところです (vừa mới ~ xong) · Vたばかりです (mới ~, cảm giác còn mới). Có ÔN LẠI ngữ pháp đã học (bài 1-45) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "もうすぐ電車が出発するところです。",
+              "ul": "出発",
+              "choices": [
+                "しゅっぱつ",
+                "しゅつはつ",
+                "でっぱつ",
+                "しゅっぱく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「出発」= しゅっぱつ. Âm Hán: 出＝しゅつ→促音化＝しゅっ, 発＝はつ → しゅっぱつ. ① đúng. ② しゅつはつ: 出 đọc nguyên âm しゅつ, không xảy ra trong từ ghép này. ③ でっぱつ: 出 không đọc で ở đây (で chỉ xuất hiện trong つ出口 theo kun-yomi). ④ しゅっぱく: 発 đọc là はつ, không phải はく.",
+              "glosses": [
+                {
+                  "t": "もうすぐ",
+                  "vi": "sắp, chẳng bao lâu nữa"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "出発",
+                  "vi": "khởi hành, xuất phát"
+                },
+                {
+                  "t": "するところ",
+                  "vi": "sắp làm (biểu thị thời điểm sắp xảy ra)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女はちょうど昼ご飯を食べているところです。",
+              "ul": "昼",
+              "choices": [
+                "ひる",
+                "あさ",
+                "よる",
+                "まひる"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「昼」= ひる (kun-yomi, nghĩa là ban trưa). ① đúng. ② あさ: đọc của「朝」(buổi sáng), không phải「昼」. ③ よる: đọc của「夜」(buổi tối). ④ まひる: là từ「真昼」(ま＋ひる) nghĩa là chính trưa, nhưng chữ「昼」đứng một mình trong từ「昼ご飯」đọc là ひる chứ không thêm ま-.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy, bạn gái"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "đúng lúc, ngay lúc đó"
+                },
+                {
+                  "t": "昼ご飯",
+                  "read": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "食べているところ",
+                  "read": "たべているところ",
+                  "vi": "đang ăn (biểu thị hành động đang tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "prompt": "試験が終わったばかりで、まだ緊張しています。",
+              "ul": "緊張",
+              "choices": [
+                "きんちょう",
+                "きんちゅう",
+                "けんちょう",
+                "きょうちょう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「緊張」= きんちょう. 緊＝きん, 張＝ちょう. ① đúng. ② きんちゅう: 張 không đọc ちゅう mà đọc ちょう (trường âm). ③ けんちょう: 緊 không đọc けん ở đây; けん là âm của các kanji khác như「検」「県」. ④ きょうちょう: đọc của「強調」(nhấn mạnh) hoặc「協調」, không phải「緊張」.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "終わったばかり",
+                  "read": "おわったばかり",
+                  "vi": "vừa mới kết thúc"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn"
+                },
+                {
+                  "t": "緊張",
+                  "vi": "căng thẳng, hồi hộp"
+                },
+                {
+                  "t": "緊張しています",
+                  "read": "きんちょうしています",
+                  "vi": "đang căng thẳng (thì tiếp diễn ~ている)"
+                }
+              ]
+            },
+            {
+              "prompt": "父はたった今、会社から帰ってきたところです。",
+              "ul": "帰",
+              "choices": [
+                "かえ",
+                "かわ",
+                "きた",
+                "もど"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「帰って」の「帰」= かえ (kun-yomi, đọc trong帰る). ① đúng. ② かわ: âm của「川」(sông) hoặc ký tự khác, 帰 không đọc かわ. ③ きた: âm on-yomi của 北 (phía bắc) hoặc き của帰 khi là on-yomi đơn thuần, nhưng「帰って」đọc かえって. ④ もど: đọc của「戻」trong「戻る」(quay lại), không phải「帰」.",
+              "glosses": [
+                {
+                  "t": "父",
+                  "read": "ちち",
+                  "vi": "cha (cách nói khiêm tốn)"
+                },
+                {
+                  "t": "たった今",
+                  "read": "たったいま",
+                  "vi": "vừa mới xong, ngay lúc này"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "帰ってきたところ",
+                  "vi": "vừa mới trở về (biểu thị hành động vừa hoàn thành)"
+                }
+              ]
+            },
+            {
+              "prompt": "今、書類を確認しているところですから、少し待ってください。",
+              "ul": "確認",
+              "choices": [
+                "かくにん",
+                "かくにい",
+                "かくけん",
+                "こうにん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「確認」= かくにん. 確＝かく, 認＝にん. ① đúng. ② かくにい: 認 đọc là にん, không phải にい (nhầm trường âm). ③ かくけん: 認 không đọc けん; けん thường là âm của「見」「件」. ④ こうにん: 確 không đọc こう ở đây; こうにん là cách đọc của「公認」(công nhận chính thức).",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "確認",
+                  "vi": "xác nhận, kiểm tra"
+                },
+                {
+                  "t": "しているところ",
+                  "vi": "đang làm (ngay lúc này)"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "待ってください",
+                  "read": "まってください",
+                  "vi": "xin hãy đợi"
+                },
+                {
+                  "t": "確認しているところですから",
+                  "read": "かくにんしているところですから",
+                  "vi": "vì đang trong lúc kiểm tra (~ているところですから)"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうど料理を作り始めるところに、友達が来た。",
+              "ul": "料理",
+              "choices": [
+                "りょうり",
+                "りょうれい",
+                "らいり",
+                "りょうじ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「料理」= りょうり. 料＝りょう, 理＝り. ① đúng. ② りょうれい: 理 đọc là り, không phải れい (nhầm sang âm của「礼」). ③ らいり: 料 không đọc ら hay らい; らい là âm của「来」「雷」. ④ りょうじ: じ có thể là âm của「事」「字」, nhưng 理 đọc là り, không phải じ trong từ này.",
+              "glosses": [
+                {
+                  "t": "ちょうど",
+                  "vi": "đúng lúc, ngay khi"
+                },
+                {
+                  "t": "料理",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "作り始めるところ",
+                  "read": "つくりはじめるところ",
+                  "vi": "đúng lúc sắp bắt đầu làm"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "来た",
+                  "read": "きた",
+                  "vi": "đã đến"
+                }
+              ]
+            },
+            {
+              "prompt": "弟は日本語を習い始めたばかりで、まだひらがなしか読めません。",
+              "ul": "習",
+              "choices": [
+                "ならい",
+                "おぼえ",
+                "まなび",
+                "よみ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「習い」の「習」= なら (kun-yomi, trong習う＝ならう). ① ならい đúng (連用形 của習う). ② おぼえ: đọc của「覚え」(ghi nhớ), không phải「習」. ③ まなび: đọc của「学び」(học, từ học び＝まなぶ), không phải「習」. ④ よみ: đọc của「読み」(đọc), không phải「習」.",
+              "glosses": [
+                {
+                  "t": "弟",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "習い始めたばかり",
+                  "vi": "vừa mới bắt đầu học"
+                },
+                {
+                  "t": "しか読めません",
+                  "read": "しかよめません",
+                  "vi": "vẫn chỉ có thể đọc..."
+                },
+                {
+                  "t": "ひらがなしか読めません",
+                  "read": "ひらがなしかよめません",
+                  "vi": "chỉ đọc được hiragana mà thôi (~しか~ません)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼はちょうど荷物を運んでいるところでした。",
+              "ul": "荷物",
+              "choices": [
+                "にもつ",
+                "かもつ",
+                "にぶつ",
+                "かぶつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「荷物」= にもつ. 荷＝に, 物＝もつ. ① đúng. ② かもつ: đọc của「貨物」(hàng hóa chuyên chở), 荷 không đọc か ở đây. ③ にぶつ: 物 đọc là もつ (hay もの), không phải ぶつ trong từ này (ぶつ thường xuất hiện trong「物体」ぶったい). ④ かぶつ: cả hai âm đều sai với chữ「荷物」.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "đúng lúc"
+                },
+                {
+                  "t": "荷物",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "運んでいるところ",
+                  "read": "はこんでいるところ",
+                  "vi": "đang vận chuyển"
+                },
+                {
+                  "t": "運んでいるところでした",
+                  "read": "はこんでいるところでした",
+                  "vi": "(lúc đó) đang trong lúc mang vác (~ているところでした)"
+                }
+              ]
+            },
+            {
+              "prompt": "引越しが終わったばかりなので、部屋がまだ片付いていない。",
+              "ul": "引越し",
+              "choices": [
+                "ひっこし",
+                "ひきこし",
+                "いっこし",
+                "ひっこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「引越し」= ひっこし. 引＝ひ→促音化＝ひっ, 越し＝こし. ① đúng. ② ひきこし: dạng chưa xảy ra biến âm (促音化), đọc nguyên âm ひきこし là sai trong từ này. ③ いっこし: 引 không đọc い đơn thuần mà phải là ひ-, không có từ いっこし. ④ ひっこう: こう là âm của「行」hay「光」, 越し đọc là こし không phải こう.",
+              "glosses": [
+                {
+                  "t": "引越し",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "終わったばかり",
+                  "read": "おわったばかり",
+                  "vi": "vừa mới xong"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "片付いていない",
+                  "read": "かたづいていない",
+                  "vi": "chưa được dọn dẹp"
+                },
+                {
+                  "t": "終わったばかりなので",
+                  "read": "おわったばかりなので",
+                  "vi": "vì vừa mới xong (~たばかりなので)"
+                },
+                {
+                  "t": "部屋がまだ片付いていない",
+                  "read": "へやがまだかたづいていない",
+                  "vi": "phòng vẫn chưa được dọn dẹp (まだ~ていない)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生はもうすぐ教室に到着するところです。",
+              "ul": "到着",
+              "choices": [
+                "とうちゃく",
+                "とうちゃっ",
+                "どうちゃく",
+                "とうじゃく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「到着」= とうちゃく. 到＝とう, 着＝ちゃく. ① đúng. ② とうちゃっ: đây không phải từ hoàn chỉnh; ちゃく không biến thành促音. ③ どうちゃく: 到 đọc là とう (vô thanh), không phải どう (hữu thanh). ④ とうじゃく: 着 đọc là ちゃく, không phải じゃく (nhầm sang âm của「若」trong若者).",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "もうすぐ",
+                  "vi": "sắp, chẳng bao lâu nữa"
+                },
+                {
+                  "t": "教室",
+                  "read": "きょうしつ",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "到着するところ",
+                  "vi": "sắp đến nơi (biểu thị thời điểm sắp xảy ra)"
+                }
+              ]
+            },
+            {
+              "prompt": "姉は大学を卒業したばかりで、就職活動中です。",
+              "ul": "卒業",
+              "choices": [
+                "そつぎょう",
+                "そつぎょ",
+                "しゅつぎょう",
+                "そっきょう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「卒業」= そつぎょう. 卒＝そつ, 業＝ぎょう. ① đúng. ② そつぎょ: 業 đọc là ぎょう (trường âm), bỏ うgây ra lỗi đoản âm hóa. ③ しゅつぎょう: 卒 không đọc しゅつ; しゅつ là âm của「出」. ④ そっきょう: そっ là促音化 không đúng với 卒 (そつ không biến thành そっ), きょう cũng không phải âm của業.",
+              "glosses": [
+                {
+                  "t": "姉",
+                  "read": "あね",
+                  "vi": "chị gái"
+                },
+                {
+                  "t": "大学",
+                  "read": "だいがく",
+                  "vi": "đại học"
+                },
+                {
+                  "t": "卒業したばかり",
+                  "vi": "vừa mới tốt nghiệp"
+                },
+                {
+                  "t": "就職活動中",
+                  "read": "しゅうしょくかつどうちゅう",
+                  "vi": "đang tìm việc làm"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうど友人に電話をかけようとしているところに、彼から連絡が来た。",
+              "ul": "連絡",
+              "choices": [
+                "れんらく",
+                "れんろく",
+                "りんらく",
+                "れんかく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「連絡」= れんらく. 連＝れん, 絡＝らく. ① đúng. ② れんろく: 絡 đọc là らく, không phải ろく (ろく thường là âm của「六」「録」). ③ りんらく: 連 đọc là れん, không phải りん (りん là âm của「林」「輪」). ④ れんかく: らく không biến thành かく; かく là âm của「各」「格」.",
+              "glosses": [
+                {
+                  "t": "友人",
+                  "read": "ゆうじん",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "電話をかけよう",
+                  "read": "でんわをかけよう",
+                  "vi": "gọi điện thoại"
+                },
+                {
+                  "t": "かけようとしているところ",
+                  "vi": "đúng lúc sắp gọi (biểu thị hành động sắp bắt đầu)"
+                },
+                {
+                  "t": "連絡",
+                  "vi": "liên lạc, tin nhắn"
+                },
+                {
+                  "t": "彼から",
+                  "read": "かれから",
+                  "vi": "từ anh ấy"
+                },
+                {
+                  "t": "来た",
+                  "read": "きた",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "ちょうど",
+                  "vi": "vừa lúc, đúng lúc"
+                }
+              ]
+            },
+            {
+              "prompt": "今ちょうど書類に署名しているところです。",
+              "ul": "署名",
+              "choices": [
+                "しょめい",
+                "しょみょう",
+                "じょめい",
+                "しょうめい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「署名」= しょめい. 署＝しょ, 名＝めい. ① đúng. ② しょみょう: 名 đọc là めい (on-yomi), không phải みょう (みょう là âm Hán-Nhật cổ của 名 trong một số từ đặc biệt như「名人」みょうじん, nhưng「署名」dùng めい). ③ じょめい: 署 đọc là しょ, không phải じょ (hữu thanh hóa sai). ④ しょうめい: しょう là âm trường, nhưng 署 đọc là しょ (đoản); しょうめい là cách đọc của「証明」.",
+              "glosses": [
+                {
+                  "t": "今ちょうど",
+                  "read": "いまちょうど",
+                  "vi": "đúng lúc này, ngay bây giờ"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "giấy tờ, tài liệu"
+                },
+                {
+                  "t": "署名",
+                  "vi": "chữ ký, ký tên"
+                },
+                {
+                  "t": "しているところ",
+                  "vi": "đang làm (ngay lúc này)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女は留学から帰国したばかりで、日本語がとても上手になった。",
+              "ul": "帰国",
+              "choices": [
+                "きこく",
+                "かえこく",
+                "きかえ",
+                "こっき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「帰国」= きこく. 帰＝き (on-yomi), 国＝こく. ① đúng. ② かえこく: 帰 đọc là き khi ghép với chữ khác theo on-yomi; かえ là kun-yomi của帰 dùng khi đứng độc lập (帰る＝かえる). ③ きかえ: hoán vị sai thứ tự âm đọc. ④ こっき: đây là âm gần với「国旗」(こっき = quốc kỳ), không phải「帰国」.",
+              "glosses": [
+                {
+                  "t": "留学",
+                  "read": "りゅうがく",
+                  "vi": "du học"
+                },
+                {
+                  "t": "帰国したばかり",
+                  "vi": "vừa mới về nước"
+                },
+                {
+                  "t": "帰国",
+                  "vi": "về nước, hồi hương"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "上手になった",
+                  "read": "じょうずになった",
+                  "vi": "đã trở nên giỏi"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうど会議が始まるところなので、後で電話します。",
+              "ul": "会議",
+              "choices": [
+                "かいぎ",
+                "かいき",
+                "こうぎ",
+                "かいじ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会議」= かいぎ. 会＝かい, 議＝ぎ. ① đúng. ② かいき: 議 đọc là ぎ (hữu thanh), không phải き (vô thanh); かいき là cách đọc của「会期」(kỳ họp, kỳ hội) — nghĩa khác. ③ こうぎ: đọc của「講義」(bài giảng) hoặc「抗議」(phản đối), 会 không đọc こう. ④ かいじ: じ là âm của「字」「事」, 議 đọc là ぎ không phải じ.",
+              "glosses": [
+                {
+                  "t": "ちょうど",
+                  "vi": "đúng lúc, ngay lúc"
+                },
+                {
+                  "t": "会議",
+                  "vi": "cuộc họp, hội nghị"
+                },
+                {
+                  "t": "始まるところ",
+                  "read": "はじまるところ",
+                  "vi": "sắp bắt đầu (biểu thị thời điểm sắp xảy ra)"
+                },
+                {
+                  "t": "後で",
+                  "read": "あとで",
+                  "vi": "sau này, lát nữa"
+                },
+                {
+                  "t": "電話します",
+                  "read": "でんわします",
+                  "vi": "sẽ gọi điện thoại"
+                },
+                {
+                  "t": "始まるところなので",
+                  "read": "はじまるところなので",
+                  "vi": "vì đang sắp bắt đầu (~るところなので)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "バスが今ちょうどはっしゃするところです。",
+              "ul": "はっしゃ",
+              "choices": [
+                "発車",
+                "発射",
+                "発社",
+                "発者"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「発車」は「はっしゃ」、xe (xe lửa/xe buýt) xuất phát. Đây là từ đúng. ①「発射」(はっしゃ) cùng âm nhưng là phóng tên lửa/bắn đạn — không dùng cho xe buýt. ②「発社」không phải từ thực. ③「発者」cũng không tồn tại trong tiếng Nhật. Câu dùng 〜するところ → sắp xảy ra hành động.",
+              "glosses": [
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "vừa đúng lúc"
+                },
+                {
+                  "t": "はっしゃ",
+                  "read": "はっしゃ",
+                  "vi": "khởi hành (xe)"
+                },
+                {
+                  "t": "するところ",
+                  "vi": "sắp làm (vừa sắp sửa)"
+                }
+              ]
+            },
+            {
+              "prompt": "料理が今できあがったばかりなので、まだあついですよ。",
+              "ul": "できあがった",
+              "choices": [
+                "出来上がった",
+                "出来上った",
+                "出来上がっだ",
+                "でき上がった"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「出来上がる」(できあがる) là dạng ghép: 出来(完thành)+上がる(lên/hoàn tất), nghĩa 'hoàn thành, nấu xong'. Chữ đúng là「出来上がった」. ①「出来上った」thiếu chữ「が」giữa — sai chính tả. ②「出来上がっだ」dùng っだ thay vì った — sai chia động từ. ③「でき上がった」chỉ viết một phần bằng hiragana — không sai về mặt âm thanh nhưng không phải dạng biểu ký chuẩn của từ này trong văn bản.",
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "できあがった",
+                  "read": "できあがった",
+                  "vi": "vừa mới hoàn thành / nấu xong"
+                },
+                {
+                  "t": "ばかり",
+                  "vi": "vừa mới (xong)"
+                },
+                {
+                  "t": "あつい",
+                  "read": "あつい",
+                  "vi": "nóng"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "ばかりなので",
+                  "read": "ばかりなので",
+                  "vi": "〜たばかりなので = vì vừa mới ~ nên (giải thích lý do dựa trên việc hành động vừa xảy ra)"
+                }
+              ]
+            },
+            {
+              "prompt": "電車がホームにとうちゃくするところでした。",
+              "ul": "とうちゃく",
+              "choices": [
+                "到着",
+                "到達",
+                "到発",
+                "到作"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「到着」(とうちゃく) = đến nơi, tới đích. Đây là từ đúng. ①「到達」(とうたつ) nghĩa gần (đạt tới mục tiêu) nhưng âm là とうたつ, không phải とうちゃく. ②「到発」không tồn tại. ③「到作」cũng không phải từ thực.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "ホーム",
+                  "vi": "sân ga"
+                },
+                {
+                  "t": "とうちゃく",
+                  "read": "とうちゃく",
+                  "vi": "đến nơi, tới ga"
+                },
+                {
+                  "t": "するところ",
+                  "vi": "sắp làm"
+                },
+                {
+                  "t": "するところでした",
+                  "read": "するところでした",
+                  "vi": "〜するところでした = vừa định/sắp làm ~ thì... (thời điểm sắp xảy ra, kể ở quá khứ)"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうどしょくじしているところに、友だちがきました。",
+              "ul": "しょくじ",
+              "choices": [
+                "食事",
+                "食字",
+                "食次",
+                "食時"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食事」(しょくじ) = ăn cơm, bữa ăn. ①「食字」sai — 字 (じ) là chữ, không liên quan ăn uống. ②「食次」(しょくじ) cùng âm nhưng 次 = tiếp theo, không có nghĩa ăn cơm. ③「食時」(しょくじ) cũng cùng âm, 時 = giờ/thời gian, nhưng「食時」không phải từ chuẩn trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "ちょうど",
+                  "vi": "vừa đúng lúc"
+                },
+                {
+                  "t": "しょくじ",
+                  "read": "しょくじ",
+                  "vi": "bữa ăn, ăn cơm"
+                },
+                {
+                  "t": "しているところ",
+                  "vi": "đang làm (đúng lúc đó)"
+                },
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "友だちがきました",
+                  "read": "ともだちがきました",
+                  "vi": "(đúng lúc đó) bạn đã đến"
+                }
+              ]
+            },
+            {
+              "prompt": "もうすぐかいぎがはじまるところです。",
+              "ul": "かいぎ",
+              "choices": [
+                "会議",
+                "会技",
+                "会義",
+                "会儀"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会議」(かいぎ) = cuộc họp, hội nghị. ①「会技」không phải từ thực. ②「会義」cũng không tồn tại trong từ điển. ③「会儀」(かいぎ) cùng âm nhưng là từ cổ, không dùng trong văn nói/viết hiện đại.",
+              "glosses": [
+                {
+                  "t": "もうすぐ",
+                  "vi": "sắp, chẳng bao lâu nữa"
+                },
+                {
+                  "t": "かいぎ",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "はじまる",
+                  "read": "はじまる",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "るところ",
+                  "vi": "sắp xảy ra",
+                  "read": "るところ"
+                }
+              ]
+            },
+            {
+              "prompt": "この仕事はいまちょうどおわったばかりです。",
+              "ul": "おわった",
+              "choices": [
+                "終わった",
+                "終った",
+                "絡わった",
+                "縦わった"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「終わる」(おわる) = kết thúc. ①「終った」thiếu chữ「わ」giữa, sai chính tả. ②「絡わった」(からまった) là quấn, vướng — sai hoàn toàn về nghĩa. ③「縦わった」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "vừa đúng"
+                },
+                {
+                  "t": "おわった",
+                  "read": "おわった",
+                  "vi": "đã xong, vừa kết thúc"
+                },
+                {
+                  "t": "ばかり",
+                  "vi": "vừa mới (xong)"
+                },
+                {
+                  "t": "いま",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は今じゅぎょうをしていたところです。",
+              "ul": "じゅぎょう",
+              "choices": [
+                "授業",
+                "受業",
+                "授学",
+                "授後"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「授業」(じゅぎょう) = giờ học, tiết học. ①「受業」sai — 受 (じゅ) không đi kèm業 theo nghĩa 'dạy học'; từ đúng phải là 授 (truyền dạy). ②「授学」không tồn tại. ③「授後」cũng không phải từ thực.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "じゅぎょう",
+                  "read": "じゅぎょう",
+                  "vi": "bài học, giờ học"
+                },
+                {
+                  "t": "していたところ",
+                  "vi": "đang làm (đúng lúc đó)"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                }
+              ]
+            },
+            {
+              "prompt": "友だちはちょうどうちにかえったばかりでした。",
+              "ul": "かえった",
+              "choices": [
+                "帰った",
+                "返った",
+                "反った",
+                "変った"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「帰る」(かえる) = trở về (nhà/quê). ②「返る」(かえる) cùng âm nhưng nghĩa là quay lại/trả lại vật gì đó, không dùng cho người về nhà. ③「反る」(そる/かえる) = cong vênh — sai nghĩa. ④「変る」(かわる) = thay đổi — sai cả âm lẫn nghĩa.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn"
+                },
+                {
+                  "t": "うち",
+                  "read": "うち",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "かえった",
+                  "read": "かえった",
+                  "vi": "đã về (nhà)"
+                },
+                {
+                  "t": "ばかり",
+                  "vi": "vừa mới"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "ちょうど",
+                  "vi": "vừa lúc, đúng lúc"
+                },
+                {
+                  "t": "ばかりでした",
+                  "read": "ばかりでした",
+                  "vi": "〜たばかりでした = vừa mới làm ~ xong (thời điểm quá khứ)"
+                }
+              ]
+            },
+            {
+              "prompt": "荷物がさっきとどいたばかりです。",
+              "ul": "とどいた",
+              "choices": [
+                "届いた",
+                "届きた",
+                "届けた",
+                "渡いた"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「届く」(とどく) = hàng/thư đến nơi, tự động giao đến. ①「届きた」sai ngữ pháp — không có dạng chia như vậy. ③「届ける」(とどける) là 'đưa giao' (chủ động) — nghĩa khác với 届く; câu này cần dạng tự động. ③「渡いた」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, bưu kiện"
+                },
+                {
+                  "t": "さっき",
+                  "vi": "lúc nãy"
+                },
+                {
+                  "t": "とどいた",
+                  "read": "とどいた",
+                  "vi": "đã đến nơi, được giao (hàng)"
+                },
+                {
+                  "t": "ばかり",
+                  "vi": "vừa mới"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女は今しゃわーをあびているところです。",
+              "ul": "しゃわー",
+              "choices": [
+                "浴びて",
+                "受びて",
+                "飲びて",
+                "浴べて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「浴びる」(あびる) = tắm (dưới vòi/mưa), dùng với シャワー。②「受びる」không tồn tại. ③「飲びる」cũng không tồn tại (飲む = uống, nhưng không ghép với び). ④「浴べる」sai chia — 浴びる là động từ nhóm 2, chia 浴びて chứ không phải 浴べて.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy / bạn gái"
+                },
+                {
+                  "t": "しゃわー",
+                  "vi": "vòi hoa sen, tắm vòi",
+                  "read": "しゃわー"
+                },
+                {
+                  "t": "あびて",
+                  "read": "あびて",
+                  "vi": "tắm (dưới vòi), đang tắm"
+                },
+                {
+                  "t": "いるところ",
+                  "vi": "đang làm"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうどでんわをかけようとしているところでした。",
+              "ul": "でんわ",
+              "choices": [
+                "電話",
+                "電語",
+                "伝話",
+                "電和"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電話」(でんわ) = điện thoại. ①「電語」không tồn tại. ②「伝話」không phải từ thực tiếng Nhật hiện đại. ③「電和」cũng không tồn tại — 和 = hòa bình/Nhật Bản, không liên quan điện thoại.",
+              "glosses": [
+                {
+                  "t": "ちょうど",
+                  "vi": "vừa đúng lúc"
+                },
+                {
+                  "t": "でんわ",
+                  "read": "でんわ",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "かけようとしているところ",
+                  "vi": "đang sắp gọi (đúng lúc đó)"
+                },
+                {
+                  "t": "かけようとしているところでした",
+                  "read": "かけようとしているところでした",
+                  "vi": "(lúc đó) đang định gọi điện (~ようとしているところ)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーがちょうどはじまったばかりのとき、かれがきました。",
+              "ul": "はじまった",
+              "choices": [
+                "始まった",
+                "初まった",
+                "発まった",
+                "起まった"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「始まる」(はじまる) = bắt đầu (tự động). ②「初まる」sai — 初 (はじめ) là 'lần đầu', không dùng làm động từ 初まる. ③「発まる」không tồn tại (発 đi với 発する/発音 etc.). ④「起まる」không tồn tại — 起きる (おきる) = thức dậy/xảy ra, nhưng không có dạng 起まる.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "vừa đúng lúc"
+                },
+                {
+                  "t": "はじまった",
+                  "read": "はじまった",
+                  "vi": "đã bắt đầu"
+                },
+                {
+                  "t": "ばかり",
+                  "vi": "vừa mới"
+                },
+                {
+                  "t": "かれがきました",
+                  "read": "かれがきました",
+                  "vi": "anh ấy đã đến"
+                },
+                {
+                  "t": "ばかりのとき",
+                  "read": "ばかりのとき",
+                  "vi": "〜たばかりのとき = đúng vào lúc vừa mới ~"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうかったほんは、まだよんでいないばかりです。",
+              "ul": "かった",
+              "choices": [
+                "買った",
+                "変った",
+                "飼った",
+                "掛った"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「買う」(かう) = mua. ②「変る」(かわる) = thay đổi — âm 変った là かわった, không phải かった. ③「飼う」(かう) cùng âm nhưng nghĩa là 'nuôi (thú)' — sai ngữ cảnh. ④「掛る」(かかる) = mất (thời gian)/treo — âm đúng là かかった, không phải かった.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "かった",
+                  "read": "かった",
+                  "vi": "đã mua"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "よんでいない",
+                  "read": "よんでいない",
+                  "vi": "chưa đọc"
+                },
+                {
+                  "t": "まだよんでいないばかりです",
+                  "read": "まだよんでいないばかりです",
+                  "vi": "(lưu ý dùng không chuẩn: ばかり không đi với thể phủ định ていない) ý muốn nói vẫn chưa đọc"
+                }
+              ]
+            },
+            {
+              "prompt": "いえをでたばかりなのに、もうあめがふってきた。",
+              "ul": "でた",
+              "choices": [
+                "出た",
+                "外た",
+                "脱た",
+                "行た"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「出る」(でる) = ra, rời khỏi. ①「外た」không tồn tại — 外 (そと) là danh từ. ②「脱た」sai — 脱ぐ (ぬぐ) = cởi quần áo, cũng không chia thành 脱た. ③「行た」sai ngữ pháp — 行く chia thành 行った (いった), không phải 行た.",
+              "glosses": [
+                {
+                  "t": "いえ",
+                  "read": "いえ",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "でた",
+                  "read": "でた",
+                  "vi": "đã ra khỏi"
+                },
+                {
+                  "t": "ばかり",
+                  "vi": "vừa mới"
+                },
+                {
+                  "t": "あめがふってきた",
+                  "read": "あめがふってきた",
+                  "vi": "trời bắt đầu mưa"
+                },
+                {
+                  "t": "ばかりなのに",
+                  "read": "ばかりなのに",
+                  "vi": "〜たばかりなのに = mặc dù vừa mới ~ mà (nghịch lý, trái ý muốn)"
+                }
+              ]
+            },
+            {
+              "prompt": "むすこはこうこうをそつぎょうしたばかりです。",
+              "ul": "そつぎょう",
+              "choices": [
+                "卒業",
+                "率業",
+                "卒学",
+                "卒習"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「卒業」(そつぎょう) = tốt nghiệp. ①「率業」sai — 率 (そつ/りつ) = tỉ lệ/dẫn dắt, không cùng nghĩa với 卒 (tốt nghiệp). ②「卒学」không tồn tại — từ đúng phải là 卒業, không phải 卒学. ③「卒習」cũng không phải từ thực trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "むすこ",
+                  "read": "むすこ",
+                  "vi": "con trai"
+                },
+                {
+                  "t": "こうこう",
+                  "read": "こうこう",
+                  "vi": "trường cấp 3"
+                },
+                {
+                  "t": "そつぎょう",
+                  "read": "そつぎょう",
+                  "vi": "tốt nghiệp"
+                },
+                {
+                  "t": "したばかり",
+                  "vi": "vừa mới làm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "もうすぐ電車が来るところだから、早く＿を買ってきて。",
+              "choices": [
+                "切符",
+                "荷物",
+                "財布",
+                "地図"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Tàu sắp đến rồi, nhanh ra mua ＿ đi.\" Đáp án đúng là (A) 「切符」vì khi tàu sắp đến, thứ cần mua gấp nhất chính là vé tàu.\n(A) 「切符」— đúng: là vé tàu, thứ cần mua gấp khi tàu sắp đến để kịp lên tàu.\n(B) 「荷物」— sai: là hành lý, không phải thứ người ta \"mua\" ở cổng ga.\n(C) 「財布」— sai: là ví tiền, không phải thứ để \"mua\".\n(D) 「地図」— sai: là bản đồ, không liên quan đến bối cảnh tàu sắp đến.",
+              "glosses": [
+                {
+                  "t": "もうすぐ",
+                  "vi": "sắp, chẳng bao lâu nữa"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "切符",
+                  "read": "きっぷ",
+                  "vi": "vé tàu/xe"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý"
+                },
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "地図",
+                  "read": "ちず",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "来る",
+                  "read": "くる",
+                  "vi": "đến, tới"
+                },
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "nhanh, sớm"
+                },
+                {
+                  "t": "買ってきて",
+                  "read": "かってきて",
+                  "vi": "mua rồi mang về"
+                },
+                {
+                  "t": "来るところだから",
+                  "read": "くるところだから",
+                  "vi": "vì sắp đến nơi (~るところだから)"
+                }
+              ]
+            },
+            {
+              "stem": "今、ちょうど夕食を食べ終わった＿だから、お腹がいっぱいです。",
+              "choices": [
+                "ところ",
+                "こと",
+                "もの",
+                "わけ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「〜たところ」diễn tả hành động vừa mới hoàn thành (vừa mới ăn xong). 「こと」biến vị ngữ thành danh từ trừu tượng; 「もの」chỉ vật/điều mang tính cảm xúc/lý lẽ; 「わけ」diễn tả lý do/nguyên nhân logic. Chỉ「ところ」mới biểu đạt đúng \"vừa mới\" về mặt thời điểm.",
+              "glosses": [
+                {
+                  "t": "ちょうど",
+                  "vi": "vừa đúng lúc, chính xác"
+                },
+                {
+                  "t": "夕食",
+                  "read": "ゆうしょく",
+                  "vi": "bữa tối"
+                },
+                {
+                  "t": "食べ終わった",
+                  "read": "たべおわった",
+                  "vi": "đã ăn xong"
+                },
+                {
+                  "t": "ところ",
+                  "vi": "(vừa mới) xong, thời điểm"
+                },
+                {
+                  "t": "お腹がいっぱい",
+                  "read": "おなかがいっぱい",
+                  "vi": "no bụng"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "だから",
+                  "read": "だから",
+                  "vi": "vì vậy (nêu lý do, thường đi sau ばかり/ところ)"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは今朝、会社を＿したばかりなので、まだ慣れていません。",
+              "choices": [
+                "転職",
+                "旅行",
+                "卒業",
+                "入院"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Anh Tanaka vừa mới ＿ nên chưa quen.\" Với bối cảnh chưa quen với \"công ty\" (会社), đáp án hợp lý là「転職」(chuyển việc). 「旅行」là du lịch, không gắn với 'công ty' và 'chưa quen'; 「卒業」là tốt nghiệp, dùng với 学校; 「入院」là nhập viện, không liên quan.",
+              "glosses": [
+                {
+                  "t": "今朝",
+                  "read": "けさ",
+                  "vi": "sáng nay"
+                },
+                {
+                  "t": "転職",
+                  "read": "てんしょく",
+                  "vi": "chuyển việc, đổi công ty"
+                },
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "du lịch"
+                },
+                {
+                  "t": "卒業",
+                  "read": "そつぎょう",
+                  "vi": "tốt nghiệp"
+                },
+                {
+                  "t": "入院",
+                  "read": "にゅういん",
+                  "vi": "nhập viện"
+                },
+                {
+                  "t": "慣れていません",
+                  "read": "なれていません",
+                  "vi": "chưa quen"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "したばかりなので",
+                  "read": "したばかりなので",
+                  "vi": "vì vừa mới làm gì đó xong (~したばかりなので)"
+                }
+              ]
+            },
+            {
+              "stem": "あ、ちょうどいいところに来ましたね。今から＿を始めるところでした。",
+              "choices": [
+                "会議",
+                "事故",
+                "病気",
+                "台風"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Bạn đến đúng lúc rồi, chúng tôi sắp bắt đầu ＿.\" Đáp án đúng là (A) 「会議」vì đây là thứ người ta chủ động bắt đầu (始める).\n(A) 「会議」— đúng: cuộc họp là thứ người ta chủ động bắt đầu.\n(B) 「事故」— sai: tai nạn xảy ra ngoài ý muốn, không ai \"bắt đầu\" tai nạn.\n(C) 「病気」— sai: bệnh tật không ai cố tình bắt đầu.\n(D) 「台風」— sai: bão là hiện tượng thiên nhiên, không phải thứ người ta \"bắt đầu\".",
+              "glosses": [
+                {
+                  "t": "ちょうどいいところ",
+                  "vi": "vừa đúng lúc"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "事故",
+                  "read": "じこ",
+                  "vi": "tai nạn"
+                },
+                {
+                  "t": "病気",
+                  "read": "びょうき",
+                  "vi": "bệnh tật"
+                },
+                {
+                  "t": "台風",
+                  "read": "たいふう",
+                  "vi": "bão"
+                },
+                {
+                  "t": "来ましたね",
+                  "read": "きましたね",
+                  "vi": "đã đến rồi nhỉ"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "始める",
+                  "read": "はじめる",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "始めるところでした",
+                  "read": "はじめるところでした",
+                  "vi": "(lúc đó) đang định bắt đầu"
+                }
+              ]
+            },
+            {
+              "stem": "料理を作っている＿に、友達から電話がかかってきた。",
+              "choices": [
+                "途中",
+                "以外",
+                "以上",
+                "以内"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Đang nấu ăn ＿ thì có điện thoại bạn gọi đến.\" 「途中」chỉ trạng thái giữa chừng của một hành động đang diễn ra. 「以外」biểu thị ngoại lệ; 「以上」biểu thị mức độ; 「以内」biểu thị phạm vi. Chỉ「途中」mới diễn đạt đúng \"đang trong lúc\".",
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "作っている",
+                  "read": "つくっている",
+                  "vi": "đang làm, đang nấu"
+                },
+                {
+                  "t": "途中",
+                  "read": "とちゅう",
+                  "vi": "giữa chừng, đang trong quá trình"
+                },
+                {
+                  "t": "以外",
+                  "read": "いがい",
+                  "vi": "ngoài ra, trừ"
+                },
+                {
+                  "t": "以上",
+                  "read": "いじょう",
+                  "vi": "trở lên, hơn"
+                },
+                {
+                  "t": "以内",
+                  "read": "いない",
+                  "vi": "trong vòng, không quá"
+                },
+                {
+                  "t": "友達から",
+                  "read": "ともだちから",
+                  "vi": "từ bạn (của mình)"
+                },
+                {
+                  "t": "電話がかかってきた",
+                  "read": "でんわがかかってきた",
+                  "vi": "điện thoại đã gọi đến"
+                }
+              ]
+            },
+            {
+              "stem": "試験が終わった＿で、みんなで食事に行きました。",
+              "choices": [
+                "あと",
+                "まえ",
+                "ため",
+                "ほか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"＿ kỳ thi kết thúc, mọi người đi ăn cùng nhau.\" Đáp án đúng là (A) 「あと」vì nghĩa \"sau khi\" phù hợp với thứ tự thi xong rồi mới đi ăn.\n(A) 「あと」— đúng: nghĩa \"sau khi\", khớp logic thứ tự thi xong → đi ăn.\n(B) 「まえ」— sai: nghĩa \"trước khi\", ngược với thứ tự sự việc.\n(C) 「ため」— sai: nghĩa \"vì/để\", không phù hợp cú pháp 「〜たため」ở đây.\n(D) 「ほか」— sai: nghĩa \"khác/ngoài ra\", không diễn tả thứ tự thời gian.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "終わった",
+                  "read": "おわった",
+                  "vi": "đã kết thúc"
+                },
+                {
+                  "t": "あと",
+                  "vi": "sau khi, sau đó"
+                },
+                {
+                  "t": "まえ",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "ため",
+                  "vi": "vì, để (mục đích/lý do)"
+                },
+                {
+                  "t": "ほか",
+                  "vi": "ngoài ra, khác"
+                },
+                {
+                  "t": "食事",
+                  "read": "しょくじ",
+                  "vi": "bữa ăn"
+                },
+                {
+                  "t": "行きました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "みんな",
+                  "read": "みんな",
+                  "vi": "mọi người"
+                }
+              ]
+            },
+            {
+              "stem": "この映画はもうすぐ＿が終わるところです。急いで席に座ってください。",
+              "choices": [
+                "予告",
+                "字幕",
+                "主役",
+                "監督"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"＿ sắp kết thúc rồi, hãy vào ngồi chỗ nhanh lên.\" Đáp án đúng là (A) 「予告」vì trước khi phim chính bắt đầu, người ta xem đoạn giới thiệu (trailer).\n(A) 「予告」— đúng: đoạn trailer/giới thiệu phim chiếu trước khi phim chính bắt đầu, phù hợp với việc \"sắp kết thúc\" trước khi vào phim.\n(B) 「字幕」— sai: phụ đề xuất hiện xuyên suốt phim, không có khái niệm \"kết thúc\" riêng trước phim.\n(C) 「主役」— sai: nhân vật chính, không có khái niệm \"kết thúc\".\n(D) 「監督」— sai: đạo diễn là người, không phải nội dung được phát trên màn hình.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "bộ phim"
+                },
+                {
+                  "t": "予告",
+                  "read": "よこく",
+                  "vi": "trailer, đoạn giới thiệu phim"
+                },
+                {
+                  "t": "字幕",
+                  "read": "じまく",
+                  "vi": "phụ đề"
+                },
+                {
+                  "t": "主役",
+                  "read": "しゅやく",
+                  "vi": "nhân vật chính"
+                },
+                {
+                  "t": "監督",
+                  "read": "かんとく",
+                  "vi": "đạo diễn"
+                },
+                {
+                  "t": "終わる",
+                  "read": "おわる",
+                  "vi": "kết thúc"
+                },
+                {
+                  "t": "急いで",
+                  "read": "いそいで",
+                  "vi": "vội vàng, gấp rút"
+                },
+                {
+                  "t": "席",
+                  "read": "せき",
+                  "vi": "chỗ ngồi"
+                },
+                {
+                  "t": "座ってください",
+                  "read": "すわってください",
+                  "vi": "xin hãy ngồi"
+                },
+                {
+                  "t": "もうすぐ",
+                  "read": "もうすぐ",
+                  "vi": "sắp sửa, chẳng bao lâu nữa"
+                },
+                {
+                  "t": "終わるところです",
+                  "read": "おわるところです",
+                  "vi": "sắp kết thúc"
+                }
+              ]
+            },
+            {
+              "stem": "引っ越したばかりで、まだ近所に＿がいません。",
+              "choices": [
+                "知り合い",
+                "手伝い",
+                "落とし物",
+                "待ち合わせ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Vừa mới chuyển nhà, chưa có ＿ nào ở gần đây cả.\" Đáp án đúng là (A) 「知り合い」vì đây là thứ (người quen) còn thiếu khi mới chuyển đến nơi mới.\n(A) 「知り合い」— đúng: người quen, tự nhiên bị thiếu khi vừa chuyển đến nơi mới.\n(B) 「手伝い」— sai: sự giúp đỡ, thường đi với cấu trúc khác (手伝いをする), không hợp ngữ cảnh \"chưa có ai\".\n(C) 「落とし物」— sai: đồ đánh rơi, không liên quan đến bối cảnh.\n(D) 「待ち合わせ」— sai: cuộc hẹn gặp, không phải là một người.",
+              "glosses": [
+                {
+                  "t": "引っ越したばかり",
+                  "read": "ひっこしたばかり",
+                  "vi": "vừa mới chuyển nhà"
+                },
+                {
+                  "t": "近所",
+                  "read": "きんじょ",
+                  "vi": "hàng xóm, khu vực lân cận"
+                },
+                {
+                  "t": "知り合い",
+                  "read": "しりあい",
+                  "vi": "người quen"
+                },
+                {
+                  "t": "手伝い",
+                  "read": "てつだい",
+                  "vi": "sự giúp đỡ, người giúp việc"
+                },
+                {
+                  "t": "落とし物",
+                  "read": "おとしもの",
+                  "vi": "đồ đánh rơi"
+                },
+                {
+                  "t": "待ち合わせ",
+                  "read": "まちあわせ",
+                  "vi": "hẹn gặp"
+                },
+                {
+                  "t": "がいません",
+                  "read": "がいません",
+                  "vi": "không có ai (phủ định tồn tại người)"
+                }
+              ]
+            },
+            {
+              "stem": "彼女はステージに出る＿で、とても緊張した顔をしていた。",
+              "choices": [
+                "直前",
+                "直後",
+                "以前",
+                "以来"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Cô ấy ＿ bước ra sân khấu, mặt trông rất hồi hộp.\" 「直前」= ngay trước khi, diễn tả trạng thái sắp xảy ra. 「直後」là ngay sau khi, ngược lại; 「以前」là trước đây (xa hơn trong quá khứ); 「以来」là từ một thời điểm đến nay. Chỉ「直前」mới phù hợp với cảm giác hồi hộp sắp lên sân khấu.",
+              "glosses": [
+                {
+                  "t": "ステージ",
+                  "vi": "sân khấu"
+                },
+                {
+                  "t": "出る",
+                  "read": "でる",
+                  "vi": "ra, xuất hiện"
+                },
+                {
+                  "t": "直前",
+                  "read": "ちょくぜん",
+                  "vi": "ngay trước, sắp"
+                },
+                {
+                  "t": "直後",
+                  "read": "ちょくご",
+                  "vi": "ngay sau"
+                },
+                {
+                  "t": "以前",
+                  "read": "いぜん",
+                  "vi": "trước đây, trước kia"
+                },
+                {
+                  "t": "以来",
+                  "read": "いらい",
+                  "vi": "từ đó đến nay"
+                },
+                {
+                  "t": "緊張した",
+                  "read": "きんちょうした",
+                  "vi": "căng thẳng, hồi hộp"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "顔",
+                  "read": "かお",
+                  "vi": "khuôn mặt, vẻ mặt"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "緊張した顔をしていた",
+                  "read": "きんちょうしたかおをしていた",
+                  "vi": "có vẻ mặt căng thẳng (~た顔をしていた)"
+                }
+              ]
+            },
+            {
+              "stem": "子どもたちが今ちょうど昼寝をしている＿なので、静かにしてください。",
+              "choices": [
+                "最中",
+                "場合",
+                "反面",
+                "一方"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Các em đang ngủ trưa ＿ nên hãy giữ yên lặng.\" 「最中」= đúng giữa lúc đang làm việc gì đó, nhấn mạnh hành động đang diễn ra. 「場合」là điều kiện/trường hợp giả định; 「反面」diễn tả tương phản giữa hai mặt; 「一方」diễn tả song song hoặc đối lập. Chỉ「最中」diễn tả đúng \"đang ngủ\" hiện tại.",
+              "glosses": [
+                {
+                  "t": "昼寝",
+                  "read": "ひるね",
+                  "vi": "ngủ trưa"
+                },
+                {
+                  "t": "最中",
+                  "read": "さいちゅう",
+                  "vi": "đang trong lúc, đúng lúc đang"
+                },
+                {
+                  "t": "場合",
+                  "read": "ばあい",
+                  "vi": "trường hợp, khi"
+                },
+                {
+                  "t": "反面",
+                  "read": "はんめん",
+                  "vi": "mặt khác (tương phản)"
+                },
+                {
+                  "t": "一方",
+                  "read": "いっぽう",
+                  "vi": "trong khi đó, một phía"
+                },
+                {
+                  "t": "子どもたち",
+                  "read": "こどもたち",
+                  "vi": "những đứa trẻ"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "ちょうど",
+                  "vi": "vừa lúc, đúng lúc"
+                },
+                {
+                  "t": "静かにしてください",
+                  "read": "しずかにしてください",
+                  "vi": "xin hãy giữ yên lặng"
+                },
+                {
+                  "t": "昼寝をしている",
+                  "read": "ひるねをしている",
+                  "vi": "đang ngủ trưa (dở dang)"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì (là)"
+                }
+              ]
+            },
+            {
+              "stem": "新しい仕事を始めたばかりで、＿がわからないことが多いです。",
+              "choices": [
+                "手順",
+                "原因",
+                "目的",
+                "機会"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Vừa mới bắt đầu công việc mới, có nhiều ＿ không biết.\" Đáp án đúng là (A) 「手順」vì người mới đi làm thường chưa nắm được quy trình, cách làm từng bước.\n(A) 「手順」— đúng: quy trình, cách làm từng bước — điều người mới vào việc thường chưa biết.\n(B) 「原因」— sai: nguyên nhân, không phải thứ thường nói \"không biết\" trong ngữ cảnh này.\n(C) 「目的」— sai: mục đích công việc thường đã rõ ngay khi nhận việc.\n(D) 「機会」— sai: cơ hội, không phù hợp với cụm \"không biết\".",
+              "glosses": [
+                {
+                  "t": "始めたばかり",
+                  "read": "はじめたばかり",
+                  "vi": "vừa mới bắt đầu"
+                },
+                {
+                  "t": "手順",
+                  "read": "てじゅん",
+                  "vi": "quy trình, các bước thực hiện"
+                },
+                {
+                  "t": "原因",
+                  "read": "げんいん",
+                  "vi": "nguyên nhân"
+                },
+                {
+                  "t": "目的",
+                  "read": "もくてき",
+                  "vi": "mục đích"
+                },
+                {
+                  "t": "機会",
+                  "read": "きかい",
+                  "vi": "cơ hội, dịp"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "多いです",
+                  "read": "おおいです",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "がわからないことが多いです",
+                  "read": "がわからないことがおおいです",
+                  "vi": "có nhiều điều không hiểu (~がわからないことが多い)"
+                }
+              ]
+            },
+            {
+              "stem": "電車に乗ろうとしたところ、＿がなくて困りました。",
+              "choices": [
+                "定期券",
+                "教科書",
+                "診察券",
+                "招待状"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Vừa định lên tàu thì không có ＿, rất bối rối.\" Khi lên tàu điện, thứ cần thiết là「定期券」(vé tháng). 「教科書」là sách giáo khoa, không dùng khi đi tàu; 「診察券」là thẻ khám bệnh; 「招待状」là thiệp mời. Chỉ「定期券」gắn trực tiếp với việc đi tàu.",
+              "glosses": [
+                {
+                  "t": "電車に乗ろうとした",
+                  "read": "でんしゃにのろうとした",
+                  "vi": "vừa định lên tàu"
+                },
+                {
+                  "t": "定期券",
+                  "read": "ていきけん",
+                  "vi": "vé tháng (tàu/xe)"
+                },
+                {
+                  "t": "教科書",
+                  "read": "きょうかしょ",
+                  "vi": "sách giáo khoa"
+                },
+                {
+                  "t": "診察券",
+                  "read": "しんさつけん",
+                  "vi": "thẻ bệnh nhân"
+                },
+                {
+                  "t": "招待状",
+                  "read": "しょうたいじょう",
+                  "vi": "thiệp mời"
+                },
+                {
+                  "t": "困りました",
+                  "read": "こまりました",
+                  "vi": "đã gặp khó khăn, khốn đốn"
+                },
+                {
+                  "t": "乗ろうとしたところ",
+                  "read": "のろうとしたところ",
+                  "vi": "đúng vào lúc định lên (xe) thì (~うとしたところ)"
+                },
+                {
+                  "t": "がなくて困りました",
+                  "read": "がなくてこまりました",
+                  "vi": "vì không có (gì đó) nên đã khốn khổ (~がなくて困る)"
+                }
+              ]
+            },
+            {
+              "stem": "父は今、大切な書類に＿をしているところです。",
+              "choices": [
+                "署名",
+                "挨拶",
+                "相談",
+                "連絡"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Bố đang ＿ vào tài liệu quan trọng.\" 「書類に署名をする」= ký tên vào tài liệu, là kết hợp tự nhiên nhất. 「挨拶」là chào hỏi, không 'làm vào' tài liệu; 「相談」là bàn bạc với người khác; 「連絡」là liên lạc. Chỉ「署名」mới dùng với「書類に」.",
+              "glosses": [
+                {
+                  "t": "大切な書類",
+                  "read": "たいせつなしょるい",
+                  "vi": "tài liệu quan trọng"
+                },
+                {
+                  "t": "署名",
+                  "read": "しょめい",
+                  "vi": "ký tên, chữ ký"
+                },
+                {
+                  "t": "挨拶",
+                  "read": "あいさつ",
+                  "vi": "lời chào hỏi"
+                },
+                {
+                  "t": "相談",
+                  "read": "そうだん",
+                  "vi": "bàn bạc, hỏi ý kiến"
+                },
+                {
+                  "t": "連絡",
+                  "read": "れんらく",
+                  "vi": "liên lạc, thông báo"
+                },
+                {
+                  "t": "父",
+                  "read": "ちち",
+                  "vi": "bố (của tôi)"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "をしているところです",
+                  "read": "をしているところです",
+                  "vi": "đang làm gì đó (dở dang) (~をしているところ)"
+                }
+              ]
+            },
+            {
+              "stem": "日本に来たばかりの頃は、毎日＿を感じていました。",
+              "choices": [
+                "孤独",
+                "成長",
+                "余裕",
+                "自信"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói \"Thời mới vừa đến Nhật, mỗi ngày tôi cảm thấy ＿.\" Đáp án đúng là (A) 「孤独」vì đây là cảm giác tự nhiên nhất khi mới đến một nơi xa lạ.\n(A) 「孤独」— đúng: cảm giác cô đơn, tự nhiên khi mới đến nơi xa lạ chưa quen ai.\n(B) 「成長」— sai: sự trưởng thành/phát triển thường được nhìn lại sau này, không phải cảm giác hàng ngày lúc mới đến.\n(C) 「余裕」— sai: sự thư thái, thực tế thường thiếu (ngược lại) khi mới đến nơi mới.\n(D) 「自信」— sai: sự tự tin, thường còn thiếu chứ không phải thứ \"cảm thấy\" khi mới sang.",
+              "glosses": [
+                {
+                  "t": "来たばかりの頃",
+                  "read": "きたばかりのころ",
+                  "vi": "thời mới vừa đến"
+                },
+                {
+                  "t": "孤独",
+                  "read": "こどく",
+                  "vi": "sự cô đơn, cô độc"
+                },
+                {
+                  "t": "成長",
+                  "read": "せいちょう",
+                  "vi": "sự trưởng thành, sự phát triển"
+                },
+                {
+                  "t": "余裕",
+                  "read": "よゆう",
+                  "vi": "여유, sự th余余 thư thái,여유"
+                },
+                {
+                  "t": "自信",
+                  "read": "じしん",
+                  "vi": "sự tự tin"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "感じていました",
+                  "read": "かんじていました",
+                  "vi": "đã cảm thấy"
+                }
+              ]
+            },
+            {
+              "stem": "授業が始まるところなのに、田中さんはまだ＿を出していません。",
+              "choices": [
+                "教科書",
+                "宿題",
+                "出席",
+                "発表"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu nói \"Buổi học sắp bắt đầu mà Tanaka vẫn chưa nộp ＿.\" Đáp án đúng là (B) 「宿題」vì 「宿題を出す」(nộp bài tập về nhà) là cụm tự nhiên và phù hợp nhất với bối cảnh trước giờ học.\n(A) 「教科書」— sai: 「教科書を出す」nghĩa là lấy sách giáo khoa ra, khác nghĩa với việc nộp bài.\n(B) 「宿題」— đúng: 「宿題を出す」= nộp bài tập về nhà, khớp bối cảnh trước giờ học.\n(C) 「出席」— sai: không đi với động từ 出す một cách tự nhiên (thường dùng 出席する/出席を取る).\n(D) 「発表」— sai: cũng không tự nhiên với 出す (thường dùng 発表する).",
+              "glosses": [
+                {
+                  "t": "授業が始まる",
+                  "read": "じゅぎょうがはじまる",
+                  "vi": "buổi học bắt đầu"
+                },
+                {
+                  "t": "教科書",
+                  "read": "きょうかしょ",
+                  "vi": "sách giáo khoa"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "出席",
+                  "read": "しゅっせき",
+                  "vi": "điểm danh, có mặt"
+                },
+                {
+                  "t": "発表",
+                  "read": "はっぴょう",
+                  "vi": "thuyết trình, công bố"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "まだ",
+                  "read": "まだ",
+                  "vi": "vẫn chưa, còn chưa"
+                },
+                {
+                  "t": "始まるところなのに",
+                  "read": "はじまるところなのに",
+                  "vi": "mặc dù đang sắp bắt đầu (~るところなのに)"
+                },
+                {
+                  "t": "出していません",
+                  "read": "だしていません",
+                  "vi": "chưa nộp/chưa đưa ra (~していません)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "今から会議を始めるところです。",
+              "choices": [
+                "今から会議を始めようとしています。",
+                "会議はもう始まっています。",
+                "さっき会議が始まりました。",
+                "会議を始めたばかりです。"
+              ],
+              "answer": 0,
+              "pt": "Vるところです",
+              "explain": "Câu gốc dùng「Vるところです」diễn đạt hành động *sắp* xảy ra ngay lúc nói. Đáp án A「〜始めようとしています」(đang có ý định / sắp bắt đầu) gần nghĩa nhất — cả hai đều chỉ thời điểm ngay trước khi hành động xảy ra. B「会議はもう始まっています」= hội họp đang diễn ra rồi (trạng thái kết quả), lệch nghĩa. C「さっき会議が始まりました」= vừa mới bắt đầu (quá khứ), lệch nghĩa. D「始めたばかりです」= mới bắt đầu xong, nhấn cảm giác còn mới, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "始める",
+                  "read": "はじめる",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "さっき",
+                  "read": "さっき",
+                  "vi": "vừa nãy, lúc nãy"
+                },
+                {
+                  "t": "始めるところです",
+                  "read": "はじめるところです",
+                  "vi": "sắp bắt đầu"
+                },
+                {
+                  "t": "始めようとしています",
+                  "read": "はじめようとしています",
+                  "vi": "đang định bắt đầu (ngay bây giờ)"
+                },
+                {
+                  "t": "はもう始まっています",
+                  "read": "はもうはじまっています",
+                  "vi": "đã bắt đầu rồi (もう~ている)"
+                },
+                {
+                  "t": "始まりました",
+                  "read": "はじまりました",
+                  "vi": "đã bắt đầu (quá khứ)"
+                },
+                {
+                  "t": "始めたばかりです",
+                  "read": "はじめたばかりです",
+                  "vi": "vừa mới bắt đầu xong"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうど今、レポートを書いているところです。",
+              "choices": [
+                "今ちょうどレポートを書いている最中です。",
+                "レポートはもう書き終わりました。",
+                "レポートをこれから書くつもりです。",
+                "レポートを書いたばかりです。"
+              ],
+              "answer": 0,
+              "pt": "Vているところです",
+              "explain": "「Vているところです」= đang thực hiện hành động ngay lúc này, nhấn mạnh đang ở *giữa chừng*. A「書いている最中です」(đang giữa chừng viết) diễn đạt hoàn toàn tương đương — gần nghĩa nhất. B「書き終わりました」= đã viết xong (kết thúc), nghĩa trái. C「書くつもりです」= dự định viết (tương lai), nghĩa khác. D「書いたばかりです」= mới viết xong gần đây (cảm giác còn mới), khác về thời điểm.",
+              "glosses": [
+                {
+                  "t": "ちょうど今",
+                  "vi": "ngay lúc này"
+                },
+                {
+                  "t": "レポート",
+                  "vi": "báo cáo / bài luận"
+                },
+                {
+                  "t": "書いている",
+                  "read": "かいている",
+                  "vi": "đang giữa chừng viết"
+                },
+                {
+                  "t": "書いているところです",
+                  "read": "かいているところです",
+                  "vi": "đang viết (dở dang)"
+                },
+                {
+                  "t": "はもう書き終わりました",
+                  "read": "はもうかきおわりました",
+                  "vi": "đã viết xong rồi"
+                },
+                {
+                  "t": "をこれから書くつもりです",
+                  "read": "をこれからかくつもりです",
+                  "vi": "định sẽ viết (từ giờ trở đi)"
+                },
+                {
+                  "t": "書いたばかりです",
+                  "read": "かいたばかりです",
+                  "vi": "vừa mới viết xong"
+                }
+              ]
+            },
+            {
+              "prompt": "たった今、駅に着いたところです。",
+              "choices": [
+                "たった今、駅に着いたばかりです。",
+                "もうすぐ駅に着くところです。",
+                "駅にずっといます。",
+                "駅に着いている最中です。"
+              ],
+              "answer": 0,
+              "pt": "Vたところです",
+              "explain": "「Vたところです」= vừa mới hoàn thành hành động ngay trước đó (khách quan, thời điểm rất gần). A「着いたばかりです」cũng có nghĩa \"vừa mới đến\" — đây là điểm ngữ pháp gần nghĩa nhất với câu gốc. Sự khác biệt nhỏ:「〜たところ」nhấn thời điểm khách quan vừa xong;「〜たばかり」nhấn cảm giác chủ quan còn mới. B「着くところです」= sắp đến (chưa đến), ngược nghĩa. C「ずっといます」= ở đó suốt, không liên quan. D「着いている最中」= đang trong quá trình đến, sai logic.",
+              "glosses": [
+                {
+                  "t": "たった今",
+                  "vi": "vừa mới xong"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "着いた",
+                  "read": "ついた",
+                  "vi": "đến nơi"
+                },
+                {
+                  "t": "もうすぐ",
+                  "read": "もうすぐ",
+                  "vi": "sắp, gần đây thôi"
+                },
+                {
+                  "t": "ずっと",
+                  "read": "ずっと",
+                  "vi": "suốt, mãi (ở yên một chỗ)"
+                },
+                {
+                  "t": "着いたところです",
+                  "read": "ついたところです",
+                  "vi": "vừa mới đến nơi"
+                },
+                {
+                  "t": "着いたばかりです",
+                  "read": "ついたばかりです",
+                  "vi": "vừa mới đến (xong)"
+                },
+                {
+                  "t": "着くところです",
+                  "read": "つくところです",
+                  "vi": "sắp đến nơi"
+                },
+                {
+                  "t": "ずっといます",
+                  "read": "ずっといます",
+                  "vi": "vẫn ở luôn (từ nãy đến giờ)"
+                },
+                {
+                  "t": "着いている最中です",
+                  "read": "ついているさいちゅうです",
+                  "vi": "đang trong lúc đến nơi"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語の勉強を始めたばかりなので、まだ難しいです。",
+              "choices": [
+                "日本語の勉強を始めたところなので、まだ慣れていません。",
+                "日本語の勉強をこれから始めるところなので、難しいです。",
+                "日本語の勉強を始めてもう長いですが、まだ難しいです。",
+                "日本語の勉強が終わったばかりなので、難しいです。"
+              ],
+              "answer": 0,
+              "pt": "Vたばかりです",
+              "explain": "「Vたばかり」= mới làm xong, nhấn cảm giác *còn mới / chưa quen*. A「始めたところなので、まだ慣れていません」diễn đạt cùng ý \"mới bắt đầu nên chưa quen\" — gần nghĩa nhất. B「これから始めるところ」= sắp bắt đầu (chưa bắt đầu), sai hoàn toàn. C「始めてもう長い」= đã học lâu rồi, nghĩa ngược. D「勉強が終わったばかり」= vừa học xong (kết thúc), lệch nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "việc học"
+                },
+                {
+                  "t": "始めた",
+                  "read": "はじめた",
+                  "vi": "bắt đầu"
+                },
+                {
+                  "t": "慣れていません",
+                  "read": "なれていません",
+                  "vi": "chưa quen"
+                },
+                {
+                  "t": "日本語の勉強",
+                  "read": "にほんごのべんきょう",
+                  "vi": "việc học tiếng Nhật"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "長い",
+                  "read": "ながい",
+                  "vi": "dài, đã lâu"
+                },
+                {
+                  "t": "始めたばかりなので",
+                  "read": "はじめたばかりなので",
+                  "vi": "vì vừa mới bắt đầu"
+                },
+                {
+                  "t": "始めたところなので",
+                  "read": "はじめたところなので",
+                  "vi": "vì vừa mới bắt đầu xong"
+                },
+                {
+                  "t": "をこれから始めるところなので",
+                  "read": "をこれからはじめるところなので",
+                  "vi": "vì sắp bắt đầu (từ giờ)"
+                },
+                {
+                  "t": "始めてもう長いですが",
+                  "read": "はじめてもうながいですが",
+                  "vi": "mặc dù đã bắt đầu lâu rồi"
+                },
+                {
+                  "t": "終わったばかりなので",
+                  "read": "おわったばかりなので",
+                  "vi": "vì vừa mới kết thúc xong"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうど出かけるところに、電話がかかってきました。",
+              "choices": [
+                "ちょうど出かけようとしたとき、電話がかかってきました。",
+                "出かけてから、電話がかかってきました。",
+                "出かけている最中に、電話がかかってきました。",
+                "出かけたばかりのとき、電話がかかってきました。"
+              ],
+              "answer": 0,
+              "pt": "Vるところです",
+              "explain": "「出かけるところに」= ngay lúc chuẩn bị ra ngoài (sắp đi). A「出かけようとしたとき」(ngay lúc định ra ngoài) diễn đạt cùng thời điểm \"sắp thực hiện hành động\" — gần nghĩa nhất. B「出かけてから」= sau khi đã ra ngoài, lệch nghĩa. C「出かけている最中に」= đang giữa chừng ra ngoài (đã ra rồi), lệch nghĩa. D「出かけたばかりのとき」= lúc vừa mới ra ngoài xong, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "出かける",
+                  "read": "でかける",
+                  "vi": "ra ngoài"
+                },
+                {
+                  "t": "電話がかかってきました",
+                  "read": "でんわがかかってきました",
+                  "vi": "điện thoại đổ chuông"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "ちょうど",
+                  "vi": "đúng lúc, vừa"
+                },
+                {
+                  "t": "出かけるところに",
+                  "read": "でかけるところに",
+                  "vi": "đúng lúc sắp ra khỏi nhà thì"
+                },
+                {
+                  "t": "出かけようとしたとき",
+                  "read": "でかけようとしたとき",
+                  "vi": "đúng lúc định ra khỏi nhà thì"
+                },
+                {
+                  "t": "出かけてから",
+                  "read": "でかけてから",
+                  "vi": "sau khi ra khỏi nhà"
+                },
+                {
+                  "t": "出かけている最中に",
+                  "read": "でかけているさいちゅうに",
+                  "vi": "đang trong lúc ra khỏi nhà thì"
+                },
+                {
+                  "t": "出かけたばかりのとき",
+                  "read": "でかけたばかりのとき",
+                  "vi": "vào lúc vừa mới ra khỏi nhà xong"
+                }
+              ]
+            },
+            {
+              "prompt": "先生にレポートを直してもらったところです。",
+              "choices": [
+                "今ちょうど先生にレポートを直してもらい終わりました。",
+                "先生はレポートを直してくれるつもりです。",
+                "先生にレポートを直してもらっている最中です。",
+                "レポートを直したばかりですが、先生に頼みませんでした。"
+              ],
+              "answer": 0,
+              "pt": "Vたところです + B41 Vてもらいます",
+              "explain": "Câu gốc kết hợp「〜てもらったところです」= vừa được (thầy/cô) sửa cho xong ngay lúc này. A「直してもらい終わりました」diễn đạt cùng sự kiện \"vừa mới nhận được việc sửa hoàn tất\" — gần nghĩa nhất. B「直してくれるつもり」= (thầy) dự định sửa (tương lai), lệch nghĩa. C「直してもらっている最中」= đang giữa chừng được sửa (chưa xong), lệch nghĩa. D phủ nhận việc nhờ thầy — trái nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "直してもらった",
+                  "read": "なおしてもらった",
+                  "vi": "được sửa cho"
+                },
+                {
+                  "t": "直してもらい終わりました",
+                  "read": "なおしてもらいおわりました",
+                  "vi": "đã được sửa xong rồi"
+                },
+                {
+                  "t": "今ちょうど",
+                  "read": "いまちょうど",
+                  "vi": "vừa mới, ngay lúc này"
+                },
+                {
+                  "t": "頼みませんでした",
+                  "read": "たのみませんでした",
+                  "vi": "đã không nhờ/yêu cầu"
+                },
+                {
+                  "t": "レポート",
+                  "read": "レポート",
+                  "vi": "báo cáo"
+                },
+                {
+                  "t": "くれる",
+                  "read": "くれる",
+                  "vi": "làm giúp cho mình"
+                },
+                {
+                  "t": "直してもらったところです",
+                  "read": "なおしてもらったところです",
+                  "vi": "vừa được (người khác) sửa giúp xong"
+                },
+                {
+                  "t": "直してくれるつもりです",
+                  "read": "なおしてくれるつもりです",
+                  "vi": "định sẽ sửa giúp cho"
+                },
+                {
+                  "t": "直してもらっている最中です",
+                  "read": "なおしてもらっているさいちゅうです",
+                  "vi": "đang trong lúc được sửa giúp"
+                },
+                {
+                  "t": "直したばかりですが",
+                  "read": "なおしたばかりですが",
+                  "vi": "vừa mới sửa xong nhưng"
+                }
+              ]
+            },
+            {
+              "prompt": "今、このアプリの使い方を調べているところです。",
+              "choices": [
+                "今ちょうど、このアプリの使い方を調べている最中です。",
+                "このアプリの使い方を調べ終わりました。",
+                "このアプリの使い方はとても調べにくいです。",
+                "このアプリの使い方を調べるつもりはありません。"
+              ],
+              "answer": 0,
+              "pt": "Vているところです + B42 Vるのに〜",
+              "explain": "「調べているところです」= đang điều tra / tra cứu ngay lúc này, ở giữa chừng. A「調べている最中です」(đang giữa chừng tra cứu) diễn đạt cùng ý — gần nghĩa nhất. B「調べ終わりました」= đã tra xong, lệch nghĩa. C「調べにくいです」(khó tra cứu) dùng「〜にくい」(B44), hoàn toàn khác nghĩa. D phủ nhận ý muốn tra cứu — trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "調べている",
+                  "read": "しらべている",
+                  "vi": "tra cứu, điều tra"
+                },
+                {
+                  "t": "調べている最中",
+                  "read": "しらべているさいちゅう",
+                  "vi": "đang giữa chừng tra cứu"
+                },
+                {
+                  "t": "今ちょうど",
+                  "read": "いまちょうど",
+                  "vi": "vừa mới, ngay lúc này"
+                },
+                {
+                  "t": "アプリ",
+                  "read": "アプリ",
+                  "vi": "ứng dụng"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "調べているところです",
+                  "read": "しらべているところです",
+                  "vi": "đang tìm hiểu (dở dang)"
+                },
+                {
+                  "t": "調べ終わりました",
+                  "read": "しらべおわりました",
+                  "vi": "đã tìm hiểu xong"
+                },
+                {
+                  "t": "調べにくいです",
+                  "read": "しらべにくいです",
+                  "vi": "khó tìm hiểu (~にくい)"
+                },
+                {
+                  "t": "調べるつもりはありません",
+                  "read": "しらべるつもりはありません",
+                  "vi": "không có ý định tìm hiểu"
+                }
+              ]
+            },
+            {
+              "prompt": "この仕事を始めたばかりなのに、もう辞めたいと思っています。",
+              "choices": [
+                "この仕事を始めてすぐなのに、もう辞めたいと思っています。",
+                "この仕事を始めたところで、もう辞めたいと思っています。",
+                "この仕事を始めてから長いのに、もう辞めたいと思っています。",
+                "この仕事がすごく難しいので、辞めたいと思っています。"
+              ],
+              "answer": 0,
+              "pt": "Vたばかりです + B45 〜のに (逆接)",
+              "explain": "「始めたばかりなのに」= mới bắt đầu (cảm giác còn rất mới) mà đã... — kết hợp「ばかり」(mới) +「のに」(逆接: mặc dù/thế mà). A「始めてすぐなのに」(mới bắt đầu được một chút mà) diễn đạt cùng ý — gần nghĩa nhất.「ばかり」≈「すぐ」ở đây cùng nhấn việc vừa mới bắt đầu. B「始めたところで」= dùng「〜たところで」(dù có làm thì cũng...) là cấu trúc nhượng bộ khác, lệch nghĩa. C「始めてから長い」= đã làm lâu rồi, trái nghĩa. D thay vế「のに」(逆接) bằng「ので」(lý do), mất sắc thái nghịch.",
+              "glosses": [
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "辞めたい",
+                  "read": "やめたい",
+                  "vi": "muốn nghỉ"
+                },
+                {
+                  "t": "始めた",
+                  "read": "はじめた",
+                  "vi": "mới bắt đầu được một chút"
+                },
+                {
+                  "t": "思っています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ/cảm thấy"
+                },
+                {
+                  "t": "長い",
+                  "read": "ながい",
+                  "vi": "dài, đã lâu"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "すぐ",
+                  "read": "すぐ",
+                  "vi": "ngay, liền"
+                },
+                {
+                  "t": "始めたばかりなのに",
+                  "read": "はじめたばかりなのに",
+                  "vi": "mặc dù vừa mới bắt đầu"
+                },
+                {
+                  "t": "始めてすぐなのに",
+                  "read": "はじめてすぐなのに",
+                  "vi": "mặc dù ngay sau khi bắt đầu"
+                },
+                {
+                  "t": "始めたところで",
+                  "read": "はじめたところで",
+                  "vi": "vừa mới bắt đầu xong (mà đã...)"
+                },
+                {
+                  "t": "始めてから長いのに",
+                  "read": "はじめてからながいのに",
+                  "vi": "mặc dù đã bắt đầu từ lâu rồi"
+                },
+                {
+                  "t": "この仕事がすごく難しいので",
+                  "read": "このしごとがすごくむずかしいので",
+                  "vi": "vì công việc này rất khó"
+                }
+              ]
+            },
+            {
+              "prompt": "今からコンビニに買い物に行くところです。",
+              "choices": [
+                "今からコンビニへ買い物に行こうとしています。",
+                "コンビニで買い物をしている最中です。",
+                "コンビニに買い物に行ったところです。",
+                "コンビニに買い物に行ったばかりです。"
+              ],
+              "answer": 0,
+              "pt": "Vるところです + B43 Vて行きます",
+              "explain": "「行くところです」= sắp đi (ngay bây giờ, chuẩn bị thực hiện). A「コンビニへ買い物に行こうとしています」(đang có ý định / sắp đi) diễn đạt cùng thời điểm \"sắp\" — gần nghĩa nhất. B「買い物をしている最中」= đang mua sắm giữa chừng (đã đến rồi), lệch nghĩa. C「行ったところ」= vừa mới đi xong, lệch nghĩa. D「行ったばかり」= vừa mới đi (cảm giác còn mới), lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "コンビニ",
+                  "vi": "cửa hàng tiện lợi"
+                },
+                {
+                  "t": "買い物",
+                  "read": "かいもの",
+                  "vi": "mua sắm"
+                },
+                {
+                  "t": "行く",
+                  "vi": "đang sắp đi",
+                  "read": "いく"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "行くところです",
+                  "read": "いくところです",
+                  "vi": "sắp đi"
+                },
+                {
+                  "t": "行こうとしています",
+                  "read": "いこうとしています",
+                  "vi": "đang định đi"
+                },
+                {
+                  "t": "買い物をしている最中です",
+                  "read": "かいものをしているさいちゅうです",
+                  "vi": "đang trong lúc mua sắm"
+                },
+                {
+                  "t": "行ったところです",
+                  "read": "いったところです",
+                  "vi": "vừa mới đi xong"
+                },
+                {
+                  "t": "行ったばかりです",
+                  "read": "いったばかりです",
+                  "vi": "vừa mới đi (xong)"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうど郵便局から帰ってきたところです。",
+              "choices": [
+                "ちょうど今、郵便局から戻ってきたばかりです。",
+                "今から郵便局に行くところです。",
+                "郵便局に行っている最中です。",
+                "郵便局に行くつもりだったのに、行けませんでした。"
+              ],
+              "answer": 0,
+              "pt": "Vたところです + B43 Vて来ます",
+              "explain": "「帰ってきたところ」= vừa mới trở về (từ bưu điện). A「戻ってきたばかりです」(vừa mới quay về) diễn đạt cùng sự kiện — gần nghĩa nhất.「帰ってきた」≈「戻ってきた」(cùng nghĩa trở về) +「たところ」≈「たばかり」(vừa mới). B「行くところ」= sắp đi (chưa đi), ngược nghĩa. C「行っている最中」= đang giữa chừng đi, lệch nghĩa. D phủ nhận việc đi — trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "郵便局",
+                  "read": "ゆうびんきょく",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "帰ってきた",
+                  "read": "かえってきた",
+                  "vi": "đã quay trở về"
+                },
+                {
+                  "t": "戻ってきたばかり",
+                  "read": "もどってきたばかり",
+                  "vi": "vừa mới quay về"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                },
+                {
+                  "t": "行けませんでした",
+                  "read": "いけませんでした",
+                  "vi": "đã không thể đi được"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "ちょうど",
+                  "vi": "đúng lúc, vừa"
+                },
+                {
+                  "t": "帰ってきたところです",
+                  "read": "かえってきたところです",
+                  "vi": "vừa mới về xong"
+                },
+                {
+                  "t": "行くところです",
+                  "read": "いくところです",
+                  "vi": "sắp đi"
+                },
+                {
+                  "t": "行っている最中です",
+                  "read": "いっているさいちゅうです",
+                  "vi": "đang trong lúc đi"
+                },
+                {
+                  "t": "行くつもりだったのに",
+                  "read": "いくつもりだったのに",
+                  "vi": "định đi nhưng (lại không được)"
+                }
+              ]
+            },
+            {
+              "prompt": "今、食べすぎてお腹が痛いところです。",
+              "choices": [
+                "今ちょうど、食べすぎてお腹が痛い状態です。",
+                "食べすぎたので、これからお腹が痛くなるところです。",
+                "食べすぎてお腹が痛かったところですが、もう治りました。",
+                "食べすぎる前に、お腹が痛いところです。"
+              ],
+              "answer": 0,
+              "pt": "Vているところです + B44 Vすぎます",
+              "explain": "「食べすぎてお腹が痛いところ」= hiện đang ở trạng thái đau bụng vì ăn quá nhiều ngay lúc này. A「食べすぎてお腹が痛い状態です」(đang ở trạng thái đau bụng vì ăn quá) diễn đạt cùng ý — gần nghĩa nhất. B「これからお腹が痛くなるところ」= sắp bị đau (chưa đau), lệch nghĩa. C「お腹が痛かったところですが、もう治りました」= đã hết đau rồi, lệch nghĩa. D「食べすぎる前に」= trước khi ăn quá — vô lý về logic.",
+              "glosses": [
+                {
+                  "t": "食べすぎて",
+                  "read": "たべすぎて",
+                  "vi": "ăn quá nhiều"
+                },
+                {
+                  "t": "お腹が痛い",
+                  "read": "おなかがいたい",
+                  "vi": "đau bụng"
+                },
+                {
+                  "t": "状態",
+                  "read": "じょうたい",
+                  "vi": "trạng thái"
+                },
+                {
+                  "t": "今ちょうど",
+                  "read": "いまちょうど",
+                  "vi": "vừa mới, ngay lúc này"
+                },
+                {
+                  "t": "治りました",
+                  "read": "なおりました",
+                  "vi": "đã khỏi, đã lành"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "食べすぎる",
+                  "read": "たべすぎる",
+                  "vi": "ăn quá nhiều/quá no"
+                },
+                {
+                  "t": "お腹が痛いところです",
+                  "read": "おなかがいたいところです",
+                  "vi": "(lưu ý dùng ところ không chuẩn với tính từ) ý muốn nói đang bị đau bụng"
+                },
+                {
+                  "t": "食べすぎたので",
+                  "read": "たべすぎたので",
+                  "vi": "vì đã ăn quá nhiều"
+                },
+                {
+                  "t": "これからお腹が痛くなるところです",
+                  "read": "これからおなかがいたくなるところです",
+                  "vi": "sắp bị đau bụng (từ giờ trở đi)"
+                },
+                {
+                  "t": "お腹が痛かったところですが",
+                  "read": "おなかがいたかったところですが",
+                  "vi": "(lưu ý dùng không chuẩn) từng đau bụng nhưng..."
+                }
+              ]
+            },
+            {
+              "prompt": "このソフトの使い方を覚えたばかりで、まだ慣れていません。",
+              "choices": [
+                "このソフトの使い方を覚えたところで、まだ慣れていません。",
+                "このソフトの使い方を覚えていないので、まだ慣れていません。",
+                "このソフトの使い方を覚えてからずいぶん経ちますが、まだ慣れていません。",
+                "このソフトの使い方を覚えやすいですが、まだ慣れていません。"
+              ],
+              "answer": 0,
+              "pt": "Vたばかりです + B44 V方",
+              "explain": "「覚えたばかりで」= vừa mới ghi nhớ, cảm giác còn mới nên chưa quen. A「覚えたところで」cũng diễn đạt \"vừa mới ghi nhớ\" — gần nghĩa nhất, tuy「〜たところ」nhấn thời điểm khách quan hơn còn「〜たばかり」nhấn cảm giác chủ quan còn mới. B「覚えていないので」= chưa ghi nhớ — trái nghĩa. C「覚えてからずいぶん経つ」= đã nhớ từ lâu rồi, trái nghĩa. D「覚えやすい」(dễ ghi nhớ, dùng「〜やすい」B44) không liên quan đến thời điểm vừa học.",
+              "glosses": [
+                {
+                  "t": "ソフト",
+                  "vi": "phần mềm"
+                },
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "覚えた",
+                  "read": "おぼえた",
+                  "vi": "ghi nhớ"
+                },
+                {
+                  "t": "慣れていません",
+                  "read": "なれていません",
+                  "vi": "chưa quen"
+                },
+                {
+                  "t": "経ちます",
+                  "read": "たちます",
+                  "vi": "(thời gian) trôi qua"
+                },
+                {
+                  "t": "ずいぶん",
+                  "read": "ずいぶん",
+                  "vi": "khá là, đã khá lâu"
+                },
+                {
+                  "t": "覚えたばかりで",
+                  "read": "おぼえたばかりで",
+                  "vi": "vừa mới học được (thì)"
+                },
+                {
+                  "t": "覚えたところで",
+                  "read": "おぼえたところで",
+                  "vi": "vừa mới học xong đó thì"
+                },
+                {
+                  "t": "覚えていないので",
+                  "read": "おぼえていないので",
+                  "vi": "vì chưa học/chưa nhớ được"
+                },
+                {
+                  "t": "覚えてからずいぶん経ちますが",
+                  "read": "おぼえてからずいぶんたちますが",
+                  "vi": "mặc dù đã học từ khá lâu rồi"
+                },
+                {
+                  "t": "覚えやすいですが",
+                  "read": "おぼえやすいですが",
+                  "vi": "dễ học nhưng"
+                }
+              ]
+            },
+            {
+              "prompt": "電車に乗るところなので、後で電話します。",
+              "choices": [
+                "今ちょうど電車に乗ろうとしているので、後で電話します。",
+                "電車に乗っている最中なので、後で電話します。",
+                "電車に乗ったところなので、後で電話します。",
+                "電車を降りるところなので、後で電話します。"
+              ],
+              "answer": 0,
+              "pt": "Vるところです + B45 V／A／Nのばあいは",
+              "explain": "「電車に乗るところ」= sắp lên tàu ngay bây giờ. A「電車に乗ろうとしている」(đang sắp lên tàu) diễn đạt cùng thời điểm — gần nghĩa nhất. B「乗っている最中」= đang giữa chừng ở trên tàu (đã lên rồi), lệch nghĩa. C「乗ったところ」= vừa mới lên tàu xong (đã lên rồi), lệch nghĩa. D「降りるところ」= sắp xuống tàu — hoàn toàn khác hành động.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "乗る",
+                  "read": "のる",
+                  "vi": "lên (tàu/xe)"
+                },
+                {
+                  "t": "今ちょうど",
+                  "read": "いまちょうど",
+                  "vi": "vừa mới, ngay lúc này"
+                },
+                {
+                  "t": "後で",
+                  "read": "あとで",
+                  "vi": "sau đó, lát nữa"
+                },
+                {
+                  "t": "電話します",
+                  "read": "でんわします",
+                  "vi": "sẽ gọi điện"
+                },
+                {
+                  "t": "降りる",
+                  "read": "おりる",
+                  "vi": "xuống (tàu, xe)"
+                },
+                {
+                  "t": "乗るところなので",
+                  "read": "のるところなので",
+                  "vi": "vì sắp lên (tàu)"
+                },
+                {
+                  "t": "乗ろうとしているので",
+                  "read": "のろうとしているので",
+                  "vi": "vì đang định lên (tàu)"
+                },
+                {
+                  "t": "乗っている最中なので",
+                  "read": "のっているさいちゅうなので",
+                  "vi": "vì đang trong lúc ở trên tàu"
+                },
+                {
+                  "t": "乗ったところなので",
+                  "read": "のったところなので",
+                  "vi": "vì vừa mới lên (tàu) xong"
+                },
+                {
+                  "t": "降りるところなので",
+                  "read": "おりるところなので",
+                  "vi": "vì sắp xuống (tàu)"
+                }
+              ]
+            },
+            {
+              "prompt": "友達が荷物を運んでくれたところです。",
+              "choices": [
+                "友達がちょうど荷物を運んでくれ終わったところです。",
+                "友達が荷物を運んでくれている最中です。",
+                "友達が荷物を運んでくれるところです。",
+                "友達が荷物を運んでくれたばかりですが、重かったです。"
+              ],
+              "answer": 0,
+              "pt": "Vたところです + B41 Vてくれます",
+              "explain": "「運んでくれたところ」= bạn vừa mới chuyển đồ cho mình xong (hành động của người khác dành cho mình, khách quan). A「運んでくれ終わったところです」diễn đạt \"bạn vừa xong việc chuyển đồ cho\" — gần nghĩa nhất (cùng ý vừa hoàn tất). B「運んでくれている最中」= đang giữa chừng chuyển (chưa xong), lệch nghĩa. C「運んでくれるところ」= sắp chuyển (chưa chuyển), lệch nghĩa. D「運んでくれたばかりですが」= câu đúng ngữ pháp nhưng vế sau「重かった」lạc đề, và「ばかり」nhấn cảm giác chủ quan — lệch so với câu gốc nhấn khách quan.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý / đồ đạc"
+                },
+                {
+                  "t": "運んでくれた",
+                  "read": "はこんでくれた",
+                  "vi": "chuyển/mang cho mình"
+                },
+                {
+                  "t": "重かったです",
+                  "read": "おもかったです",
+                  "vi": "đã nặng"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "ちょうど",
+                  "vi": "đúng lúc, vừa"
+                },
+                {
+                  "t": "くれる",
+                  "read": "くれる",
+                  "vi": "làm giúp cho mình"
+                },
+                {
+                  "t": "運んでくれたところです",
+                  "read": "はこんでくれたところです",
+                  "vi": "vừa mới mang giúp xong"
+                },
+                {
+                  "t": "運んでくれ終わったところです",
+                  "read": "はこんでくれおわったところです",
+                  "vi": "vừa mang giúp xong hết"
+                },
+                {
+                  "t": "運んでくれている最中です",
+                  "read": "はこんでくれているさいちゅうです",
+                  "vi": "đang trong lúc mang giúp"
+                },
+                {
+                  "t": "運んでくれるところです",
+                  "read": "はこんでくれるところです",
+                  "vi": "sắp mang giúp"
+                },
+                {
+                  "t": "運んでくれたばかりですが",
+                  "read": "はこんでくれたばかりですが",
+                  "vi": "vừa mới mang giúp xong nhưng"
+                }
+              ]
+            },
+            {
+              "prompt": "日本に来たばかりなので、まだ生活に慣れていません。",
+              "choices": [
+                "日本に来てからまだ日が浅いので、生活に慣れていません。",
+                "日本に来るために、まだ生活に慣れていません。",
+                "日本に来てからもう長いですが、まだ生活に慣れていません。",
+                "日本に来る前から、生活に慣れていません。"
+              ],
+              "answer": 0,
+              "pt": "Vたばかりです + B42 Vる／Nのために",
+              "explain": "「来たばかりなので」= vừa mới đến Nhật, cảm giác còn rất mới nên chưa quen. A「来てからまだ日が浅いので」(vì mới đến Nhật được một thời gian ngắn) diễn đạt cùng ý \"mới đến, chưa quen\" — gần nghĩa nhất.「たばかり」≈「日が浅い」(còn ít ngày). B「来るために」= để đến Nhật (mục đích, dùng B42「〜のために」) — lạc nghĩa hoàn toàn. C「来てからもう長い」= đã đến lâu rồi, trái nghĩa. D「来る前から」= trước khi đến — sai logic.",
+              "glosses": [
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "生活",
+                  "read": "せいかつ",
+                  "vi": "cuộc sống, sinh hoạt"
+                },
+                {
+                  "t": "日が浅い",
+                  "read": "ひがあさい",
+                  "vi": "còn ít ngày (mới đến)"
+                },
+                {
+                  "t": "慣れていません",
+                  "read": "なれていません",
+                  "vi": "chưa quen"
+                },
+                {
+                  "t": "来る",
+                  "read": "くる",
+                  "vi": "đến, tới"
+                },
+                {
+                  "t": "来たばかりなので",
+                  "read": "きたばかりなので",
+                  "vi": "vì vừa mới đến"
+                },
+                {
+                  "t": "来てからまだ日が浅いので",
+                  "read": "きてからまだひがあさいので",
+                  "vi": "vì mới đến chưa được bao lâu"
+                },
+                {
+                  "t": "来るために",
+                  "read": "くるために",
+                  "vi": "để (mà) đến"
+                },
+                {
+                  "t": "来てからもう長いですが",
+                  "read": "きてからもうながいですが",
+                  "vi": "mặc dù đã đến (được) lâu rồi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 46 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "A：もう出発しましたか。\nB：いいえ、これから出発する＿です。",
+              "choices": [
+                "ばかり",
+                "ところ",
+                "ために",
+                "そう"
+              ],
+              "answer": 1,
+              "pt": "Vるところです（sắp ~）",
+              "explain": "「これから出発するところです」= sắp khởi hành ngay bây giờ. 「Vるところです」diễn tả hành động chuẩn bị xảy ra tức thì.\n• ①「ばかり」→「Vたばかり」theo sau động từ TA形, không dùng với từ điển形.\n• ③「ために」→ mục đích, cần bổ ngữ phía sau (出発するために〜する).\n• ④「そう」→「Vそう」样態, nhận xét ngoại hình/vẻ ngoài, không hợp nghĩa 'sắp khởi hành'.",
+              "glosses": [
+                {
+                  "t": "出発する",
+                  "read": "しゅっぱつする",
+                  "vi": "khởi hành"
+                },
+                {
+                  "t": "これから",
+                  "vi": "từ bây giờ, sắp"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không"
+                },
+                {
+                  "t": "もう出発しましたか",
+                  "read": "もうしゅっぱつしましたか",
+                  "vi": "đã xuất phát chưa"
+                }
+              ]
+            },
+            {
+              "stem": "先生が入って来た時、学生たちはちょうどテストを受けている＿でした。",
+              "choices": [
+                "ところ",
+                "ばかり",
+                "ために",
+                "のに"
+              ],
+              "answer": 0,
+              "pt": "Vているところです（đang ~ ngay lúc đó）",
+              "explain": "「受けているところ」= đang làm bài kiểm tra đúng vào thời điểm thầy bước vào — 「Vているところです」nhấn mạnh hành động diễn ra ngay giữa chừng.\n• ②「ばかり」→ dùng với TA形, nghĩa 'mới xong', trái với ngữ cảnh 'đang làm'.\n• ③「ために」→ mục đích, không biểu thị trạng thái đang tiến hành.\n• ④「のに」→ nghịch lý (逆接), không phù hợp văn cảnh.",
+              "glosses": [
+                {
+                  "t": "入って来た",
+                  "read": "はいってきた",
+                  "vi": "bước vào"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "đúng lúc, vừa vặn"
+                },
+                {
+                  "t": "テストを受けている",
+                  "read": "てすとをうけている",
+                  "vi": "làm bài kiểm tra"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "時",
+                  "read": "とき",
+                  "vi": "lúc, khi"
+                },
+                {
+                  "t": "学生たち",
+                  "read": "がくせいたち",
+                  "vi": "các học sinh, sinh viên"
+                },
+                {
+                  "t": "でした",
+                  "read": "でした",
+                  "vi": "(trợ động từ) thì/là (quá khứ của です, thường đi sau ところ)"
+                }
+              ]
+            },
+            {
+              "stem": "A：もう昼ごはんを食べましたか。\nB：ええ、たった今食べた＿です。",
+              "choices": [
+                "ところ",
+                "ばかり",
+                "まま",
+                "そう"
+              ],
+              "answer": 0,
+              "pt": "Vたところです（vừa mới xong, khách quan）",
+              "explain": "「たった今食べたところです」= vừa ăn xong ngay lúc này — 「Vたところです」nhấn mạnh thời điểm hoàn thành tức thì, khách quan.\n• ②「ばかり」→ cũng diễn tả 'mới xong' nhưng mang sắc thái chủ quan/cảm giác còn mới; cả hai đều nghe được nhưng 「たった今」hợp nhất với 「ところ」vì tính khách quan tuyệt đối.\n• ③「まま」→ trạng thái giữ nguyên (ăn trong trạng thái…), không hợp nghĩa.\n• ④「そう」→ 様態, nhìn thấy trông vẻ, không diễn tả hoàn thành.",
+              "glosses": [
+                {
+                  "t": "たった今",
+                  "read": "たったいま",
+                  "vi": "vừa đúng lúc này"
+                },
+                {
+                  "t": "昼ごはん",
+                  "read": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "食べましたか",
+                  "read": "たべましたか",
+                  "vi": "đã ăn chưa?"
+                },
+                {
+                  "t": "ええ",
+                  "read": "ええ",
+                  "vi": "vâng, ừ"
+                }
+              ]
+            },
+            {
+              "stem": "この部屋に引っ越して来た＿なので、まだ近所のことがよくわかりません。",
+              "choices": [
+                "ところ",
+                "ばかり",
+                "ために",
+                "のに"
+              ],
+              "answer": 1,
+              "pt": "Vたばかりです（mới ~, cảm giác chưa quen）",
+              "explain": "「引っ越して来たばかりなので」= vì mới chuyển đến (cảm giác còn xa lạ, chưa quen) nên chưa rõ xung quanh. 「ばかり」mang sắc thái chủ quan: sự kiện mới xảy ra và người nói vẫn chưa thích nghi.\n• ①「ところ」→ nhấn mạnh thời điểm tức thì hơn là cảm giác còn mới; ít tự nhiên hơn trong ngữ cảnh lý giải thiếu hiểu biết.\n• ③「ために」→ mục đích, không phải lý do trạng thái.\n• ④「のに」→ nghịch lý, không phù hợp 'vì… nên…'.",
+              "glosses": [
+                {
+                  "t": "引っ越して来た",
+                  "read": "ひっこしてきた",
+                  "vi": "mới chuyển đến"
+                },
+                {
+                  "t": "近所",
+                  "read": "きんじょ",
+                  "vi": "hàng xóm, khu lân cận"
+                },
+                {
+                  "t": "わかりません",
+                  "vi": "chưa biết, không hiểu rõ"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "rõ, kỹ càng"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì (là)"
+                },
+                {
+                  "t": "近所のことがよくわかりません",
+                  "read": "きんじょのことがよくわかりません",
+                  "vi": "chưa hiểu rõ về (chuyện) hàng xóm"
+                }
+              ]
+            },
+            {
+              "stem": "A：田中さんはどこですか。\nB：今、電話をかけている＿ですよ。ちょっと待ってください。",
+              "choices": [
+                "ばかり",
+                "ところ",
+                "ために",
+                "そう"
+              ],
+              "answer": 1,
+              "pt": "Vているところです（đang ~ ngay lúc này）",
+              "explain": "「電話をかけているところ」= đang gọi điện ngay lúc này (giữa chừng). 「Vているところ」nhấn mạnh hành động đang diễn ra tức thì.\n• ①「ばかり」→ 'mới gọi xong', mâu thuẫn với yêu cầu 'chờ một chút'.\n• ③「ために」→ mục đích, không biểu thị trạng thái đang tiến hành.\n• ④「そう」→ 様態, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "電話をかけている",
+                  "read": "でんわをかけている",
+                  "vi": "gọi điện thoại"
+                },
+                {
+                  "t": "ちょっと待って",
+                  "read": "ちょっとまって",
+                  "vi": "chờ một chút"
+                },
+                {
+                  "t": "田中さんはどこですか",
+                  "read": "たなかさんはどこですか",
+                  "vi": "anh/chị Tanaka đang ở đâu vậy?"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "ちょっと待ってください",
+                  "read": "ちょっとまってください",
+                  "vi": "xin đợi một chút"
+                }
+              ]
+            },
+            {
+              "stem": "レポートを書くのに、この辞書は使い＿です。",
+              "choices": [
+                "すぎます",
+                "にくいです",
+                "やすいです",
+                "方です"
+              ],
+              "answer": 2,
+              "pt": "Vやすいです（dễ làm）",
+              "explain": "「使いやすいです」= dễ sử dụng — 「Vやすい」biểu thị tính dễ thực hiện hành động.\n• ①「すぎます」→ 'dùng quá nhiều', không hợp nghĩa đánh giá chất lượng từ điển.\n• ②「にくいです」→ 'khó dùng', nghĩa ngược lại.\n• ④「方です」→ cách dùng (使い方), cần trợ từ 「が」phía sau và không biểu thị đánh giá.",
+              "glosses": [
+                {
+                  "t": "レポート",
+                  "vi": "bài luận, báo cáo"
+                },
+                {
+                  "t": "辞書",
+                  "read": "じしょ",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "使い",
+                  "read": "つかい",
+                  "vi": "(mang nghĩa) dùng — gốc 使います"
+                },
+                {
+                  "t": "レポートを書くのに",
+                  "read": "レポートをかくのに",
+                  "vi": "để viết báo cáo (mục đích sử dụng)"
+                }
+              ]
+            },
+            {
+              "stem": "体の具合が悪い＿は、無理して学校へ来なくてもいいです。",
+              "choices": [
+                "ところ",
+                "ばかり",
+                "のばあいは",
+                "のに"
+              ],
+              "answer": 2,
+              "pt": "Nのばあいは（trong trường hợp ~）",
+              "explain": "「体の具合が悪いばあいは」= trong trường hợp người không khỏe thì… — 「V/A/Nのばあいは」đặt ra điều kiện/hoàn cảnh giả định.\n• ①「ところ」→ thời điểm tức thì, không phải điều kiện giả định.\n• ②「ばかり」→ 'mới ~ xong', không hợp nghĩa điều kiện sức khỏe.\n• ④「のに」→ nghịch lý mâu thuẫn, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "体の具合が悪い",
+                  "read": "からだのぐあいがわるい",
+                  "vi": "cơ thể không khỏe, trong người không tốt"
+                },
+                {
+                  "t": "無理して",
+                  "read": "むりして",
+                  "vi": "cố sức, ép buộc bản thân"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "来なくてもいいです",
+                  "read": "こなくてもいいです",
+                  "vi": "không đến cũng được"
+                }
+              ]
+            },
+            {
+              "stem": "彼女はにこにこしていて、とても楽し＿です。",
+              "choices": [
+                "すぎます",
+                "そうです",
+                "やすいです",
+                "ところです"
+              ],
+              "answer": 1,
+              "pt": "Aそうです（様態 — trông có vẻ ~）",
+              "explain": "「楽しそうです」= trông có vẻ vui (nhìn ngoài thấy vậy) — 「Aそうです」様態 nhận xét qua quan sát trực tiếp.\n• ①「すぎます」→ 'vui quá mức', không hợp văn cảnh mô tả tích cực bình thường.\n• ③「やすいです」→ chỉ dùng với động từ (V茎+やすい), không dùng với tính từ độc lập.\n• ④「ところです」→ thời điểm hoàn thành/tiến hành, không biểu thị vẻ bề ngoài.",
+              "glosses": [
+                {
+                  "t": "にこにこしていて",
+                  "vi": "đang mỉm cười, tươi cười"
+                },
+                {
+                  "t": "楽し",
+                  "read": "たのし",
+                  "vi": "(gốc) 楽しい — vui vẻ"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "荷物が重くて、一人では持ち＿です。山田さんに手伝ってもらいました。",
+              "choices": [
+                "すぎます",
+                "にくいです",
+                "やすいです",
+                "そうです"
+              ],
+              "answer": 1,
+              "pt": "Vにくいです（khó làm）— ôn B44",
+              "explain": "「持ちにくいです」= khó mang một mình; câu tiếp theo dùng 「てもらいました」(nhờ người khác giúp) — hoàn toàn logic với 'khó mang'.\n• ①「すぎます」→ 'mang quá', không nói lên sự khó khăn mà là sự thái quá.\n• ③「やすいです」→ 'dễ mang', trái nghĩa, không hợp.\n• ④「そうです」→ 様態 'trông có vẻ mang được', không hợp lý do nhờ giúp.",
+              "glosses": [
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "持ち",
+                  "read": "もち",
+                  "vi": "(gốc) 持ちます — cầm, mang"
+                },
+                {
+                  "t": "手伝ってもらいました",
+                  "read": "てつだってもらいました",
+                  "vi": "đã nhờ giúp đỡ"
+                },
+                {
+                  "t": "重くて",
+                  "read": "おもくて",
+                  "vi": "nặng"
+                },
+                {
+                  "t": "一人",
+                  "read": "ひとり",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                }
+              ]
+            },
+            {
+              "stem": "健康のために毎朝ジョギングをして＿います。",
+              "choices": [
+                "行って",
+                "来て",
+                "もらって",
+                "くれて"
+              ],
+              "answer": 1,
+              "pt": "Vて来ます（hành động hướng trở lại / thói quen tiếp diễn）— ôn B43",
+              "explain": "「ジョギングをして来ています」= (ra ngoài chạy rồi) trở về — 「Vて来ます」chỉ hành động đi ra thực hiện rồi quay lại, thường dùng với thói quen buổi sáng.\n• ①「行って」→「Vて行きます」hướng đi xa, không hướng về; ít tự nhiên với thói quen hàng ngày.\n• ③「もらって」→ nhận ân huệ từ người khác, không phù hợp.\n• ④「くれて」→ người khác làm cho mình, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "健康のために",
+                  "read": "けんこうのために",
+                  "vi": "để có sức khỏe"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "ジョギング",
+                  "vi": "chạy bộ (jogging)"
+                },
+                {
+                  "t": "ジョギングをして",
+                  "read": "じょぎんぐをして",
+                  "vi": "〜をして (thể て của 〜をする) = làm việc gì đó, nối tiếp với mệnh đề sau"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "います (thể lịch sự của いる, đi sau động từ thể て) = đang ~ (thì tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "stem": "A：ケーキを食べますか。\nB：ありがとう。でも、さっき食べた＿なので、もういいです。",
+              "choices": [
+                "ところ",
+                "ばかり",
+                "のに",
+                "ために"
+              ],
+              "answer": 1,
+              "pt": "Vたばかりです（mới ~ xong, còn cảm giác chưa tiêu）",
+              "explain": "「さっき食べたばかり」= vừa mới ăn xong, cảm giác vẫn còn no — 「ばかり」mang sắc thái chủ quan 'còn mới, chưa tiêu'.\n• ①「ところ」→ nhấn mạnh thời điểm tuyệt đối tức thì, ít mang sắc thái 'cảm giác còn no'.\n• ③「のに」→ nghịch lý, không phù hợp.\n• ④「ために」→ mục đích, không hợp.",
+              "glosses": [
+                {
+                  "t": "さっき",
+                  "vi": "vừa nãy, lúc nãy"
+                },
+                {
+                  "t": "もういいです",
+                  "vi": "thôi được rồi, không cần nữa"
+                },
+                {
+                  "t": "食べますか",
+                  "read": "たべますか",
+                  "vi": "ăn không?"
+                },
+                {
+                  "t": "食べた",
+                  "read": "たべた",
+                  "vi": "đã ăn"
+                },
+                {
+                  "t": "ケーキ",
+                  "read": "けーき",
+                  "vi": "bánh kem, bánh ga tô"
+                },
+                {
+                  "t": "ありがとう",
+                  "read": "ありがとう",
+                  "vi": "cảm ơn"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì (là)"
+                }
+              ]
+            },
+            {
+              "stem": "この機械の使い＿がわからなくて、田中さんに教えてもらいました。",
+              "choices": [
+                "やすい",
+                "にくい",
+                "方",
+                "すぎ"
+              ],
+              "answer": 2,
+              "pt": "V方（cách làm）— ôn B44",
+              "explain": "「使い方がわからない」= không biết cách sử dụng — 「V方」(mạng từ 使い + 方) = cách làm gì đó, sau đó dùng 「てもらいました」nhờ người giải thích.\n• ①「やすい」→ dễ dùng, không hợp — 'dễ dùng' thì không cần hỏi.\n• ②「にくい」→ khó dùng, cũng không ghép với 「が + わからない」.\n• ④「すぎ」→ quá mức, không hợp nghĩa 'không biết cách'.",
+              "glosses": [
+                {
+                  "t": "機械",
+                  "read": "きかい",
+                  "vi": "máy móc"
+                },
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách sử dụng"
+                },
+                {
+                  "t": "教えてもらいました",
+                  "read": "おしえてもらいました",
+                  "vi": "đã được dạy/hướng dẫn"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "がわからなくて",
+                  "read": "がわからなくて",
+                  "vi": "〜がわからなくて = vì không biết/không hiểu ~ nên (nêu lý do)"
+                }
+              ]
+            },
+            {
+              "stem": "子どもに勉強を教えるのに、この本は絵が多くて、とてもわかり＿です。",
+              "choices": [
+                "にくい",
+                "すぎる",
+                "やすい",
+                "そう"
+              ],
+              "answer": 2,
+              "pt": "Vやすいです（dễ hiểu）— ôn B44 + B42のに",
+              "explain": "「わかりやすい」= dễ hiểu — câu dùng 「のに」(B42) theo nghĩa 'dùng để ~' (không phải nghịch lý), và 「やすい」nhận xét tính dễ dàng.\n• ①「にくい」→ 'khó hiểu', mâu thuẫn với 'nhiều hình minh họa'.\n• ②「すぎる」→ 'hiểu quá mức' — không logic.\n• ④「そう」→ 様態 'trông có vẻ hiểu được', nhưng 「わかりそう」ít dùng để đánh giá sách; 「やすい」mới đúng ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "子どもに教えるのに",
+                  "read": "こどもにおしえるのに",
+                  "vi": "để dạy cho trẻ em"
+                },
+                {
+                  "t": "絵が多くて",
+                  "read": "えがおおくて",
+                  "vi": "có nhiều hình minh họa"
+                },
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "việc học"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "子どもに勉強を教えるのに",
+                  "read": "こどもにべんきょうをおしえるのに",
+                  "vi": "để dạy học cho trẻ con"
+                },
+                {
+                  "t": "とてもわかり",
+                  "read": "とてもわかり",
+                  "vi": "(phần đầu của わかりやすい) rất dễ hiểu"
+                }
+              ]
+            },
+            {
+              "stem": "友達が急に入院した＿、お見舞いに行ってあげたいと思っています。",
+              "choices": [
+                "ところ",
+                "ばかりなのに",
+                "のに",
+                "ために"
+              ],
+              "answer": 1,
+              "pt": "Vたばかりなのに（mới ~ mà đã…）— ôn B44ばかり + B45のに逆接",
+              "explain": "「入院したばかりなのに、会いに行きたい」→ vừa mới nhập viện (cảm giác bất ngờ, còn mới) mà đã muốn vào thăm ngay. 「ばかり」× 「のに」逆接 = bộ đôi biểu thị sự tương phản cảm xúc.\n• ①「ところ」→ chỉ thời điểm tức thì, không ghép 「のに」để tạo nghĩa cảm xúc tương phản.\n• ③「のに」đơn thuần → thiếu sắc thái 'mới vừa', ít diễn cảm.\n• ④「ために」→ mục đích, không hợp.",
+              "glosses": [
+                {
+                  "t": "急に",
+                  "read": "きゅうに",
+                  "vi": "đột ngột"
+                },
+                {
+                  "t": "入院した",
+                  "read": "にゅういんした",
+                  "vi": "nhập viện"
+                },
+                {
+                  "t": "お見舞い",
+                  "read": "おみまい",
+                  "vi": "thăm bệnh nhân"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "行ってあげたい",
+                  "read": "いってあげたい",
+                  "vi": "muốn đi (để giúp)"
+                },
+                {
+                  "t": "思っています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ, đang cảm thấy"
+                }
+              ]
+            },
+            {
+              "stem": "電車に乗ろうとした時、ドアが閉まり＿。間に合いませんでした。",
+              "choices": [
+                "すぎました",
+                "そうでした",
+                "やすかったです",
+                "にくかったです"
+              ],
+              "answer": 1,
+              "pt": "Vそうです（様態 — trông sắp ~）— ôn B43",
+              "explain": "「ドアが閉まりそうでした」= cửa trông sắp đóng lại (様態 quan sát tức thì) — sau đó xác nhận 'không kịp'.\n• ①「すぎました」→ 'đóng quá mức', không diễn tả cảm giác sắp đóng.\n• ③「やすかったです」→ 'dễ đóng', không hợp ngữ cảnh khẩn cấp.\n• ④「にくかったです」→ 'khó đóng', trái nghĩa và không logic với 'không kịp'.",
+              "glosses": [
+                {
+                  "t": "電車に乗ろうとした",
+                  "read": "でんしゃにのろうとした",
+                  "vi": "định lên tàu điện"
+                },
+                {
+                  "t": "ドアが閉まり",
+                  "read": "どあがしまり",
+                  "vi": "cửa đóng lại"
+                },
+                {
+                  "t": "間に合いませんでした",
+                  "read": "まにあいませんでした",
+                  "vi": "không kịp"
+                },
+                {
+                  "t": "時",
+                  "read": "とき",
+                  "vi": "lúc, khi"
+                },
+                {
+                  "t": "すぎました",
+                  "read": "すぎました",
+                  "vi": "đã ... quá mức (~すぎる)"
+                },
+                {
+                  "t": "やすかったです",
+                  "read": "やすかったです",
+                  "vi": "(đã) dễ ... (~やすい)"
+                },
+                {
+                  "t": "にくかったです",
+                  "read": "にくかったです",
+                  "vi": "(đã) khó ... (~にくい)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "Vるところです",
+              "explain": "Câu đúng: 「私は今から友達に電話をかけるところです。」— Tôi sắp sửa gọi điện thoại cho bạn bây giờ.\nSắp xếp: ô 1=「今から」, ô 2=「友達に」, ô 3=「電話を」, ô 4=「かける」★\nTrạng từ chỉ thời gian 「今から」 đứng ở ô 1 ngay sau chủ ngữ 「私は」. Cụm bổ ngữ chỉ đối tượng 「友達に」 ở ô 2 và tân ngữ 「電話を」 ở ô 3 kết hợp với động từ 「かける」 ở ô 4 để tạo thành cụm 「電話をかける」. Động từ thể nguyên dạng (Vる) 「かける」 ở ô 4 bắt buộc đứng ngay trước 「ところです。」 ở khung sau để cấu tạo nên mẫu ngữ pháp 「Vるところです」 diễn tả hành động sắp sửa diễn ra. Do đó, mảnh 「かける」 ở ô ★ không thể đứng ở vị trí nào khác ngoài ô 4.",
+              "glosses": [
+                {
+                  "t": "電話をかけるところです",
+                  "read": "でんわをかけるところです",
+                  "vi": "sắp gọi điện thoại"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "電話をかける",
+                  "read": "でんわをかける",
+                  "vi": "gọi điện thoại"
+                }
+              ],
+              "frame": [
+                "私は",
+                "ところです。"
+              ],
+              "pieces": [
+                "今から",
+                "友達に",
+                "電話を",
+                "かける"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vているところです",
+              "explain": "Câu đúng: 「すみません、今会議に出ているところですから、あとで折り返します。」— Xin lỗi, bây giờ tôi đang họp giữa chừng nên sẽ gọi lại sau.\nSắp xếp: ô 1=「会議に」, ô 2=「出て」, ô 3=「いる」, ô 4=「ところです」★\nKhung đầu 「すみません、今」 kết hợp với 「会議に」 để chỉ địa điểm hoặc hoạt động đang tham gia. Động từ 「出る」 chuyển sang thể て là 「出て」 đi liền với 「いる」 để tạo thành thể 「〜ている」 (đang thực hiện). Mẫu ngữ pháp 「Vているところです」 diễn tả một hành động đang trong quá trình diễn ra giữa chừng. Do đó, mảnh 「ところです」 ở ô ★ phải đứng ở ô 4 ngay sau 「いる」 và liền trước trợ từ chỉ lý do 「から」.",
+              "glosses": [
+                {
+                  "t": "会議に出ている",
+                  "read": "かいぎにでている",
+                  "vi": "đang họp, đang tham dự cuộc họp"
+                },
+                {
+                  "t": "会議に出ているところです",
+                  "read": "かいぎにでているところです",
+                  "vi": "đang trong cuộc họp (dở dang)"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "あとで",
+                  "read": "あとで",
+                  "vi": "lát nữa, sau đó"
+                },
+                {
+                  "t": "折り返します",
+                  "read": "おりかえします",
+                  "vi": "sẽ gọi lại (điện thoại)"
+                }
+              ],
+              "frame": [
+                "すみません、今",
+                "から、あとで折り返します。"
+              ],
+              "pieces": [
+                "出て",
+                "ところです",
+                "会議に",
+                "いる"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vたところです",
+              "explain": "Câu đúng: 「たった今レポートを書き終わったところですから、見てください。」— Tôi vừa mới viết xong bài báo cáo xong tức thì nên xin hãy xem qua.\nSắp xếp: ô 1=「レポートを」, ô 2=「書き」, ô 3=「終わった」, ô 4=「ところです」★\nKhung đầu 「たった今」 (vừa mới tức thì) đi với tân ngữ 「レポートを」 ở ô 1. Động từ 「書く」 ở dạng thân masu là 「書き」 kết hợp với 「終わった」 tạo thành cụm 「書き終わった」 (đã viết xong). Mẫu ngữ pháp 「Vたところです」 đứng sau động từ thể た để diễn tả hành động vừa mới hoàn thành xong. Do đó, mảnh 「ところです」 ở ô ★ phải nằm ở ô 4 ngay sau 「終わった」 và trước trợ từ 「から」.",
+              "glosses": [
+                {
+                  "t": "書き終わった",
+                  "read": "かきおわった",
+                  "vi": "đã viết xong"
+                },
+                {
+                  "t": "書き終わったところです",
+                  "read": "かきおわったところです",
+                  "vi": "vừa viết xong"
+                },
+                {
+                  "t": "たった今",
+                  "read": "たったいま",
+                  "vi": "vừa mới"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "見てください",
+                  "read": "みてください",
+                  "vi": "hãy xem"
+                },
+                {
+                  "t": "レポート",
+                  "read": "れぽーと",
+                  "vi": "báo cáo, bài luận"
+                }
+              ],
+              "frame": [
+                "たった今",
+                "から、見てください。"
+              ],
+              "pieces": [
+                "書き",
+                "ところです",
+                "レポートを",
+                "終わった"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vたばかりです",
+              "explain": "Câu đúng: 「この仕事を始めたばかりですから、まだよくわかりません。」— Vì tôi mới bắt đầu công việc này nên vẫn chưa hiểu rõ lắm.\nSắp xếp: ô 1=「仕事を」, ô 2=「始めた」, ô 3=「ばかり」★, ô 4=「ですから、」\nKhung đầu 「この」 đứng trước danh từ 「仕事を」 ở ô 1 để làm tân ngữ cho động từ 「始めた」. Động từ chia ở thể た là 「始めた」 kết hợp với trợ từ 「ばかり」 ở ô 3 để tạo thành mẫu ngữ pháp 「Vたばかりです」 (mới làm V xong, cảm giác còn mới). Tiếp theo là 「ですから、」 để nối với vế chỉ kết quả ở khung sau. Do đó, mảnh 「ばかり」 ở ô ★ bắt buộc phải đứng ở ô 3 ngay sau 「始めた」.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "まだよくわかりません",
+                  "read": "まだよくわかりません",
+                  "vi": "vẫn chưa hiểu rõ"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "rõ, kỹ càng"
+                },
+                {
+                  "t": "始めた",
+                  "read": "はじめた",
+                  "vi": "đã bắt đầu"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                }
+              ],
+              "frame": [
+                "この",
+                "まだよくわかりません。"
+              ],
+              "pieces": [
+                "始めた",
+                "ですから、",
+                "仕事を",
+                "ばかり"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vたばかりです vs Vたところです",
+              "explain": "Câu đúng: 「キムさんは先週日本に来たばかりですから、まだ日本語がわかりません。」— Anh Kim vì vừa mới đến Nhật tuần trước nên vẫn chưa hiểu tiếng Nhật.\nSắp xếp: ô 1=「先週日本に」, ô 2=「来たばかり」★, ô 3=「ですから、」, ô 4=「まだ日本語が」\nCụm trạng ngữ chỉ thời gian và nơi chốn 「先週日本に」 ở ô 1 bổ nghĩa cho động từ di chuyển 「来た」 nằm trong mảnh 「来たばかり」 ở ô 2. Động từ thể Vた 「来た」 đi liền với 「ばかり」 tạo thành mẫu ngữ pháp 「Vたばかり」 diễn tả hành động vừa mới xảy ra. Tiếp theo là liên từ chỉ lý do 「ですから、」 ở ô 3 nối với mệnh đề kết quả 「まだ日本語が」 ở ô 4 đứng trước vị ngữ 「わかりません。」. Mảnh 「来たばかり」 ở ô ★ bắt buộc phải đứng ở ô 2 vì vừa phải nhận bổ ngữ 「日本に」 đứng trước, vừa phải đứng trước 「ですから、」 để hoàn chỉnh vế nguyên nhân.",
+              "glosses": [
+                {
+                  "t": "キムさん",
+                  "read": "きむさん",
+                  "vi": "anh Kim"
+                },
+                {
+                  "t": "わかりません",
+                  "read": "",
+                  "vi": "không hiểu"
+                },
+                {
+                  "t": "先週",
+                  "read": "せんしゅう",
+                  "vi": "tuần trước"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "来た",
+                  "read": "きた",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "まだ",
+                  "read": "",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                }
+              ],
+              "frame": [
+                "キムさんは",
+                "わかりません。"
+              ],
+              "pieces": [
+                "先週日本に",
+                "来たばかり",
+                "ですから、",
+                "まだ日本語が"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vたところです",
+              "explain": "Câu đúng: 「先生がこの問題を説明してくれたところです。」— Thầy giáo vừa mới giải thích câu hỏi này cho tôi xong.\nSắp xếp: ô 1=「この」, ô 2=「問題を」, ô 3=「説明して」, ô 4=「くれたところ」★.\nChỉ từ 「この」 bắt buộc đứng ở ô 1 để bổ nghĩa cho danh từ 「問題を」 ở ô 2 làm tân ngữ cho hành động. Tân ngữ 「問題を」 đi liền trước động từ 「説明して」 ở ô 3. Động từ phụ trợ thể quá khứ kết hợp danh từ hình thức 「くれたところ」 mang điểm ngữ pháp Vたところです diễn tả hành động vừa mới hoàn thành, bắt buộc đứng ở ô 4 để nối với vị ngữ 「です。」 ở khung sau.",
+              "glosses": [
+                {
+                  "t": "説明してくれた",
+                  "read": "せつめいしてくれた",
+                  "vi": "đã giải thích giúp (cho tôi)"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "問題",
+                  "read": "もんだい",
+                  "vi": "bài tập"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                }
+              ],
+              "frame": [
+                "先生が",
+                "です。"
+              ],
+              "pieces": [
+                "問題を",
+                "説明して",
+                "この",
+                "くれたところ"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vるところです",
+              "explain": "Câu đúng: 「これから健康のために友達と公園で運動をするところです。」— Từ bây giờ tôi chuẩn bị cùng bạn bè tập thể dục ở công viên vì sức khỏe.\nSắp xếp: ô 1=「健康のために」, ô 2=「友達と」, ô 3=「公園で」, ô 4=「運動をする」★.\nKhung trước là phó từ 「これから」 (từ bây giờ), khung sau là 「ところです。」 đòi hỏi động từ thể từ điển (Vる) đứng ngay trước nó để tạo mẫu sắp sửa làm gì. Cụm chỉ mục đích 「健康のために」 đứng ở ô 1, tiếp theo là đối tượng cùng thực hiện 「友達と」 ở ô 2 và địa điểm diễn ra hành động 「公園で」 ở ô 3. Mảnh 「運動をする」 mang điểm ngữ pháp Vるところ biểu thị hành động sắp xảy ra tức thì, bắt buộc đứng ở ô 4 ngay trước khung sau.",
+              "glosses": [
+                {
+                  "t": "するところです",
+                  "read": "するところです",
+                  "vi": "sắp làm"
+                },
+                {
+                  "t": "これから",
+                  "read": "",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "公園",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "健康のために",
+                  "read": "けんこうのために",
+                  "vi": "vì sức khỏe"
+                },
+                {
+                  "t": "運動",
+                  "read": "うんどう",
+                  "vi": "vận động, tập thể dục"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                }
+              ],
+              "frame": [
+                "これから",
+                "ところです。"
+              ],
+              "pieces": [
+                "公園で",
+                "健康のために",
+                "運動をする",
+                "友達と"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vているところです",
+              "explain": "Câu đúng: 「食べすぎてお腹が痛いです。今横になっているところです。」— Tôi ăn quá nhiều nên bị đau bụng. Bây giờ tôi đang nằm nghỉ.\nSắp xếp: ô 1=「お腹が」, ô 2=「痛いです。」, ô 3=「今横に」, ô 4=「なっている」★\nVế đầu tiên kết hợp từ vế trước 「食べすぎて」 tạo thành cụm 「お腹が痛いです。」 để giải thích nguyên nhân. Vế sau có đuôi câu là 「ところです。」 dùng để diễn tả một hành động đang diễn ra giữa chừng, yêu cầu phía trước phải là động từ thể Vている. Cụm 「今横に」 đi liền với động từ 「なっている」 tạo thành trạng thái nằm xuống nghỉ ngơi. Mảnh 「なっている」 bắt buộc phải đứng ở ô 4 để kết hợp với đuôi 「ところです。」 hoàn chỉnh cấu trúc 「Vているところです」.",
+              "glosses": [
+                {
+                  "t": "横になっているところです",
+                  "read": "よこになっているところです",
+                  "vi": "đang nằm xuống (dở)"
+                },
+                {
+                  "t": "食べすぎて",
+                  "read": "たべすぎて",
+                  "vi": "ăn quá nhiều"
+                },
+                {
+                  "t": "お腹",
+                  "read": "おなか",
+                  "vi": "bụng"
+                },
+                {
+                  "t": "痛いです",
+                  "read": "いたいです",
+                  "vi": "đau"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                }
+              ],
+              "frame": [
+                "食べすぎて",
+                "ところです。"
+              ],
+              "pieces": [
+                "お腹が",
+                "痛いです。",
+                "今横に",
+                "なっている"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vたところです (ôn B45 のに逆接)",
+              "explain": "Câu đúng: 「やっと宿題が終わったところなのに、また新しい宿題が出たそうです。」— Vừa mới làm xong bài tập về nhà thì nghe nói lại có bài tập mới.\nSắp xếp: ô 1=「宿題が終わった」, ô 2=「ところなのに、」★, ô 3=「また新しい」, ô 4=「宿題が出た」\nVế đầu thể hiện một việc vừa mới hoàn thành xong thì có chuyện bất ngờ xảy ra, nên mệnh đề 「宿題が終わった」 phải đi trước 「ところなのに、」. Tiếp theo, cụm tính từ 「また新しい」 bổ nghĩa trực tiếp cho danh từ 「宿題が出た」 ở phía sau. Đuôi câu cho sẵn 「そうです。」 ghép với 「宿題が出た」 tạo thành cấu trúc nghe nói lại có bài tập. Mảnh 「ところなのに、」 bắt buộc phải ở ô 2 vì nó cần động từ thể Vた ở ô 1 đứng trước để hoàn thành mẫu ngữ pháp 「Vたところ」 kết hợp liên từ nối 「なのに」.",
+              "glosses": [
+                {
+                  "t": "出たそうです",
+                  "read": "でたそうです",
+                  "vi": "nghe nói là đã xuất hiện/ra (伝聞そう)"
+                },
+                {
+                  "t": "やっと",
+                  "read": "やっと",
+                  "vi": "cuối cùng thì"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "終わった",
+                  "read": "おわった",
+                  "vi": "đã kết thúc, xong"
+                },
+                {
+                  "t": "終わったところなのに",
+                  "read": "おわったところなのに",
+                  "vi": "mặc dù vừa mới xong"
+                },
+                {
+                  "t": "また",
+                  "read": "",
+                  "vi": "lại"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                }
+              ],
+              "frame": [
+                "やっと",
+                "そうです。"
+              ],
+              "pieces": [
+                "宿題が終わった",
+                "ところなのに、",
+                "また新しい",
+                "宿題が出た"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vたばかりです (ôn B44 にくいです)",
+              "explain": "Câu đúng: 「この漢字は覚えにくいです。習ったばかりなのに。」— Chữ Hán này khó nhớ thật, rõ ràng là mới học xong thế mà.\nSắp xếp: ô 1=「漢字は」, ô 2=「覚えにくいです。」, ô 3=「習った」, ô 4=「ばかり」★\nSau chỉ thị từ 「この」 bắt buộc phải là danh từ 「漢字は」 ở ô 1 để làm chủ ngữ cho vế đầu. Vế thứ nhất kết thúc bằng vị ngữ tính từ đuôi i kết hợp mẫu chỉ sự khó khăn 「覚えにくいです。」 nằm ở ô 2. Vế thứ hai diễn tả hành động vừa mới thực hiện xong bằng cấu trúc 「Vたばかり」, do đó động từ thể quá khứ 「習った」 ở ô 3 bắt buộc đứng ngay trước 「ばかり」 ở ô 4. Mảnh 「ばかり」 đặt ở ô 4 ★ để nối trực tiếp với phần khung 「なのに。」 phía sau tạo thành cụm 「〜ばかりなのに」 biểu thị ý tiếc nuối khi vừa mới học xong mà đã không nhớ.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "覚えにくいです",
+                  "read": "おぼえにくいです",
+                  "vi": "khó nhớ"
+                },
+                {
+                  "t": "習った",
+                  "read": "ならった",
+                  "vi": "đã học (được)"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán, kanji"
+                }
+              ],
+              "frame": [
+                "この",
+                "なのに。"
+              ],
+              "pieces": [
+                "覚えにくいです。",
+                "習った",
+                "ばかり",
+                "漢字は"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vるところです (ôn B43 Vて来ます)",
+              "explain": "Câu đúng: 「ちょっとコンビニへ行って来ます。今から出かけるところです。」— Tôi đi cửa hàng tiện lợi một chút rồi về. Bây giờ tôi chuẩn bị đi ra ngoài đây.\nSắp xếp: ô 1=「コンビニへ」, ô 2=「行って来ます。」, ô 3=「今から」, ô 4=「出かける」★\nKhung đầu câu có trạng từ 「ちょっと」 sẽ đi liền với danh từ chỉ địa điểm 「コンビニへ」 và hành động đi rồi về 「行って来ます。」 để hoàn thành câu đầu tiên. Câu thứ hai bắt đầu bằng trạng từ thời gian 「今から」 diễn tả thời điểm sắp thực hiện hành động. Đuôi câu cho sẵn 「ところです。」 yêu cầu động từ thể Vる đứng ngay trước nó để diễn tả ý định sắp sửa làm gì. Do đó mảnh 「出かける」 bắt buộc nằm ở ô 4 vì đây là động từ thể nguyên dạng phù hợp nhất để ghép nối thành mẫu ngữ pháp 「Vるところです」.",
+              "glosses": [
+                {
+                  "t": "出かけるところです",
+                  "read": "でかけるところです",
+                  "vi": "sắp đi ra ngoài"
+                },
+                {
+                  "t": "ちょっと",
+                  "read": "ちょっと",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "コンビニ",
+                  "read": "こんびに",
+                  "vi": "cửa hàng tiện lợi"
+                },
+                {
+                  "t": "行って来ます",
+                  "read": "いってきます",
+                  "vi": "đi đây (sẽ quay lại)"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ"
+                },
+                {
+                  "t": "出かける",
+                  "read": "でかける",
+                  "vi": "đi ra ngoài"
+                }
+              ],
+              "frame": [
+                "ちょっと",
+                "ところです。"
+              ],
+              "pieces": [
+                "コンビニへ",
+                "行って来ます。",
+                "今から",
+                "出かける"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vているところです (ôn B42 のに〜)",
+              "explain": "Câu đúng: 「この仕事をするのに時間がかかります。今も頑張っているところです。」— Làm công việc này mất nhiều thời gian. Bây giờ tôi cũng đang nỗ力 thực hiện.\nSắp xếp: ô 1=「をするのに」, ô 2=「時間がかかります。」, ô 3=「今も」, ô 4=「頑張っている」★\nKhung đầu câu cho sẵn 「この仕事」 cần tiếp nối bằng cụm 「をするのに」 để tạo thành mệnh đề chỉ mục đích hoặc việc thực hiện. Tiếp theo, cụm 「時間がかかります。」 hoàn thành ý thứ nhất là tốn thời gian. Vế sau có trạng từ 「今も」 chỉ sự tiếp diễn của hành động đến thời điểm hiện tại. Mảnh 「頑張っている」 ở thể Vている bắt buộc phải đặt ở ô 4 để ghép liền với phần đuôi 「ところです。」 nhằm thể hiện một công việc đang trong quá trình thực hiện giữa chừng.",
+              "glosses": [
+                {
+                  "t": "仕事をする",
+                  "read": "しごとをする",
+                  "vi": "làm việc"
+                },
+                {
+                  "t": "頑張っているところです",
+                  "read": "がんばっているところです",
+                  "vi": "đang cố gắng (dở)"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "時間がかかります",
+                  "read": "じかんがかかります",
+                  "vi": "mất, tốn thời gian"
+                },
+                {
+                  "t": "今も",
+                  "read": "いまも",
+                  "vi": "hiện vẫn, bây giờ cũng"
+                }
+              ],
+              "frame": [
+                "この仕事",
+                "ところです。"
+              ],
+              "pieces": [
+                "をするのに",
+                "時間がかかります。",
+                "今も",
+                "頑張っている"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vたところです (ôn B41 てもらいます)",
+              "explain": "Câu đúng: 「先生に直してもらったところですから、レポートを提出します。」— Vì vừa mới được thầy/cô sửa cho nên tôi sẽ nộp báo cáo.\nSắp xếp: ô 1=「直してもらった」, ô 2=「ところ」★, ô 3=「ですから、」, ô 4=「レポートを」\nKhung câu bắt đầu bằng 「先生に」 và kết thúc bằng 「提出します。」. Đứng ngay sau 「先生に」 phải là động từ thể た 「直してもらった」 để chỉ hành động được giáo viên sửa bài. Mảnh 「ところ」 bắt buộc đứng liền sau 「直してもらった」 để diễn tả ý vừa mới thực hiện xong hành động. Tiếp theo, mảnh 「ですから、」 gắn vào sau 「ところ」 để làm từ nối chỉ nguyên nhân, và mảnh 「レポートを」 đứng ở cuối trước khung 「提出します。」 làm tân ngữ. Mảnh 「ところ」 (ô 2 ★) phải đứng ở ô 2 vì đi liền sau động từ thể た 「直してもらった」 (ô 1) và trước 「ですから、」 (ô 3); nó không thể đứng ở ô 1 (sau trợ từ に), ô 3 (làm gián đoạn từ nối) hay ô 4 (trước động từ 提出します).",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "提出します",
+                  "read": "ていしゅつします",
+                  "vi": "sẽ nộp"
+                },
+                {
+                  "t": "直してもらった",
+                  "read": "なおしてもらった",
+                  "vi": "được sửa giúp cho"
+                },
+                {
+                  "t": "レポート",
+                  "read": "れぽーと",
+                  "vi": "báo cáo, bài luận"
+                }
+              ],
+              "frame": [
+                "先生に",
+                "提出します。"
+              ],
+              "pieces": [
+                "直してもらった",
+                "ところ",
+                "ですから、",
+                "レポートを"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vたばかりです (ôn B45 のばあいは)",
+              "explain": "Câu đúng: 「日本語を始めたばかりの場合は、簡単な教科書を使う方がいいと思います。」— Trong trường hợp vừa mới bắt đầu học tiếng Nhật, tôi nghĩ nên dùng sách giáo khoa đơn giản.\nSắp xếp: ô 1=「始めたばかりの」★, ô 2=「場合は、」, ô 3=「簡単な」, ô 4=「教科書を使う」.\nSau bổ ngữ 「日本語を」 cần động từ dạng 「Vた＋ばかりの」 để bổ nghĩa cho danh từ 「場合」 phía sau, nên ô 1★ chứa điểm ngữ pháp chính 「始めたばかりの」. Danh từ 「場合」 đi với trợ từ 「は」 thành 「場合は、」 ở ô 2. Tính từ na 「簡単な」 ở ô 3 bổ nghĩa cho danh từ 「教科書」 ở ô 4 để tạo thành cụm 「簡単な教科書を使う」, nối liền với khung sau 「方がいいと思います。」 tạo nên câu khuyên bảo hoàn chỉnh.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "方がいい",
+                  "read": "ほうがいい",
+                  "vi": "nên... thì tốt hơn"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "始めた",
+                  "read": "はじめた",
+                  "vi": "đã bắt đầu"
+                },
+                {
+                  "t": "始めたばかりの場合は",
+                  "read": "はじめたばかりのばあいは",
+                  "vi": "trong trường hợp vừa mới bắt đầu (~たばかりの+N)"
+                },
+                {
+                  "t": "場合",
+                  "read": "ばあい",
+                  "vi": "trường hợp"
+                },
+                {
+                  "t": "簡単な",
+                  "read": "かんたんな",
+                  "vi": "đơn giản, dễ"
+                },
+                {
+                  "t": "教科書を使う",
+                  "read": "きょうかしょをつかう",
+                  "vi": "dùng sách giáo khoa"
+                }
+              ],
+              "frame": [
+                "日本語を",
+                "方がいいと思います。"
+              ],
+              "pieces": [
+                "始めたばかりの",
+                "場合は、",
+                "簡単な",
+                "教科書を使う"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "Vているところです (ôn B43 そうです様態)",
+              "explain": "Câu đúng: 「外は今にも雨が降りそうなので、傘を探しているところです。」— Bên ngoài trời có vẻ sắp mưa đến nơi rồi, nên tôi đang tìm chiếc ô.\nSắp xếp: ô 1=「雨が」, ô 2=「降りそうなので、」, ô 3=「傘を」, ô 4=「探しているところ」★\nKhung đầu có phó từ 「外は今にも」 đòi hỏi một vị ngữ diễn tả sự biến đổi sắp xảy ra ngay trước mắt 「〜そうです」, nên chủ ngữ 「雨が」 ở ô 1 phải đi liền với vị ngữ 「降りそうなので、」 ở ô 2 để tạo thành mệnh đề chỉ nguyên nhân 「雨が降りそうなので、」. Tiếp theo, danh từ mang trợ từ chỉ đối tượng 「傘を」 bắt buộc phải đứng ở ô 3 để làm tân ngữ trực tiếp cho động từ ở ô 4. Mảnh ở ô ★ là 「探しているところ」 diễn tả hành động đang diễn ra trong lúc này, phải đứng ở ô 4 để nhận tân ngữ 「傘を」 đứng trước và kết nối trực tiếp với vị ngữ của khung cuối 「です。」; mảnh này không thể đứng ở ô 1 hay ô 2 vì phó từ 「今にも」 không thể bổ nghĩa cho thể 「〜ている」, cũng không thể đứng trước 「傘を」 vì trợ từ 「を」 đòi hỏi phải đứng trước động từ tác động.",
+              "glosses": [
+                {
+                  "t": "外",
+                  "read": "そと",
+                  "vi": "bên ngoài"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "今にも",
+                  "read": "いまにも",
+                  "vi": "sắp sửa"
+                },
+                {
+                  "t": "降りそう",
+                  "read": "ふりそう",
+                  "vi": "có vẻ sắp mưa"
+                },
+                {
+                  "t": "傘",
+                  "read": "かさ",
+                  "vi": "cái ô"
+                },
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "探している",
+                  "read": "さがしている",
+                  "vi": "đang tìm"
+                }
+              ],
+              "frame": [
+                "外は今にも",
+                "です。"
+              ],
+              "pieces": [
+                "降りそうなので、",
+                "傘を",
+                "雨が",
+                "探しているところ"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 3
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "もしもし、田中さん？いま何をしていますか。— あ、今ちょうど昼ごはんを",
+                "。— そうですか。では午後また電話します。ところで田中さん、この会社に",
+                "なので、まだ仕事に慣れていないんです。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "食べているところです",
+                    "食べたところです",
+                    "食べるところです",
+                    "食べたばかりです"
+                  ],
+                  "answer": 0,
+                  "explain": "'Ngay lúc này ĐANG ăn dở' → 「食べているところです」(Vているところ: đang giữa chừng). 「食べたところ」(vừa ăn XONG), 「食べるところ」(SẮP ăn), 「食べたばかり」(mới ăn) đều lệch thời điểm 'đang ăn'."
+                },
+                {
+                  "choices": [
+                    "入ったばかり",
+                    "入るところ",
+                    "入っているところ",
+                    "入ったところ"
+                  ],
+                  "answer": 0,
+                  "explain": "'Mới vào công ty NÊN chưa quen' → 「入ったばかりなので」(Vたばかり: mới ~, còn cảm giác mới, dẫn tới 'chưa quen'). 「入るところ」(sắp vào), 「入っているところ」(đang vào), 「入ったところ」(vừa vào — thiên về thời điểm, không nêu được sắc thái 'còn mới/chưa quen')."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "vừa đúng lúc"
+                },
+                {
+                  "t": "昼ごはん",
+                  "read": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "食べているところです",
+                  "read": "たべているところです",
+                  "vi": "đang ăn dở (〜ているところ)"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "入ったばかり",
+                  "read": "はいったばかり",
+                  "vi": "mới vào (〜たばかり)"
+                },
+                {
+                  "t": "慣れていない",
+                  "read": "なれていない",
+                  "vi": "chưa quen"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia về thể た (đứng trước 〜ばかりです: mới vừa ~ xong).",
+          "items": [
+            {
+              "stem": "卒業します → 〜たばかりです → ＿",
+              "choices": [
+                "卒業したばかりです",
+                "卒業するばかりです",
+                "卒業してばかりです",
+                "卒業しばかりです"
+              ],
+              "answer": 0,
+              "explain": "〜たばかり gắn THỂ た: 卒業します → 卒業した → 卒業したばかりです (mới tốt nghiệp xong). 「卒業するばかり」(chỉ chực ~), 「卒業してばかり」(toàn ~), 「卒業しばかり」đều sai/khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "卒業します",
+                  "read": "そつぎょうします",
+                  "vi": "tốt nghiệp"
+                },
+                {
+                  "t": "卒業したばかりです",
+                  "vi": "mới tốt nghiệp (〜たばかり)"
+                },
+                {
+                  "t": "卒業するばかりです",
+                  "read": "そつぎょうするばかりです",
+                  "vi": "(dạng sai ở đây) するばかり mang nghĩa khác: chỉ toàn là..."
+                },
+                {
+                  "t": "卒業してばかりです",
+                  "read": "そつぎょうしてばかりです",
+                  "vi": "(dạng sai ở đây) てばかり nghĩa suốt ngày chỉ làm gì"
+                },
+                {
+                  "t": "卒業しばかりです",
+                  "read": "そつぎょうしばかりです",
+                  "vi": "(dạng sai ngữ pháp, không tồn tại)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "私は朝ごはん＿食べたばかりです。",
+              "choices": [
+                "を",
+                "が",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "「食べる」lấy tân ngữ bằng 「を」: 朝ごはんを食べた (vừa ăn sáng xong). 「が/に/で」không đánh dấu tân ngữ.",
+              "glosses": [
+                {
+                  "t": "朝ごはん",
+                  "read": "あさごはん",
+                  "vi": "bữa sáng"
+                },
+                {
+                  "t": "食べた",
+                  "read": "たべた",
+                  "vi": "vừa mới ăn xong (〜たばかり)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "食べたばかりです",
+                  "read": "たべたばかりです",
+                  "vi": "〜たばかりです = vừa mới làm ~ (hành động vừa mới hoàn thành xong)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi vừa mới ăn cơm xong.",
+              "target": "ごはんを食べたところです",
+              "model": "ごはんを 食べたところです。",
+              "explain": "「Vたところです」= vừa mới ~ xong (ngay trước đó). 食べた + ところです.",
+              "glosses": [
+                {
+                  "t": "ごはん",
+                  "vi": "cơm"
+                },
+                {
+                  "t": "食べたところです",
+                  "read": "たべたところです",
+                  "vi": "vừa mới ăn xong (〜たところ)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

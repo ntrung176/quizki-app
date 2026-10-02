@@ -1,0 +1,443 @@
+{
+  "id": "skm3.b54",
+  "bai": 54,
+  "titleVi": "So sánh-đánh giá: というより・にしては・わりに",
+  "know": [
+    {
+      "id": "skm3.b54.to-iu-yori",
+      "point": "to-iu-yori",
+      "jp": "〜というより（（むしろ）〜）",
+      "vi": "Đúng hơn là ~ / Nói đúng hơn là ~ (đính chính, diễn đạt lại)",
+      "en": "More accurately, ~ / Put more precisely, ~ (a correction or rephrasing)",
+      "gloss": "N／V普通形[ふつうけい]／い-A語幹[ごかん]／な-Aな ＋ というより（（むしろ）〜） ・ 例: ここは 暑[あつ]いというより、蒸[む]し暑[あつ]いと言[い]ったほうが正[ただ]しい。（Đây không phải nóng, nói đúng hơn là ngột ngạt）",
+      "glossEn": "N／V普通形[ふつうけい]／い-A語幹[ごかん]／な-Aな ＋ というより（（むしろ）〜） ・ 例: ここは 暑[あつ]いというより、蒸[む]し暑[あつ]いと言[い]ったほうが正[ただ]しい。（Rather than saying it is hot here, it would be more accurate to say it is muggy）"
+    },
+    {
+      "id": "skm3.b54.ni-shite-wa",
+      "point": "ni-shite-wa",
+      "jp": "〜にしては",
+      "vi": "Với tư cách là ~ mà / Xét ra thì ~ — so với mốc kỳ vọng từ chính chủ thể",
+      "en": "For ~, ... / Considering ~, ... — compared with an expectation set by the subject itself",
+      "gloss": "N／V辞書形[じしょけい]・た形[けい] ＋ にしては　※ kết quả TRÁI với kỳ vọng ・ 例: 彼[かれ]は 日本語[にほんご]を 習[なら]い始[はじ]めて 6か月[げつ]にしては、発音[はつおん]がきれいだ。（Mới học tiếng Nhật 6 tháng mà phát âm khá đẹp）",
+      "glossEn": "N／V辞書形[じしょけい]・た形[けい] ＋ にしては　※ the result CONTRADICTS expectations ・ 例: 彼[かれ]は 日本語[にほんご]を 習[なら]い始[はじ]めて 6か月[げつ]にしては、発音[はつおん]がきれいだ。（He has only been studying Japanese for six months, yet his pronunciation is quite good）"
+    },
+    {
+      "id": "skm3.b54.wari-ni",
+      "point": "wari-ni",
+      "jp": "〜わりに（は）",
+      "vi": "So với lẽ thường thì ~ / Tuy ~ mà ~ — so với mức kỳ vọng thống kê / trung bình",
+      "en": "Compared with what is usual, ~ / Although ~, ... — relative to a statistical/average expectation",
+      "gloss": "N の／V普通形[ふつうけい]／A ＋ わりに（は）　※ kết quả KHÁC với lẽ thường ・ 例: あのレストランは 値段[ねだん]が 安[やす]いわりに、料理[りょうり]がおいしい。（Nhà hàng đó giá rẻ mà đồ ăn lại khá ngon）",
+      "glossEn": "N の／V普通形[ふつうけい]／A ＋ わりに（は）　※ the result DIFFERS from what is usual ・ 例: あのレストランは 値段[ねだん]が 安[やす]いわりに、料理[りょうり]がおいしい。（That restaurant is inexpensive, yet its food is quite good）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b54-tiy-shigoto",
+      "item": "skm3.b54.to-iu-yori",
+      "err": "nishitewa-for-toiuyori",
+      "vi": "Anh ấy không phải lười, đúng hơn là không có động lực.",
+      "t1": {
+        "stem": "彼[かれ]は 怠[なま]けているというより、＿やる気[き]がないのだと思[おも]う。",
+        "choices": [
+          "むしろ",
+          "にしては",
+          "わりに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "怠[なま]けている",
+          "というより、",
+          "むしろ",
+          "やる気[き]が",
+          "ない",
+          "のだと思[おも]う。"
+        ],
+        "traps": [
+          "にしては",
+          "わりには"
+        ]
+      },
+      "t3": {
+        "target": "彼は怠けているというより、むしろやる気がないのだと思う。",
+        "accept": [
+          "かれはなまけているというより、むしろやるきがないのだとおもう。"
+        ]
+      },
+      "why": "というより（むしろ）= đính chính sắc thái A → B chính xác hơn. ✗ にしては chỉ so với kỳ vọng của chủ thể, không phải đính chính khái niệm."
+    },
+    {
+      "id": "c-b54-tiy-atsui",
+      "item": "skm3.b54.to-iu-yori",
+      "err": "nishitewa-for-toiuyori",
+      "vi": "Đây không phải nóng, nói đúng hơn là ngột ngạt.",
+      "t1": {
+        "stem": "ここは 暑[あつ]い＿、蒸[む]し暑[あつ]いと言[い]ったほうが正[ただ]しい。",
+        "choices": [
+          "というより",
+          "にしては",
+          "わりに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ここは 暑[あつ]い",
+          "というより、",
+          "蒸[む]し暑[あつ]いと",
+          "言[い]ったほうが",
+          "正[ただ]しい。"
+        ],
+        "traps": [
+          "にしては",
+          "わりに"
+        ]
+      },
+      "t3": {
+        "target": "ここは暑いというより、蒸し暑いと言ったほうが正しい。",
+        "accept": [
+          "ここはあついというより、むしあついといったほうがただしい。"
+        ]
+      },
+      "why": "というより = \"nói A thì chưa đúng, nói B mới đúng hơn\". ✗ にしては sẽ là \"nóng như thế mà…\" — sai ý hoàn toàn."
+    },
+    {
+      "id": "c-b54-nst-kodomo",
+      "item": "skm3.b54.ni-shite-wa",
+      "err": "warini-for-nishitewa",
+      "vi": "Đứa bé này chỉ 3 tuổi mà nói được rõ ràng thật.",
+      "t1": {
+        "stem": "この子[こ]は 3歳[さい]＿、言葉[ことば]がはっきりしている。",
+        "choices": [
+          "にしては",
+          "わりに",
+          "というより"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この子[こ]は",
+          "3歳[さい]に",
+          "しては、",
+          "言葉[ことば]が",
+          "はっきり",
+          "している。"
+        ],
+        "traps": [
+          "わりに",
+          "というより"
+        ]
+      },
+      "t3": {
+        "target": "この子は3歳にしては、言葉がはっきりしている。",
+        "accept": [
+          "このこは3さいにしては、ことばがはっきりしている。"
+        ]
+      },
+      "why": "にしては: mốc so sánh LÀ CHÍNH CHỦ THỂ (em bé 3 tuổi đó). Kỳ vọng: \"3 tuổi nói còn ngọng\", thực tế trái lại → にしては. ✗ わりに: mốc là lẽ thường chung, không phải đặc điểm của chủ thể."
+    },
+    {
+      "id": "c-b54-nst-nihongo",
+      "item": "skm3.b54.ni-shite-wa",
+      "err": "warini-for-nishitewa",
+      "vi": "Anh ấy mới học tiếng Nhật 6 tháng mà phát âm khá đẹp đấy.",
+      "t1": {
+        "stem": "彼[かれ]は 日本語[にほんご]を 習[なら]い始[はじ]めて 6か月[げつ]＿、発音[はつおん]がきれいだ。",
+        "choices": [
+          "にしては",
+          "わりに",
+          "というより"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "日本語[にほんご]を",
+          "習[なら]い始[はじ]めて",
+          "6か月[げつ]に",
+          "しては、",
+          "発音[はつおん]が",
+          "きれいだ。"
+        ],
+        "traps": [
+          "わりに",
+          "のわりには"
+        ]
+      },
+      "t3": {
+        "target": "彼は日本語を習い始めて6か月にしては、発音がきれいだ。",
+        "accept": [
+          "かれはにほんごをならいはじめて6かげつにしては、はつおんがきれいだ。"
+        ]
+      },
+      "why": "にしては: \"mới học 6 tháng [điều kiện cụ thể của chủ thể] mà phát âm đẹp\" — kết quả vượt kỳ vọng từ chính điều kiện đó. ✗ わりに dùng khi mốc là kiến thức chung (\"người học tiếng Nhật nói chung\")."
+    },
+    {
+      "id": "c-b54-nst-kekka",
+      "item": "skm3.b54.ni-shite-wa",
+      "err": "warini-for-nishitewa",
+      "vi": "Xét ra anh ấy đã chuẩn bị rất kỹ mà kết quả lại tệ như vậy.",
+      "t1": {
+        "stem": "あんなに 準備[じゅんび]した＿、結果[けっか]が 悪[わる]すぎる。",
+        "choices": [
+          "にしては",
+          "わりに",
+          "というより"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あんなに",
+          "準備[じゅんび]した",
+          "にしては、",
+          "結果[けっか]が",
+          "悪[わる]すぎる。"
+        ],
+        "traps": [
+          "わりに",
+          "というより"
+        ]
+      },
+      "t3": {
+        "target": "あんなに準備したにしては、結果が悪すぎる。",
+        "accept": [
+          "あんなにじゅんびしたにしては、けっかがわるすぎる。"
+        ]
+      },
+      "why": "にしては: \"chuẩn bị kỹ như vậy [điều kiện của chính họ] mà kết quả lại tệ\" — kỳ vọng bị phá vỡ. ✗ わりに phù hợp hơn với tính chất/đặc điểm chung, không phải hành động cụ thể đó."
+    },
+    {
+      "id": "c-b54-wari-ryouri",
+      "item": "skm3.b54.wari-ni",
+      "err": "nishitewa-for-warini",
+      "vi": "Nhà hàng đó giá rẻ mà đồ ăn lại khá ngon.",
+      "t1": {
+        "stem": "あのレストランは 値段[ねだん]が 安[やす]い＿、料理[りょうり]がおいしい。",
+        "choices": [
+          "わりに",
+          "にしては",
+          "というより"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あのレストランは",
+          "値段[ねだん]が 安[やす]い",
+          "わりに、",
+          "料理[りょうり]が",
+          "おいしい。"
+        ],
+        "traps": [
+          "にしては",
+          "というより"
+        ]
+      },
+      "t3": {
+        "target": "あのレストランは値段が安いわりに、料理がおいしい。",
+        "accept": [
+          "あのれすとらんはねだんがやすいわりに、りょうりがおいしい。"
+        ]
+      },
+      "why": "わりに: mốc là kỳ vọng chung của người ta (\"nhà hàng rẻ thường dở\") — kết quả trái lẽ thường. ✗ にしては sẽ là \"nhà hàng cụ thể này với mức giá của nó\" — không sai hoàn toàn nhưng わりに tự nhiên hơn ở đây vì nói đặc tính giá nói chung."
+    },
+    {
+      "id": "c-b54-wari-benkyou",
+      "item": "skm3.b54.wari-ni",
+      "err": "nishitewa-for-warini",
+      "vi": "Cô ấy học nhiều mà điểm lại không cao.",
+      "t1": {
+        "stem": "彼女[かのじょ]は よく 勉強[べんきょう]している＿、成績[せいせき]が上[あ]がらない。",
+        "choices": [
+          "わりに",
+          "にしては",
+          "というより"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "よく 勉強[べんきょう]している",
+          "わりに、",
+          "成績[せいせき]が",
+          "上[あ]がらない。"
+        ],
+        "traps": [
+          "にしては",
+          "というより"
+        ]
+      },
+      "t3": {
+        "target": "彼女はよく勉強しているわりに、成績が上がらない。",
+        "accept": [
+          "かのじょはよくべんきょうしているわりに、せいせきがあがらない。"
+        ]
+      },
+      "why": "わりに: \"học nhiều [lẽ thường → điểm cao], nhưng lại không lên\" — tương phản với kỳ vọng thống kê chung. ✗ にしては sẽ nghe như \"với điều kiện cụ thể của cô ấy mà…\" — làm mất sắc thái so với lẽ thường."
+    },
+    {
+      "id": "c-b54-wari-toshi",
+      "item": "skm3.b54.wari-ni",
+      "err": "nishitewa-for-warini",
+      "vi": "Bác ấy ngoài 70 mà trông còn trẻ trung thật.",
+      "t1": {
+        "stem": "あの方[かた]は 70歳[さい]を 過[す]ぎている＿は、見[み]た目[め]が若[わか]い。",
+        "choices": [
+          "わりに",
+          "にしては",
+          "というより"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの方[かた]は",
+          "70歳[さい]を 過[す]ぎている",
+          "わりには、",
+          "見[み]た目[め]が",
+          "若[わか]い。"
+        ],
+        "traps": [
+          "にしては",
+          "というより"
+        ]
+      },
+      "t3": {
+        "target": "あの方は70歳を過ぎているわりには、見た目が若い。",
+        "accept": [
+          "あのかたは70さいをすぎているわりには、みためがわかい。"
+        ]
+      },
+      "why": "わりに（は）: \"ngoài 70 [lẽ thường trông già], nhưng lại trẻ\" — so với kỳ vọng phổ thông. Cả にしては cũng chấp nhận được ở đây, nhưng わりに nhấn vào lẽ thường tự nhiên hơn khi mốc là độ tuổi chung."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b54-nst-dialog",
+      "item": "skm3.b54.ni-shite-wa",
+      "err": "warini-for-nishitewa",
+      "tts": "あの レストランは、かいてんして まだ いっかげつにしては、きゃくが おおいですね。— そうですね。ロケーションが いいからでしょう。",
+      "script": "あのレストランは、開店[かいてん]してまだ一[いっ]か月[げつ]にしては、客[きゃく]が多[おお]いですね。— そうですね。ロケーションがいいからでしょう。",
+      "ask": "Nhà hàng đó được đánh giá như thế nào?",
+      "choices": [
+        "Mới mở chưa đầy 1 tháng mà đã đông khách bất ngờ",
+        "Đông khách vì đã mở lâu năm",
+        "Khách ít vì mới khai trương"
+      ],
+      "answer": 0,
+      "why": "にしては: \"mới mở 1 tháng [điều kiện của nhà hàng đó] mà đã đông\" — kết quả trái kỳ vọng từ điều kiện cụ thể."
+    },
+    {
+      "id": "l-b54-tiy-dialog",
+      "item": "skm3.b54.to-iu-yori",
+      "err": "nishitewa-for-toiuyori",
+      "tts": "あの えいがは こわいというより、むしろ きもちわるいかんじだった。",
+      "script": "あの映画[えいが]は 怖[こわ]いというより、むしろ 気持[きも]ち悪[わる]い感[かん]じだった。",
+      "ask": "Người nói muốn nói gì về bộ phim?",
+      "choices": [
+        "Không hẳn là đáng sợ, mà đúng hơn là cảm giác rùng rợn",
+        "Vừa đáng sợ vừa ghê người",
+        "Phim không hay vì quá rùng rợn"
+      ],
+      "answer": 0,
+      "why": "というより（むしろ）= đính chính sắc thái A → B. \"Không phải こわい, mà đúng hơn là 気持ち悪い\"."
+    },
+    {
+      "id": "l-b54-wari-dialog",
+      "item": "skm3.b54.wari-ni",
+      "err": "nishitewa-for-warini",
+      "tts": "この パソコン、ねだんの わりには、スペックが いいですね。かいたいなあ。",
+      "script": "このパソコン、値段[ねだん]のわりには、スペックがいいですね。買[か]いたいなあ。",
+      "ask": "Người nói đánh giá máy tính này như thế nào?",
+      "choices": [
+        "Giá rẻ mà cấu hình lại tốt hơn mức trung bình",
+        "Giá cao nhưng cấu hình xứng đáng",
+        "Cấu hình bình thường, giá hợp lý"
+      ],
+      "answer": 0,
+      "why": "わりに（は）: \"với mức giá [lẽ thường → cấu hình thấp], nhưng spec lại tốt\" — trái lẽ thường."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b54-yori-order",
+      "item": "minna1.b12.yori",
+      "err": "yori-order",
+      "ambush": true,
+      "src": 12,
+      "context": "Bài 54 ・ so sánh đơn thuần (B12) lẫn trong ngữ cảnh B54",
+      "vi": "Hà Nội lạnh hơn Tp. Hồ Chí Minh.",
+      "t1": {
+        "stem": "＿より、ハノイのほうが 寒[さむ]いです。",
+        "choices": [
+          "ホーチミン",
+          "ハノイ",
+          "ハノイのほうが"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ホーチミンより、",
+          "ハノイのほうが",
+          "寒[さむ]いです。"
+        ],
+        "traps": [
+          "ハノイより、",
+          "ホーチミンのほうが"
+        ]
+      },
+      "t3": {
+        "target": "ホーチミンより、ハノイのほうが寒いです。",
+        "accept": [
+          "ほーちみんより、はのいのほうがさむいです。"
+        ]
+      },
+      "why": "So sánh B12: AよりBのほうが〜 → cái được nói là \"hơn\" đứng ở B (ほうが). ✗ \"ハノイより〜ホーチミンのほうが寒い\" = Tp.HCM lạnh hơn (sai nghĩa). Bẫy kép: câu dùng より nhưng không phải というより của B54."
+    },
+    {
+      "id": "a-b54-houga-ichiban",
+      "item": "minna1.b12.houga",
+      "err": "houga-replaced-wa",
+      "ambush": true,
+      "src": 12,
+      "context": "Bài 54 ・ chọn ほうが vs というより trong câu so sánh",
+      "vi": "Đi tàu nhanh hơn đi xe buýt.",
+      "t1": {
+        "stem": "バスで行[い]くより、電車[でんしゃ]で行[い]く＿早[はや]いです。",
+        "choices": [
+          "ほうが",
+          "というより",
+          "わりに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "バスで行[い]くより、",
+          "電車[でんしゃ]で行[い]く",
+          "ほうが",
+          "早[はや]いです。"
+        ],
+        "traps": [
+          "というより",
+          "わりに"
+        ]
+      },
+      "t3": {
+        "target": "バスで行くより、電車で行くほうが早いです。",
+        "accept": [
+          "ばすでいくより、でんしゃでいくほうがはやいです。"
+        ]
+      },
+      "why": "B12: 〜より〜ほうが〜 = so sánh hai phương án, chọn cái hơn. ✗ というより ở đây sẽ là \"không phải đi tàu, đúng hơn là…\" — sai nghĩa hoàn toàn."
+    }
+  ]
+}

@@ -1,0 +1,525 @@
+{
+  "id": "minna1.b19",
+  "bai": 19,
+  "titleVi": "Kinh nghiệm & liệt kê — 〜たことがあります・〜たり",
+  "know": [
+    {
+      "id": "minna1.b19.ta-form",
+      "point": "ta-form",
+      "jp": "た形[けい]の作[つく]り方[かた]",
+      "vi": "Chia thể た — quá khứ bình thường (3 nhóm)",
+      "en": "Conjugating into the た-form — ordinary past tense (three groups)",
+      "gloss": "食[た]べる→食[た]べた ／ 書[か]く→書[か]いた ／ 飲[の]む→飲[の]んだ",
+      "glossEn": "食[た]べる→食[た]べた ／ 書[か]く→書[か]いた ／ 飲[の]む→飲[の]んだ"
+    },
+    {
+      "id": "minna1.b19.ta-koto-ga",
+      "point": "ta-koto-ga",
+      "jp": "〜たことが あります",
+      "vi": "Đã từng (kinh nghiệm cuộc sống)",
+      "en": "Having done something before (life experience)",
+      "gloss": "Vた ＋ ことが あります／ありません",
+      "glossEn": "Vた ＋ ことが あります／ありません"
+    },
+    {
+      "id": "minna1.b19.tari",
+      "point": "tari",
+      "jp": "〜たり〜たりします",
+      "vi": "Lúc thì...lúc thì... (liệt kê hành động)",
+      "en": "Sometimes... sometimes... (listing actions)",
+      "gloss": "V1たり、V2たりします",
+      "glossEn": "V1たり、V2たりします"
+    },
+    {
+      "id": "minna1.b19.naru",
+      "point": "naru",
+      "jp": "〜く／〜になります",
+      "vi": "Trở nên (thay đổi trạng thái)",
+      "en": "Becoming (a change of state)",
+      "gloss": "い-adj→くなる ／ な-adj・N→になる",
+      "glossEn": "い-adj→くなる ／ な-adj・N→になる"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b19-ta-taberu",
+      "item": "minna1.b19.ta-form",
+      "err": "ta-form-wrong",
+      "vi": "Hôm qua tôi ăn sushi.",
+      "t1": {
+        "stem": "昨日[きのう] 寿司[すし]を ＿。",
+        "choices": [
+          "食[た]べた",
+          "食[た]べました",
+          "食[た]べりた"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]",
+          "寿司[すし]を",
+          "食[た]べた。"
+        ],
+        "traps": [
+          "食[た]べりた。",
+          "食[た]べるた。"
+        ]
+      },
+      "t3": {
+        "target": "昨日寿司を食べた。",
+        "accept": [
+          "きのうすしをたべた。"
+        ]
+      },
+      "why": "食べる (nhóm 2) → た-form: 食べた (bỏ る thêm た). ✗ 食べりた — không thêm り."
+    },
+    {
+      "id": "c-b19-ta-kaku",
+      "item": "minna1.b19.ta-form",
+      "err": "ta-form-wrong",
+      "vi": "Tôi viết thư cho mẹ.",
+      "t1": {
+        "stem": "お母[かあ]さんに 手紙[てがみ]を ＿。",
+        "choices": [
+          "書[か]いた",
+          "書[か]きた",
+          "書[か]った"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お母[かあ]さんに",
+          "手紙[てがみ]を",
+          "書[か]いた。"
+        ],
+        "traps": [
+          "書[か]きた。",
+          "書[か]るた。"
+        ]
+      },
+      "t3": {
+        "target": "お母さんに手紙を書いた。",
+        "accept": [
+          "おかあさんにてがみをかいた。"
+        ]
+      },
+      "why": "書く (nhóm 1: く→いた). ✗ 書きた — ます-stem + た trực tiếp là sai."
+    },
+    {
+      "id": "c-b19-ta-nomu",
+      "item": "minna1.b19.ta-form",
+      "err": "ta-form-wrong",
+      "vi": "Sáng nay tôi uống cà phê.",
+      "t1": {
+        "stem": "今朝[けさ] コーヒーを ＿。",
+        "choices": [
+          "飲[の]んだ",
+          "飲[の]みた",
+          "飲[の]った"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今朝[けさ]",
+          "コーヒーを",
+          "飲[の]んだ。"
+        ],
+        "traps": [
+          "飲[の]みた。",
+          "飲[の]った。"
+        ]
+      },
+      "t3": {
+        "target": "今朝コーヒーを飲んだ。",
+        "accept": [
+          "けさこーひーをのんだ。"
+        ]
+      },
+      "why": "飲む (nhóm 1: む→んだ). ✗ 飲みた — sai cách chia nhóm 1."
+    },
+    {
+      "id": "c-b19-tkga-nihon",
+      "item": "minna1.b19.ta-koto-ga",
+      "err": "ta-koto-meaning",
+      "vi": "Tôi đã từng đến Nhật.",
+      "t1": {
+        "stem": "日本[にほん]へ 行[い]った ＿ があります。",
+        "choices": [
+          "こと",
+          "もの",
+          "とき"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]へ",
+          "行[い]ったことが",
+          "あります。"
+        ],
+        "traps": [
+          "行[い]きましたことが",
+          "行[い]ったものが"
+        ]
+      },
+      "t3": {
+        "target": "日本へ行ったことがあります。",
+        "accept": [
+          "にほんへいったことがあります。"
+        ]
+      },
+      "why": "Kinh nghiệm \"đã từng\" = Vた＋ことがあります. ✗ 行きましたことが — cần た-form bình thường, không phải ます."
+    },
+    {
+      "id": "c-b19-tkga-fuji",
+      "item": "minna1.b19.ta-koto-ga",
+      "err": "ta-koto-meaning",
+      "vi": "Tôi chưa từng leo núi Phú Sĩ.",
+      "t1": {
+        "stem": "富士山[ふじさん]に 登[のぼ]った ＿ が ありません。",
+        "choices": [
+          "こと",
+          "とき",
+          "もの"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "富士山[ふじさん]に",
+          "登[のぼ]ったことが",
+          "ありません。"
+        ],
+        "traps": [
+          "登[のぼ]りましたことが",
+          "登[のぼ]ったものが"
+        ]
+      },
+      "t3": {
+        "target": "富士山に登ったことがありません。",
+        "accept": [
+          "ふじさんにのぼったことがありません。"
+        ]
+      },
+      "why": "\"Chưa từng\" = Vたことがありません. こと は danh từ hóa kinh nghiệm; không thay bằng もの hay とき."
+    },
+    {
+      "id": "c-b19-tkga-vs-past",
+      "item": "minna1.b19.ta-koto-ga",
+      "err": "ta-koto-meaning",
+      "vi": "Tôi đã từng thử món sushi (kinh nghiệm cuộc đời).",
+      "t1": {
+        "stem": "寿司[すし]を 食[た]べた ＿ が あります。",
+        "choices": [
+          "こと",
+          "が",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "寿司[すし]を",
+          "食[た]べたことが",
+          "あります。"
+        ],
+        "traps": [
+          "食[た]べましたことが",
+          "食[た]べたがあります。"
+        ]
+      },
+      "t3": {
+        "target": "寿司を食べたことがあります。",
+        "accept": [
+          "すしをたべたことがあります。"
+        ]
+      },
+      "why": "「đã từng trải qua」≠ quá khứ đơn (食べました). Dùng たことがあります mới diễn đạt kinh nghiệm cuộc đời."
+    },
+    {
+      "id": "c-b19-tari-shukumatsu",
+      "item": "minna1.b19.tari",
+      "err": "tari-form",
+      "vi": "Cuối tuần tôi lúc đọc sách lúc xem phim.",
+      "t1": {
+        "stem": "週末[しゅうまつ]は 本[ほん]を 読[よ]んだり、映画[えいが]を 見[み]＿ します。",
+        "choices": [
+          "たり",
+          "るたり",
+          "てたり"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "週末[しゅうまつ]は",
+          "本[ほん]を 読[よ]んだり、",
+          "映画[えいが]を 見[み]たり",
+          "します。"
+        ],
+        "traps": [
+          "映画[えいが]を 見[み]るたり",
+          "映画[えいが]を 見[み]てたり"
+        ]
+      },
+      "t3": {
+        "target": "週末は本を読んだり、映画を見たりします。",
+        "accept": [
+          "しゅうまつはほんをよんだり、えいがをみたりします。"
+        ]
+      },
+      "why": "Vたり: た-form＋り (見た→見たり). ✗ 見るたり — không ghép 辞書形＋たり. Câu PHẢI kết bằng します."
+    },
+    {
+      "id": "c-b19-tari-yoru",
+      "item": "minna1.b19.tari",
+      "err": "tari-form",
+      "vi": "Buổi tối tôi lúc nghe nhạc lúc học tiếng Nhật.",
+      "t1": {
+        "stem": "夜[よる] 音楽[おんがく]を 聴[き]いたり、日本語[にほんご]を ＿ します。",
+        "choices": [
+          "勉強[べんきょう]したり",
+          "勉強[べんきょう]するたり",
+          "勉強[べんきょう]してたり"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "夜[よる]",
+          "音楽[おんがく]を 聴[き]いたり、",
+          "日本語[にほんご]を 勉強[べんきょう]したり",
+          "します。"
+        ],
+        "traps": [
+          "勉強[べんきょう]するたり します。",
+          "勉強[べんきょう]しますたり します。"
+        ]
+      },
+      "t3": {
+        "target": "夜音楽を聴いたり、日本語を勉強したりします。",
+        "accept": [
+          "よるおんがくをきいたり、にほんごをべんきょうしたりします。"
+        ]
+      },
+      "why": "する→した→したり (nhóm 3 đặc biệt). ✗ するたり — 辞書形 không thể thêm たり trực tiếp."
+    },
+    {
+      "id": "c-b19-naru-adj-i",
+      "item": "minna1.b19.naru",
+      "err": "naru-adj",
+      "vi": "Trời trở lạnh rồi.",
+      "t1": {
+        "stem": "寒[さむ]＿ なりました。",
+        "choices": [
+          "く",
+          "に",
+          "いに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "寒[さむ]く",
+          "なりました。"
+        ],
+        "traps": [
+          "寒[さむ]いになりました。",
+          "寒[さむ]になりました。"
+        ]
+      },
+      "t3": {
+        "target": "寒くなりました。",
+        "accept": [
+          "さむくなりました。"
+        ]
+      },
+      "why": "い-adj \"trở nên\": bỏ い thêm くなります (寒い→寒く). ✗ 寒いになる — dùng に với い-adj là sai."
+    },
+    {
+      "id": "c-b19-naru-adj-na",
+      "item": "minna1.b19.naru",
+      "err": "naru-adj",
+      "vi": "Tiếng Nhật của tôi dần trở nên giỏi hơn.",
+      "t1": {
+        "stem": "日本語[にほんご]が だいぶ 上手[じょうず]＿ なりました。",
+        "choices": [
+          "に",
+          "く",
+          "いに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が",
+          "だいぶ",
+          "上手[じょうず]に",
+          "なりました。"
+        ],
+        "traps": [
+          "上手[じょうず]くなりました。",
+          "上手[じょうず]いになりました。"
+        ]
+      },
+      "t3": {
+        "target": "日本語がだいぶ上手になりました。",
+        "accept": [
+          "にほんごがだいぶじょうずになりました。"
+        ]
+      },
+      "why": "な-adj \"trở nên\": thêm になります (上手→上手に). ✗ 上手くなる — đó là cách chia い-adj."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b19-tkga",
+      "item": "minna1.b19.ta-koto-ga",
+      "err": "ta-koto-meaning",
+      "tts": "わたしは おんせんに はいったことが あります。",
+      "script": "わたしは 温泉[おんせん]に 入[はい]ったことが あります。",
+      "ask": "Người nói đã từng làm gì?",
+      "choices": [
+        "Đã từng tắm suối nước nóng",
+        "Mới vào tắm hôm qua",
+        "Chưa từng tắm"
+      ],
+      "answer": 0,
+      "why": "たことがあります = đã từng trải qua (kinh nghiệm cuộc đời), không phải quá khứ đơn."
+    },
+    {
+      "id": "l-b19-naru",
+      "item": "minna1.b19.naru",
+      "err": "naru-adj",
+      "tts": "さいきん にほんごが すきに なりました。",
+      "script": "最近[さいきん] 日本語[にほんご]が 好[す]きに なりました。",
+      "ask": "Điều gì đã thay đổi?",
+      "choices": [
+        "Đã thích tiếng Nhật hơn",
+        "Đã giỏi tiếng Nhật",
+        "Đã học xong tiếng Nhật"
+      ],
+      "answer": 0,
+      "why": "好き là な-adj → 好きに＋なりました = \"trở nên thích\". Không dùng くなる với な-adj."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b19-suki-koto",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 〜が好き × Bài 19 ・ 〜たことがあります",
+      "vi": "Tôi thích Nhật Bản nên đã từng đến thăm một lần.",
+      "t1": {
+        "stem": "日本[にほん]＿ 好[す]きですから、一度[いちど] 行[い]ったことが あります。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]が",
+          "好[す]きですから、",
+          "一度[いちど]",
+          "行[い]ったことが",
+          "あります。"
+        ],
+        "traps": [
+          "日本[にほん]を",
+          "日本[にほん]に"
+        ]
+      },
+      "t3": {
+        "target": "日本が好きですから、一度行ったことがあります。",
+        "accept": [
+          "にほんがすきですから、いちどいったことがあります。"
+        ]
+      },
+      "why": "PHỤC KÍCH: dù câu dùng たことがあります của Bài 19, 好き vẫn cần が (lỗi #1 Bài 9). ✗ 日本を好きです."
+    },
+    {
+      "id": "a-b19-wakaru-tari",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ わかります × Bài 19 ・ 〜たり〜たりします",
+      "vi": "Cuối tuần tôi lúc nghe nhạc lúc xem phim, nhưng không hiểu tiếng Anh lắm.",
+      "t1": {
+        "stem": "週末[しゅうまつ]は 音楽[おんがく]を 聴[き]いたり、映画[えいが]を 見[み]たりしますが、英語[えいご]＿ あまり わかりません。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "週末[しゅうまつ]は",
+          "音楽[おんがく]を 聴[き]いたり、",
+          "映画[えいが]を 見[み]たりしますが、",
+          "英語[えいご]が",
+          "あまり わかりません。"
+        ],
+        "traps": [
+          "英語[えいご]を",
+          "英語[えいご]で"
+        ]
+      },
+      "t3": {
+        "target": "週末は音楽を聴いたり、映画を見たりしますが、英語があまりわかりません。",
+        "accept": [
+          "しゅうまつはおんがくをきいたり、えいがをみたりしますが、えいごがあまりわかりません。"
+        ]
+      },
+      "why": "PHỤC KÍCH: わかります luôn dùng が cho đối tượng (✗ 英語をわかりません). Câu dùng たりします là Bài 19 nhưng lỗi nằm ở わかります Bài 9."
+    },
+    {
+      "id": "a-b19-jouzu-naru",
+      "item": "minna1.b09.jouzu",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 上手 × Bài 19 ・ 〜になりました",
+      "vi": "Tiếng Nhật của tôi dần giỏi hơn vì tôi đã từng sống ở Nhật.",
+      "t1": {
+        "stem": "日本[にほん]に 住[す]んだことが ありますから、日本語[にほんご]＿ 上手[じょうず]に なりました。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]に 住[す]んだことが",
+          "ありますから、",
+          "日本語[にほんご]が",
+          "上手[じょうず]に",
+          "なりました。"
+        ],
+        "traps": [
+          "日本語[にほんご]を",
+          "日本語[にほんご]は 上手[じょうず]くなりました。"
+        ]
+      },
+      "t3": {
+        "target": "日本に住んだことがありますから、日本語が上手になりました。",
+        "accept": [
+          "にほんにすんだことがありますから、にほんごがじょうずになりました。"
+        ]
+      },
+      "why": "PHỤC KÍCH: 上手 cần が (✗ 日本語を上手). Câu còn phục kích naru-adj: 上手 là な-adj → 上手に (✗ 上手く) — bẫy kép!"
+    }
+  ]
+}

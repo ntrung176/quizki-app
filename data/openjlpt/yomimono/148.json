@@ -1,0 +1,4501 @@
+{
+  "bai": 148,
+  "level": "N2",
+  "strategy": {
+    "intro": "Bài học rèn luyện kỹ năng đọc hiểu văn bản nghị luận và phân tích tâm lý xã hội N2, tập trung nắm bắt lập trường quan điểm khi tác giả đổi góc nhìn (にしたら/にすれば) và thái độ phê phán mang tính châm biếm (ではあるまいし). Đồng thời, bài học giúp người đọc phân biệt rõ các sắc thái cảm xúc bộc phát nội tâm (てならない, ずにはいられない) đối lập với rào cản chuẩn mực trách nhiệm xã hội (わけにはいかない) và các phạm vi giới hạn quy luật (に限り, たびに).",
+    "steps": [
+      "Xác định chủ thể lập trường khi xuất hiện 「～にしたら／にすれば」 để nhận diện tác giả đang đứng từ góc nhìn của ai (người trong cuộc hay bên thứ ba), từ đó hiểu đúng sự thấu cảm hoặc phán đoán tâm lý.",
+      "Khoanh vùng câu chứa 「～ではあるまいし」 nhằm chỉ ra đối tượng so sánh phi thực tế, từ đó suy luận chính xác yêu cầu thực tế hoặc lời phê phán ngầm của tác giả ở vế sau.",
+      "Phân tầng cảm xúc và hành vi: khi gặp 「～てならない」 chú ý trạng thái tâm lý/linh cảm bộc phát tự nhiên; khi gặp 「～ずにはいられない」 chú ý hành vi thôi thúc không thể kiềm chế.",
+      "Nhận diện rào cản xã hội qua 「～わけにはいかない」 để nắm bắt lý do đạo đức, trách nhiệm hoặc lương tâm ngăn cản nhân vật/tác giả thực hiện hành động.",
+      "Đánh dấu điều kiện đặc biệt với 「～に限り」 (phạm vi ngoại lệ/ưu tiên duy nhất) và 「～たびに」 (hệ quả mang tính quy luật lặp lại) để đối chiếu chính xác các câu hỏi lựa chọn chi tiết."
+    ],
+    "tips": [
+      "Bẫy góc nhìn chủ thể: 「～にしたら／にすれば」 dùng để phán đoán tâm lý của người khác (ngôi thứ hai/ba), tác giả hiếm khi dùng cho chính bản thân mình (ngôi thứ nhất).",
+      "Mẹo 使い分け 1 (Cảm xúc vs Hành vi): 「～てならない」 diễn tả cảm xúc/linh cảm nảy sinh tự nhiên trong tâm lý (lo lắng, nhớ nhung); còn 「～ずにはいられない」 nhấn mạnh hành động cụ thể không thể kìm nén phát ra bên ngoài (buộc phải cười, phải mua).",
+      "Mẹo 使い分け 2 (Chuẩn mực vs Hoàn cảnh ép buộc): 「～わけにはいかない」 là tự bản thân ý thức ngăn mình lại vì trách nhiệm/đạo đức; khác với 「～ざるを得ない」 là bị hoàn cảnh khách quan bên ngoài ép buộc phải làm dù không muốn.",
+      "Dấu hiệu nhận đáp án của 「～ではあるまいし」: Vế sau thường đi kèm câu nhắc nhở, khuyên bảo hoặc trách móc (～てはいけない, ～べきだ, ～ないで); đáp án đúng thường diễn đạt lại bản chất lời phê bình này.",
+      "Bẫy tuyệt đối hóa của 「～に限り」: Mẫu câu này chỉ áp dụng giới hạn cho đúng nhóm đối tượng đứng trước, các phương án mở rộng ra toàn thể hoặc sang đối tượng khác đều là phương án nhiễu."
+    ],
+    "grammarFocus": [
+      "～ではあるまいし — 接続: N / V普通形(の) + ではあるまいし; Sắc thái: Đâu phải là... (thể hiện sự phê phán, mỉa mai hoặc khuyên nhủ rằng vì không phải trường hợp đó nên không được hành xử như vậy); Đối chiếu: Khác phủ định đơn thuần, mẫu này luôn kèm thái độ trách móc/nhắc nhở ở vế sau.",
+      "～にしたら — 接続: N + にしたら; Sắc thái: Nếu đứng ở vị trí/lập trường của N mà xét thì... (thấu cảm, suy đoán cảm xúc hoặc suy nghĩ của người khác); Đối chiếu: Gần nghĩa với にすれば, khác にとって (chỉ tiêu chuẩn đánh giá khách quan).",
+      "～にすれば — 接続: N + にすれば; Sắc thái: Từ góc nhìn/lập trường của N (biến thể giả định ば của にしたら, diễn đạt phán đoán tâm lý); Đối chiếu: Đồng nghĩa にしたら, khác から見ると (nhìn từ số liệu/chứng cứ bên ngoài).",
+      "～てならない — 接続: Vて / Aくて / Naで + ならない; Sắc thái: Cảm giác, tâm trạng hoặc linh cảm nảy sinh tự nhiên vô cùng mãnh liệt không kìm nén được (văn viết trang trọng/nghị luận); Đối chiếu: Khác てたまらない (cảm giác cơ thể/nhu cầu sinh lý), khác てしかたがない (khẩu ngữ).",
+      "～ずにはいられない — 接続: Vない → Vず + にはいられない (Vbỏ ない + ず, する → せず); Sắc thái: Không thể không làm / không kìm được hành động do thôi thúc nội tâm mạnh mẽ; Đối chiếu: Khác てならない (chỉ cảm xúc), khác ざるを得ない (bị ép bởi hoàn cảnh bên ngoài).",
+      "～わけにはいかない — 接続: Vる + わけにはいかない; Sắc thái: Không thể làm vì rào cản đạo đức, trách nhiệm, lương tâm hoặc chuẩn mực xã hội; Đối chiếu: Khác 不可能形 (chỉ năng lực thể chất), khác ないわけにはいかない (buộc phải làm vì bổn phận).",
+      "～たびに — 接続: Vる / Nの + たびに; Sắc thái: Mỗi lần/mỗi khi... thì đều xảy ra cùng một kết quả hoặc cảm xúc mang tính quy luật lặp lại; Đối chiếu: Khác とき (thời điểm đơn lẻ), khác ついでに (tiện thể làm việc khác).",
+      "～に限り — 接続: N + に限り; Sắc thái: Chỉ riêng / giới hạn duy nhất đối với trường hợp N (thường dùng trong văn bản thông báo, quy tắc, ưu đãi chính thức); Đối chiếu: Khác だけ (dùng rộng rãi trung tính), に限り mang tính quy chế trang trọng."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 86,
+        "items": [
+          "〜にしたら／〜にすれば (nếu đứng ở góc nhìn/lập trường của ai đó)",
+          "Phân biệt: からすると/から見ると (căn cứ phán đoán) ≠ にしたら (đặt mình vào tâm lý đối phương) ≠ にとって (tiêu chuẩn đánh giá)"
+        ]
+      },
+      {
+        "bai": 87,
+        "items": [
+          "〜わけにはいかない (không thể làm vì lý do đạo đức/xã hội)",
+          "〜ざるを得ない (đành phải làm do hoàn cảnh khách quan ép buộc)",
+          "Đối chiếu: ざるを得ない (áp lực bên ngoài) ≠ わけにはいかない (tự ngăn cản từ chuẩn mực bên trong)"
+        ]
+      },
+      {
+        "bai": 88,
+        "items": [
+          "〜てならない (cảm xúc tự nhiên phát sinh không kìm được trong văn viết)",
+          "Ba chiều phân biệt: てたまらない (thể xác/nhu cầu bản năng) ≠ てならない (tâm lý/linh cảm trang trọng) ≠ てしかたがない (khẩu ngữ thông dụng)"
+        ]
+      },
+      {
+        "bai": 58,
+        "items": [
+          "〜たびに（Vる/Nの＋たびに: mỗi lần... lại lặp lại quy luật）",
+          "〜まま（Vた/Vない/Aい/なAな/Nの＋まま: giữ nguyên trạng thái）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "出社回帰の波と「働く場所」の論理",
+      "titleVi": "Làn sóng quay lại văn phòng và bài toán về địa điểm làm việc",
+      "japanese": "近年、完全な出社勤務を再開しようとする企業が増えているが、これに対する社員側の反発も根強い。経営陣にしたら、対面での対話こそが組織の一体感や革新的な発想を生み出す源泉だと考えられてならないのだろう。しかし、通勤に毎日の大半を費やす若手社員にすれば、柔軟な働き方が否定されたように感じられ、不満を抱かずにはいられない。子どもではあるまいし、オフィスに縛り付けなければ業務に集中できないと決めつけられる筋合いはないという声も聞かれる。\n実際、成果を重視する働き方を推進する以上、勤務場所の自由を無条件に奪うわけにはいかないはずだ。働く側の立場にしてみても、画面越しの連絡を繰り返すたびに、対面なら瞬時に伝わるはずの微妙なニュアンスの共有に苦労している。決して出社そのものを拒否しているのではなく、特定の部署や役職に限り出社を強要するような不公平さに納得がいかないのである。機械を扱う工場勤務ではあるまいし、知識労働において画一的な管理手法を適用することには無理がある。\n一方で、組織の維持という重責を担うリーダーにしたら、偶発的な交流の機会が失われることへの懸念は拭えない。この問題に直面するたびに、双方が相手の置かれた状況を思いやることの難しさを痛感させられる。互いの論理を一方的に押し付けるのではなく、信頼を前提とした新たな協働の形を模索していかなければならない。",
+      "vietnamese": "Những năm gần đây, số lượng doanh nghiệp cố gắng tái áp dụng hình thức đi làm trực tiếp toàn thời gian đang ngày càng gia tăng, nhưng sự phản đối từ phía nhân viên trước điều này cũng vô cùng gay gắt. Đứng ở góc nhìn của ban lãnh đạo, hẳn họ không kìm được suy nghĩ rằng việc đối thoại trực tiếp chính là nguồn gốc tạo nên sự gắn kết trong tổ chức và những ý tưởng mang tính đổi mới. Tuy nhiên, nếu đứng từ vị trí của những nhân viên trẻ vốn phải dành phần lớn thời gian mỗi ngày cho việc di chuyển đi làm, họ cảm thấy như phong cách làm việc linh hoạt bị phủ nhận và không thể kìm nén được sự bất mãn. Có cả những tiếng nói cho rằng không phải trẻ con đâu mà lại bị quy chụp là nếu không bị trói buộc ở văn phòng thì không thể tập trung vào công việc.\nTrên thực tế, một khi đã thúc đẩy phong cách làm việc coi trọng hiệu quả, thì lẽ ra không thể tước đoạt quyền tự do về nơi làm việc một cách vô điều kiện. Dẫu thử nhìn nhận từ lập trường của người lao động, mỗi lần lặp đi lặp lại việc liên lạc qua màn hình, họ cũng gặp khó khăn trong việc sẻ chia những sắc thái tinh tế vốn dĩ có thể truyền đạt ngay tức thì nếu gặp mặt trực tiếp. Họ hoàn toàn không phải khước từ bản thân việc đến văn phòng, mà chỉ không chấp nhận sự bất công khi việc ép buộc lên văn phòng lại bị áp đặt chỉ giới hạn ở một số phòng ban hay chức vụ nhất định. Đâu phải là làm việc tại nhà máy vận hành máy móc, việc áp đặt một phương thức quản lý rập khuôn máy móc trong lĩnh vực lao động trí thức là điều hết sức bất hợp lý.\nMặt khác, nếu đứng ở vị trí người lãnh đạo gánh vác trọng trách duy trì tổ chức, mối lo ngại về việc đánh mất cơ hội giao lưu ngẫu nhiên giữa các nhân sự là điều không thể xóa bỏ. Mỗi khi đối diện với vấn đề này, người ta lại càng cảm nhận sâu sắc sự khó khăn trong việc thấu hiểu và sẻ chia cho hoàn cảnh của đối phương. Thay vì đơn phương áp đặt lý lẽ của mình lên người khác, đôi bên cần cùng nhau tìm kiếm một hình thức hợp tác mới dựa trên nền tảng của sự tin tưởng.",
+      "sentences": [
+        {
+          "jp": "近年、完全な出社勤務を再開しようとする企業が増えているが、これに対する社員側の反発も根強い。",
+          "vi": "Những năm gần đây, số lượng doanh nghiệp muốn quay trở lại hình thức đi làm trực tiếp hoàn toàn đang gia tăng, nhưng phản ứng phản đối từ phía nhân viên đối với điều này cũng rất gay gắt.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "gần đây, những năm gần đây"
+            },
+            {
+              "w": "完全",
+              "read": "かんぜん",
+              "vi": "sự hoàn hảo, hoàn toàn"
+            },
+            {
+              "w": "出社",
+              "read": "しゅっしゃ",
+              "vi": "sự đến công ty"
+            },
+            {
+              "w": "勤務",
+              "read": "きんむ",
+              "vi": "công việc, làm việc"
+            },
+            {
+              "w": "再開",
+              "read": "さいかい",
+              "vi": "sự mở lại, tái bắt đầu"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp, công ty"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "反発",
+              "read": "はんぱつ",
+              "vi": "sự phản đối, chống đối, phản ứng dữ dội"
+            },
+            {
+              "w": "根強い",
+              "read": "ねづよい",
+              "vi": "bền bỉ, sâu sắc, dai dẳng (ăn sâu bám rễ)"
+            },
+            {
+              "w": "出社勤務",
+              "read": "しゅっしゃきんむ",
+              "vi": "làm việc trực tiếp tại văn phòng công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～に対する（これに対する）",
+              "vi": "【接続】N + に対する + N / N + に対して。 【Sắc thái】Chỉ đối tượng mà hành vi, thái độ hoặc phản ứng hướng tới ('đối với / đối lập với'). Mang tính trang trọng, khách quan. 【Đối chiếu】Khác với 〜にとって (đứng từ lập trường/đánh giá của ai đó về lợi ích, quan điểm: 'đối với tôi điều này quan trọng'), 〜に対して biểu thị hướng tác động trực tiếp hoặc thái độ phản ứng hướng vào đối tượng."
+            }
+          ]
+        },
+        {
+          "jp": "経営陣にしたら、対面での対話こそが組織の一体感や革新的な発想を生み出す源泉だと考えられてならないのだろう。",
+          "vi": "Đứng từ góc nhìn của ban lãnh đạo, hẳn là họ không kìm được suy nghĩ rằng chính việc đối thoại trực tiếp mới là cội nguồn sản sinh ra cảm giác gắn kết tổ chức và những ý tưởng đổi mới.",
+          "vocab": [
+            {
+              "w": "経営",
+              "read": "けいえい",
+              "vi": "kinh doanh, quản trị"
+            },
+            {
+              "w": "対面",
+              "read": "たいめん",
+              "vi": "gặp mặt trực tiếp"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại, trò chuyện"
+            },
+            {
+              "w": "組織",
+              "read": "そしき",
+              "vi": "tổ chức"
+            },
+            {
+              "w": "一体",
+              "read": "いったい",
+              "vi": "sự thống nhất, rốt cuộc"
+            },
+            {
+              "w": "革新",
+              "read": "かくしん",
+              "vi": "đổi mới, cách tân"
+            },
+            {
+              "w": "発想",
+              "read": "はっそう",
+              "vi": "ý tưởng, sáng kiến phát kiến"
+            },
+            {
+              "w": "生み出す",
+              "read": "うみだす",
+              "vi": "tạo ra, sinh ra"
+            },
+            {
+              "w": "源泉",
+              "read": "げんせん",
+              "vi": "cội nguồn, nguồn gốc phát sinh"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "経営陣",
+              "read": "けいえいじん",
+              "vi": "ban lãnh đạo, ban quản trị doanh nghiệp"
+            },
+            {
+              "w": "一体感",
+              "read": "いったいかん",
+              "vi": "cảm giác gắn kết, đồng lòng như một khối thống nhất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にしたら",
+              "vi": "【接続】N (người/lập trường) + にしたら / にすれば。 【Sắc thái】Người nói thử đặt mình vào vị trí, hoàn cảnh của người khác để suy đoán cảm xúc, suy nghĩ hoặc nhận định của họ ('nếu đứng ở góc nhìn của ~ thì...'). Thường dùng phỏng đoán góc nhìn ngôi thứ ba. 【Đối chiếu】So với 〜にとって (dùng cho cả bản thân để đưa ra phán đoán/đánh giá giá trị khách quan), 〜にしたら/にすれば nhấn mạnh việc 'đổi vai/nhập vai' vào hoàn cảnh tâm lý của đối tượng để thấu hiểu suy nghĩ của họ."
+            },
+            {
+              "point": "～てならない",
+              "vi": "【接続】Vて / Aくて / Naで + ならない (thường đi với động từ/tính từ chỉ cảm xúc, nhận thức tự nhiên như 思われる, 考えられる, 気になる, 心配で). 【Sắc thái】Cảm xúc, cảm giác tự nhiên nảy sinh từ bên trong một cách mãnh liệt không thể kìm nén lại được ('vô cùng / hết sức / không kìm được mà...'). Mang sắc thái trang trọng, văn viết. 【Đối chiếu】So với 〜てたまらない (nhấn mạnh sự khó chịu, thèm muốn thể xác/cảm xúc mang tính cá nhân, đời thường) và 〜てしょうがない (văn nói thông thường), 〜てならない chuyên dùng cho cảm xúc tâm lý trừu tượng, sâu sắc trong văn nghị luận."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、通勤に毎日の大半を費やす若手社員にすれば、柔軟な働き方が否定されたように感じられ、不満を抱かずにはいられない。",
+          "vi": "Tuy nhiên, nếu đứng từ vị trí của những nhân viên trẻ vốn phải tiêu tốn phần lớn thời gian mỗi ngày cho việc đi lại, họ cảm thấy phong cách làm việc linh hoạt như bị phủ nhận và không thể kìm nén được sự bất mãn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "通勤",
+              "read": "つうきん",
+              "vi": "đi làm (bằng phương tiện)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "大半",
+              "read": "たいはん",
+              "vi": "phần lớn, đa số"
+            },
+            {
+              "w": "費やす",
+              "read": "ついやす",
+              "vi": "tiêu tốn, dành (thời gian, tiền bạc, công sức)"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "nhân sự trẻ, thế hệ trẻ"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "柔軟",
+              "read": "じゅうなん",
+              "vi": "linh hoạt, mềm dẻo"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "否定",
+              "read": "ひてい",
+              "vi": "sự phủ định, bác bỏ"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "不満",
+              "read": "ふまん",
+              "vi": "bất mãn, không hài lòng"
+            },
+            {
+              "w": "抱く",
+              "read": "いだく",
+              "vi": "mang trong lòng, ấp ủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にすれば",
+              "vi": "【接続】N (người/đối tượng) + にすれば / にしたら。 【Sắc thái】Tương tự にしたら, đặt mình vào hoàn cảnh, điều kiện thực tế của đối tượng (ở đây là nhân viên trẻ tốn thời gian di chuyển) để nhìn nhận sự việc. 【Đối chiếu】Đồng nghĩa với 〜にしてみれば / 〜にしたら. Khác với 〜から見ると (xét theo phương diện, quan sát từ góc độ khách quan), 〜にすれば tập trung vào tâm tư, cảm nghĩ bên trong của người trong cuộc."
+            },
+            {
+              "point": "～ずにはいられない",
+              "vi": "【接続】V-ない (bỏ ない) + ずにはいられない (する → せずにはいられない). 【Sắc thái】Bản thân không thể kiềm chế được hành động hoặc cảm xúc phát sinh mãnh liệt do áp lực nội tâm hoặc hoàn cảnh thúc đẩy ('không thể không...', 'không kìm được mà...'). 【Đối chiếu】Khác với 〜ざるを得ない (phải làm do bị ép buộc bởi quy tắc bên ngoài, dù không muốn), 〜ずにはいられない thể hiện sự bùng phát tự nhiên về mặt cảm xúc/tâm lý không cưỡng lại được. Khác với 〜ないわけにはいかない (không thể không làm vì chuẩn mực xã hội/nghĩa vụ)."
+            }
+          ]
+        },
+        {
+          "jp": "子どもではあるまいし、オフィスに縛り付けなければ業務に集中できないと決めつけられる筋合いはないという声も聞かれる。",
+          "vi": "Có cả những ý kiến cho rằng, đâu phải con nít đâu mà lại bị quy chụp vô lý là nếu không trói buộc ở văn phòng thì không thể tập trung làm việc.",
+          "vocab": [
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "オフィス",
+              "read": "オフィス",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "縛り付ける",
+              "read": "しばりつける",
+              "vi": "trói buộc, gò ép, ràng buộc chặt chẽ"
+            },
+            {
+              "w": "業務",
+              "read": "ぎょうむ",
+              "vi": "nghiệp vụ, công việc"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "決めつける",
+              "read": "きめつける",
+              "vi": "quy chụp, võ đoán một chiều"
+            },
+            {
+              "w": "筋合い",
+              "read": "すじあい",
+              "vi": "lý do chính đáng, tư cách, quyền hạn để làm gì đó"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ではあるまいし",
+              "vi": "【接続】N / Vる (dạng thông thường) + ではあるまいし / じゃあるまいし. 【Sắc thái】Phủ định dứt khoát một giả định hiển nhiên không đúng thực tế ('đâu phải là / có phải là ~ đâu mà...'), thường đi kèm thái độ bức xúc, phê phán, mỉa mai hoặc khuyên bảo rằng hành động hay cách đối xử hiện tại là vô lý, không tương xứng. Thường đi với câu hỏi tu từ, trách móc hoặc phủ định ở vế sau. 【Đối chiếu】Khác với 〜わけではない (chỉ đơn thuần phủ định một phần thực tế một cách trung lập: 'không hẳn là'), 〜ではあるまいし mang sắc thái cảm xúc bất bình, phản bác mạnh mẽ vì bị đối xử hoặc cư xử như một đối tượng không tương xứng."
+            }
+          ]
+        },
+        {
+          "jp": "実際、成果を重視する働き方を推進する以上、勤務場所の自由を無条件に奪うわけにはいかないはずだ。",
+          "vi": "Trên thực tế, một khi đã thúc đẩy phong cách làm việc coi trọng kết quả, thì lẽ ra không thể tước đoạt quyền tự do về địa điểm làm việc một cách vô điều kiện được.",
+          "vocab": [
+            {
+              "w": "実際",
+              "read": "じっさい",
+              "vi": "thực tế"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả"
+            },
+            {
+              "w": "重視する",
+              "read": "じゅうしする",
+              "vi": "coi trọng"
+            },
+            {
+              "w": "重視",
+              "read": "じゅうし",
+              "vi": "sự coi trọng"
+            },
+            {
+              "w": "働き方",
+              "read": "はたらきかた",
+              "vi": "cách thức làm việc"
+            },
+            {
+              "w": "推進する",
+              "read": "すいしんする",
+              "vi": "thúc đẩy"
+            },
+            {
+              "w": "推進",
+              "read": "すいしん",
+              "vi": "sự thúc đẩy"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "một khi; vì đã"
+            },
+            {
+              "w": "勤務場所",
+              "read": "きんむばしょ",
+              "vi": "nơi làm việc"
+            },
+            {
+              "w": "勤務",
+              "read": "きんむ",
+              "vi": "công việc; làm việc"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "自由",
+              "read": "じゆう",
+              "vi": "tự do"
+            },
+            {
+              "w": "無条件",
+              "read": "むじょうけん",
+              "vi": "vô điều kiện"
+            },
+            {
+              "w": "奪う",
+              "read": "うばう",
+              "vi": "tước đoạt"
+            },
+            {
+              "w": "わけにはいかない",
+              "read": "わけにはいかない",
+              "vi": "không thể; không nên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～以上（は）",
+              "vi": "【接続】V/A/Na/N (thể thông thường, Na/N である) + 以上（は）. 【Sắc thái】Một khi đã ở trong tình thế / cam kết điều gì đó thì đương nhiên phải có trách nhiệm hoặc hành động tương xứng theo sau ('một khi đã... thì đương nhiên...'). 【Đối chiếu】Khác với 〜からには (nhấn mạnh ý chí quyết tâm thực hiện đến cùng của người nói), 〜以上（は） mang tính lý lẽ, nguyên tắc logic và đạo lý khách quan hơn."
+            },
+            {
+              "point": "～わけにはいかない",
+              "vi": "【接続】Vる + わけにはいかない. 【Sắc thái】Không thể làm điều đó vì rào cản đạo đức, chuẩn mực xã hội, nguyên tắc tâm lý hoặc logic công bằng, dù bản thân có khả năng về mặt thể chất ('không thể nào / không được phép làm vì lẽ thường...'). 【Đối chiếu】Khác với 〜ことができない (bất khả thi do năng lực thể chất hoặc điều kiện khách quan: không có kỹ năng, không có thời gian), 〜わけにはいかない biểu thị sự kiềm chế dựa trên nguyên tắc, đạo lý hoặc trách nhiệm."
+            }
+          ]
+        },
+        {
+          "jp": "働く側の立場にしてみても、画面越しの連絡を繰り返すたびに、対面なら瞬時に伝わるはずの微妙なニュアンスの共有に苦労している。",
+          "vi": "Dẫu đứng trên lập trường người lao động, mỗi lần lặp đi lặp lại việc trao đổi qua màn hình, họ cũng phải vất vả trong việc chia sẻ những sắc thái tinh tế vốn dĩ sẽ truyền đạt được tức thì nếu gặp mặt trực tiếp.",
+          "vocab": [
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "側",
+              "read": "がわ",
+              "vi": "phía, bên"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "địa vị, lập trường"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "繰り返す",
+              "read": "くりかえす",
+              "vi": "lặp lại"
+            },
+            {
+              "w": "対面",
+              "read": "たいめん",
+              "vi": "gặp mặt trực tiếp"
+            },
+            {
+              "w": "瞬時",
+              "read": "しゅんじ",
+              "vi": "trong chớp mắt, tức thì, ngay lập tức"
+            },
+            {
+              "w": "伝わる",
+              "read": "つたわる",
+              "vi": "được truyền tải, truyền đạt"
+            },
+            {
+              "w": "微妙",
+              "read": "びみょう",
+              "vi": "tinh tế, tế nhị"
+            },
+            {
+              "w": "ニュアンス",
+              "read": "にゅあんす",
+              "vi": "sắc thái tinh tế, hàm ý ngầm"
+            },
+            {
+              "w": "共有",
+              "read": "きょうゆう",
+              "vi": "sự chia sẻ, dùng chung"
+            },
+            {
+              "w": "苦労",
+              "read": "くろう",
+              "vi": "sự vất vả, khổ cực"
+            },
+            {
+              "w": "画面越し",
+              "read": "がめんごし",
+              "vi": "thông qua màn hình máy tính / thiết bị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にしてみても",
+              "vi": "【接続】N + にしてみても (dạng nhấn mạnh có trợ từ ても của にしたら / にすれば). 【Sắc thái】Dù có thử đặt mình vào vị trí của đối tượng đó thì cũng thấy xuất hiện một thực tế khó khăn / nghịch lý tương tự ('ngay cả đứng ở góc nhìn của ~ thì cũng...'). 【Đối chiếu】Biến thể mang nghĩa nhượng bộ của 〜にしたら, tạo sự công bằng khi nhìn nhận đa chiều vấn đề."
+            },
+            {
+              "point": "～たびに",
+              "vi": "【接続】Vる / Nの + たびに. 【Sắc thái】Mỗi khi hành động đó xảy ra thì kết quả hay trạng thái phía sau luôn lặp lại y như vậy ('mỗi lần / mỗi khi...'). 【Đối chiếu】Khác với 〜ごとに (nhấn mạnh quy luật chu kỳ theo từng đơn vị: 10 phút một lần, từng người một), 〜たびに nhấn mạnh sự gắn liền lặp đi lặp lại giữa sự việc làm duyên cớ và cảm xúc/trạng thái nảy sinh sau đó."
+            }
+          ]
+        },
+        {
+          "jp": "決して出社そのものを拒否しているのではなく、特定の部署や役職に限り出社を強要するような不公平さに納得がいかないのである。",
+          "vi": "Họ tuyệt đối không phải từ chối bản thân việc đến văn phòng, mà chính là không phục sự bất công khi chỉ giới hạn việc cưỡng ép đi làm trực tiếp ở một số bộ phận hay chức vụ nhất định.",
+          "vocab": [
+            {
+              "w": "決して",
+              "read": "けっして",
+              "vi": "tuyệt đối không, không bao giờ"
+            },
+            {
+              "w": "出社",
+              "read": "しゅっしゃ",
+              "vi": "sự đến công ty"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "拒否",
+              "read": "きょひ",
+              "vi": "từ chối, cự tuyệt"
+            },
+            {
+              "w": "特定",
+              "read": "とくてい",
+              "vi": "sự xác định, cụ thể"
+            },
+            {
+              "w": "部署",
+              "read": "ぶしょ",
+              "vi": "phòng ban"
+            },
+            {
+              "w": "役職",
+              "read": "やくしょく",
+              "vi": "chức vụ, vị trí"
+            },
+            {
+              "w": "限り",
+              "read": "かぎり",
+              "vi": "trừ khi, trong phạm vi"
+            },
+            {
+              "w": "強要",
+              "read": "きょうよう",
+              "vi": "cưỡng ép, ép buộc bằng quyền lực"
+            },
+            {
+              "w": "不公平",
+              "read": "ふこうへい",
+              "vi": "bất công"
+            },
+            {
+              "w": "納得がいかない",
+              "read": "なっとくがいかない",
+              "vi": "không thể chấp nhận, không phục, không thấy thỏa đáng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～に限り",
+              "vi": "【接続】N + に限り. 【Sắc thái】Chỉ giới hạn đặc biệt trong trường hợp, đối tượng đó, mang tính quy định hạn định chặt chẽ ('chỉ riêng / chỉ giới hạn ở...'). Rất trang trọng trong văn viết và quy chế. 【Đối chiếu】Khác với trợ từ 〜だけ (giới hạn số lượng/phạm vi thông thường trong khẩu ngữ), 〜に限り dùng trong văn phong hành chính, thông báo hoặc lập luận mang tính điều kiện hạn chế cứng."
+            }
+          ]
+        },
+        {
+          "jp": "機械を扱う工場勤務ではあるまいし、知識労働において画一的な管理手法を適用することには無理がある。",
+          "vi": "Đâu phải là làm việc tại nhà máy vận hành máy móc đâu, việc áp dụng phương pháp quản lý rập khuôn một thể trong lao động tri thức là điều hết sức phi lý.",
+          "vocab": [
+            {
+              "w": "機械",
+              "read": "きかい",
+              "vi": "máy móc, thiết bị"
+            },
+            {
+              "w": "扱う",
+              "read": "あつかう",
+              "vi": "xử lý, đối đãi"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy, xưởng"
+            },
+            {
+              "w": "勤務",
+              "read": "きんむ",
+              "vi": "công việc, làm việc"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "労働",
+              "read": "ろうどう",
+              "vi": "lao động"
+            },
+            {
+              "w": "画一",
+              "read": "かくいつ",
+              "vi": "sự rập khuôn, đồng nhất"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "手法",
+              "read": "しゅほう",
+              "vi": "phương pháp, thủ pháp"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "sự áp dụng"
+            },
+            {
+              "w": "無理がある",
+              "read": "むりがある",
+              "vi": "có sự phi lý, quá gượng ép, không khả thi"
+            },
+            {
+              "w": "知識労働",
+              "read": "ちしきろうどう",
+              "vi": "lao động tri thức, công việc trí óc"
+            },
+            {
+              "w": "画一的",
+              "read": "かくいつてき",
+              "vi": "rập khuôn, đồng loạt máy móc, thiếu linh hoạt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ではあるまいし",
+              "vi": "【接続】N + ではあるまいし. 【Sắc thái】Phủ định mang tính so sánh phản biện ('có phải là ~ đâu mà'), dùng để chỉ ra sự vô lý khi đối xử với lao động trí óc giống hệt như công nhân đứng máy sản xuất dây chuyền truyền thống. Thể hiện sự chỉ trích tư duy quản lý lỗi thời. 【Đối chiếu】So với 〜ではないのだから (lý do trung tính khách quan: 'vì không phải là... nên...'), 〜ではあるまいし mang giọng điệu phản bác gay gắt và nhấn mạnh sự tương phản khập khiễng giữa hai đối tượng."
+            }
+          ]
+        },
+        {
+          "jp": "一方で、組織の維持という重責を担うリーダーにしたら、偶発的な交流の機会が失われることへの懸念は拭えない。",
+          "vi": "Mặt khác, nếu đứng ở vị trí những người lãnh đạo gánh vác trọng trách duy trì tổ chức, mối lo ngại về việc mất đi cơ hội giao lưu ngẫu nhiên giữa nhân sự là điều không thể xóa bỏ.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "組織",
+              "read": "そしき",
+              "vi": "tổ chức"
+            },
+            {
+              "w": "維持",
+              "read": "いじ",
+              "vi": "sự duy trì"
+            },
+            {
+              "w": "担う",
+              "read": "になう",
+              "vi": "gánh vác, đảm nhận"
+            },
+            {
+              "w": "リーダー",
+              "read": "リーダー",
+              "vi": "trưởng nhóm, lãnh đạo"
+            },
+            {
+              "w": "偶発",
+              "read": "ぐうはつ",
+              "vi": "ngẫu nhiên, bất ngờ"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, làm mất"
+            },
+            {
+              "w": "懸念",
+              "read": "けねん",
+              "vi": "mối lo ngại, e ngại"
+            },
+            {
+              "w": "重責を担う",
+              "read": "じゅうせきをになう",
+              "vi": "gánh vác trọng trách to lớn"
+            },
+            {
+              "w": "偶発的",
+              "read": "ぐうはつてき",
+              "vi": "tình cờ, ngẫu nhiên, không sắp đặt trước"
+            },
+            {
+              "w": "懸念を拭えない",
+              "read": "けねんをぬぐえない",
+              "vi": "không thể xua tan / xóa bỏ nỗi lo âu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にしたら",
+              "vi": "【接続】N + にしたら. 【Sắc thái】Thử đặt mình vào góc nhìn và trọng trách của người lãnh đạo để thấu hiểu nỗi trăn trở bảo vệ văn hóa doanh nghiệp của họ ('từ góc nhìn của người lãnh đạo...'). 【Đối chiếu】Cách dùng nhập vai đồng cảm khách quan trong cấu trúc tranh luận hai chiều, giúp bài viết giữ được sự cân bằng giữa hai quan điểm đối lập."
+            }
+          ]
+        },
+        {
+          "jp": "この問題に直面するたびに、双方が相手の置かれた状況を思いやることの難しさを痛感させられる。",
+          "vi": "Mỗi khi đối diện với vấn đề này, người ta lại càng thấm thía sâu sắc sự khó khăn trong việc thấu hiểu và sẻ chia cho hoàn cảnh của đối phương.",
+          "vocab": [
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "直面",
+              "read": "ちょくめん",
+              "vi": "đối mặt, đối diện trực tiếp (vấn đề, khó khăn)"
+            },
+            {
+              "w": "双方",
+              "read": "そうほう",
+              "vi": "hai phía, đôi bên"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "置く",
+              "read": "おく",
+              "vi": "đặt, để"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình huống, tình trạng"
+            },
+            {
+              "w": "思いやる",
+              "read": "おもいやる",
+              "vi": "thấu hiểu, cảm thông, quan tâm chu đáo tới đối phương"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "痛感させられる",
+              "read": "つうかんさせられる",
+              "vi": "bị khiến cho cảm nhận sâu sắc / thấm thía đến đau lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～たびに",
+              "vi": "【接続】Vる / Nの + たびに. 【Sắc thái】Mỗi khi chạm trán hay đào sâu vào xung đột này thì nhận thức về sự phức tạp lại tự động hiện lên rõ rệt. 【Đối chiếu】Khác với 〜折に (vào dịp / khi có cơ hội thuận lợi), 〜たびに nhấn mạnh sự việc diễn ra có tính lặp lại liên tục và kéo theo một trạng thái nhận thức nhất quán."
+            }
+          ]
+        },
+        {
+          "jp": "互いの論理を一方的に押し付けるのではなく、信頼を前提とした新たな協働の形を模索していかなければならない。",
+          "vi": "Thay vì áp đặt lý lẽ của bản thân một cách đơn phương, đôi bên cần phải cùng nhau tìm kiếm hình thức cộng tác mới được xây dựng trên nền tảng của sự tin tưởng.",
+          "vocab": [
+            {
+              "w": "互い",
+              "read": "たがい",
+              "vi": "lẫn nhau, nhau"
+            },
+            {
+              "w": "論理",
+              "read": "ろんり",
+              "vi": "logic, lập luận"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "押し付ける",
+              "read": "おしつける",
+              "vi": "áp đặt, ép buộc"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "前提",
+              "read": "ぜんてい",
+              "vi": "tiền đề"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình dạng, hình thức"
+            },
+            {
+              "w": "模索",
+              "read": "もさく",
+              "vi": "tìm kiếm, dò dẫm tìm giải pháp mới"
+            },
+            {
+              "w": "一方的",
+              "read": "いっぽうてき",
+              "vi": "một chiều, đơn phương"
+            },
+            {
+              "w": "協働",
+              "read": "きょうどう",
+              "vi": "hợp tác làm việc cùng nhau (collaborate)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～を前提とした（を前提として）",
+              "vi": "【接続】N + を前提とした + N / を前提として. 【Sắc thái】Lấy điều gì đó làm tiền đề, điều kiện tiên quyết không thể thiếu ('dựa trên tiền đề / lấy ~ làm nền tảng'). Thường dùng trong thảo luận, đưa ra giải pháp mang tính xây dựng. 【Đối chiếu】Khác với 〜を契機として (lấy sự kiện làm bước ngoặt/cơ duyên thay đổi), 〜を前提として xác lập điều kiện nền móng để một mối quan hệ hay quy trình vận hành hiệu quả."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "子どもではあるまいし、オフィスに縛り付けなければ業務に集中できないと決めつけられる筋合いはない",
+          "label": "Phản bác của nhân viên trẻ bằng cấu trúc 〜ではあるまいし"
+        },
+        {
+          "excerpt": "特定の部署や役職に限り出社を強要するような不公平さ",
+          "label": "Sự bất bình trước tính hạn định cứng nhắc (〜に限り)"
+        },
+        {
+          "excerpt": "機械を扱う工場勤務ではあるまいし、知識労働において画一的な管理手法を適用することには無理がある",
+          "label": "Phê phán cách quản lý rập khuôn trong lao động trí thức (〜ではあるまいし)"
+        },
+        {
+          "excerpt": "組織の維持という重責を担うリーダーにしたら、偶発的な交流の機会が失われることへの懸念は拭えない",
+          "label": "Góc nhìn thấu cảm dành cho người quản lý (〜にしたら)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "本文によると、経営陣が対面での勤務を重視する主な理由は何だと考えられているか。",
+          "options": [
+            "工場の作業員と同じように、社員の労働時間を厳しく監視したいから。",
+            "対面での対話こそが組織の一体感や革新的な発想を生み出す源泉だと考えているから。",
+            "画面越しの連絡を維持するシステム費用がオフィス維持費より高額だから。",
+            "若手社員の多くが通勤時間を有効活用したいと強く要望しているから。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [1]: 『経営陣にしたら、対面での対話こそが組織の一体感や革新的な発想を生み出す源泉だと考えられてならないのだろう』 (Từ góc nhìn của ban lãnh đạo, họ tin rằng đối thoại trực tiếp chính là cội nguồn tạo nên sự gắn kết và ý tưởng đổi mới). Do đó phương án B hoàn toàn chính xác. Các phương án sai: A sai vì mô hình nhà máy là lối quản lý bị tác giả phê phán ở câu [7]; C sai vì bài không nhắc đến chi phí phần mềm; D sai vì nhân viên trẻ cảm thấy bất mãn khi mất nhiều thời gian di chuyển (câu [2]).",
+          "tip": "Tìm từ khóa 経営陣 (ban lãnh đạo) trong câu [1] để xác định suy nghĩ và mong muốn của họ.",
+          "evi": [
+            1
+          ],
+          "qt": {
+            "q": "Theo bài đọc, lý do chính được cho là khiến ban lãnh đạo coi trọng việc làm việc trực tiếp là gì?",
+            "o": [
+              "Vì họ muốn giám sát chặt chẽ giờ làm việc của nhân viên như đối với công nhân nhà máy.",
+              "Vì họ cho rằng chính những cuộc trò chuyện trực tiếp là nguồn tạo ra sự gắn kết trong tổ chức và những ý tưởng đổi mới.",
+              "Vì chi phí hệ thống duy trì liên lạc qua màn hình cao hơn chi phí duy trì văn phòng.",
+              "Vì nhiều nhân viên trẻ tha thiết mong muốn tận dụng hiệu quả thời gian đi làm."
+            ]
+          }
+        },
+        {
+          "q": "「子どもではあるまいし、オフィスに縛り付けなければ業務に集中できないと決めつけられる筋合いはない」という表現から読み取れる若手社員の心情として最も適切なものはどれか。",
+          "options": [
+            "自律して働ける大人であるにもかかわらず、監視されないと集中できないと不当に疑われていることへの強い反発。",
+            "自分たちはまだ子ども同然に未熟であるため、上司による手厚い見守りや管理を求めているという心情。",
+            "オフィスにいなければ集中力を維持できない自分の弱さを素直に反省し、改善を誓う気持ち。",
+            "大人であっても子どもであっても、業務中は一律に厳しい規則で縛られるべきだという賛同意見。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [3]: Mẫu 〜ではあるまいし mang sắc thái mỉa mai, phản bác 'đâu phải là trẻ con đâu mà...', kết hợp với từ 決めつける (quy chụp), thể hiện sự tức giận và phản đối mạnh mẽ của người lao động khi bị đối xử như người thiếu tự giác, không được tin tưởng. Phương án A thể hiện chính xác sắc thái này. Các phương án sai: B và C hoàn toàn đối lập với ngữ khí phản biện của câu; D sai vì họ đang bất bình phản đối chứ không hề tán đồng quy tắc trói buộc.",
+          "tip": "Nắm vững sắc thái bất bình, bác bỏ sự so sánh hạ thấp bản thân của mẫu ngữ pháp 〜ではあるまいし.",
+          "evi": [
+            3
+          ],
+          "qt": {
+            "q": "Từ cách nói 「子どもではあるまいし、オフィスに縛り付けなければ業務に集中できないと決めつけられる筋合いはない」 (Đâu còn là trẻ con, chẳng có lý do gì để mặc định rằng nếu không bị trói buộc ở văn phòng thì chúng tôi không thể tập trung làm việc), có thể hiểu tâm trạng nào của nhân viên trẻ là phù hợp nhất?",
+            "o": [
+              "Sự phản đối mạnh mẽ vì bị nghi ngờ một cách vô lý rằng họ không thể tập trung nếu không bị giám sát, dù họ là người trưởng thành có thể làm việc tự chủ.",
+              "Tâm trạng muốn được cấp trên quan tâm và quản lý sát sao vì họ vẫn còn non nớt chẳng khác nào trẻ con.",
+              "Cảm giác chân thành tự kiểm điểm điểm yếu của mình là không thể duy trì sự tập trung nếu không ở văn phòng, và quyết tâm cải thiện.",
+              "Ý kiến đồng tình rằng dù là người lớn hay trẻ em thì trong giờ làm việc cũng nên bị ràng buộc bởi những quy định nghiêm ngặt như nhau."
+            ]
+          }
+        },
+        {
+          "q": "働く側が出社を求められることに対して「納得がいかない」と感じている真の要因は何か。",
+          "options": [
+            "画面越しでのコミュニケーションが対面よりも常に優れており、何一つ不便がないから。",
+            "出社自体を拒んでいるのではなく、一部の部署や役職にだけ限定して出社を強要する不公平さがあるから。",
+            "通勤にかかる交通費が会社から全額支給されていないから。",
+            "将来的にすべてのオフィス勤務を廃止し、完全リモートワークのみに統一すべきだと考えているから。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [6]: 『決して出社そのものを拒否しているのではなく、特定の部署や役職に限り出社を強要するような不公平さに納得がいかないのである』 (Họ hoàn toàn không phải khước từ bản thân việc đến công ty, mà không phục sự bất công khi ép buộc chỉ giới hạn ở một số bộ phận hay chức vụ nhất định). Do đó phương án B chính xác. Các phương án sai: A sai vì câu [5] thừa nhận trao đổi qua màn hình khó truyền đạt sắc thái tinh tế; C không có trong bài; D suy diễn cực đoan sai lệch với tinh thần câu [6].",
+          "tip": "Chú ý cấu trúc 決して〜のではなく、〜に限り...不公平さに納得がいかない trong câu [6].",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Đâu là nguyên nhân thực sự khiến người lao động cảm thấy 「納得がいかない」 (không thể chấp nhận) việc bị yêu cầu đến văn phòng?",
+            "o": [
+              "Vì giao tiếp qua màn hình luôn vượt trội hơn giao tiếp trực tiếp và không có bất kỳ điều gì bất tiện.",
+              "Vì họ không phản đối việc đến văn phòng, mà vì có sự bất công khi chỉ một số bộ phận hoặc chức vụ bị buộc phải đến làm việc trực tiếp.",
+              "Vì công ty không chi trả toàn bộ chi phí đi lại.",
+              "Vì họ cho rằng trong tương lai nên bãi bỏ toàn bộ việc làm tại văn phòng và chuyển sang chỉ làm việc từ xa hoàn toàn."
+            ]
+          }
+        },
+        {
+          "q": "組織のリーダーの立場から見た場合（リーダーにしたら）、リモートワークの普及に伴って抱く最大の懸念は何か。",
+          "options": [
+            "オフィス内の高価な機械設備が使われずに故障してしまうこと。",
+            "社員同士が直接顔を合わせることで生まれる偶発的な交流の機会が失われてしまうこと。",
+            "知識労働者がすべて工場での単純作業を希望するようになってしまうこと。",
+            "会社全体のオフィス賃料が急激に跳ね上がってしまうこと。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [8]: 『一方で、組織の維持という重責を担うリーダーにしたら、偶発的な交流の機会が失われることへの懸念は拭えない』 (Mặt khác, nếu đứng ở góc nhìn người lãnh đạo gánh vác việc duy trì tổ chức, mối lo ngại về việc mất đi cơ hội giao lưu ngẫu nhiên là không thể xóa bỏ). Phương án B khớp chính xác với chi tiết này. Các phương án sai: A, C, D đều là các suy diễn vô căn cứ, không hề xuất hiện trong bài.",
+          "tip": "Định vị câu có chứa cụm リーダーにしたら (câu [8]) để tìm danh từ chỉ mối lo âu (懸念) đi kèm.",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Nhìn từ lập trường của người lãnh đạo tổ chức (「リーダーにしたら」), mối lo ngại lớn nhất của họ khi làm việc từ xa phổ biến là gì?",
+            "o": [
+              "Các thiết bị máy móc đắt tiền trong văn phòng không được sử dụng và bị hỏng.",
+              "Cơ hội giao lưu tình cờ nảy sinh khi nhân viên gặp mặt trực tiếp sẽ mất đi.",
+              "Những người làm công việc tri thức sẽ đều muốn chuyển sang làm công việc giản đơn tại nhà máy.",
+              "Tiền thuê văn phòng của toàn công ty sẽ tăng vọt."
+            ]
+          }
+        },
+        {
+          "q": "出社とリモートワークをめぐる対立に対し、筆者が最も主張したい解決の方向性はどれか。",
+          "options": [
+            "工場の生産ライン管理と同じ画一的なルールをすべての知識労働者に厳格に適用すること。",
+            "若手社員は経営陣の指示に一切の疑問を挟まず、完全出社の方針に従順に従うこと。",
+            "対面での対話には価値がないと見なし、全業務を速やかにオンラインへ完全移行すること。",
+            "双方が一方的に自らの論理を押し付けるのをやめ、信頼を基盤にした新しい協働の形を共に模索すること。"
+          ],
+          "answer": 3,
+          "explainVi": "Căn cứ vào câu [10]: 『互いの論理を一方的に押し付けるのではなく、信頼を前提とした新たな協働の形を模索していかなければならない』 (Thay vì đơn phương áp đặt lý lẽ của mình, đôi bên cần tìm kiếm hình thức cộng tác mới dựa trên sự tin tưởng). Phương án D tóm tắt hoàn hảo thông điệp kết luận này. Các phương án sai: A và B đi ngược lại tinh thần tôn trọng lẫn nhau; C là giải pháp cực đoan bị bác bỏ vì bài viết vẫn ghi nhận giá trị giao tiếp trực tiếp.",
+          "tip": "Đọc kỹ câu cuối cùng của bài văn (câu [10]), nơi tác giả thường đúc kết quan điểm và giải pháp chủ đạo.",
+          "evi": [
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Hướng giải quyết nào mà tác giả muốn nhấn mạnh nhất đối với mâu thuẫn xoay quanh việc đến văn phòng và làm việc từ xa?",
+            "o": [
+              "Áp dụng nghiêm ngặt cho tất cả người làm công việc tri thức những quy tắc đồng nhất giống như quản lý dây chuyền sản xuất trong nhà máy.",
+              "Nhân viên trẻ không đặt bất kỳ câu hỏi nào về chỉ thị của ban lãnh đạo và ngoan ngoãn tuân theo chính sách làm việc hoàn toàn tại văn phòng.",
+              "Coi đối thoại trực tiếp là không có giá trị và nhanh chóng chuyển toàn bộ công việc sang hình thức trực tuyến.",
+              "Hai bên ngừng áp đặt một chiều lập luận của mình và cùng tìm kiếm một hình thức hợp tác mới dựa trên sự tin tưởng."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "AI時代の評価と人間の役割",
+      "titleVi": "Đánh giá trong thời đại AI và vai trò của con người",
+      "japanese": "近年、人工知能の発展に伴い、学校教育や採用活動においてアルゴリズムによる自動評価が急速に普及している。新たな自動評価システムが教育機関や企業に導入されるたびに、現場では期待と困惑が入り混じった声が上がっている。神仏の如き完璧な知能ではあるまいし、AIの出した数値を絶対的な真理として受け入れる風潮には違和感を覚える。確かに、大量の答案や応募書類を瞬時に処理できる技術は、採点者の負担を大幅に軽減する画期的な手段といえる。しかし、客観性という美名のもとに人間的な温かみや個別性が排除されていく現状を見ていると、将来への懸念が募ってならない。はたして、効率性のみを追求した評価方法が、人間の真の能力や可能性を正しく見極めることができるのだろうか。\n業務の効率化やコスト削減を急ぐ組織の経営陣にしたら、客観的なデータで瞬時に序列をつけるシステムは誠に魅力的に映るだろう。しかし、日々汗を流して真剣に努力を重ねている現場の従業員や学生にしたら、自らの文脈や動機が無視されるのは耐え難い苦痛である。また、生徒一人ひとりの個性と向き合いながら指導にあたる教育者にすれば、画一的な基準だけで個人の成長を測る手法には強い不安がある。将来への希望と不安を抱えて挑戦する若者にすれば、機械的な合否判定によって自らの可能性を狭められることへの恐怖は計り知れない。評価を下す側と受ける側の間にあるこの深刻な認識の隔たりは、単なる利便性の問題として見過ごすことができない。双方の立場からの見解を慎重に比較検討しなければ、組織や教育現場における信頼関係そのものが崩壊しかねないのだ。\nもちろん、時代の急速な潮流を考えれば、デジタル技術の利便性を頭ごなしに拒否して昔の手法に戻るわけにはいかない。膨大な情報を公平かつ迅速に整理する手段として、テクノロジーの力を適切に借りることは極めて有益である。とはいえ、人間は指示通りに作動する精密機械ではあるまいし、数値に表れない試行錯誤や熱意こそが尊重されるべきである。機械的な採点結果を突きつけられるたびに、その基準の妥当性について根本的な疑問を抱かずにはいられない。努力の過程を完全に無視した冷淡な評価結果を目の当たりにすれば、誰もが異議を唱えずにはいられないだろう。評価とは本来、人間が自己を省みて新たな成長へと向かうための励ましであり、単なる選別作業で終わってはならないのである。\nしたがって、客観的なデータの集計や誤字脱字の検出といった定型的な作業に限り、AIの処理能力を最大限に活用するのが賢明である。また、明確な正解が存在する基礎的な試験に限り自動採点を適用し、創造性や深い思考力を問う評価は人間が担うべきだ。テクノロジーはどこまでも人間の判断を補助するための道具であり、人間を支配する主役になってはならない。未来を担う世代を正しく育てるためにも、指導者が判断の責任をAIに丸投げして自らの義務を放棄するわけにはいかないのである。効率ばかりを追い求めて大切な人間的対話を失ってしまうのではないかと、筆者は心配でならない。私たちはいま一度、人と人との対話を基盤とした本来の教育や評価のあり方を再構築していく必要がある。",
+      "vietnamese": "Trong những năm gần đây, cùng với sự phát triển của trí tuệ nhân tạo, việc đánh giá tự động dựa trên thuật toán đang phổ biến nhanh chóng trong giáo dục trường học và hoạt động tuyển dụng. Mỗi lần một hệ thống đánh giá tự động mới được đưa vào các cơ sở giáo dục hoặc doanh nghiệp, tại hiện trường lại dấy lên những tiếng nói đan xen giữa kỳ vọng và hoang mang. AI đâu phải là trí tuệ hoàn hảo như thần thánh mà chúng ta lại tiếp nhận các con số do nó đưa ra như chân lý tuyệt đối, xu hướng này khiến người ta cảm thấy có điều gì đó không ổn. Đúng là công nghệ có thể xử lý tức thì lượng lớn bài thi hay hồ sơ ứng tuyển là một giải pháp mang tính đột phá giúp giảm bớt đáng kể gánh nặng cho người chấm điểm. Tuy nhiên, khi chứng kiến thực trạng sự ấm áp của con người và tính cá nhân đang dần bị loại bỏ dưới mỹ từ \"tính khách quan\", nỗi lo âu về tương lai trong tôi lại dâng trào khôn xiết. Liệu rằng một phương pháp đánh giá chỉ mưu cầu tính hiệu quả có thể nhìn nhận chính xác năng lực và tiềm năng thực sự của con người hay không?\nTừ góc nhìn của ban lãnh đạo tổ chức đang muốn nhanh chóng nâng cao hiệu quả công việc và cắt giảm chi phí, một hệ thống xếp thứ bậc tức thì bằng dữ liệu khách quan hẳn là phản chiếu vô cùng hấp dẫn. Thế nhưng, đứng ở vị trí của nhân viên hay học sinh tại hiện trường, những người đang ngày ngày đổ mồ hôi và nỗ lực hết mình, thì việc bối cảnh và động lực của bản thân bị phớt lờ là một nỗi đau đớn khó lòng chịu đựng. Hơn nữa, từ góc nhìn của các nhà giáo dục đang trực tiếp hướng dẫn và đối diện với cá tính của từng học sinh, phương pháp chỉ dùng tiêu chuẩn rập khuôn để đo lường sự trưởng thành của một cá nhân gây ra nỗi bất an sâu sắc. Còn từ góc độ của những người trẻ tuổi đang nỗ lực dấn thân với bao hy vọng lẫn âu lo về tương lai, nỗi sợ hãi khi tiềm năng của mình bị thu hẹp bởi những phán quyết đỗ trượt máy móc là không thể đong đếm được. Khoảng cách nhận thức sâu sắc giữa bên đưa ra đánh giá và bên nhận đánh giá này không thể bị xem nhẹ như một vấn đề tiện ích đơn thuần. Nếu không so sánh và xem xét kỹ lưỡng quan điểm từ lập trường của cả hai phía, chính mối quan hệ tin cậy tại tổ chức và môi trường giáo dục có nguy cơ bị sụp đổ.\nTất nhiên, xét theo xu thế phát triển nhanh chóng của thời đại, chúng ta không thể nào gạt phăng sự tiện lợi của công nghệ số để quay trở lại với các phương pháp ngày xưa được. Việc mượn sức mạnh của công nghệ một cách thích hợp như một phương tiện để sắp xếp lượng thông tin khổng lồ một cách công bằng và nhanh chóng là vô cùng hữu ích. Dẫu vậy, con người đâu phải là cỗ máy chính xác chỉ hoạt động theo chỉ thị, chính sự thử sai và nhiệt huyết không hiển thị trên các con số mới là điều đáng được trân trọng. Mỗi lần phải đối diện với kết quả chấm điểm máy móc, người ta lại không thể không nảy sinh nghi vấn sâu sắc về tính thỏa đáng của tiêu chuẩn đó. Khi tận mắt chứng kiến kết quả đánh giá lạnh lùng hoàn toàn phớt lờ quá trình nỗ lực, có lẽ bất kỳ ai cũng không thể không lên tiếng phản đối. Về bản chất, đánh giá vốn dĩ là lời khích lệ để con người tự nhìn lại mình và hướng tới sự trưởng thành mới, chứ không được phép kết thúc như một công việc sàng lọc đơn thuần.\nDo đó, chỉ trong các công việc mang tính định hình như tổng hợp dữ liệu khách quan hay phát hiện lỗi chính tả, việc tận dụng tối đa năng lực xử lý của AI mới là điều sáng suốt. Thêm vào đó, cũng chỉ nên áp dụng việc chấm điểm tự động cho các kỳ thi cơ bản có đáp án chính xác rõ ràng, còn việc đánh giá đòi hỏi tính sáng tạo và năng lực tư duy sâu sắc thì con người phải là bên đảm nhận. Công nghệ suy cho cùng chỉ là công cụ hỗ trợ cho sự phán đoán của con người, chứ không được phép trở thành nhân vật chính chi phối con người. Để nuôi dưỡng đúng đắn thế hệ gánh vác tương lai, những người hướng dẫn không thể nào phó mặc toàn bộ trách nhiệm phán đoán cho AI mà từ bỏ nghĩa vụ của chính mình được. Tác giả cảm thấy vô cùng lo lắng rằng nếu chỉ mải mê theo đuổi hiệu quả, chúng ta sẽ đánh mất đi sự đối thoại nhân văn quý giá. Chúng ta cần một lần nữa tái thiết lại cách thức giáo dục và đánh giá đúng nghĩa, lấy sự đối thoại giữa con người với con người làm nền tảng.",
+      "sentences": [
+        {
+          "jp": "近年、人工知能の発展に伴い、学校教育や採用活動においてアルゴリズムによる自動評価が急速に普及している。",
+          "vi": "Trong những năm gần đây, cùng với sự phát triển của trí tuệ nhân tạo, việc đánh giá tự động dựa trên thuật toán đang phổ biến nhanh chóng trong giáo dục trường học và hoạt động tuyển dụng.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "gần đây, những năm gần đây"
+            },
+            {
+              "w": "人工",
+              "read": "じんこう",
+              "vi": "nhân tạo"
+            },
+            {
+              "w": "知能",
+              "read": "ちのう",
+              "vi": "trí thông minh, trí tuệ"
+            },
+            {
+              "w": "発展",
+              "read": "はってん",
+              "vi": "phát triển, tiến bộ"
+            },
+            {
+              "w": "伴う",
+              "read": "ともなう",
+              "vi": "gắn liền với, đi kèm"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "採用",
+              "read": "さいよう",
+              "vi": "sự tuyển dụng"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "アルゴリズム",
+              "read": "アルゴリズム",
+              "vi": "thuật toán"
+            },
+            {
+              "w": "自動",
+              "read": "じどう",
+              "vi": "sự tự động"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "普及",
+              "read": "ふきゅう",
+              "vi": "phổ cập, lan rộng"
+            },
+            {
+              "w": "採用活動",
+              "read": "さいようかつどう",
+              "vi": "hoạt động tuyển dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～に伴い（にともない）",
+              "vi": "接続: N / Vる + に伴い. Sắc thái: Cùng với sự thay đổi của A kéo theo sự biến đổi của B. Đối chiếu: ～とともに nhấn mạnh 2 sự việc diễn ra đồng thời; ～にしたがって nhấn mạnh tiến trình biến đổi tỷ lệ thuận."
+            }
+          ]
+        },
+        {
+          "jp": "新たな自動評価システムが教育機関や企業に導入されるたびに、現場では期待と困惑が入り混じった声が上がっている。",
+          "vi": "Mỗi lần một hệ thống đánh giá tự động mới được đưa vào các cơ sở giáo dục hoặc doanh nghiệp, tại hiện trường lại dấy lên những tiếng nói đan xen giữa kỳ vọng và hoang mang.",
+          "vocab": [
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "自動",
+              "read": "じどう",
+              "vi": "sự tự động"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "機関",
+              "read": "きかん",
+              "vi": "cơ quan, tổ chức"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp, công ty"
+            },
+            {
+              "w": "導入",
+              "read": "どうにゅう",
+              "vi": "đưa vào sử dụng, áp dụng"
+            },
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "期待",
+              "read": "きたい",
+              "vi": "kỳ vọng"
+            },
+            {
+              "w": "困惑",
+              "read": "こんわく",
+              "vi": "hoang mang, bối rối"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "混じる",
+              "read": "まじる",
+              "vi": "lẫn vào, pha trộn"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "上がる",
+              "read": "あがる",
+              "vi": "tăng lên, nổi lên"
+            },
+            {
+              "w": "入り混じる",
+              "read": "いりまじる",
+              "vi": "đan xen, lẫn lộn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～たびに",
+              "vi": "接続: Vる / Nの + たびに. Sắc thái: Mỗi lần sự việc A xảy ra thì B luôn lặp lại y như vậy (nhấn mạnh tính quy luật/tần suất). Đối chiếu: ～につけて mang sắc thái tâm trạng dâng trào mỗi khi; ～ごとに chia đều theo chu kỳ cố định."
+            }
+          ]
+        },
+        {
+          "jp": "神仏の如き完璧な知能ではあるまいし、AIの出した数値を絶対的な真理として受け入れる風潮には違和感を覚える。",
+          "vi": "AI đâu phải là trí tuệ hoàn hảo như thần thánh mà chúng ta lại tiếp nhận các con số do nó đưa ra như chân lý tuyệt đối, xu hướng này khiến người ta cảm thấy có điều gì đó không ổn.",
+          "vocab": [
+            {
+              "w": "神仏",
+              "read": "しんぶつ",
+              "vi": "thần phật, thần thánh"
+            },
+            {
+              "w": "完璧",
+              "read": "かんぺき",
+              "vi": "hoàn hảo"
+            },
+            {
+              "w": "知能",
+              "read": "ちのう",
+              "vi": "trí thông minh, trí tuệ"
+            },
+            {
+              "w": "AI",
+              "read": "AI",
+              "vi": "trí tuệ nhân tạo"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "数値",
+              "read": "すうち",
+              "vi": "con số, giá trị số"
+            },
+            {
+              "w": "絶対",
+              "read": "ぜったい",
+              "vi": "sự tuyệt đối"
+            },
+            {
+              "w": "真理",
+              "read": "しんり",
+              "vi": "chân lý"
+            },
+            {
+              "w": "受け入れる",
+              "read": "うけいれる",
+              "vi": "tiếp nhận, chấp nhận"
+            },
+            {
+              "w": "風潮",
+              "read": "ふうちょう",
+              "vi": "phong trào, trào lưu, xu hướng xã hội"
+            },
+            {
+              "w": "違和感",
+              "read": "いわかん",
+              "vi": "cảm giác cấn gợn, không hợp lý"
+            },
+            {
+              "w": "覚える",
+              "read": "おぼえる",
+              "vi": "nhớ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ではあるまいし",
+              "vi": "接続: N / Thể thông thường (Aな/N thì bỏ だ) + ではあるまいし. Sắc thái: 'Đâu phải là... (nên không thể/đừng làm thế)'. Thể hiện sự phê phán nhẹ, mỉa mai hoặc khuyên nhủ dựa trên việc phủ định một tiền đề phi lý. Đối chiếu: ～わけではない phủ định một phần mang tính trung tính khách quan; ～ではないのだから tương đương nghĩa nhưng ではあるまいし mang cảm xúc chỉ trích/phàn nàn rõ hơn."
+            }
+          ]
+        },
+        {
+          "jp": "確かに、大量の答案や応募書類を瞬時に処理できる技術は、採点者の負担を大幅に軽減する画期的な手段といえる。",
+          "vi": "Đúng là công nghệ có thể xử lý tức thì lượng lớn bài thi hay hồ sơ ứng tuyển là một giải pháp mang tính đột phá giúp giảm bớt đáng kể gánh nặng cho người chấm điểm.",
+          "vocab": [
+            {
+              "w": "確かに",
+              "read": "たしかに",
+              "vi": "quả thật"
+            },
+            {
+              "w": "確か",
+              "read": "たしか",
+              "vi": "chắc chắn"
+            },
+            {
+              "w": "大量",
+              "read": "たいりょう",
+              "vi": "số lượng lớn"
+            },
+            {
+              "w": "答案",
+              "read": "とうあん",
+              "vi": "bài làm; phiếu trả lời"
+            },
+            {
+              "w": "応募書類",
+              "read": "おうぼしょるい",
+              "vi": "hồ sơ ứng tuyển"
+            },
+            {
+              "w": "応募",
+              "read": "おうぼ",
+              "vi": "ứng tuyển; đăng ký"
+            },
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "giấy tờ; hồ sơ"
+            },
+            {
+              "w": "瞬時",
+              "read": "しゅんじ",
+              "vi": "trong chớp mắt"
+            },
+            {
+              "w": "処理できる",
+              "read": "しょりできる",
+              "vi": "có thể xử lý"
+            },
+            {
+              "w": "処理",
+              "read": "しょり",
+              "vi": "xử lý"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "採点者",
+              "read": "さいてんしゃ",
+              "vi": "người chấm điểm"
+            },
+            {
+              "w": "採点",
+              "read": "さいてん",
+              "vi": "chấm điểm"
+            },
+            {
+              "w": "負担",
+              "read": "ふたん",
+              "vi": "gánh nặng"
+            },
+            {
+              "w": "大幅",
+              "read": "おおはば",
+              "vi": "đáng kể"
+            },
+            {
+              "w": "軽減する",
+              "read": "けいげんする",
+              "vi": "giảm nhẹ"
+            },
+            {
+              "w": "軽減",
+              "read": "けいげん",
+              "vi": "sự giảm nhẹ"
+            },
+            {
+              "w": "画期的な",
+              "read": "かっきてきな",
+              "vi": "mang tính đột phá"
+            },
+            {
+              "w": "画期的",
+              "read": "かっきてき",
+              "vi": "mang tính đột phá"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "biện pháp; phương tiện"
+            },
+            {
+              "w": "いえる",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～といえる",
+              "vi": "接続: Thể thông thường + といえる. Sắc thái: Có thể nói rằng... (đưa ra nhận định/đánh giá một cách thận trọng, khách quan)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、客観性という美名のもとに人間的な温かみや個別性が排除されていく現状を見ていると、将来への懸念が募ってならない。",
+          "vi": "Tuy nhiên, khi chứng kiến thực trạng sự ấm áp của con người và tính cá nhân đang dần bị loại bỏ dưới mỹ từ 'tính khách quan', nỗi lo âu về tương lai trong tôi lại dâng trào khôn xiết.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "客観",
+              "read": "きゃっかん",
+              "vi": "sự khách quan"
+            },
+            {
+              "w": "美名",
+              "read": "びめい",
+              "vi": "mỹ từ, danh nghĩa đẹp đẽ"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "温かみ",
+              "read": "あたたかみ",
+              "vi": "sự ấm áp, hơi ấm"
+            },
+            {
+              "w": "個別",
+              "read": "こべつ",
+              "vi": "cá nhân, riêng lẻ"
+            },
+            {
+              "w": "排除",
+              "read": "はいじょ",
+              "vi": "bài trừ, loại bỏ"
+            },
+            {
+              "w": "現状",
+              "read": "げんじょう",
+              "vi": "thực trạng, tình hình hiện tại"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "懸念",
+              "read": "けねん",
+              "vi": "lo ngại, e ngại"
+            },
+            {
+              "w": "募る",
+              "read": "つのる",
+              "vi": "ngày càng tăng, dâng trào mãnh liệt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てならない",
+              "vi": "接続: Vて / Aくて / Naで + ならない (thường đi với động từ/tính từ chỉ cảm xúc như 思える, 気になる, 心配で, 不安で). Sắc thái: Cảm xúc tự nhiên dâng trào đến mức không kìm nén được. Đối chiếu: ～てたまらない nhấn mạnh mức độ chịu đựng không nổi về thể xác/nhu cầu; ～てしかたがない biểu thị sự bất lực, không biết phải làm sao."
+            }
+          ]
+        },
+        {
+          "jp": "はたして、効率性のみを追求した評価方法が、人間の真の能力や可能性を正しく見極めることができるのだろうか。",
+          "vi": "Liệu rằng một phương pháp đánh giá chỉ mưu cầu tính hiệu quả có thể nhìn nhận chính xác năng lực và tiềm năng thực sự của con người hay không?",
+          "vocab": [
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "追求",
+              "read": "ついきゅう",
+              "vi": "mưu cầu, theo đuổi"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "真",
+              "read": "しん",
+              "vi": "chân thực, sự thật"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "見極める",
+              "read": "みきわめる",
+              "vi": "nhìn thấu, nhận định rõ ràng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "はたして～だろうか",
+              "vi": "接続: はたして + V/A/N Thể thông thường + だろうか. Sắc thái: Nghi vấn tu từ mang tính phản biện sâu sắc: 'Liệu thực sự có thể... hay không?'."
+            }
+          ]
+        },
+        {
+          "jp": "業務の効率化やコスト削減を急ぐ組織の経営陣にしたら、客観的なデータで瞬時に序列をつけるシステムは誠に魅力的に映るだろう。",
+          "vi": "Từ góc nhìn của ban lãnh đạo tổ chức đang muốn nhanh chóng nâng cao hiệu quả công việc và cắt giảm chi phí, một hệ thống xếp thứ bậc tức thì bằng dữ liệu khách quan hẳn là phản chiếu vô cùng hấp dẫn.",
+          "vocab": [
+            {
+              "w": "業務",
+              "read": "ぎょうむ",
+              "vi": "nghiệp vụ, công việc"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "コスト",
+              "read": "コスト",
+              "vi": "chi phí"
+            },
+            {
+              "w": "削減",
+              "read": "さくげん",
+              "vi": "sự cắt giảm"
+            },
+            {
+              "w": "急ぐ",
+              "read": "いそぐ",
+              "vi": "gấp, khẩn cấp"
+            },
+            {
+              "w": "組織",
+              "read": "そしき",
+              "vi": "tổ chức"
+            },
+            {
+              "w": "経営",
+              "read": "けいえい",
+              "vi": "kinh doanh, quản trị"
+            },
+            {
+              "w": "客観",
+              "read": "きゃっかん",
+              "vi": "sự khách quan"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "瞬時",
+              "read": "しゅんじ",
+              "vi": "khoảnh khắc, tức thì"
+            },
+            {
+              "w": "序列",
+              "read": "じょれつ",
+              "vi": "thứ bậc, trật tự xếp hạng"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "誠に",
+              "read": "まことに",
+              "vi": "thật sự, thành thật"
+            },
+            {
+              "w": "魅力",
+              "read": "みりょく",
+              "vi": "sức hút, sức hấp dẫn"
+            },
+            {
+              "w": "映る",
+              "read": "うつる",
+              "vi": "phản chiếu, hiện lên"
+            },
+            {
+              "w": "経営陣",
+              "read": "けいえいじん",
+              "vi": "ban lãnh đạo, đội ngũ quản lý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にしたら",
+              "vi": "接続: N (người/tổ chức) + にしたら. Sắc thái: 'Nếu đứng từ vị trí/lập trường của ai...'. Dùng để suy đoán, thấu hiểu suy nghĩ hoặc tâm trạng của người khác khi đặt mình vào hoàn cảnh của họ. Đối chiếu: ～にとって đánh giá mức độ quan trọng/tác động khách quan; ～としては đứng trên tư cách/bổn phận thực tế."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、日々汗を流して真剣に努力を重ねている現場の従業員や学生にしたら、自らの文脈や動機が無視されるのは耐え難い苦痛である。",
+          "vi": "Thế nhưng, đứng ở vị trí của nhân viên hay học sinh tại hiện trường, những người đang ngày ngày đổ mồ hôi và nỗ lực hết mình, thì việc bối cảnh và động lực của bản thân bị phớt lờ là một nỗi đau đớn khó lòng chịu đựng.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "汗",
+              "read": "あせ",
+              "vi": "mồ hôi"
+            },
+            {
+              "w": "流す",
+              "read": "ながす",
+              "vi": "cho chảy, lan truyền"
+            },
+            {
+              "w": "真剣",
+              "read": "しんけん",
+              "vi": "nghiêm túc, nghiêm chỉnh"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "重ねる",
+              "read": "かさねる",
+              "vi": "lặp lại, chồng chất"
+            },
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "従業",
+              "read": "じゅうぎょう",
+              "vi": "làm việc, làm công"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "文脈",
+              "read": "ぶんみゃく",
+              "vi": "bối cảnh, ngữ cảnh, hoàn cảnh"
+            },
+            {
+              "w": "動機",
+              "read": "どうき",
+              "vi": "động cơ, lý do"
+            },
+            {
+              "w": "無視",
+              "read": "むし",
+              "vi": "phớt lờ, xem nhẹ"
+            },
+            {
+              "w": "耐え難い",
+              "read": "たえがたい",
+              "vi": "khó lòng chịu đựng, không thể kham nổi"
+            },
+            {
+              "w": "苦痛",
+              "read": "くつう",
+              "vi": "nỗi đau đớn, đau khổ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にしたら",
+              "vi": "接続: N + にしたら. Sắc thái: Đứng ở vị trí của người chịu tác động trực tiếp để diễn tả cảm xúc/nỗi niềm của họ. Đối chiếu: ～にすれば/にしてみれば hoàn toàn đồng nghĩa và có thể thay thế."
+            }
+          ]
+        },
+        {
+          "jp": "また、生徒一人ひとりの個性と向き合いながら指導にあたる教育者にすれば、画一的な基準だけで個人の成長を測る手法には強い不安がある。",
+          "vi": "Hơn nữa, từ góc nhìn của các nhà giáo dục đang trực tiếp hướng dẫn và đối diện với cá tính của từng học sinh, phương pháp chỉ dùng tiêu chuẩn rập khuôn để đo lường sự trưởng thành của một cá nhân gây ra nỗi bất an sâu sắc.",
+          "vocab": [
+            {
+              "w": "生徒",
+              "read": "せいと",
+              "vi": "học viên, học sinh"
+            },
+            {
+              "w": "一人ひとり",
+              "read": "ひとりひとり",
+              "vi": "từng người một"
+            },
+            {
+              "w": "個性",
+              "read": "こせい",
+              "vi": "cá tính"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, lắng nghe và thấu hiểu"
+            },
+            {
+              "w": "指導",
+              "read": "しどう",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "画一",
+              "read": "かくいつ",
+              "vi": "sự rập khuôn, đồng nhất"
+            },
+            {
+              "w": "基準",
+              "read": "きじゅん",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "個人",
+              "read": "こじん",
+              "vi": "cá nhân"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "測る",
+              "read": "はかる",
+              "vi": "đo lường, định lượng"
+            },
+            {
+              "w": "手法",
+              "read": "しゅほう",
+              "vi": "phương pháp, thủ pháp"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "画一的",
+              "read": "かくいつてき",
+              "vi": "rập khuôn, đồng nhất thiếu linh hoạt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にすれば",
+              "vi": "接続: N (người/vị trí) + にすれば. Sắc thái: Biến thể của にしたら, diễn đạt góc nhìn hoặc mối bận tâm từ một lập trường cụ thể. Văn phong trang trọng, thường dùng trong nghị luận."
+            }
+          ]
+        },
+        {
+          "jp": "将来への希望と不安を抱えて挑戦する若者にすれば、機械的な合否判定によって自らの可能性を狭められることへの恐怖は計り知れない。",
+          "vi": "Còn từ góc độ của những người trẻ tuổi đang nỗ lực dấn thân với bao hy vọng lẫn âu lo về tương lai, nỗi sợ hãi khi tiềm năng của mình bị thu hẹp bởi những phán quyết đỗ trượt máy móc là không thể đong đếm được.",
+          "vocab": [
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "nguyện vọng, mong muốn"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "抱える",
+              "read": "かかえる",
+              "vi": "ôm giữ, mang trong mình (gánh nặng, khuyết điểm)"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử thách"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "機械",
+              "read": "きかい",
+              "vi": "máy móc, thiết bị"
+            },
+            {
+              "w": "合否",
+              "read": "ごうひ",
+              "vi": "đỗ hay trượt, kết quả"
+            },
+            {
+              "w": "判定",
+              "read": "はんてい",
+              "vi": "sự phán đoán, đánh giá"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "狭める",
+              "read": "せばめる",
+              "vi": "thu hẹp, làm hẹp"
+            },
+            {
+              "w": "恐怖",
+              "read": "きょうふ",
+              "vi": "nỗi sợ hãi, sự khiếp sợ"
+            },
+            {
+              "w": "計る",
+              "read": "はかる",
+              "vi": "đo lường, tính toán"
+            },
+            {
+              "w": "知れる",
+              "read": "しれる",
+              "vi": "được biết đến, hiểu ra"
+            },
+            {
+              "w": "合否判定",
+              "read": "ごうひはんてい",
+              "vi": "phán quyết đỗ trượt/đạt không đạt"
+            },
+            {
+              "w": "計り知れない",
+              "read": "はかりしれない",
+              "vi": "không thể đo lường/đong đếm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～にすれば",
+              "vi": "接続: N + にすれば. Sắc thái: Đặt mình vào tâm thế của người trẻ để thấu hiểu nỗi sợ vô tận trước những phán xét lạnh lùng."
+            }
+          ]
+        },
+        {
+          "jp": "評価を下す側と受ける側の間にあるこの深刻な認識の隔たりは、単なる利便性の問題として見過ごすことができない。",
+          "vi": "Khoảng cách nhận thức sâu sắc giữa bên đưa ra đánh giá và bên nhận đánh giá này không thể bị xem nhẹ như một vấn đề tiện ích đơn thuần.",
+          "vocab": [
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "下す",
+              "read": "くだす",
+              "vi": "đưa ra, hạ lệnh"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "側",
+              "read": "がわ",
+              "vi": "phía, bên"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "深刻",
+              "read": "しんこく",
+              "vi": "nghiêm trọng"
+            },
+            {
+              "w": "認識",
+              "read": "にんしき",
+              "vi": "nhận thức"
+            },
+            {
+              "w": "隔たり",
+              "read": "へだたり",
+              "vi": "khoảng cách, sự cách biệt"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ đơn thuần là"
+            },
+            {
+              "w": "利便",
+              "read": "りべん",
+              "vi": "sự tiện lợi, tiện dụng"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "見過ごす",
+              "read": "みすごす",
+              "vi": "bỏ qua, xem nhẹ, làm ngơ"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～として",
+              "vi": "接続: N + として. Sắc thái: Dưới tư cách là / Coi như là... (thể hiện định vị nhận thức)."
+            }
+          ]
+        },
+        {
+          "jp": "双方の立場からの見解を慎重に比較検討しなければ、組織や教育現場における信頼関係そのものが崩壊しかねないのだ。",
+          "vi": "Nếu không so sánh và xem xét kỹ lưỡng quan điểm từ lập trường của cả hai phía, chính mối quan hệ tin cậy tại tổ chức và môi trường giáo dục có nguy cơ bị sụp đổ.",
+          "vocab": [
+            {
+              "w": "双方",
+              "read": "そうほう",
+              "vi": "hai phía, đôi bên"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "địa vị, lập trường"
+            },
+            {
+              "w": "見解",
+              "read": "けんかい",
+              "vi": "quan điểm, ý kiến đánh giá"
+            },
+            {
+              "w": "慎重",
+              "read": "しんちょう",
+              "vi": "thận trọng, cẩn thận"
+            },
+            {
+              "w": "比較",
+              "read": "ひかく",
+              "vi": "so sánh, sự so sánh"
+            },
+            {
+              "w": "検討",
+              "read": "けんとう",
+              "vi": "xem xét, cân nhắc"
+            },
+            {
+              "w": "組織",
+              "read": "そしき",
+              "vi": "tổ chức"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "現場",
+              "read": "げんば",
+              "vi": "hiện trường, nơi làm việc thực tế"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "崩壊",
+              "read": "ほうかい",
+              "vi": "sụp đổ, tan vỡ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～かねない",
+              "vi": "接続: Vます(bỏ ます) + かねない. Sắc thái: Có nguy cơ/e rằng sẽ dẫn đến kết quả xấu. Đối chiếu: ～恐れがある trang trọng dùng trong văn bản báo cáo; ～かもしれない phỏng đoán trung tính không thiên về tiêu cực."
+            }
+          ]
+        },
+        {
+          "jp": "もちろん、時代の急速な潮流を考えれば、デジタル技術の利便性を頭ごなしに拒否して昔の手法に戻るわけにはいかない。",
+          "vi": "Tất nhiên, xét theo xu thế phát triển nhanh chóng của thời đại, chúng ta không thể nào gạt phăng sự tiện lợi của công nghệ số để quay trở lại với các phương pháp ngày xưa được.",
+          "vocab": [
+            {
+              "w": "もちろん",
+              "read": "もちろん",
+              "vi": "đương nhiên, tất nhiên"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "潮流",
+              "read": "ちょうりゅう",
+              "vi": "xu thế, trào lưu thời đại"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "デジタル技術",
+              "read": "でじたるぎじゅつ",
+              "vi": "công nghệ số, kỹ thuật số"
+            },
+            {
+              "w": "利便",
+              "read": "りべん",
+              "vi": "sự tiện lợi, tiện dụng"
+            },
+            {
+              "w": "頭ごなしに",
+              "read": "あたまごなしに",
+              "vi": "gạt phăng, phủ đầu không cần lắng nghe"
+            },
+            {
+              "w": "拒否",
+              "read": "きょひ",
+              "vi": "từ chối, bác bỏ"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "手法",
+              "read": "しゅほう",
+              "vi": "phương pháp, thủ pháp"
+            },
+            {
+              "w": "戻る",
+              "read": "もどる",
+              "vi": "quay lại, trở về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～わけにはいかない",
+              "vi": "接続: Vる + わけにはいかない. Sắc thái: 'Không thể / Không được phép làm V'. Dựa trên chuẩn mực đạo đức, hoàn cảnh thực tế hoặc lẽ thường xã hội mà chủ thể tự kiềm chế không làm. Đối chiếu: ～てはいけない cấm đoán trực tiếp; ～ないわけにはいかない buộc phải làm vì nghĩa vụ."
+            }
+          ]
+        },
+        {
+          "jp": "膨大な情報を公平かつ迅速に整理する手段として、テクノロジーの力を適切に借りることは極めて有益である。",
+          "vi": "Việc mượn sức mạnh của công nghệ một cách thích hợp như một phương tiện để sắp xếp lượng thông tin khổng lồ một cách công bằng và nhanh chóng là vô cùng hữu ích.",
+          "vocab": [
+            {
+              "w": "膨大",
+              "read": "ぼうだい",
+              "vi": "khổng lồ, cực lớn"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "公平",
+              "read": "こうへい",
+              "vi": "công bằng"
+            },
+            {
+              "w": "迅速",
+              "read": "じんそく",
+              "vi": "sự nhanh chóng, thần tốc"
+            },
+            {
+              "w": "整理",
+              "read": "せいり",
+              "vi": "sắp xếp, dọn dẹp"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "phương tiện, cách thức"
+            },
+            {
+              "w": "テクノロジー",
+              "read": "テクノロジー",
+              "vi": "công nghệ"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "適切",
+              "read": "てきせつ",
+              "vi": "thích hợp, phù hợp"
+            },
+            {
+              "w": "借りる",
+              "read": "かりる",
+              "vi": "mượn, vay"
+            },
+            {
+              "w": "極めて",
+              "read": "きわめて",
+              "vi": "cực kỳ, vô cùng"
+            },
+            {
+              "w": "有益",
+              "read": "ゆうえき",
+              "vi": "hữu ích, có lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～かつ～",
+              "vi": "接続: A(Na/N/Aい) + かつ + B. Sắc thái: Vừa... lại vừa... (liên từ nối 2 đặc tính tương đương trong văn viết trang trọng)."
+            }
+          ]
+        },
+        {
+          "jp": "とはいえ、人間は指示通りに作動する精密機械ではあるまいし、数値に表れない試行錯誤や熱意こそが尊重されるべきである。",
+          "vi": "Dẫu vậy, con người đâu phải là cỗ máy chính xác chỉ hoạt động theo chỉ thị, chính sự thử sai và nhiệt huyết không hiển thị trên các con số mới là điều đáng được trân trọng.",
+          "vocab": [
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "指示",
+              "read": "しじ",
+              "vi": "chỉ thị, hướng dẫn"
+            },
+            {
+              "w": "作動",
+              "read": "さどう",
+              "vi": "hoạt động, vận hành"
+            },
+            {
+              "w": "精密",
+              "read": "せいみつ",
+              "vi": "chính xác, tinh vi, tỉ mỉ"
+            },
+            {
+              "w": "機械",
+              "read": "きかい",
+              "vi": "máy móc, thiết bị"
+            },
+            {
+              "w": "数値",
+              "read": "すうち",
+              "vi": "con số, giá trị số"
+            },
+            {
+              "w": "表れる",
+              "read": "あらわれる",
+              "vi": "hiện lên, biểu hiện ra"
+            },
+            {
+              "w": "試行錯誤",
+              "read": "しこうさくご",
+              "vi": "quá trình thử và sai, mò mẫm thử nghiệm"
+            },
+            {
+              "w": "熱意",
+              "read": "ねつい",
+              "vi": "lòng nhiệt huyết, tâm huyết"
+            },
+            {
+              "w": "尊重",
+              "read": "そんちょう",
+              "vi": "sự tôn trọng, coi trọng"
+            },
+            {
+              "w": "精密機械",
+              "read": "せいみつきかい",
+              "vi": "máy móc chính xác, cỗ máy tinh vi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ではあるまいし",
+              "vi": "接続: N + ではあるまいし. Sắc thái: 'Đâu phải là cỗ máy chính xác...'. Bác bỏ tiền đề so sánh phi lý giữa người và máy để khẳng định giá trị nhân văn cốt lõi."
+            },
+            {
+              "point": "～こそ",
+              "vi": "接続: N / Thể thông thường + こそ. Sắc thái: Chính là... (nhấn mạnh đối tượng trọng tâm, làm nổi bật điều muốn khẳng định)."
+            }
+          ]
+        },
+        {
+          "jp": "機械的な採点結果を突きつけられるたびに、その基準の妥当性について根本的な疑問を抱かずにはいられない。",
+          "vi": "Mỗi lần phải đối diện với kết quả chấm điểm máy móc, người ta lại không thể không nảy sinh nghi vấn sâu sắc về tính thỏa đáng của tiêu chuẩn đó.",
+          "vocab": [
+            {
+              "w": "機械的な",
+              "read": "きかいてきな",
+              "vi": "mang tính máy móc"
+            },
+            {
+              "w": "機械",
+              "read": "きかい",
+              "vi": "máy móc"
+            },
+            {
+              "w": "採点結果",
+              "read": "さいてんけっか",
+              "vi": "kết quả chấm điểm"
+            },
+            {
+              "w": "採点",
+              "read": "さいてん",
+              "vi": "chấm điểm"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "突きつけられる",
+              "read": "つきつけられる",
+              "vi": "bị buộc đối mặt với"
+            },
+            {
+              "w": "たびに",
+              "read": "たびに",
+              "vi": "mỗi khi"
+            },
+            {
+              "w": "基準",
+              "read": "きじゅん",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "妥当性",
+              "read": "だとうせい",
+              "vi": "tính hợp lý"
+            },
+            {
+              "w": "妥当",
+              "read": "だとう",
+              "vi": "hợp lý; thỏa đáng"
+            },
+            {
+              "w": "根本的な",
+              "read": "こんぽんてきな",
+              "vi": "mang tính căn bản"
+            },
+            {
+              "w": "根本",
+              "read": "こんぽん",
+              "vi": "căn bản; gốc rễ"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "nghi vấn; thắc mắc"
+            },
+            {
+              "w": "抱かずにはいられない",
+              "read": "いだかずにはいられない",
+              "vi": "không thể không抱く; không thể không mang疑 vấn"
+            },
+            {
+              "w": "抱かず",
+              "read": "いだかず",
+              "vi": "không mang; không抱く"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ずにはいられない",
+              "vi": "接続: Vない(bỏ ない) + ずにはいられない (Đặc biệt: する → せずにはいられない). Sắc thái: 'Không thể không làm... / Tự nhiên cứ nảy sinh hành động/cảm xúc...'. Nhấn mạnh sự thôi thúc nội tâm mãnh liệt không kìm giữ nổi. Đối chiếu: ～ないではいられない khẩu ngữ hơn; ～てたまらない nhấn mạnh cảm giác cơ thể/nhu cầu cá nhân."
+            },
+            {
+              "point": "～たびに",
+              "vi": "接続: Vる + たびに. Sắc thái: Cứ mỗi lần đối diện kết quả là nghi vấn lại trỗi dậy."
+            }
+          ]
+        },
+        {
+          "jp": "努力の過程を完全に無視した冷淡な評価結果を目の当たりにすれば、誰もが異議を唱えずにはいられないだろう。",
+          "vi": "Khi tận mắt chứng kiến kết quả đánh giá lạnh lùng hoàn toàn phớt lờ quá trình nỗ lực, có lẽ bất kỳ ai cũng không thể không lên tiếng phản đối.",
+          "vocab": [
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "過程",
+              "read": "かてい",
+              "vi": "quá trình, tiến trình"
+            },
+            {
+              "w": "完全",
+              "read": "かんぜん",
+              "vi": "sự hoàn hảo, hoàn toàn"
+            },
+            {
+              "w": "無視",
+              "read": "むし",
+              "vi": "phớt lờ, xem nhẹ"
+            },
+            {
+              "w": "冷淡",
+              "read": "れいたん",
+              "vi": "lạnh lùng, thờ ơ, vô cảm"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "目の当たりにする",
+              "read": "まのあたりにする",
+              "vi": "tận mắt chứng kiến"
+            },
+            {
+              "w": "異議を唱える",
+              "read": "いぎをとなえる",
+              "vi": "lên tiếng phản đối, nêu ý kiến bất đồng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ずにはいられない",
+              "vi": "接続: Vない(bỏ ない) + ずにはいられない. Sắc thái: Không kìm lòng được mà phải cất lên tiếng nói phản kháng trước sự bất công."
+            }
+          ]
+        },
+        {
+          "jp": "評価とは本来、人間が自己を省みて新たな成長へと向かうための励ましであり、単なる選別作業で終わってはならないのである。",
+          "vi": "Về bản chất, đánh giá vốn dĩ là lời khích lệ để con người tự nhìn lại mình và hướng tới sự trưởng thành mới, chứ không được phép kết thúc như một công việc sàng lọc đơn thuần.",
+          "vocab": [
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "本来",
+              "read": "ほんらい",
+              "vi": "vốn dĩ, bản chất thực sự"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "自己",
+              "read": "じこ",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "省みる",
+              "read": "かえりみる",
+              "vi": "nhìn lại mình, tự phản tỉnh"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "向かう",
+              "read": "むかう",
+              "vi": "hướng tới, đối mặt"
+            },
+            {
+              "w": "励ます",
+              "read": "はげます",
+              "vi": "động viên, khích lệ"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ đơn thuần là"
+            },
+            {
+              "w": "選別",
+              "read": "せんべつ",
+              "vi": "sàng lọc, phân loại lựa chọn"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てはならない",
+              "vi": "接続: Vて + はならない. Sắc thái: 'Không được phép...'. Biểu thị điều cấm kỵ mang tính nguyên tắc, đạo lý hoặc trách nhiệm trong văn viết trang trọng."
+            }
+          ]
+        },
+        {
+          "jp": "したがって、客観的なデータの集計や誤字脱字の検出といった定型的な作業に限り、AIの処理能力を最大限に活用するのが賢明である。",
+          "vi": "Do đó, chỉ trong các công việc mang tính định hình như tổng hợp dữ liệu khách quan hay phát hiện lỗi chính tả, việc tận dụng tối đa năng lực xử lý của AI mới là điều sáng suốt.",
+          "vocab": [
+            {
+              "w": "したがって",
+              "read": "したがって",
+              "vi": "do đó, vì vậy"
+            },
+            {
+              "w": "客観",
+              "read": "きゃっかん",
+              "vi": "sự khách quan"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "集計",
+              "read": "しゅうけい",
+              "vi": "sự tổng hợp số liệu"
+            },
+            {
+              "w": "定型",
+              "read": "ていけい",
+              "vi": "khuôn mẫu, định hình"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "AI",
+              "read": "AI",
+              "vi": "trí tuệ nhân tạo"
+            },
+            {
+              "w": "処理",
+              "read": "しょり",
+              "vi": "xử lý"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "最大限",
+              "read": "さいだいげん",
+              "vi": "mức tối đa"
+            },
+            {
+              "w": "活用",
+              "read": "かつよう",
+              "vi": "tận dụng, ứng dụng"
+            },
+            {
+              "w": "賢明",
+              "read": "けんめい",
+              "vi": "sáng suốt, khôn ngoan"
+            },
+            {
+              "w": "誤字脱字",
+              "read": "ごじだつじ",
+              "vi": "chữ sai và chữ bị sót"
+            },
+            {
+              "w": "定型的",
+              "read": "ていけいてき",
+              "vi": "có tính định hình, theo khuôn mẫu sẵn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～に限り（にかぎり）",
+              "vi": "接続: N + に限り. Sắc thái: 'Chỉ giới hạn trong phạm vi / trường hợp N'. Dùng để khoanh vùng giới hạn nghiêm ngặt trong quy tắc hoặc đề xuất trang trọng. Đối chiếu: ～だけ mang tính hạn định thông thường; ～のみ trang trọng hơn nhưng に限り nhấn mạnh phạm vi ngoại lệ hoặc ranh giới áp dụng rõ rệt."
+            }
+          ]
+        },
+        {
+          "jp": "また、明確な正解が存在する基礎的な試験に限り自動採点を適用し、創造性や深い思考力を問う評価は人間が担うべきだ。",
+          "vi": "Thêm vào đó, cũng chỉ nên áp dụng việc chấm điểm tự động cho các kỳ thi cơ bản có đáp án chính xác rõ ràng, còn việc đánh giá đòi hỏi tính sáng tạo và năng lực tư duy sâu sắc thì con người phải là bên đảm nhận.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại; ngoài ra"
+            },
+            {
+              "w": "明確な",
+              "read": "めいかくな",
+              "vi": "rõ ràng"
+            },
+            {
+              "w": "明確",
+              "read": "めいかく",
+              "vi": "rõ ràng"
+            },
+            {
+              "w": "正解",
+              "read": "せいかい",
+              "vi": "đáp án đúng"
+            },
+            {
+              "w": "存在する",
+              "read": "そんざいする",
+              "vi": "tồn tại"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "sự tồn tại"
+            },
+            {
+              "w": "基礎的な",
+              "read": "きそてきな",
+              "vi": "mang tính cơ bản"
+            },
+            {
+              "w": "基礎",
+              "read": "きそ",
+              "vi": "cơ sở; nền tảng"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi"
+            },
+            {
+              "w": "限り",
+              "read": "かぎり",
+              "vi": "chỉ; giới hạn"
+            },
+            {
+              "w": "自動採点",
+              "read": "じどうさいてん",
+              "vi": "chấm điểm tự động"
+            },
+            {
+              "w": "自動",
+              "read": "じどう",
+              "vi": "tự động"
+            },
+            {
+              "w": "採点",
+              "read": "さいてん",
+              "vi": "chấm điểm"
+            },
+            {
+              "w": "適用し",
+              "read": "てきようし",
+              "vi": "áp dụng rồi"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "áp dụng"
+            },
+            {
+              "w": "創造性",
+              "read": "そうぞうせい",
+              "vi": "tính sáng tạo"
+            },
+            {
+              "w": "創造",
+              "read": "そうぞう",
+              "vi": "sáng tạo"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu; sâu sắc"
+            },
+            {
+              "w": "思考力",
+              "read": "しこうりょく",
+              "vi": "năng lực tư duy"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "tư duy"
+            },
+            {
+              "w": "問う",
+              "read": "とう",
+              "vi": "đặt ra; yêu cầu đánh giá"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "đánh giá"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người"
+            },
+            {
+              "w": "担う",
+              "read": "になう",
+              "vi": "đảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～に限り",
+              "vi": "接続: N + に限り. Sắc thái: Khoanh vùng phạm vi đối tượng duy nhất được áp dụng phương pháp tự động hóa."
+            },
+            {
+              "point": "～べきだ",
+              "vi": "接続: Vる + べきだ (する → すべきだ/するべきだ). Sắc thái: Đương nhiên nên làm / Phải làm (xét theo đạo lý hoặc trách nhiệm)."
+            }
+          ]
+        },
+        {
+          "jp": "テクノロジーはどこまでも人間の判断を補助するための道具であり、人間を支配する主役になってはならない。",
+          "vi": "Công nghệ suy cho cùng chỉ là công cụ hỗ trợ cho sự phán đoán của con người, chứ không được phép trở thành nhân vật chính chi phối con người.",
+          "vocab": [
+            {
+              "w": "テクノロジー",
+              "read": "テクノロジー",
+              "vi": "công nghệ"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "判断",
+              "read": "はんだん",
+              "vi": "sự phán đoán, đánh giá"
+            },
+            {
+              "w": "補助",
+              "read": "ほじょ",
+              "vi": "hỗ trợ, bổ trợ"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, phương tiện"
+            },
+            {
+              "w": "支配",
+              "read": "しはい",
+              "vi": "chi phối, thống trị"
+            },
+            {
+              "w": "主役",
+              "read": "しゅやく",
+              "vi": "vai chính"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どこまでも",
+              "vi": "Sắc thái: Phó từ nhấn mạnh 'suy cho cùng', 'dù thế nào đi nữa cũng chỉ là...'."
+            }
+          ]
+        },
+        {
+          "jp": "未来を担う世代を正しく育てるためにも、指導者が判断の責任をAIに丸投げして自らの義務を放棄するわけにはいかないのである。",
+          "vi": "Để nuôi dưỡng đúng đắn thế hệ gánh vác tương lai, những người hướng dẫn không thể nào phó mặc toàn bộ trách nhiệm phán đoán cho AI mà từ bỏ nghĩa vụ của chính mình được.",
+          "vocab": [
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "担う",
+              "read": "になう",
+              "vi": "gánh vác, đảm nhận"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "育てる",
+              "read": "そだてる",
+              "vi": "nuôi dưỡng, bồi dưỡng"
+            },
+            {
+              "w": "指導",
+              "read": "しどう",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "判断",
+              "read": "はんだん",
+              "vi": "sự phán đoán, đánh giá"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "AI",
+              "read": "AI",
+              "vi": "trí tuệ nhân tạo"
+            },
+            {
+              "w": "丸",
+              "read": "まる",
+              "vi": "hình tròn, toàn bộ"
+            },
+            {
+              "w": "投げる",
+              "read": "なげる",
+              "vi": "ném, buông ra (lời nói)"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "義務",
+              "read": "ぎむ",
+              "vi": "nghĩa vụ"
+            },
+            {
+              "w": "放棄",
+              "read": "ほうき",
+              "vi": "từ bỏ, vứt bỏ nghĩa vụ"
+            },
+            {
+              "w": "丸投げ",
+              "read": "まるなげ",
+              "vi": "phó mặc toàn bộ, đùn đẩy trách nhiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～わけにはいかない",
+              "vi": "接続: Vる + わけにはいかない. Sắc thái: 'Không thể nào vứt bỏ nghĩa vụ được'. Nhấn mạnh tính bất khả thi về mặt lương tâm nghề nghiệp và bổn phận của nhà giáo dục."
+            }
+          ]
+        },
+        {
+          "jp": "効率ばかりを追い求めて大切な人間的対話を失ってしまうのではないかと、筆者は心配でならない。",
+          "vi": "Tác giả cảm thấy vô cùng lo lắng rằng nếu chỉ mải mê theo đuổi hiệu quả, chúng ta sẽ đánh mất đi sự đối thoại nhân văn quý giá.",
+          "vocab": [
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "追い求める",
+              "read": "おいもとめる",
+              "vi": "theo đuổi"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại, trò chuyện"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, làm mất"
+            },
+            {
+              "w": "筆者",
+              "read": "ひっしゃ",
+              "vi": "tác giả, người viết"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "人間的対話",
+              "read": "にんげんてきたいわ",
+              "vi": "đối thoại nhân văn, giao lưu mang tính con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てならない",
+              "vi": "接続: Aくて / Naで + ならない (心配でならない). Sắc thái: Nỗi lo lắng nảy sinh từ tận đáy lòng không cách nào xua tan được."
+            },
+            {
+              "point": "～のではないか",
+              "vi": "接続: Thể thông thường + のではないか. Sắc thái: E rằng là... / Phải chăng là... (thể hiện nỗi quan ngại phỏng đoán)."
+            }
+          ]
+        },
+        {
+          "jp": "私たちはいま一度、人と人との対話を基盤とした本来の教育や評価のあり方を再構築していく必要がある。",
+          "vi": "Chúng ta cần một lần nữa tái thiết lại cách thức giáo dục và đánh giá đúng nghĩa, lấy sự đối thoại giữa con người với con người làm nền tảng.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại, trò chuyện"
+            },
+            {
+              "w": "基盤",
+              "read": "きばん",
+              "vi": "nền tảng, cơ sở"
+            },
+            {
+              "w": "本来",
+              "read": "ほんらい",
+              "vi": "vốn dĩ, bản chất thực sự"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "あり方",
+              "read": "ありかた",
+              "vi": "hình thái, cách thức nên có"
+            },
+            {
+              "w": "構築",
+              "read": "こうちく",
+              "vi": "xây dựng, kiến tạo"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "再構築",
+              "read": "さいこうちく",
+              "vi": "tái cấu trúc, tái thiết lập"
+            },
+            {
+              "w": "いま一度",
+              "read": "いまいちど",
+              "vi": "thêm một lần nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とした",
+              "vi": "接続: N1 + を + N2(基盤/中心) + とした + N3. Sắc thái: Lấy N1 làm N2 (nền tảng, trọng tâm) để hình thành nên N3."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "神仏の如き完璧な知能ではあるまいし",
+          "label": "Ngữ pháp N2: ～ではあるまいし (Đâu phải là ~ mà)"
+        },
+        {
+          "excerpt": "現場の従業員や学生にしたら",
+          "label": "Ngữ pháp N2: ～にしたら (Từ góc nhìn của ~ / Đứng ở vị trí ~)"
+        },
+        {
+          "excerpt": "昔の手法に戻るわけにはいかない",
+          "label": "Ngữ pháp N2: ～わけにはいかない (Không thể ~ vì đạo đức/lẽ thường)"
+        },
+        {
+          "excerpt": "定型的な作業に限り",
+          "label": "Ngữ pháp N2: ～に限り (Chỉ giới hạn trong ~)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「客観的なデータで瞬時に序列をつけるシステム」に対する、経営陣と現場の人間の受け止め方の違いとして最も適切なものはどれか。",
+          "options": [
+            "経営陣は効率化として歓迎しているが、現場の人間にすれば自らの努力や文脈が無視される苦痛となる。",
+            "経営陣は導入に慎重であるのに対し、現場の人間は業務負担が減るため全面的に賛成している。",
+            "経営陣はデータの不正確さを懸念しているが、現場の人間にしたら公平な評価として受け入れられている。",
+            "経営陣も現場の人間も、人間的な温かみが失われる点において共通の強い危機感を抱いている。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ câu 7 và 8 (chỉ số câu 6, 7): Câu 7 chỉ rõ đối với ban lãnh đạo đang vội vã tăng hiệu suất và cắt giảm chi phí (経営陣にしたら), hệ thống xếp thứ bậc tức thì bằng dữ liệu khách quan là vô cùng hấp dẫn; trong khi câu 8 chỉ rõ đối với nhân viên/học sinh đang nỗ lực hết mình (現場の従業員や学生にしたら), việc bối cảnh và động lực của bản thân bị phớt lờ là nỗi đau đớn khó chịu đựng. Do đó, phương án 0 hoàn toàn chính xác.\n- Phương án 1 sai vì đảo ngược thực tế (lãnh đạo thấy hấp dẫn chứ không thận trọng; người ở hiện trường thấy đau đớn chứ không hề ủng hộ toàn diện).\n- Phương án 2 sai vì bài không nói lãnh đạo lo ngại dữ liệu thiếu chính xác, và người ở hiện trường cũng không coi đó là sự công bằng.\n- Phương án 3 sai vì đoạn văn nhấn mạnh khoảng cách nhận thức sâu sắc giữa hai bên (câu 11: 深刻な認識の隔たり) chứ không phải chia sẻ mối lo ngại chung.",
+          "tip": "Để trả lời câu hỏi so sánh lập trường, hãy tìm các từ khóa ngữ pháp đối lập: 『～にしたら』 ở câu 7 (経営陣) và câu 8 (現場の従業員や学生).",
+          "evi": [
+            6,
+            7,
+            10
+          ],
+          "qt": {
+            "q": "Đâu là cách diễn đạt phù hợp nhất về sự khác biệt trong cách ban lãnh đạo và những người trực tiếp làm việc nhìn nhận “hệ thống xếp thứ hạng tức thời bằng dữ liệu khách quan”?",
+            "o": [
+              "Ban lãnh đạo hoan nghênh hệ thống này vì giúp nâng cao hiệu quả, nhưng với những người trực tiếp làm việc, việc nỗ lực và bối cảnh của chính họ bị phớt lờ lại là một nỗi đau.",
+              "Ban lãnh đạo thận trọng với việc đưa hệ thống vào sử dụng, trong khi những người trực tiếp làm việc hoàn toàn tán thành vì khối lượng công việc giảm đi.",
+              "Ban lãnh đạo lo ngại dữ liệu không chính xác, nhưng những người trực tiếp làm việc lại chấp nhận hệ thống như một cách đánh giá công bằng.",
+              "Cả ban lãnh đạo lẫn những người trực tiếp làm việc đều có chung cảm giác lo ngại sâu sắc về việc sự ấm áp tình người bị mất đi."
+            ]
+          }
+        },
+        {
+          "q": "第3段落の「人間は指示通りに作動する精密機械ではあるまいし」という表現から、筆者が最も主張したいことは何か。",
+          "options": [
+            "人間は機械よりも作業効率が劣るため、デジタル技術の補助を全面的に受けるべきである。",
+            "人間には機械と異なり、数値には表れない試行錯誤や熱意といった内面的な価値が存在し、それが尊重されるべきだ。",
+            "人間が機械の指示通りに働かないのは、教育指導者の責任感が不足しているからである。",
+            "人間は完璧な存在ではないため、評価においては感情を排除して客観的なデータのみに従うべきだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ câu 15 (chỉ số câu 14): Tác giả dùng mẫu 『～ではあるまいし』 (Đâu phải là cỗ máy chính xác...) để phản bác quan điểm coi con người như máy móc, và đưa ra khẳng định ngay sau đó: 『数値に表れない試行錯誤や熱意こそが尊重されるべきである』 (Chính sự thử sai và nhiệt huyết không hiển thị trên các con số mới là điều đáng được tôn trọng). Vì vậy, phương án 1 là câu trả lời chính xác nhất.\n- Phương án 0 sai vì tác giả không bàn về sự thua kém hiệu suất để phụ thuộc toàn diện vào AI.\n- Phương án 2 sai vì bài viết không hề đổ lỗi cho tinh thần trách nhiệm của người hướng dẫn khi nhân viên không làm theo lệnh máy móc.\n- Phương án 3 sai vì trái ngược hoàn toàn với quan điểm bài viết (tác giả phê phán việc loại bỏ yếu tố con người dưới danh nghĩa khách quan).",
+          "tip": "Mẫu ngữ pháp 『Aではあるまいし、B』 luôn mang ý phủ định tiền đề vô lý A để nhấn mạnh chân lý/bản chất thực sự ở vế B.",
+          "evi": [
+            14
+          ],
+          "qt": {
+            "q": "Từ cách diễn đạt ở đoạn 3, “con người đâu phải là những cỗ máy chính xác hoạt động theo đúng chỉ thị”, tác giả muốn nhấn mạnh điều gì nhất?",
+            "o": [
+              "Vì con người làm việc kém hiệu quả hơn máy móc, họ nên hoàn toàn nhận sự hỗ trợ của công nghệ số.",
+              "Khác với máy móc, con người có những giá trị nội tâm như quá trình thử và sai hay nhiệt huyết mà các con số không thể hiện được, và những điều ấy cần được trân trọng.",
+              "Việc con người không làm theo chỉ thị của máy móc là do những người hướng dẫn trong giáo dục thiếu tinh thần trách nhiệm.",
+              "Vì con người không phải là những cá thể hoàn hảo, việc đánh giá nên loại bỏ cảm xúc và chỉ tuân theo dữ liệu khách quan."
+            ]
+          }
+        },
+        {
+          "q": "筆者は、AIによる自動評価をどのように活用すべきだと述べているか。",
+          "options": [
+            "教育や採用の全工程をAIに委ね、人間は最終的な合否の確認だけに専念すべきである。",
+            "昔の手法に完全に戻り、あらゆる評価からAIやデジタル技術を排除すべきである。",
+            "創造性や思考力を測る試験に限りAIを用い、単純なデータ集計は人間が行うべきである。",
+            "定型的なデータ処理や正解が明確な基礎的試験に限り活用し、思考力や創造性の評価は人間が担うべきだ。"
+          ],
+          "answer": 3,
+          "explainVi": "Căn cứ câu 19 và 20 (chỉ số câu 18, 19): Tác giả nêu rõ phạm vi giới hạn hợp lý: 『定型的な作業に限り、AIの処理能力を最大限に活用するのが賢明である』 (chỉ trong các công việc định hình như tổng hợp dữ liệu, phát hiện lỗi chính tả) và 『明確な正解が存在する基礎的な試験に限り自動採点を適用し、創造性や深い思考力を問う評価は人間が担うべきだ』 (chỉ áp dụng cho bài thi cơ bản có đáp án rõ, còn tư duy sâu và sáng tạo phải do con người đảm nhận). Do đó phương án 3 chính xác.\n- Phương án 0 sai vì tác giả phản đối việc giao khoán toàn bộ (丸投げ) cho AI (câu 22).\n- Phương án 1 sai vì câu 13 khẳng định không thể gạt phăng công nghệ để quay lại thời xưa (昔の手法に戻るわけにはいかない).\n- Phương án 2 sai vì bị đảo ngược vai trò giữa con người và AI.",
+          "tip": "Chú ý mẫu hạn định 『～に限り』 (chỉ trong phạm vi...) xuất hiện ở câu 19 và 20 để nắm bắt chính xác ranh giới phân công giữa AI và con người.",
+          "evi": [
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Tác giả cho rằng nên sử dụng việc đánh giá tự động bằng AI như thế nào?",
+            "o": [
+              "Nên giao toàn bộ quy trình giáo dục và tuyển dụng cho AI, còn con người chỉ tập trung xác nhận kết quả đậu hay rớt cuối cùng.",
+              "Nên hoàn toàn quay lại các phương pháp cũ và loại bỏ AI cũng như công nghệ số khỏi mọi hoạt động đánh giá.",
+              "Chỉ nên dùng AI cho các bài thi đo lường khả năng sáng tạo và tư duy, còn con người nên xử lý việc tổng hợp dữ liệu đơn giản.",
+              "Chỉ nên sử dụng AI cho việc xử lý dữ liệu theo quy trình cố định và các bài thi cơ bản có đáp án rõ ràng; việc đánh giá tư duy và khả năng sáng tạo nên do con người đảm nhiệm."
+            ]
+          }
+        },
+        {
+          "q": "本文全体を通して、筆者が「心配でならない」と最も危惧している事態は何か。",
+          "options": [
+            "AIの導入が遅れることで、世界的なデジタル競争から取り残されてしまうこと。",
+            "人間がAIに責任を丸投げし、評価の本質である人と人との対話や成長の機会を失ってしまうこと。",
+            "生徒や従業員がAIの評価基準をハッキングして不正を行うようになること。",
+            "組織の経営陣がコスト削減に失敗し、経済的な損失を被ること。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ các câu 22, 23, 24 (chỉ số câu 21, 22, 23): Tác giả nhấn mạnh người hướng dẫn không được đùn đẩy trách nhiệm cho AI (判断の責任をAIに丸投げして...放棄するわけにはいかない), và bày tỏ nỗi lo tột cùng ở câu 23: 『効率ばかりを追い求めて大切な人間的対話を失ってしまうのではないかと、筆者は心配でならない』 (Tác giả vô cùng lo lắng rằng nếu chỉ mải theo đuổi hiệu quả sẽ đánh mất đi sự đối thoại nhân văn quý giá). Phương án 1 tóm lược chính xác nhất mối nguy cơ cốt lõi này.\n- Phương án 0 không hề được đề cập (bài viết không bàn về cạnh tranh kỹ thuật số quốc tế).\n- Phương án 2 không có trong bài (bài viết không nói về gian lận hay hack hệ thống).\n- Phương án 3 sai vì bài viết không quan tâm đến thiệt hại kinh tế của ban lãnh đạo mà quan tâm đến giá trị con người.",
+          "tip": "Câu hỏi suy luận cảm xúc tác giả thường gắn liền với câu chứa mẫu ngữ pháp biểu cảm mạnh như 『～てならない』 ở đoạn kết bài.",
+          "evi": [
+            21,
+            22,
+            23
+          ],
+          "qt": {
+            "q": "Xuyên suốt toàn bài, tình huống nào khiến tác giả lo ngại nhất và “không khỏi lo lắng”?",
+            "o": [
+              "Việc AI được đưa vào sử dụng chậm trễ khiến chúng ta bị bỏ lại phía sau trong cuộc cạnh tranh kỹ thuật số toàn cầu.",
+              "Con người phó mặc trách nhiệm cho AI, làm mất đi cơ hội đối thoại giữa người với người và phát triển vốn là bản chất của việc đánh giá.",
+              "Học sinh và nhân viên bắt đầu hack tiêu chuẩn đánh giá của AI để gian lận.",
+              "Ban lãnh đạo các tổ chức thất bại trong việc cắt giảm chi phí và phải chịu tổn thất kinh tế."
+            ]
+          }
+        },
+        {
+          "q": "筆者の考える「評価（評価すること）」の本来の意義として最も合致するものはどれか。",
+          "options": [
+            "膨大な集団の中から優秀な人材を迅速かつ効率的に選別すること。",
+            "個人の過去の失敗を数値化し、組織の規律を厳格に保つこと。",
+            "人間が自らを振り返り、さらなる成長へと向かうための励ましとなること。",
+            "あらゆる主観的・感情的要素を排除し、完全な客観的真理を確定すること。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ câu 18 (chỉ số câu 17): Tác giả định nghĩa bản chất của sự đánh giá: 『評価とは本来、人間が自己を省みて新たな成長へと向かうための励ましであり、単なる選別作業で終わってはならないのである』 (Đánh giá vốn dĩ là lời khích lệ để con người tự nhìn lại mình và hướng tới sự trưởng thành mới, chứ không được kết thúc như một công việc sàng lọc đơn thuần). Phương án 2 diễn đạt hoàn toàn trùng khớp với định nghĩa này.\n- Phương án 0 sai vì đây chỉ là hành vi 'sàng lọc đơn thuần' (単なる選別作業) mà tác giả phê phán.\n- Phương án 1 sai vì không liên quan đến mục đích khích lệ và đồng hành của giáo dục.\n- Phương án 3 sai vì việc cố loại bỏ hoàn toàn yếu tố nhân văn để mưu cầu tính khách quan tuyệt đối đã bị tác giả đặt nghi vấn ở đoạn 1 và đoạn 3.",
+          "tip": "Tìm câu chứa cấu trúc định nghĩa bản chất 『〜とは本来、〜である』 để tìm đáp án cho câu hỏi về quan điểm cốt lõi của tác giả.",
+          "evi": [
+            17
+          ],
+          "qt": {
+            "q": "Điều nào phù hợp nhất với ý nghĩa vốn có của “đánh giá (việc đánh giá)” theo quan niệm của tác giả?",
+            "o": [
+              "Nhanh chóng và hiệu quả tuyển chọn những người có năng lực trong một tập thể đông đảo.",
+              "Định lượng những thất bại trong quá khứ của mỗi cá nhân và duy trì kỷ luật nghiêm ngặt trong tổ chức.",
+              "Trở thành sự khích lệ để con người tự nhìn lại bản thân và hướng tới sự trưởng thành hơn nữa.",
+              "Loại bỏ mọi yếu tố chủ quan và cảm xúc để xác định chân lý khách quan tuyệt đối."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "東都ビジネスセンター 貸会議室利用案内",
+      "titleVi": "Hướng dẫn sử dụng phòng hội nghị cho thuê tại Trung tâm Thương mại Toto",
+      "japanese": "東都ビジネスセンター 貸会議室利用案内\nセミナー開催のたびに、会場選びやトラブルの有無が心配でならない担当者様も多いと存じます。\n主催者にすれば利便性が気になり、利用者にしたら快適な環境を求めずにはいられないはずです。\n当施設をご利用の際は、以下のプランおよび利用規約をご確認のうえお申し込みください。\n【利用プラン一覧】\nプラン名｜定員｜利用可能時間｜平日料金（1h）｜土日祝（1h）｜利用条件・設備\nルームA｜10名｜09:00〜18:00｜3,000円｜4,000円｜プロジェクター有。飲食不可。\nルームB｜30名｜09:00〜21:00｜6,000円｜8,000円｜マイク付。軽食に限り持込可。\nホールC｜100名｜09:00〜21:00｜15,000円｜18,000円｜音響完備。飲食持込可。\nナイト割｜全室｜18:00〜22:00｜室料20%引｜適用外｜平日の3時間以上の連続利用に限り適用。\n【利用上の注意事項】\n※1 初回利用の企業様に限り、事前の会員登録および本人確認書類の提出が必要です。\n※2 学生の集まりではあるまいし、ビジネスの品位を損なう騒音や迷惑行為は禁じます。\n※3 無料スペースではあるまいし、準備や片付けを含め利用時間を超過するわけにはいきません。\n※4 ご利用のたびに受付で責任者証をご提示ください。再発行手数料は千円となります。\n※5 管理側にしたら安全管理上、利用目的について厳格な確認をお願いせずにはいられません。\n※6 ご利用7日前以降の取消は、理由を問わず返金するわけにはいかないためご注意ください。",
+      "vietnamese": "Hướng dẫn sử dụng phòng hội nghị cho thuê tại Trung tâm Thương mại Toto\nChúng tôi hiểu rằng mỗi lần tổ chức hội thảo, có rất nhiều người phụ trách cảm thấy vô cùng lo lắng về việc chọn địa điểm cũng như phát sinh sự cố.\nTừ góc nhìn của ban tổ chức thì luôn bận tâm về tính tiện lợi, còn đứng ở vị trí người tham gia thì ai cũng không thể không mong muốn một môi trường thoải mái.\nKhi sử dụng cơ sở của chúng tôi, xin vui lòng kiểm tra kỹ các gói dịch vụ và điều khoản sử dụng dưới đây trước khi đăng ký.\n【Danh sách các gói dịch vụ】\nTên gói｜Sức chứa｜Thời gian sử dụng｜Giá ngày thường (1h)｜Giá cuối tuần/lễ (1h)｜Điều kiện sử dụng & Thiết bị\nPhòng A｜Tối đa 10 người｜09:00〜18:00｜3.000 yên｜4.000 yên｜Có máy chiếu. Không được ăn uống.\nPhòng B｜Tối đa 30 người｜09:00〜21:00｜6.000 yên｜8.000 yên｜Kèm micro. Chỉ cho phép mang đồ ăn nhẹ.\nHội trường C｜Tối đa 100 người｜09:00〜21:00｜15.000 yên｜18.000 yên｜Đầy đủ âm thanh. Được phép mang đồ ăn uống.\nGiảm giá đêm｜Tất cả phòng｜18:00〜22:00｜Giảm 20% tiền phòng｜Không áp dụng｜Chỉ áp dụng khi sử dụng liên tục từ 3 tiếng trở lên vào ngày thường.\n【Các lưu ý khi sử dụng】\n※1 Chỉ riêng đối với doanh nghiệp sử dụng lần đầu, bắt buộc phải đăng ký thành viên trước và nộp giấy tờ xác nhận danh tính.\n※2 Đâu phải là buổi tụ tập của học sinh sinh viên, nghiêm cấm các hành vi gây ồn ào làm ảnh hưởng đến sự trang nghiêm của môi trường kinh doanh.\n※3 Đâu phải là không gian công cộng miễn phí, không được phép sử dụng quá thời gian đã đặt bao gồm cả thời gian chuẩn bị và dọn dẹp.\n※4 Mỗi lần sử dụng xin vui lòng xuất trình thẻ người chịu trách nhiệm tại quầy lễ tân. Phí cấp lại thẻ là 1.000 yên.\n※5 Từ góc độ của ban quản lý thì vì sự an toàn, chúng tôi buộc phải yêu cầu xác nhận nghiêm ngặt về mục đích sử dụng.\n※6 Xin lưu ý rằng đối với việc hủy phòng trong vòng 7 ngày trước ngày sử dụng, dù với bất kỳ lý do gì chúng tôi cũng không thể hoàn tiền.",
+      "sentences": [
+        {
+          "jp": "東都ビジネスセンター 貸会議室利用案内",
+          "vi": "Hướng dẫn sử dụng phòng hội nghị cho thuê tại Trung tâm Thương mại Toto",
+          "vocab": [
+            {
+              "w": "東都ビジネスセンター",
+              "read": "とうとビジネスセンター",
+              "vi": "Trung tâm Kinh doanh Toto"
+            },
+            {
+              "w": "東都",
+              "read": "とうと",
+              "vi": "Toto; tên riêng"
+            },
+            {
+              "w": "ビジネス",
+              "read": "ビジネス",
+              "vi": "kinh doanh"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "貸会議室",
+              "read": "かしかいぎしつ",
+              "vi": "phòng họp cho thuê"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "利用案内",
+              "read": "りようあんない",
+              "vi": "hướng dẫn sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn; thông tin"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "セミナー開催のたびに、会場選びやトラブルの有無が心配でならない担当者様も多いと存じます。",
+          "vi": "Chúng tôi hiểu rằng mỗi lần tổ chức hội thảo, có rất nhiều người phụ trách cảm thấy vô cùng lo lắng về việc chọn địa điểm cũng như phát sinh sự cố.",
+          "vocab": [
+            {
+              "w": "セミナー",
+              "read": "セミナー",
+              "vi": "hội thảo, buổi seminar"
+            },
+            {
+              "w": "開催",
+              "read": "かいさい",
+              "vi": "tổ chức"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "選び",
+              "read": "えらび",
+              "vi": "sự lựa chọn, chọn lọc"
+            },
+            {
+              "w": "トラブル",
+              "read": "トラブル",
+              "vi": "rắc rối, sự cố"
+            },
+            {
+              "w": "有無",
+              "read": "うむ",
+              "vi": "có hay không"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "担当",
+              "read": "たんとう",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "存じる",
+              "read": "ぞんじる",
+              "vi": "biết, nghĩ"
+            },
+            {
+              "w": "担当者",
+              "read": "たんとうしゃ",
+              "vi": "người phụ trách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "Mỗi lần/mỗi khi ~ thì lại..."
+            },
+            {
+              "point": "〜てならない",
+              "vi": "Cảm giác tự nhiên trào dâng không kìm được (vô cùng/hết sức...)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "心配でならない",
+              "why": "Mẫu 〜てならない thể hiện tâm lý hết sức lo lắng của người tổ chức sự kiện."
+            }
+          ]
+        },
+        {
+          "jp": "主催者にすれば利便性が気になり、利用者にしたら快適な環境を求めずにはいられないはずです。",
+          "vi": "Từ góc nhìn của ban tổ chức thì luôn bận tâm về tính tiện lợi, còn đứng ở vị trí người tham gia thì ai cũng không thể không mong muốn một môi trường thoải mái.",
+          "vocab": [
+            {
+              "w": "主催",
+              "read": "しゅさい",
+              "vi": "chủ trì, đơn vị tổ chức chính"
+            },
+            {
+              "w": "利便",
+              "read": "りべん",
+              "vi": "sự tiện lợi, tiện dụng"
+            },
+            {
+              "w": "気",
+              "read": "き",
+              "vi": "tâm trạng, tinh thần"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "快適",
+              "read": "かいてき",
+              "vi": "thoải mái, dễ chịu"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            },
+            {
+              "w": "主催者",
+              "read": "しゅさいしゃ",
+              "vi": "người tổ chức, chủ trì"
+            },
+            {
+              "w": "利便性",
+              "read": "りべんせい",
+              "vi": "tính tiện lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすれば",
+              "vi": "Nếu đứng ở lập trường/từ góc nhìn của ~"
+            },
+            {
+              "point": "〜にしたら",
+              "vi": "Nếu đứng ở lập trường/từ góc nhìn của ~"
+            },
+            {
+              "point": "〜ずにはいられない",
+              "vi": "Không thể không làm/không kìm được mà phải..."
+            }
+          ],
+          "keys": [
+            {
+              "w": "主催者にすれば",
+              "why": "Mẫu 〜にすれば thể hiện góc nhìn từ phía ban tổ chức."
+            },
+            {
+              "w": "利用者にしたら",
+              "why": "Mẫu 〜にしたら thể hiện góc nhìn từ phía người tham dự."
+            }
+          ]
+        },
+        {
+          "jp": "当施設をご利用の際は、以下のプランおよび利用規約をご確認のうえお申し込みください。",
+          "vi": "Khi sử dụng cơ sở của chúng tôi, xin vui lòng kiểm tra kỹ các gói dịch vụ và điều khoản sử dụng dưới đây trước khi đăng ký.",
+          "vocab": [
+            {
+              "w": "当施設",
+              "read": "とうしせつ",
+              "vi": "cơ sở này"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở"
+            },
+            {
+              "w": "ご利用",
+              "read": "ごりよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "際",
+              "read": "さい",
+              "vi": "khi; lúc"
+            },
+            {
+              "w": "以下",
+              "read": "いか",
+              "vi": "dưới đây"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và"
+            },
+            {
+              "w": "利用規約",
+              "read": "りようきやく",
+              "vi": "điều khoản sử dụng"
+            },
+            {
+              "w": "規約",
+              "read": "きやく",
+              "vi": "điều khoản; quy định"
+            },
+            {
+              "w": "ご確認",
+              "read": "ごかくにん",
+              "vi": "xác nhận; kiểm tra"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "xác nhận; kiểm tra"
+            },
+            {
+              "w": "のうえ",
+              "read": "のうえ",
+              "vi": "sau khi; trên cơ sở"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký; nộp đơn"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký; đơn đăng ký"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のうえ（で）",
+              "vi": "Sau khi làm A thì mới tiến hành B"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "【利用プラン一覧】",
+          "vi": "【Danh sách các gói dịch vụ】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "一覧",
+              "read": "いちらん",
+              "vi": "danh sách, bảng kê"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "プラン名｜定員｜利用可能時間｜平日料金（1h）｜土日祝（1h）｜利用条件・設備",
+          "vi": "Tên gói｜Sức chứa｜Thời gian sử dụng｜Giá ngày thường (1h)｜Giá cuối tuần/lễ (1h)｜Điều kiện sử dụng & Thiết bị",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "定員",
+              "read": "ていいん",
+              "vi": "sức chứa quy định"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "chúc mừng, ngày lễ"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "trang thiết bị"
+            },
+            {
+              "w": "土日祝",
+              "read": "どにちしゅく",
+              "vi": "thứ 7, chủ nhật và ngày lễ"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "ルームA｜10名｜09:00〜18:00｜3,000円｜4,000円｜プロジェクター有。飲食不可。",
+          "vi": "Phòng A｜Tối đa 10 người｜09:00〜18:00｜3.000 yên｜4.000 yên｜Có máy chiếu. Không được ăn uống.",
+          "vocab": [
+            {
+              "w": "ルームA",
+              "read": "ルームエー",
+              "vi": "Phòng A"
+            },
+            {
+              "w": "ルーム",
+              "read": "ルーム",
+              "vi": "phòng"
+            },
+            {
+              "w": "10名",
+              "read": "じゅうめい",
+              "vi": "10 người"
+            },
+            {
+              "w": "09:00〜18:00",
+              "read": "くじからじゅうはちじまで",
+              "vi": "09:00–18:00"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "4,000円",
+              "read": "よんせんえん",
+              "vi": "4.000 yên"
+            },
+            {
+              "w": "プロジェクター有",
+              "read": "プロジェクターあり",
+              "vi": "có máy chiếu"
+            },
+            {
+              "w": "プロジェクター",
+              "read": "プロジェクター",
+              "vi": "máy chiếu"
+            },
+            {
+              "w": "有",
+              "read": "あり",
+              "vi": "có; sẵn có"
+            },
+            {
+              "w": "飲食不可",
+              "read": "いんしょくふか",
+              "vi": "không được ăn uống"
+            },
+            {
+              "w": "飲食",
+              "read": "いんしょく",
+              "vi": "ăn uống"
+            },
+            {
+              "w": "不可",
+              "read": "ふか",
+              "vi": "không được phép"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "10名",
+              "why": "Sức chứa tối đa của phòng A."
+            },
+            {
+              "w": "飲食不可",
+              "why": "Quy định cấm hoàn toàn đồ ăn thức uống tại phòng A."
+            }
+          ]
+        },
+        {
+          "jp": "ルームB｜30名｜09:00〜21:00｜6,000円｜8,000円｜マイク付。軽食に限り持込可。",
+          "vi": "Phòng B｜Tối đa 30 người｜09:00〜21:00｜6.000 yên｜8.000 yên｜Kèm micro. Chỉ cho phép mang đồ ăn nhẹ.",
+          "vocab": [
+            {
+              "w": "ルームB",
+              "read": "ルームビー",
+              "vi": "Phòng B"
+            },
+            {
+              "w": "ルーム",
+              "read": "ルーム",
+              "vi": "phòng"
+            },
+            {
+              "w": "30名",
+              "read": "さんじゅうめい",
+              "vi": "30 người"
+            },
+            {
+              "w": "09:00〜21:00",
+              "read": "くじからにじゅういちじまで",
+              "vi": "09:00–21:00"
+            },
+            {
+              "w": "6,000円",
+              "read": "ろくせんえん",
+              "vi": "6.000 yên"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "マイク付",
+              "read": "マイクつき",
+              "vi": "kèm micro"
+            },
+            {
+              "w": "マイク",
+              "read": "マイク",
+              "vi": "micro"
+            },
+            {
+              "w": "付",
+              "read": "つき",
+              "vi": "kèm; có gắn"
+            },
+            {
+              "w": "軽食に限り",
+              "read": "けいしょくにかぎり",
+              "vi": "chỉ giới hạn ở đồ ăn nhẹ"
+            },
+            {
+              "w": "軽食",
+              "read": "けいしょく",
+              "vi": "đồ ăn nhẹ"
+            },
+            {
+              "w": "限り",
+              "read": "かぎり",
+              "vi": "chỉ; giới hạn"
+            },
+            {
+              "w": "持込可",
+              "read": "もちこみか",
+              "vi": "được phép mang vào"
+            },
+            {
+              "w": "持込",
+              "read": "もちこみ",
+              "vi": "mang vào"
+            },
+            {
+              "w": "可",
+              "read": "か",
+              "vi": "được phép"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限り",
+              "vi": "Chỉ giới hạn trong trường hợp/phạm vi ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "30名",
+              "why": "Sức chứa tối đa 30 người, phù hợp nhóm 25 người của câu hỏi 1."
+            },
+            {
+              "w": "軽食に限り",
+              "why": "Điều kiện giới hạn quan trọng cho phép mang đồ ăn nhẹ."
+            }
+          ]
+        },
+        {
+          "jp": "ホールC｜100名｜09:00〜21:00｜15,000円｜18,000円｜音響完備。飲食持込可。",
+          "vi": "Hội trường C｜Tối đa 100 người｜09:00〜21:00｜15.000 yên｜18.000 yên｜Đầy đủ âm thanh. Được phép mang đồ ăn uống.",
+          "vocab": [
+            {
+              "w": "ホールC",
+              "read": "ホールシー",
+              "vi": "Hội trường C"
+            },
+            {
+              "w": "ホール",
+              "read": "ホール",
+              "vi": "hội trường"
+            },
+            {
+              "w": "100名",
+              "read": "ひゃくめい",
+              "vi": "100 người"
+            },
+            {
+              "w": "09:00〜21:00",
+              "read": "くじからにじゅういちじまで",
+              "vi": "09:00–21:00"
+            },
+            {
+              "w": "15,000円",
+              "read": "いちまんごせんえん",
+              "vi": "15.000 yên"
+            },
+            {
+              "w": "18,000円",
+              "read": "いちまんはっせんえん",
+              "vi": "18.000 yên"
+            },
+            {
+              "w": "音響完備",
+              "read": "おんきょうかんび",
+              "vi": "trang bị đầy đủ âm thanh"
+            },
+            {
+              "w": "音響",
+              "read": "おんきょう",
+              "vi": "âm thanh; thiết bị âm thanh"
+            },
+            {
+              "w": "完備",
+              "read": "かんび",
+              "vi": "trang bị đầy đủ"
+            },
+            {
+              "w": "飲食持込可",
+              "read": "いんしょくもちこみか",
+              "vi": "được phép mang đồ ăn thức uống vào"
+            },
+            {
+              "w": "飲食",
+              "read": "いんしょく",
+              "vi": "ăn uống"
+            },
+            {
+              "w": "持込可",
+              "read": "もちこみか",
+              "vi": "được phép mang vào"
+            },
+            {
+              "w": "持込",
+              "read": "もちこみ",
+              "vi": "mang vào"
+            },
+            {
+              "w": "可",
+              "read": "か",
+              "vi": "được phép"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "100名",
+              "why": "Sức chứa lớn nhất của hội trường C."
+            }
+          ]
+        },
+        {
+          "jp": "ナイト割｜全室｜18:00〜22:00｜室料20%引｜適用外｜平日の3時間以上の連続利用に限り適用。",
+          "vi": "Giảm giá đêm｜Tất cả phòng｜18:00〜22:00｜Giảm 20% tiền phòng｜Không áp dụng｜Chỉ áp dụng khi sử dụng liên tục từ 3 tiếng trở lên vào ngày thường.",
+          "vocab": [
+            {
+              "w": "ナイト割",
+              "read": "ナイトわり",
+              "vi": "giảm giá ban đêm"
+            },
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "割",
+              "read": "わり",
+              "vi": "mức giảm; giảm giá"
+            },
+            {
+              "w": "全室",
+              "read": "ぜんしつ",
+              "vi": "toàn bộ phòng"
+            },
+            {
+              "w": "18:00〜22:00",
+              "read": "じゅうはちじからにじゅうにじまで",
+              "vi": "18:00–22:00"
+            },
+            {
+              "w": "室料20%引",
+              "read": "しつりょうにじゅうパーセントびき",
+              "vi": "phí phòng giảm 20%"
+            },
+            {
+              "w": "室料",
+              "read": "しつりょう",
+              "vi": "phí phòng"
+            },
+            {
+              "w": "20%引",
+              "read": "にじゅうパーセントびき",
+              "vi": "giảm 20%"
+            },
+            {
+              "w": "引",
+              "read": "びき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "適用外",
+              "read": "てきようがい",
+              "vi": "không áp dụng"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "áp dụng"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "3時間以上",
+              "read": "さんじかんいじょう",
+              "vi": "từ 3 giờ trở lên"
+            },
+            {
+              "w": "3時間",
+              "read": "さんじかん",
+              "vi": "3 giờ"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ; thời gian"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "連続利用",
+              "read": "れんぞくりよう",
+              "vi": "sử dụng liên tục"
+            },
+            {
+              "w": "連続",
+              "read": "れんぞく",
+              "vi": "liên tục"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "限り",
+              "read": "かぎり",
+              "vi": "chỉ; giới hạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限り",
+              "vi": "Chỉ trong phạm vi/điều kiện ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "室料20%引",
+              "why": "Mức chiết khấu giảm 20% tiền phòng cho gói ban đêm."
+            },
+            {
+              "w": "3時間以上の連続利用に限り",
+              "why": "Điều kiện cần để được áp dụng mức giảm giá đêm."
+            }
+          ]
+        },
+        {
+          "jp": "【利用上の注意事項】",
+          "vi": "【Các lưu ý khi sử dụng】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用上",
+              "read": "りようじょう",
+              "vi": "về việc sử dụng"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý; lưu ý"
+            },
+            {
+              "w": "事項",
+              "read": "じこう",
+              "vi": "hạng mục; điều khoản"
+            },
+            {
+              "w": "注意事項",
+              "read": "ちゅういじこう",
+              "vi": "các điều cần lưu ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜上（の）",
+              "vi": "Kết nối: N + 上の + N. Ý nghĩa: 'Về mặt / xét trên phương diện / trong quá trình...'. Trong câu này, '利用上の注意事項' diễn đạt những điểm cần lưu ý liên quan đến việc / trong quá trình sử dụng."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "※1 初回利用の企業様に限り、事前の会員登録および本人確認書類の提出が必要です。",
+          "vi": "※1 Chỉ riêng đối với doanh nghiệp sử dụng lần đầu, bắt buộc phải đăng ký thành viên trước và nộp giấy tờ xác nhận danh tính.",
+          "vocab": [
+            {
+              "w": "初回",
+              "read": "しょかい",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp, công ty"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước, sự chuẩn bị trước"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "本人",
+              "read": "ほんにん",
+              "vi": "đương sự, chính người đó"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "tài liệu, giấy tờ"
+            },
+            {
+              "w": "提出",
+              "read": "ていしゅつ",
+              "vi": "việc nộp"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "本人確認書類",
+              "read": "ほんにんかくにんしょるい",
+              "vi": "giấy tờ xác minh danh tính"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限り",
+              "vi": "Chỉ trong trường hợp ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "初回利用の企業様に限り",
+              "why": "Quy định riêng chỉ áp dụng cho doanh nghiệp lần đầu đăng ký sử dụng."
+            },
+            {
+              "w": "事前の会員登録および本人確認書類の提出",
+              "why": "Thủ tục hành chính bắt buộc phải hoàn tất trước khi sử dụng."
+            }
+          ]
+        },
+        {
+          "jp": "※2 学生の集まりではあるまいし、ビジネスの品位を損なう騒音や迷惑行為は禁じます。",
+          "vi": "※2 Đâu phải là buổi tụ tập của học sinh sinh viên, nghiêm cấm các hành vi gây ồn ào làm ảnh hưởng đến sự trang nghiêm của môi trường kinh doanh.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "ビジネス",
+              "read": "ビジネス",
+              "vi": "kinh doanh, thương trường"
+            },
+            {
+              "w": "品位",
+              "read": "ひんい",
+              "vi": "phẩm giá, sự trang trọng lịch sự"
+            },
+            {
+              "w": "損なう",
+              "read": "そこなう",
+              "vi": "làm tổn hại, làm mất"
+            },
+            {
+              "w": "騒音",
+              "read": "そうおん",
+              "vi": "tiếng ồn, tạp âm"
+            },
+            {
+              "w": "迷惑",
+              "read": "めいわく",
+              "vi": "sự phiền hà, phiền phức"
+            },
+            {
+              "w": "行為",
+              "read": "こうい",
+              "vi": "hành vi"
+            },
+            {
+              "w": "禁じる",
+              "read": "きんじる",
+              "vi": "cấm, ngăn cấm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ではあるまいし",
+              "vi": "Đâu phải là ~ (nên không được có thái độ/hành vi như vậy)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生の集まりではあるまいし",
+              "why": "Mẫu 〜ではあるまいし mang sắc thái phê phán, nhắc nhở giữ trật tự lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "※3 無料スペースではあるまいし、準備や片付けを含め利用時間を超過するわけにはいきません。",
+          "vi": "※3 Đâu phải là không gian công cộng miễn phí, không được phép sử dụng quá thời gian đã đặt bao gồm cả thời gian chuẩn bị và dọn dẹp.",
+          "vocab": [
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "スペース",
+              "read": "スペース",
+              "vi": "không gian, diện tích"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "片付け",
+              "read": "かたづけ",
+              "vi": "thu dọn, dọn dẹp"
+            },
+            {
+              "w": "含める",
+              "read": "ふくめる",
+              "vi": "bao gồm, tính gộp"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "超過",
+              "read": "ちょうか",
+              "vi": "vượt quá (thời gian, hạn mức)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ではあるまいし",
+              "vi": "Đâu phải là ~"
+            },
+            {
+              "point": "〜わけにはいかない",
+              "vi": "Không thể/Không được phép (về mặt đạo lý, quy tắc) ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "超過するわけにはいきません",
+              "why": "Quy định nghiêm ngặt không được sử dụng quá giờ bao gồm cả khâu thu dọn."
+            }
+          ]
+        },
+        {
+          "jp": "※4 ご利用のたびに受付で責任者証をご提示ください。再発行手数料は千円となります。",
+          "vi": "※4 Mỗi lần sử dụng xin vui lòng xuất trình thẻ người chịu trách nhiệm tại quầy lễ tân. Phí cấp lại thẻ là 1.000 yên.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "たび",
+              "read": "たび",
+              "vi": "mỗi lần"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy tiếp nhận"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "責任者証",
+              "read": "せきにんしゃしょう",
+              "vi": "thẻ chứng nhận người phụ trách"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "再発行",
+              "read": "さいはっこう",
+              "vi": "cấp lại"
+            },
+            {
+              "w": "発行",
+              "read": "はっこう",
+              "vi": "phát hành; cấp"
+            },
+            {
+              "w": "手数料",
+              "read": "てすうりょう",
+              "vi": "phí thủ tục"
+            },
+            {
+              "w": "再発行手数料",
+              "read": "さいはっこうてすうりょう",
+              "vi": "phí cấp lại"
+            },
+            {
+              "w": "千円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành; là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "Mỗi lần/Mỗi khi ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "ご利用のたびに",
+              "why": "Quy định thủ tục lặp lại mỗi lần đến thuê cơ sở."
+            },
+            {
+              "w": "責任者証をご提示ください",
+              "why": "Yêu cầu xuất trình thẻ chứng nhận người chịu trách nhiệm."
+            }
+          ]
+        },
+        {
+          "jp": "※5 管理側にしたら安全管理上、利用目的について厳格な確認をお願いせずにはいられません。",
+          "vi": "※5 Từ góc độ của ban quản lý thì vì sự an toàn, chúng tôi buộc phải yêu cầu xác nhận nghiêm ngặt về mục đích sử dụng.",
+          "vocab": [
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "安全",
+              "read": "あんぜん",
+              "vi": "an toàn, sự an toàn"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "厳格",
+              "read": "げんかく",
+              "vi": "nghiêm ngặt"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "はいる",
+              "read": "はいる",
+              "vi": "vào, đi vào, cần có"
+            },
+            {
+              "w": "安全管理上",
+              "read": "あんぜんかんりじょう",
+              "vi": "xét về mặt quản lý an toàn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしたら",
+              "vi": "Từ lập trường/Góc nhìn của ~"
+            },
+            {
+              "point": "〜ずにはいられない",
+              "vi": "Không thể không làm ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "管理側にしたら",
+              "why": "Mẫu 〜にしたら nêu bật lập trường của ban quản lý tòa nhà."
+            },
+            {
+              "w": "お願いせずにはいられません",
+              "why": "Mẫu 〜ずにはいられない giải thích lý do bắt buộc phải xác minh."
+            }
+          ]
+        },
+        {
+          "jp": "※6 ご利用7日前以降の取消は、理由を問わず返金するわけにはいかないためご注意ください。",
+          "vi": "※6 Xin lưu ý rằng đối với việc hủy phòng trong vòng 7 ngày trước ngày sử dụng, dù với bất kỳ lý do gì chúng tôi cũng không thể hoàn tiền.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "từ ... trở đi, sau ..."
+            },
+            {
+              "w": "取消",
+              "read": "とりけし",
+              "vi": "hủy bỏ"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "問う",
+              "read": "とう",
+              "vi": "hỏi, chất vấn"
+            },
+            {
+              "w": "返金",
+              "read": "へんきん",
+              "vi": "hoàn tiền"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜を問わず",
+              "vi": "Bất kể/Không phân biệt ~"
+            },
+            {
+              "point": "〜わけにはいかない",
+              "vi": "Không thể làm ~ (do quy định/nguyên tắc)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "返金するわけにはいかない",
+              "why": "Quy tắc không hoàn lại phí nếu hủy trong vòng 7 ngày trước ngày thuê."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "心配でならない",
+          "label": "〜てならない"
+        },
+        {
+          "excerpt": "主催者にすれば",
+          "label": "〜にすれば"
+        },
+        {
+          "excerpt": "利用者にしたら",
+          "label": "〜にしたら"
+        },
+        {
+          "excerpt": "求めずにはいられない",
+          "label": "〜ずにはいられない"
+        },
+        {
+          "excerpt": "軽食に限り",
+          "label": "〜に限り"
+        },
+        {
+          "excerpt": "学生の集まりではあるまいし",
+          "label": "〜ではあるまいし"
+        },
+        {
+          "excerpt": "超過するわけにはいきません",
+          "label": "〜わけにはいかない"
+        },
+        {
+          "excerpt": "ご利用のたびに",
+          "label": "〜たびに"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "施設案内と利用への呼びかけ",
+          "topic": 0,
+          "note": "Giới thiệu tổng quan về dịch vụ cho thuê phòng hội nghị và các lưu ý mở đầu.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 9,
+          "kind": "body",
+          "label": "利用プラン・料金および割引条件",
+          "topic": 5,
+          "note": "Bảng chi tiết các phòng họp, sức chứa, mức giá và điều kiện áp dụng giảm giá đêm.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 10,
+          "to": 16,
+          "kind": "point",
+          "label": "利用上の注意事項および規約",
+          "topic": 10,
+          "note": "Các quy định chi tiết về thủ tục đăng ký, cấm quá giờ, xuất trình thẻ và chính sách hủy phòng.",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "鈴木さんは平日の18:00から21:00までの3時間、25名の参加者で軽食を取りながら勉強会を開きたいと考えている。この条件を満たす部屋と利用料金の組み合わせとして、最も適切なものはどれか。",
+          "options": [
+            "ルームAを利用し、ナイト割を適用して 7,200円",
+            "ルームBを利用し、通常料金で 18,000円",
+            "ルームBを利用し、ナイト割を適用して 14,400円",
+            "ホールCを利用し、通常料金で 45,000円"
+          ],
+          "answer": 2,
+          "explainVi": "Các điều kiện của Suzuki:\n1. Số lượng: 25 người -> Phòng A chỉ chứa tối đa 10 người (không đủ), Phòng B chứa tối đa 30 người (thỏa mãn).\n2. Ăn uống: Có dùng đồ ăn nhẹ (軽食) -> Phòng B cho phép: 「軽食に限り持込可」 (Phòng A cấm hoàn toàn: 飲食不可).\n3. Thời gian: Ngày thường từ 18:00 đến 21:00 (đúng 3 tiếng liên tục trong khung giờ 18:00〜22:00) -> Thỏa mãn điều kiện giảm giá đêm (ナイト割): 「平日の3時間以上の連続利用に限り適用」.\n4. Tính giá tiền: Giá gốc ngày thường phòng B là 6.000 yên/giờ. Áp dụng giảm 20% còn: 6.000 × 0.8 = 4.800 yên/giờ. Tổng 3 giờ: 4.800 × 3 = 14.400 yên. Do đó đáp án đúng là lựa chọn 3.",
+          "tip": "Đối chiếu sức chứa (25 người -> loại phòng A), quy định ăn uống (đồ ăn nhẹ -> phòng B), và kiểm tra điều kiện giảm giá đêm (ngày thường + 3 tiếng liên tục trong khung 18-22h).",
+          "evi": [
+            7,
+            9
+          ],
+          "qt": {
+            "q": "Anh Suzuki muốn tổ chức buổi học nhóm vào ngày thường, từ 18:00 đến 21:00 trong 3 tiếng, với 25 người tham gia và có dùng bữa nhẹ. Tổ hợp phòng và phí sử dụng nào phù hợp nhất với các điều kiện này?",
+            "o": [
+              "Sử dụng Phòng A và áp dụng ưu đãi ban đêm: 7.200 yên",
+              "Sử dụng Phòng B với mức phí thông thường: 18.000 yên",
+              "Sử dụng Phòng B và áp dụng ưu đãi ban đêm: 14.400 yên",
+              "Sử dụng Hội trường C với mức phí thông thường: 45.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "田中さんの会社（当施設を初めて利用）が、日曜日にルームBを借りて研修を行う予定である。利用に関する説明として正しいものはどれか。",
+          "options": [
+            "事前登録を行っていなくても、利用当日に受付で本人確認書類を提出すれば利用できる。",
+            "事前の会員登録と本人確認書類の提出が必要であり、利用当日は受付で責任者証を提示しなければならない。",
+            "参加者全員分の軽食を持ち込むことは禁止されており、会場内での飲食は一切認められていない。",
+            "利用時間を少し過ぎて片付けを行っても、追加料金を支払えば利用規約違反にはならない。"
+          ],
+          "answer": 1,
+          "explainVi": "Phân tích từng phương án:\n- Phương án 1 sai vì theo ※1, doanh nghiệp sử dụng lần đầu bắt buộc phải đăng ký thành viên trước và nộp giấy tờ tùy thân (事前の会員登録および本人確認書類の提出が必要).\n- Phương án 2 đúng vì kết hợp quy định ※1 (đăng ký trước và nộp giấy tờ tùy thân cho lần đầu) và ※4 (mỗi lần sử dụng đều phải xuất trình thẻ người chịu trách nhiệm tại quầy lễ tân: ご利用のたびに受付で責任者証をご提示ください).\n- Phương án 3 sai vì phòng B cho phép mang đồ ăn nhẹ (軽食に限り持込可).\n- Phương án 4 sai vì theo ※3, thời gian chuẩn bị và dọn dẹp đều tính vào thời gian sử dụng và tuyệt đối không được dùng quá giờ đã đăng ký (準備や片付けを含め利用時間を超過するわけにはいきません).",
+          "tip": "Kết hợp thông tin từ bảng (quy định phòng B) và các mục lưu ý quan trọng (※1 cho khách lần đầu, ※3 về thời gian dọn dẹp, ※4 về thẻ trách nhiệm).",
+          "evi": [
+            11,
+            14
+          ],
+          "qt": {
+            "q": "Công ty của anh Tanaka (lần đầu sử dụng cơ sở này) dự định thuê Phòng B vào Chủ nhật để tổ chức tập huấn. Đâu là lời giải thích đúng về việc sử dụng cơ sở?",
+            "o": [
+              "Có thể sử dụng phòng mà không cần đăng ký trước nếu nộp giấy tờ xác minh danh tính tại quầy lễ tân vào ngày sử dụng.",
+              "Cần đăng ký thành viên trước và nộp giấy tờ xác minh danh tính; vào ngày sử dụng phải xuất trình thẻ người phụ trách tại quầy lễ tân.",
+              "Không được mang đồ ăn nhẹ cho tất cả người tham gia vào, và hoàn toàn không được ăn uống trong địa điểm tổ chức.",
+              "Dù sử dụng quá giờ một chút để dọn dẹp, nếu trả thêm phí thì cũng không vi phạm quy định sử dụng."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

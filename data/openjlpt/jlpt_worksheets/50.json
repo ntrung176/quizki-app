@@ -1,0 +1,4156 @@
+{
+  "bai": 50,
+  "level": "N4",
+  "intro": "謙譲語 (KHIÊM NHƯỜNG — hạ mình): お＋Vます＋します／いたします · kính ngữ đặc biệt (参る・いただく・拝見する・申す・伺う) · 〜ていただけませんか (nhờ rất lịch sự). Có ÔN LẠI ngữ pháp đã học (bài 1-49) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "部長に書類を持っていったとき、「少々お待ちください」と言われた。",
+              "ul": "書類",
+              "choices": [
+                "しょるい",
+                "かきるい",
+                "しょりゅう",
+                "かるい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書類」(giấy tờ, tài liệu) đọc là「しょるい」. 「書」có âm on là「しょ」(書道・しょどう), 「類」là「るい」(種類・しゅるい). Đáp án B「かきるい」sai vì「書」đọc kun là「か(く)」nhưng ghép thành「かきるい」không tồn tại. Đáp án C「しょりゅう」nhầm「類」thành「りゅう」(âm của「流」). Đáp án D「かるい」là từ khác hoàn toàn, nghĩa là「nhẹ」(軽い).",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "書類",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "持っていった",
+                  "read": "もっていった",
+                  "vi": "đã mang đến"
+                },
+                {
+                  "t": "少々",
+                  "read": "しょうしょう",
+                  "vi": "một chút (lịch sự)"
+                },
+                {
+                  "t": "言われた",
+                  "read": "いわれた",
+                  "vi": "được nói"
+                },
+                {
+                  "t": "お待ちください",
+                  "read": "おまちください",
+                  "vi": "xin (quý khách) vui lòng chờ một chút"
+                }
+              ]
+            },
+            {
+              "prompt": "お客様に失礼のないよう、丁寧に挨拶することが大切だ。",
+              "ul": "丁寧",
+              "choices": [
+                "ていねい",
+                "ちょうねい",
+                "でいねい",
+                "ていない"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「丁寧」(lịch sự, cẩn thận) đọc là「ていねい」. Đây là từ hay xuất hiện trong ngữ cảnh kính ngữ và giao tiếp lịch sự. Đáp án B「ちょうねい」sai, nhầm âm on「てい」của「丁」thành「ちょう」(âm của「長・調」). Đáp án C「でいねい」thêm âm「で」không tồn tại. Đáp án D「ていない」là hình thức phủ định te-form (~ていない) chứ không phải cách đọc từ này.",
+              "glosses": [
+                {
+                  "t": "お客様",
+                  "read": "おきゃくさま",
+                  "vi": "quý khách"
+                },
+                {
+                  "t": "失礼",
+                  "read": "しつれい",
+                  "vi": "thất lễ, vô lễ"
+                },
+                {
+                  "t": "丁寧",
+                  "vi": "lịch sự, cẩn thận"
+                },
+                {
+                  "t": "挨拶",
+                  "read": "あいさつ",
+                  "vi": "chào hỏi"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "失礼のないよう",
+                  "read": "しつれいのないよう",
+                  "vi": "〜ないよう(に) = để không ~ (mục đích tránh điều gì đó xảy ra)"
+                },
+                {
+                  "t": "することが大切だ",
+                  "read": "することがたいせつだ",
+                  "vi": "〜することが大切だ = việc làm ~ là quan trọng"
+                }
+              ]
+            },
+            {
+              "prompt": "社長にご報告するため、会議室の前で順番を待った。",
+              "ul": "報告",
+              "choices": [
+                "ほうこく",
+                "ほうごく",
+                "はうこく",
+                "ほうこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「報告」(báo cáo) đọc là「ほうこく」. 「報」là「ほう」(情報・じょうほう), 「告」là「こく」(告白・こくはく). Đáp án B「ほうごく」nhầm「こく」thành「ごく」(biến thể thanh âm không đúng). Đáp án C「はうこく」đổi「ほ」thành「は」, không đúng phát âm. Đáp án D「ほうこう」nhầm「告(こく)」thành「こう」(âm của「向・校」).",
+              "glosses": [
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc, tổng giám đốc"
+                },
+                {
+                  "t": "ご報告",
+                  "read": "ごほうこく",
+                  "vi": "báo cáo (kính ngữ)"
+                },
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "順番",
+                  "read": "じゅんばん",
+                  "vi": "thứ tự, lượt"
+                },
+                {
+                  "t": "待った",
+                  "read": "まった",
+                  "vi": "đã chờ"
+                },
+                {
+                  "t": "前で",
+                  "read": "まえで",
+                  "vi": "ở phía trước"
+                },
+                {
+                  "t": "ご報告するため",
+                  "read": "ごほうこくするため",
+                  "vi": "〜するため(に) = để làm ~ (mục đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "先輩に仕事のことをご相談したいのですが、少しお時間をいただけますか。",
+              "ul": "相談",
+              "choices": [
+                "そうだん",
+                "そうたん",
+                "しょうだん",
+                "そうだい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「相談」(trao đổi, tham khảo ý kiến) đọc là「そうだん」. 「相」là「そう」(相手・あいて), 「談」là「だん」(会談・かいだん). Đáp án B「そうたん」đổi「だん」thành「たん」, sai vì「談」không đọc là「たん」. Đáp án C「しょうだん」nhầm「そう」thành「しょう」(âm của「商・小」). Đáp án D「そうだい」nhầm「談(だん)」thành「だい」(âm của「大・代」).",
+              "glosses": [
+                {
+                  "t": "先輩",
+                  "read": "せんぱい",
+                  "vi": "đàn anh/chị, người đi trước"
+                },
+                {
+                  "t": "ご相談",
+                  "read": "ごそうだん",
+                  "vi": "trao đổi, hỏi ý kiến (kính ngữ)"
+                },
+                {
+                  "t": "お時間",
+                  "read": "おじかん",
+                  "vi": "thời gian (kính ngữ)"
+                },
+                {
+                  "t": "いただけますか",
+                  "vi": "có thể cho tôi... không (khiêm nhường)"
+                },
+                {
+                  "t": "仕事のこと",
+                  "read": "しごとのこと",
+                  "vi": "chuyện công việc"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút, một ít"
+                },
+                {
+                  "t": "ご相談したいのですが",
+                  "read": "ごそうだんしたいのですが",
+                  "vi": "〜したいのですが = tôi muốn ~ (mở lời khiêm tốn, chờ phản hồi)"
+                }
+              ]
+            },
+            {
+              "prompt": "お客様からの連絡をお受けして、すぐに担当者に伝えました。",
+              "ul": "連絡",
+              "choices": [
+                "れんらく",
+                "れんかく",
+                "れいらく",
+                "れんろく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「連絡」(liên lạc) đọc là「れんらく」. 「連」là「れん」(連続・れんぞく), 「絡」là「らく」(絡む・からむ). Đáp án B「れんかく」nhầm「らく」thành「かく」(âm của「各・格」). Đáp án C「れいらく」đổi「れん」thành「れい」(âm của「礼・例」). Đáp án D「れんろく」nhầm「絡(らく)」thành「ろく」(âm của「六・録」).",
+              "glosses": [
+                {
+                  "t": "お受けして",
+                  "read": "おうけして",
+                  "vi": "đã tiếp nhận (lịch sự)"
+                },
+                {
+                  "t": "連絡",
+                  "vi": "liên lạc, thông báo"
+                },
+                {
+                  "t": "担当者",
+                  "read": "たんとうしゃ",
+                  "vi": "người phụ trách"
+                },
+                {
+                  "t": "伝えました",
+                  "read": "つたえました",
+                  "vi": "đã chuyển đạt"
+                },
+                {
+                  "t": "お客様",
+                  "read": "おきゃくさま",
+                  "vi": "quý khách hàng"
+                },
+                {
+                  "t": "すぐ",
+                  "read": "すぐ",
+                  "vi": "ngay lập tức"
+                },
+                {
+                  "t": "お客様からの連絡",
+                  "read": "おきゃくさまからのれんらく",
+                  "vi": "〜からの = (liên lạc/vật gì) từ ~ (định ngữ chỉ nguồn gốc)"
+                }
+              ]
+            },
+            {
+              "prompt": "この件についてご説明するため、資料を準備いたしました。",
+              "ul": "説明",
+              "choices": [
+                "せつめい",
+                "せつみょう",
+                "さつめい",
+                "せつめん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「説明」(giải thích) đọc là「せつめい」. 「説」là「せつ」(小説・しょうせつ), 「明」là「めい」(説明・せつめい). Đáp án B「せつみょう」nhầm「めい」thành「みょう」(âm của「妙」hay音読み của「明」theo âm biến thể cổ). Đáp án C「さつめい」đổi「せつ」thành「さつ」(âm của「殺・察」). Đáp án D「せつめん」nhầm「明(めい)」thành「めん」(âm của「面」).",
+              "glosses": [
+                {
+                  "t": "件",
+                  "read": "けん",
+                  "vi": "vụ việc, vấn đề"
+                },
+                {
+                  "t": "ご説明",
+                  "read": "ごせつめい",
+                  "vi": "giải thích (kính ngữ)"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "準備いたしました",
+                  "read": "じゅんびいたしました",
+                  "vi": "đã chuẩn bị (khiêm nhường)"
+                },
+                {
+                  "t": "について",
+                  "read": "について",
+                  "vi": "〜について = về việc/chủ đề ~"
+                },
+                {
+                  "t": "ご説明するため",
+                  "read": "ごせつめいするため",
+                  "vi": "〜するため(に) = để làm ~ (mục đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "お世話になった先生に、感謝の気持ちを手紙でお伝えしました。",
+              "ul": "感謝",
+              "choices": [
+                "かんしゃ",
+                "かんさ",
+                "かんじゃ",
+                "けんしゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「感謝」(biết ơn, cảm ơn) đọc là「かんしゃ」. 「感」là「かん」(感じ・かんじ), 「謝」là「しゃ」(謝る・あやまる). Đáp án B「かんさ」bỏ mất âm「し」, thiếu chữ. Đáp án C「かんじゃ」nhầm「しゃ」thành「じゃ」— 「患者(かんじゃ)」là từ khác nghĩa là「bệnh nhân」. Đáp án D「けんしゃ」đổi「かん」thành「けん」(âm của「件・検」).",
+              "glosses": [
+                {
+                  "t": "お世話になった",
+                  "read": "おせわになった",
+                  "vi": "đã được chăm sóc, đã được giúp đỡ"
+                },
+                {
+                  "t": "感謝",
+                  "vi": "lòng biết ơn, sự cảm ơn"
+                },
+                {
+                  "t": "気持ち",
+                  "read": "きもち",
+                  "vi": "cảm xúc, tình cảm"
+                },
+                {
+                  "t": "お伝えしました",
+                  "read": "おつたえしました",
+                  "vi": "đã truyền đạt (lịch sự)"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "手紙",
+                  "read": "てがみ",
+                  "vi": "bức thư, lá thư"
+                }
+              ]
+            },
+            {
+              "prompt": "上司から頼まれた仕事を、期限までに完成させていただきました。",
+              "ul": "期限",
+              "choices": [
+                "きげん",
+                "きかん",
+                "ごげん",
+                "きけん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「期限」(thời hạn) đọc là「きげん」. 「期」là「き」(時期・じき), 「限」là「げん」(限り・かぎり). Đáp án B「きかん」là từ khác:「期間(きかん)」nghĩa là「khoảng thời gian」, nhầm「限」thành「間」. Đáp án C「ごげん」đổi「き」thành「ご」, không tồn tại từ này. Đáp án D「きけん」là từ khác:「危険(きけん)」nghĩa là「nguy hiểm」, nhầm「限」thành「険」.",
+              "glosses": [
+                {
+                  "t": "上司",
+                  "read": "じょうし",
+                  "vi": "cấp trên"
+                },
+                {
+                  "t": "頼まれた",
+                  "read": "たのまれた",
+                  "vi": "được nhờ vả"
+                },
+                {
+                  "t": "期限",
+                  "vi": "thời hạn, deadline"
+                },
+                {
+                  "t": "完成させていただきました",
+                  "read": "かんせいさせていただきました",
+                  "vi": "đã hoàn thành (khiêm nhường)"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "期限までに",
+                  "read": "きげんまでに",
+                  "vi": "〜までに = trước hạn/trước khi đến ~ (deadline, phải xong trước mốc đó)"
+                }
+              ]
+            },
+            {
+              "prompt": "部長にご依頼した件は、明日ご返事をいただけるとのことです。",
+              "ul": "依頼",
+              "choices": [
+                "いらい",
+                "いれい",
+                "えらい",
+                "いれん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「依頼」(nhờ vả, yêu cầu) đọc là「いらい」. 「依」là「い」(依存・いぞん), 「頼」là「らい」(信頼・しんらい). Đáp án B「いれい」nhầm「らい」thành「れい」— 「異例(いれい)」là từ khác nghĩa là「ngoại lệ」. Đáp án C「えらい」là tính từ「偉い」nghĩa là「giỏi, vĩ đại」, hoàn toàn khác. Đáp án D「いれん」nhầm「らい」thành「れん」(âm của「連・練」).",
+              "glosses": [
+                {
+                  "t": "ご依頼",
+                  "read": "ごいらい",
+                  "vi": "nhờ vả, yêu cầu (kính ngữ)"
+                },
+                {
+                  "t": "件",
+                  "read": "けん",
+                  "vi": "vụ việc"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした／あす",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "ご返事",
+                  "read": "ごへんじ",
+                  "vi": "hồi âm, trả lời (kính ngữ)"
+                },
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "いただける",
+                  "read": "いただける",
+                  "vi": "có thể nhận được (khiêm nhường ngữ)"
+                },
+                {
+                  "t": "とのことです",
+                  "read": "とのことです",
+                  "vi": "〜とのことです = nghe nói/được biết rằng ~ (truyền đạt thông tin trang trọng)"
+                }
+              ]
+            },
+            {
+              "prompt": "会議に必要な資料を参加者全員に送付いたしました。",
+              "ul": "参加者",
+              "choices": [
+                "さんかしゃ",
+                "さんかじゃ",
+                "さんがしゃ",
+                "さんかさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「参加者」(người tham gia) đọc là「さんかしゃ」. 「参加」là「さんか」, 「者」là「しゃ」(医者・いしゃ). Đáp án B「さんかじゃ」nhầm「しゃ」thành「じゃ」, đây là lỗi hay gặp vì「者」đọc là「しゃ」không phải「じゃ」khi ghép với「参加」. Đáp án C「さんがしゃ」nhầm「か」thành「が」(biến thanh sai vị trí). Đáp án D「さんかさ」rút ngắn「しゃ」thành「さ」, không tồn tại.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "必要な",
+                  "read": "ひつような",
+                  "vi": "cần thiết"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "参加者",
+                  "vi": "người tham gia"
+                },
+                {
+                  "t": "送付いたしました",
+                  "read": "そうふいたしました",
+                  "vi": "đã gửi (khiêm nhường)"
+                },
+                {
+                  "t": "参加者全員",
+                  "read": "さんかしゃぜんいん",
+                  "vi": "tất cả người tham gia"
+                }
+              ]
+            },
+            {
+              "prompt": "先生のご自宅にお伺いする前に、必ず事前に連絡することにしています。",
+              "ul": "事前",
+              "choices": [
+                "じぜん",
+                "ことぜん",
+                "じぜい",
+                "じせん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「事前」(trước khi, chuẩn bị trước) đọc là「じぜん」. 「事」là「じ」(事故・じこ), 「前」là「ぜん」(以前・いぜん). Đáp án B「ことぜん」dùng âm kun「こと」của「事」thay vì âm on「じ」. Đáp án C「じぜい」nhầm「ぜん」thành「ぜい」(âm của「税」). Đáp án D「じせん」nhầm「ぜん」thành「せん」(âm của「線・選」).",
+              "glosses": [
+                {
+                  "t": "ご自宅",
+                  "read": "ごじたく",
+                  "vi": "nhà riêng (của người khác, kính ngữ)"
+                },
+                {
+                  "t": "お伺いする",
+                  "read": "おうかがいする",
+                  "vi": "đến thăm/hỏi (khiêm nhường)"
+                },
+                {
+                  "t": "必ず",
+                  "read": "かならず",
+                  "vi": "nhất định, chắc chắn"
+                },
+                {
+                  "t": "事前",
+                  "vi": "trước khi, sự chuẩn bị trước"
+                },
+                {
+                  "t": "連絡",
+                  "read": "れんらく",
+                  "vi": "liên lạc"
+                },
+                {
+                  "t": "することにしています",
+                  "read": "することにしています",
+                  "vi": "〜ことにしている = có quy tắc/thói quen làm ~ (quyết định duy trì)"
+                }
+              ]
+            },
+            {
+              "prompt": "お客様にお土産をお渡しするとき、両手で丁寧に差し出した。",
+              "ul": "両手",
+              "choices": [
+                "りょうて",
+                "りょうしゅ",
+                "ふたて",
+                "りょうで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「両手」(cả hai tay) đọc là「りょうて」. Đây là cách đọc đặc biệt: 「両」là「りょう」(両親・りょうしん), 「手」đọc là「て」(kun-yomi) chứ không phải「しゅ」. Đáp án B「りょうしゅ」nhầm「て」thành âm on「しゅ」của「手」. Đáp án C「ふたて」dùng「ふた」(âm Nhật của「二」) nhưng「両」không đọc là「ふた」. Đáp án D「りょうで」nhầm「て」thành「で」(biến thanh sai).",
+              "glosses": [
+                {
+                  "t": "お土産",
+                  "read": "おみやげ",
+                  "vi": "quà (mang về từ chuyến đi)"
+                },
+                {
+                  "t": "お渡しする",
+                  "read": "おわたしする",
+                  "vi": "trao, đưa (lịch sự)"
+                },
+                {
+                  "t": "両手",
+                  "vi": "cả hai tay"
+                },
+                {
+                  "t": "丁寧に",
+                  "read": "ていねいに",
+                  "vi": "một cách lịch sự, cẩn thận"
+                },
+                {
+                  "t": "差し出した",
+                  "read": "さしだした",
+                  "vi": "đã đưa ra"
+                },
+                {
+                  "t": "お客様",
+                  "read": "おきゃくさま",
+                  "vi": "quý khách hàng"
+                }
+              ]
+            },
+            {
+              "prompt": "部長に確認していただいた後、取引先にご連絡申し上げます。",
+              "ul": "確認",
+              "choices": [
+                "かくにん",
+                "かくみん",
+                "こくにん",
+                "かくにい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「確認」(xác nhận) đọc là「かくにん」. 「確」là「かく」(確かめる・たしかめる), 「認」là「にん」(認める・みとめる). Đáp án B「かくみん」nhầm「にん」thành「みん」(âm của「民」). Đáp án C「こくにん」nhầm「かく」thành「こく」(âm của「国・告」). Đáp án D「かくにい」rút ngắn「にん」thành「にい」, không tồn tại từ này.",
+              "glosses": [
+                {
+                  "t": "確認していただいた",
+                  "read": "かくにんしていただいた",
+                  "vi": "đã nhờ xác nhận (khiêm nhường)"
+                },
+                {
+                  "t": "取引先",
+                  "read": "とりひきさき",
+                  "vi": "đối tác giao dịch"
+                },
+                {
+                  "t": "申し上げます",
+                  "read": "もうしあげます",
+                  "vi": "xin thưa, kính thưa (khiêm nhường)"
+                },
+                {
+                  "t": "確認",
+                  "vi": "xác nhận"
+                },
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "後",
+                  "read": "あと",
+                  "vi": "sau đó, sau khi"
+                },
+                {
+                  "t": "ご連絡申し上げます",
+                  "read": "ごれんらくもうしあげます",
+                  "vi": "xin phép liên lạc (khiêm nhường ngữ)"
+                }
+              ]
+            },
+            {
+              "prompt": "お手数ですが、この書類にご署名をお願いできますでしょうか。",
+              "ul": "署名",
+              "choices": [
+                "しょめい",
+                "しょみょう",
+                "ちょめい",
+                "しょなん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「署名」(chữ ký) đọc là「しょめい」. 「署」là「しょ」(警察署・けいさつしょ), 「名」là「めい」(名前・なまえ). Đáp án B「しょみょう」nhầm「めい」thành「みょう」— đây là cách đọc biến thể của「名」trong một số từ cổ (如「妙名」) nhưng không đúng ở đây. Đáp án C「ちょめい」nhầm「しょ」thành「ちょ」— 「著名(ちょめい)」là từ khác nghĩa là「nổi tiếng」. Đáp án D「しょなん」nhầm「めい」thành「なん」(âm của「難・南」).",
+              "glosses": [
+                {
+                  "t": "お手数ですが",
+                  "read": "おてすうですが",
+                  "vi": "xin lỗi vì đã làm phiền"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "ご署名",
+                  "read": "ごしょめい",
+                  "vi": "chữ ký (kính ngữ)"
+                },
+                {
+                  "t": "お願いできますでしょうか",
+                  "read": "おねがいできますでしょうか",
+                  "vi": "có thể nhờ... không ạ (lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "上司に仕事の進め方についてご指示をいただき、大変助かりました。",
+              "ul": "指示",
+              "choices": [
+                "しじ",
+                "しめ",
+                "しき",
+                "しじゅ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「指示」(chỉ thị, hướng dẫn) đọc là「しじ」. 「指」là「し」(指定・してい), 「示」là「じ」(示す・しめす). Đáp án B「しめ」dùng âm kun「しめ(す)」của「示」thay vì âm on「じ」. Đáp án C「しき」nhầm「じ」thành「き」— 「指揮(しき)」là từ khác nghĩa là「chỉ huy」. Đáp án D「しじゅ」nhầm「じ」thành「じゅ」(âm của「受・授」).",
+              "glosses": [
+                {
+                  "t": "上司",
+                  "read": "じょうし",
+                  "vi": "cấp trên"
+                },
+                {
+                  "t": "進め方",
+                  "read": "すすめかた",
+                  "vi": "cách tiến hành"
+                },
+                {
+                  "t": "ご指示",
+                  "read": "ごしじ",
+                  "vi": "chỉ thị, hướng dẫn (kính ngữ)"
+                },
+                {
+                  "t": "いただき",
+                  "vi": "được nhận (khiêm nhường)"
+                },
+                {
+                  "t": "大変助かりました",
+                  "read": "たいへんたすかりました",
+                  "vi": "thực sự được giúp đỡ nhiều"
+                },
+                {
+                  "t": "仕事の進め方",
+                  "read": "しごとのすすめかた",
+                  "vi": "cách tiến hành công việc"
+                },
+                {
+                  "t": "について",
+                  "read": "について",
+                  "vi": "〜について = về việc/chủ đề ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "先生にご質問が　　　　ますか。",
+              "ul": "ござい",
+              "choices": [
+                "御座い",
+                "御在い",
+                "御財い",
+                "御罪い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ございます」là dạng lịch sự cao nhất của 「あります」, thường dùng trong văn phong trang trọng để hỏi hoặc xác nhận sự tồn tại. Phương án A 「御座い」là chữ Hán đúng, thể hiện ý 'ngự tọa', đây là cách viết truyền thống của ございます. Phương án B 「御在い」dùng chữ 在 (tại/ở) — chữ sai, không phải cách viết thông thường của ございます. Phương án C 「御財い」dùng chữ 財 nghĩa là 'của cải, tài sản' — không liên quan. Phương án D 「御罪い」dùng chữ 罪 nghĩa là 'tội lỗi' — hoàn toàn sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên / thầy cô"
+                },
+                {
+                  "t": "ご質問",
+                  "read": "ごしつもん",
+                  "vi": "câu hỏi (kính ngữ)"
+                },
+                {
+                  "t": "御座い",
+                  "read": "ございます",
+                  "vi": "có / tồn tại (rất lịch sự)"
+                },
+                {
+                  "t": "ますか",
+                  "read": "ますか",
+                  "vi": "〜ますか = đuôi câu hỏi lịch sự (ます + か)"
+                }
+              ]
+            },
+            {
+              "prompt": "お客様のご意見を　　　　したいと思います。",
+              "ul": "はいちょう",
+              "choices": [
+                "拝聴",
+                "配聴",
+                "排聴",
+                "倍聴"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「拝聴（はいちょう）」là từ khiêm nhường ngữ (謙譲語) của 「聞く」, nghĩa là 'kính lắng nghe'. Chữ 拝 (bái) mang nghĩa 'quỳ lạy, kính bái', thường xuất hiện trong khiêm nhường ngữ như 拝見・拝受・拝聴. Phương án A 「拝聴」ĐÚNG — tổ hợp 拝＋聴 nghĩa là nghe một cách kính trọng. Phương án B 「配聴」dùng 配 (phân phối) — không có từ này trong tiếng Nhật. Phương án C 「排聴」dùng 排 (loại bỏ) — nghĩa ngược lại, không hợp lý. Phương án D 「倍聴」dùng 倍 (gấp đôi) — không tồn tại từ này.",
+              "glosses": [
+                {
+                  "t": "お客様",
+                  "read": "おきゃくさま",
+                  "vi": "quý khách"
+                },
+                {
+                  "t": "ご意見",
+                  "read": "ごいけん",
+                  "vi": "ý kiến (kính ngữ)"
+                },
+                {
+                  "t": "拝聴",
+                  "read": "はいちょう",
+                  "vi": "kính lắng nghe (khiêm nhường ngữ)"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "nghĩ rằng, cho rằng"
+                },
+                {
+                  "t": "したいと思います",
+                  "read": "したいとおもいます",
+                  "vi": "〜したいと思います = tôi muốn làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "こちらのパンフレットを　　　　ください。",
+              "ul": "らんよう",
+              "choices": [
+                "覧用",
+                "乱用",
+                "欄用",
+                "卵用"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu đầy đủ là 「ご覧用」— chữ 覧 (lãm) trong 「ご覧（ごらん）」là kính ngữ của 「見る」, ý mời khách xem tài liệu. Phương án A 「覧用」ĐÚNG — 覧 là chữ đúng trong ご覧. Phương án B 「乱用」âm cũng là らんよう nhưng nghĩa là 'lạm dụng' — hoàn toàn sai ngữ cảnh. Phương án C 「欄用」dùng 欄 nghĩa là 'cột, ô trống trong bảng biểu' — không phải kính ngữ. Phương án D 「卵用」dùng 卵 nghĩa là 'trứng' — không liên quan.",
+              "glosses": [
+                {
+                  "t": "パンフレット",
+                  "read": "",
+                  "vi": "tờ rơi, tập sách nhỏ"
+                },
+                {
+                  "t": "覧用",
+                  "read": "らんよう",
+                  "vi": "để xem qua (dùng trong 'ご覧用')"
+                },
+                {
+                  "t": "こちら",
+                  "read": "こちら",
+                  "vi": "cái này, đây (lịch sự)"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = xin hãy làm ~ (đề nghị/nhờ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "明日、社長にご報告を　　　　します。",
+              "ul": "もうし",
+              "choices": [
+                "申し",
+                "毛し",
+                "望し",
+                "猛し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「申す（もうす）」là khiêm nhường ngữ của 「言う・話す」, nghĩa là 'thưa, tâu, trình bày'. Trong câu này dùng 「申します」để tự hạ mình khi báo cáo với cấp trên. Phương án A 「申し」ĐÚNG — 申 (thân) trong Hán-Việt, đây là chữ Hán chuẩn của もうす. Phương án B 「毛し」dùng chữ 毛 nghĩa là 'lông, tóc' — không liên quan, âm là もう không khớp ngữ nghĩa. Phương án C 「望し」dùng 望 (mong muốn) — âm đọc là のぞまし, không phải もうし. Phương án D 「猛し」dùng 猛 nghĩa là 'dữ tợn, mạnh mẽ' — hoàn toàn sai.",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc"
+                },
+                {
+                  "t": "ご報告",
+                  "read": "ごほうこく",
+                  "vi": "báo cáo (kính ngữ)"
+                },
+                {
+                  "t": "申し",
+                  "read": "もうし",
+                  "vi": "thưa, báo cáo (khiêm nhường)"
+                },
+                {
+                  "t": "します",
+                  "read": "します",
+                  "vi": "ご〜します = khiêm nhường của する, tôi xin làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "この書類に　　　　をお願いします。",
+              "ul": "きにゅう",
+              "choices": [
+                "記入",
+                "規入",
+                "帰入",
+                "基入"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「記入（きにゅう）」nghĩa là 'điền vào, ghi vào biểu mẫu', ghép từ 記 (ghi chép) và 入 (nhập vào). Đây là từ N4 thường gặp khi nhờ ai điền giấy tờ một cách lịch sự. Phương án A 「記入」ĐÚNG — 記＋入 đúng nghĩa và đúng âm きにゅう. Phương án B 「規入」dùng 規 (quy tắc) — không tạo thành từ hợp lệ trong tiếng Nhật. Phương án C 「帰入」dùng 帰 (trở về) — âm là きにゅう nhưng không có từ này; 帰入 không tồn tại. Phương án D 「基入」dùng 基 (nền tảng) — cũng không tạo thành từ hợp lệ.",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "giấy tờ, tài liệu"
+                },
+                {
+                  "t": "記入",
+                  "read": "きにゅう",
+                  "vi": "điền vào, ghi vào"
+                },
+                {
+                  "t": "お願いします",
+                  "read": "",
+                  "vi": "xin vui lòng (lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生、少々　　　　してもよろしいでしょうか。",
+              "ul": "しつもん",
+              "choices": [
+                "質問",
+                "失問",
+                "実問",
+                "疾問"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「質問（しつもん）」nghĩa là 'câu hỏi', viết bằng 質 (chất/thực chất) và 問 (hỏi). Cụm 「よろしいでしょうか」là cách hỏi xin phép cực kỳ lịch sự, thể hiện thái độ khiêm nhường. Phương án A 「質問」ĐÚNG — 質＋問 là tổ hợp chuẩn. Phương án B 「失問」dùng 失 (mất, thất bại) — có thể nhầm vì 失 âm Hán cũng là しつ, nhưng 失問 không phải từ Nhật chuẩn. Phương án C 「実問」dùng 実 (thực tế) — không có từ này. Phương án D 「疾問」dùng 疾 (bệnh tật, nhanh chóng) — không tồn tại từ này.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "少々",
+                  "read": "しょうしょう",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "質問",
+                  "read": "しつもん",
+                  "vi": "câu hỏi"
+                },
+                {
+                  "t": "よろしいでしょうか",
+                  "read": "",
+                  "vi": "có được không ạ (rất lịch sự)"
+                },
+                {
+                  "t": "してもよろしいでしょうか",
+                  "read": "してもよろしいでしょうか",
+                  "vi": "〜てもよろしいでしょうか = tôi có thể ~ được không ạ (xin phép rất lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "お荷物を　　　　しましょうか。",
+              "ul": "おもち",
+              "choices": [
+                "お持ち",
+                "お待ち",
+                "お用ち",
+                "お保ち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「お持ちします」là cách nói 'Để tôi mang giúp bạn', dùng tiếp đầu ngữ 「お〜する」để biến động từ thành khiêm nhường ngữ. 持つ → お持ちする. Phương án A 「お持ち」ĐÚNG — 持 (trì, cầm, giữ) âm おもち, ý 'mang/giữ'. Phương án B 「お待ち」âm おまち, nghĩa là 'chờ đợi' (待つ) — dễ nhầm vì phát âm gần giống nhưng âm khác (もち≠まち). Phương án C 「お用ち」không phải từ tồn tại trong tiếng Nhật. Phương án D 「お保ち」âm おたもち, nghĩa là 'giữ gìn' (保つ) — sai ngữ cảnh và sai âm.",
+              "glosses": [
+                {
+                  "t": "お荷物",
+                  "read": "おにもつ",
+                  "vi": "hành lý (kính ngữ)"
+                },
+                {
+                  "t": "お持ち",
+                  "read": "おもち",
+                  "vi": "mang giúp (lịch sự)"
+                },
+                {
+                  "t": "しましょうか",
+                  "read": "しましょうか",
+                  "vi": "〜ましょうか = để tôi ~ nhé (đề nghị giúp đỡ)"
+                }
+              ]
+            },
+            {
+              "prompt": "部長、こちらでしばらく　　　　ください。",
+              "ul": "おまち",
+              "choices": [
+                "お待ち",
+                "お持ち",
+                "お睦ち",
+                "お招ち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「お待ちください」là cách nói lịch sự 'Xin hãy chờ một chút', dùng 「お〜ください」là tôn kính ngữ (尊敬語), đây là lời đề nghị tôn trọng người nghe. Phương án A 「お待ち」ĐÚNG — 待 (đãi/chờ) âm まち. Phương án B 「お持ち」âm おもち nghĩa là 'cầm/mang' (持つ) — dễ nhầm vì もち/まち gần âm. Phương án C 「お睦ち」không phải từ tồn tại; 睦 (thân thiết) không có cách chia này. Phương án D 「お招ち」không phải từ đúng; 招 (mời) thường dùng 「お招きください」chứ không phải お招ち.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "しばらく",
+                  "read": "",
+                  "vi": "một lúc, một chút"
+                },
+                {
+                  "t": "お待ち",
+                  "read": "おまち",
+                  "vi": "vui lòng chờ (kính ngữ/lịch sự)"
+                },
+                {
+                  "t": "こちら",
+                  "read": "こちら",
+                  "vi": "ở đây (lịch sự)"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = xin hãy làm ~ (đề nghị/nhờ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "このたびは大変お世話に　　　　ました。",
+              "ul": "なり",
+              "choices": [
+                "成り",
+                "鳴り",
+                "慣り",
+                "馴り"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「お世話になりました」là câu lịch sự cổ điển nghĩa 'Tôi đã được quý vị giúp đỡ rất nhiều', dùng 成る (なる) ở dạng quá khứ. Phương án A 「成り」ĐÚNG — 成 (thành) trong なる là chữ đúng. Phương án B 「鳴り」âm なり nhưng chữ 鳴 nghĩa là 'kêu, reo vang' (như tiếng chuông) — sai hoàn toàn về nghĩa. Phương án C 「慣り」dùng 慣 nghĩa là 'quen, thói quen' (慣れる) — cũng âm なり khi chia, nhưng sai ngữ nghĩa trong câu này. Phương án D 「馴り」dùng 馴 (thuần hóa) — không phải từ dùng trong thành ngữ này.",
+              "glosses": [
+                {
+                  "t": "このたびは",
+                  "read": "",
+                  "vi": "lần này"
+                },
+                {
+                  "t": "大変",
+                  "read": "たいへん",
+                  "vi": "rất, vô cùng"
+                },
+                {
+                  "t": "お世話",
+                  "read": "おせわ",
+                  "vi": "sự giúp đỡ, chăm sóc"
+                },
+                {
+                  "t": "成り",
+                  "read": "なり",
+                  "vi": "trở thành (trong お世話になりました)"
+                }
+              ]
+            },
+            {
+              "prompt": "ご注文は以上で　　　　でしょうか。",
+              "ul": "よろしい",
+              "choices": [
+                "宜しい",
+                "良しい",
+                "好しい",
+                "善しい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「よろしい」là dạng lịch sự của 「いい・よい」, thường dùng trong ngữ cảnh dịch vụ, kinh doanh khi nhân viên hỏi khách. Phương án A 「宜しい」ĐÚNG — chữ 宜 (nghi, thích hợp) là cách viết chính thức của よろしい. Phương án B 「良しい」dùng 良 (tốt) — 良い là よい/いい, nhưng 良しい không phải dạng chuẩn của よろしい. Phương án C 「好しい」dùng 好 (thích) — âm đọc thông thường là すき hay こうしい, không phải よろしい. Phương án D 「善しい」dùng 善 (thiện, tốt lành về đạo đức) — âm ぜんしい hoặc よしい, không phải よろしい.",
+              "glosses": [
+                {
+                  "t": "ご注文",
+                  "read": "ごちゅうもん",
+                  "vi": "đơn đặt hàng, gọi món (kính ngữ)"
+                },
+                {
+                  "t": "以上",
+                  "read": "いじょう",
+                  "vi": "như trên, đủ vậy thôi"
+                },
+                {
+                  "t": "宜しい",
+                  "read": "よろしい",
+                  "vi": "được, ổn (lịch sự hơn いい)"
+                },
+                {
+                  "t": "でしょうか",
+                  "read": "でしょうか",
+                  "vi": "〜でしょうか = ~ phải không ạ (hỏi lịch sự, nhẹ nhàng)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生、明日また　　　　してもよろしいでしょうか。",
+              "ul": "れんらく",
+              "choices": [
+                "連絡",
+                "練絡",
+                "連路",
+                "聯絡"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「連絡（れんらく）」nghĩa là 'liên lạc, liên hệ', ghép từ 連 (liên, nối tiếp) và 絡 (lạc, quấn, nối). Phương án A 「連絡」ĐÚNG — đây là tổ hợp chữ Hán chuẩn, thông dụng nhất. Phương án B 「練絡」dùng 練 (luyện tập) thay vì 連 — âm đọc vẫn là れん nhưng sai chữ, 練絡 không tồn tại. Phương án C 「連路」dùng 路 (đường đi) thay cho 絡 — âm は là ろ không phải らく, tạo thành từ sai. Phương án D 「聯絡」là chữ Hán truyền thống (phồn thể) tương đương 連絡 — trong tiếng Nhật hiện đại không dùng 聯, chỉ dùng 連.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "連絡",
+                  "read": "れんらく",
+                  "vi": "liên lạc, liên hệ"
+                },
+                {
+                  "t": "よろしい",
+                  "read": "よろしい",
+                  "vi": "tốt, được (lịch sự)"
+                },
+                {
+                  "t": "してもよろしいでしょうか",
+                  "read": "してもよろしいでしょうか",
+                  "vi": "〜てもよろしいでしょうか = tôi có thể ~ được không ạ (xin phép rất lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "ただいまご担当者を　　　　いたします。",
+              "ul": "あんない",
+              "choices": [
+                "案内",
+                "安内",
+                "暗内",
+                "按内"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ご案内いたします」là cách nói khiêm nhường 'Tôi xin dẫn/hướng dẫn quý vị', dùng 「ご〜いたす」là khiêm nhường ngữ (謙譲語). Phương án A 「案内」ĐÚNG — 案 (án, bàn, đề án) kết hợp với 内 (nội, bên trong) tạo thành あんない nghĩa là hướng dẫn. Phương án B 「安内」dùng 安 (an, bình an) — dễ nhầm vì 安 cũng đọc là あん, nhưng 安内 không phải từ Nhật. Phương án C 「暗内」dùng 暗 (tối, bóng tối) — cũng đọc あん nhưng 暗内 không tồn tại. Phương án D 「按内」dùng 按 (ấn, kiểm tra) — không có từ này trong tiếng Nhật thường dùng.",
+              "glosses": [
+                {
+                  "t": "ただいま",
+                  "read": "",
+                  "vi": "ngay bây giờ, lập tức"
+                },
+                {
+                  "t": "ご担当者",
+                  "read": "ごたんとうしゃ",
+                  "vi": "người phụ trách (kính ngữ)"
+                },
+                {
+                  "t": "案内",
+                  "read": "あんない",
+                  "vi": "hướng dẫn, chỉ dẫn, dẫn đến"
+                },
+                {
+                  "t": "いたします",
+                  "read": "いたします",
+                  "vi": "いたす = khiêm nhường trang trọng của する, tôi xin làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "恐れ入りますが、こちらにお名前を　　　　ください。",
+              "ul": "きにゅう",
+              "choices": [
+                "記入",
+                "規入",
+                "起入",
+                "基入"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「恐れ入りますが」là một trong những cách mở đầu lịch sự nhất trong tiếng Nhật khi nhờ vả, có nghĩa 'xin lỗi vì đã làm phiền'. 「記入（きにゅう）」ghép 記 (ký, ghi) và 入 (nhập) nghĩa là điền vào biểu mẫu. Phương án A 「記入」ĐÚNG. Phương án B 「規入」dùng 規 (quy tắc) — âm もきにゅう nhưng 規入 không phải từ. Phương án C 「起入」dùng 起 (khởi đầu, đứng dậy) — âm là きにゅう nhưng 起入 không có nghĩa. Phương án D 「基入」dùng 基 (nền tảng) — không tạo thành từ hợp lệ.",
+              "glosses": [
+                {
+                  "t": "恐れ入りますが",
+                  "read": "おそれいりますが",
+                  "vi": "xin lỗi vì đã làm phiền (rất lịch sự)"
+                },
+                {
+                  "t": "お名前",
+                  "read": "おなまえ",
+                  "vi": "tên (kính ngữ)"
+                },
+                {
+                  "t": "記入",
+                  "read": "きにゅう",
+                  "vi": "điền vào, ghi vào"
+                },
+                {
+                  "t": "こちら",
+                  "read": "こちら",
+                  "vi": "đây, chỗ này"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = xin hãy làm ~ (đề nghị/nhờ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "こちらのカタログを　　　　ください。",
+              "ul": "はいけん",
+              "choices": [
+                "拝見",
+                "配見",
+                "俳見",
+                "排見"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「拝見（はいけん）する」là khiêm nhường ngữ của 「見る」, nghĩa là 'kính xem, xin được xem'. Chữ 拝 (bái) xuất hiện trong nhiều khiêm nhường ngữ quan trọng: 拝見・拝読・拝聴・拝受. Phương án A 「拝見」ĐÚNG — 拝＋見 là cặp đúng, âm はいけん. Phương án B 「配見」dùng 配 (phân phối) — âm là はいけん nhưng 配見 không phải khiêm nhường ngữ, không có từ này. Phương án C 「俳見」dùng 俳 (thơ haiku, diễn viên) — 俳 âm はい nhưng 俳見 không tồn tại. Phương án D 「排見」dùng 排 (loại bỏ, gạt ra) — không có từ này và nghĩa trái ngược với hành động 'xem'.",
+              "glosses": [
+                {
+                  "t": "カタログ",
+                  "read": "",
+                  "vi": "catalogue, danh mục sản phẩm"
+                },
+                {
+                  "t": "拝見",
+                  "read": "はいけん",
+                  "vi": "kính xem (khiêm nhường ngữ của 見る)"
+                },
+                {
+                  "t": "こちら",
+                  "read": "こちら",
+                  "vi": "cái này, đây (lịch sự)"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = xin hãy làm ~ (đề nghị/nhờ lịch sự)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "部長、明日の会議の資料を＿ました。ご確認ください。",
+              "choices": [
+                "用意し",
+                "準備でき",
+                "お作り",
+                "ご用意"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu này người nói (nhân viên) nói với cấp trên (部長), cần dùng khiêm nhường ngữ khi đề cập hành động của bản thân. 「用意しました」là dạng thường lịch sự, dùng được khi kết hợp với văn cảnh khiêm tốn. 「準備できました」nghĩa là 'đã sẵn sàng' nhưng không hẳn nói về hành động chủ thể tự làm. 「お作りしました」 đúng khiêm nhường ngữ nhưng 「作る」nghĩa là 'làm ra/chế tạo', không phù hợp với 資料 (tài liệu chuẩn bị). 「ご用意」là tiếp đầu ngữ kính ngữ dùng khi nói về hành động của người trên, KHÔNG phải của mình — không thể nói 「ご用意しました」khi chủ thể là người nói.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "ご確認",
+                  "read": "ごかくにん",
+                  "vi": "xin kiểm tra (kính ngữ)"
+                },
+                {
+                  "t": "明日の会議",
+                  "read": "あしたのかいぎ",
+                  "vi": "cuộc họp ngày mai"
+                },
+                {
+                  "t": "ご確認ください",
+                  "read": "ごかくにんください",
+                  "vi": "ご〜ください = xin hãy làm ~ (đề nghị lịch sự với động từ Hán-Nhật)"
+                }
+              ]
+            },
+            {
+              "stem": "先生に作文を＿いただけますか。",
+              "choices": [
+                "直して",
+                "変えて",
+                "消して",
+                "書いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「～ていただけますか」là mẫu nhờ vả rất lịch sự, nghĩa là 'tôi có thể nhận được việc... không?'. Ở đây nhờ giáo viên sửa bài luận, nên phải dùng 「直す」(sửa chữa). 「変える」nghĩa là 'thay đổi' — thay đổi bài văn thì quá mạnh, không đúng ngữ cảnh. 「消す」nghĩa là 'xóa' — không ai nhờ giáo viên xóa bài. 「書く」nghĩa là 'viết' — nhờ viết hộ cả bài thì không tự nhiên trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "作文",
+                  "read": "さくぶん",
+                  "vi": "bài luận/bài tập làm văn"
+                },
+                {
+                  "t": "直して",
+                  "read": "なおして",
+                  "vi": "sửa (cho)"
+                },
+                {
+                  "t": "いただけますか",
+                  "read": "いただけますか",
+                  "vi": "có thể nhận được không (nhờ vả lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "社長に荷物を＿もらえますか。",
+              "choices": [
+                "運んで",
+                "持って",
+                "預かって",
+                "届けて"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu hỏi nhờ giám đốc giữ hộ đồ đạc. 「預かる」nghĩa là 'giữ hộ/nhận trông coi', phù hợp nhất khi nhờ ai giữ đồ. 「運ぶ」nghĩa là 'vận chuyển' — thường dùng khi chuyển đồ đi xa, không phải giữ hộ. 「持つ」nghĩa là 'cầm/mang' — quá chung chung và không diễn đạt ý nhờ giữ hộ. 「届ける」nghĩa là 'giao/mang đến' — đây là mang đến cho người khác, không phải giữ hộ.",
+              "glosses": [
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý/đồ đạc"
+                },
+                {
+                  "t": "預かって",
+                  "read": "あずかって",
+                  "vi": "giữ hộ/gửi giữ"
+                },
+                {
+                  "t": "もらえますか",
+                  "read": "もらえますか",
+                  "vi": "có thể nhận được không"
+                }
+              ]
+            },
+            {
+              "stem": "お客様からのご注文を＿ました。",
+              "choices": [
+                "伺い",
+                "承り",
+                "拝見し",
+                "存じ"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「承る」(うけたまわる) là khiêm nhường ngữ của 「受ける・もらう」, nghĩa là 'kính tiếp nhận', dùng khi nhận đơn đặt hàng/yêu cầu của khách — hoàn toàn phù hợp. 「伺う」nghĩa là 'kính hỏi/kính thăm' — dùng khi đi hỏi hoặc đến thăm người trên, không dùng cho việc nhận đơn. 「拝見する」nghĩa là 'kính xem' — dùng khi nhìn/đọc tài liệu, không phải nhận đơn hàng. 「存じる」nghĩa là 'biết/nghĩ' (khiêm nhường ngữ của 知る) — không liên quan đến hành động nhận đơn.",
+              "glosses": [
+                {
+                  "t": "お客様",
+                  "read": "おきゃくさま",
+                  "vi": "quý khách hàng"
+                },
+                {
+                  "t": "ご注文",
+                  "read": "ごちゅうもん",
+                  "vi": "đơn đặt hàng (kính ngữ)"
+                },
+                {
+                  "t": "承り",
+                  "read": "うけたまわり",
+                  "vi": "kính tiếp nhận"
+                },
+                {
+                  "t": "伺い",
+                  "read": "うかがい",
+                  "vi": "kính hỏi/thăm"
+                },
+                {
+                  "t": "お客様からのご注文",
+                  "read": "おきゃくさまからのごちゅうもん",
+                  "vi": "〜からの = (đơn hàng) từ ~ (định ngữ nguồn gốc)"
+                }
+              ]
+            },
+            {
+              "stem": "課長の意見を会議で＿する予定です。",
+              "choices": [
+                "報告",
+                "発表",
+                "紹介",
+                "連絡"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「報告する」nghĩa là 'báo cáo' — phù hợp nhất khi truyền đạt ý kiến của cấp trên trong cuộc họp theo chiều từ dưới lên hoặc trình bày lại. 「発表する」nghĩa là 'phát biểu/công bố' — thường dùng cho kết quả nghiên cứu, sản phẩm mới, không phải ý kiến của một người. 「紹介する」nghĩa là 'giới thiệu' — dùng khi giới thiệu người/vật, không dùng cho ý kiến. 「連絡する」nghĩa là 'liên lạc/thông báo' — mang nghĩa gửi tin, không phải trình bày trong họp.",
+              "glosses": [
+                {
+                  "t": "課長",
+                  "read": "かちょう",
+                  "vi": "trưởng bộ phận"
+                },
+                {
+                  "t": "意見",
+                  "read": "いけん",
+                  "vi": "ý kiến"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "報告",
+                  "read": "ほうこく",
+                  "vi": "báo cáo"
+                },
+                {
+                  "t": "予定です",
+                  "read": "よていです",
+                  "vi": "dự định, kế hoạch"
+                }
+              ]
+            },
+            {
+              "stem": "先輩、この書類に＿をいただけますか。",
+              "choices": [
+                "サイン",
+                "コメント",
+                "チェック",
+                "アドバイス"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「サインをいただく」là cách nhờ ai ký vào tài liệu một cách lịch sự — rất tự nhiên với giấy tờ công việc. 「コメント」nghĩa là 'bình luận/nhận xét' — dùng khi muốn xin ý kiến, không phải ký tên. 「チェック」nghĩa là 'kiểm tra' — 「チェックをいただく」không tự nhiên bằng 「確認していただく」. 「アドバイス」nghĩa là 'lời khuyên' — dùng khi hỏi xin ý kiến, không phải ký tên vào giấy tờ.",
+              "glosses": [
+                {
+                  "t": "先輩",
+                  "read": "せんぱい",
+                  "vi": "đàn anh/chị (người đi trước)"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu/giấy tờ"
+                },
+                {
+                  "t": "サイン",
+                  "read": "さいん",
+                  "vi": "chữ ký"
+                },
+                {
+                  "t": "いただけますか",
+                  "read": "いただけますか",
+                  "vi": "có thể nhận được không"
+                }
+              ]
+            },
+            {
+              "stem": "お世話になっております。田中と＿ます。",
+              "choices": [
+                "申し",
+                "おり",
+                "いたし",
+                "存じ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「申す」(もうす) là khiêm nhường ngữ của 「言う」, dùng khi tự giới thiệu tên mình: 「田中と申します」= 'Tôi tên là Tanaka' — chuẩn mực trong giao tiếp thương mại. 「おります」là khiêm nhường ngữ của 「います」, nghĩa là 'có mặt/đang ở' — 「田中とおります」không có nghĩa tự nhiên. 「いたします」là khiêm nhường ngữ của 「します」 — 「田中といたします」không phải cách tự giới thiệu tên. 「存じます」nghĩa là 'biết/nghĩ' — 「田中と存じます」không phải cách giới thiệu tên.",
+              "glosses": [
+                {
+                  "t": "お世話になっております",
+                  "read": "おせわになっております",
+                  "vi": "cảm ơn vì sự giúp đỡ của anh/chị (câu chào thương mại)"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "Tanaka (họ người)"
+                },
+                {
+                  "t": "申し",
+                  "read": "もうし",
+                  "vi": "kính tự xưng (khiêm nhường ngữ của 言う)"
+                }
+              ]
+            },
+            {
+              "stem": "明日、御社に＿してもよろしいでしょうか。",
+              "choices": [
+                "お邪魔",
+                "ご訪問",
+                "お伺い",
+                "参上"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「お伺いする」là khiêm nhường ngữ của 「訪問する・行く」, dùng khi nói mình sẽ đến thăm công ty của đối phương — hoàn toàn chuẩn trong kinh doanh. 「お邪魔する」cũng có nghĩa 'đến thăm' nhưng không phải khiêm nhường ngữ thuần túy và thiếu trang trọng hơn trong văn thương mại. 「ご訪問する」— 「ご～する」dùng khi hành động hướng đến người trên, nhưng 「訪問」là danh từ Hán Việt, cách kết hợp 「ご訪問する」nghe không tự nhiên bằng 「お伺いする」. 「参上する」(さんじょうする) quá cổ kính và cứng nhắc, không dùng trong văn nói thương mại hiện đại.",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "御社",
+                  "read": "おんしゃ",
+                  "vi": "quý công ty (kính ngữ)"
+                },
+                {
+                  "t": "お伺い",
+                  "read": "おうかがい",
+                  "vi": "kính thăm/đến gặp (khiêm nhường ngữ)"
+                },
+                {
+                  "t": "よろしい",
+                  "read": "よろしい",
+                  "vi": "được, tốt (lịch sự)"
+                },
+                {
+                  "t": "してもよろしいでしょうか",
+                  "read": "してもよろしいでしょうか",
+                  "vi": "〜てもよろしいでしょうか = tôi có thể ~ được không ạ (xin phép rất lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "この件について、部長にご＿いたします。",
+              "choices": [
+                "報告",
+                "相談",
+                "説明",
+                "連絡"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「ご相談いたします」nghĩa là 'xin được tham khảo ý kiến' — phù hợp nhất khi nhân viên muốn hỏi ý kiến cấp trên về một vấn đề. 「ご報告いたします」nghĩa là 'xin báo cáo' — dùng khi trình bày kết quả/tình hình, không phải hỏi ý kiến. 「ご説明いたします」nghĩa là 'xin giải thích' — dùng khi mình giải trình điều gì đó, không phải xin ý kiến. 「ご連絡いたします」nghĩa là 'xin liên lạc' — dùng khi thông báo/gửi tin, không mang nghĩa hỏi ý kiến.",
+              "glosses": [
+                {
+                  "t": "件",
+                  "read": "けん",
+                  "vi": "vụ việc/vấn đề"
+                },
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "ご相談",
+                  "read": "ごそうだん",
+                  "vi": "tham khảo ý kiến/trao đổi (kính ngữ)"
+                },
+                {
+                  "t": "いたします",
+                  "read": "いたします",
+                  "vi": "sẽ làm (khiêm nhường ngữ của します)"
+                },
+                {
+                  "t": "について",
+                  "read": "について",
+                  "vi": "〜について = về việc/chủ đề ~"
+                }
+              ]
+            },
+            {
+              "stem": "先生のご自宅に＿に参りました。",
+              "choices": [
+                "ご挨拶",
+                "お見舞い",
+                "お礼",
+                "ご報告"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「お礼に参る」nghĩa là 'đến để cảm ơn' — rất tự nhiên khi học sinh đến nhà thầy cô để tạ ơn. 「ご挨拶に参る」nghĩa là 'đến để chào hỏi' — dùng trong ngữ cảnh lần đầu gặp mặt hoặc trước khi rời đi, không phải đến cảm ơn. 「お見舞いに参る」nghĩa là 'đến thăm bệnh' — chỉ dùng khi người đó đang ốm. 「ご報告に参る」nghĩa là 'đến để báo cáo' — dùng khi đến trình bày kết quả công việc.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "ご自宅",
+                  "read": "ごじたく",
+                  "vi": "nhà riêng (kính ngữ)"
+                },
+                {
+                  "t": "お礼",
+                  "read": "おれい",
+                  "vi": "lời cảm ơn/tạ ơn"
+                },
+                {
+                  "t": "参りました",
+                  "read": "まいりました",
+                  "vi": "đã đến (khiêm nhường ngữ của 来る)"
+                }
+              ]
+            },
+            {
+              "stem": "資料は私が＿いたします。どうぞお座りください。",
+              "choices": [
+                "ご用意",
+                "お持ち",
+                "お配り",
+                "ご準備"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「お配りいたします」nghĩa là 'tôi sẽ phát/chia tài liệu' — hoàn toàn phù hợp với ngữ cảnh phát tài liệu trước cuộc họp. 「ご用意いたします」— 「ご～する」thường dùng cho hành động hướng đến người trên, nhưng ở đây hành động là của chính mình nên nên dùng 「お用意いたします」; hơn nữa 「用意」là 'chuẩn bị', không hẳn là 'phát ra'. 「お持ちいたします」nghĩa là 'tôi sẽ mang' — chưa diễn đạt được hành động chia phát cho mọi người. 「ご準備いたします」— 「準備」cũng là 'chuẩn bị', không nói đến hành động phát tài liệu.",
+              "glosses": [
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "お配り",
+                  "read": "おくばり",
+                  "vi": "phát/chia (khiêm nhường ngữ)"
+                },
+                {
+                  "t": "いたします",
+                  "read": "いたします",
+                  "vi": "sẽ làm (khiêm nhường ngữ)"
+                },
+                {
+                  "t": "お座りください",
+                  "read": "おすわりください",
+                  "vi": "xin mời ngồi"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "どうぞ",
+                  "read": "どうぞ",
+                  "vi": "xin mời, làm ơn"
+                }
+              ]
+            },
+            {
+              "stem": "部長、少々＿をよろしいでしょうか。",
+              "choices": [
+                "お時間",
+                "ご都合",
+                "お手数",
+                "ご迷惑"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「少々お時間をよろしいでしょうか」là câu xin phép lấy chút thời gian của cấp trên — cực kỳ phổ biến và lịch sự trong môi trường công sở. 「ご都合」nghĩa là 'lịch trình/thời điểm thuận tiện' — 「少々ご都合を」không tự nhiên; thường nói 「ご都合はいかがですか」. 「お手数」nghĩa là 'sự phiền phức/công khó' — 「お手数をかける」là 'làm phiền', không phải xin thời gian. 「ご迷惑」nghĩa là 'sự phiền toái' — mang nghĩa tiêu cực, dùng khi xin lỗi vì đã gây phiền.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "少々",
+                  "read": "しょうしょう",
+                  "vi": "một chút/xin chút"
+                },
+                {
+                  "t": "お時間",
+                  "read": "おじかん",
+                  "vi": "thời gian (kính ngữ)"
+                },
+                {
+                  "t": "よろしいでしょうか",
+                  "read": "よろしいでしょうか",
+                  "vi": "có được không ạ"
+                }
+              ]
+            },
+            {
+              "stem": "このカタログをぜひ＿ください。",
+              "choices": [
+                "拝見して",
+                "ご覧になって",
+                "お読みに",
+                "お見せ"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「ご覧になる」là tôn kính ngữ của 「見る・読む」, dùng khi mời người trên/khách hàng xem — 「ぜひご覧になってください」nghĩa là 'xin hãy xem qua' — hoàn toàn tự nhiên. 「拝見する」là khiêm nhường ngữ của 「見る」, chỉ dùng khi chủ thể là người nói (tự mình xem), không thể dùng để mời người khác. 「お読みになる」cũng là tôn kính ngữ nhưng nhấn mạnh đọc chữ, trong khi catalogue cần 'xem' hình ảnh nên 「ご覧になる」tự nhiên hơn. 「お見せする」nghĩa là 'khiêm tốn cho xem' — chủ thể là người nói, không phải mời đối phương xem.",
+              "glosses": [
+                {
+                  "t": "カタログ",
+                  "read": "かたろぐ",
+                  "vi": "catalogue/danh mục sản phẩm"
+                },
+                {
+                  "t": "ぜひ",
+                  "read": "ぜひ",
+                  "vi": "nhất định/xin hãy"
+                },
+                {
+                  "t": "ご覧になって",
+                  "read": "ごらんになって",
+                  "vi": "xin hãy xem (tôn kính ngữ)"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = xin hãy làm ~ (đề nghị/nhờ lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "ご質問がありましたら、遠慮なく＿ください。",
+              "choices": [
+                "聞いて",
+                "お聞きして",
+                "お尋ね",
+                "伺って"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「お尋ねください」là cách mời người trên/khách hàng cứ hỏi một cách tôn trọng — 「お尋ねになる」là tôn kính ngữ của 「聞く」. 「聞いてください」quá bình thường, không đủ lịch sự trong ngữ cảnh tiếp khách hay phục vụ. 「お聞きしてください」— 「お聞きする」là khiêm nhường ngữ, tức là chủ thể là người nói tự mình hỏi, không phải mời người kia hỏi — sai vai vế. 「伺ってください」— 「伺う」cũng là khiêm nhường ngữ của 「聞く/訪問する」, chủ thể phải là người nói, không dùng để mời người khác.",
+              "glosses": [
+                {
+                  "t": "ご質問",
+                  "read": "ごしつもん",
+                  "vi": "câu hỏi (kính ngữ)"
+                },
+                {
+                  "t": "遠慮なく",
+                  "read": "えんりょなく",
+                  "vi": "đừng ngại/cứ tự nhiên"
+                },
+                {
+                  "t": "お尋ね",
+                  "read": "おたずね",
+                  "vi": "xin hãy hỏi (tôn kính ngữ)"
+                },
+                {
+                  "t": "ご質問がありましたら",
+                  "read": "ごしつもんがありましたら",
+                  "vi": "〜がありましたら = nếu có ~ (điều kiện lịch sự)"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = xin hãy làm ~ (đề nghị/nhờ lịch sự)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "部長のかばんをお持ちしました。",
+              "choices": [
+                "部長のかばんを持っていただきました。",
+                "部長のかばんをお持ちになりました。",
+                "部長のかばんを持ってもらいました。",
+                "部長のかばんを持ちました（謙譲）。"
+              ],
+              "answer": 3,
+              "pt": "おVますします（謙譲語）",
+              "explain": "Câu gốc「お持ちしました」là dạng khiêm nhường「お〜する」, nghĩa 'tôi (khiêm nhường) đã mang túi cho trưởng phòng'. Đáp án D (index 3) dùng「持ちました」giản dị — nhưng giữa 4 lựa chọn thì đây là câu duy nhất giữ đúng chủ thể là 'tôi' và hành động 'mang'. Phân tích từng câu sai: 「部長のかばんをお持ちになりました」là kính ngữ「お〜になる」→ đề cao trưởng phòng, sai hướng. 「部長のかばんを持っていただきました」→ tôi nhận ơn ai đó mang, sai hướng. Đáp án đúng (D): câu đơn giản nhất giữ nghĩa 'tôi đã mang' dành cho bề trên.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "お持ちしました",
+                  "read": "おもちしました",
+                  "vi": "đã mang (khiêm nhường)"
+                },
+                {
+                  "t": "持っていただきました",
+                  "read": "もっていただきました",
+                  "vi": "đã được ai đó mang cho tôi"
+                },
+                {
+                  "t": "お持ちになりました",
+                  "read": "おもちになりました",
+                  "vi": "đã mang (kính ngữ đề cao đối tượng)"
+                },
+                {
+                  "t": "謙譲",
+                  "read": "けんじょう",
+                  "vi": "khiêm nhường, khiêm tốn (kính ngữ khiêm nhường)"
+                },
+                {
+                  "t": "かばん",
+                  "read": "かばん",
+                  "vi": "cái cặp, túi xách"
+                },
+                {
+                  "t": "持ってもらいました",
+                  "read": "もってもらいました",
+                  "vi": "〜てもらいました = được (ai đó) làm giúp cho (nhờ vả, khiêm nhường nhẹ)"
+                },
+                {
+                  "t": "持ちました",
+                  "read": "もちました",
+                  "vi": "謙譲: dạng khiêm nhường đơn giản 'đã cầm' (không đúng ngữ pháp khiêm nhường chuẩn cho ngữ cảnh này)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生、明日の会議に伺ってもよろしいでしょうか。",
+              "choices": [
+                "先生、明日の会議にいらしてもよろしいでしょうか。",
+                "先生、明日の会議にお越しになってもよろしいでしょうか。",
+                "先生、明日の会議に参ってもよろしいでしょうか。",
+                "先生、明日の会議に来ていただいてもよろしいでしょうか。"
+              ],
+              "answer": 2,
+              "pt": "特別な謙譲語（伺う）",
+              "explain": "「伺う」là khiêm nhường đặc biệt của「行く／訪ねる」, nghĩa 'tôi đến/thăm (khiêm)'. Đáp án (C) index 2 dùng「参る」— cũng là khiêm nhường đặc biệt của「行く／来る」→ giữ đúng nghĩa 'tôi (khiêm) xin phép đến'. Phân tích câu sai: (A)「いらして」là kính ngữ đặc biệt「いらっしゃる」→ đề cao thầy giáo đến, sai chủ thể. (B)「お越しになって」cũng kính ngữ dành cho thầy, sai hướng. (D)「来ていただいて」→ nhờ thầy đến chứ không phải tôi đến, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "伺って",
+                  "read": "うかがって",
+                  "vi": "đến thăm/hỏi (khiêm nhường)"
+                },
+                {
+                  "t": "参って",
+                  "read": "まいって",
+                  "vi": "đến/đi (khiêm nhường đặc biệt)"
+                },
+                {
+                  "t": "いらして",
+                  "read": "いらして",
+                  "vi": "đến (kính ngữ đặc biệt cho người khác)"
+                },
+                {
+                  "t": "お越しになって",
+                  "read": "おこしになって",
+                  "vi": "đến (kính ngữ đặc biệt cho người khác)"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp, hội nghị"
+                },
+                {
+                  "t": "よろしい",
+                  "read": "よろしい",
+                  "vi": "tốt, được (cách nói lịch sự)"
+                },
+                {
+                  "t": "よろしいでしょうか",
+                  "read": "よろしいでしょうか",
+                  "vi": "〜てもよろしいでしょうか = tôi có thể ~ được không ạ (xin phép lịch sự)"
+                },
+                {
+                  "t": "来ていただいても",
+                  "read": "きていただいても",
+                  "vi": "〜ていただいても = được (người khác) vui lòng đến cho (khiêm nhường, sai chủ thể trong câu này)"
+                }
+              ]
+            },
+            {
+              "prompt": "この書類を拝見いたしました。",
+              "choices": [
+                "この書類をご覧になりました。",
+                "この書類をお見せしました。",
+                "この書類を見させていただきました。",
+                "この書類を見てくださいました。"
+              ],
+              "answer": 2,
+              "pt": "特別な謙譲語（拝見する）＋いたす",
+              "explain": "「拝見いたしました」= khiêm nhường kép: 'tôi (khiêm) đã xem'. Đáp án (C) index 2「見させていただきました」dùng「Vさせていただく」(B48 ôn xoắn ốc) → 'xin phép được xem' — vẫn đặt người nói ở vị trí khiêm nhường và giữ đúng nghĩa người nói xem tài liệu. Phân tích câu sai: (A)「ご覧になりました」→ kính ngữ, đề cao ai đó khác xem, sai chủ thể. (B)「お見せしました」→ 'tôi đã cho xem', chuyển hành động thành cho người khác xem. (D)「見てくださいました」→ 'ai đó xem cho tôi', lệch hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "拝見いたしました",
+                  "read": "はいけんいたしました",
+                  "vi": "đã xem (khiêm nhường kép)"
+                },
+                {
+                  "t": "見させていただきました",
+                  "read": "みさせていただきました",
+                  "vi": "đã được/xin phép xem"
+                },
+                {
+                  "t": "ご覧になりました",
+                  "read": "ごらんになりました",
+                  "vi": "đã xem (kính ngữ cho người khác)"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "お見せしました",
+                  "read": "おみせしました",
+                  "vi": "お〜する = khiêm nhường của 見せる (cho xem), tôi đã cho xem"
+                },
+                {
+                  "t": "見てくださいました",
+                  "read": "みてくださいました",
+                  "vi": "〜てくださいました = (người trên) đã vui lòng xem giúp cho (tôn kính hành động của người khác)"
+                }
+              ]
+            },
+            {
+              "prompt": "ただいまご担当の田中と申します。",
+              "choices": [
+                "ただいまご担当の田中とおっしゃいます。",
+                "ただいまご担当の田中と言います。",
+                "ただいまご担当の田中とお呼びします。",
+                "ただいまご担当の田中とよばれています。"
+              ],
+              "answer": 1,
+              "pt": "特別な謙譲語（申す）",
+              "explain": "「申す」là khiêm nhường đặc biệt của「言う」khi người nói giới thiệu tên/nói về bản thân. Đáp án (B) index 1「言います」là thể thông thường của「言う」→ cùng nghĩa 'tên là', chỉ bỏ yếu tố khiêm nhường. Phân tích câu sai: (A)「おっしゃいます」là kính ngữ đặc biệt của「言う」dành cho người khác, không dùng cho bản thân. (C)「お呼びします」nghĩa 'gọi/mời' chứ không phải tự giới thiệu tên. (D)「よばれています」→ 'được gọi là', bị động, sai ngữ cảnh tự giới thiệu.",
+              "glosses": [
+                {
+                  "t": "申します",
+                  "read": "もうします",
+                  "vi": "tên là/nói (khiêm nhường đặc biệt)"
+                },
+                {
+                  "t": "おっしゃいます",
+                  "read": "おっしゃいます",
+                  "vi": "nói (kính ngữ đặc biệt cho người khác)"
+                },
+                {
+                  "t": "ご担当",
+                  "read": "ごたんとう",
+                  "vi": "người phụ trách"
+                },
+                {
+                  "t": "言います",
+                  "read": "いいます",
+                  "vi": "nói, tên là (thông thường)"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "Tanaka (họ tên riêng)"
+                },
+                {
+                  "t": "ただいま",
+                  "read": "ただいま",
+                  "vi": "bây giờ, hiện tại"
+                },
+                {
+                  "t": "お呼びします",
+                  "read": "およびします",
+                  "vi": "お〜する = khiêm nhường của 呼ぶ (gọi tên), tôi xin gọi là ~"
+                },
+                {
+                  "t": "とよばれています",
+                  "read": "とよばれています",
+                  "vi": "〜と呼ばれています = được gọi là ~ (thụ động, không dùng để tự xưng)"
+                }
+              ]
+            },
+            {
+              "prompt": "社長のスピーチを録音させていただけませんか。",
+              "choices": [
+                "社長のスピーチを録音してもらえませんか。",
+                "社長のスピーチを録音してくれませんか。",
+                "社長のスピーチを録音していただけませんか。",
+                "社長のスピーチを録音させてもらえますか。"
+              ],
+              "answer": 2,
+              "pt": "Vていただけませんか（依頼：丁寧）",
+              "explain": "Câu gốc dùng「Vさせていただけませんか」(= B48 使役 ＋ いただく) — nhờ rất lịch sự, chủ thể là người nói xin được làm. Đáp án (C) index 2「録音していただけませんか」cũng dùng「〜ていただけませんか」→ nhờ lịch sự tương đương, giữ đúng nghĩa 'xin phép được ghi âm'. Phân tích câu sai: (A)「録音してもらえませんか」bình thường hơn, không dùng「いただく」nên kém lịch sự. (B)「録音してくれませんか」nhờ thân mật, không phù hợp ngữ cảnh công ty. (D)「録音させてもらえますか」cũng nhẹ hơn và khẳng định hơn, không đủ mức lịch sự.",
+              "glosses": [
+                {
+                  "t": "録音させていただけませんか",
+                  "read": "ろくおんさせていただけませんか",
+                  "vi": "tôi có thể xin phép ghi âm không ạ"
+                },
+                {
+                  "t": "録音していただけませんか",
+                  "read": "ろくおんしていただけませんか",
+                  "vi": "bạn có thể ghi âm cho tôi không (rất lịch sự)"
+                },
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc"
+                },
+                {
+                  "t": "スピーチ",
+                  "read": "スピーチ",
+                  "vi": "bài phát biểu"
+                },
+                {
+                  "t": "録音してもらえませんか",
+                  "read": "ろくおんしてもらえませんか",
+                  "vi": "〜てもらえませんか = tôi có thể nhờ bạn ~ được không (nhờ vả lịch sự)"
+                },
+                {
+                  "t": "録音してくれませんか",
+                  "read": "ろくおんしてくれませんか",
+                  "vi": "〜てくれませんか = bạn làm ~ giúp tôi được không (nhờ vả thân mật)"
+                },
+                {
+                  "t": "録音させてもらえますか",
+                  "read": "ろくおんさせてもらえますか",
+                  "vi": "〜させてもらえますか = tôi có thể được phép làm ~ không (xin phép cho bản thân)"
+                }
+              ]
+            },
+            {
+              "prompt": "課長、少々お待ちいただけませんか。",
+              "choices": [
+                "課長、少々お待ちになっていただけませんか。",
+                "課長、少々待っていただけませんか。",
+                "課長、少々お待ちになりませんか。",
+                "課長、少々お待ちしていただけませんか。"
+              ],
+              "answer": 1,
+              "pt": "Vていただけませんか（依頼：丁寧）",
+              "explain": "「お待ちいただけませんか」= 'kính nhờ trưởng phòng chờ'. Đáp án (B) index 1「待っていただけませんか」→ cùng nghĩa nhờ lịch sự 'xin chờ', chỉ bỏ tiền tố「お」nhưng cấu trúc「〜ていただけませんか」giữ nguyên. Phân tích câu sai: (A)「お待ちになっていただけませんか」kết hợp cả kính ngữ「お〜になる」và「いただく」→ cấu trúc bất thường/dư thừa, nghe không tự nhiên. (C)「お待ちになりませんか」→ lời mời/đề nghị hơn là lời nhờ, nghĩa lệch. (D)「お待ちしていただけませんか」→「お〜する」là khiêm nhường của người nói, dùng cho người dưới không phù hợp.",
+              "glosses": [
+                {
+                  "t": "少々",
+                  "read": "しょうしょう",
+                  "vi": "một chút (lịch sự)"
+                },
+                {
+                  "t": "お待ちいただけませんか",
+                  "read": "おまちいただけませんか",
+                  "vi": "có thể chờ giúp tôi không ạ"
+                },
+                {
+                  "t": "待っていただけませんか",
+                  "read": "まっていただけませんか",
+                  "vi": "có thể chờ cho tôi không ạ (lịch sự)"
+                },
+                {
+                  "t": "課長",
+                  "read": "かちょう",
+                  "vi": "trưởng phòng/khoa trưởng"
+                },
+                {
+                  "t": "お待ちになっていただけませんか",
+                  "read": "おまちになっていただけませんか",
+                  "vi": "kết hợp kính ngữ + khiêm nhường thừa, sai ngữ pháp (chồng hai lớp kính ngữ)"
+                },
+                {
+                  "t": "お待ちになりませんか",
+                  "read": "おまちになりませんか",
+                  "vi": "お〜になりませんか = ngài không đợi sao? (kính ngữ nhưng sai sắc thái mời chờ)"
+                },
+                {
+                  "t": "お待ちしていただけませんか",
+                  "read": "おまちしていただけませんか",
+                  "vi": "kết hợp khiêm nhường (お待ちする) với いただけませんか, sai vì お待ちする là hành động khiêm nhường của người nói, không dùng để nhờ người khác đợi"
+                }
+              ]
+            },
+            {
+              "prompt": "明日のパーティーに参る予定です。",
+              "choices": [
+                "明日のパーティーにいらっしゃる予定です。",
+                "明日のパーティーにおいでになる予定です。",
+                "明日のパーティーに伺う予定です。",
+                "明日のパーティーに来られる予定です。"
+              ],
+              "answer": 2,
+              "pt": "特別な謙譲語（参る）",
+              "explain": "「参る」là khiêm nhường đặc biệt của「行く／来る」, chủ thể là người nói. Đáp án (C) index 2「伺う」— cũng là khiêm nhường đặc biệt, thường dùng khi đến thăm người khác → nghĩa gần nhất: 'tôi (khiêm) dự định đến'. Phân tích câu sai: (A)「いらっしゃる」kính ngữ đặc biệt dành cho người khác đến, sai chủ thể. (B)「おいでになる」cũng kính ngữ dành cho người khác, sai hướng. (D)「来られる」có thể là bị động hoặc kính ngữ vùng Kansai, không chuẩn khiêm nhường và mơ hồ.",
+              "glosses": [
+                {
+                  "t": "参る",
+                  "read": "まいる",
+                  "vi": "đến/đi (khiêm nhường đặc biệt)"
+                },
+                {
+                  "t": "伺う",
+                  "read": "うかがう",
+                  "vi": "đến thăm (khiêm nhường đặc biệt)"
+                },
+                {
+                  "t": "いらっしゃる",
+                  "read": "いらっしゃる",
+                  "vi": "ở/đến/đi (kính ngữ đặc biệt cho người khác)"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "dự định, kế hoạch"
+                },
+                {
+                  "t": "パーティー",
+                  "read": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "おいでになる",
+                  "read": "おいでになる",
+                  "vi": "お出でになる = kính ngữ của 行く/来る/いる, ngài đi/đến/ở (tôn kính)"
+                },
+                {
+                  "t": "来られる",
+                  "read": "こられる",
+                  "vi": "来られる = kính ngữ thụ động dạng của 来る, ngài đến (tôn kính đơn giản)"
+                }
+              ]
+            },
+            {
+              "prompt": "部長がお書きになった報告書を拝見しました。",
+              "choices": [
+                "部長がお書きになった報告書を読まれました。",
+                "部長がお書きになった報告書をいただきました。",
+                "部長がお書きになった報告書をご覧になりました。",
+                "部長がお書きになった報告書を見せていただきました。"
+              ],
+              "answer": 3,
+              "pt": "特別な謙譲語（拝見する）＋おVますになる（B49）",
+              "explain": "「拝見しました」là khiêm nhường của người nói khi xem. Đáp án (D) index 3「見せていただきました」→ 'đã được cho xem' → ý nghĩa người nói xem tài liệu của trưởng phòng, giữ đúng hướng. Phân tích câu sai: (A)「読まれました」→ ai xem/đọc? Chủ thể mơ hồ (có thể là bị động hoặc kính ngữ nhưng không rõ). (B)「いただきました」→ 'nhận' (nhận vật phẩm), không phải 'xem'. (C)「ご覧になりました」→ kính ngữ, đề cao người khác xem, sai chủ thể (trưởng phòng xem chứ không phải tôi xem).",
+              "glosses": [
+                {
+                  "t": "拝見しました",
+                  "read": "はいけんしました",
+                  "vi": "đã xem (khiêm nhường)"
+                },
+                {
+                  "t": "見せていただきました",
+                  "read": "みせていただきました",
+                  "vi": "đã được cho xem"
+                },
+                {
+                  "t": "報告書",
+                  "read": "ほうこくしょ",
+                  "vi": "báo cáo (văn bản)"
+                },
+                {
+                  "t": "お書きになった",
+                  "read": "おかきになった",
+                  "vi": "đã viết (kính ngữ)"
+                },
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng, giám đốc bộ phận"
+                },
+                {
+                  "t": "読まれました",
+                  "read": "よまれました",
+                  "vi": "読まれる = kính ngữ thụ động của 読む, ngài đã đọc"
+                },
+                {
+                  "t": "報告書をいただきました",
+                  "read": "ほうこくしょをいただきました",
+                  "vi": "〜をいただきました = tôi đã nhận được ~ (khiêm nhường, sai ngữ cảnh vì không phải hành động 'nhận')"
+                },
+                {
+                  "t": "ご覧になりました",
+                  "read": "ごらんになりました",
+                  "vi": "ご覧になる = kính ngữ của 見る, ngài đã xem"
+                }
+              ]
+            },
+            {
+              "prompt": "田中部長はただいま席をはずしておられます。",
+              "choices": [
+                "田中部長はただいま席をはずしていらっしゃいます。",
+                "田中部長はただいま席をはずしております。",
+                "田中部長はただいま席をはずされました。",
+                "田中部長はただいま席をはずしていただいています。"
+              ],
+              "answer": 0,
+              "pt": "特別な尊敬語（おる→おられる）（B49）",
+              "explain": "「おられます」là kính ngữ (「おる」→「おられる」), nghĩa 'trưởng phòng hiện không có ở chỗ'. Đáp án (A) index 0「いらっしゃいます」là kính ngữ đặc biệt cao hơn của「いる」→ cùng nghĩa 'đang không có mặt', đồng nghĩa hoàn toàn. Phân tích câu sai: (B)「おります」là khiêm nhường của「いる」(dùng cho chính mình), không thể dùng cho trưởng phòng. (C)「はずされました」→ bị động/kính ngữ với「はずす」nhưng mang nghĩa 'đã rời đi' (quá khứ) chứ không phải 'đang không có mặt'. (D)「はずしていただいています」→ 'đang được cho phép rời đi', ý nghĩa lệch.",
+              "glosses": [
+                {
+                  "t": "席をはずして",
+                  "read": "せきをはずして",
+                  "vi": "rời chỗ, không có mặt"
+                },
+                {
+                  "t": "おられます",
+                  "read": "おられます",
+                  "vi": "đang (kính ngữ của おる)"
+                },
+                {
+                  "t": "いらっしゃいます",
+                  "read": "いらっしゃいます",
+                  "vi": "đang/ở (kính ngữ đặc biệt cao)"
+                },
+                {
+                  "t": "おります",
+                  "read": "おります",
+                  "vi": "đang (khiêm nhường của いる)"
+                },
+                {
+                  "t": "田中部長",
+                  "read": "たなかぶちょう",
+                  "vi": "trưởng phòng Tanaka"
+                },
+                {
+                  "t": "ただいま",
+                  "read": "ただいま",
+                  "vi": "bây giờ, hiện tại"
+                },
+                {
+                  "t": "席をはずされました",
+                  "read": "せきをはずされました",
+                  "vi": "はずされる = kính ngữ thụ động của はずす (rời khỏi chỗ), ngài đã rời khỏi chỗ"
+                },
+                {
+                  "t": "はずしていただいています",
+                  "read": "はずしていただいています",
+                  "vi": "〜ていただいています = (tôi) đang được ngài cho phép rời (khiêm nhường, sai ngữ cảnh)"
+                }
+              ]
+            },
+            {
+              "prompt": "先週ご注文いただいた商品が届いたところです。",
+              "choices": [
+                "先週ご注文いただいた商品が届くところです。",
+                "先週ご注文いただいた商品が届いたばかりです。",
+                "先週ご注文いただいた商品が届いているところです。",
+                "先週ご注文いただいた商品が届いていたところです。"
+              ],
+              "answer": 1,
+              "pt": "Vたところです（B46）＋いただく（謙譲）",
+              "explain": "「届いたところです」(B46) nghĩa 'vừa mới giao đến ngay lúc này'. Đáp án (B) index 1「届いたばかりです」(B46 ôn xoắn ốc) → cũng có nghĩa 'vừa mới đến' với sắc thái nhấn mạnh mới xong gần đây → gần nghĩa nhất. Phân tích câu sai: (A)「届くところです」→ 'sắp giao đến' (tương lai gần), sai thời điểm. (C)「届いているところです」→ 'đang giao đến' (đang trong quá trình), sai. (D)「届いていたところです」→ cấu trúc bất thường, không chuẩn.",
+              "glosses": [
+                {
+                  "t": "届いたところです",
+                  "read": "とどいたところです",
+                  "vi": "vừa mới được giao đến"
+                },
+                {
+                  "t": "届いたばかりです",
+                  "read": "とどいたばかりです",
+                  "vi": "mới vừa giao đến"
+                },
+                {
+                  "t": "ご注文いただいた",
+                  "read": "ごちゅうもんいただいた",
+                  "vi": "đã đặt hàng (khiêm nhường, nhận ơn khách)"
+                },
+                {
+                  "t": "商品",
+                  "read": "しょうひん",
+                  "vi": "hàng hóa, sản phẩm"
+                },
+                {
+                  "t": "先週",
+                  "read": "せんしゅう",
+                  "vi": "tuần trước"
+                },
+                {
+                  "t": "届くところです",
+                  "read": "とどくところです",
+                  "vi": "〜ところです (trước động từ) = sắp/vừa sắp ~ (chuẩn bị xảy ra)"
+                },
+                {
+                  "t": "届いているところです",
+                  "read": "とどいているところです",
+                  "vi": "〜ているところです = đang trong quá trình ~"
+                },
+                {
+                  "t": "届いていたところです",
+                  "read": "とどいていたところです",
+                  "vi": "〜ていたところです = (lúc đó) đang ở trong trạng thái ~ (quá khứ)"
+                }
+              ]
+            },
+            {
+              "prompt": "社長によると、新しい支店を来年開くそうです。",
+              "choices": [
+                "社長によると、新しい支店を来年開くらしいです。",
+                "社長によると、新しい支店を来年開きそうです。",
+                "社長によると、新しい支店を来年開くようです。",
+                "社長に聞いたら、新しい支店を来年開かせるそうです。"
+              ],
+              "answer": 0,
+              "pt": "Nによると＋〜そうです（伝聞）（B47）",
+              "explain": "「〜そうです（伝聞）」(B47) sau thể thông thường = 'nghe nói'. Đáp án (A) index 0「〜らしいです」(B47 ôn) → cũng truyền đạt thông tin nghe/đọc được từ nguồn, nghĩa gần nhất 'nghe nói sẽ mở chi nhánh'. Phân tích câu sai: (B)「開きそうです」→「Vそうです（様態 B43）」= 'trông có vẻ sắp mở', không phải truyền đạt thông tin từ nguồn. (C)「開くようです」→ suy luận dựa trên quan sát, không hoàn toàn đồng nghĩa với dẫn nguồn. (D)「開かせるそうです」→ thêm「させる」(使役) làm thay đổi nghĩa thành 'bắt ai mở'.",
+              "glosses": [
+                {
+                  "t": "によると",
+                  "read": "によると",
+                  "vi": "theo (nguồn tin)"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "nghe nói (dẫn nguồn)"
+                },
+                {
+                  "t": "〜らしいです",
+                  "read": "",
+                  "vi": "có vẻ/nghe nói (suy đoán từ thông tin)"
+                },
+                {
+                  "t": "支店",
+                  "read": "してん",
+                  "vi": "chi nhánh"
+                },
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc, chủ tịch công ty"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau, sang năm"
+                },
+                {
+                  "t": "来年開くそうです",
+                  "read": "らいねんひらくそうです",
+                  "vi": "nghe nói sẽ mở vào năm sau"
+                },
+                {
+                  "t": "開くらしいです",
+                  "read": "ひらくらしいです",
+                  "vi": "〜らしいです = nghe nói/có vẻ như ~ (suy đoán dựa trên thông tin nghe được)"
+                },
+                {
+                  "t": "開くようです",
+                  "read": "ひらくようです",
+                  "vi": "〜ようです = có vẻ như ~ (suy đoán dựa trên quan sát/cảm nhận)"
+                },
+                {
+                  "t": "聞いたら",
+                  "read": "きいたら",
+                  "vi": "〜たら = nếu/khi đã ~ (điều kiện)"
+                },
+                {
+                  "t": "開かせる",
+                  "read": "ひらかせる",
+                  "vi": "使役形 của 開く = khiến/cho phép ai đó mở ~"
+                }
+              ]
+            },
+            {
+              "prompt": "先生のご都合が悪い場合は、別の日に伺います。",
+              "choices": [
+                "先生のご都合が悪ければ、別の日に参ります。",
+                "先生のご都合が悪い場合は、別の日においでになります。",
+                "先生のご都合が悪い場合は、別の日に来ていただきます。",
+                "先生のご都合が悪い場合は、別の日においでします。"
+              ],
+              "answer": 0,
+              "pt": "〜のばあいは（B45）＋特別な謙譲語（伺う）",
+              "explain": "Câu gốc dùng「〜のばあいは」(B45) + khiêm nhường「伺います」. Đáp án (A) index 0 đổi「〜場合は」thành「〜ければ」(điều kiện) và đổi「伺います」thành「参ります」(khiêm nhường đặc biệt tương đương) → cùng nghĩa 'nếu thầy không tiện, tôi sẽ đến ngày khác'. Phân tích câu sai: (B)「においでになります」→ kính ngữ dành cho thầy đến, sai chủ thể. (C)「来ていただきます」→ 'nhờ thầy đến', hoàn toàn đổi người đến. (D)「においでします」→ cấu trúc không tự nhiên, nghe lạ.",
+              "glosses": [
+                {
+                  "t": "ご都合が悪い",
+                  "read": "ごつごうがわるい",
+                  "vi": "không tiện, bất tiện"
+                },
+                {
+                  "t": "場合は",
+                  "read": "ばあいは",
+                  "vi": "trong trường hợp"
+                },
+                {
+                  "t": "伺います",
+                  "read": "うかがいます",
+                  "vi": "sẽ đến (khiêm nhường)"
+                },
+                {
+                  "t": "参ります",
+                  "read": "まいります",
+                  "vi": "sẽ đến/đi (khiêm nhường đặc biệt)"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "別の日",
+                  "read": "べつのひ",
+                  "vi": "ngày khác"
+                },
+                {
+                  "t": "悪ければ",
+                  "read": "わるければ",
+                  "vi": "〜ければ = nếu ~ (điều kiện giả định)"
+                },
+                {
+                  "t": "おいでになります",
+                  "read": "おいでになります",
+                  "vi": "お出でになる = kính ngữ của 行く, sẽ đến (tôn kính)"
+                },
+                {
+                  "t": "来ていただきます",
+                  "read": "きていただきます",
+                  "vi": "〜ていただきます = (tôi) sẽ được người khác đến cho (khiêm nhường, sai chủ thể trong câu)"
+                },
+                {
+                  "t": "おいでします",
+                  "read": "おいでします",
+                  "vi": "dạng sai ngữ pháp (おいでする không phải khiêm nhường chuẩn, nhầm lẫn kính ngữ với khiêm nhường)"
+                }
+              ]
+            },
+            {
+              "prompt": "部長はただいまお電話中でいらっしゃいます。",
+              "choices": [
+                "部長はただいまお電話中でございます。",
+                "部長はただいまお電話中でおります。",
+                "部長はただいまお電話中でおられます。",
+                "部長はただいまお電話中でいただきます。"
+              ],
+              "answer": 2,
+              "pt": "特別な尊敬語（いらっしゃる）（B49）",
+              "explain": "「いらっしゃいます」là kính ngữ đặc biệt của「いる」B49, dùng khi đề cao người khác. Đáp án (C) index 2「おられます」→「おる」→「おられる」cũng là kính ngữ (mức nhẹ hơn) của「いる」→ đồng nghĩa 'trưởng phòng đang nghe điện thoại'. Phân tích câu sai: (A)「でございます」→「ございます」là khiêm nhường của「ある」, dùng để xác nhận trạng thái trung lập, không dùng để đề cao người; câu này nghe không tự nhiên. (B)「でおります」→「おります」là khiêm nhường của「いる」, dùng cho chính mình, không dành cho trưởng phòng. (D)「でいただきます」→ cấu trúc vô nghĩa trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "いらっしゃいます",
+                  "read": "いらっしゃいます",
+                  "vi": "đang (kính ngữ đặc biệt cao)"
+                },
+                {
+                  "t": "おられます",
+                  "read": "おられます",
+                  "vi": "đang (kính ngữ trung bình của おる)"
+                },
+                {
+                  "t": "お電話中",
+                  "read": "おでんわちゅう",
+                  "vi": "đang nghe/gọi điện thoại"
+                },
+                {
+                  "t": "おります",
+                  "read": "おります",
+                  "vi": "đang (khiêm nhường của いる)"
+                },
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "ただいま",
+                  "read": "ただいま",
+                  "vi": "bây giờ, hiện tại"
+                },
+                {
+                  "t": "でございます",
+                  "read": "でございます",
+                  "vi": "でございます = thể lịch sự trang trọng của です"
+                },
+                {
+                  "t": "でいただきます",
+                  "read": "でいただきます",
+                  "vi": "dạng sai ngữ pháp (でいただきます không tự nhiên sau danh từ trạng thái)"
+                }
+              ]
+            },
+            {
+              "prompt": "先月入社したばかりなのに、もう残業させられています。",
+              "choices": [
+                "先月入社したところなのに、もう残業させられています。",
+                "先月入社したばかりなのに、もう残業するよう言われています。",
+                "先月入社したばかりでも、もう残業させられています。",
+                "先月入社したばかりなので、もう残業させられています。"
+              ],
+              "answer": 0,
+              "pt": "Vたばかり（B46）＋〜のに（逆接 B45）＋使役受身",
+              "explain": "「〜たばかりなのに」(B46+B45逆接) nghĩa 'mới vào làm mà đã bị bắt làm thêm giờ'. Đáp án (A) index 0 đổi「〜たばかり」thành「〜たところ」(B46 ôn) → cả hai đều nhấn mạnh 'mới vừa', câu giữ đúng nghĩa với「のに」逆接. Phân tích câu sai: (B)「残業するよう言われています」→ 'được bảo làm thêm giờ', đổi thành bị động gián tiếp, sắc thái khác. (C)「〜たばかりでも」→「でも」là 'dù/thậm chí', sắc thái nhượng bộ khác「のに」(không hài lòng). (D)「〜たばかりなので」→「ので」là nguyên nhân, hoàn toàn đổi ý nghĩa thành 'vì mới vào nên bị bắt làm thêm'.",
+              "glosses": [
+                {
+                  "t": "入社したばかり",
+                  "read": "にゅうしゃしたばかり",
+                  "vi": "mới vừa vào công ty"
+                },
+                {
+                  "t": "入社したところ",
+                  "read": "にゅうしゃしたところ",
+                  "vi": "vừa mới vào công ty"
+                },
+                {
+                  "t": "残業させられています",
+                  "read": "ざんぎょうさせられています",
+                  "vi": "đang bị bắt làm thêm giờ"
+                },
+                {
+                  "t": "のに",
+                  "read": "のに",
+                  "vi": "mặc dù...nhưng (thể hiện sự không hài lòng)"
+                },
+                {
+                  "t": "先月",
+                  "read": "せんげつ",
+                  "vi": "tháng trước"
+                },
+                {
+                  "t": "先月入社したばかりなのに",
+                  "read": "せんげつにゅうしゃしたばかりなのに",
+                  "vi": "mặc dù mới vào công ty tháng trước"
+                },
+                {
+                  "t": "するよう言われています",
+                  "read": "するよういわれています",
+                  "vi": "〜ように言われています = bị/được bảo phải làm ~ (mệnh lệnh gián tiếp)"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "〜なので = vì là ~ (nối lý do)"
+                }
+              ]
+            },
+            {
+              "prompt": "お客様にご説明申し上げる前に、少々お待ちいただけますか。",
+              "choices": [
+                "お客様にご説明いたす前に、少々お待ちくださいませんか。",
+                "お客様にご説明する前に、少々お待ちいただけますか。",
+                "お客様にご説明申し上げる前に、少々お待ちになれますか。",
+                "お客様にご説明なさる前に、少々お待ちいただけますか。"
+              ],
+              "answer": 1,
+              "pt": "おVますします／いたします（謙譲）＋Vていただけませんか",
+              "explain": "「ご説明申し上げる」là khiêm nhường kép rất cao. Đáp án (B) index 1「ご説明する」bỏ phần khiêm nhường「申し上げる」nhưng giữ nguyên cấu trúc「お待ちいただけますか」→ nghĩa không thay đổi 'trước khi giải thích cho khách, xin vui lòng đợi một chút'. Phân tích câu sai: (A)「ご説明いたす」+ đổi「お待ちいただけますか」thành「お待ちくださいませんか」→ đổi hướng nhờ (くださる vs いただく), sắc thái khác nhẹ. (C)「お待ちになれますか」→「お〜になる」kính ngữ dành cho khách hàng, không phải nhờ khách đợi mà hỏi khách 'có thể đợi được không' theo cách kính ngữ, nghe bất thường. (D)「ご説明なさる」→ kính ngữ「なさる」dành cho người khác giải thích, sai chủ thể (nhân viên tự đề cao mình).",
+              "glosses": [
+                {
+                  "t": "申し上げる",
+                  "read": "もうしあげる",
+                  "vi": "nói/trình bày (khiêm nhường cực cao)"
+                },
+                {
+                  "t": "ご説明",
+                  "read": "ごせつめい",
+                  "vi": "sự giải thích (kính ngữ tiền tố)"
+                },
+                {
+                  "t": "お待ちいただけますか",
+                  "read": "おまちいただけますか",
+                  "vi": "có thể vui lòng đợi không ạ"
+                },
+                {
+                  "t": "お客様",
+                  "read": "おきゃくさま",
+                  "vi": "quý khách"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "少々",
+                  "read": "しょうしょう",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "ご説明申し上げる",
+                  "read": "ごせつめいもうしあげる",
+                  "vi": "xin giải thích (khiêm nhường ngữ)"
+                },
+                {
+                  "t": "ご説明いたす",
+                  "read": "ごせつめいいたす",
+                  "vi": "いたす = khiêm nhường trang trọng của する, tôi xin ~ ạ"
+                },
+                {
+                  "t": "お待ちくださいませんか",
+                  "read": "おまちくださいませんか",
+                  "vi": "〜てくださいませんか = xin ngài vui lòng đợi được không ạ (kính ngữ nhờ vả)"
+                },
+                {
+                  "t": "お待ちになれますか",
+                  "read": "おまちになれますか",
+                  "vi": "kính ngữ khả năng của 待つ, ngài có thể đợi được không ạ"
+                },
+                {
+                  "t": "ご説明なさる",
+                  "read": "ごせつめいなさる",
+                  "vi": "なさる = kính ngữ của する, ngài làm/thực hiện ~ (tôn kính)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 50 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "A:「荷物、重そうですね。」B:「ありがとうございます。では、お持ち＿。」",
+              "choices": [
+                "になります",
+                "します",
+                "いたします",
+                "させていただきます"
+              ],
+              "answer": 2,
+              "pt": "おVますします (khiêm nhường chuẩn)",
+              "explain": "「お〜いたします」là cấu trúc khiêm nhường chuẩn (謙譲語) lịch sự nhất khi người nói tự nguyện làm gì đó cho người khác. Đáp án đúng là C「いたします」→「お持ちいたします」(tôi xin được xách cho bạn). A「になります」dùng cho「お〜になります」là kính ngữ (尊敬語) dành cho hành động của người khác, không dùng cho bản thân. B「します」→「お持ちします」cũng là khiêm nhường nhưng kém lịch sự hơn「いたします」, không phù hợp với ngữ cảnh dịch vụ/phục vụ. D「させていただきます」có nghĩa 'xin phép được làm', nhấn mạnh việc xin phép, không tự nhiên khi chỉ đơn giản đề nghị giúp đỡ người lạ.",
+              "glosses": [
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ vật"
+                },
+                {
+                  "t": "重そう",
+                  "read": "おもそう",
+                  "vi": "trông có vẻ nặng"
+                },
+                {
+                  "t": "お持ち",
+                  "read": "おもち",
+                  "vi": "mang/xách (dạng tiền tố lịch sự)"
+                },
+                {
+                  "t": "重そうですね",
+                  "read": "おもそうですね",
+                  "vi": "trông có vẻ nặng nhỉ"
+                },
+                {
+                  "t": "ありがとうございます",
+                  "read": "ありがとうございます",
+                  "vi": "cảm ơn"
+                },
+                {
+                  "t": "になります",
+                  "read": "になります",
+                  "vi": "お/ご + thân từ + になります = kính ngữ (tôn kính), dùng khi nói về hành động của NGƯỜI KHÁC (không dùng cho hành động của bản thân)"
+                },
+                {
+                  "t": "します",
+                  "read": "します",
+                  "vi": "します = thể thường/lịch sự bình thường của する, không mang sắc thái khiêm nhường hay kính trọng"
+                },
+                {
+                  "t": "いたします",
+                  "read": "いたします",
+                  "vi": "お/ご + thân từ + いたします = khiêm nhường ngữ (khiêm tốn), dùng cho hành động của BẢN THÂN khi nói với người trên"
+                },
+                {
+                  "t": "させていただきます",
+                  "read": "させていただきます",
+                  "vi": "〜させていただきます = xin phép được làm ~ (khiêm nhường, thể hiện sự xin phép/biết ơn khi làm việc gì đó có ảnh hưởng đến người nghe)"
+                }
+              ]
+            },
+            {
+              "stem": "明日の午後3時に御社へ＿予定です。",
+              "choices": [
+                "いらっしゃる",
+                "まいる",
+                "おいでになる",
+                "いただく"
+              ],
+              "answer": 1,
+              "pt": "特別な謙譲語: 参る",
+              "explain": "Câu này nói về hành động của người nói (tôi) đến công ty của đối phương, nên phải dùng 謙譲語. Đáp án đúng là B「まいる」(= khiêm nhường của「行く・来る」)→「まいる予定です」(dự định đến). A「いらっしゃる」và C「おいでになる」đều là 尊敬語 của「いる・行く・来る」, chỉ dùng cho hành động của người khác (cấp trên/khách hàng), không dùng cho bản thân. D「いただく」là khiêm nhường của「もらう」(nhận), không liên quan đến hành động đi đến.",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "午後",
+                  "read": "ごご",
+                  "vi": "buổi chiều"
+                },
+                {
+                  "t": "御社",
+                  "read": "おんしゃ",
+                  "vi": "quý công ty (kính xưng)"
+                },
+                {
+                  "t": "午後3時に",
+                  "read": "ごごさんじに",
+                  "vi": "vào lúc 3 giờ chiều"
+                },
+                {
+                  "t": "予定です",
+                  "read": "よていです",
+                  "vi": "dự định"
+                }
+              ]
+            },
+            {
+              "stem": "先生のご都合をお聞きしたいのですが、明日お宅へ＿てもよろしいでしょうか。",
+              "choices": [
+                "うかがっ",
+                "いらっしゃっ",
+                "まいっ",
+                "おりっ"
+              ],
+              "answer": 0,
+              "pt": "特別な謙譲語: 伺う",
+              "explain": "「伺う(うかがう)」là 謙譲語 đặc biệt mang hai nghĩa: 1「聞く」(hỏi) và 2「訪問する」(đến thăm). Câu này nói người nói muốn đến nhà thầy/cô, nên dùng「うかがって」. A「うかがっ」→「うかがってもよろしいでしょうか」là đúng, vừa khiêm nhường vừa rất lịch sự. B「いらっしゃっ」là 尊敬語, dùng cho hành động của người khác (thầy/cô), không phải của bản thân. C「まいっ」(参る) cũng là 謙譲語 của「行く・来る」, nhưng không có nghĩa 'hỏi'; nếu chỉ muốn nói 'đến', có thể dùng, tuy nhiên「伺う」thể hiện mục đích hỏi han nên phù hợp hơn. D「おりっ」(おる) là 謙譲語 của「いる」(ở), không liên quan đến di chuyển hay hỏi han.",
+              "glosses": [
+                {
+                  "t": "ご都合",
+                  "read": "ごつごう",
+                  "vi": "lịch/thời gian thuận tiện (kính)"
+                },
+                {
+                  "t": "お宅",
+                  "read": "おたく",
+                  "vi": "nhà (của người đối thoại, kính)"
+                },
+                {
+                  "t": "お聞きしたいのですが",
+                  "read": "おききしたいのですが",
+                  "vi": "muốn hỏi (là)..."
+                },
+                {
+                  "t": "よろしい",
+                  "read": "よろしい",
+                  "vi": "được, tốt (lịch sự)"
+                },
+                {
+                  "t": "よろしいでしょうか",
+                  "read": "よろしいでしょうか",
+                  "vi": "〜てもよろしいでしょうか = tôi có thể ~ được không ạ (xin phép lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "はじめまして。わたくしは田中と＿ます。どうぞよろしくお願いいたします。",
+              "choices": [
+                "おっしゃい",
+                "まいり",
+                "もうし",
+                "ぞんじ"
+              ],
+              "answer": 2,
+              "pt": "特別な謙譲語: 申す",
+              "explain": "「申す(もうす)」là 謙譲語 của「言う」(nói), dùng khi người nói tự giới thiệu tên hoặc truyền đạt thông tin về bản thân một cách khiêm tốn. Đáp án đúng là C「もうし」→「田中と申します」(tôi tên là Tanaka). A「おっしゃい」là 尊敬語 của「言う」, dùng cho lời nói của người khác (cấp trên), không dùng cho bản thân. B「まいり」(参る) là 謙譲語 của「行く・来る」, không liên quan đến tự giới thiệu. D「ぞんじ」(存じる) là 謙譲語 của「知る・思う」(biết/nghĩ), sai nghĩa trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "わたくし",
+                  "read": "",
+                  "vi": "tôi (lịch sự/trang trọng)"
+                },
+                {
+                  "t": "はじめまして",
+                  "read": "",
+                  "vi": "rất vui được gặp lần đầu"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "Tanaka (tên người)"
+                },
+                {
+                  "t": "どうぞよろしくお願いいたします",
+                  "read": "どうぞよろしくおねがいいたします",
+                  "vi": "rất mong được giúp đỡ, chỉ bảo (câu chào xã giao)"
+                }
+              ]
+            },
+            {
+              "stem": "部長はもうすぐ会議室を＿でしょう。",
+              "choices": [
+                "でるでしょう",
+                "おでになります",
+                "おでになるでしょう",
+                "でられるでしょう"
+              ],
+              "answer": 2,
+              "pt": "おVますになります (尊敬語, ôn B49)",
+              "explain": "Nói về hành động của「部長」(cấp trên) nên dùng 尊敬語. Đáp án đúng là C「おでになるでしょう」→「お出になるでしょう」(Trưởng phòng sắp ra khỏi phòng họp đấy). Cấu trúc「お〜になる」là 尊敬語 chuẩn; kết hợp với「でしょう」để phỏng đoán. A「でるでしょう」là thể thông thường, thiếu tính trang trọng khi nói về cấp trên. B「おでになります」không có「でしょう」nên không diễn đạt sự phỏng đoán như câu yêu cầu. D「でられるでしょう」là dạng thụ động/kính ngữ bị động (受身形) nhưng kém tự nhiên hơn「お〜になる」trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng, giám đốc bộ phận"
+                },
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "もうすぐ",
+                  "read": "もうすぐ",
+                  "vi": "sắp, chẳng mấy chốc"
+                },
+                {
+                  "t": "でしょう",
+                  "read": "でしょう",
+                  "vi": "〜でしょう = chắc là ~, có lẽ ~ (suy đoán)"
+                },
+                {
+                  "t": "でるでしょう",
+                  "read": "でるでしょう",
+                  "vi": "出るでしょう = chắc sẽ ra/rời (thường thể, không kính ngữ, sai ngữ cảnh với 部長)"
+                },
+                {
+                  "t": "おでになります",
+                  "read": "おでになります",
+                  "vi": "お出になります = kính ngữ của 出る, ngài sẽ ra/rời (khẳng định chắc chắn)"
+                },
+                {
+                  "t": "おでになるでしょう",
+                  "read": "おでになるでしょう",
+                  "vi": "お出になるでしょう = có lẽ ngài sẽ ra/rời (kính ngữ kết hợp suy đoán)"
+                },
+                {
+                  "t": "でられるでしょう",
+                  "read": "でられるでしょう",
+                  "vi": "出られるでしょう = có lẽ ngài sẽ ra/rời được (kính ngữ thụ động + suy đoán)"
+                }
+              ]
+            },
+            {
+              "stem": "先生に論文を読んで＿、とても助かりました。",
+              "choices": [
+                "いただいて",
+                "くださって",
+                "なさって",
+                "さしあげて"
+              ],
+              "answer": 0,
+              "pt": "特別な謙譲語: いただく",
+              "explain": "「いただく」là 謙譲語 của「もらう」, dùng khi chủ thể là người nói và người thực hiện hành động là cấp trên/đối phương. Đáp án đúng là A「いただいて」→「先生に読んでいただいて」(được thầy/cô đọc cho). B「くださって」(=「〜てくれて」kính ngữ) cũng đúng về nghĩa nhưng chủ thể câu là người nói nên「いただく」tự nhiên hơn. Câu đang diễn đạt góc nhìn 'tôi nhận được ân huệ' nên「いただく」phù hợp nhất. C「なさって」là 尊敬語 của「する」, dùng khi khen ngợi hành động của đối phương, không có nghĩa 'nhận được'. D「さしあげて」là 謙譲語 của「あげる」(cho), nghĩa ngược chiều (tôi cho cấp trên), sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "論文",
+                  "read": "ろんぶん",
+                  "vi": "luận văn, bài nghiên cứu"
+                },
+                {
+                  "t": "助かりました",
+                  "read": "たすかりました",
+                  "vi": "được giúp đỡ, rất có ích"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "読んで",
+                  "read": "よんで",
+                  "vi": "đọc (dạng te)"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "A:「山田さんはいらっしゃいますか。」B:「少々お待ちください。今、確認して＿ます。」",
+              "choices": [
+                "い",
+                "おり",
+                "いらっしゃり",
+                "まいり"
+              ],
+              "answer": 1,
+              "pt": "特別な謙譲語: おる (ôn + so sánh)",
+              "explain": "B là nhân viên trả lời khách hàng, nên khi nói về hành động của bản thân phải dùng 謙譲語. Đáp án đúng là B「おり」→「確認しております」(tôi đang xác nhận). 「おる」là 謙譲語 của「いる」, dùng trong các cụm「〜ております」để diễn đạt trạng thái đang làm gì đó một cách khiêm tốn. A「い」→「確認しています」là thể thông thường, không đủ lịch sự với khách hàng. C「いらっしゃり」là 尊敬語 của「いる」, dùng cho đối phương/cấp trên, không dùng cho bản thân. D「まいり」(参る) là 謙譲語 của「行く・来る」, không dùng cho trạng thái đang làm gì.",
+              "glosses": [
+                {
+                  "t": "少々",
+                  "read": "しょうしょう",
+                  "vi": "một lát, một chút (lịch sự)"
+                },
+                {
+                  "t": "確認",
+                  "read": "かくにん",
+                  "vi": "xác nhận, kiểm tra"
+                },
+                {
+                  "t": "山田さんはいらっしゃいますか",
+                  "read": "やまださんはいらっしゃいますか",
+                  "vi": "anh/chị Yamada có ở đó không ạ?"
+                },
+                {
+                  "t": "お待ちください",
+                  "read": "おまちください",
+                  "vi": "xin vui lòng chờ một chút"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                }
+              ]
+            },
+            {
+              "stem": "先生のご著書を＿、大変勉強になりました。",
+              "choices": [
+                "ご覧になって",
+                "拝見して",
+                "見させていただいて",
+                "お見しして"
+              ],
+              "answer": 1,
+              "pt": "特別な謙譲語: 拝見する",
+              "explain": "「拝見する(はいけんする)」là 謙譲語 của「見る」(xem/đọc), dùng khi người nói khiêm tốn diễn đạt việc mình xem/đọc tác phẩm của cấp trên. Đáp án đúng là B「拝見して」→「拝見しました」. A「ご覧になって」là 尊敬語 của「見る」, dùng khi nói về hành động của cấp trên, không phải của bản thân. C「見させていただいて」cũng là khiêm nhường nhưng「拝見する」là cách nói cô đọng và chuẩn mực hơn; tuy nhiên cả hai đều chấp nhận được về nghĩa, song「拝見する」mới là 特別な謙譲語 được dạy trong bài. D「お見しして」không phải dạng ngữ pháp chuẩn, sai cấu trúc.",
+              "glosses": [
+                {
+                  "t": "著書",
+                  "read": "ちょしょ",
+                  "vi": "tác phẩm, sách đã viết"
+                },
+                {
+                  "t": "勉強になりました",
+                  "read": "べんきょうになりました",
+                  "vi": "học được nhiều, bổ ích"
+                },
+                {
+                  "t": "ご著書",
+                  "read": "ごちょしょ",
+                  "vi": "tác phẩm, sách (của thầy, kính ngữ)"
+                },
+                {
+                  "t": "大変勉強になりました",
+                  "read": "たいへんべんきょうになりました",
+                  "vi": "đã học hỏi được rất nhiều"
+                },
+                {
+                  "t": "ご覧になって",
+                  "read": "ごらんになって",
+                  "vi": "ご覧になる = kính ngữ của 見る, dùng cho người khác (sai ngữ cảnh vì chủ ngữ là người nói)"
+                },
+                {
+                  "t": "見させていただいて",
+                  "read": "みさせていただいて",
+                  "vi": "〜させていただいて = tôi đã được phép đọc/xem (khiêm nhường lịch sự)"
+                },
+                {
+                  "t": "お見しして",
+                  "read": "おみしして",
+                  "vi": "dạng sai ngữ pháp, nhầm lẫn giữa 拝見して và お見せして"
+                }
+              ]
+            },
+            {
+              "stem": "A:「コーヒー、飲みますか。」B:「いいえ、さっき飲んだ＿ので、結構です。」",
+              "choices": [
+                "ところ",
+                "ばかり",
+                "そうです",
+                "らしいです"
+              ],
+              "answer": 1,
+              "pt": "Vたばかりです (ôn B46)",
+              "explain": "「Vたばかりです」diễn đạt 'vừa mới ~ xong (không lâu)', nhấn mạnh sự việc vừa xảy ra gần đây. Đáp án đúng là B「ばかり」→「飲んだばかり」(vừa mới uống). A「ところ」→「飲んだところ」cũng nghĩa là 'vừa mới uống xong' nhưng「ところ」nhấn mạnh thời điểm ngay lập tức vừa xong, còn「ばかり」nhấn mạnh khoảng thời gian chưa lâu; cả hai gần nghĩa, nhưng với「さっき」(lúc nãy) thì「ばかり」tự nhiên hơn. C「そうです」→「飲んだそうです」là 伝聞 (nghe nói), thêm nguồn tin gián tiếp, không hợp với ngữ cảnh tự nói về bản thân. D「らしいです」→「飲んだらしいです」cũng là suy đoán/nghe nói, không dùng để nói về hành động của chính mình.",
+              "glosses": [
+                {
+                  "t": "さっき",
+                  "read": "",
+                  "vi": "vừa nãy, lúc nãy"
+                },
+                {
+                  "t": "結構です",
+                  "read": "けっこうです",
+                  "vi": "không cần, như vậy là được rồi"
+                },
+                {
+                  "t": "コーヒー",
+                  "read": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "飲みますか",
+                  "read": "のみますか",
+                  "vi": "có uống không?"
+                },
+                {
+                  "t": "飲んだ",
+                  "read": "のんだ",
+                  "vi": "đã uống (thể thông thường)"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không (phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "A:「もう出発しましたか。」B:「いいえ、今から出発する＿です。」",
+              "choices": [
+                "ばかり",
+                "ところ",
+                "らしい",
+                "ようです"
+              ],
+              "answer": 1,
+              "pt": "Vるところです (ôn B46)",
+              "explain": "「Vるところです」diễn đạt 'sắp làm ~' (ngay bây giờ sắp bắt đầu). Đáp án đúng là B「ところ」→「出発するところです」(sắp xuất phát ngay bây giờ). A「ばかり」→「出発するばかり」không chuẩn; 「ばかり」thường dùng với thể た (đã làm), không dùng với thể る để chỉ 'sắp làm'. C「らしい」→「出発するらしいです」là suy đoán có căn cứ (có vẻ sắp khởi hành), không phải B đang tự nói về mình một cách chắc chắn. D「ようです」cũng là suy đoán, không hợp khi B nói về chính kế hoạch của mình.",
+              "glosses": [
+                {
+                  "t": "出発",
+                  "read": "しゅっぱつ",
+                  "vi": "khởi hành, xuất phát"
+                },
+                {
+                  "t": "今から",
+                  "read": "いまから",
+                  "vi": "từ bây giờ, sắp"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không"
+                },
+                {
+                  "t": "もう出発しましたか",
+                  "read": "もうしゅっぱつしましたか",
+                  "vi": "〜ましたか = đã ~ chưa? (hỏi việc đã hoàn thành)"
+                }
+              ]
+            },
+            {
+              "stem": "一生懸命練習した＿、試合に負けてしまった。",
+              "choices": [
+                "のに",
+                "ので",
+                "のば",
+                "ため"
+              ],
+              "answer": 0,
+              "pt": "〜のに 逆接 (ôn B45)",
+              "explain": "「〜のに」(逆接) diễn đạt 'mặc dù ~ nhưng (kết quả trái kỳ vọng)', thể hiện sự thất vọng/bất ngờ. Đáp án đúng là A「のに」→「練習したのに、負けてしまった」(mặc dù đã luyện tập chăm chỉ nhưng lại thua). B「ので」là nguyên nhân/lý do thuận chiều (vì A nên B), không có tính nghịch nghĩa. C「のば」không phải dạng ngữ pháp chuẩn trong tiếng Nhật. D「ため」→「〜たため」là nguyên nhân/lý do (do A nên B), cũng không diễn đạt ý nghịch như câu yêu cầu.",
+              "glosses": [
+                {
+                  "t": "一生懸命",
+                  "read": "いっしょうけんめい",
+                  "vi": "hết mình, cố gắng hết sức"
+                },
+                {
+                  "t": "練習した",
+                  "read": "れんしゅうした",
+                  "vi": "đã luyện tập"
+                },
+                {
+                  "t": "試合",
+                  "read": "しあい",
+                  "vi": "trận đấu, thi đấu"
+                },
+                {
+                  "t": "一生懸命練習した",
+                  "read": "いっしょうけんめいれんしゅうした",
+                  "vi": "đã luyện tập hết mình, chăm chỉ"
+                },
+                {
+                  "t": "負けてしまった",
+                  "read": "まけてしまった",
+                  "vi": "đã thua mất (tiếc nuối)"
+                }
+              ]
+            },
+            {
+              "stem": "天気予報＿、明日は大雨になるらしいです。",
+              "choices": [
+                "だと",
+                "によると",
+                "といえば",
+                "にとって"
+              ],
+              "answer": 1,
+              "pt": "Nによると (ôn B47)",
+              "explain": "「Nによると」có nghĩa 'theo (nguồn tin N)', dùng để dẫn nguồn thông tin. Đáp án đúng là B「によると」→「天気予報によると」(theo dự báo thời tiết). A「だと」→「天気予報だと」cũng được dùng khẩu ngữ với nghĩa tương tự nhưng「によると」mang tính văn viết/trang trọng hơn và chính xác hơn về cấu trúc ngữ pháp N4. C「といえば」có nghĩa 'nói đến N thì...', dùng để chuyển chủ đề, không dẫn nguồn tin. D「にとって」có nghĩa 'đối với N', nói về quan điểm/lợi ích của ai đó, sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "天気予報",
+                  "read": "てんきよほう",
+                  "vi": "dự báo thời tiết"
+                },
+                {
+                  "t": "大雨",
+                  "read": "おおあめ",
+                  "vi": "mưa to, mưa lớn"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "らしい",
+                  "read": "らしい",
+                  "vi": "có vẻ như, nghe nói là"
+                },
+                {
+                  "t": "大雨になるらしいです",
+                  "read": "おおあめになるらしいです",
+                  "vi": "〜になる = trở thành ~; 〜らしいです = nghe nói có vẻ như ~"
+                }
+              ]
+            },
+            {
+              "stem": "お時間をいただけるなら、私の意見を発表＿いただけますか。",
+              "choices": [
+                "させて",
+                "していただき",
+                "されて",
+                "させられて"
+              ],
+              "answer": 0,
+              "pt": "V使役形 / Vさせていただきます (ôn B48)",
+              "explain": "「Vさせていただけますか」là cấu trúc 'xin phép được làm ~' kết hợp với 「いただく」để nhờ/hỏi xin phép rất lịch sự. Đáp án đúng là A「させて」→「発表させていただけますか」(tôi xin phép được trình bày ý kiến). B「していただき」→「発表していただけますか」có nghĩa nhờ đối phương trình bày, ngược chiều với ý câu (muốn tự mình trình bày). C「されて」là 受身形 (bị động), nghĩa là 'bị trình bày', sai nghĩa hoàn toàn. D「させられて」là 使役受身形 (bị bắt làm), nghĩa là 'bị bắt phải trình bày', mang sắc thái bị động cưỡng bức, không phù hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "意見",
+                  "read": "いけん",
+                  "vi": "ý kiến"
+                },
+                {
+                  "t": "発表",
+                  "read": "はっぴょう",
+                  "vi": "trình bày, phát biểu"
+                },
+                {
+                  "t": "お時間をいただけるなら",
+                  "read": "おじかんをいただけるなら",
+                  "vi": "nếu (quý vị) có thể dành chút thời gian"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "いただけますか",
+                  "read": "いただけますか",
+                  "vi": "〜ていただけますか = tôi có thể được phép ~ không ạ (xin phép khiêm nhường)"
+                }
+              ]
+            },
+            {
+              "stem": "社長はもう資料を＿か。",
+              "choices": [
+                "ごらんになりました",
+                "読まれました",
+                "お読みになりました",
+                "読んでいただきました"
+              ],
+              "answer": 2,
+              "pt": "V受身形 尊敬 / おVますになります so sánh (ôn B49)",
+              "explain": "Nói về hành động của「社長」(cấp rất cao) nên dùng 尊敬語. Đáp án chuẩn nhất là C「お読みになりました」→「お読みになりましたか」, cấu trúc「お〜になる」là 尊敬語 điển hình cho động từ「読む」. A「ご覧になりました」(ごらんになる) là 特別な尊敬語 của「見る」, không phải của「読む」mặc dù về nghĩa đôi khi dùng thay thế; trong trường hợp「資料を読む」thì「お読みになる」chính xác hơn. B「読まれました」là 受身形 dùng như 尊敬語 (kính ngữ bị động), cũng đúng nhưng kém trang trọng hơn「お〜になる」. D「読んでいただきました」là 謙譲語 (người nói nhận ơn), không phù hợp khi câu hỏi về hành động của giám đốc.",
+              "glosses": [
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc, tổng giám đốc"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu, dữ liệu"
+                },
+                {
+                  "t": "はもう",
+                  "read": "はもう",
+                  "vi": "もう = đã, rồi (phó từ chỉ việc đã hoàn thành)"
+                },
+                {
+                  "t": "ごらんになりました",
+                  "read": "ごらんになりました",
+                  "vi": "ご覧になる (quá khứ) = kính ngữ của 見る, ngài đã xem/đọc"
+                },
+                {
+                  "t": "読まれました",
+                  "read": "よまれました",
+                  "vi": "読まれる = kính ngữ thụ động của 読む, ngài đã đọc"
+                },
+                {
+                  "t": "お読みになりました",
+                  "read": "およみになりました",
+                  "vi": "お〜になる = kính ngữ của 読む, ngài đã đọc"
+                },
+                {
+                  "t": "読んでいただきました",
+                  "read": "よんでいただきました",
+                  "vi": "〜ていただきました = tôi đã được (ngài) đọc giúp cho (khiêm nhường)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "おVますします (khiêm nhường chuẩn)",
+              "explain": "Câu đúng: 「明日、社長に会議の資料をお送りいたします。」— Ngày mai, tôi xin phép gửi tài liệu cuộc họp cho giám đốc.\nSắp xếp: ô 1=「社長に」, ô 2=「会議の」, ô 3=「資料を」, ô 4=「お送り」★.\nSau trạng từ thời gian 「明日、」 ở khung đầu là đối tượng nhận tác động 「社長に」 ở ô 1. Cụm danh từ bổ nghĩa cho danh từ 「会議の」 ở ô 2 đứng trước tân ngữ 「資料を」 ở ô 3. Ô 4★ là 「お送り」 mang tiền tố 「お」 kết hợp với khung sau 「いたします。」 tạo thành cấu trúc khiêm nhường ngữ chuẩn 「お＋Vます＋いたします」 khi thực hiện hành động cho cấp trên.",
+              "glosses": [
+                {
+                  "t": "お送りいたします",
+                  "read": "おおくりいたします",
+                  "vi": "お〜いたす = khiêm nhường trang trọng của 送る, tôi xin gửi ạ"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                }
+              ],
+              "frame": [
+                "明日、",
+                "いたします。"
+              ],
+              "pieces": [
+                "社長に",
+                "会議の",
+                "資料を",
+                "お送り"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "特別な謙譲語: 申す",
+              "explain": "Câu đúng: 「わたしは東京支社の田中と申しますので、よろしくお願いいたします。」— Tôi tên là Tanaka ở chi nhánh Tokyo, xin nhờ anh/chị giúp đỡ.\nSắp xếp: ô 1=「東京支社の」, ô 2=「田中と」, ô 3=「申しますので、」★, ô 4=「よろしく」.\nSau chủ ngữ 「わたしは」 ở khung đầu là thành phần thuộc tổ chức 「東京支社の」 ở ô 1 bổ nghĩa cho tên riêng. Tên riêng đi với trợ từ trích dẫn 「と」 tạo thành 「田中と」 ở ô 2. Ô 3★ sử dụng khiêm nhường ngữ đặc biệt 「申します」 (thay cho 言います) kết hợp với 「ので、」 để xưng tên một cách lịch sự. Ô 4 là phó từ 「よろしく」 đi liền với khung cuối 「お願いいたします。」 tạo thành câu chào hỏi công sở chuẩn mực.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "お願いいたします",
+                  "read": "おねがいいたします",
+                  "vi": "xin nhờ / kính mong"
+                },
+                {
+                  "t": "東京支社",
+                  "read": "とうきょうししゃ",
+                  "vi": "chi nhánh Tokyo"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "Tanaka (tên người)"
+                },
+                {
+                  "t": "申します",
+                  "read": "もうします",
+                  "vi": "申す = khiêm nhường của 言う/名乗る, tôi tên là ~ (tự giới thiệu khiêm nhường)"
+                },
+                {
+                  "t": "よろしく",
+                  "read": "",
+                  "vi": "mong được giúp đỡ"
+                }
+              ],
+              "frame": [
+                "わたしは",
+                "お願いいたします。"
+              ],
+              "pieces": [
+                "東京支社の",
+                "田中と",
+                "申しますので、",
+                "よろしく"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "特別な謙譲語: 伺う",
+              "explain": "Câu đúng: 「来週の月曜日に御社へ伺う予定になっております。」— Tôi dự định sẽ đến thăm quý công ty vào thứ Hai tuần tới.\nSắp xếp: ô 1=「月曜日に」, ô 2=「御社へ」, ô 3=「伺う」★, ô 4=「予定に」.\nSau khung đầu 「来週の」 là mốc thời gian 「月曜日に」 ở ô 1 và địa điểm hướng đến 「御社へ」 ở ô 2. Ô 3★ dùng khiêm nhường ngữ đặc biệt 「伺う」 (thay cho 行きます/訪問します) để thể hiện sự kính trọng khi đến thăm công ty đối tác. Động từ thể nguyên dạng 「伺う」 đứng trước danh từ 「予定」 tạo thành 「伺う予定に」 ở ô 4, đi cùng khung sau 「なっております。」 để diễn tả lịch trình đã được ấn định.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "なっております",
+                  "read": "",
+                  "vi": "được sắp xếp / đang là"
+                },
+                {
+                  "t": "月曜日",
+                  "read": "げつようび",
+                  "vi": "thứ Hai"
+                },
+                {
+                  "t": "御社",
+                  "read": "おんしゃ",
+                  "vi": "quý công ty (của đối phương)"
+                },
+                {
+                  "t": "伺う",
+                  "read": "うかがう",
+                  "vi": "đến thăm / viếng thăm (khiêm nhường)"
+                },
+                {
+                  "t": "予定",
+                  "read": "よてい",
+                  "vi": "dự định / kế hoạch"
+                }
+              ],
+              "frame": [
+                "来週の",
+                "なっております。"
+              ],
+              "pieces": [
+                "月曜日に",
+                "御社へ",
+                "伺う",
+                "予定に"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vていただけませんか (nhờ lịch sự)",
+              "explain": "Câu đúng: 「もう少しゆっくり話していただけませんか。」— Bạn có thể nói chậm hơn một chút được không?\nSắp xếp: ô 1=「ゆっくり」, ô 2=「話して」, ô 3=「いただけ」★, ô 4=「ませんか」\nKhung đầu câu cho sẵn trạng từ 「もう少し」 (một chút), đòi hỏi theo sau là một trạng từ chỉ cách thức hoặc động từ. Trạng từ 「ゆっくり」 (chậm rãi) đứng ở ô 1 để bổ nghĩa cho động từ 「話して」 ở ô 2. Cấu trúc nhờ vả lịch sự của bài 50 có dạng 「Vて + いただけ + ませんか」, trong đó động từ chia thể て 「話して」 bắt buộc dính liền với thể khả năng khiêm nhường 「いただけ」 ở ô 3 và đi kèm đuôi hỏi lịch sự 「ませんか」 ở ô 4. Mảnh 「いただけ」 nằm ở vị trí ô ★ vì đây là thành phần cốt lõi của mẫu ngữ pháp nhờ vả lịch sự khiêm nhường, không thể đứng ở ô khác.",
+              "glosses": [
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "thêm / hơn"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "話していただけません",
+                  "read": "はなしていただけません",
+                  "vi": "〜ていただけませんか = ngài có thể vui lòng ~ không ạ (khiêm nhường nhờ vả)"
+                },
+                {
+                  "t": "ゆっくり",
+                  "read": "ゆっくり",
+                  "vi": "từ từ, chậm rãi"
+                }
+              ],
+              "frame": [
+                "もう少し",
+                "。"
+              ],
+              "pieces": [
+                "話して",
+                "いただけ",
+                "ませんか",
+                "ゆっくり"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "特別な謙譲語: おる",
+              "explain": "Câu đúng: 「私は現在、大阪のホテルにおりますので大丈夫です。」— Tôi hiện đang ở khách sạn tại Osaka nên không sao đâu ạ.\nSắp xếp: ô 1=「現在、」, ô 2=「大阪の」, ô 3=「ホテルに」, ô 4=「おります」★\nKhung đầu câu 「私は」 giới thiệu chủ ngữ, theo sau bởi trạng từ thời gian 「現在、」 ở ô 1. Danh từ chỉ địa điểm 「大阪の」 bổ nghĩa cho 「ホテルに」 ở ô 3 để chỉ rõ nơi chốn lưu trú. Mảnh khiêm nhường ngữ đặc biệt 「おります」 ở ô ★ diễn tả trạng thái ở/có mặt của bản thân, phải đi sau trợ từ chỉ nơi chốn 「に」. Mảnh 「おります」 không thể đứng ở ô nào khác vì phải đứng ngay trước khung đuôi 「ので大丈夫です。」 để nối lý do và hoàn chỉnh câu.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "大丈夫",
+                  "read": "だいじょうぶ",
+                  "vi": "ổn / không sao"
+                },
+                {
+                  "t": "現在",
+                  "read": "げんざい",
+                  "vi": "hiện tại"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka (tên địa danh)"
+                },
+                {
+                  "t": "ホテル",
+                  "read": "",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "おります",
+                  "read": "",
+                  "vi": "ở / đang ở (khiêm nhường)"
+                }
+              ],
+              "frame": [
+                "私は",
+                "ので大丈夫です。"
+              ],
+              "pieces": [
+                "現在、",
+                "大阪の",
+                "ホテルに",
+                "おります"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "特別な謙譲語: 拝見する",
+              "explain": "Câu đúng: 「昨日、先生の新しいレポートを拝見しました。」— Hôm qua em đã đọc xem báo cáo mới của thầy/cô rồi ạ.\nSắp xếp: ô 1=「先生の」, ô 2=「新しい」, ô 3=「レポートを」, ô 4=「拝見」★\nKhung câu bắt đầu bằng thời gian 「昨日、」 và kết thúc bằng trợ động từ 「しました。」 đòi hỏi danh từ bổ nghĩa, tân ngữ và động từ khiêm nhường. Danh từ 「先生の」 đi trước tính từ 「新しい」 để bổ nghĩa cho tân ngữ 「レポートを」 tạo thành cụm 「先生の新しいレポートを」. Mảnh 「拝見」 là danh từ thuộc nhóm khiêm nhường ngữ đứng ở ô 4 (vị trí ★) ngay trước 「しました」 để ghép thành động từ kính ngữ 「拝見しました」. Mảnh 「拝見」 không thể đứng ở các ô khác vì tân ngữ 「レポートを」 mang trợ từ 「を」 phải đứng trực tiếp trước động từ khiêm nhường 「拝見」.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy giáo / cô giáo"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "レポート",
+                  "read": "",
+                  "vi": "báo cáo"
+                },
+                {
+                  "t": "拝見",
+                  "read": "はいけん",
+                  "vi": "xem / đọc (khiêm nhường)"
+                }
+              ],
+              "frame": [
+                "昨日、",
+                "しました。"
+              ],
+              "pieces": [
+                "先生の",
+                "新しい",
+                "レポートを",
+                "拝見"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "おVますします vs おVますになります (ôn B49)",
+              "explain": "Câu đúng: 「部長は今日の午後に会社へお戻りになります。」— Trưởng phòng sẽ trở về công ty vào chiều nay.\nSắp xếp: ô 1=「今日の」, ô 2=「午後に」, ô 3=「会社へ」, ô 4=「お戻り」★\nChủ ngữ 「部長は」 chỉ cấp trên nên hành động quay về dùng mẫu tôn kính ngữ 「お＋Vます＋になります」. Mảnh 「今日の」 bổ nghĩa cho 「午後に」 tạo thành mốc thời gian 「今日の午後に」, theo sau là cụm điểm đến 「会社へ」. Mảnh 「お戻り」 là danh từ động từ bỏ ます có tiền tố 「お」, bắt buộc đứng ở ô 4 (vị trí ★) ngay trước 「になります」 ở khung sau để tạo thành 「お戻りになります」. Mảnh 「お戻り」 không thể đứng ô khác vì phải đứng sau trợ từ chỉ hướng 「へ」 và trực tiếp kết hợp với cấu trúc 「になります」.",
+              "glosses": [
+                {
+                  "t": "お戻りになります",
+                  "read": "おもどりになります",
+                  "vi": "お〜になる = kính ngữ của 戻る, ngài sẽ quay lại"
+                },
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "午後",
+                  "read": "ごご",
+                  "vi": "buổi chiều"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                }
+              ],
+              "frame": [
+                "部長は",
+                "になります。"
+              ],
+              "pieces": [
+                "今日の",
+                "午後に",
+                "会社へ",
+                "お戻り"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "特別な謙譲語: いただく",
+              "explain": "Câu đúng: 「昨日、社長に書類のサインをいただきました。」— Hôm qua tôi đã nhận được chữ ký trên giấy tờ từ giám đốc.\nSắp xếp: ô 1=「社長に」, ô 2=「書類の」, ô 3=「サインを」, ô 4=「いただき」★\nKhung câu bắt đầu bằng mốc thời gian 「昨日、」 và kết thúc bằng trợ động từ 「ました。」 đòi hỏi đối tượng trao, tân ngữ và động từ khiêm nhường. Mảnh 「社長に」 chỉ đối tượng, danh từ 「書類の」 bổ nghĩa cho 「サインを」 tạo thành cụm 「書類のサインを」. Mảnh 「いただき」 là thể ます bỏ ます của động từ khiêm nhường 「いただく」, bắt buộc đứng ở ô 4 (vị trí ★) ngay trước 「ました。」 để ghép thành 「いただきました」. Mảnh 「いただき」 không thể đứng ô khác vì trợ từ tân ngữ 「を」 ở ô 3 đòi hỏi động từ đứng liền sau.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc, tổng giám đốc"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu / giấy tờ"
+                },
+                {
+                  "t": "サイン",
+                  "read": "サイン",
+                  "vi": "chữ ký"
+                },
+                {
+                  "t": "いただき",
+                  "read": "",
+                  "vi": "nhận / nhận được (khiêm nhường)"
+                }
+              ],
+              "frame": [
+                "昨日、",
+                "ました。"
+              ],
+              "pieces": [
+                "社長に",
+                "書類の",
+                "サインを",
+                "いただき"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "特別な謙譲語: 参る",
+              "explain": "Câu đúng: 「私は準備が終わりましたら、すぐに会議室へ参りますので、部屋でお待ちください。」— Sau khi chuẩn bị xong, tôi sẽ đến phòng họp ngay nên xin hãy chờ ở trong phòng.\nSắp xếp: ô 1=「準備が」, ô 2=「終わりましたら、」, ô 3=「すぐに」, ô 4=「会議室へ参りますので、」★\nSau chủ ngữ 「私は」 ở khung đầu, chủ ngữ của vế phụ 「準備が」 ở ô 1 đi liền với động từ chia thể 「〜たら」 là 「終わりましたら、」 ở ô 2 để chỉ điều kiện hoàn thành. Trạng từ 「すぐに」 ở ô 3 bổ nghĩa cho hành động di chuyển 「会議室へ参りますので、」 ở ô 4. Ô ★ chứa động từ khiêm nhường 「参る」 (thay cho 「行く・来る」) thể hiện hành động di chuyển của người nói, nối với câu dặn dò 「部屋でお待ちください。」 ở khung cuối.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "お待ちください",
+                  "read": "おまちください",
+                  "vi": "xin hãy đợi / vui lòng chờ"
+                },
+                {
+                  "t": "準備",
+                  "read": "じゅんび",
+                  "vi": "chuẩn bị"
+                },
+                {
+                  "t": "終わりましたら",
+                  "read": "おわりましたら",
+                  "vi": "sau khi xong / sau khi kết thúc"
+                },
+                {
+                  "t": "すぐ",
+                  "read": "すぐ",
+                  "vi": "ngay lập tức"
+                },
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "参ります",
+                  "read": "まいります",
+                  "vi": "đến / tới (khiêm nhường)"
+                }
+              ],
+              "frame": [
+                "私は",
+                "部屋でお待ちください。"
+              ],
+              "pieces": [
+                "準備が",
+                "終わりましたら、",
+                "すぐに",
+                "会議室へ参りますので、"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vていただけませんか + のに 逆接 (ôn B45)",
+              "explain": "Câu đúng: 「何度もお願いしたのに連絡が来ないので、確認していただけませんか。」— Dù tôi đã nhờ nhiều lần rồi mà vẫn không thấy liên lạc lại, nên anh/chị có thể kiểm tra giúp tôi được không ạ?\nSắp xếp: ô 1=「お願いしたのに」★, ô 2=「連絡が」, ô 3=「来ないので、」, ô 4=「確認して」\nKhung trước có phó từ 「何度も」 bổ nghĩa cho động từ, và khung sau là đuôi câu nhờ vả lịch sự 「いただけませんか。」. Đi liền sau 「何度も」 bắt buộc là hành động khiêm nhường ngữ 「お願いしたのに」 tại ô 1 mang ngôi sao để diễn tả sự việc đối lập mang tính bất mãn. Danh từ 「連絡が」 làm chủ ngữ cho vị ngữ phủ định tạo thành vế nguyên nhân 「連絡が来ないので、」 ở ô 2 và ô 3. Đuôi câu 「いただけませんか。」 bắt buộc kết hợp với động từ thể て, do đó mảnh 「確認して」 phải đứng ở ô 4 cuối cùng.",
+              "glosses": [
+                {
+                  "t": "何度もお願いしたのに",
+                  "read": "なんどもおねがいしたのに",
+                  "vi": "mặc dù đã nhờ vả nhiều lần"
+                },
+                {
+                  "t": "確認していただけません",
+                  "read": "かくにんしていただけません",
+                  "vi": "〜ていただけませんか = ngài không thể vui lòng xác nhận sao (khiêm nhường nhờ vả)"
+                },
+                {
+                  "t": "連絡",
+                  "read": "れんらく",
+                  "vi": "liên lạc"
+                },
+                {
+                  "t": "来ない",
+                  "read": "こない",
+                  "vi": "không đến"
+                },
+                {
+                  "t": "確認",
+                  "read": "かくにん",
+                  "vi": "xác nhận, kiểm tra"
+                }
+              ],
+              "frame": [
+                "何度も",
+                "いただけませんか。"
+              ],
+              "pieces": [
+                "お願いしたのに",
+                "連絡が",
+                "来ないので、",
+                "確認して"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "おVますします + Vたところです (ôn B46)",
+              "explain": "Câu đúng: 「ちょうど書類をお送りしたところでございます。」— Tôi vừa mới gửi tài liệu xong.\nSắp xếp: ô 1=「書類を」, ô 2=「お送り」, ô 3=「した」, ô 4=「ところで」★\nKhung mở đầu 「ちょうど」 (vừa đúng lúc) cần theo sau bởi một tân ngữ và động từ diễn tả hành động vừa mới hoàn thành. Danh từ kèm trợ từ tân ngữ 「書類を」 đứng ở ô 1. Mẫu khiêm nhường ngữ 「お＋Vます＋する」 đòi hỏi thành phần 「お送り」 ở ô 2 đi liền trước động từ 「した」 ở ô 3 để tạo thành cụm 「お送りした」 (đã gửi). Động từ thể quá khứ 「した」 bắt buộc đi liền trước danh từ chỉ thời điểm 「ところで」 ở ô 4 để hoàn chỉnh cụm 「したところで」, rồi nối trực tiếp với khung đuôi lịch sự 「ございます。」. Mảnh ở ô ★ 「ところで」 chứa danh từ chỉ thời điểm kèm trợ từ, bắt buộc phải đứng ngay sau động từ quá khứ 「した」 ở ô 3 và đứng trước khung đuôi 「ございます。」 để thể hiện thời điểm vừa xong hành động, do đó không thể xếp vào ô nào khác.",
+              "glosses": [
+                {
+                  "t": "ところでございます",
+                  "read": "ところでございます",
+                  "vi": "〜たところでございます = vừa mới ~ xong ạ (trang trọng)"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "ちょうど",
+                  "vi": "vừa đúng lúc, vừa mới"
+                },
+                {
+                  "t": "書類をお送りした",
+                  "read": "しょるいをおおくりした",
+                  "vi": "đã gửi tài liệu (khiêm nhường ngữ)"
+                }
+              ],
+              "frame": [
+                "ちょうど",
+                "ございます。"
+              ],
+              "pieces": [
+                "書類を",
+                "お送り",
+                "した",
+                "ところで"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "おVますします + Nによると・〜そうです 伝聞 (ôn B47)",
+              "explain": "Câu đúng: 「田中部長によると、社長が直接ご説明になるそうです。」— Theo trưởng phòng Tanaka, nghe nói giám đốc sẽ trực tiếp giải thích.\nSắp xếp: ô 1=「社長が」, ô 2=「直接」, ô 3=「ご説明に」★, ô 4=「なる」\nKhung mở đầu 「田中部長によると、」 (Theo trưởng phòng Tanaka,) dẫn dắt nguồn thông tin, đòi hỏi theo sau là một mệnh đề gồm chủ ngữ và vị ngữ truyền thuật. Danh từ chỉ người kèm trợ từ chủ ngữ 「社長が」 đứng ở ô 1. Phó từ 「直接」 ở ô 2 đứng ngay trước động từ để bổ nghĩa cho hành động giải thích. Mẫu kính ngữ tôn kính dạng 「ご／お＋danh từ/thân động từ＋になる」 đòi hỏi cụm 「ご説明に」 ở ô 3 phải đi liền trước động từ 「なる」 ở ô 4 để tạo thành dạng tôn kính hoàn chỉnh 「ご説明になる」 (giám đốc giải thích). Động từ thể từ điển 「なる」 đi liền trước khung đuôi 「そうです。」 để tạo nên cấu trúc nghe nói 「〜そうです」. Mảnh ở ô ★ 「ご説明に」 chứa danh từ kết hợp tiền tố kính ngữ 「ご」 và trợ từ 「に」, bắt buộc phải đứng sau phó từ 「直接」 ở ô 2 và đứng trước động từ 「なる」 ở ô 4 để tạo nên thể tôn kính, nên không thể đặt ở ô khác.",
+              "glosses": [
+                {
+                  "t": "田中部長によると",
+                  "read": "たなかぶちょうによると",
+                  "vi": "theo như trưởng phòng Tanaka (nói)"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "〜そうです = nghe nói rằng ~ (truyền đạt thông tin nghe được, theo sau động từ thường thể)"
+                },
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc, tổng giám đốc"
+                },
+                {
+                  "t": "直接",
+                  "read": "ちょくせつ",
+                  "vi": "trực tiếp"
+                },
+                {
+                  "t": "ご説明になる",
+                  "read": "ごせつめいになる",
+                  "vi": "giải thích (kính ngữ)"
+                }
+              ],
+              "frame": [
+                "田中部長によると、",
+                "そうです。"
+              ],
+              "pieces": [
+                "社長が",
+                "直接",
+                "ご説明に",
+                "なる"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vさせていただきます (ôn B48) + おVますします",
+              "explain": "Câu đúng: 「本日の会議でご報告をさせていただきます。」— Tôi xin phép được báo cáo tại cuộc họp hôm nay.\nSắp xếp: ô 1=「会議で」, ô 2=「ご報告を」, ô 3=「させて」★, ô 4=「いただき」\nKhung đầu với định ngữ 「本日の」 (của hôm nay) đòi hỏi một danh từ theo sau làm rõ không gian diễn ra sự việc. Danh từ 「会議で」 đứng ở ô 1 chỉ địa điểm cuộc họp. Danh từ kèm tiền tố kính ngữ 「ご報告を」 ở ô 2 đóng vai trò tân ngữ mang trợ từ 「を」. Trong mẫu xin phép khiêm nhường 「〜させていただきます」, động từ 「する」 chia thể sai khiến dạng て là 「させて」 ở ô 3 kết hợp trực tiếp với động từ khiêm nhường 「いただき」 ở ô 4 tạo thành cụm 「させていただき」, rồi nối với khung đuôi 「ます。」. Mảnh ở ô ★ 「させて」 mang dạng sai khiến thể て của động từ 「する」, bắt buộc phải đứng sau tân ngữ 「ご報告を」 ở ô 2 và đứng trước động từ khiêm nhường 「いただき」 ở ô 4 để hoàn chỉnh cấu trúc xin phép 「ご報告をさせていただきます」, do đó không thể nằm ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "させていただきます",
+                  "read": "させていただきます",
+                  "vi": "〜させていただきます = tôi xin phép được làm ~ (khiêm nhường lịch sự)"
+                },
+                {
+                  "t": "本日",
+                  "read": "ほんじつ",
+                  "vi": "hôm nay (trang trọng)"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "報告",
+                  "read": "ほうこく",
+                  "vi": "báo cáo"
+                }
+              ],
+              "frame": [
+                "本日の",
+                "ます。"
+              ],
+              "pieces": [
+                "会議で",
+                "ご報告を",
+                "させて",
+                "いただき"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "V受身形 尊敬 (ôn B49) + Vているところです (ôn B46)",
+              "explain": "Câu đúng: 「課長はただいま電話で話されているところです。」— Trưởng phòng hiện đang nghe điện thoại.\nSắp xếp: ô 1=「ただいま」, ô 2=「電話で」, ô 3=「話されて」★, ô 4=「いる」\nKhung mở đầu 「課長は」 xác định chủ ngữ tôn kính, đòi hỏi vế sau diễn tả hành động hiện tại của trưởng phòng. Phó từ thời gian 「ただいま」 đứng ở ô 1 ngay sau chủ ngữ. Danh từ phương tiện 「電話で」 ở ô 2 làm rõ công cụ thực hiện hành động. Động từ chia thể bị động tôn kính 「話されて」 ở ô 3 bắt buộc kết hợp với động từ phụ trợ 「いる」 ở ô 4 để tạo thành dạng tiếp diễn tôn kính 「話されている」 (đang nói/nghe điện thoại). Động từ thể từ điển 「いる」 đứng liền trước khung đuôi 「ところです。」 để hoàn thành cấu trúc diễn tả hành động đang diễn ra đúng thời điểm 「〜ているところです」. Mảnh ở ô ★ 「話されて」 chứa động từ chia thể bị động tôn kính, bắt buộc đứng sau danh từ phương tiện 「電話で」 ở ô 2 và đứng trước phụ trợ động từ 「いる」 ở ô 4 để thể hiện hành động tôn kính đang diễn ra, nên không thể đặt ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "課長",
+                  "read": "かちょう",
+                  "vi": "trưởng khoa/phòng (chức vụ)"
+                },
+                {
+                  "t": "ところです",
+                  "read": "ところです",
+                  "vi": "〜ているところです = đang trong lúc ~"
+                },
+                {
+                  "t": "ただいま",
+                  "read": "ただいま",
+                  "vi": "ngay bây giờ, hiện giờ"
+                },
+                {
+                  "t": "電話",
+                  "read": "でんわ",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "話されている",
+                  "read": "はなされている",
+                  "vi": "話される = kính ngữ thụ động của 話す, ngài đang nói (tôn kính)"
+                }
+              ],
+              "frame": [
+                "課長は",
+                "ところです。"
+              ],
+              "pieces": [
+                "ただいま",
+                "電話で",
+                "話されて",
+                "いる"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vていただけませんか + V使役形 (ôn B48)",
+              "explain": "Câu đúng: 「息子を御社で研修させていただけませんか。」— Cho phép con trai tôi được thực tập quý công ty được không ạ?\nSắp xếp: ô 1=「息子を」, ô 2=「御社で」, ô 3=「研修」, ô 4=「させて」★\nĐầu câu đòi hỏi tân ngữ chỉ người chịu tác động của hành động xin phép, đi cùng địa điểm thực tập và động từ thể sai khiến kết hợp khung đuôi lịch sự 「いただけませんか。」. Danh từ chỉ đối tượng kèm trợ từ 「息子を」 đứng ở ô 1 làm tân ngữ trực tiếp. Danh từ địa điểm kèm trợ từ 「御社で」 ở ô 2 bổ nghĩa không gian. Danh từ Suru 「研修」 ở ô 3 bắt buộc ghép với động từ thể sai khiến dạng て là 「させて」 ở ô 4 để tạo thành cụm động từ sai khiến 「研修させて」 (cho phép thực tập). Động từ sai khiến thể て 「させて」 đứng ngay trước khung đuôi 「いただけませんか。」 để hoàn thiện cấu trúc thỉnh cầu lịch sự 「〜させていただけませんか」. Mảnh ở ô ★ 「させて」 mang dạng sai khiến thể て của động từ 「する」, bắt buộc phải đứng ngay sau danh từ 「研修」 ở ô 3 để tạo thành động từ Suru chia thể sai khiến 「研修させて」 và đứng trước khung đuôi 「いただけませんか。」, nên không thể xếp ở ô khác.",
+              "glosses": [
+                {
+                  "t": "いただけませんか",
+                  "read": "いただけませんか",
+                  "vi": "〜ていただけませんか = quý công ty có thể vui lòng ~ giúp không ạ"
+                },
+                {
+                  "t": "息子",
+                  "read": "むすこ",
+                  "vi": "con trai"
+                },
+                {
+                  "t": "御社",
+                  "read": "おんしゃ",
+                  "vi": "quý công ty"
+                },
+                {
+                  "t": "研修",
+                  "read": "けんしゅう",
+                  "vi": "đào tạo, thực tập, huấn luyện"
+                },
+                {
+                  "t": "研修させて",
+                  "read": "けんしゅうさせて",
+                  "vi": "使役形+て của 研修する, cho phép (con trai tôi) được thực tập"
+                }
+              ],
+              "frame": [
+                "",
+                "いただけませんか。"
+              ],
+              "pieces": [
+                "息子を",
+                "御社で",
+                "研修",
+                "させて"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "A:「はじめまして。営業部の山田と",
+                "。お荷物が重そうですね。よろしければ、私が",
+                "ましょうか。」"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "申します",
+                    "おっしゃいます",
+                    "言われます",
+                    "申し上げます"
+                  ],
+                  "answer": 0,
+                  "explain": "Tự xưng tên (về MÌNH) → KHIÊM NHƯỜNG 「申します」(謙譲 của 言う). 「おっしゃいます/言われます」là TÔN KÍNH (dùng cho người khác — sai cho bản thân); 「申し上げます」trang trọng quá mức cho việc xưng tên."
+                },
+                {
+                  "choices": [
+                    "お持ちし",
+                    "お持ちになり",
+                    "持たれ",
+                    "お持ちくださり"
+                  ],
+                  "answer": 0,
+                  "explain": "MÌNH xách đồ giúp khách → KHIÊM NHƯỜNG 「お持ちします」(お〜する). 「お持ちになり/持たれ/お持ちくださり」là TÔN KÍNH (nâng người khác — sai khi nói về hành động của mình)."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "営業部",
+                  "read": "えいぎょうぶ",
+                  "vi": "phòng kinh doanh"
+                },
+                {
+                  "t": "山田と申します",
+                  "read": "やまだともうします",
+                  "vi": "tôi tên là Yamada (謙譲 của 言う)"
+                },
+                {
+                  "t": "お荷物",
+                  "read": "おにもつ",
+                  "vi": "hành lý"
+                },
+                {
+                  "t": "重そうですね",
+                  "read": "おもそうですね",
+                  "vi": "trông có vẻ nặng"
+                },
+                {
+                  "t": "お持ちしましょうか",
+                  "read": "おもちしましょうか",
+                  "vi": "để tôi xách giúp nhé (お〜する 謙譲)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Kính ngữ KHIÊM NHƯỜNG: お＋Vます(bỏ ます)＋します.",
+          "items": [
+            {
+              "stem": "持ちます → お〜します → ＿",
+              "choices": [
+                "お持ちします",
+                "お持ちになります",
+                "持たせます",
+                "お持ちなさいます"
+              ],
+              "answer": 0,
+              "explain": "お＋持ち(bỏ ます)＋します → 「お持ちします」(để tôi cầm — hạ mình). 「お持ちになります」là TÔN KÍNH (お〜になる); 「持たせます」(sai khiến), 「お持ちなさいます」(mệnh lệnh kính) đều sai.",
+              "glosses": [
+                {
+                  "t": "持ちます",
+                  "read": "もちます",
+                  "vi": "cầm, mang"
+                },
+                {
+                  "t": "お持ちします",
+                  "vi": "để tôi mang (謙譲)"
+                },
+                {
+                  "t": "お持ちになります",
+                  "read": "おもちになります",
+                  "vi": "お〜になる = kính ngữ của 持つ, ngài cầm (tôn kính)"
+                },
+                {
+                  "t": "持たせます",
+                  "read": "もたせます",
+                  "vi": "使役形 của 持つ = cho/bắt ai đó cầm"
+                },
+                {
+                  "t": "お持ちなさいます",
+                  "read": "おもちなさいます",
+                  "vi": "kính ngữ của 持つ với なさる, ngài cầm (tôn kính, trang trọng)"
+                },
+                {
+                  "t": "お〜します",
+                  "read": "お〜します",
+                  "vi": "công thức お + thân masu của động từ + します = khiêm nhường ngữ, người nói hạ thấp hành động của mình khi làm gì đó cho người trên"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "あした先生＿ご意見を伺います。",
+              "choices": [
+                "に",
+                "を",
+                "が",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "「伺う」(謙譲 của 聞く/訪ねる) — đối tượng hỏi/thăm đi với 「に」: 先生に伺う (xin hỏi thầy). 「を」đánh dấu ご意見; 「が/で」sai.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy giáo"
+                },
+                {
+                  "t": "ご意見",
+                  "read": "ごいけん",
+                  "vi": "ý kiến"
+                },
+                {
+                  "t": "伺います",
+                  "read": "うかがいます",
+                  "vi": "xin hỏi/đến thăm (謙譲)"
+                },
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Xin lỗi, anh có thể chỉ cho tôi cách dùng cái này không ạ?",
+              "target": "すみませんこれの使い方を教えていただけませんか",
+              "model": "すみません、これの 使い方を 教えていただけませんか。",
+              "explain": "「〜ていただけませんか」= nhờ vả rất lịch sự (khiêm nhường). 教えて + いただけませんか (xin được chỉ cho).",
+              "glosses": [
+                {
+                  "t": "使い方",
+                  "read": "つかいかた",
+                  "vi": "cách dùng"
+                },
+                {
+                  "t": "教えていただけませんか",
+                  "read": "おしえていただけませんか",
+                  "vi": "có thể chỉ giúp tôi không ạ (謙譲 nhờ vả)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

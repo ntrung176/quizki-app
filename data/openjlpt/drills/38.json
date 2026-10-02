@@ -1,0 +1,460 @@
+{
+  "id": "minna2.b38",
+  "bai": 38,
+  "titleVi": "Yêu cầu gián tiếp, lịch sự",
+  "know": [
+    {
+      "id": "minna2.b38.itadakitai",
+      "point": "itadakitai",
+      "jp": "〜ていただきたいんですが",
+      "vi": "Tôi muốn nhờ anh/chị ~ (gián tiếp, lịch sự)",
+      "en": "I would like to ask you to ~ (indirect, polite)",
+      "gloss": "Vて ＋ いただきたいんですが",
+      "glossEn": "Vて ＋ いただきたいんですが = I would like to ask you to ~."
+    },
+    {
+      "id": "minna2.b38.itadakenai",
+      "point": "itadakenai",
+      "jp": "〜ていただけないでしょうか",
+      "vi": "Anh/chị có thể ~ cho tôi được không? (rất lịch sự)",
+      "en": "Could you possibly ~ for me? (very polite)",
+      "gloss": "Vて ＋ いただけないでしょうか",
+      "glossEn": "Vて ＋ いただけないでしょうか = Could you possibly ~ for me?"
+    },
+    {
+      "id": "minna2.b38.ndesuga",
+      "point": "ndesuga",
+      "jp": "〜んですが、〜ていただけますか",
+      "vi": "Thực ra ~ nên tôi muốn nhờ ~ (giải thích + nhờ)",
+      "en": "Actually, ~, so I’d like to ask you to ~ (explanation + request)",
+      "gloss": "普通形[ふつうけい]＋んですが、Vて＋いただけますか",
+      "glossEn": "普通形[ふつうけい]＋んですが、Vて＋いただけますか"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b38-itai-renraku",
+      "item": "minna2.b38.itadakitai",
+      "err": "itadakitai-vs-hoshii",
+      "vi": "Tôi muốn nhờ anh ấy liên lạc lại cho tôi.",
+      "t1": {
+        "stem": "ご連絡[れんらく]して＿。",
+        "choices": [
+          "いただきたいんですが",
+          "ほしいんですが",
+          "くださいますか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ご連絡[れんらく]して",
+          "いただきたいんですが。"
+        ],
+        "traps": [
+          "ほしいんですが。",
+          "くださいますか。"
+        ]
+      },
+      "t3": {
+        "target": "ご連絡していただきたいんですが。",
+        "accept": [
+          "ごれんらくしていただきたいんですが。"
+        ]
+      },
+      "why": "ていただきたいんですが = mong muốn lịch sự (nhờ người trên). ✗ ほしい không dùng với người khác địa vị cao hơn."
+    },
+    {
+      "id": "c-b38-itai-setsumei",
+      "item": "minna2.b38.itadakitai",
+      "err": "itadakitai-vs-hoshii",
+      "vi": "Tôi muốn nhờ thầy giải thích thủ tục đăng ký này.",
+      "t1": {
+        "stem": "申請[しんせい]の 手続[てつづ]きを ご説明[せつめい]して＿。",
+        "choices": [
+          "いただきたいんですが",
+          "もらいたいんですが",
+          "いただけますか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "申請[しんせい]の",
+          "手続[てつづ]きを",
+          "ご説明[せつめい]して",
+          "いただきたいんですが。"
+        ],
+        "traps": [
+          "もらいたいんですが。",
+          "ほしいんですが。"
+        ]
+      },
+      "t3": {
+        "target": "申請の手続きをご説明していただきたいんですが。",
+        "accept": [
+          "しんせいのてつづきをごせつめいしていただきたいんですが。"
+        ]
+      },
+      "why": "ていただきたいんですが = khiêm nhường ngữ (謙譲語[けんじょうご]). ✗ てもらいたい = bình thường, không dùng với cấp trên."
+    },
+    {
+      "id": "c-b38-itai-annai",
+      "item": "minna2.b38.itadakitai",
+      "err": "itadakitai-n-drop",
+      "vi": "Tôi muốn nhờ anh hướng dẫn tôi về kính ngữ.",
+      "t1": {
+        "stem": "敬語[けいご]についてご案内[あんない]して＿。",
+        "choices": [
+          "いただきたいんですが",
+          "いただきたいですが",
+          "いただきたいとおもいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "敬語[けいご]について",
+          "ご案内[あんない]して",
+          "いただきたいんですが。"
+        ],
+        "traps": [
+          "いただきたいですが。",
+          "くれませんか。"
+        ]
+      },
+      "t3": {
+        "target": "敬語についてご案内していただきたいんですが。",
+        "accept": [
+          "けいごについてごあんないしていただきたいんですが。"
+        ]
+      },
+      "why": "Bắt buộc có ん trước ですが (〜たいんですが). ✗ いただきたいですが — thiếu ん làm câu cứng và không tự nhiên."
+    },
+    {
+      "id": "c-b38-enai-mite",
+      "item": "minna2.b38.itadakenai",
+      "err": "itadakenai-form",
+      "vi": "Anh có thể xem qua tài liệu này giúp tôi không?",
+      "t1": {
+        "stem": "この 資料[しりょう]を 見[み]て＿。",
+        "choices": [
+          "いただけないでしょうか",
+          "いただけますでしょうか",
+          "くださいませんか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 資料[しりょう]を",
+          "見[み]て",
+          "いただけないでしょうか。"
+        ],
+        "traps": [
+          "いただけますでしょうか。",
+          "いただきたいんですが。"
+        ]
+      },
+      "t3": {
+        "target": "この資料を見ていただけないでしょうか。",
+        "accept": [
+          "このしりょうをみていただけないでしょうか。"
+        ]
+      },
+      "why": "ていただけないでしょうか = phủ định nghi vấn lịch sự nhất. ✗ いただけますでしょうか — không tự nhiên (ます+でしょう kép). ✗ 拝見する (謙譲語：người nói hạ thấp mình khi xem) KHÔNG dùng trước いただく (đã là 謙譲語，hai lần hạ thấp = sai)."
+    },
+    {
+      "id": "c-b38-enai-soudan",
+      "item": "minna2.b38.itadakenai",
+      "err": "itadakenai-form",
+      "vi": "Chị có thể nghe tôi thảo luận vấn đề này không?",
+      "t1": {
+        "stem": "この 問題[もんだい]について 相談[そうだん]して＿。",
+        "choices": [
+          "いただけないでしょうか",
+          "いただけませんか",
+          "もらえませんか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 問題[もんだい]について",
+          "相談[そうだん]して",
+          "いただけないでしょうか。"
+        ],
+        "traps": [
+          "もらえませんか。",
+          "くれませんか。"
+        ]
+      },
+      "t3": {
+        "target": "この問題について相談していただけないでしょうか。",
+        "accept": [
+          "このもんだいについてそうだんしていただけないでしょうか。"
+        ]
+      },
+      "why": "いただけないでしょうか = trang trọng nhất. いただけませんか ít trang trọng hơn. もらえませんか / くれませんか không dùng với cấp trên."
+    },
+    {
+      "id": "c-b38-enai-kakunin",
+      "item": "minna2.b38.itadakenai",
+      "err": "itadakenai-form",
+      "vi": "Anh có thể xác nhận lịch họp giúp tôi được không?",
+      "t1": {
+        "stem": "会議[かいぎ]の 日程[にってい]を 確認[かくにん]して＿。",
+        "choices": [
+          "いただけないでしょうか",
+          "いただけますでしょうか",
+          "くれますか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "会議[かいぎ]の",
+          "日程[にってい]を",
+          "確認[かくにん]して",
+          "いただけないでしょうか。"
+        ],
+        "traps": [
+          "いただけますでしょうか。",
+          "もらえませんか。"
+        ]
+      },
+      "t3": {
+        "target": "会議の日程を確認していただけないでしょうか。",
+        "accept": [
+          "かいぎのにっていをかくにんしていただけないでしょうか。"
+        ]
+      },
+      "why": "ていただけないでしょうか = lịch sự tối đa khi nhờ cấp trên. ✗ いただけますでしょうか — dùng ます+でしょう cùng lúc là không chuẩn ngữ pháp."
+    },
+    {
+      "id": "c-b38-ndsg-shinsai",
+      "item": "minna2.b38.ndesuga",
+      "err": "ndesuga-n-drop",
+      "vi": "Thực ra tôi muốn nộp đơn, anh có thể giúp tôi được không?",
+      "t1": {
+        "stem": "申請[しんせい]したい＿、手伝[てつだ]っていただけますか。",
+        "choices": [
+          "んですが",
+          "ですが",
+          "のですけど"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "申請[しんせい]したい",
+          "んですが、",
+          "手伝[てつだ]って",
+          "いただけますか。"
+        ],
+        "traps": [
+          "ですが、",
+          "のですが、"
+        ]
+      },
+      "t3": {
+        "target": "申請したいんですが、手伝っていただけますか。",
+        "accept": [
+          "しんせいしたいんですが、てつだっていただけますか。"
+        ]
+      },
+      "why": "〜たいんですが = giải thích lý do + hàm ý nhờ. ✗ たいですが — thiếu ん, thiếu tính gián tiếp đặc trưng của bài."
+    },
+    {
+      "id": "c-b38-ndsg-tetsuduki",
+      "item": "minna2.b38.ndesuga",
+      "err": "ndesuga-n-drop",
+      "vi": "Thực ra thủ tục này khó quá, anh có thể giải thích giúp không?",
+      "t1": {
+        "stem": "この 手続[てつづ]きが 難[むずか]しい＿、ご説明[せつめい]していただけますか。",
+        "choices": [
+          "んですが",
+          "ですが",
+          "からですが"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 手続[てつづ]きが",
+          "難[むずか]しい",
+          "んですが、",
+          "ご説明[せつめい]して",
+          "いただけますか。"
+        ],
+        "traps": [
+          "ですが、",
+          "からですが、"
+        ]
+      },
+      "t3": {
+        "target": "この手続きが難しいんですが、ご説明していただけますか。",
+        "accept": [
+          "このてつづきがむずかしいんですが、ごせつめいしていただけますか。"
+        ]
+      },
+      "why": "い形容詞[けいようし] + んですが (không cần だ). ✗ 難しいですが — thiếu ん, mất đi sắc thái \"muốn giải thích nguyên do\"."
+    },
+    {
+      "id": "c-b38-ndsg-iken",
+      "item": "minna2.b38.ndesuga",
+      "err": "ndesuga-n-drop",
+      "vi": "Thực ra tôi có ý kiến, anh có thể lắng nghe giúp không?",
+      "t1": {
+        "stem": "意見[いけん]がある＿、聞[き]いていただけますか。",
+        "choices": [
+          "んですが",
+          "ですが",
+          "のに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "意見[いけん]が",
+          "ある",
+          "んですが、",
+          "聞[き]いて",
+          "いただけますか。"
+        ],
+        "traps": [
+          "ですが、",
+          "のに、"
+        ]
+      },
+      "t3": {
+        "target": "意見があるんですが、聞いていただけますか。",
+        "accept": [
+          "いけんがあるんですが、きいていただけますか。"
+        ]
+      },
+      "why": "動詞辞書形[どうしじしょけい] + んですが (không cần だ). ✗ あるですが — danh từ/な形容詞 mới cần だ trước んですが. ✗ ご意見 — ご dùng để tôn trọng ý kiến của NGƯỜI KHÁC, không dùng khi nói ý kiến của bản thân."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b38-itai",
+      "item": "minna2.b38.itadakitai",
+      "err": "itadakitai-vs-hoshii",
+      "tts": "すみません。しんせいしょに しょめいして いただきたいんですが。",
+      "script": "すみません。申請書[しんせいしょ]に 署名[しょめい]して いただきたいんですが。",
+      "ask": "Người nói muốn nhờ điều gì?",
+      "choices": [
+        "Ký tên vào đơn xin",
+        "Điền thông tin vào đơn",
+        "Đọc đơn giúp"
+      ],
+      "answer": 0,
+      "why": "ていただきたいんですが = muốn nhờ; 署名[しょめい]する = ký tên vào đơn xin."
+    },
+    {
+      "id": "l-b38-enai",
+      "item": "minna2.b38.itadakenai",
+      "err": "itadakenai-form",
+      "tts": "もうしわけありませんが、こちらのしりょうを みていただけないでしょうか。",
+      "script": "申[もう]し訳[わけ]ありませんが、こちらの 資料[しりょう]を 見[み]ていただけないでしょうか。",
+      "ask": "Người nói đang làm gì?",
+      "choices": [
+        "Nhờ xem tài liệu một cách rất lịch sự",
+        "Xin lỗi vì đã xem tài liệu",
+        "Hỏi có thể lấy tài liệu không"
+      ],
+      "answer": 0,
+      "why": "ていただけないでしょうか = nhờ rất lịch sự. 申し訳ありませんが = mở đầu xin lỗi trước khi nhờ — rất tự nhiên trong tiếng Nhật thương mại."
+    },
+    {
+      "id": "l-b38-ndsg",
+      "item": "minna2.b38.ndesuga",
+      "err": "ndesuga-n-drop",
+      "tts": "てつづきがよくわからないんですが、せつめいして いただけますか。",
+      "script": "手続[てつづ]きがよくわからないんですが、説明[せつめい]していただけますか。",
+      "ask": "Vì sao người nói nhờ giải thích?",
+      "choices": [
+        "Không hiểu rõ thủ tục",
+        "Chưa điền đơn xong",
+        "Cần ký tên vào giấy tờ"
+      ],
+      "answer": 0,
+      "why": "〜んですが = giải thích nguyên do (không hiểu thủ tục); ていただけますか = nhờ giải thích."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b38-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 38 ・ 〜ていただきたいんですが",
+      "vi": "Tôi muốn nhờ anh đọc tài liệu này.",
+      "t1": {
+        "stem": "この 資料[しりょう]を 読[よ]＿いただきたいんですが。",
+        "choices": [
+          "読[よ]んで",
+          "読[よ]みて",
+          "読[よ]いて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 資料[しりょう]を",
+          "読[よ]んで",
+          "いただきたいんですが。"
+        ],
+        "traps": [
+          "読[よ]みて",
+          "読[よ]いて"
+        ]
+      },
+      "t3": {
+        "target": "この資料を読んでいただきたいんですが。",
+        "accept": [
+          "このしりょうをよんでいただきたいんですが。"
+        ]
+      },
+      "why": "読む (nhóm I, む→んで). ✗ 読みて — không thêm て trực tiếp vào ます-stem (lỗi Bài 14). Phần ていただきたいんですが là Bài 38."
+    },
+    {
+      "id": "a-b38-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 38 ・ 〜ていただけますか",
+      "vi": "Vì tôi thích kính ngữ, anh có thể dạy tôi thêm không?",
+      "t1": {
+        "stem": "敬語[けいご]＿ 好[す]きですので、もっと 教[おし]えていただけますか。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "敬語[けいご]が",
+          "好[す]きですので、",
+          "もっと 教[おし]えて",
+          "いただけますか。"
+        ],
+        "traps": [
+          "敬語[けいご]を"
+        ]
+      },
+      "t3": {
+        "target": "敬語が好きですので、もっと教えていただけますか。",
+        "accept": [
+          "けいごがすきですので、もっとおしえていただけますか。"
+        ]
+      },
+      "why": "好き luôn đi với が (lỗi Bài 9). ✗ 敬語を好き — を là lỗi điển hình. Phần ていただけますか là Bài 38."
+    }
+  ]
+}

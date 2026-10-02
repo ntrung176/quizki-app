@@ -1,0 +1,1504 @@
+{
+  "bai": 13,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 13 tập trung vào cách diễn đạt MONG MUỐN: muốn CÓ vật gì (Nが欲しいです), muốn LÀM việc gì (Vたいです), và đi đến đâu để làm gì (Vに行きます). Khi đọc, hãy xác định: (1) chủ thể muốn gì / muốn làm gì, (2) đích đến + mục đích đi là gì.",
+    "steps": [
+      "Đọc lướt toàn bài, chú ý những câu có欲しいです, たいです — đó là câu chủ chốt thể hiện mong muốn.",
+      "Câu Vに行きます: tìm động từ ngay TRƯỚC に — đó là MỤC ĐÍCH của chuyến đi (dạng masu-stem + に).",
+      "どこか = \"nơi nào đó\", 何か = \"điều gì đó / vật gì đó\" — chúng đi với câu khẳng định (khác どこも / 何も + phủ định).",
+      "Chú ý trợ từ が trước欲しいです: vật muốn có dùng が, không dùng は hay を.",
+      "Tra các từ ngữ về địa điểm du lịch, thời tiết (ôn Bài 8, 12) và hoạt động (ôn Bài 5, 6) để hiểu ngữ cảnh.",
+      "Với câu hỏi đọc hiểu: tìm câu trong bài có cùng chủ đề rồi đối chiếu nội dung mỗi đáp án."
+    ],
+    "tips": [
+      "Vたいです: bỏ ます của động từ rồi thêm たいです (例: 食べます → 食べたいです). たい chia như tính từ い.",
+      "Vに行きます: V phải ở dạng masu-stem (例: 買います → 買い に行きます). KHÔNG dùng thể て ở đây (Bài 14 mới học).",
+      "Nが欲しいです: が đi với欲しい, KHÔNG dùng を. Câu phủ định → 欲しくないです.",
+      "どこか / 何か đứng trong câu khẳng định; đừng nhầm với どこにも行きません (không đi đâu cả — phủ định).",
+      "休みに = \"vào kỳ nghỉ\" — に ở đây là trợ từ thời gian (ôn Bài 4).",
+      "Khi bài hỏi \"なぜ/どうして\" → tìm câu có から ở cuối làm lý do (ôn Bài 9)."
+    ],
+    "grammarFocus": [
+      "Nが欲しいです",
+      "Vたいです",
+      "Vに行きます／来ます（mục đích di chuyển）",
+      "どこか・何か"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 4,
+        "items": [
+          "Vます・Vません・Vました",
+          "〜に（thời gian）"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "Nへ行きます／来ます／帰ります",
+          "NでVます（phương tiện）"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをVます（tha động từ）",
+          "それから"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "NはNAです（tính từ な）",
+          "〜いです（tính từ い）"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "NはNが好きです",
+          "〜から（lý do）",
+          "どうして"
+        ]
+      },
+      {
+        "bai": 12,
+        "items": [
+          "NはNより〜",
+          "〜の中で〜が一番"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "休みの計画",
+      "titleVi": "Kế hoạch kỳ nghỉ",
+      "japanese": "来週、休みがあります。私は京都へ行きたいです。京都で古いお寺を見たいです。それから、おいしい料理を食べたいです。新しいカメラが欲しいです。だから、カメラを買いに行きます。",
+      "vietnamese": "Tuần tới có kỳ nghỉ. Tôi muốn đi Kyoto. Tôi muốn ngắm những ngôi đền cổ ở Kyoto. Sau đó, tôi muốn ăn những món ăn ngon. Tôi muốn có một chiếc máy ảnh mới. Vì vậy, tôi sẽ đi mua máy ảnh.",
+      "sentences": [
+        {
+          "jp": "来週、休みがあります。",
+          "vi": "Tuần tới có kỳ nghỉ.",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（sự kiện/ngày nghỉ）",
+              "vi": "があります dùng để nói \"có kỳ nghỉ / có sự kiện\" (ôn Bài 9)."
+            }
+          ]
+        },
+        {
+          "jp": "私は京都へ行きたいです。",
+          "vi": "Tôi muốn đi Kyoto.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nへ行きます（Bài 5）",
+              "vi": "へ chỉ hướng đi."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "行き + たいです = \"muốn đi\". Bỏ ます của 行きます, thêm たいです."
+            }
+          ]
+        },
+        {
+          "jp": "京都で古いお寺を見たいです。",
+          "vi": "Tôi muốn ngắm những ngôi đền cổ ở Kyoto.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ, cổ (tính từ い)"
+            },
+            {
+              "w": "お寺",
+              "read": "おてら",
+              "vi": "ngôi đền, chùa"
+            },
+            {
+              "w": "見ます",
+              "read": "みます",
+              "vi": "nhìn, xem"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（địa điểm）",
+              "vi": "で chỉ nơi diễn ra hành động: 京都で = \"ở Kyoto\"."
+            },
+            {
+              "point": "NをVます（Bài 6）",
+              "vi": "を chỉ tân ngữ: お寺を見る."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "見ます→見 (bỏ ます) + たいです = muốn xem."
+            }
+          ]
+        },
+        {
+          "jp": "それから、おいしい料理を食べたいです。",
+          "vi": "Sau đó, tôi muốn ăn những món ăn ngon.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo (ôn Bài 6)"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "それから（Bài 6）",
+              "vi": "Nối hai hành động tuần tự."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "食べ + たいです = muốn ăn."
+            }
+          ]
+        },
+        {
+          "jp": "新しいカメラが欲しいです。だから、カメラを買いに行きます。",
+          "vi": "Tôi muốn có một chiếc máy ảnh mới. Vì vậy, tôi sẽ đi mua máy ảnh.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "カメラ",
+              "read": "カメラ",
+              "vi": "máy ảnh"
+            },
+            {
+              "w": "欲しい",
+              "read": "ほしい",
+              "vi": "muốn có (tính từ い)"
+            },
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nが欲しいです",
+              "vi": "カメラが欲しい = muốn có máy ảnh. Vật muốn có dùng が (không dùng を)."
+            },
+            {
+              "point": "Vに行きます（mục đích）",
+              "vi": "買い (masu-stem của 買います) + に行きます = đi để mua. Đây là mẫu mới của Bài 13."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "京都へ行きたいです",
+          "label": "Vたいです"
+        },
+        {
+          "excerpt": "古いお寺を見たいです",
+          "label": "Vたいです"
+        },
+        {
+          "excerpt": "新しいカメラが欲しいです",
+          "label": "Nが欲しいです"
+        },
+        {
+          "excerpt": "カメラを買いに行きます",
+          "label": "Vに行きます（mục đích）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人は来週、どこへ行きたいですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "東京へ行きたいです",
+            "大阪へ行きたいです",
+            "京都へ行きたいです",
+            "どこも行きたくないです"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết có câu rõ ràng: 「私は京都へ行きたいです」— \"tôi muốn đi Kyoto\". Đáp án ① 東京 và ② 大阪 không được nhắc tới trong bài. Đáp án ④ どこも行きたくない (không muốn đi đâu cả) hoàn toàn ngược lại — bài viết rõ ràng muốn đi Kyoto. → Chọn ③ 京都。",
+          "tip": "Câu hỏi \"どこへ行きたいですか\" → tìm ngay câu có「〜へ行きたいです」trong bài. Đáp án nào lặp lại đúng địa điểm đó là đúng.",
+          "qt": {
+            "q": "Người này tuần sau muốn đi đâu?",
+            "o": [
+              "Muốn đi Tokyo",
+              "Muốn đi Osaka",
+              "Muốn đi Kyoto",
+              "Không muốn đi đâu cả"
+            ]
+          }
+        },
+        {
+          "q": "この人は何が欲しいですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "新しい本が欲しいです",
+            "新しいカメラが欲しいです",
+            "おいしい料理が欲しいです",
+            "古いお寺が欲しいです"
+          ],
+          "answer": 1,
+          "explainVi": "Bài có câu: 「新しいカメラが欲しいです」— \"tôi muốn có máy ảnh mới\". Đáp án ① 新しい本 (sách mới) không có trong bài. Đáp án ② おいしい料理 là thứ muốn ĂN (食べたい), không phải muốn CÓ (欲しい). Đáp án ③ 古いお寺 là thứ muốn XEM (見たい), không phải muốn có. → Chọn ① 新しいカメラ。",
+          "tip": "Câu hỏi \"何が欲しいですか\" → chỉ tìm câu có「〜が欲しいです」, bỏ qua mọi câu có たいです (muốn làm). が欲しい = muốn CÓ vật; たい = muốn LÀM việc.",
+          "qt": {
+            "q": "Người này muốn có gì?",
+            "o": [
+              "Muốn có một quyển sách mới",
+              "Muốn có một chiếc máy ảnh mới",
+              "Muốn có món ăn ngon",
+              "Muốn có một ngôi chùa cổ"
+            ]
+          }
+        },
+        {
+          "q": "この人はどうして買い物に行きますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "お寺を見たいから、行きます",
+            "料理を食べたいから、行きます",
+            "カメラが欲しいから、行きます",
+            "京都が好きだから、行きます"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết: 「新しいカメラが欲しいです。だから、カメラを買いに行きます」— \"Tôi muốn có máy ảnh mới. Vì vậy tôi đi mua máy ảnh.\" だから (vì vậy) là dấu hiệu kết nối lý do → hành động. Lý do rõ ràng là muốn có máy ảnh. Đáp án ① (muốn xem đền) và ② (muốn ăn) là những việc muốn làm ở Kyoto, không liên quan đến việc đi mua. Đáp án ③ 京都が好き không được nhắc làm lý do đi mua. → Chọn ② カメラが欲しいから。",
+          "tip": "Câu hỏi \"どうして〜に行きますか\" → tìm câu có「だから」ngay trước câu đó. Vế trước だから chính là LÝ DO.",
+          "qt": {
+            "q": "Tại sao người này đi mua sắm?",
+            "o": [
+              "Vì muốn ngắm chùa nên đi",
+              "Vì muốn ăn món ăn ngon nên đi",
+              "Vì muốn có máy ảnh nên đi",
+              "Vì thích Kyoto nên đi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ゴールデンウィークの話",
+      "titleVi": "Chuyện kỳ nghỉ Tuần Vàng",
+      "japanese": "もうすぐゴールデンウィークです。ミラーさんはどこかへ行きたいです。田中さん：「北海道はどうですか。北海道の海はきれいですよ。」ミラーさん：「いいですね。北海道へ行きたいです。海で泳ぎたいです。」カリナさんも北海道へ行きたいです。カリナさんは新鮮な魚が欲しいです。北海道で新鮮な魚を食べたいです。ワットさん：「私はどこも行きたくないです。家で本を読みたいです。」でも、ワットさんは何か新しいものが欲しいです。だから、本屋へ本を買いに行きます。ミラーさんとカリナさんは飛行機で北海道へ行きます。北海道はミラーさんの国より涼しいです。ミラーさんはとても楽しみです。ゴールデンウィークはとても短いです。でも、みんな何かしたいです。",
+      "vietnamese": "Tuần Vàng (Golden Week) sắp đến. Anh Miller muốn đi đâu đó. Anh Tanaka: \"Hokkaido thì sao? Biển ở Hokkaido rất đẹp đấy.\" Anh Miller: \"Hay đấy. Tôi muốn đi Hokkaido. Tôi muốn bơi ở biển.\" Chị Karina cũng muốn đi Hokkaido. Chị Karina muốn có cá tươi. Chị muốn ăn cá tươi ở Hokkaido. Anh Watt: \"Tôi không muốn đi đâu cả. Tôi muốn ở nhà đọc sách.\" Nhưng anh Watt muốn có gì đó mới. Vì vậy, anh sẽ đến nhà sách để mua sách. Anh Miller và chị Karina đi Hokkaido bằng máy bay. Hokkaido mát hơn quê hương của anh Miller. Anh Miller rất trông đợi. Tuần Vàng rất ngắn. Nhưng mọi người đều muốn làm gì đó.",
+      "sentences": [
+        {
+          "jp": "もうすぐゴールデンウィークです。",
+          "vi": "Tuần Vàng (Golden Week) sắp đến.",
+          "vocab": [
+            {
+              "w": "もうすぐ",
+              "read": "もうすぐ",
+              "vi": "sắp, chẳng bao lâu nữa"
+            },
+            {
+              "w": "ゴールデンウィーク",
+              "read": "ゴールデンウィーク",
+              "vi": "Tuần Vàng (kỳ nghỉ lễ dài của Nhật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（Bài 1）",
+              "vi": "Câu khẳng định giới thiệu thời gian/sự kiện."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはどこかへ行きたいです。",
+          "vi": "Anh Miller muốn đi đâu đó.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "どこか",
+              "read": "どこか",
+              "vi": "nơi nào đó (không xác định cụ thể)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どこか",
+              "vi": "どこか = \"nơi nào đó\". Dùng trong câu khẳng định. Nếu phủ định thì dùng どこも〜ない."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "行き + たいです = muốn đi."
+            }
+          ]
+        },
+        {
+          "jp": "田中さん：「北海道はどうですか。北海道の海はきれいですよ。」",
+          "vi": "Anh Tanaka: \"Hokkaido thì sao? Biển ở Hokkaido rất đẹp đấy.\"",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "海",
+              "read": "うみ",
+              "vi": "biển"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "đẹp, sạch (tính từ な)"
+            },
+            {
+              "w": "〜よ",
+              "read": "〜よ",
+              "vi": "trợ từ cuối câu, nhấn mạnh thông tin mới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNAです（Bài 8）",
+              "vi": "きれいです là tính từ な diễn tả đặc điểm của biển Hokkaido."
+            },
+            {
+              "point": "Nはどうですか（Bài 9）",
+              "vi": "北海道はどうですか = \"Hokkaido thì sao?\" — mẫu hỏi ý kiến/đề xuất (ôn Bài 9)."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさん：「いいですね。北海道へ行きたいです。海で泳ぎたいです。」",
+          "vi": "Anh Miller: \"Hay đấy. Tôi muốn đi Hokkaido. Tôi muốn bơi ở biển.\"",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "海",
+              "read": "うみ",
+              "vi": "biển"
+            },
+            {
+              "w": "泳ぎます",
+              "read": "およぎます",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "いいですね",
+              "read": "いいですね",
+              "vi": "hay đấy, tốt đấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nへ行きます（Bài 5）",
+              "vi": "北海道へ行きたいです — へ chỉ hướng di chuyển."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "泳ぎ + たいです = muốn bơi. Masu-stem của 泳ぎます là 泳ぎ."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんも北海道へ行きたいです。",
+          "vi": "Chị Karina cũng muốn đi Hokkaido.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên nhân vật)"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも（Bài 1）",
+              "vi": "も = \"cũng\". Karina CŨNG muốn đi, giống Miller."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "行き + たいです = muốn đi."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは新鮮な魚が欲しいです。北海道で新鮮な魚を食べたいです。",
+          "vi": "Chị Karina muốn có cá tươi. Chị muốn ăn cá tươi ở Hokkaido.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "新鮮",
+              "read": "しんせん",
+              "vi": "tươi, mới (tính từ な)"
+            },
+            {
+              "w": "魚",
+              "read": "さかな",
+              "vi": "cá"
+            },
+            {
+              "w": "欲しい",
+              "read": "ほしい",
+              "vi": "muốn có"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nが欲しいです",
+              "vi": "新鮮な魚が欲しい = muốn có cá tươi. が đứng trước 欲しい."
+            },
+            {
+              "point": "NでVます（Bài 5）",
+              "vi": "北海道で = ở Hokkaido, chỉ địa điểm hành động."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "食べ + たいです = muốn ăn."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさん：「私はどこも行きたくないです。家で本を読みたいです。」",
+          "vi": "Anh Watt: \"Tôi không muốn đi đâu cả. Tôi muốn ở nhà đọc sách.\"",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "どこも",
+              "read": "どこも",
+              "vi": "nơi nào cũng; đâu cũng (với phủ định: đâu cả)"
+            },
+            {
+              "w": "行きたくない",
+              "read": "いきたくない",
+              "vi": "không muốn đi"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読みたい",
+              "read": "よみたい",
+              "vi": "muốn đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どこも〜たくないです",
+              "vi": "どこも + phủ định = không muốn đi đâu cả. たくない = phủ định của たい (tính từ い)."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "読み + たいです = muốn đọc."
+            }
+          ]
+        },
+        {
+          "jp": "でも、ワットさんは何か新しいものが欲しいです。だから、本屋へ本を買いに行きます。",
+          "vi": "Nhưng anh Watt muốn có gì đó mới. Vì vậy, anh sẽ đến nhà sách để mua sách.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "欲しい",
+              "read": "ほしい",
+              "vi": "muốn có (tính từ い)"
+            },
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "本屋",
+              "read": "ほんや",
+              "vi": "nhà sách, hiệu sách"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó, vật gì đó (không xác định)"
+            },
+            {
+              "w": "もの",
+              "read": "もの",
+              "vi": "vật, đồ vật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "何か",
+              "vi": "何か = \"vật gì đó / điều gì đó\". Dùng trong câu khẳng định."
+            },
+            {
+              "point": "Nが欲しいです",
+              "vi": "何か新しいものが欲しい = muốn có vật gì đó mới."
+            },
+            {
+              "point": "Vに行きます（mục đích）",
+              "vi": "買い (masu-stem của 買います) + に行きます = đi để mua. Đây là mẫu trọng tâm Bài 13."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんとカリナさんは飛行機で北海道へ行きます。",
+          "vi": "Anh Miller và chị Karina đi Hokkaido bằng máy bay.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "飛行機",
+              "read": "ひこうき",
+              "vi": "máy bay"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện）（Bài 5）",
+              "vi": "飛行機で = bằng máy bay. で chỉ phương tiện di chuyển."
+            },
+            {
+              "point": "NとVます（Bài 4）",
+              "vi": "ミラーさんとカリナさんは = Miller và Karina (cùng nhau)."
+            }
+          ]
+        },
+        {
+          "jp": "北海道はミラーさんの国より涼しいです。",
+          "vi": "Hokkaido mát hơn quê hương của anh Miller.",
+          "vocab": [
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "国",
+              "read": "くに",
+              "vi": "đất nước, quê hương"
+            },
+            {
+              "w": "涼しい",
+              "read": "すずしい",
+              "vi": "mát mẻ (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNより〜（Bài 12）",
+              "vi": "Hokkaido は Miller の国 より 涼しい = Hokkaido mát hơn quê Miller. Mẫu so sánh hơn."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはとても楽しみです。",
+          "vi": "Anh Miller rất trông đợi.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất (ôn Bài 8)"
+            },
+            {
+              "w": "楽しみ",
+              "read": "たのしみ",
+              "vi": "điều vui, sự mong đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（楽しみ là danh từ）",
+              "vi": "楽しみ là DANH TỪ (sự mong đợi), không phải tính từ な. ミラーさんはとても楽しみです = \"Anh Miller rất trông đợi.\" (NはNです)."
+            }
+          ]
+        },
+        {
+          "jp": "ゴールデンウィークはとても短いです。でも、みんな何かしたいです。",
+          "vi": "Tuần Vàng rất ngắn. Nhưng mọi người đều muốn làm gì đó.",
+          "vocab": [
+            {
+              "w": "ゴールデンウィーク",
+              "read": "ゴールデンウィーク",
+              "vi": "Tuần Vàng (kỳ nghỉ lễ dài của Nhật)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            },
+            {
+              "w": "します",
+              "read": "します",
+              "vi": "làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いです（Bài 8）",
+              "vi": "短いです = ngắn. Tính từ い ở thể lịch sự."
+            },
+            {
+              "point": "何か",
+              "vi": "何か + したいです = \"muốn làm gì đó\". 何か kết hợp với Vたいです."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "し + たいです = muốn làm (masu-stem của します là し)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ミラーさんはどこかへ行きたいです",
+          "label": "どこか + Vたいです"
+        },
+        {
+          "excerpt": "海で泳ぎたいです",
+          "label": "Vたいです"
+        },
+        {
+          "excerpt": "新鮮な魚が欲しいです",
+          "label": "Nが欲しいです"
+        },
+        {
+          "excerpt": "どこも行きたくないです",
+          "label": "どこも〜たくないです（phủ định）"
+        },
+        {
+          "excerpt": "何か新しいものが欲しいです",
+          "label": "何か + Nが欲しいです"
+        },
+        {
+          "excerpt": "本を買いに行きます",
+          "label": "Vに行きます（mục đích）"
+        },
+        {
+          "excerpt": "北海道はミラーさんの国より涼しいです",
+          "label": "NはNより〜（Bài 12）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは北海道で何をしたいですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "本を読みたいです",
+            "海で泳ぎたいです",
+            "新鮮な魚を食べたいです",
+            "カメラを買いたいです"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết: 「カリナさんは新鮮な魚が欲しいです。北海道で新鮮な魚を食べたいです」— Karina muốn có cá tươi và muốn ăn cá tươi ở Hokkaido. Đáp án ① 本を読む (đọc sách) là việc của Watt, không phải Karina. Đáp án ① 海で泳ぐ (bơi ở biển) là việc của Miller. Đáp án ③ カメラを買う (mua máy ảnh) không được nhắc liên quan đến Karina. → Chọn ② 新鮮な魚を食べたい。",
+          "tip": "Câu hỏi hỏi về một người cụ thể → tìm tên người đó trong bài rồi đọc câu tiếp theo. Chú ý chủ ngữ để không nhầm hành động của người này sang người khác.",
+          "qt": {
+            "q": "Chị Karina muốn làm gì ở Hokkaido?",
+            "o": [
+              "Muốn đọc sách",
+              "Muốn bơi ở biển",
+              "Muốn ăn cá tươi",
+              "Muốn mua máy ảnh"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんはゴールデンウィークにどこへ行きますか。",
+          "evi": [
+            6,
+            7
+          ],
+          "options": [
+            "北海道へ行きます",
+            "本屋へ行きます",
+            "どこも行きません",
+            "海へ行きます"
+          ],
+          "answer": 1,
+          "explainVi": "Watt nói 「どこも行きたくないです」(không muốn đi đâu cả) — đây là MONG MUỐN. Nhưng bài viết tiếp tục: 「何か新しいものが欲しいです。だから、本屋へ本を買いに行きます」— thực tế anh ấy ĐI nhà sách để mua sách. Đáp án ① 北海道 là nơi Miller và Karina đi, không phải Watt. Đáp án ② どこも行きません nhầm lẫn mong muốn với hành động thực tế — câu hỏi hỏi \"đi đâu\" chứ không hỏi \"muốn đi đâu\". Đáp án ③ 海 không được nhắc liên quan đến Watt. → Chọn ① 本屋。",
+          "tip": "Chú ý phân biệt \"〜たくないです\" (không muốn) với hành động thực tế. Nếu có だから sau đó → hành động thực tế có thể khác với mong muốn ban đầu.",
+          "qt": {
+            "q": "Anh Watt sẽ đi đâu vào kỳ nghỉ Tuần lễ Vàng?",
+            "o": [
+              "Sẽ đi Hokkaido",
+              "Sẽ đến hiệu sách",
+              "Không đi đâu cả",
+              "Sẽ đi biển"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんとカリナさんはどうやって北海道へ行きますか。",
+          "evi": [
+            8
+          ],
+          "options": [
+            "電車で行きます",
+            "バスで行きます",
+            "車で行きます",
+            "飛行機で行きます"
+          ],
+          "answer": 3,
+          "explainVi": "Bài viết có câu: 「ミラーさんとカリナさんは飛行機で北海道へ行きます」— \"Miller và Karina đi Hokkaido bằng máy bay.\" 飛行機で = \"bằng máy bay\" — で ở đây chỉ phương tiện di chuyển (ôn Bài 5). Đáp án ①②③ (tàu điện / xe buýt / xe hơi) không được nhắc trong bài. → Chọn ③ 飛行機で行きます。",
+          "tip": "Câu hỏi \"どうやって〜へ行きますか\" (đi bằng cách nào) → tìm「〜で行きます」trong bài. Trợ từ で trước 行きます luôn chỉ phương tiện.",
+          "qt": {
+            "q": "Anh Miller và chị Karina đi Hokkaido bằng cách nào?",
+            "o": [
+              "Đi bằng tàu điện",
+              "Đi bằng xe buýt",
+              "Đi bằng ô tô",
+              "Đi bằng máy bay"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら祭り　食べ物コーナー",
+      "titleVi": "Lễ hội Sakura — khu ẩm thực",
+      "japanese": "さくら祭り　食べ物コーナー\n来週、さくら祭りがあります。私は祭りに行きたいです。\nコーナー｜食べ物｜お金\nたこ焼きコーナー｜たこ焼き｜300円\nラーメンコーナー｜ラーメン｜500円\nアイスコーナー｜アイス｜250円\nジュースコーナー｜ジュース｜200円\n※アイスコーナーは午後だけあります。\n私は冷たいジュースも欲しいです。でも、お金があまりありません。\n私はラーメンが食べたいです。だから、ラーメンコーナーへ行きます。",
+      "vietnamese": "Lễ hội Sakura — khu ẩm thực\nTuần tới có lễ hội Sakura. Tôi muốn đi lễ hội.\nQuầy｜Món ăn｜Giá tiền\nQuầy takoyaki｜Takoyaki｜300 yên\nQuầy ramen｜Ramen｜500 yên\nQuầy kem｜Kem｜250 yên\nQuầy nước ép｜Nước ép｜200 yên\n※Quầy kem chỉ có vào buổi chiều.\nTôi cũng muốn có nước ép lạnh. Nhưng tôi không có nhiều tiền lắm.\nTôi muốn ăn ramen. Vì vậy, tôi sẽ đến quầy ramen.",
+      "sentences": [
+        {
+          "jp": "さくら祭り　食べ物コーナー",
+          "vi": "Lễ hội Sakura — khu ẩm thực",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "祭り",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, món ăn"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            },
+            {
+              "w": "さくら祭り",
+              "read": "さくらまつり",
+              "vi": "lễ hội hoa anh đào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1）",
+              "vi": "Tiêu đề danh từ ghép: \"khu ẩm thực của lễ hội Sakura\" — không cần trợ từ khi làm tiêu đề."
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくら祭り",
+              "why": "Tên sự kiện — xác định bối cảnh cả tờ thông tin."
+            },
+            {
+              "w": "食べ物コーナー",
+              "why": "Chủ đề tờ rơi: khu vực bán đồ ăn, cần dò bảng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "来週、さくら祭りがあります。私は祭りに行きたいです。",
+          "vi": "Tuần tới có lễ hội Sakura. Tôi muốn đi lễ hội.",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "さくら祭り",
+              "read": "さくらまつり",
+              "vi": "lễ hội hoa anh đào"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "祭り",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có; tồn tại"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "行きたい",
+              "read": "いきたい",
+              "vi": "muốn đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（Bài 9, ôn）",
+              "vi": "さくら祭りがあります = \"có lễ hội Sakura\" — があります dùng cho sự kiện."
+            },
+            {
+              "point": "Nに行きます（Bài 5, ôn）",
+              "vi": "祭りに行きたいです = muốn đi (đến) lễ hội. に thay へ cũng chỉ điểm đến."
+            },
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "行き + たいです = muốn đi. Mẫu mới của Bài 13."
+            }
+          ]
+        },
+        {
+          "jp": "コーナー｜食べ物｜お金",
+          "vi": "Quầy｜Món ăn｜Giá tiền",
+          "vocab": [
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin",
+              "vi": "Hàng đầu là tiêu đề 3 cột: tên quầy — món ăn — giá tiền."
+            }
+          ],
+          "keys": [
+            {
+              "w": "コーナー｜食べ物｜お金",
+              "why": "Header bảng — xác định 3 cột để dò các hàng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "たこ焼きコーナー｜たこ焼き｜300円",
+          "vi": "Quầy takoyaki｜Takoyaki｜300 yên",
+          "vocab": [
+            {
+              "w": "たこ焼き",
+              "read": "たこやき",
+              "vi": "bánh takoyaki (bánh bạch tuộc nướng)"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (đơn vị tiền Nhật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNAです（Bài 1, ôn）",
+              "vi": "Hàng bảng = câu danh từ rút gọn: quầy nào — bán món gì — giá bao nhiêu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たこ焼き",
+              "why": "Tên món ở quầy 1 — không phải ramen mà câu hỏi hỏi."
+            },
+            {
+              "w": "300円",
+              "why": "Giá quầy takoyaki — dùng để loại trừ khi so giá."
+            }
+          ]
+        },
+        {
+          "jp": "ラーメンコーナー｜ラーメン｜500円",
+          "vi": "Quầy ramen｜Ramen｜500 yên",
+          "vocab": [
+            {
+              "w": "ラーメン",
+              "read": "ラーメン",
+              "vi": "mì ramen"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNAです（Bài 1, ôn）",
+              "vi": "Hàng bảng thứ 2: quầy ramen — bán ramen — giá 500 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ラーメンコーナー",
+              "why": "Tên quầy chính là căn cứ trả lời câu hỏi (nơi bán món người viết muốn ăn)."
+            },
+            {
+              "w": "ラーメン｜500円",
+              "why": "Món và giá ở quầy ramen — dòng căn cứ trực tiếp của đáp án."
+            }
+          ]
+        },
+        {
+          "jp": "アイスコーナー｜アイス｜250円",
+          "vi": "Quầy kem｜Kem｜250 yên",
+          "vocab": [
+            {
+              "w": "アイス",
+              "read": "アイス",
+              "vi": "kem (kem lạnh)"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNAです（Bài 1, ôn）",
+              "vi": "Hàng bảng thứ 3: quầy kem — bán kem — giá 250 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "アイスコーナー",
+              "why": "Tên quầy kem — dễ nhầm với quầy ramen nếu đọc lướt, cần phân biệt rõ."
+            },
+            {
+              "w": "250円",
+              "why": "Giá quầy kem — là một trong các nhiễu về giá."
+            }
+          ]
+        },
+        {
+          "jp": "ジュースコーナー｜ジュース｜200円",
+          "vi": "Quầy nước ép｜Nước ép｜200 yên",
+          "vocab": [
+            {
+              "w": "ジュース",
+              "read": "ジュース",
+              "vi": "nước ép, nước ngọt"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNAです（Bài 1, ôn）",
+              "vi": "Hàng bảng thứ 4: quầy nước ép — bán ジュース — giá 200 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ジュースコーナー",
+              "why": "Tên quầy nước ép — thêm nhiễu về quầy, không liên quan món ramen."
+            },
+            {
+              "w": "200円",
+              "why": "Giá quầy nước ép — nhiễu giá thấp nhất trong bảng."
+            }
+          ]
+        },
+        {
+          "jp": "※アイスコーナーは午後だけあります。",
+          "vi": "※Quầy kem chỉ có vào buổi chiều.",
+          "vocab": [
+            {
+              "w": "アイス",
+              "read": "アイス",
+              "vi": "kem (kem lạnh)"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "〜だけ（Bài 11, ôn）",
+              "read": "だけ",
+              "vi": "chỉ, chỉ có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけ（Bài 11, ôn）",
+              "vi": "午後だけ = \"chỉ vào buổi chiều\". だけ giới hạn phạm vi thời gian."
+            },
+            {
+              "point": "NはNAです（Bài 1, ôn）",
+              "vi": "Câu điều kiện đặc biệt (bẫy ※) — nếu hỏi về quầy kem phải chú ý dòng này."
+            }
+          ],
+          "keys": [
+            {
+              "w": "午後だけ",
+              "why": "Điều kiện giới hạn ※ — bẫy nếu câu hỏi liên quan đến quầy kem/thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "私は冷たいジュースも欲しいです。でも、お金があまりありません。",
+          "vi": "Tôi cũng muốn có nước ép lạnh. Nhưng tôi không có nhiều tiền lắm.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "冷たい",
+              "read": "つめたい",
+              "vi": "lạnh"
+            },
+            {
+              "w": "ジュース",
+              "read": "ジュース",
+              "vi": "nước trái cây"
+            },
+            {
+              "w": "欲しい",
+              "read": "ほしい",
+              "vi": "muốn; mong có"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy; không nhiều"
+            },
+            {
+              "w": "ありません",
+              "read": "ありません",
+              "vi": "không có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nが欲しいです（Bài 13）",
+              "vi": "ジュースが欲しい = muốn có nước ép (も thay が để thêm nghĩa \"cũng\", giống Nも ở Bài 1). Vật muốn có luôn đi với が/も, không dùng を."
+            },
+            {
+              "point": "とても・あまり〜ない（Bài 8, ôn）",
+              "vi": "お金があまりありません = \"không có nhiều tiền lắm\". あまり + phủ định = mức độ ít."
+            }
+          ],
+          "keys": [
+            {
+              "w": "冷たいジュースも欲しいです",
+              "why": "Mong muốn PHỤ (nước ép) — nhiễu để phân biệt với mong muốn CHÍNH (ăn ramen) ở câu hỏi."
+            },
+            {
+              "w": "お金があまりありません",
+              "why": "Lý do không mua nước ép — không liên quan trực tiếp đến câu hỏi về quầy ramen."
+            }
+          ]
+        },
+        {
+          "jp": "私はラーメンが食べたいです。だから、ラーメンコーナーへ行きます。",
+          "vi": "Tôi muốn ăn ramen. Vì vậy, tôi sẽ đến quầy ramen.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "ラーメン",
+              "read": "ラーメン",
+              "vi": "mì ramen"
+            },
+            {
+              "w": "食べたい",
+              "read": "たべたい",
+              "vi": "muốn ăn"
+            },
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "ラーメンコーナー",
+              "read": "ラーメンコーナー",
+              "vi": "quầy mì ramen"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "quầy; khu vực"
+            },
+            {
+              "w": "行きます",
+              "read": "いきます",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "食べ + たいです = muốn ăn. ラーメンが食べたい dùng が trước động từ たい (không dùng を)."
+            },
+            {
+              "point": "Vに行きます（mục đích, Bài 13）",
+              "vi": "ラーメンコーナーへ行きます — kết hợp với だから ở trước để nêu lý do rồi hành động."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ラーメンが食べたい",
+              "why": "Mong muốn của người viết — khớp trực tiếp với câu hỏi \"muốn ăn gì\"."
+            },
+            {
+              "w": "ラーメンコーナーへ行きます",
+              "why": "Kết luận: đi quầy nào — đây chính là câu trả lời cho câu hỏi."
+            }
+          ]
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Tên lễ hội và việc người viết muốn đi lễ hội — xác lập bối cảnh.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "kind": "body",
+          "label": "Header bảng",
+          "topic": 2,
+          "note": "Xác định 3 cột: quầy — món ăn — giá tiền, dùng để dò các hàng sau.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng giá 4 quầy",
+          "topic": 4,
+          "note": "Bốn hàng dữ liệu quầy takoyaki/ramen/kem/nước ép — nơi chứa căn cứ chọn quầy theo món.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Chú ý ※ giờ quầy kem & mong muốn phụ",
+          "topic": 7,
+          "note": "Bẫy: quầy kem chỉ mở buổi chiều và người viết còn muốn nước ép nhưng ít tiền — cả hai đều KHÔNG liên quan đến câu hỏi về ramen.",
+          "qs": []
+        },
+        {
+          "from": 9,
+          "to": 9,
+          "kind": "point",
+          "label": "Mong muốn chính & kết luận",
+          "topic": 9,
+          "note": "Người viết muốn ăn ramen nên đi quầy ramen — câu trả lời trực tiếp cho câu hỏi.",
+          "qs": [
+            1
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "祭りに行きたいです",
+          "label": "Vたいです"
+        },
+        {
+          "excerpt": "冷たいジュースも欲しいです",
+          "label": "Nが欲しいです"
+        },
+        {
+          "excerpt": "ラーメンが食べたいです",
+          "label": "Nが＋Vたいです"
+        },
+        {
+          "excerpt": "ラーメンコーナーへ行きます",
+          "label": "Vに行きます（mục đích）"
+        },
+        {
+          "excerpt": "午後だけあります",
+          "label": "だけ（Bài 11, ôn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人はラーメンが食べたいです。どこへ行きますか。",
+          "options": [
+            "たこ焼きコーナーへ行きます",
+            "ラーメンコーナーへ行きます",
+            "アイスコーナーへ行きます",
+            "どこも行きません"
+          ],
+          "answer": 1,
+          "explainVi": "Bảng cho biết ラーメンコーナー bán ラーメン (dòng 「ラーメンコーナー｜ラーメン｜500円」). Câu cuối bài xác nhận: 「私はラーメンが食べたいです。だから、ラーメンコーナーへ行きます」— muốn ăn ramen nên đi quầy ramen. Đáp án ① たこ焼きコーナー bán たこ焼き, không phải ramen. Đáp án ③ アイスコーナー bán アイス, và chỉ mở buổi chiều — không liên quan món ramen. Đáp án ④ どこも行きません trái ngược hoàn toàn với だから...行きます trong bài. → Chọn ② ラーメンコーナー。",
+          "tip": "Câu hỏi \"食べたいです。どこへ行きますか\" → dò bảng tìm quầy có đúng TÊN MÓN trong câu hỏi, rồi đối chiếu với câu kết luận có だから để chắc chắn.",
+          "evi": [
+            4,
+            9
+          ],
+          "qt": {
+            "q": "Người này muốn ăn ramen. Người đó sẽ đi đâu?",
+            "o": [
+              "Sẽ đến quầy takoyaki",
+              "Sẽ đến quầy ramen",
+              "Sẽ đến quầy kem",
+              "Sẽ không đi đâu cả"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

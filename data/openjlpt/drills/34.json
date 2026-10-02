@@ -1,0 +1,523 @@
+{
+  "id": "minna2.b34",
+  "bai": 34,
+  "titleVi": "Cảm ơn vì đã làm",
+  "know": [
+    {
+      "id": "minna2.b34.kurete-arigatou",
+      "point": "kurete-arigatou",
+      "jp": "〜てくれてありがとう",
+      "vi": "Cảm ơn vì đã ~ (người ngang hàng)",
+      "en": "Thank you for ~ing (someone of equal status)",
+      "gloss": "助[たす]けてくれてありがとう ／ 教[おし]えてくれてありがとう",
+      "glossEn": "助[たす]けてくれてありがとう ／ 教[おし]えてくれてありがとう"
+    },
+    {
+      "id": "minna2.b34.itadaite-arigatou",
+      "point": "itadaite-arigatou",
+      "jp": "〜ていただいてありがとうございます",
+      "vi": "Cảm ơn vì đã ~ (người trên, lịch sự)",
+      "en": "Thank you for ~ing (when addressing a superior; polite)",
+      "gloss": "説明[せつめい]していただいてありがとうございます",
+      "glossEn": "説明[せつめい]していただいてありがとうございます"
+    },
+    {
+      "id": "minna2.b34.okage-de",
+      "point": "okage-de",
+      "jp": "〜おかげで",
+      "vi": "Nhờ có ~ mà (kết quả tốt)",
+      "en": "Thanks to ~ (a positive result)",
+      "gloss": "あなたのおかげで 合格[ごうかく]できました",
+      "glossEn": "あなたのおかげで 合格[ごうかく]できました = Thanks to you, I was able to pass."
+    },
+    {
+      "id": "minna2.b34.sei-de",
+      "point": "sei-de",
+      "jp": "〜せいで",
+      "vi": "Do ~ mà (kết quả xấu)",
+      "en": "Because of ~ (a negative result)",
+      "gloss": "雨[あめ]のせいで 試合[しあい]が 中止[ちゅうし]になりました",
+      "glossEn": "雨[あめ]のせいで 試合[しあい]が 中止[ちゅうし]になりました = The match was canceled because of the rain."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b34-ka-tasukete",
+      "item": "minna2.b34.kurete-arigatou",
+      "err": "kurete-moratte-wrong",
+      "vi": "Cảm ơn bạn đã giúp tôi.",
+      "t1": {
+        "stem": "助[たす]けて＿ありがとう。",
+        "choices": [
+          "くれて",
+          "もらって",
+          "あげて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "助[たす]けて",
+          "くれて",
+          "ありがとう。"
+        ],
+        "traps": [
+          "もらって",
+          "あげて"
+        ]
+      },
+      "t3": {
+        "target": "助けてくれてありがとう。",
+        "accept": [
+          "たすけてくれてありがとう。"
+        ]
+      },
+      "why": "相手[あいて]が私[わたし]にしてくれた行動[こうどう]に感謝[かんしゃ]する → くれてありがとう。✗ もらって — もらう は「私が受け取った」視点、ありがとうには不自然。✗ あげて — あげる は外向き（私→人）で意味が逆。"
+    },
+    {
+      "id": "c-b34-ka-oshiete",
+      "item": "minna2.b34.kurete-arigatou",
+      "err": "kurete-moratte-wrong",
+      "vi": "Cảm ơn bạn đã dạy tôi tiếng Nhật.",
+      "t1": {
+        "stem": "日本語[にほんご]を 教[おし]えて＿ありがとう。",
+        "choices": [
+          "くれて",
+          "あげて",
+          "もらって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]を",
+          "教[おし]えて",
+          "くれて",
+          "ありがとう。"
+        ],
+        "traps": [
+          "あげて",
+          "もらって"
+        ]
+      },
+      "t3": {
+        "target": "日本語を教えてくれてありがとう。",
+        "accept": [
+          "にほんごをおしえてくれてありがとう。"
+        ]
+      },
+      "why": "くれてありがとう = bạn đã làm cho tôi, cảm ơn bạn. ✗ あげてありがとう — あげる chỉ hành động từ tôi ra người khác, dùng khi cảm ơn bản thân là vô lý. ✗ もらって — không kết hợp tự nhiên với ありがとう khi cảm ơn."
+    },
+    {
+      "id": "c-b34-ka-kite",
+      "item": "minna2.b34.kurete-arigatou",
+      "err": "kurete-moratte-wrong",
+      "vi": "Cảm ơn bạn đã đặc biệt đến thăm tôi.",
+      "t1": {
+        "stem": "わざわざ 来[き]て＿ありがとう。",
+        "choices": [
+          "くれて",
+          "あげて",
+          "いただいて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わざわざ",
+          "来[き]て",
+          "くれて",
+          "ありがとう。"
+        ],
+        "traps": [
+          "あげて",
+          "もらって"
+        ]
+      },
+      "t3": {
+        "target": "わざわざ来てくれてありがとう。",
+        "accept": [
+          "わざわざきてくれてありがとう。"
+        ]
+      },
+      "why": "くれてありがとう = bạn đã đến (hướng vào tôi). ✗ あげて — hướng ra ngoài (tôi → người khác). ✗ いただいて — dành cho bối cảnh kính ngữ với người trên."
+    },
+    {
+      "id": "c-b34-ia-setsumei",
+      "item": "minna2.b34.itadaite-arigatou",
+      "err": "keigo-level-wrong",
+      "vi": "Cảm ơn thầy đã giải thích cho tôi.",
+      "t1": {
+        "stem": "説明[せつめい]して＿ありがとうございます。",
+        "choices": [
+          "いただいて",
+          "くれて",
+          "あげて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "説明[せつめい]して",
+          "いただいて",
+          "ありがとうございます。"
+        ],
+        "traps": [
+          "くれて",
+          "もらって"
+        ]
+      },
+      "t3": {
+        "target": "説明していただいてありがとうございます。",
+        "accept": [
+          "せつめいしていただいてありがとうございます。"
+        ]
+      },
+      "why": "いただく は もらう の謙譲語[けんじょうご]; 目上[めうえ]の人[ひと]（先生[せんせい]）に使[つか]う。✗ くれてありがとう — 友達[ともだち]には良[よ]いが先生[せんせい]には失礼[しつれい]。✗ あげて — 自分[じぶん]が相手[あいて]にする動作[どうさ]で逆向き。"
+    },
+    {
+      "id": "c-b34-ia-tetsudatte",
+      "item": "minna2.b34.itadaite-arigatou",
+      "err": "keigo-level-wrong",
+      "vi": "Cảm ơn anh ấy (cấp trên) đã giúp đỡ tôi.",
+      "t1": {
+        "stem": "手伝[てつだ]って＿ありがとうございます。",
+        "choices": [
+          "いただいて",
+          "くれて",
+          "さしあげて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "手伝[てつだ]って",
+          "いただいて",
+          "ありがとうございます。"
+        ],
+        "traps": [
+          "くれて",
+          "さしあげて"
+        ]
+      },
+      "t3": {
+        "target": "手伝っていただいてありがとうございます。",
+        "accept": [
+          "てつだっていただいてありがとうございます。"
+        ]
+      },
+      "why": "目上[めうえ]の人[ひと]には Vていただいてありがとうございます が正式[せいしき]。✗ さしあげてありがとうございます — さしあげる は自分[じぶん]が目上[めうえ]にする動作[どうさ]で逆向き；目上[めうえ]に感謝[かんしゃ]するときには使[つか]わない。"
+    },
+    {
+      "id": "c-b34-ia-hagemashite",
+      "item": "minna2.b34.itadaite-arigatou",
+      "err": "keigo-level-wrong",
+      "vi": "Cảm ơn giám đốc đã luôn động viên tôi.",
+      "t1": {
+        "stem": "いつも 励[はげ]まして＿ありがとうございます。",
+        "choices": [
+          "いただいて",
+          "くれて",
+          "もらって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "いつも",
+          "励[はげ]まして",
+          "いただいて",
+          "ありがとうございます。"
+        ],
+        "traps": [
+          "くれて",
+          "もらって"
+        ]
+      },
+      "t3": {
+        "target": "いつも励ましていただいてありがとうございます。",
+        "accept": [
+          "いつもはげましていただいてありがとうございます。"
+        ]
+      },
+      "why": "いただいてありがとうございます = chuẩn mực khi cảm ơn cấp trên/giám đốc. ✗ くれてありがとう quá thân mật với cấp trên. ✗ もらってありがとうございます — もらって không kết hợp tự nhiên với ありがとうございます."
+    },
+    {
+      "id": "c-b34-ok-goukaku",
+      "item": "minna2.b34.okage-de",
+      "err": "okage-sei-wrong",
+      "vi": "Nhờ có sự giúp đỡ của bạn mà tôi đã đậu kỳ thi.",
+      "t1": {
+        "stem": "あなたの＿、試験[しけん]に 合格[ごうかく]できました。",
+        "choices": [
+          "おかげで",
+          "せいで",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あなたの",
+          "おかげで、",
+          "試験[しけん]に",
+          "合格[ごうかく]できました。"
+        ],
+        "traps": [
+          "せいで、",
+          "ために、"
+        ]
+      },
+      "t3": {
+        "target": "あなたのおかげで、試験に合格できました。",
+        "accept": [
+          "あなたのおかげで、しけんにごうかくできました。"
+        ]
+      },
+      "why": "おかげで = nhờ có (kết quả TỐT). ✗ せいで — dùng cho kết quả xấu (bị trượt, gặp chuyện không hay). Đây là đỗ thi → dùng おかげで."
+    },
+    {
+      "id": "c-b34-ok-nareta",
+      "item": "minna2.b34.okage-de",
+      "err": "okage-sei-wrong",
+      "vi": "Nhờ mọi người tốt bụng mà tôi quen được với cuộc sống ở Nhật.",
+      "t1": {
+        "stem": "みんなの 親切[しんせつ]の＿、日本[にほん]の 生活[せいかつ]に 慣[な]れました。",
+        "choices": [
+          "おかげで",
+          "せいで",
+          "だから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "みんなの",
+          "親切[しんせつ]の",
+          "おかげで、",
+          "日本[にほん]の 生活[せいかつ]に",
+          "慣[な]れました。"
+        ],
+        "traps": [
+          "せいで、",
+          "だから、"
+        ]
+      },
+      "t3": {
+        "target": "みんなの親切のおかげで、日本の生活に慣れました。",
+        "accept": [
+          "みんなのしんせつのおかげで、にほんのせいかつになれました。"
+        ]
+      },
+      "why": "慣[な]れる (quen được) là kết quả TỐT → おかげで。Lưu ý cấu trúc: 名詞[めいし]（親切[しんせつ]）＋ の ＋ おかげで。✗ せいで dùng cho kết quả tiêu cực."
+    },
+    {
+      "id": "c-b34-se-ame",
+      "item": "minna2.b34.sei-de",
+      "err": "okage-sei-wrong",
+      "vi": "Do trời mưa mà chuyến dã ngoại bị huỷ.",
+      "t1": {
+        "stem": "雨[あめ]の＿、ピクニックが 中止[ちゅうし]になりました。",
+        "choices": [
+          "せいで",
+          "おかげで",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "雨[あめ]の",
+          "せいで、",
+          "ピクニックが",
+          "中止[ちゅうし]になりました。"
+        ],
+        "traps": [
+          "おかげで、",
+          "ために、"
+        ]
+      },
+      "t3": {
+        "target": "雨のせいで、ピクニックが中止になりました。",
+        "accept": [
+          "あめのせいで、ぴくにっくがちゅうしになりました。"
+        ]
+      },
+      "why": "せいで = do ~ mà (kết quả XẤU). ✗ おかげで — chỉ dùng khi kết quả tốt; dùng おかげで cho việc huỷ dã ngoại nghe rất kỳ lạ."
+    },
+    {
+      "id": "c-b34-se-nemuri",
+      "item": "minna2.b34.sei-de",
+      "err": "okage-sei-wrong",
+      "vi": "Do ngủ quên mà tôi đã đến muộn.",
+      "t1": {
+        "stem": "寝坊[ねぼう]した＿、遅刻[ちこく]してしまいました。",
+        "choices": [
+          "せいで",
+          "おかげで",
+          "のに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "寝坊[ねぼう]した",
+          "せいで、",
+          "遅刻[ちこく]して",
+          "しまいました。"
+        ],
+        "traps": [
+          "おかげで、",
+          "くせに、"
+        ]
+      },
+      "t3": {
+        "target": "寝坊したせいで、遅刻してしまいました。",
+        "accept": [
+          "ねぼうしたせいで、ちこくしてしまいました。"
+        ]
+      },
+      "why": "せいで theo sau thể thường (た形[けい]): 寝坊[ねぼう]した ＋ せいで。Kết quả là 遅刻[ちこく] (trễ giờ) → xấu → dùng せいで。✗ おかげで cho trường hợp này nghe mỉa mai。"
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b34-okage",
+      "item": "minna2.b34.okage-de",
+      "err": "okage-sei-wrong",
+      "tts": "せんせいのおかげで、にほんごがはなせるようになりました。",
+      "script": "先生[せんせい]のおかげで、日本語[にほんご]が 話[はな]せるようになりました。",
+      "ask": "Người nói muốn nói điều gì?",
+      "choices": [
+        "Nhờ thầy mà họ đã nói được tiếng Nhật",
+        "Do thầy mà họ không nói được tiếng Nhật",
+        "Họ muốn thầy dạy tiếng Nhật cho họ"
+      ],
+      "answer": 0,
+      "why": "おかげで = nhờ có (kết quả tốt); 話[はな]せるようになった = đã trở nên nói được → nhờ thầy mà học được tiếng Nhật。"
+    },
+    {
+      "id": "l-b34-kurete",
+      "item": "minna2.b34.kurete-arigatou",
+      "err": "kurete-moratte-wrong",
+      "tts": "わたしのために わざわざ きてくれてありがとう。",
+      "script": "わたしのために わざわざ 来[き]てくれてありがとう。",
+      "ask": "Người nói cảm ơn ai về điều gì?",
+      "choices": [
+        "Cảm ơn bạn đã đặc biệt đến vì mình",
+        "Cảm ơn bạn đã không đến",
+        "Xin lỗi vì đã đến muộn"
+      ],
+      "answer": 0,
+      "why": "くれてありがとう = cảm ơn người khác đã làm cho mình; わざわざ = đặc biệt, cố tình đến。"
+    },
+    {
+      "id": "l-b34-seide",
+      "item": "minna2.b34.sei-de",
+      "err": "okage-sei-wrong",
+      "tts": "かぜのせいで、しごとをやすまなければなりませんでした。",
+      "script": "風邪[かぜ]のせいで、仕事[しごと]を 休[やす]まなければなりませんでした。",
+      "ask": "Tại sao người đó phải nghỉ làm?",
+      "choices": [
+        "Vì bị cảm cúm",
+        "Vì trời mưa to",
+        "Vì muốn đi du lịch"
+      ],
+      "answer": 0,
+      "why": "風邪[かぜ]のせいで = do bị cảm cúm mà; せいで chỉ nguyên nhân gây kết quả xấu (phải nghỉ làm)。"
+    },
+    {
+      "id": "l-b34-itadaite",
+      "item": "minna2.b34.itadaite-arigatou",
+      "err": "keigo-level-wrong",
+      "tts": "しゃちょうにいろいろしていただいてありがとうございます。",
+      "script": "社長[しゃちょう]にいろいろしていただいてありがとうございます。",
+      "ask": "Người nói đang cảm ơn ai với mức lịch sự nào?",
+      "choices": [
+        "Cảm ơn giám đốc (cấp trên) một cách trang trọng",
+        "Cảm ơn bạn bè một cách thân mật",
+        "Yêu cầu giám đốc làm điều gì đó"
+      ],
+      "answer": 0,
+      "why": "していただいてありがとうございます = mẫu cảm ơn trang trọng nhất với cấp trên (社長[しゃちょう])。✗ くれてありがとう quá thân mật với cấp trên。"
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b34-te-kureru-dir",
+      "item": "minna1.b24.te-kureru",
+      "err": "kureru-ageru-dir",
+      "ambush": true,
+      "src": 24,
+      "context": "Bài 34 ・ くれてありがとう",
+      "vi": "Nhờ bạn dạy tiếng Nhật cho tôi mà kỳ thi của tôi đã thành công — cảm ơn bạn rất nhiều.",
+      "t1": {
+        "stem": "日本語[にほんご]を 教[おし]えて＿おかげで、試験[しけん]が 上手[うま]くいきました。ありがとう。",
+        "choices": [
+          "くれた",
+          "あげた",
+          "もらった"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]を",
+          "教[おし]えて",
+          "くれた",
+          "おかげで、",
+          "試験[しけん]が 上手[うま]くいきました。ありがとう。"
+        ],
+        "traps": [
+          "あげた",
+          "もらった"
+        ]
+      },
+      "t3": {
+        "target": "日本語を教えてくれたおかげで、試験が上手くいきました。ありがとう。",
+        "accept": [
+          "にほんごをおしえてくれたおかげで、しけんがうまくいきました。ありがとう。"
+        ]
+      },
+      "why": "くれた = bạn đã làm cho tôi (hướng vào tôi — đúng). ✗ あげた = tôi đã làm cho người khác (hướng ra — sai chiều). Câu bẫy: có おかげで của Bài 34 + lỗi chiều kureru/ageru của Bài 24."
+    },
+    {
+      "id": "a-b34-te-ageru-dir",
+      "item": "minna1.b24.te-ageru",
+      "err": "te-juju-dir",
+      "ambush": true,
+      "src": 24,
+      "context": "Bài 34 ・ おかげで / いただいて",
+      "vi": "Nhờ thầy đã giải thích cho tôi mà tôi hiểu ra vấn đề — cảm ơn thầy rất nhiều.",
+      "t1": {
+        "stem": "先生[せんせい]が 説明[せつめい]して＿おかげで、問題[もんだい]が わかりました。ありがとうございます。",
+        "choices": [
+          "くださった",
+          "さしあげた",
+          "もらった"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]が",
+          "説明[せつめい]して",
+          "くださった",
+          "おかげで、",
+          "問題[もんだい]が わかりました。ありがとうございます。"
+        ],
+        "traps": [
+          "さしあげた",
+          "もらった"
+        ]
+      },
+      "t3": {
+        "target": "先生が説明してくださったおかげで、問題がわかりました。ありがとうございます。",
+        "accept": [
+          "せんせいがせつめいしてくださったおかげで、もんだいがわかりました。ありがとうございます。"
+        ]
+      },
+      "why": "くださった = kính ngữ của くれた; thầy làm cho tôi → hướng vào tôi (đúng). ✗ さしあげた = kính ngữ của あげた, là tôi làm cho thầy → hướng ngược chiều. Câu bẫy: おかげで/ありがとうございます của Bài 34 + lỗi te-ageru/kureru chiều của Bài 24."
+    }
+  ]
+}

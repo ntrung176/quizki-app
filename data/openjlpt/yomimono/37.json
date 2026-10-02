@@ -1,0 +1,2196 @@
+{
+  "bai": 37,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 37 tập trung vào THỂ BỊ ĐỘNG (受身形): diễn đạt \"được/bị ai làm gì cho mình\". Có 3 loại: ① 褒められる・呼ばれる (bị/được ai đó tác động trực tiếp), ② 建てられる・作られる (xã hội/lịch sử — vật thể được xây/tạo ra), ③ 迷惑の受身 (bị động chịu thiệt — hành động của người khác gây ảnh hưởng). Chiến lược đọc: khi gặp〜られる, hỏi: (a) CHỦ THỂ BỊ TÁC ĐỘNG là ai? (b) NGƯỜI/VẬT thực hiện là ai (N に/が)? (c) Đây là \"được\" (tích cực), \"bị\" (tiêu cực) hay trung tính (lịch sử)?",
+    "steps": [
+      "Nhận dạng động từ thể bị động: godan → thay âm cuối sang hàng あ + れる（書く→書かれる, 呼ぶ→呼ばれる）; ichidan → stem + られる（褒める→褒められる）; する→される; くる→こられる.",
+      "Xác định cấu trúc: [主語]は [動作主]に Vられます (ai đó làm gì cho chủ ngữ). Với 歴史・社会: [物]は [時・人]に Vられました.",
+      "迷惑の受身: chủ ngữ bị ảnh hưởng tiêu cực dù không phải đối tượng trực tiếp — ví dụ: 雨に降られました（bị mưa rơi = bị dính mưa）.",
+      "Phân biệt 受身形 vs 可能形 (Bài 27): 受身 = \"được/bị ai làm gì\"; 可能 = \"có thể làm\". Ichidan trùng hình thức (食べられる) → phân biệt bằng ngữ cảnh và trợ từ (に＋người = 受身, chỉ V = 可能).",
+      "Câu hỏi suy luận: tìm cảm xúc/hệ quả của nhân vật sau khi bị/được tác động, không chỉ tìm nguyên văn.",
+      "Ôn lại ngữ pháp đã học: Vてもらいます (Bài 24 — khác với 受身 ở chỗ chủ động xin/nhận), 〜んです (Bài 26), Vるようになります (Bài 36), Vているところです (Bài 46 chưa học — tránh dùng)."
+    ],
+    "tips": [
+      "受身 godan: âm cuối đổi sang hàng あ + れる: く→かれる, ぶ→ばれる, す→される, つ→たれる, ぬ→なれる, む→まれる, る→られる, ぐ→がれる, う→われる.",
+      "受身 ichidan: chỉ thêm られる vào thân động từ (bỏ る): 見る→見られる, 褒める→褒められる. Hình dạng giống 可能形 — phân biệt bằng に＋người (受身) hay không có に (可能).",
+      "迷惑の受身: người nói là NẠN NHÂN của hành động. Ví dụ: 子供に泣かれました = con tôi khóc (làm tôi khổ sở).",
+      "Xã hội/lịch sử: chủ ngữ thường là VẬT/CÔNG TRÌNH, に chỉ thời điểm hoặc người xây/tạo. Không có \"nạn nhân\" — chỉ là trần thuật khách quan.",
+      "Đừng nhầm 呼ばれます（受身 \"được/bị gọi\"）với 呼びます（能動 \"gọi\"）— nhìn れ trước ます là nhận ra ngay.",
+      "Các câu hỏi N4 hay hỏi suy luận: \"nhân vật cảm thấy thế nào sau khi bị/được X?\" → tìm từ cảm xúc (嬉しい, 恥ずかしい, 困った…) trong bài."
+    ],
+    "grammarFocus": [
+      "V受身形（godan: 〜われる/かれる/ばれる; ichidan: 〜られる; する→される）",
+      "NがVられます（社会・歴史の受身）",
+      "迷惑の受身（Nに Vられて、困りました / 疲れました）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります（変化）",
+          "Vるように（目的・意識）"
+        ]
+      },
+      {
+        "bai": 35,
+        "items": [
+          "〜ば / なら（条件）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜かもしれません",
+          "〜でしょう"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "Vる予定です"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました（완료 + 후회）",
+          "自動詞 vs 他動詞"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（説明）",
+          "〜んですか（tình huống）"
+        ]
+      },
+      {
+        "bai": 24,
+        "items": [
+          "Vてもらいます",
+          "Vてくれます"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから",
+          "Vて（nối trình tự）"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "課長に褒められた日",
+      "titleVi": "Ngày được trưởng phòng khen",
+      "japanese": "今日、わたしは課長に褒められました。\n先週、わたしはお客さんのためにレポートをまとめました。\n課長は「よく調べましたね」と言いました。\nわたしはとても嬉しかったです。\nでも、帰りに駅でスリに財布を取られてしまいました。\n嬉しかった気持ちが、すっかりなくなってしまいました。",
+      "vietnamese": "Hôm nay tôi được trưởng phòng khen.\nTuần trước tôi đã tổng hợp báo cáo cho khách hàng.\nTrưởng phòng nói \"Em đã nghiên cứu kỹ lắm nhỉ\".\nTôi rất vui.\nNhưng trên đường về, ở ga tôi bị kẻ móc túi lấy mất ví.\nCảm giác vui vẻ đó biến mất hẳn rồi.",
+      "sentences": [
+        {
+          "jp": "今日、わたしは課長に褒められました。",
+          "vi": "Hôm nay tôi được trưởng phòng khen.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "褒められます",
+              "read": "ほめられます",
+              "vi": "được khen (thể bị động của 褒めます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身形（ichidan）",
+              "vi": "褒める (ichidan) → 褒められる. Cấu trúc: わたしは [人]に Vられました = tôi được/bị [người đó] làm gì. Ở đây: 課長に = do trưởng phòng (người thực hiện hành động)."
+            }
+          ]
+        },
+        {
+          "jp": "先週、わたしはお客さんのためにレポートをまとめました。",
+          "vi": "Tuần trước tôi đã tổng hợp báo cáo cho khách hàng.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "お客さん",
+              "read": "おきゃくさん",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "レポート",
+              "read": "レポート",
+              "vi": "báo cáo, report"
+            },
+            {
+              "w": "まとめる",
+              "read": "まとめる",
+              "vi": "tổng hợp, thu xếp"
+            },
+            {
+              "w": "まとめます",
+              "read": "まとめます",
+              "vi": "tổng hợp, tóm tắt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのために（目的）",
+              "vi": "お客さんのために = vì/cho khách hàng. Đây là bối cảnh dẫn đến việc được khen ở câu trên."
+            }
+          ]
+        },
+        {
+          "jp": "課長は「よく調べましたね」と言いました。",
+          "vi": "Trưởng phòng nói \"Em đã nghiên cứu kỹ lắm nhỉ\".",
+          "vocab": [
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "調べます",
+              "read": "しらべます",
+              "vi": "nghiên cứu, tra cứu"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "kỹ, giỏi, nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "trích lời trực tiếp của trưởng phòng trong 「」. と là trợ từ trích dẫn."
+            },
+            {
+              "point": "〜ね（Bài 4）",
+              "vi": "調べましたね = nhỉ, em đã làm tốt. ね thể hiện trưởng phòng đang chia sẻ cảm nhận/xác nhận."
+            }
+          ]
+        },
+        {
+          "jp": "わたしはとても嬉しかったです。",
+          "vi": "Tôi rất vui.",
+          "vocab": [
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui, mừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aかったです（Bài 12）",
+              "vi": "嬉しかったです = đã vui (quá khứ tính từ い). Cảm xúc của nhân vật SAU KHI bị động: được khen → vui."
+            }
+          ]
+        },
+        {
+          "jp": "でも、帰りに駅でスリに財布を取られてしまいました。",
+          "vi": "Nhưng trên đường về, ở ga tôi bị kẻ móc túi lấy mất ví.",
+          "vocab": [
+            {
+              "w": "帰り",
+              "read": "かえり",
+              "vi": "đường về, lúc về"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "スリ",
+              "read": "スリ",
+              "vi": "kẻ móc túi"
+            },
+            {
+              "w": "財布",
+              "read": "さいふ",
+              "vi": "ví tiền"
+            },
+            {
+              "w": "取られます",
+              "read": "とられます",
+              "vi": "bị lấy (thể bị động của 取ります)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "迷惑の受身",
+              "vi": "スリに財布を取られました = bị kẻ móc túi lấy ví. わたし (chủ ngữ ẩn) là nạn nhân bị thiệt hại. Cấu trúc: [主語]は [人]に [物]を Vられます. Godan 取る → 取られる."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "取られてしまいました = đã bị lấy mất rồi (hoàn toàn, không lấy lại được). しまう nhấn mạnh sự việc đáng tiếc/hoàn tất không mong muốn."
+            }
+          ]
+        },
+        {
+          "jp": "嬉しかった気持ちが、すっかりなくなってしまいました。",
+          "vi": "Cảm giác vui vẻ đó biến mất hẳn rồi.",
+          "vocab": [
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui, mừng"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm giác, cảm xúc"
+            },
+            {
+              "w": "すっかり",
+              "read": "すっかり",
+              "vi": "hoàn toàn, hẳn"
+            },
+            {
+              "w": "なくなる",
+              "read": "なくなる",
+              "vi": "mất đi, hết"
+            },
+            {
+              "w": "なくなります",
+              "read": "なくなります",
+              "vi": "biến mất, không còn nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Vた＋N）（Bài 22）",
+              "vi": "嬉しかった気持ち = cảm giác (mà tôi đã cảm thấy) vui. Vた (quá khứ thể thông thường) bổ nghĩa cho danh từ 気持ち."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "なくなってしまいました = đã biến mất hẳn rồi. Kết hợp しまう + tính chất tiêu cực đáng tiếc."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "課長に褒められました",
+          "label": "V受身形 ichidan（được khen）"
+        },
+        {
+          "excerpt": "スリに財布を取られてしまいました",
+          "label": "迷惑の受身（bị động chịu thiệt）"
+        },
+        {
+          "excerpt": "嬉しかった気持ちが",
+          "label": "Vた＋N（mệnh đề bổ nghĩa）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "わたしはどうして課長に褒められましたか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "毎日早く会社に来たから、褒められました",
+            "お客さんのためにレポートをまとめたから、褒められました",
+            "課長の仕事を手伝ったから、褒められました",
+            "日本語が上手になったから、褒められました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ:「先週、わたしはお客さんのためにレポートをまとめました」(tuần trước đã tổng hợp báo cáo cho khách hàng), rồi ngay sau đó trưởng phòng nói「よく調べましたね」(đã nghiên cứu kỹ lắm) — đây là nội dung lời khen trực tiếp. Hai chi tiết này cùng khẳng định đáp án 1. Đáp án 0 sai: bài không nhắc đến việc đến sớm. Đáp án 2 sai: bài không đề cập giúp việc trưởng phòng. Đáp án 3 sai: tiếng Nhật không được nhắc đến.",
+          "tip": "Câu hỏi \"どうして〜られましたか\" về 受身形 → tìm LÝ DO cụ thể ngay trước câu bị động trong bài. Lý do thường nằm ở 1–2 câu trước câu「に＋người＋Vられました」.",
+          "qt": {
+            "q": "Vì sao tôi được trưởng phòng khen?",
+            "o": [
+              "Tôi được khen vì ngày nào cũng đến công ty sớm",
+              "Tôi được khen vì đã tổng hợp báo cáo cho khách hàng",
+              "Tôi được khen vì đã giúp trưởng phòng làm việc",
+              "Tôi được khen vì tiếng Nhật đã tiến bộ"
+            ]
+          }
+        },
+        {
+          "q": "「スリに財布を取られてしまいました」という文で、わたしはどんな気持ちだったと思いますか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "ビックリしたが、あまり困らなかったと思います",
+            "嬉しくて、もっと頑張ろうと思いました",
+            "残念で、困ってしまったと思います",
+            "財布がなくなって、とても嬉しかったと思います"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu chốt là「嬉しかった気持ちが、すっかりなくなってしまいました」(cảm giác vui biến mất hoàn toàn). 迷惑の受身「スリに財布を取られた」(bị kẻ móc túi lấy ví = bị động chịu thiệt) + しまいました (hậu quả đáng tiếc) → nhân vật rõ ràng buồn và khổ sở. Đáp án 0 sai: \"あまり困らなかった\" mâu thuẫn với 気持ちが「すっかりなくなった」. Đáp án 1 và 3 sai hoàn toàn: vui vẻ không thể xảy ra sau khi bị mất ví — bài nói ngược lại.",
+          "tip": "迷惑の受身 (bị động chịu thiệt) + しまいました → cảm xúc nhân vật luôn là TIÊU CỰC (残念・困る・悲しい). Không bao giờ là vui hay tích cực.",
+          "qt": {
+            "q": "Trong câu 「スリに財布を取られてしまいました」 (“Tôi đã bị kẻ móc túi lấy mất ví”), bạn nghĩ tôi đã cảm thấy thế nào?",
+            "o": [
+              "Tôi nghĩ mình đã giật mình nhưng không gặp nhiều rắc rối",
+              "Tôi vui và nghĩ rằng mình sẽ cố gắng hơn nữa",
+              "Tôi nghĩ mình đã thất vọng và rơi vào cảnh khó khăn",
+              "Tôi nghĩ mình đã rất vui vì chiếc ví biến mất"
+            ]
+          }
+        },
+        {
+          "q": "「課長に褒められました」の文で、「に」の前の言葉は何を表しますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "褒めた場所（どこで）",
+            "褒めた道具（何で）",
+            "褒めた人（だれが）",
+            "褒めた時間（いつ）"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Cấu trúc 受身形 là [受け手]は [動作主]に Vられます. Trong「課長に褒められました」, に đứng sau「課長」để chỉ NGƯỜI THỰC HIỆN hành động khen (= 褒めた人). Đáp án 0 sai: nơi chốn dùng で (会社で) không phải に. Đáp án 1 sai: công cụ/phương tiện cũng dùng で. Đáp án 3 sai: thời gian dùng に nhưng phải là danh từ chỉ thời gian (今日に), không phải tên người.",
+          "tip": "Trong 受身形, に ngay sau TÊN NGƯỜI/NHÓM NGƯỜI = người thực hiện hành động (動作主). Phân biệt: に sau thời gian/địa điểm là chỉ thời gian/hướng, không phải 受身の動作主.",
+          "qt": {
+            "q": "Trong câu 「課長に褒められました」 (“Tôi được trưởng phòng khen”), từ đứng trước 「に」 biểu thị điều gì?",
+            "o": [
+              "Địa điểm khen (ở đâu)",
+              "Công cụ dùng để khen (bằng gì)",
+              "Người khen (ai)",
+              "Thời điểm khen (khi nào)"
+            ]
+          }
+        },
+        {
+          "q": "この日のわたしの一日はどうでしたか。",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "options": [
+            "課長に褒められて、ずっと嬉しかったです",
+            "課長に怒られて、財布もなくなって、とても悪い日でした",
+            "最初は嬉しかったが、スリに財布を取られて、気持ちが悪くなりました",
+            "財布をなくしたが、課長のおかげで見つかりました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài có hai nửa tương phản rõ ràng: (nửa đầu)「課長に褒められました → とても嬉しかったです」(được khen → rất vui); (nửa sau)「スリに財布を取られてしまいました → 嬉しかった気持ちが、すっかりなくなってしまいました」(bị lấy ví → niềm vui biến mất hoàn toàn). Đáp án 2 nắm đúng cả hai nửa này. Đáp án 0 sai: vui vẻ KHÔNG kéo dài (すっかりなくなった). Đáp án 1 sai: bài không nói bị trưởng phòng mắng (怒られた). Đáp án 3 sai: bài không nhắc đến việc tìm lại ví.",
+          "tip": "Câu hỏi tổng kết cả bài → đọc từ đầu đến cuối, chú ý từ chuyển tiếp「でも」(nhưng) — đây là điểm xoay chuyển từ tích cực sang tiêu cực. Đáp án đúng phải phản ánh đủ CẢ HAI giai đoạn.",
+          "qt": {
+            "q": "Ngày hôm đó của tôi thế nào?",
+            "o": [
+              "Tôi được trưởng phòng khen nên vui suốt cả ngày",
+              "Tôi bị trưởng phòng mắng, rồi ví cũng biến mất, đó là một ngày rất tệ",
+              "Lúc đầu tôi vui, nhưng sau khi bị kẻ móc túi lấy mất ví, tâm trạng tôi trở nên tồi tệ",
+              "Tôi làm mất ví, nhưng nhờ trưởng phòng mà tìm lại được"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "日本の有名な建物と歴史",
+      "titleVi": "Những công trình kiến trúc nổi tiếng và lịch sử Nhật Bản",
+      "japanese": "日本には昔から有名な建物がたくさんあります。\n例えば、法隆寺は今から約1300年前に建てられました。\n法隆寺は世界で最も古い木造建築の一つだと言われています。\n奈良の大仏は8世紀に作られました。多くの人々によって長い時間をかけて作られました。\n江戸時代には、全国にお城がたくさん建てられました。\n姫路城は「白鷺城」とも呼ばれています。白い壁がとても美しいからです。\n東京スカイツリーは2012年に完成しました。新しい技術を使って建てられた、現代の建築です。\nさて、わたしが最近訪れた京都では、お寺や神社がいたるところにありました。\nガイドさんに金閣寺について説明してもらいました。\n金閣寺は室町時代に建てられましたが、1950年に放火されて燃えてしまいました。\nその後、1955年に再建されました。今見られる金閣寺は新しいものです。\nわたしはその話を聞いて、とても驚きました。\nしかし、旅行中に困ったこともありました。\n混んでいる電車の中で、隣の人に足を踏まれてしまいました。\nまた、写真を撮っているときに、急に雨に降られてしまいました。\nカメラが濡れないように、急いでバッグに入れました。\nそれでも、京都はとても素晴らしかったです。また行きたいと思っています。",
+      "vietnamese": "Nhật Bản có rất nhiều công trình nổi tiếng từ xa xưa.\nVí dụ, chùa Horyuji được xây dựng cách đây khoảng 1300 năm.\nChùa Horyuji được nói là một trong những công trình kiến trúc gỗ lâu đời nhất thế giới.\nTượng Đại Phật ở Nara được tạo ra vào thế kỷ 8. Nghe nói được rất nhiều người tạo ra trong thời gian dài.\nVào thời Edo, nhiều lâu đài được xây dựng khắp cả nước.\nLâu đài Himeji còn được gọi là \"Lâu đài Cò Trắng\". Vì tường trắng rất đẹp.\nTokyo Skytree hoàn thành năm 2012. Đó là một công trình kiến trúc hiện đại, được xây dựng bằng kỹ thuật mới.\nỞ Kyoto mà tôi mới đến thăm gần đây, có chùa và đền ở khắp nơi.\nTôi được hướng dẫn viên giải thích về chùa Kinkakuji.\nChùa Kinkakuji được xây vào thời Muromachi, nhưng năm 1950 bị phóng hoả và bị cháy rụi.\nSau đó, chùa được tái thiết vào năm 1955. Chùa Kinkakuji chúng ta thấy ngày nay là công trình mới.\nKhi nghe câu chuyện đó, tôi rất ngạc nhiên.\nTuy nhiên, trong chuyến du lịch cũng có những điều phiền não.\nTrong tàu điện đông người, tôi bị người bên cạnh dẫm lên chân.\nNgoài ra, khi đang chụp ảnh, tôi bị mưa rơi bất ngờ.\nĐể máy ảnh không bị ướt, tôi vội bỏ vào túi.\nDù vậy, Kyoto vẫn thật tuyệt vời. Tôi đang nghĩ muốn đi lại.",
+      "sentences": [
+        {
+          "jp": "日本には昔から有名な建物がたくさんあります。",
+          "vi": "Nhật Bản có rất nhiều công trình nổi tiếng từ xa xưa.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "有名な",
+              "read": "ゆうめいな",
+              "vi": "nổi tiếng"
+            },
+            {
+              "w": "建物",
+              "read": "たてもの",
+              "vi": "công trình, tòa nhà"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにはNがあります（Bài 10）",
+              "vi": "日本には〜があります = ở Nhật Bản có〜. には nhấn mạnh địa điểm là chủ đề."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、法隆寺は今から約1300年前に建てられました。",
+          "vi": "Ví dụ, chùa Horyuji được xây dựng cách đây khoảng 1300 năm.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "法隆寺",
+              "read": "ほうりゅうじ",
+              "vi": "chùa Hōryū-ji"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "約",
+              "read": "やく",
+              "vi": "khoảng"
+            },
+            {
+              "w": "1300年前",
+              "read": "せんさんびゃくねんまえ",
+              "vi": "1300 năm trước"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước đây"
+            },
+            {
+              "w": "建てられました",
+              "read": "たてられました",
+              "vi": "đã được xây dựng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがVられます（社会・歴史）",
+              "vi": "法隆寺は〜建てられました = chùa Horyuji được xây dựng. Chủ ngữ là VẬT/CÔNG TRÌNH. 建てる (ichidan) → 建てられる. に chỉ thời điểm (1300年前に), không phải người."
+            }
+          ]
+        },
+        {
+          "jp": "法隆寺は世界で最も古い木造建築の一つだと言われています。",
+          "vi": "Chùa Horyuji được nói là một trong những công trình kiến trúc gỗ lâu đời nhất thế giới.",
+          "vocab": [
+            {
+              "w": "法隆寺",
+              "read": "ほうりゅうじ",
+              "vi": "chùa Horyuji (Pháp Long Tự)"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất, tối nhất"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ, lâu đời"
+            },
+            {
+              "w": "木造",
+              "read": "もくぞう",
+              "vi": "kết cấu gỗ, bằng gỗ"
+            },
+            {
+              "w": "建築",
+              "read": "けんちく",
+              "vi": "kiến trúc, công trình xây dựng"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "言われています",
+              "read": "いわれています",
+              "vi": "được nói là, được gọi là (bị động tiếp diễn)"
+            },
+            {
+              "w": "木造建築",
+              "read": "もくぞうけんちく",
+              "vi": "kiến trúc gỗ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身形＋ています（Bài 37 + 29）",
+              "vi": "言われています = đang/vẫn được người ta nói. 言う (godan, 言う→言われる) + ている = trạng thái \"vẫn được thừa nhận/đồn đại\"."
+            },
+            {
+              "point": "〜だと言われています",
+              "vi": "Cấu trúc phổ biến cho thông tin xã hội/lịch sử: \"được người ta nói/công nhận là〜\"."
+            }
+          ]
+        },
+        {
+          "jp": "奈良の大仏は8世紀に作られました。多くの人々によって長い時間をかけて作られました。",
+          "vi": "Tượng Đại Phật ở Nara được tạo ra vào thế kỷ 8. Được rất nhiều người tạo ra trong thời gian dài.",
+          "vocab": [
+            {
+              "w": "奈良",
+              "read": "なら",
+              "vi": "Nara (thành phố)"
+            },
+            {
+              "w": "大仏",
+              "read": "だいぶつ",
+              "vi": "tượng Đại Phật"
+            },
+            {
+              "w": "世紀",
+              "read": "せいき",
+              "vi": "thế kỷ"
+            },
+            {
+              "w": "作られます",
+              "read": "つくられます",
+              "vi": "được tạo ra (thể bị động của 作ります)"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, nhiều người"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "時間をかけて",
+              "read": "じかんをかけて",
+              "vi": "mất thời gian, bỏ ra thời gian"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがVられます（歴史）",
+              "vi": "大仏は〜作られました = tượng Phật được tạo ra. 作る (godan, く→かれる) → 作られる. に chỉ thời gian (8世紀に)."
+            },
+            {
+              "point": "〜によって（动作主）",
+              "vi": "多くの人々によって = bởi nhiều người. によって dùng khi người thực hiện là tập thể/phương pháp, khác に (cá nhân cụ thể)."
+            }
+          ]
+        },
+        {
+          "jp": "江戸時代には、全国にお城がたくさん建てられました。",
+          "vi": "Vào thời Edo, nhiều lâu đài được xây dựng khắp cả nước.",
+          "vocab": [
+            {
+              "w": "江戸",
+              "read": "えど",
+              "vi": "thời Edo; tên riêng Edo"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "全国",
+              "read": "ぜんこく",
+              "vi": "toàn quốc, cả nước"
+            },
+            {
+              "w": "城",
+              "read": "しろ",
+              "vi": "lâu đài, thành quách"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "建てる",
+              "read": "たてる",
+              "vi": "xây dựng"
+            },
+            {
+              "w": "江戸時代",
+              "read": "えどじだい",
+              "vi": "thời Edo (1603–1868)"
+            },
+            {
+              "w": "お城",
+              "read": "おしろ",
+              "vi": "lâu đài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがVられました（歴史・受身）",
+              "vi": "お城が建てられました = lâu đài được xây dựng. Chủ ngữ VẬT (お城), chỉ thời đại (江戸時代には). Diễn đạt sự kiện lịch sử khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "姫路城は「白鷺城」とも呼ばれています。白い壁がとても美しいからです。",
+          "vi": "Lâu đài Himeji còn được gọi là \"Lâu đài Cò Trắng\". Vì tường trắng rất đẹp.",
+          "vocab": [
+            {
+              "w": "姫路城",
+              "read": "ひめじじょう",
+              "vi": "Lâu đài Himeji"
+            },
+            {
+              "w": "白鷺城",
+              "read": "しらさぎじょう",
+              "vi": "Lâu đài Cò Trắng"
+            },
+            {
+              "w": "呼ばれています",
+              "read": "よばれています",
+              "vi": "được gọi là (bị động tiếp diễn)"
+            },
+            {
+              "w": "白い",
+              "read": "しろい",
+              "vi": "màu trắng (tính từ い)"
+            },
+            {
+              "w": "壁",
+              "read": "かべ",
+              "vi": "tường"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身形（godan）＋ています",
+              "vi": "呼ばれています: 呼ぶ (godan ぶ→ばれる) → 呼ばれる. ている = trạng thái \"vẫn được gọi\". とも = cũng (ngoài tên chính, còn có tên khác)."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "美しいから = vì đẹp. から giải thích lý do được gọi là Lâu đài Cò Trắng."
+            }
+          ]
+        },
+        {
+          "jp": "東京スカイツリーは2012年に完成しました。新しい技術を使って建てられた、現代の建築です。",
+          "vi": "Tokyo Skytree hoàn thành năm 2012. Đó là một công trình kiến trúc hiện đại, được xây dựng bằng kỹ thuật mới.",
+          "vocab": [
+            {
+              "w": "東京スカイツリー",
+              "read": "とうきょうスカイツリー",
+              "vi": "Tokyo Skytree"
+            },
+            {
+              "w": "スカイ",
+              "read": "スカイ",
+              "vi": "bầu trời"
+            },
+            {
+              "w": "ツリー",
+              "read": "ツリー",
+              "vi": "cây cối, tháp"
+            },
+            {
+              "w": "完成します",
+              "read": "かんせいします",
+              "vi": "hoàn thành, hoàn công"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật, công nghệ"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "建てる",
+              "read": "たてる",
+              "vi": "xây dựng"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, đương đại"
+            },
+            {
+              "w": "建築",
+              "read": "けんちく",
+              "vi": "kiến trúc, công trình xây dựng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Vた＋N）（Bài 22）",
+              "vi": "建てられた建築 = công trình (mà) được xây dựng. Vた (thể thông thường quá khứ) + N. Ở đây Vた của 受身形: 建てられた."
+            },
+            {
+              "point": "Vて（Bài 16）",
+              "vi": "使って建てられた = được xây dựng bằng cách dùng. て nối phương tiện với hành động."
+            }
+          ]
+        },
+        {
+          "jp": "さて、わたしが最近訪れた京都では、お寺や神社がいたるところにありました。",
+          "vi": "Ở Kyoto mà tôi mới đến thăm gần đây, có chùa và đền ở khắp nơi.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "訪れます",
+              "read": "おとずれます",
+              "vi": "thăm, đến thăm"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "お寺",
+              "read": "おてら",
+              "vi": "chùa"
+            },
+            {
+              "w": "神社",
+              "read": "じんじゃ",
+              "vi": "đền thần"
+            },
+            {
+              "w": "いたる",
+              "read": "いたる",
+              "vi": "đến, đạt tới"
+            },
+            {
+              "w": "さて",
+              "read": "さて",
+              "vi": "vậy thì, nhân đây (chuyển chủ đề)"
+            },
+            {
+              "w": "いたるところ",
+              "read": "いたるところ",
+              "vi": "khắp nơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Vた＋N）（Bài 22）",
+              "vi": "わたしが訪れた京都 = Kyoto (mà) tôi đã đến thăm. Vた bổ nghĩa cho 京都."
+            },
+            {
+              "point": "NやN（など）（Bài 10）",
+              "vi": "お寺や神社 = chùa và đền (và các nơi khác). や liệt kê không đầy đủ."
+            }
+          ]
+        },
+        {
+          "jp": "ガイドさんに金閣寺について説明してもらいました。",
+          "vi": "Tôi được hướng dẫn viên giải thích về chùa Kinkakuji.",
+          "vocab": [
+            {
+              "w": "ガイド",
+              "read": "ガイド",
+              "vi": "hướng dẫn viên"
+            },
+            {
+              "w": "金閣寺",
+              "read": "きんかくじ",
+              "vi": "chùa Kinkakuji (Kim Các Tự)"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            },
+            {
+              "w": "〜について",
+              "read": "について",
+              "vi": "về (chủ đề)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらいます（Bài 24）",
+              "vi": "ガイドさんに説明してもらいました = được/nhờ hướng dẫn viên giải thích. Khác 受身: không phải \"bị\" mà là chủ động nhận. に chỉ người làm ơn. Lưu ý: không dùng 受身 ở đây vì đây là việc CHỦ ĐỘNG nhờ/nhận."
+            }
+          ]
+        },
+        {
+          "jp": "金閣寺は室町時代に建てられましたが、1950年に放火されて燃えてしまいました。",
+          "vi": "Chùa Kinkakuji được xây vào thời Muromachi, nhưng năm 1950 bị phóng hoả và bị cháy rụi.",
+          "vocab": [
+            {
+              "w": "金閣寺",
+              "read": "きんかくじ",
+              "vi": "Kim Các Tự (Kinkakuji)"
+            },
+            {
+              "w": "室町",
+              "read": "むろまち",
+              "vi": "thời kỳ Muromachi; tên riêng Muromachi"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "建てる",
+              "read": "たてる",
+              "vi": "xây dựng"
+            },
+            {
+              "w": "放火されます",
+              "read": "ほうかされます",
+              "vi": "bị phóng hoả (thể bị động của 放火します)"
+            },
+            {
+              "w": "燃えます",
+              "read": "もえます",
+              "vi": "cháy, bốc lửa"
+            },
+            {
+              "w": "室町時代",
+              "read": "むろまちじだい",
+              "vi": "thời Muromachi (1336–1573)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがVられました（歴史・受身 2 mệnh đề）",
+              "vi": "建てられました (ichidan 建てる→建てられる) = được xây. 放火されました (する→される) = bị phóng hoả. Hai sự kiện lịch sử liên tiếp với が nối đối lập."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "燃えてしまいました = đã cháy mất rồi (không thể phục hồi). しまう nhấn mạnh hậu quả đáng tiếc."
+            }
+          ]
+        },
+        {
+          "jp": "その後、1955年に再建されました。今見られる金閣寺は新しいものです。",
+          "vi": "Sau đó, chùa được tái thiết vào năm 1955. Chùa Kinkakuji chúng ta thấy ngày nay là công trình mới.",
+          "vocab": [
+            {
+              "w": "その後",
+              "read": "そのご",
+              "vi": "sau đó"
+            },
+            {
+              "w": "再建されます",
+              "read": "さいけんされます",
+              "vi": "được tái thiết (bị động của 再建します)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "見られます",
+              "read": "みられます",
+              "vi": "có thể nhìn thấy / được nhìn thấy"
+            },
+            {
+              "w": "金閣寺",
+              "read": "きんかくじ",
+              "vi": "Kim Các Tự (Kinkakuji)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがVられました（受身）",
+              "vi": "再建されました: 再建します (する→される) = được tái thiết. Lịch sử khách quan."
+            },
+            {
+              "point": "今見られる金閣寺（可能形 Bài 27 + 修飾）",
+              "vi": "見られる ở đây là 可能形（có thể nhìn thấy）, không phải 受身. 今見られる金閣寺 = chùa Kinkakuji mà (ta) có thể nhìn thấy ngày nay. Phân biệt: không có に＋người → là 可能 (thể khả năng), không phải 受身."
+            }
+          ]
+        },
+        {
+          "jp": "わたしはその話を聞いて、とても驚きました。",
+          "vi": "Khi nghe câu chuyện đó, tôi rất ngạc nhiên.",
+          "vocab": [
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chuyện kể"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "驚きます",
+              "read": "おどろきます",
+              "vi": "ngạc nhiên, bất ngờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（Bài 16）",
+              "vi": "聞いて、驚きました = nghe xong thì ngạc nhiên. て nối trình tự/nguyên nhân."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、旅行中に困ったこともありました。",
+          "vi": "Tuy nhiên, trong chuyến du lịch cũng có những điều phiền não.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên, nhưng"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "phiền, khó xử, bối rối"
+            },
+            {
+              "w": "旅行中",
+              "read": "りょこうちゅう",
+              "vi": "trong chuyến du lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたこと（Bài 19）",
+              "vi": "困ったことも = những chuyện (mà tôi đã) phiền. こと danh từ hoá, た quá khứ bổ nghĩa."
+            }
+          ]
+        },
+        {
+          "jp": "混んでいる電車の中で、隣の人に足を踏まれてしまいました。",
+          "vi": "Trong tàu điện đông người, tôi bị người bên cạnh dẫm lên chân.",
+          "vocab": [
+            {
+              "w": "混んでいる",
+              "read": "こんでいる",
+              "vi": "đang đông"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "足",
+              "read": "あし",
+              "vi": "chân"
+            },
+            {
+              "w": "踏まれて",
+              "read": "ふまれて",
+              "vi": "bị giẫm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "迷惑の受身",
+              "vi": "隣の人に足を踏まれてしまいました = bị người bên cạnh dẫm lên chân. わたし (ẩn) = nạn nhân. 踏む (godan む→まれる) → 踏まれる. Cấu trúc: [主語]は [人]に [体の部分]を Vられる."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "踏まれてしまいました = bị dẫm mà không tránh được (hậu quả đáng tiếc/bất ngờ). しまう nhấn mạnh tính bất ngờ và khó chịu."
+            }
+          ]
+        },
+        {
+          "jp": "また、写真を撮っているときに、急に雨に降られてしまいました。",
+          "vi": "Ngoài ra, khi đang chụp ảnh, tôi bị mưa rơi bất ngờ.",
+          "vocab": [
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, chụp ảnh"
+            },
+            {
+              "w": "撮ります",
+              "read": "とります",
+              "vi": "chụp (ảnh)"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột ngột, bất ngờ"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降る",
+              "read": "ふる",
+              "vi": "(mưa/tuyết) rơi, xuống"
+            },
+            {
+              "w": "雨に降られます",
+              "read": "あめにふられます",
+              "vi": "bị mưa rơi, bị dính mưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "迷惑の受身（自然現象）",
+              "vi": "雨に降られました: 降る (godan る→られる) → 降られる. 雨に = do mưa (tác nhân). わたし là người bị ảnh hưởng. Đây là dạng bị động đặc biệt: ngay cả hiện tượng tự nhiên (mưa) cũng có thể là \"tác nhân\" trong 迷惑の受身."
+            },
+            {
+              "point": "〜ときに（Bài 23）",
+              "vi": "撮っているときに = khi đang chụp ảnh. ている + とき = thời điểm hành động đang diễn ra."
+            }
+          ]
+        },
+        {
+          "jp": "カメラが濡れないように、急いでバッグに入れました。",
+          "vi": "Để máy ảnh không bị ướt, tôi vội bỏ vào túi.",
+          "vocab": [
+            {
+              "w": "カメラ",
+              "read": "カメラ",
+              "vi": "máy ảnh"
+            },
+            {
+              "w": "濡れます",
+              "read": "ぬれます",
+              "vi": "ướt"
+            },
+            {
+              "w": "急ぎます",
+              "read": "いそぎます",
+              "vi": "vội, gấp"
+            },
+            {
+              "w": "バッグ",
+              "read": "バッグ",
+              "vi": "túi xách"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないように（Bài 36）",
+              "vi": "濡れないように = để không bị ướt. Vないように = mục đích \"để không〜\"."
+            }
+          ]
+        },
+        {
+          "jp": "それでも、京都はとても素晴らしかったです。また行きたいと思っています。",
+          "vi": "Dù vậy, Kyoto vẫn thật tuyệt vời. Tôi đang nghĩ muốn đi lại.",
+          "vocab": [
+            {
+              "w": "それでも",
+              "read": "それでも",
+              "vi": "dù vậy, vẫn"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "素晴らしい",
+              "read": "すばらしい",
+              "vi": "tuyệt vời, xuất sắc"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aかったです（Bài 12）",
+              "vi": "素晴らしかったです = đã tuyệt vời (quá khứ tính từ い). Cảm nhận cuối chuyến đi."
+            },
+            {
+              "point": "Vたいと思っています（Bài 13 + 21）",
+              "vi": "行きたいと思っています = đang nghĩ muốn đi. Vたい (Bài 13) + と思っています (Bài 21, trạng thái liên tục của suy nghĩ)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "法隆寺は今から約1300年前に建てられました",
+          "label": "NがVられました（社会・歴史）"
+        },
+        {
+          "excerpt": "姫路城は「白鷺城」とも呼ばれています",
+          "label": "V受身形 godan（呼ぶ→呼ばれる）"
+        },
+        {
+          "excerpt": "放火されて燃えてしまいました",
+          "label": "される（受身 of する）＋しまいました"
+        },
+        {
+          "excerpt": "隣の人に足を踏まれてしまいました",
+          "label": "迷惑の受身（godan 踏む→踏まれる）"
+        },
+        {
+          "excerpt": "急に雨に降られてしまいました",
+          "label": "迷惑の受身（自然現象）"
+        },
+        {
+          "excerpt": "今見られる金閣寺は新しいものです",
+          "label": "可能形 vs 受身形（文脈で区別）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "法隆寺について、この文章はどう説明していますか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "法隆寺は江戸時代に建てられた木造建築です",
+            "法隆寺は今から約1300年前に建てられた、世界で最も古い木造建築の一つだと言われています",
+            "法隆寺は8世紀に多くの人々によって作られました",
+            "法隆寺は1950年に放火されて、その後再建されました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nêu hai thông tin về 法隆寺:「今から約1300年前に建てられました」(được xây cách đây ~1300 năm) và「世界で最も古い木造建築の一つだと言われています」(được nói là một trong những kiến trúc gỗ lâu đời nhất thế giới). Đáp án 1 tổng hợp đúng cả hai thông tin này. Đáp án 0 sai: 法隆寺 không liên quan đến 江戸時代 — đó là thời đại 姫路城 và các lâu đài. Đáp án 2 sai: \"8世紀に多くの人々によって作られた\" là thông tin về 奈良の大仏, không phải 法隆寺. Đáp án 3 sai: \"1950年に放火されて再建された\" là sự kiện của 金閣寺.",
+          "tip": "Khi bài có nhiều công trình (法隆寺・大仏・姫路城・金閣寺), câu hỏi thường \"trộn\" chi tiết của các công trình khác nhau vào đáp án sai. Hãy ghi nhớ gán: CÔNG TRÌNH nào với SỰ KIỆN nào ngay khi đọc bài.",
+          "qt": {
+            "q": "Bài viết giải thích thế nào về chùa Hōryūji?",
+            "o": [
+              "Chùa Hōryūji là công trình kiến trúc bằng gỗ được xây dựng vào thời Edo",
+              "Chùa Hōryūji được cho là một trong những công trình kiến trúc bằng gỗ cổ nhất thế giới, được xây dựng cách đây khoảng 1.300 năm",
+              "Chùa Hōryūji được nhiều người xây dựng vào thế kỷ thứ 8",
+              "Chùa Hōryūji bị phóng hỏa vào năm 1950 rồi được xây dựng lại sau đó"
+            ]
+          }
+        },
+        {
+          "q": "「今見られる金閣寺は新しいものです」とありますが、なぜですか。",
+          "evi": [
+            9,
+            10
+          ],
+          "options": [
+            "室町時代の建物は古くて、新しく建てなければならなかったから",
+            "1950年に放火されて燃えてしまい、1955年に再建されたから",
+            "金閣寺はもともと1955年に建てられたから",
+            "ガイドさんが新しい金閣寺を建てたから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nêu chuỗi sự kiện liên tiếp:「金閣寺は室町時代に建てられましたが、1950年に放火されて燃えてしまいました。その後、1955年に再建されました」→ bị phóng hoả (放火されて) năm 1950 → cháy rụi → được tái thiết (再建されました) năm 1955. Đây là lý do \"công trình đang thấy\" là mới. Đáp án 0 sai: bài không nói lý do là \"quá cũ phải xây lại\" — lý do thật là bị phóng hoả. Đáp án 2 sai: 金閣寺 được xây từ thời 室町, không phải 1955 (năm 1955 chỉ là năm TÁI THIẾT sau hoả hoạn). Đáp án 3 sai: ガイドさん chỉ giải thích, không xây chùa.",
+          "tip": "Câu hỏi \"なぜ〜は新しい？\" → tìm NGUYÊN NHÂN công trình bị phá/mất + sự kiện TÁI THIẾT. Hai động từ 受身形 nối tiếp nhau (放火されて燃えてしまいました → 再建されました) chính là chuỗi nhân quả cần nắm.",
+          "qt": {
+            "q": "Có câu 「今見られる金閣寺は新しいものです」 (“Ngôi chùa Kinkakuji hiện có thể nhìn thấy là một công trình mới”), tại sao lại như vậy?",
+            "o": [
+              "Vì công trình từ thời Muromachi đã cũ và phải được xây mới",
+              "Vì chùa bị phóng hỏa và cháy vào năm 1950, rồi được xây dựng lại vào năm 1955",
+              "Vì chùa Kinkakuji vốn được xây dựng vào năm 1955",
+              "Vì hướng dẫn viên đã xây một ngôi chùa Kinkakuji mới"
+            ]
+          }
+        },
+        {
+          "q": "わたしが旅行中に経験した「迷惑の受身」はどれですか。（すべて含む選択肢を選んでください）",
+          "evi": [
+            13,
+            14
+          ],
+          "options": [
+            "電車の中で足を踏まれたことだけです",
+            "雨に降られたことだけです",
+            "電車の中で足を踏まれたことと、写真を撮っているときに雨に降られたことです",
+            "ガイドさんに説明してもらったことと、雨に降られたことです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài có hai sự kiện 迷惑の受身 rõ ràng: ①「隣の人に足を踏まれてしまいました」(bị người bên cạnh dẫm chân — nạn nhân: わたし, tác nhân: 隣の人) và ②「急に雨に降られてしまいました」(bị mưa rơi bất ngờ — tác nhân là hiện tượng tự nhiên 雨に). Cả hai đều có dấu hiệu 迷惑: [人/自然に]Vられてしまいました. Đáp án 3 sai vì「ガイドさんに説明してもらいました」là Vてもらいます (chủ động nhờ/nhận ơn, Bài 24) — đây là hành động TỐT, không phải 迷惑の受身.",
+          "tip": "Phân biệt 迷惑の受身 vs てもらいます: 迷惑 = người nói là NẠN NHÂN bị ảnh hưởng tiêu cực (+ しまいました thường xuất hiện); てもらいます = người nói CHỦ ĐỘNG nhận ơn (tích cực). Thấy「に＋人＋Vられてしまいました」= 迷惑; thấy「に〜してもらいました」= ân huệ.",
+          "qt": {
+            "q": "Trải nghiệm nào của tôi trong chuyến đi thuộc dạng “thể bị động gây phiền toái” 「迷惑の受身」? (Hãy chọn phương án bao gồm tất cả.)",
+            "o": [
+              "Chỉ có việc bị giẫm lên chân trong tàu điện",
+              "Chỉ có việc bị mắc mưa",
+              "Việc bị giẫm lên chân trong tàu điện và việc bị mắc mưa khi đang chụp ảnh",
+              "Việc được hướng dẫn viên giải thích và việc bị mắc mưa"
+            ]
+          }
+        },
+        {
+          "q": "旅行について、わたしはどう感じていますか。",
+          "evi": [
+            12,
+            16
+          ],
+          "options": [
+            "困ったことが多すぎて、もう行きたくないと思っています",
+            "金閣寺が新しくてがっかりしました",
+            "雨や電車の中の出来事は困りましたが、それでも京都は素晴らしかったと思っています",
+            "ガイドさんの説明が難しくて、楽しめませんでした"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài thừa nhận có phiền toái:「旅行中に困ったこともありました」(足を踏まれた・雨に降られた) nhưng kết thúc bằng hai câu chốt:「それでも、京都はとても素晴らしかったです」(dù vậy Kyoto vẫn tuyệt) và「また行きたいと思っています」(muốn đi lại). Đáp án 2 phản ánh đúng cả hai chiều này. Đáp án 0 sai: người viết nói「また行きたい」= muốn đi lại, hoàn toàn trái với \"không muốn đi nữa\". Đáp án 1 sai: bài nói người viết「驚きました」khi nghe chuyện 金閣寺, không nói がっかり (thất vọng). Đáp án 3 sai: bài không nhắc đến việc ガイドの説明 khó hiểu.",
+          "tip": "Câu hỏi hỏi cảm xúc tổng kết → đọc câu CUỐI bài: câu cuối thường là kết luận/cảm xúc thật. Từ「それでも」(dù vậy vẫn) + tích cực = tổng thể tốt dù có phiền toái. Loại ngay đáp án mâu thuẫn với câu cuối.",
+          "qt": {
+            "q": "Tôi cảm thấy thế nào về chuyến đi?",
+            "o": [
+              "Tôi nghĩ đã có quá nhiều chuyện phiền toái nên không muốn đi nữa",
+              "Tôi thất vọng vì chùa Kinkakuji mới",
+              "Những chuyện xảy ra khi trời mưa và trên tàu điện thật phiền toái, nhưng tôi vẫn nghĩ Kyoto rất tuyệt vời",
+              "Phần giải thích của hướng dẫn viên khó hiểu nên tôi không thể tận hưởng chuyến đi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら焼工場見学のご案内",
+      "titleVi": "Thông báo tham quan nhà máy gốm Sakura-yaki",
+      "japanese": "さくら焼工場見学のご案内\nさくら焼は100年以上前からこの町の職人によって作られている、伝統的な焼き物です。\nこの工場は1920年に建てられました。今も職人の手で一つ一つ丁寧に作られていて、海外にも輸出されています。\n見学ではさくら焼が作られる様子を実際に見ることができます。\nコース｜見学時間｜必要時間｜曜日\nAコース｜9:00〜｜30分｜月・水・金\nBコース｜13:00〜｜1時間｜火・木・土\nCコース｜15:30〜｜1時間半｜土・日\nコース｜予約｜人数｜料金（1人）\nAコース｜必要ありません｜1人〜10人｜無料\nBコース｜3日前までに電話｜1人〜20人｜300円\nCコース｜1週間前までに電話｜1人〜15人｜500円\n※工場の中で写真を撮ることはできません。\n電話：0120-33-7788（月〜土 9:00〜17:00）",
+      "vietnamese": "Thông báo tham quan nhà máy gốm Sakura-yaki\nSakura-yaki là đồ gốm truyền thống được các nghệ nhân của thị trấn này làm ra từ hơn 100 năm trước.\nNhà máy này được xây dựng năm 1920. Đến nay sản phẩm vẫn được các nghệ nhân làm ra từng cái một một cách tỉ mỉ bằng tay, và còn được xuất khẩu ra nước ngoài.\nTrong buổi tham quan, quý khách có thể thực sự xem cảnh Sakura-yaki được làm ra.\nKhóa｜Giờ tham quan｜Thời gian cần｜Thứ\nKhóa A｜9:00〜｜30 phút｜Hai, Tư, Sáu\nKhóa B｜13:00〜｜1 tiếng｜Ba, Năm, Bảy\nKhóa C｜15:30〜｜1 tiếng rưỡi｜Bảy, Chủ nhật\nKhóa｜Đặt chỗ｜Số người｜Phí (1 người)\nKhóa A｜Không cần｜1〜10 người｜Miễn phí\nKhóa B｜Gọi điện trước 3 ngày｜1〜20 người｜300 yên\nKhóa C｜Gọi điện trước 1 tuần｜1〜15 người｜500 yên\n※Không được chụp ảnh bên trong nhà máy.\nĐiện thoại: 0120-33-7788 (Thứ Hai〜Bảy, 9:00〜17:00)",
+      "sentences": [
+        {
+          "jp": "さくら焼工場見学のご案内",
+          "vi": "Thông báo tham quan nhà máy gốm Sakura-yaki",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy, xưởng"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan (học hỏi)"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "焼き物",
+              "read": "やきもの",
+              "vi": "đồ gốm, đồ sứ"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn (kính ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Nの見学のご案内 = thông báo tham quan N. Dòng 1 luôn là tiêu đề, nêu chủ đề chính của tờ thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくら焼工場見学のご案内",
+              "why": "Tiêu đề — xác định đây là tờ thông báo tham quan nhà máy gốm, khung tra cứu cho cả 2 câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "さくら焼は100年以上前からこの町の職人によって作られている、伝統的な焼き物です。",
+          "vi": "Sakura-yaki là đồ gốm truyền thống được các nghệ nhân của thị trấn này làm ra từ hơn 100 năm trước.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "作られます",
+              "read": "つくられます",
+              "vi": "được làm ra (thể bị động của 作ります)"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "焼き物",
+              "read": "やきもの",
+              "vi": "đồ gốm, đồ sứ"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên, hơn"
+            },
+            {
+              "w": "伝統的な",
+              "read": "でんとうてきな",
+              "vi": "mang tính truyền thống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがVられている＋N（社会・歴史）",
+              "vi": "職人によって作られている焼き物 = đồ gốm được nghệ nhân làm ra. 作る (godan る→られる) → 作られる + ている bổ nghĩa cho 焼き物 (mệnh đề bổ nghĩa danh từ, Bài 22)."
+            },
+            {
+              "point": "〜によって（動作主）",
+              "vi": "この町の職人によって = bởi các nghệ nhân của thị trấn này. によって dùng khi người thực hiện là tập thể/phương pháp, giống bài đọc chính (大仏は多くの人々によって作られました)."
+            }
+          ]
+        },
+        {
+          "jp": "この工場は1920年に建てられました。今も職人の手で一つ一つ丁寧に作られていて、海外にも輸出されています。",
+          "vi": "Nhà máy này được xây dựng năm 1920. Đến nay sản phẩm vẫn được các nghệ nhân làm ra từng cái một một cách tỉ mỉ bằng tay, và còn được xuất khẩu ra nước ngoài.",
+          "vocab": [
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy, xưởng"
+            },
+            {
+              "w": "建てられます",
+              "read": "たてられます",
+              "vi": "được xây dựng (thể bị động của 建てます)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "một cách tỉ mỉ, cẩn thận"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "海外",
+              "read": "かいがい",
+              "vi": "nước ngoài, hải ngoại"
+            },
+            {
+              "w": "輸出されます",
+              "read": "ゆしゅつされます",
+              "vi": "được xuất khẩu (thể bị động của 輸出します)"
+            },
+            {
+              "w": "一つ一つ",
+              "read": "ひとつひとつ",
+              "vi": "từng cái một"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがVられました（社会・歴史）",
+              "vi": "工場は1920年に建てられました = nhà máy được xây năm 1920. Chủ ngữ là VẬT/CÔNG TRÌNH, に chỉ thời điểm, giống 法隆寺は1300年前に建てられました ở bài đọc chính."
+            },
+            {
+              "point": "NがVられています（する→される）",
+              "vi": "輸出されています = đang được xuất khẩu. 輸出する (する→される) + ています = trạng thái xã hội đang tiếp diễn, khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "見学ではさくら焼が作られる様子を実際に見ることができます。",
+          "vi": "Trong buổi tham quan, quý khách có thể thực sự xem cảnh Sakura-yaki được làm ra.",
+          "vocab": [
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "さくら焼",
+              "read": "さくらやき",
+              "vi": "gốm Sakurayaki"
+            },
+            {
+              "w": "作られる",
+              "read": "つくられる",
+              "vi": "được làm ra"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "dáng vẻ, tình trạng"
+            },
+            {
+              "w": "実際に",
+              "read": "じっさいに",
+              "vi": "trực tiếp, thực tế"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "xem, nhìn"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "見ることができます = có thể xem được. 辞書形＋ことができます diễn đạt khả năng."
+            },
+            {
+              "point": "NがVられる＋様子",
+              "vi": "さくら焼が作られる様子 = cảnh Sakura-yaki được làm ra. 作る→作られる (受身) bổ nghĩa cho 様子, khác với 可能形 vì không có ý \"có thể\", chỉ tả quá trình khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "コース｜見学時間｜必要時間｜曜日",
+          "vi": "Khóa｜Giờ tham quan｜Thời gian cần｜Thứ",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa, lộ trình"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan (học tập)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "必要時間",
+              "read": "ひつようじかん",
+              "vi": "thời gian cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Header bảng 1",
+              "vi": "Hàng tiêu đề của bảng thứ nhất: liệt kê 4 cột Khóa／Giờ tham quan／Thời gian cần／Thứ, các hàng dưới phải đọc thẳng theo cột này."
+            }
+          ],
+          "keys": [
+            {
+              "w": "コース｜見学時間｜必要時間｜曜日",
+              "why": "Header bảng 1 — cột 曜日 và 必要時間 là 2 điều kiện chính câu hỏi 1 và 2 phải lọc."
+            }
+          ]
+        },
+        {
+          "jp": "Aコース｜9:00〜｜30分｜月・水・金",
+          "vi": "Khóa A｜9:00〜｜30 phút｜Hai, Tư, Sáu",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa, lộ trình"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "30分",
+              "read": "さんじゅっぷん",
+              "vi": "30 phút"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとN（Bài 4）",
+              "vi": "月・水・金 = thứ Hai, Tư, Sáu. Khóa A mở buổi sáng sớm, tour ngắn nhất (30 phút)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月・水・金",
+              "why": "Khóa A KHÔNG mở thứ Bảy/Chủ nhật — loại khỏi câu hỏi 1 (thứ Bảy) và câu hỏi 2 (Chủ nhật)."
+            }
+          ]
+        },
+        {
+          "jp": "Bコース｜13:00〜｜1時間｜火・木・土",
+          "vi": "Khóa B｜13:00〜｜1 tiếng｜Ba, Năm, Bảy",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa, lộ trình"
+            },
+            {
+              "w": "13:00",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時間（Bài 11）",
+              "vi": "1時間 = 1 tiếng. Khóa B mở đầu giờ chiều, tour dài 1 tiếng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火・木・土",
+              "why": "Khóa B có mở thứ Bảy — khớp điều kiện thứ Bảy của câu hỏi 1."
+            },
+            {
+              "w": "1時間",
+              "why": "Đúng ≤1 tiếng theo yêu cầu \"終わってほしい\" của câu hỏi 1 — căn cứ chính chọn Bコース."
+            }
+          ]
+        },
+        {
+          "jp": "Cコース｜15:30〜｜1時間半｜土・日",
+          "vi": "Khóa C｜15:30〜｜1 tiếng rưỡi｜Bảy, Chủ nhật",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "半",
+              "read": "はん",
+              "vi": "nửa, rưỡi"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "Chủ nhật (viết tắt)"
+            },
+            {
+              "w": "〜時間半",
+              "read": "じかんはん",
+              "vi": "〜 tiếng rưỡi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜半（Bài 4）",
+              "vi": "1時間半 = 1 tiếng rưỡi, tour dài nhất trong 3 khóa. Khóa C chỉ mở cuối tuần buổi chiều muộn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土・日",
+              "why": "Duy nhất Khóa C mở Chủ nhật — căn cứ chính cho câu hỏi 2 (loại A, B vì không có 日)."
+            },
+            {
+              "w": "1時間半",
+              "why": "Khóa C mất 1 tiếng rưỡi, vượt quá \"1時間以内\" của câu hỏi 1 → loại Cコース dù có mở thứ Bảy."
+            }
+          ]
+        },
+        {
+          "jp": "コース｜予約｜人数｜料金（1人）",
+          "vi": "Khóa｜Đặt chỗ｜Số người｜Phí (1 người)",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ, đặt trước"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, cước phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Header bảng 2",
+              "vi": "Bảng thứ hai (sau khi đọc bảng 1 xong, sang bảng mới) liệt kê Khóa／Đặt chỗ／Số người／Phí — dùng chung tên Khóa A・B・C với bảng trên để tra chéo thông tin."
+            }
+          ],
+          "keys": [
+            {
+              "w": "コース｜予約｜人数｜料金（1人）",
+              "why": "Header bảng 2 — cột 人数 và 料金 cần tra chéo với Khóa đã lọc ở bảng 1 để trả lời cả 2 câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "Aコース｜必要ありません｜1人〜10人｜無料",
+          "vi": "Khóa A｜Không cần｜1〜10 người｜Miễn phí",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa, lộ trình"
+            },
+            {
+              "w": "必要ありません",
+              "read": "ひつようありません",
+              "vi": "không cần thiết"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "1 người"
+            },
+            {
+              "w": "10人",
+              "read": "じゅうにん",
+              "vi": "10 người"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nは必要ありません（Bài 8）",
+              "vi": "予約は必要ありません = không cần đặt chỗ. Khóa A không cần gọi điện trước, số người tối đa ít nhất (10 người) và miễn phí."
+            }
+          ]
+        },
+        {
+          "jp": "Bコース｜3日前までに電話｜1人〜20人｜300円",
+          "vi": "Khóa B｜Gọi điện trước 3 ngày｜1〜20 người｜300 yên",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa, lộ trình"
+            },
+            {
+              "w": "3日前",
+              "read": "みっかまえ",
+              "vi": "trước 3 ngày"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "1 người"
+            },
+            {
+              "w": "20人",
+              "read": "にじゅうにん",
+              "vi": "20 người"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜までに（Bài 4/17）",
+              "vi": "3日前までに電話 = phải gọi điện đặt chỗ chậm nhất 3 ngày trước ngày tham quan. までに chỉ hạn chót."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1人〜20人",
+              "why": "Bコース nhận tối đa 20 người — nhóm 12 người của câu hỏi 1 nằm trong giới hạn này."
+            }
+          ]
+        },
+        {
+          "jp": "Cコース｜1週間前までに電話｜1人〜15人｜500円",
+          "vi": "Khóa C｜Gọi điện trước 1 tuần｜1〜15 người｜500 yên",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa, lộ trình"
+            },
+            {
+              "w": "1週間前",
+              "read": "いっしゅうかんまえ",
+              "vi": "trước 1 tuần"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "1 người"
+            },
+            {
+              "w": "15人",
+              "read": "じゅうごにん",
+              "vi": "15 người"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜までに（Bài 4/17）",
+              "vi": "1週間前までに電話 = phải gọi điện đặt chỗ chậm nhất 1 tuần trước ngày tham quan. Khóa C có phí cao nhất và cần đặt chỗ sớm nhất."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1人〜15人",
+              "why": "Cコース nhận tối đa 15 người — nhóm 10 người của câu hỏi 2 nằm trong giới hạn này."
+            },
+            {
+              "w": "500円",
+              "why": "Đơn giá 500円/người của Cコース — nhân với 10 người ra đáp án đúng của câu hỏi 2 (5.000円)."
+            }
+          ]
+        },
+        {
+          "jp": "※工場の中で写真を撮ることはできません。",
+          "vi": "※Không được chụp ảnh bên trong nhà máy.",
+          "vocab": [
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh"
+            },
+            {
+              "w": "撮る",
+              "read": "とる",
+              "vi": "chụp"
+            },
+            {
+              "w": "写真を撮る",
+              "read": "しゃしんをとる",
+              "vi": "chụp ảnh"
+            },
+            {
+              "w": "できません",
+              "read": "できません",
+              "vi": "không thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることはできません（Bài 18）",
+              "vi": "写真を撮ることはできません = việc chụp ảnh là không thể (= không được phép). 辞書形＋ことはできません diễn đạt điều bị cấm một cách lịch sự, khác với 受身形 nhưng cùng chức năng thông báo quy định khách quan."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※工場の中で写真を撮ることはできません",
+              "why": "Dòng ※ chú ý — quy định phụ không liên quan trực tiếp câu hỏi 1, 2 nhưng học viên phải nhận diện không phải căn cứ chọn khóa."
+            }
+          ]
+        },
+        {
+          "jp": "電話：0120-33-7788（月〜土 9:00〜17:00）",
+          "vi": "Điện thoại: 0120-33-7788 (Thứ Hai〜Bảy, 9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "月〜土 = từ thứ Hai đến thứ Bảy, giờ tiếp nhận điện thoại đặt chỗ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "職人によって作られている、伝統的な焼き物",
+          "label": "NがVられている（社会・歴史の受身）"
+        },
+        {
+          "excerpt": "1920年に建てられました",
+          "label": "NがVられました（社会・歴史）"
+        },
+        {
+          "excerpt": "海外にも輸出されています",
+          "label": "される（受身 of する）＋ています"
+        },
+        {
+          "excerpt": "さくら焼が作られる様子",
+          "label": "NがVられる＋N（受身＋連体修飾）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "Giới thiệu nhà máy",
+          "topic": 0,
+          "note": "Tiêu đề + giới thiệu lịch sử/nghề làm gốm Sakura-yaki và nội dung buổi tham quan. Chưa có căn cứ trả lời câu hỏi nào, chỉ đặt bối cảnh.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng giờ tham quan (曜日・thời gian)",
+          "topic": 4,
+          "note": "Bảng 1: tra cột 曜日 và 必要時間 — căn cứ chính để chọn khóa cho cả câu hỏi 1 (thứ Bảy, ≤1 tiếng → Bコース) và câu hỏi 2 (Chủ nhật → Cコース).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "Bảng đặt chỗ & giá (人数・料金)",
+          "topic": 8,
+          "note": "Bảng 2: tra cột 人数 và 料金 theo khóa đã chọn ở bảng 1 — xác nhận số người không vượt giới hạn và tính tổng tiền phải trả.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "turn",
+          "label": "Chú ý ※ & liên hệ",
+          "topic": 12,
+          "note": "Dòng ※ cấm chụp ảnh và thông tin điện thoại — không phải căn cứ chọn khóa, dễ gây phân tâm nếu học viên tưởng liên quan đến điều kiện câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは土曜日に見学に行きたいです。友達11人と一緒（合計12人）で行きますが、見学は1時間以内に終わってほしいです。リーさんたちが選べるコースはどれですか。",
+          "options": [
+            "Aコース",
+            "Bコース",
+            "Cコース",
+            "AコースとCコース"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Điều kiện: thứ Bảy (土曜日) + 12 người + muốn xong trong 1 tiếng. Tra bảng 1: Aコース chỉ mở 月・水・金 (không có 土) → loại. Bコース mở 火・木・土 (có 土) và mất đúng 1時間 (≤ 1 tiếng) → khớp. Cコース mở 土・日 (có 土) nhưng mất 1時間半 (vượt quá 1 tiếng) → loại vì không \"終わってほしい\" trong 1 tiếng. Tra bảng 2, Bコース nhận 1〜20人 nên 12 người vẫn đủ chỗ. Vậy chỉ Bコース thỏa cả 3 điều kiện (ngày, thời gian, số người).",
+          "tip": "Câu hỏi ghép ≥2 điều kiện (ngày + thời lượng) → trước tiên lọc theo THỨ, sau đó lọc tiếp theo THỜI GIAN CẦN, cuối cùng kiểm tra SỐ NGƯỜI ở bảng 2 — đừng chọn ngay khi mới khớp 1 điều kiện.",
+          "evi": [
+            6,
+            10
+          ],
+          "qt": {
+            "q": "Lý muốn đi tham quan vào thứ Bảy. Lý sẽ đi cùng 11 người bạn (tổng cộng 12 người) và muốn chuyến tham quan kết thúc trong vòng 1 giờ. Lý và mọi người có thể chọn khóa tham quan nào?",
+            "o": [
+              "Khóa A",
+              "Khóa B",
+              "Khóa C",
+              "Khóa A và khóa C"
+            ]
+          }
+        },
+        {
+          "q": "タンさんは友達9人と一緒（合計10人）で、日曜日に見学に行きたいです。全部でいくら払いますか。",
+          "options": [
+            "無料",
+            "3,000円",
+            "5,000円",
+            "7,500円"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Điều kiện: Chủ nhật (日曜日) + 10 người. Tra bảng 1: chỉ Cコース mở vào 日 (Aコース là 月・水・金, Bコース là 火・木・土, không có ngày nào có 日 ngoại trừ Cコース｜土・日). Tra Cコース sang bảng 2:「1人〜15人｜500円」→ 10 người nằm trong giới hạn 1〜15人, phí 500円×10人＝5,000円. Đáp án 0 sai: chỉ Aコース mới miễn phí nhưng Aコース không mở Chủ nhật. Đáp án 1 sai: 3,000円 là kết quả nếu tính nhầm giá của Bコース (300円×10). Đáp án 3 sai: 7,500円 không khớp với bất kỳ đơn giá nào trong bảng khi nhân với 10 người.",
+          "tip": "Khi câu hỏi cho THỨ + SỐ NGƯỜI, trước tiên lọc bảng 1 theo THỨ để tìm đúng 1 khóa, rồi mới tra phí ở bảng 2 và kiểm tra số người có vượt giới hạn không trước khi nhân giá tiền.",
+          "evi": [
+            7,
+            11
+          ],
+          "qt": {
+            "q": "Tan muốn đi tham quan vào Chủ nhật cùng 9 người bạn (tổng cộng 10 người). Tổng cộng phải trả bao nhiêu?",
+            "o": [
+              "Miễn phí",
+              "3,000 yên",
+              "5,000 yên",
+              "7,500 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

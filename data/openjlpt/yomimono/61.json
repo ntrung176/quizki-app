@@ -1,0 +1,3682 @@
+{
+  "bai": 61,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 61 tổng hợp 4 mẫu điều kiện \"nếu/khi\": と (kết quả tất yếu/tự nhiên/lặp lại), ば (giả định nhấn ĐIỀU KIỆN), たら (sau khi hoàn thành/sự việc cụ thể, linh hoạt nhất), なら (giả thiết dựa trên điều VỪA NGHE hoặc chủ đề người khác nêu). Đây là bài luyện CHỌN ĐÚNG sắc thái chứ không chỉ \"đúng ngữ pháp\": と KHÔNG dùng ở vế sau có ý chí/mệnh lệnh/rủ rê; なら PHẢI dựa vào thông tin đã nghe; たら linh hoạt nhất nhưng nhấn \"sau khi X xảy ra\"; ば nhấn vào điều kiện giả định chung, đôi khi hạn chế khi hai hành động cùng chủ thể.",
+    "steps": [
+      "接続 4 mẫu: Vば（行けば）/ Aければ（安ければ）/ NAなら / Nなら; Vたら（行ったら）/ Aかったら / NAだったら / Nだったら; Vなら / NAなら / Nなら（phần lớn giống ば nhưng khác sắc thái）; Vると（行くと）/ Aいと（寒いと）/ NAだと / Nだと.",
+      "Nhận diện と: vế sau là kết quả TẤT YẾU/tự nhiên, không phải ý chí → ボタンを押すと開く (nút → mở). Nếu vế sau là \"〜てください / 〜ましょう / 〜たい / 〜つもり / 〜てあげる\" thì KHÔNG dùng と.",
+      "Nhận diện なら: chủ đề vừa được nhắc đến từ người khác (\"日本へ行くんです\" → \"日本へ行くなら京都がいいです\"). なら luôn phản hồi thông tin đã nghe.",
+      "Nhận diện たら: nhấn \"hoàn thành hành động đầu → rồi mới làm hành động sau\" (家に帰ったら電話する). Linh hoạt nhất — dùng được ở hầu hết ngữ cảnh trừ sắc thái riêng của と/なら.",
+      "Nhận diện ば: điều kiện giả định chung, hay gặp trong câu ngạn ngữ, lời khuyên cân bằng (安ければ買う). Hạn chế: \"Vば〜Vる\" cùng chủ thể/hành động ý chí thường tự nhiên hơn dùng たら.",
+      "Câu hỏi suy luận: \"Vì sao tác giả dùng X chứ không dùng Y?\" → phân tích (1) vế sau có ý chí không? (2) thông tin vừa nghe hay tự đặt ra? (3) kết quả tất yếu hay cụ thể/cá biệt?"
+    ],
+    "tips": [
+      "使い分け 1 — と vs たら: \"春になると花が咲く\" (tất yếu, lặp lại mỗi năm) ≠ \"春になったら花見に行こう\" (sau khi mùa xuân đến thì… ý chí/rủ rê). Vế sau có ý chí/mệnh lệnh → KHÔNG dùng と.",
+      "使い分け 2 — なら vs たら: \"日本へ行くなら京都がいいですよ\" (phản hồi thông tin đã nghe: ai đó nói sẽ đi Nhật) ≠ \"日本へ行ったら京都に行ってください\" (sau khi đến Nhật thì…). なら không nhấn thứ tự thời gian, たら nhấn hoàn thành trước.",
+      "使い分け 3 — ば vs たら trong lời khuyên: \"早く寝ればよかった\" (ước muốn nghịch thực) — ばよかった là thành ngữ riêng. \"もっと早く寝ていたらよかった\" cũng dùng được. ば hay xuất hiện trong ngạn ngữ/câu tục ngữ.",
+      "Dấu hiệu nhận なら trong đề thi: trước なら thường có \"〜んですが / 〜と聞きましたが / 〜と言っていましたが\" — ai đó cung cấp thông tin trước, người nói dùng なら để phản hồi.",
+      "Cạm bẫy thường gặp: \"安いと買います\" sai vì 買います là hành động ý chí → phải dùng \"安ければ買います\" hoặc \"安かったら買います\". Nhớ: vế sau と = chỉ kết quả tự nhiên/máy móc."
+    ],
+    "grammarFocus": [
+      "〜と（V/Aいる/NAだ/Nだ + と）— kết quả tất yếu/tự nhiên; vế sau KHÔNG có ý chí",
+      "〜ば（Vば/Aければ/NAなら/Nなら）— giả định chung, nhấn điều kiện",
+      "〜たら（Vた + ら）— sau khi hoàn thành; cụ thể/cá biệt; linh hoạt nhất",
+      "〜なら（V普通形 / N + なら）— giả thiết dựa trên thông tin VỪA NGHE"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 25,
+        "items": [
+          "〜たら（nếu/sau khi）",
+          "もし〜たら（nếu…）"
+        ]
+      },
+      {
+        "bai": 35,
+        "items": [
+          "〜ば（điều kiện giả định）",
+          "〜なら（giả thiết）"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜と（điều kiện tự nhiên/kết quả tất yếu）"
+        ]
+      },
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ（lẽ nên, bổn phận）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（nhờ）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "旅行の相談",
+      "titleVi": "Tư vấn chuyến du lịch",
+      "japanese": "友人のナムさんから「今度、日本へ行くんですが、おすすめの場所はありますか」とメッセージが来た。日本へ行くなら、やはり京都は外せないと思う。特に、春に行くなら桜が美しいので、嵐山や金閣寺がいい。寺や神社が好きなら、一日では回りきれないほど見どころがある。また、もし予算が限られているなら、宿泊費が安い時期を選んだほうがいい。早めに計画を立てれば、航空券も宿も安く予約できるはずだ。旅行の日程が決まったら、もう一度教えてほしい。そうすれば、もっと詳しいアドバイスができると思う。",
+      "vietnamese": "Bạn Nam gửi tin nhắn: \"Lần này tôi định đi Nhật, có địa điểm nào bạn gợi ý không?\" Nếu đã đi Nhật thì tôi nghĩ Kyoto là không thể bỏ qua. Đặc biệt, nếu đi vào mùa xuân thì hoa anh đào rất đẹp, nên đến Arashiyama hay Kim Các Tự. Nếu thích chùa chiền và đền thờ thì một ngày không đủ để đi hết vì có vô số điểm tham quan. Ngoài ra, nếu ngân sách hạn chế thì nên chọn thời điểm chi phí lưu trú rẻ hơn. Nếu lên kế hoạch sớm thì chắc là có thể đặt vé máy bay và chỗ ở với giá rẻ. Khi lịch trình chuyến đi đã được quyết định, nhớ cho tôi biết nhé. Như vậy thì tôi nghĩ có thể đưa ra lời khuyên chi tiết hơn.",
+      "sentences": [
+        {
+          "jp": "友人のナムさんから「今度、日本へ行くんですが、おすすめの場所はありますか」とメッセージが来た。",
+          "vi": "Bạn Nam gửi tin nhắn: \"Lần này tôi định đi Nhật, có địa điểm nào bạn gợi ý không?\"",
+          "vocab": [
+            {
+              "w": "友人",
+              "read": "ゆうじん",
+              "vi": "bạn bè (văn viết)"
+            },
+            {
+              "w": "ナム",
+              "read": "ナム",
+              "vi": "tên riêng Nam"
+            },
+            {
+              "w": "今度",
+              "read": "こんど",
+              "vi": "lần này, tới đây"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "gợi ý, khuyến nghị"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm, nơi chốn"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んですが（Bài 26）",
+              "vi": "行くんですが = (tôi) định đi nhưng… んです đặt ngữ cảnh/cung cấp thông tin nền. んですが mở đầu câu hỏi tự nhiên."
+            },
+            {
+              "point": "〜と言ってきた（Bài 43応用）",
+              "vi": "とメッセージが来た = tin nhắn nội dung … đến. と trích dẫn nội dung tin nhắn (Bài 33 という)."
+            }
+          ]
+        },
+        {
+          "jp": "日本へ行くなら、やはり京都は外せないと思う。",
+          "vi": "Nếu đã đi Nhật thì tôi nghĩ Kyoto là không thể bỏ qua.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "やはり",
+              "read": "やはり",
+              "vi": "vẫn, quả nhiên, đương nhiên"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "外せない",
+              "read": "はずせない",
+              "vi": "không thể bỏ qua"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 35）",
+              "vi": "接続: V普通形（行く）+ なら。 日本へ行くなら = \"nếu (anh/bạn) đi Nhật\" — giả thiết DỰA TRÊN THÔNG TIN VỪA NGHE (bạn Nam vừa nói \"日本へ行くんですが\"). Sắc thái: なら phản hồi thông tin đã có từ người khác; không nhấn thứ tự thời gian. So sánh: \"日本へ行ったら京都に行ってください\" (たら = sau khi đến Nhật mới đến Kyoto — nhấn thứ tự) ≠ なら (tôi biết bạn đi Nhật → gợi ý cho bạn)."
+            }
+          ]
+        },
+        {
+          "jp": "特に、春に行くなら桜が美しいので、嵐山や金閣寺がいい。",
+          "vi": "Đặc biệt, nếu đi vào mùa xuân thì hoa anh đào rất đẹp, nên đến Arashiyama hay Kim Các Tự.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, tươi đẹp"
+            },
+            {
+              "w": "嵐山",
+              "read": "あらしやま",
+              "vi": "Arashiyama (địa danh Kyoto)"
+            },
+            {
+              "w": "金閣寺",
+              "read": "きんかくじ",
+              "vi": "Kim Các Tự (đền nổi tiếng Kyoto)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 35）",
+              "vi": "春に行くなら = nếu đi vào mùa xuân (giả thiết cụ thể hơn từ thông tin đã có). なら lại xuất hiện — nhấn \"với điều kiện đó đã được đặt ra\"."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "桜が美しいので = vì hoa anh đào đẹp. ので nêu lý do lịch sự, tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "寺や神社が好きなら、一日では回りきれないほど見どころがある。",
+          "vi": "Nếu thích chùa chiền và đền thờ thì một ngày không đủ để đi hết vì có vô số điểm tham quan.",
+          "vocab": [
+            {
+              "w": "寺",
+              "read": "てら",
+              "vi": "chùa"
+            },
+            {
+              "w": "神社",
+              "read": "じんじゃ",
+              "vi": "đền Thần đạo"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            },
+            {
+              "w": "回りきれない",
+              "read": "まわりきれない",
+              "vi": "không thể đi hết"
+            },
+            {
+              "w": "見どころ",
+              "read": "みどころ",
+              "vi": "điểm đáng xem"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 35）",
+              "vi": "好きなら = nếu thích (giả thiết dựa trên thông tin/sở thích đã biết hoặc vừa nhắc). 接続: NAな + なら → 好きなら."
+            },
+            {
+              "point": "〜きれない（Bài 44応用）",
+              "vi": "回りきれない = không thể đi hết được. Vます（回り）+ きれない = không thể làm xong/hết (Bài 44 〜方 応用)."
+            }
+          ]
+        },
+        {
+          "jp": "また、もし予算が限られているなら、宿泊費が安い時期を選んだほうがいい。",
+          "vi": "Ngoài ra, nếu ngân sách hạn chế thì nên chọn thời điểm chi phí lưu trú rẻ hơn.",
+          "vocab": [
+            {
+              "w": "予算",
+              "read": "よさん",
+              "vi": "ngân sách"
+            },
+            {
+              "w": "限られています",
+              "read": "かぎられています",
+              "vi": "bị hạn chế, có giới hạn"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú, chỗ ở (đêm)"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời điểm, giai đoạn"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn lựa"
+            },
+            {
+              "w": "もし",
+              "read": "もし",
+              "vi": "nếu (nhấn mạnh điều kiện giả định)"
+            },
+            {
+              "w": "宿泊費",
+              "read": "しゅくはくひ",
+              "vi": "chi phí lưu trú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もし〜なら（Bài 25 もし + Bài 35 なら）",
+              "vi": "もし予算が限られているなら = nếu ngân sách (lỡ) bị hạn chế. もし nhấn mạnh điều kiện giả định. なら với Vている普通形 (限られている)."
+            },
+            {
+              "point": "〜たほうがいい（Bài 32）",
+              "vi": "選んだほうがいい = nên chọn (lời khuyên). Vた + ほうがいい (Bài 32)."
+            }
+          ]
+        },
+        {
+          "jp": "早めに計画を立てれば、航空券も宿も安く予約できるはずだ。",
+          "vi": "Nếu lên kế hoạch sớm thì chắc là có thể đặt vé máy bay và chỗ ở với giá rẻ.",
+          "vocab": [
+            {
+              "w": "早めに",
+              "read": "はやめに",
+              "vi": "sớm một chút, trước thời hạn"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "立てる",
+              "read": "たてる",
+              "vi": "dựng lên, lập nên"
+            },
+            {
+              "w": "航空",
+              "read": "こうくう",
+              "vi": "hàng không"
+            },
+            {
+              "w": "宿",
+              "read": "やど",
+              "vi": "chỗ ở, nhà trọ, khách sạn"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "計画を立てます",
+              "read": "けいかくをたてます",
+              "vi": "lập kế hoạch"
+            },
+            {
+              "w": "航空券",
+              "read": "こうくうけん",
+              "vi": "vé máy bay"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "接続: Vる → Vば（立てる → 立てれば）。 早めに計画を立てれば = nếu lên kế hoạch sớm. ば nhấn ĐIỀU KIỆN: \"chỉ cần làm X thì Y\". So sánh: \"計画を立てたら安く予約できる\" (たら = sau khi lập kế hoạch → đặt chỗ, trình tự cụ thể) ≠ ば (điều kiện giả định chung: hễ làm X thì Y). Vế sau \"安く予約できる\" là kết quả tự nhiên → cả ば và たら đều hợp; ば ở đây nhấn tính điều kiện chung cho lời khuyên."
+            },
+            {
+              "point": "〜はずだ（Bài 51）",
+              "vi": "安く予約できるはずだ = lẽ ra/chắc là có thể đặt được giá rẻ. はず = suy luận có căn cứ logic (nếu đặt sớm thường rẻ hơn)."
+            }
+          ]
+        },
+        {
+          "jp": "旅行の日程が決まったら、もう一度教えてほしい。",
+          "vi": "Khi lịch trình chuyến đi đã được quyết định, nhớ cho tôi biết nhé.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "日程",
+              "read": "にってい",
+              "vi": "lịch trình, ngày tháng kế hoạch"
+            },
+            {
+              "w": "決まります",
+              "read": "きまります",
+              "vi": "được quyết định, được xác định"
+            },
+            {
+              "w": "もう一度",
+              "read": "もういちど",
+              "vi": "một lần nữa, thêm lần nữa"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "接続: V自動詞（決まる）→ 決まった + ら。 日程が決まったら = khi lịch trình đã được quyết định (sự kiện cụ thể hoàn thành) → sau đó hãy… Sắc thái: たら nhấn \"sau khi X hoàn thành → làm Y\". Vế sau là yêu cầu (教えてほしい) → KHÔNG thể dùng と (vì と cấm vế sau có ý chí/yêu cầu). So sánh: と không dùng được ở đây vì \"教えてほしい\" là ý chí."
+            }
+          ]
+        },
+        {
+          "jp": "そうすれば、もっと詳しいアドバイスができると思う。",
+          "vi": "Như vậy thì tôi nghĩ có thể đưa ra lời khuyên chi tiết hơn.",
+          "vocab": [
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa, nhiều hơn"
+            },
+            {
+              "w": "詳しい",
+              "read": "くわしい",
+              "vi": "chi tiết, kỹ lưỡng"
+            },
+            {
+              "w": "アドバイス",
+              "read": "アドバイス",
+              "vi": "lời khuyên"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "そうすれば",
+              "read": "そうすれば",
+              "vi": "nếu làm như vậy (thành ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "そうすれば = nếu làm như vậy. する → すれば (ば hình). そうすれば là thành ngữ hay dùng để nối điều kiện với kết quả trong văn viết."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "できると思う = tôi nghĩ có thể làm được. と思う = ý kiến chủ quan (Bài 21). Vế trước \"できる\" là kết quả tự nhiên của điều kiện → phù hợp."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日本へ行くなら、やはり京都は外せない",
+          "label": "〜なら（giả thiết từ thông tin vừa nghe）"
+        },
+        {
+          "excerpt": "早めに計画を立てれば、航空券も宿も安く予約できるはずだ",
+          "label": "〜ば（điều kiện chung, lời khuyên）"
+        },
+        {
+          "excerpt": "旅行の日程が決まったら、もう一度教えてほしい",
+          "label": "Sắc thái: 〜たら（sau khi X → vế sau có ý chí; KHÔNG dùng と）"
+        },
+        {
+          "excerpt": "そうすれば、もっと詳しいアドバイスができる",
+          "label": "〜ば（nếu làm vậy thì…）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「日本へ行くなら、やはり京都は外せない」とあります。なぜ「なら」を使っていますか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "日本へ行くのは確実なことだから",
+            "友人が「日本へ行く」と言ったのを受けて、その情報に基づいて提案しているから",
+            "日本へ行ったあとで京都へ行くという順番を示しているから",
+            "自然に起こることを説明しているから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B — \"友人が「日本へ行く」と言ったのを受けて提案している\". なら dùng để PHẢN HỒI thông tin vừa nghe từ người kia. Ở đây bạn Nam vừa nhắn \"今度、日本へ行くんですが\" → người viết lập tức dùng \"日本へ行くなら\" để đưa ra gợi ý dựa trên tiền đề đó. A sai: なら không hàm ý \"chắc chắn\" — mà chỉ là \"giả thiết từ điều vừa nghe\". C sai: thứ tự thời gian (đến Nhật trước, đến Kyoto sau) là sắc thái của たら chứ không phải なら. D sai: kết quả tự nhiên/tất yếu là sắc thái của と.",
+          "tip": "Thấy ai đó vừa cung cấp thông tin (\"〜んですが / 〜つもりです\") rồi người kia đáp lại → ngay lập tức nghĩ đến なら. なら = \"tôi đã nghe/biết điều đó, vậy thì…\"",
+          "qt": {
+            "q": "Có câu 「日本へ行くなら、やはり京都は外せない」 (Nếu đi Nhật thì quả nhiên không thể bỏ qua Kyoto). Tại sao lại dùng 「なら」?",
+            "o": [
+              "Vì việc đi Nhật là điều chắc chắn",
+              "Vì người bạn đã nói “đi Nhật”, nên dựa trên thông tin đó để đưa ra đề xuất",
+              "Vì câu này thể hiện thứ tự là đi Kyoto sau khi đã đi Nhật",
+              "Vì câu này giải thích một việc xảy ra một cách tự nhiên"
+            ]
+          }
+        },
+        {
+          "q": "「旅行の日程が決まったら」とあります。ここで「たら」の代わりに「と」を使えますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "はい、意味が同じなので使えます",
+            "はい、でも少し意味が変わります",
+            "いいえ、「と」の後ろには意志や依頼の表現が使えないから使えません",
+            "いいえ、「と」は自動詞には使えないから使えません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C — \"いいえ、「と」の後ろには意志や依頼の表現が使えない\". Câu \"旅行の日程が決まったら、もう一度教えてほしい\": vế sau \"もう一度教えてほしい\" là biểu hiện mong muốn/yêu cầu → tuyệt đối KHÔNG thể dùng と. Quy tắc cứng: と chỉ nối với kết quả TỰ NHIÊN/TẤT YẾU, không có ý chí của người. A và B đều sai vì と không thể thay thế được ở đây. D sai: と ĐƯỢC dùng với tự động từ (自動詞) như \"決まる\" — lý do thực sự là vế SAU có ý chí, không phải vấn đề ở vế trước.",
+          "tip": "Nhìn vế SAU trước — thấy \"〜てください / 〜てほしい / 〜ましょう / 〜たい / 〜つもり\" → KHÔNG dùng と. Kiểm tra vế sau là bước đầu tiên khi phân biệt 4 mẫu điều kiện.",
+          "qt": {
+            "q": "Có câu 「旅行の日程が決まったら」 (khi lịch trình chuyến đi được quyết định). Ở đây có thể dùng 「と」 thay cho 「たら」 không?",
+            "o": [
+              "Có, vì nghĩa giống nhau nên có thể dùng",
+              "Có, nhưng nghĩa sẽ thay đổi đôi chút",
+              "Không, vì sau 「と」 không thể dùng cách diễn đạt ý chí hoặc yêu cầu nên không dùng được",
+              "Không, vì 「と」 không thể dùng với động từ tự động từ"
+            ]
+          }
+        },
+        {
+          "q": "この文章で「なら」と「ば」と「たら」がすべて使われています。それぞれの役割を正しく説明しているものはどれですか。",
+          "evi": [
+            1,
+            5,
+            6
+          ],
+          "options": [
+            "「なら」は時間の順番を示し、「ば」は自然な結果を示し、「たら」は相手の情報を受けて提案する",
+            "「なら」は相手の情報を受けた提案、「ば」は一般的な条件と結果、「たら」は特定の出来事が完了した後の行動",
+            "三つとも同じ意味で、どれを使っても構いません",
+            "「なら」は過去の話、「ば」は現在の話、「たら」は未来の話に使います"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B — mô tả chính xác cả ba mẫu. \"日本へ行くなら\" (なら = phản hồi thông tin bạn Nam vừa nhắn \"行くんですが\" → đề xuất). \"早めに計画を立てれば\" (ば = điều kiện giả định chung \"hễ làm X thì Y\" — lời khuyên chung). \"日程が決まったら\" (たら = sau khi sự kiện cụ thể \"決まる\" hoàn thành → rồi hãy báo tôi biết). A sai: thứ tự thời gian là đặc trưng của たら, không phải なら; kết quả tự nhiên là của と, không phải ば. C sai hoàn toàn. D sai: cả bốn mẫu đều nói về điều chưa xảy ra, không chia theo quá khứ/hiện tại/tương lai.",
+          "tip": "なら = phản hồi thông tin đã nghe; ば = điều kiện giả định chung, nhấn vào phần điều kiện; たら = nhấn hoàn thành sự việc đầu rồi mới làm tiếp. Ba chìa khóa, ba ngữ cảnh khác nhau.",
+          "qt": {
+            "q": "Trong bài này, 「なら」, 「ば」 và 「たら」 đều được dùng. Cách giải thích nào sau đây mô tả đúng vai trò của từng từ?",
+            "o": [
+              "「なら」 chỉ thứ tự thời gian, 「ば」 chỉ kết quả tự nhiên, còn 「たら」 đưa ra đề xuất dựa trên thông tin của đối phương",
+              "「なら」 đưa ra đề xuất dựa trên thông tin của đối phương, 「ば」 diễn tả điều kiện và kết quả nói chung, còn 「たら」 diễn tả hành động sau khi một sự việc cụ thể hoàn tất",
+              "Cả ba đều có cùng nghĩa, có thể dùng từ nào cũng được",
+              "「なら」 được dùng cho chuyện quá khứ, 「ば」 cho chuyện hiện tại, còn 「たら」 cho chuyện tương lai"
+            ]
+          }
+        },
+        {
+          "q": "「早めに計画を立てれば、航空券も宿も安く予約できるはずだ」について、なぜ「と」を使わずに「ば」を使っていますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "「と」は動詞の辞書形に続けられないから",
+            "後ろの文が意志表現だから",
+            "「ば」のほうが一般的な条件・アドバイスとして自然で、「と」だと「必ず安くなる」という強すぎる必然性になるから",
+            "「と」は過去の話にしか使えないから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C — ば tự nhiên hơn với lời khuyên chung; と sẽ nghe quá tuyệt đối. と diễn đạt kết quả TẤT YẾU/MÁY MÓC (như \"ボタンを押すと開く\" — bấm nút là mở). Nếu dùng と ở đây: \"早めに計画を立てると安く予約できる\" → hàm ý \"chắc chắn 100% rẻ hơn\" — quá cứng, không phù hợp với lời khuyên. ば (\"立てれば\") nhấn điều kiện giả định chung, phù hợp với lời khuyên/suy luận. A sai: と ĐƯỢC nối với Vる (辞書形). B sai: vế sau \"予約できる\" (khả năng, 可能形) không phải biểu hiện ý chí cứng — đây không phải lý do chính. D sai hoàn toàn.",
+          "tip": "と = kết quả máy móc/tất yếu (mỗi lần đều vậy). ば = lời khuyên/điều kiện giả định (không cứng 100%). Khi vế sau là \"はずだ / かもしれない / だろう\" (suy luận) → ば thường tự nhiên hơn と.",
+          "qt": {
+            "q": "Về câu 「早めに計画を立てれば、航空券も宿も安く予約できるはずだ」 (nếu lên kế hoạch sớm thì chắc có thể đặt vé máy bay và chỗ ở với giá rẻ), tại sao lại dùng 「ば」 mà không dùng 「と」?",
+            "o": [
+              "Vì 「と」 không thể đi sau động từ ở thể từ điển",
+              "Vì câu phía sau là cách diễn đạt ý chí",
+              "Vì 「ば」 tự nhiên hơn khi diễn tả điều kiện nói chung hoặc đưa ra lời khuyên; dùng 「と」 sẽ tạo cảm giác tất yếu quá mạnh, như thể chắc chắn sẽ rẻ",
+              "Vì 「と」 chỉ có thể dùng cho chuyện quá khứ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "効果的な学習と睡眠",
+      "titleVi": "Học tập hiệu quả và giấc ngủ",
+      "japanese": "多くの人は忙しい毎日を送っており、勉強や仕事の時間を増やすために睡眠時間を減らしている。しかし、効率よく学習の成果を上げたいなら、十分な睡眠をとることが何より大切だ。\n人は新しい知識を覚えたあと、睡眠をとると、脳の中で情報が整理されて記憶が定着する。たとえば、夜遅くまで無理をして勉強すると、翌朝には多くを忘れてしまうのだ。一方、勉強したあとにしっかり寝れば、覚えた内容を長い間覚えていられるという研究結果がある。\nまた、睡眠不足が続くと、集中力が低くなって簡単な間違いが増えてしまう。日中に強い眠気を感じたら、15分から20分程度の短い昼寝をすることをおすすめしたい。短時間の昼寝をとると、頭がすっきりして午後の作業効率が大きく向上するのだ。\nつまり、十分な睡眠をとることは時間の無駄ではなく、学習効果を高めるために不可欠なプロセスなのだ。毎日の生活の中で睡眠を大切にしたら、勉強や仕事の成果も自然と現れるだろう。",
+      "vietnamese": "Nhiều người đang sống những ngày bận rộn và có xu hướng cắt giảm thời gian ngủ để tăng thời gian học tập hay làm việc. Tuy nhiên, nếu muốn nâng cao hiệu quả học tập thì việc ngủ đủ giấc lại là điều quan trọng hơn cả.\nSau khi ghi nhớ kiến thức mới, khi con người đi ngủ, thông tin trong bộ脳 sẽ được sắp xếp và ghi nhớ sâu hơn. Chẳng hạn, nếu cố gắng học đến tận khuya thì sang sáng hôm sau thường sẽ quên mất nhiều thứ. Trái lại, có kết quả nghiên cứu chỉ ra rằng nếu ngủ đàng hoàng sau khi học, ta có thể ghi nhớ nội dung đã học trong một thời gian dài.\nHơn nữa, nếu tình trạng thiếu ngủ kéo dài, khả năng tập trung sẽ giảm xuống và những lỗi sai đơn giản sẽ tăng lên. Nếu cảm thấy buồn ngủ dữ dội vào ban ngày, tôi xin gợi ý bạn nên chợp mắt ngắn khoảng 15 đến 20 phút. Khi chợp mắt một thời gian ngắn, đầu óc sẽ tỉnh táo và hiệu suất làm việc buổi chiều sẽ tăng lên đáng kể.\nTóm lại, việc ngủ đủ giấc không phải là lãng phí thời gian mà là một quá trình không thể thiếu để nâng cao hiệu quả học tập. Nếu biết coi trọng giấc ngủ trong cuộc sống hằng ngày, thành quả học tập hay công việc tự nhiên cũng sẽ xuất hiện.",
+      "sentences": [
+        {
+          "jp": "多くの人は忙しい毎日を送っており、勉強や仕事の時間を増やすために睡眠時間を減らしている。",
+          "vi": "Nhiều người đang sống những ngày bận rộn và có xu hướng cắt giảm thời gian ngủ để tăng thời gian học tập hay làm việc.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "送る",
+              "read": "おくる",
+              "vi": "sống, trải qua (thời gian)"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "増やす",
+              "read": "ふやす",
+              "vi": "làm tăng lên"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "減らす",
+              "read": "へらす",
+              "vi": "cắt giảm, làm giảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（Bài 42）",
+              "vi": "接続: V辞書形（増やす）+ ために。 Chỉ mục đích: \"để làm tăng (thời gian)...\""
+            }
+          ],
+          "keys": [
+            {
+              "w": "睡眠時間を減らしている",
+              "why": "Nêu thực trạng cắt giảm giấc ngủ phổ biến, tạo tiền đề để tác giả phản biện."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、効率よく学習の成果を上げたいなら、十分な睡眠をとることが何より大切だ。",
+          "vi": "Tuy nhiên, nếu muốn nâng cao hiệu quả học tập thì việc ngủ đủ giấc lại là điều quan trọng hơn cả.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "効率よく",
+              "read": "こうりつよく",
+              "vi": "một cách hiệu quả"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả"
+            },
+            {
+              "w": "上げる",
+              "read": "あげる",
+              "vi": "nâng lên, đưa lên"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "何より",
+              "read": "なにより",
+              "vi": "hơn bất cứ điều gì, hơn cả"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 61）",
+              "vi": "接続: Vたい（上げたい）+ なら。 Giả thiết đưa ra dựa trên mục tiêu hay thông tin nền: \"nếu muốn nâng cao thành quả học tập thì...\". Mẫu 〜なら nhấn mạnh vào tiền đề được nêu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "十分な睡眠をとることが何より大切だ",
+              "why": "Cụm từ khẳng định quan điểm cốt lõi của tác giả ngay sau liên từ chuyển ý."
+            }
+          ]
+        },
+        {
+          "jp": "人は新しい知識を覚えたあと、睡眠をとると、脳の中で情報が整理されて記憶が定着する。",
+          "vi": "Sau khi ghi nhớ kiến thức mới, khi con người đi ngủ, thông tin trong bộ não sẽ được sắp xếp và ghi nhớ sâu hơn.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức, tri thức"
+            },
+            {
+              "w": "覚える",
+              "read": "おぼえる",
+              "vi": "nhớ, cảm thấy"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "bộ脳"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "整理",
+              "read": "せいり",
+              "vi": "sắp xếp, thu dọn"
+            },
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "ký ức, sự ghi nhớ"
+            },
+            {
+              "w": "定着",
+              "read": "ていちゃく",
+              "vi": "an định, ghi nhớ sâu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 61）",
+              "vi": "接続: V辞書形（とる）+ と。 Diễn tả quan hệ nguyên nhân - kết quả tự nhiên/tất yếu mang tính quy luật: \"hễ/khi đi ngủ thì thông tin tự động được não bộ sắp xếp...\" (vế sau không chứa ý chí)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "情報が整理されて記憶が定着する",
+              "why": "Giải thích cơ chế não bộ xử lý và lưu giữ thông tin khi ngủ, phục vụ câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、夜遅くまで無理をして勉強すると、翌朝には多くを忘れてしまうのだ。",
+          "vi": "Chẳng hạn, nếu cố gắng quá sức học đến tận khuya thì sang sáng hôm sau thường sẽ quên mất nhiều thứ.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "無理",
+              "read": "むり",
+              "vi": "quá sức, gượng ép"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "翌朝",
+              "read": "よくあさ",
+              "vi": "sáng hôm sau"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 61）",
+              "vi": "接続: V辞書形（勉強する）+ と。 Diễn tả hệ quả tự nhiên tất yếu: \"hễ học quá sức thức khuya thì sang sáng hôm sau sẽ quên mất...\"."
+            }
+          ]
+        },
+        {
+          "jp": "一方、勉強したあとにしっかり寝れば、覚えた内容を長い間覚えていられるという研究結果がある。",
+          "vi": "Trái lại, có kết quả nghiên cứu chỉ ra rằng nếu ngủ đàng hoàng sau khi học, ta có thể ghi nhớ nội dung đã học trong một thời gian dài.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, trái lại"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "chắc chắn, chăm chỉ"
+            },
+            {
+              "w": "寝る",
+              "read": "ねる",
+              "vi": "ngủ, đi ngủ"
+            },
+            {
+              "w": "覚える",
+              "read": "おぼえる",
+              "vi": "nhớ, cảm thấy"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 61）",
+              "vi": "接続: Vば形（寝る → 寝れば）。 Giả định điều kiện chung: \"nếu ngủ đàng hoàng (sau khi học) thì...\". Mẫu 〜ば nhấn mạnh vào điều kiện bắt buộc vế trước để đạt được khả năng ở vế sau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ chuyển tiếp đưa ra dẫn chứng nghiên cứu chứng minh tác dụng của việc ngủ đủ."
+            }
+          ]
+        },
+        {
+          "jp": "また、睡眠不足が続くと、集中力が低くなって簡単な間違いが増えてしまう。",
+          "vi": "Hơn nữa, nếu tình trạng thiếu ngủ kéo dài, khả năng tập trung sẽ giảm xuống và những lỗi sai đơn giản sẽ tăng lên.",
+          "vocab": [
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "続く",
+              "read": "つづく",
+              "vi": "tiếp tục, kéo dài"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "低い",
+              "read": "ひくい",
+              "vi": "thấp (tính từ い)"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản"
+            },
+            {
+              "w": "間違い",
+              "read": "まちがい",
+              "vi": "lỗi sai, sự nhầm lẫn"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "睡眠不足",
+              "read": "すいみんふそく",
+              "vi": "sự thiếu ngủ"
+            },
+            {
+              "w": "集中力",
+              "read": "しゅうちゅうりょく",
+              "vi": "khả năng tập trung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 61）",
+              "vi": "接続: V辞書形（続く）+ と。 Diễn tả hệ quả tự nhiên: \"hễ tình trạng thiếu ngủ kéo dài thì khả năng tập trung tự nhiên giảm sút...\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "また",
+              "why": "Liên từ bổ sung chỉ ra hậu quả trực tiếp của việc thiếu ngủ đối với sự tập trung."
+            }
+          ]
+        },
+        {
+          "jp": "日中に強い眠気を感じたら、15分から20分程度の短い昼寝をすることをおすすめしたい。",
+          "vi": "Nếu cảm thấy buồn ngủ dữ dội vào ban ngày, tôi xin gợi ý bạn nên chợp mắt ngắn khoảng 15 đến 20 phút.",
+          "vocab": [
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "ngày, mặt trời"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "眠気",
+              "read": "ねむけ",
+              "vi": "cơn buồn ngủ"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "昼寝",
+              "read": "ひるね",
+              "vi": "giấc ngủ trưa, chợp mắt"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "món được khuyên, món nổi tiếng"
+            },
+            {
+              "w": "日中",
+              "read": "にっちゅう",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "程度",
+              "read": "ていど",
+              "vi": "khoảng, mức độ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 61）",
+              "vi": "接続: Vた形（感じた）+ ら。 Giả thiết tình huống cụ thể/cá biệt phát sinh: \"nếu (khi) cảm thấy buồn ngủ vào ban ngày thì...\". Mẫu 〜たら phù hợp khi vế sau đưa ra lời khuyên hay đề xuất."
+            }
+          ],
+          "keys": [
+            {
+              "w": "おすすめしたい",
+              "why": "Động từ thể hiện lời khuyên trực tiếp của tác giả về thói quen ngủ trưa ngắn."
+            }
+          ]
+        },
+        {
+          "jp": "短時間の昼寝をとると、頭がすっきりして午後の作業効率が大きく向上するのだ。",
+          "vi": "Khi chợp mắt một thời gian ngắn, đầu óc sẽ tỉnh táo và hiệu suất làm việc buổi chiều sẽ tăng lên đáng kể.",
+          "vocab": [
+            {
+              "w": "短時間",
+              "read": "たんじかん",
+              "vi": "thời gian ngắn"
+            },
+            {
+              "w": "昼寝",
+              "read": "ひるね",
+              "vi": "giấc ngủ trưa, chợp mắt"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "すっきり",
+              "read": "すっきり",
+              "vi": "sảng khoái, tỉnh táo"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "向上",
+              "read": "こうじょう",
+              "vi": "nâng cao, tiến bộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 61）",
+              "vi": "接続: V辞書形（とる）+ と。 Diễn tả tác động tự nhiên phản ứng của cơ thể: \"hễ chợp mắt ngắn thì đầu óc tỉnh táo trở lại...\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "頭がすっきりして午後の作業効率が大きく向上するのだ",
+              "why": "Giải thích lý do cụ thể và lợi ích của giấc ngủ trưa, là căn cứ trực tiếp cho câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、十分な睡眠をとることは時間の無駄ではなく、学習効果を高めるために不可欠なプロセスなのだ。",
+          "vi": "Tóm lại, việc ngủ đủ giấc không phải là lãng phí thời gian mà là một quá trình không thể thiếu để nâng cao hiệu quả học tập.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "無駄",
+              "read": "むだ",
+              "vi": "lãng phí, vô ích"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả, tác dụng"
+            },
+            {
+              "w": "高める",
+              "read": "たかめる",
+              "vi": "nâng cao, tăng cường"
+            },
+            {
+              "w": "不可欠",
+              "read": "ふかけつ",
+              "vi": "không thể thiếu"
+            },
+            {
+              "w": "プロセス",
+              "read": "プロセス",
+              "vi": "quy trình, quá trình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ために（Bài 42）",
+              "vi": "接続: V辞書形（高める）+ ために。 Chỉ mục đích: \"để nâng cao hiệu quả học tập...\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tổng kết mở đầu câu chứa kết luận chính và định nghĩa cốt lõi cho câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "毎日の生活の中で睡眠を大切にしたら、勉強や仕事の成果も自然と現れるだろう。",
+          "vi": "Nếu biết coi trọng giấc ngủ trong cuộc sống hằng ngày, thành quả học tập hay công việc tự nhiên cũng sẽ xuất hiện.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, trân trọng"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả đạt được"
+            },
+            {
+              "w": "自然と",
+              "read": "しぜんと",
+              "vi": "một cách tự nhiên"
+            },
+            {
+              "w": "現れる",
+              "read": "あらわれる",
+              "vi": "xuất hiện, hiện ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 61）",
+              "vi": "接続: NA＋にしたら（大切にしたら）。 Giả thiết hành động được chú trọng thực hiện: \"nếu coi trọng giấc ngủ thì...\". Vế sau suy đoán kết quả tự nhiên sẽ xuất hiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "睡眠を大切にしたら",
+              "why": "Đưa ra điều kiện tiên quyết để đạt được hiệu quả lâu dài trong công việc và học tập."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "学習の成果を上げたいなら",
+          "label": "〜なら（giả thiết từ mục tiêu/chủ đề）"
+        },
+        {
+          "excerpt": "睡眠をとると",
+          "label": "〜と（kết quả tất yếu/tự nhiên）"
+        },
+        {
+          "excerpt": "しっかり寝れば",
+          "label": "〜ば（điều kiện giả định chung）"
+        },
+        {
+          "excerpt": "強い眠気を感じたら",
+          "label": "〜たら（giả thiết khi sự việc xảy ra）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「学習効果を高めるために不可欠なプロセス」とあるが、どういうことか。",
+          "options": [
+            "睡眠をとることで脳内の情報が整理され、勉強した内容の定着や集中力の維持につながるということ。",
+            "夜遅くまで勉強時間を増やせば、知識がしっかりと記憶に残るということ。",
+            "昼寝の時間を長くすれば、仕事のミスが完全にゼロになるということ。",
+            "睡眠時間を減らして勉強するほうが、成果を出すために最も効率的であるということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「睡眠をとることで脳内」 — Đoạn 2 và 3 nêu rõ giấc ngủ giúp não bộ sắp xếp thông tin (câu 2, 4) và duy trì sự tập trung, giảm bớt lỗi sai (câu 5, 7), do đó ở câu 8 tác giả khẳng định việc ngủ đủ giấc là quy trình không thể thiếu để nâng cao hiệu quả học tập.\n- 「夜遅くまで勉強時間を」 sai: Bài đọc nêu rõ thức khuya cố học sẽ làm quên nhiều kiến thức sang sáng hôm sau (câu 3).\n- 「昼寝の時間を長くすれば」 sai: Bài đọc chỉ khuyên chợp mắt ngắn 15–20 phút (câu 6) chứ không bảo ngủ trưa thật dài, và không khẳng định xóa sạch 100% sai sót.\n- 「睡眠時間を減らして勉強」 sai: Việc giảm thời gian ngủ để học là thói quen bị tác giả phản bác ngay từ đoạn đầu (câu 0, 1).",
+          "tip": "Khi gặp câu hỏi 「〜とあるが、どういうことか」 (cụm này có nghĩa là gì), hãy chú ý các câu giải thích chi tiết trước đó và câu kết luận chứa từ nối 「つまり」. Ở đây, giấc ngủ giúp não sắp xếp ghi nhớ và hồi phục tập trung chính là nội dung của \"quy trình không thể thiếu\".",
+          "evi": [
+            2,
+            4,
+            5,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Có câu 「学習効果を高めるために不可欠なプロセス」 (quá trình không thể thiếu để nâng cao hiệu quả học tập); ý là gì?",
+            "o": [
+              "Có nghĩa là ngủ giúp sắp xếp thông tin trong não, góp phần củng cố nội dung đã học và duy trì khả năng tập trung.",
+              "Có nghĩa là nếu tăng thời gian học đến khuya thì kiến thức sẽ được ghi nhớ chắc chắn.",
+              "Có nghĩa là nếu ngủ trưa lâu hơn thì lỗi trong công việc sẽ hoàn toàn biến mất.",
+              "Có nghĩa là giảm thời gian ngủ để học sẽ là cách hiệu quả nhất để đạt được kết quả."
+            ]
+          }
+        },
+        {
+          "q": "筆者が日中に短い昼寝をすることを勧めているのはなぜか。",
+          "options": [
+            "夜の睡眠時間が短くなった分を、昼間に補う必要があるから。",
+            "頭をすっきりさせて、午後の作業や勉強の効率を上げることができるから。",
+            "昼寝をすると夜遅くまで勉強できるようになり、時間を節約できるから。",
+            "短い昼寝を繰り返せば、夜に長時間寝る必要がなくなるから。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「頭をすっきりさせて」 — Trong câu 7, tác giả nêu trực tiếp lý do khuyên ngủ trưa ngắn: khi chợp mắt thời gian ngắn, đầu óc sẽ tỉnh táo và hiệu suất làm việc buổi chiều sẽ tăng lên đáng kể (短時間の昼寝をとると、頭がすっきりして午後の作業効率が大きく向上するのだ).\n- 「夜の睡眠時間が短く」 sai: Tác giả không bảo ngủ trưa để bù cho giấc ngủ đêm bị thiếu, mà khuyên ban đêm vẫn cần ngủ đủ.\n- 「昼寝をすると夜遅く」 sai: Bài đọc không khuyến khích ngủ trưa để cày đêm muộn.\n- 「短い昼寝を繰り返せ」 sai: Bài đọc không nói ngủ trưa ngắn để thay thế hay loại bỏ giấc ngủ ban đêm.",
+          "tip": "Dạng câu hỏi lý do 「なぜ〜のか」 thường nằm ở ngay câu chứa từ chỉ kết quả/tác dụng tự nhiên phía sau đề xuất (câu 7 nằm ngay sau câu 6 khuyên ngủ trưa). Chú ý cấu trúc 「〜と、...向上するのだ」.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Tại sao tác giả khuyên nên ngủ trưa ngắn vào ban ngày?",
+            "o": [
+              "Vì cần bù vào ban ngày cho phần thời gian ngủ ban đêm bị rút ngắn.",
+              "Vì có thể giúp đầu óc tỉnh táo và nâng cao hiệu quả làm việc hoặc học tập vào buổi chiều.",
+              "Vì ngủ trưa giúp có thể học đến khuya và tiết kiệm thời gian.",
+              "Vì nếu ngủ trưa ngắn nhiều lần thì sẽ không cần ngủ lâu vào ban đêm nữa."
+            ]
+          }
+        },
+        {
+          "q": "勉強や仕事の成果を上げるための方法について、筆者はどう考えているか。",
+          "options": [
+            "時間が足りないときは、睡眠時間を減らして勉強量を確保するべきだ。",
+            "勉強した直後に睡眠をとるよりも、復習を繰り返すほうが記憶に残る。",
+            "睡眠時間を削るのではなく、適切に睡眠をとって脳を休ませることが大切だ。",
+            "午後の効率を上げるためには、できるだけ長い時間昼寝をするのが良い。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「睡眠時間を削るのでは」 — Xuyên suốt bài viết, tác giả khẳng định cắt giảm giấc ngủ là sai lầm (câu 0, 1), giấc ngủ giúp não ghi nhớ (câu 2, 4) và phục hồi sự tập trung (câu 5, 7), từ đó kết luận việc coi trọng giấc ngủ đúng cách sẽ mang lại thành quả cao (câu 8, 9).\n- 「時間が足りないときは」 sai: Trái ngược hoàn toàn với quan điểm của tác giả ở câu 1 và câu 8.\n- 「勉強した直後に睡眠を」 sai: Bài đọc nhấn mạnh giấc ngủ ngay sau khi học giúp ghi nhớ lâu (câu 4), không so sánh với việc ôn tập lặp đi lặp lại.\n- 「午後の効率を上げるた」 sai: Tác giả chỉ gợi ý chợp mắt ngắn 15–20 phút (câu 6), không khuyên ngủ trưa càng dài càng tốt.",
+          "tip": "Dạng câu hỏi quan điểm tác giả 「筆者はどう考えているか」 thường nằm ở đoạn kết bài (chứa các từ nối tổng kết như 「つまり」 và câu điều kiện giả định 「〜たら...だろう」 ở câu 9). Hãy chọn đáp án bao quát đúng thông điệp xuyên suốt của bài đọc.",
+          "evi": [
+            1,
+            4,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về cách nâng cao kết quả học tập và công việc?",
+            "o": [
+              "Khi không đủ thời gian, nên giảm thời gian ngủ để đảm bảo khối lượng học tập.",
+              "Việc ôn tập lặp đi lặp lại sẽ giúp ghi nhớ tốt hơn là ngủ ngay sau khi học.",
+              "Điều quan trọng là ngủ đủ giấc một cách phù hợp để não được nghỉ ngơi, thay vì cắt giảm thời gian ngủ.",
+              "Để nâng cao hiệu quả buổi chiều, tốt nhất là ngủ trưa càng lâu càng tốt."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "turn",
+          "label": "Thực trạng & Bước ngoặt quan điểm",
+          "topic": 1,
+          "note": "Nêu thói quen giảm giấc ngủ của đa số mọi người và đảo chiều bằng khẳng định ngủ đủ mới là quan trọng nhất.",
+          "qs": [
+            3
+          ]
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Cơ chế ghi nhớ & Tác hại thiếu ngủ",
+          "topic": 2,
+          "note": "Giải thích cơ chế củng cố trí nhớ khi ngủ cùng những tác hại như giảm tập trung khi thiếu ngủ.",
+          "qs": [
+            1,
+            3
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "body",
+          "label": "Đề xuất giải pháp ngủ trưa ngắn",
+          "topic": 6,
+          "note": "Gợi ý ngủ trưa 15-20 phút khi buồn ngủ và giải thích lợi ích giúp tỉnh táo, tăng năng suất.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "point",
+          "label": "Kết luận & Tầm quan trọng của giấc ngủ",
+          "topic": 8,
+          "note": "Tổng kết khẳng định giấc ngủ là quy trình tất yếu để tối ưu hóa hiệu quả học tập và làm việc.",
+          "qs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "条件の使い分け — 上手な「もし」の伝え方",
+      "titleVi": "Phân biệt điều kiện — Cách dùng \"nếu\" đúng sắc thái",
+      "japanese": "日本語を勉強していると、「ば」「たら」「なら」「と」という四つの条件表現に戸惑う学習者は多い。\nどれも「もし〜」という意味に近いが、それぞれ微妙に異なるニュアンスを持っている。\nまず、「と」は自然な結果や必然的なことを表す。\nたとえば「春になると、桜が咲く」のように、条件が満たされれば必ず同じ結果になる場合に使う。\nそのため、「と」の後には意志や依頼の表現、たとえば「〜てください」「〜ましょう」などを使うことができない。\n「駅に着くと、電話してください」は誤りで、「着いたら電話してください」が正しい。\n次に、「ば」は一般的な仮定の条件を強調するときに使う。\n「値段が安ければ買う」のように、条件の部分を前面に出したいときに選ぶのが自然だ。\nまた、「ば」は「早起きをすれば健康になれる」のような一般的な真理や習慣的な助言にもよく使われる。\n「たら」は四つの中で最も使い方が広い表現だ。\n「家に帰ったら手を洗う」のように、ある出来事が完了した後に続く行動を表すのに向いている。\nまた、もし特定の条件が一度だけ起きる場合には「たら」がとても自然だ。\n「日本へ行ったら、ぜひ富士山を見てほしい」のような文では「と」や「ば」より「たら」のほうが自然に聞こえる。\nそして「なら」は、相手がすでに話した情報や意向を受けて、アドバイスや提案をする場合に使う。\nたとえば、友人が「新しいスマホを買うつもりだ」と言ったとき、「買うなら、このモデルがいい」と返す。\nこの場合、「買ったら」「買えば」と言ってしまうと、相手の情報を受けた提案というニュアンスが弱くなる。\nつまり、「なら」は時間の順番ではなく、「その前提を受けて」という意味を持つのが最大の特徴だ。\nこのように、四つの条件表現はそれぞれ異なるニュアンスを持っている。\n正確に使い分けるためには、後に来る文の性質（意志かどうか）と、文脈（相手の情報を受けているかどうか）を考えることが大切だ。\n少し難しく感じるかもしれないが、多くの例文を読んでいくうちに自然と身に付くはずだ。",
+      "vietnamese": "Khi học tiếng Nhật, có nhiều học viên bối rối với bốn cách diễn đạt điều kiện: \"ば\", \"たら\", \"なら\", \"と\".\nCả bốn đều gần nghĩa \"nếu…\", nhưng mỗi cái mang sắc thái tinh tế khác nhau.\nTrước tiên, \"と\" diễn đạt kết quả tự nhiên hoặc tất yếu.\nVí dụ như \"春になると、桜が咲く\" (mùa xuân đến thì hoa anh đào nở), dùng khi điều kiện được đáp ứng thì kết quả luôn như vậy.\nVì thế, sau \"と\" không thể dùng các biểu hiện ý chí hay yêu cầu như \"〜てください\", \"〜ましょう\".\n\"駅に着くと、電話してください\" là sai; \"着いたら電話してください\" mới đúng.\nTiếp theo, \"ば\" được dùng khi muốn nhấn mạnh điều kiện giả định chung.\nNhư \"値段が安ければ買う\" (nếu giá rẻ thì mua), dùng khi muốn nêu bật phần điều kiện lên trước.\nNgoài ra, \"ば\" thường xuất hiện trong các câu chân lý chung hay lời khuyên theo thói quen như \"早起きをすれば健康になれる\".\n\"たら\" là biểu hiện linh hoạt nhất trong bốn cách.\nNhư \"家に帰ったら手を洗う\" (về nhà rồi thì rửa tay), phù hợp diễn đạt hành động nối tiếp sau khi sự việc trước hoàn thành.\nNếu điều kiện chỉ xảy ra một lần cụ thể, \"たら\" rất tự nhiên.\nCâu \"日本へ行ったら、ぜひ富士山を見てほしい\" nghe tự nhiên hơn \"と\" hay \"ば\".\nCòn \"なら\" dùng khi nhận thông tin hoặc ý định của người kia rồi đưa ra lời khuyên hoặc đề xuất.\nVí dụ, bạn nói \"新しいスマホを買うつもりだ\", mình đáp \"買うなら、このモデルがいい\".\nNếu nói \"買ったら\" hay \"買えば\" thì sắc thái \"phản hồi thông tin đã nghe để đề xuất\" sẽ yếu đi.\nTức là, điểm đặc trưng lớn nhất của \"なら\" là \"dựa trên tiền đề đó\" chứ không nhấn thứ tự thời gian.\nNhư vậy, bốn cách điều kiện đều mang sắc thái riêng biệt.\nĐể phân biệt chính xác, cần xem xét tính chất của vế sau (có ý chí không) và ngữ cảnh (có nhận thông tin từ người kia không).\nCó thể cảm thấy hơi khó, nhưng khi đọc nhiều ví dụ, chắc là sẽ nắm được một cách tự nhiên.",
+      "sentences": [
+        {
+          "jp": "日本語を勉強していると、「ば」「たら」「なら」「と」という四つの条件表現に戸惑う学習者は多い。",
+          "vi": "Khi học tiếng Nhật, có nhiều học viên bối rối với bốn cách diễn đạt điều kiện: \"ば\", \"たら\", \"なら\", \"と\".",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học"
+            },
+            {
+              "w": "四つ",
+              "read": "よっつ",
+              "vi": "bốn cái"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt, biểu đạt"
+            },
+            {
+              "w": "戸惑います",
+              "read": "とまどいます",
+              "vi": "bối rối, lúng túng"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "条件表現",
+              "read": "じょうけんひょうげん",
+              "vi": "cách diễn đạt điều kiện"
+            },
+            {
+              "w": "学習者",
+              "read": "がくしゅうしゃ",
+              "vi": "người học, học viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "日本語を勉強していると = khi/hễ học tiếng Nhật thì. と ở đây diễn đạt kết quả tự nhiên/lặp lại: hễ ai học tiếng Nhật đều gặp tình trạng này. 接続: Vている（普通形）+ と."
+            }
+          ]
+        },
+        {
+          "jp": "どれも「もし〜」という意味に近いが、それぞれ微妙に異なるニュアンスを持っている。",
+          "vi": "Cả bốn đều gần nghĩa \"nếu…\", nhưng mỗi cái mang sắc thái tinh tế khác nhau.",
+          "vocab": [
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "近い",
+              "read": "ちかい",
+              "vi": "gần (tính từ い)"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái, từng cái"
+            },
+            {
+              "w": "微妙に",
+              "read": "びみょうに",
+              "vi": "một cách tinh tế, khó phân biệt"
+            },
+            {
+              "w": "異なります",
+              "read": "ことなります",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "ニュアンス",
+              "read": "ニュアンス",
+              "vi": "sắc thái, nét nghĩa"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "どれも",
+              "read": "どれも",
+              "vi": "cái nào cũng, tất cả đều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が（逆接 Bài 20）",
+              "vi": "近いが = gần nghĩa nhưng… が nối hai vế có nghĩa tương phản nhẹ (Bài 20 けど)."
+            },
+            {
+              "point": "〜という（Bài 33）",
+              "vi": "「もし〜」という意味 = ý nghĩa được gọi là \"nếu…\". という nối nội dung với danh từ (Bài 33)."
+            }
+          ]
+        },
+        {
+          "jp": "まず、「と」は自然な結果や必然的なことを表す。",
+          "vi": "Trước tiên, \"と\" diễn đạt kết quả tự nhiên hoặc tất yếu.",
+          "vocab": [
+            {
+              "w": "自然な",
+              "read": "しぜんな",
+              "vi": "tự nhiên"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "必然",
+              "read": "ひつぜん",
+              "vi": "sự tất yếu, tất nhiên"
+            },
+            {
+              "w": "表します",
+              "read": "あらわします",
+              "vi": "diễn đạt, biểu hiện"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên, đầu tiên"
+            },
+            {
+              "w": "必然的",
+              "read": "ひつぜんてき",
+              "vi": "tất yếu, không thể tránh khỏi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N/NAを表す（Bài 7 応用）",
+              "vi": "A を表す = diễn đạt A. Cấu trúc Nを + Vます (を = đối tượng Bài 6)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば「春になると、桜が咲く」のように、条件が満たされれば必ず同じ結果になる場合に使う。",
+          "vi": "Ví dụ như \"春になると、桜が咲く\" (mùa xuân đến thì hoa anh đào nở), dùng khi điều kiện được đáp ứng thì kết quả luôn như vậy.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "咲きます",
+              "read": "さきます",
+              "vi": "nở (hoa)"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "満たされます",
+              "read": "みたされます",
+              "vi": "được đáp ứng, được thỏa mãn"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "chắc chắn, nhất định"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "春になると桜が咲く = khi mùa xuân đến thì hoa anh đào nở (tất yếu, lặp lại mỗi năm). Đây là ví dụ ĐIỂN HÌNH của と: kết quả tự nhiên, không có ý chí của con người."
+            },
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "満たされれば = nếu được đáp ứng (ば hình của 満たされる). Câu giải thích tổng quát dùng ば cho điều kiện chung."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、「と」の後には意志や依頼の表現、たとえば「〜てください」「〜ましょう」などを使うことができない。",
+          "vi": "Vì thế, sau \"と\" không thể dùng các biểu hiện ý chí hay yêu cầu như \"〜てください\", \"〜ましょう\".",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "後",
+              "read": "あと",
+              "vi": "sau"
+            },
+            {
+              "w": "意志",
+              "read": "いし",
+              "vi": "ý chí"
+            },
+            {
+              "w": "依頼",
+              "read": "いらい",
+              "vi": "lời nhờ vả"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt"
+            },
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ như"
+            },
+            {
+              "w": "〜てください",
+              "read": "てください",
+              "vi": "hãy vui lòng"
+            },
+            {
+              "w": "〜ましょう",
+              "read": "ましょう",
+              "vi": "hãy cùng"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "できない",
+              "read": "できない",
+              "vi": "không thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができない（Bài 18）",
+              "vi": "使うことができない = không thể sử dụng. Vること + できない = không có khả năng làm V (Bài 18 〜ことができます phủ định)."
+            }
+          ]
+        },
+        {
+          "jp": "「駅に着くと、電話してください」は誤りで、「着いたら電話してください」が正しい。",
+          "vi": "\"駅に着くと、電話してください\" là sai; \"着いたら電話してください\" mới đúng.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga (tàu điện)"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "誤り",
+              "read": "あやまり",
+              "vi": "lỗi sai, sự sai lầm"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら vs 〜と（Bài 25 vs Bài 23）",
+              "vi": "駅に着くと電話してください: SAI vì vế sau \"電話してください\" là yêu cầu (ý chí) → と cấm. 着いたら電話してください: ĐÚNG vì たら = \"sau khi đến ga (sự kiện hoàn thành) → hãy gọi điện\". たら linh hoạt, chấp nhận vế sau có ý chí/yêu cầu."
+            }
+          ]
+        },
+        {
+          "jp": "次に、「ば」は一般的な仮定の条件を強調するときに使う。",
+          "vi": "Tiếp theo, \"ば\" được dùng khi muốn nhấn mạnh điều kiện giả định chung.",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo, kế đó"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "đại chúng, thông thường (phân loại)"
+            },
+            {
+              "w": "仮定",
+              "read": "かてい",
+              "vi": "giả định"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "強調します",
+              "read": "きょうちょうします",
+              "vi": "nhấn mạnh"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "一般的な",
+              "read": "いっぱんてきな",
+              "vi": "phổ biến, mang tính chung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "強調するとき = khi muốn nhấn mạnh. V普通形 + とき (Bài 23)."
+            }
+          ]
+        },
+        {
+          "jp": "「値段が安ければ買う」のように、条件の部分を前面に出したいときに選ぶのが自然だ。",
+          "vi": "Như \"値段が安ければ買う\" (nếu giá rẻ thì mua), dùng khi muốn nêu bật phần điều kiện lên trước.",
+          "vocab": [
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá cả"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "部分",
+              "read": "ぶぶん",
+              "vi": "phần, bộ phận"
+            },
+            {
+              "w": "前面",
+              "read": "ぜんめん",
+              "vi": "phía trước, bề mặt"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "接続: Aい（安い）→ 安ければ。 値段が安ければ買う = nếu giá rẻ thì (tôi) mua. ば nhấn ĐIỀU KIỆN: phần trước ば là trọng tâm. Đối chiếu: \"値段が安かったら買う\" (たら = sau khi xác nhận giá rẻ thì mua — sự kiện cụ thể) vs \"安ければ買う\" (ば = điều kiện giả định chung, không nhấn thời điểm)."
+            },
+            {
+              "point": "Vるのが自然だ（Bài 38応用）",
+              "vi": "選ぶのが自然だ = là điều tự nhiên khi chọn. Vる + のが + 評価 (Bài 38 Vるのは〜です応用)."
+            }
+          ]
+        },
+        {
+          "jp": "また、「ば」は「早起きをすれば健康になれる」のような一般的な真理や習慣的な助言にもよく使われる。",
+          "vi": "Ngoài ra, \"ば\" thường xuất hiện trong các câu chân lý chung hay lời khuyên theo thói quen như \"早起きをすれば健康になれる\".",
+          "vocab": [
+            {
+              "w": "早起き",
+              "read": "はやおき",
+              "vi": "dậy sớm"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khỏe, khỏe mạnh"
+            },
+            {
+              "w": "なれる",
+              "read": "なれる",
+              "vi": "có thể trở thành, quen"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "đại chúng, thông thường (phân loại)"
+            },
+            {
+              "w": "真理",
+              "read": "しんり",
+              "vi": "chân lý"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "助言",
+              "read": "じょげん",
+              "vi": "lời khuyên"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm nữa"
+            },
+            {
+              "w": "習慣的な",
+              "read": "しゅうかんてきな",
+              "vi": "mang tính thói quen"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "早起きをすれば健康になれる = nếu dậy sớm thì có thể khỏe mạnh. ば ở đây trong chân lý/ngạn ngữ/lời khuyên chung. So sánh: \"早起きをしたら健康になった\" (たら = thực tế đã xảy ra cụ thể) ≠ ば (điều kiện chung, áp dụng cho mọi người)."
+            }
+          ]
+        },
+        {
+          "jp": "「たら」は四つの中で最も使い方が広い表現だ。",
+          "vi": "\"たら\" là biểu hiện linh hoạt nhất trong bốn cách.",
+          "vocab": [
+            {
+              "w": "四つ",
+              "read": "よっつ",
+              "vi": "bốn cái"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong số"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng, đa dạng"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の中で〜が一番（Bài 12）",
+              "vi": "四つの中で最も使い方が広い = linh hoạt nhất trong bốn cái. 〜の中で〜が一番/最も (Bài 12)."
+            }
+          ]
+        },
+        {
+          "jp": "「家に帰ったら手を洗う」のように、ある出来事が完了した後に続く行動を表すのに向いている。",
+          "vi": "Như \"家に帰ったら手を洗う\" (về nhà rồi thì rửa tay), phù hợp diễn đạt hành động nối tiếp sau khi sự việc trước hoàn thành.",
+          "vocab": [
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "洗う",
+              "read": "あらう",
+              "vi": "rửa"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự kiện, việc xảy ra"
+            },
+            {
+              "w": "完了します",
+              "read": "かんりょうします",
+              "vi": "hoàn thành"
+            },
+            {
+              "w": "続きます",
+              "read": "つづきます",
+              "vi": "tiếp tục, nối tiếp"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "表す",
+              "read": "あらわす",
+              "vi": "biểu thị, thể hiện"
+            },
+            {
+              "w": "向いています",
+              "read": "むいています",
+              "vi": "phù hợp, thích hợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "接続: V（帰る）→ Vた（帰った）+ ら。 家に帰ったら手を洗う = sau khi về nhà thì rửa tay. たら = \"sau khi X hoàn thành → Y\". Đây là sắc thái cốt lõi của たら: nhấn thứ tự, hoàn thành trước."
+            },
+            {
+              "point": "Vるのに向いている（Bài 42応用）",
+              "vi": "表すのに向いている = phù hợp để diễn đạt. Vる + のに (mục đích, Bài 42) + 向いている."
+            }
+          ]
+        },
+        {
+          "jp": "また、もし特定の条件が一度だけ起きる場合には「たら」がとても自然だ。",
+          "vi": "Nếu điều kiện chỉ xảy ra một lần cụ thể, \"たら\" rất tự nhiên.",
+          "vocab": [
+            {
+              "w": "特定の",
+              "read": "とくていの",
+              "vi": "cụ thể, đặc định"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "起きる",
+              "read": "おきる",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "一度だけ",
+              "read": "いちどだけ",
+              "vi": "chỉ một lần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合には（Bài 45）",
+              "vi": "起きる場合には = trong trường hợp xảy ra. 場合は/には = khi/trong trường hợp (Bài 45 のばあいは)."
+            }
+          ]
+        },
+        {
+          "jp": "「日本へ行ったら、ぜひ富士山を見てほしい」のような文では「と」や「ば」より「たら」のほうが自然に聞こえる。",
+          "vi": "Câu \"日本へ行ったら、ぜひ富士山を見てほしい\" nghe tự nhiên hơn \"と\" hay \"ば\".",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "富士山",
+              "read": "ふじさん",
+              "vi": "núi Phú Sĩ"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "文",
+              "read": "ぶん",
+              "vi": "câu văn, văn bản"
+            },
+            {
+              "w": "自然に",
+              "read": "しぜんに",
+              "vi": "một cách tự nhiên"
+            },
+            {
+              "w": "聞こえます",
+              "read": "きこえます",
+              "vi": "nghe có vẻ, có thể nghe thấy"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, nhất định hãy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "日本へ行ったら = sau khi đến Nhật. たら phù hợp ở đây: (1) vế sau \"見てほしい\" là ý chí/mong muốn → と không dùng được; (2) đây là sự kiện cụ thể/một lần, không phải lặp lại → たら tự nhiên hơn ば."
+            },
+            {
+              "point": "〜てほしい（Bài 13応用）",
+              "vi": "見てほしい = muốn (bạn) xem. Vて + ほしい = muốn người khác làm V."
+            }
+          ]
+        },
+        {
+          "jp": "そして「なら」は、相手がすでに話した情報や意向を受けて、アドバイスや提案をする場合に使う。",
+          "vi": "Còn \"なら\" dùng khi nhận thông tin hoặc ý định của người kia rồi đưa ra lời khuyên hoặc đề xuất.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp đó"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "người đối diện, đối phương"
+            },
+            {
+              "w": "すでに",
+              "read": "すでに",
+              "vi": "đã, rồi"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "意向",
+              "read": "いこう",
+              "vi": "ý định, ý muốn"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "アドバイス",
+              "read": "アドバイス",
+              "vi": "lời khuyên"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất, đề nghị"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた + 情報を受けて（Bài 19応用）",
+              "vi": "話した情報を受けて = nhận thông tin mà người kia đã nói. た + 情報 (mệnh đề bổ nghĩa Bài 22); 受けて = nhận (て-form Bài 14)."
+            },
+            {
+              "point": "〜場合に使う（Bài 45）",
+              "vi": "アドバイスをする場合に使う = dùng trong trường hợp đưa ra lời khuyên (Bài 45)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、友人が「新しいスマホを買うつもりだ」と言ったとき、「買うなら、このモデルがいい」と返す。",
+          "vi": "Ví dụ, bạn nói \"新しいスマホを買うつもりだ\", mình đáp \"買うなら、このモデルがいい\".",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "友人",
+              "read": "ゆうじん",
+              "vi": "bạn bè, người bạn"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "モデル",
+              "read": "モデル",
+              "vi": "mẫu mã, model"
+            },
+            {
+              "w": "返します",
+              "read": "かえします",
+              "vi": "đáp lại, trả lời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 35）",
+              "vi": "接続: V普通形（買う）+ なら。 買うなら = nếu (bạn) mua (giả thiết từ thông tin vừa nghe \"買うつもりだ\"). Sắc thái đặc trưng của なら: PHẢI có thông tin trước từ người kia. Không nhấn thứ tự thời gian (khác たら). Nếu dùng \"買ったら\" → mang nghĩa \"sau khi đã mua rồi thì…\" — nhưng ở đây chưa mua, đang gợi ý TRƯỚC KHI mua → なら chính xác hơn."
+            },
+            {
+              "point": "〜つもりだ（Bài 31）",
+              "vi": "買うつもりだ = định mua. Vる + つもり = dự định (Bài 31). Thông tin này là cơ sở để dùng なら."
+            }
+          ]
+        },
+        {
+          "jp": "この場合、「買ったら」「買えば」と言ってしまうと、相手の情報を受けた提案というニュアンスが弱くなる。",
+          "vi": "Nếu nói \"買ったら\" hay \"買えば\" thì sắc thái \"phản hồi thông tin đã nghe để đề xuất\" sẽ yếu đi.",
+          "vocab": [
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất, đề nghị"
+            },
+            {
+              "w": "ニュアンス",
+              "read": "ニュアンス",
+              "vi": "sắc thái, nét nghĩa"
+            },
+            {
+              "w": "弱くなります",
+              "read": "よわくなります",
+              "vi": "trở nên yếu đi"
+            },
+            {
+              "w": "この場合",
+              "read": "このばあい",
+              "vi": "trong trường hợp này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てしまうと（Bài 29 + Bài 23）",
+              "vi": "言ってしまうと = nếu lỡ nói… thì. てしまう (Bài 29 = lỡ/hoàn thành không mong muốn) + と (điều kiện tự nhiên). Đây là so sánh sắc thái: \"買ったら\" (たら = sau khi mua → đã mua rồi mới đề xuất, không hợp) và \"買えば\" (ば = điều kiện giả định, không nhấn đã nghe thông tin từ người kia)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、「なら」は時間の順番ではなく、「その前提を受けて」という意味を持つのが最大の特徴だ。",
+          "vi": "Tức là, điểm đặc trưng lớn nhất của \"なら\" là \"dựa trên tiền đề đó\" chứ không nhấn thứ tự thời gian.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "順番",
+              "read": "じゅんばん",
+              "vi": "thứ tự"
+            },
+            {
+              "w": "前提",
+              "read": "ぜんてい",
+              "vi": "tiền đề, điều kiện tiên quyết"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "最大",
+              "read": "さいだい",
+              "vi": "tối đa"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm, đặc trưng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ではなく〜（Bài 20応用）",
+              "vi": "時間の順番ではなく = không phải thứ tự thời gian mà là…. ではなく = không phải A mà là B (phủ định của đặc điểm A)."
+            },
+            {
+              "point": "Vるのが最大の特徴だ",
+              "vi": "〜という意味を持つのが最大の特徴だ = có ý nghĩa … là đặc điểm lớn nhất. Vる + のが + 名詞評価 (Bài 38 Vるのは〜です)."
+            }
+          ]
+        },
+        {
+          "jp": "このように、四つの条件表現はそれぞれ異なるニュアンスを持っている。",
+          "vi": "Như vậy, bốn cách điều kiện đều mang sắc thái riêng biệt.",
+          "vocab": [
+            {
+              "w": "四つ",
+              "read": "よっつ",
+              "vi": "bốn cái"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt, biểu đạt"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái, từng cái"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau, bất đồng"
+            },
+            {
+              "w": "ニュアンス",
+              "read": "ニュアンス",
+              "vi": "sắc thái, nét nghĩa"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "このように",
+              "read": "このように",
+              "vi": "như thế này, như vậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "このように（まとめ）",
+              "vi": "このように = như vậy. Câu tổng kết, kéo lại ý đã trình bày. Thường gặp trong văn nghị luận/tản văn N3."
+            }
+          ]
+        },
+        {
+          "jp": "正確に使い分けるためには、後に来る文の性質（意志かどうか）と、文脈（相手の情報を受けているかどうか）を考えることが大切だ。",
+          "vi": "Để phân biệt chính xác, cần xem xét tính chất của vế sau (có ý chí không) và ngữ cảnh (có nhận thông tin từ người kia không).",
+          "vocab": [
+            {
+              "w": "正確に",
+              "read": "せいかくに",
+              "vi": "một cách chính xác"
+            },
+            {
+              "w": "使い分けます",
+              "read": "つかいわけます",
+              "vi": "phân biệt sử dụng, dùng đúng theo tình huống"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "文",
+              "read": "ぶん",
+              "vi": "câu văn, văn bản"
+            },
+            {
+              "w": "性質",
+              "read": "せいしつ",
+              "vi": "tính chất, đặc tính"
+            },
+            {
+              "w": "意志",
+              "read": "いし",
+              "vi": "ý chí, ý muốn"
+            },
+            {
+              "w": "文脈",
+              "read": "ぶんみゃく",
+              "vi": "ngữ cảnh, mạch văn"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "後に来る",
+              "read": "あとにくる",
+              "vi": "đến sau, đứng sau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ためには（Bài 42）",
+              "vi": "正確に使い分けるためには = để phân biệt chính xác thì. Vる + ためには = để làm V (với nhấn mạnh điều kiện cần). Bài 42 〜ために."
+            },
+            {
+              "point": "〜かどうか（Bài 40）",
+              "vi": "意志かどうか = có phải ý chí không. かどうか = whether (Bài 40)."
+            },
+            {
+              "point": "Vることが大切だ（Bài 18応用）",
+              "vi": "考えることが大切だ = việc suy nghĩ là quan trọng. Vること + が大切 (Bài 18 Vることができます → Vること là danh từ hóa)."
+            }
+          ]
+        },
+        {
+          "jp": "少し難しく感じるかもしれないが、多くの例文を読んでいくうちに自然と身に付くはずだ。",
+          "vi": "Có thể cảm thấy hơi khó, nhưng khi đọc nhiều ví dụ, chắc là sẽ nắm được một cách tự nhiên.",
+          "vocab": [
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "例文",
+              "read": "れいぶん",
+              "vi": "câu ví dụ"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "自然と",
+              "read": "しぜんと",
+              "vi": "một cách tự nhiên"
+            },
+            {
+              "w": "身",
+              "read": "み",
+              "vi": "bản thân, thân thể"
+            },
+            {
+              "w": "付く",
+              "read": "つく",
+              "vi": "gắn kèm, dính vào"
+            },
+            {
+              "w": "難しく感じます",
+              "read": "むずかしくかんじます",
+              "vi": "cảm thấy khó"
+            },
+            {
+              "w": "身に付きます",
+              "read": "みにつきます",
+              "vi": "nắm được, tiếp thu được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "難しく感じるかもしれない = có thể cảm thấy khó (không chắc). かもしれない = khả năng (Bài 32)."
+            },
+            {
+              "point": "〜うちに（Bài 55）",
+              "vi": "読んでいくうちに = trong khi (tiếp tục) đọc. うちに = \"trong lúc còn (đang làm gì)\". Sắc thái: tranh thủ / dần dần trong quá trình. Ôn Bài 55."
+            },
+            {
+              "point": "〜はずだ（Bài 51）",
+              "vi": "身に付くはずだ = lẽ ra/chắc là sẽ nắm được (suy luận có căn cứ: đọc nhiều ví dụ thì dần hiểu). Ôn Bài 51."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日本語を勉強していると、「ば」「たら」「なら」「と」という四つの条件表現に戸惑う学習者は多い",
+          "label": "〜と（kết quả tất yếu/lặp lại khi học）"
+        },
+        {
+          "excerpt": "「駅に着くと、電話してください」は誤りで、「着いたら電話してください」が正しい",
+          "label": "Sắc thái: と vs たら — vế sau có ý chí → KHÔNG dùng と"
+        },
+        {
+          "excerpt": "値段が安ければ買う",
+          "label": "〜ば（điều kiện chung, nhấn điều kiện）"
+        },
+        {
+          "excerpt": "家に帰ったら手を洗う",
+          "label": "〜たら（sau khi X hoàn thành → Y）"
+        },
+        {
+          "excerpt": "買うなら、このモデルがいい",
+          "label": "Sắc thái: 〜なら（phản hồi thông tin vừa nghe → đề xuất）"
+        },
+        {
+          "excerpt": "読んでいくうちに自然と身に付くはずだ",
+          "label": "〜うちに（Bài 55 ôn）＋〜はずだ（Bài 51 ôn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「と」の後ろに使えない表現はどれですか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "春になると、桜が咲く",
+            "ボタンを押すと、ドアが開く",
+            "駅に着くと、電話してください",
+            "右に曲がると、郵便局が見える"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C — \"駅に着くと、電話してください\". Vế sau \"電話してください\" là yêu cầu có ý chí → vi phạm quy tắc cốt lõi của と. Bài viết nêu rõ: \"「と」の後には意志や依頼の表現を使うことができない\". A (\"桜が咲く\"), B (\"ドアが開く\"), D (\"郵便局が見える\") đều là kết quả tự nhiên/tất yếu, không có ý chí của con người → hoàn toàn đúng khi dùng と. Câu C phải sửa thành \"着いたら電話してください\" (たら).",
+          "tip": "Đọc vế SAU của と — thấy động từ chỉ hành động của CON NGƯỜI có chủ ý (ください / ましょう / たい…) là SAI ngay. と chỉ dùng với kết quả xảy ra \"tự động\" không cần người quyết định.",
+          "qt": {
+            "q": "Biểu hiện nào không thể dùng sau 「と」 (khi... thì...)?",
+            "o": [
+              "Khi mùa xuân đến, hoa anh đào nở",
+              "Khi nhấn nút, cánh cửa mở ra",
+              "Khi đến ga, hãy gọi điện",
+              "Khi rẽ phải, có thể nhìn thấy bưu điện"
+            ]
+          }
+        },
+        {
+          "q": "友人が「来週、京都へ行くんです」と言いました。どの文が最も自然ですか。",
+          "evi": [
+            13,
+            14
+          ],
+          "options": [
+            "京都へ行くと、嵐山に行ってください",
+            "京都へ行ったら、嵐山がいいですよ",
+            "京都へ行くなら、嵐山がいいですよ",
+            "京都へ行けば、嵐山がいいですよ"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C — \"京都へ行くなら、嵐山がいいですよ\". Bạn VỪA NÓI \"来週、京都へ行くんです\" → đây là ngữ cảnh chuẩn để dùng なら: nhận thông tin → đưa ra đề xuất. A (\"行くと\") sai vì と cấm vế sau là gợi ý/đề xuất như \"嵐山がいいですよ\". B (\"行ったら\") có thể chấp nhận được nhưng nhấn \"sau khi đến Kyoto (sự kiện hoàn thành) thì…\" — sắc thái \"phản hồi thông tin đã nghe để gợi ý\" yếu hơn nhiều so với なら. D (\"行けば\") là điều kiện giả định chung, không nhấn \"tôi đã nghe bạn nói vậy\" — cũng không tự nhiên bằng なら trong hội thoại này.",
+          "tip": "Ai đó vừa nói \"〜んです / 〜んですが / 〜つもりです\" → câu đáp lại mà đưa ra lời khuyên/gợi ý thì dùng なら, không dùng たら hay ば. なら luôn \"bám\" vào thông tin vừa nghe.",
+          "qt": {
+            "q": "Một người bạn nói: “Tuần sau tôi sẽ đi Kyoto.” Câu nào tự nhiên nhất?",
+            "o": [
+              "Khi đi Kyoto, hãy đến Arashiyama",
+              "Nếu đi Kyoto, Arashiyama là một nơi hay đấy",
+              "Nếu bạn định đi Kyoto, Arashiyama là một nơi hay đấy",
+              "Nếu đi Kyoto, Arashiyama là một nơi hay đấy"
+            ]
+          }
+        },
+        {
+          "q": "この文章によると、「なら」と「たら」の最も大きな違いは何ですか。",
+          "evi": [
+            10,
+            13,
+            16
+          ],
+          "options": [
+            "「なら」は過去のこと、「たら」は未来のことに使います",
+            "「なら」は自然な結果を表し、「たら」は仮定の条件を表します",
+            "「なら」は相手の情報を受けて提案するが、「たら」は出来事の完了後の行動を表します",
+            "「なら」と「たら」は意味が同じで、どちらを使っても問題ありません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C — bài viết phân tích rõ ràng: \"なら\" = \"相手がすでに話した情報や意向を受けて、アドバイスや提案をする\" (nhận thông tin đã nghe → đề xuất); \"たら\" = \"ある出来事が完了した後に続く行動を表す\" (hành động nối tiếp sau khi sự việc hoàn thành). Và đặc biệt: \"「なら」は時間の順番ではなく、「その前提を受けて」という意味\" — なら không nhấn thứ tự thời gian, trong khi たら thì có. A sai: cả hai đều nói về tương lai giả định, không phân chia theo quá khứ/tương lai. B sai: kết quả tự nhiên là の と, không phải なら; điều kiện giả định là ば, không phải たら. D sai: hai mẫu khác sắc thái rõ rệt.",
+          "tip": "なら ≠ thứ tự thời gian; たら = thứ tự thời gian (X hoàn thành → Y). Đây là điểm khác biệt cốt lõi nhất giữa hai mẫu này.",
+          "qt": {
+            "q": "Theo bài viết này, điểm khác biệt lớn nhất giữa 「なら」 và 「たら」 là gì?",
+            "o": [
+              "「なら」 được dùng cho chuyện trong quá khứ, còn 「たら」 được dùng cho chuyện trong tương lai",
+              "「なら」 diễn tả kết quả tự nhiên, còn 「たら」 diễn tả điều kiện giả định",
+              "「なら」 tiếp nhận thông tin của đối phương để đưa ra đề xuất, còn 「たら」 diễn tả hành động tiếp theo sau khi một sự việc hoàn tất",
+              "「なら」 và 「たら」 có cùng nghĩa, dùng từ nào cũng được"
+            ]
+          }
+        },
+        {
+          "q": "「少し難しく感じるかもしれないが、多くの例文を読んでいくうちに自然と身に付くはずだ」という文から、筆者はどんな考えを持っていると言えますか。",
+          "evi": [
+            19
+          ],
+          "options": [
+            "条件表現は難しすぎるので、あまり勉強しなくていいと思っている",
+            "難しいと感じる可能性はあるが、練習を続ければ自然にできるようになると確信している",
+            "例文を読んでも理解できないかもしれないと心配している",
+            "条件表現の使い分けは、ネイティブにしかできないと思っている"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B — \"難しいと感じる可能性はあるが、練習を続ければ自然にできるようになると確信している\". Câu \"少し難しく感じるかもしれないが\" dùng かもしれない (có thể, không chắc) → tác giả NHẬN NHẬN có thể khó. Câu \"自然と身に付くはずだ\" dùng はずだ (suy luận có căn cứ → chắc chắn theo logic) → tác giả TIN TƯỞNG CÓ CĂN CỨ rằng sẽ nắm được. Tổ hợp này = thừa nhận khó + lạc quan có lý lẽ. A sai: tác giả đang khuyến khích học, không bảo bỏ qua. C sai: はずだ thể hiện niềm tin, không phải lo lắng. D sai: tác giả khuyến khích MỌI người học, không nói chỉ người bản ngữ làm được.",
+          "tip": "かもしれない = \"có thể, không chắc\" (nhún vai); はずだ = \"chắc chắn theo logic\" (tự tin có căn cứ). Khi hai cái này xuất hiện trong một câu — tác giả đang cân bằng: nhận khó khăn nhưng vẫn lạc quan.",
+          "qt": {
+            "q": "Từ câu “Có thể bạn sẽ thấy hơi khó, nhưng khi đọc nhiều câu ví dụ, hẳn bạn sẽ tự nhiên nắm được”, có thể nói tác giả có suy nghĩ gì?",
+            "o": [
+              "Tác giả nghĩ rằng các cách diễn đạt điều kiện quá khó nên không cần học nhiều",
+              "Tác giả tin rằng dù có thể cảm thấy khó, nhưng nếu tiếp tục luyện tập thì sẽ tự nhiên làm được",
+              "Tác giả lo rằng dù đọc câu ví dụ, người học có thể vẫn không hiểu",
+              "Tác giả nghĩ rằng chỉ người bản ngữ mới có thể phân biệt cách dùng các cách diễn đạt điều kiện"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら旅行センター　電車・保険セットプラン案内",
+      "titleVi": "Trung tâm Du lịch Sakura — Hướng dẫn gói vé tàu + bảo hiểm du lịch",
+      "japanese": "さくら旅行センター　電車・保険セットプラン案内\n旅行に行くなら、電車のチケットと旅行保険を一緒に申し込むと便利です。目的に合わせてプランを選んでください。\nプラン｜電車チケット｜保険の内容｜料金\nライトプラン｜片道のみ｜けがのみ｜3,000円\nスタンダードプラン｜往復｜けが＋病気｜5,000円\nプレミアムプラン｜往復＋座席指定｜けが＋病気＋荷物の紛失｜8,000円\n学生なら、学生証を見せれば、どのプランも1,000円安くなります。\n出発日の2週間前までに申し込めば、さらに500円安くなります。ただし、出発日の3日前を過ぎたら、この割引は受けられません。\n天気が悪くて電車が止まったら、保険から交通費の一部が支払われます（スタンダードプラン以上のみ）。\n※プレミアムプランなら、荷物がなくなったときも保険金が出ます。\n※キャンセルする場合は、出発日の前日までにご連絡ください。当日のキャンセルは料金の半分が戻りません。\nお支払いはクレジットカードか窓口での現金のみです。コンビニでは支払えませんので、ご注意ください。\nお申し込み・お問い合わせ：さくら旅行センター（電話：03-4567-8901、受付　平日9:00〜18:00）",
+      "vietnamese": "Trung tâm Du lịch Sakura — Hướng dẫn gói vé tàu + bảo hiểm du lịch\nNếu đã đi du lịch thì đăng ký chung vé tàu và bảo hiểm du lịch sẽ tiện hơn. Hãy chọn gói phù hợp với mục đích.\nGói ｜ Vé tàu ｜ Nội dung bảo hiểm ｜ Giá\nGói Light ｜ Một chiều ｜ Chỉ tai nạn thương tích ｜ 3.000 yên\nGói Standard ｜ Khứ hồi ｜ Tai nạn + bệnh tật ｜ 5.000 yên\nGói Premium ｜ Khứ hồi + chỉ định ghế ｜ Tai nạn + bệnh tật + mất hành lý ｜ 8.000 yên\nNếu là học sinh, chỉ cần xuất trình thẻ học sinh thì gói nào cũng được giảm 1.000 yên.\nNếu đăng ký trước ngày khởi hành 2 tuần thì sẽ được giảm thêm 500 yên. Tuy nhiên, nếu đã qua mốc 3 ngày trước ngày khởi hành thì không được hưởng ưu đãi này nữa.\nNếu thời tiết xấu khiến tàu dừng chạy thì một phần chi phí đi lại sẽ được bảo hiểm chi trả (chỉ áp dụng từ gói Standard trở lên).\n※ Nếu là gói Premium thì khi bị mất hành lý cũng được nhận tiền bảo hiểm.\n※ Trường hợp hủy, vui lòng liên hệ trước ngày khởi hành một ngày. Hủy trong ngày sẽ không được hoàn lại một nửa số tiền.\nThanh toán chỉ bằng thẻ tín dụng hoặc tiền mặt tại quầy. Không thể thanh toán ở cửa hàng tiện lợi, xin lưu ý.\nĐăng ký / liên hệ: Trung tâm Du lịch Sakura (điện thoại: 03-4567-8901, tiếp nhận thứ Hai–thứ Sáu 9:00–18:00)",
+      "sentences": [
+        {
+          "jp": "さくら旅行センター　電車・保険セットプラン案内",
+          "vi": "Trung tâm Du lịch Sakura — Hướng dẫn gói vé tàu + bảo hiểm du lịch",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "旅行センター",
+              "read": "りょこうセンター",
+              "vi": "trung tâm du lịch"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "保険",
+              "read": "ほけん",
+              "vi": "bảo hiểm"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông báo"
+            },
+            {
+              "w": "セットプラン",
+              "read": "セットプラン",
+              "vi": "gói combo"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "電車・保険セットプラン",
+              "why": "Tiêu đề nêu chủ đề chính: gói kết hợp vé tàu + bảo hiểm — cần nắm để không nhầm đây chỉ là bảo hiểm đơn thuần."
+            }
+          ]
+        },
+        {
+          "jp": "旅行に行くなら、電車のチケットと旅行保険を一緒に申し込むと便利です。目的に合わせてプランを選んでください。",
+          "vi": "Nếu đã đi du lịch thì đăng ký chung vé tàu và bảo hiểm du lịch sẽ tiện hơn. Hãy chọn gói phù hợp với mục đích.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "チケット",
+              "read": "チケット",
+              "vi": "vé"
+            },
+            {
+              "w": "保険",
+              "read": "ほけん",
+              "vi": "bảo hiểm"
+            },
+            {
+              "w": "一緒に",
+              "read": "いっしょに",
+              "vi": "cùng nhau, chung"
+            },
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "便利です",
+              "read": "べんりです",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "合わせます",
+              "read": "あわせます",
+              "vi": "kết hợp, cho phù hợp"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 61 target）",
+              "vi": "旅行に行くなら = nếu đã có dự định đi du lịch (giả thiết mở đầu, đặt vấn đề cho cả tờ thông báo). 接続: Vる普通形 + なら."
+            },
+            {
+              "point": "〜と便利です（Bài 61 target）",
+              "vi": "一緒に申し込むと便利です = đăng ký chung thì tiện — kết quả TẤT YẾU/khách quan (luôn tiện hơn khi làm vậy), không phải ý chí → dùng と đúng quy tắc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "旅行に行くなら",
+              "why": "Câu mở khung điều kiện chung — mọi lời khuyên phía sau đều dựa trên tiền đề \"đang có kế hoạch đi du lịch\"."
+            }
+          ]
+        },
+        {
+          "jp": "プラン｜電車チケット｜保険の内容｜料金",
+          "vi": "Gói ｜ Vé tàu ｜ Nội dung bảo hiểm ｜ Giá",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "チケット",
+              "read": "チケット",
+              "vi": "vé"
+            },
+            {
+              "w": "保険",
+              "read": "ほけん",
+              "vi": "bảo hiểm"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá tiền, phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "プラン",
+              "why": "Header bảng — dùng để dò cột khi trả lời câu hỏi chọn gói."
+            }
+          ]
+        },
+        {
+          "jp": "ライトプラン｜片道のみ｜けがのみ｜3,000円",
+          "vi": "Gói Light ｜ Một chiều ｜ Chỉ tai nạn thương tích ｜ 3.000 yên",
+          "vocab": [
+            {
+              "w": "ライト",
+              "read": "らいと",
+              "vi": "nhẹ, Light"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói"
+            },
+            {
+              "w": "片道",
+              "read": "かたみち",
+              "vi": "một chiều"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "けが",
+              "read": "けが",
+              "vi": "chấn thương"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のみ（Bài 27 応用 しか〜ない）",
+              "vi": "けがのみ = chỉ bảo hiểm tai nạn thương tích. のみ = từ giới hạn trang trọng, cùng nhóm nghĩa với しか〜ない (Bài 27)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "片道のみ",
+              "why": "Gói Light chỉ có vé MỘT CHIỀU — nếu câu hỏi cần khứ hồi thì gói này KHÔNG đủ."
+            },
+            {
+              "w": "けがのみ",
+              "why": "Gói Light chỉ bảo hiểm tai nạn, KHÔNG bảo hiểm bệnh tật hay mất hành lý — bẫy cho câu hỏi ghép điều kiện."
+            },
+            {
+              "w": "3,000円",
+              "why": "Giá gốc gói Light, cần dùng để tính tổng khi cộng/trừ ưu đãi."
+            }
+          ]
+        },
+        {
+          "jp": "スタンダードプラン｜往復｜けが＋病気｜5,000円",
+          "vi": "Gói Standard ｜ Khứ hồi ｜ Tai nạn + bệnh tật ｜ 5.000 yên",
+          "vocab": [
+            {
+              "w": "スタンダード",
+              "read": "すたんだーど",
+              "vi": "tiêu chuẩn, Standard"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói"
+            },
+            {
+              "w": "往復",
+              "read": "おうふく",
+              "vi": "khứ hồi"
+            },
+            {
+              "w": "けが",
+              "read": "けが",
+              "vi": "chấn thương"
+            },
+            {
+              "w": "病気",
+              "read": "びょうき",
+              "vi": "bệnh tật"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "往復",
+              "why": "Gói Standard có vé khứ hồi — mốc tối thiểu để được bảo hiểm khi tàu dừng vì thời tiết xấu."
+            },
+            {
+              "w": "5,000円",
+              "why": "Giá gốc gói Standard, dùng để tính khi cộng/trừ ưu đãi."
+            }
+          ]
+        },
+        {
+          "jp": "プレミアムプラン｜往復＋座席指定｜けが＋病気＋荷物の紛失｜8,000円",
+          "vi": "Gói Premium ｜ Khứ hồi + chỉ định ghế ｜ Tai nạn + bệnh tật + mất hành lý ｜ 8.000 yên",
+          "vocab": [
+            {
+              "w": "プレミアム",
+              "read": "プレミアム",
+              "vi": "cao cấp, tiền thưởng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "往復",
+              "read": "おうふく",
+              "vi": "khứ hồi, hai chiều"
+            },
+            {
+              "w": "座席",
+              "read": "ざせき",
+              "vi": "ghế ngồi"
+            },
+            {
+              "w": "指定",
+              "read": "してい",
+              "vi": "chỉ định"
+            },
+            {
+              "w": "病気",
+              "read": "びょうき",
+              "vi": "bệnh tật, ốm đau"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý"
+            },
+            {
+              "w": "紛失",
+              "read": "ふんしつ",
+              "vi": "mất, thất lạc"
+            },
+            {
+              "w": "座席指定",
+              "read": "ざせきしてい",
+              "vi": "chỉ định ghế ngồi"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "荷物の紛失",
+              "why": "CHỈ gói Premium bảo hiểm mất hành lý — căn cứ trực tiếp cho câu hỏi về mất hành lý."
+            },
+            {
+              "w": "8,000円",
+              "why": "Giá gốc gói Premium, dùng để tính tổng cuối cùng."
+            }
+          ]
+        },
+        {
+          "jp": "学生なら、学生証を見せれば、どのプランも1,000円安くなります。",
+          "vi": "Nếu là học sinh, chỉ cần xuất trình thẻ học sinh thì gói nào cũng được giảm 1.000 yên.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh, sinh viên"
+            },
+            {
+              "w": "見せれば",
+              "read": "みせれば",
+              "vi": "nếu cho xem"
+            },
+            {
+              "w": "どの",
+              "read": "どの",
+              "vi": "nào"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "安くなります",
+              "read": "やすくなります",
+              "vi": "trở nên rẻ hơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 61 target）",
+              "vi": "学生なら = nếu là học sinh (giả thiết theo đối tượng, xác định điều kiện áp dụng ưu đãi). 接続: N + なら."
+            },
+            {
+              "point": "〜ば（Bài 61 target）",
+              "vi": "見せれば = chỉ cần xuất trình thì. 接続: Vる（見せる）→ 見せれば. ば nhấn điều kiện tối thiểu cần làm để được giảm giá."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生なら",
+              "why": "Điều kiện đối tượng: PHẢI là học sinh mới áp dụng giảm giá này — điều kiện bắt buộc cho câu hỏi ghép."
+            },
+            {
+              "w": "1,000円安くなります",
+              "why": "Mức giảm cụ thể cho học sinh, cần trừ vào giá gốc khi tính tổng."
+            }
+          ]
+        },
+        {
+          "jp": "出発日の2週間前までに申し込めば、さらに500円安くなります。ただし、出発日の3日前を過ぎたら、この割引は受けられません。",
+          "vi": "Nếu đăng ký trước ngày khởi hành 2 tuần thì sẽ được giảm thêm 500 yên. Tuy nhiên, nếu đã qua mốc 3 ngày trước ngày khởi hành thì không được hưởng ưu đãi này nữa.",
+          "vocab": [
+            {
+              "w": "出発",
+              "read": "しゅっぱつ",
+              "vi": "xuất phát, khởi hành"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "ただし",
+              "read": "ただし",
+              "vi": "tuy nhiên, nhưng có một điều"
+            },
+            {
+              "w": "過ぎます",
+              "read": "すぎます",
+              "vi": "vượt qua, quá"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá, chiết khấu"
+            },
+            {
+              "w": "受けられません",
+              "read": "うけられません",
+              "vi": "không thể nhận được"
+            },
+            {
+              "w": "出発日",
+              "read": "しゅっぱつび",
+              "vi": "ngày khởi hành"
+            },
+            {
+              "w": "週間",
+              "read": "しゅうかん",
+              "vi": "tuần (đơn vị thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 61 target）",
+              "vi": "申し込めば = chỉ cần đăng ký (trước 2 tuần) thì. 接続: Vる（申し込む）→ 申し込めば. ば nhấn điều kiện thời hạn để được giảm thêm."
+            },
+            {
+              "point": "〜たら（Bài 61 target）",
+              "vi": "過ぎたら = nếu (lỡ) đã qua mốc 3 ngày thì. 接続: Vた（過ぎた）+ ら. たら nhấn sự việc cụ thể \"đã quá mốc\" rồi mới xét kết quả (mất quyền lợi) — khác ば vì đây là mốc thời gian cụ thể, không phải điều kiện chung."
+            }
+          ],
+          "keys": [
+            {
+              "w": "2週間前までに申し込めば",
+              "why": "Điều kiện thời hạn để được giảm thêm 500 yên — ghép với điều kiện học sinh ở câu hỏi tính tổng phí."
+            },
+            {
+              "w": "3日前を過ぎたら、この割引は受けられません",
+              "why": "Cảnh báo ※ dạng turn: qua mốc 3 ngày thì MẤT ưu đãi sớm — bẫy cho câu hỏi về ngày đăng ký sát giờ."
+            }
+          ]
+        },
+        {
+          "jp": "天気が悪くて電車が止まったら、保険から交通費の一部が支払われます（スタンダードプラン以上のみ）。",
+          "vi": "Nếu thời tiết xấu khiến tàu dừng chạy thì một phần chi phí đi lại sẽ được bảo hiểm chi trả (chỉ áp dụng từ gói Standard trở lên).",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "止まります",
+              "read": "とまります",
+              "vi": "dừng lại"
+            },
+            {
+              "w": "保険",
+              "read": "ほけん",
+              "vi": "bảo hiểm"
+            },
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            },
+            {
+              "w": "支払われます",
+              "read": "しはらわれます",
+              "vi": "được chi trả (thụ động)"
+            },
+            {
+              "w": "スタンダード",
+              "read": "スタンダード",
+              "vi": "tiêu chuẩn, thông thường"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "交通費",
+              "read": "こうつうひ",
+              "vi": "chi phí đi lại"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 61 target）",
+              "vi": "止まったら = nếu (lỡ) tàu dừng thì. 接続: Vた（止まった）+ ら. たら phù hợp vì đây là sự việc cụ thể/bất ngờ (tàu dừng), không phải quy luật tất yếu."
+            },
+            {
+              "point": "受身形（Bài 37 ôn）",
+              "vi": "支払われます = được chi trả. 受身 (Bài 37): 支払う → 支払われる."
+            }
+          ],
+          "keys": [
+            {
+              "w": "天気が悪くて電車が止まったら",
+              "why": "Điều kiện bồi thường: chỉ khi tàu dừng vì thời tiết xấu mới được chi trả — căn cứ cho câu hỏi về trường hợp được bồi thường."
+            },
+            {
+              "w": "スタンダードプラン以上のみ",
+              "why": "Giới hạn quan trọng: gói Light KHÔNG được hưởng quyền lợi này — bẫy chính của câu hỏi ghép gói + tình huống."
+            }
+          ]
+        },
+        {
+          "jp": "※プレミアムプランなら、荷物がなくなったときも保険金が出ます。",
+          "vi": "※ Nếu là gói Premium thì khi bị mất hành lý cũng được nhận tiền bảo hiểm.",
+          "vocab": [
+            {
+              "w": "プレミアム",
+              "read": "プレミアム",
+              "vi": "cao cấp, tiền thưởng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "なくなる",
+              "read": "なくなる",
+              "vi": "mất đi, hết"
+            },
+            {
+              "w": "保険",
+              "read": "ほけん",
+              "vi": "bảo hiểm"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "được chi ra, xuất hiện"
+            },
+            {
+              "w": "なくなります",
+              "read": "なくなります",
+              "vi": "biến mất, không còn"
+            },
+            {
+              "w": "保険金",
+              "read": "ほけんきん",
+              "vi": "tiền bảo hiểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 61 target）",
+              "vi": "プレミアムプランなら = nếu là gói Premium (giả thiết theo gói đã chọn, xác định điều kiện áp dụng). 接続: N + なら."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※プレミアムプランなら",
+              "why": "Chú thích ※ nhắc lại: chỉ Premium mới có bảo hiểm mất hành lý — cần đối chiếu với dòng bảng ban đầu."
+            }
+          ]
+        },
+        {
+          "jp": "※キャンセルする場合は、出発日の前日までにご連絡ください。当日のキャンセルは料金の半分が戻りません。",
+          "vi": "※ Trường hợp hủy, vui lòng liên hệ trước ngày khởi hành một ngày. Hủy trong ngày sẽ không được hoàn lại một nửa số tiền.",
+          "vocab": [
+            {
+              "w": "キャンセル",
+              "read": "キャンセル",
+              "vi": "hủy"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "出発",
+              "read": "しゅっぱつ",
+              "vi": "xuất phát, khởi hành"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "連絡します",
+              "read": "れんらくします",
+              "vi": "liên hệ"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, đúng ngày"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "半分",
+              "read": "はんぶん",
+              "vi": "một nửa"
+            },
+            {
+              "w": "戻ります",
+              "read": "もどります",
+              "vi": "được hoàn lại, quay lại"
+            },
+            {
+              "w": "キャンセルします",
+              "read": "キャンセルします",
+              "vi": "hủy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合は（Bài 45 ôn）",
+              "vi": "キャンセルする場合は = trường hợp hủy thì. 場合は (Bài 45)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "当日のキャンセルは料金の半分が戻りません",
+              "why": "Điều kiện phạt hủy trong ngày — dòng turn dễ bẫy khi câu hỏi hỏi về số tiền được hoàn."
+            }
+          ]
+        },
+        {
+          "jp": "お支払いはクレジットカードか窓口での現金のみです。コンビニでは支払えませんので、ご注意ください。",
+          "vi": "Thanh toán chỉ bằng thẻ tín dụng hoặc tiền mặt tại quầy. Không thể thanh toán ở cửa hàng tiện lợi, xin lưu ý.",
+          "vocab": [
+            {
+              "w": "支払い",
+              "read": "しはらい",
+              "vi": "việc thanh toán"
+            },
+            {
+              "w": "クレジットカード",
+              "read": "クレジットカード",
+              "vi": "thẻ tín dụng"
+            },
+            {
+              "w": "窓口",
+              "read": "まどぐち",
+              "vi": "quầy giao dịch, cửa sổ tiếp nhận"
+            },
+            {
+              "w": "現金",
+              "read": "げんきん",
+              "vi": "tiền mặt"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi"
+            },
+            {
+              "w": "支払える",
+              "read": "しはらえる",
+              "vi": "có thể thanh toán, có thể trả"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "お支払い",
+              "read": "おしはらい",
+              "vi": "sự thanh toán"
+            },
+            {
+              "w": "ご注意ください",
+              "read": "ごちゅういください",
+              "vi": "xin lưu ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のみ（Bài 27 応用 しか〜ない）",
+              "vi": "クレジットカードか窓口での現金のみ = chỉ thẻ tín dụng hoặc tiền mặt tại quầy. のみ giới hạn phạm vi phương thức thanh toán, cùng nhóm với しか〜ない (Bài 27)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "クレジットカードか窓口での現金のみ",
+              "why": "Giới hạn phương thức thanh toán — bẫy nếu câu hỏi hỏi có thể trả bằng cách nào (loại trừ コンビニ払い)."
+            }
+          ]
+        },
+        {
+          "jp": "お申し込み・お問い合わせ：さくら旅行センター（電話：03-4567-8901、受付　平日9:00〜18:00）",
+          "vi": "Đăng ký / liên hệ: Trung tâm Du lịch Sakura (điện thoại: 03-4567-8901, tiếp nhận thứ Hai–thứ Sáu 9:00–18:00)",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "tiếp nhận, lễ tân"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai–thứ Sáu)"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "平日9:00〜18:00",
+              "why": "Khung giờ liên hệ — không phải căn cứ chính cho câu hỏi giá nhưng có thể dùng làm nhiễu."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "旅行に行くなら、電車のチケットと旅行保険を一緒に申し込むと便利です",
+          "label": "〜なら／〜と（Bài 61 target: giả thiết mở đầu ＋ kết quả tất yếu）"
+        },
+        {
+          "excerpt": "学生なら、学生証を見せれば、どのプランも1,000円安くなります",
+          "label": "〜なら／〜ば（Bài 61 target: điều kiện đối tượng ＋ điều kiện tối thiểu）"
+        },
+        {
+          "excerpt": "出発日の3日前を過ぎたら、この割引は受けられません",
+          "label": "〜たら（Bài 61 target: mốc thời gian cụ thể）"
+        },
+        {
+          "excerpt": "支払われます",
+          "label": "受身形（Bài 37 ôn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề + lời mở",
+          "topic": 0,
+          "note": "Giới thiệu gói combo vé tàu + bảo hiểm, đặt tiền đề \"nếu đi du lịch\".",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng 3 gói",
+          "topic": 2,
+          "note": "So sánh 3 gói theo vé tàu / nội dung bảo hiểm / giá — cột dữ liệu chính để dò.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "point",
+          "label": "Ưu đãi học sinh + đặt sớm",
+          "topic": 6,
+          "note": "Hai điều kiện giảm giá có thể CỘNG DỒN: học sinh (−1,000円) và đặt trước 2 tuần (−500円); mốc 3 ngày trước là hạn chót.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện bồi thường & ※ ngoại lệ",
+          "topic": 8,
+          "note": "Bẫy chính: bồi thường tàu dừng chỉ từ Standard trở lên; mất hành lý chỉ Premium.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 12,
+          "kind": "body",
+          "label": "Quy định hủy + thanh toán + liên hệ",
+          "topic": 10,
+          "note": "Thông tin phụ trợ: hủy trong ngày mất nửa tiền, phương thức thanh toán, thông tin liên hệ.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学生のグエンさんは、出発日の10日前に、スタンダードプランを申し込みます。学生証を見せました。全部でいくら払いますか。",
+          "options": [
+            "5,000円",
+            "4,000円",
+            "4,500円",
+            "3,500円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B — 4,000円. Gói Standard giá gốc 5,000円 (dòng bảng \"スタンダードプラン｜往復｜けが＋病気｜5,000円\"). Gia Nguyen là học sinh và xuất trình thẻ → giảm thêm 1,000円 (\"学生なら、学生証を見せれば、どのプランも1,000円安くなります\") → còn 4,000円. Ưu đãi đặt sớm 500円 CHỈ áp dụng khi đăng ký trước 2 TUẦN (\"出発日の2週間前までに申し込めば\"), nhưng Gia Nguyen chỉ đăng ký trước 10 NGÀY (chưa đủ 2 tuần) → KHÔNG được giảm thêm 500円. A sai vì quên trừ ưu đãi học sinh. C sai vì cộng nhầm chỉ giảm 500円 (tưởng được ưu đãi đặt sớm dù chưa đủ 2 tuần). D sai vì cộng cả hai ưu đãi (500+1,000=1,500) trong khi điều kiện đặt sớm chưa thỏa mãn.",
+          "tip": "Bài toán ghép 2 điều kiện: luôn kiểm tra TỪNG điều kiện giảm giá có thật sự thỏa mãn không (đối tượng ĐÚNG + thời hạn ĐÚNG) trước khi cộng dồn — đừng giảm giá khi mốc thời gian chưa đạt.",
+          "evi": [
+            4,
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Sinh viên đại học anh Nguyễn đăng ký gói Standard trước ngày khởi hành 10 ngày. Anh ấy đã xuất trình thẻ sinh viên. Tổng cộng anh ấy phải trả bao nhiêu?",
+            "o": [
+              "5.000 yên",
+              "4.000 yên",
+              "4.500 yên",
+              "3.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "ライさんはライトプランを申し込みました。旅行中に天気が悪くて電車が止まり、さらに荷物もなくなりました。保険金はどうなりますか。",
+          "options": [
+            "交通費も荷物の分も両方保険金が出る",
+            "交通費の一部は出るが、荷物の分は出ない",
+            "荷物の分は出るが、交通費は出ない",
+            "交通費も荷物の分もどちらも保険金は出ない"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng: D — cả hai đều KHÔNG được chi trả. Theo bảng, gói Light (\"ライトプラン｜片道のみ｜けがのみ｜3,000円\") chỉ bảo hiểm tai nạn thương tích, KHÔNG bao gồm bồi thường tàu dừng lẫn mất hành lý. Dòng \"天気が悪くて電車が止まったら、保険から交通費の一部が支払われます（スタンダードプラン以上のみ）\" ghi rõ quyền lợi này CHỈ áp dụng từ gói Standard trở lên — gói Light không đủ điều kiện. Dòng \"※プレミアムプランなら、荷物がなくなったときも保険金が出ます\" ghi rõ bảo hiểm mất hành lý CHỈ có ở gói Premium — gói Light cũng không có. A, B, C đều sai vì đều giả định gói Light có ít nhất một trong hai quyền lợi trên, nhưng thực tế không có quyền lợi nào.",
+          "tip": "Khi câu hỏi ghép \"gói nào đó + 2 tình huống\", phải kiểm tra RIÊNG từng tình huống với đúng gói đang hỏi — đừng nhầm quyền lợi của gói cao hơn (Standard/Premium) sang gói thấp hơn (Light).",
+          "evi": [
+            3,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Anh Lai đã đăng ký gói Light. Trong chuyến đi, thời tiết xấu khiến tàu dừng chạy, và hành lý của anh ấy cũng bị thất lạc. Bảo hiểm sẽ chi trả thế nào?",
+            "o": [
+              "Bảo hiểm sẽ chi trả cả chi phí đi lại lẫn phần hành lý",
+              "Bảo hiểm sẽ chi trả một phần chi phí đi lại, nhưng không chi trả phần hành lý",
+              "Bảo hiểm sẽ chi trả phần hành lý, nhưng không chi trả chi phí đi lại",
+              "Bảo hiểm sẽ không chi trả cả chi phí đi lại lẫn phần hành lý"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3322 @@
+{
+  "bai": 53,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 53 tập trung vào hai mẫu ngữ pháp cốt lõi: べきだ／べきではない và ものだ. Điểm quan trọng nhất là phân biệt SẮC THÁI: べきだ = \"nên\" về mặt ĐẠO LÝ / LẼ PHẢI (lời khuyên mang tính chuẩn mực, chủ quan của người nói) ≠ なければならない (bắt buộc khách quan, quy tắc bên ngoài, Bài 17) ≠ ほうがいい (khuyên nhẹ nhàng, thiên về thực tế, Bài 32). ものだ có ba nghĩa: (a) chân lý / lẽ thường (\"vốn dĩ là vậy\"), (b) hồi tưởng (\"ngày xưa hay…\"), (c) cảm thán. Bài nghị luận dưới đây dùng べき nổi bật để bày tỏ quan điểm về phép lịch sự — đây là cách viết phổ biến trong bài luận N3/N2.",
+    "steps": [
+      "Nhận diện べきだ / べきではない: tìm động từ thể từ điển + べき (する → すべき / するべき đều được). Đây là \"nên về lẽ phải\", giọng mạnh, có cương vị đạo lý.",
+      "Phân biệt べき vs なければならない: べき là ý kiến chủ quan của người nói (\"theo tôi, đây là điều lẽ ra nên làm\"); なければならない là bắt buộc theo quy tắc khách quan (\"phải làm — nếu không vi phạm quy tắc\").",
+      "Phân biệt べき vs ほうがいい: ほうがいい là gợi ý nhẹ (\"tốt hơn là làm X\"), còn べき nghe nặng hơn — thể hiện chuẩn mực / nghĩa vụ đạo đức.",
+      "Nhận diện ものだ: (a) Vる + ものだ = chân lý / lẽ thường (\"đương nhiên là vậy\"); (b) Vた + ものだ = hồi tưởng (\"ngày xưa hay\"); (c) cảm thán. Gặp ものだ, hỏi ngay \"đây là nghĩa nào?\".",
+      "Câu hỏi suy luận: \"Tại sao tác giả dùng べき chứ không dùng なければならない?\" → vì tác giả đang nêu quan điểm cá nhân về đạo lý, không phải trích quy tắc pháp luật.",
+      "Đọc 接続詞: しかし / また / つまり / そのため — chúng cho biết mạch lập luận (đối lập, bổ sung, kết luận)."
+    ],
+    "tips": [
+      "べきだ vs なければならない — mẹo nhớ: べきだ nghe có \"tiếng trong lòng người viết\" (đạo lý, chuẩn mực xã hội). なければならない nghe như \"lệnh từ ngoài\" (quy tắc, luật lệ).",
+      "べきだ vs ほうがいい — mẹo nhớ: ほうがいい = \"tôi thấy bạn nên thế này\" (lời khuyên thân thiện); べきだ = \"đây là điều xã hội/lẽ phải đòi hỏi\" (có trọng lượng hơn).",
+      "する + べき = すべき (dạng chuẩn văn viết) hoặc するべき (khẩu ngữ/hơi mềm hơn) — đề thi N3 chấp nhận cả hai.",
+      "ものだ nghĩa \"lẽ thường\" hay xuất hiện với 〜は〜ものだ (định nghĩa chân lý). Đừng nhầm với ものだから (lý do, N4 Bài 26 bnds).",
+      "Khi câu hỏi hỏi \"quan điểm của tác giả\", tìm câu có べきだ / べきではない — đó là nơi tác giả trực tiếp đưa ra lập trường.",
+      "Highlight nhãn \"Sắc thái\": chú ý べき mang sắc thái MẠNH — trong văn cãi hoặc phê bình, nó thể hiện sự phán xét rõ ràng hơn ほうがいい nhiều."
+    ],
+    "grammarFocus": [
+      "〜べきだ（Vる + べきだ: nên/lẽ phải — đạo lý/chuẩn mực, chủ quan）",
+      "〜べきではない（không nên — về mặt đạo lý）",
+      "〜ものだ（chân lý/lẽ thường・hồi tưởng・cảm thán）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 52,
+        "items": [
+          "にちがいない（xác tín chủ quan）",
+          "かもしれない（khả năng）"
+        ]
+      },
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ（suy luận có cơ sở）",
+          "〜はずがない"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接 — vậy mà）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（nguyên nhân lịch sự）"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "〜てある（trạng thái kết quả chuẩn bị）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思う（bày tỏ ý kiến）"
+        ]
+      },
+      {
+        "bai": 20,
+        "items": [
+          "普通形（thể thông thường）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "お礼の言葉",
+      "titleVi": "Lời cảm ơn",
+      "japanese": "電車でお年寄りに席を譲ったとき、相手が何も言わずに座った。そういうとき、少し残念な気持ちになる。\n人に親切にしてもらったら、きちんとお礼を言うべきだと私は思う。\nお礼の言葉は、相手への敬意を示すものだ。\n「ありがとう」の一言があるかないかで、その場の雰囲気はまったく変わる。\nもちろん、助けた側も見返りを求めるべきではない。\nしかし、感謝の気持ちを言葉にすることは、人と人のつながりを深めるはずだ。\n小さなお礼でも、言わないよりずっといいと思う。",
+      "vietnamese": "Khi nhường ghế cho người lớn tuổi trên tàu điện, đối phương ngồi xuống mà không nói gì. Những lúc như vậy, tôi cảm thấy hơi tiếc.\nTôi nghĩ rằng khi được người khác giúp đỡ, ta nên nói lời cảm ơn đúng mực.\nLời cảm ơn là thứ thể hiện sự tôn trọng đối với người kia.\nChỉ một tiếng \"cảm ơn\" thôi, bầu không khí lúc đó sẽ hoàn toàn thay đổi.\nTất nhiên, người đã giúp cũng không nên mong được đền đáp.\nNhưng việc nói thành lời cảm xúc biết ơn chắc sẽ làm sâu thêm mối liên kết giữa người với người.\nDù chỉ là lời cảm ơn nhỏ, nói còn hơn là không nói.",
+      "sentences": [
+        {
+          "jp": "電車でお年寄りに席を譲ったとき、相手が何も言わずに座った。そういうとき、少し残念な気持ちになる。",
+          "vi": "Khi nhường ghế cho người lớn tuổi trên tàu điện, đối phương ngồi xuống mà không nói gì. Những lúc như vậy, tôi cảm thấy hơi tiếc.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "年寄り",
+              "read": "としより",
+              "vi": "người già, người cao tuổi"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi, ghế"
+            },
+            {
+              "w": "譲ります",
+              "read": "ゆずります",
+              "vi": "nhường, nhường lại"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "座る",
+              "read": "すわる",
+              "vi": "ngồi, an tọa"
+            },
+            {
+              "w": "そういう",
+              "read": "そういう",
+              "vi": "như vậy, loại đó"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "残念",
+              "read": "ざんねん",
+              "vi": "tiếc, đáng tiếc"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm giác, tâm trạng"
+            },
+            {
+              "w": "お年寄り",
+              "read": "おとしより",
+              "vi": "người lớn tuổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "譲ったとき = khi (đã) nhường ghế. V過去形 + とき = thời điểm sau khi hành động hoàn tất."
+            },
+            {
+              "point": "〜ずに（Bài 17 ない形）",
+              "vi": "何も言わずに座った = ngồi xuống mà không nói gì. Vない + ずに = \"không làm V mà lại…\" (cách dùng trang trọng của Vないで)."
+            }
+          ]
+        },
+        {
+          "jp": "人に親切にしてもらったら、きちんとお礼を言うべきだと私は思う。",
+          "vi": "Tôi nghĩ rằng khi được người khác giúp đỡ, ta nên nói lời cảm ơn đúng mực.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "親切",
+              "read": "しんせつ",
+              "vi": "tử tế, lòng tốt"
+            },
+            {
+              "w": "してもらったら",
+              "read": "してもらったら",
+              "vi": "nếu được ai đó làm giúp"
+            },
+            {
+              "w": "きちんと",
+              "read": "きちんと",
+              "vi": "đàng hoàng, chu đáo"
+            },
+            {
+              "w": "お礼",
+              "read": "おれい",
+              "vi": "lời cảm ơn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "お礼を言うべきだ = nên nói lời cảm ơn (về mặt đạo lý / lẽ phải). 接続: Vる + べきだ. Sắc thái: chủ quan người nói, mang tính chuẩn mực đạo lý mạnh hơn ほうがいい (\"khuyên nhẹ\", Bài 32) và khác なければならない (\"bắt buộc khách quan\", Bài 17)."
+            },
+            {
+              "point": "〜てもらったら（Bài 24 + Bài 25）",
+              "vi": "してもらったら = nếu/khi được người khác làm cho. てもらう（Bài 24）+ たら（Bài 25）= điều kiện \"một khi được giúp\"."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "…べきだと私は思う = tôi nghĩ rằng… nên. Người viết nêu ý kiến cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "お礼の言葉は、相手への敬意を示すものだ。",
+          "vi": "Lời cảm ơn là thứ thể hiện sự tôn trọng đối với người kia.",
+          "vocab": [
+            {
+              "w": "お礼",
+              "read": "おれい",
+              "vi": "lời cảm ơn"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, ngôn từ"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "敬意",
+              "read": "けいい",
+              "vi": "sự tôn trọng, kính trọng"
+            },
+            {
+              "w": "示します",
+              "read": "しめします",
+              "vi": "thể hiện, chỉ ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものだ（lẽ thường/chân lý）",
+              "vi": "敬意を示すものだ = (lời cảm ơn) vốn dĩ là thứ thể hiện sự tôn trọng — đây là lẽ thường, chân lý xã hội. 接続: Vる + ものだ. Phân biệt: ものだ (chân lý tổng quát) ≠ べきだ (lẽ phải, bổn phận chủ quan)."
+            }
+          ]
+        },
+        {
+          "jp": "「ありがとう」の一言があるかないかで、その場の雰囲気はまったく変わる。",
+          "vi": "Chỉ một tiếng \"cảm ơn\" thôi, bầu không khí lúc đó sẽ hoàn toàn thay đổi.",
+          "vocab": [
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "一言",
+              "read": "ひとこと",
+              "vi": "một câu nói, một lời"
+            },
+            {
+              "w": "場",
+              "read": "ば",
+              "vi": "bầu không khí, nơi, địa điểm"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "không khí, bầu không khí"
+            },
+            {
+              "w": "まったく",
+              "read": "まったく",
+              "vi": "hoàn toàn, tuyệt đối"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "その場",
+              "read": "そのば",
+              "vi": "lúc đó, tại chỗ đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かないかで（Bài 18 Vる + か）",
+              "vi": "あるかないかで = tùy theo có hay không có. Cấu trúc \"AかないかでBが変わる\" = \"B thay đổi tùy theo A hay không\"."
+            }
+          ]
+        },
+        {
+          "jp": "もちろん、助けた側も見返りを求めるべきではない。",
+          "vi": "Tất nhiên, người đã giúp cũng không nên mong được đền đáp.",
+          "vocab": [
+            {
+              "w": "もちろん",
+              "read": "もちろん",
+              "vi": "tất nhiên, dĩ nhiên"
+            },
+            {
+              "w": "助けます",
+              "read": "たすけます",
+              "vi": "giúp đỡ, cứu giúp"
+            },
+            {
+              "w": "側",
+              "read": "がわ",
+              "vi": "phía, bên"
+            },
+            {
+              "w": "見返り",
+              "read": "みかえり",
+              "vi": "sự đền đáp, phần thưởng đổi lại"
+            },
+            {
+              "w": "求めます",
+              "read": "もとめます",
+              "vi": "cầu mong, tìm kiếm"
+            },
+            {
+              "w": "〜側",
+              "read": "〜がわ",
+              "vi": "phía ~, bên ~"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきではない（TRỌNG TÂM）",
+              "vi": "求めるべきではない = không nên mong đền đáp (về mặt đạo lý). Dạng phủ định của べきだ: Vる + べきではない = \"không nên làm V — theo lẽ phải\". Sắc thái vẫn mạnh, thể hiện phán xét đạo đức của người viết."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、感謝の気持ちを言葉にすることは、人と人のつながりを深めるはずだ。",
+          "vi": "Nhưng việc nói thành lời cảm xúc biết ơn chắc sẽ làm sâu thêm mối liên kết giữa người với người.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "感謝",
+              "read": "かんしゃ",
+              "vi": "lòng biết ơn, sự cảm ơn"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "つながり",
+              "read": "つながり",
+              "vi": "mối liên kết, sự kết nối"
+            },
+            {
+              "w": "深めます",
+              "read": "ふかめます",
+              "vi": "làm sâu thêm, tăng cường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることは〜（Bài 38）",
+              "vi": "言葉にすることは = việc nói thành lời. こと danh từ hoá mệnh đề làm chủ đề."
+            },
+            {
+              "point": "〜はずだ（Bài 51 — ôn lại）",
+              "vi": "深めるはずだ = chắc sẽ làm sâu thêm. はずだ = suy luận có cơ sở logic. So sánh: べきだ (lẽ phải) ≠ はずだ (suy luận)."
+            }
+          ]
+        },
+        {
+          "jp": "小さなお礼でも、言わないよりずっといいと思う。",
+          "vi": "Dù chỉ là lời cảm ơn nhỏ, nói còn hơn là không nói.",
+          "vocab": [
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ, nhỏ bé"
+            },
+            {
+              "w": "お礼",
+              "read": "おれい",
+              "vi": "lời cảm ơn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "nhiều hơn hẳn, xa hơn"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜でも（Bài 25）",
+              "vi": "小さなお礼でも = dù chỉ là lời cảm ơn nhỏ. でも = \"ngay cả / dù\". Ôn lại Bài 25."
+            },
+            {
+              "point": "〜よりずっといい（Bài 12）",
+              "vi": "言わないよりずっといい = tốt hơn hẳn so với không nói. Cấu trúc so sánh Bài 12."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "Người viết kết thúc bài bằng ý kiến cá nhân nhẹ nhàng hơn sau khi đã dùng べき để lập luận."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "きちんとお礼を言うべきだ",
+          "label": "〜べきだ（lẽ phải — đạo lý）"
+        },
+        {
+          "excerpt": "お礼の言葉は、相手への敬意を示すものだ",
+          "label": "〜ものだ（chân lý / lẽ thường）"
+        },
+        {
+          "excerpt": "見返りを求めるべきではない",
+          "label": "〜べきではない（không nên — đạo lý）"
+        },
+        {
+          "excerpt": "深めるはずだ",
+          "label": "Sắc thái: はずだ（suy luận）≠ べきだ（lẽ phải）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者（ひっしゃ）はどんなことをすべきだと言っていますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "人を助けたら、必ず見返りを求めるべきです",
+            "人に親切にしてもらったら、きちんとお礼を言うべきです",
+            "電車ではお年寄りに必ず席を譲らなければなりません",
+            "助けた側は感謝されるべきです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi rõ「人に親切にしてもらったら、きちんとお礼を言うべきだと私は思う」— đây là chủ trương trung tâm của tác giả: khi được giúp đỡ, ta có nghĩa vụ đạo lý nói lời cảm ơn đúng mực. Đáp án 1 sai hoàn toàn vì bài lại nói「見返りを求めるべきではない」(không nên đòi đền đáp) — ý ngược lại. Đáp án 3 dùng「なければならない」(bắt buộc theo quy tắc khách quan), nhưng bài KHÔNG bao giờ nói việc nhường ghế là nghĩa vụ bắt buộc; tác giả chỉ dùng べき để nêu quan điểm đạo lý cá nhân. Đáp án 4 không xuất hiện trong bài.",
+          "tip": "Câu hỏi hỏi \"suベきだ\" → tìm câu có べきだ trong bài, đọc chủ ngữ + nội dung. Loại ngay đáp án nào dùng なければならない vì sắc thái khác (bắt buộc khách quan ≠ lẽ phải đạo lý chủ quan).",
+          "qt": {
+            "q": "Tác giả cho rằng nên làm điều gì?",
+            "o": [
+              "Nếu giúp người khác thì nhất định nên đòi hỏi được đền đáp",
+              "Khi được người khác đối xử tử tế, nên nói lời cảm ơn một cách đàng hoàng",
+              "Trên tàu điện, nhất định phải nhường ghế cho người cao tuổi",
+              "Người giúp đỡ nên được cảm ơn"
+            ]
+          }
+        },
+        {
+          "q": "「お礼の言葉は、相手への敬意を示すものだ」の「ものだ」はどんな意味ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "昔は感謝の言葉を言うことが多かったという回想",
+            "筆者が感動して言葉にした気持ち",
+            "「感謝の言葉とはそういうものだ」という一般的な真理・当然のこと",
+            "感謝の言葉を言うように指示している"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3. Câu「お礼の言葉は、相手への敬意を示すものだ」dùng cấu trúc「Vる + ものだ」, nghĩa là \"vốn dĩ / đương nhiên là như vậy\" — diễn đạt chân lý/lẽ thường xã hội (ví dụ quen thuộc: 「人はいつか死ぬものだ」). Đây không phải hồi tưởng (đáp án 1) vì hồi tưởng dùng「Vていた + ものだ」(thể quá khứ tiếp diễn). Đáp án 2 (cảm thán) sai vì câu này là câu định nghĩa chân lý, không phải câu cảm thán. Đáp án 4 nhầm ものだ với べきだ — ものだ không có nghĩa \"chỉ thị/ra lệnh\".",
+          "tip": "Phân biệt nhanh ものだ theo hình thức động từ trước nó: Vる + ものだ = chân lý/lẽ thường; Vていた + ものだ = hồi tưởng thói quen cũ. Gặp câu \"A は B するものだ\" kiểu định nghĩa → chắc chắn là chân lý.",
+          "qt": {
+            "q": "Trong câu 「お礼の言葉は、相手への敬意を示すものだ」 (Lời cảm ơn thể hiện sự kính trọng đối với người kia), 「ものだ」 có nghĩa như thế nào?",
+            "o": [
+              "Hồi tưởng rằng ngày xưa người ta thường nói lời cảm ơn",
+              "Cảm xúc mà tác giả đã diễn đạt thành lời vì xúc động",
+              "Một chân lý hoặc điều hiển nhiên nói chung, như trong “lời cảm ơn vốn là như vậy”",
+              "Đang chỉ dẫn người khác hãy nói lời cảm ơn"
+            ]
+          }
+        },
+        {
+          "q": "「お礼を言うべきだ」と「お礼を言ったほうがいい」の違いについて、この文章の観点から正しいものはどれですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "意味は全く同じで、どちらも使えます",
+            "「べきだ」は軽い提案、「ほうがいい」は強い義務を表します",
+            "「べきだ」は道徳的・規範的な「当然すべきこと」、「ほうがいい」は軽い提案です",
+            "「べきだ」は法律で決まっていること、「ほうがいい」は個人の意見です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3. Trong bài, tác giả viết「きちんとお礼を言うべきだ」— dùng べきだ để khẳng định đây là chuẩn mực đạo lý, điều mà theo người viết là \"lẽ đương nhiên phải làm\" (sắc thái mạnh, chủ quan có lập trường). Nếu thay bằng「ほうがいい」thì chỉ là \"tốt hơn là nói\" — gợi ý nhẹ nhàng, không mang trọng lượng đạo lý. Đáp án 1 sai vì hai cấu trúc khác nhau về sắc thái rõ ràng. Đáp án 2 đảo ngược hoàn toàn (べきだ mạnh hơn ほうがいい, không phải ngược lại). Đáp án 4 nhầm べきだ với なければならない — べきだ là phán xét đạo lý chủ quan của người nói, không phải quy định pháp lý.",
+          "tip": "Thang độ mạnh yếu: ほうがいい (khuyên nhẹ) < べきだ (lẽ phải, đạo lý chủ quan) < なければならない (bắt buộc khách quan). Gặp câu hỏi so sánh sắc thái, nhớ thứ tự này để loại ngay đáp án đảo ngược.",
+          "qt": {
+            "q": "Xét theo góc nhìn của bài viết này, đâu là cách hiểu đúng về sự khác nhau giữa 「お礼を言うべきだ」 (nên nói lời cảm ơn) và 「お礼を言ったほうがいい」 (tốt hơn là nên nói lời cảm ơn)?",
+            "o": [
+              "Ý nghĩa hoàn toàn giống nhau, và có thể dùng cả hai",
+              "「べきだ」 diễn tả một lời đề nghị nhẹ nhàng, còn 「ほうがいい」 diễn tả nghĩa vụ mạnh mẽ",
+              "「べきだ」 diễn tả điều đương nhiên nên làm về mặt đạo đức hoặc quy tắc, còn 「ほうがいい」 là một lời đề nghị nhẹ nhàng",
+              "「べきだ」 là điều được quy định trong luật, còn 「ほうがいい」 là ý kiến cá nhân"
+            ]
+          }
+        },
+        {
+          "q": "筆者の意見として、最もよく合うものはどれですか。",
+          "evi": [
+            1,
+            6
+          ],
+          "options": [
+            "助けてもらっても、お礼を言わなくてもいいと思っています",
+            "見返りのために人を助けるべきだと考えています",
+            "お礼の言葉は小さくても大切で、言うべきだと考えています",
+            "感謝の気持ちを伝えることはかえって失礼だと思っています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3. Bài viết có hai câu phản ánh rõ quan điểm tác giả:「きちんとお礼を言うべきだと私は思う」và「小さなお礼でも、言わないよりずっといいと思う」— cả hai đều khẳng định dù lời cảm ơn nhỏ, vẫn nên nói còn hơn im lặng. Đáp án 1 trái ngược hoàn toàn với lập trường bài. Đáp án 2 cũng bị bác bỏ rõ ràng:「見返りを求めるべきではない」— tác giả nói không nên mong đền đáp, không phải giúp vì muốn đền đáp. Đáp án 4 không có cơ sở trong bài.",
+          "tip": "Câu hỏi hỏi quan điểm tác giả → tìm câu có べきだ hoặc と思う trong bài (đó là nơi tác giả trực tiếp lên tiếng). Loại ngay đáp án nào mâu thuẫn với câu べきではない đã xuất hiện trong bài.",
+          "qt": {
+            "q": "Đâu là ý kiến phù hợp nhất với quan điểm của tác giả?",
+            "o": [
+              "Tôi nghĩ rằng dù được giúp đỡ thì cũng không cần nói lời cảm ơn",
+              "Tôi cho rằng nên giúp người khác để được đền đáp",
+              "Tôi cho rằng lời cảm ơn dù nhỏ bé vẫn quan trọng và nên được nói ra",
+              "Tôi nghĩ rằng bày tỏ lòng biết ơn lại là thất lễ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "約束と時間",
+      "titleVi": "Lời hứa và thời gian",
+      "japanese": "社会の中で人と良い関係を作るには、時間を守ることがとても大切だ。友達と会う約束も、決められた時間を守るべきだ。急な用事ができた時は、事前に相手へ連絡をするものだ。\nしかし、最近は「少しの遅刻は問題ない」と軽く考える人が増えている。たとえば、約束の時間に遅れた時、理由も言わずに謝らない人もいる。時間に遅れる行動は、相手の大切な時間を奪うことと同じである。自分の都合だけを優先して、勝手な行動をするべきではない。\nつまり、時間を守るという態度は、相手への思いやりを示すものだ。一方、相手を気遣う気持ちがある場合は、約束の時間より早く到着する工夫をするはずだ。そのため、私たちは日頃から互いの時間を大切に扱うべきだ。小さな約束を守る積み重ねが、人との強い信頼につながるのである。",
+      "vietnamese": "Để tạo dựng mối quan hệ tốt đẹp với mọi người trong xã hội, việc giữ đúng giờ là vô cùng quan trọng. Dù là cuộc hẹn gặp bạn bè, ta cũng nên giữ đúng thời gian đã hẹn. Khi có việc đột xuất, người ta vốn dĩ nên liên lạc trước cho đối phương.\nTuy nhiên, dạo gần đây ngày càng có nhiều người suy nghĩ coi nhẹ rằng \"trễ một chút thì không sao\". Chẳng hạn, có những người khi đến trễ giờ hẹn lại không chịu xin lỗi và cũng không nói lý do. Hành vi đến trễ giờ đồng nghĩa với việc cướp đi thời gian quý báu của người khác. Ta không nên chỉ ưu tiên sự tiện lợi của bản thân mà hành động một cách tùy tiện.\nTóm lại, thái độ giữ đúng giờ chính là thứ thể hiện sự quan tâm đối với đối phương. Mặt khác, nếu có tấm lòng biết nghĩ cho người khác, người ta chắc chắn sẽ tìm cách để đến sớm hơn giờ hẹn. Vì vậy, hằng ngày chúng ta nên biết trân trọng thời gian của nhau. Chính việc tích tụ từng lời hứa nhỏ được giữ vững sẽ dẫn đến sự tin tưởng bền chặt giữa người với người.",
+      "sentences": [
+        {
+          "jp": "社会の中で人と良い関係を作るには、時間を守ることがとても大切だ。",
+          "vi": "Để tạo dựng mối quan hệ tốt đẹp với mọi người trong xã hội, việc giữ đúng giờ là vô cùng quan trọng。",
+          "vocab": [
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "守ります",
+              "read": "まもります",
+              "vi": "giữ, tuân thủ"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜には（Bài 33/42）",
+              "vi": "作るには = để/khi tạo dựng… (điều kiện/mục đích cần thiết)."
+            },
+            {
+              "point": "〜ことがとても大切だ（Bài 38）",
+              "vi": "時間を守ることが大切だ = việc giữ đúng giờ là quan trọng. Danh từ hóa động từ bằng こと."
+            }
+          ],
+          "keys": [
+            {
+              "w": "時間を守ることがとても大切だ",
+              "why": "Nêu quan điểm nền tảng của bài viết về tầm quan trọng của việc tuân thủ thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "友達と会う約束も、決められた時間を守るべきだ。",
+          "vi": "Dù là cuộc hẹn gặp bạn bè, ta cũng nên giữ đúng thời gian đã hẹn.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "会う",
+              "read": "あう",
+              "vi": "gặp, gặp mặt"
+            },
+            {
+              "w": "約束",
+              "read": "やくそく",
+              "vi": "cuộc hẹn, lời hứa"
+            },
+            {
+              "w": "決めます",
+              "read": "きめます",
+              "vi": "quyết định, ấn định"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（TRỌNG TÂM Bài 53）",
+              "vi": "守るべきだ = nên giữ đúng giờ (theo chuẩn mực đạo lý/lẽ phải). 接続: Vる + べきだ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "守るべきだ",
+              "why": "Mẫu câu thể hiện nghĩa vụ và khẳng định thái độ dứt khoát cần có đối với các cuộc hẹn."
+            }
+          ]
+        },
+        {
+          "jp": "急な用事ができた時は、事前に相手へ連絡をするものだ。",
+          "vi": "Khi có việc đột xuất, người ta vốn dĩ nên liên lạc trước cho đối phương.",
+          "vocab": [
+            {
+              "w": "急な",
+              "read": "きゅうな",
+              "vi": "đột xuất, gấp"
+            },
+            {
+              "w": "用事",
+              "read": "ようじ",
+              "vi": "việc cần làm"
+            },
+            {
+              "w": "できた",
+              "read": "できた",
+              "vi": "phát sinh, có"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "khi, thời điểm"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước đó"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người liên quan"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "する",
+              "read": "する",
+              "vi": "làm, thực hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものだ（TRỌNG TÂM Bài 53）",
+              "vi": "連絡をするものだ = (theo lẽ thường/chân lý ứng xử) người ta nên liên lạc trước. 接続: Vる + ものだ."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、最近は「少しの遅刻は問題ない」と軽く考える人が増えている。",
+          "vi": "Tuy nhiên, dạo gần đây ngày càng có nhiều người suy nghĩ coi nhẹ rằng \"trễ một chút thì không sao\".",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "遅刻",
+              "read": "ちこく",
+              "vi": "việc đi trễ"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "軽い",
+              "read": "かるい",
+              "vi": "nhẹ"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「しかし」",
+              "vi": "Tuy nhiên. Chuyển ý đối lập giữa nguyên tắc đạo lý ở đoạn 1 và thực trạng ở đoạn 2."
+            },
+            {
+              "point": "〜が増えている（Bài 28）",
+              "vi": "増えている = đang tăng lên (thực trạng xã hội)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý báo hiệu sự xuất hiện của thực trạng trái ngược với nguyên tắc thông thường."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、約束の時間に遅れた時、理由も言わずに謝らない人もいる。",
+          "vi": "Chẳng hạn, có những người khi đến trễ giờ hẹn lại không chịu xin lỗi và cũng không nói lý do.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "約束",
+              "read": "やくそく",
+              "vi": "lời hẹn, cuộc hẹn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "遅れる",
+              "read": "おくれる",
+              "vi": "chậm, trễ"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "謝ります",
+              "read": "あやまります",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「たとえば」",
+              "vi": "Chẳng hạn, ví dụ như. Dùng để đưa ra ví dụ minh họa cho nhận định."
+            },
+            {
+              "point": "〜ずに（Bài 17）",
+              "vi": "言わずに = không nói mà… (Vない + ずに = Vないで)."
+            }
+          ]
+        },
+        {
+          "jp": "時間に遅れる行動は、相手の大切な時間を奪うことと同じである。",
+          "vi": "Hành vi đến trễ giờ đồng nghĩa với việc cướp đi thời gian quý báu của người khác.",
+          "vocab": [
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "遅れる",
+              "read": "おくれる",
+              "vi": "chậm, trễ"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành vi, hành động"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "奪います",
+              "read": "うばいます",
+              "vi": "cướp đi, làm mất"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と同じである（Bài 12/21）",
+              "vi": "奪うことと同じである = giống/đồng nghĩa với việc cướp đi… (dạng trang trọng của と同じだ)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "時間に遅れる行動",
+              "why": "Cụm từ xác định hành vi bị phê phán, là đối tượng trọng tâm cần làm rõ ở câu hỏi 1."
+            },
+            {
+              "w": "相手の大切な時間を奪うことと同じである",
+              "why": "Mệnh đề định nghĩa bản chất tiêu cực của việc đi muộn, là căn cứ trực tiếp trả lời câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "自分の都合だけを優先して、勝手な行動をするべきではない。",
+          "vi": "Ta không nên chỉ ưu tiên sự tiện lợi của bản thân mà hành động một cách tùy tiện.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "都合",
+              "read": "つごう",
+              "vi": "sự tiện lợi, điều kiện cá nhân"
+            },
+            {
+              "w": "優先します",
+              "read": "ゆうせんします",
+              "vi": "ưu tiên"
+            },
+            {
+              "w": "勝手",
+              "read": "かって",
+              "vi": "tùy tiện, ích kỷ"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきではない（TRỌNG TÂM Bài 53）",
+              "vi": "行動をするべきではない = không nên hành động tùy tiện (chuẩn mực đạo lý/lẽ phải). 接続: Vる + べきではない."
+            }
+          ],
+          "keys": [
+            {
+              "w": "勝手な行動をするべきではない",
+              "why": "Khẳng định thái độ phản đối hành vi tùy tiện ích kỷ, là căn cứ giải thích cho câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、時間を守るという態度は、相手への思いやりを示すものだ。",
+          "vi": "Tóm lại, thái độ giữ đúng giờ chính là thứ thể hiện sự quan tâm đối với đối phương.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "思いやり",
+              "read": "おもいやり",
+              "vi": "sự quan tâm, thông cảm"
+            },
+            {
+              "w": "示します",
+              "read": "しめします",
+              "vi": "thể hiện, biểu thị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「つまり」",
+              "vi": "Tóm lại, nói cách khác. Dùng để tổng kết luận điểm."
+            },
+            {
+              "point": "〜ものだ（TRỌNG TÂM Bài 53）",
+              "vi": "思いやりを示すものだ = vốn dĩ là thứ thể hiện sự quan tâm chu đáo (bản chất/chân lý)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ quy nạp làm rõ việc giữ đúng giờ chính là biểu hiện của sự quan tâm đối phương, căn cứ câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "一方、相手を気遣う気持ちがある場合は、約束の時間より早く到着する工夫をするはずだ。",
+          "vi": "Mặt khác, nếu có tấm lòng biết nghĩ cho người khác, người ta chắc chắn sẽ tìm cách để đến sớm hơn giờ hẹn.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "気遣います",
+              "read": "きづかいます",
+              "vi": "quan tâm, lo lắng cho"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "約束",
+              "read": "やくそく",
+              "vi": "lời hẹn, cuộc hẹn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "到着します",
+              "read": "とうちゃくします",
+              "vi": "đến nơi"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "tính toán, bỏ công sức, tìm giải pháp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「一方」",
+              "vi": "Mặt khác, trái lại. Dùng để nêu khía cạnh đối lập tích cực."
+            },
+            {
+              "point": "〜はずだ（Bài 46）",
+              "vi": "工夫をするはずだ = chắc chắn sẽ nỗ lực/tìm cách. Sự suy đoán có căn cứ logic."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ đối chiếu so sánh hành vi chu đáo của người biết nghĩ cho thời gian của người khác."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、私たちは日頃から互いの時間を大切に扱うべきだ。",
+          "vi": "Vì vậy, hằng ngày chúng ta nên biết trân trọng thời gian của nhau.",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi, chúng ta"
+            },
+            {
+              "w": "日頃",
+              "read": "ひごろ",
+              "vi": "thường ngày"
+            },
+            {
+              "w": "互い",
+              "read": "たがい",
+              "vi": "lẫn nhau"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, quý trọng"
+            },
+            {
+              "w": "扱う",
+              "read": "あつかう",
+              "vi": "đối xử, xử lý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「そのため」",
+              "vi": "Vì thế, do đó. Nêu kết luận dựa trên các lý do đã phân tích."
+            },
+            {
+              "point": "〜べきだ（TRỌNG TÂM Bài 53）",
+              "vi": "大切に扱うべきだ = nên trân trọng thời gian của nhau (chuẩn mực ứng xử)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため",
+              "why": "Liên từ chỉ hệ quả dẫn dắt đến bài học và thông điệp hành động, chứa căn cứ trả lời câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "小さな約束を守る積み重ねが、人との強い信頼につながるのである。",
+          "vi": "Chính việc tích tụ từng lời hứa nhỏ được giữ vững sẽ dẫn đến sự tin tưởng bền chặt giữa người với người.",
+          "vocab": [
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "約束",
+              "read": "やくそく",
+              "vi": "lời hẹn, cuộc hẹn"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "積み重ね",
+              "read": "つみかさね",
+              "vi": "sự tích lũy, rèn luyện liên tục"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "dẫn đến, liên kết"
+            },
+            {
+              "w": "つながります",
+              "read": "つながります",
+              "vi": "dẫn đến, kết nối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のである（Bài 26）",
+              "vi": "つながるのである = chính là dẫn đến… Dạng khẳng định nhấn mạnh luận điểm ở kết bài."
+            }
+          ],
+          "keys": [
+            {
+              "w": "強い信頼につながるのである",
+              "why": "Câu chốt kết luận nhấn mạnh giá trị lâu dài của việc giữ lời hứa, căn cứ then chốt cho câu hỏi 3."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "決められた時間を守るべきだ",
+          "label": "〜べきだ（lẽ phải — đạo lý）"
+        },
+        {
+          "excerpt": "事前に相手へ連絡をするものだ",
+          "label": "〜ものだ（chân lý / lẽ thường）"
+        },
+        {
+          "excerpt": "勝手な行動をするべきではない",
+          "label": "〜べきではない（không nên — đạo lý）"
+        },
+        {
+          "excerpt": "相手への思いやりを示すものだ",
+          "label": "〜ものだ（bản chất / lẽ thường）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「相手の大切な時間を奪うことと同じである」とあるが、どういうことか。",
+          "options": [
+            "遅刻することは、相手の時間を無理に失わせているのと同じだということ。",
+            "時間を守る人は、相手の時間を奪ってしまう傾向があるということ。",
+            "自分の時間を節約する目的で、相手に遅刻を頼むべきだということ。",
+            "事前連絡を行った場合、相手の時間を奪うことにはならないということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「遅刻することは、相手の」 — Bài viết ở câu 6 nêu rõ: 「時間に遅れる行動は、相手の大切な時間を奪うことと同じである」(Hành vi đến trễ giờ đồng nghĩa với việc cướp đi thời gian quý báu của đối phương). Do đó, việc đi trễ thực chất chính là hành vi làm tiêu tốn thời gian của người khác một cách vô lý. Phương án 「時間を守る人は」 sai vì bài không nói người tuân thủ thời gian lại cướp thời gian của người khác. Phương án 「自分の時間を節約する」 sai vì tác giả không khuyên nhờ người khác đi trễ để tiết kiệm thời gian. Phương án 「事前連絡を行った場合」 sai vì bài chỉ ra rằng đi trễ là cướp thời gian của người khác, chứ không khẳng định việc báo trước sẽ làm cho đối phương không bị mất thời gian.",
+          "tip": "Dạng câu hỏi 「〜とあるが、どういうことか」 yêu cầu giải thích lại câu gạch chân theo cách diễn đạt khác (言い換え). Hãy tìm câu chứa cụm từ gạch chân (câu 6) và so sánh ý nghĩa cốt lõi với các phương án để chọn câu có cùng bản chất.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Cụm 「相手の大切な時間を奪うことと同じである」 (cũng giống như lấy đi khoảng thời gian quý báu của đối phương) có nghĩa là gì?",
+            "o": [
+              "Đi muộn cũng giống như ép đối phương mất thời gian.",
+              "Người giữ đúng giờ có xu hướng lấy mất thời gian của đối phương.",
+              "Vì mục đích tiết kiệm thời gian của mình, nên nhờ đối phương đi muộn.",
+              "Nếu đã liên lạc trước thì sẽ không bị xem là lấy mất thời gian của đối phương."
+            ]
+          }
+        },
+        {
+          "q": "筆者はなぜ勝手な行動をするべきではないと考えているか。",
+          "options": [
+            "事前に理由を話すことで、遅刻の問題が消えるから。",
+            "自分の都合ばかりを優先する場合、相手の時間を大切にできず信頼を失うから。",
+            "友達との約束は、社会のルールよりも厳しく守る必要があるから。",
+            "予定より早く到着する場合、自分の時間が無駄になるから。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「自分の都合ばかりを優先」 — Trong đoạn 2 (câu 6, 7) và đoạn 3 (câu 8), tác giả phân tích rằng việc đi trễ là cướp thời gian của người khác, và việc chỉ ưu tiên sự tiện lợi của bản thân là hành động ích kỷ không nên làm (自分の都合だけを優先して、勝手な行動をするべきではない). Việc giữ đúng giờ thể hiện sự quan tâm đối với đối phương, nếu chỉ hành động tùy tiện theo ý mình thì sẽ không thể coi trọng thời gian của người khác và làm mất niềm tin. Phương án 「事前に理由を話すことで」 sai vì việc nói lý do không làm biến mất vấn đề đi trễ. Phương án 「友達との約束は」 sai vì bài không hề so sánh quy tắc xã hội với hẹn bạn bè. Phương án 「予定より早く到着する場合」 sai vì đi sớm thể hiện sự chuẩn bị chu đáo chứ không phải là làm lãng phí thời gian.",
+          "tip": "Dạng câu hỏi nguyên nhân/lý do 「なぜ〜のか」 yêu cầu tìm căn cứ lý luận trong đoạn văn. Cần đọc kỹ các câu xung quanh từ khóa 「勝手な行動をするべきではない」 (câu 7) để nắm mối quan hệ nhân quả.",
+          "evi": [
+            5,
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Vì sao tác giả cho rằng không nên hành động tùy tiện?",
+            "o": [
+              "Vì nếu nói lý do trước thì vấn đề đi muộn sẽ biến mất.",
+              "Vì nếu chỉ ưu tiên sự thuận tiện của bản thân thì sẽ không thể trân trọng thời gian của đối phương và sẽ mất lòng tin.",
+              "Vì cần giữ lời hẹn với bạn bè nghiêm túc hơn cả các quy tắc xã hội.",
+              "Vì nếu đến sớm hơn dự định thì thời gian của bản thân sẽ bị lãng phí."
+            ]
+          }
+        },
+        {
+          "q": "筆者は、時間や約束をどのように扱うべきだと考えているか。",
+          "options": [
+            "急な用事が発生した場合、約束の変更は絶対に禁止するべきだ。",
+            "親しい友達の間では、多少の遅刻を気にする必要はない。",
+            "日頃から小さな約束を守り、互いの時間を大切に扱うべきだ。",
+            "時間通りに着くことより、一番早い電車を選ぶべきだ。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「日頃から小さな約束を守り」 — Ở đoạn cuối (câu 10 và 11), tác giả đúc kết quan điểm: 「日頃から互いの時間を大切に扱うべきだ」(hằng ngày chúng ta nên trân trọng thời gian của nhau) và chính việc tích tụ từng lời hứa nhỏ được giữ vững sẽ dẫn đến sự tin tưởng mạnh mẽ giữa người với người. Phương án 「急な用事が発生した場合」 sai vì khi có việc đột xuất thì cần liên lạc trước chứ bài không cấm đổi hẹn. Phương án 「親しい友達の間では」 sai vì bài phản đối tư tưởng coi nhẹ việc trễ giờ dù là với bạn thân. Phương án 「時間通りに着くことより」 sai vì tác giả khuyên nên chủ động đến sớm chút đỉnh chứ không bắt lúc nào cũng phải chọn chuyến tàu sớm nhất.",
+          "tip": "Câu hỏi về quan điểm của tác giả 「筆者はどう考えているか」 thường nằm ở đoạn kết của bài đọc (đoạn 3). Hãy tập trung vào các câu chứa mẫu câu thể hiện quan điểm chủ quan như 「〜べきだ」 hay 「〜のである」 ở cuối bài.",
+          "evi": [
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Tác giả cho rằng nên đối xử với thời gian và lời hẹn như thế nào?",
+            "o": [
+              "Nếu có việc đột xuất xảy ra thì tuyệt đối không được thay đổi lời hẹn.",
+              "Giữa những người bạn thân, không cần bận tâm đến việc đi muộn đôi chút.",
+              "Nên giữ những lời hẹn nhỏ trong cuộc sống hằng ngày và trân trọng thời gian của nhau.",
+              "Nên chọn chuyến tàu đến sớm nhất thay vì đến đúng giờ."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Nguyên tắc chung",
+          "topic": 0,
+          "note": "Nêu nguyên tắc nền tảng về việc coi trọng thời gian và phép lịch sự khi phát sinh việc đột xuất.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "kind": "turn",
+          "label": "Thực trạng・Hiện tượng tiêu cực",
+          "topic": 3,
+          "note": "Bước ngoặt với 「しかし」 phản ánh thói quen coi thường giờ giấc; chú ý bẫy nhầm lẫn giữa thực trạng xã hội và quan điểm tác giả.",
+          "qs": []
+        },
+        {
+          "from": 5,
+          "to": 8,
+          "kind": "body",
+          "label": "Phân tích bản chất・Thái độ đúng đắn",
+          "topic": 7,
+          "note": "Chỉ trích hành vi trễ hẹn làm mất thời gian người khác và đối chiếu với sự quan tâm chu đáo; chứa căn cứ Q1 và Q2.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "point",
+          "label": "Kết luận・Thông điệp của tác giả",
+          "topic": 9,
+          "note": "Khẳng định thông điệp trân trọng thời gian lẫn nhau để xây dựng lòng tin bền vững; chứa căn cứ Q3.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "ごみの分け方・出し方のお知らせ",
+      "titleVi": "Thông báo: cách phân loại và đổ rác",
+      "japanese": "青野市　ごみの分け方・出し方のお知らせ\n来月から、ごみの出し方のルールが少し変わりますので、お住まいのみなさんにお知らせします。ごみは決められた日に、決められた場所に出すべきです。\n種類｜出す日｜出し方｜備考\n燃えるごみ｜月・木｜燃えるごみ用の袋（緑）を使うべきです｜週2回出せます\n燃えないごみ｜第1・3火曜日｜燃えないごみ用の袋（青）に入れるべきです｜月に2回だけ\n資源ごみ（びん・かん・ペットボトル）｜水曜日｜袋に入れず、そのままかごに入れるべきです｜水曜日しか出せません\n大きいごみ（家具・家電など）｜申し込み制｜事前に電話かインターネットで申し込むべきです｜1個500円から\n※出す時間は、朝8時までと決められています。前の日の夜に出すべきではありません。\n※シールを貼っていない大きいごみは、収集されませんので気をつけてください。\n※資源ごみを他の曜日に出すと、回収してもらえませんから、必ず水曜日に出すべきです。\nごみを正しく分けることは、みんなが気持ちよく暮らすための基本的なルールであり、住民全員が守るべき当然のマナーだと思います。一人一人がこのルールを守るべきだと市では考えています。\n問い合わせ：青野市ごみ対策課　電話：042-555-8811（平日9時〜17時）",
+      "vietnamese": "Thành phố Aono — Thông báo về cách phân loại và đổ rác.\nTừ tháng sau, quy định đổ rác sẽ thay đổi một chút, xin thông báo đến quý cư dân. Rác nên được đổ vào đúng ngày, đúng nơi đã quy định.\nLoại rác｜Ngày đổ｜Cách đổ｜Ghi chú.\nRác cháy được｜Thứ Hai・Thứ Năm｜Nên dùng túi rác cháy được (màu xanh lá)｜Đổ được 2 lần/tuần.\nRác không cháy được｜Thứ Ba tuần 1・3｜Nên cho vào túi rác không cháy được (màu xanh dương)｜Chỉ 2 lần/tháng.\nRác tái chế (chai, lon, chai nhựa)｜Thứ Tư｜Không cần cho vào túi, nên để thẳng vào giỏ｜Chỉ đổ được vào thứ Tư.\nRác cỡ lớn (đồ nội thất, gia dụng…)｜Theo đăng ký｜Nên đăng ký trước qua điện thoại hoặc internet｜Từ 500 yên/món.\n※Giờ đổ rác được quy định là trước 8 giờ sáng. Không nên đổ rác từ tối hôm trước.\n※Rác cỡ lớn chưa dán tem sẽ không được thu gom, xin lưu ý.\n※Nếu đổ rác tái chế vào ngày khác, sẽ không được thu gom, nên nhất định phải đổ vào thứ Tư.\nViệc phân loại rác đúng cách là quy tắc cơ bản để mọi người sống thoải mái, và tôi nghĩ đây là phép lịch sự đương nhiên mà toàn thể cư dân nên tuân thủ. Thành phố cho rằng mỗi người nên tuân thủ quy tắc này.\nLiên hệ: Ban đối sách rác thải thành phố Aono　Điện thoại: 042-555-8811 (ngày thường 9 giờ〜17 giờ).",
+      "sentences": [
+        {
+          "jp": "青野市　ごみの分け方・出し方のお知らせ",
+          "vi": "Thành phố Aono — Thông báo về cách phân loại và đổ rác.",
+          "vocab": [
+            {
+              "w": "青野",
+              "read": "あおの",
+              "vi": "tên riêng Aono"
+            },
+            {
+              "w": "分ける",
+              "read": "わける",
+              "vi": "phân chia, phân loại"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "青野市",
+              "read": "あおのし",
+              "vi": "thành phố Aono (tên riêng)"
+            },
+            {
+              "w": "分け方",
+              "read": "わけかた",
+              "vi": "cách phân loại (V方 Bài 44)"
+            },
+            {
+              "w": "出し方",
+              "read": "だしかた",
+              "vi": "cách đổ, cách bỏ ra (V方 Bài 44)"
+            }
+          ]
+        },
+        {
+          "jp": "来月から、ごみの出し方のルールが少し変わりますので、お住まいのみなさんにお知らせします。ごみは決められた日に、決められた場所に出すべきです。",
+          "vi": "Từ tháng sau, quy định đổ rác sẽ thay đổi một chút, xin thông báo đến quý cư dân. Rác nên được đổ vào đúng ngày, đúng nơi đã quy định.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "ごみ",
+              "read": "ごみ",
+              "vi": "rác"
+            },
+            {
+              "w": "出し方",
+              "read": "だしかた",
+              "vi": "cách đem ra, cách thải"
+            },
+            {
+              "w": "ルール",
+              "read": "るーる",
+              "vi": "quy tắc"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "お住まい",
+              "read": "おすまい",
+              "vi": "nơi cư trú"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người"
+            },
+            {
+              "w": "お知らせします",
+              "read": "おしらせします",
+              "vi": "thông báo"
+            },
+            {
+              "w": "決められた",
+              "read": "きめられた",
+              "vi": "đã được quy định"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "đem ra, bỏ ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vますので（Bài 39 ôn）",
+              "vi": "変わりますので = vì sẽ thay đổi nên. ので nêu lý do lịch sự cho việc thông báo."
+            },
+            {
+              "point": "決められた（受身・Bài 37 ôn）",
+              "vi": "決められた日 = ngày đã được quy định. 決める → 決められる (受身), Vた bổ nghĩa cho danh từ (Bài 22). Đây là 受身 đã học ở Bài 37, dùng hợp lệ."
+            },
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "決められた場所に出すべきです = nên đổ vào đúng nơi đã quy định. Vる + べきだ = lẽ phải/chuẩn mực chủ quan của người viết (khác なければならない — bắt buộc khách quan, Bài 17)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "決められた日に、決められた場所に出すべきです",
+              "why": "nguyên tắc nền của cả tờ thông báo — mọi câu hỏi đều là bài toán tìm đúng \"ngày\" và \"nơi/cách\" theo quy tắc này"
+            }
+          ]
+        },
+        {
+          "jp": "種類｜出す日｜出し方｜備考",
+          "vi": "Loại rác｜Ngày đổ｜Cách đổ｜Ghi chú.",
+          "vocab": [
+            {
+              "w": "種類",
+              "read": "しゅるい",
+              "vi": "loại, chủng loại"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "đem ra, bỏ ra"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "出し方",
+              "read": "だしかた",
+              "vi": "cách đem ra, cách thải"
+            },
+            {
+              "w": "備考",
+              "read": "びこう",
+              "vi": "ghi chú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 4 cột: loại rác, ngày đổ, cách đổ, ghi chú."
+            }
+          ],
+          "keys": [
+            {
+              "w": "出す日",
+              "why": "cột ngày đổ — dùng để dò cả 2 câu hỏi (thứ Tư của rác tái chế, ngày đăng ký của rác cỡ lớn)"
+            }
+          ]
+        },
+        {
+          "jp": "燃えるごみ｜月・木｜燃えるごみ用の袋（緑）を使うべきです｜週2回出せます",
+          "vi": "Rác cháy được｜Thứ Hai・Thứ Năm｜Nên dùng túi rác cháy được (màu xanh lá)｜Đổ được 2 lần/tuần.",
+          "vocab": [
+            {
+              "w": "燃えるごみ",
+              "read": "もえるごみ",
+              "vi": "rác cháy được"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "燃えるごみ用",
+              "read": "もえるごみよう",
+              "vi": "dành cho rác cháy được"
+            },
+            {
+              "w": "袋",
+              "read": "ふくろ",
+              "vi": "túi"
+            },
+            {
+              "w": "緑",
+              "read": "みどり",
+              "vi": "màu xanh lá"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "週",
+              "read": "しゅう",
+              "vi": "tuần"
+            },
+            {
+              "w": "2回",
+              "read": "にかい",
+              "vi": "2 lần"
+            },
+            {
+              "w": "出せます",
+              "read": "だせます",
+              "vi": "có thể đem ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "袋を使うべきです = nên dùng túi (loại quy định). Ôn lại mẫu trọng tâm bài trong hàng bảng đầu tiên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "燃えるごみ｜月・木",
+              "why": "hàng rác cháy được — không liên quan đến điều kiện びん・かん của câu hỏi 1, dùng để loại trừ"
+            }
+          ]
+        },
+        {
+          "jp": "燃えないごみ｜第1・3火曜日｜燃えないごみ用の袋（青）に入れるべきです｜月に2回だけ",
+          "vi": "Rác không cháy được｜Thứ Ba tuần 1・3｜Nên cho vào túi rác không cháy được (màu xanh dương)｜Chỉ 2 lần/tháng.",
+          "vocab": [
+            {
+              "w": "燃えないごみ",
+              "read": "もえないごみ",
+              "vi": "rác không cháy được"
+            },
+            {
+              "w": "第1・3火曜日",
+              "read": "だいいち・だいさんかようび",
+              "vi": "thứ Ba tuần thứ nhất và thứ ba"
+            },
+            {
+              "w": "燃えないごみ用",
+              "read": "もえないごみよう",
+              "vi": "dành cho rác không cháy được"
+            },
+            {
+              "w": "袋",
+              "read": "ふくろ",
+              "vi": "túi"
+            },
+            {
+              "w": "青",
+              "read": "あお",
+              "vi": "màu xanh dương"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "2回",
+              "read": "にかい",
+              "vi": "2 lần"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "袋に入れるべきです = nên cho vào túi (loại quy định)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "燃えないごみ｜第1・3火曜日",
+              "why": "hàng rác không cháy được — nhiễu gần với rác tái chế, học viên dễ nhầm ngày nếu đọc vội"
+            }
+          ]
+        },
+        {
+          "jp": "資源ごみ（びん・かん・ペットボトル）｜水曜日｜袋に入れず、そのままかごに入れるべきです｜水曜日しか出せません",
+          "vi": "Rác tái chế (chai, lon, chai nhựa)｜Thứ Tư｜Không cần cho vào túi, nên để thẳng vào giỏ｜Chỉ đổ được vào thứ Tư.",
+          "vocab": [
+            {
+              "w": "資源ごみ",
+              "read": "しげんごみ",
+              "vi": "rác tái chế"
+            },
+            {
+              "w": "ペットボトル",
+              "read": "ペットボトル",
+              "vi": "chai nhựa"
+            },
+            {
+              "w": "水曜日",
+              "read": "すいようび",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "袋",
+              "read": "ふくろ",
+              "vi": "túi"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "そのまま",
+              "read": "そのまま",
+              "vi": "nguyên như vậy, giữ nguyên"
+            },
+            {
+              "w": "出せる",
+              "read": "だせる",
+              "vi": "có thể đưa ra, bộc lộ"
+            },
+            {
+              "w": "びん",
+              "read": "びん",
+              "vi": "chai (thủy tinh)"
+            },
+            {
+              "w": "かん",
+              "read": "かん",
+              "vi": "lon"
+            },
+            {
+              "w": "かご",
+              "read": "かご",
+              "vi": "giỏ, sọt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ず（Bài 17 ない形 — ôn）",
+              "vi": "袋に入れず = không cho vào túi mà. Vない + ず = cách nói trang trọng của Vないで."
+            },
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "かごに入れるべきです = nên để thẳng vào giỏ (không dùng túi, khác 2 loại rác trên)."
+            },
+            {
+              "point": "Nしか〜ない（ôn — N4）",
+              "vi": "水曜日しか出せません = chỉ đổ được vào thứ Tư thôi. しか + phủ định nhấn mạnh giới hạn duy nhất trong tuần."
+            }
+          ],
+          "keys": [
+            {
+              "w": "資源ごみ（びん・かん・ペットボトル）",
+              "why": "khớp trực tiếp loại rác của câu hỏi 1 (びん = chai thủy tinh nằm trong資源ごみ)"
+            },
+            {
+              "w": "水曜日",
+              "why": "ngày đổ đúng của rác tái chế — căn cứ chính câu hỏi 1"
+            },
+            {
+              "w": "袋に入れず、そのままかごに入れるべきです",
+              "why": "cách đổ đúng — loại trừ đáp án \"dùng túi xanh lá/xanh dương\" của câu hỏi 1"
+            },
+            {
+              "w": "水曜日しか出せません",
+              "why": "giới hạn しか — loại các đáp án chọn ngày khác thứ Tư ở câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "大きいごみ（家具・家電など）｜申し込み制｜事前に電話かインターネットで申し込むべきです｜1個500円から",
+          "vi": "Rác cỡ lớn (đồ nội thất, gia dụng…)｜Theo đăng ký｜Nên đăng ký trước qua điện thoại hoặc internet｜Từ 500 yên/món.",
+          "vocab": [
+            {
+              "w": "大きいごみ",
+              "read": "おおきいごみ",
+              "vi": "rác cồng kềnh"
+            },
+            {
+              "w": "家具",
+              "read": "かぐ",
+              "vi": "đồ nội thất"
+            },
+            {
+              "w": "家電",
+              "read": "かでん",
+              "vi": "đồ điện gia dụng"
+            },
+            {
+              "w": "など",
+              "read": "など",
+              "vi": "vân vân"
+            },
+            {
+              "w": "申し込み制",
+              "read": "もうしこみせい",
+              "vi": "hình thức đăng ký"
+            },
+            {
+              "w": "事前に",
+              "read": "じぜんに",
+              "vi": "trước đó"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "インターネット",
+              "read": "いんたーねっと",
+              "vi": "Internet"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng nộp"
+            },
+            {
+              "w": "1個",
+              "read": "いっこ",
+              "vi": "1 món"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "申し込むべきです = nên đăng ký trước. Nhấn mạnh nghĩa vụ đạo lý/quy tắc đối với rác cỡ lớn."
+            },
+            {
+              "point": "NかN（Bài 6 ôn）",
+              "vi": "電話かインターネット = điện thoại hoặc internet. Ôn lại cấu trúc lựa chọn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "大きいごみ（家具・家電など）｜申し込み制",
+              "why": "khớp loại rác của câu hỏi 2 (tủ lạnh cũ = 家電) — phải đăng ký trước, không tự do bỏ như 3 loại trên"
+            },
+            {
+              "w": "1個500円から",
+              "why": "dữ kiện phí câu hỏi 2 — nhiễu nếu học viên tưởng miễn phí"
+            }
+          ]
+        },
+        {
+          "jp": "※出す時間は、朝8時までと決められています。前の日の夜に出すべきではありません。",
+          "vi": "※Giờ đổ rác được quy định là trước 8 giờ sáng. Không nên đổ rác từ tối hôm trước.",
+          "vocab": [
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "決める",
+              "read": "きめる",
+              "vi": "quyết định"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "朝8時",
+              "read": "あさはちじ",
+              "vi": "8 giờ sáng"
+            },
+            {
+              "w": "前の日",
+              "read": "まえのひ",
+              "vi": "ngày hôm trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "決められています（受身・Bài 37 ôn）",
+              "vi": "8時までと決められています = được quy định là trước 8 giờ. 決める → 決められる (受身) + ている (trạng thái kết quả)."
+            },
+            {
+              "point": "〜べきではない（TRỌNG TÂM）",
+              "vi": "前の日の夜に出すべきではありません = không nên đổ rác từ tối hôm trước. Vる + べきではない = \"không nên\" về mặt quy tắc/đạo lý."
+            }
+          ],
+          "keys": [
+            {
+              "w": "朝8時までと決められています",
+              "why": "giới hạn giờ — căn cứ phụ cho câu hỏi 2 (không được mang tủ lạnh ra tối hôm trước)"
+            },
+            {
+              "w": "前の日の夜に出すべきではありません",
+              "why": "bẫy ※ — loại trực tiếp đáp án \"đem rác cỡ lớn ra tối hôm trước\" ở câu hỏi 2"
+            }
+          ]
+        },
+        {
+          "jp": "※シールを貼っていない大きいごみは、収集されませんので気をつけてください。",
+          "vi": "※Rác cỡ lớn chưa dán tem sẽ không được thu gom, xin lưu ý.",
+          "vocab": [
+            {
+              "w": "シール",
+              "read": "シール",
+              "vi": "tem, nhãn dán"
+            },
+            {
+              "w": "貼ります",
+              "read": "はります",
+              "vi": "dán"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "収集されます",
+              "read": "しゅうしゅうされます",
+              "vi": "được thu gom (受身)"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "収集されません（受身・Bài 37 ôn）",
+              "vi": "収集されません = không được thu gom. 収集する → 収集される (受身) + ません."
+            },
+            {
+              "point": "〜ので（Bài 39 ôn）",
+              "vi": "収集されませんので = vì không được thu gom nên, nêu lý do cho lời nhắc chú ý."
+            }
+          ],
+          "keys": [
+            {
+              "w": "シールを貼っていない大きいごみは、収集されません",
+              "why": "căn cứ trực tiếp câu hỏi 2 — phải dán tem mới được thu gom, thiếu bước này thì tủ lạnh không được lấy đi"
+            }
+          ]
+        },
+        {
+          "jp": "※資源ごみを他の曜日に出すと、回収してもらえませんから、必ず水曜日に出すべきです。",
+          "vi": "※Nếu đổ rác tái chế vào ngày khác, sẽ không được thu gom, nên nhất định phải đổ vào thứ Tư.",
+          "vocab": [
+            {
+              "w": "資源",
+              "read": "しげん",
+              "vi": "tài nguyên"
+            },
+            {
+              "w": "他",
+              "read": "た",
+              "vi": "khác, ngoài ra"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "回収します",
+              "read": "かいしゅうします",
+              "vi": "thu gom, thu hồi"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "水曜日",
+              "read": "すいようび",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "他の曜日",
+              "read": "ほかのようび",
+              "vi": "ngày khác (trong tuần)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên・Bài 23 ôn）",
+              "vi": "他の曜日に出すと = nếu/hễ đổ vào ngày khác thì, kết quả tự nhiên là không được thu gom."
+            },
+            {
+              "point": "〜てもらえません（Bài 24 ôn）",
+              "vi": "回収してもらえません = không được (người ta) thu gom cho. てもらう phủ định khả năng."
+            },
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "水曜日に出すべきです = nhất định nên đổ vào thứ Tư. Nhấn lại quy tắc đã nêu ở hàng bảng rác tái chế."
+            }
+          ],
+          "keys": [
+            {
+              "w": "資源ごみを他の曜日に出すと、回収してもらえません",
+              "why": "khẳng định lại giới hạn ngày của rác tái chế — củng cố căn cứ câu hỏi 1, loại mọi đáp án chọn ngày khác thứ Tư"
+            }
+          ]
+        },
+        {
+          "jp": "ごみを正しく分けることは、みんなが気持ちよく暮らすための基本的なルールであり、住民全員が守るべき当然のマナーだと思います。一人一人がこのルールを守るべきだと市では考えています。",
+          "vi": "Việc phân loại rác đúng cách là quy tắc cơ bản để mọi người sống thoải mái, và tôi nghĩ đây là phép lịch sự đương nhiên mà toàn thể cư dân nên tuân thủ. Thành phố cho rằng mỗi người nên tuân thủ quy tắc này.",
+          "vocab": [
+            {
+              "w": "正しく",
+              "read": "ただしく",
+              "vi": "một cách đúng đắn"
+            },
+            {
+              "w": "分ける",
+              "read": "わける",
+              "vi": "phân chia, phân loại"
+            },
+            {
+              "w": "気持ちよい",
+              "read": "きもちよい",
+              "vi": "dễ chịu, thoải mái"
+            },
+            {
+              "w": "暮らします",
+              "read": "くらします",
+              "vi": "sinh sống"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "quy tắc, nội quy"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "toàn thể, tất cả mọi người"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "当然",
+              "read": "とうぜん",
+              "vi": "đương nhiên, tất nhiên"
+            },
+            {
+              "w": "マナー",
+              "read": "マナー",
+              "vi": "phép lịch sự, cách cư xử"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "基本的",
+              "read": "きほんてき",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "一人一人",
+              "read": "ひとりひとり",
+              "vi": "từng người một"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるための（Bài 42 ôn）",
+              "vi": "暮らすための = để (mọi người) sinh sống (thoải mái). Vる + ための + N chỉ mục đích."
+            },
+            {
+              "point": "守るべき（TRỌNG TÂM, bổ nghĩa danh từ）",
+              "vi": "守るべき当然のマナー = phép lịch sự đương nhiên nên tuân thủ. べき ở đây bổ nghĩa trực tiếp cho danh từ マナー (không cần だ), nhấn mạnh tính chuẩn mực."
+            },
+            {
+              "point": "〜べきだ（TRỌNG TÂM, câu kết luận）",
+              "vi": "ルールを守るべきだ = nên tuân thủ quy tắc. Câu kết bài khẳng định lại quan điểm đạo lý của thành phố."
+            }
+          ]
+        },
+        {
+          "jp": "問い合わせ：青野市ごみ対策課　電話：042-555-8811（平日9時〜17時）",
+          "vi": "Liên hệ: Ban đối sách rác thải thành phố Aono　Điện thoại: 042-555-8811 (ngày thường 9 giờ〜17 giờ).",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "yêu cầu giải đáp, liên hệ hỏi"
+            },
+            {
+              "w": "青野市",
+              "read": "あおのし",
+              "vi": "thành phố Aono"
+            },
+            {
+              "w": "ごみ対策課",
+              "read": "ごみたいさくか",
+              "vi": "phòng đối sách rác thải"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày trong tuần"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "決められた場所に出すべきです",
+          "label": "〜べきだ（lẽ phải）＋ 決められた（受身 Bài37 ôn）"
+        },
+        {
+          "excerpt": "袋に入れず、そのままかごに入れるべきです",
+          "label": "〜べきだ（cách đổ rác tái chế）"
+        },
+        {
+          "excerpt": "前の日の夜に出すべきではありません",
+          "label": "〜べきではない（bẫy ※）"
+        },
+        {
+          "excerpt": "守るべき当然のマナー",
+          "label": "〜べき（bổ nghĩa danh từ）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & nguyên tắc chung",
+          "topic": 1,
+          "note": "Nêu nguyên tắc nền: đổ rác đúng ngày đúng nơi quy định — chưa có căn cứ cụ thể, chỉ định hướng cách đọc bảng.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng 4 loại rác × ngày × cách đổ",
+          "topic": 5,
+          "note": "Bảng chính trả lời câu hỏi 1: dò hàng 資源ごみ (びん・かん) → thứ Tư, không dùng túi mà để vào giỏ. Cũng là nơi câu hỏi 2 tìm hàng 大きいごみ (đăng ký + phí).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "turn",
+          "label": "Bẫy ※ giờ đổ, tem dán, ngày tái chế",
+          "topic": 8,
+          "note": "Ba dòng ※ chứa điều kiện phụ dễ bị bỏ sót: giờ (trước 8h sáng), tem cho rác cỡ lớn, và nhắc lại giới hạn thứ Tư của rác tái chế.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "body",
+          "label": "Kết luận & liên hệ",
+          "topic": 10,
+          "note": "Đoạn kết nêu quan điểm べきだ tổng quát của thành phố + thông tin liên hệ — không phải căn cứ trực tiếp của 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワンさんはびんを捨てたいです。いつ、どうやって出すべきですか。",
+          "options": [
+            "月曜日に、燃えるごみ用の袋（緑）に入れて出すべきです",
+            "水曜日に、袋に入れず、そのままかごに入れて出すべきです",
+            "第1・3火曜日に、燃えないごみ用の袋（青）に入れて出すべきです",
+            "好きな曜日に、かごに入れて出すべきです"
+          ],
+          "answer": 1,
+          "explainVi": "びん（chai）thuộc「資源ごみ（びん・かん・ペットボトル）」— theo bảng, hàng này ghi rõ ngày đổ là 水曜日 và cách đổ là「袋に入れず、そのままかごに入れるべきです」. Vậy đáp án đúng là 1. Đáp án 0 sai vì 月曜日 và túi xanh lá (緑) là quy định cho 燃えるごみ (rác cháy được), không phải rác tái chế. Đáp án 2 sai vì 火曜日 và túi xanh dương (青) là của 燃えないごみ (rác không cháy được). Đáp án 3 sai vì dòng ※ khẳng định「資源ごみを他の曜日に出すと、回収してもらえません」— chỉ được đổ vào đúng thứ Tư, không phải \"ngày nào cũng được\".",
+          "tip": "Câu hỏi ghép 2 điều kiện (loại rác + cách đổ) → dò đúng HÀNG của「資源ごみ」trong bảng rồi đọc đủ 2 cột 出す日 và 出し方 cùng lúc. Đừng lẫn sang hàng 燃えるごみ/燃えないごみ chỉ vì cả ba đều dùng べきだ.",
+          "evi": [
+            5,
+            9
+          ],
+          "qt": {
+            "q": "Anh Wan muốn vứt chai lọ. Anh ấy nên mang rác ra vào ngày nào và bằng cách nào?",
+            "o": [
+              "Nên cho vào túi đựng rác cháy được (màu xanh lá) và mang ra vào thứ Hai",
+              "Nên không cho vào túi mà đặt nguyên như vậy vào giỏ và mang ra vào thứ Tư",
+              "Nên cho vào túi đựng rác không cháy được (màu xanh dương) và mang ra vào thứ Ba tuần thứ nhất hoặc thứ ba",
+              "Nên đặt vào giỏ và mang ra vào ngày nào cũng được"
+            ]
+          }
+        },
+        {
+          "q": "リーさんは古い冷蔵庫（家電）を捨てたいです。木曜日の夜に、シールを貼らずに家の前に出しておくつもりです。これは正しいですか。",
+          "options": [
+            "はい、正しいです。木曜日は燃えるごみの日だからです",
+            "いいえ、正しくありません。大きいごみは事前に申し込み、シールを貼って、決められた時間に出すべきです",
+            "はい、正しいです。家電は資源ごみなので水曜日以外ならいつでも出せます",
+            "いいえ、正しくありません。家電は無料で出せるので申し込みは不要です"
+          ],
+          "answer": 1,
+          "explainVi": "冷蔵庫（tủ lạnh）は「大きいごみ（家具・家電など）」に当たり、表には「申し込み制｜事前に電話かインターネットで申し込むべきです｜1個500円から」とある。さらに※には「シールを貼っていない大きいごみは、収集されません」、そして「出す時間は、朝8時までと決められています。前の日の夜に出すべきではありません」ともある。つまりリーさんの計画（木曜日の夜・シールなし）は、時間もシールも条件に合わないので誤り。よって答えは1。0は誤り：木曜日は燃えるごみの日であって、家電の日ではない。2は誤り：家電は資源ごみではなく大きいごみに分類される。3は誤り：表に「1個500円から」と明記されており、無料ではない。",
+          "tip": "3つの条件（曜日・時間・シール）が同時に問われる問題。「大きいごみ」の行と※の2つの注意書きをセットで確認する。「べきではない」が出たら、それをそのまま破っている選択肢は即座に除外できる。",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Anh Lee muốn vứt chiếc tủ lạnh cũ (đồ điện gia dụng). Anh ấy định để nó trước nhà vào tối thứ Năm mà không dán nhãn. Làm vậy có đúng không?",
+            "o": [
+              "Vâng, đúng. Vì thứ Năm là ngày thu gom rác cháy được",
+              "Không, không đúng. Rác cồng kềnh nên được đăng ký trước, dán nhãn và mang ra vào thời gian quy định",
+              "Vâng, đúng. Vì đồ điện gia dụng là rác tái chế nên có thể mang ra bất cứ lúc nào, trừ thứ Tư",
+              "Không, không đúng. Vì có thể mang đồ điện gia dụng ra miễn phí nên không cần đăng ký"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "謝罪の文化について",
+      "titleVi": "Về văn hóa xin lỗi",
+      "japanese": "日本に来て驚いたことの一つは、人々がよく「すみません」と言うことだ。\nお店に入るとき、道を聞くとき、電車で人にぶつかったとき、とにかくよく謝る。\n最初は少し大げさに見えたが、今は私もその大切さがわかる気がする。\n失礼なことをしてしまったら、すぐに謝るべきだと思う。\nそれが相手への最低限の敬意だと考えるからだ。\nしかし、謝り方にも注意が必要だ。\n本当に申し訳ないと思っていないのに、ただ形だけ謝るべきではない。\n言葉は、心からの気持ちと一緒であるべきだ。\nまた、謝罪と同じくらい大切なのが感謝の表現だ。\nお世話になった人には、きちんとお礼を言うべきだし、できれば行動で示すべきだ。\nよく考えてみると、謝罪も感謝も、人間関係をよくするための基本的な行動だ。\nこれは、文化や国を超えた普遍的な真理だと思う。\n人は社会の中で生きているので、周りの人との調和を大切にすべきだ。\nむかし、私の祖母は「人に迷惑をかけたら、すぐ謝るものだよ」とよく言っていたものだ。\nその言葉の意味が、日本で生活する中で、だんだんわかるようになってきた。\nものだという言い方には、「そういうものだ」という社会的なルールの感覚と、「昔はよくそうしたなあ」という回想の両方がある。\n祖母の言葉はその両方を含んでいたにちがいない。\n日本語には、べきだ、ものだ、はずだなど、話し手の判断や気持ちを表す表現がたくさんあるので、使い分けを学ぶべきだと強く感じている。",
+      "vietnamese": "Một trong những điều tôi ngạc nhiên khi đến Nhật là mọi người hay nói \"sumimasen\" (xin lỗi).\nKhi vào cửa hàng, hỏi đường, va phải người trên tàu điện, họ xin lỗi liên tục.\nLúc đầu trông có vẻ hơi thái quá, nhưng giờ tôi cảm giác mình cũng hiểu ra tầm quan trọng của điều đó.\nTôi nghĩ rằng khi đã làm điều gì thất lễ, ta nên xin lỗi ngay.\nVì đó là sự tôn trọng tối thiểu đối với người kia.\nTuy nhiên, cách xin lỗi cũng cần chú ý.\nKhông nên chỉ xin lỗi hình thức trong khi trong lòng không thực sự cảm thấy xin lỗi.\nLời nói phải đi kèm với tình cảm chân thành.\nNgoài ra, không kém phần quan trọng so với lời xin lỗi là việc bày tỏ lòng biết ơn.\nVới người đã giúp đỡ mình, ta nên nói cảm ơn đúng mực, và nếu có thể thì nên thể hiện bằng hành động.\nNếu suy nghĩ kỹ, cả xin lỗi lẫn cảm ơn đều là hành động cơ bản để cải thiện mối quan hệ giữa người với người.\nTôi nghĩ đây là chân lý phổ quát vượt qua văn hóa và quốc gia.\nVì con người sống trong xã hội, ta nên coi trọng sự hòa hợp với những người xung quanh.\nNgày xưa, bà tôi hay nói \"Khi gây phiền hà cho người, phải xin lỗi ngay thôi con\".\nÝ nghĩa của câu nói đó, trong quá trình sống ở Nhật, tôi dần dần hiểu ra.\n\"ものだ\" (monoda) có hai cách dùng: cảm giác \"lẽ thường là vậy\" mang tính quy tắc xã hội, và \"ngày xưa hay thế\" mang tính hồi tưởng.\nCâu nói của bà chắc chắn bao hàm cả hai ý nghĩa đó.\nTrong tiếng Nhật có nhiều cách diễn đạt thái độ và cảm xúc của người nói như べきだ, ものだ, はずだ…, nên tôi cảm thấy mạnh mẽ rằng cần phải học cách dùng đúng.",
+      "sentences": [
+        {
+          "jp": "日本に来て驚いたことの一つは、人々がよく「すみません」と言うことだ。",
+          "vi": "Một trong những điều tôi ngạc nhiên khi đến Nhật là mọi người hay nói \"sumimasen\" (xin lỗi).",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "驚きます",
+              "read": "おどろきます",
+              "vi": "ngạc nhiên, bất ngờ"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, người người"
+            },
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi / cho hỏi"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことの一つは〜ことだ（Bài 38）",
+              "vi": "驚いたことの一つは〜ことだ = một trong những điều tôi ngạc nhiên là〜. こと danh từ hoá hai mệnh đề."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "（日本に）来て = đến Nhật (chuyển vị đến gần người nói). Bối cảnh xuất phát của người viết."
+            }
+          ]
+        },
+        {
+          "jp": "お店に入るとき、道を聞くとき、電車で人にぶつかったとき、とにかくよく謝る。",
+          "vi": "Khi vào cửa hàng, hỏi đường, va phải người trên tàu điện, họ xin lỗi liên tục.",
+          "vocab": [
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "đường, con đường"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "ぶつかる",
+              "read": "ぶつかる",
+              "vi": "va chạm, đâm vào"
+            },
+            {
+              "w": "とにかく",
+              "read": "とにかく",
+              "vi": "dù sao, nói chung, liên tục"
+            },
+            {
+              "w": "謝ります",
+              "read": "あやまります",
+              "vi": "xin lỗi, tạ lỗi"
+            },
+            {
+              "w": "お店",
+              "read": "おみせ",
+              "vi": "cửa hàng, tiệm"
+            },
+            {
+              "w": "ぶつかります",
+              "read": "ぶつかります",
+              "vi": "va phải, đụng phải"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "Ba ví dụ dùng とき nối liệt kê tình huống: 入るとき / 聞くとき / ぶつかったとき. Bài 23 dạy V辞書形 + とき (trước khi) vs V過去形 + とき (khi đang/sau khi)."
+            }
+          ]
+        },
+        {
+          "jp": "最初は少し大げさに見えたが、今は私もその大切さがわかる気がする。",
+          "vi": "Lúc đầu trông có vẻ hơi thái quá, nhưng giờ tôi cảm giác mình cũng hiểu ra tầm quan trọng của điều đó.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "ban đầu"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "大げさ",
+              "read": "おおげさ",
+              "vi": "cường điệu, quá mức"
+            },
+            {
+              "w": "見えた",
+              "read": "みえた",
+              "vi": "trông có vẻ"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó, ấy"
+            },
+            {
+              "w": "大切さ",
+              "read": "たいせつさ",
+              "vi": "tầm quan trọng"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, nhận ra"
+            },
+            {
+              "w": "気がする",
+              "read": "きがする",
+              "vi": "cảm thấy, có vẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が（逆接）（Bài 20）",
+              "vi": "…に見えたが = trông có vẻ thế nhưng. が ở đây là接続助詞 nối hai vế đối lập nhẹ."
+            },
+            {
+              "point": "〜気がする",
+              "vi": "大切さがわかる気がする = có cảm giác mình hiểu được. 気がする = có cảm giác (cách nói không chắc chắn hoàn toàn)."
+            }
+          ]
+        },
+        {
+          "jp": "失礼なことをしてしまったら、すぐに謝るべきだと思う。",
+          "vi": "Tôi nghĩ rằng khi đã làm điều gì thất lễ, ta nên xin lỗi ngay.",
+          "vocab": [
+            {
+              "w": "失礼",
+              "read": "しつれい",
+              "vi": "thất lễ, vô lễ"
+            },
+            {
+              "w": "謝る",
+              "read": "あやまる",
+              "vi": "xin lỗi, tạ lỗi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（TRỌNG TÂM）",
+              "vi": "謝るべきだ = nên xin lỗi (lẽ phải/đạo lý). 接続: Vる + べきだ. Sắc thái: phán xét đạo đức mạnh của người viết — khác ほうがいい (nhẹ, Bài 32) và khác なければならない (bắt buộc bởi quy tắc ngoài, Bài 17). すべき là dạng văn viết chuẩn của するべき."
+            },
+            {
+              "point": "〜てしまったら（Bài 29 + Bài 25）",
+              "vi": "してしまったら = nếu đã lỡ làm (てしまう Bài 29 + たら Bài 25). てしまう nhấn mạnh hành động hoàn tất ngoài ý muốn."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "…べきだと思う = tôi nghĩ nên. Người viết đưa ra phán xét cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "それが相手への最低限の敬意だと考えるからだ。",
+          "vi": "Vì đó là sự tôn trọng tối thiểu đối với người kia.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "最低限",
+              "read": "さいていげん",
+              "vi": "tối thiểu"
+            },
+            {
+              "w": "敬意",
+              "read": "けいい",
+              "vi": "sự tôn trọng, kính trọng"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ, cho rằng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からだ（Bài 39）",
+              "vi": "〜と考えるからだ = vì tôi cho rằng〜. から nêu lý do, ở cuối câu thành からだ (cách kết câu giải thích lý do, văn viết)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、謝り方にも注意が必要だ。",
+          "vi": "Tuy nhiên, cách xin lỗi cũng cần chú ý.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên, nhưng mà"
+            },
+            {
+              "w": "謝る",
+              "read": "あやまる",
+              "vi": "xin lỗi, tạ lỗi"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "sự chú ý, cẩn thận"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết, cần"
+            },
+            {
+              "w": "謝り方",
+              "read": "あやまりかた",
+              "vi": "cách xin lỗi (V方 Bài 44)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "しかし（接続詞）",
+              "vi": "しかし = tuy nhiên, nhưng — 接続詞 chỉ sự đối lập, dùng trong văn viết trang trọng."
+            },
+            {
+              "point": "V方（Bài 44）",
+              "vi": "謝り方 = cách xin lỗi. Vます形 + 方 = cách làm V. Ôn lại Bài 44."
+            }
+          ]
+        },
+        {
+          "jp": "本当に申し訳ないと思っていないのに、ただ形だけ謝るべきではない。",
+          "vi": "Không nên chỉ xin lỗi hình thức trong khi trong lòng không thực sự cảm thấy xin lỗi.",
+          "vocab": [
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "申し訳ない",
+              "read": "もうしわけない",
+              "vi": "thực sự xin lỗi, không có lý do bào chữa (cách nói thật lòng)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "形だけ",
+              "read": "かたちだけ",
+              "vi": "chỉ hình thức, chỉ bề ngoài"
+            },
+            {
+              "w": "謝る",
+              "read": "あやまる",
+              "vi": "xin lỗi, tạ lỗi"
+            },
+            {
+              "w": "ただ",
+              "read": "ただ",
+              "vi": "chỉ, đơn thuần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきではない（TRỌNG TÂM）",
+              "vi": "謝るべきではない = không nên xin lỗi (trong trường hợp chỉ hình thức). Vる + べきではない = \"làm V là không đúng về mặt đạo lý\". Đây là phán xét đạo đức mạnh: người viết coi lời xin lỗi không chân thành là sai về mặt chuẩn mực."
+            },
+            {
+              "point": "〜のに（逆接 Bài 45）",
+              "vi": "思っていないのに = trong khi không nghĩ vậy. のに ở đây biểu đạt sự đối lập / bất mãn: \"lẽ ra nên thật lòng mà lại chỉ hình thức\"."
+            }
+          ]
+        },
+        {
+          "jp": "言葉は、心からの気持ちと一緒であるべきだ。",
+          "vi": "Lời nói phải đi kèm với tình cảm chân thành.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, ngôn từ"
+            },
+            {
+              "w": "心から",
+              "read": "こころから",
+              "vi": "từ trong lòng, chân thành"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜であるべきだ（TRỌNG TÂM）",
+              "vi": "〜であるべきだ = nên là〜 / phải đi kèm với〜. Khi muốn nói \"N/NA であるべきだ\", dùng dạng này. である = copula trang trọng của だ. Sắc thái: người viết đưa ra nguyên tắc đạo lý mạnh."
+            }
+          ]
+        },
+        {
+          "jp": "また、謝罪と同じくらい大切なのが感謝の表現だ。",
+          "vi": "Ngoài ra, không kém phần quan trọng so với lời xin lỗi là việc bày tỏ lòng biết ơn.",
+          "vocab": [
+            {
+              "w": "謝罪",
+              "read": "しゃざい",
+              "vi": "lời xin lỗi, sự tạ lỗi"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "感謝",
+              "read": "かんしゃ",
+              "vi": "lòng biết ơn, sự cảm ơn"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt, sự bày tỏ"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm vào đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と同じくらい（Bài 12）",
+              "vi": "謝罪と同じくらい大切 = quan trọng không kém so với lời xin lỗi. 同じくらい = ngang bằng với (ôn lại Bài 12)."
+            },
+            {
+              "point": "また（接続詞）",
+              "vi": "また = ngoài ra / thêm vào đó. 接続詞 bổ sung thông tin."
+            }
+          ]
+        },
+        {
+          "jp": "お世話になった人には、きちんとお礼を言うべきだし、できれば行動で示すべきだ。",
+          "vi": "Với người đã giúp đỡ mình, ta nên nói cảm ơn đúng mực, và nếu có thể thì nên thể hiện bằng hành động.",
+          "vocab": [
+            {
+              "w": "お世話になります",
+              "read": "おせわになります",
+              "vi": "được giúp đỡ, được chăm sóc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "きちんと",
+              "read": "きちんと",
+              "vi": "đúng mực, đàng hoàng"
+            },
+            {
+              "w": "お礼",
+              "read": "おれい",
+              "vi": "lời cảm ơn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "示します",
+              "read": "しめします",
+              "vi": "thể hiện, chỉ ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだし〜べきだ（TRỌNG TÂM）",
+              "vi": "言うべきだし、示すべきだ = nên nói và cũng nên thể hiện. べきだし = dùng し nối hai mệnh đề べき, liệt kê những điều lẽ phải làm. Cả hai đều Vる + べきだ."
+            },
+            {
+              "point": "できれば（Bài 35）",
+              "vi": "できれば = nếu có thể. 可能形 + ば điều kiện tốt nhất (Bài 35)."
+            }
+          ]
+        },
+        {
+          "jp": "よく考えてみると、謝罪も感謝も、人間関係をよくするための基本的な行動だ。",
+          "vi": "Nếu suy nghĩ kỹ, cả xin lỗi lẫn cảm ơn đều là hành động cơ bản để cải thiện mối quan hệ giữa người với người.",
+          "vocab": [
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "謝罪",
+              "read": "しゃざい",
+              "vi": "lời xin lỗi, sự tạ lỗi"
+            },
+            {
+              "w": "感謝",
+              "read": "かんしゃ",
+              "vi": "lòng biết ơn, sự cảm ơn"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "人間関係",
+              "read": "にんげんかんけい",
+              "vi": "mối quan hệ giữa người với người"
+            },
+            {
+              "w": "基本的",
+              "read": "きほんてき",
+              "vi": "cơ bản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てみると（Bài 40）",
+              "vi": "考えてみると = khi thử nghĩ xem. Vてみる（Bài 40）+ と（điều kiện tự nhiên Bài 23）= \"khi thử làm thì thấy\"."
+            },
+            {
+              "point": "Vるための（Bài 42）",
+              "vi": "よくするための = để làm tốt hơn / nhằm mục đích cải thiện. Vる + ための + N = N để đạt mục đích (Bài 42)."
+            }
+          ]
+        },
+        {
+          "jp": "これは、文化や国を超えた普遍的な真理だと思う。",
+          "vi": "Tôi nghĩ đây là chân lý phổ quát vượt qua văn hóa và quốc gia.",
+          "vocab": [
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "国",
+              "read": "くに",
+              "vi": "đất nước, quê hương"
+            },
+            {
+              "w": "超えます",
+              "read": "こえます",
+              "vi": "vượt qua, vượt"
+            },
+            {
+              "w": "普遍",
+              "read": "ふへん",
+              "vi": "tính phổ quát, phổ biến"
+            },
+            {
+              "w": "真理",
+              "read": "しんり",
+              "vi": "chân lý"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "普遍的",
+              "read": "ふへんてき",
+              "vi": "phổ quát, mang tính phổ biến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "文化や国を超えた + 普遍的な真理 = chân lý phổ quát (mà/đã) vượt qua văn hóa và quốc gia. V過去形 + N bổ nghĩa cho danh từ (Bài 22)."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "…だと思う = tôi nghĩ đây là〜. Ôn lại Bài 21."
+            }
+          ]
+        },
+        {
+          "jp": "人は社会の中で生きているので、周りの人との調和を大切にすべきだ。",
+          "vi": "Vì con người sống trong xã hội, ta nên coi trọng sự hòa hợp với những người xung quanh.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "生きる",
+              "read": "いきる",
+              "vi": "sống, tồn tại"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh"
+            },
+            {
+              "w": "調和",
+              "read": "ちょうわ",
+              "vi": "sự hòa hợp, sự hài hòa"
+            },
+            {
+              "w": "大切にします",
+              "read": "たいせつにします",
+              "vi": "coi trọng, trân trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜すべきだ（TRỌNG TÂM）",
+              "vi": "大切にすべきだ = nên coi trọng. する→すべきだ (dạng văn viết chuẩn, không phải するべきだ nhưng cả hai đều đúng). Lý do + ので + べきだ = cấu trúc lập luận đạo lý phổ biến."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "生きているので = vì đang sống (trong xã hội). ので nêu lý do lịch sự, phù hợp văn viết nghị luận."
+            }
+          ]
+        },
+        {
+          "jp": "むかし、私の祖母は「人に迷惑をかけたら、すぐ謝るものだよ」とよく言っていたものだ。",
+          "vi": "Ngày xưa, bà tôi hay nói \"Khi gây phiền hà cho người, phải xin lỗi ngay thôi con\".",
+          "vocab": [
+            {
+              "w": "むかし",
+              "read": "むかし",
+              "vi": "ngày xưa"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "祖母",
+              "read": "そぼ",
+              "vi": "bà"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "迷惑をかけたら",
+              "read": "めいわくをかけたら",
+              "vi": "nếu làm phiền"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "謝る",
+              "read": "あやまる",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "thường hay"
+            },
+            {
+              "w": "言っていた",
+              "read": "いっていた",
+              "vi": "đã thường nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものだ（lẽ thường, trong lời bà）",
+              "vi": "謝るものだよ = (điều đương nhiên là) phải xin lỗi. Vる + ものだ = chân lý / lẽ thường xã hội. Đây là câu bà dạy mang tính quy phạm xã hội."
+            },
+            {
+              "point": "〜ていたものだ（hồi tưởng）",
+              "vi": "言っていたものだ = ngày xưa hay nói (thế). V + ていた + ものだ = hồi tưởng về thói quen/hành động lặp lại trong quá khứ. Đây là nghĩa hồi tưởng của ものだ — khác nghĩa chân lý."
+            }
+          ]
+        },
+        {
+          "jp": "その言葉の意味が、日本で生活する中で、だんだんわかるようになってきた。",
+          "vi": "Ý nghĩa của câu nói đó, trong quá trình sống ở Nhật, tôi dần dần hiểu ra.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "生活します",
+              "read": "せいかつします",
+              "vi": "sinh sống, sống"
+            },
+            {
+              "w": "だんだん",
+              "read": "だんだん",
+              "vi": "dần dần, từ từ"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong, giữa (quá trình/phạm vi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N＋（の）中で",
+              "vi": "生活する中で = trong quá trình sinh sống. 中（trong, phạm vi — danh từ）＋ で diễn đạt \"trong khi/trong quá trình\", dùng từ đã học (うちに để dành Bài 55)."
+            },
+            {
+              "point": "〜ようになってきた（Bài 36 + Bài 43）",
+              "vi": "わかるようになってきた = đã dần dần trở nên hiểu được. ようになる（Bài 36）+ てきた（Bài 43）= thay đổi tiệm tiến đến hiện tại."
+            }
+          ]
+        },
+        {
+          "jp": "ものだという言い方には、「そういうものだ」という社会的なルールの感覚と、「昔はよくそうしたなあ」という回想の両方がある。",
+          "vi": "\"ものだ\" (monoda) có hai cách dùng: cảm giác \"lẽ thường là vậy\" mang tính quy tắc xã hội, và \"ngày xưa hay thế\" mang tính hồi tưởng.",
+          "vocab": [
+            {
+              "w": "言い方",
+              "read": "いいかた",
+              "vi": "cách nói (V方 Bài 44)"
+            },
+            {
+              "w": "そういう",
+              "read": "そういう",
+              "vi": "như vậy, loại đó"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "quy tắc, nội quy"
+            },
+            {
+              "w": "感覚",
+              "read": "かんかく",
+              "vi": "cảm giác, cảm quan"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "回想",
+              "read": "かいそう",
+              "vi": "sự hồi tưởng, nhớ lại"
+            },
+            {
+              "w": "両方",
+              "read": "りょうほう",
+              "vi": "cả hai (bên/nơi)"
+            },
+            {
+              "w": "社会的",
+              "read": "しゃかいてき",
+              "vi": "mang tính xã hội"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものだ（giải thích hai nghĩa — TRỌNG TÂM）",
+              "vi": "Bài đọc trực tiếp giải thích ものだ: (a) Vる + ものだ = chân lý / lẽ thường xã hội (\"vốn dĩ là vậy\"); (b) Vていた + ものだ = hồi tưởng (\"ngày xưa hay làm\"). Đây là kiến thức cốt lõi cần nắm."
+            }
+          ]
+        },
+        {
+          "jp": "祖母の言葉はその両方を含んでいたにちがいない。",
+          "vi": "Câu nói của bà chắc chắn bao hàm cả hai ý nghĩa đó.",
+          "vocab": [
+            {
+              "w": "祖母",
+              "read": "そぼ",
+              "vi": "bà nội/bà ngoại"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "両方",
+              "read": "りょうほう",
+              "vi": "cả hai (bên/nơi)"
+            },
+            {
+              "w": "含みます",
+              "read": "ふくみます",
+              "vi": "bao hàm, chứa đựng"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にちがいない（Bài 52 — ôn lại）",
+              "vi": "含んでいたにちがいない = chắc chắn đã bao hàm. 接続: Vていた（普通形）+ にちがいない. にちがいない = xác tín chủ quan mạnh \"chắc chắn là\". Ôn lại Bài 52."
+            }
+          ]
+        },
+        {
+          "jp": "日本語には、べきだ、ものだ、はずだなど、話し手の判断や気持ちを表す表現がたくさんあるので、使い分けを学ぶべきだと強く感じている。",
+          "vi": "Trong tiếng Nhật có nhiều cách diễn đạt thái độ và cảm xúc của người nói như べきだ, ものだ, はずだ…, nên tôi cảm thấy mạnh mẽ rằng cần phải học cách dùng đúng.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "話し手",
+              "read": "はなして",
+              "vi": "người nói"
+            },
+            {
+              "w": "判断",
+              "read": "はんだん",
+              "vi": "sự phán đoán, phán xét"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "表します",
+              "read": "あらわします",
+              "vi": "biểu đạt, diễn đạt"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt, biểu đạt"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "使い分け",
+              "read": "つかいわけ",
+              "vi": "việc dùng đúng tùy trường hợp, phân biệt cách dùng"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "強く",
+              "read": "つよく",
+              "vi": "mạnh mẽ, tha thiết"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（TRỌNG TÂM — câu kết）",
+              "vi": "使い分けを学ぶべきだ = nên học cách dùng đúng (lẽ phải). Người viết kết luận bài bằng べきだ, nhấn mạnh tầm quan trọng của việc phân biệt sắc thái."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "たくさんあるので = vì có nhiều. ので nêu lý do trong câu kết luận."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "すぐに謝るべきだと思う",
+          "label": "〜べきだ（lẽ phải — đạo lý）"
+        },
+        {
+          "excerpt": "ただ形だけ謝るべきではない",
+          "label": "〜べきではない（không nên — đạo lý）"
+        },
+        {
+          "excerpt": "大切にすべきだ",
+          "label": "Sắc thái: すべきだ（する→すべき, văn viết）"
+        },
+        {
+          "excerpt": "謝るものだよ",
+          "label": "〜ものだ（lẽ thường — quy phạm xã hội）"
+        },
+        {
+          "excerpt": "言っていたものだ",
+          "label": "〜ていたものだ（hồi tưởng thói quen cũ）"
+        },
+        {
+          "excerpt": "含んでいたにちがいない",
+          "label": "にちがいない（xác tín — ôn Bài 52）"
+        },
+        {
+          "excerpt": "使い分けを学ぶべきだと強く感じている",
+          "label": "〜べきだ（kết luận nghị luận）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者はどんなことを「すべきではない」と言っていますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "人に迷惑をかけること",
+            "電車で人にぶつかること",
+            "本当に申し訳ないと思っていないのに、形だけ謝ること",
+            "見返りを求めずに人を助けること"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3. Bài ghi rõ:「本当に申し訳ないと思っていないのに、ただ形だけ謝るべきではない」— tác giả phán xét bằng べきではない rằng xin lỗi chỉ bề ngoài, trong lòng không thực sự hối lỗi, là điều không đúng về mặt đạo lý. Đáp án 1 (gây phiền hà) và 2 (va người) là những sự việc xảy ra, bài không dùng べきではない với chúng. Đáp án 4 ngược ý bài — tác giả coi trọng việc giúp không cầu đền đáp, không phê phán điều đó.",
+          "tip": "Câu hỏi hỏi \"すべきではない\" → tìm cụm べきではない trong đoạn văn, đọc nội dung ngay trước nó. Đừng bị mồi bởi đáp án liệt kê sự việc xuất hiện trong bài nhưng không đi kèm べきではない.",
+          "qt": {
+            "q": "Người viết nói rằng không nên làm gì?",
+            "o": [
+              "Làm phiền người khác",
+              "Va vào người khác trên tàu điện",
+              "Chỉ xin lỗi cho có lệ dù trong lòng không thực sự thấy có lỗi",
+              "Giúp người khác mà không mong được đền đáp"
+            ]
+          }
+        },
+        {
+          "q": "「謝るべきだ」と「謝らなければならない」はどう違いますか。この文章の内容から最もよく合うものを選んでください。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "意味は全く同じです",
+            "「べきだ」は道徳的・主観的な「あるべき姿」、「なければならない」は規則などの客観的な義務です",
+            "「べきだ」は法律で決まっていること、「なければならない」は個人の意見です",
+            "「べきだ」は軽い提案で、「なければならない」は強い命令です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 2. Trong bài tác giả dùng「失礼なことをしてしまったら、すぐに謝るべきだと思う」— べきだ đi kèm と思う cho thấy đây là phán xét đạo đức chủ quan của cá nhân (\"tôi cho rằng đây là điều lẽ phải làm\"). Nếu dùng「謝らなければならない」, sắc thái sẽ là bắt buộc từ bên ngoài, như quy tắc hoặc luật lệ áp đặt — không phù hợp với giọng nghị luận cá nhân của bài. Đáp án 1 sai vì hai mẫu khác nhau rõ về nguồn gốc nghĩa vụ. Đáp án 3 đảo ngược (べきだ không phải luật lệ). Đáp án 4 sai chiều: べきだ mạnh hơn gợi ý, còn なければならない không phải \"lệnh\" mà là bắt buộc khách quan.",
+          "tip": "べきだ = \"tiếng trong lòng người viết\" (đạo lý, lập trường cá nhân) — thường đi kèm と思う. なければならない = \"lệnh từ bên ngoài\" (quy tắc, luật, tình huống buộc phải). Hai cái nghe giống nhau nhưng nguồn áp lực khác nhau.",
+          "qt": {
+            "q": "「謝るべきだ」(nên xin lỗi) và 「謝らなければならない」(phải xin lỗi) khác nhau như thế nào? Hãy chọn cách phù hợp nhất với nội dung bài viết này.",
+            "o": [
+              "Ý nghĩa hoàn toàn giống nhau",
+              "「べきだ」 diễn tả “điều nên làm” theo quan điểm đạo đức, chủ quan; 「なければならない」 diễn tả nghĩa vụ khách quan như quy định",
+              "「べきだ」 diễn tả điều được luật pháp quy định; 「なければならない」 diễn tả ý kiến cá nhân",
+              "「べきだ」 là lời đề nghị nhẹ nhàng; 「なければならない」 là mệnh lệnh mạnh"
+            ]
+          }
+        },
+        {
+          "q": "「言っていたものだ」と「謝るものだよ」のそれぞれの「ものだ」の意味として正しいものはどれですか。",
+          "evi": [
+            13,
+            15
+          ],
+          "options": [
+            "両方とも回想の意味で使われています",
+            "両方とも一般的な真理・社会的ルールの意味で使われています",
+            "「言っていたものだ」は回想、「謝るものだよ」は一般的な真理・当然のことを表しています",
+            "「言っていたものだ」は感嘆、「謝るものだよ」は回想を表しています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3. Hai cụm này dùng ものだ theo hai nghĩa hoàn toàn khác nhau. 「よく言っていたものだ」: dạng「Vていた + ものだ」— \"ngày xưa (bà) hay nói thế\", diễn đạt hồi tưởng về thói quen lặp lại trong quá khứ. 「謝るものだよ」: dạng「Vる + ものだ」— \"đương nhiên là phải xin lỗi\", diễn đạt lẽ thường/quy tắc xã hội (chân lý tổng quát). Thực tế, chính bài đọc đã giải thích điều này:「社会的なルールの感覚と、昔はよくそうしたなあという回想の両方がある」. Đáp án 1 và 2 sai vì gán cùng một nghĩa cho cả hai câu. Đáp án 4 nhầm nghĩa \"hồi tưởng\" cho câu trước (là cảm thán — sai).",
+          "tip": "Nhìn vào dạng động từ TRƯỚC ものだ: ていた + ものだ → hồi tưởng; Vる + ものだ → chân lý/lẽ thường. Hai chìa khóa này đủ để giải mọi câu hỏi phân biệt ものだ trong đề thi.",
+          "qt": {
+            "q": "「言っていたものだ」và「謝るものだよ」mỗi cụm 「ものだ」 mang nghĩa nào?",
+            "o": [
+              "Cả hai đều được dùng với nghĩa hồi tưởng",
+              "Cả hai đều được dùng với nghĩa chân lý chung hoặc quy tắc xã hội",
+              "「言っていたものだ」 diễn tả sự hồi tưởng; 「謝るものだよ」 diễn tả chân lý chung hoặc điều đương nhiên",
+              "「言っていたものだ」 diễn tả sự cảm thán; 「謝るものだよ」 diễn tả sự hồi tưởng"
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も伝えたいことは何だと思いますか。",
+          "evi": [
+            7,
+            8,
+            10
+          ],
+          "options": [
+            "日本人はお礼や謝罪を言いすぎているという批判",
+            "謝罪や感謝の言葉は形だけでも言うべきだという主張",
+            "謝罪と感謝は人間関係の基本であり、心を込めて行うべきだという主張",
+            "べきだ・ものだ・はずだという文法の正しい使い方を覚えるべきだという主張"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 3. Tác giả dùng べきだ/べきではない liên tục xuyên suốt bài để xây dựng lập luận:「謝るべきだ」(nên xin lỗi),「形だけ謝るべきではない」(không nên xin lỗi chỉ hình thức),「言葉は心からの気持ちと一緒であるべきだ」(lời nói phải đi cùng tâm thành),「調和を大切にすべきだ」(nên trân trọng sự hòa hợp). Tất cả đều hướng đến một thông điệp: xin lỗi và cảm ơn chân thành là nền tảng của quan hệ người-người. Đáp án 1 sai — tác giả không phê bình người Nhật. Đáp án 2 trái ngược với「形だけ謝るべきではない」. Đáp án 4 là điểm phụ ở câu cuối, không phải chủ đề trung tâm.",
+          "tip": "Câu hỏi \"最も伝えたいこと\" → tìm thông điệp được nhắc lại nhiều lần bằng べきだ/べきではない xuyên suốt bài. Loại đáp án chỉ phản ánh một chi tiết nhỏ ở cuối bài (dễ bị mồi bởi đáp án 4).",
+          "qt": {
+            "q": "Theo bạn, điều mà người viết muốn truyền đạt nhất trong bài này là gì?",
+            "o": [
+              "Một lời phê phán rằng người Nhật nói lời cảm ơn và xin lỗi quá nhiều",
+              "Một ý kiến cho rằng dù chỉ làm cho có lệ thì cũng nên nói lời xin lỗi và cảm ơn",
+              "Một ý kiến cho rằng xin lỗi và cảm ơn là nền tảng của các mối quan hệ giữa người với người và nên được thực hiện bằng cả tấm lòng",
+              "Một ý kiến cho rằng nên ghi nhớ cách dùng đúng ngữ pháp của べきだ・ものだ・はずだ"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

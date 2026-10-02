@@ -1,0 +1,507 @@
+{
+  "id": "minna1.b23",
+  "bai": 23,
+  "titleVi": "Khi nào & điều kiện — 〜とき・〜と",
+  "know": [
+    {
+      "id": "minna1.b23.toki",
+      "point": "toki",
+      "jp": "〜とき、〜",
+      "vi": "Khi (mệnh đề とき)",
+      "en": "When (the とき clause)",
+      "gloss": "mô tả thời điểm/hoàn cảnh xảy ra việc gì đó",
+      "glossEn": "Describes the time or circumstances in which something happens"
+    },
+    {
+      "id": "minna1.b23.toki-tense",
+      "point": "toki-tense",
+      "jp": "Vる／Vた とき",
+      "vi": "Thì của động từ TRƯỚC とき",
+      "en": "The tense of the verb BEFORE とき",
+      "gloss": "Vると き = trước khi V; Vたとき = sau khi đã V",
+      "glossEn": "Vると き = before V; Vたとき = after V has been done"
+    },
+    {
+      "id": "minna1.b23.to-cond",
+      "point": "to-cond",
+      "jp": "V辞書形 と、〜",
+      "vi": "Điều kiện tự nhiên／chỉ đường 〜と",
+      "en": "〜と: an inevitable/natural condition — the result occurs automatically; do NOT use a command or volitional expression afterward",
+      "gloss": "hễ V1 thì V2 (tự nhiên, quy luật, hướng dẫn)",
+      "glossEn": "動詞[どうし]辞書形[じしょけい]＋と ・ 例: あの 角[かど]を 右[みぎ]に 曲[ま]がると、駅[えき]が 見[み]えます（Turn right at that corner and the station comes into view right away — an inevitable result）"
+    },
+    {
+      "id": "minna1.b23.michi",
+      "point": "michi",
+      "jp": "右[みぎ]へ 曲[ま]がると、〜",
+      "vi": "Chỉ đường với 〜と",
+      "en": "Giving directions with 〜と",
+      "gloss": "rẽ phải/trái thì thấy ～; cấu trúc V辞書形＋と＋địa điểm",
+      "glossEn": "turn right/left and you will see ～; structure: V辞書形＋と＋a location"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b23-toki-kaze",
+      "item": "minna1.b23.toki",
+      "err": "toki-tense-wrong",
+      "vi": "Khi bị cảm tôi không đi học.",
+      "t1": {
+        "stem": "風邪[かぜ]を ひいた＿、学校[がっこう]へ 行[い]きません。",
+        "choices": [
+          "とき",
+          "から",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "風邪[かぜ]を ひいたとき、",
+          "学校[がっこう]へ 行[い]きません。"
+        ],
+        "traps": [
+          "ひいたてから、",
+          "ひいたから、"
+        ]
+      },
+      "t3": {
+        "target": "風邪をひいたとき、学校へ行きません。",
+        "accept": [
+          "かぜをひいたとき、がっこうへいきません。"
+        ]
+      },
+      "why": "とき nối hai vế: \"khi bị cảm\" (hoàn cảnh) → \"không đi học\" (hành động)."
+    },
+    {
+      "id": "c-b23-toki-muzukashii",
+      "item": "minna1.b23.toki",
+      "err": "toki-tense-wrong",
+      "vi": "Khi gặp từ khó tôi tra từ điển.",
+      "t1": {
+        "stem": "難[むずか]しい 言葉[ことば]が あった＿、辞書[じしょ]を 引[ひ]きます。",
+        "choices": [
+          "とき",
+          "から",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "難[むずか]しい 言葉[ことば]が あったとき、",
+          "辞書[じしょ]を 引[ひ]きます。"
+        ],
+        "traps": [
+          "あったから、",
+          "あると、"
+        ]
+      },
+      "t3": {
+        "target": "難しい言葉があったとき、辞書を引きます。",
+        "accept": [
+          "むずかしいことばがあったとき、じしょをひきます。"
+        ]
+      },
+      "why": "あったとき: quá khứ たのとき vì việc \"gặp từ khó\" xảy ra TRƯỚC việc tra từ điển."
+    },
+    {
+      "id": "c-b23-tokitense-iku",
+      "item": "minna1.b23.toki-tense",
+      "err": "toki-tense-wrong",
+      "vi": "Khi đi Nhật (= trước khi đến Nhật) tôi mua quà.",
+      "t1": {
+        "stem": "日本[にほん]へ 行[い]く＿、お土産[みやげ]を 買[か]います。",
+        "choices": [
+          "とき",
+          "ときに",
+          "ったとき"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]へ 行[い]くとき、",
+          "お土産[みやげ]を 買[か]います。"
+        ],
+        "traps": [
+          "行[い]ったとき、",
+          "行[い]くから、"
+        ]
+      },
+      "t3": {
+        "target": "日本へ行くとき、お土産を買います。",
+        "accept": [
+          "にほんへいくとき、おみやげをかいます。"
+        ]
+      },
+      "why": "行くとき = \"khi đi\" (chưa tới Nhật) → mua quà TRƯỚC KHI đi. ✗ 行ったとき = sau khi đã đến rồi."
+    },
+    {
+      "id": "c-b23-tokitense-kaetta",
+      "item": "minna1.b23.toki-tense",
+      "err": "toki-tense-wrong",
+      "vi": "Khi (đã) về nhà tôi rửa tay.",
+      "t1": {
+        "stem": "家[いえ]に 帰[かえ]った＿、手[て]を 洗[あら]います。",
+        "choices": [
+          "とき",
+          "てから",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "家[いえ]に 帰[かえ]ったとき、",
+          "手[て]を 洗[あら]います。"
+        ],
+        "traps": [
+          "帰[かえ]るとき、",
+          "帰[かえ]ってから、"
+        ]
+      },
+      "t3": {
+        "target": "家に帰ったとき、手を洗います。",
+        "accept": [
+          "いえにかえったとき、てをあらいます。"
+        ]
+      },
+      "why": "帰ったとき = \"sau khi đã về\" → rửa tay sau khi về nhà. Dùng た vì hành động về đã HOÀN TẤT trước khi rửa tay."
+    },
+    {
+      "id": "c-b23-tokitense-wakai",
+      "item": "minna1.b23.toki-tense",
+      "err": "toki-tense-wrong",
+      "vi": "Khi còn trẻ tôi hay chơi thể thao.",
+      "t1": {
+        "stem": "若[わか]い＿、よく スポーツを しました。",
+        "choices": [
+          "とき",
+          "ときに",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "若[わか]いとき、",
+          "よく スポーツを しました。"
+        ],
+        "traps": [
+          "若[わか]かったとき、",
+          "若[わか]くて、"
+        ]
+      },
+      "t3": {
+        "target": "若いとき、よくスポーツをしました。",
+        "accept": [
+          "わかいとき、よくすぽーつをしました。"
+        ]
+      },
+      "why": "若いとき: tính từ い ở thể hiện tại đi với とき. (若かったとき cũng có nghĩa nhưng câu chuẩn ở Minna 23 dùng 若いとき.)"
+    },
+    {
+      "id": "c-b23-to-button",
+      "item": "minna1.b23.to-cond",
+      "err": "to-cond-form",
+      "vi": "Bấm nút thì cửa mở.",
+      "t1": {
+        "stem": "ボタンを 押[お]す＿、ドアが 開[あ]きます。",
+        "choices": [
+          "と",
+          "たら",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ボタンを 押[お]すと、",
+          "ドアが 開[あ]きます。"
+        ],
+        "traps": [
+          "押[お]したと、",
+          "押[お]してから、"
+        ]
+      },
+      "t3": {
+        "target": "ボタンを押すと、ドアが開きます。",
+        "accept": [
+          "ぼたんをおすと、どあがあきます。"
+        ]
+      },
+      "why": "〜と điều kiện tự nhiên/quy luật: V1 phải là thể từ điển (押す). ✗ 押したと — không dùng た trước と điều kiện."
+    },
+    {
+      "id": "c-b23-to-spring",
+      "item": "minna1.b23.to-cond",
+      "err": "to-cond-form",
+      "vi": "Đến mùa xuân thì hoa nở.",
+      "t1": {
+        "stem": "春[はる]に なる＿、花[はな]が 咲[さ]きます。",
+        "choices": [
+          "と",
+          "たら",
+          "ば"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "春[はる]に なると、",
+          "花[はな]が 咲[さ]きます。"
+        ],
+        "traps": [
+          "なったと、",
+          "なりましたら、"
+        ]
+      },
+      "t3": {
+        "target": "春になると、花が咲きます。",
+        "accept": [
+          "はるになると、はながさきます。"
+        ]
+      },
+      "why": "Quy luật tự nhiên dùng と: \"cứ vào xuân là hoa nở\". V1 = なる (thể từ điển). ✗ なったと."
+    },
+    {
+      "id": "c-b23-michi-migi",
+      "item": "minna1.b23.michi",
+      "err": "to-vs-tara",
+      "vi": "Rẽ phải ở ngã tư thì thấy ngân hàng.",
+      "t1": {
+        "stem": "あの 交差点[こうさてん]を 右[みぎ]に 曲[ま]がる＿、銀行[ぎんこう]が あります。",
+        "choices": [
+          "と",
+          "とき",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 交差点[こうさてん]を",
+          "右[みぎ]に 曲[ま]がると、",
+          "銀行[ぎんこう]が あります。"
+        ],
+        "traps": [
+          "曲[ま]がったら、",
+          "曲[ま]がるとき、"
+        ]
+      },
+      "t3": {
+        "target": "あの交差点を右に曲がると、銀行があります。",
+        "accept": [
+          "あのこうさてんをみぎにまがると、ぎんこうがあります。"
+        ]
+      },
+      "why": "Chỉ đường dùng と: \"rẽ phải → thấy ngay ngân hàng\" (kết quả tức thì, tự nhiên). ✗ とき = chỉ \"lúc rẽ\", không chỉ đường."
+    },
+    {
+      "id": "c-b23-michi-massugu",
+      "item": "minna1.b23.michi",
+      "err": "to-vs-tara",
+      "vi": "Đi thẳng thì thấy trạm xe buýt.",
+      "t1": {
+        "stem": "まっすぐ 行[い]く＿、バス停[てい]が 見[み]えます。",
+        "choices": [
+          "と",
+          "とき",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "まっすぐ 行[い]くと、",
+          "バス停[てい]が 見[み]えます。"
+        ],
+        "traps": [
+          "行[い]くとき、",
+          "行[い]ってから、"
+        ]
+      },
+      "t3": {
+        "target": "まっすぐ行くと、バス停が見えます。",
+        "accept": [
+          "まっすぐいくと、ばすていがみえます。"
+        ]
+      },
+      "why": "Chỉ đường dùng と: kết quả tất yếu khi làm theo hướng dẫn. ✗ とき = thời điểm, không diễn đạt hướng."
+    },
+    {
+      "id": "c-b23-to-denki",
+      "item": "minna1.b23.to-cond",
+      "err": "to-cond-form",
+      "vi": "Bật công tắc thì đèn sáng.",
+      "t1": {
+        "stem": "スイッチを 入[い]れる＿、電気[でんき]が つきます。",
+        "choices": [
+          "と",
+          "てから",
+          "たら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "スイッチを 入[い]れると、",
+          "電気[でんき]が つきます。"
+        ],
+        "traps": [
+          "入[い]れたと、",
+          "入[い]れてから、"
+        ]
+      },
+      "t3": {
+        "target": "スイッチを入れると、電気がつきます。",
+        "accept": [
+          "すいっちをいれると、でんきがつきます。"
+        ]
+      },
+      "why": "〜と điều kiện cơ học tất yếu: V1 thể từ điển (入れる). ✗ 入れたと — た trước と là sai."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b23-toki-miyage",
+      "item": "minna1.b23.toki-tense",
+      "err": "toki-tense-wrong",
+      "tts": "にほんへ いくとき、おみやげを かいます。",
+      "script": "日本[にほん]へ 行[い]くとき、お土産[みやげ]を 買[か]います。",
+      "ask": "Người nói mua quà khi nào?",
+      "choices": [
+        "Trước khi đi Nhật",
+        "Sau khi đến Nhật",
+        "Khi ở Nhật"
+      ],
+      "answer": 0,
+      "why": "行くとき = \"khi (sắp) đi\" → mua quà TRƯỚC KHI sang Nhật."
+    },
+    {
+      "id": "l-b23-to-michi",
+      "item": "minna1.b23.michi",
+      "err": "to-vs-tara",
+      "tts": "みぎに まがると、ゆうびんきょくが あります。",
+      "script": "右[みぎ]に 曲[ま]がると、郵便局[ゆうびんきょく]が あります。",
+      "ask": "Làm gì để thấy bưu điện?",
+      "choices": [
+        "Rẽ phải",
+        "Rẽ trái",
+        "Đi thẳng"
+      ],
+      "answer": 0,
+      "why": "〜と chỉ đường: \"rẽ phải → thấy bưu điện ngay\"."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b23-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 〜が好き (が ≠ を)",
+      "vi": "Khi đi du lịch tôi thích chụp ảnh.",
+      "t1": {
+        "stem": "旅行[りょこう]するとき、写真[しゃしん]＿ 撮[と]るのが 好[す]きです。",
+        "choices": [
+          "を",
+          "が",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "旅行[りょこう]するとき、",
+          "写真[しゃしん]を 撮[と]るのが",
+          "好[す]きです。"
+        ],
+        "traps": [
+          "写真[しゃしん]が 撮[と]るのが",
+          "好[す]きじゃありません。"
+        ]
+      },
+      "t3": {
+        "target": "旅行するとき、写真を撮るのが好きです。",
+        "accept": [
+          "りょこうするとき、しゃしんをとるのがすきです。"
+        ]
+      },
+      "why": "PHỤC KÍCH: 写真を撮る → を là trực tiếp tác, đúng. Nhưng 好き dùng が: 撮るのが好き. Hai trợ từ, hai vai trò khác nhau."
+    },
+    {
+      "id": "a-b23-kara-riyuu",
+      "item": "minna1.b09.kara",
+      "err": "kara-place",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 〜から lý do",
+      "vi": "Khi bận tôi không đi vì không có thời gian.",
+      "t1": {
+        "stem": "忙[いそが]しいとき、時間[じかん]が ありません＿、どこへも 行[い]きません。",
+        "choices": [
+          "から",
+          "てから",
+          "ので"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "忙[いそが]しいとき、",
+          "時間[じかん]が ありませんから、",
+          "どこへも 行[い]きません。"
+        ],
+        "traps": [
+          "ありませんてから、",
+          "ありませんと、"
+        ]
+      },
+      "t3": {
+        "target": "忙しいとき、時間がありませんから、どこへも行きません。",
+        "accept": [
+          "いそがしいとき、じかんがありませんから、どこへもいきません。"
+        ]
+      },
+      "why": "PHỤC KÍCH: câu có cả とき (thời điểm — Bài 23) VÀ から (lý do — Bài 9). から lý do đứng ngay sau vế \"vì không có thời gian\"."
+    },
+    {
+      "id": "a-b23-wakaru-ga",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ わかります + が",
+      "vi": "Khi đọc bản đồ tôi không hiểu được đường.",
+      "t1": {
+        "stem": "地図[ちず]を 見[み]るとき、道[みち]＿ わかりません。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "地図[ちず]を 見[み]るとき、",
+          "道[みち]が わかりません。"
+        ],
+        "traps": [
+          "道[みち]を わかりません。",
+          "地図[ちず]が 見[み]るとき、"
+        ]
+      },
+      "t3": {
+        "target": "地図を見るとき、道がわかりません。",
+        "accept": [
+          "ちずをみるとき、みちがわかりません。"
+        ]
+      },
+      "why": "PHỤC KÍCH: わかります luôn dùng が (道がわかる). ✗ 道をわかる."
+    }
+  ]
+}

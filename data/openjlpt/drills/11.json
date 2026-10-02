@@ -1,0 +1,310 @@
+{
+  "id": "minna1.b11",
+  "bai": 11,
+  "titleVi": "Số đếm & trợ số từ",
+  "know": [
+    {
+      "id": "minna1.b11.counter",
+      "point": "counter",
+      "jp": "数[かず] ＋ 助数詞[じょすうし]",
+      "vi": "Trợ số từ theo loại vật",
+      "en": "Counters by object type",
+      "gloss": "〜個/枚/本/杯/回"
+    },
+    {
+      "id": "minna1.b11.ninsai",
+      "point": "ninsai",
+      "jp": "〜人[にん]／〜歳[さい]",
+      "vi": "Đếm người & tuổi",
+      "en": "Counting people and stating ages",
+      "gloss": "人(にん) / 歳(さい)"
+    },
+    {
+      "id": "minna1.b11.freq",
+      "point": "freq",
+      "jp": "〜に〜回[かい] Vます",
+      "vi": "Tần suất",
+      "en": "Frequency",
+      "gloss": "... lần mỗi (tuần/tháng)"
+    },
+    {
+      "id": "minna1.b11.dochira",
+      "point": "dochira",
+      "jp": "〜と〜と どちらが〜ですか",
+      "vi": "So sánh hai lựa chọn",
+      "en": "Comparing two choices",
+      "gloss": "A và B, cái nào ~ hơn?"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b11-cnt-ringo",
+      "item": "minna1.b11.counter",
+      "err": "counter-wrong-type",
+      "vi": "Cho tôi 3 quả táo.",
+      "t1": {
+        "stem": "りんごを 3＿ ください。",
+        "choices": [
+          "個[こ]",
+          "枚[まい]",
+          "本[ほん]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "りんごを",
+          "3個[こ]",
+          "ください。"
+        ],
+        "traps": [
+          "3枚[まい]",
+          "3本[ほん]"
+        ]
+      },
+      "t3": {
+        "target": "りんごを3個ください。",
+        "accept": [
+          "りんごをさんこください。",
+          "りんごを3こください。"
+        ]
+      },
+      "why": "りんご là vật nhỏ tròn → 個(こ)."
+    },
+    {
+      "id": "c-b11-cnt-kami",
+      "item": "minna1.b11.counter",
+      "err": "counter-wrong-type",
+      "vi": "Tôi đã dùng 2 tờ giấy.",
+      "t1": {
+        "stem": "紙[かみ]を 2＿ 使[つか]いました。",
+        "choices": [
+          "枚[まい]",
+          "本[ほん]",
+          "個[こ]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "紙[かみ]を",
+          "2枚[まい]",
+          "使[つか]いました。"
+        ],
+        "traps": [
+          "2本[ほん]",
+          "2個[こ]"
+        ]
+      },
+      "t3": {
+        "target": "紙を2枚使いました。",
+        "accept": [
+          "かみをにまいつかいました。",
+          "紙を2まい使いました。"
+        ]
+      },
+      "why": "紙 là vật mỏng phẳng → 枚(まい)."
+    },
+    {
+      "id": "c-b11-cnt-beer",
+      "item": "minna1.b11.counter",
+      "err": "counter-wrong-type",
+      "vi": "Tôi đã uống 1 ly bia.",
+      "t1": {
+        "stem": "ビールを 1＿ 飲[の]みました。",
+        "choices": [
+          "杯[はい]",
+          "枚[まい]",
+          "個[こ]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ビールを",
+          "1杯[ぱい]",
+          "飲[の]みました。"
+        ],
+        "traps": [
+          "1枚[まい]",
+          "1個[こ]"
+        ]
+      },
+      "t3": {
+        "target": "ビールを1杯飲みました。",
+        "accept": [
+          "びーるをいっぱいのみました。",
+          "ビールを1ぱい飲みました。"
+        ]
+      },
+      "why": "Ly/cốc đồ uống → 杯 (1杯=いっぱい)."
+    },
+    {
+      "id": "c-b11-nin-kazoku",
+      "item": "minna1.b11.ninsai",
+      "err": "counter-wrong-type",
+      "vi": "Gia đình tôi có 5 người.",
+      "t1": {
+        "stem": "家族[かぞく]は 5＿ います。",
+        "choices": [
+          "人[にん]",
+          "個[こ]",
+          "歳[さい]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "家族[かぞく]は",
+          "5人[にん]",
+          "います。"
+        ],
+        "traps": [
+          "5個[こ]",
+          "あります。"
+        ]
+      },
+      "t3": {
+        "target": "家族は5人います。",
+        "accept": [
+          "かぞくはごにんいます。",
+          "家族は5にんいます。"
+        ]
+      },
+      "why": "Đếm người → 人; 5人 đọc ごにん. (người → います)"
+    },
+    {
+      "id": "c-b11-sai-watashi",
+      "item": "minna1.b11.ninsai",
+      "err": "counter-wrong-type",
+      "vi": "Tôi 25 tuổi.",
+      "t1": {
+        "stem": "私[わたし]は 25＿ です。",
+        "choices": [
+          "歳[さい]",
+          "人[にん]",
+          "個[こ]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]は",
+          "25歳[さい]",
+          "です。"
+        ],
+        "traps": [
+          "25人[にん]"
+        ]
+      },
+      "t3": {
+        "target": "私は25歳です。",
+        "accept": [
+          "わたしはにじゅうごさいです。",
+          "私は25さいです。"
+        ]
+      },
+      "why": "Tuổi → 歳(さい)."
+    },
+    {
+      "id": "c-b11-freq-jim",
+      "item": "minna1.b11.freq",
+      "err": "iku-wo",
+      "vi": "Tôi đến phòng gym 3 lần một tuần.",
+      "t1": {
+        "stem": "1週間[しゅうかん]に 3回[かい] ジム＿ 行[い]きます。",
+        "choices": [
+          "に",
+          "を",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "1週間[しゅうかん]に",
+          "3回[かい]",
+          "ジムに",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "ジムを",
+          "3回[かい]の"
+        ]
+      },
+      "t3": {
+        "target": "1週間に3回ジムに行きます。",
+        "accept": [
+          "いっしゅうかんにさんかいじむにいきます。"
+        ]
+      },
+      "why": "に chỉ khoảng thời gian (1週間に) + 行く dùng に cho đích đến (✗ を)."
+    },
+    {
+      "id": "c-b11-dochira",
+      "item": "minna1.b11.dochira",
+      "err": "dochira-yesno",
+      "vi": "Mùa hè và mùa đông, bạn thích cái nào hơn?",
+      "t1": {
+        "stem": "夏[なつ]と 冬[ふゆ]と ＿が 好[す]きですか。",
+        "choices": [
+          "どちら",
+          "どこ",
+          "なに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "夏[なつ]と",
+          "冬[ふゆ]と",
+          "どちらが",
+          "好[す]きですか。"
+        ],
+        "traps": [
+          "どこが",
+          "夏[なつ]は"
+        ]
+      },
+      "t3": {
+        "target": "夏と冬とどちらが好きですか。",
+        "accept": [
+          "なつとふゆとどちらがすきですか。"
+        ]
+      },
+      "why": "どちら hỏi chọn giữa 2; trả lời bằng 〜のほうが (không phải はい/いいえ)."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b11-counter",
+      "item": "minna1.b11.counter",
+      "err": "counter-wrong-type",
+      "tts": "りんごを さんこ かいました。",
+      "script": "りんごを 3個[こ] 買[か]いました。",
+      "ask": "Người nói mua mấy quả táo?",
+      "choices": [
+        "3 quả",
+        "2 quả",
+        "1 quả"
+      ],
+      "answer": 0,
+      "why": "3個(さんこ) — 個 đếm vật nhỏ tròn."
+    },
+    {
+      "id": "l-b11-freq",
+      "item": "minna1.b11.freq",
+      "err": "iku-wo",
+      "tts": "いっしゅうかんに さんかい じむに いきます。",
+      "script": "1週間[しゅうかん]に 3回[かい] ジムに 行[い]きます。",
+      "ask": "Người nói đến gym mấy lần một tuần?",
+      "choices": [
+        "3 lần",
+        "1 lần",
+        "2 lần"
+      ],
+      "answer": 0,
+      "why": "1週間に3回 = 3 lần mỗi tuần."
+    }
+  ]
+}

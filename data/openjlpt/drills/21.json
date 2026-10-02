@@ -1,0 +1,532 @@
+{
+  "id": "minna1.b21",
+  "bai": 21,
+  "titleVi": "Ý kiến & trích dẫn — 〜と思います・〜と言いました",
+  "know": [
+    {
+      "id": "minna1.b21.to-omou",
+      "point": "to-omou",
+      "jp": "〜と 思[おも]います",
+      "vi": "Diễn đạt ý kiến, phỏng đoán (tôi nghĩ rằng)",
+      "en": "Expressing an opinion or conjecture (I think that...)",
+      "gloss": "thể thường + と思います",
+      "glossEn": "plain form + と思います"
+    },
+    {
+      "id": "minna1.b21.to-iu",
+      "point": "to-iu",
+      "jp": "〜と 言[い]いました",
+      "vi": "Trích dẫn lời ai đó đã nói",
+      "en": "Quoting what someone said",
+      "gloss": "thể thường + と言いました",
+      "glossEn": "plain form + と言いました"
+    },
+    {
+      "id": "minna1.b21.deshou",
+      "point": "deshou",
+      "jp": "〜でしょう？",
+      "vi": "Phỏng đoán / hỏi xác nhận nhẹ",
+      "en": "Speculation: perhaps ~, it is probably ~",
+      "gloss": "〜でしょう（？）",
+      "glossEn": "多分[たぶん] 雨[あめ]が 降[ふ]る でしょう。"
+    },
+    {
+      "id": "minna1.b21.futsuu-to",
+      "point": "futsuu-to",
+      "jp": "「と」の前[まえ]は 普通形[ふつうけい]",
+      "vi": "Trước と phải là thể thường (không phải thể lịch sự)",
+      "en": "Before と, use the plain form (not the polite form)",
+      "gloss": "✓ 雨だと思います ／ ✗ 雨ですと思います",
+      "glossEn": "✓ 雨だと思います ／ ✗ 雨ですと思います"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b21-omou-ame",
+      "item": "minna1.b21.to-omou",
+      "err": "to-omou-desu",
+      "vi": "Tôi nghĩ ngày mai trời sẽ mưa.",
+      "t1": {
+        "stem": "明日[あした] 雨[あめ]が 降[ふ]る＿思[おも]います。",
+        "choices": [
+          "と",
+          "を",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "明日[あした]",
+          "雨[あめ]が",
+          "降[ふ]ると",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "降[ふ]りますと",
+          "雨[あめ]を"
+        ]
+      },
+      "t3": {
+        "target": "明日雨が降ると思います。",
+        "accept": [
+          "あしたあめがふると思います。",
+          "あしたあめがふるとおもいます。"
+        ]
+      },
+      "why": "降る は動詞辞書形 (thể thường) + と思います. ✗ 降りますと思います (trước と không dùng ます)."
+    },
+    {
+      "id": "c-b21-omou-takai",
+      "item": "minna1.b21.to-omou",
+      "err": "to-omou-desu",
+      "vi": "Tôi nghĩ cái áo này đắt.",
+      "t1": {
+        "stem": "このシャツは 高[たか]い＿思[おも]います。",
+        "choices": [
+          "と",
+          "が",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このシャツは",
+          "高[たか]いと",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "高[たか]いですと",
+          "高[たか]くと"
+        ]
+      },
+      "t3": {
+        "target": "このシャツは高いと思います。",
+        "accept": [
+          "このしゃつはたかいとおもいます。",
+          "このシャツはたかいとおもいます。"
+        ]
+      },
+      "why": "い-adj thể thường = 高い (✓), trực tiếp + と思います. ✗ 高いですと思います (bỏ です trước と)."
+    },
+    {
+      "id": "c-b21-omou-benri",
+      "item": "minna1.b21.to-omou",
+      "err": "to-omou-desu",
+      "vi": "Tôi nghĩ chiếc điện thoại này tiện lợi.",
+      "t1": {
+        "stem": "このスマホは 便利[べんり]＿と 思[おも]います。",
+        "choices": [
+          "だ",
+          "です",
+          "な"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このスマホは",
+          "便利[べんり]だと",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "便利[べんり]ですと",
+          "便利[べんり]と"
+        ]
+      },
+      "t3": {
+        "target": "このスマホは便利だと思います。",
+        "accept": [
+          "このすまほはべんりだとおもいます。",
+          "このすまほはべんりだと思います。"
+        ]
+      },
+      "why": "な-adj thể thường = 便利だ (✓ cần だ trước と). ✗ 便利ですと思います. ✗ 便利と思います (thiếu だ với な-adj)."
+    },
+    {
+      "id": "c-b21-iu-sensei",
+      "item": "minna1.b21.to-iu",
+      "err": "to-iu-quote",
+      "vi": "Giáo viên nói nghỉ học ngày mai.",
+      "t1": {
+        "stem": "先生[せんせい]は「明日[あした] 休[やす]み」＿言[い]いました。",
+        "choices": [
+          "と",
+          "が",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]は",
+          "「明日[あした] 休[やす]み」と",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "が言[い]いました。",
+          "に言[い]いました。"
+        ]
+      },
+      "t3": {
+        "target": "先生は「明日休み」と言いました。",
+        "accept": [
+          "せんせいは「あしたやすみ」といいました。",
+          "せんせいはあしたやすみといいました。"
+        ]
+      },
+      "why": "引用[いんよう]の と: trích dẫn lời nói dùng と. ✗ が言いました / に言いました."
+    },
+    {
+      "id": "c-b21-iu-kaeru",
+      "item": "minna1.b21.to-iu",
+      "err": "to-iu-quote",
+      "vi": "Anh Tanaka nói đã về rồi.",
+      "t1": {
+        "stem": "田中[たなか]さんは もう 帰[かえ]った＿言[い]いました。",
+        "choices": [
+          "と",
+          "が",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "もう 帰[かえ]ったと",
+          "言[い]いました。"
+        ],
+        "traps": [
+          "帰[かえ]りましたと",
+          "が言[い]いました。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんはもう帰ったと言いました。",
+        "accept": [
+          "たなかさんはもうかえったといいました。",
+          "たなかさんはもうかえったと言いました。"
+        ]
+      },
+      "why": "帰った は QK thể thường của 帰る → trực tiếp + と言いました. ✗ 帰りましたと言いました."
+    },
+    {
+      "id": "c-b21-deshou-samui",
+      "item": "minna1.b21.deshou",
+      "err": "deshou-form",
+      "vi": "Ngày mai chắc là lạnh phải không nhỉ?",
+      "t1": {
+        "stem": "明日[あした]は 寒[さむ]い＿？",
+        "choices": [
+          "でしょう",
+          "ですか",
+          "だろう"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "明日[あした]は",
+          "寒[さむ]い",
+          "でしょう？"
+        ],
+        "traps": [
+          "寒[さむ]いですか？",
+          "寒[さむ]いだしょう？"
+        ]
+      },
+      "t3": {
+        "target": "明日は寒いでしょう？",
+        "accept": [
+          "あしたはさむいでしょう？",
+          "あしたはさむいでしょう"
+        ]
+      },
+      "why": "〜でしょう？ (lên giọng) = phỏng đoán xác nhận. ✗ でしょうか (lịch sự quá, khác sắc thái) ／ ✗ だしょう (sai hình thức)."
+    },
+    {
+      "id": "c-b21-deshou-tanaka",
+      "item": "minna1.b21.deshou",
+      "err": "deshou-form",
+      "vi": "Anh Tanaka chắc là bận phải không?",
+      "t1": {
+        "stem": "田中[たなか]さんは 忙[いそが]しい＿。",
+        "choices": [
+          "でしょう",
+          "でしょうか",
+          "だでしょう"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "忙[いそが]しい",
+          "でしょう。"
+        ],
+        "traps": [
+          "忙[いそが]しいだでしょう。",
+          "忙[いそが]しいですでしょう。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは忙しいでしょう。",
+        "accept": [
+          "たなかさんはいそがしいでしょう。"
+        ]
+      },
+      "why": "〜でしょう (xuống giọng) = phỏng đoán. い-adj thể thường + でしょう trực tiếp. ✗ 忙しいだでしょう (い-adj không thêm だ)."
+    },
+    {
+      "id": "c-b21-futsuu-kaeranai",
+      "item": "minna1.b21.futsuu-to",
+      "err": "to-omou-desu",
+      "vi": "Tôi nghĩ chị ấy không về hôm nay.",
+      "t1": {
+        "stem": "彼女[かのじょ]は 今日[きょう] 帰[かえ]らない＿思[おも]います。",
+        "choices": [
+          "と",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "今日[きょう] 帰[かえ]らないと",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "帰[かえ]りませんと",
+          "帰[かえ]らないが"
+        ]
+      },
+      "t3": {
+        "target": "彼女は今日帰らないと思います。",
+        "accept": [
+          "かのじょはきょうかえらないとおもいます。",
+          "かのじょはきょうかえらないと思います。"
+        ]
+      },
+      "why": "帰らない = phủ định thể thường (ない) + と思います. ✗ 帰りませんと思います (ません trước と là sai)."
+    },
+    {
+      "id": "c-b21-futsuu-shizuka",
+      "item": "minna1.b21.futsuu-to",
+      "err": "to-omou-desu",
+      "vi": "Tôi nghĩ ngôi trường đó yên tĩnh.",
+      "t1": {
+        "stem": "あの 学校[がっこう]は 静[しず]か＿と 思[おも]います。",
+        "choices": [
+          "だ",
+          "です",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 学校[がっこう]は",
+          "静[しず]かだと",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "静[しず]かですと",
+          "静[しず]かと"
+        ]
+      },
+      "t3": {
+        "target": "あの学校は静かだと思います。",
+        "accept": [
+          "あのがっこうはしずかだとおもいます。",
+          "あのがっこうはしずかだと思います。"
+        ]
+      },
+      "why": "な-adj 静か → 静かだ (thể thường) trước と. ✗ 静かですと思います ／ ✗ 静かと思います (thiếu だ)."
+    },
+    {
+      "id": "c-b21-futsuu-gakusei",
+      "item": "minna1.b21.futsuu-to",
+      "err": "to-omou-desu",
+      "vi": "Cô ấy là sinh viên phải không nhỉ?",
+      "t1": {
+        "stem": "彼女[かのじょ]は 学生[がくせい]＿でしょう？",
+        "choices": [
+          "だ",
+          "です",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "学生[がくせい]だ",
+          "でしょう？"
+        ],
+        "traps": [
+          "学生[がくせい]ですでしょう？",
+          "学生[がくせい]でしょう？"
+        ]
+      },
+      "t3": {
+        "target": "彼女は学生だでしょう？",
+        "accept": [
+          "かのじょはがくせいだでしょう？",
+          "かのじょはがくせいだでしょう"
+        ]
+      },
+      "why": "N thể thường = 学生だ, trước でしょう cũng theo quy tắc thể thường. ✗ 学生ですでしょう (trước でしょう không dùng です)."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b21-omou",
+      "item": "minna1.b21.to-omou",
+      "err": "to-omou-desu",
+      "tts": "たなかさんは もう かえったと おもいます。",
+      "script": "田中[たなか]さんは もう 帰[かえ]ったと 思[おも]います。",
+      "ask": "Người nói nghĩ anh Tanaka đang làm gì?",
+      "choices": [
+        "Đã về rồi",
+        "Đang ở văn phòng",
+        "Đang ăn tối"
+      ],
+      "answer": 0,
+      "why": "帰った (QK thể thường) + と思います = tôi nghĩ đã về. と = trích dẫn ý nghĩ."
+    },
+    {
+      "id": "l-b21-iu",
+      "item": "minna1.b21.to-iu",
+      "err": "to-iu-quote",
+      "tts": "せんせいは あした やすみだと いいました。",
+      "script": "先生[せんせい]は 明日[あした] 休[やす]みだと 言[い]いました。",
+      "ask": "Giáo viên đã nói gì?",
+      "choices": [
+        "Ngày mai nghỉ",
+        "Ngày mai có kiểm tra",
+        "Ngày mai đi dã ngoại"
+      ],
+      "answer": 0,
+      "why": "休みだ (danh từ thể thường) + と言いました = đã nói rằng nghỉ."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b21-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 21 · と思います (好き dùng が)",
+      "vi": "Tôi nghĩ anh ấy thích âm nhạc.",
+      "t1": {
+        "stem": "彼[かれ]は 音楽[おんがく]＿ 好[す]きだと 思[おも]います。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "音楽[おんがく]が",
+          "好[す]きだと",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "音楽[おんがく]を",
+          "好[す]きと"
+        ]
+      },
+      "t3": {
+        "target": "彼は音楽が好きだと思います。",
+        "accept": [
+          "かれはおんがくがすきだとおもいます。",
+          "かれはおんがくがすきだと思います。"
+        ]
+      },
+      "why": "Dù trong câu と思います, 好き vẫn cần が (lỗi #1 từ Bài 9). ✗ 音楽を好きだと思います. (好きだ = な-adj thể thường, cần だ trước と.)"
+    },
+    {
+      "id": "a-b21-futsuu-da",
+      "item": "minna1.b20.futsuu-nadj-noun",
+      "err": "futsuu-da",
+      "ambush": true,
+      "src": 20,
+      "context": "Bài 21 · と思います (な-adj thể thường cần だ)",
+      "vi": "Tôi nghĩ thành phố đó sôi động.",
+      "t1": {
+        "stem": "あの 町[まち]は にぎやか＿と 思[おも]います。",
+        "choices": [
+          "だ",
+          "に",
+          "です"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 町[まち]は",
+          "にぎやかだと",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "にぎやかと",
+          "にぎやかですと"
+        ]
+      },
+      "t3": {
+        "target": "あの町はにぎやかだと思います。",
+        "accept": [
+          "あのまちはにぎやかだとおもいます。",
+          "あのまちはにぎやかだと思います。"
+        ]
+      },
+      "why": "な-adj thể thường = にぎやかだ (cần だ, Bài 20). Trước と思います phải là thể thường. ✗ にぎやかと思います (thiếu だ) ／ ✗ にぎやかですと思います."
+    },
+    {
+      "id": "a-b21-wa-ni",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 21 · と思います (わかる dùng が)",
+      "vi": "Tôi nghĩ anh ấy hiểu tiếng Anh.",
+      "t1": {
+        "stem": "彼[かれ]は 英語[えいご]＿ わかると 思[おも]います。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "英語[えいご]が",
+          "わかると",
+          "思[おも]います。"
+        ],
+        "traps": [
+          "英語[えいご]を",
+          "英語[えいご]は わかる"
+        ]
+      },
+      "t3": {
+        "target": "彼は英語がわかると思います。",
+        "accept": [
+          "かれはえいごがわかるとおもいます。",
+          "かれはえいごがわかると思います。"
+        ]
+      },
+      "why": "わかる cần が (Bài 9: わかります → が). ✗ 英語をわかると思います. わかる là thể thường từ điển, đúng trước と."
+    }
+  ]
+}

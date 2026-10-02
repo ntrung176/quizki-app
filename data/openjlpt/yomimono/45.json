@@ -1,0 +1,2595 @@
+{
+  "bai": 45,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 45 giới thiệu hai mẫu ngữ pháp quan trọng: (1)「〜のばあいは」để chỉ \"trong trường hợp…\" — thường gặp trong hướng dẫn, quy trình, biển báo; (2)「〜のに」mang nghĩa NGHỊCH ĐỐI — \"dù… nhưng…\" hoặc biểu đạt sự tiếc nuối, ngạc nhiên khi kết quả không như mong đợi. Chiến lược: đọc kỹ từng \"trường hợp\" (ばあい) và kết quả tương ứng; với のに, luôn hỏi \"ai/điều gì kỳ vọng gì, nhưng thực tế ra sao?\".",
+    "steps": [
+      "Đọc lướt tiêu đề và câu mở đầu để xác định đây là văn bản thể loại gì (hướng dẫn? nhật ký? thư?).",
+      "Với〜のばあいは: nhận diện điều kiện (phần trước のばあいは) và hành động/kết quả (phần sau). Bài có nhiều \"trường hợp\" → lập bảng nhanh trong đầu: \"nếu X thì Y\".",
+      "Với〜のに（逆接）: tìm hai vế — vế trước の (hành động/tình trạng đủ điều kiện gây ra kỳ vọng) và vế sau (thực tế trái ngược / cảm xúc tiếc). Dấu hiệu nhận dạng: cảm xúc tiếc/ngạc nhiên ở vế sau.",
+      "Đừng nhầm〜のに（逆接）với〜のに（mục đích, Bài 42: \"để làm…\"）— Bài 42 vế sau là hành động chủ thể làm, Bài 45 vế sau là sự đối lập.",
+      "Câu hỏi suy luận thường hỏi \"nhân vật cảm thấy thế nào?\" hoặc \"theo hướng dẫn, trong trường hợp X phải làm gì?\" → tổng hợp từ nhiều câu.",
+      "Ôn lại: Vてあります/Vておきます (Bài 30), Vそうです様態 (Bài 43), Vすぎます (Bài 44), 〜ために (Bài 39), 〜ようになります (Bài 36)."
+    ],
+    "tips": [
+      "〜のばあいは: phần trước のばあいは dùng THỂ TỪ ĐIỂN (Vる) hoặc た形 hoặc tính từ/danh từ bình thường — cẩn thận không dùng thể lịch sự ます trước のばあいは.",
+      "〜のに（逆接）: vế TRƯỚC dùng 普通形 (thể thông thường); vế sau hay chứa cảm xúc: 残念, 困ります, おかしい, 怒ります hoặc ý bực bội/tiếc.",
+      "Phân biệt: 雨なのに来ました（逆接: dù mưa vẫn đến）≠ 傘を持ってきたのに（tiếc: mang dù rồi mà…）— cùng のに nhưng cảm xúc tinh tế khác nhau.",
+      "〜ばあいは thường xuất hiện trong văn bản chính thức: hướng dẫn, quy tắc, sổ tay — đọc hết mỗi điều khoản trước khi chọn đáp án.",
+      "のに逆接 KHÔNG phải vì vậy (だから) hay nhưng (でも/けど trung lập) — nó mang hàm ý \"kỳ lạ, đáng tiếc, bực bội\".",
+      "Khi đề hỏi \"hướng dẫn nói gì trong trường hợp X?\", tìm câu có Xのばあいは rồi đọc phần sau dấu phẩy hoặc vế sau."
+    ],
+    "grammarFocus": [
+      "V/A/Nのばあいは（trong trường hợp…）",
+      "〜のに（逆接: dù… nhưng / tiếc）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 44,
+        "items": [
+          "Vすぎます",
+          "Vやすい・にくい",
+          "V方"
+        ]
+      },
+      {
+        "bai": 43,
+        "items": [
+          "V/Aそうです（様態）",
+          "Vて来ます・Vて行きます"
+        ]
+      },
+      {
+        "bai": 42,
+        "items": [
+          "Vるのに〜（mục đích）",
+          "〜時間・お金がかかります"
+        ]
+      },
+      {
+        "bai": 40,
+        "items": [
+          "疑問詞＋か〜",
+          "Vてみます"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので",
+          "Vるために"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります",
+          "Vるようにします"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vてあります",
+          "Vておきます"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "自動詞 vs 他動詞",
+          "Vてしまいました"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき",
+          "〜と（điều kiện tự nhiên）"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "非常時の案内",
+      "titleVi": "Hướng dẫn lúc khẩn cấp",
+      "japanese": "これは会社の安全マニュアルです。\n火事のばあいは、すぐにエレベーターを使わないで、非常口から出てください。\n地震のばあいは、まず机の下にかくれてください。\n体の具合が悪いばあいは、一人で無理しないで、すぐに同僚か上司に知らせてください。\n外出中のばあいは、会社の緊急連絡先に電話してください。\nこのマニュアルは読んでおいてください。緊急のときに役に立ちます。\nよく分かったのに、実際には忘れてしまう人が多いので、定期的に確認するようにしましょう。",
+      "vietnamese": "Đây là sổ tay an toàn của công ty.\nTrong trường hợp hỏa hoạn, hãy đừng dùng thang máy mà ra ngoài bằng cửa thoát hiểm ngay.\nTrong trường hợp động đất, trước tiên hãy trốn dưới gầm bàn.\nTrong trường hợp sức khoẻ không tốt, đừng cố một mình mà hãy báo ngay cho đồng nghiệp hoặc cấp trên.\nTrong trường hợp đang ra ngoài, hãy gọi điện đến đầu mối liên lạc khẩn cấp của công ty.\nHãy đọc trước sổ tay này. Nó sẽ có ích khi có trường hợp khẩn cấp.\nVì có nhiều người dù đã hiểu rõ nhưng lại quên mất trên thực tế, hãy cố gắng kiểm tra định kỳ.",
+      "sentences": [
+        {
+          "jp": "これは会社の安全マニュアルです。",
+          "vi": "Đây là sổ tay an toàn của công ty.",
+          "vocab": [
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "安全",
+              "read": "あんぜん",
+              "vi": "an toàn"
+            },
+            {
+              "w": "マニュアル",
+              "read": "マニュアル",
+              "vi": "sổ tay hướng dẫn, manual"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（Bài 1）",
+              "vi": "Câu giới thiệu văn bản: \"Đây là sổ tay an toàn của công ty\"."
+            }
+          ]
+        },
+        {
+          "jp": "火事のばあいは、すぐにエレベーターを使わないで、非常口から出てください。",
+          "vi": "Trong trường hợp hỏa hoạn, hãy đừng dùng thang máy mà ra ngoài bằng cửa thoát hiểm ngay.",
+          "vocab": [
+            {
+              "w": "火事",
+              "read": "かじ",
+              "vi": "hỏa hoạn, cháy"
+            },
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "dùng, sử dụng"
+            },
+            {
+              "w": "非常口",
+              "read": "ひじょうぐち",
+              "vi": "cửa thoát hiểm"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra, ra ngoài"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのばあいは",
+              "vi": "火事のばあいは = trong trường hợp hỏa hoạn. Danh từ + のばあいは để chỉ điều kiện cụ thể."
+            },
+            {
+              "point": "Vないで（Bài 23）",
+              "vi": "使わないで = đừng dùng mà (làm việc khác). Nối hành động phủ định với hành động tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "地震のばあいは、まず机の下にかくれてください。",
+          "vi": "Trong trường hợp động đất, trước tiên hãy trốn dưới gầm bàn.",
+          "vocab": [
+            {
+              "w": "地震",
+              "read": "じしん",
+              "vi": "động đất"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn (học/làm việc)"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "bên dưới, gầm"
+            },
+            {
+              "w": "かくれる",
+              "read": "かくれる",
+              "vi": "trốn, ẩn nấp"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên, đầu tiên"
+            },
+            {
+              "w": "かくれます",
+              "read": "かくれます",
+              "vi": "trốn, ẩn náu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのばあいは",
+              "vi": "地震のばあいは = trong trường hợp động đất. Tiếp tục cấu trúc liệt kê các trường hợp."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "かくれてください = hãy trốn đi. Yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "体の具合が悪いばあいは、一人で無理しないで、すぐに同僚か上司に知らせてください。",
+          "vi": "Trong trường hợp sức khoẻ không tốt, đừng cố một mình mà hãy báo ngay cho đồng nghiệp hoặc cấp trên.",
+          "vocab": [
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể"
+            },
+            {
+              "w": "具合",
+              "read": "ぐあい",
+              "vi": "tình trạng (sức khoẻ)"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "無理します",
+              "read": "むりします",
+              "vi": "cố quá sức"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên"
+            },
+            {
+              "w": "知らせます",
+              "read": "しらせます",
+              "vi": "báo, thông báo"
+            },
+            {
+              "w": "一人で",
+              "read": "ひとりで",
+              "vi": "một mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "A（普通形）のばあいは",
+              "vi": "体の具合が悪いばあいは = trong trường hợp sức khoẻ không tốt. Tính từ い (普通形) + ばあいは."
+            },
+            {
+              "point": "Vないで（Bài 23）",
+              "vi": "無理しないで = đừng cố, mà (làm việc tiếp)."
+            }
+          ]
+        },
+        {
+          "jp": "外出中のばあいは、会社の緊急連絡先に電話してください。",
+          "vi": "Trong trường hợp đang ra ngoài, hãy gọi điện đến đầu mối liên lạc khẩn cấp của công ty.",
+          "vocab": [
+            {
+              "w": "外出",
+              "read": "がいしゅつ",
+              "vi": "sự ra ngoài"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "緊急",
+              "read": "きんきゅう",
+              "vi": "khẩn cấp"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "電話します",
+              "read": "でんわします",
+              "vi": "gọi điện"
+            },
+            {
+              "w": "外出中",
+              "read": "がいしゅつちゅう",
+              "vi": "đang ra ngoài, đang vắng mặt"
+            },
+            {
+              "w": "連絡先",
+              "read": "れんらくさき",
+              "vi": "đầu mối liên lạc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのばあいは",
+              "vi": "外出中のばあいは = trong trường hợp đang ra ngoài. N (danh từ chỉ trạng thái) + のばあいは."
+            }
+          ]
+        },
+        {
+          "jp": "このマニュアルは読んでおいてください。緊急のときに役に立ちます。",
+          "vi": "Hãy đọc trước sổ tay này. Nó sẽ có ích khi có trường hợp khẩn cấp.",
+          "vocab": [
+            {
+              "w": "マニュアル",
+              "read": "マニュアル",
+              "vi": "sổ tay hướng dẫn, manual"
+            },
+            {
+              "w": "読みます",
+              "read": "よみます",
+              "vi": "đọc"
+            },
+            {
+              "w": "緊急",
+              "read": "きんきゅう",
+              "vi": "khẩn cấp"
+            },
+            {
+              "w": "役に立ちます",
+              "read": "やくにたちます",
+              "vi": "có ích, hữu dụng"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "lúc, khi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきます（Bài 30）",
+              "vi": "読んでおいてください = hãy đọc trước (chuẩn bị cho tương lai). Vておく = làm trước để sau có ích."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "緊急のとき = lúc khẩn cấp. N + のとき."
+            }
+          ]
+        },
+        {
+          "jp": "よく分かったのに、実際には忘れてしまう人が多いので、定期的に確認するようにしましょう。",
+          "vi": "Vì có nhiều người dù đã hiểu rõ nhưng lại quên mất trên thực tế, hãy cố gắng kiểm tra định kỳ.",
+          "vocab": [
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "hiểu"
+            },
+            {
+              "w": "実際には",
+              "read": "じっさいには",
+              "vi": "trên thực tế"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "定期",
+              "read": "ていき",
+              "vi": "định kỳ, vé tháng"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "kiểm tra, xác nhận"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "rõ ràng, kỹ càng"
+            },
+            {
+              "w": "定期的に",
+              "read": "ていきてきに",
+              "vi": "định kỳ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接）",
+              "vi": "分かったのに忘れてしまう = dù đã hiểu rõ nhưng lại quên. Vた + のに: kỳ vọng \"hiểu rồi thì không quên\" nhưng thực tế ngược lại, mang hàm ý tiếc."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "人が多いので = vì có nhiều người như vậy. ので nêu nguyên nhân khách quan."
+            },
+            {
+              "point": "〜ようにします（Bài 36）",
+              "vi": "確認するようにしましょう = hãy cố gắng kiểm tra. Vるようにする = cố gắng làm."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "火事のばあいは",
+          "label": "Nのばあいは"
+        },
+        {
+          "excerpt": "地震のばあいは",
+          "label": "Nのばあいは"
+        },
+        {
+          "excerpt": "体の具合が悪いばあいは",
+          "label": "A普通形のばあいは"
+        },
+        {
+          "excerpt": "外出中のばあいは",
+          "label": "Nのばあいは"
+        },
+        {
+          "excerpt": "よく分かったのに、実際には忘れてしまう",
+          "label": "〜のに（逆接・tiếc）"
+        },
+        {
+          "excerpt": "読んでおいてください",
+          "label": "Vておきます（chuẩn bị trước）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "火事のばあいは、どうしなければなりませんか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "エレベーターで下に降りてください",
+            "まず机の下にかくれてください",
+            "エレベーターを使わないで、非常口から出てください",
+            "会社の緊急連絡先に電話してください"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài ghi rõ:「火事のばあいは、すぐにエレベーターを使わないで、非常口から出てください」— đây là hướng dẫn TRỰC TIẾP cho trường hợp 火事 (hỏa hoạn): không dùng thang máy, thoát bằng 非常口 (cửa thoát hiểm). Đáp án 0 sai vì thang máy bị CẤM dùng khi hỏa hoạn. Đáp án 1 sai vì「まず机の下にかくれる」là hướng dẫn khi 地震 (động đất), không phải hỏa hoạn. Đáp án 3 sai vì gọi điện khẩn cấp là hướng dẫn cho trường hợp 外出中 (đang vắng mặt ngoài).",
+          "tip": "Bài có NHIỀU trường hợp (ばあい) → mỗi đáp án sai thường là hướng dẫn đúng của trường hợp KHÁC. Khi làm bài, khớp chính xác: ばあい nào → hành động nào, đừng nhầm trường hợp.",
+          "qt": {
+            "q": "Khi có hỏa hoạn, phải làm gì?",
+            "o": [
+              "Hãy đi xuống dưới bằng thang máy",
+              "Trước tiên, hãy nấp dưới bàn",
+              "Không dùng thang máy, hãy đi ra bằng lối thoát hiểm",
+              "Hãy gọi đến số liên lạc khẩn cấp của công ty"
+            ]
+          }
+        },
+        {
+          "q": "「よく分かったのに」とありますが、どんな意味ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "よく分からなかったので困っています",
+            "よく分かったから大丈夫です",
+            "よく分かったけれど、残念なことに忘れてしまいます",
+            "よく分かったので、確認しなくていいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Toàn câu là「よく分かったのに、実際には忘れてしまう人が多い」— のに ở đây là NGHỊCH ĐỐI: vế trước「よく分かった」(đã hiểu rõ) gợi kỳ vọng \"hiểu rồi thì sẽ nhớ\", nhưng vế sau thực tế ngược lại: vẫn quên. Chữ chốt là「残念なことに」(đáng tiếc) trong đáp án 2 phản ánh đúng sắc thái tiếc nuối của のに. Đáp án 0 sai vì bài nói đã hiểu (分かった), không phải không hiểu. Đáp án 1 và 3 bỏ qua vế đối nghịch — chúng biến のに thành から (vì vậy…), sai hoàn toàn về ý nghĩa.",
+          "tip": "のに（逆接）= \"dù… nhưng / vậy mà\": vế trước là điều kiện tốt/hành động đã làm, vế sau là kết quả TRÁI KỲ VỌNG kèm sắc thái tiếc/bực. Ngay khi thấy のに, hỏi: \"ai kỳ vọng gì, thực tế ra sao?\" — đáp án đúng phải giữ đủ CẢ HAI VẾ.",
+          "qt": {
+            "q": "Có câu 「よく分かったのに」 (đã hiểu rõ rồi, vậy mà...). Câu này có nghĩa là gì?",
+            "o": [
+              "Vì không hiểu rõ nên tôi đang gặp khó khăn",
+              "Vì đã hiểu rõ nên không sao cả",
+              "Đã hiểu rõ, nhưng đáng tiếc là lại quên mất",
+              "Vì đã hiểu rõ nên không cần xác nhận lại"
+            ]
+          }
+        },
+        {
+          "q": "外出中の社員は何をしなければなりませんか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "すぐに会社に戻らなければなりません",
+            "机の下にかくれなければなりません",
+            "会社の緊急連絡先に電話しなければなりません",
+            "非常口から出なければなりません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài ghi rõ:「外出中のばあいは、会社の緊急連絡先に電話してください」— đây là hướng dẫn dành riêng cho trường hợp 外出中 (đang vắng mặt bên ngoài): gọi điện đến 緊急連絡先 (đầu mối liên lạc khẩn cấp). Đáp án 0 sai vì bài KHÔNG yêu cầu quay về công ty ngay. Đáp án 1 sai vì trốn dưới gầm bàn là hướng dẫn khi 地震 (động đất). Đáp án 3 sai vì thoát qua 非常口 là hướng dẫn khi 火事 (hỏa hoạn).",
+          "tip": "Mỗi「〜のばあいは」chỉ áp dụng cho đúng điều kiện đó. Khi đề hỏi \"trong trường hợp X phải làm gì?\", tìm đúng câu có「Xのばあいは」rồi đọc phần sau — không suy diễn từ trường hợp khác.",
+          "qt": {
+            "q": "Nhân viên đang ở bên ngoài phải làm gì?",
+            "o": [
+              "Phải lập tức quay về công ty",
+              "Phải nấp dưới bàn",
+              "Phải gọi đến số liên lạc khẩn cấp của công ty",
+              "Phải đi ra bằng lối thoát hiểm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ミラーさんの日記",
+      "titleVi": "Nhật ký của anh Miller",
+      "japanese": "6月15日（月）晴れ\n今日は新しいプリンターを使ってみた。会社から「使い方が分からないばあいは、マニュアルを読んでください」と言われていたので、先に読んでおいた。\nマニュアルには「印刷できないばあいは、まずケーブルの接続を確認してください」と書いてあった。\n確認してみたら、ケーブルがちゃんとつながっていなかった。つなぎ直したら、すぐに印刷できるようになった。\nでも、30枚印刷したのに、インクが切れてしまった。新しいのに、もうインクがないのはおかしいと思った。\nマニュアルに「インクが少なくなったばあいは、画面に警告が出ます」と書いてあったが、私のプリンターには何も出なかった。\n田中さんに話したら、「センサーが壊れているんじゃないですか」と言われた。\n田中さんは「故障のばあいは、メーカーに連絡するほうがいいですよ」とアドバイスしてくれた。\nさっそくメーカーに電話した。「症状を説明してください」と言われたので、詳しく説明した。\nオペレーターは「このばあいは、プリンターを送っていただければ、無料で修理できます」と言ってくれた。\n助かった。でも、修理に2週間かかると聞きました。\n2週間もかかるのに、急いで仕事をしなければならないのは大変だ。\nコンビニで印刷するか、同僚に頼むしかないと思っている。\n田中さんが「使えるプリンターが隣の部屋にありますよ」と教えてくれた。本当に助かった。\n一人でずっと困っていたのに、聞いてみたらすぐに解決した。もっと早く聞けばよかった。\n明日からは、分からないことがあったら、すぐに誰かに聞くようにしようと思う。\n困ったときは一人で抱え込まないことが大切だと分かった。",
+      "vietnamese": "Ngày 15 tháng 6 (Thứ Hai) Nắng\nHôm nay tôi đã thử dùng máy in mới. Vì công ty đã nói \"trong trường hợp không hiểu cách dùng, hãy đọc sổ tay hướng dẫn\", nên tôi đã đọc trước.\nTrong sổ tay có ghi \"trong trường hợp không thể in, trước tiên hãy kiểm tra kết nối cáp\".\nKhi kiểm tra thì thấy cáp chưa cắm đúng. Cắm lại thì ngay lập tức in được luôn.\nNhưng, dù đã in 30 tờ, mực lại hết mất. Tôi thấy lạ vì dù còn mới mà đã hết mực rồi.\nTrong sổ tay có ghi \"trong trường hợp mực sắp hết, màn hình sẽ hiện cảnh báo\", nhưng máy của tôi không hiện gì cả.\nKhi kể với anh Tanaka, anh nói \"Có phải cảm biến bị hỏng không?\".\nAnh Tanaka khuyên tôi \"trong trường hợp hỏng, tốt nhất nên liên hệ nhà sản xuất\".\nTôi liền gọi điện cho nhà sản xuất. Được yêu cầu \"hãy giải thích triệu chứng\", tôi đã giải thích kỹ.\nNhân viên tổng đài nói \"trong trường hợp này, nếu bạn gửi máy in đến, chúng tôi có thể sửa miễn phí\".\nThật may! Nhưng tôi nghe nói việc sửa mất 2 tuần.\nDù mất đến 2 tuần mà vẫn phải làm việc gấp thì thật vất vả.\nTôi đang nghĩ chỉ còn cách in ở cửa hàng tiện lợi hoặc nhờ đồng nghiệp.\nAnh Tanaka cho tôi biết \"có máy in dùng được ở phòng bên cạnh đấy\". Thật may mắn quá.\nDù đã loay hoay mãi một mình, nhưng khi hỏi thử thì giải quyết ngay. Giá mà hỏi sớm hơn thì tốt hơn.\nTừ mai, tôi nghĩ sẽ cố gắng hỏi ngay ai đó khi có điều không biết.\nTôi hiểu ra rằng điều quan trọng là đừng tự ôm lấy vấn đề một mình khi gặp khó khăn.",
+      "sentences": [
+        {
+          "jp": "6月15日（月）晴れ",
+          "vi": "Ngày 15 tháng 6 (Thứ Hai) Nắng",
+          "vocab": [
+            {
+              "w": "6月",
+              "read": "ろくがつ",
+              "vi": "tháng 6"
+            },
+            {
+              "w": "15日",
+              "read": "じゅうごにち",
+              "vi": "ngày 15"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "晴れ",
+              "read": "はれ",
+              "vi": "trời nắng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề nhật ký",
+              "vi": "Ghi ngày tháng và thời tiết — cách viết mở đầu nhật ký tiêu chuẩn."
+            }
+          ]
+        },
+        {
+          "jp": "今日は新しいプリンターを使ってみた。会社から「使い方が分からないばあいは、マニュアルを読んでください」と言われていたので、先に読んでおいた。",
+          "vi": "Hôm nay tôi đã thử dùng máy in mới. Vì công ty đã nói \"trong trường hợp không hiểu cách dùng, hãy đọc sổ tay hướng dẫn\", nên tôi đã đọc trước.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "プリンター",
+              "read": "プリンター",
+              "vi": "máy in"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách dùng"
+            },
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "マニュアル",
+              "read": "マニュアル",
+              "vi": "sổ tay hướng dẫn"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "先に",
+              "read": "さきに",
+              "vi": "trước, trước tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみました（Bài 40）",
+              "vi": "使ってみた = thử dùng. Vてみる = thử làm để xem kết quả."
+            },
+            {
+              "point": "Vないのばあいは",
+              "vi": "分からないばあいは = trong trường hợp không hiểu. Vない（普通形）+ ばあいは."
+            },
+            {
+              "point": "Vておきます（Bài 30）",
+              "vi": "読んでおいた = đọc trước (chuẩn bị). Vておく = làm trước để sẵn sàng."
+            }
+          ]
+        },
+        {
+          "jp": "マニュアルには「印刷できないばあいは、まずケーブルの接続を確認してください」と書いてあった。",
+          "vi": "Trong sổ tay có ghi \"trong trường hợp không thể in, trước tiên hãy kiểm tra kết nối cáp\".",
+          "vocab": [
+            {
+              "w": "マニュアル",
+              "read": "マニュアル",
+              "vi": "sổ tay hướng dẫn, manual"
+            },
+            {
+              "w": "印刷します",
+              "read": "いんさつします",
+              "vi": "in ấn"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "ケーブル",
+              "read": "ケーブル",
+              "vi": "cáp, dây cáp"
+            },
+            {
+              "w": "接続",
+              "read": "せつぞく",
+              "vi": "kết nối"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "kiểm tra, xác nhận"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないのばあいは",
+              "vi": "印刷できないばあいは = trong trường hợp không in được. Dạng phủ định 可能形 (Bài 27) + ばあいは."
+            },
+            {
+              "point": "Vてあります（Bài 30）",
+              "vi": "書いてあった = được ghi (trạng thái đã viết sẵn). Vてある = ai đó đã làm và trạng thái đó còn đó."
+            }
+          ]
+        },
+        {
+          "jp": "確認してみたら、ケーブルがちゃんとつながっていなかった。つなぎ直したら、すぐに印刷できるようになった。",
+          "vi": "Khi kiểm tra thì thấy cáp chưa cắm đúng. Cắm lại thì ngay lập tức in được luôn.",
+          "vocab": [
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "ケーブル",
+              "read": "ケーブル",
+              "vi": "cáp, dây cáp"
+            },
+            {
+              "w": "ちゃんと",
+              "read": "ちゃんと",
+              "vi": "đúng cách, đàng hoàng"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "dẫn đến, liên kết"
+            },
+            {
+              "w": "つなぎ",
+              "read": "つなぎ",
+              "vi": "sự kết nối, mối nối"
+            },
+            {
+              "w": "直す",
+              "read": "なおす",
+              "vi": "sửa chữa, chỉnh sửa"
+            },
+            {
+              "w": "印刷",
+              "read": "いんさつ",
+              "vi": "sự in ấn"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "つながります",
+              "read": "つながります",
+              "vi": "được nối, được kết nối (自動詞)"
+            },
+            {
+              "w": "つなぎ直します",
+              "read": "つなぎなおします",
+              "vi": "cắm lại, nối lại"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "確認してみたら = khi thử kiểm tra thì. Vたら dẫn đến phát hiện."
+            },
+            {
+              "point": "Vるようになります（Bài 36）",
+              "vi": "印刷できるようになった = trở nên có thể in. Vるようになる = đạt đến trạng thái làm được."
+            },
+            {
+              "point": "自動詞 vs 他動詞（Bài 29）",
+              "vi": "つながっていなかった（自動詞: dây chưa kết nối）→ つなぎ直した（他動詞: cắm lại = người làm chủ động）."
+            }
+          ]
+        },
+        {
+          "jp": "でも、30枚印刷したのに、インクが切れてしまった。",
+          "vi": "Nhưng, dù đã in 30 tờ, mực lại hết mất.",
+          "vocab": [
+            {
+              "w": "印刷",
+              "read": "いんさつ",
+              "vi": "sự in ấn"
+            },
+            {
+              "w": "インク",
+              "read": "インク",
+              "vi": "mực in"
+            },
+            {
+              "w": "切れます",
+              "read": "きれます",
+              "vi": "hết, cạn (tự động)"
+            },
+            {
+              "w": "30枚",
+              "read": "さんじゅうまい",
+              "vi": "30 tờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接）",
+              "vi": "30枚印刷したのに、インクが切れてしまった = dù mới in có 30 tờ mà mực đã hết. Vた + のに: kỳ vọng \"in ít thì không thể hết mực\" nhưng thực tế trái ngược, hàm ý bực bội/tiếc."
+            },
+            {
+              "point": "Vてしまいます（Bài 29）",
+              "vi": "インクが切れてしまった = mực hết mất rồi. てしまう diễn đạt sự hoàn tất không mong muốn."
+            }
+          ]
+        },
+        {
+          "jp": "新しいのに、もうインクがないのはおかしいと思った。",
+          "vi": "Tôi thấy lạ vì dù còn mới mà đã hết mực rồi.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "インク",
+              "read": "インク",
+              "vi": "mực in"
+            },
+            {
+              "w": "おかしい",
+              "read": "おかしい",
+              "vi": "lạ, kỳ lạ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã, rồi (diễn đạt sự việc xảy ra sớm hơn dự kiến)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接）",
+              "vi": "新しいのに = dù (máy) còn mới mà. A（普通形）+ のに: máy mới thì kỳ vọng mực còn nhiều, nhưng thực tế ngược lại — hàm ý ngạc nhiên."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "おかしいと思った = tôi nghĩ thấy lạ. と思う để bày tỏ ý kiến/cảm nhận."
+            }
+          ]
+        },
+        {
+          "jp": "マニュアルに「インクが少なくなったばあいは、画面に警告が出ます」と書いてあったが、私のプリンターには何も出なかった。",
+          "vi": "Trong sổ tay có ghi \"trong trường hợp mực sắp hết, màn hình sẽ hiện cảnh báo\", nhưng máy của tôi không hiện gì cả.",
+          "vocab": [
+            {
+              "w": "マニュアル",
+              "read": "まにゅある",
+              "vi": "sổ tay hướng dẫn"
+            },
+            {
+              "w": "インク",
+              "read": "いんく",
+              "vi": "mực"
+            },
+            {
+              "w": "少なくなった",
+              "read": "すくなくなった",
+              "vi": "đã trở nên ít; sắp hết"
+            },
+            {
+              "w": "ばあい",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "警告",
+              "read": "けいこく",
+              "vi": "cảnh báo"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "sẽ hiển thị"
+            },
+            {
+              "w": "書いてあった",
+              "read": "かいてあった",
+              "vi": "đã được viết"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "プリンター",
+              "read": "ぷりんたー",
+              "vi": "máy in"
+            },
+            {
+              "w": "何も",
+              "read": "なにも",
+              "vi": "không gì"
+            },
+            {
+              "w": "出なかった",
+              "read": "でなかった",
+              "vi": "đã không xuất hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたのばあいは",
+              "vi": "インクが少なくなったばあいは = trong trường hợp mực đã giảm. Vた + ばあいは: trường hợp sau khi sự việc xảy ra."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "少なくなった = đã trở nên ít. Aくなる = trở nên (biến đổi trạng thái)."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんに話したら、「センサーが壊れているんじゃないですか」と言われた。",
+          "vi": "Khi kể với anh Tanaka, anh nói \"Có phải cảm biến bị hỏng không?\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "話します",
+              "read": "はなします",
+              "vi": "kể, nói chuyện"
+            },
+            {
+              "w": "センサー",
+              "read": "センサー",
+              "vi": "cảm biến"
+            },
+            {
+              "w": "壊れます",
+              "read": "こわれます",
+              "vi": "bị hỏng, vỡ (自動詞)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "話したら = khi kể thì. Vたら dẫn đến sự kiện tiếp theo."
+            },
+            {
+              "point": "〜んじゃないですか（Bài 26）",
+              "vi": "センサーが壊れているんじゃないですか = có phải cảm biến hỏng không? Tanaka nhận thấy bất thường và đặt giả thuyết."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは「故障のばあいは、メーカーに連絡するほうがいいですよ」とアドバイスしてくれた。",
+          "vi": "Anh Tanaka khuyên tôi \"trong trường hợp hỏng, tốt nhất nên liên hệ nhà sản xuất\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "故障",
+              "read": "こしょう",
+              "vi": "hỏng hóc, sự cố"
+            },
+            {
+              "w": "メーカー",
+              "read": "メーカー",
+              "vi": "nhà sản xuất"
+            },
+            {
+              "w": "連絡します",
+              "read": "れんらくします",
+              "vi": "liên lạc, liên hệ"
+            },
+            {
+              "w": "アドバイス",
+              "read": "アドバイス",
+              "vi": "lời khuyên"
+            },
+            {
+              "w": "アドバイスします",
+              "read": "アドバイスします",
+              "vi": "khuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのばあいは",
+              "vi": "故障のばあいは = trong trường hợp hỏng hóc. Danh từ (故障) + のばあいは."
+            },
+            {
+              "point": "Vるほうがいいです（Bài 32）",
+              "vi": "連絡するほうがいいです = nên liên hệ thì tốt hơn. Lời khuyên."
+            },
+            {
+              "point": "Vてくれます（Bài 24）",
+              "vi": "アドバイスしてくれた = (Tanaka) đã khuyên cho tôi. くれる = ai khác làm gì đó tốt cho người nói."
+            }
+          ]
+        },
+        {
+          "jp": "さっそくメーカーに電話した。「症状を説明してください」と言われたので、詳しく説明した。",
+          "vi": "Tôi liền gọi điện cho nhà sản xuất. Được yêu cầu \"hãy giải thích triệu chứng\", tôi đã giải thích kỹ.",
+          "vocab": [
+            {
+              "w": "さっそく",
+              "read": "さっそく",
+              "vi": "ngay lập tức, liền ngay"
+            },
+            {
+              "w": "メーカー",
+              "read": "メーカー",
+              "vi": "nhà sản xuất"
+            },
+            {
+              "w": "電話します",
+              "read": "でんわします",
+              "vi": "gọi điện"
+            },
+            {
+              "w": "症状",
+              "read": "しょうじょう",
+              "vi": "triệu chứng"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "詳しく",
+              "read": "くわしく",
+              "vi": "một cách chi tiết, kỹ càng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "言われたので = vì được yêu cầu. ので nêu lý do dẫn đến hành động tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "オペレーターは「このばあいは、プリンターを送っていただければ、無料で修理できます」と言ってくれた。",
+          "vi": "Nhân viên tổng đài nói \"trong trường hợp này, nếu bạn gửi máy in đến, chúng tôi có thể sửa miễn phí\".",
+          "vocab": [
+            {
+              "w": "オペレーター",
+              "read": "オペレーター",
+              "vi": "nhân viên tổng đài"
+            },
+            {
+              "w": "プリンター",
+              "read": "プリンター",
+              "vi": "máy in"
+            },
+            {
+              "w": "送ります",
+              "read": "おくります",
+              "vi": "gửi"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "修理します",
+              "read": "しゅうりします",
+              "vi": "sửa chữa"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "このばあいは",
+              "vi": "このばあいは = trong trường hợp này. こ指示語 + のばあいは chỉ đến trường hợp vừa được mô tả."
+            },
+            {
+              "point": "Vていただく(B41)＋ば điều kiện(B35)",
+              "vi": "送っていただければ = nếu (bạn) gửi cho (chúng tôi) thì. Vていただく (nhận ân huệ, B41) + ば (điều kiện, B35)."
+            }
+          ]
+        },
+        {
+          "jp": "助かった。でも、修理に2週間かかると聞きました。",
+          "vi": "Thật may! Nhưng tôi nghe nói việc sửa mất 2 tuần.",
+          "vocab": [
+            {
+              "w": "助かります",
+              "read": "たすかります",
+              "vi": "được cứu, thật may"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "sửa chữa"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "2週間",
+              "read": "にしゅうかん",
+              "vi": "2 tuần"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "mất (thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と聞きます（Bài 21）",
+              "vi": "かかると聞きました = nghe nói mất (thời gian). と聞く = nghe ai đó nói rằng. Thông tin nhận được trực tiếp qua điện thoại từ nhân viên."
+            }
+          ]
+        },
+        {
+          "jp": "2週間もかかるのに、急いで仕事をしなければならないのは大変だ。",
+          "vi": "Dù mất đến 2 tuần mà vẫn phải làm việc gấp thì thật vất vả.",
+          "vocab": [
+            {
+              "w": "2週間",
+              "read": "にしゅうかん",
+              "vi": "2 tuần"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "mất (thời gian)"
+            },
+            {
+              "w": "急いで",
+              "read": "いそいで",
+              "vi": "vội vàng"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "しなければならない",
+              "read": "しなければならない",
+              "vi": "phải làm"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接）",
+              "vi": "2週間もかかるのに = dù mất đến 2 tuần (trường hợp đáng tiếc). Kết hợp với も để nhấn mạnh thời gian dài."
+            },
+            {
+              "point": "Vなければなりません（Bài 17）",
+              "vi": "仕事をしなければならない = phải làm việc. Hai tình huống xung đột (máy gửi đi 2 tuần vs. phải làm gấp)."
+            }
+          ]
+        },
+        {
+          "jp": "コンビニで印刷するか、同僚に頼むしかないと思っている。",
+          "vi": "Tôi đang nghĩ chỉ còn cách in ở cửa hàng tiện lợi hoặc nhờ đồng nghiệp.",
+          "vocab": [
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi"
+            },
+            {
+              "w": "印刷",
+              "read": "いんさつ",
+              "vi": "sự in ấn"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "頼みます",
+              "read": "たのみます",
+              "vi": "nhờ, nhờ vả"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜（Bài 6）",
+              "vi": "印刷するか、頼むか = in hoặc nhờ. か liệt kê lựa chọn."
+            },
+            {
+              "point": "〜しかない (chỉ còn cách — ghép しか B27 + ない)",
+              "vi": "〜しかない = chỉ còn cách…, không có lựa chọn nào khác. しか (B27) + phủ định = chỉ có mỗi điều đó mà thôi."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんが「使えるプリンターが隣の部屋にありますよ」と教えてくれた。本当に助かった。",
+          "vi": "Anh Tanaka cho tôi biết \"có máy in dùng được ở phòng bên cạnh đấy\". Thật may mắn quá.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "使えます",
+              "read": "つかえます",
+              "vi": "dùng được, có thể dùng (可能形)"
+            },
+            {
+              "w": "プリンター",
+              "read": "プリンター",
+              "vi": "máy in"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, kế bên"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "助かる",
+              "read": "たすかる",
+              "vi": "được cứu, được giúp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa N（Bài 22）",
+              "vi": "使えるプリンター = máy in có thể dùng được. Vる bổ nghĩa cho danh từ tiếp theo."
+            },
+            {
+              "point": "Vてくれます（Bài 24）",
+              "vi": "教えてくれた = (Tanaka) đã cho tôi biết. くれる = ai đó làm điều tốt cho người nói."
+            }
+          ]
+        },
+        {
+          "jp": "一人でずっと困っていたのに、聞いてみたらすぐに解決した。もっと早く聞けばよかった。",
+          "vi": "Dù đã loay hoay mãi một mình, nhưng khi hỏi thử thì giải quyết ngay. Giá mà hỏi sớm hơn thì tốt hơn.",
+          "vocab": [
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "suốt; mãi"
+            },
+            {
+              "w": "困っていた",
+              "read": "こまっていた",
+              "vi": "đã gặp khó khăn"
+            },
+            {
+              "w": "聞いてみたら",
+              "read": "きいてみたら",
+              "vi": "thử hỏi thì"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "解決した",
+              "read": "かいけつした",
+              "vi": "đã được giải quyết"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm hơn"
+            },
+            {
+              "w": "聞けばよかった",
+              "read": "きけばよかった",
+              "vi": "lẽ ra nên hỏi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接・tiếc）",
+              "vi": "一人でずっと困っていたのに、すぐに解決した = dù loay hoay mãi một mình mà hỏi thử thì giải quyết ngay. のに ở đây mang sắc thái tiếc nuối (giá mà hỏi sớm hơn thì không phải khổ vậy)."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "聞いてみたら = khi thử hỏi thì. Vたら dẫn đến kết quả bất ngờ."
+            },
+            {
+              "point": "〜ばよかった (cách diễn đạt tiếc nuối — N4, ghép ば B35 + よかった)",
+              "vi": "聞けばよかった = giá mà đã hỏi thì tốt hơn. Vば + よかった: diễn đạt sự hối tiếc về việc không làm trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "明日からは、分からないことがあったら、すぐに誰かに聞くようにしようと思う。",
+          "vi": "Từ mai, tôi nghĩ sẽ cố gắng hỏi ngay ai đó khi có điều không biết.",
+          "vocab": [
+            {
+              "w": "明日から",
+              "read": "あしたから",
+              "vi": "từ ngày mai"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "誰か",
+              "read": "だれか",
+              "vi": "ai đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようにします（Bài 36）",
+              "vi": "聞くようにしよう = sẽ cố gắng hỏi. Vるようにする = cố tạo thói quen/hướng đến."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "しようと思う = tôi nghĩ sẽ làm. Dự định trong tương lai."
+            }
+          ]
+        },
+        {
+          "jp": "困ったときは一人で抱え込まないことが大切だと分かった。",
+          "vi": "Tôi hiểu ra rằng điều quan trọng là đừng tự ôm lấy vấn đề một mình khi gặp khó khăn.",
+          "vocab": [
+            {
+              "w": "困った",
+              "read": "こまった",
+              "vi": "gặp khó khăn"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi; lúc"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "抱え込まない",
+              "read": "かかえこまない",
+              "vi": "không ôm giữ một mình"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "分かった",
+              "read": "わかった",
+              "vi": "đã hiểu; nhận ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "困ったとき = lúc gặp khó khăn. Vた + とき: thời điểm sau khi gặp tình huống."
+            },
+            {
+              "point": "〜ないことが大切（Bài 22相当）",
+              "vi": "抱え込まないことが大切だ = việc không tự ôm lấy là quan trọng. Vないこと = hành động không làm, dùng làm chủ đề."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "使い方が分からないばあいは",
+          "label": "Vないのばあいは"
+        },
+        {
+          "excerpt": "印刷できないばあいは",
+          "label": "Vない（可能否定）のばあいは"
+        },
+        {
+          "excerpt": "インクが少なくなったばあいは",
+          "label": "Vたのばあいは"
+        },
+        {
+          "excerpt": "故障のばあいは",
+          "label": "Nのばあいは"
+        },
+        {
+          "excerpt": "このばあいは",
+          "label": "このばあいは（chỉ thị）"
+        },
+        {
+          "excerpt": "30枚印刷したのに、インクが切れてしまった",
+          "label": "〜のに（逆接・bực bội）"
+        },
+        {
+          "excerpt": "新しいのに、もうインクがない",
+          "label": "〜のに（逆接・ngạc nhiên）"
+        },
+        {
+          "excerpt": "一人でずっと困っていたのに、聞いてみたらすぐに解決した",
+          "label": "〜のに（逆接・tiếc nuối）"
+        },
+        {
+          "excerpt": "2週間もかかるのに",
+          "label": "〜のに（逆接・trái mong đợi）"
+        },
+        {
+          "excerpt": "読んでおいた",
+          "label": "Vておきます（chuẩn bị trước）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんはどうしてプリンターが使えるようになりましたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "マニュアルをよく読んで、インクを交換しました",
+            "メーカーに電話して、修理してもらいました",
+            "ケーブルの接続を確認して、つなぎ直したからです",
+            "田中さんが新しいプリンターを持ってきてくれました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài ghi rõ chuỗi sự kiện:「確認してみたら、ケーブルがちゃんとつながっていなかった。つなぎ直したら、すぐに印刷できるようになった」— nguyên nhân trực tiếp là cáp (ケーブル) chưa cắm đúng, sau khi cắm lại (つなぎ直す) thì in được ngay. Đáp án 0 sai vì mực (インク) là vấn đề xảy ra SAU ĐÓ — không phải nguyên nhân máy không in được lúc đầu. Đáp án 1 sai vì gọi nhà sản xuất (メーカー) là bước xử lý vấn đề mực hết, không phải việc in được hay không. Đáp án 3 sai vì Tanaka không mang máy in mới — Tanaka chỉ chỉ cho Miller biết có máy in ở phòng bên.",
+          "tip": "Câu hỏi \"どうして〜ようになりましたか\" hỏi NGUYÊN NHÂN trực tiếp dẫn đến sự thay đổi. Tìm chuỗi「〜たら〜た」hoặc「〜ので〜た」trong bài — đó thường chính là chuỗi nguyên nhân → kết quả cần chọn.",
+          "qt": {
+            "q": "Vì sao ông Miller có thể sử dụng được máy in?",
+            "o": [
+              "Đọc kỹ hướng dẫn sử dụng rồi thay mực",
+              "Gọi điện cho nhà sản xuất và nhờ sửa chữa",
+              "Vì đã kiểm tra kết nối dây cáp rồi cắm lại",
+              "Ông Tanaka đã mang máy in mới đến"
+            ]
+          }
+        },
+        {
+          "q": "「新しいのに、もうインクがないのはおかしいと思った」とありますが、どんな気持ちですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "新しいプリンターなので、インクが早くなくなるのは当然だと思っています",
+            "新しいプリンターのはずなのに、こんなに早くインクがなくなるのはおかしいと驚いています",
+            "インクが少ないから、新しいプリンターを買いたいと思っています",
+            "インクがなくなったので、プリンターが古くなったと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「新しいのに、もうインクがない」dùng のに NGHỊCH ĐỐI: máy còn mới (新しい) gợi kỳ vọng \"mực phải còn nhiều\", nhưng thực tế ngược lại — mực đã hết chỉ sau 30 tờ. Từ chốt「おかしい」(kỳ lạ) xác nhận cảm giác NGẠC NHIÊN và BẤT BÌNH của Miller. Đáp án 0 sai và ngược hoàn toàn — của bài là thấy LẠ, không phải thấy당然 (đương nhiên). Đáp án 2 sai vì Miller không hề có ý định mua máy mới. Đáp án 3 sai vì máy HẾT MỰC không có nghĩa là máy trở nên cũ.",
+          "tip": "のに（逆接）luôn đi kèm cảm xúc TIẾC, NGẠC NHIÊN hoặc BẤT BÌNH. Khi hỏi \"どんな気持ちですか\", tìm đáp án có từ khóa cảm xúc phù hợp (驚く・おかしい・残念・困る) và giữ nguyên KẾT QUẢ TRÁI KỲ VỌNG từ bài.",
+          "qt": {
+            "q": "Câu 「新しいのに、もうインクがないのはおかしいと思った」 có nghĩa là: “Dù còn mới, vậy mà mực đã hết rồi, tôi thấy thật kỳ lạ.” Người đó cảm thấy thế nào?",
+            "o": [
+              "Vì là máy in mới nên người đó nghĩ mực hết nhanh là điều đương nhiên",
+              "Người đó ngạc nhiên vì máy in mới mà mực đã hết nhanh đến thế",
+              "Vì mực sắp hết nên người đó muốn mua máy in mới",
+              "Vì mực đã hết nên người đó nghĩ máy in đã cũ"
+            ]
+          }
+        },
+        {
+          "q": "修理中、ミラーさんが仕事のためにプリンターを使う方法は何ですか。",
+          "evi": [
+            13,
+            14
+          ],
+          "options": [
+            "メーカーから代わりのプリンターを借ります",
+            "コンビニで印刷するか、同僚に頼むか、隣の部屋のプリンターを使います",
+            "しばらく印刷しないで、メールだけで仕事をします",
+            "すぐに新しいプリンターを買います"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nhắc đến ba phương án tổng hợp:「コンビニで印刷するか、同僚に頼むしかないと思っている」(in ở tiện lợi hoặc nhờ đồng nghiệp) và ngay sau đó「田中さんが「使えるプリンターが隣の部屋にありますよ」と教えてくれた」(có máy in dùng được ở phòng bên). Đáp án 1 gộp đủ cả ba phương án này. Đáp án 0 sai vì bài không hề nhắc đến nhà sản xuất CHO MƯỢN máy — họ chỉ nhận sửa miễn phí. Đáp án 2 và 3 sai vì bài không đề cập đến việc ngừng in hoàn toàn hay mua máy mới.",
+          "tip": "Câu hỏi tổng hợp nhiều chi tiết rải rác trong bài — đáp án đúng thường bao gồm TẤT CẢ các phương án được nhắc. Loại ngay các phương án không có trong bài văn, dù nghe có vẻ hợp lý.",
+          "qt": {
+            "q": "Trong thời gian sửa chữa, ông Miller có những cách nào để sử dụng máy in cho công việc?",
+            "o": [
+              "Mượn máy in thay thế từ nhà sản xuất",
+              "In ở cửa hàng tiện lợi, nhờ đồng nghiệp, hoặc dùng máy in ở phòng bên cạnh",
+              "Tạm thời không in, chỉ làm việc bằng email",
+              "Mua máy in mới ngay"
+            ]
+          }
+        },
+        {
+          "q": "この日記から、ミラーさんが学んだ一番大切なことは何ですか。",
+          "evi": [
+            15,
+            17
+          ],
+          "options": [
+            "困ったときは、すぐにメーカーに連絡することが大切です",
+            "新しい機械は必ずマニュアルを読んでから使うことが大切です",
+            "困ったときは、一人で抱え込まないで、誰かに聞くことが大切です",
+            "故障のばあいは、自分で修理しないで専門家に頼むことが大切です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài kết thúc bằng hai câu tổng kết rõ ràng:「一人でずっと困っていたのに、聞いてみたらすぐに解決した」(のに nghịch kỳ vọng — cứ loay hoay mãi mà chỉ cần hỏi là xong) và câu rút ra bài học「困ったときは一人で抱え込まないことが大切だと分かった」. Bài học cốt lõi là đừng tự ôm vấn đề, hãy hỏi người khác. Đáp án 0 sai vì nhận xét về メーカー chỉ là một chi tiết, không phải bài học chính. Đáp án 1 sai vì đọc hướng dẫn (マニュアル) là hành động đã làm ngay từ đầu, không phải điều Miller \"học được\" sau đó. Đáp án 3 sai vì chủ đề không phải về tự sửa hay nhờ chuyên gia — mà về việc chia sẻ khó khăn với người xung quanh.",
+          "tip": "Câu hỏi hỏi về \"bài học lớn nhất\" → đọc thẳng đến câu KẾT LUẬN cuối đoạn văn (thường dùng「〜ことが大切だと分かった」hay「〜ようにしようと思う」). Đó là nơi tác giả phát biểu bài học rõ nhất.",
+          "qt": {
+            "q": "Điều quan trọng nhất mà ông Miller đã học được từ trang nhật ký này là gì?",
+            "o": [
+              "Khi gặp khó khăn, điều quan trọng là liên hệ ngay với nhà sản xuất",
+              "Điều quan trọng là luôn đọc hướng dẫn sử dụng trước khi dùng máy móc mới",
+              "Khi gặp khó khăn, điều quan trọng là không ôm lấy vấn đề một mình mà hãy hỏi ai đó",
+              "Khi máy bị hỏng, điều quan trọng là nhờ chuyên gia giúp đỡ thay vì tự sửa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Sự kiện mùa hè của thành phố Sakura",
+      "japanese": "さくら市お知らせ「夏のイベント」\nさくら市では、毎年夏にイベントを行っています。今年は3つのイベントがあります。\nイベント｜日にち｜時間｜場所｜お金\n花火大会｜7月18日（土）｜19時〜20時30分｜さくら川　河原｜無料\n夏祭り音楽会｜7月26日（日）｜17時〜19時｜市民公園｜500円\nラジオ体操｜8月1日〜10日（毎朝）｜6時30分〜6時45分｜東小学校　校庭｜無料\n雨のばあいは、花火大会と夏祭り音楽会は中止になります。ラジオ体操は雨のばあいでも、体育館で行います。\n去年は天気がよかったのに、今年は台風が多いので、天気予報をよく見てから来てください。\n※夏祭り音楽会のチケットは、市役所で7月20日までに買っておいてください。人気があるのに、券の数は少ないので、売り切れのばあいは買えません。\n※集合時間に遅れるばあいは、必ず電話してください。\n電話：（0562）34-5678（さくら市　文化スポーツ課、月〜金　9時〜17時）",
+      "vietnamese": "Thông báo thành phố Sakura「Sự kiện mùa hè」\nThành phố Sakura hằng năm đều tổ chức sự kiện vào mùa hè. Năm nay có 3 sự kiện.\nSự kiện｜Ngày｜Giờ｜Địa điểm｜Tiền\nLễ hội pháo hoa｜18/7 (Thứ Bảy)｜19:00〜20:30｜Bãi sông Sakura｜Miễn phí\nHòa nhạc lễ hội mùa hè｜26/7 (Chủ Nhật)｜17:00〜19:00｜Công viên thị dân｜500 yên\nThể dục buổi sáng｜1〜10/8 (mỗi sáng)｜6:30〜6:45｜Sân trường Tiểu học Higashi｜Miễn phí\nTrong trường hợp trời mưa, Lễ hội pháo hoa và Hòa nhạc lễ hội mùa hè sẽ bị hủy. Thể dục buổi sáng thì dù trong trường hợp mưa vẫn tổ chức, tại nhà thi đấu.\nNăm ngoái trời đẹp vậy mà năm nay lại nhiều bão, nên hãy xem kỹ dự báo thời tiết rồi mới đến.\n※Vé Hòa nhạc lễ hội mùa hè, hãy mua trước tại tòa thị chính trước ngày 20/7. Vì được nhiều người ưa thích vậy mà số vé lại ít, nên trong trường hợp hết vé thì sẽ không mua được.\n※Trong trường hợp đến trễ giờ tập trung, nhất định hãy gọi điện.\nĐiện thoại: (0562) 34-5678 (Phòng Văn hóa Thể thao thành phố Sakura, Thứ 2〜Thứ 6, 9:00〜17:00)",
+      "sentences": [
+        {
+          "jp": "さくら市お知らせ「夏のイベント」",
+          "vi": "Thông báo thành phố Sakura「Sự kiện mùa hè」",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng đầu là tên cơ quan phát hành + chủ đề thông báo, đặt trong「」."
+            }
+          ]
+        },
+        {
+          "jp": "さくら市では、毎年夏にイベントを行っています。今年は3つのイベントがあります。",
+          "vi": "Thành phố Sakura hằng năm đều tổ chức sự kiện vào mùa hè. Năm nay có 3 sự kiện.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura, tên riêng"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "毎年",
+              "read": "まいとし",
+              "vi": "hằng năm"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "イベント",
+              "read": "いべんと",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "行っています",
+              "read": "おこなっています",
+              "vi": "đang tổ chức"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "3つ",
+              "read": "みっつ",
+              "vi": "ba cái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（thói quen, Bài 28）",
+              "vi": "行っています = vẫn thường tổ chức. Diễn tả việc lặp lại hàng năm."
+            },
+            {
+              "point": "〜があります（Bài 9）",
+              "vi": "3つのイベントがあります = có 3 sự kiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3つのイベントがあります",
+              "why": "Báo trước có đúng 3 sự kiện — cần dò cả 3 hàng bảng phía dưới trước khi chọn đáp án."
+            }
+          ]
+        },
+        {
+          "jp": "イベント｜日にち｜時間｜場所｜お金",
+          "vi": "Sự kiện｜Ngày｜Giờ｜Địa điểm｜Tiền",
+          "vocab": [
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "日にち",
+              "read": "ひにち",
+              "vi": "ngày tháng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng tiêu đề bảng",
+              "vi": "Header của bảng liệt kê 3 sự kiện mùa hè, 5 cột."
+            }
+          ]
+        },
+        {
+          "jp": "花火大会｜7月18日（土）｜19時〜20時30分｜さくら川　河原｜無料",
+          "vi": "Lễ hội pháo hoa｜18/7 (Thứ Bảy)｜19:00〜20:30｜Bãi sông Sakura｜Miễn phí",
+          "vocab": [
+            {
+              "w": "花火",
+              "read": "はなび",
+              "vi": "pháo hoa"
+            },
+            {
+              "w": "大会",
+              "read": "たいかい",
+              "vi": "đại hội; sự kiện lớn"
+            },
+            {
+              "w": "花火大会",
+              "read": "はなびたいかい",
+              "vi": "lễ hội pháo hoa"
+            },
+            {
+              "w": "7月",
+              "read": "しちがつ",
+              "vi": "tháng 7"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "18日",
+              "read": "じゅうはちにち",
+              "vi": "ngày 18"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "19時",
+              "read": "じゅうくじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "20時30分",
+              "read": "にじゅうじさんじゅっぷん",
+              "vi": "20 giờ 30 phút"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura, tên riêng"
+            },
+            {
+              "w": "川",
+              "read": "かわ",
+              "vi": "sông"
+            },
+            {
+              "w": "さくら川",
+              "read": "さくらがわ",
+              "vi": "sông Sakura"
+            },
+            {
+              "w": "河原",
+              "read": "かわら",
+              "vi": "bãi sông"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng (dữ liệu sự kiện 1)",
+              "vi": "Lễ hội pháo hoa: thứ Bảy 18/7, tối 19h–20h30, tại bãi sông Sakura, miễn phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "19時〜20時30分",
+              "why": "Câu hỏi 1 cần \"chỉ rảnh tối thứ Bảy\" — giờ tối khớp điều kiện buổi tối."
+            },
+            {
+              "w": "（土）",
+              "why": "Ngày trong tuần THỨ BẢY — khớp điều kiện \"土曜日の夜\" của câu hỏi 1."
+            },
+            {
+              "w": "無料",
+              "why": "Miễn phí — khớp điều kiện \"không muốn trả tiền\" của câu hỏi 1, loại 夏祭り音楽会 có phí."
+            }
+          ]
+        },
+        {
+          "jp": "夏祭り音楽会｜7月26日（日）｜17時〜19時｜市民公園｜500円",
+          "vi": "Hòa nhạc lễ hội mùa hè｜26/7 (Chủ Nhật)｜17:00〜19:00｜Công viên thị dân｜500 yên",
+          "vocab": [
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "祭り",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày, mặt trời"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "夏祭り",
+              "read": "なつまつり",
+              "vi": "lễ hội mùa hè"
+            },
+            {
+              "w": "音楽会",
+              "read": "おんがくかい",
+              "vi": "buổi hòa nhạc"
+            },
+            {
+              "w": "26日",
+              "read": "にじゅうろくにち",
+              "vi": "ngày 26"
+            },
+            {
+              "w": "市民公園",
+              "read": "しみんこうえん",
+              "vi": "công viên thị dân"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng (dữ liệu sự kiện 2)",
+              "vi": "Hòa nhạc lễ hội mùa hè: Chủ Nhật 26/7, 17h–19h, tại công viên thị dân, 500 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "（日）",
+              "why": "Ngày Chủ Nhật, không phải thứ Bảy — bẫy loại đáp án ở câu hỏi 1 dù cũng là buổi tối."
+            },
+            {
+              "w": "500円",
+              "why": "Có phí — bẫy loại ở câu hỏi 1 (nhân vật không muốn trả tiền); cũng là sự kiện bị hủy khi mưa ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "ラジオ体操｜8月1日〜10日（毎朝）｜6時30分〜6時45分｜東小学校　校庭｜無料",
+          "vi": "Thể dục buổi sáng｜1〜10/8 (mỗi sáng)｜6:30〜6:45｜Sân trường Tiểu học Higashi｜Miễn phí",
+          "vocab": [
+            {
+              "w": "ラジオ",
+              "read": "らじお",
+              "vi": "đài radio"
+            },
+            {
+              "w": "体操",
+              "read": "たいそう",
+              "vi": "thể dục"
+            },
+            {
+              "w": "ラジオ体操",
+              "read": "らじおたいそう",
+              "vi": "thể dục radio"
+            },
+            {
+              "w": "8月",
+              "read": "はちがつ",
+              "vi": "tháng 8"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "1日",
+              "read": "ついたち",
+              "vi": "ngày 1"
+            },
+            {
+              "w": "10日",
+              "read": "とおか",
+              "vi": "ngày 10"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "6時30分",
+              "read": "ろくじさんじゅっぷん",
+              "vi": "6 giờ 30 phút"
+            },
+            {
+              "w": "6時45分",
+              "read": "ろくじよんじゅうごふん",
+              "vi": "6 giờ 45 phút"
+            },
+            {
+              "w": "東",
+              "read": "ひがし",
+              "vi": "phía đông"
+            },
+            {
+              "w": "小学校",
+              "read": "しょうがっこう",
+              "vi": "trường tiểu học"
+            },
+            {
+              "w": "東小学校",
+              "read": "ひがししょうがっこう",
+              "vi": "Trường tiểu học Higashi"
+            },
+            {
+              "w": "校庭",
+              "read": "こうてい",
+              "vi": "sân trường"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng (dữ liệu sự kiện 3)",
+              "vi": "Thể dục buổi sáng: 1–10/8 mỗi sáng, 6h30–6h45, tại sân trường Tiểu học Higashi, miễn phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "6時30分〜6時45分",
+              "why": "Buổi SÁNG SỚM, không phải buổi tối — bẫy loại ở câu hỏi 1 dù cũng miễn phí."
+            }
+          ]
+        },
+        {
+          "jp": "雨のばあいは、花火大会と夏祭り音楽会は中止になります。ラジオ体操は雨のばあいでも、体育館で行います。",
+          "vi": "Trong trường hợp trời mưa, Lễ hội pháo hoa và Hòa nhạc lễ hội mùa hè sẽ bị hủy. Thể dục buổi sáng thì dù trong trường hợp mưa vẫn tổ chức, tại nhà thi đấu.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "花火",
+              "read": "はなび",
+              "vi": "pháo hoa"
+            },
+            {
+              "w": "大会",
+              "read": "たいかい",
+              "vi": "đại hội, giải thi đấu"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "祭り",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "中止になります",
+              "read": "ちゅうしになります",
+              "vi": "bị hủy, bị hoãn"
+            },
+            {
+              "w": "ラジオ",
+              "read": "ラジオ",
+              "vi": "đài phát thanh, radio"
+            },
+            {
+              "w": "体操",
+              "read": "たいそう",
+              "vi": "thể dục"
+            },
+            {
+              "w": "体育館",
+              "read": "たいいくかん",
+              "vi": "nhà thi đấu"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのばあいは",
+              "vi": "雨のばあいは = trong trường hợp mưa. Danh từ (雨) + のばあいは để nêu điều kiện áp dụng cho quy định phía sau."
+            },
+            {
+              "point": "Nのばあいでも",
+              "vi": "雨のばあいでも = dù trong trường hợp mưa. のばあい + でも (Bài 25 mở rộng) = dù rơi vào trường hợp đó vẫn không đổi kết quả."
+            },
+            {
+              "point": "〜になります（Bài 19）",
+              "vi": "中止になります = trở thành hủy bỏ. Aくなる/Nになる diễn tả biến đổi trạng thái."
+            }
+          ],
+          "keys": [
+            {
+              "w": "花火大会と夏祭り音楽会は中止になります",
+              "why": "Căn cứ trực tiếp câu hỏi 2: 夏祭り音楽会 nằm trong danh sách bị hủy khi mưa, chọn 中止になります."
+            },
+            {
+              "w": "ラジオ体操は雨のばあいでも、体育館で行います",
+              "why": "Bẫy loại câu hỏi 2: đổi sang 体育館 chỉ áp dụng cho ラジオ体操, không phải 夏祭り音楽会."
+            }
+          ]
+        },
+        {
+          "jp": "去年は天気がよかったのに、今年は台風が多いので、天気予報をよく見てから来てください。",
+          "vi": "Năm ngoái trời đẹp vậy mà năm nay lại nhiều bão, nên hãy xem kỹ dự báo thời tiết rồi mới đến.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "台風",
+              "read": "たいふう",
+              "vi": "bão"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "天気予報",
+              "read": "てんきよほう",
+              "vi": "dự báo thời tiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接）",
+              "vi": "去年は天気がよかったのに、今年は台風が多い = năm ngoái trời đẹp vậy mà năm nay lại nhiều bão. Vế trước gợi kỳ vọng \"năm nay cũng sẽ đẹp\", vế sau trái ngược — hàm ý bất ngờ/tiếc."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "台風が多いので = vì nhiều bão. Nêu lý do khách quan cho lời khuyên phía sau."
+            },
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "見てから来てください = hãy xem rồi hãy đến. Vてから = làm xong việc trước rồi mới làm việc sau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "去年は天気がよかったのに、今年は台風が多い",
+              "why": "Câu ※lưu ý ngoài bảng — nhắc kiểm tra thời tiết trước khi đến, liên quan tinh thần \"trường hợp mưa\" ở khối bảng."
+            }
+          ]
+        },
+        {
+          "jp": "※夏祭り音楽会のチケットは、市役所で7月20日までに買っておいてください。人気があるのに、券の数は少ないので、売り切れのばあいは買えません。",
+          "vi": "※Vé Hòa nhạc lễ hội mùa hè, hãy mua trước tại tòa thị chính trước ngày 20/7. Vì được nhiều người ưa thích vậy mà số vé lại ít, nên trong trường hợp hết vé thì sẽ không mua được.",
+          "vocab": [
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "祭り",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "夏祭り",
+              "read": "なつまつり",
+              "vi": "lễ hội mùa hè"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "会",
+              "read": "かい",
+              "vi": "buổi hội; sự kiện"
+            },
+            {
+              "w": "音楽会",
+              "read": "おんがくかい",
+              "vi": "buổi hòa nhạc"
+            },
+            {
+              "w": "夏祭り音楽会",
+              "read": "なつまつりおんがくかい",
+              "vi": "buổi hòa nhạc lễ hội mùa hè"
+            },
+            {
+              "w": "チケット",
+              "read": "ちけっと",
+              "vi": "vé"
+            },
+            {
+              "w": "市役所",
+              "read": "しやくしょ",
+              "vi": "tòa thị chính"
+            },
+            {
+              "w": "7月",
+              "read": "しちがつ",
+              "vi": "tháng 7"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "20日",
+              "read": "はつか",
+              "vi": "ngày 20"
+            },
+            {
+              "w": "買っておいてください",
+              "read": "かっておいてください",
+              "vi": "hãy mua trước"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "sự phổ biến"
+            },
+            {
+              "w": "人気がある",
+              "read": "にんきがある",
+              "vi": "được ưa chuộng"
+            },
+            {
+              "w": "券",
+              "read": "けん",
+              "vi": "vé; phiếu"
+            },
+            {
+              "w": "数",
+              "read": "かず",
+              "vi": "số lượng"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "売り切れ",
+              "read": "うりきれ",
+              "vi": "bán hết"
+            },
+            {
+              "w": "ばあい",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "買えません",
+              "read": "かえません",
+              "vi": "không thể mua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "7月20日までに = trước hạn ngày 20/7. Nêu mốc hạn chót phải hoàn thành trước đó."
+            },
+            {
+              "point": "Vておきます（Bài 30）",
+              "vi": "買っておいてください = hãy mua trước (chuẩn bị sẵn). Vておく = làm trước để sau tiện lợi."
+            },
+            {
+              "point": "〜のに（逆接）",
+              "vi": "人気があるのに、券の数は少ない = tuy được ưa thích vậy mà số vé lại ít. Kỳ vọng \"được ưa thích thì nên có nhiều vé\", thực tế trái ngược."
+            },
+            {
+              "point": "Nのばあいは",
+              "vi": "売り切れのばあいは = trong trường hợp bán hết. Danh từ (売り切れ) + のばあいは."
+            }
+          ],
+          "keys": [
+            {
+              "w": "7月20日までに買っておいてください",
+              "why": "Hạn chót mua vé — điều kiện thời gian đi kèm bẫy ※."
+            },
+            {
+              "w": "売り切れのばあいは買えません",
+              "why": "Bẫy ※: điều kiện loại trừ — hết vé thì không mua được nữa dù còn trong hạn."
+            }
+          ]
+        },
+        {
+          "jp": "※集合時間に遅れるばあいは、必ず電話してください。",
+          "vi": "※Trong trường hợp đến trễ giờ tập trung, nhất định hãy gọi điện.",
+          "vocab": [
+            {
+              "w": "集合",
+              "read": "しゅうごう",
+              "vi": "tập trung, tụ họp"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "遅れます",
+              "read": "おくれます",
+              "vi": "đến trễ, chậm trễ"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "集合時間",
+              "read": "しゅうごうじかん",
+              "vi": "giờ tập trung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのばあいは",
+              "vi": "遅れるばあいは = trong trường hợp đến trễ. Vる（辞書形）+ のばあいは."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "電話してください = hãy gọi điện. Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "集合時間に遅れるばあいは、必ず電話してください",
+              "why": "Bẫy ※ khác: quy tắc đến trễ giờ tập trung — không liên quan trực tiếp 2 câu hỏi nhưng thuộc khối lưu ý cuối bài."
+            }
+          ]
+        },
+        {
+          "jp": "電話：（0562）34-5678（さくら市　文化スポーツ課、月〜金　9時〜17時）",
+          "vi": "Điện thoại: (0562) 34-5678 (Phòng Văn hóa Thể thao thành phố Sakura, Thứ 2〜Thứ 6, 9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura, tên riêng"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "スポーツ",
+              "read": "すぽーつ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "課",
+              "read": "か",
+              "vi": "ban; phòng"
+            },
+            {
+              "w": "文化スポーツ課",
+              "read": "ぶんかすぽーつか",
+              "vi": "Phòng Văn hóa - Thể thao"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつようびからきんようび",
+              "vi": "từ thứ Hai đến thứ Sáu"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Dòng liên hệ",
+              "vi": "Thông tin liên hệ đặt cuối thông báo — số điện thoại, phòng ban, giờ làm việc."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "雨のばあいは",
+          "label": "Nのばあいは（mới）"
+        },
+        {
+          "excerpt": "雨のばあいでも",
+          "label": "Nのばあいでも（mới）"
+        },
+        {
+          "excerpt": "売り切れのばあいは",
+          "label": "Nのばあいは（mới）"
+        },
+        {
+          "excerpt": "遅れるばあいは",
+          "label": "Vるのばあいは（mới）"
+        },
+        {
+          "excerpt": "去年は天気がよかったのに、今年は台風が多い",
+          "label": "〜のに（逆接・mới）"
+        },
+        {
+          "excerpt": "人気があるのに、券の数は少ない",
+          "label": "〜のに（逆接・mới）"
+        },
+        {
+          "excerpt": "買っておいてください",
+          "label": "Vておきます（ôn Bài 30）"
+        },
+        {
+          "excerpt": "行っています",
+          "label": "Vています（ôn thói quen, Bài 28）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Nêu tên thông báo và báo trước có đúng 3 sự kiện mùa hè — chuẩn bị cho bảng phía dưới.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng 3 sự kiện",
+          "topic": 2,
+          "note": "Bảng chính chứa toàn bộ ngày/giờ/địa điểm/giá của 3 sự kiện — căn cứ trực tiếp cho câu hỏi 1 (ghép điều kiện thứ Bảy tối + miễn phí).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 6,
+          "kind": "turn",
+          "label": "Quy định khi trời mưa",
+          "topic": 6,
+          "note": "Bẫy/ngoại lệ: liệt kê sự kiện nào bị hủy và sự kiện nào vẫn tổ chức (đổi địa điểm) khi mưa — căn cứ trực tiếp câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "body",
+          "label": "Lời khuyên xem thời tiết",
+          "topic": 7,
+          "note": "So sánh năm ngoái/năm nay (のに) và khuyên xem dự báo thời tiết trước khi đến — bổ trợ ngữ cảnh cho quy định mưa.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 10,
+          "kind": "turn",
+          "label": "Chú ý ※ vé & giờ tập trung",
+          "topic": 8,
+          "note": "Hai dòng ※ nêu điều kiện loại trừ (hết vé không mua được, đến trễ phải gọi điện) và thông tin liên hệ — không phải căn cứ của 2 câu hỏi nhưng là bẫy tiềm năng nếu đề hỏi thêm.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは土曜日の夜だけ時間があります。お金を払いたくないです。カリナさんが行けるイベントはどれですか。",
+          "options": [
+            "花火大会",
+            "夏祭り音楽会",
+            "ラジオ体操",
+            "花火大会と夏祭り音楽会"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0（花火大会）. Bảng ghi:「花火大会｜7月18日（土）｜19時〜20時30分｜さくら川　河原｜無料」— đúng cả 2 điều kiện: diễn ra tối THỨ BẢY (19時〜20時30分) và MIỄN PHÍ. Đáp án 1（夏祭り音楽会）sai vì tuy cũng buổi tối nhưng lại vào CHỦ NHẬT và có phí 500円. Đáp án 2（ラジオ体操）miễn phí nhưng lại diễn ra vào BUỔI SÁNG SỚM (6時30分〜6時45分), không phải buổi tối. Đáp án 3 sai vì gộp cả sự kiện có phí (夏祭り音楽会) vào, không thỏa \"không muốn trả tiền\".",
+          "tip": "Câu hỏi ghép NHIỀU điều kiện (ngày trong tuần + buổi + giá) → dò từng cột của bảng, loại bỏ hàng nào chỉ khớp MỘT vế mà thiếu vế còn lại.",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Karina chỉ có thời gian vào tối thứ Bảy. Cô ấy không muốn trả tiền. Sự kiện nào Karina có thể tham gia?",
+            "o": [
+              "Lễ hội pháo hoa",
+              "Buổi hòa nhạc lễ hội mùa hè",
+              "Thể dục radio",
+              "Lễ hội pháo hoa và buổi hòa nhạc lễ hội mùa hè"
+            ]
+          }
+        },
+        {
+          "q": "7月26日、雨が降りました。夏祭り音楽会はどうなりますか。",
+          "options": [
+            "予定どおり市民公園で行われます",
+            "中止になります",
+            "体育館で行われます",
+            "8月に変更されます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1（中止になります）. Bài ghi rõ:「雨のばあいは、花火大会と夏祭り音楽会は中止になります」— 夏祭り音楽会 nằm trong 2 sự kiện bị HỦY khi mưa. Đáp án 0 sai vì trái ngược hoàn toàn với quy định. Đáp án 2 sai vì chuyển vào 体育館 chỉ áp dụng cho ラジオ体操（「ラジオ体操は雨のばあいでも、体育館で行います」）, không phải 夏祭り音楽会. Đáp án 3 sai vì bài không hề nhắc đến việc dời sang tháng 8.",
+          "tip": "Khi bài có NHIỀU quy định theo「〜のばあいは」cho các sự kiện khác nhau, phải khớp đúng TÊN sự kiện được hỏi với đúng câu quy định — đừng nhầm quy định của sự kiện này sang sự kiện khác.",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Ngày 26 tháng 7, trời đã mưa. Buổi hòa nhạc lễ hội mùa hè sẽ thế nào?",
+            "o": [
+              "Sẽ được tổ chức tại Công viên Công dân theo đúng kế hoạch",
+              "Sẽ bị hủy",
+              "Sẽ được tổ chức trong nhà thi đấu",
+              "Sẽ được đổi sang tháng 8"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

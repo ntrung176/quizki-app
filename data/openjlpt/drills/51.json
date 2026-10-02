@@ -1,0 +1,464 @@
+{
+  "id": "skm3.b51",
+  "bai": 51,
+  "titleVi": "Suy luận logic \"lẽ ra phải / không thể nào\"",
+  "know": [
+    {
+      "id": "skm3.b51.hazu-da",
+      "point": "hazu-da",
+      "jp": "〜はずだ",
+      "vi": "Suy luận khách quan: \"lẽ ra phải ~\", \"chắc chắn là ~\" (dựa trên logic/sự kiện đã biết)",
+      "en": "Objective inference: “should be ~” or “must be ~” (based on logic or known facts)",
+      "gloss": "普通形[ふつうけい] ＋ はずだ ／ N・NAなはずだ ・ 例: 招待状[しょうたいじょう]を 送[おく]ったから、彼[かれ]は パーティーのことを 知[し]っているはずだ。（thư đã gửi rồi, chắc anh ấy biết về buổi tiệc）",
+      "glossEn": "普通形[ふつうけい] ＋ はずだ ／ N・NAなはずだ ・ 例: 招待状[しょうたいじょう]を 送[おく]ったから、彼[かれ]は パーティーのことを 知[し]っているはずだ。（The invitation has already been sent, so he should know about the party.）"
+    },
+    {
+      "id": "skm3.b51.hazu-ga-nai",
+      "point": "hazu-ga-nai",
+      "jp": "〜はずがない",
+      "vi": "Phủ định mạnh bằng logic: \"không thể nào ~ được\"",
+      "en": "A strong logical negation: “there is no way ~” or “~ cannot possibly be the case”",
+      "gloss": "普通形[ふつうけい] ＋ はずがない ／ N・NAなはずがない ・ 例: 彼[かれ]は 正直者[しょうじきもの]だから、私[わたし]に うそをつくはずがない。（anh ấy thật thà, không thể nào nói dối tôi được）",
+      "glossEn": "普通形[ふつうけい] ＋ はずがない ／ N・NAなはずがない ・ 例: 彼[かれ]は 正直者[しょうじきもの]だから、私[わたし]に うそをつくはずがない。（He is honest, so there is no way he would lie to me.）"
+    },
+    {
+      "id": "skm3.b51.hazu-vs-beki",
+      "point": "hazu-vs-beki",
+      "jp": "はずだ ≠ べきだ",
+      "vi": "はずだ = suy luận khách quan (có căn cứ); べきだ = bổn phận chủ quan (\"đáng ra phải\")",
+      "en": "はずだ = objective inference (with grounds); べきだ = subjective obligation (“should” or “ought to”)",
+      "gloss": "接続[せつぞく]: はずだ（普通形[ふつうけい]＋はずだ、suy luận）≠ べきだ（動詞[どうし]辞書形[じしょけい]＋べきだ、bổn phận） ・ 例: 彼[かれ]は 駅[えき]に いるはずだ（tôi suy: anh ấy ở ga） ≠ 謝[あやま]るべきだ（đáng ra phải xin lỗi）",
+      "glossEn": "接続[せつぞく]: はずだ（普通形[ふつうけい]＋はずだ、objective inference）≠ べきだ（動詞[どうし]辞書形[じしょけい]＋べきだ、obligation） ・ 例: 彼[かれ]は 駅[えき]に いるはずだ（I infer that he is at the station） ≠ 謝[あやま]るべきだ（should apologize）"
+    },
+    {
+      "id": "skm3.b51.hazu-vs-nai-hazu",
+      "point": "hazu-vs-nai-hazu",
+      "jp": "はずがない ≠ ないはずだ",
+      "vi": "はずがない = \"không thể nào ~\" (mạnh, loại trừ hoàn toàn); ないはずだ = \"suy luận rằng không ~\" (nhẹ hơn)",
+      "en": "はずがない = \"there is no way ~\" (strong; completely rules it out); ないはずだ = \"infer that ~ is not the case\" (milder)",
+      "gloss": "接続[せつぞく]: はずがない（普通形[ふつうけい]＋はずがない、phủ định mạnh）≠ ないはずだ（〜ない＋はずだ、suy luận phủ định nhẹ） ・ 例: 彼[かれ]は その 分野[ぶんや]を 知[し]っているはずがない（không thể nào biết được！） ≠ 知[し]らないはずだ（chắc là không biết đâu）",
+      "glossEn": "接続[せつぞく]: はずがない（普通形[ふつうけい]＋はずがない, strong negation）≠ ないはずだ（〜ない＋はずだ, mild negative inference） ・ 例: 彼[かれ]は その 分野[ぶんや]を 知[し]っているはずがない（there is no way he knows that field！） ≠ 知[し]らないはずだ（he probably doesn't know it）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b51-disc-hazu-beki-1",
+      "item": "skm3.b51.hazu-vs-beki",
+      "err": "hazu-cho-beki",
+      "vi": "Anh ấy đã học 3 năm ở Nhật, nên chắc là nói tiếng Nhật được.",
+      "t1": {
+        "stem": "彼[かれ]は 日本[にほん]で 3年間[ねんかん] 勉強[べんきょう]したから、日本語[にほんご]が 話[はな]せる＿。",
+        "choices": [
+          "はずだ",
+          "べきだ",
+          "わけだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が",
+          "話[はな]せる",
+          "はずだ。"
+        ],
+        "traps": [
+          "べきだ。",
+          "わけだ。"
+        ]
+      },
+      "t3": {
+        "target": "彼は日本で3年間勉強したから、日本語が話せるはずだ。",
+        "accept": [
+          "かれはにほんで3ねんかんべんきょうしたから、にほんごがはなせるはずだ。"
+        ]
+      },
+      "why": "はずだ = suy luận dựa trên sự kiện \"đã học 3 năm\" (khách quan, có căn cứ). ✗ べきだ = bổn phận (\"đáng ra phải nói được\" — đây không phải nghĩa vụ mà là dự đoán logic)."
+    },
+    {
+      "id": "c-b51-disc-hazu-beki-2",
+      "item": "skm3.b51.hazu-vs-beki",
+      "err": "beki-cho-hazu",
+      "vi": "Đã gây ra chuyện đó, anh ấy đáng ra phải xin lỗi chứ.",
+      "t1": {
+        "stem": "あんなことをしたんだから、彼[かれ]は 謝[あやま]る＿。",
+        "choices": [
+          "べきだ",
+          "はずだ",
+          "はずがない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "謝[あやま]る",
+          "べきだ。"
+        ],
+        "traps": [
+          "はずだ。",
+          "わけだ。"
+        ]
+      },
+      "t3": {
+        "target": "彼はあんなことをしたんだから、謝るべきだ。",
+        "accept": [
+          "かれはあんなことをしたんだから、あやまるべきだ。"
+        ]
+      },
+      "why": "べきだ = bổn phận đạo lý chủ quan (\"đáng ra phải\"). ✗ はずだ = suy luận khách quan, không mang nghĩa trách móc về nghĩa vụ."
+    },
+    {
+      "id": "c-b51-disc-hazu-beki-3",
+      "item": "skm3.b51.hazu-vs-beki",
+      "err": "hazu-cho-beki",
+      "vi": "Theo lịch trình, chuyến tàu lúc 10 giờ lẽ ra đã đến rồi.",
+      "t1": {
+        "stem": "ダイヤによると、10時[じ]の 電車[でんしゃ]は もう 来[き]ている＿。",
+        "choices": [
+          "はずだ",
+          "べきだ",
+          "かもしれない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "10時[じ]の 電車[でんしゃ]は",
+          "もう",
+          "来[き]ている",
+          "はずだ。"
+        ],
+        "traps": [
+          "べきだ。",
+          "はずがない。"
+        ]
+      },
+      "t3": {
+        "target": "10時の電車はもう来ているはずだ。",
+        "accept": [
+          "じゅうじのでんしゃはもうきているはずだ。"
+        ]
+      },
+      "why": "はずだ = suy ra từ lịch trình (căn cứ khách quan: ダイヤ). ✗ べきだ mang sắc thái \"nghĩa vụ/trách nhiệm\", không dùng cho vật vô tri."
+    },
+    {
+      "id": "c-b51-disc-hagunanai-naihazu-1",
+      "item": "skm3.b51.hazu-vs-nai-hazu",
+      "err": "hazu-ga-nai-cho-nai-hazu",
+      "vi": "Anh ấy không học ngành đó, nên chắc là không biết câu trả lời đâu. (suy luận nhẹ)",
+      "t1": {
+        "stem": "彼[かれ]はその 分野[ぶんや]を 勉強[べんきょう]していないから、答[こた]えを 知[し]らない＿。",
+        "choices": [
+          "はずだ",
+          "はずがない",
+          "べきだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "答[こた]えを",
+          "知[し]らない",
+          "はずだ。"
+        ],
+        "traps": [
+          "はずがない。",
+          "べきだ。"
+        ]
+      },
+      "t3": {
+        "target": "彼はその分野を勉強していないから、答えを知らないはずだ。",
+        "accept": [
+          "かれはそのぶんやをべんきょうしていないから、こたえをしらないはずだ。"
+        ]
+      },
+      "why": "ないはずだ (= 知らないはずだ) = suy luận rằng \"chắc không biết\". ✗ はずがない = \"không thể nào biết được!\" — phủ định mạnh tuyệt đối hơn, không phù hợp ngữ cảnh \"suy luận nhẹ\"."
+    },
+    {
+      "id": "c-b51-disc-hagunanai-naihazu-2",
+      "item": "skm3.b51.hazu-ga-nai",
+      "err": "hazu-ga-nai-cho-nai-hazu",
+      "vi": "Chị ấy mới ra ngoài lúc sáng, không thể nào đã về rồi được!",
+      "t1": {
+        "stem": "彼女[かのじょ]は 朝[あさ] 出[で]かけたばかりなのに、もう 帰[かえ]っている＿。",
+        "choices": [
+          "はずがない",
+          "ないはずだ",
+          "はずだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もう",
+          "帰[かえ]っている",
+          "はずがない。"
+        ],
+        "traps": [
+          "ないはずだ。",
+          "わけがない。"
+        ]
+      },
+      "t3": {
+        "target": "彼女は朝出かけたばかりなのに、もう帰っているはずがない。",
+        "accept": [
+          "かのじょはあさでかけたばかりなのに、もうかえっているはずがない。"
+        ]
+      },
+      "why": "はずがない = phủ định logic tuyệt đối \"không thể nào ~\" (phù hợp với sự bất ngờ/bác bỏ). ✗ ないはずだ chỉ là suy đoán nhẹ \"chắc là chưa về\"."
+    },
+    {
+      "id": "c-b51-hazu-da-1",
+      "item": "skm3.b51.hazu-da",
+      "err": "hazu-form-wrong",
+      "vi": "Bây giờ là 3 giờ, nên chắc cửa hàng đang mở cửa.",
+      "t1": {
+        "stem": "今[いま] 3時[じ]だから、店[みせ]は 開[あ]いている＿。",
+        "choices": [
+          "はずだ",
+          "らしい",
+          "かもしれない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "店[みせ]は",
+          "開[あ]いている",
+          "はずだ。"
+        ],
+        "traps": [
+          "らしい。",
+          "かもしれない。"
+        ]
+      },
+      "t3": {
+        "target": "今3時だから、店は開いているはずだ。",
+        "accept": [
+          "いま3じだから、みせはあいているはずだ。"
+        ]
+      },
+      "why": "はずだ = suy luận từ thông tin khách quan \"bây giờ 3 giờ → đang trong giờ mở cửa\". かもしれない chỉ dùng khi không có căn cứ rõ ràng."
+    },
+    {
+      "id": "c-b51-hazu-da-2",
+      "item": "skm3.b51.hazu-da",
+      "err": "hazu-form-wrong",
+      "vi": "Tôi đã gửi thư mời, nên chắc anh ấy đã biết về buổi tiệc rồi.",
+      "t1": {
+        "stem": "招待状[しょうたいじょう]を 送[おく]ったから、彼[かれ]はパーティーのことを 知[し]っている＿。",
+        "choices": [
+          "はずだ",
+          "にちがいない",
+          "ようだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "パーティーのことを",
+          "知[し]っている",
+          "はずだ。"
+        ],
+        "traps": [
+          "にちがいない。",
+          "ようだ。"
+        ]
+      },
+      "t3": {
+        "target": "招待状を送ったから、彼はパーティーのことを知っているはずだ。",
+        "accept": [
+          "しょうたいじょうをおくったから、かれはぱーてぃーのことをしっているはずだ。"
+        ]
+      },
+      "why": "はずだ = suy từ hành động đã thực hiện (送った). にちがいない mạnh hơn (≈90% chắc chắn), ようだ dùng khi có bằng chứng mắt thấy."
+    },
+    {
+      "id": "c-b51-hazu-ga-nai-1",
+      "item": "skm3.b51.hazu-ga-nai",
+      "err": "hazu-form-wrong",
+      "vi": "Anh ấy vốn rất thẳng thắn, không thể nào nói dối tôi được.",
+      "t1": {
+        "stem": "彼[かれ]は 正直者[しょうじきもの]だから、私[わたし]に うそをつく＿。",
+        "choices": [
+          "はずがない",
+          "はずだ",
+          "べきではない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "うそをつく",
+          "はずがない。"
+        ],
+        "traps": [
+          "はずだ。",
+          "べきではない。"
+        ]
+      },
+      "t3": {
+        "target": "彼は正直者だから、私にうそをつくはずがない。",
+        "accept": [
+          "かれはしょうじきものだから、わたしにうそをつくはずがない。"
+        ]
+      },
+      "why": "はずがない = phủ định logic \"không thể nào\". ✗ べきではない = \"không nên\" (đạo lý) — khác với suy luận."
+    },
+    {
+      "id": "c-b51-hazu-ga-nai-2",
+      "item": "skm3.b51.hazu-ga-nai",
+      "err": "hazu-form-wrong",
+      "vi": "Người mới vào công ty tuần trước không thể nào hiểu quy trình này được.",
+      "t1": {
+        "stem": "先週[せんしゅう] 入社[にゅうしゃ]したばかりの 社員[しゃいん]が、このシステムを 知っている＿。",
+        "choices": [
+          "はずがない",
+          "はずだ",
+          "べきだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このシステムを",
+          "知[し]っている",
+          "はずがない。"
+        ],
+        "traps": [
+          "はずだ。",
+          "べきではない。"
+        ]
+      },
+      "t3": {
+        "target": "先週入社したばかりの社員が、このシステムを知っているはずがない。",
+        "accept": [
+          "せんしゅうにゅうしゃしたばかりのしゃいんが、このしすてむをしっているはずがない。"
+        ]
+      },
+      "why": "はずがない = bác bỏ khả năng bằng logic (mới vào tuần trước → chưa thể biết hệ thống). ✗ はずだ ngược nghĩa hoàn toàn."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b51-hazu-da",
+      "item": "skm3.b51.hazu-da",
+      "err": "hazu-form-wrong",
+      "tts": "かれはまいにちれんしゅうしているから、もうじょうずなはずです。",
+      "script": "彼[かれ]は 毎日[まいにち] 練習[れんしゅう]しているから、もう 上手[じょうず]なはずです。",
+      "ask": "Người nói suy luận gì về anh ấy?",
+      "choices": [
+        "Chắc là anh ấy đã giỏi rồi vì luyện tập mỗi ngày",
+        "Anh ấy nên luyện tập mỗi ngày",
+        "Anh ấy không thể nào giỏi được"
+      ],
+      "answer": 0,
+      "why": "はずです = suy luận khách quan dựa trên \"luyện tập mỗi ngày\" → kết luận logic là \"đã giỏi rồi\"."
+    },
+    {
+      "id": "l-b51-hazu-ga-nai",
+      "item": "skm3.b51.hazu-ga-nai",
+      "err": "hazu-ga-nai-cho-nai-hazu",
+      "tts": "かのじょはかいぎちゅうだから、いまでんわにでられるはずがありません。",
+      "script": "彼女[かのじょ]は 会議中[かいぎちゅう]だから、今[いま] 電話[でんわ]に 出[で]られるはずがありません。",
+      "ask": "Người nói muốn nói gì?",
+      "choices": [
+        "Chị ấy đang họp nên không thể nghe điện thoại được",
+        "Chị ấy không nên nghe điện thoại khi đang họp",
+        "Chị ấy có lẽ không nghe điện thoại"
+      ],
+      "answer": 0,
+      "why": "はずがありません = \"không thể nào ~ được\" (mạnh). ✗ Đáp án 2 = べきではない. ✗ Đáp án 3 = かもしれません (yếu hơn)."
+    },
+    {
+      "id": "l-b51-disc-hazu-beki",
+      "item": "skm3.b51.hazu-vs-beki",
+      "err": "hazu-cho-beki",
+      "tts": "あのかいしゃはゆうめいだから、きゅうりょうもいいはずです。",
+      "script": "あの 会社[かいしゃ]は 有名[ゆうめい]だから、給料[きゅうりょう]もいいはずです。",
+      "ask": "Câu này dùng はずです vì lý do gì?",
+      "choices": [
+        "Vì suy luận dựa trên sự kiện \"công ty nổi tiếng\"",
+        "Vì đó là nghĩa vụ của công ty",
+        "Vì người nói nghe ai đó kể lại"
+      ],
+      "answer": 0,
+      "why": "はずです = suy luận logic từ thực tế (công ty nổi tiếng → lương tốt). ✗ Nghĩa vụ = べきです. ✗ Nghe kể = そうです/らしいです."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b51-futsuu-da",
+      "item": "minna1.b20.futsuu-nadj-noun",
+      "err": "futsuu-da",
+      "ambush": true,
+      "src": 20,
+      "context": "Bài 51 ・ はずだ — thể thường trước はず",
+      "vi": "Vì căn phòng đó yên tĩnh, chắc là anh ấy học được.",
+      "t1": {
+        "stem": "あの 部屋[へや]は 静[しず]か＿はずだから、勉強[べんきょう]できると 思[おも]う。",
+        "choices": [
+          "な",
+          "だ",
+          "の"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "静[しず]か",
+          "な",
+          "はずだから、"
+        ],
+        "traps": [
+          "静[しず]かだ",
+          "はずだから、"
+        ]
+      },
+      "t3": {
+        "target": "あの部屋は静かなはずだから、勉強できると思う。",
+        "accept": [
+          "あのへやはしずかなはずだから、べんきょうできるとおもう。"
+        ]
+      },
+      "why": "な形容詞[けいようし] + はずだ → 静[しず]か**な**はずだ (KHÔNG phải 静かだはずだ). Đây là lỗi Bài 20: な形容詞 trước danh từ/はず cần thể な, không phải だ."
+    },
+    {
+      "id": "a-b51-to-omou-futsuu",
+      "item": "minna2.b26.to-omoimasu",
+      "err": "to-omou-desu",
+      "ambush": true,
+      "src": 26,
+      "context": "Bài 51 ・ はずだ → と思います",
+      "vi": "Vì anh ấy đã luyện tập chăm chỉ, tôi nghĩ chắc là anh ấy đạt kết quả tốt.",
+      "t1": {
+        "stem": "一生懸命[いっしょうけんめい] 練習[れんしゅう]したから、いい 結果[けっか]が 出[で]る＿と 思[おも]います。",
+        "choices": [
+          "はずだ",
+          "はずです",
+          "はずで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "いい 結果[けっか]が",
+          "出[で]る",
+          "はずだ",
+          "と 思[おも]います。"
+        ],
+        "traps": [
+          "はずです と 思[おも]います。",
+          "はずだと 思[おも]います　(trật tự sai)"
+        ]
+      },
+      "t3": {
+        "target": "一生懸命練習したから、いい結果が出るはずだと思います。",
+        "accept": [
+          "いっしょうけんめいれんしゅうしたから、いいけっかがでるはずだとおもいます。"
+        ]
+      },
+      "why": "Trước と思います phải là thể thường (普通形[ふつうけい]): はずだ ✓, KHÔNG dùng はずです (thể lịch sự không đứng trước と思います — lỗi Bài 26)."
+    }
+  ]
+}

@@ -1,0 +1,554 @@
+{
+  "id": "minna2.b36",
+  "bai": 36,
+  "titleVi": "Thể sai khiến",
+  "know": [
+    {
+      "id": "minna2.b36.sasemasu",
+      "point": "sasemasu",
+      "jp": "〜させます",
+      "vi": "Bắt/cho ~ làm (người trên → người dưới)",
+      "en": "Make or let ~ do ~ (superior → subordinate)",
+      "gloss": "部長[ぶちょう]は 部下[ぶか]を 残業[ざんぎょう]させます。",
+      "glossEn": "部長[ぶちょう]は 部下[ぶか]を 残業[ざんぎょう]させます。 = The department manager makes their subordinate work overtime."
+    },
+    {
+      "id": "minna2.b36.sasete-kudasai",
+      "point": "sasete-kudasai",
+      "jp": "〜させてください",
+      "vi": "Xin hãy cho tôi ~ (xin phép lịch sự)",
+      "en": "Please let me ~ (a polite request for permission)",
+      "gloss": "私[わたし]に 説明[せつめい]させてください。",
+      "glossEn": "私[わたし]に 説明[せつめい]させてください。 = Please let me explain."
+    },
+    {
+      "id": "minna2.b36.sasete-moraimasu",
+      "point": "sasete-moraimasu",
+      "jp": "〜させてもらいます",
+      "vi": "Xin phép được ~ (biết ơn)",
+      "en": "Ask to be allowed to ~ (expressing gratitude)",
+      "gloss": "お先[さき]に 帰[かえ]らせてもらいます。",
+      "glossEn": "お先[さき]に 帰[かえ]らせてもらいます。 = Please excuse me for leaving first."
+    },
+    {
+      "id": "minna2.b36.shikata-ga-nai",
+      "point": "shikata-ga-nai",
+      "jp": "仕方[しかた]がない",
+      "vi": "Không có cách nào khác, đành vậy",
+      "en": "There is no other way; it can't be helped",
+      "gloss": "命令[めいれい]ですから、仕方[しかた]がないです。",
+      "glossEn": "命令[めいれい]ですから、仕方[しかた]がないです。 = Since it's an order, it can't be helped."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b36-sm-zangyou",
+      "item": "minna2.b36.sasemasu",
+      "err": "saseru-conj-wrong",
+      "vi": "Trưởng phòng bắt nhân viên làm thêm giờ.",
+      "t1": {
+        "stem": "部長[ぶちょう]は 部下[ぶか]を 残業[ざんぎょう]＿。",
+        "choices": [
+          "させます",
+          "させています",
+          "させません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "部長[ぶちょう]は",
+          "部下[ぶか]を",
+          "残業[ざんぎょう]",
+          "させます。"
+        ],
+        "traps": [
+          "させていません。",
+          "させません。"
+        ]
+      },
+      "t3": {
+        "target": "部長は部下を残業させます。",
+        "accept": [
+          "ぶちょうはぶかをざんぎょうさせます。"
+        ]
+      },
+      "why": "残業する は 「する」動詞[どうし] (nhóm III: する→させる). 部長 là người ra lệnh → 部下を (tân ngữ, を). Đây là câu bắt buộc làm thêm giờ."
+    },
+    {
+      "id": "c-b36-sm-ikaseru",
+      "item": "minna2.b36.sasemasu",
+      "err": "saseru-conj-wrong",
+      "vi": "Giám đốc cho nhân viên đi công tác.",
+      "t1": {
+        "stem": "社長[しゃちょう]は 私[わたし]を 出張[しゅっちょう]に ＿。",
+        "choices": [
+          "行[い]かせます",
+          "行[い]きさせます",
+          "行[い]かせています"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "社長[しゃちょう]は",
+          "私[わたし]を",
+          "出張[しゅっちょう]に",
+          "行[い]かせます。"
+        ],
+        "traps": [
+          "行[い]きさせます。",
+          "行[い]かせません。"
+        ]
+      },
+      "t3": {
+        "target": "社長は私を出張に行かせます。",
+        "accept": [
+          "しゃちょうはわたしをしゅっちょうにいかせます。"
+        ]
+      },
+      "why": "行く は nhóm I (五段[ごだん]): く→か + せる = 行かせる。✗ 行きさせます — nhóm I KHÔNG thêm させ vào ます-stem 行き。"
+    },
+    {
+      "id": "c-b36-sm-hatarakaseru",
+      "item": "minna2.b36.sasemasu",
+      "err": "saseru-conj-wrong",
+      "vi": "Giám đốc bắt nhân viên làm việc đến khuya.",
+      "t1": {
+        "stem": "社長[しゃちょう]は 社員[しゃいん]を 夜遅[よるおそ]くまで ＿。",
+        "choices": [
+          "働[はたら]かせました",
+          "働[はたら]きさせました",
+          "働[はたら]かせています"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "社長[しゃちょう]は",
+          "社員[しゃいん]を",
+          "夜遅[よるおそ]くまで",
+          "働[はたら]かせました。"
+        ],
+        "traps": [
+          "働[はたら]きさせました。",
+          "働[はたら]かせません。"
+        ]
+      },
+      "t3": {
+        "target": "社長は社員を夜遅くまで働かせました。",
+        "accept": [
+          "しゃちょうはしゃいんをよるおそくまではたらかせました。"
+        ]
+      },
+      "why": "働く は nhóm I: く→か + せる = 働かせる (quá khứ: 働かせました)。✗ 働きさせました — sai điển hình: thêm させ vào ます-stem 働き。"
+    },
+    {
+      "id": "c-b36-skd-setsumei",
+      "item": "minna2.b36.sasete-kudasai",
+      "err": "sasete-kudasai-vs-morau",
+      "vi": "Xin hãy cho tôi giải thích.",
+      "t1": {
+        "stem": "私[わたし]に 説明[せつめい]＿。",
+        "choices": [
+          "させてください",
+          "させてもらいます",
+          "させます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]に",
+          "説明[せつめい]",
+          "させて",
+          "ください。"
+        ],
+        "traps": [
+          "させてもらいます。",
+          "してください。"
+        ]
+      },
+      "t3": {
+        "target": "私に説明させてください。",
+        "accept": [
+          "わたしにせつめいさせてください。"
+        ]
+      },
+      "why": "させてください = xin người nghe cho phép mình làm (hướng ra). Chủ ngữ = tôi, người cho phép = người nghe. ✗ させてもらいます ở đây là khẳng định, không phải xin phép trực tiếp."
+    },
+    {
+      "id": "c-b36-skd-kaeru",
+      "item": "minna2.b36.sasete-kudasai",
+      "err": "sasete-kudasai-vs-morau",
+      "vi": "Hôm nay tôi không khoẻ, xin phép về sớm.",
+      "t1": {
+        "stem": "今日[きょう]は 具合[ぐあい]が 悪[わる]いので、早[はや]く 帰[かえ]らせ＿。",
+        "choices": [
+          "てください",
+          "てもらいます",
+          "ます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]は",
+          "具合[ぐあい]が 悪[わる]いので、",
+          "早[はや]く",
+          "帰[かえ]らせて",
+          "ください。"
+        ],
+        "traps": [
+          "てもらいます。",
+          "ません。"
+        ]
+      },
+      "t3": {
+        "target": "今日は具合が悪いので、早く帰らせてください。",
+        "accept": [
+          "きょうはぐあいがわるいので、はやくかえらせてください。"
+        ]
+      },
+      "why": "帰る は nhóm I (五段): る→ら + せる = 帰らせる。させてください = xin sếp cho phép về sớm (xin phép trực tiếp nơi công sở). ✗ てもらいます là khẳng định đang nhận phép, không dùng khi đang xin."
+    },
+    {
+      "id": "c-b36-stm-sakini",
+      "item": "minna2.b36.sasete-moraimasu",
+      "err": "saseru-morau-direction",
+      "vi": "Tôi xin phép về trước.",
+      "t1": {
+        "stem": "お先[さき]に 帰[かえ]らせて＿。",
+        "choices": [
+          "もらいます",
+          "ください",
+          "います"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お先[さき]に",
+          "帰[かえ]らせて",
+          "もらいます。"
+        ],
+        "traps": [
+          "ください。",
+          "あります。"
+        ]
+      },
+      "t3": {
+        "target": "お先に帰らせてもらいます。",
+        "accept": [
+          "おさきにかえらせてもらいます。"
+        ]
+      },
+      "why": "させてもらいます = tôi xin phép làm (hàm ý được người khác cho phép, biết ơn). Mềm mại hơn させてください。Câu này dùng khi rời văn phòng trước đồng nghiệp."
+    },
+    {
+      "id": "c-b36-stm-kangaeru",
+      "item": "minna2.b36.sasete-moraimasu",
+      "err": "saseru-morau-direction",
+      "vi": "Tôi xin phép suy nghĩ thêm một chút.",
+      "t1": {
+        "stem": "もう少[すこ]し 考[かんが]えさせて＿。",
+        "choices": [
+          "もらえませんか",
+          "ください",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もう少[すこ]し",
+          "考[かんが]えさせて",
+          "もらえませんか。"
+        ],
+        "traps": [
+          "ください。",
+          "もらいました。"
+        ]
+      },
+      "t3": {
+        "target": "もう少し考えさせてもらえませんか。",
+        "accept": [
+          "もうすこしかんがえさせてもらえませんか。"
+        ]
+      },
+      "why": "考える は nhóm II (一段): bỏ る + させる = 考えさせる。させてもらえませんか = xin phép lịch sự nhất, hỏi ngược lại người nghe có đồng ý không。Thường dùng trong kinh doanh."
+    },
+    {
+      "id": "c-b36-sm-yasumu",
+      "item": "minna2.b36.sasemasu",
+      "err": "saseru-conj-wrong",
+      "vi": "Trưởng khoa cho nhân viên nghỉ một ngày.",
+      "t1": {
+        "stem": "課長[かちょう]は 部下[ぶか]を 一日[いちにち]休[やす]ませ＿。",
+        "choices": [
+          "ました",
+          "てください",
+          "てもらいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "課長[かちょう]は",
+          "部下[ぶか]を",
+          "一日[いちにち]",
+          "休[やす]ませ",
+          "ました。"
+        ],
+        "traps": [
+          "てください。",
+          "てもらいます。"
+        ]
+      },
+      "t3": {
+        "target": "課長は部下を一日休ませました。",
+        "accept": [
+          "かちょうはぶかをいちにちやすませました。"
+        ]
+      },
+      "why": "休む は nhóm I: む→ま + せる = 休ませる (quá khứ: 休ませました)。課長 (người cho phép, chủ ngữ) + 部下を (người được nghỉ, tân ngữ). Đây là させる đơn thuần, khác させてもらいます."
+    },
+    {
+      "id": "c-b36-sgn-meirei",
+      "item": "minna2.b36.shikata-ga-nai",
+      "err": "shikata-expression",
+      "vi": "Đây là lệnh của công ty, không có cách nào khác.",
+      "t1": {
+        "stem": "会社[かいしゃ]の 命令[めいれい]ですから、＿。",
+        "choices": [
+          "仕方[しかた]がありません",
+          "仕方[しかた]があります",
+          "仕方[しかた]はいいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "会社[かいしゃ]の",
+          "命令[めいれい]ですから、",
+          "仕方[しかた]が",
+          "ありません。"
+        ],
+        "traps": [
+          "があります。",
+          "はいいです。"
+        ]
+      },
+      "t3": {
+        "target": "会社の命令ですから、仕方がありません。",
+        "accept": [
+          "かいしゃのめいれいですから、しかたがありません。"
+        ]
+      },
+      "why": "仕方がない／仕方がありません = \"không có cách nào khác\". Dùng khi đành chấp nhận hoàn cảnh. ✗ 仕方があります = hoàn toàn ngược nghĩa (có cách)."
+    },
+    {
+      "id": "c-b36-sgn-tenkin",
+      "item": "minna2.b36.shikata-ga-nai",
+      "err": "shikata-expression",
+      "vi": "Việc thuyên chuyển thì đành chịu thôi.",
+      "t1": {
+        "stem": "転勤[てんきん]は ＿ ですね。",
+        "choices": [
+          "仕方[しかた]がない",
+          "仕方[しかた]がいい",
+          "仕方[しかた]があった"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "転勤[てんきん]は",
+          "仕方[しかた]がない",
+          "ですね。"
+        ],
+        "traps": [
+          "仕方[しかた]がいいですね。",
+          "仕方[しかた]がありましたね。"
+        ]
+      },
+      "t3": {
+        "target": "転勤は仕方がないですね。",
+        "accept": [
+          "てんきんはしかたがないですね。"
+        ]
+      },
+      "why": "仕方がない (thể thường) hoặc 仕方がありません (lịch sự) — đều dùng được. Câu này dùng thể thường + ですね để nhẹ nhàng hơn. 転勤 = thuyên chuyển công tác — hoàn cảnh bất khả kháng điển hình."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b36-sm",
+      "item": "minna2.b36.sasemasu",
+      "err": "saseru-conj-wrong",
+      "tts": "ぶちょうは わたしを しゅっちょうに いかせました。",
+      "script": "部長[ぶちょう]は 私[わたし]を 出張[しゅっちょう]に 行[い]かせました。",
+      "ask": "Trưởng phòng đã làm gì với tôi?",
+      "choices": [
+        "Bắt tôi đi công tác",
+        "Cho tôi nghỉ phép",
+        "Nhờ tôi báo cáo"
+      ],
+      "answer": 0,
+      "why": "行かせました = bắt/cho đi (行かせる quá khứ, nhóm I). Chủ thể 部長, đối tượng 私を."
+    },
+    {
+      "id": "l-b36-skd",
+      "item": "minna2.b36.sasete-kudasai",
+      "err": "sasete-kudasai-vs-morau",
+      "tts": "わたしに ほうこくさせてください。— はい、どうぞ。",
+      "script": "私[わたし]に 報告[ほうこく]させてください。— はい、どうぞ。",
+      "ask": "Người nói muốn làm gì?",
+      "choices": [
+        "Tự mình báo cáo",
+        "Nhờ người khác báo cáo",
+        "Được ai báo cáo cho"
+      ],
+      "answer": 0,
+      "why": "させてください = xin cho tôi được làm; 私に報告させてください = xin phép để tôi tự báo cáo。"
+    },
+    {
+      "id": "l-b36-stm",
+      "item": "minna2.b36.sasete-moraimasu",
+      "err": "saseru-morau-direction",
+      "tts": "きょうは はやく かえらせてもらえませんか。",
+      "script": "今日[きょう]は 早[はや]く 帰[かえ]らせてもらえませんか。",
+      "ask": "Người nói đang xin phép gì?",
+      "choices": [
+        "Về sớm hôm nay",
+        "Ở lại làm thêm giờ",
+        "Đi công tác"
+      ],
+      "answer": 0,
+      "why": "させてもらえませんか = xin phép lịch sự (hỏi người cho phép có đồng ý không). 帰らせてもらえませんか = xin phép được về (帰る nhóm I: る→ら + させる)."
+    },
+    {
+      "id": "l-b36-sgn",
+      "item": "minna2.b36.shikata-ga-nai",
+      "err": "shikata-expression",
+      "tts": "てんきんは しかたがないですね。— そうですね、がんばってください。",
+      "script": "転勤[てんきん]は 仕方[しかた]がないですね。— そうですね、頑張[がんば]ってください。",
+      "ask": "Người nói cảm thấy thế nào về việc thuyên chuyển?",
+      "choices": [
+        "Không có cách nào khác, đành chấp nhận",
+        "Rất vui vì được thuyên chuyển",
+        "Phản đối quyết định thuyên chuyển"
+      ],
+      "answer": 0,
+      "why": "仕方がないですね = không có cách nào khác, đành chịu. Đây là biểu đạt khi chấp nhận hoàn cảnh bất khả kháng."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b36-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 36 ・ 〜させてください",
+      "vi": "Vì tôi thích tiếng Nhật, xin hãy cho tôi học thêm.",
+      "t1": {
+        "stem": "日本語[にほんご]＿ 好[す]きですから、もっと 勉強[べんきょう]させてください。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が",
+          "好[す]きですから、",
+          "もっと",
+          "勉強[べんきょう]させて",
+          "ください。"
+        ],
+        "traps": [
+          "日本語[にほんご]を"
+        ]
+      },
+      "t3": {
+        "target": "日本語が好きですから、もっと勉強させてください。",
+        "accept": [
+          "にほんごがすきですから、もっとべんきょうさせてください。"
+        ]
+      },
+      "why": "好き は が格 (Bài 9の規則[きそく]). ✗ 日本語を好き — を は 好き に使えない。させてください は Bài 36 の 表現[ひょうげん]。"
+    },
+    {
+      "id": "a-b36-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 36 ・ 〜させます (chuỗi hành động)",
+      "vi": "Trưởng khoa bắt tôi viết báo cáo và nộp.",
+      "t1": {
+        "stem": "課長[かちょう]は 私[わたし]に 報告書[ほうこくしょ]を ＿ 提出[ていしゅつ]させました。",
+        "choices": [
+          "書[か]かせて",
+          "書[か]きて",
+          "書[か]いて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "課長[かちょう]は",
+          "私[わたし]に",
+          "報告書[ほうこくしょ]を",
+          "書[か]かせて",
+          "提出[ていしゅつ]させました。"
+        ],
+        "traps": [
+          "書[か]きて",
+          "書[か]かせません。"
+        ]
+      },
+      "t3": {
+        "target": "課長は私に報告書を書かせて提出させました。",
+        "accept": [
+          "かちょうはわたしにほうこくしょをかかせていていしゅつさせました。",
+          "かちょうはわたしにほうこくしょをかかせてていしゅつさせました。"
+        ]
+      },
+      "why": "書く (nhóm I) → 使役: 書かせる → て-form: 書かせて。Bẫy: lỗi て-form (書きて ✗) của Bài 14 cài trong câu させます của Bài 36。✗ 書きて — không thêm て vào ます-stem 書き của nhóm I。"
+    }
+  ],
+  "errors": {
+    "saseru-conj-wrong": {
+      "label": "Chia thể させる sai",
+      "jp": "使役形[しえきけい] 誤用[ごよう]",
+      "detail": "Nhóm I (五段): đổi âm cuối sang a-hàng + せる (書く→書かせる, 行く→行かせる, 待つ→待たせる, 飲む→飲ませる, 休む→休ませる, 働く→働かせる). Nhóm II (一段): bỏ る + させる (食べる→食べさせる, 考える→考えさせる). Nhóm III: する→させる, くる→こさせる. LỖI PHỔ BIẾN: thêm させ vào ます-stem nhóm I (行きさせます ✗).",
+      "item": "sasemasu",
+      "fix": "行[い]きさせます ✗ → 行[い]かせます ✓ ／ 働[はたら]きさせます ✗ → 働[はたら]かせます ✓"
+    },
+    "sasete-kudasai-vs-morau": {
+      "label": "Nhầm させてください ↔ させてもらいます",
+      "jp": "させてください ⇄ させてもらいます",
+      "detail": "させてください: xin người nghe cho phép mình làm (yêu cầu trực tiếp, hướng ra). させてもらいます: tôi xin phép làm, hàm ý nhận được phép từ ai đó (biết ơn, khiêm tốn hơn). Cả hai đều là xin phép nhưng sắc thái khác: させてください mạnh/trực tiếp hơn, させてもらいます khiêm nhường hơn.",
+      "item": "sasete-kudasai",
+      "fix": "帰[かえ]らせてください ✓ (trực tiếp xin phép) ／ 帰[かえ]らせてもらいます ✓ (khiêm nhường, biết ơn)"
+    },
+    "saseru-morau-direction": {
+      "label": "Nhầm chiều quan hệ させる / させてもらう",
+      "jp": "使役[しえき]の 方向[ほうこう] 誤用[ごよう]",
+      "detail": "〜させる: người trên (chủ ngữ) bắt/cho người dưới (を) làm. 〜させてもらう: chủ ngữ = TÔI, nhận phép từ ai đó. Nhầm chiều dẫn đến câu ngược nghĩa (mình bắt người khác vs. mình được cho phép).",
+      "item": "sasete-moraimasu",
+      "fix": "部長[ぶちょう]は 私[わたし]を 残業[ざんぎょう]させます ✓ (bắt tôi) ／ 私[わたし]は 残業[ざんぎょう]させてもらいます ✓ (tôi xin phép làm thêm)"
+    },
+    "shikata-expression": {
+      "label": "Dùng sai biểu đạt 仕方がない",
+      "jp": "仕方[しかた]がない 誤用[ごよう]",
+      "detail": "仕方がない／仕方がありません = \"không có cách nào khác, đành chịu\". KHÔNG nhầm với 仕方がある (có cách) — ngược nghĩa hoàn toàn. Thường dùng khi nói về hoàn cảnh bất khả kháng:転勤、命令、天気 など。",
+      "item": "shikata-ga-nai",
+      "fix": "仕方[しかた]がありません ✓ ／ 仕方[しかた]がない ✓ (thể thường) ／ ✗ 仕方[しかた]があります (ngược nghĩa)"
+    }
+  }
+}

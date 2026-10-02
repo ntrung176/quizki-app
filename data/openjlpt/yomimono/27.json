@@ -1,0 +1,3004 @@
+{
+  "bai": 27,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 27 tập trung vào khả năng (can/be able to): V可能形 biến đổi động từ thành \"có thể làm\", 〜が見えます・聞こえます diễn đạt \"trông thấy/nghe thấy\" tự nhiên không chủ ý, và しか〜ない nhấn mạnh \"chỉ có... thôi\" (hàm ý thiếu thốn hoặc hạn chế). Chiến lược: xác định động từ gốc, chia đúng thể 可能, rồi đọc ngữ cảnh để hiểu hàm ý.",
+    "steps": [
+      "Bước 1: Nhận diện 可能形 — nhìn cuối động từ có dạng 〜えます (godan) hoặc 〜られます (ichidan) thì là \"có thể làm\".",
+      "Bước 2: Godan 5 nhóm: 書く→書けます, 飲む→飲めます, 話す→話せます, 待つ→待てます, 遊ぶ→遊べます; bất quy tắc: する→できます, くる→こられます.",
+      "Bước 3: Ichidan (nhóm 2 = 〜る có nguyên âm trước る): 食べる→食べられます, 見る→見られます, 起きる→起きられます.",
+      "Bước 4: 〜が見えます・聞こえます — chủ thể là vật \"được nhìn/nghe thấy\", đứng trước が. Không nhầm với 見ます・聞きます (chủ động).",
+      "Bước 5: しか〜ない — danh từ (số lượng/thứ) ＋ しか ＋ động từ phủ định (ない/ません). Hàm ý \"chỉ có vậy thôi, không đủ\".",
+      "Bước 6: Câu hỏi đọc hiểu thường hỏi người ấy CÓ THỂ làm gì / KHÔNG THỂ làm gì, hoặc hàm ý thiếu thốn qua しか〜ない."
+    ],
+    "tips": [
+      "可能形 KHÔNG cần を → dùng が thay: ビールを飲みます → ビールが飲めます (không phải 飲めをます).",
+      "見えます ≠ 見られます: 見えます = vô tình trông thấy (cửa sổ nhìn ra núi); 見られます = có thể xem (năng lực).",
+      "聞こえます ≠ 聞けます: 聞こえます = nghe thấy (âm thanh tự đến tai); 聞けます = có thể hỏi/nghe được (năng lực/cơ hội).",
+      "しか luôn đi với vế PHỦ ĐỊNH: 日本語しか話せません (chỉ nói được tiếng Nhật); không nói 〜しか話せます.",
+      "できます từ する: できる là động từ riêng, KHÔNG phải 可能形 của する; nhưng nghĩa tương đương \"có thể làm\".",
+      "Bẫy phổ biến: nhóm ichidan 起きる, 食べる, 見る, 教える — 可能形 thêm られ trước ます, KHÔNG bỏ る rồi thêm えます."
+    ],
+    "grammarFocus": [
+      "V可能形（godan: 〜えます；ichidan: 〜られます；する→できます；くる→こられます）",
+      "NがV（見えます・聞こえます）",
+      "Nしか〜ない"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích nguyên nhân）",
+          "V・Aんですか（hỏi thêm thông tin）"
+        ]
+      },
+      {
+        "bai": 25,
+        "items": [
+          "〜たら（điều kiện）",
+          "もし〜たら",
+          "〜ても（nhượng bộ）"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき（V/N＋とき）",
+          "〜と（điều kiện tự nhiên）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる・Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります",
+          "Vたことがあります"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "Vることができます（so sánh với 可能形）"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vなくてもいいです"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vています（đang / trạng thái）"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）",
+          "〜が好きです・上手です"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "故郷でできること",
+      "titleVi": "Những việc có thể làm ở quê hương",
+      "japanese": "私の故郷は山の中にある小さな町です。町からは高い山が見えます。朝、鳥の声しか聞こえません。空気がとてもきれいで、星がよく見えます。田舎だから、電車に乗れませんが、自転車で町の中を走れます。スーパーが一つしかないから、買い物は週に一回しかできません。でも、自然の中で自由に遊べるから、私はこの町が大好きです。",
+      "vietnamese": "Quê hương tôi là một thị trấn nhỏ trong núi. Từ thị trấn có thể nhìn thấy những ngọn núi cao. Buổi sáng, chỉ nghe thấy tiếng chim. Không khí rất trong lành và có thể nhìn thấy nhiều ngôi sao. Vì là vùng quê nên không thể đi tàu điện, nhưng có thể đạp xe khắp thị trấn. Vì chỉ có một siêu thị nên mua sắm chỉ có thể làm một lần một tuần. Nhưng vì có thể tự do vui chơi trong thiên nhiên nên tôi rất yêu thị trấn này.",
+      "sentences": [
+        {
+          "jp": "私の故郷は山の中にある小さな町です。",
+          "vi": "Quê hương tôi là một thị trấn nhỏ nằm trong núi.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "故郷",
+              "read": "ふるさと",
+              "vi": "quê hương"
+            },
+            {
+              "w": "山",
+              "read": "やま",
+              "vi": "núi"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Vる＋N）",
+              "vi": "山の中にある小さな町 = thị trấn nhỏ (nằm) trong núi. Vru (ある) bổ nghĩa cho 町."
+            }
+          ]
+        },
+        {
+          "jp": "町からは高い山が見えます。",
+          "vi": "Từ thị trấn có thể nhìn thấy những ngọn núi cao.",
+          "vocab": [
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao"
+            },
+            {
+              "w": "山",
+              "read": "やま",
+              "vi": "núi"
+            },
+            {
+              "w": "見えます",
+              "read": "みえます",
+              "vi": "trông thấy, nhìn thấy (vô tình/tự nhiên)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがV（見えます）",
+              "vi": "山が見えます = núi được nhìn thấy. Chủ thể là núi (が), không phải người nhìn. Trông thấy tự nhiên, không chủ ý."
+            }
+          ]
+        },
+        {
+          "jp": "朝、鳥の声しか聞こえません。",
+          "vi": "Buổi sáng, chỉ nghe thấy tiếng chim.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "鳥",
+              "read": "とり",
+              "vi": "chim"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "giọng, tiếng (của người/chim)"
+            },
+            {
+              "w": "聞こえます",
+              "read": "きこえます",
+              "vi": "nghe thấy (âm thanh tự đến tai)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない",
+              "vi": "鳥の声しか聞こえません = chỉ nghe thấy tiếng chim thôi. しか + phủ định (ません) → hàm ý yên tĩnh, không có âm thanh nào khác."
+            },
+            {
+              "point": "NがV（聞こえます）",
+              "vi": "聞こえます = âm thanh tự vào tai, không chủ ý lắng nghe."
+            }
+          ]
+        },
+        {
+          "jp": "空気がとてもきれいで、星がよく見えます。",
+          "vi": "Không khí rất trong lành và có thể nhìn thấy nhiều ngôi sao.",
+          "vocab": [
+            {
+              "w": "空気",
+              "read": "くうき",
+              "vi": "không khí"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "trong lành, đẹp, sạch"
+            },
+            {
+              "w": "星",
+              "read": "ほし",
+              "vi": "ngôi sao"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "rõ, nhiều, thường xuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜で（nối tính từ な）",
+              "vi": "きれいで = trong lành và... Nối hai mệnh đề bằng て-form của tính từ な/danh từ."
+            },
+            {
+              "point": "NがV（見えます）",
+              "vi": "星がよく見えます = sao nhìn thấy rõ. Chủ thể là 星 (が)."
+            }
+          ]
+        },
+        {
+          "jp": "田舎だから、電車に乗れませんが、自転車で町の中を走れます。",
+          "vi": "Vì là vùng quê nên không thể đi tàu điện, nhưng có thể đạp xe khắp thị trấn.",
+          "vocab": [
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê, nông thôn"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "乗れます",
+              "read": "のれます",
+              "vi": "có thể đi (乗る→乗れます, godan)"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "走れます",
+              "read": "はしれます",
+              "vi": "có thể chạy/đi (走る→走れます, godan)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（godan: 乗る→乗れます）",
+              "vi": "乗れません = không thể đi (phủ định 可能形). 乗る là godan: 乗→乗れ→乗れます."
+            },
+            {
+              "point": "V可能形（godan: 走る→走れます）",
+              "vi": "走れます = có thể chạy/đạp. 走る là godan: 走→走れ→走れます."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "田舎だから = vì là vùng quê, nêu lý do cho vế sau."
+            }
+          ]
+        },
+        {
+          "jp": "スーパーが一つしかないから、買い物は週に一回しかできません。",
+          "vi": "Vì chỉ có một siêu thị nên mua sắm chỉ có thể làm một lần một tuần.",
+          "vocab": [
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            },
+            {
+              "w": "週",
+              "read": "しゅう",
+              "vi": "tuần"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "一回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể làm (する→できます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない（x2）",
+              "vi": "一つしかない = chỉ có một; 一回しかできません = chỉ làm được một lần. Cả hai đều dùng しか＋phủ định."
+            },
+            {
+              "point": "する→できます",
+              "vi": "できます là 可能形 bất quy tắc của する."
+            }
+          ]
+        },
+        {
+          "jp": "でも、自然の中で自由に遊べるから、私はこの町が大好きです。",
+          "vi": "Nhưng vì có thể tự do vui chơi trong thiên nhiên nên tôi rất yêu thị trấn này.",
+          "vocab": [
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "自由に",
+              "read": "じゆうに",
+              "vi": "tự do"
+            },
+            {
+              "w": "遊べる",
+              "read": "あそべる",
+              "vi": "có thể chơi"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "大好き",
+              "read": "だいすき",
+              "vi": "rất thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（godan: 遊ぶ→遊べます）",
+              "vi": "遊べる (thể từ điển 可能形) → 遊べるから = vì có thể chơi. 遊ぶ godan: 遊→遊べ→遊べます."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "遊べるから = vì có thể chơi. から nêu lý do chủ quan, phù hợp với giọng văn thân mật của đoạn."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "町からは高い山が見えます",
+          "label": "NがV（見えます）"
+        },
+        {
+          "excerpt": "鳥の声しか聞こえません",
+          "label": "Nしか〜ない"
+        },
+        {
+          "excerpt": "電車に乗れません",
+          "label": "V可能形（phủ định）"
+        },
+        {
+          "excerpt": "一回しかできません",
+          "label": "Nしか〜ない"
+        },
+        {
+          "excerpt": "自由に遊べる",
+          "label": "V可能形（godan）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人の故郷では、朝、何が聞こえますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "電車の音しか聞こえません",
+            "人の声しか聞こえません",
+            "鳥の声しか聞こえません",
+            "何も聞こえません"
+          ],
+          "answer": 2,
+          "explainVi": "「朝、鳥の声しか聞こえません」→ cụm しか＋聞こえません khẳng định chỉ có tiếng chim vào buổi sáng, không có âm thanh nào khác. Phương án 0 (電車の音) sai vì bài nói không có tàu điện (田舎だから電車に乗れません). Phương án 1 (人の声) không có căn cứ trong bài. Phương án 3 (何も聞こえません) sai vì bài dùng しか〜ない, nghĩa là VẪN CÓ tiếng chim, chứ không phải hoàn toàn im lặng.",
+          "tip": "Gặp しか〜ない → \"chỉ có X thôi\". Loại ngay đáp án \"không có gì\" (何も〜ない) vì しか〜ない xác nhận có ít nhất một thứ.",
+          "qt": {
+            "q": "Ở quê hương của người này, buổi sáng nghe thấy gì?",
+            "o": [
+              "Chỉ nghe thấy tiếng tàu điện",
+              "Chỉ nghe thấy tiếng người",
+              "Chỉ nghe thấy tiếng chim",
+              "Không nghe thấy gì"
+            ]
+          }
+        },
+        {
+          "q": "この人の故郷について、正しいものはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "電車に乗れますが、自転車で走れません",
+            "スーパーがたくさんあります",
+            "星が見えません",
+            "電車に乗れませんが、自転車で走れます"
+          ],
+          "answer": 3,
+          "explainVi": "「電車に乗れませんが、自転車で町の中を走れます」→ phương án 3 trích nguyên câu từ bài, đúng hoàn toàn. Phương án 0 đảo ngược thứ tự khả năng (nói ngược với bài). Phương án 1 sai vì bài ghi「スーパーが一つしかない」— chỉ có MỘT siêu thị. Phương án 2 sai vì bài ghi「星がよく見えます」— sao nhìn thấy rõ.",
+          "tip": "Câu hỏi \"正しいものはどれ\" → đọc từng lựa chọn và đối chiếu trực tiếp với bài. Chú ý しか = \"chỉ có/không có\", đừng nhầm thành \"có nhiều\".",
+          "qt": {
+            "q": "Điều nào đúng về quê hương của người này?",
+            "o": [
+              "Có thể đi tàu điện nhưng không thể đi xe đạp",
+              "Có rất nhiều siêu thị",
+              "Không thể nhìn thấy các vì sao",
+              "Không thể đi tàu điện nhưng có thể đi xe đạp"
+            ]
+          }
+        },
+        {
+          "q": "この人は故郷が好きですか。どうしてですか。（推論）",
+          "evi": [
+            6
+          ],
+          "options": [
+            "スーパーがたくさんあるから、好きです",
+            "電車で遠くへ行けるから、好きです",
+            "自然の中で自由に遊べるから、好きです",
+            "星が見えないから、好きです"
+          ],
+          "answer": 2,
+          "explainVi": "「自然の中で自由に遊べるから、私はこの町が大好きです」→ câu cuối nêu trực tiếp lý do: vì có thể tự do vui chơi trong thiên nhiên (遊べる = 可能形 của 遊ぶ). Phương án 0 sai vì bài nói スーパーが一つしかない (chỉ có 1, không có nhiều). Phương án 1 sai vì bài nói 電車に乗れません (không thể đi tàu). Phương án 3 sai vì bài nói 星がよく見えます (nhìn thấy sao rõ, không phải không thấy).",
+          "tip": "Câu hỏi lý do \"どうして好き？\" → tìm cấu trúc 〜から ngay trước câu kết luận. Từ 遊べる (可能形) là từ khoá chỉ khả năng — bài 27 đặc trưng.",
+          "qt": {
+            "q": "Người này có thích quê hương mình không? Vì sao? (suy luận)",
+            "o": [
+              "Thích vì có rất nhiều siêu thị",
+              "Thích vì có thể đi xa bằng tàu điện",
+              "Thích vì có thể tự do vui chơi giữa thiên nhiên",
+              "Thích vì không thể nhìn thấy các vì sao"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "田舎から来た友達へのメール",
+      "titleVi": "Email gửi người bạn từ quê lên",
+      "japanese": "カリナさん、メールをありがとうございます。東京での生活はどうですか。\n先月私も東京へ行きましたが、人が多くてびっくりしました。電車が複雑で、最初は一人で乗れませんでした。\n東京では、いろいろなものが食べられて、おいしいレストランにも入れるんですね。うらやましいです。\n私の町では、日本料理しか食べられません。でも、新鮮な野菜が毎日食べられるのは、田舎のいいところだと思います。\n実は、私の家の近くには川があって、夏は泳げます。冬は川で泳げませんが、山でスキーができます。\n夜、家の窓から星がたくさん見えます。町の明かりがないから、東京ではこんなにきれいな星は見られないと思います。\n朝は鳥の声が聞こえます。この町にいると、心が落ち着くんです。\n一つだけ困ることがあります。バスが一日に三本しかないから、バスに乗れない時間が多いです。\nだから、どこへでも自転車で行かなければなりません。雨の日は自転車に乗れないから、大変です。\nでも、空気がきれいで、静かな場所で仕事ができるから、私はここが好きです。\nカリナさんも、夏休みに一度来られたら、ぜひ来てください。きっと気に入ると思いますよ。",
+      "vietnamese": "Carina, cảm ơn bạn đã gửi email. Cuộc sống ở Tokyo thế nào rồi?\nTháng trước tôi cũng đến Tokyo, tôi ngạc nhiên vì đông người quá. Tàu điện phức tạp, lúc đầu tôi không thể đi một mình được.\nỞ Tokyo có thể ăn đủ thứ và còn có thể vào những nhà hàng ngon nữa nhỉ. Thật đáng ghen tị.\nỞ thị trấn tôi, chỉ có thể ăn đồ Nhật thôi. Nhưng tôi nghĩ có thể ăn rau tươi mỗi ngày là điểm tốt của vùng quê.\nThực ra, gần nhà tôi có con sông, mùa hè có thể bơi. Mùa đông không thể bơi ở sông, nhưng có thể trượt tuyết trên núi.\nBuổi tối, từ cửa sổ nhà nhìn thấy rất nhiều ngôi sao. Vì không có ánh đèn thành phố nên tôi nghĩ ở Tokyo không thể nhìn thấy những ngôi sao đẹp như vậy.\nBuổi sáng nghe thấy tiếng chim. Khi ở thị trấn này, lòng cảm thấy thư thái lắm.\nCó một điều bất tiện. Vì xe buýt chỉ có ba chuyến một ngày nên có nhiều lúc không thể đi xe buýt được.\nVì vậy, dù đi đâu cũng phải đi xe đạp. Ngày mưa không thể đi xe đạp nên vất vả lắm.\nNhưng vì không khí trong lành và có thể làm việc ở nơi yên tĩnh nên tôi thích ở đây.\nCarina, nếu kỳ nghỉ hè bạn có thể đến được, nhất định hãy đến nhé. Tôi nghĩ chắc chắn bạn sẽ thích đó.",
+      "sentences": [
+        {
+          "jp": "カリナさん、メールをありがとうございます。東京での生活はどうですか。",
+          "vi": "Carina, cảm ơn bạn đã gửi email. Cuộc sống ở Tokyo thế nào rồi?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, thư điện tử"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "ありがとうございます",
+              "read": "ありがとうございます",
+              "vi": "cảm ơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでのN（nơi chốn）",
+              "vi": "東京での生活 = cuộc sống ở Tokyo. で chỉ nơi chốn, の nối mệnh đề vào danh từ 生活."
+            }
+          ]
+        },
+        {
+          "jp": "先月私も東京へ行きましたが、人が多くてびっくりしました。",
+          "vi": "Tháng trước tôi cũng đến Tokyo, tôi ngạc nhiên vì đông người quá.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "多くて",
+              "read": "おおくて",
+              "vi": "đông, nhiều"
+            },
+            {
+              "w": "びっくりしました",
+              "read": "びっくりしました",
+              "vi": "đã bất ngờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて（nối tính từ い）",
+              "vi": "多くて = nhiều và... Nối lý do (đông người) với kết quả (ngạc nhiên)."
+            }
+          ]
+        },
+        {
+          "jp": "電車が複雑で、最初は一人で乗れませんでした。",
+          "vi": "Tàu điện phức tạp, lúc đầu tôi không thể đi một mình được.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "複雑",
+              "read": "ふくざつ",
+              "vi": "phức tạp"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "乗れませんでした",
+              "read": "のれませんでした",
+              "vi": "không thể đi được (quá khứ 可能形 phủ định)"
+            },
+            {
+              "w": "一人で",
+              "read": "ひとりで",
+              "vi": "một mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（quá khứ phủ định: 乗る→乗れませんでした）",
+              "vi": "乗れませんでした = đã không thể đi. 可能形 cũng chia quá khứ bình thường: 乗れます→乗れました/乗れませんでした."
+            }
+          ]
+        },
+        {
+          "jp": "東京では、いろいろなものが食べられて、おいしいレストランにも入れるんですね。",
+          "vi": "Ở Tokyo có thể ăn đủ thứ và còn có thể vào những nhà hàng ngon nữa nhỉ.",
+          "vocab": [
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "食べられます",
+              "read": "たべられます",
+              "vi": "có thể ăn (食べる→食べられます, ichidan)"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "入れます",
+              "read": "はいれます",
+              "vi": "có thể vào (入る→入れます, godan)"
+            },
+            {
+              "w": "いろいろな",
+              "read": "いろいろな",
+              "vi": "đủ loại, nhiều thứ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（ichidan: 食べる→食べられます）",
+              "vi": "食べられて = (vì) có thể ăn và. 食べる là ichidan: bỏ る → 食べ + られます."
+            },
+            {
+              "point": "V可能形（godan: 入る→入れます）",
+              "vi": "入れる = có thể vào. 入る là godan: 入→入れ→入れます."
+            },
+            {
+              "point": "〜んですね（Bài 26）",
+              "vi": "Cuối câu, bày tỏ sự thấu hiểu/công nhận điều mới biết về người nghe. ね tìm kiếm đồng thuận."
+            }
+          ]
+        },
+        {
+          "jp": "うらやましいです。",
+          "vi": "Thật đáng ghen tị.",
+          "vocab": [
+            {
+              "w": "うらやましい",
+              "read": "うらやましい",
+              "vi": "đáng ghen tị, thèm muốn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜い＋です（tính từ い）",
+              "vi": "Câu ngắn diễn đạt cảm xúc trực tiếp của người viết."
+            }
+          ]
+        },
+        {
+          "jp": "私の町では、日本料理しか食べられません。",
+          "vi": "Ở thị trấn tôi, chỉ có thể ăn đồ Nhật thôi.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "日本料理",
+              "read": "にほんりょうり",
+              "vi": "ẩm thực Nhật"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, nấu ăn"
+            },
+            {
+              "w": "食べられません",
+              "read": "たべられません",
+              "vi": "không thể ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない",
+              "vi": "日本料理しか食べられません = chỉ có thể ăn đồ Nhật thôi. しか + 食べられません (可能形 phủ định). Hàm ý thiếu đa dạng món ăn."
+            }
+          ]
+        },
+        {
+          "jp": "でも、新鮮な野菜が毎日食べられるのは、田舎のいいところだと思います。",
+          "vi": "Nhưng tôi nghĩ có thể ăn rau tươi mỗi ngày là điểm tốt của vùng quê.",
+          "vocab": [
+            {
+              "w": "新鮮な",
+              "read": "しんせんな",
+              "vi": "tươi, mới"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau củ"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（食べられる）＋のは〜だ",
+              "vi": "食べられるの = việc có thể ăn (danh từ hoá V可能形 bằng の). は〜だ là cấu trúc nhận định."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "Diễn đạt ý kiến chủ quan: tôi nghĩ rằng..."
+            }
+          ]
+        },
+        {
+          "jp": "実は、私の家の近くには川があって、夏は泳げます。",
+          "vi": "Thực ra, gần nhà tôi có con sông, mùa hè có thể bơi.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thật ra"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, khu vực lân cận"
+            },
+            {
+              "w": "川",
+              "read": "かわ",
+              "vi": "sông"
+            },
+            {
+              "w": "あって",
+              "read": "あって",
+              "vi": "có và"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "泳げます",
+              "read": "およげます",
+              "vi": "có thể bơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（godan: 泳ぐ→泳げます）",
+              "vi": "泳げます = có thể bơi. 泳ぐ là godan: 泳→泳げ→泳げます."
+            },
+            {
+              "point": "Vて（nối mệnh đề）",
+              "vi": "あって = có và. て-form nối hai sự kiện liên tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "冬は川で泳げませんが、山でスキーができます。",
+          "vi": "Mùa đông không thể bơi ở sông, nhưng có thể trượt tuyết trên núi.",
+          "vocab": [
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "川",
+              "read": "かわ",
+              "vi": "sông, suối"
+            },
+            {
+              "w": "泳げる",
+              "read": "およげる",
+              "vi": "có thể bơi (可能形 của 泳ぐ)"
+            },
+            {
+              "w": "山",
+              "read": "やま",
+              "vi": "núi"
+            },
+            {
+              "w": "スキー",
+              "read": "スキー",
+              "vi": "trượt tuyết"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（phủ định: 泳げません）",
+              "vi": "泳げません = không thể bơi (mùa đông)."
+            },
+            {
+              "point": "NができますV（する→できます）",
+              "vi": "スキーができます = có thể trượt tuyết. できます là 可能形 của する."
+            }
+          ]
+        },
+        {
+          "jp": "夜、家の窓から星がたくさん見えます。",
+          "vi": "Buổi tối, từ cửa sổ nhà nhìn thấy rất nhiều ngôi sao.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối, đêm"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "星",
+              "read": "ほし",
+              "vi": "ngôi sao"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがV（見えます）",
+              "vi": "星が見えます = sao nhìn thấy được. Chủ thể は 星 (が). Tự nhiên, không chủ ý."
+            }
+          ]
+        },
+        {
+          "jp": "町の明かりがないから、東京ではこんなにきれいな星は見られないと思います。",
+          "vi": "Vì không có ánh đèn thành phố nên tôi nghĩ ở Tokyo không thể nhìn thấy những ngôi sao đẹp như vậy.",
+          "vocab": [
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "明かり",
+              "read": "あかり",
+              "vi": "ánh đèn, ánh sáng"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "こんなに",
+              "read": "こんなに",
+              "vi": "như thế này, đến mức này"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "星",
+              "read": "ほし",
+              "vi": "ngôi sao"
+            },
+            {
+              "w": "見られます",
+              "read": "みられます",
+              "vi": "có thể xem/nhìn thấy (見る→見られます, ichidan)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（phủ定: 見る→見られません）",
+              "vi": "見られないと思います = tôi nghĩ không thể nhìn thấy. 見る là ichidan: 見+られます→見られます (phủ định: 見られない)."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "見られないと思います = tôi nghĩ (ở Tokyo) không thể nhìn thấy. と思います diễn đạt ý kiến/suy đoán của người nói."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "ないから = vì không có (ánh đèn thành phố). Nêu lý do cho suy đoán tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "朝は鳥の声が聞こえます。この町にいると、心が落ち着くんです。",
+          "vi": "Buổi sáng nghe thấy tiếng chim. Khi ở thị trấn này, lòng cảm thấy thư thái lắm.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "鳥",
+              "read": "とり",
+              "vi": "chim"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng, giọng"
+            },
+            {
+              "w": "聞こえます",
+              "read": "きこえます",
+              "vi": "nghe thấy (tự nhiên)"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "落ち着きます",
+              "read": "おちつきます",
+              "vi": "bình tĩnh lại, thư thái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがV（聞こえます）",
+              "vi": "鳥の声が聞こえます = nghe thấy tiếng chim. Âm thanh tự vào tai."
+            },
+            {
+              "point": "〜と（điều kiện tự nhiên: Bài 23）",
+              "vi": "この町にいると = khi ở thị trấn này, kết quả tự nhiên là lòng thư thái."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "落ち着くんです = thật sự thư thái đó (giải thích/nhấn mạnh cảm xúc)."
+            }
+          ]
+        },
+        {
+          "jp": "一つだけ困ることがあります。バスが一日に三本しかないから、バスに乗れない時間が多いです。",
+          "vi": "Có một điều bất tiện. Vì xe buýt chỉ có ba chuyến một ngày nên có nhiều lúc không thể đi xe buýt được.",
+          "vocab": [
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "困ること",
+              "read": "こまること",
+              "vi": "điều bất tiện, điều phiền não"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "乗れる",
+              "read": "のれる",
+              "vi": "có thể đi, lên xe được"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            },
+            {
+              "w": "三本",
+              "read": "さんぼん",
+              "vi": "ba chuyến (đếm xe/tuyến dài)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない",
+              "vi": "三本しかない = chỉ có ba chuyến. しか＋ない nhấn mạnh ít ỏi."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Vない＋N）",
+              "vi": "乗れない時間 = những lúc không thể đi (thể ない của 可能形 bổ nghĩa cho 時間)."
+            }
+          ]
+        },
+        {
+          "jp": "だから、どこへでも自転車で行かなければなりません。",
+          "vi": "Vì vậy, dù đi đâu cũng phải đi xe đạp.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "どこへでも",
+              "read": "どこへでも",
+              "vi": "bất cứ đâu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vなければなりません（Bài 17）",
+              "vi": "行かなければなりません = phải đi. Nghĩa vụ/bắt buộc."
+            }
+          ]
+        },
+        {
+          "jp": "雨の日は自転車に乗れないから、大変です。",
+          "vi": "Ngày mưa không thể đi xe đạp nên vất vả lắm.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "乗れない",
+              "read": "のれない",
+              "vi": "không thể đi, cưỡi"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khó khăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（phủ định: 乗る→乗れない）",
+              "vi": "乗れない = không thể đi (thể thông thường phủ định 可能形, dùng trước から)."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "乗れないから = vì không thể đi. から nêu lý do trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "でも、空気がきれいで、静かな場所で仕事ができるから、私はここが好きです。",
+          "vi": "Nhưng vì không khí trong lành và có thể làm việc ở nơi yên tĩnh nên tôi thích ở đây.",
+          "vocab": [
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "空気",
+              "read": "くうき",
+              "vi": "không khí"
+            },
+            {
+              "w": "きれいで",
+              "read": "きれいで",
+              "vi": "sạch, đẹp"
+            },
+            {
+              "w": "静かな",
+              "read": "しずかな",
+              "vi": "yên tĩnh"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể làm"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "ở đây"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜で（nối tính từ な）",
+              "vi": "きれいで = trong lành và. Nối hai vế lý do."
+            },
+            {
+              "point": "NができますV（する→できます）",
+              "vi": "仕事ができる = có thể làm việc. できる là 可能形 của する."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんも、夏休みに一度来られたら、ぜひ来てください。きっと気に入ると思いますよ。",
+          "vi": "Carina, nếu kỳ nghỉ hè bạn có thể đến được, nhất định hãy đến nhé. Tôi nghĩ chắc chắn bạn sẽ thích đó.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "夏休み",
+              "read": "なつやすみ",
+              "vi": "kỳ nghỉ hè"
+            },
+            {
+              "w": "一度",
+              "read": "いちど",
+              "vi": "một lần"
+            },
+            {
+              "w": "来られます",
+              "read": "こられます",
+              "vi": "có thể đến (くる→こられます, bất quy tắc)"
+            },
+            {
+              "w": "きっと",
+              "read": "きっと",
+              "vi": "chắc chắn, nhất định"
+            },
+            {
+              "w": "気に入ります",
+              "read": "きにいります",
+              "vi": "ưa thích, thích"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, nhớ nhé"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（bất quy tắc: くる→こられます）",
+              "vi": "来られたら = nếu có thể đến. くる là bất quy tắc: こられます. たら = điều kiện."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "来られたら = nếu đến được. Điều kiện giả định dẫn đến lời mời."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "気に入ると思いますよ = tôi nghĩ bạn sẽ thích đó. よ nhấn mạnh nhẹ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "最初は一人で乗れませんでした",
+          "label": "V可能形（quá khứ phủ定）"
+        },
+        {
+          "excerpt": "いろいろなものが食べられて",
+          "label": "V可能形（ichidan: 食べる→食べられます）"
+        },
+        {
+          "excerpt": "日本料理しか食べられません",
+          "label": "Nしか〜ない"
+        },
+        {
+          "excerpt": "夏は泳げます",
+          "label": "V可能形（godan: 泳ぐ→泳げます）"
+        },
+        {
+          "excerpt": "星がたくさん見えます",
+          "label": "NがV（見えます）"
+        },
+        {
+          "excerpt": "三本しかないから",
+          "label": "Nしか〜ない"
+        },
+        {
+          "excerpt": "来られたら、ぜひ来てください",
+          "label": "V可能形（くる→こられます）＋〜たら"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人は東京で最初に何が難しかったですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "レストランを見つけることが難しかったです",
+            "電車に一人で乗ることが難しかったです",
+            "星を見ることが難しかったです",
+            "川で泳ぐことが難しかったです"
+          ],
+          "answer": 1,
+          "explainVi": "「電車が複雑で、最初は一人で乗れませんでした」→ 乗れませんでした là 可能形 quá khứ phủ định của 乗る (godan: 乗→乗れ→乗れます→乗れませんでした), nghĩa là \"đã không thể đi một mình\". Phương án 0 (レストランを見つける) không có trong bài. Phương án 2 (星を見る) liên quan đến quê, không phải Tokyo. Phương án 3 (川で泳ぐ) là hoạt động ở quê, không phải trải nghiệm tại Tokyo.",
+          "tip": "Tìm từ khoá 最初は (lúc đầu) hoặc 〜できませんでした / 〜れませんでした trong bài để xác định \"điều khó khăn ban đầu\". 可能形 quá khứ phủ định = không thể làm được.",
+          "qt": {
+            "q": "Ban đầu, điều gì ở Tokyo đã khó đối với người này?",
+            "o": [
+              "Việc tìm nhà hàng đã khó.",
+              "Việc đi tàu một mình đã khó.",
+              "Việc ngắm sao đã khó.",
+              "Việc bơi ở sông đã khó."
+            ]
+          }
+        },
+        {
+          "q": "この人の町について、正しいものはどれですか。",
+          "evi": [
+            12
+          ],
+          "options": [
+            "バスが一日に三十本あります",
+            "夏も冬も川で泳げます",
+            "バスが一日に三本しかないから、不便です",
+            "レストランがたくさんあって、何でも食べられます"
+          ],
+          "answer": 2,
+          "explainVi": "「バスが一日に三本しかないから、バスに乗れない時間が多いです」→ chỉ có 3 chuyến/ngày (三本しかない) nên bất tiện — khớp với phương án 2. Phương án 0 sai: bài nói 三本 (3 chuyến), không phải 三十本 (30 chuyến) — chú ý 十 bị thêm vào. Phương án 1 sai: bài nói「冬は川で泳げません」— mùa đông không thể bơi. Phương án 3 sai: bài nói「日本料理しか食べられません」— chỉ ăn được đồ Nhật.",
+          "tip": "Với câu hỏi \"正しいものはどれ\" về số lượng, đề bài hay bẫy thêm/bớt chữ số (三本→三十本). Đọc kỹ しか〜ない để xác nhận mức độ hạn chế.",
+          "qt": {
+            "q": "Điều nào sau đây đúng về thị trấn của người này?",
+            "o": [
+              "Có ba mươi chuyến xe buýt mỗi ngày.",
+              "Có thể bơi ở sông cả mùa hè lẫn mùa đông.",
+              "Vì mỗi ngày chỉ có ba chuyến xe buýt nên bất tiện.",
+              "Có nhiều nhà hàng và có thể ăn mọi thứ."
+            ]
+          }
+        },
+        {
+          "q": "この人は田舎と東京の星について、どう思っていますか。（推論）",
+          "evi": [
+            10
+          ],
+          "options": [
+            "東京でも、田舎と同じくらいきれいな星が見えると思っています",
+            "田舎では星が見えないと思っています",
+            "東京では田舎ほどきれいな星は見られないと思っています",
+            "東京のほうが星がよく見えると思っています"
+          ],
+          "answer": 2,
+          "explainVi": "「町の明かりがないから、東京ではこんなにきれいな星は見られないと思います」→ 見られない là 可能形 phủ định của 見る (ichidan), nghĩa là \"không thể nhìn thấy\". と思います bày tỏ suy luận của người viết: vì Tokyo có đèn thành phố nên sao không đẹp như ở quê. Phương án 0 và 3 đều đi ngược suy luận này. Phương án 1 sai: bài nói 田舎では星がよく見えます — ở quê nhìn thấy sao rõ.",
+          "tip": "Câu hỏi 推論 về so sánh → tìm cấu trúc 〜ほど〜ない (\"không bằng\") hoặc 〜と思います sau một lý do から. 見られない (可能形 phủ định) ≠ 見えない (trông không thấy tự nhiên).",
+          "qt": {
+            "q": "Người này nghĩ thế nào về các vì sao ở vùng quê và Tokyo? (suy luận)",
+            "o": [
+              "Người này nghĩ rằng ở Tokyo cũng có thể nhìn thấy những vì sao đẹp ngang với vùng quê.",
+              "Người này nghĩ rằng ở vùng quê không thể nhìn thấy các vì sao.",
+              "Người này nghĩ rằng ở Tokyo không thể nhìn thấy những vì sao đẹp như ở vùng quê.",
+              "Người này nghĩ rằng có thể nhìn thấy các vì sao rõ hơn ở Tokyo."
+            ]
+          }
+        },
+        {
+          "q": "カリナさんへのお願いは何ですか。",
+          "evi": [
+            16
+          ],
+          "options": [
+            "東京へ来てください",
+            "夏休みに来られたら、ぜひ来てください",
+            "スキーをいっしょにしましょう",
+            "自転車を持って来てください"
+          ],
+          "answer": 1,
+          "explainVi": "「カリナさんも、夏休みに一度来られたら、ぜひ来てください」→ 来られたら là 可能形 của くる (bất quy tắc: こられます) kết hợp điều kiện たら, nghĩa là \"nếu có thể đến được kỳ nghỉ hè, nhất định hãy đến\". Phương án 0 (東京へ来て) sai hướng — người viết mời đến quê, không phải Tokyo. Phương án 2 (スキーをいっしょに) không phải điều được đề nghị rõ ràng. Phương án 3 (自転車を持って来て) không có trong bài.",
+          "tip": "お願い = lời nhờ vả / mời → tìm 〜てください hoặc 〜ましょう trong đoạn cuối bài. Đừng nhầm địa điểm: người viết ở quê, mời Carina đến quê, không phải Tokyo.",
+          "qt": {
+            "q": "Người này nhờ chị Karina điều gì?",
+            "o": [
+              "Hãy đến Tokyo.",
+              "Nếu có thể đến vào kỳ nghỉ hè, hãy nhất định đến nhé.",
+              "Chúng ta hãy cùng đi trượt tuyết nhé.",
+              "Hãy mang xe đạp đến nhé."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Tour giao lưu quê hương",
+      "japanese": "さくら市国際交流センター「ふるさと交流ツアー」のお知らせ\n田舎の自然が好きな人はいませんか。このツアーに参加すると、町では見えないものが見えますよ。\n朝のコースでは、高い山が見えて、鳥の声が聞こえます。\n夜のコースでは、星がたくさん見えます。ここでは町よりずっときれいな星が見えます。\nコース｜時間｜バスの数｜お金\n朝コース｜9時〜12時｜1日3本しかない｜1,000円\n夜コース｜19時〜21時｜1日2本しかない｜1,500円\n土曜日と日曜日で、参加できる人が違います。\n曜日｜参加できる人\n土曜日｜だれでも参加できます\n日曜日｜大人しか参加できません\n※申し込みは電話でしかできません。バスの席が少ないですから、早く電話してください。\n電話：0120-27-3366（月〜金　9時〜17時）",
+      "vietnamese": "Thông báo của Trung tâm giao lưu quốc tế thành phố Sakura: \"Tour giao lưu quê hương\"\nBạn có phải là người thích thiên nhiên vùng quê không? Nếu tham gia tour này, bạn sẽ nhìn thấy những thứ mà ở thành phố không nhìn thấy được đấy.\nỞ lộ trình buổi sáng, có thể nhìn thấy những ngọn núi cao và nghe thấy tiếng chim.\nỞ lộ trình buổi tối, có thể nhìn thấy rất nhiều ngôi sao. Ở đây có thể nhìn thấy sao đẹp hơn hẳn so với ở thành phố.\nLộ trình｜Thời gian｜Số chuyến xe buýt｜Giá tiền\nLộ trình sáng｜9 giờ〜12 giờ｜chỉ có 3 chuyến một ngày｜1.000 yên\nLộ trình tối｜19 giờ〜21 giờ｜chỉ có 2 chuyến một ngày｜1.500 yên\nThứ Bảy và Chủ Nhật, người được tham gia khác nhau.\nThứ trong tuần｜Người có thể tham gia\nThứ Bảy｜Ai cũng có thể tham gia\nChủ Nhật｜Chỉ người lớn mới được tham gia\n※Chỉ có thể đăng ký bằng điện thoại thôi. Vì ghế xe buýt ít nên hãy gọi điện sớm nhé.\nĐiện thoại: 0120-27-3366 (Thứ Hai〜Thứ Sáu, 9 giờ〜17 giờ)",
+      "sentences": [
+        {
+          "jp": "さくら市国際交流センター「ふるさと交流ツアー」のお知らせ",
+          "vi": "Thông báo của Trung tâm giao lưu quốc tế thành phố Sakura: \"Tour giao lưu quê hương\".",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "ふるさと",
+              "read": "ふるさと",
+              "vi": "quê hương"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour, chuyến tham quan"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura (tên riêng)"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            }
+          ]
+        },
+        {
+          "jp": "田舎の自然が好きな人はいませんか。このツアーに参加すると、町では見えないものが見えますよ。",
+          "vi": "Bạn có phải là người thích thiên nhiên vùng quê không? Nếu tham gia tour này, bạn sẽ nhìn thấy những thứ mà ở thành phố không nhìn thấy được đấy.",
+          "vocab": [
+            {
+              "w": "田舎",
+              "read": "いなか",
+              "vi": "vùng quê, nông thôn"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour du lịch"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "もの",
+              "read": "もの",
+              "vi": "thứ, vật (chỉ chung)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên・Bài 23）",
+              "vi": "参加すると = nếu/hễ tham gia thì… → kết quả tự nhiên xảy ra sau đó (見えます)."
+            },
+            {
+              "point": "NがV（見えます）",
+              "vi": "町では見えないものが見えます = có những thứ ở thành phố KHÔNG nhìn thấy được, nhưng ở đây nhìn thấy được. Chủ thể là もの (が)."
+            }
+          ]
+        },
+        {
+          "jp": "朝のコースでは、高い山が見えて、鳥の声が聞こえます。",
+          "vi": "Ở lộ trình buổi sáng, có thể nhìn thấy những ngọn núi cao và nghe thấy tiếng chim.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao"
+            },
+            {
+              "w": "山",
+              "read": "やま",
+              "vi": "núi"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "鳥",
+              "read": "とり",
+              "vi": "chim"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng, giọng"
+            },
+            {
+              "w": "聞こえる",
+              "read": "きこえる",
+              "vi": "nghe thấy, nghe được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがV（見えます・聞こえます）",
+              "vi": "山が見えて、鳥の声が聞こえます = núi nhìn thấy được, tiếng chim nghe thấy được. Cả hai đều là hiện tượng tự nhiên, không chủ ý."
+            }
+          ],
+          "keys": [
+            {
+              "w": "朝のコース",
+              "why": "tên lộ trình sáng — đối chiếu với \"夜のコース\" ở câu sau và với dòng bảng để không nhầm giờ/giá"
+            }
+          ]
+        },
+        {
+          "jp": "夜のコースでは、星がたくさん見えます。ここでは町よりずっときれいな星が見えます。",
+          "vi": "Ở lộ trình buổi tối, có thể nhìn thấy rất nhiều ngôi sao. Ở đây có thể nhìn thấy sao đẹp hơn hẳn so với ở thành phố.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối, đêm"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "星",
+              "read": "ほし",
+              "vi": "ngôi sao"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "hơn hẳn, hơn nhiều"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがV（見えます）",
+              "vi": "星がたくさん見えます / きれいな星が見えます = sao nhìn thấy được nhiều/đẹp. Nhắc lại mẫu trọng tâm bài 27 hai lần trong một câu."
+            },
+            {
+              "point": "NはNより〜（Bài 12）",
+              "vi": "町よりずっときれいな星 = sao đẹp hơn hẳn so với ở thành phố. Ôn lại cấu trúc so sánh より."
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜のコース",
+              "why": "tên lộ trình tối — câu hỏi 1 nói \"19時からしか参加できません\" nên phải khớp đúng lộ trình tối, không phải sáng"
+            }
+          ]
+        },
+        {
+          "jp": "コース｜時間｜バスの数｜お金",
+          "vi": "Lộ trình｜Thời gian｜Số chuyến xe buýt｜Giá tiền.",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "数",
+              "read": "かず",
+              "vi": "số lượng"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề của 4 cột: lộ trình, thời gian, số chuyến xe buýt, giá tiền."
+            }
+          ],
+          "keys": [
+            {
+              "w": "時間",
+              "why": "cột giờ — dùng để tra \"19時から\" thuộc lộ trình nào cho câu hỏi 1"
+            },
+            {
+              "w": "お金",
+              "why": "cột giá tiền — chính là dữ kiện câu hỏi 1 hỏi (\"いくら払いますか\")"
+            }
+          ]
+        },
+        {
+          "jp": "朝コース｜9時〜12時｜1日3本しかない｜1,000円",
+          "vi": "Lộ trình sáng｜9 giờ〜12 giờ｜chỉ có 3 chuyến một ngày｜1.000 yên.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "12時",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "1日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            },
+            {
+              "w": "3本",
+              "read": "さんぼん",
+              "vi": "ba chuyến (đếm xe)"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない",
+              "vi": "1日3本しかない = một ngày chỉ có 3 chuyến xe buýt thôi (hàm ý ít, cần dò kỹ giờ xe)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "9時〜12時",
+              "why": "giờ lộ trình sáng — KHÔNG khớp điều kiện \"19時から\" của câu hỏi 1, dễ bị chọn nhầm giá 1,000円"
+            },
+            {
+              "w": "1,000円",
+              "why": "giá lộ trình sáng — là phương án nhiễu của câu hỏi 1 vì sai lộ trình"
+            }
+          ]
+        },
+        {
+          "jp": "夜コース｜19時〜21時｜1日2本しかない｜1,500円",
+          "vi": "Lộ trình tối｜19 giờ〜21 giờ｜chỉ có 2 chuyến một ngày｜1.500 yên.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa, suất học"
+            },
+            {
+              "w": "19時",
+              "read": "じゅうきゅうじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "21時",
+              "read": "にじゅういちじ",
+              "vi": "21 giờ"
+            },
+            {
+              "w": "1日",
+              "read": "いちにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "2本",
+              "read": "にほん",
+              "vi": "2 suất, 2 buổi"
+            },
+            {
+              "w": "しかない",
+              "read": "しかない",
+              "vi": "chỉ có"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない",
+              "vi": "1日2本しかない = một ngày chỉ có 2 chuyến, ít hơn cả lộ trình sáng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "19時〜21時",
+              "why": "giờ lộ trình tối — khớp đúng điều kiện \"19時からしか参加できません\" của câu hỏi 1"
+            },
+            {
+              "w": "1,500円",
+              "why": "giá lộ trình tối — chính là đáp án đúng câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "土曜日と日曜日で、参加できる人が違います。",
+          "vi": "Thứ Bảy và Chủ Nhật, người được tham gia khác nhau.",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "chủ Nhật"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（する→できます: 参加できる）",
+              "vi": "参加できる人 = người có thể tham gia. できる là 可能形 của する, ở đây bổ nghĩa cho danh từ 人."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜日と日曜日で、参加できる人が違います",
+              "why": "câu báo trước điều kiện của câu hỏi 2 — dấu hiệu phải dò bảng thứ 2 theo thứ trong tuần"
+            }
+          ]
+        },
+        {
+          "jp": "曜日｜参加できる人",
+          "vi": "Thứ trong tuần｜Người có thể tham gia.",
+          "vocab": [
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề của bảng thứ 2: thứ trong tuần và người có thể tham gia."
+            }
+          ]
+        },
+        {
+          "jp": "土曜日｜だれでも参加できます",
+          "vi": "Thứ Bảy｜Ai cũng có thể tham gia.",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "だれでも",
+              "read": "だれでも",
+              "vi": "ai cũng, bất kỳ ai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（する→できます: 参加できます）",
+              "vi": "だれでも参加できます = ai cũng có thể tham gia được. できます là 可能形 của する."
+            }
+          ],
+          "keys": [
+            {
+              "w": "だれでも参加できます",
+              "why": "hàng thứ Bảy — là phương án nhiễu của câu hỏi 2 vì đề hỏi Chủ Nhật, không phải thứ Bảy"
+            }
+          ]
+        },
+        {
+          "jp": "日曜日｜大人しか参加できません",
+          "vi": "Chủ Nhật｜Chỉ người lớn mới được tham gia.",
+          "vocab": [
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない ＋ V可能形（参加できません）",
+              "vi": "大人しか参加できません = chỉ người lớn mới có thể tham gia thôi (trẻ em không tham gia được Chủ Nhật). Kết hợp しか với thể phủ định của 可能形."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日曜日",
+              "why": "khớp điều kiện \"日曜日に\" của câu hỏi 2"
+            },
+            {
+              "w": "大人しか参加できません",
+              "why": "しか＋phủ định = chỉ người lớn — là căn cứ trực tiếp loại trẻ 5 tuổi khỏi câu hỏi 2"
+            }
+          ]
+        },
+        {
+          "jp": "※申し込みは電話でしかできません。バスの席が少ないですから、早く電話してください。",
+          "vi": "※Chỉ có thể đăng ký bằng điện thoại thôi. Vì ghế xe buýt ít nên hãy gọi điện sớm nhé.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi, ghế"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm, nhanh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない ＋ V可能形（できません）",
+              "vi": "電話でしかできません = chỉ có thể (đăng ký) bằng điện thoại thôi, không có cách khác. できません là 可能形 phủ định của する."
+            },
+            {
+              "point": "〜から（lý do・Bài 9）",
+              "vi": "席が少ないですから = vì ghế ít, nêu lý do cho lời khuyên gọi điện sớm."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "早く電話してください = hãy gọi điện sớm nhé. Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※申し込みは電話でしかできません",
+              "why": "bẫy ※ — dòng chú ý về cách đăng ký, không phải căn cứ trực tiếp cho 2 câu hỏi giá/điều kiện tham gia nhưng hay bị đưa vào nhiễu"
+            }
+          ]
+        },
+        {
+          "jp": "電話：0120-27-3366（月〜金　9時〜17時）",
+          "vi": "Điện thoại: 0120-27-3366 (Thứ Hai〜Thứ Sáu, 9 giờ〜17 giờ).",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai (viết tắt)"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu (viết tắt)"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "月〜金 9時〜17時 = từ thứ Hai đến thứ Sáu, từ 9 giờ đến 17 giờ. Ôn lại mẫu からまで chỉ khoảng thời gian."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "町では見えないものが見えますよ",
+          "label": "NがV（見えます）"
+        },
+        {
+          "excerpt": "鳥の声が聞こえます",
+          "label": "NがV（聞こえます）"
+        },
+        {
+          "excerpt": "1日3本しかない",
+          "label": "Nしか〜ない"
+        },
+        {
+          "excerpt": "大人しか参加できません",
+          "label": "Nしか〜ない＋V可能形"
+        },
+        {
+          "excerpt": "参加できる人",
+          "label": "V可能形（する→できます）"
+        },
+        {
+          "excerpt": "電話でしかできません",
+          "label": "Nしか〜ない＋V可能形"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & mời gọi",
+          "topic": 0,
+          "note": "Giới thiệu tên tour và lời mời tham gia — chưa có căn cứ trả lời câu hỏi, chỉ định hướng chủ đề.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "kind": "body",
+          "label": "Mô tả 2 lộ trình sáng/tối",
+          "topic": 3,
+          "note": "Nêu đặc điểm từng lộ trình (núi/chim buổi sáng, sao buổi tối) — chỉ định hướng chủ đề, căn cứ giá/giờ thật nằm ở bảng dưới.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng giờ & giá theo lộ trình",
+          "topic": 5,
+          "note": "Bảng chính trả lời câu hỏi 1: dò cột giờ để xác định lộ trình tối (19時〜21時), rồi đọc cột giá 1,500円.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng người tham gia theo thứ",
+          "topic": 10,
+          "note": "Bảng thứ 2 trả lời câu hỏi 2: thứ Bảy ai cũng tham gia được, Chủ Nhật chỉ người lớn — trẻ 5 tuổi bị loại.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "turn",
+          "label": "Bẫy ※ đăng ký & liên hệ",
+          "topic": 11,
+          "note": "Dòng ※ nêu điều kiện đăng ký (chỉ qua điện thoại) và giờ liên hệ — không phải căn cứ của 2 câu hỏi nhưng dễ gây nhiễu nếu đọc vội.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワットさんは仕事がありますから、19時からしか参加できません。ツアーに参加すると、いくら払いますか。",
+          "options": [
+            "1,000円",
+            "1,500円",
+            "2,000円",
+            "お金はいりません"
+          ],
+          "answer": 1,
+          "explainVi": "「19時からしか参加できません」→ 19時に始まるのは夜コース（19時〜21時）。表の「夜コース｜19時〜21時｜1日2本しかない｜1,500円」から、夜コースの料金は1,500円。よって答えは1。0（1,000円）は朝コースの値段で、9時〜12時のコースなので条件（19時から）に合わない。2（2,000円）はどちらの表にもない金額。3（お金はいりません）は表に「1,000円」「1,500円」とはっきり書いてあるので誤り。",
+          "tip": "時間の条件（19時から）→ どのコースか特定 → 表の同じ行の「お金」の列を見る、の2ステップで探す。「時間」と「お金」は同じ行にあることを忘れずに。",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Ông Watt có công việc, nên chỉ có thể tham gia từ 19 giờ. Nếu tham gia chuyến tham quan, ông ấy phải trả bao nhiêu tiền?",
+            "o": [
+              "1.000 yên",
+              "1.500 yên",
+              "2.000 yên",
+              "Không cần tiền"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんは日曜日に、5歳の子供といっしょに参加したいです。参加できますか。",
+          "options": [
+            "はい、子供といっしょに参加できます",
+            "いいえ、日曜日は大人しか参加できません",
+            "はい、でも朝コースだけ参加できます",
+            "いいえ、日曜日はツアーがありません"
+          ],
+          "answer": 1,
+          "explainVi": "「日曜日｜大人しか参加できません」という表から、日曜日に参加できるのは大人だけだとわかる。5歳の子供は大人ではないので、いっしょに参加することはできない。よって答えは1。0は表の内容と反対で誤り。2は「大人しか参加できません」に反するので誤り（朝コースかどうかは関係なく、そもそも子供は参加できない）。3は「日曜日｜大人しか参加できません」と書いてあるだけで、日曜日にツアーがないとは書いていないので誤り。",
+          "tip": "「曜日＋条件（子供といっしょ）」の2つを組み合わせて表を見る。「Nしか〜ない」は「それ以外はダメ」という意味だと覚えておくと、子供が対象外だとすぐわかる。",
+          "evi": [
+            10
+          ],
+          "qt": {
+            "q": "Ông Santos muốn tham gia vào Chủ nhật cùng với đứa con 5 tuổi. Ông ấy có thể tham gia không?",
+            "o": [
+              "Vâng, ông ấy có thể tham gia cùng với con",
+              "Không, Chủ nhật chỉ người lớn mới có thể tham gia",
+              "Vâng, nhưng ông ấy chỉ có thể tham gia khóa buổi sáng",
+              "Không, Chủ nhật không có chuyến tham quan"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "定食のメニューを読む",
+      "titleVi": "Đọc thực đơn: Set trưa quán ăn quê",
+      "japanese": "ふるさと食堂　今日の定食のお知らせ\n定食は、①のグループから主菜を一つ、②のグループから副菜を一つ選べます。\nセットは全部で三つあります。同じ主菜でも、セットによって値段が違います。\nセット｜①主菜｜②副菜｜値段\nAセット｜焼き魚｜みそ汁｜700円\nBセット｜肉じゃが｜みそ汁｜750円\nCセット｜焼き魚か肉じゃが｜サラダ｜800円\n①のグループには焼き魚と肉じゃがしかありません。子どもは①しか選べません。\nグループ｜料理\n①｜焼き魚、肉じゃが\n②｜みそ汁、サラダ\n※店では現金しか使えません。カードは使えませんから、気をつけてください。\n※ご飯は大盛りにできます（プラス100円）。\n定食は昼だけで、夜は選べません。月曜日はお休みですから、気をつけてください。\n場所：さくら駅前１階　電話：03-1234-5678（11時〜20時）",
+      "vietnamese": "Quán ăn Furusato — Thông báo set trưa hôm nay.\nVới set, bạn có thể chọn một món chính từ nhóm ① và một món phụ từ nhóm ②.\nCó tất cả ba loại set. Dù cùng món chính, giá cũng khác nhau tùy theo set.\nSet｜Món chính ①｜Món phụ ②｜Giá tiền.\nSet A｜Cá nướng｜Canh miso｜700 yên.\nSet B｜Thịt hầm khoai tây｜Canh miso｜750 yên.\nSet C｜Cá nướng hoặc thịt hầm khoai tây｜Salad｜800 yên.\nNhóm ① chỉ có cá nướng và thịt hầm khoai tây thôi. Trẻ em chỉ được chọn trong nhóm ① thôi.\nNhóm｜Món ăn.\n①｜Cá nướng, thịt hầm khoai tây.\n②｜Canh miso, salad.\n※Ở quán chỉ có thể dùng tiền mặt thôi. Không dùng được thẻ, nên xin lưu ý.\n※Có thể làm cơm phần lớn (thêm 100 yên).\nSet chỉ bán buổi trưa thôi, buổi tối không chọn được. Thứ Hai quán nghỉ, nên xin lưu ý.\nĐịa điểm: Tầng 1 trước ga Sakura　Điện thoại: 03-1234-5678 (11 giờ〜20 giờ).",
+      "sentences": [
+        {
+          "jp": "ふるさと食堂　今日の定食のお知らせ",
+          "vi": "Quán ăn Furusato — Thông báo set trưa hôm nay.",
+          "vocab": [
+            {
+              "w": "ふるさと",
+              "read": "ふるさと",
+              "vi": "quê hương"
+            },
+            {
+              "w": "食堂",
+              "read": "しょくどう",
+              "vi": "căng-tin, nhà ăn"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "定食",
+              "read": "ていしょく",
+              "vi": "set cơm, suất ăn trọn bộ"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "ふるさと食堂",
+              "read": "ふるさとしょくどう",
+              "vi": "quán ăn Furusato (tên riêng)"
+            }
+          ]
+        },
+        {
+          "jp": "定食は、①のグループから主菜を一つ、②のグループから副菜を一つ選べます。",
+          "vi": "Với set, bạn có thể chọn một món chính từ nhóm ① và một món phụ từ nhóm ②.",
+          "vocab": [
+            {
+              "w": "定食",
+              "read": "ていしょく",
+              "vi": "set cơm, suất ăn trọn bộ"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "菜",
+              "read": "さい",
+              "vi": "món ăn, rau"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "選べます",
+              "read": "えらべます",
+              "vi": "có thể chọn (選ぶ→選べます, godan)"
+            },
+            {
+              "w": "主菜",
+              "read": "しゅさい",
+              "vi": "món chính"
+            },
+            {
+              "w": "副菜",
+              "read": "ふくさい",
+              "vi": "món phụ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（godan: 選ぶ→選べます）",
+              "vi": "選べます = có thể chọn. 選ぶ là godan: 選→選べ→選べます. Đây là mẫu trọng tâm bài 27, xuất hiện xuyên suốt thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "①のグループから主菜を一つ、②のグループから副菜を一つ選べます",
+              "why": "quy tắc chọn set — mỗi khách chọn 1 món chính (nhóm①) + 1 món phụ (nhóm②), là điều kiện nền để dò cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "セットは全部で三つあります。同じ主菜でも、セットによって値段が違います。",
+          "vi": "Có tất cả ba loại set. Dù cùng món chính, giá cũng khác nhau tùy theo set.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "せっと",
+              "vi": "suất, bộ"
+            },
+            {
+              "w": "全部で",
+              "read": "ぜんぶで",
+              "vi": "tổng cộng"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau"
+            },
+            {
+              "w": "主菜",
+              "read": "しゅさい",
+              "vi": "món chính"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "同じ主菜でも = dù cùng món chính đi nữa. Nhượng bộ: dù A vẫn B."
+            }
+          ]
+        },
+        {
+          "jp": "セット｜①主菜｜②副菜｜値段",
+          "vi": "Set｜Món chính ①｜Món phụ ②｜Giá tiền.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "せっと",
+              "vi": "suất, bộ"
+            },
+            {
+              "w": "主菜",
+              "read": "しゅさい",
+              "vi": "món chính"
+            },
+            {
+              "w": "副菜",
+              "read": "ふくさい",
+              "vi": "món phụ"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu là tiêu đề 4 cột: tên set, món chính nhóm①, món phụ nhóm②, giá tiền."
+            }
+          ],
+          "keys": [
+            {
+              "w": "②副菜",
+              "why": "cột món phụ — câu hỏi 1 yêu cầu ăn kèm サラダ (salad), phải dò đúng cột này"
+            }
+          ]
+        },
+        {
+          "jp": "Aセット｜焼き魚｜みそ汁｜700円",
+          "vi": "Set A｜Cá nướng｜Canh miso｜700 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "焼き魚",
+              "read": "やきざかな",
+              "vi": "cá nướng"
+            },
+            {
+              "w": "みそ汁",
+              "read": "みそしる",
+              "vi": "canh miso"
+            },
+            {
+              "w": "700円",
+              "read": "ななひゃくえん",
+              "vi": "700 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "Aセット｜焼き魚｜みそ汁｜700円",
+              "why": "Set A món phụ là みそ汁 (canh miso) chứ không phải サラダ — bị loại khỏi câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "Bセット｜肉じゃが｜みそ汁｜750円",
+          "vi": "Set B｜Thịt hầm khoai tây｜Canh miso｜750 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "せっと",
+              "vi": "suất/combo"
+            },
+            {
+              "w": "肉じゃが",
+              "read": "にくじゃが",
+              "vi": "món thịt hầm khoai tây"
+            },
+            {
+              "w": "みそ汁",
+              "read": "みそしる",
+              "vi": "canh miso"
+            },
+            {
+              "w": "750円",
+              "read": "ななひゃくごじゅうえん",
+              "vi": "750 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "Bセット｜肉じゃが｜みそ汁｜750円",
+              "why": "Set B có 肉じゃが (đúng món chính khách muốn) nhưng ②副菜 vẫn là みそ汁, không phải サラダ — nhiễu câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "Cセット｜焼き魚か肉じゃが｜サラダ｜800円",
+          "vi": "Set C｜Cá nướng hoặc thịt hầm khoai tây｜Salad｜800 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "焼き魚",
+              "read": "やきざかな",
+              "vi": "cá nướng"
+            },
+            {
+              "w": "肉じゃが",
+              "read": "にくじゃが",
+              "vi": "thịt hầm khoai tây (món Nhật)"
+            },
+            {
+              "w": "サラダ",
+              "read": "サラダ",
+              "vi": "salad"
+            },
+            {
+              "w": "800円",
+              "read": "はっぴゃくえん",
+              "vi": "800 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NかN（Bài 6）",
+              "vi": "焼き魚か肉じゃが = cá nướng hoặc thịt hầm khoai tây. Cセットは①の中でどちらかを選べます。"
+            }
+          ],
+          "keys": [
+            {
+              "w": "焼き魚か肉じゃが",
+              "why": "Set C cho chọn 肉じゃが trong nhóm① — khớp điều kiện thứ nhất của câu hỏi 1 (muốn ăn 肉じゃが)"
+            },
+            {
+              "w": "サラダ",
+              "why": "Set C có ②副菜 là サラダ — khớp điều kiện thứ hai của câu hỏi 1, là ô quyết định Cセット là đáp án đúng"
+            }
+          ]
+        },
+        {
+          "jp": "①のグループには焼き魚と肉じゃがしかありません。子どもは①しか選べません。",
+          "vi": "Nhóm ① chỉ có cá nướng và thịt hầm khoai tây thôi. Trẻ em chỉ được chọn trong nhóm ① thôi.",
+          "vocab": [
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "焼き魚",
+              "read": "やきざかな",
+              "vi": "cá nướng"
+            },
+            {
+              "w": "肉じゃが",
+              "read": "にくじゃが",
+              "vi": "thịt hầm khoai tây (món Nhật)"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "選べる",
+              "read": "えらべる",
+              "vi": "có thể lựa chọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない",
+              "vi": "焼き魚と肉じゃがしかありません = chỉ có cá nướng và thịt hầm khoai tây thôi, không có món khác trong nhóm①."
+            },
+            {
+              "point": "Nしか〜ない ＋ V可能形（選べません）",
+              "vi": "①しか選べません = trẻ em chỉ được chọn trong nhóm① thôi (không được chọn nhóm②). しか kết hợp thể phủ định của 可能形 選べる."
+            }
+          ],
+          "keys": [
+            {
+              "w": "子どもは①しか選べません",
+              "why": "điều kiện trẻ em chỉ chọn nhóm①(có 焼き魚) — căn cứ trực tiếp câu hỏi 2 cho phép trẻ 7 tuổi ăn 焼き魚"
+            }
+          ]
+        },
+        {
+          "jp": "グループ｜料理",
+          "vi": "Nhóm｜Món ăn.",
+          "vocab": [
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu là tiêu đề bảng thứ 2: tên nhóm và các món ăn trong nhóm đó."
+            }
+          ]
+        },
+        {
+          "jp": "①｜焼き魚、肉じゃが",
+          "vi": "①｜Cá nướng, thịt hầm khoai tây.",
+          "vocab": [
+            {
+              "w": "①｜",
+              "read": "①｜",
+              "vi": "mục 1, ký hiệu 1"
+            },
+            {
+              "w": "焼き魚",
+              "read": "やきざかな",
+              "vi": "cá nướng"
+            },
+            {
+              "w": "肉じゃが",
+              "read": "にくじゃが",
+              "vi": "thịt hầm khoai tây"
+            }
+          ],
+          "keys": [
+            {
+              "w": "①｜焼き魚、肉じゃが",
+              "why": "xác nhận 焼き魚 nằm trong nhóm① — căn cứ trực tiếp cho câu hỏi 2 (trẻ 7 tuổi chỉ chọn nhóm① vẫn ăn được 焼き魚)"
+            }
+          ]
+        },
+        {
+          "jp": "②｜みそ汁、サラダ",
+          "vi": "②｜Canh miso, salad.",
+          "vocab": [
+            {
+              "w": "②｜",
+              "read": "②｜",
+              "vi": "mục 2, ký hiệu 2"
+            },
+            {
+              "w": "みそ汁",
+              "read": "みそしる",
+              "vi": "canh miso"
+            },
+            {
+              "w": "サラダ",
+              "read": "サラダ",
+              "vi": "salad"
+            }
+          ]
+        },
+        {
+          "jp": "※店では現金しか使えません。カードは使えませんから、気をつけてください。",
+          "vi": "※Ở quán chỉ có thể dùng tiền mặt thôi. Không dùng được thẻ, nên xin lưu ý.",
+          "vocab": [
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "現金",
+              "read": "げんきん",
+              "vi": "tiền mặt"
+            },
+            {
+              "w": "使えます",
+              "read": "つかえます",
+              "vi": "có thể dùng (使う→使えます, godan)"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない",
+              "vi": "現金しか使えません = chỉ có thể dùng tiền mặt thôi, không dùng được cách khác."
+            },
+            {
+              "point": "V可能形（godan: 使う→使えます、phủ定）",
+              "vi": "カードは使えません = không thể dùng thẻ. 使う là godan: 使→使え→使えます."
+            },
+            {
+              "point": "〜から（lý do・Bài 9）",
+              "vi": "使えませんから = vì không dùng được (thẻ), nêu lý do cho lời nhắc chú ý."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※店では現金しか使えません",
+              "why": "bẫy ※ — chỉ dùng tiền mặt, loại phương án \"trả bằng thẻ\" trong câu hỏi 2"
+            }
+          ]
+        },
+        {
+          "jp": "※ご飯は大盛りにできます（プラス100円）。",
+          "vi": "※Có thể làm cơm phần lớn (thêm 100 yên).",
+          "vocab": [
+            {
+              "w": "ご飯",
+              "read": "ごはん",
+              "vi": "cơm/bữa ăn"
+            },
+            {
+              "w": "大盛り",
+              "read": "おおもり",
+              "vi": "phần lớn"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            },
+            {
+              "w": "プラス",
+              "read": "ぷらす",
+              "vi": "cộng/thêm"
+            },
+            {
+              "w": "100円",
+              "read": "ひゃくえん",
+              "vi": "100 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにV可能形（する→できます）",
+              "vi": "大盛りにできます = có thể làm thành phần lớn. できます là 可能形 của する."
+            }
+          ]
+        },
+        {
+          "jp": "定食は昼だけで、夜は選べません。月曜日はお休みですから、気をつけてください。",
+          "vi": "Set chỉ bán buổi trưa thôi, buổi tối không chọn được. Thứ Hai quán nghỉ, nên xin lưu ý.",
+          "vocab": [
+            {
+              "w": "定食",
+              "read": "ていしょく",
+              "vi": "set cơm, suất ăn trọn bộ"
+            },
+            {
+              "w": "昼",
+              "read": "ひる",
+              "vi": "buổi trưa"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "選べる",
+              "read": "えらべる",
+              "vi": "có thể lựa chọn"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "気",
+              "read": "き",
+              "vi": "tâm trạng, tinh thần"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "お休み",
+              "read": "おやすみ",
+              "vi": "nghỉ (cửa hàng đóng cửa)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（godan: 選ぶ→選べません、phủ定）",
+              "vi": "夜は選べません = buổi tối không thể chọn (set trưa). Phủ định của 可能形 選べる."
+            },
+            {
+              "point": "〜から（lý do・Bài 9）",
+              "vi": "お休みですから = vì (thứ Hai) quán nghỉ, nêu lý do cho lời nhắc chú ý."
+            }
+          ]
+        },
+        {
+          "jp": "場所：さくら駅前１階　電話：03-1234-5678（11時〜20時）",
+          "vi": "Địa điểm: Tầng 1 trước ga Sakura　Điện thoại: 03-1234-5678 (11 giờ〜20 giờ).",
+          "vocab": [
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "１階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "11時",
+              "read": "じゅういちじ",
+              "vi": "11 giờ"
+            },
+            {
+              "w": "20時",
+              "read": "にじゅうじ",
+              "vi": "20 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "11時〜20時 = từ 11 giờ đến 20 giờ. Ôn lại mẫu からまで chỉ khoảng thời gian."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "主菜を一つ、②のグループから副菜を一つ選べます",
+          "label": "V可能形（godan: 選ぶ→選べます）"
+        },
+        {
+          "excerpt": "焼き魚と肉じゃがしかありません",
+          "label": "Nしか〜ない"
+        },
+        {
+          "excerpt": "①しか選べません",
+          "label": "Nしか〜ない＋V可能形"
+        },
+        {
+          "excerpt": "現金しか使えません",
+          "label": "Nしか〜ない＋V可能形"
+        },
+        {
+          "excerpt": "大盛りにできます",
+          "label": "V可能形（する→できます）"
+        },
+        {
+          "excerpt": "夜は選べません",
+          "label": "V可能形（godan・phủ定）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & quy tắc chọn set",
+          "topic": 1,
+          "note": "Nêu quy tắc nền: mỗi set chọn 1 món chính (nhóm①) + 1 món phụ (nhóm②) — điều kiện dùng cho cả 2 câu hỏi.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng 3 set A/B/C",
+          "topic": 6,
+          "note": "Bảng chính trả lời câu hỏi 1: dò hàng có cả 肉じゃが (①) và サラダ (②) — chỉ Cセット khớp đủ 2 điều kiện.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng nhóm① / nhóm②",
+          "topic": 7,
+          "note": "Bảng phụ + câu điều kiện trẻ em chỉ chọn nhóm① — trả lời phần đầu câu hỏi 2 (trẻ 7 tuổi có được ăn 焼き魚 không).",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "turn",
+          "label": "Bẫy ※ thanh toán & cơm thêm",
+          "topic": 11,
+          "note": "Dòng ※ đầu: chỉ nhận tiền mặt, không nhận thẻ — loại phương án trả thẻ trong câu hỏi 2. Dòng ※ sau (cơm thêm) không liên quan 2 câu hỏi.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 13,
+          "to": 14,
+          "kind": "body",
+          "label": "Giờ bán & liên hệ",
+          "topic": 13,
+          "note": "Thông tin giờ bán, ngày nghỉ, địa điểm liên hệ — không phải căn cứ của 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは肉じゃがが食べたいです。そして、サラダも食べたいです。ミラーさんはどのセットを選べますか。",
+          "options": [
+            "Aセット",
+            "Bセット",
+            "Cセット",
+            "どのセットも選べません"
+          ],
+          "answer": 2,
+          "explainVi": "表の「Cセット｜焼き魚か肉じゃが｜サラダ｜800円」から、Cセットは①（焼き魚か肉じゃが）から選べて、②はサラダなので、肉じゃがとサラダの両方が食べられるのはCセットだけ。よって答えは2。0（Aセット）は②主菜がみそ汁で②がみそ汁なので、副菜はみそ汁になり、サラダではない。1（Bセット）も同じ理由でみそ汁になり、サラダではない。3は表に条件に合うCセットがあるので誤り。",
+          "tip": "「主菜＋副菜」の2つの条件を同時に満たすセットを表の同じ行から探す。①の中に肉じゃががあるのはBとCだけ、②がサラダなのはCだけと絞り込むと早い。",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Anh Miller muốn ăn thịt hầm khoai tây. Và anh ấy cũng muốn ăn salad. Anh Miller có thể chọn suất nào?",
+            "o": [
+              "Suất A",
+              "Suất B",
+              "Suất C",
+              "Không thể chọn suất nào"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは7歳の子どもと食堂に行きます。子どもは焼き魚が好きです。カードでお金を払いたいです。正しいものはどれですか。",
+          "options": [
+            "子どもはBセットを選べます",
+            "子どもは①のグループから焼き魚を選べます",
+            "カードでお金を払えます",
+            "子どもは②のグループから選ばなければなりません"
+          ],
+          "answer": 1,
+          "explainVi": "「子どもは①しか選べません」と「①｜焼き魚、肉じゃが」から、子どもは①のグループの中の焼き魚を選ぶことができる。よって答えは1。0は誤り：Bセットの①主菜は肉じゃがで、焼き魚ではないので子どもの希望と合わない（それに①しか選べないという条件自体には合うが、焼き魚を選ぶならAかCセット）。2は誤り：「店では現金しか使えません」とあるので、カードは使えない。3は誤り：子どもは①しか選べないので、②からは選べない。",
+          "tip": "「Nしか〜ない」は\"それ以外はダメ\"という意味。子どもの条件は①のグループの中だけ、支払いは現金だけと覚えて、表と※の行を両方確認する。",
+          "evi": [
+            7,
+            9,
+            11
+          ],
+          "qt": {
+            "q": "Chị Karina đi đến quán ăn cùng đứa con 7 tuổi. Đứa trẻ thích cá nướng. Chị ấy muốn thanh toán bằng thẻ. Câu nào đúng?",
+            "o": [
+              "Đứa trẻ có thể chọn suất B",
+              "Đứa trẻ có thể chọn cá nướng từ nhóm ①",
+              "Có thể thanh toán bằng thẻ",
+              "Đứa trẻ phải chọn từ nhóm ②"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

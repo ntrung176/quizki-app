@@ -1,0 +1,1490 @@
+{
+  "bai": 12,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 12 tập trung vào HAI kỹ năng: (1) nói về quá khứ của tính từ — どうでしたか → かったです / くなかったです / でした; (2) so sánh — より (hơn), のほうが (... thì hơn), どちらが (cái nào hơn), の中で一番 (trong số... nhất). Khi đọc, chú ý DẤU HIỆU so sánh và chiều so sánh (cái nào được khen hơn).",
+    "steps": [
+      "Đọc lướt để nắm chủ đề: bài đang so sánh GÌ với GÌ (mùa, thành phố, món ăn...).",
+      "Tìm từ khóa so sánh: より, のほうが, どちら, 一番, と同じ — chúng quyết định chiều so sánh.",
+      "Với câu quá khứ tính từ, nhìn đuôi: かったです (い-adj quá khứ khẳng), くなかったです (phủ), でした (な-adj/N quá khứ khẳng), じゃありませんでした (phủ).",
+      "Câu hỏi どちらが〜ですか → đáp án luôn chỉ ra \"bên nào hơn\" bằng のほうが.",
+      "Câu 〜の中で〜が一番〜 → xác định tập hợp so sánh (の中で) và vô địch (一番 đứng trước tính từ).",
+      "Kiểm tra 答え: câu hỏi đọc hiểu → quay lại bài tìm đúng câu có chứa thông tin, đừng đoán mò."
+    ],
+    "tips": [
+      "より đứng SAU danh từ bị so sánh kém hơn: 大阪より東京のほうが大きい → Tokyo > Osaka.",
+      "かったです = thêm かった vào gốc tính từ い (bỏ い cuối): 暑い→暑かった。Ngoại lệ duy nhất: いい→よかった (không phải いかった！).",
+      "一番 luôn đứng TRƯỚC tính từ mô tả: 一番おいしい / 一番好きです.",
+      "と同じ: \"giống với\" — A は B と同じ〜 → A và B cùng [danh từ/tính chất].",
+      "どちら = cái nào (trong 2 cái). Nếu hơn 2 cái dùng どれ (Bài 2), nhưng Bài 12 chỉ dùng どちら.",
+      "Cẩn thận: のほうが đứng sau danh từ thắng, không phải danh từ thua."
+    ],
+    "grammarFocus": [
+      "Ａかったです・Ａくなかったです（quá khứ tính từ い）",
+      "ＮＡ・Ｎでした・じゃありませんでした（quá khứ tính từ な・danh từ）",
+      "NはNより〜",
+      "NよりNのほうが〜",
+      "N1とN2とどちらが〜",
+      "〜の中で〜が一番〜",
+      "NはＮと同じ"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 8,
+        "items": [
+          "tính từ い (暑い・寒い・おいしい・楽しい・大きい・小さい・高い・安い)",
+          "tính từ な (有名な・にぎやかな・きれいな・静かな)",
+          "Ｎは〜いです・〜なです（miêu tả hiện tại）",
+          "とても・あまり〜ない"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "NはＮが好きです・嫌いです",
+          "〜から（lý do）"
+        ]
+      },
+      {
+        "bai": 11,
+        "items": [
+          "助数詞（〜回、〜時間）",
+          "どのくらい"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "Ｎへ行きます・来ます（đi đến nơi nào đó）"
+        ]
+      },
+      {
+        "bai": 4,
+        "items": [
+          "Ｖました（quá khứ động từ）",
+          "そして"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "先週の旅行",
+      "titleVi": "Chuyến du lịch tuần trước",
+      "japanese": "先週、私は京都へ行きました。京都はとてもきれいでした。天気は暑くなかったです。気温は大阪より低かったです。お寺はにぎやかではありませんでした。静かでした。とてもよかったです。",
+      "vietnamese": "Tuần trước tôi đã đi Kyoto. Kyoto rất đẹp. Thời tiết không nóng. Nhiệt độ thấp hơn Osaka. Các ngôi đền không náo nhiệt. Yên tĩnh. Rất tuyệt.",
+      "sentences": [
+        {
+          "jp": "先週、私は京都へ行きました。",
+          "vi": "Tuần trước tôi đã đi Kyoto.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖました（quá khứ）",
+              "vi": "行きました = đã đi. Ôn lại Bài 4: Vました diễn đạt hành động đã hoàn tất."
+            },
+            {
+              "point": "Ｎへ行きます",
+              "vi": "へ chỉ hướng đến: 京都へ = về phía / đến Kyoto."
+            }
+          ]
+        },
+        {
+          "jp": "京都はとてもきれいでした。",
+          "vi": "Kyoto rất đẹp.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "đẹp, sạch (tính từ な)"
+            },
+            {
+              "w": "でした",
+              "read": "でした",
+              "vi": "đã là / đã (quá khứ của です)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ＮＡでした（quá khứ tính từ な）",
+              "vi": "きれい là tính từ な → quá khứ = きれいでした (không phải きれいかったです)."
+            }
+          ]
+        },
+        {
+          "jp": "天気は暑くなかったです。",
+          "vi": "Thời tiết không nóng.",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "暑い",
+              "read": "あつい",
+              "vi": "nóng (tính từ い)"
+            },
+            {
+              "w": "暑くなかったです",
+              "read": "あつくなかったです",
+              "vi": "không nóng (quá khứ phủ định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ａくなかったです（quá khứ phủ định tính từ い）",
+              "vi": "暑い → bỏ い → 暑く + なかったです. Là dạng phủ định quá khứ của tính từ い."
+            }
+          ]
+        },
+        {
+          "jp": "気温は大阪より低かったです。",
+          "vi": "Nhiệt độ thấp hơn Osaka.",
+          "vocab": [
+            {
+              "w": "気温",
+              "read": "きおん",
+              "vi": "nhiệt độ không khí"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (thành phố Nhật)"
+            },
+            {
+              "w": "低い",
+              "read": "ひくい",
+              "vi": "thấp (tính từ い)"
+            },
+            {
+              "w": "低かったです",
+              "read": "ひくかったです",
+              "vi": "đã thấp (quá khứ khẳng định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNより〜かったです",
+              "vi": "気温は大阪より低かったです = nhiệt độ thấp hơn Osaka. より đứng sau vật bị so sánh kém hơn; kết hợp quá khứ: 低かったです."
+            },
+            {
+              "point": "Ａかったです（quá khứ khẳng định tính từ い）",
+              "vi": "低い → 低かった + です."
+            }
+          ]
+        },
+        {
+          "jp": "お寺はにぎやかではありませんでした。静かでした。とてもよかったです。",
+          "vi": "Các ngôi đền không náo nhiệt. Yên tĩnh. Rất tuyệt.",
+          "vocab": [
+            {
+              "w": "お寺",
+              "read": "おてら",
+              "vi": "ngôi đền, chùa"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "náo nhiệt, đông đúc (tính từ な)"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "にぎやかではありませんでした",
+              "read": "にぎやかではありませんでした",
+              "vi": "đã không náo nhiệt"
+            },
+            {
+              "w": "静かでした",
+              "read": "しずかでした",
+              "vi": "đã yên tĩnh (quá khứ tính từ な)"
+            },
+            {
+              "w": "よかったです",
+              "read": "よかったです",
+              "vi": "đã tốt / rất tuyệt (quá khứ của いいです)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ＮＡじゃありませんでした（quá khứ phủ định tính từ な）",
+              "vi": "にぎやかではありませんでした = đã không náo nhiệt. ではありません → ではありませんでした cho quá khứ."
+            },
+            {
+              "point": "ＮＡでした（quá khứ khẳng định tính từ な）",
+              "vi": "静か は tính từ な → quá khứ = 静かでした (không chia 〜で nối câu vì đó là ngữ pháp Bài 16)."
+            },
+            {
+              "point": "Ａかったです（quá khứ tính từ い — ngoại lệ）",
+              "vi": "いい (tốt) → quá khứ = よかったです (KHÔNG phải いかったです). Đây là ngoại lệ quan trọng duy nhất."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "きれいでした",
+          "label": "ＮＡでした（quá khứ tính từ な）"
+        },
+        {
+          "excerpt": "暑くなかったです",
+          "label": "Ａくなかったです（quá khứ phủ định）"
+        },
+        {
+          "excerpt": "気温は大阪より低かったです",
+          "label": "NはNより〜（so sánh）"
+        },
+        {
+          "excerpt": "にぎやかではありませんでした",
+          "label": "ＮＡじゃありませんでした（quá khứ phủ định）"
+        },
+        {
+          "excerpt": "静かでした",
+          "label": "ＮＡでした（quá khứ khẳng định tính từ な）"
+        },
+        {
+          "excerpt": "よかったです",
+          "label": "Ａかったです（ngoại lệ: いい→よかった）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "京都の天気はどうでしたか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "とても暑かったです",
+            "暑くなかったです",
+            "とても寒かったです",
+            "天気はよくなかったです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi rõ「天気は暑くなかったです」(thời tiết không nóng) — đây là dạng quá khứ phủ định của tính từ い: 暑い → 暑くなかったです. Đáp án 0 sai vì bài nói KHÔNG nóng, không phải \"rất nóng\". Đáp án 2 sai vì bài không hề nhắc đến lạnh (寒い). Đáp án 3 sai vì bài kết thúc bằng「とてもよかったです」— thời tiết tốt, không phải xấu.",
+          "tip": "Gặp câu hỏi「どうでしたか」→ tìm ngay tính từ quá khứ trong bài. Chú ý phân biệt: かったです (khẳng định) ≠ くなかったです (phủ định).",
+          "qt": {
+            "q": "Thời tiết ở Kyoto thế nào?",
+            "o": [
+              "Rất nóng",
+              "Không nóng",
+              "Rất lạnh",
+              "Thời tiết không đẹp"
+            ]
+          }
+        },
+        {
+          "q": "京都の気温と大阪の気温と、どちらが低かったですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "大阪のほうが低かったです",
+            "同じでした",
+            "京都のほうが低かったです",
+            "大阪のほうが高かったです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi「気温は大阪より低かったです」— trong câu này, より đứng SAU 大阪 (Osaka là bên thua), còn 京都 (Kyoto) là chủ ngữ → Kyoto thấp hơn Osaka → 京都のほうが低かった. Đáp án 0 sai vì chiều so sánh ngược — bài nói Kyoto thấp hơn Osaka, không phải Osaka thấp hơn Kyoto. Đáp án 1 sai vì bài không nói hai nơi bằng nhau (同じ). Đáp án 3 sai vì 大阪のほうが高かった có nghĩa Osaka cao hơn — đúng về logic nhưng câu hỏi hỏi bên nào THẤP hơn, và đáp án 2 trả lời trực tiếp hơn.",
+          "tip": "Mẫu「AはBより〜」→ B là bên thua (đứng sau より), A là bên thắng. Khi trả lời dùng「Aのほうが〜」.",
+          "qt": {
+            "q": "Nhiệt độ ở Kyoto và nhiệt độ ở Osaka, nơi nào thấp hơn?",
+            "o": [
+              "Osaka thấp hơn",
+              "Bằng nhau",
+              "Kyoto thấp hơn",
+              "Osaka cao hơn"
+            ]
+          }
+        },
+        {
+          "q": "お寺はどうでしたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "にぎやかでした",
+            "静かではありませんでした",
+            "静かで、よかったです",
+            "暑かったです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi「お寺はにぎやかではありませんでした。静かでした。とてもよかったです」— đền không náo nhiệt (phủ định), yên tĩnh (静か), và rất tuyệt (よかった). Đáp án 2「静かで、よかったです」gộp đủ hai ý đó. Đáp án 0 sai hoàn toàn — bài nói KHÔNG náo nhiệt (にぎやかではありませんでした). Đáp án 1 sai vì bài nói 静かでした (YÊN TĨNH), tức là「静かではありませんでした」là ngược lại. Đáp án 3 sai vì bài nói thời tiết không nóng (暑くなかった), không nói đền nóng.",
+          "tip": "Khi đáp án có nhiều ý ghép lại (VD: 静かで、よかった), hãy kiểm tra TỪNG ý một xem bài có nói không — nếu tất cả đều đúng thì đó là đáp án.",
+          "qt": {
+            "q": "Ngôi chùa thế nào?",
+            "o": [
+              "Đông vui",
+              "Không yên tĩnh",
+              "Yên tĩnh và rất tốt",
+              "Nóng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "季節と食べ物の話",
+      "titleVi": "Chuyện về mùa và đồ ăn",
+      "japanese": "ミラーさんとカリナさんは話しました。\nカリナさん、日本の夏と冬と、どちらが好きですか。\n私は冬のほうが好きです。でも、去年の冬はとても寒かったです。ミラーさんはどうですか。\n私は夏のほうが好きです。去年の夏は暑かったですが、楽しかったです。\n四つの季節の中で、どの季節が一番きれいですか。\n春が一番きれいです。桜がとてもきれいですから。\n春は大阪より京都のほうがにぎやかですね。\nそして、食べ物の話ですが、日本料理の中で何が一番好きですか。\nすしが一番好きです。すしもベトナム料理もおいしいです。\n私はラーメンのほうがすしより好きです。去年、大阪のラーメンを食べました。とてもおいしかったです。",
+      "vietnamese": "Anh Miller và chị Karina đã trò chuyện.\nKarina, mùa hè và mùa đông ở Nhật, chị thích cái nào hơn?\nTôi thích mùa đông hơn. Nhưng mùa đông năm ngoái rất lạnh. Còn anh Miller thì sao?\nTôi thích mùa hè hơn. Mùa hè năm ngoái tuy nóng nhưng vui.\nTrong bốn mùa, mùa nào đẹp nhất?\nMùa xuân đẹp nhất. Vì hoa anh đào rất đẹp.\nMùa xuân thì Kyoto náo nhiệt hơn Osaka nhỉ.\nÀ, chuyện về đồ ăn — trong ẩm thực Nhật, chị thích gì nhất?\nTôi thích sushi nhất. Cả sushi lẫn ẩm thực Việt Nam đều ngon.\nTôi thích ramen hơn sushi. Năm ngoái tôi đã ăn ramen ở Osaka. Ngon lắm.",
+      "sentences": [
+        {
+          "jp": "ミラーさんとカリナさんは話しました。",
+          "vi": "Anh Miller và chị Karina đã trò chuyện.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "話しました",
+              "read": "はなしました",
+              "vi": "đã nói chuyện, đã trò chuyện (quá khứ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ｖました",
+              "vi": "話しました = đã nói chuyện. Ôn Bài 4: Vました cho hành động đã xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさん、日本の夏と冬と、どちらが好きですか。",
+          "vi": "Karina, mùa hè và mùa đông ở Nhật, chị thích cái nào hơn?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "nước Nhật"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "好きです",
+              "read": "すきです",
+              "vi": "thích"
+            },
+            {
+              "w": "どちら",
+              "read": "どちら",
+              "vi": "cái nào (trong 2 cái)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N1とN2とどちらが〜ですか",
+              "vi": "Mẫu hỏi so sánh 2 đối tượng: 夏と冬とどちらが好きですか = mùa hè và mùa đông, thích cái nào hơn?"
+            },
+            {
+              "point": "NはＮが好きです（ôn Bài 9）",
+              "vi": "Diễn đạt sở thích. が đánh dấu đối tượng được thích."
+            }
+          ]
+        },
+        {
+          "jp": "私は冬のほうが好きです。",
+          "vi": "Tôi thích mùa đông hơn.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "冬のほうが",
+              "read": "ふゆのほうが",
+              "vi": "mùa đông thì hơn"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NよりNのほうが〜",
+              "vi": "Karina thích mùa đông hơn (mùa hè). のほうが đứng sau đối tượng THẮNG trong so sánh."
+            }
+          ]
+        },
+        {
+          "jp": "でも、去年の冬はとても寒かったです。ミラーさんはどうですか。",
+          "vi": "Nhưng mùa đông năm ngoái rất lạnh. Còn anh Miller thì sao?",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "寒かったです",
+              "read": "さむかったです",
+              "vi": "đã lạnh (quá khứ tính từ い)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ａかったです（quá khứ khẳng định tính từ い）",
+              "vi": "寒い → 寒かった + です. Diễn tả thời tiết trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "私は夏のほうが好きです。去年の夏は暑かったですが、楽しかったです。",
+          "vi": "Tôi thích mùa hè hơn. Mùa hè năm ngoái tuy nóng nhưng vui.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "のほうが",
+              "read": "のほうが",
+              "vi": "hơn, thiên về"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "暑かったです",
+              "read": "あつかったです",
+              "vi": "đã nóng"
+            },
+            {
+              "w": "ですが",
+              "read": "ですが",
+              "vi": "nhưng"
+            },
+            {
+              "w": "楽しかったです",
+              "read": "たのしかったです",
+              "vi": "đã vui"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Ａかったです（quá khứ）",
+              "vi": "暑い→暑かったです、楽しい→楽しかったです. Hai tính từ い đều chia quá khứ."
+            },
+            {
+              "point": "NよりNのほうが〜（ôn so sánh）",
+              "vi": "私は夏のほうが好きです = Miller thích mùa hè hơn (mùa đông)."
+            }
+          ]
+        },
+        {
+          "jp": "四つの季節の中で、どの季節が一番きれいですか。",
+          "vi": "Trong bốn mùa, mùa nào đẹp nhất?",
+          "vocab": [
+            {
+              "w": "四つ",
+              "read": "よっつ",
+              "vi": "bốn (cái)"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa (trong năm)"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "đẹp (tính từ な)"
+            },
+            {
+              "w": "〜の中で",
+              "read": "のなかで",
+              "vi": "trong số ~"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の中で〜が一番〜",
+              "vi": "四つの季節の中で〜が一番きれい = trong 4 mùa thì ~ đẹp nhất. の中で xác định tập hợp, 一番 đứng trước tính từ."
+            }
+          ]
+        },
+        {
+          "jp": "春が一番きれいです。桜がとてもきれいですから。",
+          "vi": "Mùa xuân đẹp nhất. Vì hoa anh đào rất đẹp.",
+          "vocab": [
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "一番きれい",
+              "read": "いちばんきれい",
+              "vi": "đẹp nhất"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "〜から",
+              "read": "から",
+              "vi": "vì ~ (lý do, ôn Bài 9)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の中で〜が一番〜（trả lời）",
+              "vi": "春が一番きれいです = mùa xuân đẹp nhất. が nhấn mạnh chủ thể vô địch."
+            },
+            {
+              "point": "〜から（lý do, ôn Bài 9）",
+              "vi": "桜がきれいですから = vì hoa anh đào đẹp. から đứng cuối mệnh đề lý do."
+            }
+          ]
+        },
+        {
+          "jp": "春は大阪より京都のほうがにぎやかですね。",
+          "vi": "Mùa xuân thì Kyoto náo nhiệt hơn Osaka nhỉ.",
+          "vocab": [
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "náo nhiệt (tính từ な)"
+            },
+            {
+              "w": "ね",
+              "read": "ね",
+              "vi": "nhỉ (cầu đồng thuận)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNより〜 / NよりNのほうが〜",
+              "vi": "大阪より京都のほうがにぎやか = Kyoto náo nhiệt hơn Osaka. より đứng sau đối tượng thua (Osaka)."
+            }
+          ]
+        },
+        {
+          "jp": "そして、食べ物の話ですが、日本料理の中で何が一番好きですか。",
+          "vi": "À, chuyện về đồ ăn — trong ẩm thực Nhật, chị thích gì nhất?",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "日本料理",
+              "read": "にほんりょうり",
+              "vi": "ẩm thực Nhật Bản"
+            },
+            {
+              "w": "何が一番",
+              "read": "なにがいちばん",
+              "vi": "cái gì là nhất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の中で何が一番〜ですか",
+              "vi": "日本料理の中で何が一番好きですか = trong ẩm thực Nhật thích gì nhất? Hỏi về \"nhất\" trong tập hợp."
+            },
+            {
+              "point": "そして（ôn Bài 4）",
+              "vi": "Nối sang chủ đề mới: そして chuyển sang chủ đề đồ ăn."
+            }
+          ]
+        },
+        {
+          "jp": "すしが一番好きです。すしもベトナム料理もおいしいです。",
+          "vi": "Tôi thích sushi nhất. Cả sushi lẫn ẩm thực Việt Nam đều ngon.",
+          "vocab": [
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "ベトナム",
+              "read": "ベトナム",
+              "vi": "Việt Nam, tên riêng Việt Nam"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "すし",
+              "read": "すし",
+              "vi": "sushi"
+            },
+            {
+              "w": "ベトナム料理",
+              "read": "ベトナムりょうり",
+              "vi": "ẩm thực Việt Nam"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NもNも〜（cả ~ lẫn ~ đều）",
+              "vi": "すしもベトナム料理もおいしい = cả sushi lẫn ẩm thực Việt Nam đều ngon. も liệt kê đồng đẳng, không so sánh mức độ."
+            },
+            {
+              "point": "NはＮと同じ（ôn）",
+              "vi": "と同じ (= giống với) là ngữ pháp Bài 12, nhưng と同じぐらい (so sánh mức độ ngang bằng) là ngữ pháp nâng cao — tránh ở Bài 12."
+            }
+          ]
+        },
+        {
+          "jp": "私はラーメンのほうがすしより好きです。去年、大阪のラーメンを食べました。とてもおいしかったです。",
+          "vi": "Tôi thích ramen hơn sushi. Năm ngoái tôi đã ăn ramen ở Osaka. Ngon lắm.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "ラーメン",
+              "read": "ラーメン",
+              "vi": "mì ramen"
+            },
+            {
+              "w": "のほうが",
+              "read": "のほうが",
+              "vi": "hơn, thiên về"
+            },
+            {
+              "w": "すし",
+              "read": "すし",
+              "vi": "sushi"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka"
+            },
+            {
+              "w": "食べました",
+              "read": "たべました",
+              "vi": "đã ăn"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "おいしかったです",
+              "read": "おいしかったです",
+              "vi": "đã ngon"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NよりNのほうが〜",
+              "vi": "ラーメンのほうがすしより好きです = thích ramen hơn sushi. のほうが đứng sau đối tượng được thích hơn (ramen)."
+            },
+            {
+              "point": "Ａかったです（quá khứ）",
+              "vi": "おいしい → おいしかったです = đã ngon. Kết hợp quá khứ với tính từ い."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日本の夏と冬と、どちらが好きですか",
+          "label": "N1とN2とどちらが〜（so sánh 2 vật）"
+        },
+        {
+          "excerpt": "私は冬のほうが好きです",
+          "label": "NよりNのほうが〜（trả lời so sánh）"
+        },
+        {
+          "excerpt": "去年の冬はとても寒かったです",
+          "label": "Ａかったです（quá khứ tính từ い）"
+        },
+        {
+          "excerpt": "四つの季節の中で、どの季節が一番きれいですか",
+          "label": "〜の中で〜が一番〜（nhất trong tập hợp）"
+        },
+        {
+          "excerpt": "大阪より京都のほうがにぎやかですね",
+          "label": "NはNより〜（so sánh hơn）"
+        },
+        {
+          "excerpt": "すしもベトナム料理もおいしいです",
+          "label": "NもNも〜（cả ~ lẫn ~ đều）"
+        },
+        {
+          "excerpt": "とてもおいしかったです",
+          "label": "Ａかったです（quá khứ tính từ い）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは夏と冬と、どちらが好きですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "夏のほうが好きです",
+            "冬のほうが好きです",
+            "春のほうが好きです",
+            "同じぐらい好きです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi rõ Karina nói「私は冬のほうが好きです」(tôi thích mùa đông hơn) — のほうが đứng sau 冬 cho thấy mùa đông là bên được thích hơn trong so sánh với mùa hè. Đáp án 0 sai vì Miller mới là người thích mùa hè (「私は夏のほうが好きです」). Đáp án 2 sai vì 春 (mùa xuân) không được đề cập khi trả lời câu hỏi この比較 (mùa hè vs mùa đông). Đáp án 3 sai vì bài không có ý \"thích như nhau\" — Karina chọn rõ ràng mùa đông.",
+          "tip": "Câu hỏi「どちらが好きですか」→ đáp án là「〜のほうが好きです」. Chú ý ai đang nói: Karina hay Miller? Đừng nhầm lẫn câu trả lời của hai người.",
+          "qt": {
+            "q": "Karina thích mùa hè hay mùa đông hơn?",
+            "o": [
+              "Thích mùa hè hơn",
+              "Thích mùa đông hơn",
+              "Thích mùa xuân hơn",
+              "Thích hai mùa như nhau"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは四つの季節の中で、どの季節が一番きれいですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "夏が一番きれいです",
+            "冬が一番きれいです",
+            "秋が一番きれいです",
+            "春が一番きれいです"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3. Bài viết ghi「春が一番きれいです。桜がとてもきれいですから」— đây là câu trả lời của Miller cho câu hỏi「四つの季節の中で、どの季節が一番きれいですか」(trong 4 mùa, mùa nào đẹp nhất). Mẫu「〜の中で〜が一番〜」xác định tập hợp (4 mùa) và vô địch (mùa xuân). Đáp án 0 và 1 sai vì Miller không nói 夏 hay 冬 đẹp nhất. Đáp án 2 sai vì 秋 (mùa thu) không được nhắc đến trong bài.",
+          "tip": "Mẫu「〜の中で〜が一番〜」→ の中で xác định TẬP HỢP, が一番 xác định AI/CÁI GÌ thắng. Đọc đúng tập hợp (4 mùa) rồi tìm cái được gọi là \"nhất\".",
+          "qt": {
+            "q": "Trong bốn mùa, mùa nào Miller thấy đẹp nhất?",
+            "o": [
+              "Mùa hè đẹp nhất",
+              "Mùa đông đẹp nhất",
+              "Mùa thu đẹp nhất",
+              "Mùa xuân đẹp nhất"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは日本料理の中で何が一番好きですか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "ラーメンが一番好きです",
+            "すしが一番好きです",
+            "ベトナム料理が一番好きです",
+            "大阪の食べ物が一番好きです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi Karina nói「すしが一番好きです」— câu trả lời trực tiếp cho「日本料理の中で何が一番好きですか」. Đáp án 0 sai vì ラーメン là món Miller thích nhất (「私はラーメンのほうがすしより好きです」). Đáp án 2 sai vì ベトナム料理 không phải 日本料理 — câu hỏi hỏi trong phạm vi ẩm thực Nhật. Đáp án 3 sai vì bài không nhắc đến \"đồ ăn Osaka\" là yêu thích nhất của Karina.",
+          "tip": "Chú ý PHẠM VI so sánh:「日本料理の中で」nghĩa là chỉ tính trong ẩm thực Nhật. ベトナム料理 bị loại ngay vì không thuộc phạm vi đó.",
+          "qt": {
+            "q": "Trong các món ăn Nhật Bản, Karina thích món nào nhất?",
+            "o": [
+              "Thích ramen nhất",
+              "Thích sushi nhất",
+              "Thích món ăn Việt Nam nhất",
+              "Thích món ăn Osaka nhất"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "日帰りツアーのお知らせ",
+      "titleVi": "Thông báo tour du lịch trong ngày",
+      "japanese": "日帰りツアーのお知らせ\nさくら旅行社は二つの日帰りツアーがあります。二つとも人気です。\nツアー｜料金｜時間\nＡ　富士山｜8,000円｜9時間\nＢ　鎌倉｜5,000円｜6時間\nＡのほうが時間が長いです。でも、Ｂのほうが安いです。\n先週、Ａツアーに行きました。富士山はとてもきれいでした。天気もよかったです。\nＢツアーの鎌倉のお寺も静かでした。バスの中はにぎやかでした。とても楽しかったです。\n安いツアーはＢです。",
+      "vietnamese": "Thông báo tour du lịch trong ngày\nCông ty du lịch Sakura có hai tour trong ngày. Cả hai đều được yêu thích.\nTour｜Giá｜Thời gian\nA　Núi Phú Sĩ｜8.000 yên｜9 tiếng\nB　Kamakura｜5.000 yên｜6 tiếng\nTour A thì thời gian dài hơn. Nhưng tour B thì rẻ hơn.\nTuần trước, tôi đã đi tour A. Núi Phú Sĩ rất đẹp. Thời tiết cũng đẹp.\nNgôi chùa Kamakura của tour B cũng yên tĩnh. Trong xe buýt náo nhiệt. Rất vui.\nTour rẻ hơn là tour B.",
+      "sentences": [
+        {
+          "jp": "日帰りツアーのお知らせ",
+          "vi": "Thông báo tour du lịch trong ngày",
+          "vocab": [
+            {
+              "w": "日帰り",
+              "read": "ひがえり",
+              "vi": "đi về trong ngày"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour du lịch"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "日帰りツアー",
+              "why": "Chủ đề chính của tờ thông báo — mọi thông tin bên dưới đều nói về 2 tour này."
+            }
+          ]
+        },
+        {
+          "jp": "さくら旅行社は二つの日帰りツアーがあります。二つとも人気です。",
+          "vi": "Công ty du lịch Sakura có hai tour trong ngày. Cả hai đều được yêu thích.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "二つ",
+              "read": "ふたつ",
+              "vi": "hai (cái)"
+            },
+            {
+              "w": "日帰り",
+              "read": "ひがえり",
+              "vi": "đi về trong ngày"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour du lịch"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "sự yêu thích, nổi tiếng"
+            },
+            {
+              "w": "さくら旅行社",
+              "read": "さくらりょこうしゃ",
+              "vi": "công ty du lịch Sakura"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có (ôn Bài 9/10)"
+            },
+            {
+              "w": "二つとも",
+              "read": "ふたつとも",
+              "vi": "cả hai (cái)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（ôn Bài 9・10）",
+              "vi": "ツアーがあります = có tour. Diễn đạt sự tồn tại của sự việc/đồ vật."
+            },
+            {
+              "point": "ＮはＮです（ôn Bài 1）",
+              "vi": "二つとも人気です = cả hai đều là (loại) được yêu thích. Câu danh từ cơ bản."
+            }
+          ],
+          "keys": [
+            {
+              "w": "二つ",
+              "why": "Cho biết chỉ có 2 tour để so sánh — cơ sở cho câu hỏi so sánh Ａ・Ｂ."
+            }
+          ]
+        },
+        {
+          "jp": "ツアー｜料金｜時間",
+          "vi": "Tour｜Giá｜Thời gian",
+          "vocab": [
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour du lịch"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian (ôn Bài 4/11)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "料金",
+              "why": "Tên cột giá — cần đọc để so sánh tour nào rẻ hơn."
+            },
+            {
+              "w": "時間",
+              "why": "Tên cột thời gian — cần đọc để so sánh tour nào dài/ngắn hơn."
+            }
+          ]
+        },
+        {
+          "jp": "Ａ　富士山｜8,000円｜9時間",
+          "vi": "A　Núi Phú Sĩ｜8.000 yên｜9 tiếng",
+          "vocab": [
+            {
+              "w": "富士山",
+              "read": "ふじさん",
+              "vi": "núi Phú Sĩ"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "9時間",
+              "read": "くじかん",
+              "vi": "9 tiếng đồng hồ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "8,000円",
+              "why": "Giá tour A — căn cứ so sánh giá với tour B."
+            },
+            {
+              "w": "9時間",
+              "why": "Thời gian tour A — căn cứ so sánh thời gian, dài hơn tour B."
+            }
+          ]
+        },
+        {
+          "jp": "Ｂ　鎌倉｜5,000円｜6時間",
+          "vi": "B　Kamakura｜5.000 yên｜6 tiếng",
+          "vocab": [
+            {
+              "w": "鎌倉",
+              "read": "かまくら",
+              "vi": "Kamakura (thành phố Nhật)"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "6時間",
+              "read": "ろくじかん",
+              "vi": "6 tiếng đồng hồ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "5,000円",
+              "why": "Giá tour B — rẻ hơn tour A (8,000円), là căn cứ chọn \"rẻ hơn\"."
+            },
+            {
+              "w": "6時間",
+              "why": "Thời gian tour B — ngắn hơn tour A (9時間)."
+            }
+          ]
+        },
+        {
+          "jp": "Ａのほうが時間が長いです。でも、Ｂのほうが安いです。",
+          "vi": "Tour A thì thời gian dài hơn. Nhưng tour B thì rẻ hơn.",
+          "vocab": [
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い, ôn Bài 8)"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng (ôn Bài 12 hội thoại trên)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのほうがＮより〜（so sánh)",
+              "vi": "Ａのほうが時間が長い = tour A thì thời gian dài hơn (so với B). のほうが đứng sau bên thắng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "Ａのほうが時間が長いです",
+              "why": "Câu tóm tắt trực tiếp: A dài hơn B — dùng để loại các nhiễu nói ngược."
+            },
+            {
+              "w": "Ｂのほうが安いです",
+              "why": "Câu tóm tắt trực tiếp: B rẻ hơn A — căn cứ chính cho câu hỏi \"tour nào rẻ hơn\"."
+            }
+          ]
+        },
+        {
+          "jp": "先週、Ａツアーに行きました。富士山はとてもきれいでした。天気もよかったです。",
+          "vi": "Tuần trước, tôi đã đi tour A. Núi Phú Sĩ rất đẹp. Thời tiết cũng đẹp.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước (ôn passage 1)"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour du lịch"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi (ôn Bài 4/5)"
+            },
+            {
+              "w": "富士山",
+              "read": "ふじさん",
+              "vi": "núi Phú Sĩ"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "きれいでした",
+              "read": "きれいでした",
+              "vi": "đã đẹp (quá khứ tính từ な)"
+            },
+            {
+              "w": "よかったです",
+              "read": "よかったです",
+              "vi": "đã tốt, đã đẹp (quá khứ của いい)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ＮＡでした（quá khứ tính từ な）",
+              "vi": "きれい → きれいでした. Miêu tả cảm nhận về núi Phú Sĩ khi đi tour A."
+            },
+            {
+              "point": "Ａかったです（quá khứ tính từ い — ngoại lệ）",
+              "vi": "いい → よかったです (KHÔNG phải いかったです). Nói về thời tiết hôm đi tour A."
+            }
+          ],
+          "keys": [
+            {
+              "w": "富士山はとてもきれいでした",
+              "why": "Cảm nhận về tour A tuần trước — chi tiết phụ, không phải căn cứ giá/thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "Ｂツアーの鎌倉のお寺も静かでした。バスの中はにぎやかでした。とても楽しかったです。",
+          "vi": "Ngôi chùa Kamakura của tour B cũng yên tĩnh. Trong xe buýt náo nhiệt. Rất vui.",
+          "vocab": [
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour du lịch"
+            },
+            {
+              "w": "鎌倉",
+              "read": "かまくら",
+              "vi": "Kamakura (thành phố Nhật)"
+            },
+            {
+              "w": "お寺",
+              "read": "おてら",
+              "vi": "ngôi đền, chùa"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "náo nhiệt, sầm uất (tính từ な)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "楽しかったです",
+              "read": "たのしかったです",
+              "vi": "đã vui (quá khứ tính từ い)"
+            },
+            {
+              "w": "静かでした",
+              "read": "しずかでした",
+              "vi": "đã yên tĩnh (quá khứ tính từ な)"
+            },
+            {
+              "w": "バスの中",
+              "read": "バスのなか",
+              "vi": "bên trong xe buýt"
+            },
+            {
+              "w": "にぎやかでした",
+              "read": "にぎやかでした",
+              "vi": "đã náo nhiệt (quá khứ tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ＮＡでした（quá khứ tính từ な、ôn)",
+              "vi": "静か → 静かでした、にぎやか → にぎやかでした. Ba câu ngắn liên tiếp, KHÔNG nối bằng で (mẫu nối tính từ は Bài 16, chưa học)."
+            },
+            {
+              "point": "Ａかったです（quá khứ、ôn)",
+              "vi": "楽しい → 楽しかったです. Câu bổ sung về không khí xe buýt, không phải cột giá/thời gian nên không dùng để trả lời câu hỏi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "バスの中はにぎやかでした",
+              "why": "Bẫy: nhắc lại tour B nhưng nói về không khí xe buýt, KHÔNG liên quan đến giá/thời gian — không phải căn cứ trả lời."
+            }
+          ]
+        },
+        {
+          "jp": "安いツアーはＢです。",
+          "vi": "Tour rẻ hơn là tour B.",
+          "vocab": [
+            {
+              "w": "安いツアー",
+              "read": "やすいツアー",
+              "vi": "tour rẻ (hơn)"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour du lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ＮはＮです（ôn Bài 1、〜いＮ ôn Bài 8）",
+              "vi": "安いツアーはＢです = tour rẻ (hơn) là tour B. 安い bổ nghĩa trực tiếp cho danh từ ツアー."
+            }
+          ],
+          "keys": [
+            {
+              "w": "安いツアーはＢです",
+              "why": "Câu chốt cuối cùng khẳng định lại kết luận — cùng căn cứ với câu tóm tắt のほうが ở trên."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "Ａのほうが時間が長いです",
+          "label": "NのほうがＮより〜（so sánh — mẫu mới Bài 12）"
+        },
+        {
+          "excerpt": "Ｂのほうが安いです",
+          "label": "NのほうがＮより〜（so sánh — mẫu mới Bài 12）"
+        },
+        {
+          "excerpt": "天気もよかったです",
+          "label": "Ａかったです（quá khứ tính từ い — ngoại lệ, ôn）"
+        },
+        {
+          "excerpt": "静かでした",
+          "label": "ＮＡでした（quá khứ tính từ な、ôn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Ａツアーと Ｂツアーと、どちらが安いですか。",
+          "options": [
+            "Ａのほうが安いです",
+            "Ｂのほうが安いです",
+            "同じ料金です",
+            "どちらも高いです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng ghi Ａ 8,000円, Ｂ 5,000円, và câu tóm tắt「Ｂのほうが安いです」cùng câu chốt「安いツアーはＢです」xác nhận trực tiếp tour B rẻ hơn. Đáp án 0 sai vì ngược chiều — Ａ đắt hơn (8,000円 > 5,000円). Đáp án 2 sai vì hai giá khác nhau rõ ràng, không phải「同じ」. Đáp án 3 sai vì bài không nói cả hai đều đắt, ngược lại còn nêu rõ bên nào rẻ hơn.",
+          "tip": "Gặp câu hỏi so sánh giá, dò thẳng cột 料金 trong bảng rồi đối chiếu với câu tóm tắt có のほうが để chắc chắn.",
+          "evi": [
+            3,
+            4,
+            5,
+            8
+          ],
+          "qt": {
+            "q": "Giữa tour A và tour B, tour nào rẻ hơn?",
+            "o": [
+              "Tour A rẻ hơn",
+              "Tour B rẻ hơn",
+              "Giá như nhau",
+              "Cả hai đều đắt"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Tiêu đề tờ thông báo và câu giới thiệu công ty có 2 tour — chưa có số liệu cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 4,
+          "kind": "body",
+          "label": "Bảng giá & thời gian",
+          "topic": 2,
+          "note": "Bảng chính: cột料金・時間 của tour A và B — nguồn số liệu để so sánh.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 5,
+          "to": 5,
+          "kind": "point",
+          "label": "Câu tóm tắt so sánh",
+          "topic": 5,
+          "note": "Câu chốt trực tiếp trả lời \"bên nào rẻ hơn/dài hơn\" bằng のほうが — căn cứ chính cho câu hỏi.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "turn",
+          "label": "Chi tiết phụ (bẫy)",
+          "topic": 6,
+          "note": "Cảm nhận về tour A và không khí xe buýt tuần trước — không liên quan giá/thời gian, dễ bị nhầm là căn cứ.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "point",
+          "label": "Câu chốt kết luận",
+          "topic": 8,
+          "note": "Khẳng định lại trực tiếp: tour rẻ hơn là B — căn cứ bổ sung cho câu hỏi.",
+          "qs": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

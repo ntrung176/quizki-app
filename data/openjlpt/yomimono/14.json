@@ -1,0 +1,1463 @@
+{
+  "bai": 14,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 14 giới thiệu THỂ て — dạng biến đổi động từ quan trọng nhất trong tiếng Nhật. Ba mẫu cốt lõi cần nhận diện: Vてください (xin hãy làm ~), Vています (đang làm ~), Vましょうか (để tôi làm giúp ~). Đọc hiểu ở đây = xác định đúng AI đang nhờ AI, AI đang làm gì ngay lúc đó, và ai đề nghị giúp ai.",
+    "steps": [
+      "Xác định chủ đề (は) của mỗi câu — ai đang nói, ai được nhờ.",
+      "Tìm động từ thể て: nhóm I (書く→書いて, 飲む→飲んで...), nhóm II (食べる→食べて), nhóm III (します→して, きます→きて).",
+      "Phân biệt て cuối câu: ~てください = yêu cầu; ~ています = đang xảy ra; ~ましょうか = đề nghị giúp.",
+      "Nếu gặp Vて giữa câu (không có ください/います), đó là dạng nối hai yêu cầu liên tiếp.",
+      "Với câu hỏi đọc hiểu, chú ý động từ thể て và trợ từ xung quanh để xác định đúng hành động."
+    ],
+    "tips": [
+      "て形 của する → して (bất quy tắc); きます → きて (bất quy tắc).",
+      "Nhóm I: động từ tận cùng く→いて, ぐ→いで, す→して, ぬ/む/ぶ→んで, る/つ/う→って.",
+      "〜ています đang diễn ra ≠ trạng thái (Bài 15). Bài 14 chỉ có nghĩa \"đang làm\" (action in progress).",
+      "Vましょうか là câu HỎI đề nghị — dùng khi muốn giúp ai đó, người đặt câu hỏi sẽ làm hành động đó.",
+      "Câu nhiễu hay đổi chủ thể (người làm) hoặc thay động từ gần giống — đọc kỹ chủ đề は trước khi chọn đáp án.",
+      "Vてください luôn kết thúc câu; Vて giữa câu chỉ nối (chưa kết thúc ý)."
+    ],
+    "grammarFocus": [
+      "て形",
+      "Vてください",
+      "Vています（đang diễn ra）",
+      "Vましょうか",
+      "Vて（nối yêu cầu）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 4,
+        "items": [
+          "Vます / Vません / Vました",
+          "〜ね"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "NへVます（đi đến）",
+          "〜よ"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをVます（tha động từ）",
+          "いっしょにVましょう"
+        ]
+      },
+      {
+        "bai": 7,
+        "items": [
+          "人にNをあげます",
+          "〜から（từ địa điểm）"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "〜いです（tính từ い）",
+          "とても"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜がわかります",
+          "〜から（lý do）",
+          "どうして"
+        ]
+      },
+      {
+        "bai": 11,
+        "items": [
+          "助数詞 〜枚",
+          "数量詞＋Vます"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "Vたいです",
+          "Vに行きます（mục đích）",
+          "どこか・何か"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "電話でお願いします",
+      "titleVi": "Nhờ qua điện thoại",
+      "japanese": "ミラーさんは今電話をかけています。田中さんに話しています。「田中さん、ちょっと待ってください。今レポートを書いています。あとで電話してください。」田中さん：「わかりました。」",
+      "vietnamese": "Anh Miller đang gọi điện thoại. Anh đang nói chuyện với anh Tanaka. \"Anh Tanaka ơi, xin chờ một chút. Tôi đang viết báo cáo. Anh hãy gọi lại sau nhé.\" Anh Tanaka: \"Tôi hiểu rồi.\"",
+      "sentences": [
+        {
+          "jp": "ミラーさんは今電話をかけています。",
+          "vi": "Anh Miller đang gọi điện thoại.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "かけています",
+              "read": "かけています",
+              "vi": "đang gọi (điện thoại)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra）",
+              "vi": "かけています = đang gọi. Động từ かける (nhóm II) → かけて → かけています."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんに話しています。",
+          "vi": "Anh đang nói chuyện với anh Tanaka.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "話しています",
+              "read": "はなしています",
+              "vi": "đang nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra）",
+              "vi": "はなしています = đang nói chuyện. はなす (nhóm I, す→して) → はなして → はなしています."
+            },
+            {
+              "point": "NにVます (ôn Bài 7)",
+              "vi": "田中さんに = nói với Tanaka. に chỉ đối tượng nhận hành động giao tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "「田中さん、ちょっと待ってください。",
+          "vi": "\"Anh Tanaka ơi, xin chờ một chút.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "một chút, một chút thôi"
+            },
+            {
+              "w": "待ってください",
+              "read": "まってください",
+              "vi": "xin hãy chờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください",
+              "vi": "待つ (nhóm I, つ→って) → 待って → 待ってください = xin hãy chờ. Dùng để yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "今レポートを書いています。",
+          "vi": "Tôi đang viết báo cáo.",
+          "vocab": [
+            {
+              "w": "レポート",
+              "read": "レポート",
+              "vi": "báo cáo, bài luận"
+            },
+            {
+              "w": "書いています",
+              "read": "かいています",
+              "vi": "đang viết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra）",
+              "vi": "書く (nhóm I, く→いて) → 書いて → 書いています = đang viết."
+            },
+            {
+              "point": "NをVます (ôn Bài 6)",
+              "vi": "レポートを書く = viết báo cáo. を đánh dấu tân ngữ."
+            }
+          ]
+        },
+        {
+          "jp": "あとで電話してください。」",
+          "vi": "Anh hãy gọi lại sau nhé.\"",
+          "vocab": [
+            {
+              "w": "電話してください",
+              "read": "でんわしてください",
+              "vi": "xin hãy gọi điện"
+            },
+            {
+              "w": "あとで",
+              "read": "あとで",
+              "vi": "sau này, lát nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください",
+              "vi": "電話する (nhóm III, する→して) → 電話して → 電話してください = xin hãy gọi điện."
+            }
+          ]
+        },
+        {
+          "jp": "田中さん：「わかりました。」",
+          "vi": "Anh Tanaka: \"Tôi hiểu rồi.\"",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "わかりました",
+              "read": "わかりました",
+              "vi": "tôi hiểu rồi, được rồi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました (ôn Bài 4)",
+              "vi": "わかりました = đã hiểu. Thể ました chỉ hành động đã hoàn thành."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "電話をかけています",
+          "label": "Vています（đang diễn ra）"
+        },
+        {
+          "excerpt": "ちょっと待ってください",
+          "label": "Vてください"
+        },
+        {
+          "excerpt": "レポートを書いています",
+          "label": "Vています（đang diễn ra）"
+        },
+        {
+          "excerpt": "あとで電話してください",
+          "label": "Vてください"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは今何をしていますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "レポートを読んでいます",
+            "電話をかけています",
+            "田中さんに会っています",
+            "電話を待っています"
+          ],
+          "answer": 1,
+          "explainVi": "Câu đầu bài ghi rõ:「ミラーさんは今電話をかけています」 — đây là câu mô tả hành động đang xảy ra của Miller ngay lúc đó. Đáp án B (電話をかけています) trích nguyên văn câu này → đúng. Đáp án A (レポートを読んでいます) sai vì Miller \"書いています\" (viết), không phải \"読んでいます\" (đọc). Đáp án C (田中さんに会っています) sai — Miller đang nói chuyện qua điện thoại, không phải gặp mặt. Đáp án D (電話を待っています) sai — Miller là người GỌI (かけています), không phải người CHỜ.",
+          "tip": "Câu hỏi \"今何をしていますか\" → tìm ngay \"今〜ています\" trong bài. Câu đầu luôn giới thiệu hành động chính của nhân vật.",
+          "qt": {
+            "q": "Anh Miller hiện đang làm gì?",
+            "o": [
+              "Đang đọc báo cáo",
+              "Đang gọi điện thoại",
+              "Đang gặp anh Tanaka",
+              "Đang chờ điện thoại"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはどうして田中さんに「待ってください」と言いましたか。",
+          "evi": [
+            2,
+            3
+          ],
+          "options": [
+            "電話がありませんでしたから",
+            "今レポートを書いていますから",
+            "今田中さんに電話をしていますから",
+            "田中さんは今いませんでしたから"
+          ],
+          "answer": 1,
+          "explainVi": "Trong bài, Miller nói:「ちょっと待ってください。今レポートを書いています。」 — câu 今レポートを書いています đứng ngay sau lời nhờ chờ, chính là lý do giải thích. Đáp án B (今レポートを書いていますから) khớp hoàn toàn với câu này → đúng. Đáp án A (電話がありませんでしたから) sai — Miller đang có điện thoại và đang dùng nó. Đáp án C (今田中さんに電話をしていますから) gần đúng về sự kiện nhưng SAI lý do: đây là mô tả hoàn cảnh chứ không phải lý do Miller nhờ chờ. Đáp án D (田中さんは今いませんでしたから) sai hoàn toàn — Tanaka đang nói chuyện với Miller.",
+          "tip": "Câu hỏi \"どうして〜ましたか\" → tìm câu giải thích đứng NGAY SAU hành động được hỏi. Câu 〜ています theo sau = lý do đang xảy ra.",
+          "qt": {
+            "q": "Vì sao anh Miller nói với anh Tanaka 「待ってください」(xin hãy đợi)?",
+            "o": [
+              "Vì không có điện thoại",
+              "Vì hiện đang viết báo cáo",
+              "Vì hiện đang gọi điện cho anh Tanaka",
+              "Vì lúc đó anh Tanaka không có ở đây"
+            ]
+          }
+        },
+        {
+          "q": "田中さんはどうしますか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "今すぐ電話をかけます",
+            "レポートを書きます",
+            "あとでミラーさんに電話します",
+            "電話をかけません"
+          ],
+          "answer": 2,
+          "explainVi": "Miller nhờ Tanaka:「あとで電話してください」(hãy gọi lại sau), và Tanaka đáp「わかりました」(đã đồng ý). Vậy Tanaka sẽ làm đúng điều được nhờ: gọi điện lại cho Miller sau (あとでミラーさんに電話します) → Đáp án C đúng. Đáp án A (今すぐ電話をかけます) sai — Miller nói \"あとで\" (sau), không phải ngay bây giờ. Đáp án B (レポートを書きます) sai — viết báo cáo là việc của Miller, không phải Tanaka. Đáp án D (電話をかけません) sai — Tanaka đã đồng ý sẽ gọi, không phải không gọi.",
+          "tip": "Câu hỏi \"どうしますか\" về người được nhờ → tìm 〜てください trong lời nói + わかりました. Người trả lời わかりました sẽ làm đúng việc được nhờ.",
+          "qt": {
+            "q": "Anh Tanaka sẽ làm gì?",
+            "o": [
+              "Gọi điện thoại ngay bây giờ",
+              "Viết báo cáo",
+              "Gọi điện cho anh Miller sau",
+              "Không gọi điện thoại"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "オフィスで",
+      "titleVi": "Ở văn phòng",
+      "japanese": "きょうはミラーさんのオフィスはとてもにぎやかです。田中さんは今パソコンでメールを書いています。鈴木さんは電話をかけています。ミラーさんはカリナさんに話しています。「カリナさん、この書類を読んでください。それから、コピーを三枚とってください。」カリナさん：「はい、わかりました。」カリナさんは書類を読んでいます。それから、ワットさんが来ました。ワットさん：「ミラーさん、荷物が重いですね。持ちましょうか。」ミラーさん：「ありがとうございます。おねがいします。」ワットさんは荷物を持って、ミラーさんのへやに入りました。午後、みんなはいっしょに会議室へ行きました。",
+      "vietnamese": "Hôm nay văn phòng của anh Miller rất nhộn nhịp.Anh Tanaka đang dùng máy tính viết email. Chị Suzuki đang gọi điện thoại.Anh Miller đang nói chuyện với chị Karina. \"Chị Karina ơi, hãy đọc tài liệu này đi. Sau đó, hãy photo ba tờ nhé.\"Chị Karina: \"Vâng, tôi hiểu rồi.\" Chị Karina đang đọc tài liệu.Sau đó, anh Watt đến. Anh Watt: \"Anh Miller ơi, hành lý nặng nhỉ. Để tôi mang giúp nhé.\"Anh Miller: \"Cảm ơn anh. Phiền anh nhé.\"Anh Watt mang hành lý rồi đi vào phòng của anh Miller.Buổi chiều, mọi người cùng đi đến phòng họp.",
+      "sentences": [
+        {
+          "jp": "きょうはミラーさんのオフィスはとてもにぎやかです。",
+          "vi": "Hôm nay văn phòng của anh Miller rất nhộn nhịp.",
+          "vocab": [
+            {
+              "w": "きょう",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "オフィス",
+              "read": "オフィス",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "náo nhiệt, sầm uất (tính từ な)"
+            },
+            {
+              "w": "にぎやかです",
+              "read": "にぎやかです",
+              "vi": "nhộn nhịp, náo nhiệt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NAです (ôn Bài 8)",
+              "vi": "にぎやかです = nhộn nhịp. にぎやか là tính từ な."
+            },
+            {
+              "point": "とても (ôn Bài 8)",
+              "vi": "とても = rất, dùng trước tính từ."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは今パソコンでメールを書いています。",
+          "vi": "Anh Tanaka đang dùng máy tính viết email.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "パソコン",
+              "read": "ぱそこん",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "メール",
+              "read": "めーる",
+              "vi": "email"
+            },
+            {
+              "w": "書いています",
+              "read": "かいています",
+              "vi": "đang viết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra）",
+              "vi": "書く→書いて→書いています. 今 nhấn mạnh hành động đang xảy ra ngay lúc nói."
+            },
+            {
+              "point": "NでVます (ôn Bài 7)",
+              "vi": "パソコンで = bằng máy tính. で chỉ công cụ/phương tiện."
+            },
+            {
+              "point": "NをVます (ôn Bài 6)",
+              "vi": "メールを書く = viết email."
+            }
+          ]
+        },
+        {
+          "jp": "鈴木さんは電話をかけています。",
+          "vi": "Chị Suzuki đang gọi điện thoại.",
+          "vocab": [
+            {
+              "w": "鈴木",
+              "read": "すずき",
+              "vi": "Suzuki (họ người)"
+            },
+            {
+              "w": "電話をかけています",
+              "read": "でんわをかけています",
+              "vi": "đang gọi điện thoại"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra）",
+              "vi": "かける (nhóm II) → かけて → かけています."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはカリナさんに話しています。",
+          "vi": "Anh Miller đang nói chuyện với chị Karina.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "話しています",
+              "read": "はなしています",
+              "vi": "đang nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra）",
+              "vi": "はなす (nhóm I, す→して) → はなして → はなしています."
+            },
+            {
+              "point": "NにVます (ôn Bài 7)",
+              "vi": "カリナさんに = nói chuyện với Karina. に chỉ đối tượng."
+            }
+          ]
+        },
+        {
+          "jp": "「カリナさん、この書類を読んでください。それから、コピーを三枚とってください。」",
+          "vi": "\"Chị Karina ơi, hãy đọc tài liệu này đi. Sau đó, hãy photo ba tờ nhé.\"",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "tài liệu, giấy tờ"
+            },
+            {
+              "w": "読んでください",
+              "read": "よんでください",
+              "vi": "xin hãy đọc"
+            },
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "bản sao, photo"
+            },
+            {
+              "w": "三枚",
+              "read": "さんまい",
+              "vi": "ba tờ"
+            },
+            {
+              "w": "とってください",
+              "read": "とってください",
+              "vi": "xin hãy lấy/photo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください",
+              "vi": "読む (nhóm I, む→んで) → 読んで → 読んでください = hãy đọc. とる (nhóm I, る→って) → とって → とってください = hãy photo."
+            },
+            {
+              "point": "Vて（nối yêu cầu）",
+              "vi": "Câu có hai yêu cầu: ①読んでください ②とってください, nối bằng それから (sau đó)."
+            },
+            {
+              "point": "助数詞 〜枚 (ôn Bài 11)",
+              "vi": "三枚 = ba tờ. 〜枚 đếm vật mỏng dẹt (giấy, ảnh)."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさん：「はい、わかりました。」",
+          "vi": "Chị Karina: \"Vâng, tôi hiểu rồi.\"",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "はい",
+              "read": "はい",
+              "vi": "vâng, có"
+            },
+            {
+              "w": "わかりました",
+              "read": "わかりました",
+              "vi": "tôi đã hiểu, được rồi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました (ôn Bài 4)",
+              "vi": "わかりました = đã hiểu. Thể ました chỉ hành động đã hoàn thành."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは書類を読んでいます。",
+          "vi": "Chị Karina đang đọc tài liệu.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "tài liệu, giấy tờ"
+            },
+            {
+              "w": "読んでいます",
+              "read": "よんでいます",
+              "vi": "đang đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra）",
+              "vi": "読む→読んで→読んでいます. Chị Karina đã nhận lời và đang thực hiện ngay."
+            }
+          ]
+        },
+        {
+          "jp": "それから、ワットさんが来ました。",
+          "vi": "Sau đó, anh Watt đến.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "来ました",
+              "read": "きました",
+              "vi": "đã đến (quá khứ của 来ます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました (ôn Bài 4)",
+              "vi": "来ました = đã đến. Bắt đầu kể sự kiện tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさん：「ミラーさん、荷物が重いですね。持ちましょうか。」",
+          "vi": "Anh Watt: \"Anh Miller ơi, hành lý nặng nhỉ. Để tôi mang giúp nhé.\"",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "持ちましょうか",
+              "read": "もちましょうか",
+              "vi": "để tôi mang giúp nhé?"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vましょうか",
+              "vi": "持ちましょうか = Để tôi mang giúp không? Dùng khi người nói muốn đề nghị giúp đỡ ai đó."
+            },
+            {
+              "point": "〜ね (ôn Bài 4)",
+              "vi": "重いですね = nặng nhỉ. ね cuối câu tìm sự đồng cảm từ người nghe."
+            },
+            {
+              "point": "〜いです (ôn Bài 8)",
+              "vi": "重い = nặng, tính từ い dùng với です."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさん：「ありがとうございます。おねがいします。」",
+          "vi": "Anh Miller: \"Cảm ơn anh. Phiền anh nhé.\"",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "おねがい",
+              "read": "おねがい",
+              "vi": "lời thỉnh cầu, sự nhờ vả"
+            },
+            {
+              "w": "ありがとうございます",
+              "read": "ありがとうございます",
+              "vi": "cảm ơn (trang trọng)"
+            },
+            {
+              "w": "おねがいします",
+              "read": "おねがいします",
+              "vi": "phiền anh/chị, nhờ bạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ lịch sự",
+              "vi": "おねがいします = chấp nhận lời đề nghị, nhờ người kia làm giúp."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんは荷物を持って、ミラーさんのへやに入りました。",
+          "vi": "Anh Watt mang hành lý rồi đi vào phòng của anh Miller.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "持って",
+              "read": "もって",
+              "vi": "mang, cầm (thể て)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "入りました",
+              "read": "はいりました",
+              "vi": "đã đi vào (quá khứ)"
+            },
+            {
+              "w": "へや",
+              "read": "へや",
+              "vi": "phòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（nối hành động theo thứ tự）",
+              "vi": "持って = mang rồi (hành động 1), 入りました = đi vào (hành động 2). Thể て nối hai hành động xảy ra liên tiếp theo thứ tự."
+            },
+            {
+              "point": "NのN (ôn Bài 1)",
+              "vi": "ミラーさんのへや = phòng của Miller."
+            }
+          ]
+        },
+        {
+          "jp": "午後、みんなはいっしょに会議室へ行きました。",
+          "vi": "Buổi chiều, mọi người cùng đi đến phòng họp.",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều, sau 12 giờ trưa"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます (ôn Bài 5)",
+              "vi": "会議室へ行きました = đi đến phòng họp. へ chỉ hướng/đích đến."
+            },
+            {
+              "point": "人とVます → いっしょに (ôn Bài 4)",
+              "vi": "いっしょに = cùng nhau."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "パソコンでメールを書いています",
+          "label": "Vています（đang diễn ra）"
+        },
+        {
+          "excerpt": "この書類を読んでください",
+          "label": "Vてください"
+        },
+        {
+          "excerpt": "コピーを三枚とってください",
+          "label": "Vてください + 〜枚"
+        },
+        {
+          "excerpt": "荷物が重いですね。持ちましょうか",
+          "label": "Vましょうか"
+        },
+        {
+          "excerpt": "荷物を持って、ミラーさんのへやに入りました",
+          "label": "Vて（nối hành động）"
+        },
+        {
+          "excerpt": "鈴木さんは電話をかけています",
+          "label": "Vています（đang diễn ra）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは今何をしていますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "パソコンでメールを書いています",
+            "電話をかけています",
+            "書類を読んでいます",
+            "電話をかけています"
+          ],
+          "answer": 0,
+          "explainVi": "Bài ghi rõ:「田中さんは今パソコンでメールを書いています」 — Tanaka đang dùng máy tính (パソコンで) để viết email (メールを書いています). Đáp án A (パソコンでメールを書いています) khớp chính xác câu này → đúng. Đáp án B (電話をかけています) sai — đây là hành động của Suzuki (鈴木さんは電話をかけています), không phải Tanaka. Đây là bẫy hay gặp: nhầm nhân vật! Đáp án C (書類を読んでいます) sai — đây là hành động của Karina, không phải Tanaka. Đáp án D trùng với B, cũng sai cùng lý do.",
+          "tip": "Câu hỏi hỏi ai (田中さん) → tìm câu có \"田中さんは\" làm chủ đề. Đừng nhầm nhân vật khi nhiều người cùng làm việc trong một đoạn văn.",
+          "qt": {
+            "q": "Ông Tanaka hiện đang làm gì?",
+            "o": [
+              "Đang viết email trên máy tính",
+              "Đang gọi điện thoại",
+              "Đang đọc tài liệu",
+              "Đang gọi điện thoại"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは今、何をしていますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "コピーを三枚とっています",
+            "ミラーさんに電話しています",
+            "書類を読んでいます",
+            "荷物を持っています"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết:「カリナさんは書類を読んでいます」 — sau khi nhận lời (わかりました), Karina đang thực hiện VIỆC ĐẦU TIÊN được nhờ: đọc tài liệu. Đáp án C (書類を読んでいます) khớp nguyên văn → đúng. Đáp án A (コピーを三枚とっています) sai — đây là việc THỨ HAI (それから) được nhờ, nhưng bài chỉ ghi Karina đang đọc, chưa đến bước photo. Đáp án B (ミラーさんに電話しています) sai — Karina không gọi điện cho ai. Đáp án D (荷物を持っています) sai — mang hành lý là việc của Watt, không phải Karina.",
+          "tip": "Khi nhân vật được nhờ nhiều việc (①〜てください、②それから〜てください), hỏi \"đang làm gì\" → tìm câu \"〜ています\" của nhân vật đó trong bài, không tự suy đoán thứ tự.",
+          "qt": {
+            "q": "Hiện giờ cô Karina đang làm gì?",
+            "o": [
+              "Đang sao chép ba bản",
+              "Đang gọi điện cho ông Miller",
+              "Đang đọc tài liệu",
+              "Đang mang hành lý"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんはどうして「持ちましょうか」と言いましたか。",
+          "evi": [
+            8
+          ],
+          "options": [
+            "ミラーさんの荷物が重いですから",
+            "ミラーさんはへやにいませんでしたから",
+            "ミラーさんは荷物を持ちたくないですから",
+            "ワットさんはへやに行きたいですから"
+          ],
+          "answer": 0,
+          "explainVi": "Bài viết:「荷物が重いですね。持ちましょうか。」 — Watt NHẬN XÉT hành lý nặng (重いですね) RỒI MỚI đề nghị mang giúp. Câu nhận xét đứng ngay trước Vましょうか chính là lý do đề nghị → Đáp án A (ミラーさんの荷物が重いですから) đúng. Đáp án B (ミラーさんはへやにいませんでしたから) sai — Miller có mặt tại chỗ, đang nói chuyện với Watt. Đáp án C (ミラーさんは荷物を持ちたくないですから) sai — bài không nói Miller không muốn mang; Watt TỰ đề nghị vì thấy nặng. Đáp án D (ワットさんはへやに行きたいですから) sai — đây là mục đích suy đoán, không có trong bài; Watt đề nghị vì THẤY nặng, không phải vì muốn vào phòng.",
+          "tip": "Vましょうか = đề nghị giúp → lý do thường là câu mô tả tình huống đứng NGAY TRƯỚC. Tìm câu \"〜ですね\" hoặc nhận xét trạng thái ngay trước Vましょうか để tìm lý do.",
+          "qt": {
+            "q": "Vì sao ông Watt nói 「持ちましょうか」(Tôi mang giúp nhé?)?",
+            "o": [
+              "Vì hành lý của ông Miller nặng",
+              "Vì ông Miller không có trong phòng",
+              "Vì ông Miller không muốn mang hành lý",
+              "Vì ông Watt muốn đến phòng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "せんたく機の使い方",
+      "titleVi": "Cách sử dụng máy giặt chung",
+      "japanese": "せんたく機の使い方\nこのアパートのせんたく機は、いつもみんなで使います。\nこれから使い方を説明しますから、よく読んでください。\n順番｜すること\n１｜お金を入れてください\n２｜服を入れてください\n３｜30分待ってください\nせんたく機｜お金\n小さいせんたく機｜200円\n大きいせんたく機｜300円\n今、２番のせんたく機はだれかが使っています。せんたく機は今、回っています。\nすみませんが、２番は30分後に来てください。\n小さいせんたく機は今、あいています。すぐ使ってください。",
+      "vietnamese": "Cách sử dụng máy giặt.\nMáy giặt của chung cư này, mọi người luôn cùng dùng chung.\nBây giờ tôi sẽ giải thích cách dùng, xin hãy đọc kỹ nhé.\nThứ tự｜Việc cần làm.\n1｜Xin hãy cho tiền vào.\n2｜Xin hãy cho quần áo vào.\n3｜Xin hãy chờ 30 phút.\nMáy giặt｜Tiền.\nMáy giặt nhỏ｜200 yên.\nMáy giặt lớn｜300 yên.\nBây giờ, máy giặt số 2 đang có ai đó dùng. Máy giặt đang quay.\nXin lỗi, nhưng máy số 2 xin hãy quay lại sau 30 phút.\nMáy giặt nhỏ bây giờ đang trống. Xin hãy dùng ngay.",
+      "sentences": [
+        {
+          "jp": "せんたく機の使い方",
+          "vi": "Cách sử dụng máy giặt.",
+          "vocab": [
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "せんたく機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            }
+          ],
+          "keys": [
+            {
+              "w": "せんたく機の使い方",
+              "why": "tiêu đề — cho biết cả tờ thông báo nói về cách dùng máy giặt, định hướng đọc toàn bài."
+            }
+          ]
+        },
+        {
+          "jp": "このアパートのせんたく機は、いつもみんなで使います。",
+          "vi": "Máy giặt của chung cư này, mọi người luôn cùng dùng chung.",
+          "vocab": [
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "chung cư, căn hộ"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "みんなで",
+              "read": "みんなで",
+              "vi": "cùng mọi người, tất cả cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます (ôn Bài 6)",
+              "vi": "せんたく機を使います = dùng máy giặt (を đánh dấu tân ngữ, は đứng trước vì せんたく機 là chủ đề câu)."
+            }
+          ]
+        },
+        {
+          "jp": "これから使い方を説明しますから、よく読んでください。",
+          "vi": "Bây giờ tôi sẽ giải thích cách dùng, xin hãy đọc kỹ nhé.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "sẽ giải thích"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "kỹ, cẩn thận"
+            },
+            {
+              "w": "読んでください",
+              "read": "よんでください",
+              "vi": "hãy đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（mẫu mới Bài 14）",
+              "vi": "読む (nhóm I, む→んで) → 読んで → 読んでください = xin hãy đọc."
+            },
+            {
+              "point": "〜から（lý do, ôn Bài 9）",
+              "vi": "説明しますから = vì sẽ giải thích, nên (hãy đọc kỹ). から nối lý do với việc cần làm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "よく読んでください",
+              "why": "lời dặn đọc kỹ — báo hiệu bảng thao tác phía dưới chính là căn cứ trả lời câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "順番｜すること",
+          "vi": "Thứ tự｜Việc cần làm.",
+          "vocab": [
+            {
+              "w": "順番",
+              "read": "じゅんばん",
+              "vi": "thứ tự"
+            },
+            {
+              "w": "すること",
+              "read": "すること",
+              "vi": "việc cần làm, việc phải làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 2 cột: thứ tự và việc cần làm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "順番｜すること",
+              "why": "header bảng thao tác — cần đọc đúng cột số thứ tự để tìm việc làm ĐẦU TIÊN cho câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "１｜お金を入れてください",
+          "vi": "1｜Xin hãy cho tiền vào.",
+          "vocab": [
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "入れてください",
+              "read": "いれてください",
+              "vi": "xin hãy cho vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（mẫu mới Bài 14）",
+              "vi": "入れる (nhóm II) → 入れて → 入れてください = xin hãy cho vào. Đây là bước 1 trong bảng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "１｜お金を入れてください",
+              "why": "hàng bước 1 — chính là căn cứ trả lời câu hỏi \"いちばんはじめに何をしますか\""
+            }
+          ]
+        },
+        {
+          "jp": "２｜服を入れてください",
+          "vi": "2｜Xin hãy cho quần áo vào.",
+          "vocab": [
+            {
+              "w": "服",
+              "read": "ふく",
+              "vi": "quần áo"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（mẫu mới Bài 14）",
+              "vi": "服を入れてください = xin hãy cho quần áo vào. Đây là bước 2, sau bước cho tiền vào."
+            }
+          ],
+          "keys": [
+            {
+              "w": "２｜服を入れてください",
+              "why": "hàng bước 2 — là phương án nhiễu của câu hỏi vì đây KHÔNG phải việc làm đầu tiên."
+            }
+          ]
+        },
+        {
+          "jp": "３｜30分待ってください",
+          "vi": "3｜Xin hãy chờ 30 phút.",
+          "vocab": [
+            {
+              "w": "待ってください",
+              "read": "まってください",
+              "vi": "xin hãy chờ"
+            },
+            {
+              "w": "30分",
+              "read": "さんじゅっぷん",
+              "vi": "30 phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（mẫu mới Bài 14）",
+              "vi": "待つ (nhóm I, つ→って) → 待って → 待ってください = xin hãy chờ. Đây là bước 3, cuối cùng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "３｜30分待ってください",
+              "why": "hàng bước 3 — là phương án nhiễu của câu hỏi vì đây là việc làm CUỐI CÙNG, không phải đầu tiên."
+            }
+          ]
+        },
+        {
+          "jp": "せんたく機｜お金",
+          "vi": "Máy giặt｜Tiền.",
+          "vocab": [
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "せんたく機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên của bảng thứ 2: tên máy giặt và giá tiền."
+            }
+          ]
+        },
+        {
+          "jp": "小さいせんたく機｜200円",
+          "vi": "Máy giặt nhỏ｜200 yên.",
+          "vocab": [
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ"
+            },
+            {
+              "w": "せんたく機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "200円",
+              "read": "にひゃくえん",
+              "vi": "200 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いです（ôn Bài 8）",
+              "vi": "小さい = nhỏ, tính từ い bổ nghĩa trực tiếp cho danh từ せんたく機."
+            }
+          ],
+          "keys": [
+            {
+              "w": "200円",
+              "why": "giá máy giặt nhỏ — là phương án nhiễu vì câu hỏi hỏi việc làm đầu tiên, không hỏi giá tiền."
+            }
+          ]
+        },
+        {
+          "jp": "大きいせんたく機｜300円",
+          "vi": "Máy giặt lớn｜300 yên.",
+          "vocab": [
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn"
+            },
+            {
+              "w": "せんたく機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いです（ôn Bài 8）",
+              "vi": "大きい = lớn, tính từ い bổ nghĩa trực tiếp cho danh từ せんたく機."
+            }
+          ],
+          "keys": [
+            {
+              "w": "300円",
+              "why": "giá máy giặt lớn — là phương án nhiễu của câu hỏi vì đây chỉ là giá tiền, không phải việc làm đầu tiên."
+            }
+          ]
+        },
+        {
+          "jp": "今、２番のせんたく機はだれかが使っています。せんたく機は今、回っています。",
+          "vi": "Bây giờ, máy giặt số 2 đang có ai đó dùng. Máy giặt đang quay.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "２番",
+              "read": "にばん",
+              "vi": "số 2"
+            },
+            {
+              "w": "せんたく機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "だれか",
+              "read": "だれか",
+              "vi": "ai đó"
+            },
+            {
+              "w": "使っています",
+              "read": "つかっています",
+              "vi": "đang sử dụng"
+            },
+            {
+              "w": "回っています",
+              "read": "まわっています",
+              "vi": "đang quay"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra・mẫu mới Bài 14）",
+              "vi": "使う (nhóm I, う→って→使って) → 使っています = đang dùng. 回る (nhóm I) → 回って → 回っています = đang quay."
+            }
+          ],
+          "keys": [
+            {
+              "w": "２番のせんたく機はだれかが使っています",
+              "why": "dòng ※ điều kiện — báo máy số 2 đang bận, không liên quan việc làm đầu tiên nhưng dễ gây rối khi đọc vội."
+            }
+          ]
+        },
+        {
+          "jp": "すみませんが、２番は30分後に来てください。",
+          "vi": "Xin lỗi, nhưng máy số 2 xin hãy quay lại sau 30 phút.",
+          "vocab": [
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "すみませんが",
+              "read": "すみませんが",
+              "vi": "xin lỗi, nhưng"
+            },
+            {
+              "w": "２番",
+              "read": "にばん",
+              "vi": "số 2"
+            },
+            {
+              "w": "30分後",
+              "read": "さんじゅっぷんご",
+              "vi": "sau 30 phút"
+            },
+            {
+              "w": "来てください",
+              "read": "きてください",
+              "vi": "hãy đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（mẫu mới Bài 14）",
+              "vi": "来る (nhóm III bất quy tắc, 来る→来て) → 来てください = xin hãy đến/quay lại."
+            }
+          ]
+        },
+        {
+          "jp": "小さいせんたく機は今、あいています。すぐ使ってください。",
+          "vi": "Máy giặt nhỏ bây giờ đang trống. Xin hãy dùng ngay.",
+          "vocab": [
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ"
+            },
+            {
+              "w": "せんたく機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "あいています",
+              "read": "あいています",
+              "vi": "đang trống"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "使ってください",
+              "read": "つかってください",
+              "vi": "hãy sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（đang diễn ra・mẫu mới Bài 14）",
+              "vi": "あく (nhóm I, く→いて) → あいて → あいています = đang trống. Đối lập với 使っています ở câu trước."
+            },
+            {
+              "point": "Vてください（mẫu mới Bài 14）",
+              "vi": "使う (nhóm I, う→って) → 使って → 使ってください = xin hãy dùng. Câu cuối nhắc lại mẫu てください để kết thúc thông báo."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "お金を入れてください",
+          "label": "Vてください（mẫu mới）"
+        },
+        {
+          "excerpt": "服を入れてください",
+          "label": "Vてください（mẫu mới）"
+        },
+        {
+          "excerpt": "だれかが使っています",
+          "label": "Vています（mẫu mới）"
+        },
+        {
+          "excerpt": "せんたく機は今、回っています",
+          "label": "Vています（mẫu mới）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & lời dặn đọc kỹ",
+          "topic": 0,
+          "note": "Giới thiệu tên thông báo và lời dặn đọc kỹ cách dùng — chưa có căn cứ trả lời câu hỏi, chỉ định hướng chủ đề.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng thứ tự thao tác",
+          "topic": 4,
+          "note": "Bảng chính trả lời câu hỏi duy nhất: dò cột \"順番\" để tìm việc làm số 1 (お金を入れてください) — 2 hàng sau là bẫy vì là bước 2, 3.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "body",
+          "label": "Bảng giá theo loại máy",
+          "topic": 7,
+          "note": "Bảng phụ nêu giá tiền theo máy nhỏ/lớn — không phải căn cứ của câu hỏi, dễ gây nhiễu vì cũng có số tiền giống bước 1.",
+          "qs": []
+        },
+        {
+          "from": 10,
+          "to": 12,
+          "kind": "turn",
+          "label": "Bẫy: máy đang bận & máy đang trống",
+          "topic": 10,
+          "note": "Thông tin máy số 2 đang có người dùng và máy nhỏ đang trống — không liên quan thứ tự thao tác chuẩn, dễ gây rối nếu đọc vội tưởng đây là bước tiếp theo.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "せんたく機を使います。いちばんはじめに何をしますか。",
+          "options": [
+            "お金を入れます",
+            "服を入れます",
+            "30分待ちます",
+            "300円払います"
+          ],
+          "answer": 0,
+          "explainVi": "Bảng thao tác ghi rõ:「順番｜すること」rồi「１｜お金を入れてください」— hàng số 1 chính là việc làm ĐẦU TIÊN. Đáp án A (お金を入れます) khớp đúng hàng số 1 → đúng. Đáp án B (服を入れます) sai — đây là hàng số 2, làm SAU khi đã cho tiền vào, không phải đầu tiên. Đáp án C (30分待ちます) sai — đây là hàng số 3, việc làm CUỐI CÙNG trong bảng. Đáp án D (300円払います) sai — 300円 là giá của máy giặt LỚN ở bảng giá, không phải thứ tự thao tác, và cũng không phải bước đầu tiên.",
+          "tip": "Câu hỏi \"いちばんはじめに何をしますか\" → tìm bảng có cột 順番 (thứ tự), đọc đúng hàng số 1. Đừng nhầm với bảng giá tiền ở dưới — hai bảng khác chức năng.",
+          "evi": [
+            3,
+            4
+          ],
+          "qt": {
+            "q": "Bạn sẽ sử dụng máy giặt. Đầu tiên bạn làm gì?",
+            "o": [
+              "Cho tiền vào",
+              "Cho quần áo vào",
+              "Đợi 30 phút",
+              "Trả 300 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

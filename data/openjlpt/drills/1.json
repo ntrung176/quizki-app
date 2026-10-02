@@ -1,0 +1,337 @@
+{
+  "id": "minna1.b01",
+  "bai": 1,
+  "titleVi": "Câu danh từ — giới thiệu bản thân",
+  "know": [
+    {
+      "id": "minna1.b01.desu",
+      "point": "desu",
+      "jp": "〜は 〜です",
+      "vi": "Khẳng định danh từ",
+      "gloss": "~ là ~"
+    },
+    {
+      "id": "minna1.b01.janai",
+      "point": "janai",
+      "jp": "〜は 〜じゃありません",
+      "vi": "Phủ định danh từ",
+      "gloss": "~ không phải là ~"
+    },
+    {
+      "id": "minna1.b01.ka",
+      "point": "ka",
+      "jp": "〜ですか",
+      "vi": "Câu hỏi Yes/No",
+      "gloss": "có phải ~ không?"
+    },
+    {
+      "id": "minna1.b01.mo",
+      "point": "mo",
+      "jp": "〜も 〜です",
+      "vi": "«Cũng» — も thay thế は",
+      "gloss": "~ cũng là ~"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b01-desu-intro",
+      "item": "minna1.b01.desu",
+      "err": "san-self",
+      "vi": "Tôi là Miller.",
+      "t1": {
+        "stem": "私[わたし]は ＿。",
+        "choices": [
+          "ミラーです",
+          "ミラーさんです",
+          "ミラーですか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]は",
+          "ミラー",
+          "です。"
+        ],
+        "traps": [
+          "ミラーさん",
+          "ですか。"
+        ]
+      },
+      "t3": {
+        "target": "私はミラーです。",
+        "accept": [
+          "わたしはみらーです。",
+          "わたしはミラーです。"
+        ]
+      },
+      "why": "〜さん là kính xưng dành cho NGƯỜI KHÁC — tự giới thiệu chỉ nói tên trần: 私[わたし]はミラーです."
+    },
+    {
+      "id": "c-b01-desu-sensei",
+      "item": "minna1.b01.desu",
+      "err": "word-order",
+      "vi": "Anh Tanaka là giáo viên.",
+      "t1": {
+        "stem": "田中[たなか]さん＿ 先生[せんせい]です。",
+        "choices": [
+          "は",
+          "を",
+          "の"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "先生[せんせい]",
+          "です。"
+        ],
+        "traps": [
+          "田中[たなか]さん",
+          "ですか。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは先生です。",
+        "accept": [
+          "たなかさんはせんせいです。"
+        ]
+      },
+      "why": "Chủ đề câu luôn được đánh dấu bằng は — tiếng Việt không có trợ từ nên người Việt rất hay quên は."
+    },
+    {
+      "id": "c-b01-janai-gakusei",
+      "item": "minna1.b01.janai",
+      "err": "neg-noun-form",
+      "vi": "Tôi không phải là sinh viên.",
+      "t1": {
+        "stem": "私[わたし]は 学生[がくせい]＿。",
+        "choices": [
+          "じゃありません",
+          "ですじゃありません",
+          "じゃありませんです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]は",
+          "学生[がくせい]",
+          "じゃありません。"
+        ],
+        "traps": [
+          "じゃありませんです。",
+          "です。"
+        ]
+      },
+      "t3": {
+        "target": "私は学生じゃありません。",
+        "accept": [
+          "わたしはがくせいじゃありません。",
+          "私は学生ではありません。",
+          "わたしはがくせいではありません。"
+        ]
+      },
+      "why": "Phủ định danh từ: BỎ です rồi gắn じゃありません thẳng sau danh từ — không ghép です với じゃありません."
+    },
+    {
+      "id": "c-b01-janai-isha",
+      "item": "minna1.b01.janai",
+      "err": "neg-noun-form",
+      "vi": "Anh Tanaka không phải là bác sĩ.",
+      "t1": {
+        "stem": "田中[たなか]さんは 医者[いしゃ]＿。",
+        "choices": [
+          "ではありません",
+          "ではありませんです",
+          "ですではありません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "医者[いしゃ]",
+          "ではありません。"
+        ],
+        "traps": [
+          "ですではありません。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは医者ではありません。",
+        "accept": [
+          "たなかさんはいしゃではありません。",
+          "田中さんは医者じゃありません。",
+          "たなかさんはいしゃじゃありません。"
+        ]
+      },
+      "why": "ではありません = dạng trang trọng của じゃありません; cả hai đều gắn thẳng sau danh từ, không kèm です."
+    },
+    {
+      "id": "c-b01-ka-kaishain",
+      "item": "minna1.b01.ka",
+      "err": "word-order",
+      "vi": "Anh Miller có phải là nhân viên công ty không?",
+      "t1": {
+        "stem": "ミラーさんは 会社員[かいしゃいん]＿。",
+        "choices": [
+          "ですか",
+          "かです",
+          "です"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ミラーさんは",
+          "会社員[かいしゃいん]",
+          "ですか。"
+        ],
+        "traps": [
+          "かです。",
+          "です。"
+        ]
+      },
+      "t3": {
+        "target": "ミラーさんは会社員ですか。",
+        "accept": [
+          "みらーさんはかいしゃいんですか。",
+          "ミラーさんはかいしゃいんですか。"
+        ]
+      },
+      "why": "Câu hỏi = câu khẳng định + か ở CUỐI câu; tiếng Nhật không đảo trật tự như tiếng Anh."
+    },
+    {
+      "id": "c-b01-ka-nansai",
+      "item": "minna1.b01.ka",
+      "err": "word-order",
+      "vi": "Anh Tanaka bao nhiêu tuổi?",
+      "t1": {
+        "stem": "田中[たなか]さんは 何歳[なんさい]＿。",
+        "choices": [
+          "ですか",
+          "です",
+          "ますか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "何歳[なんさい]",
+          "ですか。"
+        ],
+        "traps": [
+          "何歳[なんさい]か。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは何歳ですか。",
+        "accept": [
+          "たなかさんはなんさいですか。"
+        ]
+      },
+      "why": "Từ để hỏi (何歳[なんさい]) đứng nguyên ở vị trí vị ngữ, cuối câu vẫn là ですか."
+    },
+    {
+      "id": "c-b01-mo-betonamujin",
+      "item": "minna1.b01.mo",
+      "err": "mo-with-wa",
+      "vi": "(Linh là người Việt.) Tôi cũng là người Việt Nam.",
+      "t1": {
+        "stem": "リンさんはベトナム人[じん]です。私[わたし]＿ ベトナム人[じん]です。",
+        "choices": [
+          "も",
+          "はも",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]も",
+          "ベトナム人[じん]",
+          "です。"
+        ],
+        "traps": [
+          "私[わたし]はも",
+          "私[わたし]は"
+        ]
+      },
+      "t3": {
+        "target": "私もベトナム人です。",
+        "accept": [
+          "わたしもべとなむじんです。",
+          "わたしもベトナムじんです。"
+        ]
+      },
+      "why": "も THAY THẾ は — muốn nói «cũng» thì dùng も một mình (✗ はも, ✗ giữ nguyên は)."
+    },
+    {
+      "id": "c-b01-mo-kaishain",
+      "item": "minna1.b01.mo",
+      "err": "mo-with-wa",
+      "vi": "Anh Tanaka cũng là nhân viên công ty à?",
+      "t1": {
+        "stem": "田中[たなか]さん＿ 会社員[かいしゃいん]ですか。",
+        "choices": [
+          "も",
+          "はも",
+          "とも"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんも",
+          "会社員[かいしゃいん]",
+          "ですか。"
+        ],
+        "traps": [
+          "田中[たなか]さんはも"
+        ]
+      },
+      "t3": {
+        "target": "田中さんも会社員ですか。",
+        "accept": [
+          "たなかさんもかいしゃいんですか。"
+        ]
+      },
+      "why": "«Cũng … à?» = Nも + ですか; も đứng ngay sau danh từ, chiếm chỗ của は."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b01-janai",
+      "item": "minna1.b01.janai",
+      "err": "neg-noun-form",
+      "tts": "ミラーさんは がくせいじゃありません。かいしゃいんです。",
+      "script": "ミラーさんは 学生[がくせい]じゃありません。会社員[かいしゃいん]です。",
+      "ask": "Anh Miller làm nghề gì?",
+      "choices": [
+        "Nhân viên công ty",
+        "Sinh viên",
+        "Giáo viên"
+      ],
+      "answer": 0,
+      "why": "じゃありません phủ định 学生[がくせい] → nghề thật nằm ở câu sau: 会社員[かいしゃいん]."
+    },
+    {
+      "id": "l-b01-mo",
+      "item": "minna1.b01.mo",
+      "err": "mo-with-wa",
+      "tts": "わたしは ベトナムじんです。リンさんも ベトナムじんです。",
+      "script": "私[わたし]は ベトナム人[じん]です。リンさんも ベトナム人[じん]です。",
+      "ask": "Chị Linh là người nước nào?",
+      "choices": [
+        "Việt Nam",
+        "Nhật Bản",
+        "Mỹ"
+      ],
+      "answer": 0,
+      "why": "も = «cũng» → chị Linh cùng quốc tịch với người nói (Việt Nam)."
+    }
+  ]
+}

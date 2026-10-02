@@ -1,0 +1,3223 @@
+{
+  "bai": 120,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng đọc hiểu các cấu trúc nguyên nhân - hệ quả và lập luận phản biện trong văn bản N3. Bạn sẽ nắm vững cách phân biệt sắc thái giữa phương thức/hành động cụ thể mang lại kết quả (ことで), bác bỏ suy diễn phiến diện (だからといって), cảm xúc quá độ dẫn đến hành vi bất thường (のあまり) và nguyên nhân duy nhất dẫn tới hậu quả đáng tiếc (ばかりに).",
+    "steps": [
+      "Xác định vế trước của 〜ことで là phương thức hoặc hành động cụ thể để hiểu rõ giải pháp dẫn tới kết quả hoặc sự thay đổi ở vế sau.",
+      "Khi thấy 〜だからといって, lập tức nhìn nhanh về cuối câu tìm các dạng phủ định bộ phận như 〜わけではない hay 〜とは限らない để nắm trọn ý phản biện của tác giả.",
+      "Nhận diện từ chỉ cảm xúc hoặc tâm lý (lo lắng, vui mừng, căng thẳng) trước 〜のあまり để giải thích cho hành động bất thường hoặc kết quả ngoài tầm kiểm soát ở vế sau.",
+      "Khoanh vùng vế sau của 〜ばかりに để nhận diện hậu quả tiêu cực và tâm lý hối tiếc của người viết, loại bỏ ngay các phương án mang ý nghĩa tích cực.",
+      "Tổng hợp dòng lập luận toàn bài: phân tách rõ đâu là nguyên nhân khách quan, đâu là cảm xúc chi phối, và đâu là quan điểm phản biện của tác giả."
+    ],
+    "tips": [
+      "Dấu hiệu nhận biết 〜だからといって: Vế sau hầu như luôn đi kèm đuôi câu phủ định bộ phận (〜わけではない, 〜とは限らない) nhằm cảnh báo việc đánh đồng lý do với kết quả tất yếu.",
+      "Mẹo 使い分け 1 (〜ことで vs 〜によって Bài 68): 〜ことで tập trung vào hành động/việc làm cụ thể của con người đóng vai trò phương tiện, còn 〜によって mang tính trang trọng và bao quát hơn cả về nguyên nhân khách quan lẫn phương thức.",
+      "Mẹo 使い分け 2 (〜ばかりに vs 〜せいで Bài 59): Cả hai đều dẫn tới kết quả xấu, nhưng 〜ばかりに nhấn mạnh 'chỉ vì một lý do nhỏ/duy nhất' kèm cảm giác cực kỳ ân hận, còn 〜せいで chỉ đơn thuần quy kết trách nhiệm cho nguyên nhân.",
+      "Mẹo 使い分け 3 (〜のあまり vs 〜せいで Bài 59): 〜のあまり bắt buộc vế trước phải là cảm xúc, tâm trạng hoặc trạng thái cực độ (ngạc nhiên, lo âu, vui sướng), trong khi 〜せいで dùng được cho mọi nguyên nhân thông thường.",
+      "Bẫy đọc hiểu: Khi tác giả dùng 〜だからといって...わけではない, điều đó chỉ nhằm bác bỏ tính tất yếu chứ không phủ nhận hoàn toàn tính đúng đắn của sự việc ở vế trước."
+    ],
+    "grammarFocus": [
+      "〜ことで — 接続: V辞書形 / Vた形 + ことで. Sắc thái: Chỉ phương tiện, hành vi cụ thể hoặc nguyên nhân dẫn đến kết quả/thay đổi. Đối chiếu: cụ thể và nhấn vào hành động hơn 〜によって (Bài 68).",
+      "〜だからといって — 接続: 普通形 + だからといって. Sắc thái: Không phải cứ vì lý do đó mà...; dùng phản biện suy luận vội vã, vế sau thường đi với 〜わけではない / 〜とは限らない. Đối chiếu: khác 〜のに (Bài 62) vốn chỉ sự việc trái ngược đã xảy ra.",
+      "〜のあまり — 接続: Nの / V辞書形・Vた形 + あまり. Sắc thái: Vì cảm xúc, tâm trạng quá mức dẫn đến hành động hoặc kết quả khác thường ngoài kiểm soát. Đối chiếu: khác 〜せいで (Bài 59) vì luôn gắn liền với từ chỉ tâm lý/cảm xúc mạnh.",
+      "〜ばかりに — 接続: 普通形 + ばかりに. Sắc thái: Chỉ vì một nguyên nhân duy nhất/nhỏ nhặt mà gây ra hậu quả xấu, thường chứa sự nuối tiếc, trách móc. Đối chiếu: mang sắc thái hối hận sâu sắc hơn 〜せいで (Bài 59)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（普通形/なAdj+な/N+の＋おかげで）",
+          "〜せいで（普通形/なAdj+な/N+の＋せいで）",
+          "〜せいか（普通形/なAdj+な/N+の＋せいか）"
+        ]
+      },
+      {
+        "bai": 68,
+        "items": [
+          "〜によって（(b) bằng phương tiện/cách）",
+          "〜によって（(d) nguyên nhân sự kiện）"
+        ]
+      },
+      {
+        "bai": 62,
+        "items": [
+          "〜ても（Vて形 + も / Aくても / NAでも / Nでも）",
+          "〜のに（普通形 + のに; なN → なのに, N → なのに）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "オンライン時代のコミュニケーションと落とし穴",
+      "titleVi": "Giao tiếp thời đại trực tuyến và những cái bẫy tiềm ẩn",
+      "japanese": "近年、多くの人がオンラインで働くことで、場所を選ばずに仕事ができるようになった。確かに便利だが、画面越しのやり取りだからといって、丁寧な連絡を怠っていいわけではない。以前、私は早く返信をしようと焦るあまり、十分に確認せずにメールを送信してしまった。内容をよく見直さなかったばかりに、誤解を生んでチームに迷惑をかけてしまったのだ。\n仕事が忙しいからといって、言葉遣いや確認の手間を省いてしまうのは危険である。不安のあまり焦って行動すると、かえって失敗を招く原因になりやすい。一度の油断をしたばかりに、大切な信用を失ってしまうこともあるだろう。相手の立場に立って丁寧に気持ちを伝えることで、仕事の信頼関係はより深まる。便利さの裏にある落とし穴に気をつけて、日々の連絡を大切にしたいものだ。",
+      "vietnamese": "Những năm gần đây, nhờ việc nhiều người làm việc trực tuyến, chúng ta đã có thể làm việc mà không bị gò bó bởi địa điểm. Đúng là rất tiện lợi, nhưng dù nói rằng chỉ là trao đổi qua màn hình, điều đó không có nghĩa là chúng ta được phép lơ là việc liên lạc lịch sự. Trước đây, chỉ vì quá sốt ruột muốn trả lời email thật nhanh, tôi đã gửi thư đi mà không kiểm tra kỹ lưỡng. Chỉ vì không xem xét lại nội dung cẩn thận mà tôi đã gây ra hiểu lầm và làm phiền đến cả đội ngũ của mình.\nKhông thể vin vào cớ công việc bận rộn mà cắt bớt lời ăn tiếng nói lịch sự hay các bước kiểm tra cần thiết. Nếu vì quá lo lắng mà hành động hấp tấp, điều đó ngược lại rất dễ trở thành nguyên nhân chuốc lấy thất bại. Chỉ vì một thoáng chủ quan lơ là, rất có thể chúng ta sẽ đánh mất đi sự tín nhiệm quý giá. Bằng cách đứng trên lập trường của đối phương và truyền tải tâm tư một cách chu đáo, mối quan hệ tin cậy trong công việc sẽ càng thêm sâu sắc. Hãy luôn cẩn trọng trước những cạm bẫy ẩn sau sự tiện lợi để trân trọng từng liên lạc mỗi ngày.",
+      "sentences": [
+        {
+          "jp": "近年、多くの人がオンラインで働くことで、場所を選ばずに仕事ができるようになった。",
+          "vi": "Những năm gần đây, nhờ việc nhiều người làm việc trực tuyến, chúng ta đã có thể làm việc mà không bị gò bó bởi địa điểm.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "オンライン",
+              "read": "オンライン",
+              "vi": "trực tuyến, online"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "場所を選ばず",
+              "read": "ばしょをえらばず",
+              "vi": "không câu nệ/bất kể địa điểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで",
+              "vi": "【接続】V-る / V-た / Nの ＋ ことで。\n【Sắc thái】Diễn tả phương tiện, cách thức hoặc nguyên nhân tích cực/trung tính dẫn đến kết quả tốt (\"bằng cách / nhờ vào việc...\").\n【Đối chiếu】Khác với 〜によって (trang trọng, dùng nhiều trong văn báo cáo/khoa học) và 〜て/で (liên kết lý do thông thường, ít nhấn mạnh tính giải pháp hay phương tiện bằng ことで)."
+            }
+          ]
+        },
+        {
+          "jp": "確かに便利だが、画面越しのやり取りだからといって、丁寧な連絡を怠っていいわけではない。",
+          "vi": "Đúng là rất tiện lợi, nhưng dù nói rằng chỉ là trao đổi qua màn hình, điều đó không có nghĩa là chúng ta được phép lơ là việc liên lạc lịch sự.",
+          "vocab": [
+            {
+              "w": "確か",
+              "read": "たしか",
+              "vi": "chắc chắn, xác thực"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "やり取り",
+              "read": "やりとり",
+              "vi": "sự trao đổi qua lại"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "怠る",
+              "read": "おこたる",
+              "vi": "lơ là, bỏ bê"
+            },
+            {
+              "w": "画面越し",
+              "read": "がめんごし",
+              "vi": "qua màn hình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だからといって",
+              "vi": "【接続】普通形（N/Na だ）＋ からといって / だからといって。Vế sau thường đi với phủ định một phần như 〜わけではない、〜とは限らない、〜てはいけない.\n【Sắc thái】\"Dù nói rằng... / Không phải cứ vì... mà cho phép...\". Bác bỏ suy luận đương nhiên hoặc lấy lý do để biện minh.\n【Đối chiếu】Khác với 〜のに (bất mãn trước kết quả trái ngược trên thực tế) và 〜ても (điều kiện nhượng bộ giả định trung tính)."
+            }
+          ]
+        },
+        {
+          "jp": "以前、私は早く返信をしようと焦るあまり、十分に確認せずにメールを送信してしまった。",
+          "vi": "Trước đây, chỉ vì quá sốt ruột muốn trả lời email thật nhanh, tôi đã gửi thư đi mà không kiểm tra kỹ lưỡng.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "返信",
+              "read": "へんしん",
+              "vi": "phản hồi, trả lời tin nhắn/email"
+            },
+            {
+              "w": "焦る",
+              "read": "あせる",
+              "vi": "sốt ruột, hấp tấp"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "送信",
+              "read": "そうしん",
+              "vi": "gửi tin/thư"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜あまり / 〜のあまり",
+              "vi": "【接続】V-る / Nの / Aい ＋ あまり（に）.\n【Sắc thái】\"Vì quá... mà dẫn đến hành động/kết quả bất thường, cực đoan\". Nhấn mạnh mức độ tâm lý, cảm xúc mạnh vượt ngưỡng kiểm soát.\n【Đối chiếu】Khác với 〜すぎて (trung tính, dùng trong hội thoại hàng ngày cho cả tốt lẫn xấu) và 〜せいで (quy kết trách nhiệm, không nhấn mạnh độ mãnh liệt của cảm xúc bên trong)."
+            }
+          ]
+        },
+        {
+          "jp": "内容をよく見直さなかったばかりに、誤解を生んでチームに迷惑をかけてしまったのだ。",
+          "vi": "Chỉ vì không xem xét lại nội dung cẩn thận mà tôi đã gây ra hiểu lầm và làm phiền đến cả đội ngũ của mình.",
+          "vocab": [
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "見直す",
+              "read": "みなおす",
+              "vi": "kiểm tra lại, xem lại"
+            },
+            {
+              "w": "誤解",
+              "read": "ごかい",
+              "vi": "sự hiểu lầm"
+            },
+            {
+              "w": "生む",
+              "read": "うむ",
+              "vi": "sinh ra, tạo ra"
+            },
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "nhóm, đội"
+            },
+            {
+              "w": "迷惑",
+              "read": "めいわく",
+              "vi": "sự phiền hà, phiền phức"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "誤解を生む",
+              "read": "ごかいをうむ",
+              "vi": "gây ra hiểu lầm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかりに",
+              "vi": "【接続】V-た / Aい / Aな / Nである ＋ ばかりに.\n【Sắc thái】\"Chỉ vì... mà chuốc lấy kết quả tồi tệ\". Nhấn mạnh nguyên nhân duy nhất, kèm theo tâm trạng hối tiếc, day dứt sâu sắc của người nói.\n【Đối chiếu】Khác với 〜せいで (chỉ nguyên nhân tiêu cực chung chung, không biểu thị rõ sự ân hận về một nguyên nhân duy nhất) và 〜たばかり (vừa mới làm gì xong)."
+            }
+          ]
+        },
+        {
+          "jp": "仕事が忙しいからといって、言葉遣いや確認の手間を省いてしまうのは危険である。",
+          "vi": "Không thể vin vào cớ công việc bận rộn mà cắt bớt lời ăn tiếng nói lịch sự hay các bước kiểm tra cần thiết.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "手間",
+              "read": "てま",
+              "vi": "công sức, sự nhọc công"
+            },
+            {
+              "w": "省く",
+              "read": "はぶく",
+              "vi": "lược bỏ, cắt giảm"
+            },
+            {
+              "w": "危険",
+              "read": "きけん",
+              "vi": "nguy hiểm"
+            },
+            {
+              "w": "言葉遣い",
+              "read": "ことばづかい",
+              "vi": "cách dùng từ ngữ, lời ăn tiếng nói"
+            },
+            {
+              "w": "手間を省く",
+              "read": "てまをはぶく",
+              "vi": "lược bỏ bước phiền toái, tiết kiệm công sức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からといって",
+              "vi": "【接続】普通形（N/Na だ）＋ からといって。Vế sau thường là 〜てはならない / 〜のは危険だ / 〜べきではない.\n【Sắc thái】Bác bỏ lý lẽ dùng sự bận rộn làm cái cớ để hành xử cẩu thả.\n【Đối chiếu】Khác với 〜としても (dù giả sử là... - nhượng bộ giả định) và 〜だから (nguyên nhân kết quả thông thường)."
+            }
+          ]
+        },
+        {
+          "jp": "不安のあまり焦って行動すると、かえって失敗を招く原因になりやすい。",
+          "vi": "Nếu vì quá lo lắng mà hành động hấp tấp, điều đó ngược lại rất dễ trở thành nguyên nhân chuốc lấy thất bại.",
+          "vocab": [
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "焦る",
+              "read": "あせる",
+              "vi": "sốt ruột, nôn nóng"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "ngược lại, trái lại"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "招く",
+              "read": "まねく",
+              "vi": "gây ra, chuốc lấy (hậu quả xấu)"
+            },
+            {
+              "w": "原因",
+              "read": "げんいん",
+              "vi": "nguyên nhân"
+            },
+            {
+              "w": "失敗を招く",
+              "read": "しっぱいをまねく",
+              "vi": "chuốc lấy thất bại, dẫn đến thất bại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のあまり",
+              "vi": "【接続】Nの ＋ あまり（に）.\n【Sắc thái】Chỉ cảm giác bất an dâng cao đến mức mất bình tĩnh, làm nảy sinh hành động sai lầm.\n【Đối chiếu】Khác với 〜ので / 〜から (chỉ nguyên nhân khách quan, trung tính) và 〜あまりの＋N＋に (nhấn mạnh trực tiếp vào mức độ của danh từ đi sau)."
+            }
+          ]
+        },
+        {
+          "jp": "一度の油断をしたばかりに、大切な信用を失ってしまうこともあるだろう。",
+          "vi": "Chỉ vì một thoáng chủ quan lơ là, rất có thể chúng ta sẽ đánh mất đi sự tín nhiệm quý giá.",
+          "vocab": [
+            {
+              "w": "一度",
+              "read": "いちど",
+              "vi": "một lần"
+            },
+            {
+              "w": "油断",
+              "read": "ゆだん",
+              "vi": "sơ suất, lơ là"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, quý giá"
+            },
+            {
+              "w": "信用",
+              "read": "しんよう",
+              "vi": "uy tín, lòng tin"
+            },
+            {
+              "w": "失ってしまう",
+              "read": "うしなってしまう",
+              "vi": "đánh mất"
+            },
+            {
+              "w": "信用を失ってしまう",
+              "read": "しんようをうしなってしまう",
+              "vi": "đánh mất uy tín"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかりに",
+              "vi": "【接続】V-た ＋ ばかりに.\n【Sắc thái】Đưa ra lời cảnh báo: chỉ một hành vi sơ suất duy nhất có thể kéo theo hậu quả nghiêm trọng khó cứu vãn.\n【Đối chiếu】Khác với 〜だけで (chỉ cần... - nhấn mạnh điều kiện tối thiểu) và 〜ばかりだ (có xu hướng tiêu cực kéo dài - N2)."
+            }
+          ]
+        },
+        {
+          "jp": "相手の立場に立って丁寧に気持ちを伝えることで、仕事の信頼関係はより深まる。",
+          "vi": "Bằng cách đứng trên lập trường của đối phương và truyền tải tâm tư một cách chu đáo, mối quan hệ tin cậy trong công việc sẽ càng thêm sâu sắc.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "địa vị, lập trường"
+            },
+            {
+              "w": "立つ",
+              "read": "たつ",
+              "vi": "đứng, ở vị trí"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "深まる",
+              "read": "ふかまる",
+              "vi": "sâu sắc hơn, thắt chặt hơn"
+            },
+            {
+              "w": "相手の立場に立つ",
+              "read": "あいてのたちばにたつ",
+              "vi": "đứng trên lập trường của đối phương"
+            },
+            {
+              "w": "信頼関係",
+              "read": "しんらいかんけい",
+              "vi": "mối quan hệ tin cậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで",
+              "vi": "【接続】V-る ＋ ことで.\n【Sắc thái】Nhấn mạnh phương pháp tích cực để đạt mục tiêu: thông qua việc thấu hiểu và giao tiếp chu đáo mà tạo dựng niềm tin bền vững.\n【Đối chiếu】Khác với 〜たら / 〜ば (điều kiện giả định chung) - ことで khẳng định đây là giải pháp thực tiễn đem lại kết quả cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "便利さの裏にある落とし穴に気をつけて、日々の連絡を大切にしたいものだ。",
+          "vi": "Hãy luôn cẩn trọng trước những cạm bẫy ẩn sau sự tiện lợi để trân trọng từng liên lạc mỗi ngày.",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "裏にある",
+              "read": "うらにある",
+              "vi": "nằm ở mặt sau, ẩn giấu phía sau"
+            },
+            {
+              "w": "落とし穴",
+              "read": "おとしあな",
+              "vi": "cạm bẫy, mặt trái bất ngờ"
+            },
+            {
+              "w": "気",
+              "read": "き",
+              "vi": "tâm trạng, tinh thần"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たいものだ",
+              "vi": "【接続】V-ます stem ＋ たいものだ.\n【Sắc thái】Diễn tả tâm niệm, ước muốn sâu sắc từ đáy lòng của người nói mang tính đúc kết đạo lý hoặc phương châm sống.\n【Đối chiếu】Khác với 〜たい (nguyện vọng nhất thời, trực tiếp) và 〜てほしい (mong muốn người khác làm)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "オンラインで働くことで",
+          "label": "Mẫu ngữ pháp: 〜ことで (Phương thức/Nguyên nhân tích cực)"
+        },
+        {
+          "excerpt": "画面越しのやり取りだからといって",
+          "label": "Mẫu ngữ pháp: 〜だからといって (Dù là... không có nghĩa là)"
+        },
+        {
+          "excerpt": "早く返信をしようと焦るあまり",
+          "label": "Mẫu ngữ pháp: 〜あまり (Vì quá sốt ruột)"
+        },
+        {
+          "excerpt": "内容をよく見直さなかったばかりに",
+          "label": "Mẫu ngữ pháp: 〜ばかりに (Chỉ vì không kiểm tra kỹ)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者が以前メール送信で失敗してしまった直接の理由は何ですか。",
+          "options": [
+            "オンラインで働くことにまだ慣れていなかったから。",
+            "早く返信したいと焦り、内容を十分に再確認しなかったから。",
+            "相手の立場に立ってメールを書こうとしすぎたから。",
+            "仕事が忙しすぎてメールを送る時間すらなかったから。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 2 và 3:「以前、私は早く返信をしようと焦るあまり、十分に確認せずにメールを送信してしまった。内容をよく見直さなかったばかりに、誤解を生んでチームに迷惑をかけてしまったのだ。」(Trước đây vì quá hấp tấp muốn trả lời nhanh mà tôi đã gửi email khi chưa kiểm tra kỹ. Chỉ vì không xem lại nội dung mà đã gây hiểu lầm phiền toái...). Các phương án sai: (0) sai vì bài không nói tác giả chưa quen làm việc online; (2) sai vì đây là lời khuyên cải thiện chứ không phải nguyên nhân thất bại; (3) sai vì tác giả có gửi email nhưng gửi vội chứ không phải không có thời gian gửi.",
+          "tip": "Tìm cụm từ khóa 「以前」「焦るあまり」「十分に確認せずに」 trong câu 2 và 3.",
+          "evi": [
+            2,
+            3
+          ],
+          "qt": {
+            "q": "Trực tiếp nguyên nhân khiến người viết mắc lỗi khi gửi email trước đây là gì?",
+            "o": [
+              "Vì người viết vẫn chưa quen với việc làm việc trực tuyến.",
+              "Vì người viết sốt ruột muốn trả lời nhanh và đã không kiểm tra lại nội dung đầy đủ.",
+              "Vì người viết đã quá cố gắng viết email bằng cách đặt mình vào vị trí của đối phương.",
+              "Vì công việc quá bận đến mức người viết thậm chí không có thời gian gửi email."
+            ]
+          }
+        },
+        {
+          "q": "「画面越しのやり取りだからといって、丁寧な連絡を怠っていいわけではない」という文の筆者の意図として最も適切なものはどれですか。",
+          "options": [
+            "画面越しのやり取りは失礼になりやすいので、オンラインの仕事を避けるべきだ。",
+            "直接対面しないとしても、それを言い訳にして丁寧な連絡を怠るべきではない。",
+            "画面越しだと相手の表情が見えないため、連絡はできるだけ短く済ませるのがよい。",
+            "直接会って話す場合だけ、言葉遣いに細心の注意を払えば十分である。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 1: Mẫu câu 「〜だからといって...わけではない」 mang sắc thái phủ định việc lấy lý do trao đổi qua màn hình để biện minh cho sự lơ là, cẩu thả. Các phương án sai: (0) sai vì tác giả không khuyên né tránh làm online; (2) sai vì tác giả khuyên cẩn thận chứ không bảo viết thật ngắn; (3) sai vì trao đổi trực tuyến hay trực tiếp đều cần phải lịch sự.",
+          "tip": "Nắm rõ sắc thái ngữ pháp 「〜だからといって...わけではない」(Không phải cứ vì lý do A mà được phép làm B).",
+          "evi": [
+            1
+          ],
+          "qt": {
+            "q": "Ý định của người viết trong câu 「画面越しのやり取りだからといって、丁寧な連絡を怠っていいわけではない」 (Dù chỉ trao đổi qua màn hình, cũng không có nghĩa là được phép lơ là việc liên lạc cẩn thận) phù hợp nhất là gì?",
+            "o": [
+              "Vì trao đổi qua màn hình dễ trở nên thất lễ nên nên tránh công việc trực tuyến.",
+              "Dù không gặp mặt trực tiếp, cũng không nên lấy đó làm cái cớ để lơ là việc liên lạc cẩn thận.",
+              "Vì không thể nhìn thấy nét mặt của đối phương qua màn hình nên tốt hơn là giữ cho việc liên lạc ngắn gọn hết mức có thể.",
+              "Chỉ cần chú ý kỹ đến cách dùng từ khi gặp mặt trực tiếp và trò chuyện là đủ."
+            ]
+          }
+        },
+        {
+          "q": "筆者が第2段落で最も伝えたい主張（落とし穴への対策）は何ですか。",
+          "options": [
+            "不安なときは返信をできるだけ遅らせて、相手からの連絡を待つこと。",
+            "多忙や焦りを理由に確認を省かず、相手の立場に立った丁寧な連絡を心がけること。",
+            "オンラインでの連絡では、信用を失わないようにメールの文字数を増やすこと。",
+            "ミスを防ぐために、すべての連絡を対面でのやり取りに切り替えること。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 4, 5, 7, 8: Tác giả cảnh báo nguy cơ của việc vì bận rộn/lo lắng mà cắt giảm sự chu đáo, từ đó đúc kết giải pháp cốt lõi:「相手の立場に立って丁寧に気持ちを伝えることで、仕事の信頼関係はより深まる。便利さの裏にある落とし穴に気をつけて、日々の連絡を大切にしたいものだ。」 Các phương án sai: (0) sai vì bài không bảo trì hoãn vô thời hạn; (2) sai vì bài không bàn về số lượng chữ dài hay ngắn; (3) sai vì tác giả không yêu cầu chuyển hết sang gặp mặt trực tiếp.",
+          "tip": "Đọc kỹ câu 7 và câu 8 để nắm trọn vẹn thông điệp đúc kết ở phần kết bài.",
+          "evi": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Quan điểm mà người viết muốn truyền đạt nhất ở đoạn 2 (cách đối phó với những cạm bẫy) là gì?",
+            "o": [
+              "Khi cảm thấy bất an, hãy trì hoãn trả lời càng lâu càng tốt và chờ liên lạc từ đối phương.",
+              "Đừng bỏ qua việc kiểm tra với lý do bận rộn hay sốt ruột; hãy chú tâm liên lạc một cách cẩn thận, đặt mình vào vị trí của đối phương.",
+              "Khi liên lạc trực tuyến, hãy tăng số lượng chữ trong email để không đánh mất lòng tin.",
+              "Để ngăn ngừa sai sót, hãy chuyển mọi hình thức liên lạc sang trao đổi trực tiếp."
+            ]
+          }
+        },
+        {
+          "q": "本文中の「〜ばかりに」という表現から読み取れる話し手のニュアンスはどれですか。",
+          "options": [
+            "わずかな一つの行動や不注意が原因で、取り返しのつかない悪い結果を招いてしまう悔しさ。",
+            "直前に行った行動のおかげで、予想以上に素晴らしい成果が得られたという喜び。",
+            "相手の行動に対して不満があり、その責任をすべて相手に押し付けたいという感情。",
+            "これから起きるかもしれない事態に対して、あらかじめ準備をしておこうという前向きな姿勢。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 3 (見直さなかったばかりに) và câu 6 (油断をしたばかりに): Mẫu ngữ pháp 「〜ばかりに」 luôn đi liền với sắc thái 'chỉ vì một nguyên nhân/sai sót duy nhất mà dẫn đến kết quả tiêu cực', diễn tả sự hối hận (悔しさ) hoặc cảnh báo hậu quả tai hại. Các phương án sai: (1) sai vì ばかりに chỉ đi với kết quả xấu; (2) sai vì tác giả tự nhận lỗi bản thân chứ không đổ lỗi cho ai; (3) sai vì ばかりに không diễn tả tâm thế chủ động tích cực chuẩn bị.",
+          "tip": "Ghi nhớ sắc thái đặc trưng của 「〜ばかりに」: nguyên nhân duy nhất dẫn đến hệ quả xấu kèm tâm trạng ân hận, nuối tiếc.",
+          "evi": [
+            3,
+            6
+          ],
+          "qt": {
+            "q": "Có thể đọc ra sắc thái nào của người nói từ cách diễn đạt 「〜ばかりに」 trong bài?",
+            "o": [
+              "Sự nuối tiếc vì một hành động hay sự bất cẩn nhỏ lại gây ra kết quả xấu không thể cứu vãn.",
+              "Niềm vui vì nhờ hành động vừa thực hiện mà đạt được kết quả tuyệt vời hơn mong đợi.",
+              "Cảm giác bất mãn với hành động của đối phương và muốn đổ toàn bộ trách nhiệm cho họ.",
+              "Thái độ tích cực muốn chuẩn bị trước cho tình huống có thể xảy ra trong tương lai."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "デジタル時代のコミュニケーションと配慮の重要性",
+      "titleVi": "Giao tiếp trong thời đại số và tầm quan trọng của sự thấu hiểu",
+      "japanese": "現代のビジネス社会では、オンラインチャットや電子メールなどの連絡手段が広く普及している。これらの便利なツールを活用することで、私たちは離れた場所にいる相手とも瞬時に情報共有ができるようになった。しかし、短時間で手軽に連絡できるからといって、コミュニケーションが常に円滑に進むわけではない。いつでも文字が送れるからといって、相手がこちらの意図を正しく理解してくれるとは限らないのだ。\n文字だけのやり取りは手軽である反面、感情や細かいニュアンスが伝わりにくいという弱点を持っている。特に忙しい職場では、返信を急ぐ人が多い。業務を早く片付けたいという焦りのあまり、相手への配慮が足りない言葉遣いになってしまうことがある。丁寧に書く時間を惜しんだばかりに、同僚に冷たい印象を与えて職場の雰囲気を悪くした例もある。さらには、文字数を減らして要点だけを伝えようとしたばかりに、誤解を招いて大きなトラブルに発展するケースも珍しくない。効率を求める姿勢自体は大切だが、急ぎすぎると思わぬ落とし穴にはまるのである。\nまた、新入社員や若手の中には、上司からのメッセージに過剰に緊張してしまう人もいる。失敗を恐れるあまり、疑問点があっても質問できずに自分だけで悩みを抱え込んでしまうのだ。相手が上司だからといって、質問や相談を遠慮し続けるのはかえって危険である。連絡ツールが便利になったことで、かえって会話のきっかけを失ってしまうのは本末転倒と言える。些細な確認を怠ったばかりに、後から大きな修正が必要になって迷惑をかけることもあるからだ。\nコミュニケーションで最も重要なのは、単に情報を早く送ることではなく、相手の立場に立って考えることだ。複雑な問題や感情に関わる事柄については、直接会って対話する機会を持つことで、不要な誤解を防ぐことができる。デジタル技術がいくら進化しているからといって、人と人との信頼関係が自動的に深まるわけではない。道具の利点と限界を正しく理解し、状況に合わせて適切に使い分けることで、私たちはより良い人間関係を築いていけるはずだ。相手を思いやる心を忘れずにコミュニケーションを続けることこそが、豊かな職場環境を作る鍵となる。",
+      "vietnamese": "Trong xã hội kinh doanh hiện đại, các phương tiện liên lạc như trò chuyện trực tuyến và thư điện tử đã trở nên phổ biến rộng rãi. Thông qua việc tận dụng những công cụ tiện lợi này, chúng ta đã có thể chia sẻ thông tin ngay tức thì với đối phương dù đang ở cách xa nhau. Thế nhưng, không phải cứ vì có thể liên lạc một cách nhanh chóng và dễ dàng mà việc giao tiếp sẽ luôn diễn ra suôn sẻ. Không phải cứ vì lúc nào cũng gửi được tin nhắn chữ mà đối phương sẽ hiểu đúng ý đồ của chúng ta.\nViệc trao đổi chỉ bằng câu chữ tuy tiện lợi nhưng mặt khác lại có nhược điểm là khó truyền tải được cảm xúc và những sắc thái biểu đạt tinh tế. Đặc biệt là ở những nơi làm việc bận rộn, có rất nhiều người vội vã hồi âm. Chính vì quá sốt ruột muốn giải quyết công việc cho nhanh mà đôi khi cách dùng từ trở nên thiếu chu đáo, thiếu tế nhị đối với người nhận. Cũng có trường hợp chỉ vì tiếc chút thời gian viết cẩn thận mà tạo cho đồng nghiệp ấn tượng lạnh lùng, khiến bầu không khí nơi làm việc trở nên ngột ngạt. Hơn nữa, cũng không hiếm những trường hợp chỉ vì muốn giảm bớt số lượng câu chữ và chỉ truyền đạt ý chính mà dẫn đến hiểu lầm, phát triển thành rắc rối lớn. Bản thân thái độ mưu cầu hiệu suất là quan trọng, nhưng nếu quá vội vàng thì sẽ rơi vào những cái bẫy bất ngờ không lường trước được.\nNgoài ra, trong số các nhân viên mới và nhân viên trẻ, cũng có những người trở nên căng thẳng quá mức trước tin nhắn từ cấp trên. Chính vì quá sợ hãi thất bại mà dẫu có điểm thắc mắc cũng không thể đặt câu hỏi, rồi tự mình ôm lấy nỗi băn khoăn một mình. Dù nói đối phương là cấp trên, nhưng việc cứ mãi e dè không dám hỏi hay trao đổi thì ngược lại còn nguy hiểm hơn. Việc mất đi cơ hội trò chuyện trực tiếp chỉ vì công cụ liên lạc trở nên tiện lợi thì đúng là đảo lộn đầu đuôi, được cái nhỏ mất cái lớn. Bởi vì chỉ vì lơ là một khâu xác nhận nhỏ nhặt mà về sau phải sửa chữa lớn, gây phiền toái cho mọi người.\nĐiều quan trọng nhất trong giao tiếp không đơn thuần là gửi thông tin thật nhanh, mà là biết đứng trên lập trường của đối phương để suy nghĩ. Đối với những vấn đề phức tạp hoặc những việc liên quan đến cảm xúc, thông qua việc tạo cơ hội gặp mặt và đối thoại trực tiếp, chúng ta có thể ngăn ngừa những hiểu lầm không đáng có. Dù công nghệ kỹ thuật số có tiến bộ đến đâu đi nữa thì không có nghĩa là mối quan hệ tin cậy giữa người với người sẽ tự động trở nên sâu sắc. Bằng cách hiểu đúng những ưu điểm cũng như giới hạn của công cụ và sử dụng linh hoạt phù hợp với từng tình huống, chắc chắn chúng ta sẽ có thể xây dựng được những mối quan hệ tốt đẹp hơn. Chính việc duy trì giao tiếp mà không quên tấm lòng thấu hiểu, quan tâm đến đối phương mới là chìa khóa để tạo nên một môi trường làm việc phong phú và lành mạnh.",
+      "sentences": [
+        {
+          "jp": "現代のビジネス社会では、オンラインチャットや電子メールなどの連絡手段が広く普及している。",
+          "vi": "Trong xã hội kinh doanh hiện đại, các phương tiện liên lạc như trò chuyện trực tuyến và thư điện tử đã trở nên phổ biến rộng rãi.",
+          "vocab": [
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "ビジネス",
+              "read": "ビジネス",
+              "vi": "kinh doanh, thương trường"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "オンライン",
+              "read": "オンライン",
+              "vi": "trực tuyến, online"
+            },
+            {
+              "w": "チャット",
+              "read": "チャット",
+              "vi": "trò chuyện trực tuyến"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "phương tiện, cách thức"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            },
+            {
+              "w": "普及",
+              "read": "ふきゅう",
+              "vi": "sự phổ biến, phổ cập"
+            },
+            {
+              "w": "連絡手段",
+              "read": "れんらくしゅだん",
+              "vi": "phương tiện liên lạc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～など",
+              "vi": "【接続】N＋など。【Sắc thái】Đưa ra ví dụ tiêu biểu mang tính liệt kê không đầy đủ (\"như là...\").【Đối chiếu】Khác với「〜とか」chủ yếu dùng trong văn nói thân mật,「〜など」trang trọng và chuẩn mực trong văn viết nghị luận."
+            }
+          ]
+        },
+        {
+          "jp": "これらの便利なツールを活用することで、私たちは離れた場所にいる相手とも瞬時に情報共有ができるようになった。",
+          "vi": "Thông qua việc tận dụng những công cụ tiện lợi này, chúng ta đã có thể chia sẻ thông tin ngay tức thì với đối phương dù đang ở cách xa nhau.",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "ツール",
+              "read": "ツール",
+              "vi": "công cụ"
+            },
+            {
+              "w": "活用",
+              "read": "かつよう",
+              "vi": "sự tận dụng, ứng dụng hiệu quả"
+            },
+            {
+              "w": "離れる",
+              "read": "はなれる",
+              "vi": "rời xa, tách rời"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "瞬時に",
+              "read": "しゅんじに",
+              "vi": "ngay tức khắc, trong chớp mắt"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "共有",
+              "read": "きょうゆう",
+              "vi": "sự chia sẻ, dùng chung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "情報共有",
+              "read": "じょうほうきょうゆう",
+              "vi": "sự chia sẻ thông tin"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ことで",
+              "vi": "【接続】V辞書形／Vた＋ことで、Nの＋ことで。【Sắc thái】Diễn tả phương tiện, phương thức hoặc nguyên nhân dẫn đến một kết quả/sự chuyển biến tích cực hoặc trung tính (\"nhờ việc... mà...\", \"thông qua việc... thì...\").【Đối chiếu】Khác với「〜によって」(nhấn mạnh phương thức mang tính kỹ thuật, quy mô lớn) và「〜て」(nối hành động thông thường),「〜ことで」nhấn mạnh vào sự thay đổi kết quả đạt được nhờ hành động đó."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、短時間で手軽に連絡できるからといって、コミュニケーションが常に円滑に進むわけではない。",
+          "vi": "Thế nhưng, không phải cứ vì có thể liên lạc một cách nhanh chóng và dễ dàng mà việc giao tiếp sẽ luôn diễn ra suôn sẻ.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "短時間",
+              "read": "たんじかん",
+              "vi": "thời gian ngắn"
+            },
+            {
+              "w": "手軽に",
+              "read": "てがるに",
+              "vi": "dễ dàng, tiện lợi, không tốn công"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "コミュニケーション",
+              "read": "コミュニケーション",
+              "vi": "giao tiếp, trao đổi"
+            },
+            {
+              "w": "常に",
+              "read": "つねに",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "円滑に",
+              "read": "えんかつに",
+              "vi": "trôi chảy, suôn sẻ, thuận lợi"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～からといって",
+              "vi": "【接続】普通形＋からといって。【Sắc thái】Diễn tả ý \"dù nói rằng vì lý do A thì không hẳn/không có nghĩa đương nhiên là B\", vế sau thường kết hợp với dạng phủ định một phần như「〜わけではない」.【Đối chiếu】Khác với「〜のに」(thể hiện sự tiếc nuối, bất mãn khi kết quả thực tế trái ngược) và「〜ても」(điều kiện nhượng bộ giả định trung tính)."
+            }
+          ]
+        },
+        {
+          "jp": "いつでも文字が送れるからといって、相手がこちらの意図を正しく理解してくれるとは限らないのだ。",
+          "vi": "Không phải cứ vì lúc nào cũng gửi được tin nhắn chữ mà đối phương sẽ hiểu đúng ý đồ của chúng ta.",
+          "vocab": [
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "送れる",
+              "read": "おくれる",
+              "vi": "có thể gửi"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "意図",
+              "read": "いと",
+              "vi": "ý đồ, chủ định, mục đích"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～からといって",
+              "vi": "【接続】普通形＋からといって。【Sắc thái】Bác bỏ sự suy đoán một chiều rằng có nguyên nhân A thì chắc chắn có kết quả B, vế sau đi kèm「〜とは限らない」(không nhất thiết là/chưa hẳn là).【Đối chiếu】Khác với「〜から」(khẳng định lý do tất yếu),「〜からといって」dùng để phủ nhận tính tất yếu của kết luận."
+            }
+          ]
+        },
+        {
+          "jp": "文字だけのやり取りは手軽である反面、感情や細かいニュアンスが伝わりにくいという弱点を持っている。",
+          "vi": "Việc trao đổi chỉ bằng câu chữ tuy tiện lợi nhưng mặt khác lại có nhược điểm là khó truyền tải được cảm xúc và những sắc thái biểu đạt tinh tế.",
+          "vocab": [
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "やり取り",
+              "read": "やりとり",
+              "vi": "sự trao đổi, qua lại"
+            },
+            {
+              "w": "手軽",
+              "read": "てがる",
+              "vi": "tiện lợi, nhanh gọn, đơn giản"
+            },
+            {
+              "w": "反面",
+              "read": "はんめん",
+              "vi": "mặt khác, ngược lại"
+            },
+            {
+              "w": "感情",
+              "read": "かんじょう",
+              "vi": "cảm xúc, tình cảm"
+            },
+            {
+              "w": "細かい",
+              "read": "こまかい",
+              "vi": "nhỏ, chi tiết"
+            },
+            {
+              "w": "ニュアンス",
+              "read": "にゅあんす",
+              "vi": "sắc thái ý nghĩa tinh tế (nuance)"
+            },
+            {
+              "w": "伝わる",
+              "read": "つたわる",
+              "vi": "được truyền tải, truyền đạt"
+            },
+            {
+              "w": "弱点",
+              "read": "じゃくてん",
+              "vi": "nhược điểm, điểm yếu"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～反面",
+              "vi": "【接続】普通形（Aな＋な／である、N＋である）＋反面。【Sắc thái】Nêu lên hai mặt trái ngược của cùng một sự vật/hiện tượng (\"mặt khác, ngược lại thì\").【Đối chiếu】Khác với「〜一方で」(có thể diễn tả hai sự việc độc lập cùng diễn ra song song),「〜反面」chỉ nhấn mạnh vào hai thuộc tính đối lập trên cùng một chủ thể."
+            }
+          ]
+        },
+        {
+          "jp": "特に忙しい職場では、返信を急ぐ人が多い。",
+          "vi": "Đặc biệt là ở những nơi làm việc bận rộn, có rất nhiều người vội vã hồi âm.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc, công sở"
+            },
+            {
+              "w": "返信",
+              "read": "へんしん",
+              "vi": "phản hồi, trả lời tin nhắn/email"
+            },
+            {
+              "w": "急ぐ",
+              "read": "いそぐ",
+              "vi": "vội vàng, gấp rút"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～では",
+              "vi": "【接続】N＋では。【Sắc thái】Xác định bối cảnh hoặc phạm vi xảy ra hiện tượng (\"ở phạm vi/nơi...\")."
+            }
+          ]
+        },
+        {
+          "jp": "業務を早く片付けたいという焦りのあまり、相手への配慮が足りない言葉遣いになってしまうことがある。",
+          "vi": "Chính vì quá sốt ruột muốn giải quyết công việc cho nhanh mà đôi khi cách dùng từ trở nên thiếu chu đáo, thiếu tế nhị đối với người nhận.",
+          "vocab": [
+            {
+              "w": "業務",
+              "read": "ぎょうむ",
+              "vi": "nghiệp vụ, công việc"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "片付ける",
+              "read": "かたづける",
+              "vi": "giải quyết, xử lý dứt điểm"
+            },
+            {
+              "w": "焦り",
+              "read": "あせり",
+              "vi": "sự sốt ruột, nôn nóng, bồn chồn"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "配慮",
+              "read": "はいりょ",
+              "vi": "sự quan tâm, chu đáo, để ý"
+            },
+            {
+              "w": "足りる",
+              "read": "たりる",
+              "vi": "đủ, đầy đủ"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "言葉遣い",
+              "read": "ことばづかい",
+              "vi": "cách dùng từ ngữ, lời ăn tiếng nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～のあまり",
+              "vi": "【接続】Nの＋あまり／Vる＋あまり。【Sắc thái】Diễn tả cảm xúc hoặc tâm trạng quá mãnh liệt dẫn đến hành vi hoặc kết quả bất thường ngoài ý muốn (\"vì quá...\").【Đối chiếu】Khác với「〜すぎて」(chỉ mức độ vượt ngưỡng thông thường),「〜のあまり」thường đi với các danh từ chỉ cảm xúc mạnh (焦り, 緊張, 悲しみ, 怒り) và gây ra hậu quả tiêu cực hoặc mất kiểm soát."
+            }
+          ]
+        },
+        {
+          "jp": "丁寧に書く時間を惜しんだばかりに、同僚に冷たい印象を与えて職場の雰囲気を悪くした例もある。",
+          "vi": "Cũng có trường hợp chỉ vì tiếc chút thời gian viết cẩn thận mà tạo cho đồng nghiệp ấn tượng lạnh lùng, khiến bầu không khí nơi làm việc trở nên ngột ngạt.",
+          "vocab": [
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "惜しむ",
+              "read": "おしむ",
+              "vi": "tiếc nuối, tiếc rẻ (thời gian, công sức)"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "冷たい",
+              "read": "つめたい",
+              "vi": "lạnh (tính từ い, đồ vật/thức uống)"
+            },
+            {
+              "w": "印象",
+              "read": "いんしょう",
+              "vi": "ấn tượng"
+            },
+            {
+              "w": "与える",
+              "read": "あたえる",
+              "vi": "trao tặng, gây ra"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "bầu không khí"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "例",
+              "read": "れい",
+              "vi": "ví dụ, trường hợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ばかりに",
+              "vi": "【接続】Vた＋ばかりに。【Sắc thái】Diễn tả ý \"chỉ vì một nguyên nhân/hành động sai lầm duy nhất mà chuốc lấy kết quả xấu đáng tiếc\", mang đậm cảm giác hối hận của người nói.【Đối chiếu】Khác với「〜せいで」(chỉ đổ lỗi nguyên nhân tiêu cực thông thường, không nhấn mạnh tính duy nhất và sự hối hận) và「〜たばかり」(chỉ hành động vừa mới hoàn thành)."
+            }
+          ]
+        },
+        {
+          "jp": "さらには、文字数を減らして要点だけを伝えようとしたばかりに、誤解を招いて大きなトラブルに発展するケースも珍しくない。",
+          "vi": "Hơn nữa, cũng không hiếm những trường hợp chỉ vì muốn giảm bớt số lượng câu chữ và chỉ truyền đạt ý chính mà dẫn đến hiểu lầm, phát triển thành rắc rối lớn.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "文字数",
+              "read": "もじすう",
+              "vi": "số lượng ký tự"
+            },
+            {
+              "w": "減らす",
+              "read": "へらす",
+              "vi": "giảm bớt"
+            },
+            {
+              "w": "要点",
+              "read": "ようてん",
+              "vi": "điểm mấu chốt, ý chính"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "誤解",
+              "read": "ごかい",
+              "vi": "sự hiểu lầm"
+            },
+            {
+              "w": "招く",
+              "read": "まねく",
+              "vi": "gây ra, chuốc lấy (hậu quả xấu)"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "トラブル",
+              "read": "トラブル",
+              "vi": "rắc rối, sự cố"
+            },
+            {
+              "w": "発展する",
+              "read": "はってんする",
+              "vi": "phát triển, biến chuyển sang (chiều hướng xấu/tốt)"
+            },
+            {
+              "w": "ケース",
+              "read": "ケース",
+              "vi": "trường hợp (case)"
+            },
+            {
+              "w": "珍しい",
+              "read": "めずらしい",
+              "vi": "hiếm, hiếm thấy"
+            },
+            {
+              "w": "誤解を招く",
+              "read": "ごかいをまねく",
+              "vi": "gây ra sự hiểu lầm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかりに",
+              "vi": "Vた + ばかりに: Diễn tả ý 'chỉ vì / chỉ tại một nguyên nhân nào đó mà dẫn đến kết quả xấu, đáng tiếc ngoài dự kiến'. Trong câu: chỉ vì cố rút gọn số chữ để truyền đạt mỗi ý chính mà gây ra hiểu lầm, phát triển thành rắc rối lớn."
+            },
+            {
+              "point": "〜ようとする",
+              "vi": "V-ý chí (よう/おう) + とする: Diễn tả ý định, sự nỗ lực hoặc cố gắng thực hiện hành vi. Trong câu: 「伝えようとした」nghĩa là cố gắng/tìm cách truyền đạt."
+            }
+          ]
+        },
+        {
+          "jp": "効率を求める姿勢自体は大切だが、急ぎすぎると思わぬ落とし穴にはまるのである。",
+          "vi": "Bản thân thái độ mưu cầu hiệu suất là quan trọng, nhưng nếu quá vội vàng thì sẽ rơi vào những cái bẫy bất ngờ không lường trước được.",
+          "vocab": [
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả công việc"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, tâm thế, thái độ đối diện"
+            },
+            {
+              "w": "自体",
+              "read": "じたい",
+              "vi": "bản thân, chính nó"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "急ぐ",
+              "read": "いそぐ",
+              "vi": "gấp, khẩn cấp"
+            },
+            {
+              "w": "思わぬ",
+              "read": "おもわぬ",
+              "vi": "không ngờ, ngoài dự tính"
+            },
+            {
+              "w": "落とし穴",
+              "read": "おとしあな",
+              "vi": "cạm bẫy, rủi ro tiềm ẩn"
+            },
+            {
+              "w": "はまる",
+              "read": "はまる",
+              "vi": "khớp, say mê"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～すぎる",
+              "vi": "【接続】V-ます-stem＋すぎる。【Sắc thái】Diễn tả mức độ hành động vượt quá giới hạn hợp lý dẫn đến kết quả không tốt (\"quá...\")."
+            }
+          ]
+        },
+        {
+          "jp": "また、新入社員や若手の中には、上司からのメッセージに過剰に緊張してしまう人もいる。",
+          "vi": "Ngoài ra, trong số các nhân viên mới và nhân viên trẻ, cũng có những người trở nên căng thẳng quá mức trước tin nhắn từ cấp trên.",
+          "vocab": [
+            {
+              "w": "新入",
+              "read": "しんにゅう",
+              "vi": "mới vào, mới gia nhập"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "người trẻ tuổi, nhân sự trẻ"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên, sếp"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn, thông điệp"
+            },
+            {
+              "w": "過剰に",
+              "read": "かじょうに",
+              "vi": "quá mức, quá độ"
+            },
+            {
+              "w": "緊張",
+              "read": "きんちょう",
+              "vi": "căng thẳng, hồi hộp"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "新入社員",
+              "read": "しんにゅうしゃいん",
+              "vi": "nhân viên mới vào công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "【接続】Vて＋しまう。【Sắc thái】Diễn tả hành động hoặc trạng thái xảy ra ngoài tầm kiểm soát hoặc mang sắc thái tiếc nuối, lo ngại."
+            }
+          ]
+        },
+        {
+          "jp": "失敗を恐れるあまり、疑問点があっても質問できずに自分だけで悩みを抱え込んでしまうのだ。",
+          "vi": "Chính vì quá sợ hãi thất bại mà dẫu có điểm thắc mắc cũng không thể đặt câu hỏi, rồi tự mình ôm lấy nỗi băn khoăn một mình.",
+          "vocab": [
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "恐れる",
+              "read": "おそれる",
+              "vi": "sợ hãi, e ngại"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "悩み",
+              "read": "なやみ",
+              "vi": "sự phiền muộn, lo lắng"
+            },
+            {
+              "w": "抱え込む",
+              "read": "かかえこむ",
+              "vi": "ôm đồm, giữ kín một mình trong lòng"
+            },
+            {
+              "w": "疑問点",
+              "read": "ぎもんてん",
+              "vi": "điểm nghi vấn, thắc mắc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～あまり",
+              "vi": "【接続】Vる＋あまり。【Sắc thái】Vì trạng thái tâm lý quá mãnh liệt (quá lo sợ) dẫn đến hành động bế tắc (không dám hỏi mà ôm buồn phiền một mình).【Đối chiếu】Khác với「〜から」(chỉ nguyên nhân thông thường),「〜あまり」làm nổi bật trạng thái tâm lý vượt quá tầm kiểm soát."
+            }
+          ]
+        },
+        {
+          "jp": "相手が上司だからといって、質問や相談を遠慮し続けるのはかえって危険である。",
+          "vi": "Dù nói đối phương là cấp trên, nhưng việc cứ mãi e dè không dám hỏi hay trao đổi thì ngược lại còn nguy hiểm hơn.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên, sếp"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, hỏi ý kiến"
+            },
+            {
+              "w": "遠慮する",
+              "read": "えんりょする",
+              "vi": "ngại ngùng, khách sáo, e dè"
+            },
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "ngược lại, trái lại"
+            },
+            {
+              "w": "危険",
+              "read": "きけん",
+              "vi": "nguy hiểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～だからといって",
+              "vi": "【接続】N＋だからといって。【Sắc thái】Nhấn mạnh rằng lý do đối phương là cấp trên không thể là cái cớ hợp lý để né tránh việc trao đổi (\"không phải cứ vì là sếp mà...\").【Đối chiếu】Khác với「〜なら」(đưa ra giả định thuận lý),「〜だからといって」dùng để phản bác lại sự e dè vô lý."
+            }
+          ]
+        },
+        {
+          "jp": "連絡ツールが便利になったことで、かえって会話のきっかけを失ってしまうのは本末転倒と言える。",
+          "vi": "Việc mất đi cơ hội trò chuyện trực tiếp chỉ vì công cụ liên lạc trở nên tiện lợi thì đúng là đảo lộn đầu đuôi, được cái nhỏ mất cái lớn.",
+          "vocab": [
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "ツール",
+              "read": "ツール",
+              "vi": "công cụ"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "ngược lại (so với mong muốn)"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "dịp, cớ, cơ hội mở đầu"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, làm mất"
+            },
+            {
+              "w": "本末転倒",
+              "read": "ほんまつてんとう",
+              "vi": "đảo lộn đầu đuôi, được cái phụ mất cái chính"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ことで",
+              "vi": "【接続】Aい（〜くなった）＋ことで。【Sắc thái】Diễn tả một biến chuyển/nguyên nhân dẫn đến một hệ quả đối nghịch trớ trêu (\"nhờ việc/do việc... mà lại...\")."
+            }
+          ]
+        },
+        {
+          "jp": "些細な確認を怠ったばかりに、後から大きな修正が必要になって迷惑をかけることもあるからだ。",
+          "vi": "Bởi vì chỉ vì lơ là một khâu xác nhận nhỏ nhặt mà về sau phải sửa chữa lớn, gây phiền toái cho mọi người.",
+          "vocab": [
+            {
+              "w": "些細な",
+              "read": "ささいな",
+              "vi": "vặt vãnh, nhỏ nhặt, không đáng kể"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "怠る",
+              "read": "おこたる",
+              "vi": "lơ là, xao nhãng, bỏ bê"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "修正",
+              "read": "しゅうせい",
+              "vi": "sự chỉnh sửa, đính chính, khắc phục"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "迷惑",
+              "read": "めいわく",
+              "vi": "sự phiền hà, phiền phức"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ばかりに",
+              "vi": "【接続】Vた＋ばかりに。【Sắc thái】Nhấn mạnh một sơ suất duy nhất (bỏ qua xác nhận nhỏ) đã đem lại hậu quả nghiêm trọng kéo theo sau đó cùng sự ân hận sâu sắc."
+            }
+          ]
+        },
+        {
+          "jp": "コミュニケーションで最も重要なのは、単に情報を早く送ることではなく、相手の立場に立って考えることだ。",
+          "vi": "Điều quan trọng nhất trong giao tiếp không đơn thuần là gửi thông tin thật nhanh, mà là biết đứng trên lập trường của đối phương để suy nghĩ.",
+          "vocab": [
+            {
+              "w": "コミュニケーション",
+              "read": "コミュニケーション",
+              "vi": "giao tiếp, trao đổi"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất, tối nhất"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "送る",
+              "read": "おくる",
+              "vi": "gửi"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "địa vị, lập trường"
+            },
+            {
+              "w": "立つ",
+              "read": "たつ",
+              "vi": "đứng, ở vị trí"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "立場に立つ",
+              "read": "たちばにたつ",
+              "vi": "đứng trên lập trường, đặt mình vào hoàn cảnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ではなく、～",
+              "vi": "【接続】N／Vこと＋ではなく、〜。【Sắc thái】Phủ định yếu tố trước để khẳng định mạnh mẽ yếu tố cốt lõi ở vế sau (\"không phải là A mà là B\")."
+            }
+          ]
+        },
+        {
+          "jp": "複雑な問題や感情に関わる事柄については、直接会って対話する機会を持つことで、不要な誤解を防ぐことができる。",
+          "vi": "Đối với những vấn đề phức tạp hoặc những việc liên quan đến cảm xúc, thông qua việc tạo cơ hội gặp mặt và đối thoại trực tiếp, chúng ta có thể ngăn ngừa những hiểu lầm không đáng có.",
+          "vocab": [
+            {
+              "w": "複雑",
+              "read": "ふくざつ",
+              "vi": "phức tạp"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "感情",
+              "read": "かんじょう",
+              "vi": "cảm xúc, tình cảm"
+            },
+            {
+              "w": "関わる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "事柄",
+              "read": "ことがら",
+              "vi": "sự việc, vấn đề"
+            },
+            {
+              "w": "直接",
+              "read": "ちょくせつ",
+              "vi": "trực tiếp"
+            },
+            {
+              "w": "会う",
+              "read": "あう",
+              "vi": "gặp, gặp mặt"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "sự đối thoại, trò chuyện"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "不要",
+              "read": "ふよう",
+              "vi": "không cần thiết"
+            },
+            {
+              "w": "誤解",
+              "read": "ごかい",
+              "vi": "sự hiểu lầm"
+            },
+            {
+              "w": "防ぐ",
+              "read": "ふせぐ",
+              "vi": "phòng ngừa, ngăn chặn"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ことで",
+              "vi": "【接続】V辞書形＋ことで。【Sắc thái】Nêu lên phương pháp giải quyết tối ưu (\"bằng việc tạo cơ hội đối thoại trực tiếp thì có thể...\")."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル技術がいくら進化しているからといって、人と人との信頼関係が自動的に深まるわけではない。",
+          "vi": "Dù công nghệ kỹ thuật số có tiến bộ đến đâu đi nữa thì không có nghĩa là mối quan hệ tin cậy giữa người với người sẽ tự động trở nên sâu sắc.",
+          "vocab": [
+            {
+              "w": "デジタル技術",
+              "read": "でじたるぎじゅつ",
+              "vi": "công nghệ số, kỹ thuật số"
+            },
+            {
+              "w": "いくら",
+              "read": "いくら",
+              "vi": "dù bao nhiêu, dù thế nào"
+            },
+            {
+              "w": "進化",
+              "read": "しんか",
+              "vi": "sự tiến hóa, phát triển"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "自動的",
+              "read": "じどうてき",
+              "vi": "tính tự động, tự động"
+            },
+            {
+              "w": "深まる",
+              "read": "ふかまる",
+              "vi": "sâu sắc hơn, thắt chặt hơn"
+            },
+            {
+              "w": "いくら〜からといって",
+              "read": "いくら〜からといって",
+              "vi": "dù có... đến mấy đi chăng nữa"
+            },
+            {
+              "w": "信頼関係",
+              "read": "しんらいかんけい",
+              "vi": "mối quan hệ tin cậy, sự tin tưởng lẫn nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いくら～からといって",
+              "vi": "【接続】いくら＋普通形＋からといって。【Sắc thái】Nhấn mạnh dù mức độ của nguyên nhân có lớn đến đâu thì cũng không thể mặc định suy ra kết quả ở vế sau (\"dù có... đến thế nào đi nữa thì cũng không hẳn là...\")."
+            }
+          ]
+        },
+        {
+          "jp": "道具の利点と限界を正しく理解し、状況に合わせて適切に使い分けることで、私たちはより良い人間関係を築いていけるはずだ。",
+          "vi": "Bằng cách hiểu đúng những ưu điểm cũng như giới hạn của công cụ và sử dụng linh hoạt phù hợp với từng tình huống, chắc chắn chúng ta sẽ có thể xây dựng được những mối quan hệ tốt đẹp hơn.",
+          "vocab": [
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, phương tiện"
+            },
+            {
+              "w": "利点",
+              "read": "りてん",
+              "vi": "ưu điểm, điểm lợi"
+            },
+            {
+              "w": "限界",
+              "read": "げんかい",
+              "vi": "giới hạn, hạn mức"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình huống, tình trạng"
+            },
+            {
+              "w": "合わせる",
+              "read": "あわせる",
+              "vi": "thống nhất, khớp lại"
+            },
+            {
+              "w": "適切",
+              "read": "てきせつ",
+              "vi": "thích hợp, phù hợp"
+            },
+            {
+              "w": "使い分ける",
+              "read": "つかいわける",
+              "vi": "sử dụng linh hoạt/phân biệt tùy mục đích"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "築く",
+              "read": "きずく",
+              "vi": "xây dựng, vun đắp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ことで",
+              "vi": "【接続】V辞書形＋ことで。【Sắc thái】Nêu phương thức, con đường hành động để đạt tới mục tiêu tốt đẹp (\"bằng cách linh hoạt sử dụng...\")."
+            }
+          ]
+        },
+        {
+          "jp": "相手を思いやる心を忘れずにコミュニケーションを続けることこそが、豊かな職場環境を作る鍵となる。",
+          "vi": "Chính việc duy trì giao tiếp mà không quên tấm lòng thấu hiểu, quan tâm đến đối phương mới là chìa khóa để tạo nên một môi trường làm việc phong phú và lành mạnh.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "思いやる",
+              "read": "おもいやる",
+              "vi": "quan tâm, thông cảm, thấu hiểu"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "コミュニケーション",
+              "read": "コミュニケーション",
+              "vi": "giao tiếp, trao đổi"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khóa, yếu tố cốt lõi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ことこそ",
+              "vi": "【接続】Vこと＋こそ。【Sắc thái】Nhấn mạnh dứt khoát vào hành động/bản chất là yếu tố quyết định hàng đầu (\"chính việc...\")."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "活用することで",
+          "label": "Cấu trúc: ～ことで (Bằng cách / Thông qua việc)"
+        },
+        {
+          "excerpt": "短時間で手軽に連絡できるからといって",
+          "label": "Cấu trúc: ～からといって (Không phải vì... mà đương nhiên)"
+        },
+        {
+          "excerpt": "焦りのあまり",
+          "label": "Cấu trúc: ～のあまり (Vì quá nôn nóng mà dẫn đến hành động xấu)"
+        },
+        {
+          "excerpt": "丁寧に書く時間を惜しんだばかりに",
+          "label": "Cấu trúc: ～ばかりに (Chỉ vì một lý do/sai sót duy nhất mà chuốc lấy hậu quả)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "第2段落で、メッセージの返信を急ぎすぎることの弊害として述べられているものはどれか。",
+          "options": [
+            "丁寧な表現を省いて要点だけを伝えようとした結果、相手に冷たい印象を与えたり誤解を招いたりすること。",
+            "メッセージの文字数が多くなりすぎて、相手が読むのに長い時間を費やしてしまうこと。",
+            "仕事の能率を追求するあまり、電子ツールの新しい機能を使いこなせなくなること。",
+            "直接会って話す機会を増やしすぎたことで、業務の進行が大幅に遅れてしまうこと。"
+          ],
+          "answer": 0,
+          "explainVi": "Phân tích: Ở đoạn 2 (câu 6, 7, 8), tác giả chỉ ra rằng vì quá sốt ruột muốn giải quyết công việc (焦りのあまり) và tiếc thời gian viết cẩn thận (惜しんだばかりに), muốn cắt giảm câu chữ chỉ truyền đạt ý chính (文字数を減らして要点だけを伝えようとしたばかりに) nên đã gây ấn tượng lạnh lùng cho đồng nghiệp và gây ra hiểu lầm, rắc rối lớn. Do đó đáp án 0 là chính xác.\n- Phương án 1 sai vì bài viết nói người gửi cố gắng giảm bớt chữ (文字数を減らして) chứ không phải gửi quá dài.\n- Phương án 2 sai vì bài viết không đề cập đến việc không làm chủ được tính năng mới của công cụ.\n- Phương án 3 sai vì đoạn này nói về việc nhắn tin qua mạng, không hề đề cập đến việc gặp mặt trực tiếp quá nhiều.",
+          "tip": "Tìm các câu có cấu trúc chỉ hệ quả xấu như「〜のあまり」「〜ばかりに」ở đoạn 2 để nắm bắt các tác hại được tác giả liệt kê.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Ở đoạn 2, điều nào được nêu là tác hại của việc quá vội trả lời tin nhắn?",
+            "o": [
+              "Kết quả của việc bỏ qua cách diễn đạt lịch sự để chỉ truyền đạt ý chính là tạo ấn tượng lạnh lùng hoặc gây hiểu lầm cho đối phương.",
+              "Tin nhắn có quá nhiều chữ khiến đối phương mất nhiều thời gian để đọc.",
+              "Vì quá mải theo đuổi hiệu quả công việc nên không thể sử dụng thành thạo các chức năng mới của công cụ điện tử.",
+              "Việc tăng quá nhiều cơ hội gặp mặt trực tiếp để trò chuyện khiến tiến độ công việc bị chậm đáng kể."
+            ]
+          }
+        },
+        {
+          "q": "第3段落の「本末転倒と言える」とは、どのような状況を指しているか。",
+          "options": [
+            "上司からのメッセージに緊張して、電子ツールを使わずにすべて直接会って話そうとすること。",
+            "仕事を円滑にするための便利なツールによって、かえって直接の対話や質問の機会が減ってしまうこと。",
+            "質問や相談を遠慮なくしすぎたばかりに、上司の業務時間を奪って迷惑をかけること。",
+            "新入社員が些細な確認を何度も繰り返したことで、業務の修正に大きな時間がかかること。"
+          ],
+          "answer": 1,
+          "explainVi": "Phân tích: Tại câu 13, tác giả viết「連絡ツールが便利になったことで、かえって会話のきっかけを失ってしまうのは本末転倒と言える」(Việc công cụ liên lạc trở nên tiện lợi nhưng lại làm mất đi cơ hội trò chuyện thì đúng là đảo lộn đầu đuôi). Mục đích của công cụ là để kết nối và hỗ trợ công việc, nhưng nó lại khiến con người e dè không dám hỏi hay trò chuyện trực tiếp, làm giảm giao tiếp thật sự. Do đó đáp án 1 chính xác.\n- Phương án 0 sai vì nhân viên trẻ sợ hãi không dám hỏi chứ không phải đi gặp trực tiếp mọi lúc.\n- Phương án 2 sai vì bài nêu họ quá e dè không dám hỏi (遠慮し続ける), trái ngược với việc 'hỏi quá nhiều'.\n- Phương án 3 sai vì bài viết nói do lơ là không xác nhận (怠った) chứ không phải do xác nhận quá nhiều lần.",
+          "tip": "Để hiểu cụm từ「本末転倒」(đảo lộn đầu đuôi/chính phụ), hãy đối chiếu mục đích ban đầu của công cụ tiện lợi với kết quả tiêu cực thực tế phát sinh trong bối cảnh câu 10-14.",
+          "evi": [
+            10,
+            11,
+            12,
+            13
+          ],
+          "qt": {
+            "q": "Cụm 「本末転倒と言える」 ở đoạn 3 chỉ tình huống như thế nào?",
+            "o": [
+              "Căng thẳng vì tin nhắn của cấp trên, nên không dùng công cụ điện tử mà định trao đổi tất cả bằng cách gặp trực tiếp.",
+              "Các công cụ tiện lợi nhằm giúp công việc diễn ra suôn sẻ lại khiến cơ hội đối thoại trực tiếp và đặt câu hỏi giảm đi.",
+              "Vì quá thường xuyên hỏi han, trao đổi mà không ngần ngại nên chiếm mất thời gian làm việc của cấp trên và gây phiền toái.",
+              "Do nhân viên mới lặp đi lặp lại những xác nhận nhỏ nhặt nên việc chỉnh sửa công việc tốn nhiều thời gian."
+            ]
+          }
+        },
+        {
+          "q": "筆者が本文全体を通じて最も主張したいことは何か。",
+          "options": [
+            "文字による連絡は誤解を生む危険性が高いため、すべての業務連絡を直接の対話に切り替えるべきだ。",
+            "デジタルツールが進化しても相手への配慮や対話を忘れず、状況に合わせて適切に使い分けることが大切だ。",
+            "若手社員は失敗を恐れずに、どんな些細な用件であっても必ず上司にオンラインでメッセージを送るべきだ。",
+            "ビジネスで最も重視すべきなのは情報伝達のスピードであり、効率を高めるためには感情表現を省く必要がある。"
+          ],
+          "answer": 1,
+          "explainVi": "Phân tích: Ở đoạn 4 và kết bài (câu 15-19), tác giả khẳng định công nghệ số dù tiến bộ cũng không tự động làm tăng độ tin cậy giữa con người (câu 17). Điều mấu chốt là phải hiểu rõ ưu/nhược điểm của công cụ để linh hoạt kết hợp với đối thoại trực tiếp khi cần thiết và luôn giữ sự thấu hiểu, quan tâm đến đối phương (câu 18, 19). Do đó đáp án 1 thể hiện trọn vẹn thông điệp toàn bài.\n- Phương án 0 sai vì tác giả không kêu gọi bỏ hẳn tin nhắn số để chuyển 100% sang gặp mặt, mà là biết kết hợp tùy tình huống (使い分ける).\n- Phương án 2 sai vì tác giả khuyên không nên chỉ dựa vào tin nhắn mà cần biết hỏi/trao đổi trực tiếp khi cần.\n- Phương án 3 sai vì đi ngược hoàn toàn với quan điểm tác giả ở câu 15 (quan trọng nhất không phải gửi nhanh mà là đặt mình vào vị trí đối phương).",
+          "tip": "Đối với câu hỏi về chủ đề/luận điểm toàn bài, hãy tập trung vào đoạn kết và các câu khẳng định mang tính đúc kết như「最も重要なのは」「〜鍵となる」.",
+          "evi": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Điều mà tác giả muốn nhấn mạnh nhất xuyên suốt toàn bài là gì?",
+            "o": [
+              "Vì liên lạc bằng chữ có nguy cơ gây hiểu lầm cao, nên cần chuyển tất cả liên lạc công việc sang đối thoại trực tiếp.",
+              "Ngay cả khi các công cụ kỹ thuật số phát triển, điều quan trọng là không quên quan tâm đến đối phương và đối thoại, đồng thời sử dụng chúng phù hợp với từng tình huống.",
+              "Nhân viên trẻ không nên sợ thất bại và cần luôn gửi tin nhắn trực tuyến cho cấp trên, dù việc đó nhỏ nhặt đến đâu.",
+              "Điều cần coi trọng nhất trong kinh doanh là tốc độ truyền đạt thông tin; để nâng cao hiệu quả, cần lược bỏ việc thể hiện cảm xúc."
+            ]
+          }
+        },
+        {
+          "q": "本文中の「〜からといって」という表現が使われている文から読み取れる筆者の考えとして、最も適切なものはどれか。",
+          "options": [
+            "メッセージが手軽に送れる環境であっても、相手が必ず意図通りに理解してくれると過信してはならない。",
+            "上司に対して気軽に連絡できるようになったのだから、遠慮せずにどんな時間でもメッセージを送るべきだ。",
+            "便利な機能が多い電子ツールを使えば、対話をしなくても自然に相手との深い信頼関係が生まれる。",
+            "返信を急ぐ必要がない場合は、文章の丁寧さや相手への配慮について深く考える必要はない。"
+          ],
+          "answer": 0,
+          "explainVi": "Phân tích: Cấu trúc「〜からといって」được tác giả dùng ở câu 2, 3, 12, 17 để bác bỏ những ngộ nhận chủ quan: (1) dễ gửi tin không có nghĩa là giao tiếp luôn thuận lợi (câu 2), (2) gửi chữ lúc nào cũng được không có nghĩa là đối phương sẽ hiểu đúng ý (câu 3), (3) sếp không phải lý do để ngại hỏi (câu 12), (4) công nghệ tân tiến không đồng nghĩa sự tin cậy tự động tăng (câu 17). Đáp án 0 phản ánh chính xác tinh thần của các câu này (không được quá tự tin/chủ quan rằng đối phương chắc chắn hiểu đúng ý mình chỉ vì công cụ tiện lợi).\n- Phương án 1 sai vì hiểu sai ý câu 12 (bài nói đừng vì là sếp mà e dè không hỏi, chứ không khuyên gửi tin bất kể giờ giấc).\n- Phương án 2 sai vì câu 17 khẳng định công nghệ không tự động làm sâu sắc mối quan hệ.\n- Phương án 3 sai vì tác giả luôn nhấn mạnh sự chu đáo với đối phương là quan trọng nhất.",
+          "tip": "Cấu trúc「〜からといって」mang sắc thái cảnh báo \"không thể lấy lý do A để mặc định suy ra B\". Chọn đáp án có tư duy phản biện chống lại sự ngộ nhận.",
+          "evi": [
+            2,
+            3,
+            12,
+            17
+          ],
+          "qt": {
+            "q": "Xét từ những câu trong bài có dùng cách diễn đạt 「〜からといって」, cách hiểu nào sau đây về suy nghĩ của tác giả là phù hợp nhất?",
+            "o": [
+              "Dù trong môi trường có thể gửi tin nhắn một cách dễ dàng, cũng không nên quá tin rằng đối phương chắc chắn sẽ hiểu đúng ý mình.",
+              "Vì giờ đây có thể dễ dàng liên lạc với cấp trên, nên nên gửi tin nhắn bất cứ lúc nào mà không cần ngần ngại.",
+              "Nếu sử dụng các công cụ điện tử có nhiều chức năng tiện lợi, thì mối quan hệ tin cậy sâu sắc với đối phương sẽ tự nhiên hình thành ngay cả khi không đối thoại.",
+              "Khi không cần trả lời gấp thì không cần suy nghĩ kỹ về sự lịch sự trong câu chữ hay việc quan tâm đến đối phương."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "サクラ自習室＆コワーキングスペース 会員プランとご利用案内",
+      "titleVi": "Phòng tự học & Coworking space Sakura - Bảng giá thành viên và hướng dẫn sử dụng",
+      "japanese": "サクラ自習室＆コワーキングスペース 会員プランとご利用案内\n当施設では、学習や仕事の目的に合わせて最適なプランをお選びいただけます。\nアプリで事前予約することで、スムーズにチェックインして席をご利用いただけます。\nプラン名｜利用可能時間｜月額基本料｜特徴と対象\nデイタイムプラン｜平日 9:00〜17:00｜6,000円｜平日昼間に集中したい一般・社会人\nナイト＆休日プラン｜平日 17:00〜23:00・土日祝 9:00〜23:00｜8,000円｜夜間プランを利用することで仕事帰りに最適\nフルタイムプラン｜全日 9:00〜23:00｜12,000円｜いつでも利用可能・個室月2時間無料\nスチューデントプラン｜全日 9:00〜21:00｜5,000円｜高校生・大学生限定（平日も土日も利用可）\n【ご利用についての注意事項】\n※1 学生向けプランがあるからといって、利用時に有効な学生証の提示がない場合は一般料金となります。\n※2 年間一括払いにすることで、年会費が2か月分割引されます。\n※3 会員だからといって、他の方への迷惑行為や無断での個室利用は固くお断りします。\n※4 試験前の焦りのあまり、利用規約をよく確認せず時間を超過しないようご注意ください。\n※5 予約確認メールを見落としたばかりに、入室用暗証番号が分からず利用できないトラブルが増えています。\n※6 フルタイム以外の会員も、1回500円を追加することで個室ブース（1時間）を利用可能です。",
+      "vietnamese": "Phòng tự học & Coworking space Sakura - Bảng giá thành viên và hướng dẫn sử dụng\nTại cơ sở của chúng tôi, quý khách có thể lựa chọn gói dịch vụ tối ưu phù hợp với mục đích học tập và làm việc.\nBằng cách đặt trước qua ứng dụng, quý khách có thể làm thủ tục vào cửa thuận tiện và sử dụng chỗ ngồi.\nTên gói｜Thời gian sử dụng｜Phí cơ bản hàng tháng｜Đặc điểm và đối tượng\nGói Daytime｜Ngày thường 9:00〜17:00｜6.000 yên｜Dành cho người đi làm/người lớn muốn tập trung vào ban ngày các ngày trong tuần\nGói Night & Ngày nghỉ｜Ngày thường 17:00〜23:00 / Thứ Bảy, CN, Ngày lễ 9:00〜23:00｜8.000 yên｜Rất thích hợp cho người đi làm về muộn thông qua việc sử dụng gói buổi tối\nGói Full-time｜Tất cả các ngày 9:00〜23:00｜12.000 yên｜Sử dụng mọi lúc, tặng 2 giờ phòng riêng miễn phí mỗi tháng\nGói Student｜Tất cả các ngày 9:00〜21:00｜5.000 yên｜Dành riêng cho học sinh cấp 3 và sinh viên đại học (sử dụng được cả ngày thường và cuối tuần)\n【Những điểm cần lưu ý về việc sử dụng】\n※1 Không phải vì có gói dành cho sinh viên mà lúc sử dụng nếu không xuất trình thẻ sinh viên hợp lệ thì sẽ bị tính theo giá thông thường.\n※2 Bằng cách chọn thanh toán trọn gói 1 năm, quý khách sẽ được giảm giá tương đương 2 tháng phí.\n※3 Dù nói là hội viên nhưng những hành vi gây phiền hà cho người khác hoặc tự ý sử dụng phòng riêng khi chưa xin phép đều bị nghiêm cấm.\n※4 Xin lưu ý không vì quá lo lắng trước kỳ thi mà không kiểm tra kỹ quy định sử dụng dẫn đến việc ngồi quá giờ quy định.\n※5 Đang có nhiều trường hợp phát sinh rắc rối không thể sử dụng do không biết mã số vào cửa chỉ vì lỡ bỏ sót email xác nhận đặt chỗ.\n※6 Các hội viên gói khác ngoài Full-time cũng có thể sử dụng buồng phòng riêng (1 giờ) bằng cách trả thêm 500 yên mỗi lần.",
+      "sentences": [
+        {
+          "jp": "サクラ自習室＆コワーキングスペース 会員プランとご利用案内",
+          "vi": "Phòng tự học & Coworking space Sakura - Bảng giá thành viên và hướng dẫn sử dụng",
+          "vocab": [
+            {
+              "w": "サクラ",
+              "read": "サクラ",
+              "vi": "hoa anh đào, tên riêng Sakura"
+            },
+            {
+              "w": "自習",
+              "read": "じしゅう",
+              "vi": "sự tự học"
+            },
+            {
+              "w": "コワーキングスペース",
+              "read": "コワーキングスペース",
+              "vi": "không gian làm việc chung"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "自習室",
+              "read": "じしゅうしつ",
+              "vi": "phòng tự học"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "会員プランとご利用案内",
+              "why": "Tiêu đề thông báo nêu rõ nội dung về các gói thành viên và quy định sử dụng."
+            }
+          ]
+        },
+        {
+          "jp": "当施設では、学習や仕事の目的に合わせて最適なプランをお選びいただけます。",
+          "vi": "Tại cơ sở của chúng tôi, quý khách có thể lựa chọn gói dịch vụ tối ưu phù hợp với mục đích học tập và làm việc.",
+          "vocab": [
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "合わせる",
+              "read": "あわせる",
+              "vi": "thống nhất, khớp lại"
+            },
+            {
+              "w": "最適",
+              "read": "さいてき",
+              "vi": "tối ưu, thích hợp nhất"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "選び",
+              "read": "えらび",
+              "vi": "sự lựa chọn, chọn lọc"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "当施設",
+              "read": "とうしせつ",
+              "vi": "cơ sở của chúng tôi"
+            },
+            {
+              "w": "目的に合わせて",
+              "read": "もくてきにあわせて",
+              "vi": "phù hợp với mục đích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に合わせて",
+              "vi": "N + に合わせて: Biểu thị hành động điều chỉnh sao cho tương thích, phù hợp với N ('tùy theo / phù hợp với N'). Trong câu: tùy theo mục đích học tập hay làm việc để lựa chọn gói dịch vụ tối ưu."
+            },
+            {
+              "point": "お〜いただける",
+              "vi": "お + V(bỏ ます) + いただける: Dạng khả năng lịch sự thuộc kính ngữ (tôn kính hành động của đối phương/khách hàng, mang nghĩa 'quý khách có thể...'). Trong câu: 「お選びいただけます」nghĩa là quý khách có thể tự do lựa chọn."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "アプリで事前予約することで、スムーズにチェックインして席をご利用いただけます。",
+          "vi": "Bằng cách đặt trước qua ứng dụng, quý khách có thể làm thủ tục vào cửa thuận tiện và sử dụng chỗ ngồi.",
+          "vocab": [
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước, sự chuẩn bị trước"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "スムーズ",
+              "read": "スムーズ",
+              "vi": "thuận lợi, trơn tru"
+            },
+            {
+              "w": "チェックイン",
+              "read": "チェックイン",
+              "vi": "nhận phòng (check-in)"
+            },
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "事前予約",
+              "read": "じぜんよやく",
+              "vi": "đặt trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで",
+              "vi": "Bằng cách ~ thì (thông qua phương thức/hành động làm tiền đề)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "事前予約することで",
+              "why": "Điều kiện đặt trước qua ứng dụng để nhận hỗ trợ check-in thuận tiện."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜利用可能時間｜月額基本料｜特徴と対象",
+          "vi": "Tên gói｜Thời gian sử dụng｜Phí cơ bản hàng tháng｜Đặc điểm và đối tượng",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "利用可能時間",
+              "read": "りようかのうじかん",
+              "vi": "thời gian có thể sử dụng"
+            },
+            {
+              "w": "月額基本料",
+              "read": "げつがくきほんりょう",
+              "vi": "phí cơ bản hàng tháng"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "デイタイムプラン｜平日 9:00〜17:00｜6,000円｜平日昼間に集中したい一般・社会人",
+          "vi": "Gói Daytime｜Ngày thường 9:00〜17:00｜6.000 yên｜Dành cho người đi làm/người lớn muốn tập trung vào ban ngày các ngày trong tuần",
+          "vocab": [
+            {
+              "w": "デイタイムプラン",
+              "read": "デイタイムプラン",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường trong tuần"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "đại chúng, thông thường (phân loại)"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đi làm"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "平日 9:00〜17:00",
+              "why": "Khung giờ giới hạn chỉ áp dụng ban ngày các ngày trong tuần của gói Daytime."
+            }
+          ]
+        },
+        {
+          "jp": "ナイト＆休日プラン｜平日 17:00〜23:00・土日祝 9:00〜23:00｜8,000円｜夜間プランを利用することで仕事帰りに最適",
+          "vi": "Gói Night & Ngày nghỉ｜Ngày thường 17:00〜23:00 / Thứ Bảy, CN, Ngày lễ 9:00〜23:00｜8.000 yên｜Rất thích hợp cho người đi làm về muộn thông qua việc sử dụng gói buổi tối",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "休日",
+              "read": "きゅうじつ",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "chúc mừng, ngày lễ"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "最適",
+              "read": "さいてき",
+              "vi": "tối ưu, thích hợp nhất"
+            },
+            {
+              "w": "土日祝",
+              "read": "どにちしゅく",
+              "vi": "thứ bảy, chủ nhật và ngày lễ"
+            },
+            {
+              "w": "仕事帰り",
+              "read": "しごとがえり",
+              "vi": "trên đường đi làm về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで",
+              "vi": "Bằng cách ~ thì (thông qua phương thức/hành động làm tiền đề)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日 17:00〜23:00・土日祝 9:00〜23:00",
+              "why": "Khung giờ quy định buổi tối và ngày nghỉ của gói Night & Holiday."
+            },
+            {
+              "w": "8,000円",
+              "why": "Mức phí cố định hàng tháng cho gói ban đêm và ngày nghỉ."
+            }
+          ]
+        },
+        {
+          "jp": "フルタイムプラン｜全日 9:00〜23:00｜12,000円｜いつでも利用可能・個室月2時間無料",
+          "vi": "Gói Full-time｜Tất cả các ngày 9:00〜23:00｜12.000 yên｜Sử dụng mọi lúc, tặng 2 giờ phòng riêng miễn phí mỗi tháng",
+          "vocab": [
+            {
+              "w": "フルタイム",
+              "read": "ふるたいむ",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "フルタイムプラン",
+              "read": "ふるたいむぷらん",
+              "vi": "gói toàn thời gian"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "23:00",
+              "read": "にじゅうさんじ",
+              "vi": "23 giờ"
+            },
+            {
+              "w": "12,000円",
+              "read": "いちまんにせんえん",
+              "vi": "12.000 yên"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "2時間",
+              "read": "にじかん",
+              "vi": "2 giờ"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "個室月2時間無料",
+              "why": "Đặc quyền phòng riêng miễn phí 2 tiếng mỗi tháng chỉ dành cho gói Full-time."
+            }
+          ]
+        },
+        {
+          "jp": "スチューデントプラン｜全日 9:00〜21:00｜5,000円｜高校生・大学生限定（平日も土日も利用可）",
+          "vi": "Gói Student｜Tất cả các ngày 9:00〜21:00｜5.000 yên｜Dành riêng cho học sinh cấp 3 và sinh viên đại học (sử dụng được cả ngày thường và cuối tuần)",
+          "vocab": [
+            {
+              "w": "スチューデントプラン",
+              "read": "スチューデントプラン",
+              "vi": "gói sinh viên, gói học sinh"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "tất cả các ngày"
+            },
+            {
+              "w": "高校生",
+              "read": "こうこうせい",
+              "vi": "học sinh cấp 3"
+            },
+            {
+              "w": "大学生",
+              "read": "だいがくせい",
+              "vi": "sinh viên đại học"
+            },
+            {
+              "w": "限定",
+              "read": "げんてい",
+              "vi": "giới hạn, dành riêng"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "利用可",
+              "read": "りようか",
+              "vi": "có thể sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "全日 9:00〜21:00",
+              "why": "Khung giờ áp dụng cho cả ngày thường và cuối tuần của gói Student."
+            },
+            {
+              "w": "5,000円",
+              "why": "Mức giá ưu đãi thấp nhất dành riêng cho đối tượng học sinh, sinh viên."
+            },
+            {
+              "w": "高校生・大学生限定",
+              "why": "Điều kiện bắt buộc về đối tượng được đăng ký gói Student."
+            }
+          ]
+        },
+        {
+          "jp": "【ご利用についての注意事項】",
+          "vi": "【Những điểm cần lưu ý về việc sử dụng】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "事項",
+              "read": "じこう",
+              "vi": "hạng mục, điều khoản"
+            },
+            {
+              "w": "注意事項",
+              "read": "ちゅういじこう",
+              "vi": "hạng mục cần lưu ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜についての",
+              "vi": "N1 + についての + N2: Biểu thị đối tượng, chủ đề thảo luận hoặc hướng đến ('về / liên quan đến N1'). Trong câu: 「ご利用についての注意事項」nghĩa là các mục chú ý liên quan đến việc sử dụng."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "※1 学生向けプランがあるからといって、利用時に有効な学生証の提示がない場合は一般料金となります。",
+          "vi": "※1 Không phải vì có gói dành cho sinh viên mà lúc sử dụng nếu không xuất trình thẻ sinh viên hợp lệ thì sẽ bị tính theo giá thông thường.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho, hướng đến"
+            },
+            {
+              "w": "学生向け",
+              "read": "がくせいむけ",
+              "vi": "dành cho sinh viên"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "時",
+              "read": "じ",
+              "vi": "lúc, khi"
+            },
+            {
+              "w": "利用時",
+              "read": "りようじ",
+              "vi": "khi sử dụng"
+            },
+            {
+              "w": "有効",
+              "read": "ゆうこう",
+              "vi": "có hiệu lực"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ sinh viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "thông thường"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, giá"
+            },
+            {
+              "w": "一般料金",
+              "read": "いっぱんりょうきん",
+              "vi": "giá thông thường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からといって",
+              "vi": "Dù nói là vì ~ / Không phải cứ vì ~ mà (phủ nhận suy đoán một chiều)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "有効な学生証の提示がない場合",
+              "why": "Điều kiện ràng buộc nếu không xuất trình thẻ sinh viên hợp lệ sẽ bị tính giá thường."
+            },
+            {
+              "w": "一般料金となります",
+              "why": "Hệ quả bị áp mức phí thông thường nếu không chứng minh được tư cách sinh viên."
+            }
+          ]
+        },
+        {
+          "jp": "※2 年間一括払いにすることで、年会費が2か月分割引されます。",
+          "vi": "※2 Bằng cách chọn thanh toán trọn gói 1 năm, quý khách sẽ được giảm giá tương đương 2 tháng phí.",
+          "vocab": [
+            {
+              "w": "年間",
+              "read": "ねんかん",
+              "vi": "hằng năm"
+            },
+            {
+              "w": "一括払い",
+              "read": "いっかつばらい",
+              "vi": "thanh toán một lần"
+            },
+            {
+              "w": "年間一括払い",
+              "read": "ねんかんいっかつばらい",
+              "vi": "thanh toán một lần cả năm"
+            },
+            {
+              "w": "する",
+              "read": "する",
+              "vi": "làm, chọn"
+            },
+            {
+              "w": "年会",
+              "read": "ねんかい",
+              "vi": "hội nghị thường niên"
+            },
+            {
+              "w": "年会費",
+              "read": "ねんかいひ",
+              "vi": "phí hội viên hằng năm"
+            },
+            {
+              "w": "2か月",
+              "read": "にかげつ",
+              "vi": "2 tháng"
+            },
+            {
+              "w": "2か月分",
+              "read": "にかげつぶん",
+              "vi": "phần tương đương 2 tháng"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで",
+              "vi": "Bằng cách ~ thì (thông qua phương thức/hành động làm tiền đề)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "年間一括払いにする",
+              "why": "Điều kiện thanh toán trọn gói 1 năm một lần."
+            },
+            {
+              "w": "2か月分割引",
+              "why": "Mức ưu đãi giảm 2 tháng phí khi đóng theo năm."
+            }
+          ]
+        },
+        {
+          "jp": "※3 会員だからといって、他の方への迷惑行為や無断での個室利用は固くお断りします。",
+          "vi": "※3 Dù nói là hội viên nhưng những hành vi gây phiền hà cho người khác hoặc tự ý sử dụng phòng riêng khi chưa xin phép đều bị nghiêm cấm.",
+          "vocab": [
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "他",
+              "read": "た",
+              "vi": "khác, ngoài ra"
+            },
+            {
+              "w": "迷惑",
+              "read": "めいわく",
+              "vi": "sự phiền hà, phiền phức"
+            },
+            {
+              "w": "行為",
+              "read": "こうい",
+              "vi": "hành vi"
+            },
+            {
+              "w": "無断",
+              "read": "むだん",
+              "vi": "tự ý, không xin phép"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "固い",
+              "read": "かたい",
+              "vi": "chặt chẽ, kiên quyết"
+            },
+            {
+              "w": "お断り",
+              "read": "おことわり",
+              "vi": "từ chối, nghiêm cấm"
+            },
+            {
+              "w": "迷惑行為",
+              "read": "めいわくこうい",
+              "vi": "hành vi làm phiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だからといって",
+              "vi": "Dù nói là vì ~ / Không phải cứ vì là ~ mà (phủ định hệ quả mặc nhiên)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "無断での個室利用",
+              "why": "Hành vi tự ý vào phòng riêng mà không đăng ký hoặc thanh toán trước bị cấm."
+            }
+          ]
+        },
+        {
+          "jp": "※4 試験前の焦りのあまり、利用規約をよく確認せず時間を超過しないようご注意ください。",
+          "vi": "※4 Xin lưu ý không vì quá lo lắng trước kỳ thi mà không kiểm tra kỹ quy định sử dụng dẫn đến việc ngồi quá giờ quy định.",
+          "vocab": [
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "焦り",
+              "read": "あせり",
+              "vi": "sự nôn nóng, sốt ruột, lo âu"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "規約",
+              "read": "きやく",
+              "vi": "quy ước, quy định"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "超過",
+              "read": "ちょうか",
+              "vi": "quá giờ, vượt mức"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "利用規約",
+              "read": "りようきやく",
+              "vi": "điều khoản sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のあまり",
+              "vi": "Vì quá ~ (cảm xúc/trạng thái quá mức dẫn đến hành động tiêu cực)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "焦りのあまり",
+              "why": "Tâm lý sốt ruột quá mức dẫn đến việc vi phạm quy định về giờ giấc."
+            }
+          ]
+        },
+        {
+          "jp": "※5 予約確認メールを見落としたばかりに、入室用暗証番号が分からず利用できないトラブルが増えています。",
+          "vi": "※5 Đang có nhiều trường hợp phát sinh rắc rối không thể sử dụng do không biết mã số vào cửa chỉ vì lỡ bỏ sót email xác nhận đặt chỗ.",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "見落とす",
+              "read": "みおとす",
+              "vi": "bỏ sót, nhìn sót"
+            },
+            {
+              "w": "入室",
+              "read": "にゅうしつ",
+              "vi": "vào phòng"
+            },
+            {
+              "w": "暗証",
+              "read": "あんしょう",
+              "vi": "mật mã, mã số bí mật"
+            },
+            {
+              "w": "番号",
+              "read": "ばんごう",
+              "vi": "số thứ tự, số hiệu"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "トラブル",
+              "read": "トラブル",
+              "vi": "rắc rối, sự cố"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "暗証番号",
+              "read": "あんしょうばんごう",
+              "vi": "mã PIN, mật khẩu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかりに",
+              "vi": "Chỉ vì ~ (nguyên nhân đơn lẻ dẫn đến kết quả xấu ngoài ý muốn)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "見落としたばかりに",
+              "why": "Nguyên nhân sơ suất bỏ sót email dẫn đến hậu quả không thể vào phòng."
+            }
+          ]
+        },
+        {
+          "jp": "※6 フルタイム以外の会員も、1回500円を追加することで個室ブース（1時間）を利用可能です。",
+          "vi": "※6 Các hội viên gói khác ngoài Full-time cũng có thể sử dụng buồng phòng riêng (1 giờ) bằng cách trả thêm 500 yên mỗi lần.",
+          "vocab": [
+            {
+              "w": "フルタイム",
+              "read": "ふるたいむ",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "以外",
+              "read": "いがい",
+              "vi": "ngoài, trừ"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên, thành viên"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "bổ sung, thêm"
+            },
+            {
+              "w": "追加する",
+              "read": "ついかする",
+              "vi": "bổ sung, thêm vào"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "ブース",
+              "read": "ぶーす",
+              "vi": "buồng, booth"
+            },
+            {
+              "w": "個室ブース",
+              "read": "こしつぶーす",
+              "vi": "buồng riêng"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "một giờ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで",
+              "vi": "Bằng cách ~ thì (thông qua phương thức/hành động làm tiền đề)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "1回500円を追加することで",
+              "why": "Quy định mức phụ phí 500 yên/lần để sử dụng phòng riêng theo giờ cho các gói khác."
+            },
+            {
+              "w": "個室ブース（1時間）を利用可能",
+              "why": "Quy định thời lượng tối thiểu 1 tiếng mỗi lần mua thêm phòng riêng."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "事前予約することで",
+          "label": "〜ことで"
+        },
+        {
+          "excerpt": "夜間プランを利用することで",
+          "label": "〜ことで"
+        },
+        {
+          "excerpt": "学生向けプランがあるからといって",
+          "label": "〜からといって"
+        },
+        {
+          "excerpt": "会員だからといって",
+          "label": "〜だからといって"
+        },
+        {
+          "excerpt": "焦りのあまり",
+          "label": "〜のあまり"
+        },
+        {
+          "excerpt": "見落としたばかりに",
+          "label": "〜ばかりに"
+        },
+        {
+          "excerpt": "1回500円を追加することで",
+          "label": "〜ことで"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "施設紹介と利用手順",
+          "topic": 0,
+          "note": "Giới thiệu chung về cơ sở và phương thức đặt chỗ trước qua ứng dụng",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "body",
+          "label": "料金プラン一覧表",
+          "topic": 3,
+          "note": "Bảng chi tiết các gói dịch vụ, khung giờ áp dụng, mức phí và đối tượng",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 14,
+          "kind": "point",
+          "label": "注意事項と追加オプション",
+          "topic": 8,
+          "note": "Các điều kiện về thẻ sinh viên, ưu đãi đóng năm và phụ phí phòng riêng",
+          "qs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学生のタンさんは、平日の夜（18:00〜21:00）と土曜日の午後（13:00〜17:00）に自習室を利用したいと考えている。学生証を提示できる場合、最も安い月額料金で利用できるプランはどれか。",
+          "options": [
+            "デイタイムプラン（6,000円）",
+            "ナイト＆休日プラン（8,000円）",
+            "フルタイムプラン（12,000円）",
+            "スチューデントプラン（5,000円）"
+          ],
+          "answer": 3,
+          "explainVi": "Gói Student (5.000 yên) cho phép sử dụng tất cả các ngày từ 9:00 đến 21:00, đáp ứng đủ khung giờ bạn Tân cần (tối ngày thường 18:00〜21:00 và chiều thứ Bảy 13:00〜17:00). Vì Tân là sinh viên có thẻ sinh viên (thỏa mãn điều kiện ở dòng 7 và ※1 dòng 9), đây là gói có chi phí rẻ nhất (5.000 yên so với 8.000 yên của gói Night & Holiday).",
+          "tip": "Đối chiếu khung giờ sử dụng của đối tượng với cột thời gian trong bảng, sau đó kiểm tra điều kiện đối tượng kèm giấy tờ hợp lệ để chọn mức giá tối ưu nhất.",
+          "evi": [
+            7,
+            9
+          ],
+          "qt": {
+            "q": "Sinh viên đại học Tan muốn sử dụng phòng tự học vào buổi tối các ngày trong tuần (18:00–21:00) và buổi chiều thứ Bảy (13:00–17:00). Nếu có thể xuất trình thẻ sinh viên, gói nào cho phép sử dụng với phí tháng rẻ nhất?",
+            "o": [
+              "Gói ban ngày (6.000 yên)",
+              "Gói ban đêm và ngày nghỉ (8.000 yên)",
+              "Gói toàn thời gian (12.000 yên)",
+              "Gói dành cho sinh viên (5.000 yên)"
+            ]
+          }
+        },
+        {
+          "q": "会社員のマイさんは「ナイト＆休日プラン」に入会し、今月は個室ブースを2時間だけ利用したいと考えている。マイさんの利用方法と費用に関する説明として正しいものはどれか。",
+          "options": [
+            "ナイト＆休日プランには個室無料特典がついているため、追加料金なしで個室を利用できる。",
+            "ナイト＆休日プランでも、1回500円の追加料金を2回分（合計1,000円）支払うことで個室を2時間利用できる。",
+            "会員だからといって個室を追加利用することはできず、フルタイムプランへ変更しなければならない。",
+            "平日の昼間（10:00〜16:00）であっても、個室料金を支払えば自由に自習室自体を利用できる。"
+          ],
+          "answer": 1,
+          "explainVi": "Theo bảng dòng 6, chỉ có gói Full-time mới được tặng 2 giờ phòng riêng miễn phí mỗi tháng. Theo mục ※6 (dòng 14), các hội viên không phải Full-time có thể trả thêm 500 yên/lần để sử dụng phòng riêng 1 giờ. Do đó, Mai muốn dùng 2 giờ thì cần trả thêm 1.000 yên (500 yên × 2).",
+          "tip": "Tìm điều kiện phụ thu phòng riêng ở các dòng ghi chú (※6) kết hợp với đặc quyền của gói cước trong bảng (dòng 5 và 6) để tính tổng chi phí chính xác.",
+          "evi": [
+            5,
+            6,
+            14
+          ],
+          "qt": {
+            "q": "Nhân viên công ty Mai đăng ký 「ナイト＆休日プラン」(Gói ban đêm và ngày nghỉ) và muốn sử dụng buồng phòng riêng trong tháng này chỉ 2 giờ. Mô tả nào sau đây về cách sử dụng và chi phí của Mai là đúng?",
+            "o": [
+              "Vì Gói ban đêm và ngày nghỉ có quyền lợi sử dụng phòng riêng miễn phí nên có thể dùng phòng riêng mà không phải trả thêm phí.",
+              "Ngay cả với Gói ban đêm và ngày nghỉ, có thể sử dụng buồng phòng riêng trong 2 giờ bằng cách trả phụ phí 500 yên mỗi lần, cho 2 lần (tổng cộng 1.000 yên).",
+              "Dù là hội viên cũng không thể sử dụng thêm phòng riêng, nên phải đổi sang Gói toàn thời gian.",
+              "Ngay cả vào ban ngày các ngày trong tuần (10:00–16:00), nếu trả phí phòng riêng thì vẫn có thể tự do sử dụng phòng tự học."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

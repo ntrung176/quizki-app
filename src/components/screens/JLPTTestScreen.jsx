@@ -6,6 +6,7 @@ import { db, appId } from '../../config/firebase';
 import { playCompletionFanfare } from '../../utils/soundEffects';
 
 import { useJLPTTestData } from '../../hooks/useJLPTTestData';
+import { updateSingleJLPTTestInCache } from '../../services/jlptDataService';
 import PrintErrorBoundary from '../jlptTest/PrintErrorBoundary';
 import JLPTPrintView from '../jlptTest/JLPTPrintView';
 import PrintPortal from '../jlptTest/PrintPortal';
@@ -323,19 +324,30 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         initTest(targetTest, wasRealExam ? 'real' : 'practice');
     };
 
-    const initTest = (test, mode = 'practice') => {
+    const initTest = (test, mode = 'practice', isResume = false) => {
         setPendingStartTest(null);
         setActiveTest(test);
         setIsRealExam(mode === 'real');
         setViolationCount(0);
         setShowViolationWarning(false);
         setShowFullscreenRequired(false);
-        setCurrentSectionIdx(0);
-        setCurrentQuestionIdx(0);
-        setAnswers({});
+
+        const testId = test?.id || test?._id;
+        const savedProgress = isResume ? (savedProgresses[testId] || savedProgresses[String(testId)]) : null;
+        if (savedProgress && savedProgress.answers && Object.keys(savedProgress.answers).length > 0) {
+            setAnswers(savedProgress.answers || {});
+            setCurrentSectionIdx(savedProgress.currentSectionIdx || 0);
+            setCurrentQuestionIdx(savedProgress.currentQuestionIdx || 0);
+            setTestStartTime(Date.now() - ((savedProgress.timeSpentSoFar || 0) * 1000));
+        } else {
+            setCurrentSectionIdx(0);
+            setCurrentQuestionIdx(0);
+            setAnswers({});
+            setTestStartTime(Date.now());
+        }
+
         setShowResult(false);
         setShowDetailedReview(false);
-        setTestStartTime(Date.now());
         setWasRealExam(mode === 'real');
 
         if (mode === 'real') {
@@ -429,6 +441,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
 
     const saveProgressAndExit = () => {
         if (!activeTest) return;
+        const testId = activeTest.id || activeTest._id;
+        const hasAnswers = answers && Object.keys(answers).length > 0;
+
+        if (!hasAnswers) {
+            // Nếu chưa chọn đáp án nào, không lưu tiến trình (và xóa tiến trình cũ nếu có)
+            const newProgresses = { ...savedProgresses };
+            if (newProgresses[testId] || newProgresses[String(testId)]) {
+                delete newProgresses[testId];
+                delete newProgresses[String(testId)];
+                setSavedProgresses(newProgresses);
+                try {
+                    localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+                } catch (e) {}
+                saveProgressesToFirestore(newProgresses);
+            }
+            setNotification("Chưa chọn câu trả lời nào, không lưu tiến trình.");
+            exitTest();
+            return;
+        }
+
         const elapsed = Math.round((Date.now() - (testStartTime || Date.now())) / 1000);
         const progressData = {
             answers: answers,
@@ -437,9 +469,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             timeSpentSoFar: elapsed,
             date: new Date().toISOString()
         };
-        const newProgresses = { ...savedProgresses, [activeTest.id]: progressData };
+        const newProgresses = { ...savedProgresses, [testId]: progressData };
         setSavedProgresses(newProgresses);
-        localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+        try {
+            localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+        } catch (e) {}
         saveProgressesToFirestore(newProgresses);
         setNotification("Đã lưu tiến trình làm bài!");
         exitTest();
@@ -455,6 +489,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
             await updateDoc(testRef, { sections: updatedSections });
 
+            updateSingleJLPTTestInCache(activeTest.id, { sections: updatedSections });
             setActiveTest(prev => ({ ...prev, sections: updatedSections }));
             setTests(prevTests => prevTests.map(t => t.id === activeTest.id ? { ...t, sections: updatedSections } : t));
             setEditingQuestionData(null);
@@ -474,12 +509,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isPremium;
             await setDoc(testRef, { isPremium: nextVal }, { merge: true });
+            updateSingleJLPTTestInCache(test.id, { isPremium: nextVal });
             setNotification(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`);
-            setTests(prevTests => {
-                const updated = prevTests.map(t => t.id === test.id ? { ...t, isPremium: nextVal } : t);
-                try { localStorage.setItem('quizki_cached_jlpt_tests', JSON.stringify(updated)); } catch (e) {}
-                return updated;
-            });
+            setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isPremium: nextVal } : t));
         } catch (err) { setNotification('Lỗi: ' + err.message); }
     };
 
@@ -490,6 +522,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isFixed;
             await updateDoc(testRef, { isFixed: nextVal });
+            updateSingleJLPTTestInCache(test.id, { isFixed: nextVal });
             setNotification(`Đã đánh dấu đề thi: ${nextVal ? 'Đã sửa' : 'Chưa sửa'}`);
             setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isFixed: nextVal } : t));
             if (activeTest && activeTest.id === test.id) {
@@ -530,7 +563,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     // Render Mode Selection Modal (Practice vs Real Exam)
     const renderModeSelectionModal = () => {
         if (!pendingStartTest) return null;
-        const savedProgress = savedProgresses[pendingStartTest.id];
+        const testId = pendingStartTest.id || pendingStartTest._id;
+        const savedProgress = savedProgresses[testId] || savedProgresses[String(testId)];
+        const hasSavedAnswers = !!(savedProgress && savedProgress.answers && Object.keys(savedProgress.answers).length > 0);
         let totalQ = 0;
         if (pendingStartTest.sections) {
             pendingStartTest.sections.forEach(sec => {
@@ -542,7 +577,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 }
             });
         }
-        const answeredSaved = savedProgress ? Object.keys(savedProgress.answers || {}).length : 0;
+        const answeredSaved = hasSavedAnswers ? Object.keys(savedProgress.answers).length : 0;
 
         return (
             <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans">
@@ -559,9 +594,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     <div className="p-6 space-y-4">
                         <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Vui lòng chọn chế độ làm bài thi phù hợp với nhu cầu của bạn:</p>
                         <div className="grid grid-cols-1 gap-4">
-                            {savedProgress && (
+                            {hasSavedAnswers && (
                                 <div 
-                                    onClick={() => initTest(pendingStartTest, 'practice')}
+                                    onClick={() => initTest(pendingStartTest, 'practice', true)}
                                     className="group border-2 border-emerald-500 dark:border-emerald-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-emerald-50/10 dark:bg-emerald-950/10 flex items-start gap-3.5"
                                 >
                                     <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400">
@@ -579,7 +614,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                             )}
 
                             <div 
-                                onClick={() => initTest(pendingStartTest, 'practice')}
+                                onClick={() => {
+                                    if (hasSavedAnswers) {
+                                        const newProgresses = { ...savedProgresses };
+                                        delete newProgresses[testId];
+                                        delete newProgresses[String(testId)];
+                                        setSavedProgresses(newProgresses);
+                                        try {
+                                            localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
+                                        } catch (e) {}
+                                        saveProgressesToFirestore(newProgresses);
+                                    }
+                                    initTest(pendingStartTest, 'practice', false);
+                                }}
                                 className="group border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 flex items-start gap-3.5"
                             >
                                 <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
@@ -587,7 +634,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">
-                                        {savedProgress ? 'Bắt đầu Luyện tập mới' : 'Chế độ Luyện tập'}
+                                        {hasSavedAnswers ? 'Bắt đầu Luyện tập mới' : 'Chế độ Luyện tập'}
                                     </h4>
                                     <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                                         Làm bài thoải mái. Hỗ trợ dịch thuật AI và tra từ vựng trực tiếp.
@@ -596,7 +643,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                             </div>
 
                             <div 
-                                onClick={() => initTest(pendingStartTest, 'real')}
+                                onClick={() => {
+                                    initTest(pendingStartTest, 'real', false);
+                                }}
                                 className="group border-2 border-slate-200 dark:border-slate-700 hover:border-rose-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 flex items-start gap-3.5"
                             >
                                 <div className="p-2.5 rounded-xl bg-rose-50 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400">
@@ -867,11 +916,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     showFullscreenRequired={showFullscreenRequired}
                     setShowFullscreenRequired={setShowFullscreenRequired}
                     pendingStartTest={pendingStartTest}
-                    setPendingStartTest={setPendingStartTest}
-                    savedProgresses={savedProgresses}
-                    resumeTest={() => initTest(pendingStartTest, 'practice')}
-                    startNewPracticeConfirm={() => initTest(pendingStartTest, 'practice')}
-                    startRealExamConfirm={() => initTest(pendingStartTest, 'real')}
+                    resumeTest={() => initTest(pendingStartTest, 'practice', true)}
+                    startNewPracticeConfirm={() => {
+                        if (pendingStartTest) {
+                            const testId = pendingStartTest.id || pendingStartTest._id;
+                            const newProgresses = { ...savedProgresses };
+                            delete newProgresses[testId];
+                            delete newProgresses[String(testId)];
+                            setSavedProgresses(newProgresses);
+                            try { localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses)); } catch (e) {}
+                            saveProgressesToFirestore(newProgresses);
+                        }
+                        initTest(pendingStartTest, 'practice', false);
+                    }}
+                    startRealExamConfirm={() => initTest(pendingStartTest, 'real', false)}
                     handleToggleTestFixed={handleToggleTestFixed}
                     handleStartPrint={() => handleStartPrint(activeTest)}
                     setAnswers={setAnswers}

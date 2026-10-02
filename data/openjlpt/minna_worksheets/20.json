@@ -1,0 +1,364 @@
+{
+  "bai": 20,
+  "bunpou": [
+    {
+      "stem": "このカメラは ＿。",
+      "choices": [
+        "高[たか]い",
+        "高[たか]いだ",
+        "高[たか]いです",
+        "高[たか]かった"
+      ],
+      "answer": 0,
+      "explain": "い-adj thể thường hiện tại giữ nguyên (高い), KHÔNG thêm だ; 高[たか]いだ là lỗi phổ biến vì nhầm quy tắc な-adj/danh từ."
+    },
+    {
+      "stem": "彼女[かのじょ]は ＿。",
+      "choices": [
+        "学生[がくせい]だ",
+        "学生[がくせい]",
+        "学生[がくせい]です",
+        "学生[がくせい]いだ"
+      ],
+      "answer": 0,
+      "explain": "Danh từ thể thường hiện tại dùng だ (学生だ); 学生 đơn độc thiếu vị ngữ, です là thể lịch sự."
+    },
+    {
+      "stem": "この 図書館[としょかん]は とても ＿。",
+      "choices": [
+        "静[しず]かだ",
+        "静[しず]か",
+        "静[しず]かいだ",
+        "静[しず]かです"
+      ],
+      "answer": 0,
+      "explain": "な-adj thể thường hiện tại thêm だ (静かだ); 静[しず]かいだ sai vì な-adj không có い; です là thể lịch sự."
+    },
+    {
+      "stem": "明日[あした] 学校[がっこう]へ ＿？ — うん、行[い]くよ。",
+      "choices": [
+        "行[い]く",
+        "行[い]きます",
+        "行[い]くだ",
+        "行[い]きますか"
+      ],
+      "answer": 0,
+      "explain": "Câu hỏi thân mật: động từ thể thường (行く) với ngữ điệu hỏi hoặc か; 行[い]くだ sai vì động từ không thêm だ."
+    },
+    {
+      "stem": "昨日[きのう]の テストは ＿。",
+      "choices": [
+        "難[むずか]しかった",
+        "難[むずか]しかっただ",
+        "難[むずか]しいだった",
+        "難[むずか]しかったです"
+      ],
+      "answer": 0,
+      "explain": "い-adj quá khứ thể thường: い→かった (難しかった); 難[むずか]しかっただ sai vì い-adj quá khứ không thêm だ."
+    },
+    {
+      "stem": "あの レストランは あまり ＿。",
+      "choices": [
+        "おいしくない",
+        "おいしい",
+        "おいしいだ",
+        "おいしくないです"
+      ],
+      "answer": 0,
+      "explain": "あまり〜ない = không mấy ~; thể thường phủ định い-adj: い→くない (おいしくない); です là thể lịch sự."
+    },
+    {
+      "stem": "昨日[きのう]は 暇[ひま]じゃ ＿、どこも 行[い]かなかった。",
+      "choices": [
+        "なかったから",
+        "ないから",
+        "なかったです",
+        "ないです"
+      ],
+      "answer": 0,
+      "explain": "暇じゃなかった (quá khứ phủ định) + から nêu lý do cho hành động quá khứ (行かなかった); ないから là hiện tại, không khớp với quá khứ."
+    },
+    {
+      "stem": "ご飯[はん]、食[た]べる？ — ううん、＿。",
+      "choices": [
+        "食[た]べない",
+        "食[た]べません",
+        "食[た]べないです",
+        "食[た]べない です"
+      ],
+      "answer": 0,
+      "explain": "Trả lời thân mật bằng thể thường phủ định (食べない); 食[た]べません là thể lịch sự, không phù hợp hội thoại thân mật."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "を",
+      "が",
+      "に",
+      "で",
+      "は",
+      "と",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "コーヒー＿ 好[す]きだ。",
+        "answer": "が",
+        "explain": "好きだ dùng が cho đối tượng yêu thích (コーヒーが好き); を là tân ngữ của hành động, không dùng với 好き."
+      },
+      {
+        "stem": "昨日[きのう] 図書館[としょかん]＿ 勉強[べんきょう]した。",
+        "answer": "で",
+        "explain": "で chỉ địa điểm diễn ra hành động; に chỉ hướng/đích, không phải nơi hoạt động."
+      },
+      {
+        "stem": "友達[ともだち]＿ 映画[えいが]を 見[み]た。",
+        "answer": "と",
+        "explain": "と chỉ \"cùng với\" người khác; に dùng khi nhờ vả/gặp gỡ một chiều, không phải cùng xem phim."
+      },
+      {
+        "stem": "わたし＿ テストが 難[むずか]しかった。",
+        "answer": "は",
+        "explain": "は nêu chủ đề (đối với tôi thì...); が nhấn mạnh chủ ngữ trong ngữ cảnh cụ thể."
+      },
+      {
+        "stem": "昨日[きのう] すし＿ 食[た]べた。",
+        "answer": "を",
+        "explain": "食べる là ngoại động từ, cần を cho tân ngữ (すしを食べた); が làm すし thành chủ ngữ, sai."
+      },
+      {
+        "stem": "公園[こうえん]＿ 行[い]かなかった。",
+        "answer": "に",
+        "explain": "行く dùng に/へ chỉ điểm đến (公園に行く); で chỉ nơi hoạt động, không dùng với 行く."
+      },
+      {
+        "stem": "彼[かれ]＿ 歌[うた]が 上手[じょうず]だ。",
+        "answer": "は",
+        "explain": "は nêu chủ đề (về anh ấy thì...); が nhấn mạnh chủ ngữ trong câu trả lời tự nhiên."
+      },
+      {
+        "stem": "わたし＿ 行[い]く。",
+        "answer": "も",
+        "explain": "も = \"cũng\" (tôi cũng đi); は chỉ nêu chủ đề không có nghĩa \"cũng\"."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "行[い]きます",
+      "prompt": "Thể thường hiện tại?",
+      "choices": [
+        "行[い]く",
+        "行[い]かない",
+        "行[い]った",
+        "行[い]きない"
+      ],
+      "answer": 0,
+      "explain": "行きます → 辞書形 行く (thể thường hiện tại khẳng định); 行[い]かない là phủ định, 行[い]った là quá khứ."
+    },
+    {
+      "base": "食[た]べません",
+      "prompt": "Thể thường phủ định?",
+      "choices": [
+        "食[た]べない",
+        "食[た]べくない",
+        "食[た]べません",
+        "食[た]べなかった"
+      ],
+      "answer": 0,
+      "explain": "Nhóm II phủ định thể thường: 食べません → 食べない; 食[た]べくない nhầm cách chia い-adj."
+    },
+    {
+      "base": "高[たか]いです",
+      "prompt": "Thể thường hiện tại?",
+      "choices": [
+        "高[たか]い",
+        "高[たか]いだ",
+        "高[たか]かった",
+        "高[たか]くない"
+      ],
+      "answer": 0,
+      "explain": "い-adj thể thường: bỏ です giữ nguyên (高い); 高[たか]いだ sai vì い-adj không thêm だ."
+    },
+    {
+      "base": "静[しず]かです",
+      "prompt": "Thể thường hiện tại?",
+      "choices": [
+        "静[しず]かだ",
+        "静[しず]か",
+        "静[しず]かいだ",
+        "静[しず]かです"
+      ],
+      "answer": 0,
+      "explain": "な-adj thể thường: bỏ です thêm だ (静かだ); 静[しず]か đơn độc thiếu vị ngữ, 静[しず]かいだ thêm い sai."
+    },
+    {
+      "base": "学生[がくせい]です",
+      "prompt": "Thể thường hiện tại?",
+      "choices": [
+        "学生[がくせい]だ",
+        "学生[がくせい]",
+        "学生[がくせい]です",
+        "学生[がくせい]いだ"
+      ],
+      "answer": 0,
+      "explain": "Danh từ thể thường: bỏ です thêm だ (学生だ); 学生[がくせい]いだ thêm い hoàn toàn sai."
+    },
+    {
+      "base": "飲[の]みました",
+      "prompt": "Thể thường quá khứ?",
+      "choices": [
+        "飲[の]んだ",
+        "飲[の]みた",
+        "飲[の]んで",
+        "飲[の]みだ"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I む-verb: みました → thể thường quá khứ む→んだ (飲んだ); 飲[の]みた nhầm dùng ます-stem."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "このカメラは",
+        "高[たか]い。"
+      ],
+      "vi": "Máy ảnh này đắt.",
+      "explain": "い-adj thể thường kết thúc câu bằng い (高い), không cần だ; cấu trúc: NはAdj。"
+    },
+    {
+      "chips": [
+        "彼女[かのじょ]は",
+        "学生[がくせい]だ。"
+      ],
+      "vi": "Cô ấy là sinh viên.",
+      "explain": "Danh từ + だ ở thể thường; は nêu chủ đề, だ là copula thể thường."
+    },
+    {
+      "chips": [
+        "昨日[きのう]",
+        "すしを",
+        "食[た]べた。"
+      ],
+      "vi": "Hôm qua tôi đã ăn sushi.",
+      "explain": "Thể た thường quá khứ (食べた); trạng từ thời gian (昨日) đứng đầu câu."
+    },
+    {
+      "chips": [
+        "昨日[きのう]の",
+        "映画[えいが]は",
+        "あまり",
+        "おもしろくなかった。"
+      ],
+      "vi": "Bộ phim hôm qua không thú vị lắm.",
+      "explain": "あまり〜くなかった: phủ định quá khứ い-adj (おもしろい→おもしろくなかった); あまり nhấn mạnh \"không mấy\"."
+    },
+    {
+      "chips": [
+        "明日[あした]、",
+        "暇[ひま]だ？",
+        "— うん、",
+        "暇[ひま]だよ。"
+      ],
+      "vi": "Ngày mai rảnh không? — Ừ, rảnh đấy.",
+      "explain": "Hội thoại thân mật: な-adj + だ (暇だ); よ cuối câu thêm khẳng định nhẹ trong văn thân mật."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "あした、ひまだ？ — うん、ひまだよ。えいがをみる？",
+      "ask": "Hai người định làm gì vào ngày mai?",
+      "choices": [
+        "Đi xem phim",
+        "Đi ăn cơm",
+        "Đi học"
+      ],
+      "answer": 0,
+      "script": "明日[あした]、暇[ひま]だ？ — うん、暇[ひま]だよ。映画[えいが]を 見[み]る？",
+      "explain": "映画を見る？ là lời rủ đi xem phim ở thể thường; ひまだ là な-adj thể thường xác nhận rảnh rỗi."
+    },
+    {
+      "tts": "きのう、なにをした？ — としょかんでべんきょうした。",
+      "ask": "Hôm qua người đó đã làm gì?",
+      "choices": [
+        "Học ở thư viện",
+        "Xem phim",
+        "Gặp bạn bè"
+      ],
+      "answer": 0,
+      "script": "昨日[きのう]、何[なに]を した？ — 図書館[としょかん]で 勉強[べんきょう]した。",
+      "explain": "べんきょうした là thể た thường; で chỉ địa điểm としょかん xác nhận học ở thư viện."
+    },
+    {
+      "tts": "このかめらはたかい？ — ううん、たかくない。やすいよ。",
+      "ask": "Máy ảnh đó như thế nào?",
+      "choices": [
+        "Rẻ",
+        "Đắt",
+        "Không biết"
+      ],
+      "answer": 0,
+      "script": "このカメラは 高[たか]い？ — ううん、高[たか]くない。安[やす]いよ。",
+      "explain": "たかくない (phủ定) + やすい (khẳng định) → rẻ; ううん là phủ định thân mật (≠ いいえ lịch sự)."
+    },
+    {
+      "tts": "きのうのパーティー、たのしかった？ — うん、とてもたのしかった。",
+      "ask": "Buổi tiệc hôm qua thế nào?",
+      "choices": [
+        "Rất vui",
+        "Không vui lắm",
+        "Chán"
+      ],
+      "answer": 0,
+      "script": "昨日[きのう]の パーティー、楽[たの]しかった？ — うん、とても 楽[たの]しかった。",
+      "explain": "たのしかった là い-adj quá khứ thể thường (楽しい→楽しかった); とても nhấn mạnh mức độ \"rất\"."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Máy ảnh này đắt.",
+      "target": "このカメラは高い。",
+      "accept": [
+        "このかめらはたかい。",
+        "このかめらはたかい"
+      ],
+      "explain": "い-adj thể thường kết thúc bằng い, không thêm だ; dấu 。có hoặc không đều chấp nhận."
+    },
+    {
+      "vi": "Anh ấy là sinh viên.",
+      "target": "彼は学生だ。",
+      "accept": [
+        "かれはがくせいだ。",
+        "かれはがくせいだ"
+      ],
+      "explain": "Danh từ thể thường + だ (学生だ); は nêu chủ đề, だ là vị ngữ thể thường."
+    },
+    {
+      "vi": "Thư viện này yên tĩnh.",
+      "target": "この図書館は静かだ。",
+      "accept": [
+        "このとしょかんはしずかだ。",
+        "このとしょかんはしずかだ"
+      ],
+      "explain": "な-adj thể thường + だ (静かだ); 静かです là thể lịch sự, không phải thể thường."
+    },
+    {
+      "vi": "Hôm qua tôi không đi đâu cả.",
+      "target": "昨日はどこも行かなかった。",
+      "accept": [
+        "きのうはどこもいかなかった。",
+        "きのうはどこもいかなかった"
+      ],
+      "explain": "どこも〜ない = không đến đâu cả; 行かなかった là phủ định quá khứ thể thường (行く→行かない→行かなかった)."
+    },
+    {
+      "vi": "Bộ phim hôm qua không thú vị lắm.",
+      "target": "昨日の映画はあまりおもしろくなかった。",
+      "accept": [
+        "きのうのえいがはあまりおもしろくなかった。",
+        "きのうのえいがはあまりおもしろくなかった"
+      ],
+      "explain": "あまり + い-adj phủ定quá khứ: おもしろい→おもしろくない→おもしろくなかった; の nối danh từ (昨日の映画)."
+    }
+  ]
+}

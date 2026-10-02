@@ -1,0 +1,360 @@
+{
+  "id": "minna1.b03",
+  "bai": 3,
+  "titleVi": "Nơi chốn — ここ・そこ・あそこ",
+  "know": [
+    {
+      "id": "minna1.b03.koko",
+      "point": "koko",
+      "jp": "ここ／そこ／あそこ／どこ",
+      "vi": "Đại từ nơi chốn theo vùng",
+      "gloss": "ở đây / ở đó / ở kia / ở đâu?"
+    },
+    {
+      "id": "minna1.b03.doko-desu",
+      "point": "doko-desu",
+      "jp": "〜は どこですか／〜は あそこです",
+      "vi": "Hỏi & nói nơi chốn (どちら lịch sự)",
+      "gloss": "～ ở đâu? — ～ ở kia."
+    },
+    {
+      "id": "minna1.b03.dokono",
+      "point": "dokono",
+      "jp": "どこの＋N",
+      "vi": "Hỏi xuất xứ hàng hoá",
+      "gloss": "N của nước/hãng nào?"
+    },
+    {
+      "id": "minna1.b03.kai",
+      "point": "kai",
+      "jp": "〜階／いくら",
+      "vi": "Tầng & giá tiền",
+      "gloss": "tầng mấy? / bao nhiêu tiền?"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b03-koko-uketsuke",
+      "item": "minna1.b03.koko",
+      "err": "koko-asoko",
+      "vi": "(Người nói đang đứng ngay tại quầy) Quầy lễ tân là ở đây ạ.",
+      "t1": {
+        "stem": "受付[うけつけ]は ＿です。",
+        "choices": [
+          "ここ",
+          "あそこ",
+          "そこ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "受付[うけつけ]は",
+          "ここです。"
+        ],
+        "traps": [
+          "あそこです。",
+          "どこですか。"
+        ]
+      },
+      "t3": {
+        "target": "受付はここです。",
+        "accept": [
+          "うけつけはここです。"
+        ]
+      },
+      "why": "Nơi ở ngay chỗ NGƯỜI NÓI → ここ (✗ あそこ — chỉ dùng khi xa cả hai người)."
+    },
+    {
+      "id": "c-b03-koko-denwa",
+      "item": "minna1.b03.koko",
+      "err": "koko-asoko",
+      "vi": "(Điện thoại ở ngay cạnh người nghe) Điện thoại ở đó (phía anh) ạ.",
+      "t1": {
+        "stem": "電話[でんわ]は ＿です。",
+        "choices": [
+          "そこ",
+          "ここ",
+          "あそこ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電話[でんわ]は",
+          "そこです。"
+        ],
+        "traps": [
+          "ここです。",
+          "あそこです。"
+        ]
+      },
+      "t3": {
+        "target": "電話はそこです。",
+        "accept": [
+          "でんわはそこです。"
+        ]
+      },
+      "why": "Vật ở gần NGƯỜI NGHE → そこ; ここ = gần người nói, あそこ = xa cả hai."
+    },
+    {
+      "id": "c-b03-dokodesu-toire",
+      "item": "minna1.b03.doko-desu",
+      "err": "doko-ga",
+      "vi": "Xin lỗi, nhà vệ sinh ở đâu ạ?",
+      "t1": {
+        "stem": "すみません、＿ですか。",
+        "choices": [
+          "トイレはどこ",
+          "どこがトイレ",
+          "トイレはどこが"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "すみません、",
+          "トイレは",
+          "どこですか。"
+        ],
+        "traps": [
+          "どこが",
+          "トイレですか。"
+        ]
+      },
+      "t3": {
+        "target": "すみません、トイレはどこですか。",
+        "accept": [
+          "すみません、といれはどこですか。"
+        ]
+      },
+      "why": "Hỏi nơi chốn: nêu đề tài rồi hỏi 〜はどこですか. どこがトイレですか hỏi \"cái nào LÀ toilet?\" — đổi hẳn trọng tâm, không dùng để hỏi đường."
+    },
+    {
+      "id": "c-b03-dokodesu-erebeta",
+      "item": "minna1.b03.doko-desu",
+      "err": "koko-asoko",
+      "vi": "(Chỉ tay về phía xa cả hai người) Thang máy ở đằng kia.",
+      "t1": {
+        "stem": "エレベーターは ＿です。",
+        "choices": [
+          "あそこ",
+          "ここ",
+          "そこ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "エレベーターは",
+          "あそこです。"
+        ],
+        "traps": [
+          "ここです。",
+          "どこですか。"
+        ]
+      },
+      "t3": {
+        "target": "エレベーターはあそこです。",
+        "accept": [
+          "えれべーたーはあそこです。"
+        ]
+      },
+      "why": "Nơi xa cả người nói lẫn người nghe → あそこ."
+    },
+    {
+      "id": "c-b03-dokodesu-kuni",
+      "item": "minna1.b03.doko-desu",
+      "err": "doko-ga",
+      "vi": "(Lịch sự, hỏi khách) Đất nước của anh/chị là nước nào ạ?",
+      "t1": {
+        "stem": "お国[くに]は ＿ですか。",
+        "choices": [
+          "どちら",
+          "どこが",
+          "どれ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お国[くに]は",
+          "どちらですか。"
+        ],
+        "traps": [
+          "どこが",
+          "どれですか。"
+        ]
+      },
+      "t3": {
+        "target": "お国はどちらですか。",
+        "accept": [
+          "おくにはどちらですか。"
+        ]
+      },
+      "why": "どちら là dạng lịch sự của どこ — chuẩn khi hỏi khách/người trên (cửa hàng, công sở)."
+    },
+    {
+      "id": "c-b03-dokono-kutsu",
+      "item": "minna1.b03.dokono",
+      "err": "dokono-no",
+      "vi": "Đôi giày đó là giày của nước nào (hãng nào)?",
+      "t1": {
+        "stem": "それは ＿ 靴[くつ]ですか。",
+        "choices": [
+          "どこの",
+          "どこ",
+          "どちらが"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "それは",
+          "どこの",
+          "靴[くつ]ですか。"
+        ],
+        "traps": [
+          "どこ",
+          "どこが"
+        ]
+      },
+      "t3": {
+        "target": "それはどこの靴ですか。",
+        "accept": [
+          "それはどこのくつですか。"
+        ]
+      },
+      "why": "Hỏi xuất xứ hàng hoá: どこの＋N. Thiếu の (✗ どこ靴) là sai ngữ pháp."
+    },
+    {
+      "id": "c-b03-dokono-wain",
+      "item": "minna1.b03.dokono",
+      "err": "dokono-no",
+      "vi": "Đây là rượu vang của Pháp.",
+      "t1": {
+        "stem": "これは フランス＿ ワインです。",
+        "choices": [
+          "の",
+          "が",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これは",
+          "フランスの",
+          "ワインです。"
+        ],
+        "traps": [
+          "フランスが",
+          "フランスから"
+        ]
+      },
+      "t3": {
+        "target": "これはフランスのワインです。",
+        "accept": [
+          "これはふらんすのわいんです。"
+        ]
+      },
+      "why": "Xuất xứ: tên nước/hãng ＋ の ＋ N — câu trả lời cho どこのワインですか."
+    },
+    {
+      "id": "c-b03-kai-shokudou",
+      "item": "minna1.b03.kai",
+      "err": "counter-wrong-type",
+      "vi": "Nhà ăn ở tầng mấy? — Tầng 7.",
+      "t1": {
+        "stem": "食堂[しょくどう]は ＿ですか。…７階[ななかい]です。",
+        "choices": [
+          "なんがい",
+          "なんさい",
+          "いくら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食堂[しょくどう]は",
+          "何階[なんがい]ですか。"
+        ],
+        "traps": [
+          "何歳[なんさい]ですか。",
+          "いくらですか。"
+        ]
+      },
+      "t3": {
+        "target": "食堂は何階ですか。",
+        "accept": [
+          "しょくどうはなんがいですか。"
+        ]
+      },
+      "why": "Hỏi tầng dùng 何階[なんがい] (Minna dạy đọc なんがい — biến âm がい); ✗ 何歳 (tuổi), ✗ いくら (giá). ７階 đọc ななかい."
+    },
+    {
+      "id": "c-b03-kai-nekutai",
+      "item": "minna1.b03.kai",
+      "err": "counter-wrong-type",
+      "vi": "(Ở cửa hàng) Cái cà vạt này bao nhiêu tiền? — 7.000 yên.",
+      "t1": {
+        "stem": "このネクタイは ＿ですか。…７０００円[ななせんえん]です。",
+        "choices": [
+          "いくら",
+          "なんがい",
+          "どこ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このネクタイは",
+          "いくらですか。"
+        ],
+        "traps": [
+          "何階[なんがい]ですか。",
+          "どこですか。"
+        ]
+      },
+      "t3": {
+        "target": "このネクタイはいくらですか。",
+        "accept": [
+          "このねくたいはいくらですか。"
+        ]
+      },
+      "why": "Hỏi giá dùng いくら, trả lời bằng 〜円[えん]. 何階[なんがい] hỏi tầng — đừng nhầm vì cùng là câu hỏi về số."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b03-doko",
+      "item": "minna1.b03.koko",
+      "err": "koko-asoko",
+      "tts": "すみません、じむしょは どこですか。じむしょは あそこです。",
+      "script": "すみません、事務所[じむしょ]は どこですか。— 事務所[じむしょ]は あそこです。",
+      "ask": "Văn phòng ở đâu?",
+      "choices": [
+        "Ở đằng kia (xa cả hai người)",
+        "Ở đây (ngay cạnh người nói)",
+        "Ở đó (cạnh người nghe)"
+      ],
+      "answer": 0,
+      "why": "あそこ = vùng xa cả người nói lẫn người nghe (ここ gần người nói, そこ gần người nghe)."
+    },
+    {
+      "id": "l-b03-kai",
+      "item": "minna1.b03.kai",
+      "err": "counter-wrong-type",
+      "tts": "かいぎしつは なんがいですか。かいぎしつは さんがいです。",
+      "script": "会議室[かいぎしつ]は 何階[なんがい]ですか。— 会議室[かいぎしつ]は ３階[さんがい]です。",
+      "ask": "Phòng họp ở tầng mấy?",
+      "choices": [
+        "Tầng 3",
+        "Tầng 1",
+        "Tầng 8"
+      ],
+      "answer": 0,
+      "why": "３階 đọc さんがい (biến âm がい) — nghe quen để khỏi lẫn với さんかい (３回)."
+    }
+  ]
+}

@@ -1,0 +1,3295 @@
+{
+  "bai": 33,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 33 giới thiệu thể mệnh lệnh（命令形）và thể cấm đoán（Vるな）— hai hình thức đặc biệt xuất hiện nhiều nhất trên BIỂN BÁO, KHẨU LỆNH và khi TRÍCH LỜI ai đó nói với giọng mạnh. Ngoài ra còn có mẫu「Nと読みます・書きます・言います」để nói tên/cách đọc, và「〜というN」để định nghĩa hoặc giới thiệu tên gọi. Đọc hiểu bài này = nhận ra VĂN CẢNH dùng thể mệnh lệnh (biển báo? huấn luyện? trích dẫn?) và nắm được ý nghĩa, không nhầm với câu lịch sự〜てください.",
+    "steps": [
+      "Đọc lướt để xác định văn cảnh: đây là biển báo, hướng dẫn an toàn, hay đoạn văn kể lại lời ai đó?",
+      "Tìm động từ dạng mệnh lệnh: nhóm I → âm え (行け、読め); nhóm II → ～ろ (食べろ、起きろ); bất quy tắc → しろ、来い.",
+      "Tìm Vるな (cấm đoán): nguyên thể + な (触るな, 入るな). Phân biệt với な cuối câu diễn đạt nhẹ nhàng.",
+      "Với〜というN: đọc phần đứng trước という để hiểu \"N có tên gọi là gì\" hoặc \"N mà người ta gọi là...\".",
+      "Với Nと読みます/書きます: N là cách đọc/cách viết. Chú ý N ở đây là âm/chữ, không phải nghĩa.",
+      "Câu hỏi suy luận thường hỏi: theo biển báo/hướng dẫn này thì phải làm gì / không được làm gì?"
+    ],
+    "tips": [
+      "命令形 KHÔNG dùng trong câu lịch sự thông thường — thể hiện mệnh lệnh trực tiếp, thường trên biển/khẩu lệnh/trích dẫn lời nói của nhân vật trong truyện/hồi ký.",
+      "Vるな: nguyên thể (từ điển) + な — đừng nhầm với Vてはいけません (lịch sự) hay Vないでください (yêu cầu nhẹ nhàng).",
+      "〜というN có thể dịch là \"N (được gọi là/có tên là ~)\". Phần trong ngoặc kép trước という là tên gọi.",
+      "Nと読みます = đọc N là \"~\"; Nと書きます = viết N là \"~\"; Nと言います = gọi N là \"~\".",
+      "Trong bài đọc N4, thể mệnh lệnh/cấm đoán hay xuất hiện trong: (a) biển báo được trích dẫn, (b) lời người lớn/thầy dạy, (c) tình huống khẩn cấp.",
+      "Đừng nhầm命令形 với可能形 (Bài 27): 読め = đọc đi! ≠ 読める = đọc được."
+    ],
+    "grammarFocus": [
+      "V命令形（行け/食べろ/起きろ/しろ/来い）",
+      "Vるな（禁止）",
+      "Nと読みます・書きます・言います",
+      "〜というN"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 32,
+        "items": [
+          "Vたほうがいいです",
+          "Vないほうがいいです",
+          "〜かもしれません"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "Vる予定です"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vてあります",
+          "Vておきます"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました",
+          "自動詞 vs 他動詞"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（〜えます/られます）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです",
+          "Nなんです"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜と（điều kiện tự nhiên）",
+          "〜とき"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と言いました",
+          "〜と思います"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vてはいけません"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "駅の案内板",
+      "titleVi": "Bảng thông báo ở ga",
+      "japanese": "駅の入り口にいろいろな案内板があります。\n「走るな」「携帯電話を使うな」「ゴミを捨てるな」などと書いてあります。\nまた、「非常口」というドアがあります。「非常口」は「ひじょうぐち」と読みます。意味は「緊急の出口」です。\n電車が来たとき、駅員が「離れろ！白い線の外に出るな！」と大きな声で言いました。\n私はすぐホームの端から離れました。駅のルールを守ることはとても大切だと思います。",
+      "vietnamese": "Ở cửa vào ga có nhiều bảng thông báo.\nCó những chữ viết như \"Không chạy\", \"Không dùng điện thoại di động\", \"Không vứt rác\".\nNgoài ra, có cánh cửa gọi là \"非常口\". \"非常口\" đọc là \"hijouguchi\". Nghĩa là \"lối thoát hiểm\".\nKhi tàu đến, nhân viên ga nói to \"Đứng ra! Không được ra ngoài vạch trắng!\".\nTôi lập tức rời khỏi mép sân ga. Tôi nghĩ việc tuân thủ quy định ở ga là rất quan trọng.",
+      "sentences": [
+        {
+          "jp": "駅の入り口にいろいろな案内板があります。",
+          "vi": "Ở cửa vào ga có nhiều loại bảng thông báo.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga tàu"
+            },
+            {
+              "w": "入り口",
+              "read": "いりぐち",
+              "vi": "cửa vào"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "案内板",
+              "read": "あんないばん",
+              "vi": "bảng thông báo, bảng hướng dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNがあります（Bài 10）",
+              "vi": "入り口にあります = có ở cửa vào. Vị trí + に + vật vô tri + があります."
+            }
+          ]
+        },
+        {
+          "jp": "「走るな」「携帯電話を使うな」「ゴミを捨てるな」などと書いてあります。",
+          "vi": "Có những chữ viết như \"Không chạy\", \"Không dùng điện thoại di động\", \"Không vứt rác\".",
+          "vocab": [
+            {
+              "w": "走ります",
+              "read": "はしります",
+              "vi": "chạy"
+            },
+            {
+              "w": "携帯",
+              "read": "けいたい",
+              "vi": "điện thoại di động, mang theo"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "ゴミ",
+              "read": "ゴミ",
+              "vi": "rác"
+            },
+            {
+              "w": "捨てます",
+              "read": "すてます",
+              "vi": "vứt, bỏ đi"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "携帯電話",
+              "read": "けいたいでんわ",
+              "vi": "điện thoại di động"
+            },
+            {
+              "w": "など",
+              "read": "など",
+              "vi": "v.v., và những thứ như vậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるな（禁止）",
+              "vi": "走るな / 使うな / 捨てるな = nguyên thể + な → cấm đoán trực tiếp. Đây là văn phong biển báo, mạnh hơn〜てはいけません."
+            },
+            {
+              "point": "Vてあります（Bài 30）",
+              "vi": "書いてあります = được viết (ai đó đã viết và còn đó). 他動詞 + てあります diễn tả kết quả còn tồn tại."
+            }
+          ]
+        },
+        {
+          "jp": "また、「非常口」というドアがあります。「非常口」は「ひじょうぐち」と読みます。意味は「緊急の出口」です。",
+          "vi": "Ngoài ra, có cánh cửa gọi là \"非常口\". \"非常口\" đọc là \"hijouguchi\". Nghĩa là \"lối thoát hiểm\".",
+          "vocab": [
+            {
+              "w": "非常口",
+              "read": "ひじょうぐち",
+              "vi": "lối thoát hiểm"
+            },
+            {
+              "w": "ドア",
+              "read": "ドア",
+              "vi": "cửa"
+            },
+            {
+              "w": "ょうぐち",
+              "read": "ょうぐち",
+              "vi": "lối ra, cửa ra"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "緊急",
+              "read": "きんきゅう",
+              "vi": "khẩn cấp"
+            },
+            {
+              "w": "出口",
+              "read": "でぐち",
+              "vi": "lối ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というN",
+              "vi": "「非常口」というドア = cánh cửa có tên gọi là \"非常口\". という đặt trước danh từ để giới thiệu tên gọi/định nghĩa."
+            },
+            {
+              "point": "Nと読みます",
+              "vi": "「非常口」は「ひじょうぐち」と読みます = \"非常口\" đọc là \"hijouguchi\". と trích dẫn cách đọc."
+            }
+          ]
+        },
+        {
+          "jp": "電車が来たとき、駅員が「離れろ！白い線の外に出るな！」と大きな声で言いました。",
+          "vi": "Khi tàu đến, nhân viên ga nói to \"Đứng ra! Không được ra ngoài vạch trắng!\".",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "駅員",
+              "read": "えきいん",
+              "vi": "nhân viên ga"
+            },
+            {
+              "w": "離れます",
+              "read": "はなれます",
+              "vi": "rời xa, đứng ra"
+            },
+            {
+              "w": "白い",
+              "read": "しろい",
+              "vi": "màu trắng"
+            },
+            {
+              "w": "線",
+              "read": "せん",
+              "vi": "vạch, đường kẻ"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "giọng nói, tiếng nói"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "電車が来たとき = khi tàu đến. Vた + とき = tại thời điểm hành động đã xảy ra."
+            },
+            {
+              "point": "V命令形（離れろ）",
+              "vi": "離れろ = nguyên thể 離れる (nhóm II) → thêm ろ → 離れろ. Dùng trong khẩu lệnh khẩn cấp."
+            },
+            {
+              "point": "Vるな（出るな）",
+              "vi": "出るな = nguyên thể 出る + な → cấm ra ngoài. Kết hợp với命令形 trong tình huống nguy hiểm."
+            }
+          ]
+        },
+        {
+          "jp": "私はすぐホームの端から離れました。駅のルールを守ることはとても大切だと思います。",
+          "vi": "Tôi lập tức rời khỏi mép sân ga. Tôi nghĩ việc tuân thủ quy định ở ga là rất quan trọng.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "ホーム",
+              "read": "ホーム",
+              "vi": "sân ga"
+            },
+            {
+              "w": "端",
+              "read": "はし",
+              "vi": "mép; đầu"
+            },
+            {
+              "w": "離れました",
+              "read": "はなれました",
+              "vi": "đã rời khỏi"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "quy tắc"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "tuân thủ"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "思います",
+              "read": "おもいます",
+              "vi": "nghĩ; cho rằng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "大切だと思います = tôi nghĩ là quan trọng. Thể thông thường + と思います diễn đạt ý kiến cá nhân."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "走るな",
+          "label": "Vるな（cấm đoán trên biển báo）"
+        },
+        {
+          "excerpt": "携帯電話を使うな",
+          "label": "Vるな（cấm đoán trên biển báo）"
+        },
+        {
+          "excerpt": "書いてあります",
+          "label": "Vてあります（kết quả còn tồn tại）"
+        },
+        {
+          "excerpt": "「非常口」というドア",
+          "label": "〜というN（giới thiệu tên gọi）"
+        },
+        {
+          "excerpt": "「非常口」は「ひじょうぐち」と読みます",
+          "label": "Nと読みます"
+        },
+        {
+          "excerpt": "離れろ",
+          "label": "V命令形（khẩu lệnh khẩn cấp）"
+        },
+        {
+          "excerpt": "白い線の外に出るな",
+          "label": "Vるな（cấm đoán trực tiếp）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「走るな」「携帯電話を使うな」などの文は、どんな形ですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "〜てください（お願い）の形です",
+            "〜てはいけません（禁止）の丁寧な形です",
+            "Vるな（禁止の命令）の形で、biển báoに使います",
+            "〜ないでください（お願い）の形です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết dẫn chứng trực tiếp「走るな」「携帯電話を使うな」「ゴミを捨てるな」— tất cả đều có cấu trúc nguyên thể (từ điển) + な, đây là dạng Vるな dùng trên biển báo để cấm đoán trực tiếp, mạnh và ngắn gọn. Đáp án 0 sai vì〜てください là yêu cầu lịch sự (thể て + ください), không phải cấm đoán. Đáp án 1 sai vì〜てはいけません cũng là cấm đoán nhưng ở văn phong lịch sự — biển báo không dùng dạng này. Đáp án 3 sai vì〜ないでください là nhờ vả nhẹ nhàng, hoàn toàn khác cấu trúc Vるな.",
+          "tip": "Vるな = nguyên thể (từ điển) + な, luôn xuất hiện trên BIỂN BÁO hoặc trong KHẨU LỆNH khẩn cấp. Câu ngắn, mạnh, không có ください — đó là dấu hiệu nhận biết tức thì.",
+          "qt": {
+            "q": "「走るな」（Đừng chạy） và 「携帯電話を使うな」（Đừng sử dụng điện thoại di động） là những câu thuộc dạng nào?",
+            "o": [
+              "Dạng 〜てください (yêu cầu/nhờ vả)",
+              "Dạng lịch sự của 〜てはいけません (cấm đoán)",
+              "Dạng Vるな (mệnh lệnh cấm đoán), được dùng trên biển báo",
+              "Dạng 〜ないでください (yêu cầu/nhờ vả)"
+            ]
+          }
+        },
+        {
+          "q": "「非常口」というドアは何ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "電車に乗るためのドアです",
+            "荷物を置くためのドアです",
+            "緊急のときに使う出口です",
+            "チケットを買うためのドアです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết giải nghĩa trực tiếp:「意味は「緊急の出口」です」(nghĩa là \"lối thoát khẩn cấp\"). Câu này vận dụng mẫu Nと読みます (「非常口」は「ひじょうぐち」と読みます) và〜というN để giới thiệu tên gọi rồi định nghĩa ngay. Đáp án 0, 1, 3 đều bịa đặt — không có chi tiết nào trong bài nhắc đến lên tàu, để hành lý, hay mua vé.",
+          "tip": "Khi bài dùng「〜というN」rồi giải nghĩa ngay bằng「意味は〜です」, đáp án chính là phần sau「意味は」. Không cần suy luận thêm — chép lại nghĩa đã cho.",
+          "qt": {
+            "q": "Cánh cửa có ghi 「非常口」 là gì?",
+            "o": [
+              "Cửa để lên tàu điện",
+              "Cửa để đặt hành lý",
+              "Lối ra dùng trong trường hợp khẩn cấp",
+              "Cửa để mua vé"
+            ]
+          }
+        },
+        {
+          "q": "駅員が「離れろ！白い線の外に出るな！」と言った理由は何だと思いますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "電車が遅れているから、急いで乗るためです",
+            "電車が来て、危ないから、安全のためです",
+            "ゴミを捨てないように言いたいからです",
+            "切符を買いに行くように言いたいからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi rõ bối cảnh:「電車が来たとき、駅員が「離れろ！白い線の外に出るな！」と大きな声で言いました」— tàu đến, nhân viên dùng đồng thời命令形 (離れろ) và Vるな (出るな) với giọng to → rõ ràng là cảnh báo an toàn khi tàu tiến vào ga. Đáp án 0 sai vì tàu đến chứ không phải trễ, và mục đích là tránh xa chứ không phải lên nhanh. Đáp án 2 và 3 sai hoàn toàn — không có nội dung nào về rác hay mua vé trong đoạn này.",
+          "tip": "Khi thấy命令形 + Vるな xuất hiện CÙNG LÚC trong một câu, đó là tình huống KHẨN CẤP. Bối cảnh xung quanh (điều gì vừa xảy ra?) chính là lý do — tìm câu ngay trước dấu「」.",
+          "qt": {
+            "q": "Bạn nghĩ tại sao nhân viên nhà ga nói: 「離れろ！白い線の外に出るな！」?",
+            "o": [
+              "Để lên tàu nhanh vì tàu đang bị trễ",
+              "Vì tàu đang đến và nguy hiểm, nên để đảm bảo an toàn",
+              "Vì muốn nhắc mọi người không xả rác",
+              "Vì muốn nhắc mọi người đi mua vé"
+            ]
+          }
+        },
+        {
+          "q": "この文章を読んで、「私」はどう思いましたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "駅のルールはむずかしいから、覚えなくてもいいと思っています",
+            "駅のルールを守ることはとても大切だと思っています",
+            "案内板の文字が読めないから、困っています",
+            "「離れろ」という言葉はとても失礼だと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu cuối bài nêu thẳng suy nghĩ của nhân vật:「駅のルールを守ることはとても大切だと思います」— đây là mẫu〜と思います (Bài 21) diễn đạt ý kiến cá nhân, và đây chính xác là đáp án 1. Đáp án 0 sai hoàn toàn vì nhân vật TUÂN THỦ ngay lập tức (すぐホームの端から離れました), cho thấy coi trọng quy định. Đáp án 2 sai vì nhân vật đọc và hiểu được biển báo. Đáp án 3 sai vì nhân vật không bình luận về礼儀 — ngược lại còn làm theo lời nhân viên ngay.",
+          "tip": "Câu hỏi hỏi「〜はどう思いましたか」→ tìm câu có〜と思います / 〜と思っています trong bài, thường ở đoạn KẾT. Đó là câu trả lời trực tiếp, không cần suy luận.",
+          "qt": {
+            "q": "Đọc bài này, “tôi” đã nghĩ gì?",
+            "o": [
+              "Tôi nghĩ rằng các quy định ở nhà ga khó nên không cần nhớ cũng được",
+              "Tôi nghĩ rằng việc tuân thủ các quy định ở nhà ga rất quan trọng",
+              "Tôi gặp khó khăn vì không đọc được chữ trên các biển chỉ dẫn",
+              "Tôi nghĩ rằng từ 「離れろ」 rất bất lịch sự"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "消防訓練の日",
+      "titleVi": "Ngày diễn tập phòng cháy",
+      "japanese": "先月、私が住んでいるマンションで消防訓練がありました。\nマンションの管理人さんから「来月、消防訓練をします。全員参加してください」というお知らせが来ました。\n訓練の日、まず1階のロビーに全員が集まりました。\n消防士の方が来て、「これから避難訓練を始めます。皆さん、落ち着いて行動してください」と言いました。\n突然、「火事だ！逃げろ！エレベーターに乗るな！階段を使え！」というアナウンスが流れました。\n消防士の方は「エレベーターは「エレベーター」と書きます。でも、緊急のときは「使用禁止」というマークがあります」と説明しました。\n「使用禁止」は「しようきんし」と読みます。意味は「使ってはいけない」ということです。\n私たちは階段を使って、建物の外に出ました。\n次に、消火器の使い方を教えてもらいました。\n消防士の方が「まず、ピンを抜け。次に、ホースを火に向けろ。それから、レバーを押せ」と言いました。\n私はメモを取りながら、全部覚えようと思いました。\n消防士の方はまた「油の火に水をかけるな。もっと危なくなるから」とも注意してくれました。\n「火事」は「かじ」と読みます。「避難」は「ひなん」と読みます。どちらも大切な言葉です。\n訓練が終わってから、管理人さんが「防災グッズをいつも準備しておいてください」と言いました。\n私はまだ防災グッズを準備していませんでした。\n家に帰ってから、すぐにネットで「防災セット」というものを注文しました。\nこれからも日本語の案内をよく読んでおこうと思っています。",
+      "vietnamese": "Tháng trước, ở căn hộ tôi đang ở có diễn tập phòng cháy chữa cháy.\nTừ quản lý tòa nhà có thông báo đến: \"Tháng tới sẽ có diễn tập phòng cháy. Toàn bộ mọi người hãy tham gia\".\nNgày diễn tập, trước tiên tất cả mọi người tập hợp ở sảnh tầng 1.\nLính cứu hỏa đến và nói: \"Bây giờ chúng ta bắt đầu diễn tập thoát hiểm. Mọi người hãy bình tĩnh hành động nhé\".\nĐột nhiên, thông báo vang lên: \"Cháy! Chạy ra! Không được đi thang máy! Hãy dùng cầu thang bộ!\".\nLính cứu hỏa giải thích: \"Thang máy viết là エレベーター. Nhưng trong trường hợp khẩn cấp, có biển hiệu gọi là 使用禁止 (cấm sử dụng)\".\n\"使用禁止\" đọc là \"shiyoukinshi\". Nghĩa là \"không được dùng\".\nChúng tôi dùng cầu thang bộ để ra ngoài tòa nhà.\nTiếp theo, chúng tôi được hướng dẫn cách dùng bình chữa cháy.\nLính cứu hỏa nói: \"Trước tiên, rút chốt ra. Tiếp theo, hướng vòi về phía lửa. Sau đó, nhấn tay cầm\".\nTôi vừa ghi chép vừa cố gắng ghi nhớ tất cả.\nLính cứu hỏa còn lưu ý: \"Không được dội nước vào lửa do dầu mỡ. Vì sẽ nguy hiểm hơn\".\n\"火事\" đọc là \"kaji\". \"避難\" đọc là \"hinan\". Cả hai đều là những từ quan trọng.\nSau khi kết thúc buổi diễn tập, quản lý tòa nhà nói: \"Hãy luôn chuẩn bị sẵn đồ dùng phòng thiên tai nhé\".\nTôi vẫn chưa chuẩn bị đồ phòng thiên tai.\nSau khi về nhà, tôi liền đặt mua thứ gọi là \"bộ phòng thiên tai\" trên mạng.\nTôi đang nghĩ sẽ tiếp tục đọc kỹ các hướng dẫn tiếng Nhật.",
+      "sentences": [
+        {
+          "jp": "先月、私が住んでいるマンションで消防訓練がありました。",
+          "vi": "Tháng trước, ở căn hộ tôi đang ở có diễn tập phòng cháy chữa cháy.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "住んでいる",
+              "read": "すんでいる",
+              "vi": "đang sống"
+            },
+            {
+              "w": "マンション",
+              "read": "マンション",
+              "vi": "chung cư"
+            },
+            {
+              "w": "消防訓練",
+              "read": "しょうぼうくんれん",
+              "vi": "diễn tập phòng cháy chữa cháy"
+            },
+            {
+              "w": "消防",
+              "read": "しょうぼう",
+              "vi": "phòng cháy chữa cháy"
+            },
+            {
+              "w": "訓練",
+              "read": "くんれん",
+              "vi": "huấn luyện; diễn tập"
+            },
+            {
+              "w": "ありました",
+              "read": "ありました",
+              "vi": "đã diễn ra; đã có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "私が住んでいるマンション = căn hộ mà tôi đang ở. Vている + N = mệnh đề quan hệ bổ nghĩa danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "マンションの管理人さんから「来月、消防訓練をします。全員参加してください」というお知らせが来ました。",
+          "vi": "Từ quản lý tòa nhà có thông báo đến: \"Tháng tới sẽ có diễn tập phòng cháy. Toàn bộ mọi người hãy tham gia\".",
+          "vocab": [
+            {
+              "w": "マンション",
+              "read": "マンション",
+              "vi": "căn hộ, chung cư"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "消防",
+              "read": "しょうぼう",
+              "vi": "cứu hỏa, phòng cháy"
+            },
+            {
+              "w": "訓練",
+              "read": "くんれん",
+              "vi": "huấn luyện, rèn luyện"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "toàn bộ mọi người"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "管理人",
+              "read": "かんりにん",
+              "vi": "người quản lý (tòa nhà)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というN",
+              "vi": "「〜」というお知らせ = thông báo có nội dung là \"~\". という đặt nội dung/tên gọi vào danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "訓練の日、まず1階のロビーに全員が集まりました。",
+          "vi": "Ngày diễn tập, trước tiên tất cả mọi người tập hợp ở sảnh tầng 1.",
+          "vocab": [
+            {
+              "w": "訓練",
+              "read": "くんれん",
+              "vi": "diễn tập"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "ロビー",
+              "read": "ロビー",
+              "vi": "sảnh"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "tất cả mọi người"
+            },
+            {
+              "w": "集まりました",
+              "read": "あつまりました",
+              "vi": "đã tập trung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNが集まります（Bài 10 mở rộng）",
+              "vi": "ロビーに集まりました = tập hợp ở sảnh. に chỉ địa điểm tập trung của người/vật."
+            }
+          ]
+        },
+        {
+          "jp": "消防士の方が来て、「これから避難訓練を始めます。皆さん、落ち着いて行動してください」と言いました。",
+          "vi": "Lính cứu hỏa đến và nói: \"Bây giờ chúng ta bắt đầu diễn tập thoát hiểm. Mọi người hãy bình tĩnh hành động nhé\".",
+          "vocab": [
+            {
+              "w": "消防",
+              "read": "しょうぼう",
+              "vi": "cứu hỏa, phòng cháy"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "避難",
+              "read": "ひなん",
+              "vi": "thoát hiểm, sơ tán"
+            },
+            {
+              "w": "訓練",
+              "read": "くんれん",
+              "vi": "huấn luyện, rèn luyện"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "皆さん",
+              "read": "みなさん",
+              "vi": "mọi người"
+            },
+            {
+              "w": "落ち着きます",
+              "read": "おちつきます",
+              "vi": "bình tĩnh"
+            },
+            {
+              "w": "行動します",
+              "read": "こうどうします",
+              "vi": "hành động"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "消防士",
+              "read": "しょうぼうし",
+              "vi": "lính cứu hỏa"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (cách gọi tôn trọng)"
+            },
+            {
+              "w": "避難訓練",
+              "read": "ひなんくんれん",
+              "vi": "diễn tập thoát hiểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて〜（Bài 16）",
+              "vi": "来て、〜と言いました = đến và nói. Nối trình tự hành động bằng て形."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "落ち着いて行動してください = hãy bình tĩnh mà hành động. Yêu cầu lịch sự — khác với命令形 sẽ xuất hiện sau."
+            }
+          ]
+        },
+        {
+          "jp": "突然、「火事だ！逃げろ！エレベーターに乗るな！階段を使え！」というアナウンスが流れました。",
+          "vi": "Đột nhiên, thông báo vang lên: \"Cháy! Chạy ra! Không được đi thang máy! Hãy dùng cầu thang bộ!\".",
+          "vocab": [
+            {
+              "w": "突然",
+              "read": "とつぜん",
+              "vi": "đột nhiên"
+            },
+            {
+              "w": "火事",
+              "read": "かじ",
+              "vi": "hỏa hoạn, cháy"
+            },
+            {
+              "w": "逃げます",
+              "read": "にげます",
+              "vi": "chạy trốn, thoát ra"
+            },
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên (phương tiện)"
+            },
+            {
+              "w": "階段",
+              "read": "かいだん",
+              "vi": "cầu thang bộ"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "アナウンス",
+              "read": "アナウンス",
+              "vi": "thông báo (âm thanh)"
+            },
+            {
+              "w": "流れます",
+              "read": "ながれます",
+              "vi": "vang lên, phát ra (âm thanh)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V命令形（逃げろ / 使え）",
+              "vi": "逃げろ = 逃げる (nhóm II) + ろ; 使え = 使う (nhóm I) → âm え → 使え. Dùng trong thông báo khẩn cấp."
+            },
+            {
+              "point": "Vるな（乗るな）",
+              "vi": "エレベーターに乗るな = 乗る (nguyên thể) + な → cấm đi thang máy trong hỏa hoạn."
+            },
+            {
+              "point": "〜というN（アナウンス）",
+              "vi": "〜というアナウンス = thông báo có nội dung là \"~\". Tái sử dụng mẫu〜というN."
+            }
+          ]
+        },
+        {
+          "jp": "消防士の方は「エレベーターは「エレベーター」と書きます。でも、緊急のときは「使用禁止」というマークがあります」と説明しました。",
+          "vi": "Lính cứu hỏa giải thích: \"Thang máy viết là エレベーター. Nhưng trong trường hợp khẩn cấp, có biển hiệu gọi là 使用禁止 (cấm sử dụng)\".",
+          "vocab": [
+            {
+              "w": "消防士",
+              "read": "しょうぼうし",
+              "vi": "lính cứu hỏa"
+            },
+            {
+              "w": "消防",
+              "read": "しょうぼう",
+              "vi": "phòng cháy chữa cháy"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị; người (lịch sự)"
+            },
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "緊急",
+              "read": "きんきゅう",
+              "vi": "khẩn cấp"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "lúc; khi"
+            },
+            {
+              "w": "使用禁止",
+              "read": "しようきんし",
+              "vi": "cấm sử dụng"
+            },
+            {
+              "w": "使用",
+              "read": "しよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "禁止",
+              "read": "きんし",
+              "vi": "cấm; cấm đoán"
+            },
+            {
+              "w": "マーク",
+              "read": "マーク",
+              "vi": "dấu hiệu; biểu tượng"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có; tồn tại"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "説明しました",
+              "read": "せつめいしました",
+              "vi": "đã giải thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nと書きます",
+              "vi": "「エレベーター」と書きます = viết là \"エレベーター\". と trích dẫn chính xác cách viết."
+            },
+            {
+              "point": "〜というN（マーク）",
+              "vi": "「使用禁止」というマーク = biển hiệu có tên là \"使用禁止\". Giới thiệu thuật ngữ/tên gọi mới bằng という."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "緊急のとき = khi khẩn cấp. NA/N + のとき = vào thời điểm/trường hợp đó."
+            }
+          ]
+        },
+        {
+          "jp": "「使用禁止」は「しようきんし」と読みます。意味は「使ってはいけない」ということです。",
+          "vi": "\"使用禁止\" đọc là \"shiyoukinshi\". Nghĩa là \"không được dùng\".",
+          "vocab": [
+            {
+              "w": "使用",
+              "read": "しよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "禁止",
+              "read": "きんし",
+              "vi": "sự cấm đoán"
+            },
+            {
+              "w": "しよう",
+              "read": "しよう",
+              "vi": "sự sử dụng, dùng"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nと読みます",
+              "vi": "「使用禁止」は「しようきんし」と読みます = \"使用禁止\" đọc là \"shiyoukinshi\". Mẫu giới thiệu cách đọc của chữ."
+            },
+            {
+              "point": "Vてはいけません（Bài 15）",
+              "vi": "使ってはいけない = không được dùng. Tái ôn ngữ pháp cấm đoán lịch sự từ Bài 15, đối chiếu với Vるな ở câu trên."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは階段を使って、建物の外に出ました。",
+          "vi": "Chúng tôi dùng cầu thang bộ để ra ngoài tòa nhà.",
+          "vocab": [
+            {
+              "w": "階段",
+              "read": "かいだん",
+              "vi": "cầu thang"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "建物",
+              "read": "たてもの",
+              "vi": "tòa nhà, công trình"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra ngoài"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます → Nを使って（Bài 7）",
+              "vi": "階段を使って = dùng cầu thang. Thể て nối phương tiện với hành động."
+            }
+          ]
+        },
+        {
+          "jp": "次に、消火器の使い方を教えてもらいました。",
+          "vi": "Tiếp theo, chúng tôi được hướng dẫn cách dùng bình chữa cháy.",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo, sau đó"
+            },
+            {
+              "w": "消火",
+              "read": "しょうか",
+              "vi": "sự chữa cháy, dập lửa"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy, hướng dẫn"
+            },
+            {
+              "w": "消火器",
+              "read": "しょうかき",
+              "vi": "bình chữa cháy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらいました（Bài 24）",
+              "vi": "教えてもらいました = được hướng dẫn (nhận hành động từ người khác). 消防士の方 → 私たち: chúng tôi nhận sự giảng dạy."
+            }
+          ]
+        },
+        {
+          "jp": "消防士の方が「まず、ピンを抜け。次に、ホースを火に向けろ。それから、レバーを押せ」と言いました。",
+          "vi": "Lính cứu hỏa nói: \"Trước tiên, rút chốt ra. Tiếp theo, hướng vòi về phía lửa. Sau đó, nhấn tay cầm\".",
+          "vocab": [
+            {
+              "w": "消防士",
+              "read": "しょうぼうし",
+              "vi": "lính cứu hỏa"
+            },
+            {
+              "w": "消防",
+              "read": "しょうぼう",
+              "vi": "phòng cháy chữa cháy"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị; người (lịch sự)"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết"
+            },
+            {
+              "w": "ピン",
+              "read": "ピン",
+              "vi": "chốt; ghim"
+            },
+            {
+              "w": "抜け",
+              "read": "ぬけ",
+              "vi": "rút ra!"
+            },
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo"
+            },
+            {
+              "w": "ホース",
+              "read": "ホース",
+              "vi": "ống vòi"
+            },
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "向けろ",
+              "read": "むけろ",
+              "vi": "hãy hướng vào!"
+            },
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó"
+            },
+            {
+              "w": "レバー",
+              "read": "レバー",
+              "vi": " cần gạt"
+            },
+            {
+              "w": "押せ",
+              "read": "おせ",
+              "vi": "hãy ấn!"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V命令形（抜け / 向けろ / 押せ）",
+              "vi": "抜け: 抜く (nhóm I) → âm け; 向けろ: 向ける (nhóm II) + ろ; 押せ: 押す (nhóm I) → âm せ. Ba lệnh liên tiếp giải thích quy trình bình chữa cháy."
+            }
+          ]
+        },
+        {
+          "jp": "私はメモを取りながら、全部覚えようと思いました。",
+          "vi": "Tôi vừa ghi chép vừa nghĩ muốn ghi nhớ tất cả.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "ghi chú"
+            },
+            {
+              "w": "取りながら",
+              "read": "とりながら",
+              "vi": "vừa ghi vừa"
+            },
+            {
+              "w": "全部",
+              "read": "ぜんぶ",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "覚えよう",
+              "read": "おぼえよう",
+              "vi": "định ghi nhớ"
+            },
+            {
+              "w": "思いました",
+              "read": "おもいました",
+              "vi": "đã nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vながら（Bài 28）",
+              "vi": "メモを取りながら = vừa ghi chép vừa. ながら nối hai hành động diễn ra đồng thời."
+            },
+            {
+              "point": "〜と思いました（Bài 21）",
+              "vi": "覚えようと思いました = nghĩ muốn ghi nhớ. V意向形 + と思います = diễn đạt ý định/mong muốn. Khác với とします (cố gắng thực hiện) thuộc phạm vi sau Bài 33."
+            }
+          ]
+        },
+        {
+          "jp": "消防士の方はまた「油の火に水をかけるな。もっと危なくなるから」とも注意してくれました。",
+          "vi": "Lính cứu hỏa còn lưu ý: \"Không được dội nước vào lửa do dầu mỡ. Vì sẽ nguy hiểm hơn\".",
+          "vocab": [
+            {
+              "w": "消防士",
+              "read": "しょうぼうし",
+              "vi": "lính cứu hỏa"
+            },
+            {
+              "w": "消防",
+              "read": "しょうぼう",
+              "vi": "phòng cháy chữa cháy"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị; người (lịch sự)"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại; cũng"
+            },
+            {
+              "w": "油",
+              "read": "あぶら",
+              "vi": "dầu"
+            },
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "đổ; rót"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "危なくなる",
+              "read": "あぶなくなる",
+              "vi": "trở nên nguy hiểm"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý; cảnh báo"
+            },
+            {
+              "w": "注意してくれました",
+              "read": "ちゅういしてくれました",
+              "vi": "đã nhắc nhở tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるな（水をかけるな）",
+              "vi": "水をかけるな = không được dội nước. かける (nguyên thể) + な. Khẩu lệnh cảnh báo an toàn."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "危なくなる = trở nên nguy hiểm. Tính từ い → くなる diễn tả sự thay đổi trạng thái."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "もっと危なくなるから = vì sẽ nguy hiểm hơn. から nêu lý do của lệnh cấm."
+            },
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "注意してくれました = lưu ý cho (chúng tôi). 消防士 → 私たち: nhận lời lưu ý như ân huệ."
+            }
+          ]
+        },
+        {
+          "jp": "「火事」は「かじ」と読みます。「避難」は「ひなん」と読みます。どちらも大切な言葉です。",
+          "vi": "\"火事\" đọc là \"kaji\". \"避難\" đọc là \"hinan\". Cả hai đều là những từ quan trọng.",
+          "vocab": [
+            {
+              "w": "火事",
+              "read": "かじ",
+              "vi": "hỏa hoạn, cháy"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "避難",
+              "read": "ひなん",
+              "vi": "thoát hiểm, sơ tán"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, ngôn từ"
+            },
+            {
+              "w": "どちらも",
+              "read": "どちらも",
+              "vi": "cả hai đều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nと読みます（×2）",
+              "vi": "Liên tiếp dùng N + と読みます để giới thiệu cách đọc hai từ kanji quan trọng trong bối cảnh phòng cháy."
+            }
+          ]
+        },
+        {
+          "jp": "訓練が終わってから、管理人さんが「防災グッズをいつも準備しておいてください」と言いました。",
+          "vi": "Sau khi kết thúc buổi diễn tập, quản lý tòa nhà nói: \"Hãy luôn chuẩn bị sẵn đồ dùng phòng thiên tai\".",
+          "vocab": [
+            {
+              "w": "訓練",
+              "read": "くんれん",
+              "vi": "huấn luyện, rèn luyện"
+            },
+            {
+              "w": "終わります",
+              "read": "おわります",
+              "vi": "kết thúc"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "防災",
+              "read": "ぼうさい",
+              "vi": "phòng thiên tai, phòng chống thảm họa"
+            },
+            {
+              "w": "グッズ",
+              "read": "グッズ",
+              "vi": "đồ dùng, vật dụng (goods)"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "終わってから = sau khi kết thúc. Vて + から = làm xong hành động trước, rồi mới đến hành động sau."
+            },
+            {
+              "point": "Vておいてください（Bài 30 + 14）",
+              "vi": "準備しておいてください = hãy chuẩn bị sẵn. Vておく (làm trước để phòng bị) + てください (yêu cầu lịch sự)."
+            }
+          ]
+        },
+        {
+          "jp": "私はまだ防災グッズを準備していませんでした。",
+          "vi": "Tôi vẫn chưa chuẩn bị đồ phòng thiên tai.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn chưa"
+            },
+            {
+              "w": "防災グッズ",
+              "read": "ぼうさいグッズ",
+              "vi": "đồ dùng phòng chống thiên tai"
+            },
+            {
+              "w": "防災",
+              "read": "ぼうさい",
+              "vi": "phòng chống thiên tai"
+            },
+            {
+              "w": "グッズ",
+              "read": "グッズ",
+              "vi": "đồ dùng"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "準備していませんでした",
+              "read": "じゅんびしていませんでした",
+              "vi": "đã không chuẩn bị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まだ〜ていません（Bài 31）",
+              "vi": "まだ準備していませんでした = vẫn chưa chuẩn bị (cho đến lúc đó). Tái ôn まだ〜ていない diễn tả hành động chưa hoàn thành."
+            }
+          ]
+        },
+        {
+          "jp": "家に帰ってから、すぐにネットで「防災セット」というものを注文しました。",
+          "vi": "Sau khi về nhà, tôi liền đặt mua thứ gọi là \"bộ phòng thiên tai\" trên mạng.",
+          "vocab": [
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về nhà"
+            },
+            {
+              "w": "ネット",
+              "read": "ネット",
+              "vi": "mạng internet"
+            },
+            {
+              "w": "防災セット",
+              "read": "ぼうさいセット",
+              "vi": "bộ đồ dùng phòng thiên tai"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "注文します",
+              "read": "ちゅうもんします",
+              "vi": "đặt hàng, đặt mua"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "帰ってから = sau khi về nhà. Hành động hoàn thành → làm việc tiếp theo."
+            },
+            {
+              "point": "〜というもの",
+              "vi": "「防災セット」というものを = thứ gọi là \"bộ phòng thiên tai\". というもの = というN với もの (vật/thứ) chỉ một vật chưa cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "これからも日本語の案内をよく読んでおこうと思っています。",
+          "vi": "Tôi đang nghĩ sẽ tiếp tục đọc kỹ các hướng dẫn tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, kể từ đây"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông tin"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "kỹ, thường xuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておく（Bài 30）",
+              "vi": "読んでおこう = đọc sẵn để phòng bị. V意向形 (読もう→読んでおこう) của Vておく diễn tả chuẩn bị trước."
+            },
+            {
+              "point": "〜と思っています（Bài 21）",
+              "vi": "〜と思っています = đang có suy nghĩ, dự định. Trạng thái suy nghĩ đang diễn ra liên tục."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "逃げろ",
+          "label": "V命令形（thông báo khẩn cấp）"
+        },
+        {
+          "excerpt": "エレベーターに乗るな",
+          "label": "Vるな（cấm đoán khẩn cấp）"
+        },
+        {
+          "excerpt": "階段を使え",
+          "label": "V命令形（hướng dẫn khẩn cấp）"
+        },
+        {
+          "excerpt": "「使用禁止」というマーク",
+          "label": "〜というN（tên gọi biển hiệu）"
+        },
+        {
+          "excerpt": "「使用禁止」は「しようきんし」と読みます",
+          "label": "Nと読みます"
+        },
+        {
+          "excerpt": "ピンを抜け",
+          "label": "V命令形（quy trình bình chữa cháy）"
+        },
+        {
+          "excerpt": "向けろ",
+          "label": "V命令形（quy trình bình chữa cháy）"
+        },
+        {
+          "excerpt": "油の火に水をかけるな",
+          "label": "Vるな（cảnh báo an toàn）"
+        },
+        {
+          "excerpt": "「火事」は「かじ」と読みます",
+          "label": "Nと読みます（từ vựng khẩn cấp）"
+        },
+        {
+          "excerpt": "「防災セット」というものを注文しました",
+          "label": "〜というN（giới thiệu vật mới）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "訓練のアナウンスで「エレベーターに乗るな」と言いました。これはどうしてですか。",
+          "evi": [
+            4,
+            5,
+            6
+          ],
+          "options": [
+            "エレベーターが小さくて、全員乗れないからです",
+            "緊急のとき、エレベーターは使用禁止だからです",
+            "階段のほうがエレベーターより速いからです",
+            "エレベーターは故障しているからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài giải thích rõ:「緊急のときは「使用禁止」というマークがあります」và「「使用禁止」は「しようきんし」と読みます。意味は「使ってはいけない」ということです」— trong tình huống khẩn cấp, thang máy bị quy định cấm dùng. Đây là lý do an toàn phòng cháy, không liên quan đến kích thước hay tốc độ. Đáp án 0 sai vì bài không nhắc đến sức chứa thang máy. Đáp án 2 sai vì bài không so sánh tốc độ thang máy và cầu thang. Đáp án 3 sai vì bài không nói thang máy hỏng — lý do là quy định (使用禁止), không phải sự cố kỹ thuật.",
+          "tip": "Khi thấy Vるな trong thông báo khẩn cấp, hãy tìm từ giải thích LÝ DO ngay PHÍA SAU trong bài — thường là「〜から」hoặc「意味は〜」. Lý do của lệnh cấm luôn được nêu rõ trong bài đọc N4.",
+          "qt": {
+            "q": "Trong thông báo của buổi diễn tập có nói: 「エレベーターに乗るな」(Đừng đi thang máy). Tại sao lại nói như vậy?",
+            "o": [
+              "Vì thang máy nhỏ, không phải tất cả mọi người đều lên được",
+              "Vì khi khẩn cấp, thang máy bị cấm sử dụng",
+              "Vì cầu thang nhanh hơn thang máy",
+              "Vì thang máy bị hỏng"
+            ]
+          }
+        },
+        {
+          "q": "消防士の方は消火器をどう使うと説明しましたか。正しい順番はどれですか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "ホースを向けろ → ピンを抜け → レバーを押せ",
+            "レバーを押せ → ピンを抜け → ホースを向けろ",
+            "ピンを抜け → ホースを向けろ → レバーを押せ",
+            "ピンを抜け → レバーを押せ → ホースを向けろ"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài liệt kê ba lệnh theo thứ tự có đánh dấu rõ ràng:「まず、ピンを抜け。次に、ホースを火に向けろ。それから、レバーを押せ」— まず (trước tiên) → 次に (tiếp theo) → それから (sau đó). Ba trạng từ tuần tự này xác định chính xác thứ tự: rút chốt → hướng vòi → nhấn tay cầm. Đáp án 0 sai vì đảo bước 1 và 2. Đáp án 1 sai vì nhấn tay cầm trước rút chốt — vô lý về an toàn. Đáp án 3 sai vì nhấn tay cầm trước khi hướng vòi.",
+          "tip": "Câu hỏi về THỨ TỰ → chú ý ngay các từ chỉ trình tự: まず / 次に / それから / 最後に. Đánh số 1-2-3 ngay khi đọc, đừng cố nhớ.",
+          "qt": {
+            "q": "Nhân viên cứu hỏa giải thích cách sử dụng bình chữa cháy như thế nào? Thứ tự đúng là gì?",
+            "o": [
+              "Hướng vòi → rút chốt → nhấn cần gạt",
+              "Nhấn cần gạt → rút chốt → hướng vòi",
+              "Rút chốt → hướng vòi → nhấn cần gạt",
+              "Rút chốt → nhấn cần gạt → hướng vòi"
+            ]
+          }
+        },
+        {
+          "q": "「油の火に水をかけるな」の理由は何ですか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "水がなくなるから、もったいないからです",
+            "水は油より重いから、危ないです",
+            "もっと危なくなるから、してはいけないです",
+            "水は火を消すことができないからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu lý do ngay sau lệnh cấm:「油の火に水をかけるな。もっと危なくなるから」— mẫu Vるな + から diễn đạt lệnh cấm và lý do tức thì. 「もっと危なくなる」= trở nên nguy hiểm hơn, đây chính xác là nội dung đáp án 2. Đáp án 0 sai vì bài không nhắc đến tiết kiệm nước. Đáp án 1 sai vì bài không đề cập trọng lượng của nước và dầu. Đáp án 3 sai vì bài không nói nước không dập được lửa — vấn đề là nước làm lửa dầu BỐC TO HƠN, nguy hiểm hơn.",
+          "tip": "Với câu hỏi hỏi lý do của Vるな → tìm「〜から」ngay sau lệnh cấm. Đó là lý do được nêu thẳng. Đừng chọn đáp án nghe có lý theo kiến thức thường thức nếu không có trong bài.",
+          "qt": {
+            "q": "Lý do của câu 「油の火に水をかけるな」(Đừng đổ nước vào lửa do dầu) là gì?",
+            "o": [
+              "Vì nước sẽ hết, thật lãng phí",
+              "Vì nước nặng hơn dầu nên nguy hiểm",
+              "Vì sẽ càng nguy hiểm hơn nên không được làm vậy",
+              "Vì nước không thể dập tắt lửa"
+            ]
+          }
+        },
+        {
+          "q": "この文章を読んで、「私」はこれからどうしようと思っていますか。",
+          "evi": [
+            15,
+            16
+          ],
+          "options": [
+            "消防士になるために、毎日訓練しようと思っています",
+            "防災グッズを注文して、日本語の案内も読んでおこうと思っています",
+            "マンションを引っ越して、もっと安全な場所に住もうと思っています",
+            "消火器を買って、使い方を友達に教えようと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Hai câu cuối bài tổng hợp hai hành động/dự định của nhân vật: (1)「家に帰ってから、すぐにネットで「防災セット」というものを注文しました」— đã đặt mua bộ đồ phòng thiên tai; (2)「これからも日本語の案内をよく読んでおこうと思っています」— đang có ý định đọc kỹ hướng dẫn tiếng Nhật. Đáp án 1 gộp chính xác cả hai nội dung này. Đáp án 0 sai vì nhân vật không nói muốn trở thành lính cứu hỏa. Đáp án 2 sai vì không có chi tiết nào về chuyển nhà. Đáp án 3 sai vì nhân vật đặt mua bộ防災セット (không phải消火器) và không nhắc đến dạy bạn bè.",
+          "tip": "Câu hỏi hỏi ý định tương lai của nhân vật → đọc thẳng 2–3 câu CUỐI bài. Mẫu〜と思っています = đang có dự định; đáp án đúng thường gộp cả hành động ĐÃ làm lẫn ý định SẼ làm nếu câu hỏi hỏi \"これから\".",
+          "qt": {
+            "q": "Đọc bài này, 「私」(tôi) nghĩ từ nay về sau sẽ làm gì?",
+            "o": [
+              "Tôi nghĩ mình sẽ tập luyện mỗi ngày để trở thành nhân viên cứu hỏa",
+              "Tôi nghĩ mình sẽ đặt mua đồ dùng phòng chống thiên tai và đọc trước các thông báo bằng tiếng Nhật",
+              "Tôi nghĩ mình sẽ chuyển khỏi chung cư và sống ở nơi an toàn hơn",
+              "Tôi nghĩ mình sẽ mua bình chữa cháy và hướng dẫn bạn bè cách sử dụng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "公園のきまりを読む",
+      "titleVi": "Đọc nội quy công viên: Công viên Sakura",
+      "japanese": "さくら公園のきまり\nさくら公園を利用するみなさんへ。この公園には広いプールや遊び場、テニスコートなどがあります。安全のために、下のきまりを必ず守れ。\n場所｜きまり｜注意\nプール｜子どもは大人といっしょに入れ｜9:00〜17:00だけ\n子どもの遊び場｜自転車で入るな｜いつも\nテニスコート｜使う前に受付で名前を書け｜9:00〜21:00\n駐輪場｜自転車はここに止めろ｜24時間\n入り口の門に「立入禁止」と書いてある札があります。「立入禁止」は入ってはいけないという意味です。\n池の近くにも「危険」という札が立ててあります。「危険」は危ないから絶対に入るなという意味です。\n※プールは6月から9月までです。冬にプールに入るな。\n※ゴミ箱はありません。ゴミは必ず持ち帰れ。\n問い合わせ：さくら公園管理事務所　電話：03-1234-5678（9:00〜18:00）",
+      "vietnamese": "Nội quy công viên Sakura\nGửi những người sử dụng công viên Sakura. Công viên này có bể bơi rộng, sân chơi và sân tennis. Vì an toàn, hãy nhất định tuân thủ các quy định dưới đây.\nKhu vực｜Quy định｜Chú ý\nBể bơi｜Trẻ em hãy vào cùng người lớn｜Chỉ 9:00〜17:00\nSân chơi trẻ em｜Đừng vào bằng xe đạp｜Lúc nào cũng vậy\nSân tennis｜Trước khi dùng hãy ghi tên ở quầy lễ tân｜9:00〜21:00\nBãi để xe đạp｜Hãy để xe đạp ở đây｜24 giờ\nỞ cổng vào có tấm biển viết chữ \"cấm vào\". \"Cấm vào\" nghĩa là không được vào.\nGần ao cũng có dựng tấm biển ghi chữ \"nguy hiểm\". \"Nguy hiểm\" có nghĩa là vì nguy hiểm nên tuyệt đối đừng vào.\n※Bể bơi chỉ mở từ tháng 6 đến tháng 9. Mùa đông đừng vào bể bơi.\n※Không có thùng rác. Hãy nhất định mang rác về.\nLiên hệ: Văn phòng quản lý công viên Sakura　Điện thoại: 03-1234-5678 (9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "さくら公園のきまり",
+          "vi": "Nội quy công viên Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "きまり",
+              "read": "きまり",
+              "vi": "quy định, nội quy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "公園のきまり = quy định của công viên. Tiêu đề danh từ ghép chuẩn 問題6."
+            }
+          ]
+        },
+        {
+          "jp": "さくら公園を利用するみなさんへ。この公園には広いプールや遊び場、テニスコートなどがあります。安全のために、下のきまりを必ず守れ。",
+          "vi": "Gửi những người sử dụng công viên Sakura. Công viên này có bể bơi rộng, sân chơi và sân tennis. Vì an toàn, hãy nhất định tuân thủ các quy định dưới đây.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "利用します",
+              "read": "りようします",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "遊び場",
+              "read": "あそびば",
+              "vi": "sân chơi"
+            },
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "tennis"
+            },
+            {
+              "w": "コート",
+              "read": "コート",
+              "vi": "sân thể thao, áo khoác"
+            },
+            {
+              "w": "安全",
+              "read": "あんぜん",
+              "vi": "an toàn"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "きまり",
+              "read": "きまり",
+              "vi": "quy định, nội quy"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định"
+            },
+            {
+              "w": "守ります",
+              "read": "まもります",
+              "vi": "tuân thủ, bảo vệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "公園を利用するみなさん = quý vị đang sử dụng công viên. Vる + N bổ nghĩa danh từ."
+            },
+            {
+              "point": "NやN（Bài 10）",
+              "vi": "プールや遊び場、テニスコートなど = bể bơi, sân chơi, sân tennis v.v. や liệt kê vài ví dụ tiêu biểu."
+            },
+            {
+              "point": "V命令形（守れ）",
+              "vi": "守れ = 守る (nhóm I) → âm え → 守れ. Câu mở đầu thông báo dùng ngay thể mệnh lệnh để ra lệnh cho người đọc phải tuân thủ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "広いプールや遊び場、テニスコート",
+              "why": "Liệt kê 3 khu vực có trong bảng nội quy phía dưới — định vị các cột tra cứu."
+            }
+          ]
+        },
+        {
+          "jp": "場所｜きまり｜注意",
+          "vi": "Khu vực｜Quy định｜Chú ý",
+          "vocab": [
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "khu vực, địa điểm"
+            },
+            {
+              "w": "きまり",
+              "read": "きまり",
+              "vi": "quy định, nội quy"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "場所｜きまり｜注意",
+              "why": "Hàng header của bảng — xác định 3 cột: khu vực / quy định / chú ý giờ."
+            }
+          ]
+        },
+        {
+          "jp": "プール｜子どもは大人といっしょに入れ｜9:00〜17:00だけ",
+          "vi": "Bể bơi｜Trẻ em hãy vào cùng người lớn｜Chỉ 9:00〜17:00",
+          "vocab": [
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V命令形（入れ）",
+              "vi": "入れ = 入る (nhóm I) → âm え → 入れ. Hàng bảng ra lệnh trẻ em phải vào cùng người lớn — cần để trả lời câu hỏi ghép điều kiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "子どもは大人といっしょに入れ",
+              "why": "Điều kiện bắt buộc cho trẻ em — căn cứ chính câu hỏi 1 (カリナさん đi cùng con)."
+            },
+            {
+              "w": "9:00〜17:00だけ",
+              "why": "Giới hạn giờ bằng だけ — phải khớp giờ 15:00 của câu hỏi 1 nằm trong khung này."
+            }
+          ]
+        },
+        {
+          "jp": "子どもの遊び場｜自転車で入るな｜いつも",
+          "vi": "Sân chơi trẻ em｜Đừng vào bằng xe đạp｜Lúc nào cũng vậy",
+          "vocab": [
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "遊び場",
+              "read": "あそびば",
+              "vi": "sân chơi"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるな（自転車で入るな）",
+              "vi": "入るな = 入る (nguyên thể) + な → cấm đoán trực tiếp trong hàng bảng — đúng mẫu trọng tâm bài 33."
+            }
+          ],
+          "keys": [
+            {
+              "w": "自転車で入るな",
+              "why": "Vるな cấm đoán ngay trong ô bảng — nhiễu dễ lẫn với ô プール ở hàng trên."
+            }
+          ]
+        },
+        {
+          "jp": "テニスコート｜使う前に受付で名前を書け｜9:00〜21:00",
+          "vi": "Sân tennis｜Trước khi dùng hãy ghi tên ở quầy lễ tân｜9:00〜21:00",
+          "vocab": [
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "tennis"
+            },
+            {
+              "w": "コート",
+              "read": "コート",
+              "vi": "sân thể thao, áo khoác"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân, tiếp đón"
+            },
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "書ける",
+              "read": "かける",
+              "vi": "có thể viết (可能形)"
+            },
+            {
+              "w": "テニスコート",
+              "read": "テニスコート",
+              "vi": "sân tennis"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに（Bài 16）",
+              "vi": "使う前に = trước khi dùng. Vる + まえに nêu việc phải làm trước."
+            },
+            {
+              "point": "V命令形（書け）",
+              "vi": "書け = 書く (nhóm I) → âm え → 書け. Yêu cầu ghi tên trước khi sử dụng sân tennis."
+            }
+          ],
+          "keys": [
+            {
+              "w": "使う前に受付で名前を書け",
+              "why": "Điều kiện riêng của sân tennis — dễ nhầm với quy định プール nếu đọc lướt."
+            },
+            {
+              "w": "9:00〜21:00",
+              "why": "Khung giờ mở khác các khu vực còn lại — đối chiếu khi câu hỏi hỏi về giờ mở cửa."
+            }
+          ]
+        },
+        {
+          "jp": "駐輪場｜自転車はここに止めろ｜24時間",
+          "vi": "Bãi để xe đạp｜Hãy để xe đạp ở đây｜24 giờ",
+          "vocab": [
+            {
+              "w": "駐輪場",
+              "read": "ちゅうりんじょう",
+              "vi": "bãi để xe đạp"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "止めます",
+              "read": "とめます",
+              "vi": "dừng, để (xe)"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V命令形（止めろ）",
+              "vi": "止めろ = 止める (nhóm II) + ろ → 止めろ. Ra lệnh để xe đạp đúng chỗ, mở 24 giờ (khác với プール chỉ mở khung giờ nhất định)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "24時間",
+              "why": "Chỉ ô mở suốt ngày trong bảng — bẫy dễ nhầm với các khung giờ giới hạn khác."
+            }
+          ]
+        },
+        {
+          "jp": "入り口の門に「立入禁止」と書いてある札があります。「立入禁止」は入ってはいけないという意味です。",
+          "vi": "Ở cổng vào có tấm biển viết chữ \"cấm vào\". \"Cấm vào\" nghĩa là không được vào.",
+          "vocab": [
+            {
+              "w": "入り口",
+              "read": "いりぐち",
+              "vi": "cửa vào"
+            },
+            {
+              "w": "門",
+              "read": "もん",
+              "vi": "cổng"
+            },
+            {
+              "w": "立入禁止",
+              "read": "たちいりきんし",
+              "vi": "cấm vào, cấm xâm nhập"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "札",
+              "read": "ふだ",
+              "vi": "tấm biển, thẻ"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nと書いてあります（Bài 30 + 33）",
+              "vi": "「立入禁止」と書いてある札 = tấm biển viết sẵn chữ \"立入禁止\" (và còn đó). N + と書いてあります trích dẫn CHÍNH XÁC chữ viết trên biển, mẫu trọng tâm bài 33, kết hợp mệnh đề bổ nghĩa danh từ (Bài 22) bổ nghĩa cho 札."
+            },
+            {
+              "point": "〜という意味です",
+              "vi": "「立入禁止」は入ってはいけないという意味です = \"立入禁止\" có nghĩa là không được vào. Mẫu 〜という意味です giải nghĩa ký hiệu biển báo — trọng tâm bài 33."
+            },
+            {
+              "point": "Vてはいけません（Bài 15）",
+              "vi": "入ってはいけない = không được vào. Tái ôn cấm đoán lịch sự, dùng để giải nghĩa cho Vるな/禁止 trên biển báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "「立入禁止」は入ってはいけないという意味です",
+              "why": "Định nghĩa nghĩa của biển「立入禁止」— căn cứ câu hỏi 2 (đáp án 1 sai vì đảo nghĩa)."
+            }
+          ]
+        },
+        {
+          "jp": "池の近くにも「危険」という札が立ててあります。「危険」は危ないから絶対に入るなという意味です。",
+          "vi": "Gần ao cũng có dựng tấm biển ghi chữ \"nguy hiểm\". \"Nguy hiểm\" có nghĩa là vì nguy hiểm nên tuyệt đối đừng vào.",
+          "vocab": [
+            {
+              "w": "池",
+              "read": "いけ",
+              "vi": "ao"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, chỗ gần"
+            },
+            {
+              "w": "危険",
+              "read": "きけん",
+              "vi": "nguy hiểm"
+            },
+            {
+              "w": "札",
+              "read": "さつ",
+              "vi": "thẻ, tấm biển"
+            },
+            {
+              "w": "立てます",
+              "read": "たてます",
+              "vi": "dựng lên"
+            },
+            {
+              "w": "危ない",
+              "read": "あぶない",
+              "vi": "nguy hiểm"
+            },
+            {
+              "w": "絶対に",
+              "read": "ぜったいに",
+              "vi": "tuyệt đối"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というN",
+              "vi": "「危険」という札 = tấm biển có tên/ghi chữ là \"危険\". Tái dùng という lần thứ hai để giới thiệu biển báo khác."
+            },
+            {
+              "point": "Vてあります（Bài 30）",
+              "vi": "立ててあります = được dựng sẵn (và còn đó). 立てます (他動詞) + てあります."
+            },
+            {
+              "point": "〜という意味です（×2）",
+              "vi": "「危険」は〜入るなという意味です = \"危険\" có nghĩa là đừng vào. Lần thứ hai dùng 〜という意味です, lồng cả Vるな (入るな) bên trong phần giải nghĩa — nổi bật 2 mẫu trọng tâm cùng lúc."
+            },
+            {
+              "point": "Vるな（入るな）",
+              "vi": "入るな nằm trong câu giải nghĩa của「危険」— cấm đoán trực tiếp được nhắc lại để nhấn mạnh mức nguy hiểm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "「危険」は危ないから絶対に入るなという意味です",
+              "why": "Định nghĩa trực tiếp nghĩa của biển「危険」— căn cứ đáp án đúng câu hỏi 2."
+            },
+            {
+              "w": "危険",
+              "why": "Tên biển thứ hai — phải phân biệt với biển「立入禁止」ở dòng trên để không chọn nhầm đáp án nhiễu câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "※プールは6月から9月までです。冬にプールに入るな。",
+          "vi": "※Bể bơi chỉ mở từ tháng 6 đến tháng 9. Mùa đông đừng vào bể bơi.",
+          "vocab": [
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "6月",
+              "read": "ろくがつ",
+              "vi": "tháng 6"
+            },
+            {
+              "w": "9月",
+              "read": "くがつ",
+              "vi": "tháng 9"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "6月から9月まで = từ tháng 6 đến tháng 9. Khung thời gian mở cửa bể bơi — cần để trả lời câu hỏi ghép điều kiện."
+            },
+            {
+              "point": "Vるな（冬にプールに入るな）",
+              "vi": "入るな = đừng vào. Lời cấm đoán trong dòng ※ chú ý, đúng mẫu trọng tâm bài 33."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※プールは6月から9月までです",
+              "why": "Dòng ※ bẫy quan trọng nhất — giới hạn tháng mở cửa bể bơi, phải khớp với tháng trong câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "※ゴミ箱はありません。ゴミは必ず持ち帰れ。",
+          "vi": "※Không có thùng rác. Hãy nhất định mang rác về.",
+          "vocab": [
+            {
+              "w": "ゴミ箱",
+              "read": "ゴミばこ",
+              "vi": "thùng rác"
+            },
+            {
+              "w": "ゴミ",
+              "read": "ゴミ",
+              "vi": "rác"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "持ち帰ります",
+              "read": "もちかえります",
+              "vi": "mang về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V命令形（持ち帰れ）",
+              "vi": "持ち帰れ = 持ち帰る (nhóm I) → âm え → 持ち帰れ. Khẩu lệnh trong dòng ※ chú ý, nhắc nhở mạnh vì không có thùng rác."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ゴミ箱はありません。ゴミは必ず持ち帰れ",
+              "why": "Căn cứ loại đáp án nhiễu câu hỏi 2 (không có thùng rác nên không được vứt lại)."
+            }
+          ]
+        },
+        {
+          "jp": "問い合わせ：さくら公園管理事務所　電話：03-1234-5678（9:00〜18:00）",
+          "vi": "Liên hệ: Văn phòng quản lý công viên Sakura　Điện thoại: 03-1234-5678 (9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "事務所",
+              "read": "じむしょ",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "管理事務所",
+              "read": "かんりじむしょ",
+              "vi": "văn phòng quản lý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "9:00〜18:00 = từ 9 giờ đến 18 giờ. Giờ làm việc của văn phòng quản lý — khác với giờ mở プール (9:00〜17:00) và テニスコート (9:00〜21:00), cần đối chiếu khi trả lời câu hỏi."
+            }
+          ]
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mở",
+          "topic": 1,
+          "note": "Giới thiệu công viên có 3 khu vực (プール/遊び場/テニスコート) và ra lệnh phải tuân thủ nội quy — chỉ dẫn hướng đọc bảng phía dưới.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng nội quy 4 khu vực",
+          "topic": 3,
+          "note": "Bảng chính chứa quy định và giờ của プール/遊び場/テニスコート/駐輪場 — căn cứ chính cho câu hỏi 1 (khớp khu vực + giờ + đối tượng trẻ em).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "body",
+          "label": "Giải nghĩa 2 biển báo",
+          "topic": 7,
+          "note": "Giải nghĩa biển「立入禁止」và「危険」bằng 〜という意味です — căn cứ chính cho câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Dòng ※ bẫy tháng & rác",
+          "topic": 9,
+          "note": "Hai dòng ※ nêu giới hạn tháng mở bể bơi (bẫy câu hỏi 1) và quy định mang rác về (bẫy câu hỏi 2).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 11,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 11,
+          "note": "Giờ liên hệ văn phòng quản lý — không phải căn cứ câu hỏi, dễ nhầm với giờ mở các khu vực.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "下のきまりを必ず守れ",
+          "label": "V命令形（ra lệnh tuân thủ nội quy）"
+        },
+        {
+          "excerpt": "自転車で入るな",
+          "label": "Vるな（cấm đoán trên biển báo）"
+        },
+        {
+          "excerpt": "自転車はここに止めろ",
+          "label": "V命令形（chỉ dẫn trên biển báo）"
+        },
+        {
+          "excerpt": "「立入禁止」と書いてある札",
+          "label": "Nと書いてあります（chữ ghi trên biển báo）"
+        },
+        {
+          "excerpt": "入ってはいけないという意味です",
+          "label": "〜という意味です（giải nghĩa ký hiệu biển báo）"
+        },
+        {
+          "excerpt": "絶対に入るなという意味です",
+          "label": "〜という意味です + Vるな（giải nghĩa biển báo nguy hiểm）"
+        },
+        {
+          "excerpt": "冬にプールに入るな",
+          "label": "Vるな（cấm đoán trong dòng ※ chú ý）"
+        },
+        {
+          "excerpt": "ゴミは必ず持ち帰れ",
+          "label": "V命令形（khẩu lệnh trong dòng ※ chú ý）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは子どもといっしょに8月の土曜日の午後3時にさくら公園へ行きます。プールに入りたいです。カリナさんはどうしたらいいですか。",
+          "options": [
+            "子どもだけでプールに入ってもいい",
+            "8月ですから、大人といっしょにプールに入ることができる",
+            "午後3時はプールの時間ではないから、入れない",
+            "冬ではないから、プールに入ってはいけない"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng ghi rõ「プール｜子どもは大人といっしょに入れ｜9:00〜17:00だけ」và「※プールは6月から9月までです」— tháng 8 nằm trong khoảng mở cửa (6月〜9月), giờ 15:00 nằm trong khung 9:00〜17:00, và vì có trẻ em nên phải \"vào cùng người lớn\" (đúng vì カリナさん đi cùng con). Ghép đủ 2 điều kiện tháng+giờ và người lớn đi cùng → đáp án 1 đúng. Đáp án 0 sai vì bảng ra lệnh trẻ em phải vào CÙNG người lớn (入れ), không được vào một mình. Đáp án 2 sai vì 15:00 vẫn nằm trong khung 9:00〜17:00. Đáp án 3 sai vì bể bơi mở đúng vào mùa hè (tháng 6–9), không phải mùa đông mới cấm.",
+          "tip": "Câu hỏi ghép nhiều điều kiện (tháng + giờ + có trẻ em) → dò dòng ※ về THÁNG trước, rồi dò cột giờ trong bảng, cuối cùng dò quy định riêng cho trẻ em.",
+          "evi": [
+            3,
+            9
+          ],
+          "qt": {
+            "q": "Chị Karina sẽ đi đến Công viên Sakura cùng với con vào 3 giờ chiều thứ Bảy trong tháng 8. Chị ấy muốn vào hồ bơi. Chị Karina nên làm thế nào?",
+            "o": [
+              "Trẻ em vào hồ bơi một mình cũng được",
+              "Vì là tháng 8 nên có thể vào hồ bơi cùng với người lớn",
+              "Vì 3 giờ chiều không phải giờ mở hồ bơi nên không thể vào",
+              "Vì không phải mùa đông nên không được vào hồ bơi"
+            ]
+          }
+        },
+        {
+          "q": "この「きまり」を見て、正しいものはどれですか。",
+          "options": [
+            "テニスコートを使う人は、受付で名前を書かなくてもいい",
+            "「立入禁止」という札は、そこに入ってもいいという意味だ",
+            "公園にゴミ箱があるから、ゴミを捨ててもいい",
+            "池の近くの「危険」という札は、そこに入るなという意味だ"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3. Bài viết ghi rõ「「危険」は危ないから絶対に入るなという意味です」— biển \"危険\" ở gần ao có nghĩa là tuyệt đối cấm vào, đúng khớp nội dung đáp án 3. Đáp án 0 sai vì bảng yêu cầu「使う前に受付で名前を書け」— PHẢI ghi tên trước khi dùng sân tennis. Đáp án 1 sai vì bài giải nghĩa ngược lại:「「立入禁止」は入ってはいけないという意味です」— nghĩa là KHÔNG được vào, không phải được phép. Đáp án 2 sai vì bài ghi rõ「ゴミ箱はありません。ゴミは必ず持ち帰れ」— không có thùng rác, phải mang rác về, không được vứt lại.",
+          "tip": "Câu hỏi \"điều nào đúng\" kiểu 問題6 → so từng option với đúng câu giải nghĩa「〜という意味です」hoặc dòng ※ trong bài; đáp án sai thường đảo ngược nghĩa của biển báo (được phép ↔ cấm).",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Xem “きまり” (quy định) này, điều nào đúng?",
+            "o": [
+              "Người sử dụng sân tennis không cần ghi tên ở quầy tiếp nhận",
+              "Biển ghi “立入禁止” có nghĩa là được phép vào đó",
+              "Vì trong công viên có thùng rác nên có thể vứt rác",
+              "Biển ghi “危険” gần ao có nghĩa là không được vào đó"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "町内会のお知らせを読む",
+      "titleVi": "Đọc thông báo khu phố: Diễn tập phòng cháy chữa cháy",
+      "japanese": "みどり町内会　防災訓練のお知らせ\n地震や火事のとき、みんなで安全に逃げる練習をします。町内会に入っている人は必ず参加せよ。\n地区｜日にち｜集まる場所\n1丁目｜9月6日（土）｜みどり小学校の校庭\n2丁目｜9月6日（土）｜みどり公園\n3丁目｜9月13日（土）｜駅前広場\n4丁目｜9月13日（土）｜駅前広場\n当日は9時に集まれ。9時10分になったら、訓練を始める。遅れるな。\n集まる場所の入り口に「避難場所」という看板が立ててある。「避難場所」は地震や火事のときに逃げる場所という意味である。\n看板の下に「ここに入るな」と書いてある戸があるが、それは工事中の入り口という意味である。\n※雨が降ったら、体育館の中で行う。\n※軍手と水を持ってこい。\n問い合わせ：みどり町内会事務所　電話：042-555-8080（月〜金 9:00〜17:00）",
+      "vietnamese": "Thông báo diễn tập phòng cháy chữa cháy của khu phố Midori\nKhi động đất hay hỏa hoạn xảy ra, mọi người sẽ cùng luyện tập chạy nạn an toàn. Người đã tham gia khu phố hãy nhất định tham gia.\nKhu vực｜Ngày｜Nơi tập trung\nKhu 1｜Ngày 6/9 (thứ Bảy)｜Sân trường tiểu học Midori\nKhu 2｜Ngày 6/9 (thứ Bảy)｜Công viên Midori\nKhu 3｜Ngày 13/9 (thứ Bảy)｜Quảng trường trước ga\nKhu 4｜Ngày 13/9 (thứ Bảy)｜Quảng trường trước ga\nHôm đó hãy tập trung lúc 9 giờ. Khi đến 9 giờ 10 phút thì buổi diễn tập sẽ bắt đầu. Đừng đến muộn.\nỞ cửa vào nơi tập trung có dựng tấm biển ghi \"nơi lánh nạn\". \"Nơi lánh nạn\" có nghĩa là nơi chạy đến khi có động đất hay hỏa hoạn.\nDưới tấm biển có cánh cửa ghi chữ \"đừng vào đây\", đó có nghĩa là lối vào đang thi công.\n※Nếu trời mưa thì sẽ tổ chức trong nhà thể dục.\n※Hãy mang theo găng tay vải và nước.\nLiên hệ: Văn phòng khu phố Midori　Điện thoại: 042-555-8080 (thứ Hai〜thứ Sáu 9:00〜17:00）",
+      "sentences": [
+        {
+          "jp": "みどり町内会　防災訓練のお知らせ",
+          "vi": "Thông báo diễn tập phòng cháy chữa cháy của khu phố Midori",
+          "vocab": [
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "trong khu phố"
+            },
+            {
+              "w": "防災",
+              "read": "ぼうさい",
+              "vi": "phòng chống thiên tai"
+            },
+            {
+              "w": "訓練",
+              "read": "くんれん",
+              "vi": "huấn luyện, rèn luyện"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "町内会",
+              "read": "ちょうないかい",
+              "vi": "hội khu phố"
+            },
+            {
+              "w": "防災訓練",
+              "read": "ぼうさいくんれん",
+              "vi": "diễn tập phòng thiên tai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "防災訓練のお知らせ = thông báo về diễn tập phòng thiên tai. Tiêu đề danh từ ghép chuẩn 問題6."
+            }
+          ]
+        },
+        {
+          "jp": "地震や火事のとき、みんなで安全に逃げる練習をします。町内会に入っている人は必ず参加せよ。",
+          "vi": "Khi động đất hay hỏa hoạn xảy ra, mọi người sẽ cùng luyện tập chạy nạn an toàn. Người đã tham gia khu phố hãy nhất định tham gia.",
+          "vocab": [
+            {
+              "w": "地震",
+              "read": "じしん",
+              "vi": "động đất"
+            },
+            {
+              "w": "火事",
+              "read": "かじ",
+              "vi": "hỏa hoạn"
+            },
+            {
+              "w": "安全に",
+              "read": "あんぜんに",
+              "vi": "một cách an toàn"
+            },
+            {
+              "w": "逃げます",
+              "read": "にげます",
+              "vi": "chạy trốn, thoát ra"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "trong khu phố"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "地震や火事のとき = khi có động đất hay hỏa hoạn. N + のとき nêu thời điểm/tình huống."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "安全に逃げる練習 = luyện tập chạy nạn an toàn. Vる + N bổ nghĩa cho 練習."
+            },
+            {
+              "point": "Vています（trạng thái, Bài 15）",
+              "vi": "入っている人 = người đã (đang) tham gia. Vて + いる diễn tả trạng thái đã trở thành thành viên."
+            },
+            {
+              "point": "V命令形（参加せよ）",
+              "vi": "参加せよ = 参加する (bất quy tắc) → せよ (dạng trang trọng của しろ). Câu mở đầu thông báo dùng ngay thể mệnh lệnh để ra lệnh phải tham gia."
+            }
+          ],
+          "keys": [
+            {
+              "w": "町内会に入っている人は必ず参加せよ",
+              "why": "Điều kiện tham gia bắt buộc — người trong khu phố phải tham gia diễn tập."
+            }
+          ]
+        },
+        {
+          "jp": "地区｜日にち｜集まる場所",
+          "vi": "Khu vực｜Ngày｜Nơi tập trung",
+          "vocab": [
+            {
+              "w": "地区",
+              "read": "ちく",
+              "vi": "khu vực"
+            },
+            {
+              "w": "日にち",
+              "read": "ひにち",
+              "vi": "ngày (cụ thể)"
+            },
+            {
+              "w": "集まります",
+              "read": "あつまります",
+              "vi": "tập trung, tập hợp"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "nơi, địa điểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "集まる場所 = nơi (mọi người) tập trung. Vる + N bổ nghĩa danh từ, dùng làm tiêu đề cột bảng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "地区｜日にち｜集まる場所",
+              "why": "Hàng header của bảng — xác định 3 cột: khu vực / ngày / nơi tập trung."
+            }
+          ]
+        },
+        {
+          "jp": "1丁目｜9月6日（土）｜みどり小学校の校庭",
+          "vi": "Khu 1｜Ngày 6/9 (thứ Bảy)｜Sân trường tiểu học Midori",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "小学校",
+              "read": "しょうがっこう",
+              "vi": "trường tiểu học"
+            },
+            {
+              "w": "校庭",
+              "read": "こうてい",
+              "vi": "sân trường"
+            },
+            {
+              "w": "丁目",
+              "read": "ちょうめ",
+              "vi": "khu (số nhà)"
+            },
+            {
+              "w": "9月6日",
+              "read": "くがつむいか",
+              "vi": "ngày 6 tháng 9"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "2丁目｜9月6日（土）｜みどり公園",
+          "vi": "Khu 2｜Ngày 6/9 (thứ Bảy)｜Công viên Midori",
+          "vocab": [
+            {
+              "w": "2丁目",
+              "read": "にちょうめ",
+              "vi": "khu phố số 2"
+            },
+            {
+              "w": "9月6日",
+              "read": "くがつむいか",
+              "vi": "ngày 6 tháng 9"
+            },
+            {
+              "w": "9月",
+              "read": "くがつ",
+              "vi": "tháng 9"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "6日",
+              "read": "むいか",
+              "vi": "ngày mùng 6"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ bảy"
+            },
+            {
+              "w": "みどり公園",
+              "read": "みどりこうえん",
+              "vi": "công viên Midori"
+            },
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "Midori; màu xanh lá"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "3丁目｜9月13日（土）｜駅前広場",
+          "vi": "Khu 3｜Ngày 13/9 (thứ Bảy)｜Quảng trường trước ga",
+          "vocab": [
+            {
+              "w": "3丁目",
+              "read": "さんちょうめ",
+              "vi": "khu phố số 3"
+            },
+            {
+              "w": "9月13日",
+              "read": "くがつじゅうさんにち",
+              "vi": "ngày 13 tháng 9"
+            },
+            {
+              "w": "9月",
+              "read": "くがつ",
+              "vi": "tháng 9"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "13日",
+              "read": "じゅうさんにち",
+              "vi": "ngày 13"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ bảy"
+            },
+            {
+              "w": "駅前広場",
+              "read": "えきまえひろば",
+              "vi": "quảng trường trước ga"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước ga"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "広場",
+              "read": "ひろば",
+              "vi": "quảng trường"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "3丁目｜9月13日（土）｜駅前広場",
+              "why": "Hàng bảng khu 3 — cùng ngày & nơi tập trung với khu 4, cần để trả lời câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "4丁目｜9月13日（土）｜駅前広場",
+          "vi": "Khu 4｜Ngày 13/9 (thứ Bảy)｜Quảng trường trước ga",
+          "vocab": [
+            {
+              "w": "4丁目",
+              "read": "よんちょうめ",
+              "vi": "khu phố 4"
+            },
+            {
+              "w": "9月",
+              "read": "くがつ",
+              "vi": "tháng 9"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "13日",
+              "read": "じゅうさんにち",
+              "vi": "ngày 13"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ bảy"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước nhà ga"
+            },
+            {
+              "w": "広場",
+              "read": "ひろば",
+              "vi": "quảng trường"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "4丁目｜9月13日（土）｜駅前広場",
+              "why": "Hàng bảng đúng khu 4 — căn cứ trực tiếp trả lời câu hỏi 1 (サントスさん ở khu 4, đi ngày 9/13)."
+            },
+            {
+              "w": "4丁目",
+              "why": "Số khu vực phải khớp đúng với サントスさん trong câu hỏi 1 — nhiễu dễ nhầm sang 3丁目 cùng ngày cùng nơi."
+            }
+          ]
+        },
+        {
+          "jp": "当日は9時に集まれ。9時10分になったら、訓練を始める。遅れるな。",
+          "vi": "Hôm đó hãy tập trung lúc 9 giờ. Khi đến 9 giờ 10 phút thì buổi diễn tập sẽ bắt đầu. Đừng đến muộn.",
+          "vocab": [
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "集まれ",
+              "read": "あつまれ",
+              "vi": "hãy tập trung"
+            },
+            {
+              "w": "9時10分",
+              "read": "くじじゅっぷん",
+              "vi": "9 giờ 10 phút"
+            },
+            {
+              "w": "なったら",
+              "read": "なったら",
+              "vi": "khi đến/khi trở thành"
+            },
+            {
+              "w": "訓練",
+              "read": "くんれん",
+              "vi": "huấn luyện"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "遅れる",
+              "read": "おくれる",
+              "vi": "trễ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V命令形（集まれ）",
+              "vi": "集まれ = 集まる (nhóm I) → âm え → 集まれ. Ra lệnh giờ tập trung chính xác — cần để trả lời câu hỏi ghép điều kiện ngày+giờ."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "9時10分になったら = khi đến 9 giờ 10 phút thì. Vた + ら nêu điều kiện thời gian, khác với ので (chưa học) — bài 33 dùng たら/から thay vì ので (Bài 39, chưa tới)."
+            },
+            {
+              "point": "Vるな（遅れるな）",
+              "vi": "遅れるな = 遅れる (nguyên thể) + な → đừng đến muộn. Cấm đoán trực tiếp, mẫu trọng tâm bài 33."
+            }
+          ],
+          "keys": [
+            {
+              "w": "当日は9時に集まれ",
+              "why": "Giờ tập trung chung, dùng để đối chiếu với giờ liên hệ văn phòng (dòng cuối) tránh nhầm lẫn."
+            }
+          ]
+        },
+        {
+          "jp": "集まる場所の入り口に「避難場所」という看板が立ててある。「避難場所」は地震や火事のときに逃げる場所という意味である。",
+          "vi": "Ở cửa vào nơi tập trung có dựng tấm biển ghi \"nơi lánh nạn\". \"Nơi lánh nạn\" có nghĩa là nơi chạy đến khi có động đất hay hỏa hoạn.",
+          "vocab": [
+            {
+              "w": "集まる",
+              "read": "あつまる",
+              "vi": "tập hợp, tụ họp"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "入り口",
+              "read": "いりぐち",
+              "vi": "cửa vào"
+            },
+            {
+              "w": "避難",
+              "read": "ひなん",
+              "vi": "thoát hiểm, sơ tán"
+            },
+            {
+              "w": "看板",
+              "read": "かんばん",
+              "vi": "tấm biển"
+            },
+            {
+              "w": "立てます",
+              "read": "たてます",
+              "vi": "dựng lên"
+            },
+            {
+              "w": "地震",
+              "read": "じしん",
+              "vi": "động đất"
+            },
+            {
+              "w": "火事",
+              "read": "かじ",
+              "vi": "hỏa hoạn, cháy"
+            },
+            {
+              "w": "逃げる",
+              "read": "にげる",
+              "vi": "bỏ chạy, trốn thoát"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "避難場所",
+              "read": "ひなんばしょ",
+              "vi": "nơi lánh nạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というN",
+              "vi": "「避難場所」という看板 = tấm biển có tên là \"避難場所\". という đặt trước danh từ giới thiệu tên gọi."
+            },
+            {
+              "point": "Vてあります（Bài 30）",
+              "vi": "立ててある = được dựng sẵn (và còn đó). 立てます (他動詞) + てある."
+            },
+            {
+              "point": "〜という意味です",
+              "vi": "「避難場所」は〜という意味である = \"避難場所\" có nghĩa là〜. Mẫu 〜という意味です giải nghĩa tên gọi trên biển — trọng tâm bài 33（である là văn phong trang trọng của です trong văn bản thông báo)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "「避難場所」は地震や火事のときに逃げる場所という意味である",
+              "why": "Định nghĩa trực tiếp nghĩa của biển「避難場所」— căn cứ đáp án đúng câu hỏi 2."
+            },
+            {
+              "w": "避難場所",
+              "why": "Tên biển thứ nhất — phải phân biệt với cửa「ここに入るな」ở dòng dưới để không chọn nhầm nghĩa đáp án nhiễu câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "看板の下に「ここに入るな」と書いてある戸があるが、それは工事中の入り口という意味である。",
+          "vi": "Dưới tấm biển có cánh cửa ghi chữ \"đừng vào đây\", đó có nghĩa là lối vào đang thi công.",
+          "vocab": [
+            {
+              "w": "看板",
+              "read": "かんばん",
+              "vi": "tấm biển"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "phía dưới"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "戸",
+              "read": "と",
+              "vi": "cánh cửa"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "việc sửa chữa, thi công"
+            },
+            {
+              "w": "入り口",
+              "read": "いりくち",
+              "vi": "cửa vào, lối vào"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "工事中",
+              "read": "こうじちゅう",
+              "vi": "đang thi công"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nと書いてあります（Bài 30 + 33）",
+              "vi": "「ここに入るな」と書いてある戸 = cánh cửa viết sẵn chữ \"đừng vào đây\" (và còn đó). N + と書いてあります trích dẫn chính xác chữ viết, kết hợp mệnh đề bổ nghĩa danh từ bổ nghĩa cho 戸."
+            },
+            {
+              "point": "Vるな（ここに入るな）",
+              "vi": "入るな = 入る (nguyên thể) + な → cấm đoán trực tiếp, nằm trong phần trích dẫn chữ trên biển."
+            },
+            {
+              "point": "〜という意味です",
+              "vi": "工事中の入り口という意味である = có nghĩa là lối vào đang thi công. Lần thứ hai dùng 〜という意味です để giải nghĩa biển「入るな」— câu mẫu chính xác theo yêu cầu「入るな」と書いてある戸は…という意味です."
+            }
+          ],
+          "keys": [
+            {
+              "w": "「ここに入るな」と書いてある戸",
+              "why": "Biển báo THỨ HAI (khác 避難場所) — bẫy câu hỏi 2 nếu nhầm nghĩa của biển này sang biển kia."
+            },
+            {
+              "w": "それは工事中の入り口という意味である",
+              "why": "Định nghĩa nghĩa của cửa「ここに入るな」— dùng để loại đáp án nhiễu câu hỏi 2 (đáp án 1 lấy nhầm câu này)."
+            }
+          ]
+        },
+        {
+          "jp": "※雨が降ったら、体育館の中で行う。",
+          "vi": "※Nếu trời mưa thì sẽ tổ chức trong nhà thể dục.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降ったら",
+              "read": "ふったら",
+              "vi": "nếu mưa/khi mưa"
+            },
+            {
+              "w": "体育館",
+              "read": "たいいくかん",
+              "vi": "nhà thể chất"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "雨が降ったら = nếu trời mưa thì. Vた + ら nêu điều kiện giả định trong dòng ※ chú ý."
+            }
+          ]
+        },
+        {
+          "jp": "※軍手と水を持ってこい。",
+          "vi": "※Hãy mang theo găng tay vải và nước.",
+          "vocab": [
+            {
+              "w": "軍手",
+              "read": "ぐんて",
+              "vi": "găng tay vải (lao động)"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "持ちます",
+              "read": "もちます",
+              "vi": "mang, cầm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V命令形（持ってこい）",
+              "vi": "持ってこい = 持ってくる (bất quy tắc) → こい. Khẩu lệnh trong dòng ※ chú ý, ra lệnh mang đồ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "軍手と水を持ってこい",
+              "why": "Dòng ※ nêu vật cần mang theo — không phải căn cứ 2 câu hỏi nhưng là chi tiết ※ hay bị hỏi thêm ở đề thi thật."
+            }
+          ]
+        },
+        {
+          "jp": "問い合わせ：みどり町内会事務所　電話：042-555-8080（月〜金 9:00〜17:00）",
+          "vi": "Liên hệ: Văn phòng khu phố Midori　Điện thoại: 042-555-8080 (thứ Hai〜thứ Sáu 9:00〜17:00）",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            },
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "trong khu phố"
+            },
+            {
+              "w": "事務所",
+              "read": "じむしょ",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "月〜金 9:00〜17:00 = từ thứ Hai đến thứ Sáu, 9 giờ đến 17 giờ. Giờ liên hệ văn phòng."
+            }
+          ]
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mở",
+          "topic": 1,
+          "note": "Giới thiệu mục đích diễn tập phòng thiên tai và ra lệnh người trong khu phố phải tham gia.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng khu vực × ngày × nơi tập trung",
+          "topic": 5,
+          "note": "Bảng chính ghép khu vực (丁目) với ngày và nơi tập trung — căn cứ chính câu hỏi 1 (サントスさん khu 4, ngày 9/13).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "body",
+          "label": "Giờ tập trung & cấm trễ",
+          "topic": 7,
+          "note": "Nêu giờ tập trung chung 9 giờ và lệnh cấm đến muộn — không phải căn cứ trực tiếp câu hỏi nhưng hỗ trợ ngữ cảnh.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "point",
+          "label": "Giải nghĩa 2 biển báo",
+          "topic": 8,
+          "note": "Giải nghĩa biển「避難場所」và cửa「ここに入るな」bằng 〜という意味である — căn cứ chính câu hỏi 2, dễ nhầm nghĩa biển này sang biển kia.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 12,
+          "kind": "turn",
+          "label": "Dòng ※ & liên hệ",
+          "topic": 11,
+          "note": "Dòng ※ về trời mưa và mang đồ; dòng liên hệ văn phòng — không phải căn cứ câu hỏi, dễ gây nhiễu về giờ.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "参加せよ",
+          "label": "V命令形（ra lệnh tham gia）"
+        },
+        {
+          "excerpt": "集まれ",
+          "label": "V命令形（ra lệnh giờ tập trung）"
+        },
+        {
+          "excerpt": "遅れるな",
+          "label": "Vるな（cấm đến muộn）"
+        },
+        {
+          "excerpt": "「避難場所」は地震や火事のときに逃げる場所という意味である",
+          "label": "〜という意味です（giải nghĩa biển báo）"
+        },
+        {
+          "excerpt": "「ここに入るな」と書いてある戸",
+          "label": "Nと書いてあります + Vるな（chữ ghi trên biển）"
+        },
+        {
+          "excerpt": "工事中の入り口という意味である",
+          "label": "〜という意味です（giải nghĩa biển thứ hai）"
+        },
+        {
+          "excerpt": "持ってこい",
+          "label": "V命令形（khẩu lệnh trong dòng ※ chú ý）"
+        },
+        {
+          "excerpt": "雨が降ったら",
+          "label": "〜たら（điều kiện, ôn Bài 25）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは4丁目に住んでいて、9月13日に参加します。サントスさんはどこへ行きますか。",
+          "options": [
+            "みどり小学校の校庭へ行く",
+            "みどり公園へ行く",
+            "駅前広場へ行く",
+            "町内会事務所へ行く"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bảng ghi rõ「4丁目｜9月13日（土）｜駅前広場」— ghép 2 điều kiện khu vực (4丁目) và ngày (9月13日) đều trỏ đến cùng một ô 駅前広場. Đáp án 0 và 1 là nơi tập trung của 1丁目/2丁目 (ngày 9月6日), không phải của サントスさん. Đáp án 3 sai vì 町内会事務所 chỉ là nơi liên hệ hỏi đáp, không phải nơi tập trung diễn tập.",
+          "tip": "Câu hỏi ghép 2 điều kiện (khu + ngày) → dò CẢ HAI cột trong bảng cùng lúc, đừng chỉ nhìn cột 地区 rồi đoán ngày.",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Ông/bạn Santos sống ở khu phố 4 và sẽ tham gia vào ngày 13 tháng 9. Ông/bạn Santos sẽ đi đâu?",
+            "o": [
+              "Đi đến sân trường tiểu học Midori",
+              "Đi đến công viên Midori",
+              "Đi đến quảng trường trước nhà ga",
+              "Đi đến văn phòng hội khu phố"
+            ]
+          }
+        },
+        {
+          "q": "「避難場所」という看板について、正しいものはどれですか。",
+          "options": [
+            "地震や火事のときに逃げる場所という意味だ",
+            "工事中だから、絶対に入るなという意味だ",
+            "テニスコートがある場所という意味だ",
+            "町内会事務所へ行く道という意味だ"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Bài viết giải nghĩa trực tiếp:「「避難場所」は地震や火事のときに逃げる場所という意味である」. Đáp án 1 sai vì đó là nghĩa của biển「ここに入るな」(cửa dưới biển), không phải biển「避難場所」. Đáp án 2 và 3 hoàn toàn bịa đặt, không có chi tiết nào về sân tennis hay đường đi văn phòng khu phố trong bài.",
+          "tip": "Khi bài có 2 biển báo khác nhau đều dùng「〜という意味です」→ đọc kỹ câu hỏi hỏi VỀ BIỂN NÀO, tránh nhầm nghĩa của biển này sang biển kia.",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Về tấm biển có chữ 「避難場所」(nơi sơ tán), câu nào đúng?",
+            "o": [
+              "Có nghĩa là nơi để chạy đến khi xảy ra động đất hoặc hỏa hoạn",
+              "Có nghĩa là đang thi công, vì vậy tuyệt đối không được vào",
+              "Có nghĩa là nơi có sân quần vợt",
+              "Có nghĩa là đường đi đến văn phòng hội khu phố"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

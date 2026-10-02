@@ -1,0 +1,3787 @@
+{
+  "bai": 62,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 62 luyện ba mẫu nghịch-nhượng bộ: 〜ても (\"dù… vẫn/cũng\" — giả định hoặc sự thật, trung tính, không kèm cảm xúc); 〜のに (\"vậy mà\" — kết quả THẬT trái kỳ vọng, kèm bất ngờ/bất mãn/tiếc); 〜くせに (\"vậy mà lại\" + CHÊ TRÁCH/khinh thường — nặng sắc thái hơn のに, thường cùng chủ thể, không dùng tự nói về bản thân trang trọng). Đọc hiểu N3 hay hỏi TẠI SAO tác giả chọn のに chứ không chọn くせに (hoặc ngược lại) — câu trả lời nằm ở sắc thái thái độ: くせに = chê, khinh; のに = tiếc/bất mãn nhẹ hơn.",
+    "steps": [
+      "接続 ても: Vて形 + も (行っても); いAdj → 〜くても (高くても); なAdj/N → 〜でも (元気でも / 学生でも).",
+      "接続 のに: 普通形 + のに — lưu ý なAdj → 〜なのに (元気なのに), N → 〜なのに (学生なのに). Kết quả phải là SỰ THẬT đã/đang xảy ra.",
+      "接続 くせに: 普通形 + くせに — なAdj → 〜なくせに (元気なくせに), N → 〜のくせに (学生のくせに). Chỉ dùng để chê người/vật khác (hoặc chê thú vui/thói quen không tốt), không tự khen.",
+      "使い分け ても vs のに: \"雨が降っても行く\" = dù trời mưa vẫn đi (giả định, trung tính) ≠ \"たくさん練習したのに勝てない\" = đã luyện nhiều vậy mà không thắng (sự thật, bất mãn).",
+      "使い分け のに vs くせに: \"給料が多いのにケチだ\" (bất ngờ/bất mãn nhẹ) vs \"金持ちのくせにケチだ\" (chê thẳng, khinh thường). くせに sắc thái chê nặng hơn rõ rệt.",
+      "Câu hỏi sắc thái: \"Vì sao tác giả dùng くせに chứ không dùng のに?\" → Vì có ý chê trách/khinh thường."
+    ],
+    "tips": [
+      "使い分け 1 — ても vs のに: ても dùng được với CẢ tình huống giả định (\"nếu dù…\") và sự thật; のに CHỈ dùng khi kết quả là SỰ THẬT đã xảy ra và người nói CẢM THẤY bất ngờ/tiếc/bất mãn.",
+      "使い分け 2 — のに vs くせに: のに bày tỏ bất mãn nhẹ/tiếc nuối; くせに MANG SẮC THÁI CHÊ TRÁCH rõ ràng, thường đi kèm với thái độ khinh thường. くせに không dùng để nói về bản thân một cách trang trọng.",
+      "くせに thường cùng chủ thể hành động trước và sau: 「知っているくせに教えない」(biết mà không nói) — chủ thể cùng là người bị chê. Nếu khác chủ thể, ưu tiên dùng のに.",
+      "Dấu hiệu nhận mẫu trong câu hỏi đọc hiểu: (1) Thấy ても → hỏi \"giả định hay sự thật?\"; (2) Thấy のに cuối câu hoặc trước dấu phẩy → hỏi \"người viết cảm thấy gì?\"; (3) Thấy くせに → hỏi \"ai chê ai, thái độ là gì?\".",
+      "くせに KHÔNG bao giờ thay thế được ても (giả định), chỉ thay thế được のに khi có thêm sắc thái chê trách. Đây là bẫy phổ biến nhất trong đề thi N3."
+    ],
+    "grammarFocus": [
+      "〜ても（Vて形 + も / Aくても / NAでも / Nでも）— \"dù… vẫn/cũng\", trung tính, giả định hoặc thật",
+      "〜のに（普通形 + のに; なN → なのに, N → なのに）— \"vậy mà\", kết quả thật trái kỳ vọng, bất mãn/tiếc",
+      "〜くせに（普通形 + くせに; なN → なくせに, N → のくせに）— \"vậy mà lại\" + chê trách/khinh thường"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 25,
+        "items": [
+          "〜ても（dù…vẫn）",
+          "たとえ〜ても"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（nghịch kỳ vọng Bài 45）"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "つもりだ（ý định）"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "〜てしまう（hoàn thành với tiếc nuối）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "おかげで / せいで（nhờ / tại）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "努力しても結果が出ない",
+      "titleVi": "Dù cố gắng vẫn không có kết quả",
+      "japanese": "毎日二時間勉強しても、日本語の成績がなかなか上がらない。先生に何度も質問したのに、テストの点数は前と変わらなかった。クラスメートのケンさんはほとんど勉強しないくせに、いつも高い点数を取る。そのせいで、私はますます自信をなくしてしまった。来週もテストがある。どんなに難しくても、今度こそあきらめないつもりだ。努力しても結果がすぐに出ないのは当たり前のことかもしれない。でも、わかっていても、やはり悔しい気持ちは消えない。ケンさんのことは羨ましいが、私には私のペースがあるのだから、焦らないようにしたい。",
+      "vietnamese": "Dù học hai tiếng mỗi ngày, điểm tiếng Nhật vẫn không tăng được mấy. Dù đã hỏi thầy nhiều lần, điểm bài kiểm tra vẫn không thay đổi so với trước. Bạn cùng lớp Ken hầu như không học mà lúc nào cũng đạt điểm cao. Vì vậy, tôi ngày càng mất tự tin. Tuần tới lại có bài kiểm tra. Dù khó đến đâu, lần này tôi không có ý định bỏ cuộc. Có thể việc cố gắng mà kết quả không ra ngay là điều bình thường. Nhưng dù biết vậy, cảm giác tức thì vẫn không tan đi được. Tôi thấy ghen tị với Ken, nhưng vì tôi có nhịp độ của riêng mình nên tôi muốn không vội vàng.",
+      "sentences": [
+        {
+          "jp": "毎日二時間勉強しても、日本語の成績がなかなか上がらない。",
+          "vi": "Dù học hai tiếng mỗi ngày, điểm tiếng Nhật vẫn không tăng được mấy.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học, học bài"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "成績",
+              "read": "せいせき",
+              "vi": "kết quả học tập, điểm số"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "không mấy (+ phủ định), khá khó"
+            },
+            {
+              "w": "上がります",
+              "read": "あがります",
+              "vi": "tăng lên, cải thiện"
+            },
+            {
+              "w": "二時間",
+              "read": "にじかん",
+              "vi": "hai tiếng đồng hồ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても",
+              "vi": "接続: Vて形 + も → 勉強しても = \"dù học vẫn…\". Sắc thái TRUNG TÍNH: không kèm bất mãn hay chê trách, chỉ nêu nghịch lý. Đây là sự thật (đang xảy ra), nhưng ても vẫn dùng được cho cả giả định lẫn thực tế. Đối chiếu: のに ở câu sau cũng nghịch, nhưng có thêm sắc thái BẤT MÃN (tiếc nuối)."
+            }
+          ]
+        },
+        {
+          "jp": "先生に何度も質問したのに、テストの点数は前と変わらなかった。",
+          "vi": "Dù đã hỏi thầy nhiều lần, điểm bài kiểm tra vẫn không thay đổi so với trước.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "質問します",
+              "read": "しつもんします",
+              "vi": "hỏi, đặt câu hỏi"
+            },
+            {
+              "w": "テスト",
+              "read": "テスト",
+              "vi": "bài kiểm tra"
+            },
+            {
+              "w": "点数",
+              "read": "てんすう",
+              "vi": "điểm số"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "何度も",
+              "read": "なんども",
+              "vi": "nhiều lần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに",
+              "vi": "接続: Vた（普通形）+ のに → 質問したのに = \"đã hỏi vậy mà…\". Sắc thái BẤT MÃN/TIẾC: kết quả là SỰ THẬT đã xảy ra (\"điểm không đổi\") và trái kỳ vọng. Đối chiếu với ても (câu trước, trung tính): のに KHÔNG dùng cho tình huống giả định — \"質問するのに\" (tương lai/giả định) thì sai sắc thái; phải dùng ても trong trường hợp đó."
+            }
+          ]
+        },
+        {
+          "jp": "クラスメートのケンさんはほとんど勉強しないくせに、いつも高い点数を取る。",
+          "vi": "Bạn cùng lớp Ken hầu như không học mà lúc nào cũng đạt điểm cao.",
+          "vocab": [
+            {
+              "w": "クラスメート",
+              "read": "クラスメート",
+              "vi": "bạn cùng lớp"
+            },
+            {
+              "w": "ケン",
+              "read": "ケン",
+              "vi": "tên riêng Ken"
+            },
+            {
+              "w": "ほとんど",
+              "read": "ほとんど",
+              "vi": "hầu như (+ phủ định)"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao"
+            },
+            {
+              "w": "点数",
+              "read": "てんすう",
+              "vi": "điểm số"
+            },
+            {
+              "w": "取ります",
+              "read": "とります",
+              "vi": "đạt được, lấy được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "接続: Vない（普通形）+ くせに → 勉強しないくせに = \"không học mà lại…\". Sắc thái CHÊ TRÁCH/KHINH THƯỜNG rõ rệt: người nói chê Ken — hầu như không học MÀ VẪN được điểm cao, thể hiện sự ghen tị/bực bội. Đối chiếu với のに: nếu thay bằng \"勉強しないのに\" = bất ngờ/tiếc nhẹ hơn; くせに mạnh hơn vì mang hàm ý \"đáng ra không nên như vậy, nhưng vẫn…\" với thái độ chê. CÙNG CHỦ THỂ: Ken vừa là người không học, vừa là người đạt điểm cao."
+            }
+          ]
+        },
+        {
+          "jp": "そのせいで、私はますます自信をなくしてしまった。",
+          "vi": "Vì vậy, tôi ngày càng mất tự tin.",
+          "vocab": [
+            {
+              "w": "そのせいで",
+              "read": "そのせいで",
+              "vi": "vì thế; do chuyện đó"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "ますます",
+              "read": "ますます",
+              "vi": "càng ngày càng"
+            },
+            {
+              "w": "自信",
+              "read": "じしん",
+              "vi": "sự tự tin"
+            },
+            {
+              "w": "なくして",
+              "read": "なくして",
+              "vi": "đánh mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで（Bài 59）",
+              "vi": "そのせいで = vì điều đó (nguyên nhân dẫn đến kết quả XẤU). Ôn lại Bài 59: せいで dùng đổ lỗi/nguyên nhân tiêu cực (≠ おかげで = nhờ/tích cực)."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "なくしてしまった = đã lỡ mất đi (tiếc nuối, không cố ý). てしまう = hoàn thành với sắc thái tiếc (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "来週もテストがある。どんなに難しくても、今度こそあきらめないつもりだ。",
+          "vi": "Tuần tới lại có bài kiểm tra. Dù khó đến đâu, lần này tôi không có ý định bỏ cuộc.",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "テスト",
+              "read": "テスト",
+              "vi": "bài kiểm tra"
+            },
+            {
+              "w": "どんなに",
+              "read": "どんなに",
+              "vi": "dù bao nhiêu, dù như thế nào"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "今度こそ",
+              "read": "こんどこそ",
+              "vi": "lần này nhất định"
+            },
+            {
+              "w": "あきらめる",
+              "read": "あきらめる",
+              "vi": "từ bỏ, bỏ cuộc"
+            },
+            {
+              "w": "あきらめます",
+              "read": "あきらめます",
+              "vi": "bỏ cuộc, từ bỏ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（いAdj → くても）",
+              "vi": "接続: いAdj（難しい）→ bỏ い + くても → 難しくても = \"dù khó đến đâu vẫn…\". Ở đây là GIẢ ĐỊNH (tuần tới chưa xảy ra) → chỉ ても mới hợp (のに/くせに không dùng cho giả định)."
+            },
+            {
+              "point": "〜つもりだ（Bài 31）",
+              "vi": "あきらめないつもりだ = không có ý định bỏ cuộc. Vないつもり = ý định không làm (Bài 31)."
+            }
+          ]
+        },
+        {
+          "jp": "努力しても結果がすぐに出ないのは当たり前のことかもしれない。",
+          "vi": "Có thể việc cố gắng mà kết quả không ra ngay là điều bình thường.",
+          "vocab": [
+            {
+              "w": "努力します",
+              "read": "どりょくします",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "当たり前",
+              "read": "あたりまえ",
+              "vi": "hiển nhiên, bình thường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（mệnh đề danh từ hóa + のは）",
+              "vi": "努力しても結果が出ないの = việc dù cố gắng mà kết quả không ra. のは danh từ hóa mệnh đề (Bài 38)."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "かもしれない = có thể (không chắc). Ôn Bài 32."
+            }
+          ]
+        },
+        {
+          "jp": "でも、わかっていても、やはり悔しい気持ちは消えない。",
+          "vi": "Nhưng dù biết vậy, cảm giác tức thì vẫn không tan đi được.",
+          "vocab": [
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "やはり",
+              "read": "やはり",
+              "vi": "vẫn, dù sao, quả nhiên"
+            },
+            {
+              "w": "悔しい",
+              "read": "くやしい",
+              "vi": "tức, ấm ức"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm giác, tâm trạng"
+            },
+            {
+              "w": "消えます",
+              "read": "きえます",
+              "vi": "tan biến, biến mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（trạng thái Vている + も）",
+              "vi": "わかっていても = dù biết rồi vẫn…. 接続: Vている + も → わかっている + ても. Tình huống này là SỰ THẬT (tôi đang biết), nhưng ても vẫn dùng được để nhấn mạnh nghịch lý trung tính. Dùng のに đây cũng được, nhưng ても mang vẻ chấp nhận hơn (không quá bất mãn)."
+            }
+          ]
+        },
+        {
+          "jp": "ケンさんのことは羨ましいが、私には私のペースがあるのだから、焦らないようにしたい。",
+          "vi": "Tôi thấy ghen tị với Ken, nhưng vì tôi có nhịp độ của riêng mình nên tôi muốn không vội vàng.",
+          "vocab": [
+            {
+              "w": "ケン",
+              "read": "けん",
+              "vi": "Ken"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "chuyện; việc"
+            },
+            {
+              "w": "羨ましい",
+              "read": "うらやましい",
+              "vi": "đáng ghen tị"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "ペース",
+              "read": "ぺーす",
+              "vi": "nhịp độ; tốc độ riêng"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có; tồn tại"
+            },
+            {
+              "w": "焦らない",
+              "read": "あせらない",
+              "vi": "không vội vàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のだから（Bài 26 んです + Bài 9 から）",
+              "vi": "あるのだから = vì có (lý do tự nhiên). のだ giải thích + から nêu căn cứ."
+            },
+            {
+              "point": "Vないようにしたい（Bài 36）",
+              "vi": "焦らないようにしたい = muốn cố không vội. Vないように + する = cố gắng để không làm V (Bài 36)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "毎日二時間勉強しても、日本語の成績がなかなか上がらない",
+          "label": "〜ても（trung tính, sự thật）"
+        },
+        {
+          "excerpt": "先生に何度も質問したのに、テストの点数は前と変わらなかった",
+          "label": "〜のに（bất mãn/tiếc）"
+        },
+        {
+          "excerpt": "ほとんど勉強しないくせに、いつも高い点数を取る",
+          "label": "Sắc thái: 〜くせに（chê trách）"
+        },
+        {
+          "excerpt": "どんなに難しくても、今度こそあきらめないつもりだ",
+          "label": "〜ても（giả định, いAdj くても）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「先生に何度も質問したのに」の「のに」はどんな気持ちを表していますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "何度も質問したことに感謝している気持ち",
+            "何度も質問したのに期待した結果が出なかった、という不満や残念な気持ち",
+            "先生に質問するつもりはなかったという気持ち",
+            "次のテストを楽しみにしている気持ち"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B. 「何度も質問したのに、テストの点数は前と変わらなかった」— đã hỏi thầy nhiều lần (hành động đã xảy ra thật) nhưng điểm không thay đổi (kết quả trái kỳ vọng). のに ở đây nắm bắt cảm giác BẤT MÃN/TIẾC của người viết: đã bỏ công sức mà vô ích. Sai: A (\"cảm ơn\") — のに không biểu đạt biết ơn. Sai: C (\"không muốn hỏi\") — ngược hoàn toàn. Sai: D (\"mong chờ bài thi\") — không có căn cứ trong câu.",
+          "tip": "のに xuất hiện sau sự thật đã xảy ra + người nói cảm thấy TIẾC hoặc BẤT MÃN (hành động cố gắng mà không ra kết quả). Không kèm thái độ chê trách người khác — đó là くせに.",
+          "qt": {
+            "q": "「先生に何度も質問したのに」（Dù đã hỏi thầy/cô nhiều lần）thể hiện cảm xúc gì?",
+            "o": [
+              "Cảm giác biết ơn vì đã hỏi nhiều lần",
+              "Cảm giác bất mãn hoặc thất vọng vì đã hỏi nhiều lần nhưng không đạt được kết quả như mong đợi",
+              "Cảm giác rằng mình vốn không định hỏi thầy/cô",
+              "Cảm giác mong chờ bài kiểm tra tiếp theo"
+            ]
+          }
+        },
+        {
+          "q": "「ほとんど勉強しないくせに、いつも高い点数を取る」とあります。「くせに」のかわりに「のに」を使うとどう違いますか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "意味が全く逆になります",
+            "「のに」は驚きや軽い不満、「くせに」は批判・軽蔑のニュアンスが強くなります",
+            "「のに」は事実、「くせに」は仮定を表します",
+            "接続の形だけが違い、意味は同じです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B. Câu gốc 「ほとんど勉強しないくせに、いつも高い点数を取る」dùng くせに để chê Ken — không học mà vẫn điểm cao, người viết bực bội/ghen tị rõ ràng. Nếu thay bằng のに: 「勉強しないのに点数を取る」= bất ngờ/nhẹ hơn, không hàm ý \"đáng bị chê\". のに phản ánh ngạc nhiên chứ không phải khinh thường. Sai: A (\"nghĩa ngược\") — cả hai vẫn mang nghịch nghĩa. Sai: C (\"のに là giả định\") — sai hoàn toàn, のに yêu cầu sự thật đã xảy ra. Sai: D (\"chỉ khác hình thức\") — sắc thái thái độ khác nhau rõ rệt.",
+          "tip": "くせに = nghe thấy thái độ CHÊ TRÁCH/KHINH THƯỜNG (gần như \"đáng chê\"); のに = chỉ bất ngờ/tiếc nhẹ, không có ý chê người. Nếu câu mang giọng \"đáng ra không nên như vậy, xấu hổ lắm\" → くせに.",
+          "qt": {
+            "q": "Trong câu 「ほとんど勉強しないくせに、いつも高い点数を取る」 (“Dù hầu như chẳng học hành gì mà lúc nào cũng đạt điểm cao”), nếu dùng 「のに」 thay cho 「くせに」 thì sắc thái khác nhau thế nào?",
+            "o": [
+              "Nghĩa hoàn toàn trái ngược",
+              "「のに」 thể hiện sự ngạc nhiên hoặc bất mãn nhẹ, còn 「くせに」 mang sắc thái chỉ trích và khinh miệt mạnh hơn",
+              "「のに」 diễn tả sự thật, còn 「くせに」 diễn tả giả định",
+              "Chỉ khác hình thức kết nối, còn nghĩa thì giống nhau"
+            ]
+          }
+        },
+        {
+          "q": "「どんなに難しくても、今度こそあきらめないつもりだ」で「ても」を使った理由は何ですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "テストがすでに難しかったことが分かっているからです",
+            "テストはまだ来週のことで、仮定の状況だからです",
+            "ケンさんへの批判を表すためです",
+            "結果が良かったことへの感謝を表すためです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B. 「来週もテストがある」— bài kiểm tra tuần tới chưa xảy ra, đây là tình huống GIẢ ĐỊNH. 「どんなに難しくても、あきらめない」= \"dù khó đến đâu vẫn không bỏ cuộc\" → ても dùng được cho giả định tổng quát. Sai: A (\"đã biết bài thi khó\") — chưa thi, không thể biết trước. Sai: C (\"chê trách Ken\") — không có sắc thái chê, câu này nói về quyết tâm của người viết. Sai: D (\"cảm ơn\") — hoàn toàn sai ngữ cảnh. のに và くせに đều KHÔNG dùng cho giả định — đây là lý do ても là lựa chọn duy nhất đúng.",
+          "tip": "Tình huống CHƯA XẢY RA (giả định tương lai/tổng quát) → bắt buộc dùng ても. のに chỉ dùng khi sự việc là SỰ THẬT đã xảy ra; くせに thêm điều kiện phải có thái độ chê trách.",
+          "qt": {
+            "q": "Vì sao 「ても」 được dùng trong câu 「どんなに難しくても、今度こそあきらめないつもりだ」 (“Dù có khó đến đâu, lần này nhất định tôi cũng sẽ không bỏ cuộc”)?",
+            "o": [
+              "Vì đã biết bài kiểm tra vốn đã khó",
+              "Vì bài kiểm tra là chuyện của tuần sau và đây là tình huống giả định",
+              "Để thể hiện sự chỉ trích dành cho Ken",
+              "Để thể hiện lòng biết ơn vì kết quả đã tốt"
+            ]
+          }
+        },
+        {
+          "q": "この文章の書き手の気持ちとして最も適切なものはどれですか。",
+          "evi": [
+            4,
+            6,
+            7
+          ],
+          "options": [
+            "勉強を完全にやめることにした",
+            "ケンさんのことを褒めており、自分も見習いたいと思っている",
+            "結果が出ないことに悔しさを感じながらも、自分のペースで続けようとしている",
+            "テストの結果はどうでもよく、今は楽しければいいと思っている"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C. Bài viết thể hiện hai chiều cảm xúc song song: (1) bất mãn — 「悔しい気持ちは消えない」(cảm giác tức không tan), và (2) kiên trì — 「あきらめないつもりだ」(không bỏ cuộc) + 「焦らないようにしたい」(không muốn vội). Tổng hợp lại là: tiếc/bực nhưng vẫn tiếp tục với nhịp độ của riêng mình. Sai: A (\"bỏ học hoàn toàn\") — mâu thuẫn với 「あきらめないつもりだ」. Sai: B (\"khen Ken, muốn học theo\") — người viết chỉ nói「羨ましい」(ghen tị) nhưng không có ý học theo kiểu Ken. Sai: D (\"điểm không quan trọng\") — mâu thuẫn với 「悔しい」(ấm ức về điểm).",
+          "tip": "Câu hỏi tâm trạng tác giả → tìm đồng thời câu dùng のに/くせに (tiêu cực) VÀ câu dùng ても với つもり/ようにしたい (quyết tâm). Đáp án đúng thường phản ánh CẢ HAI mặt cảm xúc đó.",
+          "qt": {
+            "q": "Điều nào phù hợp nhất với tâm trạng của người viết trong đoạn văn này?",
+            "o": [
+              "Đã quyết định hoàn toàn ngừng học",
+              "Đang khen Ken và nghĩ rằng bản thân cũng muốn noi gương cậu ấy",
+              "Cảm thấy tiếc nuối vì chưa đạt được kết quả, nhưng vẫn định tiếp tục theo nhịp độ của riêng mình",
+              "Nghĩ rằng kết quả bài kiểm tra chẳng quan trọng, hiện giờ chỉ cần vui là được"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "聞き上手と信頼関係",
+      "titleVi": "Người lắng nghe giỏi và mối quan hệ tin cậy",
+      "japanese": "多くの人は「話すこと」が上手になれば、会話もうまくいくと考えている。しかし、どんなに上手に話しても、相手の話を聞かなければ本当の信頼関係は生まれない。\nたとえば、職場で自分の意見ばかり主張する人がいる。その人は仕事ができるくせに、同僚からあまり相談されない。他人の話を聞く時間がないと言っているのに、自分の自慢話は何時間でも話す。自分は人の話を聞かないくせに、他人に自分の話ばかり聞かせる人もいる。相手が真剣に話しているのに途中で話を止める態度では、周囲の人は心を開かないだろう。\nつまり、大切なのは自分の考えを伝えることではなく、まず相手の気持ちを理解しようとすることだ。忙しくても、相手の目を見てしっかり話を聞く姿勢が必要である。\nそのため、話し上手を目指す前に、まず「聞き上手」になるべきだ。どんなに上手な言葉を使っても、相手の話を聞かない態度のままでは信頼を得られない。信頼関係を築くために最も重要なのは、言葉の巧みさではなく誠実さなのである。",
+      "vietnamese": "Nhiều người cho rằng nếu nói chuyện giỏi thì giao tiếp cũng sẽ thuận lợi. Tuy nhiên, dù có nói giỏi đến đâu mà không lắng nghe đối phương thì mối quan hệ tin cậy thực sự cũng không thể hình thành.\nVí dụ, ở nơi làm việc có người chỉ toàn bảo vệ ý kiến của bản thân. Người đó giỏi công việc vậy mà lại ít được đồng nghiệp tìm đến tư vấn. Dù nói rằng không có thời gian nghe chuyện người khác, vậy mà chuyện khoe khoang của bản thân thì lại nói bao nhiêu tiếng cũng được. Có người bản thân không nghe chuyện của người khác vậy mà lại toàn bắt người khác nghe chuyện của mình. Với thái độ ngắt lời giữa chừng khi đối phương đang nói chuyện nghiêm túc, những người xung quanh sẽ không mở lòng.\nTóm lại, điều quan trọng không phải là truyền đạt suy nghĩ của bản thân, mà trước hết là cố gắng hiểu được cảm xúc của đối phương. Dù bận rộn, thái độ nhìn vào mắt đối phương và chăm chú lắng nghe là điều cần thiết.\nVì vậy, trước khi hướng tới việc trở thành người nói giỏi, trước hết nên trở thành \"người lắng nghe giỏi\". Dù có dùng những lời lẽ hay đến mấy, nếu vẫn giữ thái độ không nghe chuyện của đối phương thì cũng không thể có được sự tin tưởng. Điều quan trọng nhất để xây dựng mối quan hệ tin cậy không phải là sự khéo léo của lời nói, mà là thái độ chân thành.",
+      "sentences": [
+        {
+          "jp": "多くの人は「話すこと」が上手になれば、会話もうまくいくと考えている。",
+          "vi": "Nhiều người cho rằng nếu nói chuyện giỏi thì giao tiếp cũng sẽ thuận lợi.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, khéo léo"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại, giao tiếp"
+            },
+            {
+              "w": "うまい",
+              "read": "うまい",
+              "vi": "giỏi, ngon"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ, cho rằng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば",
+              "vi": "接続: V条件形 (なれば) → \"nếu... thì...\". Nêu điều kiện giả định trung tính."
+            }
+          ],
+          "keys": [
+            {
+              "w": "と考えている",
+              "why": "Dấu hiệu chỉ quan niệm thông thường của số đông (一般論), thường là tiền đề để tác giả đưa ra phản biện ngay sau đó."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、どんなに上手に話しても、相手の話を聞かなければ本当の信頼関係は生まれない。",
+          "vi": "Tuy nhiên, dù có nói giỏi đến đâu mà không lắng nghe đối phương thì mối quan hệ tin cậy thực sự cũng không thể hình thành.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "どんなに",
+              "read": "どんなに",
+              "vi": "dù bao nhiêu, dù như thế nào"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người đối diện"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "生まれます",
+              "read": "うまれます",
+              "vi": "nảy sinh, hình thành"
+            },
+            {
+              "w": "信頼関係",
+              "read": "しんらいかんけい",
+              "vi": "mối quan hệ tin cậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どんなに〜ても",
+              "vi": "接続: どんなに + NA/A/Vて形 + も → どんなに上手に話しても = \"dù có nói giỏi đến đâu đi nữa thì...\". Sắc thái TRUNG TÍNH: nhấn mạnh dù mức độ của vế trước cao đến đâu, kết quả vế sau vẫn không đổi (không tạo được sự tin tưởng nếu không biết lắng nghe)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý quan trọng, bẻ gãy quan niệm thông thường để khẳng định tầm quan trọng của việc lắng nghe đối với mối quan hệ tin cậy."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、職場で自分の意見ばかり主張する人がいる。",
+          "vi": "Ví dụ, ở nơi làm việc có người chỉ toàn bảo vệ ý kiến của bản thân.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "主張します",
+              "read": "しゅちょうします",
+              "vi": "chủ trương, bảo vệ/khẳng định ý kiến"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかり",
+              "vi": "接続: N + ばかり → 意見ばかり = \"chỉ toàn ý kiến\". Biểu thị tần suất/mức độ lặp đi lặp lại một việc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たとえば",
+              "why": "Dấu hiệu mở đầu phần ví dụ thực tế nhằm chứng minh cho tác hại của việc chỉ biết nói mà không chịu lắng nghe."
+            }
+          ]
+        },
+        {
+          "jp": "その人は仕事ができるくせに、同僚からあまり相談されない。",
+          "vi": "Người đó giỏi công việc vậy mà lại ít được đồng nghiệp tìm đến tư vấn.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "相談されます",
+              "read": "そうだんされます",
+              "vi": "được trao đổi/tư vấn (dạng bị động)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "接続: V普通形 + くせに → できるくせに = \"giỏi vậy mà lại...\". Sắc thái CHÊ TRÁCH/KHINH THƯỜNG: đánh giá tiêu cực — năng lực công việc tốt nhưng giao tiếp kém khiến người khác e ngại. Cùng chủ thể (người đồng nghiệp đó)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "できるくせに",
+              "why": "Cụm từ biểu thị nghịch lý mang sắc thái phê phán (làm việc giỏi nhưng lại không được đồng nghiệp tìm đến chia sẻ, tư vấn)."
+            }
+          ]
+        },
+        {
+          "jp": "他人の話を聞く時間がないと言っているのに、自分の自慢話は何時間でも話す。",
+          "vi": "Dù nói rằng không có thời gian nghe chuyện người khác, vậy mà chuyện khoe khoang của bản thân thì lại nói bao nhiêu tiếng cũng được.",
+          "vocab": [
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自慢",
+              "read": "じまん",
+              "vi": "tự hào, khoe khoang"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "自慢話",
+              "read": "じまんばなし",
+              "vi": "chuyện khoe khoang, khoác lác"
+            },
+            {
+              "w": "何時間でも",
+              "read": "なんじかんでも",
+              "vi": "bao nhiêu tiếng cũng được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに",
+              "vi": "接続: V普通形 + のに → 言っているのに = \"nói là... vậy mà...\". Sắc thái BẤT MÃN/BẤT NGỜ trước sự trái ngược giữa lời nói và hành động thực tế."
+            }
+          ]
+        },
+        {
+          "jp": "自分は人の話を聞かないくせに、他人に自分の話ばかり聞かせる人もいる。",
+          "vi": "Có người bản thân không nghe chuyện của người khác vậy mà lại toàn bắt người khác nghe chuyện của mình.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞かせます",
+              "read": "きかせます",
+              "vi": "cho nghe, bắt nghe (dạng sai khiến)"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "接続: V普通形 + くせに → 聞かないくせに = \"bản thân không nghe vậy mà lại...\". Sắc thái CHÊ TRÁCH mạnh mẽ hành vi ích kỷ, vô lý."
+            }
+          ],
+          "keys": [
+            {
+              "w": "話ばかり聞かせる",
+              "why": "Cụm từ then chốt miêu tả hành vi tiêu cực: chỉ ép người khác nghe chuyện của mình mà không chịu lắng nghe ai."
+            }
+          ]
+        },
+        {
+          "jp": "相手が真剣に話しているのに途中で話を止める態度では、周囲の人は心を開かないだろう。",
+          "vi": "Với thái độ ngắt lời giữa chừng khi đối phương đang nói chuyện nghiêm túc, những người xung quanh sẽ không mở lòng.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "真剣に",
+              "read": "しんけんに",
+              "vi": "nghiêm túc, đứng đắn"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "途中",
+              "read": "とちゅう",
+              "vi": "giữa chừng"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "止める",
+              "read": "とめる",
+              "vi": "dừng lại, ngăn cản"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "周囲",
+              "read": "しゅうい",
+              "vi": "xung quanh, người xung quanh"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "心を開きます",
+              "read": "こころをひきます",
+              "vi": "mở lòng, trải lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに",
+              "vi": "接続: Vている + のに → 話しているのに = \"đang nói chuyện nghiêm túc vậy mà...\". Thể hiện thái độ không hài lòng trước hành vi thiếu tôn trọng đối phương."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、大切なのは自分の考えを伝えることではなく、まず相手の気持ちを理解しようとすることだ。",
+          "vi": "Tóm lại, điều quan trọng không phải là truyền đạt suy nghĩ của bản thân, mà trước hết là cố gắng hiểu được cảm xúc của đối phương.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "伝えます",
+              "read": "つたえます",
+              "vi": "truyền đạt"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "理解します",
+              "read": "りかいします",
+              "vi": "hiểu, thấu hiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜意向形 + とする",
+              "vi": "接続: V意向形 + とする → 理解しようとする = \"cố gắng/định thấu hiểu\". Diễn tả nỗ lực thực hiện một hành động."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ đúc kết, tóm lược bản chất vấn đề từ các ví dụ để rút ra thông điệp chính."
+            },
+            {
+              "w": "ではなく",
+              "why": "Cấu trúc phủ định đối chiếu (AではなくB) giúp nhận diện rõ trọng tâm tác giả muốn hướng tới (thấu hiểu đối phương)."
+            }
+          ]
+        },
+        {
+          "jp": "忙しくても、相手の目を見てしっかり話を聞く姿勢が必要である。",
+          "vi": "Dù bận rộn, thái độ nhìn vào mắt đối phương và chăm chú lắng nghe là điều cần thiết.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "chăm chú, kỹ càng"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, thái độ"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても",
+              "vi": "接続: Aい (bỏ い) + くても → 忙しくても = \"dù bận rộn thì...\". Điều kiện nhượng bộ TRUNG TÍNH (dù trong hoàn cảnh bận rộn vẫn cần duy trì thái độ lắng nghe)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "必要である",
+              "why": "Vĩ tố khẳng định quan điểm mạnh mẽ của tác giả về tư thế và thái độ lắng nghe đúng mực."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、話し上手を目指す前に、まず「聞き上手」になるべきだ。",
+          "vi": "Vì vậy, trước khi hướng tới việc trở thành người nói giỏi, trước hết nên trở thành \"người lắng nghe giỏi\".",
+          "vocab": [
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "目指します",
+              "read": "めざします",
+              "vi": "hướng tới, nhắm tới"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "聞き上手",
+              "read": "ききじょうず",
+              "vi": "người lắng nghe giỏi"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì thế, do đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ",
+              "vi": "接続: V辞書形 + べきだ → なるべきだ = \"nên/phải trở thành\". Diễn tả ý kiến/đạo lý thông thường nên làm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため",
+              "why": "Liên từ nguyên nhân - kết quả dẫn dắt trực tiếp đến lời khuyên hành động cốt lõi của bài đọc."
+            },
+            {
+              "w": "べきだ",
+              "why": "Mẫu câu thể hiện chủ trương, lời khuyên dứt khoát mang tính định hướng của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "どんなに上手な言葉を使っても、相手の話を聞かない態度のままでは信頼を得られない。",
+          "vi": "Dù có dùng những lời lẽ hay đến mấy, nếu vẫn giữ thái độ không nghe chuyện của đối phương thì cũng không thể có được sự tin tưởng.",
+          "vocab": [
+            {
+              "w": "どんなに",
+              "read": "どんなに",
+              "vi": "dù bao nhiêu, dù như thế nào"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, ngôn từ"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "得られます",
+              "read": "えられます",
+              "vi": "đạt được, có được (khả năng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても",
+              "vi": "接続: Vて形 + も → 使っても = \"dù có dùng... đi nữa\". Nhấn mạnh giả định/thực tế nhượng bộ."
+            }
+          ]
+        },
+        {
+          "jp": "信頼関係を築くために最も重要なのは、言葉の巧みさではなく誠実さなのである。",
+          "vi": "Điều quan trọng nhất để xây dựng mối quan hệ tin cậy không phải là sự khéo léo của lời nói, mà là thái độ chân thành.",
+          "vocab": [
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "築きます",
+              "read": "きずきます",
+              "vi": "xây dựng (mối quan hệ, sự nghiệp)"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất, vô cùng"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "巧みさ",
+              "read": "たくみさ",
+              "vi": "sự khéo léo, tinh tế"
+            },
+            {
+              "w": "誠実さ",
+              "read": "せいじつさ",
+              "vi": "sự chân thành, thành thật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく〜なのだ",
+              "vi": "接続: N + ではなく + N + なのだ → 言葉の巧みさではなく誠実さなのである = \"không phải là... mà là...\". Khẳng định luận điểm cốt lõi của tác giả."
+            }
+          ],
+          "keys": [
+            {
+              "w": "最も重要なのは",
+              "why": "Cụm từ nhấn mạnh tuyệt đối ở câu kết bài, chỉ ra yếu tố cốt lõi nhất để tạo dựng mối quan hệ tin cậy."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "どんなに上手に話しても",
+          "label": "〜ても（trung tính, giả định/sự thật）"
+        },
+        {
+          "excerpt": "その人は仕事ができるくせに",
+          "label": "〜くせに（chê trách/khinh thường）"
+        },
+        {
+          "excerpt": "他人の話を聞く時間がないと言っているのに",
+          "label": "〜のに（bất mãn/trái kỳ vọng）"
+        },
+        {
+          "excerpt": "自分は人の話を聞かないくせに",
+          "label": "〜くせに（chê trách thái độ ích kỷ）"
+        },
+        {
+          "excerpt": "忙しくても",
+          "label": "〜ても（trung tính, điều kiện nhượng bộ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「その人は仕事ができるくせに、同僚からあまり相談されない」とあるが、どういうことか。",
+          "options": [
+            "仕事の能力は高いが、他人の話を聞かないため周囲から頼りにされていないということ。",
+            "仕事が全くできないため、同僚から相手にされていないということ。",
+            "同僚に相談したくても、いつも忙しくて時間がないということ。",
+            "自分の意見を言わずに相手の話ばかり聞いているということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「仕事の能力は高いが」 — Trong bài viết (câu 4, 5, 6), tác giả nêu ví dụ về người làm việc giỏi (仕事ができる) nhưng lại không nghe chuyện người khác, chỉ nói chuyện khoe khoang của bản thân và ngắt lời đối phương. Do đó, dù năng lực công việc cao nhưng thái độ giao tiếp kém khiến đồng nghiệp không muốn tìm đến tư vấn. Phương án 「仕事が全くできないため」 sai (ngược với \"仕事ができる\"). Phương án 「同僚に相談したくても」 sai (người đó viện cớ không có thời gian chứ không phải đồng nghiệp bận). Phương án 「自分の意見を言わずに」 sai (ngược hoàn toàn với thực tế người đó chỉ khoe khoang chuyện mình).",
+          "tip": "Dạng câu hỏi 「どういうことか」 yêu cầu giải thích ý nghĩa câu được gạch chân dựa vào các câu giải thích ngay trước hoặc sau nó trong đoạn văn. Chú ý từ khóa くせに thể hiện sự trái ngược giữa năng lực tốt và thái độ kém.",
+          "evi": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Có câu nói rằng: “Người đó giỏi công việc nhưng lại hiếm khi được đồng nghiệp hỏi ý kiến”; điều đó có nghĩa là gì?",
+            "o": [
+              "Người đó có năng lực làm việc cao nhưng không được những người xung quanh tin cậy vì không lắng nghe người khác.",
+              "Người đó hoàn toàn không làm được việc nên không được đồng nghiệp để ý đến.",
+              "Dù muốn hỏi ý kiến đồng nghiệp, người đó lúc nào cũng bận và không có thời gian.",
+              "Người đó không nói ý kiến của mình mà chỉ lắng nghe người khác nói."
+            ]
+          }
+        },
+        {
+          "q": "筆者はなぜ「話し上手を目指す前に、まず『聞き上手』になるべきだ」と述べているのか。",
+          "options": [
+            "話す練習をするよりも、相手の愚痴を聞くほうが簡単だから。",
+            "巧みな言葉を使うことだけでは、本当の信頼関係を築くことができないから。",
+            "自分の意見を言うと周囲の人と意見が対立してしまうから。",
+            "聞き上手になれば、職場での仕事の能力がすぐに上がるから。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「巧みな言葉を使うこと」 — Theo câu 2, 11 và 12: dù nói giỏi hay dùng từ ngữ khéo léo đến đâu (どんなに上手な言葉を使っても), nếu không lắng nghe đối phương thì không thể có được sự tin tưởng và tạo lập mối quan hệ tin cậy. Vì vậy phải trở thành người lắng nghe giỏi trước. Phương án 「話す練習をするよりも」 sai (bài không hề nói nghe tâm sự dễ hơn luyện nói). Phương án 「自分の意見を言うと」 sai (bài không đề cập đến việc xung đột ý kiến). Phương án 「聞き上手になれば」 sai (bài tập trung vào mối quan hệ tin cậy/giao tiếp chứ không nói về việc nâng cao năng lực công việc ngay lập tức).",
+          "tip": "Dạng câu hỏi 「なぜのか」 yêu cầu tìm nguyên nhân/lý do. Hãy tìm câu chứa kết luận của tác giả (ở đoạn cuối) và đối chiếu với các câu giải thích lý do xung quanh đó.",
+          "evi": [
+            1,
+            9,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Vì sao tác giả nói rằng “Trước khi hướng tới việc trở thành người nói chuyện giỏi, trước hết nên trở thành người biết lắng nghe”?",
+            "o": [
+              "Vì lắng nghe lời than phiền của người khác dễ hơn luyện nói.",
+              "Vì chỉ sử dụng ngôn từ khéo léo thôi thì không thể xây dựng được mối quan hệ tin cậy thực sự.",
+              "Vì nêu ý kiến của mình sẽ khiến ý kiến của mình và những người xung quanh xung đột.",
+              "Vì khi trở thành người biết lắng nghe, năng lực làm việc ở nơi công sở sẽ nhanh chóng tăng lên."
+            ]
+          }
+        },
+        {
+          "q": "信頼関係を築くことについて、筆者はどのように考えているか。",
+          "options": [
+            "自分の考えを上手に相手に伝える技術を磨くことが最も大切だ。",
+            "自分の忙しさを理由にして、相手の話を途中で終わらせるべきだ。",
+            "言葉の上手さよりも、相手の話に真剣に耳を傾ける誠実な態度が大切だ。",
+            "他人の意見には反対せず、常に相手の言う通りにするべきだ。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「言葉の上手さよりも」 — Ý người viết được tổng kết ở cuối bài: \"信頼関係を築くために最も重要なのは、言葉の巧みさではなく誠実さなのである\" (Điều quan trọng nhất để xây dựng sự tin cậy không phải là sự khéo léo của lời nói mà là thái độ chân thành lắng nghe). Phương án 「自分の考えを上手に」 sai (ngược với ý tác giả — tác giả nhấn mạnh lắng nghe hơn là kỹ năng truyền đạt). Phương án 「自分の忙しさを理由にして」 sai (ngược với tinh thần câu 9: dù bận vẫn cần lắng nghe). Phương án 「他人の意見には反対せず」 sai (tác giả không bảo phải luôn nghe theo người khác mà là hiểu cảm xúc và lắng nghe chân thành).",
+          "tip": "Dạng câu hỏi 「筆者はどう考えているか」 (Ý người viết) thường nằm ở đoạn kết bài (つまり, そのため, 最も重要なのは...). Tránh chọn các đáp án mang tính cực đoan hoặc trích sai ngữ cảnh.",
+          "evi": [
+            7,
+            8,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ như thế nào về việc xây dựng mối quan hệ tin cậy?",
+            "o": [
+              "Điều quan trọng nhất là trau dồi kỹ năng truyền đạt khéo léo suy nghĩ của mình cho đối phương.",
+              "Nên lấy sự bận rộn của mình làm lý do để ngắt lời đối phương giữa chừng.",
+              "Thái độ chân thành, nghiêm túc lắng nghe đối phương quan trọng hơn sự khéo léo trong lời nói.",
+              "Không nên phản đối ý kiến của người khác, mà lúc nào cũng nên làm theo lời đối phương."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "turn",
+          "label": "Đặt vấn đề & Phản đề",
+          "topic": 1,
+          "note": "Nêu quan niệm thông thường (nói giỏi là giao tiếp tốt) rồi lập tức lật ngược vấn đề bằng 'tuy nhiên' để nhấn mạnh việc lắng nghe.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "body",
+          "label": "Ví dụ thực tế & Hệ quả",
+          "topic": 6,
+          "note": "Chuỗi ví dụ về người chỉ biết nói không biết nghe trong công sở, dẫn đến việc không được đồng nghiệp tin tưởng và mở lòng.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "point",
+          "label": "Bản chất của lắng nghe",
+          "topic": 7,
+          "note": "Đúc kết bài học: điều cốt yếu không phải là truyền đạt ý mình mà là thái độ chân thành lắng nghe để thấu hiểu người khác.",
+          "qs": [
+            3
+          ]
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "point",
+          "label": "Chủ trương & Kết luận",
+          "topic": 11,
+          "note": "Đưa ra lời khuyên hành động 'trở thành người biết lắng nghe' và khẳng định sự chân thành quan trọng hơn sự khéo ăn khéo nói.",
+          "qs": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "言い訳ばかりの友人へ",
+      "titleVi": "Gửi người bạn toàn tìm cớ",
+      "japanese": "最近、大学の友人であるソウさんのことがずっと気になっている。\nソウさんはいつも「来月から運動する」と言うくせに、実際には何もしない。\nそれだけでなく、「お金がないから外食できない」と言うのに、週末には毎回高いレストランへ行く。\nどんなに正直に指摘しても、ソウさんはいつも「わかった」と答えるだけで、態度は変わらない。\nそのため、私は何も言わないようにしていた時期もあった。\nでも、そのせいで、かえって友達との距離が広がってしまったように思う。\n先日、ソウさんが「体の調子がよくないかもしれない」と言ってきた。\n私はすぐに「もっと早く運動しておけばよかったのに」と思った。\n言おうかとも思ったが、それは少し意地悪な言い方になるので、やめた。\nなぜなら、ソウさんが自分でわかっているくせに変えられないのは、意志の問題だけではないかもしれないからだ。\nたとえ友達の行動がおかしく見えても、すぐに批判するのは正しくないと、最近は思うようになった。\nつまり、ても・のに・くせに、どれも「予想と違う現実」を指しているが、使う人の気持ちや立場が違えば、同じ事実でも全然違う言い方になる。\n「運動しないくせに健康の話をする」と言えば批判になるが、「運動していないのに健康を気にする」と言えば少し温かく聞こえる。\nさらに、「運動しなくても元気な人もいる」と言えば、ただの中立な事実を伝えることができる。\n言葉の選び方ひとつで、相手との関係が変わってしまう。\nソウさんとの関係を大切にしたいから、私はこれからも言葉を慎重に選ぶつもりだ。\nどんな状況になっても、友達を傷つけるような言い方はしたくない。\n本当の意味での友情とは、相手の失敗を責めるのではなく、一緒に考えることではないだろうか。\nソウさんが少しずつでも変わっていけるように、私もできる限りそばにいるつもりだ。",
+      "vietnamese": "Gần đây tôi cứ lo lắng mãi về người bạn đại học tên Sou.\nSou lúc nào cũng nói \"từ tháng tới sẽ tập thể dục\" mà thực ra chẳng làm gì cả.\nKhông chỉ vậy, dù nói \"không có tiền nên không ăn ngoài được\" nhưng cuối tuần nào cũng đi nhà hàng đắt tiền.\nDù tôi thẳng thắn chỉ ra đến đâu, Sou vẫn chỉ trả lời \"hiểu rồi\" mà thái độ chẳng thay đổi.\nVì vậy, có thời gian tôi đã cố không nói gì nữa.\nNhưng tại điều đó, khoảng cách giữa chúng tôi với tư cách bạn bè lại càng rộng ra hơn.\nHôm trước, Sou nhắn \"có lẽ mình đang không khoẻ\".\nTôi liền nghĩ \"đáng lẽ tập thể dục sớm hơn thì tốt hơn rồi\".\nTôi cũng tính nói ra, nhưng vì đó là cách nói hơi ác ý nên thôi.\nVì có thể việc Sou tự biết mà vẫn không thay đổi được không chỉ là vấn đề ý chí.\nDù hành động của bạn bè trông có vẻ kỳ lạ, tôi dần nghĩ rằng chỉ trích ngay là không đúng.\nTức là, ても・のに・くせに, cả ba đều chỉ \"thực tế khác kỳ vọng\", nhưng tùy cảm xúc và lập trường của người nói mà cùng một sự thật lại có cách diễn đạt hoàn toàn khác.\nNói \"không tập thể dục mà nói chuyện sức khoẻ\" (くせに) thì thành chỉ trích, nhưng nói \"không tập mà quan tâm sức khoẻ\" (のに) thì nghe ấm áp hơn một chút.\nThêm nữa, nói \"có người không tập mà vẫn khoẻ\" (ても) thì có thể truyền đạt trung lập như một sự thật đơn thuần.\nChỉ một cách chọn từ mà quan hệ với đối phương có thể thay đổi.\nVì muốn trân trọng quan hệ với Sou nên từ nay tôi cũng có ý định chọn từ một cách cẩn thận.\nDù tình huống thế nào, tôi không muốn nói theo cách có thể làm tổn thương bạn bè.\nTình bạn thực sự không phải là trách móc thất bại của nhau, mà là cùng nhau suy nghĩ — phải không?\nĐể Sou có thể thay đổi dù chỉ một chút, tôi cũng có ý định ở bên cạnh hết mức có thể.",
+      "sentences": [
+        {
+          "jp": "最近、大学の友人であるソウさんのことがずっと気になっている。",
+          "vi": "Gần đây tôi cứ lo lắng mãi về người bạn đại học tên Sou.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "友人",
+              "read": "ゆうじん",
+              "vi": "bạn bè (văn viết)"
+            },
+            {
+              "w": "ソウ",
+              "read": "ソウ",
+              "vi": "tên riêng Sou"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "mãi, suốt"
+            },
+            {
+              "w": "気になります",
+              "read": "きになります",
+              "vi": "lo lắng, băn khoăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vている（Bài 14 trạng thái liên tục）",
+              "vi": "気になっている = đang lo lắng (trạng thái kéo dài đến hiện tại)."
+            }
+          ]
+        },
+        {
+          "jp": "ソウさんはいつも「来月から運動する」と言うくせに、実際には何もしない。",
+          "vi": "Sou lúc nào cũng nói \"từ tháng tới sẽ tập thể dục\" mà thực ra chẳng làm gì cả.",
+          "vocab": [
+            {
+              "w": "ソウ",
+              "read": "そう",
+              "vi": "Sou"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "運動する",
+              "read": "うんどうする",
+              "vi": "tập thể dục"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói"
+            },
+            {
+              "w": "くせに",
+              "read": "くせに",
+              "vi": "mặc dù; vậy mà"
+            },
+            {
+              "w": "実際には",
+              "read": "じっさいには",
+              "vi": "trên thực tế"
+            },
+            {
+              "w": "何も",
+              "read": "なにも",
+              "vi": "không gì cả"
+            },
+            {
+              "w": "しない",
+              "read": "しない",
+              "vi": "không làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに（Vる + くせに）",
+              "vi": "接続: Vる（普通形）+ くせに → 言うくせに = \"nói vậy mà lại…\". Sắc thái CHÊ TRÁCH: người nói (tôi) chê Sou — hay nói nhưng không làm. CÙNG CHỦ THỂ: Sou vừa là người nói, vừa là người không làm. Nếu thay bằng のに (\"言うのに\") cũng được nhưng nhẹ hơn; くせに mang hàm ý \"thật đáng chê\"."
+            }
+          ]
+        },
+        {
+          "jp": "それだけでなく、「お金がないから外食できない」と言うのに、週末には毎回高いレストランへ行く。",
+          "vi": "Không chỉ vậy, dù nói \"không có tiền nên không ăn ngoài được\" nhưng cuối tuần nào cũng đi nhà hàng đắt tiền.",
+          "vocab": [
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "外食します",
+              "read": "がいしょくします",
+              "vi": "ăn ngoài"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "毎回",
+              "read": "まいかい",
+              "vi": "mỗi lần"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "đắt, cao (giá)"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "それだけでなく",
+              "read": "それだけでなく",
+              "vi": "không chỉ vậy, hơn thế nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（Vる 普通形 + のに）",
+              "vi": "接続: Vる（普通形）+ のに → 言うのに = \"nói vậy mà…\". Kết quả (\"đi nhà hàng đắt\") là SỰ THẬT đang xảy ra, trái với điều Sou nói. So sánh với くせに (câu trước): ở đây dùng のに vì người kể đang ghi nhận sự mâu thuẫn với sắc thái bất ngờ/bất mãn nhẹ — không quá \"chê\" bằng くせに nhưng vẫn nhấn mâu thuẫn."
+            }
+          ]
+        },
+        {
+          "jp": "どんなに正直に指摘しても、ソウさんはいつも「わかった」と答えるだけで、態度は変わらない。",
+          "vi": "Dù tôi thẳng thắn chỉ ra đến đâu, Sou vẫn chỉ trả lời \"hiểu rồi\" mà thái độ chẳng thay đổi.",
+          "vocab": [
+            {
+              "w": "どんなに",
+              "read": "どんなに",
+              "vi": "dù bao nhiêu, dù như thế nào"
+            },
+            {
+              "w": "正直に",
+              "read": "しょうじきに",
+              "vi": "thẳng thắn, thành thật"
+            },
+            {
+              "w": "指摘します",
+              "read": "してきします",
+              "vi": "chỉ ra, nhận xét"
+            },
+            {
+              "w": "ソウ",
+              "read": "ソウ",
+              "vi": "tên riêng Sou"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "答えます",
+              "read": "こたえます",
+              "vi": "trả lời"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（副詞 + Vて + も）",
+              "vi": "接続: どんなに正直に指摘して + も → 指摘しても = \"dù chỉ ra đến đâu vẫn…\". Câu này là SỰ THẬT đang lặp đi lặp lại. Dùng ても (không phải のに) vì người nói nhấn ý chấp nhận/nhượng bộ — \"dù tôi làm gì đi nữa thì…\", không kèm nhiều cảm xúc bất mãn trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、私は何も言わないようにしていた時期もあった。",
+          "vi": "Vì vậy, có thời gian tôi đã cố không nói gì nữa.",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy; do đó"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "何も",
+              "read": "なにも",
+              "vi": "không gì cả"
+            },
+            {
+              "w": "言わない",
+              "read": "いわない",
+              "vi": "không nói"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời kỳ; giai đoạn"
+            },
+            {
+              "w": "あった",
+              "read": "あった",
+              "vi": "đã có; đã tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないようにする（Bài 36）",
+              "vi": "言わないようにしていた = đã cố không nói. Vないようにする = cố gắng để không làm V (Bài 36)."
+            }
+          ]
+        },
+        {
+          "jp": "でも、そのせいで、かえって友達との距離が広がってしまったように思う。",
+          "vi": "Nhưng tại điều đó, khoảng cách bạn bè giữa chúng tôi lại càng rộng ra hơn.",
+          "vocab": [
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "ngược lại, thay vì vậy thì lại"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "距離",
+              "read": "きょり",
+              "vi": "khoảng cách"
+            },
+            {
+              "w": "広がります",
+              "read": "ひろがります",
+              "vi": "mở rộng, rộng ra"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで（Bài 59）",
+              "vi": "そのせいで = tại điều đó (nguyên nhân xấu). ≠ おかげで (tích cực)."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "広がってしまった = đã lỡ trở nên rộng hơn (tiếc nuối)."
+            },
+            {
+              "point": "〜ように思う（Bài 36 ように + と思う Bài 21）",
+              "vi": "ように思う = cảm thấy rằng, hình như. 様子だ/ように見えるの thay thế cho ようだ (Bài 64 chưa học)."
+            }
+          ]
+        },
+        {
+          "jp": "先日、ソウさんが「体の調子がよくないかもしれない」と言ってきた。",
+          "vi": "Hôm trước, Sou nhắn \"có lẽ mình đang không khoẻ\".",
+          "vocab": [
+            {
+              "w": "先日",
+              "read": "せんじつ",
+              "vi": "hôm trước, mấy ngày trước"
+            },
+            {
+              "w": "ソウ",
+              "read": "ソウ",
+              "vi": "tên riêng Sou"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể"
+            },
+            {
+              "w": "調子",
+              "read": "ちょうし",
+              "vi": "tình trạng, trạng thái"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "よくないかもしれない = có thể không tốt (không chắc). Ôn Bài 32."
+            },
+            {
+              "point": "〜と言ってきた（Bài 43）",
+              "vi": "言ってきた = đã nói đến (thông tin đến người nói). てくる (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "私はすぐに「もっと早く運動しておけばよかったのに」と思った。",
+          "vi": "Tôi liền nghĩ \"đáng lẽ tập thể dục sớm hơn thì tốt hơn rồi\".",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm hơn; nhanh hơn"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "tập thể dục"
+            },
+            {
+              "w": "運動して",
+              "read": "うんどうして",
+              "vi": "tập thể dục"
+            },
+            {
+              "w": "よかった",
+              "read": "よかった",
+              "vi": "đã tốt; giá mà"
+            },
+            {
+              "w": "思った",
+              "read": "おもった",
+              "vi": "đã nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておけばよかった（Bài 35 ば + Bài 30 ておく）",
+              "vi": "運動しておけばよかった = đáng lẽ đã tập thể dục từ trước thì tốt hơn. ておく（chuẩn bị, Bài 30）+ ば（điều kiện, Bài 35）+ よかった（tiếc nuối）."
+            },
+            {
+              "point": "〜のに（後悔・tiếc nuối）",
+              "vi": "よかったのに = \"đáng lẽ tốt hơn rồi, vậy mà…\". のに ở cuối câu (không có mệnh đề sau) = tiếc nuối rõ rệt: thực tế KHÔNG như mong đợi. Sắc thái: người nói tiếc cho Sou (nhẹ nhàng hơn くせに)."
+            }
+          ]
+        },
+        {
+          "jp": "言おうかとも思ったが、それは少し意地悪な言い方になるので、やめた。",
+          "vi": "Tôi cũng tính nói ra, nhưng vì đó là cách nói hơi ác ý nên thôi.",
+          "vocab": [
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "意地悪",
+              "read": "いじわる",
+              "vi": "ác ý, ác tâm"
+            },
+            {
+              "w": "言い方",
+              "read": "いいかた",
+              "vi": "cách nói"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "意地悪な言い方になるので = vì trở thành cách nói ác ý. ので nêu lý do."
+            },
+            {
+              "point": "〜ようかとも思う（Bài 21 + 疑問か）",
+              "vi": "言おうかとも思ったが = cũng nghĩ tính nói ra nhưng. V意向形 + か (suy nghĩ phân vân) + とも思う."
+            }
+          ]
+        },
+        {
+          "jp": "なぜなら、ソウさんが自分でわかっているくせに変えられないのは、意志の問題だけではないかもしれないからだ。",
+          "vi": "Vì có thể việc Sou tự biết mà vẫn không thay đổi được không chỉ là vấn đề ý chí.",
+          "vocab": [
+            {
+              "w": "なぜなら",
+              "read": "なぜなら",
+              "vi": "vì sao thì là vì, nguyên nhân là"
+            },
+            {
+              "w": "ソウ",
+              "read": "ソウ",
+              "vi": "tên riêng Sou"
+            },
+            {
+              "w": "自分で",
+              "read": "じぶんで",
+              "vi": "tự mình"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "変えます",
+              "read": "かえます",
+              "vi": "thay đổi (ta động)"
+            },
+            {
+              "w": "意志",
+              "read": "いし",
+              "vi": "ý chí"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに（Vている + くせに）",
+              "vi": "接続: Vている（普通形）+ くせに → わかっているくせに = \"biết mà vẫn…\". Sắc thái: người nói chê Sou — biết rõ mà không thay đổi được. Tuy nhiên câu sau lại mềm lòng: \"có lẽ không chỉ là vấn đề ý chí\" — thể hiện người nói đang cố thông cảm dù dùng くせに."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "ではないかもしれない = có thể không chỉ là. Phủ định + かもしれない."
+            }
+          ]
+        },
+        {
+          "jp": "たとえ友達の行動がおかしく見えても、すぐに批判するのは正しくないと、最近は思うようになった。",
+          "vi": "Dù hành động của bạn bè trông có vẻ kỳ lạ, tôi dần nghĩ rằng chỉ trích ngay là không đúng.",
+          "vocab": [
+            {
+              "w": "たとえ",
+              "read": "たとえ",
+              "vi": "dù, dù cho (nhấn mạnh)"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động, hành vi"
+            },
+            {
+              "w": "おかしい",
+              "read": "おかしい",
+              "vi": "kỳ lạ, buồn cười"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "批判します",
+              "read": "ひはんします",
+              "vi": "chỉ trích, phê bình"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, đúng đắn"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "たとえ〜ても（Bài 25）",
+              "vi": "たとえ〜ても = dù cho… đi nữa (nhấn mạnh mức giả định). 接続: たとえ + Vて + も. Ôn Bài 25."
+            },
+            {
+              "point": "〜く見える（Bài 27 見える）",
+              "vi": "おかしく見えても = dù trông có vẻ kỳ lạ. Adjく ＋ 見える = trông/có vẻ [tính từ] (ここは ように見える Bài 64 KHÔNG dùng)."
+            },
+            {
+              "point": "〜ようになった（Bài 36）",
+              "vi": "思うようになった = đã trở thành hay nghĩ. Vるようになる = bắt đầu/dần dần làm V (Bài 36)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、ても・のに・くせに、どれも「予想と違う現実」を指しているが、使う人の気持ちや立場が違えば、同じ事実でも全然違う言い方になる。",
+          "vi": "Tức là, ても・のに・くせに, cả ba đều chỉ \"thực tế khác kỳ vọng\", nhưng nếu cảm xúc và lập trường của người nói khác nhau thì cùng một sự thật lại có cách diễn đạt hoàn toàn khác.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "予想",
+              "read": "よそう",
+              "vi": "kỳ vọng, dự đoán"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "現実",
+              "read": "げんじつ",
+              "vi": "thực tế"
+            },
+            {
+              "w": "指します",
+              "read": "さします",
+              "vi": "chỉ, biểu đạt"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "lập trường, vị trí"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "事実",
+              "read": "じじつ",
+              "vi": "sự thật"
+            },
+            {
+              "w": "全然",
+              "read": "ぜんぜん",
+              "vi": "hoàn toàn (không)"
+            },
+            {
+              "w": "言い方",
+              "read": "いいかた",
+              "vi": "cách nói (V方 Bài 44)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vている（Bài 15）",
+              "vi": "指している = đang chỉ, biểu đạt (trạng thái hiện tại)."
+            },
+            {
+              "point": "〜ば（điều kiện, Bài 35/61）",
+              "vi": "立場が違えば = \"nếu lập trường khác nhau thì\". ば nêu điều kiện giả định. (Mẫu によって \"tùy theo\" để dành Bài 68.)"
+            }
+          ]
+        },
+        {
+          "jp": "「運動しないくせに健康の話をする」と言えば批判になるが、「運動していないのに健康を気にする」と言えば少し温かく聞こえる。",
+          "vi": "Nói \"không tập thể dục mà nói chuyện sức khoẻ\" (くせに) thì thành chỉ trích, nhưng nói \"không tập mà quan tâm sức khoẻ\" (のに) thì nghe ấm áp hơn một chút.",
+          "vocab": [
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "sự phê phán, chỉ trích"
+            },
+            {
+              "w": "気にします",
+              "read": "きにします",
+              "vi": "quan tâm, lo lắng về"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "温かい",
+              "read": "あたたかい",
+              "vi": "ấm áp (tình cảm)"
+            },
+            {
+              "w": "聞こえます",
+              "read": "きこえます",
+              "vi": "nghe thấy, nghe ra vẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに vs 〜のに（対比）",
+              "vi": "「運動しないくせに」= không tập MÀ LẠI nói chuyện sức khỏe → chê trách (くせに). 「運動していないのに」= không tập NHƯNG vẫn quan tâm sức khỏe → bất ngờ nhẹ, thậm chí tích cực (のに). Cùng nội dung, sắc thái hoàn toàn khác: くせに = chê; のに = trung tính/nhẹ hơn."
+            },
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "言えば = nếu nói. ば = điều kiện chung (Bài 35)."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、「運動しなくても元気な人もいる」と言えば、ただの中立な事実を伝えることができる。",
+          "vi": "Thêm nữa, nói \"có người không tập mà vẫn khoẻ\" (ても) thì có thể truyền đạt một sự thật trung lập đơn thuần.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "中立",
+              "read": "ちゅうりつ",
+              "vi": "trung lập"
+            },
+            {
+              "w": "事実",
+              "read": "じじつ",
+              "vi": "sự thật"
+            },
+            {
+              "w": "伝えます",
+              "read": "つたえます",
+              "vi": "truyền đạt"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Vない + ても = trung tính）",
+              "vi": "「運動しなくても元気な人もいる」= \"dù không tập vẫn có người khoẻ\". ても KHÔNG kèm sắc thái chê hay bất mãn — chỉ nêu nghịch lý trung tính. Đây là điểm khác biệt rõ nhất so với のに (bất mãn) và くせに (chê trách)."
+            }
+          ]
+        },
+        {
+          "jp": "言葉の選び方ひとつで、相手との関係が変わってしまう。",
+          "vi": "Chỉ một cách chọn từ mà quan hệ với đối phương có thể thay đổi.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "選び方",
+              "read": "えらびかた",
+              "vi": "cách chọn (lựa)"
+            },
+            {
+              "w": "ひとつ",
+              "read": "ひとつ",
+              "vi": "một cái, duy nhất"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "quan hệ"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "〜ひとつで",
+              "read": "ひとつで",
+              "vi": "chỉ với một, chỉ cần một"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てしまう（Bài 29）",
+              "vi": "変わってしまう = sẽ thay đổi (với hàm ý có thể là không mong muốn). てしまう nhấn ý hoàn thành đáng tiếc."
+            },
+            {
+              "point": "V方（Bài 44）",
+              "vi": "選び方 = cách chọn. Vます（bỏ ます）+ 方 = cách làm V (Bài 44)."
+            }
+          ]
+        },
+        {
+          "jp": "ソウさんとの関係を大切にしたいから、私はこれからも言葉を慎重に選ぶつもりだ。",
+          "vi": "Vì muốn trân trọng quan hệ với Sou nên từ nay tôi cũng có ý định chọn từ một cách cẩn thận.",
+          "vocab": [
+            {
+              "w": "ソウ",
+              "read": "ソウ",
+              "vi": "tên riêng Sou"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "大切にします",
+              "read": "たいせつにします",
+              "vi": "trân trọng, coi trọng"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "慎重に",
+              "read": "しんちょうに",
+              "vi": "cẩn thận, thận trọng"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "lựa chọn"
+            },
+            {
+              "w": "これからも",
+              "read": "これからも",
+              "vi": "từ nay, từ đây trở đi cũng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つもりだ（Bài 31）",
+              "vi": "選ぶつもりだ = có ý định chọn. Vるつもり = ý định (Bài 31)."
+            },
+            {
+              "point": "〜から（Bài 9 lý do）",
+              "vi": "大切にしたいから = vì muốn trân trọng. から nêu lý do ở cuối (đảo lý do ra trước cũng được)."
+            }
+          ]
+        },
+        {
+          "jp": "どんな状況になっても、友達を傷つけるような言い方はしたくない。",
+          "vi": "Dù tình huống thế nào, tôi không muốn nói theo cách có thể làm tổn thương bạn bè.",
+          "vocab": [
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "như thế nào (hỏi đặc điểm)"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình huống, hoàn cảnh"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "傷つけます",
+              "read": "きずつけます",
+              "vi": "làm tổn thương"
+            },
+            {
+              "w": "言い方",
+              "read": "いいかた",
+              "vi": "cách nói (V方 Bài 44)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（どんな〜ても）",
+              "vi": "どんな状況になっても = dù tình huống thế nào (giả định tổng quát). どんな〜ても nhấn mạnh \"bất kể… vẫn…\". ても ở đây là GIẢ ĐỊNH → một lần nữa không thay được bằng のに hay くせに."
+            },
+            {
+              "point": "〜ような（Bài 36）",
+              "vi": "傷つけるような言い方 = cách nói có thể làm tổn thương. Vるような + N = N kiểu \"như V\"."
+            }
+          ]
+        },
+        {
+          "jp": "本当の意味での友情とは、相手の失敗を責めるのではなく、一緒に考えることではないだろうか。",
+          "vi": "Tình bạn thực sự không phải là trách móc thất bại của nhau, mà là cùng nhau suy nghĩ — phải không?",
+          "vocab": [
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "友情",
+              "read": "ゆうじょう",
+              "vi": "tình bạn"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại"
+            },
+            {
+              "w": "責めます",
+              "read": "せめます",
+              "vi": "trách móc, đổ lỗi"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "本当の意味",
+              "read": "ほんとうのいみ",
+              "vi": "ý nghĩa thực sự"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "AではなくB（Bài 17 応用）",
+              "vi": "責めるのではなく〜考えること = không phải trách mà là suy nghĩ. のではなく = phủ định và đưa ra thay thế."
+            },
+            {
+              "point": "〜ではないだろうか（Bài 32 でしょう）",
+              "vi": "ではないだろうか = \"phải không? / có lẽ là\" — câu hỏi tu từ nhẹ nhàng mang tính kêu gọi đồng tình."
+            }
+          ]
+        },
+        {
+          "jp": "ソウさんが少しずつでも変わっていけるように、私もできる限りそばにいるつもりだ。",
+          "vi": "Để Sou có thể thay đổi dù chỉ một chút, tôi cũng có ý định ở bên cạnh hết mức có thể.",
+          "vocab": [
+            {
+              "w": "ソウ",
+              "read": "そう",
+              "vi": "Sou"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "変わっていける",
+              "read": "かわっていける",
+              "vi": "có thể dần thay đổi"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "できる限り",
+              "read": "できるかぎり",
+              "vi": "hết mức có thể"
+            },
+            {
+              "w": "そば",
+              "read": "そば",
+              "vi": "bên cạnh"
+            },
+            {
+              "w": "そばにいる",
+              "read": "そばにいる",
+              "vi": "ở bên cạnh"
+            },
+            {
+              "w": "つもり",
+              "read": "つもり",
+              "vi": "dự định; ý định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（mục đích Bài 60）",
+              "vi": "変わっていけるように = để có thể thay đổi được. Vる可能形 + ように = mục đích không hoàn toàn chủ ý (Bài 60)."
+            },
+            {
+              "point": "〜つもりだ（Bài 31）",
+              "vi": "いるつもりだ = có ý định ở bên. Vるつもり (Bài 31)."
+            },
+            {
+              "point": "〜ても（少しずつでも）",
+              "vi": "少しずつでも = dù chỉ từng chút một. でも ở đây = ても rút gọn, nhấn nghịch nhượng bộ trung tính."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ソウさんはいつも「来月から運動する」と言うくせに、実際には何もしない",
+          "label": "Sắc thái: 〜くせに（chê trách, cùng chủ thể）"
+        },
+        {
+          "excerpt": "「お金がないから外食できない」と言うのに、週末には毎回高いレストランへ行く",
+          "label": "〜のに（bất mãn, kết quả thật trái lời nói）"
+        },
+        {
+          "excerpt": "どんなに正直に指摘しても、ソウさんはいつも「わかった」と答えるだけで、態度は変わらない",
+          "label": "〜ても（trung tính, nhượng bộ）"
+        },
+        {
+          "excerpt": "もっと早く運動しておけばよかったのに",
+          "label": "Sắc thái: のに cuối câu（tiếc nuối）"
+        },
+        {
+          "excerpt": "「運動しないくせに健康の話をする」と言えば批判になるが、「運動していないのに健康を気にする」と言えば少し温かく聞こえる",
+          "label": "Sắc thái: くせに（chê） vs のに（trung tính/ấm）"
+        },
+        {
+          "excerpt": "「運動しなくても元気な人もいる」と言えば、ただの中立な事実を伝えることができる",
+          "label": "〜ても（trung tính）vs くせに/のに"
+        },
+        {
+          "excerpt": "ソウさんが自分でわかっているくせに変えられないのは",
+          "label": "〜くせに（tự biết mà vẫn không đổi → chê）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「ソウさんはいつも「来月から運動する」と言うくせに、実際には何もしない」の「くせに」をもし「のに」に変えると、文のニュアンスはどう変わりますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "意味が全く反対になり、ソウさんをほめる文になります",
+            "批判・軽蔑のニュアンスが弱まり、驚きや軽い不満の表現になります",
+            "仮定の意味になるため、文の意味が不自然になります",
+            "のには書き言葉なので、口語的になります"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B. Câu gốc 「「来月から運動する」と言うくせに、実際には何もしない」— くせに mang sắc thái CHÊ TRÁCH RÕ RÀNG: người kể bực bội Sou vì hay nói mà không làm. Thay bằng のに: 「言うのに何もしない」= vẫn diễn đạt sự mâu thuẫn, nhưng nhẹ hơn, thiên về BẤT NGỜ hoặc BẤT MÃN NHẸ chứ không hàm ý khinh thường. Sai: A (\"nghĩa đảo ngược, thành khen Sou\") — cả hai vẫn nêu mâu thuẫn, không đổi chiều nghĩa. Sai: C (\"のに = giả định, câu không tự nhiên\") — のに không phải giả định, câu vẫn tự nhiên. Sai: D (\"のに là văn viết\") — のに dùng trong cả văn nói và văn viết.",
+          "tip": "くせに → giọng văn có MÀU SẮC CHÊ/KHINH; のに → chỉ ghi nhận mâu thuẫn, thiếu thái độ chê. Hễ cảm nhận \"người nói đang trách móc/coi thường ai đó\" thì đó là くせに.",
+          "qt": {
+            "q": "Nếu đổi 「くせに」 thành 「のに」 trong câu “Dù anh Sou lúc nào cũng nói ‘từ tháng sau sẽ tập thể dục’, nhưng thực tế lại chẳng làm gì”, sắc thái của câu sẽ thay đổi như thế nào?",
+            "o": [
+              "Ý nghĩa sẽ hoàn toàn trái ngược, và câu sẽ trở thành lời khen anh Sou",
+              "Sắc thái chỉ trích, khinh thường sẽ dịu đi, và câu sẽ thể hiện sự ngạc nhiên hoặc chút bất mãn",
+              "Câu sẽ mang nghĩa giả định, khiến ý nghĩa trở nên không tự nhiên",
+              "Vì 「のに」 là văn viết nên câu sẽ trở nên mang tính khẩu ngữ"
+            ]
+          }
+        },
+        {
+          "q": "「どんなに正直に指摘しても、態度は変わらない」の「ても」の使い方として正しい説明はどれですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "指摘することへの批判を表しています",
+            "指摘したことを後悔していることを表しています",
+            "仮定または繰り返す事実に関わらず結果が変わらないことを、中立的に表しています",
+            "指摘したことへの感謝を表しています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C. 「どんなに正直に指摘しても、ソウさんはいつも「わかった」と答えるだけで、態度は変わらない」— ても ở đây biểu đạt nghịch-nhượng bộ TRUNG TÍNH: \"dù tôi chỉ ra đến đâu, Sou vẫn không đổi thái độ\". Đây là sự thật lặp đi lặp lại. Người viết CHẤP NHẬN thực tế này chứ không kèm bất mãn mạnh hay chê trách Sou. Sai: A (\"chỉ trích việc chỉ ra\") — ても không mang sắc thái chỉ trích. Sai: B (\"hối tiếc vì đã chỉ ra\") — người viết không hối tiếc, chỉ nêu kết quả trung tính. Sai: D (\"cảm ơn\") — hoàn toàn sai ngữ cảnh. Lưu ý: くせに sẽ đổ lỗi cho Sou; のに sẽ thêm bất mãn; ても không thiên về phía nào.",
+          "tip": "ても dùng để nêu nghịch lý KHÔNG KÈM CẢM XÚC — \"dù X vẫn Y, đó là thực tế\". Khi câu hỏi hỏi \"ても nghĩa là gì?\", chọn đáp án không nêu cảm xúc chê/tiếc/biết ơn mà chỉ nêu sự thật trung lập.",
+          "qt": {
+            "q": "Đâu là lời giải thích đúng về cách dùng 「ても」 trong câu “Dù có thẳng thắn góp ý đến đâu, thái độ của anh ấy cũng không thay đổi”?",
+            "o": [
+              "Thể hiện sự chỉ trích việc góp ý",
+              "Thể hiện sự hối hận vì đã góp ý",
+              "Thể hiện một cách trung lập rằng kết quả không thay đổi bất kể đó là giả định hay sự việc lặp đi lặp lại",
+              "Thể hiện lòng biết ơn vì đã góp ý"
+            ]
+          }
+        },
+        {
+          "q": "文章の中で「ても・のに・くせに」の3つが使われている理由として最も適切なものはどれですか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "3つとも全く同じ意味を持ち、バリエーションとして使い分けているだけです",
+            "「ても」は仮定のみ、「のに」は事実のみ、「くせに」は命令のみに使います",
+            "3つとも「予想と違う現実」を表すが、話し手の気持ち（中立・不満・批判）によって使い分けられています",
+            "「のに」と「くせに」は同じで、「ても」だけが意味が異なります"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: C. Bài viết tự phân tích rõ ở đoạn 「つまり、ても・のに・くせに、どれも「予想と違う現実」を指しているが、使う人の気持ちや立場が違えば、同じ事実でも全然違う言い方になる」— cả ba đều nêu thực tế trái kỳ vọng, nhưng THÁI ĐỘ NGƯỜI NÓI khác nhau: ても = trung tính; のに = bất ngờ/bất mãn nhẹ; くせに = chê trách/khinh thường. Sai: A (\"ba mẫu giống nhau, chỉ thay cho có vẻ đa dạng\") — bài viết khẳng định sắc thái khác nhau. Sai: B (\"ても = giả định, のに = sự thật, くせに = mệnh lệnh\") — định nghĩa sai hoàn toàn, くせに không bao giờ là mệnh lệnh. Sai: D (\"のに và くせに giống nhau\") — ngược với toàn bộ nội dung bài.",
+          "tip": "Câu hỏi so sánh 3 mẫu → nhớ TAM PHÂN: ても = trung tính (neutral); のに = bất ngờ/tiếc/bất mãn nhẹ; くせに = chê trách/khinh thường. Cùng sự thật, khác thái độ người nói.",
+          "qt": {
+            "q": "Lý do phù hợp nhất khiến cả ba cách diễn đạt 「ても・のに・くせに」 được dùng trong bài là gì?",
+            "o": [
+              "Cả ba đều có cùng một ý nghĩa hoàn toàn, chỉ được thay đổi cách dùng để tạo sự đa dạng",
+              "「ても」 chỉ dùng cho giả định, 「のに」 chỉ dùng cho sự việc có thật, còn 「くせに」 chỉ dùng cho mệnh lệnh",
+              "Cả ba đều diễn tả “thực tế khác với dự đoán”, nhưng được dùng khác nhau tùy theo cảm xúc của người nói (trung lập, bất mãn, chỉ trích)",
+              "「のに」 và 「くせに」 giống nhau, chỉ có 「ても」 là khác nghĩa"
+            ]
+          }
+        },
+        {
+          "q": "書き手がソウさんに「もっと早く運動しておけばよかったのに」と言わなかった理由は何ですか。",
+          "evi": [
+            8,
+            14
+          ],
+          "options": [
+            "ソウさんに運動してほしくないからです",
+            "言い方が意地悪になるので、友達との関係を傷つけたくなかったからです",
+            "ソウさんはすでに運動していたからです",
+            "その言葉は「くせに」を使うべきだったからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B. Bài viết nêu thẳng: 「それは少し意地悪な言い方になるので、やめた」— vì đó là cách nói hơi ác ý nên thôi không nói. Nền tảng suy nghĩ này được củng cố bởi câu 「言葉の選び方ひとつで、相手との関係が変わってしまう」— một từ sai có thể làm tổn thương quan hệ bạn bè. Sai: A (\"không muốn Sou tập thể dục\") — ngược với mong muốn của người viết. Sai: C (\"Sou đã tập rồi\") — sai sự thật, Sou vẫn không tập. Sai: D (\"nên dùng くせに\") — câu hỏi hỏi lý do không nói, không hỏi chọn mẫu ngữ pháp; hơn nữa くせに còn nặng sắc thái chê hơn, càng không phù hợp.",
+          "tip": "Câu hỏi \"tại sao không nói/làm X?\" → tìm câu có から/ので trong văn bản giải thích trực tiếp lý do. Đừng suy luận thêm — đáp án thường là paraphrase của câu giải thích đó.",
+          "qt": {
+            "q": "Vì sao người viết không nói với anh Sou: “Giá mà anh tập thể dục sớm hơn”?",
+            "o": [
+              "Vì người viết không muốn anh Sou tập thể dục",
+              "Vì cách nói đó sẽ trở nên cay nghiệt, và người viết không muốn làm tổn hại mối quan hệ với bạn mình",
+              "Vì anh Sou đã tập thể dục rồi",
+              "Vì câu đó đáng lẽ phải dùng 「くせに」"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "青葉寮　共用施設利用のお知らせ",
+      "titleVi": "Thông báo sử dụng khu vực chung — Ký túc xá Aoba",
+      "japanese": "青葉寮　共用施設リニューアルのお知らせ\nこのたび、青葉寮では共用スペースを新しくし、利用時間や予約方法を一部変更しました。入居者の皆さまは下の表をご確認のうえ、ご利用ください。\n施設名｜利用時間｜予約｜利用料金\n集会室｜9:00〜21:00｜前日までにフロントで予約｜1時間300円（入居者は無料）\nランドリールーム｜24時間｜予約不要｜1回200円\nスタディルーム｜7:00〜23:00｜当日フロントで予約｜1時間200円（学生証提示で半額）\n※スタディルームは人気のため、予約したのに部屋が空いていない場合があります。その際は集会室をご利用ください。\n※毎月最終日曜日は「寮内交流会」を集会室で行います。雨でも行いますので、雨天中止のご連絡はいたしません。\n※交流会に一度参加すると、次の月のランドリールーム利用料が1回分無料になります。\n集会室は誕生日会やサークル活動にも利用できますが、19時以降は静かにご利用ください。\nランドリールームは24時間使えて便利ですが、22時以降は洗濯機の音に気をつけてください。\nスタディルームは静かで集中できると評判ですが、予約が取りにくいという声も多いです。\n急いでいても、必ず利用前にフロントで予約内容をご確認ください。\n予約や料金について不明な点があれば、フロント（内線9）までお問い合わせください。\n青葉寮管理事務所　電話：03-4567-8901（平日9:00〜18:00）",
+      "vietnamese": "Thông báo cải tạo khu vực sinh hoạt chung — Ký túc xá Aoba\nLần này, ký túc xá Aoba đã làm mới khu vực chung, đồng thời thay đổi một phần giờ sử dụng và cách đặt chỗ. Kính mong quý cư dân xem bảng dưới đây trước khi sử dụng.\nTên khu vực｜Giờ sử dụng｜Đặt chỗ｜Phí sử dụng\nPhòng họp chung｜9:00–21:00｜Đặt tại quầy lễ tân trước 1 ngày｜300 yên/giờ (cư dân miễn phí)\nPhòng giặt｜24 giờ｜Không cần đặt trước｜200 yên/lần\nPhòng tự học｜7:00–23:00｜Đặt tại quầy lễ tân trong ngày｜200 yên/giờ (xuất trình thẻ sinh viên giảm nửa giá)\n※ Vì phòng tự học rất được ưa chuộng, có trường hợp dù đã đặt chỗ mà phòng vẫn không trống. Khi đó xin hãy dùng phòng họp chung.\n※ Chủ nhật cuối cùng mỗi tháng, \"buổi giao lưu ký túc xá\" được tổ chức ở phòng họp chung. Dù trời mưa vẫn tổ chức, nên sẽ không có thông báo hủy vì mưa.\n※ Chỉ cần tham gia buổi giao lưu một lần, phí sử dụng phòng giặt của tháng sau sẽ được miễn phí 1 lần.\nPhòng họp chung cũng có thể dùng cho tiệc sinh nhật hay hoạt động câu lạc bộ, nhưng từ 19 giờ trở đi xin sử dụng yên tĩnh.\nPhòng giặt tuy tiện lợi vì dùng được 24 giờ, nhưng từ 22 giờ trở đi xin lưu ý tiếng ồn của máy giặt.\nPhòng tự học được đánh giá yên tĩnh và dễ tập trung, nhưng cũng có nhiều ý kiến cho rằng khó đặt được chỗ.\nDù đang vội, xin nhất định xác nhận nội dung đặt chỗ tại quầy lễ tân trước khi sử dụng.\nNếu có điều chưa rõ về việc đặt chỗ hay phí, xin liên hệ quầy lễ tân (số nội bộ 9).\nVăn phòng quản lý ký túc xá Aoba　Điện thoại: 03-4567-8901 (ngày thường 9:00–18:00)",
+      "sentences": [
+        {
+          "jp": "青葉寮　共用施設リニューアルのお知らせ",
+          "vi": "Thông báo cải tạo khu vực sinh hoạt chung — Ký túc xá Aoba",
+          "vocab": [
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "寮",
+              "read": "りょう",
+              "vi": "ký túc xá"
+            },
+            {
+              "w": "共用",
+              "read": "きょうよう",
+              "vi": "dùng chung, sử dụng chung"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "リニューアル",
+              "read": "リニューアル",
+              "vi": "làm mới, cải tạo"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "青葉寮",
+              "read": "あおばりょう",
+              "vi": "ký túc xá Aoba (tên riêng)"
+            },
+            {
+              "w": "共用施設",
+              "read": "きょうようしせつ",
+              "vi": "khu vực/thiết bị dùng chung"
+            }
+          ],
+          "keys": [
+            {
+              "w": "共用施設リニューアルのお知らせ",
+              "why": "Tiêu đề — xác định đây là thông báo về khu vực chung của ký túc xá."
+            }
+          ]
+        },
+        {
+          "jp": "このたび、青葉寮では共用スペースを新しくし、利用時間や予約方法を一部変更しました。入居者の皆さまは下の表をご確認のうえ、ご利用ください。",
+          "vi": "Lần này, ký túc xá Aoba đã làm mới khu vực chung, đồng thời thay đổi một phần giờ sử dụng và cách đặt chỗ. Kính mong quý cư dân xem bảng dưới đây trước khi sử dụng.",
+          "vocab": [
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "寮",
+              "read": "りょう",
+              "vi": "ký túc xá"
+            },
+            {
+              "w": "共用スペース",
+              "read": "きょうようスペース",
+              "vi": "không gian dùng chung"
+            },
+            {
+              "w": "スペース",
+              "read": "スペース",
+              "vi": "không gian, diện tích"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            },
+            {
+              "w": "変更します",
+              "read": "へんこうします",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "入居",
+              "read": "にゅうきょ",
+              "vi": "sự dọn vào ở, nhập cư"
+            },
+            {
+              "w": "皆さま",
+              "read": "みなさま",
+              "vi": "quý vị (trang trọng)"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng (biểu)"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "このたび",
+              "read": "このたび",
+              "vi": "lần này (trang trọng)"
+            },
+            {
+              "w": "予約方法",
+              "read": "よやくほうほう",
+              "vi": "cách đặt chỗ"
+            },
+            {
+              "w": "入居者",
+              "read": "にゅうきょしゃ",
+              "vi": "người ở trọ, cư dân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜のうえ（Bài 44 応用・trang trọng）",
+              "vi": "ご確認のうえ = sau khi đã xác nhận (kính ngữ). Nの上で dạng lịch sự dùng trong thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "施設名｜利用時間｜予約｜利用料金",
+          "vi": "Tên khu vực｜Giờ sử dụng｜Đặt chỗ｜Phí sử dụng",
+          "vocab": [
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "施設名",
+              "read": "しせつめい",
+              "vi": "tên khu vực/thiết bị"
+            },
+            {
+              "w": "利用時間",
+              "read": "りようじかん",
+              "vi": "giờ sử dụng"
+            },
+            {
+              "w": "利用料金",
+              "read": "りようりょうきん",
+              "vi": "phí sử dụng"
+            }
+          ],
+          "keys": [
+            {
+              "w": "施設名｜利用時間｜予約｜利用料金",
+              "why": "Header bảng — xác định 4 cột để dò: khu vực, giờ, cách đặt, phí."
+            }
+          ]
+        },
+        {
+          "jp": "集会室｜9:00〜21:00｜前日までにフロントで予約｜1時間300円（入居者は無料）",
+          "vi": "Phòng họp chung｜9:00–21:00｜Đặt tại quầy lễ tân trước 1 ngày｜300 yên/giờ (cư dân miễn phí)",
+          "vocab": [
+            {
+              "w": "集会",
+              "read": "しゅうかい",
+              "vi": "buổi họp; cuộc tụ họp"
+            },
+            {
+              "w": "集会室",
+              "read": "しゅうかいしつ",
+              "vi": "phòng sinh hoạt chung"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "21:00",
+              "read": "にじゅういちじ",
+              "vi": "21 giờ"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "フロント",
+              "read": "ふろんと",
+              "vi": "quầy lễ tân"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước; đặt chỗ"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "入居",
+              "read": "にゅうきょ",
+              "vi": "dọn vào ở"
+            },
+            {
+              "w": "入居者",
+              "read": "にゅうきょしゃ",
+              "vi": "người thuê; cư dân"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "keys": [
+            {
+              "w": "入居者は無料",
+              "why": "Điều kiện quan trọng: cư dân dùng phòng họp chung KHÔNG mất phí — dễ bị nhầm với dòng phí 300円."
+            }
+          ]
+        },
+        {
+          "jp": "ランドリールーム｜24時間｜予約不要｜1回200円",
+          "vi": "Phòng giặt｜24 giờ｜Không cần đặt trước｜200 yên/lần",
+          "vocab": [
+            {
+              "w": "ランドリー",
+              "read": "らんどりー",
+              "vi": "giặt ủi"
+            },
+            {
+              "w": "ルーム",
+              "read": "るーむ",
+              "vi": "phòng"
+            },
+            {
+              "w": "ランドリールーム",
+              "read": "らんどりーるーむ",
+              "vi": "phòng giặt ủi"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước; đặt chỗ"
+            },
+            {
+              "w": "不要",
+              "read": "ふよう",
+              "vi": "không cần thiết"
+            },
+            {
+              "w": "予約不要",
+              "read": "よやくふよう",
+              "vi": "không cần đặt trước"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "1 lần"
+            },
+            {
+              "w": "200円",
+              "read": "にひゃくえん",
+              "vi": "200 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "1回200円",
+              "why": "Đơn giá phòng giặt — dùng để tính tổng phí ở câu hỏi ghép với điều kiện giảm giá."
+            }
+          ]
+        },
+        {
+          "jp": "スタディルーム｜7:00〜23:00｜当日フロントで予約｜1時間200円（学生証提示で半額）",
+          "vi": "Phòng tự học｜7:00–23:00｜Đặt tại quầy lễ tân trong ngày｜200 yên/giờ (xuất trình thẻ sinh viên giảm nửa giá)",
+          "vocab": [
+            {
+              "w": "スタディ",
+              "read": "すたでぃ",
+              "vi": "học tập"
+            },
+            {
+              "w": "ルーム",
+              "read": "るーむ",
+              "vi": "phòng"
+            },
+            {
+              "w": "スタディルーム",
+              "read": "すたでぃるーむ",
+              "vi": "phòng học"
+            },
+            {
+              "w": "7:00",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            },
+            {
+              "w": "23:00",
+              "read": "にじゅうさんじ",
+              "vi": "23 giờ"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "trong ngày hôm đó"
+            },
+            {
+              "w": "フロント",
+              "read": "ふろんと",
+              "vi": "quầy lễ tân"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước; đặt chỗ"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "200円",
+              "read": "にひゃくえん",
+              "vi": "200 yên"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh; sinh viên"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh; thẻ sinh viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "một nửa giá"
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証提示で半額",
+              "why": "Điều kiện giảm giá theo đối tượng (sinh viên) — cần ghép với số giờ dùng để tính tổng phí."
+            }
+          ]
+        },
+        {
+          "jp": "※スタディルームは人気のため、予約したのに部屋が空いていない場合があります。その際は集会室をご利用ください。",
+          "vi": "※ Vì phòng tự học rất được ưa chuộng, có trường hợp dù đã đặt chỗ mà phòng vẫn không trống. Khi đó xin hãy dùng phòng họp chung.",
+          "vocab": [
+            {
+              "w": "スタディ",
+              "read": "スタディ",
+              "vi": "học tập, nghiên cứu"
+            },
+            {
+              "w": "ルーム",
+              "read": "ルーム",
+              "vi": "phòng"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "được ưa chuộng, nổi tiếng"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "空いています",
+              "read": "あいています",
+              "vi": "còn trống (chỗ)"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "集会",
+              "read": "しゅうかい",
+              "vi": "sự hội họp, tập hợp"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "その際",
+              "read": "そのさい",
+              "vi": "khi đó, lúc đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（Bài 62・TRỌNG TÂM）",
+              "vi": "接続: Vた（普通形）+ のに → 予約したのに = \"đã đặt chỗ vậy mà…\". Kết quả (\"phòng không trống\") là SỰ THẬT có thể xảy ra, trái với việc đã đặt trước — mang sắc thái BẤT NGỜ/ĐÁNG TIẾC mà thông báo muốn báo trước cho người đọc. Đây chính là ngoại lệ trái khoáy: đặt chỗ rồi mà vẫn có thể không có phòng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "予約したのに部屋が空いていない場合があります",
+              "why": "Ngoại lệ trái khoáy quan trọng nhất bài — mô tả đúng tình huống Tanaka gặp phải (đã đặt chỗ nhưng không có phòng)."
+            },
+            {
+              "w": "その際は集会室をご利用ください",
+              "why": "Hướng dẫn xử lý ngay khi gặp ngoại lệ trên — chính là đáp án câu hỏi \"phải làm gì nếu đặt chỗ mà không có phòng?\"."
+            }
+          ]
+        },
+        {
+          "jp": "※毎月最終日曜日は「寮内交流会」を集会室で行います。雨でも行いますので、雨天中止のご連絡はいたしません。",
+          "vi": "※ Chủ nhật cuối cùng mỗi tháng, \"buổi giao lưu ký túc xá\" được tổ chức ở phòng họp chung. Dù trời mưa vẫn tổ chức, nên sẽ không có thông báo hủy vì mưa.",
+          "vocab": [
+            {
+              "w": "毎月",
+              "read": "まいつき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "最終",
+              "read": "さいしゅう",
+              "vi": "cuối cùng, sau cùng"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "寮内",
+              "read": "りょうない",
+              "vi": "trong ký túc xá"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "集会",
+              "read": "しゅうかい",
+              "vi": "sự hội họp, tập hợp"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "雨天",
+              "read": "うてん",
+              "vi": "trời mưa"
+            },
+            {
+              "w": "中止",
+              "read": "ちゅうし",
+              "vi": "huỷ bỏ, dừng lại"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "いたす",
+              "read": "いたす",
+              "vi": "làm, thực hiện"
+            },
+            {
+              "w": "最終日曜日",
+              "read": "さいしゅうにちようび",
+              "vi": "chủ nhật cuối cùng (trong tháng)"
+            },
+            {
+              "w": "寮内交流会",
+              "read": "りょうないこうりゅうかい",
+              "vi": "buổi giao lưu trong ký túc xá"
+            },
+            {
+              "w": "雨天中止",
+              "read": "うてんちゅうし",
+              "vi": "hủy vì trời mưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 62・TRỌNG TÂM）",
+              "vi": "接続: N + でも → 雨でも = \"dù trời mưa vẫn…\". Sắc thái TRUNG TÍNH: chỉ nêu sự việc \"bất kể điều kiện thời tiết ra sao, sự kiện vẫn diễn ra\" — không kèm cảm xúc bất mãn hay chê trách, khác hẳn với のに ở dòng trên (mang sắc thái đáng tiếc)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "雨でも行いますので、雨天中止のご連絡はいたしません",
+              "why": "Ngoại lệ trái khoáy thứ 2: sự kiện vẫn tổ chức bất kể mưa — bẫy nếu học viên nghĩ mưa thì được hủy."
+            }
+          ]
+        },
+        {
+          "jp": "※交流会に一度参加すると、次の月のランドリールーム利用料が1回分無料になります。",
+          "vi": "※ Chỉ cần tham gia buổi giao lưu một lần, phí sử dụng phòng giặt của tháng sau sẽ được miễn phí 1 lần.",
+          "vocab": [
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "交流会",
+              "read": "こうりゅうかい",
+              "vi": "buổi giao lưu"
+            },
+            {
+              "w": "一度",
+              "read": "いちど",
+              "vi": "một lần"
+            },
+            {
+              "w": "参加する",
+              "read": "さんかする",
+              "vi": "tham gia"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo"
+            },
+            {
+              "w": "次の月",
+              "read": "つぎのつき",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "ランドリー",
+              "read": "らんどりー",
+              "vi": "giặt ủi"
+            },
+            {
+              "w": "ルーム",
+              "read": "るーむ",
+              "vi": "phòng"
+            },
+            {
+              "w": "ランドリールーム",
+              "read": "らんどりーるーむ",
+              "vi": "phòng giặt ủi"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用料",
+              "read": "りようりょう",
+              "vi": "phí sử dụng"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "1 lần"
+            },
+            {
+              "w": "1回分",
+              "read": "いっかいぶん",
+              "vi": "phần cho 1 lần"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành; được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "参加すると = \"hễ tham gia thì…\" — điều kiện tất yếu (と), kết quả luôn xảy ra. Ôn Bài 23."
+            }
+          ],
+          "keys": [
+            {
+              "w": "次の月のランドリールーム利用料が1回分無料になります",
+              "why": "Điều kiện giảm giá then chốt — dùng để ghép với đơn giá phòng giặt khi tính tổng phí ở câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "集会室は誕生日会やサークル活動にも利用できますが、19時以降は静かにご利用ください。",
+          "vi": "Phòng họp chung cũng có thể dùng cho tiệc sinh nhật hay hoạt động câu lạc bộ, nhưng từ 19 giờ trở đi xin sử dụng yên tĩnh.",
+          "vocab": [
+            {
+              "w": "集会室",
+              "read": "しゅうかいしつ",
+              "vi": "phòng sinh hoạt chung"
+            },
+            {
+              "w": "集会",
+              "read": "しゅうかい",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "誕生日会",
+              "read": "たんじょうびかい",
+              "vi": "tiệc sinh nhật"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            },
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời"
+            },
+            {
+              "w": "サークル活動",
+              "read": "サークルかつどう",
+              "vi": "hoạt động câu lạc bộ"
+            },
+            {
+              "w": "サークル",
+              "read": "サークル",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            },
+            {
+              "w": "19時",
+              "read": "じゅうくじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "19時以降",
+              "read": "じゅうくじいこう",
+              "vi": "sau 19 giờ"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "sau đó, trở đi"
+            },
+            {
+              "w": "静かに",
+              "read": "しずかに",
+              "vi": "yên lặng"
+            },
+            {
+              "w": "ご利用",
+              "read": "ごりよう",
+              "vi": "sử dụng (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "可能形＋が（Bài 18・Bài 20）",
+              "vi": "利用できますが = có thể dùng được, nhưng… 可能形 (Bài 18) + が (nhưng, đối lập nhẹ)."
+            }
+          ]
+        },
+        {
+          "jp": "ランドリールームは24時間使えて便利ですが、22時以降は洗濯機の音に気をつけてください。",
+          "vi": "Phòng giặt tuy tiện lợi vì dùng được 24 giờ, nhưng từ 22 giờ trở đi xin lưu ý tiếng ồn của máy giặt.",
+          "vocab": [
+            {
+              "w": "ランドリールーム",
+              "read": "ランドリールーム",
+              "vi": "phòng giặt"
+            },
+            {
+              "w": "ランドリー",
+              "read": "ランドリー",
+              "vi": "giặt ủi"
+            },
+            {
+              "w": "ルーム",
+              "read": "ルーム",
+              "vi": "phòng"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "使えて",
+              "read": "つかえて",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "22時",
+              "read": "にじゅうにじ",
+              "vi": "22 giờ"
+            },
+            {
+              "w": "22時以降",
+              "read": "にじゅうにじいこう",
+              "vi": "sau 22 giờ"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "sau đó, trở đi"
+            },
+            {
+              "w": "洗濯機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "洗濯",
+              "read": "せんたく",
+              "vi": "giặt giũ"
+            },
+            {
+              "w": "音",
+              "read": "おと",
+              "vi": "âm thanh"
+            },
+            {
+              "w": "気をつけて",
+              "read": "きをつけて",
+              "vi": "hãy chú ý, cẩn thận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "可能形＋て（Bài 18・Bài 16）",
+              "vi": "使えて便利です = dùng được nên tiện lợi. 可能形 (Bài 18) + て nối lý do-kết quả (Bài 16)."
+            }
+          ]
+        },
+        {
+          "jp": "スタディルームは静かで集中できると評判ですが、予約が取りにくいという声も多いです。",
+          "vi": "Phòng tự học được đánh giá yên tĩnh và dễ tập trung, nhưng cũng có nhiều ý kiến cho rằng khó đặt được chỗ.",
+          "vocab": [
+            {
+              "w": "スタディ",
+              "read": "スタディ",
+              "vi": "học tập, nghiên cứu"
+            },
+            {
+              "w": "ルーム",
+              "read": "ルーム",
+              "vi": "phòng"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "集中します",
+              "read": "しゅうちゅうします",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "評判",
+              "read": "ひょうばん",
+              "vi": "được đánh giá, tiếng đồn"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "ý kiến, tiếng nói (nghĩa bóng)"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "〜にくい",
+              "read": "にくい",
+              "vi": "khó (làm gì đó)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜という（Bài 43 応用）",
+              "vi": "取りにくいという声 = ý kiến rằng \"khó đặt chỗ\". という trích dẫn nội dung ý kiến."
+            }
+          ]
+        },
+        {
+          "jp": "急いでいても、必ず利用前にフロントで予約内容をご確認ください。",
+          "vi": "Dù đang vội, xin nhất định xác nhận nội dung đặt chỗ tại quầy lễ tân trước khi sử dụng.",
+          "vocab": [
+            {
+              "w": "急いでいます",
+              "read": "いそいでいます",
+              "vi": "đang vội, đang gấp"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "フロント",
+              "read": "フロント",
+              "vi": "quầy lễ tân (front desk)"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "利用前に",
+              "read": "りようまえに",
+              "vi": "trước khi sử dụng"
+            },
+            {
+              "w": "予約内容",
+              "read": "よやくないよう",
+              "vi": "nội dung đặt chỗ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 62・trung tính, 2つ目）",
+              "vi": "接続: Vている + も → 急いでいても = \"dù đang vội vẫn…\". Sắc thái TRUNG TÍNH giống 雨でも ở trên: nêu điều kiện bất kể ra sao thì việc xác nhận vẫn là bắt buộc, không kèm cảm xúc chê/tiếc."
+            }
+          ]
+        },
+        {
+          "jp": "予約や料金について不明な点があれば、フロント（内線9）までお問い合わせください。",
+          "vi": "Nếu có điều chưa rõ về việc đặt chỗ hay phí, xin liên hệ quầy lễ tân (số nội bộ 9).",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "不明",
+              "read": "ふめい",
+              "vi": "không rõ ràng, chưa rõ"
+            },
+            {
+              "w": "フロント",
+              "read": "フロント",
+              "vi": "quầy lễ tân (front desk)"
+            },
+            {
+              "w": "内線",
+              "read": "ないせん",
+              "vi": "số máy nội bộ"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "不明な点",
+              "read": "ふめいなてん",
+              "vi": "điểm chưa rõ"
+            },
+            {
+              "w": "お問い合わせください",
+              "read": "おといあわせください",
+              "vi": "xin liên hệ hỏi (kính ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（Bài 61）",
+              "vi": "あれば = nếu có. ば điều kiện chung, ôn Bài 61."
+            }
+          ]
+        },
+        {
+          "jp": "青葉寮管理事務所　電話：03-4567-8901（平日9:00〜18:00）",
+          "vi": "Văn phòng quản lý ký túc xá Aoba　Điện thoại: 03-4567-8901 (ngày thường 9:00–18:00)",
+          "vocab": [
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "寮",
+              "read": "りょう",
+              "vi": "ký túc xá"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "事務所",
+              "read": "じむしょ",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ 2-6)"
+            },
+            {
+              "w": "管理事務所",
+              "read": "かんりじむしょ",
+              "vi": "văn phòng quản lý"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "予約したのに部屋が空いていない場合があります",
+          "label": "〜のに（Bài 62・ngoại lệ trái khoáy, đáng tiếc）"
+        },
+        {
+          "excerpt": "雨でも行いますので、雨天中止のご連絡はいたしません",
+          "label": "〜ても（Bài 62・trung tính, bất kể điều kiện）"
+        },
+        {
+          "excerpt": "参加すると、次の月のランドリールーム利用料が1回分無料になります",
+          "label": "〜と（Bài 23 ôn）"
+        },
+        {
+          "excerpt": "学生証提示で半額",
+          "label": "Điều kiện giảm giá theo đối tượng"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề + giới thiệu",
+          "topic": 0,
+          "note": "Tiêu đề thông báo và lý do cải tạo khu vực chung.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng giờ/phí 3 khu vực",
+          "topic": 2,
+          "note": "Bảng chính: tên khu vực, giờ, cách đặt, phí — cần dò cột phí và điều kiện giảm giá (半額) để tính tổng.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "turn",
+          "label": "Ngoại lệ ※ trái khoáy",
+          "topic": 6,
+          "note": "Ba dòng ※ chứa ngoại lệ: đặt chỗ mà không có phòng (のに), sự kiện vẫn tổ chức dù mưa (ても), và điều kiện giảm giá tháng sau khi tham gia giao lưu.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 14,
+          "kind": "body",
+          "label": "Lưu ý sử dụng + liên hệ",
+          "topic": 13,
+          "note": "Ưu-nhược điểm từng khu vực, nhắc xác nhận đặt chỗ (ても), và thông tin liên hệ khi cần hỏi thêm.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "学生のチンさんは、今月の交流会に参加しました。来月、ランドリールームを2回利用する場合、いくら払いますか。",
+          "options": [
+            "0円",
+            "200円",
+            "400円",
+            "600円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B (200円). Ghép 2 điều kiện: (1) bảng cho biết ランドリールーム = 200円/lần (dòng \"1回200円\"); (2) dòng ※ cho biết tham gia giao lưu 1 lần → tháng sau được miễn phí 1 LẦN sử dụng phòng giặt. Chin dùng 2 lần: 1 lần miễn phí (nhờ đã tham gia giao lưu) + 1 lần tính phí bình thường 200円 = tổng 200円. Sai: A (0円) — chỉ 1 trong 2 lần được miễn phí, không phải cả 2. Sai: C (400円) — đây là tính sai, quên áp dụng ưu đãi miễn phí 1 lần. Sai: D (600円) — nhầm đơn giá hoặc cộng thêm phí không có trong bảng.",
+          "tip": "Câu hỏi ghép điều kiện tính phí: trước tiên tìm ĐƠN GIÁ trong bảng, sau đó tìm dòng ※ nêu điều kiện GIẢM/MIỄN — áp dụng đúng số lần được ưu đãi rồi mới cộng phần còn lại.",
+          "evi": [
+            4,
+            8
+          ],
+          "qt": {
+            "q": "Sinh viên Chin tham gia buổi giao lưu tháng này. Tháng sau, nếu sử dụng phòng giặt 2 lần thì sẽ phải trả bao nhiêu tiền?",
+            "o": [
+              "0 yên",
+              "200 yên",
+              "400 yên",
+              "600 yên"
+            ]
+          }
+        },
+        {
+          "q": "田中さんは前日にスタディルームを予約しましたが、当日行ってみると部屋が使われていました。この場合、田中さんはどうすればいいですか。",
+          "options": [
+            "予約が無効になるので、料金は一切請求されない",
+            "予約したのに部屋が空いていない場合があるので、集会室を利用すればいい",
+            "フロントに苦情の電話をしなければならない",
+            "交流会に参加して、部屋を優先的に使う権利をもらう"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: B. Thông báo nêu rõ ở dòng ※ đầu tiên: 「スタディルームは人気のため、予約したのに部屋が空いていない場合があります。その際は集会室をご利用ください」— đây chính là ngoại lệ trái khoáy: dù đã đặt chỗ (のに) mà phòng vẫn có thể không trống, và giải pháp được đưa ra sẵn là dùng phòng họp chung thay thế. Sai: A (\"miễn phí hoàn toàn\") — thông báo không đề cập việc hoàn/miễn phí trong trường hợp này. Sai: C (\"phải gọi điện phàn nàn\") — không có yêu cầu này trong bài, đây là suy diễn thêm. Sai: D (\"tham gia giao lưu để có quyền ưu tiên\") — nhầm lẫn với ưu đãi giảm giá phòng giặt, không liên quan đến quyền ưu tiên phòng tự học.",
+          "tip": "Câu hỏi \"gặp tình huống ngoại lệ X thì làm gì?\" → tìm đúng dòng ※ mô tả CHÍNH TÌNH HUỐNG ĐÓ trong bài, đáp án đúng thường là phần hướng dẫn xử lý đi liền ngay sau のに/ても trong cùng dòng ※.",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Anh Tanaka đã đặt phòng học vào ngày hôm trước, nhưng khi đến vào ngày hôm đó thì thấy phòng đang được sử dụng. Trong trường hợp này, anh Tanaka nên làm gì?",
+            "o": [
+              "Vì đặt chỗ bị vô hiệu nên sẽ không bị tính bất kỳ khoản phí nào",
+              "Vì có trường hợp đã đặt chỗ nhưng phòng không còn trống, nên có thể sử dụng phòng sinh hoạt chung",
+              "Phải gọi điện cho quầy lễ tân để khiếu nại",
+              "Tham gia buổi giao lưu và nhận quyền được ưu tiên sử dụng phòng"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

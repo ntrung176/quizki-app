@@ -1,0 +1,519 @@
+{
+  "id": "minna1.b20",
+  "bai": 20,
+  "titleVi": "Thể thường — 普通形 & hội thoại thân mật",
+  "know": [
+    {
+      "id": "minna1.b20.futsuu-verb",
+      "point": "futsuu-verb",
+      "jp": "動詞[どうし]の 普通形[ふつうけい]",
+      "vi": "Động từ thể thường (る・ない・た・なかった)",
+      "en": "Plain-form verbs (る・ない・た・なかった)",
+      "gloss": "行[い]く／行[い]かない／行[い]った／行[い]かなかった",
+      "glossEn": "行[い]く／行[い]かない／行[い]った／行[い]かなかった"
+    },
+    {
+      "id": "minna1.b20.futsuu-iadj",
+      "point": "futsuu-iadj",
+      "jp": "い形容詞[けいようし]の 普通形[ふつうけい]",
+      "vi": "Tính từ い thể thường (KHÔNG thêm だ)",
+      "en": "Plain-form い-adjectives (do NOT add だ)",
+      "gloss": "高[たか]い／高[たか]くない／高[たか]かった／高[たか]くなかった",
+      "glossEn": "高[たか]い／高[たか]くない／高[たか]かった／高[たか]くなかった"
+    },
+    {
+      "id": "minna1.b20.futsuu-nadj-noun",
+      "point": "futsuu-nadj-noun",
+      "jp": "な形容詞[けいようし]・名詞[めいし]の 普通形[ふつうけい]",
+      "vi": "Tính từ な / danh từ thể thường (cần だ)",
+      "en": "Plain-form な-adjectives / nouns (だ is required)",
+      "gloss": "静[しず]かだ／学生[がくせい]だ（✗ 学生[がくせい]）",
+      "glossEn": "静[しず]かだ／学生[がくせい]だ（✗ 学生[がくせい]）"
+    },
+    {
+      "id": "minna1.b20.casual",
+      "point": "casual",
+      "jp": "会話[かいわ]の 普通体[ふつうたい]",
+      "vi": "Hội thoại thân mật (bỏ です／ます)",
+      "en": "Casual conversation (omitting です／ます)",
+      "gloss": "行[い]きますか → 行[い]く？／おいしいです → おいしい",
+      "glossEn": "行[い]きますか → 行[い]く？／おいしいです → おいしい"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b20-v-iku",
+      "item": "minna1.b20.futsuu-verb",
+      "err": "casual-desu",
+      "vi": "(Bạn) ngày mai có đi không? — Ừ, đi.",
+      "t1": {
+        "stem": "明日[あした] ＿？ — うん、行[い]く。",
+        "choices": [
+          "行[い]く",
+          "行[い]きます",
+          "行[い]くだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "明日[あした]",
+          "行[い]く？"
+        ],
+        "traps": [
+          "行[い]きますか？",
+          "行[い]くだ？"
+        ]
+      },
+      "t3": {
+        "target": "明日行く？",
+        "accept": [
+          "あしたいく？",
+          "あしたいく"
+        ]
+      },
+      "why": "Văn thân mật bỏ ます: 行きますか → 行く？. ✗ 行きます (còn sót ます) ／ ✗ 行くだ (động từ KHÔNG thêm だ)."
+    },
+    {
+      "id": "c-b20-v-ikanai",
+      "item": "minna1.b20.futsuu-verb",
+      "err": "futsuu-verb-wrong",
+      "vi": "Ngày mai tôi không đi.",
+      "t1": {
+        "stem": "明日[あした]は ＿。",
+        "choices": [
+          "行[い]かない",
+          "行[い]きない",
+          "行[い]くない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "明日[あした]は",
+          "行[い]かない。"
+        ],
+        "traps": [
+          "行[い]きない。",
+          "行[い]くない。"
+        ]
+      },
+      "t3": {
+        "target": "明日は行かない。",
+        "accept": [
+          "あしたはいかない。"
+        ]
+      },
+      "why": "Thể ない của 行く = 行かない (gốc あ + ない). ✗ 行きない／行くない — chia thể ない sai."
+    },
+    {
+      "id": "c-b20-v-tabeta",
+      "item": "minna1.b20.futsuu-verb",
+      "err": "futsuu-verb-wrong",
+      "vi": "Hôm qua tôi đã ăn sushi.",
+      "t1": {
+        "stem": "昨日[きのう] すしを ＿。",
+        "choices": [
+          "食[た]べた",
+          "食[た]べだ",
+          "食[た]べました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]",
+          "すしを",
+          "食[た]べた。"
+        ],
+        "traps": [
+          "食[た]べました。",
+          "食[た]べだ。"
+        ]
+      },
+      "t3": {
+        "target": "昨日すしを食べた。",
+        "accept": [
+          "きのうすしをたべた。"
+        ]
+      },
+      "why": "QK thể thường của 食べる = 食べた (て→た). ✗ 食べだ (sai âm đục) ／ ✗ 食べました (còn ました)."
+    },
+    {
+      "id": "c-b20-iadj-takai",
+      "item": "minna1.b20.futsuu-iadj",
+      "err": "futsuu-da",
+      "vi": "Cái máy ảnh này đắt.",
+      "t1": {
+        "stem": "このカメラは ＿。",
+        "choices": [
+          "高[たか]い",
+          "高[たか]いだ",
+          "高[たか]いです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このカメラは",
+          "高[たか]い。"
+        ],
+        "traps": [
+          "高[たか]いだ。",
+          "高[たか]いです。"
+        ]
+      },
+      "t3": {
+        "target": "このカメラは高い。",
+        "accept": [
+          "このかめらはたかい。"
+        ]
+      },
+      "why": "い-adj thể thường = giữ nguyên 高い, KHÔNG thêm だ. ✗ 高いだ ／ ✗ 高いです (còn です)."
+    },
+    {
+      "id": "c-b20-iadj-takakatta",
+      "item": "minna1.b20.futsuu-iadj",
+      "err": "futsuu-da",
+      "vi": "Chuyến du lịch hôm qua vui.",
+      "t1": {
+        "stem": "昨日[きのう]の 旅行[りょこう]は ＿。",
+        "choices": [
+          "楽[たの]しかった",
+          "楽[たの]しいだった",
+          "楽[たの]しかっただ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]の",
+          "旅行[りょこう]は",
+          "楽[たの]しかった。"
+        ],
+        "traps": [
+          "楽[たの]しいだった。",
+          "楽[たの]しかっただ。"
+        ]
+      },
+      "t3": {
+        "target": "昨日の旅行は楽しかった。",
+        "accept": [
+          "きのうのりょこうはたのしかった。"
+        ]
+      },
+      "why": "QK い-adj = い → かった (楽しかった). KHÔNG thêm だ. ✗ 楽しかっただ ／ ✗ 楽しいだった."
+    },
+    {
+      "id": "c-b20-nadj-shizuka",
+      "item": "minna1.b20.futsuu-nadj-noun",
+      "err": "futsuu-da",
+      "vi": "Thư viện này yên tĩnh.",
+      "t1": {
+        "stem": "この 図書館[としょかん]は ＿。",
+        "choices": [
+          "静[しず]かだ",
+          "静[しず]か",
+          "静[しず]かいだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 図書館[としょかん]は",
+          "静[しず]かだ。"
+        ],
+        "traps": [
+          "静[しず]か。",
+          "静[しず]かいだ。"
+        ]
+      },
+      "t3": {
+        "target": "この図書館は静かだ。",
+        "accept": [
+          "このとしょかんはしずかだ。"
+        ]
+      },
+      "why": "な-adj thể thường KĐ cần だ: 静かだ. ✗ 静か (thiếu だ) ／ ✗ 静かいだ (な-adj không thêm い)."
+    },
+    {
+      "id": "c-b20-noun-gakusei",
+      "item": "minna1.b20.futsuu-nadj-noun",
+      "err": "futsuu-da",
+      "vi": "Anh ấy là sinh viên.",
+      "t1": {
+        "stem": "彼[かれ]は ＿。",
+        "choices": [
+          "学生[がくせい]だ",
+          "学生[がくせい]",
+          "学生[がくせい]です"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "学生[がくせい]だ。"
+        ],
+        "traps": [
+          "学生[がくせい]。",
+          "学生[がくせい]です。"
+        ]
+      },
+      "t3": {
+        "target": "彼は学生だ。",
+        "accept": [
+          "かれはがくせいだ。"
+        ]
+      },
+      "why": "Danh từ thể thường KĐ cần だ: 学生だ. ✗ 学生 (thiếu だ) ／ ✗ 学生です (còn です)."
+    },
+    {
+      "id": "c-b20-nadj-janai",
+      "item": "minna1.b20.futsuu-nadj-noun",
+      "err": "futsuu-da",
+      "vi": "Phòng này không sạch.",
+      "t1": {
+        "stem": "この 部屋[へや]は ＿。",
+        "choices": [
+          "きれいじゃない",
+          "きれいだない",
+          "きれいくない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 部屋[へや]は",
+          "きれいじゃない。"
+        ],
+        "traps": [
+          "きれいだない。",
+          "きれいくない。"
+        ]
+      },
+      "t3": {
+        "target": "この部屋はきれいじゃない。",
+        "accept": [
+          "このへやはきれいじゃない。",
+          "このへやはきれいではない。"
+        ]
+      },
+      "why": "な-adj phủ định thể thường = じゃない (bỏ だ): きれいじゃない. ✗ きれいだない ／ ✗ きれいくない (な-adj không chia như い-adj)."
+    },
+    {
+      "id": "c-b20-casual-oishii",
+      "item": "minna1.b20.casual",
+      "err": "casual-desu",
+      "vi": "Ngon không? — Ừ, ngon.",
+      "t1": {
+        "stem": "おいしい？ — うん、＿。",
+        "choices": [
+          "おいしい",
+          "おいしいです",
+          "おいしいだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "うん、",
+          "おいしい。"
+        ],
+        "traps": [
+          "おいしいです。",
+          "おいしいだ。"
+        ]
+      },
+      "t3": {
+        "target": "うん、おいしい。",
+        "accept": [
+          "うん、おいしい",
+          "うんおいしい"
+        ]
+      },
+      "why": "Trả lời thân mật: うん (= はい) + おいしい (bỏ です). ✗ おいしいです (còn です) ／ ✗ おいしいだ (い-adj không thêm だ)."
+    },
+    {
+      "id": "c-b20-casual-iku",
+      "item": "minna1.b20.casual",
+      "err": "casual-desu",
+      "vi": "(Bạn) có ăn cơm không? — Không, không ăn.",
+      "t1": {
+        "stem": "ご飯[はん]、＿？ — ううん、食[た]べない。",
+        "choices": [
+          "食[た]べる",
+          "食[た]べますか",
+          "食[た]べるだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ご飯[はん]、",
+          "食[た]べる？"
+        ],
+        "traps": [
+          "食[た]べますか？",
+          "食[た]べるだ？"
+        ]
+      },
+      "t3": {
+        "target": "ご飯、食べる？",
+        "accept": [
+          "ごはん、たべる？",
+          "ごはんたべる？",
+          "ごはんたべる"
+        ]
+      },
+      "why": "Câu hỏi thân mật = thể thường + ？ (lên giọng), bỏ ますか. ✗ 食べますか (còn ますか) ／ ✗ 食べるだ."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b20-casual",
+      "item": "minna1.b20.casual",
+      "err": "casual-desu",
+      "tts": "あした、ひまだ？ — うん、ひまだよ。えいがを みる？",
+      "script": "明日[あした]、暇[ひま]だ？ — うん、暇[ひま]だよ。映画[えいが]を 見[み]る？",
+      "ask": "Hai người định làm gì vào ngày mai?",
+      "choices": [
+        "Đi xem phim",
+        "Đi ăn cơm",
+        "Đi học"
+      ],
+      "answer": 0,
+      "why": "Văn thân mật: 暇だ (な-adj cần だ) ＋ よ; 見る？ (bỏ ますか). → rủ đi xem phim."
+    },
+    {
+      "id": "l-b20-verb",
+      "item": "minna1.b20.futsuu-verb",
+      "err": "futsuu-verb-wrong",
+      "tts": "きのう、なにを した？ — としょかんで べんきょうした。",
+      "script": "昨日[きのう]、何[なに]を した？ — 図書館[としょかん]で 勉強[べんきょう]した。",
+      "ask": "Hôm qua người đó đã làm gì?",
+      "choices": [
+        "Học ở thư viện",
+        "Xem phim ở nhà",
+        "Gặp bạn"
+      ],
+      "answer": 0,
+      "why": "した = QK thể thường của する; 勉強した = đã học. Câu hỏi thân mật した？ (bỏ ましたか)."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b20-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 20 ・ 普通形 (好き thể thường)",
+      "vi": "Tôi thích cà phê.",
+      "t1": {
+        "stem": "わたしは コーヒー＿ 好[す]きだ。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "コーヒーが",
+          "好[す]きだ。"
+        ],
+        "traps": [
+          "コーヒーを",
+          "好[す]き。"
+        ]
+      },
+      "t3": {
+        "target": "わたしはコーヒーが好きだ。",
+        "accept": [
+          "わたしはこーひーがすきだ。"
+        ]
+      },
+      "why": "Dù chuyển sang thể thường (好きだ), 好き vẫn cần が — lỗi #1 từ Bài 9. ✗ コーヒーを好きだ. (Lưu ý: な-adj 好き cần だ ở thể thường.)"
+    },
+    {
+      "id": "a-b20-amari",
+      "item": "minna1.b09.fukushi",
+      "err": "amari-affirmative",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 20 ・ 普通形 (あまり + phủ định)",
+      "vi": "Bộ phim hôm qua không thú vị lắm.",
+      "t1": {
+        "stem": "昨日[きのう]の 映画[えいが]は あまり ＿。",
+        "choices": [
+          "おもしろくなかった",
+          "おもしろかった",
+          "おもしろい"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]の",
+          "映画[えいが]は",
+          "あまり",
+          "おもしろくなかった。"
+        ],
+        "traps": [
+          "おもしろかった。",
+          "とても"
+        ]
+      },
+      "t3": {
+        "target": "昨日の映画はあまりおもしろくなかった。",
+        "accept": [
+          "きのうのえいがはあまりおもしろくなかった。"
+        ]
+      },
+      "why": "あまり bắt buộc đi với phủ định — kể cả ở thể thường QK: あまり〜くなかった. ✗ あまりおもしろかった (khẳng định, lỗi Bài 9)."
+    },
+    {
+      "id": "a-b20-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 20 ・ 普通形 (thể て trong 〜てから)",
+      "vi": "Hôm qua tôi uống cà phê rồi đi học.",
+      "t1": {
+        "stem": "昨日[きのう]、コーヒーを ＿から、学校[がっこう]へ 行[い]った。",
+        "choices": [
+          "飲[の]んで",
+          "飲[の]みて",
+          "飲[の]むで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]、",
+          "コーヒーを",
+          "飲[の]んで",
+          "から、",
+          "学校[がっこう]へ",
+          "行[い]った。"
+        ],
+        "traps": [
+          "飲[の]みて",
+          "飲[の]むで"
+        ]
+      },
+      "t3": {
+        "target": "昨日、コーヒーを飲んでから、学校へ行った。",
+        "accept": [
+          "きのう、こーひーをのんでから、がっこうへいった。",
+          "きのうこーひーをのんでからがっこうへいった。"
+        ]
+      },
+      "why": "Câu thể thường QK (飲んでから…行った) vẫn cần thể て đúng: 飲む → 飲んで (む→んで). ✗ 飲みて — lỗi thể て Bài 14 tái xuất."
+    }
+  ]
+}

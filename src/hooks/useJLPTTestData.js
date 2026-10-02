@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
-import { collection, query, orderBy, onSnapshot, doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
-import { getCacheConfig } from '../utils/cacheConfigService';
+import { 
+    subscribeJLPTTests, 
+    getSynchronousJLPTTests, 
+    isJLPTDataLoaded 
+} from '../services/jlptDataService';
 
 export const useJLPTTestData = ({ userId, profile }) => {
-    const [tests, setTests] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [tests, setTests] = useState(() => getSynchronousJLPTTests());
+    const [loading, setLoading] = useState(() => !isJLPTDataLoaded());
     const [targetLevel, setTargetLevel] = useState(profile?.jlptTargetLevel || 'N2');
     const [completedTests, setCompletedTests] = useState(() => {
         try {
@@ -25,7 +29,14 @@ export const useJLPTTestData = ({ userId, profile }) => {
     });
     const [savedProgresses, setSavedProgresses] = useState(() => {
         try {
-            return JSON.parse(localStorage.getItem('quizki_jlpt_saved_progresses') || '{}');
+            const raw = JSON.parse(localStorage.getItem('quizki_jlpt_saved_progresses') || '{}');
+            const cleaned = {};
+            Object.entries(raw).forEach(([k, v]) => {
+                if (v && v.answers && Object.keys(v.answers).length > 0) {
+                    cleaned[k] = v;
+                }
+            });
+            return cleaned;
         } catch (e) {
             return {};
         }
@@ -111,7 +122,14 @@ export const useJLPTTestData = ({ userId, profile }) => {
                 }
                 if (data.savedProgresses) {
                     setSavedProgresses(prev => {
-                        const merged = { ...prev, ...data.savedProgresses };
+                        const merged = { ...prev };
+                        Object.entries(data.savedProgresses).forEach(([k, v]) => {
+                            if (v && v.answers && Object.keys(v.answers).length > 0) {
+                                merged[k] = v;
+                            } else {
+                                delete merged[k];
+                            }
+                        });
                         try { localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(merged)); } catch (e) {}
                         return merged;
                     });
@@ -183,112 +201,16 @@ export const useJLPTTestData = ({ userId, profile }) => {
         });
     };
 
-    // Load tests
-    const testsPath = `artifacts/${appId}/jlptTests`;
+    // Subscribe to unified JLPT data service (singleton in-memory cache + firestore sync)
     useEffect(() => {
-        if (!db) return;
-        let active = true;
-        let unsub = null;
-
-        // 1. Instant local cache load
-        try {
-            const savedCache = localStorage.getItem('quizki_cached_jlpt_tests');
-            if (savedCache && active) {
-                const parsed = JSON.parse(savedCache);
-                if (Array.isArray(parsed) && parsed.length > 0) {
-                    setTests(parsed);
-                    setLoading(false);
-                }
-            }
-        } catch (e) {}
-
-        (async () => {
-            let baseTests = [];
-
-            // 2. Fetch CDN / static data
-            try {
-                const cacheConfig = await getCacheConfig();
-                if (cacheConfig && cacheConfig.jlptUrl) {
-                    const urlWithBuster = `${cacheConfig.jlptUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
-                    const res = await fetch(urlWithBuster);
-                    if (res && res.ok && active) {
-                        const data = await res.json();
-                        if (Array.isArray(data) && data.length > 0) {
-                            baseTests = data;
-                            if (active) {
-                                setTests(data);
-                                setLoading(false);
-                            }
-                        }
-                    }
-                }
-            } catch (e) {}
-
-            if (!baseTests.length) {
-                try {
-                    const res = await fetch('/data/jlpt_data.json');
-                    if (res && res.ok && active) {
-                        const data = await res.json();
-                        if (Array.isArray(data) && data.length > 0) {
-                            baseTests = data;
-                            if (active) {
-                                setTests(data);
-                                setLoading(false);
-                            }
-                        }
-                    }
-                } catch (e) {}
-            }
-
-            // 3. Always connect to real-time Firestore collection so isPremium/isFixed changes persist across F5!
-            if (!active) return;
-            try {
-                const q = query(collection(db, testsPath));
-                unsub = onSnapshot(q, (snap) => {
-                    if (!active) return;
-                    const firestoreDocs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-
-                    if (firestoreDocs.length === 0 && baseTests.length > 0) {
-                        setTests(baseTests);
-                    } else {
-                        const firestoreMap = new Map();
-                        firestoreDocs.forEach(docItem => firestoreMap.set(docItem.id, docItem));
-
-                        const mergedList = [...baseTests];
-                        const mergedIds = new Set();
-
-                        for (let i = 0; i < mergedList.length; i++) {
-                            const item = mergedList[i];
-                            if (firestoreMap.has(item.id)) {
-                                const fsDoc = firestoreMap.get(item.id);
-                                mergedList[i] = { ...item, ...fsDoc };
-                                mergedIds.add(item.id);
-                            }
-                        }
-
-                        firestoreDocs.forEach(fsDoc => {
-                            if (!mergedIds.has(fsDoc.id)) {
-                                mergedList.push(fsDoc);
-                            }
-                        });
-
-                        const resultList = mergedList.length > 0 ? mergedList : firestoreDocs;
-                        setTests(resultList);
-                        setLoading(false);
-                    }
-                }, (err) => {
-                    console.warn("Firestore jlptTests snapshot warning:", err);
-                });
-            } catch (e) {
-                console.error("Firestore jlptTests snapshot setup error:", e);
-            }
-        })();
-
+        const unsubscribe = subscribeJLPTTests((latestTests) => {
+            setTests(latestTests);
+            setLoading(false);
+        });
         return () => {
-            active = false;
-            if (unsub) unsub();
+            unsubscribe();
         };
-    }, [testsPath]);
+    }, []);
 
     useEffect(() => {
         const saved = localStorage.getItem('quizki_completed_tests');

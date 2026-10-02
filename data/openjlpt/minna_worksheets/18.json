@@ -1,0 +1,382 @@
+{
+  "bai": 18,
+  "bunpou": [
+    {
+      "stem": "わたしは 日本語[にほんご]＿ できます。",
+      "choices": [
+        "が",
+        "を",
+        "に",
+        "で"
+      ],
+      "answer": 0,
+      "explain": "できます dùng が để chỉ đối tượng năng lực (日本語ができます); を dùng cho tân ngữ của động từ khác, không phải できる."
+    },
+    {
+      "stem": "泳[およ]ぐ ＿ できます。",
+      "choices": [
+        "ことが",
+        "が",
+        "を",
+        "ことを"
+      ],
+      "answer": 0,
+      "explain": "「辞書形+ことができます」là mẫu năng lực; thiếu こと (chỉ が) hoặc dùng を thay が đều sai cấu trúc."
+    },
+    {
+      "stem": "趣味[しゅみ]は 本[ほん]を ＿ ことです。",
+      "choices": [
+        "読[よ]む",
+        "読[よ]み",
+        "読[よ]んで",
+        "読[よ]んだ"
+      ],
+      "answer": 0,
+      "explain": "Trước ことです phải dùng 辞書形 (読む); 読[よ]んで là て-form, 読[よ]んだ là thể た quá khứ — đều sai."
+    },
+    {
+      "stem": "食[た]べる まえに、手[て]を 洗[あら]って ＿。",
+      "choices": [
+        "ください",
+        "あります",
+        "います",
+        "みます"
+      ],
+      "answer": 0,
+      "explain": "洗[あら]って + ください = yêu cầu lịch sự \"hãy rửa\"; あります/います chỉ sự tồn tại, không phù hợp."
+    },
+    {
+      "stem": "食事[しょくじ]＿ まえに、手[て]を 洗[あら]います。",
+      "choices": [
+        "の",
+        "を",
+        "が",
+        "に"
+      ],
+      "answer": 0,
+      "explain": "Danh từ + の + まえに (食事のまえに); を/が dùng cho tân ngữ/chủ ngữ, không nối danh từ với まえに."
+    },
+    {
+      "stem": "ここで 泳[およ]ぐ ことが ＿。",
+      "choices": [
+        "できます",
+        "できることです",
+        "することです",
+        "ありません"
+      ],
+      "answer": 0,
+      "explain": "「辞書形+ことが+できます」: vị ngữ là できます; ありません phủ định sự tồn tại, không phủ định năng lực."
+    },
+    {
+      "stem": "彼[かれ]の 趣味[しゅみ]は 旅行[りょこう]する ＿。",
+      "choices": [
+        "ことです",
+        "こと",
+        "ことが",
+        "するです"
+      ],
+      "answer": 0,
+      "explain": "「趣味は〜ことです」: cần ことです (vị ngữ danh định); chỉ こと thiếu です, ことが cần vị ngữ tiếp theo."
+    },
+    {
+      "stem": "寝[ね]る まえに、歯[は]を ＿ ください。",
+      "choices": [
+        "みがいて",
+        "みがきます",
+        "みがく",
+        "みがいた"
+      ],
+      "answer": 0,
+      "explain": "「〜てください」yêu cầu: みがく→みがいて→みがいてください; みがきます là ますform không dùng trực tiếp với ください."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "が",
+      "を",
+      "に",
+      "で",
+      "は",
+      "と",
+      "の"
+    ],
+    "items": [
+      {
+        "stem": "泳[およ]ぐこと＿ できます。",
+        "answer": "が",
+        "explain": "「〜ことができます」: こと luôn đi với が; を thay が sẽ sai cấu trúc cố định."
+      },
+      {
+        "stem": "授業[じゅぎょう]＿ まえに、教科書[きょうかしょ]を 読[よ]みます。",
+        "answer": "の",
+        "explain": "Danh từ + の + まえに = \"trước N\"; に ở đây là の không phải trợ từ chỉ hướng."
+      },
+      {
+        "stem": "わたしは 日本語[にほんご]＿ できます。",
+        "answer": "が",
+        "explain": "できる (có thể/giỏi) dùng が cho đối tượng; を dùng cho動詞 ngoại động khác, không phải できる."
+      },
+      {
+        "stem": "趣味[しゅみ]＿ 映画[えいが]を 見[み]ることです。",
+        "answer": "は",
+        "explain": "は dùng để nêu chủ đề câu (趣味は〜); が dùng khi nhấn mạnh chủ ngữ trong bối cảnh cụ thể."
+      },
+      {
+        "stem": "車[くるま]＿ 運転[うんてん]することが できます。",
+        "answer": "を",
+        "explain": "運転する là ngoại động từ cần を cho tân ngữ (車を運転する); が sẽ làm 車 thành chủ ngữ, sai."
+      },
+      {
+        "stem": "学校[がっこう]＿ 行[い]くまえに、ごはんを 食[た]べます。",
+        "answer": "に",
+        "explain": "行くまえに: に là một phần của まえに; へ chỉ hướng di chuyển còn に với 行く chỉ điểm đến."
+      },
+      {
+        "stem": "友[とも]だち＿ テニスを することが できます。",
+        "answer": "と",
+        "explain": "と chỉ \"cùng với\" (友だちとする); に hoặc で không dùng để chỉ người cùng thực hiện hành động."
+      },
+      {
+        "stem": "この 図書館[としょかん]＿ 本[ほん]を 借[か]りることが できます。",
+        "answer": "で",
+        "explain": "で chỉ địa điểm diễn ra hành động (図書館で借りる); に sẽ chỉ đích đến, không phù hợp."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "書[か]きます",
+      "prompt": "Thể từ điển (辞書形)?",
+      "choices": [
+        "書[か]く",
+        "書[か]き",
+        "書[か]ける",
+        "書[か]いて"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I: き→く để lấy 辞書形 (書く); 書[か]ける là thể tiềm năng, 書[か]いて là て-form."
+    },
+    {
+      "base": "食[た]べます",
+      "prompt": "Thể từ điển (辞書形)?",
+      "choices": [
+        "食[た]べる",
+        "食[た]べ",
+        "食[た]ぶ",
+        "食[た]べて"
+      ],
+      "answer": 0,
+      "explain": "Nhóm II (る-verb): bỏ ます thêm る (食べます→食べる); 食[た]べ thiếu る, 食[た]べて là て-form."
+    },
+    {
+      "base": "します",
+      "prompt": "Thể từ điển (辞書形)?",
+      "choices": [
+        "する",
+        "して",
+        "し",
+        "できる"
+      ],
+      "answer": 0,
+      "explain": "する là bất quy tắc: 辞書形 là する; できる là thể tiềm năng của する, khác nghĩa."
+    },
+    {
+      "base": "来[き]ます",
+      "prompt": "Thể từ điển (辞書形)?",
+      "choices": [
+        "来[く]る",
+        "来[き]",
+        "来[く]",
+        "来[き]て"
+      ],
+      "answer": 0,
+      "explain": "来る bất quy tắc: 辞書形 đọc là くる (来る); 来[き]て là て-form, 来[く] thiếu る."
+    },
+    {
+      "base": "飲[の]みます",
+      "prompt": "Thể từ điển (辞書形)?",
+      "choices": [
+        "飲[の]む",
+        "飲[の]み",
+        "飲[の]める",
+        "飲[の]んで"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I: み→む để lấy 辞書形 (飲む); 飲[の]める là tiềm năng, 飲[の]んで là て-form."
+    },
+    {
+      "base": "起[お]きます",
+      "prompt": "Thể từ điển (辞書形)?",
+      "choices": [
+        "起[お]きる",
+        "起[お]き",
+        "起[お]く",
+        "起[お]きて"
+      ],
+      "answer": 0,
+      "explain": "Nhóm II: bỏ ます thêm る (起きます→起きる); 起[お]く sai vì 起きる không phải Nhóm I."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "わたしは",
+        "日本語[にほんご]が",
+        "できます。"
+      ],
+      "vi": "Tôi nói được tiếng Nhật.",
+      "explain": "できます dùng が cho đối tượng năng lực; thứ tự chuẩn: chủ ngữ → Nが → できます."
+    },
+    {
+      "chips": [
+        "趣味[しゅみ]は",
+        "本[ほん]を",
+        "読[よ]む",
+        "ことです。"
+      ],
+      "vi": "Sở thích của tôi là đọc sách.",
+      "explain": "「趣味は+辞書形+ことです」: 読む (辞書形) đứng trước ことです; thứ tự: は → tân ngữ → 辞書形 → ことです."
+    },
+    {
+      "chips": [
+        "寝[ね]る まえに、",
+        "牛乳[ぎゅうにゅう]を",
+        "飲[の]みます。"
+      ],
+      "vi": "Trước khi ngủ, tôi uống sữa.",
+      "explain": "「辞書形+まえに」đứng đầu câu; vị ngữ chính (飲みます) cuối câu."
+    },
+    {
+      "chips": [
+        "食事[しょくじ]の まえに、",
+        "手[て]を",
+        "洗[あら]って",
+        "ください。"
+      ],
+      "vi": "Trước bữa ăn, hãy rửa tay.",
+      "explain": "「Nのまえに」với danh từ; 洗って + ください yêu cầu lịch sự (て-form + ください)."
+    },
+    {
+      "chips": [
+        "泳[およ]ぐ",
+        "ことが",
+        "できます。"
+      ],
+      "vi": "Tôi biết bơi (có thể bơi).",
+      "explain": "「辞書形+ことが+できます」mẫu cố định; 辞書形 泳ぐ đứng trước ことが."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "わたしは にほんごが できます。",
+      "ask": "Người nói có khả năng gì?",
+      "choices": [
+        "Nói được tiếng Nhật",
+        "Viết được tiếng Nhật",
+        "Đọc được tiếng Anh"
+      ],
+      "answer": 0,
+      "script": "わたしは 日本語[にほんご]が できます。",
+      "explain": "「日本語ができます」= có năng lực tiếng Nhật (nói/đọc/viết chung); nghe にほんご xác nhận đáp án 1."
+    },
+    {
+      "tts": "おやすみのまえに、はをみがきます。",
+      "ask": "Người nói làm gì trước khi ngủ?",
+      "choices": [
+        "Đánh răng",
+        "Uống sữa",
+        "Đọc sách"
+      ],
+      "answer": 0,
+      "script": "お休[やす]みの まえに、歯[は]を みがきます。",
+      "explain": "「まえに」sau danh từ chỉ trình tự; はをみがく = đánh răng, nghe rõ はをみがきます."
+    },
+    {
+      "tts": "しゅみは えいがを みることです。",
+      "ask": "Sở thích của người nói là gì?",
+      "choices": [
+        "Xem phim",
+        "Chơi thể thao",
+        "Nghe nhạc"
+      ],
+      "answer": 0,
+      "script": "趣味[しゅみ]は 映画[えいが]を 見[み]ることです。",
+      "explain": "「趣味は〜ことです」+ 見ること; nghe えいがをみる xác nhận sở thích xem phim."
+    },
+    {
+      "tts": "およぐことが できません。",
+      "ask": "Người nói nói gì?",
+      "choices": [
+        "Không biết bơi",
+        "Biết bơi",
+        "Thích bơi lội"
+      ],
+      "answer": 0,
+      "script": "泳[およ]ぐことが できません。",
+      "explain": "「できません」là phủ định của できます = không thể/không biết; できます (biết bơi) và 好き (thích) đều sai."
+    },
+    {
+      "tts": "しょくじのまえに、てをあらってください。",
+      "ask": "Phải làm gì trước bữa ăn?",
+      "choices": [
+        "Rửa tay",
+        "Chải đầu",
+        "Ngồi xuống"
+      ],
+      "answer": 0,
+      "script": "食事[しょくじ]の まえに、手[て]を 洗[あら]って ください。",
+      "explain": "「Nのまえに」+ yêu cầu; nghe てをあらって = rửa tay (手を洗う); まえに xác nhận trước bữa ăn."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi có thể bơi.",
+      "target": "泳ぐことができます。",
+      "accept": [
+        "およぐことができます。",
+        "わたしは泳ぐことができます。",
+        "わたしはおよぐことができます。"
+      ],
+      "explain": "「辞書形+ことができます」mẫu năng lực; 辞書形 泳ぐ đứng trước ことが."
+    },
+    {
+      "vi": "Sở thích của tôi là nấu ăn.",
+      "target": "趣味は料理をすることです。",
+      "accept": [
+        "しゅみはりょうりをすることです。",
+        "わたしの趣味は料理をすることです。",
+        "わたしのしゅみはりょうりをすることです。"
+      ],
+      "explain": "「趣味は+辞書形+ことです」; 料理をする (する đi sau tân ngữ を) trước ことです."
+    },
+    {
+      "vi": "Trước khi ngủ, tôi đọc sách.",
+      "target": "寝るまえに、本を読みます。",
+      "accept": [
+        "ねるまえに、ほんをよみます。",
+        "寝るまえに本を読みます。",
+        "ねるまえにほんをよみます。"
+      ],
+      "explain": "「辞書形+まえに」: 辞書形 寝る (không phải 寝て) trước まえに; vị ngữ chính cuối câu."
+    },
+    {
+      "vi": "Trước bữa ăn, hãy rửa tay.",
+      "target": "食事のまえに、手を洗ってください。",
+      "accept": [
+        "しょくじのまえに、てをあらってください。",
+        "食事のまえに手を洗ってください。"
+      ],
+      "explain": "「Nのまえに」với danh từ (食事); 洗う → 洗って → 洗ってください yêu cầu lịch sự."
+    },
+    {
+      "vi": "Anh ấy không thể lái xe.",
+      "target": "彼は車を運転することができません。",
+      "accept": [
+        "かれはくるまをうんてんすることができません。",
+        "彼は運転することができません。",
+        "かれはうんてんすることができません。"
+      ],
+      "explain": "Phủ định năng lực: 「できません」; を chỉ tân ngữ của 運転する (車を運転する) trước ことができません."
+    }
+  ]
+}

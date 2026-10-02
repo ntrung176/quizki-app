@@ -1,0 +1,2214 @@
+{
+  "bai": 36,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 36 xoay quanh ba mẫu ように: (1) Vるように／Vないように＋Vます — hành động nhằm MỤC ĐÍCH đạt được / tránh điều gì; (2) Vるようになります — diễn tả SỰ THAY ĐỔI (trước không làm được, nay làm được); (3) Vるようにします — thể hiện Ý CHÍ cố gắng duy trì thói quen. Ba mẫu này rất dễ nhầm — chiến lược then chốt là xác định chủ thể CÓ Ý CHÍ hay KHÔNG có ý chí.",
+    "steps": [
+      "Đọc lướt: xác định nhân vật đang nói về tiến bộ học tiếng Nhật hay thói quen nào.",
+      "Khi gặp ように, xác định ngay: câu tiếp theo là Vます/Vた (→ mục đích) hay chính ように là vị ngữ (→ thay đổi hoặc ý chí).",
+      "Phân biệt ようになります (kết quả tự nhiên, thay đổi theo thời gian) với ようにします (quyết tâm của chủ thể — có \"ý chí\").",
+      "Chú ý ように trong mục đích: vế trước là kết quả MUỐN ĐẠT hoặc MUỐN TRÁNH (V可能形＋ように hoặc Vないように).",
+      "Ôn lại 可能形 (Bài 27) — hay đi cùng ようになります: できるようになりました = \"đã làm được rồi\".",
+      "Câu hỏi suy luận: nhìn vào chuỗi thay đổi trước→sau để đoán thái độ/nỗ lực của nhân vật."
+    ],
+    "tips": [
+      "〜ようになります: KHÔNG có ý chí trực tiếp của chủ thể — chỉ diễn tả kết quả thay đổi. Ví dụ: 話せるようになりました（tự nhiên trở nên nói được）.",
+      "〜ようにします: CÓ ý chí — chủ thể CHỦ ĐỘNG cố gắng. Ví dụ: 毎日練習するようにします（tôi cố gắng luyện tập mỗi ngày）.",
+      "Bẫy thường gặp: nhầm ようにします với Vます (làm gì) — ようにします nhấn mạnh CỐ GẮNG DUY TRÌ, không phải chỉ đơn giản là làm.",
+      "〜ないように〜: vế sau là hành động PHÒNG NGỪA. Ví dụ: 遅刻しないように早く起きます（dậy sớm để khỏi muộn）.",
+      "できるようになる vs できる: câu đầu nhấn mạnh SỰ THAY ĐỔI (trước không được, nay được); câu sau chỉ nêu khả năng hiện tại.",
+      "Khi đọc câu hỏi: nếu hỏi về \"thay đổi\" → tìm ようになります; nếu hỏi về \"quyết tâm/kế hoạch\" → tìm ようにします."
+    ],
+    "grammarFocus": [
+      "Vる/Vないように＋Vます（mục đích/phòng ngừa）",
+      "Vるようになります（đã trở nên làm được — thay đổi）",
+      "Vるようにします（cố gắng duy trì — ý chí）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 35,
+        "items": [
+          "〜ば",
+          "Nなら",
+          "疑問詞＋Vたらいい"
+        ]
+      },
+      {
+        "bai": 34,
+        "items": [
+          "Vたあとで",
+          "Vのとおりに"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "Vたほうがいいです",
+          "〜かもしれません"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "まだVていません"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました",
+          "Vています（結果状態）"
+        ]
+      },
+      {
+        "bai": 28,
+        "items": [
+          "Vながら",
+          "Vやすい・Vにくい",
+          "Vています（習慣）"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（〜えます/られます）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです",
+          "Nなんです"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります（thay đổi）",
+          "Vたことがあります"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vています（trạng thái/thói quen）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "日本語の上達",
+      "titleVi": "Tiến bộ trong tiếng Nhật",
+      "japanese": "ミラーさんは去年日本に来たとき、ひらがなしか読めませんでした。\nでも毎日少しずつ練習したから、今は漢字も読めるようになりました。\n先生にわかるように、はっきり話すようにしています。\n間違えないように、話す前にもう一度頭の中で確認します。\nミラーさんは日本語でメールが書けるようになったことを、とてもうれしく思っています。\nこれからも上手になるように、毎日日記を書くようにするつもりです。",
+      "vietnamese": "Khi anh Miller đến Nhật năm ngoái, anh chỉ đọc được hiragana.\nNhưng vì ngày nào cũng luyện tập từng chút một, bây giờ anh đã đọc được cả chữ Hán nữa.\nAnh cố gắng nói rõ ràng để thầy giáo hiểu được.\nĐể khỏi nói sai, trước khi nói anh ôn lại một lần nữa trong đầu.\nAnh Miller rất vui vì đã có thể viết email bằng tiếng Nhật.\nTừ nay anh định cố gắng viết nhật ký mỗi ngày để ngày càng giỏi hơn.",
+      "sentences": [
+        {
+          "jp": "ミラーさんは去年日本に来たとき、ひらがなしか読めませんでした。",
+          "vi": "Khi anh Miller đến Nhật năm ngoái, anh chỉ đọc được hiragana.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来た",
+              "read": "きた",
+              "vi": "đã đến (た形 của 来ます)"
+            },
+            {
+              "w": "読めませんでした",
+              "read": "よめませんでした",
+              "vi": "không đọc được (過去否定 của 読めます — 可能形 B27)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（B23）",
+              "vi": "V普通形＋とき：thời điểm \"khi…\""
+            },
+            {
+              "point": "〜しか〜ない（B27）",
+              "vi": "chỉ… thôi (nhấn mạnh hạn chế)"
+            },
+            {
+              "point": "V可能形（B27）",
+              "vi": "読めます = có thể đọc"
+            }
+          ]
+        },
+        {
+          "jp": "でも毎日少しずつ練習したから、今は漢字も読めるようになりました。",
+          "vi": "Nhưng vì ngày nào cũng luyện tập từng chút một, bây giờ anh đã đọc được cả chữ Hán nữa.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "練習した",
+              "read": "れんしゅうした",
+              "vi": "đã luyện tập"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "漢字",
+              "read": "かんじ",
+              "vi": "chữ Hán"
+            },
+            {
+              "w": "読める",
+              "read": "よめる",
+              "vi": "có thể đọc (可能形)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（B9 — lý do）",
+              "vi": "したから：vì đã luyện tập"
+            },
+            {
+              "point": "V可能形＋ようになりました（B36 MỚI）",
+              "vi": "読めるようになる：trước không đọc được, nay đọc được → diễn tả THAY ĐỔI"
+            }
+          ]
+        },
+        {
+          "jp": "先生にわかるように、はっきり話すようにしています。",
+          "vi": "Anh cố gắng nói rõ ràng để thầy giáo hiểu được.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "thầy/cô giáo"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu được"
+            },
+            {
+              "w": "はっきり",
+              "read": "はっきり",
+              "vi": "rõ ràng"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるように＋Vます（B36 MỚI — mục đích）",
+              "vi": "わかるように：nói rõ ràng \"để\" thầy hiểu — vế trước là kết quả muốn đạt"
+            },
+            {
+              "point": "Vるようにしています（B36 MỚI — thói quen ý chí）",
+              "vi": "はっきり話すようにしています：đang cố gắng (duy trì thói quen) nói rõ ràng"
+            }
+          ]
+        },
+        {
+          "jp": "間違えないように、話す前にもう一度頭の中で確認します。",
+          "vi": "Để khỏi nói sai, trước khi nói anh ôn lại một lần nữa trong đầu.",
+          "vocab": [
+            {
+              "w": "間違える",
+              "read": "まちがえる",
+              "vi": "nói/làm sai"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "もう一度",
+              "read": "もういちど",
+              "vi": "thêm một lần nữa"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, ôn lại"
+            },
+            {
+              "w": "話す前に",
+              "read": "はなすまえに",
+              "vi": "trước khi nói (B18)"
+            },
+            {
+              "w": "頭の中",
+              "read": "あたまのなか",
+              "vi": "trong đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないように＋Vます（B36 MỚI — phòng ngừa）",
+              "vi": "間違えないように：làm điều gì đó \"để tránh\" mắc lỗi"
+            },
+            {
+              "point": "Vるまえに（B18）",
+              "vi": "話す前に：trước khi nói"
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは日本語でメールが書けるようになったことを、とてもうれしく思っています。",
+          "vi": "Anh Miller rất vui vì đã có thể viết email bằng tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email"
+            },
+            {
+              "w": "書ける",
+              "read": "かける",
+              "vi": "có thể viết (可能形)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui mừng, hạnh phúc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "うれしく思っています",
+              "read": "うれしくおもっています",
+              "vi": "cảm thấy vui"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形＋ようになった（B36 MỚI）",
+              "vi": "書けるようになった：đã trở nên viết được (thay đổi)"
+            },
+            {
+              "point": "Vたこと（B22 — mệnh đề danh từ）",
+              "vi": "ようになったこと：\"việc đã trở nên làm được\" — danh từ hóa"
+            }
+          ]
+        },
+        {
+          "jp": "これからも上手になるように、毎日日記を書くようにするつもりです。",
+          "vi": "Từ nay anh định cố gắng viết nhật ký mỗi ngày để ngày càng giỏi hơn.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay trở đi"
+            },
+            {
+              "w": "上手になる",
+              "read": "じょうずになる",
+              "vi": "trở nên giỏi hơn (〜になる B19)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "日記",
+              "read": "にっき",
+              "vi": "nhật ký"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết"
+            },
+            {
+              "w": "つもりです",
+              "read": "つもりです",
+              "vi": "có ý định (B31)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるように＋Vます（B36 MỚI — mục đích）",
+              "vi": "上手になるように：nhằm mục đích trở nên giỏi hơn"
+            },
+            {
+              "point": "Vるようにするつもりです（B36＋B31）",
+              "vi": "書くようにするつもりです：có ý định cố gắng (duy trì việc) viết nhật ký"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "漢字も読めるようになりました",
+          "label": "V可能形＋ようになる（thay đổi — B36）"
+        },
+        {
+          "excerpt": "はっきり話すようにしています",
+          "label": "Vるようにしています（ý chí duy trì — B36）"
+        },
+        {
+          "excerpt": "間違えないように、話す前に",
+          "label": "Vないように（phòng ngừa — B36）"
+        },
+        {
+          "excerpt": "上手になるように、毎日日記を書くようにする",
+          "label": "〜になるように（〜になる B19 + ように B36）…Vるようにする（ý chí — B36）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは去年日本に来たとき、何ができましたか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "ひらがなだけ読むことができました。",
+            "漢字もひらがなも読むことができました。",
+            "日本語でメールが書けました。",
+            "何も読むことができませんでした。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Câu đầu đoạn ghi rõ「ひらがなしか読めませんでした」(chỉ đọc được hiragana mà thôi) — mẫu「しか〜ない」nhấn mạnh giới hạn: chỉ hiragana, không có gì khác. Đáp án 0「ひらがなだけ読むことができました」diễn đạt đúng ý này. Đáp án 1 sai vì bài nói rõ chưa đọc được漢字. Đáp án 2 sai hoàn toàn — viết email bằng tiếng Nhật là điều Miller đạt được SAU đó (「書けるようになった」= trở nên làm được, diễn tả thay đổi). Đáp án 3 sai vì Miller đọc được hiragana, không phải \"không đọc được gì cả\".",
+          "tip": "Gặp「しか〜ない」→ dịch ngay: \"chỉ … mà thôi\". Đây là mẫu nhấn mạnh GIỚI HẠN — loại ngay các đáp án nói nhiều hơn điều được đề cập.",
+          "qt": {
+            "q": "Khi ông Miller đến Nhật năm ngoái, ông ấy có thể làm được gì?",
+            "o": [
+              "Chỉ có thể đọc hiragana.",
+              "Có thể đọc cả kanji lẫn hiragana.",
+              "Có thể viết email bằng tiếng Nhật.",
+              "Không thể đọc được gì cả."
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんが「はっきり話すようにしています」と言っているのはなぜですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "先生が聞こえないから、大きい声で話したいからです。",
+            "先生にわかるように、話し方に気をつけているからです。",
+            "間違えたくないから、ゆっくり話しているからです。",
+            "日本語が上手だと思われたいからです。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết trình bày cả chuỗi ngữ pháp liền mạch:「先生にわかるように、はっきり話すようにしています」— mẫu「Vるように＋Vます」diễn tả MỤC ĐÍCH: nói rõ ràng \"để\" (わかるように) thầy hiểu, kết hợp với「Vるようにしています」= đang cố gắng duy trì thói quen đó. Đáp án 1 nắm đúng cả mục đích lẫn nỗ lực. Đáp án 0 sai: bài không nhắc giọng to hay thầy không nghe được. Đáp án 2 sai: \"ゆっくり話す\" (nói chậm) không được đề cập — tránh nhầm với câu sau nói về「間違えないように」. Đáp án 3 sai: không có bằng chứng nào trong bài cho thấy Miller muốn thể hiện.",
+          "tip": "Thấy「Vるように、Vます」→ vế trước là KẾT QUẢ MUỐN ĐẠT (mục đích), vế sau là HÀNH ĐỘNG thực hiện. Tìm đáp án nêu đúng CẶP mục đích–hành động này.",
+          "qt": {
+            "q": "Tại sao ông Miller nói rằng mình cố gắng nói rõ ràng?",
+            "o": [
+              "Vì thầy giáo không nghe thấy, nên ông ấy muốn nói lớn tiếng.",
+              "Vì ông ấy chú ý đến cách nói để thầy giáo có thể hiểu.",
+              "Vì ông ấy không muốn mắc lỗi, nên nói chậm.",
+              "Vì ông ấy muốn người khác nghĩ rằng mình giỏi tiếng Nhật."
+            ]
+          }
+        },
+        {
+          "q": "「話す前にもう一度頭の中で確認します」というのは、どうしてですか。（推論）",
+          "evi": [
+            3
+          ],
+          "options": [
+            "話すことが好きだから、もっと練習したいからです。",
+            "ミラーさんは頭が悪くて、よく忘れるからです。",
+            "間違えないように、気をつけているからです。",
+            "先生に質問したいから、準備しているからです。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu ngay trước đó ghi:「間違えないように、話す前にもう一度頭の中で確認します」— mẫu「Vないように＋Vます」diễn tả HÀNH ĐỘNG PHÒNG NGỪA: ôn lại trong đầu trước khi nói \"để tránh\" (間違えないように) nói sai. Đây là chuỗi nguyên nhân–kết quả rõ ràng ngay trong bài, không cần suy luận phức tạp. Đáp án 0 sai: không có bằng chứng Miller \"thích nói chuyện\" hay muốn luyện thêm. Đáp án 1 sai và mang hàm ý tiêu cực không có trong bài — đây là câu bẫy khai thác \"thường xuyên kiểm tra\". Đáp án 3 sai: mục đích là tránh sai, không phải chuẩn bị câu hỏi cho thầy.",
+          "tip": "Câu hỏi suy luận loại \"どうして〜しますか\" → quay lại đọc câu TRƯỚC câu được hỏi trong bài. Tìm mẫu「Vないように」(phòng ngừa) hoặc「Vるように」(mục đích) — đó thường chính là lý do.",
+          "qt": {
+            "q": "Tại sao ông Miller nói: 「話す前にもう一度頭の中で確認します」 (trước khi nói, tôi kiểm tra lại một lần nữa trong đầu)? (Suy luận)",
+            "o": [
+              "Vì ông ấy thích nói chuyện và muốn luyện tập thêm.",
+              "Vì ông Miller kém thông minh và thường hay quên.",
+              "Vì ông ấy chú ý để không mắc lỗi.",
+              "Vì ông ấy chuẩn bị để hỏi thầy giáo."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "カリナさんの日本語上達日記",
+      "titleVi": "Nhật ký tiến bộ tiếng Nhật của Karina",
+      "japanese": "10月1日（月）\nわたしが日本に来てから、もう半年が経ちました。\n最初は日本語がほとんどわかりませんでしたが、今は日常会話ならできるようになりました。\nでも、まだ敬語が難しくて、うまく使えません。\nだから、敬語が使えるようになりたいですから、毎週先生のクラスに通うようにしています。\n\n10月8日（月）\n先週のクラスで、山田先生に「毎日ニュースを聞くといいですよ」とアドバイスをもらいました。\nそれから、毎朝ニュースを聞くようにしています。\n最初は早くて全然わかりませんでしたが、今週は少しわかるようになりました。\n聞き逃さないように、同じニュースを二回聞きます。\n\n10月15日（火）\n日本人の友達のワンさんと話すとき、なるべく日本語で話すようにしています。\nわからない言葉があれば、その場で辞書で調べます。\nワンさんが教えてくれた言葉をノートに書いて、忘れないように毎晩読み直します。\n\n10月22日（月）\nこのごろ、日本語で夢を見るようになりました。\n先生に話したら、先生は「それはかなり上達した証拠ですよ」と言いました。\nまだ完璧ではありませんが、これからも諦めないように、毎日少しずつがんばるようにします。\nいつか日本語で仕事ができるようになりたいと思っています。",
+      "vietnamese": "1 tháng 10 (Thứ Hai)\nĐã nửa năm kể từ khi tôi đến Nhật.\nBan đầu tôi hầu như không hiểu tiếng Nhật, nhưng bây giờ hội thoại hàng ngày thì đã làm được rồi.\nNhưng kính ngữ vẫn còn khó, tôi chưa dùng được tốt.\nVì vậy, vì muốn dùng được kính ngữ nên tôi cố gắng đi học lớp của thầy mỗi tuần.\n\n8 tháng 10 (Thứ Hai)\nTuần trước, thầy Yamada khuyên tôi: \"Nghe tin tức mỗi ngày thì tốt đấy.\"\nKể từ đó, tôi cố gắng nghe tin tức mỗi sáng.\nBan đầu nhanh quá nên không hiểu gì cả, nhưng tuần này đã bắt đầu hiểu được một chút.\nĐể không bỏ sót, tôi nghe cùng bản tin hai lần.\n\n15 tháng 10 (Thứ Ba)\nKhi nói chuyện với người bạn Nhật Bản là Wang, tôi cố gắng nói bằng tiếng Nhật nhiều nhất có thể.\nNếu có từ nào không biết, tôi tra từ điển ngay tại chỗ.\nNhững từ Wang dạy tôi, tôi ghi vào vở và đọc lại mỗi tối để không quên.\n\n22 tháng 10 (Thứ Hai)\nDạo này tôi đã bắt đầu mơ bằng tiếng Nhật rồi.\nKhi tôi kể với thầy, thầy nói: \"Đó là bằng chứng cho thấy bạn đã tiến bộ khá nhiều đấy.\"\nDù chưa hoàn hảo, nhưng từ nay tôi sẽ cố gắng không bỏ cuộc và mỗi ngày cố gắng từng chút một.\nTôi muốn có lúc nào đó làm được việc bằng tiếng Nhật.",
+      "sentences": [
+        {
+          "jp": "10月1日（月）",
+          "vi": "1 tháng 10 (Thứ Hai)",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "10月1日",
+              "read": "じゅうがつついたち",
+              "vi": "ngày 1 tháng 10"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "わたしが日本に来てから、もう半年が経ちました。",
+          "vi": "Đã nửa năm kể từ khi tôi đến Nhật.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "半年",
+              "read": "はんとし",
+              "vi": "nửa năm"
+            },
+            {
+              "w": "経ちました",
+              "read": "たちました",
+              "vi": "đã trôi qua (thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（B16）",
+              "vi": "来てから：kể từ khi đến"
+            },
+            {
+              "point": "もう〜ました（B7）",
+              "vi": "đã… rồi (nhấn mạnh hoàn thành)"
+            }
+          ]
+        },
+        {
+          "jp": "最初は日本語がほとんどわかりませんでしたが、今は日常会話ならできるようになりました。",
+          "vi": "Ban đầu tôi hầu như không hiểu tiếng Nhật, nhưng bây giờ hội thoại hàng ngày thì đã làm được rồi.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "ban đầu"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "ほとんど",
+              "read": "ほとんど",
+              "vi": "hầu như"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "đời sống thường nhật"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể làm được"
+            },
+            {
+              "w": "日常会話",
+              "read": "にちじょうかいわ",
+              "vi": "hội thoại hàng ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nなら（B35）",
+              "vi": "日常会話なら：\"về hội thoại hàng ngày thì…\" — giới hạn phạm vi"
+            },
+            {
+              "point": "できるようになりました（B36 MỚI）",
+              "vi": "trở nên làm được — thay đổi trạng thái"
+            }
+          ]
+        },
+        {
+          "jp": "でも、まだ敬語が難しくて、うまく使えません。",
+          "vi": "Nhưng kính ngữ vẫn còn khó, tôi chưa dùng được tốt.",
+          "vocab": [
+            {
+              "w": "敬語",
+              "read": "けいご",
+              "vi": "kính ngữ"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "khéo léo, tốt"
+            },
+            {
+              "w": "使えません",
+              "read": "つかえません",
+              "vi": "không dùng được (否定 可能形)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて（B16 — nối tính từ）",
+              "vi": "難しくて：khó và (chưa dùng được)"
+            },
+            {
+              "point": "V可能形否定（B27）",
+              "vi": "使えません：không dùng được"
+            }
+          ]
+        },
+        {
+          "jp": "だから、敬語が使えるようになりたいですから、毎週先生のクラスに通うようにしています。",
+          "vi": "Vì vậy, vì muốn dùng được kính ngữ nên tôi cố gắng đi học lớp của thầy mỗi tuần.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "敬語",
+              "read": "けいご",
+              "vi": "kính ngữ"
+            },
+            {
+              "w": "使える",
+              "read": "つかえる",
+              "vi": "dùng được, sử dụng được"
+            },
+            {
+              "w": "毎週",
+              "read": "まいしゅう",
+              "vi": "mỗi tuần"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "通う",
+              "read": "かよう",
+              "vi": "đi đến (thường xuyên), theo học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形＋ようになりたい（B36＋B13 — ước muốn）",
+              "vi": "使えるようになりたい：muốn trở nên dùng được — 〜たい diễn tả mong muốn"
+            },
+            {
+              "point": "〜から（B9 — lý do）",
+              "vi": "なりたいですから：vì muốn trở nên… nên…"
+            },
+            {
+              "point": "Vるようにしています（B36 MỚI）",
+              "vi": "通うようにしています：cố gắng duy trì việc đi học"
+            }
+          ]
+        },
+        {
+          "jp": "10月8日（月）",
+          "vi": "8 tháng 10 (Thứ Hai)",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "10月8日",
+              "read": "じゅうがつようか",
+              "vi": "ngày 8 tháng 10"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "先週のクラスで、山田先生に「毎日ニュースを聞くといいですよ」とアドバイスをもらいました。",
+          "vi": "Tuần trước, thầy Yamada khuyên tôi: \"Nghe tin tức mỗi ngày thì tốt đấy.\"",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "アドバイス",
+              "read": "アドバイス",
+              "vi": "lời khuyên"
+            },
+            {
+              "w": "聞き取り",
+              "read": "ききとり",
+              "vi": "nghe hiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜といいです（B35）",
+              "vi": "聞くといいですよ：nghe thì tốt — mẫu đưa ra lời khuyên/đề xuất"
+            },
+            {
+              "point": "〜とアドバイスをもらいました（B7＋B21）",
+              "vi": "nhận được lời khuyên rằng…"
+            }
+          ]
+        },
+        {
+          "jp": "それから、毎朝ニュースを聞くようにしています。",
+          "vi": "Kể từ đó, tôi cố gắng nghe tin tức mỗi sáng.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "kể từ đó, sau đó (B4)"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるようにしています（B36 MỚI）",
+              "vi": "聞くようにしています：đang cố gắng duy trì thói quen nghe tin tức"
+            }
+          ]
+        },
+        {
+          "jp": "最初は早くて全然わかりませんでしたが、今週は少しわかるようになりました。",
+          "vi": "Ban đầu nhanh quá nên không hiểu gì cả, nhưng tuần này đã bắt đầu hiểu được một chút.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "早くて",
+              "read": "はやくて",
+              "vi": "nhanh và (nối B16)"
+            },
+            {
+              "w": "全然",
+              "read": "ぜんぜん",
+              "vi": "hoàn toàn (không)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて（B16）",
+              "vi": "早くて：nhanh nên… (nối nguyên nhân với kết quả)"
+            },
+            {
+              "point": "わかるようになりました（B36 MỚI）",
+              "vi": "trở nên hiểu được — thay đổi"
+            }
+          ]
+        },
+        {
+          "jp": "聞き逃さないように、同じニュースを二回聞きます。",
+          "vi": "Để không bỏ sót, tôi nghe cùng bản tin hai lần.",
+          "vocab": [
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "逃す",
+              "read": "のがす",
+              "vi": "bỏ lỡ, làm tuột mất"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "cùng, giống nhau (B12)"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "聞き逃す",
+              "read": "ききのがす",
+              "vi": "nghe sót, bỏ lỡ khi nghe"
+            },
+            {
+              "w": "二回",
+              "read": "にかい",
+              "vi": "hai lần (B11)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないように＋Vます（B36 MỚI — phòng ngừa）",
+              "vi": "聞き逃さないように：nghe hai lần \"để tránh\" bỏ sót"
+            }
+          ]
+        },
+        {
+          "jp": "10月15日（火）",
+          "vi": "15 tháng 10 (Thứ Ba)",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "10月15日",
+              "read": "じゅうがつじゅうごにち",
+              "vi": "ngày 15 tháng 10"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "日本人の友達のワンさんと話すとき、なるべく日本語で話すようにしています。",
+          "vi": "Khi nói chuyện với người bạn Nhật Bản là Wang, tôi cố gắng nói bằng tiếng Nhật nhiều nhất có thể.",
+          "vocab": [
+            {
+              "w": "日本人",
+              "read": "にほんじん",
+              "vi": "người Nhật Bản"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "なるべく",
+              "read": "なるべく",
+              "vi": "càng nhiều càng tốt, cố gắng"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（B23）",
+              "vi": "話すとき：khi nói chuyện"
+            },
+            {
+              "point": "Vるようにしています（B36 MỚI）",
+              "vi": "話すようにしています：cố gắng duy trì việc nói tiếng Nhật"
+            }
+          ]
+        },
+        {
+          "jp": "わからない言葉があれば、その場で辞書で調べます。",
+          "vi": "Nếu có từ nào không biết, tôi tra từ điển ngay tại chỗ.",
+          "vocab": [
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "場",
+              "read": "ば",
+              "vi": "bầu không khí, nơi, địa điểm"
+            },
+            {
+              "w": "辞書",
+              "read": "じしょ",
+              "vi": "từ điển"
+            },
+            {
+              "w": "調べます",
+              "read": "しらべます",
+              "vi": "tra cứu"
+            },
+            {
+              "w": "わからない言葉",
+              "read": "わからないことば",
+              "vi": "từ không hiểu (mệnh đề B22)"
+            },
+            {
+              "w": "その場で",
+              "read": "そのばで",
+              "vi": "ngay tại chỗ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ない＋N（B22 — mệnh đề bổ nghĩa）",
+              "vi": "わからない言葉：từ mà (tôi) không hiểu"
+            },
+            {
+              "point": "〜ば（B35）",
+              "vi": "あれば：nếu có…"
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんが教えてくれた言葉をノートに書いて、忘れないように毎晩読み直します。",
+          "vi": "Những từ Wang dạy tôi, tôi ghi vào vở và đọc lại mỗi tối để không quên.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "教えてくれた",
+              "read": "おしえてくれた",
+              "vi": "đã dạy cho tôi (てくれる B24)"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở ghi"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "読み直します",
+              "read": "よみなおします",
+              "vi": "đọc lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "VてくれたN（B24＋B22 — mệnh đề bổ nghĩa）",
+              "vi": "ワンさんが教えてくれた言葉：từ mà Wang đã dạy (cho tôi)"
+            },
+            {
+              "point": "〜て（B16 — nối trình tự）",
+              "vi": "ノートに書いて：ghi vào vở, rồi…"
+            },
+            {
+              "point": "Vないように＋Vます（B36 MỚI）",
+              "vi": "忘れないように：đọc lại \"để tránh\" quên"
+            }
+          ]
+        },
+        {
+          "jp": "10月22日（月）",
+          "vi": "22 tháng 10 (Thứ Hai)",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "10月22日",
+              "read": "じゅうがつにじゅうににち",
+              "vi": "ngày 22 tháng 10"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "このごろ、日本語で夢を見るようになりました。",
+          "vi": "Dạo này tôi đã bắt đầu mơ bằng tiếng Nhật rồi.",
+          "vocab": [
+            {
+              "w": "このごろ",
+              "read": "このごろ",
+              "vi": "dạo này, gần đây"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "夢",
+              "read": "ゆめ",
+              "vi": "ước mơ"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "夢を見る",
+              "read": "ゆめをみる",
+              "vi": "nằm mơ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるようになりました（B36 MỚI）",
+              "vi": "夢を見るようになりました：trở nên mơ bằng tiếng Nhật — thay đổi tự nhiên (không chủ ý)"
+            }
+          ]
+        },
+        {
+          "jp": "先生に話したら、先生は「それはかなり上達した証拠ですよ」と言いました。",
+          "vi": "Khi tôi kể với thầy, thầy nói: \"Đó là bằng chứng cho thấy bạn đã tiến bộ khá nhiều đấy.\"",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "かなり",
+              "read": "かなり",
+              "vi": "khá, đáng kể"
+            },
+            {
+              "w": "上達した",
+              "read": "じょうたつした",
+              "vi": "đã tiến bộ"
+            },
+            {
+              "w": "証拠",
+              "read": "しょうこ",
+              "vi": "bằng chứng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（B25）",
+              "vi": "話したら：khi/sau khi kể (điều kiện đã xảy ra)"
+            },
+            {
+              "point": "〜と言いました（B21）",
+              "vi": "\"…\"と言いました：thầy nói rằng…"
+            }
+          ]
+        },
+        {
+          "jp": "まだ完璧ではありませんが、これからも諦めないように、毎日少しずつがんばるようにします。",
+          "vi": "Dù chưa hoàn hảo, nhưng từ nay tôi sẽ cố gắng không bỏ cuộc và mỗi ngày cố gắng từng chút một.",
+          "vocab": [
+            {
+              "w": "完璧",
+              "read": "かんぺき",
+              "vi": "hoàn hảo"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "諦める",
+              "read": "あきらめる",
+              "vi": "bỏ cuộc, từ bỏ"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "がんばる",
+              "read": "がんばる",
+              "vi": "cố gắng"
+            },
+            {
+              "w": "これからも",
+              "read": "これからも",
+              "vi": "từ nay trở đi cũng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないように（B36 MỚI — phòng ngừa）",
+              "vi": "諦めないように：cố gắng \"để không\" bỏ cuộc"
+            },
+            {
+              "point": "Vるようにします（B36 MỚI — ý chí）",
+              "vi": "がんばるようにします：tôi sẽ cố gắng (ý chí hướng tới tương lai)"
+            }
+          ]
+        },
+        {
+          "jp": "いつか日本語で仕事ができるようになりたいと思っています。",
+          "vi": "Tôi muốn có lúc nào đó làm được việc bằng tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "いつか",
+              "read": "いつか",
+              "vi": "có lúc nào đó"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể làm được"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形＋ようになりたい（B36＋B13）",
+              "vi": "できるようになりたい：muốn trở nên làm được"
+            },
+            {
+              "point": "〜と思っています（B21）",
+              "vi": "đang nghĩ/muốn rằng…"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日常会話ならできるようになりました",
+          "label": "できる＋ようになる（thay đổi khả năng — B36）"
+        },
+        {
+          "excerpt": "毎週先生のクラスに通うようにしています",
+          "label": "Vるようにしています（cố gắng duy trì — B36）"
+        },
+        {
+          "excerpt": "聞き逃さないように、同じニュースを二回聞きます",
+          "label": "Vないように（phòng ngừa — B36）"
+        },
+        {
+          "excerpt": "日本語で夢を見るようになりました",
+          "label": "Vるようになる（thay đổi tự nhiên — B36）"
+        },
+        {
+          "excerpt": "諦めないように、毎日少しずつがんばるようにします",
+          "label": "Vないように＋Vるようにします（phòng ngừa ＋ ý chí — B36）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんが毎週先生のクラスに通っているのは、なぜですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "日本語が好きで、クラスに行くのが楽しいからです。",
+            "敬語が使えるようになりたいからです。",
+            "山田先生が「クラスに来てください」と言ったからです。",
+            "日常会話がまだできなくて、練習しているからです。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi rõ:「敬語が使えるようになりたいですから、毎週先生のクラスに通うようにしています」— hai mẫu B36 kết hợp: mục tiêu「使えるようになりたい」(muốn TRỞ NÊN dùng được — thay đổi khả năng) + hành động cố gắng duy trì「通うようにしています」(cố gắng đi học mỗi tuần). Đáp án 1 nắm đúng LÝ DO là muốn nắm được kính ngữ. Đáp án 0 sai: bài không nói Karina thích lớp học hay đi cho vui. Đáp án 2 sai: thầy Yamada chỉ xuất hiện ở đoạn sau (10/8), không có câu nào nói thầy mời Karina đến. Đáp án 3 sai: ngay câu trước đó bài xác nhận hội thoại hàng ngày「できるようになりました」— Karina ĐÃ làm được, vấn đề còn lại chỉ là kính ngữ.",
+          "tip": "Câu hỏi \"なぜ〜ようにしていますか\" → tìm câu giải thích mục tiêu ngay trước đó, thường dưới dạng「〜ようになりたい / 〜ために」. Đây chính là lý do cho「ようにしています」.",
+          "qt": {
+            "q": "Vì sao chị Karina đi học lớp của giáo viên mỗi tuần?",
+            "o": [
+              "Vì chị ấy thích tiếng Nhật và vui khi đến lớp.",
+              "Vì chị ấy muốn có thể sử dụng kính ngữ.",
+              "Vì thầy Yamada đã nói: 「クラスに来てください」(“Hãy đến lớp”).",
+              "Vì chị ấy vẫn chưa thể giao tiếp hằng ngày nên đang luyện tập."
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは「聞き逃さないように同じニュースを二回聞く」と書いています。これはどんな勉強法ですか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "ニュースを楽しむための方法です。",
+            "内容を全部覚えるための方法です。",
+            "ミスを防ぐための工夫です。",
+            "先生に言われたとおりにしている方法です。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu bài viết:「聞き逃さないように、同じニュースを二回聞きます」— mẫu「Vないように＋Vます」(B36): nghe hai lần \"để tránh\" bỏ sót (聞き逃さないように). Đây là PHÒNG NGỪA — không phải mục đích tích cực mà là tránh điều tiêu cực. Đáp án 2「ミスを防ぐための工夫」(sáng kiến để phòng tránh lỗi) nắm đúng bản chất của mẫu「Vないように」. Đáp án 0 sai: \"thưởng thức tin tức\" không phải lý do — bài cho thấy tin tức ban đầu khó hiểu. Đáp án 1 sai: mục tiêu không phải ghi nhớ tất cả nội dung mà là không bỏ sót khi nghe. Đáp án 3 sai: bài không đề cập thầy giáo hướng dẫn nghe hai lần.",
+          "tip": "「Vないように＋hành động」= cấu trúc PHÒNG NGỪA. Đáp án đúng luôn là hành động nhằm \"tránh/ngăn\" điều gì đó xảy ra, không phải để đạt mục tiêu tích cực.",
+          "qt": {
+            "q": "Chị Karina viết: 「聞き逃さないように同じニュースを二回聞く」(“Nghe cùng một bản tin hai lần để không bỏ lỡ”). Đây là phương pháp học như thế nào?",
+            "o": [
+              "Một cách để thưởng thức tin tức.",
+              "Một cách để ghi nhớ toàn bộ nội dung.",
+              "Một cách làm để tránh mắc lỗi.",
+              "Một cách làm theo đúng lời giáo viên đã dặn."
+            ]
+          }
+        },
+        {
+          "q": "10月22日の日記で、カリナさんが「上達した証拠」だと言われたのは何ですか。",
+          "evi": [
+            15,
+            16
+          ],
+          "options": [
+            "毎日ニュースを聞けるようになったこと",
+            "日本語で夢を見るようになったこと",
+            "毎朝ニュースを聞くようにしていること",
+            "山田先生のクラスに通い始めたこと"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Đoạn 10/22 ghi:「このごろ、日本語で夢を見るようになりました。先生に話したら、先生は「それはかなり上達した証拠ですよ」と言いました」— mẫu「Vるようになりました」(B36) diễn tả THAY ĐỔI TỰ NHIÊN: không cố ý, tự nhiên đã bắt đầu mơ bằng tiếng Nhật. Đây chính là \"bằng chứng tiến bộ\" (上達した証拠) mà thầy nhắc đến. Đáp án 1「日本語で夢を見るようになったこと」khớp chính xác. Đáp án 0 sai: nghe tin tức là thay đổi Karina CHỦ ĐỘNG thực hiện (ようにしています), không phải điều thầy khen. Đáp án 2 sai: đây là hành động đang duy trì (ようにしています), không phải kết quả tiến bộ ngẫu nhiên. Đáp án 3 sai: bắt đầu đi học là mục tiêu ban đầu (10/1), không liên quan đến lời khen của thầy.",
+          "tip": "「Vるようになりました」= thay đổi TỰ NHIÊN, không chủ ý — kết quả ngẫu nhiên của quá trình học. Khác hoàn toàn với「Vるようにしています」(cố gắng chủ động duy trì). Câu hỏi về \"bằng chứng tiến bộ\" → tìm mẫu ようになる.",
+          "qt": {
+            "q": "Trong nhật ký ngày 22 tháng 10, điều gì được nói là 「上達した証拠」(“bằng chứng cho thấy đã tiến bộ”) của chị Karina?",
+            "o": [
+              "Việc chị ấy đã có thể nghe tin tức mỗi ngày.",
+              "Việc chị ấy bắt đầu mơ bằng tiếng Nhật.",
+              "Việc chị ấy cố gắng nghe tin tức mỗi sáng.",
+              "Việc chị ấy bắt đầu tham gia lớp học của thầy Yamada."
+            ]
+          }
+        },
+        {
+          "q": "カリナさんの勉強についての態度として、日記の内容と一番合っているのはどれですか。（推論）",
+          "evi": [
+            17
+          ],
+          "options": [
+            "日本語が難しすぎて、もうやめたいと思っている。",
+            "完璧になるまでは友達と話さないようにしている。",
+            "失敗を恐れながらも、あきらめずに続けようとしている。",
+            "先生のアドバイスには従わず、自分のやり方で勉強している。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Nhìn toàn bộ nhật ký: Karina thừa nhận「まだ完璧ではありませんが」(dù chưa hoàn hảo), nhưng ngay lập tức theo sau là「諦めないように、毎日少しずつがんばるようにします」— mẫu「Vないように」(cố gắng không từ bỏ) kết hợp với「Vるようにします」(ý chí tiếp tục từng ngày). Hai mẫu này thể hiện rõ THÁI ĐỘ: thừa nhận thất bại/hạn chế nhưng kiên trì không bỏ cuộc. Đáp án 0 sai: bài không có dấu hiệu nào cho thấy Karina muốn bỏ — ngược lại, câu kết thể hiện ý chí rõ ràng. Đáp án 1 sai: Karina nói chuyện bằng tiếng Nhật với Wang (10/15) — bài không nói tránh giao tiếp. Đáp án 3 sai: 10/8 ghi rõ Karina nghe theo lời thầy Yamada và thực hiện ngay.",
+          "tip": "Câu hỏi suy luận về \"thái độ nhân vật\" (態度) → quét toàn bài tìm cặp \"thừa nhận hạn chế\" + \"tiếp tục cố gắng\". Mẫu「〜ないように〜ようにします」là dấu hiệu ý chí KHÔNG BỎ CUỘC.",
+          "qt": {
+            "q": "Thái độ của chị Karina đối với việc học, điều nào phù hợp nhất với nội dung nhật ký? (suy luận)",
+            "o": [
+              "Tiếng Nhật quá khó nên chị ấy nghĩ mình muốn bỏ cuộc.",
+              "Chị ấy cố gắng không nói chuyện với bạn bè cho đến khi trở nên hoàn hảo.",
+              "Dù lo sợ thất bại, chị ấy vẫn cố gắng tiếp tục mà không bỏ cuộc.",
+              "Chị ấy không làm theo lời khuyên của giáo viên mà học theo cách riêng."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Lớp học bơi của bể bơi thị dân Aoi",
+      "japanese": "あおい市民プールの水泳教室\n大会に出られるように、泳げるようになりたい人はいませんか。あおい市民プールで水泳教室を始めます。\nクラスはレベルで4つに分かれていますから、自分に合うクラスを選んでください。\nクラス｜曜日・時間｜対象｜料金\nはじめてコース｜火・木　19:00〜20:00｜水に慣れたい人｜3,000円\n初級コース｜月・水　19:00〜20:00｜25メートル泳げるようになりたい人｜3,500円\n大会コース｜土　9:00〜11:00｜大会に出るつもりの人｜4,000円\n親子コース｜日　10:00〜11:00｜子どもといっしょに泳ぎたい人｜一人2,500円\n※初めてのクラスの前に、あおい市民プールの受付で申し込んでください。\n※大会コースは、25メートル泳げるようにならないと申し込めません。\nあおい市民プール　電話：042-555-1212（9:00〜18:00）",
+      "vietnamese": "Lớp học bơi của bể bơi thị dân Aoi\nCó ai muốn trở nên bơi được để có thể tham gia đại hội không? Bể bơi thị dân Aoi sẽ mở lớp học bơi.\nCác lớp được chia thành 4 trình độ, nên hãy chọn lớp phù hợp với bản thân.\nLớp｜Ngày・giờ｜Đối tượng｜Học phí\nKhóa Làm quen｜Thứ Ba・Thứ Năm 19:00〜20:00｜Người muốn làm quen với nước｜3.000 yên\nKhóa Sơ cấp｜Thứ Hai・Thứ Tư 19:00〜20:00｜Người muốn trở nên bơi được 25 mét｜3.500 yên\nKhóa Đại hội｜Thứ Bảy 9:00〜11:00｜Người có ý định tham gia đại hội｜4.000 yên\nKhóa Cha mẹ-con｜Chủ nhật 10:00〜11:00｜Người muốn bơi cùng con｜Mỗi người 2.500 yên\n※Trước buổi học đầu tiên, hãy đăng ký tại quầy lễ tân của bể bơi thị dân Aoi.\n※Khóa Đại hội, nếu chưa trở nên bơi được 25 mét thì không thể đăng ký.\nBể bơi thị dân Aoi　Điện thoại: 042-555-1212 (9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "あおい市民プールの水泳教室",
+          "vi": "Lớp học bơi của bể bơi thị dân Aoi",
+          "vocab": [
+            {
+              "w": "あおい",
+              "read": "あおい",
+              "vi": "xanh lam, xanh biếc"
+            },
+            {
+              "w": "市民プール",
+              "read": "しみんプール",
+              "vi": "bể bơi thị dân"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "水泳教室",
+              "read": "すいえいきょうしつ",
+              "vi": "lớp học bơi"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "大会に出られるように、泳げるようになりたい人はいませんか。あおい市民プールで水泳教室を始めます。",
+          "vi": "Có ai muốn trở nên bơi được để có thể tham gia đại hội không? Bể bơi thị dân Aoi sẽ mở lớp học bơi.",
+          "vocab": [
+            {
+              "w": "大会",
+              "read": "たいかい",
+              "vi": "đại hội, giải thi đấu"
+            },
+            {
+              "w": "出られる",
+              "read": "でられる",
+              "vi": "có thể tham gia (可能形 của 出る)"
+            },
+            {
+              "w": "泳げる",
+              "read": "およげる",
+              "vi": "có thể bơi (可能形 của 泳ぐ)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "あおい",
+              "read": "あおい",
+              "vi": "xanh lam, xanh biếc"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu, mở (lớp học)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形＋ように（B27＋B36 MỚI）",
+              "vi": "出られるように：\"để có thể\" tham gia đại hội — vế trước là mục đích muốn đạt"
+            },
+            {
+              "point": "V可能形＋ようになりたい（B27＋B36 MỚI）",
+              "vi": "泳げるようになりたい：muốn TRỞ NÊN bơi được — mong muốn về sự thay đổi"
+            }
+          ]
+        },
+        {
+          "jp": "クラスはレベルで4つに分かれていますから、自分に合うクラスを選んでください。",
+          "vi": "Các lớp được chia thành 4 trình độ, nên hãy chọn lớp phù hợp với bản thân.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "レベル",
+              "read": "レベル",
+              "vi": "trình độ"
+            },
+            {
+              "w": "分かれています",
+              "read": "わかれています",
+              "vi": "được chia thành, đang chia thành (自動詞＋ています)"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "合う",
+              "read": "あう",
+              "vi": "khớp, đúng, phù hợp"
+            },
+            {
+              "w": "選んでください",
+              "read": "えらんでください",
+              "vi": "hãy chọn"
+            },
+            {
+              "w": "4つ",
+              "read": "よっつ",
+              "vi": "4 (cái)"
+            },
+            {
+              "w": "自分に合う",
+              "read": "じぶんにあう",
+              "vi": "hợp với bản thân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞＋ています（B29）",
+              "vi": "分かれています：trạng thái kết quả — đang được chia sẵn thành 4 trình độ"
+            },
+            {
+              "point": "〜から（B9）",
+              "vi": "から、自分に合うクラスを選んでください：vì vậy hãy chọn lớp phù hợp"
+            },
+            {
+              "point": "Vる＋N（B22 — mệnh đề bổ nghĩa）",
+              "vi": "自分に合うクラス：lớp mà hợp với bản thân"
+            }
+          ],
+          "keys": [
+            {
+              "w": "4つに分かれています",
+              "why": "Cho biết có 4 lớp trình độ khác nhau — mốc để bắt đầu dò bảng bên dưới cho cả 2 câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "クラス｜曜日・時間｜対象｜料金",
+          "vi": "Lớp｜Ngày・giờ｜Đối tượng｜Học phí",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "học phí, lệ phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "クラス｜曜日・時間｜対象｜料金",
+              "why": "Header bảng — 4 cột phải dò: tên lớp, ngày-giờ, đối tượng, giá; cả 2 câu hỏi đều ghép điều kiện ngày-giờ với đối tượng."
+            }
+          ]
+        },
+        {
+          "jp": "はじめてコース｜火・木　19:00〜20:00｜水に慣れたい人｜3,000円",
+          "vi": "Khóa Làm quen｜Thứ Ba・Thứ Năm 19:00〜20:00｜Người muốn làm quen với nước｜3.000 yên",
+          "vocab": [
+            {
+              "w": "はじめてコース",
+              "read": "はじめてコース",
+              "vi": "khóa học cho người mới bắt đầu"
+            },
+            {
+              "w": "はじめて",
+              "read": "はじめて",
+              "vi": "lần đầu"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "19:00〜20:00",
+              "read": "じゅうくじからにじゅうじ",
+              "vi": "từ 19:00 đến 20:00"
+            },
+            {
+              "w": "水に慣れたい人",
+              "read": "みずになれたいひと",
+              "vi": "người muốn làm quen với nước"
+            },
+            {
+              "w": "水に慣れたい",
+              "read": "みずになれたい",
+              "vi": "muốn làm quen với nước"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "慣れたい",
+              "read": "なれたい",
+              "vi": "muốn làm quen, thích nghi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたい＋N（B13＋B22）",
+              "vi": "水に慣れたい人：người muốn làm quen với nước"
+            }
+          ],
+          "keys": [
+            {
+              "w": "火・木　19:00〜20:00",
+              "why": "Khớp điều kiện \"chỉ rảnh tối Thứ Ba/Thứ Năm\" của câu hỏi 1 — dòng đáp án đúng."
+            },
+            {
+              "w": "水に慣れたい人｜3,000円",
+              "why": "Đối tượng là người chưa biết bơi (chỉ cần làm quen với nước) — khớp \"chưa bơi được 25 mét\" của câu hỏi 1; giá 3.000円 là bẫy nhiễu cho câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "初級コース｜月・水　19:00〜20:00｜25メートル泳げるようになりたい人｜3,500円",
+          "vi": "Khóa Sơ cấp｜Thứ Hai・Thứ Tư 19:00〜20:00｜Người muốn trở nên bơi được 25 mét｜3.500 yên",
+          "vocab": [
+            {
+              "w": "初級コース",
+              "read": "しょきゅうコース",
+              "vi": "khóa học sơ cấp"
+            },
+            {
+              "w": "初級",
+              "read": "しょきゅう",
+              "vi": "sơ cấp"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "19:00〜20:00",
+              "read": "じゅうくじからにじゅうじ",
+              "vi": "từ 19:00 đến 20:00"
+            },
+            {
+              "w": "25メートル泳げるようになりたい人",
+              "read": "にじゅうごメートルおよげるようになりたいひと",
+              "vi": "người muốn có thể bơi được 25 mét"
+            },
+            {
+              "w": "25メートル",
+              "read": "にじゅうごメートル",
+              "vi": "25 mét"
+            },
+            {
+              "w": "泳げるようになりたい",
+              "read": "およげるようになりたい",
+              "vi": "muốn trở nên có thể bơi"
+            },
+            {
+              "w": "泳げる",
+              "read": "およげる",
+              "vi": "có thể bơi"
+            },
+            {
+              "w": "なりたい",
+              "read": "なりたい",
+              "vi": "muốn trở nên"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形＋ようになりたい＋N（B27＋B36 MỚI＋B22）",
+              "vi": "25メートル泳げるようになりたい人：người muốn trở nên bơi được 25 mét — mục tiêu thay đổi"
+            }
+          ],
+          "keys": [
+            {
+              "w": "月・水　19:00〜20:00",
+              "why": "Ngày Thứ Hai/Thứ Tư — sai ngày so với câu hỏi 1 (Thứ Ba/Thứ Năm), giúp loại đáp án nhiễu."
+            }
+          ]
+        },
+        {
+          "jp": "大会コース｜土　9:00〜11:00｜大会に出るつもりの人｜4,000円",
+          "vi": "Khóa Đại hội｜Thứ Bảy 9:00〜11:00｜Người có ý định tham gia đại hội｜4.000 yên",
+          "vocab": [
+            {
+              "w": "大会コース",
+              "read": "たいかいコース",
+              "vi": "khóa học luyện thi đấu"
+            },
+            {
+              "w": "大会",
+              "read": "たいかい",
+              "vi": "cuộc thi, giải đấu"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "9:00〜11:00",
+              "read": "くじからじゅういちじ",
+              "vi": "từ 9:00 đến 11:00"
+            },
+            {
+              "w": "大会に出るつもりの人",
+              "read": "たいかいにでるつもりのひと",
+              "vi": "người định tham gia cuộc thi"
+            },
+            {
+              "w": "大会に出る",
+              "read": "たいかいにでる",
+              "vi": "tham gia cuộc thi"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "tham gia, ra"
+            },
+            {
+              "w": "つもり",
+              "read": "つもり",
+              "vi": "dự định, ý định"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "4,000円",
+              "read": "よんせんえん",
+              "vi": "4.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるつもり＋N（B31＋B22）",
+              "vi": "大会に出るつもりの人：người có ý định tham gia đại hội"
+            }
+          ],
+          "keys": [
+            {
+              "w": "大会に出るつもりの人｜4,000円",
+              "why": "Đối tượng là người thi đấu, không liên quan đến 2 nhân vật trong câu hỏi — dòng nhiễu, đối chiếu với dòng ※ điều kiện phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "親子コース｜日　10:00〜11:00｜子どもといっしょに泳ぎたい人｜一人2,500円",
+          "vi": "Khóa Cha mẹ-con｜Chủ nhật 10:00〜11:00｜Người muốn bơi cùng con｜Mỗi người 2.500 yên",
+          "vocab": [
+            {
+              "w": "親子コース",
+              "read": "おやこコース",
+              "vi": "khóa học cha mẹ và con"
+            },
+            {
+              "w": "親子",
+              "read": "おやこ",
+              "vi": "cha mẹ và con"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "10:00〜11:00",
+              "read": "じゅうじからじゅういちじ",
+              "vi": "từ 10:00 đến 11:00"
+            },
+            {
+              "w": "子どもといっしょに泳ぎたい人",
+              "read": "こどもといっしょにおよぎたいひと",
+              "vi": "người muốn bơi cùng con"
+            },
+            {
+              "w": "子どもといっしょに泳ぎたい",
+              "read": "こどもといっしょにおよぎたい",
+              "vi": "muốn bơi cùng con"
+            },
+            {
+              "w": "子どもといっしょに",
+              "read": "こどもといっしょに",
+              "vi": "cùng với trẻ em, con cái"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em, con cái"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng, cùng nhau"
+            },
+            {
+              "w": "泳ぎたい",
+              "read": "およぎたい",
+              "vi": "muốn bơi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "一人2,500円",
+              "read": "ひとりにせんごひゃくえん",
+              "vi": "2.500 yên một người"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một người"
+            },
+            {
+              "w": "2,500円",
+              "read": "にせんごひゃくえん",
+              "vi": "2.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとV（B4）",
+              "vi": "子どもといっしょに泳ぎたい：muốn bơi cùng con"
+            }
+          ],
+          "keys": [
+            {
+              "w": "日　10:00〜11:00",
+              "why": "Khớp điều kiện \"chỉ rảnh sáng Chủ Nhật\" của câu hỏi 2 — dòng đáp án đúng."
+            },
+            {
+              "w": "子どもといっしょに泳ぎたい人｜一人2,500円",
+              "why": "Đối tượng \"muốn bơi cùng con\" khớp câu hỏi 2; giá đúng là 一人2,500円 (đề chú ý \"một người\" chứ không phải giá trọn gói)."
+            }
+          ]
+        },
+        {
+          "jp": "※初めてのクラスの前に、あおい市民プールの受付で申し込んでください。",
+          "vi": "※ Trước buổi học đầu tiên, hãy đăng ký tại quầy lễ tân của bể bơi thị dân Aoi.",
+          "vocab": [
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "あおい",
+              "read": "あおい",
+              "vi": "xanh lam, xanh biếc"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân, quầy tiếp nhận"
+            },
+            {
+              "w": "申し込んで",
+              "read": "もうしこんで",
+              "vi": "đăng ký (て形 của 申し込みます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのまえに（B18）",
+              "vi": "初めてのクラスの前に：trước buổi học đầu tiên"
+            },
+            {
+              "point": "Vてください（B14）",
+              "vi": "申し込んでください：hãy đăng ký"
+            }
+          ],
+          "keys": [
+            {
+              "w": "※初めてのクラスの前に、あおい市民プールの受付で申し込んでください",
+              "why": "Điều kiện đăng ký chung cho mọi lớp — không loại trừ ai trong 2 câu hỏi, chỉ là thủ tục."
+            }
+          ]
+        },
+        {
+          "jp": "※大会コースは、25メートル泳げるようにならないと申し込めません。",
+          "vi": "※ Khóa Đại hội, nếu chưa trở nên bơi được 25 mét thì không thể đăng ký.",
+          "vocab": [
+            {
+              "w": "大会コース",
+              "read": "たいかいコース",
+              "vi": "khóa học luyện thi đấu"
+            },
+            {
+              "w": "大会",
+              "read": "たいかい",
+              "vi": "cuộc thi, giải đấu"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "25メートル泳げるようにならないと",
+              "read": "にじゅうごメートルおよげるようにならないと",
+              "vi": "nếu chưa trở nên có thể bơi 25 mét"
+            },
+            {
+              "w": "25メートル",
+              "read": "にじゅうごメートル",
+              "vi": "25 mét"
+            },
+            {
+              "w": "泳げる",
+              "read": "およげる",
+              "vi": "có thể bơi"
+            },
+            {
+              "w": "申し込めません",
+              "read": "もうしこめません",
+              "vi": "không thể đăng ký"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形＋ようにならないと（B27＋B36 MỚI＋B20）",
+              "vi": "泳げるようにならないと：nếu chưa trở nên bơi được thì — 普通形＋ないと nhấn mạnh điều kiện bắt buộc"
+            }
+          ],
+          "keys": [
+            {
+              "w": "25メートル泳げるようにならないと申し込めません",
+              "why": "Bẫy loại trừ khóa Đại hội cho câu hỏi 1: Lee chưa bơi được 25 mét nên KHÔNG đủ điều kiện đăng ký khóa này, dù ※ này không nhắc ngày giờ."
+            }
+          ]
+        },
+        {
+          "jp": "あおい市民プール　電話：042-555-1212（9:00〜18:00）",
+          "vi": "Bể bơi thị dân Aoi　Điện thoại: 042-555-1212 (9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "あおい",
+              "read": "あおい",
+              "vi": "xanh lam, xanh biếc"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "大会に出られるように、泳げるようになりたい",
+          "label": "V可能形＋ように＋ようになりたい（mục đích ＋ mong muốn thay đổi — B36）"
+        },
+        {
+          "excerpt": "25メートル泳げるようになりたい人",
+          "label": "V可能形＋ようになる（thay đổi — B36）"
+        },
+        {
+          "excerpt": "25メートル泳げるようにならないと申し込めません",
+          "label": "ようにならないと（B36＋B20 — điều kiện bắt buộc）"
+        },
+        {
+          "excerpt": "クラスはレベルで4つに分かれています",
+          "label": "自動詞＋ています（trạng thái kết quả — B29 ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu lớp học",
+          "topic": 1,
+          "qs": [],
+          "note": "Giới thiệu mục đích chung (muốn bơi được để dự đại hội) và báo có 4 trình độ lớp — chưa có căn cứ trả lời câu hỏi nào, chỉ định hướng đọc bảng bên dưới."
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng lớp học (ngày-giờ · đối tượng · giá)",
+          "topic": 3,
+          "qs": [
+            1,
+            2
+          ],
+          "note": "Khối trung tâm chứa toàn bộ căn cứ: dòng はじめてコース trả lời câu 1 (đúng ngày Thứ Ba/Thứ Năm + chưa biết bơi), dòng 親子コース trả lời câu 2 (đúng Chủ Nhật sáng + muốn bơi cùng con). Các dòng còn lại là nhiễu do sai ngày hoặc sai đối tượng."
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện ※ (đăng ký & loại trừ)",
+          "topic": 9,
+          "qs": [
+            1
+          ],
+          "note": "Hai dòng ※ là bẫy: dòng đầu chỉ là thủ tục đăng ký chung; dòng sau loại trừ khóa Đại hội cho câu hỏi 1 vì Lee chưa bơi được 25 mét dù khóa này không liên quan ngày giờ Lee rảnh."
+        },
+        {
+          "from": 10,
+          "to": 10,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 10,
+          "qs": [],
+          "note": "Số điện thoại và giờ liên hệ — không phải căn cứ trả lời câu hỏi nào."
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは、火曜日と木曜日の夜だけ時間があります。まだ25メートルも泳げません。リーさんはどのコースに申し込みますか。",
+          "options": [
+            "はじめてコース",
+            "初級コース",
+            "大会コース",
+            "親子コース"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0「はじめてコース」. Bảng ghi rõ:「はじめてコース｜火・木　19:00〜20:00｜水に慣れたい人｜3,000円」— đúng cả 2 điều kiện: (1) chỉ rảnh tối Thứ Ba/Thứ Năm, (2) chưa bơi được nên cần \"làm quen với nước\" trước, không cần biết bơi 25 mét. Đáp án 1「初級コース」sai vì học vào Thứ Hai/Thứ Tư — không khớp ngày Lee rảnh, hơn nữa khóa này dành cho người MUỐN bơi được 25 mét (đã biết bơi ít nhiều), không phải người chưa biết gì. Đáp án 2「大会コース」sai vì ghi rõ đối tượng là người có ý định thi đấu, và ※ chú thích: phải bơi được 25 mét mới đăng ký được — Lee chưa đạt điều kiện. Đáp án 3「親子コース」sai vì dành cho người bơi cùng con, không liên quan.",
+          "tip": "Gặp câu hỏi có 2 điều kiện (ngày-giờ + trình độ) → dò CỘT \"曜日・時間\" trước để loại nhanh các dòng sai ngày, rồi mới xét cột \"対象\" để chọn đúng trình độ.",
+          "evi": [
+            4,
+            9
+          ],
+          "qt": {
+            "q": "Anh Lee chỉ rảnh vào tối thứ Ba và thứ Năm. Anh ấy còn chưa bơi được 25 mét. Anh Lee sẽ đăng ký khóa học nào?",
+            "o": [
+              "Khóa học dành cho người mới bắt đầu",
+              "Khóa sơ cấp",
+              "Khóa luyện thi đấu",
+              "Khóa học dành cho cha mẹ và con"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは日曜日の朝だけ時間があります。子どもといっしょに泳ぎたいです。ワットさんはいくら払いますか。",
+          "options": [
+            "3,000円",
+            "3,500円",
+            "4,000円",
+            "一人2,500円"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3「一人2,500円」. Bảng ghi:「親子コース｜日　10:00〜11:00｜子どもといっしょに泳ぎたい人｜一人2,500円」— khớp cả 2 điều kiện: (1) chỉ rảnh sáng Chủ Nhật, (2) muốn bơi cùng con → đúng khóa Cha mẹ-con, giá mỗi người 2.500円. Đáp án 0「3,000円」là giá của「はじめてコース」(Thứ Ba/Thứ Năm) — sai ngày và sai đối tượng (không nhắc đến con). Đáp án 1「3,500円」là giá của「初級コース」(Thứ Hai/Thứ Tư) — cũng sai ngày và sai đối tượng. Đáp án 2「4,000円」là giá của「大会コース」(Thứ Bảy) — sai ngày, và dành cho người thi đấu chứ không phải đi cùng con.",
+          "tip": "Câu hỏi \"いくら payます\" luôn ghép NGÀY/GIỜ với MỤC ĐÍCH của người hỏi — dò đúng HÀNG trong bảng rồi mới lấy số tiền ở cột cuối, đừng chỉ nhìn giá mà quên kiểm tra ngày.",
+          "evi": [
+            7
+          ],
+          "qt": {
+            "q": "Anh Watt chỉ rảnh vào buổi sáng Chủ nhật. Anh ấy muốn bơi cùng con. Anh Watt sẽ trả bao nhiêu tiền?",
+            "o": [
+              "3,000 yên",
+              "3,500 yên",
+              "4,000 yên",
+              "2,500 yên mỗi người"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

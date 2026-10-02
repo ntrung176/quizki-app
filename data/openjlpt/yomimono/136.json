@@ -1,0 +1,3421 @@
+{
+  "bai": 136,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 136 rèn luyện kỹ năng phân tích mối quan hệ hành động - lợi ích qua nhóm cho nhận (てもらう・てあげる・てくれる), xác định đúng chủ thể và tác nhân qua thể bị động - sai khiến (れる・させる・させられる), đồng thời bóc tách thông tin gián tiếp qua chuỗi mẫu truyền đạt (によると・そうだ・とのことだ・ということだ). Việc nắm chắc góc nhìn người nói (mình nhận ơn hay làm giúp ai, tự nguyện hay bị ép buộc) và phân định rõ giữa 'sự thật trực tiếp' với 'tin nghe lại' là chìa khóa then chốt để không bị bẫy đảo chiều quan hệ nhân vật trong bài đọc N3.",
+    "steps": [
+      "Bước 1: Quét nhanh vị ngữ cuối câu để nhận diện nhóm cấu trúc tương tác: cho-nhận (てあげる/もらう/くれる), bị động (れる), sai khiến (させる) hay sai khiến bị động (させられる).",
+      "Bước 2: Phân tích hệ thống trợ từ để xác định đúng vai vế: は/が (chủ thể thực hiện hoặc chủ thể nhận ơn), に (người tác động trong câu bị động, người được nhờ/nhận hành động, hoặc người bị sai khiến), を (đối tượng chịu tác động).",
+      "Bước 3: Với câu chứa thông tin trích dẫn, khoanh tròn nguồn tin đi kèm 「～によると／によれば」 và nối với đuôi câu truyền đạt 「～そうだ／とのことだ／ということだ」 để tách biệt giữa 'sự thật tác giả chứng kiến' và 'thông tin nghe lại từ nguồn khác'.",
+      "Bước 4: Nhận diện cấu trúc truyền đạt yêu cầu/lời khuyên gián tiếp 「Vる/Vない + ように言う/頼む/伝える」, xác định ai là người đưa ra chỉ thị và ai là người phải thực hiện hành động.",
+      "Bước 5: Đối chiếu 4 phương án câu hỏi với quan hệ hành động đã bóc tách, cảnh giác bẫy hoán đổi chủ thể (như biến 'bị ép làm' thành 'tự nguyện', hoặc nhầm giữa 'tác giả cho người khác' và 'người khác làm cho tác giả')."
+    ],
+    "tips": [
+      "Mẹo 使い分け (Cho - Nhận): 「〜てくれる」 và 「〜てもらう」 đều mang lại lợi ích cho người nói, nhưng 「〜てくれる」 thì chủ ngữ (が/は) là NGƯỜI KHÁC làm giúp mình, còn 「〜てもらう」 thì chủ ngữ (が/は) là BẢN THÂN NHẬN ơn từ người khác (に).",
+      "Mẹo 使い分け (Bị động vs Sai khiến bị động): 「〜される」 là bản thân chịu tác động/ảnh hưởng từ người khác; còn 「〜させられる」 là bản thân bị người khác BẮT/ÉP buộc thực hiện hành động với tâm lý miễn cưỡng, khó chịu.",
+      "Mẹo 使い分け (Truyền đạt vs Giải thích): 「〜とのことだ」 thuần túy truyền đạt lại thông tin trang trọng (= そうだ); trong khi 「〜ということだ」 ngoài nghĩa truyền đạt còn dùng để đúc kết bản chất/ý nghĩa logic ('điều đó có nghĩa là...').",
+      "Dấu hiệu nguồn tin: Khi đầu câu xuất hiện 「〜によると／によれば」, đuôi câu gần như chắc chắn sẽ là dạng truyền đạt (そうだ／とのことだ／らしい), tuyệt đối không chọn đáp án khẳng định đây là ý kiến/trải nghiệm cá nhân của tác giả.",
+      "Bẫy mệnh lệnh gián tiếp: Khi gặp thể bị động 「〜ように言われた／頼まれた」, chủ ngữ của câu chính là người BỊ BẢO/YÊU CẦU và là người PHẢI thực hiện hành động đứng trước ように."
+    ],
+    "grammarFocus": [
+      "～てもらう・てあげる・てくれる — Vて + もらう／あげる／くれる: Diễn tả hành động giúp đỡ và trao nhận lợi ích; てもらう (tôi nhận lợi ích từ người khác), てあげる (tôi làm giúp người khác), てくれる (người khác làm giúp tôi); đối chiếu hệ thống kính ngữ いただく・さしあげる・くださる.",
+      "～（ら）れる・～（さ）せる — V(ら)れる (bị động: bị/được tác động), V(さ)せる (sai khiến: bắt/cho phép làm), V(さ)せられる (sai khiến bị động: bị bắt làm không tự nguyện); đối chiếu 4 trục: 私がする (tự làm) ≠ させる (cho/bắt làm) ≠ される (bị tác động) ≠ させられる (bị ép làm).",
+      "～ように言う／頼む／伝える — V辞書形／Vない形 + ように + 言う／頼む／伝える: Truyền đạt gián tiếp một mệnh lệnh, lời nhờ vả hoặc nhắc nhở một cách lịch sự; đối chiếu dạng trực tiếp/khẩu ngữ 「〜てくれと言った」.",
+      "～ということだ — 普通形 + ということだ: Có 2 cách dùng: (1) Kết luận logic, diễn giải ý nghĩa ('có nghĩa là...'), (2) Truyền đạt lại thông tin nghe được; đối chiếu với わけだ (kết luận logic dựa trên quy luật/thực tế tất yếu).",
+      "～という — Mệnh đề/Từ + という + N: Định danh, giải thích tên gọi hoặc nội dung cụ thể ('cái gọi là...', 'nội dung rằng...'); đối chiếu với というのは (định nghĩa bản chất khái niệm).",
+      "～によると／によれば — N(nguồn tin) + によると／によれば: Chỉ ra nguồn gốc của thông tin ('theo như...'); thường đi kèm đuôi câu そうだ, とのことだ, らしい; によれば mang tính trang trọng và chuộng dùng trong văn viết hơn.",
+      "～そうだ（伝聞） — 普通形 + そうだ: Truyền đạt lại thông tin nghe hoặc đọc được từ người khác ('nghe nói là...'); đối chiếu với そうだ（様態: Vます-stem/A-stem + そうだ - nhìn vẻ ngoài suy đoán trực tiếp).",
+      "～とのことだ／とのこと — 普通形 + とのことだ／とのこと: Truyền đạt thông tin gián tiếp một cách trang trọng, lịch sự, khách quan ('được biết là...'); thường xuất hiện trong email, báo chí, thông báo công việc (trang trọng hơn そうだ truyền đạt)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 63,
+        "items": [
+          "〜そうだ（様態）: Vます-stem / Aい（bỏ い）/ なAdj ＋ そう",
+          "〜そうだ（伝聞）: 普通形 ＋ そうだ"
+        ]
+      },
+      {
+        "bai": 60,
+        "items": [
+          "〜ように（mục đích）",
+          "〜ために（mục đích）"
+        ]
+      },
+      {
+        "bai": 68,
+        "items": [
+          "〜によって（(c) tác nhân trong câu bị động）",
+          "〜により（dạng trang trọng của によって）"
+        ]
+      },
+      {
+        "bai": 65,
+        "items": [
+          "〜らしい（推量・伝聞）",
+          "Nらしい"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "職場における支援と自立",
+      "titleVi": "Sự hỗ trợ và tính tự lập tại nơi làm việc",
+      "japanese": "最近の調査によると、新人の教育では、先輩から何でも教えてもらうより、自分で考えさせられる環境を望む若者が増えているそうだ。以前は、上司が細かく指示を出してあげる指導法が親切だと考えられていた。しかし、何でも手伝ってくれる先輩がいると、新人は自分で判断する機会を失ってしまうという意見もある。専門家の話によれば、過剰な支援はかえって新人の成長の機会を奪ってしまうとのことだ。\nそのため、最近では先輩がすぐに答えを教えるのではなく、まず後輩に解決策を考えさせる会社が増えている。また、困ったときには一人で抱え込まず、早めに相談するように伝えることも大切にされている。必要なときに適切な支援をしてもらうことで、新人は安心して挑戦できるということだ。単に何でもやってあげるのではなく、自立を促しながら見守ってあげることが本当の優しさなのだ。",
+      "vietnamese": "Theo một cuộc khảo sát gần đây, trong việc đào tạo nhân viên mới, nghe nói rằng số người trẻ mong muốn một môi trường nơi bản thân được (buộc phải) tự suy nghĩ hơn là được tiền bối chỉ dạy cho tất cả mọi thứ đang ngày càng tăng.\nTrước đây, phương pháp hướng dẫn mà cấp trên đưa ra những chỉ thị tỉ mỉ cho cấp dưới từng được coi là thân thiện và chu đáo. Tuy nhiên, cũng có ý kiến cho rằng nếu có tiền bối luôn giúp đỡ mọi việc cho, nhân viên mới sẽ đánh mất cơ hội tự mình phán đoán. Theo lời của các chuyên gia, sự hỗ trợ thái quá ngược lại sẽ cướp đi cơ hội trưởng thành của nhân viên mới.\n\nVì thế, gần đây ngày càng có nhiều công ty không để tiền bối chỉ ngay câu trả lời, mà trước hết để cho cấp dưới tự suy nghĩ giải pháp. Ngoài ra, việc dặn dò cấp dưới rằng khi gặp khó khăn thì đừng tự ôm đồm một mình mà hãy trao đổi sớm cũng đang rất được coi trọng. Điều đó có nghĩa là, nhờ được nhận sự hỗ trợ thích hợp vào những lúc cần thiết, nhân viên mới có thể an tâm thử sức và đương đầu với thử thách. Không chỉ đơn thuần là làm thay mọi việc cho cấp dưới, mà việc vừa thúc đẩy sự tự lập vừa dõi theo ủng hộ mới chính là lòng tốt thực sự.",
+      "sentences": [
+        {
+          "jp": "最近の調査によると、新人の教育では、先輩から何でも教えてもらうより、自分で考えさせられる環境を望む若者が増えているそうだ。",
+          "vi": "Theo một cuộc khảo sát gần đây, trong việc đào tạo nhân viên mới, nghe nói rằng số người trẻ mong muốn một môi trường nơi bản thân được tự suy nghĩ hơn là được tiền bối chỉ dạy cho tất cả mọi thứ đang ngày càng tăng.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "điều tra"
+            },
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục, đào tạo"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, đàn anh/chị"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "望む",
+              "read": "のぞむ",
+              "vi": "mong muốn, hy vọng"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると",
+              "vi": "接続: N + によると. Sắc thái: Trích dẫn nguồn thông tin khách quan (khảo sát, thời sự, tin tức), cuối câu thường đi kèm 〜そうだ／〜とのことだ. Đối chiếu: Tương đương 〜によれば, nhưng 〜によると phổ biến và tự nhiên hơn trong cả hội thoại thường nhật lẫn văn viết."
+            },
+            {
+              "point": "〜てもらう",
+              "vi": "接続: Vて + もらう. Sắc thái: Nhận được hành động giúp đỡ từ người khác với lòng biết ơn (先輩から教えてもらう: nhận sự chỉ dạy từ tiền bối). Đối chiếu: Khác 〜てくれる (người khác chủ động làm cho mình, chủ ngữ là người làm) ở chỗ てもらう có chủ ngữ là người tiếp nhận hành động."
+            },
+            {
+              "point": "〜させられる（使役受身）",
+              "vi": "接続: V(使役形) + られる (Nhóm 2: 考える → 考えさせられる). Sắc thái: Bị hoặc được đặt vào hoàn cảnh phải tự mình làm gì đó (bị/được thúc đẩy suy nghĩ). Đối chiếu: Khác thể sai khiến đơn thuần 〜させる (bắt ai làm) hay thể bị động 〜られる (bị tác động)."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "接続: 普通形 + そうだ (Aな/N だ + そうだ). Sắc thái: Truyền đạt lại thông tin nghe hoặc đọc được từ bên ngoài mà không kèm phán đoán chủ quan. Đối chiếu: Khác 〜そうだ (nhìn thấy có vẻ/dường như, đi với Vます bỏ ます, Aい bỏ い)."
+            }
+          ]
+        },
+        {
+          "jp": "以前は、上司が細かく指示を出してあげる指導法が親切だと考えられていた。",
+          "vi": "Trước đây, phương pháp hướng dẫn mà cấp trên đưa ra những chỉ thị tỉ mỉ cho cấp dưới từng được coi là thân thiện và chu đáo.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, trước kia"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên, sếp"
+            },
+            {
+              "w": "細かい",
+              "read": "こまかい",
+              "vi": "nhỏ, chi tiết"
+            },
+            {
+              "w": "指示",
+              "read": "しじ",
+              "vi": "chỉ thị, hướng dẫn"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "指導",
+              "read": "しどう",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "親切",
+              "read": "しんせつ",
+              "vi": "tốt bụng, thân thiện (tính từ な)"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "指導法",
+              "read": "しどうほう",
+              "vi": "phương pháp hướng dẫn, cách chỉ đạo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てあげる",
+              "vi": "接続: Vて + あげる. Sắc thái: Làm một hành động mang lại lợi ích cho đối phương (cấp trên làm cho cấp dưới). Đối chiếu: Không dùng trực tiếp trước mặt người bề trên; khác 〜てくれる (người khác làm cho mình)."
+            },
+            {
+              "point": "〜られる（受身）",
+              "vi": "接続: V(受身形) - Nhóm 2: 考える → 考えられる (考えられていた). Sắc thái: Thể bị động diễn tả nhận định, quan niệm chung của xã hội/mọi người (từng được coi là). Đối chiếu: Đây là bị động trung tính diễn đạt quan điểm phổ biến, không mang hàm ý chịu thiệt hại như bị động phiền toái."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、何でも手伝ってくれる先輩がいると、新人は自分で判断する機会を失ってしまうという意見もある。",
+          "vi": "Tuy nhiên, cũng có ý kiến cho rằng nếu có tiền bối luôn giúp đỡ mọi việc cho, nhân viên mới sẽ đánh mất cơ hội tự mình phán đoán.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, đàn anh/chị"
+            },
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "判断",
+              "read": "はんだん",
+              "vi": "phán đoán, nhận định"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội, dịp"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, làm mất"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくれる",
+              "vi": "接続: Vて + くれる. Sắc thái: Ai đó làm hành động giúp đỡ cho mình hoặc người trong nhóm của mình (tiền bối giúp cho nhân viên mới). Đối chiếu: Khác 〜てあげる (làm cho người khác) và 〜てもらう (chủ ngữ là người nhận)."
+            },
+            {
+              "point": "〜という（内容）",
+              "vi": "接続: 普通形 + という + N. Sắc thái: Bổ nghĩa cho danh từ đứng sau (意見) bằng nội dung cụ thể được nêu phía trước ('ý kiến rằng...'). Đối chiếu: Khác 〜という mang nghĩa gọi tên (N1というN2), ở đây dùng để giải thích tường tận nội dung tư tưởng/thông điệp."
+            }
+          ]
+        },
+        {
+          "jp": "専門家の話によれば、過剰な支援はかえって新人の成長の機会を奪ってしまうとのことだ。",
+          "vi": "Theo lời của các chuyên gia, sự hỗ trợ thái quá ngược lại sẽ cướp đi cơ hội trưởng thành của nhân viên mới.",
+          "vocab": [
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "過剰",
+              "read": "かじょう",
+              "vi": "quá mức, thái quá"
+            },
+            {
+              "w": "支援",
+              "read": "しえん",
+              "vi": "sự hỗ trợ, nâng đỡ"
+            },
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "ngược lại (so với mong muốn)"
+            },
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "奪う",
+              "read": "うばう",
+              "vi": "cướp đi, tước đoạt"
+            },
+            {
+              "w": "専門家",
+              "read": "せんもんか",
+              "vi": "chuyên gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によれば",
+              "vi": "接続: N + によれば. Sắc thái: Trích dẫn nguồn thông tin, thường dùng trong văn viết và mang tính trang trọng hơn 〜によると. Thường kết hợp với 〜とのことだ／〜そうだ. Đối chiếu: Đồng nghĩa với 〜によると nhưng tạo cảm giác chỉn chu, học thuật hơn."
+            },
+            {
+              "point": "〜とのことだ",
+              "vi": "接続: 普通形 + とのことだ. Sắc thái: Truyền đạt lại thông tin một cách lịch sự, khách quan, thường dựa trên thư từ, văn bản, thông cáo hoặc lời chuyên gia. Đối chiếu: Trang trọng hơn 〜そうだ và nhấn mạnh thông tin được truyền đạt lại nguyên vẹn từ nguồn uy tín."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、最近では先輩がすぐに答えを教えるのではなく、まず後輩に解決策を考えさせる会社が増えている。",
+          "vi": "Vì thế, gần đây ngày càng có nhiều công ty không để tiền bối chỉ ngay câu trả lời, mà trước hết để cho cấp dưới tự suy nghĩ giải pháp.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, đàn anh/chị"
+            },
+            {
+              "w": "答え",
+              "read": "こたえ",
+              "vi": "câu trả lời"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "後輩",
+              "read": "こうはい",
+              "vi": "cấp dưới, đàn em, hậu bối"
+            },
+            {
+              "w": "解決",
+              "read": "かいけつ",
+              "vi": "giải quyết, giải pháp"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "解決策",
+              "read": "かいけつさく",
+              "vi": "giải pháp, phương án giải quyết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜させる（使役）",
+              "vi": "接続: V(使役形) - Nhóm 2: 考える → 考えさせる. Sắc thái: Yêu cầu hoặc trao quyền cho đối phương tự thực hiện hành động (để cho đàn em tự suy nghĩ). Đối chiếu: Khác thể bị động 〜られる (bị làm) và sai khiến bị động 〜させられる (buộc phải làm)."
+            }
+          ]
+        },
+        {
+          "jp": "また、困ったときには一人で抱え込まず、早めに相談するように伝えることも大切にされている。",
+          "vi": "Ngoài ra, việc dặn dò cấp dưới rằng khi gặp khó khăn thì đừng tự ôm đồm một mình mà hãy trao đổi sớm cũng đang rất được coi trọng.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, cũng"
+            },
+            {
+              "w": "困った",
+              "read": "こまった",
+              "vi": "gặp khó khăn"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "抱え込まず",
+              "read": "かかえこまず",
+              "vi": "không tự ôm gánh"
+            },
+            {
+              "w": "早め",
+              "read": "はやめ",
+              "vi": "sớm"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, trao đổi"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように伝える／言う",
+              "vi": "接続: V辞書形 / Vない形 + ように伝える. Sắc thái: Truyền đạt gián tiếp lời khuyên, yêu cầu hoặc nhắc nhở ai đó nên/không nên làm gì một cách nhẹ nhàng. Đối chiếu: Lịch sự và gián tiếp hơn câu mệnh lệnh trực tiếp (〜てくださいと伝える / 〜ろと言う)."
+            },
+            {
+              "point": "〜ず（〜ずに／〜ず）",
+              "vi": "接続: Vない stem + ず (Nhóm 1: 抱え込まない → 抱え込まず, する → せず). Sắc thái: Dạng văn viết trang trọng tương đương với 〜ないで (không làm gì đó mà...). Đối chiếu: Dùng trong văn bản viết để tạo nhịp điệu trang nhã thay cho khẩu ngữ ないで."
+            }
+          ]
+        },
+        {
+          "jp": "必要なときに適切な支援をしてもらうことで、新人は安心して挑戦できるということだ。",
+          "vi": "Điều đó có nghĩa là, nhờ được nhận sự hỗ trợ thích hợp vào những lúc cần thiết, nhân viên mới có thể an tâm thử sức và đương đầu với thử thách.",
+          "vocab": [
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "適切",
+              "read": "てきせつ",
+              "vi": "thích hợp, phù hợp"
+            },
+            {
+              "w": "支援",
+              "read": "しえん",
+              "vi": "sự hỗ trợ, giúp đỡ"
+            },
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử sức, đương đầu thử thách"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ということだ（結論・要約）",
+              "vi": "接続: 普通形 + ということだ. Sắc thái: Diễn giải bản chất, tóm tắt ý nghĩa hoặc rút ra kết luận mang tính tất yếu từ các lập luận trước đó ('điều đó có nghĩa là...'). Đối chiếu: Khác 〜ということだ mang nghĩa truyền ngôn (nghe nói là); ở đây đóng vai trò đúc kết logic."
+            },
+            {
+              "point": "〜てもらう",
+              "vi": "接続: Vて + もらう (支援をしてもらう). Sắc thái: Được nhận sự giúp đỡ cần thiết từ người khác với hàm ý tích cực, hợp tác. Đối chiếu: Nhấn mạnh mối quan hệ tương hỗ hai chiều giữa người hướng dẫn và người học việc."
+            }
+          ]
+        },
+        {
+          "jp": "単に何でもやってあげるのではなく、自立を促しながら見守ってあげることが本当の優しさなのだ。",
+          "vi": "Không chỉ đơn thuần là làm thay mọi việc cho cấp dưới, mà việc vừa thúc đẩy sự tự lập vừa dõi theo ủng hộ mới chính là lòng tốt thực sự.",
+          "vocab": [
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "自立",
+              "read": "じりつ",
+              "vi": "sự tự lập"
+            },
+            {
+              "w": "促す",
+              "read": "うながす",
+              "vi": "thúc đẩy, khuyến khích"
+            },
+            {
+              "w": "見守る",
+              "read": "みまもる",
+              "vi": "dõi theo, trông nom, che chở"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "優しい",
+              "read": "やさしい",
+              "vi": "dịu dàng, hiền từ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てあげる",
+              "vi": "接続: Vて + あげる (やってあげる / 見守ってあげる). Sắc thái: Làm hành động xuất phát từ thiện chí hướng đến đối phương (dõi theo ủng hộ người dưới). Đối chiếu: Nhấn mạnh sự nâng đỡ và quan tâm tích cực thay vì bao bọc can thiệp quá sâu."
+            },
+            {
+              "point": "〜のではなく",
+              "vi": "接続: 普通形 + のではなく. Sắc thái: Phủ định vế A để khẳng định mạnh mẽ nội dung vế B ('không phải là A mà là B'). Đối chiếu: Mang tính văn viết trang trọng, lịch sự hơn cách nói khẩu ngữ (〜じゃなくて)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "先輩から何でも教えてもらうより、自分で考えさせられる環境を望む",
+          "label": "Xu hướng mong muốn tự lập của nhân viên mới"
+        },
+        {
+          "excerpt": "過剰な支援はかえって新人の成長の機会を奪ってしまう",
+          "label": "Tác hại của việc hỗ trợ quá mức"
+        },
+        {
+          "excerpt": "自立を促しながら見守ってあげることが本当の優しさなのだ",
+          "label": "Bản chất sự giúp đỡ và lòng tốt thực sự"
+        }
+      ],
+      "questions": [
+        {
+          "q": "最近の調査によると、職場において若者はどのような環境を求めていますか。",
+          "options": [
+            "先輩が何から何まで細かく指示を出して教えてくれる環境",
+            "困ったときにすぐに先輩が代わりに仕事をやってくれる環境",
+            "何でも教えてもらうのではなく、自分で考える機会がある環境",
+            "先輩からの指導や支援を一切受けずに一人で仕事を進める環境"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [0]: 「先輩から何でも教えてもらうより、自分で考えさせられる環境を望む若者が増えているそうだ」(nghe nói số người trẻ mong muốn môi trường được tự mình suy nghĩ hơn là được tiền bối chỉ dạy mọi thứ đang tăng lên). Do đó phương án 3 là chính xác.\n- Phương án 1 sai vì đây là cách làm trước đây (câu [1]), không phải mong muốn của người trẻ hiện nay.\n- Phương án 2 sai vì làm thay công việc sẽ tước mất cơ hội tự phán đoán của nhân viên (câu [2]).\n- Phương án 4 sai vì bài viết không hề nói người trẻ muốn tự làm một mình mà không nhận bất kỳ sự hướng dẫn hay hỗ trợ nào, mà là cần nhận hỗ trợ đúng lúc (câu [6]).",
+          "tip": "Chú ý cấu trúc so sánh 「〜より、〜を望む」ở câu đầu tiên để tìm đúng nguyện vọng của người trẻ.",
+          "evi": [
+            0
+          ],
+          "qt": {
+            "q": "Theo khảo sát gần đây, người trẻ mong muốn môi trường như thế nào tại nơi làm việc?",
+            "o": [
+              "Môi trường mà các anh chị đi trước đưa ra chỉ dẫn chi tiết cho mọi việc và dạy họ",
+              "Môi trường mà khi gặp khó khăn, các anh chị đi trước sẽ ngay lập tức làm thay công việc",
+              "Môi trường có cơ hội tự suy nghĩ, thay vì được chỉ dạy mọi thứ",
+              "Môi trường làm việc một mình mà không nhận bất kỳ sự hướng dẫn hay hỗ trợ nào từ các anh chị đi trước"
+            ]
+          }
+        },
+        {
+          "q": "専門家によると、先輩による「過剰な支援」にはどのような問題がありますか。",
+          "options": [
+            "新人が自分で判断したり成長したりする機会を奪ってしまうこと",
+            "先輩自身の仕事の時間がなくなって業務が進まなくなること",
+            "職場内の人間関係が悪化して新人が相談できなくなること",
+            "新人が先輩に頼りすぎて会社を辞めてしまうこと"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [2] và câu [3]: 「新人は自分で判断する機会を失ってしまう」「過剰な支援はかえって新人の成長の機会を奪ってしまうとのことだ」. Cả hai câu đều nêu rõ tác hại của việc hỗ trợ quá mức là tước đi cơ hội tự phán đoán và cơ hội trưởng thành của người mới. Do đó phương án 1 là chính xác.\n- Phương án 2 sai vì bài viết không đề cập đến việc tiền bối bị mất thời gian làm việc riêng.\n- Phương án 3 sai vì bài không nhắc đến việc mối quan hệ tại nơi làm việc xấu đi dẫn tới không thể trao đổi.\n- Phương án 4 sai vì chi tiết 'nhân viên bỏ việc vì dựa dẫm' hoàn toàn không xuất hiện trong bài.",
+          "tip": "Tìm từ khóa 「過剰な支援」「専門家」để định vị trực tiếp câu [3] và câu dẫn nhập [2].",
+          "evi": [
+            2,
+            3
+          ],
+          "qt": {
+            "q": "Theo chuyên gia, việc các anh chị đi trước 「過剰な支援」 (hỗ trợ quá mức) có vấn đề gì?",
+            "o": [
+              "Lấy mất cơ hội để nhân viên mới tự đưa ra quyết định và trưởng thành",
+              "Khiến các anh chị đi trước không còn thời gian làm việc của mình, làm công việc bị đình trệ",
+              "Khiến các mối quan hệ giữa mọi người tại nơi làm việc xấu đi, làm nhân viên mới không thể trao đổi",
+              "Khiến nhân viên mới quá dựa dẫm vào các anh chị đi trước rồi nghỉ việc"
+            ]
+          }
+        },
+        {
+          "q": "最近の会社では、新人の教育においてどのようなことが大切にされていますか。",
+          "options": [
+            "新人が質問してきたら、先輩がすぐに答えを教えてあげること",
+            "まず新人に解決策を考えさせ、困った時は早めに相談させること",
+            "新人がミスをしないように、すべての仕事を先輩が手伝うこと",
+            "新人が一人で抱え込んで自力で解決するまで口を出さないこと"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [4] và câu [5]: 「まず後輩に解決策を考えさせる会社が増えている」「困ったときには一人で抱え込まず、早めに相談するように伝えることも大切にされている」. Do đó phương án 2 (để nhân viên tự suy nghĩ giải pháp trước và nhắc nhở trao đổi sớm khi gặp khó) là đúng.\n- Phương án 1 sai vì bài nêu rõ xu hướng hiện nay là 'không phải chỉ ngay câu trả lời' (すぐに答えを教えるのではなく - câu [4]).\n- Phương án 3 sai vì việc giúp đỡ tất cả mọi việc bị xem là hỗ trợ thái quá gây cản trở sự trưởng thành (câu [2], [3]).\n- Phương án 4 sai vì bài khuyên không nên tự ôm đồm một mình mà phải trao đổi sớm với người đi trước (一人で抱え込まず、早めに相談する - câu [5]).",
+          "tip": "Kết hợp thông tin từ hai câu liên tiếp [4] và [5] về phương thức đào tạo thực tế hiện nay.",
+          "evi": [
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Gần đây, trong việc đào tạo nhân viên mới tại các công ty, điều gì được coi trọng?",
+            "o": [
+              "Khi nhân viên mới đặt câu hỏi, các anh chị đi trước sẽ lập tức giải đáp",
+              "Trước tiên để nhân viên mới tự nghĩ ra cách giải quyết, và khi gặp khó khăn thì bảo họ trao đổi sớm",
+              "Các anh chị đi trước giúp mọi việc để nhân viên mới không mắc lỗi",
+              "Không can thiệp cho đến khi nhân viên mới tự mình giải quyết được vấn đề đang ôm giữ"
+            ]
+          }
+        },
+        {
+          "q": "筆者が考える「本当の優しさ」とはどのようなものですか。",
+          "options": [
+            "新人が失敗しないように、先回りして何でもやってあげること",
+            "新人を完全に一人立ちさせるために、一切の支援を行わないこと",
+            "新人の自立を促しつつ、必要な時に適切な支援をして見守ること",
+            "新人が自分で助けを求めてくるまで、先輩は何の指導もしないこと"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [6] và câu [7]: 「必要なときに適切な支援をしてもらうことで、新人は安心して挑戦できる」「単に何でもやってあげるのではなく、自立を促しながら見守ってあげることが本当の優しさなのだ」. Tác giả khẳng định lòng tốt thực sự không phải là làm thay hết mọi việc, mà là thúc đẩy tính tự lập đồng thời dõi theo nâng đỡ và hỗ trợ thích hợp khi cần. Phương án 3 phản ánh chính xác tư tưởng này.\n- Phương án 1 sai vì việc 'làm thay hết mọi việc từ trước' đi ngược lại quan điểm của tác giả (単に何でもやってあげるのではない).\n- Phương án 2 sai vì 'hoàn toàn không hỗ trợ' là cực đoan, bài viết vẫn khẳng định tầm quan trọng của việc nhận hỗ trợ thích hợp khi cần (必要なときに適切な支援).\n- Phương án 4 sai vì không phải là tiền bối bỏ mặc không hướng dẫn gì, mà vẫn cần dõi theo và định hướng cách trao đổi khi gặp khó (câu [5], [7]).",
+          "tip": "Đọc kỹ câu kết [7] để nắm bắt luận điểm then chốt và thông điệp mà tác giả đúc kết.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Theo tác giả, 「本当の優しさ」 (sự tử tế thật sự) là như thế nào?",
+            "o": [
+              "Làm trước mọi việc cho nhân viên mới để họ không thất bại",
+              "Không hỗ trợ gì cả để nhân viên mới hoàn toàn tự lập",
+              "Khuyến khích nhân viên mới tự lập, đồng thời dõi theo và hỗ trợ phù hợp khi cần",
+              "Các anh chị đi trước không hướng dẫn gì cho đến khi nhân viên mới tự mình nhờ giúp đỡ"
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "世代を超えて学び合う「スキル交換会」の広がり",
+      "titleVi": "Sự lan tỏa của \"Hội trao đổi kỹ năng\" học hỏi lẫn nhau qua các thế hệ",
+      "japanese": "最近の新聞記事によると、地域の世代間交流を目的とした「スキル交換会」という活動が注目を集めているそうだ。\nこれは、若い世代が高齢者にスマートフォンの使い方を教えてあげて、逆に高齢者から伝統的な料理や生活の知恵を教えてもらうという催しである。\n主催者の発表によれば、参加者の満足度は９割を超えているとのことだ。\n世代が違う人々が互いに助け合う場を作ることには、どのような意義があるのだろうか。\nこれは、単に技術を教えるだけでなく、人と人との新しいつながりを生み出すということだ。\nかつては、若者が年長者に一方的に教えられることが多く、若い世代に意見を言わせる機会は少なかったと言われている。\nしかし、技術が急速に進歩する現代では、お年寄りが若い人に操作方法を聞いて、手伝ってもらう場面が増えている。\n参加した若者の一人は、「祖父母のような方々に感謝の言葉を言ってもらえて、自分の知識が役に立つと実感させられた」と語っている。\n一方で、高齢者側も「若者に何かを伝えてあげることで、社会に必要とされていると感じられる」と喜んでいるそうだ。\n周囲のスタッフも、お互いが遠慮せずに質問できるように伝えている。\nある町の社会福祉協議会では、参加者に「分からないことは恥ずかしがらずに何でも聞いてほしい」と事前に伝えているという。\nまた、若い参加者に対しても、専門用語を使わずに分かりやすい言葉で説明するように頼んでいる。\nこのような配慮によって、参加者全員に安心して活動を楽しませることができるのである。\n調査によると、こうした交流を経験した高齢者は孤立感を減らし、若者も自己肯定感を高められるとのことだ。\nつまり、一方的な支援ではなく双方向のやり取りを行うことが、双方の心を豊かにさせるということだ。\n私たちは日常の中で、誰かに助けてもらうこともあれば、誰かを助けてあげることもある。\n困っている人を見たときに「手伝ってあげよう」と思える社会は、温かい社会だと言えるだろう。\n専門家によると、これからの地域社会では、多様な世代が知識を分かち合う仕組みがますます重要になるそうだ。\n自分の小さな経験であっても、誰かの役に立てるという喜びを忘れずにいたい。\n互いを尊重し、支え合える関係を築いていくことが、これからの時代に求められている。",
+      "vietnamese": "Theo một bài báo gần đây, hoạt động mang tên \"Hội trao đổi kỹ năng\" nhằm mục đích giao lưu giữa các thế hệ trong cộng đồng đang thu hút được nhiều sự chú ý.\nĐây là một sự kiện mà ở đó thế hệ trẻ hướng dẫn người cao tuổi cách sử dụng điện thoại thông minh, và ngược lại, họ được người cao tuổi dạy lại các món ăn truyền thống cùng những bí quyết trong đời sống.\nTheo công bố của ban tổ chức, mức độ hài lòng của những người tham gia đã vượt quá 90%.\nViệc tạo ra một không gian để mọi người thuộc các thế hệ khác nhau giúp đỡ lẫn nhau mang lại ý nghĩa như thế nào?\nĐiều này có nghĩa là hoạt động không đơn thuần chỉ là dạy kỹ thuật, mà còn tạo ra những sợi dây kết nối mới giữa con người với con người.\nNgười ta nói rằng trước đây, người trẻ thường chỉ một chiều được người lớn tuổi chỉ dạy, và rất ít khi có cơ hội để thế hệ trẻ được nói lên ý kiến của mình.\nThế nhưng, trong thời đại công nghệ phát triển nhanh chóng ngày nay, những tình huống người cao tuổi hỏi người trẻ về cách thao tác và nhờ họ giúp đỡ đang ngày càng tăng lên.\nMột bạn trẻ tham gia chia sẻ: \"Khi được những người trạc tuổi ông bà nói lời cảm ơn, tôi thực sự cảm nhận sâu sắc rằng kiến thức của mình có ích.\"\nMặt khác, phía người cao tuổi cũng rất vui mừng khi bày tỏ rằng: \"Bằng việc truyền đạt điều gì đó cho người trẻ, tôi cảm thấy bản thân vẫn được xã hội cần đến.\"\nCác nhân viên xung quanh cũng luôn nhắc nhở để cả hai bên có thể thoải mái đặt câu hỏi mà không cần phải e ngại.\nTại hội đồng phúc lợi xã hội của một thị trấn, người ta cho biết họ đã truyền đạt trước với người tham gia rằng: \"Bất cứ điều gì chưa hiểu xin hãy cứ hỏi, đừng ngại ngùng.\"\nNgoài ra, họ cũng yêu cầu các bạn trẻ tham gia giải thích bằng ngôn từ dễ hiểu, không sử dụng các thuật ngữ chuyên môn.\nNhờ vào sự chu đáo như thế này, ban tổ chức có thể giúp cho tất cả người tham gia đều cảm thấy an tâm và tận hưởng trọn vẹn hoạt động.\nTheo khảo sát, những người cao tuổi trải qua sự giao lưu này đã giảm bớt cảm giác cô lập, đồng thời người trẻ cũng nâng cao được lòng tự tôn của bản thân.\nTóm lại, việc thực hiện trao đổi hai chiều chứ không phải là sự hỗ trợ một chiều sẽ làm cho tâm hồn của cả hai bên trở nên phong phú hơn.\nTrong cuộc sống thường nhật, chúng ta đôi khi nhận được sự giúp đỡ từ ai đó, và cũng có lúc lại dang tay giúp đỡ người khác.\nMột xã hội mà khi nhìn thấy người gặp khó khăn, ta có thể nghĩ rằng \"mình hãy giúp đỡ họ một tay\" có thể nói là một xã hội ấm áp.\nTheo các chuyên gia, trong xã hội cộng đồng từ nay về sau, cơ chế để các thế hệ đa dạng cùng nhau chia sẻ tri thức sẽ ngày càng trở nên quan trọng.\nDù chỉ là kinh nghiệm nhỏ bé của bản thân, chúng ta cũng nên luôn ghi nhớ niềm vui khi có thể giúp ích được cho ai đó.\nViệc xây dựng một mối quan hệ tôn trọng và nương tựa lẫn nhau chính là điều đang được thời đại ngày nay kỳ vọng và đòi hỏi.",
+      "sentences": [
+        {
+          "jp": "最近の新聞記事によると、地域の世代間交流を目的とした「スキル交換会」という活動が注目を集めているそうだ。",
+          "vi": "Theo một bài báo gần đây, hoạt động mang tên \"Hội trao đổi kỹ năng\" nhằm mục đích giao lưu giữa các thế hệ trong cộng đồng đang thu hút được nhiều sự chú ý.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "新聞",
+              "read": "しんぶん",
+              "vi": "báo (tờ báo)"
+            },
+            {
+              "w": "記事",
+              "read": "きじ",
+              "vi": "bài báo, bài viết"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "スキル",
+              "read": "スキル",
+              "vi": "kỹ năng"
+            },
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "sự trao đổi"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "注目",
+              "read": "ちゅうもく",
+              "vi": "sự chú ý, quan tâm"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "世代間交流",
+              "read": "せだいかんこうりゅう",
+              "vi": "giao lưu giữa các thế hệ"
+            },
+            {
+              "w": "注目を集める",
+              "read": "ちゅうもくをあつめる",
+              "vi": "thu hút sự chú ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると",
+              "vi": "【接続】N ＋ によると／によれば。【Sắc thái】Chỉ nguồn gốc thông tin khách quan thu thập từ báo đài, tài liệu; vế sau thường đi kèm các đuôi truyền đạt như 〜そうだ, 〜とのことだ。【Đối chiếu】Khác với 〜に基づいて (N2 - lấy cái gì làm căn cứ pháp lý/tiêu chuẩn hành động), 〜によると chỉ thuần túy dẫn nguồn tin tức."
+            },
+            {
+              "point": "〜という＋N",
+              "vi": "【接続】N1 ＋ という ＋ N2。【Sắc thái】Dùng để gọi tên, định nghĩa sự vật/sự việc cụ thể mà người nghe có thể chưa biết rõ (mang nghĩa 'cái gọi là...').【Đối chiếu】Khác với 〜ということだ (mẫu câu kết luận, tóm tắt bản chất sự việc)."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "【接続】普通形 ＋ そうだ (Aな/Nだ ＋ そうだ)。【Sắc thái】Truyền đạt lại thông tin nghe/đọc được từ người khác một cách trung thực, người nói không trực tiếp chứng kiến。【Đối chiếu】Khác với 〜そうだ (phán đoán thị giác, V-stem/A-stem + そうだ: trông có vẻ) và 〜らしい (suy đoán dựa trên chứng cứ)."
+            }
+          ]
+        },
+        {
+          "jp": "これは、若い世代が高齢者にスマートフォンの使い方を教えてあげて、逆に高齢者から伝統的な料理や生活の知恵を教えてもらうという催しである。",
+          "vi": "Đây là một sự kiện mà ở đó thế hệ trẻ hướng dẫn người cao tuổi cách sử dụng điện thoại thông minh, và ngược lại, họ được người cao tuổi dạy lại các món ăn truyền thống cùng những bí quyết trong đời sống.",
+          "vocab": [
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "逆",
+              "read": "ぎゃく",
+              "vi": "ngược lại, trái ngược"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "知恵",
+              "read": "ちえ",
+              "vi": "trí tuệ, bí quyết, sự khôn ngoan"
+            },
+            {
+              "w": "催し",
+              "read": "もよおし",
+              "vi": "sự kiện, buổi hội họp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てあげる",
+              "vi": "【接続】Vて ＋ あげる。【Sắc thái】Người nói (hoặc người phe mình) làm hành động có lợi giúp đỡ người khác. Lưu ý tránh dùng trực tiếp với người trên để không bị xem là kẻ cả。【Đối chiếu】Khác với 〜てくれる (người khác làm điều tốt cho mình) và 〜てもらう (mình nhờ/được người khác làm cho)."
+            },
+            {
+              "point": "〜てもらう",
+              "vi": "【接続】Vて ＋ もらう。【Sắc thái】Chủ ngữ tiếp nhận hành động có lợi từ người khác với lòng biết ơn (AはBにVてもらう)。【Đối chiếu】Khác với thể bị động thuần túy 〜（ら）れる (chỉ bị tác động, đôi khi mang nét tiêu cực), 〜てもらう luôn mang ý nghĩa tích cực, hàm ơn."
+            }
+          ]
+        },
+        {
+          "jp": "主催者の発表によれば、参加者の満足度は９割を超えているとのことだ。",
+          "vi": "Theo công bố của ban tổ chức, mức độ hài lòng của những người tham gia đã vượt quá 90%.",
+          "vocab": [
+            {
+              "w": "主催",
+              "read": "しゅさい",
+              "vi": "chủ trì, đơn vị tổ chức chính"
+            },
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "sự công bố, phát biểu"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "満足",
+              "read": "まんぞく",
+              "vi": "hài lòng, thỏa mãn"
+            },
+            {
+              "w": "超える",
+              "read": "こえる",
+              "vi": "vượt qua, vượt quá"
+            },
+            {
+              "w": "主催者",
+              "read": "しゅさいしゃ",
+              "vi": "người chủ trì, ban tổ chức"
+            },
+            {
+              "w": "満足度",
+              "read": "まんぞくど",
+              "vi": "mức độ hài lòng"
+            },
+            {
+              "w": "９割",
+              "read": "きゅうわり",
+              "vi": "90% (9 phần 10)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によれば",
+              "vi": "【接続】N ＋ によれば。【Sắc thái】Nêu nguồn thông tin, thường dùng trong văn viết hoặc phát biểu trang trọng, vế sau đi cùng 〜とのことだ hoặc 〜そうだ。【Đối chiếu】Hoàn toàn tương đồng về ý nghĩa với 〜によると nhưng mang sắc thái văn phong trang trọng hơn."
+            },
+            {
+              "point": "〜とのことだ",
+              "vi": "【接続】普通形 ＋ とのことだ (Aな/Nだ ＋ とのことだ)。【Sắc thái】Truyền đạt lại nội dung thông tin, thông báo một cách lịch sự, khách quan trong văn bản, thư từ, tin tức。【Đối chiếu】Trang trọng hơn đuôi truyền đạt 〜そうだ trong văn nói thường ngày."
+            }
+          ]
+        },
+        {
+          "jp": "世代が違う人々が互いに助け合う場を作ることには、どのような意義があるのだろうか。",
+          "vi": "Việc tạo ra một không gian để mọi người thuộc các thế hệ khác nhau giúp đỡ lẫn nhau mang lại ý nghĩa như thế nào?",
+          "vocab": [
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "互いに",
+              "read": "たがいに",
+              "vi": "lẫn nhau, cùng nhau"
+            },
+            {
+              "w": "助け合う",
+              "read": "たすけあう",
+              "vi": "giúp đỡ lẫn nhau, tương trợ"
+            },
+            {
+              "w": "場",
+              "read": "ば",
+              "vi": "bầu không khí, nơi, địa điểm"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "意義",
+              "read": "いぎ",
+              "vi": "ý nghĩa, giá trị sâu sắc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のだろうか",
+              "vi": "【接続】普通形 ＋ のだろうか (Aな/Nな ＋ のだろうか)。【Sắc thái】Câu tự vấn, tự đặt câu hỏi để khơi gợi suy nghĩ và mở ra luận điểm cần phân tích trong văn nghị luận。【Đối chiếu】Khác với câu hỏi 〜か trực tiếp chất vấn người đối thoại, 〜のだろうか là dạng tự hỏi nội tâm mang tính khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "これは、単に技術を教えるだけでなく、人と人との新しいつながりを生み出すということだ。",
+          "vi": "Điều này có nghĩa là hoạt động không đơn thuần chỉ là dạy kỹ thuật, mà còn tạo ra những sợi dây kết nối mới giữa con người với con người.",
+          "vocab": [
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "つながり",
+              "read": "つながり",
+              "vi": "mối liên kết, sự kết nối"
+            },
+            {
+              "w": "生み出す",
+              "read": "うみだす",
+              "vi": "tạo ra, sinh ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく（〜も）",
+              "vi": "【接続】N / V普通形 ＋ だけでなく。【Sắc thái】Không chỉ A mà còn cả B, mở rộng thêm một khía cạnh bổ sung quan trọng。【Đối chiếu】Khác với 〜ばかりでなく (mang tính chất bổ sung dồn dập, bất ngờ hơn)."
+            },
+            {
+              "point": "〜ということだ（意味・結論）",
+              "vi": "【接続】普通形 ＋ ということだ。【Sắc thái】Dùng để giải thích, làm sáng tỏ bản chất hoặc đưa ra đúc kết, kết luận cho hiện tượng vừa nêu ('điều đó có nghĩa là... / tức là...').【Đối chiếu】Khác với 〜ということだ mang nghĩa truyền đạt nghe ngóng tin tức (= 〜そうだ)."
+            }
+          ]
+        },
+        {
+          "jp": "かつては、若者が年長者に一方的に教えられることが多く、若い世代に意見を言わせる機会は少なかったと言われている。",
+          "vi": "Người ta nói rằng trước đây, người trẻ thường chỉ một chiều được người lớn tuổi chỉ dạy, và rất ít khi có cơ hội để thế hệ trẻ được nói lên ý kiến của mình.",
+          "vocab": [
+            {
+              "w": "かつて",
+              "read": "かつて",
+              "vi": "trước đây, ngày xưa"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "年長者",
+              "read": "ねんちょうしゃ",
+              "vi": "người lớn tuổi, bậc tiền bối"
+            },
+            {
+              "w": "一方的",
+              "read": "いっぽうてき",
+              "vi": "một chiều, đơn phương"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（ら）れる（受身）",
+              "vi": "【接続】V nhóm 1 đổi sang cột あ + れる (教える → 教えられる)。【Sắc thái】Thể bị động: chủ ngữ (người trẻ) là đối tượng tiếp nhận hành động dạy dỗ từ bề trên。【Đối chiếu】Khác với thể sai khiến (cho/bắt làm), thể bị động nhấn mạnh góc nhìn và vị thế của người chịu tác động."
+            },
+            {
+              "point": "〜（さ）せる（使役）",
+              "vi": "【接続】V nhóm 1 đổi sang cột あ + せる (言う → 言わせる)。【Sắc thái】Thể sai khiến: cho phép hoặc tạo điều kiện cho ai đó thực hiện hành vi (ở đây đi với phủ định 'ít cho phép/ít có dịp cho người trẻ nói').【Đối chiếu】Khác với tự nói (言う), 言わせる thể hiện sự cấp quyền hoặc chi phối từ đối tượng bên ngoài."
+            },
+            {
+              "point": "〜と言われている",
+              "vi": "【接続】普通形 ＋ と言われている。【Sắc thái】Biểu thị nhận định chung của số đông/thế gian ('người ta cho rằng / có ý kiến cho rằng').【Đối chiếu】Khác với 〜と思う (nêu quan điểm cá nhân trực tiếp của người viết)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、技術が急速に進歩する現代では、お年寄りが若い人に操作方法を聞いて、手伝ってもらう場面が増えている。",
+          "vi": "Thế nhưng, trong thời đại công nghệ phát triển nhanh chóng ngày nay, những tình huống người cao tuổi hỏi người trẻ về cách thao tác và nhờ họ giúp đỡ đang ngày càng tăng lên.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "急速に",
+              "read": "きゅうそくに",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "進歩する",
+              "read": "しんぽする",
+              "vi": "tiến bộ, phát triển"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "年寄り",
+              "read": "としより",
+              "vi": "người già, người cao tuổi"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "操作",
+              "read": "そうさ",
+              "vi": "thao tác, cách vận hành"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "場面",
+              "read": "ばめん",
+              "vi": "bối cảnh, tình huống"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "操作方法",
+              "read": "そうさほうほう",
+              "vi": "phương pháp thao tác, cách sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てもらう",
+              "vi": "【接続】Vて ＋ もらう。【Sắc thái】Người cao tuổi chủ động hỏi và nhận được sự hỗ trợ thao tác máy móc từ người trẻ (お年寄りが手伝ってもらう)。【Đối chiếu】Khác với việc người trẻ chủ động giúp (手伝ってあげる), 〜てもらう nhìn từ lập trường người cao tuổi nhận được sự đỡ đần quý báu."
+            }
+          ]
+        },
+        {
+          "jp": "参加した若者の一人は、「祖父母のような方々に感謝の言葉を言ってもらえて、自分の知識が役に立つと実感させられた」と語っている。",
+          "vi": "Một bạn trẻ tham gia chia sẻ: \"Khi được những người trạc tuổi ông bà nói lời cảm ơn, tôi thực sự cảm nhận sâu sắc rằng kiến thức của mình có ích.\"",
+          "vocab": [
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "祖父母",
+              "read": "そふぼ",
+              "vi": "ông bà"
+            },
+            {
+              "w": "方々",
+              "read": "かたがた",
+              "vi": "các vị, mọi người"
+            },
+            {
+              "w": "感謝",
+              "read": "かんしゃ",
+              "vi": "lòng biết ơn, sự cảm ơn"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "役に立つ",
+              "read": "やくにたつ",
+              "vi": "có ích, hữu dụng"
+            },
+            {
+              "w": "実感する",
+              "read": "じっかんする",
+              "vi": "cảm nhận thực tế, thấm thía"
+            },
+            {
+              "w": "語る",
+              "read": "かたる",
+              "vi": "phát biểu, kể lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てもらえて（可能・授受）",
+              "vi": "【接続】Vて ＋ もらえる (khả năng của もらう) chia thể て nối câu。【Sắc thái】Bày tỏ niềm hạnh phúc, may mắn khi được người khác trao tặng lời cảm ơn。【Đối chiếu】Khác với 言われて (bị động trung tính), 言ってもらえて mang đậm tình cảm biết ơn và sự ấm áp."
+            },
+            {
+              "point": "〜（さ）せられる（使役受身）",
+              "vi": "【接続】V nhóm 1 đổi sang cột あ + せられる (hoặc される) (実感する → 実感させられる)。【Sắc thái】Thể sai khiến bị động biểu thị việc tâm trạng, nhận thức của bản thân bị ngoại cảnh tác động làm cho tự động cảm nhận sâu sắc。【Đối chiếu】Khác với 実感した (tự mình cảm thấy), 実感させられた nhấn mạnh tác động xúc động từ bên ngoài làm bừng tỉnh nhận thức."
+            }
+          ]
+        },
+        {
+          "jp": "一方で、高齢者側も「若者に何かを伝えてあげることで、社会に必要とされていると感じられる」と喜んでいるそうだ。",
+          "vi": "Mặt khác, phía người cao tuổi cũng rất vui mừng khi bày tỏ rằng: \"Bằng việc truyền đạt điều gì đó cho người trẻ, tôi cảm thấy bản thân vẫn được xã hội cần đến.\"",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "必要とされる",
+              "read": "ひつようとされる",
+              "vi": "được coi là cần thiết, được xã hội cần đến"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "喜ぶ",
+              "read": "よろこぶ",
+              "vi": "vui mừng, hoan hỉ"
+            },
+            {
+              "w": "高齢者側",
+              "read": "こうれいしゃがわ",
+              "vi": "phía người cao tuổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てあげる",
+              "vi": "【接続】Vて ＋ あげる。【Sắc thái】Hành động truyền thụ kinh nghiệm cho lớp trẻ xuất phát từ thiện chí muốn đóng góp, cống hiến giá trị。【Đối chiếu】Khác với 〜てもらう (tiếp nhận), 〜てあげる thể hiện việc cho đi kiến thức."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "【接続】普通形 ＋ そうだ。【Sắc thái】Dẫn lại lời chia sẻ, cảm nghĩ của những người cao tuổi sau khi tham gia hoạt động。【Đối chiếu】Khác với 〜そうだ (phỏng đoán vẻ ngoài), đây là truyền đạt lại lời phỏng vấn."
+            }
+          ]
+        },
+        {
+          "jp": "周囲のスタッフも、お互いが遠慮せずに質問できるように伝えている。",
+          "vi": "Các nhân viên xung quanh cũng luôn nhắc nhở để cả hai bên có thể thoải mái đặt câu hỏi mà không cần phải e ngại.",
+          "vocab": [
+            {
+              "w": "周囲",
+              "read": "しゅうい",
+              "vi": "xung quanh"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "お互い",
+              "read": "おたがい",
+              "vi": "lẫn nhau, đôi bên"
+            },
+            {
+              "w": "遠慮する",
+              "read": "えんりょする",
+              "vi": "ngại ngùng, khách khí"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように伝える",
+              "vi": "【接続】Vる／Vない ＋ ように伝える。【Sắc thái】Truyền đạt lời nhắc nhở, hướng dẫn gián tiếp để đối phương hướng tới một trạng thái/hành vi mong muốn。【Đối chiếu】Khác với 〜と伝える (trích dẫn nguyên văn), 〜ように伝える truyền đạt nội dung mang tính định hướng nhẹ nhàng."
+            }
+          ]
+        },
+        {
+          "jp": "ある町の社会福祉協議会では、参加者に「分からないことは恥ずかしがらずに何でも聞いてほしい」と事前に伝えているという。",
+          "vi": "Tại hội đồng phúc lợi xã hội của một thị trấn, người ta cho biết họ đã truyền đạt trước với người tham gia rằng: \"Bất cứ điều gì chưa hiểu xin hãy cứ hỏi, đừng ngại ngùng.\"",
+          "vocab": [
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "một, có"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "社会福祉協議会",
+              "read": "しゃかいふくしきょうぎかい",
+              "vi": "hội đồng phúc lợi xã hội"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "福祉",
+              "read": "ふくし",
+              "vi": "phúc lợi"
+            },
+            {
+              "w": "協議会",
+              "read": "きょうぎかい",
+              "vi": "hội đồng thảo luận"
+            },
+            {
+              "w": "協議",
+              "read": "きょうぎ",
+              "vi": "thảo luận"
+            },
+            {
+              "w": "参加者",
+              "read": "さんかしゃ",
+              "vi": "người tham gia"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "tham gia"
+            },
+            {
+              "w": "分からない",
+              "read": "わからない",
+              "vi": "không hiểu, không biết"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "việc, điều"
+            },
+            {
+              "w": "恥ずかしがらず",
+              "read": "はずかしがらず",
+              "vi": "không ngại ngùng"
+            },
+            {
+              "w": "何でも",
+              "read": "なんでも",
+              "vi": "bất cứ điều gì"
+            },
+            {
+              "w": "聞いてほしい",
+              "read": "きいてほしい",
+              "vi": "muốn hãy hỏi"
+            },
+            {
+              "w": "事前に",
+              "read": "じぜんに",
+              "vi": "trước đó"
+            },
+            {
+              "w": "伝えている",
+              "read": "つたえている",
+              "vi": "đang thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てほしい",
+              "vi": "【接続】Vて ＋ ほしい。【Sắc thái】Bày tỏ nguyện vọng, mong muốn người khác thực hiện một hành động nào đó vì lợi ích chung。【Đối chiếu】Khác với 〜たい (nguyện vọng của chính bản thân người nói)."
+            },
+            {
+              "point": "〜という（伝聞）",
+              "vi": "【接続】普通形 ＋ という。【Sắc thái】Cách kết thúc câu mang sắc thái truyền đạt trang trọng trong văn viết báo chí, tài liệu (nghe nói/được biết là).【Đối chiếu】Khác với 〜そうだ trong văn nói, 〜という mang tính tường thuật khách quan cao hơn."
+            }
+          ]
+        },
+        {
+          "jp": "また、若い参加者に対しても、専門用語を使わずに分かりやすい言葉で説明するように頼んでいる。",
+          "vi": "Ngoài ra, họ cũng yêu cầu các bạn trẻ tham gia giải thích bằng ngôn từ dễ hiểu, không sử dụng các thuật ngữ chuyên môn.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, cũng"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ"
+            },
+            {
+              "w": "参加者",
+              "read": "さんかしゃ",
+              "vi": "người tham gia"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "tham gia"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "専門用語",
+              "read": "せんもんようご",
+              "vi": "thuật ngữ chuyên môn"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "用語",
+              "read": "ようご",
+              "vi": "thuật ngữ"
+            },
+            {
+              "w": "使わずに",
+              "read": "つかわずに",
+              "vi": "không sử dụng"
+            },
+            {
+              "w": "分かりやすい",
+              "read": "わかりやすい",
+              "vi": "dễ hiểu"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, từ ngữ"
+            },
+            {
+              "w": "説明する",
+              "read": "せつめいする",
+              "vi": "giải thích"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "頼んでいる",
+              "read": "たのんでいる",
+              "vi": "đang nhờ, yêu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように頼む",
+              "vi": "【接続】Vる／Vない ＋ ように頼む。【Sắc thái】Nhờ vả, yêu cầu ai đó làm hoặc không làm một hành động nào đó một cách gián tiếp và lịch thiệp。【Đối chiếu】Khác với 〜てくれと頼む (truyền đạt mệnh lệnh trực tiếp), 〜ように頼む mang tính mềm mỏng và trang trọng."
+            }
+          ]
+        },
+        {
+          "jp": "このような配慮によって、参加者全員に安心して活動を楽しませることができるのである。",
+          "vi": "Nhờ vào sự chu đáo như thế này, ban tổ chức có thể giúp cho tất cả người tham gia đều cảm thấy an tâm và tận hưởng trọn vẹn hoạt động.",
+          "vocab": [
+            {
+              "w": "配慮",
+              "read": "はいりょ",
+              "vi": "sự quan tâm chu đáo, sự cân nhắc"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "toàn thể, tất cả mọi người"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "楽しむ",
+              "read": "たのしむ",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって",
+              "vi": "【接続】N ＋ によって。【Sắc thái】Chỉ phương thức, phương tiện hoặc nguyên nhân dẫn đến kết quả tích cực phía sau。【Đối chiếu】Khác với 〜に基づいて (dựa trên căn cứ nguyên tắc), 〜によって ở đây chỉ phương tiện, cách thức."
+            },
+            {
+              "point": "〜（さ）せる（使役）＋ことができる",
+              "vi": "【接続】V-使役 ＋ ことができる (楽しむ → 楽しませる)。【Sắc thái】Biểu thị khả năng tạo điều kiện, giúp cho người khác được tận hưởng niềm vui。【Đối chiếu】Khác với 楽しめる (bản thân có thể vui vẻ), 楽しませることができる nhấn mạnh vai trò đem lại niềm vui cho người khác."
+            }
+          ]
+        },
+        {
+          "jp": "調査によると、こうした交流を経験した高齢者は孤立感を減らし、若者も自己肯定感を高められるとのことだ。",
+          "vi": "Theo khảo sát, những người cao tuổi trải qua sự giao lưu này đã giảm bớt cảm giác cô lập, đồng thời người trẻ cũng nâng cao được lòng tự tôn của bản thân.",
+          "vocab": [
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "điều tra"
+            },
+            {
+              "w": "こうした",
+              "read": "こうした",
+              "vi": "như thế này (chỉ thị từ, tóm lược điều vừa nói)"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "孤立",
+              "read": "こりつ",
+              "vi": "sự cô lập, đơn độc"
+            },
+            {
+              "w": "減らす",
+              "read": "へらす",
+              "vi": "giảm bớt"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "自己",
+              "read": "じこ",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "肯定",
+              "read": "こうてい",
+              "vi": "khẳng định, tán thành"
+            },
+            {
+              "w": "高める",
+              "read": "たかめる",
+              "vi": "nâng cao, tăng cường"
+            },
+            {
+              "w": "孤立感",
+              "read": "こりつかん",
+              "vi": "cảm giác cô lập, đơn độc"
+            },
+            {
+              "w": "自己肯定感",
+              "read": "じここうていかん",
+              "vi": "lòng tự tôn, sự tự tin vào giá trị bản thân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると",
+              "vi": "【接続】N ＋ によると。【Sắc thái】Dẫn nguồn từ kết quả điều tra, nghiên cứu khoa học (調査によると).【Đối chiếu】Mẫu dẫn nguồn thông dụng trong văn đọc hiểu N3."
+            },
+            {
+              "point": "〜とのことだ",
+              "vi": "【接続】普通形 ＋ とのことだ。【Sắc thái】Đưa ra kết quả truyền đạt từ báo cáo điều tra một cách khách quan, chính xác。【Đối chiếu】Mang tính văn bản, báo cáo rõ rệt hơn 〜そうだ."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、一方的な支援ではなく双方向のやり取りを行うことが、双方の心を豊かにさせるということだ。",
+          "vi": "Tóm lại, việc thực hiện trao đổi hai chiều chứ không phải là sự hỗ trợ một chiều sẽ làm cho tâm hồn của cả hai bên trở nên phong phú hơn.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "支援",
+              "read": "しえん",
+              "vi": "sự hỗ trợ, giúp đỡ"
+            },
+            {
+              "w": "双方向",
+              "read": "そうほうこう",
+              "vi": "hai chiều, tương tác qua lại"
+            },
+            {
+              "w": "やり取り",
+              "read": "やりとり",
+              "vi": "sự trao đổi, qua lại"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "双方",
+              "read": "そうほう",
+              "vi": "cả hai phía, đôi bên"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（さ）せる（使役）",
+              "vi": "【接続】Aい（豊か）→ 豊かに ＋ させる。【Sắc thái】Thể sai khiến kết hợp với tính từ: làm cho tâm hồn trở nên phong phú, biến đổi trạng thái cảm xúc của con người。【Đối chiếu】Khác với 豊かになる (tự trở nên phong phú), 豊かにさせる nhấn mạnh hành động trao đổi là yếu tố trực tiếp tạo ra sự phong phú đó."
+            },
+            {
+              "point": "〜ということだ（要約・結論）",
+              "vi": "【接続】普通形 ＋ ということだ。【Sắc thái】Đi cùng つまり để tóm lược ý chính, khẳng định chân lý hoặc kết luận cốt lõi của lập luận。【Đối chiếu】Khác với 〜ということだ (nghe nói), đây là mẫu chốt luận điểm."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは日常の中で、誰かに助けてもらうこともあれば、誰かを助けてあげることもある。",
+          "vi": "Trong cuộc sống thường nhật, chúng ta đôi khi nhận được sự giúp đỡ từ ai đó, và cũng có lúc lại dang tay giúp đỡ người khác.",
+          "vocab": [
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta, chúng tôi"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "hằng ngày"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong, bên trong"
+            },
+            {
+              "w": "誰か",
+              "read": "だれか",
+              "vi": "ai đó"
+            },
+            {
+              "w": "助け",
+              "read": "たすけ",
+              "vi": "giúp đỡ"
+            },
+            {
+              "w": "助けてもらう",
+              "read": "たすけてもらう",
+              "vi": "được ai đó giúp"
+            },
+            {
+              "w": "助けてあげる",
+              "read": "たすけてあげる",
+              "vi": "giúp cho ai đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てもらう・〜てあげる",
+              "vi": "【接続】Vて ＋ もらう / Vて ＋ あげる。【Sắc thái】Đặt hai vế đối ứng nhận hành động (てもらう) và trao hành động (てあげる) cạnh nhau để nhấn mạnh sự luân chuyển hỗ trợ tương hỗ tự nhiên trong cộng đồng。【Đối chiếu】Tạo nên bức tranh toàn diện về mối quan hệ cho - nhận trong văn hóa ứng xử."
+            },
+            {
+              "point": "〜こともあれば〜こともある",
+              "vi": "【接続】Vる ＋ こともあれば Vる ＋ こともある。【Sắc thái】Có lúc thế này, cũng có lúc thế kia; thể hiện sự đa dạng, không cố định của các tình huống trong cuộc sống."
+            }
+          ]
+        },
+        {
+          "jp": "困っている人を見たときに「手伝ってあげよう」と思える社会は、温かい社会だと言えるだろう。",
+          "vi": "Một xã hội mà khi nhìn thấy người gặp khó khăn, ta có thể nghĩ rằng \"mình hãy giúp đỡ họ một tay\" có thể nói là một xã hội ấm áp.",
+          "vocab": [
+            {
+              "w": "困る",
+              "read": "こまる",
+              "vi": "khó khăn, bối rối"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "思える",
+              "read": "おもえる",
+              "vi": "dường như, cảm thấy"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "温かい",
+              "read": "あたたかい",
+              "vi": "ấm áp (tình người)"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てあげよう（意向形）",
+              "vi": "【接続】Vて ＋ あげる chia thể ý chí (あげよう)。【Sắc thái】Bộc lộ suy nghĩ, ý chí chủ động sẵn sàng đưa tay giúp đỡ người khác。【Đối chiếu】Khác với 〜てもらおう (dự định nhờ vả người khác)."
+            },
+            {
+              "point": "〜と言えるだろう",
+              "vi": "【接続】普通形 ＋ と言えるだろう。【Sắc thái】Cách đưa ra nhận định, đánh giá mang tính khái quát nhưng mềm mại, gợi mở sự đồng tình từ người đọc."
+            }
+          ]
+        },
+        {
+          "jp": "専門家によると、これからの地域社会では、多様な世代が知識を分かち合う仕組みがますます重要になるそうだ。",
+          "vi": "Theo các chuyên gia, trong xã hội cộng đồng từ nay về sau, cơ chế để các thế hệ đa dạng cùng nhau chia sẻ tri thức sẽ ngày càng trở nhiên quan trọng.",
+          "vocab": [
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, nhiều chiều"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "仕組み",
+              "read": "しくみ",
+              "vi": "cơ chế, cấu trúc, hệ thống"
+            },
+            {
+              "w": "ますます",
+              "read": "ますます",
+              "vi": "ngày càng, càng lúc càng"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "専門家",
+              "read": "せんもんか",
+              "vi": "chuyên gia"
+            },
+            {
+              "w": "分かち合う",
+              "read": "わかちあう",
+              "vi": "chia sẻ cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると",
+              "vi": "【接続】N ＋ によると。【Sắc thái】Trích dẫn ý kiến của các chuyên gia để củng cố thêm sức nặng và tính khoa học cho dự báo tương lai。【Đối chiếu】Dẫn nguồn đáng tin cậy trong các bài văn nghị luận."
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "【接続】普通形 ＋ そうだ。【Sắc thái】Truyền đạt lại nhận định chuyên môn về xu thế tất yếu của xã hội trong tương lai。【Đối chiếu】Khác với 〜だろう (suy đoán chủ quan của cá nhân tác giả)."
+            }
+          ]
+        },
+        {
+          "jp": "自分の小さな経験であっても、誰かの役に立てるという喜びを忘れずにいたい。",
+          "vi": "Dù chỉ là kinh nghiệm nhỏ bé của bản thân, chúng ta cũng nên luôn ghi nhớ niềm vui khi có thể giúp ích được cho ai đó.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm"
+            },
+            {
+              "w": "役",
+              "read": "やく",
+              "vi": "vai trò, tác dụng"
+            },
+            {
+              "w": "立てる",
+              "read": "たてる",
+              "vi": "dựng lên, lập nên"
+            },
+            {
+              "w": "喜び",
+              "read": "よろこび",
+              "vi": "niềm vui, niềm hân hoan"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜という＋N",
+              "vi": "【接続】普通形 ＋ という ＋ N。【Sắc thái】Định nghĩa nội hàm cụ thể cho danh từ cảm xúc/trừu tượng (ở đây là 'niềm vui rằng mình có thể giúp ích').【Đối chiếu】Dùng để kết nối mệnh đề giải thích với danh từ chính."
+            },
+            {
+              "point": "〜ずにいたい",
+              "vi": "【接続】V-ない (bỏ ない) ＋ ずにいたい。【Sắc thái】Thể hiện mong muốn duy trì một trạng thái không làm mất đi điều gì (ở đây là muốn luôn giữ gìn, không quên đi niềm vui được giúp ích)."
+            }
+          ]
+        },
+        {
+          "jp": "互いを尊重し、支え合える関係を築いていくことが、これからの時代に求められている。",
+          "vi": "Việc xây dựng một mối quan hệ tôn trọng và nương tựa lẫn nhau chính là điều đang được thời đại ngày nay kỳ vọng và đòi hỏi.",
+          "vocab": [
+            {
+              "w": "互い",
+              "read": "たがい",
+              "vi": "lẫn nhau, nhau"
+            },
+            {
+              "w": "尊重する",
+              "read": "そんちょうする",
+              "vi": "tôn trọng"
+            },
+            {
+              "w": "支える",
+              "read": "ささえる",
+              "vi": "chống đỡ, hỗ trợ"
+            },
+            {
+              "w": "合える",
+              "read": "あえる",
+              "vi": "hòa hợp, kết hợp"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "築く",
+              "read": "きずく",
+              "vi": "xây dựng, gây dựng"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            },
+            {
+              "w": "支え合う",
+              "read": "ささえあう",
+              "vi": "hỗ trợ, nương tựa lẫn nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（ら）れる（受身・社会的要求）",
+              "vi": "【接続】V nhóm 1 đổi sang cột あ + れる (求める → 求められる)。【Sắc thái】Thể bị động: được xã hội/thời đại đòi hỏi, kỳ vọng hướng tới (thường dùng ở câu kết luận bài viết).【Đối chiếu】Khác với 求める (chủ động đòi hỏi), 求められている diễn tả nhu cầu chung khách quan của toàn xã hội."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "「スキル交換会」という活動",
+          "label": "Khái niệm \"Hội trao đổi kỹ năng\" giữa các thế hệ"
+        },
+        {
+          "excerpt": "自分の知識が役に立つと実感させられた",
+          "label": "Nhận thức giá trị bản thân thông qua sự công nhận của người khác"
+        },
+        {
+          "excerpt": "一方的な支援ではなく双方向のやり取りを行うこと",
+          "label": "Bản chất cốt lõi: Tương tác hai chiều làm phong phú tâm hồn đôi bên"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「スキル交換会」とは、具体的にどのような活動のことか。",
+          "options": [
+            "若者が高齢者にスマートフォンの使い方を教え、高齢者から料理や生活の知恵を教えてもらう活動",
+            "高齢者が一方的に若者に昔の生活知識を教え込み、若者の意見を聞かないようにする活動",
+            "地域のIT専門家だけが集まり、最新のデジタル技術の使い方について議論し合う活動",
+            "高齢者が若い世代にスマートフォンの操作方法を教えるために開催される有料講習会"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [1] (câu thứ 2 trong bài): 「これは、若い世代が高齢者にスマートフォンの使い方を教えてあげて、逆に高齢者から伝統的な料理や生活の知恵を教えてもらうという催しである」. Phương án 0 tóm tắt chính xác sự trao đổi hai chiều này. Các phương án khác sai vì: Phương án 1 nói người già dạy áp đặt một chiều (trái với tinh thần bài đọc); Phương án 2 nói chỉ dành cho chuyên gia IT (trong bài là người dân trong vùng); Phương án 3 nói người già dạy smartphone cho người trẻ và là lớp học thu phí (sai vai trò và không có thông tin thu phí).",
+          "tip": "Tìm câu định nghĩa trực tiếp ngay sau khi tên hoạt động được giới thiệu ở đoạn đầu.",
+          "evi": [
+            0,
+            1
+          ],
+          "qt": {
+            "q": "「スキル交換会」(buổi trao đổi kỹ năng) cụ thể là hoạt động như thế nào?",
+            "o": [
+              "Hoạt động trong đó người trẻ dạy người cao tuổi cách sử dụng điện thoại thông minh, còn người cao tuổi dạy lại họ về nấu ăn và những kiến thức hữu ích trong cuộc sống",
+              "Hoạt động trong đó người cao tuổi một chiều truyền dạy cho người trẻ kiến thức về cuộc sống ngày xưa và không lắng nghe ý kiến của họ",
+              "Hoạt động chỉ dành cho các chuyên gia công nghệ thông tin trong khu vực tụ họp để thảo luận về cách sử dụng công nghệ số mới nhất",
+              "Buổi học có thu phí được tổ chức để người cao tuổi dạy thế hệ trẻ cách thao tác trên điện thoại thông minh"
+            ]
+          }
+        },
+        {
+          "q": "参加した若者が「自分の知識が役に立つと実感させられた」と感じたのはなぜか。",
+          "options": [
+            "高齢者から高価なスマートフォンをプレゼントしてもらえたから",
+            "祖父母のような年代の人々から直接感謝の言葉を言ってもらえたから",
+            "スタッフから難しい専門用語をたくさん使うように指示されたから",
+            "以前よりも多くの伝統料理を一人で作れるようになったから"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [7] (câu thứ 8 trong bài): 「参加した若者の一人は、『祖父母のような方々に感謝の言葉を言ってもらえて、自分の知識が役に立つと実感させられた』と語っている」. Nhờ được những người lớn tuổi cảm ơn chân thành, bạn trẻ mới thấm thía rằng kiến thức của mình có giá trị. Phương án 0, 2, 3 chứa các chi tiết sai lệch hoặc không phải nguyên nhân trực tiếp dẫn tới nhận thức này.",
+          "tip": "Chú ý cấu trúc nhân quả nối bằng て trong lời phát biểu trích dẫn trực tiếp: 「〜感謝の言葉を言ってもらえて、自分の知識が役に立つと実感させられた」.",
+          "evi": [
+            7
+          ],
+          "qt": {
+            "q": "Vì sao người trẻ tham gia cảm thấy rằng “mình nhận ra kiến thức của mình có ích”?",
+            "o": [
+              "Vì được người cao tuổi tặng một chiếc điện thoại thông minh đắt tiền",
+              "Vì được những người ở độ tuổi như ông bà mình trực tiếp nói lời cảm ơn",
+              "Vì được nhân viên hướng dẫn sử dụng thật nhiều thuật ngữ chuyên môn khó",
+              "Vì giờ đây có thể tự mình nấu được nhiều món ăn truyền thống hơn trước"
+            ]
+          }
+        },
+        {
+          "q": "スタッフや福祉協議会は、参加者が安心して活動できるようにどのような配慮をしているか。",
+          "options": [
+            "若者に対して、年長者に遠慮して質問を一切しないように伝えている",
+            "高齢者に対して、専門用語を暗記して若者に教えるように頼んでいる",
+            "恥ずかしがらずに何でも質問することや、専門用語を使わず分かりやすく説明することを求めている",
+            "お互いに意見を言わせないようにして、静かに作業させるように指示している"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào các câu [9], [10], [11]: Ban tổ chức nhắc nhở người tham gia đừng ngại đặt câu hỏi (「分からないことは恥ずかしがらずに何でも聞いてほしい」), và yêu cầu người trẻ giải thích dễ hiểu, không dùng thuật ngữ chuyên môn (「専門用語を使わずに分かりやすい言葉で説明するように頼んでいる」). Phương án 2 bao quát toàn bộ sự chu đáo này. Các phương án 0, 1, 3 hoàn toàn trái ngược với nội dung hướng dẫn của ban tổ chức.",
+          "tip": "Tổng hợp các câu có chứa mẫu 〜ように伝える và 〜ように頼む ở đoạn 2 và đoạn 3.",
+          "evi": [
+            9,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Nhân viên và hội đồng phúc lợi xã hội đã có những quan tâm gì để người tham gia có thể yên tâm tham gia hoạt động?",
+            "o": [
+              "Dặn người trẻ không được hỏi bất cứ điều gì để tránh làm phiền người lớn tuổi",
+              "Yêu cầu người cao tuổi học thuộc các thuật ngữ chuyên môn rồi dạy cho người trẻ",
+              "Yêu cầu mọi người cứ hỏi bất cứ điều gì mà không ngại ngùng, đồng thời giải thích bằng lời dễ hiểu mà không dùng thuật ngữ chuyên môn",
+              "Chỉ thị mọi người không được nêu ý kiến với nhau và phải làm việc trong im lặng"
+            ]
+          }
+        },
+        {
+          "q": "この文章全体を通して、筆者が最も伝えたい主張（結論）は何か。",
+          "options": [
+            "高齢者は若者に頼ることなく、自力で最新技術を覚えるべきだということ",
+            "一方的な支援ではなく、世代を超えて双方向で助け合い支え合う関係こそが双方の心を豊かにするということ",
+            "現代の若者は年長者の話を聞く機会が少ないため、昔の教育方法に戻すべきだということ",
+            "地域社会の問題を解決するためには、専門家の指示に従うことだけが必要だということ"
+          ],
+          "answer": 1,
+          "explainVi": "Đây là câu hỏi suy luận và nắm bắt chủ đề trọng tâm. Căn cứ vào câu [14] (「つまり、一方的な支援ではなく双方向のやり取りを行うことが、双方の心を豊かにさせるということだ」) và các câu kết [18], [19]: Tác giả nhấn mạnh giá trị của sự tương trợ hai chiều, nơi mọi thế hệ cùng chia sẻ và nương tựa lẫn nhau. Các phương án 0, 2, 3 đều đưa ra những quan điểm phiến diện, cực đoan và không phản ánh tư tưởng chủ đạo của bài viết.",
+          "tip": "Tìm câu đúc kết có từ nối つまり và phần tổng kết ở đoạn cuối cùng.",
+          "evi": [
+            14,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Xuyên suốt toàn bài, thông điệp (kết luận) mà tác giả muốn truyền tải nhất là gì?",
+            "o": [
+              "Người cao tuổi nên tự học công nghệ mới nhất mà không dựa vào người trẻ",
+              "Điều làm phong phú tâm hồn cả hai bên chính là mối quan hệ giúp đỡ và hỗ trợ lẫn nhau theo hai chiều, vượt qua ranh giới thế hệ, chứ không phải sự hỗ trợ một chiều",
+              "Vì người trẻ ngày nay ít có cơ hội nghe người lớn tuổi nói chuyện nên cần quay lại phương pháp giáo dục ngày xưa",
+              "Để giải quyết các vấn đề của cộng đồng địa phương, chỉ cần làm theo chỉ thị của chuyên gia"
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "スマイル片付け・不用品回収サービスのご案内",
+      "titleVi": "Hướng dẫn dịch vụ dọn dẹp và thu gom đồ không dùng Smile",
+      "japanese": "スマイル片付け・不用品回収サービスのご案内\n当社の最新アンケート調査によると、利用者の満足度が98％に達したそうです。\n部屋の整理や重い荷物の処分が大変なときは、専門スタッフに手伝ってもらうと安心です。\nお客様に重い物を持たせないよう、すべての荷物は当社のスタッフにより丁寧に運搬されます。\nプラン名｜対象となる荷物の量｜基本料金｜無料サービス\nミニプラン｜段ボール5箱まで｜5,000円｜段ボールの無料お届け\nレギュラープラン｜軽トラック1台分｜15,000円｜大型家具の分解・運び出し\nおまかせプラン｜2トントラック1台分｜30,000円｜不用品の分別と全室の清掃\n※17時以降の夜間作業をご希望の場合は、夜間手数料として2,000円が加算されるということです。\n※エレベーターがない建物（3階以上）での作業は、階段手数料として1階ごとに1,000円が追加されます。\n※当社の公式WEBサイトから予約してくれた方には、基本料金から1,000円の割引が適用されます。\n※「おまかせプラン」という特別パックをお申し込みの方には、粗大ごみ回収を1点無料でサービスしてあげます。\n※スタッフには近隣の住民に迷惑をかけないよう、作業中は静かに運ぶように伝えております。\n※マンション等の管理人への事前連絡が必要な場合は、当社が代わりに連絡するとのことです。\n※作業前日までに、貴重品や割れ物はお客様ご自身でまとめておくようにお願いしております。",
+      "vietnamese": "Hướng dẫn dịch vụ dọn dẹp và thu gom đồ không dùng Smile\nTheo khảo sát bằng bảng câu hỏi mới nhất của công ty chúng tôi, mức độ hài lòng của người dùng được biết là đã đạt tới 98%.\nKhi việc dọn dẹp phòng hay vứt bỏ đồ đạc nặng nề gặp khó khăn, bạn sẽ yên tâm hơn khi nhờ nhân viên chuyên môn giúp đỡ.\nĐể khách hàng không phải mang vác đồ nặng, toàn bộ hành lý sẽ được nhân viên của công ty chúng tôi vận chuyển một cách cẩn thận.\nTên gói｜Lượng đồ đạc áp dụng｜Giá cơ bản｜Dịch vụ miễn phí\nGói Mini｜Tối đa 5 thùng carton｜5.000 yên｜Giao thùng carton miễn phí tận nơi\nGói Regular｜Tương đương 1 xe tải nhẹ｜15.000 yên｜Tháo lắp và khiêng đồ nội thất lớn\nGói Trọn gói (Omakase)｜Tương đương 1 xe tải 2 tấn｜30.000 yên｜Phân loại đồ bỏ đi và dọn dẹp toàn bộ các phòng\n※Trường hợp quý khách muốn làm việc vào ban đêm sau 17 giờ, điều đó có nghĩa là sẽ bị cộng thêm 2.000 yên phụ phí ban đêm.\n※Việc làm tại các tòa nhà không có thang máy (từ tầng 3 trở lên) sẽ bị tính thêm 1.000 yên cho mỗi tầng tiền phí cầu thang bộ.\n※Những khách hàng đặt lịch qua trang web chính thức của công ty chúng tôi sẽ được áp dụng giảm giá 1.000 yên từ giá cơ bản.\n※Đối với những quý khách đăng ký gói đặc biệt mang tên \"Gói Omakase\", chúng tôi sẽ tặng kèm miễn phí thu gom 1 món rác cồng kềnh.\n※Chúng tôi đã dặn dò nhân viên phải vận chuyển thật êm nhẹ trong suốt quá trình làm việc để không gây phiền hà cho cư dân xung quanh.\n※Trong trường hợp cần liên hệ trước với ban quản lý chung cư, được biết công ty chúng tôi sẽ thay mặt khách hàng để liên hệ.\n※Chúng tôi kính mong quý khách tự mình thu gom trước các đồ vật có giá trị và đồ dễ vỡ trước ngày làm việc một ngày.",
+      "sentences": [
+        {
+          "jp": "スマイル片付け・不用品回収サービスのご案内",
+          "vi": "Hướng dẫn dịch vụ dọn dẹp và thu gom đồ không dùng Smile",
+          "vocab": [
+            {
+              "w": "スマイル",
+              "read": "スマイル",
+              "vi": "nụ cười, tên riêng Smile"
+            },
+            {
+              "w": "片付け",
+              "read": "かたづけ",
+              "vi": "dọn dẹp, sắp xếp"
+            },
+            {
+              "w": "用品",
+              "read": "ようひん",
+              "vi": "đồ dùng, vật dụng"
+            },
+            {
+              "w": "回収",
+              "read": "かいしゅう",
+              "vi": "thu gom, thu hồi"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông báo"
+            },
+            {
+              "w": "不用品",
+              "read": "ふようひん",
+              "vi": "đồ dùng không cần thiết, đồ bỏ đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜",
+              "vi": "Kết hợp: 「ご + Danh từ Hán ngữ (漢語)」. Ý nghĩa: Tiền tố kính ngữ/lịch sự tạo sắc thái trang trọng, dùng khi thông báo, giới thiệu dịch vụ đến khách hàng (「ご案内」: lời hướng dẫn/thông báo)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "不用品回収サービス",
+              "why": "Tên loại hình dịch vụ chính được giới thiệu trong thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "当社の最新アンケート調査によると、利用者の満足度が98％に達したそうです。",
+          "vi": "Theo khảo sát bằng bảng câu hỏi mới nhất của công ty chúng tôi, mức độ hài lòng của người dùng được biết là đã đạt tới 98%.",
+          "vocab": [
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất"
+            },
+            {
+              "w": "アンケート",
+              "read": "アンケート",
+              "vi": "khảo sát, phiếu thăm dò"
+            },
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "điều tra, khảo sát"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "満足",
+              "read": "まんぞく",
+              "vi": "hài lòng, thỏa mãn"
+            },
+            {
+              "w": "達した",
+              "read": "たっした",
+              "vi": "đã đạt đến"
+            },
+            {
+              "w": "満足度",
+              "read": "まんぞくど",
+              "vi": "mức độ hài lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると",
+              "vi": "Căn cứ theo, dựa theo (nguồn thông tin)"
+            },
+            {
+              "point": "〜そうだ（伝聞）",
+              "vi": "Nghe nói là, được biết là (thông tin nghe được/truyền đạt)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "アンケート調査によると",
+              "why": "Cụm từ chỉ nguồn gốc thông tin khảo sát uy tín."
+            },
+            {
+              "w": "98％に達したそうです",
+              "why": "Số liệu chứng minh chất lượng dịch vụ được truyền đạt lại."
+            }
+          ]
+        },
+        {
+          "jp": "部屋の整理や重い荷物の処分が大変なときは、専門スタッフに手伝ってもらうと安心です。",
+          "vi": "Khi việc dọn dẹp phòng hay vứt bỏ đồ đạc nặng nề gặp khó khăn, bạn sẽ yên tâm hơn khi nhờ nhân viên chuyên môn giúp đỡ.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "整理",
+              "read": "せいり",
+              "vi": "thu dọn, sắp xếp"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "処分",
+              "read": "しょぶん",
+              "vi": "vứt bỏ, xử lý"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khó khăn"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てもらう",
+              "vi": "Nhận được hành động giúp đỡ từ ai đó (nhờ nhân viên giúp)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "手伝ってもらう",
+              "why": "Lợi ích khi sử dụng sự hỗ trợ chuyên nghiệp từ nhân viên."
+            }
+          ]
+        },
+        {
+          "jp": "お客様に重い物を持たせないよう、すべての荷物は当社のスタッフにより丁寧に運搬されます。",
+          "vi": "Để khách hàng không phải mang vác đồ nặng, toàn bộ hành lý sẽ được nhân viên của công ty chúng tôi vận chuyển một cách cẩn thận.",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "cẩn thận, lịch sự"
+            },
+            {
+              "w": "運搬",
+              "read": "うんぱん",
+              "vi": "vận chuyển"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（さ）せる（使役否定）",
+              "vi": "Không để/bắt ai đó phải làm việc gì (持たせないよう)"
+            },
+            {
+              "point": "〜（ら）れる（受身）",
+              "vi": "Thể bị động: được vận chuyển bởi nhân viên (運搬されます)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "持たせないよう",
+              "why": "Cam kết không để khách hàng phải tốn sức mang vác đồ nặng."
+            },
+            {
+              "w": "運搬されます",
+              "why": "Được nhân viên của công ty chịu trách nhiệm vận chuyển cẩn thận."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜対象となる荷物の量｜基本料金｜無料サービス",
+          "vi": "Tên gói｜Lượng đồ đạc áp dụng｜Giá cơ bản｜Dịch vụ miễn phí",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "量",
+              "read": "りょう",
+              "vi": "khối lượng, lượng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "基本料金",
+              "read": "きほんりょうきん",
+              "vi": "giá cơ bản, phí gốc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜となる",
+              "vi": "Kết hợp: 「Danh từ + となる」. Ý nghĩa: Mang nghĩa \"trở thành / là (đối tượng...)\", mang sắc thái trang trọng hơn 「になる」, ở đây dùng ở thể bổ nghĩa bổ sung ý nghĩa cho danh từ phía sau (「対象となる荷物の量」: lượng đồ đạc là đối tượng áp dụng)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "基本料金",
+              "why": "Cột thể hiện mức giá chuẩn của từng gói dịch vụ."
+            }
+          ]
+        },
+        {
+          "jp": "ミニプラン｜段ボール5箱まで｜5,000円｜段ボールの無料お届け",
+          "vi": "Gói Mini｜Tối đa 5 thùng carton｜5.000 yên｜Giao thùng carton miễn phí tận nơi",
+          "vocab": [
+            {
+              "w": "ミニプラン",
+              "read": "ミニプラン",
+              "vi": "gói mini"
+            },
+            {
+              "w": "ミニ",
+              "read": "ミニ",
+              "vi": "mini, nhỏ"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "段ボール",
+              "read": "だんボール",
+              "vi": "thùng carton"
+            },
+            {
+              "w": "5箱",
+              "read": "ごはこ",
+              "vi": "5 thùng"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "無料お届け",
+              "read": "むりょうおとどけ",
+              "vi": "giao hàng miễn phí"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "お届け",
+              "read": "おとどけ",
+              "vi": "giao hàng"
+            },
+            {
+              "w": "届け",
+              "read": "とどけ",
+              "vi": "giao, chuyển đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜まで",
+              "vi": "Kết hợp: 「Số từ / Danh từ chỉ số lượng + まで」. Ý nghĩa: Biểu thị mức trần hoặc phạm vi giới hạn tối đa cho phép (「段ボール5箱まで」: tối đa 5 thùng carton)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "5,000円",
+              "why": "Mức giá cơ bản của gói Mini dành cho lượng đồ ít."
+            }
+          ]
+        },
+        {
+          "jp": "レギュラープラン｜軽トラック1台分｜15,000円｜大型家具の分解・運び出し",
+          "vi": "Gói Regular｜Tương đương 1 xe tải nhẹ｜15.000 yên｜Tháo lắp và khiêng đồ nội thất lớn",
+          "vocab": [
+            {
+              "w": "レギュラープラン",
+              "read": "レギュラープラン",
+              "vi": "gói thường"
+            },
+            {
+              "w": "レギュラー",
+              "read": "レギュラー",
+              "vi": "thường, tiêu chuẩn"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "軽トラック",
+              "read": "けいトラック",
+              "vi": "xe tải nhẹ"
+            },
+            {
+              "w": "トラック",
+              "read": "トラック",
+              "vi": "xe tải"
+            },
+            {
+              "w": "1台分",
+              "read": "いちだいぶん",
+              "vi": "một xe, một chuyến xe"
+            },
+            {
+              "w": "15,000円",
+              "read": "いちまんごせんえん",
+              "vi": "15.000 yên"
+            },
+            {
+              "w": "大型家具",
+              "read": "おおがたかぐ",
+              "vi": "đồ nội thất cỡ lớn"
+            },
+            {
+              "w": "大型",
+              "read": "おおがた",
+              "vi": "cỡ lớn"
+            },
+            {
+              "w": "家具",
+              "read": "かぐ",
+              "vi": "đồ nội thất"
+            },
+            {
+              "w": "分解",
+              "read": "ぶんかい",
+              "vi": "tháo rời"
+            },
+            {
+              "w": "運び出し",
+              "read": "はこびだし",
+              "vi": "mang ra ngoài"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "レギュラープラン",
+              "why": "Gói dịch vụ tương ứng với 1 xe tải nhẹ."
+            },
+            {
+              "w": "15,000円",
+              "why": "Giá cơ bản của gói Regular là dữ liệu tính toán cho câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "おまかせプラン｜2トントラック1台分｜30,000円｜不用品の分別と全室の清掃",
+          "vi": "Gói Trọn gói (Omakase)｜Tương đương 1 xe tải 2 tấn｜30.000 yên｜Phân loại đồ bỏ đi và dọn dẹp toàn bộ các phòng",
+          "vocab": [
+            {
+              "w": "おまかせプラン",
+              "read": "おまかせプラン",
+              "vi": "gói giao trọn việc"
+            },
+            {
+              "w": "おまかせ",
+              "read": "おまかせ",
+              "vi": "để tùy, giao phó"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "2トントラック",
+              "read": "にトントラック",
+              "vi": "xe tải 2 tấn"
+            },
+            {
+              "w": "2トン",
+              "read": "にトン",
+              "vi": "2 tấn"
+            },
+            {
+              "w": "トラック",
+              "read": "トラック",
+              "vi": "xe tải"
+            },
+            {
+              "w": "1台分",
+              "read": "いちだいぶん",
+              "vi": "một xe, một chuyến xe"
+            },
+            {
+              "w": "30,000円",
+              "read": "さんまんえん",
+              "vi": "30.000 yên"
+            },
+            {
+              "w": "不用品",
+              "read": "ふようひん",
+              "vi": "đồ không cần dùng"
+            },
+            {
+              "w": "用品",
+              "read": "ようひん",
+              "vi": "đồ dùng"
+            },
+            {
+              "w": "分別",
+              "read": "ぶんべつ",
+              "vi": "phân loại"
+            },
+            {
+              "w": "全室",
+              "read": "ぜんしつ",
+              "vi": "toàn bộ phòng"
+            },
+            {
+              "w": "清掃",
+              "read": "せいそう",
+              "vi": "vệ sinh, dọn dẹp"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "30,000円",
+              "why": "Giá cơ bản của gói dọn trọn gói xe tải 2 tấn."
+            }
+          ]
+        },
+        {
+          "jp": "※17時以降の夜間作業をご希望の場合は、夜間手数料として2,000円が加算されるということです。",
+          "vi": "※Trường hợp quý khách muốn làm việc vào ban đêm sau 17 giờ, điều đó có nghĩa là sẽ bị cộng thêm 2.000 yên phụ phí ban đêm.",
+          "vocab": [
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "sau, trở đi"
+            },
+            {
+              "w": "夜間作業",
+              "read": "やかんさぎょう",
+              "vi": "công việc ban đêm"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "ご希望",
+              "read": "ごきぼう",
+              "vi": "mong muốn, yêu cầu"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "mong muốn, hy vọng"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "夜間手数料",
+              "read": "やかんてすうりょう",
+              "vi": "phí ban đêm"
+            },
+            {
+              "w": "手数料",
+              "read": "てすうりょう",
+              "vi": "phí dịch vụ"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            },
+            {
+              "w": "加算される",
+              "read": "かさんされる",
+              "vi": "được cộng thêm"
+            },
+            {
+              "w": "加算",
+              "read": "かさん",
+              "vi": "cộng thêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（ら）れる（受身）",
+              "vi": "Được cộng thêm vào (加算される)"
+            },
+            {
+              "point": "〜ということだ",
+              "vi": "Có nghĩa là, điều đó tức là (giải thích ý nghĩa/kết luận)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "17時以降の夜間作業",
+              "why": "Điều kiện tính phụ phí ban đêm khi làm việc sau 17 giờ."
+            },
+            {
+              "w": "2,000円が加算される",
+              "why": "Khoản phụ phí 2.000 yên bắt buộc cộng thêm cho ca tối."
+            }
+          ]
+        },
+        {
+          "jp": "※エレベーターがない建物（3階以上）での作業は、階段手数料として1階ごとに1,000円が追加されます。",
+          "vi": "※Việc làm tại các tòa nhà không có thang máy (từ tầng 3 trở lên) sẽ bị tính thêm 1.000 yên cho mỗi tầng tiền phí cầu thang bộ.",
+          "vocab": [
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "建物",
+              "read": "たてもの",
+              "vi": "tòa nhà"
+            },
+            {
+              "w": "3階以上",
+              "read": "さんがいいじょう",
+              "vi": "từ tầng 3 trở lên"
+            },
+            {
+              "w": "3階",
+              "read": "さんがい",
+              "vi": "tầng 3"
+            },
+            {
+              "w": "階",
+              "read": "かい",
+              "vi": "tầng"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "階段手数料",
+              "read": "かいだんてすうりょう",
+              "vi": "phí cầu thang"
+            },
+            {
+              "w": "階段",
+              "read": "かいだん",
+              "vi": "cầu thang"
+            },
+            {
+              "w": "手数料",
+              "read": "てすうりょう",
+              "vi": "phí dịch vụ"
+            },
+            {
+              "w": "1階ごと",
+              "read": "いっかいごと",
+              "vi": "mỗi tầng"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "追加されます",
+              "read": "ついかされます",
+              "vi": "được thêm vào"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "thêm vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（ら）れる（受身）",
+              "vi": "Được bổ sung, tính thêm (追加されます)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "エレベーターがない建物（3階以上）",
+              "why": "Điều kiện giới hạn chỉ tính phí cầu thang từ tầng 3 trở lên, tầng 2 không bị tính."
+            },
+            {
+              "w": "1階ごとに1,000円が追加",
+              "why": "Mức phí 1.000 yên/tầng nếu thỏa mãn điều kiện tầng 3 trở lên."
+            }
+          ]
+        },
+        {
+          "jp": "※当社の公式WEBサイトから予約してくれた方には、基本料金から1,000円の割引が適用されます。",
+          "vi": "※Những khách hàng đặt lịch qua trang web chính thức của công ty chúng tôi sẽ được áp dụng giảm giá 1.000 yên từ giá cơ bản.",
+          "vocab": [
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "公式WEBサイト",
+              "read": "こうしきウェブサイト",
+              "vi": "website chính thức"
+            },
+            {
+              "w": "公式",
+              "read": "こうしき",
+              "vi": "chính thức"
+            },
+            {
+              "w": "WEB",
+              "read": "ウェブ",
+              "vi": "web"
+            },
+            {
+              "w": "サイト",
+              "read": "サイト",
+              "vi": "trang web"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước, đặt lịch"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người, vị khách"
+            },
+            {
+              "w": "基本料金",
+              "read": "きほんりょうきん",
+              "vi": "phí cơ bản"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "chi phí, cước phí"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "適用されます",
+              "read": "てきようされます",
+              "vi": "được áp dụng"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくれる",
+              "vi": "Làm điều gì cho mình (khách hàng đặt lịch trên web cho công ty)"
+            },
+            {
+              "point": "〜（ら）れる（受身）",
+              "vi": "Được áp dụng (適用されます)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "公式WEBサイトから予約してくれた方",
+              "why": "Điều kiện nhận ưu đãi khi đặt qua trang web chính thức."
+            },
+            {
+              "w": "1,000円の割引が適用",
+              "why": "Số tiền giảm trừ 1.000 yên trực tiếp vào giá cơ bản."
+            }
+          ]
+        },
+        {
+          "jp": "※「おまかせプラン」という特別パックをお申し込みの方には、粗大ごみ回収を1点無料でサービスしてあげます。",
+          "vi": "※Đối với những quý khách đăng ký gói đặc biệt mang tên \"Gói Omakase\", chúng tôi sẽ tặng kèm miễn phí thu gom 1 món rác cồng kềnh.",
+          "vocab": [
+            {
+              "w": "おまかせ",
+              "read": "おまかせ",
+              "vi": "tùy chọn"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói/kế hoạch"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "パック",
+              "read": "パック",
+              "vi": "gói"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (lịch sự)"
+            },
+            {
+              "w": "粗大ごみ",
+              "read": "そだいごみ",
+              "vi": "rác cồng kềnh"
+            },
+            {
+              "w": "回収",
+              "read": "かいしゅう",
+              "vi": "thu gom"
+            },
+            {
+              "w": "1点",
+              "read": "いってん",
+              "vi": "một món"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "して",
+              "read": "して",
+              "vi": "làm, thực hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜という",
+              "vi": "Gói đặc biệt mang tên là / gọi là (đưa ra định danh)"
+            },
+            {
+              "point": "〜てあげる",
+              "vi": "Làm điều gì giúp/cho người khác (công ty tặng dịch vụ cho khách)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "「おまかせプラン」という特別パック",
+              "why": "Chỉ rõ ưu đãi rác cồng kềnh là độc quyền cho gói Omakase."
+            },
+            {
+              "w": "粗大ごみ回収を1点無料でサービス",
+              "why": "Ưu đãi miễn phí thu gom 1 món rác cồng kềnh."
+            }
+          ]
+        },
+        {
+          "jp": "※スタッフには近隣の住民に迷惑をかけないよう、作業中は静かに運ぶように伝えております。",
+          "vi": "※Chúng tôi đã dặn dò nhân viên phải vận chuyển thật êm nhẹ trong suốt quá trình làm việc để không gây phiền hà cho cư dân xung quanh.",
+          "vocab": [
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "近隣",
+              "read": "きんりん",
+              "vi": "hàng xóm láng giềng, khu vực lân cận"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân"
+            },
+            {
+              "w": "迷惑",
+              "read": "めいわく",
+              "vi": "phiền toái, phiền hà"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh, nhẹ nhàng"
+            },
+            {
+              "w": "運ぶ",
+              "read": "はこぶ",
+              "vi": "chuyển, vác (thể từ điển)"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように伝える",
+              "vi": "Truyền đạt, dặn dò làm gì (truyền đạt gián tiếp)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "迷惑をかけないよう",
+              "why": "Mục tiêu giữ gìn trật tự và không làm phiền hàng xóm."
+            },
+            {
+              "w": "静かに運ぶように伝えております",
+              "why": "Chỉ thị quán triệt cho nhân viên thao tác nhẹ nhàng."
+            }
+          ]
+        },
+        {
+          "jp": "※マンション等の管理人への事前連絡が必要な場合は、当社が代わりに連絡するとのことです。",
+          "vi": "※Trong trường hợp cần liên hệ trước với ban quản lý chung cư, được biết công ty chúng tôi sẽ thay mặt khách hàng để liên hệ.",
+          "vocab": [
+            {
+              "w": "マンション",
+              "read": "マンション",
+              "vi": "căn hộ, chung cư"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước (sự việc)"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "代わり",
+              "read": "かわり",
+              "vi": "thay mặt, đại diện"
+            },
+            {
+              "w": "管理人",
+              "read": "かんりにん",
+              "vi": "người quản lý, ban quản lý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とのことだ（〜とのこと）",
+              "vi": "Được biết là, nghe tin là (truyền đạt thông tin gián tiếp)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "管理人への事前連絡",
+              "why": "Thủ tục báo trước với ban quản lý tòa nhà."
+            },
+            {
+              "w": "当社が代わりに連絡するとのこと",
+              "why": "Phía công ty sẽ chủ động liên hệ thay cho khách hàng."
+            }
+          ]
+        },
+        {
+          "jp": "※作業前日までに、貴重品や割れ物はお客様ご自身でまとめておくようにお願いしております。",
+          "vi": "※Chúng tôi kính mong quý khách tự mình thu gom trước các đồ vật có giá trị và đồ dễ vỡ trước ngày làm việc một ngày.",
+          "vocab": [
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "貴重",
+              "read": "きちょう",
+              "vi": "quý giá, quý báu"
+            },
+            {
+              "w": "割れ物",
+              "read": "われもの",
+              "vi": "đồ dễ vỡ"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "まとめる",
+              "read": "まとめる",
+              "vi": "tổng hợp, thu xếp"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "貴重品",
+              "read": "きちょうひん",
+              "vi": "đồ quý giá, tài sản giá trị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようにお願いする",
+              "vi": "Kính nhờ, yêu cầu ai đó làm gì"
+            }
+          ],
+          "keys": [
+            {
+              "w": "貴重品や割れ物",
+              "why": "Các loại tài sản nhạy cảm và đồ dễ vỡ cần tự bảo quản."
+            },
+            {
+              "w": "お客様ご自身でまとめておくようにお願い",
+              "why": "Yêu cầu bắt buộc khách hàng phải tự gom đồ giá trị trước ngày thi công."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "最新アンケート調査によると、利用者の満足度が98％に達したそうです",
+          "label": "～によると / ～そうだ（伝聞）"
+        },
+        {
+          "excerpt": "専門スタッフに手伝ってもらう",
+          "label": "～てもらう（授受表現）"
+        },
+        {
+          "excerpt": "お客様に重い物を持たせないよう",
+          "label": "～（さ）せる（使役否定）"
+        },
+        {
+          "excerpt": "夜間手数料として2,000円が加算されるということです",
+          "label": "～（ら）れる / ～ということだ"
+        },
+        {
+          "excerpt": "公式WEBサイトから予約してくれた方",
+          "label": "～てくれる（授受表現）"
+        },
+        {
+          "excerpt": "「おまかせプラン」という特別パックをお申し込みの方には、粗大ごみ回収を1点無料でサービスしてあげます",
+          "label": "～という / ～てあげる"
+        },
+        {
+          "excerpt": "静かに運ぶように伝えております",
+          "label": "～ように伝える"
+        },
+        {
+          "excerpt": "当社が代わりに連絡するとのことです",
+          "label": "～とのことだ"
+        },
+        {
+          "excerpt": "お客様ご自身でまとめておくようにお願いしております",
+          "label": "～ようにお願いする"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "サービス紹介と実績",
+          "topic": 0,
+          "note": "Giới thiệu dịch vụ dọn dẹp và kết quả khảo sát sự hài lòng của khách hàng",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "body",
+          "label": "プラン一覧・料金表",
+          "topic": 4,
+          "note": "Bảng giá các gói dịch vụ cơ bản và dịch vụ miễn phí đi kèm",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "追加料金・割引特典",
+          "topic": 8,
+          "note": "Quy định về phụ phí ban đêm, phí cầu thang bộ và ưu đãi giảm giá khi đặt qua mạng",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 14,
+          "kind": "turn",
+          "label": "作業時の注意事項・お客様へのお願い",
+          "topic": 12,
+          "note": "Lưu ý về trật tự, trách nhiệm liên hệ ban quản lý và việc tự gom đồ quý giá trước",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは軽トラック1台分の不用品を片付けたいと考えている。公式WEBサイトから予約し、作業時間は18時からを希望している。エレベーターのないアパートの2階に住んでいる場合、料金はいくらになるか。",
+          "options": [
+            "15,000円",
+            "16,000円",
+            "17,000円",
+            "18,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ theo bảng giá và các mục ghi chú quy định:\n1. Lượng đồ đạc là 1 xe tải nhẹ (軽トラック1台分) -> Áp dụng 'Gói Regular' (レギュラープラン) có giá cơ bản là 15.000 yên (dòng 6).\n2. Giờ làm việc lúc 18 giờ (từ sau 17 giờ) -> Bị tính thêm 2.000 yên phụ phí ban đêm (dòng 8: 17時以降の夜間作業...2,000円が加算される).\n3. Đặt hẹn qua trang WEB chính thức -> Được giảm giá 1.000 yên (dòng 10: 公式WEBサイトから予約...1,000円の割引が適用).\n4. Nhà ở tầng 2 không có thang máy -> Quy định phụ phí thang bộ chỉ áp dụng cho 'từ tầng 3 trở lên' (dòng 9: 3階以上), do đó ở tầng 2 hoàn toàn không bị tính phí cầu thang.\nTổng chi phí = 15.000 (giá gốc) + 2.000 (phụ phí đêm) - 1.000 (giảm giá web) = 16.000 yên. Đáp án đúng là 16,000円.",
+          "tip": "Lưu ý điều kiện bẫy ở dòng 9: phí thang bộ chỉ áp dụng cho 'tầng 3 trở lên' (3階以上), nên ở tầng 2 không phải nộp; sau đó cộng phụ phí đêm (+2.000) và trừ khuyến mãi web (-1.000).",
+          "evi": [
+            6,
+            8,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Anh Tanaka muốn dọn số đồ không còn cần dùng vừa bằng một xe tải nhẹ. Nếu đặt qua trang web chính thức, muốn làm việc từ 18 giờ và sống ở tầng 2 của một căn hộ không có thang máy thì phí là bao nhiêu?",
+            "o": [
+              "15.000 yên",
+              "16.000 yên",
+              "17.000 yên",
+              "18.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "このサービスの利用について、チラシの説明と合っているものはどれか。",
+          "options": [
+            "マンションの管理人に、利用者が自分で事前に連絡しておかなければならない。",
+            "作業前日までに、貴重品や割れ物は利用者が自分でまとめておく必要がある。",
+            "エレベーターがない建物の2階に住んでいる場合は、階段手数料を払う必要がある。",
+            "どのプランを選んでも、不用品の中に粗大ごみがあれば1点無料で回収してもらえる。"
+          ],
+          "answer": 1,
+          "explainVi": "Phân tích tính đúng sai của từng phương án:\n- Phương án 1 sai: Dòng 13 nêu rõ nếu cần liên hệ trước với ban quản lý chung cư thì công ty sẽ liên hệ thay cho khách hàng (当社が代わりに連絡するとのこと).\n- Phương án 2 đúng: Dòng 14 yêu cầu khách hàng tự thu gom trước đồ quý giá và đồ dễ vỡ trước ngày thực hiện 1 ngày (貴重品や割れ物はお客様ご自身でまとめておくようにお願いしております).\n- Phương án 3 sai: Dòng 9 quy định phí cầu thang chỉ áp dụng cho tầng 3 trở lên (3階以上), tầng 2 không bị tính phí.\n- Phương án 4 sai: Dòng 11 nêu rõ ưu đãi miễn phí thu gom 1 món rác cồng kềnh chỉ áp dụng riêng cho 'Gói Omakase' (「おまかせプラン」という特別パック), không áp dụng cho mọi gói.",
+          "tip": "Tìm thông tin về nghĩa vụ và việc cần chuẩn bị của khách hàng ở các dòng có dấu ※ (đặc biệt dòng 14 về việc tự sắp xếp trước đồ đạc có giá trị).",
+          "evi": [
+            9,
+            11,
+            13,
+            14
+          ],
+          "qt": {
+            "q": "Về việc sử dụng dịch vụ này, nội dung nào phù hợp với phần giải thích trên tờ rơi?",
+            "o": [
+              "Người sử dụng phải tự liên hệ trước với người quản lý chung cư.",
+              "Đến ngày trước hôm làm việc, người sử dụng cần tự thu xếp đồ quý giá và đồ dễ vỡ.",
+              "Nếu sống ở tầng 2 của một tòa nhà không có thang máy thì cần trả phí cầu thang.",
+              "Dù chọn gói nào, nếu trong số đồ không còn cần dùng có rác cồng kềnh thì cũng được thu gom miễn phí một món."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

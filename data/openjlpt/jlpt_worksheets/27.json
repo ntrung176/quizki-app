@@ -1,0 +1,4276 @@
+{
+  "bai": 27,
+  "level": "N4",
+  "intro": "可能形 · 〜が見える／聞こえる · 〜しか〜ない. Có ÔN LẠI ngữ pháp đã học (bài 1-26) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "富士山は日本で一番有名な山です。",
+              "ul": "富士山",
+              "choices": [
+                "ふじさん",
+                "ふじやま",
+                "ふじざん",
+                "ふじさま"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「富士山」là「ふじさん」. Đây là tên riêng đã được cố định với cách đọc「ふじさん」(さん là cách gọi núi trong tên riêng). Phương án ②「ふじやま」là cách đọc phổ biến ở các nước phương Tây nhưng không phải cách đọc chính thức trong tiếng Nhật. Phương án ③「ふじざん」sai vì thêm dấu đục âm (さ→ざ) không đúng. Phương án ④「ふじさま」nhầm「さん」thành「さま」, là kính ngữ chứ không phải cách đọc của 山.",
+              "glosses": [
+                {
+                  "t": "富士山",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "有名な",
+                  "read": "ゆうめいな",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "山",
+                  "read": "やま",
+                  "vi": "núi"
+                },
+                {
+                  "t": "一番有名な",
+                  "read": "いちばんゆうめいな",
+                  "vi": "nổi tiếng nhất"
+                }
+              ]
+            },
+            {
+              "prompt": "この地図を見れば、病院の場所がわかります。",
+              "ul": "地図",
+              "choices": [
+                "ちず",
+                "ちづ",
+                "じず",
+                "ちつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「地図」là「ちず」.「地」đọc âm Hán là「ち」,「図」đọc âm Hán là「ず」. Phương án ②「ちづ」sai vì nhầm「ず」thành「づ」— theo quy tắc chính tả hiện đại, từ này viết là「ず」chứ không phải「づ」. Phương án ③「じず」sai vì thêm dấu đục âm vào「ち→じ」không có căn cứ. Phương án ④「ちつ」sai vì đổi「ず」thành「つ」, biến âm đục thành âm trong.",
+              "glosses": [
+                {
+                  "t": "地図",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "見れば",
+                  "read": "みれば",
+                  "vi": "nếu nhìn vào"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "場所",
+                  "read": "ばしょ",
+                  "vi": "nơi chốn"
+                },
+                {
+                  "t": "わかります",
+                  "vi": "hiểu được, biết"
+                }
+              ]
+            },
+            {
+              "prompt": "先生の説明は簡単なので、よく理解できました。",
+              "ul": "説明",
+              "choices": [
+                "せつめい",
+                "せつみょう",
+                "せつべい",
+                "せつめ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「説明」là「せつめい」.「説」đọc âm Hán là「せつ」,「明」đọc âm Hán là「めい」. Phương án ②「せつみょう」sai vì nhầm「めい→みょう」— đây là cách đọc âm Hán khác của「明」(dùng trong「明日みょうにち」) nhưng không áp dụng cho từ này. Phương án ③「せつべい」sai vì thêm dấu đục âm vào「め→べ」không đúng. Phương án ④「せつめ」sai vì bỏ mất âm dài「い」ở cuối「めい→め」.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "説明",
+                  "vi": "sự giải thích"
+                },
+                {
+                  "t": "簡単な",
+                  "read": "かんたんな",
+                  "vi": "đơn giản"
+                },
+                {
+                  "t": "理解できました",
+                  "read": "りかいできました",
+                  "vi": "đã hiểu được"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì là... nên"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "kĩ, rõ"
+                }
+              ]
+            },
+            {
+              "prompt": "彼は自転車に乗ることができますが、運転は難しいと言っていました。",
+              "ul": "自転車",
+              "choices": [
+                "じてんしゃ",
+                "じでんしゃ",
+                "じてんさ",
+                "じてんしょ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「自転車」là「じてんしゃ」.「自」đọc là「じ」,「転」đọc âm Hán là「てん」,「車」đọc âm Hán là「しゃ」. Phương án ②「じでんしゃ」sai vì thêm dấu đục âm vào「てん→でん」không đúng. Phương án ③「じてんさ」sai vì bỏ mất âm ghép (拗音)「しゃ→さ」. Phương án ④「じてんしょ」sai vì nhầm âm ghép「しゃ→しょ」— hai âm tương tự nhau nhưng khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "自転車",
+                  "vi": "xe đạp"
+                },
+                {
+                  "t": "乗ること",
+                  "read": "のること",
+                  "vi": "việc cưỡi/đi"
+                },
+                {
+                  "t": "運転",
+                  "read": "うんてん",
+                  "vi": "lái xe"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "ができますが",
+                  "read": "ができますが",
+                  "vi": "〜ができる = có thể làm ~ (khả năng); が = nhưng (nối câu)"
+                }
+              ]
+            },
+            {
+              "prompt": "英語が話せる人は、この会議に参加できます。",
+              "ul": "英語",
+              "choices": [
+                "えいご",
+                "えいぎょ",
+                "えいこ",
+                "えご"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「英語」là「えいご」.「英」đọc âm Hán là「えい」,「語」đọc âm Hán là「ご」. Phương án ②「えいぎょ」sai vì thêm âm ghép không có cơ sở「ご→ぎょ」. Phương án ③「えいこ」sai vì bỏ dấu đục âm「ご→こ」. Phương án ④「えご」sai vì rút ngắn âm dài「えい→え」, bỏ mất âm「い」.",
+              "glosses": [
+                {
+                  "t": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "話せる",
+                  "read": "はなせる",
+                  "vi": "có thể nói"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "参加できます",
+                  "read": "さんかできます",
+                  "vi": "có thể tham gia"
+                }
+              ]
+            },
+            {
+              "prompt": "この漢字は難しくて、私には読めません。",
+              "ul": "漢字",
+              "choices": [
+                "かんじ",
+                "かんし",
+                "かんち",
+                "かんぢ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「漢字」là「かんじ」.「漢」đọc âm Hán là「かん」,「字」đọc âm Hán là「じ」. Phương án ②「かんし」sai vì bỏ dấu đục âm「じ→し」. Phương án ③「かんち」sai vì đổi thành âm trong ở hàng khác「じ→ち」. Phương án ④「かんぢ」sai vì theo chính tả hiện đại,「じ」và「ぢ」tuy cùng âm nhưng từ này phải viết là「じ」.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "難しくて",
+                  "read": "むずかしくて",
+                  "vi": "vì khó"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "読めません",
+                  "read": "よめません",
+                  "vi": "không đọc được"
+                }
+              ]
+            },
+            {
+              "prompt": "メールの内容がよく見えなかったので、もう一度送ってください。",
+              "ul": "内容",
+              "choices": [
+                "ないよう",
+                "ないよ",
+                "うちよう",
+                "ないいよう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「内容」là「ないよう」.「内」đọc âm Hán là「ない」,「容」đọc âm Hán là「よう」. Phương án ②「ないよ」sai vì bỏ âm dài「う」ở cuối「よう→よ」. Phương án ③「うちよう」sai vì dùng cách đọc kun (訓読み) của「内」là「うち」thay vì âm Hán「ない」. Phương án ④「ないいよう」sai vì thêm một âm「い」thừa vào giữa hai hình vị.",
+              "glosses": [
+                {
+                  "t": "メール",
+                  "vi": "email"
+                },
+                {
+                  "t": "内容",
+                  "vi": "nội dung"
+                },
+                {
+                  "t": "見えなかった",
+                  "read": "みえなかった",
+                  "vi": "không nhìn thấy được"
+                },
+                {
+                  "t": "もう一度",
+                  "read": "もういちど",
+                  "vi": "thêm một lần nữa"
+                },
+                {
+                  "t": "送ってください",
+                  "read": "おくってください",
+                  "vi": "xin hãy gửi"
+                },
+                {
+                  "t": "一度送ってください",
+                  "read": "いちどおくってください",
+                  "vi": "hãy gửi lại một lần nữa"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "rõ, kĩ"
+                }
+              ]
+            },
+            {
+              "prompt": "遠くからでも彼女の声が聞こえました。",
+              "ul": "声",
+              "choices": [
+                "こえ",
+                "こゑ",
+                "せい",
+                "こい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「声」là「こえ」— đây là cách đọc kun (訓読み). Phương án ②「こゑ」là cách viết theo chính tả cổ (仮名遣い cũ), không dùng trong tiếng Nhật hiện đại. Phương án ③「せい」là cách đọc âm Hán của「声」(dùng trong các từ ghép như「声援・声調」), nhưng khi đứng một mình chỉ giọng nói thì phải đọc「こえ」. Phương án ④「こい」sai vì nhầm nguyên âm「え→い」.",
+              "glosses": [
+                {
+                  "t": "遠く",
+                  "read": "とおく",
+                  "vi": "từ xa"
+                },
+                {
+                  "t": "から",
+                  "vi": "từ"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "声",
+                  "vi": "giọng nói"
+                },
+                {
+                  "t": "聞こえました",
+                  "read": "きこえました",
+                  "vi": "đã nghe thấy"
+                }
+              ]
+            },
+            {
+              "prompt": "工事の音がうるさくて、電話の内容が聞こえませんでした。",
+              "ul": "音",
+              "choices": [
+                "おと",
+                "おん",
+                "ね",
+                "いん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「音」trong câu này là「おと」(訓読み — âm thanh, tiếng động). Văn cảnh「工事の音」chỉ tiếng ồn của công trình nên「おと」là tự nhiên nhất. Phương án ②「おん」là cách đọc âm Hán, dùng trong từ ghép như「発音・音楽」chứ không đứng độc lập ở đây. Phương án ③「ね」cũng là kun đọc khác của「音」, dùng trong「音色(ねいろ)」nhưng không phù hợp văn cảnh này. Phương án ④「いん」không phải cách đọc thông dụng của「音」.",
+              "glosses": [
+                {
+                  "t": "工事",
+                  "read": "こうじ",
+                  "vi": "công trình xây dựng"
+                },
+                {
+                  "t": "音",
+                  "vi": "âm thanh, tiếng"
+                },
+                {
+                  "t": "うるさくて",
+                  "vi": "vì ồn ào"
+                },
+                {
+                  "t": "電話",
+                  "read": "でんわ",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "内容",
+                  "read": "ないよう",
+                  "vi": "nội dung"
+                },
+                {
+                  "t": "聞こえませんでした",
+                  "read": "きこえませんでした",
+                  "vi": "đã không nghe thấy"
+                }
+              ]
+            },
+            {
+              "prompt": "字が小さすぎて、私には読めませんでした。",
+              "ul": "字",
+              "choices": [
+                "じ",
+                "し",
+                "ち",
+                "ぢ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「字」là「じ」(âm Hán), chỉ ký tự, chữ viết. Phương án ②「し」sai vì bỏ dấu đục âm「じ→し」. Phương án ③「ち」sai vì đổi sang hàng âm khác, cũng là âm trong. Phương án ④「ぢ」sai vì theo chính tả hiện đại, dù「じ」và「ぢ」đọc giống nhau, từ「字」phải viết là「じ」.",
+              "glosses": [
+                {
+                  "t": "字",
+                  "vi": "chữ, ký tự"
+                },
+                {
+                  "t": "小さすぎて",
+                  "read": "ちいさすぎて",
+                  "vi": "vì quá nhỏ"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "読めませんでした",
+                  "read": "よめませんでした",
+                  "vi": "đã không đọc được"
+                }
+              ]
+            },
+            {
+              "prompt": "待ち合わせの場所と番号を教えてもらえますか。",
+              "ul": "番号",
+              "choices": [
+                "ばんごう",
+                "ばんこう",
+                "はんごう",
+                "ばんごお"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「番号」là「ばんごう」.「番」đọc âm Hán là「ばん」,「号」đọc âm Hán là「ごう」. Phương án ②「ばんこう」sai vì bỏ dấu đục âm「ごう→こう」. Phương án ③「はんごう」sai vì bỏ dấu đục âm ở âm tiết đầu「ばん→はん」. Phương án ④「ばんごお」sai vì viết sai âm dài — cách ghi đúng là「う」chứ không phải「お」sau「ご」.",
+              "glosses": [
+                {
+                  "t": "待ち合わせ",
+                  "read": "まちあわせ",
+                  "vi": "cuộc hẹn gặp"
+                },
+                {
+                  "t": "場所",
+                  "read": "ばしょ",
+                  "vi": "địa điểm"
+                },
+                {
+                  "t": "番号",
+                  "vi": "số (điện thoại, số hiệu...)"
+                },
+                {
+                  "t": "教えてもらえますか",
+                  "read": "おしえてもらえますか",
+                  "vi": "bạn có thể cho tôi biết không?"
+                }
+              ]
+            },
+            {
+              "prompt": "約束の時間に間に合わなかったら、名前を呼んでください。",
+              "ul": "約束",
+              "choices": [
+                "やくそく",
+                "やくぞく",
+                "やっそく",
+                "やくそっく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「約束」là「やくそく」.「約」đọc âm Hán là「やく」,「束」đọc âm Hán là「そく」. Phương án ②「やくぞく」sai vì thêm dấu đục âm vào「そく→ぞく」. Phương án ③「やっそく」sai vì đổi「やく」thành「やっ」— thêm âm bật (促音) không có trong từ gốc. Phương án ④「やくそっく」sai vì thêm âm bật vào「そく→そっく」, tạo ra chuỗi âm không tồn tại.",
+              "glosses": [
+                {
+                  "t": "約束",
+                  "vi": "lời hẹn, cam kết"
+                },
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian"
+                },
+                {
+                  "t": "間に合わなかったら",
+                  "read": "まにあわなかったら",
+                  "vi": "nếu không kịp giờ"
+                },
+                {
+                  "t": "名前",
+                  "read": "なまえ",
+                  "vi": "tên"
+                },
+                {
+                  "t": "呼んでください",
+                  "read": "よんでください",
+                  "vi": "xin hãy gọi"
+                }
+              ]
+            },
+            {
+              "prompt": "病院に行ったら、元気になれると思います。",
+              "ul": "病院",
+              "choices": [
+                "びょういん",
+                "びょうえん",
+                "びょいん",
+                "ひょういん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「病院」là「びょういん」.「病」đọc âm Hán là「びょう」,「院」đọc âm Hán là「いん」. Phương án ②「びょうえん」sai vì đọc sai「院」là「えん」— đây có thể nhầm với「園(えん)」. Phương án ③「びょいん」sai vì bỏ mất âm dài「う」trong「びょう→びょ」. Phương án ④「ひょういん」sai vì bỏ dấu đục âm ở âm đầu「びょう→ひょう」.",
+              "glosses": [
+                {
+                  "t": "病院",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "行ったら",
+                  "read": "いったら",
+                  "vi": "nếu đi đến"
+                },
+                {
+                  "t": "元気になれる",
+                  "read": "げんきになれる",
+                  "vi": "có thể trở nên khỏe mạnh"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ"
+                }
+              ]
+            },
+            {
+              "prompt": "あの場所は危険なので、子供だけでは泳げません。",
+              "ul": "危険",
+              "choices": [
+                "きけん",
+                "きっけん",
+                "きけい",
+                "きあぶ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「危険」là「きけん」.「危」đọc âm Hán là「き」,「険」đọc âm Hán là「けん」. Phương án ②「きっけん」sai vì thêm âm bật (促音)「き→きっ」không có trong từ gốc. Phương án ③「きけい」sai vì nhầm「けん→けい」, đổi「ん」thành「い」. Phương án ④「きあぶ」sai vì lấy một phần kun đọc của「危」là「あぶ(ない)」ghép lại, không phải cách đọc của cả từ「危険」.",
+              "glosses": [
+                {
+                  "t": "場所",
+                  "read": "ばしょ",
+                  "vi": "nơi, địa điểm"
+                },
+                {
+                  "t": "危険な",
+                  "vi": "nguy hiểm"
+                },
+                {
+                  "t": "子供",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "だけでは",
+                  "vi": "chỉ... thôi thì"
+                },
+                {
+                  "t": "泳げません",
+                  "read": "およげません",
+                  "vi": "không thể bơi được"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì là... nên"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女はピアノを弾くことができますが、ギターは弾けません。",
+              "ul": "弾く",
+              "choices": [
+                "ひく",
+                "はじく",
+                "だんく",
+                "ふく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cách đọc đúng của「弾く」trong nghĩa chơi nhạc cụ là「ひく」. Phương án ②「はじく」cũng là kun đọc của「弾く」nhưng mang nghĩa khác: bật ra, đẩy ra (như「水を弾く」— không thấm nước); trong văn cảnh chơi đàn piano, chỉ「ひく」mới đúng. Phương án ③「だんく」sai vì ghép âm Hán「だん」của「弾」với「く」— không phải cách đọc tồn tại trong tiếng Nhật. Phương án ④「ふく」sai vì「吹く」là động từ thổi, dùng khi chơi nhạc cụ hơi (sáo, kèn...), không phải nhạc cụ phím hay dây.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "ピアノ",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "弾く",
+                  "vi": "chơi (nhạc cụ dây/phím)"
+                },
+                {
+                  "t": "ことができます",
+                  "vi": "có thể làm được"
+                },
+                {
+                  "t": "ギター",
+                  "vi": "đàn guitar"
+                },
+                {
+                  "t": "弾けません",
+                  "read": "ひけません",
+                  "vi": "không thể chơi được"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "かれはじてんしゃにのれます。",
+              "ul": "のれます",
+              "choices": [
+                "乗れます",
+                "乗ります",
+                "飲れます",
+                "込れます"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 乗れます (V可能形)",
+              "explain": "Câu kiểm tra cách viết kanji của「のれます」— V可能形 (dạng thể khả năng) của「乗る」(cưỡi, đi xe). (A) 乗れます ✓ — đúng;「乗」(のる／じょう) = lên, cưỡi. (B) 乗ります — viết đúng kanji nhưng là thể lịch sự thông thường「乗ります」không phải V可能形「乗れます」, sai vì phần hiragana khác. (C) 飲れます — kanji「飲」(のむ) = uống, cùng âm đầu の nhưng nghĩa hoàn toàn khác. (D) 込れます — kanji「込」(こむ) = đông đúc, đọc là こ chứ không phải の, sai âm và nghĩa.",
+              "glosses": [
+                {
+                  "t": "かれ",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "じてんしゃ",
+                  "read": "じてんしゃ",
+                  "vi": "xe đạp"
+                },
+                {
+                  "t": "のれます",
+                  "read": "のれます",
+                  "vi": "có thể cưỡi/đi (V可能形 của 乗る)"
+                }
+              ]
+            },
+            {
+              "prompt": "このへやからふじさんがみえます。",
+              "ul": "みえます",
+              "choices": [
+                "見えます",
+                "見ます",
+                "観えます",
+                "視えます"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 見えます (NがVえます)",
+              "explain": "Câu kiểm tra cách viết kanji của「みえます」—「見える」(nhìn thấy tự nhiên, không chủ ý). (A) 見えます ✓ — đúng;「見」(みる／けん) = nhìn, thấy, là kanji chuẩn cho「みえます」. (B) 見ます — viết đúng kanji「見」nhưng phần hiragana là「ます」không phải「えます」, tức là「見ます」(nhìn chủ động) chứ không phải「見えます」(trông thấy tự nhiên). (C) 観えます —「観」(かん) thường dùng trong「観る」(xem biểu diễn/film), không dùng cho「みえます」theo nghĩa tự nhiên. (D) 視えます —「視」(し) mang nghĩa「視力」(thị lực) hay「視点」, không phải cách viết của「みえます」.",
+              "glosses": [
+                {
+                  "t": "このへや",
+                  "read": "このへや",
+                  "vi": "căn phòng này"
+                },
+                {
+                  "t": "ふじさん",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "みえます",
+                  "read": "みえます",
+                  "vi": "nhìn thấy được (tự nhiên, không cố ý)"
+                }
+              ]
+            },
+            {
+              "prompt": "さいふに 500円しかありません。",
+              "ul": "さいふ",
+              "choices": [
+                "財布",
+                "財产",
+                "財宝",
+                "財政"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 財布 (Nしか〜ない)",
+              "explain": "Câu kiểm tra cách viết kanji của「さいふ」(ví tiền). (A) 財布 ✓ — đúng;「財」(ざい) = tài sản,「布」(ふ) = vải/túi → 財布 = ví tiền (túi đựng tiền). (B) 財产 — chữ「产」là giản thể Trung Quốc, không phải chữ Nhật; kanji Nhật đúng là「産」, mà「財産」(ざいさん) = tài sản, không phải ví tiền. (C) 財宝 — 「財宝」(ざいほう) = kho báu/châu báu, đọc hoàn toàn khác (ほう≠ふ). (D) 財政 —「財政」(ざいせい) = tài chính (quốc gia), đọc là ざいせい chứ không phải さいふ.",
+              "glosses": [
+                {
+                  "t": "さいふ",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "500円",
+                  "read": "ごひゃくえん",
+                  "vi": "500 yên"
+                },
+                {
+                  "t": "しかありません",
+                  "read": "しかありません",
+                  "vi": "chỉ có ~ (hàm ý ít/thiếu thốn, đi kèm phủ định)"
+                }
+              ]
+            },
+            {
+              "prompt": "A:「どうしたんですか。」B:「あたまが痛いんです。」",
+              "ul": "あたま",
+              "choices": [
+                "頭",
+                "顔",
+                "首",
+                "胸"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 頭 (B26:〜んです)",
+              "explain": "Câu kiểm tra cách viết kanji của「あたま」(đầu). Câu ôn mẫu「〜んです」(B26) — dùng để giải thích tình huống. (A) 頭 ✓ — đúng;「頭」(あたま／とう) = đầu, là cách viết chuẩn của「あたま」. (B) 顔 —「かお」= khuôn mặt, đọc là かお chứ không phải あたま, sai âm và nghĩa. (C) 首 —「くび」= cổ, đọc là くび, âm và bộ vị cơ thể khác. (D) 胸 —「むね」= ngực, đọc là むね, hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "どうしたんですか",
+                  "read": "",
+                  "vi": "có chuyện gì vậy? (hỏi quan tâm)"
+                },
+                {
+                  "t": "あたま",
+                  "read": "あたま",
+                  "vi": "đầu (bộ phận cơ thể)"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "giải thích lý do/tình huống"
+                },
+                {
+                  "t": "痛いんです",
+                  "read": "いたいんです",
+                  "vi": "là bị đau (giải thích lý do)"
+                }
+              ]
+            },
+            {
+              "prompt": "となりのへやからおんがくが聞こえます。",
+              "ul": "おんがく",
+              "choices": [
+                "音楽",
+                "音学",
+                "音月",
+                "恩楽"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 音楽 (NがVえます 聞こえる)",
+              "explain": "Câu kiểm tra cách viết kanji của「おんがく」(âm nhạc), trong câu dùng mẫu「NがV聞こえます」— nghe thấy tự nhiên. (A) 音楽 ✓ — đúng;「音」(おん／ね) = âm thanh,「楽」(がく／らく) = nhạc/vui → 音楽 = âm nhạc. (B) 音学 —「学」(がく) đọc là がく giống nhưng nghĩa là học vấn/học, không phải nhạc;「音学」không phải từ có nghĩa trong tiếng Nhật. (C) 音月 —「月」(つき／げつ) = mặt trăng/tháng, đọc là つき hoặc げつ chứ không phải がく, tạo thành từ vô nghĩa. (D) 恩楽 —「恩」(おん) đồng âm với「音」nhưng nghĩa là ân huệ/ơn;「恩楽」không phải từ tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "となりのへや",
+                  "read": "となりのへや",
+                  "vi": "phòng bên cạnh"
+                },
+                {
+                  "t": "おんがく",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "聞こえます",
+                  "read": "きこえます",
+                  "vi": "nghe thấy được (tự nhiên, không cố ý)"
+                }
+              ]
+            },
+            {
+              "prompt": "もし日本語がペラペラに話せたら、つうやくの仕事ができますね。",
+              "ul": "つうやく",
+              "choices": [
+                "通訳",
+                "通役",
+                "通薬",
+                "痛訳"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 通訳 (B25:もし〜たら + V可能形)",
+              "explain": "Câu kiểm tra cách viết kanji của「つうやく」(phiên dịch miệng), trong câu kết hợp ôn「もし〜たら」(B25) và V可能形「話せたら」. (A) 通訳 ✓ — đúng;「通」(つう) = thông/qua,「訳」(やく) = dịch → 通訳 = phiên dịch (miệng). (B) 通役 —「役」(やく／えき) đồng âm với「訳」nhưng nghĩa là vai trò/nhiệm vụ;「通役」không phải từ có nghĩa. (C) 通薬 —「薬」(やく) đồng âm nhưng nghĩa là thuốc;「通薬」vô nghĩa trong tiếng Nhật. (D) 痛訳 —「痛」(つう) đồng âm với「通」nhưng nghĩa là đau đớn;「痛訳」vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "ペラペラ",
+                  "read": "",
+                  "vi": "lưu loát (nói trôi chảy)"
+                },
+                {
+                  "t": "話せたら",
+                  "read": "はなせたら",
+                  "vi": "nếu có thể nói được (V可能形 + たら)"
+                },
+                {
+                  "t": "つうやく",
+                  "read": "つうやく",
+                  "vi": "phiên dịch (miệng)"
+                },
+                {
+                  "t": "もし〜たら",
+                  "read": "",
+                  "vi": "nếu giả sử ~ thì ~ (điều kiện giả định)"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "できますね",
+                  "read": "できますね",
+                  "vi": "〜ができる = có thể làm được ~; ね = nhỉ/nhé (xác nhận)"
+                }
+              ]
+            },
+            {
+              "prompt": "車を運転するまえに、めんきょしょうをとってください。",
+              "ul": "めんきょしょう",
+              "choices": [
+                "免許証",
+                "免許正",
+                "面許証",
+                "免虚証"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 免許証 (B18:Vるまえに)",
+              "explain": "Câu kiểm tra cách viết kanji của「めんきょしょう」(bằng lái xe), trong câu ôn mẫu「Vるまえに」(B18) — trước khi làm V dùng V thể từ điển. (A) 免許証 ✓ — đúng;「免」(めん) = miễn,「許」(きょ) = cho phép,「証」(しょう) = giấy chứng nhận → 免許証 = bằng lái xe. (B) 免許正 —「正」(しょう／せい) đồng âm một phần với「証」nhưng nghĩa là đúng/chính; không phải từ chỉ giấy chứng nhận. (C) 面許証 —「面」(めん) đồng âm với「免」nhưng nghĩa là mặt/khuôn mặt;「面許証」không phải từ tiếng Nhật. (D) 免虚証 —「虚」(きょ) đồng âm với「許」nhưng nghĩa là rỗng/giả;「免虚証」vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "運転する",
+                  "read": "うんてんする",
+                  "vi": "lái xe"
+                },
+                {
+                  "t": "まえに",
+                  "read": "まえに",
+                  "vi": "trước khi ~"
+                },
+                {
+                  "t": "めんきょしょう",
+                  "read": "めんきょしょう",
+                  "vi": "bằng lái xe"
+                },
+                {
+                  "t": "とってください",
+                  "read": "とってください",
+                  "vi": "xin hãy lấy/thi lấy"
+                },
+                {
+                  "t": "車",
+                  "read": "くるま",
+                  "vi": "xe hơi, ô tô"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんにピアノをひいてもらいました。",
+              "ul": "ひいて",
+              "choices": [
+                "弾いて",
+                "引いて",
+                "弾って",
+                "彈いて"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 弾いて (B24:Vてもらいます)",
+              "explain": "Câu kiểm tra cách viết kanji của「ひいて」— て-form của「弾く」(đánh đàn), trong câu ôn mẫu「Vてもらいます」(B24). (A) 弾いて ✓ — đúng;「弾」(ひく／だん) = đánh (nhạc cụ);「弾く」→ て-form「弾いて」, dùng cho đàn piano, guitar. (B) 引いて —「引」(ひく) đồng âm hoàn toàn với「弾」nhưng nghĩa là kéo/rút;「引く」không dùng cho nhạc cụ. (C) 弾って —「弾く」không có て-form là「弾って」; て-form đúng của godan âm く là「いて」(書く→書いて, 弾く→弾いて), không phải「って」. (D) 彈いて —「彈」là giản thể Trung Quốc của「弾」, không phải kanji Nhật chuẩn, sai bộ thủ.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "ピアノ",
+                  "read": "",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "ひいて",
+                  "read": "ひいて",
+                  "vi": "đánh (nhạc cụ) — て-form của 弾く"
+                },
+                {
+                  "t": "ひいてもらいました",
+                  "read": "ひいてもらいました",
+                  "vi": "đã nhờ/được ai làm cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "このボタンをおすと、ドアが開きます。",
+              "ul": "おす",
+              "choices": [
+                "押す",
+                "推す",
+                "圧す",
+                "抑す"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 押す (B23:V1とV2 điều kiện tự nhiên)",
+              "explain": "Câu kiểm tra cách viết kanji của「おす」(ấn/nhấn), trong câu ôn mẫu「V1とV2」(B23) — điều kiện tự nhiên/tất yếu. (A) 押す ✓ — đúng;「押」(おす／おさえる) = nhấn, ấn, đẩy; là kanji chuẩn của「おす」khi nói đến nút bấm. (B) 推す —「推」(おす／すい) đồng âm nhưng nghĩa là đề cử/suy luận (推薦, 推理);「推す」không dùng cho hành động nhấn nút vật lý. (C) 圧す —「圧」(あつ) thường đọc là あつ trong từ ghép (圧力), không phải cách viết chuẩn của「おす」nhấn nút. (D) 抑す —「抑」(おさ・える) đọc là おさえる, không đọc là おす; nghĩa là kìm/nén.",
+              "glosses": [
+                {
+                  "t": "ボタン",
+                  "read": "",
+                  "vi": "nút bấm"
+                },
+                {
+                  "t": "おす",
+                  "read": "おす",
+                  "vi": "ấn/nhấn (nút)"
+                },
+                {
+                  "t": "おすと",
+                  "read": "おすと",
+                  "vi": "hễ ~ thì ~ (điều kiện tự nhiên, kết quả tất yếu)"
+                },
+                {
+                  "t": "ドア",
+                  "read": "",
+                  "vi": "cánh cửa"
+                },
+                {
+                  "t": "開きます",
+                  "read": "あきます",
+                  "vi": "mở ra"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはくるまをうんてんできます。",
+              "ul": "うんてん",
+              "choices": [
+                "運転",
+                "運動",
+                "運命",
+                "運搬"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 運転",
+              "explain": "Câu kiểm tra cách viết kanji của「うんてん」(lái xe). (A) 運転 ✓ — đúng;「運」(うん) = vận,「転」(てん) = xoay/chuyển → 運転 = lái xe, điều khiển phương tiện. (B) 運動 —「運動」đọc là うんどう = vận động/thể dục; âm đọc khác (どう ≠ てん). (C) 運命 —「運命」đọc là うんめい = số phận/vận mệnh; âm hoàn toàn khác (めい ≠ てん). (D) 運搬 —「運搬」đọc là うんぱん = vận chuyển hàng hóa; âm đọc khác (ぱん ≠ てん).",
+              "glosses": [
+                {
+                  "t": "かれ",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "くるま",
+                  "read": "くるま",
+                  "vi": "xe hơi"
+                },
+                {
+                  "t": "うんてん",
+                  "read": "うんてん",
+                  "vi": "lái xe (うんてん できます = có thể lái xe)"
+                },
+                {
+                  "t": "できます",
+                  "read": "できます",
+                  "vi": "〜できる = có thể làm được ~ (khả năng, thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんはきっと一人でりょうりができると思います。",
+              "ul": "りょうり",
+              "choices": [
+                "料理",
+                "料里",
+                "良理",
+                "料利"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 料理 (B21:〜と思います + V可能形)",
+              "explain": "Câu kiểm tra cách viết kanji của「りょうり」(nấu ăn/món ăn), kết hợp ôn「〜と思います」(B21) — trước「と思います」phải dùng 普通形「できる」. (A) 料理 ✓ — đúng;「料」(りょう) = nguyên liệu/phí,「理」(り) = lý/xử lý → 料理 = nấu ăn, món ăn. (B) 料里 —「里」(り) đồng âm với「理」nhưng nghĩa là làng/dặm (đơn vị đo);「料里」vô nghĩa trong tiếng Nhật. (C) 良理 —「良」(りょう) đồng âm với「料」nhưng nghĩa là tốt/tốt lành;「良理」không phải từ có nghĩa. (D) 料利 —「利」(り) đồng âm với「理」nhưng nghĩa là lợi ích;「料利」vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "きっと",
+                  "read": "",
+                  "vi": "chắc chắn/nhất định"
+                },
+                {
+                  "t": "一人で",
+                  "read": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "りょうり",
+                  "vi": "nấu ăn / món ăn"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng ~"
+                },
+                {
+                  "t": "できると思います",
+                  "read": "できるとおもいます",
+                  "vi": "nghĩ rằng có thể làm được (普通形 + と思います)"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "prompt": "たとえつかれていても、マラソンを走りきります。",
+              "ul": "つかれて",
+              "choices": [
+                "疲れて",
+                "彼れて",
+                "癒れて",
+                "痺れて"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 疲れて (B25:たとえ〜ても)",
+              "explain": "Câu kiểm tra cách viết kanji của「つかれて」— て-form của「疲れる」(mệt mỏi), trong câu ôn「たとえ〜ても」(B25) — dù cho ~ đi nữa. (A) 疲れて ✓ — đúng;「疲」(つか・れる／ひ) = mệt mỏi → 疲れて (て-form) ghép với「いても」= dù đang mệt. (B) 彼れて —「彼」(かれ) = anh ấy, đọc là かれ chứ không phải つかれ; từ vô nghĩa khi ghép. (C) 癒れて —「癒」(い・える／ゆ) = lành bệnh/chữa lành; đọc là いえる hoặc いやす, không phải つかれる; nghĩa trái ngược (hồi phục ≠ mệt). (D) 痺れて —「痺」(しびれる) = tê liệt/tê bì; đọc là しびれる, không phải つかれる; nghĩa và âm đều khác.",
+              "glosses": [
+                {
+                  "t": "たとえつかれていても",
+                  "read": "たとえつかれていても",
+                  "vi": "dù cho ~ đi nữa vẫn ~"
+                },
+                {
+                  "t": "つかれて",
+                  "read": "つかれて",
+                  "vi": "mệt mỏi — て-form của 疲れる"
+                },
+                {
+                  "t": "つかれていても",
+                  "read": "つかれていても",
+                  "vi": "dù đang mệt"
+                },
+                {
+                  "t": "マラソン",
+                  "read": "",
+                  "vi": "marathon"
+                },
+                {
+                  "t": "走りきります",
+                  "read": "はしりきります",
+                  "vi": "chạy hết/chạy đến cùng"
+                }
+              ]
+            },
+            {
+              "prompt": "あそこに見えるやまがあのゆうめいな山です。",
+              "ul": "ゆうめい",
+              "choices": [
+                "有名",
+                "有明",
+                "友名",
+                "勇名"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 有名 (B22:Vる+N + NがVえます)",
+              "explain": "Câu kiểm tra cách viết kanji của「ゆうめい」(nổi tiếng), trong câu kết hợp「NがVえます」(見える) và mệnh đề bổ nghĩa danh từ「Vる+N」(B22):「見える山」= ngọn núi nhìn thấy được. (A) 有名 ✓ — đúng;「有」(ゆう) = có/tồn tại,「名」(めい) = tên/danh → 有名 = nổi tiếng (có tên tuổi). (B) 有明 —「有明」(ありあけ) là địa danh hoặc đọc là ゆうめい (khác nghĩa: bình minh/mờ sáng) — nhưng trong ngữ cảnh tính từ な thì「有明な」không tự nhiên; bẫy vì đồng âm một phần. (C) 友名 —「友」(とも／ゆう) + 「名」= không phải từ tiếng Nhật có nghĩa;「友」đọc thông thường là とも. (D) 勇名 —「勇」(ゆう) = dũng cảm;「勇名」(ゆうめい) đồng âm nhưng nghĩa là danh tiếng dũng cảm — không phải từ dùng phổ biến, khác với「有名」= nổi tiếng.",
+              "glosses": [
+                {
+                  "t": "あそこ",
+                  "read": "",
+                  "vi": "nơi kia/đằng kia"
+                },
+                {
+                  "t": "見える",
+                  "read": "みえる",
+                  "vi": "nhìn thấy được (tự nhiên)"
+                },
+                {
+                  "t": "ゆうめい",
+                  "read": "ゆうめい",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "見えるやま",
+                  "read": "みえるやま",
+                  "vi": "ngọn núi (mà) nhìn thấy được — Vる+N (B22)"
+                },
+                {
+                  "t": "山",
+                  "read": "やま",
+                  "vi": "núi"
+                }
+              ]
+            },
+            {
+              "prompt": "A:「どうしてそんなに元気がないんですか。」B:「昨日 3時間しかねむれなかったんです。」",
+              "ul": "ねむれなかった",
+              "choices": [
+                "眠れなかった",
+                "眠なかった",
+                "眠られなかった",
+                "眠かった"
+              ],
+              "answer": 0,
+              "pt": "問2·表記: 眠れなかった (Nしか〜ない + V可能形 + B26:〜んですか)",
+              "explain": "Câu kiểm tra cách viết kanji của「ねむれなかった」— V可能形 quá khứ phủ định của「眠る」(ngủ), kết hợp「Nしか〜ない」và「〜んです」(B26).「しか」bắt buộc đi kèm phủ định. (A) 眠れなかった ✓ — đúng;「眠」(ねむ・る／みん) = ngủ; 眠る là godan nên 可能形 là「眠れる」→ phủ定 quá khứ「眠れなかった」. (B) 眠なかった — bỏ mất「れ」của 可能形, sai hình thái ngữ pháp; không tồn tại hình thức「眠なかった」. (C) 眠られなかった —「〜られる」là 可能形 của ichidan (nhóm 2), nhưng「眠る」là godan (nhóm 1) nên 可能形 phải là「眠れる」không phải「眠られる」. (D) 眠かった —「眠い」(ねむい) = buồn ngủ (tính từ い), quá khứ là「眠かった」; đây là tính từ, không phải V可能形 phủ định của「眠る」.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "read": "",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "元気がない",
+                  "read": "げんきがない",
+                  "vi": "không có năng lượng/uể oải"
+                },
+                {
+                  "t": "んですか",
+                  "read": "んですか",
+                  "vi": "hỏi tình huống (thể hiện quan tâm)"
+                },
+                {
+                  "t": "3時間",
+                  "read": "さんじかん",
+                  "vi": "3 tiếng đồng hồ"
+                },
+                {
+                  "t": "しかねむれなかった",
+                  "read": "しかねむれなかった",
+                  "vi": "chỉ ~ (mà thôi, quá ít), phủ định quá khứ"
+                },
+                {
+                  "t": "ねむれなかった",
+                  "read": "ねむれなかった",
+                  "vi": "đã không thể ngủ được (V可能形 quá khứ phủ định)"
+                },
+                {
+                  "t": "眠れなかった",
+                  "read": "ねむれなかった",
+                  "vi": "đã không ngủ được (thể khả năng, phủ định quá khứ)"
+                },
+                {
+                  "t": "眠なかった",
+                  "read": "ねむなかった",
+                  "vi": "dạng chia sai, không đúng ngữ pháp"
+                },
+                {
+                  "t": "眠られなかった",
+                  "read": "ねむられなかった",
+                  "vi": "đã không ngủ được (dùng nhầm dạng bị động thay vì khả năng)"
+                },
+                {
+                  "t": "眠かった",
+                  "read": "ねむかった",
+                  "vi": "đã buồn ngủ"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "そんなに",
+                  "read": "そんなに",
+                  "vi": "đến mức đó, như vậy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "晴れた日には、ここから富士山が＿。",
+              "choices": [
+                "見えます",
+                "聞こえます",
+                "わかります",
+                "読めます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「見えます」có nghĩa là 'nhìn thấy được một cách tự nhiên (cảnh vật hiện ra trong tầm nhìn)', dùng cho cảnh vật hoặc vật ở xa. Ngữ cảnh 'trời đẹp thấy núi Phú Sĩ' hoàn toàn phù hợp với 「見えます」. 「聞こえます」là 'nghe thấy được (âm thanh, tiếng)', dùng cho âm thanh chứ không phải cảnh nhìn. 「わかります」là 'hiểu được, biết được', không dùng để diễn tả cảnh vật hiện ra trong tầm mắt. 「読めます」là 'đọc được (chữ)', không liên quan đến việc nhìn thấy núi.",
+              "glosses": [
+                {
+                  "t": "晴れた日",
+                  "read": "はれたひ",
+                  "vi": "ngày trời đẹp (không có mây)"
+                },
+                {
+                  "t": "富士山",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "見えます",
+                  "read": "みえます",
+                  "vi": "nhìn thấy được (tự nhiên, không cố ý)"
+                },
+                {
+                  "t": "ここから",
+                  "read": "ここから",
+                  "vi": "ここから = từ đây (điểm xuất phát để nhìn/đi)"
+                }
+              ]
+            },
+            {
+              "stem": "隣の部屋からピアノの＿がします。",
+              "choices": [
+                "声",
+                "音",
+                "字",
+                "番号"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「音（おと）」chỉ âm thanh phát ra từ nhạc cụ, vật thể hoặc hiện tượng vật lý. Đàn piano là nhạc cụ nên 「音がする」(có tiếng phát ra) là cách dùng hoàn toàn tự nhiên. 「声（こえ）」là giọng nói của người hoặc động vật, không dùng cho nhạc cụ. 「字（じ）」là chữ viết, không liên quan đến âm thanh. 「番号（ばんごう）」là số thứ tự hoặc số điện thoại, không liên quan đến bối cảnh âm thanh này.",
+              "glosses": [
+                {
+                  "t": "隣の部屋",
+                  "read": "となりのへや",
+                  "vi": "phòng bên cạnh"
+                },
+                {
+                  "t": "ピアノ",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "音",
+                  "read": "おと",
+                  "vi": "âm thanh (của nhạc cụ, vật thể)"
+                },
+                {
+                  "t": "がします",
+                  "vi": "phát ra, vang lên"
+                }
+              ]
+            },
+            {
+              "stem": "この地図は＿なので、子供でも使えます。",
+              "choices": [
+                "簡単",
+                "危険",
+                "有名",
+                "親切"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「簡単（かんたん）」nghĩa là 'đơn giản, dễ dùng', hoàn toàn phù hợp với ngữ cảnh 'ngay cả trẻ em cũng dùng được'. 「危険（きけん）」nghĩa là 'nguy hiểm', mâu thuẫn trực tiếp với vế sau ('trẻ em dùng được' hàm ý an toàn). 「有名（ゆうめい）」nghĩa là 'nổi tiếng', không liên quan đến tính dễ dùng hay an toàn. 「親切（しんせつ）」nghĩa là 'tốt bụng, ân cần', thường dùng để nói về người chứ không dùng cho đồ vật như bản đồ.",
+              "glosses": [
+                {
+                  "t": "地図",
+                  "read": "ちず",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "簡単",
+                  "read": "かんたん",
+                  "vi": "đơn giản, dễ dàng"
+                },
+                {
+                  "t": "子供でも",
+                  "read": "こどもでも",
+                  "vi": "ngay cả trẻ em cũng"
+                },
+                {
+                  "t": "使えます",
+                  "read": "つかえます",
+                  "vi": "có thể dùng được"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì là... nên"
+                }
+              ]
+            },
+            {
+              "stem": "先生の＿が小さくて、後ろの席からは聞こえませんでした。",
+              "choices": [
+                "声",
+                "音",
+                "字",
+                "内容"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「声（こえ）」là giọng nói của người khi nói chuyện hoặc giảng bài. Ngữ cảnh 'giọng thầy giáo nhỏ quá, từ ghế phía sau không nghe thấy' hoàn toàn tự nhiên với 「声」. 「音（おと）」chỉ âm thanh của nhạc cụ hay vật thể, không dùng cho giọng người khi nói. 「字（じ）」là chữ viết — không thể kết hợp với 「聞こえる」(nghe thấy) vì chữ là thứ nhìn thấy, không phải nghe thấy. 「内容（ないよう）」là nội dung, có thể nói 'nội dung khó hiểu' nhưng không nói 'nội dung nhỏ quá'.",
+              "glosses": [
+                {
+                  "t": "声",
+                  "read": "こえ",
+                  "vi": "giọng nói"
+                },
+                {
+                  "t": "後ろの席",
+                  "read": "うしろのせき",
+                  "vi": "ghế phía sau"
+                },
+                {
+                  "t": "聞こえませんでした",
+                  "read": "きこえませんでした",
+                  "vi": "không nghe thấy được"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "小さくて",
+                  "read": "ちいさくて",
+                  "vi": "nhỏ (và)"
+                },
+                {
+                  "t": "からは",
+                  "read": "からは",
+                  "vi": "〜からは = từ ~ thì (nhấn mạnh vị trí/nguồn gốc)"
+                }
+              ]
+            },
+            {
+              "stem": "この漢字は小さすぎて、＿がよく見えません。",
+              "choices": [
+                "字",
+                "声",
+                "音",
+                "場所"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「字（じ）」chỉ chữ viết, nét chữ, hình dạng của ký tự. Ngữ cảnh 'chữ Hán nhỏ quá nên nét chữ không nhìn rõ được' rất tự nhiên — 「漢字」(chữ Hán) và 「字」(nét chữ/hình chữ) bổ sung ý nghĩa cho nhau. 「声（こえ）」là giọng nói, không dùng với 「見えます」(nhìn thấy) vì giọng là âm thanh, không phải thứ nhìn thấy. 「音（おと）」là âm thanh, tương tự không kết hợp được với 「見えます」. 「場所（ばしょ）」là địa điểm, vị trí — không liên quan đến việc nhìn thấy chữ.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "小さすぎて",
+                  "read": "ちいさすぎて",
+                  "vi": "nhỏ quá nên"
+                },
+                {
+                  "t": "字",
+                  "read": "じ",
+                  "vi": "chữ, nét chữ, hình dạng ký tự"
+                },
+                {
+                  "t": "見えません",
+                  "read": "みえません",
+                  "vi": "không nhìn thấy được"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "rõ, kĩ"
+                }
+              ]
+            },
+            {
+              "stem": "この店は現金しか＿、カードは使えません。",
+              "choices": [
+                "使えません",
+                "食べられません",
+                "泳げません",
+                "読めません"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cấu trúc 「〜しか〜ない」nghĩa là 'chỉ có... thôi' — vế phủ định phải dùng dạng phủ định, và từ trong ô trống phải phù hợp nghĩa với chủ thể. 「使えません」là 'không thể dùng được' (thể khả năng phủ định của 「使う」— dùng, sử dụng): 「現金しか使えません」= chỉ dùng được tiền mặt thôi — phù hợp hoàn toàn với ngữ cảnh cửa hàng không nhận thẻ. 「食べられません」là 'không ăn được', không liên quan đến phương thức thanh toán. 「泳げません」là 'không bơi được', hoàn toàn lạc ngữ cảnh. 「読めません」là 'không đọc được', cũng không liên quan đến tiền mặt hay thẻ thanh toán.",
+              "glosses": [
+                {
+                  "t": "現金しか",
+                  "read": "げんきんしか",
+                  "vi": "chỉ tiền mặt (thôi)"
+                },
+                {
+                  "t": "使えません",
+                  "read": "つかえません",
+                  "vi": "không thể dùng được"
+                },
+                {
+                  "t": "カード",
+                  "vi": "thẻ (thanh toán)"
+                },
+                {
+                  "t": "使えません",
+                  "read": "つかえません",
+                  "vi": "không thể dùng được (thể khả năng phủ định)"
+                },
+                {
+                  "t": "食べられません",
+                  "read": "たべられません",
+                  "vi": "không thể ăn được"
+                },
+                {
+                  "t": "泳げません",
+                  "read": "およげません",
+                  "vi": "không thể bơi được"
+                },
+                {
+                  "t": "読めません",
+                  "read": "よめません",
+                  "vi": "không thể đọc được"
+                },
+                {
+                  "t": "店",
+                  "read": "みせ",
+                  "vi": "cửa hàng"
+                }
+              ]
+            },
+            {
+              "stem": "この病院は駅から近くて、＿も便利です。",
+              "choices": [
+                "場所",
+                "番号",
+                "内容",
+                "約束"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「場所（ばしょ）」là vị trí, địa điểm. 「場所も便利です」nghĩa là 'vị trí cũng tiện lợi', hoàn toàn ăn khớp với vế trước 'gần ga tàu'. Đây là cách người Nhật hay nói về sự thuận tiện về mặt địa lý. 「番号（ばんごう）」là số (điện thoại, số thứ tự…), không liên quan đến sự tiện lợi của bệnh viện. 「内容（ないよう）」là nội dung, thường nói về nội dung tài liệu hay cuộc họp, không dùng theo nghĩa tiện lợi về vị trí. 「約束（やくそく）」là hẹn hò, lời hứa — không liên quan đến bối cảnh này.",
+              "glosses": [
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "駅から近くて",
+                  "read": "えきからちかくて",
+                  "vi": "gần ga tàu nên"
+                },
+                {
+                  "t": "場所",
+                  "read": "ばしょ",
+                  "vi": "vị trí, địa điểm"
+                },
+                {
+                  "t": "便利",
+                  "read": "べんり",
+                  "vi": "tiện lợi"
+                }
+              ]
+            },
+            {
+              "stem": "彼はギターだけでなく、ピアノも＿そうです。",
+              "choices": [
+                "弾ける",
+                "泳げる",
+                "運転できる",
+                "説明できる"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「弾ける（ひける）」là thể khả năng của 「弾く」(chơi nhạc cụ): 'có thể chơi (nhạc cụ)'. Cả guitar lẫn piano đều là nhạc cụ, nên 「ピアノも弾けるそうです」(nghe nói anh ấy cũng chơi được piano) hoàn toàn tự nhiên. 「泳げる」là 'bơi được' — không liên quan đến nhạc cụ. 「運転できる」là 'có thể lái (xe)' — không liên quan đến việc chơi nhạc. 「説明できる」là 'có thể giải thích' — không diễn đạt được kỹ năng chơi nhạc cụ. Cả 4 phương án đều là thể khả năng của 4 động từ khác nhau; đáp án đúng dựa vào nghĩa phù hợp với ngữ cảnh nhạc cụ.",
+              "glosses": [
+                {
+                  "t": "ギター",
+                  "vi": "đàn ghi-ta"
+                },
+                {
+                  "t": "ピアノも",
+                  "vi": "cả đàn piano nữa"
+                },
+                {
+                  "t": "弾ける",
+                  "read": "ひける",
+                  "vi": "có thể chơi (nhạc cụ) — thể khả năng của 弾く"
+                },
+                {
+                  "t": "だけでなく",
+                  "read": "だけでなく",
+                  "vi": "không chỉ... mà còn"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "〜そうです = nghe nói là ~ (thể truyền văn, nghe người khác kể lại)"
+                }
+              ]
+            },
+            {
+              "stem": "プールが近くにあるので、毎日＿ことができます。",
+              "choices": [
+                "泳ぐ",
+                "弾く",
+                "運転する",
+                "説明する"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「泳ぐ（およぐ）」nghĩa là 'bơi lội', gắn trực tiếp với 「プール」(bể bơi) trong ngữ cảnh. Câu 'vì có bể bơi gần đây nên mỗi ngày có thể bơi' hoàn toàn tự nhiên. 「弾く（ひく）」là 'chơi nhạc cụ' — không liên quan đến bể bơi. 「運転する」là 'lái xe' — không liên quan đến bể bơi. 「説明する」là 'giải thích' — không liên quan đến bể bơi. Cả 4 phương án đều là dạng tự điển (dictionary form) của 4 động từ khác nhau về nghĩa.",
+              "glosses": [
+                {
+                  "t": "プール",
+                  "vi": "bể bơi"
+                },
+                {
+                  "t": "近くにあるので",
+                  "read": "ちかくにあるので",
+                  "vi": "vì có ở gần đây nên"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "泳ぐ",
+                  "read": "およぐ",
+                  "vi": "bơi lội"
+                },
+                {
+                  "t": "ことができます",
+                  "read": "ことができます",
+                  "vi": "〜ことができる = có thể làm ~ (khả năng, thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "この道は＿なので、子供だけで歩かないでください。",
+              "choices": [
+                "危険",
+                "簡単",
+                "有名",
+                "元気"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「危険（きけん）」nghĩa là 'nguy hiểm' — hoàn toàn phù hợp với lời cảnh báo 'đừng để trẻ em đi một mình'. Lý do cấm đi một mình chính là vì đường nguy hiểm. 「簡単（かんたん）」nghĩa là 'dễ dàng' — mâu thuẫn với việc cấm trẻ em đi một mình (nếu đường dễ đi thì sẽ không cần cảnh báo). 「有名（ゆうめい）」nghĩa là 'nổi tiếng' — không tạo ra lý do cấm đoán logic. 「元気（げんき）」nghĩa là 'khoẻ mạnh, năng động' — thường dùng cho người, không dùng để mô tả trạng thái của con đường.",
+              "glosses": [
+                {
+                  "t": "道",
+                  "read": "みち",
+                  "vi": "con đường"
+                },
+                {
+                  "t": "危険",
+                  "read": "きけん",
+                  "vi": "nguy hiểm"
+                },
+                {
+                  "t": "子供だけで",
+                  "read": "こどもだけで",
+                  "vi": "chỉ trẻ em một mình"
+                },
+                {
+                  "t": "歩かないでください",
+                  "read": "あるかないでください",
+                  "vi": "xin đừng đi bộ"
+                },
+                {
+                  "t": "なので",
+                  "read": "なので",
+                  "vi": "vì là... nên"
+                }
+              ]
+            },
+            {
+              "stem": "この会議の＿は難しくて、よく理解できませんでした。",
+              "choices": [
+                "内容",
+                "場所",
+                "番号",
+                "約束"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「内容（ないよう）」nghĩa là 'nội dung, nội hàm' của một văn bản, cuộc họp, bài phát biểu. 「会議の内容が難しい」(nội dung cuộc họp khó) là cách diễn đạt rất tự nhiên trong tiếng Nhật. 「場所（ばしょ）」là địa điểm tổ chức cuộc họp — không thể nói 'địa điểm khó, không hiểu được'. 「番号（ばんごう）」là số (phòng họp, điện thoại…) — không liên quan đến việc khó hiểu. 「約束（やくそく）」là lời hứa, cuộc hẹn — không phải là thứ 'khó hiểu' trong ngữ cảnh cuộc họp.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "内容",
+                  "read": "ないよう",
+                  "vi": "nội dung"
+                },
+                {
+                  "t": "難しくて",
+                  "read": "むずかしくて",
+                  "vi": "khó nên"
+                },
+                {
+                  "t": "理解できませんでした",
+                  "read": "りかいできませんでした",
+                  "vi": "không thể hiểu được"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "rõ, kĩ"
+                }
+              ]
+            },
+            {
+              "stem": "彼はとても＿な人で、困っている人をいつも助けます。",
+              "choices": [
+                "親切",
+                "有名",
+                "危険",
+                "簡単"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「親切（しんせつ）」nghĩa là 'tốt bụng, ân cần, nhiệt tình giúp đỡ người khác' — đây là tính từ đuôi な dùng để miêu tả tính cách người. Vế sau 'luôn giúp đỡ người đang gặp khó khăn' chính là biểu hiện cụ thể của sự tốt bụng, nên 「親切な人」rất tự nhiên. 「有名（ゆうめい）」là 'nổi tiếng' — không giải thích được hành động giúp đỡ người khác. 「危険（きけん）」là 'nguy hiểm' — mâu thuẫn hoàn toàn với hành động giúp đỡ. 「簡単（かんたん）」là 'đơn giản, dễ dàng' — mô tả mức độ khó dễ của sự việc, không dùng cho tính cách người.",
+              "glosses": [
+                {
+                  "t": "親切",
+                  "read": "しんせつ",
+                  "vi": "tốt bụng, ân cần"
+                },
+                {
+                  "t": "困っている人",
+                  "read": "こまっているひと",
+                  "vi": "người đang gặp khó khăn"
+                },
+                {
+                  "t": "いつも助けます",
+                  "read": "いつもたすけます",
+                  "vi": "luôn giúp đỡ"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "この歌手は日本だけでなく、世界でも＿です。",
+              "choices": [
+                "有名",
+                "親切",
+                "元気",
+                "簡単"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「有名（ゆうめい）」nghĩa là 'nổi tiếng, được nhiều người biết đến' — hoàn toàn phù hợp với ngữ cảnh ca sĩ nổi tiếng không chỉ ở Nhật mà còn trên toàn thế giới. 「親切（しんせつ）」là 'tốt bụng' — đây là tính cách cá nhân, không dùng để nói về mức độ nổi tiếng trên phạm vi toàn cầu. 「元気（げんき）」là 'khoẻ mạnh, tràn đầy năng lượng' — không liên quan đến danh tiếng hay sự nổi tiếng. 「簡単（かんたん）」là 'đơn giản, dễ dàng' — không dùng để miêu tả người hay sự nổi tiếng.",
+              "glosses": [
+                {
+                  "t": "歌手",
+                  "read": "かしゅ",
+                  "vi": "ca sĩ"
+                },
+                {
+                  "t": "日本だけでなく",
+                  "read": "にほんだけでなく",
+                  "vi": "không chỉ ở Nhật Bản"
+                },
+                {
+                  "t": "世界でも",
+                  "read": "せかいでも",
+                  "vi": "ngay cả trên thế giới cũng"
+                },
+                {
+                  "t": "有名",
+                  "read": "ゆうめい",
+                  "vi": "nổi tiếng"
+                }
+              ]
+            },
+            {
+              "stem": "この町には病院が一つしか＿、不便だと思います。",
+              "choices": [
+                "ありません",
+                "いません",
+                "できません",
+                "わかりません"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Cấu trúc 「〜しか〜ない」('chỉ có... thôi') đòi hỏi vế phủ định ở cuối. 「ありません」là dạng phủ định lịch sự của 「ある」— động từ tồn tại dùng cho đồ vật và cơ sở hạ tầng như bệnh viện, trường học, nhà hàng. 「病院が一つしかありません」= 'chỉ có một bệnh viện thôi' — hoàn toàn đúng ngữ pháp và ngữ nghĩa. 「いません」là phủ định của 「いる」— chỉ dùng cho người và động vật có ý chí, không dùng cho cơ sở hạ tầng như bệnh viện. 「できません」là 'không thể làm được' — nói về khả năng, không nói về sự tồn tại của bệnh viện. 「わかりません」là 'không hiểu được' — không liên quan đến số lượng hay sự tồn tại của bệnh viện.",
+              "glosses": [
+                {
+                  "t": "町",
+                  "read": "まち",
+                  "vi": "thị trấn, khu phố"
+                },
+                {
+                  "t": "一つしか",
+                  "read": "ひとつしか",
+                  "vi": "chỉ có một (thôi)"
+                },
+                {
+                  "t": "ありません",
+                  "vi": "không có (tồn tại) — phủ định của ある dùng cho đồ vật/cơ sở"
+                },
+                {
+                  "t": "不便",
+                  "read": "ふべん",
+                  "vi": "bất tiện"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "nghĩ rằng"
+                }
+              ]
+            },
+            {
+              "stem": "先生は難しい文法を＿のが、とても上手です。",
+              "choices": [
+                "説明する",
+                "運転する",
+                "泳ぐ",
+                "弾く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「説明する（せつめいする）」nghĩa là 'giải thích' — kết hợp với 「文法（ngữ pháp）」hoàn toàn tự nhiên: 'thầy giáo giải thích ngữ pháp khó rất giỏi'. Đây là hoạt động đặc trưng và trung tâm của người dạy học. 「運転する」là 'lái xe' — không liên quan đến ngữ pháp hay dạy học. 「泳ぐ」là 'bơi lội' — không liên quan đến việc dạy ngữ pháp. 「弾く（ひく）」là 'chơi nhạc cụ' — không liên quan đến việc giải thích ngữ pháp. Cả 4 phương án đều là dạng tự điển (dictionary form) của 4 động từ hoàn toàn khác nghĩa nhau.",
+              "glosses": [
+                {
+                  "t": "難しい文法",
+                  "read": "むずかしいぶんぽう",
+                  "vi": "ngữ pháp khó"
+                },
+                {
+                  "t": "説明する",
+                  "read": "せつめいする",
+                  "vi": "giải thích"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi, khéo léo"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "この部屋からは富士山が見えます。",
+              "choices": [
+                "この部屋からは富士山が見られます。",
+                "この部屋からは富士山を見ることができます。",
+                "この部屋からは富士山を見てもいいです。",
+                "この部屋からは富士山が見たいです。"
+              ],
+              "answer": 0,
+              "pt": "NがVえます（見えます）",
+              "explain": "Câu gốc dùng 「見えます」(thấy được/nhìn thấy) — đây là dạng khả năng tự nhiên, không chủ ý, ý nói từ căn phòng này nhìn ra thì thấy núi Phú Sĩ. Câu đúng (0) 「見られます」là dạng khả năng lịch sự của 「見る」, nghĩa là 'có thể nhìn thấy', rất gần nghĩa với 「見えます」trong ngữ cảnh này. Câu (1) 「見ることができます」tuy cũng diễn tả khả năng nhưng nhấn mạnh vào hành động chủ động 'có thể xem', sắc thái hơi khác. Câu (2) 「見てもいいです」nghĩa là 'được phép nhìn' — lệch sang nghĩa cho phép, không phải khả năng nhìn thấy. Câu (3) 「見たいです」nghĩa là 'muốn xem' — hoàn toàn sai hướng, diễn tả mong muốn chứ không phải khả năng.",
+              "glosses": [
+                {
+                  "t": "この部屋から",
+                  "vi": "từ phòng này"
+                },
+                {
+                  "t": "富士山",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "見えます",
+                  "read": "みえます",
+                  "vi": "nhìn thấy được (tự nhiên, vô ý)"
+                },
+                {
+                  "t": "見られます",
+                  "read": "みられます",
+                  "vi": "có thể nhìn thấy (可能形 của 見る, giữ nuance tự nhiên)"
+                },
+                {
+                  "t": "見ることができます",
+                  "read": "みることができます",
+                  "vi": "có thể xem (B18, ý chí rõ hơn)"
+                },
+                {
+                  "t": "見てもいいです",
+                  "read": "みてもいいです",
+                  "vi": "được phép xem (許可)"
+                },
+                {
+                  "t": "見たいです",
+                  "read": "みたいです",
+                  "vi": "muốn xem (願望)"
+                }
+              ]
+            },
+            {
+              "prompt": "財布の中には500円しかありません。",
+              "choices": [
+                "財布の中には500円だけあります。",
+                "財布の中には500円もあります。",
+                "財布の中には500円ぐらいあります。",
+                "財布の中には500円ほどありません。"
+              ],
+              "answer": 0,
+              "pt": "Nしか〜ない",
+              "explain": "Câu gốc dùng 「500円しかありません」— 「しか〜ない」là cấu trúc nhấn mạnh sự ít ỏi, nghĩa là 'chỉ có 500 yên thôi (không nhiều hơn)'. Câu đúng (0) 「500円だけあります」dùng 「だけ」(chỉ, duy nhất) cũng diễn tả giới hạn số lượng, nghĩa tương đương 'chỉ có 500 yên'. Câu (1) 「500円もあります」dùng 「も」mang sắc thái 'đến 500 yên cơ đấy' — thể hiện nhiều hơn mong đợi, ngược chiều hoàn toàn với câu gốc. Câu (2) 「500円ぐらいあります」nghĩa là 'có khoảng 500 yên' — không khẳng định chính xác, lại không có sắc thái tiếc nuối/hạn chế. Câu (3) 「500円ほどありません」nghĩa là 'không có đến 500 yên' — lượng tiền còn ít hơn câu gốc, sai về nội dung.",
+              "glosses": [
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "〜しかありません",
+                  "vi": "chỉ có ~ (hàm ý ít, thiếu, Nしか〜ない)"
+                },
+                {
+                  "t": "500円",
+                  "read": "ごひゃくえん",
+                  "vi": "500 yên"
+                },
+                {
+                  "t": "〜だけあります",
+                  "vi": "chỉ có ~ (trung tính, giới hạn số lượng)"
+                },
+                {
+                  "t": "〜もあります",
+                  "vi": "cũng có ~ (hàm ý bất ngờ/thêm, tích cực)"
+                },
+                {
+                  "t": "〜ぐらいあります",
+                  "vi": "có khoảng ~ (ước lượng)"
+                },
+                {
+                  "t": "〜ほどありません",
+                  "vi": "không đến mức ~ (dưới mức ~)"
+                },
+                {
+                  "t": "中には",
+                  "read": "なかには",
+                  "vi": "ở bên trong (thì)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女はピアノが弾けます。",
+              "choices": [
+                "彼女はピアノを弾くことができます。",
+                "彼女はピアノを弾いています。",
+                "彼女はピアノを弾いたことがあります。",
+                "彼女はピアノを弾くつもりです。"
+              ],
+              "answer": 0,
+              "pt": "V可能形",
+              "explain": "Câu gốc 「弾けます」là dạng khả năng của 「弾く」(chơi/gảy), nghĩa là 'cô ấy chơi được piano'. Câu đúng (0) 「弾くことができます」là cách diễn đạt khả năng bằng mẫu 「〜ことができる」, hoàn toàn tương đương về nghĩa. Câu (1) 「弾いています」dùng dạng tiếp diễn 「〜ている」, nghĩa là 'đang chơi piano' — nói về hành động đang xảy ra, không phải khả năng. Câu (2) 「弾いたことがあります」nghĩa là 'đã từng chơi piano' — diễn đạt kinh nghiệm trong quá khứ, hoàn toàn khác. Câu (3) 「弾くつもりです」nghĩa là 'có dự định chơi piano' — nói về ý định tương lai, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "ピアノ",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "弾けます",
+                  "read": "ひけます",
+                  "vi": "có thể chơi (可能形 của 弾く)"
+                },
+                {
+                  "t": "弾くことができます",
+                  "read": "ひくことができます",
+                  "vi": "có thể chơi (B18 形式)"
+                },
+                {
+                  "t": "弾いています",
+                  "read": "ひいています",
+                  "vi": "đang chơi (tiến hành, B14)"
+                },
+                {
+                  "t": "弾いたことがあります",
+                  "read": "ひいたことがあります",
+                  "vi": "đã từng chơi (kinh nghiệm, B19)"
+                },
+                {
+                  "t": "弾くつもりです",
+                  "read": "ひくつもりです",
+                  "vi": "định sẽ chơi (ý định)"
+                }
+              ]
+            },
+            {
+              "prompt": "顔色が悪いですね。どこか痛いんですか。",
+              "choices": [
+                "顔色が悪いですね。どこか痛いですか。",
+                "顔色が悪いですね。どこか痛くなりましたか。",
+                "顔色が悪いですね。どこか痛かったですか。",
+                "顔色が悪いですね。どこか痛いでしょうか。"
+              ],
+              "answer": 0,
+              "pt": "B26：〜んです／〜んですか",
+              "explain": "Câu gốc 「痛いんですか」dùng 「〜んですか」— cấu trúc tìm sự giải thích/xác nhận thực tế, mang hàm ý 'tôi thấy có chuyện gì đó, phải vì đau không?'. Câu đúng (0) 「痛いですか」tuy đơn giản hơn nhưng cũng là câu hỏi trực tiếp về việc có đang đau không, gần nghĩa nhất về nội dung. Câu (1) 「痛くなりましたか」nghĩa là 'vừa trở nên đau phải không?' — nhấn mạnh sự thay đổi trạng thái, sắc thái khác. Câu (2) 「痛かったですか」hỏi về quá khứ 'lúc trước có đau không?' — sai về thì, câu gốc hỏi về hiện tại. Câu (3) 「痛いでしょうか」là cách hỏi suy đoán/lịch sự 'có lẽ đau chăng?' — mang tính phỏng đoán, không phải hỏi thẳng như câu gốc.",
+              "glosses": [
+                {
+                  "t": "顔色",
+                  "read": "かおいろ",
+                  "vi": "sắc mặt"
+                },
+                {
+                  "t": "顔色が悪いですね",
+                  "read": "かおいろがわるいですね",
+                  "vi": "sắc mặt trông xấu nhỉ"
+                },
+                {
+                  "t": "痛いんですか",
+                  "read": "いたいんですか",
+                  "vi": "có đau không đấy (hỏi quan tâm, B26)"
+                },
+                {
+                  "t": "痛いですか",
+                  "read": "いたいですか",
+                  "vi": "có đau không (hỏi thông thường)"
+                },
+                {
+                  "t": "痛くなりましたか",
+                  "read": "いたくなりましたか",
+                  "vi": "có trở nên đau không (biến hóa, B19)"
+                },
+                {
+                  "t": "痛かったですか",
+                  "read": "いたかったですか",
+                  "vi": "có đau (lúc trước) không (quá khứ)"
+                },
+                {
+                  "t": "痛いでしょうか",
+                  "read": "いたいでしょうか",
+                  "vi": "có lẽ đau chăng (suy đoán, B21)"
+                },
+                {
+                  "t": "どこか",
+                  "read": "どこか",
+                  "vi": "chỗ nào đó, đâu đó"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語がペラペラに話せたら、仕事の幅が広がると思います。",
+              "choices": [
+                "日本語がペラペラに話せれば、仕事の幅が広がると思います。",
+                "日本語がペラペラに話せると、仕事の幅が広がると思います。",
+                "日本語がペラペラに話せても、仕事の幅が広がると思います。",
+                "日本語がペラペラに話せなくても、仕事の幅が広がると思います。"
+              ],
+              "answer": 0,
+              "pt": "B25：V／Aたら",
+              "explain": "Câu gốc dùng 「〜たら」— mẫu điều kiện mang sắc thái giả định 'nếu mà có thể nói tiếng Nhật lưu loát thì...'. Câu đúng (0) 「〜ば」(「話せれば」) cũng là mẫu điều kiện giả định, gần như tương đương về nghĩa trong câu này — 'nếu nói được lưu loát thì phạm vi công việc sẽ rộng hơn'. Câu (1) 「〜と」là mẫu điều kiện tự nhiên/quy luật, thường dùng cho kết quả tất yếu, không phù hợp với suy nghĩ cá nhân 「と思います」lắm, sắc thái hơi cứng. Câu (2) 「〜ても」nghĩa là 'dù có nói được lưu loát đi nữa' — mang nghĩa nhượng bộ, hoàn toàn ngược chiều logic với câu gốc. Câu (3) 「〜なくても」nghĩa là 'dù không nói được' — phủ định điều kiện, đảo ngược hoàn toàn ý nghĩa.",
+              "glosses": [
+                {
+                  "t": "ペラペラ",
+                  "vi": "lưu loát, thành thạo (mô tả nói chuyện)"
+                },
+                {
+                  "t": "話せたら",
+                  "read": "はなせたら",
+                  "vi": "nếu nói được (B25 〜たら)"
+                },
+                {
+                  "t": "仕事の幅",
+                  "read": "しごとのはば",
+                  "vi": "phạm vi công việc"
+                },
+                {
+                  "t": "広がると思います",
+                  "read": "ひろがるとおもいます",
+                  "vi": "tôi nghĩ sẽ mở rộng ra (B21 〜と思います)"
+                },
+                {
+                  "t": "話せれば",
+                  "read": "はなせれば",
+                  "vi": "nếu nói được (〜ば điều kiện)"
+                },
+                {
+                  "t": "話せると",
+                  "read": "はなせると",
+                  "vi": "khi nói được thì (B23 điều kiện tự nhiên)"
+                },
+                {
+                  "t": "話せても",
+                  "read": "はなせても",
+                  "vi": "dù nói được cũng... (B25 逆接)"
+                },
+                {
+                  "t": "話せなくても",
+                  "read": "はなせなくても",
+                  "vi": "dù không nói được cũng... (B25 逆接, phủ định)"
+                },
+                {
+                  "t": "日本語がペラペラに",
+                  "read": "にほんごがペラペラに",
+                  "vi": "tiếng Nhật một cách trôi chảy, lưu loát"
+                }
+              ]
+            },
+            {
+              "prompt": "隣の部屋から音楽が聞こえます。",
+              "choices": [
+                "隣の部屋から音楽が耳に入ってきます。",
+                "隣の部屋の音楽を聞かせてもらいます。",
+                "隣の部屋の音楽を聞いてあげます。",
+                "隣の部屋の音楽を聞いたことがあります。"
+              ],
+              "answer": 0,
+              "pt": "NがVえます（聞こえます）",
+              "explain": "Câu gốc 「聞こえます」là dạng khả năng tự nhiên, thụ động của 「聞く」— nghĩa là 'nghe thấy (âm thanh tự lọt vào tai)' không chủ ý. Câu đúng (0) 「耳に入ってきます」nghĩa là 'lọt vào tai' — diễn tả âm thanh vô tình nghe thấy, cùng sắc thái thụ động/không chủ ý như 「聞こえます」. Câu (1) 「聞かせてもらいます」nghĩa là 'được cho nghe' — có sắc thái nhận ân huệ, chủ động nhận, không phải tự nhiên nghe thấy. Câu (2) 「聞いてあげます」nghĩa là 'nghe giúp cho' — sắc thái làm ơn cho người khác, hoàn toàn sai hướng. Câu (3) 「聞いたことがあります」nghĩa là 'đã từng nghe' — diễn tả kinh nghiệm quá khứ, không liên quan.",
+              "glosses": [
+                {
+                  "t": "隣の部屋",
+                  "read": "となりのへや",
+                  "vi": "phòng bên cạnh"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "聞こえます",
+                  "read": "きこえます",
+                  "vi": "nghe thấy (tự nhiên, vô ý)"
+                },
+                {
+                  "t": "耳に入ってきます",
+                  "read": "みみにはいってきます",
+                  "vi": "lọt vào tai, tự nhiên nghe thấy"
+                },
+                {
+                  "t": "聞かせてもらいます",
+                  "read": "きかせてもらいます",
+                  "vi": "được cho nghe (nhờ ai, B24)"
+                },
+                {
+                  "t": "聞いてあげます",
+                  "read": "きいてあげます",
+                  "vi": "nghe cho (làm vì người khác, B24)"
+                },
+                {
+                  "t": "聞いたことがあります",
+                  "read": "きいたことがあります",
+                  "vi": "đã từng nghe (kinh nghiệm, B19)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんに日本語を教えてもらいました。",
+              "choices": [
+                "田中さんが日本語を教えてくれました。",
+                "田中さんに日本語を教えてあげました。",
+                "田中さんに日本語を教えてもいいです。",
+                "田中さんが日本語を教えたことがあります。"
+              ],
+              "answer": 0,
+              "pt": "B24：Vてもらいます",
+              "explain": "Câu gốc 「教えてもらいました」— mẫu 「〜てもらう」diễn tả người nói nhận được hành động từ người khác (từ góc nhìn người được dạy). Câu đúng (0) 「教えてくれました」— mẫu 「〜てくれる」cũng diễn tả người khác làm gì đó cho mình, nhưng từ góc nhìn người cho — hai cách nói này tương đương về sự kiện xảy ra: Tanaka-san đã dạy tiếng Nhật cho mình. Câu (1) 「教えてあげました」nghĩa là 'tôi đã dạy tiếng Nhật cho Tanaka-san' — đảo ngược chủ thể và đối tượng, hoàn toàn sai. Câu (2) 「教えてもいいです」nghĩa là 'được phép dạy' — chuyển sang nghĩa cho phép, không liên quan. Câu (3) 「教えたことがあります」nghĩa là 'Tanaka-san đã từng dạy' — diễn tả kinh nghiệm, không nói về việc dạy cho mình.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "教えてもらいました",
+                  "read": "おしえてもらいました",
+                  "vi": "đã được dạy cho (B24 もらいます — người nói là người được ơn)"
+                },
+                {
+                  "t": "教えてくれました",
+                  "read": "おしえてくれました",
+                  "vi": "đã dạy cho (tôi) (B24 くれます — Tanaka là người trao ơn)"
+                },
+                {
+                  "t": "教えてあげました",
+                  "read": "おしえてあげました",
+                  "vi": "đã dạy cho (người khác) (B24 あげます — chiều ân ngược lại)"
+                },
+                {
+                  "t": "教えてもいいです",
+                  "read": "おしえてもいいです",
+                  "vi": "được phép dạy (許可, B15)"
+                },
+                {
+                  "t": "教えたことがあります",
+                  "read": "おしえたことがあります",
+                  "vi": "đã từng dạy (kinh nghiệm, B19)"
+                }
+              ]
+            },
+            {
+              "prompt": "昨日読んだ本はとても面白かったです。",
+              "choices": [
+                "昨日読んだ本はとても面白い本でした。",
+                "昨日読みたかった本はとても面白かったです。",
+                "昨日読んでいる本はとても面白かったです。",
+                "昨日読まなかった本はとても面白かったです。"
+              ],
+              "answer": 0,
+              "pt": "B22：Vた＋N（連体修飾）",
+              "explain": "Câu gốc 「昨日読んだ本」— 「読んだ」là dạng quá khứ của động từ, nghĩa là 'quyển sách đã đọc hôm qua'. Câu đúng (0) 「とても面白い本でした」diễn giải lại thành 'là một quyển sách rất hay', giữ nguyên nội dung — quyển sách đọc hôm qua rất hay. Câu (1) 「読みたかった本」nghĩa là 'quyển sách muốn đọc' — chưa chắc đã đọc, hoặc là sách muốn đọc mà chưa đọc, lệch nghĩa. Câu (2) 「読んでいる本」là dạng tiến hành 'đang đọc' — không phải quá khứ, lệch thì. Câu (3) 「読まなかった本」nghĩa là 'quyển sách không đọc hôm qua' — phủ định hành động đọc, hoàn toàn ngược nghĩa.",
+              "glosses": [
+                {
+                  "t": "昨日読んだ本",
+                  "read": "きのうよんだほん",
+                  "vi": "quyển sách đã đọc hôm qua (B22 Vた＋N)"
+                },
+                {
+                  "t": "面白かったです",
+                  "read": "おもしろかったです",
+                  "vi": "rất thú vị (tính từ い quá khứ)"
+                },
+                {
+                  "t": "面白い本でした",
+                  "read": "おもしろいほんでした",
+                  "vi": "là cuốn sách thú vị (NでしたA形式)"
+                },
+                {
+                  "t": "読みたかった本",
+                  "read": "よみたかったほん",
+                  "vi": "cuốn sách từng muốn đọc (B13 Vたい quá khứ)"
+                },
+                {
+                  "t": "読んでいる本",
+                  "read": "よんでいるほん",
+                  "vi": "cuốn sách đang đọc (B14 Vている liên thể)"
+                },
+                {
+                  "t": "読まなかった本",
+                  "read": "よまなかったほん",
+                  "vi": "cuốn sách không đọc (phủ định quá khứ)"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "prompt": "彼は来年、運転免許が取れると思います。",
+              "choices": [
+                "彼は来年、運転免許が取れるでしょう。",
+                "彼は来年、運転免許が取れると言いました。",
+                "彼は来年、運転免許を取りたいと思います。",
+                "彼は来年、運転免許が取れたらいいと思います。"
+              ],
+              "answer": 0,
+              "pt": "B21：〜と思います / V可能形",
+              "explain": "Câu gốc 「取れると思います」— mẫu 「〜と思う」diễn tả suy nghĩ/đánh giá của người nói rằng anh ấy sẽ lấy được bằng lái. Câu đúng (0) 「取れるでしょう」là dạng suy đoán/phán đoán 「〜でしょう」, diễn tả dự đoán 'chắc là sẽ lấy được' — tương đương về sắc thái suy đoán với 「と思います」. Câu (1) 「取れると言いました」nghĩa là 'anh ấy đã nói rằng sẽ lấy được' — thuật lại lời nói, không phải ý kiến của người nói. Câu (2) 「取りたいと思います」nghĩa là 'tôi nghĩ anh ấy muốn lấy bằng lái' — chuyển sang mong muốn, sai về nội dung. Câu (3) 「取れたらいいと思います」nghĩa là 'tôi nghĩ sẽ tốt nếu lấy được' — mang sắc thái mong ước, yếu hơn và khác sắc thái so với câu gốc.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "運転免許",
+                  "read": "うんてんめんきょ",
+                  "vi": "bằng lái xe"
+                },
+                {
+                  "t": "取れると思います",
+                  "read": "とれるとおもいます",
+                  "vi": "tôi nghĩ có thể lấy được (B21 〜と思います)"
+                },
+                {
+                  "t": "取れるでしょう",
+                  "read": "とれるでしょう",
+                  "vi": "có lẽ lấy được (B21 〜でしょう, suy đoán)"
+                },
+                {
+                  "t": "取れると言いました",
+                  "read": "とれるといいました",
+                  "vi": "đã nói rằng có thể lấy được (B21 引用)"
+                },
+                {
+                  "t": "取りたいと思います",
+                  "read": "とりたいとおもいます",
+                  "vi": "nghĩ rằng muốn lấy (B13 願望)"
+                },
+                {
+                  "t": "取れたらいいと思います",
+                  "read": "とれたらいいとおもいます",
+                  "vi": "nghĩ rằng giá mà lấy được thì tốt (B25 〜たら + 希望)"
+                },
+                {
+                  "t": "彼は",
+                  "read": "かれは",
+                  "vi": "anh ấy (thì)"
+                }
+              ]
+            },
+            {
+              "prompt": "A：なぜ日本語が話せないんですか。B：勉強する時間が少ししかないんです。",
+              "choices": [
+                "A：なぜ日本語が話せないんですか。B：勉強する時間があまりないんです。",
+                "A：なぜ日本語が話せないんですか。B：勉強する時間がたくさんあるんです。",
+                "A：なぜ日本語が話せないんですか。B：勉強する時間が少しあったんです。",
+                "A：なぜ日本語が話せないんですか。B：勉強する時間がなければいいんです。"
+              ],
+              "answer": 0,
+              "pt": "Nしか〜ない + B26：〜んです",
+              "explain": "Câu gốc B dùng 「少ししかない」— 「しか〜ない」nhấn mạnh sự thiếu hụt 'chỉ có một chút thôi'. Câu đúng (0) B dùng 「あまりない」— 「あまり〜ない」nghĩa là 'không có nhiều lắm/không mấy có', cũng diễn tả thời gian học ít, gần nghĩa. Câu (1) B dùng 「たくさんある」nghĩa là 'có nhiều thời gian' — ngược nghĩa hoàn toàn, không giải thích được lý do không nói được. Câu (2) B dùng 「少しあった」nghĩa là 'trước đây có một chút thời gian' — sắc thái quá khứ, không giải thích tình trạng hiện tại. Câu (3) B dùng 「なければいい」nghĩa là 'tốt nếu không có thời gian' — vô nghĩa và ngược logic, không liên quan.",
+              "glosses": [
+                {
+                  "t": "話せないんですか",
+                  "read": "はなせないんですか",
+                  "vi": "sao không nói được vậy (B26 〜んですか hỏi quan tâm)"
+                },
+                {
+                  "t": "少ししかない",
+                  "read": "すこししかない",
+                  "vi": "chỉ có một chút (Nしか〜ない, hàm ý thiếu)"
+                },
+                {
+                  "t": "〜んです",
+                  "vi": "là vì ~ / ~ đấy (B26 giải thích lý do)"
+                },
+                {
+                  "t": "あまりないんです",
+                  "vi": "không có mấy đấy (B8 あまり〜ない + B26 〜んです)"
+                },
+                {
+                  "t": "たくさんあるんです",
+                  "vi": "có nhiều đấy (nghĩa ngược)"
+                },
+                {
+                  "t": "少しあったんです",
+                  "read": "すこしあったんです",
+                  "vi": "có một chút (quá khứ, sai thì)"
+                },
+                {
+                  "t": "なければいいんです",
+                  "vi": "không có thì tốt (ý nghĩa hoàn toàn khác)"
+                },
+                {
+                  "t": "日本語が",
+                  "read": "にほんごが",
+                  "vi": "tiếng Nhật (chủ ngữ)"
+                },
+                {
+                  "t": "なぜ",
+                  "read": "なぜ",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "勉強する",
+                  "read": "べんきょうする",
+                  "vi": "học, học tập"
+                },
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian"
+                }
+              ]
+            },
+            {
+              "prompt": "疲れたとき、音楽を聞くと気持ちが楽になります。",
+              "choices": [
+                "疲れたとき、音楽を聞けば気持ちが楽になります。",
+                "疲れたとき、音楽を聞いても気持ちが楽になります。",
+                "疲れたとき、音楽を聞かなくても気持ちが楽になります。",
+                "疲れたとき、音楽を聞かなければ気持ちが楽になります。"
+              ],
+              "answer": 0,
+              "pt": "B23：V／Aとき + B23：V1とV2",
+              "explain": "Câu gốc dùng 「〜と」— mẫu điều kiện tự nhiên 'mỗi khi mệt, cứ nghe nhạc là cảm thấy nhẹ nhàng hơn' (quy luật tự nhiên, kết quả luôn xảy ra). Câu đúng (0) 「〜ば」(「聞けば」) cũng là điều kiện, và trong ngữ cảnh này diễn tả 'nếu nghe nhạc thì sẽ thấy nhẹ nhàng hơn' — gần nghĩa nhất với câu gốc. Câu (1) 「〜ても」nghĩa là 'dù có nghe nhạc đi nữa' — mang nghĩa nhượng bộ, có thể hàm ý kết quả không chắc chắn, lệch so với câu gốc. Câu (2) 「聞かなくても」nghĩa là 'dù không nghe nhạc' — phủ định điều kiện, ngược ý câu gốc. Câu (3) 「聞かなければ」nghĩa là 'nếu không nghe nhạc' — cũng phủ định điều kiện, ngược lại hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "疲れたとき",
+                  "read": "つかれたとき",
+                  "vi": "khi mệt (B23 とき)"
+                },
+                {
+                  "t": "気持ちが楽になります",
+                  "read": "きもちがらくになります",
+                  "vi": "tâm trạng trở nên thoải mái (B19 〜になります)"
+                },
+                {
+                  "t": "聞くと",
+                  "read": "きくと",
+                  "vi": "khi nghe thì (B23 V1とV2, điều kiện tự nhiên)"
+                },
+                {
+                  "t": "聞けば",
+                  "read": "きけば",
+                  "vi": "nếu nghe thì (〜ば điều kiện)"
+                },
+                {
+                  "t": "聞いても",
+                  "read": "きいても",
+                  "vi": "dù nghe (B25 逆接)"
+                },
+                {
+                  "t": "聞かなくても",
+                  "read": "きかなくても",
+                  "vi": "dù không nghe (B25 逆接, phủ định)"
+                },
+                {
+                  "t": "聞かなければ",
+                  "read": "きかなければ",
+                  "vi": "nếu không nghe (〜なければ, điều kiện phủ định)"
+                },
+                {
+                  "t": "音楽を",
+                  "read": "おんがくを",
+                  "vi": "âm nhạc (tân ngữ)"
+                }
+              ]
+            },
+            {
+              "prompt": "この仕事は日本語が読めなければなりません。",
+              "choices": [
+                "この仕事は日本語が読める必要があります。",
+                "この仕事は日本語を読んではいけません。",
+                "この仕事は日本語が読まなくてもいいです。",
+                "この仕事は日本語が読みたいです。"
+              ],
+              "answer": 0,
+              "pt": "V可能形 + B17：Vなければなりません",
+              "explain": "Câu gốc 「読めなければなりません」— mẫu 「〜なければならない」nghĩa là 'phải đọc được tiếng Nhật' (bắt buộc). Câu đúng (0) 「読める必要があります」dùng mẫu 「〜必要がある」nghĩa là 'cần phải đọc được' — tương đương về nghĩa bắt buộc/cần thiết. Câu (1) 「読んではいけません」nghĩa là 'không được đọc tiếng Nhật' — cấm đoán, hoàn toàn ngược nghĩa. Câu (2) 「読まなくてもいいです」nghĩa là 'không cần đọc cũng được' — phủ định sự bắt buộc, ngược lại câu gốc. Câu (3) 「読みたいです」nghĩa là 'muốn đọc' — diễn tả mong muốn, không liên quan đến sự bắt buộc.",
+              "glosses": [
+                {
+                  "t": "読めなければなりません",
+                  "read": "よめなければなりません",
+                  "vi": "phải đọc được (V可能形否定＋なりません, B17 応用)"
+                },
+                {
+                  "t": "読める必要があります",
+                  "read": "よめるひつようがあります",
+                  "vi": "cần phải đọc được (必要があります)"
+                },
+                {
+                  "t": "読んではいけません",
+                  "read": "よんではいけません",
+                  "vi": "không được đọc (B15 禁止)"
+                },
+                {
+                  "t": "読まなくてもいいです",
+                  "read": "よまなくてもいいです",
+                  "vi": "không cần đọc cũng được (B17 不要)"
+                },
+                {
+                  "t": "読みたいです",
+                  "read": "よみたいです",
+                  "vi": "muốn đọc (B13 願望)"
+                },
+                {
+                  "t": "仕事は",
+                  "read": "しごとは",
+                  "vi": "công việc (thì)"
+                },
+                {
+                  "t": "日本語が",
+                  "read": "にほんごが",
+                  "vi": "tiếng Nhật (chủ ngữ)"
+                },
+                {
+                  "t": "日本語を",
+                  "read": "にほんごを",
+                  "vi": "tiếng Nhật (tân ngữ)"
+                }
+              ]
+            },
+            {
+              "prompt": "どんなに練習しても、うまく泳げません。",
+              "choices": [
+                "たとえ練習しても、うまく泳げません。",
+                "練習したら、うまく泳げません。",
+                "練習しなければ、うまく泳げません。",
+                "練習すると、うまく泳げません。"
+              ],
+              "answer": 0,
+              "pt": "B25：V／Aても / V可能形",
+              "explain": "Câu gốc 「どんなに練習しても」— mẫu 「どんなに〜ても」nghĩa là 'dù luyện tập bao nhiêu đi nữa (cũng không bơi được)' — nhấn mạnh sự vô vọng dù cố gắng đến đâu. Câu đúng (0) 「たとえ練習しても」dùng 「たとえ〜ても」nghĩa là 'dù có luyện tập đi nữa' — cùng mẫu nhượng bộ, gần nghĩa nhất. Câu (1) 「練習したら」nghĩa là 'nếu luyện tập thì không bơi được' — điều kiện thuần túy, mâu thuẫn logic (luyện tập lẽ ra phải giỏi hơn). Câu (2) 「練習しなければ」nghĩa là 'nếu không luyện tập thì không bơi được' — điều hiển nhiên, không mang sắc thái vô vọng của câu gốc. Câu (3) 「練習すると」là điều kiện tự nhiên 'cứ luyện tập là không bơi được' — vô lý về mặt logic.",
+              "glosses": [
+                {
+                  "t": "どんなに〜ても",
+                  "vi": "dù bao nhiêu ~ cũng (B25 逆接, nhấn mạnh mức độ)"
+                },
+                {
+                  "t": "練習しても",
+                  "read": "れんしゅうしても",
+                  "vi": "dù luyện tập (B25 〜ても 逆接)"
+                },
+                {
+                  "t": "うまく泳げません",
+                  "read": "うまくおよげません",
+                  "vi": "không thể bơi giỏi được (V可能形否定)"
+                },
+                {
+                  "t": "たとえ〜ても",
+                  "vi": "dù cho ~ (B25 たとえ〜ても, 仮定逆接)"
+                },
+                {
+                  "t": "練習したら",
+                  "read": "れんしゅうしたら",
+                  "vi": "nếu luyện tập (B25 〜たら, 順接)"
+                },
+                {
+                  "t": "練習しなければ",
+                  "read": "れんしゅうしなければ",
+                  "vi": "nếu không luyện tập (〜なければ, điều kiện phủ định)"
+                },
+                {
+                  "t": "練習すると",
+                  "read": "れんしゅうすると",
+                  "vi": "khi luyện tập thì (B23 〜と, kết quả tự nhiên)"
+                },
+                {
+                  "t": "どんなに練習しても",
+                  "read": "どんなにれんしゅうしても",
+                  "vi": "どんなに〜ても = dù có ~ đến đâu cũng ~ (kết quả không thay đổi)"
+                },
+                {
+                  "t": "たとえ練習しても",
+                  "read": "たとえれんしゅうしても",
+                  "vi": "たとえ〜ても = dù cho ~ đi nữa (giả định, kết quả không thay đổi)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は「この漢字は読めますか」と言いました。",
+              "choices": [
+                "先生はこの漢字が読めるかどうか聞きました。",
+                "先生はこの漢字を読んでほしいと言いました。",
+                "先生はこの漢字が読めないと言いました。",
+                "先生はこの漢字が読めると思いました。"
+              ],
+              "answer": 0,
+              "pt": "B21：〜と言いました + V可能形",
+              "explain": "Câu gốc là lời dẫn trực tiếp 「この漢字は読めますか」(「chữ kanji này đọc được không?」) — thầy giáo hỏi học sinh. Câu đúng (0) 「読めるかどうか聞きました」chuyển sang lời dẫn gián tiếp với mẫu 「〜かどうか聞く」nghĩa là 'hỏi xem có đọc được không' — diễn đạt lại đúng nội dung câu hỏi gốc. Câu (1) 「読んでほしいと言いました」nghĩa là 'thầy nói muốn (học sinh) đọc' — chuyển câu hỏi thành yêu cầu, lệch nghĩa. Câu (2) 「読めないと言いました」nghĩa là 'thầy nói không đọc được' — nội dung hoàn toàn khác, đây là thầy tự nhận không đọc được. Câu (3) 「読めると思いました」nghĩa là 'thầy nghĩ đọc được' — diễn tả suy nghĩ của thầy, không phải câu hỏi.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "読めますか",
+                  "read": "よめますか",
+                  "vi": "đọc được không (V可能形 疑問)"
+                },
+                {
+                  "t": "〜と言いました",
+                  "vi": "đã nói rằng ~ (B21 引用)"
+                },
+                {
+                  "t": "読めるかどうか聞きました",
+                  "read": "よめるかどうかききました",
+                  "vi": "hỏi xem có đọc được không (〜かどうか + 聞く)"
+                },
+                {
+                  "t": "読んでほしいと言いました",
+                  "read": "よんでほしいといいました",
+                  "vi": "nói rằng muốn (ai đó) đọc (〜てほしい)"
+                },
+                {
+                  "t": "読めないと言いました",
+                  "read": "よめないといいました",
+                  "vi": "nói rằng không đọc được (phủ định)"
+                },
+                {
+                  "t": "読めると思いました",
+                  "read": "よめるとおもいました",
+                  "vi": "nghĩ rằng đọc được (B21 〜と思う)"
+                },
+                {
+                  "t": "先生はこの",
+                  "read": "せんせいはこの",
+                  "vi": "giáo viên (chủ ngữ), chữ này"
+                }
+              ]
+            },
+            {
+              "prompt": "A：どうして車で来なかったんですか。B：免許がないんです。バスでしか来られませんでした。",
+              "choices": [
+                "A：どうして車で来なかったんですか。B：免許がないんです。バスしか来る方法がありませんでした。",
+                "A：どうして車で来なかったんですか。B：免許がないんです。バスも来られませんでした。",
+                "A：どうして車で来なかったんですか。B：免許がないんです。バスで来ることができませんでした。",
+                "A：どうして車で来なかったんですか。B：免許があるんです。バスでしか来られませんでした。"
+              ],
+              "answer": 0,
+              "pt": "B26：Nなんです + Nしか〜ない + V可能形",
+              "explain": "Câu gốc B dùng 「バスでしか来られませんでした」— 「しか〜ない」nghĩa là 'chỉ có thể đến bằng xe buýt thôi (không có cách nào khác)'. Câu đúng (0) 「バスしか来る方法がありませんでした」nghĩa là 'không có cách nào đến ngoài xe buýt' — diễn đạt lại cùng ý nghĩa: xe buýt là phương tiện duy nhất. Câu (1) 「バスも来られませんでした」nghĩa là 'cả xe buýt cũng không đến được' — ngược nghĩa, câu gốc ý nói đã đến được bằng xe buýt. Câu (2) 「バスで来ることができませんでした」nghĩa là 'không thể đến bằng xe buýt' — cũng ngược nghĩa, câu gốc cho thấy đã dùng xe buýt để đến. Câu (3) 「免許があるんです」nghĩa là 'có bằng lái' — mâu thuẫn trực tiếp với lý do 'không có bằng lái nên mới phải đi xe buýt'.",
+              "glosses": [
+                {
+                  "t": "どうして車で来なかったんですか",
+                  "read": "どうしてくるまできなかったんですか",
+                  "vi": "sao không đến bằng xe ô tô vậy (B26 〜んですか)"
+                },
+                {
+                  "t": "免許がないんです",
+                  "read": "めんきょがないんです",
+                  "vi": "là vì không có bằng lái (B26 Nなんです)"
+                },
+                {
+                  "t": "バスでしか来られませんでした",
+                  "read": "バスでしかこられませんでした",
+                  "vi": "chỉ có thể đến bằng xe buýt mà thôi (で＋しか〜ない＋V可能形)"
+                },
+                {
+                  "t": "バスしか来る方法がありませんでした",
+                  "read": "バスしかくるほうほうがありませんでした",
+                  "vi": "không có cách nào đến ngoài xe buýt (Nしか〜ない, cách diễn đạt khác)"
+                },
+                {
+                  "t": "バスも来られませんでした",
+                  "read": "バスもこられませんでした",
+                  "vi": "ngay cả xe buýt cũng không đến được (も〜ない, nghĩa ngược)"
+                },
+                {
+                  "t": "バスで来ることができませんでした",
+                  "read": "バスでくることができませんでした",
+                  "vi": "không thể đến bằng xe buýt được (nghĩa ngược)"
+                },
+                {
+                  "t": "免許があるんです",
+                  "read": "めんきょがあるんです",
+                  "vi": "là vì có bằng lái xe (nghĩa ngược với nguyên văn)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 27 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "田中さんはピアノを＿。毎日３時間練習しているそうです。",
+              "choices": [
+                "弾きます",
+                "弾くことができます",
+                "弾けます",
+                "弾いています"
+              ],
+              "answer": 2,
+              "pt": "V可能形",
+              "explain": "Đáp án đúng là ③「弾けます」— đây là V可能形 (thể khả năng) trực tiếp của động từ nhóm 1「弾く」(ひく), tạo thành bằng cách đổi đuôi く → け rồi thêm ます. Câu có nghĩa 'Tanaka-san có thể chơi đàn piano'. Vế sau 'mỗi ngày luyện tập 3 tiếng' chính xác là lý do của khả năng đó. ①「弾きます」là thể ます thông thường diễn tả hành động/thói quen, không nói lên khả năng. ②「弾くことができます」cũng nghĩa là 'có thể chơi' (mẫu B18) nhưng đây là bài 27 đang học V可能形 trực tiếp, nên「弾けます」mới là đáp án được yêu cầu. ④「弾いています」là thể tiếp diễn (B14) nghĩa là 'đang chơi đàn', không diễn tả khả năng.",
+              "glosses": [
+                {
+                  "t": "ピアノ",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "弾けます",
+                  "read": "ひけます",
+                  "vi": "có thể chơi (đàn) — V可能形 của 弾く"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "練習している",
+                  "read": "れんしゅうしている",
+                  "vi": "đang luyện tập — B14: Vています"
+                },
+                {
+                  "t": "そうです",
+                  "vi": "nghe nói rằng ~",
+                  "read": "そうです"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "練習しているそうです",
+                  "read": "れんしゅうしているそうです",
+                  "vi": "nghe nói đang luyện tập"
+                },
+                {
+                  "t": "弾くことができます",
+                  "read": "ひくことができます",
+                  "vi": "〜ことができる = có thể làm được ~ (khả năng)"
+                }
+              ]
+            },
+            {
+              "stem": "ここからは富士山＿。晴れた日はとてもきれいです。",
+              "choices": [
+                "が見ます",
+                "が見られます",
+                "が見えます",
+                "を見えます"
+              ],
+              "answer": 2,
+              "pt": "NがVえます (見える)",
+              "explain": "Đáp án đúng là ③「が見えます」— mẫu「NがVえます」với「見える」diễn tả việc nhìn thấy cảnh vật một cách tự nhiên, không cố ý. Trợ từ bắt buộc là「が」. Câu có nghĩa 'từ đây nhìn thấy núi Phú Sĩ'. ①「が見ます」sai vì「見ます」là động từ cố ý (cố ý nhìn), phải dùng trợ từ「を」, không phải「が」; hơn nữa「が見ます」không phải cấu trúc tồn tại trong tiếng Nhật. ②「が見られます」là V可能形 của「見る」(ichidan), nghĩa là 'có thể nhìn (chủ động)', sắc thái chủ ý, không phù hợp bằng「見える」khi diễn tả cảnh vật tự nhiên hiện ra. ④「を見えます」sai trợ từ —「見えます」luôn dùng「が」, không bao giờ dùng「を」.",
+              "glosses": [
+                {
+                  "t": "富士山",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "が見えます",
+                  "read": "がみえます",
+                  "vi": "nhìn thấy được (tự nhiên) — Nが見えます"
+                },
+                {
+                  "t": "晴れた日",
+                  "read": "はれたひ",
+                  "vi": "ngày trời quang — B22: Vた＋N"
+                },
+                {
+                  "t": "きれいです",
+                  "vi": "đẹp, tươi đẹp"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "ここからは",
+                  "read": "ここからは",
+                  "vi": "ここからは = từ đây thì (nhấn mạnh vị trí quan sát)"
+                }
+              ]
+            },
+            {
+              "stem": "冷蔵庫の中には牛乳＿ない。買い物に行かなければなりません。",
+              "choices": [
+                "だけが",
+                "しか",
+                "ばかりが",
+                "までも"
+              ],
+              "answer": 1,
+              "pt": "Nしか〜ない",
+              "explain": "Đáp án đúng là ②「しか」— cấu trúc「Nしか〜ない」nghĩa là 'chỉ có N thôi' với hàm ý thiếu hụt, bắt buộc vế sau phải là dạng phủ định. 「牛乳しかない」= 'chỉ có sữa thôi (không có gì khác)' → phải đi mua sắm thêm, rất tự nhiên. ①「だけが〜ない」lại mang nghĩa ngược: 'chỉ mình N là không có (các thứ khác thì có)'; 「牛乳だけがない」= 'chỉ thiếu mỗi sữa' — ngược hoàn toàn ý cần diễn đạt. ③「ばかりが〜ない」(toàn là ~ mà lại không) cấu trúc không tự nhiên trong ngữ cảnh này. ④「までも〜ない」không phải cấu trúc tiếng Nhật chuẩn với văn cảnh này.",
+              "glosses": [
+                {
+                  "t": "冷蔵庫",
+                  "read": "れいぞうこ",
+                  "vi": "tủ lạnh"
+                },
+                {
+                  "t": "牛乳",
+                  "read": "ぎゅうにゅう",
+                  "vi": "sữa bò"
+                },
+                {
+                  "t": "しか〜ない",
+                  "vi": "chỉ có ~ (thôi) — hàm ý ít, thiếu — B27"
+                },
+                {
+                  "t": "買い物に行かなければなりません",
+                  "read": "かいものにいかなければなりません",
+                  "vi": "phải đi mua sắm — B17: Vなければなりません"
+                },
+                {
+                  "t": "中",
+                  "read": "なか",
+                  "vi": "bên trong"
+                }
+              ]
+            },
+            {
+              "stem": "A:「顔色が悪いですね。」B:「昨日、あまり眠れなかった＿。」",
+              "choices": [
+                "んです",
+                "ましょう",
+                "でしょう",
+                "ことです"
+              ],
+              "answer": 0,
+              "pt": "B26: 〜んです (giải thích tình huống)",
+              "explain": "Đáp án đúng là ①「んです」— mẫu B26「〜んです」dùng để giải thích tình huống hoặc lý do cho người đang hỏi. Ở đây B giải thích cho A tại sao trông không khỏe: 'thực ra hôm qua không ngủ được'. Lưu ý「眠れなかった」là V可能形 phủ định quá khứ của「眠る」(godan). ②「ましょう」là dạng mời/rủ ('cùng làm gì đó nhé'), không phù hợp ngữ cảnh B đang giải thích. ③「でしょう」(B21) là phỏng đoán 'có lẽ ~', dùng để suy đoán về người khác, không dùng để giải thích tình huống của chính mình. ④「ことです」dùng để định nghĩa hoặc nêu mục tiêu (ví dụ: điều quan trọng là luyện tập), không phải để giải thích lý do.",
+              "glosses": [
+                {
+                  "t": "顔色が悪い",
+                  "read": "かおいろがわるい",
+                  "vi": "nhan sắc/da mặt xấu, trông không khỏe"
+                },
+                {
+                  "t": "眠れなかった",
+                  "read": "ねむれなかった",
+                  "vi": "không ngủ được — V可能形 phủ định quá khứ của 眠る"
+                },
+                {
+                  "t": "〜んです",
+                  "vi": "là vì ~ / thực ra ~ (giải thích tình huống) — B26"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "あまり",
+                  "read": "あまり",
+                  "vi": "không mấy, không lắm"
+                }
+              ]
+            },
+            {
+              "stem": "引っ越しのとき、友達に荷物を運ん＿。一人では無理でした。",
+              "choices": [
+                "であげました",
+                "でもらいました",
+                "でくれました",
+                "でやりました"
+              ],
+              "answer": 1,
+              "pt": "B24: Vてもらいます",
+              "explain": "Đáp án đúng là ②「でもらいました」— mẫu B24「〜てもらいます」diễn tả người nói (tôi) nhận được hành động từ người khác. 「友達に運んでもらいました」= 'nhờ bạn chuyển đồ giúp (tôi được hưởng lợi)'. Trợ từ là「に」để chỉ người thực hiện hành động giúp. ①「であげました」là「〜てあげます」nghĩa là 'tôi làm gì đó cho người khác' — chiều ân từ tôi ra ngoài, ngược hướng. ③「でくれました」là「〜てくれます」cũng cùng hướng với もらいます, nhưng khi dùng「くれます」phải có chủ ngữ là「友達が」(trợ từ が), không phải「友達に」. ④「でやりました」là「〜てやります」dùng khi làm ơn cho người dưới hoặc động vật, không dùng cho bạn bè — không tự nhiên và mang ý thiếu tôn trọng.",
+              "glosses": [
+                {
+                  "t": "引っ越し",
+                  "read": "ひっこし",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "運んでもらいました",
+                  "read": "はこんでもらいました",
+                  "vi": "nhờ (bạn) chuyển giúp — B24: Vてもらいます"
+                },
+                {
+                  "t": "一人では無理",
+                  "read": "ひとりではむり",
+                  "vi": "một mình thì không thể"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "のとき",
+                  "read": "のとき",
+                  "vi": "〜のとき = lúc/khi ~"
+                },
+                {
+                  "t": "でした",
+                  "read": "でした",
+                  "vi": "〜でした = đã là ~ (thì quá khứ lịch sự của です)"
+                }
+              ]
+            },
+            {
+              "stem": "この問題はむずかしく＿、あきらめないで最後まで考えます。",
+              "choices": [
+                "ても",
+                "たら",
+                "なら",
+                "ので"
+              ],
+              "answer": 0,
+              "pt": "B25: 〜ても (dù ~ vẫn ~)",
+              "explain": "Đáp án đúng là ①「ても」— mẫu B25「V/Aくても」diễn tả nhượng bộ 'dù ~ vẫn ~'. 「むずかしくても諦めない」= 'dù khó vẫn không bỏ cuộc'. Hình thức của tính từ い là: bỏ い + くても. ②「たら」(B25) là điều kiện 'nếu ~ thì ~' (「むずかしかったら」), diễn tả hành động cụ thể trong điều kiện đó, không mang sắc thái nhượng bộ/ý chí kiên định. ③「なら」là điều kiện giả định dựa trên thông tin đã biết ('nếu vậy thì ~'), không phải nhượng bộ. ④「ので」là nguyên nhân (B9) 'vì ~ nên ~'; hơn nữa「むずかしくので」sai ngữ pháp — đúng phải là「むずかしいので」, và ý nghĩa cũng ngược chiều ('vì khó nên bỏ cuộc' mới logic, không phải 'vì khó nên không bỏ cuộc').",
+              "glosses": [
+                {
+                  "t": "問題",
+                  "read": "もんだい",
+                  "vi": "bài toán, vấn đề"
+                },
+                {
+                  "t": "むずかしくても",
+                  "vi": "dù khó — B25: Aくても"
+                },
+                {
+                  "t": "あきらめないで",
+                  "vi": "mà không bỏ cuộc — B23: Vないで"
+                },
+                {
+                  "t": "最後まで",
+                  "read": "さいごまで",
+                  "vi": "đến cùng, đến cuối"
+                },
+                {
+                  "t": "考えます",
+                  "read": "かんがえます",
+                  "vi": "suy nghĩ, cân nhắc"
+                },
+                {
+                  "t": "はむずかしく",
+                  "read": "はむずかしく",
+                  "vi": "は + むずかしく = chủ đề khó, dạng く của tính từ đuôi い để nối vế câu (thường đi với ても)"
+                }
+              ]
+            },
+            {
+              "stem": "図書館の外では車の音＿。集中できなくて困っています。",
+              "choices": [
+                "が聞きます",
+                "が聞けます",
+                "が聞こえます",
+                "を聞こえます"
+              ],
+              "answer": 2,
+              "pt": "NがVえます (聞こえる)",
+              "explain": "Đáp án đúng là ③「が聞こえます」— mẫu「NがVえます」với「聞こえます」diễn tả việc nghe thấy âm thanh một cách tự nhiên, không cố ý (âm thanh tự lọt vào tai). Trợ từ bắt buộc là「が」. ①「が聞きます」sai vì「聞きます」là động từ cố ý, đòi hỏi「を」và không diễn tả được việc âm thanh tự vang vào tai. ②「が聞けます」là V可能形 của「聞く」nghĩa là 'có thể nghe (chủ động, nếu muốn)', không phải âm thanh vô tình nghe thấy. ④「を聞こえます」sai trợ từ —「聞こえます」luôn đi với「が」chứ không dùng「を」.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "車の音",
+                  "read": "くるまのおと",
+                  "vi": "tiếng xe"
+                },
+                {
+                  "t": "が聞こえます",
+                  "vi": "nghe thấy được (tự nhiên) — Nが聞こえます"
+                },
+                {
+                  "t": "集中できなくて",
+                  "read": "しゅうちゅうできなくて",
+                  "vi": "không thể tập trung — V可能形 phủ định + て"
+                },
+                {
+                  "t": "困っています",
+                  "read": "こまっています",
+                  "vi": "đang gặp khó khăn — B14: Vています (trạng thái)"
+                },
+                {
+                  "t": "外",
+                  "read": "そと",
+                  "vi": "bên ngoài"
+                }
+              ]
+            },
+            {
+              "stem": "もし日本語がペラペラに話せ＿、通訳の仕事をしてみたいです。",
+              "choices": [
+                "ば",
+                "たら",
+                "なら",
+                "ても"
+              ],
+              "answer": 1,
+              "pt": "B25: もし〜たら (giả thiết)",
+              "explain": "Đáp án đúng là ②「たら」— mẫu B25「もし〜たら」là điều kiện giả định 'nếu giả sử ~'. 「もし話せたら」= 'nếu giả sử có thể nói được' (V可能形「話せる」+ たら). Trong Minna N4, 「もし」luôn đi kèm với「たら」. ①「ば」cũng là điều kiện nhưng khi có「もし」và vế sau diễn đạt ý muốn「〜したい」, 「たら」tự nhiên hơn「ば」. ③「なら」là điều kiện dựa trên thông tin đã biết từ trước; không phải giả thiết chưa xảy ra như「もし」. ④「ても」là nhượng bộ 'dù ~' (B25), nghĩa hoàn toàn khác: 'dù có nói được đi nữa vẫn muốn làm phiên dịch' — không hợp với「もし」.",
+              "glosses": [
+                {
+                  "t": "ペラペラ",
+                  "vi": "nói trôi chảy (từ tượng trạng)"
+                },
+                {
+                  "t": "話せたら",
+                  "read": "はなせたら",
+                  "vi": "nếu có thể nói — V可能形 + たら"
+                },
+                {
+                  "t": "もし〜たら",
+                  "vi": "nếu giả sử ~ — B25"
+                },
+                {
+                  "t": "通訳",
+                  "read": "つうやく",
+                  "vi": "phiên dịch (miệng)"
+                },
+                {
+                  "t": "してみたい",
+                  "vi": "muốn thử làm — B13: Vたい + B19: Vてみます"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "してみたいです",
+                  "read": "してみたいです",
+                  "vi": "muốn thử làm"
+                }
+              ]
+            },
+            {
+              "stem": "A:「どうして昨日のパーティーに来なかったんですか。」B:「仕事が終わら＿、行けませんでした。」",
+              "choices": [
+                "なかったので",
+                "なくて",
+                "なければ",
+                "なかったから"
+              ],
+              "answer": 1,
+              "pt": "B16: Vなくて (nguyên nhân phủ định)",
+              "explain": "Đáp án đúng là ②「なくて」— mẫu B16「Vなくて」là dạng phủ định te-form nối nguyên nhân, vế sau là kết quả. 「仕事が終わらなくて、行けませんでした」= 'vì công việc không xong nên không đi được'. ①「なかったので」(〜ので, B9) cũng diễn tả nguyên nhân và về mặt ngữ pháp có thể nối được, nhưng「なくて」là cách kết nối te-form tự nhiên hơn trong văn nói khi trả lời câu hỏi「〜んですか」. ③「なければ」là điều kiện phủ định 'nếu không ~', không phải nguyên nhân. ④「なかったから」(〜から, B9) cũng hợp ngữ pháp nhưng「なくて」phù hợp hơn vì là kết nối te-form mượt mà, đặc biệt trong hội thoại.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "終わらなくて",
+                  "read": "おわらなくて",
+                  "vi": "vì không kết thúc được — B16: Vなくて (nguyên nhân phủ định)"
+                },
+                {
+                  "t": "行けませんでした",
+                  "read": "いけませんでした",
+                  "vi": "đã không thể đi — V可能形 phủ định quá khứ"
+                },
+                {
+                  "t": "どうして〜んですか",
+                  "vi": "tại sao ~ vậy? — B26: V/Aんですか hỏi tình huống"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "来なかったんですか",
+                  "read": "こなかったんですか",
+                  "vi": "đã không đến à (hỏi lý do)"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                }
+              ]
+            },
+            {
+              "stem": "これは私が子どもの頃、泳いだことが＿プールです。",
+              "choices": [
+                "ある",
+                "あった",
+                "います",
+                "できる"
+              ],
+              "answer": 1,
+              "pt": "B22: Vる／Vた／Vない+N (mệnh đề bổ nghĩa)",
+              "explain": "Đáp án đúng là ②「あった」— kết hợp B19「Vたことがある」(đã từng ~) ở thể quá khứ「あった」với B22 mệnh đề bổ nghĩa danh từ. 「泳いだことがあったプール」= 'bể bơi mà (hồi nhỏ) đã từng bơi'. Vì ngữ cảnh nói về thời còn nhỏ (quá khứ) nên phải dùng「あった」không phải「ある」. ①「ある」là thể hiện tại 'đã từng bơi (cho đến hiện tại)', không khớp với 'hồi còn nhỏ'. ③「います」dùng cho người và sinh vật có ý chí, không dùng cho địa điểm như bể bơi (phải dùng「あります」). ④「できる」tạo ra cấu trúc「泳いだことができる」không tồn tại trong tiếng Nhật — không có dạng「〜たことができる」.",
+              "glosses": [
+                {
+                  "t": "子どもの頃",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "泳いだことがあった",
+                  "read": "およいだことがあった",
+                  "vi": "đã từng bơi (quá khứ) — B19: Vたことがある"
+                },
+                {
+                  "t": "プール",
+                  "vi": "hồ bơi"
+                },
+                {
+                  "t": "泳いだことがあったプール",
+                  "vi": "hồ bơi mà tôi đã từng bơi — B22: Vた＋N"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "これは = đây là (chủ đề chỉ vật)"
+                }
+              ]
+            },
+            {
+              "stem": "A:「日本語で話せますか。」B:「ひらがな＿読めません。漢字はまだ難しいです。」",
+              "choices": [
+                "しか",
+                "だけで",
+                "しかも",
+                "ばかりを"
+              ],
+              "answer": 0,
+              "pt": "Nしか〜ない (hội thoại)",
+              "explain": "Đáp án đúng là ①「しか」— cấu trúc「Nしか〜ない」với「ひらがなしか読めません」= 'chỉ đọc được hiragana thôi (không đọc được gì khác)', diễn tả giới hạn/thiếu hụt. Đây là câu hội thoại giải thích trình độ còn thấp (vế sau 'kanji vẫn còn khó'). ②「だけで」nghĩa là 'chỉ với hiragana thì không đọc được', tức là hàm ý các thứ khác thì đọc được — ngược nghĩa. ③「しかも」là liên từ 'hơn nữa, lại còn' (副詞的接続詞), không phải trợ từ giới hạn, không đặt sau danh từ theo nghĩa này. ④「ばかりを読めません」là cấu trúc không tự nhiên;「ばかり」(toàn là) kết hợp với phủ định theo cách khác, không dùng được đây.",
+              "glosses": [
+                {
+                  "t": "ひらがな",
+                  "vi": "bảng chữ hiragana"
+                },
+                {
+                  "t": "しか〜ない",
+                  "vi": "chỉ ~ thôi (hàm ý ít, thiếu) — B27"
+                },
+                {
+                  "t": "読めません",
+                  "read": "よめません",
+                  "vi": "không thể đọc — V可能形 phủ định"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "話せますか",
+                  "read": "はなせますか",
+                  "vi": "có thể nói được không?"
+                },
+                {
+                  "t": "はまだ",
+                  "read": "はまだ",
+                  "vi": "はまだ = thì vẫn còn (chưa đạt tới mức nào đó)"
+                }
+              ]
+            },
+            {
+              "stem": "運転する＿、スマートフォンを使ってはいけません。",
+              "choices": [
+                "とき",
+                "たら",
+                "ので",
+                "ても"
+              ],
+              "answer": 0,
+              "pt": "B23: V/Aとき",
+              "explain": "Đáp án đúng là ①「とき」— mẫu B23「Vるとき」nghĩa là 'khi ~', dùng để nêu thời điểm xảy ra hành động. 「運転するとき」= 'khi lái xe' — đây là quy tắc chung 'khi lái xe thì không được dùng điện thoại'. Dùng V thể từ điển + とき vì hành động lái xe đang diễn ra chưa xong. ②「たら」(B25) là điều kiện cụ thể cho một tình huống nhất định 'nếu/khi (lần đó) ~', không tự nhiên khi diễn tả quy tắc chung. ③「ので」là nguyên nhân 'vì lái xe nên ~', đổi hướng logic của câu. ④「ても」là nhượng bộ 'dù lái xe vẫn ~', đảo nghĩa so với câu gốc.",
+              "glosses": [
+                {
+                  "t": "運転する",
+                  "read": "うんてんする",
+                  "vi": "lái xe"
+                },
+                {
+                  "t": "運転するとき",
+                  "vi": "khi lái xe — B23: Vるとき"
+                },
+                {
+                  "t": "スマートフォン",
+                  "vi": "điện thoại thông minh"
+                },
+                {
+                  "t": "てはいけません",
+                  "vi": "không được làm ~ — B15",
+                  "read": "てはいけません"
+                },
+                {
+                  "t": "使ってはいけません",
+                  "read": "つかってはいけません",
+                  "vi": "không được dùng, cấm dùng"
+                }
+              ]
+            },
+            {
+              "stem": "病気のとき、田中さんが薬を買って＿。とても助かりました。",
+              "choices": [
+                "あげました",
+                "もらいました",
+                "くれました",
+                "させました"
+              ],
+              "answer": 2,
+              "pt": "B24: Vてくれます",
+              "explain": "Đáp án đúng là ③「くれました」— mẫu B24「〜てくれます」diễn tả người khác (田中さん) tự nguyện làm điều gì đó cho người nói. Trợ từ chủ ngữ là「が」: 「田中さんが買ってくれました」= 'Tanaka-san đã mua thuốc cho (tôi)'. ①「あげました」là 'tôi làm cho người khác' — ngược chiều, chủ thể là người nói làm cho Tanaka, không phải Tanaka làm cho người nói. ②「もらいました」cũng diễn tả người nói nhận ân huệ, nhưng cần dùng trợ từ「に」không phải「が」: phải nói 「田中さんに〜てもらいました」— câu này dùng「が」(「田中さんが」) nên「くれました」mới đúng. ④「させました」là sai hình (使役形 'bắt/cho ai làm') hoàn toàn không phù hợp ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "病気のとき",
+                  "read": "びょうきのとき",
+                  "vi": "khi bị bệnh — B23: Nのとき"
+                },
+                {
+                  "t": "薬を買ってくれました",
+                  "read": "くすりをかってくれました",
+                  "vi": "đã mua thuốc cho (tôi) — B24: Vてくれます"
+                },
+                {
+                  "t": "助かりました",
+                  "read": "たすかりました",
+                  "vi": "thật may, được cứu vãn"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "彼女は来年、日本語がもっと上手に話せる＿。",
+              "choices": [
+                "ようにと思います",
+                "だろうと思います",
+                "ことと思います",
+                "と思います"
+              ],
+              "answer": 3,
+              "pt": "B21: 〜と思います",
+              "explain": "Đáp án đúng là ④「と思います」— mẫu B21「普通形 + と思います」diễn tả suy nghĩ/đánh giá của người nói. 「話せると思います」= 'tôi nghĩ cô ấy sẽ nói được'. V可能形「話せる」là dạng thể thường (普通形) nối trực tiếp với「と思います」mà không cần thêm gì. ①「ようにと思います」sai cấu trúc —「ように」dùng để diễn tả mục tiêu/cầu mong ('để ~'), không kết hợp với「と思います」theo kiểu này. ②「だろうと思います」ghép hai hình thức suy đoán「だろう」(B21) và「と思います」làm câu dư thừa và không tự nhiên. ③「ことと思います」là thể văn viết/trang trọng (ví dụ: thư từ), không phù hợp văn nói thông thường.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "もっと",
+                  "vi": "hơn nữa, nhiều hơn"
+                },
+                {
+                  "t": "上手に話せる",
+                  "read": "じょうずにはなせる",
+                  "vi": "có thể nói giỏi hơn — V可能形 của 話す"
+                },
+                {
+                  "t": "〜と思います",
+                  "vi": "tôi nghĩ rằng ~ — B21"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "ようにと思います",
+                  "read": "ようにとおもいます",
+                  "vi": "〜ように(と)思う = mong rằng / hy vọng ~"
+                },
+                {
+                  "t": "だろうと思います",
+                  "read": "だろうとおもいます",
+                  "vi": "〜だろうと思う = tôi nghĩ có lẽ là ~ (suy đoán)"
+                },
+                {
+                  "t": "ことと思います",
+                  "read": "こととおもいます",
+                  "vi": "〜ことと思う = tin rằng / mong là ~ (cách nói trang trọng, lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "A:「車の運転ができない＿ですか。」B:「ええ、免許を持っていないんです。」",
+              "choices": [
+                "の",
+                "から",
+                "ので",
+                "けど"
+              ],
+              "answer": 0,
+              "pt": "B26: 〜んですか + V可能形",
+              "explain": "Đáp án đúng là ①「の」— mẫu B26「V/Aんですか」(hội thoại: 「の」≒「ん」) dùng để hỏi xác nhận tình huống, thể hiện sự quan tâm. 「できないんですか」= 'anh/chị không thể ~ à?' — A đang thắc mắc tình huống của B dựa trên quan sát. Dạng tiếp nối: V可能形 phủ định「できない」(phổ thông形) + 「んですか」(の + ですか). ②「から」tạo thành 「できないからですか」= 'có phải vì không thể không?' — đổi sang hỏi nguyên nhân, khác hướng. ③「ので」là nguyên nhân lịch sự, 「できないのでですか」sai ngữ pháp. ④「けど」là liên từ nhượng bộ 'tuy ~ nhưng', 「できないけどですか」sai ngữ pháp và sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "運転ができない",
+                  "read": "うんてんができない",
+                  "vi": "không thể lái xe — V可能形 phủ định"
+                },
+                {
+                  "t": "〜んですか",
+                  "vi": "~ à? (hỏi xác nhận tình huống) — B26"
+                },
+                {
+                  "t": "免許",
+                  "read": "めんきょ",
+                  "vi": "bằng lái xe, giấy phép"
+                },
+                {
+                  "t": "持っていない",
+                  "read": "もっていない",
+                  "vi": "không có / không mang — B15: Vています phủ định"
+                },
+                {
+                  "t": "んです",
+                  "vi": "là vì ~ (giải thích) — B26",
+                  "read": "んです"
+                },
+                {
+                  "t": "車",
+                  "read": "くるま",
+                  "vi": "xe hơi, ô tô"
+                },
+                {
+                  "t": "ええ",
+                  "read": "ええ",
+                  "vi": "vâng, ừ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "山田さんはピアノは",
+                "弾けません。"
+              ],
+              "pieces": [
+                "ギターは",
+                "上手に",
+                "弾けますが、",
+                "全然"
+              ],
+              "order": [
+                1,
+                2,
+                0,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "V可能形",
+              "explain": "Câu đúng: 「山田さんはピアノは上手に弾けますが、ギターは全然弾けません。」— Anh Yamada thì piano chơi rất giỏi, nhưng guitar thì hoàn toàn không biết chơi.\nSắp xếp: ô 1=「上手に」, ô 2=「弾けますが、」★, ô 3=「ギターは」, ô 4=「全然」.\nĐầu câu đã cho 「山田さんはピアノは」, cần một phó từ tích cực và động từ khẳng định đi kèm liên từ đối lập 「が、」 để tạo vế thứ nhất, nên ô 1 phải là 「上手に」 và ô 2 là thể khả năng 「弾けますが、」★. Vế sau đối lập với vế trước nên đối tượng tiếp theo phải mang trợ từ tương phản 「ギターは」 ở ô 3. Cuối cùng, đuôi câu phủ định 「弾けません。」 đòi hỏi phó từ đi cùng phủ định 「全然」 đứng ngay trước nó ở ô 4.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "ピアノ",
+                  "read": "",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "弾けません",
+                  "read": "ひけません",
+                  "vi": "không chơi được"
+                },
+                {
+                  "t": "ギター",
+                  "read": "",
+                  "vi": "đàn ghi-ta"
+                },
+                {
+                  "t": "上手に",
+                  "read": "じょうずに",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "弾けます",
+                  "read": "ひけます",
+                  "vi": "chơi được"
+                },
+                {
+                  "t": "全然",
+                  "read": "ぜんぜん",
+                  "vi": "hoàn toàn (không)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ここから",
+                "見えます。"
+              ],
+              "pieces": [
+                "富士山",
+                "晴れると",
+                "が",
+                "きれいに"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "NがVえます・見えます",
+              "explain": "Câu đúng: 「ここから晴れると富士山がきれいに見えます。」— Từ đây hễ trời nắng thì sẽ nhìn thấy núi Phú Sĩ rất đẹp.\nSắp xếp: ô 1=「晴れると」★, ô 2=「富士山」, ô 3=「が」, ô 4=「きれいに」\nKhung câu có từ chỉ địa điểm 「ここから」 ở đầu và động từ 「見えます。」 ở cuối, đòi hỏi giữa câu là một mệnh đề điều kiện kèm chủ ngữ của hành động quan sát. Trợ từ chỉ chủ thể 「が」 bắt buộc dính liền sau danh từ 「富士山」 thành cụm 「富士山が」, còn phó từ 「きれいに」 đứng sát trước 「見えます」 để bổ nghĩa cho động từ. Mệnh đề điều kiện 「晴れると」 đặt trước mệnh đề chính, tiếp theo là chủ ngữ 「富士山が」 rồi đến phó từ 「きれいに」. Mảnh 「晴れると」 nằm ở ô 1★; nó không thể đứng ở các ô 2, 3, 4 vì trợ từ 「と」 đóng vai trò nối vế giả định với toàn bộ mệnh đề chính phía sau.",
+              "glosses": [
+                {
+                  "t": "ここから",
+                  "read": "ここから",
+                  "vi": "ここから = từ đây"
+                },
+                {
+                  "t": "見えます",
+                  "read": "みえます",
+                  "vi": "có thể nhìn thấy, trông thấy được"
+                },
+                {
+                  "t": "富士山",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "晴れる",
+                  "read": "はれる",
+                  "vi": "nắng ráo / trời quang"
+                },
+                {
+                  "t": "きれいに",
+                  "read": "",
+                  "vi": "đẹp / rõ nét"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "冷蔵庫には",
+                "ありません。"
+              ],
+              "pieces": [
+                "卵が",
+                "3個",
+                "しか",
+                "まだ"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "Nしか〜ない",
+              "explain": "Câu đúng: 「冷蔵庫にはまだ卵が3個しかありません。」— Trong tủ lạnh vẫn chỉ còn 3 quả trứng.\nSắp xếp: ô 1=「まだ」, ô 2=「卵が」★, ô 3=「3個」, ô 4=「しか」\nKhung câu bắt đầu bằng địa điểm 「冷蔵庫には」 và kết thúc bằng động từ phủ định 「ありません。」, yêu cầu điền danh từ, phó từ và lượng từ mang ý nghĩa giới hạn. Trợ từ 「が」 bắt buộc dính liền sau danh từ 「卵」 thành cụm chủ ngữ 「卵が」, còn trợ từ giới hạn 「しか」 phải dính ngay sau lượng từ 「3個」 để đi kèm với đuôi phủ định. Phó từ 「まだ」 đứng trước chủ ngữ 「卵が」, sau đó kết hợp với cụm lượng từ 「3個しか」 đứng ngay trước động từ 「ありません」 ở cuối khung. Mảnh 「卵が」 xếp ở ô 2★; mảnh này không thể đứng ô 1 do 「まだ」 cần đứng đầu để chỉ trạng thái kéo dài, và không thể đổi xuống ô 3 hay ô 4 vì trợ từ chủ ngữ 「が」 phải đứng trước số lượng chứ không thể chen vào giữa hay sau 「しか」.",
+              "glosses": [
+                {
+                  "t": "冷蔵庫",
+                  "read": "れいぞうこ",
+                  "vi": "tủ lạnh"
+                },
+                {
+                  "t": "ありません",
+                  "read": "ありません",
+                  "vi": "ありません = không có (thể phủ định của あります)"
+                },
+                {
+                  "t": "卵",
+                  "read": "たまご",
+                  "vi": "trứng"
+                },
+                {
+                  "t": "3個",
+                  "read": "さんこ",
+                  "vi": "3 quả / 3 cái"
+                },
+                {
+                  "t": "まだ",
+                  "read": "",
+                  "vi": "vẫn còn / mới chỉ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "どうして遅刻したんですか。",
+                "んです。"
+              ],
+              "pieces": [
+                "電車が",
+                "遅れた",
+                "乗り換えで",
+                "止まって"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 0,
+              "pt": "B26:〜んです",
+              "explain": "Câu đúng: 「どうして遅刻したんですか。乗り換えで電車が止まって遅れたんです。」— Tại sao bạn lại đi trễ vậy? Do chuyển tàu nên tàu điện bị dừng khiến tôi bị trễ.\nSắp xếp: ô 1=「乗り換えで」★, ô 2=「電車が」, ô 3=「止まって」, ô 4=「遅れた」\nVế sau giải thích lý do cho câu hỏi 「どうして遅刻したんですか」 với vị ngữ chính kết thúc bằng đuôi 「遅れたんです」. Danh từ 「電車が」 bắt buộc phải đi liền với động từ 「止まって」 tạo thành cụm chủ - vị 「電車が止まって」 diễn tả sự việc tàu bị dừng. Mảnh chỉ hoàn cảnh 「乗り換えで」 đứng ở đầu vế để tạo nên chuỗi nguyên nhân - kết quả: 「乗り換えで」 → 「電車が止まって」 → 「遅れた」. Do đó, mảnh 「乗り換えで」 nằm ở ô 1 (vị trí ★) và không thể đứng sau 「電車が」 hay 「止まって」 vì bối cảnh hoàn cảnh phải làm nền đứng trước sự việc tàu dừng.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "遅刻したんですか",
+                  "read": "ちこくしたんですか",
+                  "vi": "đã đến muộn à (hỏi lý do)"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "遅れた",
+                  "read": "おくれた",
+                  "vi": "bị trễ / đến muộn"
+                },
+                {
+                  "t": "乗り換え",
+                  "read": "のりかえ",
+                  "vi": "đổi tàu / chuyển tàu"
+                },
+                {
+                  "t": "止まって",
+                  "read": "とまって",
+                  "vi": "dừng lại / bị dừng"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "もう少し練習したら、",
+                "と思います。"
+              ],
+              "pieces": [
+                "スキーが",
+                "上手に",
+                "滑れる",
+                "もっと"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "V可能形 + B25:〜たら",
+              "explain": "Câu đúng: 「もう少し練習したら、もっとスキーが上手に滑れると思います。」— Nếu luyện tập thêm một chút nữa, tôi nghĩ mình có thể trượt tuyết giỏi hơn.\nSắp xếp: ô 1=「もっと」, ô 2=「スキーが」, ô 3=「上手に」★, ô 4=「滑れる」\nKhung câu bắt đầu bằng vế điều kiện 「もう少し練習したら、」 và kết thúc bằng phán đoán 「と思います」. Trạng từ 「上手に」 bắt buộc phải đi liền ngay trước động từ khả năng 「滑れる」 để bổ nghĩa cho cách thức thực hiện hành động. Phó từ 「もっと」 đứng ở đầu khung để bổ nghĩa cho cả cụm phía sau, tạo thành thứ tự 「もっと」 → 「スキーが」 → 「上手に」 → 「滑れる」. Do đó, mảnh 「上手に」 nằm ở ô 3 (vị trí ★) và không thể đứng ở vị trí khác vì phó từ dạng 「〜に」 phải đứng trực tiếp trước động từ mà nó bổ nghĩa.",
+              "glosses": [
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "thêm / nữa"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "練習したら",
+                  "read": "れんしゅうしたら",
+                  "vi": "nếu luyện tập thì"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "スキー",
+                  "read": "",
+                  "vi": "trượt tuyết / môn trượt tuyết"
+                },
+                {
+                  "t": "上手に",
+                  "read": "じょうずに",
+                  "vi": "giỏi / thành thạo"
+                },
+                {
+                  "t": "滑れる",
+                  "read": "すべれる",
+                  "vi": "trượt được / có thể trượt"
+                },
+                {
+                  "t": "もっと",
+                  "read": "",
+                  "vi": "hơn nữa"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "窓を開けると、",
+                "聞こえてきます。"
+              ],
+              "pieces": [
+                "川の音",
+                "外から",
+                "が",
+                "かすかに"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "NがVえます・聞こえます",
+              "explain": "Câu đúng: 「窓を開けると、外から川の音がかすかに聞こえてきます。」— Khi mở cửa sổ ra, từ bên ngoài có thể nghe thấy tiếng sông văng vẳng vọng lại.\nSắp xếp: ô 1=「外から」★, ô 2=「川の音」, ô 3=「が」, ô 4=「かすかに」\nKhung câu mở đầu bằng 「窓を開けると、」 và kết thúc bằng động từ tự phát 「聞こえてきます」. Danh từ 「川の音」 bắt buộc phải đi liền với trợ từ chủ ngữ 「が」 để tạo thành cụm 「川の音が」 làm đối tượng phát ra âm thanh. Cụm chỉ nguồn phát âm thanh 「外から」 đứng ở đầu vế, tiếp theo là chủ ngữ 「川の音が」 và trạng từ 「かすかに」 đứng ngay trước động từ 「聞こえてきます」. Vì vậy, mảnh 「外から」 nằm ở ô 1 (vị trí ★) và không thể đặt sau 「川の音」 hay 「かすかに」 vì cụm từ chỉ vị trí xuất xứ âm thanh cần đứng ở đầu câu để định vị không gian.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開けると",
+                  "read": "あけると",
+                  "vi": "nếu/khi mở ra thì"
+                },
+                {
+                  "t": "聞こえてきます",
+                  "read": "きこえてきます",
+                  "vi": "bắt đầu nghe thấy, nghe văng vẳng tới"
+                },
+                {
+                  "t": "川",
+                  "read": "かわ",
+                  "vi": "sông"
+                },
+                {
+                  "t": "音",
+                  "read": "おt",
+                  "vi": "tiếng / âm thanh"
+                },
+                {
+                  "t": "外",
+                  "read": "そと",
+                  "vi": "bên ngoài"
+                },
+                {
+                  "t": "かすかに",
+                  "read": "",
+                  "vi": "văng vẳng / thoang thoảng / nhỏ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "彼女は",
+                "人です。"
+              ],
+              "pieces": [
+                "5か国語を",
+                "英語や",
+                "話せる",
+                "フランス語など"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "B22:Vる+N (mệnh đề bổ nghĩa)",
+              "explain": "Câu đúng: 「彼女は英語やフランス語など5か国語を話せる人です。」— Cô ấy là người có thể nói được 5 thứ tiếng như tiếng Anh, tiếng Pháp...\nSắp xếp: ô 1=「英語や」, ô 2=「フランス語など」, ô 3=「5か国語を」, ô 4=「話せる」★.\nĐuôi câu cho sẵn danh từ 「人です。」, theo ngữ pháp bổ nghĩa danh từ của Bài 22 thì đứng liền trước danh từ phải là động từ thể thông thường, ở đây là thể khả năng 「話せる」★ ở ô 4. Cặp trợ từ liệt kê không đầy đủ 「〜や〜など」 ở Bài 10 quy định ô 1 phải là 「英語や」 và ô 2 là 「フランス語など」. Cụm danh từ tổng kết số lượng mang trợ từ tân ngữ 「5か国語を」 đứng ở ô 3 làm tân ngữ trực tiếp cho động từ khả năng 「話せる」.",
+              "glosses": [
+                {
+                  "t": "話せる人",
+                  "read": "はなせるひと",
+                  "vi": "người có thể nói (B22: Vる+N bổ nghĩa danh từ)"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "5か国語を",
+                  "read": "ごかこくごを",
+                  "vi": "5 thứ tiếng (tân ngữ)"
+                },
+                {
+                  "t": "英語",
+                  "read": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "話せる",
+                  "read": "はなせる",
+                  "vi": "có thể nói (可能形 của 話す)"
+                },
+                {
+                  "t": "フランス語",
+                  "read": "ふらんすご",
+                  "vi": "tiếng Pháp"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "山田さんは",
+                "か。"
+              ],
+              "pieces": [
+                "運転できます",
+                "先生に",
+                "もう車が",
+                "教えてもらって、"
+              ],
+              "order": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "starSlot": 3,
+              "pt": "B24:Vてもらいます + V可能形",
+              "explain": "Câu đúng: 「山田さんは先生に教えてもらって、もう車が運転できますか。」— Anh Yamada được thầy dạy cho rồi, đã có thể lái xe ô tô chưa?\nSắp xếp: ô 1=「先生に」, ô 2=「教えてもらって、」, ô 3=「もう車が」, ô 4=「運転できます」★.\nNgười thực hiện hành động dạy cho chủ ngữ phải đi với trợ từ 「に」, nên sau chủ ngữ 「山田さんは」 phải là 「先生に」 ở ô 1, tiếp nối bởi động từ thể て nhận ơn huệ 「教えてもらって、」 ở ô 2. Vế sau hỏi về năng lực sau khi đã học xong, trợ từ 「が」 đi kèm thể khả năng quy định tân ngữ khả năng 「もう車が」 ở ô 3 và vị ngữ thể khả năng 「運転できます」★ ở ô 4 đứng ngay trước trợ từ nghi vấn 「か。」.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh Yamada"
+                },
+                {
+                  "t": "運転できます",
+                  "read": "うんてんできます",
+                  "vi": "có thể lái xe"
+                },
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "nhờ thầy/cô (đối tượng của もらう)"
+                },
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "đã"
+                },
+                {
+                  "t": "車",
+                  "read": "くるま",
+                  "vi": "xe hơi"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy (dạng て của 教える)"
+                },
+                {
+                  "t": "もらって",
+                  "read": "",
+                  "vi": "được (dạy cho)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "どうして帰るんですか。",
+                "んです。"
+              ],
+              "pieces": [
+                "バスが",
+                "1本しか",
+                "ない",
+                "夜は"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "Nしか〜ない + B26:〜んです",
+              "explain": "Câu đúng: 「どうして帰るんですか。夜はバスが1本しかないんです。」— Tại sao bạn lại về vậy? Buổi tối chỉ có 1 chuyến xe buýt thôi.\nSắp xếp: ô 1=「夜は」, ô 2=「バスが」★, ô 3=「1本しか」, ô 4=「ない」\nKhung câu phía sau kết thúc bằng đuôi 「んです」 đòi hỏi vị ngữ thể ngắn đứng trước, nên mảnh 「ない」 ở ô 4 bắt buộc dính liền với 「んです」 ở cuối câu, đồng thời mảnh 「1本しか」 phải nối liền ngay trước 「ない」 tạo thành cụm ngữ pháp 「1本しかない」. Mảnh danh từ kèm trợ từ chủ ngữ 「バスが」 bắt buộc đứng liền trước lượng từ 「1本しか」 để làm chủ ngữ cho vị ngữ phủ định. Mảnh trạng ngữ chỉ thời gian 「夜は」 đặt ở ô 1 để làm mốc thời gian cho toàn bộ câu. Do đó, ô 2 mang dấu ★ bắt buộc phải là mảnh 「バスが」, không thể đặt ở vị trí nào khác vì phải đứng sau thời gian 「夜は」 và kết nối trực tiếp với cụm vị ngữ 「1本しかない」 ở phía sau.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "帰るんですか",
+                  "read": "かえるんですか",
+                  "vi": "về à (hỏi lý do)"
+                },
+                {
+                  "t": "バス",
+                  "read": "",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "1本",
+                  "read": "いっぽん",
+                  "vi": "1 chuyến / 1 chiếc"
+                },
+                {
+                  "t": "ない",
+                  "read": "",
+                  "vi": "không có"
+                },
+                {
+                  "t": "夜",
+                  "read": "よる",
+                  "vi": "buổi tối / ban đêm"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "どんなに",
+                "泳げます。"
+              ],
+              "pieces": [
+                "目標の",
+                "疲れていても、",
+                "1000メートルは",
+                "自分の"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 0,
+              "pt": "B25:V/Aても + V可能形",
+              "explain": "Câu đúng: 「どんなに疲れていても、自分の目標の1000メートルは泳げます。」— Dù mệt đến mấy, 1000 mét mục tiêu của bản thân tôi vẫn có thể bơi được.\nSắp xếp: ô 1=「疲れていても、」★, ô 2=「自分の」, ô 3=「目標の」, ô 4=「1000メートルは」.\nTừ chỉ mức độ 「どんなに」 cho sẵn ở đầu câu bắt buộc phải đi với thể 「〜ても」 để tạo mẫu nhượng bộ 「どんなに〜ても」 ở Bài 25, do đó ô 1 phải là 「疲れていても、」★. Đại từ 「自分の」 bổ nghĩa cho danh từ 「目標の」 ở ô 2 và ô 3, tiếp tục bổ trợ cho lượng từ mang trợ từ chỉ mức tối thiểu 「1000メートルは」 ở ô 4 đứng ngay trước vị ngữ khả năng cho sẵn 「泳げます。」.",
+              "glosses": [
+                {
+                  "t": "どんなに",
+                  "read": "どんなに",
+                  "vi": "dù thế nào, bao nhiêu đi nữa"
+                },
+                {
+                  "t": "泳げます",
+                  "read": "およげます",
+                  "vi": "có thể bơi"
+                },
+                {
+                  "t": "目標",
+                  "read": "もくひょう",
+                  "vi": "mục tiêu"
+                },
+                {
+                  "t": "疲れていても",
+                  "read": "つかれていても",
+                  "vi": "dù có mệt đến đâu"
+                },
+                {
+                  "t": "1000メートル",
+                  "read": "せんめーとる",
+                  "vi": "1000 mét"
+                },
+                {
+                  "t": "自分",
+                  "read": "じぶん",
+                  "vi": "bản thân"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "あの部屋からは",
+                "と思います。"
+              ],
+              "pieces": [
+                "海が",
+                "見えない",
+                "夜は",
+                "暗くて"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 0,
+              "pt": "B21:〜と思います + NがVえます",
+              "explain": "Câu đúng: 「あの部屋からは夜は暗くて海が見えないと思います。」— Tôi nghĩ rằng từ căn phòng đó, vào buổi tối trời tối nên không nhìn thấy biển.\nSắp xếp: ô 1=「夜は」★, ô 2=「暗くて」, ô 3=「海が」, ô 4=「見えない」\nKhung phía sau kết thúc bằng mẫu phán đoán 「と思います」 cần một động từ thể ngắn đi trước, nên mảnh phủ định khả năng 「見えない」 ở ô 4 phải nối liền trực tiếp với 「と思います」. Mảnh danh từ kèm trợ từ 「海が」 ở ô 3 bắt buộc dính liền trước động từ 「見えない」 tạo thành cụm chủ - vị 「海が見えない」 chỉ đối tượng bị tác động. Mảnh tính từ thể て chỉ nguyên nhân 「暗くて」 đứng ở ô 2 ngay trước cụm 「海が見えない」, còn mảnh chỉ thời gian 「夜は」 đứng ở ô 1 để xác định mốc thời gian ban đêm. Do đó, ô 1 mang dấu ★ bắt buộc phải là 「夜は」, không thể đặt ở ô khác vì nó cần đứng ngay sau cụm từ chỉ vị trí 「あの部屋からは」 ở đầu khung để thiết lập mốc thời gian cho toàn bộ mệnh đề phán đoán phía sau.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "đó / kia"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "からは",
+                  "read": "からは",
+                  "vi": "〜からは = từ ~ thì (nhấn mạnh vị trí/nguồn gốc)"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "海",
+                  "read": "うみ",
+                  "vi": "biển"
+                },
+                {
+                  "t": "見えない",
+                  "read": "みえない",
+                  "vi": "không nhìn thấy / không thấy được"
+                },
+                {
+                  "t": "夜",
+                  "read": "よる",
+                  "vi": "buổi tối / ban đêm"
+                },
+                {
+                  "t": "暗くて",
+                  "read": "くらくて",
+                  "vi": "tối / vì tối"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "子どものとき、",
+                "ました。"
+              ],
+              "pieces": [
+                "とても",
+                "高い",
+                "木に",
+                "登れ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "B23:V/Aとき + V可能形",
+              "explain": "Câu đúng: 「子どものとき、とても高い木に登れました。」— Hồi còn nhỏ, tôi có thể trèo lên cái cây rất cao.\nSắp xếp: ô 1=「とても」, ô 2=「高い」, ô 3=「木に」, ô 4=「登れ」★\nĐầu câu đã có khung thời gian 「子どものとき、」 và cuối câu là đuôi vị ngữ 「ました。」. Trong 4 mảnh, mảnh 「登れ」 là thể khả năng dạng ます-stem của động từ 「登る」, bắt buộc phải đứng ở ô 4 để ghép với khung sau tạo thành 「登れました」. Động từ leo trèo 「登る」 đòi hỏi trợ từ chỉ đích đến là 「に」, nên mảnh 「木に」 phải đi liền trước 「登れ」. Tính từ đuôi い 「高い」 bổ nghĩa trực tiếp cho danh từ 「木」 tạo thành cụm 「高い木に」, còn phó từ 「とても」 chỉ mức độ phải đứng trước tính từ để bổ nghĩa thành 「とても高い」. Mảnh 「登れ」 mang thể khả năng của bài học bắt buộc phải đứng ở ô 4 để kết hợp với đuôi chia thời quá khứ.",
+              "glosses": [
+                {
+                  "t": "子どものとき",
+                  "read": "こどものとき",
+                  "vi": "hồi còn nhỏ, lúc còn bé"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "高い",
+                  "read": "たかい",
+                  "vi": "cao"
+                },
+                {
+                  "t": "木",
+                  "read": "き",
+                  "vi": "cây"
+                },
+                {
+                  "t": "登れ",
+                  "read": "のぼれ",
+                  "vi": "leo được / trèo được"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この仕事を手伝って",
+                "んです。"
+              ],
+              "pieces": [
+                "彼1人しか",
+                "くれる",
+                "いない",
+                "人は"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "B24:Vてくれます + Nしか〜ない",
+              "explain": "Câu đúng: 「この仕事を手伝ってくれる人は彼1人しかいないんです。」— Người giúp tôi làm công việc này chỉ có duy nhất một mình anh ấy thôi.\nSắp xếp: ô 1=「くれる」, ô 2=「人は」, ô 3=「彼1人しか」★, ô 4=「いない」\nĐầu khung có động từ 「手伝っ」 bắt buộc phải dính liền với ô 1 「くれる」 tạo thành cụm 「手伝ってくれる」, rồi đi liền với ô 2 「人は」 để làm thành cụm chủ ngữ 「手伝ってくれる人は」. Cụm ngữ pháp 「しか〜ない」 đòi hỏi ô 3 「彼1人しか」 phải ghép dính ngay trước động từ phủ định ở ô 4 「いない」. Nối cụm chủ ngữ ở trước và cụm vị ngữ ở sau theo đúng trật tự tiếng Nhật, ta có chuỗi hoàn chỉnh. Mảnh 「彼1人しか」 rơi vào ô 3 (ô ★) vì nó phải đứng sau chủ ngữ 「人は」 và làm bổ ngữ bắt buộc cho 「いない」 ở ô 4, không thể chèn vào ô 1 hay ô 2 vốn đang thuộc mệnh đề bổ nghĩa cho 「人」.",
+              "glosses": [
+                {
+                  "t": "いないんです",
+                  "vi": "không có... đấy (B26: んです giải thích)"
+                },
+                {
+                  "t": "この仕事を手伝って",
+                  "read": "このしごとをてつだって",
+                  "vi": "giúp đỡ công việc này (dạng て)"
+                },
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy (chủ thể)"
+                },
+                {
+                  "t": "1人しか",
+                  "read": "ひとりしか",
+                  "vi": "chỉ 1 người (số lượng + しか)"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "くれる",
+                  "read": "",
+                  "vi": "giúp / làm giúp cho"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "毎日練習すれば、",
+                "なります。"
+              ],
+              "pieces": [
+                "もっと",
+                "ピアノが",
+                "上手に",
+                "弾けるように"
+              ],
+              "order": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "B19:〜ようになります + V可能形",
+              "explain": "Câu đúng: 「毎日練習すれば、もっと上手にピアノが弾けるようになります。」— Nếu luyện tập hằng ngày thì sẽ có thể chơi piano giỏi hơn.\nSắp xếp: ô 1=「もっと」, ô 2=「上手に」, ô 3=「ピアノが」★, ô 4=「弾けるように」\nCuối khung có động từ 「なります」 bắt buộc phải dính liền với ô 4 「弾けるように」 để tạo thành cấu trúc biến đổi khả năng 「弾けるようになります」. Mảnh ô 1 「もっと」 dính liền trước ô 2 「上手に」 tạo thành cụm trạng từ 「もっと上手に」, trong khi ô 3 「ピアノが」 bắt buộc đi cùng động từ khả năng ở ô 4 tạo thành cụm 「ピアノが弾ける」. Ghép cụm trạng từ 「もっと上手に」 lên trước cụm vị ngữ 「ピアノが弾けるようになります」 để bổ nghĩa cho mức độ chơi piano. Mảnh 「ピアノが」 rơi vào ô 3 (ô ★) vì mang trợ từ 「が」 làm đối tượng trực tiếp cho động từ khả năng 「弾ける」 ở ô 4, nên không thể chèn vào trước hay giữa cụm trạng từ 「もっと上手に」 ở ô 1-2 hay đứng sau ô 4.",
+              "glosses": [
+                {
+                  "t": "毎日練習すれば",
+                  "read": "まいにちれんしゅうすれば",
+                  "vi": "nếu luyện tập mỗi ngày"
+                },
+                {
+                  "t": "なります",
+                  "read": "なります",
+                  "vi": "〜になります = sẽ trở nên ~ (thay đổi trạng thái)"
+                },
+                {
+                  "t": "もっと",
+                  "read": "",
+                  "vi": "hơn nữa"
+                },
+                {
+                  "t": "ピアノ",
+                  "read": "",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "上手に",
+                  "read": "じょうずに",
+                  "vi": "giỏi / thành thạo"
+                },
+                {
+                  "t": "弾ける",
+                  "read": "ひける",
+                  "vi": "chơi được (đàn) / đánh đàn được"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "田中さんは",
+                "と言いました。"
+              ],
+              "pieces": [
+                "お金が",
+                "1万円しか",
+                "財布に",
+                "ない"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "B21:〜と言いました + Nしか〜ない",
+              "explain": "Câu đúng: 「田中さんは財布にお金が1万円しかないと言いました。」— Anh Tanaka đã nói rằng trong ví chỉ có 1 vạn yên tiền mặt.\nSắp xếp: ô 1=「財布に」, ô 2=「お金が」★, ô 3=「1万円しか」, ô 4=「ない」\nSau chủ ngữ khung 「田中さんは」, khoảng trống cần một mệnh đề hoàn chỉnh để nối vào từ trích dẫn 「と言いました」 ở cuối khung. Mẫu ngữ pháp 「しか〜ない」 đòi hỏi ô 3 「1万円しか」 phải dính liền trước ô 4 「ない」, đồng thời danh từ ô 2 「お金が」 phải đi liền với cụm này để tạo thành mệnh đề chủ - vị 「お金が1万円しかない」. Đặt từ chỉ địa điểm ô 1 「財布に」 lên đầu mệnh đề trích dẫn rồi nối tiếp cụm 「お金が1万円しかない」 theo đúng trật tự tự nhiên của tiếng Nhật. Mảnh 「お金が」 rơi vào ô 2 (ô ★) vì mang trợ từ chủ ngữ 「が」 bắt buộc đứng sau địa điểm 「財布に」 và làm chủ ngữ cho 「1万円しかない」, nên không thể chèn xuống sau lượng từ ở ô 3 hay đứng sau phủ định ở ô 4.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "お金",
+                  "read": "おかね",
+                  "vi": "tiền"
+                },
+                {
+                  "t": "1万円",
+                  "read": "いちまんえん",
+                  "vi": "10.000 yên / 1 vạn yên"
+                },
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví / bóp tiền"
+                },
+                {
+                  "t": "ない",
+                  "read": "",
+                  "vi": "không có"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "日本へ来て 1年になりました。日本語が少し話せるようになりました",
+                "、漢字はまだあまり読めません。ニュースの音は聞こえます",
+                "、内容はわかりません。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "でも",
+                    "から",
+                    "そして",
+                    "ので"
+                  ],
+                  "answer": 0,
+                  "explain": "Trái ý: \"nói được rồi NHƯNG chưa đọc được kanji\" → 「でも」 (nhưng). Ôn lại từ nối đã học."
+                },
+                {
+                  "choices": [
+                    "が",
+                    "ので",
+                    "から",
+                    "より"
+                  ],
+                  "answer": 0,
+                  "explain": "\"nghe được tiếng NHƯNG không hiểu nội dung\" → 「〜が」 (nhưng) nối hai vế tương phản."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "話せるようになりました",
+                  "read": "はなせるようになりました",
+                  "vi": "đã trở nên nói được (可能形 + 〜ようになる)"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "読めません",
+                  "read": "よめません",
+                  "vi": "không đọc được (可能形 phủ định)"
+                },
+                {
+                  "t": "ニュース",
+                  "vi": "tin tức"
+                },
+                {
+                  "t": "聞こえます",
+                  "read": "きこえます",
+                  "vi": "nghe được (tự nhiên, không cố ý)"
+                },
+                {
+                  "t": "内容",
+                  "read": "ないよう",
+                  "vi": "nội dung"
+                },
+                {
+                  "t": "わかりません",
+                  "vi": "không hiểu"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ về thể khả năng (可能形).",
+          "items": [
+            {
+              "stem": "話します（可能形）→ ＿",
+              "choices": [
+                "話せます",
+                "話れます",
+                "話えます",
+                "話せられます"
+              ],
+              "answer": 0,
+              "explain": "話す là động từ nhóm 1 → 可能形: đổi đuôi す→せ + ます = 「話せます」 (nói được). Các dạng kia sai quy tắc chia khả năng.",
+              "glosses": [
+                {
+                  "t": "話します",
+                  "read": "はなします",
+                  "vi": "nói (thể ます)"
+                },
+                {
+                  "t": "可能形",
+                  "read": "かのうけい",
+                  "vi": "thể khả năng"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "カリナさんはピアノ＿弾けます。",
+              "choices": [
+                "が",
+                "を",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "Với 可能形 (弾けます = chơi được), đối tượng thường đi với 「が」 thay vì を: ピアノが弾けます.",
+              "glosses": [
+                {
+                  "t": "ピアノ",
+                  "vi": "đàn piano"
+                },
+                {
+                  "t": "弾けます",
+                  "read": "ひけます",
+                  "vi": "chơi (đàn) được (可能形)"
+                },
+                {
+                  "t": "カリナさん",
+                  "read": "かりなさん",
+                  "vi": "bạn Karina (tên riêng)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi chỉ nói được một chút tiếng Nhật.",
+              "target": "日本語が少ししか話せません",
+              "model": "日本語が 少ししか 話せません。",
+              "explain": "「〜しか」 đi với phủ định 「話せません」 = chỉ ~ (hàm ý ít); 可能形 của 話す là 話せる.",
+              "glosses": [
+                {
+                  "t": "少ししか",
+                  "read": "すこししか",
+                  "vi": "chỉ một chút (〜しか + phủ định)"
+                },
+                {
+                  "t": "話せません",
+                  "read": "はなせません",
+                  "vi": "không nói được (可能形 phủ định)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

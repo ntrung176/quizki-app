@@ -1,0 +1,3169 @@
+{
+  "bai": 32,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 32 tập trung vào hai nhóm mẫu: (1) đưa ra LỜI KHUYÊN bằng〜たほうがいいです / 〜ないほうがいいです, và (2) suy đoán tình huống/kết quả bằng〜でしょう / 〜かもしれません. Chủ đề lời khuyên sức khoẻ là ngữ cảnh điển hình nhất để luyện cả hai nhóm mẫu này.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm: ai đang khuyên ai, vấn đề sức khoẻ là gì.",
+      "Tìm〜たほうがいいです: đây là lời khuyên NÊN làm. Vế trước た = động từ dạng た (quá khứ) + ほうがいい.",
+      "Tìm〜ないほうがいいです: lời khuyên KHÔNG NÊN làm. Vế trước ない = dạng phủ định + ほうがいい.",
+      "Phân biệt〜でしょう (suy đoán chắc/có cơ sở rõ) vs〜かもしれません (suy đoán không chắc, \"có thể là\"). Người nói ít chắc hơn khi dùng かもしれません.",
+      "Câu hỏi trắc nghiệm thường hỏi: ai khuyên điều gì → tìm câu〜ほうがいい chứa nội dung đó.",
+      "Ôn lại: 〜んです (Bài 26) khi giải thích triệu chứng; Vなければなりません (Bài 17) khi so sánh độ bắt buộc với ほうがいい; Vてください (Bài 14) so sánh lời yêu cầu thẳng vs lời khuyên mềm."
+    ],
+    "tips": [
+      "Vたほうがいいです: V dạng た (ví dụ: 飲む→飲んだ→飲んだほうがいい). Đừng dùng Vるほうがいい — sai giáo trình Minna.",
+      "Vないほうがいいです: V dạng ない (ví dụ: 食べない→食べないほうがいい). Dạng này KHÔNG có た.",
+      "〜でしょう phát âm/viết như〜でしょう (礼) — giọng xuống dùng khi hỏi, giọng bình khi khẳng định suy đoán.",
+      "〜かもしれません ≈ \"có thể / có lẽ\" — mức độ chắc THẤP hơn〜と思います và thấp hơn〜でしょう.",
+      "So sánh độ mạnh: Vなければなりません (phải) > Vたほうがいいです (nên) > Vてもいいです (được phép).",
+      "Gặp câu hỏi về \"lý do\" triệu chứng → tìm câu〜んです (Bài 26) — người nói dùng んです để giải thích."
+    ],
+    "grammarFocus": [
+      "Vたほうがいいです",
+      "Vないほうがいいです",
+      "〜でしょう（suy đoán có cơ sở）",
+      "〜かもしれません（suy đoán không chắc）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "Vる予定です",
+          "まだVていません"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました",
+          "Vています（結果状態）"
+        ]
+      },
+      {
+        "bai": 28,
+        "items": [
+          "Vやすい・Vにくい"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（〜えます）",
+          "Nしか〜ない"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）",
+          "V・Aんですか"
+        ]
+      },
+      {
+        "bai": 25,
+        "items": [
+          "〜たら",
+          "〜ても"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜でしょう（Bài 21 giới thiệu sơ）"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）",
+          "〜がわかります"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "医者のアドバイス",
+      "titleVi": "Lời khuyên của bác sĩ",
+      "japanese": "ワンさんは最近、疲れやすいんです。それで、今日病院へ行きました。\n医者は「毎日8時間ぐらい寝たほうがいいですよ」と言いました。\n「それから、仕事の後でお酒を飲みすぎないほうがいいです」とも言いました。\n「野菜や果物をもっと食べたほうがいいですね。そして、毎日少し運動したほうがいいです」と言いました。\nワンさんは「わかりました。やってみます」と言いました。\n医者は「生活を変えたら、たぶん来月には元気になるでしょう」と言いました。",
+      "vietnamese": "Gần đây anh Wang dễ mệt mỏi. Vì vậy hôm nay anh đến bệnh viện.\nBác sĩ nói \"Mỗi ngày anh nên ngủ khoảng 8 tiếng\".\n\"Ngoài ra, sau giờ làm anh không nên uống rượu quá nhiều\" bác sĩ cũng nói thêm.\n\"Nên ăn thêm rau và trái cây. Và mỗi ngày nên vận động một chút\" bác sĩ nói.\nAnh Wang nói \"Tôi hiểu rồi. Tôi sẽ thử\".\nBác sĩ nói \"Nếu thay đổi lối sống thì chắc đến tháng sau anh sẽ khoẻ lại thôi\".",
+      "sentences": [
+        {
+          "jp": "ワンさんは最近、疲れやすいんです。それで、今日病院へ行きました。",
+          "vi": "Gần đây anh Wang dễ mệt mỏi. Vì vậy hôm nay anh đến bệnh viện.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "疲れやすい",
+              "read": "つかれやすい",
+              "vi": "dễ mệt mỏi"
+            },
+            {
+              "w": "それで",
+              "read": "それで",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "疲れやすいんです = giải thích lý do đi khám. んです cho thấy đây là thông tin bối cảnh, không phải sự thật thuần tuý."
+            },
+            {
+              "point": "Vやすい（Bài 28）",
+              "vi": "疲れやすい = dễ mệt (Vやすい = dễ V). Mẫu ngữ pháp Bài 28 được ôn lại ở đây."
+            }
+          ]
+        },
+        {
+          "jp": "医者は「毎日8時間ぐらい寝たほうがいいですよ」と言いました。",
+          "vi": "Bác sĩ nói \"Mỗi ngày anh nên ngủ khoảng 8 tiếng\".",
+          "vocab": [
+            {
+              "w": "医者",
+              "read": "いしゃ",
+              "vi": "bác sĩ"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "寝ます",
+              "read": "ねます",
+              "vi": "ngủ"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "〜時間",
+              "read": "じかん",
+              "vi": "〜 tiếng đồng hồ"
+            },
+            {
+              "w": "ぐらい",
+              "read": "ぐらい",
+              "vi": "khoảng (Bài 11)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいです",
+              "vi": "寝たほうがいいです = nên ngủ. 寝る → 寝た (た形) + ほうがいいです. Đây là mẫu NGỮ PHÁP TRỌNG TÂM của Bài 32."
+            }
+          ]
+        },
+        {
+          "jp": "「それから、仕事の後でお酒を飲みすぎないほうがいいです」とも言いました。",
+          "vi": "\"Ngoài ra, sau giờ làm anh không nên uống rượu quá nhiều\" bác sĩ cũng nói thêm.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "お酒",
+              "read": "おさけ",
+              "vi": "rượu"
+            },
+            {
+              "w": "酒",
+              "read": "さけ",
+              "vi": "rượu"
+            },
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau khi"
+            },
+            {
+              "w": "飲みすぎない",
+              "read": "のみすぎない",
+              "vi": "không uống quá nhiều"
+            },
+            {
+              "w": "ほうがいい",
+              "read": "ほうがいい",
+              "vi": "nên..."
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないほうがいいです",
+              "vi": "飲みすぎないほうがいいです = không nên uống quá nhiều. V ない形 (飲みすぎない) + ほうがいいです. Đây là dạng phủ định của ほうがいい — lời khuyên KHÔNG NÊN làm."
+            }
+          ]
+        },
+        {
+          "jp": "「野菜や果物をもっと食べたほうがいいですね。そして、毎日少し運動したほうがいいです」と言いました。",
+          "vi": "\"Nên ăn thêm rau và trái cây. Và mỗi ngày nên vận động một chút\" bác sĩ nói.",
+          "vocab": [
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau củ"
+            },
+            {
+              "w": "果物",
+              "read": "くだもの",
+              "vi": "trái cây"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, thêm nữa"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            },
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "運動します",
+              "read": "うんどうします",
+              "vi": "vận động, tập thể dục"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいです（x2）",
+              "vi": "食べたほうがいいです & 運動したほうがいいです: bác sĩ đưa ra liên tiếp hai lời khuyên NÊN làm, cùng dùng た形 + ほうがいい."
+            },
+            {
+              "point": "NやN（など）（Bài 10）",
+              "vi": "野菜や果物 = rau VÀ CÁC THỨ NHƯ trái cây. や liệt kê không đầy đủ (khác と liệt kê đầy đủ)."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「わかりました。やってみます」と言いました。",
+          "vi": "Anh Wang nói \"Tôi hiểu rồi. Tôi sẽ thử\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "わかりました",
+              "read": "わかりました",
+              "vi": "tôi hiểu rồi"
+            },
+            {
+              "w": "やってみます",
+              "read": "やってみます",
+              "vi": "thử làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみます（Bài 23 mở rộng）",
+              "vi": "やってみます = sẽ thử làm. Vて + みます = thử (để xem kết quả). Thể ます chỉ dự định tương lai."
+            }
+          ]
+        },
+        {
+          "jp": "医者は「生活を変えたら、たぶん来月には元気になるでしょう」と言いました。",
+          "vi": "Bác sĩ nói \"Nếu thay đổi lối sống thì chắc đến tháng sau anh sẽ khoẻ lại thôi\".",
+          "vocab": [
+            {
+              "w": "医者",
+              "read": "いしゃ",
+              "vi": "bác sĩ"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "lối sống, cuộc sống"
+            },
+            {
+              "w": "変えます",
+              "read": "かえます",
+              "vi": "thay đổi (tha động từ)"
+            },
+            {
+              "w": "たぶん",
+              "read": "たぶん",
+              "vi": "có lẽ, chắc là"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh, năng động"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "変えたら = nếu/khi thay đổi. Điều kiện dẫn đến kết quả bác sĩ dự đoán."
+            },
+            {
+              "point": "〜でしょう",
+              "vi": "元気になるでしょう = chắc sẽ khoẻ lại. でしょう = suy đoán có cơ sở; bác sĩ có chuyên môn nên dùng でしょう (chắc hơn かもしれません)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "寝たほうがいいですよ",
+          "label": "Vたほうがいいです（nên ngủ đủ giấc）"
+        },
+        {
+          "excerpt": "飲みすぎないほうがいいです",
+          "label": "Vないほうがいいです（không nên uống nhiều）"
+        },
+        {
+          "excerpt": "元気になるでしょう",
+          "label": "〜でしょう（suy đoán có cơ sở）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "医者はワンさんにどんなアドバイスをしましたか。（正しくないものを選んでください）",
+          "evi": [
+            1,
+            2,
+            3
+          ],
+          "options": [
+            "毎日8時間ぐらい寝たほうがいいです",
+            "仕事の後でお酒を飲みすぎないほうがいいです",
+            "毎日病院へ来たほうがいいです",
+            "野菜や果物をもっと食べたほうがいいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài ghi bốn lời khuyên thật:「毎日8時間ぐらい寝たほうがいい」(ngủ đủ giấc ✓),「お酒を飲みすぎないほうがいい」(không uống rượu quá nhiều ✓),「野菜や果物をもっと食べたほうがいい」(ăn rau trái cây ✓),「毎日少し運動したほうがいい」(vận động mỗi ngày ✓). Không có câu nào là「毎日病院へ来たほうがいいです」— bác sĩ chưa bao giờ khuyên đến bệnh viện mỗi ngày → phương án 2 là thông tin KHÔNG CÓ trong bài.",
+          "tip": "Câu hỏi dạng \"正しくないものを選べ\" → đánh dấu nhanh từng lời khuyên có trong bài rồi loại trừ. Lời khuyên nào KHÔNG tìm thấy câu〜ほうがいい tương ứng trong đoạn văn → đó là đáp án.",
+          "qt": {
+            "q": "Bác sĩ đã đưa ra lời khuyên nào cho anh Wang? (Hãy chọn phương án không đúng)",
+            "o": [
+              "Mỗi ngày nên ngủ khoảng 8 tiếng",
+              "Sau giờ làm không nên uống quá nhiều rượu",
+              "Mỗi ngày nên đến bệnh viện",
+              "Nên ăn nhiều rau và trái cây hơn"
+            ]
+          }
+        },
+        {
+          "q": "医者はなぜ「元気になるでしょう」と言いましたか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "ワンさんがもう薬を飲んだから",
+            "ワンさんが生活を変えたら、元気になると思ったから",
+            "ワンさんが毎日病院へ来るから",
+            "ワンさんがお酒を飲まないから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu trong bài là「生活を変えたら、たぶん来月には元気になるでしょう」— bác sĩ đặt ĐIỀU KIỆN「生活を変えたら」(nếu thay đổi lối sống) rồi mới đưa ra dự đoán「元気になるでしょう」. Đây là suy đoán có cơ sở chuyên môn nên dùng でしょう. Đáp án 0 sai vì bài không đề cập đến thuốc. Đáp án 2 và 3 sai vì điều kiện trong câu là \"thay đổi lối sống\", không phải \"đến bệnh viện mỗi ngày\" hay \"không uống rượu\" đơn lẻ.",
+          "tip": "〜でしょう đi kèm〜たら = \"NẾU làm X thì chắc sẽ Y\". Khi gặp câu hỏi \"なぜでしょうと言ったか\", hãy tìm điều kiện たら/ば ngay trước でしょう — đó chính là lý do.",
+          "qt": {
+            "q": "Tại sao bác sĩ nói rằng 「元気になるでしょう」 (có lẽ sẽ khỏe lại)?",
+            "o": [
+              "Vì anh Wang đã uống thuốc rồi",
+              "Vì bác sĩ nghĩ rằng nếu anh Wang thay đổi lối sống thì anh ấy sẽ khỏe lại",
+              "Vì anh Wang sẽ đến bệnh viện mỗi ngày",
+              "Vì anh Wang không uống rượu"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんはどうして病院へ行きましたか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "薬をもらいたかったから",
+            "最近疲れやすいんです",
+            "友達に会いたかったから",
+            "仕事の後でいつも病院へ行くから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu mở bài:「ワンさんは最近、疲れやすいんです。それで、今日病院へ行きました」— 疲れやすいんです là lý do trực tiếp (んです giải thích nguyên nhân, Bài 26), và それで (vì vậy) nối thẳng đến việc đến bệnh viện. Đáp án 0 sai vì bài không nhắc đến việc lấy thuốc. Đáp án 2 và 3 sai hoàn toàn — không có nội dung nào trong bài ủng hộ.",
+          "tip": "Khi hỏi \"どうして〜しましたか\", tìm cụm「〜んです。それで〜」hoặc「〜から、〜」ngay đầu bài. んです + それで là dấu hiệu \"lý do → hành động\" rất hay xuất hiện.",
+          "qt": {
+            "q": "Tại sao anh Wang đến bệnh viện?",
+            "o": [
+              "Vì anh ấy muốn xin thuốc",
+              "Gần đây anh ấy dễ bị mệt",
+              "Vì anh ấy muốn gặp bạn",
+              "Vì sau giờ làm anh ấy luôn đến bệnh viện"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "健康のための生活習慣",
+      "titleVi": "Thói quen sinh hoạt vì sức khoẻ",
+      "japanese": "みなさん、こんにちは。私はIMCのスポーツクラブで働いているカリナです。\n今日は健康のための生活習慣についてお話しします。\nまず、睡眠についてです。毎晩7〜8時間寝たほうがいいでしょう。\n睡眠が足りないと、集中できなくなりますし、免疫力も下がるかもしれません。\n特に試験や大切な仕事がある前の夜は、十分に寝たほうがいいです。\n次に、食事についてです。毎日野菜をたくさん食べたほうがいいです。\nファストフードは体によくないから、あまり食べないほうがいいと思います。\nまた、朝ごはんを食べないほうがいいと思っている人もいますが、それは間違いです。\n朝ごはんはしっかり食べたほうがいいですよ。脳のために必要なんです。\nそれから、運動についてです。毎日30分ぐらい歩いたほうがいいでしょう。\n「毎日運動するのは難しい」と思うかもしれませんが、エレベーターを使わないで階段を使うだけでも違います。\nストレスの管理も大切です。好きな音楽を聴いたり、友達と話したりしたほうがいいでしょう。\nストレスがたくさんあると、体の調子が悪くなるかもしれませんから、気をつけてください。\nお酒はたくさん飲まないほうがいいですが、少しだけ飲んでもいいです。\nタバコは体に非常に悪いですから、吸わないほうがいいです。\n最後に、定期的に病院で健康チェックを受けたほうがいいと思います。\n小さな問題でも、早く治したほうがいいですし、大きな病気を防げるかもしれません。\nみなさんも、ぜひ試してみてください。",
+      "vietnamese": "Xin chào mọi người. Tôi là Karina, làm việc tại câu lạc bộ thể thao của IMC.\nHôm nay tôi sẽ nói về thói quen sinh hoạt vì sức khoẻ.\nTrước tiên là về giấc ngủ. Mỗi tối nên ngủ khoảng 7〜8 tiếng.\nNếu ngủ không đủ giấc, bạn sẽ không tập trung được, và hệ miễn dịch cũng có thể suy giảm.\nĐặc biệt đêm trước kỳ thi hoặc công việc quan trọng, nên ngủ đủ giấc.\nTiếp theo là về bữa ăn. Nên ăn nhiều rau mỗi ngày.\nVì đồ ăn nhanh không tốt cho cơ thể, tôi nghĩ không nên ăn nhiều lắm.\nNgoài ra, có người nghĩ không nên ăn sáng, nhưng điều đó là sai.\nNên ăn sáng đầy đủ đấy. Vì đó là điều cần thiết cho não bộ.\nSau đó là về vận động. Nên đi bộ khoảng 30 phút mỗi ngày.\nBạn có thể nghĩ \"Vận động mỗi ngày thật khó\", nhưng chỉ cần không dùng thang máy mà dùng cầu thang thôi cũng khác rồi.\nQuản lý stress cũng rất quan trọng. Nên nghe nhạc yêu thích hoặc nói chuyện với bạn bè.\nNếu có nhiều stress, sức khoẻ có thể bị ảnh hưởng, vì vậy hãy chú ý nhé.\nRượu thì không nên uống nhiều, nhưng uống ít thì không sao.\nThuốc lá rất có hại cho cơ thể, vì vậy không nên hút.\nCuối cùng, tôi nghĩ nên đi kiểm tra sức khoẻ định kỳ tại bệnh viện.\nDù là vấn đề nhỏ, nên chữa sớm, và có thể ngăn ngừa được bệnh nghiêm trọng.\nMọi người cũng hãy nhất định thử nhé.",
+      "sentences": [
+        {
+          "jp": "みなさん、こんにちは。私はIMCのスポーツクラブで働いているカリナです。",
+          "vi": "Xin chào mọi người. Tôi là Karina, làm việc tại câu lạc bộ thể thao của IMC.",
+          "vocab": [
+            {
+              "w": "こんにちは",
+              "read": "こんにちは",
+              "vi": "xin chào"
+            },
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "スポーツ",
+              "read": "スポーツ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "働きます",
+              "read": "はたらきます",
+              "vi": "làm việc"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người"
+            },
+            {
+              "w": "スポーツクラブ",
+              "read": "スポーツクラブ",
+              "vi": "câu lạc bộ thể thao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa N（Bài 22）",
+              "vi": "スポーツクラブで働いているカリナ = Karina [người đang làm việc tại CLB thể thao]. Động từ đứng trước danh từ bổ nghĩa cho danh từ đó."
+            }
+          ]
+        },
+        {
+          "jp": "今日は健康のための生活習慣についてお話しします。",
+          "vi": "Hôm nay tôi sẽ nói về thói quen sinh hoạt vì sức khoẻ.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "お話し",
+              "read": "おはなし",
+              "vi": "câu chuyện, lời nói"
+            },
+            {
+              "w": "生活習慣",
+              "read": "せいかつしゅうかん",
+              "vi": "thói quen sinh hoạt"
+            },
+            {
+              "w": "〜について",
+              "read": "について",
+              "vi": "về (chủ đề)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "〜についてお話しします = tôi sẽ nói về〜. について chỉ chủ đề của bài nói/viết."
+            }
+          ]
+        },
+        {
+          "jp": "まず、睡眠についてです。毎晩7〜8時間寝たほうがいいでしょう。",
+          "vi": "Trước tiên là về giấc ngủ. Mỗi tối nên ngủ khoảng 7〜8 tiếng.",
+          "vocab": [
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "寝る",
+              "read": "ねる",
+              "vi": "ngủ, đi ngủ"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên, đầu tiên"
+            },
+            {
+              "w": "〜時間",
+              "read": "じかん",
+              "vi": "〜 tiếng đồng hồ (Bài 11)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいでしょう",
+              "vi": "寝たほうがいいでしょう = nên ngủ thôi. た形 (寝た) + ほうがいいでしょう: kết hợp lời khuyên (ほうがいい) với suy đoán có cơ sở (でしょう) → giọng tư vấn chuyên nghiệp nhẹ nhàng hơn trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "睡眠が足りないと、集中できなくなりますし、免疫力も下がるかもしれません。",
+          "vi": "Nếu ngủ không đủ giấc, bạn sẽ không tập trung được, và hệ miễn dịch cũng có thể suy giảm.",
+          "vocab": [
+            {
+              "w": "睡眠",
+              "read": "すいみん",
+              "vi": "giấc ngủ"
+            },
+            {
+              "w": "足ります",
+              "read": "たります",
+              "vi": "đủ, đủ dùng"
+            },
+            {
+              "w": "集中します",
+              "read": "しゅうちゅうします",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "免疫",
+              "read": "めんえき",
+              "vi": "sự miễn dịch"
+            },
+            {
+              "w": "下がります",
+              "read": "さがります",
+              "vi": "giảm, xuống"
+            },
+            {
+              "w": "免疫力",
+              "read": "めんえきりょく",
+              "vi": "sức đề kháng, miễn dịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên, Bài 23）",
+              "vi": "足りないと = nếu không đủ thì (kết quả tự nhiên). と điều kiện dẫn đến kết quả tất yếu."
+            },
+            {
+              "point": "〜かもしれません",
+              "vi": "下がるかもしれません = có thể giảm. かもしれません = suy đoán không chắc (có lẽ, có thể). Đây là mẫu TRỌNG TÂM Bài 32."
+            },
+            {
+              "point": "V可能形 + なくなります（Bài 27 + Bài 19）",
+              "vi": "集中できなくなります = trở nên không tập trung được. できる → できなくなる: mất khả năng."
+            }
+          ]
+        },
+        {
+          "jp": "特に試験や大切な仕事がある前の夜は、十分に寝たほうがいいです。",
+          "vi": "Đặc biệt đêm trước kỳ thi hoặc công việc quan trọng, nên ngủ đủ giấc.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt, nhất là"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "十分に",
+              "read": "じゅうぶんに",
+              "vi": "đầy đủ, đủ giấc"
+            },
+            {
+              "w": "寝る",
+              "read": "ねる",
+              "vi": "ngủ, đi ngủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいです",
+              "vi": "寝たほうがいいです = nên ngủ. Lần này không có でしょう: câu lời khuyên thẳng hơn, nhấn mạnh hơn cho tình huống đặc biệt."
+            },
+            {
+              "point": "NやN（Bài 10）",
+              "vi": "試験や大切な仕事 = kỳ thi VÀ (các loại) công việc quan trọng. や liệt kê ví dụ không đầy đủ."
+            }
+          ]
+        },
+        {
+          "jp": "次に、食事についてです。毎日野菜をたくさん食べたほうがいいです。",
+          "vi": "Tiếp theo là về bữa ăn. Nên ăn nhiều rau mỗi ngày.",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo"
+            },
+            {
+              "w": "食事",
+              "read": "しょくじ",
+              "vi": "bữa ăn, ăn uống"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau củ"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいです",
+              "vi": "食べたほうがいいです = nên ăn. た形 (食べた) + ほうがいい."
+            }
+          ]
+        },
+        {
+          "jp": "ファストフードは体によくないから、あまり食べないほうがいいと思います。",
+          "vi": "Vì đồ ăn nhanh không tốt cho cơ thể, tôi nghĩ không nên ăn nhiều lắm.",
+          "vocab": [
+            {
+              "w": "ファストフード",
+              "read": "ファストフード",
+              "vi": "đồ ăn nhanh (fast food)"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "あまり〜ない",
+              "read": "あまり",
+              "vi": "không〜 nhiều lắm (Bài 8)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないほうがいいと思います",
+              "vi": "食べないほうがいいと思います = tôi nghĩ không nên ăn. ない形 + ほうがいい + と思います: kết hợp lời khuyên phủ định với cách nói ý kiến mềm mỏng (Bài 21)."
+            },
+            {
+              "point": "〜から（lý do, Bài 9）",
+              "vi": "よくないから = vì không tốt. から nêu lý do dẫn đến lời khuyên."
+            }
+          ]
+        },
+        {
+          "jp": "また、朝ごはんを食べないほうがいいと思っている人もいますが、それは間違いです。",
+          "vi": "Ngoài ra, có người nghĩ không nên ăn sáng, nhưng điều đó là sai.",
+          "vocab": [
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "間違い",
+              "read": "まちがい",
+              "vi": "sai lầm, nhầm lẫn"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, hơn nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa N（Bài 22）",
+              "vi": "食べないほうがいいと思っている人 = người [đang nghĩ không nên ăn sáng]. Mệnh đề V思っている đứng trước N人 bổ nghĩa cho danh từ."
+            },
+            {
+              "point": "Vないほうがいい（trong mệnh đề）",
+              "vi": "食べないほうがいい là nội dung của と思っている: đây là điều \"người đó nghĩ\" — dùng ほうがいい bên trong mệnh đề trích dẫn."
+            }
+          ]
+        },
+        {
+          "jp": "朝ごはんはしっかり食べたほうがいいですよ。脳のために必要なんです。",
+          "vi": "Nên ăn sáng đầy đủ đấy. Vì đó là điều cần thiết cho não bộ.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "đầy đủ, chắc chắn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "não bộ"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいですよ",
+              "vi": "しっかり食べたほうがいいですよ = nên ăn đầy đủ đấy. よ cuối câu nhấn mạnh lời khuyên, phản bác quan niệm sai ở câu trước."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "必要なんです = thực ra là điều cần thiết đó. んです giải thích lý do tại sao cần ăn sáng."
+            }
+          ]
+        },
+        {
+          "jp": "それから、運動についてです。毎日30分ぐらい歩いたほうがいいでしょう。",
+          "vi": "Sau đó là về vận động. Nên đi bộ khoảng 30 phút mỗi ngày.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "〜分",
+              "read": "ふん",
+              "vi": "〜 phút (Bài 4)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいでしょう",
+              "vi": "歩いたほうがいいでしょう = nên đi bộ thôi. た形 (歩いた) + ほうがいいでしょう: lời khuyên chuyên nghiệp kết hợp suy đoán."
+            }
+          ]
+        },
+        {
+          "jp": "「毎日運動するのは難しい」と思うかもしれませんが、エレベーターを使わないで階段を使うだけでも違います。",
+          "vi": "Bạn có thể nghĩ \"Vận động mỗi ngày thật khó\", nhưng chỉ cần không dùng thang máy mà dùng cầu thang thôi cũng khác rồi.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "階段",
+              "read": "かいだん",
+              "vi": "cầu thang"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác, có sự khác biệt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれません",
+              "vi": "思うかもしれません = có thể (bạn) nghĩ. かもしれません đặt trước が (nhưng): \"có thể nghĩ thế, nhưng…\" — cách viết dẫn dắt lịch sự."
+            },
+            {
+              "point": "Vないで（Bài 23）",
+              "vi": "使わないで = không dùng mà (thay vào đó dùng cầu thang). Vないで nối \"không làm A\" với hành động B thay thế."
+            }
+          ]
+        },
+        {
+          "jp": "ストレスの管理も大切です。好きな音楽を聴いたり、友達と話したりしたほうがいいでしょう。",
+          "vi": "Quản lý stress cũng rất quan trọng. Nên nghe nhạc yêu thích hoặc nói chuyện với bạn bè.",
+          "vocab": [
+            {
+              "w": "ストレス",
+              "read": "ストレス",
+              "vi": "stress, căng thẳng"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "聴きます",
+              "read": "ききます",
+              "vi": "nghe (nhạc)"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1たりV2たりしたほうがいいでしょう",
+              "vi": "聴いたり、話したりしたほうがいいでしょう = nên làm những việc như nghe nhạc, nói chuyện. たり〜たりします (Bài 19) liệt kê ví dụ + ほうがいいでしょう: lời khuyên đa dạng hóa."
+            }
+          ]
+        },
+        {
+          "jp": "ストレスがたくさんあると、体の調子が悪くなるかもしれませんから、気をつけてください。",
+          "vi": "Nếu có nhiều stress, sức khoẻ có thể bị ảnh hưởng, vì vậy hãy chú ý nhé.",
+          "vocab": [
+            {
+              "w": "ストレス",
+              "read": "ストレス",
+              "vi": "stress, căng thẳng"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "調子",
+              "read": "ちょうし",
+              "vi": "tình trạng, điều kiện"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "体の調子",
+              "read": "からだのちょうし",
+              "vi": "tình trạng sức khoẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên, Bài 23）",
+              "vi": "ストレスがたくさんあると = nếu có nhiều stress thì (hệ quả tự nhiên)."
+            },
+            {
+              "point": "〜かもしれません",
+              "vi": "悪くなるかもしれません = có thể trở nên tệ hơn. かもしれません suy đoán không chắc: không phải chắc chắn xảy ra, nhưng rủi ro đủ cao để cảnh báo."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "悪くなる = trở nên tệ hơn. い形容詞 悪い → 悪くなる: sự thay đổi trạng thái."
+            }
+          ]
+        },
+        {
+          "jp": "お酒はたくさん飲まないほうがいいですが、少しだけ飲んでもいいです。",
+          "vi": "Rượu thì không nên uống nhiều, nhưng uống một chút thì được.",
+          "vocab": [
+            {
+              "w": "酒",
+              "read": "さけ",
+              "vi": "rượu"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "少しだけ",
+              "read": "すこしだけ",
+              "vi": "chỉ một chút"
+            },
+            {
+              "w": "お酒",
+              "read": "おさけ",
+              "vi": "rượu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないほうがいいです",
+              "vi": "飲まないほうがいいです = không nên uống. ない形 (飲まない) + ほうがいいです."
+            },
+            {
+              "point": "Vてもいいです（Bài 20）",
+              "vi": "少しだけ飲んでもいいです = uống một chút thì được. Vても + いいです = cho phép, được phép làm V."
+            }
+          ]
+        },
+        {
+          "jp": "タバコは体に非常に悪いですから、吸わないほうがいいです。",
+          "vi": "Thuốc lá rất có hại cho cơ thể, vì vậy không nên hút.",
+          "vocab": [
+            {
+              "w": "タバコ",
+              "read": "タバコ",
+              "vi": "thuốc lá"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "非常に",
+              "read": "ひじょうに",
+              "vi": "rất, vô cùng"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "吸います",
+              "read": "すいます",
+              "vi": "hút (thuốc)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないほうがいいです",
+              "vi": "吸わないほうがいいです = không nên hút. Lời khuyên phủ định rõ ràng, không kèm と思います — thể hiện quan điểm quyết đoán hơn."
+            }
+          ]
+        },
+        {
+          "jp": "最後に、定期的に病院で健康チェックを受けたほうがいいと思います。",
+          "vi": "Cuối cùng, tôi nghĩ nên đi kiểm tra sức khoẻ định kỳ tại bệnh viện.",
+          "vocab": [
+            {
+              "w": "最後に",
+              "read": "さいごに",
+              "vi": "cuối cùng"
+            },
+            {
+              "w": "定期",
+              "read": "ていき",
+              "vi": "định kỳ, vé tháng"
+            },
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "健康チェック",
+              "read": "けんこうチェック",
+              "vi": "kiểm tra sức khoẻ"
+            },
+            {
+              "w": "チェック",
+              "read": "チェック",
+              "vi": "sự kiểm tra"
+            },
+            {
+              "w": "受けます",
+              "read": "うけます",
+              "vi": "nhận, tiếp nhận (kiểm tra)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "定期的に",
+              "read": "ていきてきに",
+              "vi": "định kỳ, đều đặn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいと思います",
+              "vi": "受けたほうがいいと思います = tôi nghĩ nên đi kiểm tra. た形 + ほうがいいと思います: kết hợp lời khuyên (ほうがいい) với ý kiến cá nhân mềm mỏng (と思います, Bài 21)."
+            }
+          ]
+        },
+        {
+          "jp": "小さな問題でも、早く治したほうがいいですし、大きな病気を防げるかもしれません。",
+          "vi": "Dù là vấn đề nhỏ, nên chữa sớm, và có thể ngăn ngừa được bệnh nghiêm trọng.",
+          "vocab": [
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "治します",
+              "read": "なおします",
+              "vi": "chữa, sửa"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "病気",
+              "read": "びょうき",
+              "vi": "bệnh tật, ốm đau"
+            },
+            {
+              "w": "防ぎます",
+              "read": "ふせぎます",
+              "vi": "ngăn ngừa, phòng ngừa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいですし",
+              "vi": "治したほうがいいですし = nên chữa, và (hơn nữa). し nối thêm lý do/lợi ích bổ sung sau ほうがいい."
+            },
+            {
+              "point": "〜かもしれません",
+              "vi": "防げるかもしれません = có thể ngăn ngừa được. V可能形 (防げる, Bài 27) + かもしれません: khả năng tích cực có thể xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "みなさんも、ぜひ試してみてください。",
+          "vi": "Mọi người cũng hãy nhất định thử nhé.",
+          "vocab": [
+            {
+              "w": "試します",
+              "read": "ためします",
+              "vi": "thử"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, hãy cứ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ぜひ〜てみてください（Bài 14 + Bài 23）",
+              "vi": "ぜひ試してみてください = hãy nhất định thử xem. Vてみます (Bài 23) = thử V + てください (Bài 14) = lời yêu cầu/mời. ぜひ nhấn mạnh lời mời thân thiện kết thúc bài."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "毎晩7〜8時間寝たほうがいいでしょう",
+          "label": "Vたほうがいいでしょう（nên ngủ đủ giấc）"
+        },
+        {
+          "excerpt": "免疫力も下がるかもしれません",
+          "label": "〜かもしれません（suy đoán không chắc）"
+        },
+        {
+          "excerpt": "あまり食べないほうがいいと思います",
+          "label": "Vないほうがいいと思います（lời khuyên phủ định mềm）"
+        },
+        {
+          "excerpt": "体の調子が悪くなるかもしれません",
+          "label": "〜かもしれません（rủi ro có thể xảy ra）"
+        },
+        {
+          "excerpt": "吸わないほうがいいです",
+          "label": "Vないほうがいいです（lời khuyên phủ định rõ）"
+        },
+        {
+          "excerpt": "防げるかもしれません",
+          "label": "〜かもしれません（lợi ích có thể đạt được）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんによると、睡眠が足りないとどうなりますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "体の調子がよくなります",
+            "集中できなくなりますし、免疫力も下がるかもしれません",
+            "毎日病院へ行かなければなりません",
+            "運動するのが難しくなります"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài ghi rõ:「睡眠が足りないと、集中できなくなりますし、免疫力も下がるかもしれません」— hai hậu quả cụ thể: (1) mất khả năng tập trung (集中できなくなります) và (2) sức đề kháng có thể giảm (免疫力も下がるかもしれません). Đáp án 0 sai và ngược nghĩa — ngủ không đủ không thể làm sức khoẻ tốt hơn. Đáp án 2 sai vì không có câu「毎日病院へ行かなければならない」trong bài. Đáp án 3 sai vì vận động khó không phải hậu quả của thiếu ngủ theo đoạn văn này.",
+          "tip": "Câu điều kiện〜と ở đây cho kết quả TỰ NHIÊN/TẤT YẾU. Khi hỏi \"〜とどうなりますか\", tìm ngay câu có〜と… ますし/かもしれません sau từ khoá — đó là câu trả lời.",
+          "qt": {
+            "q": "Theo cô Karina, nếu ngủ không đủ thì sẽ thế nào?",
+            "o": [
+              "Sức khỏe sẽ tốt lên",
+              "Bạn sẽ không thể tập trung, và sức đề kháng cũng có thể giảm",
+              "Bạn phải đến bệnh viện mỗi ngày",
+              "Việc tập thể dục sẽ trở nên khó khăn"
+            ]
+          }
+        },
+        {
+          "q": "朝ごはんについてカリナさんはどう思っていますか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "朝ごはんを食べないほうがいいと思っています",
+            "朝ごはんはしっかり食べたほうがいいと思っています",
+            "朝ごはんは食べても食べなくてもいいと思っています",
+            "朝ごはんを食べると太るかもしれないと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài có cấu trúc phản bác rõ:「朝ごはんを食べないほうがいいと思っている人もいますが、それは間違いです」(có người nghĩ không nên ăn sáng nhưng đó là sai) → ngay sau đó Karina khẳng định:「朝ごはんはしっかり食べたほうがいいですよ」(nên ăn sáng đầy đủ). Lý do được nêu bằng んです:「脳のために必要なんです」. Đáp án 0 là quan niệm của người KHÁC mà Karina phản bác. Đáp án 2 và 3 không có căn cứ trong bài.",
+          "tip": "Khi bài có mẫu「〜と思っている人もいますが、それは間違いです」→ ý kiến ĐÚNG của tác giả nằm ở câu NGAY SAU đó, không phải câu trước が.",
+          "qt": {
+            "q": "Cô Karina nghĩ thế nào về bữa sáng?",
+            "o": [
+              "Cô ấy nghĩ rằng không nên ăn sáng",
+              "Cô ấy nghĩ rằng nên ăn sáng đầy đủ",
+              "Cô ấy nghĩ rằng ăn hay không ăn sáng đều được",
+              "Cô ấy nghĩ rằng ăn sáng có thể khiến bạn tăng cân"
+            ]
+          }
+        },
+        {
+          "q": "この文章の中で、カリナさんが「かもしれません」を使った理由は何だと思いますか。",
+          "evi": [
+            3,
+            12
+          ],
+          "options": [
+            "自分の意見を強く言いたかったから",
+            "100パーセント確かではないが、可能性があると伝えたかったから",
+            "聞いている人がわからないと思ったから",
+            "でしょうの代わりに使っただけで、意味は同じだから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. かもしれません biểu thị suy đoán KHÔNG CHẮC 100% — Karina dùng ở hai chỗ không thể khẳng định tuyệt đối:「免疫力も下がるかもしれません」và「体の調子が悪くなるかもしれません」. Nếu chắc chắn, bà dùng でしょう (như「寝たほうがいいでしょう」). Đáp án 0 sai — かもしれません là cách nói MỀM/KHÔNG CHẮC, ngược với \"ý kiến mạnh\". Đáp án 2 sai vì không liên quan đến sự hiểu biết của người nghe. Đáp án 3 sai — でしょう và かもしれません KHÔNG đồng nghĩa: でしょう chắc hơn, かもしれません yếu hơn.",
+          "tip": "Phân biệt nhanh: でしょう = \"chắc là\" (suy đoán có cơ sở, mức tin cao); かもしれません = \"có thể là\" (khả năng, mức tin thấp hơn). Khi bài dùng cả hai, câu nào dùng かもしれません là chỗ tác giả KHÔNG DÁM CHẮC.",
+          "qt": {
+            "q": "Trong bài này, bạn nghĩ tại sao cô Karina dùng 「かもしれません」 (có thể)?",
+            "o": [
+              "Vì cô ấy muốn nói ý kiến của mình một cách mạnh mẽ",
+              "Vì cô ấy muốn nói rằng tuy không chắc chắn 100% nhưng vẫn có khả năng xảy ra",
+              "Vì cô ấy nghĩ người nghe sẽ không hiểu",
+              "Chỉ vì cô ấy dùng thay cho 「でしょう」, và nghĩa giống nhau"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんがアドバイスしていないことはどれですか。",
+          "evi": [
+            9,
+            14,
+            15
+          ],
+          "options": [
+            "定期的に病院で健康チェックを受けたほうがいいです",
+            "毎日30分ぐらい歩いたほうがいいでしょう",
+            "毎日ジムで2時間運動したほうがいいです",
+            "タバコは吸わないほうがいいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Ba phương án còn lại đều có trong bài:「定期的に病院で健康チェックを受けたほうがいい」(✓),「毎日30分ぐらい歩いたほうがいいでしょう」(✓),「タバコは吸わないほうがいいです」(✓). Không có câu nào nhắc đến \"tập gym 2 tiếng mỗi ngày\" — số giờ 2時間 và địa điểm ジム đều bịa ra, không xuất hiện trong đoạn văn.",
+          "tip": "Câu hỏi \"アドバイスしていないことはどれか\" → lần lượt kiểm tra từng phương án xem có câu〜ほうがいい tương ứng trong bài không. Con số hoặc chi tiết cụ thể (như 2時間, ジム) thường là dấu hiệu của đáp án bịa.",
+          "qt": {
+            "q": "Điều nào sau đây cô Karina không khuyên?",
+            "o": [
+              "Nên khám sức khỏe định kỳ ở bệnh viện",
+              "Nên đi bộ khoảng 30 phút mỗi ngày",
+              "Nên tập thể dục 2 tiếng mỗi ngày tại phòng tập",
+              "Không nên hút thuốc"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Đợt khám sức khỏe miễn phí của khu phố",
+      "japanese": "さくら町内会　無料健康診断のお知らせ\n今年も無料健康診断を行います。忙しくても、1年に1回は受けたほうがいいです。\n当日は町内会館がとても込むかもしれませんから、早く来たほうがいいでしょう。\n地区｜日にち｜受付時間｜場所\n1丁目｜11月7日（土）｜9:00〜11:00｜町内会館1階\n2丁目｜11月7日（土）｜13:00〜15:00｜町内会館1階\n3丁目｜11月8日（日）｜9:00〜11:00｜さくら小学校　体育館\n自分の地区の日にちに行ったほうがいいですが、都合が悪いときはほかの地区の日も使えるかもしれません。\n検査の種類｜時間｜対象\n基本検査（血液・血圧）｜約20分｜18歳以上ならだれでも\n目の検査｜約15分｜希望する人だけ\n子どもの検査｜約10分｜6歳〜17歳\n※血液の検査を受ける人は、朝ごはんを食べないほうがいいです。\n※目の検査は人数が多いですから、予約したほうがいいです。\n※雨の日でも、健康診断は行います。\nお問い合わせ：さくら町内会事務所　電話03-3456-7890（月〜金9:00〜17:00）",
+      "vietnamese": "Hội khu phố Sakura — Thông báo đợt khám sức khỏe miễn phí\nNăm nay cũng tổ chức khám sức khỏe miễn phí. Dù bận rộn, mọi người cũng nên khám 1 lần trong 1 năm.\nHôm đó nhà sinh hoạt khu phố có thể rất đông, nên đến sớm thì tốt hơn.\nKhu｜Ngày｜Giờ tiếp nhận｜Địa điểm\nKhu 1｜Ngày 7/11 (Thứ Bảy)｜9:00〜11:00｜Nhà sinh hoạt khu phố tầng 1\nKhu 2｜Ngày 7/11 (Thứ Bảy)｜13:00〜15:00｜Nhà sinh hoạt khu phố tầng 1\nKhu 3｜Ngày 8/11 (Chủ Nhật)｜9:00〜11:00｜Nhà thể chất trường tiểu học Sakura\nNên đi đúng ngày của khu mình, nhưng khi bất tiện thì có thể dùng ngày của khu khác.\nLoại kiểm tra｜Thời gian｜Đối tượng\nKhám cơ bản (máu, huyết áp)｜Khoảng 20 phút｜Ai từ 18 tuổi trở lên cũng được\nKhám mắt｜Khoảng 15 phút｜Chỉ người muốn khám\nKhám cho trẻ em｜Khoảng 10 phút｜6〜17 tuổi\n※Người khám máu thì không nên ăn sáng.\n※Khám mắt đông người, nên đặt hẹn trước.\n※Dù trời mưa, đợt khám sức khỏe vẫn được tổ chức.\nLiên hệ: Văn phòng hội khu phố Sakura — Điện thoại 03-3456-7890 (Thứ Hai〜Thứ Sáu 9:00〜17:00）",
+      "sentences": [
+        {
+          "jp": "さくら町内会　無料健康診断のお知らせ",
+          "vi": "Hội khu phố Sakura — Thông báo đợt khám sức khỏe miễn phí",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "trong khu phố"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "診断",
+              "read": "しんだん",
+              "vi": "chẩn đoán"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "町内会",
+              "read": "ちょうないかい",
+              "vi": "hội khu phố"
+            },
+            {
+              "w": "健康診断",
+              "read": "けんこうしんだん",
+              "vi": "khám sức khỏe"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "今年も無料健康診断を行います。忙しくても、1年に1回は受けたほうがいいです。",
+          "vi": "Năm nay cũng tổ chức khám sức khỏe miễn phí. Dù bận rộn, mọi người cũng nên khám 1 lần trong 1 năm.",
+          "vocab": [
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "診断",
+              "read": "しんだん",
+              "vi": "chẩn đoán"
+            },
+            {
+              "w": "行います",
+              "read": "おこないます",
+              "vi": "tổ chức, tiến hành"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "受けます",
+              "read": "うけます",
+              "vi": "nhận, tiếp nhận (khám)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "忙しくても = dù bận rộn cũng (vậy). Ôn lại mẫu nhượng bộ Bài 25."
+            },
+            {
+              "point": "Vたほうがいいです",
+              "vi": "受けたほうがいいです = nên khám. 受ける → 受けた（た形）+ ほうがいいです — mẫu TRỌNG TÂM Bài 32, lời khuyên nên đi khám định kỳ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1年に1回は受けたほうがいいです",
+              "why": "lời khuyên chung: mỗi năm nên khám 1 lần — khung cảnh của cả thông báo"
+            }
+          ]
+        },
+        {
+          "jp": "当日は町内会館がとても込むかもしれませんから、早く来たほうがいいでしょう。",
+          "vi": "Hôm đó nhà sinh hoạt khu phố có thể rất đông, nên đến sớm thì tốt hơn.",
+          "vocab": [
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "hôm đó, ngày diễn ra"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "trong khu phố"
+            },
+            {
+              "w": "会館",
+              "read": "かいかん",
+              "vi": "hội trường, nhà văn hóa"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "込みます",
+              "read": "こみます",
+              "vi": "đông, chật (người)"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "町内会館",
+              "read": "ちょうないかいかん",
+              "vi": "nhà sinh hoạt khu phố"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれません",
+              "vi": "込むかもしれませんから = vì có thể sẽ đông nên. かもしれません — mẫu TRỌNG TÂM Bài 32, suy đoán không chắc về mức độ đông người."
+            },
+            {
+              "point": "〜から（lý do, Bài 9）",
+              "vi": "込むかもしれませんから = vì có thể đông nên (khuyên đến sớm). から nối lý do với lời khuyên phía sau."
+            },
+            {
+              "point": "Vたほうがいいでしょう",
+              "vi": "早く来たほうがいいでしょう = nên đến sớm thì tốt hơn đấy. た形（来た）+ ほうがいいでしょう — mẫu TRỌNG TÂM Bài 32, kết hợp lời khuyên với suy đoán có cơ sở."
+            }
+          ]
+        },
+        {
+          "jp": "地区｜日にち｜受付時間｜場所",
+          "vi": "Khu｜Ngày｜Giờ tiếp nhận｜Địa điểm",
+          "vocab": [
+            {
+              "w": "地区",
+              "read": "ちく",
+              "vi": "khu vực"
+            },
+            {
+              "w": "日にち",
+              "read": "ひにち",
+              "vi": "ngày (cụ thể)"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "受付時間",
+              "read": "うけつけじかん",
+              "vi": "giờ tiếp nhận"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "地区｜日にち｜受付時間｜場所",
+              "why": "header bảng 1 — cột 地区 và 日にち là 2 điều kiện phải ghép cho câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "1丁目｜11月7日（土）｜9:00〜11:00｜町内会館1階",
+          "vi": "Khu 1｜Ngày 7/11 (Thứ Bảy)｜9:00〜11:00｜Nhà sinh hoạt khu phố tầng 1",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "trong khu phố"
+            },
+            {
+              "w": "会館",
+              "read": "かいかん",
+              "vi": "hội trường, nhà văn hóa"
+            },
+            {
+              "w": "〜丁目",
+              "read": "ちょうめ",
+              "vi": "khu (số nhà theo tổ)"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "7日",
+              "read": "なのか",
+              "vi": "ngày 7"
+            },
+            {
+              "w": "〜階",
+              "read": "かい",
+              "vi": "〜 tầng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "11月7日（土）",
+              "why": "Thứ Bảy — Santos có việc nên KHÔNG đi được ngày này, dù là khu 1"
+            }
+          ]
+        },
+        {
+          "jp": "2丁目｜11月7日（土）｜13:00〜15:00｜町内会館1階",
+          "vi": "Khu 2｜Ngày 7/11 (Thứ Bảy)｜13:00〜15:00｜Nhà sinh hoạt khu phố tầng 1",
+          "vocab": [
+            {
+              "w": "2丁目",
+              "read": "にちょうめ",
+              "vi": "khu phố số 2"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "7日",
+              "read": "なのか",
+              "vi": "ngày 7"
+            },
+            {
+              "w": "土",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "13:00",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "15:00",
+              "read": "じゅうごじ",
+              "vi": "15 giờ"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "khu phố"
+            },
+            {
+              "w": "会館",
+              "read": "かいかん",
+              "vi": "hội quán"
+            },
+            {
+              "w": "町内会館",
+              "read": "ちょうないかいかん",
+              "vi": "hội quán khu phố"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "3丁目｜11月8日（日）｜9:00〜11:00｜さくら小学校　体育館",
+          "vi": "Khu 3｜Ngày 8/11 (Chủ Nhật)｜9:00〜11:00｜Nhà thể chất trường tiểu học Sakura",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày, mặt trời"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "小学校",
+              "read": "しょうがっこう",
+              "vi": "trường tiểu học"
+            },
+            {
+              "w": "体育館",
+              "read": "たいいくかん",
+              "vi": "nhà thể chất"
+            },
+            {
+              "w": "3丁目",
+              "read": "さんちょうめ",
+              "vi": "khu 3"
+            },
+            {
+              "w": "8日",
+              "read": "ようか",
+              "vi": "ngày 8"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "3丁目",
+              "why": "Santos sống ở khu 3 — phải lọc đúng hàng này trước"
+            },
+            {
+              "w": "11月8日（日）",
+              "why": "khu 3 tổ chức Chủ Nhật, đúng ngày Santos rảnh (điều kiện 2 khớp)"
+            },
+            {
+              "w": "さくら小学校　体育館",
+              "why": "địa điểm đúng của khu 3 — đáp án câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "自分の地区の日にちに行ったほうがいいですが、都合が悪いときはほかの地区の日も使えるかもしれません。",
+          "vi": "Nên đi đúng ngày của khu mình, nhưng khi bất tiện thì có thể dùng ngày của khu khác.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "地区",
+              "read": "ちく",
+              "vi": "khu vực"
+            },
+            {
+              "w": "日にち",
+              "read": "ひにち",
+              "vi": "ngày (cụ thể)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "都合",
+              "read": "つごう",
+              "vi": "sự tiện lợi, điều kiện cá nhân"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "使える",
+              "read": "つかえる",
+              "vi": "dùng được, sử dụng được"
+            },
+            {
+              "w": "都合が悪い",
+              "read": "つごうがわるい",
+              "vi": "bất tiện, không thu xếp được"
+            },
+            {
+              "w": "ほかの",
+              "read": "ほかの",
+              "vi": "khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいです",
+              "vi": "行ったほうがいいです = nên đi. 行く → 行った（た形）+ ほうがいい — mẫu TRỌNG TÂM Bài 32."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "都合が悪いときは = khi bất tiện thì. Ôn lại mẫu とき chỉ thời điểm/tình huống."
+            },
+            {
+              "point": "V可能形（Bài 27）＋〜かもしれません",
+              "vi": "使えるかもしれません = có thể dùng được. 使う→使える（khả năng）+ かもしれません（suy đoán không chắc）— mẫu TRỌNG TÂM Bài 32, kết hợp với ngữ pháp Bài 27."
+            }
+          ],
+          "keys": [
+            {
+              "w": "都合が悪いときはほかの地区の日も使えるかもしれません",
+              "why": "ngoại lệ ※-kiểu: có thể đổi sang ngày khu khác nếu bất tiện — nhưng câu hỏi 1 vẫn ưu tiên đúng khu trước"
+            }
+          ]
+        },
+        {
+          "jp": "検査の種類｜時間｜対象",
+          "vi": "Loại kiểm tra｜Thời gian｜Đối tượng",
+          "vocab": [
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "kiểm tra, xét nghiệm"
+            },
+            {
+              "w": "種類",
+              "read": "しゅるい",
+              "vi": "loại, chủng loại"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "検査の種類｜時間｜対象",
+              "why": "header bảng 2 — các loại kiểm tra liên quan đến câu hỏi 2 (Karina)"
+            }
+          ]
+        },
+        {
+          "jp": "基本検査（血液・血圧）｜約20分｜18歳以上ならだれでも",
+          "vi": "Khám cơ bản (máu, huyết áp)｜Khoảng 20 phút｜Ai từ 18 tuổi trở lên cũng được",
+          "vocab": [
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "xét nghiệm, kiểm tra sức khoẻ"
+            },
+            {
+              "w": "血液",
+              "read": "けつえき",
+              "vi": "máu"
+            },
+            {
+              "w": "血圧",
+              "read": "けつあつ",
+              "vi": "huyết áp"
+            },
+            {
+              "w": "基本検査",
+              "read": "きほんけんさ",
+              "vi": "khám cơ bản"
+            },
+            {
+              "w": "約",
+              "read": "やく",
+              "vi": "khoảng, ước chừng"
+            },
+            {
+              "w": "〜歳",
+              "read": "さい",
+              "vi": "〜 tuổi (Bài 11)"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NならNでも（Bài 20 mở rộng）",
+              "vi": "18歳以上ならだれでも = nếu từ 18 tuổi trở lên thì ai cũng được. なら nêu điều kiện, だれでも = bất kỳ ai."
+            }
+          ],
+          "keys": [
+            {
+              "w": "血液",
+              "why": "khám máu = loại kiểm tra 1 Karina muốn — nối tới dòng ※ ăn sáng"
+            }
+          ]
+        },
+        {
+          "jp": "目の検査｜約15分｜希望する人だけ",
+          "vi": "Khám mắt｜Khoảng 15 phút｜Chỉ người muốn khám",
+          "vocab": [
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "kiểm tra"
+            },
+            {
+              "w": "約15分",
+              "read": "やくじゅうごふん",
+              "vi": "khoảng 15 phút"
+            },
+            {
+              "w": "希望する",
+              "read": "きぼうする",
+              "vi": "mong muốn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa N（Bài 22）",
+              "vi": "希望する人 = người [có nguyện vọng]. Động từ 希望する đứng trước danh từ 人 để bổ nghĩa."
+            }
+          ],
+          "keys": [
+            {
+              "w": "目の検査",
+              "why": "khám mắt = loại kiểm tra 2 Karina muốn — nối tới dòng ※ đặt hẹn"
+            },
+            {
+              "w": "希望する人だけ",
+              "why": "giới hạn だけ: chỉ ai muốn mới khám mắt, không phải khám bắt buộc"
+            }
+          ]
+        },
+        {
+          "jp": "子どもの検査｜約10分｜6歳〜17歳",
+          "vi": "Khám cho trẻ em｜Khoảng 10 phút｜6〜17 tuổi",
+          "vocab": [
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "kiểm tra"
+            },
+            {
+              "w": "約10分",
+              "read": "やくじゅっぷん",
+              "vi": "khoảng 10 phút"
+            },
+            {
+              "w": "6歳",
+              "read": "ろくさい",
+              "vi": "6 tuổi"
+            },
+            {
+              "w": "17歳",
+              "read": "じゅうななさい",
+              "vi": "17 tuổi"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "※血液の検査を受ける人は、朝ごはんを食べないほうがいいです。",
+          "vi": "※Người khám máu thì không nên ăn sáng.",
+          "vocab": [
+            {
+              "w": "血液",
+              "read": "けつえき",
+              "vi": "máu"
+            },
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "xét nghiệm, kiểm tra sức khoẻ"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa N（Bài 22）",
+              "vi": "血液の検査を受ける人 = người [sẽ khám máu]. Mệnh đề đứng trước danh từ 人 để chỉ rõ đối tượng của lời khuyên."
+            },
+            {
+              "point": "Vないほうがいいです",
+              "vi": "食べないほうがいいです = không nên ăn. 食べる→食べない（ない形）+ ほうがいいです — mẫu TRỌNG TÂM Bài 32, lời khuyên KHÔNG NÊN làm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※血液の検査を受ける人は、朝ごはんを食べないほうがいいです",
+              "why": "bẫy ※1: điều kiện riêng cho khám máu — căn cứ chính câu hỏi 2 (Karina)"
+            }
+          ]
+        },
+        {
+          "jp": "※目の検査は人数が多いですから、予約したほうがいいです。",
+          "vi": "※Khám mắt đông người, nên đặt hẹn trước.",
+          "vocab": [
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "xét nghiệm, kiểm tra sức khoẻ"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt hẹn, đặt trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（lý do, Bài 9）",
+              "vi": "多いですから = vì đông nên. から nêu lý do dẫn đến lời khuyên予約したほうがいい."
+            },
+            {
+              "point": "Vたほうがいいです",
+              "vi": "予約したほうがいいです = nên đặt hẹn trước. 予約する→予約した（た形）+ ほうがいいです — mẫu TRỌNG TÂM Bài 32."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※目の検査は人数が多いですから、予約したほうがいいです",
+              "why": "bẫy ※2: điều kiện riêng cho khám mắt — căn cứ thứ hai câu hỏi 2 (Karina)"
+            }
+          ]
+        },
+        {
+          "jp": "※雨の日でも、健康診断は行います。",
+          "vi": "※Dù trời mưa, đợt khám sức khỏe vẫn được tổ chức.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "診断",
+              "read": "しんだん",
+              "vi": "chẩn đoán"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "雨の日",
+              "read": "あめのひ",
+              "vi": "ngày mưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nでも（Bài 25 mở rộng）",
+              "vi": "雨の日でも = dù là ngày mưa cũng (vẫn tổ chức). でも sau danh từ diễn tả nhượng bộ, cùng nhóm với 〜ても đã học Bài 25."
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくら町内会事務所　電話03-3456-7890（月〜金9:00〜17:00）",
+          "vi": "Liên hệ: Văn phòng hội khu phố Sakura — Điện thoại 03-3456-7890 (Thứ Hai〜Thứ Sáu 9:00〜17:00）",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "町内",
+              "read": "ちょうない",
+              "vi": "trong khu phố"
+            },
+            {
+              "w": "事務所",
+              "read": "じむしょ",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "vàng"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu chung",
+          "topic": 0,
+          "note": "Tên thông báo + lời khuyên chung nên khám 1 năm 1 lần, cảnh báo đông người nên đến sớm. Chưa có căn cứ trả lời câu hỏi cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng lịch khám theo khu",
+          "topic": 6,
+          "note": "Bảng địa区/ngày/giờ/địa điểm — câu hỏi 1 (Santos ở khu 3, chỉ rảnh Chủ Nhật) phải dò đúng hàng khu 3 + ngày Chủ Nhật.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "body",
+          "label": "Bảng loại kiểm tra",
+          "topic": 9,
+          "note": "Bảng liệt kê 3 loại kiểm tra (máu/huyết áp, mắt, trẻ em) và đối tượng — nền tảng để nối sang các dòng ※ điều kiện riêng.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 14,
+          "kind": "turn",
+          "label": "Điều kiện ※ (bẫy)",
+          "topic": 12,
+          "note": "Ba dòng ※ nêu điều kiện riêng: khám máu phải nhịn sáng, khám mắt phải đặt hẹn, hoạt động vẫn diễn ra dù mưa. Câu hỏi 2 (Karina) phải GHÉP 2 dòng ※ đầu.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 15,
+          "to": 15,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 15,
+          "note": "Số điện thoại và giờ liên hệ văn phòng — không phải căn cứ của câu hỏi nào.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "受けたほうがいいです",
+          "label": "Vたほうがいいです（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "込むかもしれませんから",
+          "label": "〜かもしれません（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "早く来たほうがいいでしょう",
+          "label": "Vたほうがいいでしょう（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "使えるかもしれません",
+          "label": "〜かもしれません（mẫu MỚI Bài 32, kết hợp Bài 27 可能形）"
+        },
+        {
+          "excerpt": "食べないほうがいいです",
+          "label": "Vないほうがいいです（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "予約したほうがいいです",
+          "label": "Vたほうがいいです（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "都合が悪いときは",
+          "label": "〜とき（ôn lại Bài 23）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは3丁目に住んでいます。仕事がありますから、土曜日は行けません。日曜日はいつでも大丈夫です。サントスさんはいつ、どこへ行ったらいいですか。",
+          "options": [
+            "11月7日、町内会館1階",
+            "11月8日、さくら小学校の体育館",
+            "11月7日、さくら小学校の体育館",
+            "11月8日、町内会館1階"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng ghi「3丁目｜11月8日（日）｜9:00〜11:00｜さくら小学校　体育館」— khu 3 (nơi Santos ở) tổ chức đúng vào Chủ Nhật 11月8日, tại さくら小学校の体育館, khớp cả điều kiện \"ở khu 3\" và \"chỉ rảnh Chủ Nhật\". Đáp án 0 và 3 sai vì 11月7日 là Thứ Bảy (Santos không thể đi làm). Đáp án 2 sai vì ghép nhầm ngày 11月7日 với địa điểm của khu 3.",
+          "tip": "Bài toán ghép 2 điều kiện (khu vực + ngày rảnh): trước tiên lọc đúng HÀNG theo cột 地区, sau đó kiểm tra cột 日にち có khớp ngày người đó rảnh không — chỉ 1 hàng thỏa cả hai.",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Anh Santos sống ở khu 3. Vì có việc nên anh ấy không thể đi vào thứ Bảy. Chủ nhật lúc nào cũng được. Anh Santos nên đi vào khi nào và đến đâu?",
+            "o": [
+              "Ngày 7 tháng 11, tầng 1 nhà hội khu phố",
+              "Ngày 8 tháng 11, nhà thi đấu của Trường Tiểu học Sakura",
+              "Ngày 7 tháng 11, nhà thi đấu của Trường Tiểu học Sakura",
+              "Ngày 8 tháng 11, tầng 1 nhà hội khu phố"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは血液の検査と目の検査、両方受けたいです。カリナさんは何をしなければなりませんか。",
+          "options": [
+            "朝ごはんをたくさん食べなければなりません",
+            "朝ごはんを食べないで、目の検査を予約しなければなりません",
+            "2丁目の日にちに行かなければなりません",
+            "子どもの検査も受けなければなりません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Thông báo có 2 dòng ※ liên quan: 「血液の検査を受ける人は、朝ごはんを食べないほうがいいです」(khám máu → không nên ăn sáng) và 「目の検査は人数が多いですから、予約したほうがいいです」(khám mắt → nên đặt hẹn trước vì đông). Vì Karina muốn khám CẢ HAI loại, cô cần ghép cả 2 điều kiện: không ăn sáng + đặt hẹn khám mắt. Đáp án 0 sai và ngược nghĩa với lời khuyên trong bài. Đáp án 2 không liên quan đến điều kiện khu vực của Karina. Đáp án 3 sai vì khám trẻ em chỉ dành cho 6〜17 tuổi, không liên quan.",
+          "tip": "Câu hỏi ghép NHIỀU dòng ※ khi nhân vật muốn dùng NHIỀU loại kiểm tra cùng lúc: gom hết các điều kiện ※ ứng với từng loại kiểm tra được nhắc tới, rồi chọn đáp án nêu ĐỦ cả hai.",
+          "evi": [
+            12,
+            13
+          ],
+          "qt": {
+            "q": "Chị Karina muốn làm cả xét nghiệm máu và kiểm tra mắt. Chị Karina phải làm gì?",
+            "o": [
+              "Phải ăn nhiều bữa sáng",
+              "Phải không ăn sáng và đặt lịch kiểm tra mắt",
+              "Phải đi vào ngày của khu 2",
+              "Cũng phải làm kiểm tra dành cho trẻ em"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "山を歩くツアーの案内",
+      "titleVi": "Đọc thông báo: Tour đi bộ ngắm núi 1 ngày",
+      "japanese": "10月　白山日帰りウォーキングツアー\n白山のきれいな景色を歩いて楽しみませんか。紅葉がとてもきれいな季節です。\n＜予定＞\n行き：中山駅（8時）→白山口（9時）→白山山頂（12時）\n帰り：白山山頂（13時）→白山口（15時）→中山駅（16時）\n料金｜おとな｜こども\n中山駅から｜7,000円｜3,500円\n※こども：小学生〜高校生の方\n歩きやすい靴で来たほうがいいです。山の上は寒いかもしれませんから、上着も持ってきたほうがいいです。\n申し込みは電話かEメールでできます。\n※12歳以下のお子さんは、大人と一緒に申し込んだほうがいいです。\n※雨の日は中止するかもしれませんから、前の日に電話で確かめたほうがいいです。\n白山観光　電話：076-234-5566　Eメール：hakusan@kanko.jp（月〜土9:00〜18:00）",
+      "vietnamese": "Tháng 10 — Tour đi bộ ngắm núi Hakusan trong ngày\nBạn có muốn vừa đi bộ vừa tận hưởng cảnh đẹp của núi Hakusan không? Đây là mùa lá đỏ rất đẹp.\n＜Lịch trình＞\nĐi: Ga Nakayama (8 giờ) → Cửa núi Hakusan (9 giờ) → Đỉnh núi Hakusan (12 giờ)\nVề: Đỉnh núi Hakusan (13 giờ) → Cửa núi Hakusan (15 giờ) → Ga Nakayama (16 giờ)\nGiá vé｜Người lớn｜Trẻ em\nXuất phát từ ga Nakayama｜7.000 yên｜3.500 yên\n※Trẻ em: từ học sinh tiểu học đến trung học phổ thông\nNên đi giày dễ đi bộ. Trên núi có thể lạnh, nên mang theo cả áo khoác.\nCó thể đăng ký qua điện thoại hoặc email.\n※Trẻ em từ 12 tuổi trở xuống nên đăng ký cùng người lớn.\n※Ngày mưa có thể sẽ hủy, nên gọi điện xác nhận trước 1 ngày.\nCông ty du lịch Hakusan — Điện thoại: 076-234-5566　Email: hakusan@kanko.jp (Thứ Hai〜Thứ Bảy 9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "10月　白山日帰りウォーキングツアー",
+          "vi": "Tháng 10 — Tour đi bộ ngắm núi Hakusan trong ngày",
+          "vocab": [
+            {
+              "w": "10月",
+              "read": "じゅうがつ",
+              "vi": "tháng 10"
+            },
+            {
+              "w": "白山",
+              "read": "はくさん",
+              "vi": "núi Hakusan"
+            },
+            {
+              "w": "日帰り",
+              "read": "ひがえり",
+              "vi": "đi về trong ngày"
+            },
+            {
+              "w": "ウォーキング",
+              "read": "ウォーキング",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "chuyến tham quan"
+            },
+            {
+              "w": "ウォーキングツアー",
+              "read": "ウォーキングツアー",
+              "vi": "tour đi bộ"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "白山のきれいな景色を歩いて楽しみませんか。紅葉がとてもきれいな季節です。",
+          "vi": "Bạn có muốn vừa đi bộ vừa tận hưởng cảnh đẹp của núi Hakusan không? Đây là mùa lá đỏ rất đẹp.",
+          "vocab": [
+            {
+              "w": "白山",
+              "read": "はくさん",
+              "vi": "núi Hakusan; tên riêng Hakusan"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "cảnh sắc"
+            },
+            {
+              "w": "歩く",
+              "read": "あるく",
+              "vi": "đi bộ, bước đi"
+            },
+            {
+              "w": "楽しみます",
+              "read": "たのしみます",
+              "vi": "tận hưởng, thưởng thức"
+            },
+            {
+              "w": "紅葉",
+              "read": "こうよう",
+              "vi": "lá đỏ, lá vàng mùa thu"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vませんか（Bài 6）",
+              "vi": "楽しみませんか = bạn có muốn cùng tận hưởng không. Ôn lại mẫu rủ lịch sự Bài 6."
+            }
+          ]
+        },
+        {
+          "jp": "＜予定＞",
+          "vi": "＜Lịch trình＞",
+          "vocab": [
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "lịch trình, dự định"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "行き：中山駅（8時）→白山口（9時）→白山山頂（12時）",
+          "vi": "Đi: Ga Nakayama (8 giờ) → Cửa núi Hakusan (9 giờ) → Đỉnh núi Hakusan (12 giờ)",
+          "vocab": [
+            {
+              "w": "行き",
+              "read": "いき",
+              "vi": "lượt đi"
+            },
+            {
+              "w": "中山",
+              "read": "なかやま",
+              "vi": "Nakayama"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga"
+            },
+            {
+              "w": "中山駅",
+              "read": "なかやまえき",
+              "vi": "ga Nakayama"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "白山",
+              "read": "はくさん",
+              "vi": "Hakusan"
+            },
+            {
+              "w": "口",
+              "read": "ぐち",
+              "vi": "cửa, lối vào"
+            },
+            {
+              "w": "白山口",
+              "read": "はくさんぐち",
+              "vi": "cổng Hakusan"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "山頂",
+              "read": "さんちょう",
+              "vi": "đỉnh núi"
+            },
+            {
+              "w": "白山山頂",
+              "read": "はくさんさんちょう",
+              "vi": "đỉnh núi Hakusan"
+            },
+            {
+              "w": "12時",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "帰り：白山山頂（13時）→白山口（15時）→中山駅（16時）",
+          "vi": "Về: Đỉnh núi Hakusan (13 giờ) → Cửa núi Hakusan (15 giờ) → Ga Nakayama (16 giờ)",
+          "vocab": [
+            {
+              "w": "帰り",
+              "read": "かえり",
+              "vi": "lượt về"
+            },
+            {
+              "w": "白山",
+              "read": "はくさん",
+              "vi": "Hakusan"
+            },
+            {
+              "w": "山頂",
+              "read": "さんちょう",
+              "vi": "đỉnh núi"
+            },
+            {
+              "w": "白山山頂",
+              "read": "はくさんさんちょう",
+              "vi": "đỉnh núi Hakusan"
+            },
+            {
+              "w": "13時",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "口",
+              "read": "ぐち",
+              "vi": "cửa, lối vào"
+            },
+            {
+              "w": "白山口",
+              "read": "はくさんぐち",
+              "vi": "cổng Hakusan"
+            },
+            {
+              "w": "15時",
+              "read": "じゅうごじ",
+              "vi": "15 giờ"
+            },
+            {
+              "w": "中山",
+              "read": "なかやま",
+              "vi": "Nakayama"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga"
+            },
+            {
+              "w": "中山駅",
+              "read": "なかやまえき",
+              "vi": "ga Nakayama"
+            },
+            {
+              "w": "16時",
+              "read": "じゅうろくじ",
+              "vi": "16 giờ"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "料金｜おとな｜こども",
+          "vi": "Giá vé｜Người lớn｜Trẻ em",
+          "vocab": [
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá vé, cước phí"
+            },
+            {
+              "w": "おとな",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "こども",
+              "read": "こども",
+              "vi": "trẻ em"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "料金｜おとな｜こども",
+              "why": "header bảng giá — 2 cột おとな/こども là căn cứ trực tiếp câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "中山駅から｜7,000円｜3,500円",
+          "vi": "Xuất phát từ ga Nakayama｜7.000 yên｜3.500 yên",
+          "vocab": [
+            {
+              "w": "中山",
+              "read": "なかやま",
+              "vi": "Nakayama"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga"
+            },
+            {
+              "w": "中山駅",
+              "read": "なかやまえき",
+              "vi": "ga Nakayama"
+            },
+            {
+              "w": "7,000円",
+              "read": "ななせんえん",
+              "vi": "7.000 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "7,000円",
+              "why": "giá người lớn — Miller phải trả khoản này"
+            },
+            {
+              "w": "3,500円",
+              "why": "giá trẻ em — cộng với giá người lớn ra tổng tiền câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "※こども：小学生〜高校生の方",
+          "vi": "※Trẻ em: từ học sinh tiểu học đến trung học phổ thông",
+          "vocab": [
+            {
+              "w": "こども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "小学生",
+              "read": "しょうがくせい",
+              "vi": "học sinh tiểu học"
+            },
+            {
+              "w": "高校生",
+              "read": "こうこうせい",
+              "vi": "học sinh trung học phổ thông"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị (cách nói lịch sự của 人)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "※こども：小学生〜高校生の方",
+              "why": "bẫy ※: xác nhận con Miller (học sinh tiểu học) được tính giá こども, không phải giá riêng khác"
+            }
+          ]
+        },
+        {
+          "jp": "歩きやすい靴で来たほうがいいです。山の上は寒いかもしれませんから、上着も持ってきたほうがいいです。",
+          "vi": "Nên đi giày dễ đi bộ. Trên núi có thể lạnh, nên mang theo cả áo khoác.",
+          "vocab": [
+            {
+              "w": "歩きやすい",
+              "read": "あるきやすい",
+              "vi": "dễ đi bộ (Bài 28)"
+            },
+            {
+              "w": "靴",
+              "read": "くつ",
+              "vi": "giày"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "山の上",
+              "read": "やまのうえ",
+              "vi": "trên núi"
+            },
+            {
+              "w": "寒い",
+              "read": "さむい",
+              "vi": "lạnh"
+            },
+            {
+              "w": "上着",
+              "read": "うわぎ",
+              "vi": "áo khoác"
+            },
+            {
+              "w": "持ってきます",
+              "read": "もってきます",
+              "vi": "mang theo (đến)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい（Bài 28）",
+              "vi": "歩きやすい靴 = giày dễ đi bộ. Ôn lại mẫu Vやすい Bài 28, ở đây bổ nghĩa cho danh từ 靴."
+            },
+            {
+              "point": "Vたほうがいいです",
+              "vi": "来たほうがいいです = nên đến (bằng giày dễ đi). 来る→来た（た形）+ ほうがいいです — mẫu TRỌNG TÂM Bài 32."
+            },
+            {
+              "point": "〜かもしれません",
+              "vi": "寒いかもしれませんから = vì có thể lạnh nên. かもしれません — mẫu TRỌNG TÂM Bài 32, suy đoán không chắc về thời tiết trên núi."
+            },
+            {
+              "point": "Vたほうがいいです（x2）",
+              "vi": "持ってきたほうがいいです = nên mang theo. た形（持ってきた）+ ほうがいいです — lần thứ hai của mẫu TRỌNG TÂM Bài 32 trong cùng câu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "歩きやすい靴で来たほうがいいです",
+              "why": "lời khuyên 1 cho câu hỏi 2 (Watto): nên đi giày dễ đi bộ"
+            },
+            {
+              "w": "上着も持ってきたほうがいいです",
+              "why": "lời khuyên 2 cho câu hỏi 2 (Watto): nên mang thêm áo khoác vì có thể lạnh"
+            }
+          ]
+        },
+        {
+          "jp": "申し込みは電話かEメールでできます。",
+          "vi": "Có thể đăng ký qua điện thoại hoặc email.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "Eメール",
+              "read": "イーメール",
+              "vi": "email"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NかN（Bài 6）",
+              "vi": "電話かEメール = điện thoại HOẶC email. Ôn lại mẫu NかN Bài 6, chọn 1 trong 2 cách."
+            }
+          ]
+        },
+        {
+          "jp": "※12歳以下のお子さんは、大人と一緒に申し込んだほうがいいです。",
+          "vi": "※Trẻ em từ 12 tuổi trở xuống nên đăng ký cùng người lớn.",
+          "vocab": [
+            {
+              "w": "お子さん",
+              "read": "おこさん",
+              "vi": "con (cách nói lịch sự)"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "一緒に",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "〜歳",
+              "read": "さい",
+              "vi": "〜 tuổi (Bài 11)"
+            },
+            {
+              "w": "以下",
+              "read": "いか",
+              "vi": "trở xuống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたほうがいいです",
+              "vi": "申し込んだほうがいいです = nên đăng ký. 申し込む→申し込んだ（た形）+ ほうがいいです — mẫu TRỌNG TÂM Bài 32."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※12歳以下のお子さんは、大人と一緒に申し込んだほうがいいです",
+              "why": "bẫy ※: chỉ áp dụng cho trẻ em dưới 12 tuổi — Watto là người lớn nên KHÔNG liên quan (nhiễu của câu hỏi 2)"
+            }
+          ]
+        },
+        {
+          "jp": "※雨の日は中止するかもしれませんから、前の日に電話で確かめたほうがいいです。",
+          "vi": "※Ngày mưa có thể sẽ hủy, nên gọi điện xác nhận trước 1 ngày.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "中止します",
+              "read": "ちゅうしします",
+              "vi": "hủy, đình chỉ"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "確かめます",
+              "read": "たしかめます",
+              "vi": "xác nhận, kiểm tra lại"
+            },
+            {
+              "w": "雨の日",
+              "read": "あめのひ",
+              "vi": "ngày mưa"
+            },
+            {
+              "w": "前の日",
+              "read": "まえのひ",
+              "vi": "ngày hôm trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれません",
+              "vi": "中止するかもしれませんから = vì có thể sẽ hủy nên. かもしれません — mẫu TRỌNG TÂM Bài 32, suy đoán không chắc về việc hủy tour."
+            },
+            {
+              "point": "Vたほうがいいです",
+              "vi": "確かめたほうがいいです = nên xác nhận lại. 確かめる→確かめた（た形）+ ほうがいいです — mẫu TRỌNG TÂM Bài 32."
+            }
+          ],
+          "keys": [
+            {
+              "w": "前の日に電話で確かめたほうがいいです",
+              "why": "bẫy: khuyên NÊN gọi điện xác nhận vào ngày mưa, không phải \"cứ đi mà không gọi\" — loại đáp án nhiễu 3"
+            }
+          ]
+        },
+        {
+          "jp": "白山観光　電話：076-234-5566　Eメール：hakusan@kanko.jp（月〜土9:00〜18:00）",
+          "vi": "Công ty du lịch Hakusan — Điện thoại: 076-234-5566　Email: hakusan@kanko.jp (Thứ Hai〜Thứ Bảy 9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "白山",
+              "read": "はくさん",
+              "vi": "núi Hakusan; tên riêng Hakusan"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "hakusan",
+              "read": "hakusan",
+              "vi": "tên riêng Hakusan"
+            },
+            {
+              "w": "kanko",
+              "read": "kanko",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "jp",
+              "read": "jp",
+              "vi": "tên miền Nhật Bản"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 4,
+          "kind": "intro",
+          "label": "Tiêu đề & lịch trình",
+          "topic": 0,
+          "note": "Tên tour, lời mời, lịch trình giờ đi/về. Không phải căn cứ câu hỏi nào, chỉ là bối cảnh.",
+          "qs": []
+        },
+        {
+          "from": 5,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng giá vé",
+          "topic": 6,
+          "note": "Bảng giá おとな/こども + dòng ※ định nghĩa \"こども\". Căn cứ chính câu hỏi 1 (tính tiền cho Miller + con học sinh tiểu học).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "point",
+          "label": "Chuẩn bị mang theo",
+          "topic": 8,
+          "note": "Hai lời khuyên: giày dễ đi bộ + mang áo khoác vì có thể lạnh — căn cứ chính câu hỏi 2 (Watto nên chuẩn bị gì).",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 9,
+          "kind": "body",
+          "label": "Cách đăng ký",
+          "topic": 9,
+          "note": "Đăng ký qua điện thoại hoặc email — không liên quan trực tiếp câu hỏi nào.",
+          "qs": []
+        },
+        {
+          "from": 10,
+          "to": 12,
+          "kind": "turn",
+          "label": "Điều kiện ※ & liên hệ",
+          "topic": 11,
+          "note": "Hai dòng ※ dễ gây nhiễu: quy định trẻ em dưới 12 tuổi (không áp dụng Watto) và khuyên gọi điện xác nhận ngày mưa (loại phương án \"đi mà không gọi\"); cuối cùng là thông tin liên hệ.",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "歩きやすい靴で来たほうがいいです",
+          "label": "Vたほうがいいです（mẫu MỚI Bài 32, kết hợp Bài 28 Vやすい）"
+        },
+        {
+          "excerpt": "寒いかもしれませんから",
+          "label": "〜かもしれません（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "持ってきたほうがいいです",
+          "label": "Vたほうがいいです（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "中止するかもしれませんから",
+          "label": "〜かもしれません（mẫu MỚI Bài 32）"
+        },
+        {
+          "excerpt": "電話かEメールでできます",
+          "label": "NかN（ôn lại Bài 6）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは小学生の子どもと一緒にこのツアーに申し込みたいです。ミラーさんはぜんぶでいくら払いますか。",
+          "options": [
+            "7,000円",
+            "10,500円",
+            "14,000円",
+            "3,500円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng ghi「中山駅から｜7,000円｜3,500円」và「※こども：小学生〜高校生の方」— con của Miller là học sinh tiểu học nên tính đúng giá こども 3.500円; cộng giá おとな của Miller 7.000円 = 10.500円. Đáp án 0 chỉ tính vé người lớn, thiếu vé con. Đáp án 2 tính nhầm thành 2 vé người lớn (7,000×2). Đáp án 3 chỉ tính vé trẻ em, thiếu vé Miller.",
+          "tip": "Câu hỏi ghép giá cho NHIỀU người: tách riêng từng người trong nhóm, tra đúng cột giá (おとな/こども) rồi CỘNG lại — đừng chỉ lấy giá của 1 người.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Ông Miller muốn đăng ký tour này cùng với con đang học tiểu học. Tổng cộng ông Miller phải trả bao nhiêu tiền?",
+            "o": [
+              "7.000 yên",
+              "10.500 yên",
+              "14.000 yên",
+              "3.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは山に行くとき、何をしたほうがいいですか。",
+          "options": [
+            "軽い靴と半そでの服で行く",
+            "歩きやすい靴で行って、上着も持っていく",
+            "大人と一緒に申し込みだけする",
+            "雨の日でも電話しないで行く"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu trong bài:「歩きやすい靴で来たほうがいいです。山の上は寒いかもしれませんから、上着も持ってきたほうがいいです」— hai lời khuyên rõ ràng: đi giày dễ đi bộ VÀ mang theo áo khoác vì trên núi có thể lạnh. Đáp án 0 sai vì bài không nhắc đến \"áo tay ngắn\" và ngược với lời khuyên mang áo khoác. Đáp án 2 chỉ đúng với trẻ em dưới 12 tuổi, không áp dụng cho Watto (người lớn). Đáp án 3 sai — bài khuyên NÊN gọi điện xác nhận vào ngày mưa, không phải cứ đi mà không gọi.",
+          "tip": "Khi câu hỏi hỏi \"phải chuẩn bị/nên làm gì\", gom TẤT CẢ câu〜たほうがいいです liên quan đến hành động của người đi (không phải quy định riêng cho trẻ em) rồi chọn đáp án nêu ĐỦ các ý đó.",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Anh Watt nên làm gì khi đi lên núi?",
+            "o": [
+              "Đi giày nhẹ và mặc áo ngắn tay",
+              "Đi giày dễ đi bộ và mang theo áo khoác",
+              "Chỉ đăng ký cùng với người lớn",
+              "Đi mà không gọi điện, kể cả vào ngày mưa"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

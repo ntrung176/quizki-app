@@ -1,0 +1,3213 @@
+{
+  "bai": 122,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học rèn luyện kỹ năng nắm bắt mạch phát triển và sự biến đổi trạng thái của sự vật, hiện tượng trong văn bản đọc hiểu N3. Trọng tâm là phân biệt rõ chiều hướng thời gian (quá khứ tiến đến hiện tại với 〜てくる đối lập hiện tại hướng tới tương lai với 〜ていく), quá trình biến chuyển khách quan đang tiến triển (〜つつある), cùng sự đối lập giữa chuyển biến năng lực tự nhiên (〜ようになる) và nỗ lực hành động có chủ ý (〜ようにする).",
+    "steps": [
+      "Xác định mốc thời gian và điểm nhìn của tác giả: dùng 〜てくる khi tác giả tổng kết quá trình tích lũy từ quá khứ đến nay, dùng 〜ていく khi bàn về xu hướng tiếp diễn từ nay về sau.",
+      "Nhận diện các động từ biến đổi (tăng, giảm, hồi phục, ấm lên...) đi kèm 〜つつある để nắm bắt sự chuyển biến dần dần mang tính khách quan trong văn nghị luận hoặc tin tức.",
+      "Phân tích chủ thể và tính chủ ý trong câu chứa ように: nếu là biến chuyển khách quan về thói quen/năng lực thì chọn 〜ようになる; nếu là ý chí, quyết tâm rèn luyện của con người thì chọn 〜ようにする.",
+      "So sánh trạng thái trước và sau khi biến đổi dựa vào ngữ cảnh xung quanh mẫu câu để trả lời chính xác câu hỏi về 'nguyên nhân', 'hiện trạng' hoặc 'dự đoán tương lai'.",
+      "Loại bỏ các phương án đánh tráo chiều thời gian (nhầm giữa 'đang/sẽ biến đổi' với 'đã hoàn thành') hoặc lẫn lộn giữa kết quả tự nhiên và nỗ lực chủ quan."
+    ],
+    "tips": [
+      "Mẹo 使い分け 1 (〜てくる vs 〜ていく): 〜てくる lấy hiện tại làm đích đến của sự biến đổi bắt đầu từ quá khứ; 〜ていく lấy hiện tại làm điểm xuất phát và dự phóng sự biến đổi tiếp diễn về tương lai.",
+      "Mẹo 使い分け 2 (〜ようになる vs 〜ようにする): 〜ようになる chỉ sự biến đổi tự nhiên/kết quả (từ không thể sang có thể); 〜ようにする chỉ hành động nỗ lực có ý thức nhằm duy trì hoặc tạo ra thói quen.",
+      "Mẹo 使い分け 3 (〜ている vs 〜つつある): 〜ている miêu tả trạng thái/hành động đang diễn ra thông thường; 〜つつある trang trọng hơn (dùng trong văn viết), nhấn mạnh tiến trình đang chuyển dịch rõ rệt theo một chiều hướng.",
+      "Bẫy dòng thời gian trong đáp án: Khi bài đọc dùng 〜ていく (sẽ tiếp tục thay đổi), đáp án sai thường khẳng định sự việc 'đã kết thúc' hoặc 'đã xảy ra trong quá khứ'.",
+      "Dấu hiệu nhận biết 〜ようにする: Vế câu thường xuất hiện các từ chỉ ý chí hoặc tần suất như 毎日 (mỗi ngày), できるだけ (cố gắng trong khả năng), 必ず (nhất định)."
+    ],
+    "grammarFocus": [
+      "〜ていく（変化） — Vて + いく: Diễn tả sự biến đổi tiếp tục diễn ra từ hiện tại hướng về tương lai; đối chiếu với 〜てくる (hướng về hiện tại).",
+      "〜つつある — Vます (bỏ ます) + つつある: Diễn tả quá trình đang trong đà tiến triển dần dần (văn viết, trang trọng); nhấn mạnh chiều hướng biến đổi rõ nét hơn 〜ている.",
+      "〜てくる（変化） — Vて + くる: Diễn tả sự biến đổi hoặc xuất hiện dần dần từ quá khứ kéo dài đến hiện tại; đối chiếu với 〜ていく (hướng về tương lai).",
+      "〜ようになる — V辞書形 / Vない形 + ようになる: Diễn tả sự thay đổi dần dần về khả năng, thói quen hoặc trạng thái (từ không thể/không làm sang có thể/có làm); đối chiếu với 〜ようにする (nỗ lực có chủ ý).",
+      "〜ようにする — V辞書形 / Vない形 + ようにする: Diễn tả sự cố gắng, chú ý duy trì hoặc tạo ra một hành vi, thói quen có chủ ý; đối chiếu với 〜ようになる (kết quả biến chuyển tự nhiên)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 55,
+        "items": [
+          "〜うちに（Vる/Vている/Aい/なAな/Nの＋うちに）",
+          "〜ないうちに（Vない＋うちに）"
+        ]
+      },
+      {
+        "bai": 58,
+        "items": [
+          "〜たびに（Vる/Nの＋たびに）",
+          "〜まま（Vた/Vない/Aい/なAな/Nの＋まま）"
+        ]
+      },
+      {
+        "bai": 60,
+        "items": [
+          "〜ように（mục đích）",
+          "〜ために（mục đích）"
+        ]
+      },
+      {
+        "bai": 66,
+        "items": [
+          "〜ば〜ほど（Vば + Vるほど / Aければ + Aいほど）",
+          "〜ほど（普通形 + ほど）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "地方移住と新しい働き方",
+      "titleVi": "Dịch chuyển về địa phương và phương thức làm việc mới",
+      "japanese": "近年、インターネットの普及によって、都市を離れて地方で働く人が増えてきました。オンラインで仕事ができるようになり、どこに住んでいても生活に困らない環境が整ってきています。その結果、静かな自然の中で暮らす魅力が、若い世代を中心に再評価されつつあります。かつて人口が減っていた小さな町でも、新しい住民を迎えて活気が戻りつつあるようです。\n移住した人々は、地域の伝統を守りながら、地元の人々と積極的に交流するようにしています。町側も、新旧の住民が支え合えるように、様々なイベントを企画するようになりました。こうした多様な働き方や暮らし方は、今後も社会全体に広がっていくと考えられます。自分らしい生き方を見つけるために、私たちは環境の変化に柔軟に対応していく必要があります。",
+      "vietnamese": "Những năm gần đây, nhờ sự phổ biến của internet, số người rời đô thị để về các vùng địa phương làm việc đã dần tăng lên. Nhờ đã có thể làm việc trực tuyến, môi trường giúp con người sống mà không gặp trở ngại dù ở bất cứ đâu đã dần dần được hoàn thiện. Kết quả là sức hút của lối sống giữa thiên nhiên yên tĩnh đang dần được đánh giá lại, đặc biệt là trong giới trẻ. Dường như ngay tại những thị trấn nhỏ từng bị giảm sút dân số trước đây, sức sống cũng đang dần quay trở lại nhờ đón nhận những cư dân mới.\n\nNhững người chuyển đến sinh sống luôn cố gắng chủ động giao lưu với người dân địa phương, đồng thời vẫn gìn giữ các truyền thống của vùng. Phía chính quyền thị trấn cũng đã bắt đầu lên kế hoạch tổ chức nhiều sự kiện đa dạng để các cư dân mới và cũ có thể hỗ trợ lẫn nhau. Những phương thức làm việc và lối sống đa dạng như thế này được cho là sẽ tiếp tục lan rộng ra toàn xã hội trong thời gian tới. Để tìm kiếm lối sống mang đậm bản sắc của chính mình, chúng ta cần phải tiếp tục thích ứng một cách linh hoạt với những thay đổi của môi trường.",
+      "sentences": [
+        {
+          "jp": "近年、インターネットの普及によって、都市を離れて地方で働く人が増えてきました。",
+          "vi": "Những năm gần đây, nhờ sự phổ biến của internet, số người rời đô thị để về các vùng địa phương làm việc đã dần tăng lên.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "普及",
+              "read": "ふきゅう",
+              "vi": "sự phổ biến, lan rộng"
+            },
+            {
+              "w": "都市",
+              "read": "とし",
+              "vi": "thành thị, đô thị"
+            },
+            {
+              "w": "離れる",
+              "read": "はなれる",
+              "vi": "rời xa, tách rời"
+            },
+            {
+              "w": "地方",
+              "read": "ちほう",
+              "vi": "địa phương, vùng ngoại ô/nông thôn"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくる（変化の推移）",
+              "vi": "【接続】Vて ＋ くる。\n【Sắc thái】Diễn tả sự biến đổi trạng thái bắt đầu từ quá khứ và tiến triển dần dần cho tới thời điểm hiện tại.\n【Đối chiếu】Khác với 〜ていく (biến đổi từ hiện tại hướng về tương lai xa dần), 〜てくる nhấn mạnh quá trình tích lũy thay đổi đã và đang diễn ra tới mốc hiện tại của người nói."
+            },
+            {
+              "point": "〜によって（原因・手段）",
+              "vi": "【接続】N ＋ によって。\n【Sắc thái】Biểu thị nguyên nhân, lý do hoặc phương tiện dẫn tới một kết quả/thay đổi phía sau.\n【Đối chiếu】So với 〜ので/から, cấu trúc 〜によって mang tính khách quan, trang trọng hơn, thường dùng trong văn viết và nghị luận."
+            }
+          ]
+        },
+        {
+          "jp": "オンラインで仕事ができるようになり、どこに住んでいても生活に困らない環境が整ってきています。",
+          "vi": "Nhờ đã có thể làm việc trực tuyến, môi trường giúp con người sống mà không gặp trở ngại dù ở bất cứ đâu đã dần dần được hoàn thiện.",
+          "vocab": [
+            {
+              "w": "オンライン",
+              "read": "オンライン",
+              "vi": "trực tuyến, online"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "住む",
+              "read": "すむ",
+              "vi": "ở, cư trú, sinh sống"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "困る",
+              "read": "こまる",
+              "vi": "khó chịu, khốn khổ"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường (sống, làm việc)"
+            },
+            {
+              "w": "整う",
+              "read": "ととのう",
+              "vi": "được chuẩn bị sẵn sàng, hoàn thiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになる（変化）",
+              "vi": "【接続】V-khả năng / V-tự động từ (辞書形) ＋ ようになる。\n【Sắc thái】Biểu thị sự thay đổi về khả năng hoặc năng lực, từ trạng thái 'không thể/chưa từng' chuyển sang 'có thể/đã có được'.\n【Đối chiếu】Khác với 〜ようにする (thể hiện nỗ lực, chủ ý của con người), 〜ようになる biểu thị sự chuyển biến khách quan tự nhiên."
+            },
+            {
+              "point": "〜てくる（継続的変化）",
+              "vi": "【接続】Vて ＋ きている。\n【Sắc thái】Chỉ tiến trình thay đổi đã diễn ra suốt một khoảng thời gian và hiện tại đã đạt đến mức độ tương đối rõ ràng.\n【Đối chiếu】So với V-た (chỉ kết quả đã xong), 〜てきている nhấn mạnh cả một quá trình biến đổi liên tục kéo dài tới nay."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、静かな自然の中で暮らす魅力が、若い世代を中心に再評価されつつあります。",
+          "vi": "Kết quả là sức hút của lối sống giữa thiên nhiên yên tĩnh đang dần được đánh giá lại, đặc biệt là trong giới trẻ.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "暮らす",
+              "read": "くらす",
+              "vi": "sinh sống, sống"
+            },
+            {
+              "w": "魅力",
+              "read": "みりょく",
+              "vi": "sức hấp dẫn, sức hút"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "中心",
+              "read": "ちゅうしん",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "再評価",
+              "read": "さいひょうか",
+              "vi": "sự đánh giá lại, nhìn nhận lại giá trị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つつある",
+              "vi": "【接続】Vます（bỏ ます）＋ つつある。\n【Sắc thái】Diễn tả một sự việc, hiện tượng đang trong quá trình chuyển biến dần dần từng bước một (thường dùng trong văn viết trang trọng, tin tức, nghị luận).\n【Đối chiếu】Khác với 〜ている (chỉ trạng thái hoặc hành động đang diễn ra thông thường), 〜つつある chỉ đi với động từ chỉ sự biến đổi (変化動詞) để nhấn mạnh quá trình đang tịnh tiến thay đổi."
+            },
+            {
+              "point": "〜を中心に",
+              "vi": "【接続】N ＋ を中心に（して）。\n【Sắc thái】Lấy N làm trọng tâm, trung tâm hoặc đối tượng tiêu biểu nhất của hành động/hiện tượng.\n【Đối chiếu】So với 〜をはじめ (đưa ra ví dụ tiêu biểu đầu tiên trong danh sách), 〜を中心に nhấn mạnh N là hạt nhân nòng cốt của toàn bộ phong trào."
+            }
+          ]
+        },
+        {
+          "jp": "かつて人口が減っていた小さな町でも、新しい住民を迎えて活気が戻りつつあるようです。",
+          "vi": "Dường như ngay tại những thị trấn nhỏ từng bị giảm sút dân số trước đây, sức sống cũng đang dần quay trở lại nhờ đón nhận những cư dân mới.",
+          "vocab": [
+            {
+              "w": "かつて",
+              "read": "かつて",
+              "vi": "trước kia, đã từng"
+            },
+            {
+              "w": "人口",
+              "read": "じんこう",
+              "vi": "dân số"
+            },
+            {
+              "w": "減る",
+              "read": "へる",
+              "vi": "giảm bớt, suy giảm"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân"
+            },
+            {
+              "w": "迎える",
+              "read": "むかえる",
+              "vi": "đón, nghênh đón"
+            },
+            {
+              "w": "活気",
+              "read": "かっき",
+              "vi": "sức sống, sự sôi nổi, nhộn nhịp"
+            },
+            {
+              "w": "戻る",
+              "read": "もどる",
+              "vi": "quay lại, trở về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つつある",
+              "vi": "【接続】Vます（bỏ ます）＋ つつある。\n【Sắc thái】Biểu đạt xu hướng biến đổi đang từng bước diễn ra theo một chiều hướng nhất định (ở đây là sự phục hồi sức sống).\n【Đối chiếu】Khác với 〜一方だ (thường mang chiều hướng tiêu cực hoặc một chiều cực đoan), 〜つつある mang tính trung tính, trang trọng và miêu tả tiến trình đang dịch chuyển."
+            },
+            {
+              "point": "〜ようだ（推量）",
+              "vi": "【接続】普通形（Aな→な / N→の）＋ ようだ。\n【Sắc thái】Phán đoán, suy luận dựa trên quan sát gián tiếp hoặc cảm nhận khách quan của người nói ('dường như là').\n【Đối chiếu】Khác với 〜そうだ (nhìn thấy trực tiếp bề ngoài / nghe đồn), 〜ようだ thể hiện nhận định tổng hợp từ các dấu hiệu xung quanh."
+            }
+          ]
+        },
+        {
+          "jp": "移住した人々は、地域の伝統を守りながら、地元の人々と積極的に交流するようにしています。",
+          "vi": "Những người chuyển đến sinh sống luôn cố gắng chủ động giao lưu với người dân địa phương, đồng thời vẫn gìn giữ các truyền thống của vùng.",
+          "vocab": [
+            {
+              "w": "移住",
+              "read": "いじゅう",
+              "vi": "sự di cư, chuyển đến sinh sống"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "地元",
+              "read": "じもと",
+              "vi": "địa phương, quê nhà"
+            },
+            {
+              "w": "積極",
+              "read": "せっきょく",
+              "vi": "sự tích cực, chủ động"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "積極的",
+              "read": "せっきょくてき",
+              "vi": "tích cực, chủ động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようにする",
+              "vi": "【接続】Vる / Vない ＋ ようにする。\n【Sắc thái】Biểu thị sự nỗ lực, để tâm, cố gắng tạo thói quen hoặc thực hiện một hành vi một cách có ý thức đều đặn.\n【Đối chiếu】Khác với 〜ことにする (quyết định dứt khoát một lần), 〜ようにする nhấn mạnh vào ý thức duy trì nỗ lực hành động liên tục."
+            },
+            {
+              "point": "〜ながら",
+              "vi": "【接続】Vます（bỏ ます）＋ ながら。\n【Sắc thái】Diễn tả hai hành động diễn ra song song cùng lúc bởi cùng một chủ thể.\n【Đối chiếu】Vế sau mang tính hành động chính yếu, vế trước là hành động phụ đi kèm."
+            }
+          ]
+        },
+        {
+          "jp": "町側も、新旧の住民が支え合えるように、様々なイベントを企画するようになりました。",
+          "vi": "Phía chính quyền thị trấn cũng đã bắt đầu lên kế hoạch tổ chức nhiều sự kiện đa dạng để các cư dân mới và cũ có thể hỗ trợ lẫn nhau.",
+          "vocab": [
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "新旧",
+              "read": "しんきゅう",
+              "vi": "mới và cũ"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "người dân, cư dân"
+            },
+            {
+              "w": "支える",
+              "read": "ささえる",
+              "vi": "chống đỡ, hỗ trợ"
+            },
+            {
+              "w": "合える",
+              "read": "あえる",
+              "vi": "hòa hợp, kết hợp"
+            },
+            {
+              "w": "様々",
+              "read": "さまざま",
+              "vi": "nhiều loại, đa dạng"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "企画",
+              "read": "きかく",
+              "vi": "lập kế hoạch, quy hoạch tổ chức"
+            },
+            {
+              "w": "支え合う",
+              "read": "ささえあう",
+              "vi": "hỗ trợ lẫn nhau, đùm bọc nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになる（変化の定着）",
+              "vi": "【接続】V辞書形 ＋ ようになる。\n【Sắc thái】Diễn tả một hoạt động, chính sách mới đã được triển khai và trở thành thói quen/hiện thực sau một quá trình chuẩn bị.\n【Đối chiếu】Khác với 〜ことにした (nhấn mạnh quyết định chủ quan tại một thời điểm), 〜ようになった nhấn mạnh việc trạng thái hoạt động này đã trở thành nề nếp mới."
+            },
+            {
+              "point": "〜ように（目的）",
+              "vi": "【接続】V-khả năng / V-không ý chí (辞書形/ない形) ＋ ように。\n【Sắc thái】Chỉ mục đích nhằm đạt tới một trạng thái mong muốn (để có thể...).\n【Đối chiếu】Khác với 〜ために (thường đi với động từ có ý chí của cùng chủ thể), 〜ように đi với thể khả năng hoặc động từ trạng thái hướng đến kết quả."
+            }
+          ]
+        },
+        {
+          "jp": "こうした多様な働き方や暮らし方は、今後も社会全体に広がっていくと考えられます。",
+          "vi": "Những phương thức làm việc và lối sống đa dạng như thế này được cho là sẽ tiếp tục lan rộng ra toàn xã hội trong thời gian tới.",
+          "vocab": [
+            {
+              "w": "こうした",
+              "read": "こうした",
+              "vi": "như thế này (chỉ thị từ, tóm lược điều vừa nói)"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, phong phú"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "暮らし",
+              "read": "くらし",
+              "vi": "đời sống, cuộc sống sinh hoạt"
+            },
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "từ nay về sau, thời gian tới"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく（未来への変化）",
+              "vi": "【接続】Vて ＋ いく。\n【Sắc thái】Diễn tả xu hướng biến đổi tiếp tục tiến triển từ thời điểm hiện tại hướng về tương lai xa hơn.\n【Đối chiếu】Khác với 〜てくる (biến đổi từ quá khứ đến hiện tại), 〜ていく đưa điểm nhìn từ hiện tại phóng tới viễn cảnh tương lai."
+            },
+            {
+              "point": "〜と考えられる",
+              "vi": "【接続】普通形 ＋ と考えられる。\n【Sắc thái】Cách diễn đạt khách quan trong văn nghị luận, thể hiện nhận định/dự đoán hợp lý dựa trên các dữ kiện thực tế ('được cho là, có thể nhận định là').\n【Đối chiếu】Trang trọng hơn 〜と思う (mang tính chủ quan cá nhân) và phù hợp chuẩn mực văn phong JLPT N3."
+            }
+          ]
+        },
+        {
+          "jp": "自分らしい生き方を見つけるために、私たちは環境の変化に柔軟に対応していく必要があります。",
+          "vi": "Để tìm kiếm lối sống mang đậm bản sắc của chính mình, chúng ta cần phải tiếp tục thích ứng một cách linh hoạt với những thay đổi của môi trường.",
+          "vocab": [
+            {
+              "w": "自分らしい",
+              "read": "じぶんらしい",
+              "vi": "đúng với bản thân, mang phong cách riêng"
+            },
+            {
+              "w": "生き方",
+              "read": "いきかた",
+              "vi": "lối sống, cách sống"
+            },
+            {
+              "w": "見つける",
+              "read": "みつける",
+              "vi": "tìm thấy, phát hiện"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "柔軟",
+              "read": "じゅうなん",
+              "vi": "linh hoạt, mềm dẻo"
+            },
+            {
+              "w": "対応",
+              "read": "たいおう",
+              "vi": "thích ứng, ứng phó"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく（継続的適応）",
+              "vi": "【接続】Vて ＋ いく。\n【Sắc thái】Chỉ hành động thích ứng cần được duy trì liên tục và lâu dài từ nay về tương lai theo đà biến động của xã hội.\n【Đối chiếu】Khác với 〜ておく (chuẩn bị sẵn trước), 〜ていく biểu thị hành trình đồng hành và chuyển mình theo dòng thời gian."
+            },
+            {
+              "point": "〜必要がある",
+              "vi": "【接続】V辞書形 ＋ 必要がある。\n【Sắc thái】Thể hiện tính cần thiết, điều tất yếu phải làm đối với chủ thể để đạt được mục tiêu nêu ở vế trước.\n【Đối chiếu】Mang sắc thái lý tính, khách quan và trang trọng hơn mệnh lệnh 〜なければならない."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "再評価されつつあります",
+          "label": "〜つつある (đang dần được đánh giá lại)"
+        },
+        {
+          "excerpt": "活気が戻りつつあるようです",
+          "label": "〜つつある (sức sống đang dần quay trở lại)"
+        },
+        {
+          "excerpt": "交流するようにしています",
+          "label": "〜ようにする (chủ động nỗ lực giao lưu)"
+        },
+        {
+          "excerpt": "広がっていくと考えられます",
+          "label": "〜ていく (sẽ tiếp tục lan rộng trong tương lai)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "なぜ都市を離れて地方で働く人が増えてきたのですか。",
+          "options": [
+            "インターネットが普及し、どこでもオンラインで仕事ができる環境が整ってきたから。",
+            "都市部での生活費が急激に上がり、生活に困るようになったから。",
+            "地方自治体がすべての人に住居を無料で提供するようになったから。",
+            "自然環境を守るため、都市でのインターネット利用が制限されたから。"
+          ],
+          "answer": 0,
+          "evi": [
+            0,
+            1
+          ],
+          "explainVi": "Căn cứ vào câu [0] và [1]: 「近年、インターネットの普及によって、都市を離れて地方で働く人が増えてきました。オンラインで仕事ができるようになり、どこに住んでいても生活に困らない環境が整ってきています。」(Nhờ internet phổ biến và có thể làm việc online ở bất cứ đâu nên số người về quê làm việc tăng lên). Phương án A diễn đạt chính xác nguyên nhân này.\n- Phương án B sai vì bài không nhắc đến việc chi phí ở đô thị tăng vọt.\n- Phương án C sai vì bài không có thông tin chính quyền cấp nhà miễn phí cho tất cả mọi người.\n- Phương án D sai vì hoàn toàn bịa đặt thông tin hạn chế internet ở đô thị.",
+          "tip": "Tìm từ khóa '都市を離れて地方で働く人が増えてきた' ở đầu bài và đọc các câu liền kề chứa liên từ chỉ nguyên nhân '〜によって' và '〜ようになり'.",
+          "qt": {
+            "q": "Vì sao ngày càng có nhiều người rời thành phố để làm việc ở địa phương?",
+            "o": [
+              "Vì Internet phổ biến và môi trường cho phép làm việc trực tuyến ở bất cứ đâu ngày càng được hoàn thiện.",
+              "Vì chi phí sinh hoạt ở khu vực thành thị tăng đột ngột, khiến cuộc sống trở nên khó khăn.",
+              "Vì chính quyền địa phương bắt đầu cung cấp nhà ở miễn phí cho tất cả mọi người.",
+              "Vì việc sử dụng Internet ở thành phố bị hạn chế để bảo vệ môi trường tự nhiên."
+            ]
+          }
+        },
+        {
+          "q": "地方へ移住した人々は、地元でどのような行動を心がけていますか。",
+          "options": [
+            "新しい仕事を作るために、町の伝統を大きく変えようとしている。",
+            "地域の伝統を守りながら、地元の人々と積極的に交流するようにしている。",
+            "都市の生活習慣を地元の住民にも広めるようにしている。",
+            "自分たちだけのイベントを企画して、静かに暮らすようにしている。"
+          ],
+          "answer": 1,
+          "evi": [
+            4
+          ],
+          "explainVi": "Căn cứ vào câu [4]: 「移住した人々は、地域の伝統を守りながら、地元の人々と積極的に交流するようにしています。」(Những người di cư luôn cố gắng chủ động giao lưu với người dân bản địa trong khi vẫn giữ gìn truyền thống địa phương). Phương án B khớp hoàn toàn với câu này.\n- Phương án A sai vì họ giữ gìn truyền thống ('伝統を守りながら') chứ không hề làm biến đổi truyền thống.\n- Phương án C sai vì bài không đề cập đến việc họ truyền bá thói quen sinh hoạt đô thị cho người bản xứ.\n- Phương án D sai vì họ không sống tách biệt mà tích cực giao lưu, còn sự kiện là do thị trấn đứng ra tổ chức kết nối (câu [5]).",
+          "tip": "Chú ý mẫu ngữ pháp '〜ようにしている' (chủ ý nỗ lực duy trì thói quen/hành vi) trong câu hỏi để định vị chính xác câu [4].",
+          "qt": {
+            "q": "Những người chuyển đến địa phương cố gắng làm những gì ở đó?",
+            "o": [
+              "Họ đang cố gắng thay đổi đáng kể truyền thống của thị trấn để tạo ra công việc mới.",
+              "Họ cố gắng gìn giữ truyền thống địa phương đồng thời tích cực giao lưu với người dân địa phương.",
+              "Họ đang cố gắng phổ biến lối sống ở thành phố đến cả cư dân địa phương.",
+              "Họ cố gắng sống yên tĩnh bằng cách tự tổ chức những sự kiện chỉ dành cho mình."
+            ]
+          }
+        },
+        {
+          "q": "本文の「〜つつある」や「〜ていく」という表現から、筆者は地方や働き方の変化についてどのように考えていると推測できるか。",
+          "options": [
+            "過去に起きた一時的な変化であり、今後は元の状態に戻っていくと考えている。",
+            "急激な変化は既に完了しており、これ以上は広がらないと考えている。",
+            "現在進行形で少しずつ進んでおり、今後も長期的に広がり続けると捉えている。",
+            "地方の人口減少を止めることは難しく、変化の効果は薄いと考えている。"
+          ],
+          "answer": 2,
+          "evi": [
+            2,
+            3,
+            6,
+            7
+          ],
+          "explainVi": "Câu hỏi suy luận sắc thái ngữ pháp: Mẫu '〜つつある' (ở câu [2] và [3]: 再評価されつつある, 戻りつつある) diễn tả một quá trình đang tiến triển dần dần trong hiện tại, còn '〜ていく' (ở câu [6] và [7]: 広がっていく, 対応していく) diễn tả xu hướng tiếp tục phát triển hướng tới tương lai dài hạn. Do đó, tác giả nhìn nhận sự thay đổi này là một tiến trình đang diễn ra từng bước và sẽ còn tiếp tục lan rộng lâu dài (Phương án C).\n- Phương án A sai vì '〜ていく' hướng tới tương lai chứ không phải quay về trạng thái cũ hay chỉ mang tính tạm thời.\n- Phương án B sai vì '〜つつある' biểu thị sự việc chưa hoàn thành mà đang trong quá trình chuyển biến.\n- Phương án D sai vì trái ngược với thái độ tích cực của tác giả (sức sống đang trở lại thị trấn, lối sống đa dạng đang mở rộng).",
+          "tip": "Nắm vững sắc thái thời gian của cặp mẫu: '〜つつある' = tiến trình đang từng bước chuyển biến (hiện tại) và '〜ていく' = tiếp tục biến đổi tịnh tiến (tương lai).",
+          "qt": {
+            "q": "Từ các cách diễn đạt 「〜つつある」 và 「〜ていく」 trong bài, có thể suy đoán tác giả nghĩ như thế nào về những thay đổi ở địa phương và trong cách làm việc?",
+            "o": [
+              "Tác giả cho rằng đó là những thay đổi nhất thời đã xảy ra trong quá khứ và mọi thứ sẽ trở lại trạng thái ban đầu trong tương lai.",
+              "Tác giả cho rằng những thay đổi nhanh chóng đã hoàn tất và sẽ không lan rộng thêm nữa.",
+              "Tác giả nhìn nhận rằng những thay đổi đang dần diễn ra và sẽ tiếp tục lan rộng trong thời gian dài.",
+              "Tác giả cho rằng khó ngăn chặn sự suy giảm dân số ở địa phương và tác động của những thay đổi còn hạn chế."
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も伝えたいことは何か。",
+          "options": [
+            "誰もが都市を離れて地方へ移住しなければならないということ。",
+            "社会や働き方の変化に合わせて、自分らしく柔軟に生き方を模索していく大切さ。",
+            "オンライン技術だけに頼るのではなく、伝統的な生活習慣に戻るべきだということ。",
+            "地方自治体のイベントに参加することだけが、地域活性化の唯一の方法であること。"
+          ],
+          "answer": 1,
+          "evi": [
+            6,
+            7
+          ],
+          "explainVi": "Căn cứ vào câu kết [7] cùng thông điệp xuyên suốt: 「自分らしい生き方を見つけるために、私たちは環境の変化に柔軟に対応していく必要があります。」(Để tìm ra cách sống đúng với bản thân, chúng ta cần linh hoạt thích ứng với sự thay đổi của môi trường). Tác giả qua ví dụ về chuyển dịch việc làm đã khẳng định tầm quan trọng của việc chủ động, linh hoạt tìm kiếm lối sống phù hợp trong bối cảnh xã hội đổi thay (Phương án B).\n- Phương án A sai vì mang tính bắt buộc cực đoan ('ai cũng phải chuyển về địa phương').\n- Phương án C sai vì bài viết ủng hộ tận dụng công nghệ trực tuyến để mở rộng cơ hội sống chứ không khuyên từ bỏ công nghệ.\n- Phương án D sai vì bài không xem việc tham gia sự kiện là 'cách duy nhất' để hồi sinh địa phương.",
+          "tip": "Thông điệp cốt lõi của tác giả trong văn nghị luận JLPT thường đúc kết ở câu kết bài với các mẫu chỉ sự cần thiết như '〜必要がある', '〜大切だ'.",
+          "qt": {
+            "q": "Điều mà tác giả muốn truyền tải nhất trong bài viết này là gì?",
+            "o": [
+              "Mọi người đều phải rời thành phố và chuyển đến địa phương.",
+              "Tầm quan trọng của việc linh hoạt tìm kiếm lối sống phù hợp với bản thân để thích ứng với những thay đổi của xã hội và cách làm việc.",
+              "Không nên chỉ dựa vào công nghệ trực tuyến mà cần quay lại những lối sống truyền thống.",
+              "Tham gia các sự kiện của chính quyền địa phương là cách duy nhất để revital hóa cộng đồng địa phương."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "デジタル時代における読書の広がりと図書館の進化",
+      "titleVi": "Sự lan tỏa của văn hóa đọc và sự tiến hóa của thư viện trong thời đại số",
+      "japanese": "私たちの生活の中で、デジタル技術の普及によって読書の形が大きく変わり始めました。\n紙の本だけでなく、電子書籍や音声で本を楽しむ人が増え、読書のあり方そのものが変化しつつあります。\nかつて図書館といえば、静かに本を読むためだけの場所でした。\nしかし最近では、市民が交流したり、新しい知識を体験したりする空間へと変わってきました。\n\n例えば、カフェが併設されたり、イベントや勉強会が開かれたりする図書館が増えています。\nその結果、本をあまり読まなかった若い世代も気軽に図書館へ足を運ぶようになりました。\nまた、インターネットを使って家から電子書籍を借りるサービスも広がっています。\n多くの自治体は、忙しい人でも手軽に本に触れられるように、利用しやすい環境を整えるようにしています。\nこのような取り組みは、今後も全国の地域社会へと広がっていくでしょう。\n従来の「静かに過ごす場所」から「人が集まって学ぶ場所」へと、図書館の役割は確実に進化しつつあるのです。\n\n一方で、スマートフォンの画面で短い情報ばかりを読む習慣が広がることを心配する声もあります。\n画面を速くスクロールして読むだけでは、深い思考力が育ちにくいと指摘されています。\nそのため、じっくりと時間をかけて一冊の本に向き合うことの大切さが見直されてきました。\n読書を通じて他人の考えを深く理解することは、豊かな心を育てるために欠かせません。\n日常的に読書を続けることで、複雑な問題に対しても自分の頭で深く考えられるようになります。\n\nこれからの時代、私たちはデジタルと紙の良さをうまく組み合わせていく必要があります。\n電子機器で効率よく情報を集めながら、時には紙の本を開いて心を落ち着かせる時間も大切です。\n私自身も、寝る前の30分間はスマートフォンを置き、本を読むようにしています。\n技術が進歩しても、本から学ぶ喜びはこれからも人々の心に残り続けていくはずです。\n私たちは便利な道具に頼りすぎるのではなく、自分自身の読書習慣を主体的に見直すようにするべきでしょう。",
+      "vietnamese": "Trong đời sống của chúng ta, hình thức đọc sách đã bắt đầu thay đổi lớn do sự phổ cập của công nghệ kỹ thuật số.\nKhông chỉ sách giấy, số người thưởng thức sách bằng sách điện tử hay sách nói ngày càng tăng, và chính bản chất của việc đọc sách đang trong quá trình biến đổi.\nTrước đây hễ nhắc đến thư viện, người ta chỉ nghĩ đó là nơi dành riêng cho việc đọc sách trong yên tĩnh.\nNhưng gần đây, thư viện đã dần chuyển mình thành một không gian nơi người dân có thể giao lưu và trải nghiệm những tri thức mới.\n\nVí dụ, các thư viện có kèm quán cà phê, hay tổ chức các sự kiện và buổi học nhóm đang ngày một nhiều lên.\nNhờ đó, cả thế hệ trẻ vốn ít đọc sách cũng đã bắt đầu thoải mái ghé đến thư viện.\nNgoài ra, dịch vụ mượn sách điện tử từ nhà thông qua internet cũng đang được mở rộng.\nNhiều chính quyền địa phương đang cố gắng tạo dựng một môi trường thuận tiện để ngay cả những người bận rộn cũng có thể dễ dàng tiếp cận sách.\nNhững nỗ lực đổi mới như thế này chắc chắn sẽ tiếp tục lan rộng tới các cộng đồng địa phương trên khắp cả nước trong tương lai.\nTừ “nơi chốn tĩnh lặng” trước đây sang “nơi mọi người tập hợp để học hỏi”, vai trò của thư viện quả thực đang từng bước tiến hóa rõ rệt.\n\nMặt khác, cũng có những ý kiến bày tỏ lo ngại về sự lan rộng của thói quen chỉ toàn đọc các mẩu thông tin ngắn trên màn hình điện thoại thông minh.\nNgười ta chỉ ra rằng nếu chỉ lướt nhanh màn hình để đọc, khả năng tư duy sâu sẽ rất khó phát triển.\nChính vì thế, tầm quan trọng của việc dành thời gian nghiền ngẫm nghiêm túc bên một cuốn sách đã dần được nhìn nhận lại.\nViệc thấu hiểu sâu sắc suy nghĩ của người khác thông qua việc đọc sách là điều không thể thiếu để nuôi dưỡng một tâm hồn phong phú.\nBằng việc duy trì đọc sách hàng ngày, chúng ta sẽ dần có thể tự mình suy nghĩ sâu sắc trước cả những vấn đề phức tạp.\n\nTrong thời đại tới, chúng ta cần phải tiếp tục kết hợp nhuần nhuyễn những ưu điểm của cả công nghệ số lẫn sách giấy.\nVừa thu thập thông tin một cách hiệu quả bằng thiết bị điện tử, đôi khi việc mở một trang sách giấy để làm dịu tâm hồn cũng là khoảng thời gian vô cùng quan trọng.\nBản thân tôi cũng luôn cố gắng đặt điện thoại thông minh xuống trong 30 phút trước khi ngủ để đọc sách.\nDù công nghệ có tiến bộ đến đâu, niềm vui học hỏi từ trang sách chắc chắn vẫn sẽ tiếp tục đọng lại trong tâm hồn con người mai sau.\nThay vì phụ thuộc quá mức vào các công cụ tiện lợi, chúng ta nên chủ động cố gắng xem xét và điều chỉnh lại thói quen đọc sách của chính mình.",
+      "sentences": [
+        {
+          "jp": "私たちの生活の中で、デジタル技術の普及によって読書の形が大きく変わり始めました。",
+          "vi": "Trong đời sống của chúng ta, hình thức đọc sách đã bắt đầu thay đổi lớn do sự phổ cập của công nghệ kỹ thuật số.",
+          "vocab": [
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi/chúng ta"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "デジタル技術",
+              "read": "デジタルぎじゅつ",
+              "vi": "công nghệ số"
+            },
+            {
+              "w": "普及",
+              "read": "ふきゅう",
+              "vi": "sự phổ biến"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "việc đọc sách"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình thức"
+            },
+            {
+              "w": "大きく",
+              "read": "おおきく",
+              "vi": "lớn, đáng kể"
+            },
+            {
+              "w": "変わり始めました",
+              "read": "かわりはじめました",
+              "vi": "bắt đầu thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（原因・理由）",
+              "vi": "接続: N ＋ によって. Sắc thái: Diễn tả nguyên nhân, lý do dẫn đến kết quả hoặc sự thay đổi lớn trong văn viết trang trọng. Đối chiếu: Khác với 〜から/〜ので (khẩu ngữ, lý do chủ quan thông thường), 〜によって mang sắc thái nguyên nhân khách quan, trang trọng hơn; khác với 〜によって mang nghĩa phương thức hoặc tác nhân trong câu bị động."
+            }
+          ]
+        },
+        {
+          "jp": "紙の本だけでなく、電子書籍や音声で本を楽しむ人が増え、読書のあり方そのものが変化しつつあります。",
+          "vi": "Không chỉ sách giấy, số người thưởng thức sách bằng sách điện tử hay sách nói ngày càng tăng, và chính bản chất của việc đọc sách đang trong quá trình biến đổi.",
+          "vocab": [
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "音声",
+              "read": "おんせい",
+              "vi": "âm thanh, giọng đọc"
+            },
+            {
+              "w": "楽しむ",
+              "read": "たのしむ",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "あり方",
+              "read": "ありかた",
+              "vi": "bản chất, cách thức tồn tại vốn có"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つつある（変化の進行）",
+              "vi": "接続: V-ます (bỏ ます) ＋ つつある. Sắc thái: Diễn tả một sự biến đổi, xu hướng đang diễn ra từng bước một cách liên tục (văn viết trang trọng, phóng sự, báo chí). Đối chiếu: Khác với 〜ている (chỉ hành động đang diễn ra hoặc trạng thái chung), 〜つつある chỉ đi với các động từ biến đổi (変化する, 増える, 進む...) để nhấn mạnh tiến trình đang chuyển dịch dần; khác với 〜ていく (nhìn hướng về tương lai), 〜つつある mô tả sự việc đang ở ngay trong giai đoạn chuyển tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "かつて図書館といえば、静かに本を読むためだけの場所でした。",
+          "vi": "Trước đây hễ nhắc đến thư viện, người ta chỉ nghĩ đó là nơi dành riêng cho việc đọc sách trong yên tĩnh.",
+          "vocab": [
+            {
+              "w": "かつて",
+              "read": "かつて",
+              "vi": "trước đây, ngày xưa"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜といえば",
+              "vi": "接続: N / Thể thông thường ＋ といえば. Sắc thái: Đưa ra chủ đề điển hình hoặc nhắc tới một đặc trưng nảy ra ngay lập tức trong tâm trí khi nói về danh từ đó. Đối chiếu: Khác với 〜というと (nhắc lại để xác nhận ý đối phương), 〜といえば dùng để dẫn dắt liên tưởng đặc trưng."
+            }
+          ]
+        },
+        {
+          "jp": "しかし最近では、市民が交流したり、新しい知識を体験したりする空間へと変わってきました。",
+          "vi": "Nhưng gần đây, thư viện đã dần chuyển mình thành một không gian nơi người dân có thể giao lưu và trải nghiệm những tri thức mới.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "空間",
+              "read": "くうかん",
+              "vi": "không gian"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくる（変化の推移）",
+              "vi": "接続: V-て ＋ くる. Sắc thái: Diễn tả một sự thay đổi đã bắt đầu từ trong quá khứ và tiếp diễn, tích lũy dần cho tới thời điểm hiện tại. Đối chiếu: Khác với 〜ていく (thay đổi từ mốc hiện tại tiếp tục đi xa về tương lai), 〜てくる nhìn lại chặng đường biến đổi đã diễn ra từ trước đến nay."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、カフェが併設されたり、イベントや勉強会が開かれたりする図書館が増えています。",
+          "vi": "Ví dụ, các thư viện có kèm quán cà phê, hay tổ chức các sự kiện và buổi học nhóm đang ngày một nhiều lên.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "併設",
+              "read": "へいせつ",
+              "vi": "xây dựng kèm theo, đặt liền kề"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "勉強会",
+              "read": "べんきょうかい",
+              "vi": "buổi học nhóm, hội thảo chia sẻ kiến thức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たり〜たりする",
+              "vi": "接続: V-た ＋ り ＋ V-た ＋ りする. Sắc thái: Liệt kê các hành động, hiện tượng tiêu biểu trong số nhiều hoạt động phong phú. Đối chiếu: Khác với 〜て〜て (nối hành động theo trình tự thời gian bắt buộc), 〜たり〜たり chỉ nêu ví dụ đại diện, không câu nệ thứ tự trước sau."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、本をあまり読まなかった若い世代も気軽に図書館へ足を運ぶようになりました。",
+          "vi": "Nhờ đó, cả thế hệ trẻ vốn ít đọc sách cũng đã bắt đầu thoải mái ghé đến thư viện.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "気軽に",
+              "read": "きがるに",
+              "vi": "thoải mái, nhẹ nhàng không ngần ngại"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "足",
+              "read": "あし",
+              "vi": "chân"
+            },
+            {
+              "w": "運ぶ",
+              "read": "はこぶ",
+              "vi": "chuyển, vác (thể từ điển)"
+            },
+            {
+              "w": "足を運ぶ",
+              "read": "あしをはこぶ",
+              "vi": "cất công đến, ghé thăm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになる（状態・習慣の変化）",
+              "vi": "接続: V辞書形 / V可能形 / Vない ＋ ようになる. Sắc thái: Diễn tả sự biến đổi trạng thái theo thời gian, từ chỗ trước đây không làm hoặc không thể làm sang chỗ hình thành thói quen hoặc có thể làm được. Đối chiếu: Khác với 〜ことになる (quyết định do ngoại cảnh/tổ chức ấn định), 〜ようになる nhấn mạnh sự chuyển biến tự nhiên trong khả năng hoặc hành vi."
+            }
+          ]
+        },
+        {
+          "jp": "また、インターネットを使って家から電子書籍を借りるサービスも広がっています。",
+          "vi": "Ngoài ra, dịch vụ mượn sách điện tử từ nhà thông qua internet cũng đang được mở rộng.",
+          "vocab": [
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "借りる",
+              "read": "かりる",
+              "vi": "mượn, thuê"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, phổ biến"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜て広がる／広まっている",
+              "vi": "接続: V-て ＋ いる. Sắc thái: Thể hiện trạng thái của một dịch vụ đang trong xu hướng lan tỏa rộng rãi trong cộng đồng."
+            }
+          ]
+        },
+        {
+          "jp": "多くの自治体は、忙しい人でも手軽に本に触れられるように、利用しやすい環境を整えるようにしています。",
+          "vi": "Nhiều chính quyền địa phương đang cố gắng tạo dựng một môi trường thuận tiện để ngay cả những người bận rộn cũng có thể dễ dàng tiếp cận sách.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "自治体",
+              "read": "じちたい",
+              "vi": "chính quyền địa phương"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "手軽に",
+              "read": "てがるに",
+              "vi": "tiện lợi, dễ dàng"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "触れる",
+              "read": "ふれる",
+              "vi": "tiếp xúc, chạm tới"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "整える",
+              "read": "ととのえる",
+              "vi": "chuẩn bị, sắp xếp, tạo dựng chu đáo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（目的）",
+              "vi": "接続: V辞書形 / V可能形 / Vない ＋ ように. Sắc thái: Diễn tả mục đích đạt tới một trạng thái mong muốn (vế trước thường là động từ chỉ trạng thái/khả năng). Đối chiếu: Khác với 〜ために (vế trước là động từ có ý chí, chỉ mục đích cụ thể mang tính hành động), 〜ように hướng tới kết quả trạng thái."
+            },
+            {
+              "point": "〜ようにする／ようにしている",
+              "vi": "接続: V辞書形 / Vない ＋ ようにする (ở đây chia ようにしています). Sắc thái: Thể hiện nỗ lực, sự chú tâm liên tục để thực hiện hoặc duy trì một chính sách/hành động tốt. Đối chiếu: Khác với 〜ことにする (quyết định dứt khoát tại một thời điểm), 〜ようにしている nhấn mạnh sự nỗ lực duy trì đều đặn."
+            }
+          ]
+        },
+        {
+          "jp": "このような取り組みは、今後も全国の地域社会へと広がっていくでしょう。",
+          "vi": "Những nỗ lực đổi mới như thế này chắc chắn sẽ tiếp tục lan rộng tới các cộng đồng địa phương trên khắp cả nước trong tương lai.",
+          "vocab": [
+            {
+              "w": "取り組み",
+              "read": "とりくみ",
+              "vi": "nỗ lực, sáng kiến, biện pháp giải quyết"
+            },
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "全国",
+              "read": "ぜんこく",
+              "vi": "toàn quốc"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            },
+            {
+              "w": "地域社会",
+              "read": "ちいきしゃかい",
+              "vi": "cộng đồng địa phương, xã hội khu vực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく（未来への変化）",
+              "vi": "接続: V-て ＋ いく. Sắc thái: Diễn tả sự biến đổi, xu hướng tiếp diễn liên tục từ mốc hiện tại hướng về tương lai xa. Đối chiếu: Khác với 〜てくる (hướng từ quá khứ về hiện tại), 〜ていく hướng về tương lai; khác với 〜つつある (chỉ nhấn mạnh khoảnh khắc đang biến đổi ở hiện tại), 〜ていく khẳng định tiến trình sẽ còn tiếp tục phát triển sau này."
+            }
+          ]
+        },
+        {
+          "jp": "従来の「静かに過ごす場所」から「人が集まって学ぶ場所」へと、図書館の役割は確実に進化しつつあるのです。",
+          "vi": "Từ “nơi chốn tĩnh lặng” trước đây sang “nơi mọi người tập hợp để học hỏi”, vai trò của thư viện quả thực đang từng bước tiến hóa rõ rệt.",
+          "vocab": [
+            {
+              "w": "従来",
+              "read": "じゅうらい",
+              "vi": "từ trước đến nay, truyền thống"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "過ごす",
+              "read": "すごす",
+              "vi": "trải qua, sống"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "集まる",
+              "read": "あつまる",
+              "vi": "tập hợp, tụ họp"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò, nhiệm vụ"
+            },
+            {
+              "w": "確実",
+              "read": "かくじつ",
+              "vi": "chắc chắn, rõ ràng"
+            },
+            {
+              "w": "進化",
+              "read": "しんか",
+              "vi": "tiến hóa, phát triển lên tầm cao mới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つつある（確実な進展）",
+              "vi": "接続: V-ます (bỏ ます) ＋ つつある. Sắc thái: Diễn tả một quá trình tiến hóa/biến đổi đang trên đà diễn ra từng ngày một cách vững chắc (văn nghị luận trang trọng). Đối chiếu: Khác với 〜ている (diễn tả hành động chung chung), 〜つつある mang sắc thái quan sát xu hướng của thời đại với các động từ chỉ sự chuyển mình (進化する, 変わる)."
+            }
+          ]
+        },
+        {
+          "jp": "一方で、スマートフォンの画面で短い情報ばかりを読む習慣が広がることを心配する声もあります。",
+          "vi": "Mặt khác, cũng có những ý kiến bày tỏ lo ngại về sự lan rộng của thói quen chỉ toàn đọc các mẩu thông tin ngắn trên màn hình điện thoại thông minh.",
+          "vocab": [
+            {
+              "w": "一方で",
+              "read": "いっぽうで",
+              "vi": "mặt khác, trái lại"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen, tập quán"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng, bận tâm"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ばかり（限定・傾向）",
+              "vi": "接続: N / V-て ＋ ばかり. Sắc thái: Diễn tả việc lặp đi lặp lại một loại hành động hoặc chỉ tập trung vào một đối tượng duy nhất với hàm ý phê phán hoặc lo ngại. Đối chiếu: Khác với 〜だけ (chỉ giới hạn khách quan đơn thuần), 〜ばかり thường thể hiện sự thiên lệch thái quá."
+            }
+          ]
+        },
+        {
+          "jp": "画面を速くスクロールして読むだけでは、深い思考力が育ちにくいと指摘されています。",
+          "vi": "Người ta chỉ ra rằng nếu chỉ lướt nhanh màn hình để đọc, khả năng tư duy sâu sẽ rất khó phát triển.",
+          "vocab": [
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "速い",
+              "read": "はやい",
+              "vi": "nhanh"
+            },
+            {
+              "w": "スクロール",
+              "read": "すくろーる",
+              "vi": "cuộn, lướt màn hình"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "育つ",
+              "read": "そだつ",
+              "vi": "lớn lên, trưởng thành"
+            },
+            {
+              "w": "指摘",
+              "read": "してき",
+              "vi": "chỉ ra, lưu ý cảnh báo"
+            },
+            {
+              "w": "思考力",
+              "read": "しこうりょく",
+              "vi": "năng lực tư duy, khả năng suy nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にくい（難易）",
+              "vi": "接続: V-ます (bỏ ます) ＋ にくい. Sắc thái: Diễn tả việc thực hiện một hành động hoặc quá trình nào đó gặp khó khăn do đặc tính khách quan của sự việc. Đối chiếu: Khác với 〜づらい (khó khăn do cảm giác đau đớn/ngại ngùng chủ quan của bản thân) và 〜がたい (khó lòng có thể làm vì lý do đạo đức/tâm lý)."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、じっくりと時間をかけて一冊の本に向き合うことの大切さが見直されてきました。",
+          "vi": "Chính vì thế, tầm quan trọng của việc dành thời gian nghiền ngẫm nghiêm túc bên một cuốn sách đã dần được nhìn nhận lại.",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "kỹ lưỡng, từ tốn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "かけて",
+              "read": "かけて",
+              "vi": "dành, bỏ (thời gian)"
+            },
+            {
+              "w": "一冊",
+              "read": "いっさつ",
+              "vi": "một quyển"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, tập trung vào"
+            },
+            {
+              "w": "大切さ",
+              "read": "たいせつさ",
+              "vi": "tầm quan trọng"
+            },
+            {
+              "w": "見直されてきました",
+              "read": "みなおされてきました",
+              "vi": "đã được xem xét lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくる（認識の変化）",
+              "vi": "接続: V-て ＋ くる. Sắc thái: Diễn tả một nhận thức hoặc giá trị đã và đang dần dần được xã hội nhìn nhận, tích lũy từ quá khứ kéo dài đến hiện tại. Đối chiếu: Khác với 〜ていく (tiếp tục trong tương lai), 〜てくる nhấn mạnh kết quả của cả một chặng đường chuyển biến trong suy nghĩ của con người."
+            }
+          ]
+        },
+        {
+          "jp": "読書を通じて他人の考えを深く理解することは、豊かな心を育てるために欠かせません。",
+          "vi": "Việc thấu hiểu sâu sắc suy nghĩ của người khác thông qua việc đọc sách là điều không thể thiếu để nuôi dưỡng một tâm hồn phong phú.",
+          "vocab": [
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "phong phú, giàu có về tâm hồn"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "育てる",
+              "read": "そだてる",
+              "vi": "nuôi dưỡng, bồi dưỡng"
+            },
+            {
+              "w": "欠かせない",
+              "read": "かかせない",
+              "vi": "không thể thiếu, tất yếu"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜を通じて（手段・媒介）",
+              "vi": "接続: N ＋ を通じて / をとおして. Sắc thái: Diễn tả phương tiện, phương thức hoặc cầu nối trung gian để đạt được tri thức/kinh nghiệm. Đối chiếu: Khác với 〜によって (nhấn mạnh công cụ hoặc nguyên nhân trực tiếp), 〜を通じて nhấn mạnh môi trường hay nhịp cầu trải nghiệm."
+            },
+            {
+              "point": "〜ために（目的）",
+              "vi": "接続: V辞書形 / Nの ＋ ために. Sắc thái: Chỉ mục đích rõ ràng có chủ ý của con người."
+            }
+          ]
+        },
+        {
+          "jp": "日常的に読書を続けることで、複雑な問題に対しても自分の頭で深く考えられるようになります。",
+          "vi": "Bằng việc duy trì đọc sách hàng ngày, chúng ta sẽ dần có thể tự mình suy nghĩ sâu sắc trước cả những vấn đề phức tạp.",
+          "vocab": [
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "đời sống thường nhật"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "複雑",
+              "read": "ふくざつ",
+              "vi": "phức tạp"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu óc, trí tuệ"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "日常的",
+              "read": "にちじょうてき",
+              "vi": "mang tính thường nhật, hàng ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになる（能力の獲得）",
+              "vi": "接続: V可能形 (考えられる) ＋ ようになる. Sắc thái: Diễn tả một năng lực tư duy mới dần được hình thành và phát triển sau quá trình rèn luyện bền bỉ. Đối chiếu: Khác với 〜ことにする (quyết định chủ quan), 〜ようになる là kết quả tự nhiên tất yếu của sự tích lũy kỹ năng theo thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "これからの時代、私たちはデジタルと紙の良さをうまく組み合わせていく必要があります。",
+          "vi": "Trong thời đại tới, chúng ta cần phải tiếp tục kết hợp nhuần nhuyễn những ưu điểm của cả công nghệ số lẫn sách giấy.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay, từ giờ"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi/chúng ta"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "良さ",
+              "read": "よさ",
+              "vi": "ưu điểm, cái hay"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "khéo léo, tốt"
+            },
+            {
+              "w": "組み合わせて",
+              "read": "くみあわせて",
+              "vi": "kết hợp"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく（継続的行動）",
+              "vi": "接続: V-て ＋ いく. Sắc thái: Diễn tả một hành động hoặc định hướng cần được tiếp tục duy trì và triển khai từ nay về sau trong tương lai. Đối chiếu: Khác với việc chỉ dùng động từ nguyên thể (chỉ hành vi đơn lẻ), 〜ていく thể hiện tầm nhìn dài hạn và sự kiên trì theo thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "電子機器で効率よく情報を集めながら、時には紙の本を開いて心を落ち着かせる時間も大切です。",
+          "vi": "Vừa thu thập thông tin một cách hiệu quả bằng thiết bị điện tử, đôi khi việc mở một trang sách giấy để làm dịu tâm hồn cũng là khoảng thời gian vô cùng quan trọng.",
+          "vocab": [
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "機器",
+              "read": "きき",
+              "vi": "thiết bị, máy móc"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "時には",
+              "read": "ときには",
+              "vi": "đôi khi, có lúc"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "落ち着かせる",
+              "read": "おちつかせる",
+              "vi": "làm cho bình tĩnh, dịu lại"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（同時進行）",
+              "vi": "接続: V-ます (bỏ ます) ＋ ながら. Sắc thái: Diễn tả hai hành động diễn ra song song cùng thời điểm của cùng một chủ thể, trong đó vế sau thường là hành động trọng tâm. Đối chiếu: Khác với 〜あいだに (trong khoảng thời gian một sự việc khác diễn ra), 〜ながら liên kết chặt chẽ hai hành vi đồng thời của một người."
+            }
+          ]
+        },
+        {
+          "jp": "私自身も、寝る前の30分間はスマートフォンを置き、本を読むようにしています。",
+          "vi": "Bản thân tôi cũng luôn cố gắng đặt điện thoại thông minh xuống trong 30 phút trước khi ngủ để đọc sách.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "寝る",
+              "read": "ねる",
+              "vi": "ngủ"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "30分間",
+              "read": "さんじゅっぷんかん",
+              "vi": "30 phút"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "置き",
+              "read": "おき",
+              "vi": "đặt, cất"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようにしている（習慣の意識的継続）",
+              "vi": "接続: V辞書形 / Vない ＋ ようにしている. Sắc thái: Diễn tả nỗ lực, thói quen mà người nói luôn tự giác, có ý thức thực hiện đều đặn mỗi ngày. Đối chiếu: Khác với 〜ことにしている (nhấn mạnh vào nguyên tắc/quy tắc tự đặt ra cho bản thân), 〜ようにしている nhấn mạnh sự cố gắng rèn luyện hành vi thực tế."
+            }
+          ]
+        },
+        {
+          "jp": "技術が進歩しても、本から学ぶ喜びはこれからも人々の心に残り続けていくはずです。",
+          "vi": "Dù công nghệ có tiến bộ đến đâu, niềm vui học hỏi từ trang sách chắc chắn vẫn sẽ tiếp tục đọng lại trong tâm hồn con người mai sau.",
+          "vocab": [
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "進歩",
+              "read": "しんぽ",
+              "vi": "tiến bộ"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "喜び",
+              "read": "よろこび",
+              "vi": "niềm vui, sự hân hoan"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "残る",
+              "read": "のこる",
+              "vi": "đọng lại, còn lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（逆接条件）",
+              "vi": "接続: V-て ＋ も / A-くても. Sắc thái: Biểu thị quan hệ nhượng bộ (cho dù sự việc ở vế trước có xảy ra thì vế sau vẫn không thay đổi)."
+            },
+            {
+              "point": "〜ていく（持続）",
+              "vi": "接続: V-て ＋ いく. Sắc thái: Diễn tả một giá trị tinh thần hay trạng thái sẽ tiếp tục tồn tại và kéo dài mãi về tương lai."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは便利な道具に頼りすぎるのではなく、自分自身の読書習慣を主体的に見直すようにするべきでしょう。",
+          "vi": "Thay vì phụ thuộc quá mức vào các công cụ tiện lợi, chúng ta nên chủ động cố gắng xem xét và điều chỉnh lại thói quen đọc sách của chính mình.",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, phương tiện"
+            },
+            {
+              "w": "頼る",
+              "read": "たよる",
+              "vi": "dựa dẫm, phụ thuộc"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "主体",
+              "read": "しゅたい",
+              "vi": "chủ thể"
+            },
+            {
+              "w": "見直す",
+              "read": "みなおす",
+              "vi": "xem xét lại, cải cách định hình lại"
+            },
+            {
+              "w": "主体的に",
+              "read": "しゅたいてきに",
+              "vi": "một cách chủ động, tự mình làm chủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく（対比・訂正）",
+              "vi": "接続: Thể thông thường ＋ のではなく. Sắc thái: Phủ định nhẹ nhàng vế trước để nhấn mạnh và chuyển hướng trọng tâm sang vế sau."
+            },
+            {
+              "point": "〜ようにする（心がけ・行動の努力）",
+              "vi": "接続: V辞書形 ＋ ようにする (ở đây kết hợp: ようにするべきだ). Sắc thái: Đưa ra lời khuyên nhủ con người nên chủ động nỗ lực thay đổi thái độ và rèn luyện thói quen. Đối chiếu: Khác với 〜べきだ đơn thuần (chỉ bổn phận mang tính nguyên tắc), 〜ようにするべきだ nhấn mạnh việc phải bắt tay vào nỗ lực thực hiện cụ thể."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "読書のあり方そのものが変化しつつあります",
+          "label": "Sự chuyển biến trong bản chất của việc đọc sách"
+        },
+        {
+          "excerpt": "図書館の役割は確実に進化しつつあるのです",
+          "label": "Sự tiến hóa vai trò của thư viện hiện đại"
+        },
+        {
+          "excerpt": "デジタルと紙の良さをうまく組み合わせていく必要があります",
+          "label": "Định hướng kết hợp giữa công nghệ số và sách truyền thống"
+        }
+      ],
+      "questions": [
+        {
+          "q": "最近の図書館について、本文で述べられている変化として最も適切なものはどれか。",
+          "options": [
+            "本を読むことよりも、食事や買い物を楽しむ場所へと完全に変わった。",
+            "静かに読書をする場所だけでなく、交流や体験ができる空間へと進化している。",
+            "電子書籍の普及に伴い、紙の本を置く図書館の数が全国で大幅に減っている。",
+            "若い世代の利用者が減ったため、勉強会などのイベントをやめるようになった。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [2], [3] và [9]: Tác giả nêu rằng trước đây thư viện chỉ là nơi đọc sách trong yên tĩnh (\"かつて図書館といえば、静かに本を読むためだけの場所でした\"), nhưng gần đây đã biến đổi thành không gian giao lưu và trải nghiệm tri thức mới (\"市民が交流したり、新しい知識を体験したりする空間へと変わってきました\"), và vai trò đang tiến hóa từ nơi tĩnh lặng thành nơi tập hợp để cùng học tập (câu [9]).\n- Phương án 1 phản ánh hoàn toàn chính xác nội dung này.\n- Phương án 0 sai vì bài chỉ nói thư viện có kèm quán cà phê (câu [4]), không hề nói đã 'hoàn toàn biến thành nơi ăn uống, mua sắm'.\n- Phương án 2 sai vì bài không đề cập đến việc số lượng thư viện sách giấy bị giảm sút trên toàn quốc.\n- Phương án 3 sai vì trái ngược với câu [5] (người trẻ ghé đến thư viện nhiều hơn nhờ các dịch vụ và sự kiện).",
+          "tip": "Khi làm câu hỏi về sự thay đổi (変化), hãy chú ý đối chiếu giữa quá khứ (かつて, 従来) và hiện tại (最近では, 今では) được liên kết qua các từ nối tương phản (しかし, 一方で).",
+          "evi": [
+            2,
+            3,
+            4,
+            5,
+            9
+          ],
+          "qt": {
+            "q": "Về các thư viện gần đây, đâu là sự thay đổi được nêu trong bài đọc phù hợp nhất?",
+            "o": [
+              "Đã hoàn toàn trở thành nơi để ăn uống và mua sắm hơn là đọc sách.",
+              "Đang phát triển từ nơi chỉ để đọc sách yên tĩnh thành không gian để giao lưu và trải nghiệm.",
+              "Cùng với sự phổ biến của sách điện tử, số lượng thư viện có sách giấy trên toàn quốc đang giảm mạnh.",
+              "Do số người trẻ đến thư viện giảm, các thư viện đã bắt đầu ngừng tổ chức những sự kiện như buổi học nhóm."
+            ]
+          }
+        },
+        {
+          "q": "本文で「一冊の本に向き合うことの大切さが見直されてきた」とあるが、それはなぜか。",
+          "options": [
+            "スマホで短い情報をスクロールして読むだけでは、深い思考力が育ちにくいから。",
+            "電子書籍の画面を長時間見続けると、身体や視力に悪影響を与えてしまうから。",
+            "インターネットで電子書籍を借りるサービスに多額の費用がかかるから。",
+            "若い世代が本をまったく読まなくなり、語彙力が極端に低下してしまったから。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [10], [11] và [12]: Tác giả nêu mối lo ngại về thói quen chỉ đọc các mẩu tin ngắn trên điện thoại (\"スマートフォンの画面で短い情報ばかりを読む習慣が広がることを心配する声もあります\"), và chỉ ra rằng việc chỉ lướt nhanh màn hình sẽ khó nuôi dưỡng khả năng suy nghĩ sâu sắc (\"画面を速くスクロールして読むだけでは、深い思考力が育ちにくいと指摘されています\"). Chính vì lý do đó (そのため), tầm quan trọng của việc dành thời gian nghiền ngẫm một cuốn sách đã dần được nhìn nhận lại (câu [12]).\n- Phương án 0 nêu đúng lý do được tác giả trình bày.\n- Phương án 1 sai vì bài không hề nhắc đến tác hại về mắt hay thể chất khi nhìn màn hình.\n- Phương án 2 sai vì bài không nhắc tới chi phí tốn kém khi mượn sách điện tử.\n- Phương án 3 sai vì thông tin người trẻ hoàn toàn không đọc sách và suy giảm từ vựng là suy diễn vô căn cứ, không có trong bài.",
+          "tip": "Khi câu hỏi hỏi lý do (なぜ, どうして) cho một kết luận đi kèm từ nối chỉ kết quả như 「そのため」, nguyên nhân trực tiếp thường nằm ngay ở 1-2 câu liền trước đó.",
+          "evi": [
+            10,
+            11,
+            12
+          ],
+          "qt": {
+            "q": "Trong bài có câu 「一冊の本に向き合うことの大切さが見直されてきた」 (tầm quan trọng của việc dành thời gian cho một cuốn sách đang được nhìn nhận lại); đó là vì sao?",
+            "o": [
+              "Vì chỉ lướt đọc những thông tin ngắn trên điện thoại thông minh thì khó phát triển năng lực tư duy sâu.",
+              "Vì nhìn màn hình sách điện tử trong thời gian dài sẽ gây ảnh hưởng xấu đến cơ thể và thị lực.",
+              "Vì dịch vụ mượn sách điện tử qua Internet tốn nhiều chi phí.",
+              "Vì người trẻ đã hoàn toàn ngừng đọc sách, khiến vốn từ vựng suy giảm nghiêm trọng."
+            ]
+          }
+        },
+        {
+          "q": "これからの読書習慣について、筆者はどのように考えていると推測できるか。",
+          "options": [
+            "デジタル機器は思考力を低下させるため、すべて紙の本に戻すべきである。",
+            "効率的な電子書籍のみを利用し、紙の本を読む時間は減らしていくべきである。",
+            "デジタルの効率性と紙の本による深い読書時間の両方を主体的に活かすべきである。",
+            "道具の便利さに任せて、特に自分自身の読書習慣を変える必要はない。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào các câu [15], [16] và [19]: Tác giả nhấn mạnh chúng ta cần tiếp tục kết hợp nhuần nhuyễn ưu điểm của cả công nghệ số lẫn sách giấy (\"デジタルと紙の良さをうまく組み合わせていく必要があります\"), vừa tận dụng tính hiệu quả của thiết bị số để gom thông tin vừa dành thời gian tĩnh tâm bên trang sách giấy (câu [16]), đồng thời chủ động điều chỉnh thói quen đọc của mình chứ không phụ thuộc thụ động vào máy móc (câu [19]).\n- Phương án 2 tóm lược đúng tư tưởng chủ đạo và toàn diện này của tác giả.\n- Phương án 0 sai vì tác giả không bài trừ kỹ thuật số hay bắt buộc phải bỏ hết để quay về 100% sách giấy.\n- Phương án 1 sai vì đi ngược lại lời khuyên trân trọng giá trị của sách giấy.\n- Phương án 3 sai vì trái ngược hoàn toàn với lời khuyên ở câu [19] (cần chủ động xem xét lại chứ không phó mặc cho công cụ).",
+          "tip": "Với câu hỏi suy luận thái độ/quan điểm tác giả (筆者の考え), hãy chú ý đoạn kết bài và các mẫu câu thể hiện sự nhìn nhận, khuyến nghị như 「〜必要がある」, 「〜大切だ」, 「〜べきでしょう」.",
+          "evi": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Có thể suy ra tác giả nghĩ như thế nào về thói quen đọc sách trong tương lai?",
+            "o": [
+              "Vì thiết bị kỹ thuật số làm suy giảm năng lực tư duy, chúng ta nên quay lại hoàn toàn với sách giấy.",
+              "Chúng ta nên chỉ sử dụng sách điện tử hiệu quả và giảm thời gian đọc sách giấy.",
+              "Chúng ta nên chủ động tận dụng cả tính hiệu quả của công nghệ số lẫn thời gian đọc sâu với sách giấy.",
+              "Chúng ta nên để sự tiện lợi của các công cụ quyết định và không cần thay đổi thói quen đọc sách của bản thân."
+            ]
+          }
+        },
+        {
+          "q": "本文中の「変化しつつあります」や「広がっていくでしょう」という表現から読み取れる筆者の視点として最も適切なものはどれか。",
+          "options": [
+            "読書環境の変化はすでに過去に完了しており、今後は大きな変化が起きないという視点。",
+            "読書環境が現在進行形で変化しており、その動きが将来に向かってさらに続いていくという視点。",
+            "デジタル化による変化は一時的な流行にすぎず、すぐに元の状態に戻るだろうという視点。",
+            "地域の図書館が変化しているものの、利用者の関心は今後急速に失われていくという視点。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào sắc thái ngữ pháp trọng tâm của bài:\n- Mẫu 「〜つつある」 (câu [1], [9]) diễn tả quá trình đang từng bước chuyển mình ở hiện tại.\n- Mẫu 「〜ていく」 (câu [8], [15], [18]) diễn tả sự tiếp nối và mở rộng hướng tới tương lai xa.\nQua các diễn đạt này, tác giả nhìn nhận sự chuyển đổi trong cách đọc và mô hình thư viện là một tiến trình đang diễn ra mạnh mẽ và sẽ tiếp tục lan rộng, đồng hành cùng sự phát triển của xã hội trong tương lai.\n- Phương án 1 giải thích chính xác sự kết hợp giữa tiến trình hiện tại và xu hướng tương lai.\n- Phương án 0 sai vì cho rằng sự việc 'đã hoàn tất trong quá khứ', trái với bản chất của cả hai mẫu ngữ pháp.\n- Phương án 2 sai vì cho rằng đây là 'trào lưu nhất thời sắp trở về như cũ', sai lệch hoàn toàn nhận định của bài.\n- Phương án 3 sai vì bài viết mang cái nhìn tích cực về sự lan tỏa, không hề nói người dân sẽ mất dần sự quan tâm.",
+          "tip": "Đối với các câu hỏi về sắc thái ngữ pháp (文法・表現のニュアンス), hãy nhớ: 「〜つつある」 biểu thị quá trình đang tiến triển dần ở hiện tại, còn 「〜ていく」 biểu thị sự tiếp diễn/thay đổi kéo dài từ hiện tại đến tương lai.",
+          "evi": [
+            1,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Từ những cách diễn đạt trong bài như 「変化しつつあります」 (đang dần thay đổi) và 「広がっていくでしょう」 (có lẽ sẽ tiếp tục lan rộng), đâu là góc nhìn phù hợp nhất của tác giả?",
+            "o": [
+              "Góc nhìn cho rằng sự thay đổi trong môi trường đọc sách đã hoàn tất trong quá khứ và sẽ không có thay đổi lớn nào trong tương lai.",
+              "Góc nhìn cho rằng môi trường đọc sách đang thay đổi và xu hướng đó sẽ tiếp tục trong tương lai.",
+              "Góc nhìn cho rằng sự thay đổi do số hóa chỉ là trào lưu nhất thời và sẽ sớm trở lại trạng thái ban đầu.",
+              "Góc nhìn cho rằng dù các thư viện địa phương đang thay đổi, sự quan tâm của người sử dụng sẽ nhanh chóng giảm sút trong tương lai."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "【みどりフィットネスクラブ】春の健康応援キャンペーンのご案内",
+      "titleVi": "【Câu lạc bộ thể hình Midori】Thông báo chiến dịch cổ vũ sức khỏe mùa xuân",
+      "japanese": "【みどりフィットネスクラブ】春の健康応援キャンペーンのご案内\n最近はデスクワークが増え、日頃の運動不足を感じる方が多くなりつつあります。\nまた、健康への意識が高まり、定期的にジムへ通う人も増えつつあります。\n開館以来、会員の皆様からは「体力がついてきた」「階段が楽になってきた」との声が寄せられています。\n当クラブでは、無理のない運動を続けていくことで、どなたでも理想の体を手に入れられるようになります。\nプラン名｜利用可能時間｜月額料金｜利用条件\nデイ会員｜平日 10:00〜17:00｜6,000円｜平日昼間のみ利用可能\nナイト会員｜平日 17:00〜23:00｜7,500円｜平日の夜間のみ利用可能\nホリデー会員｜土日・祝日 9:00〜21:00｜7,000円｜土日祝日のみ利用可能\nフルタイム会員｜全日 9:00〜23:00｜9,500円｜すべての営業時間で利用可能\n※学生の方は学生証を提示していただければ、全プランの月額料金から1,000円引きとなります。\n※2名以上で同時に申し込む「ペア割引」なら、初月の月額料金が半額になります。\n※入会金5,000円は、3か月以上継続して利用する方のみ無料とさせていただきます。\n※プールやサウナをご利用の場合は、別途オプション料金（月額1,500円）が必要となります。\n皆様が快適に過ごせるよう、利用後の器具は必ず各自で消毒するようにしてください。\n私たちはこれからも地域の皆様の健康を全力でサポートし続けていきます。",
+      "vietnamese": "【Câu lạc bộ thể hình Midori】Thông báo chiến dịch cổ vũ sức khỏe mùa xuân\nGần đây công việc bàn giấy gia tăng, số người cảm thấy thiếu vận động thường ngày đang ngày càng nhiều lên.\nNgoài ra, ý thức về sức khỏe nâng cao, số người đi đến phòng tập định kỳ cũng đang dần tăng lên.\nKể từ khi mở cửa đến nay, từ các hội viên đã có nhiều phản hồi gửi về như 'thể lực đã dần tăng lên', 'đi cầu thang đã bắt đầu thấy nhẹ nhàng hơn'.\nTại câu lạc bộ của chúng tôi, bằng việc tiếp tục duy trì vận động vừa sức, bất kỳ ai cũng sẽ dần có được thân hình lý tưởng.\nTên gói｜Khung giờ có thể sử dụng｜Mức phí hàng tháng｜Điều kiện sử dụng\nHội viên Day｜Ngày thường 10:00〜17:00｜6.000 yên｜Chỉ có thể sử dụng vào ban ngày của ngày thường\nHội viên Night｜Ngày thường 17:00〜23:00｜7.500 yên｜Chỉ có thể sử dụng vào buổi tối ngày thường\nHội viên Holiday｜Thứ 7, CN, ngày lễ 9:00〜21:00｜7.000 yên｜Chỉ có thể sử dụng vào thứ 7, CN và ngày lễ\nHội viên Fulltime｜Tất cả các ngày 9:00〜23:00｜9.500 yên｜Có thể sử dụng trong toàn bộ giờ mở cửa\n※Đối với học sinh/sinh viên, nếu xuất trình thẻ học sinh/sinh viên sẽ được giảm 1.000 yên vào phí hàng tháng của tất cả các gói.\n※Nếu dùng 'Giảm giá cặp đôi' đăng ký cùng lúc từ 2 người trở lên, phí hàng tháng của tháng đầu tiên sẽ được giảm một nửa.\n※Phí nhập hội 5.000 yên sẽ được miễn phí chỉ dành riêng cho những ai cam kết sử dụng liên tục từ 3 tháng trở lên.\n※Trường hợp sử dụng bể bơi hoặc phòng xông hơi sauna, cần trả thêm phí tùy chọn riêng (1.500 yên/tháng).\nĐể mọi người có thể sinh hoạt thoải mái, xin vui lòng luôn tự giác khử trùng dụng cụ sau khi sử dụng.\nChúng tôi từ nay về sau cũng sẽ tiếp tục hết sức hỗ trợ sức khỏe của mọi người trong khu vực.",
+      "sentences": [
+        {
+          "jp": "【みどりフィットネスクラブ】春の健康応援キャンペーンのご案内",
+          "vi": "【Câu lạc bộ thể hình Midori】Thông báo chiến dịch cổ vũ sức khỏe mùa xuân",
+          "vocab": [
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "フィットネスクラブ",
+              "read": "ふぃっとねすくらぶ",
+              "vi": "câu lạc bộ thể hình"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "応援",
+              "read": "おうえん",
+              "vi": "cổ vũ, hỗ trợ"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "キャンペーン",
+              "vi": "chương trình khuyến mãi"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "thông báo, hướng dẫn"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "健康応援キャンペーン",
+              "why": "Tên chiến dịch ưu đãi sức khỏe mùa xuân của câu lạc bộ."
+            }
+          ]
+        },
+        {
+          "jp": "最近はデスクワークが増え、日頃の運動不足を感じる方が多くなりつつあります。",
+          "vi": "Gần đây công việc bàn giấy gia tăng, số người cảm thấy thiếu vận động thường ngày đang ngày càng nhiều lên.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "デスク",
+              "read": "デスク",
+              "vi": "bàn làm việc (desk)"
+            },
+            {
+              "w": "ワーク",
+              "read": "ワーク",
+              "vi": "công việc, sự lao động"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "日頃",
+              "read": "ひごろ",
+              "vi": "thường ngày, ngày thường"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "デスクワーク",
+              "read": "ですくわーく",
+              "vi": "công việc văn phòng, bàn giấy"
+            },
+            {
+              "w": "運動不足",
+              "read": "うんどうぶそく",
+              "vi": "thiếu vận động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つつある",
+              "vi": "Đang dần dần, trong quá trình biến đổi từng chút một."
+            }
+          ],
+          "keys": [
+            {
+              "w": "多くなりつつあります",
+              "why": "Chỉ xu hướng số lượng người thiếu vận động đang tăng dần lên."
+            }
+          ]
+        },
+        {
+          "jp": "また、健康への意識が高まり、定期的にジムへ通う人も増えつつあります。",
+          "vi": "Ngoài ra, ý thức về sức khỏe nâng cao, số người đi đến phòng tập định kỳ cũng đang dần tăng lên.",
+          "vocab": [
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khoẻ"
+            },
+            {
+              "w": "意識",
+              "read": "いしき",
+              "vi": "ý thức, nhận thức"
+            },
+            {
+              "w": "高まる",
+              "read": "たかまる",
+              "vi": "tăng cao, dâng cao"
+            },
+            {
+              "w": "定期",
+              "read": "ていき",
+              "vi": "định kỳ, vé tháng"
+            },
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng tập thể dục (gym)"
+            },
+            {
+              "w": "通う",
+              "read": "かよう",
+              "vi": "lui tới, đi lại thường xuyên"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "定期的に",
+              "read": "ていきてきに",
+              "vi": "một cách định kỳ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つつある",
+              "vi": "Đang trong tiến trình biến đổi dần dần."
+            }
+          ],
+          "keys": [
+            {
+              "w": "増えつつあります",
+              "why": "Chỉ xu hướng ngày càng có nhiều người đến phòng gym đều đặn."
+            }
+          ]
+        },
+        {
+          "jp": "開館以来、会員の皆様からは「体力がついてきた」「階段が楽になってきた」との声が寄せられています。",
+          "vi": "Kể từ khi mở cửa đến nay, từ các hội viên đã có nhiều phản hồi gửi về như 'thể lực đã dần tăng lên', 'đi cầu thang đã bắt đầu thấy nhẹ nhàng hơn'.",
+          "vocab": [
+            {
+              "w": "開館",
+              "read": "かいかん",
+              "vi": "sự mở cửa tòa nhà"
+            },
+            {
+              "w": "以来",
+              "read": "いらい",
+              "vi": "kể từ đó, từ đó về sau"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị (kính ngữ)"
+            },
+            {
+              "w": "体力",
+              "read": "たいりょく",
+              "vi": "thể lực"
+            },
+            {
+              "w": "階段",
+              "read": "かいだん",
+              "vi": "cầu thang"
+            },
+            {
+              "w": "楽",
+              "read": "らく",
+              "vi": "thoải mái, nhẹ nhàng"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "寄せる",
+              "read": "よせる",
+              "vi": "gửi đến, đóng góp"
+            },
+            {
+              "w": "開館以来",
+              "read": "かいかんいらい",
+              "vi": "kể từ khi mở cửa đến nay"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくる（変化）",
+              "vi": "Chỉ sự biến đổi trạng thái đã và đang diễn ra từ quá khứ đến hiện tại."
+            }
+          ],
+          "keys": [
+            {
+              "w": "体力がついてきた",
+              "why": "Ý kiến thực tế của hội viên về việc thể lực đã dần cải thiện qua thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "当クラブでは、無理のない運動を続けていくことで、どなたでも理想の体を手に入れられるようになります。",
+          "vi": "Tại câu lạc bộ của chúng tôi, bằng việc tiếp tục duy trì vận động vừa sức, bất kỳ ai cũng sẽ dần có được thân hình lý tưởng.",
+          "vocab": [
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "無理のない",
+              "read": "むりのない",
+              "vi": "vừa sức, không quá sức"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "理想",
+              "read": "りそう",
+              "vi": "lý tưởng"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "手に入れる",
+              "read": "てにいれる",
+              "vi": "đạt được, có được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく（変化・継続）",
+              "vi": "Tiếp tục hành động hoặc hướng biến đổi từ hiện tại đến tương lai."
+            },
+            {
+              "point": "〜ようになる",
+              "vi": "Trở nên có thể làm được điều gì đó (thay đổi trạng thái/khả năng)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "続けていくこと",
+              "why": "Nhấn mạnh việc duy trì việc tập luyện liên tục hướng về tương lai."
+            },
+            {
+              "w": "手に入れられるようになります",
+              "why": "Chỉ kết quả dần dần đạt được thể trạng mong muốn."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜利用可能時間｜月額料金｜利用条件",
+          "vi": "Tên gói｜Khung giờ có thể sử dụng｜Mức phí hàng tháng｜Điều kiện sử dụng",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "利用可能時間",
+              "read": "りようかのうじかん",
+              "vi": "thời gian có thể sử dụng"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "tiền phí hàng tháng"
+            },
+            {
+              "w": "利用条件",
+              "read": "りようじょうけん",
+              "vi": "điều kiện sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "利用可能時間",
+              "why": "Cột tiêu chí để đối chiếu khung giờ tập của từng gói."
+            },
+            {
+              "w": "月額料金",
+              "why": "Cột mức phí cơ bản hàng tháng của từng hạng hội viên."
+            }
+          ]
+        },
+        {
+          "jp": "デイ会員｜平日 10:00〜17:00｜6,000円｜平日昼間のみ利用可能",
+          "vi": "Hội viên Day｜Ngày thường 10:00〜17:00｜6.000 yên｜Chỉ có thể sử dụng vào ban ngày của ngày thường",
+          "vocab": [
+            {
+              "w": "デイ",
+              "read": "デイ",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ 2 đến thứ 6)"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "デイ会員",
+              "read": "でいかいいん",
+              "vi": "hội viên ban ngày"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "平日 10:00〜17:00",
+              "why": "Khung giờ quy định cho gói hội viên ban ngày."
+            },
+            {
+              "w": "6,000円",
+              "why": "Mức phí tháng của gói Day."
+            }
+          ]
+        },
+        {
+          "jp": "ナイト会員｜平日 17:00〜23:00｜7,500円｜平日の夜間のみ利用可能",
+          "vi": "Hội viên Night｜Ngày thường 17:00〜23:00｜7.500 yên｜Chỉ có thể sử dụng vào buổi tối ngày thường",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "buổi tối, ban đêm"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "ナイト会員",
+              "read": "ないとかいいん",
+              "vi": "hội viên buổi tối"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "平日 17:00〜23:00",
+              "why": "Khung giờ buổi tối ngày thường (căn cứ chọn gói cho câu hỏi 1)."
+            },
+            {
+              "w": "7,500円",
+              "why": "Mức phí gốc hàng tháng của gói Night (dữ liệu tính toán câu hỏi 1)."
+            }
+          ]
+        },
+        {
+          "jp": "ホリデー会員｜土日・祝日 9:00〜21:00｜7,000円｜土日祝日のみ利用可能",
+          "vi": "Hội viên Holiday｜Thứ 7, CN, ngày lễ 9:00〜21:00｜7.000 yên｜Chỉ có thể sử dụng vào thứ 7, CN và ngày lễ",
+          "vocab": [
+            {
+              "w": "ホリデー",
+              "read": "ホリデー",
+              "vi": "ngày nghỉ, kỳ nghỉ"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ, ngày quốc lễ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "ホリデー会員",
+              "read": "ほりでーかいいん",
+              "vi": "hội viên ngày nghỉ/cuối tuần"
+            },
+            {
+              "w": "土日・祝日",
+              "read": "どにち・しゅくじつ",
+              "vi": "thứ 7, chủ nhật và ngày lễ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "土日・祝日 9:00〜21:00",
+              "why": "Khung giờ cuối tuần và ngày lễ (căn cứ chọn gói cho câu hỏi 2)."
+            },
+            {
+              "w": "7,000円",
+              "why": "Mức phí gốc hàng tháng của gói Holiday (dữ liệu tính toán câu hỏi 2)."
+            }
+          ]
+        },
+        {
+          "jp": "フルタイム会員｜全日 9:00〜23:00｜9,500円｜すべての営業時間で利用可能",
+          "vi": "Hội viên Fulltime｜Tất cả các ngày 9:00〜23:00｜9.500 yên｜Có thể sử dụng trong toàn bộ giờ mở cửa",
+          "vocab": [
+            {
+              "w": "フルタイム",
+              "read": "フルタイム",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "tất cả các ngày"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "営業",
+              "read": "えいぎょう",
+              "vi": "hoạt động kinh doanh, mở cửa"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "フルタイム会員",
+              "read": "ふるたいむかいいん",
+              "vi": "hội viên toàn thời gian"
+            },
+            {
+              "w": "営業時間",
+              "read": "えいぎょうじかん",
+              "vi": "giờ mở cửa kinh doanh"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "全日 9:00〜23:00",
+              "why": "Khung giờ không giới hạn tất cả các ngày trong tuần."
+            },
+            {
+              "w": "9,500円",
+              "why": "Mức phí hàng tháng của gói Fulltime."
+            }
+          ]
+        },
+        {
+          "jp": "※学生の方は学生証を提示していただければ、全プランの月額料金から1,000円引きとなります。",
+          "vi": "※Đối với học sinh/sinh viên, nếu xuất trình thẻ học sinh/sinh viên sẽ được giảm 1.000 yên vào phí hàng tháng của tất cả các gói.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người, vị"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ sinh viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "いただければ",
+              "read": "いただければ",
+              "vi": "nếu vui lòng"
+            },
+            {
+              "w": "全",
+              "read": "ぜん",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói dịch vụ"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, giá tiền"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "円引き",
+              "read": "えんびき",
+              "vi": "giảm yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていただければ",
+              "vi": "接続: V-て + いただければ. Thể điều kiện khiêm nhường của 〜てもらう, dùng để đưa ra điều kiện/yêu cầu một cách lịch sự đối với hành động của đối phương (Nếu quý khách xuất trình... thì...)."
+            },
+            {
+              "point": "〜となる",
+              "vi": "接続: N + となる. Diễn tả sự hình thành kết quả hoặc quy định mang tính khách quan, trang trọng (được tính giảm 1.000 yên)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証を提示",
+              "why": "Điều kiện giảm giá dành cho đối tượng học sinh - sinh viên (căn cứ câu 1)."
+            },
+            {
+              "w": "1,000円引き",
+              "why": "Số tiền được giảm trừ hàng tháng cho sinh viên (dữ liệu tính toán câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "※2名以上で同時に申し込む「ペア割引」なら、初月の月額料金が半額になります。",
+          "vi": "※Nếu dùng 'Giảm giá cặp đôi' đăng ký cùng lúc từ 2 người trở lên, phí hàng tháng của tháng đầu tiên sẽ được giảm một nửa.",
+          "vocab": [
+            {
+              "w": "2名以上",
+              "read": "にめいいじょう",
+              "vi": "từ 2 người trở lên"
+            },
+            {
+              "w": "同時に",
+              "read": "どうじに",
+              "vi": "đồng thời"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng nộp"
+            },
+            {
+              "w": "ペア",
+              "read": "ペア",
+              "vi": "cặp đôi"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "ペア割引",
+              "read": "ペアわりびき",
+              "vi": "giảm giá cặp đôi"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu tiên"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, giá tiền"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "một nửa giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら",
+              "vi": "接続: N + なら (đứng sau danh từ/tên gói khuyến mãi). Dùng để đưa ra điều kiện, giả định về đối tượng/tình huống được nhắc đến (Nếu là gói 'giảm giá theo cặp' thì...)."
+            },
+            {
+              "point": "〜になる",
+              "vi": "接続: N + になる. Diễn tả sự biến đổi trạng thái sang một mức/tình trạng mới (trở thành nửa giá / được giảm còn một nửa)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "2名以上で同時に申し込む",
+              "why": "Điều kiện áp dụng gói giảm giá đôi (căn cứ câu 2)."
+            },
+            {
+              "w": "初月の月額料金が半額",
+              "why": "Ưu đãi giảm 50% tiền tháng đầu tiên (dữ liệu tính toán câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "※入会金5,000円は、3か月以上継続して利用する方のみ無料とさせていただきます。",
+          "vi": "※Phí nhập hội 5.000 yên sẽ được miễn phí chỉ dành riêng cho những ai cam kết sử dụng liên tục từ 3 tháng trở lên.",
+          "vocab": [
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "gia nhập, đăng ký thành viên"
+            },
+            {
+              "w": "入会金",
+              "read": "にゅうかいきん",
+              "vi": "phí gia nhập"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "3か月以上",
+              "read": "さんかげついじょう",
+              "vi": "từ 3 tháng trở lên"
+            },
+            {
+              "w": "継続して",
+              "read": "けいぞくして",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "利用する",
+              "read": "りようする",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người, vị"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜（さ）せていただく",
+              "vi": "接続: V-使役て形 + いただく / させていただきます. Khiêm nhường ngữ trang trọng diễn tả việc người nói/bên dịch vụ xin phép thực hiện một quyết định đối với khách hàng (chúng tôi xin phép được miễn phí...)."
+            },
+            {
+              "point": "〜のみ",
+              "vi": "接続: N + のみ. Trợ từ giới hạn mang sắc thái trang trọng, văn phong viết (chỉ dành riêng cho người...)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3か月以上継続",
+              "why": "Thời gian tối thiểu để được miễn phí nhập hội (căn cứ cả câu 1 và câu 2)."
+            },
+            {
+              "w": "無料",
+              "why": "Được miễn trừ 5.000 yên phí nhập hội nếu dùng từ 3 tháng trở lên."
+            }
+          ]
+        },
+        {
+          "jp": "※プールやサウナをご利用の場合は、別途オプション料金（月額1,500円）が必要となります。",
+          "vi": "※Trường hợp sử dụng bể bơi hoặc phòng xông hơi sauna, cần trả thêm phí tùy chọn riêng (1.500 yên/tháng).",
+          "vocab": [
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "サウナ",
+              "read": "さうな",
+              "vi": "phòng xông hơi sauna"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "別途",
+              "read": "べっと",
+              "vi": "riêng biệt, thêm ngoài"
+            },
+            {
+              "w": "オプション",
+              "read": "オプション",
+              "vi": "tùy chọn, dịch vụ thêm"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "オプション料金",
+              "read": "おぷしょんりょうきん",
+              "vi": "phí tùy chọn bổ sung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合（は）",
+              "vi": "接続: N + の + 場合 / V(thể thông thường) + 場合. Nêu lên tình huống, trường hợp giả định cụ thể (Trong trường hợp sử dụng bể bơi hoặc phòng xông hơi...)."
+            },
+            {
+              "point": "〜となる",
+              "vi": "接続: N + となる. Diễn tả kết quả, quy định mang tính khách quan và trang trọng (phát sinh/cần có thêm khoản phí...)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "プールやサウナ",
+              "why": "Các dịch vụ tiện ích bổ sung ngoài phòng tập (căn cứ câu 2)."
+            },
+            {
+              "w": "月額1,500円",
+              "why": "Mức phí cộng thêm hàng tháng cho bơi và xông hơi (dữ liệu tính toán câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "皆様が快適に過ごせるよう、利用後の器具は必ず各自で消毒するようにしてください。",
+          "vi": "Để mọi người có thể sinh hoạt thoải mái, xin vui lòng luôn tự giác khử trùng dụng cụ sau khi sử dụng.",
+          "vocab": [
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị (kính ngữ)"
+            },
+            {
+              "w": "快適",
+              "read": "かいてき",
+              "vi": "thoải mái, dễ chịu"
+            },
+            {
+              "w": "過ごせる",
+              "read": "すごせる",
+              "vi": "có thể trải qua, sống"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "器具",
+              "read": "きぐ",
+              "vi": "dụng cụ, thiết bị tập"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "各自",
+              "read": "かくじ",
+              "vi": "mỗi người, tự thân"
+            },
+            {
+              "w": "消毒",
+              "read": "しょうどく",
+              "vi": "khử trùng, sát khuẩn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようにする",
+              "vi": "Cố gắng, chú ý thực hiện một hành động/thói quen."
+            }
+          ],
+          "keys": [
+            {
+              "w": "消毒するようにしてください",
+              "why": "Quy tắc bắt buộc khử trùng dụng cụ sau khi tập để giữ vệ sinh chung."
+            }
+          ]
+        },
+        {
+          "jp": "私たちはこれからも地域の皆様の健康を全力でサポートし続けていきます。",
+          "vi": "Chúng tôi từ nay về sau cũng sẽ tiếp tục hết sức hỗ trợ sức khỏe của mọi người trong khu vực.",
+          "vocab": [
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi/chúng ta"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay, từ giờ"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị mọi người"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "全力",
+              "read": "ぜんりょく",
+              "vi": "toàn lực"
+            },
+            {
+              "w": "サポート",
+              "read": "サポート",
+              "vi": "hỗ trợ"
+            },
+            {
+              "w": "続けて",
+              "read": "つづけて",
+              "vi": "tiếp tục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく（継続）",
+              "vi": "Tiếp tục duy trì hành động hướng tới tương lai."
+            }
+          ],
+          "keys": [
+            {
+              "w": "サポートし続けていきます",
+              "why": "Cam kết đồng hành lâu dài trong tương lai của phòng tập."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "多くなりつつあります",
+          "label": "〜つつある（N3）"
+        },
+        {
+          "excerpt": "増えつつあります",
+          "label": "〜つつある（N3）"
+        },
+        {
+          "excerpt": "続けていくこと",
+          "label": "〜ていく（N3）"
+        },
+        {
+          "excerpt": "サポートし続けていきます",
+          "label": "〜ていく（N3）"
+        },
+        {
+          "excerpt": "体力がついてきた",
+          "label": "〜てくる（N3）"
+        },
+        {
+          "excerpt": "手に入れられるようになります",
+          "label": "〜ようになる（N3）"
+        },
+        {
+          "excerpt": "消毒するようにしてください",
+          "label": "〜ようにする（N3）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 4,
+          "kind": "intro",
+          "label": "キャンペーンの導入と健康意識の変化",
+          "topic": 0,
+          "note": "Giới thiệu bối cảnh nhu cầu tập luyện tăng và mục tiêu hỗ trợ sức khỏe của câu lạc bộ.",
+          "qs": []
+        },
+        {
+          "from": 5,
+          "to": 9,
+          "kind": "body",
+          "label": "会員プラン一覧（利用時間・料金）",
+          "topic": 5,
+          "note": "Bảng chi tiết 4 gói hội viên theo khung giờ và mức phí hàng tháng.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 13,
+          "kind": "point",
+          "label": "割引特典および追加オプション条件",
+          "topic": 10,
+          "note": "Các lưu ý về giảm giá học sinh, giảm giá cặp đôi, miễn phí nhập hội và phí phụ thu bơi/xông hơi.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 14,
+          "to": 15,
+          "kind": "turn",
+          "label": "施設利用ルールと今後のサポート方針",
+          "topic": 14,
+          "note": "Quy định khử trùng dụng cụ sau khi tập và cam kết đồng hành lâu dài.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学院生のリーさん（学生）は、平日の夜（19:00以降）に1人でジムを利用したいと考えています。プールやサウナは利用せず、6か月間継続して通う予定です。学生証を提示して申し込む場合、リーさんが「初月（最初の1か月目）」に支払う金額はいくらですか。",
+          "options": [
+            "6,500円",
+            "7,500円",
+            "11,500円",
+            "12,500円"
+          ],
+          "answer": 0,
+          "explainVi": "1. Về khung giờ: Lee muốn tập vào buổi tối ngày thường (sau 19:00), đối chiếu bảng thì phù hợp với gói 「ナイト会員」 (7.500 yên/tháng, khung giờ 17:00〜23:00 ngày thường, dòng 7).\n2. Về đối tượng: Lee là sinh viên và có xuất trình thẻ sinh viên, theo dòng 10 sẽ được giảm 1.000 yên/tháng cho tất cả các gói -> Tiền tháng còn: 7.500 - 1.000 = 6.500 yên.\n3. Về phí nhập hội: Lee đăng ký tập 6 tháng (trên 3 tháng), theo dòng 12 sẽ được miễn phí 5.000 yên tiền nhập hội.\n4. Các điều kiện khác: Lee không dùng hồ bơi/sauna (không tốn 1.500 yên) và đăng ký 1 mình (không áp dụng giảm giá đôi).\n-> Tổng số tiền Lee phải trả trong tháng đầu tiên là: 6.500 + 0 = 6.500 yên.",
+          "tip": "Khi giải bài toán chi phí thông tin tra cứu, hãy lập danh sách các điều kiện: (1) Khung giờ -> Gói cước cơ bản, (2) Đối tượng ưu đãi -> Mức giảm trừ hàng tháng, (3) Thời gian cam kết -> Có được miễn phí nhập hội không, (4) Dịch vụ kèm theo -> Phí phụ thu nếu có.",
+          "evi": [
+            7,
+            10,
+            12
+          ],
+          "qt": {
+            "q": "Nghiên cứu sinh Lee (là sinh viên) muốn tập ở phòng gym một mình vào buổi tối ngày thường (sau 19:00). Lee không sử dụng hồ bơi hay phòng xông hơi và dự định tiếp tục đến tập trong 6 tháng. Nếu xuất trình thẻ sinh viên khi đăng ký, Lee phải trả bao nhiêu tiền trong 「初月（最初の1か月目）」(tháng đầu tiên)?",
+            "o": [
+              "6.500 yên",
+              "7.500 yên",
+              "11.500 yên",
+              "12.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "会社員の田中さんは、休日の土曜日か日曜日の午後にジムを利用し、あわせてプールやサウナも利用したいと考えています。同僚と2名で同時に申し込み、1年間継続して通う予定です。田中さんが「初月（最初の1か月目）」に支払う金額はいくらですか。",
+          "options": [
+            "3,500円",
+            "5,000円",
+            "8,500円",
+            "10,000円"
+          ],
+          "answer": 1,
+          "explainVi": "1. Về khung giờ: Tanaka muốn tập vào chiều thứ 7 hoặc Chủ Nhật, đối chiếu bảng phù hợp với gói 「ホリデー会員」 (7.000 yên/tháng, 9:00〜21:00 thứ 7/CN/lễ, dòng 8).\n2. Về ưu đãi nhóm: Tanaka đăng ký cùng lúc với 1 đồng nghiệp (tổng 2 người), đủ điều kiện hưởng 「ペア割引」 ở dòng 11 -> Phí gói cước tháng đầu tiên được giảm một nửa (50%): 7.000 / 2 = 3.500 yên.\n3. Về dịch vụ kèm theo: Tanaka muốn dùng thêm hồ bơi và phòng xông hơi sauna, theo dòng 13 phải đóng thêm phí tùy chọn là 1.500 yên/tháng.\n4. Về phí nhập hội: Tanaka đăng ký 1 năm (trên 3 tháng), theo dòng 12 được miễn phí nhập hội 5.000 yên.\n-> Tổng chi phí tháng đầu tiên Tanaka phải trả là: 3.500 (tiền gói giảm nửa) + 1.500 (phí bơi/sauna) + 0 (phí nhập hội) = 5.000 yên.",
+          "tip": "Chú ý phân biệt ưu đãi giảm giá tác động vào tiền gói hàng tháng (như giảm 50% tháng đầu) và các khoản phụ phí cố định (như phí bơi/sauna 1.500 yên), sau đó cộng dồn lại để ra tổng chi phí tháng đầu.",
+          "evi": [
+            8,
+            11,
+            12,
+            13
+          ],
+          "qt": {
+            "q": "Anh Tanaka, một nhân viên công ty, muốn sử dụng phòng gym vào buổi chiều ngày thứ Bảy hoặc Chủ nhật, đồng thời cũng muốn sử dụng hồ bơi và phòng xông hơi. Anh ấy dự định đăng ký cùng lúc với một đồng nghiệp (2 người) và tiếp tục đến tập trong 1 năm. Anh Tanaka phải trả bao nhiêu tiền trong 「初月（最初の1か月目）」(tháng đầu tiên)?",
+            "o": [
+              "3.500 yên",
+              "5.000 yên",
+              "8.500 yên",
+              "10.000 yên"
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

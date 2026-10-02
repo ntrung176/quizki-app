@@ -1,0 +1,3928 @@
+{
+  "bai": 17,
+  "level": "N5",
+  "intro": "Vないでください · Vなければなりません · Vなくてもいいです · Nまでに. Có ÔN LẠI ngữ pháp đã học (bài 1-16) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "毎日、薬を飲まなければなりません。",
+              "ul": "毎日",
+              "choices": [
+                "まいにち",
+                "まいじつ",
+                "めいにち",
+                "まいひ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎日」đọc là「まいにち」(mai-ni-chi). Đây là cách đọc on'yomi kết hợp: 毎=まい, 日=にち. ① まいにち — ĐÚNG, cách đọc chuẩn trong từ ghép này. ② まいじつ — SAI, 日 có âm on「じつ」nhưng trong「毎日」không dùng âm đó; まいじつ không phải từ thông dụng N5. ③ めいにち — SAI, 毎 không đọc là「めい」; 命日(めいにち) là từ khác (ngày giỗ), không liên quan. ④ まいひ — SAI, 日 đọc kun'yomi là「ひ」(dùng khi đứng độc lập hoặc cuối số đếm ngày), nhưng trong「毎日」phải dùng on'yomi「にち」.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "vi": "mỗi ngày (từ cần đọc)"
+                },
+                {
+                  "t": "薬を飲まなければなりません",
+                  "read": "くすりをのまなければなりません",
+                  "vi": "phải uống thuốc"
+                }
+              ]
+            },
+            {
+              "prompt": "この部屋でタバコを吸ってはいけません。",
+              "ul": "部屋",
+              "choices": [
+                "へや",
+                "へいや",
+                "ぶや",
+                "ぶへや"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「部屋」đọc là「へや」. Đây là cách đọc đặc biệt (cụm kun'yomi): 部=へ, 屋=や. ① へや — ĐÚNG, cách đọc duy nhất đúng của từ này. ② へいや — SAI, thêm âm「い」không có trong từ; đây là bẫy kéo dài âm sai. ③ ぶや — SAI, 部 có âm on'yomi là「ぶ」nhưng trong「部屋」không dùng on'yomi; ぶや không phải từ tiếng Nhật. ④ ぶへや — SAI, đọc lẫn lộn cả on lẫn kun theo kiểu sai, tạo ra chuỗi âm không tồn tại.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "này"
+                },
+                {
+                  "t": "部屋",
+                  "vi": "căn phòng (từ cần đọc)"
+                },
+                {
+                  "t": "タバコを吸ってはいけません",
+                  "read": "タバコをすってはいけません",
+                  "vi": "không được hút thuốc lá"
+                }
+              ]
+            },
+            {
+              "prompt": "授業の前に宿題をしなければなりません。",
+              "ul": "前",
+              "choices": [
+                "まえ",
+                "ぜん",
+                "さき",
+                "ちか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「前」trong ngữ cảnh「授業の前に」đọc là「まえ」(kun'yomi), nghĩa là 'trước'. ① まえ — ĐÚNG, kun'yomi「まえ」dùng khi chỉ vị trí/thứ tự thời gian. ② ぜん — SAI, on'yomi của 前 là「ぜん」nhưng chỉ dùng trong từ ghép như「以前(いぜん)」, không dùng đơn lẻ với の・に. ③ さき — SAI, 先 mới đọc là「さき」(phía trước theo hướng), còn 前 không đọc vậy. ④ ちか — SAI, 近 đọc là「ちか」(gần), hoàn toàn khác nghĩa và âm với 前.",
+              "glosses": [
+                {
+                  "t": "授業の",
+                  "read": "じゅぎょうの",
+                  "vi": "của buổi học"
+                },
+                {
+                  "t": "前に",
+                  "vi": "trước (từ cần đọc)"
+                },
+                {
+                  "t": "宿題をしなければなりません",
+                  "read": "しゅくだいをしなければなりません",
+                  "vi": "phải làm bài tập về nhà"
+                }
+              ]
+            },
+            {
+              "prompt": "ここに車を止めてはいけません。",
+              "ul": "車",
+              "choices": [
+                "くるま",
+                "しゃ",
+                "くま",
+                "くろま"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「車」đọc là「くるま」(kun'yomi). ① くるま — ĐÚNG, kun'yomi duy nhất của 車, dùng khi từ đứng độc lập. ② しゃ — SAI, on'yomi của 車 là「しゃ」nhưng chỉ dùng trong từ ghép như「電車(でんしゃ)」, không dùng đơn lẻ. ③ くま — SAI, thiếu âm「る」ở giữa, là bẫy rút gọn âm sai; くま là con gấu (熊). ④ くろま — SAI, thêm âm「ろ」không có trong từ, dễ nhầm nếu không nắm chắc cách đọc.",
+              "glosses": [
+                {
+                  "t": "ここに",
+                  "vi": "ở đây"
+                },
+                {
+                  "t": "車",
+                  "vi": "xe hơi (từ cần đọc)"
+                },
+                {
+                  "t": "を止めてはいけません",
+                  "read": "をとめてはいけません",
+                  "vi": "không được đỗ"
+                }
+              ]
+            },
+            {
+              "prompt": "図書館では静かにしなければなりません。",
+              "ul": "図書館",
+              "choices": [
+                "としょかん",
+                "としょうかん",
+                "ずしょかん",
+                "としょがん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「図書館」đọc là「としょかん」(全on'yomi: 図=と, 書=しょ, 館=かん). ① としょかん — ĐÚNG. ② としょうかん — SAI, thêm âm「う」kéo dài sau「しょ」không đúng; đây là bẫy kéo dài âm phổ biến. ③ ずしょかん — SAI, 図 có on'yomi là「ず」trong một số từ (地図=ちず) nhưng trong「図書館」đọc là「と」, không phải「ず」. ④ としょがん — SAI, 館 đọc là「かん」(phụ âm vô thanh k-), không phải「がん」(phụ âm hữu thanh g-); にがん không phải biến thể hợp lệ ở đây.",
+              "glosses": [
+                {
+                  "t": "図書館では",
+                  "vi": "ở thư viện (từ cần đọc)"
+                },
+                {
+                  "t": "静かにしなければなりません",
+                  "read": "しずかにしなければなりません",
+                  "vi": "phải giữ yên lặng"
+                }
+              ]
+            },
+            {
+              "prompt": "試験の前に寝なくてもいいですか。",
+              "ul": "試験",
+              "choices": [
+                "しけん",
+                "しかん",
+                "じけん",
+                "しゅけん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「試験」đọc là「しけん」(試=し, 験=けん). ① しけん — ĐÚNG, âm on'yomi chuẩn, nghĩa là 'kỳ thi/bài kiểm tra'. ② しかん — SAI, 験 đọc「かん」không tồn tại; しかん là từ khác (士官 — sĩ quan). ③ じけん — SAI, 試 đọc「じ」không đúng (試 luôn là「し」vô thanh); じけん là 事件 (vụ án). ④ しゅけん — SAI, thêm âm「ゅ」không có; しゅけん là 主権 (chủ quyền), hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "試験の前に",
+                  "vi": "trước kỳ thi (từ cần đọc)"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước"
+                },
+                {
+                  "t": "寝なくてもいいですか",
+                  "read": "ねなくてもいいですか",
+                  "vi": "không ngủ cũng được không?"
+                }
+              ]
+            },
+            {
+              "prompt": "病院の中でスマホを使ってはいけません。",
+              "ul": "病院",
+              "choices": [
+                "びょういん",
+                "びょうえん",
+                "びょうかん",
+                "びょいん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「病院」đọc là「びょういん」(病=びょう, 院=いん). ① びょういん — ĐÚNG. ② びょうえん — SAI, 院 đọc「えん」là nhầm sang kanji khác (園=えん: công viên/vườn trẻ); bẫy thường gặp khi nhớ lẫn 院↔園. ③ びょうかん — SAI, 院 đọc「かん」không tồn tại trong từ này; đây là bẫy đổi vần cuối. ④ びょいん — SAI, rút bỏ âm「う」sau「びょ」, làm sai trường âm của 病.",
+              "glosses": [
+                {
+                  "t": "病院の中で",
+                  "vi": "trong bệnh viện (từ cần đọc)"
+                },
+                {
+                  "t": "中で",
+                  "read": "なかで",
+                  "vi": "bên trong"
+                },
+                {
+                  "t": "スマホを使ってはいけません",
+                  "read": "スマホをつかってはいけません",
+                  "vi": "không được dùng điện thoại thông minh"
+                }
+              ]
+            },
+            {
+              "prompt": "電車の中で大きい声で話してはいけません。",
+              "ul": "声",
+              "choices": [
+                "こえ",
+                "こい",
+                "せい",
+                "こうえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「声」đọc là「こえ」(kun'yomi), nghĩa là 'giọng/tiếng'. ① こえ — ĐÚNG, kun'yomi thông dụng nhất của 声. ② こい — SAI, bỏ mất âm「え」ở cuối; こい là 'tình yêu' (恋) hoặc 'cá koi', không liên quan. ③ せい — SAI, on'yomi của 声 là「せい」nhưng chỉ dùng trong từ ghép như「声優(せいゆう)」, không dùng đơn lẻ với「大きい」. ④ こうえ — SAI, thêm âm「う」kéo dài sai vị trí, không phải từ tồn tại.",
+              "glosses": [
+                {
+                  "t": "電車の中で",
+                  "read": "でんしゃのなかで",
+                  "vi": "trong tàu điện"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "to, lớn"
+                },
+                {
+                  "t": "声で",
+                  "vi": "bằng giọng (từ cần đọc)"
+                },
+                {
+                  "t": "話してはいけません",
+                  "read": "はなしてはいけません",
+                  "vi": "không được nói chuyện"
+                }
+              ]
+            },
+            {
+              "prompt": "明日のパーティーに来なくてもいいですよ。",
+              "ul": "明日",
+              "choices": [
+                "あした",
+                "あす",
+                "みょうにち",
+                "めいにち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「明日」trong văn nói thường đọc là「あした」. ① あした — ĐÚNG, cách đọc phổ biến nhất trong hội thoại hàng ngày. ② あす — SAI nếu chọn vì ngữ cảnh; thực ra「あす」cũng là cách đọc của 明日 nhưng mang văn phong trang trọng hơn; trong đề N5 hội thoại thông thường,「あした」là đáp án chuẩn. ③ みょうにち — SAI, đây là cách đọc on'yomi (明=みょう, 日=にち), dùng trong văn viết trang trọng/thư từ, không phải cách đọc N5 hội thoại. ④ めいにち — SAI, 明 không đọc là「めい」trong từ này; めいにち là 命日 (ngày giỗ), kanji và nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "明日のパーティーに",
+                  "vi": "cho buổi tiệc ngày mai (từ cần đọc)"
+                },
+                {
+                  "t": "来なくてもいいですよ",
+                  "read": "こなくてもいいですよ",
+                  "vi": "không cần đến cũng được đấy"
+                }
+              ]
+            },
+            {
+              "prompt": "学生はここで食事をしなければなりません。",
+              "ul": "食事",
+              "choices": [
+                "しょくじ",
+                "しょくし",
+                "しょっじ",
+                "しょくち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食事」đọc là「しょくじ」(食=しょく, 事=じ). ① しょくじ — ĐÚNG. ② しょくし — SAI, 事 đọc「し」không đúng; し là cách đọc của chữ khác (士・子…); đây là bẫy đổi phụ âm hữu thanh→vô thanh. ③ しょっじ — SAI, thêm âm っ (xúc âm) trước「じ」không có trong từ này; bẫy nhầm sang quy tắc xúc âm của từ ghép. ④ しょくち — SAI, 事 đọc「ち」không tồn tại; しょくち là 食地 không phải từ tiêu chuẩn; bẫy đổi âm cuối.",
+              "glosses": [
+                {
+                  "t": "学生は",
+                  "read": "がくせいは",
+                  "vi": "học sinh thì"
+                },
+                {
+                  "t": "ここで",
+                  "vi": "ở đây"
+                },
+                {
+                  "t": "食事をしなければなりません",
+                  "vi": "phải ăn uống (từ cần đọc + vị ngữ)"
+                }
+              ]
+            },
+            {
+              "prompt": "この薬は食後に飲まなければなりません。",
+              "ul": "食後",
+              "choices": [
+                "しょくご",
+                "しょくこう",
+                "しょうご",
+                "じきご"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食後」đọc là「しょくご」(食=しょく, 後=ご). ① しょくご — ĐÚNG, nghĩa là 'sau bữa ăn'. ② しょくこう — SAI, 後 có on'yomi「こう」trong một số từ (後輩=こうはい) nhưng trong「食後」đọc là「ご」; đây là bẫy nhầm âm on'yomi. ③ しょうご — SAI, thay「く」thành「う」kéo dài sai âm của 食; しょうご là 正午 (buổi trưa 12h), kanji và nghĩa khác. ④ じきご — SAI, 食 đọc「じき」không phải cách đọc trong từ ghép thông dụng N5; đây là bẫy dùng kun'yomi biến thể sai.",
+              "glosses": [
+                {
+                  "t": "この薬は",
+                  "read": "このくすりは",
+                  "vi": "thuốc này"
+                },
+                {
+                  "t": "食後に",
+                  "vi": "sau bữa ăn (từ cần đọc)"
+                },
+                {
+                  "t": "飲まなければなりません",
+                  "read": "のまなければなりません",
+                  "vi": "phải uống"
+                }
+              ]
+            },
+            {
+              "prompt": "会社に入る前に名前を書かなければなりません。",
+              "ul": "名前",
+              "choices": [
+                "なまえ",
+                "みょうぜん",
+                "なまい",
+                "みょうまえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「名前」đọc là「なまえ」(名=な, 前=まえ — cả hai đều kun'yomi). ① なまえ — ĐÚNG, cách đọc chuẩn, nghĩa là 'tên'. ② みょうぜん — SAI, 名 có on'yomi「みょう」(như 名人=めいじん) nhưng trong「名前」dùng kun'yomi「な」; ぜん cũng không phải cách đọc của 前 trong từ này. ③ なまい — SAI, 前 đọc「まい」không tồn tại; đây là bẫy rút gọn âm từ「まえ」thành「まい」. ④ みょうまえ — SAI, kết hợp sai on'yomi của 名 với kun'yomi của 前, không phải cách đọc của từ này.",
+              "glosses": [
+                {
+                  "t": "会社に入る前に",
+                  "read": "かいしゃにはいるまえに",
+                  "vi": "trước khi vào công ty"
+                },
+                {
+                  "t": "名前を",
+                  "vi": "tên (từ cần đọc)"
+                },
+                {
+                  "t": "書かなければなりません",
+                  "read": "かかなければなりません",
+                  "vi": "phải viết"
+                }
+              ]
+            },
+            {
+              "prompt": "今日は授業がないので、学校に行かなくてもいいです。",
+              "ul": "今日",
+              "choices": [
+                "きょう",
+                "こんにち",
+                "いまにち",
+                "こんじつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「今日」đọc là「きょう」trong ngôn ngữ hội thoại thông dụng. ① きょう — ĐÚNG, cách đọc phổ biến nhất ở N5 hội thoại. ② こんにち — SAI, đây là một phần của「こんにちは」(chào buổi trưa) hoặc「今日(こんにち)の問題」(vấn đề ngày nay — văn viết trang trọng); trong câu hội thoại bình thường không dùng. ③ いまにち — SAI, 今 đọc「いま」chỉ khi đứng một mình (今=bây giờ); trong「今日」không dùng「いまにち」. ④ こんじつ — SAI, 日 đọc「じつ」trong一部 từ ghép nhưng「今日」không đọc vậy; こんじつ không phải từ tồn tại.",
+              "glosses": [
+                {
+                  "t": "今日は",
+                  "vi": "hôm nay (từ cần đọc)"
+                },
+                {
+                  "t": "授業がないので",
+                  "read": "じゅぎょうがないので",
+                  "vi": "vì không có tiết học"
+                },
+                {
+                  "t": "学校に行かなくてもいいです",
+                  "read": "がっこうにいかなくてもいいです",
+                  "vi": "không cần đi học cũng được"
+                }
+              ]
+            },
+            {
+              "prompt": "ここでは靴を脱がなければなりません。",
+              "ul": "靴",
+              "choices": [
+                "くつ",
+                "くず",
+                "かわ",
+                "くち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「靴」đọc là「くつ」(kun'yomi), nghĩa là 'giày/dép'. ① くつ — ĐÚNG. ② くず — SAI, đổi phụ âm cuối từ「つ」sang「ず」(vô thanh→hữu thanh); くず là 'rác/bã' (屑), hoàn toàn khác. ③ かわ — SAI, かわ là 'da' (皮) hoặc 'sông' (川); 靴 không đọc là かわ; bẫy liên tưởng vì giày làm từ da. ④ くち — SAI, 口 mới đọc là「くち」(miệng); 靴 không có âm くち; bẫy dùng âm「く-」quen thuộc ghép sai.",
+              "glosses": [
+                {
+                  "t": "ここでは",
+                  "vi": "ở đây thì"
+                },
+                {
+                  "t": "靴を",
+                  "vi": "giày (từ cần đọc)"
+                },
+                {
+                  "t": "脱がなければなりません",
+                  "read": "ぬがなければなりません",
+                  "vi": "phải cởi/bỏ ra"
+                }
+              ]
+            },
+            {
+              "prompt": "授業が始まる前にトイレに行っておかなければなりません。",
+              "ul": "始まる",
+              "choices": [
+                "はじまる",
+                "はじめる",
+                "はじる",
+                "おわまる"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「始まる」đọc là「はじまる」(động từ tự động — tự bắt đầu). ① はじまる — ĐÚNG, 始=はじ, まる là phần okurigana của động từ tự động. ② はじめる — SAI, đây là động từ tha động「始める」(làm cho bắt đầu); câu này dùng 始まる (tự động: tiết học tự bắt đầu), không phải 始める; hai từ cùng kanji nhưng khác cách đọc và nghĩa. ③ はじる — SAI, bỏ mất âm「ま」trong okurigana; はじる không phải từ tồn tại. ④ おわまる — SAI, nhầm sang「終わる(おわる)」(kết thúc) rồi ghép sai âm; おわまる không phải từ tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "授業が",
+                  "read": "じゅぎょうが",
+                  "vi": "tiết học"
+                },
+                {
+                  "t": "始まる前に",
+                  "vi": "trước khi bắt đầu (từ cần đọc)"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước"
+                },
+                {
+                  "t": "トイレに行っておかなければなりません",
+                  "read": "トイレにいっておかなければなりません",
+                  "vi": "phải đi vệ sinh trước"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "びょうきのときは、たくさんみずをのまなければなりません。",
+              "ul": "みず",
+              "choices": [
+                "水",
+                "氷",
+                "永",
+                "泳"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「みず」は「水」(nước) — đây là từ N5 cơ bản. Khi bệnh phải uống nhiều nước là lẽ đương nhiên. Ba đáp án sai: 「氷」(こおり, nước đá) hình dạng tương tự nhưng thêm nét nghiêng; 「永」(えい, vĩnh cửu) đồng âm một phần nhưng nghĩa hoàn toàn khác; 「泳」(およぐ, bơi lội) cùng bộ thủ nhưng không đọc là みず.",
+              "glosses": [
+                {
+                  "t": "びょうき",
+                  "read": "びょうき",
+                  "vi": "bệnh tật"
+                },
+                {
+                  "t": "たくさん",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "みず",
+                  "read": "みず",
+                  "vi": "nước"
+                },
+                {
+                  "t": "のまなければなりません",
+                  "read": "のまなければなりません",
+                  "vi": "phải uống"
+                },
+                {
+                  "t": "のときは",
+                  "read": "のときは",
+                  "vi": "〜の時は = khi ở tình huống/thời điểm ~ thì..."
+                }
+              ]
+            },
+            {
+              "prompt": "としょかんのなかでは、タバコをすってはいけません。",
+              "ul": "としょかん",
+              "choices": [
+                "図書館",
+                "図画館",
+                "図工館",
+                "図解館"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「としょかん」は「図書館」(thư viện). Thư viện là nơi cấm hút thuốc — câu thể hiện cấm đoán (〜てはいけません). Ba đáp án sai: 「図画館」không tồn tại; 「図工館」là từ ghép sai (図工 là môn thủ công mỹ thuật nhưng không có 図工館); 「図解館」cũng không phải từ thực.",
+              "glosses": [
+                {
+                  "t": "としょかん",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "なか",
+                  "read": "なか",
+                  "vi": "bên trong"
+                },
+                {
+                  "t": "すってはいけません",
+                  "read": "すってはいけません",
+                  "vi": "không được hút"
+                },
+                {
+                  "t": "タバコ",
+                  "read": "たばこ",
+                  "vi": "thuốc lá"
+                }
+              ]
+            },
+            {
+              "prompt": "まいあさ６じにおきなければなりません。",
+              "ul": "まいあさ",
+              "choices": [
+                "毎朝",
+                "毎夕",
+                "毎昼",
+                "毎夜"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「まいあさ」は「毎朝」(mỗi buổi sáng). Câu nói phải thức dậy lúc 6 giờ mỗi sáng. Ba đáp án sai: 「毎夕」(まいゆう, mỗi buổi chiều tối) không hợp nghĩa; 「毎昼」(まいひる, mỗi buổi trưa) cũng sai vị trí thời gian; 「毎夜」(まいよる/まいや, mỗi buổi tối) nghĩa khác hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "まいあさ",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "６じ",
+                  "read": "ろくじ",
+                  "vi": "6 giờ"
+                },
+                {
+                  "t": "おきなければなりません",
+                  "read": "おきなければなりません",
+                  "vi": "phải thức dậy"
+                }
+              ]
+            },
+            {
+              "prompt": "かいしゃにはくじまでにいかなければなりません。",
+              "ul": "かいしゃ",
+              "choices": [
+                "会社",
+                "会計",
+                "会議",
+                "会話"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かいしゃ」は「会社」(công ty). Câu nói phải đến công ty trước 9 giờ. Ba đáp án sai: 「会計」(かいけい, kế toán/thanh toán) cùng chữ 会 nhưng nghĩa khác; 「会議」(かいぎ, cuộc họp) cũng cùng chữ 会 nhưng không phải địa điểm đến; 「会話」(かいわ, hội thoại) hoàn toàn nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "くじ",
+                  "read": "くじ",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "までに",
+                  "vi": "trước (thời hạn)"
+                },
+                {
+                  "t": "いかなければなりません",
+                  "read": "いかなければなりません",
+                  "vi": "phải đi"
+                }
+              ]
+            },
+            {
+              "prompt": "しゃないでけいたいでんわをつかってはいけません。",
+              "ul": "しゃない",
+              "choices": [
+                "車内",
+                "車外",
+                "車前",
+                "車後"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しゃない」は「車内」(bên trong xe/tàu). Câu nói cấm dùng điện thoại di động trong xe. Ba đáp án sai: 「車外」(しゃがい, bên ngoài xe) nghĩa ngược; 「車前」không phải từ thực dùng phổ biến; 「車後」cũng không phải từ thực.",
+              "glosses": [
+                {
+                  "t": "しゃない",
+                  "read": "しゃない",
+                  "vi": "bên trong xe/tàu"
+                },
+                {
+                  "t": "けいたいでんわ",
+                  "read": "けいたいでんわ",
+                  "vi": "điện thoại di động"
+                },
+                {
+                  "t": "つかってはいけません",
+                  "read": "つかってはいけません",
+                  "vi": "không được sử dụng"
+                }
+              ]
+            },
+            {
+              "prompt": "このくすりはしょくじのまえにのまなければなりません。",
+              "ul": "しょくじ",
+              "choices": [
+                "食事",
+                "食品",
+                "食堂",
+                "食器"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しょくじ」は「食事」(bữa ăn). Câu nói phải uống thuốc này trước bữa ăn. Ba đáp án sai: 「食品」(しょくひん, thực phẩm) chỉ đồ ăn nói chung không phải bữa ăn; 「食堂」(しょくどう, nhà ăn/căng tin) là địa điểm; 「食器」(しょっき, bát đĩa dụng cụ ăn) hoàn toàn nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "くすり",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "しょくじ",
+                  "read": "しょくじ",
+                  "vi": "bữa ăn"
+                },
+                {
+                  "t": "まえ",
+                  "read": "まえ",
+                  "vi": "trước"
+                },
+                {
+                  "t": "のまなければなりません",
+                  "read": "のまなければなりません",
+                  "vi": "phải uống"
+                }
+              ]
+            },
+            {
+              "prompt": "しけんのまえにきょうかしょをよまなければなりません。",
+              "ul": "しけん",
+              "choices": [
+                "試験",
+                "実験",
+                "経験",
+                "体験"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しけん」は「試験」(kỳ thi/bài kiểm tra). Câu nói phải đọc sách giáo khoa trước khi thi. Ba đáp án sai: 「実験」(じっけん, thí nghiệm) cùng âm một phần nhưng nghĩa khác; 「経験」(けいけん, kinh nghiệm) hoàn toàn khác; 「体験」(たいけん, trải nghiệm thực tế) cũng không hợp nghĩa.",
+              "glosses": [
+                {
+                  "t": "しけん",
+                  "read": "しけん",
+                  "vi": "kỳ thi, bài kiểm tra"
+                },
+                {
+                  "t": "まえ",
+                  "read": "まえ",
+                  "vi": "trước"
+                },
+                {
+                  "t": "きょうかしょ",
+                  "read": "きょうかしょ",
+                  "vi": "sách giáo khoa"
+                },
+                {
+                  "t": "よまなければなりません",
+                  "read": "よまなければなりません",
+                  "vi": "phải đọc"
+                }
+              ]
+            },
+            {
+              "prompt": "このにもつはおもいので、もっていかなくてもいいです。",
+              "ul": "にもつ",
+              "choices": [
+                "荷物",
+                "貨物",
+                "行物",
+                "手物"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にもつ」は「荷物」(hành lý/đồ đạc). Câu nói đồ này nặng nên không cần mang đi. Ba đáp án sai: 「貨物」(かもつ, hàng hóa vận chuyển) cùng chữ 物 nhưng chỉ hàng hóa số lượng lớn; 「行物」không phải từ thực; 「手物」cũng không phải từ thực.",
+              "glosses": [
+                {
+                  "t": "にもつ",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "おもい",
+                  "read": "おもい",
+                  "vi": "nặng"
+                },
+                {
+                  "t": "もっていかなくてもいいです",
+                  "read": "もっていかなくてもいいです",
+                  "vi": "không cần mang đi cũng được"
+                }
+              ]
+            },
+            {
+              "prompt": "でんしゃのなかでたべものをたべてはいけません。",
+              "ul": "でんしゃ",
+              "choices": [
+                "電車",
+                "電気",
+                "電話",
+                "電灯"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「でんしゃ」は「電車」(tàu điện). Câu nói cấm ăn đồ ăn trong tàu điện. Ba đáp án sai: 「電気」(でんき, điện/ánh sáng điện) cùng chữ 電 nhưng nghĩa phương tiện; 「電話」(でんわ, điện thoại) cũng cùng chữ 電 nhưng nghĩa hoàn toàn khác; 「電灯」(でんとう, đèn điện) không phải phương tiện.",
+              "glosses": [
+                {
+                  "t": "でんしゃ",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "なか",
+                  "read": "なか",
+                  "vi": "bên trong"
+                },
+                {
+                  "t": "たべもの",
+                  "read": "たべもの",
+                  "vi": "đồ ăn"
+                },
+                {
+                  "t": "たべてはいけません",
+                  "read": "たべてはいけません",
+                  "vi": "không được ăn"
+                }
+              ]
+            },
+            {
+              "prompt": "このほんはあしたまでにかえさなければなりません。",
+              "ul": "ほん",
+              "choices": [
+                "本",
+                "木",
+                "休",
+                "末"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ほん」は「本」(sách/quyển sách). Câu nói phải trả quyển sách này trước ngày mai. Ba đáp án sai: 「木」(き, cây/gỗ) hình dạng rất giống 本 (chỉ thiếu một nét ngang dưới); 「休」(やすむ, nghỉ ngơi) có hình dạng gần nhưng bộ thủ khác; 「末」(すえ, cuối) cũng có cấu trúc tương tự nhưng nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách, quyển sách"
+                },
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "までに",
+                  "vi": "trước (thời hạn)"
+                },
+                {
+                  "t": "かえさなければなりません",
+                  "read": "かえさなければなりません",
+                  "vi": "phải trả lại"
+                }
+              ]
+            },
+            {
+              "prompt": "がくせいは、まいにちにほんごをべんきょうしなければなりません。",
+              "ul": "がくせい",
+              "choices": [
+                "学生",
+                "先生",
+                "学校",
+                "学者"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「がくせい」は「学生」(học sinh/sinh viên). Câu nói học sinh phải học tiếng Nhật mỗi ngày. Ba đáp án sai: 「先生」(せんせい, giáo viên) cùng trường học nhưng vai trò ngược lại; 「学校」(がっこう, trường học) là địa điểm chứ không phải người; 「学者」(がくしゃ, học giả) là nhà nghiên cứu, khác với học sinh.",
+              "glosses": [
+                {
+                  "t": "がくせい",
+                  "read": "がくせい",
+                  "vi": "học sinh, sinh viên"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "べんきょうしなければなりません",
+                  "read": "べんきょうしなければなりません",
+                  "vi": "phải học"
+                }
+              ]
+            },
+            {
+              "prompt": "びょういんのなかでは、こえをおおきくしてはいけません。",
+              "ul": "びょういん",
+              "choices": [
+                "病院",
+                "病気",
+                "医院",
+                "医者"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「びょういん」は「病院」(bệnh viện). Câu nói cấm nói to trong bệnh viện. Ba đáp án sai: 「病気」(びょうき, bệnh tật) cùng chữ 病 nhưng chỉ trạng thái bệnh chứ không phải địa điểm; 「医院」(いいん, phòng khám tư nhỏ) đọc khác và quy mô nhỏ hơn; 「医者」(いしゃ, bác sĩ) là người chứ không phải địa điểm.",
+              "glosses": [
+                {
+                  "t": "びょういん",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "なか",
+                  "read": "なか",
+                  "vi": "bên trong"
+                },
+                {
+                  "t": "こえ",
+                  "read": "こえ",
+                  "vi": "giọng nói"
+                },
+                {
+                  "t": "おおきくしてはいけません",
+                  "read": "おおきくしてはいけません",
+                  "vi": "không được nói to"
+                }
+              ]
+            },
+            {
+              "prompt": "あしたしけんがないから、はやくねなくてもいいです。",
+              "ul": "あした",
+              "choices": [
+                "明日",
+                "明後日",
+                "昨日",
+                "今日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あした」は「明日」(ngày mai). Câu nói vì ngày mai không có thi nên không cần đi ngủ sớm. Ba đáp án sai: 「明後日」(あさって, ngày kia) khác thời gian; 「昨日」(きのう, hôm qua) là ngày đã qua; 「今日」(きょう, hôm nay) là ngày hiện tại, không phải ngày mai.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "しけん",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "はやく",
+                  "read": "はやく",
+                  "vi": "sớm"
+                },
+                {
+                  "t": "ねなくてもいいです",
+                  "read": "ねなくてもいいです",
+                  "vi": "không cần ngủ cũng được"
+                },
+                {
+                  "t": "がないから",
+                  "read": "がないから",
+                  "vi": "〜がないから = vì không có ~ nên"
+                }
+              ]
+            },
+            {
+              "prompt": "ここでしゃしんをとってはいけません。",
+              "ul": "しゃしん",
+              "choices": [
+                "写真",
+                "写字",
+                "真実",
+                "真心"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しゃしん」は「写真」(ảnh chụp). Câu nói cấm chụp ảnh ở đây. Ba đáp án sai: 「写字」không phải từ Nhật thông dụng (trong tiếng Nhật hiện đại); 「真実」(しんじつ, sự thật) cùng chữ 真 nhưng nghĩa hoàn toàn khác; 「真心」(まごころ, tấm lòng thành) cũng cùng chữ 真 nhưng nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "しゃしん",
+                  "read": "しゃしん",
+                  "vi": "ảnh chụp, hình ảnh"
+                },
+                {
+                  "t": "とってはいけません",
+                  "read": "とってはいけません",
+                  "vi": "không được chụp"
+                },
+                {
+                  "t": "ここで",
+                  "read": "ここで",
+                  "vi": "ở đây (trợ từ で chỉ nơi diễn ra hành động)"
+                }
+              ]
+            },
+            {
+              "prompt": "このくにのひとはまいとし、あたらしいねんどにおいわいをします。",
+              "ul": "くに",
+              "choices": [
+                "国",
+                "囲",
+                "固",
+                "因"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「くに」は「国」(đất nước, quốc gia). Câu nói người của đất nước này mỗi năm đều tổ chức lễ mừng năm mới. Ba đáp án sai: 「囲」(かこむ, bao vây/bao quanh) hình dạng rất giống 国 (cùng khung ngoài) nhưng bên trong khác; 「固」(かたい, cứng/kiên cố) cùng khung ngoài nhưng bên trong là chữ 古; 「因」(いん, nguyên nhân) hình dạng khác nhưng dễ nhầm với người học mới.",
+              "glosses": [
+                {
+                  "t": "くに",
+                  "read": "くに",
+                  "vi": "đất nước, quốc gia"
+                },
+                {
+                  "t": "まいとし",
+                  "read": "まいとし",
+                  "vi": "mỗi năm"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "ねんど",
+                  "read": "ねんど",
+                  "vi": "năm học/năm tài chính"
+                },
+                {
+                  "t": "おいわい",
+                  "read": "おいわい",
+                  "vi": "lễ mừng, chúc mừng"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "をします",
+                  "read": "をします",
+                  "vi": "làm ~ (thể lịch sự của する, đi với danh từ chỉ hành động/lễ)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "図書館では、大きい声で話しては＿。",
+              "choices": [
+                "いけません",
+                "かまいません",
+                "できません",
+                "あります"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về nghĩa của từ điền vào chỗ trống trong mẫu 「〜てはいけません」 (không được làm gì). Đây là mẫu diễn đạt sự CẤM ĐOÁN. → Đáp án đúng là 「いけません」.\n\n• 「いけません」= không được, cấm — dùng sau 「〜ては」để cấm hành động. ✔\n• 「かまいません」= không sao, không có vấn đề gì — nghĩa ngược lại, thể hiện sự CHO PHÉP, không phải cấm đoán.\n• 「できません」= không thể — diễn tả khả năng không có, không phải quy tắc cấm.\n• 「あります」= có (tồn tại) — hoàn toàn không phù hợp ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "大きい声",
+                  "read": "おおきいこえ",
+                  "vi": "giọng to"
+                },
+                {
+                  "t": "話して",
+                  "read": "はなして",
+                  "vi": "nói (dạng te)"
+                },
+                {
+                  "t": "いけません",
+                  "vi": "không được (cấm)"
+                }
+              ]
+            },
+            {
+              "stem": "この薬は食事の前に飲まなければ＿。",
+              "choices": [
+                "なりません",
+                "います",
+                "あります",
+                "できます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Mẫu 「〜なければなりません」= phải làm, bắt buộc phải làm. Đây là diễn đạt NGHĨA VỤ. → Đáp án đúng là 「なりません」.\n\n• 「なりません」= (kết hợp với 「なければ」) tạo nghĩa 'phải làm', diễn tả nghĩa vụ. ✔\n• 「います」= đang (có mặt, tồn tại với người/động vật) — không tạo thành cấu trúc nghĩa vụ.\n• 「あります」= có (tồn tại với vật) — không phù hợp cấu trúc này.\n• 「できます」= có thể, được phép — diễn tả KHẢ NĂNG, không phải nghĩa vụ.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "食事",
+                  "read": "しょくじ",
+                  "vi": "bữa ăn"
+                },
+                {
+                  "t": "前",
+                  "read": "まえ",
+                  "vi": "trước"
+                },
+                {
+                  "t": "飲まなければ",
+                  "read": "のまなければ",
+                  "vi": "nếu không uống"
+                },
+                {
+                  "t": "なりません",
+                  "vi": "không được (phải làm)"
+                }
+              ]
+            },
+            {
+              "stem": "今日は休みですから、会社に行かなくても＿。",
+              "choices": [
+                "いいです",
+                "いけません",
+                "なりません",
+                "できません"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Mẫu 「〜なくてもいいです」= không cần làm, không làm cũng được. Đây là diễn đạt sự KHÔNG BẮT BUỘC. → Đáp án đúng là 「いいです」.\n\n• 「いいです」= tốt, ổn — kết hợp với 「〜なくても」tạo nghĩa 'không cần thiết'. ✔\n• 「いけません」= không được — mang nghĩa CẤM ĐOÁN, ngược lại với ý nghĩa câu.\n• 「なりません」= (kết hợp với 「なければ」) mang nghĩa bắt buộc, nhưng ở đây đứng sau 「なくても」sẽ sai ngữ nghĩa.\n• 「できません」= không thể — nói về NĂNG LỰC, không phải sự cần thiết.",
+              "glosses": [
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "休み",
+                  "read": "やすみ",
+                  "vi": "ngày nghỉ"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行かなくても",
+                  "read": "いかなくても",
+                  "vi": "dù không đi"
+                },
+                {
+                  "t": "いいです",
+                  "vi": "được, ổn (không cần)"
+                },
+                {
+                  "t": "ですから",
+                  "read": "ですから",
+                  "vi": "vì là (nên)"
+                }
+              ]
+            },
+            {
+              "stem": "電車の中で電話を使っては＿。",
+              "choices": [
+                "いけません",
+                "います",
+                "なります",
+                "みます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Mẫu 「〜てはいけません」= không được làm, bị cấm. → Đáp án đúng là 「いけません」.\n\n• 「いけません」= không được phép — đây là từ chuẩn để diễn tả CẤM ĐOÁN sau 「〜ては」. ✔\n• 「います」= đang, có mặt — động từ tồn tại, không liên quan đến cấm đoán.\n• 「なります」= trở thành, sẽ thành — diễn tả sự biến đổi trạng thái.\n• 「みます」= nhìn, xem — hoàn toàn không phù hợp ý nghĩa câu.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "中",
+                  "read": "なか",
+                  "vi": "bên trong"
+                },
+                {
+                  "t": "電話",
+                  "read": "でんわ",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "使って",
+                  "read": "つかって",
+                  "vi": "sử dụng (dạng te)"
+                },
+                {
+                  "t": "いけません",
+                  "vi": "không được (cấm)"
+                }
+              ]
+            },
+            {
+              "stem": "毎朝、学校に来る前に朝ごはんを＿。",
+              "choices": [
+                "食べます",
+                "飲みます",
+                "見ます",
+                "書きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về từ phù hợp với 「朝ごはん」(bữa sáng). Bữa sáng là thứ người ta ĂN. → Đáp án đúng là 「食べます」.\n\n• 「食べます」= ăn — động từ chính xác kết hợp với 「朝ごはん」(bữa ăn). ✔\n• 「飲みます」= uống — dùng cho đồ uống như nước, trà, không dùng cho bữa ăn.\n• 「見ます」= nhìn, xem — không liên quan đến việc ăn uống.\n• 「書きます」= viết — hoàn toàn không phù hợp với bữa sáng.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "来る前",
+                  "read": "くるまえ",
+                  "vi": "trước khi đến"
+                },
+                {
+                  "t": "朝ごはん",
+                  "read": "あさごはん",
+                  "vi": "bữa sáng"
+                },
+                {
+                  "t": "食べます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                }
+              ]
+            },
+            {
+              "stem": "試験の前に、よく勉強しなければ＿。",
+              "choices": [
+                "なりません",
+                "いいです",
+                "います",
+                "あります"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Mẫu 「〜なければなりません」= phải làm. Câu này diễn đạt NGHĨA VỤ học trước khi thi. → Đáp án đúng là 「なりません」.\n\n• 「なりません」= (kết hợp với 「なければ」) = phải làm, bắt buộc. ✔\n• 「いいです」= tốt, ổn — kết hợp với 「なくても」mới có nghĩa 'không cần', ở đây sai cấu trúc.\n• 「います」= đang, có mặt — động từ tồn tại, không tạo nghĩa nghĩa vụ.\n• 「あります」= có (vật) — không liên quan đến nghĩa vụ.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "前",
+                  "read": "まえ",
+                  "vi": "trước"
+                },
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "việc học"
+                },
+                {
+                  "t": "しなければ",
+                  "vi": "nếu không làm"
+                },
+                {
+                  "t": "なりません",
+                  "vi": "không được (phải làm)"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "kỹ càng, chăm chỉ"
+                }
+              ]
+            },
+            {
+              "stem": "ここに車を止めては＿。",
+              "choices": [
+                "いけません",
+                "かまいません",
+                "なります",
+                "できます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu mang ý nghĩa CẤM ĐỖ XE ở đây. Mẫu 「〜てはいけません」= không được làm. → Đáp án đúng là 「いけません」.\n\n• 「いけません」= không được — biểu thị sự CẤM ĐOÁN sau 「〜ては」. ✔\n• 「かまいません」= không sao, không vấn đề gì — có nghĩa NGƯỢC LẠI, thể hiện cho phép.\n• 「なります」= trở thành — diễn tả sự thay đổi trạng thái, không phù hợp.\n• 「できます」= có thể — diễn tả KHẢ NĂNG, không phải quy tắc cấm đoán.",
+              "glosses": [
+                {
+                  "t": "ここ",
+                  "vi": "nơi đây, chỗ này"
+                },
+                {
+                  "t": "車",
+                  "read": "くるま",
+                  "vi": "xe hơi, ô tô"
+                },
+                {
+                  "t": "止めて",
+                  "read": "とめて",
+                  "vi": "dừng, đỗ (dạng te)"
+                },
+                {
+                  "t": "いけません",
+                  "vi": "không được (cấm)"
+                }
+              ]
+            },
+            {
+              "stem": "明日の会議は九時に＿なければなりません。",
+              "choices": [
+                "来",
+                "行き",
+                "見",
+                "読み"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu diễn tả nghĩa vụ phải ĐẾN cuộc họp lúc 9 giờ. Người nói đang ở góc nhìn người sẽ đến địa điểm đó (dùng 「来る」khi nói đến nơi người nghe/ngữ cảnh). → Đáp án đúng là 「来」(き).\n\n• 「来」(き) = đến — 「来なければなりません」= phải đến. ✔\n• 「行き」(いき) = đi — 「行かなければなりません」= phải đi đến nơi khác; nhưng khi nói về cuộc họp ở ngữ cảnh chung, 「来る」tự nhiên hơn vì hướng về điểm tập trung.\n• 「見」(み) = nhìn — 「見なければなりません」= phải xem, không phù hợp cuộc họp.\n• 「読み」(よみ) = đọc — 「読まなければなりません」= phải đọc, hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "九時",
+                  "read": "くじ",
+                  "vi": "chín giờ"
+                },
+                {
+                  "t": "来",
+                  "read": "き",
+                  "vi": "đến (dạng stem của 来る)"
+                },
+                {
+                  "t": "なければなりません",
+                  "read": "なければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "stem": "子どもは夜遅く外に出ては＿。",
+              "choices": [
+                "いけません",
+                "います",
+                "みます",
+                "あります"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói về việc trẻ em KHÔNG ĐƯỢC ra ngoài vào tối muộn. Mẫu 「〜てはいけません」= bị cấm. → Đáp án đúng là 「いけません」.\n\n• 「いけません」= không được — biểu thị CẤM ĐOÁN. ✔\n• 「います」= đang có — động từ tồn tại, không diễn tả cấm đoán.\n• 「みます」= xem, nhìn — hoàn toàn không phù hợp.\n• 「あります」= có (vật) — không liên quan đến cấm đoán.",
+              "glosses": [
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "夜遅く",
+                  "read": "よるおそく",
+                  "vi": "tối muộn"
+                },
+                {
+                  "t": "外",
+                  "read": "そと",
+                  "vi": "bên ngoài"
+                },
+                {
+                  "t": "出て",
+                  "read": "でて",
+                  "vi": "ra ngoài (dạng te)"
+                },
+                {
+                  "t": "いけません",
+                  "vi": "không được (cấm)"
+                }
+              ]
+            },
+            {
+              "stem": "この本は図書館から借りましたから、明日までに＿なければなりません。",
+              "choices": [
+                "返さ",
+                "読ま",
+                "書か",
+                "売ら"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói về việc mượn sách từ thư viện và phải TRẢ LẠI trước ngày mai. → Đáp án đúng là 「返さ」(かえさ).\n\n• 「返さ」(かえさ) = trả lại — 「返さなければなりません」= phải trả lại. Phù hợp hoàn toàn với ngữ cảnh mượn sách. ✔\n• 「読ま」(よま) = đọc — 「読まなければなりません」= phải đọc; nghe có lý nhưng câu hỏi nhấn đến 「明日までに」(trước ngày mai) gợi ý HÀNH ĐỘNG TRẢ, không phải đọc.\n• 「書か」(かか) = viết — 「書かなければなりません」= phải viết, không liên quan đến việc mượn sách thư viện.\n• 「売ら」(うら) = bán — sách thư viện không được bán, sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "借りました",
+                  "read": "かりました",
+                  "vi": "đã mượn"
+                },
+                {
+                  "t": "明日までに",
+                  "read": "あしたまでに",
+                  "vi": "trước ngày mai, hạn ngày mai"
+                },
+                {
+                  "t": "返さ",
+                  "read": "かえさ",
+                  "vi": "trả lại (dạng stem)"
+                },
+                {
+                  "t": "なければなりません",
+                  "read": "なければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "stem": "熱がある時は、学校を休んでも＿。",
+              "choices": [
+                "いいです",
+                "いけません",
+                "なりません",
+                "できません"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu diễn tả khi bị sốt, nghỉ học CŨNG ĐƯỢC (không cần đến trường). Mẫu 「〜てもいいです」= được phép làm, cũng ổn. → Đáp án đúng là 「いいです」.\n\n• 「いいです」= tốt, ổn — kết hợp với 「〜ても」tạo nghĩa 'được phép, cũng ổn'. ✔\n• 「いけません」= không được — mang nghĩa CẤM ĐOÁN, ngược lại với ý câu.\n• 「なりません」= phải (kết hợp với 「なければ」) — cấu trúc sai, không ghép với 「〜ても」.\n• 「できません」= không thể — nói về NĂNG LỰC, không phải sự cho phép.",
+              "glosses": [
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt, nhiệt độ cao"
+                },
+                {
+                  "t": "時",
+                  "read": "とき",
+                  "vi": "khi, lúc"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "休んでも",
+                  "read": "やすんでも",
+                  "vi": "dù nghỉ"
+                },
+                {
+                  "t": "いいです",
+                  "vi": "được, ổn (không cần)"
+                },
+                {
+                  "t": "がある時は",
+                  "read": "があるときは",
+                  "vi": "〜がある時は = khi có ~ thì..."
+                }
+              ]
+            },
+            {
+              "stem": "この書類は今日中に＿なければなりません。",
+              "choices": [
+                "出さ",
+                "来",
+                "見",
+                "飲ま"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói về việc phải NỘP tài liệu trong ngày hôm nay. → Đáp án đúng là 「出さ」(ださ).\n\n• 「出さ」(ださ) = nộp/gửi ra — 「出さなければなりません」= phải nộp. Phù hợp với ngữ cảnh tài liệu và thời hạn. ✔\n• 「来」(き) = đến — 「来なければなりません」= phải đến; không liên quan đến tài liệu.\n• 「見」(み) = xem/nhìn — 「見なければなりません」= phải xem; câu có ngữ cảnh thời hạn nộp, không phải đọc.\n• 「飲ま」(のま) = uống — hoàn toàn không liên quan đến tài liệu.",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, hồ sơ"
+                },
+                {
+                  "t": "今日中に",
+                  "read": "きょうじゅうに",
+                  "vi": "trong ngày hôm nay"
+                },
+                {
+                  "t": "出さ",
+                  "read": "ださ",
+                  "vi": "nộp, gửi ra (dạng stem)"
+                },
+                {
+                  "t": "なければなりません",
+                  "read": "なければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "stem": "先生に会う前に、名前を＿なければなりません。",
+              "choices": [
+                "書か",
+                "飲ま",
+                "来",
+                "見"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói về việc phải VIẾT tên trước khi gặp giáo viên (ví dụ điền vào mẫu đơn). → Đáp án đúng là 「書か」(かか).\n\n• 「書か」(かか) = viết — 「書かなければなりません」= phải viết. Phù hợp với 「名前」(tên). ✔\n• 「飲ま」(のま) = uống — 「飲まなければなりません」= phải uống; không liên quan đến tên.\n• 「来」(き) = đến — không liên quan đến hành động với tên.\n• 「見」(み) = nhìn/xem — 「見なければなりません」= phải xem; không phù hợp với 「名前を」.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "会う前",
+                  "read": "あうまえ",
+                  "vi": "trước khi gặp"
+                },
+                {
+                  "t": "名前",
+                  "read": "なまえ",
+                  "vi": "tên"
+                },
+                {
+                  "t": "書か",
+                  "read": "かか",
+                  "vi": "viết (dạng stem)"
+                },
+                {
+                  "t": "なければなりません",
+                  "read": "なければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "stem": "この映画は子どもが見ては＿。",
+              "choices": [
+                "いけません",
+                "います",
+                "できます",
+                "あります"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu diễn đạt bộ phim này trẻ em KHÔNG ĐƯỢC XEM (phim cấm trẻ em). Mẫu 「〜てはいけません」= bị cấm. → Đáp án đúng là 「いけません」.\n\n• 「いけません」= không được — biểu thị CẤM ĐOÁN. ✔\n• 「います」= đang, có (người/động vật) — động từ tồn tại, không có nghĩa cấm.\n• 「できます」= có thể — diễn tả KHẢ NĂNG, trái nghĩa với cấm đoán.\n• 「あります」= có (vật) — không liên quan.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "bộ phim, điện ảnh"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "見て",
+                  "read": "みて",
+                  "vi": "xem (dạng te)"
+                },
+                {
+                  "t": "いけません",
+                  "vi": "không được (cấm)"
+                }
+              ]
+            },
+            {
+              "stem": "今日は時間がありますから、急がなくても＿。",
+              "choices": [
+                "いいです",
+                "いけません",
+                "なりません",
+                "できます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu diễn tả hôm nay có thời gian nên KHÔNG CẦN VỘI. Mẫu 「〜なくてもいいです」= không cần làm, không làm cũng được. → Đáp án đúng là 「いいです」.\n\n• 「いいです」= tốt, ổn — kết hợp với 「〜なくても」tạo nghĩa 'không cần thiết, ổn thôi'. ✔\n• 「いけません」= không được — biểu thị CẤM ĐOÁN, mâu thuẫn với ý câu (có thời gian → không cần vội).\n• 「なりません」= (với 「なければ」) = phải làm — mang nghĩa NGHĨA VỤ, ngược lại hoàn toàn.\n• 「できます」= có thể — diễn tả KHẢ NĂNG, không diễn tả sự không cần thiết.",
+              "glosses": [
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian"
+                },
+                {
+                  "t": "急がなくても",
+                  "read": "いそがなくても",
+                  "vi": "dù không vội"
+                },
+                {
+                  "t": "いいです",
+                  "vi": "được, ổn (không cần vội)"
+                },
+                {
+                  "t": "がありますから",
+                  "read": "がありますから",
+                  "vi": "〜がありますから = vì có ~ nên"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "ここでタバコを吸わないでください。",
+              "choices": [
+                "ここでタバコを吸ってもいいです。",
+                "ここでタバコを吸ってはいけません。",
+                "ここでタバコを吸ってください。",
+                "ここでタバコを吸わなくてもいいです。"
+              ],
+              "answer": 1,
+              "pt": "Vないでください",
+              "explain": "Câu gốc「ここでタバコを吸わないでください」dùng 「Vないでください」= xin đừng làm → cấm/yêu cầu KHÔNG làm. Câu B「ここでタバコを吸ってはいけません」dùng 「Vてはいけません」(B15) cũng mang nghĩa CẤM, gần nghĩa nhất với câu gốc. Câu A「吸ってもいいです」= được phép hút → nghĩa ngược. Câu C「吸ってください」= xin hãy hút → nghĩa ngược. Câu D「吸わなくてもいいです」= không hút cũng được (không bắt buộc) → khác hẳn ý cấm.",
+              "glosses": [
+                {
+                  "t": "ここ",
+                  "vi": "ở đây"
+                },
+                {
+                  "t": "タバコを吸わないでください",
+                  "read": "タバコをすわないでください",
+                  "vi": "xin đừng hút thuốc lá"
+                },
+                {
+                  "t": "でタバコを",
+                  "read": "でタバコを",
+                  "vi": "ở đây (で chỉ nơi chốn) + thuốc lá (を tân ngữ)"
+                },
+                {
+                  "t": "ってもいいです",
+                  "read": "ってもいいです",
+                  "vi": "〜てもいいです = được phép làm ~ (cho phép)"
+                },
+                {
+                  "t": "ってはいけません",
+                  "read": "ってはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "ってください",
+                  "read": "ってください",
+                  "vi": "〜てください = làm ơn hãy làm ~ (yêu cầu lịch sự)"
+                },
+                {
+                  "t": "わなくてもいいです",
+                  "read": "わなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được (không bắt buộc)"
+                }
+              ]
+            },
+            {
+              "prompt": "パスポートを持ってこなければなりません。",
+              "choices": [
+                "パスポートを持ってきてもいいです。",
+                "パスポートを持ってくる必要はありません。",
+                "パスポートを持ってこなくてもいいです。",
+                "パスポートを持ってこないといけません。"
+              ],
+              "answer": 3,
+              "pt": "Vなければなりません",
+              "explain": "Câu gốc dùng「Vなければなりません」= phải làm (bắt buộc). Câu D「持ってこないといけません」là dạng khác cùng nghĩa PHẢI làm, gần nghĩa nhất. Câu A「持ってきてもいいです」= được mang đến → chỉ cho phép, không bắt buộc. Câu B「必要はありません」= không cần thiết → nghĩa ngược. Câu C「持ってこなくてもいいです」= không mang cũng được → nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "パスポートを持ってこなければなりません",
+                  "read": "パスポートをもってこなければなりません",
+                  "vi": "phải mang theo hộ chiếu"
+                },
+                {
+                  "t": "パスポート",
+                  "vi": "hộ chiếu"
+                },
+                {
+                  "t": "ってきてもいいです",
+                  "read": "ってきてもいいです",
+                  "vi": "〜てきてもいいです = mang đến/tới cũng được (cho phép)"
+                },
+                {
+                  "t": "ってくる",
+                  "read": "ってくる",
+                  "vi": "〜てくる = làm ~ rồi mang lại/tới đây"
+                },
+                {
+                  "t": "必要はありません",
+                  "read": "ひつようはありません",
+                  "vi": "〜必要はありません = không cần thiết phải làm ~"
+                },
+                {
+                  "t": "ってこなくてもいいです",
+                  "read": "ってこなくてもいいです",
+                  "vi": "〜てこなくてもいいです = không mang đến cũng được (không bắt buộc)"
+                },
+                {
+                  "t": "ってこないといけません",
+                  "read": "ってこないといけません",
+                  "vi": "〜ないといけません = phải làm ~ (bắt buộc, văn nói)"
+                }
+              ]
+            },
+            {
+              "prompt": "くつは脱がなくてもいいですよ。",
+              "choices": [
+                "くつは脱いではいけません。",
+                "くつは脱いでもいいですよ。",
+                "くつは脱ぐ必要はありませんよ。",
+                "くつは脱がなければなりませんよ。"
+              ],
+              "answer": 2,
+              "pt": "Vなくてもいいです",
+              "explain": "Câu gốc dùng「Vなくてもいいです」= không làm cũng được (không bắt buộc). Câu C「脱ぐ必要はありません」= không cần cởi → cùng nghĩa không bắt buộc, đây là câu gần nghĩa nhất. Câu A「脱いではいけません」= không được cởi → cấm hẳn, khác nghĩa. Câu B「脱いでもいいです」= cởi cũng được → cho phép cởi, nghĩa khác. Câu D「脱がなければなりません」= phải cởi → bắt buộc, nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "くつは脱がなくてもいいです",
+                  "read": "くつはぬがなくてもいいです",
+                  "vi": "không cởi giày cũng được"
+                },
+                {
+                  "t": "脱がなくて",
+                  "read": "ぬがなくて",
+                  "vi": "cởi, tháo (giày)"
+                },
+                {
+                  "t": "いではいけません",
+                  "read": "いではいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "いでもいいですよ",
+                  "read": "いでもいいですよ",
+                  "vi": "〜てもいいですよ = được phép làm ~ đó (cho phép)"
+                },
+                {
+                  "t": "必要はありませんよ",
+                  "read": "ひつようはありませんよ",
+                  "vi": "〜必要はありません = không cần thiết phải làm ~ đâu"
+                },
+                {
+                  "t": "がなければなりませんよ",
+                  "read": "がなければなりませんよ",
+                  "vi": "〜なければなりません = phải làm ~ đó (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "prompt": "レポートは金曜日までに出してください。",
+              "choices": [
+                "レポートは金曜日まで書いてください。",
+                "レポートは金曜日の前に出してください。",
+                "レポートは金曜日から出してください。",
+                "レポートは金曜日ごろ出してください。"
+              ],
+              "answer": 1,
+              "pt": "Nまでに",
+              "explain": "「までに」= trước thời hạn (deadline). Câu B「金曜日の前に出してください」= nộp trước thứ Sáu → gần nghĩa nhất, cùng ý 'trước thời điểm đó'. Câu A「金曜日まで書く」= viết cho đến tận thứ Sáu (hành động kéo dài liên tục) →「まで」khác「までに」. Câu C「金曜日から」= từ thứ Sáu trở đi → nghĩa khác. Câu D「金曜日ごろ」= khoảng thứ Sáu → mang tính ước lượng, không phải deadline cứng.",
+              "glosses": [
+                {
+                  "t": "レポートは金曜日までに出してください",
+                  "read": "レポートはきんようびまでにだしてください",
+                  "vi": "hãy nộp báo cáo trước thứ Sáu"
+                },
+                {
+                  "t": "金曜日",
+                  "read": "きんようび",
+                  "vi": "thứ Sáu"
+                },
+                {
+                  "t": "出して",
+                  "read": "だして",
+                  "vi": "nộp, đưa ra"
+                },
+                {
+                  "t": "書いてください",
+                  "read": "かいてください",
+                  "vi": "hãy viết"
+                }
+              ]
+            },
+            {
+              "prompt": "ここに名前を書かなければなりません。",
+              "choices": [
+                "ここに名前を書いてはいけません。",
+                "ここに名前を書かなくてもいいです。",
+                "ここに名前を書かないでください。",
+                "ここに名前を書かなくてはなりません。"
+              ],
+              "answer": 3,
+              "pt": "Vなければなりません",
+              "explain": "Câu gốc「Vなければなりません」= phải làm. Câu D「書かなくてはなりません」= dạng đồng nghĩa khác của PHẢI làm → gần nghĩa nhất. Câu A「書いてはいけません」= không được viết → cấm, nghĩa ngược. Câu B「書かなくてもいいです」= không viết cũng được → nghĩa ngược. Câu C「書かないでください」= xin đừng viết → yêu cầu không làm, nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "ここに名前を書かなければなりません",
+                  "read": "ここになまえをかかなければなりません",
+                  "vi": "phải viết tên vào đây"
+                },
+                {
+                  "t": "名前",
+                  "read": "なまえ",
+                  "vi": "tên"
+                },
+                {
+                  "t": "いてはいけません",
+                  "read": "いてはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "かなくてもいいです",
+                  "read": "かなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                },
+                {
+                  "t": "かないでください",
+                  "read": "かないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                },
+                {
+                  "t": "かなくてはなりません",
+                  "read": "かなくてはなりません",
+                  "vi": "〜なくてはなりません = phải làm ~ (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "prompt": "授業中に寝ないでください。",
+              "choices": [
+                "授業中に寝てもかまいません。",
+                "授業中に寝てはいけません。",
+                "授業中に寝なければなりません。",
+                "授業中に寝なくてもいいです。"
+              ],
+              "answer": 1,
+              "pt": "Vないでください",
+              "explain": "「授業中に寝ないでください」= xin đừng ngủ trong giờ (lịch sự, nhẹ nhàng hơn). Câu B「寝てはいけません」= không được ngủ (cấm mạnh hơn) → cũng mang nghĩa cấm, gần nghĩa nhất. Câu A「寝てもかまいません」= ngủ cũng không sao → cho phép, nghĩa ngược. Câu C「寝なければなりません」= phải ngủ → nghĩa ngược. Câu D「寝なくてもいいです」= không ngủ cũng được → khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "授業中に寝ないでください",
+                  "read": "じゅぎょうちゅうにねないでください",
+                  "vi": "xin đừng ngủ trong giờ học"
+                },
+                {
+                  "t": "授業中",
+                  "read": "じゅぎょうちゅう",
+                  "vi": "trong giờ học"
+                },
+                {
+                  "t": "寝ない",
+                  "read": "ねない",
+                  "vi": "ngủ"
+                },
+                {
+                  "t": "てもかまいません",
+                  "read": "てもかまいません",
+                  "vi": "〜てもかまいません = làm ~ cũng không sao (cho phép, ~giống てもいいです)"
+                },
+                {
+                  "t": "てはいけません",
+                  "read": "てはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "なければなりません",
+                  "read": "なければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "なくてもいいです",
+                  "read": "なくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                }
+              ]
+            },
+            {
+              "prompt": "試験は来週の月曜日までに受けなければなりません。",
+              "choices": [
+                "試験は来週の月曜日まで受けてもいいです。",
+                "試験は来週の月曜日までに受けなくてもいいです。",
+                "来週の月曜日が試験の締め切りで、必ず受けなければなりません。",
+                "試験は来週の月曜日に受けてはいけません。"
+              ],
+              "answer": 2,
+              "pt": "Nまでに + Vなければなりません",
+              "explain": "Câu gốc nói phải dự thi trước thứ Hai tuần sau (deadline + bắt buộc). Câu C 'deadline là thứ Hai, nhất định phải thi' → diễn đạt lại đúng cả hai ý, gần nghĩa nhất. Câu A「まで受けてもいいです」= được thi cho đến thứ Hai (cho phép, không bắt buộc) → sai. Câu B「受けなくてもいいです」= không thi cũng được → nghĩa ngược. Câu D「受けてはいけません」= không được thi vào thứ Hai → nghĩa cấm, sai.",
+              "glosses": [
+                {
+                  "t": "試験は来週の月曜日までに受けなければなりません",
+                  "read": "しけんはらいしゅうのげつようびまでにうけなければなりません",
+                  "vi": "phải thi trước thứ Hai tuần sau"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "月曜日",
+                  "read": "げつようび",
+                  "vi": "thứ Hai"
+                },
+                {
+                  "t": "受けなければなりません",
+                  "read": "うけなければなりません",
+                  "vi": "dự thi"
+                },
+                {
+                  "t": "締め切り",
+                  "read": "しめきり",
+                  "vi": "hạn chót, thời hạn cuối"
+                },
+                {
+                  "t": "必ず",
+                  "read": "かならず",
+                  "vi": "nhất định, chắc chắn"
+                },
+                {
+                  "t": "けてもいいです",
+                  "read": "けてもいいです",
+                  "vi": "〜てもいいです = được phép làm ~ (cho phép)"
+                },
+                {
+                  "t": "けなくてもいいです",
+                  "read": "けなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                },
+                {
+                  "t": "けてはいけません",
+                  "read": "けてはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                }
+              ]
+            },
+            {
+              "prompt": "手を洗ってから、ごはんを食べてください。",
+              "choices": [
+                "ごはんを食べてから、手を洗ってください。",
+                "ごはんを食べる前に、手を洗ってください。",
+                "手を洗いながら、ごはんを食べてください。",
+                "手を洗わなくてもいいですが、ごはんを食べてください。"
+              ],
+              "answer": 1,
+              "pt": "Vてから (B16 ôn xoắn ốc)",
+              "explain": "Câu gốc「手を洗ってから、ごはんを食べてください」= sau khi rửa tay rồi mới ăn cơm (thứ tự: rửa tay → ăn). Câu B「ごはんを食べる前に、手を洗ってください」= trước khi ăn cơm, hãy rửa tay → cùng thứ tự và nghĩa, gần nhất. Câu A đảo ngược thứ tự (ăn rồi mới rửa). Câu C「ながら」= vừa rửa vừa ăn cùng lúc → sai thứ tự. Câu D「洗わなくてもいい」= không rửa cũng được → nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "手を洗ってから",
+                  "read": "てをあらってから",
+                  "vi": "sau khi rửa tay"
+                },
+                {
+                  "t": "手",
+                  "read": "て",
+                  "vi": "tay"
+                },
+                {
+                  "t": "洗って",
+                  "read": "あらって",
+                  "vi": "rửa"
+                },
+                {
+                  "t": "ごはんを食べてください",
+                  "read": "ごはんをたべてください",
+                  "vi": "hãy ăn cơm"
+                },
+                {
+                  "t": "べてから",
+                  "read": "べてから",
+                  "vi": "〜てから = sau khi làm ~ (rồi mới làm tiếp)"
+                },
+                {
+                  "t": "いながら",
+                  "read": "いながら",
+                  "vi": "〜ながら = vừa làm ~ vừa làm... (đồng thời)"
+                },
+                {
+                  "t": "わなくてもいいですが",
+                  "read": "わなくてもいいですが",
+                  "vi": "〜なくてもいいですが = không làm ~ cũng được, nhưng..."
+                }
+              ]
+            },
+            {
+              "prompt": "この書類は今日中に出さなければなりません。",
+              "choices": [
+                "この書類は今日出してはいけません。",
+                "この書類は今日出さなくてもいいです。",
+                "この書類は今日必ず出す必要があります。",
+                "この書類は今日出してもいいです。"
+              ],
+              "answer": 2,
+              "pt": "Vなければなりません + Nまでに",
+              "explain": "Câu gốc = phải nộp hôm nay (bắt buộc). Câu C「必ず出す必要があります」= nhất định cần nộp → cùng nghĩa bắt buộc, gần nhất. Câu A「出してはいけません」= không được nộp → cấm, nghĩa ngược. Câu B「出さなくてもいいです」= không nộp cũng được → nghĩa ngược. Câu D「出してもいいです」= nộp cũng được → chỉ cho phép, không bắt buộc.",
+              "glosses": [
+                {
+                  "t": "書類は今日中に出さなければなりません",
+                  "read": "しょるいはきょうじゅうにださなければなりません",
+                  "vi": "phải nộp giấy tờ này trong ngày hôm nay"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "giấy tờ, tài liệu"
+                },
+                {
+                  "t": "今日中",
+                  "read": "きょうじゅう",
+                  "vi": "trong ngày hôm nay"
+                },
+                {
+                  "t": "必ず",
+                  "read": "かならず",
+                  "vi": "nhất định, chắc chắn"
+                },
+                {
+                  "t": "してはいけません",
+                  "read": "してはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "さなくてもいいです",
+                  "read": "さなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                },
+                {
+                  "t": "必要があります",
+                  "read": "ひつようがあります",
+                  "vi": "〜必要があります = cần phải làm ~"
+                },
+                {
+                  "t": "してもいいです",
+                  "read": "してもいいです",
+                  "vi": "〜てもいいです = được phép làm ~ (cho phép)"
+                }
+              ]
+            },
+            {
+              "prompt": "この部屋では電話を使わないでください。",
+              "choices": [
+                "この部屋では電話を使わなくてもいいです。",
+                "この部屋では電話を使ってもいいです。",
+                "この部屋では電話を使わないほうがいいです。",
+                "この部屋では電話を使ってはいけません。"
+              ],
+              "answer": 3,
+              "pt": "Vないでください",
+              "explain": "「使わないでください」= xin đừng sử dụng (lịch sự, yêu cầu). Câu D「使ってはいけません」(B15) = không được sử dụng (cấm) → cùng nghĩa không được dùng, gần nhất. Câu A「使わなくてもいいです」= không dùng cũng được → không bắt buộc, khác nghĩa. Câu B「使ってもいいです」= dùng cũng được → cho phép, nghĩa ngược. Câu C「使わないほうがいいです」= tốt hơn là không dùng → lời khuyên, không phải yêu cầu/cấm.",
+              "glosses": [
+                {
+                  "t": "この部屋では電話を使わないでください",
+                  "read": "このへやではでんわをつかわないでください",
+                  "vi": "xin đừng dùng điện thoại trong phòng này"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "電話",
+                  "read": "でんわ",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "使わない",
+                  "read": "つかわない",
+                  "vi": "sử dụng"
+                },
+                {
+                  "t": "わなくてもいいです",
+                  "read": "わなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                },
+                {
+                  "t": "ってもいいです",
+                  "read": "ってもいいです",
+                  "vi": "〜てもいいです = được phép làm ~ (cho phép)"
+                },
+                {
+                  "t": "ないほうがいいです",
+                  "read": "ないほうがいいです",
+                  "vi": "〜ないほうがいいです = không nên làm ~ thì hơn (lời khuyên)"
+                },
+                {
+                  "t": "ってはいけません",
+                  "read": "ってはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                }
+              ]
+            },
+            {
+              "prompt": "予約は三日前までにしなければなりません。",
+              "choices": [
+                "予約は三日前にしてもいいです。",
+                "予約は三日前までにする必要があります。",
+                "予約は三日後にしなければなりません。",
+                "予約は三日前までにしなくてもいいです。"
+              ],
+              "answer": 1,
+              "pt": "Nまでに + Vなければなりません",
+              "explain": "Câu gốc = phải đặt chỗ trước 3 ngày (deadline + bắt buộc). Câu B「三日前までにする必要があります」= cần đặt trước 3 ngày → cùng nghĩa bắt buộc + deadline, gần nhất. Câu A「してもいいです」= đặt cũng được → chỉ cho phép. Câu C「三日後」= 3 ngày sau → thời hạn ngược. Câu D「しなくてもいいです」= không đặt cũng được → nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "予約は三日前までにしなければなりません",
+                  "read": "よやくはみっかまえまでにしなければなりません",
+                  "vi": "phải đặt chỗ trước 3 ngày"
+                },
+                {
+                  "t": "予約",
+                  "read": "よやく",
+                  "vi": "đặt chỗ, đặt trước"
+                },
+                {
+                  "t": "三日前",
+                  "read": "みっかまえ",
+                  "vi": "3 ngày trước"
+                },
+                {
+                  "t": "三日後",
+                  "read": "みっかご",
+                  "vi": "ba ngày sau"
+                },
+                {
+                  "t": "にしてもいいです",
+                  "read": "にしてもいいです",
+                  "vi": "〜にしてもいいです = chọn/đặt vào ~ cũng được (cho phép)"
+                },
+                {
+                  "t": "までにする",
+                  "read": "までにする",
+                  "vi": "〜までにする = làm xong trước hạn ~"
+                },
+                {
+                  "t": "必要があります",
+                  "read": "ひつようがあります",
+                  "vi": "〜必要があります = cần phải làm ~"
+                },
+                {
+                  "t": "までにしなくてもいいです",
+                  "read": "までにしなくてもいいです",
+                  "vi": "〜までにしなくてもいいです = không cần làm xong trước hạn ~ cũng được"
+                }
+              ]
+            },
+            {
+              "prompt": "宿題はしなくてもいいですが、テストは受けなければなりません。",
+              "choices": [
+                "宿題はしてもいいですが、テストは受けてはいけません。",
+                "宿題はしなければなりませんが、テストも受けなければなりません。",
+                "宿題は必要ありませんが、テストは必ず受ける必要があります。",
+                "宿題はしてはいけませんが、テストは受けなくてもいいです。"
+              ],
+              "answer": 2,
+              "pt": "Vなくてもいいです + Vなければなりません",
+              "explain": "Câu gốc: bài tập không bắt buộc, nhưng kiểm tra thì bắt buộc. Câu C「宿題は必要ありません + テストは必ず受ける必要があります」= bài tập không cần + kiểm tra nhất định phải dự → diễn đạt lại chính xác, gần nhất. Câu A đảo nghĩa (thi thì cấm). Câu B bài tập lại trở nên bắt buộc → sai. Câu D cấm làm bài tập + không cần thi → nghĩa ngược hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "宿題はしなくてもいいです",
+                  "read": "しゅくだいはしなくてもいいです",
+                  "vi": "bài tập về nhà không làm cũng được"
+                },
+                {
+                  "t": "テストは受けなければなりません",
+                  "read": "テストはうけなければなりません",
+                  "vi": "phải dự thi kiểm tra"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "テスト",
+                  "vi": "bài kiểm tra"
+                },
+                {
+                  "t": "必ず",
+                  "read": "かならず",
+                  "vi": "nhất định, chắc chắn"
+                },
+                {
+                  "t": "ですが",
+                  "read": "ですが",
+                  "vi": "nhưng"
+                },
+                {
+                  "t": "はしてもいい",
+                  "read": "はしてもいい",
+                  "vi": "〜てもいい = được phép làm ~"
+                },
+                {
+                  "t": "けてはいけません",
+                  "read": "けてはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "はしなければなりませんが",
+                  "read": "はしなければなりませんが",
+                  "vi": "〜なければなりませんが = phải làm ~, nhưng..."
+                },
+                {
+                  "t": "必要ありませんが",
+                  "read": "ひつようありませんが",
+                  "vi": "〜必要ありませんが = không cần thiết, nhưng..."
+                },
+                {
+                  "t": "必要があります",
+                  "read": "ひつようがあります",
+                  "vi": "〜必要があります = cần phải làm ~"
+                },
+                {
+                  "t": "はしてはいけませんが",
+                  "read": "はしてはいけませんが",
+                  "vi": "〜てはいけませんが = không được làm ~, nhưng..."
+                },
+                {
+                  "t": "けなくてもいいです",
+                  "read": "けなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                }
+              ]
+            },
+            {
+              "prompt": "図書館では静かにしなければなりません。",
+              "choices": [
+                "図書館では静かにしてもいいです。",
+                "図書館では静かにしなくてもいいです。",
+                "図書館では静かにしてはいけません。",
+                "図書館ではうるさくしてはいけません。"
+              ],
+              "answer": 3,
+              "pt": "Vなければなりません",
+              "explain": "Câu gốc = phải giữ yên lặng trong thư viện. Câu D「うるさくしてはいけません」= không được ồn ào (= phải yên lặng) → cùng nghĩa, gần nhất. Câu A「静かにしてもいいです」= giữ yên lặng cũng được → chỉ cho phép, không bắt buộc. Câu B「静かにしなくてもいいです」= không cần yên lặng cũng được → nghĩa ngược. Câu C「静かにしてはいけません」= không được yên lặng → nghĩa ngược hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "図書館では静かにしなければなりません",
+                  "read": "としょかんではしずかにしなければなりません",
+                  "vi": "phải giữ yên lặng trong thư viện"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "静かに",
+                  "read": "しずかに",
+                  "vi": "yên lặng"
+                },
+                {
+                  "t": "うるさく",
+                  "read": "うるさく",
+                  "vi": "(làm/gây) ồn ào"
+                },
+                {
+                  "t": "してもいいです",
+                  "read": "してもいいです",
+                  "vi": "〜てもいいです = được phép làm ~ (cho phép)"
+                },
+                {
+                  "t": "しなくてもいいです",
+                  "read": "しなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                },
+                {
+                  "t": "してはいけません",
+                  "read": "してはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                }
+              ]
+            },
+            {
+              "prompt": "写真を撮る前に、許可をもらってください。",
+              "choices": [
+                "写真を撮ってから、許可をもらってください。",
+                "写真を撮る前に、許可をもらわなくてもいいです。",
+                "写真を撮る前に、許可をもらわなければなりません。",
+                "写真を撮る前に、許可をもらってはいけません。"
+              ],
+              "answer": 2,
+              "pt": "Vてください (B14 ôn xoắn ốc)",
+              "explain": "Câu gốc = trước khi chụp ảnh, hãy xin phép (yêu cầu bắt buộc lịch sự). Câu C「許可をもらわなければなりません」= phải xin phép (bắt buộc) → cùng ý bắt buộc xin phép, gần nhất. Câu A đảo thứ tự (chụp rồi mới xin phép). Câu B「もらわなくてもいいです」= không xin phép cũng được → nghĩa ngược. Câu D「もらってはいけません」= không được xin phép → nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "写真を撮る前に",
+                  "read": "しゃしんをとるまえに",
+                  "vi": "trước khi chụp ảnh"
+                },
+                {
+                  "t": "許可をもらってください",
+                  "read": "きょかをもらってください",
+                  "vi": "hãy xin phép"
+                },
+                {
+                  "t": "写真",
+                  "read": "しゃしん",
+                  "vi": "ảnh, hình"
+                },
+                {
+                  "t": "許可",
+                  "read": "きょか",
+                  "vi": "sự cho phép"
+                },
+                {
+                  "t": "ってから",
+                  "read": "ってから",
+                  "vi": "〜てから = sau khi làm ~"
+                },
+                {
+                  "t": "をもらわなくてもいいです",
+                  "read": "をもらわなくてもいいです",
+                  "vi": "〜なくてもいいです = không cần xin ~ cũng được"
+                },
+                {
+                  "t": "をもらわなければなりません",
+                  "read": "をもらわなければなりません",
+                  "vi": "〜なければなりません = phải xin ~ (bắt buộc)"
+                },
+                {
+                  "t": "をもらってはいけません",
+                  "read": "をもらってはいけません",
+                  "vi": "〜てはいけません = không được xin ~ (cấm)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーには洋服を着てもいいですか。",
+              "choices": [
+                "パーティーには洋服を着なければなりませんか。",
+                "パーティーには洋服を着ることができますか。",
+                "パーティーには洋服を着てはいけませんか。",
+                "パーティーには洋服を着なくてもいいですか。"
+              ],
+              "answer": 1,
+              "pt": "Vてもいいですか (B15 ôn xoắn ốc)",
+              "explain": "「Vてもいいですか」= được làm... không? (xin phép). Câu B「着ることができますか」= có thể mặc không? → hỏi khả năng, rất gần với xin phép trong ngữ cảnh này, gần nhất. Câu A「着なければなりませんか」= có phải mặc không? → hỏi nghĩa vụ, khác. Câu C「着てはいけませんか」= mặc thì không được à? → hỏi về cấm, nghĩa khác. Câu D「着なくてもいいですか」= không mặc cũng được không? → xin phép không làm, nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "パーティーには洋服を着てもいいですか",
+                  "read": "パーティーにはようふくをきてもいいですか",
+                  "vi": "mặc quần áo Tây đến bữa tiệc được không?"
+                },
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "洋服",
+                  "read": "ようふく",
+                  "vi": "quần áo Tây, trang phục thường ngày"
+                },
+                {
+                  "t": "着ても",
+                  "read": "きても",
+                  "vi": "mặc"
+                },
+                {
+                  "t": "なければなりませんか",
+                  "read": "なければなりませんか",
+                  "vi": "〜なければなりませんか = có phải làm ~ không? (hỏi về bắt buộc)"
+                },
+                {
+                  "t": "ることができますか",
+                  "read": "ることができますか",
+                  "vi": "〜ことができますか = có thể làm ~ được không (khả năng)"
+                },
+                {
+                  "t": "てはいけませんか",
+                  "read": "てはいけませんか",
+                  "vi": "〜てはいけませんか = không được làm ~ à? (hỏi về cấm)"
+                },
+                {
+                  "t": "なくてもいいですか",
+                  "read": "なくてもいいですか",
+                  "vi": "〜なくてもいいですか = không làm ~ cũng được à?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 17 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "図書館では静かに＿。",
+              "choices": [
+                "しなければなりません",
+                "してください",
+                "してもいいです",
+                "しなくてもいいです"
+              ],
+              "answer": 1,
+              "pt": "Vてください (B14 ôn)",
+              "explain": "Câu yêu cầu lịch sự 「Vてください」= 'xin hãy làm'. 「してください」nghĩa là 'xin hãy giữ yên lặng'. → Chọn B. A 「しなければなりません」là 'phải làm' – đúng nghĩa nhưng quá cứng, không phải dạng yêu cầu lịch sự 〜てください. C 「してもいいです」là 'được làm cũng được' – mang nghĩa cho phép, không phải yêu cầu. D 「しなくてもいいです」là 'không cần làm cũng được' – ngược nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "静かに",
+                  "read": "しずかに",
+                  "vi": "yên lặng, trật tự"
+                },
+                {
+                  "t": "しなければなりません",
+                  "read": "しなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "してください",
+                  "read": "してください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                },
+                {
+                  "t": "してもいいです",
+                  "read": "してもいいです",
+                  "vi": "〜てもいいです = được phép làm ~ (cho phép)"
+                },
+                {
+                  "t": "しなくてもいいです",
+                  "read": "しなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                }
+              ]
+            },
+            {
+              "stem": "ここでたばこを＿。禁煙です。",
+              "choices": [
+                "すわないでください",
+                "すってください",
+                "すってもいいです",
+                "すわなくてもいいです"
+              ],
+              "answer": 0,
+              "pt": "Vないでください (ngữ pháp mới B17)",
+              "explain": "「Vないでください」= 'xin đừng làm' – dùng khi cấm hoặc yêu cầu không làm điều gì đó một cách lịch sự. 「すわないでください」= 'xin đừng hút (thuốc)'. → Chọn A. B 「すってください」= 'xin hãy hút' – ngược nghĩa. C 「すってもいいです」= 'hút cũng được' – cho phép, trái với 禁煙 (cấm hút). D 「すわなくてもいいです」sai vì 「すわない」là chia sai của 「すう」(hút); dạng đúng là 「すわなくても」không hợp ngữ cảnh cấm.",
+              "glosses": [
+                {
+                  "t": "ここで",
+                  "vi": "ở đây"
+                },
+                {
+                  "t": "たばこ",
+                  "vi": "thuốc lá"
+                },
+                {
+                  "t": "禁煙",
+                  "read": "きんえん",
+                  "vi": "cấm hút thuốc"
+                },
+                {
+                  "t": "すわないでください",
+                  "read": "すわないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                },
+                {
+                  "t": "すってください",
+                  "read": "すってください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                },
+                {
+                  "t": "すってもいいです",
+                  "read": "すってもいいです",
+                  "vi": "〜てもいいです = được phép làm ~"
+                },
+                {
+                  "t": "すわなくてもいいです",
+                  "read": "すわなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                }
+              ]
+            },
+            {
+              "stem": "試験は明日までに＿。",
+              "choices": [
+                "うけなければなりません",
+                "うけてください",
+                "うけないでください",
+                "うけてもいいですか"
+              ],
+              "answer": 0,
+              "pt": "Nまでに (ngữ pháp mới B17)",
+              "explain": "「Nまでに」chỉ thời hạn 'trước/đến N (thì phải xong)', kết hợp với 「なければなりません」= 'phải làm' rất tự nhiên: 'trước ngày mai phải thi'. → Chọn A. B 「うけてください」= 'xin hãy thi' – là yêu cầu, không nói đến thời hạn bắt buộc. C 「うけないでください」= 'xin đừng thi' – ngược nghĩa. D 「うけてもいいですか」= 'tôi thi được không?' – xin phép, không phải nghĩa vụ.",
+              "glosses": [
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "うける",
+                  "vi": "dự thi, tham gia (kỳ thi)"
+                },
+                {
+                  "t": "までに",
+                  "read": "までに",
+                  "vi": "〜までに = trước hạn ~ (deadline)"
+                },
+                {
+                  "t": "うけなければなりません",
+                  "read": "うけなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "うけてください",
+                  "read": "うけてください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                },
+                {
+                  "t": "うけないでください",
+                  "read": "うけないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                },
+                {
+                  "t": "うけてもいいですか",
+                  "read": "うけてもいいですか",
+                  "vi": "〜てもいいですか = làm ~ được không? (xin phép)"
+                }
+              ]
+            },
+            {
+              "stem": "A:「このケーキ、食べてもいいですか。」B:「どうぞ、＿ですよ。」",
+              "choices": [
+                "たべなければなりません",
+                "たべないでください",
+                "たべなくてもいい",
+                "たべてはいけません"
+              ],
+              "answer": 2,
+              "pt": "Vなくてもいいです (ngữ pháp mới B17) / Vてもいいですか (B15 ôn)",
+              "explain": "B đang trả lời đồng ý cho lời xin phép của A. 「どうぞ、たべなくてもいいですよ」= '(Ồ không cần đâu) cứ tự nhiên nhé' – trong ngữ cảnh này B dùng 「なくてもいい」mang nghĩa 'không cần ngại, cứ ăn đi'. → Chọn C. A 「たべなければなりません」= 'phải ăn' – không tự nhiên trong câu trả lời cho phép. B 「たべないでください」= 'xin đừng ăn' – từ chối, trái với 「どうぞ」. D 「たべてはいけません」= 'không được ăn' – cũng cấm, trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh ngọt (cake)"
+                },
+                {
+                  "t": "どうぞ",
+                  "vi": "xin mời, cứ tự nhiên"
+                },
+                {
+                  "t": "食べてもいいですか",
+                  "read": "たべてもいいですか",
+                  "vi": "có được ăn không?"
+                },
+                {
+                  "t": "たべなければなりません",
+                  "read": "たべなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "たべないでください",
+                  "read": "たべないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                },
+                {
+                  "t": "たべなくてもいい",
+                  "read": "たべなくてもいい",
+                  "vi": "〜なくてもいい = không làm ~ cũng được"
+                },
+                {
+                  "t": "たべてはいけません",
+                  "read": "たべてはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                }
+              ]
+            },
+            {
+              "stem": "毎朝、薬を＿。医者に言われました。",
+              "choices": [
+                "のまなければなりません",
+                "のまないでください",
+                "のんでもいいです",
+                "のまなくてもいいです"
+              ],
+              "answer": 0,
+              "pt": "Vなければなりません (ngữ pháp mới B17)",
+              "explain": "Bác sĩ dặn 'phải uống thuốc mỗi sáng' → dùng 「Vなければなりません」= 'phải làm'. 「のまなければなりません」= 'phải uống'. → Chọn A. B 「のまないでください」= 'xin đừng uống' – ngược lại. C 「のんでもいいです」= 'uống cũng được' – không bắt buộc, không đúng ý bác sĩ dặn. D 「のまなくてもいいです」= 'không uống cũng được' – ngược với lời dặn.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "医者",
+                  "read": "いしゃ",
+                  "vi": "bác sĩ"
+                },
+                {
+                  "t": "のむ",
+                  "vi": "uống"
+                },
+                {
+                  "t": "言われました",
+                  "read": "いわれました",
+                  "vi": "đã được (bác sĩ) bảo"
+                },
+                {
+                  "t": "のまなければなりません",
+                  "read": "のまなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "のまないでください",
+                  "read": "のまないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                },
+                {
+                  "t": "のんでもいいです",
+                  "read": "のんでもいいです",
+                  "vi": "〜てもいいです = được phép làm ~"
+                },
+                {
+                  "t": "のまなくてもいいです",
+                  "read": "のまなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                }
+              ]
+            },
+            {
+              "stem": "この書類は今日の５時＿に出してください。",
+              "choices": [
+                "まで",
+                "までに",
+                "から",
+                "ごろ"
+              ],
+              "answer": 1,
+              "pt": "Nまでに (ngữ pháp mới B17)",
+              "explain": "「Nまでに」= 'trước/đến thời điểm N (hành động phải hoàn thành)'. Nộp tài liệu trước 5 giờ → 「５時までに」. → Chọn B. A 「まで」= 'cho đến tận N' – chỉ điểm kết thúc liên tục (ví dụ 'làm việc đến 5 giờ'), không chỉ thời hạn hoàn thành. C 「から」= 'từ' – chỉ điểm bắt đầu. D 「ごろ」= 'khoảng' – chỉ thời điểm xấp xỉ, không dùng cho thời hạn bắt buộc.",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "出して",
+                  "read": "だして",
+                  "vi": "nộp, đưa ra"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                }
+              ]
+            },
+            {
+              "stem": "宿題は漢字で書かなくて＿。ひらがなでもいいです。",
+              "choices": [
+                "もいいです",
+                "はいけません",
+                "なりません",
+                "ください"
+              ],
+              "answer": 0,
+              "pt": "Vなくてもいいです (ngữ pháp mới B17)",
+              "explain": "Hoàn chỉnh cụm 「〜なくてもいいです」= 'không cần... cũng được'. Bài tập không nhất thiết phải viết kanji → 「書かなくてもいいです」. → Chọn A. B 「〜なくてはいけません」= 'phải làm' (biến thể) – trái nghĩa, hàm ý bắt buộc. C 「〜なくてなりません」không tồn tại trong tiếng Nhật chuẩn. D 「〜なくてください」sai ngữ pháp hoàn toàn; 「〜ないでください」mới đúng khi cấm.",
+              "glosses": [
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "書かなくて",
+                  "read": "かかなくて",
+                  "vi": "viết"
+                },
+                {
+                  "t": "ひらがな",
+                  "vi": "chữ Hiragana"
+                },
+                {
+                  "t": "でもいいです",
+                  "read": "でもいいです",
+                  "vi": "〜でもいいです = bằng/là ~ cũng được (cho phép lựa chọn khác)"
+                }
+              ]
+            },
+            {
+              "stem": "授業中は携帯電話を＿。",
+              "choices": [
+                "つかってください",
+                "つかわないでください",
+                "つかってはいけません",
+                "つかわなければなりません"
+              ],
+              "answer": 2,
+              "pt": "Vてはいけません (B15 ôn)",
+              "explain": "「Vてはいけません」= 'không được làm' (cấm đoán mạnh, quy tắc). 「つかってはいけません」= 'không được dùng điện thoại'. → Chọn C. A 「つかってください」= 'xin hãy dùng' – khuyến khích, trái nghĩa. B 「つかわないでください」= 'xin đừng dùng' – cũng mang nghĩa cấm nhưng lịch sự, không phải quy tắc cứng; nhưng câu hỏi muốn kiểm 「てはいけません」. D 「つかわなければなりません」= 'phải dùng' – trái nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "授業中",
+                  "read": "じゅぎょうちゅう",
+                  "vi": "trong giờ học"
+                },
+                {
+                  "t": "携帯電話",
+                  "read": "けいたいでんわ",
+                  "vi": "điện thoại di động"
+                },
+                {
+                  "t": "つかう",
+                  "vi": "sử dụng"
+                },
+                {
+                  "t": "つかってください",
+                  "read": "つかってください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                },
+                {
+                  "t": "つかわないでください",
+                  "read": "つかわないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                },
+                {
+                  "t": "つかってはいけません",
+                  "read": "つかってはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "つかわなければなりません",
+                  "read": "つかわなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "stem": "A:「もう帰ってもいいですか。」B:「いいえ、まだ＿。仕事が終わっていません。」",
+              "choices": [
+                "かえってはいけません",
+                "かえらなければなりません",
+                "かえらなくてもいいです",
+                "かえらないでください"
+              ],
+              "answer": 0,
+              "pt": "Vてはいけません (B15 ôn) vs Vなければなりません (B17 mới)",
+              "explain": "B nói 'không, chưa được về' → dùng 「Vてはいけません」= 'không được làm' để từ chối cho phép. 「かえってはいけません」= 'không được về'. → Chọn A. B 「かえらなければなりません」= 'phải về' – nghĩa ngược lại. C 「かえらなくてもいいです」= 'không về cũng được' – không cần về, trái với từ chối của B. D 「かえらないでください」= 'xin đừng về' – cũng mang nghĩa từ chối nhưng lịch sự hơn mức cần thiết; câu hỏi muốn kiểm 「てはいけません」.",
+              "glosses": [
+                {
+                  "t": "もう",
+                  "vi": "rồi, đã (xong rồi)"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "終わって",
+                  "read": "おわって",
+                  "vi": "kết thúc, xong"
+                },
+                {
+                  "t": "帰ってもいいですか",
+                  "read": "かえってもいいですか",
+                  "vi": "có được về không?"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không"
+                },
+                {
+                  "t": "終わっていません",
+                  "read": "おわっていません",
+                  "vi": "〜ていません = chưa (làm) xong ~ (trạng thái phủ định tiếp diễn)"
+                },
+                {
+                  "t": "かえってはいけません",
+                  "read": "かえってはいけません",
+                  "vi": "〜てはいけません = không được làm ~ (cấm)"
+                },
+                {
+                  "t": "かえらなければなりません",
+                  "read": "かえらなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "かえらなくてもいいです",
+                  "read": "かえらなくてもいいです",
+                  "vi": "〜なくてもいいです = không làm ~ cũng được"
+                },
+                {
+                  "t": "かえらないでください",
+                  "read": "かえらないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                }
+              ]
+            },
+            {
+              "stem": "電車の中では大きい声で＿。",
+              "choices": [
+                "はなしてください",
+                "はなさなければなりません",
+                "はなさないでください",
+                "はなしてもいいです"
+              ],
+              "answer": 2,
+              "pt": "Vないでください (ngữ pháp mới B17)",
+              "explain": "Câu nhắc nhở lịch sự 'xin đừng nói to trong tàu điện' → 「Vないでください」. 「はなさないでください」= 'xin đừng nói'. → Chọn C. A 「はなしてください」= 'xin hãy nói' – ngược nghĩa. B 「はなさなければなりません」= 'phải nói' – trái với nội dung nhắc nhở. D 「はなしてもいいです」= 'nói cũng được' – cho phép, trái với ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "大きい声",
+                  "read": "おおきいこえ",
+                  "vi": "giọng to"
+                },
+                {
+                  "t": "はなす",
+                  "vi": "nói chuyện"
+                },
+                {
+                  "t": "中では",
+                  "read": "なかでは",
+                  "vi": "ở bên trong"
+                },
+                {
+                  "t": "はなしてください",
+                  "read": "はなしてください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                },
+                {
+                  "t": "はなさなければなりません",
+                  "read": "はなさなければなりません",
+                  "vi": "〜なければなりません = phải làm ~ (bắt buộc)"
+                },
+                {
+                  "t": "はなさないでください",
+                  "read": "はなさないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                },
+                {
+                  "t": "はなしてもいいです",
+                  "read": "はなしてもいいです",
+                  "vi": "〜てもいいです = được phép làm ~"
+                }
+              ]
+            },
+            {
+              "stem": "シャワーをあびて＿、ご飯を食べました。",
+              "choices": [
+                "から",
+                "まで",
+                "ので",
+                "けど"
+              ],
+              "answer": 0,
+              "pt": "Vてから (B16 ôn)",
+              "explain": "「Vてから」= 'sau khi làm V (rồi mới làm việc khác)'. 「シャワーをあびてから、ご飯を食べました」= 'Sau khi tắm xong mới ăn cơm'. → Chọn A. B 「まで」chỉ điểm kết thúc hoặc thời hạn, không dùng để nối chuỗi hành động theo thứ tự. C 「ので」= 'vì/nên' – chỉ lý do, không chỉ thứ tự hành động. D 「けど」= 'nhưng/dù' – chỉ sự đối lập.",
+              "glosses": [
+                {
+                  "t": "シャワーをあびて",
+                  "vi": "tắm vòi hoa sen",
+                  "read": "シャワーをあびて"
+                },
+                {
+                  "t": "ご飯",
+                  "read": "ごはん",
+                  "vi": "cơm, bữa ăn"
+                },
+                {
+                  "t": "食べました",
+                  "read": "たべました",
+                  "vi": "đã ăn"
+                }
+              ]
+            },
+            {
+              "stem": "この部屋は広くて＿、とても好きです。",
+              "choices": [
+                "きれいで",
+                "きれいくて",
+                "きれいに",
+                "きれいな"
+              ],
+              "answer": 0,
+              "pt": "Aくて (B16 ôn nối tính từ)",
+              "explain": "Nối hai tính từ: 「広くて」(い-adj) + tính từ tiếp theo. 「きれい」là な-adj nên dạng nối là 「きれいで」(NAで). → Chọn A. B 「きれいくて」sai vì 「きれい」là な-adj, không chia như い-adj (không thêm 〜くて). C 「きれいに」là dạng trạng từ của な-adj, dùng trước động từ, không dùng để nối với mệnh đề sau. D 「きれいな」là dạng bổ nghĩa danh từ, không phải dạng nối mệnh đề.",
+              "glosses": [
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "広くて",
+                  "read": "ひろくて",
+                  "vi": "rộng"
+                },
+                {
+                  "t": "きれい",
+                  "vi": "sạch đẹp, xinh xắn"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは目＿大きくて、かっこいいです。",
+              "choices": [
+                "は",
+                "が",
+                "を",
+                "に"
+              ],
+              "answer": 1,
+              "pt": "N1はN2が〜 (B16 ôn đặc điểm bộ phận)",
+              "explain": "「N1はN2が〜」dùng để mô tả đặc điểm của một bộ phận thuộc chủ thể. 「田中さんは目が大きい」= 'Anh Tanaka có mắt to'. N2 (mắt) là bộ phận dùng 「が」. → Chọn B. A 「は」dùng cho chủ đề câu, không phải bộ phận đặc điểm. C 「を」chỉ tân ngữ trực tiếp của động từ, không hợp với tính từ. D 「に」chỉ hướng/đích, không dùng ở đây.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "目",
+                  "read": "め",
+                  "vi": "mắt"
+                },
+                {
+                  "t": "大きくて",
+                  "read": "おおきくて",
+                  "vi": "to, lớn"
+                },
+                {
+                  "t": "かっこいい",
+                  "vi": "đẹp trai, ngầu"
+                }
+              ]
+            },
+            {
+              "stem": "明日の朝８時＿来てください。遅れないでください。",
+              "choices": [
+                "までに",
+                "まで",
+                "ごろに",
+                "からに"
+              ],
+              "answer": 0,
+              "pt": "Nまでに (B17 mới) + Vないでください (B17 mới)",
+              "explain": "「8時までに来てください」= 'xin hãy đến trước 8 giờ sáng mai'. 「Nまでに」chỉ thời hạn hoàn thành hành động 'đến'. → Chọn A. B 「まで」chỉ thời điểm kéo dài liên tục 'đến tận 8 giờ' (ví dụ 'làm việc đến 8 giờ'), không phải thời hạn phải đến mặt. C 「ごろに」= 'khoảng' – mơ hồ, không phù hợp khi đi cùng 「遅れないでください」. D 「からに」không tồn tại như trợ từ thời gian trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "明日の朝",
+                  "read": "あしたのあさ",
+                  "vi": "sáng mai"
+                },
+                {
+                  "t": "遅れない",
+                  "read": "おくれない",
+                  "vi": "đến trễ, muộn"
+                },
+                {
+                  "t": "来てください",
+                  "read": "きてください",
+                  "vi": "hãy đến"
+                },
+                {
+                  "t": "ないでください",
+                  "read": "ないでください",
+                  "vi": "〜ないでください = xin đừng làm ~"
+                }
+              ]
+            },
+            {
+              "stem": "レポートは来週＿に送らなければなりません。",
+              "choices": [
+                "まで",
+                "までに",
+                "ごろ",
+                "から"
+              ],
+              "answer": 1,
+              "pt": "Nまでに + Vなければなりません (B17 mới)",
+              "explain": "「来週までに送らなければなりません」= 'phải gửi trước tuần sau'. 「Nまでに」chỉ thời hạn, kết hợp tự nhiên với 「なければなりません」(phải làm). → Chọn B. A 「まで」chỉ điểm kéo dài liên tục, không dùng cho thời hạn hoàn thành hành động đơn. C 「ごろ」= 'khoảng' – chỉ thời điểm xấp xỉ, không dùng cho thời hạn bắt buộc. D 「から」= 'từ' – chỉ điểm bắt đầu.",
+              "glosses": [
+                {
+                  "t": "レポート",
+                  "vi": "bài báo cáo (report)"
+                },
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "送らなければなりません",
+                  "read": "おくらなければなりません",
+                  "vi": "gửi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "図書館で",
+                "ください。"
+              ],
+              "pieces": [
+                "大きい",
+                "声で",
+                "話さ",
+                "ないで"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vないでください",
+              "explain": "Câu đúng: 「図書館で大きい声で話さないでください。」 — Xin đừng nói chuyện bằng giọng lớn ở trong thư viện.\nSắp xếp: ô 1=「大きい」, ô 2=「声で」, ô 3=「話さ」★, ô 4=「ないで」\nMẫu ngữ pháp 「Vないでください」 dùng để đưa ra lời yêu cầu lịch sự ai đó không làm gì, xuất phát từ động từ nhóm 1 「話す」 chuyển sang thể ない là 「話さない」. Mảnh 「話さ」 phải nằm ở ô 3 (ô ★) để làm gốc động từ kết hợp với mảnh 「ないで」 ở ô 4 và 「ください」 ở cuối câu. Lỗi trật tự hay gặp là tách rời cụm tính từ - danh từ 「大きい声で」 hoặc ghép mảnh 「ないで」 đứng trước gốc động từ 「話さ」 làm sai quy tắc chia thể ないで.",
+              "glosses": [
+                {
+                  "t": "話さないでください",
+                  "read": "はなさないでください",
+                  "vi": "xin đừng nói"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "大きい声",
+                  "read": "おおきいこえ",
+                  "vi": "giọng to"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この薬は",
+                "。"
+              ],
+              "pieces": [
+                "毎日",
+                "飲ま",
+                "なければ",
+                "なりません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vなければなりません",
+              "explain": "Câu đúng: 「この薬は毎日飲まなければなりません。」— Mỗi ngày phải uống thuốc này.\nSắp xếp: ô 1=「毎日」, ô 2=「飲ま」★, ô 3=「なければ」, ô 4=「なりません」\nPhía trước khung câu là 「この薬は」, phía sau là dấu chấm kết thúc câu nên toàn bộ khung trống cần một trạng từ và vị ngữ hoàn chỉnh. Cụm ngữ pháp bắt buộc bị tách thành ba mảnh 「飲ま」, 「なければ」, 「なりません」 bắt buộc phải dính liền theo đúng thứ tự chia động từ: thân động từ 「飲ま」 đi liền với 「なければ」 và tiếp theo là 「なりません」. Mảnh trạng từ chỉ tần suất 「毎日」 đứng ở ô 1 để bổ nghĩa cho hành động phía sau. Mảnh 「飲ま」 rơi vào ô ★ (ô 2) và không thể đứng ở ô khác vì nó là thân động từ bắt buộc làm điểm tựa kết nối trực tiếp với đuôi 「なければ」 ngay phía sau ở ô 3.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "飲まなければなりません",
+                  "read": "のまなければなりません",
+                  "vi": "phải uống"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "明日の試験は",
+                "です。"
+              ],
+              "pieces": [
+                "制服を",
+                "着なく",
+                "ても",
+                "いい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vなくてもいいです",
+              "explain": "Câu đúng: 「明日の試験は制服を着なくてもいいです。」— Kỳ thi ngày mai không cần mặc đồng phục cũng được.\nSắp xếp: ô 1=「制服を」, ô 2=「着なく」★, ô 3=「ても」, ô 4=「いい」\nPhía trước khung câu là chủ đề 「明日の試験は」, phía sau là đuôi kết thúc 「です。」 nên toàn bộ khung trống chứa tân ngữ và vị ngữ diễn đạt ý không cần làm gì. Mảnh 「制服を」 dính liền ngay trước động từ 「着なく」 để tạo thành cụm tân ngữ - động từ 「制服を着なく」, do đó 「制服を」 bắt buộc nằm ở ô 1. Cụm vị ngữ tiếp tục nối liền theo trật tự cố định 「着なく」 (ô 2) + 「ても」 (ô 3) + 「いい」 (ô 4) rồi kết hợp với 「です。」 phía sau. Mảnh 「着なく」 ở ô ★ (ô 2) không thể đứng ở ô khác vì vừa phải nhận trợ từ 「を」 từ tân ngữ phía trước, vừa làm thân động từ phủ định để đứng ngay trước trợ từ 「ても」 ở ô 3.",
+              "glosses": [
+                {
+                  "t": "着なくてもいいです",
+                  "read": "きなくてもいいです",
+                  "vi": "không cần mặc cũng được"
+                },
+                {
+                  "t": "明日の",
+                  "read": "あしたの",
+                  "vi": "của ngày mai"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "制服",
+                  "read": "せいふく",
+                  "vi": "đồng phục"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "レポートは",
+                "ください。"
+              ],
+              "pieces": [
+                "金曜日",
+                "まで",
+                "に",
+                "出して"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Nまでに",
+              "explain": "Câu đúng: 「レポートは金曜日までに出してください。」— Hãy nộp báo cáo trước thứ Sáu.\nSắp xếp: ô 1=「金曜日」, ô 2=「まで」, ô 3=「に」★, ô 4=「出して」\nKhung câu có đuôi 「ください。」 yêu cầu một động từ thể て đứng ngay trước nó để tạo cấu trúc yêu cầu lịch sự, nên mảnh 「出して」 bắt buộc dính liền ở ô 4. Danh từ chỉ thời gian 「金曜日」 kết hợp với trợ từ 「まで」 và 「に」 tạo thành cụm chỉ hạn chót 「金曜日までに」, lần lượt xếp vào ô 1, ô 2 và ô 3. Khối trạng ngữ 「金曜日までに」 (ô 1, 2, 3) được đặt trước động từ 「出して」 (ô 4) để bổ nghĩa về thời hạn cho hành động nộp. Mảnh 「に」 nằm ở ô ★ số 3 vì phải đứng ngay sau 「まで」 ở ô 2 để tạo thành mẫu ngữ pháp 「までに」 diễn tả thời điểm hạn chót phải hoàn thành hành động. Mảnh 「に」 không thể đứng ở ô khác như ngay sau 「金曜日」 (vì sẽ làm thiếu trợ từ 「まで」) hay sau động từ 「出して」 (vì trợ từ không nối trực tiếp sau động từ thể て).",
+              "glosses": [
+                {
+                  "t": "出してください",
+                  "read": "だしてください",
+                  "vi": "xin hãy nộp"
+                },
+                {
+                  "t": "レポート",
+                  "read": "",
+                  "vi": "bài báo cáo"
+                },
+                {
+                  "t": "金曜日",
+                  "read": "きんようび",
+                  "vi": "thứ Sáu"
+                },
+                {
+                  "t": "までに",
+                  "read": "",
+                  "vi": "trước (thời hạn)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ここで",
+                "ください。"
+              ],
+              "pieces": [
+                "写真を",
+                "撮ら",
+                "ない",
+                "で"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vないでください",
+              "explain": "Câu đúng: 「ここで写真を撮らないでください。」— Xin đừng chụp ảnh ở đây.\nSắp xếp: ô 1=「写真を」, ô 2=「撮ら」, ô 3=「ない」★, ô 4=「で」\nPhía trước ô 1 là trạng ngữ chỉ địa điểm 「ここで」 và phía sau ô 4 là 「ください。」, đòi hỏi một tân ngữ kèm động từ thể phủ định 「〜ないで」 để tạo câu cấm đoán. Các mảnh 「撮ら」, 「ない」 và 「で」 bắt buộc dính liền nhau theo thứ tự thành cụm 「撮らないで」 và nối với 「ください。」 ở cuối khung thành biểu hiện 「撮らないでください」. Tân ngữ 「写真を」 được xếp ngay trước động từ 「撮ら」 để bổ nghĩa trực tiếp cho hành động chụp. Mảnh 「ない」 ở ô 3 (ô ★) không thể đặt ở vị trí khác vì nó bắt buộc phải đứng ngay sau gốc động từ 「撮ら」 và đứng trước trợ từ 「で」 để hoàn chỉnh dạng phủ định 「撮らないで」.",
+              "glosses": [
+                {
+                  "t": "撮らないでください",
+                  "read": "とらないでください",
+                  "vi": "xin đừng chụp ảnh"
+                },
+                {
+                  "t": "ここで",
+                  "read": "ここで",
+                  "vi": "ở đây (trợ từ で chỉ nơi diễn ra hành động)"
+                },
+                {
+                  "t": "写真",
+                  "read": "しゃしん",
+                  "vi": "ảnh"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "パーティーに行く",
+                "。"
+              ],
+              "pieces": [
+                "前に",
+                "シャワーを",
+                "浴びなければ",
+                "なりません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vなければなりません",
+              "explain": "Câu đúng: 「パーティーに行く前にシャワーを浴びなければなりません。」— Trước khi đi tiệc tôi phải tắm rửa.\nSắp xếp: ô 1=「前に」, ô 2=「シャワーを」, ô 3=「浴びなければ」★, ô 4=「なりません」\nKhung câu bắt đầu bằng vế 「パーティーに行く」, đòi hỏi một từ nối chỉ thời gian ở ô trống đầu tiên và một vị ngữ biểu thị sự bắt buộc ở cuối câu. Mảnh 「浴びなければ」 bắt buộc dính liền với mảnh 「なりません」 phía sau thành cụm 「浴びなければなりません」, đồng thời tân ngữ 「シャワーを」 phải dính liền ngay trước động từ này. Mảnh 「前に」 đứng ngay sau 「パーティーに行く」 tạo thành mệnh đề phụ chỉ thời gian 「パーティーに行く前に」 đặt trước mệnh đề chính. Mảnh 「浴びなければ」 nằm ở ô 3 (ô ★) và không thể chuyển sang vị trí khác vì nó cần đứng ngay sau tân ngữ 「シャワーを」 và dính trực tiếp với 「なりません」 để hoàn chỉnh vế câu.",
+              "glosses": [
+                {
+                  "t": "シャワーを浴びる",
+                  "read": "シャワーをあびる",
+                  "vi": "tắm vòi hoa sen"
+                },
+                {
+                  "t": "パーティー",
+                  "read": "",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "なければなりません",
+                  "read": "",
+                  "vi": "phải (bắt buộc)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "宿題は",
+                "です。"
+              ],
+              "pieces": [
+                "今日中に",
+                "しなく",
+                "ても",
+                "いい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vなくてもいいです",
+              "explain": "Câu đúng: 「宿題は今日中にしなくてもいいです。」— Bài tập về nhà không cần làm trong hôm nay cũng được.\nSắp xếp: ô 1=「今日中に」, ô 2=「しなく」★, ô 3=「ても」, ô 4=「いい」\nPhía trước ô 1 là chủ đề 「宿題は」 và phía sau ô 4 là 「です。」, đòi hỏi một trạng ngữ chỉ thời gian cùng một vị ngữ mang ý nghĩa không bắt buộc phải làm. Ba mảnh 「しなく」, 「ても」 và 「いい」 bắt buộc dính liền nhau theo thứ tự thành cụm 「しなくてもいい」 và kết hợp với 「です。」 ở cuối khung thành biểu hiện 「しなくてもいいです」. Mảnh chỉ thời gian 「今日中に」 được đặt đứng trước cụm động từ 「しなくてもいい」 để bổ nghĩa cho hành động. Mảnh 「しなく」 rơi vào ô 2 (ô ★) và không thể đứng ở vị trí khác vì nó mang gốc động từ phủ định bắt buộc phải đứng ngay sau trạng ngữ 「今日中に」 và đứng trước trợ từ 「ても」.",
+              "glosses": [
+                {
+                  "t": "しなくてもいいです",
+                  "read": "",
+                  "vi": "không cần làm cũng được"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "今日中に",
+                  "read": "きょうじゅうに",
+                  "vi": "trong hôm nay"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "明日の",
+                "なりません。"
+              ],
+              "pieces": [
+                "会社へ",
+                "来なければ",
+                "会議には",
+                "9時までに"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 1,
+              "pt": "Nまでに + Vなければなりません",
+              "explain": "Câu đúng: 「明日の会議には9時までに会社へ来なければなりません。」— Đối với cuộc họp ngày mai, phải đến công ty trước 9 giờ.\nSắp xếp: ô 1=「会議には」, ô 2=「9時までに」★, ô 3=「会社へ」, ô 4=「来なければ」\nKhung trước kết thúc bằng danh từ kèm trợ từ sở hữu 「明日の」 nên bắt buộc phải kết hợp với danh từ chỉ sự việc 「会議には」 ở ô 1 để tạo thành cụm chủ đề hoàn chỉnh. Đuôi câu ở khung sau là 「なりません。」 đòi hỏi động từ chia ở thể điều kiện 「来なければ」 đứng ngay trước nó ở ô 4 để tạo mẫu ngữ pháp 「〜なければなりません」. Động từ di chuyển 「来なければ」 cần bổ ngữ điểm đến đi với trợ từ へ nên mảnh 「会社へ」 phải đứng ở ô 3. Mảnh 「9時までに」 mang điểm ngữ pháp chỉ hạn chót 「Nまでに」 bắt buộc phải đứng ở ô 2 mang dấu sao ★ để bổ nghĩa thời gian cho toàn bộ hành động đến công ty.",
+              "glosses": [
+                {
+                  "t": "来なければなりません",
+                  "read": "こなければなりません",
+                  "vi": "phải đến"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "9時までに",
+                  "read": "くじまでに",
+                  "vi": "trước 9 giờ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "授業中は",
+                "ください。"
+              ],
+              "pieces": [
+                "スマートフォンを",
+                "使わ",
+                "ない",
+                "で"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vないでください",
+              "explain": "Câu đúng: 「授業中はスマートフォンを使わないでください。」— Trong giờ học xin đừng sử dụng điện thoại thông minh.\nSắp xếp: ô 1=「スマートフォンを」, ô 2=「使わ」, ô 3=「ない」★, ô 4=「で」\nKhung câu bắt đầu bằng trạng ngữ 「授業中は」 và kết thúc bằng 「ください。」, nên khoảng trống cần một tân ngữ và động từ thể phủ định. Mảnh ô 2 「使わ」 bắt buộc dính liền với ô 3 「ない」 để tạo dạng phủ định 「使わない」, và ô 4 「で」 phải theo liền sau để kết hợp với 「ください」 thành mẫu yêu cầu lịch sự 「〜ないでください」. Tân ngữ mang trợ từ ô 1 「スマートフォンを」 đứng trước cụm động từ để bổ nghĩa cho hành động. Mảnh 「ない」 rơi vào ô 3 và không thể đặt ở vị trí nào khác vì nó bắt buộc phải nối tiếp ngay sau gốc động từ thể Nai 「使わ」 và đứng ngay trước 「で」 để tạo thành mẫu ngữ pháp chuẩn.",
+              "glosses": [
+                {
+                  "t": "使わないでください",
+                  "read": "つかわないでください",
+                  "vi": "xin đừng sử dụng"
+                },
+                {
+                  "t": "授業中",
+                  "read": "じゅぎょうちゅう",
+                  "vi": "trong giờ học"
+                },
+                {
+                  "t": "スマートフォン",
+                  "read": "",
+                  "vi": "điện thoại thông minh"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ミラーさんは",
+                "来ませんでした。"
+              ],
+              "pieces": [
+                "学校に",
+                "熱が",
+                "昨日は",
+                "高くて"
+              ],
+              "order": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "starSlot": 2,
+              "pt": "Aくて／NAで（B16 nối tính từ）",
+              "explain": "Câu đúng: 「ミラーさんは昨日は熱が高くて学校に来ませんでした。」— Anh Miller hôm qua vì sốt cao nên đã không đến trường.\nSắp xếp: ô 1=「昨日は」, ô 2=「熱が」, ô 3=「高くて」★, ô 4=「学校に」\nKhung trước là chủ ngữ chính 「ミラーさんは」 cần từ chỉ thời gian 「昨日は」 ở ô 1 để xác định mốc xảy ra sự việc trong quá khứ. Cụm nguyên nhân 「熱が高くて」 được hình thành bắt buộc từ chủ ngữ phụ 「熱が」 ở ô 2 đi liền trước tính từ chia thể nối 「高くて」 ở ô 3. Khung sau kết thúc bằng động từ di chuyển phủ định 「来ませんでした。」 nên cần bổ ngữ chỉ địa điểm đi với trợ từ に là 「学校に」 đứng ở ô 4. Mảnh 「高くて」 là dạng nối tính từ đuôi i thể hiện điểm ngữ pháp 「Aくて」 nên đứng chính xác ở ô 3 mang dấu sao ★.",
+              "glosses": [
+                {
+                  "t": "ミラー",
+                  "read": "ミラー",
+                  "vi": "Miller (tên người)"
+                },
+                {
+                  "t": "さんは",
+                  "read": "さんは",
+                  "vi": "ông/bà/anh/chị ~ (kính ngữ さん + trợ từ chủ đề は)"
+                },
+                {
+                  "t": "来ませんでした",
+                  "read": "きませんでした",
+                  "vi": "đã không đến"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "高くて",
+                  "read": "たかくて",
+                  "vi": "(sốt) cao"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "試験の前に",
+                "ください。"
+              ],
+              "pieces": [
+                "よく",
+                "復習",
+                "して",
+                "おいて"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "Vてから ／ Vておく (B14/B16)",
+              "explain": "Câu đúng: 「試験の前によく復習しておいてください。」— Xin hãy ôn tập kỹ trước kỳ thi.\nSắp xếp: ô 1=「よく」, ô 2=「復習」, ô 3=「して」, ô 4=「おいて」★\nKhung câu bắt đầu bằng trạng ngữ chỉ thời gian 「試験の前に」 và kết thúc bằng lời đề nghị 「ください。」, nên phần trống cần phó từ và cụm động từ hành động. Mảnh ô 2 「復習」 và ô 3 「して」 bắt buộc dính liền nhau thành dạng thể て 「復習して」, sau đó gắn liền với ô 4 「おいて」 để ghép với 「ください」 thành cấu trúc làm sẵn/chuẩn bị trước. Phó từ ô 1 「よく」 đứng ở đầu phần trống để bổ nghĩa trực tiếp cho động từ 「復習して」 đứng sau. Mảnh 「おいて」 nằm ở ô 4 và không thể đặt ở vị trí nào khác vì nó bắt buộc phải đứng ngay sau thể て của động từ ở ô 3 và nối với 「ください」 ở cuối khung.",
+              "glosses": [
+                {
+                  "t": "復習する",
+                  "read": "ふくしゅうする",
+                  "vi": "ôn tập"
+                },
+                {
+                  "t": "〜ておく",
+                  "read": "",
+                  "vi": "làm trước (chuẩn bị sẵn)"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                },
+                {
+                  "t": "よく",
+                  "read": "",
+                  "vi": "kỹ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この書類は",
+                "なりません。"
+              ],
+              "pieces": [
+                "明日まで",
+                "に",
+                "送ら",
+                "なければ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Nまでに ＋ Vなければなりません",
+              "explain": "Câu đúng: 「この書類は明日までに送らなければなりません。」 — Tài liệu này phải được gửi trước ngày mai.\nSắp xếp: ô 1=「明日まで」, ô 2=「に」, ô 3=「送ら」★, ô 4=「なければ」\nMẫu ngữ pháp 「Nまでに Vなければなりません」 diễn tả nghĩa phải hoàn thành hành động trước thời hạn cố định. Mảnh 「送ら」 bắt buộc phải ở ô 3 (ô ★) vì đây là gốc động từ thể 未然形 của 「送る」, kết hợp trực tiếp với 「なければ」 ở ô 4 để tạo thành vế \"phải gửi\". Lỗi trật tự học viên hay mắc là tách trợ từ 「に」 khỏi 「明日まで」 khiến cấu trúc chỉ thời hạn bị hỏng, hoặc đặt mảnh 「送ら」 đứng sau 「なければ」.",
+              "glosses": [
+                {
+                  "t": "送らなければなりません",
+                  "read": "おくらなければなりません",
+                  "vi": "phải gửi"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, văn bản"
+                },
+                {
+                  "t": "明日までに",
+                  "read": "あしたまでに",
+                  "vi": "trước ngày mai"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "お茶は",
+                "です。"
+              ],
+              "pieces": [
+                "全部",
+                "飲まなく",
+                "ても",
+                "いい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "Vなくてもいいです",
+              "explain": "Câu đúng: 「お茶は全部飲まなくてもいいです。」— Trà không cần uống hết cũng được.\nSắp xếp: ô 1=「全部」, ô 2=「飲まなく」★, ô 3=「ても」, ô 4=「いい」\nPhía trước khung câu là 「お茶は」 và phía sau là 「です。」, nên khoảng trống ở giữa cần một cụm vị ngữ phủ định diễn tả hành động không cần uống hết. Mẫu câu \"không... cũng được\" bắt buộc các mảnh phải dính liền nhau theo thứ tự 「飲まなく」 + 「ても」 + 「いい」 để tạo thành cấu trúc 「飲まなくてもいい」, trong đó trạng từ 「全部」 đứng trước động từ để bổ nghĩa. Nối các khối theo trật tự tiếng Nhật ta có 「全部」 (ô 1) đến 「飲まなく」 (ô 2) đến 「ても」 (ô 3) và 「いい」 (ô 4) đứng trước 「です。」. Mảnh 「飲まなく」 rơi vào ô 2 (ô ★) và không thể đứng ở vị trí khác vì nó bắt buộc phải kết nối trực tiếp đằng sau trạng từ 「全部」 và liên kết ngay trước trợ từ 「ても」 để tạo nên dạng phủ định 「飲まなくても」.",
+              "glosses": [
+                {
+                  "t": "飲まなくてもいいです",
+                  "read": "のまなくてもいいです",
+                  "vi": "không cần uống cũng được"
+                },
+                {
+                  "t": "お茶",
+                  "read": "おちゃ",
+                  "vi": "trà"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả, hết"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "山田さんは",
+                "帰りました。"
+              ],
+              "pieces": [
+                "資料を",
+                "読ん",
+                "で",
+                "から"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "Vてから（B16）",
+              "explain": "「資料を読んでから帰りました」= sau khi đọc tài liệu xong thì về.「Vてから」= sau khi làm V (B16). ★ ở mảnh「から」— trợ từ này kết hợp với て-hình tạo thứ tự tuần tự rõ ràng, khác với「て」đơn thuần.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "帰りました",
+                  "read": "かえりました",
+                  "vi": "đã về"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "読んでから",
+                  "read": "よんでから",
+                  "vi": "sau khi đọc"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "病院では",
+                "ください。"
+              ],
+              "pieces": [
+                "うるさく",
+                "し",
+                "ない",
+                "で"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vないでください（ôn luyện）",
+              "explain": "Câu đúng: 「病院ではうるさくしないでください。」— Ở bệnh viện xin đừng làm ồn.\nSắp xếp: ô 1=「うるさく」, ô 2=「し」, ô 3=「ない」★, ô 4=「で」\nKhung câu có phía trước là 「病院では」 và phía sau là 「ください。」, nên phần ở giữa cần một cụm động từ phủ định để hoàn thành cấu trúc xin đừng làm gì đó. Cụm mảnh 「し」, 「ない」 và 「で」 bắt buộc dính liền kề nhau theo thứ tự 「し」 + 「ない」 + 「で」 để hợp với 「ください。」 tạo thành mẫu câu 「しないでください」, trong đó mảnh 「うるさく」 phải đứng trước 「し」 để bổ nghĩa. Đặt các mảnh vào khung câu ta có trật tự lần lượt là 「うるさく」 (ô 1), 「し」 (ô 2), 「ない」 (ô 3) và 「で」 (ô 4). Mảnh 「ない」 rơi vào ô 3 (ô ★) và không thể đặt ở chỗ khác vì nó bắt buộc phải đứng ngay sau động từ 「し」 để chia thể phủ định và đứng ngay trước 「で」 để tạo nên dạng nối 「しないで」.",
+              "glosses": [
+                {
+                  "t": "うるさくしないでください",
+                  "read": "",
+                  "vi": "xin đừng gây ồn ào"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "うるさく",
+                  "vi": "ồn ào (dạng trạng từ của うるさい)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "アンナさんは明日の試験の前に、今夜10時",
+                "に寝ます。そして、朝ごはんを食べて",
+                "から学校に来てください。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "までに図書館の本を返さなければなりません",
+                    "までに図書館の本を返してもいいです",
+                    "までに図書館の本を返さないでください",
+                    "までに図書館の本を返してはいけません"
+                  ],
+                  "answer": 0,
+                  "explain": "Câu hỏi kiểm tra「Nまでに」(trước thời hạn N) kết hợp với「Vなければなりません」(phải làm). Đáp án A đúng vì nghĩa là \"phải trả sách thư viện trước 10 giờ tối nay\" — ép buộc cần thiết trước một mốc thời gian. Phương án B「返してもいいです」là \"được phép trả\" (B15 Vてもいいです) — không phải nghĩa bắt buộc, sai. Phương án C「返さないでください」là \"xin đừng trả\" — nghĩa ngược hoàn toàn, sai. Phương án D「返してはいけません」là \"không được trả\" (B15 Vてはいけません) — cũng nghĩa ngược, sai hoàn toàn."
+                },
+                {
+                  "choices": [
+                    "夜遅くまで勉強しなくてもいいです",
+                    "夜遅くまで勉強してもいいです",
+                    "夜遅くまで勉強しなければなりません",
+                    "夜遅くまで勉強しないでください"
+                  ],
+                  "answer": 3,
+                  "explain": "Câu hỏi kiểm tra「Vないでください」(xin đừng làm V). Đáp án D đúng vì nghĩa là \"xin đừng học khuya\" — lời khuyên/yêu cầu không làm một hành động. Phương án A「勉強しなくてもいいです」là \"không cần học cũng được\" (Vなくてもいいです) — nghĩa cho phép bỏ qua, không phải lời yêu cầu cấm, sai ngữ cảnh. Phương án B「勉強してもいいです」là \"được phép học\" (B15) — cho phép làm, ngược với ý \"đừng học khuya\", sai. Phương án C「勉強しなければなりません」là \"phải học\" — nghĩa bắt buộc, trái nghĩa với lời khuyên không học khuya, sai."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "アンナさん",
+                  "vi": "bạn Anna"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "今夜",
+                  "read": "こんや",
+                  "vi": "tối nay"
+                },
+                {
+                  "t": "10時までに",
+                  "read": "じゅうじまでに",
+                  "vi": "trước 10 giờ"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "返さなければなりません",
+                  "read": "かえさなければなりません",
+                  "vi": "phải trả"
+                },
+                {
+                  "t": "寝ます",
+                  "read": "ねます",
+                  "vi": "đi ngủ"
+                },
+                {
+                  "t": "朝ごはん",
+                  "read": "あさごはん",
+                  "vi": "bữa sáng"
+                },
+                {
+                  "t": "食べてから",
+                  "read": "たべてから",
+                  "vi": "sau khi ăn"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "夜遅くまで",
+                  "read": "よるおそくまで",
+                  "vi": "đến tận khuya"
+                },
+                {
+                  "t": "勉強しないでください",
+                  "read": "べんきょうしないでください",
+                  "vi": "xin đừng học"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ 「飲む」 sang dạng 「Vないでください」 (xin đừng làm gì đó). Chọn dạng đúng.",
+          "items": [
+            {
+              "stem": "飲む → 飲まない → 「Vないでください」の形：＿",
+              "choices": [
+                "飲まないでください",
+                "飲みないでください",
+                "飲まなくてください",
+                "飲まないですください"
+              ],
+              "answer": 0,
+              "explain": "「Vないでください」 được tạo bằng cách lấy thể ない của động từ (bỏ い) rồi thêm 「でください」.\n① 「飲まないでください」 → ĐÚNG: 飲む → thể ない = 飲まない → bỏ い → 飲まな + でください = 飲まないでください (đây là chuỗi nguyên vẹn, giữ nguyên い trước でください). Cụ thể: 動詞の「ない形」 + 「でください」.\n② 「飲みないでください」 → SAI: 飲みない không tồn tại; thân ます của 飲む là 飲み, nhưng thể ない phải dùng thân 未然形 = 飲ま.\n③ 「飲まなくてください」 → SAI: 飲まなくて là dạng nối (て形 của ない形), không dùng cho cấu trúc cấm lịch sự này.\n④ 「飲まないですください」 → SAI: không có cấu trúc 「ないですください」 trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "飲む",
+                  "read": "のむ",
+                  "vi": "uống"
+                },
+                {
+                  "t": "飲まないでください",
+                  "read": "のまないでください",
+                  "vi": "xin đừng uống"
+                },
+                {
+                  "t": "形",
+                  "read": "かたち",
+                  "vi": "hình thức, dạng"
+                },
+                {
+                  "t": "みないでください",
+                  "read": "みないでください",
+                  "vi": "(dạng chia sai) không đúng quy tắc chuẩn của 〜ないでください"
+                },
+                {
+                  "t": "まなくてください",
+                  "read": "まなくてください",
+                  "vi": "(dạng chia sai) không đúng quy tắc chuẩn của 〜ないでください"
+                },
+                {
+                  "t": "まないですください",
+                  "read": "まないですください",
+                  "vi": "(dạng chia sai) không đúng quy tắc chuẩn của 〜ないでください"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "レポートは金曜日＿に出してください。",
+              "choices": [
+                "まで",
+                "から",
+                "で",
+                "に"
+              ],
+              "answer": 0,
+              "explain": "Điểm ngữ pháp cần kiểm tra là 「Nまでに」 (trước thời hạn N — phải hoàn thành hành động trước mốc thời gian đó).\n① 「まで」 → ĐÂY LÀ ĐÁP ÁN, vì stem đã có 「に」 sau ＿ (金曜日＿に), nên điền 「まで」 vào ＿ tạo thành 「金曜日までに」 = trước thứ Sáu. Cấu trúc: 「時間/期限 + までに + 動詞」.\n② 「から」 → SAI: 「金曜日からに」 không thành cụm ngữ pháp chuẩn; 「から」 chỉ mốc bắt đầu, ví dụ 月曜日から (từ thứ Hai).\n③ 「で」 → SAI: 「金曜日でに」 không hợp ngữ pháp; 「で」 chỉ phương tiện hoặc địa điểm hành động, không dùng chỉ thời hạn.\n④ 「に」 → SAI: 「金曜日にに」 lặp trợ từ 「に」, không thể dùng; hơn nữa 「金曜日に」 chỉ thời điểm xảy ra, không nhấn mạnh ý nghĩa *trước thời hạn*.",
+              "glosses": [
+                {
+                  "t": "レポート",
+                  "vi": "báo cáo, bài luận"
+                },
+                {
+                  "t": "金曜日",
+                  "read": "きんようび",
+                  "vi": "thứ Sáu"
+                },
+                {
+                  "t": "までに",
+                  "vi": "trước (thời hạn)"
+                },
+                {
+                  "t": "出して",
+                  "read": "だして",
+                  "vi": "nộp, đưa ra"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Bạn không cần mang theo từ điển đâu.",
+              "target": "じしょをもってこなくてもいいですよ。",
+              "model": "じしょ を もって こなくても いいです よ。",
+              "explain": "Cấu trúc sử dụng: 「Vなくてもいいです」 = không cần làm cũng được.\n• 「持ってくる」 (mang đến) → thể ない = 持ってこない → bỏ い → 持ってこな + くてもいいです = 「持ってこなくてもいいです」.\n• 「じしょを」: 辞書 (từ điển) là tân ngữ trực tiếp, dùng trợ từ 「を」.\n• Cuối câu thêm 「よ」 để khẳng định nhẹ nhàng, phù hợp với lời an ủi/cho phép.\n• Lưu ý: 持ってくる là động từ ghép (V1てV2 — ôn xoắn ốc B16), thể ない của 来る là 来ない (こない), nên 持ってこない (không phải 持ってきない).",
+              "glosses": [
+                {
+                  "t": "じしょ",
+                  "read": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ chỉ tân ngữ trực tiếp"
+                },
+                {
+                  "t": "持ってくる",
+                  "read": "もってくる",
+                  "vi": "mang đến, mang theo"
+                },
+                {
+                  "t": "持ってこなくてもいいです",
+                  "read": "もってこなくてもいいです",
+                  "vi": "không cần mang đến cũng được"
+                },
+                {
+                  "t": "よ",
+                  "vi": "trợ từ cuối câu, nhấn mạnh/khẳng định nhẹ"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

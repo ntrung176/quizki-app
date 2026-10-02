@@ -1,0 +1,402 @@
+{
+  "id": "minna1.b05",
+  "bai": 5,
+  "titleVi": "Di chuyển — 〜へ行きます・〜で・〜と",
+  "know": [
+    {
+      "id": "minna1.b05.e",
+      "point": "e",
+      "jp": "〜へ 行[い]きます／来[き]ます／帰[かえ]ります",
+      "vi": "Đích đến (〜へ đọc là \"e\")",
+      "gloss": "đi / đến / về ～ (hướng đến)"
+    },
+    {
+      "id": "minna1.b05.de-means",
+      "point": "de-means",
+      "jp": "〜で（phương tiện）",
+      "vi": "Phương tiện di chuyển",
+      "gloss": "đi bằng ～ (でんしゃで, バスで...)"
+    },
+    {
+      "id": "minna1.b05.to-with",
+      "point": "to-with",
+      "jp": "〜と（cùng với ai）",
+      "vi": "Người đồng hành",
+      "gloss": "đi cùng ～ (友達[ともだち]と, 家族[かぞく]と)"
+    },
+    {
+      "id": "minna1.b05.itsu",
+      "point": "itsu",
+      "jp": "いつ／〜曜日[ようび]に",
+      "vi": "Hỏi & trả lời \"khi nào\"",
+      "gloss": "いつ = khi nào; thời gian cụ thể + に"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b05-e-school",
+      "item": "minna1.b05.e",
+      "err": "ni-for-de-means",
+      "vi": "Mỗi ngày tôi đến trường.",
+      "t1": {
+        "stem": "毎日[まいにち] 学校[がっこう]＿ 行[い]きます。",
+        "choices": [
+          "へ",
+          "に",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "学校[がっこう]へ",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "学校[がっこう]に",
+          "学校[がっこう]を"
+        ]
+      },
+      "t3": {
+        "target": "毎日学校へ行きます。",
+        "accept": [
+          "まいにちがっこうへいきます。"
+        ]
+      },
+      "why": "〜へ chỉ hướng di chuyển (đọc là \"e\"). 行く／来る／帰る + へ là cấu trúc chuẩn Minna B5."
+    },
+    {
+      "id": "c-b05-e-kaeri",
+      "item": "minna1.b05.e",
+      "err": "ni-for-de-means",
+      "vi": "Hôm qua tôi đã về nhà lúc 8 giờ.",
+      "t1": {
+        "stem": "昨日[きのう] 8時[じ]に 家[いえ]＿ 帰[かえ]りました。",
+        "choices": [
+          "へ",
+          "を",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]",
+          "8時[じ]に",
+          "家[いえ]へ",
+          "帰[かえ]りました。"
+        ],
+        "traps": [
+          "家[いえ]を",
+          "家[いえ]に"
+        ]
+      },
+      "t3": {
+        "target": "昨日8時に家へ帰りました。",
+        "accept": [
+          "きのう8じにいえへかえりました。"
+        ]
+      },
+      "why": "帰ります cũng dùng với へ: 家へ帰ります (về nhà). Số giữ nguyên trong accept."
+    },
+    {
+      "id": "c-b05-e-kuru",
+      "item": "minna1.b05.e",
+      "err": "to-for-de",
+      "vi": "Tuần tới anh Miller sẽ đến Nhật Bản.",
+      "t1": {
+        "stem": "来週[らいしゅう]、ミラーさんは 日本[にほん]＿ 来[き]ます。",
+        "choices": [
+          "へ",
+          "に",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "来週[らいしゅう]",
+          "ミラーさんは",
+          "日本[にほん]へ",
+          "来[き]ます。"
+        ],
+        "traps": [
+          "日本[にほん]に",
+          "日本[にほん]から"
+        ]
+      },
+      "t3": {
+        "target": "来週ミラーさんは日本へ来ます。",
+        "accept": [
+          "らいしゅうみらーさんはにほんへきます。"
+        ]
+      },
+      "why": "来ます cũng ghép với へ: 日本へ来ます. から = xuất phát, không phải đích đến."
+    },
+    {
+      "id": "c-b05-de-densha",
+      "item": "minna1.b05.de-means",
+      "err": "ni-for-de-means",
+      "vi": "Tôi đi làm bằng tàu điện.",
+      "t1": {
+        "stem": "電車[でんしゃ]＿ 会社[かいしゃ]へ 行[い]きます。",
+        "choices": [
+          "で",
+          "に",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電車[でんしゃ]で",
+          "会社[かいしゃ]へ",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "電車[でんしゃ]に",
+          "電車[でんしゃ]と"
+        ]
+      },
+      "t3": {
+        "target": "電車で会社へ行きます。",
+        "accept": [
+          "でんしゃでかいしゃへいきます。"
+        ]
+      },
+      "why": "Phương tiện di chuyển dùng で: 電車で, バスで, タクシーで. Không dùng に (に là đích/tồn tại) hay と (と là người đi cùng)."
+    },
+    {
+      "id": "c-b05-de-takushi",
+      "item": "minna1.b05.de-means",
+      "err": "to-for-de",
+      "vi": "Tôi đã đi bệnh viện bằng taxi.",
+      "t1": {
+        "stem": "タクシー＿ 病院[びょういん]へ 行[い]きました。",
+        "choices": [
+          "で",
+          "と",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "タクシーで",
+          "病院[びょういん]へ",
+          "行[い]きました。"
+        ],
+        "traps": [
+          "タクシーと",
+          "バスで"
+        ]
+      },
+      "t3": {
+        "target": "タクシーで病院へ行きました。",
+        "accept": [
+          "たくしーでびょういんへいきました。"
+        ]
+      },
+      "why": "Phương tiện dùng で (タクシーで), không dùng と. と chỉ để nói \"cùng với người\": 友達[ともだち]と行きました."
+    },
+    {
+      "id": "c-b05-de-shinkansen",
+      "item": "minna1.b05.de-means",
+      "err": "ni-for-de-means",
+      "vi": "Anh ấy đi Osaka bằng tàu shinkansen.",
+      "t1": {
+        "stem": "新幹線[しんかんせん]＿ 大阪[おおさか]へ 行[い]きます。",
+        "choices": [
+          "で",
+          "に",
+          "へ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "新幹線[しんかんせん]で",
+          "大阪[おおさか]へ",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "新幹線[しんかんせん]に",
+          "大阪[おおさか]に"
+        ]
+      },
+      "t3": {
+        "target": "新幹線で大阪へ行きます。",
+        "accept": [
+          "しんかんせんでおおさかへいきます。"
+        ]
+      },
+      "why": "Cả phương tiện (で) lẫn đích (へ) đều xuất hiện trong cùng câu: 新幹線で大阪へ行きます. Không nhầm lẫn hai で này với nhau."
+    },
+    {
+      "id": "c-b05-to-tomodachi",
+      "item": "minna1.b05.to-with",
+      "err": "to-for-de",
+      "vi": "Cuối tuần tôi đi xem phim cùng bạn.",
+      "t1": {
+        "stem": "週末[しゅうまつ]、友達[ともだち]＿ 映画[えいが]を 見[み]に 行[い]きます。",
+        "choices": [
+          "と",
+          "で",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "週末[しゅうまつ]",
+          "友達[ともだち]と",
+          "映画[えいが]を",
+          "見[み]に 行[い]きます。"
+        ],
+        "traps": [
+          "友達[ともだち]で",
+          "一人[ひとり]で"
+        ]
+      },
+      "t3": {
+        "target": "週末友達と映画を見に行きます。",
+        "accept": [
+          "しゅうまつともだちとえいがをみにいきます。"
+        ]
+      },
+      "why": "と chỉ người đồng hành: 友達と行きます. Khác với で (phương tiện): 電車[でんしゃ]で行きます."
+    },
+    {
+      "id": "c-b05-to-kazoku",
+      "item": "minna1.b05.to-with",
+      "err": "to-for-de",
+      "vi": "Tôi đi du lịch Hokkaido cùng gia đình.",
+      "t1": {
+        "stem": "家族[かぞく]＿ 北海道[ほっかいどう]へ 旅行[りょこう]します。",
+        "choices": [
+          "と",
+          "で",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "家族[かぞく]と",
+          "北海道[ほっかいどう]へ",
+          "旅行[りょこう]します。"
+        ],
+        "traps": [
+          "家族[かぞく]で",
+          "家族[かぞく]に"
+        ]
+      },
+      "t3": {
+        "target": "家族と北海道へ旅行します。",
+        "accept": [
+          "かぞくとほっかいどうへりょこうします。"
+        ]
+      },
+      "why": "家族と = cùng gia đình. Câu có cả と (người đi cùng) lẫn へ (đích đến): 家族と北海道へ."
+    },
+    {
+      "id": "c-b05-itsu-youbi",
+      "item": "minna1.b05.itsu",
+      "err": "itsu-ni",
+      "vi": "Bạn sẽ đi Kyoto vào thứ mấy?",
+      "t1": {
+        "stem": "京都[きょうと]へ 何曜日[なんようび]＿ 行[い]きますか。",
+        "choices": [
+          "に",
+          "を",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "京都[きょうと]へ",
+          "何曜日[なんようび]に",
+          "行[い]きますか。"
+        ],
+        "traps": [
+          "何曜日[なんようび]を",
+          "いつに"
+        ]
+      },
+      "t3": {
+        "target": "京都へ何曜日に行きますか。",
+        "accept": [
+          "きょうとへなんようびにいきますか。"
+        ]
+      },
+      "why": "Thời gian cụ thể (〜曜日, 〜時, 〜日) cần に: 月曜日に行きます. Nhưng いつ KHÔNG dùng に: いつ行きますか (✗ いつに)."
+    },
+    {
+      "id": "c-b05-itsu-raishuu",
+      "item": "minna1.b05.itsu",
+      "err": "itsu-ni",
+      "vi": "Anh đi Nhật khi nào? — Tôi đi vào thứ Bảy tuần tới.",
+      "t1": {
+        "stem": "いつ 日本[にほん]へ 行[い]きますか。— 来週[らいしゅう]の 土曜日[どようび]＿ 行[い]きます。",
+        "choices": [
+          "に",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "来週[らいしゅう]の",
+          "土曜日[どようび]に",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "土曜日[どようび]を",
+          "いつに"
+        ]
+      },
+      "t3": {
+        "target": "来週の土曜日に行きます。",
+        "accept": [
+          "らいしゅうのどようびにいきます。"
+        ]
+      },
+      "why": "いつ không cần に, nhưng khi trả lời bằng ngày cụ thể thì phải có に: 土曜日に行きます."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b05-a",
+      "item": "minna1.b05.de-means",
+      "err": "to-for-de",
+      "tts": "まいにち ちかてつで かいしゃへ いきます。",
+      "script": "毎日[まいにち] 地下鉄[ちかてつ]で 会社[かいしゃ]へ 行[い]きます。",
+      "ask": "Người này đi làm bằng phương tiện gì?",
+      "choices": [
+        "Tàu điện ngầm",
+        "Xe buýt",
+        "Taxi"
+      ],
+      "answer": 0,
+      "why": "ちかてつで = bằng tàu điện ngầm (地下鉄[ちかてつ]で)."
+    },
+    {
+      "id": "l-b05-b",
+      "item": "minna1.b05.to-with",
+      "err": "to-for-de",
+      "tts": "せんしゅうの にちようびに かのじょと きょうとへ いきました。",
+      "script": "先週[せんしゅう]の 日曜日[にちようび]に 彼女[かのじょ]と 京都[きょうと]へ 行[い]きました。",
+      "ask": "Người này đi Kyoto cùng với ai?",
+      "choices": [
+        "Với bạn gái",
+        "Đi một mình",
+        "Với gia đình"
+      ],
+      "answer": 0,
+      "why": "彼女[かのじょ]と = cùng bạn gái; 日曜日に = vào Chủ nhật (mốc thời gian + に)."
+    }
+  ]
+}

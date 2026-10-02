@@ -1,0 +1,486 @@
+{
+  "id": "minna1.b15",
+  "bai": 15,
+  "titleVi": "Xin phép & trạng thái — 〜てもいい・〜ています",
+  "know": [
+    {
+      "id": "minna1.b15.temoii",
+      "point": "temoii",
+      "jp": "〜てもいいです（か）",
+      "vi": "Xin phép / cho phép",
+      "en": "Permission / allowance",
+      "gloss": "được phép ～ / có thể ～ không?",
+      "glossEn": "be allowed to ～ / may ～?"
+    },
+    {
+      "id": "minna1.b15.tewaikenai",
+      "point": "tewaikenai",
+      "jp": "〜てはいけません",
+      "vi": "Cấm đoán / không được",
+      "en": "Prohibition / must not",
+      "gloss": "không được làm ～",
+      "glossEn": "must not do ～"
+    },
+    {
+      "id": "minna1.b15.te-iru-state",
+      "point": "te-iru-state",
+      "jp": "〜ています（trạng thái）",
+      "vi": "Trạng thái kéo dài",
+      "en": "A continuing state",
+      "gloss": "住んでいます・働いています・結婚しています",
+      "glossEn": "住んでいます・働いています・結婚しています"
+    },
+    {
+      "id": "minna1.b15.shitte",
+      "point": "shitte",
+      "jp": "知[し]っています／知[し]りません",
+      "vi": "Biết / không biết (bất quy tắc)",
+      "en": "Know / not know (irregular)",
+      "gloss": "知っていますか → 知っています／知りません",
+      "glossEn": "知っていますか → 知っています／知りません"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b15-temoii-shashin",
+      "item": "minna1.b15.temoii",
+      "err": "temoii-form",
+      "vi": "Tôi có thể chụp ảnh ở đây không?",
+      "t1": {
+        "stem": "ここで 写真[しゃしん]を ＿ もいいですか。",
+        "choices": [
+          "撮[と]って",
+          "撮[と]りて",
+          "撮[と]る"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ここで",
+          "写真[しゃしん]を",
+          "撮[と]って",
+          "もいいですか。"
+        ],
+        "traps": [
+          "撮[と]りてもいいですか。",
+          "撮[と]るてもいいですか。"
+        ]
+      },
+      "t3": {
+        "target": "ここで写真を撮ってもいいですか。",
+        "accept": [
+          "ここでしゃしんをとってもいいですか。"
+        ]
+      },
+      "why": "撮る (nhóm 1) → て-form: 撮って (✗ 撮りて・撮るて). てもいい cần て-form đúng."
+    },
+    {
+      "id": "c-b15-temoii-aircon",
+      "item": "minna1.b15.temoii",
+      "err": "temoii-form",
+      "vi": "Tôi bật điều hòa được không?",
+      "t1": {
+        "stem": "エアコンを ＿ もいいですか。",
+        "choices": [
+          "つけて",
+          "つけるて",
+          "つきて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "エアコンを",
+          "つけて",
+          "もいいですか。"
+        ],
+        "traps": [
+          "つけるてもいいですか。",
+          "つきてもいいですか。"
+        ]
+      },
+      "t3": {
+        "target": "エアコンをつけてもいいですか。",
+        "accept": [
+          "えあこんをつけてもいいですか。"
+        ]
+      },
+      "why": "つける (nhóm 2) → て-form: つけて. てもいい dùng て-form trực tiếp."
+    },
+    {
+      "id": "c-b15-temoii-kaeru",
+      "item": "minna1.b15.temoii",
+      "err": "temoii-form",
+      "vi": "Tôi có thể về sớm một chút không?",
+      "t1": {
+        "stem": "ちょっと 早[はや]く 帰[かえ]＿ もいいですか。",
+        "choices": [
+          "って",
+          "りて",
+          "るて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ちょっと",
+          "早[はや]く",
+          "帰[かえ]って",
+          "もいいですか。"
+        ],
+        "traps": [
+          "帰[かえ]りてもいいですか。",
+          "帰[かえ]るてもいいですか。"
+        ]
+      },
+      "t3": {
+        "target": "ちょっと早く帰ってもいいですか。",
+        "accept": [
+          "ちょっとはやくかえってもいいですか。"
+        ]
+      },
+      "why": "帰る (nhóm 1) → て-form: 帰って (✗ 帰りて). Tiểu từ て gộp r+te."
+    },
+    {
+      "id": "c-b15-tewaikenai-tabako",
+      "item": "minna1.b15.tewaikenai",
+      "err": "temoii-form",
+      "vi": "Không được hút thuốc ở đây.",
+      "t1": {
+        "stem": "ここで タバコを ＿ いけません。",
+        "choices": [
+          "吸[す]っては",
+          "吸[す]りては",
+          "吸[す]うては"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ここで",
+          "タバコを",
+          "吸[す]っては",
+          "いけません。"
+        ],
+        "traps": [
+          "吸[す]りてはいけません。",
+          "吸[す]ってもいいです。"
+        ]
+      },
+      "t3": {
+        "target": "ここでタバコを吸ってはいけません。",
+        "accept": [
+          "ここでたばこをすってはいけません。"
+        ]
+      },
+      "why": "吸う (nhóm 1) → て-form: 吸って + はいけません = cấm tuyệt đối."
+    },
+    {
+      "id": "c-b15-tewaikenai-hairu",
+      "item": "minna1.b15.tewaikenai",
+      "err": "temoii-form",
+      "vi": "Không được vào phòng này.",
+      "t1": {
+        "stem": "この 部屋[へや]に ＿ はいけません。",
+        "choices": [
+          "入[はい]っては",
+          "入[はい]りては",
+          "入[はい]るては"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この",
+          "部屋[へや]に",
+          "入[はい]っては",
+          "いけません。"
+        ],
+        "traps": [
+          "入[はい]りてはいけません。",
+          "入[はい]ってもいいです。"
+        ]
+      },
+      "t3": {
+        "target": "この部屋に入ってはいけません。",
+        "accept": [
+          "このへやにはいってはいけません。"
+        ]
+      },
+      "why": "入る → て-form: 入って + はいけません. 部屋に vào phòng dùng に."
+    },
+    {
+      "id": "c-b15-teiru-sunde",
+      "item": "minna1.b15.te-iru-state",
+      "err": "te-iru-state-masu",
+      "vi": "Anh Tanaka đang sống ở Tokyo.",
+      "t1": {
+        "stem": "田中[たなか]さんは 東京[とうきょう]に ＿。",
+        "choices": [
+          "住[す]んでいます",
+          "住[す]みます",
+          "住[す]んでいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "東京[とうきょう]に",
+          "住[す]んでいます。"
+        ],
+        "traps": [
+          "住[す]みます。",
+          "東京[とうきょう]で"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは東京に住んでいます。",
+        "accept": [
+          "たなかさんはとうきょうにすんでいます。"
+        ]
+      },
+      "why": "住んでいます = trạng thái \"đang sống ở\" (kéo dài). 住みます ✗ vì chỉ nói hành động sắp làm."
+    },
+    {
+      "id": "c-b15-teiru-hataraite",
+      "item": "minna1.b15.te-iru-state",
+      "err": "te-iru-state-masu",
+      "vi": "Chị Yamada làm việc ở ngân hàng.",
+      "t1": {
+        "stem": "山田[やまだ]さんは 銀行[ぎんこう]で ＿。",
+        "choices": [
+          "働[はたら]いています",
+          "働[はたら]きます",
+          "働[はたら]いていました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "山田[やまだ]さんは",
+          "銀行[ぎんこう]で",
+          "働[はたら]いています。"
+        ],
+        "traps": [
+          "働[はたら]きます。",
+          "銀行[ぎんこう]に"
+        ]
+      },
+      "t3": {
+        "target": "山田さんは銀行で働いています。",
+        "accept": [
+          "やまださんはぎんこうではたらいています。"
+        ]
+      },
+      "why": "働いています = trạng thái nghề nghiệp. 働きます ✗ cho nghề nghiệp hiện tại. Nơi làm việc dùng で."
+    },
+    {
+      "id": "c-b15-teiru-kekkon",
+      "item": "minna1.b15.te-iru-state",
+      "err": "te-iru-state-masu",
+      "vi": "Anh Miller đã kết hôn.",
+      "t1": {
+        "stem": "ミラーさんは ＿。",
+        "choices": [
+          "結婚[けっこん]しています",
+          "結婚[けっこん]します",
+          "結婚[けっこん]しました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ミラーさんは",
+          "結婚[けっこん]しています。"
+        ],
+        "traps": [
+          "結婚[けっこん]します。",
+          "結婚[けっこん]しました。"
+        ]
+      },
+      "t3": {
+        "target": "ミラーさんは結婚しています。",
+        "accept": [
+          "みらーさんはけっこんしています。"
+        ]
+      },
+      "why": "結婚しています = trạng thái đã (và đang) kết hôn. ✗ 結婚します (sắp kết hôn). ✗ 結婚しました (chỉ ghi nhận quá khứ)."
+    },
+    {
+      "id": "c-b15-shitte-denwa",
+      "item": "minna1.b15.shitte",
+      "err": "shitte-shiranai",
+      "vi": "Bạn có biết số điện thoại của anh Tanaka không? — Không, tôi không biết.",
+      "t1": {
+        "stem": "田中[たなか]さんの 電話番号[でんわばんごう]を 知[し]っていますか。— いいえ、＿。",
+        "choices": [
+          "知[し]りません",
+          "知[し]っていません",
+          "知[し]りますか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "いいえ、",
+          "知[し]りません。"
+        ],
+        "traps": [
+          "知[し]っていません。",
+          "知[し]っています。"
+        ]
+      },
+      "t3": {
+        "target": "いいえ、知りません。",
+        "accept": [
+          "いいえ、しりません。"
+        ]
+      },
+      "why": "知 phủ định PHẢI là 知りません — KHÔNG nói 知っていません (✗). Đây là ngoại lệ bắt buộc."
+    },
+    {
+      "id": "c-b15-shitte-resutoran",
+      "item": "minna1.b15.shitte",
+      "err": "shitte-shiranai",
+      "vi": "Bạn có biết nhà hàng đó không? — Có, tôi biết.",
+      "t1": {
+        "stem": "あのレストランを ＿ か。— はい、知[し]っています。",
+        "choices": [
+          "知[し]っています",
+          "知[し]ります",
+          "知[し]りますか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あのレストランを",
+          "知[し]っていますか。",
+          "— はい、",
+          "知[し]っています。"
+        ],
+        "traps": [
+          "知[し]りますか。",
+          "知[し]っていませんか。"
+        ]
+      },
+      "t3": {
+        "target": "あのレストランを知っていますか。",
+        "accept": [
+          "あのれすとらんをしっていますか。"
+        ]
+      },
+      "why": "Hỏi \"biết không?\" phải là 知っていますか (✗ 知りますか). Khẳng định: 知っています; Phủ định: 知りません."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b15-temoii",
+      "item": "minna1.b15.temoii",
+      "err": "temoii-form",
+      "tts": "としょかんで けいたいを つかっても いいですか。",
+      "script": "図書館[としょかん]で 携帯[けいたい]を 使[つか]っても いいですか。",
+      "ask": "Người nói đang xin phép làm gì?",
+      "choices": [
+        "Dùng điện thoại trong thư viện",
+        "Ăn trong thư viện",
+        "Chụp ảnh trong thư viện"
+      ],
+      "answer": 0,
+      "why": "使ってもいいですか = xin phép dùng (携帯 = điện thoại di động)."
+    },
+    {
+      "id": "l-b15-shitte",
+      "item": "minna1.b15.shitte",
+      "err": "shitte-shiranai",
+      "tts": "やまださんの あたらしい じゅうしょを しっていますか。 いいえ、しりません。",
+      "script": "山田[やまだ]さんの 新[あたら]しい 住所[じゅうしょ]を 知[し]っていますか。— いいえ、知[し]りません。",
+      "ask": "Người trả lời có biết địa chỉ mới không?",
+      "choices": [
+        "Không biết",
+        "Có biết",
+        "Biết một phần"
+      ],
+      "answer": 0,
+      "why": "知りません = phủ định bất quy tắc của 知っています (✗ 知っていません)."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b15-ga-temoii",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 15 ・ 〜てもいいです",
+      "vi": "Tôi thích phim này, xem cũng được chứ?",
+      "t1": {
+        "stem": "この 映画[えいが]＿ 好[す]きです。見[み]てもいいですか。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 映画[えいが]が",
+          "好[す]きです。",
+          "見[み]てもいいですか。"
+        ],
+        "traps": [
+          "映画[えいが]を",
+          "映画[えいが]は"
+        ]
+      },
+      "t3": {
+        "target": "この映画が好きです。見てもいいですか。",
+        "accept": [
+          "このえいががすきです。みてもいいですか。"
+        ]
+      },
+      "why": "Dù câu Bài 15 (てもいい), 好き vẫn cần が — phục kích lỗi #1 Bài 9 (wo-for-ga)."
+    },
+    {
+      "id": "a-b15-ga-tewaikenai",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 15 ・ 〜てはいけません",
+      "vi": "Tôi ghét tiếng ồn. Không được nói chuyện ồn ào ở đây.",
+      "t1": {
+        "stem": "うるさい 音[おと]＿ 嫌[きら]いです。ここで 大[おお]きい 声[こえ]で 話[はな]してはいけません。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "うるさい 音[おと]が",
+          "嫌[きら]いです。",
+          "ここで",
+          "大[おお]きい 声[こえ]で",
+          "話[はな]してはいけません。"
+        ],
+        "traps": [
+          "音[おと]を",
+          "音[おと]に"
+        ]
+      },
+      "t3": {
+        "target": "うるさい音が嫌いです。ここで大きい声で話してはいけません。",
+        "accept": [
+          "うるさいおとがきらいです。ここでおおきいこえではなしてはいけません。"
+        ]
+      },
+      "why": "嫌い (ghét) cũng là tính từ な như 好き → dùng が, không phải を — phục kích lỗi wo-for-ga Bài 9."
+    }
+  ]
+}

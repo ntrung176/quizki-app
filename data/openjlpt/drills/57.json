@@ -1,0 +1,434 @@
+{
+  "id": "skm3.b57",
+  "bai": 57,
+  "titleVi": "Vừa…thì lập tức (bất ngờ)",
+  "know": [
+    {
+      "id": "skm3.b57.totan",
+      "point": "totan",
+      "jp": "〜たとたん（に）",
+      "vi": "Vừa…thì ngay lập tức (kết quả bất ngờ / ngoài ý muốn)",
+      "en": "As soon as …, immediately (an unexpected or unintended result)",
+      "gloss": "V-た ＋ とたん（に）＋ [kết quả bất ngờ, KHÔNG ý chí/mệnh lệnh] ・ 例: 外[そと]に 出[で]た とたんに、雨[あめ]が 降[ふ]り 始[はじ]めた。（vừa bước ra ngoài thì trời đổ mưa ngay）",
+      "glossEn": "V-た ＋ とたん（に）＋ [unexpected result, NOT volitional/imperative] ・ 例: 外[そと]に 出[で]た とたんに、雨[あめ]が 降[ふ]り 始[はじ]めた。（As soon as I stepped outside, it started raining）"
+    },
+    {
+      "id": "skm3.b57.ka-nai-ka",
+      "point": "ka-nai-ka",
+      "jp": "〜か〜ないかのうちに",
+      "vi": "Chưa kịp…đã… (hai sự kiện gần như đồng thời)",
+      "en": "No sooner had … than … (two events occurring almost simultaneously, often unexpectedly)",
+      "gloss": "V-る か V-ない か の うちに ＋ [hành động tiếp nối ngay; được dùng ý chí] ・ 例: 授業[じゅぎょう]が 終[お]わるか 終[お]わらないかのうちに、学生[がくせい]たちは 外[そと]へ 駆[か]け 出[だ]した。（chưa hết giờ học đã chạy ra ngoài ngay）",
+      "glossEn": "V辞書形[じしょけい] か V-ない か のうちに、〜"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b57-totan-dis1",
+      "item": "skm3.b57.totan",
+      "err": "totan-for-tekara",
+      "vi": "Vừa bước ra ngoài thì trời bắt đầu đổ mưa — bất ngờ, ngoài ý muốn.",
+      "t1": {
+        "stem": "外[そと]に 出[で]た＿、雨[あめ]が 降[ふ]り 始[はじ]めた。",
+        "choices": [
+          "とたんに",
+          "てから",
+          "ばかりに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "外[そと]に",
+          "出[で]た",
+          "とたんに、",
+          "雨[あめ]が",
+          "降[ふ]り 始[はじ]めた。"
+        ],
+        "traps": [
+          "出[で]てから、",
+          "出[で]たばかりに、"
+        ]
+      },
+      "t3": {
+        "target": "外に出たとたんに、雨が降り始めた。",
+        "accept": [
+          "そとにでたとたんに、あめがふりはじめた。"
+        ]
+      },
+      "why": "たとたんに = kết quả bất ngờ xảy ra NGAY tức thì. ✗ てから = \"sau khi\" (trình tự bình thường, không nhấn bất ngờ). ✗ たばかりに = \"do vừa mới làm mà gây ra hậu quả\" (cấu trúc khác hẳn)."
+    },
+    {
+      "id": "c-b57-totan-dis2",
+      "item": "skm3.b57.totan",
+      "err": "totan-no-volition",
+      "vi": "Vừa tắt đèn thì ngay lập tức có người la to — bất ngờ, ngoài ý muốn.",
+      "t1": {
+        "stem": "電気[でんき]を 消[け]した＿、誰[だれ]かが 大[おお]きな 声[こえ]で 叫[さけ]んだ。",
+        "choices": [
+          "とたんに",
+          "ように",
+          "たびに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電気[でんき]を",
+          "消[け]した",
+          "とたんに、",
+          "誰[だれ]かが",
+          "大[おお]きな 声[こえ]で",
+          "叫[さけ]んだ。"
+        ],
+        "traps": [
+          "消[け]すように、",
+          "消[け]すたびに、"
+        ]
+      },
+      "t3": {
+        "target": "電気を消したとたんに、誰かが大きな声で叫んだ。",
+        "accept": [
+          "でんきをけしたとたんに、だれかがおおきなこえでさけんだ。"
+        ]
+      },
+      "why": "たとたんに bắt V-た cố định + kết quả tức thì bất ngờ. ✗ ように = mục đích/mong muốn. ✗ たびに = \"mỗi lần\" (lặp lại)."
+    },
+    {
+      "id": "c-b57-totan-dis3",
+      "item": "skm3.b57.totan",
+      "err": "totan-no-volition",
+      "vi": "\"Vừa chạm vào nút, máy bỗng tắt ngay.\" — Chọn mẫu diễn đạt sự bất ngờ đúng nhất.",
+      "t1": {
+        "stem": "ボタンに 触[さわ]った＿、機械[きかい]が 止[と]まってしまった。",
+        "choices": [
+          "とたん",
+          "と同時[どうじ]に",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ボタンに",
+          "触[さわ]った",
+          "とたん、",
+          "機械[きかい]が",
+          "止[と]まって",
+          "しまった。"
+        ],
+        "traps": [
+          "触[さわ]りながら、",
+          "触[さわ]ると 同時[どうじ]に、"
+        ]
+      },
+      "t3": {
+        "target": "ボタンに触ったとたん、機械が止まってしまった。",
+        "accept": [
+          "ぼたんにさわったとたん、きかいがとまってしまった。"
+        ]
+      },
+      "why": "たとたん nhấn sự bất ngờ, ngoài ý muốn (〜てしまった xác nhận điều ngoài ý). と同時に = đồng thời nhưng trung tính, không hàm bất ngờ. ながら = \"vừa...vừa\" (hai hành động song song cùng lúc — khác hẳn)."
+    },
+    {
+      "id": "c-b57-totan-ng-volition",
+      "item": "skm3.b57.totan",
+      "err": "totan-no-volition",
+      "vi": "\"Vừa về đến nhà, lập tức thiếp đi\" — Chọn vế sau ĐÚNG cho とたん.",
+      "t1": {
+        "stem": "家[いえ]に 帰[かえ]った とたん、＿。",
+        "choices": [
+          "すぐ 眠[ねむ]ってしまった",
+          "寝[ね]ましょう",
+          "寝[ね]てください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "家[いえ]に",
+          "帰[かえ]った",
+          "とたん、",
+          "すぐ 眠[ねむ]って",
+          "しまった。"
+        ],
+        "traps": [
+          "寝[ね]ましょう。",
+          "寝[ね]てください。"
+        ]
+      },
+      "t3": {
+        "target": "家に帰ったとたん、すぐ眠ってしまった。",
+        "accept": [
+          "いえにかえったとたん、すぐねむってしまった。"
+        ]
+      },
+      "why": "Sau とたん KHÔNG dùng ý chí (〜しよう) hay mệnh lệnh (〜してください). Chỉ dùng hành động mô tả kết quả tự nhiên/bất ngờ (眠ってしまった ✓). か〜ないかのうちに không có hạn chế này."
+    },
+    {
+      "id": "c-b57-kanai-dis1",
+      "item": "skm3.b57.ka-nai-ka",
+      "err": "kanai-for-totan",
+      "vi": "Chuông tan trường vừa reo là học sinh ùa ra ngay — muốn nhấn mạnh sự đồng thời gần như tuyệt đối.",
+      "t1": {
+        "stem": "チャイムが 鳴[な]る＿ 鳴[な]らないかのうちに、生徒[せいと]たちは 一斉[いっせい]に 飛[と]び 出[で]した。",
+        "choices": [
+          "か",
+          "たとたん",
+          "と同時[どうじ]に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "チャイムが",
+          "鳴[な]るか",
+          "鳴[な]らないかの",
+          "うちに、",
+          "生徒[せいと]たちは",
+          "一斉[いっせい]に 飛[と]び 出[で]した。"
+        ],
+        "traps": [
+          "チャイムが 鳴[な]ったとたん、",
+          "鳴[な]ると 同時[どうじ]に、"
+        ]
+      },
+      "t3": {
+        "target": "チャイムが鳴るか鳴らないかのうちに、生徒たちは一斉に飛び出した。",
+        "accept": [
+          "ちゃいむがなるかならないかのうちに、せいとたちはいっせいにとびだした。"
+        ]
+      },
+      "why": "か〜ないかのうちに dùng V-る か V-ない か (KHÔNG V-た). Nhấn đồng thời tuyệt đối \"chưa kịp reo đã chạy ra\". ✗ たとたん bắt buộc V-た và nhấn bất ngờ. ✗ と同時に trung tính, không nhấn \"chưa kịp\"."
+    },
+    {
+      "id": "c-b57-kanai-dis2",
+      "item": "skm3.b57.ka-nai-ka",
+      "err": "kanai-for-totan",
+      "vi": "\"Trời vừa sáng, anh ta đã rời nhà ngay.\" — Chọn mẫu nhấn mạnh \"chưa kịp sáng đã đi\".",
+      "t1": {
+        "stem": "夜[よ]が 明[あ]ける＿ 明[あ]けないかのうちに、彼[かれ]は もう 家[いえ]を 出[で]た。",
+        "choices": [
+          "か",
+          "たとたん",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "夜[よ]が 明[あ]けるか",
+          "明[あ]けないかの",
+          "うちに、",
+          "彼[かれ]は",
+          "もう 家[いえ]を",
+          "出[で]た。"
+        ],
+        "traps": [
+          "夜[よ]が 明[あ]けたとたん、",
+          "夜[よ]が 明[あ]けてから、"
+        ]
+      },
+      "t3": {
+        "target": "夜が明けるか明けないかのうちに、彼はもう家を出た。",
+        "accept": [
+          "よがあけるかあけないかのうちに、かれはもういえをでた。"
+        ]
+      },
+      "why": "か〜ないかのうちに cần V-る か V-ない か (thể từ điển + ない-form), không phải V-た. Mẫu nhấn \"chưa kịp Y thì X đã xảy ra\". ✗ たとたん cần V-た và nhấn bất ngờ nhiều hơn. ✗ てから = trình tự bình thường."
+    },
+    {
+      "id": "c-b57-contrast-dis",
+      "item": "skm3.b57.totan",
+      "err": "totan-no-volition",
+      "vi": "\"Vừa đặt điện thoại xuống, nó lại reo ngay.\" — Nhấn bất ngờ, ngoài ý muốn. Chọn mẫu đúng.",
+      "t1": {
+        "stem": "電話[でんわ]を 置[お]いた＿、また 鳴[な]り 出[で]した。",
+        "choices": [
+          "とたんに",
+          "か 置[お]かないかのうちに",
+          "てしまったら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電話[でんわ]を",
+          "置[お]いた",
+          "とたんに、",
+          "また 鳴[な]り 出[で]した。"
+        ],
+        "traps": [
+          "置[お]くか 置[お]かないかのうちに、",
+          "置[お]いて しまったら、"
+        ]
+      },
+      "t3": {
+        "target": "電話を置いたとたんに、また鳴り出した。",
+        "accept": [
+          "でんわをおいたとたんに、またなりだした。"
+        ]
+      },
+      "why": "たとたんに nhấn kết quả BẤT NGỜ ngoài ý muốn (V-た cố định). か〜ないかのうちに cũng diễn đạt tức thì nhưng dùng V-る/V-ない và nhấn đồng thời tuyệt đối — nếu thêm vào đây thì stem phải là 置くか置かないかのうちに."
+    },
+    {
+      "id": "c-b57-totan-form",
+      "item": "skm3.b57.totan",
+      "err": "totan-no-volition",
+      "vi": "\"Vừa nghe tin đó, tôi bàng hoàng không nói được lời nào.\"",
+      "t1": {
+        "stem": "その 知[し]らせを 聞[き]いた＿、言葉[ことば]が 出[で]なかった。",
+        "choices": [
+          "とたん",
+          "てから",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "その 知[し]らせを",
+          "聞[き]いた",
+          "とたん、",
+          "言葉[ことば]が",
+          "出[で]なかった。"
+        ],
+        "traps": [
+          "聞[き]いてから、",
+          "聞[き]いたために、"
+        ]
+      },
+      "t3": {
+        "target": "その知らせを聞いたとたん、言葉が出なかった。",
+        "accept": [
+          "そのしらせをきいたとたん、ことばがでなかった。"
+        ]
+      },
+      "why": "たとたん bắt buộc V-た; kết quả (言葉が出なかった) là tức thì và không chủ động. ✗ てから = \"sau khi\" thuần tuý không hàm bất ngờ. ✗ ために = nguyên nhân/mục đích."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b57-totan",
+      "item": "skm3.b57.totan",
+      "err": "totan-no-volition",
+      "tts": "かれは ドアを あけたとたん、おおきなこえで さけんだ。",
+      "script": "彼[かれ]は ドアを 開[あ]けたとたん、大[おお]きな 声[こえ]で 叫[さけ]んだ。",
+      "ask": "Chuyện gì xảy ra với anh ấy?",
+      "choices": [
+        "Vừa mở cửa thì bỗng la to lên — bất ngờ, tức thì",
+        "Sau khi mở cửa, anh ấy từ từ hét lên",
+        "Anh ấy muốn mở cửa nhưng không mở được"
+      ],
+      "answer": 0,
+      "why": "たとたん = ngay khi vừa làm xong thì... (tức thì, bất ngờ). \"叫んだ\" là kết quả bất ngờ xảy ra ngay lập tức."
+    },
+    {
+      "id": "l-b57-kanai",
+      "item": "skm3.b57.ka-nai-ka",
+      "err": "kanai-for-totan",
+      "tts": "じゅぎょうが おわるか おわらないかのうちに、がくせいたちは そとへ かけだした。",
+      "script": "授業[じゅぎょう]が 終[お]わるか 終[お]わらないかのうちに、学生[がくせい]たちは 外[そと]へ 駆[か]け出[だ]した。",
+      "ask": "Khi nào học sinh chạy ra ngoài?",
+      "choices": [
+        "Chưa hết giờ học đã chạy ra ngoài ngay",
+        "Sau khi tan học một lúc mới chạy ra",
+        "Thầy giáo bảo thì mới chạy ra"
+      ],
+      "answer": 0,
+      "why": "か〜ないかのうちに = chưa kịp Y thì X đã xảy ra — nhấn tốc độ gần như đồng thời, \"chưa kịp tan học đã chạy ra rồi\". Cấu trúc dùng V-る か V-ない か (終わるか終わらないか ✓)."
+    },
+    {
+      "id": "l-b57-contrast",
+      "item": "skm3.b57.totan",
+      "err": "totan-no-volition",
+      "tts": "やくそくの じかんに なったとたん、かれは へやを でていった。",
+      "script": "約束[やくそく]の 時間[じかん]に なったとたん、彼[かれ]は 部屋[へや]を 出[で]ていった。",
+      "ask": "Điều gì đặc biệt về hành động của anh ấy?",
+      "choices": [
+        "Đúng giờ hẹn là rời phòng ngay tức khắc — bất ngờ, tức thì",
+        "Anh ấy rời phòng sau khi đã chờ một lúc",
+        "Anh ấy không đến đúng giờ"
+      ],
+      "answer": 0,
+      "why": "たとたん diễn đạt hành động xảy ra NGAY TẮP LỰ khi điều kiện vừa được đáp ứng — nhấn tính bất ngờ/tức thì. Vị ngữ sau (出ていった) là hành động tự nhiên, không phải ý chí."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b57-teki-swap",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-teiki-swap",
+      "ambush": true,
+      "src": 47,
+      "context": "Bài 57 · たとたん — câu cài lỗi bài 47",
+      "vi": "Dạo gần đây khí hậu đã thay đổi rồi. Câu diễn đạt thay đổi TỪ QUÁ KHỨ đến hiện tại.",
+      "t1": {
+        "stem": "最近[さいきん]、気候[きこう]が 大きく 変[か]わって＿。",
+        "choices": [
+          "きました",
+          "いきました",
+          "しまいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "最近[さいきん]、",
+          "気候[きこう]が",
+          "大きく",
+          "変[か]わって",
+          "きました。"
+        ],
+        "traps": [
+          "変[か]わって いきました。",
+          "変[か]わって しまいました。"
+        ]
+      },
+      "t3": {
+        "target": "最近、気候が大きく変わってきました。",
+        "accept": [
+          "さいきん、きこうがおおきくかわってきました。"
+        ]
+      },
+      "why": "〜てきました = thay đổi dần dần từ quá khứ đến hiện tại (hướng lại gần). ✗ ていきました = thay đổi hướng đến tương lai (hướng ra xa). Lỗi Bài 47 lẫn hướng."
+    },
+    {
+      "id": "a-b57-taform-wrong",
+      "item": "minna1.b19.ta-form",
+      "err": "ta-form-wrong",
+      "ambush": true,
+      "src": 19,
+      "context": "Bài 57 · たとたん — câu cài lỗi chia thể た",
+      "vi": "Vừa đứng dậy thì đầu quay mòng mòng — cần chia đúng thể た trước とたん.",
+      "t1": {
+        "stem": "立[た]ち＿ とたん、頭[あたま]がくらっとした。",
+        "choices": [
+          "上[あ]がった",
+          "上[あ]がって",
+          "上[あ]がる"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "立[た]ち 上[あ]がった",
+          "とたん、",
+          "頭[あたま]が",
+          "くらっとした。"
+        ],
+        "traps": [
+          "立[た]ち 上[あ]がって とたん、",
+          "立[た]ち 上[あ]がる とたん、"
+        ]
+      },
+      "t3": {
+        "target": "立ち上がったとたん、頭がくらっとした。",
+        "accept": [
+          "たちあがったとたん、あたまがくらっとした。"
+        ]
+      },
+      "why": "たとたん BẮT BUỘC V-た (thể た) liền trước とたん. ✗ て-form (立ち上がって) hay từ điển-form (立ち上がる) đều sai. Lỗi Bài 19 chia sai thể た nhóm I (立ち上がる → 立ち上がった ✓)."
+    }
+  ]
+}

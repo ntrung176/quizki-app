@@ -1,0 +1,376 @@
+{
+  "bai": 14,
+  "bunpou": [
+    {
+      "stem": "ここに 名前[なまえ]を ＿。",
+      "choices": [
+        "書[か]いてください",
+        "書[か]くてください",
+        "書[か]きてください",
+        "書[か]いてくださいます"
+      ],
+      "answer": 0,
+      "explain": "てください = thể て + ください (yêu cầu lịch sự); 書く → 書いて (quy tắc き→いて); 書きてください là sai chia."
+    },
+    {
+      "stem": "田中[たなか]さんは 今[いま] 電話[でんわ]を ＿。",
+      "choices": [
+        "しています",
+        "します",
+        "してください",
+        "しましょうか"
+      ],
+      "answer": 0,
+      "explain": "ています diễn đạt hành động đang diễn ra tại thời điểm nói (進行形); します là hiện tại/tương lai, không phải đang làm."
+    },
+    {
+      "stem": "荷物[にもつ]を 持[も]ち＿。",
+      "choices": [
+        "ましょうか",
+        "てください",
+        "ています",
+        "ました"
+      ],
+      "answer": 0,
+      "explain": "ましょうか là đề nghị giúp đỡ lịch sự (\"Để tôi làm... cho nhé?\"); ては mang nghĩa khác; ます-stem (持ち) + ましょうか."
+    },
+    {
+      "stem": "ちょっと 待[ま]って＿。",
+      "choices": [
+        "ください",
+        "います",
+        "ましょうか",
+        "ました"
+      ],
+      "answer": 0,
+      "explain": "待ってください = \"xin hãy đợi\" (thể て + ください); 待っています = \"đang đợi\" — ngữ nghĩa khác."
+    },
+    {
+      "stem": "写真[しゃしん]を 撮[と]って＿ か。",
+      "choices": [
+        "もいい",
+        "ください",
+        "います",
+        "ましょう"
+      ],
+      "answer": 0,
+      "explain": "てもいいですか = xin phép làm gì; 撮って + もいいですか = \"Tôi có thể chụp ảnh không?\"; か cuối câu là dấu hiệu câu hỏi."
+    },
+    {
+      "stem": "山田[やまだ]さんは 今[いま] 手紙[てがみ]を ＿。",
+      "choices": [
+        "書[か]いています",
+        "書[か]きます",
+        "書[か]くています",
+        "書[か]いてください"
+      ],
+      "answer": 0,
+      "explain": "書く → thể て: 書いて + います = 書いています (đang viết); 書くています là sai — phải dùng thể て, không dùng 辞書形."
+    },
+    {
+      "stem": "ゆっくり 話[はな]して＿。",
+      "choices": [
+        "ください",
+        "います",
+        "ましょうか",
+        "でした"
+      ],
+      "answer": 0,
+      "explain": "話してください = \"xin hãy nói chậm\" (yêu cầu); 話しています = \"đang nói\" — ngữ nghĩa khác với câu này."
+    },
+    {
+      "stem": "窓[まど]を 開[あ]け＿。",
+      "choices": [
+        "ましょうか",
+        "てください",
+        "ています",
+        "ました"
+      ],
+      "answer": 0,
+      "explain": "ます-stem (開け) + ましょうか = đề nghị giúp (\"Để tôi mở cửa sổ cho nhé?\"); てください sau thể て, không sau ます-stem."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "を",
+      "で",
+      "が",
+      "に",
+      "と",
+      "は",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "コーヒー＿ 飲[の]んでください。",
+        "answer": "を",
+        "explain": "を đánh dấu tân ngữ trực tiếp của 飲む; uống cà phê → コーヒーを飲む."
+      },
+      {
+        "stem": "田中[たなか]さんは 今[いま] 日本語[にほんご]＿ 勉強[べんきょう]しています。",
+        "answer": "を",
+        "explain": "を đánh dấu tân ngữ của 勉強する; đang học tiếng Nhật → 日本語を勉強しています."
+      },
+      {
+        "stem": "ここ＿ 名前[なまえ]を 書[か]いてください。",
+        "answer": "に",
+        "explain": "に chỉ vị trí viết (ở đây, vào đây); で chỉ địa điểm thực hiện nhưng ここに viết vào nghĩa cụ thể hơn."
+      },
+      {
+        "stem": "友[とも]だち＿ いっしょに 来[き]てください。",
+        "answer": "と",
+        "explain": "と chỉ \"cùng với\": 友だちと = \"cùng với bạn bè\"; で hay に không dùng để chỉ người đi cùng."
+      },
+      {
+        "stem": "ペン＿ 書[か]いてください。",
+        "answer": "で",
+        "explain": "で chỉ phương tiện/công cụ: ペンで = \"bằng bút\"; に chỉ địa điểm, không phải công cụ."
+      },
+      {
+        "stem": "お母[かあ]さん＿ 料理[りょうり]をしています。",
+        "answer": "は",
+        "explain": "は đánh dấu chủ đề câu; câu trình bày điều mẹ đang làm mà không nhấn mạnh đối chiếu."
+      },
+      {
+        "stem": "田中[たなか]さん＿ 手紙[てがみ]を 書[か]いています。",
+        "answer": "も",
+        "explain": "も mang nghĩa \"cũng\" — hàm ý người khác cũng đang viết thư; は chỉ đơn thuần nêu chủ đề."
+      },
+      {
+        "stem": "窓[まど]＿ 開[あ]けましょうか。",
+        "answer": "を",
+        "explain": "を đánh dấu tân ngữ của 開ける; 窓を開ける = mở cửa sổ; を là bắt buộc với động từ tác động lên đối tượng."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "書[か]きます",
+      "prompt": "Thể て?",
+      "choices": [
+        "書[か]いて",
+        "書[か]きて",
+        "書[か]って",
+        "書[か]くて"
+      ],
+      "answer": 0,
+      "explain": "Nhóm 1: き→いて (quy tắc âm âm vị): 書き → 書いて; không phải 書きて hay 書って."
+    },
+    {
+      "base": "飲[の]みます",
+      "prompt": "Thể て?",
+      "choices": [
+        "飲[の]んで",
+        "飲[の]みて",
+        "飲[の]って",
+        "飲[の]くて"
+      ],
+      "answer": 0,
+      "explain": "Nhóm 1: み→んで (bi-moraic nasal): 飲み → 飲んで; 飲みて là sai — み không thành て trực tiếp."
+    },
+    {
+      "base": "行[い]きます",
+      "prompt": "Thể て? (chú ý ngoại lệ)",
+      "choices": [
+        "行[い]って",
+        "行[い]いて",
+        "行[い]きて",
+        "行[い]くて"
+      ],
+      "answer": 0,
+      "explain": "行く là ngoại lệ duy nhất: き→って (không phải いて); tất cả động từ khác tận き đều thành いて."
+    },
+    {
+      "base": "食[た]べます",
+      "prompt": "Thể て?",
+      "choices": [
+        "食[た]べて",
+        "食[た]びて",
+        "食[た]って",
+        "食[た]べいて"
+      ],
+      "answer": 0,
+      "explain": "Nhóm 2 (る-động từ): bỏ ます, thêm て → 食べて; nhóm 2 không biến âm như nhóm 1."
+    },
+    {
+      "base": "します",
+      "prompt": "Thể て?",
+      "choices": [
+        "して",
+        "しいて",
+        "しって",
+        "しんで"
+      ],
+      "answer": 0,
+      "explain": "します (nhóm 3 — bất quy tắc): して là dạng て bắt buộc cần nhớ; không chia theo quy tắc nào."
+    },
+    {
+      "base": "来[き]ます",
+      "prompt": "Thể て?",
+      "choices": [
+        "来[き]て",
+        "来[き]いて",
+        "来[き]って",
+        "来[き]んで"
+      ],
+      "answer": 0,
+      "explain": "来ます (nhóm 3 — bất quy tắc): thể て là 来て (きて); phát âm き → きて, không biến âm."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "ちょっと",
+        "待[ま]って",
+        "ください。"
+      ],
+      "vi": "Xin hãy đợi một chút.",
+      "explain": "Trạng từ (ちょっと) + thể て (待って) + ください; ちょっと bổ nghĩa cho hành động xin đợi."
+    },
+    {
+      "chips": [
+        "田中[たなか]さんは",
+        "今[いま]",
+        "電話[でんわ]を",
+        "しています。"
+      ],
+      "vi": "Anh Tanaka đang gọi điện thoại.",
+      "explain": "Chủ đề + trạng từ thời gian (今) + tân ngữ + ています (hành động đang diễn ra)."
+    },
+    {
+      "chips": [
+        "荷物[にもつ]を",
+        "持[も]ち",
+        "ましょうか。"
+      ],
+      "vi": "Để tôi xách đồ cho nhé?",
+      "explain": "Tân ngữ + ます-stem (持ち) + ましょうか: đề nghị giúp đỡ; ましょうか sau ます-stem không phải thể て."
+    },
+    {
+      "chips": [
+        "ゆっくり",
+        "話[はな]して",
+        "ください。"
+      ],
+      "vi": "Xin hãy nói chậm thôi.",
+      "explain": "Trạng từ (ゆっくり) + thể て (話して) + ください; trạng từ đứng trước động từ."
+    },
+    {
+      "chips": [
+        "お母[かあ]さんは",
+        "台所[だいどころ]で",
+        "料理[りょうり]を",
+        "しています。"
+      ],
+      "vi": "Mẹ đang nấu ăn trong bếp.",
+      "explain": "Chủ đề + địa điểm+で + tân ngữ + ています; で chỉ địa điểm diễn ra hành động."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "ちょっと まってください。",
+      "ask": "Người nói muốn bạn làm gì?",
+      "choices": [
+        "Đợi một chút",
+        "Đi nhanh lên",
+        "Viết tên vào"
+      ],
+      "answer": 0,
+      "script": "ちょっと 待[ま]ってください。",
+      "explain": "まってください = \"xin đợi\"; ちょっと = \"một chút\" — cùng xác định đây là yêu cầu đợi."
+    },
+    {
+      "tts": "たなかさんは いま てがみを かいています。",
+      "ask": "Anh Tanaka đang làm gì?",
+      "choices": [
+        "Đang viết thư",
+        "Đang đọc thư",
+        "Đang gọi điện"
+      ],
+      "answer": 0,
+      "script": "田中[たなか]さんは 今[いま] 手紙[てがみ]を 書[か]いています。",
+      "explain": "かいています = 書いています = đang viết; てがみ = thư; không phải đọc (よんでいます) hay gọi điện (でんわしています)."
+    },
+    {
+      "tts": "にもつを もちましょうか。",
+      "ask": "Người nói đề nghị làm gì?",
+      "choices": [
+        "Xách đồ giúp",
+        "Mở cửa giúp",
+        "Gọi taxi giúp"
+      ],
+      "answer": 0,
+      "script": "荷物[にもつ]を 持[も]ちましょうか。",
+      "explain": "にもつ = 荷物 = hành lý/đồ; もちましょうか = đề nghị xách; không nghe あける (mở) hay タクシー."
+    },
+    {
+      "tts": "ゆっくり はなしてください。",
+      "ask": "Người nói yêu cầu điều gì?",
+      "choices": [
+        "Nói chậm thôi",
+        "Viết nhanh lên",
+        "Đợi một chút"
+      ],
+      "answer": 0,
+      "script": "ゆっくり 話[はな]してください。",
+      "explain": "ゆっくり = \"chậm thôi\"; はなして = thể て của 話す (nói); yêu cầu nói chậm, không phải viết hay đợi."
+    },
+    {
+      "tts": "まどを あけましょうか。",
+      "ask": "Người nói đề nghị làm gì?",
+      "choices": [
+        "Mở cửa sổ",
+        "Đóng cửa sổ",
+        "Tắt điều hòa"
+      ],
+      "answer": 0,
+      "script": "窓[まど]を 開[あ]けましょうか。",
+      "explain": "まど = 窓 = cửa sổ; あける = mở; ましょうか = đề nghị; không phải しめる (đóng) hay エアコン (điều hòa)."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Xin hãy viết tên vào đây.",
+      "target": "ここに名前を書いてください。",
+      "accept": [
+        "ここになまえをかいてください。"
+      ],
+      "explain": "Địa điểm+に (ここに = vào đây) + tân ngữ+を + thể て + ください; 書く → 書いて (ki→ite)."
+    },
+    {
+      "vi": "Anh Tanaka đang gọi điện thoại.",
+      "target": "田中さんは今電話をしています。",
+      "accept": [
+        "たなかさんはいまでんわをしています。",
+        "田中さんは電話をしています。",
+        "たなかさんはでんわをしています。"
+      ],
+      "explain": "Hành động đang diễn ra: 電話をしている; します → して + います = しています; 今 có thể lược bỏ."
+    },
+    {
+      "vi": "Để tôi xách đồ cho nhé?",
+      "target": "荷物を持ちましょうか。",
+      "accept": [
+        "にもつをもちましょうか。"
+      ],
+      "explain": "Đề nghị giúp: ます-stem (持ち) + ましょうか; tân ngữ (荷物を) đứng trước động từ."
+    },
+    {
+      "vi": "Xin hãy nói chậm thôi.",
+      "target": "ゆっくり話してください。",
+      "accept": [
+        "ゆっくりはなしてください。"
+      ],
+      "explain": "Trạng từ ゆっくり + 話す (thể て: 話して) + ください; 話す → 話して (nhóm 1: す→して)."
+    },
+    {
+      "vi": "Mẹ đang nấu ăn trong bếp.",
+      "target": "お母さんは台所で料理をしています。",
+      "accept": [
+        "おかあさんはだいどころでりょうりをしています。",
+        "おかあさんはだいどころでりょうりをしています。"
+      ],
+      "explain": "Địa điểm+で (台所で = trong bếp) + tân ngữ + しています (đang làm); で chỉ nơi diễn ra hành động."
+    }
+  ]
+}

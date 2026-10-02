@@ -1,0 +1,3595 @@
+{
+  "bai": 119,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học rèn luyện kỹ năng đọc hiểu N3 qua việc nắm bắt mạch phát triển của bài văn từ nguyên nhân khởi phát (〜をきっかけに), tính chất cộng dồn (〜に加えて), đến phạm vi ảnh hưởng (〜にわたって). Đồng thời, bài giúp học viên phân biệt rõ sắc thái tranh luận đa chiều quanh một vấn đề (〜をめぐって) và kết quả đi ngược dự đoán (〜に反して), kết hợp định vị sự chuyển hướng chủ đề bằng liên từ (ところで).",
+    "steps": [
+      "Xác định sự kiện bước ngoặt với 「〜をきっかけに」: Khoanh vùng vế trước là mốc khởi phát để tìm ra hành động hay sự thay đổi mang tính quyết định ở vế sau.",
+      "Theo dõi mạch bổ sung thông tin cùng chiều của 「〜に加えて」: Nhận diện đây là phép cộng dồn (cùng tích cực hoặc cùng tiêu cực) để nắm trọn vẹn các luận điểm của tác giả.",
+      "Cảnh giác khi gặp liên từ 「ところで」 ở đầu câu: Báo hiệu tác giả đang đổi hướng sang một chủ đề mới hoặc chuyển từ bối cảnh dẫn nhập sang nội dung chính.",
+      "Định lượng quy mô và thời gian với 「〜にわたって」: Chú ý các cụm từ chỉ thời gian hoặc phạm vi rộng để trả lời chính xác các câu hỏi chi tiết về mức độ ảnh hưởng.",
+      "Phân tích xung đột quan điểm qua 「〜をめぐって」 và sự bất ngờ qua 「〜に反して」: Xác định rõ các bên tranh chấp quanh chủ đề gì (めぐる) và đối chiếu kết quả thực tế với kỳ vọng/dự đoán ban đầu (反して)."
+    ],
+    "tips": [
+      "Mẹo 使い分け 1: Phân biệt 「〜をめぐって」 vs 「〜について」(Bài 67): 『について』 chỉ nêu chủ đề trung tính, còn 『をめぐって』 bắt buộc phải có sự tranh cãi, tranh chấp hoặc nhiều luồng ý kiến đối lập giữa các bên.",
+      "Mẹo 使い分け 2: Phân biệt 「〜に反して」 vs 「〜に対して」(Bài 70): 『に対して』 dùng để so sánh đối chiếu 2 sự vật hoặc hướng tới đối tượng, còn 『に反して』 luôn biểu thị kết quả thực tế đi ngược lại hoàn toàn so với kỳ vọng, dự đoán (予想、期待) hoặc quy định.",
+      "Mẹo 使い分け 3: Phân biệt 「〜をきっかけに」 vs 「〜おかげで／〜せいで」(Bài 59): 『おかげで/せいで』 giải thích nguyên nhân-kết quả trực tiếp, còn 『をきっかけに』 đóng vai trò là 'ngòi nổ' hay sự kiện khởi đầu dẫn tới bước ngoặt/thay đổi lớn.",
+      "Bẫy liên từ chuyển ý: Khi gặp 「ところで」, thông tin trọng tâm phục vụ câu hỏi đọc hiểu thường nằm ở các câu ngay sau liên từ này thay vì đoạn trước đó.",
+      "Dấu hiệu ngữ pháp bổ nghĩa danh từ: Chú ý dạng đứng trước danh từ là 「〜にわたる + N」, 「〜をめぐる + N」, 「〜に反する + N」 để nhanh chóng nhận biết phạm vi hoặc đối tượng chịu tác động."
+    ],
+    "grammarFocus": [
+      "～をきっかけに／をきっかけとして — 接続: N ／ V辞書形こと + をきっかけに／をきっかけとして. Sắc thái: Diễn tả sự kiện, cơ hội đóng vai trò là điểm khởi đầu dẫn tới sự thay đổi lớn (thường tích cực). Đối chiếu: Khác với 〜おかげで (B59 - nguyên nhân kết quả) hay ことから (căn cứ lý do).",
+      "～に加えて／に加え — 接続: N + に加えて／に加え. Sắc thái: Bổ sung thêm một yếu tố mới cùng chiều (cùng tốt hoặc cùng xấu) vào điều đã có. Đối chiếu: Nhấn mạnh sự cộng thêm trực tiếp hơn cấu trúc 〜だけでなく.",
+      "ところで — 接続: ところで、〜 (Liên từ đầu câu). Sắc thái: Dùng để chuyển sang một chủ đề mới trong văn bản hoặc hội thoại. Đối chiếu: Khác với それで (kết quả tiếp theo) hay そして (bổ sung liên tiếp).",
+      "～にわたって／にわたる — 接続: N (thời gian/phạm vi) + にわたって／にわたる + N. Sắc thái: Nhấn mạnh sự việc kéo dài suốt một khoảng thời gian hoặc trải rộng trên một quy mô lớn. Đối chiếu: Khác với 〜間に (B56 - chỉ một thời điểm trong khoảng).",
+      "～をめぐって／をめぐる — 接続: N (vấn đề/tranh cãi) + をめぐって／をめぐる + N. Sắc thái: Xoay quanh một vấn đề phát sinh tranh luận, đối đầu giữa nhiều bên. Đối chiếu: Khác với 〜について (B67 - chỉ chủ đề thảo luận trung tính, không chứa xung đột).",
+      "～に反して／に反する — 接続: N (kỳ vọng/dự đoán/quy tắc) + に反して／に反する + N. Sắc thái: Kết quả thực tế xảy ra trái ngược hoàn toàn với dự đoán, mong đợi hoặc quy định. Đối chiếu: Khác với 〜に対して (B70 - đối lập 2 thực thể hoặc hướng tác động) và 〜のに (B62)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 67,
+        "items": [
+          "〜について（N＋について）",
+          "〜に関して（N＋に関して）"
+        ]
+      },
+      {
+        "bai": 70,
+        "items": [
+          "〜に対して（N + に対して）",
+          "〜に比べて（N + に比べて）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（普通形/なAdj+な/N+の＋おかげで）",
+          "〜せいで（普通形/なAdj+な/N+の＋せいで）"
+        ]
+      },
+      {
+        "bai": 56,
+        "items": [
+          "〜間に（Vている/Nの + 間に）",
+          "〜間（Vている/Nの + 間）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "伝統文化の継承と町の調和",
+      "titleVi": "Kế thừa văn hóa truyền thống và sự hài hòa của thị trấn",
+      "japanese": "近年、ある地方の町では、古い工芸品の展示会を開催したことをきっかけに、伝統文化を見直す動きが広がっている。職人の減少に加えて、若い世代の関心が薄れていた問題に対し、住民たちが立ち上がったのだ。町では３か月にわたるワークショップが開かれ、多くの市民が技術を学び始めた。この活動の成功をきっかけとして、町外からの観光客も急速に増えていった。\nしかし、観光客の増加に伴う騒音に加え、ゴミの処理方法をめぐって住民の間で意見が対立するようになった。静かな生活を守りたいという住民の期待に反して、町の環境は急速に変化してしまったのである。\nところで、地域を活性化させることと本来の暮らしを守ることのどちらを優先すべきなのだろうか。私たちは、目先の経済的な効果だけに目を向けるのではなく、将来の町のあり方を慎重に考える必要がある。伝統を守り育てる真の発展とは、住民全員が納得できる調和のとれた道を探すことだ。",
+      "vietnamese": "Những năm gần đây, tại một thị trấn nọ, lấy sự kiện triển lãm đồ thủ công truyền thống làm khởi điểm, phong trào xem xét và gìn giữ lại văn hóa truyền thống đang lan rộng. Cộng thêm sự suy giảm số lượng nghệ nhân, người dân đã cùng nhau đứng lên đối mặt với vấn đề sự quan tâm của thế hệ trẻ ngày càng mờ nhạt. Tại thị trấn, các buổi hội thảo thực hành kéo dài suốt 3 tháng đã được tổ chức, và nhiều người dân bắt đầu theo học kỹ thuật nghề. Lấy sự thành công của hoạt động này làm bước ngoặt, lượng khách du lịch từ ngoài thị trấn cũng gia tăng nhanh chóng.\nThế nhưng, cộng thêm tiếng ồn đi kèm với sự gia tăng khách du lịch, giữa các cư dân đã bắt đầu nảy sinh mâu thuẫn ý kiến xoay quanh phương thức xử lý rác thải. Trái ngược với kỳ vọng muốn giữ gìn cuộc sống thanh bình của cư dân, môi trường của thị trấn đã bị thay đổi một cách nhanh chóng.\nNhân tiện, giữa việc làm hồi sinh địa phương và việc bảo vệ cuộc sống vốn có, ta nên ưu tiên điều nào hơn? Chúng ta không nên chỉ chăm chăm nhìn vào hiệu quả kinh tế trước mắt, mà cần phải suy ngẫm một cách thận trọng về diện mạo và hướng đi tương lai của thị trấn. Sự phát triển thực sự nhằm gìn giữ và nuôi dưỡng truyền thống chính là tìm kiếm một con đường hài hòa mà mọi người dân đều cảm thấy đồng thuận.",
+      "sentences": [
+        {
+          "jp": "近年、ある地方の町では、古い工芸品の展示会を開催したことをきっかけに、伝統文化を見直す動きが広がっている。",
+          "vi": "Những năm gần đây, tại một thị trấn nọ, lấy sự kiện triển lãm đồ thủ công truyền thống làm khởi điểm, phong trào xem xét và gìn giữ lại văn hóa truyền thống đang lan rộng.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "gần đây, những năm gần đây"
+            },
+            {
+              "w": "地方",
+              "read": "ちほう",
+              "vi": "địa phương, tỉnh xa"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "展示",
+              "read": "てんじ",
+              "vi": "sự trưng bày, triển lãm"
+            },
+            {
+              "w": "開催",
+              "read": "かいさい",
+              "vi": "tổ chức (sự kiện)"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội, động cơ, chất xúc tác"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "見直す",
+              "read": "みなおす",
+              "vi": "nhìn nhận lại, đánh giá lại"
+            },
+            {
+              "w": "動き",
+              "read": "うごき",
+              "vi": "cử động, hành động"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            },
+            {
+              "w": "工芸品",
+              "read": "こうげいひん",
+              "vi": "đồ thủ công mỹ nghệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をきっかけに",
+              "vi": "接続: N / V-たこと ＋ をきっかけに。Sắc thái: Biểu thị một sự kiện, cơ hội ngẫu nhiên hay cụ thể trở thành động lực/bước ngoặt dẫn tới sự thay đổi hoặc khởi đầu một hành động mới. Đối chiếu: Khác với 〜を契機に (văn viết trang trọng mang tính thời đại/lịch sử hơn) và 〜ついでに (nhân tiện làm việc phụ khi tiện thể làm việc chính)."
+            }
+          ]
+        },
+        {
+          "jp": "職人の減少に加えて、若い世代の関心が薄れていた問題に対し、住民たちが立ち上がったのだ。",
+          "vi": "Cộng thêm sự suy giảm số lượng nghệ nhân, người dân đã cùng nhau đứng lên đối mặt với vấn đề sự quan tâm của thế hệ trẻ ngày càng mờ nhạt.",
+          "vocab": [
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "減少",
+              "read": "げんしょう",
+              "vi": "sự giảm bớt, suy giảm"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "関心",
+              "read": "かんしん",
+              "vi": "sự quan tâm, sự chú ý"
+            },
+            {
+              "w": "薄れる",
+              "read": "うすれる",
+              "vi": "mờ nhạt dần, giảm sút, phai nhạt"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "người dân, cư dân"
+            },
+            {
+              "w": "立ち上がる",
+              "read": "たちあがる",
+              "vi": "đứng lên (hành động đối phó vấn đề)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加えて",
+              "vi": "接続: N ＋ に加えて / 普通形（Naな / Nの）＋ に加えて。Sắc thái: Bổ sung thêm một sự việc/yếu tố cùng chiều hướng (tích lũy thêm), mang tính văn viết rõ ràng. Đối chiếu: Khác với 〜だけでなく (chỉ phạm vi 'không chỉ... mà còn') và 〜ばかりか (nhấn mạnh mức độ tăng tiến bất ngờ vượt bậc)."
+            },
+            {
+              "point": "〜に対し",
+              "vi": "接続: N ＋ に対し(て)。Sắc thái: Hướng tới một đối tượng/vấn đề cụ thể để đưa ra thái độ, hành động ứng phó. Đối chiếu: Khác với 〜にとって (xét theo lập trường/đánh giá của ai)."
+            }
+          ]
+        },
+        {
+          "jp": "町では３か月にわたるワークショップが開かれ、多くの市民が技術を学び始めた。",
+          "vi": "Tại thị trấn, các buổi hội thảo thực hành kéo dài suốt 3 tháng đã được tổ chức, và nhiều người dân bắt đầu theo học kỹ thuật nghề.",
+          "vocab": [
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "３か月",
+              "read": "さんかげつ",
+              "vi": "3 tháng"
+            },
+            {
+              "w": "にわたる",
+              "read": "にわたる",
+              "vi": "kéo dài, trải qua"
+            },
+            {
+              "w": "ワークショップ",
+              "read": "わーくしょっぷ",
+              "vi": "hội thảo thực hành"
+            },
+            {
+              "w": "開かれ",
+              "read": "ひらかれ",
+              "vi": "được tổ chức"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "学び始めた",
+              "read": "まなびはじめた",
+              "vi": "bắt đầu học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたる",
+              "vi": "接続: N (thời gian / phạm vi) ＋ にわたる ＋ N. Sắc thái: Nhấn mạnh quy mô thời gian hoặc không gian trải dài, bao quát toàn bộ khoảng đó. Đối chiếu: Khác với 〜を通じて (nhấn mạnh tính liên tục không đứt quãng) và 〜を通して (nhấn mạnh phương tiện/trung gian)."
+            }
+          ]
+        },
+        {
+          "jp": "この活動の成功をきっかけとして、町外からの観光客も急速に増えていった。",
+          "vi": "Lấy sự thành công của hoạt động này làm bước ngoặt, lượng khách du lịch từ ngoài thị trấn cũng gia tăng nhanh chóng.",
+          "vocab": [
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "成功",
+              "read": "せいこう",
+              "vi": "thành công"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội, động cơ, chất xúc tác"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をきっかけとして",
+              "vi": "接続: N ＋ をきっかけとして。Sắc thái: Tương đương với 〜をきっかけに, dùng để nêu mốc sự kiện khởi phát nên sự việc mới ở vế sau, nhưng mang sắc thái văn viết trang trọng hơn một chút. Đối chiếu: Khác với 〜を契機として (dùng cho bối cảnh mang tầm vóc xã hội/lịch sử to lớn hơn)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、観光客の増加に伴う騒音に加え、ゴミの処理方法をめぐって住民の間で意見が対立するようになった。",
+          "vi": "Thế nhưng, cộng thêm tiếng ồn đi kèm với sự gia tăng khách du lịch, giữa các cư dân đã bắt đầu nảy sinh mâu thuẫn ý kiến xoay quanh phương thức xử lý rác thải.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "増加",
+              "read": "ぞうか",
+              "vi": "sự gia tăng"
+            },
+            {
+              "w": "伴う",
+              "read": "ともなう",
+              "vi": "gắn liền với, đi kèm"
+            },
+            {
+              "w": "騒音",
+              "read": "そうおん",
+              "vi": "tiếng ồn"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "ゴミ",
+              "read": "ゴミ",
+              "vi": "rác"
+            },
+            {
+              "w": "処理",
+              "read": "しょり",
+              "vi": "xử lý"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "người dân, cư dân"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "対立",
+              "read": "たいりつ",
+              "vi": "đối lập, mâu thuẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加え",
+              "vi": "接続: N ＋ に加え. Sắc thái: Dạng liên dụng (ngắt câu) của に加えて, mang văn phong trang trọng, liệt kê bổ sung thêm một yếu tố tiêu cực phát sinh. Đối chiếu: Khác với 〜とともに (cùng lúc/đồng thời biến đổi song song)."
+            },
+            {
+              "point": "〜をめぐって",
+              "vi": "接続: N ＋ をめぐって. Sắc thái: Biểu thị một vấn đề trung tâm gây ra tranh luận, mâu thuẫn, bất đồng ý kiến giữa nhiều bên. Đối chiếu: Khác với 〜について (nói/nghĩ về chủ đề trung tính, không nhất thiết có tranh luận hay đối kháng)."
+            }
+          ]
+        },
+        {
+          "jp": "静かな生活を守りたいという住民の期待に反して、町の環境は急速に変化してしまったのである。",
+          "vi": "Trái ngược với kỳ vọng muốn giữ gìn cuộc sống thanh bình của cư dân, môi trường của thị trấn đã bị thay đổi một cách nhanh chóng.",
+          "vocab": [
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "người dân, cư dân"
+            },
+            {
+              "w": "期待",
+              "read": "きたい",
+              "vi": "kỳ vọng, mong đợi"
+            },
+            {
+              "w": "反す",
+              "read": "はんす",
+              "vi": "trái với, đi ngược lại"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に反して",
+              "vi": "接続: N ＋ に反して. Sắc thái: Diễn tả thực tế xảy ra trái ngược hoàn toàn với mong muốn, kỳ vọng, dự đoán hoặc quy định ban đầu. Đối chiếu: Khác với 〜に対して (dùng để so sánh tương phản giữa 2 đối tượng hoặc hướng hành vi tới đối tượng)."
+            }
+          ]
+        },
+        {
+          "jp": "ところで、地域を活性化させることと本来の暮らしを守ることのどちらを優先すべきなのだろうか。",
+          "vi": "Nhân tiện, giữa việc làm hồi sinh địa phương và việc bảo vệ cuộc sống vốn có, ta nên ưu tiên điều nào hơn?",
+          "vocab": [
+            {
+              "w": "ところで",
+              "read": "ところで",
+              "vi": "nhân tiện, tiện đây (chuyển chủ đề)"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "活性",
+              "read": "かっせい",
+              "vi": "hoạt tính, sự tích cực"
+            },
+            {
+              "w": "本来",
+              "read": "ほんらい",
+              "vi": "vốn dĩ, bản chất thực sự"
+            },
+            {
+              "w": "暮らし",
+              "read": "くらし",
+              "vi": "đời sống, cuộc sống sinh hoạt"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "優先",
+              "read": "ゆうせん",
+              "vi": "ưu tiên"
+            },
+            {
+              "w": "活性化",
+              "read": "かっせいか",
+              "vi": "làm sống động, hồi sinh, kích hoạt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ところで",
+              "vi": "接続: Đứng ở đầu câu. Sắc thái: Dùng để chuyển mạch thảo luận hoặc dẫn dắt sang một vấn đề/câu hỏi suy ngẫm mới. Đối chiếu: Khác với さて (chuyển sang chủ đề chính kế tiếp trong buổi họp/diễn thuyết) và では (chuyển sang hành động tiếp theo dựa trên tình huống hiện tại)."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは、目先の経済的な効果だけに目を向けるのではなく、将来の町のあり方を慎重に考える必要がある。",
+          "vi": "Chúng ta không nên chỉ chăm chăm nhìn vào hiệu quả kinh tế trước mắt, mà cần phải suy ngẫm một cách thận trọng về diện mạo và hướng đi tương lai của thị trấn.",
+          "vocab": [
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta, chúng tôi"
+            },
+            {
+              "w": "目先",
+              "read": "めさき",
+              "vi": "trước mắt"
+            },
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "経済的",
+              "read": "けいざいてき",
+              "vi": "mang tính kinh tế"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "目を向ける",
+              "read": "めをむける",
+              "vi": "hướng sự chú ý đến"
+            },
+            {
+              "w": "向ける",
+              "read": "むける",
+              "vi": "hướng, quay về"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "あり方",
+              "read": "ありかた",
+              "vi": "cách tồn tại, định hướng"
+            },
+            {
+              "w": "慎重",
+              "read": "しんちょう",
+              "vi": "thận trọng"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, cân nhắc"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく",
+              "vi": "接続: 普通形 ＋ のではなく. Sắc thái: Phủ định nội dung A để nhấn mạnh và đưa ra nội dung quan trọng hơn ở mệnh đề B ('không phải A mà là B'). Đối chiếu: Mang tính lập luận sắc bén hơn cách dùng phủ định đơn thuần 〜ないで."
+            }
+          ]
+        },
+        {
+          "jp": "伝統を守り育てる真の発展とは、住民全員が納得できる調和のとれた道を探すことだ。",
+          "vi": "Sự phát triển thực sự nhằm gìn giữ và nuôi dưỡng truyền thống chính là tìm kiếm một con đường hài hòa mà mọi người dân đều cảm thấy đồng thuận.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "育てる",
+              "read": "そだてる",
+              "vi": "nuôi dưỡng, bồi dưỡng"
+            },
+            {
+              "w": "真",
+              "read": "しん",
+              "vi": "chân thực, sự thật"
+            },
+            {
+              "w": "発展",
+              "read": "はってん",
+              "vi": "phát triển, tiến bộ"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "người dân, cư dân"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "toàn bộ mọi người"
+            },
+            {
+              "w": "納得",
+              "read": "なっとく",
+              "vi": "thấu hiểu, chấp nhận, đồng thuận"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "調和",
+              "read": "ちょうわ",
+              "vi": "sự hài hòa, hòa hợp"
+            },
+            {
+              "w": "とれる",
+              "read": "とれる",
+              "vi": "tan biến, khỏi"
+            },
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "con đường, đạo"
+            },
+            {
+              "w": "探す",
+              "read": "さがす",
+              "vi": "tìm kiếm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは〜ことだ",
+              "vi": "接続: N ＋ とは 〜 ことだ. Sắc thái: Định nghĩa bản chất cốt lõi hoặc đúc kết quan điểm, triết lý của người viết về một khái niệm quan trọng."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "古い工芸品の展示会を開催したことをきっかけに",
+          "label": "Khởi phát từ triển lãm đồ thủ công"
+        },
+        {
+          "excerpt": "職人の減少に加えて、若い世代の関心が薄れていた問題",
+          "label": "Bổ sung thêm nguyên nhân khó khăn"
+        },
+        {
+          "excerpt": "ゴミの処理方法をめぐって住民の間で意見が対立するようになった",
+          "label": "Xoay quanh tranh cãi về rác thải"
+        },
+        {
+          "excerpt": "静かな生活を守りたいという住民の期待に反して",
+          "label": "Trái với kỳ vọng sống yên bình"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この町で伝統文化を見直す活動が始まったきっかけは何ですか。",
+          "options": [
+            "古い工芸品の展示会が開かれたこと",
+            "町外からの観光客が急に増えたこと",
+            "ゴミの処理についての新しい規則ができたこと",
+            "職人の数が急激に増えたこと"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ câu [0]: 「古い工芸品の展示会を開催したことをきっかけに、伝統文化を見直す動きが広がっている。」(Lấy sự kiện tổ chức triển lãm đồ thủ công cũ làm khởi điểm, phong trào nhìn nhận lại văn hóa truyền thống đang lan rộng).\n- Phương án 0 đúng vì nêu chính xác sự kiện khởi phát ở câu [0].\n- Phương án 1 sai vì lượng du khách tăng lên là kết quả sau khi hoạt động thành công (câu [3]), không phải nguyên nhân ban đầu.\n- Phương án 2 sai vì vấn đề rác thải là rắc rối nảy sinh sau này (câu [4]), không phải lý do khởi xướng.\n- Phương án 3 sai vì thực tế số lượng thợ thủ công bị suy giảm (câu [1]), chứ không hề tăng lên.",
+          "tip": "Tìm cấu trúc 「〜をきっかけに」 ở ngay câu đầu tiên [0] của bài đọc.",
+          "evi": [
+            0
+          ],
+          "qt": {
+            "q": "Điều gì đã khởi đầu hoạt động xem xét lại văn hóa truyền thống ở thị trấn này?",
+            "o": [
+              "Việc tổ chức một cuộc triển lãm các sản phẩm thủ công mỹ nghệ cổ",
+              "Việc du khách từ ngoài thị trấn đột nhiên tăng lên",
+              "Việc ban hành quy định mới về xử lý rác",
+              "Số lượng nghệ nhân tăng mạnh"
+            ]
+          }
+        },
+        {
+          "q": "観光客が増えたことで、町でどのような問題が起こりましたか。",
+          "options": [
+            "職人の技術を学ぶ市民が全くいなくなってしまった。",
+            "騒音問題に加え、ゴミ処理をめぐる住民の意見の対立が生じた。",
+            "伝統的な工芸品の展示会が開催できなくなった。",
+            "若い世代が町から完全に離れてしまった。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ câu [4]: 「しかし、観光客の増加に伴う騒音に加え、ゴミの処理方法をめぐって住民の間で意見が対立するようになった。」(Thế nhưng, cộng thêm tiếng ồn đi kèm với sự gia tăng khách du lịch, giữa các cư dân đã nảy sinh mâu thuẫn ý kiến xoay quanh cách xử lý rác thải).\n- Phương án 1 đúng vì tổng hợp chính xác hai vấn đề tiêu cực: tiếng ồn và sự đối lập ý kiến về xử lý rác.\n- Phương án 0 sai vì nhiều người dân đã bắt đầu học nghề thủ công (câu [2]).\n- Phương án 2 sai vì bài không hề nói các buổi triển lãm bị hủy bỏ.\n- Phương án 3 sai vì bài không nhắc tới việc thế hệ trẻ bỏ đi hoàn toàn.",
+          "tip": "Chú ý từ nối chuyển ý 「しかし」 và hai mẫu 「〜に加え」, 「〜をめぐって」 tại câu [4].",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Do lượng du khách tăng lên, ở thị trấn đã xảy ra vấn đề gì?",
+            "o": [
+              "Hoàn toàn không còn người dân nào học kỹ thuật của các nghệ nhân nữa.",
+              "Bên cạnh vấn đề tiếng ồn, đã nảy sinh bất đồng ý kiến giữa cư dân về việc xử lý rác.",
+              "Không thể tổ chức triển lãm các sản phẩm thủ công mỹ nghệ truyền thống nữa.",
+              "Thế hệ trẻ đã hoàn toàn rời khỏi thị trấn."
+            ]
+          }
+        },
+        {
+          "q": "「住民の期待に反して」(câu [5]) とありますが、住民は何を望んでいましたか。",
+          "options": [
+            "観光客をさらに増やして町を賑やかにすること",
+            "職人の数を減らして新しい産業を作ること",
+            "伝統を守りつつも、静かで穏やかな生活が保たれること",
+            "ゴミの処理施設を町の中心に建設すること"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ câu [5]: 「静かな生活を守りたいという住民の期待に反して、町の環境は急速に変化してしまったのである。」(Trái ngược với kỳ vọng muốn giữ gìn cuộc sống thanh bình của cư dân, môi trường của thị trấn đã thay đổi một cách nhanh chóng).\n- Phương án 2 đúng vì thể hiện đúng mong muốn giữ gìn cuộc sống thanh bình, không bị xáo trộn bởi sự quá tải du lịch.\n- Phương án 0 sai vì sự ồn ào, xáo trộn đi ngược lại mong muốn yên tĩnh của họ.\n- Phương án 1 sai vì họ đứng lên hành động vì thợ thủ công bị suy giảm, chứ không muốn giảm thợ thủ công.\n- Phương án 3 sai vì không hề được đề cập trong bài.",
+          "tip": "Đọc kỹ phần bổ nghĩa trực tiếp cho 「期待」 là 「静かな生活を守りたいという」 ở câu [5].",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Có câu 「住民の期待に反して」 (trái với kỳ vọng của cư dân) (câu [5]); cư dân đã mong muốn điều gì?",
+            "o": [
+              "Làm cho thị trấn nhộn nhịp hơn bằng cách tăng thêm du khách",
+              "Giảm số lượng nghệ nhân và tạo ra ngành công nghiệp mới",
+              "Vừa gìn giữ truyền thống, vừa duy trì cuộc sống yên tĩnh, thanh bình",
+              "Xây dựng cơ sở xử lý rác ở trung tâm thị trấn"
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も言いたいことは何ですか。",
+          "options": [
+            "経済的な利益だけを追わず、住民が納得できる調和のとれた発展を目指すべきだ。",
+            "伝統文化を守るためには、観光客の受け入れを完全に中止するべきだ。",
+            "地域の活性化のためなら、住民の生活環境の変化は我慢するべきだ。",
+            "若い世代の教育よりも、高齢の職人の保護を最優先にするべきだ。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ câu [7] và [8]: 「私たちは、目先の経済的な効果だけに目を向けるのではなく、将来の町のあり方を慎重に考える必要がある。伝統を守り育てる真の発展とは、住民全員が納得できる調和のとれた道を探すことだ。」\n- Phương án 0 đúng vì tóm gọn luận điểm cốt lõi của tác giả: không chạy theo lợi nhuận trước mắt mà tìm con đường hài hòa, được cư dân đồng thuận.\n- Phương án 1 sai vì tác giả không kêu gọi cấm hoàn toàn du khách mà kêu gọi tìm giải pháp cân bằng.\n- Phương án 2 sai vì tác giả không ủng hộ việc hy sinh môi trường sống của người dân vì mục tiêu kinh tế.\n- Phương án 3 sai vì bài không đưa ra sự so sánh phân biệt giữa các nhóm tuổi tác này.",
+          "tip": "Đọc kỹ đoạn kết (câu [7], [8]) nơi tác giả đưa ra kết luận và thông điệp chủ đạo của bài nghị luận.",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn nói nhất trong bài viết này là gì?",
+            "o": [
+              "Không chỉ theo đuổi lợi ích kinh tế mà nên hướng tới sự phát triển hài hòa mà cư dân có thể đồng thuận.",
+              "Để gìn giữ văn hóa truyền thống, nên hoàn toàn ngừng tiếp nhận du khách.",
+              "Nếu vì sự phát triển của địa phương thì nên chấp nhận những thay đổi trong môi trường sống của cư dân.",
+              "Nên ưu tiên bảo vệ các nghệ nhân lớn tuổi hơn là giáo dục thế hệ trẻ."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "伝統工芸の町の再生と若者の挑戦",
+      "titleVi": "Sự hồi sinh của thị trấn gốm truyền thống và thách thức của người trẻ",
+      "japanese": "ある地方の静かな町では、数百年にわたって独特の陶芸文化が受け継がれてきた。しかし、職人の高齢化に加えて、若者の都市への流出による後継者不足が深刻な問題となっていた。そんな衰退の危機にあった町が、数年前に一人の若手作家の帰郷をきっかけに大きく変わり始めた。彼は伝統的な技術を大切にしながらも、現代の食卓に似合うモダンな器を次々と発表した。初期の売れ行きへの不安に反して、その新しい工芸品は若い世代から予想以上の人気を集めた。\nその後、町全体で観光客向けの陶芸体験教室の開催をきっかけとして、地域活性化の動きが本格化した。美しい陶器の販売に加え、空き家を利用したおしゃれなカフェや宿泊施設も次々とオープンした。ところで、急速な観光地化を進めることに対して、当初から全員が賛成していたわけではなかった。特に、静かな生活環境の維持や工房の改修方針をめぐって、若手とベテランの間で激しい議論が交わされた。伝統を守りたい古参住民の反発は強く、３か月にわたって対立が続く事態となった。\nこの状況を打開するため、町長が仲介に入り、双方の意見を丁寧に聞く場が設けられた。伝統技術の未来のあり方をめぐる話し合いの中で、双方は町を守りたいという思いが同じであることに気づいた。「頑固な職人は変化を拒むだろう」という周囲の予想に反し、ベテラン職人たちも自ら新しい釉薬の研究に協力し始めた。職人たちの深い経験に加えて、若者のデジタル技術を用いた宣伝活動が合わさり、商品の魅力はさらに高まった。丁寧な対話を重ねた結果、１年以上にわたる住民たちの努力は大きな実を結ぶことになった。\n現在では国内外から多くの観光客が訪れ、町はかつてない活気に満ちあふれている。また、この町の成功をきっかけに、全国の工芸の産地から視察に訪れる人々も増えている。ところで、地域活性化の本質は単に観光客を集めることではなく、住む人々が誇りを取り戻すことにある。昔ながらの知恵に加え、新しい発想を柔軟に取り入れる姿勢こそが、伝統を未来へつなぐ鍵となるだろう。変化を恐れずに挑戦し続けるこの町の歩みは、人口減少に悩む多くの地方にとって貴重な道しるべとなっている。",
+      "vietnamese": "Tại một thị trấn yên bình nọ ở địa phương, nét văn hóa gốm sứ độc đáo đã được kế thừa và gìn giữ suốt hàng trăm năm qua. Thế nhưng, cộng thêm với tình trạng già hóa của các nghệ nhân, việc thiếu hụt người kế nghiệp do giới trẻ rời lên thành phố đã trở thành vấn đề nan giải. Đứng trước nguy cơ lụi tàn ấy, thị trấn đã bắt đầu biến chuyển mạnh mẽ từ vài năm trước, lấy bước ngoặt là sự hồi hương của một nghệ nhân trẻ. Anh trân trọng các kỹ thuật truyền thống nhưng đồng thời cũng liên tục cho ra mắt những bộ đồ gốm hiện đại, phù hợp với bàn ăn ngày nay. Trái ngược với những lo ngại ban đầu về sức mua, dòng sản phẩm thủ công mới mẻ ấy đã đón nhận sự yêu thích vượt xa kỳ vọng từ thế hệ trẻ.\n\nSau đó, lấy việc tổ chức các lớp trải nghiệm làm gốm cho khách du lịch làm khởi điểm, phong trào hồi sinh khu vực đã chính thức bước vào giai đoạn sôi nổi. Bên cạnh việc bày bán đồ gốm tuyệt mỹ, các quán cà phê phong cách và cơ sở lưu trú tận dụng nhà bỏ hoang cũng lần lượt được mở cửa. Nhân tiện cũng phải nói thêm, việc đẩy mạnh du lịch hóa nhanh chóng này thuở ban đầu không phải nhận được sự tán thành từ tất cả mọi người. Đặc biệt, xoay quanh việc duy trì môi trường sống yên tĩnh cũng như định hướng cải tạo các xưởng gốm, những tranh luận nảy lửa đã nổ ra giữa lớp trẻ và những bậc tiền bối. Làn sóng phản đối từ các cư dân lâu năm muốn gìn giữ truyền thống mạnh mẽ đến mức mâu thuẫn đã kéo dài ròng rã suốt 3 tháng.\n\nNhằm tháo gỡ tình hình này, thị trưởng đã đứng ra làm trung gian hòa giải và tạo điều kiện để các bên cùng ngồi lại lắng nghe nhau một cách thấu đáo. Trong quá trình thảo luận xoay quanh hướng đi tương lai của kỹ nghệ truyền thống, đôi bên nhận ra rằng họ đều cùng chung một tâm nguyện muốn bảo vệ thị trấn quê hương. Trái ngược với phán đoán từ những người xung quanh rằng 'các nghệ nhân cứng đầu sẽ khước từ đổi mới', chính các bậc nghệ nhân kỳ cựu đã chủ động chung tay nghiên cứu các loại men gốm mới. Cộng thêm với kinh nghiệm dày dặn của các nghệ nhân, hoạt động quảng bá ứng dụng công nghệ số của giới trẻ khi kết hợp lại đã càng nâng tầm sức hấp dẫn cho sản phẩm. Nhờ kiên trì đối thoại chân thành, nỗ lực trải dài hơn một năm của người dân nơi đây đã gặt hái được quả ngọt to lớn.\n\nGiờ đây, du khách trong và ngoài nước đổ về đông đảo, khiến thị trấn tràn ngập bầu không khí rộn rã chưa từng có. Hơn nữa, lấy cảm hứng từ thành công của thị trấn này, ngày càng có nhiều đoàn người từ các làng nghề thủ công trên khắp cả nước tìm đến tham quan học hỏi. Mà này, cốt lõi của việc hồi sinh địa phương không đơn thuần là lôi kéo thật nhiều khách du lịch, mà chính là giúp người dân tìm lại niềm tự hào vốn có của mình. Thái độ cởi mở tiếp thu những ý tưởng mới mẻ cùng với kho tàng tri thức xưa cũ chính là chiếc chìa khóa để bắc nhịp cầu truyền thống tới tương lai. Hành trình không ngại đổi mới và kiên trì dấn thân của thị trấn này đang trở thành một ngọn hải đăng quý báu cho biết bao vùng quê đang trăn trở trước bài toán suy giảm dân số.",
+      "sentences": [
+        {
+          "jp": "ある地方の静かな町では、数百年にわたって独特の陶芸文化が受け継がれてきた。",
+          "vi": "Tại một thị trấn yên bình nọ ở địa phương, nét văn hóa gốm sứ độc đáo đã được kế thừa và gìn giữ suốt hàng trăm năm qua.",
+          "vocab": [
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "một, nào đó"
+            },
+            {
+              "w": "地方",
+              "read": "ちほう",
+              "vi": "địa phương, vùng"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "数百年",
+              "read": "すうひゃくねん",
+              "vi": "vài trăm năm"
+            },
+            {
+              "w": "にわたって",
+              "read": "にわたって",
+              "vi": "suốt, trải qua"
+            },
+            {
+              "w": "独特",
+              "read": "どくとく",
+              "vi": "độc đáo, đặc trưng"
+            },
+            {
+              "w": "陶芸",
+              "read": "とうげい",
+              "vi": "nghệ thuật gốm"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "受け継がれてきた",
+              "read": "うけつがれてきた",
+              "vi": "đã được truyền lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたって",
+              "vi": "【接続】N（thời gian/không gian）＋ にわたって／にわたる＋N。【Sắc thái】Diễn tả một hành động, trạng thái hoặc hiện tượng kéo dài hoặc mở rộng trên toàn bộ quy mô thời gian (nhiều năm, nhiều ngày) hoặc phạm vi lớn; mang phong cách văn viết trang trọng.【Đối chiếu】Khác với 〜を通じて／を通して (nhấn mạnh phương tiện trung gian hoặc suốt một giai đoạn đều đặn), 〜にわたって nhấn mạnh vào độ dài thời gian hoặc độ rộng lớn của phạm vi trải dài."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、職人の高齢化に加えて、若者の都市への流出による後継者不足が深刻な問題となっていた。",
+          "vi": "Thế nhưng, cộng thêm với tình trạng già hóa của các nghệ nhân, việc thiếu hụt người kế nghiệp do giới trẻ rời lên thành phố đã trở thành vấn đề nan giải.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "高齢",
+              "read": "こうれい",
+              "vi": "cao tuổi"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "都市",
+              "read": "とし",
+              "vi": "thành thị, đô thị"
+            },
+            {
+              "w": "流出",
+              "read": "りゅうしゅつ",
+              "vi": "chảy ra ngoài, thất thoát, rời đi"
+            },
+            {
+              "w": "後継",
+              "read": "こうけい",
+              "vi": "kế thừa, nối dõi"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "深刻",
+              "read": "しんこく",
+              "vi": "nghiêm trọng"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "後継者",
+              "read": "こうけいしゃ",
+              "vi": "người kế nghiệp, người nối nghiệp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加えて",
+              "vi": "【接続】N ＋ に加えて／に加え（hoặc 普通形＋のに加えて）。【Sắc thái】Diễn tả việc bổ sung thêm một yếu tố, sự việc khác cùng chiều hướng (tích lũy thêm điều tiêu cực hoặc tích cực) vào sự việc đã có ở vế trước; văn phong trang trọng, khách quan.【Đối chiếu】Khác với 〜だけでなく (chỉ phạm vi 'không chỉ mà còn' trung tính hơn), 〜に加えて nhấn mạnh tính cộng dồn thêm gánh nặng hoặc giá trị ('cộng thêm vào đó...')."
+            }
+          ]
+        },
+        {
+          "jp": "そんな衰退の危機にあった町が、数年前に一人の若手作家の帰郷をきっかけに大きく変わり始めた。",
+          "vi": "Đứng trước nguy cơ lụi tàn ấy, thị trấn đã bắt đầu biến chuyển mạnh mẽ từ vài năm trước, lấy bước ngoặt là sự hồi hương của một nghệ nhân trẻ.",
+          "vocab": [
+            {
+              "w": "そんな",
+              "read": "そんな",
+              "vi": "như thế, như vậy"
+            },
+            {
+              "w": "衰退",
+              "read": "すいたい",
+              "vi": "suy thoái"
+            },
+            {
+              "w": "危機",
+              "read": "きき",
+              "vi": "nguy cơ, khủng hoảng"
+            },
+            {
+              "w": "あった",
+              "read": "あった",
+              "vi": "ở trong, tồn tại"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "数年前",
+              "read": "すうねんまえ",
+              "vi": "vài năm trước"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một người"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "người trẻ, nhân lực trẻ"
+            },
+            {
+              "w": "作家",
+              "read": "さっか",
+              "vi": "nhà văn, tác giả"
+            },
+            {
+              "w": "帰郷",
+              "read": "ききょう",
+              "vi": "về quê"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội, bước ngoặt"
+            },
+            {
+              "w": "大きく",
+              "read": "おおきく",
+              "vi": "lớn, đáng kể"
+            },
+            {
+              "w": "変わり始めた",
+              "read": "かわりはじめた",
+              "vi": "bắt đầu thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をきっかけに",
+              "vi": "【接続】N ＋ をきっかけに／をきっかけとして（hoặc Vた＋のをきっかけに）。【Sắc thái】Chỉ một sự kiện, thời điểm mang tính ngẫu nhiên hoặc khởi đầu trở thành động lực, duyên cớ làm thay đổi cục diện hoặc bắt đầu một hành động/giai đoạn mới.【Đối chiếu】Khác với 〜を契機に (mang tính trang trọng, thường dùng cho bước ngoặt lịch sử, xã hội mang tính chính thức), 〜をきっかけに dùng linh hoạt cho cả chuyện cá nhân lẫn cộng đồng."
+            }
+          ]
+        },
+        {
+          "jp": "彼は伝統的な技術を大切にしながらも、現代の食卓に似合うモダンな器を次々と発表した。",
+          "vi": "Anh trân trọng các kỹ thuật truyền thống nhưng đồng thời cũng liên tục cho ra mắt những bộ đồ gốm hiện đại, phù hợp với bàn ăn ngày nay.",
+          "vocab": [
+            {
+              "w": "彼",
+              "read": "かれ",
+              "vi": "anh ấy"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "伝統的",
+              "read": "でんとうてき",
+              "vi": "mang tính truyền thống"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "coi trọng, quan trọng"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, thời hiện đại"
+            },
+            {
+              "w": "食卓",
+              "read": "しょくたく",
+              "vi": "bàn ăn, bữa ăn"
+            },
+            {
+              "w": "似合う",
+              "read": "にあう",
+              "vi": "hợp, phù hợp"
+            },
+            {
+              "w": "モダン",
+              "read": "もだん",
+              "vi": "hiện đại, kiểu mới"
+            },
+            {
+              "w": "器",
+              "read": "うつわ",
+              "vi": "đồ đựng, bát đĩa"
+            },
+            {
+              "w": "次々",
+              "read": "つぎつぎ",
+              "vi": "lần lượt, liên tiếp"
+            },
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "công bố, ra mắt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "【接続】Vます-stem / N・Aい・Aな ＋ ながら（も）。【Sắc thái】Biểu thị sự đối lập nghịch biến: dù ở trong trạng thái/hành động A nhưng vẫn thực hiện B đối lập.【Đối chiếu】Khác với 〜ながら đồng thời (vừa làm A vừa làm B), 〜ながらも mang tính nghịch trái tương đương 〜けれども nhưng tự nhiên hơn khi nói về thái độ, trạng thái song hành."
+            }
+          ]
+        },
+        {
+          "jp": "初期の売れ行きへの不安に反して、その新しい工芸品は若い世代から予想以上の人気を集めた。",
+          "vi": "Trái ngược với những lo ngại ban đầu về sức mua, dòng sản phẩm thủ công mới mẻ ấy đã đón nhận sự yêu thích vượt xa kỳ vọng từ thế hệ trẻ.",
+          "vocab": [
+            {
+              "w": "初期",
+              "read": "しょき",
+              "vi": "thời kỳ đầu, ban đầu"
+            },
+            {
+              "w": "売れ行き",
+              "read": "うれゆき",
+              "vi": "tình hình buôn bán, sức mua"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "反す",
+              "read": "はんす",
+              "vi": "trái với, đi ngược lại"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "予想",
+              "read": "よそう",
+              "vi": "kỳ vọng, dự đoán"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "sự yêu thích, nổi tiếng"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "工芸品",
+              "read": "こうげいひん",
+              "vi": "sản phẩm thủ công mỹ nghệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に反して",
+              "vi": "【接続】N ＋ に反して／に反する＋N／に反し。【Sắc thái】Diễn tả kết quả, thực tế xảy ra trái ngược hoàn toàn với dự đoán, kỳ vọng, nguyện vọng, quy định hoặc ý chí ban đầu.【Đối chiếu】Khác với 〜に対して (biểu thị đối tượng hướng đến hoặc sự đối chiếu so sánh hai chủ thể A và B độc lập), 〜に反して nhấn mạnh sự đi ngược lại dự tính/mong đợi."
+            }
+          ]
+        },
+        {
+          "jp": "その後、町全体で観光客向けの陶芸体験教室の開催をきっかけとして、地域活性化の動きが本格化した。",
+          "vi": "Sau đó, lấy việc tổ chức các lớp trải nghiệm làm gốm cho khách du lịch làm khởi điểm, phong trào hồi sinh khu vực đã chính thức bước vào giai đoạn sôi nổi.",
+          "vocab": [
+            {
+              "w": "その後",
+              "read": "そのご",
+              "vi": "sau đó"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "陶芸",
+              "read": "とうげい",
+              "vi": "nghề gốm"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "開催",
+              "read": "かいさい",
+              "vi": "tổ chức (sự kiện)"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội, động cơ, chất xúc tác"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "活性",
+              "read": "かっせい",
+              "vi": "hoạt tính, sự tích cực"
+            },
+            {
+              "w": "動き",
+              "read": "うごき",
+              "vi": "cử động, hành động"
+            },
+            {
+              "w": "本格",
+              "read": "ほんかく",
+              "vi": "chính thức, bài bản"
+            },
+            {
+              "w": "地域活性化",
+              "read": "ちいきかっせいか",
+              "vi": "sự hồi sinh / phục hưng kinh tế địa phương"
+            },
+            {
+              "w": "本格化",
+              "read": "ほんかくか",
+              "vi": "chính thức đi vào hoạt động mạnh mẽ / quy mô thực sự"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をきっかけとして",
+              "vi": "【接続】N ＋ をきっかけとして／をきっかけにして。【Sắc thái】Nhân cơ hội, lấy sự việc A làm động lực khởi phát để bắt đầu triển khai chuỗi hành động hay phong trào B. Thể hiện rõ mối quan hệ nguyên nhân - động lực dẫn tới chuyển biến.【Đối chiếu】Đồng nghĩa với 〜をきっかけに, dạng 〜をきっかけとして trang trọng hơn một chút trong văn nghị luận."
+            }
+          ]
+        },
+        {
+          "jp": "美しい陶器の販売に加え、空き家を利用したおしゃれなカフェや宿泊施設も次々とオープンした。",
+          "vi": "Bên cạnh việc bày bán đồ gốm tuyệt mỹ, các quán cà phê phong cách và cơ sở lưu trú tận dụng nhà bỏ hoang cũng lần lượt được mở cửa.",
+          "vocab": [
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "陶器",
+              "read": "とうき",
+              "vi": "đồ gốm, đồ sứ"
+            },
+            {
+              "w": "販売",
+              "read": "はんばい",
+              "vi": "việc buôn bán, bán hàng"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "空き家",
+              "read": "あきや",
+              "vi": "nhà bỏ hoang, nhà trống không người ở"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "おしゃれ",
+              "read": "おしゃれ",
+              "vi": "sành điệu, thời trang"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú, chỗ ở (đêm)"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "次々",
+              "read": "つぎつぎ",
+              "vi": "liên tiếp, lần lượt"
+            },
+            {
+              "w": "オープン",
+              "read": "オープン",
+              "vi": "sự mở cửa, khai trương"
+            },
+            {
+              "w": "宿泊施設",
+              "read": "しゅくはくしせつ",
+              "vi": "cơ sở lưu trú (khách sạn, nhà nghỉ, homestay)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加え",
+              "vi": "【接続】N ＋ に加え。【Sắc thái】Dạng lược bỏ trợ từ て của に加えて, dùng nhiều trong văn viết trang trọng để ngắt câu hoặc liên kết danh từ mang ý nghĩa 'cộng thêm vào đó, bên cạnh đó'.【Đối chiếu】So với 〜とともに (cùng với - diễn tả 2 sự việc diễn ra đồng thời), 〜に加え mang tính liệt kê tích lũy thêm các hạng mục bổ sung."
+            }
+          ]
+        },
+        {
+          "jp": "ところで、急速な観光地化を進めることに対して、当初から全員が賛成していたわけではなかった。",
+          "vi": "Nhân tiện cũng phải nói thêm, việc đẩy mạnh du lịch hóa nhanh chóng này thuở ban đầu không phải nhận được sự tán thành từ tất cả mọi người.",
+          "vocab": [
+            {
+              "w": "ところで",
+              "read": "ところで",
+              "vi": "nhân tiện, mà này"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "観光地",
+              "read": "かんこうち",
+              "vi": "điểm du lịch"
+            },
+            {
+              "w": "観光地化",
+              "read": "かんこうちか",
+              "vi": "du lịch hóa"
+            },
+            {
+              "w": "進める",
+              "read": "すすめる",
+              "vi": "thúc đẩy, tiến hành"
+            },
+            {
+              "w": "対して",
+              "read": "たいして",
+              "vi": "đối với"
+            },
+            {
+              "w": "当初",
+              "read": "とうしょ",
+              "vi": "ban đầu"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "toàn bộ mọi người"
+            },
+            {
+              "w": "賛成",
+              "read": "さんせい",
+              "vi": "tán thành, đồng ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ところ（で）",
+              "vi": "【接続】Đầu câu văn / liên từ.【Sắc thái】Từ nối dùng để chuyển mạch văn sang một khía cạnh mới, đặt vấn đề hoặc chuyển hướng câu chuyện sang một góc nhìn cần lưu ý ('nhân đây, mà này, chuyển sang vấn đề...').【Đối chiếu】Khác với さて (chuyển sang chủ đề chính kế tiếp) hay ちなみに (bổ sung thông tin phụ), ところで dùng để chủ động bẻ lái dòng suy nghĩ hoặc đào sâu khía cạnh tương phản/vấn đề nổi cộm."
+            },
+            {
+              "point": "〜わけではない",
+              "vi": "【接続】普通形（Aな→な／N→な/である）＋ わけではない。【Sắc thái】Phủ định một phần: không hẳn là, không có nghĩa là 100% như vậy.【Đối chiếu】Khác với 〜ない (phủ định hoàn toàn), 〜わけではない thừa nhận một phần nhưng không tuyệt đối hóa."
+            }
+          ]
+        },
+        {
+          "jp": "特に、静かな生活環境の維持や工房の改修方針をめぐって、若手とベテランの間で激しい議論が交わされた。",
+          "vi": "Đặc biệt, xoay quanh việc duy trì môi trường sống yên tĩnh cũng như định hướng cải tạo các xưởng gốm, những tranh luận nảy lửa đã nổ ra giữa lớp trẻ và những bậc tiền bối.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "維持",
+              "read": "いじ",
+              "vi": "duy trì, giữ gìn"
+            },
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng làm đồ thủ công/nghệ thuật"
+            },
+            {
+              "w": "改修",
+              "read": "かいしゅう",
+              "vi": "sửa chữa, cải tạo"
+            },
+            {
+              "w": "方針",
+              "read": "ほうしん",
+              "vi": "phương châm, chính sách"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "lớp trẻ, thế hệ trẻ"
+            },
+            {
+              "w": "ベテラン",
+              "read": "ベテラン",
+              "vi": "người kỳ cựu, lão làng"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "激しい",
+              "read": "はげしい",
+              "vi": "dữ dội, mạnh"
+            },
+            {
+              "w": "議論",
+              "read": "ぎろん",
+              "vi": "thảo luận, tranh luận"
+            },
+            {
+              "w": "交わす",
+              "read": "かわす",
+              "vi": "trao đổi qua lại, giao tiếp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をめぐって",
+              "vi": "【接続】N ＋ をめぐって／をめぐる＋N。【Sắc thái】Diễn tả trung tâm của một vấn đề, chủ đề gây tranh luận, bàn tán, đối lập ý kiến giữa nhiều bên hoặc nhiều người.【Đối chiếu】Khác với 〜について (nói/viết về một đề tài trung tính, không nhất thiết có tranh chấp), 〜をめぐって bắt buộc phải gắn với tranh luận, bất đồng, đàm phán xung quanh chủ đề đó."
+            }
+          ]
+        },
+        {
+          "jp": "伝統を守りたい古参住民の反発は強く、３か月にわたって対立が続く事態となった。",
+          "vi": "Làn sóng phản đối từ các cư dân lâu năm muốn gìn giữ truyền thống mạnh mẽ đến mức mâu thuẫn đã kéo dài ròng rã suốt 3 tháng.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "古参",
+              "read": "こさん",
+              "vi": "kỳ cựu, lâu năm"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "người dân, cư dân"
+            },
+            {
+              "w": "反発",
+              "read": "はんぱつ",
+              "vi": "phản kháng, phản đối"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "対立",
+              "read": "たいりつ",
+              "vi": "đối lập, đối đầu"
+            },
+            {
+              "w": "続く",
+              "read": "つづく",
+              "vi": "tiếp tục, kéo dài"
+            },
+            {
+              "w": "事態",
+              "read": "じたい",
+              "vi": "tình hình, cục diện (thường chỉ tình huống xấu)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたって",
+              "vi": "【接続】N（thời lượng/phạm vi）＋ にわたって。【Sắc thái】Nhấn mạnh tính liên tục và độ dài kéo dài của cuộc tranh chấp suốt 3 tháng liền.【Đối chiếu】Khác với 〜の間 (chỉ khoảng thời gian đơn thuần), 〜にわたって nhấn mạnh sự trường kỳ, tính chất nghiêm trọng hoặc quy mô kéo dài của sự việc."
+            }
+          ]
+        },
+        {
+          "jp": "この状況を打開するため、町長が仲介に入り、双方の意見を丁寧に聞く場が設けられた。",
+          "vi": "Nhằm tháo gỡ tình hình này, thị trưởng đã đứng ra làm trung gian hòa giải và tạo điều kiện để các bên cùng ngồi lại lắng nghe nhau một cách thấu đáo.",
+          "vocab": [
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình huống, tình trạng"
+            },
+            {
+              "w": "打開",
+              "read": "だかい",
+              "vi": "khai thông, tháo gỡ bế tắc"
+            },
+            {
+              "w": "町長",
+              "read": "ちょうちょう",
+              "vi": "thị trưởng, trưởng thị trấn"
+            },
+            {
+              "w": "仲介",
+              "read": "ちゅうかい",
+              "vi": "trung gian, môi giới, hòa giải"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "双方",
+              "read": "そうほう",
+              "vi": "hai phía, đôi bên"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "場",
+              "read": "ば",
+              "vi": "bầu không khí, nơi, địa điểm"
+            },
+            {
+              "w": "設ける",
+              "read": "もうける",
+              "vi": "thiết lập, bố trí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ため（に）",
+              "vi": "【接続】V-ru / Nの ＋ ため（に）。【Sắc thái】Biểu thị mục đích rõ ràng có chủ ý của người nói hoặc chủ thể ('nhằm mục đích..., để...').【Đối chiếu】Khác với 〜ように (hướng tới trạng thái khả năng/không kiểm soát trực tiếp được), 〜ために đi với động từ có ý chí, hành động trực tiếp nhằm đạt mục đích."
+            }
+          ]
+        },
+        {
+          "jp": "伝統技術の未来のあり方をめぐる話し合いの中で、双方は町を守りたいという思いが同じであることに気づいた。",
+          "vi": "Trong quá trình thảo luận xoay quanh hướng đi tương lai của kỹ nghệ truyền thống, đôi bên nhận ra rằng họ đều cùng chung một tâm nguyện muốn bảo vệ thị trấn quê hương.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "あり方",
+              "read": "ありかた",
+              "vi": "diện mạo vốn có, cách tồn tại, bản chất cần có"
+            },
+            {
+              "w": "めぐる",
+              "read": "めぐる",
+              "vi": "xoay quanh, đi quanh"
+            },
+            {
+              "w": "話し合い",
+              "read": "はなしあい",
+              "vi": "buổi thảo luận, cuộc bàn bạc"
+            },
+            {
+              "w": "双方",
+              "read": "そうほう",
+              "vi": "hai phía, đôi bên"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "守る",
+              "read": "まもる",
+              "vi": "bảo vệ, tuân thủ"
+            },
+            {
+              "w": "思い",
+              "read": "おもい",
+              "vi": "suy nghĩ, tâm tư"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "気づく",
+              "read": "きづく",
+              "vi": "nhận ra, nhận thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をめぐる",
+              "vi": "【接続】N1 ＋ をめぐる ＋ N2.【Sắc thái】Dạng bổ nghĩa cho danh từ (連体修飾) của 〜をめぐって, làm rõ bản chất cuộc thảo luận xoay quanh hướng đi tương lai của nghề truyền thống.【Đối chiếu】Khác với 〜についての＋N (chỉ mang tính thông tin về N), 〜をめぐる＋N thể hiện tính chất đa chiều, có sự va chạm ý kiến và cần tìm giải pháp chung."
+            }
+          ]
+        },
+        {
+          "jp": "「頑固な職人は変化を拒むだろう」という周囲の予想に反し、ベテラン職人たちも自ら新しい釉薬の研究に協力し始めた。",
+          "vi": "Trái ngược với phán đoán từ những người xung quanh rằng 'các nghệ nhân cứng đầu sẽ khước từ đổi mới', chính các bậc nghệ nhân kỳ cựu đã chủ động chung tay nghiên cứu các loại men gốm mới.",
+          "vocab": [
+            {
+              "w": "頑固",
+              "read": "がんこ",
+              "vi": "ngoan cố, bảo thủ, bướng bỉnh"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "拒む",
+              "read": "こばむ",
+              "vi": "từ chối, cự tuyệt, khước từ"
+            },
+            {
+              "w": "周囲",
+              "read": "しゅうい",
+              "vi": "xung quanh, mọi người xung quanh"
+            },
+            {
+              "w": "予想",
+              "read": "よそう",
+              "vi": "kỳ vọng, dự đoán"
+            },
+            {
+              "w": "反す",
+              "read": "はんす",
+              "vi": "trái với, đi ngược lại"
+            },
+            {
+              "w": "ベテラン",
+              "read": "ベテラン",
+              "vi": "người kỳ cựu, lão làng"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "釉",
+              "read": "釉",
+              "vi": "men gốm, lớp men"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "協力",
+              "read": "きょうりょく",
+              "vi": "sự hợp tác"
+            },
+            {
+              "w": "釉薬",
+              "read": "ゆうやく",
+              "vi": "men gốm, nước men"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に反し",
+              "vi": "【接続】N ＋ に反し（dạng ngắt câu ngắn gọn của に反して）.【Sắc thái】Trái ngược với phán đoán, định kiến ban đầu của người ngoài; tạo điểm nhấn bất ngờ mang tính tích cực.【Đối chiếu】Khác với 〜にもかかわらず (mặc dù... nhưng... - nhấn mạnh sự bất chấp trở ngại), 〜に反し tập trung vào việc thực tế đi ngược lại dự đoán."
+            }
+          ]
+        },
+        {
+          "jp": "職人たちの深い経験に加えて、若者のデジタル技術を用いた宣伝活動が合わさり、商品の魅力はさらに高まった。",
+          "vi": "Cộng thêm với kinh nghiệm dày dặn của các nghệ nhân, hoạt động quảng bá ứng dụng công nghệ số của giới trẻ khi kết hợp lại đã càng nâng tầm sức hấp dẫn cho sản phẩm.",
+          "vocab": [
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "nghệ nhân, thợ thủ công"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "デジタル技術",
+              "read": "でじたるぎじゅつ",
+              "vi": "công nghệ số, kỹ thuật số"
+            },
+            {
+              "w": "用いる",
+              "read": "もちいる",
+              "vi": "sử dụng, áp dụng"
+            },
+            {
+              "w": "宣伝",
+              "read": "せんでん",
+              "vi": "sự quảng cáo, tuyên truyền"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "合わさる",
+              "read": "あわさる",
+              "vi": "kết hợp, hòa quyện"
+            },
+            {
+              "w": "商品",
+              "read": "しょうひん",
+              "vi": "mặt hàng, sản phẩm"
+            },
+            {
+              "w": "魅力",
+              "read": "みりょく",
+              "vi": "sức hút, sức hấp dẫn"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "高まる",
+              "read": "たかまる",
+              "vi": "tăng cao, dâng cao"
+            },
+            {
+              "w": "宣伝活動",
+              "read": "せんでんかつどう",
+              "vi": "hoạt động tuyên truyền, quảng cáo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加えて",
+              "vi": "【接続】N ＋ に加えて。【Sắc thái】Kết hợp, cộng hưởng thêm thế mạnh mới (công nghệ số) vào nền tảng thế mạnh sẵn có (kinh nghiệm nghề), tạo nên sức mạnh cộng gộp vượt trội.【Đối chiếu】Khác với 〜ばかりでなく (không những mà còn), に加えて nhấn mạnh cụ thể vào sự bổ trợ, gia tăng giá trị giữa hai yếu tố."
+            }
+          ]
+        },
+        {
+          "jp": "丁寧な対話を重ねた結果、１年以上にわたる住民たちの努力は大きな実を結ぶことになった。",
+          "vi": "Nhờ kiên trì đối thoại chân thành, nỗ lực trải dài hơn một năm của người dân nơi đây đã gặt hái được quả ngọt to lớn.",
+          "vocab": [
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "cẩn thận, lịch sự"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại"
+            },
+            {
+              "w": "重ねた",
+              "read": "かさねた",
+              "vi": "đã lặp lại, tích lũy"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "１年以上",
+              "read": "いちねんいじょう",
+              "vi": "hơn một năm"
+            },
+            {
+              "w": "にわたる",
+              "read": "にわたる",
+              "vi": "kéo dài, trải qua"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "lớn, to lớn"
+            },
+            {
+              "w": "実",
+              "read": "み",
+              "vi": "quả, thành quả"
+            },
+            {
+              "w": "実を結ぶ",
+              "read": "みをむすぶ",
+              "vi": "đơm hoa kết trái, đạt kết quả"
+            },
+            {
+              "w": "結ぶ",
+              "read": "むすぶ",
+              "vi": "kết, đạt được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたる",
+              "vi": "【接続】N（khoảng thời gian）＋ にわたる ＋ N.【Sắc thái】Bổ nghĩa cho danh từ 'nỗ lực', làm nổi bật quá trình phấn đấu bền bỉ, kiên trì kéo dài suốt hơn một năm của toàn bộ dân làng.【Đối chiếu】Khác với 〜間の＋N (chỉ mốc thời gian diễn ra), 〜にわたる＋N nhấn mạnh vào sức nặng của thời gian và công sức bỏ ra trong suốt giai đoạn đó."
+            }
+          ]
+        },
+        {
+          "jp": "現在では国内外から多くの観光客が訪れ、町はかつてない活気に満ちあふれている。",
+          "vi": "Giờ đây, du khách trong và ngoài nước đổ về đông đảo, khiến thị trấn tràn ngập bầu không khí rộn rã chưa từng có.",
+          "vocab": [
+            {
+              "w": "現在",
+              "read": "げんざい",
+              "vi": "hiện tại, hiện nay"
+            },
+            {
+              "w": "国内外",
+              "read": "こくないがい",
+              "vi": "trong và ngoài nước"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "訪れる",
+              "read": "おとずれる",
+              "vi": "ghé thăm, đến thăm"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "かつて",
+              "read": "かつて",
+              "vi": "trước đây, từng"
+            },
+            {
+              "w": "活気",
+              "read": "かっき",
+              "vi": "sự sôi động, sức sống"
+            },
+            {
+              "w": "満ちあふれる",
+              "read": "みちあふれる",
+              "vi": "tràn ngập, tràn trề"
+            },
+            {
+              "w": "あふれる",
+              "read": "あふれる",
+              "vi": "tràn trề, dồi dào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かつてない",
+              "vi": "【接続】かつてない ＋ N.【Sắc thái】Chưa từng có từ trước đến nay; nhấn mạnh mức độ sôi động đạt mức kỷ lục trong lịch sử của thị trấn.【Đối chiếu】Khác với これまでにない (trung tính hơn), かつてない mang phong cách văn viết trang trọng, giàu cảm xúc ngợi ca."
+            }
+          ]
+        },
+        {
+          "jp": "また、この町の成功をきっかけに、全国の工芸の産地から視察に訪れる人々も増えている。",
+          "vi": "Hơn nữa, lấy cảm hứng từ thành công của thị trấn này, ngày càng có nhiều đoàn người từ các làng nghề thủ công trên khắp cả nước tìm đến tham quan học hỏi.",
+          "vocab": [
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "成功",
+              "read": "せいこう",
+              "vi": "thành công"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội, động cơ, chất xúc tác"
+            },
+            {
+              "w": "全国",
+              "read": "ぜんこく",
+              "vi": "toàn quốc"
+            },
+            {
+              "w": "工芸",
+              "read": "こうげい",
+              "vi": "nghề thủ công"
+            },
+            {
+              "w": "産地",
+              "read": "さんち",
+              "vi": "nơi sản xuất, làng nghề sản sinh ra sản phẩm"
+            },
+            {
+              "w": "視察",
+              "read": "しさつ",
+              "vi": "thị sát, tham quan khảo sát học tập mô hình"
+            },
+            {
+              "w": "訪れる",
+              "read": "おとずれる",
+              "vi": "ghé thăm, đến thăm"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をきっかけに",
+              "vi": "【接続】N ＋ をきっかけに。【Sắc thái】Lấy sự kiện thành công của thị trấn làm tiền đề, hình mẫu truyền cảm hứng thúc đẩy các địa phương khác hành động theo.【Đối chiếu】Khác với 〜を手始めに (bắt đầu bằng việc làm gì trước tiên trong một chuỗi hành động của cùng một chủ thể), 〜をきっかけに mang tính kích hoạt động lực cho các đối tượng khác nhau."
+            }
+          ]
+        },
+        {
+          "jp": "ところで、地域活性化の本質は単に観光客を集めることではなく、住む人々が誇りを取り戻すことにある。",
+          "vi": "Mà này, cốt lõi của việc hồi sinh địa phương không đơn thuần là lôi kéo thật nhiều khách du lịch, mà chính là giúp người dân tìm lại niềm tự hào vốn có của mình.",
+          "vocab": [
+            {
+              "w": "ところで",
+              "read": "ところで",
+              "vi": "nhân tiện, tiện đây (chuyển chủ đề)"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "活性",
+              "read": "かっせい",
+              "vi": "hoạt tính, sự tích cực"
+            },
+            {
+              "w": "本質",
+              "read": "ほんしつ",
+              "vi": "bản chất, cốt lõi"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "住む",
+              "read": "すむ",
+              "vi": "ở, cư trú, sinh sống"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "誇り",
+              "read": "ほこり",
+              "vi": "niềm tự hào, hãnh diện"
+            },
+            {
+              "w": "取り戻す",
+              "read": "とりもどす",
+              "vi": "lấy lại, giành lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ところ（で）",
+              "vi": "【接続】Liên từ đầu câu.【Sắc thái】Chuyển mạch từ việc kể lại câu chuyện thực tế sang đúc kết chiều sâu triết lý và bản chất cốt lõi của vấn đề tái sinh địa phương.【Đối chiếu】Khác với 要するに (tóm lại) hay つまり (nghĩa là), ところで ở đây đóng vai trò chuyển hướng người đọc suy ngẫm sâu hơn về bản chất thực sự phía sau hiện tượng bề nổi."
+            }
+          ]
+        },
+        {
+          "jp": "昔ながらの知恵に加え、新しい発想を柔軟に取り入れる姿勢こそが、伝統を未来へつなぐ鍵となるだろう。",
+          "vi": "Thái độ cởi mở tiếp thu những ý tưởng mới mẻ cùng với kho tàng tri thức xưa cũ chính là chiếc chìa khóa để bắc nhịp cầu truyền thống tới tương lai.",
+          "vocab": [
+            {
+              "w": "昔ながら",
+              "read": "むかしながら",
+              "vi": "từ xưa tới nay, cổ truyền"
+            },
+            {
+              "w": "知恵",
+              "read": "ちえ",
+              "vi": "trí tuệ"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "発想",
+              "read": "はっそう",
+              "vi": "ý tưởng, sáng kiến phát kiến"
+            },
+            {
+              "w": "柔軟",
+              "read": "じゅうなん",
+              "vi": "mềm dẻo, linh hoạt, cởi mở"
+            },
+            {
+              "w": "取り入れる",
+              "read": "とりいれる",
+              "vi": "tiếp thu, đưa vào áp dụng"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, tâm thế, thái độ đối diện"
+            },
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "つなぐ",
+              "read": "つなぐ",
+              "vi": "kết nối, truyền lại"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khoá, ổ khoá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加え",
+              "vi": "【接続】N ＋ に加え。【Sắc thái】Gia tăng, kết hợp hai giá trị then chốt: tri thức truyền thống song hành cùng tinh thần đổi mới sáng tạo.【Đối chiếu】Khác với 〜とともに (cùng tiến hành/cùng tồn tại), に加え làm nổi bật việc chủ động nạp thêm yếu tố mới trên nền tảng cốt lõi đã có."
+            },
+            {
+              "point": "〜こそ",
+              "vi": "【接続】N ＋ こそ。【Sắc thái】Nhấn mạnh dứt khoát: chính điều đó chứ không phải bất kỳ điều gì khác mới là yếu tố quyết định.【Đối chiếu】Khác với 〜は (nhấn mạnh chủ đề trung tính), 〜こそ mang đậm cảm xúc khẳng định của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "変化を恐れずに挑戦し続けるこの町の歩みは、人口減少に悩む多くの地方にとって貴重な道しるべとなっている。",
+          "vi": "Hành trình không ngại đổi mới và kiên trì dấn thân của thị trấn này đang trở thành một ngọn hải đăng quý báu cho biết bao vùng quê đang trăn trở trước bài toán suy giảm dân số.",
+          "vocab": [
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "恐れる",
+              "read": "おそれる",
+              "vi": "lo sợ, e sợ"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử thách"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "歩み",
+              "read": "あゆみ",
+              "vi": "bước tiến, hành trình phát triển"
+            },
+            {
+              "w": "人口",
+              "read": "じんこう",
+              "vi": "dân số"
+            },
+            {
+              "w": "減少",
+              "read": "げんしょう",
+              "vi": "sự giảm bớt, suy giảm"
+            },
+            {
+              "w": "悩む",
+              "read": "なやむ",
+              "vi": "khổ sở, băn khoăn"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "地方",
+              "read": "ちほう",
+              "vi": "địa phương, tỉnh xa"
+            },
+            {
+              "w": "貴重",
+              "read": "きちょう",
+              "vi": "quý giá, quý báu"
+            },
+            {
+              "w": "道しるべ",
+              "read": "みちしるべ",
+              "vi": "biển chỉ đường, kim chỉ nam, ngọn hải đăng dẫn lối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって",
+              "vi": "【接続】N ＋ にとって／にとっての＋N。【Sắc thái】Đứng trên lập trường, góc nhìn của một đối tượng cụ thể (ở đây là các vùng quê đối mặt với giảm dân số) để đưa ra đánh giá, ý nghĩa.【Đối chiếu】Khác với 〜に対して (hướng hành động hoặc thái độ về phía ai đó), 〜にとって chỉ vị thế đánh giá ('đối với ai thì cái gì có ý nghĩa như thế nào')."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "一人の若手作家の帰郷をきっかけに",
+          "label": "Khởi nguồn của bước ngoặt thay đổi"
+        },
+        {
+          "excerpt": "職人の高齢化に加えて、若者の都市への流出による後継者不足",
+          "label": "Khủng hoảng chồng chất của làng nghề"
+        },
+        {
+          "excerpt": "工房の改修方針をめぐって、若手とベテランの間で激しい議論が交わされた",
+          "label": "Mâu thuẫn thế hệ về bảo tồn và đổi mới"
+        },
+        {
+          "excerpt": "「頑固な職人は変化を拒むだろう」という周囲の予想に反し",
+          "label": "Chuyển biến thái độ bất ngờ đầy tích cực"
+        },
+        {
+          "excerpt": "昔ながらの知恵に加え、新しい発想を柔軟に取り入れる姿勢",
+          "label": "Bài học cốt lõi để kế thừa truyền thống"
+        }
+      ],
+      "questions": [
+        {
+          "q": "数年前にこの町が大きく変わり始めた直接のきっかけは何だったか。",
+          "options": [
+            "全国規模の陶芸体験教室がテレビで紹介されたこと",
+            "一人の若い陶芸作家が故郷に戻り、現代的な器を作り始めたこと",
+            "町長が古参住民と若手職人の仲介に入って対立を解決したこと",
+            "空き家を利用した宿泊施設やおしゃれなカフェが一斉にオープンしたこと"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 2 và câu 3: 'そんな衰退の危機にあった町が、数年前に一人の若手作家の帰郷をきっかけに大きく変わり始めた。彼は伝統的な技術を大切にしながらも、現代の食卓に似合うモダンな器を次々と発表した。' (Thị trấn vốn đứng trước nguy cơ lụi tàn ấy, vài năm trước đã bắt đầu biến chuyển mạnh mẽ nhân dịp một nghệ nhân trẻ trở về quê hương. Anh liên tục cho ra mắt đồ gốm hiện đại phù hợp bàn ăn ngày nay). Phương án 1 hoàn toàn chính xác.\n- Phương án 0 sai vì việc mở lớp trải nghiệm làm gốm diễn ra sau đó (đoạn 2) và bài không nói do 'được chiếu trên TV'.\n- Phương án 2 sai vì sự kiện thị trưởng đứng ra hòa giải diễn ra ở đoạn 3 nhằm giải quyết bất đồng nảy sinh sau này.\n- Phương án 3 sai vì việc mở quán cà phê và nơi lưu trú là kết quả phát triển tiếp theo ở đoạn 2, không phải lý do khởi đầu trực tiếp.",
+          "tip": "Hãy chú ý từ khóa '数年前' (vài năm trước) và mẫu câu '〜をきっかけに' ở đoạn đầu tiên để tìm đúng nguyên nhân khởi phát ban đầu của sự việc.",
+          "evi": [
+            2,
+            3
+          ],
+          "qt": {
+            "q": "Vài năm trước, nguyên nhân trực tiếp nào khiến thị trấn này bắt đầu thay đổi lớn?",
+            "o": [
+              "Việc một lớp trải nghiệm làm gốm quy mô toàn quốc được giới thiệu trên truyền hình",
+              "Việc một nghệ nhân gốm trẻ trở về quê hương và bắt đầu làm những chiếc bát đĩa hiện đại",
+              "Việc thị trưởng đứng ra hòa giải giữa cư dân lâu năm và những người thợ trẻ, giải quyết mâu thuẫn",
+              "Việc các cơ sở lưu trú và quán cà phê thời thượng tận dụng nhà bỏ trống đồng loạt khai trương"
+            ]
+          }
+        },
+        {
+          "q": "町の観光地化を進めるにあたって、どのような対立が起きたか。",
+          "options": [
+            "若い作家が作った器の質が低く、ベテラン職人が販売に反対した。",
+            "観光客向けの体験教室の参加費が高すぎて、町民の間で不満が募った。",
+            "静かな生活環境の維持や工房の改修方針をめぐって、若手と古参住民の意見が対立した。",
+            "海外への情報発信を優先するか国内を優先するかをめぐって議論が紛糾した。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu 8 và 9: '特に、静かな生活環境の維持や工房の改修方針をめぐって、若手とベテランの間で激しい議論が交わされた。伝統を守りたい古参住民の反発は強く、３か月にわたって対立が続く事態となった。' (Đặc biệt, xoay quanh việc duy trì môi trường sống yên tĩnh cũng như định hướng cải tạo các xưởng gốm, những tranh luận gay gắt đã diễn ra giữa lớp trẻ và những người lâu năm...). Phương án 2 phản ánh đúng nội dung bài đọc.\n- Phương án 0 sai vì đồ gốm mới rất được ưa chuộng (câu 4), không hề có chi tiết nói chất lượng kém.\n- Phương án 1 sai vì bài đọc hoàn toàn không đề cập đến giá vé/học phí lớp trải nghiệm đắt đỏ.\n- Phương án 3 sai vì không có tranh cãi nào về việc ưu tiên thị trường trong nước hay nước ngoài.",
+          "tip": "Khi câu hỏi hỏi về nguyên nhân mâu thuẫn/đối lập, hãy tìm câu chứa mẫu ngữ pháp '〜をめぐって' (xoay quanh vấn đề tranh chấp).",
+          "evi": [
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Trong quá trình thúc đẩy thị trấn trở thành điểm du lịch, mâu thuẫn nào đã xảy ra?",
+            "o": [
+              "Chất lượng những chiếc bát đĩa do nghệ nhân trẻ làm ra thấp, nên các nghệ nhân kỳ cựu phản đối việc bán chúng.",
+              "Phí tham gia lớp trải nghiệm dành cho khách du lịch quá cao, khiến người dân trong thị trấn ngày càng bất mãn.",
+              "Ý kiến của những người trẻ và cư dân lâu năm mâu thuẫn nhau về việc duy trì môi trường sống yên tĩnh và phương hướng cải tạo xưởng gốm.",
+              "Các cuộc tranh luận trở nên gay gắt về việc nên ưu tiên truyền thông ra nước ngoài hay trong nước."
+            ]
+          }
+        },
+        {
+          "q": "ベテラン職人たちが新しい取り組みに協力するようになった最大の要因として、文章から推測できることは何か。",
+          "options": [
+            "丁寧な対話を通じて、若手もベテランも「町を守りたい」という共通の思いを持っていると分かったから。",
+            "町長から多額の補助金が出ることが決定し、工房の改修費用が全額免除されたから。",
+            "新しい器の売れ行きが落ち込み、伝統的な技術の価値が再認識されたから。",
+            "若手作家がデジタル宣伝をやめて、古参職人の指導のみに従うと約束したから。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 10, 11 và 12: Thị trưởng tạo điều kiện đối thoại và '伝統技術の未来のあり方をめぐる話し合いの中で、双方は町を守りたいという思いが同じであることに気づいた。「頑固な職人は変化を拒むだろう」という周囲の予想に反し、ベテラン職人たちも自ら新しい釉薬の研究に協力し始めた。' (Trong cuộc thảo luận, đôi bên nhận ra họ đều cùng chung tâm nguyện muốn bảo vệ thị trấn, từ đó các nghệ nhân kỳ cựu đã tự nguyện tham gia nghiên cứu men gốm mới). Do đó, phương án 0 là suy luận hoàn toàn chuẩn xác.\n- Phương án 1 sai vì bài không hề nhắc đến tiền trợ cấp của thị trưởng hay việc miễn chi phí cải tạo.\n- Phương án 2 sai vì dòng sản phẩm mới bán rất chạy và không có chuyện sụt giảm doanh số.\n- Phương án 3 sai vì người trẻ không bỏ công nghệ số mà ngược lại còn kết hợp nó cùng kinh nghiệm của người già (câu 13).",
+          "tip": "Với câu hỏi suy luận tâm lý/nguyên nhân thay đổi thái độ, hãy tìm điểm chuyển biến nhận thức sau các cuộc đối thoại (nhận ra điểm tương đồng '思いが同じ').",
+          "evi": [
+            10,
+            11,
+            12
+          ],
+          "qt": {
+            "q": "Có thể suy luận từ bài viết rằng đâu là yếu tố lớn nhất khiến các nghệ nhân kỳ cựu bắt đầu hợp tác với những sáng kiến mới?",
+            "o": [
+              "Thông qua những cuộc đối thoại kỹ lưỡng, họ nhận ra rằng cả người trẻ lẫn người kỳ cựu đều có chung mong muốn 「町を守りたい」 (muốn bảo vệ thị trấn).",
+              "Thị trưởng quyết định cấp một khoản trợ cấp lớn, và toàn bộ chi phí cải tạo xưởng gốm được miễn.",
+              "Do doanh số bát đĩa mới giảm sút, giá trị của kỹ thuật truyền thống được nhìn nhận lại.",
+              "Nghệ nhân trẻ hứa sẽ ngừng quảng bá bằng công nghệ số và chỉ làm theo sự chỉ dẫn của các nghệ nhân lâu năm."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も伝えたいことは何か。",
+          "options": [
+            "伝統工芸を守るためには、古い技術を一切変えずにそのまま後世に残すことが不可欠だ。",
+            "地方活性化の真の意義は、単なる集客にとどまらず、住民が誇りを取り戻し伝統に新しい発想を融合させることだ。",
+            "地方の人口減少問題を解決する唯一の手段は、空き家をカフェや宿泊施設に改装することである。",
+            "若手作家が主導権を握り、古参職人の意見を退けることこそが地域の発展につながる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 17 và 18 ở đoạn kết: 'ところで、地域活性化の本質は単に観光客を集めることではなく、住む人々が誇りを取り戻すことにある。昔ながらの知恵に加え、新しい発想を柔軟に取り入れる姿勢こそが、伝統を未来へつなぐ鍵となるだろう。' (Bản chất của việc hồi sinh địa phương không đơn thuần là thu hút du khách, mà nằm ở việc người dân tìm lại niềm tự hào... Kết hợp tri thức xưa cùng ý tưởng mới là chìa khóa kết nối truyền thống tới tương lai). Phương án 1 tóm lược trọn vẹn chủ đề bài viết.\n- Phương án 0 sai vì tác giả chủ trương đổi mới, tiếp thu ý tưởng hiện đại chứ không phải 'tuyệt đối không thay đổi' (一切変えない).\n- Phương án 2 sai vì dùng từ tuyệt đối hóa '唯一の手段' (cách duy nhất), cải tạo nhà chỉ là một biện pháp hỗ trợ.\n- Phương án 3 sai vì thành công của thị trấn là sự hợp tác, hòa hợp giữa hai thế hệ chứ không phải 'gạt bỏ ý kiến người già' (意見を退ける).",
+          "tip": "Thông điệp cốt lõi của tác giả (筆者の主張) thường nằm ở đoạn văn cuối cùng, đi sau các từ khóa chỉ bản chất như '本質は〜にある' hoặc từ nối nhấn mạnh '〜こそが〜鍵となる'.",
+          "evi": [
+            17,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Tác giả muốn truyền tải điều gì nhất qua bài viết này?",
+            "o": [
+              "Để bảo vệ nghề thủ công truyền thống, nhất thiết phải giữ nguyên kỹ thuật cũ, không thay đổi chút nào, và truyền lại cho đời sau.",
+              "Ý nghĩa thực sự của việc revital hóa địa phương không chỉ nằm ở việc thu hút khách, mà còn ở việc người dân lấy lại niềm tự hào và kết hợp những ý tưởng mới với truyền thống.",
+              "Cách duy nhất để giải quyết vấn đề suy giảm dân số ở địa phương là cải tạo nhà bỏ trống thành quán cà phê hoặc cơ sở lưu trú.",
+              "Chính việc những nghệ nhân trẻ nắm quyền chủ đạo và gạt bỏ ý kiến của các nghệ nhân lâu năm mới dẫn đến sự phát triển của địa phương."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "春の実践日本語講座 受講生募集",
+      "titleVi": "Chiêu sinh Khóa học Tiếng Nhật Thực hành Mùa xuân",
+      "japanese": "さくらビジネス語学センター「春の実践日本語講座」受講生募集\n春の転職をきっかけに、ビジネス日本語を学び直したい社会人の皆様を応援する特別講座を開講します。\n本講座は3か月にわたる集中プログラムで、実践的な会話力とメール作成技術を身につけます。\n平日の夜間に開講されるライブ授業に加え、週末の個別面接指導も自由に受講していただけます。\nコース名｜対象レベル｜授業日程｜受講料（月額）\n初級ビジネスコース｜N3程度｜火・木（19:00-20:30）｜25,000円\n中上級実践コース｜N2以上｜水・金（19:30-21:00）｜32,000円\n週末集中特訓コース｜全レベル対象｜土（10:00-13:00）｜28,000円\n【特別割引および受講条件】\n※過去の無料体験セミナーへの参加をきっかけとして入会される方は、入会金（10,000円）が半額となります。\n※3月20日までの早期申込みに加えて、一括払いを選択された場合は、受講料総額から10％割引いたします。\n※各コースの受講料に加えて、指定テキスト代として初回のみ別途3,000円が必要となります。\nところで、前回の予想に反して応募者が急増したため、各コース先着15名で募集を締め切ります。\n※受講コースの選択や日程の変更をめぐってご不明な点がございましたら、お気軽に事務局までお問い合わせください。",
+      "vietnamese": "Trung tâm Ngôn ngữ Thương mại Sakura chiêu sinh \"Khóa học Tiếng Nhật Thực hành Mùa xuân\"\nChúng tôi khai giảng khóa học đặc biệt nhằm hỗ trợ quý học viên đi làm muốn học lại tiếng Nhật thương mại nhân dịp chuyển việc vào mùa xuân.\nKhóa học này là chương trình tập trung kéo dài trong 3 tháng, giúp rèn luyện kỹ năng hội thoại thực tế và kỹ thuật viết email.\nThêm vào các buổi học trực tuyến mở vào buổi tối các ngày trong tuần, quý học viên còn có thể tự do tham gia hướng dẫn phỏng vấn cá nhân vào cuối tuần.\nTên khóa học｜Trình độ đối tượng｜Lịch học｜Học phí (hàng tháng)\nKhóa Thương mại Sơ cấp｜Trình độ N3｜Thứ Ba & Thứ Năm (19:00-20:30)｜25.000 yên\nKhóa Thực hành Trung Thượng cấp｜Trình độ N2 trở lên｜Thứ Tư & Thứ Sáu (19:30-21:00)｜32.000 yên\nKhóa Luyện tập Tập trung Cuối tuần｜Mọi trình độ｜Thứ Bảy (10:00-13:00)｜28.000 yên\n【Ưu đãi giảm giá đặc biệt và điều kiện học】\n※Học viên đăng ký nhập học lấy cơ hội từ việc từng tham gia hội thảo trải nghiệm miễn phí sẽ được giảm 50% phí nhập học (10.000 yên).\n※Ngoài việc đăng ký sớm trước ngày 20 tháng 3, nếu chọn phương thức thanh toán một lần, quý học viên sẽ được giảm 10% trên tổng học phí.\n※Ngoài học phí của từng khóa, học viên cần đóng riêng 3.000 yên tiền giáo trình chỉ định cho lần đầu tiên.\nNhân tiện, trái với dự đoán lần trước, do lượng người đăng ký tăng đột biến, mỗi khóa học sẽ chốt tuyển sinh theo thứ tự ưu tiên 15 người đầu tiên.\n※Nếu có điểm chưa rõ xoay quanh việc lựa chọn khóa học hoặc thay đổi lịch trình, xin vui lòng liên hệ văn phòng trung tâm.",
+      "sentences": [
+        {
+          "jp": "さくらビジネス語学センター「春の実践日本語講座」受講生募集",
+          "vi": "Trung tâm Ngôn ngữ Thương mại Sakura chiêu sinh \"Khóa học Tiếng Nhật Thực hành Mùa xuân\"",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "ビジネス",
+              "read": "ビジネス",
+              "vi": "kinh doanh, thương trường"
+            },
+            {
+              "w": "語学",
+              "read": "ごがく",
+              "vi": "ngoại ngữ, học ngoại ngữ"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "実践",
+              "read": "じっせん",
+              "vi": "thực hành, thực tiễn"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "講座",
+              "read": "こうざ",
+              "vi": "khóa học"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "chiêu sinh, tuyển dụng"
+            },
+            {
+              "w": "受講生",
+              "read": "じゅこうせい",
+              "vi": "học viên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "春の実践日本語講座",
+              "why": "Tên khóa học chính thức được quảng cáo trong thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "春の転職をきっかけに、ビジネス日本語を学び直したい社会人の皆様を応援する特別講座を開講します。",
+          "vi": "Chúng tôi khai giảng khóa học đặc biệt nhằm hỗ trợ quý học viên đi làm muốn học lại tiếng Nhật thương mại nhân dịp chuyển việc vào mùa xuân.",
+          "vocab": [
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "転職",
+              "read": "てんしょく",
+              "vi": "chuyển việc"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội, động cơ, chất xúc tác"
+            },
+            {
+              "w": "ビジネス",
+              "read": "ビジネス",
+              "vi": "kinh doanh, thương trường"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị (kính ngữ)"
+            },
+            {
+              "w": "応援する",
+              "read": "おうえんする",
+              "vi": "cổ vũ, hỗ trợ"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "講座",
+              "read": "こうざ",
+              "vi": "khóa học, buổi giảng"
+            },
+            {
+              "w": "開講する",
+              "read": "かいこうする",
+              "vi": "khai giảng khóa học"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đi làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をきっかけに",
+              "vi": "Lấy ~ làm cơ hội, nhân dịp ~, khởi phát từ ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "春の転職をきっかけに",
+              "why": "Mục đích và động lực khởi đầu của đối tượng học viên mục tiêu."
+            }
+          ]
+        },
+        {
+          "jp": "本講座は3か月にわたる集中プログラムで、実践的な会話力とメール作成技術を身につけます。",
+          "vi": "Khóa học này là chương trình tập trung kéo dài trong 3 tháng, giúp rèn luyện kỹ năng hội thoại thực tế và kỹ thuật viết email.",
+          "vocab": [
+            {
+              "w": "本講座",
+              "read": "ほんこうざ",
+              "vi": "khóa học này"
+            },
+            {
+              "w": "講座",
+              "read": "こうざ",
+              "vi": "khóa học, khóa giảng"
+            },
+            {
+              "w": "3か月",
+              "read": "さんかげつ",
+              "vi": "3 tháng"
+            },
+            {
+              "w": "にわたる",
+              "read": "にわたる",
+              "vi": "kéo dài, trải qua"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "プログラム",
+              "read": "ぷろぐらむ",
+              "vi": "chương trình"
+            },
+            {
+              "w": "実践",
+              "read": "じっせん",
+              "vi": "thực hành"
+            },
+            {
+              "w": "実践的",
+              "read": "じっせんてき",
+              "vi": "mang tính thực tiễn"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "会話力",
+              "read": "かいわりょく",
+              "vi": "năng lực hội thoại"
+            },
+            {
+              "w": "メール",
+              "read": "めーる",
+              "vi": "email"
+            },
+            {
+              "w": "作成",
+              "read": "さくせい",
+              "vi": "tạo, soạn thảo"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "身につけます",
+              "read": "みにつけます",
+              "vi": "nắm vững, trang bị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にわたる",
+              "vi": "Trải dài, kéo dài suốt (phạm vi thời gian/không gian)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "3か月にわたる",
+              "why": "Thời lượng chương trình học 3 tháng, là căn cứ tính tổng học phí."
+            }
+          ]
+        },
+        {
+          "jp": "平日の夜間に開講されるライブ授業に加え、週末の個別面接指導も自由に受講していただけます。",
+          "vi": "Thêm vào các buổi học trực tuyến mở vào buổi tối các ngày trong tuần, quý học viên còn có thể tự do tham gia hướng dẫn phỏng vấn cá nhân vào cuối tuần.",
+          "vocab": [
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày trong tuần"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "buổi tối, ban đêm"
+            },
+            {
+              "w": "開講",
+              "read": "かいこう",
+              "vi": "sự khai giảng, mở lớp"
+            },
+            {
+              "w": "ライブ",
+              "read": "ライブ",
+              "vi": "trực tiếp, buổi diễn trực tiếp"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "個別",
+              "read": "こべつ",
+              "vi": "cá nhân, riêng biệt"
+            },
+            {
+              "w": "面接",
+              "read": "めんせつ",
+              "vi": "phỏng vấn"
+            },
+            {
+              "w": "指導",
+              "read": "しどう",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "自由",
+              "read": "じゆう",
+              "vi": "tự do"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加え",
+              "vi": "Ngoài ra, thêm vào đó, cộng thêm"
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日の夜間",
+              "why": "Khung thời gian học trong tuần (buổi tối)."
+            },
+            {
+              "w": "個別面接指導",
+              "why": "Đặc quyền bổ sung được học kèm phỏng vấn cuối tuần."
+            }
+          ]
+        },
+        {
+          "jp": "コース名｜対象レベル｜授業日程｜受講料（月額）",
+          "vi": "Tên khóa học｜Trình độ đối tượng｜Lịch học｜Học phí (hàng tháng)",
+          "vocab": [
+            {
+              "w": "コース名",
+              "read": "こーすめい",
+              "vi": "tên khóa học"
+            },
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa học"
+            },
+            {
+              "w": "対象レベル",
+              "read": "たいしょうれべる",
+              "vi": "trình độ áp dụng"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "レベル",
+              "read": "れべる",
+              "vi": "trình độ"
+            },
+            {
+              "w": "授業日程",
+              "read": "じゅぎょうにってい",
+              "vi": "lịch học"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, lớp học"
+            },
+            {
+              "w": "日程",
+              "read": "にってい",
+              "vi": "lịch trình"
+            },
+            {
+              "w": "受講料",
+              "read": "じゅこうりょう",
+              "vi": "học phí"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "việc tham gia khóa học"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức phí hàng tháng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "受講料（月額）",
+              "why": "Lưu ý học phí trong bảng tính theo từng tháng."
+            }
+          ]
+        },
+        {
+          "jp": "初級ビジネスコース｜N3程度｜火・木（19:00-20:30）｜25,000円",
+          "vi": "Khóa Thương mại Sơ cấp｜Trình độ N3｜Thứ Ba & Thứ Năm (19:00-20:30)｜25.000 yên",
+          "vocab": [
+            {
+              "w": "初級ビジネスコース",
+              "read": "しょきゅうびじねすこーす",
+              "vi": "khóa kinh doanh sơ cấp"
+            },
+            {
+              "w": "初級",
+              "read": "しょきゅう",
+              "vi": "sơ cấp"
+            },
+            {
+              "w": "ビジネス",
+              "read": "びじねす",
+              "vi": "kinh doanh"
+            },
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa học"
+            },
+            {
+              "w": "N3程度",
+              "read": "えぬさんていど",
+              "vi": "trình độ khoảng N3"
+            },
+            {
+              "w": "N3",
+              "read": "えぬさん",
+              "vi": "trình độ N3"
+            },
+            {
+              "w": "程度",
+              "read": "ていど",
+              "vi": "mức độ, khoảng"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "25,000円",
+              "read": "にまんごせんえん",
+              "vi": "25.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "初級ビジネスコース",
+              "why": "Tên khóa học phù hợp với người có trình độ N3."
+            },
+            {
+              "w": "N3程度",
+              "why": "Trình độ yêu cầu đối với khóa sơ cấp."
+            },
+            {
+              "w": "火・木（19:00-20:30）",
+              "why": "Lịch học buổi tối trong tuần của khóa N3."
+            }
+          ]
+        },
+        {
+          "jp": "中上級実践コース｜N2以上｜水・金（19:30-21:00）｜32,000円",
+          "vi": "Khóa Thực hành Trung Thượng cấp｜Trình độ N2 trở lên｜Thứ Tư & Thứ Sáu (19:30-21:00)｜32.000 yên",
+          "vocab": [
+            {
+              "w": "中上級",
+              "read": "ちゅうじょうきゅう",
+              "vi": "trung-cao cấp"
+            },
+            {
+              "w": "実践",
+              "read": "じっせん",
+              "vi": "thực hành"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "N2",
+              "read": "エヌツー",
+              "vi": "trình độ N2"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "19:30-21:00",
+              "read": "じゅうくじはんからにじゅういちじまで",
+              "vi": "19:30–21:00"
+            },
+            {
+              "w": "32,000円",
+              "read": "さんまんにせんえん",
+              "vi": "32.000 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "中上級実践コース",
+              "why": "Khóa học dành riêng cho học viên có N2 trở lên."
+            },
+            {
+              "w": "32,000円",
+              "why": "Học phí hàng tháng của khóa trung thượng cấp."
+            }
+          ]
+        },
+        {
+          "jp": "週末集中特訓コース｜全レベル対象｜土（10:00-13:00）｜28,000円",
+          "vi": "Khóa Luyện tập Tập trung Cuối tuần｜Mọi trình độ｜Thứ Bảy (10:00-13:00)｜28.000 yên",
+          "vocab": [
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "特訓",
+              "read": "とっくん",
+              "vi": "huấn luyện đặc biệt"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "レベル",
+              "read": "レベル",
+              "vi": "trình độ"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng (áp dụng)"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "全レベル",
+              "read": "ぜんれべる",
+              "vi": "mọi trình độ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "全レベル対象",
+              "why": "Khóa học mở cho tất cả các trình độ học viên."
+            },
+            {
+              "w": "土（10:00-13:00）",
+              "why": "Lịch học ban ngày vào thứ Bảy."
+            }
+          ]
+        },
+        {
+          "jp": "【特別割引および受講条件】",
+          "vi": "【Ưu đãi giảm giá đặc biệt và điều kiện học】",
+          "vocab": [
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "特別割引",
+              "read": "とくべつわりびき",
+              "vi": "giảm giá đặc biệt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜および（及び）",
+              "vi": "Kết nối: N1 ＋ および ＋ N2. Ý nghĩa: Liên từ nối trang trọng dùng trong văn bản, thông báo mang nghĩa \"và, cũng như\", dùng để liệt kê/liên kết các danh từ có vai trò tương đương nhau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "受講条件",
+              "why": "Mục chứa các điều kiện ràng buộc về chi phí và giảm giá."
+            }
+          ]
+        },
+        {
+          "jp": "※過去の無料体験セミナーへの参加をきっかけとして入会される方は、入会金（10,000円）が半額となります。",
+          "vi": "※Học viên đăng ký nhập học lấy cơ hội từ việc từng tham gia hội thảo trải nghiệm miễn phí sẽ được giảm 50% phí nhập học (10.000 yên).",
+          "vocab": [
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "無料体験",
+              "read": "むりょうたいけん",
+              "vi": "trải nghiệm miễn phí"
+            },
+            {
+              "w": "セミナー",
+              "read": "セミナー",
+              "vi": "hội thảo"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "tham gia"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội; dịp"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "gia nhập; đăng ký thành viên"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (cách nói lịch sự)"
+            },
+            {
+              "w": "入会金",
+              "read": "にゅうかいきん",
+              "vi": "phí gia nhập"
+            },
+            {
+              "w": "10,000円",
+              "read": "いちまんえん",
+              "vi": "10.000 yên"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "một nửa giá"
+            },
+            {
+              "w": "となります",
+              "read": "となります",
+              "vi": "trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をきっかけとして",
+              "vi": "Lấy ~ làm cơ hội, nhân dịp ~, khởi phát từ ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "無料体験セミナーへの参加をきっかけとして",
+              "why": "Điều kiện để được hưởng ưu đãi giảm nửa tiền nhập học."
+            },
+            {
+              "w": "入会金（10,000円）が半額",
+              "why": "Mức giảm phí nhập học từ 10.000 yên xuống còn 5.000 yên."
+            }
+          ]
+        },
+        {
+          "jp": "※3月20日までの早期申込みに加えて、一括払いを選択された場合は、受講料総額から10％割引いたします。",
+          "vi": "※Ngoài việc đăng ký sớm trước ngày 20 tháng 3, nếu chọn phương thức thanh toán một lần, quý học viên sẽ được giảm 10% trên tổng học phí.",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "giai đoạn đầu, sớm"
+            },
+            {
+              "w": "申込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "加える",
+              "read": "くわえる",
+              "vi": "thêm vào, gia tăng"
+            },
+            {
+              "w": "一括払い",
+              "read": "いっかつばらい",
+              "vi": "thanh toán một lần"
+            },
+            {
+              "w": "選択",
+              "read": "せんたく",
+              "vi": "sự lựa chọn"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "総額",
+              "read": "そうがく",
+              "vi": "tổng số tiền"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "早期申込み",
+              "read": "そうきもうしこみ",
+              "vi": "đăng ký sớm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加えて",
+              "vi": "Thêm vào ~, ngoài ~ ra còn"
+            }
+          ],
+          "keys": [
+            {
+              "w": "3月20日までの早期申込み",
+              "why": "Điều kiện thời hạn đăng ký sớm để xét giảm giá học phí."
+            },
+            {
+              "w": "一括払いを選択された場合",
+              "why": "Điều kiện thanh toán một lần đi kèm để hưởng chiết khấu."
+            },
+            {
+              "w": "受講料総額から10％割引",
+              "why": "Mức chiết khấu 10% áp dụng trên tổng học phí."
+            }
+          ]
+        },
+        {
+          "jp": "※各コースの受講料に加えて、指定テキスト代として初回のみ別途3,000円が必要となります。",
+          "vi": "※Ngoài học phí của từng khóa, học viên cần đóng riêng 3.000 yên tiền giáo trình chỉ định cho lần đầu tiên.",
+          "vocab": [
+            {
+              "w": "各",
+              "read": "かく",
+              "vi": "mỗi"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "tham gia khóa học"
+            },
+            {
+              "w": "受講料",
+              "read": "じゅこうりょう",
+              "vi": "học phí"
+            },
+            {
+              "w": "加えて",
+              "read": "くわえて",
+              "vi": "ngoài ra; thêm vào"
+            },
+            {
+              "w": "指定",
+              "read": "してい",
+              "vi": "chỉ định"
+            },
+            {
+              "w": "テキスト",
+              "read": "テキスト",
+              "vi": "giáo trình"
+            },
+            {
+              "w": "テキスト代",
+              "read": "テキストだい",
+              "vi": "tiền giáo trình"
+            },
+            {
+              "w": "初回のみ",
+              "read": "しょかいのみ",
+              "vi": "chỉ lần đầu"
+            },
+            {
+              "w": "別途",
+              "read": "べっと",
+              "vi": "riêng; thêm"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に加えて",
+              "vi": "Cộng thêm ~, ngoài ra"
+            }
+          ],
+          "keys": [
+            {
+              "w": "指定テキスト代として初回のみ別途3,000円が必要",
+              "why": "Khoản phụ thu bắt buộc 3.000 yên cho giáo trình lần đầu."
+            }
+          ]
+        },
+        {
+          "jp": "ところで、前回の予想に反して応募者が急増したため、各コース先着15名で募集を締め切ります。",
+          "vi": "Nhân tiện, trái với dự đoán lần trước, do lượng người đăng ký tăng đột biến, mỗi khóa học sẽ chốt tuyển sinh theo thứ tự ưu tiên 15 người đầu tiên.",
+          "vocab": [
+            {
+              "w": "ところで",
+              "read": "ところで",
+              "vi": "nhân tiện; à mà"
+            },
+            {
+              "w": "前回",
+              "read": "ぜんかい",
+              "vi": "lần trước"
+            },
+            {
+              "w": "予想",
+              "read": "よそう",
+              "vi": "dự đoán"
+            },
+            {
+              "w": "反して",
+              "read": "はんして",
+              "vi": "trái với"
+            },
+            {
+              "w": "応募",
+              "read": "おうぼ",
+              "vi": "đăng ký ứng tuyển"
+            },
+            {
+              "w": "応募者",
+              "read": "おうぼしゃ",
+              "vi": "người đăng ký"
+            },
+            {
+              "w": "急増した",
+              "read": "きゅうぞうした",
+              "vi": "đã tăng vọt"
+            },
+            {
+              "w": "各",
+              "read": "かく",
+              "vi": "mỗi"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "先着",
+              "read": "せんちゃく",
+              "vi": "theo thứ tự đăng ký"
+            },
+            {
+              "w": "15名",
+              "read": "じゅうごめい",
+              "vi": "15 người"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "tuyển; chiêu sinh"
+            },
+            {
+              "w": "締め切ります",
+              "read": "しめきります",
+              "vi": "đóng đăng ký"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ところで",
+              "vi": "Nhân tiện, mà này (chuyển đổi chủ đề/thông báo việc quan trọng)"
+            },
+            {
+              "point": "〜に反して",
+              "vi": "Trái với, ngược lại với (dự đoán/kỳ vọng)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "前回の予想に反して",
+              "why": "Tình hình thực tế tăng nhanh trái ngược với dự đoán ban đầu."
+            },
+            {
+              "w": "各コース先着15名",
+              "why": "Giới hạn số lượng học viên tối đa cho mỗi lớp là 15 người."
+            }
+          ]
+        },
+        {
+          "jp": "※受講コースの選択や日程の変更をめぐってご不明な点がございましたら、お気軽に事務局までお問い合わせください。",
+          "vi": "※Nếu có điểm chưa rõ xoay quanh việc lựa chọn khóa học hoặc thay đổi lịch trình, xin vui lòng liên hệ văn phòng trung tâm.",
+          "vocab": [
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "選択",
+              "read": "せんたく",
+              "vi": "lựa chọn"
+            },
+            {
+              "w": "日程",
+              "read": "にってい",
+              "vi": "lịch, ngày tháng kế hoạch"
+            },
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "不明",
+              "read": "ふめい",
+              "vi": "không rõ ràng, chưa rõ"
+            },
+            {
+              "w": "ござる",
+              "read": "ござる",
+              "vi": "có, là"
+            },
+            {
+              "w": "気軽",
+              "read": "きがる",
+              "vi": "sự thoải mái, tùy ý"
+            },
+            {
+              "w": "事務",
+              "read": "じむ",
+              "vi": "công việc văn phòng"
+            },
+            {
+              "w": "問い合わせる",
+              "read": "といあわせる",
+              "vi": "liên hệ, hỏi thăm"
+            },
+            {
+              "w": "不明な点",
+              "read": "ふめいてん",
+              "vi": "điểm chưa rõ, thắc mắc"
+            },
+            {
+              "w": "事務局",
+              "read": "じむきょく",
+              "vi": "văn phòng ban điều hành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をめぐって",
+              "vi": "Xoay quanh (vấn đề, tranh cãi, thắc mắc)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "日程の変更をめぐって",
+              "why": "Phạm vi thắc mắc xoay quanh việc đổi lịch cần liên hệ văn phòng."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "春の転職をきっかけに",
+          "label": "〜をきっかけに"
+        },
+        {
+          "excerpt": "過去の無料体験セミナーへの参加をきっかけとして",
+          "label": "〜をきっかけとして"
+        },
+        {
+          "excerpt": "ライブ授業に加え",
+          "label": "〜に加え"
+        },
+        {
+          "excerpt": "早期申込みに加えて",
+          "label": "〜に加えて"
+        },
+        {
+          "excerpt": "受講料に加えて",
+          "label": "〜に加えて"
+        },
+        {
+          "excerpt": "3か月にわたる",
+          "label": "〜にわたる"
+        },
+        {
+          "excerpt": "前回の予想に反して",
+          "label": "〜に反して"
+        },
+        {
+          "excerpt": "日程の変更をめぐって",
+          "label": "〜をめぐって"
+        },
+        {
+          "excerpt": "ところで",
+          "label": "ところで"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "開講の案内と特徴",
+          "topic": 1,
+          "note": "Giới thiệu mục đích mở khóa học tiếng Nhật thương mại, thời lượng 3 tháng và các ưu điểm lớp học.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "body",
+          "label": "コース一覧表",
+          "topic": 4,
+          "note": "Bảng chi tiết các khóa học, đối tượng trình độ, lịch học và mức học phí hàng tháng.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "特別割引および追加費用",
+          "topic": 8,
+          "note": "Các quy định về ưu đãi giảm giá phí nhập học, giảm giá khi đăng ký sớm và đóng một lần, cùng phí giáo trình.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "turn",
+          "label": "定員制限と問い合わせ",
+          "topic": 12,
+          "note": "Lưu ý chuyển chủ đề về giới hạn sĩ số 15 người mỗi khóa và thông tin liên hệ giải đáp thắc mắc.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "会社員のLanさん（N3所持）は、平日の夜間に受講したいと考えている。過去にこのセンターの無料体験セミナーに参加したことがある場合、受講するコースの日程と入会金はどうなるか。",
+          "options": [
+            "火曜日と木曜日の19:00-20:30で、入会金は5,000円になる。",
+            "水曜日と金曜日の19:30-21:00で、入会金は5,000円になる。",
+            "火曜日と木曜日の19:00-20:30で、入会金は10,000円になる。",
+            "土曜日の10:00-13:00で、入会金は無料になる。"
+          ],
+          "answer": 0,
+          "explainVi": "Lan có trình độ N3 và muốn học buổi tối trong tuần nên khóa học phù hợp là 「初級ビジネスコース」 (dành cho N3程度, học vào Thứ Ba & Thứ Năm lúc 19:00-20:30). Ngoài ra, do cô ấy từng tham gia hội thảo trải nghiệm miễn phí (無料体験セミナーへの参加をきっかけとして) nên được giảm 50% tiền nhập học từ 10.000 yên xuống còn 5.000 yên. Do đó đáp án đầu tiên là chính xác.",
+          "tip": "Kết hợp đối chiếu trình độ (N3) và thời gian học trong bảng với ghi chú giảm phí nhập học ở dòng ※ đầu tiên.",
+          "evi": [
+            5,
+            9
+          ],
+          "qt": {
+            "q": "Nhân viên công ty Lan (có chứng chỉ N3) muốn học vào buổi tối các ngày trong tuần. Nếu trước đây cô ấy đã tham gia hội thảo trải nghiệm miễn phí của trung tâm này, lịch học khóa học mà cô ấy tham gia và phí nhập học sẽ như thế nào?",
+            "o": [
+              "Thứ Ba và thứ Năm, từ 19:00 đến 20:30; phí nhập học là 5.000 yên.",
+              "Thứ Tư và thứ Sáu, từ 19:30 đến 21:00; phí nhập học là 5.000 yên.",
+              "Thứ Ba và thứ Năm, từ 19:00 đến 20:30; phí nhập học là 10.000 yên.",
+              "Thứ Bảy, từ 10:00 đến 13:00; miễn phí nhập học."
+            ]
+          }
+        },
+        {
+          "q": "Namさん（N2所持）は「中上級実践コース」（3か月間）を受講したいと考えている。3月15日に申し込み、一括払いで支払う予定だが、無料体験セミナーには参加したことがない。Namさんが支払う費用について、正しいものはどれか。",
+          "options": [
+            "受講料総額から10％割引され、入会金10,000円とテキスト代3,000円も支払う。",
+            "受講料総額から10％割引され、入会金は半額の5,000円となりテキスト代は不要である。",
+            "早期申込みの条件のみを満たすため、受講料の割引はなくテキスト代3,000円のみ支払う。",
+            "受講料総額から半額割引され、入会金10,000円のみ支払う。"
+          ],
+          "answer": 0,
+          "explainVi": "Nam học khóa 「中上級実践コース」. Vì đăng ký trước ngày 20/3 (ngày 15/3) và chọn thanh toán một lần (一括払い) nên thỏa mãn điều kiện kết hợp để được giảm 10% tổng học phí (受講料総額から10％割引). Tuy nhiên, vì chưa từng tham gia hội thảo miễn phí nên không được giảm phí nhập học (vẫn phải nộp 10.000 yên), và theo quy định phải nộp thêm 3.000 yên tiền giáo trình chỉ định (指定テキスト代). Do đó đáp án đầu tiên là đúng.",
+          "tip": "Chú ý điều kiện kép '早期申込みに加えて、一括払い' để được giảm 10% học phí, đồng thời kiểm tra đầy đủ các khoản phụ thu bắt buộc (入会金 nguyên giá và テキスト代).",
+          "evi": [
+            2,
+            6,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Nam (có chứng chỉ N2) muốn tham gia “Khóa thực hành trung cao cấp” trong 3 tháng. Anh ấy dự định đăng ký vào ngày 15 tháng 3 và thanh toán một lần, nhưng chưa từng tham gia hội thảo trải nghiệm miễn phí. Phương án nào sau đây mô tả đúng các khoản phí Nam sẽ phải trả?",
+            "o": [
+              "Được giảm 10% trên tổng học phí, đồng thời phải trả phí nhập học 10.000 yên và phí giáo trình 3.000 yên.",
+              "Được giảm 10% trên tổng học phí, phí nhập học còn một nửa là 5.000 yên và không cần trả phí giáo trình.",
+              "Chỉ đáp ứng điều kiện đăng ký sớm, nên không được giảm học phí và chỉ phải trả phí giáo trình 3.000 yên.",
+              "Được giảm một nửa tổng học phí và chỉ phải trả phí nhập học 10.000 yên."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

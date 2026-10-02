@@ -1,0 +1,402 @@
+{
+  "id": "minna1.b08",
+  "bai": 8,
+  "titleVi": "Tính từ — い-adj・な-adj",
+  "know": [
+    {
+      "id": "minna1.b08.i-adj",
+      "point": "i-adj",
+      "jp": "〜いです／〜くないです",
+      "vi": "Tính từ い (khẳng định / phủ định)",
+      "gloss": "い → い+です；い → くない+です"
+    },
+    {
+      "id": "minna1.b08.na-adj",
+      "point": "na-adj",
+      "jp": "〜です／〜じゃありません",
+      "vi": "Tính từ な (khẳng định / phủ định)",
+      "gloss": "NA+です；NA+じゃありません"
+    },
+    {
+      "id": "minna1.b08.totemo-amari",
+      "point": "totemo-amari",
+      "jp": "とても／あまり〜ない",
+      "vi": "Mức độ: rất / không ... lắm",
+      "gloss": "とても+KĐ；あまり+phủ định bắt buộc"
+    },
+    {
+      "id": "minna1.b08.donna",
+      "point": "donna",
+      "jp": "どんな N ／ 〜は どうですか",
+      "vi": "Hỏi mô tả: N như thế nào / loại gì",
+      "gloss": "どんな hỏi đặc điểm；どう hỏi cảm nhận"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b08-i-adj-oishii",
+      "item": "minna1.b08.i-adj",
+      "err": "i-adj-neg",
+      "vi": "Món ramen này ngon.",
+      "t1": {
+        "stem": "このラーメンは ＿。",
+        "choices": [
+          "おいしいです。",
+          "おいしくないです。",
+          "おいしいじゃありません。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このラーメンは",
+          "おいしいです。"
+        ],
+        "traps": [
+          "おいしくないです。",
+          "おいしいじゃありません。"
+        ]
+      },
+      "t3": {
+        "target": "このラーメンはおいしいです。",
+        "accept": [
+          "このらーめんはおいしいです。"
+        ]
+      },
+      "why": "Tính từ い khẳng định: giữ nguyên い + です. Không thêm じゃありません."
+    },
+    {
+      "id": "c-b08-i-adj-takakunai",
+      "item": "minna1.b08.i-adj",
+      "err": "i-adj-neg",
+      "vi": "Khách sạn này không đắt.",
+      "t1": {
+        "stem": "このホテルは 高[たか]＿。",
+        "choices": [
+          "くないです。",
+          "いじゃありません。",
+          "いくないです。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このホテルは",
+          "高[たか]くないです。"
+        ],
+        "traps": [
+          "高[たか]いじゃありません。",
+          "高[たか]いくないです。"
+        ]
+      },
+      "t3": {
+        "target": "このホテルは高くないです。",
+        "accept": [
+          "このほてるはたかくないです。",
+          "このホテルは高くありません。",
+          "このほてるはたかくありません。"
+        ]
+      },
+      "why": "〜くないです = phủ định い-adj chuẩn. ✗ 高いじゃありません (dạng な-adj mới là sai với い-adj)."
+    },
+    {
+      "id": "c-b08-i-adj-ookii-neg",
+      "item": "minna1.b08.i-adj",
+      "err": "i-adj-neg",
+      "vi": "Phòng này không lớn.",
+      "t1": {
+        "stem": "この部屋[へや]は ＿。",
+        "choices": [
+          "大[おお]きくないです。",
+          "大[おお]きいじゃありません。",
+          "大[おお]きいではないです。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この部屋[へや]は",
+          "大[おお]きくないです。"
+        ],
+        "traps": [
+          "大[おお]きいじゃありません。",
+          "大[おお]きいではないです。"
+        ]
+      },
+      "t3": {
+        "target": "この部屋は大きくないです。",
+        "accept": [
+          "このへやはおおきくないです。",
+          "この部屋は大きくありません。",
+          "このへやはおおきくありません。"
+        ]
+      },
+      "why": "い-adj phủ định: い → くない. ✗ 大きいじゃありません — じゃありません dành cho な-adj và danh từ."
+    },
+    {
+      "id": "c-b08-na-adj-shizuka",
+      "item": "minna1.b08.na-adj",
+      "err": "na-i-adj-mix",
+      "vi": "Thư viện yên tĩnh.",
+      "t1": {
+        "stem": "図書館[としょかん]は ＿。",
+        "choices": [
+          "静[しず]かです。",
+          "静[しず]かいです。",
+          "静[しず]くないです。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "図書館[としょかん]は",
+          "静[しず]かです。"
+        ],
+        "traps": [
+          "静[しず]かいです。",
+          "静[しず]くないです。"
+        ]
+      },
+      "t3": {
+        "target": "図書館は静かです。",
+        "accept": [
+          "としょかんはしずかです。"
+        ]
+      },
+      "why": "な-adj khẳng định: stem + です (KHÔNG thêm い cuối; ✗ 静かいです)."
+    },
+    {
+      "id": "c-b08-na-adj-kirei-neg",
+      "item": "minna1.b08.na-adj",
+      "err": "na-i-adj-mix",
+      "vi": "Nhà hàng đó không sạch lắm.",
+      "t1": {
+        "stem": "あのレストランは あまり ＿。",
+        "choices": [
+          "きれいじゃありません。",
+          "きれいくないです。",
+          "きれいないです。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あのレストランは",
+          "あまり",
+          "きれいじゃありません。"
+        ],
+        "traps": [
+          "きれいくないです。",
+          "きれいないです。"
+        ]
+      },
+      "t3": {
+        "target": "あのレストランはあまりきれいじゃありません。",
+        "accept": [
+          "あのれすとらんはあまりきれいじゃありません。",
+          "あのレストランはあまりきれいではありません。",
+          "あのれすとらんはあまりきれいではありません。"
+        ]
+      },
+      "why": "きれい là な-adj → phủ định = じゃありません. ✗ きれいくない — không chia như い-adj."
+    },
+    {
+      "id": "c-b08-i-adj-na-noun",
+      "item": "minna1.b08.i-adj",
+      "err": "i-adj-na-noun",
+      "vi": "Tôi muốn một căn phòng rộng.",
+      "t1": {
+        "stem": "広[ひろ]い＿部屋[へや]がほしいです。",
+        "choices": [
+          "（なし）",
+          "な",
+          "の"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "広[ひろ]い",
+          "部屋[へや]が",
+          "ほしいです。"
+        ],
+        "traps": [
+          "広[ひろ]いな",
+          "広[ひろ]いの"
+        ]
+      },
+      "t3": {
+        "target": "広い部屋がほしいです。",
+        "accept": [
+          "ひろいへやがほしいです。"
+        ]
+      },
+      "why": "い-adj đứng trực tiếp trước danh từ — KHÔNG thêm な. な chỉ dùng với な-adj: 静かな部屋."
+    },
+    {
+      "id": "c-b08-totemo-samui",
+      "item": "minna1.b08.totemo-amari",
+      "err": "amari-affirmative",
+      "vi": "Hôm nay rất lạnh.",
+      "t1": {
+        "stem": "今日[きょう]は ＿ 寒[さむ]いです。",
+        "choices": [
+          "とても",
+          "あまり",
+          "ぜんぜん"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]は",
+          "とても",
+          "寒[さむ]いです。"
+        ],
+        "traps": [
+          "あまり",
+          "ぜんぜん"
+        ]
+      },
+      "t3": {
+        "target": "今日はとても寒いです。",
+        "accept": [
+          "きょうはとてもさむいです。"
+        ]
+      },
+      "why": "とても dùng với câu khẳng định; あまり và ぜんぜん bắt buộc đi với phủ định (〜ない)."
+    },
+    {
+      "id": "c-b08-amari-yasuku",
+      "item": "minna1.b08.totemo-amari",
+      "err": "amari-affirmative",
+      "vi": "Căn hộ này không rẻ lắm.",
+      "t1": {
+        "stem": "このアパートは あまり ＿。",
+        "choices": [
+          "安[やす]くないです。",
+          "安[やす]いです。",
+          "安[やす]くてです。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このアパートは",
+          "あまり",
+          "安[やす]くないです。"
+        ],
+        "traps": [
+          "安[やす]いです。",
+          "あまり安[やす]いです。"
+        ]
+      },
+      "t3": {
+        "target": "このアパートはあまり安くないです。",
+        "accept": [
+          "このあぱーとはあまりやすくないです。",
+          "このアパートはあまり安くありません。",
+          "このあぱーとはあまりやすくありません。"
+        ]
+      },
+      "why": "あまり bắt buộc đi với phủ định. ✗ あまり安いです — phải là あまり安くないです."
+    },
+    {
+      "id": "c-b08-donna-machi",
+      "item": "minna1.b08.donna",
+      "err": "na-i-adj-mix",
+      "vi": "Hà Nội là thành phố như thế nào?",
+      "t1": {
+        "stem": "ハノイは ＿ 町[まち]ですか。",
+        "choices": [
+          "どんな",
+          "どう",
+          "なんの"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ハノイは",
+          "どんな",
+          "町[まち]ですか。"
+        ],
+        "traps": [
+          "どう",
+          "なんの"
+        ]
+      },
+      "t3": {
+        "target": "ハノイはどんな町ですか。",
+        "accept": [
+          "はのいはどんなまちですか。"
+        ]
+      },
+      "why": "どんな hỏi đặc điểm trước danh từ; どう hỏi cảm nhận (không đứng trước N)."
+    },
+    {
+      "id": "c-b08-donna-dou",
+      "item": "minna1.b08.donna",
+      "err": "na-i-adj-mix",
+      "vi": "Công việc mới như thế nào?",
+      "t1": {
+        "stem": "新[あたら]しい仕事[しごと]は ＿ですか。",
+        "choices": [
+          "どう",
+          "どんな",
+          "なに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "新[あたら]しい仕事[しごと]は",
+          "どうですか。"
+        ],
+        "traps": [
+          "どんな",
+          "なにですか。"
+        ]
+      },
+      "t3": {
+        "target": "新しい仕事はどうですか。",
+        "accept": [
+          "あたらしいしごとはどうですか。"
+        ]
+      },
+      "why": "〜はどうですか = hỏi cảm nhận/đánh giá về chủ đề (không cần danh từ sau); どんなN hỏi đặc điểm."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b08-1",
+      "item": "minna1.b08.i-adj",
+      "err": "i-adj-neg",
+      "tts": "このアパートは とても 新しいですが、 ちょっと 高いです。",
+      "script": "このアパートは とても 新[あたら]しいですが、 ちょっと 高[たか]いです。",
+      "ask": "Căn hộ này như thế nào?",
+      "choices": [
+        "Mới và hơi đắt",
+        "Cũ và rẻ",
+        "Rộng và yên tĩnh"
+      ],
+      "answer": 0,
+      "why": "とても新しい = rất mới; ちょっと高い = hơi đắt."
+    },
+    {
+      "id": "l-b08-2",
+      "item": "minna1.b08.totemo-amari",
+      "err": "amari-affirmative",
+      "tts": "この町は にぎやかですが、 あまり 静かじゃありません。",
+      "script": "この町[まち]は にぎやかですが、 あまり 静[しず]かじゃありません。",
+      "ask": "Thành phố này như thế nào?",
+      "choices": [
+        "Nhộn nhịp, không yên tĩnh lắm",
+        "Yên tĩnh và không nhộn nhịp",
+        "Rất yên tĩnh"
+      ],
+      "answer": 0,
+      "why": "にぎやかです = nhộn nhịp; あまり〜じゃありません = không ... lắm."
+    }
+  ]
+}

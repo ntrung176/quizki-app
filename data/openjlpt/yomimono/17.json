@@ -1,0 +1,1518 @@
+{
+  "bai": 17,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 17 giới thiệu thể ない (phủ định thể từ điển) và ba mẫu quan trọng: 「Vないでください」(xin đừng làm), 「Vなければなりません」(phải làm), 「Vなくてもいいです」(không cần làm). Khi đọc, chú ý phân biệt ba sắc thái: CẤM, BẮT BUỘC, hay KHÔNG CẦN THIẾT — chọn sai là mất điểm.",
+    "steps": [
+      "Đọc lướt toàn bài để hiểu ngữ cảnh (phòng khám? lớp học? trước kỳ thi?).",
+      "Với mỗi câu có động từ thể ない, xác định đó là: Vないでください / Vなければなりません / Vなくてもいいです.",
+      "Chú ý「Nまでに」= \"trước thời hạn N\" — khác với「Nまで」= \"cho đến N\" (Bài 4).",
+      "Câu hỏi dạng「〜なければなりませんか」→ tìm câu trong bài xác nhận việc đó là BẮT BUỘC hay chỉ KHUYẾN NGHỊ.",
+      "Phân biệt「しなければなりません」(phải làm) và「しなくてもいいです」(không cần làm) — nghĩa đối lập hoàn toàn."
+    ],
+    "tips": [
+      "Chia thể ない: nhóm I kết thúc い段→あ段+ない (書く→書かない); nhóm II bỏ る+ない (食べる→食べない); bất quy tắc する→しない、来る→来ない.",
+      "「Vないでください」= lịch sự yêu cầu ĐỪNG làm gì — đây là dạng CẤM/XIN ĐỪNG.",
+      "「Vなければなりません」= BẮT BUỘC phải làm; không có chủ ngữ → chủ ngữ mặc định là \"tôi/chúng ta\".",
+      "「Vなくてもいいです」= KHÔNG BẮT BUỘC — có thể không làm cũng được; đừng nhầm với \"không được làm\".",
+      "「Nまでに」(trước N) khác「Nまで」(đến tận N): ８時までに来てください = phải đến TRƯỚC 8h; ８時まで働きます = làm việc cho đến 8h.",
+      "Thể て (Bài 14) và thể ない (Bài 17) đều chia từ cùng gốc — nếu đã biết thể て thì chia thể ない sẽ rất nhanh."
+    ],
+    "grammarFocus": [
+      "ない形（動詞の否定形）",
+      "Vないでください",
+      "Vなければなりません",
+      "Vなくてもいいです",
+      "Nまでに"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 4,
+        "items": [
+          "NからNまで（giờ giấc）",
+          "Vます・Vません",
+          "〜ね"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "Nへ行きます／来ます",
+          "いつVますか"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをVます（tha động từ）",
+          "NかN（hoặc）"
+        ]
+      },
+      {
+        "bai": 7,
+        "items": [
+          "人にNをあげます／もらいます",
+          "NでVます（công cụ）"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "〜いです / 〜くないです（tính từ い）",
+          "とても"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）",
+          "どうして"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vてください",
+          "Vています（đang làm）"
+        ]
+      },
+      {
+        "bai": 15,
+        "items": [
+          "Vてもいいです",
+          "Vてはいけません",
+          "知っています・知りません"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから（sau khi làm xong〜）",
+          "Vてから（trình tự）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "試験の前に",
+      "titleVi": "Trước kỳ thi",
+      "japanese": "明日は日本語の試験です。今夜、たくさん勉強しなければなりません。携帯電話を使わないでください。夜おそく寝てはいけません。でも、全部覚えなくてもいいです。大切なことばだけ覚えてください。試験は午前９時までに来なければなりません。",
+      "vietnamese": "Ngày mai là kỳ thi tiếng Nhật. Tối nay, tôi phải học thật nhiều. Xin đừng dùng điện thoại di động. Không được ngủ muộn vào ban đêm. Nhưng, không cần phải nhớ hết tất cả. Chỉ cần nhớ những từ quan trọng thôi. Phải đến trước 9 giờ sáng hôm thi.",
+      "sentences": [
+        {
+          "jp": "明日は日本語の試験です。",
+          "vi": "Ngày mai là kỳ thi tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Câu khẳng định đơn giản: ngày mai là kỳ thi (Bài 1)."
+            }
+          ]
+        },
+        {
+          "jp": "今夜、たくさん勉強しなければなりません。",
+          "vi": "Tối nay, tôi phải học thật nhiều.",
+          "vocab": [
+            {
+              "w": "今夜",
+              "read": "こんや",
+              "vi": "tối nay"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "勉強しない",
+              "read": "べんきょうしない",
+              "vi": "không học (thể ない của 勉強します)"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học bài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ない形",
+              "vi": "する（不規則）→しない。勉強する（thể từ điển）→勉強しない。"
+            },
+            {
+              "point": "Vなければなりません",
+              "vi": "勉強しなければなりません = \"phải học\". Gốc: thể ない bỏ い, thêm ければなりません."
+            }
+          ]
+        },
+        {
+          "jp": "携帯電話を使わないでください。",
+          "vi": "Xin đừng dùng điện thoại di động.",
+          "vocab": [
+            {
+              "w": "携帯",
+              "read": "けいたい",
+              "vi": "điện thoại di động, mang theo"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "使わない",
+              "read": "つかわない",
+              "vi": "không dùng (thể ない)"
+            },
+            {
+              "w": "携帯電話",
+              "read": "けいたいでんわ",
+              "vi": "điện thoại di động"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "dùng, sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ない形",
+              "vi": "使います（nhóm I）: い段→あ段: 使い→使わ, thêm ない→使わない."
+            },
+            {
+              "point": "Vないでください",
+              "vi": "使わないでください = xin đừng dùng. Yêu cầu lịch sự ĐỪNG làm việc gì."
+            }
+          ]
+        },
+        {
+          "jp": "夜おそく寝てはいけません。",
+          "vi": "Không được ngủ muộn vào ban đêm.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "おそく",
+              "read": "おそく",
+              "vi": "muộn (dạng phó từ của おそい)"
+            },
+            {
+              "w": "寝ます",
+              "read": "ねます",
+              "vi": "ngủ, đi ngủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてはいけません（Bài 15）",
+              "vi": "寝てはいけません = không được ngủ. Ôn lại Bài 15: mẫu CẤM bằng thể て."
+            }
+          ]
+        },
+        {
+          "jp": "でも、全部覚えなくてもいいです。",
+          "vi": "Nhưng, không cần phải nhớ hết tất cả.",
+          "vocab": [
+            {
+              "w": "全部",
+              "read": "ぜんぶ",
+              "vi": "tất cả, toàn bộ"
+            },
+            {
+              "w": "覚えない",
+              "read": "おぼえない",
+              "vi": "không nhớ (thể ない)"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "ghi nhớ, thuộc lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ない形",
+              "vi": "覚えます（nhóm II）: bỏ ます, thêm ない→覚えない."
+            },
+            {
+              "point": "Vなくてもいいです",
+              "vi": "覚えなくてもいいです = không cần nhớ cũng được. Gốc: thể ない bỏ い, thêm くてもいいです."
+            }
+          ]
+        },
+        {
+          "jp": "大切なことばだけ覚えてください。",
+          "vi": "Chỉ cần nhớ những từ quan trọng thôi.",
+          "vocab": [
+            {
+              "w": "大切な",
+              "read": "たいせつな",
+              "vi": "quan trọng (tính từ な)"
+            },
+            {
+              "w": "ことば",
+              "read": "ことば",
+              "vi": "từ ngữ, ngôn từ"
+            },
+            {
+              "w": "覚える",
+              "read": "おぼえる",
+              "vi": "nhớ, cảm thấy"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ, mà thôi (Bài 11)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "覚えてください = hãy nhớ. Ôn Bài 14: yêu cầu bằng thể て."
+            },
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "ことばだけ = chỉ từ ngữ mà thôi."
+            }
+          ]
+        },
+        {
+          "jp": "試験は午前９時までに来なければなりません。",
+          "vi": "Phải đến trước 9 giờ sáng hôm thi.",
+          "vocab": [
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng (trước trưa)"
+            },
+            {
+              "w": "来ない",
+              "read": "こない",
+              "vi": "không đến (thể ない bất quy tắc)"
+            },
+            {
+              "w": "９時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに",
+              "vi": "午前９時までに = trước 9 giờ sáng. Chỉ thời hạn cần hoàn thành việc gì đó."
+            },
+            {
+              "point": "Vなければなりません",
+              "vi": "来なければなりません = phải đến. 来る（không quy tắc）→来ない."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "勉強しなければなりません",
+          "label": "Vなければなりません"
+        },
+        {
+          "excerpt": "携帯電話を使わないでください",
+          "label": "Vないでください"
+        },
+        {
+          "excerpt": "全部覚えなくてもいいです",
+          "label": "Vなくてもいいです"
+        },
+        {
+          "excerpt": "午前９時までに",
+          "label": "Nまでに"
+        }
+      ],
+      "questions": [
+        {
+          "q": "試験の前の夜、何をしなければなりませんか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "たくさん遊ばなければなりません",
+            "たくさん勉強しなければなりません",
+            "携帯電話を使わなければなりません",
+            "早く起きなければなりません"
+          ],
+          "answer": 1,
+          "explainVi": "【Bằng chứng trong bài】「今夜、たくさん勉強しなければなりません」— câu dùng mẫu BẮT BUỘC (なければなりません), nói rõ tối nay PHẢI học thật nhiều → đáp án ② đúng.\n【Tại sao các đáp án khác sai】\n① たくさん遊ぶ (chơi nhiều) — bài không nhắc đến chơi; ngược với mục đích ôn thi.\n③ 携帯電話を使う (dùng điện thoại) — bài nói 「使わないでください」= xin ĐỪNG dùng, không phải BẮT BUỘC dùng.\n④ 早く起きる (dậy sớm) — bài không đề cập; đây là thông tin tự thêm vào.",
+          "tip": "Thấy 「〜なければなりません」trong bài → đó là việc BẮT BUỘC phải làm. Tìm đúng động từ đứng trước mẫu này là ra đáp án ngay.",
+          "qt": {
+            "q": "Tối trước ngày thi, bạn phải làm gì?",
+            "o": [
+              "Bạn phải chơi nhiều",
+              "Bạn phải học nhiều",
+              "Bạn phải sử dụng điện thoại di động",
+              "Bạn phải dậy sớm"
+            ]
+          }
+        },
+        {
+          "q": "携帯電話を使ってもいいですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "はい、使ってもいいです",
+            "はい、使わなくてもいいです",
+            "いいえ、使わないでください",
+            "いいえ、使わなければなりません"
+          ],
+          "answer": 2,
+          "explainVi": "【Bằng chứng trong bài】「携帯電話を使わないでください」— mẫu Vないでください = yêu cầu lịch sự ĐỪNG làm, tức là bị CẤM dùng → câu trả lời phải là \"いいえ\" + lặp lại lệnh cấm đó → đáp án ③ đúng.\n【Tại sao các đáp án khác sai】\n① 「使ってもいいです」— nghĩa \"được dùng\" — trái ngược hoàn toàn với bài.\n② 「使わなくてもいいです」— nghĩa \"không cần dùng cũng được\" (KHÔNG BẮT BUỘC) — sắc thái khác: bài CẤM dùng, không phải nói \"không cần thiết\".\n④ 「使わなければなりません」— nghĩa \"phải không dùng\" — cấu trúc sai, bài không dùng mẫu này cho điện thoại.",
+          "tip": "Vないでください = CẤM/XIN ĐỪNG → trả lời bằng \"いいえ + Vないでください\". Đừng nhầm với なくてもいいです (không bắt buộc) — hai mẫu nghe giống nhau nhưng nghĩa hoàn toàn khác.",
+          "qt": {
+            "q": "Bạn có thể sử dụng điện thoại di động không?",
+            "o": [
+              "Vâng, bạn có thể sử dụng",
+              "Vâng, bạn không cần sử dụng",
+              "Không, xin đừng sử dụng",
+              "Không, bạn phải sử dụng"
+            ]
+          }
+        },
+        {
+          "q": "全部のことばを覚えなければなりませんか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "はい、全部覚えなければなりません",
+            "いいえ、全部覚えなくてもいいです",
+            "いいえ、全部覚えないでください",
+            "はい、全部覚えてもいいです"
+          ],
+          "answer": 1,
+          "explainVi": "【Bằng chứng trong bài】「全部覚えなくてもいいです」— mẫu Vなくてもいいです = KHÔNG BẮT BUỘC, không cần làm cũng được → câu trả lời là \"いいえ、全部覚えなくてもいいです\" → đáp án ② đúng.\n【Tại sao các đáp án khác sai】\n① 「全部覚えなければなりません」— nghĩa \"phải nhớ hết\" — ngược lại với 「なくてもいいです」trong bài.\n③ 「全部覚えないでください」— nghĩa \"xin đừng nhớ hết\" (lệnh CẤM) — bài không cấm nhớ, chỉ nói không cần thiết phải nhớ tất cả.\n④ 「覚えてもいいです」— nghĩa \"được phép nhớ\" — bài không dùng mẫu cho phép ở đây, và dùng \"はい\" sẽ mâu thuẫn với nội dung.",
+          "tip": "なくてもいいです = KHÔNG BẮT BUỘC (tự do không làm cũng ổn) ≠ ないでください (bị cấm). Khi câu hỏi hỏi \"phải làm không?\" mà bài dùng なくてもいいです → trả lời \"いいえ、〜なくてもいいです\".",
+          "qt": {
+            "q": "Bạn có phải ghi nhớ tất cả từ ngữ không?",
+            "o": [
+              "Vâng, bạn phải ghi nhớ tất cả",
+              "Không, bạn không cần ghi nhớ tất cả",
+              "Không, xin đừng ghi nhớ tất cả",
+              "Vâng, bạn có thể ghi nhớ tất cả"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "病院で",
+      "titleVi": "Ở bệnh viện",
+      "japanese": "ミラーさんは今日、病院に来ました。おなかが痛いです。\n受付の人がミラーさんに言いました。「ここに名前と住所を書いてください。」\nミラーさんは名前と住所を書きました。それから、待合室で待ちました。\n先生がミラーさんを呼びました。ミラーさんは診察室に入りました。\n「今日は何かを食べましたか。」「いいえ、まだ食べていません。」\n「それはよかったです。検査の前に何も食べないでください。」\n「今日、お酒を飲みましたか。」「少し飲みました。」\n「次の検査の前に、お酒を飲まないでください。」\n「明日の朝、この薬を飲まなければなりません。でも、水で飲んでください。ジュースで飲まないでください。」\n「この薬は夜飲まなくてもいいですか。」「はい、夜は飲まなくてもいいです。朝だけ飲んでください。」\n「来週の月曜日までに、もう一度来てください。」\nミラーさん：「わかりました。ありがとうございます。」",
+      "vietnamese": "Hôm nay anh Miller đến bệnh viện. Bụng anh đau.\nNhân viên tiếp tân nói với anh Miller: \"Xin hãy điền tên và địa chỉ vào đây.\"\nAnh Miller đã điền tên và địa chỉ. Sau đó, anh chờ ở phòng chờ.\nBác sĩ gọi anh Miller. Anh Miller bước vào phòng khám.\n\"Hôm nay anh có ăn gì không?\" \"Không, tôi chưa ăn gì cả.\"\n\"Thế thì tốt rồi. Xin đừng ăn gì trước khi làm xét nghiệm.\"\n\"Hôm nay anh có uống rượu không?\" \"Tôi có uống một chút.\"\n\"Trước kỳ xét nghiệm tiếp theo, xin đừng uống rượu.\"\n\"Sáng mai, anh phải uống thuốc này. Nhưng hãy uống bằng nước nhé. Đừng uống bằng nước trái cây.\"\n\"Tôi không cần uống thuốc này vào buổi tối đúng không?\" \"Đúng vậy, tối không cần uống cũng được. Chỉ uống vào buổi sáng thôi.\"\n\"Xin hãy đến một lần nữa trước thứ Hai tuần tới.\"\nAnh Miller：「Tôi hiểu rồi. Cảm ơn bác sĩ.」",
+      "sentences": [
+        {
+          "jp": "ミラーさんは今日、病院に来ました。おなかが痛いです。",
+          "vi": "Hôm nay anh Miller đến bệnh viện. Bụng anh đau.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "来ました",
+              "read": "きました",
+              "vi": "đã đến"
+            },
+            {
+              "w": "おなか",
+              "read": "おなか",
+              "vi": "bụng"
+            },
+            {
+              "w": "痛い",
+              "read": "いたい",
+              "vi": "đau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（Bài 4）",
+              "vi": "来ました = đã đến. Thể ました diễn tả hành động đã xảy ra."
+            },
+            {
+              "point": "〜が痛いです（Bài 8）",
+              "vi": "おなかが痛い = bụng đau. Chủ ngữ bộ phận cơ thể + が + tính từ い."
+            }
+          ]
+        },
+        {
+          "jp": "受付の人がミラーさんに言いました。「ここに名前と住所を書いてください。」",
+          "vi": "Nhân viên tiếp tân nói với anh Miller: \"Xin hãy điền tên và địa chỉ vào đây.\"",
+          "vocab": [
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy tiếp tân, lễ tân"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "住所",
+              "read": "じゅうしょ",
+              "vi": "địa chỉ"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNを〜（Bài 7）",
+              "vi": "ミラーさんに言いました = nói với anh Miller. に chỉ người nhận hành động."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "書いてください = hãy viết. Yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは名前と住所を書きました。それから、待合室で待ちました。",
+          "vi": "Anh Miller đã điền tên và địa chỉ. Sau đó, anh chờ ở phòng chờ.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "住所",
+              "read": "じゅうしょ",
+              "vi": "địa chỉ"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "待合室",
+              "read": "まちあいしつ",
+              "vi": "phòng chờ"
+            },
+            {
+              "w": "待ちます",
+              "read": "まちます",
+              "vi": "chờ đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（Bài 6）",
+              "vi": "名前と住所を書きました = điền tên và địa chỉ. を chỉ tân ngữ."
+            },
+            {
+              "point": "それから（Bài 4）",
+              "vi": "Nối hai hành động xảy ra lần lượt."
+            },
+            {
+              "point": "NでVます（Bài 3・5）",
+              "vi": "待合室で待ちました = chờ Ở phòng chờ. で chỉ địa điểm diễn ra hành động."
+            }
+          ]
+        },
+        {
+          "jp": "先生がミラーさんを呼びました。ミラーさんは診察室に入りました。",
+          "vi": "Bác sĩ gọi anh Miller. Anh Miller bước vào phòng khám.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "bác sĩ, thầy/cô giáo"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "呼びます",
+              "read": "よびます",
+              "vi": "gọi"
+            },
+            {
+              "w": "診察",
+              "read": "しんさつ",
+              "vi": "sự khám bệnh"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "診察室",
+              "read": "しんさつしつ",
+              "vi": "phòng khám"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（Bài 4）",
+              "vi": "呼びました・入りました = đã gọi, đã vào. Trình tự sự kiện trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "「今日は何かを食べましたか。」「いいえ、まだ食べていません。」",
+          "vi": "\"Hôm nay anh có ăn gì không?\" \"Không, tôi chưa ăn gì cả.\"",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "cái gì đó (Bài 13)"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn chưa (Bài 7)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "何か（Bài 13）",
+              "vi": "何かを食べましたか = có ăn gì không?"
+            },
+            {
+              "point": "まだVていません（Bài 14）",
+              "vi": "まだ食べていません = vẫn chưa ăn. Ôn Bài 14: Vています biểu thị trạng thái."
+            }
+          ]
+        },
+        {
+          "jp": "「それはよかったです。検査の前に何も食べないでください。」",
+          "vi": "\"Thế thì tốt rồi. Xin đừng ăn gì trước khi làm xét nghiệm.\"",
+          "vocab": [
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "xét nghiệm, kiểm tra sức khoẻ"
+            },
+            {
+              "w": "前に",
+              "read": "まえに",
+              "vi": "trước khi"
+            },
+            {
+              "w": "食べない",
+              "read": "たべない",
+              "vi": "không ăn (thể ない)"
+            },
+            {
+              "w": "よかったです",
+              "read": "よかったです",
+              "vi": "thật tốt (quá khứ của いいです, Bài 12)"
+            },
+            {
+              "w": "何も",
+              "read": "なにも",
+              "vi": "không gì cả (với phủ định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ない形",
+              "vi": "食べます（nhóm II）→ 食べない: bỏ ます, thêm ない."
+            },
+            {
+              "point": "Vないでください",
+              "vi": "食べないでください = xin đừng ăn. Đây là mẫu CẤM/XIN ĐỪNG của Bài 17."
+            },
+            {
+              "point": "Nのまえに",
+              "vi": "検査の前に = trước khi xét nghiệm. Nのまえに — chính thức học ở Bài 18, dùng trước cho tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "「今日、お酒を飲みましたか。」「少し飲みました。」",
+          "vi": "\"Hôm nay anh có uống rượu không?\" \"Tôi có uống một chút.\"",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "酒",
+              "read": "さけ",
+              "vi": "rượu"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút, một ít"
+            },
+            {
+              "w": "お酒",
+              "read": "おさけ",
+              "vi": "rượu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVましたか（Bài 4/6）",
+              "vi": "お酒を飲みましたか = có uống rượu không? Câu hỏi quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "「次の検査の前に、お酒を飲まないでください。」",
+          "vi": "\"Trước kỳ xét nghiệm tiếp theo, xin đừng uống rượu.\"",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "検査",
+              "read": "けんさ",
+              "vi": "xét nghiệm, kiểm tra sức khoẻ"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "酒",
+              "read": "さけ",
+              "vi": "rượu"
+            },
+            {
+              "w": "飲まない",
+              "read": "のまない",
+              "vi": "không uống (thể ない)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ない形",
+              "vi": "飲みます（nhóm I）: み→ま（い段→あ段）, thêm ない→飲まない."
+            },
+            {
+              "point": "Vないでください",
+              "vi": "飲まないでください = xin đừng uống."
+            }
+          ]
+        },
+        {
+          "jp": "「明日の朝、この薬を飲まなければなりません。でも、水で飲んでください。ジュースで飲まないでください。」",
+          "vi": "\"Sáng mai, anh phải uống thuốc này. Nhưng hãy uống bằng nước nhé. Đừng uống bằng nước trái cây.\"",
+          "vocab": [
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "薬",
+              "read": "くすり",
+              "vi": "thuốc"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước (lọc)"
+            },
+            {
+              "w": "ジュース",
+              "read": "ジュース",
+              "vi": "nước trái cây, nước ép"
+            },
+            {
+              "w": "明日の朝",
+              "read": "あしたのあさ",
+              "vi": "sáng mai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vなければなりません",
+              "vi": "飲まなければなりません = phải uống. BẮT BUỘC."
+            },
+            {
+              "point": "NでVます（Bài 7）",
+              "vi": "水で飲む = uống BẰNG nước. で chỉ công cụ/phương tiện."
+            },
+            {
+              "point": "Vないでください",
+              "vi": "飲まないでください = đừng uống (bằng nước trái cây)."
+            }
+          ]
+        },
+        {
+          "jp": "「この薬は夜飲まなくてもいいですか。」「はい、夜は飲まなくてもいいです。朝だけ飲んでください。」",
+          "vi": "\"Tôi không cần uống thuốc này vào buổi tối đúng không?\" \"Đúng vậy, tối không cần uống cũng được. Chỉ uống vào buổi sáng thôi.\"",
+          "vocab": [
+            {
+              "w": "薬",
+              "read": "くすり",
+              "vi": "thuốc"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ, mà thôi (Bài 11)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vなくてもいいです",
+              "vi": "飲まなくてもいいです = không uống cũng được. KHÔNG BẮT BUỘC."
+            },
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "朝だけ = chỉ (vào) buổi sáng mà thôi."
+            }
+          ]
+        },
+        {
+          "jp": "「来週の月曜日までに、もう一度来てください。」",
+          "vi": "\"Xin hãy đến một lần nữa trước thứ Hai tuần tới.\"",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "もう一度",
+              "read": "もういちど",
+              "vi": "một lần nữa"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに",
+              "vi": "月曜日までに = trước thứ Hai. Thời hạn phải hoàn thành trước mốc đó."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "来てください = hãy đến. Yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさん：「わかりました。ありがとうございます。」",
+          "vi": "Anh Miller：「Tôi hiểu rồi. Cảm ơn bác sĩ.」",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "わかりました",
+              "read": "わかりました",
+              "vi": "đã hiểu, hiểu rồi"
+            },
+            {
+              "w": "ありがとうございます",
+              "read": "ありがとうございます",
+              "vi": "cảm ơn (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（Bài 4）",
+              "vi": "わかりました = đã hiểu. Lời thoại trực tiếp (nhãn người nói ：「」)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "何も食べないでください",
+          "label": "Vないでください"
+        },
+        {
+          "excerpt": "飲まなければなりません",
+          "label": "Vなければなりません"
+        },
+        {
+          "excerpt": "夜は飲まなくてもいいです",
+          "label": "Vなくてもいいです"
+        },
+        {
+          "excerpt": "来週の月曜日までに",
+          "label": "Nまでに"
+        },
+        {
+          "excerpt": "食べていません",
+          "label": "Vています（Bài 14 ôn lại）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "検査の前に、何をしてはいけませんか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "水を飲みます",
+            "薬を飲みます",
+            "何かを食べます",
+            "病院に来ます"
+          ],
+          "answer": 2,
+          "explainVi": "【Bằng chứng trong bài】「検査の前に何も食べないでください」— mẫu Vないでください = bị CẤM, không được ăn bất cứ thứ gì trước xét nghiệm → đáp án ③ 「何かを食べます」đúng (đây là điều bị cấm).\n【Tại sao các đáp án khác sai】\n① 水を飲む (uống nước) — bài không cấm uống nước; bác sĩ chỉ cấm ăn và cấm uống nước ép.\n② 薬を飲む (uống thuốc) — bài BẮT BUỘC uống thuốc vào sáng mai (飲まなければなりません), không cấm.\n④ 病院に来る (đến bệnh viện) — bác sĩ yêu cầu đến lại (来てください), không cấm đến.",
+          "tip": "Câu hỏi \"してはいけない\" (không được làm) → tìm trong bài động từ đi với 「ないでください」hoặc「てはいけません」. Đó chính là hành động bị cấm.",
+          "qt": {
+            "q": "Trước khi kiểm tra, không được làm gì?",
+            "o": [
+              "Uống nước",
+              "Uống thuốc",
+              "Ăn gì đó",
+              "Đến bệnh viện"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは薬をいつ飲まなければなりませんか。",
+          "evi": [
+            8,
+            9
+          ],
+          "options": [
+            "夜だけ飲まなければなりません",
+            "朝と夜、飲まなければなりません",
+            "明日の朝、飲まなければなりません",
+            "来週の月曜日に飲まなければなりません"
+          ],
+          "answer": 2,
+          "explainVi": "【Bằng chứng trong bài】「明日の朝、この薬を飲まなければなりません」— mẫu BẮT BUỘC, uống thuốc vào sáng mai. Bài cũng nói「夜は飲まなくてもいいです」= tối không cần uống → chỉ buổi sáng → đáp án ③ đúng.\n【Tại sao các đáp án khác sai】\n① 「夜だけ」(chỉ tối) — bài nói tối KHÔNG CẦN uống (なくてもいいです), không phải bắt buộc uống tối.\n② 「朝と夜」(sáng và tối) — bài nói rõ chỉ uống buổi sáng (朝だけ飲んでください), không cần uống tối.\n④ 「来週の月曜日」— đây là hạn chót đến khám lại (までに来てください), không liên quan đến uống thuốc.",
+          "tip": "Khi câu hỏi hỏi thời gian BẮT BUỘC → tìm 「〜なければなりません」gần từ chỉ thời gian. Loại bỏ đáp án nói thứ Hai (だけ và来週) vì đó là hạn trở lại bệnh viện, không phải uống thuốc.",
+          "qt": {
+            "q": "Ông Miller phải uống thuốc khi nào?",
+            "o": [
+              "Chỉ phải uống vào buổi tối",
+              "Phải uống vào buổi sáng và buổi tối",
+              "Phải uống vào sáng ngày mai",
+              "Phải uống vào thứ Hai tuần sau"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはいつまでに病院に来なければなりませんか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "今週の月曜日までに来なければなりません",
+            "明日の朝までに来なければなりません",
+            "来週の月曜日までに来なければなりません",
+            "来週の火曜日までに来なければなりません"
+          ],
+          "answer": 2,
+          "explainVi": "【Bằng chứng trong bài】「来週の月曜日までに、もう一度来てください」— mẫu Nまでに = thời hạn phải hoàn thành trước mốc đó; bác sĩ yêu cầu đến lại TRƯỚC thứ Hai TUẦN SAU → đáp án ③ đúng.\n【Tại sao các đáp án khác sai】\n① 「今週の月曜日」(thứ Hai tuần này) — bài nói 「来週」= tuần sau, không phải tuần này.\n② 「明日の朝」(sáng mai) — đây là thời điểm uống thuốc, không phải hạn khám lại.\n④ 「来週の火曜日」(thứ Ba tuần sau) — bài nói rõ 「月曜日」= thứ Hai, không phải thứ Ba (火曜日).",
+          "tip": "Nまでに = phải xong TRƯỚC mốc thời gian đó. Đọc kỹ từ ngày: 来週 (tuần sau) vs 今週 (tuần này), 月曜日 (thứ Hai) vs 火曜日 (thứ Ba) — sai một chữ là sai đáp án.",
+          "qt": {
+            "q": "Ông Miller phải đến bệnh viện trước khi nào?",
+            "o": [
+              "Phải đến trước thứ Hai tuần này",
+              "Phải đến trước sáng ngày mai",
+              "Phải đến trước thứ Hai tuần sau",
+              "Phải đến trước thứ Ba tuần sau"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "けんこうしんだんのお知らせ",
+      "titleVi": "Thông báo: Khám sức khỏe",
+      "japanese": "けんこうしんだんのお知らせ\n来月の２０日に、さくら日本語学校でけんこうしんだんがあります。学生はみんな来なければなりません。\nけんこうしんだんの前の朝は、何も食べないでください。でも、水は飲んでもいいです。\nすること｜しなくてもいいこと\n名前を書きます｜水を飲みます\n※けんこうしんだんは午前９時までに来なければなりません。\n電話：０３−１２３４−５６７８（月〜金　９時〜１７時）",
+      "vietnamese": "Thông báo: Khám sức khỏe\nNgày 20 tháng sau, sẽ có khám sức khỏe tại trường tiếng Nhật Sakura. Tất cả học viên đều phải đến.\nBuổi sáng trước khi khám sức khỏe, xin đừng ăn gì cả. Nhưng, uống nước thì được.\nViệc phải làm｜Việc không cần làm\nViết tên｜Uống nước\n※Phải đến trước 9 giờ sáng hôm khám sức khỏe.\nĐiện thoại: 03-1234-5678 (Thứ Hai〜Thứ Sáu, 9 giờ〜17 giờ)",
+      "sentences": [
+        {
+          "jp": "けんこうしんだんのお知らせ",
+          "vi": "Thông báo: Khám sức khỏe.",
+          "vocab": [
+            {
+              "w": "けんこう",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "けんこうしんだん",
+              "read": "けんこうしんだん",
+              "vi": "khám sức khỏe (kiểm tra sức khỏe định kỳ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのお知らせ",
+              "vi": "けんこうしんだんのお知らせ = thông báo về (việc) khám sức khỏe. Tiêu đề danh từ đơn giản (Bài 1: NのN)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "けんこうしんだんのお知らせ",
+              "why": "Tiêu đề — xác định toàn bài nói về khám sức khỏe, không phải kỳ thi hay lớp học thường."
+            }
+          ]
+        },
+        {
+          "jp": "来月の２０日に、さくら日本語学校でけんこうしんだんがあります。学生はみんな来なければなりません。",
+          "vi": "Ngày 20 tháng sau, sẽ có khám sức khỏe tại trường tiếng Nhật Sakura. Tất cả học viên đều phải đến.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "けんこう",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học viên, sinh viên"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "２０日",
+              "read": "はつか",
+              "vi": "ngày 20"
+            },
+            {
+              "w": "日本語学校",
+              "read": "にほんごがっこう",
+              "vi": "trường tiếng Nhật"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người, tất cả (Bài 13・14 ôn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでNがあります（Bài 9 ôn）",
+              "vi": "日本語学校でけんこうしんだんがあります = tại trường có (diễn ra) khám sức khỏe."
+            },
+            {
+              "point": "Vなければなりません",
+              "vi": "来なければなりません = phải đến. 来る（bất quy tắc）→来ない→来なければなりません."
+            }
+          ],
+          "keys": [
+            {
+              "w": "来月の２０日",
+              "why": "Ngày diễn ra khám sức khỏe — mốc thời gian chính của thông báo."
+            },
+            {
+              "w": "学生はみんな来なければなりません",
+              "why": "Xác nhận việc BẮT BUỘC: tất cả học viên phải đến — căn cứ cho câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "けんこうしんだんの前の朝は、何も食べないでください。でも、水は飲んでもいいです。",
+          "vi": "Buổi sáng trước khi khám sức khỏe, xin đừng ăn gì cả. Nhưng, uống nước thì được.",
+          "vocab": [
+            {
+              "w": "けんこう",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước (Bài 17 ôn: 検査の前に ở bài dài)"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "食べない",
+              "read": "たべない",
+              "vi": "không ăn (thể ない)"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "何も",
+              "read": "なにも",
+              "vi": "không gì cả (với phủ định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないでください",
+              "vi": "食べないでください = xin đừng ăn. Mẫu CẤM/XIN ĐỪNG của Bài 17."
+            },
+            {
+              "point": "Vてもいいです（Bài 15 ôn）",
+              "vi": "飲んでもいいです = uống cũng được. Mẫu CHO PHÉP đã học ở Bài 15."
+            }
+          ],
+          "keys": [
+            {
+              "w": "何も食べないでください",
+              "why": "Việc bị CẤM buổi sáng trước khám — nhiễu dễ nhầm với \"không cần\" trong bảng."
+            },
+            {
+              "w": "水は飲んでもいいです",
+              "why": "Ngoại lệ: nước ĐƯỢC PHÉP uống — khác với việc ăn bị cấm hoàn toàn."
+            }
+          ]
+        },
+        {
+          "jp": "すること｜しなくてもいいこと",
+          "vi": "Việc phải làm｜Việc không cần làm.",
+          "vocab": [
+            {
+              "w": "すること",
+              "read": "すること",
+              "vi": "việc phải làm (します + こと)"
+            },
+            {
+              "w": "しなくてもいいこと",
+              "read": "しなくてもいいこと",
+              "vi": "việc không cần làm cũng được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vなくてもいいです（tên cột bảng）",
+              "vi": "しなくてもいいこと = việc không bắt buộc phải làm. Header bảng đối lập 2 cột."
+            }
+          ],
+          "keys": [
+            {
+              "w": "すること",
+              "why": "Tên cột 1 — cột liệt kê việc BẮT BUỘC phải làm."
+            },
+            {
+              "w": "しなくてもいいこと",
+              "why": "Tên cột 2 — cột liệt kê việc KHÔNG CẦN làm, dễ nhầm với cột 1."
+            }
+          ]
+        },
+        {
+          "jp": "名前を書きます｜水を飲みます",
+          "vi": "Viết tên｜Uống nước.",
+          "vocab": [
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết (Bài 6・7 ôn)"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước (lọc)"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（Bài 6 ôn）",
+              "vi": "名前を書きます／水を飲みます = viết tên / uống nước. を chỉ tân ngữ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "名前を書きます",
+              "why": "Ô cột \"すること\" — việc BẮT BUỘC phải làm khi đến khám; đây là căn cứ chính của câu hỏi."
+            },
+            {
+              "w": "水を飲みます",
+              "why": "Ô cột \"しなくてもいいこと\" — khớp với câu 「水は飲んでもいいです」ở trên: chỉ ĐƯỢC PHÉP chứ không BẮT BUỘC uống nước; nhiễu dễ nhầm với cột 1."
+            }
+          ]
+        },
+        {
+          "jp": "※けんこうしんだんは午前９時までに来なければなりません。",
+          "vi": "※Phải đến trước 9 giờ sáng hôm khám sức khỏe.",
+          "vocab": [
+            {
+              "w": "けんこう",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng (trước trưa)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "９時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに",
+              "vi": "午前９時までに = trước 9 giờ sáng. Thời hạn phải hoàn thành trước mốc đó."
+            },
+            {
+              "point": "Vなければなりません",
+              "vi": "来なければなりません = phải đến. Nhắc lại mẫu BẮT BUỘC."
+            }
+          ],
+          "keys": [
+            {
+              "w": "午前９時までに来なければなりません",
+              "why": "Mốc giờ BẮT BUỘC phải đến — dòng ※ chú ý quan trọng nhất của thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "電話：０３−１２３４−５６７８（月〜金　９時〜１７時）",
+          "vi": "Điện thoại: 03-1234-5678 (Thứ Hai〜Thứ Sáu, 9 giờ〜17 giờ).",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "０３−１２３４−５６７８",
+              "read": "ぜろさんはいふんいちにさんよんはいふんごろくななはち",
+              "vi": "số điện thoại"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつようびからきんようび",
+              "vi": "thứ Hai đến thứ Sáu"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "９時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "１７時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "月〜金、９時〜１７時 = biểu đạt khoảng thời gian giống NからNまで đã học ở Bài 4."
+            }
+          ],
+          "keys": [
+            {
+              "w": "電話：０３−１２３４−５６７８",
+              "why": "Thông tin liên hệ — chi tiết \"chất đề thi thật\", không phải căn cứ câu hỏi."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "学生はみんな来なければなりません",
+          "label": "Vなければなりません"
+        },
+        {
+          "excerpt": "何も食べないでください",
+          "label": "Vないでください"
+        },
+        {
+          "excerpt": "水は飲んでもいいです",
+          "label": "Vてもいいです（Bài 15 ôn）"
+        },
+        {
+          "excerpt": "けんこうしんだんは午前９時までに来なければなりません",
+          "label": "Nまでに"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 0,
+          "kind": "intro",
+          "label": "Tiêu đề",
+          "topic": 0,
+          "note": "Xác định chủ đề: thông báo khám sức khỏe.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "kind": "body",
+          "label": "Ngày giờ & việc cấm",
+          "topic": 1,
+          "note": "Ngày khám (bắt buộc đến) và việc bị cấm buổi sáng (không ăn, được uống nước).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "kind": "point",
+          "label": "Bảng việc phải/không cần làm",
+          "topic": 3,
+          "note": "Bảng 2 cột đối lập — cột 1 bắt buộc (viết tên), cột 2 không cần (uống nước chỉ được phép); chứa ô đáp án chính.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "kind": "turn",
+          "label": "Chú ý ※ & liên hệ",
+          "topic": 5,
+          "note": "Dòng ※ nhắc lại mốc giờ bắt buộc — dễ bị bỏ sót nếu chỉ đọc bảng.",
+          "qs": [
+            1
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "けんこうしんだんの日、何をしなければなりませんか。",
+          "options": [
+            "朝ごはんを食べなければなりません",
+            "名前を書かなければなりません",
+            "水を飲まなければなりません",
+            "午後９時までに来なければなりません"
+          ],
+          "answer": 1,
+          "explainVi": "【Bằng chứng trong bài】Bảng ghi cột「すること」có「名前を書きます」= việc BẮT BUỘC phải làm. Đồng thời câu 2 xác nhận「学生はみんな来なければなりません」và dòng ※ xác nhận phải đến trước 9 giờ SÁNG (午前) → ghép lại, việc phải làm khi đến là VIẾT TÊN → đáp án ② đúng.\n【Tại sao các đáp án khác sai】\n① 朝ごはんを食べる (ăn sáng) — bài nói rõ「何も食べないでください」= CẤM ăn sáng, ngược hoàn toàn với \"phải làm\".\n③ 水を飲む (uống nước) — bài chỉ nói「水は飲んでもいいです」= ĐƯỢC PHÉP uống nước, và bảng xếp vào cột「しなくてもいいこと」= không bắt buộc, không phải \"phải uống\".\n④ 午後９時までに来る (đến trước 9 giờ TỐI) — bài ghi 午前９時 (9 giờ SÁNG), không phải 午後 (buổi tối); sai giờ trong ngày.",
+          "tip": "Câu hỏi hỏi \"phải làm gì\" → tìm cột「すること」trong bảng VÀ đối chiếu với câu văn xác nhận (なければなりません／ないでください) để loại nhiễu đổi cột hoặc đổi giờ (午前⇄午後).",
+          "evi": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Ngày khám sức khỏe, bạn phải làm gì?",
+            "o": [
+              "Bạn phải ăn sáng",
+              "Bạn phải viết tên",
+              "Bạn phải uống nước",
+              "Bạn phải đến trước 9 giờ tối"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

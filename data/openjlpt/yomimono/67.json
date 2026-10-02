@@ -1,0 +1,3794 @@
+{
+  "bai": 67,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 67 luyện hai cách diễn đạt \"về (chủ đề)\": について (đã học Bài 21 — ôn lại) và に関して／に関する (MỚI — trang trọng hơn, dùng trong văn viết học thuật, báo cáo, quy định). Sắc thái cốt lõi: について = \"về (chủ đề)\" — thông dụng, dùng cả văn nói lẫn văn viết. に関して = \"về/liên quan đến\" — TRANG TRỌNG, phạm vi rộng/chính thức hơn (nghiên cứu, quy định, vấn đề xã hội). に関する + N = dùng bổ nghĩa danh từ (環境に関する記事 = bài báo về môi trường). Đọc hiểu: chú ý TẠI SAO tác giả chọn に関して chứ không dùng について — thường do văn phong học thuật hoặc phạm vi chủ đề rộng hơn.",
+    "steps": [
+      "接続 nhận diện: N + について / N + に関して / に関する + N. Cả hai đều nối với danh từ; に関する (thể連体) bổ nghĩa danh từ tiếp theo, còn について và に関して đứng trong vị ngữ/trạng ngữ.",
+      "Nhận diện 文体 (văn phong): đoạn văn học thuật, báo cáo, nghị luận → ưu tiên に関して/に関する. Đoạn nói chuyện thường ngày, hỏi thăm ý kiến → về thường dùng について.",
+      "Phân biệt に関する + N: \"環境に関する問題\" (vấn đề liên quan đến môi trường) — に関する bổ nghĩa danh từ đứng sau. Đừng nhầm thành に関して + N (sai).",
+      "Câu hỏi suy luận: \"Vì sao tác giả dùng に関して chứ không dùng について?\" → trả lời bằng cứ liệu văn phong trong bài (học thuật, trang trọng, phạm vi rộng).",
+      "接続詞 trong bài dài (しかし・また・そのため・一方・つまり) giúp theo dõi luận điểm — đọc các từ nối trước để nắm cấu trúc bài.",
+      "Ôn lại と思う (Bài 21) khi thấy と思われる / と思う — tác giả bày tỏ nhận định sau khi nêu dữ liệu."
+    ],
+    "tips": [
+      "使い分け 1 — について vs に関して: \"映画について話しましょう\" (trò chuyện thường) ↔ \"環境問題に関して報告書を作成した\" (văn báo cáo). Trong câu hỏi thi N3, chọn に関して khi ngữ cảnh là văn viết chính thức, nghiên cứu, quy định.",
+      "使い分け 2 — に関して vs に関する: に関して + vị ngữ (\"環境に関して考える\"); に関する + danh từ (\"環境に関する研究\"). Nếu sau chỗ trống là danh từ → chọn に関する.",
+      "について là mẫu Bài 21 (N5/N4 đã học) — đọc bài này để THẤY sự nâng cấp: cùng nghĩa \"về\" nhưng に関して trang trọng hơn và thường đi với chủ đề rộng hơn (社会問題, 制度, 研究).",
+      "注意: に関して không thể bổ nghĩa danh từ trực tiếp. Phải đổi thành に関する + N. (誤) \"環境に関して記事\" → (正) \"環境に関する記事\".",
+      "Nhận dạng trong bài đọc: mỗi khi thấy N + に関して/に関する, hỏi \"chủ đề là gì?\" → đó là trọng tâm luận điểm của đoạn văn đó."
+    ],
+    "grammarFocus": [
+      "〜について（N＋について）— ôn Bài 21: \"về (chủ đề)\", dùng rộng rãi",
+      "〜に関して（N＋に関して）— MỚI: \"về/liên quan đến\", trang trọng hơn について, văn viết học thuật",
+      "〜に関する＋N — MỚI: に関する bổ nghĩa danh từ tiếp theo (= \"… liên quan đến N\")"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 21,
+        "items": [
+          "〜について（về chủ đề）",
+          "〜と思います（ý kiến/nhận định）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）"
+        ]
+      },
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ（bổn phận/lẽ phải nên）"
+        ]
+      },
+      {
+        "bai": 60,
+        "items": [
+          "〜ように（mục đích không chủ ý）"
+        ]
+      },
+      {
+        "bai": 66,
+        "items": [
+          "〜ほど（mức độ \"đến mức\"）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "環境問題についてのメモ",
+      "titleVi": "Ghi chú về vấn đề môi trường",
+      "japanese": "今日、授業で環境問題について発表することになった。発表の準備のために、環境に関するニュースや資料をいくつか集めた。気候変動に関して、多くの専門家が深刻な問題だと指摘している。特に、プラスチックごみに関しては、海洋汚染がひどいため、早急に対策を取るべきだという意見が多い。一方、再生可能エネルギーについては、近年急速に技術が進んでいることが分かった。今回の発表を通じて、環境問題に関する自分の考えをきちんと伝えられるようにしたい。この問題は、私たち全員に関係することだと思う。だから、一人ひとりが環境について真剣に考えるべきだと思う。",
+      "vietnamese": "Hôm nay tôi được phân công thuyết trình về vấn đề môi trường trong giờ học. Để chuẩn bị cho phần thuyết trình, tôi đã thu thập một số tin tức và tài liệu liên quan đến môi trường. Về vấn đề biến đổi khí hậu, nhiều chuyên gia chỉ ra rằng đây là vấn đề nghiêm trọng. Đặc biệt, liên quan đến rác thải nhựa, có nhiều ý kiến cho rằng vì ô nhiễm đại dương đã đến mức nghiêm trọng, cần phải nhanh chóng có biện pháp đối phó. Mặt khác, về năng lượng tái tạo, tôi nhận ra rằng trong những năm gần đây công nghệ đang tiến bộ nhanh chóng. Thông qua bài thuyết trình lần này, tôi muốn truyền đạt rõ ràng suy nghĩ của bản thân về vấn đề môi trường. Tôi nghĩ đây là vấn đề liên quan đến tất cả chúng ta. Vì vậy, tôi nghĩ mỗi người đều nên suy nghĩ nghiêm túc về môi trường.",
+      "sentences": [
+        {
+          "jp": "今日、授業で環境問題について発表することになった。",
+          "vi": "Hôm nay tôi được phân công thuyết trình về vấn đề môi trường trong giờ học.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "buổi học, giờ học"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "発表します",
+              "read": "はっぴょうします",
+              "vi": "thuyết trình, công bố"
+            },
+            {
+              "w": "環境問題",
+              "read": "かんきょうもんだい",
+              "vi": "vấn đề môi trường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "接続: N + について。 環境問題について = \"về vấn đề môi trường\". について là mẫu Bài 21 (ôn lại): dùng thông dụng cả văn nói lẫn văn viết để chỉ chủ đề đang bàn tới. Tại đây (văn cảnh học sinh chuẩn bị bài — hơi thân mật) → について phù hợp hơn に関して."
+            },
+            {
+              "point": "Vることになった（Bài 36）",
+              "vi": "発表することになった = đã được phân công/trở thành sẽ thuyết trình. ことになる = quyết định từ bên ngoài."
+            }
+          ]
+        },
+        {
+          "jp": "発表の準備のために、環境に関するニュースや資料をいくつか集めた。",
+          "vi": "Để chuẩn bị cho phần thuyết trình, tôi đã thu thập một số tin tức và tài liệu liên quan đến môi trường.",
+          "vocab": [
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "sự công bố, phát biểu"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "集めます",
+              "read": "あつめます",
+              "vi": "thu thập, tập hợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "接続: N + に関する + N。 環境に関するニュースや資料 = \"tin tức và tài liệu liên quan đến môi trường\". に関する là dạng連体 (bổ nghĩa danh từ) của に関して. Sắc thái: trang trọng hơn についての (cũng là bổ nghĩa), phù hợp văn học thuật/báo cáo. 注意: に関する + N ≠ に関して + N — về形式 (に関して không thể bổ nghĩa danh từ trực tiếp)."
+            }
+          ]
+        },
+        {
+          "jp": "気候変動に関して、多くの専門家が深刻な問題だと指摘している。",
+          "vi": "Về vấn đề biến đổi khí hậu, nhiều chuyên gia chỉ ra rằng đây là vấn đề nghiêm trọng.",
+          "vocab": [
+            {
+              "w": "気候",
+              "read": "きこう",
+              "vi": "khí hậu, thời tiết"
+            },
+            {
+              "w": "変動",
+              "read": "へんどう",
+              "vi": "biến động"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "深刻",
+              "read": "しんこく",
+              "vi": "nghiêm trọng"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "指摘します",
+              "read": "してきします",
+              "vi": "chỉ ra, chỉ điểm"
+            },
+            {
+              "w": "気候変動",
+              "read": "きこうへんどう",
+              "vi": "biến đổi khí hậu"
+            },
+            {
+              "w": "専門家",
+              "read": "せんもんか",
+              "vi": "chuyên gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（MỚI）",
+              "vi": "接続: N + に関して。 気候変動に関して = \"về biến đổi khí hậu / liên quan đến biến đổi khí hậu\". に関して TRANG TRỌNG hơn について: dùng khi chủ đề mang tính học thuật/chính thức (biến đổi khí hậu = chủ đề rộng, nghiên cứu). Đối chiếu: nếu nói thân mật (\"biến đổi khí hậu thì sao nhỉ?\") → dùng について. Trong văn báo cáo/bài luận → ưu tiên に関して."
+            }
+          ]
+        },
+        {
+          "jp": "特に、プラスチックごみに関しては、海洋汚染がひどいため、早急に対策を取るべきだという意見が多い。",
+          "vi": "Đặc biệt, liên quan đến rác thải nhựa, có nhiều ý kiến cho rằng vì ô nhiễm đại dương đã đến mức nghiêm trọng, cần phải nhanh chóng có biện pháp đối phó.",
+          "vocab": [
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt, nhất là"
+            },
+            {
+              "w": "プラスチック",
+              "read": "プラスチック",
+              "vi": "nhựa, chất dẻo"
+            },
+            {
+              "w": "海洋",
+              "read": "かいよう",
+              "vi": "đại dương, biển cả"
+            },
+            {
+              "w": "汚染",
+              "read": "おせん",
+              "vi": "sự ô nhiễm"
+            },
+            {
+              "w": "ひどい",
+              "read": "ひどい",
+              "vi": "nghiêm trọng, tệ, nặng"
+            },
+            {
+              "w": "早急に",
+              "read": "そうきゅうに",
+              "vi": "nhanh chóng, khẩn cấp"
+            },
+            {
+              "w": "対策",
+              "read": "たいさく",
+              "vi": "biện pháp đối phó"
+            },
+            {
+              "w": "取ります",
+              "read": "とります",
+              "vi": "thực hiện, tiến hành"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "プラスチックごみ",
+              "read": "プラスチックごみ",
+              "vi": "rác thải nhựa"
+            },
+            {
+              "w": "海洋汚染",
+              "read": "かいようおせん",
+              "vi": "ô nhiễm đại dương"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関しては（に関して + は 強調）",
+              "vi": "プラスチックごみに関しては = \"còn về rác thải nhựa thì\" — は thêm vào để nhấn mạnh/tương phản với chủ đề trước. 接続: N + に関しては."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "対策を取るべきだ = \"nên/phải thực hiện biện pháp đối phó\". べきだ = bổn phận/lẽ phải, lời khuyên mạnh (Bài 53)."
+            }
+          ]
+        },
+        {
+          "jp": "一方、再生可能エネルギーについては、近年急速に技術が進んでいることが分かった。",
+          "vi": "Mặt khác, về năng lượng tái tạo, tôi nhận ra rằng trong những năm gần đây công nghệ đang tiến bộ nhanh chóng.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, ngược lại"
+            },
+            {
+              "w": "再生",
+              "read": "さいせい",
+              "vi": "phục hưng, tái sinh"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "エネルギー",
+              "read": "エネルギー",
+              "vi": "năng lượng"
+            },
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "急速に",
+              "read": "きゅうそくに",
+              "vi": "nhanh chóng, tốc độ cao"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "công nghệ, kỹ thuật"
+            },
+            {
+              "w": "進みます",
+              "read": "すすみます",
+              "vi": "tiến bộ, phát triển"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "再生可能エネルギー",
+              "read": "さいせいかのうエネルギー",
+              "vi": "năng lượng tái tạo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜については（について + は 強調）",
+              "vi": "再生可能エネルギーについては = \"về năng lượng tái tạo thì\". については so sánh với に関しては: về độ trang trọng, については vẫn thông dụng hơn, có thể dùng kể cả trong bài viết thông thường. Bài này dùng cả について và に関して để học viên thấy rõ sự khác biệt văn phong."
+            },
+            {
+              "point": "Vていること（Bài 22 mệnh đề bổ nghĩa danh từ）",
+              "vi": "技術が進んでいることが分かった = nhận ra rằng công nghệ đang tiến bộ. Vていること = sự việc đang diễn ra (mệnh đề bổ nghĩa danh từ, Bài 22)."
+            }
+          ]
+        },
+        {
+          "jp": "今回の発表を通じて、環境問題に関する自分の考えをきちんと伝えられるようにしたい。",
+          "vi": "Thông qua bài thuyết trình lần này, tôi muốn truyền đạt rõ ràng suy nghĩ của bản thân về vấn đề môi trường.",
+          "vocab": [
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này"
+            },
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "sự công bố, phát biểu"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, ý kiến"
+            },
+            {
+              "w": "きちんと",
+              "read": "きちんと",
+              "vi": "rõ ràng, đàng hoàng"
+            },
+            {
+              "w": "伝えます",
+              "read": "つたえます",
+              "vi": "truyền đạt, thông báo"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "環境問題に関する自分の考え = \"suy nghĩ của bản thân về vấn đề môi trường\". に関する bổ nghĩa danh từ 考え — so sánh: についての考え cũng được nhưng に関する trang trọng hơn trong văn học thuật."
+            },
+            {
+              "point": "〜ようにします（Bài 60 〜ようにしたい）",
+              "vi": "伝えられるようにしたい = muốn làm sao để có thể truyền đạt được. ように + したい = mong muốn đạt đến khả năng/trạng thái đó (Bài 60)."
+            }
+          ]
+        },
+        {
+          "jp": "この問題は、私たち全員に関係することだと思う。",
+          "vi": "Tôi nghĩ đây là vấn đề liên quan đến tất cả chúng ta.",
+          "vocab": [
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "tất cả mọi người"
+            },
+            {
+              "w": "関係します",
+              "read": "かんけいします",
+              "vi": "liên quan, có quan hệ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi, chúng ta"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "だと思う = tôi nghĩ là (ý kiến chủ quan). と思う ôn Bài 21 — khác với に関して (nối chủ đề) là に思う không tồn tại; と思う bày tỏ nhận định cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "だから、一人ひとりが環境について真剣に考えるべきだと思う。",
+          "vi": "Vì vậy, tôi nghĩ mỗi người đều nên suy nghĩ nghiêm túc về môi trường.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "一人ひとり",
+              "read": "ひとりひとり",
+              "vi": "mỗi người, từng người một"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "真剣に",
+              "read": "しんけんに",
+              "vi": "nghiêm túc, thành tâm"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "環境について = \"về môi trường\". Câu kết này dùng について (không dùng に関して) vì là lời nhắn gửi mang tính cá nhân/thân thiết hơn — minh họa sự khác biệt văn phong so với các câu trước."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "考えるべきだ = nên suy nghĩ (lẽ phải). べきだ nhấn mạnh bổn phận/trách nhiệm. Ôn Bài 53."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "環境に関するニュースや資料",
+          "label": "〜に関する＋N（bổ nghĩa danh từ — trang trọng）"
+        },
+        {
+          "excerpt": "気候変動に関して",
+          "label": "〜に関して（trang trọng, văn học thuật）"
+        },
+        {
+          "excerpt": "環境問題について発表する",
+          "label": "〜について（thông dụng, ôn Bài 21）"
+        },
+        {
+          "excerpt": "プラスチックごみに関しては",
+          "label": "Sắc thái: に関しては（nhấn mạnh chủ đề trang trọng）"
+        },
+        {
+          "excerpt": "環境問題に関する自分の考え",
+          "label": "〜に関する＋N（học thuật）"
+        },
+        {
+          "excerpt": "環境について真剣に考えるべきだ",
+          "label": "〜について（cá nhân/thân mật hơn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この文章で「気候変動に関して」と書いてあります。ここで「について」ではなく「に関して」を使っている理由として、最も適切なものはどれですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "「に関して」のほうが短くて書きやすいから",
+            "「について」は環境問題には使えないから",
+            "発表の準備という学術的・正式な場面で、より改まった表現を使っているから",
+            "「に関して」と「について」は全く同じ意味で、どちらでも変わらないから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C: \"発表の準備という学術的・正式な場面で、より改まった表現を使っているから\". Bài văn là ghi chú chuẩn bị thuyết trình học thuật về \"気候変動\" (biến đổi khí hậu) — chủ đề khoa học, trang trọng. Câu gốc viết \"気候変動に関して、多くの専門家が深刻な問題だと指摘している\" — tác giả trích dẫn quan điểm chuyên gia theo kiểu văn báo cáo, nên に関して (trang trọng hơn) phù hợp hơn について. Đáp án A sai vì độ ngắn không quyết định lựa chọn; Đáp án B sai vì について hoàn toàn có thể dùng cho 環境問題; Đáp án D sai vì hai mẫu CÓ khác nhau về sắc thái văn phong (について = thông dụng, に関して = trang trọng/học thuật).",
+          "tip": "Thấy văn báo cáo, bài luận, trích dẫn chuyên gia → chọn に関して. Thấy văn nói thường ngày, nhật ký cá nhân → chọn について.",
+          "qt": {
+            "q": "Trong bài viết này có ghi 「気候変動に関して」(liên quan đến biến đổi khí hậu). Lý do phù hợp nhất cho việc dùng 「に関して」 thay vì 「について」 ở đây là gì?",
+            "o": [
+              "Vì 「に関して」 ngắn hơn và dễ viết hơn",
+              "Vì không thể dùng 「について」 với các vấn đề môi trường",
+              "Vì trong bối cảnh mang tính học thuật và trang trọng như việc chuẩn bị thuyết trình, người viết dùng cách diễn đạt trang trọng hơn",
+              "Vì 「に関して」 và 「について」 có nghĩa hoàn toàn giống nhau, dùng cách nào cũng không khác gì"
+            ]
+          }
+        },
+        {
+          "q": "「環境に関するニュースや資料」の「に関する」を「について」に置き換えると、どのようになりますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "環境にについてニュースや資料",
+            "環境についてのニュースや資料",
+            "環境についてニュースや資料",
+            "環境に関してのニュースや資料"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là B: \"環境についてのニュースや資料\". Câu gốc dùng \"環境に関するニュース\" — に関する là dạng 連体 (bổ nghĩa danh từ) của に関して. Khi thay bằng について mà vẫn muốn bổ nghĩa danh từ tiếp theo, bắt buộc phải thêm の: \"についての + N\". Đáp án A (\"環境にについて\") sai hoàn toàn về ngữ pháp (thừa に, sai kết nối); Đáp án C (\"環境についてニュース\") thiếu の nên không thể bổ nghĩa danh từ trực tiếp; Đáp án D (\"環境に関してのニュース\") là lỗi thường gặp — に関して không bổ nghĩa danh từ trực tiếp, dù thêm の cũng không chuẩn (phải dùng に関する).",
+          "tip": "Sau chỗ trống là danh từ → chọn に関する (不要 の) hoặc についての (cần の). Nhớ: に関して + danh từ trực tiếp = SAI.",
+          "qt": {
+            "q": "Nếu thay 「に関する」 trong cụm 「環境に関するニュースや資料」(tin tức và tài liệu liên quan đến môi trường) bằng 「について」, cụm từ sẽ thành thế nào?",
+            "o": [
+              "Tin tức và tài liệu về môi trườngについて",
+              "Tin tức và tài liệu về môi trường",
+              "Tin tức và tài liệu về môi trườngについて",
+              "Tin tức và tài liệu về môi trườngに関しての"
+            ]
+          }
+        },
+        {
+          "q": "文章の最後で、「環境について真剣に考えるべきだ」と書いてあります。なぜここでは「に関して」ではなく「について」を使っていると考えられますか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "ここは個人的な意見・呼びかけで、やや親しみのある表現が自然だから",
+            "「真剣に」という副詞は「に関して」と一緒に使えないから",
+            "ここでは環境問題が話題ではないから",
+            "文章が終わりに近いので、簡単な表現にしたほうがいいから"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là A: \"ここは個人的な意見・呼びかけで、やや親しみのある表現が自然だから\". Câu cuối bài là \"だから、一人ひとりが環境について真剣に考えるべきだと思う\" — đây là lời nhắn gửi cá nhân của tác giả đến mọi người (\"từng người một hãy suy nghĩ\"), tông văn thân thiết hơn. について (thông dụng, dùng cả văn nói lẫn văn viết) tự nhiên hơn に関して (trang trọng, học thuật) trong bối cảnh này. Đáp án B sai vì \"真剣に\" hoàn toàn có thể đi với に関して; Đáp án C sai vì câu này vẫn nói về môi trường; Đáp án D không phải lý do ngữ pháp — độ dài câu không quyết định chọn mẫu nào.",
+          "tip": "Câu kêu gọi cá nhân, lời nhắn gửi cảm xúc → về で chọn について. Câu báo cáo, luận điểm xã hội rộng → に関して.",
+          "qt": {
+            "q": "Ở cuối bài viết có ghi 「環境について真剣に考えるべきだ」(nên nghiêm túc suy nghĩ về môi trường). Vì sao ở đây có thể cho rằng người viết dùng 「について」 thay vì 「に関して」?",
+            "o": [
+              "Ở đây là ý kiến cá nhân và lời kêu gọi, nên cách diễn đạt hơi gần gũi sẽ tự nhiên hơn",
+              "Phó từ 「真剣に」 không thể dùng cùng với 「に関して」",
+              "Ở đây vấn đề môi trường không phải là chủ đề đang được nói đến",
+              "Vì bài viết sắp kết thúc nên dùng cách diễn đạt đơn giản sẽ tốt hơn"
+            ]
+          }
+        },
+        {
+          "q": "この文章の内容として正しいものはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "筆者は環境問題について、すでに発表を終えた",
+            "筆者はプラスチックごみ問題には興味がないと述べている",
+            "筆者は再生可能エネルギーの技術が最近進んでいることを知った",
+            "筆者は環境問題は自分とは関係ないと思っている"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C: \"筆者は再生可能エネルギーの技術が最近進んでいることを知った\". Bằng chứng trực tiếp trong bài: \"再生可能エネルギーについては、近年急速に技術が進んでいることが分かった\" — tác giả nhận ra (分かった) rằng công nghệ đang tiến bộ nhanh. Đáp án A sai vì \"発表することになった\" (câu đầu) cho thấy đây là trước khi thuyết trình; Đáp án B sai vì bài có viết \"プラスチックごみに関しては、早急に対策を取るべきだ\" — tác giả có đề cập và quan tâm; Đáp án D sai vì bài viết \"この問題は、私たち全員に関係することだと思う\" — tác giả cho rằng vấn đề này liên quan đến tất cả mọi người, kể cả bản thân.",
+          "tip": "Câu hỏi nội dung đúng/sai → đối chiếu trực tiếp từng lựa chọn với bằng chứng ngôn từ trong bài, ưu tiên động từ chắc chắn (分かった, 思う) làm neo.",
+          "qt": {
+            "q": "Nội dung nào sau đây đúng với bài viết này?",
+            "o": [
+              "Người viết đã thuyết trình về các vấn đề môi trường",
+              "Người viết nói rằng mình không quan tâm đến vấn đề rác thải nhựa",
+              "Người viết biết được rằng công nghệ năng lượng tái tạo gần đây đang phát triển",
+              "Người viết nghĩ rằng các vấn đề môi trường không liên quan đến bản thân mình"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "読書の習慣と記憶に関する効果",
+      "titleVi": "Thói quen đọc sách và hiệu quả liên quan đến trí nhớ",
+      "japanese": "近年、スマートフォンが普及したため、電子書籍で本を読む人が増えている。これに関して、紙の本と電子書籍のどちらが学習に適しているかという議論がよく行われている。\nある大学の研究チームが、読書の方法に関する調査を行った。その調査の結果について見てみると、物語の内容を深く理解することに関しては、紙の本のほうが効果的であることが分かった。紙のページを手でめくる動作が、脳に記憶の場所を整理させるからだという。一方、短いニュースなどの情報を素早く集めることについては、電子書籍のほうが便利だと評価されている。\nつまり、本を読む道具に優劣があるわけではなく、目的に合わせた使い分けが重要だということだ。読書に関する正しい知識を持ち、それぞれの特徴を理解して上手に活用することが大切だろう。",
+      "vietnamese": "Những năm gần đây, do điện thoại thông minh trở nên phổ biến, số người đọc sách bằng sách điện tử đang ngày càng tăng lên. Liên quan đến điều này, người ta thường thảo luận về việc giữa sách giấy và sách điện tử thì loại nào phù hợp cho việc học tập hơn.\nNhóm nghiên cứu của một trường đại học đã tiến hành một cuộc khảo sát liên quan đến phương pháp đọc sách. Khi nhìn vào kết quả của cuộc khảo sát đó, liên quan đến việc hiểu sâu nội dung câu chuyện, người ta thấy rằng sách giấy mang lại hiệu quả hơn. Người ta nói rằng đó là vì động tác lật từng trang giấy bằng tay giúp não bộ sắp xếp vị trí ghi nhớ. Mặt khác, về việc thu thập nhanh các thông tin như tin tức ngắn, sách điện tử lại được đánh giá là tiện lợi hơn.\nNói cách khác, không phải là có sự hơn kém giữa các công cụ đọc sách, mà điều quan trọng là việc lựa chọn sử dụng linh hoạt phù hợp với mục đích. Việc trang bị kiến thức đúng đắn liên quan đến việc đọc sách, thấu hiểu đặc điểm của từng loại và vận dụng khéo léo chắc hẳn sẽ rất quan trọng.",
+      "sentences": [
+        {
+          "jp": "近年、スマートフォンが普及したため、電子書籍で本を読む人が増えている。",
+          "vi": "Những năm gần đây, do điện thoại thông minh trở nên phổ biến, số người đọc sách bằng sách điện tử đang ngày càng tăng lên.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "普及します",
+              "read": "ふきゅうします",
+              "vi": "phổ biến, lan rộng"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ため（Bài 39）",
+              "vi": "接続: V普通形/Nの + ため。Chỉ nguyên nhân, lý do khách quan trong văn viết trang trọng: \"do smartphone trở nên phổ biến nên...\"."
+            },
+            {
+              "point": "Vています（Bài 28 / N4）",
+              "vi": "増えている = đang tăng lên (biểu thị xu hướng biến đổi đang tiếp diễn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "電子書籍で本を読む人が増えている",
+              "why": "Hiện tượng nền tảng mở đầu bài viết, là nội dung được chỉ thị từ 「これ」 ở câu sau trỏ tới (căn cứ Q1)."
+            }
+          ]
+        },
+        {
+          "jp": "これに関して、紙の本と電子書籍のどちらが学習に適しているかという議論がよく行われている。",
+          "vi": "Liên quan đến điều này, người ta thường thảo luận về việc giữa sách giấy và sách điện tử thì loại nào phù hợp cho việc học tập hơn.",
+          "vocab": [
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "適します",
+              "read": "てきします",
+              "vi": "thích hợp, phù hợp"
+            },
+            {
+              "w": "議論",
+              "read": "ぎろん",
+              "vi": "thảo luận, tranh luận"
+            },
+            {
+              "w": "行われます",
+              "read": "おこなわれます",
+              "vi": "được tiến hành, diễn ra"
+            },
+            {
+              "w": "紙の本",
+              "read": "かみのほん",
+              "vi": "sách giấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（MỚI）",
+              "vi": "接続: N + に関して。 これに関して = \"liên quan đến điều này / về vấn đề này\". Mẫu trọng tâm Bài 67: mang tính trang trọng hơn について, dùng để dẫn nhập chủ đề tranh luận xã hội hoặc nghiên cứu khoa học."
+            },
+            {
+              "point": "〜か（Bài 40）",
+              "vi": "接続: 普通形 + か。Lồng câu hỏi vào trong câu chính: どちらが学習に適しているか = \"liệu cái nào phù hợp cho việc học tập hơn\"."
+            },
+            {
+              "point": "受身形（Bài 37）",
+              "vi": "行われている = đang được tiến hành/tổ chức (thể bị động biểu thị hiện tượng khách quan trong xã hội)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "これに関して",
+              "why": "Chỉ thị từ nối kết trực tiếp với hiện tượng ở câu trước và mở ra vấn đề thảo luận cốt lõi (căn cứ Q1)."
+            }
+          ]
+        },
+        {
+          "jp": "ある大学の研究チームが、読書の方法に関する調査を行った。",
+          "vi": "Nhóm nghiên cứu của một trường đại học đã tiến hành một cuộc khảo sát liên quan đến phương pháp đọc sách.",
+          "vocab": [
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "研究チーム",
+              "read": "けんきゅうチーム",
+              "vi": "nhóm nghiên cứu"
+            },
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "nhóm, đội"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "việc đọc sách"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "điều tra, khảo sát"
+            },
+            {
+              "w": "行います",
+              "read": "おこないます",
+              "vi": "tiến hành, thực hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "接続: N + に関する + N。 読書の方法に関する調査 = \"cuộc khảo sát liên quan đến phương pháp đọc sách\". に関する là dạng bổ nghĩa danh từ của に関して, mang sắc thái trang trọng, học thuật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "調査を行った",
+              "why": "Dấu hiệu bắt đầu đưa ra dẫn chứng nghiên cứu thực tế làm cơ sở cho lập luận."
+            }
+          ]
+        },
+        {
+          "jp": "その調査の結果について見てみると、物語の内容を深く理解することに関しては、紙の本のほうが効果的であることが分かった。",
+          "vi": "Khi nhìn vào kết quả của cuộc khảo sát đó, liên quan đến việc hiểu sâu nội dung câu chuyện, người ta thấy rằng sách giấy mang lại hiệu quả hơn.",
+          "vocab": [
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "điều tra"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "物語",
+              "read": "ものがたり",
+              "vi": "câu chuyện, truyện"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu sắc, sâu"
+            },
+            {
+              "w": "理解します",
+              "read": "りかいします",
+              "vi": "thấu hiểu, hiểu"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả, tác dụng"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "効果的",
+              "read": "こうかてき",
+              "vi": "có tính hiệu quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "接続: N + について。 その調査の結果について = \"về kết quả cuộc khảo sát đó\". Mẫu quen thuộc Bài 21 dùng để chỉ chủ đề đang hướng tới."
+            },
+            {
+              "point": "〜てみる（Bài 40）",
+              "vi": "見てみると = khi thử nhìn vào / khi xem xét... (kết hợp trợ từ と chỉ sự khám phá/nhận ra kết quả mới)."
+            },
+            {
+              "point": "〜に関して（MỚI）",
+              "vi": "接続: N (Vこと) + に関して。 理解することに関しては = \"liên quan đến việc thấu hiểu / xét về mặt thấu hiểu\". Dùng để khu biệt phạm vi thảo luận trong văn bản mang tính phân tích."
+            }
+          ],
+          "keys": [
+            {
+              "w": "深く理解することに関しては、紙の本のほうが効果的",
+              "why": "Kết quả nghiên cứu khẳng định lợi thế vượt trội của sách giấy khi cần hiểu sâu câu chuyện (căn cứ Q2)."
+            }
+          ]
+        },
+        {
+          "jp": "紙のページを手でめくる動作が、脳に記憶の場所を整理させるからだという。",
+          "vi": "Người ta nói rằng đó là vì động tác lật từng trang giấy bằng tay giúp não bộ sắp xếp vị trí ghi nhớ.",
+          "vocab": [
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "ページ",
+              "read": "ページ",
+              "vi": "trang sách"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "めくる",
+              "read": "めくる",
+              "vi": "lật, giở"
+            },
+            {
+              "w": "動作",
+              "read": "どうさ",
+              "vi": "động tác, thao tác"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "não bộ"
+            },
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "trí nhớ, ký ức"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "整理します",
+              "read": "せいりします",
+              "vi": "sắp xếp, thu dọn"
+            },
+            {
+              "w": "めくります",
+              "read": "めくります",
+              "vi": "lật, giở (trang sách)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "使役形（Bài 48）",
+              "vi": "整理させる = khiến cho/giúp cho (não bộ) sắp xếp."
+            },
+            {
+              "point": "〜からだ（Bài 30）",
+              "vi": "Chỉ nguyên nhân, nguồn gốc giải thích cho hiện tượng ở câu trước: \"là vì...\"."
+            },
+            {
+              "point": "〜という（Bài 47）",
+              "vi": "接続: 普通形 + という。Dùng truyền đạt thông tin hoặc ý kiến chuyên môn: \"người ta cho rằng / có ý kiến rằng...\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "手でめくる動作が、脳に記憶の場所を整理させるからだ",
+              "why": "Cấu trúc 「〜からだ」 giải thích lý do cụ thể vì sao sách giấy mang lại hiệu quả cao hơn (căn cứ Q2)."
+            }
+          ]
+        },
+        {
+          "jp": "一方、短いニュースなどの情報を素早く集めることについては、電子書籍のほうが便利だと評価されている。",
+          "vi": "Mặt khác, về việc thu thập nhanh các thông tin như tin tức ngắn, sách điện tử lại được đánh giá là tiện lợi hơn.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, trái lại"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "素早い",
+              "read": "すばやい",
+              "vi": "nhanh chóng, mau lẹ"
+            },
+            {
+              "w": "集めます",
+              "read": "あつめます",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "評価します",
+              "read": "ひょうかします",
+              "vi": "đánh giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "接続: N (Vこと) + について。 素早く集めることについては = \"về việc thu thập nhanh...\". Đặt vấn đề so sánh ở khía cạnh đối lập."
+            },
+            {
+              "point": "受身形（Bài 37）",
+              "vi": "評価されている = được đánh giá là."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ đối lập chuyển hướng sang ưu thế đọc tin tức nhanh của sách điện tử."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、本を読む道具に優劣があるわけではなく、目的に合わせた使い分けが重要だということだ。",
+          "vi": "Nói cách khác, không phải là có sự hơn kém giữa các công cụ đọc sách, mà điều quan trọng là việc lựa chọn sử dụng linh hoạt phù hợp với mục đích.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, dụng cụ"
+            },
+            {
+              "w": "優劣",
+              "read": "ゆうれつ",
+              "vi": "sự hơn kém, ưu thế và yếu thế"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "合わせます",
+              "read": "あわせます",
+              "vi": "làm cho phù hợp, điều chỉnh theo"
+            },
+            {
+              "w": "使い分け",
+              "read": "つかいわけ",
+              "vi": "việc chọn lựa sử dụng phù hợp cho từng hoàn cảnh"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけではない（Bài 60）",
+              "vi": "接続: 普通形 + わけではない。 優劣があるわけではなく = \"không hẳn là có sự hơn kém / không có nghĩa là loại này hơn loại kia\". Phủ định một phần nhận định phiến diện."
+            },
+            {
+              "point": "〜ということだ（Bài 47）",
+              "vi": "接続: 普通形 + ということだ。Đưa ra kết luận, giải thích bản chất vấn đề: \"nghĩa là... / điều cốt lõi là...\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "目的に合わせた使い分けが重要だ",
+              "why": "Từ khóa tổng kết sau 「つまり」, nêu bật quan điểm cốt lõi về việc linh hoạt sử dụng theo mục đích (căn cứ Q3)."
+            }
+          ]
+        },
+        {
+          "jp": "読書に関する正しい知識を持ち、それぞれの特徴を理解して上手に活用することが大切だろう。",
+          "vi": "Việc trang bị kiến thức đúng đắn liên quan đến việc đọc sách, thấu hiểu đặc điểm của từng loại và vận dụng khéo léo chắc hẳn sẽ rất quan trọng.",
+          "vocab": [
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng đắn, chính xác"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "持ちます",
+              "read": "もちます",
+              "vi": "có, mang, sở hữu"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "từng cái, mỗi một"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "活用します",
+              "read": "かつようします",
+              "vi": "tận dụng, vận dụng"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "接続: N + に関する + N。 読書に関する正しい知識 = \"kiến thức đúng đắn liên quan đến việc đọc sách\"."
+            },
+            {
+              "point": "〜だろう（Bài 32）",
+              "vi": "Phán đoán, lời khuyên nhẹ nhàng mang tính suy ngẫm của tác giả ở phần kết luận: \"chắc hẳn là...\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "上手に活用することが大切だろう",
+              "why": "Cấu trúc đánh giá chủ quan 「〜ことが大切だろう」 chốt lại lời khuyên và chủ trương của tác giả (căn cứ Q3)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "これに関して",
+          "label": "〜に関して（trang trọng, dẫn nhập chủ đề thảo luận）"
+        },
+        {
+          "excerpt": "読書の方法に関する調査",
+          "label": "〜に関する＋N（bổ nghĩa danh từ — văn học thuật）"
+        },
+        {
+          "excerpt": "理解することに関しては",
+          "label": "〜に関して（xét về mặt/liên quan đến — nhấn mạnh phạm vi）"
+        },
+        {
+          "excerpt": "集めることについては",
+          "label": "〜について（ôn Bài 21 — về chủ đề thông thường）"
+        },
+        {
+          "excerpt": "読書に関する正しい知識",
+          "label": "〜に関する＋N（bổ nghĩa danh từ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「これに関して」とあるが、「これ」は何を指しているか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "スマートフォンが普及したことで、電子書籍で本を読む人が増えたこと",
+            "紙の本よりも電子書籍のほうが人気があって売れていること",
+            "ある大学の研究チームが読書の方法について調査を始めたこと",
+            "電子書籍を使うと物語の内容を深く理解できなくなること"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「スマートフォンが普及した」 — Từ chỉ thị 「これ」 ở đầu câu 1 thay thế trực tiếp cho hiện tượng được nêu ở câu 0 liền trước: 「スマートフォンが普及したため、電子書籍で本を読む人が増えている」 (Do smartphone phổ biến nên người đọc sách điện tử tăng lên). Phương án 「紙の本よりも電子書籍」 sai vì bài không đề cập sách điện tử bán chạy hơn sách giấy; phương án 「ある大学の研究チームが」 sai vì việc nghiên cứu của trường đại học xuất hiện ở đoạn 2 sau đó; phương án 「電子書籍を使うと」 sai vì đó là chi tiết phân tích ở đoạn 2 chứ không phải nội dung của 「これ」 ở câu 1.",
+          "tip": "Để tìm nội dung của từ chỉ thị 「これ」, hãy nhìn ngay vào câu liền trước. Cụm 「これに関して」 liên kết trực tiếp với hiện tượng tăng người đọc sách điện tử do smartphone phổ biến được nêu ở câu 0.",
+          "qt": {
+            "q": "「これに関して」(liên quan đến điều này) — “điều này” chỉ điều gì?",
+            "o": [
+              "Việc số người đọc sách bằng sách điện tử tăng lên do điện thoại thông minh trở nên phổ biến",
+              "Việc sách điện tử được ưa chuộng và bán chạy hơn sách giấy",
+              "Việc một nhóm nghiên cứu của một trường đại học bắt đầu khảo sát về cách đọc sách",
+              "Việc dùng sách điện tử khiến người đọc không thể hiểu sâu nội dung câu chuyện"
+            ]
+          }
+        },
+        {
+          "q": "物語の内容を深く理解することに関しては、なぜ紙の本のほうが効果的だと考えられているか。",
+          "evi": [
+            3,
+            4
+          ],
+          "options": [
+            "紙の本のほうが電子書籍より値段が安くて手に入れやすいから",
+            "ページを手でめくる動作が、脳の中で記憶の場所を整理する助けになるから",
+            "電子書籍を使うと目が疲れて、長い時間読書を続けることができないから",
+            "紙の本のほうが短いニュースなどの情報を素早く集めるのに便利だから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「ページを手でめくる動作が」 — Câu 4 giải thích rõ lý do cho kết quả nghiên cứu ở câu 3: 「紙のページを手でめくる動作が、脳に記憶の場所を整理させるからだという」 (Động tác lật trang sách giấy bằng tay giúp não bộ sắp xếp vị trí ghi nhớ). Các phương án 「紙の本のほうが電子書籍より」 và 「電子書籍を使うと目が疲れて」 đưa ra các thông tin không có trong bài (giá rẻ, mỏi mắt); phương án 「紙の本のほうが短いニュース」 sai vì việc thu thập thông tin nhanh là ưu điểm của sách điện tử chứ không phải sách giấy.",
+          "tip": "Với câu hỏi lý do 「なぜ〜のか」, hãy tìm từ khóa 「深く理解することに関しては」 ở câu 3 rồi đọc ngay câu 4 chứa cấu trúc chỉ nguyên nhân 「〜からだ」 để chọn đáp án tương đương.",
+          "qt": {
+            "q": "Khi nói đến việc hiểu sâu nội dung câu chuyện, vì sao sách giấy được cho là hiệu quả hơn?",
+            "o": [
+              "Vì sách giấy rẻ hơn sách điện tử và dễ mua hơn",
+              "Vì thao tác dùng tay lật trang giúp sắp xếp các vị trí lưu giữ ký ức trong não",
+              "Vì dùng sách điện tử khiến mắt mỏi, không thể tiếp tục đọc trong thời gian dài",
+              "Vì sách giấy tiện hơn khi thu thập nhanh thông tin như những mẩu tin ngắn"
+            ]
+          }
+        },
+        {
+          "q": "読書について、筆者はどのように考えているか。",
+          "evi": [
+            6,
+            7
+          ],
+          "options": [
+            "紙の本のほうが電子書籍よりも優れているので、紙の本だけを読むべきだ。",
+            "電子書籍のほうが情報収集に便利なので、これからは紙の本が必要なくなる。",
+            "どちらが優れているかではなく、読む目的に合わせて紙の本と電子書籍を使い分けることが大切だ。",
+            "学習効果を高めるためには、電子書籍よりもスマートフォンを使うほうがよい。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「どちらが優れているか」 — Ở đoạn cuối (câu 6 và 7), tác giả kết luận: 「本を読む道具に優劣があるわけではなく、目的に合わせた使い分けが重要だ」 và khuyên nên hiểu rõ đặc điểm của từng loại để vận dụng phù hợp. Các phương án 「紙の本のほうが電子書籍」 và 「電子書籍のほうが情報収集に」 sai vì mang tính phiến diện, cực đoan (chỉ đọc sách giấy / không cần sách giấy nữa); phương án 「学習効果を高めるためには」 sai vì bài không khuyên dùng smartphone thay cho sách.",
+          "tip": "Với câu hỏi nắm bắt ý kiến tác giả 「筆者はどう考えているか」, chú ý các liên từ tóm tắt như 「つまり」 và các mẫu phán đoán ở câu cuối (câu 6, 7). Tác giả phủ định sự hơn kém tuyệt đối 「優劣があるわけではなく」 và nhấn mạnh sự linh hoạt theo mục đích 「目的に合わせた使い分け」.",
+          "qt": {
+            "q": "Người viết nghĩ như thế nào về việc đọc sách?",
+            "o": [
+              "Sách giấy tốt hơn sách điện tử, vì vậy chỉ nên đọc sách giấy.",
+              "Sách điện tử tiện hơn cho việc thu thập thông tin, vì vậy từ nay sách giấy sẽ không còn cần thiết.",
+              "Điều quan trọng không phải là loại nào tốt hơn, mà là sử dụng sách giấy và sách điện tử tùy theo mục đích đọc.",
+              "Để nâng cao hiệu quả học tập, dùng điện thoại thông minh sẽ tốt hơn dùng sách điện tử."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Mở đề・Hiện tượng & Tranh luận",
+          "topic": 1,
+          "note": "Nêu bối cảnh ebook phổ biến và tranh luận giữa sách giấy với sách điện tử; bẫy chỉ thị từ 「これ」 cần truy ngược câu 0.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 2,
+          "to": 4,
+          "kind": "body",
+          "label": "Dẫn chứng nghiên cứu・Lợi thế sách giấy",
+          "topic": 3,
+          "note": "Trình bày kết quả nghiên cứu chỉ ra sách giấy giúp hiểu sâu nhờ hành động lật trang; chứa căn cứ giải thích nguyên nhân cho câu 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 5,
+          "to": 5,
+          "kind": "turn",
+          "label": "Mặt đối lập・Ưu thế sách điện tử",
+          "topic": 5,
+          "note": "Dùng 「一方」 chuyển hướng sang ưu điểm đọc tin tức nhanh của sách điện tử để đảm bảo tính khách quan đa chiều.",
+          "qs": []
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "point",
+          "label": "Kết luận・Chủ trương của tác giả",
+          "topic": 6,
+          "note": "Tác giả dùng 「つまり」「大切だろう」 khẳng định không có công cụ nào vượt trội tuyệt đối mà cần biết cách kết hợp theo mục đích đọc.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "教育の目的に関する考察",
+      "titleVi": "Khảo sát về mục tiêu của giáo dục",
+      "japanese": "教育の目的について、さまざまな立場から意見が述べられてきた。\n本稿では、現代の教育制度に関して、その目的と課題を考えてみたい。\nまず、教育に関する最も基本的な問いは「何のために学ぶのか」だろう。\nこの問いについては、時代や社会が違えば答えが変わることもある。\n以前は、知識を得ることが教育の主な目的だと考えられていた。\nしかし、近年の研究によると、知識の量だけではなく、考える力や問題解決能力も重要だということが分かってきた。\nつまり、単に情報を覚えるだけでは不十分で、その情報をどう活用するかが問われているのだ。\nこの点に関して、ある教育学者は「思考力こそが21世紀の教育の核心だ」と述べている。\nまた、グローバル化に関しては、異文化理解や外国語教育の重要性が高まってきている。\n外国語教育に関する政策も、以前とは大きく変わってきた。\n一方、テクノロジーの発展に関して言えば、AIやデジタル技術が教育にも影響を与えてきている。\nオンライン学習に関するさまざまなサービスが登場し、学び方の選択肢が広がった。\nそのため、どんな環境でも自分で学べる力を身につけることが、これからの時代に必要だと思われる。\nしかし、テクノロジーに関して注意すべき点もある。\n便利なツールがあっても、それをどう使うかは人間の判断にかかっているのだ。\nつまり、テクノロジーについての正しい理解と、批判的に考える力が同時に必要なのだ。\nさらに、教育の機会の平等に関しては、いまだ課題が多く残っている。\n経済的な理由から十分な教育を受けられない子どもも、まだ多くいるほどだ。\nこの問題に関して、社会全体で取り組むべきだという意見が強まっている。\n教育に関する議論は、これからも続いていくだろう。\nそして、その議論を通じて、より良い教育制度を作り上げていくことが私たちの責任だと思う。",
+      "vietnamese": "Về mục tiêu của giáo dục, nhiều ý kiến đã được trình bày từ nhiều lập trường khác nhau.\nTrong bài viết này, tôi muốn xem xét về mục tiêu và thách thức của chế độ giáo dục hiện đại.\nTrước tiên, câu hỏi cơ bản nhất liên quan đến giáo dục là \"học để làm gì\".\nVề câu hỏi này, câu trả lời cũng có thể thay đổi tùy theo thời đại và xã hội.\nTrước đây, người ta cho rằng mục tiêu chính của giáo dục là tiếp thu kiến thức.\nTuy nhiên, theo các nghiên cứu gần đây, người ta đã nhận ra rằng không chỉ lượng kiến thức, mà năng lực tư duy và giải quyết vấn đề cũng quan trọng.\nNói cách khác, chỉ ghi nhớ thông tin không là chưa đủ, mà điều được đặt ra là cách vận dụng thông tin đó.\nLiên quan đến điểm này, một nhà giáo dục học cho rằng \"năng lực tư duy chính là cốt lõi của giáo dục thế kỷ 21\".\nNgoài ra, liên quan đến toàn cầu hóa, tầm quan trọng của hiểu biết văn hóa đa dạng và giáo dục ngoại ngữ đang tăng lên đến mức đáng kể.\nChính sách liên quan đến giáo dục ngoại ngữ cũng đã thay đổi rất nhiều so với trước.\nMặt khác, nói về sự phát triển của công nghệ, AI và kỹ thuật số đang dần ảnh hưởng đến giáo dục.\nNhiều dịch vụ liên quan đến học trực tuyến xuất hiện, mở rộng các lựa chọn cách học.\nVì vậy, có vẻ rằng trong thời đại tới, năng lực tự học trong bất kỳ môi trường nào là cần thiết.\nTuy nhiên, cũng có những điểm cần chú ý liên quan đến công nghệ.\nDù có công cụ tiện lợi, cách sử dụng chúng phụ thuộc vào phán đoán của con người.\nNói cách khác, cần đồng thời có hiểu biết đúng đắn về công nghệ và năng lực tư duy phản biện.\nHơn nữa, liên quan đến bình đẳng cơ hội giáo dục, vẫn còn nhiều thách thức chưa được giải quyết.\nVẫn còn rất nhiều trẻ em vì lý do kinh tế không được nhận đủ giáo dục.\nLiên quan đến vấn đề này, ý kiến cho rằng toàn xã hội cần chung tay giải quyết ngày càng mạnh mẽ.\nCác cuộc thảo luận liên quan đến giáo dục sẽ còn tiếp tục.\nVà tôi nghĩ trách nhiệm của chúng ta là thông qua các cuộc thảo luận đó để xây dựng nên chế độ giáo dục tốt hơn.",
+      "sentences": [
+        {
+          "jp": "教育の目的について、さまざまな立場から意見が述べられてきた。",
+          "vi": "Về mục tiêu của giáo dục, nhiều ý kiến đã được trình bày từ nhiều lập trường khác nhau.",
+          "vocab": [
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục tiêu, mục đích"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng, nhiều loại"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "lập trường, vị thế"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "述べます",
+              "read": "のべます",
+              "vi": "trình bày, phát biểu"
+            },
+            {
+              "w": "さまざまな",
+              "read": "さまざまな",
+              "vi": "nhiều loại, đa dạng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "教育の目的について = \"về mục tiêu của giáo dục\". について ôn Bài 21 — câu mở đầu bài luận dùng について (thông dụng, giới thiệu chủ đề)."
+            },
+            {
+              "point": "V受身形てきた（Bài 37 + Bài 43）",
+              "vi": "述べられてきた = đã được trình bày (và tiếp tục đến hiện tại). 受身 (述べられる) + てきた (kéo dài đến hiện tại)."
+            }
+          ]
+        },
+        {
+          "jp": "本稿では、現代の教育制度に関して、その目的と課題を考えてみたい。",
+          "vi": "Trong bài viết này, tôi muốn xem xét về mục tiêu và thách thức của chế độ giáo dục hiện đại.",
+          "vocab": [
+            {
+              "w": "本稿",
+              "read": "ほんこう",
+              "vi": "bài viết này (văn học thuật)"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, thời hiện đại"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ, hệ thống"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "課題",
+              "read": "かだい",
+              "vi": "thách thức, vấn đề cần giải quyết"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ, xem xét"
+            },
+            {
+              "w": "教育制度",
+              "read": "きょういくせいど",
+              "vi": "chế độ giáo dục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（MỚI）",
+              "vi": "接続: N + に関して。 現代の教育制度に関して = \"về/liên quan đến chế độ giáo dục hiện đại\". Đây là 本稿 (bài viết học thuật) → に関して TRANG TRỌNG hơn về phù hợp hơn について ở đây. Sắc thái: phạm vi chủ đề rộng (教育制度 = chế độ, hệ thống) → に関して phù hợp."
+            },
+            {
+              "point": "Vてみたい（Bài 40）",
+              "vi": "考えてみたい = muốn thử xem xét. てみる = thử làm (Bài 40) + たい = muốn."
+            }
+          ]
+        },
+        {
+          "jp": "まず、教育に関する最も基本的な問いは「何のために学ぶのか」だろう。",
+          "vi": "Trước tiên, câu hỏi cơ bản nhất liên quan đến giáo dục là \"học để làm gì\".",
+          "vocab": [
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "関する",
+              "read": "かんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản; nền tảng"
+            },
+            {
+              "w": "基本的な",
+              "read": "きほんてきな",
+              "vi": "mang tính cơ bản"
+            },
+            {
+              "w": "問い",
+              "read": "とい",
+              "vi": "câu hỏi"
+            },
+            {
+              "w": "何",
+              "read": "なん",
+              "vi": "gì; điều gì"
+            },
+            {
+              "w": "何のために",
+              "read": "なんのために",
+              "vi": "để làm gì"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "mục đích"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "教育に関する最も基本的な問い = \"câu hỏi cơ bản nhất liên quan đến giáo dục\". 接続: N + に関する + N (bổ nghĩa danh từ問い). Trang trọng hơn \"教育についての問い\"."
+            },
+            {
+              "point": "〜だろう（Bài 32 でしょう 普通形）",
+              "vi": "だろう = chắc là, đây là phán đoán của tác giả (Bài 32 でしょう ở thể thông thường)."
+            }
+          ]
+        },
+        {
+          "jp": "この問いについては、時代や社会が違えば答えが変わることもある。",
+          "vi": "Về câu hỏi này, câu trả lời cũng có thể thay đổi tùy theo thời đại và xã hội.",
+          "vocab": [
+            {
+              "w": "問い",
+              "read": "とい",
+              "vi": "câu hỏi"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "答え",
+              "read": "こたえ",
+              "vi": "câu trả lời"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜については（について + は）",
+              "vi": "この問いについては = \"về câu hỏi này thì\". については = について (Bài 21) + は nhấn mạnh/đối chiếu. Câu này dùng について (không dùng に関して) vì là đề cập lại cụ thể câu hỏi đã nêu — phạm vi hẹp hơn."
+            }
+          ]
+        },
+        {
+          "jp": "以前は、知識を得ることが教育の主な目的だと考えられていた。",
+          "vi": "Trước đây, người ta cho rằng mục tiêu chính của giáo dục là tiếp thu kiến thức.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, trước kia"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "得ます",
+              "read": "えます",
+              "vi": "có được, tiếp thu"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "主な",
+              "read": "おもな",
+              "vi": "chính, chủ yếu"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることが〜（Bài 38 Vるのは〜 応用）",
+              "vi": "知識を得ることが主な目的だ = tiếp thu kiến thức là mục tiêu chính. Vること = danh từ hoá động từ (Bài 38)."
+            },
+            {
+              "point": "V受身形ていた（Bài 37）",
+              "vi": "考えられていた = đã được cho là (người ta nghĩ là). 受身 + ていた = trạng thái kéo dài trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、近年の研究によると、知識の量だけではなく、考える力や問題解決能力も重要だということが分かってきた。",
+          "vi": "Tuy nhiên, theo các nghiên cứu gần đây, người ta đã nhận ra rằng không chỉ lượng kiến thức, mà năng lực tư duy và giải quyết vấn đề cũng quan trọng.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên, nhưng"
+            },
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "量",
+              "read": "りょう",
+              "vi": "lượng, số lượng"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "解決",
+              "read": "かいけつ",
+              "vi": "giải quyết, giải pháp"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "考える力",
+              "read": "かんがえるちから",
+              "vi": "năng lực tư duy"
+            },
+            {
+              "w": "問題解決能力",
+              "read": "もんだいかいけつのうりょく",
+              "vi": "năng lực giải quyết vấn đề"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると（Bài 47）",
+              "vi": "近年の研究によると = theo các nghiên cứu gần đây. によると = theo (nguồn tin), ôn Bài 47."
+            },
+            {
+              "point": "〜だけではなく〜も（Bài 17 応用）",
+              "vi": "知識の量だけではなく、考える力も = không chỉ lượng kiến thức mà năng lực tư duy cũng. だけではなく〜も = \"không chỉ…mà…cũng\"."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、単に情報を覚えるだけでは不十分で、その情報をどう活用するかが問われているのだ。",
+          "vi": "Nói cách khác, chỉ ghi nhớ thông tin không là chưa đủ, mà điều được đặt ra là cách vận dụng thông tin đó.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "chỉ, đơn thuần"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "ghi nhớ, học thuộc"
+            },
+            {
+              "w": "不十分",
+              "read": "ふじゅうぶん",
+              "vi": "không đủ, thiếu"
+            },
+            {
+              "w": "活用します",
+              "read": "かつようします",
+              "vi": "vận dụng, ứng dụng"
+            },
+            {
+              "w": "問われます",
+              "read": "とわれます",
+              "vi": "được đặt ra, bị hỏi đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞 + か（Bài 40）",
+              "vi": "どう活用するか = \"cách vận dụng thế nào\". 疑問詞 + か làm mệnh đề danh từ nhúng (Bài 40)."
+            },
+            {
+              "point": "V受身形ているのだ（Bài 37 + のだ Bài 26）",
+              "vi": "問われているのだ = đang được đặt ra (nhấn mạnh giải thích). 受身 + のだ."
+            }
+          ]
+        },
+        {
+          "jp": "この点に関して、ある教育学者は「思考力こそが21世紀の教育の核心だ」と述べている。",
+          "vi": "Liên quan đến điểm này, một nhà giáo dục học cho rằng \"năng lực tư duy chính là cốt lõi của giáo dục thế kỷ 21\".",
+          "vocab": [
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "学者",
+              "read": "がくしゃ",
+              "vi": "học giả"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "世紀",
+              "read": "せいき",
+              "vi": "thế kỷ"
+            },
+            {
+              "w": "核心",
+              "read": "かくしん",
+              "vi": "cốt lõi, trọng tâm"
+            },
+            {
+              "w": "述べる",
+              "read": "のべる",
+              "vi": "bày tỏ, trình bày"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm, khía cạnh"
+            },
+            {
+              "w": "教育学者",
+              "read": "きょういくがくしゃ",
+              "vi": "nhà giáo dục học"
+            },
+            {
+              "w": "思考力",
+              "read": "しこうりょく",
+              "vi": "năng lực tư duy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（MỚI）",
+              "vi": "この点に関して = \"liên quan đến điểm này\". に関して dùng để dẫn luận điểm cụ thể trong văn luận — trang trọng và chính xác hơn についての trong văn học thuật."
+            },
+            {
+              "point": "〜と述べる（〜と言う Bài 21 ứng dụng）",
+              "vi": "述べている = đang cho rằng/phát biểu. と述べる = phát biểu rằng (trang trọng hơn と言う)."
+            }
+          ]
+        },
+        {
+          "jp": "また、グローバル化に関しては、異文化理解や外国語教育の重要性が高まってきている。",
+          "vi": "Ngoài ra, liên quan đến toàn cầu hóa, tầm quan trọng của hiểu biết văn hóa đa dạng và giáo dục ngoại ngữ đang tăng lên đến mức đáng kể.",
+          "vocab": [
+            {
+              "w": "グローバル",
+              "read": "グローバル",
+              "vi": "toàn cầu"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "外国",
+              "read": "がいこく",
+              "vi": "nước ngoài, ngoại quốc"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "高まります",
+              "read": "たかまります",
+              "vi": "tăng lên, nâng cao"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm nữa"
+            },
+            {
+              "w": "グローバル化",
+              "read": "グローバルか",
+              "vi": "toàn cầu hóa"
+            },
+            {
+              "w": "異文化理解",
+              "read": "いぶんかりかい",
+              "vi": "hiểu biết đa văn hóa"
+            },
+            {
+              "w": "外国語教育",
+              "read": "がいこくごきょういく",
+              "vi": "giáo dục ngoại ngữ"
+            },
+            {
+              "w": "重要性",
+              "read": "じゅうようせい",
+              "vi": "tầm quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関しては（に関して + は）",
+              "vi": "グローバル化に関しては = \"liên quan đến toàn cầu hóa thì\". は nhấn mạnh chủ đề mới (chuyển sang chủ đề toàn cầu hóa)."
+            },
+            {
+              "point": "Vてきている（Bài 43）",
+              "vi": "高まってきている = đang dần tăng lên (xu hướng tiếp diễn đến hiện tại). てくる = biến đổi/dần dần."
+            }
+          ]
+        },
+        {
+          "jp": "外国語教育に関する政策も、以前とは大きく変わってきた。",
+          "vi": "Chính sách liên quan đến giáo dục ngoại ngữ cũng đã thay đổi rất nhiều so với trước.",
+          "vocab": [
+            {
+              "w": "外国",
+              "read": "がいこく",
+              "vi": "nước ngoài"
+            },
+            {
+              "w": "外国語",
+              "read": "がいこくご",
+              "vi": "ngoại ngữ"
+            },
+            {
+              "w": "外国語教育",
+              "read": "がいこくごきょういく",
+              "vi": "giáo dục ngoại ngữ"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "関する",
+              "read": "かんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "政策",
+              "read": "せいさく",
+              "vi": "chính sách"
+            },
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây"
+            },
+            {
+              "w": "大きく",
+              "read": "おおきく",
+              "vi": "lớn; đáng kể"
+            },
+            {
+              "w": "変わってきた",
+              "read": "かわってきた",
+              "vi": "đã dần thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "外国語教育に関する政策 = \"chính sách liên quan đến giáo dục ngoại ngữ\". に関する bổ nghĩa danh từ 政策. Trang trọng, phù hợp văn báo cáo/chính sách."
+            }
+          ]
+        },
+        {
+          "jp": "一方、テクノロジーの発展に関して言えば、AIやデジタル技術が教育にも影響を与えてきている。",
+          "vi": "Mặt khác, nói về sự phát triển của công nghệ, AI và kỹ thuật số đang dần ảnh hưởng đến giáo dục.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "テクノロジー",
+              "read": "テクノロジー",
+              "vi": "công nghệ"
+            },
+            {
+              "w": "発展",
+              "read": "はってん",
+              "vi": "phát triển, tiến bộ"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "AI",
+              "read": "AI",
+              "vi": "trí tuệ nhân tạo"
+            },
+            {
+              "w": "デジタル技術",
+              "read": "デジタルぎじゅつ",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "影響",
+              "read": "えいきょう",
+              "vi": "ảnh hưởng"
+            },
+            {
+              "w": "与える",
+              "read": "あたえる",
+              "vi": "trao tặng, gây ra"
+            },
+            {
+              "w": "影響を与えます",
+              "read": "えいきょうをあたえます",
+              "vi": "gây ảnh hưởng, tác động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して言えば（に関して応用）",
+              "vi": "テクノロジーの発展に関して言えば = \"nói về sự phát triển của công nghệ thì\". に関して + 言えば = cụm cố định trong văn luận để dẫn chủ đề mới."
+            },
+            {
+              "point": "Vてきている（Bài 43）",
+              "vi": "影響を与えてきている = đang dần gây ảnh hưởng (xu hướng tiếp diễn đến hiện tại). Vて + くる = biến đổi dần dần (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "オンライン学習に関するさまざまなサービスが登場し、学び方の選択肢が広がった。",
+          "vi": "Nhiều dịch vụ liên quan đến học trực tuyến xuất hiện, mở rộng các lựa chọn cách học.",
+          "vocab": [
+            {
+              "w": "オンライン",
+              "read": "オンライン",
+              "vi": "trực tuyến, online"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng, nhiều loại"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "登場します",
+              "read": "とうじょうします",
+              "vi": "xuất hiện, ra mắt"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "選択肢",
+              "read": "せんたくし",
+              "vi": "lựa chọn, phương án"
+            },
+            {
+              "w": "広がります",
+              "read": "ひろがります",
+              "vi": "mở rộng, lan rộng"
+            },
+            {
+              "w": "オンライン学習",
+              "read": "オンラインがくしゅう",
+              "vi": "học trực tuyến, học online"
+            },
+            {
+              "w": "学び方",
+              "read": "まなびかた",
+              "vi": "cách học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "オンライン学習に関するさまざまなサービス = \"nhiều dịch vụ liên quan đến học trực tuyến\". に関する bổ nghĩa danh từ サービス."
+            },
+            {
+              "point": "Vて（nối mệnh đề Bài 16）",
+              "vi": "登場し = xuất hiện (rồi). て形 nối hai kết quả liên tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、どんな環境でも自分で学べる力を身につけることが、これからの時代に必要だと思われる。",
+          "vi": "Vì vậy, có vẻ rằng trong thời đại tới, năng lực tự học trong bất kỳ môi trường nào là cần thiết.",
+          "vocab": [
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "bất kỳ loại nào, dù thế nào"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "自分で",
+              "read": "じぶんで",
+              "vi": "tự mình, một mình"
+            },
+            {
+              "w": "学べます",
+              "read": "まなべます",
+              "vi": "có thể học"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "身につけます",
+              "read": "みにつけます",
+              "vi": "rèn luyện, trang bị (kỹ năng)"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy, vì thế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることが〜（Bài 38）",
+              "vi": "身につけることが必要だ = rèn luyện là cần thiết. Vること = danh từ hoá động từ."
+            },
+            {
+              "point": "V受身形（Bài 37 思われる）",
+              "vi": "必要だと思われる = có vẻ là cần thiết (được xem là cần thiết). 思われる = dạng bị động của 思う, dùng trong văn luận để tránh khẳng định quá mạnh."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、テクノロジーに関して注意すべき点もある。",
+          "vi": "Tuy nhiên, cũng có những điểm cần chú ý liên quan đến công nghệ.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "テクノロジー",
+              "read": "てくのろじー",
+              "vi": "công nghệ"
+            },
+            {
+              "w": "関して",
+              "read": "かんして",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý; lưu ý"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm; khía cạnh"
+            },
+            {
+              "w": "注意すべき点",
+              "read": "ちゅういすべきてん",
+              "vi": "điểm cần lưu ý"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có; tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（MỚI）",
+              "vi": "テクノロジーに関して注意すべき点 = \"điểm cần chú ý liên quan đến công nghệ\". に関して + すべき + 点 — dùng に関して trong văn nghị luận để dẫn sang luận điểm phản biện."
+            },
+            {
+              "point": "〜べき（Bài 53）",
+              "vi": "注意すべき点 = điểm đáng phải chú ý. べき bổ nghĩa danh từ (べき + N) — ôn Bài 53."
+            }
+          ]
+        },
+        {
+          "jp": "便利なツールがあっても、それをどう使うかは人間の判断にかかっているのだ。",
+          "vi": "Dù có công cụ tiện lợi, cách sử dụng chúng phụ thuộc vào phán đoán của con người.",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "ツール",
+              "read": "ツール",
+              "vi": "công cụ"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người"
+            },
+            {
+              "w": "判断",
+              "read": "はんだん",
+              "vi": "phán đoán, quyết định"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "phụ thuộc vào, tùy thuộc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "ツールがあっても = dù có công cụ đi nữa. ても = \"dù…vẫn\" (Bài 25 ôn)."
+            },
+            {
+              "point": "疑問詞 + か（Bài 40）",
+              "vi": "どう使うか = \"cách dùng thế nào\". Mệnh đề danh từ nhúng với 疑問詞 + か (Bài 40)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、テクノロジーについての正しい理解と、批判的に考える力が同時に必要なのだ。",
+          "vi": "Nói cách khác, cần đồng thời có hiểu biết đúng đắn về công nghệ và năng lực tư duy phản biện.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "テクノロジー",
+              "read": "テクノロジー",
+              "vi": "công nghệ"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng đắn, chính xác"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "hiểu biết, sự hiểu"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "sự phê phán, chỉ trích"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "同時に",
+              "read": "どうじに",
+              "vi": "đồng thời, cùng lúc"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "批判的",
+              "read": "ひはんてき",
+              "vi": "phản biện, phê phán"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜についての＋N（について + の bổ nghĩa）",
+              "vi": "テクノロジーについての正しい理解 = \"hiểu biết đúng đắn về công nghệ\". についての + N = bổ nghĩa danh từ bằng について (bổ sung の). So sánh: テクノロジーに関する正しい理解 cũng được, trang trọng hơn. Câu này dùng についての để thấy cả hai dạng bổ nghĩa."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、教育の機会の平等に関しては、いまだ課題が多く残っている。",
+          "vi": "Hơn nữa, liên quan đến bình đẳng cơ hội giáo dục, vẫn còn nhiều thách thức chưa được giải quyết.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa, thêm vào đó"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "平等",
+              "read": "びょうどう",
+              "vi": "bình đẳng"
+            },
+            {
+              "w": "いまだ",
+              "read": "いまだ",
+              "vi": "vẫn còn, cho đến nay vẫn"
+            },
+            {
+              "w": "課題",
+              "read": "かだい",
+              "vi": "vấn đề, bài toán cần giải quyết"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "残ります",
+              "read": "のこります",
+              "vi": "còn lại, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関しては（MỚI）",
+              "vi": "教育の機会の平等に関しては = \"liên quan đến bình đẳng cơ hội giáo dục thì\". に関しては trang trọng + は nhấn mạnh/chuyển sang chủ đề khía cạnh xã hội."
+            }
+          ]
+        },
+        {
+          "jp": "経済的な理由から十分な教育を受けられない子どもも、まだ多くいるほどだ。",
+          "vi": "Vẫn còn rất nhiều trẻ em vì lý do kinh tế không được nhận đủ giáo dục.",
+          "vocab": [
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "十分な",
+              "read": "じゅうぶんな",
+              "vi": "đầy đủ, đủ"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "受けます",
+              "read": "うけます",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "経済的",
+              "read": "けいざいてき",
+              "vi": "về kinh tế, kinh tế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身形（Bài 37）",
+              "vi": "教育を受けられない = không được nhận giáo dục. 受けられない = phủ định 可能形 + 受身 tư cách."
+            },
+            {
+              "point": "〜ほどだ（Bài 66）",
+              "vi": "多くいるほどだ = \"nhiều đến mức (đó)\". ほど chỉ mức độ (Bài 66)."
+            }
+          ]
+        },
+        {
+          "jp": "この問題に関して、社会全体で取り組むべきだという意見が強まっている。",
+          "vi": "Liên quan đến vấn đề này, ý kiến cho rằng toàn xã hội cần chung tay giải quyết ngày càng mạnh mẽ.",
+          "vocab": [
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "取り組みます",
+              "read": "とりくみます",
+              "vi": "chung tay giải quyết, đối phó"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "強まります",
+              "read": "つよまります",
+              "vi": "mạnh thêm, ngày càng mạnh"
+            },
+            {
+              "w": "社会全体",
+              "read": "しゃかいぜんたい",
+              "vi": "toàn xã hội"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関して（MỚI）",
+              "vi": "この問題に関して = \"liên quan đến vấn đề này\". に関して trong văn luận để dẫn ý kiến/luận điểm về vấn đề xã hội."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "取り組むべきだ = nên/phải chung tay giải quyết. べきだ = bổn phận mạnh (Bài 53)."
+            }
+          ]
+        },
+        {
+          "jp": "教育に関する議論は、これからも続いていくだろう。",
+          "vi": "Các cuộc thảo luận liên quan đến giáo dục sẽ còn tiếp tục.",
+          "vocab": [
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "関する",
+              "read": "かんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "議論",
+              "read": "ぎろん",
+              "vi": "thảo luận; tranh luận"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "続いていく",
+              "read": "つづいていく",
+              "vi": "tiếp tục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（MỚI）",
+              "vi": "教育に関する議論 = \"các cuộc thảo luận liên quan đến giáo dục\". に関する bổ nghĩa danh từ 議論."
+            },
+            {
+              "point": "Vていくだろう（Bài 43 + だろう）",
+              "vi": "続いていくだろう = chắc sẽ tiếp tục (đi về tương lai). ていく = xu hướng tiếp diễn về phía tương lai + だろう phán đoán."
+            }
+          ]
+        },
+        {
+          "jp": "そして、その議論を通じて、より良い教育制度を作り上げていくことが私たちの責任だと思う。",
+          "vi": "Và tôi nghĩ trách nhiệm của chúng ta là thông qua các cuộc thảo luận đó để xây dựng nên chế độ giáo dục tốt hơn.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và; rồi"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó; ấy"
+            },
+            {
+              "w": "議論",
+              "read": "ぎろん",
+              "vi": "thảo luận; tranh luận"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua"
+            },
+            {
+              "w": "より",
+              "read": "より",
+              "vi": "hơn; càng"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt"
+            },
+            {
+              "w": "より良い",
+              "read": "よりよい",
+              "vi": "tốt hơn"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ; hệ thống"
+            },
+            {
+              "w": "作り上げていく",
+              "read": "つくりあげていく",
+              "vi": "dần xây dựng nên"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta; chúng tôi"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ; cho rằng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることが〜（Bài 38）",
+              "vi": "作り上げていくことが私たちの責任だ = xây dựng nên là trách nhiệm của chúng ta. Vること = danh từ hoá."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "責任だと思う = tôi nghĩ đó là trách nhiệm. と思う ôn Bài 21 — câu kết bài luận bày tỏ ý kiến người viết."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "現代の教育制度に関して",
+          "label": "〜に関して（văn học thuật trang trọng）"
+        },
+        {
+          "excerpt": "教育に関する最も基本的な問い",
+          "label": "〜に関する＋N（bổ nghĩa danh từ）"
+        },
+        {
+          "excerpt": "教育の目的について",
+          "label": "〜について（ôn Bài 21 — thông dụng）"
+        },
+        {
+          "excerpt": "この点に関して",
+          "label": "Sắc thái: に関して so sánh với について — phạm vi học thuật"
+        },
+        {
+          "excerpt": "テクノロジーについての正しい理解",
+          "label": "〜についての＋N（bổ nghĩa với について）"
+        },
+        {
+          "excerpt": "教育の機会の平等に関しては",
+          "label": "〜に関しては（nhấn mạnh chủ đề trang trọng）"
+        },
+        {
+          "excerpt": "教育に関する議論",
+          "label": "〜に関する＋N（bổ nghĩa danh từ — văn luận）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「現代の教育制度に関して」と「教育の目的について」では、なぜ違う表現が使われていますか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "「に関して」は動詞の前にしか使えず、「について」は名詞の前にしか使えないから",
+            "「現代の教育制度」は正式・学術的な対象なので改まった「に関して」が使われ、「教育の目的について」は話題を導入する際の一般的な表現として「について」が使われているから",
+            "二つの表現は完全に同じ意味で、使い分けに理由はないから",
+            "「に関して」はポジティブな話題に使い、「について」はネガティブな話題に使うから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là B: \"「現代の教育制度」は正式・学術的な対象なので改まった「に関して」が使われ、「教育の目的について」は話題を導入する際の一般的な表現として「について」が使われているから\". Câu gốc viết \"本稿では、現代の教育制度に関して…考えてみたい\" — 本稿 (bài viết học thuật) + 教育制度 (chế độ/hệ thống giáo dục, chủ đề rộng, chính thức) → に関して phù hợp. Ngược lại, câu mở đầu \"教育の目的について、さまざまな立場から意見が述べられてきた\" giới thiệu chủ đề chung → について thông dụng phù hợp hơn. Đáp án A sai vì cả hai đều nối với danh từ (không phải A trước động từ, B trước danh từ); Đáp án C sai vì hai mẫu có sắc thái KHÁC NHAU; Đáp án D hoàn toàn bịa đặt — không có quy tắc dùng theo tone tích cực/tiêu cực.",
+          "tip": "Thấy 本稿, 報告書, 研究 (văn bản học thuật) + chủ đề rộng (制度, 問題, 政策) → に関して. Thấy câu dẫn chủ đề thông thường, mở đầu nói chuyện → について.",
+          "qt": {
+            "q": "Vì sao 「現代の教育制度に関して」(liên quan đến chế độ giáo dục hiện đại) và 「教育の目的について」(về mục đích giáo dục) lại dùng cách diễn đạt khác nhau?",
+            "o": [
+              "Vì 「に関して」 chỉ có thể dùng trước động từ, còn 「について」 chỉ có thể dùng trước danh từ",
+              "Vì 「現代の教育制度」 là đối tượng mang tính chính thức, học thuật nên dùng 「に関して」 trang trọng hơn, còn 「教育の目的について」 dùng 「について」 như cách diễn đạt thông thường để mở đầu một chủ đề",
+              "Vì hai cách diễn đạt hoàn toàn đồng nghĩa nên không có lý do để phân biệt cách dùng",
+              "Vì 「に関して」 dùng cho chủ đề tích cực, còn 「について」 dùng cho chủ đề tiêu cực"
+            ]
+          }
+        },
+        {
+          "q": "「教育に関する最も基本的な問い」の「に関する」を他の表現に変えるとしたら、どれが正しいですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "教育に関して最も基本的な問い",
+            "教育についての最も基本的な問い",
+            "教育について最も基本的な問い",
+            "教育のための最も基本的な問い"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là B: \"教育についての最も基本的な問い\". Câu gốc \"教育に関する最も基本的な問い\" — に関する là dạng 連体 bổ nghĩa danh từ 問い. Khi thay bằng について, muốn bổ nghĩa danh từ phải thêm の: \"についての + N\". Đáp án A (\"教育に関して最も基本的な問い\") sai vì に関して không thể bổ nghĩa danh từ trực tiếp — thiếu の hoặc phải dùng に関する; Đáp án C (\"教育について最も基本的な問い\") thiếu の, không thể bổ nghĩa danh từ trực tiếp bằng について; Đáp án D (\"教育のための問い\") thay đổi nghĩa hoàn toàn — ための = \"nhằm mục đích, để\" chứ không phải \"liên quan đến\".",
+          "tip": "Bổ nghĩa danh từ: に関する + N (trực tiếp, trang trọng) = についての + N (cần thêm の, thông dụng hơn). Không bao giờ: に関して + N hoặc について + N (thiếu の) để bổ nghĩa danh từ.",
+          "qt": {
+            "q": "Nếu thay 「に関する」 trong 「教育に関する最も基本的な問い」 (câu hỏi cơ bản nhất liên quan đến giáo dục) bằng cách diễn đạt khác, cách nào đúng?",
+            "o": [
+              "Câu hỏi cơ bản nhất liên quan đến giáo dục",
+              "Câu hỏi cơ bản nhất về giáo dục",
+              "Câu hỏi cơ bản nhất, liên quan đến giáo dục",
+              "Câu hỏi cơ bản nhất dành cho giáo dục"
+            ]
+          }
+        },
+        {
+          "q": "この文章によると、現代の教育で最も重要なこととして、教育学者はどのような力を挙げていますか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "知識の量を増やす力",
+            "外国語を話す力",
+            "思考力",
+            "テクノロジーを使いこなす力"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C: \"思考力\". Bằng chứng trực tiếp: \"この点に関して、ある教育学者は「思考力こそが21世紀の教育の核心だ」と述べている\" — từ \"こそ\" nhấn mạnh chính xác rằng 思考力 (năng lực tư duy) là cốt lõi. Đáp án A (知識の量) bị bác bỏ ngay trong bài: \"知識の量だけではなく…重要だ\" → lượng kiến thức \"だけでは不十分\"; Đáp án B (外国語を話す力) được đề cập trong đoạn toàn cầu hóa nhưng không phải điều 教育学者 nhấn mạnh; Đáp án D (テクノロジーを使いこなす力) được đề cập trong đoạn công nghệ nhưng bài cũng cảnh báo \"どう使うかは人間の判断にかかっている\" — không phải năng lực cốt lõi.",
+          "tip": "Câu hỏi \"nhà nghiên cứu nói gì\" → tìm động từ trang trọng 述べる/指摘する + dấu ngoặc kép hoặc と rồi lấy nội dung ngay sau đó làm đáp án.",
+          "qt": {
+            "q": "Theo bài viết này, nhà giáo dục học nêu năng lực nào là điều quan trọng nhất trong giáo dục hiện đại?",
+            "o": [
+              "Năng lực tăng lượng kiến thức",
+              "Năng lực nói ngoại ngữ",
+              "Năng lực tư duy",
+              "Năng lực sử dụng thành thạo công nghệ"
+            ]
+          }
+        },
+        {
+          "q": "この文章全体で、筆者が最も伝えたいこととして最も適切なものはどれですか。",
+          "evi": [
+            18,
+            20
+          ],
+          "options": [
+            "テクノロジーの発展により、もう学校に行く必要はない",
+            "教育の問題は個人の努力だけで解決できる",
+            "教育の目的・課題について社会全体で議論し、より良い制度を作っていくことが大切だ",
+            "外国語教育こそが現代教育の最重要課題だ"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là C: \"教育の目的・課題について社会全体で議論し、より良い制度を作っていくことが大切だ\". Bằng chứng: câu kết bài \"その議論を通じて、より良い教育制度を作り上げていくことが私たちの責任だと思う\" — đây là luận điểm trung tâm. Trước đó: \"この問題に関して、社会全体で取り組むべきだという意見が強まっている\" cũng hỗ trợ ý \"toàn xã hội cùng đối phó\". Đáp án A sai vì bài không hề nói \"không cần đến trường\"; Đáp án B sai vì bài nhấn mạnh \"社会全体で取り組むべき\" (cần cả xã hội, không chỉ cá nhân); Đáp án D sai vì bài đề cập ngoại ngữ như một khía cạnh trong nhiều khía cạnh, không phải \"最重要課題\".",
+          "tip": "Câu hỏi ý chính toàn bài → tìm câu cuối có 責任/大切/べき + chủ ngữ chúng ta (私たち/社会全体) — đó thường là luận điểm tác giả muốn nhấn nhất.",
+          "qt": {
+            "q": "Trong toàn bài viết này, đâu là điều phù hợp nhất với thông điệp mà tác giả muốn truyền tải nhất?",
+            "o": [
+              "Do sự phát triển của công nghệ, không còn cần thiết phải đến trường nữa",
+              "Các vấn đề giáo dục có thể được giải quyết chỉ bằng nỗ lực cá nhân",
+              "Điều quan trọng là toàn xã hội cùng thảo luận về mục đích và những vấn đề của giáo dục, rồi xây dựng một hệ thống tốt hơn",
+              "Giáo dục ngoại ngữ mới chính là vấn đề quan trọng nhất của giáo dục hiện đại"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "地域の未来を考えるシンポジウムのご案内",
+      "titleVi": "Thông báo: Hội thảo chuyên đề \"Suy nghĩ về tương lai của địa phương\"",
+      "japanese": "地域の未来を考えるシンポジウムのご案内\n青葉大学は、地域社会について市民と一緒に考える公開シンポジウムを開きます。環境問題に関する講演をはじめ、三つのセッションを行いますので、ぜひご参加ください。\nセッション｜時間｜テーマ｜講師\n第1部｜10:00〜11:00｜環境問題に関する講演｜森田教授（環境工学）\n第2部｜11:15〜12:15｜地域経済についての討論｜林氏（地域経済研究所）\n第3部｜13:30〜14:30｜子育て支援に関する報告｜佐藤氏（市役所福祉課）\n参加費：1セッションにつき1,500円\n※学生証をお持ちの方は、1セッションにつき500円引きになります。\n※今月のうちに申し込むと、早期申込割引で、1セッションにつきさらに300円引きになります（学生割引と合わせて使えます）。\n※第1部の環境問題に関する講演は、質疑応答の時間が長いため、開始15分前までにお越しください。\n※第2部は会場が変更になる場合がありますので、当日の掲示にご注意ください。\n参加した方からは「地域経済についての討論はデータが多くて分かりやすかった」という声が届いています。\n申し込み・問い合わせ：青葉大学地域連携課（電話：03-4567-8901）来週金曜日までにご連絡ください。",
+      "vietnamese": "Thông báo: Hội thảo chuyên đề \"Suy nghĩ về tương lai của địa phương\"\nĐại học Aoba tổ chức hội thảo chuyên đề công khai để cùng người dân suy nghĩ về xã hội địa phương. Sẽ có ba phiên, bắt đầu bằng bài giảng về vấn đề môi trường, rất mong quý vị tham gia.\nPhiên｜Thời gian｜Chủ đề｜Diễn giả\nPhần 1｜10:00〜11:00｜Bài giảng về vấn đề môi trường｜Giáo sư Morita (kỹ thuật môi trường)\nPhần 2｜11:15〜12:15｜Thảo luận về kinh tế địa phương｜Ông Hayashi (Viện nghiên cứu kinh tế địa phương)\nPhần 3｜13:30〜14:30｜Báo cáo về hỗ trợ nuôi dạy con｜Ông Sato (Phòng Phúc lợi Tòa thị chính)\nPhí tham dự: 1.500 yên mỗi phiên\n※ Người có thẻ sinh viên được giảm 500 yên cho mỗi phiên.\n※ Nếu đăng ký trong tháng này, được giảm thêm 300 yên mỗi phiên theo diện ưu đãi đăng ký sớm (có thể cộng dồn với giảm giá sinh viên).\n※ Phần 1 (bài giảng về vấn đề môi trường) có thời gian hỏi đáp dài, nên xin hãy đến trước giờ bắt đầu 15 phút.\n※ Phần 2 có thể sẽ đổi phòng, xin lưu ý bảng thông báo trong ngày.\nTừ người đã tham gia có ý kiến phản hồi rằng \"Buổi thảo luận về kinh tế địa phương có nhiều số liệu nên rất dễ hiểu\".\nĐăng ký/liên hệ: Phòng Liên kết Địa phương Đại học Aoba (điện thoại: 03-4567-8901), xin liên hệ trước thứ Sáu tuần sau.",
+      "sentences": [
+        {
+          "jp": "地域の未来を考えるシンポジウムのご案内",
+          "vi": "Thông báo: Hội thảo chuyên đề \"Suy nghĩ về tương lai của địa phương\"",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "địa phương, khu vực"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "シンポジウム",
+              "read": "シンポジウム",
+              "vi": "hội thảo chuyên đề"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "青葉大学は、地域社会について市民と一緒に考える公開シンポジウムを開きます。環境問題に関する講演をはじめ、三つのセッションを行いますので、ぜひご参加ください。",
+          "vi": "Đại học Aoba tổ chức hội thảo chuyên đề công khai để cùng người dân suy nghĩ về xã hội địa phương. Sẽ có ba phiên, bắt đầu bằng bài giảng về vấn đề môi trường, rất mong quý vị tham gia.",
+          "vocab": [
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "公開",
+              "read": "こうかい",
+              "vi": "công khai"
+            },
+            {
+              "w": "シンポジウム",
+              "read": "シンポジウム",
+              "vi": "hội thảo (học thuật)"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài giảng, buổi thuyết trình"
+            },
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái (đếm đồ vật nhỏ)"
+            },
+            {
+              "w": "セッション",
+              "read": "セッション",
+              "vi": "phiên, buổi (hội thảo)"
+            },
+            {
+              "w": "行います",
+              "read": "おこないます",
+              "vi": "tiến hành, tổ chức"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "地域社会",
+              "read": "ちいきしゃかい",
+              "vi": "xã hội địa phương, cộng đồng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 21 ôn）",
+              "vi": "接続: N + について。 地域社会について = \"về xã hội địa phương\". について ôn Bài 21 — dùng thông dụng để giới thiệu chủ đề chung của hội thảo."
+            },
+            {
+              "point": "〜に関する＋N（Bài 67 target）",
+              "vi": "接続: N + に関する + N。 環境問題に関する講演 = \"bài giảng liên quan đến vấn đề môi trường\". に関する bổ nghĩa danh từ 講演 — trang trọng, phù hợp thông báo chính thức của trường đại học."
+            }
+          ],
+          "keys": [
+            {
+              "w": "環境問題に関する講演をはじめ、三つのセッション",
+              "why": "thiết lập chủ đề chính: có 3セッション, mở đầu bằng 環境問題に関する講演 — khớp 第1部 trong bảng, căn cứ cho câu hỏi 2 (giờ đến 第1部)"
+            }
+          ]
+        },
+        {
+          "jp": "セッション｜時間｜テーマ｜講師",
+          "vi": "Phiên｜Thời gian｜Chủ đề｜Diễn giả",
+          "vocab": [
+            {
+              "w": "セッション",
+              "read": "セッション",
+              "vi": "phiên, buổi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "テーマ",
+              "read": "テーマ",
+              "vi": "chủ đề"
+            },
+            {
+              "w": "講師",
+              "read": "こうし",
+              "vi": "diễn giả, giảng viên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "セッション｜時間｜テーマ｜講師",
+              "why": "header bảng chính: 4 cột phiên/giờ/chủ đề/diễn giả — khung để dò cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "第1部｜10:00〜11:00｜環境問題に関する講演｜森田教授（環境工学）",
+          "vi": "Phần 1｜10:00〜11:00｜Bài giảng về vấn đề môi trường｜Giáo sư Morita (kỹ thuật môi trường)",
+          "vocab": [
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài giảng, buổi thuyết trình"
+            },
+            {
+              "w": "森田",
+              "read": "もりた",
+              "vi": "tên riêng Morita"
+            },
+            {
+              "w": "教授",
+              "read": "きょうじゅ",
+              "vi": "giáo sư"
+            },
+            {
+              "w": "工学",
+              "read": "こうがく",
+              "vi": "kỹ thuật học, công học"
+            },
+            {
+              "w": "第1部",
+              "read": "だいいちぶ",
+              "vi": "phần 1, phiên 1"
+            },
+            {
+              "w": "環境工学",
+              "read": "かんきょうこうがく",
+              "vi": "kỹ thuật môi trường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（Bài 67 target）",
+              "vi": "環境問題に関する講演 = \"bài giảng liên quan đến vấn đề môi trường\" (lặp lại lần 2 trong bảng, ứng với 第1部)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "第1部｜10:00〜11:00｜環境問題に関する講演",
+              "why": "căn cứ chính câu hỏi 2: 第1部 bắt đầu 10:00, là buổi cần đến sớm 15 phút theo dòng ※ bên dưới"
+            }
+          ]
+        },
+        {
+          "jp": "第2部｜11:15〜12:15｜地域経済についての討論｜林氏（地域経済研究所）",
+          "vi": "Phần 2｜11:15〜12:15｜Thảo luận về kinh tế địa phương｜Ông Hayashi (Viện nghiên cứu kinh tế địa phương)",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "討論",
+              "read": "とうろん",
+              "vi": "thảo luận, tranh luận"
+            },
+            {
+              "w": "林",
+              "read": "はやし",
+              "vi": "rừng cây; tên riêng Hayashi"
+            },
+            {
+              "w": "研究所",
+              "read": "けんきゅうじょ",
+              "vi": "viện nghiên cứu"
+            },
+            {
+              "w": "第2部",
+              "read": "だいにぶ",
+              "vi": "phần 2, phiên 2"
+            },
+            {
+              "w": "地域経済",
+              "read": "ちいきけいざい",
+              "vi": "kinh tế địa phương"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜についての＋N（について + の bổ nghĩa）",
+              "vi": "地域経済についての討論 = \"buổi thảo luận về kinh tế địa phương\". についての + N bổ nghĩa danh từ 討論 — so sánh với に関する ở 第1部/第3部: cả hai đều trang trọng, nhưng についての thông dụng hơn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "第2部｜11:15〜12:15｜地域経済についての討論",
+              "why": "căn cứ câu hỏi 1 (chọn 2 buổi tham dự) và liên hệ dòng ※ đổi phòng bên dưới"
+            }
+          ]
+        },
+        {
+          "jp": "第3部｜13:30〜14:30｜子育て支援に関する報告｜佐藤氏（市役所福祉課）",
+          "vi": "Phần 3｜13:30〜14:30｜Báo cáo về hỗ trợ nuôi dạy con｜Ông Sato (Phòng Phúc lợi Tòa thị chính)",
+          "vocab": [
+            {
+              "w": "第3部",
+              "read": "だいさんぶ",
+              "vi": "phần 3"
+            },
+            {
+              "w": "13:30",
+              "read": "じゅうさんじさんじゅっぷん",
+              "vi": "13 giờ 30 phút"
+            },
+            {
+              "w": "14:30",
+              "read": "じゅうよじさんじゅっぷん",
+              "vi": "14 giờ 30 phút"
+            },
+            {
+              "w": "子育て",
+              "read": "こそだて",
+              "vi": "nuôi dạy con"
+            },
+            {
+              "w": "支援",
+              "read": "しえん",
+              "vi": "hỗ trợ"
+            },
+            {
+              "w": "子育て支援",
+              "read": "こそだてしえん",
+              "vi": "hỗ trợ nuôi dạy con"
+            },
+            {
+              "w": "関する",
+              "read": "かんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "報告",
+              "read": "ほうこく",
+              "vi": "báo cáo"
+            },
+            {
+              "w": "佐藤",
+              "read": "さとう",
+              "vi": "Satō"
+            },
+            {
+              "w": "氏",
+              "read": "し",
+              "vi": "ông/bà; ngài"
+            },
+            {
+              "w": "佐藤氏",
+              "read": "さとうし",
+              "vi": "ông/bà Satō"
+            },
+            {
+              "w": "市役所",
+              "read": "しやくしょ",
+              "vi": "tòa thị chính"
+            },
+            {
+              "w": "福祉",
+              "read": "ふくし",
+              "vi": "phúc lợi"
+            },
+            {
+              "w": "課",
+              "read": "か",
+              "vi": "ban; phòng"
+            },
+            {
+              "w": "福祉課",
+              "read": "ふくしか",
+              "vi": "phòng phúc lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（Bài 67 target）",
+              "vi": "子育て支援に関する報告 = \"báo cáo liên quan đến hỗ trợ nuôi dạy con\". に関する bổ nghĩa danh từ 報告 (lặp lại lần 3, cùng mẫu với 第1部)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "第3部｜13:30〜14:30｜子育て支援に関する報告",
+              "why": "căn cứ câu hỏi 1: giờ 第3部 (13:30) để xác nhận không trùng với 第1部/第2部 khi chọn 2 buổi tham dự"
+            }
+          ]
+        },
+        {
+          "jp": "参加費：1セッションにつき1,500円",
+          "vi": "Phí tham dự: 1.500 yên mỗi phiên",
+          "vocab": [
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "tham gia"
+            },
+            {
+              "w": "参加費",
+              "read": "さんかひ",
+              "vi": "phí tham dự"
+            },
+            {
+              "w": "1セッション",
+              "read": "いちセッション",
+              "vi": "một phiên"
+            },
+            {
+              "w": "セッション",
+              "read": "セッション",
+              "vi": "phiên; buổi"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi; theo mỗi"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "参加費：1セッションにつき1,500円",
+              "why": "giá gốc mỗi phiên 1,500円 — mốc để trừ các loại giảm giá ở câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "※学生証をお持ちの方は、1セッションにつき500円引きになります。",
+          "vi": "※ Người có thẻ sinh viên được giảm 500 yên cho mỗi phiên.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ sinh viên"
+            },
+            {
+              "w": "お持ち",
+              "read": "おもち",
+              "vi": "có; mang (kính ngữ)"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (cách nói lịch sự)"
+            },
+            {
+              "w": "お持ちの方",
+              "read": "おもちのかた",
+              "vi": "người có; người mang"
+            },
+            {
+              "w": "1セッション",
+              "read": "いちセッション",
+              "vi": "một phiên"
+            },
+            {
+              "w": "セッション",
+              "read": "セッション",
+              "vi": "phiên; buổi"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi; theo mỗi"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            },
+            {
+              "w": "500円引き",
+              "read": "ごひゃくえんびき",
+              "vi": "giảm 500 yên"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành; được tính là"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "学生証をお持ちの方は、1セッションにつき500円引き",
+              "why": "điều kiện giảm giá 1: sinh viên −500円/phiên, căn cứ chính câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "※今月のうちに申し込むと、早期申込割引で、1セッションにつきさらに300円引きになります（学生割引と合わせて使えます）。",
+          "vi": "※ Nếu đăng ký trong tháng này, được giảm thêm 300 yên mỗi phiên theo diện ưu đãi đăng ký sớm (có thể cộng dồn với giảm giá sinh viên).",
+          "vocab": [
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "giai đoạn đầu, sớm"
+            },
+            {
+              "w": "申込",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký, đơn đăng ký"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "セッション",
+              "read": "セッション",
+              "vi": "phiên, buổi (hội thảo)"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "合わせる",
+              "read": "あわせる",
+              "vi": "thống nhất, khớp lại"
+            },
+            {
+              "w": "使える",
+              "read": "つかえる",
+              "vi": "dùng được, sử dụng được"
+            },
+            {
+              "w": "早期申込割引",
+              "read": "そうきもうしこみわりびき",
+              "vi": "ưu đãi đăng ký sớm"
+            },
+            {
+              "w": "合わせて使えます",
+              "read": "あわせてつかえます",
+              "vi": "có thể dùng cộng dồn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Bài 55 ôn）",
+              "vi": "今月のうちに申し込む = tranh thủ đăng ký trong lúc còn trong tháng này. うちに (Bài 55 ôn) nhấn mạnh phải làm trước khi mốc thời gian (hết tháng) trôi qua."
+            }
+          ],
+          "keys": [
+            {
+              "w": "今月のうちに申し込むと、早期申込割引で、1セッションにつきさらに300円引き",
+              "why": "điều kiện giảm giá 2: đăng ký sớm −300円/phiên"
+            },
+            {
+              "w": "学生割引と合わせて使えます",
+              "why": "xác nhận 2 giảm giá CỘNG DỒN được — bắt buộc trừ cả 500円 và 300円 ở câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "※第1部の環境問題に関する講演は、質疑応答の時間が長いため、開始15分前までにお越しください。",
+          "vi": "※ Phần 1 (bài giảng về vấn đề môi trường) có thời gian hỏi đáp dài, nên xin hãy đến trước giờ bắt đầu 15 phút.",
+          "vocab": [
+            {
+              "w": "第1部",
+              "read": "だいいちぶ",
+              "vi": "phần 1"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "環境問題",
+              "read": "かんきょうもんだい",
+              "vi": "vấn đề môi trường"
+            },
+            {
+              "w": "関する",
+              "read": "かんする",
+              "vi": "liên quan đến"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài giảng; diễn thuyết"
+            },
+            {
+              "w": "質疑",
+              "read": "しつぎ",
+              "vi": "chất vấn"
+            },
+            {
+              "w": "応答",
+              "read": "おうとう",
+              "vi": "giải đáp; trả lời"
+            },
+            {
+              "w": "質疑応答",
+              "read": "しつぎおうとう",
+              "vi": "hỏi đáp"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài; lâu"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "vì; do"
+            },
+            {
+              "w": "開始",
+              "read": "かいし",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "15分",
+              "read": "じゅうごふん",
+              "vi": "15 phút"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "15分前",
+              "read": "じゅうごふんまえ",
+              "vi": "15 phút trước"
+            },
+            {
+              "w": "お越しください",
+              "read": "おこしください",
+              "vi": "xin mời đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に関する＋N（Bài 67 target）",
+              "vi": "第1部の環境問題に関する講演 = \"bài giảng về vấn đề môi trường của Phần 1\" (lặp lại lần 4, tái xác nhận chủ đề của 第1部)."
+            },
+            {
+              "point": "〜ため（Bài 39 ので ứng dụng）",
+              "vi": "時間が長いため = vì thời gian dài. ため chỉ lý do trang trọng hơn ので (Bài 39 ôn), thường dùng trong văn thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "第1部の環境問題に関する講演は、質疑応答の時間が長いため、開始15分前までにお越しください",
+              "why": "căn cứ chính câu hỏi 2: 第1部 (10:00) cần đến lúc 9:45, không phải 10:00"
+            }
+          ]
+        },
+        {
+          "jp": "※第2部は会場が変更になる場合がありますので、当日の掲示にご注意ください。",
+          "vi": "※ Phần 2 có thể sẽ đổi phòng, xin lưu ý bảng thông báo trong ngày.",
+          "vocab": [
+            {
+              "w": "第2部",
+              "read": "だいにぶ",
+              "vi": "phần 2"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm; hội trường"
+            },
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "なる",
+              "read": "なる",
+              "vi": "trở thành"
+            },
+            {
+              "w": "変更になる",
+              "read": "へんこうになる",
+              "vi": "được thay đổi"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có; tồn tại"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó"
+            },
+            {
+              "w": "掲示",
+              "read": "けいじ",
+              "vi": "thông báo niêm yết"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý; lưu ý"
+            },
+            {
+              "w": "ご注意ください",
+              "read": "ごちゅういください",
+              "vi": "xin hãy lưu ý"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "第2部は会場が変更になる場合がありますので、当日の掲示にご注意ください",
+              "why": "thông tin phụ về 第2部 — bẫy câu hỏi 2 nếu nhầm là điều kiện giờ giấc, thực chất chỉ liên quan phòng ốc, không phải giờ đến"
+            }
+          ]
+        },
+        {
+          "jp": "参加した方からは「地域経済についての討論はデータが多くて分かりやすかった」という声が届いています。",
+          "vi": "Từ người đã tham gia có ý kiến phản hồi rằng \"Buổi thảo luận về kinh tế địa phương có nhiều số liệu nên rất dễ hiểu\".",
+          "vocab": [
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "経済",
+              "read": "けいざい",
+              "vi": "kinh tế"
+            },
+            {
+              "w": "討論",
+              "read": "とうろん",
+              "vi": "thảo luận, tranh luận"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "届く",
+              "read": "とどく",
+              "vi": "đến, tới nơi"
+            },
+            {
+              "w": "声が届きます",
+              "read": "こえがとどきます",
+              "vi": "có ý kiến phản hồi, nhận được lời chia sẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜についての＋N（について + の bổ nghĩa）",
+              "vi": "地域経済についての討論 = \"buổi thảo luận về kinh tế địa phương\" (lặp lại, ôn cách bổ nghĩa danh từ bằng について)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "申し込み・問い合わせ：青葉大学地域連携課（電話：03-4567-8901）来週金曜日までにご連絡ください。",
+          "vi": "Đăng ký/liên hệ: Phòng Liên kết Địa phương Đại học Aoba (điện thoại: 03-4567-8901), xin liên hệ trước thứ Sáu tuần sau.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "liên hệ, hỏi thăm"
+            },
+            {
+              "w": "青葉",
+              "read": "あおば",
+              "vi": "lá xanh tươi; tên riêng Aoba"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "連携",
+              "read": "れんけい",
+              "vi": "sự phối hợp, liên kết"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "金曜日",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "地域連携課",
+              "read": "ちいきれんけいか",
+              "vi": "phòng liên kết địa phương"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "来週金曜日までにご連絡ください",
+              "why": "hạn chót đăng ký — thông tin phụ, không phải căn cứ trực tiếp của 2 câu hỏi nhưng dùng để loại trừ nhiễu về thời hạn"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "環境問題に関する講演",
+          "label": "〜に関する＋N（Bài 67 target — bổ nghĩa danh từ）"
+        },
+        {
+          "excerpt": "地域経済についての討論",
+          "label": "〜についての＋N（Bài 67 target — について bổ nghĩa）"
+        },
+        {
+          "excerpt": "子育て支援に関する報告",
+          "label": "〜に関する＋N（Bài 67 target — lặp lại lần 3）"
+        },
+        {
+          "excerpt": "地域社会について",
+          "label": "〜について（Bài 21 ôn — giới thiệu chủ đề chung）"
+        },
+        {
+          "excerpt": "今月のうちに申し込むと",
+          "label": "Sắc thái: 〜うちに（Bài 55 ôn — tranh thủ trước mốc thời gian）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời tham gia",
+          "topic": 0,
+          "note": "Tiêu đề hội thảo + giới thiệu 3 セッション, mở đầu bằng 環境問題に関する講演 — thiết lập chủ đề chung, chưa có căn cứ đáp án cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng 3 phiên (giờ・chủ đề・diễn giả)",
+          "topic": 2,
+          "note": "Bảng chính: mỗi hàng là 1 phiên với giờ/chủ đề/diễn giả — 第1部 và 第2部 (hoặc 第3部) là căn cứ chính của câu hỏi 1 (chọn buổi) và câu hỏi 2 (giờ đến 第1部).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "point",
+          "label": "Giá gốc + hai điều kiện giảm giá ※",
+          "topic": 6,
+          "note": "Giá gốc 1,500円/phiên + hai dòng ※ nêu 2 mức giảm giá CỘNG DỒN được (500円 sinh viên + 300円 đăng ký sớm trong tháng) — bắt buộc cộng cả hai để ra đúng số tiền ở câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Ghi chú riêng từng phiên (bẫy giờ giấc/phòng ốc)",
+          "topic": 9,
+          "note": "Dòng ※ về 第1部 (đến sớm 15 phút vì hỏi đáp dài) là căn cứ câu hỏi 2; dòng ※ về 第2部 (đổi phòng) là bẫy — không liên quan giờ giấc.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "body",
+          "label": "Cảm nhận người tham gia & liên hệ đăng ký",
+          "topic": 12,
+          "note": "Lời cảm nhận về 第2部 (không phải căn cứ đáp án) và thông tin liên hệ/hạn đăng ký — không liên quan trực tiếp tới 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "学生のリンさんは学生証を持っています。今月のうちに申し込んで、第1部と第3部の二つのセッションに参加する場合、参加費は合計いくらになりますか。",
+          "options": [
+            "1,400円",
+            "1,900円",
+            "2,800円",
+            "3,000円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0（1,400円）。1セッションの参加費は1,500円。学生証を持っているので1セッションにつき500円引き（→1,000円）、さらに今月のうちに申し込むので早期申込割引300円引き（→700円）。二つの割引は「合わせて使えます」と書いてあるので、1セッションあたり700円になります。二つのセッション（第1部と第3部）に参加するので、700円×2＝1,400円。選択肢1（1,900円）は片方のセッションだけ両方の割引を引き、もう片方は学生割引しか引いていない計算ミス。選択肢2（2,800円）は学生割引だけを2セッション分引いた金額（1,000円×2＋一部誤差含む考え方）。選択肢3（3,000円）は割引を一つも引いていない元の金額（1,500円×2）。",
+          "tip": "Câu hỏi ghép 3 điều kiện: đối tượng (sinh viên) + thời điểm đăng ký (trong tháng) + SỐ BUỔI tham dự → tính giảm giá cho 1 buổi trước, rồi NHÂN với số buổi, không được cộng/trừ nhầm một lần cho tất cả các buổi.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Sinh viên Lin có thẻ sinh viên. Nếu đăng ký trong tháng này và tham gia hai phiên thứ nhất và thứ ba, tổng phí tham gia là bao nhiêu?",
+            "o": [
+              "1.400 yên",
+              "1.900 yên",
+              "2.800 yên",
+              "3.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "田中さんは第1部の環境問題に関する講演だけに参加したいと思っています。田中さんは何時までに会場に着かなければなりませんか。",
+          "options": [
+            "9時45分",
+            "10時00分",
+            "10時15分",
+            "11時15分"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0（9時45分）。表を見ると、第1部（環境問題に関する講演）は10:00に始まります。そして※には「第1部の環境問題に関する講演は、質疑応答の時間が長いため、開始15分前までにお越しください」とあるので、10:00の15分前、つまり9:45までに会場に着く必要があります。選択肢1（10:00）は開始時刻そのもので、15分前という指示を無視しています。選択肢2（10:15）は開始時刻より後で、明らかに遅刻です。選択肢3（11:15）は第2部の開始時刻で、第1部とは関係ありません。",
+          "tip": "Câu hỏi ghép điều kiện GIỜ BẮT ĐẦU trong bảng + GHI CHÚ ※ riêng của buổi đó (đến sớm bao nhiêu phút) → phải LẤY GIỜ BẢNG rồi TRỪ THÊM số phút ghi trong ※, không dùng thẳng giờ bảng.",
+          "evi": [
+            3,
+            9
+          ],
+          "qt": {
+            "q": "Anh Tanaka chỉ muốn tham gia bài giảng về các vấn đề môi trường ở phiên thứ nhất. Anh Tanaka phải đến địa điểm tổ chức muộn nhất vào lúc mấy giờ?",
+            "o": [
+              "9 giờ 45 phút",
+              "10 giờ 00 phút",
+              "10 giờ 15 phút",
+              "11 giờ 15 phút"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

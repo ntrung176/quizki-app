@@ -1,0 +1,494 @@
+{
+  "id": "minna2.b33",
+  "bai": 33,
+  "titleVi": "Trông có vẻ, nghe nói",
+  "know": [
+    {
+      "id": "minna2.b33.sou-youtai",
+      "point": "sou-youtai",
+      "jp": "〜そうです（様態[ようたい]）",
+      "vi": "Trông có vẻ ~ (dự đoán từ quan sát ngoại hình)",
+      "en": "Looks like ~ (inferred from what is visibly seen / appearance)",
+      "gloss": "元気[げんき]そうです ／ おいしそうです ／ 難[むずか]しそうです",
+      "glossEn": "Vます-stem ＋ そうだ ／ A語幹[ごかん] ＋ そうだ ／ いい→よさそう ／ ない→なさそう ・ 例: 空[そら]が 暗[くら]いから、雨[あめ]が 降[ふ]りそうだ。（The sky is dark, so it looks like it is about to rain — inferred from what is visibly seen）"
+    },
+    {
+      "id": "minna2.b33.sou-denbun",
+      "point": "sou-denbun",
+      "jp": "〜そうです（伝聞[でんぶん]）",
+      "vi": "Nghe nói ~ (truyền đạt lại thông tin nghe được)",
+      "en": "I hear that ~ (relaying information heard from an outside source)",
+      "gloss": "雨[あめ]が 降[ふ]るそうです ／ 田中[たなか]さんは 元気[げんき]だそうです",
+      "glossEn": "普通形[ふつうけい]（V/A/N）＋ そうだ（だ→だそうだ） ・ 例: 部長[ぶちょう]は 明日[あした] 来[く]るそうです。（I hear the department manager is coming tomorrow — information from someone else）"
+    },
+    {
+      "id": "minna2.b33.you-rashii",
+      "point": "you-rashii",
+      "jp": "〜ようです ／ 〜らしいです",
+      "vi": "Có vẻ như ~ (từ bằng chứng) ／ Dường như ~ (từ thông tin gián tiếp)",
+      "en": "Seems like ~ (based on evidence) / Apparently ~ (based on indirect information)",
+      "gloss": "具合[ぐあい]が 悪[わる]いようです ／ 彼[かれ]は 病気[びょうき]らしいです",
+      "glossEn": "具合[ぐあい]が 悪[わる]いようです ／ 彼[かれ]は 病気[びょうき]らしいです"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b33-sy-oishii",
+      "item": "minna2.b33.sou-youtai",
+      "err": "sou-youtai-form",
+      "vi": "Cái bánh đó trông có vẻ ngon.",
+      "t1": {
+        "stem": "そのケーキは ＿。",
+        "choices": [
+          "おいしそうです",
+          "おいしいそうです",
+          "おいしようです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "そのケーキは",
+          "おいしそう",
+          "です。"
+        ],
+        "traps": [
+          "おいしいです。",
+          "おいしいそうです。"
+        ]
+      },
+      "t3": {
+        "target": "そのケーキはおいしそうです。",
+        "accept": [
+          "そのけーきはおいしそうです。"
+        ]
+      },
+      "why": "様態そうです: い-adj bỏ い cuối rồi thêm そうです. おいし【い】→ おいしそうです. ✗ おいしいそうです = giữ nguyên い → lỗi 様態."
+    },
+    {
+      "id": "c-b33-sy-tsukareta",
+      "item": "minna2.b33.sou-youtai",
+      "err": "sou-youtai-form",
+      "vi": "Anh ấy trông có vẻ mệt.",
+      "t1": {
+        "stem": "彼[かれ]は 疲[つか]れ＿。",
+        "choices": [
+          "そうです",
+          "るそうです",
+          "ていそうです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "疲[つか]れ",
+          "そうです。"
+        ],
+        "traps": [
+          "疲[つか]れるそうです。",
+          "疲[つか]れていそうです。"
+        ]
+      },
+      "t3": {
+        "target": "彼は疲れそうです。",
+        "accept": [
+          "かれはつかれそうです。"
+        ]
+      },
+      "why": "疲[つか]れる は グループII。様態そうです: V の ます-stem（疲れ）＋ そうです. ✗ 疲れるそうです = 辞書形 + そうです → これは 伝聞 の 形, 様態 ではない."
+    },
+    {
+      "id": "c-b33-sy-genki",
+      "item": "minna2.b33.sou-youtai",
+      "err": "sou-youtai-form",
+      "vi": "Em bé đó trông có vẻ khỏe mạnh.",
+      "t1": {
+        "stem": "あの 赤[あか]ちゃんは 元気[げんき]＿。",
+        "choices": [
+          "そうです",
+          "なそうです",
+          "だそうです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 赤[あか]ちゃんは",
+          "元気[げんき]",
+          "そうです。"
+        ],
+        "traps": [
+          "元気[げんき]なそうです。",
+          "元気[げんき]だそうです。"
+        ]
+      },
+      "t3": {
+        "target": "あの赤ちゃんは元気そうです。",
+        "accept": [
+          "あのあかちゃんはげんきそうです。"
+        ]
+      },
+      "why": "様態そうです と な-adj: な を 取[と]って そうです を 付[つ]ける. 元気【な】→ 元気そうです. ✗ 元気なそうです / 元気だそうです = 伝聞 の 形."
+    },
+    {
+      "id": "c-b33-sy-muzukashikunasa",
+      "item": "minna2.b33.sou-youtai",
+      "err": "sou-youtai-form",
+      "vi": "Bài thi đó trông có vẻ không khó.",
+      "t1": {
+        "stem": "そのテストは 難[むずか]し＿。",
+        "choices": [
+          "くなさそうです",
+          "くないそうです",
+          "なさそうです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "そのテストは",
+          "難[むずか]しく",
+          "なさそうです。"
+        ],
+        "traps": [
+          "難[むずか]しくないそうです。",
+          "難[むずか]しくなかったそうです。"
+        ]
+      },
+      "t3": {
+        "target": "そのテストは難しくなさそうです。",
+        "accept": [
+          "そのてすとはむずかしくなさそうです。"
+        ]
+      },
+      "why": "様態そうです の 否定[ひてい]: い-adj → くない → い を 取[と]って くなさ＋そうです. ✗ 難しくないそうです = ない の 原形[げんけい]そのまま → 伝聞 の 形."
+    },
+    {
+      "id": "c-b33-sd-ame",
+      "item": "minna2.b33.sou-denbun",
+      "err": "sou-denbun-form",
+      "vi": "Nghe nói ngày mai trời sẽ mưa.",
+      "t1": {
+        "stem": "明日[あした]、雨[あめ]が ＿そうです。",
+        "choices": [
+          "降[ふ]る",
+          "降[ふ]り",
+          "降[ふ]って"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "明日[あした]、",
+          "雨[あめ]が",
+          "降[ふ]る",
+          "そうです。"
+        ],
+        "traps": [
+          "降[ふ]りそうです。",
+          "降[ふ]っているそうです。"
+        ]
+      },
+      "t3": {
+        "target": "明日、雨が降るそうです。",
+        "accept": [
+          "あした、あめがふるそうです。"
+        ]
+      },
+      "why": "伝聞そうです: 動詞[どうし] の 普通形[ふつうけい]（辞書形）＋ そうです. 降る（辞書形）＋ そうです. ✗ 降りそうです = 様態（もう すぐ 降りそう）."
+    },
+    {
+      "id": "c-b33-sd-byoki",
+      "item": "minna2.b33.sou-denbun",
+      "err": "sou-denbun-form",
+      "vi": "Nghe nói anh Tanaka bị ốm.",
+      "t1": {
+        "stem": "田中[たなか]さんは 病気[びょうき]＿そうです。",
+        "choices": [
+          "だ",
+          "な",
+          "の"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "病気[びょうき]だ",
+          "そうです。"
+        ],
+        "traps": [
+          "病気[びょうき]なそうです。",
+          "病気[びょうき]のそうです。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは病気だそうです。",
+        "accept": [
+          "たなかさんはびょうきだそうです。"
+        ]
+      },
+      "why": "伝聞そうです と 名詞[めいし]: N＋だ＋そうです. 病気（名詞）→ 病気だそうです. ✗ 病気なそうです → な は 名詞修飾[めいしゅうしょく] の 形, 伝聞 には 使[つか]わない."
+    },
+    {
+      "id": "c-b33-sd-jiko",
+      "item": "minna2.b33.sou-denbun",
+      "err": "sou-denbun-form",
+      "vi": "Nghe nói hôm qua đã xảy ra tai nạn ở giao lộ đó.",
+      "t1": {
+        "stem": "きのう あの 交差点[こうさてん]で 事故[じこ]が ＿そうです。",
+        "choices": [
+          "あった",
+          "あり",
+          "あって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "きのう",
+          "あの 交差点[こうさてん]で",
+          "事故[じこ]が",
+          "あった",
+          "そうです。"
+        ],
+        "traps": [
+          "ありそうです。",
+          "あるそうです。"
+        ]
+      },
+      "t3": {
+        "target": "きのうあの交差点で事故があったそうです。",
+        "accept": [
+          "きのうあのこうさてんでじこがあったそうです。"
+        ]
+      },
+      "why": "伝聞そうです の 過去[かこ]: た-form（普通形 過去）＋ そうです. あった（ある の た形）＋ そうです. ✗ ありそうです = 様態（いかにも ありそうな）."
+    },
+    {
+      "id": "c-b33-yr-you",
+      "item": "minna2.b33.you-rashii",
+      "err": "you-rashii-form",
+      "vi": "Hình như cô ấy đang khóc (tôi thấy mắt cô ấy đỏ hoe).",
+      "t1": {
+        "stem": "彼女[かのじょ]は 泣[な]いている＿。",
+        "choices": [
+          "ようです",
+          "そうです",
+          "だそうです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "泣[な]いている",
+          "ようです。"
+        ],
+        "traps": [
+          "泣[な]きそうです。",
+          "泣[な]いているだそうです。"
+        ]
+      },
+      "t3": {
+        "target": "彼女は泣いているようです。",
+        "accept": [
+          "かのじょはないているようです。"
+        ]
+      },
+      "why": "ようです = 直接[ちょくせつ] の 証拠[しょうこ]（目[め]が 赤[あか]い）から の 推量[すいりょう]. 普通形 + ようです. ✗ 泣きそうです = 様態（今にも 泣きそうな 顔[かお]），証拠推量 ではない."
+    },
+    {
+      "id": "c-b33-yr-rashii",
+      "item": "minna2.b33.you-rashii",
+      "err": "you-rashii-form",
+      "vi": "Dường như anh ấy đã đi Nhật rồi (nghe ai đó nói vậy).",
+      "t1": {
+        "stem": "彼[かれ]は 日本[にほん]へ 行[い]った＿。",
+        "choices": [
+          "らしいです",
+          "ようです",
+          "そうです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "日本[にほん]へ",
+          "行[い]った",
+          "らしいです。"
+        ],
+        "traps": [
+          "行[い]ったようです。",
+          "行[い]ったですそうです。"
+        ]
+      },
+      "t3": {
+        "target": "彼は日本へ行ったらしいです。",
+        "accept": [
+          "かれはにほんへいったらしいです。"
+        ]
+      },
+      "why": "らしいです = 間接[かんせつ]情報[じょうほう]（誰[だれ]か から 聞[き]いた）から の 推量. 普通形 + らしい. ✗ 行ったようです も 可能[かのう]だが，状況[じょうきょう]（間接情報）には らしい が より 自然[しぜん]."
+    },
+    {
+      "id": "c-b33-yr-you2",
+      "item": "minna2.b33.you-rashii",
+      "err": "you-rashii-form",
+      "vi": "Có vẻ như cô ấy không khỏe (nhìn thái độ và biểu hiện mà đoán).",
+      "t1": {
+        "stem": "彼女[かのじょ]は 具合[ぐあい]が 悪[わる]い＿。",
+        "choices": [
+          "ようです",
+          "らしいです",
+          "そうです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "具合[ぐあい]が",
+          "悪[わる]い",
+          "ようです。"
+        ],
+        "traps": [
+          "悪[わる]そうです。",
+          "悪[わる]いだそうです。"
+        ]
+      },
+      "t3": {
+        "target": "彼女は具合が悪いようです。",
+        "accept": [
+          "かのじょはぐあいがわるいようです。"
+        ]
+      },
+      "why": "ようです: 行動[こうどう]・様子[ようす] を 直接[ちょくせつ] 見[み]て 推量. 普通形（悪い）+ ようです. ✗ 悪そうです = 様態（ぱっと 見て 悪そう）で 即[そく]座[ざ] の 外見観察[がいけんかんさつ]，こちら は 行動からの推量."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b33-sy",
+      "item": "minna2.b33.sou-youtai",
+      "err": "sou-youtai-form",
+      "tts": "このりょうりはおいしそうですね。— そうですね、においもいいですし。",
+      "script": "この 料理[りょうり]は おいしそうですね。— そうですね、においも いいですし。",
+      "ask": "Người nói nhận xét gì về món ăn?",
+      "choices": [
+        "Trông có vẻ ngon",
+        "Nghe nói rất ngon",
+        "Đã ăn và thấy ngon"
+      ],
+      "answer": 0,
+      "why": "おいしそうです = 様態そうです, nhìn thấy trực tiếp → dự đoán ngon. Không phải 伝聞（nghe nói）."
+    },
+    {
+      "id": "l-b33-sd",
+      "item": "minna2.b33.sou-denbun",
+      "err": "sou-denbun-form",
+      "tts": "らいしゅうのかいぎはちゅうしになるそうです。— えっ、そうですか。",
+      "script": "来週[らいしゅう]の 会議[かいぎ]は 中止[ちゅうし]に なるそうです。— えっ、そうですか。",
+      "ask": "Thông tin nào được truyền đạt lại?",
+      "choices": [
+        "Cuộc họp tuần tới bị hủy",
+        "Cuộc họp tuần tới bắt đầu lúc 9 giờ",
+        "Cuộc họp tuần tới chuyển địa điểm"
+      ],
+      "answer": 0,
+      "why": "〜そうです（伝聞）= nghe nói ~. なるそうです = nghe nói sẽ bị hủy. Dùng 普通形（なる）trước そうです."
+    },
+    {
+      "id": "l-b33-yr",
+      "item": "minna2.b33.you-rashii",
+      "err": "you-rashii-form",
+      "tts": "やまださんはかいしゃをやめるらしいですよ。— ほんとうですか、しらなかった。",
+      "script": "山田[やまだ]さんは 会社[かいしゃ]を やめる らしいですよ。— 本当[ほんとう]ですか、知[し]らなかった。",
+      "ask": "Thông tin về anh Yamada là gì?",
+      "choices": [
+        "Có vẻ anh ấy sẽ nghỉ việc",
+        "Nghe nói anh ấy được thăng chức",
+        "Hình như anh ấy đang đi công tác"
+      ],
+      "answer": 0,
+      "why": "らしいです = 間接情報からの推量. やめるらしいです = dường như（nghe đồn）sẽ nghỉ việc."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b33-te-iru",
+      "item": "minna1.b14.te-imasu",
+      "err": "te-iru-vs-masu",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 33 ・ 〜ようです",
+      "vi": "Hình như anh ấy đang làm việc (tôi thấy đèn văn phòng vẫn bật).",
+      "t1": {
+        "stem": "彼[かれ]は 仕事[しごと]を ＿ ようです。",
+        "choices": [
+          "している",
+          "します",
+          "しました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "仕事[しごと]を",
+          "している",
+          "ようです。"
+        ],
+        "traps": [
+          "します ようです。",
+          "しています ようです。"
+        ]
+      },
+      "t3": {
+        "target": "彼は仕事をしているようです。",
+        "accept": [
+          "かれはしごとをしているようです。"
+        ]
+      },
+      "why": "ようです の 前[まえ]は 普通形[ふつうけい]. 「đang làm」= している（ている の 普通形）＋ ようです. ✗ します（ます形）は 普通形 ではない → Bài 14 の 典型[てんけい]的[てき]ミス."
+    },
+    {
+      "id": "a-b33-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 33 ・ 〜そうです (様態)",
+      "vi": "Cái hộp này trông có vẻ nặng, để tôi xách giúp nhé.",
+      "t1": {
+        "stem": "この 箱[はこ]は 重[おも]そうですから、＿ ましょうか。",
+        "choices": [
+          "持[も]ち",
+          "持[も]って",
+          "持[も]つ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 箱[はこ]は",
+          "重[おも]そうですから、",
+          "持[も]ち",
+          "ましょうか。"
+        ],
+        "traps": [
+          "持[も]ってましょうか。",
+          "持[も]つましょうか。"
+        ]
+      },
+      "t3": {
+        "target": "この箱は重そうですから、持ちましょうか。",
+        "accept": [
+          "このはこはおもそうですから、もちましょうか。"
+        ]
+      },
+      "why": "ましょうか の 前[まえ]は ます-stem: 持つ→持ち＋ましょうか. ✗ 持ってましょうか = Bài 14 の ミス, て-form を ます-stem の 代[か]わりに 使[つか]っている."
+    }
+  ]
+}

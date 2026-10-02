@@ -1,0 +1,4437 @@
+{
+  "bai": 41,
+  "level": "N4",
+  "intro": "〜てあげる (làm cho ai) · 〜てもらう (nhờ/được ai làm) · 〜てくれる (ai làm cho mình) · 〜ていただく (kính ngữ). Có ÔN LẠI ngữ pháp đã học (bài 1-40) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "先生は私の作文を丁寧に直してくださいました。",
+              "ul": "丁寧",
+              "choices": [
+                "ていねい",
+                "ていれい",
+                "じょうねい",
+                "じょうれい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「丁寧」là từ ghép âm Hán, đọc là「ていねい」(tei-nei). Có nghĩa là cẩn thận, tỉ mỉ, lịch sự. Phương án A「ていねい」đúng vì cả hai chữ đều đọc theo âm Hán (丁=てい, 寧=ねい). Phương án B「ていれい」sai vì 寧 không đọc là「れい」— れい là âm của 礼/零. Phương án C「じょうねい」sai vì 丁 không có âm「じょう」trong từ này; じょう thường là âm của 上/場/乗. Phương án D「じょうれい」sai vì cả hai thành tố đều bị đọc sai, じょうれい là cách đọc của 条例 (điều lệ), hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "作文",
+                  "read": "さくぶん",
+                  "vi": "bài văn, bài luận"
+                },
+                {
+                  "t": "丁寧に",
+                  "vi": "một cách cẩn thận, lịch sự"
+                },
+                {
+                  "t": "直して",
+                  "read": "なおして",
+                  "vi": "sửa (dạng て)"
+                },
+                {
+                  "t": "くださいました",
+                  "vi": "đã làm cho tôi (kính ngữ của てくれました)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼は私が重い荷物を運ぶのを手伝ってくれました。",
+              "ul": "荷物",
+              "choices": [
+                "にもつ",
+                "かもつ",
+                "にぶつ",
+                "かぶつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「荷物」đọc là「にもつ」(ni-mo-tsu), nghĩa là hành lý, đồ đạc. 荷 đọc là「に」(âm Hán) hoặc「か」khi đứng trước một số từ, và 物 đọc là「もの/もつ」. Phương án A「にもつ」đúng. Phương án B「かもつ」là cách đọc của 貨物 (hàng hóa vận chuyển), không phải 荷物. Phương án C「にぶつ」sai vì 物 trong 荷物 đọc là「もつ」không phải「ぶつ」; ぶつ là âm của 物 trong các từ như 物体. Phương án D「かぶつ」không phải từ tiêu chuẩn trong tiếng Nhật, là cách đọc bịa.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "重い",
+                  "read": "おもい",
+                  "vi": "nặng"
+                },
+                {
+                  "t": "荷物",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "運ぶ",
+                  "read": "はこぶ",
+                  "vi": "vận chuyển, mang"
+                },
+                {
+                  "t": "手伝って",
+                  "read": "てつだって",
+                  "vi": "giúp đỡ (dạng て)"
+                },
+                {
+                  "t": "くれました",
+                  "vi": "đã làm cho tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは私に道を親切に教えてくれました。",
+              "ul": "親切",
+              "choices": [
+                "しんせつ",
+                "しんさつ",
+                "しんせい",
+                "しんさい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「親切」đọc là「しんせつ」(shin-se-tsu), nghĩa là tử tế, ân cần. 親=しん, 切=せつ (âm Hán). Phương án A「しんせつ」đúng. Phương án B「しんさつ」là cách đọc của 診察 (khám bệnh) — 察 đọc là「さつ」, không phải 切. Phương án C「しんせい」là cách đọc của 申請 (nộp đơn) hay 新生 (sinh mới), 切 không đọc là「せい」. Phương án D「しんさい」là cách đọc của 震災 (thảm họa động đất), hoàn toàn khác nghĩa và cách đọc.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "道",
+                  "read": "みち",
+                  "vi": "đường, con đường"
+                },
+                {
+                  "t": "親切に",
+                  "vi": "một cách tử tế, thân thiện"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "chỉ dẫn, dạy (dạng て)"
+                },
+                {
+                  "t": "くれました",
+                  "vi": "đã làm cho tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "部長はわたしに仕事のやり方を説明してくださいました。",
+              "ul": "説明",
+              "choices": [
+                "せつめい",
+                "せつみょう",
+                "せつべい",
+                "せつまい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「説明」đọc là「せつめい」(se-tsu-mei), nghĩa là giải thích, thuyết minh. 説=せつ, 明=めい (âm Hán). Phương án A「せつめい」đúng. Phương án B「せつみょう」sai vì 明 không đọc là「みょう」trong từ này; みょう là cách đọc của 明 trong 明日 (みょうにち) ở văn phong trang trọng, nhưng trong 説明 âm chuẩn là「めい」. Phương án C「せつべい」và D「せつまい」đều bịa, 明 không đọc là「べい」hay「まい」trong bất kỳ từ Hán-Nhật thông dụng nào.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "やり方",
+                  "read": "やりかた",
+                  "vi": "cách làm, phương pháp"
+                },
+                {
+                  "t": "説明",
+                  "vi": "giải thích, thuyết minh"
+                },
+                {
+                  "t": "してくださいました",
+                  "vi": "đã làm cho tôi (kính ngữ, người trên làm cho người dưới)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "友達が引っ越しを手伝ってもらって、本当に助かりました。",
+              "ul": "助",
+              "choices": [
+                "たすかりました",
+                "すくかりました",
+                "じょかりました",
+                "たうかりました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「助かる」đọc là「たすかる」(ta-su-ka-ru), là động từ nghĩa là được cứu, được giúp, may mắn thoát khỏi khó khăn. 助 đọc theo âm Nhật (kun'yomi) là「たす」. Phương án A「たすかりました」đúng. Phương án B「すくかりました」sai vì 助 không đọc là「すく」đứng một mình trong từ này; すく là âm kun của 助 trong 助ける (すくう) nhưng 助かる dứt khoát là たすかる. Phương án C「じょかりました」sai vì じょ là âm on (Hán) của 助, không dùng trong 助かる. Phương án D「たうかりました」là bịa, không phải từ tiêu chuẩn.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "引っ越し",
+                  "read": "ひっこし",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "手伝って",
+                  "read": "てつだって",
+                  "vi": "giúp đỡ (dạng て)"
+                },
+                {
+                  "t": "もらって",
+                  "vi": "nhận được (sự giúp đỡ)"
+                },
+                {
+                  "t": "本当に",
+                  "read": "ほんとうに",
+                  "vi": "thật sự"
+                },
+                {
+                  "t": "助かりました",
+                  "vi": "đã được giúp đỡ, thật may mắn"
+                },
+                {
+                  "t": "たすかりました",
+                  "read": "たすかりました",
+                  "vi": "được giúp đỡ/nhẹ nhõm hẳn — thể ます quá khứ của 助かる (đáp án đúng theo cách đọc chữ 助かる)"
+                },
+                {
+                  "t": "すくかりました",
+                  "read": "すくかりました",
+                  "vi": "cách đọc sai, không phải cách đọc đúng của 助かる"
+                },
+                {
+                  "t": "じょかりました",
+                  "read": "じょかりました",
+                  "vi": "cách đọc sai (nhầm âm Hán 助=じょ ghép sai)"
+                },
+                {
+                  "t": "たうかりました",
+                  "read": "たうかりました",
+                  "vi": "cách đọc sai (nhầm âm う thay cho す)"
+                }
+              ]
+            },
+            {
+              "prompt": "先輩に推薦状を書いていただいて、大変感謝しています。",
+              "ul": "感謝",
+              "choices": [
+                "かんしゃ",
+                "かんさ",
+                "かんじゃ",
+                "かんしょ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「感謝」đọc là「かんしゃ」(kan-sha), nghĩa là biết ơn, cảm ơn. 感=かん, 謝=しゃ (âm Hán). Phương án A「かんしゃ」đúng. Phương án B「かんさ」thiếu âm「し」, đây không phải từ tồn tại trong tiếng Nhật chuẩn với nghĩa này. Phương án C「かんじゃ」là cách đọc của 患者 (bệnh nhân), 謝 không đọc là「じゃ」. Phương án D「かんしょ」sai vì 謝 không đọc là「しょ」; かんしょ gần với 感触 (cảm giác xúc giác) nhưng đó là viết khác.",
+              "glosses": [
+                {
+                  "t": "先輩",
+                  "read": "せんぱい",
+                  "vi": "đàn anh/chị, người đi trước"
+                },
+                {
+                  "t": "推薦状",
+                  "read": "すいせんじょう",
+                  "vi": "thư giới thiệu"
+                },
+                {
+                  "t": "書いて",
+                  "read": "かいて",
+                  "vi": "viết (dạng て)"
+                },
+                {
+                  "t": "いただいて",
+                  "vi": "được nhận (kính ngữ, người dưới nhận từ người trên)"
+                },
+                {
+                  "t": "大変",
+                  "read": "たいへん",
+                  "vi": "rất, vô cùng"
+                },
+                {
+                  "t": "感謝",
+                  "vi": "lòng biết ơn, sự cảm ơn"
+                },
+                {
+                  "t": "大変感謝しています",
+                  "read": "たいへんかんしゃしています",
+                  "vi": "rất biết ơn, cảm kích nhiều"
+                }
+              ]
+            },
+            {
+              "prompt": "母は私のために手作りのお弁当を持ってきてくれました。",
+              "ul": "手作り",
+              "choices": [
+                "てづくり",
+                "てさくり",
+                "しゅづくり",
+                "しゅさくり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「手作り」đọc là「てづくり」(te-dzu-ku-ri), nghĩa là tự tay làm. 手=て (âm Nhật/kun), 作り=づくり (biến âm của つくり do kết hợp). Phương án A「てづくり」đúng — lưu ý 作 đọc là「づくり」chứ không phải「つくり」khi đứng sau một thành tố để tránh phát âm cứng. Phương án B「てさくり」sai vì 作 không đọc là「さく」ở đây; さく là âm Hán (on) của 作 dùng trong 作品/制作. Phương án C「しゅづくり」sai vì 手 không đọc là「しゅ」trong từ ghép thuần Nhật này; しゅ là âm Hán của 手 dùng trong 手段. Phương án D「しゅさくり」sai hoàn toàn, kết hợp sai cả hai âm.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (của mình)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "手作り",
+                  "vi": "tự làm tay, thủ công"
+                },
+                {
+                  "t": "お弁当",
+                  "read": "おべんとう",
+                  "vi": "hộp cơm"
+                },
+                {
+                  "t": "持ってきて",
+                  "read": "もってきて",
+                  "vi": "mang đến (dạng て)"
+                },
+                {
+                  "t": "くれました",
+                  "vi": "đã làm cho tôi"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "vì (lợi ích của) ~ — mẫu 〜のために chỉ mục đích/đối tượng được lợi"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは私に丁寧に迷惑をかけないようにと注意してくれた。",
+              "ul": "迷惑",
+              "choices": [
+                "めいわく",
+                "まいわく",
+                "めいかく",
+                "めいかん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「迷惑」đọc là「めいわく」(mei-wa-ku), nghĩa là phiền phức, làm phiền. 迷=めい, 惑=わく (âm Hán). Phương án A「めいわく」đúng. Phương án B「まいわく」sai vì 迷 không đọc là「まい」trong từ này; まい là cách đọc của 毎 (mỗi). Phương án C「めいかく」là cách đọc của 明確 (rõ ràng), 惑 không đọc là「かく」. Phương án D「めいかん」sai, 惑 không đọc là「かん」; めいかん không phải từ thông dụng liên quan.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "迷惑",
+                  "vi": "sự phiền phức, quấy rầy"
+                },
+                {
+                  "t": "かけないように",
+                  "vi": "để không gây ra"
+                },
+                {
+                  "t": "注意して",
+                  "read": "ちゅういして",
+                  "vi": "nhắc nhở, lưu ý (dạng て)"
+                },
+                {
+                  "t": "くれた",
+                  "vi": "đã làm cho tôi (thân mật)"
+                },
+                {
+                  "t": "丁寧に",
+                  "read": "ていねいに",
+                  "vi": "một cách cẩn thận, chu đáo"
+                }
+              ]
+            },
+            {
+              "prompt": "課長は私の企画書を確認してくださいました。",
+              "ul": "確認",
+              "choices": [
+                "かくにん",
+                "かくみん",
+                "こくにん",
+                "こくみん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「確認」đọc là「かくにん」(ka-ku-nin), nghĩa là xác nhận. 確=かく, 認=にん (âm Hán). Phương án A「かくにん」đúng. Phương án B「かくみん」sai vì 認 không đọc là「みん」; みん thường là âm của 民 (dân). Phương án C「こくにん」sai vì 確 không đọc là「こく」; こく là âm của 国/告/刻. Phương án D「こくみん」là cách đọc của 国民 (quốc dân/công dân), hoàn toàn khác nghĩa và cách viết.",
+              "glosses": [
+                {
+                  "t": "課長",
+                  "read": "かちょう",
+                  "vi": "trưởng phòng (cấp dưới bộ trưởng phòng)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "企画書",
+                  "read": "きかくしょ",
+                  "vi": "bản kế hoạch, đề án"
+                },
+                {
+                  "t": "確認",
+                  "vi": "xác nhận, kiểm tra lại"
+                },
+                {
+                  "t": "してくださいました",
+                  "vi": "đã làm cho tôi (kính ngữ, người trên làm cho người dưới)"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女は私が困っているときに連絡先を教えてくれました。",
+              "ul": "連絡",
+              "choices": [
+                "れんらく",
+                "れんかく",
+                "りんらく",
+                "りんかく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「連絡」đọc là「れんらく」(ren-ra-ku), nghĩa là liên lạc. 連=れん, 絡=らく (âm Hán). Phương án A「れんらく」đúng. Phương án B「れんかく」sai vì 絡 không đọc là「かく」; かく là âm của 角/格/確. Phương án C「りんらく」sai vì 連 không đọc là「りん」; りん là âm của 林/隣/輪. Phương án D「りんかく」là cách đọc của 輪郭 (đường viền, nét phác thảo), khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "困って",
+                  "read": "こまって",
+                  "vi": "gặp khó khăn (dạng て)"
+                },
+                {
+                  "t": "連絡先",
+                  "read": "れんらくさき",
+                  "vi": "thông tin liên lạc, địa chỉ liên hệ"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "cho biết, dạy (dạng て)"
+                },
+                {
+                  "t": "くれました",
+                  "vi": "đã làm cho tôi"
+                },
+                {
+                  "t": "いるときに",
+                  "read": "いるときに",
+                  "vi": "vào lúc đang ~ — 〜ているときに chỉ thời điểm xảy ra hành động"
+                }
+              ]
+            },
+            {
+              "prompt": "上司は私の残業に対して特別な配慮をしてくださいました。",
+              "ul": "配慮",
+              "choices": [
+                "はいりょ",
+                "はいれ",
+                "はいろ",
+                "はいりゅ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「配慮」đọc là「はいりょ」(hai-ryo), nghĩa là sự quan tâm, chu đáo, thấu hiểu cho người khác. 配=はい, 慮=りょ (âm Hán). Phương án A「はいりょ」đúng — lưu ý 慮 đọc là「りょ」, âm ngắn. Phương án B「はいれ」quá ngắn, thiếu âm và không phải cách đọc của 慮. Phương án C「はいろ」sai vì 慮 đọc là「りょ」không phải「ろ」; はいろ không phải từ trong tiếng Nhật. Phương án D「はいりゅ」sai vì「りゅ」(với âm kéo dài) không phải âm chuẩn của 慮; âm đúng là「りょ」(ryo) không phải「りゅ」(ryu).",
+              "glosses": [
+                {
+                  "t": "上司",
+                  "read": "じょうし",
+                  "vi": "cấp trên"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "残業",
+                  "read": "ざんぎょう",
+                  "vi": "làm thêm giờ, tăng ca"
+                },
+                {
+                  "t": "対して",
+                  "read": "たいして",
+                  "vi": "đối với"
+                },
+                {
+                  "t": "特別な",
+                  "read": "とくべつな",
+                  "vi": "đặc biệt"
+                },
+                {
+                  "t": "配慮",
+                  "vi": "sự quan tâm, sự thông cảm, sự chu đáo"
+                },
+                {
+                  "t": "をしてくださいました",
+                  "read": "をしてくださいました",
+                  "vi": "đã làm ~ cho (tôi) — 〜てくださる, kính ngữ diễn tả người trên làm ơn cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "鈴木さんに頼んで、重要な書類を翻訳してもらいました。",
+              "ul": "翻訳",
+              "choices": [
+                "ほんやく",
+                "はんやく",
+                "ほんやき",
+                "はんやき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「翻訳」đọc là「ほんやく」(hon-ya-ku), nghĩa là dịch thuật, phiên dịch. 翻=ほん, 訳=やく (âm Hán). Phương án A「ほんやく」đúng. Phương án B「はんやく」sai vì 翻 không đọc là「はん」; はん là âm của 半/反/版. Phương án C「ほんやき」sai vì 訳 không đọc là「やき」; やき là âm của 焼き (nướng). Phương án D「はんやき」sai kép, cả hai thành tố đều bị đọc sai.",
+              "glosses": [
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "頼んで",
+                  "read": "たのんで",
+                  "vi": "nhờ vả, yêu cầu (dạng て)"
+                },
+                {
+                  "t": "重要な",
+                  "read": "じゅうような",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                },
+                {
+                  "t": "翻訳",
+                  "vi": "dịch thuật, phiên dịch"
+                },
+                {
+                  "t": "してもらいました",
+                  "vi": "đã nhờ được làm (người nói nhờ người khác làm)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中部長はわたしのために時間を割いて相談に乗ってくださいました。",
+              "ul": "相談",
+              "choices": [
+                "そうだん",
+                "そうたん",
+                "しょうだん",
+                "しょうたん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「相談」đọc là「そうだん」(so-u-da-n), nghĩa là bàn bạc, tư vấn. 相=そう, 談=だん (âm Hán). Phương án A「そうだん」đúng. Phương án B「そうたん」sai vì 談 không đọc là「たん」; たん là âm của 単/探/炭. Phương án C「しょうだん」là cách đọc của 商談 (đàm phán thương mại) hoặc 小段, 相 không đọc là「しょう」trong từ này (mặc dù しょう là âm khác của 相 trong 相互 nếu viết khác). Phương án D「しょうたん」sai kép, không phải từ thông dụng.",
+              "glosses": [
+                {
+                  "t": "田中部長",
+                  "read": "たなかぶちょう",
+                  "vi": "Trưởng phòng Tanaka"
+                },
+                {
+                  "t": "時間を割いて",
+                  "read": "じかんをさいて",
+                  "vi": "dành ra thời gian (dạng て)"
+                },
+                {
+                  "t": "相談に乗って",
+                  "read": "そうだんにのって",
+                  "vi": "lắng nghe và tư vấn"
+                },
+                {
+                  "t": "くださいました",
+                  "vi": "đã làm cho tôi (kính ngữ)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "vì (lợi ích của) ~ — mẫu 〜のために chỉ mục đích/đối tượng được lợi"
+                }
+              ]
+            },
+            {
+              "prompt": "友人が病気のとき、薬を買ってきてあげました。",
+              "ul": "薬",
+              "choices": [
+                "くすり",
+                "やくり",
+                "くすい",
+                "やくい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「薬」đọc là「くすり」(ku-su-ri), nghĩa là thuốc. Đây là âm Nhật (kun'yomi) của chữ 薬. Phương án A「くすり」đúng. Phương án B「やくり」sai vì「やく」là âm Hán (on) của 薬 (dùng trong 薬品/薬局), và「り」không thể ghép thêm vào đằng sau âm Hán trong từ này. Phương án C「くすい」sai vì 薬 kết thúc bằng âm「り」không phải「い」khi đọc kun. Phương án D「やくい」sai kép, không phải cách đọc nào của 薬 trong từ đơn.",
+              "glosses": [
+                {
+                  "t": "友人",
+                  "read": "ゆうじん",
+                  "vi": "bạn bè (văn viết)"
+                },
+                {
+                  "t": "病気",
+                  "read": "びょうき",
+                  "vi": "bệnh, ốm"
+                },
+                {
+                  "t": "薬",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "買ってきて",
+                  "read": "かってきて",
+                  "vi": "mua và mang về (dạng て)"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã làm cho người khác (てあげる, mình làm cho người)"
+                },
+                {
+                  "t": "のとき",
+                  "read": "のとき",
+                  "vi": "vào lúc/khi ~ — 〜のとき chỉ thời điểm"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に奨学金の申請書の書き方を指導していただきました。",
+              "ul": "指導",
+              "choices": [
+                "しどう",
+                "じどう",
+                "しとう",
+                "じとう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「指導」đọc là「しどう」(shi-do-u), nghĩa là hướng dẫn, chỉ đạo. 指=し, 導=どう (âm Hán). Phương án A「しどう」đúng. Phương án B「じどう」là cách đọc của 自動 (tự động) hoặc 児童 (trẻ em); 指 không đọc là「じ」ở đây (mặc dù có từ 指示「しじ」). Phương án C「しとう」là cách đọc của 死闘 (cuộc chiến sinh tử), 導 không đọc là「とう」. Phương án D「じとう」sai, không phải từ phổ biến liên quan đến hướng dẫn; 地頭 có thể đọc là じとう nhưng đó là khái niệm khác hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "奨学金",
+                  "read": "しょうがくきん",
+                  "vi": "học bổng"
+                },
+                {
+                  "t": "申請書",
+                  "read": "しんせいしょ",
+                  "vi": "đơn xin, hồ sơ đăng ký"
+                },
+                {
+                  "t": "書き方",
+                  "read": "かきかた",
+                  "vi": "cách viết"
+                },
+                {
+                  "t": "指導",
+                  "vi": "hướng dẫn, chỉ đạo"
+                },
+                {
+                  "t": "していただきました",
+                  "vi": "đã được (người trên) làm cho — kính ngữ của てもらいました"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "先生は私に漢字のかきかたをおしえてくださいました。",
+              "ul": "おしえて",
+              "choices": [
+                "教えて",
+                "習えて",
+                "育えて",
+                "話えて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「教えて」(おしえて) nghĩa là 'dạy/chỉ cho'. Đây là dạng te-form của 「教える」(おしえる), kết hợp với 「くださいました」 diễn tả việc người trên (thầy giáo) đã làm ơn chỉ dạy cho mình — cấu trúc 〜てくださいました là kính ngữ của 〜てくれました. Phương án B「習えて」(ならえて) sai vì 「習う」nghĩa là 'học/luyện tập', chủ thể phải là người học chứ không phải thầy. Phương án C「育えて」không tồn tại dưới dạng này (「育てる」nghĩa là nuôi dưỡng, không hợp nghĩa). Phương án D「話えて」không tồn tại; 「話す」thì te-form là「話して」, hơn nữa 'nói' không khớp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "かきかた",
+                  "read": "かきかた",
+                  "vi": "cách viết"
+                },
+                {
+                  "t": "くださいました",
+                  "vi": "đã làm ơn cho (kính ngữ)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "おしえてくださいました",
+                  "read": "おしえてくださいました",
+                  "vi": "đã dạy cho (tôi) — 〜てくださる, người trên làm ơn dạy"
+                }
+              ]
+            },
+            {
+              "prompt": "友達にプレゼントをかってあげました。",
+              "ul": "かって",
+              "choices": [
+                "買って",
+                "売って",
+                "借って",
+                "貸って"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「買って」(かって) là te-form của 「買う」(かう) nghĩa là 'mua'. Cấu trúc 〜てあげました diễn tả việc mình chủ động làm điều tốt cho người khác — ở đây là mua quà tặng cho bạn. Phương án B「売って」(うって) nghĩa là 'bán', ngược chiều với mua nên sai. Phương án C「借って」không tồn tại; 「借りる」(かりる) nghĩa là 'mượn' nhưng te-form là「借りて」, không phải「借って」. Phương án D「貸って」không tồn tại; 「貸す」(かす) nghĩa là 'cho mượn', te-form là「貸して」.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "プレゼント",
+                  "vi": "quà tặng"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã làm cho (người khác)"
+                },
+                {
+                  "t": "かって",
+                  "read": "かって",
+                  "vi": "mua (dạng て của 買う)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんに荷物をはこんでもらいました。",
+              "ul": "はこんで",
+              "choices": [
+                "運んで",
+                "送んで",
+                "動んで",
+                "転んで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「運んで」(はこんで) là te-form của 「運ぶ」(はこぶ) nghĩa là 'vận chuyển/mang đồ'. Cấu trúc 〜てもらいました diễn tả việc mình nhờ/nhận được người khác làm điều gì cho mình. Phương án B「送んで」không tồn tại đúng dạng; 「送る」(おくる) nghĩa là 'gửi/tiễn', te-form là「送って」chứ không phải「送んで」. Phương án C「動んで」không tồn tại; 「動く」(うごく) te-form là「動いて」, nghĩa là 'di chuyển' không khớp. Phương án D「転んで」(ころんで) te-form của「転ぶ」nghĩa là 'ngã', hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ vật"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận được (ai đó làm cho mình)"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                },
+                {
+                  "t": "はこんで",
+                  "read": "はこんで",
+                  "vi": "mang, vác, chuyển (dạng て của 運ぶ)"
+                }
+              ]
+            },
+            {
+              "prompt": "部長に報告書のないようをせつめいしていただきました。",
+              "ul": "せつめいして",
+              "choices": [
+                "説明して",
+                "証明して",
+                "発明して",
+                "表明して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「説明して」(せつめいして) te-form của 「説明する」nghĩa là 'giải thích'. Cấu trúc 〜ていただきました là kính ngữ khiêm nhường diễn tả việc người trên (ở đây là trưởng phòng) đã làm ơn giải thích nội dung báo cáo cho mình. Phương án B「証明して」(しょうめいして) nghĩa là 'chứng minh' — sai ngữ cảnh vì người trên không 'chứng minh' nội dung. Phương án C「発明して」(はつめいして) nghĩa là 'phát minh' — hoàn toàn lạc đề. Phương án D「表明して」(ひょうめいして) nghĩa là 'tuyên bố/bày tỏ' — không khớp với hành động giải thích báo cáo.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "報告書",
+                  "read": "ほうこくしょ",
+                  "vi": "báo cáo (văn bản)"
+                },
+                {
+                  "t": "ないよう",
+                  "read": "ないよう",
+                  "vi": "nội dung"
+                },
+                {
+                  "t": "いただきました",
+                  "vi": "đã nhận được ơn (kính ngữ khiêm nhường)"
+                },
+                {
+                  "t": "せつめい",
+                  "read": "せつめい",
+                  "vi": "giải thích, thuyết minh"
+                }
+              ]
+            },
+            {
+              "prompt": "妹のために料理をつくってあげました。",
+              "ul": "つくって",
+              "choices": [
+                "作って",
+                "造って",
+                "創って",
+                "製って"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「作って」(つくって) te-form của 「作る」nghĩa là 'làm/nấu' (thức ăn). Đây là từ thông dụng nhất để chỉ việc nấu ăn hay chế tạo vật dụng thông thường. Cấu trúc 〜てあげました diễn tả việc nấu ăn cho em gái một cách thiện chí. Phương án B「造って」(つくって) đồng âm nhưng 「造る」dùng cho công trình lớn (tàu thuyền, rượu) không dùng cho món ăn. Phương án C「創って」(つくって) đồng âm nhưng 「創る」dùng cho sáng tác nghệ thuật, tác phẩm sáng tạo — không dùng cho nấu ăn. Phương án D「製って」không tồn tại như động từ riêng (「製」dùng trong từ ghép như 製造, không tự đứng một mình).",
+              "glosses": [
+                {
+                  "t": "妹",
+                  "read": "いもうと",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn, nấu ăn"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã làm cho (người khác)"
+                },
+                {
+                  "t": "つくって",
+                  "read": "つくって",
+                  "vi": "làm (dạng て của 作る)"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "vì (lợi ích của) ~ — mẫu 〜のために"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは私のかばんをもってくれました。",
+              "ul": "もって",
+              "choices": [
+                "持って",
+                "取って",
+                "運って",
+                "持ちて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「持って」(もって) te-form của 「持つ」(もつ) nghĩa là 'cầm/mang/xách'. Cấu trúc 〜てくれました diễn tả việc Yamada-san chủ động làm ơn cho mình (xách túi giúp). Phương án B「取って」(とって) te-form của「取る」nghĩa là 'lấy/cầm lấy' — có thể dùng trong một số ngữ cảnh nhưng khi nói mang hộ túi thì「持って」tự nhiên và đúng hơn. Phương án C「運って」không tồn tại đúng dạng; 「運ぶ」te-form là「運んで」, không phải「運って」. Phương án D「持ちて」không phải te-form chuẩn; te-form của「持つ」là「持って」(âm tiện, tte).",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "túi xách, cặp"
+                },
+                {
+                  "t": "くれました",
+                  "vi": "đã làm ơn cho mình (người khác làm)"
+                },
+                {
+                  "t": "山田",
+                  "read": "やまだ",
+                  "vi": "anh/chị Yamada (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                },
+                {
+                  "t": "もって",
+                  "read": "もって",
+                  "vi": "cầm, mang theo (dạng て của 持つ)"
+                }
+              ]
+            },
+            {
+              "prompt": "先輩に就職活動のしかたをおしえていただきました。",
+              "ul": "おしえて",
+              "choices": [
+                "教えて",
+                "伝えて",
+                "知えて",
+                "授えて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「教えて」(おしえて) te-form của 「教える」nghĩa là 'dạy/chỉ bảo'. Cấu trúc 〜ていただきました là kính ngữ khiêm nhường, phù hợp khi người trên (đàn anh/chị) đã chỉ bảo cho mình cách tìm việc. Phương án B「伝えて」(つたえて) nghĩa là 'truyền đạt/nhắn tin' — không mang ý nghĩa dạy bảo, hướng dẫn. Phương án C「知えて」không tồn tại; 「知る」(しる) là động từ nhóm 1, te-form là「知って」, hơn nữa nghĩa là 'biết' không phải 'dạy'. Phương án D「授えて」không chuẩn; 「授ける」(さずける) te-form là「授けて」, nghĩa là 'ban thưởng/truyền thụ' mang sắc thái trang trọng quá mức và ít dùng.",
+              "glosses": [
+                {
+                  "t": "先輩",
+                  "read": "せんぱい",
+                  "vi": "đàn anh/chị, người đi trước"
+                },
+                {
+                  "t": "就職活動",
+                  "read": "しゅうしょくかつどう",
+                  "vi": "hoạt động tìm việc làm"
+                },
+                {
+                  "t": "やり方",
+                  "read": "やりかた",
+                  "vi": "cách làm, phương pháp"
+                },
+                {
+                  "t": "いただきました",
+                  "vi": "đã nhận được ơn (kính ngữ)"
+                },
+                {
+                  "t": "しかた",
+                  "read": "しかた",
+                  "vi": "cách làm, phương pháp"
+                },
+                {
+                  "t": "おしえていただきました",
+                  "read": "おしえていただきました",
+                  "vi": "đã được (ai đó) dạy cho — 〜ていただく, khiêm nhường nhận ơn từ người trên"
+                }
+              ]
+            },
+            {
+              "prompt": "子どもに絵本をよんであげました。",
+              "ul": "よんで",
+              "choices": [
+                "読んで",
+                "聞んで",
+                "言んで",
+                "書んで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「読んで」(よんで) te-form của 「読む」(よむ) nghĩa là 'đọc'. Đọc sách tranh cho trẻ nghe kết hợp với〜てあげました diễn tả hành động quan tâm, làm điều tốt cho đứa trẻ. Phương án B「聞んで」không tồn tại đúng dạng; 「聞く」(きく) te-form là「聞いて」, nghĩa là 'nghe/hỏi' — không phải đọc sách. Phương án C「言んで」không tồn tại; 「言う」(いう) te-form là「言って」. Phương án D「書んで」không tồn tại; 「書く」(かく) te-form là「書いて」, nghĩa là 'viết' — không khớp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em, con nhỏ"
+                },
+                {
+                  "t": "絵本",
+                  "read": "えほん",
+                  "vi": "sách tranh"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã làm cho (người khác)"
+                },
+                {
+                  "t": "よんで",
+                  "read": "よんで",
+                  "vi": "đọc (dạng て của 読む)"
+                }
+              ]
+            },
+            {
+              "prompt": "母に誕生日ケーキをやいてもらいました。",
+              "ul": "やいて",
+              "choices": [
+                "焼いて",
+                "作いて",
+                "揚いて",
+                "炊いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「焼いて」(やいて) te-form của 「焼く」(やく) nghĩa là 'nướng/nấu (bằng lửa)'. Với bánh kem sinh nhật, 「焼く」là từ đúng vì bánh được nướng trong lò. Cấu trúc 〜てもらいました diễn tả việc nhờ/được mẹ làm cho. Phương án B「作いて」không tồn tại đúng dạng; 「作る」te-form là「作って」— dù nghĩa gần nhưng hình thức chia sai hoàn toàn. Phương án C「揚いて」không tồn tại; 「揚げる」(あげる) te-form là「揚げて」nghĩa là 'chiên (dầu)' — không dùng cho bánh nướng. Phương án D「炊いて」(たいて) te-form của「炊く」nghĩa là 'nấu (cơm)', không dùng cho bánh.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (nói về mẹ mình)"
+                },
+                {
+                  "t": "誕生日",
+                  "read": "たんじょうび",
+                  "vi": "ngày sinh nhật"
+                },
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh kem"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã được nhận (ai làm cho mình)"
+                },
+                {
+                  "t": "やいてもらいました",
+                  "read": "やいてもらいました",
+                  "vi": "đã nhờ/được (ai đó) nướng cho — 〜てもらう nhận ơn từ người khác"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは弟に自転車のなおしかたをおしえてあげました。",
+              "ul": "なおしかた",
+              "choices": [
+                "直し方",
+                "返し方",
+                "壊し方",
+                "移し方"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「直し方」(なおしかた) nghĩa là 'cách sửa chữa'. Từ「直す」(なおす) nghĩa là 'sửa/chỉnh lại', kết hợp với「〜方」tạo thành 'cách làm X'. Hướng dẫn cách sửa xe đạp cho em là hành động giúp đỡ, phù hợp với〜てあげました. Phương án B「返し方」(かえしかた) nghĩa là 'cách trả lại' — sai ngữ cảnh, không ai dạy cách trả xe đạp. Phương án C「壊し方」(こわしかた) nghĩa là 'cách phá hỏng' — nghĩa ngược hoàn toàn. Phương án D「移し方」(うつしかた) nghĩa là 'cách chuyển/di chuyển' — không liên quan đến sửa chữa xe đạp.",
+              "glosses": [
+                {
+                  "t": "弟",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "自転車",
+                  "read": "じてんしゃ",
+                  "vi": "xe đạp"
+                },
+                {
+                  "t": "おしえてあげました",
+                  "read": "おしえてあげました",
+                  "vi": "đã dạy/chỉ cho (người khác)"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                },
+                {
+                  "t": "なおしかた",
+                  "read": "なおしかた",
+                  "vi": "cách sửa"
+                }
+              ]
+            },
+            {
+              "prompt": "社長にしょるいにサインしていただきました。",
+              "ul": "しょるいに",
+              "choices": [
+                "書類",
+                "資料",
+                "書道",
+                "図書"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書類」(しょるい) nghĩa là 'giấy tờ, văn bản (hành chính)'. Giám đốc ký vào giấy tờ là tình huống hoàn toàn tự nhiên, cấu trúc〜ていただきました thể hiện sự kính trọng với cấp trên. Phương án B「資料」(しりょう) nghĩa là 'tài liệu/dữ liệu tham khảo' — người ta không 'ký vào tài liệu tham khảo' trong văn cảnh này. Phương án C「書道」(しょどう) nghĩa là 'thư pháp (nghệ thuật viết chữ)' — đọc gần giống nhưng nghĩa hoàn toàn khác. Phương án D「図書」(としょ) nghĩa là 'sách vở, thư viện sách' — không phải văn bản để ký.",
+              "glosses": [
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc, chủ tịch công ty"
+                },
+                {
+                  "t": "サイン",
+                  "vi": "chữ ký"
+                },
+                {
+                  "t": "していただきました",
+                  "vi": "đã được làm ơn (kính ngữ)"
+                },
+                {
+                  "t": "しょるい",
+                  "read": "しょるい",
+                  "vi": "tài liệu, giấy tờ"
+                }
+              ]
+            },
+            {
+              "prompt": "友達に空港までおくってもらいました。",
+              "ul": "おくって",
+              "choices": [
+                "送って",
+                "運って",
+                "届って",
+                "導って"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「送って」(おくって) te-form của 「送る」(おくる) nghĩa là 'tiễn đưa/đưa đến nơi'. 「〜まで送る」là cách nói quen thuộc 'đưa/tiễn đến tận...'. Cấu trúc〜てもらいました diễn tả việc được bạn làm ơn đưa ra sân bay. Phương án B「運って」không tồn tại đúng dạng; 「運ぶ」te-form là「運んで」, nghĩa là 'vận chuyển đồ vật', không dùng cho người. Phương án C「届って」không tồn tại đúng dạng; 「届く」te-form là「届いて」(đến nơi/giao đến), hoặc「届ける」te-form là「届けて」(giao hàng). Phương án D「導って」không tồn tại; 「導く」(みちびく) te-form là「導いて」, mang nghĩa 'dẫn dắt tinh thần' không dùng cho đưa người ra sân bay.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "空港",
+                  "read": "くうこう",
+                  "vi": "sân bay"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã được nhận (ai làm cho mình)"
+                },
+                {
+                  "t": "おくって",
+                  "read": "おくって",
+                  "vi": "đưa, tiễn (dạng て của 送る)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に推薦状をかいていただきました。",
+              "ul": "かいて",
+              "choices": [
+                "書いて",
+                "描いて",
+                "掻いて",
+                "刻いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書いて」(かいて) te-form của 「書く」(かく) nghĩa là 'viết (văn bản)'. Dùng「書く」cho văn bản, thư từ, giấy tờ là đúng tiêu chuẩn. Cấu trúc〜ていただきました diễn tả việc thầy/cô đã làm ơn viết thư giới thiệu cho mình. Phương án B「描いて」(かいて) đồng âm nhưng 「描く」dùng cho vẽ hình ảnh, tranh — không dùng cho văn bản. Phương án C「掻いて」(かいて) đồng âm nhưng「掻く」nghĩa là 'gãi' — hoàn toàn sai. Phương án D「刻いて」không tồn tại đúng dạng; 「刻む」(きざむ) te-form là「刻んで」, nghĩa là 'khắc/chặt nhỏ' — không phù hợp.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "推薦状",
+                  "read": "すいせんじょう",
+                  "vi": "thư giới thiệu, thư đề cử"
+                },
+                {
+                  "t": "いただきました",
+                  "vi": "đã nhận được ơn (kính ngữ khiêm nhường)"
+                },
+                {
+                  "t": "かいて",
+                  "read": "かいて",
+                  "vi": "viết (dạng て của 書く)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは病気の私のために薬をかってきてくれました。",
+              "ul": "かって",
+              "choices": [
+                "買って",
+                "取って",
+                "持って",
+                "求って"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「買って」(かって) te-form của 「買う」(かう) nghĩa là 'mua'. Cụm「買ってきてくれました」nghĩa là 'đã mua rồi mang về cho mình' — hành động Tanaka-san vừa mua thuốc vừa mang đến thể hiện sự quan tâm. Phương án B「取って」(とって) nghĩa là 'lấy/cầm' — không có hàm ý mua ở cửa hàng. Phương án C「持って」(もって) nghĩa là 'cầm/mang' — chỉ diễn tả hành động mang, không bao gồm việc mua. Phương án D「求って」không tồn tại đúng dạng; 「求める」(もとめる) te-form là「求めて」, nghĩa là 'cầu/tìm kiếm' — không khớp với bối cảnh mua thuốc.",
+              "glosses": [
+                {
+                  "t": "病気",
+                  "read": "びょうき",
+                  "vi": "bệnh tật, ốm"
+                },
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "〜てきてくれました",
+                  "vi": "đã đi làm gì rồi mang về cho mình (người khác tốt bụng)"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                },
+                {
+                  "t": "私のために",
+                  "read": "わたしのために",
+                  "vi": "vì tôi"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                },
+                {
+                  "t": "かって",
+                  "read": "かって",
+                  "vi": "mua (dạng て của 買う)"
+                },
+                {
+                  "t": "ってきてくれました",
+                  "read": "ってきてくれました",
+                  "vi": "đã (ai đó) mua mang đến cho (tôi) — 〜てくれる, người khác làm ơn cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "部長にかいぎの日程をかくにんしていただきました。",
+              "ul": "かくにん",
+              "choices": [
+                "確認",
+                "確定",
+                "確保",
+                "確立"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「確認」(かくにん) nghĩa là 'xác nhận/kiểm tra lại'. 「確認する」là hành động kiểm tra để chắc chắn thông tin đúng — ở đây trưởng phòng đã làm ơn xác nhận lịch họp giúp mình, dùng kính ngữ〜ていただきました. Phương án B「確定」(かくてい) nghĩa là 'xác định/quyết định chắc chắn' — khác với xác nhận; hơn nữa người cần xác nhận thường không phải là người quyết định lịch. Phương án C「確保」(かくほ) nghĩa là 'đảm bảo/giữ chỗ' — không phải hành động kiểm tra thông tin. Phương án D「確立」(かくりつ) nghĩa là 'thiết lập/xây dựng vững chắc (hệ thống, nguyên tắc)' — lạc đề hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "かいぎ",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "日程",
+                  "read": "にってい",
+                  "vi": "lịch trình, thời gian biểu"
+                },
+                {
+                  "t": "していただきました",
+                  "vi": "đã được làm ơn (kính ngữ khiêm nhường)"
+                },
+                {
+                  "t": "かくにん",
+                  "read": "かくにん",
+                  "vi": "xác nhận"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "田中さんは引っ越しを＿してあげた。",
+              "choices": [
+                "手伝い",
+                "邪魔",
+                "断り",
+                "忘れ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「手伝いしてあげた」→ 正しくは「手伝ってあげた」の名詞形。田中さんが誰かの引っ越しを〈手伝ってあげた〉 = giúp đỡ việc chuyển nhà. 「手伝い（てつだい）」= sự giúp đỡ, đúng ngữ cảnh 〜してあげる (làm điều tốt cho người khác). ❌「邪魔（じゃま）」= cản trở, làm phiền — trái nghĩa với giúp đỡ. ❌「断り（ことわり）」= từ chối — không ai từ chối mà lại dùng 〜してあげた. ❌「忘れ（わすれ）」= sự quên — không liên quan đến hành động giúp đỡ.",
+              "glosses": [
+                {
+                  "t": "引っ越し",
+                  "read": "ひっこし",
+                  "vi": "việc chuyển nhà"
+                },
+                {
+                  "t": "手伝い",
+                  "read": "てつだい",
+                  "vi": "sự giúp đỡ"
+                },
+                {
+                  "t": "してあげた",
+                  "vi": "đã làm giúp (cho người khác)"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                }
+              ]
+            },
+            {
+              "stem": "先生に論文を＿いただいた。",
+              "choices": [
+                "直して",
+                "壊して",
+                "隠して",
+                "遅らせて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「直していただいた」= được thầy/cô sửa giúp (kính ngữ). 〜ていただく là dạng kính ngữ của 〜てもらう, dùng khi người trên làm ơn cho mình. 「直す（なおす）」= sửa chữa — hoàn toàn phù hợp với việc giáo viên sửa luận văn. ❌「壊す（こわす）」= phá hỏng — nghĩa ngược lại, không ai biết ơn vì bị phá hỏng luận văn. ❌「隠す（かくす）」= giấu đi — không mang nghĩa giúp đỡ. ❌「遅らせる（おくらせる）」= làm chậm lại — không liên quan đến việc sửa bài.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "論文",
+                  "read": "ろんぶん",
+                  "vi": "luận văn"
+                },
+                {
+                  "t": "直して",
+                  "read": "なおして",
+                  "vi": "sửa chữa (dạng て)"
+                },
+                {
+                  "t": "いただいた",
+                  "vi": "được (người trên) làm cho — kính ngữ"
+                }
+              ]
+            },
+            {
+              "stem": "彼女は迷っている友達に＿をしてあげた。",
+              "choices": [
+                "相談",
+                "苦労",
+                "心配",
+                "失敗"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「相談（そうだん）をしてあげた」= tư vấn / bàn bạc giúp cho người bạn đang lưỡng lự. 「相談する」= bàn bạc, tư vấn — phù hợp với hành động giúp đỡ người đang do dự. ❌「苦労（くろう）」= vất vả, khó nhọc — không ai nói \"làm sự vất vả giúp bạn\". ❌「心配（しんぱい）」= lo lắng — lo lắng không phải hành động tích cực hướng đến giúp đỡ trong cấu trúc này. ❌「失敗（しっぱい）」= thất bại — không ai \"làm thất bại giúp\" người khác.",
+              "glosses": [
+                {
+                  "t": "迷っている",
+                  "read": "まよっている",
+                  "vi": "đang do dự, lưỡng lự"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "相談",
+                  "read": "そうだん",
+                  "vi": "sự tư vấn, bàn bạc"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "をしてあげた",
+                  "read": "をしてあげた",
+                  "vi": "đã làm ~ cho (ai đó) — 〜てあげる, làm ơn giúp người khác"
+                }
+              ]
+            },
+            {
+              "stem": "母に荷物を＿もらった。",
+              "choices": [
+                "運んで",
+                "捨てて",
+                "盗んで",
+                "汚して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「運んでもらった」= nhờ mẹ chuyển đồ giúp / được mẹ chuyển đồ cho. 〜てもらう = nhờ/được ai đó làm cho mình. 「運ぶ（はこぶ）」= vận chuyển, mang đồ — hoàn toàn phù hợp ngữ cảnh nhờ vả. ❌「捨てる（すてる）」= vứt bỏ — không ai biết ơn vì bị vứt đồ. ❌「盗む（ぬすむ）」= ăn trộm — hành động tiêu cực, trái với tinh thần 〜てもらう. ❌「汚す（よごす）」= làm bẩn — cũng là hành động tiêu cực.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (cách nói khiêm tốn)"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "運んで",
+                  "read": "はこんで",
+                  "vi": "vận chuyển (dạng て)"
+                },
+                {
+                  "t": "もらった",
+                  "vi": "đã được/nhờ làm cho"
+                }
+              ]
+            },
+            {
+              "stem": "部長は私に大切な＿を任せてくれた。",
+              "choices": [
+                "仕事",
+                "邪魔",
+                "不満",
+                "失礼"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「大切な仕事を任せてくれた」= trưởng phòng đã tin tưởng giao công việc quan trọng cho tôi. 〜てくれる = ai đó (thường ngang hàng hoặc trên) làm điều tốt cho mình. 「仕事（しごと）」= công việc — được giao việc quan trọng là ân huệ. ❌「邪魔（じゃま）」= sự cản trở — \"giao sự cản trở\" vô nghĩa. ❌「不満（ふまん）」= sự bất mãn — không ai biết ơn vì được giao sự bất mãn. ❌「失礼（しつれい）」= sự thất lễ — trái với tinh thần ân huệ của câu.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "大切な",
+                  "read": "たいせつな",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "任せて",
+                  "read": "まかせて",
+                  "vi": "giao phó (dạng て)"
+                },
+                {
+                  "t": "くれた",
+                  "vi": "đã làm cho mình (người nói hưởng lợi)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "友達が駅まで＿くれた。",
+              "choices": [
+                "送って",
+                "逃げて",
+                "怒って",
+                "騙して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「駅まで送ってくれた」= bạn đã tiễn/đưa tôi đến ga tàu. 〜てくれる thể hiện hành động mà người khác làm vì lợi ích của người nói. 「送る（おくる）」= tiễn, đưa đi — phù hợp hoàn toàn. ❌「逃げる（にげる）」= bỏ chạy, trốn thoát — không ai biết ơn vì bị bạn bỏ trốn. ❌「怒る（おこる）」= nổi giận — hành động tiêu cực. ❌「騙す（だます）」= lừa dối — hoàn toàn trái nghĩa với ân huệ.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "駅まで",
+                  "read": "えきまで",
+                  "vi": "đến ga tàu"
+                },
+                {
+                  "t": "送って",
+                  "read": "おくって",
+                  "vi": "tiễn, đưa đi (dạng て)"
+                },
+                {
+                  "t": "くれた",
+                  "vi": "đã làm cho mình"
+                }
+              ]
+            },
+            {
+              "stem": "子供に絵本を＿あげた。",
+              "choices": [
+                "読んで",
+                "破って",
+                "隠して",
+                "取って"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「絵本を読んであげた」= đọc sách tranh cho đứa trẻ nghe. 〜てあげる = làm điều gì đó vì lợi ích của người khác (thường người dưới hoặc ngang hàng). 「読む（よむ）」= đọc — đọc sách cho trẻ là hành động giúp đỡ điển hình. ❌「破る（やぶる）」= xé — phá hoại sách, ngược với giúp đỡ. ❌「隠す（かくす）」= giấu — giấu sách của trẻ không phải ân huệ. ❌「取る（とる）」= lấy, cầm — lấy đồ của trẻ không phải giúp đỡ.",
+              "glosses": [
+                {
+                  "t": "子供",
+                  "read": "こども",
+                  "vi": "đứa trẻ"
+                },
+                {
+                  "t": "絵本",
+                  "read": "えほん",
+                  "vi": "sách tranh"
+                },
+                {
+                  "t": "読んで",
+                  "read": "よんで",
+                  "vi": "đọc (dạng て)"
+                },
+                {
+                  "t": "あげた",
+                  "vi": "đã làm giúp cho (người khác)"
+                }
+              ]
+            },
+            {
+              "stem": "先輩に就職の＿をしていただいた。",
+              "choices": [
+                "紹介",
+                "批判",
+                "拒否",
+                "無視"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「就職の紹介をしていただいた」= được đàn anh/đàn chị giới thiệu việc làm (kính ngữ). 〜ていただく = kính ngữ của 〜てもらう, dùng khi nhận ơn từ người trên/đáng kính. 「紹介（しょうかい）」= giới thiệu — được giới thiệu việc làm là ân huệ lớn. ❌「批判（ひはん）」= phê phán, chỉ trích — tiêu cực, không phải ân huệ. ❌「拒否（きょひ）」= từ chối — trái với việc giúp đỡ giới thiệu. ❌「無視（むし）」= phớt lờ — không liên quan đến ân huệ.",
+              "glosses": [
+                {
+                  "t": "先輩",
+                  "read": "せんぱい",
+                  "vi": "đàn anh/chị (người đi trước)"
+                },
+                {
+                  "t": "就職",
+                  "read": "しゅうしょく",
+                  "vi": "việc xin việc, tìm việc làm"
+                },
+                {
+                  "t": "紹介",
+                  "read": "しょうかい",
+                  "vi": "sự giới thiệu"
+                },
+                {
+                  "t": "していただいた",
+                  "vi": "được (người trên) làm cho — kính ngữ"
+                }
+              ]
+            },
+            {
+              "stem": "隣のおじさんが犬の＿をしてくれた。",
+              "choices": [
+                "世話",
+                "苦情",
+                "文句",
+                "迷惑"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「犬の世話をしてくれた」= bác hàng xóm đã chăm sóc con chó giúp. 〜てくれる = người khác làm điều tốt cho mình. 「世話（せわ）」= sự chăm sóc — chăm sóc vật nuôi giúp là ân huệ rõ ràng. ❌「苦情（くじょう）」= sự phàn nàn, khiếu nại — tiêu cực, không phải giúp đỡ. ❌「文句（もんく）」= lời phàn nàn — cũng tiêu cực. ❌「迷惑（めいわく）」= sự phiền phức — trái nghĩa hoàn toàn với ân huệ.",
+              "glosses": [
+                {
+                  "t": "隣の",
+                  "read": "となりの",
+                  "vi": "hàng xóm"
+                },
+                {
+                  "t": "おじさん",
+                  "vi": "bác (đàn ông lớn tuổi)"
+                },
+                {
+                  "t": "世話",
+                  "read": "せわ",
+                  "vi": "sự chăm sóc"
+                },
+                {
+                  "t": "してくれた",
+                  "vi": "đã làm giúp cho mình"
+                },
+                {
+                  "t": "犬",
+                  "read": "いぬ",
+                  "vi": "con chó"
+                }
+              ]
+            },
+            {
+              "stem": "病気のとき、友人が病院まで＿くれた。",
+              "choices": [
+                "付き合って",
+                "笑って",
+                "嘘をついて",
+                "急いで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「病院まで付き合ってくれた」= bạn đã đi cùng tôi đến bệnh viện. 「付き合う（つきあう）」= đi cùng, đồng hành — được bạn đồng hành khi ốm là ân huệ. ❌「笑う（わらう）」= cười — cười khi bạn ốm không phải giúp đỡ. ❌「嘘をつく（うそをつく）」= nói dối — hành động tiêu cực. ❌「急ぐ（いそぐ）」= vội vàng — \"vội vàng giúp\" không thành cụm từ tự nhiên trong câu này.",
+              "glosses": [
+                {
+                  "t": "病気のとき",
+                  "read": "びょうきのとき",
+                  "vi": "khi bị ốm"
+                },
+                {
+                  "t": "友人",
+                  "read": "ゆうじん",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "病院まで",
+                  "read": "びょういんまで",
+                  "vi": "đến bệnh viện"
+                },
+                {
+                  "t": "付き合って",
+                  "read": "つきあって",
+                  "vi": "đi cùng, đồng hành (dạng て)"
+                },
+                {
+                  "t": "くれた",
+                  "vi": "đã làm cho mình"
+                }
+              ]
+            },
+            {
+              "stem": "子供のために先生に特別な＿をしていただいた。",
+              "choices": [
+                "説明",
+                "叱り",
+                "無理",
+                "諦め"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「特別な説明をしていただいた」= được giáo viên giải thích đặc biệt cho (con). 〜ていただく = kính ngữ, nhận ơn từ người trên. 「説明（せつめい）」= sự giải thích — giải thích riêng cho trẻ là ân huệ. ❌「叱り（しかり）」= sự mắng phạt — không ai biết ơn vì bị mắng. ❌「無理（むり）」= sự vô lý, ép buộc — không phải ân huệ. ❌「諦め（あきらめ）」= sự bỏ cuộc — không liên quan đến giúp đỡ.",
+              "glosses": [
+                {
+                  "t": "子供のために",
+                  "read": "こどものために",
+                  "vi": "vì đứa trẻ"
+                },
+                {
+                  "t": "特別な",
+                  "read": "とくべつな",
+                  "vi": "đặc biệt"
+                },
+                {
+                  "t": "説明",
+                  "read": "せつめい",
+                  "vi": "sự giải thích"
+                },
+                {
+                  "t": "していただいた",
+                  "vi": "được (người trên) làm cho — kính ngữ"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                }
+              ]
+            },
+            {
+              "stem": "妹に料理の＿を教えてあげた。",
+              "choices": [
+                "作り方",
+                "値段",
+                "原料",
+                "道具"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「料理の作り方を教えてあげた」= dạy em gái cách nấu ăn. 〜てあげる = làm điều tốt cho người khác. 「作り方（つくりかた）」= cách làm — dạy cách nấu ăn là ân huệ phù hợp. ❌「値段（ねだん）」= giá cả — \"dạy giá cả\" không phải điều cần dạy trong nấu ăn. ❌「原料（げんりょう）」= nguyên liệu thô — không tự nhiên; người ta dạy \"cách dùng\" chứ không dạy \"nguyên liệu\" trong ngữ cảnh này. ❌「道具（どうぐ）」= dụng cụ — dạy \"dụng cụ\" không tự nhiên bằng dạy \"cách làm\".",
+              "glosses": [
+                {
+                  "t": "妹",
+                  "read": "いもうと",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "料理の",
+                  "read": "りょうりの",
+                  "vi": "của việc nấu ăn"
+                },
+                {
+                  "t": "作り方",
+                  "read": "つくりかた",
+                  "vi": "cách làm, cách nấu"
+                },
+                {
+                  "t": "教えてあげた",
+                  "read": "おしえてあげた",
+                  "vi": "đã dạy giúp cho"
+                }
+              ]
+            },
+            {
+              "stem": "上司に報告書の＿をしてもらった。",
+              "choices": [
+                "確認",
+                "妨害",
+                "批判",
+                "省略"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「報告書の確認をしてもらった」= được cấp trên xác nhận/kiểm tra báo cáo giúp. 〜てもらう = được/nhờ ai đó làm cho mình. 「確認（かくにん）」= sự xác nhận, kiểm tra — nhờ cấp trên kiểm tra báo cáo là hành động nhờ vả hợp lý. ❌「妨害（ぼうがい）」= sự cản phá — không ai nhờ người khác cản phá công việc mình. ❌「批判（ひはん）」= sự phê phán — nhờ phê phán có thể xảy ra nhưng nghĩa tiêu cực hơn, và 確認 phù hợp hơn hẳn. ❌「省略（しょうりゃく）」= sự lược bỏ — nhờ lược bỏ báo cáo không hợp lý.",
+              "glosses": [
+                {
+                  "t": "上司",
+                  "read": "じょうし",
+                  "vi": "cấp trên"
+                },
+                {
+                  "t": "報告書",
+                  "read": "ほうこくしょ",
+                  "vi": "báo cáo (văn bản)"
+                },
+                {
+                  "t": "確認",
+                  "read": "かくにん",
+                  "vi": "sự xác nhận, kiểm tra"
+                },
+                {
+                  "t": "してもらった",
+                  "vi": "đã được/nhờ làm cho"
+                }
+              ]
+            },
+            {
+              "stem": "先生は私の発音の＿を直してくださった。",
+              "choices": [
+                "間違い",
+                "意味",
+                "速さ",
+                "量"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「発音の間違いを直してくださった」= thầy/cô đã sửa lỗi phát âm cho tôi (kính ngữ). 「くださる」là kính ngữ của 「くれる」— người trên làm ơn cho người nói. 「間違い（まちがい）」= lỗi sai — sửa lỗi phát âm là hành động giúp đỡ tự nhiên. ❌「意味（いみ）」= ý nghĩa — \"sửa ý nghĩa của phát âm\" không tự nhiên trong tiếng Nhật. ❌「速さ（はやさ）」= tốc độ — tốc độ nói có thể điều chỉnh nhưng không dùng 「直す」(sửa lỗi). ❌「量（りょう）」= số lượng — \"sửa số lượng của phát âm\" vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "発音の",
+                  "read": "はつおんの",
+                  "vi": "của phát âm"
+                },
+                {
+                  "t": "間違い",
+                  "read": "まちがい",
+                  "vi": "lỗi sai"
+                },
+                {
+                  "t": "直してくださった",
+                  "read": "なおしてくださった",
+                  "vi": "đã sửa cho (kính ngữ của てくれた)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "新入社員に会社の＿を案内してあげた。",
+              "choices": [
+                "施設",
+                "費用",
+                "規則",
+                "問題"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会社の施設を案内してあげた」= dẫn nhân viên mới đi tham quan các cơ sở vật chất của công ty. 〜てあげる = làm điều tốt cho người khác. 「施設（しせつ）」= cơ sở vật chất, thiết bị — dẫn tham quan cơ sở là hành động giúp đỡ nhân viên mới hội nhập. ❌「費用（ひよう）」= chi phí — \"dẫn tham quan chi phí\" vô nghĩa. ❌「規則（きそく）」= quy tắc, nội quy — có thể giải thích nội quy nhưng không dùng 「案内する」(dẫn đường, hướng dẫn địa điểm). ❌「問題（もんだい）」= vấn đề — \"dẫn tham quan vấn đề\" không hợp lý.",
+              "glosses": [
+                {
+                  "t": "新入社員",
+                  "read": "しんにゅうしゃいん",
+                  "vi": "nhân viên mới"
+                },
+                {
+                  "t": "会社の",
+                  "read": "かいしゃの",
+                  "vi": "của công ty"
+                },
+                {
+                  "t": "施設",
+                  "read": "しせつ",
+                  "vi": "cơ sở vật chất, thiết bị"
+                },
+                {
+                  "t": "案内してあげた",
+                  "read": "あんないしてあげた",
+                  "vi": "đã dẫn tham quan/hướng dẫn giúp cho"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "田中さんは私に日本語を教えてくれました。",
+              "choices": [
+                "田中さんは私のために日本語を教えてあげました。",
+                "私は田中さんに日本語を教えてもらいました。",
+                "田中さんは私に日本語を教えてみました。",
+                "私は田中さんに日本語を教えてあげました。"
+              ],
+              "answer": 1,
+              "pt": "Vてくれます",
+              "explain": "Câu gốc dùng「てくれました」— ai đó tự nguyện làm điều gì đó CHO người nói (điểm nhìn từ phía người nhận). Câu B「私は田中さんに日本語を教えてもらいました」dùng「てもらいました」— người nói NHẬN được việc dạy từ Tanaka, nghĩa tương đương, chỉ đổi chủ ngữ và góc nhìn. ① Sai: 「てあげました」hàm ý Tanaka dạy cho người KHÁC (không phải người nói), lại thêm「私のために」không tự nhiên. ③ Sai: 「てみました」nghĩa 'thử dạy', không phải 'dạy giúp'. ④ Sai: chủ ngữ thành 'tôi dạy Tanaka' — ngược hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "教えてくれました",
+                  "read": "おしえてくれました",
+                  "vi": "đã dạy (tự nguyện làm cho tôi)"
+                },
+                {
+                  "t": "私のために",
+                  "read": "わたしのために",
+                  "vi": "vì tôi / cho tôi"
+                },
+                {
+                  "t": "日本語を",
+                  "read": "にほんごを",
+                  "vi": "tiếng Nhật (bổ ngữ)"
+                },
+                {
+                  "t": "私は",
+                  "read": "わたしは",
+                  "vi": "tôi (chủ ngữ/chủ đề)"
+                },
+                {
+                  "t": "私に",
+                  "read": "わたしに",
+                  "vi": "cho tôi / với tôi (đối tượng nhận)"
+                },
+                {
+                  "t": "教えてあげました",
+                  "read": "おしえてあげました",
+                  "vi": "〜てあげる = làm gì đó cho người khác (ban ơn, chủ ngữ là người làm)"
+                },
+                {
+                  "t": "教えてもらいました",
+                  "read": "おしえてもらいました",
+                  "vi": "〜てもらう = được/nhờ người khác làm gì cho mình"
+                },
+                {
+                  "t": "教えてみました",
+                  "read": "おしえてみました",
+                  "vi": "〜てみる = thử làm ~ xem"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に作文を直していただきました。",
+              "choices": [
+                "先生が作文を直してくれました。",
+                "先生に作文を直してあげました。",
+                "私が先生の作文を直してもらいました。",
+                "先生は作文を直してみました。"
+              ],
+              "answer": 0,
+              "pt": "Vていただきます",
+              "explain": "「ていただきました」là kính ngữ của「てもらいました」— người nói KÍNH cẩn nhận việc sửa văn từ người trên (giáo viên). Câu A「先生が作文を直してくれました」dùng「てくれました」— thầy tự nguyện sửa giúp, nghĩa gần nhất (cùng thể hiện thầy sửa cho mình), chỉ bỏ kính ngữ. ② Sai:「てあげました」có nghĩa 'tôi sửa văn để tặng thầy' — ngược chiều. ③ Sai: cấu trúc phi lý, 'tôi nhờ sửa văn của thầy'. ④ Sai: 'thử sửa' — không liên quan.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "作文",
+                  "read": "さくぶん",
+                  "vi": "bài văn"
+                },
+                {
+                  "t": "直していただきました",
+                  "read": "なおしていただきました",
+                  "vi": "được (thầy/cô) sửa cho (kính ngữ)"
+                },
+                {
+                  "t": "私が",
+                  "read": "わたしが",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "直してくれました",
+                  "read": "なおしてくれました",
+                  "vi": "〜てくれる = người khác làm gì đó cho mình (ban ơn cho mình)"
+                },
+                {
+                  "t": "直してあげました",
+                  "read": "なおしてあげました",
+                  "vi": "〜てあげる = làm gì đó cho người khác"
+                },
+                {
+                  "t": "直してもらいました",
+                  "read": "なおしてもらいました",
+                  "vi": "〜てもらう = được/nhờ người khác làm cho mình"
+                },
+                {
+                  "t": "直してみました",
+                  "read": "なおしてみました",
+                  "vi": "〜てみる = thử làm ~ xem"
+                }
+              ]
+            },
+            {
+              "prompt": "友達の引っ越しを手伝ってあげました。",
+              "choices": [
+                "友達に引っ越しを手伝ってもらいました。",
+                "友達の引っ越しのために、私が手伝いました。",
+                "友達は引っ越しを手伝ってくれました。",
+                "友達に引っ越しを手伝っていただきました。"
+              ],
+              "answer": 1,
+              "pt": "Vてあげます",
+              "explain": "「てあげました」— tôi làm điều gì đó cho người khác (bạn bè). Câu B「友達の引っ越しのために、私が手伝いました」diễn đạt cùng ý: tôi giúp bạn chuyển nhà, chỉ không dùng cú pháp「てあげる」mà dùng「ために」(B39 ôn xoắn ốc). ① Sai: 'tôi nhờ bạn giúp chuyển nhà' — ngược chiều hoàn toàn. ③ Sai: 'bạn giúp tôi' — chủ thể ngược. ④ Sai: kính ngữ 'được bạn kính cẩn giúp' — sai chiều và sai mức độ lịch sự.",
+              "glosses": [
+                {
+                  "t": "引っ越し",
+                  "read": "ひっこし",
+                  "vi": "việc chuyển nhà"
+                },
+                {
+                  "t": "手伝ってあげました",
+                  "read": "てつだってあげました",
+                  "vi": "đã giúp (cho người khác)"
+                },
+                {
+                  "t": "友達に",
+                  "read": "ともだちに",
+                  "vi": "cho bạn / với bạn (đối tượng nhận)"
+                },
+                {
+                  "t": "友達の",
+                  "read": "ともだちの",
+                  "vi": "của bạn"
+                },
+                {
+                  "t": "私が",
+                  "read": "わたしが",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "友達は",
+                  "read": "ともだちは",
+                  "vi": "bạn (chủ ngữ/chủ đề)"
+                },
+                {
+                  "t": "手伝ってもらいました",
+                  "read": "てつだってもらいました",
+                  "vi": "〜てもらう = được/nhờ người khác làm giúp"
+                },
+                {
+                  "t": "引っ越しのために",
+                  "read": "ひっこしのために",
+                  "vi": "〜のために = vì/để cho ~"
+                },
+                {
+                  "t": "手伝ってくれました",
+                  "read": "てつだってくれました",
+                  "vi": "〜てくれる = người khác làm giúp mình"
+                },
+                {
+                  "t": "手伝っていただきました",
+                  "read": "てつだっていただきました",
+                  "vi": "〜ていただく = kính ngữ của てもらう, được người trên làm giúp cho"
+                }
+              ]
+            },
+            {
+              "prompt": "母に荷物を持ってもらいました。",
+              "choices": [
+                "母は荷物を持ってあげました。",
+                "母が荷物を持ってくれました。",
+                "私は母のために荷物を持ちました。",
+                "母に荷物を持っていただきました。"
+              ],
+              "answer": 1,
+              "pt": "Vてもらいます",
+              "explain": "「てもらいました」— tôi NHẬN được việc mẹ xách đồ (tôi là người được lợi). Câu B「母が荷物を持ってくれました」dùng「てくれました」— mẹ chủ động xách đồ giúp tôi, nghĩa tương đương, chỉ đổi góc nhìn sang mẹ là chủ ngữ. ① Sai: 'mẹ xách đồ giúp ai đó khác (không phải tôi)' vì 「あげました」hướng ra bên ngoài. ③ Sai: 'tôi xách đồ cho mẹ' — ngược hoàn toàn. ④ Sai: 「いただきました」là kính ngữ, không dùng với 'mẹ' trong ngữ cảnh thông thường (mẹ không phải người trên ngoài xã hội).",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (của tôi)"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "持ってもらいました",
+                  "read": "もってもらいました",
+                  "vi": "đã nhờ (mẹ) mang giúp"
+                },
+                {
+                  "t": "私は",
+                  "read": "わたしは",
+                  "vi": "tôi (chủ ngữ/chủ đề)"
+                },
+                {
+                  "t": "持ってあげました",
+                  "read": "もってあげました",
+                  "vi": "〜てあげる = làm gì đó cho người khác"
+                },
+                {
+                  "t": "持ってくれました",
+                  "read": "もってくれました",
+                  "vi": "〜てくれる = người khác làm giúp mình"
+                },
+                {
+                  "t": "母のために",
+                  "read": "ははのために",
+                  "vi": "〜のために = vì/để cho ~"
+                },
+                {
+                  "t": "持っていただきました",
+                  "read": "もっていただきました",
+                  "vi": "〜ていただく = kính ngữ của てもらう"
+                }
+              ]
+            },
+            {
+              "prompt": "料理の作り方を教えてもらえますか。",
+              "choices": [
+                "料理の作り方を教えてみてください。",
+                "料理の作り方を教えていただけますか。",
+                "料理の作り方を教えてあげましょうか。",
+                "料理の作り方を教えてくれてもいいですか。"
+              ],
+              "answer": 1,
+              "pt": "Vてもらいます",
+              "explain": "「てもらえますか」là dạng nhờ vả lịch sự (nhận từ người khác). Câu B「教えていただけますか」là kính ngữ của cùng mẫu — nhờ dạy một cách kính trọng hơn, nghĩa gần nhất và cùng chức năng. ① Sai: 「てみてください」= 'hãy thử dạy xem' — không phải lời nhờ vả. ③ Sai: 「てあげましょうか」= 'để tôi dạy cho bạn nhé' — ngược chiều hoàn toàn. ④ Sai: 「てくれてもいいですか」— câu ghép phi tự nhiên, không phải mẫu chuẩn.",
+              "glosses": [
+                {
+                  "t": "料理の作り方",
+                  "read": "りょうりのつくりかた",
+                  "vi": "cách nấu ăn"
+                },
+                {
+                  "t": "教えてもらえますか",
+                  "read": "おしえてもらえますか",
+                  "vi": "có thể dạy cho tôi được không?"
+                },
+                {
+                  "t": "教えてみてください",
+                  "read": "おしえてみてください",
+                  "vi": "〜てみてください = hãy thử làm ~ xem"
+                },
+                {
+                  "t": "教えていただけますか",
+                  "read": "おしえていただけますか",
+                  "vi": "〜ていただけますか = kính ngữ, có thể vui lòng làm giúp tôi ~ không"
+                },
+                {
+                  "t": "教えてあげましょうか",
+                  "read": "おしえてあげましょうか",
+                  "vi": "〜てあげましょうか = để tôi làm giúp cho nhé"
+                },
+                {
+                  "t": "教えてくれてもいいですか",
+                  "read": "おしえてくれてもいいですか",
+                  "vi": "〜てくれてもいいですか = làm giúp tôi cũng được chứ"
+                }
+              ]
+            },
+            {
+              "prompt": "子供のころ、よく父に絵本を読んでもらいました。",
+              "choices": [
+                "子供のころ、父はよく絵本を読んであげました。",
+                "子供のころ、父はよく絵本を読んでくれました。",
+                "子供のころ、私はよく父に絵本を読んであげました。",
+                "子供のころ、父は絵本を読んでみました。"
+              ],
+              "answer": 1,
+              "pt": "Vてもらいます",
+              "explain": "「てもらいました」— hồi nhỏ tôi được bố đọc truyện cho nghe (tôi hưởng lợi). Câu B「父はよく絵本を読んでくれました」— bố chủ động đọc truyện cho tôi, cùng nghĩa, đổi góc nhìn sang bố là chủ ngữ. ① Sai: 「父は〜読んであげました」= bố đọc cho AI ĐÓ KHÁC (không phải tôi). ③ Sai: 'tôi đọc cho bố nghe' — ngược chiều. ④ Sai: 'bố thử đọc truyện' — hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "子供のころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "絵本",
+                  "read": "えほん",
+                  "vi": "truyện tranh, sách hình"
+                },
+                {
+                  "t": "読んでもらいました",
+                  "read": "よんでもらいました",
+                  "vi": "đã được (bố) đọc cho nghe"
+                },
+                {
+                  "t": "父はよく",
+                  "read": "ちちはよく",
+                  "vi": "bố thường hay (chủ ngữ + phó từ)"
+                },
+                {
+                  "t": "私はよく",
+                  "read": "わたしはよく",
+                  "vi": "tôi thường hay (chủ ngữ + phó từ)"
+                },
+                {
+                  "t": "父に",
+                  "read": "ちちに",
+                  "vi": "cho bố / với bố"
+                },
+                {
+                  "t": "読んであげました",
+                  "read": "よんであげました",
+                  "vi": "〜てあげる = làm gì đó cho người khác"
+                },
+                {
+                  "t": "読んでくれました",
+                  "read": "よんでくれました",
+                  "vi": "〜てくれる = người khác làm giúp mình"
+                },
+                {
+                  "t": "読んでみました",
+                  "read": "よんでみました",
+                  "vi": "〜てみる = thử làm ~ xem"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に言われたとおりに練習しました。",
+              "choices": [
+                "先生に言われてから、練習しました。",
+                "先生が言ったとおりに練習しました。",
+                "先生に言われるように練習しました。",
+                "先生に言われたあとで練習しました。"
+              ],
+              "answer": 1,
+              "pt": "B34 V／Nのとおりに + B37 V受身形",
+              "explain": "Câu gốc: 'luyện tập đúng theo điều thầy nói' (thể bị động + のとおりに). Câu B「先生が言ったとおりに練習しました」dùng thể chủ động 'theo đúng lời thầy nói' — nghĩa tương đương. ① Sai: 「〜てから」= 'sau khi được thầy nói thì luyện' (thứ tự thời gian), không nhấn 'đúng theo lời'. ③ Sai: 「〜ように」= 'luyện để/sao cho', nhấn mục đích, không phải 'theo đúng lời'. ④ Sai: 「〜たあとで」= 'sau khi được thầy nói' — chỉ thứ tự thời gian (B34 ôn xoắn ốc).",
+              "glosses": [
+                {
+                  "t": "言われたとおりに",
+                  "read": "いわれたとおりに",
+                  "vi": "đúng như đã được nói, theo đúng lời dặn"
+                },
+                {
+                  "t": "練習しました",
+                  "read": "れんしゅうしました",
+                  "vi": "đã luyện tập"
+                },
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "cho thầy/cô / với thầy cô"
+                },
+                {
+                  "t": "先生が",
+                  "read": "せんせいが",
+                  "vi": "thầy/cô (chủ ngữ)"
+                },
+                {
+                  "t": "言われてから",
+                  "read": "いわれてから",
+                  "vi": "〜てから = sau khi làm ~"
+                },
+                {
+                  "t": "言ったとおりに",
+                  "read": "いったとおりに",
+                  "vi": "〜とおりに = đúng như, theo như ~"
+                },
+                {
+                  "t": "言われるように",
+                  "read": "いわれるように",
+                  "vi": "〜ように = để cho (mục đích)"
+                },
+                {
+                  "t": "言われたあとで",
+                  "read": "いわれたあとで",
+                  "vi": "〜あとで = sau khi ~"
+                }
+              ]
+            },
+            {
+              "prompt": "窓を開けたまま寝てしまいました。",
+              "choices": [
+                "窓を開けてから寝てしまいました。",
+                "窓が開いているのに、寝てしまいました。",
+                "窓を開けないように寝てしまいました。",
+                "窓を開けるために寝てしまいました。"
+              ],
+              "answer": 1,
+              "pt": "B34 V／Aいまま",
+              "explain": "「〜たまま」= để nguyên trạng thái đó rồi làm tiếp (B34). Câu B「窓が開いているのに、寝てしまいました」= 'dù cửa sổ đang mở vẫn ngủ' — cùng ý: cửa sổ mở nhưng vẫn ngủ, chỉ thêm sắc thái tương phản nhẹ. ① Sai: 「〜てから」= 'sau khi mở cửa sổ rồi mới ngủ' — thứ tự, không có nghĩa 'để nguyên'. ③ Sai: 「〜ないように」= 'ngủ sao cho không mở cửa' — sai hoàn toàn. ④ Sai: 「〜ために」= 'ngủ để mở cửa' — vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "窓を開けたまま",
+                  "read": "まどをあけたまま",
+                  "vi": "để nguyên cửa sổ mở"
+                },
+                {
+                  "t": "寝てしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "đã ngủ quên mất"
+                },
+                {
+                  "t": "開けてから",
+                  "read": "あけてから",
+                  "vi": "〜てから = sau khi làm ~"
+                },
+                {
+                  "t": "開いているのに",
+                  "read": "あいているのに",
+                  "vi": "〜のに = mặc dù, trái ngược với điều đáng lẽ phải xảy ra"
+                },
+                {
+                  "t": "開けないように",
+                  "read": "あけないように",
+                  "vi": "〜ないように = để không ~"
+                },
+                {
+                  "t": "開けるために",
+                  "read": "あけるために",
+                  "vi": "〜ために = để (mục đích)"
+                }
+              ]
+            },
+            {
+              "prompt": "もっと早く起きれば、電車に乗れたのに。",
+              "choices": [
+                "もっと早く起きたら、電車に乗れたかもしれない。",
+                "もっと早く起きるように、電車に乗りたかった。",
+                "もっと早く起きるなら、電車に乗れる。",
+                "もっと早く起きたあとで、電車に乗れたのに。"
+              ],
+              "answer": 0,
+              "pt": "B35 V／Aば",
+              "explain": "「〜ば〜のに」= điều kiện phản thực (tiếc nuối — B35). Câu A「もっと早く起きたら、電車に乗れたかもしれない」dùng「〜たら」với sắc thái tương tự — nếu đã dậy sớm thì có thể đã lên tàu được. ② Sai: 「〜ように〜たかった」= 'muốn lên tàu để dậy sớm' — sai logic. ③ Sai: 「〜なら」= điều kiện hiện tại/tương lai 'nếu là trường hợp dậy sớm' — không mang nghĩa tiếc nuối về quá khứ. ④ Sai: 「〜たあとで」= 'sau khi dậy sớm' — thứ tự thời gian, không phải điều kiện.",
+              "glosses": [
+                {
+                  "t": "早く起きれば",
+                  "read": "はやくおきれば",
+                  "vi": "nếu dậy sớm hơn"
+                },
+                {
+                  "t": "乗れたのに",
+                  "read": "のれたのに",
+                  "vi": "đã có thể lên tàu (tiếc là không)"
+                },
+                {
+                  "t": "電車に",
+                  "read": "でんしゃに",
+                  "vi": "tàu điện (lên/đến tàu điện)"
+                },
+                {
+                  "t": "もっと",
+                  "read": "もっと",
+                  "vi": "hơn nữa"
+                },
+                {
+                  "t": "かもしれない",
+                  "read": "かもしれない",
+                  "vi": "có thể, có lẽ"
+                },
+                {
+                  "t": "たかった",
+                  "read": "たかった",
+                  "vi": "đã muốn (làm gì)"
+                },
+                {
+                  "t": "起きた",
+                  "read": "おきた",
+                  "vi": "đã thức dậy/dậy"
+                },
+                {
+                  "t": "起きるように",
+                  "read": "おきるように",
+                  "vi": "〜ように = để cho (mục đích)"
+                },
+                {
+                  "t": "起きるなら",
+                  "read": "おきるなら",
+                  "vi": "〜なら = nếu (điều kiện giả định theo ý người nói)"
+                },
+                {
+                  "t": "起きたあとで",
+                  "read": "おきたあとで",
+                  "vi": "〜あとで = sau khi ~"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語が話せるようになりました。",
+              "choices": [
+                "日本語を話せるようにしました。",
+                "日本語が話せるようにしています。",
+                "日本語が話せるほどになりました。",
+                "日本語を話せるためになりました。"
+              ],
+              "answer": 2,
+              "pt": "B36 Vるようになります",
+              "explain": "「〜ようになりました」= trở nên có thể làm (B36) — biến đổi trạng thái. Câu C「日本語が話せるほどになりました」= 'đã đến mức có thể nói tiếng Nhật' — diễn đạt cùng ý biến đổi đạt đến trình độ đó. ① Sai: 「〜ようにしました」= 'cố gắng/nỗ lực để nói được' (B36 ようにします) — chủ ý, không phải kết quả biến đổi. ② Sai: 「〜ようにしています」= 'đang cố gắng/duy trì' — hành động liên tục chủ ý. ④ Sai: 「〜ためになりました」— ngữ pháp sai, 「ために」không dùng kiểu này.",
+              "glosses": [
+                {
+                  "t": "話せるようになりました",
+                  "read": "はなせるようになりました",
+                  "vi": "đã trở nên có thể nói được"
+                },
+                {
+                  "t": "日本語を",
+                  "read": "にほんごを",
+                  "vi": "tiếng Nhật (bổ ngữ)"
+                },
+                {
+                  "t": "日本語が",
+                  "read": "にほんごが",
+                  "vi": "tiếng Nhật (chủ ngữ)"
+                },
+                {
+                  "t": "話せるようにしました",
+                  "read": "はなせるようにしました",
+                  "vi": "〜ようにする = chủ động cố gắng làm cho được/thành thói quen"
+                },
+                {
+                  "t": "話せるようにしています",
+                  "read": "はなせるようにしています",
+                  "vi": "〜ようにしている = đang duy trì cố gắng để được như vậy"
+                },
+                {
+                  "t": "話せるほどになりました",
+                  "read": "はなせるほどになりました",
+                  "vi": "〜ほどになる = đạt đến mức độ có thể ~"
+                },
+                {
+                  "t": "話せるためになりました",
+                  "read": "はなせるためになりました",
+                  "vi": "〜ために = để, vì mục đích (dùng sai ngữ pháp trong câu này)"
+                }
+              ]
+            },
+            {
+              "prompt": "友達にパソコンを修理してもらいました。",
+              "choices": [
+                "友達はパソコンを修理してあげました。",
+                "友達がパソコンを修理してくれました。",
+                "私は友達のためにパソコンを修理しました。",
+                "友達はパソコンを修理してみました。"
+              ],
+              "answer": 1,
+              "pt": "Vてもらいます",
+              "explain": "「てもらいました」— tôi nhờ bạn sửa máy tính (tôi hưởng lợi). Câu B「友達がパソコンを修理してくれました」— bạn chủ động sửa máy cho tôi, nghĩa tương đương, chỉ đổi góc nhìn. ① Sai: 「てあげました」= bạn sửa cho người KHÁC (không phải tôi). ③ Sai: 'tôi sửa cho bạn' — ngược chiều. ④ Sai: 'bạn thử sửa' — không liên quan đến việc giúp.",
+              "glosses": [
+                {
+                  "t": "パソコン",
+                  "vi": "máy tính"
+                },
+                {
+                  "t": "修理してもらいました",
+                  "read": "しゅうりしてもらいました",
+                  "vi": "đã nhờ (bạn) sửa giúp"
+                },
+                {
+                  "t": "友達はパソコンを",
+                  "read": "ともだちはパソコンを",
+                  "vi": "bạn (chủ ngữ) sửa máy tính (bổ ngữ)"
+                },
+                {
+                  "t": "友達がパソコンを",
+                  "read": "ともだちがパソコンを",
+                  "vi": "bạn (chủ ngữ) sửa máy tính (bổ ngữ)"
+                },
+                {
+                  "t": "私は",
+                  "read": "わたしは",
+                  "vi": "tôi (chủ ngữ/chủ đề)"
+                },
+                {
+                  "t": "友達のためにパソコンを",
+                  "read": "ともだちのためにパソコンを",
+                  "vi": "vì bạn, máy tính (bổ ngữ)"
+                },
+                {
+                  "t": "修理してあげました",
+                  "read": "しゅうりしてあげました",
+                  "vi": "〜てあげる = làm gì đó cho người khác"
+                },
+                {
+                  "t": "修理してくれました",
+                  "read": "しゅうりしてくれました",
+                  "vi": "〜てくれる = người khác làm giúp mình"
+                },
+                {
+                  "t": "修理してみました",
+                  "read": "しゅうりしてみました",
+                  "vi": "〜てみる = thử làm ~ xem"
+                }
+              ]
+            },
+            {
+              "prompt": "この映画を見るかどうか、まだ決めていません。",
+              "choices": [
+                "この映画を見るかを見ないか、まだ決めていません。",
+                "この映画を見るかどうかについて、まだ迷っています。",
+                "この映画を見るかどうかを知りたいです。",
+                "この映画を見るかどうかを教えてください。"
+              ],
+              "answer": 1,
+              "pt": "B40 〜かどうか",
+              "explain": "「〜かどうか」= có … hay không (B40 — gián tiếp). Câu B「この映画を見るかどうかについて、まだ迷っています」= 'vẫn đang do dự về việc có xem bộ phim này không' — cùng nghĩa chưa quyết định, chỉ diễn đạt bằng từ khác. ① Sai: 「見るかを見ないか」— cấu trúc trùng lặp không tự nhiên trong tiếng Nhật. ③ Sai: 'muốn biết có xem không' — hỏi người khác, không phải bản thân chưa quyết định. ④ Sai: 'hãy cho tôi biết có xem không' — yêu cầu người khác, sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "見るかどうか",
+                  "read": "みるかどうか",
+                  "vi": "có xem hay không"
+                },
+                {
+                  "t": "決めていません",
+                  "read": "きめていません",
+                  "vi": "chưa quyết định"
+                },
+                {
+                  "t": "映画を",
+                  "read": "えいがを",
+                  "vi": "phim (bổ ngữ)"
+                },
+                {
+                  "t": "見るかを見ないか",
+                  "read": "みるかをみないか",
+                  "vi": "〜るか〜ないか = cách hỏi có...hay không (ít tự nhiên hơn かどうか)"
+                },
+                {
+                  "t": "かどうかについて",
+                  "read": "かどうかについて",
+                  "vi": "〜について = về việc ~"
+                },
+                {
+                  "t": "知りたいです",
+                  "read": "しりたいです",
+                  "vi": "〜たいです = muốn làm ~"
+                },
+                {
+                  "t": "教えてください",
+                  "read": "おしえてください",
+                  "vi": "〜てください = làm ơn hãy làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "新しいレストランに行ってみましたが、あまりおいしくなかったです。",
+              "choices": [
+                "新しいレストランを試しに行きましたが、あまりおいしくなかったです。",
+                "新しいレストランに行ったあとで、あまりおいしくないとわかりました。",
+                "新しいレストランに行くかどうか考えましたが、あまりおいしくなかったです。",
+                "新しいレストランに行くようになりましたが、あまりおいしくなかったです。"
+              ],
+              "answer": 0,
+              "pt": "B40 Vてみます",
+              "explain": "「てみました」= thử làm xem sao (B40). Câu A「試しに行きましたが」= 'thử đến xem nhưng' — 「試しに」mang nghĩa 'thử xem', tương đương「てみる」. ② Sai: 「〜たあとで〜とわかりました」= 'sau khi đến mới biết không ngon' — nhấn thứ tự khám phá, không nhấn hành động thử. ③ Sai: 「行くかどうか考えました」= 'đã suy nghĩ có nên đến không' — giai đoạn trước khi đến, không phải 'thử đến'. ④ Sai: 「〜ようになりました」= 'trở nên hay đến' — biến đổi thói quen, sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "行ってみました",
+                  "read": "いってみました",
+                  "vi": "đã thử đến"
+                },
+                {
+                  "t": "あまりおいしくなかった",
+                  "vi": "không ngon lắm"
+                },
+                {
+                  "t": "新しいレストランを",
+                  "read": "あたらしいレストランを",
+                  "vi": "nhà hàng mới (bổ ngữ)"
+                },
+                {
+                  "t": "新しいレストランに",
+                  "read": "あたらしいレストランに",
+                  "vi": "nhà hàng mới (đối tượng đi đến)"
+                },
+                {
+                  "t": "試しに行きましたが",
+                  "read": "ためしにいきましたが",
+                  "vi": "試しに〜 = thử làm ~ xem"
+                },
+                {
+                  "t": "行ったあとで",
+                  "read": "いったあとで",
+                  "vi": "〜あとで = sau khi ~"
+                },
+                {
+                  "t": "あまりおいしくないとわかりました",
+                  "read": "あまりおいしくないとわかりました",
+                  "vi": "〜とわかりました = nhận ra/biết được rằng ~"
+                },
+                {
+                  "t": "行くかどうか",
+                  "read": "いくかどうか",
+                  "vi": "〜かどうか = có ~ hay không"
+                },
+                {
+                  "t": "考えましたが",
+                  "read": "かんがえましたが",
+                  "vi": "〜ましたが = đã làm gì nhưng (nối câu tương phản)"
+                },
+                {
+                  "t": "行くようになりましたが",
+                  "read": "いくようになりましたが",
+                  "vi": "〜ようになる = trở nên (thay đổi trạng thái/thói quen)"
+                }
+              ]
+            },
+            {
+              "prompt": "妹のために宿題を手伝ってあげました。",
+              "choices": [
+                "妹は宿題を手伝ってくれました。",
+                "妹に宿題を手伝ってもらいました。",
+                "妹の宿題を私が手伝いました。",
+                "妹のために宿題を手伝っていただきました。"
+              ],
+              "answer": 2,
+              "pt": "Vてあげます + B39 〜ために",
+              "explain": "「妹のために〜てあげました」= 'đã giúp em gái làm bài tập (vì em)'. Câu C「妹の宿題を私が手伝いました」= 'tôi đã giúp bài tập của em gái' — cùng ý, chỉ đơn giản hóa không dùng「てあげる」. ① Sai: 'em gái giúp tôi' — ngược chiều. ② Sai: 'tôi nhờ em giúp bài tập' — ngược chiều. ④ Sai: 「いただきました」= ai đó bề trên giúp tôi, nhầm chiều và mức kính ngữ.",
+              "glosses": [
+                {
+                  "t": "妹",
+                  "read": "いもうと",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "手伝ってあげました",
+                  "read": "てつだってあげました",
+                  "vi": "đã giúp (em)"
+                },
+                {
+                  "t": "私が",
+                  "read": "わたしが",
+                  "vi": "tôi (chủ ngữ)"
+                },
+                {
+                  "t": "妹のために",
+                  "read": "いもうとのために",
+                  "vi": "〜のために = vì/để cho ~"
+                },
+                {
+                  "t": "手伝ってくれました",
+                  "read": "てつだってくれました",
+                  "vi": "〜てくれる = người khác làm giúp mình"
+                },
+                {
+                  "t": "手伝ってもらいました",
+                  "read": "てつだってもらいました",
+                  "vi": "〜てもらう = được/nhờ người khác làm giúp"
+                },
+                {
+                  "t": "手伝っていただきました",
+                  "read": "てつだっていただきました",
+                  "vi": "〜ていただく = kính ngữ của てもらう"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に論文を見ていただけないでしょうか。",
+              "choices": [
+                "先生、論文を見てくださいませんか。",
+                "先生に論文を見てもらえませんか。",
+                "先生は論文を見てくれませんか。",
+                "先生に論文を見てあげませんか。"
+              ],
+              "answer": 0,
+              "pt": "Vていただきます",
+              "explain": "「ていただけないでしょうか」= nhờ rất lịch sự, kính cẩn (kính ngữ tối cao). Câu A「論文を見てくださいませんか」cũng dùng kính ngữ「〜てください」ở dạng phủ định lịch sự — tương đương về mức độ tôn kính, nhờ thầy xem giúp. ② Sai: 「〜てもらえませんか」là lịch sự nhưng KHÔNG phải kính ngữ (謙譲語), dùng với bạn bè hoặc người ngang hàng, không phù hợp với giáo viên bằng mức「いただく」. ③ Sai: 「〜てくれませんか」thân mật hơn, không kính ngữ, không phù hợp với thầy. ④ Sai: 「〜てあげませんか」= 'thầy có muốn xem giúp không?' — chiều cho đi không tự nhiên trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "論文",
+                  "read": "ろんぶん",
+                  "vi": "luận văn"
+                },
+                {
+                  "t": "見ていただけないでしょうか",
+                  "read": "みていただけないでしょうか",
+                  "vi": "không biết thầy/cô có thể xem giúp không ạ (kính ngữ, rất lịch sự)"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "cho thầy/cô / với thầy cô"
+                },
+                {
+                  "t": "先生は",
+                  "read": "せんせいは",
+                  "vi": "thầy/cô (chủ ngữ/chủ đề)"
+                },
+                {
+                  "t": "見てくださいませんか",
+                  "read": "みてくださいませんか",
+                  "vi": "〜てくださいませんか = kính ngữ nhờ vả, làm ơn có thể ~ không"
+                },
+                {
+                  "t": "見てもらえませんか",
+                  "read": "みてもらえませんか",
+                  "vi": "〜てもらえませんか = có thể nhờ ~ làm giúp không"
+                },
+                {
+                  "t": "見てくれませんか",
+                  "read": "みてくれませんか",
+                  "vi": "〜てくれませんか = làm giúp tôi được không"
+                },
+                {
+                  "t": "見てあげませんか",
+                  "read": "みてあげませんか",
+                  "vi": "〜てあげませんか = (tôi) làm giúp cho không"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 41 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "田中さんは私に日本語を＿。",
+              "choices": [
+                "教えてあげました",
+                "教えてもらいました",
+                "教えてくれました",
+                "教えていただきました"
+              ],
+              "answer": 2,
+              "pt": "Vてくれます",
+              "explain": "Chủ thể là 田中さん (người khác) tự nguyện dạy tiếng Nhật cho tôi (người nói). Dùng「てくれます」khi người khác làm điều tốt cho người nói mà không bị yêu cầu. → (C) 教えてくれました ✓. (A) 教えてあげました: chủ thể là TÔI làm cho người khác, sai hướng vì chủ thể câu là 田中さん. (B) 教えてもらいました: nghĩa gần đúng nhưng chủ thể phải là TÔI (私は田中さんに教えてもらった), còn câu này chủ thể là 田中さん. (D) 教えていただきました:「ていただく」là kính ngữ謙譲語, chủ thể phải là TÔI kính cẩn nhờ người trên, không dùng khi chủ thể câu là 田中さん.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "私に",
+                  "read": "わたしに",
+                  "vi": "cho tôi"
+                },
+                {
+                  "t": "日本語を",
+                  "read": "にほんごを",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã làm ~ cho người khác — 〜てあげる (chiều: tôi → người khác)"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã được/nhờ (ai đó) làm ~ cho mình — 〜てもらう (chiều: người khác → tôi, tôi hưởng lợi)"
+                },
+                {
+                  "t": "くれました",
+                  "read": "くれました",
+                  "vi": "(ai đó) đã làm ~ cho tôi — 〜てくれる (chiều: người khác → tôi, chủ động từ họ)"
+                },
+                {
+                  "t": "いただきました",
+                  "read": "いただきました",
+                  "vi": "đã được người trên làm ~ cho — 〜ていただく (khiêm nhường, người trên → tôi)"
+                }
+              ]
+            },
+            {
+              "stem": "先生に作文を＿ので、とても助かりました。",
+              "choices": [
+                "直してあげた",
+                "直してもらった",
+                "直してくれた",
+                "直していただいた"
+              ],
+              "answer": 3,
+              "pt": "Vていただきます",
+              "explain": "Người nói nhờ THẦY/CÔ (người trên) sửa bài văn → dùng「ていただく」là kính ngữ謙譲語, thể hiện sự kính trọng khi người trên làm ơn cho mình. → (D) 直していただいた ✓. Cũng lưu ý「〜ので」(B39) lý giải nguyên nhân lịch sự. (A) 直してあげた: chủ thể TÔI làm cho người khác, sai hướng. (B) 直してもらった: nghĩa gần đúng nhưng thiếu tính kính trọng với thầy cô — khi đối tượng là người trên, phải dùng「ていただく」. (C) 直してくれた: chủ thể phải là 先生 tự nguyện sửa (先生が直してくれた), nhưng câu này có「先生に」chỉ người được nhờ, không khớp.",
+              "glosses": [
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "nhờ thầy/cô giáo"
+                },
+                {
+                  "t": "作文を",
+                  "read": "さくぶんを",
+                  "vi": "bài văn"
+                },
+                {
+                  "t": "直して",
+                  "read": "なおして",
+                  "vi": "sửa"
+                },
+                {
+                  "t": "助かりました",
+                  "read": "たすかりました",
+                  "vi": "thật là may mắn/được giúp đỡ"
+                },
+                {
+                  "t": "ので",
+                  "vi": "vì ~ nên (lịch sự)"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "あげた",
+                  "read": "あげた",
+                  "vi": "đã làm ~ cho người khác — thể thường của 〜てあげる"
+                },
+                {
+                  "t": "もらった",
+                  "read": "もらった",
+                  "vi": "đã được nhờ làm ~ cho mình — thể thường của 〜てもらう"
+                },
+                {
+                  "t": "くれた",
+                  "read": "くれた",
+                  "vi": "(ai đó) đã làm ~ cho mình — thể thường của 〜てくれる"
+                },
+                {
+                  "t": "いただいた",
+                  "read": "いただいた",
+                  "vi": "đã được người trên làm ~ cho — thể thường, khiêm nhường của 〜ていただく"
+                }
+              ]
+            },
+            {
+              "stem": "妹が泣いていたので、お菓子を＿。",
+              "choices": [
+                "買ってもらいました",
+                "買っていただきました",
+                "買ってくれました",
+                "買ってあげました"
+              ],
+              "answer": 3,
+              "pt": "Vてあげます",
+              "explain": "Chủ thể là TÔI mua bánh kẹo cho em gái (người nhận hành động). Dùng「てあげます」khi chủ thể làm điều tốt cho người khác. → (D) 買ってあげました ✓. (A) 買ってもらいました: TÔI được ai đó mua cho tôi, sai vì tôi là người mua. (B) 買っていただきました: kính ngữ, nghĩa là tôi được người trên mua cho tôi, không phải tôi mua cho em. (C) 買ってくれました: người khác mua cho tôi (người nói), nhưng ở đây chủ thể là TÔI mua cho em gái.",
+              "glosses": [
+                {
+                  "t": "妹が",
+                  "read": "いもうとが",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "泣いていた",
+                  "read": "ないていた",
+                  "vi": "đang khóc"
+                },
+                {
+                  "t": "お菓子を",
+                  "read": "おかしを",
+                  "vi": "bánh kẹo"
+                },
+                {
+                  "t": "買って",
+                  "read": "かって",
+                  "vi": "mua"
+                },
+                {
+                  "t": "ので",
+                  "vi": "vì ~ nên (lịch sự)"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã được/nhờ (ai đó) làm ~ cho mình — 〜てもらう"
+                },
+                {
+                  "t": "いただきました",
+                  "read": "いただきました",
+                  "vi": "đã được người trên làm ~ cho — 〜ていただく"
+                },
+                {
+                  "t": "くれました",
+                  "read": "くれました",
+                  "vi": "(ai đó) đã làm ~ cho tôi — 〜てくれる"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã làm ~ cho người khác — 〜てあげる"
+                }
+              ]
+            },
+            {
+              "stem": "友達に荷物を駅まで＿ので、楽でした。",
+              "choices": [
+                "運んであげた",
+                "運んでもらった",
+                "運んでくれた",
+                "運んでいただいた"
+              ],
+              "answer": 1,
+              "pt": "Vてもらいます",
+              "explain": "Người nói nhờ bạn bè mang hành lý đến ga. Dùng「てもらいます」khi chủ thể (TÔI) nhờ/được người khác làm điều gì đó cho mình. → (B) 運んでもらった ✓. (A) 運んであげた: TÔI mang cho người khác, sai vì ở đây tôi là người được mang. (C) 運んでくれた: bạn tự nguyện mang cho tôi (không bị nhờ), nhưng「友達に」dùng trợ từ に chỉ đối tượng được nhờ, phù hợp hơn với もらう. (D) 運んでいただいた: kính ngữ dùng với người trên, không dùng với bạn bè ngang hàng.",
+              "glosses": [
+                {
+                  "t": "友達に",
+                  "read": "ともだちに",
+                  "vi": "nhờ bạn"
+                },
+                {
+                  "t": "荷物を",
+                  "read": "にもつを",
+                  "vi": "hành lý"
+                },
+                {
+                  "t": "駅まで",
+                  "read": "えきまで",
+                  "vi": "đến ga"
+                },
+                {
+                  "t": "運んで",
+                  "read": "はこんで",
+                  "vi": "mang/vận chuyển"
+                },
+                {
+                  "t": "楽でした",
+                  "read": "らくでした",
+                  "vi": "thật nhẹ nhõm/thoải mái"
+                },
+                {
+                  "t": "あげた",
+                  "read": "あげた",
+                  "vi": "đã làm ~ cho người khác — thể thường của 〜てあげる"
+                },
+                {
+                  "t": "もらった",
+                  "read": "もらった",
+                  "vi": "đã được nhờ làm ~ cho mình — thể thường của 〜てもらう"
+                },
+                {
+                  "t": "くれた",
+                  "read": "くれた",
+                  "vi": "(ai đó) đã làm ~ cho mình — thể thường của 〜てくれる"
+                },
+                {
+                  "t": "いただいた",
+                  "read": "いただいた",
+                  "vi": "đã được người trên làm ~ cho — thể thường của 〜ていただく"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは道に迷っている外国人に地図を見せて＿。",
+              "choices": [
+                "あげました",
+                "もらいました",
+                "くれました",
+                "いただきました"
+              ],
+              "answer": 0,
+              "pt": "Vてあげます",
+              "explain": "Yamada-san (chủ thể) chỉ bản đồ cho người nước ngoài bị lạc đường. Người nói không liên quan trực tiếp, đây là hành động của 山田さん đối với người thứ ba. Dùng「てあげます」khi chủ thể làm điều tốt cho người khác. → (A) あげました ✓. (B) もらいました: chủ thể được ai đó làm cho mình, không phù hợp vì 山田さん là người cho đi. (C) くれました:「てくれる」dùng khi người khác làm cho NGƯỜI NÓI hoặc nhóm người nói, nhưng đây là 山田さん làm cho người nước ngoài (bên thứ ba). (D) いただきました: kính ngữ, không dùng khi người làm là 山田さん làm cho người khác.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "道に迷っている",
+                  "read": "みちにまよっている",
+                  "vi": "đang bị lạc đường"
+                },
+                {
+                  "t": "外国人に",
+                  "read": "がいこくじんに",
+                  "vi": "cho người nước ngoài"
+                },
+                {
+                  "t": "地図を見せて",
+                  "read": "ちずをみせて",
+                  "vi": "cho xem bản đồ"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã làm ~ cho người khác — 〜てあげる"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã được/nhờ (ai đó) làm ~ cho mình — 〜てもらう"
+                },
+                {
+                  "t": "くれました",
+                  "read": "くれました",
+                  "vi": "(ai đó) đã làm ~ cho tôi — 〜てくれる"
+                },
+                {
+                  "t": "いただきました",
+                  "read": "いただきました",
+                  "vi": "đã được người trên làm ~ cho — 〜ていただく"
+                }
+              ]
+            },
+            {
+              "stem": "部長はわたしのレポートを読んで＿ので、うれしかったです。",
+              "choices": [
+                "あげました",
+                "もらいました",
+                "くれました",
+                "いただきました"
+              ],
+              "answer": 3,
+              "pt": "Vていただきます",
+              "explain": "Trưởng phòng (người trên/cấp trên) đọc báo cáo cho tôi — đây là ân huệ từ người trên. Dùng「ていただく」(謙譲語) khi người trên làm ơn cho người nói. Chủ thể câu là 部長 nhưng điểm nhìn là TÔI được hưởng ân huệ. → (D) いただきました ✓. (A) あげました: TÔI làm cho người khác, sai. (B) もらいました: ngang hàng, thiếu kính trọng với trưởng phòng. (C) くれました:「てくれる」cũng được dùng khi người trên làm cho mình, nhưng trong ngữ cảnh công sở trang trọng,「ていただく」thích hợp hơn khi nói về cấp trên — đây là câu cần chọn đáp án kính ngữ nhất.",
+              "glosses": [
+                {
+                  "t": "部長は",
+                  "read": "ぶちょうは",
+                  "vi": "trưởng phòng (người trên)"
+                },
+                {
+                  "t": "わたしのレポートを",
+                  "read": "わたしのレポートを",
+                  "vi": "báo cáo của tôi"
+                },
+                {
+                  "t": "読んで",
+                  "read": "よんで",
+                  "vi": "đọc"
+                },
+                {
+                  "t": "うれしかった",
+                  "vi": "vui/hạnh phúc"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã làm ~ cho người khác — 〜てあげる"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã được/nhờ (ai đó) làm ~ cho mình — 〜てもらう"
+                },
+                {
+                  "t": "くれました",
+                  "read": "くれました",
+                  "vi": "(ai đó) đã làm ~ cho tôi — 〜てくれる"
+                },
+                {
+                  "t": "いただきました",
+                  "read": "いただきました",
+                  "vi": "đã được người trên làm ~ cho — 〜ていただく"
+                }
+              ]
+            },
+            {
+              "stem": "子どものころ、祖父に自転車の乗り方を＿。",
+              "choices": [
+                "教えてあげました",
+                "教えていただきました",
+                "教えてもらいました",
+                "教えてくれました"
+              ],
+              "answer": 3,
+              "pt": "Vてくれます",
+              "explain": "Ông dạy tôi cách đi xe đạp hồi nhỏ — ông tự nguyện làm điều tốt cho người nói (cháu). Dùng「てくれる」khi người khác (bao gồm cả người trên trong gia đình) tự nguyện làm điều tốt cho người nói. → (D) 教えてくれました ✓. (A) 教えてあげました: TÔI dạy người khác, sai hướng. (B) 教えていただきました: kính ngữ trịnh trọng, thường dùng trong môi trường công sở/chính thức hơn là kể chuyện gia đình hồi nhỏ. (C) 教えてもらいました: cũng đúng về nghĩa nhưng chủ thể phải là TÔI (私は祖父に教えてもらった) — câu này có 祖父に chỉ đối tượng được nhờ, không khớp vì「もらう」cần に chỉ người cho.",
+              "glosses": [
+                {
+                  "t": "子どものころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "祖父に",
+                  "read": "そふに",
+                  "vi": "ông nội/ngoại"
+                },
+                {
+                  "t": "自転車の乗り方を",
+                  "read": "じてんしゃののりかたを",
+                  "vi": "cách đi xe đạp"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã làm ~ cho người khác — 〜てあげる"
+                },
+                {
+                  "t": "いただきました",
+                  "read": "いただきました",
+                  "vi": "đã được người trên làm ~ cho — 〜ていただく"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã được/nhờ (ai đó) làm ~ cho mình — 〜てもらう"
+                },
+                {
+                  "t": "くれました",
+                  "read": "くれました",
+                  "vi": "(ai đó) đã làm ~ cho tôi — 〜てくれる"
+                }
+              ]
+            },
+            {
+              "stem": "この薬を飲めば、すぐによくなる＿ですよ。",
+              "choices": [
+                "ように",
+                "ために",
+                "はずがない",
+                "はず"
+              ],
+              "answer": 3,
+              "pt": "B35 V／Aば",
+              "explain": "Câu dùng「〜ば」(B35) điều kiện: nếu uống thuốc thì sẽ khỏe ngay. Điền「はず」để diễn đạt kỳ vọng hợp lý: 'chắc là sẽ khỏi'. → (D) はず ✓. (A) ように: diễn đạt mục đích hoặc hy vọng, không diễn đạt kỳ vọng dựa trên lý luận. (B) ために: mục đích/nguyên nhân, không dùng sau「よくなる」trong ngữ cảnh này. (C) はずがない: 'không thể nào ~ được', nghĩa ngược lại — mâu thuẫn với ý câu.",
+              "glosses": [
+                {
+                  "t": "この薬を",
+                  "read": "このくすりを",
+                  "vi": "thuốc này"
+                },
+                {
+                  "t": "飲めば",
+                  "read": "のめば",
+                  "vi": "nếu uống"
+                },
+                {
+                  "t": "すぐに",
+                  "vi": "ngay lập tức"
+                },
+                {
+                  "t": "よくなる",
+                  "vi": "sẽ hồi phục/khỏe lại"
+                },
+                {
+                  "t": "はず",
+                  "vi": "chắc hẳn là, đáng lẽ phải"
+                }
+              ]
+            },
+            {
+              "stem": "レシピの＿とおりに作ったのに、うまくできませんでした。",
+              "choices": [
+                "通り",
+                "ために",
+                "ように",
+                "まま"
+              ],
+              "answer": 0,
+              "pt": "B34 V／Nのとおりに",
+              "explain": "「レシピのとおりに」(B34) = làm đúng theo công thức. Trống đặt trước「とおりに」vốn là từ cố định, cần chọn đáp án trống phù hợp để hoàn thành cấu trúc. → (A) 通り ✓ (không cần điền gì vào trống vì「とおりに」đã có sẵn — đây là câu kiểm tra nhận diện toàn cụm). Thực ra câu hỏi kiểm tra ôn B34: (B) ために: mục đích, không dùng ở đây. (C) ように: mục đích/kỳ vọng. (D) まま: giữ nguyên trạng thái, không diễn đạt 'làm theo'.",
+              "glosses": [
+                {
+                  "t": "レシピの",
+                  "vi": "theo công thức nấu ăn"
+                },
+                {
+                  "t": "とおりに",
+                  "read": "とおりに",
+                  "vi": "đúng như/theo đúng"
+                },
+                {
+                  "t": "作った",
+                  "read": "つくった",
+                  "vi": "đã làm/nấu"
+                },
+                {
+                  "t": "うまくできませんでした",
+                  "vi": "không làm được tốt"
+                }
+              ]
+            },
+            {
+              "stem": "電気をつけた＿寝てしまいました。",
+              "choices": [
+                "まま",
+                "あとで",
+                "ように",
+                "ために"
+              ],
+              "answer": 0,
+              "pt": "B34 V／Aいまま",
+              "explain": "「〜たまま」(B34) = để nguyên trạng thái ~ rồi làm gì. Ở đây: bật đèn mà không tắt rồi ngủ. → (A) まま ✓. (B) あとで: sau khi ~, nhưng ý câu không phải 'sau khi bật đèn' mà là 'trong khi đèn vẫn sáng'. (C) ように: mục đích, không hợp. (D) ために: mục đích/nguyên nhân, không diễn đạt 'để nguyên trạng thái'.",
+              "glosses": [
+                {
+                  "t": "電気をつけた",
+                  "read": "でんきをつけた",
+                  "vi": "đã bật đèn"
+                },
+                {
+                  "t": "まま",
+                  "vi": "để nguyên trạng thái đó"
+                },
+                {
+                  "t": "寝てしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "đã ngủ quên mất"
+                }
+              ]
+            },
+            {
+              "stem": "毎日漢字を練習する＿、だんだん書けるようになりました。",
+              "choices": [
+                "ようにして",
+                "ようになって",
+                "ために",
+                "ことで"
+              ],
+              "answer": 2,
+              "pt": "B36 Vるようになります",
+              "explain": "「〜ようになります」(B36) = trở nên có thể làm. Vế sau đã có「ようになりました」, vế trước cần nối nguyên nhân. Dùng「ために」(B39) = vì/nhờ ~. → (C) ために ✓: nhờ luyện tập mỗi ngày mà dần dần viết được. (A) ようにして:「〜ようにする」(B36) = cố gắng làm, làm vế trước lặp ý với vế sau. (B) ようになって: lặp「ようになる」hai lần trong câu, không tự nhiên. (D) ことで: cũng có thể dùng nhưng không phải cấu trúc đang ôn trong bài.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "漢字を練習する",
+                  "read": "かんじをれんしゅうする",
+                  "vi": "luyện tập chữ kanji"
+                },
+                {
+                  "t": "だんだん",
+                  "vi": "dần dần"
+                },
+                {
+                  "t": "書けるようになりました",
+                  "read": "かけるようになりました",
+                  "vi": "đã trở nên có thể viết được"
+                }
+              ]
+            },
+            {
+              "stem": "子どもたちが廊下で走らない＿に、貼り紙をしました。",
+              "choices": [
+                "ように",
+                "ために",
+                "ことに",
+                "まま"
+              ],
+              "answer": 0,
+              "pt": "B36 Vないように",
+              "explain": "「Vないように」(B36) = để không ~, dán thông báo để các em không chạy ở hành lang. → (A) ように ✓. (B) ために: dùng với ý định chủ thể, không dùng sau V-ない phủ định để diễn đạt mục đích phủ định. (C) ことに:「ことにする」= quyết định làm ~, không hợp ngữ cảnh. (D) まま: giữ nguyên trạng thái, không liên quan.",
+              "glosses": [
+                {
+                  "t": "子どもたちが",
+                  "read": "こどもたちが",
+                  "vi": "những đứa trẻ"
+                },
+                {
+                  "t": "廊下で",
+                  "read": "ろうかで",
+                  "vi": "ở hành lang"
+                },
+                {
+                  "t": "走らない",
+                  "read": "はしらない",
+                  "vi": "không chạy"
+                },
+                {
+                  "t": "貼り紙をしました",
+                  "read": "はりがみをしました",
+                  "vi": "đã dán thông báo"
+                }
+              ]
+            },
+            {
+              "stem": "この映画が好きかどうか、友達に＿。",
+              "choices": [
+                "聞いてみました",
+                "聞いてあげました",
+                "聞いてもらいました",
+                "聞かれました"
+              ],
+              "answer": 0,
+              "pt": "B40 Vてみます",
+              "explain": "「〜かどうか」(B40) = có ~ hay không (câu hỏi gián tiếp) +「てみる」(B40) = thử làm ~: thử hỏi bạn xem có thích bộ phim này không. → (A) 聞いてみました ✓. (B) 聞いてあげました: TÔI hỏi như một ân huệ cho người khác, nghĩa kỳ lạ trong ngữ cảnh này. (C) 聞いてもらいました: tôi nhờ ai đó hỏi giúp tôi, không phải tôi trực tiếp hỏi bạn. (D) 聞かれました: thể bị động (B37), nghĩa là 'bị hỏi', ngược chiều hành động.",
+              "glosses": [
+                {
+                  "t": "この映画が",
+                  "read": "このえいがが",
+                  "vi": "bộ phim này"
+                },
+                {
+                  "t": "好きかどうか",
+                  "read": "すきかどうか",
+                  "vi": "có thích hay không (B40)"
+                },
+                {
+                  "t": "友達に",
+                  "read": "ともだちに",
+                  "vi": "hỏi bạn"
+                },
+                {
+                  "t": "聞いて",
+                  "read": "きいて",
+                  "vi": "hỏi/nghe"
+                },
+                {
+                  "t": "みました",
+                  "read": "みました",
+                  "vi": "đã thử làm ~ — 〜てみる thử làm gì đó"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã làm ~ cho người khác — 〜てあげる"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã được/nhờ (ai đó) làm ~ cho mình — 〜てもらう"
+                },
+                {
+                  "t": "かれました",
+                  "read": "かれました",
+                  "vi": "bị (ai đó) hỏi — thể bị động 聞かれる của 聞く, không hợp ngữ cảnh câu này"
+                }
+              ]
+            },
+            {
+              "stem": "先生の話を聞いて、日本語の難しさが＿。",
+              "choices": [
+                "わかるようになりました",
+                "わかってみました",
+                "わかるようにしました",
+                "わかってあげました"
+              ],
+              "answer": 0,
+              "pt": "B36 Vるようになります",
+              "explain": "「〜て(原因)」(B39) + 「ようになりました」(B36): nghe thầy giảng → trở nên hiểu được sự khó của tiếng Nhật. Diễn đạt sự thay đổi dần dần. → (A) わかるようになりました ✓. (B) わかってみました: thử hiểu — nghĩa không tự nhiên, 'hiểu' không phải hành động có thể 'thử'. (C) わかるようにしました: cố gắng để hiểu (ý chí chủ thể), nhưng câu này diễn đạt kết quả tự nhiên xảy ra, không phải cố gắng. (D) わかってあげました: hiểu như một ân huệ cho người khác — vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "先生の話を聞いて",
+                  "read": "せんせいのはなしをきいて",
+                  "vi": "nghe lời giảng của thầy/cô (nguyên nhân)"
+                },
+                {
+                  "t": "日本語の難しさが",
+                  "read": "にほんごのむずかしさが",
+                  "vi": "sự khó của tiếng Nhật"
+                },
+                {
+                  "t": "わかる",
+                  "read": "わかる",
+                  "vi": "hiểu"
+                },
+                {
+                  "t": "ようになりました",
+                  "read": "ようになりました",
+                  "vi": "đã trở nên/dần ~ — 〜るようになる chỉ sự thay đổi trạng thái theo thời gian"
+                },
+                {
+                  "t": "わかってみました",
+                  "read": "わかってみました",
+                  "vi": "わかる+てみる, không tự nhiên vì わかる là động từ trạng thái"
+                },
+                {
+                  "t": "ようにしました",
+                  "read": "ようにしました",
+                  "vi": "đã cố gắng làm cho ~ — 〜るようにする chỉ sự nỗ lực chủ động điều chỉnh"
+                },
+                {
+                  "t": "わかってあげました",
+                  "read": "わかってあげました",
+                  "vi": "わかる+てあげる, không tự nhiên vì わかる không thể ban ơn cho ai"
+                }
+              ]
+            },
+            {
+              "stem": "弟に部屋を散らかされて、とても＿。",
+              "choices": [
+                "困りました",
+                "困ってあげました",
+                "困ってもらいました",
+                "困らせました"
+              ],
+              "answer": 0,
+              "pt": "B37 迷惑の受身",
+              "explain": "「〜に〜られて」(B37 迷惑の受身) = bị ~ làm phiền: bị em trai làm bừa phòng, cảm thấy rất phiền. → (A) 困りました ✓. (B) 困ってあげました: TÔI khổ sở như một ân huệ cho người khác — vô nghĩa. (C) 困ってもらいました: tôi nhờ ai đó khổ sở giúp tôi — phi lý. (D) 困らせました: TÔI làm người khác khổ sở (使役 causative), ngược chiều — trong câu này chính TÔI là người bị làm phiền.",
+              "glosses": [
+                {
+                  "t": "弟に",
+                  "read": "おとうとに",
+                  "vi": "bị em trai (gây ra)"
+                },
+                {
+                  "t": "部屋を散らかされて",
+                  "read": "へやをちらかされて",
+                  "vi": "bị làm bừa phòng (迷惑の受身)"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "困りました",
+                  "read": "こまりました",
+                  "vi": "khổ sở/bực bội"
+                },
+                {
+                  "t": "ってあげました",
+                  "read": "ってあげました",
+                  "vi": "đã làm ~ cho người khác — 〜てあげる"
+                },
+                {
+                  "t": "ってもらいました",
+                  "read": "ってもらいました",
+                  "vi": "đã được nhờ ai làm ~ cho mình — 〜てもらう"
+                },
+                {
+                  "t": "らせました",
+                  "read": "らせました",
+                  "vi": "đã làm cho/khiến ~ — thể sai khiến 困らせる của 困る"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "田中さんに",
+                "います。"
+              ],
+              "pieces": [
+                "日本語を",
+                "教えて",
+                "あげようと",
+                "思って"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあげます",
+              "explain": "Câu đúng: 「田中さんに日本語を教えてあげようと思っています。」— Tôi đang định dạy tiếng Nhật cho anh Tanaka.\nSắp xếp: ô 1=「日本語を」, ô 2=「教えて」, ô 3=「あげようと」★, ô 4=「思って」\nSau khung 「田中さんに」 cần tân ngữ chỉ đối tượng tác động là 「日本語を」 ở ô 1. Động từ 「教えて」 ở ô 2 đứng sau tân ngữ và chia thể て để kết hợp với trợ động từ 「あげよう」 tạo thành mẫu ngữ pháp Vてあげる (làm gì cho ai). Mẫu ý chí 「あげよう」 đi kèm trợ từ trích dẫn 「と」 thành 「あげようと」 ở ô 3, bắt buộc đứng trước 「思って」 ở ô 4 để tạo cấu trúc dự định 「〜と思っています」. Do đó, mảnh ở ô ★ 「あげようと」 bắt buộc phải ở ô 3 vì vừa hoàn chỉnh mẫu Vてあげる vừa nối với 「と思っています」 phía sau.",
+              "glosses": [
+                {
+                  "t": "思っています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ là..."
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "anh/chị Tanaka (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                },
+                {
+                  "t": "日本語を",
+                  "read": "にほんごを",
+                  "vi": "tiếng Nhật (tân ngữ)"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy (dạng て)"
+                },
+                {
+                  "t": "あげよう",
+                  "vi": "sẽ làm cho (ý định giúp người khác)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生に",
+                "つもりです。"
+              ],
+              "pieces": [
+                "この漢字の",
+                "読み方を",
+                "教えて",
+                "もらう"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてもらいます",
+              "explain": "Câu đúng: 「先生にこの漢字の読み方を教えてもらうつもりです。」— Tôi dự định nhờ thầy dạy cách đọc chữ Hán này.\nSắp xếp: ô 1=「この漢字の」, ô 2=「読み方を」, ô 3=「教えて」★, ô 4=「もらう」\nĐầu khung câu có điểm bắt đầu 「先生に」 chỉ đối tượng nhận sự nhờ vả và cuối khung có 「つもりです。」 đòi hỏi một động từ thể từ điển đứng ngay trước để thể hiện ý định. Mảnh 「この漢字の」 và 「読み方を」 bắt buộc dính liền nhau thành cụm bổ nghĩa 「この漢字の読み方を」 (cách đọc của chữ Hán này) vì trợ từ sở hữu 「の」 phải đứng trước danh từ; đồng thời mảnh 「教えて」 và 「もらう」 phải đi liền nhau tạo thành cấu trúc nhờ vả 「教えてもらう」. Đặt cụm bổ ngữ tân ngữ đứng trước động từ chính 「教えてもらう」 và nối 「もらう」 ở thể từ điển với 「つもりです」 theo đúng trật tự câu tiếng Nhật. Ô ★ ở vị trí ô 3 chứa mảnh 「教えて」 đóng vai trò mang thể て để nối trực tiếp với 「もらう」 ở ô 4, nên không thể đặt ở các ô khác.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "つもりです",
+                  "read": "つもりです",
+                  "vi": "định/dự định làm ~ — mẫu 〜つもりです diễn tả ý định"
+                },
+                {
+                  "t": "この漢字の",
+                  "read": "このかんじの",
+                  "vi": "của chữ Hán này"
+                },
+                {
+                  "t": "読み方を",
+                  "read": "よみかたを",
+                  "vi": "cách đọc (tân ngữ)"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy (dạng て)"
+                },
+                {
+                  "t": "もらう",
+                  "vi": "được nhờ (nhận ơn từ người khác)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "山田さんが",
+                "ました。"
+              ],
+              "pieces": [
+                "重い荷物を",
+                "駅まで",
+                "運んで",
+                "くれ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてくれます",
+              "explain": "Câu đúng: 「山田さんが重い荷物を駅まで運んでくれました。」— Anh Yamada đã vận chuyển giúp tôi hành lý nặng đến ga.\nSắp xếp: ô 1=「重い荷物を」, ô 2=「駅まで」, ô 3=「運んで」★, ô 4=「くれ」\nKhung câu có phần đầu là chủ ngữ 「山田さんが」 chỉ người làm ơn và phần cuối là trợ động từ quá khứ 「ました。」 đòi hỏi động từ thể liên kết ngay trước nó. Mảnh 「運んで」 và 「くれ」 bắt buộc dính liền nhau thành cấu trúc 「運んでくれ」 thể hiện hành động người khác làm giúp mình, không thể tách rời; mảnh 「くれ」 tiếp xúc trực tiếp với đuôi 「ました」 ở cuối khung thành 「くれました」. Hai mảnh bổ ngữ 「重い荷物を」 (tân ngữ) và 「駅まで」 (điểm đến) được sắp xếp đứng trước động từ chính theo trật tự tiếng Nhật để bổ nghĩa cho hành động 「運んで」. Ô ★ ở vị trí ô 3 chứa mảnh 「運んで」 mang thể て đứng liền trước 「くれ」 ở ô 4, nên không thể đặt ở ô 4 hay ô 1, ô 2 vốn là vị trí dành cho các bổ ngữ.",
+              "glosses": [
+                {
+                  "t": "山田",
+                  "read": "やまだ",
+                  "vi": "anh/chị Yamada (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                },
+                {
+                  "t": "重い荷物を",
+                  "read": "おもいにもつを",
+                  "vi": "hành lý nặng (tân ngữ)"
+                },
+                {
+                  "t": "駅まで",
+                  "read": "えきまで",
+                  "vi": "đến ga"
+                },
+                {
+                  "t": "運んで",
+                  "read": "はこんで",
+                  "vi": "chuyển/mang (dạng て)"
+                },
+                {
+                  "t": "くれ",
+                  "vi": "(người khác tự nguyện) làm cho mình"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "部長に",
+                "ありがとうございました。"
+              ],
+              "pieces": [
+                "レポートを",
+                "確認して",
+                "いただき",
+                "丁寧に"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vていただきます",
+              "explain": "Câu đúng: 「部長に丁寧にレポートを確認していただきありがとうございました。」— Cảm ơn trưởng phòng đã xem xét báo cáo cẩn thận cho tôi.\nSắp xếp: ô 1=「丁寧に」, ô 2=「レポートを」, ô 3=「確認して」★, ô 4=「いただき」\nPhía trước khung câu là 「部長に」 chỉ đối tượng thực hiện hành động được nhận và phía sau là lời cảm ơn 「ありがとうございました。」 đòi hỏi một động từ thể liên kết đứng trước. Mảnh 「確認して」 và 「いただき」 bắt buộc dính liền nhau thành cụm kính ngữ 「確認していただき」 thể hiện sự nhận ân huệ; mảnh 「レポートを」 chứa trợ từ 「を」 phải đứng ngay trước động từ 「確認して」. Trạng từ 「丁寧に」 đứng ở đầu để bổ nghĩa cho toàn bộ cụm hành động 「レポートを確認していただき」 phía sau theo đúng trật tự câu tiếng Nhật. Ô ★ ở vị trí ô 3 chứa mảnh 「確認して」 mang thể て đứng trực tiếp trước 「いただき」 ở ô 4, nên không thể đứng ở ô 1, ô 2 hay ô 4.",
+              "glosses": [
+                {
+                  "t": "部長に",
+                  "read": "ぶちょうに",
+                  "vi": "trưởng phòng (người thực hiện hành động)"
+                },
+                {
+                  "t": "ありがとうございました",
+                  "read": "ありがとうございました",
+                  "vi": "cảm ơn (rất) nhiều ạ"
+                },
+                {
+                  "t": "レポートを",
+                  "vi": "báo cáo (tân ngữ)"
+                },
+                {
+                  "t": "確認して",
+                  "read": "かくにんして",
+                  "vi": "xác nhận (dạng て)"
+                },
+                {
+                  "t": "いただき",
+                  "vi": "(kính ngữ) được người trên làm cho"
+                },
+                {
+                  "t": "丁寧に",
+                  "read": "ていねいに",
+                  "vi": "một cách cẩn thận/kỹ lưỡng"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "もっと早く",
+                "のに。"
+              ],
+              "pieces": [
+                "よかった",
+                "手伝って",
+                "あげれば",
+                "友達を"
+              ],
+              "order": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "starSlot": 2,
+              "pt": "Vてあげます + Vばよかった",
+              "explain": "Câu đúng: 「もっと早く友達を手伝ってあげればよかったのに。」— Giá mà mình giúp đỡ bạn sớm hơn thì tốt biết mấy.\nSắp xếp: ô 1=「友達を」, ô 2=「手伝って」, ô 3=「あげれば」★, ô 4=「よかった」\nKhung đầu câu có phó từ chỉ thời gian 「もっと早く」 và khung cuối là trợ từ cảm thán tiếc nuối 「のに。」. Động từ 「手伝う」 là ngoại động từ nhận tân ngữ trực tiếp đi với trợ từ 「を」, do đó mảnh 「友達を」 bắt buộc phải đứng ở ô 1 để làm tân ngữ cho 「手伝って」 ở ô 2. Động từ chia thể te kết hợp với trợ từ cho nhận thể điều kiện 「あげれば」 tạo thành cấu trúc ~てあげれば mang ý nghĩa làm giúp cho ai việc gì. Cuối cùng, điều kiện thể ~ば đi liền với tính từ 「よかった」 để ghép với 「のに。」 ở khung cuối tạo thành mẫu câu thể hiện sự tiếc nuối ~ばよかったのに. Mảnh mang mẫu ngữ pháp kết hợp quan trọng 「あげれば」 bắt buộc phải nằm ở ô 3.",
+              "glosses": [
+                {
+                  "t": "もっと",
+                  "read": "もっと",
+                  "vi": "hơn nữa, nhiều hơn"
+                },
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "sớm, nhanh"
+                },
+                {
+                  "t": "よかった",
+                  "vi": "thì tốt rồi (hối tiếc trong quá khứ)"
+                },
+                {
+                  "t": "手伝って",
+                  "read": "てつだって",
+                  "vi": "giúp đỡ (dạng て)"
+                },
+                {
+                  "t": "あげれば",
+                  "vi": "nếu làm cho... (điều kiện ば của てあげる)"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "コーチが毎日",
+                "ので、泳げるようになりました。"
+              ],
+              "pieces": [
+                "特別な",
+                "練習を",
+                "教えて",
+                "くれた"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてくれます + Vるようになります",
+              "explain": "Câu đúng: 「コーチが毎日特別な練習を教えてくれたので、泳げるようになりました。」— Nhờ huấn luyện viên mỗi ngày dạy bài tập đặc biệt cho tôi, tôi đã biết bơi.\nSắp xếp: ô 1=「特別な」, ô 2=「練習を」, ô 3=「教えて」★, ô 4=「くれた」\nKhung câu cho sẵn 「コーチが毎日...ので、泳げるようになりました。」, phía trước 「ので」 cần một vị ngữ hoàn chỉnh cho vế chỉ nguyên nhân. Mảnh 「特別な」 (tính từ đuôi な) bắt buộc dính liền trước danh từ 「練習を」 để tạo thành cụm tân ngữ 「特別な練習を」, đồng thời động từ 「教えて」 phải dính liền trước 「くれた」 để tạo thành cấu trúc 「〜てくれた」. Theo quy tắc trật tự từ, cụm bổ ngữ/tân ngữ 「特別な練習を」 phải đứng trước động từ 「教えてくれた」. Đọc lại cả câu, mảnh 「教えて」 nằm ở ô 3 (ô ★) và không thể đứng ô khác vì vừa phải đứng sau tân ngữ 「練習を」 để nhận tác động, vừa phải đứng trước 「くれた」 để nối thành dạng Vて.",
+              "glosses": [
+                {
+                  "t": "コーチ",
+                  "read": "こーち",
+                  "vi": "huấn luyện viên"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "hàng ngày, mỗi ngày"
+                },
+                {
+                  "t": "泳げるようになりました",
+                  "read": "およげるようになりました",
+                  "vi": "đã trở nên bơi được rồi"
+                },
+                {
+                  "t": "特別な",
+                  "read": "とくべつな",
+                  "vi": "đặc biệt"
+                },
+                {
+                  "t": "練習を",
+                  "read": "れんしゅうを",
+                  "vi": "bài tập (tân ngữ)"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy (dạng て)"
+                },
+                {
+                  "t": "くれた",
+                  "vi": "(người khác tự nguyện) đã làm cho mình"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "医者に",
+                "ことにしました。"
+              ],
+              "pieces": [
+                "体に問題が",
+                "あるかどうか",
+                "診て",
+                "もらう"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてもらいます + 〜かどうか",
+              "explain": "Câu đúng: 「医者に体に問題があるかどうか診てもらうことにしました。」— Tôi đã quyết định nhờ bác sĩ khám xem cơ thể có vấn đề gì hay không.\nSắp xếp: ô 1=「体に問題が」, ô 2=「あるかどうか」, ô 3=「診て」★, ô 4=「もらう」\nKhung câu bắt đầu bằng đối tượng 「医者に」 và kết thúc bằng 「ことにしました」, ở giữa cần một mệnh đề phụ chỉ nội dung cùng vị ngữ chỉ hành động nhờ vả. Mảnh 「体に問題が」 với trợ từ 「が」 bắt buộc dính liền trước động từ 「あるかどうか」 để thành lập mệnh đề câu hỏi gián tiếp 「体に問題があるかどうか」, đồng thời 「診て」 phải dính liền trước 「もらう」 tạo thành cụm 「診てもらう」. Theo trật tự tiếng Nhật, mệnh đề phụ 「体に問題があるかどうか」 phải đứng trước động từ 「診てもらう」 để làm tân ngữ chỉ nội dung được khám. Nhìn vào chuỗi hoàn chỉnh, mảnh 「診て」 nằm ở ô 3 (ô ★) và không thể đổi sang ô khác vì vừa đứng sau mệnh đề bổ nghĩa 「あるかどうか」 vừa làm tiền đề thể て đi kèm 「もらう」.",
+              "glosses": [
+                {
+                  "t": "医者",
+                  "read": "いしゃ",
+                  "vi": "bác sĩ"
+                },
+                {
+                  "t": "ことにしました",
+                  "read": "ことにしました",
+                  "vi": "đã quyết định..."
+                },
+                {
+                  "t": "体に問題が",
+                  "read": "からだにもんだいが",
+                  "vi": "có vấn đề gì với cơ thể"
+                },
+                {
+                  "t": "あるかどうか",
+                  "vi": "có ... hay không"
+                },
+                {
+                  "t": "診て",
+                  "read": "みて",
+                  "vi": "khám (dạng て)"
+                },
+                {
+                  "t": "もらう",
+                  "vi": "được nhờ người khác làm cho"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "子供の",
+                "、毎日練習を手伝ってあげています。"
+              ],
+              "pieces": [
+                "かなえて",
+                "あげる",
+                "夢を",
+                "ために"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vてあげます + 〜ために",
+              "explain": "Câu đúng: 「子供の夢をかなえてあげるために、毎日練習を手伝ってあげています。」— Để hiện thực hóa ước mơ cho con, ngày nào tôi cũng giúp con luyện tập.\nSắp xếp: ô 1=「夢を」, ô 2=「かなえて」, ô 3=「あげる」★, ô 4=「ために」\nKhung trước kết thúc bằng danh từ kèm trợ từ sở hữu 「子供の」 nên bắt buộc phải kết hợp với danh từ 「夢を」 ở ô 1 để tạo thành cụm 「子供の夢を」. Động từ tha động từ 「かなえて」 đi liền sau tân ngữ 「夢を」. Mảnh 「あげる」 ở ô 3 mang mẫu ngữ pháp đang luyện 〜てあげる đi sau thể te 「かなえて」, đồng thời ở thể từ điển để nối trực tiếp với liên từ chỉ mục đích 「ために」 ở ô 4. Vì vậy mảnh 「あげる」 bắt buộc phải nằm ở ô 3 và không thể đứng ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "子供の夢を",
+                  "read": "こどものゆめを",
+                  "vi": "ước mơ của đứa trẻ (tân ngữ)"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "hàng ngày, mỗi ngày"
+                },
+                {
+                  "t": "練習",
+                  "read": "れんしゅう",
+                  "vi": "luyện tập, thực hành"
+                },
+                {
+                  "t": "手伝って",
+                  "read": "てつだって",
+                  "vi": "giúp đỡ (dạng て của 手伝う)"
+                },
+                {
+                  "t": "あげています",
+                  "read": "あげています",
+                  "vi": "đang làm ~ cho (ai đó) — 〜てあげている, hành động làm ơn đang tiếp diễn"
+                },
+                {
+                  "t": "かなえて",
+                  "vi": "thực hiện/đạt được (ước mơ) (dạng て)"
+                },
+                {
+                  "t": "あげる",
+                  "vi": "làm cho người khác (授与)"
+                },
+                {
+                  "t": "ために",
+                  "vi": "để (mục đích)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "書類は、",
+                "サインをしてください。"
+              ],
+              "pieces": [
+                "確認して",
+                "先生に",
+                "あとで",
+                "いただいた"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vていただきます + Vたあとで",
+              "explain": "Câu đúng: 「書類は、先生に確認していただいたあとでサインをしてください。」— Về phần tài liệu, sau khi được thầy giáo kiểm tra giúp thì xin hãy ký tên.\nSắp xếp: ô 1=「先生に」, ô 2=「確認して」, ô 3=「いただいた」★, ô 4=「あとで」\nKhung trước đưa chủ đề 「書類は、」 lên đầu câu, kế tiếp cần chỉ ra đối tượng thực hiện hành động giúp đỡ là 「先生に」 ở ô 1. Động từ 「確認して」 ở thể te bắt buộc đi trước trợ động từ khiêm nhường ngữ 「いただいた」 ở ô 3 để tạo thành mẫu 〜ていただく biểu thị việc được thầy giáo làm giúp. Mảnh 「いただいた」 ở thể quá khứ (thể ta) nên bắt buộc đứng trước 「あとで」 ở ô 4 theo đúng cấu trúc Vたあとで (sau khi làm V). Do đó mảnh 「いただいた」 phải nằm ở ô 3 để hoàn chỉnh mắt xích ngữ pháp.",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "サイン",
+                  "read": "",
+                  "vi": "ký tên"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn/xin hãy ~ — 〜てください yêu cầu lịch sự"
+                },
+                {
+                  "t": "確認して",
+                  "read": "かくにんして",
+                  "vi": "xác nhận (dạng て)"
+                },
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "nhờ thầy/cô (người thực hiện)"
+                },
+                {
+                  "t": "あとで",
+                  "vi": "sau khi ~"
+                },
+                {
+                  "t": "いただいた",
+                  "vi": "(kính ngữ) đã được người trên làm cho"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "その料理の",
+                "、作ってみました。"
+              ],
+              "pieces": [
+                "友達に",
+                "作り方を",
+                "もらって",
+                "教えて"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vてもらいます + Vてみます",
+              "explain": "Câu đúng: 「その料理の作り方を友達に教えてもらって、作ってみました。」— Tôi đã được bạn chỉ cho cách làm món ăn đó và đã làm thử.\nSắp xếp: ô 1=「作り方を」, ô 2=「友達に」, ô 3=「教えて」★, ô 4=「もらって」.\nKhung trước kết thúc bằng cụm chỉ định 「その料理の」 nên bắt buộc nối tiếp với danh từ 「作り方を」 để tạo thành cụm \"cách làm món ăn đó\". Tiếp theo, đối tượng thực hiện hành động chỉ dạy được đánh dấu bằng trợ từ 「友達に」. Đi cùng với vị ngữ nhận sự giúp đỡ 「もらって」 ở vế sau, động từ đứng trước bắt buộc phải chia ở thể te là 「教えて」★ để tạo thành mẫu ngữ pháp 「〜に教えてもらう」 (được ai chỉ dạy cho). Do đó, 「教えて」 phải đứng ở ô 3 làm ô ngôi sao trước 「もらって」 mà không thể đổi sang vị trí khác.",
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn, ẩm thực"
+                },
+                {
+                  "t": "作ってみました",
+                  "read": "つくってみました",
+                  "vi": "đã làm thử"
+                },
+                {
+                  "t": "友達に",
+                  "read": "ともだちに",
+                  "vi": "nhờ bạn"
+                },
+                {
+                  "t": "作り方を",
+                  "read": "つくりかたを",
+                  "vi": "cách làm (tân ngữ)"
+                },
+                {
+                  "t": "もらって",
+                  "vi": "được nhờ... (dạng て, nối tiếp hành động)"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy (dạng て)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "姉が",
+                "好きです。"
+              ],
+              "pieces": [
+                "歌って",
+                "聞くのが",
+                "歌を",
+                "くれるのを"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "Vてくれます + Vるのが好き",
+              "explain": "Câu đúng: 「姉が歌を歌ってくれるのを聞くのが好きです。」— Tôi thích nghe chị hát cho tôi nghe.\nSắp xếp: ô 1=「歌を」, ô 2=「歌って」, ô 3=「くれるのを」★, ô 4=「聞くのが」\nKhung trước có chủ ngữ mệnh đề phụ 「姉が」 đòi hỏi tân ngữ 「歌を」 ở ô 1 và động từ vị ngữ 「歌って」 ở ô 2. Mảnh 「くれるのを」 ở ô 3 đi liền sau động từ thể te 「歌って」 để tạo thành mẫu ngữ pháp 〜てくれる biểu thị hành động chị hát cho mình nghe, đồng thời danh từ hóa bằng 「のを」 để làm tân ngữ cho hành động nghe. Động từ 「聞くのが」 ở ô 4 tiếp nhận tân ngữ đó và kết hợp với tính từ ở khung sau theo mẫu Vるのが好きです (thích làm việc gì). Vì mảnh 「くれるのを」 vừa hoàn thành mẫu てくれる vừa bổ nghĩa trực tiếp cho 「聞く」 nên bắt buộc phải đứng ở ô 3.",
+              "glosses": [
+                {
+                  "t": "姉",
+                  "read": "あね",
+                  "vi": "chị gái (của mình)"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "歌って",
+                  "read": "うたって",
+                  "vi": "hát"
+                },
+                {
+                  "t": "聞く",
+                  "read": "きく",
+                  "vi": "nghe"
+                },
+                {
+                  "t": "歌を",
+                  "read": "うたを",
+                  "vi": "bài hát (tân ngữ)"
+                },
+                {
+                  "t": "くれる",
+                  "read": "",
+                  "vi": "cho"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "妹に",
+                "困っています。"
+              ],
+              "pieces": [
+                "勝手に",
+                "おもちゃを",
+                "壊されて",
+                "しまって"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "迷惑の受身 + Vてしまいます",
+              "explain": "Câu đúng: 「妹に勝手におもちゃを壊されてしまって困っています。」— Tôi đang gặp rắc rối vì bị em gái tự tiện làm hỏng đồ chơi.\nSắp xếp: ô 1=「勝手に」, ô 2=「おもちゃを」, ô 3=「壊されて」★, ô 4=「しまって」\nKhung câu bắt đầu bằng đối tượng tác động「妹に」và kết thúc bằng「困っています。」, cần một mệnh đề chỉ nguyên nhân dẫn đến trạng thái rắc rối. Mảnh「壊されて」bắt buộc dính liền trước「しまって」tạo thành cụm ngữ pháp「壊されてしまって」diễn tả hành động bị động đáng tiếc, không thể chia cắt. Trạng từ「勝手に」đứng đầu chỗ trống ở ô 1, tiếp nối với tân ngữ「おもちゃを」ở ô 2 rồi hợp với cụm「壊されてしまって」để tạo thành chuỗi nguyên nhân hợp lý. Mảnh「壊されて」bắt buộc nằm ở ô 3 vì đây là vị trí kết nối duy nhất giữa tân ngữ「おもちゃを」ngay trước nó và từ phụ trợ「しまって」ngay sau nó.",
+              "glosses": [
+                {
+                  "t": "妹に",
+                  "read": "いもうとに",
+                  "vi": "bởi em gái (tác nhân bị động)"
+                },
+                {
+                  "t": "困っています",
+                  "read": "こまっています",
+                  "vi": "đang khó chịu, bực mình"
+                },
+                {
+                  "t": "勝手に",
+                  "read": "かってに",
+                  "vi": "tự tiện, không xin phép"
+                },
+                {
+                  "t": "おもちゃを",
+                  "vi": "đồ chơi (tân ngữ)"
+                },
+                {
+                  "t": "壊されて",
+                  "read": "こわされて",
+                  "vi": "bị phá hỏng (bị động gây phiền, dạng て)"
+                },
+                {
+                  "t": "しまって",
+                  "vi": "đã ... mất (đáng tiếc, nối tiếp)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "社長に",
+                "お願いしました。"
+              ],
+              "pieces": [
+                "ゆっくり",
+                "話して",
+                "いただける",
+                "ように"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Vていただきます + Vるように",
+              "explain": "Câu đúng: 「社長にゆっくり話していただけるようにお願いしました。」— Tôi đã nhờ giám đốc nói chậm lại một chút.\nSắp xếp: ô 1=「ゆっくり」, ô 2=「話して」, ô 3=「いただける」★, ô 4=「ように」\nKhung câu khởi đầu bằng đối tượng tiếp nhận「社長に」và kết thúc bằng vị ngữ「お願いしました。」, đòi hỏi phần trống phải là một mệnh đề chỉ nội dung nhờ vả đứng trước ように. Mảnh「話して」bắt buộc phải dính liền trước「いただける」tạo thành cụm kính ngữ lịch sự「話していただける」, không thể tách rời vì động từ thể て luôn kết hợp trực tiếp với いただける. Trạng từ「ゆっくり」đứng ở ô 1 để bổ nghĩa cho động từ, tiếp nối theo thứ tự là cụm「話していただける」rồi gắn với trợ từ「ように」ở ô 4 để hoàn chỉnh mệnh đề phụ. Mảnh「いただける」bắt buộc phải đứng ở ô 3 vì đây là vị trí duy nhất nối liền sau động từ thể て「話して」ở ô 2 và cung cấp thể thông thường để đứng trước từ「ように」ở ô 4.",
+              "glosses": [
+                {
+                  "t": "社長",
+                  "read": "しゃちょう",
+                  "vi": "giám đốc, tổng giám đốc"
+                },
+                {
+                  "t": "お願いしました",
+                  "read": "おねがいしました",
+                  "vi": "đã nhờ, đã đề nghị"
+                },
+                {
+                  "t": "ゆっくり",
+                  "vi": "chậm rãi/từ từ"
+                },
+                {
+                  "t": "話して",
+                  "read": "はなして",
+                  "vi": "nói chuyện (dạng て)"
+                },
+                {
+                  "t": "いただける",
+                  "vi": "(kính ngữ) có thể được người trên làm cho"
+                },
+                {
+                  "t": "ように",
+                  "vi": "để ~ / mong rằng ~ (mục đích/yêu cầu)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生のコメントの",
+                "、直しました。"
+              ],
+              "pieces": [
+                "宿題の",
+                "教えてもらって",
+                "とおりに",
+                "なおし方を"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "Vてもらいます + Nのとおりに",
+              "explain": "Câu đúng: 「先生のコメントのとおりに宿題のなおし方を教えてもらって、直しました。」— Được chỉ cho cách sửa bài tập theo đúng như nhận xét của thầy giáo, tôi đã sửa xong bài tập.\nSắp xếp: ô 1=「とおりに」, ô 2=「宿題の」, ô 3=「なおし方を」, ô 4=「教えてもらって」★\nKhung trước kết thúc bằng danh từ kèm trợ từ sở hữu 「先生のコメントの」 nên bắt buộc phải kết hợp với 「とおりに」 ở ô 1 để hoàn chỉnh mẫu ngữ pháp Nのとおりに (theo đúng như N). Tiếp theo, cụm danh từ tân ngữ 「宿題のなおし方を」 được ghép từ ô 2 và ô 3 để chỉ đối tượng của hành động chỉ dẫn. Mảnh 「教えてもらって」 ở ô 4 mang cấu trúc trọng tâm 〜てもらう của bài học, đứng sau tân ngữ mang trợ từ を và chia ở thể te để kết nối với hành động tự sửa bài 「直しました」 ở khung sau. Do đó mảnh 「教えてもらって」 chỉ có thể đứng ở vị trí ô 4.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "コメントの",
+                  "vi": "của bình luận/nhận xét"
+                },
+                {
+                  "t": "直しました",
+                  "read": "なおしました",
+                  "vi": "đã sửa"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "教えて",
+                  "read": "おしえて",
+                  "vi": "dạy (dạng て)"
+                },
+                {
+                  "t": "もらって",
+                  "read": "",
+                  "vi": "được (chỉ cho)"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo ~"
+                },
+                {
+                  "t": "なおし方を",
+                  "read": "なおしかたを",
+                  "vi": "cách sửa (tân ngữ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "山田さんが毎朝",
+                "、早起きができるようになりました。"
+              ],
+              "pieces": [
+                "起こして",
+                "くれる",
+                "ので",
+                "電話で"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "Vてくれます + 〜ので",
+              "explain": "Câu đúng: 「山田さんが毎朝電話で起こしてくれるので、早起きができるようになりました。」— Vì anh Yamada mỗi sáng đều gọi điện thức tôi dậy, nên tôi đã có thể dậy sớm.\nSắp xếp: ô 1=「電話で」, ô 2=「起こして」★, ô 3=「くれる」, ô 4=「ので」\nKhung câu mở đầu bằng 「山田さんが毎朝」 và phía sau là mệnh đề kết quả, nên khoảng trống ở giữa cần một mệnh đề chỉ nguyên nhân. Động từ ở thể て là 「起こして」 bắt buộc dính liền với 「くれる」 và liên từ 「ので」 thành cụm 「起こしてくれるので」 thể hiện ai đó làm giúp việc gì nên dẫn đến kết quả. Mảnh 「電話で」 chỉ phương tiện thực hiện hành động nên đứng ở ô 1 ngay trước động từ. Đọc lại cả câu, mảnh 「起こして」 bắt buộc nằm ở ô 2 vì đứng sau phương tiện 「電話で」 và giữ vai trò thể て để nối liền với 「くれる」 ở ô 3, không thể đảo sang vị trí khác.",
+              "glosses": [
+                {
+                  "t": "山田",
+                  "read": "やまだ",
+                  "vi": "anh/chị Yamada (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên)"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "早起きができるようになりました",
+                  "read": "はやおきができるようになりました",
+                  "vi": "đã trở nên dậy sớm được"
+                },
+                {
+                  "t": "起こして",
+                  "read": "おこして",
+                  "vi": "đánh thức (dạng て)"
+                },
+                {
+                  "t": "くれる",
+                  "vi": "(người khác) tự nguyện làm cho mình"
+                },
+                {
+                  "t": "ので",
+                  "vi": "vì ~ nên (lý do lịch sự, khách quan)"
+                },
+                {
+                  "t": "電話で",
+                  "read": "でんわで",
+                  "vi": "bằng điện thoại"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "ひっこしのとき、友達が荷物を運ぶのを手伝って",
+                "。とても助かりました。お礼に、こんど食事をごちそうして",
+                "と思っています。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "くれました",
+                    "もらいました",
+                    "あげました",
+                    "いただきました"
+                  ],
+                  "answer": 0,
+                  "explain": "Bạn TỰ NGUYỆN giúp MÌNH → 「手伝ってくれました」(〜てくれる: ai đó làm cho mình). 「もらいました」cũng nhận ơn nhưng cần 「友達に手伝ってもらいました」; ở đây chủ ngữ là 友達が nên dùng くれる."
+                },
+                {
+                  "choices": [
+                    "あげよう",
+                    "もらおう",
+                    "くれよう",
+                    "いただこう"
+                  ],
+                  "answer": 0,
+                  "explain": "Mình sẽ làm (đãi ăn) CHO bạn → 「ごちそうしてあげよう」(〜てあげる: làm cho ai). 「もらおう/くれよう/いただこう」sai chiều ân huệ."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "ひっこし",
+                  "vi": "chuyển nhà"
+                },
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý"
+                },
+                {
+                  "t": "手伝ってくれました",
+                  "read": "てつだってくれました",
+                  "vi": "đã giúp mình (〜てくれる)"
+                },
+                {
+                  "t": "助かりました",
+                  "read": "たすかりました",
+                  "vi": "thật được giúp"
+                },
+                {
+                  "t": "お礼に",
+                  "read": "おれいに",
+                  "vi": "để cảm ơn"
+                },
+                {
+                  "t": "ごちそうしてあげよう",
+                  "vi": "sẽ đãi (cho bạn) (〜てあげる)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ về 〜てもらいます (nhờ/được ai làm cho).",
+          "items": [
+            {
+              "stem": "教えます → 〜てもらいます → ＿",
+              "choices": [
+                "教えてもらいます",
+                "教えもらいます",
+                "教えるもらいます",
+                "教えてもらう"
+              ],
+              "answer": 0,
+              "explain": "〜てもらう gắn vào THỂ て: 教える → 教えて → 教えてもらいます (được/nhờ dạy cho). 「教えもらいます/教えるもらいます」sai thể て; câu cần thể lịch sự ます.",
+              "glosses": [
+                {
+                  "t": "教えます",
+                  "read": "おしえます",
+                  "vi": "dạy, chỉ"
+                },
+                {
+                  "t": "教えてもらいます",
+                  "vi": "được/nhờ dạy cho (〜てもらう)"
+                },
+                {
+                  "t": "もらう",
+                  "read": "もらう",
+                  "vi": "nhận được, được (ai đó) làm cho"
+                },
+                {
+                  "t": "えもらいます",
+                  "read": "えもらいます",
+                  "vi": "chia sai (thiếu て trước もらう)"
+                },
+                {
+                  "t": "えるもらいます",
+                  "read": "えるもらいます",
+                  "vi": "chia sai (dùng thể từ điển thay vì てform trước もらう)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "わからないところを先生＿教えてもらいました。",
+              "choices": [
+                "に",
+                "が",
+                "を",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "Với 〜てもらう, người làm hành động (người ban ơn) đi với 「に」: 先生に教えてもらう (được thầy dạy cho). 「が/を/で」không hợp.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô"
+                },
+                {
+                  "t": "教えてもらいました",
+                  "read": "おしえてもらいました",
+                  "vi": "được dạy cho (〜てもらう)"
+                },
+                {
+                  "t": "わからない",
+                  "read": "わからない",
+                  "vi": "không hiểu — thể phủ định của わかる"
+                },
+                {
+                  "t": "ところを",
+                  "read": "ところを",
+                  "vi": "phần/chỗ mà ~ — danh từ hình thức ところ + trợ từ を, chỉ đối tượng của hành động"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Bạn tôi đã chỉ đường cho tôi.",
+              "target": "友達が道を教えてくれました",
+              "model": "友達が 道を 教えてくれました。",
+              "explain": "「〜てくれる」= ai đó làm cho mình (mình hưởng lợi). 友達が (chủ thể ban ơn) + 道を教えてくれました (đã chỉ đường cho tôi).",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "道",
+                  "read": "みち",
+                  "vi": "đường"
+                },
+                {
+                  "t": "教えてくれました",
+                  "read": "おしえてくれました",
+                  "vi": "đã chỉ cho mình (〜てくれる)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

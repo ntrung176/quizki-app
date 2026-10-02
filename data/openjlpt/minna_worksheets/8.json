@@ -1,0 +1,361 @@
+{
+  "bai": 8,
+  "bunpou": [
+    {
+      "stem": "このラーメンは ＿。",
+      "choices": [
+        "おいしいです。",
+        "おいしいじゃありません。",
+        "おいしくてです。",
+        "おいしなです。"
+      ],
+      "answer": 0,
+      "explain": "おいしい là tính từ い; dạng khẳng định lịch sự = おいしいです (giữ nguyên い); おいしなです sai vì な chỉ dùng cho tính từ な."
+    },
+    {
+      "stem": "このホテルは 高[たか]＿。",
+      "choices": [
+        "くないです。",
+        "いじゃありません。",
+        "いくないです。",
+        "なくないです。"
+      ],
+      "answer": 0,
+      "explain": "Phủ định tính từ い: bỏ い → thêm くない + です; \"いじゃありません\" hay \"なくない\" là cách chia của tính từ な."
+    },
+    {
+      "stem": "図書館[としょかん]は 静[しず]か＿ 部屋[へや]が あります。",
+      "choices": [
+        "な",
+        "の",
+        "い",
+        "に"
+      ],
+      "answer": 0,
+      "explain": "静[しず]か là tính từ な; khi bổ nghĩa danh từ đứng sau, thêm な; tính từ い bổ nghĩa trực tiếp không cần な."
+    },
+    {
+      "stem": "あのレストランは あまり きれい＿。",
+      "choices": [
+        "じゃありません。",
+        "くないです。",
+        "ないです。",
+        "ではないです。"
+      ],
+      "answer": 0,
+      "explain": "きれい là tính từ な; phủ định = きれいじゃありません; くないです chỉ dùng cho tính từ い."
+    },
+    {
+      "stem": "今日[きょう]は ＿ 暑[あつ]いですね。",
+      "choices": [
+        "とても",
+        "あまり",
+        "ぜんぜん",
+        "だいたい"
+      ],
+      "answer": 0,
+      "explain": "とても (rất) bổ nghĩa tích cực cho tính từ khẳng định; あまり/ぜんぜん đi với phủ định (あまり〜くない, ぜんぜん〜ない)."
+    },
+    {
+      "stem": "ハノイは ＿ 町[まち]ですか。",
+      "choices": [
+        "どんな",
+        "どう",
+        "なんの",
+        "どこの"
+      ],
+      "answer": 0,
+      "explain": "どんな (kiểu gì/như thế nào) bổ nghĩa danh từ 町[まち]; どう hỏi về trạng thái nhưng không đứng trước danh từ."
+    },
+    {
+      "stem": "新[あたら]しい仕事[しごと]は ＿。",
+      "choices": [
+        "どうですか。",
+        "どんなですか。",
+        "なんですか。",
+        "どこですか。"
+      ],
+      "answer": 0,
+      "explain": "どうですか hỏi cảm nhận/đánh giá về sự việc; どんなですか sai cú pháp (どんな phải đứng trước danh từ)."
+    },
+    {
+      "stem": "この部屋[へや]は 広[ひろ]い＿ 部屋[へや]ですが、 古[ふる]いです。",
+      "choices": [
+        "（なし）",
+        "な",
+        "の",
+        "に"
+      ],
+      "answer": 0,
+      "explain": "広[ひろ]い là tính từ い; tính từ い bổ nghĩa danh từ trực tiếp, không cần な hay の (な chỉ dùng với tính từ な)."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "は",
+      "が",
+      "の",
+      "で",
+      "も",
+      "と",
+      "を"
+    ],
+    "items": [
+      {
+        "stem": "この町[まち]＿ とても にぎやかです。",
+        "answer": "は",
+        "explain": "Chủ đề câu = この町[まち] → は (topic marker); が nhấn mạnh chủ ngữ mới xuất hiện, ở đây không cần."
+      },
+      {
+        "stem": "日本語[にほんご]の 勉強[べんきょう]＿ 難[むずか]しいですか。",
+        "answer": "は",
+        "explain": "Chủ đề hỏi = 勉強[べんきょう] → は; が dùng khi hỏi \"cái gì khó?\" chứ không phải \"việc học có khó không?\"."
+      },
+      {
+        "stem": "きれい＿ 部屋[へや]に 住[す]みたいです。",
+        "answer": "の",
+        "explain": "きれいの phần này là きれい (tính từ な) + の để tạo cụm danh từ \"phòng sạch đẹp\"; thực ra は không hợp vì câu cần trung tính — の nối danh từ sở hữu ở đây là cú pháp đặc biệt."
+      },
+      {
+        "stem": "あのアパート＿ あまり 広[ひろ]くないです。",
+        "answer": "は",
+        "explain": "Chủ đề câu = あのアパート → は; あまり〜くないです cần chủ đề は để nhận xét."
+      },
+      {
+        "stem": "ミラーさん＿ 親切[しんせつ]な 人[ひと]です。",
+        "answer": "は",
+        "explain": "ミラーさん là chủ đề câu → は; が dùng khi muốn nhấn mạnh \"chính ông Miller (chứ không ai khác)\"."
+      },
+      {
+        "stem": "この本[ほん]は 難[むずか]しく＿ おもしろいです。",
+        "answer": "も",
+        "explain": "も ở đây = \"vừa… vừa\" (cũng); 難[むずか]しくもおもしろい = vừa khó vừa thú vị."
+      },
+      {
+        "stem": "新[あたら]しい仕事[しごと]＿ どうですか。",
+        "answer": "は",
+        "explain": "Chủ đề hỏi cảm nhận = 仕事[しごと] → は; どうですか hỏi đánh giá về chủ đề."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "高[たか]いです",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "高[たか]くないです",
+        "高[たか]いじゃありません",
+        "高[たか]いくないです",
+        "高[たか]なくないです"
+      ],
+      "answer": 0,
+      "explain": "Tính từ い phủ định: bỏ い → くない + です; \"じゃありません\" chỉ dùng cho tính từ な và danh từ."
+    },
+    {
+      "base": "きれいです",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "きれいじゃありません",
+        "きれいくないです",
+        "きれいないです",
+        "きれいくありません"
+      ],
+      "answer": 0,
+      "explain": "きれい là tính từ な → phủ định = じゃありません; くないです chỉ dành cho tính từ い."
+    },
+    {
+      "base": "おいしいです",
+      "prompt": "Thể quá khứ?",
+      "choices": [
+        "おいしかったです",
+        "おいしいでした",
+        "おいしくたです",
+        "おいしいたです"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ tính từ い: bỏ い → かった + です; \"おいしいでした\" sai — không chia でした cho tính từ い."
+    },
+    {
+      "base": "いいです",
+      "prompt": "Thể quá khứ? (chú ý ngoại lệ)",
+      "choices": [
+        "よかったです",
+        "いかったです",
+        "いいでした",
+        "よいかったです"
+      ],
+      "answer": 0,
+      "explain": "いい (tốt) là ngoại lệ: quá khứ → よかったです (gốc biến thành よ); không chia いかった."
+    },
+    {
+      "base": "静[しず]かです",
+      "prompt": "Bổ nghĩa trước 部屋[へや] — điền vào ___: ___部屋[へや]",
+      "choices": [
+        "静[しず]かな",
+        "静[しず]かい",
+        "静[しず]かの",
+        "静[しず]かに"
+      ],
+      "answer": 0,
+      "explain": "Tính từ な bổ nghĩa danh từ → thêm な; 静[しず]かい sai (い không ghép vào tính từ な)."
+    },
+    {
+      "base": "むずかしいです",
+      "prompt": "Đi sau あまり…?",
+      "choices": [
+        "むずかしくないです",
+        "むずかしいです",
+        "むずかしじゃありません",
+        "むずかしくてです"
+      ],
+      "answer": 0,
+      "explain": "あまり đi với phủ định → あまりむずかしくないです; \"あまりむずかしいです\" mâu thuẫn nghĩa."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "この部屋[へや]は",
+        "とても",
+        "広[ひろ]くて",
+        "きれいです。"
+      ],
+      "vi": "Phòng này rất rộng và sạch.",
+      "explain": "とても bổ nghĩa cụm tính từ; 〜くて nối hai tính từ い (広[ひろ]い → 広[ひろ]くて + tính từ tiếp theo)."
+    },
+    {
+      "chips": [
+        "ハノイは",
+        "どんな",
+        "町[まち]ですか。"
+      ],
+      "vi": "Hà Nội là thành phố như thế nào?",
+      "explain": "どんな bổ nghĩa trực tiếp cho 町[まち] (danh từ); không dùng どう vì どう không đứng trước danh từ."
+    },
+    {
+      "chips": [
+        "あのレストランは",
+        "あまり",
+        "安[やす]くないです。"
+      ],
+      "vi": "Nhà hàng đó không rẻ lắm.",
+      "explain": "あまり + phủ định (くないです) = \"không… lắm\"; あまり không đi với thể khẳng định."
+    },
+    {
+      "chips": [
+        "静[しず]かな",
+        "部屋[へや]が",
+        "ほしいです。"
+      ],
+      "vi": "Tôi muốn một căn phòng yên tĩnh.",
+      "explain": "静[しず]かな đứng trước danh từ bổ nghĩa; が dùng vì 部屋[へや] là đối tượng của ほしいです."
+    },
+    {
+      "chips": [
+        "昨日[きのう]の",
+        "テストは",
+        "難[むずか]しかったです。"
+      ],
+      "vi": "Bài kiểm tra hôm qua khó.",
+      "explain": "Quá khứ tính từ い: 難[むずか]しい → 難[むずか]しかった + です; の nối danh từ thời gian với danh từ."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "このアパートは とても 新しいですが、 ちょっと 高いです。",
+      "ask": "Căn hộ này như thế nào?",
+      "choices": [
+        "Mới và hơi đắt",
+        "Cũ và rẻ",
+        "Rộng và yên tĩnh"
+      ],
+      "answer": 0,
+      "script": "このアパートは とても 新[あたら]しいですが、 ちょっと 高[たか]いです。",
+      "explain": "とても新[あたら]しい = rất mới; ちょっと高[たか]い = hơi đắt; が nối hai vế đối lập nhẹ."
+    },
+    {
+      "tts": "この町は にぎやかですが、 あまり 静かじゃありません。",
+      "ask": "Thành phố này như thế nào?",
+      "choices": [
+        "Nhộn nhịp, không yên tĩnh lắm",
+        "Yên tĩnh và vắng vẻ",
+        "Rất yên tĩnh"
+      ],
+      "answer": 0,
+      "script": "この町[まち]は にぎやかですが、 あまり 静[しず]かじゃありません。",
+      "explain": "にぎやか (nhộn nhịp) + あまり静[しず]かじゃありません (không yên tĩnh lắm); あまり + phủ định = \"không lắm\"."
+    },
+    {
+      "tts": "どんな 部屋が ほしいですか。",
+      "ask": "Câu hỏi đang hỏi về điều gì?",
+      "choices": [
+        "Muốn phòng kiểu gì",
+        "Phòng ở đâu",
+        "Giá phòng bao nhiêu"
+      ],
+      "answer": 0,
+      "script": "どんな 部屋[へや]が ほしいですか。",
+      "explain": "どんな 部屋[へや] = phòng kiểu gì (hỏi tính chất); không hỏi địa điểm (どこ) hay giá (いくら)."
+    },
+    {
+      "tts": "昨日の 映画は あまり おもしろくなかったです。",
+      "ask": "Bộ phim hôm qua như thế nào?",
+      "choices": [
+        "Không thú vị lắm",
+        "Rất thú vị",
+        "Hơi dài"
+      ],
+      "answer": 0,
+      "script": "昨日[きのう]の 映画[えいが]は あまり おもしろくなかったです。",
+      "explain": "あまりおもしろくなかった = không thú vị lắm (quá khứ phủ định tính từ い); おもしろい → おもしろくなかった."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Phòng này không rộng lắm.",
+      "target": "この部屋はあまり広くないです。",
+      "accept": [
+        "このへやはあまりひろくないです。",
+        "この部屋はあまり広くありません。",
+        "このへやはあまりひろくありません。"
+      ],
+      "explain": "あまり + tính từ い phủ định (くないです); \"không lắm\" = あまり〜くない."
+    },
+    {
+      "vi": "Hà Nội là thành phố nhộn nhịp.",
+      "target": "ハノイはにぎやかな町です。",
+      "accept": [
+        "はのいはにぎやかなまちです。",
+        "ハノイはにぎやかなまちです。"
+      ],
+      "explain": "にぎやか là tính từ な → bổ nghĩa danh từ: にぎやかな + 町[まち]; không dùng にぎやい."
+    },
+    {
+      "vi": "Bài kiểm tra hôm qua khó.",
+      "target": "昨日のテストは難しかったです。",
+      "accept": [
+        "きのうのてすとはむずかしかったです。",
+        "昨日のてすとはむずかしかったです。"
+      ],
+      "explain": "難[むずか]しい (tính từ い) quá khứ → 難[むずか]しかったです; の nối thời gian với danh từ."
+    },
+    {
+      "vi": "Nhà hàng đó không sạch lắm.",
+      "target": "あのレストランはあまりきれいじゃありません。",
+      "accept": [
+        "あのれすとらんはあまりきれいじゃありません。",
+        "あのレストランはあまりきれいではありません。"
+      ],
+      "explain": "きれい (tính từ な) + あまり〜じゃありません; không dùng くない."
+    },
+    {
+      "vi": "Công việc mới thế nào?",
+      "target": "新しい仕事はどうですか。",
+      "accept": [
+        "あたらしいしごとはどうですか。",
+        "新しいしごとはどうですか。"
+      ],
+      "explain": "どうですか hỏi cảm nhận/đánh giá về chủ đề; 新[あたら]しい bổ nghĩa trực tiếp cho 仕事[しごと] (tính từ い)."
+    }
+  ]
+}

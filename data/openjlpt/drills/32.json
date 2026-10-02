@@ -1,0 +1,460 @@
+{
+  "id": "minna2.b32",
+  "bai": 32,
+  "titleVi": "Trạng thái kết quả, chuẩn bị trước",
+  "know": [
+    {
+      "id": "minna2.b32.te-arimasu",
+      "point": "te-arimasu",
+      "jp": "〜てあります",
+      "vi": "Trạng thái tồn tại do hành động trước đó (ai đó đã làm và kết quả còn đó)",
+      "en": "A state resulting from a prior action (someone has done something and the result remains)",
+      "gloss": "予約[よやく]してあります ／ 飾[かざ]ってあります",
+      "glossEn": "予約[よやく]してあります ／ 飾[かざ]ってあります"
+    },
+    {
+      "id": "minna2.b32.te-okimasu",
+      "point": "te-okimasu",
+      "jp": "〜ておきます",
+      "vi": "Làm trước để chuẩn bị / để dành (hành động có chủ đích hướng về tương lai)",
+      "en": "Do ~ in advance to prepare / set ~ aside (a deliberate action directed toward the future)",
+      "gloss": "予約[よやく]しておきます ／ 調[しら]べておきます",
+      "glossEn": "予約[よやく]しておきます ／ 調[しら]べておきます"
+    },
+    {
+      "id": "minna2.b32.te-oite",
+      "point": "te-oite",
+      "jp": "〜ておいて",
+      "vi": "Dạng て-form của ておく — yêu cầu thân mật \"hãy làm trước đi\" hoặc nối chuỗi hành động",
+      "en": "The て-form of ておく — a casual request meaning “do it in advance” or used to link a sequence of actions",
+      "gloss": "メモしておいて ／ 確[たし]かめておいて",
+      "glossEn": "メモしておいて ／ 確[たし]かめておいて"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b32-ta-yoyaku",
+      "item": "minna2.b32.te-arimasu",
+      "err": "te-ari-vs-te-iru",
+      "vi": "Phòng khách sạn đã được đặt trước rồi.",
+      "t1": {
+        "stem": "ホテルの 部屋[へや]は 予約[よやく]＿。",
+        "choices": [
+          "してあります",
+          "しています",
+          "しておきます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ホテルの 部屋[へや]は",
+          "予約[よやく]して",
+          "あります。"
+        ],
+        "traps": [
+          "しています。",
+          "しておきます。"
+        ]
+      },
+      "t3": {
+        "target": "ホテルの部屋は予約してあります。",
+        "accept": [
+          "ほてるのへやはよやくしてあります。"
+        ]
+      },
+      "why": "てあります = kết quả của hành động ai đó đã làm còn tồn tại (phòng đang ở trạng thái \"đã được đặt\"). ✗ しています chỉ nói đang làm, không nhấn mạnh trạng thái kết quả."
+    },
+    {
+      "id": "c-b32-ta-kazari",
+      "item": "minna2.b32.te-arimasu",
+      "err": "te-ari-vs-te-iru",
+      "vi": "Hoa đã được cắm trang trí trong phòng rồi.",
+      "t1": {
+        "stem": "部屋[へや]に 花[はな]が ＿。",
+        "choices": [
+          "飾[かざ]ってあります",
+          "飾[かざ]っています",
+          "飾[かざ]っておきます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "部屋[へや]に",
+          "花[はな]が",
+          "飾[かざ]って",
+          "あります。"
+        ],
+        "traps": [
+          "飾[かざ]っています。",
+          "飾[かざ]っておきます。"
+        ]
+      },
+      "t3": {
+        "target": "部屋に花が飾ってあります。",
+        "accept": [
+          "へやにはながかざってあります。"
+        ]
+      },
+      "why": "てあります dùng để nói về trạng thái (hoa đang được cắm — ai đó đã cắm). Chủ ngữ là 花[はな]が (vật bị tác động). ✗ 飾っています nhấn mạnh hành động đang diễn ra chứ không phải kết quả."
+    },
+    {
+      "id": "c-b32-ta-kaite",
+      "item": "minna2.b32.te-arimasu",
+      "err": "te-ari-vs-te-iru",
+      "vi": "Địa chỉ đã được viết trên phong bì rồi.",
+      "t1": {
+        "stem": "封筒[ふうとう]に 住所[じゅうしょ]が ＿。",
+        "choices": [
+          "書[か]いてあります",
+          "書[か]いています",
+          "書[か]いておきます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "封筒[ふうとう]に",
+          "住所[じゅうしょ]が",
+          "書[か]いて",
+          "あります。"
+        ],
+        "traps": [
+          "書[か]いています。",
+          "書[か]いておきます。"
+        ]
+      },
+      "t3": {
+        "target": "封筒に住所が書いてあります。",
+        "accept": [
+          "ふうとうにじゅうしょがかいてあります。"
+        ]
+      },
+      "why": "書いてあります = địa chỉ (trạng thái) được viết sẵn trên phong bì. Chủ ngữ 住所が. ✗ 書いています = đang trong quá trình viết (hành động đang xảy ra)."
+    },
+    {
+      "id": "c-b32-ta-narabeて",
+      "item": "minna2.b32.te-arimasu",
+      "err": "te-ari-vs-te-iru",
+      "vi": "Các đĩa thức ăn đã được bày sẵn trên bàn rồi.",
+      "t1": {
+        "stem": "机[つくえ]の 上[うえ]に 料理[りょうり]が ＿。",
+        "choices": [
+          "並[なら]べてあります",
+          "並[なら]べています",
+          "並[なら]べておきます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "机[つくえ]の 上[うえ]に",
+          "料理[りょうり]が",
+          "並[なら]べて",
+          "あります。"
+        ],
+        "traps": [
+          "並[なら]べています。",
+          "並[なら]べておきます。"
+        ]
+      },
+      "t3": {
+        "target": "机の上に料理が並べてあります。",
+        "accept": [
+          "つくえのうえにりょうりがならべてあります。"
+        ]
+      },
+      "why": "並べてあります = trạng thái thức ăn đã được bày ra (ai đó đã bày, kết quả còn đó). ✗ 並べています = đang bày (hành động đang diễn ra)."
+    },
+    {
+      "id": "c-b32-to-shirabe",
+      "item": "minna2.b32.te-okimasu",
+      "err": "te-oki-vs-te-shimau",
+      "vi": "Trước khi đi du lịch, tôi sẽ tra trước thông tin về khách sạn.",
+      "t1": {
+        "stem": "旅行[りょこう]の 前[まえ]に、ホテルのことを ＿。",
+        "choices": [
+          "調[しら]べておきます",
+          "調[しら]べてしまいます",
+          "調[しら]べてあります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "旅行[りょこう]の 前[まえ]に、",
+          "ホテルのことを",
+          "調[しら]べて",
+          "おきます。"
+        ],
+        "traps": [
+          "調[しら]べてしまいます。",
+          "調[しら]べてあります。"
+        ]
+      },
+      "t3": {
+        "target": "旅行の前に、ホテルのことを調べておきます。",
+        "accept": [
+          "りょこうのまえに、ほてるのことをしらべておきます。"
+        ]
+      },
+      "why": "ておきます = làm trước để chuẩn bị cho tương lai (tra thông tin trước chuyến đi). ✗ てしまいます = lỡ làm, hoặc hoàn tất với sắc thái tiếc nuối — không phù hợp."
+    },
+    {
+      "id": "c-b32-to-renraku",
+      "item": "minna2.b32.te-okimasu",
+      "err": "te-oki-vs-te-shimau",
+      "vi": "Tôi sẽ liên lạc trước với anh ấy trước khi đến.",
+      "t1": {
+        "stem": "行[い]く 前[まえ]に、彼[かれ]に ＿。",
+        "choices": [
+          "連絡[れんらく]しておきます",
+          "連絡[れんらく]してしまいます",
+          "連絡[れんらく]してあります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "行[い]く 前[まえ]に、",
+          "彼[かれ]に",
+          "連絡[れんらく]して",
+          "おきます。"
+        ],
+        "traps": [
+          "連絡[れんらく]してしまいます。",
+          "連絡[れんらく]してあります。"
+        ]
+      },
+      "t3": {
+        "target": "行く前に、彼に連絡しておきます。",
+        "accept": [
+          "いくまえに、かれにれんらくしておきます。"
+        ]
+      },
+      "why": "ておきます = chủ động làm sẵn để chuẩn bị (liên lạc trước). ✗ てしまいます có sắc thái lỡ tay hoặc hoàn tất không chủ đích."
+    },
+    {
+      "id": "c-b32-toi-yomu",
+      "item": "minna2.b32.te-oite",
+      "err": "te-oite-form",
+      "vi": "Hãy đọc qua tài liệu này trước.",
+      "t1": {
+        "stem": "この 書類[しょるい]を ＿ ください。",
+        "choices": [
+          "読[よ]んでおいて",
+          "読[よ]んでしまって",
+          "読[よ]んであって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 書類[しょるい]を",
+          "読[よ]んで",
+          "おいて",
+          "ください。"
+        ],
+        "traps": [
+          "読[よ]んでしまってください。",
+          "読[よ]んであってください。"
+        ]
+      },
+      "t3": {
+        "target": "この書類を読んでおいてください。",
+        "accept": [
+          "このしょるいをよんでおいてください。"
+        ]
+      },
+      "why": "ておいてください = yêu cầu ai làm trước để chuẩn bị. ✗ てしまってください = yêu cầu hoàn tất ngay (sắc thái khác, thường không dùng như vậy)."
+    },
+    {
+      "id": "c-b32-toi-memo",
+      "item": "minna2.b32.te-oite",
+      "err": "te-oite-form",
+      "vi": "Hãy ghi chú lại trước đi.",
+      "t1": {
+        "stem": "先[さき]に メモ＿。",
+        "choices": [
+          "しておいて",
+          "してしまって",
+          "してあって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先[さき]に",
+          "メモして",
+          "おいて。"
+        ],
+        "traps": [
+          "してしまって。",
+          "してあって。"
+        ]
+      },
+      "t3": {
+        "target": "先にメモしておいて。",
+        "accept": [
+          "さきにめもしておいて。"
+        ]
+      },
+      "why": "ておいて = dạng て-form của ておく, dùng để yêu cầu thân mật \"làm trước đi\". ✗ してしまって = làm xong đi (sắc thái dứt khoát, khác hẳn chuẩn bị trước)."
+    },
+    {
+      "id": "c-b32-toi-junbi",
+      "item": "minna2.b32.te-oite",
+      "err": "te-oite-form",
+      "vi": "Hành lý hãy chuẩn bị sẵn từ tối qua.",
+      "t1": {
+        "stem": "荷物[にもつ]は ゆうべのうちに 準備[じゅんび]＿ ください。",
+        "choices": [
+          "しておいて",
+          "してしまって",
+          "してあって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "荷物[にもつ]は",
+          "ゆうべのうちに",
+          "準備[じゅんび]して",
+          "おいて",
+          "ください。"
+        ],
+        "traps": [
+          "してしまってください。",
+          "してあってください。"
+        ]
+      },
+      "t3": {
+        "target": "荷物はゆうべのうちに準備しておいてください。",
+        "accept": [
+          "にもつはゆうべのうちにじゅんびしておいてください。"
+        ]
+      },
+      "why": "ておいてください = yêu cầu lịch sự làm trước để chuẩn bị. Dạng て-form của ておく nối với ください."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b32-ta",
+      "item": "minna2.b32.te-arimasu",
+      "err": "te-ari-vs-te-iru",
+      "tts": "つくえのうえに りょうりが ならべてあります。",
+      "script": "机[つくえ]の 上[うえ]に 料理[りょうり]が 並[なら]べてあります。",
+      "ask": "Trên bàn hiện đang ở trạng thái nào?",
+      "choices": [
+        "Thức ăn đã được bày sẵn ra",
+        "Ai đó đang bày thức ăn",
+        "Thức ăn đã bị dọn đi rồi"
+      ],
+      "answer": 0,
+      "why": "並べてあります = trạng thái thức ăn đã được bày ra (ai đó đã bày và kết quả còn đó). Khác với 並べています (đang trong lúc bày)."
+    },
+    {
+      "id": "l-b32-to",
+      "item": "minna2.b32.te-okimasu",
+      "err": "te-oki-vs-te-shimau",
+      "tts": "りょこうのまえに、ちずを しらべておきました。",
+      "script": "旅行[りょこう]の 前[まえ]に、地図[ちず]を 調[しら]べておきました。",
+      "ask": "Người nói đã làm gì và tại sao?",
+      "choices": [
+        "Tra bản đồ trước để chuẩn bị cho chuyến đi",
+        "Lỡ tra bản đồ vì đã bị lạc",
+        "Tra bản đồ sau khi về đến nhà"
+      ],
+      "answer": 0,
+      "why": "ておきました = đã làm trước để chuẩn bị (quá khứ của ておきます). 旅行の前に xác nhận rõ mục đích chuẩn bị."
+    },
+    {
+      "id": "l-b32-toi",
+      "item": "minna2.b32.te-oite",
+      "err": "te-oite-form",
+      "tts": "かいぎのまえに、しりょうを よんでおいてください。",
+      "script": "会議[かいぎ]の 前[まえ]に、資料[しりょう]を 読[よ]んでおいてください。",
+      "ask": "Người nói yêu cầu điều gì?",
+      "choices": [
+        "Đọc tài liệu trước khi họp",
+        "Chuẩn bị tài liệu mới cho cuộc họp",
+        "Nộp tài liệu sau cuộc họp"
+      ],
+      "answer": 0,
+      "why": "読んでおいてください = hãy đọc trước để chuẩn bị (ておいて là te-form của ておく + ください). 会議の前に xác nhận thời điểm chuẩn bị."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b32-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 32 ・ 〜てあります",
+      "vi": "Địa chỉ đã được ghi trên tờ giấy này, bạn hiểu không?",
+      "t1": {
+        "stem": "この 紙[かみ]に 住所[じゅうしょ]が 書[か]いてあります。読み方[よみかた]＿ わかりますか。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "読み方[よみかた]が",
+          "わかりますか。"
+        ],
+        "traps": [
+          "読み方[よみかた]を"
+        ]
+      },
+      "t3": {
+        "target": "この紙に住所が書いてあります。読み方がわかりますか。",
+        "accept": [
+          "このかみにじゅうしょがかいてあります。よみかたがわかりますか。"
+        ]
+      },
+      "why": "わかります luôn dùng が cho đối tượng (lỗi Bài 9). ✗ 読み方をわかります — を với わかります là sai văn phạm cơ bản."
+    },
+    {
+      "id": "a-b32-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 32 ・ 〜ておきます",
+      "vi": "Vì tôi thích cà phê, tôi đã mua trước một ít để dành.",
+      "t1": {
+        "stem": "コーヒー＿ 好[す]きなので、買[か]っておきました。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "コーヒーが",
+          "好[す]きなので、",
+          "買[か]って",
+          "おきました。"
+        ],
+        "traps": [
+          "コーヒーを"
+        ]
+      },
+      "t3": {
+        "target": "コーヒーが好きなので、買っておきました。",
+        "accept": [
+          "こーひーがすきなので、かっておきました。"
+        ]
+      },
+      "why": "好き luôn cần が cho đối tượng (lỗi Bài 9). ✗ コーヒーを好きなので — を là sai. Phần 買っておきました là Bài 32 — bẫy kép."
+    }
+  ]
+}

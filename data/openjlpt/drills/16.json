@@ -1,0 +1,477 @@
+{
+  "id": "minna1.b16",
+  "bai": 16,
+  "titleVi": "Nối câu & 〜てから",
+  "know": [
+    {
+      "id": "minna1.b16.te-tsunagi",
+      "point": "te-tsunagi",
+      "jp": "V1て、V2て、〜",
+      "vi": "Nối chuỗi hành động",
+      "en": "Linking a sequence of actions",
+      "gloss": "làm V1 rồi V2 (theo thứ tự)"
+    },
+    {
+      "id": "minna1.b16.tekara",
+      "point": "tekara",
+      "jp": "〜てから、〜",
+      "vi": "Sau khi (trình tự bắt buộc)",
+      "en": "After doing something (a required sequence)",
+      "gloss": "sau khi làm X mới làm Y"
+    },
+    {
+      "id": "minna1.b16.adj-te",
+      "point": "adj-te",
+      "jp": "Aくて／NA・Nで",
+      "vi": "Nối tính từ",
+      "en": "Connecting adjectives",
+      "gloss": "い→くて, な→で (vừa ~ vừa ~)"
+    },
+    {
+      "id": "minna1.b16.douyatte",
+      "point": "douyatte",
+      "jp": "どうやって／NはNが〜",
+      "vi": "Cách thức & đặc tính",
+      "en": "Method and characteristics",
+      "gloss": "làm thế nào / N có N nổi bật"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b16-te-asa",
+      "item": "minna1.b16.te-tsunagi",
+      "err": "te-tsunagi-order",
+      "vi": "Buổi sáng tôi dậy, tắm rồi ăn sáng.",
+      "t1": {
+        "stem": "朝[あさ] 起[お]きて、シャワーを ＿、朝[あさ]ごはんを 食[た]べます。",
+        "choices": [
+          "浴[あ]びて",
+          "浴[あ]びてから後[あと]で",
+          "浴[あ]びました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "朝[あさ] 起[お]きて、",
+          "シャワーを 浴[あ]びて、",
+          "朝[あさ]ごはんを 食[た]べます。"
+        ],
+        "traps": [
+          "浴[あ]びましたて、",
+          "食[た]べてから、"
+        ]
+      },
+      "t3": {
+        "target": "朝起きて、シャワーを浴びて、朝ごはんを食べます。",
+        "accept": [
+          "あさおきて、しゃわーをあびて、あさごはんをたべます。"
+        ]
+      },
+      "why": "Nối chuỗi việc theo thứ tự: V1て、V2て、V3。 Mỗi động từ trước chuyển sang て-form (起きて, 浴びて)."
+    },
+    {
+      "id": "c-b16-te-densha",
+      "item": "minna1.b16.te-tsunagi",
+      "err": "te-tsunagi-order",
+      "vi": "Tôi đi tàu điện đến công ty.",
+      "t1": {
+        "stem": "電車[でんしゃ]に ＿、会社[かいしゃ]へ 行[い]きます。",
+        "choices": [
+          "乗[の]って",
+          "乗[の]るて",
+          "乗[の]ってから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電車[でんしゃ]に 乗[の]って、",
+          "会社[かいしゃ]へ 行[い]きます。"
+        ],
+        "traps": [
+          "乗[の]るて、",
+          "乗[の]りまして、"
+        ]
+      },
+      "t3": {
+        "target": "電車に乗って、会社へ行きます。",
+        "accept": [
+          "でんしゃにのって、かいしゃへいきます。"
+        ]
+      },
+      "why": "乗ります → 乗って (て-form đúng). KHÔNG chia thẳng 辞書形+て (✗ 乗るて)."
+    },
+    {
+      "id": "c-b16-tekara-shukudai",
+      "item": "minna1.b16.tekara",
+      "err": "tekara-vs-kara",
+      "vi": "Sau khi làm xong bài tập tôi mới chơi game.",
+      "t1": {
+        "stem": "宿題[しゅくだい]を ＿、ゲームを します。",
+        "choices": [
+          "してから",
+          "するから",
+          "しますから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "宿題[しゅくだい]を してから、",
+          "ゲームを します。"
+        ],
+        "traps": [
+          "するから、",
+          "しますから、"
+        ]
+      },
+      "t3": {
+        "target": "宿題をしてから、ゲームをします。",
+        "accept": [
+          "しゅくだいをしてから、げーむをします。"
+        ]
+      },
+      "why": "\"Sau khi\" = て-form＋から (してから). ✗ 辞書形＋から (するから) — đó là から LÝ DO của Bài 9."
+    },
+    {
+      "id": "c-b16-tekara-shower",
+      "item": "minna1.b16.tekara",
+      "err": "tekara-vs-kara",
+      "vi": "Tan làm xong rồi tôi mới tắm.",
+      "t1": {
+        "stem": "仕事[しごと]が 終[お]わってから、シャワーを ＿。",
+        "choices": [
+          "浴[あ]びます",
+          "浴[あ]びました",
+          "浴[あ]びますから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "仕事[しごと]が 終[お]わってから、",
+          "シャワーを 浴[あ]びます。"
+        ],
+        "traps": [
+          "終[お]わるから、",
+          "終[お]わりますから、"
+        ]
+      },
+      "t3": {
+        "target": "仕事が終わってから、シャワーを浴びます。",
+        "accept": [
+          "しごとがおわってから、しゃわーをあびます。"
+        ]
+      },
+      "why": "終わってから = \"sau khi (việc) xong\". Vế đầu là て-form＋から, không phải 終わるから (lý do)."
+    },
+    {
+      "id": "c-b16-adjte-heya",
+      "item": "minna1.b16.adj-te",
+      "err": "adj-te-form",
+      "vi": "Phòng này rộng và sáng.",
+      "t1": {
+        "stem": "この 部屋[へや]は ＿、明[あか]るいです。",
+        "choices": [
+          "広[ひろ]くて",
+          "広[ひろ]いて",
+          "広[ひろ]いで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 部屋[へや]は",
+          "広[ひろ]くて、",
+          "明[あか]るいです。"
+        ],
+        "traps": [
+          "広[ひろ]いて、",
+          "広[ひろ]いで、"
+        ]
+      },
+      "t3": {
+        "target": "この部屋は広くて、明るいです。",
+        "accept": [
+          "このへやはひろくて、あかるいです。"
+        ]
+      },
+      "why": "い-adj nối câu: bỏ い thêm くて (広い→広くて). ✗ 広いて / 広いで."
+    },
+    {
+      "id": "c-b16-adjte-yasui",
+      "item": "minna1.b16.adj-te",
+      "err": "adj-te-form",
+      "vi": "Quán này rẻ và ngon.",
+      "t1": {
+        "stem": "この 店[みせ]は ＿、おいしいです。",
+        "choices": [
+          "安[やす]くて",
+          "安[やす]いて",
+          "安[やす]いで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 店[みせ]は",
+          "安[やす]くて、",
+          "おいしいです。"
+        ],
+        "traps": [
+          "安[やす]いて、",
+          "安[やす]いくて、"
+        ]
+      },
+      "t3": {
+        "target": "この店は安くて、おいしいです。",
+        "accept": [
+          "このみせはやすくて、おいしいです。"
+        ]
+      },
+      "why": "安い→安くて (い-adj). ✗ 安いて (giữ い), ✗ 安いくて (thừa い)."
+    },
+    {
+      "id": "c-b16-adjte-shizuka",
+      "item": "minna1.b16.adj-te",
+      "err": "adj-te-form",
+      "vi": "Phòng này yên tĩnh và đẹp.",
+      "t1": {
+        "stem": "この 部屋[へや]は ＿、きれいです。",
+        "choices": [
+          "静[しず]かで",
+          "静[しず]かくて",
+          "静[しず]かて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 部屋[へや]は",
+          "静[しず]かで、",
+          "きれいです。"
+        ],
+        "traps": [
+          "静[しず]かくて、",
+          "静[しず]かて、"
+        ]
+      },
+      "t3": {
+        "target": "この部屋は静かで、きれいです。",
+        "accept": [
+          "このへやはしずかで、きれいです。"
+        ]
+      },
+      "why": "な-adj nối câu dùng で (静か→静かで). ✗ 静かくて (đó là cách chia い-adj)."
+    },
+    {
+      "id": "c-b16-douyatte",
+      "item": "minna1.b16.douyatte",
+      "err": "te-tsunagi-order",
+      "vi": "Đi đến nhà ga như thế nào vậy?",
+      "t1": {
+        "stem": "駅[えき]まで ＿ 行[い]きますか。",
+        "choices": [
+          "どうやって",
+          "どんな",
+          "どの"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "駅[えき]まで",
+          "どうやって",
+          "行[い]きますか。"
+        ],
+        "traps": [
+          "どんな",
+          "どの"
+        ]
+      },
+      "t3": {
+        "target": "駅までどうやって行きますか。",
+        "accept": [
+          "えきまでどうやっていきますか。"
+        ]
+      },
+      "why": "どうやって = hỏi CÁCH THỨC (đi bằng phương tiện/đường nào). どんな hỏi \"loại nào\", どの hỏi \"cái nào\"."
+    },
+    {
+      "id": "c-b16-haga-tokyo",
+      "item": "minna1.b16.douyatte",
+      "err": "adj-te-form",
+      "vi": "Tokyo có giá sinh hoạt đắt đỏ.",
+      "t1": {
+        "stem": "東京[とうきょう]は 物価[ぶっか]＿ 高[たか]いです。",
+        "choices": [
+          "が",
+          "を",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "東京[とうきょう]は",
+          "物価[ぶっか]が",
+          "高[たか]いです。"
+        ],
+        "traps": [
+          "物価[ぶっか]を",
+          "高[たか]いで"
+        ]
+      },
+      "t3": {
+        "target": "東京は物価が高いです。",
+        "accept": [
+          "とうきょうはぶっかがたかいです。"
+        ]
+      },
+      "why": "NはNが〜: chủ đề (東京は) → đặc điểm nổi bật (物価が) → tính từ (高いです)."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b16-tekara",
+      "item": "minna1.b16.tekara",
+      "err": "tekara-vs-kara",
+      "tts": "シャワーを あびてから、ねます。",
+      "script": "シャワーを 浴[あ]びてから、寝[ね]ます。",
+      "ask": "Người nói làm gì trước?",
+      "choices": [
+        "Tắm trước rồi ngủ",
+        "Ngủ trước rồi tắm",
+        "Vừa tắm vừa ngủ"
+      ],
+      "answer": 0,
+      "why": "〜てから = sau khi làm X (tắm) mới làm Y (ngủ)."
+    },
+    {
+      "id": "l-b16-adjte",
+      "item": "minna1.b16.adj-te",
+      "err": "adj-te-form",
+      "tts": "この へやは ひろくて、あかるいです。",
+      "script": "この 部屋[へや]は 広[ひろ]くて、明[あか]るいです。",
+      "ask": "Căn phòng như thế nào?",
+      "choices": [
+        "Rộng và sáng",
+        "Hẹp và tối",
+        "Yên tĩnh và đẹp"
+      ],
+      "answer": 0,
+      "why": "い-adj nối câu: 広い→広くて → \"rộng và (sáng)\"."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b16-kara-riyuu",
+      "item": "minna1.b09.kara",
+      "err": "kara-place",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 〜から lý do",
+      "vi": "Vì bận nên sau khi tan làm tôi về thẳng nhà.",
+      "t1": {
+        "stem": "忙[いそが]しいです＿、仕事[しごと]が 終[お]わってから すぐ 帰[かえ]ります。",
+        "choices": [
+          "から",
+          "てから",
+          "まで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "忙[いそが]しいですから、",
+          "仕事[しごと]が 終[お]わってから",
+          "すぐ 帰[かえ]ります。"
+        ],
+        "traps": [
+          "忙[いそが]しいですてから、",
+          "忙[いそが]しいですまで、"
+        ]
+      },
+      "t3": {
+        "target": "忙しいですから、仕事が終わってからすぐ帰ります。",
+        "accept": [
+          "いそがしいですから、しごとがおわってからすぐかえります。"
+        ]
+      },
+      "why": "PHỤC KÍCH: vế \"vì bận\" là から LÝ DO (忙しいですから) — không thêm て. Vế \"sau khi tan làm\" mới là 終わってから (てから). Một câu, hai nghĩa から khác nhau."
+    },
+    {
+      "id": "a-b16-suki-ga",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 〜が好き (が ≠ を)",
+      "vi": "Tôi thích cà phê nên mỗi sáng uống một ly.",
+      "t1": {
+        "stem": "わたしは コーヒー＿ 好[す]きで、毎朝[まいあさ] 一杯[いっぱい] 飲[の]みます。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは コーヒーが 好[す]きで、",
+          "毎朝[まいあさ] 一杯[いっぱい]",
+          "飲[の]みます。"
+        ],
+        "traps": [
+          "コーヒーを 好[す]きで、",
+          "コーヒーが 好[す]きくて、"
+        ]
+      },
+      "t3": {
+        "target": "わたしはコーヒーが好きで、毎朝一杯飲みます。",
+        "accept": [
+          "わたしはこーひーがすきで、まいあさいっぱいのみます。"
+        ]
+      },
+      "why": "PHỤC KÍCH: 好き dùng が (✗ を). Ở đây 好き còn nối câu kiểu na-adj → 好きで (✗ 好きくて)."
+    },
+    {
+      "id": "a-b16-karamade-jikan",
+      "item": "minna1.b04.karamade",
+      "err": "made-kara-swap",
+      "ambush": true,
+      "src": 4,
+      "context": "Bài 4 ・ 9時から từ (mốc thời gian)",
+      "vi": "Sau khi ngủ dậy lúc 7 giờ, tôi tắm rồi ăn sáng.",
+      "t1": {
+        "stem": "7時[じ]＿ 起[お]きて、シャワーを 浴[あ]びて、朝[あさ]ごはんを 食[た]べます。",
+        "choices": [
+          "に",
+          "まで",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "7時[じ]に 起[お]きて、",
+          "シャワーを 浴[あ]びて、",
+          "朝[あさ]ごはんを 食[た]べます。"
+        ],
+        "traps": [
+          "7時[じ]まで 起[お]きて、",
+          "7時[じ]起[お]きるてから、"
+        ]
+      },
+      "t3": {
+        "target": "7時に起きて、シャワーを浴びて、朝ごはんを食べます。",
+        "accept": [
+          "7じにおきて、しゃわーをあびて、あさごはんをたべます。"
+        ]
+      },
+      "why": "PHỤC KÍCH: 7時 là MỐC thời gian — điểm thời gian dùng に (起きる với một mốc), không phải まで. から của Bài 4 (9時から) là \"từ\", khác hẳn てから của Bài 16."
+    }
+  ]
+}

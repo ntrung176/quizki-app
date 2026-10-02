@@ -1,0 +1,377 @@
+{
+  "bai": 12,
+  "bunpou": [
+    {
+      "stem": "東京[とうきょう]は 大阪[おおさか]＿ 大[おお]きいです。",
+      "choices": [
+        "より",
+        "と",
+        "が",
+        "のほうが"
+      ],
+      "answer": 0,
+      "explain": "より đứng sau danh từ làm chuẩn so sánh: A は B より + tính từ = \"A hơn B\"; のほうが đứng sau A, không sau B."
+    },
+    {
+      "stem": "りんごより みかん＿ 好[す]きです。",
+      "choices": [
+        "のほうが",
+        "は",
+        "より",
+        "も"
+      ],
+      "answer": 0,
+      "explain": "Cấu trúc A より B のほうが〜: みかんのほうが nghĩa là \"phía quýt\" = quýt hơn táo; dùng は thay のほうが sẽ mất nghĩa so sánh rõ ràng."
+    },
+    {
+      "stem": "夏[なつ]と 冬[ふゆ]と＿ 好[す]きですか。",
+      "choices": [
+        "どちらが",
+        "どれが",
+        "どこが",
+        "なにが"
+      ],
+      "answer": 0,
+      "explain": "どちらが dùng khi so sánh hai lựa chọn (A と B と どちらが〜); どれが dùng cho 3 lựa chọn trở lên."
+    },
+    {
+      "stem": "クラスの 中[なか]で 田中[たなか]さんが ＿ 背[せ]が 高[たか]いです。",
+      "choices": [
+        "一番[いちばん]",
+        "一番[いちばん]です",
+        "より",
+        "のほうが"
+      ],
+      "answer": 0,
+      "explain": "一番 là trạng từ bổ nghĩa cho tính từ đứng sau, không thêm です vào giữa; より/のほうが dùng cho so sánh đôi, không phải cực cấp."
+    },
+    {
+      "stem": "日本[にほん]の 食[た]べ物[もの]の 中[なか]で すし＿ 一番[いちばん] 好[す]きです。",
+      "choices": [
+        "が",
+        "を",
+        "は",
+        "より"
+      ],
+      "answer": 0,
+      "explain": "Cấu trúc 〜の中で Nが一番〜: が đánh dấu danh từ đứng cao nhất trong nhóm; を hay より đều sai cú pháp ở đây."
+    },
+    {
+      "stem": "昨日[きのう]は 天気[てんき]が 良[よ]＿。",
+      "choices": [
+        "かったです",
+        "いでした",
+        "いです",
+        "でした"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định của い-adj: bỏ い, thêm かったです (良い → 良かったです); でした chỉ dùng cho な-adj và danh từ."
+    },
+    {
+      "stem": "あの レストランは 静[しず]か＿。(quá khứ khẳng định)",
+      "choices": [
+        "でした",
+        "かったです",
+        "じゃなかったです",
+        "ではありません"
+      ],
+      "answer": 0,
+      "explain": "な-adj quá khứ khẳng định dùng でした (静かでした); かったです chỉ dùng cho い-adj; ではありません là phủ định hiện tại."
+    },
+    {
+      "stem": "この 映画[えいが]は あまり 面白[おもしろ]＿。(quá khứ phủ định)",
+      "choices": [
+        "くなかったです",
+        "じゃありませんでした",
+        "くありませんでした",
+        "くないでした"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ phủ định của い-adj: bỏ い, thêm くなかったです; くありませんでした cũng đúng nhưng ít tự nhiên hơn; じゃありませんでした chỉ dùng cho な-adj/danh từ."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "より",
+      "が",
+      "は",
+      "の",
+      "で",
+      "と",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "電車[でんしゃ]は バス＿ 速[はや]いです。",
+        "answer": "より",
+        "explain": "より đứng sau chuẩn so sánh (バス) để nối với tính từ; câu nghĩa là \"tàu điện nhanh hơn xe buýt\"."
+      },
+      {
+        "stem": "三[さん]つの 中[なか]＿ どれが いちばん 好[す]きですか。",
+        "answer": "で",
+        "explain": "で chỉ phạm vi/tập hợp trong cấu trúc 〜の中で〜が一番; は/が ở đây không phù hợp."
+      },
+      {
+        "stem": "京都[きょうと]より 東京[とうきょう]＿ ほうが にぎやかです。",
+        "answer": "の",
+        "explain": "のほうが là cụm cố định; 東京のほうが = \"phía Tokyo\" — の kết hợp danh từ với ほうが."
+      },
+      {
+        "stem": "コーヒー＿ 紅茶[こうちゃ]と どちらが 好[す]きですか。",
+        "answer": "と",
+        "explain": "Cấu trúc A と B と どちらが〜: と nối hai danh từ để so sánh đôi; を hay が ở đây đều sai."
+      },
+      {
+        "stem": "日本語[にほんご]の 中[なか]で 漢字[かんじ]＿ 一番[いちばん] 難[むずか]しいです。",
+        "answer": "が",
+        "explain": "Trong cấu trúc cực cấp 〜の中で Nが一番〜, が đánh dấu chủ thể đứng cao nhất."
+      },
+      {
+        "stem": "わたし＿ かばんは あなたのと 同[おな]じです。",
+        "answer": "の",
+        "explain": "の là trợ từ sở hữu: わたしのかばん = \"cái túi của tôi\"; は ở đây đánh dấu chủ đề của toàn câu."
+      },
+      {
+        "stem": "この かばんは あのかばん＿ 高[たか]かったです。",
+        "answer": "より",
+        "explain": "より đứng sau chuẩn so sánh (あのかばん); câu nghĩa là \"chiếc túi này đắt hơn chiếc kia\"."
+      },
+      {
+        "stem": "夏[なつ]と 冬[ふゆ]と どちら＿ 好[す]きですか。",
+        "answer": "が",
+        "explain": "が đánh dấu chủ ngữ của vị ngữ 好き; trong câu hỏi どちらが〜, が là bắt buộc."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "高[たか]いです",
+      "prompt": "Quá khứ khẳng định?",
+      "choices": [
+        "高[たか]かったです",
+        "高[たか]いでした",
+        "高[たか]でした",
+        "高[たか]かいでした"
+      ],
+      "answer": 0,
+      "explain": "い-adj: bỏ い cuối, thêm かったです → 高かったです; tuyệt đối không dùng でした sau い-adj."
+    },
+    {
+      "base": "きれいです",
+      "prompt": "Quá khứ khẳng định?",
+      "choices": [
+        "きれいでした",
+        "きれいかったです",
+        "きれいかでした",
+        "きれいじゃありませんでした"
+      ],
+      "answer": 0,
+      "explain": "きれい là な-adj; quá khứ dùng でした (きれいでした); かったです chỉ dùng cho い-adj."
+    },
+    {
+      "base": "おいしいです",
+      "prompt": "Quá khứ phủ định?",
+      "choices": [
+        "おいしくなかったです",
+        "おいしくありませんでした",
+        "おいしいじゃなかったです",
+        "おいしくありませんです"
+      ],
+      "answer": 0,
+      "explain": "い-adj quá khứ phủ định: bỏ い, thêm くなかったです; くありませんでした cũng chấp nhận được nhưng くなかったです tự nhiên hơn."
+    },
+    {
+      "base": "静[しず]かです",
+      "prompt": "Quá khứ phủ định?",
+      "choices": [
+        "静[しず]かじゃありませんでした",
+        "静[しず]かくなかったです",
+        "静[しず]かでなかったです",
+        "静[しず]かくありませんでした"
+      ],
+      "answer": 0,
+      "explain": "な-adj quá khứ phủ định: stem + じゃ(では)ありませんでした; không chia theo quy tắc い-adj (không dùng くなかった)."
+    },
+    {
+      "base": "難[むずか]しいです",
+      "prompt": "Hiện tại phủ định?",
+      "choices": [
+        "難[むずか]しくないです",
+        "難[むずか]しくなかったです",
+        "難[むずか]しじゃありません",
+        "難[むずか]しくありませんでした"
+      ],
+      "answer": 0,
+      "explain": "Hiện tại phủ định い-adj: bỏ い, thêm くないです; くなかったです là quá khứ phủ định — không phải hiện tại."
+    },
+    {
+      "base": "良[よ]いです",
+      "prompt": "Quá khứ khẳng định?",
+      "choices": [
+        "良[よ]かったです",
+        "良[よ]いでした",
+        "良[よ]くでした",
+        "よいかったです"
+      ],
+      "answer": 0,
+      "explain": "良[よ]い biến đều: よい → よかったです (bỏ い, thêm かったです); không có ngoại lệ gốc — quy tắc bình thường của い-adj."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "電車[でんしゃ]は",
+        "バスより",
+        "速[はや]いです。"
+      ],
+      "vi": "Tàu điện nhanh hơn xe buýt.",
+      "explain": "Cấu trúc A は B より + tính từ; chuẩn so sánh (バスより) đứng trước tính từ."
+    },
+    {
+      "chips": [
+        "りんごより",
+        "みかんのほうが",
+        "好[す]きです。"
+      ],
+      "vi": "Tôi thích quýt hơn táo.",
+      "explain": "Cấu trúc A より B のほうが〜: りんごより đứng trước, みかんのほうが theo sau; のほうが gắn liền với B."
+    },
+    {
+      "chips": [
+        "クラスの中[なか]で",
+        "田中[たなか]さんが",
+        "一番[いちばん]",
+        "背[せ]が 高[たか]いです。"
+      ],
+      "vi": "Trong lớp, anh Tanaka cao nhất.",
+      "explain": "Cấu trúc cực cấp: 〜の中で + chủ ngữ + が + 一番 + tính từ; 一番 đứng ngay trước tính từ."
+    },
+    {
+      "chips": [
+        "日本[にほん]の 食[た]べ物[もの]の中[なか]で",
+        "すしが",
+        "一番[いちばん]",
+        "好[す]きです。"
+      ],
+      "vi": "Trong các món Nhật, tôi thích sushi nhất.",
+      "explain": "Phạm vi 〜の中で đứng đầu, tiếp theo chủ ngữ+が, rồi 一番 rồi vị ngữ 好きです."
+    },
+    {
+      "chips": [
+        "昨日[きのう]は",
+        "あまり",
+        "天気[てんき]が",
+        "良[よ]くなかったです。"
+      ],
+      "vi": "Hôm qua thời tiết không được tốt lắm.",
+      "explain": "あまり kết hợp với phủ định: あまり〜くなかったです = \"không ~ lắm\"; thứ tự: thời gian + あまり + chủ ngữ + phủ định."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "でんしゃは ばすより はやいです。",
+      "ask": "Cái nào nhanh hơn?",
+      "choices": [
+        "Tàu điện",
+        "Xe buýt",
+        "Như nhau"
+      ],
+      "answer": 0,
+      "script": "電車[でんしゃ]は バスより 速[はや]いです。",
+      "explain": "A は B より〜: chủ đề A (でんしゃ) là thứ hơn, B (ばす) là chuẩn so sánh; A mới là đáp án."
+    },
+    {
+      "tts": "くらすのなかで たなかさんが いちばん せが たかいです。",
+      "ask": "Ai cao nhất trong lớp?",
+      "choices": [
+        "Anh Tanaka",
+        "Anh Yamada",
+        "Chị Maria"
+      ],
+      "answer": 0,
+      "script": "クラスの中[なか]で 田中[たなか]さんが 一番[いちばん] 背[せ]が 高[たか]いです。",
+      "explain": "Nghe た な か さん が い ち ば ん: たなかさん là chủ ngữ + いちばん xác nhận người cao nhất là Tanaka."
+    },
+    {
+      "tts": "きのうは てんきが よくなかったです。",
+      "ask": "Thời tiết hôm qua thế nào?",
+      "choices": [
+        "Không được tốt",
+        "Rất đẹp",
+        "Nóng nhất"
+      ],
+      "answer": 0,
+      "script": "昨日[きのう]は 天気[てんき]が 良[よ]くなかったです。",
+      "explain": "よくなかったです là quá khứ phủ định của 良い = \"không tốt\"; よかったです ngược lại là \"tốt / may mắn\"."
+    },
+    {
+      "tts": "にほんのたべもののなかで すしが いちばんすきです。",
+      "ask": "Trong các món Nhật, người nói thích nhất món gì?",
+      "choices": [
+        "Sushi",
+        "Ramen",
+        "Tempura"
+      ],
+      "answer": 0,
+      "script": "日本[にほん]の 食[た]べ物[もの]の中[なか]で すしが 一番[いちばん] 好[す]きです。",
+      "explain": "すしが いちばんすき rõ ràng chỉ ra sushi là món được yêu thích nhất trong nhóm."
+    },
+    {
+      "tts": "なつと ふゆと どちらが すきですか。",
+      "ask": "Câu hỏi này hỏi về điều gì?",
+      "choices": [
+        "So sánh mùa hè và mùa đông",
+        "Hỏi thời tiết hiện tại",
+        "Hỏi kế hoạch mùa hè"
+      ],
+      "answer": 0,
+      "script": "夏[なつ]と 冬[ふゆ]と どちらが 好[す]きですか。",
+      "explain": "A と B と どちらが〜 là mẫu hỏi so sánh đôi; câu này hỏi thích mùa nào hơn trong hai mùa nêu ra."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tokyo lớn hơn Osaka.",
+      "target": "東京は大阪より大きいです。",
+      "accept": [
+        "とうきょうはおおさかよりおおきいです。",
+        "東京は大阪よりも大きいです。"
+      ],
+      "explain": "Cấu trúc A は B より + tính từ; A = Tokyo (chủ đề), B = Osaka (chuẩn so sánh+より)."
+    },
+    {
+      "vi": "Trong lớp, anh Tanaka cao nhất.",
+      "target": "クラスの中で田中さんが一番背が高いです。",
+      "accept": [
+        "くらすのなかでたなかさんがいちばんせがたかいです。"
+      ],
+      "explain": "〜の中で Nが一番〜: phạm vi の中で đứng đầu, chủ ngữ+が, rồi 一番 + tính từ."
+    },
+    {
+      "vi": "Tôi thích mùa hè hơn mùa đông.",
+      "target": "冬より夏のほうが好きです。",
+      "accept": [
+        "ふゆよりなつのほうがすきです。",
+        "夏のほうが冬より好きです。"
+      ],
+      "explain": "A より B のほうが〜: A = 冬 (chuẩn so sánh), B = 夏 (cái được chọn hơn); のほうが bắt buộc gắn với B."
+    },
+    {
+      "vi": "Hôm qua trời lạnh.",
+      "target": "昨日は寒かったです。",
+      "accept": [
+        "きのうはさむかったです。"
+      ],
+      "explain": "い-adj 寒い quá khứ → 寒かったです; không dùng 寒いでした."
+    },
+    {
+      "vi": "Bài kiểm tra không khó lắm.",
+      "target": "テストはあまり難しくなかったです。",
+      "accept": [
+        "てすとはあまりむずかしくなかったです。",
+        "テストはあまり難しくありませんでした。"
+      ],
+      "explain": "あまり + phủ định quá khứ = \"không ~ lắm\"; い-adj phủ định quá khứ: むずかしい → むずかしくなかったです."
+    }
+  ]
+}

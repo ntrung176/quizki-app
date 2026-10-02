@@ -1,0 +1,4732 @@
+{
+  "bai": 129,
+  "level": "N2",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng đọc hiểu văn bản nghị luận và thông cáo nghi thức N2, làm rõ sự đối lập giữa việc chỉ trích sự việc trớ trêu bất thường (に限って), tuyên bố mốc thời hạn trang trọng tối cao (をもちまして), lý giải căn nguyên triết lý tất yếu (ゆえに・ゆえ) và xác định đối tượng định hướng có chủ ý (向け). Người học cần nắm chắc tầng bậc sắc thái văn phong từ trang trọng, học thuật đến cảm xúc chủ quan để nắm bắt chính xác mạch lập luận của tác giả.",
+    "steps": [
+      "Nhận diện phong cách văn bản (nghi thức công vụ, bài nghiên cứu/luận bàn triết lý, hay quảng cáo/giới thiệu sản phẩm) thông qua các từ khóa định hình văn phong như「をもちまして」hay「ゆえに」.",
+      "Khi gặp câu chứa「〜に限って」, xác định ngữ cảnh là sự trùng hợp xui xẻo (đúng lúc/đúng ngày) hay niềm tin tuyệt đối (chính đối tượng thân cận thì không thể), chú ý tâm lý bất mãn hoặc khẳng định chủ quan của tác giả.",
+      "Với vế câu có「〜ゆえに／〜ゆえ」, phân tách rõ vế trước là nguồn cơn cốt lõi dẫn tới kết quả hoặc luận điểm tất yếu ở vế sau, tránh nhầm lẫn với quan hệ mục đích hay nhượng bộ.",
+      "Khoanh vùng đối tượng tiếp nhận trong câu có「〜向け」để nắm được chủ đích thiết kế hoặc chính sách của chủ thể, phân biệt rõ đối tượng được nhắm tới với công chúng nói chung.",
+      "Trong văn bản thông báo chứa「〜をもちまして」, định vị chính xác mốc thời gian hoặc sự kiện được nêu để xác định thời điểm chấm dứt hiệu lực hoặc kết thúc sự vụ."
+    ],
+    "tips": [
+      "Mẹo 使い分け (向け vs 向き):「〜向け」chỉ sản phẩm/chính sách được tạo ra có chủ đích nhắm vào đối tượng cụ thể (ví dụ: 初心者向け), khác với「〜向き」chỉ đặc tính tự nhiên vốn có tình cờ phù hợp (ví dụ: 夏向きの生地).",
+      "Mẹo 使い分け (ゆえ(に) vs から/ので/せいで):「〜ゆえに」thuộc văn viết cổ điển/trang trọng giải thích căn nguyên tất yếu mang tính học thuật hoặc định mệnh, tuyệt đối không dùng trong giao tiếp thường nhật như から/ので và không mang tính đổ lỗi bộc phát như せいで.",
+      "Mẹo 使い分け (に限って vs に限り):「〜に限って」nhấn mạnh sự trớ trêu xui xẻo hoặc thiên vị chủ quan, còn「〜に限り」chỉ dùng cho thông báo quy định, giới hạn ưu đãi mang tính trung tính pháp lý.",
+      "Dấu hiệu「〜ゆえの + N」: Cụm này chỉ danh từ N phía sau sinh ra trực tiếp từ bản chất/nguyên nhân phía trước (như 若さゆえの過ち - sai lầm do tuổi trẻ), thường là trọng tâm của câu hỏi lý do.",
+      "Bẫy ngữ cảnh「〜に限って...ない」: Mẫu câu này thường thể hiện sự tin tưởng tuyệt đối của người nói đối với người thân quen (ví dụ: うちの子に限ってそんなことはしない), đáp án nghi ngờ hoặc phê phán là đáp án bẫy."
+    ],
+    "grammarFocus": [
+      "〜に限って — N + に限って: Biểu đạt sự việc trớ trêu xui xẻo xảy ra đúng vào dịp/đối tượng đặc biệt, hoặc niềm tin chủ quan tuyệt đối; mang sắc thái bất mãn/tiếc nuối, đối chiếu khác với だけ (chỉ phạm vi khách quan) và に限り (giới hạn ưu đãi).",
+      "〜をもちまして — N (thời điểm/dịp lễ) + をもちまして: Tuyên bố mốc thời gian kết thúc hoặc chuyển giao chính thức trong văn phong nghi thức, trang trọng nhất; đối chiếu lịch sự hơn をもって và khác với から/で đời thường.",
+      "〜ゆえに — 普通形 (なAdj/N + (である)ゆえに / なAdj+なゆえに) + ゆえに: Nêu nguyên nhân, lý do mang tính bản chất hoặc tất yếu trong văn viết trang trọng/nghị luận; đối chiếu khác với から/ので (khẩu ngữ) và せいで (đổ lỗi thông thường).",
+      "〜ゆえ — 普通形 (なAdj/N + (である)ゆえ / Nゆえ) + ゆえ: Dạng rút gọn cổ điển của ゆえに, nối vế nguyên nhân hoặc dùng「〜ゆえの＋N」chỉ hệ quả sinh ra từ nguyên nhân; đối chiếu mang tính cô đọng, trang trọng hơn ため.",
+      "〜向け — N + 向け（向けに／向けの＋N／向けだ）: Chỉ sự vật, chính sách được tạo ra nhằm hướng tới hoặc thiết kế chuyên biệt cho đối tượng N; đối chiếu khác với 〜向き (đặc tính tự nhiên phù hợp)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（普通形/なAdj+な/N+の＋おかげで）",
+          "〜せいで（普通形/なAdj+な/N+の＋せいで）"
+        ]
+      },
+      {
+        "bai": 69,
+        "items": [
+          "〜として（N + として）",
+          "〜にとって（N + にとって）"
+        ]
+      },
+      {
+        "bai": 76,
+        "items": [
+          "〜のことだから (N のことだから)",
+          "〜だけに (普通形 / N + だけに)"
+        ]
+      },
+      {
+        "bai": 94,
+        "items": [
+          "謙譲語Ⅱ／丁重語（ていちょうご）",
+          "お/ご〜する／いたす（謙譲公式）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "地域文化アーカイブの幕引きと未来への継承",
+      "titleVi": "Sự khép lại của kho lưu trữ văn hóa địa phương và sự kế thừa cho tương lai",
+      "japanese": "地域社会の歴史や貴重な文化遺産を記録し続けてきた本デジタルアーカイブは、多くの市民や研究者に支えられてきた。しかし、技術の刷新に伴い、長年ご愛顧いただきました本サービスは、本日午後５時をもちまして終了いたします。また、専門の研究者向けに運営されてきた個別相談窓口も、今月末をもちまして閉鎖させていただきます。\n\n人間とは不思議なもので、普段は関心を示さない人に限って、サービスが終了する段階になって急に惜しむ声を上げる。さらに、急ぎの調査が必要な時に限って、必要な資料の保存場所が分からなくなることも珍しくない。当初は学者向けに開発されたシステムであったため、一般市民には操作がやや難解であった。システムの複雑さゆえに、せっかくの貴重な記録が十分に活用されなかったという反省点も残る。\n\n運営主体の財政難ゆえ、単独でのサーバー維持管理を継続することは極めて困難であった。デジタル社会の急速な変化ゆえに、古い形式のデータを後世に残すには新たな工夫が求められている。記録の散逸への懸念ゆえ、今後は公的機関と連携した統合データベースへの移行が進められる。今後は、未来を担う若い世代向けに使いやすく改良された統合サイトにて、新たな情報発信を行っていく予定である。",
+      "vietnamese": "Kho lưu trữ số này, nơi liên tục ghi lại lịch sử và các di sản văn hóa quý giá của cộng đồng địa phương, từ lâu đã nhận được sự ủng hộ của đông đảo người dân và các nhà nghiên cứu. Tuy nhiên, cùng với sự đổi mới công nghệ, dịch vụ đã nhận được sự tin yêu nhiều năm qua của quý vị sẽ chính thức khép lại kể từ 5 giờ chiều hôm nay. Ngoài ra, quầy tư vấn riêng vốn được vận hành dành riêng cho các nhà nghiên cứu chuyên môn cũng sẽ xin phép đóng cửa kể từ cuối tháng này.\n\nCon người thật là kỳ lạ, hễ cứ là những người thường ngày chẳng mấy quan tâm thì đúng vào lúc dịch vụ sắp đóng cửa lại cất tiếng bày tỏ sự tiếc nuối. Hơn nữa, hễ cứ đúng vào lúc cần tra cứu gấp thì lại chẳng thể tìm ra nơi lưu trữ tài liệu cần thiết, chuyện trớ trêu như vậy cũng không hề hiếm gặp. Do ban đầu là hệ thống được phát triển có chủ đích hướng tới giới học giả, nên các thao tác đối với người dân bình thường có phần phức tạp khó hiểu. Chính vì sự phức tạp của hệ thống mà những hồ sơ quý giá cất công lưu giữ lại chưa được tận dụng một cách thỏa đáng, đây vẫn là một điều đáng tự kiểm điểm.\n\nDo tình trạng khó khăn về mặt tài chính của đơn vị vận hành, việc tiếp tục tự duy trì và quản lý máy chủ độc lập là điều vô cùng nan giải. Chính vì sự biến đổi nhanh chóng của xã hội số, để lưu truyền dữ liệu ở các định dạng cũ lại cho đời sau đòi hỏi phải có những sáng kiến và cải tiến mới. Vì nỗi lo ngại về sự thất lạc, phân tán của các tài liệu ghi chép, trong thời gian tới việc chuyển đổi sang một cơ sở dữ liệu tích hợp liên kết với các cơ quan công quyền sẽ được xúc tiến. Từ nay về sau, kế hoạch sẽ là tiếp tục truyền tải thông tin theo phương thức mới trên trang web tích hợp đã được cải tiến để dễ sử dụng, hướng tới thế hệ trẻ - những người gánh vác tương lai.",
+      "sentences": [
+        {
+          "jp": "地域社会の歴史や貴重な文化遺産を記録し続けてきた本デジタルアーカイブは、多くの市民や研究者に支えられてきた。",
+          "vi": "Kho lưu trữ số này, nơi liên tục ghi lại lịch sử và các di sản văn hóa quý giá của cộng đồng địa phương, từ lâu đã nhận được sự ủng hộ của đông đảo người dân và các nhà nghiên cứu.",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "地域社会",
+              "read": "ちいきしゃかい",
+              "vi": "cộng đồng địa phương"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "貴重な",
+              "read": "きちょうな",
+              "vi": "quý giá"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "遺産",
+              "read": "いさん",
+              "vi": "di sản"
+            },
+            {
+              "w": "文化遺産",
+              "read": "ぶんかいさん",
+              "vi": "di sản văn hóa"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "ghi chép"
+            },
+            {
+              "w": "続けてきた",
+              "read": "つづけてきた",
+              "vi": "đã tiếp tục"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "này; hiện tại"
+            },
+            {
+              "w": "デジタル",
+              "read": "でじたる",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "アーカイブ",
+              "read": "あーかいぶ",
+              "vi": "kho lưu trữ"
+            },
+            {
+              "w": "デジタルアーカイブ",
+              "read": "でじたるあーかいぶ",
+              "vi": "kho lưu trữ số"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "研究者",
+              "read": "けんきゅうしゃ",
+              "vi": "nhà nghiên cứu"
+            },
+            {
+              "w": "支えられてきた",
+              "read": "ささえられてきた",
+              "vi": "đã được hỗ trợ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜し続ける（Vます＋続ける）",
+              "vi": "【接続】Động từ thể ます bỏ ます + 続ける。【Sắc thái】Biểu thị hành động được duy trì liên tục không ngắt quãng trong suốt một thời gian dài.【Đối chiếu】Khác với 〜通す (nhấn mạnh sự kiên trì vượt qua khó khăn để làm đến cùng) hay 〜っぱなし (để mặc một trạng thái kéo dài một cách tiêu cực), 〜続ける diễn tả sự tiếp diễn bền bỉ của hành động."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、技術の刷新に伴い、長年ご愛顧いただきました本サービスは、本日午後５時をもちまして終了いたします。",
+          "vi": "Tuy nhiên, cùng với sự đổi mới công nghệ, dịch vụ đã nhận được sự tin yêu nhiều năm qua của quý vị sẽ chính thức khép lại kể từ 5 giờ chiều hôm nay.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "刷新",
+              "read": "さっしん",
+              "vi": "sự đổi mới, cách tân hoàn toàn"
+            },
+            {
+              "w": "伴う",
+              "read": "ともなう",
+              "vi": "gắn liền với, đi kèm"
+            },
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm, lâu năm"
+            },
+            {
+              "w": "愛顧",
+              "read": "あいこ",
+              "vi": "sự ủng hộ, chiếu cố"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "本日",
+              "read": "ほんじつ",
+              "vi": "hôm nay (trang trọng)"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "終了",
+              "read": "しゅうりょう",
+              "vi": "kết thúc"
+            },
+            {
+              "w": "ご愛顧",
+              "read": "ごあいこ",
+              "vi": "sự yêu mến ủng hộ (kính ngữ thương mại)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をもちまして（N＋をもちまして）",
+              "vi": "【接続】Danh từ chỉ thời gian/mốc điểm + をもちまして.【Sắc thái】Diễn đạt thời điểm chấm dứt hoặc chuyển giao một dịch vụ/sự kiện trong các thông báo chính thức, mang tính trang trọng và lễ nghi cao nhất.【Đối chiếu】So với 〜で (trung tính, đời thường) hay 〜を限りに (nhấn mạnh sự dứt khoát chấm dứt thói quen/giai đoạn), 〜をもちまして thể hiện sự tôn kính và lịch sự tuyệt đối trong bối cảnh doanh nghiệp và công chúng."
+            },
+            {
+              "point": "〜に伴い（N / Vる＋に伴い）",
+              "vi": "【接続】Danh từ hoặc Vる + に伴い.【Sắc thái】Biểu thị sự biến đổi này kéo theo sự biến đổi khác diễn ra song song (văn viết trang trọng).【Đối chiếu】So với 〜につれて (biến đổi tự nhiên tương ứng hai chiều) hay 〜とともに (cùng lúc), 〜に伴い nhấn mạnh mối liên hệ nguyên nhân - hệ quả kéo theo giữa hai sự kiện."
+            }
+          ]
+        },
+        {
+          "jp": "また、専門の研究者向けに運営されてきた個別相談窓口も、今月末をもちまして閉鎖させていただきます。",
+          "vi": "Ngoài ra, quầy tư vấn riêng vốn được vận hành dành riêng cho các nhà nghiên cứu chuyên môn cũng sẽ xin phép đóng cửa kể từ cuối tháng này.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "研究者",
+              "read": "けんきゅうしゃ",
+              "vi": "nhà nghiên cứu"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho"
+            },
+            {
+              "w": "研究者向け",
+              "read": "けんきゅうしゃむけ",
+              "vi": "dành cho nhà nghiên cứu"
+            },
+            {
+              "w": "運営されてきた",
+              "read": "うんえいされてきた",
+              "vi": "đã được vận hành"
+            },
+            {
+              "w": "個別",
+              "read": "こべつ",
+              "vi": "riêng lẻ"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn"
+            },
+            {
+              "w": "個別相談",
+              "read": "こべつそうだん",
+              "vi": "tư vấn cá nhân"
+            },
+            {
+              "w": "窓口",
+              "read": "まどぐち",
+              "vi": "quầy; đầu mối"
+            },
+            {
+              "w": "相談窓口",
+              "read": "そうだんまどぐち",
+              "vi": "quầy tư vấn"
+            },
+            {
+              "w": "個別相談窓口",
+              "read": "こべつそうだんまどぐち",
+              "vi": "quầy tư vấn riêng"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "末",
+              "read": "まつ",
+              "vi": "cuối"
+            },
+            {
+              "w": "今月末",
+              "read": "こんげつまつ",
+              "vi": "cuối tháng này"
+            },
+            {
+              "w": "もちまして",
+              "read": "もちまして",
+              "vi": "tính đến; kể từ"
+            },
+            {
+              "w": "閉鎖",
+              "read": "へいさ",
+              "vi": "đóng cửa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け（N＋向け）",
+              "vi": "【接続】Danh từ chỉ đối tượng + 向け（に／の／だ）.【Sắc thái】Chỉ đối tượng mục tiêu được hướng tới một cách có chủ đích trong thiết kế hoặc cung cấp dịch vụ ('dành riêng cho/hướng tới').【Đối chiếu】Khác với 〜向き (phù hợp một cách tự nhiên về mặt tính chất/sở thích), 〜向け nhấn mạnh ý đồ chủ quan của người tạo ra sản phẩm/dịch vụ."
+            },
+            {
+              "point": "〜をもちまして（N＋をもちまして）",
+              "vi": "【接続】Danh từ thời gian + をもちまして.【Sắc thái】Dùng trong thông cáo chính thức của tổ chức để tuyên bố thời điểm dừng hoạt động một cách trang trọng, lịch sự tuyệt đối.【Đối chiếu】Trang trọng hơn nhiều so với 〜で hoặc 〜をもって khi giao tiếp với khách hàng và công chúng."
+            }
+          ]
+        },
+        {
+          "jp": "人間とは不思議なもので、普段は関心を示さない人に限って、サービスが終了する段階になって急に惜しむ声を上げる。",
+          "vi": "Con người thật là kỳ lạ, hễ cứ là những người thường ngày chẳng mấy quan tâm thì đúng vào lúc dịch vụ sắp đóng cửa lại cất tiếng bày tỏ sự tiếc nuối.",
+          "vocab": [
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "不思議",
+              "read": "ふしぎ",
+              "vi": "kỳ diệu, huyền bí"
+            },
+            {
+              "w": "普段",
+              "read": "ふだん",
+              "vi": "thường ngày, bình thường"
+            },
+            {
+              "w": "関心",
+              "read": "かんしん",
+              "vi": "sự quan tâm, sự chú ý"
+            },
+            {
+              "w": "示す",
+              "read": "しめす",
+              "vi": "thể hiện, tỏ ra"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "終了",
+              "read": "しゅうりょう",
+              "vi": "kết thúc"
+            },
+            {
+              "w": "段階",
+              "read": "だんかい",
+              "vi": "giai đoạn"
+            },
+            {
+              "w": "急",
+              "read": "きゅう",
+              "vi": "đột xuất, gấp"
+            },
+            {
+              "w": "惜しむ",
+              "read": "おしむ",
+              "vi": "tiếc nuối, tiếc rẻ"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "上げる",
+              "read": "あげる",
+              "vi": "nâng lên, đưa lên"
+            },
+            {
+              "w": "関心を示す",
+              "read": "かんしんをしめす",
+              "vi": "thể hiện sự quan tâm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限って（N＋に限って① - Đối tượng cá biệt）",
+              "vi": "【接続】Danh từ chỉ người/nhóm người + に限って.【Sắc thái】Nhấn mạnh riêng một nhóm đối tượng cá biệt, thường đi kèm với thái độ bất mãn, châm biếm trước hành vi nghịch lý, tiêu cực của họ.【Đối chiếu】Khác với trợ từ 〜だけ (chỉ mang tính giới hạn đơn thuần), 〜に限って hàm chứa sự châm biếm hoặc bất bình sâu sắc của người nói."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、急ぎの調査が必要な時に限って、必要な資料の保存場所が分からなくなることも珍しくない。",
+          "vi": "Hơn nữa, hễ cứ đúng vào lúc cần tra cứu gấp thì lại chẳng thể tìm ra nơi lưu trữ tài liệu cần thiết, chuyện trớ trêu như vậy cũng không hề hiếm gặp.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "急ぎ",
+              "read": "いそぎ",
+              "vi": "khẩn cấp, việc gấp"
+            },
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "điều tra"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "lưu trữ, bảo lưu"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "珍しくない",
+              "read": "めずらしくない",
+              "vi": "không hiếm, thường thấy"
+            },
+            {
+              "w": "保存場所",
+              "read": "ほぞんばしょ",
+              "vi": "nơi lưu trữ, vị trí cất giữ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限って（N＋に限って② - Thời điểm xui xẻo/trớ trêu）",
+              "vi": "【接続】Danh từ chỉ thời điểm/hoàn cảnh + に限って.【Sắc thái】Biểu thị sự trùng hợp trớ trêu: đúng vào lúc đặc biệt/cấp bách nhất thì sự việc ngoài ý muốn lại xảy ra.【Đối chiếu】Khác với 〜時に (trung lập diễn tả thời gian), 〜に限って thể hiện rõ tâm lý than phiền về sự oái oăm của hoàn cảnh."
+            }
+          ]
+        },
+        {
+          "jp": "当初は学者向けに開発されたシステムであったため、一般市民には操作がやや難解であった。",
+          "vi": "Do ban đầu là hệ thống được phát triển có chủ đích hướng tới giới học giả, nên các thao tác đối với người dân bình thường có phần phức tạp khó hiểu.",
+          "vocab": [
+            {
+              "w": "当初",
+              "read": "とうしょ",
+              "vi": "ban đầu"
+            },
+            {
+              "w": "学者",
+              "read": "がくしゃ",
+              "vi": "học giả, nhà nghiên cứu"
+            },
+            {
+              "w": "開発",
+              "read": "かいはつ",
+              "vi": "sự phát triển, phát minh"
+            },
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "đại chúng, thông thường (phân loại)"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "操作",
+              "read": "そうさ",
+              "vi": "thao tác, cách vận hành"
+            },
+            {
+              "w": "難解",
+              "read": "なんかい",
+              "vi": "khó hiểu, phức tạp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け（N＋向け）",
+              "vi": "【接続】Danh từ chỉ đối tượng + 向け（に／の／だ）.【Sắc thái】Nhấn mạnh hệ thống được thiết kế chuyên biệt có chủ ý để phục vụ đối tượng học giả.【Đối chiếu】Khác với 〜向き (chỉ sự vừa vặn, thích hợp ngẫu nhiên), 〜向け nói về tiêu chuẩn thiết kế ban đầu có chủ đích rõ rệt."
+            }
+          ]
+        },
+        {
+          "jp": "システムの複雑さゆえに、せっかくの貴重な記録が十分に活用されなかったという反省点も残る。",
+          "vi": "Chính vì sự phức tạp của hệ thống mà những hồ sơ quý giá cất công lưu giữ lại chưa được tận dụng một cách thỏa đáng, đây vẫn là một điều đáng tự kiểm điểm.",
+          "vocab": [
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "複雑さ",
+              "read": "ふくざつさ",
+              "vi": "độ phức tạp, sự rắc rối"
+            },
+            {
+              "w": "せっかく",
+              "read": "せっかく",
+              "vi": "hiếm có, nhân dịp này"
+            },
+            {
+              "w": "貴重",
+              "read": "きちょう",
+              "vi": "quý giá, quý báu"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "活用",
+              "read": "かつよう",
+              "vi": "tận dụng, ứng dụng"
+            },
+            {
+              "w": "反省",
+              "read": "はんせい",
+              "vi": "nhìn nhận lại, kiểm điểm, tự suy xét"
+            },
+            {
+              "w": "残る",
+              "read": "のこる",
+              "vi": "ở lại, còn lại"
+            },
+            {
+              "w": "反省点",
+              "read": "はんせいてん",
+              "vi": "điểm cần tự kiểm điểm/nhìn nhận lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえに（Nの／A・V普通形＋ゆえに）",
+              "vi": "【接続】Danh từ + (の) + ゆえ(に) / Tính từ, Động từ thể thông thường + ゆえ(に).【Sắc thái】Văn viết trang trọng biểu thị nguyên nhân - kết quả mang tính logic tất yếu dẫn tới một hệ quả đáng tiếc.【Đối chiếu】So với 〜から / 〜ので (khẩu ngữ hoặc trung tính) và 〜ために (nguyên nhân khách quan), 〜ゆえに mang màu sắc văn phong cổ điển, trang nghiêm và sâu sắc hơn."
+            }
+          ]
+        },
+        {
+          "jp": "運営主体の財政難ゆえ、単独でのサーバー維持管理を継続することは極めて困難であった。",
+          "vi": "Do tình trạng khó khăn về mặt tài chính của đơn vị vận hành, việc tiếp tục tự duy trì và quản lý máy chủ độc lập là điều vô cùng nan giải.",
+          "vocab": [
+            {
+              "w": "運営",
+              "read": "うんえい",
+              "vi": "vận hành, điều hành"
+            },
+            {
+              "w": "主体",
+              "read": "しゅたい",
+              "vi": "chủ thể"
+            },
+            {
+              "w": "財政難",
+              "read": "ざいせいなん",
+              "vi": "khó khăn tài chính"
+            },
+            {
+              "w": "単独",
+              "read": "たんどく",
+              "vi": "đơn độc, một mình"
+            },
+            {
+              "w": "サーバー",
+              "read": "サーバー",
+              "vi": "máy chủ"
+            },
+            {
+              "w": "維持",
+              "read": "いじ",
+              "vi": "sự duy trì"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "継続",
+              "read": "けいぞく",
+              "vi": "sự tiếp tục, duy trì"
+            },
+            {
+              "w": "極めて",
+              "read": "きわめて",
+              "vi": "cực kỳ, vô cùng"
+            },
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn"
+            },
+            {
+              "w": "運営主体",
+              "read": "うんえいしゅたい",
+              "vi": "đơn vị vận hành, chủ thể quản lý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえ（N＋ゆえ）",
+              "vi": "【接続】Danh từ + ゆえ (dạng giản lược không có に).【Sắc thái】Chỉ nguyên nhân trực tiếp trong văn phong nghị luận/báo cáo trang trọng, nhấn mạnh lý do mang tính cốt lõi dẫn đến tình thế bắt buộc.【Đối chiếu】Có ý nghĩa tương đương 〜ゆえに nhưng kết cấu cô đọng hơn, thường xuất hiện trong các văn bản học thuật hoặc thông cáo chính luận."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル社会の急速な変化ゆえに、古い形式のデータを後世に残すには新たな工夫が求められている。",
+          "vi": "Chính vì sự biến đổi nhanh chóng của xã hội số, để lưu truyền dữ liệu ở các định dạng cũ lại cho đời sau đòi hỏi phải có những sáng kiến và cải tiến mới.",
+          "vocab": [
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "形式",
+              "read": "けいしき",
+              "vi": "hình thức"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "後世",
+              "read": "こうせい",
+              "vi": "hậu thế, đời sau"
+            },
+            {
+              "w": "残す",
+              "read": "のこす",
+              "vi": "để lại, giữ lại"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "sáng kiến, công phu cải tiến"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえに（Nの＋ゆえに）",
+              "vi": "【接続】Danh từ + (の) + ゆえに.【Sắc thái】Biểu thị nguyên nhân khách quan sâu xa của thời đại dẫn đến đòi hỏi tất yếu phải thay đổi phương thức hành động.【Đối chiếu】So với 〜せいで (đổ lỗi tiêu cực) hay 〜おかげで (hàm ơn tích cực), 〜ゆえに phân tích nguyên nhân một cách nghiêm túc, trang trọng mà không mang tính thiên kiến cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "記録の散逸への懸念ゆえ、今後は公的機関と連携した統合データベースへの移行が進められる。",
+          "vi": "Vì nỗi lo ngại về sự thất lạc, phân tán của các tài liệu ghi chép, trong thời gian tới việc chuyển đổi sang một cơ sở dữ liệu tích hợp liên kết với các cơ quan công quyền sẽ được xúc tiến.",
+          "vocab": [
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "散逸",
+              "read": "さんいつ",
+              "vi": "sự thất lạc, tản mát"
+            },
+            {
+              "w": "懸念",
+              "read": "けねん",
+              "vi": "mối lo ngại, e ngại"
+            },
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "公的",
+              "read": "こうてき",
+              "vi": "công cộng, mang tính công"
+            },
+            {
+              "w": "機関",
+              "read": "きかん",
+              "vi": "cơ quan, tổ chức"
+            },
+            {
+              "w": "連携",
+              "read": "れんけい",
+              "vi": "sự liên kết, hợp tác"
+            },
+            {
+              "w": "統合",
+              "read": "とうごう",
+              "vi": "sự hợp nhất, tích hợp"
+            },
+            {
+              "w": "データベース",
+              "read": "データベース",
+              "vi": "cơ sở dữ liệu"
+            },
+            {
+              "w": "移行",
+              "read": "いこう",
+              "vi": "sự chuyển dịch, sự chuyển sang"
+            },
+            {
+              "w": "進める",
+              "read": "すすめる",
+              "vi": "tiến hành, đẩy mạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえ（N＋ゆえ）",
+              "vi": "【接続】Danh từ + ゆえ.【Sắc thái】Nêu bật lý do/động cơ sâu xa mang tính trách nhiệm văn hóa dẫn đến quyết định cải tổ.【Đối chiếu】So với 〜によって (chỉ phương thức hoặc lý do thông thường), 〜ゆえ thể hiện đậm chất văn viết trang trọng, chỉ ra nguyên nhân cốt lõi."
+            }
+          ]
+        },
+        {
+          "jp": "今後は、未来を担う若い世代向けに使いやすく改良された統合サイトにて、新たな情報発信を行っていく予定である。",
+          "vi": "Từ nay về sau, kế hoạch sẽ là tiếp tục truyền tải thông tin theo phương thức mới trên trang web tích hợp đã được cải tiến để dễ sử dụng, hướng tới thế hệ trẻ - những người gánh vác tương lai.",
+          "vocab": [
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "担う",
+              "read": "になう",
+              "vi": "gánh vác, đảm đương"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "改良",
+              "read": "かいりょう",
+              "vi": "cải tiến, nâng cấp tốt hơn"
+            },
+            {
+              "w": "統合",
+              "read": "とうごう",
+              "vi": "sự hợp nhất, tích hợp"
+            },
+            {
+              "w": "サイト",
+              "read": "サイト",
+              "vi": "trang web, địa điểm"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "発信",
+              "read": "はっしん",
+              "vi": "sự phát đi, truyền đi"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            },
+            {
+              "w": "情報発信",
+              "read": "じょうほうはっしん",
+              "vi": "truyền tải / phát đi thông tin"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け（N＋向け）",
+              "vi": "【接続】Danh từ + 向け（に）.【Sắc thái】Khẳng định trang web mới được thiết kế đặc biệt nhắm tới đối tượng thế hệ trẻ để tăng cường khả năng tiếp cận.【Đối chiếu】Khác với 〜宛て (chỉ nơi nhận thư từ) hay 〜向き (hợp gu/hợp tính chất tự nhiên), 〜向け phản ánh dụng ý quy hoạch có chủ đích ngay từ đầu."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "本日午後５時をもちまして",
+          "label": "Mốc thời gian kết thúc trang trọng"
+        },
+        {
+          "excerpt": "普段は関心を示さない人に限って",
+          "label": "Tâm lý châm biếm/trớ trêu đối với đối tượng cá biệt"
+        },
+        {
+          "excerpt": "システムの複雑さゆえに",
+          "label": "Nguyên nhân tất yếu trong văn viết trang trọng"
+        },
+        {
+          "excerpt": "若い世代向けに",
+          "label": "Đối tượng hướng tới có chủ đích"
+        }
+      ],
+      "questions": [
+        {
+          "q": "本デジタルアーカイブのサービス終了に関して、本文の内容と合っているものはどれか。",
+          "options": [
+            "本日の午後５時をもって全体のサービスが終了し、個別相談窓口も同時に終了する。",
+            "全体のサービスは本日午後５時で終了するが、研究者向けの相談窓口は今月末まで続く。",
+            "今月末をもってすべての公開サービスと個別相談窓口が一斉に閉鎖される。",
+            "本日の午後５時までは研究者向け窓口のみが開き、来月以降に全体が閉鎖される。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 1 và câu 2: Câu 1 nêu rõ dịch vụ chung kết thúc vào 5h chiều hôm nay (本日午後５時をもちまして終了いたします), còn câu 2 nêu rõ quầy tư vấn cho nhà nghiên cứu sẽ đóng cửa vào cuối tháng này (今月末をもちまして閉鎖させていただきます). Do đó phương án 1 đúng.\n- Phương án 0 sai vì nói quầy tư vấn kết thúc cùng lúc 5h chiều nay.\n- Phương án 2 sai vì nói toàn bộ dịch vụ công khai và quầy tư vấn cùng đóng vào cuối tháng này.\n- Phương án 3 sai vì nói sau tháng sau mới đóng cửa toàn bộ.",
+          "tip": "Chú ý phân biệt hai mốc thời gian riêng biệt tương ứng với hai dịch vụ khác nhau qua mẫu 〜をもちまして.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Về việc kết thúc dịch vụ của kho lưu trữ số này, nội dung nào phù hợp với bài đọc?",
+            "o": [
+              "Toàn bộ dịch vụ sẽ kết thúc vào 5 giờ chiều hôm nay, và quầy tư vấn riêng cũng kết thúc cùng lúc.",
+              "Toàn bộ dịch vụ sẽ kết thúc vào 5 giờ chiều hôm nay, nhưng quầy tư vấn dành cho nhà nghiên cứu sẽ tiếp tục đến cuối tháng này.",
+              "Tất cả dịch vụ công khai và quầy tư vấn riêng sẽ đồng loạt đóng cửa vào cuối tháng này.",
+              "Chỉ quầy dành cho nhà nghiên cứu mở cửa đến 5 giờ chiều hôm nay, và toàn bộ dịch vụ sẽ đóng cửa từ tháng sau."
+            ]
+          }
+        },
+        {
+          "q": "「普段は関心を示さない人に限って、サービスが終了する段階になって急に惜しむ声を上げる」とあるが、筆者はどのようなニュアンスを込めているか。",
+          "options": [
+            "いつも熱心に利用してくれた人々への感謝と、別れを惜しむ真摯な気持ち。",
+            "普段利用しないのに、いざなくなると勝手な不満や惜しむ声を言う人々への皮肉や呆れ。",
+            "利用者が急増したことによって、サーバーを維持できなくなったことへの後悔。",
+            "関心のない人たちにもっと積極的に利用してもらうべきだったという反省。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 3: Mẫu ngữ pháp『〜に限って』khi đi với đối tượng người thể hiện sự bất mãn, châm biếm trước một hành vi trái khoáy, cá biệt (thường ngày không quan tâm nhưng hễ đóng cửa là lại la toáng lên tiếc nuối). Do đó tác giả thể hiện sự mỉa mai, ngán ngẩm (皮肉や呆れ). Phương án 1 chính xác.\n- Phương án 0 sai vì đối tượng được nhắc đến là người bình thường không quan tâm chứ không phải người nhiệt tình.\n- Phương án 2 sai vì việc đóng server là do tài chính và kỹ thuật cũ, không phải do người dùng tăng đột biến làm sập.\n- Phương án 3 sai vì câu này không bàn đến việc đáng ra phải chiêu mộ người không quan tâm.",
+          "tip": "Mẫu『Nに限って』thường mang sắc thái tiêu cực, thể hiện sự châm biếm, phê phán hoặc than phiền về một sự trái khoáy.",
+          "evi": [
+            3
+          ],
+          "qt": {
+            "q": "Câu “Chỉ những người thường ngày không thể hiện sự quan tâm mới đột nhiên lên tiếng tiếc nuối khi dịch vụ sắp kết thúc” cho thấy tác giả muốn truyền tải sắc thái nào?",
+            "o": [
+              "Lòng biết ơn đối với những người luôn nhiệt tình sử dụng dịch vụ và sự chân thành tiếc nuối khi chia tay.",
+              "Sự mỉa mai và ngán ngẩm đối với những người thường ngày không sử dụng, nhưng khi dịch vụ sắp mất đi lại tùy tiện bày tỏ bất mãn hoặc tiếc nuối.",
+              "Sự hối tiếc vì không thể duy trì máy chủ do số lượng người dùng tăng đột biến.",
+              "Sự tự kiểm điểm rằng lẽ ra nên khuyến khích những người không quan tâm sử dụng dịch vụ tích cực hơn."
+            ]
+          }
+        },
+        {
+          "q": "これまでデジタルアーカイブの貴重な記録が十分に活用されなかった理由として、本文に挙げられているものはどれか。",
+          "options": [
+            "一般市民に公開せず、学者だけに閲覧を厳しく制限していたから。",
+            "学者向けに作られたシステムであり、操作が複雑で難解だったから。",
+            "記録されている文化遺産の内容が乏しく、市民の興味を引かなかったから。",
+            "サーバーの維持費が高額すぎて、市民から有料で利用料を徴収していたから。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 5 và 6: '当初は学者向けに開発されたシステムであったため、一般市民には操作がやや難解であった。システムの複雑さゆえに、せっかくの貴重な記録が十分に活用されなかった...' (Do ban đầu thiết kế cho học giả nên thao tác khó hiểu, chính vì hệ thống phức tạp mà tư liệu không được tận dụng triệt để). Phương án 1 đúng.\n- Phương án 0 sai vì hệ thống vẫn mở cho người dân nhưng do thao tác khó nên họ khó dùng chứ không phải cấm đoán hoàn toàn.\n- Phương án 2 sai vì bài viết khẳng định tư liệu rất quý giá (貴重な記録), không phải nghèo nàn.\n- Phương án 3 sai vì bài không hề nhắc đến việc thu phí người dân làm rào cản.",
+          "tip": "Tìm từ khóa liên quan đến '十分に活用されなかった' và truy ngược nguyên nhân ở các câu đứng trước.",
+          "evi": [
+            5,
+            6
+          ],
+          "qt": {
+            "q": "Theo bài đọc, lý do nào được nêu ra khiến những ghi chép quý giá trong kho lưu trữ số chưa được khai thác đầy đủ cho đến nay?",
+            "o": [
+              "Vì không công khai cho người dân nói chung mà hạn chế nghiêm ngặt việc xem chỉ dành cho học giả.",
+              "Vì hệ thống được tạo ra cho học giả nên thao tác phức tạp và khó hiểu.",
+              "Vì nội dung di sản văn hóa được ghi chép nghèo nàn, không thu hút được sự quan tâm của người dân.",
+              "Vì chi phí duy trì máy chủ quá cao nên đã thu phí sử dụng từ người dân."
+            ]
+          }
+        },
+        {
+          "q": "単独でのサービス継続を断念し、公的機関との統合データベースへ移行することになった背景として、最も適切なものはどれか。",
+          "options": [
+            "運営主体の財政的な困窮に加え、データの散逸を防ぎ次世代へ継承するため。",
+            "現在の利用者の大半が高齢者であり、若者の利用者が完全にゼロになったため。",
+            "公的機関からサーバーの即時停止と全データの引き渡しを命じられたため。",
+            "技術の刷新によって、これまでの古い記録データが全て破損してしまったため。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 7, 8, 9: Đơn vị gặp khó khăn tài chính (財政難ゆえ), việc bảo tồn dữ liệu cũ đòi hỏi giải pháp mới trong thời đại số (急速な変化ゆえに), và lo ngại tư liệu bị thất lạc (記録の散逸への懸念ゆえ) nên quyết định chuyển đổi sang cơ sở dữ liệu tích hợp cùng cơ quan công quyền. Do đó phương án 0 hoàn toàn chính xác.\n- Phương án 1 sai vì bài không đề cập người dùng toàn người già hay người trẻ bằng 0.\n- Phương án 2 sai vì không có chuyện bị cơ quan công quyền ra lệnh ép buộc bàn giao.\n- Phương án 3 sai vì dữ liệu cũ cần được lưu truyền chứ không phải đã bị hỏng hoàn toàn.",
+          "tip": "Tổng hợp các mệnh đề chỉ nguyên nhân '〜ゆえ／〜ゆえに' ở đoạn 3 để nắm toàn bộ bức tranh bối cảnh.",
+          "evi": [
+            7,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Trong bối cảnh phải từ bỏ việc tiếp tục duy trì dịch vụ độc lập và chuyển sang cơ sở dữ liệu tích hợp với các cơ quan công lập, lý do nào là phù hợp nhất?",
+            "o": [
+              "Ngoài khó khăn tài chính của đơn vị vận hành, còn nhằm ngăn dữ liệu bị thất lạc và truyền lại cho thế hệ tiếp theo.",
+              "Vì phần lớn người dùng hiện nay là người cao tuổi, còn số người dùng trẻ đã hoàn toàn bằng không.",
+              "Vì các cơ quan công lập đã ra lệnh ngừng máy chủ ngay lập tức và bàn giao toàn bộ dữ liệu.",
+              "Vì toàn bộ dữ liệu ghi chép cũ đã bị hỏng do đổi mới công nghệ."
+            ]
+          }
+        },
+        {
+          "q": "今後の新たな取り組みに関する説明として、筆者の主張と一致するものはどれか。",
+          "options": [
+            "専門の研究者のみを対象とした、より高度で厳格な専門サイトを再構築する。",
+            "若い世代でも使いやすいように改良された統合サイトで、新しい情報発信を行う。",
+            "公的機関にすべてのデータを預けた後は、民間の情報発信活動から完全に撤退する。",
+            "過去の文化遺産の記録をやめ、現代の最新技術トレンドの紹介に特化する。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 10: '今後は、未来を担う若い世代向けに使いやすく改良された統合サイトにて、新たな情報発信を行っていく予定である。' (Từ nay về sau, kế hoạch là truyền tải thông tin trên trang tích hợp đã được cải tiến dễ dùng hướng tới thế hệ trẻ). Phương án 1 đúng.\n- Phương án 0 sai vì trang mới hướng tới thế hệ trẻ đại chúng, không phải chỉ riêng học giả.\n- Phương án 2 sai vì bài nêu rõ sẽ tiếp tục phát tin tức mới trên trang web tích hợp chứ không phải rút lui hoàn toàn.\n- Phương án 3 sai vì mục đích là tiếp tục phát huy giá trị di sản văn hóa, không phải từ bỏ việc lưu giữ.",
+          "tip": "Chú ý câu kết của bài (câu 10) thể hiện định hướng và tầm nhìn tương lai.",
+          "evi": [
+            10
+          ],
+          "qt": {
+            "q": "Nội dung nào phù hợp với quan điểm của tác giả về những sáng kiến mới trong thời gian tới?",
+            "o": [
+              "Tái xây dựng một trang web chuyên môn cao và nghiêm ngặt hơn, chỉ hướng đến các nhà nghiên cứu chuyên môn.",
+              "Sẽ truyền tải thông tin mới trên một trang web tích hợp đã được cải tiến để thế hệ trẻ cũng dễ sử dụng.",
+              "Sau khi giao toàn bộ dữ liệu cho các cơ quan công lập, sẽ hoàn toàn rút khỏi hoạt động truyền tải thông tin của khu vực tư nhân.",
+              "Ngừng ghi chép di sản văn hóa trong quá khứ và chuyên tập trung giới thiệu các xu hướng công nghệ mới nhất hiện nay."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "公文書館の閉館とデジタル知の継承",
+      "titleVi": "Sự đóng cửa của trung tâm lưu trữ công văn và sự kế thừa tri thức số",
+      "japanese": "大切な調べ物をしている時に限って、探している貴重な資料が見つからなかったり、施設の閲覧時間が終了してしまったりする経験は誰にでもあるだろう。我々の街で長年親しまれてきた中央公文書館は、今月末日をもちまして、半世紀以上に及ぶ対面での閲覧業務を終了することとなった。地方自治体の財政難ゆえに、老朽化した建物の維持と膨大な紙資料の保存を両立させることは極めて困難であった。地域文化への深い愛着ゆえ、長年通い続けた市民の間からは閉館を惜しむ声が数多く寄せられている。しかし、限られた予算と人員の中で知の遺産を守り抜くためには、従来のあり方を抜本的に見直さざるを得なかったのである。\n過去の記録は希少であるゆえに、原本の劣化を防ぐため厳重に保管され、これまで一般の利用機会が制限されてきた。また、専門性の高さゆえ、一般読者にとっては敷居が高く、一部の研究者だけが利用する施設にとどまっていた側面も否めない。そこで館側は、閉館を単なる終焉ではなく、誰もがアクセスできる新たな知の拠点への転換点と位置づけた。来月から始まる新体制では、専門家向けの詳細な学術データベースが構築され、高度な研究環境が提供される。同時に、地域の歴史を身近に学べるよう、小中学生向けのデジタル教材や解説動画も広く配信される予定である。さらに、海外の日本研究者向けに多言語でのアーカイブ公開も計画されており、地域文化の発信力強化が期待されている。\n多くの関係者が見守る中、本日の記念式典をもちまして、紙媒体を中心とした保存事業の第一期計画が正式に完了した。会場では、先人たちの歩みを記録した古文書の電子化プロジェクトの成果が具体的に披露された。しかし、デジタル化の利便性を過信する人に限って、原本が醸し出す手触りや歴史的価値を軽視してしまう傾向がある。画面上のデータは確かに検索性に優れているが、古い和紙の質感や墨の濃淡からしか伝わらない歴史の重みも確実に存在する。デジタルへの移行が急速に進む時代ゆえ、物質としての資料の温もりをどう次世代へ継承していくかが問われている。利便性の追求のみに偏ることなく、原本の物理的保存と電子化の相乗効果を図ることが不可欠である。\n技術革新の恩恵は、単に情報を効率的に整理するだけでなく、埋もれていた歴史に新たな光を当てる可能性を秘めている。変化を恐れるあまり過去の形式に固執する組織に限って、社会の急速な進展から取り残されてしまうのが常である。伝統的な公文書館が物理的な役割を終えることは、知の喪失ではなく、開かれた知識共有への新たな旅立ちと捉えるべきだ。誰でもいつでも過去の記録に触れられる環境が整うことで、地域への誇りや探求心が育まれるに違いない。我々は、電子空間に構築された新たな書庫を積極的に活用し、自らの手で未来の文化を紡ぎ出していく責任がある。過去から受け継いだ貴重な記憶は、未来へ向けて広く共有されることによって、真の価値を発揮するのである。",
+      "vietnamese": "Chắc hẳn ai trong chúng ta cũng từng trải qua cảm giác đúng vào lúc đang tra cứu tài liệu quan trọng thì lại không tìm thấy tư liệu quý giá cần tìm, hoặc phòng đọc của cơ sở lại đến giờ đóng cửa. Trung tâm lưu trữ văn thư công của thành phố chúng ta, nơi gắn bó thân thuộc suốt nhiều năm qua, sẽ chính thức kết thúc dịch vụ phục vụ tra cứu trực tiếp kéo dài hơn nửa thế kỷ kể từ ngày cuối cùng của tháng này. Do khó khăn tài chính của chính quyền địa phương, việc vừa duy trì tòa nhà đã xuống cấp vừa bảo tồn khối lượng tư liệu giấy khổng lồ là điều vô cùng nan giải. Chính vì niềm gắn bó sâu nặng với văn hóa địa phương, nhiều người dân gắn bó lâu năm đã bày tỏ sự tiếc nuối trước việc đóng cửa nơi này. Tuy nhiên, để bảo vệ trọn vẹn di sản tri thức trong điều kiện ngân sách và nhân lực hạn hẹp, người ta không thể không xem xét lại một cách căn bản phương thức hoạt động từ trước đến nay.\n\nDo các ghi chép trong quá khứ rất quý hiếm, chúng phải được lưu trữ nghiêm ngặt để tránh xuống cấp bản gốc, khiến cho cơ hội tiếp cận của công chúng trước đây bị hạn chế. Hơn nữa, vì tính chuyên môn cao, nơi đây từng tạo cảm giác e ngại khó tiếp cận đối với độc giả phổ thông, không thể phủ nhận thực tế rằng cơ sở này chỉ dừng lại ở mức phục vụ một nhóm nhỏ các nhà nghiên cứu. Do đó, phía ban quản lý đã xác định việc đóng cửa phòng đọc không phải là sự kết thúc đơn thuần, mà là bước ngoặt chuyển mình thành một trung tâm tri thức mới mà bất kỳ ai cũng có thể tiếp cận. Trong cơ chế mới bắt đầu từ tháng sau, một cơ sở dữ liệu học thuật chi tiết dành riêng cho các chuyên gia sẽ được xây dựng, mang lại môi trường nghiên cứu chuyên sâu. Đồng thời, nhằm giúp thế hệ trẻ dễ dàng tìm hiểu lịch sử địa phương một cách gần gũi, các tài liệu giảng dạy kỹ thuật số và video giải thích được thiết kế dành cho học sinh tiểu học và trung học cơ sở cũng dự kiến sẽ được phổ biến rộng rãi. Hơn thế nữa, kế hoạch công khai kho lưu trữ đa ngôn ngữ dành cho các nhà nghiên cứu Nhật Bản ở nước ngoài cũng đang được triển khai, hứa hẹn nâng cao năng lực quảng bá văn hóa địa phương.\n\nTrong sự chứng kiến của đông đảo đại biểu và người liên quan, thông qua buổi lễ kỷ niệm ngày hôm nay, giai đoạn một của dự án bảo tồn tập trung vào tư liệu giấy đã chính thức hoàn tất. Tại hội trường, thành quả của dự án số hóa các văn bản cổ ghi lại dấu ấn của các thế hệ tiền nhân đã được trình chiếu cụ thể. Thế nhưng, chính những người quá tin tưởng vào sự tiện lợi của số hóa lại thường có xu hướng xem nhẹ giá trị lịch sử và cảm giác chân thực mà bản gốc mang lại. Dữ liệu trên màn hình quả thực có ưu thế vượt trội về khả năng tra cứu, nhưng sức nặng lịch sử vốn chỉ có thể cảm nhận qua chất liệu giấy washi cổ xưa hay độ đậm nhạt của nét mực vẫn là điều chắc chắn hiện hữu. Chính vì đang ở trong thời đại mà quá trình chuyển đổi số diễn ra nhanh chóng, câu hỏi đặt ra là làm thế nào để truyền thừa hơi ấm của tư liệu dưới dạng vật chất cho các thế hệ tương lai. Không nên thiên lệch chỉ theo đuổi sự tiện lợi, điều cốt yếu là phải phát huy hiệu ứng cộng hưởng giữa việc bảo tồn vật lý bản gốc và số hóa dữ liệu.\n\nLợi ích của đổi mới công nghệ không chỉ đơn thuần là sắp xếp thông tin một cách hiệu quả, mà còn ẩn chứa tiềm năng soi rọi ánh sáng mới vào những trang sử từng bị chôn vùi. Chính những tổ chức vì quá sợ hãi sự thay đổi mà cố chấp giữ lấy khuôn mẫu cũ lại thường là đối tượng bị tụt hậu lại phía sau trước sự phát triển mau lẹ của xã hội. Việc trung tâm lưu trữ văn thư truyền thống kết thúc vai trò hiện vật không phải là sự mất mát tri thức, mà cần được nhìn nhận như một hành trình khởi đầu mới hướng tới việc chia sẻ tri thức một cách cởi mở. Khi môi trường cho phép bất kỳ ai, vào bất kỳ lúc nào cũng có thể tiếp cận các ghi chép quá khứ được hoàn thiện, chắc chắn niềm tự hào và tinh thần ham học hỏi về quê hương sẽ được bồi đắp. Chúng ta có trách nhiệm tích cực khai thác kho tàng sách mới được kiến tạo trong không gian điện tử, và tự tay mình dệt nên nền văn hóa của tương lai. Những ký ức quý báu được tiếp nhận từ quá khứ chỉ khi được rộng mở chia sẻ hướng về tương lai mới thực sự phát huy giá trị đích thực của chúng.",
+      "sentences": [
+        {
+          "jp": "大切な調べ物をしている時に限って、探している貴重な資料が見つからなかったり、施設の閲覧時間が終了してしまったりする経験は誰にでもあるだろう。",
+          "vi": "Chắc hẳn ai trong chúng ta cũng từng trải qua cảm giác đúng vào lúc đang tra cứu tài liệu quan trọng thì lại không tìm thấy tư liệu quý giá cần tìm, hoặc phòng đọc của cơ sở lại đến giờ đóng cửa.",
+          "vocab": [
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "調べ",
+              "read": "しらべ",
+              "vi": "sự kiểm tra, điều tra"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "探す",
+              "read": "さがす",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "貴重",
+              "read": "きちょう",
+              "vi": "quý giá, quý báu"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "見つかる",
+              "read": "みつかる",
+              "vi": "được tìm thấy, tìm ra"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "閲覧",
+              "read": "えつらん",
+              "vi": "việc đọc, xem, tra cứu tài liệu tại chỗ"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "終了",
+              "read": "しゅうりょう",
+              "vi": "kết thúc"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "調べ物",
+              "read": "しらべもの",
+              "vi": "việc tra cứu, tìm kiếm tài liệu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限って",
+              "vi": "接続: N + に限って / Vている時に限って. Sắc thái: Diễn tả sự trùng hợp trớ trêu, nhấn mạnh đúng vào lúc quan trọng hoặc đặc biệt thì lại xảy ra chuyện không may, phiền toái ngoài ý muốn. Đối chiếu với 〜だけに (chính vì... nên càng) mang tính nhân quả thuận, còn 〜に限って nhấn mạnh tính éo le, bất lợi."
+            }
+          ]
+        },
+        {
+          "jp": "我々の街で長年親しまれてきた中央公文書館は、今月末日をもちまして、半世紀以上に及ぶ対面での閲覧業務を終了することとなった。",
+          "vi": "Trung tâm lưu trữ văn thư công của thành phố chúng ta, nơi gắn bó thân thuộc suốt nhiều năm qua, sẽ chính thức kết thúc dịch vụ phục vụ tra cứu trực tiếp kéo dài hơn nửa thế kỷ kể từ ngày cuối cùng của tháng này.",
+          "vocab": [
+            {
+              "w": "我々",
+              "read": "われわれ",
+              "vi": "chúng ta; chúng tôi"
+            },
+            {
+              "w": "街",
+              "read": "まち",
+              "vi": "thành phố; phố xá"
+            },
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm"
+            },
+            {
+              "w": "親しまれてきた",
+              "read": "したしまれてきた",
+              "vi": "được yêu mến lâu nay"
+            },
+            {
+              "w": "中央",
+              "read": "ちゅうおう",
+              "vi": "trung tâm; trung ương"
+            },
+            {
+              "w": "公文書",
+              "read": "こうぶんしょ",
+              "vi": "tài liệu công"
+            },
+            {
+              "w": "館",
+              "read": "かん",
+              "vi": "tòa nhà; cơ sở"
+            },
+            {
+              "w": "公文書館",
+              "read": "こうぶんしょかん",
+              "vi": "kho lưu trữ công"
+            },
+            {
+              "w": "中央公文書館",
+              "read": "ちゅうおうこうぶんしょかん",
+              "vi": "kho lưu trữ công trung ương"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "末",
+              "read": "まつ",
+              "vi": "cuối"
+            },
+            {
+              "w": "末日",
+              "read": "まつじつ",
+              "vi": "ngày cuối cùng"
+            },
+            {
+              "w": "今月末日",
+              "read": "こんげつまつじつ",
+              "vi": "ngày cuối tháng này"
+            },
+            {
+              "w": "もちまして",
+              "read": "もちまして",
+              "vi": "tính đến; kể từ"
+            },
+            {
+              "w": "半",
+              "read": "はん",
+              "vi": "một nửa"
+            },
+            {
+              "w": "世紀",
+              "read": "せいき",
+              "vi": "thế kỷ"
+            },
+            {
+              "w": "半世紀",
+              "read": "はんせいき",
+              "vi": "nửa thế kỷ"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên; hơn"
+            },
+            {
+              "w": "半世紀以上",
+              "read": "はんせいきいじょう",
+              "vi": "hơn nửa thế kỷ"
+            },
+            {
+              "w": "及ぶ",
+              "read": "およぶ",
+              "vi": "kéo dài tới"
+            },
+            {
+              "w": "対面",
+              "read": "たいめん",
+              "vi": "trực tiếp"
+            },
+            {
+              "w": "閲覧",
+              "read": "えつらん",
+              "vi": "tra cứu; xem"
+            },
+            {
+              "w": "業務",
+              "read": "ぎょうむ",
+              "vi": "nghiệp vụ"
+            },
+            {
+              "w": "閲覧業務",
+              "read": "えつらんぎょうむ",
+              "vi": "nghiệp vụ tra cứu"
+            },
+            {
+              "w": "終了する",
+              "read": "しゅうりょうする",
+              "vi": "kết thúc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をもちまして",
+              "vi": "接続: N (thời gian / sự kiện) + をもちまして. Sắc thái: Hình thức trang trọng và lịch sự bậc nhất (dạng khiêm nhường/lịch sự của をもって), dùng trong các văn bản thông báo chính thức, nghi lễ, diễn văn của tổ chức/cơ quan để tuyên bố mốc kết thúc hoặc chuyển giao một hoạt động, dịch vụ. Đối chiếu với 〜をもって (văn viết trang trọng mang tính pháp lý/hành chính nhưng ít sắc thái nghi thức lễ tiết hơn をもちまして)."
+            }
+          ]
+        },
+        {
+          "jp": "地方自治体の財政難ゆえに、老朽化した建物の維持と膨大な紙資料の保存を両立させることは極めて困難であった。",
+          "vi": "Do khó khăn tài chính của chính quyền địa phương, việc vừa duy trì tòa nhà đã xuống cấp vừa bảo tồn khối lượng tư liệu giấy khổng lồ là điều vô cùng nan giải.",
+          "vocab": [
+            {
+              "w": "地方自治体",
+              "read": "ちほうじちたい",
+              "vi": "chính quyền địa phương"
+            },
+            {
+              "w": "財政難",
+              "read": "ざいせいなん",
+              "vi": "khó khăn tài chính, khủng hoảng ngân sách"
+            },
+            {
+              "w": "老朽",
+              "read": "ろうきゅう",
+              "vi": "sự cũ nát, xuống cấp"
+            },
+            {
+              "w": "建物",
+              "read": "たてもの",
+              "vi": "toà nhà, công trình"
+            },
+            {
+              "w": "維持",
+              "read": "いじ",
+              "vi": "sự duy trì"
+            },
+            {
+              "w": "膨大",
+              "read": "ぼうだい",
+              "vi": "khổng lồ, đồ sộ"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "lưu trữ, bảo lưu"
+            },
+            {
+              "w": "両立",
+              "read": "りょうりつ",
+              "vi": "sự thực hiện song song, làm vẹn cả đôi đường"
+            },
+            {
+              "w": "極めて",
+              "read": "きわめて",
+              "vi": "cực kỳ, vô cùng"
+            },
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn"
+            },
+            {
+              "w": "老朽化",
+              "read": "ろうきゅうか",
+              "vi": "sự xuống cấp, cũ kỹ, già cỗi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえに",
+              "vi": "接続: N (の) / なA (な・である) / いA / V (thể thông thường) + ゆえに. Sắc thái: Văn viết trang trọng, mang tính nghị luận sâu sắc, nêu nguyên nhân cốt lõi dẫn đến kết quả hoặc khó khăn tất yếu. Đối chiếu với 〜から / 〜ので (văn phong thông dụng, đời thường) và 〜ため (văn viết trung tính), còn 〜ゆえに mang màu sắc trang nghiêm, lý luận chặt chẽ."
+            }
+          ]
+        },
+        {
+          "jp": "地域文化への深い愛着ゆえ、長年通い続けた市民の間からは閉館を惜しむ声が数多く寄せられている。",
+          "vi": "Chính vì niềm gắn bó sâu nặng với văn hóa địa phương, nhiều người dân gắn bó lâu năm đã bày tỏ sự tiếc nuối trước việc đóng cửa nơi này.",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "愛着",
+              "read": "あいちゃく",
+              "vi": "tình cảm gắn bó sâu nặng, lòng quyến luyến"
+            },
+            {
+              "w": "長年",
+              "read": "ながねん",
+              "vi": "nhiều năm, lâu năm"
+            },
+            {
+              "w": "通う",
+              "read": "かよう",
+              "vi": "đi đến (thường xuyên), theo học"
+            },
+            {
+              "w": "市民",
+              "read": "しみん",
+              "vi": "người dân, thị dân"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "閉館",
+              "read": "へいかん",
+              "vi": "sự đóng cửa"
+            },
+            {
+              "w": "惜しむ",
+              "read": "おしむ",
+              "vi": "tiếc nuối, cảm thấy đáng tiếc"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "数多い",
+              "read": "かずおおい",
+              "vi": "nhiều, vô số"
+            },
+            {
+              "w": "寄せる",
+              "read": "よせる",
+              "vi": "gửi đến, ghé vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえ",
+              "vi": "接続: N (の) / Thể thông thường + ゆえ (biến thể rút gọn của ゆえに). Sắc thái: Văn viết cổ kính, trang nhã, thường đứng ở giữa câu để giải thích tâm lý, động cơ nội tâm hoặc cảm xúc sâu sắc dẫn đến hành vi/thái độ tiếp sau."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、限られた予算と人員の中で知の遺産を守り抜くためには、従来のあり方を抜本的に見直さざるを得なかったのである。",
+          "vi": "Tuy nhiên, để bảo vệ trọn vẹn di sản tri thức trong điều kiện ngân sách và nhân lực hạn hẹp, người ta không thể không xem xét lại một cách căn bản phương thức hoạt động từ trước đến nay.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "予算",
+              "read": "よさん",
+              "vi": "ngân sách"
+            },
+            {
+              "w": "人員",
+              "read": "じんいん",
+              "vi": "nhân sự, nhân viên"
+            },
+            {
+              "w": "知",
+              "read": "ち",
+              "vi": "tri thức, hiểu biết"
+            },
+            {
+              "w": "遺産",
+              "read": "いさん",
+              "vi": "di sản"
+            },
+            {
+              "w": "守り抜く",
+              "read": "まもりぬく",
+              "vi": "bảo vệ đến cùng, giữ gìn trọn vẹn"
+            },
+            {
+              "w": "従来",
+              "read": "じゅうらい",
+              "vi": "từ trước đến nay, vốn dĩ"
+            },
+            {
+              "w": "あり方",
+              "read": "ありかた",
+              "vi": "hình thái, cách thức nên có"
+            },
+            {
+              "w": "抜本",
+              "read": "ばっぽん",
+              "vi": "căn bản, triệt để"
+            },
+            {
+              "w": "見直す",
+              "read": "みなおす",
+              "vi": "xem xét lại, cải cách định hình lại"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "抜本的",
+              "read": "ばっぽんてき",
+              "vi": "triệt để, mang tính căn bản, từ gốc rễ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ざるを得ない",
+              "vi": "接続: V-nai (bỏ ない) + ざるを得ない (riêng する → せざるを得ない). Sắc thái: Đành phải làm / Không thể không làm dù không hề muốn, xuất phát từ tình thế bắt buộc khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "過去の記録は希少であるゆえに、原本の劣化を防ぐため厳重に保管され、これまで一般の利用機会が制限されてきた。",
+          "vi": "Do các ghi chép trong quá khứ rất quý hiếm, chúng phải được lưu trữ nghiêm ngặt để tránh xuống cấp bản gốc, khiến cho cơ hội tiếp cận của công chúng trước đây bị hạn chế.",
+          "vocab": [
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "希少",
+              "read": "きしょう",
+              "vi": "quý hiếm, hiếm có"
+            },
+            {
+              "w": "原本",
+              "read": "げんぽん",
+              "vi": "bản gốc, bản chính"
+            },
+            {
+              "w": "劣化",
+              "read": "れっか",
+              "vi": "sự xuống cấp, hư hại, suy giảm chất lượng"
+            },
+            {
+              "w": "防ぐ",
+              "read": "ふせぐ",
+              "vi": "phòng tránh, ngăn ngừa"
+            },
+            {
+              "w": "厳重",
+              "read": "げんじゅう",
+              "vi": "nghiêm ngặt, cẩn mật"
+            },
+            {
+              "w": "保管",
+              "read": "ほかん",
+              "vi": "sự bảo quản, cất giữ"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "đại chúng, thông thường (phân loại)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "制限",
+              "read": "せいげん",
+              "vi": "giới hạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえに",
+              "vi": "接続: なAである + ゆえに. Sắc thái: Nêu đặc tính bản chất của sự vật (tính chất quý hiếm) làm căn cứ trực tiếp lý giải cho hành động quản lý nghiêm ngặt ở vế sau trong văn phong học thuật."
+            }
+          ]
+        },
+        {
+          "jp": "また、専門性の高さゆえ、一般読者にとっては敷居が高く、一部の研究者だけが利用する施設にとどまっていた側面も否めない。",
+          "vi": "Hơn nữa, vì tính chuyên môn cao, nơi đây từng tạo cảm giác e ngại khó tiếp cận đối với độc giả phổ thông, không thể phủ nhận thực tế rằng cơ sở này chỉ dừng lại ở mức phục vụ một nhóm nhỏ các nhà nghiên cứu.",
+          "vocab": [
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "đại chúng, thông thường (phân loại)"
+            },
+            {
+              "w": "読者",
+              "read": "どくしゃ",
+              "vi": "độc giả, người đọc"
+            },
+            {
+              "w": "敷居",
+              "read": "しきい",
+              "vi": "ngưỡng cửa, rào cản"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "とどまる",
+              "read": "とどまる",
+              "vi": "dừng lại ở, chỉ ở mức"
+            },
+            {
+              "w": "側面",
+              "read": "そくめん",
+              "vi": "khía cạnh, mặt"
+            },
+            {
+              "w": "否めない",
+              "read": "いなめない",
+              "vi": "không thể phủ nhận được"
+            },
+            {
+              "w": "敷居が高い",
+              "read": "しきいが高い",
+              "vi": "tạo cảm giác e ngại khó bước vào, khó tiếp cận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえ",
+              "vi": "接続: N + ゆえ (ở đây là cụm danh từ hóa 専門性の高さ + ゆえ). Sắc thái: Trình bày nguyên nhân mang tính khách quan giải thích lý do cơ sở bị giới hạn tệp độc giả."
+            }
+          ]
+        },
+        {
+          "jp": "そこで館側は、閉館を単なる終焉ではなく、誰もがアクセスできる新たな知の拠点への転換点と位置づけた。",
+          "vi": "Do đó, phía ban quản lý đã xác định việc đóng cửa phòng đọc không phải là sự kết thúc đơn thuần, mà là bước ngoặt chuyển mình thành một trung tâm tri thức mới mà bất kỳ ai cũng có thể tiếp cận.",
+          "vocab": [
+            {
+              "w": "そこで",
+              "read": "そこで",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "館",
+              "read": "かん",
+              "vi": "cơ sở; tòa nhà"
+            },
+            {
+              "w": "側",
+              "read": "がわ",
+              "vi": "phía"
+            },
+            {
+              "w": "館側",
+              "read": "かんそく",
+              "vi": "phía cơ sở quản lý"
+            },
+            {
+              "w": "閉館",
+              "read": "へいかん",
+              "vi": "đóng cửa cơ sở"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "đơn thuần"
+            },
+            {
+              "w": "終焉",
+              "read": "しゅうえん",
+              "vi": "hồi kết"
+            },
+            {
+              "w": "誰も",
+              "read": "だれも",
+              "vi": "bất kỳ ai"
+            },
+            {
+              "w": "アクセス",
+              "read": "あくせす",
+              "vi": "truy cập"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "新たな",
+              "read": "あらたな",
+              "vi": "mới"
+            },
+            {
+              "w": "知",
+              "read": "ち",
+              "vi": "tri thức"
+            },
+            {
+              "w": "拠点",
+              "read": "きょてん",
+              "vi": "trung tâm; căn cứ"
+            },
+            {
+              "w": "知の拠点",
+              "read": "ちのきょてん",
+              "vi": "trung tâm tri thức"
+            },
+            {
+              "w": "転換",
+              "read": "てんかん",
+              "vi": "chuyển đổi"
+            },
+            {
+              "w": "転換点",
+              "read": "てんかんてん",
+              "vi": "điểm chuyển đổi"
+            },
+            {
+              "w": "位置づけた",
+              "read": "いちづけた",
+              "vi": "định vị; xem như"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と位置づける",
+              "vi": "接続: N + と位置づける. Sắc thái: Định vị, nhìn nhận cái gì đó với một vai trò/ý nghĩa chiến lược xác định trong toàn bộ bối cảnh."
+            }
+          ]
+        },
+        {
+          "jp": "来月から始まる新体制では、専門家向けの詳細な学術データベースが構築され、高度な研究環境が提供される。",
+          "vi": "Trong cơ chế mới bắt đầu từ tháng sau, một cơ sở dữ liệu học thuật chi tiết dành riêng cho các chuyên gia sẽ được xây dựng, mang lại môi trường nghiên cứu chuyên sâu.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "始まる",
+              "read": "はじまる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "新体制",
+              "read": "しんたいせい",
+              "vi": "cơ chế mới"
+            },
+            {
+              "w": "体制",
+              "read": "たいせい",
+              "vi": "cơ chế; thể chế"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "専門家",
+              "read": "せんもんか",
+              "vi": "chuyên gia"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho"
+            },
+            {
+              "w": "専門家向け",
+              "read": "せんもんかむけ",
+              "vi": "dành cho chuyên gia"
+            },
+            {
+              "w": "詳細な",
+              "read": "しょうさいな",
+              "vi": "chi tiết"
+            },
+            {
+              "w": "学術",
+              "read": "がくじゅつ",
+              "vi": "học thuật"
+            },
+            {
+              "w": "データベース",
+              "read": "でーたべーす",
+              "vi": "cơ sở dữ liệu"
+            },
+            {
+              "w": "学術データベース",
+              "read": "がくじゅつでーたべーす",
+              "vi": "cơ sở dữ liệu học thuật"
+            },
+            {
+              "w": "構築され",
+              "read": "こうちくされ",
+              "vi": "được xây dựng"
+            },
+            {
+              "w": "高度な",
+              "read": "こうどな",
+              "vi": "tiên tiến; trình độ cao"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "研究環境",
+              "read": "けんきゅうかんきょう",
+              "vi": "môi trường nghiên cứu"
+            },
+            {
+              "w": "提供される",
+              "read": "ていきょうされる",
+              "vi": "được cung cấp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "接続: N + 向け (hoặc 向けのN). Sắc thái: Được thiết kế, sáng tạo hoặc tinh chỉnh có chủ đích nhằm phục vụ riêng cho một nhóm đối tượng cụ thể (ở đây là giới chuyên gia). Đối chiếu với 〜向き (chỉ tính chất ngẫu nhiên phù hợp, vừa vặn tự nhiên với đối tượng nào đó mà không nhất thiết do chủ ý thiết kế)."
+            }
+          ]
+        },
+        {
+          "jp": "同時に、地域の歴史を身近に学べるよう、小中学生向けのデジタル教材や解説動画も広く配信される予定である。",
+          "vi": "Đồng thời, nhằm giúp thế hệ trẻ dễ dàng tìm hiểu lịch sử địa phương một cách gần gũi, các tài liệu giảng dạy kỹ thuật số và video giải thích được thiết kế dành cho học sinh tiểu học và trung học cơ sở cũng dự kiến sẽ được phổ biến rộng rãi.",
+          "vocab": [
+            {
+              "w": "同時に",
+              "read": "どうじに",
+              "vi": "đồng thời, cùng lúc"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "身近",
+              "read": "みぢか",
+              "vi": "gần gũi, quen thuộc"
+            },
+            {
+              "w": "学べる",
+              "read": "まなべる",
+              "vi": "có thể học"
+            },
+            {
+              "w": "小中学生",
+              "read": "しょうちゅうがくせい",
+              "vi": "học sinh cấp một cấp hai"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "教材",
+              "read": "きょうざい",
+              "vi": "tài liệu giảng dạy"
+            },
+            {
+              "w": "解説",
+              "read": "かいせつ",
+              "vi": "giải thích, chú giải"
+            },
+            {
+              "w": "動画",
+              "read": "どうが",
+              "vi": "video, đoạn phim"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            },
+            {
+              "w": "配信",
+              "read": "はいしん",
+              "vi": "truyền phát, phát tán (thông tin, video qua mạng)"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "接続: N + 向けの + N. Sắc thái: Nhấn mạnh đối tượng thụ hưởng có chủ đích là học sinh nhỏ tuổi, các tài liệu được biên soạn riêng để phù hợp với lứa tuổi này."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、海外の日本研究者向けに多言語でのアーカイブ公開も計画されており、地域文化の発信力強化が期待されている。",
+          "vi": "Hơn thế nữa, kế hoạch công khai kho lưu trữ đa ngôn ngữ dành cho các nhà nghiên cứu Nhật Bản ở nước ngoài cũng đang được triển khai, hứa hẹn nâng cao năng lực quảng bá văn hóa địa phương.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "海外",
+              "read": "かいがい",
+              "vi": "nước ngoài, hải ngoại"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "多言",
+              "read": "たげん",
+              "vi": "nói nhiều, đa ngôn ngữ"
+            },
+            {
+              "w": "アーカイブ",
+              "read": "アーカイブ",
+              "vi": "kho lưu trữ, tài liệu lưu trữ"
+            },
+            {
+              "w": "公開",
+              "read": "こうかい",
+              "vi": "công khai"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "発信",
+              "read": "はっしん",
+              "vi": "sự phát đi, truyền đi"
+            },
+            {
+              "w": "強化",
+              "read": "きょうか",
+              "vi": "tăng cường, củng cố"
+            },
+            {
+              "w": "期待",
+              "read": "きたい",
+              "vi": "kỳ vọng"
+            },
+            {
+              "w": "多言語",
+              "read": "たげんご",
+              "vi": "đa ngôn ngữ"
+            },
+            {
+              "w": "発信力",
+              "read": "はっしんりょく",
+              "vi": "năng lực truyền tải/quảng bá thông tin ra bên ngoài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向けに",
+              "vi": "接続: N + 向けに + V. Sắc thái: Thực hiện hành động công khai tài liệu có định hướng phục vụ trực tiếp cho độc giả quốc tế."
+            }
+          ]
+        },
+        {
+          "jp": "多くの関係者が見守る中、本日の記念式典をもちまして、紙媒体を中心とした保存事業の第一期計画が正式に完了した。",
+          "vi": "Trong sự chứng kiến của đông đảo đại biểu và người liên quan, thông qua buổi lễ kỷ niệm ngày hôm nay, giai đoạn một của dự án bảo tồn tập trung vào tư liệu giấy đã chính thức hoàn tất.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "liên quan; quan hệ"
+            },
+            {
+              "w": "関係者",
+              "read": "かんけいしゃ",
+              "vi": "người liên quan"
+            },
+            {
+              "w": "見守る",
+              "read": "みまもる",
+              "vi": "dõi theo"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong lúc; giữa"
+            },
+            {
+              "w": "本日",
+              "read": "ほんじつ",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "記念",
+              "read": "きねん",
+              "vi": "kỷ niệm"
+            },
+            {
+              "w": "式典",
+              "read": "しきてん",
+              "vi": "buổi lễ"
+            },
+            {
+              "w": "記念式典",
+              "read": "きねんしきてん",
+              "vi": "buổi lễ kỷ niệm"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "媒体",
+              "read": "ばいたい",
+              "vi": "phương tiện; vật mang tin"
+            },
+            {
+              "w": "紙媒体",
+              "read": "かみばいたい",
+              "vi": "ấn phẩm giấy"
+            },
+            {
+              "w": "中心",
+              "read": "ちゅうしん",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "中心とした",
+              "read": "ちゅうしんとした",
+              "vi": "lấy làm trung tâm"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "bảo tồn; lưu giữ"
+            },
+            {
+              "w": "事業",
+              "read": "じぎょう",
+              "vi": "dự án; sự nghiệp"
+            },
+            {
+              "w": "保存事業",
+              "read": "ほぞんじぎょう",
+              "vi": "dự án bảo tồn"
+            },
+            {
+              "w": "第一",
+              "read": "だいいち",
+              "vi": "thứ nhất"
+            },
+            {
+              "w": "期",
+              "read": "き",
+              "vi": "giai đoạn; kỳ"
+            },
+            {
+              "w": "第一期",
+              "read": "だいいっき",
+              "vi": "giai đoạn đầu"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "第一期計画",
+              "read": "だいいっきけいかく",
+              "vi": "kế hoạch giai đoạn đầu"
+            },
+            {
+              "w": "正式",
+              "read": "せいしき",
+              "vi": "chính thức"
+            },
+            {
+              "w": "完了した",
+              "read": "かんりょうした",
+              "vi": "đã hoàn tất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をもちまして",
+              "vi": "接続: N (sự kiện / nghi thức) + をもちまして. Sắc thái: Dùng trong ngữ cảnh nghi lễ trang trọng để tuyên bố chính thức một mốc thời điểm kết thúc một chương trình, dự án."
+            }
+          ]
+        },
+        {
+          "jp": "会場では、先人たちの歩みを記録した古文書の電子化プロジェクトの成果が具体的に披露された。",
+          "vi": "Tại hội trường, thành quả của dự án số hóa các văn bản cổ ghi lại dấu ấn của các thế hệ tiền nhân đã được trình chiếu cụ thể.",
+          "vocab": [
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "先人",
+              "read": "せんじん",
+              "vi": "tiền nhân, người đi trước"
+            },
+            {
+              "w": "歩み",
+              "read": "あゆみ",
+              "vi": "bước tiến, tiến trình phát triển"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "古文書",
+              "read": "こもんじょ",
+              "vi": "văn thư cổ, tài liệu cổ xưa"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "プロジェクト",
+              "read": "プロジェクト",
+              "vi": "dự án (project)"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả đạt được"
+            },
+            {
+              "w": "具体",
+              "read": "ぐたい",
+              "vi": "sự cụ thể"
+            },
+            {
+              "w": "披露",
+              "read": "ひろう",
+              "vi": "sự công bố, trình chiếu, phô diễn trước công chúng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が披露される",
+              "vi": "接続: N + が披露される (thể bị động của 披露する). Sắc thái: Được công bố, giới thiệu một cách trang trọng trước cử tọa."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、デジタル化の利便性を過信する人に限って、原本が醸し出す手触りや歴史的価値を軽視してしまう傾向がある。",
+          "vi": "Thế nhưng, chính những người quá tin tưởng vào sự tiện lợi của số hóa lại thường có xu hướng xem nhẹ giá trị lịch sử và cảm giác chân thực mà bản gốc mang lại.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "デジタル",
+              "read": "でじたる",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "デジタル化",
+              "read": "でじたるか",
+              "vi": "số hóa"
+            },
+            {
+              "w": "利便",
+              "read": "りべん",
+              "vi": "sự tiện lợi"
+            },
+            {
+              "w": "利便性",
+              "read": "りべんせい",
+              "vi": "tính tiện lợi"
+            },
+            {
+              "w": "過信する",
+              "read": "かしんする",
+              "vi": "quá tin; quá phụ thuộc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "限って",
+              "read": "かぎって",
+              "vi": "riêng những người... lại"
+            },
+            {
+              "w": "人に限って",
+              "read": "ひとにかぎって",
+              "vi": "riêng những người... lại"
+            },
+            {
+              "w": "原本",
+              "read": "げんぽん",
+              "vi": "bản gốc"
+            },
+            {
+              "w": "醸し出す",
+              "read": "かもしだす",
+              "vi": "gợi lên; toát ra"
+            },
+            {
+              "w": "手触り",
+              "read": "てざわり",
+              "vi": "cảm giác khi chạm"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "歴史的",
+              "read": "れきしてき",
+              "vi": "mang tính lịch sử"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "歴史的価値",
+              "read": "れきしてきかち",
+              "vi": "giá trị lịch sử"
+            },
+            {
+              "w": "軽視してしまう",
+              "read": "けいししてしまう",
+              "vi": "lỡ xem nhẹ"
+            },
+            {
+              "w": "傾向",
+              "read": "けいこう",
+              "vi": "khuynh hướng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限って",
+              "vi": "接続: N + に限って. Sắc thái: Nhấn mạnh nhóm người có đặc điểm tiêu cực/phiến diện cụ thể (ở đây là người sùng bái kỹ thuật số) thì thường nảy sinh thói quen hoặc cái nhìn phiến diện, lệch lạc. Đối chiếu với 〜だけ (chỉ mang tính phân loại số lượng trung tính)."
+            }
+          ]
+        },
+        {
+          "jp": "画面上のデータは確かに検索性に優れているが、古い和紙の質感や墨の濃淡からしか伝わらない歴史の重みも確実に存在する。",
+          "vi": "Dữ liệu trên màn hình quả thực có ưu thế vượt trội về khả năng tra cứu, nhưng sức nặng lịch sử vốn chỉ có thể cảm nhận qua chất liệu giấy washi cổ xưa hay độ đậm nhạt của nét mực vẫn là điều chắc chắn hiện hữu.",
+          "vocab": [
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "データ",
+              "read": "データ",
+              "vi": "số liệu, dữ liệu"
+            },
+            {
+              "w": "確か",
+              "read": "たしか",
+              "vi": "chắc chắn, xác thực"
+            },
+            {
+              "w": "検索",
+              "read": "けんさく",
+              "vi": "tìm kiếm, tra cứu"
+            },
+            {
+              "w": "優れる",
+              "read": "すぐれる",
+              "vi": "xuất sắc, vượt trội"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "和紙",
+              "read": "わし",
+              "vi": "giấy truyền thống Nhật Bản"
+            },
+            {
+              "w": "質感",
+              "read": "しつかん",
+              "vi": "cảm giác chất liệu (khi chạm hoặc nhìn)"
+            },
+            {
+              "w": "墨",
+              "read": "すみ",
+              "vi": "mực tàu, mực mài"
+            },
+            {
+              "w": "濃淡",
+              "read": "のうたん",
+              "vi": "độ đậm nhạt (của màu sắc, nét mực)"
+            },
+            {
+              "w": "伝わる",
+              "read": "つたわる",
+              "vi": "được truyền tải, truyền đạt"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "重み",
+              "read": "おもみ",
+              "vi": "sự trang trọng, tầm quan trọng"
+            },
+            {
+              "w": "確実",
+              "read": "かくじつ",
+              "vi": "chắc chắn, bảo đảm"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "sự tồn tại"
+            },
+            {
+              "w": "検索性",
+              "read": "けんさくせい",
+              "vi": "khả năng/tính năng tra cứu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からしか〜ない",
+              "vi": "接続: N + からしか + V-nai. Sắc thái: Nhấn mạnh tính duy nhất, chỉ có thể cảm nhận hoặc lĩnh hội qua phương tiện độc nhất đó chứ không có gì thay thế được."
+            }
+          ]
+        },
+        {
+          "jp": "デジタルへの移行が急速に進む時代ゆえ、物質としての資料の温もりをどう次世代へ継承していくかが問われている。",
+          "vi": "Chính vì đang ở trong thời đại mà quá trình chuyển đổi số diễn ra nhanh chóng, câu hỏi đặt ra là làm thế nào để truyền thừa hơi ấm của tư liệu dưới dạng vật chất cho các thế hệ tương lai.",
+          "vocab": [
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "移行",
+              "read": "いこう",
+              "vi": "sự chuyển dịch, sự chuyển sang"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "物質",
+              "read": "ぶっしつ",
+              "vi": "vật chất"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "温もり",
+              "read": "ぬくもり",
+              "vi": "hơi ấm, cảm giác ấm áp"
+            },
+            {
+              "w": "次世代",
+              "read": "じせだい",
+              "vi": "thế hệ sau, đời sau"
+            },
+            {
+              "w": "継承",
+              "read": "けいしょう",
+              "vi": "sự kế thừa, truyền thừa lại"
+            },
+            {
+              "w": "問われる",
+              "read": "といわれる",
+              "vi": "bị chất vấn, đòi hỏi phải tìm ra câu trả lời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえ",
+              "vi": "接続: N + ゆえ. Sắc thái: Trình bày bối cảnh thời đại lớn mang tính quy luật, tạo tiền đề để nêu lên câu hỏi hoặc thách thức mang tính thời đại."
+            }
+          ]
+        },
+        {
+          "jp": "利便性の追求のみに偏ることなく、原本の物理的保存と電子化の相乗効果を図ることが不可欠である。",
+          "vi": "Không nên thiên lệch chỉ theo đuổi sự tiện lợi, điều cốt yếu là phải phát huy hiệu ứng cộng hưởng giữa việc bảo tồn vật lý bản gốc và số hóa dữ liệu.",
+          "vocab": [
+            {
+              "w": "利便",
+              "read": "りべん",
+              "vi": "sự tiện lợi"
+            },
+            {
+              "w": "利便性",
+              "read": "りべんせい",
+              "vi": "tính tiện lợi"
+            },
+            {
+              "w": "追求",
+              "read": "ついきゅう",
+              "vi": "theo đuổi"
+            },
+            {
+              "w": "偏る",
+              "read": "かたよる",
+              "vi": "thiên lệch"
+            },
+            {
+              "w": "原本",
+              "read": "げんぽん",
+              "vi": "bản gốc"
+            },
+            {
+              "w": "物理",
+              "read": "ぶつり",
+              "vi": "vật lý"
+            },
+            {
+              "w": "物理的",
+              "read": "ぶつりてき",
+              "vi": "mang tính vật lý"
+            },
+            {
+              "w": "物理的保存",
+              "read": "ぶつりてきほぞん",
+              "vi": "bảo tồn vật lý"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "bảo tồn; lưu giữ"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "電子化",
+              "read": "でんしか",
+              "vi": "điện tử hóa"
+            },
+            {
+              "w": "相乗",
+              "read": "そうじょう",
+              "vi": "tương hỗ; cộng hưởng"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả"
+            },
+            {
+              "w": "相乗効果",
+              "read": "そうじょうこうか",
+              "vi": "hiệu ứng cộng hưởng"
+            },
+            {
+              "w": "図る",
+              "read": "はかる",
+              "vi": "nhằm đạt; thúc đẩy"
+            },
+            {
+              "w": "不可欠",
+              "read": "ふかけつ",
+              "vi": "không thể thiếu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことなく",
+              "vi": "接続: V-ru + ことなく. Sắc thái: Diễn đạt hành động diễn ra liên tục mà không làm hoặc không rơi vào trạng thái V (văn viết trang trọng tương đương với 〜ないで)."
+            }
+          ]
+        },
+        {
+          "jp": "技術革新の恩恵は、単に情報を効率的に整理するだけでなく、埋もれていた歴史に新たな光を当てる可能性を秘めている。",
+          "vi": "Lợi ích của đổi mới công nghệ không chỉ đơn thuần là sắp xếp thông tin một cách hiệu quả, mà còn ẩn chứa tiềm năng soi rọi ánh sáng mới vào những trang sử từng bị chôn vùi.",
+          "vocab": [
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "革新",
+              "read": "かくしん",
+              "vi": "đổi mới, cách tân"
+            },
+            {
+              "w": "恩恵",
+              "read": "おんけい",
+              "vi": "ân huệ, lợi ích tốt đẹp"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "整理",
+              "read": "せいり",
+              "vi": "sắp xếp, dọn dẹp"
+            },
+            {
+              "w": "埋もれる",
+              "read": "うもれる",
+              "vi": "bị chôn vùi, bị lãng quên"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "光",
+              "read": "ひかり",
+              "vi": "ánh sáng"
+            },
+            {
+              "w": "当てる",
+              "read": "あてる",
+              "vi": "chiếu vào, đánh trúng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "秘める",
+              "read": "ひめる",
+              "vi": "ẩn chứa, giấu kín"
+            },
+            {
+              "w": "光を当てる",
+              "read": "ひかりをあてる",
+              "vi": "soi rọi ánh sáng, làm sáng tỏ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく",
+              "vi": "接続: Thể thông thường / N + だけでなく. Sắc thái: Không chỉ dừng lại ở mặt này mà còn mở rộng sang giá trị to lớn khác."
+            }
+          ]
+        },
+        {
+          "jp": "変化を恐れるあまり過去の形式に固執する組織に限って、社会の急速な進展から取り残されてしまうのが常である。",
+          "vi": "Chính những tổ chức vì quá sợ hãi sự thay đổi mà cố chấp giữ lấy khuôn mẫu cũ lại thường là đối tượng bị tụt hậu lại phía sau trước sự phát triển mau lẹ của xã hội.",
+          "vocab": [
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "恐れる",
+              "read": "おそれる",
+              "vi": "lo sợ, e sợ"
+            },
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "形式",
+              "read": "けいしき",
+              "vi": "hình thức"
+            },
+            {
+              "w": "固執",
+              "read": "こしつ",
+              "vi": "sự cố chấp, khư khư bám giữ"
+            },
+            {
+              "w": "組織",
+              "read": "そしき",
+              "vi": "tổ chức"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "急速",
+              "read": "きゅうそく",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "進展",
+              "read": "しんてん",
+              "vi": "sự tiến triển, phát triển"
+            },
+            {
+              "w": "取り残される",
+              "read": "とりのこされる",
+              "vi": "bị bỏ lại phía sau, bị tụt hậu"
+            },
+            {
+              "w": "常",
+              "read": "つね",
+              "vi": "thường lệ, bình thường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜あまり",
+              "vi": "接続: V-ru / Nの + あまり. Sắc thái: Do trạng thái cảm xúc (sợ hãi) vượt quá mức bình thường dẫn đến một kết quả tiêu cực."
+            },
+            {
+              "point": "〜に限って",
+              "vi": "接続: N + に限って. Sắc thái: Chỉ ra đúng nhóm đối tượng có khuyết điểm cụ thể thì trớ trêu thay lại luôn luôn (〜のが常である) phải chịu kết cục bất lợi."
+            }
+          ]
+        },
+        {
+          "jp": "伝統的な公文書館が物理的な役割を終えることは、知の喪失ではなく、開かれた知識共有への新たな旅立ちと捉えるべきだ。",
+          "vi": "Việc trung tâm lưu trữ văn thư truyền thống kết thúc vai trò hiện vật không phải là sự mất mát tri thức, mà cần được nhìn nhận như một hành trình khởi đầu mới hướng tới việc chia sẻ tri thức một cách cởi mở.",
+          "vocab": [
+            {
+              "w": "伝統",
+              "read": "でんとう",
+              "vi": "truyền thống"
+            },
+            {
+              "w": "公文書",
+              "read": "こうぶんしょ",
+              "vi": "công văn, tài liệu công vụ"
+            },
+            {
+              "w": "物理",
+              "read": "ぶつり",
+              "vi": "vật lý"
+            },
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò"
+            },
+            {
+              "w": "終える",
+              "read": "おえる",
+              "vi": "hoàn thành, kết thúc"
+            },
+            {
+              "w": "知",
+              "read": "ち",
+              "vi": "tri thức, hiểu biết"
+            },
+            {
+              "w": "喪失",
+              "read": "そうしつ",
+              "vi": "sự mất mát, đánh mất"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "共有",
+              "read": "きょうゆう",
+              "vi": "sự chia sẻ, dùng chung"
+            },
+            {
+              "w": "新た",
+              "read": "あらた",
+              "vi": "mới, sự mới mẻ"
+            },
+            {
+              "w": "旅立ち",
+              "read": "たびだち",
+              "vi": "sự khởi hành, bước khởi đầu hành trình"
+            },
+            {
+              "w": "捉える",
+              "read": "とらえる",
+              "vi": "nắm bắt, nhìn nhận, hiểu theo nghĩa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ",
+              "vi": "接続: V-ru + べきだ (する → すべきだ / するべきだ). Sắc thái: Thể hiện quan điểm, lập trường hoặc lời khuyên mạnh mẽ của người viết về điều đúng đắn nên làm."
+            }
+          ]
+        },
+        {
+          "jp": "誰でもいつでも過去の記録に触れられる環境が整うことで、地域への誇りや探求心が育まれるに違いない。",
+          "vi": "Khi môi trường cho phép bất kỳ ai, vào bất kỳ lúc nào cũng có thể tiếp cận các ghi chép quá khứ được hoàn thiện, chắc chắn niềm tự hào và tinh thần ham học hỏi về quê hương sẽ được bồi đắp.",
+          "vocab": [
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "sự ghi chép, lưu trữ tư liệu"
+            },
+            {
+              "w": "触れる",
+              "read": "ふれる",
+              "vi": "tiếp xúc, chạm tới"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "整う",
+              "read": "ととのう",
+              "vi": "được chuẩn bị đầy đủ, hoàn thiện"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "誇り",
+              "read": "ほこり",
+              "vi": "niềm tự hào"
+            },
+            {
+              "w": "探求",
+              "read": "たんきゅう",
+              "vi": "sự tìm tòi, khám phá"
+            },
+            {
+              "w": "育まれる",
+              "read": "はぐくまれる",
+              "vi": "được ấp ủ, nuôi dưỡng, bồi đắp"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "探求心",
+              "read": "たんきゅうしん",
+              "vi": "tinh thần tìm tòi, lòng ham học hỏi, cầu tiến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に違いない",
+              "vi": "接続: Thể thông thường (なA/N bỏ だ) + に違いない. Sắc thái: Biểu thị phán đoán chắc chắn, tự tin của người nói dựa trên cơ sở lập luận logic vững vàng."
+            }
+          ]
+        },
+        {
+          "jp": "我々は、電子空間に構築された新たな書庫を積極的に活用し、自らの手で未来の文化を紡ぎ出していく責任がある。",
+          "vi": "Chúng ta có trách nhiệm tích cực khai thác kho tàng sách mới được kiến tạo trong không gian điện tử, và tự tay mình dệt nên nền văn hóa của tương lai.",
+          "vocab": [
+            {
+              "w": "我々",
+              "read": "われわれ",
+              "vi": "chúng ta; chúng tôi"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "空間",
+              "read": "くうかん",
+              "vi": "không gian"
+            },
+            {
+              "w": "電子空間",
+              "read": "でんしくうかん",
+              "vi": "không gian điện tử"
+            },
+            {
+              "w": "構築された",
+              "read": "こうちくされた",
+              "vi": "được xây dựng"
+            },
+            {
+              "w": "新たな",
+              "read": "あらたな",
+              "vi": "mới"
+            },
+            {
+              "w": "書庫",
+              "read": "しょこ",
+              "vi": "kho sách"
+            },
+            {
+              "w": "積極",
+              "read": "せっきょく",
+              "vi": "tính tích cực"
+            },
+            {
+              "w": "積極的に",
+              "read": "せっきょくてきに",
+              "vi": "một cách tích cực"
+            },
+            {
+              "w": "活用し",
+              "read": "かつようし",
+              "vi": "tận dụng"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "tự mình"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "bàn tay"
+            },
+            {
+              "w": "自らの手",
+              "read": "みずからのて",
+              "vi": "chính tay mình"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "紡ぎ出していく",
+              "read": "つむぎだしていく",
+              "vi": "dệt nên và tạo dựng dần"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく",
+              "vi": "接続: V-te + いく. Sắc thái: Diễn tả tiến trình hành động tiếp diễn liên tục từ thời điểm hiện tại hướng về tương lai xa."
+            }
+          ]
+        },
+        {
+          "jp": "過去から受け継いだ貴重な記憶は、未来へ向けて広く共有されることによって、真の価値を発揮するのである。",
+          "vi": "Những ký ức quý báu được tiếp nhận từ quá khứ chỉ khi được rộng mở chia sẻ hướng về tương lai mới thực sự phát huy giá trị đích thực của chúng.",
+          "vocab": [
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "受け継ぐ",
+              "read": "うけつぐ",
+              "vi": "tiếp nhận, thừa kế, kế tục"
+            },
+            {
+              "w": "貴重",
+              "read": "きちょう",
+              "vi": "quý giá, quý báu"
+            },
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "ký ức"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "向ける",
+              "read": "むける",
+              "vi": "hướng về, hướng tới"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            },
+            {
+              "w": "共有",
+              "read": "きょうゆう",
+              "vi": "sự chia sẻ, dùng chung"
+            },
+            {
+              "w": "真",
+              "read": "しん",
+              "vi": "chân thực, sự thật"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "発揮",
+              "read": "はっき",
+              "vi": "sự phát huy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって",
+              "vi": "接続: N / Vこと + によって. Sắc thái: Nêu phương thức, phương tiện hoặc con đường then chốt để đạt được kết quả mong muốn."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "今月末日をもちまして、半世紀以上に及ぶ対面での閲覧業務を終了することとなった",
+          "label": "Tuyên bố chính thức về việc kết thúc dịch vụ tra cứu trực tiếp"
+        },
+        {
+          "excerpt": "誰もがアクセスできる新たな知の拠点への転換点",
+          "label": "Định hướng chuyển đổi từ trung tâm lưu trữ truyền thống sang nền tảng số"
+        },
+        {
+          "excerpt": "デジタル化の利便性を過信する人に限って、原本が醸し出す手触りや歴史的価値を軽視してしまう傾向がある",
+          "label": "Cảnh báo về tư duy thiên lệch khi số hóa tài liệu"
+        },
+        {
+          "excerpt": "開かれた知識共有への新たな旅立ち",
+          "label": "Ý nghĩa thực sự của việc chuyển đổi sang không gian số"
+        }
+      ],
+      "questions": [
+        {
+          "q": "中央公文書館が従来の対面での閲覧業務を終了することになった主な理由として、本文で挙げられているものはどれか。",
+          "options": [
+            "市民の歴史資料への関心が薄れ、利用者が極端に減少したため。",
+            "財政的な制約の中で、建物の維持と紙資料の長期保存を両立させることが難しかったため。",
+            "紙の資料がすべてデジタル化され、原本を保管する必要性が完全になくなったため。",
+            "海外の研究者からの強い要望により、英語専用のデータベースに一本化するため。"
+          ],
+          "answer": 1,
+          "explainVi": "Dẫn chứng từ câu [2]: '地方自治体の財政難ゆえに、老朽化した建物の維持と膨大な紙資料の保存を両立させることは極めて困難であった' (Do khó khăn tài chính của chính quyền địa phương, việc vừa duy trì tòa nhà xuống cấp vừa bảo tồn tài liệu giấy là vô cùng nan giải). Phương án 0 sai vì người dân vẫn rất yêu quý và tiếc nuối (câu [3]). Phương án 2 sai vì bản gốc vẫn có giá trị cốt lõi và cần bảo tồn song song (câu [14], [16]). Phương án 3 sai vì phục vụ quốc tế chỉ là một nhánh mở rộng đa ngôn ngữ (câu [10]), không phải lý do đóng cửa.",
+          "tip": "Tìm cấu trúc nguyên nhân '〜ゆえに' ở câu [2] để nắm bắt lý do trọng yếu dẫn đến quyết định đóng cửa.",
+          "evi": [
+            2,
+            4
+          ],
+          "qt": {
+            "q": "Theo bài đọc, lý do chính khiến Trung tâm Lưu trữ Công văn Trung ương chấm dứt dịch vụ đọc tài liệu trực tiếp như trước đây là gì?",
+            "o": [
+              "Do người dân giảm quan tâm đến tư liệu lịch sử, khiến số người sử dụng giảm mạnh.",
+              "Do khó có thể vừa duy trì tòa nhà vừa bảo quản lâu dài tài liệu giấy trong điều kiện hạn chế về tài chính.",
+              "Do toàn bộ tài liệu giấy đã được số hóa, khiến việc lưu giữ bản gốc hoàn toàn không còn cần thiết.",
+              "Do yêu cầu mạnh mẽ từ các nhà nghiên cứu nước ngoài, nên cần thống nhất mọi thứ thành một cơ sở dữ liệu chỉ dùng tiếng Anh."
+            ]
+          }
+        },
+        {
+          "q": "公文書館の新たなデジタル体制について、本文の内容と合致しているものはどれか。",
+          "options": [
+            "専門家向けの研究データベースのみを構築し、一般公開は行わない方針である。",
+            "原本の閲覧を完全に再開するため、建物の建て替え工事を最優先で行う予定である。",
+            "専門家向けの詳細な情報基盤だけでなく、小中学生向けや海外研究者向けのコンテンツも提供される。",
+            "小中学生の利用を最優先とし、学術的な専門研究のためのデータ提供は縮小される。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào các câu [8], [9], [10]: Hệ thống mới cung cấp cơ sở dữ liệu chuyên sâu cho chuyên gia ('専門家向けの詳細な学術データベース'), tài liệu học tập cho học sinh ('小中学生向けのデジタル教材') và kho lưu trữ đa ngôn ngữ cho học giả quốc tế ('海外の日本研究者向けに多言語でのアーカイブ公開'). Vì vậy phương án 2 chính xác. Phương án 0 và 3 sai vì hệ thống không thu hẹp hay bỏ rơi đối tượng nào. Phương án 1 sai vì mục tiêu là chuyển đổi số chứ không phải xây lại cơ sở vật chất đối mặt.",
+          "tip": "Xâu chuỗi các câu có mẫu '〜向け' ở đoạn 2 để thấy rõ tính đa dạng của các đối tượng phục vụ trong mô hình mới.",
+          "evi": [
+            8,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Điều nào phù hợp với nội dung bài đọc về cơ chế kỹ thuật số mới của Trung tâm Lưu trữ Công văn?",
+            "o": [
+              "Chủ trương là chỉ xây dựng cơ sở dữ liệu nghiên cứu dành cho chuyên gia, không công khai cho công chúng.",
+              "Dự định ưu tiên hàng đầu việc xây dựng lại tòa nhà để hoàn toàn khôi phục việc xem tài liệu gốc.",
+              "Không chỉ cung cấp nền tảng thông tin chi tiết dành cho chuyên gia, mà còn cung cấp nội dung cho học sinh tiểu học, trung học cơ sở và các nhà nghiên cứu nước ngoài.",
+              "Ưu tiên hàng đầu việc phục vụ học sinh tiểu học và trung học cơ sở, đồng thời thu hẹp việc cung cấp dữ liệu phục vụ nghiên cứu chuyên sâu."
+            ]
+          }
+        },
+        {
+          "q": "「デジタル化の利便性を過信する人」について、筆者はどのように述べているか。",
+          "options": [
+            "最新技術を使いこなすことで、原本の持つ価値を誰よりも深く理解している。",
+            "電子データの検索性の高さに満足し、原本の質感や墨の濃淡が伝える歴史の重みを見落としがちである。",
+            "過去の記録を電子化すること自体に強く反対し、紙媒体の完全維持を主張している。",
+            "多言語対応のオンライン書庫を構築するプロジェクトを主導している。"
+          ],
+          "answer": 1,
+          "explainVi": "Dẫn chứng từ câu [13] và [14]: 'デジタル化の利便性を過信する人に限って、原本が醸し出す手触りや歴史的価値を軽視してしまう傾向がある' (Chính những người quá tin vào sự tiện lợi của số hóa lại có xu hướng xem nhẹ giá trị bản gốc) và màn hình không thể truyền tải hết độ đậm nhạt của mực hay cảm giác của giấy washi cổ. Phương án 1 phản ánh chính xác nội dung này. Phương án 0 nói ngược ý tác giả. Phương án 2 miêu tả người bảo thủ (câu [18]). Phương án 3 suy diễn không có căn cứ.",
+          "tip": "Tìm cụm 'デジタル化の利便性を過信する人に限って' ở câu [13] và đọc tiếp câu [14] để nắm trọn vẹn lập luận cảnh báo của tác giả.",
+          "evi": [
+            13,
+            14
+          ],
+          "qt": {
+            "q": "Tác giả nói gì về “người quá tin vào sự tiện lợi của việc số hóa”?",
+            "o": [
+              "Bằng cách sử dụng thành thạo công nghệ mới nhất, họ hiểu giá trị của bản gốc sâu sắc hơn bất kỳ ai.",
+              "Họ hài lòng với khả năng tìm kiếm nhanh của dữ liệu điện tử và có xu hướng bỏ qua sức nặng lịch sử mà chất liệu của bản gốc và sắc độ đậm nhạt của mực truyền tải.",
+              "Họ phản đối mạnh mẽ việc số hóa tư liệu quá khứ và chủ trương duy trì hoàn toàn hình thức tài liệu giấy.",
+              "Họ đang dẫn dắt dự án xây dựng kho lưu trữ trực tuyến hỗ trợ nhiều ngôn ngữ."
+            ]
+          }
+        },
+        {
+          "q": "筆者が考える「公文書館の物理的な役割の終了」の真の意義として、最も適切なものはどれか。",
+          "options": [
+            "これまでの歴史的記録をすべて破棄し、完全に新しいデジタル文化を一から創造すること。",
+            "一部の専門家に閉ざされていた知の遺産を、誰もが広く共有できる新たな出発点とすること。",
+            "自治体の財政負担を減らすため、文化事業の規模を最小限に縮小すること。",
+            "変化を避けて従来の保存形式を頑なに守り抜くことで、歴史の純粋性を保つこと。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ câu [6], [7] và [19]: Trước đây cơ sở chỉ phục vụ một nhóm nhỏ nghiên cứu (câu [6]), việc đóng cửa phòng đọc truyền thống không phải là sự mất mát tri thức ('知の喪失ではない') mà là bước ngoặt để trở thành 'cứ điểm tri thức mà ai cũng tiếp cận được' (câu [7]) và 'hành trình mới hướng tới chia sẻ tri thức mở' (câu [19]). Vì vậy phương án 1 hoàn toàn chính xác. Phương án 0 sai vì mục đích là kế thừa chứ không phải xoá bỏ. Phương án 2 sai vì số hóa nhằm lan tỏa chứ không phải thu hẹp văn hóa. Phương án 3 sai vì đi ngược lại lời kêu gọi đổi mới của tác giả.",
+          "tip": "Chú ý câu [19] có cấu trúc '〜ではなく、〜と捉えるべきだ' để nhận biết quan điểm đánh giá cốt lõi của tác giả.",
+          "evi": [
+            6,
+            7,
+            19,
+            20
+          ],
+          "qt": {
+            "q": "Theo tác giả, ý nghĩa thực sự phù hợp nhất của việc “chấm dứt vai trò vật lý của trung tâm lưu trữ công văn” là gì?",
+            "o": [
+              "Vứt bỏ toàn bộ tư liệu lịch sử trước đây và tạo ra một nền văn hóa kỹ thuật số hoàn toàn mới từ đầu.",
+              "Biến di sản tri thức từng chỉ dành cho một số chuyên gia thành điểm khởi đầu mới để mọi người cùng chia sẻ rộng rãi.",
+              "Thu hẹp quy mô các hoạt động văn hóa xuống mức tối thiểu để giảm gánh nặng tài chính cho chính quyền địa phương.",
+              "Kiên quyết bảo vệ các hình thức lưu trữ truyền thống để tránh thay đổi và giữ gìn tính nguyên vẹn của lịch sử."
+            ]
+          }
+        },
+        {
+          "q": "この文章全体を通して、筆者が最も強く主張していることは何か。",
+          "options": [
+            "紙の資料は保存コストがかかるため、すべての古文書を速やかに電子化して原本を処分すべきである。",
+            "技術革新を恐れて形式に固執するのではなく、電子化の利便性と原本の物理的保存を両立させ、知の遺産を未来へ広く開いていくべきだ。",
+            "公文書館の閉館は地域文化の衰退を意味するため、市民は反対運動を起こして再開を求めるべきである。",
+            "専門性の高い資料は一般市民には理解できないため、研究者向けに特化した閉鎖的な管理を続けるべきである。"
+          ],
+          "answer": 1,
+          "explainVi": "Tác giả tổng kết ở các câu [16], [18], [19], [22]: Cần tránh thái độ bảo thủ sợ đổi mới (câu [18]), không chỉ theo đuổi số hóa đơn thuần mà phải kết hợp cả bảo tồn bản gốc lẫn số hóa (câu [16]), để từ đó chia sẻ rộng mở kho tàng ký ức cho tương lai (câu [22]). Do đó phương án 1 tóm lược đầy đủ và chính xác nhất thông điệp của bài viết. Phương án 0 sai vì chủ trương tiêu hủy bản gốc là phiến diện. Phương án 2 và 3 hoàn toàn trái ngược với tư tưởng tiến bộ và cởi mở của bài viết.",
+          "tip": "Đọc kỹ phần kết luận ở đoạn 3 và đoạn 4 (đặc biệt các câu mang tính đúc kết [16], [18], [19], [22]) để chọn phương án bao quát toàn bài.",
+          "evi": [
+            16,
+            18,
+            19,
+            22
+          ],
+          "qt": {
+            "q": "Xuyên suốt bài viết, tác giả muốn nhấn mạnh nhất điều gì?",
+            "o": [
+              "Vì tài liệu giấy tốn chi phí bảo quản, nên cần nhanh chóng số hóa toàn bộ cổ văn thư và tiêu hủy bản gốc.",
+              "Thay vì sợ đổi mới kỹ thuật và cố chấp với hình thức cũ, cần kết hợp sự tiện lợi của việc số hóa với việc bảo quản bản gốc về mặt vật chất, đồng thời mở rộng di sản tri thức để mọi người có thể tiếp cận trong tương lai.",
+              "Việc đóng cửa trung tâm lưu trữ công văn đồng nghĩa với sự suy thoái của văn hóa địa phương, vì vậy người dân nên tổ chức phong trào phản đối và yêu cầu mở cửa lại.",
+              "Vì người dân bình thường không thể hiểu các tài liệu có tính chuyên môn cao, nên cần tiếp tục quản lý khép kín và chuyên biệt cho giới nghiên cứu."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "【重要】2026年度秋季イノベーションフォーラム出展および会場利用案内",
+      "titleVi": "【Quan trọng】Hướng dẫn đăng ký gian hàng và sử dụng hội trường Diễn đàn Đổi mới Sáng tạo Mùa thu 2026",
+      "japanese": "【重要】2026年度秋季イノベーションフォーラム出展および会場利用案内\n平素より当産業振興センターをご利用いただき、誠にありがとうございます。\n2026年11月に開催される「秋季イノベーションフォーラム」の出展申込および会場利用規定についてご案内申し上げます。\n先行申込の受付は、9月30日（水）17時をもちまして終了とさせていただきます。\n締切当日に限って申請システムの混雑が予想されますゆえ、期日に余裕をもってご提出ください。\n出展プランおよび利用条件の一覧は以下の通りです。\nプラン名｜対象・用途｜利用可能時間｜基本出展料｜特記事項\nスタンダード枠｜一般企業向け展示｜9:00〜17:00｜15万円｜標準電源・Wi-Fi完備\nスタートアップ枠｜創業3年以内の企業向け｜9:00〜17:00｜8万円｜専任スタッフの助言付き\nプレゼン専用枠｜来場者向け製品発表｜13:00〜16:00｜10万円｜ホールA（音響完備）限定\nナイトセッション枠｜交流会向け・夜間利用｜17:30〜21:00｜6万円｜平日利用に限って飲食可能\n※各枠とも人気日程ゆえ、予定小間数に達した時点をもちまして受付を終了いたします。\n※不慣れな新規出展企業様に限って、専門コーディネーターによる事前配置相談を無料で承ります。\n※本施設は文化財指定の建築ゆえに、壁面への直接の装飾や粘着テープの使用は厳禁となっております。\n※大音量・特殊機材を使用する展示は、安全管理の都合ゆえにプレゼン専用枠のみで許可されます。\nご不明な点は事務局までお問い合わせください。（少人数運営ゆえ、メールでのご連絡を推奨いたします）",
+      "vietnamese": "【Quan trọng】Hướng dẫn đăng ký gian hàng và sử dụng hội trường Diễn đàn Đổi mới Sáng tạo Mùa thu 2026\nXin chân thành cảm ơn quý đơn vị đã luôn tin tưởng và sử dụng Trung tâm Xúc tiến Công nghiệp của chúng tôi.\nChúng tôi xin thông báo về quy định đăng ký gian hàng và sử dụng hội trường cho \"Diễn đàn Đổi mới Sáng tạo Mùa thu\" diễn ra vào tháng 11 năm 2026.\nThời gian tiếp nhận đăng ký sớm sẽ chính thức khép lại vào lúc 17:00 thứ Tư, ngày 30 tháng 9.\nDo dự kiến hệ thống đăng ký sẽ bị nghẽn mạng đúng vào ngày hết hạn, kính mong quý vị nộp hồ sơ sớm trước thời hạn.\nDanh sách các gói triển lãm và điều kiện sử dụng cụ thể như sau:\nTên gói｜Đối tượng / Mục đích｜Thời gian sử dụng｜Phí cơ bản｜Ghi chú đặc biệt\nGói Tiêu chuẩn｜Trưng bày dành cho doanh nghiệp thông thường｜9:00〜17:00｜150.000 yên｜Trang bị sẵn nguồn điện tiêu chuẩn và Wi-Fi\nGói Khởi nghiệp｜Dành cho doanh nghiệp thành lập trong vòng 3 năm｜9:00〜17:00｜80.000 yên｜Kèm tư vấn từ nhân viên chuyên trách\nGói Thuyết trình｜Thuyết minh sản phẩm dành cho khách tham quan｜13:00〜16:00｜100.000 yên｜Chỉ áp dụng tại Hội trường A (có đầy đủ âm thanh)\nGói Giao lưu đêm｜Dành cho tiệc giao lưu / Sử dụng buổi tối｜17:30〜21:00｜60.000 yên｜Chỉ được phép ăn uống khi sử dụng vào các ngày trong tuần\n※Do các ngày diễn ra sự kiện đều có nhu cầu cao, chúng tôi sẽ đóng cổng đăng ký ngay khi đủ số lượng gian hàng dự kiến.\n※Chỉ riêng các doanh nghiệp mới tham gia chưa có kinh nghiệm, chúng tôi sẽ hỗ trợ tư vấn sơ đồ bố trí miễn phí bởi điều phối viên chuyên nghiệp.\n※Do tòa nhà này là công trình được xếp hạng di sản văn hóa, nghiêm cấm tuyệt đối việc trang trí trực tiếp lên tường hoặc sử dụng băng dính.\n※Các hoạt động triển lãm sử dụng âm lượng lớn hoặc thiết bị đặc thù chỉ được phép thực hiện trong Gói Thuyết trình vì lý do quản lý an toàn.\nNếu có thắc mắc, xin vui lòng liên hệ Ban Thư ký. (Do đội ngũ vận hành ít người, chúng tôi khuyến khích liên hệ qua email).",
+      "sentences": [
+        {
+          "jp": "【重要】2026年度秋季イノベーションフォーラム出展および会場利用案内",
+          "vi": "【Quan trọng】Hướng dẫn đăng ký gian hàng và sử dụng hội trường Diễn đàn Đổi mới Sáng tạo Mùa thu 2026",
+          "vocab": [
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "2026年度",
+              "read": "にせんにじゅうろくねんど",
+              "vi": "niên độ năm 2026"
+            },
+            {
+              "w": "年度",
+              "read": "ねんど",
+              "vi": "niên độ; năm học"
+            },
+            {
+              "w": "秋季",
+              "read": "しゅうき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "イノベーション",
+              "read": "いのべーしょん",
+              "vi": "đổi mới sáng tạo"
+            },
+            {
+              "w": "フォーラム",
+              "read": "ふぉーらむ",
+              "vi": "diễn đàn"
+            },
+            {
+              "w": "2026年度秋季イノベーションフォーラム",
+              "read": "にせんにじゅうろくねんどしゅうきイノベーションフォーラム",
+              "vi": "Diễn đàn đổi mới sáng tạo mùa thu năm 2026"
+            },
+            {
+              "w": "出展",
+              "read": "しゅってん",
+              "vi": "trưng bày; tham gia triển lãm"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm; hội trường"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "会場利用",
+              "read": "かいじょうりよう",
+              "vi": "sử dụng địa điểm"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "利用案内",
+              "read": "りようあんない",
+              "vi": "hướng dẫn sử dụng"
+            },
+            {
+              "w": "会場利用案内",
+              "read": "かいじょうりようあんない",
+              "vi": "hướng dẫn sử dụng địa điểm"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "平素より当産業振興センターをご利用いただき、誠にありがとうございます。",
+          "vi": "Xin chân thành cảm ơn quý đơn vị đã luôn tin tưởng và sử dụng Trung tâm Xúc tiến Công nghiệp của chúng tôi.",
+          "vocab": [
+            {
+              "w": "平素",
+              "read": "へいそ",
+              "vi": "thời gian qua, thường ngày"
+            },
+            {
+              "w": "産業",
+              "read": "さんぎょう",
+              "vi": "công nghiệp, ngành nghề"
+            },
+            {
+              "w": "振興",
+              "read": "しんこう",
+              "vi": "xúc tiến, phát triển"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            },
+            {
+              "w": "誠に",
+              "read": "まことに",
+              "vi": "thật sự, thành thật"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お／ご〜いただく",
+              "vi": "Kết nối: ご + Danh từ hành động (利用) + いただく. Ý nghĩa: Dạng khiêm nhường ngữ diễn tả việc mình được đối phương làm việc gì đó cho (được quý khách sử dụng), thể hiện lòng biết ơn và sự lịch thiệp trong giao tiếp trang trọng."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "2026年11月に開催される「秋季イノベーションフォーラム」の出展申込および会場利用規定についてご案内申し上げます。",
+          "vi": "Chúng tôi xin thông báo về quy định đăng ký gian hàng và sử dụng hội trường cho \"Diễn đàn Đổi mới Sáng tạo Mùa thu\" diễn ra vào tháng 11 năm 2026.",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "開催",
+              "read": "かいさい",
+              "vi": "tổ chức sự kiện"
+            },
+            {
+              "w": "秋季",
+              "read": "しゅうき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "イノベーション",
+              "read": "イノベーション",
+              "vi": "sự đổi mới, sáng tạo"
+            },
+            {
+              "w": "フォーラム",
+              "read": "フォーラム",
+              "vi": "diễn đàn"
+            },
+            {
+              "w": "出展",
+              "read": "しゅってん",
+              "vi": "trưng bày, tham gia triển lãm"
+            },
+            {
+              "w": "申込",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký, đơn đăng ký"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "規定",
+              "read": "きてい",
+              "vi": "quy định"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "申し上げる",
+              "read": "もうしあげる",
+              "vi": "nói, thưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について",
+              "vi": "Kết nối: Danh từ + について. Ý nghĩa: Biểu thị chủ đề hoặc đối tượng của hành động (về/liên quan đến thủ tục đăng ký và quy định sử dụng hội trường)."
+            },
+            {
+              "point": "お／ご〜申し上げる",
+              "vi": "Kết nối: ご + Danh từ hành động (案内) + 申し上げる. Ý nghĩa: Khiêm nhường ngữ trang trọng (tương đương với お/ご〜する), hạ thấp hành vi của bản thân khi thực hiện điều gì hướng tới đối phương (xin phép được hướng dẫn/thông báo)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "先行申込の受付は、9月30日（水）17時をもちまして終了とさせていただきます。",
+          "vi": "Thời gian tiếp nhận đăng ký sớm sẽ chính thức khép lại vào lúc 17:00 thứ Tư, ngày 30 tháng 9.",
+          "vocab": [
+            {
+              "w": "先行申込",
+              "read": "せんこうもうしこみ",
+              "vi": "đăng ký sớm"
+            },
+            {
+              "w": "先行",
+              "read": "せんこう",
+              "vi": "đi trước; sớm"
+            },
+            {
+              "w": "申込",
+              "read": "もうしこみ",
+              "vi": "đăng ký; đơn đăng ký"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "tiếp nhận"
+            },
+            {
+              "w": "9月",
+              "read": "くがつ",
+              "vi": "tháng 9"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "30日",
+              "read": "さんじゅうにち",
+              "vi": "ngày 30"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "ngày"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "時",
+              "read": "じ",
+              "vi": "giờ"
+            },
+            {
+              "w": "もちまして",
+              "read": "もちまして",
+              "vi": "tính đến; kể từ"
+            },
+            {
+              "w": "終了",
+              "read": "しゅうりょう",
+              "vi": "kết thúc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜をもちまして",
+              "vi": "Kể từ thời điểm mốc này (kết thúc/bắt đầu - diễn đạt trang trọng)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "9月30日（水）17時をもちまして",
+              "why": "Mốc thời gian đóng cổng tiếp nhận đơn đăng ký sớm của sự kiện."
+            },
+            {
+              "w": "終了とさせていただきます",
+              "why": "Xác nhận kết thúc nhận hồ sơ sớm đúng vào thời điểm đã công bố."
+            }
+          ]
+        },
+        {
+          "jp": "締切当日に限って申請システムの混雑が予想されますゆえ、期日に余裕をもってご提出ください。",
+          "vi": "Do dự kiến hệ thống đăng ký sẽ bị nghẽn mạng đúng vào ngày hết hạn, kính mong quý vị nộp hồ sơ sớm trước thời hạn.",
+          "vocab": [
+            {
+              "w": "締切",
+              "read": "しめきり",
+              "vi": "hạn chót"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, ngày diễn ra sự kiện"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "申請",
+              "read": "しんせい",
+              "vi": "đăng ký, xin cấp"
+            },
+            {
+              "w": "システム",
+              "read": "システム",
+              "vi": "hệ thống"
+            },
+            {
+              "w": "混雑",
+              "read": "こんざつ",
+              "vi": "nghẽn mạng, quá tải"
+            },
+            {
+              "w": "予想",
+              "read": "よそう",
+              "vi": "kỳ vọng, dự đoán"
+            },
+            {
+              "w": "期日",
+              "read": "きじつ",
+              "vi": "kỳ hạn, thời hạn quy định"
+            },
+            {
+              "w": "余裕",
+              "read": "よゆう",
+              "vi": "dư dả, thong thả (về thời gian)"
+            },
+            {
+              "w": "提出",
+              "read": "ていしゅつ",
+              "vi": "việc nộp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限って",
+              "vi": "Chỉ riêng ~ (thường nói về sự cố/điều bất lợi xảy ra đúng lúc)"
+            },
+            {
+              "point": "〜ゆえ",
+              "vi": "Vì ~ / Do ~ (văn viết chỉ nguyên nhân, biến thể ngắn của ゆえに)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "締切当日に限って",
+              "why": "Cảnh báo nguy cơ nghẽn mạng đặc biệt dễ xảy ra vào đúng ngày chót."
+            }
+          ]
+        },
+        {
+          "jp": "出展プランおよび利用条件の一覧は以下の通りです。",
+          "vi": "Danh sách các gói triển lãm và điều kiện sử dụng cụ thể như sau:",
+          "vocab": [
+            {
+              "w": "出展プラン",
+              "read": "しゅってんプラン",
+              "vi": "gói triển lãm"
+            },
+            {
+              "w": "出展",
+              "read": "しゅってん",
+              "vi": "triển lãm; trưng bày"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "kế hoạch; gói"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và"
+            },
+            {
+              "w": "利用条件",
+              "read": "りようじょうけん",
+              "vi": "điều kiện sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "一覧",
+              "read": "いちらん",
+              "vi": "danh sách"
+            },
+            {
+              "w": "以下の通り",
+              "read": "いかのとおり",
+              "vi": "như sau"
+            },
+            {
+              "w": "以下",
+              "read": "いか",
+              "vi": "dưới đây"
+            },
+            {
+              "w": "通り",
+              "read": "とおり",
+              "vi": "như; theo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のとおり（〜の通り）",
+              "vi": "Kết nối: Danh từ + のとおり / の通り. Ý nghĩa: Diễn tả nội dung diễn ra đúng như, y như điều đã nêu trước đó (đúng như phần dưới đây)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "プラン名｜対象・用途｜利用可能時間｜基本出展料｜特記事項",
+          "vi": "Tên gói｜Đối tượng / Mục đích｜Thời gian sử dụng｜Phí cơ bản｜Ghi chú đặc biệt",
+          "vocab": [
+            {
+              "w": "プラン名",
+              "read": "プランめい",
+              "vi": "tên gói"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "名",
+              "read": "めい",
+              "vi": "tên"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "用途",
+              "read": "ようと",
+              "vi": "mục đích sử dụng"
+            },
+            {
+              "w": "利用可能時間",
+              "read": "りようかのうじかん",
+              "vi": "thời gian có thể sử dụng"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể; khả dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "基本出展料",
+              "read": "きほんしゅってんりょう",
+              "vi": "phí triển lãm cơ bản"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "出展料",
+              "read": "しゅってんりょう",
+              "vi": "phí triển lãm"
+            },
+            {
+              "w": "出展",
+              "read": "しゅってん",
+              "vi": "triển lãm; trưng bày"
+            },
+            {
+              "w": "料",
+              "read": "りょう",
+              "vi": "phí"
+            },
+            {
+              "w": "特記事項",
+              "read": "とっきじこう",
+              "vi": "mục ghi chú đặc biệt"
+            },
+            {
+              "w": "特記",
+              "read": "とっき",
+              "vi": "ghi chú đặc biệt"
+            },
+            {
+              "w": "事項",
+              "read": "じこう",
+              "vi": "hạng mục; vấn đề"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "スタンダード枠｜一般企業向け展示｜9:00〜17:00｜15万円｜標準電源・Wi-Fi完備",
+          "vi": "Gói Tiêu chuẩn｜Trưng bày dành cho doanh nghiệp thông thường｜9:00〜17:00｜150.000 yên｜Trang bị sẵn nguồn điện tiêu chuẩn và Wi-Fi",
+          "vocab": [
+            {
+              "w": "スタンダード枠",
+              "read": "スタンダードわく",
+              "vi": "suất tiêu chuẩn"
+            },
+            {
+              "w": "スタンダード",
+              "read": "スタンダード",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "枠",
+              "read": "わく",
+              "vi": "suất; khung"
+            },
+            {
+              "w": "一般企業",
+              "read": "いっぱんきぎょう",
+              "vi": "doanh nghiệp nói chung"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "chung; phổ thông"
+            },
+            {
+              "w": "企業向け",
+              "read": "きぎょうむけ",
+              "vi": "dành cho doanh nghiệp"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho; hướng đến"
+            },
+            {
+              "w": "展示",
+              "read": "てんじ",
+              "vi": "triển lãm; trưng bày"
+            },
+            {
+              "w": "9:00〜17:00",
+              "read": "くじからじゅうしちじまで",
+              "vi": "từ 9 giờ đến 17 giờ"
+            },
+            {
+              "w": "15万円",
+              "read": "じゅうごまんえん",
+              "vi": "150.000 yên"
+            },
+            {
+              "w": "標準電源",
+              "read": "ひょうじゅんでんげん",
+              "vi": "nguồn điện tiêu chuẩn"
+            },
+            {
+              "w": "標準",
+              "read": "ひょうじゅん",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "電源",
+              "read": "でんげん",
+              "vi": "nguồn điện"
+            },
+            {
+              "w": "Wi-Fi",
+              "read": "ワイファイ",
+              "vi": "Wi-Fi"
+            },
+            {
+              "w": "Wi",
+              "read": "ワイ",
+              "vi": "phần Wi trong Wi-Fi"
+            },
+            {
+              "w": "Fi",
+              "read": "ファイ",
+              "vi": "phần Fi trong Wi-Fi"
+            },
+            {
+              "w": "完備",
+              "read": "かんび",
+              "vi": "được trang bị đầy đủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "Được thiết kế dành cho ~, nhắm tới đối tượng ~"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "スタートアップ枠｜創業3年以内の企業向け｜9:00〜17:00｜8万円｜専任スタッフの助言付き",
+          "vi": "Gói Khởi nghiệp｜Dành cho doanh nghiệp thành lập trong vòng 3 năm｜9:00〜17:00｜80.000 yên｜Kèm tư vấn từ nhân viên chuyên trách",
+          "vocab": [
+            {
+              "w": "スタートアップ枠",
+              "read": "スタートアップわく",
+              "vi": "suất khởi nghiệp"
+            },
+            {
+              "w": "スタートアップ",
+              "read": "スタートアップ",
+              "vi": "khởi nghiệp"
+            },
+            {
+              "w": "スタート",
+              "read": "スタート",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "アップ",
+              "read": "アップ",
+              "vi": "tăng lên; phần “up”"
+            },
+            {
+              "w": "枠",
+              "read": "わく",
+              "vi": "suất; khung"
+            },
+            {
+              "w": "創業",
+              "read": "そうぎょう",
+              "vi": "thành lập doanh nghiệp"
+            },
+            {
+              "w": "3年",
+              "read": "さんねん",
+              "vi": "3 năm"
+            },
+            {
+              "w": "以内",
+              "read": "いない",
+              "vi": "trong phạm vi;以内"
+            },
+            {
+              "w": "企業向け",
+              "read": "きぎょうむけ",
+              "vi": "dành cho doanh nghiệp"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho; hướng đến"
+            },
+            {
+              "w": "9:00〜17:00",
+              "read": "くじからじゅうしちじまで",
+              "vi": "từ 9 giờ đến 17 giờ"
+            },
+            {
+              "w": "8万円",
+              "read": "はちまんえん",
+              "vi": "80.000 yên"
+            },
+            {
+              "w": "専任スタッフ",
+              "read": "せんにんスタッフ",
+              "vi": "nhân viên chuyên trách"
+            },
+            {
+              "w": "専任",
+              "read": "せんにん",
+              "vi": "chuyên trách"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "助言付き",
+              "read": "じょげんつき",
+              "vi": "kèm lời khuyên"
+            },
+            {
+              "w": "助言",
+              "read": "じょげん",
+              "vi": "lời khuyên"
+            },
+            {
+              "w": "付き",
+              "read": "つき",
+              "vi": "kèm theo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "Được thiết kế dành riêng cho đối tượng ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "創業3年以内の企業向け",
+              "why": "Điều kiện thâm niên thành lập tối đa để đủ tư cách nhận gói khởi nghiệp."
+            }
+          ]
+        },
+        {
+          "jp": "プレゼン専用枠｜来場者向け製品発表｜13:00〜16:00｜10万円｜ホールA（音響完備）限定",
+          "vi": "Gói Thuyết trình｜Thuyết minh sản phẩm dành cho khách tham quan｜13:00〜16:00｜100.000 yên｜Chỉ áp dụng tại Hội trường A (có đầy đủ âm thanh)",
+          "vocab": [
+            {
+              "w": "プレゼン専用枠",
+              "read": "プレゼンせんようわく",
+              "vi": "suất chuyên dùng cho thuyết trình"
+            },
+            {
+              "w": "プレゼン",
+              "read": "プレゼン",
+              "vi": "thuyết trình"
+            },
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "chuyên dùng"
+            },
+            {
+              "w": "枠",
+              "read": "わく",
+              "vi": "suất; khung"
+            },
+            {
+              "w": "来場者向け",
+              "read": "らいじょうしゃむけ",
+              "vi": "dành cho khách tham dự"
+            },
+            {
+              "w": "来場者",
+              "read": "らいじょうしゃ",
+              "vi": "khách tham dự"
+            },
+            {
+              "w": "来場",
+              "read": "らいじょう",
+              "vi": "đến tham dự"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho; hướng đến"
+            },
+            {
+              "w": "製品発表",
+              "read": "せいひんはっぴょう",
+              "vi": "giới thiệu sản phẩm"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "công bố; giới thiệu"
+            },
+            {
+              "w": "13:00〜16:00",
+              "read": "じゅうさんじからじゅうろくじまで",
+              "vi": "từ 13 giờ đến 16 giờ"
+            },
+            {
+              "w": "10万円",
+              "read": "じゅうまんえん",
+              "vi": "100.000 yên"
+            },
+            {
+              "w": "ホールA",
+              "read": "ホールエー",
+              "vi": "hội trường A"
+            },
+            {
+              "w": "ホール",
+              "read": "ホール",
+              "vi": "hội trường"
+            },
+            {
+              "w": "音響完備",
+              "read": "おんきょうかんび",
+              "vi": "được trang bị âm thanh đầy đủ"
+            },
+            {
+              "w": "音響",
+              "read": "おんきょう",
+              "vi": "âm thanh"
+            },
+            {
+              "w": "完備",
+              "read": "かんび",
+              "vi": "được trang bị đầy đủ"
+            },
+            {
+              "w": "限定",
+              "read": "げんてい",
+              "vi": "giới hạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "Dành cho ~, phục vụ đối tượng ~"
+            }
+          ],
+          "keys": [
+            {
+              "w": "プレゼン専用枠",
+              "why": "Tên gói đăng ký chuyên biệt dành cho hoạt động thuyết trình sản phẩm."
+            },
+            {
+              "w": "ホールA（音響完備）限定",
+              "why": "Giới hạn địa điểm tổ chức duy nhất có trang bị hệ thống âm thanh."
+            }
+          ]
+        },
+        {
+          "jp": "ナイトセッション枠｜交流会向け・夜間利用｜17:30〜21:00｜6万円｜平日利用に限って飲食可能",
+          "vi": "Gói Giao lưu đêm｜Dành cho tiệc giao lưu / Sử dụng buổi tối｜17:30〜21:00｜60.000 yên｜Chỉ được phép ăn uống khi sử dụng vào các ngày trong tuần",
+          "vocab": [
+            {
+              "w": "ナイトセッション枠",
+              "read": "ナイトセッションわく",
+              "vi": "suất phiên buổi tối"
+            },
+            {
+              "w": "ナイトセッション",
+              "read": "ナイトセッション",
+              "vi": "phiên buổi tối"
+            },
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "セッション",
+              "read": "セッション",
+              "vi": "phiên; buổi"
+            },
+            {
+              "w": "枠",
+              "read": "わく",
+              "vi": "suất; khung"
+            },
+            {
+              "w": "交流会向け",
+              "read": "こうりゅうかいむけ",
+              "vi": "dành cho buổi giao lưu"
+            },
+            {
+              "w": "交流会",
+              "read": "こうりゅうかい",
+              "vi": "buổi giao lưu"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho; hướng đến"
+            },
+            {
+              "w": "夜間利用",
+              "read": "やかんりよう",
+              "vi": "sử dụng vào ban đêm"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "17:30〜21:00",
+              "read": "じゅうしちじさんじゅっぷんからにじゅういちじまで",
+              "vi": "từ 17 giờ 30 đến 21 giờ"
+            },
+            {
+              "w": "6万円",
+              "read": "ろくまんえん",
+              "vi": "60.000 yên"
+            },
+            {
+              "w": "平日利用",
+              "read": "へいじつりよう",
+              "vi": "sử dụng vào ngày thường"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "限って",
+              "read": "かぎって",
+              "vi": "chỉ giới hạn trong"
+            },
+            {
+              "w": "飲食可能",
+              "read": "いんしょくかのう",
+              "vi": "có thể ăn uống"
+            },
+            {
+              "w": "飲食",
+              "read": "いんしょく",
+              "vi": "ăn uống"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể; khả dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "Dành cho ~, phục vụ mục đích ~"
+            },
+            {
+              "point": "〜に限って",
+              "vi": "Chỉ riêng ~ (giới hạn điều kiện đặc biệt)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日利用に限って飲食可能",
+              "why": "Điều kiện ràng buộc chỉ ngày thường mới được phép phục vụ ăn uống."
+            },
+            {
+              "w": "17:30〜21:00",
+              "why": "Khung thời gian cụ thể áp dụng cho gói giao lưu đêm."
+            }
+          ]
+        },
+        {
+          "jp": "※各枠とも人気日程ゆえ、予定小間数に達した時点をもちまして受付を終了いたします。",
+          "vi": "※Do các ngày diễn ra sự kiện đều có nhu cầu cao, chúng tôi sẽ đóng cổng đăng ký ngay khi đủ số lượng gian hàng dự kiến.",
+          "vocab": [
+            {
+              "w": "枠",
+              "read": "わく",
+              "vi": "khung, khuôn khổ"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "sự yêu thích, nổi tiếng"
+            },
+            {
+              "w": "日程",
+              "read": "にってい",
+              "vi": "lịch trình, ngày diễn ra"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            },
+            {
+              "w": "小間",
+              "read": "こま",
+              "vi": "gian hàng, ô trưng bày"
+            },
+            {
+              "w": "達す",
+              "read": "たっす",
+              "vi": "đạt tới, chạm mốc"
+            },
+            {
+              "w": "時点",
+              "read": "じてん",
+              "vi": "thời điểm"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "終了",
+              "read": "しゅうりょう",
+              "vi": "kết thúc"
+            },
+            {
+              "w": "小間数",
+              "read": "こますう",
+              "vi": "số lượng gian hàng (booth)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえ",
+              "vi": "Vì ~ (văn viết chỉ nguyên nhân)"
+            },
+            {
+              "point": "〜をもちまして",
+              "vi": "Kể từ thời điểm mốc này (chấm dứt nhận hồ sơ)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "予定小間数に達した時点をもちまして",
+              "why": "Quy định đóng nhận đăng ký trước hạn chót nếu hết số lượng gian hàng."
+            },
+            {
+              "w": "人気日程ゆえ",
+              "why": "Nguyên nhân dẫn đến khả năng hết chỗ sớm trước hạn chót."
+            }
+          ]
+        },
+        {
+          "jp": "※不慣れな新規出展企業様に限って、専門コーディネーターによる事前配置相談を無料で承ります。",
+          "vi": "※Chỉ riêng các doanh nghiệp mới tham gia chưa có kinh nghiệm, chúng tôi sẽ hỗ trợ tư vấn sơ đồ bố trí miễn phí bởi điều phối viên chuyên nghiệp.",
+          "vocab": [
+            {
+              "w": "不慣れ",
+              "read": "ふなれ",
+              "vi": "chưa quen, thiếu kinh nghiệm"
+            },
+            {
+              "w": "新規",
+              "read": "しんき",
+              "vi": "sự mới mẻ, mới"
+            },
+            {
+              "w": "出展",
+              "read": "しゅってん",
+              "vi": "trưng bày, tham gia triển lãm"
+            },
+            {
+              "w": "企業",
+              "read": "きぎょう",
+              "vi": "doanh nghiệp, công ty"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "コーディネーター",
+              "read": "コーディネーター",
+              "vi": "người điều phối"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước, sự chuẩn bị trước"
+            },
+            {
+              "w": "配置",
+              "read": "はいち",
+              "vi": "bố trí, sắp đặt gian hàng"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, hỏi ý kiến"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "承る",
+              "read": "うけたまわる",
+              "vi": "tiếp nhận, lắng nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に限って",
+              "vi": "Chỉ riêng đối tượng ~ (đặc quyền dành cho trường hợp đặc biệt)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "不慣れな新規出展企業様に限って",
+              "why": "Đối tượng duy nhất được hưởng chính sách hỗ trợ tư vấn sắp đặt trước sự kiện."
+            },
+            {
+              "w": "無料で承ります",
+              "why": "Chi phí dịch vụ tư vấn được miễn hoàn toàn cho doanh nghiệp mới."
+            }
+          ]
+        },
+        {
+          "jp": "※本施設は文化財指定の建築ゆえに、壁面への直接の装飾や粘着テープの使用は厳禁となっております。",
+          "vi": "※Do tòa nhà này là công trình được xếp hạng di sản văn hóa, nghiêm cấm tuyệt đối việc trang trí trực tiếp lên tường hoặc sử dụng băng dính.",
+          "vocab": [
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "文化財",
+              "read": "ぶんかざい",
+              "vi": "di sản văn hóa"
+            },
+            {
+              "w": "指定",
+              "read": "してい",
+              "vi": "chỉ định"
+            },
+            {
+              "w": "建築",
+              "read": "けんちく",
+              "vi": "kiến trúc, công trình xây dựng"
+            },
+            {
+              "w": "壁面",
+              "read": "へきめん",
+              "vi": "mặt tường"
+            },
+            {
+              "w": "直接",
+              "read": "ちょくせつ",
+              "vi": "trực tiếp"
+            },
+            {
+              "w": "装飾",
+              "read": "そうしょく",
+              "vi": "sự trang trí, đồ trang trí"
+            },
+            {
+              "w": "粘着",
+              "read": "ねんちゃく",
+              "vi": "độ dính, sự bám dính"
+            },
+            {
+              "w": "テープ",
+              "read": "テープ",
+              "vi": "băng dính, băng keo"
+            },
+            {
+              "w": "使用",
+              "read": "しよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "厳禁",
+              "read": "げんきん",
+              "vi": "nghiêm cấm tuyệt đối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえに",
+              "vi": "Vì ~ / Do ~ (văn viết trang trọng chỉ nguyên nhân)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "粘着テープの使用は厳禁",
+              "why": "Quy định cấm quan trọng khi thi công và trang trí gian hàng tại tòa nhà."
+            }
+          ]
+        },
+        {
+          "jp": "※大音量・特殊機材を使用する展示は、安全管理の都合ゆえにプレゼン専用枠のみで許可されます。",
+          "vi": "※Các hoạt động triển lãm sử dụng âm lượng lớn hoặc thiết bị đặc thù chỉ được phép thực hiện trong Gói Thuyết trình vì lý do quản lý an toàn.",
+          "vocab": [
+            {
+              "w": "音量",
+              "read": "おんりょう",
+              "vi": "âm lượng"
+            },
+            {
+              "w": "特殊",
+              "read": "とくしゅ",
+              "vi": "đặc biệt, đặc thù"
+            },
+            {
+              "w": "機材",
+              "read": "きざい",
+              "vi": "thiết bị"
+            },
+            {
+              "w": "使用",
+              "read": "しよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "展示",
+              "read": "てんじ",
+              "vi": "sự trưng bày, triển lãm"
+            },
+            {
+              "w": "安全",
+              "read": "あんぜん",
+              "vi": "an toàn, sự an toàn"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "都合",
+              "read": "つごう",
+              "vi": "sự tiện lợi, điều kiện cá nhân"
+            },
+            {
+              "w": "プレゼン",
+              "read": "プレゼン",
+              "vi": "bài thuyết trình"
+            },
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "chuyên dụng"
+            },
+            {
+              "w": "許可",
+              "read": "きょか",
+              "vi": "sự cho phép, giấy phép"
+            },
+            {
+              "w": "大音量",
+              "read": "だいおんりょう",
+              "vi": "âm lượng lớn"
+            },
+            {
+              "w": "特殊機材",
+              "read": "とくしゅきざい",
+              "vi": "thiết bị đặc thù"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえに",
+              "vi": "Vì ~ / Do ~ (chỉ nguyên nhân lý do)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "安全管理の都合ゆえに",
+              "why": "Lý do an toàn dẫn đến việc phải giới hạn các thiết bị phát âm thanh lớn."
+            },
+            {
+              "w": "プレゼン専用枠のみで許可されます",
+              "why": "Ràng buộc bắt buộc phải chọn đúng gói thuyết trình nếu có thiết bị âm thanh lớn."
+            }
+          ]
+        },
+        {
+          "jp": "ご不明な点は事務局までお問い合わせください。（少人数運営ゆえ、メールでのご連絡を推奨いたします）",
+          "vi": "Nếu có thắc mắc, xin vui lòng liên hệ Ban Thư ký. (Do đội ngũ vận hành ít người, chúng tôi khuyến khích liên hệ qua email).",
+          "vocab": [
+            {
+              "w": "ご不明な点",
+              "read": "ごふめいなてん",
+              "vi": "điểm chưa rõ"
+            },
+            {
+              "w": "不明",
+              "read": "ふめい",
+              "vi": "không rõ"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm; vấn đề"
+            },
+            {
+              "w": "事務局",
+              "read": "じむきょく",
+              "vi": "ban thư ký; văn phòng điều hành"
+            },
+            {
+              "w": "事務",
+              "read": "じむ",
+              "vi": "công việc hành chính"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ; hỏi đáp"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "liên hệ; hỏi đáp"
+            },
+            {
+              "w": "少人数運営",
+              "read": "しょうにんずううんえい",
+              "vi": "vận hành với ít người"
+            },
+            {
+              "w": "少人数",
+              "read": "しょうにんずう",
+              "vi": "ít người"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            },
+            {
+              "w": "運営",
+              "read": "うんえい",
+              "vi": "vận hành; điều hành"
+            },
+            {
+              "w": "ゆえ",
+              "read": "ゆえ",
+              "vi": "vì; do"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email"
+            },
+            {
+              "w": "ご連絡",
+              "read": "ごれんらく",
+              "vi": "liên hệ"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc; liên hệ"
+            },
+            {
+              "w": "推奨",
+              "read": "すいしょう",
+              "vi": "khuyến nghị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ゆえ",
+              "vi": "Vì ~ (văn viết chỉ nguyên nhân)"
+            }
+          ],
+          "keys": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "締切当日に限って",
+          "label": "〜に限って (Đúng vào ngày chót)"
+        },
+        {
+          "excerpt": "9月30日（水）17時をもちまして",
+          "label": "〜をもちまして (Kể từ thời điểm này)"
+        },
+        {
+          "excerpt": "文化財指定の建築ゆえに",
+          "label": "〜ゆえに (Vì là công trình di sản)"
+        },
+        {
+          "excerpt": "人気日程ゆえ",
+          "label": "〜ゆえ (Do lịch trình đông khách)"
+        },
+        {
+          "excerpt": "一般企業向け展示",
+          "label": "〜向け (Thiết kế dành cho doanh nghiệp)"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 5,
+          "kind": "intro",
+          "label": "フォーラム概要と先行申込の締切",
+          "topic": 2,
+          "note": "Giới thiệu diễn đàn và thông báo thời hạn tiếp nhận hồ sơ đăng ký sớm",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 10,
+          "kind": "body",
+          "label": "出展プラン・利用条件一覧",
+          "topic": 6,
+          "note": "Bảng tổng hợp 4 gói đăng ký gian hàng và biểu phí, đối tượng áp dụng",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 15,
+          "kind": "point",
+          "label": "注意事項および禁止事項",
+          "topic": 13,
+          "note": "Quy định đóng cổng, hỗ trợ công ty mới, quy định âm thanh và bảo vệ di sản",
+          "qs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "A社（設立2年目のIT企業・今回初出展）は、来場者に向けて大音量のデモ音源を用いた製品発表会を行い、事前にブース配置の相談も受けたいと考えている。A社が選ぶべきプランと利用条件として最も適切なものはどれか。",
+          "options": [
+            "「スタートアップ枠」を選択し、創業3年以内向けの割安な料金で申し込み、専任スタッフの助言を受ける。",
+            "「プレゼン専用枠」を選択してホールAを利用し、新規出展企業向けの無料事前配置相談を申し込む。",
+            "「スタンダード枠」を選択し、標準電源とWi-Fiを利用して終日（9:00〜17:00）のブース発表を行う。",
+            "「ナイトセッション枠」を選択し、平日の夜間時間帯を利用して飲食を交えた製品発表を実施する。"
+          ],
+          "answer": 1,
+          "explainVi": "Theo quy định tại dòng [14] (※大音量・特殊機材を使用する展示は、安全管理の都合ゆえにプレゼン専用枠のみで許可されます), mọi hoạt động sử dụng âm lượng lớn bắt buộc phải đăng ký 「プレゼン専用枠」 tại Hội trường A (dòng [9]). Đồng thời, vì A công ty là đơn vị mới tham gia lần đầu (初出展), theo dòng [12] (※不慣れな新規出展企業様に限って、専門コーディネーターによる事前配置相談を無料で承ります), A công ty được hưởng tư vấn bố trí miễn phí. Do đó, lựa chọn thứ hai (chỉ số 1) là phương án chính xác nhất.",
+          "tip": "Khi gặp yêu cầu phối hợp nhiều điều kiện (thâm niên công ty, yêu cầu thiết bị âm thanh lớn, nhu cầu tư vấn), hãy chú ý các dòng lưu ý đặc biệt (※) ở cuối bài vì đây là nơi chứa các quy định loại trừ bắt buộc.",
+          "evi": [
+            9,
+            12,
+            14
+          ],
+          "qt": {
+            "q": "Công ty A (doanh nghiệp IT năm thứ hai kể từ khi thành lập, lần này lần đầu tham gia triển lãm) dự định tổ chức buổi giới thiệu sản phẩm cho khách tham quan bằng âm thanh demo có âm lượng lớn, đồng thời muốn được tư vấn trước về cách bố trí gian hàng. Gói và điều kiện sử dụng nào phù hợp nhất để Công ty A lựa chọn?",
+            "o": [
+              "Chọn 「スタートアップ枠」 (gói dành cho startup), đăng ký với mức phí ưu đãi dành cho doanh nghiệp thành lập chưa quá 3 năm và nhận tư vấn từ nhân viên chuyên trách.",
+              "Chọn 「プレゼン専用枠」 (gói chỉ dành cho thuyết trình), sử dụng Hội trường A và đăng ký tư vấn bố trí trước miễn phí dành cho doanh nghiệp triển lãm mới.",
+              "Chọn 「スタンダード枠」 (gói tiêu chuẩn), sử dụng nguồn điện tiêu chuẩn và Wi-Fi để tổ chức thuyết trình tại gian hàng cả ngày (9:00〜17:00).",
+              "Chọn 「ナイトセッション枠」 (gói phiên buổi tối), sử dụng khung giờ buổi tối ngày thường để tổ chức giới thiệu sản phẩm kết hợp ăn uống."
+            ]
+          }
+        },
+        {
+          "q": "秋季イノベーションフォーラムの申込手続きおよび会場利用規定に関する説明として、本文の内容と合致しているものはどれか。",
+          "options": [
+            "先行申込は9月30日17時までだが、定員に達した時点をもちまして終了となり、夜間の飲食は平日に限って認められる。",
+            "先行申込は締切当日の深夜24時まで可能であり、土日祝日のナイトセッション枠でも飲食の提供が許可されている。",
+            "ナイトセッション枠であれば曜日を問わず飲食が可能であり、壁面には粘着テープを用いた自由な装飾が認められる。",
+            "定員に達していない限り10月以降も先行料金が適用され、事務局への問い合わせは電話で行うことが推奨されている。"
+          ],
+          "answer": 0,
+          "explainVi": "Phương án 1 (chỉ số 0) hoàn toàn chính xác: Dòng [3] nêu rõ hạn chót đăng ký sớm là 17:00 ngày 30/9; Dòng [11] quy định nếu đủ số gian hàng thì sẽ đóng tiếp nhận ngay lúc đó (予定小間数に達した時点をもちまして受付を終了); Dòng [10] quy định gói ban đêm chỉ được ăn uống vào ngày trong tuần (平日利用に限って飲食可能). Các phương án khác đều sai: 2 sai vì hạn là 17:00 và cuối tuần không được ăn uống; 3 sai vì cấm dán băng dính (dòng [13]); 4 sai vì sau hạn chót không còn nhận đăng ký sớm và ban tổ chức khuyến khích gửi email thay vì gọi điện (dòng [15]).",
+          "tip": "Đối chiếu kỹ các từ giới hạn như 'に限って' (chỉ riêng ngày thường) và 'をもちまして' (kể từ mốc thời gian/đủ số lượng) để nhận diện các bẫy thông tin sai lệch.",
+          "evi": [
+            3,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Trong các giải thích về thủ tục đăng ký tham gia Diễn đàn Đổi mới Mùa thu và quy định sử dụng địa điểm, nội dung nào phù hợp với bài đọc?",
+            "o": [
+              "Đăng ký sớm đến 17 giờ ngày 30 tháng 9, nhưng việc tiếp nhận sẽ kết thúc khi đạt số lượng chỗ dự kiến; ăn uống vào buổi tối chỉ được phép vào các ngày trong tuần.",
+              "Có thể đăng ký sớm đến nửa đêm 24 giờ ngày cuối hạn, và được phép phục vụ ăn uống tại gói phiên buổi tối vào cả thứ Bảy, Chủ nhật và ngày lễ.",
+              "Với gói phiên buổi tối, có thể ăn uống bất kể ngày nào trong tuần, và được phép tự do trang trí tường bằng băng dính.",
+              "Miễn là chưa đạt số lượng chỗ dự kiến, mức phí đăng ký sớm vẫn được áp dụng cả sau tháng 10; việc liên hệ ban thư ký được khuyến nghị thực hiện qua điện thoại."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

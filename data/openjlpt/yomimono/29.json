@@ -1,0 +1,3167 @@
+{
+  "bai": 29,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 29 tập trung vào cặp 自動詞（nội động từ — vật tự xảy ra）vs 他動詞（ngoại động từ — ai đó gây ra）và hai cách dùng Vています quan trọng: kết quả còn tồn tại（窓が開いています）và hành động lỡ/tiếc nuối（Vてしまいました）. Đọc kỹ CHỦ THỂ câu: nếu chủ thể là VẬT → nội động từ; nếu là NGƯỜI với tân ngữ を → ngoại động từ.",
+    "steps": [
+      "Đọc lướt để nắm tình huống: ai sơ ý làm gì, hậu quả là gì.",
+      "Với mỗi câu có động từ, hỏi: \"Ai/cái gì là chủ thể?\". Vật tự xảy ra → nội động từ (窓が開く, 電気がつく). Người chủ động → ngoại động từ (窓を開ける, 電気をつける).",
+      "Tìm mẫu Vています: sau nội động từ → trạng thái kết quả hiện tại (窓が開いています = cửa sổ đang ở trạng thái mở). Không nhầm với 進行中 (đang làm).",
+      "Tìm mẫu Vてしまいました: diễn đạt hành động đã hoàn tất với sắc thái tiếc nuối/lỡ tay (財布を忘れてしまいました = lỡ quên mất ví rồi).",
+      "Với câu hỏi trắc nghiệm: phân biệt \"ai làm\" (他動詞 + が) và \"vật ở trạng thái gì\" (自動詞 + Vている).",
+      "Lưu ý: てしまいました trong văn nói rút gọn thành ちゃいました/じゃいました — bài này giữ văn viết lịch sự."
+    ],
+    "tips": [
+      "自動詞 (nội ĐT): không có を, chủ thể là vật (ドアが閉まります — cửa tự đóng).",
+      "他動詞 (ngoại ĐT): có を, chủ thể là người (ドアを閉めます — ai đó đóng cửa).",
+      "Cặp hay nhầm: 開く(あく)↔開ける(あける), 閉まる(しまる)↔閉める(しめる), つく↔つける, 消える(きえる)↔消す(けす), 落ちる(おちる)↔落とす(おとす), 壊れる(こわれる)↔壊す(こわす).",
+      "Vています sau 自動詞 = trạng thái hiện tại (結果状態), KHÔNG phải đang làm. Không thêm ずっと để chỉ hành động tiếp diễn.",
+      "Vてしまいました = đã \"lỡ tay\" làm xong; ngụ ý hối hận hoặc không cố ý. Câu hỏi thường hỏi \"what happened\" hay \"how do you know\".",
+      "Nhớ phân biệt B27 可能形: できます/読めます (khả năng) ≠ Vています (trạng thái)."
+    ],
+    "grammarFocus": [
+      "自動詞 vs 他動詞（vd 開く／開ける、消える／消す、壊れる／壊す）",
+      "Vています（結果状態 — vd 窓が開いています、電気が消えています）",
+      "Vてしまいました（hoàn tất với sắc thái tiếc nuối/lỡ tay）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 28,
+        "items": [
+          "Vながら（vừa...vừa）",
+          "Vています（習慣）",
+          "Vやすい・にくい"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（できます/読めます）",
+          "Nしか〜ない"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích lý do）",
+          "Nなんです"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき",
+          "〜と（kết quả tất yếu）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ (Vている＋N)",
+          "形容詞＋N"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "Vたことがあります",
+          "〜くなります・〜になります"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vています（進行中）",
+          "Vてください"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "うっかり、やってしまいました",
+      "titleVi": "Lỡ tay rồi",
+      "japanese": "朝、急いで出かけたとき、窓を閉めませんでした。だから今、窓が開いています。\nそれから、財布をかばんに入れるのを忘れてしまいました。\nコーヒーを飲みながら歩いていたら、コーヒーをシャツにこぼしてしまいました。\nスマホも机から落としてしまいました。画面が割れています。\n今日は本当についていない日です。",
+      "vietnamese": "Sáng nay khi vội vàng ra ngoài, tôi đã không đóng cửa sổ. Vì thế bây giờ cửa sổ đang mở.\nHơn nữa, tôi đã lỡ quên không bỏ ví vào túi.\nVừa uống cà phê vừa đi thì tôi lỡ làm đổ cà phê lên áo sơ mi.\nĐiện thoại cũng lỡ làm rơi từ bàn. Màn hình đang bị vỡ.\nHôm nay thực sự là ngày không may.",
+      "sentences": [
+        {
+          "jp": "朝、急いで出かけたとき、窓を閉めませんでした。だから今、窓が開いています。",
+          "vi": "Sáng nay khi vội vàng ra ngoài, tôi đã không đóng cửa sổ. Vì thế bây giờ cửa sổ đang mở.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "急いで",
+              "read": "いそいで",
+              "vi": "vội vàng (thể て của 急ぐ)"
+            },
+            {
+              "w": "出かけます",
+              "read": "でかけます",
+              "vi": "ra ngoài, đi ra"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "閉めます",
+              "read": "しめます",
+              "vi": "đóng (cửa sổ/cửa) — 他動詞"
+            },
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "開いています",
+              "read": "あいています",
+              "vi": "đang ở trạng thái mở — từ 開く (自動詞)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 閉めます（を）",
+              "vi": "窓を閉めます — người chủ động đóng cửa sổ, có を chỉ tân ngữ (他動詞)."
+            },
+            {
+              "point": "自動詞 開く → Vています（結果状態）",
+              "vi": "窓が開いています — cửa sổ ở trạng thái mở (kết quả của việc không đóng). 開く là 自動詞: cửa sổ TỰ ở trạng thái mở, không có を."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "出かけたとき = khi ra ngoài. Dùng thể た vì hành động ra ngoài xảy ra trước."
+            }
+          ]
+        },
+        {
+          "jp": "それから、財布をかばんに入れるのを忘れてしまいました。",
+          "vi": "Hơn nữa, tôi đã lỡ quên không bỏ ví vào túi.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "財布",
+              "read": "さいふ",
+              "vi": "ví (đựng tiền)"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "bỏ vào, cho vào — 他動詞"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまいました",
+              "vi": "忘れてしまいました = đã lỡ quên mất. Diễn đạt hành động hoàn tất với sắc thái hối hận/tiếc nuối."
+            },
+            {
+              "point": "Vるのを忘れます（Bài 22）",
+              "vi": "入れるのを忘れた = quên việc bỏ vào. の nominalise mệnh đề động từ thành danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "コーヒーを飲みながら歩いていたら、コーヒーをシャツにこぼしてしまいました。",
+          "vi": "Vừa uống cà phê vừa đi thì tôi lỡ làm đổ cà phê lên áo sơ mi.",
+          "vocab": [
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            },
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "シャツ",
+              "read": "シャツ",
+              "vi": "áo sơ mi"
+            },
+            {
+              "w": "こぼす",
+              "read": "こぼす",
+              "vi": "làm đổ, làm vãi"
+            },
+            {
+              "w": "こぼします",
+              "read": "こぼします",
+              "vi": "làm đổ, làm tràn — 他動詞"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vながら（Bài 28）",
+              "vi": "飲みながら歩く = vừa uống vừa đi. Hai hành động cùng lúc."
+            },
+            {
+              "point": "Vてしまいました",
+              "vi": "こぼしてしまいました = lỡ làm đổ mất. こぼします là 他動詞 (có を: コーヒーを)."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "歩いていたら = khi/lúc đang đi thì (điều bất ngờ xảy ra)."
+            }
+          ]
+        },
+        {
+          "jp": "スマホも机から落としてしまいました。画面が割れています。",
+          "vi": "Điện thoại cũng lỡ làm rơi từ bàn. Màn hình đang bị vỡ.",
+          "vocab": [
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn (làm việc)"
+            },
+            {
+              "w": "落とします",
+              "read": "おとします",
+              "vi": "làm rơi — 他動詞"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "割れています",
+              "read": "われています",
+              "vi": "đang bị vỡ — từ 割れる (自動詞)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 落とします vs 自動詞 落ちます",
+              "vi": "スマホを落とした（他動詞: người làm rơi, có を）↔ スマホが落ちた（自動詞: điện thoại tự rơi）. Ở đây dùng 他動詞 vì đây là lỗi của người nói."
+            },
+            {
+              "point": "自動詞 割れる → Vています（結果状態）",
+              "vi": "画面が割れています — màn hình đang ở trạng thái vỡ (結果が残っている). 割れる là 自動詞, nên chủ thể 画面が, không có を."
+            },
+            {
+              "point": "Vてしまいました",
+              "vi": "落としてしまいました = lỡ làm rơi mất, có sắc thái hối hận."
+            }
+          ]
+        },
+        {
+          "jp": "今日は本当についていない日です。",
+          "vi": "Hôm nay thực sự là ngày không may.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "ついていない",
+              "read": "ついていない",
+              "vi": "không may mắn (thành ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（Bài 1）",
+              "vi": "Câu kết luận đơn giản: hôm nay là ngày không may."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "窓が開いています",
+          "label": "自動詞＋Vています（結果状態）"
+        },
+        {
+          "excerpt": "財布をかばんに入れるのを忘れてしまいました",
+          "label": "Vてしまいました（tiếc nuối）"
+        },
+        {
+          "excerpt": "コーヒーを飲みながら歩いていたら",
+          "label": "Vながら（Bài 28）"
+        },
+        {
+          "excerpt": "画面が割れています",
+          "label": "自動詞 割れる → 結果状態"
+        }
+      ],
+      "questions": [
+        {
+          "q": "今、窓はどうなっていますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "窓は閉まっています",
+            "窓が開いています",
+            "窓を開けています",
+            "窓は壊れています"
+          ],
+          "answer": 1,
+          "explainVi": "本文に「窓を閉めませんでした。だから今、窓が開いています」とある。自動詞 開く + ています = 結果状態（cửa sổ đang ở trạng thái mở do người nói không đóng lại）。これが答え。方案0「閉まっています」は逆の状態で不正解。方案2「窓を開けています」は他動詞 開ける を使い「誰かが今まさに開けている」という進行の意味になってしまい、文脈と合わない。方案3 は本文に壊れたという記述がないので不正解。",
+          "tip": "自動詞＋ています＝kết quả còn tồn tại (窓が開いています = cửa sổ đang ở trạng thái mở). Nếu thấy chủ thể là VẬT và không có を, đây là 自動詞 chỉ trạng thái, không phải ai đó đang chủ động làm.",
+          "qt": {
+            "q": "Hiện giờ, cửa sổ đang ở trạng thái nào?",
+            "o": [
+              "Cửa sổ đang đóng",
+              "Cửa sổ đang mở",
+              "Đang mở cửa sổ",
+              "Cửa sổ bị hỏng"
+            ]
+          }
+        },
+        {
+          "q": "スマホについて、正しいのはどれですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "スマホを落として、画面が割れてしまいました",
+            "スマホが机の下に落ちていました",
+            "スマホの画面を閉めてしまいました",
+            "スマホを忘れてしまいました"
+          ],
+          "answer": 0,
+          "explainVi": "本文に「スマホも机から落としてしまいました。画面が割れています」とある。他動詞 落とす（スマホを落とす — người nói chủ động làm rơi, có を）＋結果状態 割れている（自動詞 割れる — màn hình đang ở trạng thái vỡ）。これが答え。方案1「スマホが落ちていました」は 自動詞 落ちる を使っており「điện thoại tự nằm/tự rơi xuống ở dưới ghế」という意味合いで、本文の「机から落とした（人が落とした）」と異なる。方案2は本文に記述なし。方案3もスマホを忘れたという内容はなく不正解。",
+          "tip": "落とす（他動詞）= người làm rơi (có を); 落ちる（自動詞）= vật tự rơi (có が, không có を). Khi đề hỏi \"người làm gì\", tìm 他動詞 ＋ を trong bài.",
+          "qt": {
+            "q": "Điều nào đúng về chiếc điện thoại thông minh?",
+            "o": [
+              "Làm rơi điện thoại thông minh nên màn hình bị vỡ",
+              "Điện thoại thông minh đã rơi ở dưới bàn",
+              "Đã đóng màn hình điện thoại thông minh",
+              "Đã quên điện thoại thông minh"
+            ]
+          }
+        },
+        {
+          "q": "この人の今日の朝について、正しくないのはどれですか。（間違いを選んでください）",
+          "evi": [
+            0,
+            1,
+            2
+          ],
+          "options": [
+            "急いで出かけました",
+            "窓を開けてから出かけました",
+            "コーヒーを飲みながら歩きました",
+            "財布を忘れてしまいました"
+          ],
+          "answer": 1,
+          "explainVi": "方案1「窓を開けてから出かけました」が誤り。本文に「窓を閉めませんでした」とあるだけで、人が意図的に窓を開けた（他動詞 開ける）という記述はない。窓はもともと開いていたか、閉め忘れただけ。他の方案を確認すると：方案0「急いで出かけました」→「急いで出かけたとき」から正しい。方案2「コーヒーを飲みながら歩きました」→「コーヒーを飲みながら歩いていたら」から正しい。方案3「財布を忘れてしまいました」→「財布をかばんに入れるのを忘れてしまいました」から正しい。",
+          "tip": "Câu hỏi tìm phương án SAI — đọc kỹ từng lựa chọn và đối chiếu từng chi tiết với bài. Chú ý 他動詞 (窓を開ける = chủ động mở) vs bài chỉ nói 閉めなかった (không đóng) — hai ý hoàn toàn khác nhau.",
+          "qt": {
+            "q": "Điều nào không đúng về sáng nay của người này? (Hãy chọn điều sai.)",
+            "o": [
+              "Đã vội vã ra ngoài",
+              "Đã mở cửa sổ rồi mới ra ngoài",
+              "Đã vừa đi vừa uống cà phê",
+              "Đã quên ví"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ミラーさんのうっかり日記",
+      "titleVi": "Nhật ký lỡ tay của Miller",
+      "japanese": "6月18日（木）晴れ\n今日はとてもついていない日でした。朝から色々なことをしてしまいました。\nまず、台所で朝ごはんを作っていたとき、卵を床に落としてしまいました。床が汚れています。急いで拭きましたが、なかなかきれいになりませんでした。\n次に、会社へ行く前に鍵をかばんに入れようとしたとき、鍵が見つかりませんでした。部屋を探したら、鍵がドアに刺さったままになっていました。昨日の夜、ドアを閉めたとき、鍵を抜くのを忘れてしまったんです。\n電車の中では、ゲームをしながらスタンドから手を離したら、スマホが座席の下に落ちてしまいました。拾おうとしたとき、電車のドアが閉まってしまいました。次の駅で降りて、また乗りましたが、遅刻してしまいました。\n会社では、田中さんのコーヒーを間違えて飲んでしまいました。田中さんのカップに私の名前があると思ったんです。でも、よく見たら、「田中」の名前でした。田中さんに謝ったら、田中さんは笑って「大丈夫ですよ」と言ってくれました。\n帰りに、コンビニでお菓子を買ったとき、財布からカードを出したら、カードが機械の中に入ったまま出てきませんでした。店員さんを呼んで、やっと取り出せました。\n家に帰ったら、電気がついていましたが、電気をつけた覚えがありません。昨日の夜、部屋を出るとき、電気を消すのを忘れてしまったと思います。\n今日は本当に色々なことがありました。明日はもっと気をつけます。",
+      "vietnamese": "Ngày 18 tháng 6 (Thứ 5) Trời nắng\nHôm nay là ngày thật không may. Từ sáng đến nay tôi đã lỡ làm nhiều thứ.\nĐầu tiên, khi đang nấu bữa sáng trong bếp, tôi đã lỡ làm rơi trứng xuống sàn. Sàn nhà đang bị bẩn. Tôi vội lau nhưng mãi không sạch được.\nTiếp theo, khi tôi định bỏ chìa khoá vào túi trước khi đi làm, thì không tìm thấy chìa. Khi tìm trong phòng thì thấy chìa khoá vẫn đang cắm ở cửa. Tối qua khi đóng cửa, tôi đã lỡ quên không rút chìa ra.\nTrên tàu điện, tôi vừa chơi game vừa buông tay khỏi giá đỡ thì điện thoại lỡ rơi xuống dưới ghế. Khi tôi định nhặt lên thì cửa tàu đã đóng lại mất. Tôi xuống ở ga tiếp theo rồi lại lên tàu, nhưng đã bị trễ.\nỞ công ty, tôi đã lỡ uống nhầm cà phê của anh Tanaka. Tôi tưởng trên cốc của anh ấy có tên tôi. Nhưng khi nhìn kỹ thì thấy đó là tên \"Tanaka\". Tôi xin lỗi anh Tanaka thì anh ấy cười và nói \"Không sao đâu\".\nTrên đường về, khi mua đồ ăn vặt ở cửa hàng tiện lợi, tôi lấy thẻ ra từ ví thì thẻ chui vào trong máy mà không ra được. Tôi gọi nhân viên đến và mới lấy ra được.\nKhi về đến nhà thì đèn đang bật, nhưng tôi không nhớ là đã bật đèn. Tôi nghĩ là tối qua khi ra khỏi phòng tôi đã lỡ quên không tắt đèn.\nHôm nay thật sự có nhiều chuyện xảy ra. Ngày mai tôi sẽ cẩn thận hơn.",
+      "sentences": [
+        {
+          "jp": "6月18日（木）晴れ",
+          "vi": "Ngày 18 tháng 6 (Thứ 5) Trời nắng",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "Thứ 5 (木曜日の略)"
+            },
+            {
+              "w": "晴れ",
+              "read": "はれ",
+              "vi": "trời nắng, trời đẹp"
+            },
+            {
+              "w": "6月",
+              "read": "ろくがつ",
+              "vi": "tháng 6"
+            },
+            {
+              "w": "18日",
+              "read": "じゅうはちにち",
+              "vi": "ngày 18"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thể thức nhật ký",
+              "vi": "Ghi ngày/thời tiết ở đầu nhật ký, không cần động từ."
+            }
+          ]
+        },
+        {
+          "jp": "今日はとてもついていない日でした。朝から色々なことをしてしまいました。",
+          "vi": "Hôm nay là ngày thật không may. Từ sáng đến nay tôi đã lỡ làm nhiều thứ.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "朝から",
+              "read": "あさから",
+              "vi": "từ sáng (đến giờ)"
+            },
+            {
+              "w": "色々な",
+              "read": "いろいろな",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "ついていない",
+              "read": "ついていない",
+              "vi": "không may mắn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまいました",
+              "vi": "色々なことをしてしまいました = đã lỡ làm đủ thứ. Câu mở đầu tóm lược chủ đề nhật ký."
+            }
+          ]
+        },
+        {
+          "jp": "まず、台所で朝ごはんを作っていたとき、卵を床に落としてしまいました。",
+          "vi": "Đầu tiên, khi đang nấu bữa sáng trong bếp, tôi đã lỡ làm rơi trứng xuống sàn.",
+          "vocab": [
+            {
+              "w": "台所",
+              "read": "だいどころ",
+              "vi": "nhà bếp"
+            },
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, nấu"
+            },
+            {
+              "w": "卵",
+              "read": "たまご",
+              "vi": "trứng"
+            },
+            {
+              "w": "床",
+              "read": "ゆか",
+              "vi": "sàn nhà"
+            },
+            {
+              "w": "落とします",
+              "read": "おとします",
+              "vi": "làm rơi — 他動詞"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "đầu tiên, trước hết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 落とします",
+              "vi": "卵を落とした — có を（卵を）, người chủ động làm rơi (他動詞). Khác 落ちる（自動詞: vật tự rơi）."
+            },
+            {
+              "point": "Vてしまいました",
+              "vi": "落としてしまいました = lỡ làm rơi mất, sắc thái hối hận."
+            },
+            {
+              "point": "〜ていたとき（Bài 23 + Bài 14）",
+              "vi": "作っていたとき = khi đang nấu. Vている＋とき chỉ thời điểm đang diễn ra hành động khác xảy đến."
+            }
+          ]
+        },
+        {
+          "jp": "床が汚れています。急いで拭きましたが、なかなかきれいになりませんでした。",
+          "vi": "Sàn nhà đang bị bẩn. Tôi vội lau nhưng mãi không sạch được.",
+          "vocab": [
+            {
+              "w": "床",
+              "read": "ゆか",
+              "vi": "sàn nhà"
+            },
+            {
+              "w": "汚れています",
+              "read": "よごれています",
+              "vi": "đang bẩn — từ 汚れる (自動詞)"
+            },
+            {
+              "w": "急いで",
+              "read": "いそいで",
+              "vi": "vội vàng"
+            },
+            {
+              "w": "拭きます",
+              "read": "ふきます",
+              "vi": "lau, chùi"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi không, cứ không (+ phủ định)"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "きれいになります",
+              "read": "きれいになります",
+              "vi": "trở nên sạch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 汚れる → Vています（結果状態）",
+              "vi": "床が汚れています — sàn nhà đang ở trạng thái bẩn (kết quả của việc trứng rơi). 汚れる là 自動詞: sàn nhà TỰ bị bẩn, không có を."
+            },
+            {
+              "point": "〜になりません（Bài 19）",
+              "vi": "きれいになりませんでした = đã không trở nên sạch. 〜になる chỉ sự thay đổi trạng thái."
+            }
+          ]
+        },
+        {
+          "jp": "次に、会社へ行く前に鍵をかばんに入れようとしたとき、鍵が見つかりませんでした。",
+          "vi": "Tiếp theo, khi tôi định bỏ chìa khoá vào túi trước khi đi làm, thì không tìm thấy chìa.",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khoá, ổ khoá"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "bỏ vào — 他動詞"
+            },
+            {
+              "w": "見つかります",
+              "read": "みつかります",
+              "vi": "được tìm thấy, xuất hiện — 自動詞"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに（Bài 18）",
+              "vi": "行く前に = trước khi đi. Vる＋まえに là mẫu ôn bài 18."
+            },
+            {
+              "point": "〜ようとしたとき",
+              "vi": "入れようとしたとき = khi định làm việc gì đó. 意向形＋としたとき chỉ thời điểm định hành động nhưng bị cản."
+            },
+            {
+              "point": "自動詞 見つかります",
+              "vi": "鍵が見つかりませんでした — chìa khoá không được tìm thấy (自動詞: vật tự xuất hiện hoặc không). Khác 見つけます（他動詞: người chủ động tìm）."
+            }
+          ]
+        },
+        {
+          "jp": "部屋を探したら、鍵がドアに刺さったままになっていました。",
+          "vi": "Khi tìm trong phòng thì thấy chìa khoá vẫn đang cắm ở cửa.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "探します",
+              "read": "さがします",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khoá, ổ khoá"
+            },
+            {
+              "w": "ドア",
+              "read": "ドア",
+              "vi": "cánh cửa"
+            },
+            {
+              "w": "刺さります",
+              "read": "ささります",
+              "vi": "cắm vào, ghim vào — 自動詞"
+            },
+            {
+              "w": "まま",
+              "read": "まま",
+              "vi": "vẫn còn nguyên trạng thái (cắm mà không rút ra)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "探したら = khi tìm thì (phát hiện ra). たら chỉ sự kiện xảy ra và hệ quả bất ngờ."
+            },
+            {
+              "point": "自動詞 刺さる → Vています（結果状態）",
+              "vi": "鍵が刺さったままになっていました — chìa khoá vẫn ở trạng thái cắm vào (自動詞). Chuỗi Vた＋まま = nguyên trạng thái đó."
+            }
+          ]
+        },
+        {
+          "jp": "昨日の夜、ドアを閉めたとき、鍵を抜くのを忘れてしまったんです。",
+          "vi": "Tối qua khi đóng cửa, tôi đã lỡ quên không rút chìa ra.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối, đêm"
+            },
+            {
+              "w": "ドア",
+              "read": "ドア",
+              "vi": "cánh cửa"
+            },
+            {
+              "w": "閉めます",
+              "read": "しめます",
+              "vi": "đóng — 他動詞"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khoá, ổ khoá"
+            },
+            {
+              "w": "抜きます",
+              "read": "ぬきます",
+              "vi": "rút ra, kéo ra — 他動詞"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 閉めます・抜きます",
+              "vi": "ドアを閉めた（他動詞: đóng cửa）; 鍵を抜く（他動詞: rút chìa）— đều có を, người chủ động."
+            },
+            {
+              "point": "Vてしまいました＋んです（Bài 26）",
+              "vi": "忘れてしまったんです = đã lỡ quên mất (giải thích lý do). んです/のです nhấn mạnh đây là giải thích cho tình huống trên."
+            },
+            {
+              "point": "Vるのを忘れます（Bài 22）",
+              "vi": "鍵を抜くのを忘れた = quên việc rút chìa. のを nominalise mệnh đề."
+            }
+          ]
+        },
+        {
+          "jp": "電車の中では、ゲームをしながらスタンドから手を離したら、スマホが座席の下に落ちてしまいました。",
+          "vi": "Trên tàu điện, tôi vừa chơi game vừa buông tay khỏi giá đỡ thì điện thoại lỡ rơi xuống dưới ghế.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "ゲーム",
+              "read": "ゲーム",
+              "vi": "trò chơi"
+            },
+            {
+              "w": "しながら",
+              "read": "しながら",
+              "vi": "vừa làm vừa..."
+            },
+            {
+              "w": "スタンド",
+              "read": "スタンド",
+              "vi": "giá đỡ"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "bàn tay"
+            },
+            {
+              "w": "手を離したら",
+              "read": "てをはなしたら",
+              "vi": "khi buông tay"
+            },
+            {
+              "w": "離したら",
+              "read": "はなしたら",
+              "vi": "khi buông ra"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "座席",
+              "read": "ざせき",
+              "vi": "ghế ngồi"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "phía dưới"
+            },
+            {
+              "w": "落ちてしまいました",
+              "read": "おちてしまいました",
+              "vi": "đã rơi mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vながら（Bài 28）",
+              "vi": "ゲームをしながら = vừa chơi game vừa (làm gì khác). Hai hành động cùng lúc."
+            },
+            {
+              "point": "自動詞 落ちる vs 他動詞 落とす",
+              "vi": "スマホが落ちてしまいました — điện thoại TỰ rơi (自動詞: 落ちる, chủ thể là điện thoại, không có を). Khác với short passage: 落としてしまいました（他動詞 落とす: người làm rơi）."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "手を離したら = khi buông tay thì (kết quả bất ngờ: điện thoại rơi)."
+            }
+          ]
+        },
+        {
+          "jp": "拾おうとしたとき、電車のドアが閉まってしまいました。",
+          "vi": "Khi tôi định nhặt lên thì cửa tàu đã đóng lại mất.",
+          "vocab": [
+            {
+              "w": "拾います",
+              "read": "ひろいます",
+              "vi": "nhặt lên"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "ドア",
+              "read": "ドア",
+              "vi": "cánh cửa"
+            },
+            {
+              "w": "閉まります",
+              "read": "しまります",
+              "vi": "đóng lại (tự đóng) — 自動詞"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 閉まる vs 他動詞 閉める",
+              "vi": "ドアが閉まった（自動詞: cửa TỰ đóng）↔ ドアを閉めた（他動詞: ai đó đóng cửa）. Cánh cửa tàu tự đóng nên dùng 自動詞."
+            },
+            {
+              "point": "Vてしまいました",
+              "vi": "閉まってしまいました — cửa đã đóng mất (kết quả không mong muốn với người nói)."
+            }
+          ]
+        },
+        {
+          "jp": "次の駅で降りて、また乗りましたが、遅刻してしまいました。",
+          "vi": "Tôi xuống ở ga tiếp theo rồi lại lên tàu, nhưng đã bị trễ.",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga (tàu điện)"
+            },
+            {
+              "w": "降ります",
+              "read": "おります",
+              "vi": "xuống (phương tiện)"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên, đi (phương tiện)"
+            },
+            {
+              "w": "遅刻します",
+              "read": "ちこくします",
+              "vi": "đi trễ, đến muộn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（nối trình tự, Bài 16）",
+              "vi": "降りて、また乗りました = xuống rồi lên lại. て nối các hành động theo thứ tự."
+            },
+            {
+              "point": "Vてしまいました",
+              "vi": "遅刻してしまいました = đã bị trễ mất (kết quả không mong muốn)."
+            }
+          ]
+        },
+        {
+          "jp": "会社では、田中さんのコーヒーを間違えて飲んでしまいました。",
+          "vi": "Ở công ty, tôi đã lỡ uống nhầm cà phê của anh Tanaka.",
+          "vocab": [
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "間違えて",
+              "read": "まちがえて",
+              "vi": "nhầm lẫn, lỡ nhầm (thể て của 間違えます)"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまいました（間違えて〜）",
+              "vi": "間違えて飲んでしまった = uống nhầm mất. 間違えて là thể て chỉ cách thức/lý do (nhầm lẫn mà uống)."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんのカップに私の名前があると思ったんです。でも、よく見たら、「田中」の名前でした。",
+          "vi": "Tôi tưởng trên cốc của anh ấy có tên tôi. Nhưng khi nhìn kỹ thì thấy đó là tên \"Tanaka\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "カップ",
+              "read": "カップ",
+              "vi": "cốc"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            },
+            {
+              "w": "思ったんです",
+              "read": "おもったんです",
+              "vi": "đã nghĩ rằng"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "kỹ, rõ"
+            },
+            {
+              "w": "見たら",
+              "read": "みたら",
+              "vi": "khi nhìn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "私の名前があると思った = tưởng là có tên tôi. Diễn đạt suy nghĩ/nhận định lúc đó."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "よく見たら = khi nhìn kỹ thì (phát hiện ra điều bất ngờ)."
+            },
+            {
+              "point": "NはNでした（Bài 2）",
+              "vi": "「田中」の名前でした = đó là tên Tanaka. Câu xác nhận danh từ đơn giản."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんに謝ったら、田中さんは笑って「大丈夫ですよ」と言ってくれました。",
+          "vi": "Tôi xin lỗi anh Tanaka thì anh ấy cười và nói \"Không sao đâu\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "謝ります",
+              "read": "あやまります",
+              "vi": "xin lỗi, tạ lỗi"
+            },
+            {
+              "w": "笑います",
+              "read": "わらいます",
+              "vi": "cười"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "không sao, ổn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "謝ったら = khi xin lỗi thì (kết quả là anh Tanaka phản ứng tốt)."
+            },
+            {
+              "point": "〜と言ってくれました（Bài 24）",
+              "vi": "「大丈夫ですよ」と言ってくれました = đã nói cho tôi nghe/vì tôi. くれる chỉ hành động người khác làm lợi cho người nói."
+            }
+          ]
+        },
+        {
+          "jp": "帰りに、コンビニでお菓子を買ったとき、財布からカードを出したら、カードが機械の中に入ったまま出てきませんでした。",
+          "vi": "Trên đường về, khi mua đồ ăn vặt ở cửa hàng tiện lợi, tôi lấy thẻ ra từ ví thì thẻ chui vào trong máy mà không ra được.",
+          "vocab": [
+            {
+              "w": "帰りに",
+              "read": "かえりに",
+              "vi": "trên đường về"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi (convenience store)"
+            },
+            {
+              "w": "お菓子",
+              "read": "おかし",
+              "vi": "đồ ăn vặt, bánh kẹo"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "財布",
+              "read": "さいふ",
+              "vi": "ví"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (ngân hàng/tín dụng)"
+            },
+            {
+              "w": "出てきます",
+              "read": "でてきます",
+              "vi": "ra (từ trong ra ngoài)"
+            },
+            {
+              "w": "機械",
+              "read": "きかい",
+              "vi": "máy móc, thiết bị"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "vào, chui vào — 自動詞"
+            },
+            {
+              "w": "出します",
+              "read": "だします",
+              "vi": "lấy ra, đưa ra — 他動詞"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 入ります",
+              "vi": "カードが機械の中に入った — thẻ TỰ vào trong máy (自動詞 入る: chủ thể là thẻ, không có を). Khác 入れます（他動詞: ai đó bỏ vào）."
+            },
+            {
+              "point": "Vたまま",
+              "vi": "入ったまま出てきませんでした = chui vào rồi nguyên đó không ra. Vた＋まま = giữ nguyên trạng thái hành động đó."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "カードを出したら = khi lấy thẻ ra thì (kết quả bất ngờ)."
+            }
+          ]
+        },
+        {
+          "jp": "店員さんを呼んで、やっと取り出せました。",
+          "vi": "Tôi gọi nhân viên đến và mới lấy ra được.",
+          "vocab": [
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            },
+            {
+              "w": "呼びます",
+              "read": "よびます",
+              "vi": "gọi (người)"
+            },
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng mới, vất vả lắm mới"
+            },
+            {
+              "w": "取り出します",
+              "read": "とりだします",
+              "vi": "lấy ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "取り出せました = đã lấy ra được (thể khả năng của 取り出します). Bài 27 ôn lại."
+            },
+            {
+              "point": "Vて（nối, Bài 16）",
+              "vi": "呼んで、やっと取り出せた = gọi nhân viên rồi mới lấy ra được."
+            }
+          ]
+        },
+        {
+          "jp": "家に帰ったら、電気がついていましたが、電気をつけた覚えがありません。",
+          "vi": "Khi về đến nhà thì đèn đang bật, nhưng tôi không nhớ là đã bật đèn.",
+          "vocab": [
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "覚え",
+              "read": "おぼえ",
+              "vi": "ký ức, trí nhớ (覚えがある = có nhớ/có ký ức)"
+            },
+            {
+              "w": "ついています",
+              "read": "ついています",
+              "vi": "đang bật (đèn) — từ つく (自動詞)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 つく → Vています（結果状態）",
+              "vi": "電気がついています — đèn đang ở trạng thái bật (自動詞 つく: đèn TỰ bật/ở trạng thái sáng). Khác 電気をつける（他動詞: ai đó bật đèn）."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "帰ったら = khi về đến nhà thì (phát hiện điều bất ngờ)."
+            }
+          ]
+        },
+        {
+          "jp": "昨日の夜、部屋を出るとき、電気を消すのを忘れてしまったと思います。",
+          "vi": "Tôi nghĩ là tối qua khi ra khỏi phòng tôi đã lỡ quên không tắt đèn.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra khỏi"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "消します",
+              "read": "けします",
+              "vi": "tắt (đèn/lửa) — 他動詞"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 消します vs 自動詞 消えます",
+              "vi": "電気を消す（他動詞: người tắt đèn, có を）↔ 電気が消える（自動詞: đèn tự tắt）. Ở đây người nói muốn nói là đáng lẽ phải TẮT nhưng quên nên dùng 他動詞."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "忘れてしまったと思います = tôi nghĩ là đã lỡ quên mất. と思います diễn đạt suy nghĩ/nhận định của bản thân (trong scope Bài 21)."
+            },
+            {
+              "point": "Vるのを忘れます（Bài 22）",
+              "vi": "電気を消すのを忘れた = quên việc tắt đèn. のを nominalise mệnh đề động từ."
+            }
+          ]
+        },
+        {
+          "jp": "今日は本当に色々なことがありました。明日はもっと気をつけます。",
+          "vi": "Hôm nay thật sự có nhiều chuyện xảy ra. Ngày mai tôi sẽ cẩn thận hơn.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "色々",
+              "read": "いろいろ",
+              "vi": "nhiều thứ, sự đa dạng"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa, càng thêm"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "cẩn thận, chú ý"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Câu kết luận nhật ký",
+              "vi": "Tóm tắt ngày và nêu quyết tâm. もっと〜ます = sẽ làm hơn nữa."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "床が汚れています",
+          "label": "自動詞 汚れる → 結果状態"
+        },
+        {
+          "excerpt": "鍵がドアに刺さったままになっていました",
+          "label": "自動詞 刺さる → Vたまま"
+        },
+        {
+          "excerpt": "電車のドアが閉まってしまいました",
+          "label": "自動詞 閉まる＋てしまいました"
+        },
+        {
+          "excerpt": "電気がついていましたが",
+          "label": "自動詞 つく → 結果状態（Vている）"
+        },
+        {
+          "excerpt": "電気を消すのを忘れてしまったと思います",
+          "label": "他動詞 消す＋Vてしまいました＋と思います（Bài 21）"
+        },
+        {
+          "excerpt": "カードが機械の中に入ったまま出てきませんでした",
+          "label": "自動詞 入る → Vたまま"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんが朝、台所でしてしまったことは何ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "床が汚れているのを拭きませんでした",
+            "卵を床に落としてしまいました",
+            "朝ごはんを作るのを忘れてしまいました",
+            "台所の電気を消すのを忘れました"
+          ],
+          "answer": 1,
+          "explainVi": "本文に「台所で朝ごはんを作っていたとき、卵を床に落としてしまいました」とある。他動詞 落とす（卵を落とす = người nói chủ động làm rơi, có を）＋てしまいました（lỡ tay, hối hận）。これが答え。方案0「拭きませんでした」は誤り — 本文に「急いで拭きました」とあり、拭かなかったわけではない（ただしきれいにならなかっただけ）。方案2「朝ごはんを作るのを忘れた」は誤り — 作っていた最中に卵を落としたのであって、作ること自体は忘れていない。方案3「台所の電気を消すのを忘れた」は電気の話は台所ではなく「部屋」のことで、台所の出来事ではない。",
+          "tip": "Với câu hỏi \"してしまったこと\", tìm đúng 他動詞＋てしまいました trong đoạn tương ứng. Đừng nhầm giữa \"không làm được\" (không lau sạch) và \"không làm\" (không lau gì cả).",
+          "qt": {
+            "q": "Buổi sáng, ông Miller đã lỡ làm gì trong bếp?",
+            "o": [
+              "Đã không lau chỗ sàn bị bẩn",
+              "Đã làm rơi trứng xuống sàn",
+              "Đã quên làm bữa sáng",
+              "Đã quên tắt đèn trong bếp"
+            ]
+          }
+        },
+        {
+          "q": "電車でスマホが落ちてしまったのはどうしてですか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "ゲームをやめたから",
+            "スタンドから手を離したから",
+            "電車のドアが閉まったから",
+            "座席に置いたから"
+          ],
+          "answer": 1,
+          "explainVi": "本文に「ゲームをしながらスタンドから手を離したら、スマホが座席の下に落ちてしまいました」とある。〜たら（Bài 25: khi làm việc đó thì kết quả bất ngờ xảy ra）の構造で、「手を離した」が直接の原因、「スマホが落ちた」がその結果。答えは方案1。方案0「ゲームをやめたから」は不正解 — ゲームをやめたとは書いていない、むしろ「ゲームをしながら」手を離した。方案2「電車のドアが閉まったから」は落ちた後の出来事で、原因ではなく別の問題（電車を降りられなかった理由）。方案3「座席に置いたから」は本文に記述なし。",
+          "tip": "Câu hỏi \"どうして〜ましたか\" — tìm cấu trúc 〜たら hoặc mệnh đề nguyên nhân ngay TRƯỚC kết quả trong bài. Đừng nhầm \"kết quả kéo theo\" với \"nguyên nhân trực tiếp\".",
+          "qt": {
+            "q": "Vì sao điện thoại thông minh bị rơi trên tàu điện?",
+            "o": [
+              "Vì đã ngừng chơi trò chơi",
+              "Vì đã rời tay khỏi giá đỡ",
+              "Vì cửa tàu điện đã đóng",
+              "Vì đã đặt điện thoại lên ghế"
+            ]
+          }
+        },
+        {
+          "q": "帰ったとき、電気がついていた理由は何だと思われますか。",
+          "evi": [
+            15,
+            16
+          ],
+          "options": [
+            "誰かが電気をつけておいたから",
+            "朝、部屋を出るとき、電気を消すのを忘れたから",
+            "電気が自分でつくから",
+            "昨日の夜、電気をつけなかったから"
+          ],
+          "answer": 1,
+          "explainVi": "本文に「昨日の夜、部屋を出るとき、電気を消すのを忘れてしまったと思います」とある。他動詞 消す（電気を消す = ai đó tắt đèn, có を）のを忘れた＋てしまいました（lỡ quên） → đèn không tắt nên vẫn sáng khi về. これが答え（方案1）。方案0「誰かがつけておいた」は本文に根拠なし — ミラーさんは一人暮らしの設定で誰かが入った描写がない。方案2「電気が自分でつく」は自動詞 つく の誤用で、電気が勝手につくわけではない、消し忘れただけ。方案3「昨日の夜、電気をつけなかったから」は全く逆 — つけなかったなら帰ったとき消えているはず。",
+          "tip": "自動詞 つく（電気がつく）= đèn ở trạng thái bật; 他動詞 つける（電気をつける）= ai đó bật đèn; 他動詞 消す（電気を消す）= ai đó tắt đèn. Câu hỏi suy luận: nguyên nhân phải có căn cứ trong bài, loại đáp án không có bằng chứng.",
+          "qt": {
+            "q": "Theo bạn, lý do đèn đang bật khi người đó về nhà là gì?",
+            "o": [
+              "Vì có ai đó đã bật đèn sẵn",
+              "Vì buổi sáng, lúc ra khỏi phòng, người đó đã quên tắt đèn",
+              "Vì đèn tự bật",
+              "Vì tối hôm qua người đó đã không bật đèn"
+            ]
+          }
+        },
+        {
+          "q": "「電気がついています」の文で、「つく」はどんな動詞ですか。",
+          "evi": [
+            15
+          ],
+          "options": [
+            "他動詞です。電気をつける人がいます",
+            "自動詞です。電気が自分でついている状態です",
+            "他動詞です。でも、をがありません",
+            "自動詞です。でも、意味は「電気をつけます」と同じです"
+          ],
+          "answer": 1,
+          "explainVi": "「電気がついています」の「つく」は自動詞。証拠：主語は「電気が」（が格、vật làm chủ thể）で、をがない（自動詞に を は不要）。つく＋ています＝結果状態「đèn đang ở trạng thái bật」。方案0「他動詞、つける人がいる」は誤り — この文に「誰かが電気をつけている」という人物は登場しない。方案2「他動詞だがをがない」は矛盾：他動詞は基本的に を を取る；をがなければ他動詞と判断できない。方案3「自動詞だが意味はつけますと同じ」は誤り — つく（自動詞：状態/結果）と つける（他動詞：人の行為）は全く意味が異なる。",
+          "tip": "自動詞 = chủ thể là VẬT ＋ が, KHÔNG có を → kết quả/trạng thái (電気がつく・消える・開く). 他動詞 = chủ thể là NGƯỜI ＋ を → người chủ động tác động (電気をつける・消す・開ける).",
+          "qt": {
+            "q": "Trong câu 「電気がついています」 (“đèn đang bật”), 「つく」 là loại động từ nào?",
+            "o": [
+              "Là ngoại động từ. Có người bật đèn",
+              "Là nội động từ. Đèn ở trong trạng thái tự bật",
+              "Là ngoại động từ. Nhưng không có trợ từ を",
+              "Là nội động từ. Nhưng nghĩa giống với 「電気をつけます」 (“bật đèn”)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Thang máy hỏng và lớp học sửa đồ",
+      "japanese": "さくら市国際交流センター　お知らせ\n2階のエレベーターが壊れていますから、しばらく使えません。今、修理をしています。\nエレベーターが直るまで、2階へは階段を使ってください。\nまた、今週から「こわれた物を直す教室」を始めます。だれでも参加できます。\n教室｜曜日｜時間｜場所｜お金\n傘を直す教室｜火｜18:00〜19:30｜3階　会議室｜300円\n自転車を直す教室｜木｜18:00〜20:00｜1階　駐輪場｜500円\n時計を直す教室｜土｜10:00〜11:30｜3階　会議室｜300円\n※火曜日の教室は、参加する人が多いですから、先に電話で申し込んでください。\n※木曜日と土曜日の教室は、申し込みをしなくても参加できます。\n※教室の道具はセンターにありますから、持って来なくても大丈夫です。\n電話：0120-45-6789（月〜金　9:00〜17:00）\n場所：さくら市国際交流センター　1階　受付",
+      "vietnamese": "Trung tâm giao lưu quốc tế thành phố Sakura　Thông báo\nVì thang máy ở tầng 2 đang bị hỏng nên tạm thời không dùng được. Hiện đang sửa chữa.\nCho đến khi thang máy được sửa xong, xin hãy dùng cầu thang để lên tầng 2.\nNgoài ra, từ tuần này chúng tôi bắt đầu mở \"Lớp học sửa đồ bị hỏng\". Ai cũng có thể tham gia.\nLớp học｜Thứ｜Giờ｜Địa điểm｜Tiền\nLớp sửa ô｜Thứ 3｜18:00〜19:30｜Phòng họp tầng 3｜300 yên\nLớp sửa xe đạp｜Thứ 5｜18:00〜20:00｜Bãi để xe tầng 1｜500 yên\nLớp sửa đồng hồ｜Thứ 7｜10:00〜11:30｜Phòng họp tầng 3｜300 yên\n※Lớp thứ 3 có nhiều người tham gia nên xin hãy gọi điện đăng ký trước.\n※Lớp thứ 5 và thứ 7 không cần đăng ký cũng có thể tham gia.\n※Dụng cụ của lớp học đã có sẵn ở trung tâm nên không mang theo cũng không sao.\nĐiện thoại: 0120-45-6789 (Thứ 2〜Thứ 6　9:00〜17:00)\nĐịa điểm: Trung tâm giao lưu quốc tế thành phố Sakura　Quầy lễ tân tầng 1",
+      "sentences": [
+        {
+          "jp": "さくら市国際交流センター　お知らせ",
+          "vi": "Trung tâm giao lưu quốc tế thành phố Sakura Thông báo",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng đầu tiên là tên nơi gửi + loại văn bản, không có động từ."
+            }
+          ]
+        },
+        {
+          "jp": "2階のエレベーターが壊れていますから、しばらく使えません。今、修理をしています。",
+          "vi": "Vì thang máy ở tầng 2 đang bị hỏng nên tạm thời không dùng được. Hiện đang sửa chữa.",
+          "vocab": [
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "壊れています",
+              "read": "こわれています",
+              "vi": "đang bị hỏng — từ 壊れる (自動詞)"
+            },
+            {
+              "w": "しばらく",
+              "read": "しばらく",
+              "vi": "tạm thời, một thời gian"
+            },
+            {
+              "w": "使えません",
+              "read": "つかえません",
+              "vi": "không dùng được (thể khả năng phủ định)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "việc sửa chữa"
+            },
+            {
+              "w": "2階",
+              "read": "にかい",
+              "vi": "tầng 2"
+            },
+            {
+              "w": "しています",
+              "read": "しています",
+              "vi": "đang làm (thể tiếp diễn của します)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 壊れる → Vています（結果状態）",
+              "vi": "エレベーターが壊れています — thang máy đang ở trạng thái hỏng (kết quả còn tồn tại). 壊れる là 自動詞: thang máy TỰ ở trạng thái hỏng, không có を, khác 壊す（他動詞：ai đó làm hỏng）."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "使えません = không dùng được. Ôn lại thể khả năng của 使います."
+            },
+            {
+              "point": "〜から（lý do, Bài 9）",
+              "vi": "壊れていますから = vì đang hỏng nên. から nối lý do, ôn lại Bài 9."
+            }
+          ],
+          "keys": [
+            {
+              "w": "エレベーターが壊れています",
+              "why": "Căn cứ chính câu hỏi 2: thang máy VẪN đang trong trạng thái hỏng (自動詞＋ています＝kết quả còn tồn tại), không phải đã sửa xong."
+            }
+          ]
+        },
+        {
+          "jp": "エレベーターが直るまで、2階へは階段を使ってください。",
+          "vi": "Cho đến khi thang máy được sửa xong, xin hãy dùng cầu thang để lên tầng 2.",
+          "vocab": [
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "直ります",
+              "read": "なおります",
+              "vi": "được sửa xong, khỏi (bệnh) — 自動詞"
+            },
+            {
+              "w": "階段",
+              "read": "かいだん",
+              "vi": "cầu thang"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 直る（対 他動詞 直す）",
+              "vi": "エレベーターが直るまで — thang máy TỰ được sửa xong (自動詞 直る, có が, không có を). Khác 直す（他動詞：người thợ sửa nó）."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "階段を使ってください = xin hãy dùng cầu thang. Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "エレベーターが直るまで",
+              "why": "Xác nhận thêm cho câu hỏi 2: dùng まで (chưa xong) nghĩa là tại thời điểm thông báo thang máy CHƯA được sửa xong."
+            }
+          ]
+        },
+        {
+          "jp": "また、今週から「こわれた物を直す教室」を始めます。だれでも参加できます。",
+          "vi": "Ngoài ra, từ tuần này chúng tôi bắt đầu mở \"Lớp học sửa đồ bị hỏng\". Ai cũng có thể tham gia.",
+          "vocab": [
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "こわれる",
+              "read": "こわれる",
+              "vi": "bị hỏng, bị vỡ"
+            },
+            {
+              "w": "直す",
+              "read": "なおす",
+              "vi": "sửa chữa, chỉnh sửa"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu (làm gì) — 他動詞"
+            },
+            {
+              "w": "参加できます",
+              "read": "さんかできます",
+              "vi": "có thể tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "こわれた物",
+              "read": "こわれたもの",
+              "vi": "đồ bị hỏng"
+            },
+            {
+              "w": "だれでも",
+              "read": "だれでも",
+              "vi": "ai cũng, bất kỳ ai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 壊す → Vた＋Ｎ（mệnh đề bổ nghĩa, Bài 22）",
+              "vi": "こわれた物 = đồ vật đã bị hỏng (mệnh đề Vた bổ nghĩa cho 物, ôn Bài 22)."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "参加できます = có thể tham gia. Ôn thể khả năng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "だれでも参加できます",
+              "why": "Xác nhận lớp học mở cho MỌI ĐỐI TƯỢNG — loại phương án nào giới hạn người tham gia theo điều kiện khác."
+            }
+          ]
+        },
+        {
+          "jp": "教室｜曜日｜時間｜場所｜お金",
+          "vi": "Lớp học｜Thứ｜Giờ｜Địa điểm｜Tiền",
+          "vocab": [
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng tiêu đề bảng",
+              "vi": "Header của bảng: tên cột lớp học / thứ / giờ / địa điểm / tiền."
+            }
+          ],
+          "keys": [
+            {
+              "w": "教室｜曜日｜時間｜場所｜お金",
+              "why": "Header 5 cột then chốt — phải khớp đúng cột thứ/giờ/giá khi đối chiếu từng hàng bảng cho câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "傘を直す教室｜火｜18:00〜19:30｜3階　会議室｜300円",
+          "vi": "Lớp sửa ô｜Thứ 3｜18:00〜19:30｜Phòng họp tầng 3｜300 yên",
+          "vocab": [
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "直す",
+              "read": "なおす",
+              "vi": "sửa chữa"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "18:00〜19:30",
+              "read": "じゅうはちじからじゅうくじさんじゅっぷんまで",
+              "vi": "từ 18:00 đến 19:30"
+            },
+            {
+              "w": "3階",
+              "read": "さんがい",
+              "vi": "tầng 3"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 直す（対 自動詞 直る）",
+              "vi": "傘を直す教室 — lớp học người ta CHỦ ĐỘNG sửa cái ô (他動詞 直す, có を). Khác 直る ở trên (自動詞: tự khỏi/tự được sửa)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火｜18:00〜19:30｜3階　会議室｜300円",
+              "why": "Hàng bảng căn cứ chính câu hỏi 1: lớp thứ 3, giá 300円 — rẻ nhất trong 2 lớp tối thứ 3/thứ 5."
+            }
+          ]
+        },
+        {
+          "jp": "自転車を直す教室｜木｜18:00〜20:00｜1階　駐輪場｜500円",
+          "vi": "Lớp sửa xe đạp｜Thứ 5｜18:00〜20:00｜Bãi để xe tầng 1｜500 yên",
+          "vocab": [
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "直す",
+              "read": "なおす",
+              "vi": "sửa chữa"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "18:00〜20:00",
+              "read": "じゅうはちじからにじまで",
+              "vi": "từ 18:00 đến 20:00"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "駐輪場",
+              "read": "ちゅうりんじょう",
+              "vi": "bãi đỗ xe đạp"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 直す",
+              "vi": "自転車を直す教室 = lớp sửa xe đạp. Cùng mẫu với hàng trên (他動詞＋を)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "木｜18:00〜20:00｜1階　駐輪場｜500円",
+              "why": "Nhiễu câu hỏi 1: cũng tối thứ 5 nhưng giá 500円 đắt hơn — loại vì đề bài muốn rẻ nhất."
+            }
+          ]
+        },
+        {
+          "jp": "時計を直す教室｜土｜10:00〜11:30｜3階　会議室｜300円",
+          "vi": "Lớp sửa đồng hồ｜Thứ 7｜10:00〜11:30｜Phòng họp tầng 3｜300 yên",
+          "vocab": [
+            {
+              "w": "時計",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "直す",
+              "read": "なおす",
+              "vi": "sửa chữa"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "10:00〜11:30",
+              "read": "じゅうじからじゅういちじさんじゅっぷんまで",
+              "vi": "từ 10:00 đến 11:30"
+            },
+            {
+              "w": "3階",
+              "read": "さんがい",
+              "vi": "tầng 3"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "他動詞 直す",
+              "vi": "時計を直す教室 = lớp sửa đồng hồ. Hàng thứ 3 của bảng, cùng cấu trúc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "時計を直す教室｜土｜10:00〜11:30｜3階　会議室｜300円",
+              "why": "Nhiễu câu hỏi 1: cùng giá 300円 rẻ nhất nhưng SAI thứ và giờ (thứ 7 buổi sáng, không phải tối thứ 3/thứ 5 mà Lee cần)."
+            }
+          ]
+        },
+        {
+          "jp": "※火曜日の教室は、参加する人が多いですから、先に電話で申し込んでください。",
+          "vi": "※Lớp thứ 3 có nhiều người tham gia nên xin hãy gọi điện đăng ký trước.",
+          "vocab": [
+            {
+              "w": "火曜日",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "先に",
+              "read": "さきに",
+              "vi": "trước tiên"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "参加する人",
+              "read": "さんかするひと",
+              "vi": "người tham gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（lý do、Bài 9）",
+              "vi": "人が多いですから = vì có nhiều người nên. から ôn lại Bài 9."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "申し込んでください = xin hãy đăng ký. Yêu cầu lịch sự với người đọc thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※火曜日の教室は、参加する人が多いですから、先に電話で申し込んでください",
+              "why": "Dòng ※ bẫy câu hỏi 1: lớp thứ 3 (đã chọn vì rẻ) BẮT BUỘC gọi điện đăng ký trước — loại phương án \"không đăng ký\"."
+            }
+          ]
+        },
+        {
+          "jp": "※木曜日と土曜日の教室は、申し込みをしなくても参加できます。",
+          "vi": "※Lớp thứ 5 và thứ 7 không cần đăng ký cũng có thể tham gia.",
+          "vocab": [
+            {
+              "w": "木曜日",
+              "read": "もくようび",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "しなくても",
+              "read": "しなくても",
+              "vi": "dù không làm cũng (thể ない＋なくても)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vなくてもいいです（Bài 17、rút gọn）",
+              "vi": "申し込みをしなくても参加できます = không đăng ký cũng tham gia được. なくても ôn từ Bài 17."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "参加できます = có thể tham gia. Xuất hiện lặp lại trong thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "木曜日と土曜日の教室は、申し込みをしなくても参加できます",
+              "why": "Đối lập trực tiếp với dòng ※ thứ 3: xác nhận CHỈ thứ 3 mới cần đăng ký, còn thứ 5/thứ 7 thì không — quan trọng để không nhầm áp dụng cho cả 3 lớp."
+            }
+          ]
+        },
+        {
+          "jp": "※教室の道具はセンターにありますから、持って来なくても大丈夫です。",
+          "vi": "※Dụng cụ của lớp học đã có sẵn ở trung tâm nên không mang theo cũng không sao.",
+          "vocab": [
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "dụng cụ"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "không sao, ổn"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có (đồ vật)"
+            },
+            {
+              "w": "持って来ます",
+              "read": "もってきます",
+              "vi": "mang đến, mang theo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにあります（Bài 10）",
+              "vi": "道具はセンターにあります = dụng cụ có ở trung tâm. Ôn lại mẫu chỉ vị trí vật vô tri của Bài 10."
+            },
+            {
+              "point": "〜から（lý do、Bài 9）",
+              "vi": "センターにありますから = vì đã có sẵn ở trung tâm nên. から nối lý do cho việc không cần mang theo."
+            }
+          ]
+        },
+        {
+          "jp": "電話：0120-45-6789（月〜金　9:00〜17:00）",
+          "vi": "Điện thoại: 0120-45-6789 (Thứ 2〜Thứ 6　9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつ〜きん",
+              "vi": "thứ 2 đến thứ 6"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thông tin liên hệ",
+              "vi": "Số điện thoại + giờ làm việc, không cần động từ, dạng liệt kê."
+            }
+          ]
+        },
+        {
+          "jp": "場所：さくら市国際交流センター　1階　受付",
+          "vi": "Địa điểm: Trung tâm giao lưu quốc tế thành phố Sakura Quầy lễ tân tầng 1",
+          "vocab": [
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "さくら市国際交流センター",
+              "read": "さくらしこくさいこうりゅうセンター",
+              "vi": "Trung tâm giao lưu quốc tế thành phố Sakura"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            },
+            {
+              "w": "国際交流",
+              "read": "こくさいこうりゅう",
+              "vi": "giao lưu quốc tế"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy tiếp tân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thông tin liên hệ",
+              "vi": "Địa điểm cụ thể, dòng cuối cùng của thông báo."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "エレベーターが壊れています",
+          "label": "自動詞 壊れる → Vています（結果状態）"
+        },
+        {
+          "excerpt": "エレベーターが直るまで",
+          "label": "自動詞 直る（対 他動詞 直す）"
+        },
+        {
+          "excerpt": "傘を直す教室",
+          "label": "他動詞 直す（対 自動詞 直る）"
+        },
+        {
+          "excerpt": "教室の道具はセンターにありますから",
+          "label": "NはNにあります（Bài 10）"
+        },
+        {
+          "excerpt": "参加する人が多いですから",
+          "label": "〜から（lý do、Bài 9）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 0,
+          "kind": "intro",
+          "label": "Tiêu đề",
+          "topic": 0,
+          "note": "Tên nơi gửi thông báo, chưa có thông tin cần dò.",
+          "qs": []
+        },
+        {
+          "from": 1,
+          "to": 3,
+          "kind": "point",
+          "label": "Thang máy hỏng + lớp học mới",
+          "topic": 1,
+          "note": "Nêu tình trạng thang máy CÒN đang hỏng (câu 2 dựa vào đây) và giới thiệu lớp học sửa đồ sắp mở.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng lớp học (thứ/giờ/giá)",
+          "topic": 4,
+          "note": "Bảng 3 lớp: đối chiếu thứ và giá tiền để tìm lớp thứ 3 rẻ nhất (căn cứ câu 1).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 10,
+          "kind": "turn",
+          "label": "Điều kiện ※ đăng ký",
+          "topic": 8,
+          "note": "Bẫy: lớp thứ 3 phải gọi điện đăng ký trước, còn lớp thứ 5/thứ 7 thì không cần — dễ chọn nhầm nếu bỏ qua dòng này.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "body",
+          "label": "Liên hệ",
+          "topic": 11,
+          "note": "Thông tin điện thoại và địa điểm, không liên quan trực tiếp 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは火曜日と木曜日の夜だけ時間があります。安く参加したいです。リーさんはどうしますか。",
+          "options": [
+            "木曜日の自転車を直す教室に、申し込みをしないで行きます",
+            "火曜日の傘を直す教室に、申し込みをしないで行きます",
+            "木曜日の自転車を直す教室に、先に電話で申し込みます",
+            "火曜日の傘を直す教室に、先に電話で申し込みます"
+          ],
+          "answer": 3,
+          "explainVi": "表を見ると、火曜日は「傘を直す教室｜18:00〜19:30｜300円」、木曜日は「自転車を直す教室｜18:00〜20:00｜500円」。リーさんは安く参加したいので、300円の火曜日の教室（傘）を選ぶべき。さらに※の注意に「火曜日の教室は、参加する人が多いので、先に電話で申し込んでください」とあるので、申し込みが必要。よって正解は方案3（火曜日＋電話で申し込む）。方案0と2は木曜日（500円、火曜日より高い）を選んでいるので、安く参加したいという条件に合わない。方案1は火曜日を選んでいるが「申し込みをしないで行く」としており、※の注意（先に電話で申し込む）に反するため誤り。",
+          "tip": "Câu hỏi ghép 2 điều kiện (thời gian rảnh + muốn rẻ) — trước tiên dò bảng để tìm ô giá tiền thấp nhất trong ngày rảnh, sau đó đọc kỹ dòng ※ xem lớp đó có cần đăng ký trước hay không.",
+          "evi": [
+            5,
+            8
+          ],
+          "qt": {
+            "q": "Lee chỉ có thời gian vào buổi tối thứ Ba và thứ Năm. Lee muốn tham gia với chi phí thấp. Lee sẽ làm gì?",
+            "o": [
+              "Đến lớp sửa xe đạp vào thứ Năm mà không đăng ký",
+              "Đến lớp sửa ô vào thứ Ba mà không đăng ký",
+              "Đăng ký trước qua điện thoại lớp sửa xe đạp vào thứ Năm",
+              "Đăng ký trước qua điện thoại lớp sửa ô vào thứ Ba"
+            ]
+          }
+        },
+        {
+          "q": "「エレベーターが壊れています」について、正しいのはどれですか。",
+          "options": [
+            "だれかがエレベーターを壊しました",
+            "エレベーターは今も壊れています",
+            "エレベーターはもう直りました",
+            "エレベーターを直す教室があります"
+          ],
+          "answer": 1,
+          "explainVi": "「壊れています」は自動詞 壊れる＋ています＝結果状態（trạng thái kết quả còn tồn tại）。つまり「今、エレベーターはまだ壊れています」という意味で、方案1が正解。方案0「だれかが壊しました」は他動詞 壊す（có 主体は人）を使った文の意味であり、本文の自動詞とは異なる — 本文はだれが壊したかについて何も言っていない。方案2「もう直りました」は誤り — 本文には「今、修理をしています」「エレベーターが直るまで、階段を使ってください」とあり、まだ直っていない。方案3「エレベーターを直す教室がある」は本文にない — 教室は傘・自転車・時計を直す教室で、エレベーターとは関係ない。",
+          "tip": "自動詞＋ています＝ trạng thái kết quả đang tồn tại (không nói ai gây ra, chỉ nói vật đang ở trạng thái đó). Đừng nhầm với 他動詞 (ai đó chủ động làm) hay suy diễn rằng việc đã xong.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Về câu 「エレベーターが壊れています」 (thang máy đang bị hỏng), điều nào đúng?",
+            "o": [
+              "Ai đó đã làm hỏng thang máy",
+              "Thang máy hiện vẫn đang bị hỏng",
+              "Thang máy đã được sửa xong rồi",
+              "Có lớp học sửa thang máy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "リサイクルセンター見学のお知らせ",
+      "titleVi": "Thông báo tham quan Trung tâm tái chế",
+      "japanese": "さくら市リサイクルセンター　見学のお知らせ\nごみをどうやってリサイクルするか、見に来ませんか。こわれてしまった自転車や家具も、ここでまた使うことができます。\n見学の前に電話で予約してください。予約をしないと見学できません。\nコース｜曜日｜時間｜人数\n午前コース｜火・木｜10:00〜11:00｜1回10人まで\n午後コース｜火・木｜14:00〜15:30｜1回15人まで\n子どもコース｜土｜10:00〜11:00｜1回20人まで（小学生と保護者）\n※こわれた電気製品がたくさん集まっていて危ないですから、子どもは一人で見学しないでください。\n※雨の日はセンターの中だけ見学します。外の機械は見学できません。\n※予約は見学の3日前までにお願いします。\n電話：0120-77-8899（月〜金　9:00〜17:00）\n場所：さくら市リサイクルセンター（さくら駅からバスで15分）",
+      "vietnamese": "Trung tâm tái chế thành phố Sakura　Thông báo tham quan\nBạn có muốn đến xem người ta tái chế rác bằng cách nào không? Xe đạp và đồ nội thất bị hỏng cũng có thể được dùng lại ở đây.\nXin hãy đặt trước bằng điện thoại trước khi tham quan. Nếu không đặt trước thì không thể tham quan.\nKhóa học｜Thứ｜Giờ｜Số người\nKhóa buổi sáng｜Thứ 3・Thứ 5｜10:00〜11:00｜Mỗi lượt tối đa 10 người\nKhóa buổi chiều｜Thứ 3・Thứ 5｜14:00〜15:30｜Mỗi lượt tối đa 15 người\nKhóa dành cho trẻ em｜Thứ 7｜10:00〜11:00｜Mỗi lượt tối đa 20 người (học sinh tiểu học và phụ huynh)\n※Vì có rất nhiều đồ điện bị hỏng tập trung ở đây nên nguy hiểm, xin trẻ em đừng tham quan một mình.\n※Vào ngày mưa chỉ tham quan bên trong trung tâm. Không thể tham quan máy móc ở ngoài.\n※Xin đặt trước chậm nhất 3 ngày trước khi tham quan.\nĐiện thoại: 0120-77-8899 (Thứ 2〜Thứ 6　9:00〜17:00)\nĐịa điểm: Trung tâm tái chế thành phố Sakura (từ ga Sakura đi xe buýt 15 phút)",
+      "sentences": [
+        {
+          "jp": "さくら市リサイクルセンター　見学のお知らせ",
+          "vi": "Trung tâm tái chế thành phố Sakura Thông báo tham quan",
+          "vocab": [
+            {
+              "w": "さくら市リサイクルセンター",
+              "read": "さくらしリサイクルセンター",
+              "vi": "Trung tâm tái chế thành phố Sakura"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "リサイクルセンター",
+              "read": "リサイクルセンター",
+              "vi": "trung tâm tái chế"
+            },
+            {
+              "w": "リサイクル",
+              "read": "リサイクル",
+              "vi": "tái chế"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan, học tập"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng đầu tiên nêu tên nơi + loại việc (tham quan), không có động từ."
+            }
+          ]
+        },
+        {
+          "jp": "ごみをどうやってリサイクルするか、見に来ませんか。こわれてしまった自転車や家具も、ここでまた使うことができます。",
+          "vi": "Bạn có muốn đến xem người ta tái chế rác bằng cách nào không? Xe đạp và đồ nội thất bị hỏng cũng có thể được dùng lại ở đây.",
+          "vocab": [
+            {
+              "w": "リサイクル",
+              "read": "リサイクル",
+              "vi": "sự tái chế"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "こわれる",
+              "read": "こわれる",
+              "vi": "bị hỏng, bị vỡ"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "家具",
+              "read": "かぐ",
+              "vi": "đồ nội thất"
+            },
+            {
+              "w": "使うことができます",
+              "read": "つかうことができます",
+              "vi": "có thể sử dụng được"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "ごみ",
+              "read": "ごみ",
+              "vi": "rác"
+            },
+            {
+              "w": "どうやって",
+              "read": "どうやって",
+              "vi": "bằng cách nào (Bài 16)"
+            },
+            {
+              "w": "見に来ませんか",
+              "read": "みにきませんか",
+              "vi": "bạn có muốn đến xem không"
+            },
+            {
+              "w": "こわれてしまった",
+              "read": "こわれてしまった",
+              "vi": "đã bị hỏng mất — từ 壊れる (自動詞) ＋てしまう"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 壊れる＋てしまいました（quá khứ→bổ nghĩa danh từ）",
+              "vi": "こわれてしまった自転車 = xe đạp đã bị hỏng mất. 壊れる là 自動詞 (không có を), ghép てしまう nhấn mạnh trạng thái hỏng đáng tiếc, dùng thể た bổ nghĩa cho 自転車 (mệnh đề bổ nghĩa danh từ, ôn Bài 22)."
+            },
+            {
+              "point": "どうやって（Bài 16）",
+              "vi": "どうやってリサイクルするか = tái chế bằng cách nào. どうやって hỏi cách thức, ôn lại Bài 16."
+            },
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "使うことができます = có thể sử dụng được. Ôn lại mẫu khả năng Bài 18."
+            }
+          ]
+        },
+        {
+          "jp": "見学の前に電話で予約してください。予約をしないと見学できません。",
+          "vi": "Xin hãy đặt trước bằng điện thoại trước khi tham quan. Nếu không đặt trước thì không thể tham quan.",
+          "vocab": [
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan (học tập)"
+            },
+            {
+              "w": "前に",
+              "read": "まえに",
+              "vi": "trước khi (Bài 18)"
+            },
+            {
+              "w": "電話で",
+              "read": "でんわで",
+              "vi": "bằng điện thoại — で chỉ phương tiện"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのまえに（Bài 18）",
+              "vi": "見学の前に = trước khi tham quan. Ôn lại Bài 18."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "電話で予約してください = xin hãy đặt trước bằng điện thoại."
+            },
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "予約をしないと見学できません = nếu không đặt trước thì không tham quan được (kết quả tất yếu). Ôn lại Bài 23."
+            }
+          ]
+        },
+        {
+          "jp": "コース｜曜日｜時間｜人数",
+          "vi": "Khóa học｜Thứ｜Giờ｜Số người",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học, lộ trình"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng tiêu đề bảng",
+              "vi": "Header của bảng: tên khóa / thứ / giờ / số người."
+            }
+          ]
+        },
+        {
+          "jp": "午前コース｜火・木｜10:00〜11:00｜1回10人まで",
+          "vi": "Khóa buổi sáng｜Thứ 3・Thứ 5｜10:00〜11:00｜Mỗi lượt tối đa 10 người",
+          "vocab": [
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng (trước 12h)"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ 3"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ 5"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lượt, một lần"
+            },
+            {
+              "w": "10人まで",
+              "read": "じゅうにんまで",
+              "vi": "tối đa 10 người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまで（Bài 4/11）",
+              "vi": "10人まで = tối đa 10 người. まで chỉ giới hạn trên, ôn lại từ vựng đếm người Bài 11."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火・木｜10:00〜11:00｜1回10人まで",
+              "why": "Nhiễu câu hỏi 1: cùng thứ 3・5 nhưng là buổi SÁNG, không khớp điều kiện \"chỉ rảnh buổi chiều\"."
+            }
+          ]
+        },
+        {
+          "jp": "午後コース｜火・木｜14:00〜15:30｜1回15人まで",
+          "vi": "Khóa buổi chiều｜Thứ 3・Thứ 5｜14:00〜15:30｜Mỗi lượt tối đa 15 người",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "午後コース",
+              "read": "ごごコース",
+              "vi": "khóa học buổi chiều"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "14:00〜15:30",
+              "read": "じゅうよじからじゅうごじさんじゅっぷんまで",
+              "vi": "từ 14:00 đến 15:30"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "mỗi buổi, một lần"
+            },
+            {
+              "w": "15人",
+              "read": "じゅうごにん",
+              "vi": "15 người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng cùng cấu trúc",
+              "vi": "午後コース = khóa buổi chiều, cùng thứ với khóa sáng nhưng khác giờ và số người."
+            }
+          ],
+          "keys": [
+            {
+              "w": "午後コース｜火・木",
+              "why": "Căn cứ chính câu hỏi 1: đúng thứ (火・木, khớp thứ 3 mà Watt rảnh) + đúng buổi chiều (khớp \"chỉ rảnh buổi chiều\")."
+            },
+            {
+              "w": "1回15人まで",
+              "why": "Căn cứ chính câu hỏi 1: số người tối đa cao nhất (15人) trong 2 khóa có vào thứ 3, khớp yêu cầu \"càng đông càng tốt\"."
+            }
+          ]
+        },
+        {
+          "jp": "子どもコース｜土｜10:00〜11:00｜1回20人まで（小学生と保護者）",
+          "vi": "Khóa dành cho trẻ em｜Thứ 7｜10:00〜11:00｜Mỗi lượt tối đa 20 người (học sinh tiểu học và phụ huynh)",
+          "vocab": [
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "子どもコース",
+              "read": "こどもコース",
+              "vi": "khóa học trẻ em"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "10:00〜11:00",
+              "read": "じゅうじからじゅういちじまで",
+              "vi": "từ 10:00 đến 11:00"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "mỗi buổi, một lần"
+            },
+            {
+              "w": "20人",
+              "read": "にじゅうにん",
+              "vi": "20 người"
+            },
+            {
+              "w": "小学生",
+              "read": "しょうがくせい",
+              "vi": "học sinh tiểu học"
+            },
+            {
+              "w": "保護",
+              "read": "ほご",
+              "vi": "bảo hộ"
+            },
+            {
+              "w": "保護者",
+              "read": "ほごしゃ",
+              "vi": "phụ huynh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng cùng cấu trúc",
+              "vi": "子どもコース = khóa dành cho trẻ em, chỉ mở thứ 7, đi cùng phụ huynh."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土｜10:00〜11:00｜1回20人まで",
+              "why": "Nhiễu câu hỏi 1: số người tối đa cao nhất (20人) nhưng SAI thứ (thứ 7, không phải thứ 3) — bẫy nếu chỉ nhìn số người."
+            }
+          ]
+        },
+        {
+          "jp": "※こわれた電気製品がたくさん集まっていて危ないですから、子どもは一人で見学しないでください。",
+          "vi": "※Vì có rất nhiều đồ điện bị hỏng tập trung ở đây nên nguy hiểm, xin trẻ em đừng tham quan một mình.",
+          "vocab": [
+            {
+              "w": "こわれる",
+              "read": "こわれる",
+              "vi": "bị hỏng, bị vỡ"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "集まっていて",
+              "read": "あつまっていて",
+              "vi": "đang tập trung (thể て) — từ 集まる (自動詞)"
+            },
+            {
+              "w": "危ない",
+              "read": "あぶない",
+              "vi": "nguy hiểm"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan (học tập)"
+            },
+            {
+              "w": "こわれた",
+              "read": "こわれた",
+              "vi": "đã bị hỏng — thể た của 壊れる (自動詞)"
+            },
+            {
+              "w": "電気製品",
+              "read": "でんきせいひん",
+              "vi": "đồ điện, thiết bị điện"
+            },
+            {
+              "w": "一人で",
+              "read": "ひとりで",
+              "vi": "một mình"
+            }
+          ],
+          "keys": [
+            {
+              "w": "集まっていて",
+              "why": "Căn cứ chính câu hỏi 2: 自動詞 集まる＋ています = trạng thái kết quả còn tồn tại (đồ điện tự ở đó, không phải \"ai đó đang gom\"), loại phương án 0."
+            },
+            {
+              "w": "たくさん",
+              "why": "Căn cứ chính câu hỏi 2: xác nhận đồ điện đang có NHIỀU ngay lúc này, loại phương án 3 \"まだ集まっていません\" (chưa tập trung)."
+            }
+          ],
+          "grammar": [
+            {
+              "point": "自動詞 壊れる（Vた＋N）",
+              "vi": "こわれた電気製品 = đồ điện đã bị hỏng. Mệnh đề Vた bổ nghĩa danh từ (Bài 22), 壊れる là 自動詞."
+            },
+            {
+              "point": "自動詞 集まる＋Vています（結果状態）＋て（nối、Bài 16）",
+              "vi": "集まっていて危ないですから — đồ điện đang ở trạng thái tập trung tại đây (kết quả còn tồn tại, 集まる là 自動詞: không có を) rồi nối với 危ないです bằng て (ôn Bài 16)."
+            },
+            {
+              "point": "〜から（lý do、Bài 9）",
+              "vi": "危ないですから = vì nguy hiểm nên. Ôn lại Bài 9."
+            },
+            {
+              "point": "Vないでください（Bài 17）",
+              "vi": "一人で見学しないでください = xin đừng tham quan một mình. Ôn lại Bài 17."
+            }
+          ]
+        },
+        {
+          "jp": "※雨の日はセンターの中だけ見学します。外の機械は見学できません。",
+          "vi": "※Vào ngày mưa chỉ tham quan bên trong trung tâm. Không thể tham quan máy móc ở ngoài.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "雨の日",
+              "read": "あめのひ",
+              "vi": "ngày mưa"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan, học tập"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "機械",
+              "read": "きかい",
+              "vi": "máy móc"
+            },
+            {
+              "w": "できません",
+              "read": "できません",
+              "vi": "không thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "センターの中だけ見学します = chỉ tham quan bên trong trung tâm. Ôn lại Bài 11."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "見学できません = không thể tham quan. Ôn lại thể khả năng Bài 27."
+            }
+          ]
+        },
+        {
+          "jp": "※予約は見学の3日前までにお願いします。",
+          "vi": "※Xin đặt trước chậm nhất 3 ngày trước khi tham quan.",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan (học tập)"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "お願いします",
+              "read": "おねがいします",
+              "vi": "xin nhờ, xin vui lòng"
+            },
+            {
+              "w": "3日前",
+              "read": "みっかまえ",
+              "vi": "3 ngày trước"
+            },
+            {
+              "w": "〜までに",
+              "read": "までに",
+              "vi": "chậm nhất là… (Bài 17)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "3日前までに = chậm nhất là 3 ngày trước. までに chỉ hạn chót, ôn lại Bài 17."
+            }
+          ]
+        },
+        {
+          "jp": "電話：0120-77-8899（月〜金　9:00〜17:00）",
+          "vi": "Điện thoại: 0120-77-8899 (Thứ 2〜Thứ 6　9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつ〜きん",
+              "vi": "thứ 2 đến thứ 6"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thông tin liên hệ",
+              "vi": "Số điện thoại + giờ làm việc, dạng liệt kê, không cần động từ."
+            }
+          ]
+        },
+        {
+          "jp": "場所：さくら市リサイクルセンター（さくら駅からバスで15分）",
+          "vi": "Địa điểm: Trung tâm tái chế thành phố Sakura (từ ga Sakura đi xe buýt 15 phút)",
+          "vocab": [
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura (tên riêng)"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "リサイクルセンター",
+              "read": "りさいくるせんたー",
+              "vi": "trung tâm tái chế"
+            },
+            {
+              "w": "リサイクル",
+              "read": "りさいくる",
+              "vi": "tái chế"
+            },
+            {
+              "w": "センター",
+              "read": "せんたー",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "さくら駅",
+              "read": "さくらえき",
+              "vi": "ga Sakura"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga"
+            },
+            {
+              "w": "バス",
+              "read": "ばす",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "バスで",
+              "read": "ばすで",
+              "vi": "bằng xe buýt"
+            },
+            {
+              "w": "15分",
+              "read": "じゅうごふん",
+              "vi": "15 phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện、Bài 5）",
+              "vi": "バスで15分 = 15 phút bằng xe buýt. で chỉ phương tiện, ôn lại Bài 5."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "こわれてしまった自転車や家具も",
+          "label": "自動詞 壊れる＋てしまいました（bổ nghĩa danh từ）"
+        },
+        {
+          "excerpt": "電気製品がたくさん集まっていて危ないですから",
+          "label": "自動詞 集まる → Vています（結果状態）"
+        },
+        {
+          "excerpt": "使うことができます",
+          "label": "Vることができます（Bài 18）"
+        },
+        {
+          "excerpt": "予約をしないと見学できません",
+          "label": "〜と（Bài 23）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 0,
+          "kind": "intro",
+          "label": "Tiêu đề",
+          "topic": 0,
+          "note": "Tên nơi + loại việc (tham quan), chưa có thông tin cần dò.",
+          "qs": []
+        },
+        {
+          "from": 1,
+          "to": 2,
+          "kind": "body",
+          "label": "Giới thiệu & điều kiện đặt trước",
+          "topic": 2,
+          "note": "Giới thiệu chung việc tái chế và yêu cầu bắt buộc đặt trước bằng điện thoại.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng khóa học (thứ/giờ/số người)",
+          "topic": 3,
+          "note": "Bảng 3 khóa: đối chiếu thứ + buổi + số người tối đa để tìm khóa khớp cả 2 điều kiện của câu 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện ※ & bẫy an toàn",
+          "topic": 7,
+          "note": "Bẫy: dòng ※ đầu tiên nói đồ điện hỏng đang tập trung SẴN tại trung tâm (căn cứ câu 2), không phải \"đang được gom\" hay \"đã hết\".",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "body",
+          "label": "Liên hệ",
+          "topic": 10,
+          "note": "Thông tin điện thoại và địa điểm, không liên quan trực tiếp 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワットさんは火曜日の午後だけ時間があります。できるだけ多くの人といっしょに見学したいです。ワットさんはどのコースに申し込みますか。",
+          "options": [
+            "火曜日の午前コース",
+            "火曜日の午後コース",
+            "木曜日の午後コース",
+            "土曜日の子どもコース"
+          ],
+          "answer": 1,
+          "explainVi": "表を見ると、火曜日にあるのは「午前コース（1回10人まで）」と「午後コース（1回15人まで）」の2つ。ワットさんは火曜日の午後だけ時間があるので、まず時間が合う「火曜日の午後コース」に絞られる。さらに、できるだけ多くの人と見学したいという条件にも15人までの午後コースが合うため、方案1が正解。方案0「火曜日の午前コース」は曜日は合うが、時間が午前でワットさんの空いている時間（午後）と合わない。方案2「木曜日の午後コース」は時間（午後）は合うが曜日が火曜日ではない。方案3「土曜日の子どもコース」は曜日も時間も合わない。",
+          "tip": "Câu hỏi ghép 2 điều kiện (thứ + buổi) — trước tiên lọc theo THỨ và GIỜ trong bảng để còn lại ứng viên hợp lệ, sau đó so thêm điều kiện phụ (số người tối đa) để chọn đúng 1 đáp án.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Anh Watt chỉ có thời gian vào chiều thứ Ba. Anh ấy sẽ đăng ký khóa tham quan nào để đi cùng nhiều người nhất có thể?",
+            "o": [
+              "Khóa buổi sáng thứ Ba",
+              "Khóa buổi chiều thứ Ba",
+              "Khóa buổi chiều thứ Năm",
+              "Khóa dành cho trẻ em vào thứ Bảy"
+            ]
+          }
+        },
+        {
+          "q": "「電気製品がたくさん集まっていて危ないです」について、正しいのはどれですか。",
+          "options": [
+            "だれかが電気製品を集めています",
+            "電気製品は今、センターにたくさんある状態です",
+            "電気製品はもうセンターにありません",
+            "電気製品はまだ集まっていません"
+          ],
+          "answer": 1,
+          "explainVi": "「集まっていて」は自動詞 集まる＋ています（結果状態、trạng thái kết quả còn tồn tại）の て形。つまり「今、電気製品はたくさんセンターに集まった状態である」という意味で、方案1が正解。方案0「だれかが集めています」は他動詞 集める（có 主体 người chủ động: 人が集める）の意味になってしまい、本文の自動詞 集まる とは異なる。方案2「もうセンターにありません」は本文に記述がなく、逆にたくさん集まっているから危ないという文脈と合わない。方案3「まだ集まっていません」は本文の「たくさん集まっていて」と正反対で誤り。",
+          "tip": "自動詞＋ています＝ trạng thái kết quả đang tồn tại (vật tự ở trạng thái đó, không nói ai gom lại). Đừng nhầm với 他動詞 集めます (người chủ động thu gom) hay suy diễn thời điểm khác với hiện tại.",
+          "evi": [
+            7
+          ],
+          "qt": {
+            "q": "Về câu “Có rất nhiều thiết bị điện tập trung ở đó và nguy hiểm”, câu nào đúng?",
+            "o": [
+              "Có ai đó đang thu gom các thiết bị điện",
+              "Hiện tại, có rất nhiều thiết bị điện ở trung tâm",
+              "Các thiết bị điện không còn ở trung tâm nữa",
+              "Các thiết bị điện vẫn chưa được thu gom"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

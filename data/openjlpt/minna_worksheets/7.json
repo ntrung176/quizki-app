@@ -1,0 +1,376 @@
+{
+  "bai": 7,
+  "bunpou": [
+    {
+      "stem": "わたしは はし＿ ごはんを 食[た]べます。",
+      "choices": [
+        "で",
+        "を",
+        "に",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "はし (đũa) là công cụ thực hiện hành động → で (手段); を đã dùng cho tân ngữ ごはん."
+    },
+    {
+      "stem": "山田[やまだ]さん＿ 花[はな]を あげます。",
+      "choices": [
+        "に",
+        "から",
+        "を",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "あげます (tặng) → người nhận đánh dấu bằng に; から chỉ nguồn gốc, dùng với もらいます."
+    },
+    {
+      "stem": "わたしは 友[とも]だち＿ プレゼントを もらいました。",
+      "choices": [
+        "に",
+        "を",
+        "が",
+        "で"
+      ],
+      "answer": 0,
+      "explain": "もらいます (nhận) thường đi với に hoặc から để chỉ người cho; ở đây に biểu thị nguồn giao tặng."
+    },
+    {
+      "stem": "「もう 昼[ひる]ごはんを 食[た]べましたか。」「いいえ、＿。」",
+      "choices": [
+        "まだです",
+        "もうです",
+        "まだ 食[た]べました",
+        "はい、まだです"
+      ],
+      "answer": 0,
+      "explain": "いいえ + まだです = \"chưa (ăn)\"; もうです không tồn tại; nếu đã ăn phải trả lời \"はい、もう 食[た]べました\"."
+    },
+    {
+      "stem": "ミラーさんは 家族[かぞく]＿ 手紙[てがみ]を もらいました。",
+      "choices": [
+        "から",
+        "に",
+        "で",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "もらいます + から = nhận từ ai; から nhấn mạnh nguồn gốc/xuất phát điểm rõ ràng hơn に trong ngữ cảnh này."
+    },
+    {
+      "stem": "日本語[にほんご]＿ 手紙[てがみ]を 書[か]きました。",
+      "choices": [
+        "で",
+        "を",
+        "に",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "日本語[にほんご] là ngôn ngữ/phương tiện viết thư → で (công cụ/phương tiện); を dùng cho tân ngữ 手紙[てがみ]."
+    },
+    {
+      "stem": "マリアさんは 田中[たなか]さんに ケーキ＿ あげました。",
+      "choices": [
+        "を",
+        "が",
+        "に",
+        "から"
+      ],
+      "answer": 0,
+      "explain": "ケーキ là vật được tặng → tân ngữ → を; に đã dùng cho người nhận 田中[たなか]さんに."
+    },
+    {
+      "stem": "「もう 電話[でんわ]を かけましたか。」「＿、もう かけました。」",
+      "choices": [
+        "はい",
+        "いいえ",
+        "まだです",
+        "ありがとう"
+      ],
+      "answer": 0,
+      "explain": "Vế sau có \"もう かけました\" (đã gọi rồi) → câu trả lời xác nhận → はい; いいえ mâu thuẫn với もうかけました."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "に",
+      "で",
+      "から",
+      "を",
+      "が",
+      "は",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "ボールペン＿ 名前[なまえ]を 書[か]いてください。",
+        "answer": "で",
+        "explain": "ボールペン là công cụ viết → で (手段); không dùng を vì を đã dùng cho 名前[なまえ]."
+      },
+      {
+        "stem": "わたしは 先生[せんせい]＿ 本[ほん]を あげます。",
+        "answer": "に",
+        "explain": "あげます + người nhận に; dễ nhầm から nhưng から đi với もらいます."
+      },
+      {
+        "stem": "田中[たなか]さんは 友[とも]だち＿ プレゼントを もらいました。",
+        "answer": "から",
+        "explain": "もらいます + người cho から (hoặc に); から nhấn mạnh xuất phát điểm, thường dùng khi người cho rõ ràng."
+      },
+      {
+        "stem": "スマホ＿ 写真[しゃしん]を 撮[と]りました。",
+        "answer": "で",
+        "explain": "スマホ là công cụ chụp ảnh → で (phương tiện); không dùng を vì を đã dùng cho 写真[しゃしん]."
+      },
+      {
+        "stem": "カリナさん＿ 花[はな]を あげましたか。",
+        "answer": "に",
+        "explain": "あげます → người nhận に; から sai vì từ Karina nhận quà thì phải là もらいました."
+      },
+      {
+        "stem": "英語[えいご]＿ 話[はな]しましょう。",
+        "answer": "で",
+        "explain": "英語[えいご] là ngôn ngữ/phương tiện nói chuyện → で; に sai vì に không chỉ phương tiện ngôn ngữ."
+      },
+      {
+        "stem": "わたしは 母[はは]＿ セーターを もらいました。",
+        "answer": "から",
+        "explain": "もらいます + người cho から; mẹ là nguồn gốc tặng → から."
+      },
+      {
+        "stem": "ミラーさん＿ 電話[でんわ]を かけます。",
+        "answer": "に",
+        "explain": "電話[でんわ]をかけます (gọi điện) → người được gọi đánh dấu bằng に."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "あげます",
+      "prompt": "Thể quá khứ khẳng định?",
+      "choices": [
+        "あげました",
+        "あげません",
+        "あげましたか",
+        "あげませんでした"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định: ます → ました; ませんでした là phủ định quá khứ."
+    },
+    {
+      "base": "もらいます",
+      "prompt": "Thể phủ định lịch sự?",
+      "choices": [
+        "もらいません",
+        "もらいました",
+        "もらいますか",
+        "もらわない"
+      ],
+      "answer": 0,
+      "explain": "Phủ định lịch sự: ます → ません; もらわない là thể thông thường (plain form), không phải lịch sự."
+    },
+    {
+      "base": "もう〜ました",
+      "prompt": "「もう 宿題[しゅくだい]を しましたか」→ 返事「Chưa」",
+      "choices": [
+        "まだです",
+        "もうです",
+        "まだ しました",
+        "いいえ、もう しました"
+      ],
+      "answer": 0,
+      "explain": "\"Chưa\" khi được hỏi もう〜ましたか → いいえ、まだです; もうです không có nghĩa, まだしました mâu thuẫn."
+    },
+    {
+      "base": "かけます（電話[でんわ]）",
+      "prompt": "Thể quá khứ phủ định?",
+      "choices": [
+        "かけませんでした",
+        "かけました",
+        "かけません",
+        "かけましたか"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ: ます → ませんでした; かけません là phủ định hiện tại/tương lai."
+    },
+    {
+      "base": "あげます",
+      "prompt": "Thể phủ định quá khứ?",
+      "choices": [
+        "あげませんでした",
+        "あげませんです",
+        "あげなかった",
+        "あげましたか"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ lịch sự: ます → ませんでした; あげなかった là plain past negative, không lịch sự."
+    },
+    {
+      "base": "もらいます",
+      "prompt": "Thể quá khứ khẳng định?",
+      "choices": [
+        "もらいました",
+        "もらいません",
+        "もらいませんでした",
+        "もらいましたか"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định: もらいます → もらいました; もらいましたか là câu hỏi quá khứ."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "わたしは",
+        "山田[やまだ]さんに",
+        "花[はな]を",
+        "あげます。"
+      ],
+      "vi": "Tôi tặng hoa cho chị Yamada.",
+      "explain": "Cấu trúc あげます: [chủ ngữ は] + [người nhận に] + [vật を] + あげます; thứ tự に trước を."
+    },
+    {
+      "chips": [
+        "田中[たなか]さんは",
+        "友[とも]だちから",
+        "手紙[てがみ]を",
+        "もらいました。"
+      ],
+      "vi": "Anh Tanaka nhận được thư từ bạn.",
+      "explain": "Cấu trúc もらいます: [chủ ngữ は] + [người cho から] + [vật を] + もらいました."
+    },
+    {
+      "chips": [
+        "日本語[にほんご]で",
+        "メールを",
+        "書[か]きましょう。"
+      ],
+      "vi": "Hãy viết email bằng tiếng Nhật.",
+      "explain": "[Phương tiện で] đứng trước [tân ngữ を]; ましょう đề nghị cùng làm."
+    },
+    {
+      "chips": [
+        "もう",
+        "レポートを",
+        "出[だ]しましたか。"
+      ],
+      "vi": "Bạn đã nộp bài báo cáo chưa?",
+      "explain": "もう (đã…chưa?) đứng đầu câu trước tân ngữ và động từ; cấu trúc hỏi hoàn thành."
+    },
+    {
+      "chips": [
+        "ミラーさんに",
+        "電話[でんわ]を",
+        "かけます。"
+      ],
+      "vi": "Tôi gọi điện cho anh Miller.",
+      "explain": "かけます collocate với 電話[でんわ]を; người được gọi đánh dấu bằng に đứng trước 電話[でんわ]を."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "わたしは たなかさんに ほんを あげました。",
+      "ask": "Người nói đã làm gì?",
+      "choices": [
+        "Tặng sách cho anh Tanaka",
+        "Nhận sách từ anh Tanaka",
+        "Gọi điện cho anh Tanaka"
+      ],
+      "answer": 0,
+      "script": "わたしは 田中[たなか]さんに 本[ほん]を あげました。",
+      "explain": "あげました = đã tặng; chủ ngữ là わたし → người nói tặng, không phải nhận (もらいました)."
+    },
+    {
+      "tts": "マリアさんは おかあさんから セーターを もらいました。",
+      "ask": "Chị Maria nhận gì từ ai?",
+      "choices": [
+        "Nhận áo len từ mẹ",
+        "Tặng áo len cho mẹ",
+        "Mua áo len cho mẹ"
+      ],
+      "answer": 0,
+      "script": "マリアさんは お母[かあ]さんから セーターを もらいました。",
+      "explain": "もらいました = nhận; おかあさんから = từ mẹ; セーター = áo len → nhận áo len từ mẹ."
+    },
+    {
+      "tts": "もう しゅくだいを しましたか。いいえ、まだです。",
+      "ask": "Người B trả lời thế nào?",
+      "choices": [
+        "Chưa làm bài tập",
+        "Đã làm bài tập rồi",
+        "Không có bài tập"
+      ],
+      "answer": 0,
+      "script": "もう 宿題[しゅくだい]を しましたか。いいえ、まだです。",
+      "explain": "いいえ + まだです = chưa làm; nếu đã làm sẽ trả lời \"はい、もう しました\"."
+    },
+    {
+      "tts": "にほんごで てがみを かきます。",
+      "ask": "Người nói viết thư bằng gì?",
+      "choices": [
+        "Tiếng Nhật",
+        "Tiếng Anh",
+        "Tiếng Việt"
+      ],
+      "answer": 0,
+      "script": "日本語[にほんご]で 手紙[てがみ]を 書[か]きます。",
+      "explain": "にほんごで = bằng tiếng Nhật (phương tiện で); nghe từ にほんご là chìa khóa."
+    },
+    {
+      "tts": "ミラーさんに でんわを かけましたか。はい、もう かけました。",
+      "ask": "Người nói đã gọi điện cho anh Miller chưa?",
+      "choices": [
+        "Đã gọi rồi",
+        "Chưa gọi",
+        "Đang gọi"
+      ],
+      "answer": 0,
+      "script": "ミラーさんに 電話[でんわ]を かけましたか。はい、もう かけました。",
+      "explain": "はい + もう かけました = đã gọi rồi; もう + quá khứ khẳng định xác nhận đã hoàn thành."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi tặng hoa cho chị Yamada.",
+      "target": "わたしは山田さんに花をあげます。",
+      "accept": [
+        "わたしはやまださんにはなをあげます。",
+        "私は山田さんに花をあげます。"
+      ],
+      "explain": "あげます: [chủ ngữ は] + [người nhận に] + [vật を] + あげます; không dùng から (chỉ dùng với もらいます)."
+    },
+    {
+      "vi": "Anh Tanaka nhận được quà từ bạn.",
+      "target": "田中さんは友だちにプレゼントをもらいました。",
+      "accept": [
+        "たなかさんはともだちにぷれぜんとをもらいました。",
+        "田中さんは友だちからプレゼントをもらいました。",
+        "たなかさんはともだちからぷれぜんとをもらいました。"
+      ],
+      "explain": "もらいます: người cho đánh dấu bằng に hoặc から; accept cả hai vì cả hai đều đúng ngữ pháp."
+    },
+    {
+      "vi": "Hãy viết thư bằng tiếng Nhật.",
+      "target": "日本語で手紙を書いてください。",
+      "accept": [
+        "にほんごでてがみをかいてください。"
+      ],
+      "explain": "日本語で = bằng tiếng Nhật (phương tiện); 書[か]いてください là dạng yêu cầu lịch sự."
+    },
+    {
+      "vi": "Bạn đã ăn trưa chưa? — Chưa.",
+      "target": "もう昼ごはんを食べましたか。いいえ、まだです。",
+      "accept": [
+        "もうひるごはんをたべましたか。いいえ、まだです。"
+      ],
+      "explain": "もう〜ましたか hỏi hoàn thành; trả lời phủ định = いいえ、まだです (chưa)."
+    },
+    {
+      "vi": "Tôi gọi điện cho anh Miller.",
+      "target": "ミラーさんに電話をかけます。",
+      "accept": [
+        "みらーさんにでんわをかけます。"
+      ],
+      "explain": "電話[でんわ]をかけます là cụm động từ cố định; người được gọi + に đứng trước."
+    }
+  ]
+}

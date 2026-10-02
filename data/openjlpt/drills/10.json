@@ -1,0 +1,303 @@
+{
+  "id": "minna1.b10",
+  "bai": 10,
+  "titleVi": "Sự tồn tại",
+  "know": [
+    {
+      "id": "minna1.b10.aru",
+      "point": "aru",
+      "jp": "〜に 〜が あります",
+      "vi": "Tồn tại (vật vô tri)",
+      "en": "Exist (inanimate objects)",
+      "gloss": "ở ～ có ～ (đồ vật)"
+    },
+    {
+      "id": "minna1.b10.iru",
+      "point": "iru",
+      "jp": "〜に 〜が います",
+      "vi": "Tồn tại (người/sinh vật)",
+      "en": "Exist (people/living things)",
+      "gloss": "ở ～ có ～ (người/con vật)"
+    },
+    {
+      "id": "minna1.b10.doko",
+      "point": "doko",
+      "jp": "〜は 〜に あります／います",
+      "vi": "Vị trí của chủ đề",
+      "en": "Where the topic is located",
+      "gloss": "～ ở (tại) ～"
+    },
+    {
+      "id": "minna1.b10.ya",
+      "point": "ya",
+      "jp": "〜や〜（〜など）",
+      "vi": "Liệt kê ví dụ",
+      "en": "Listing examples",
+      "gloss": "～, ～ v.v."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b10-aru-hon",
+      "item": "minna1.b10.aru",
+      "err": "aru-vs-iru",
+      "vi": "Trên bàn có quyển sách.",
+      "t1": {
+        "stem": "机[つくえ]の上[うえ]に 本[ほん]が ＿。",
+        "choices": [
+          "あります",
+          "います",
+          "です"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "机[つくえ]の上[うえ]に",
+          "本[ほん]が",
+          "あります。"
+        ],
+        "traps": [
+          "います。",
+          "本[ほん]を"
+        ]
+      },
+      "t3": {
+        "target": "机の上に本があります。",
+        "accept": [
+          "つくえのうえにほんがあります。"
+        ]
+      },
+      "why": "本 là vật vô tri → あります (không dùng います)."
+    },
+    {
+      "id": "c-b10-aru-niwa",
+      "item": "minna1.b10.aru",
+      "err": "de-for-ni-exist",
+      "vi": "Trong vườn có cây.",
+      "t1": {
+        "stem": "庭[にわ]＿ 木[き]が あります。",
+        "choices": [
+          "に",
+          "で",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "庭[にわ]に",
+          "木[き]が",
+          "あります。"
+        ],
+        "traps": [
+          "庭[にわ]で",
+          "います。"
+        ]
+      },
+      "t3": {
+        "target": "庭に木があります。",
+        "accept": [
+          "にわにきがあります。"
+        ]
+      },
+      "why": "Nơi tồn tại dùng に (✗ で). 木 → あります."
+    },
+    {
+      "id": "c-b10-iru-neko",
+      "item": "minna1.b10.iru",
+      "err": "aru-vs-iru",
+      "vi": "Dưới ghế có con mèo.",
+      "t1": {
+        "stem": "椅子[いす]の下[した]に 猫[ねこ]が ＿。",
+        "choices": [
+          "います",
+          "あります",
+          "です"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "椅子[いす]の下[した]に",
+          "猫[ねこ]が",
+          "います。"
+        ],
+        "traps": [
+          "あります。"
+        ]
+      },
+      "t3": {
+        "target": "椅子の下に猫がいます。",
+        "accept": [
+          "いすのしたにねこがいます。"
+        ]
+      },
+      "why": "猫 là sinh vật → います (không dùng あります)."
+    },
+    {
+      "id": "c-b10-iru-otoko",
+      "item": "minna1.b10.iru",
+      "err": "de-for-ni-exist",
+      "vi": "Trong phòng có một người đàn ông.",
+      "t1": {
+        "stem": "部屋[へや]＿ 男[おとこ]の人[ひと]が います。",
+        "choices": [
+          "に",
+          "で",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "部屋[へや]に",
+          "男[おとこ]の人[ひと]が",
+          "います。"
+        ],
+        "traps": [
+          "部屋[へや]で",
+          "あります。"
+        ]
+      },
+      "t3": {
+        "target": "部屋に男の人がいます。",
+        "accept": [
+          "へやにおとこのひとがいます。"
+        ]
+      },
+      "why": "Tồn tại ở đâu dùng に; 人 → います."
+    },
+    {
+      "id": "c-b10-doko-ginkou",
+      "item": "minna1.b10.doko",
+      "err": "de-for-ni-exist",
+      "vi": "Ngân hàng ở đằng kia.",
+      "t1": {
+        "stem": "銀行[ぎんこう]は あそこ＿ あります。",
+        "choices": [
+          "に",
+          "で",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "銀行[ぎんこう]は",
+          "あそこに",
+          "あります。"
+        ],
+        "traps": [
+          "あそこで",
+          "います。"
+        ]
+      },
+      "t3": {
+        "target": "銀行はあそこにあります。",
+        "accept": [
+          "ぎんこうはあそこにあります。"
+        ]
+      },
+      "why": "は nêu chủ đề + に chỉ nơi + あります (nơi/vật)."
+    },
+    {
+      "id": "c-b10-doko-tanaka",
+      "item": "minna1.b10.doko",
+      "err": "aru-vs-iru",
+      "vi": "Anh Tanaka ở trong văn phòng.",
+      "t1": {
+        "stem": "田中[たなか]さんは 事務所[じむしょ]に ＿。",
+        "choices": [
+          "います",
+          "あります",
+          "です"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "事務所[じむしょ]に",
+          "います。"
+        ],
+        "traps": [
+          "あります。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは事務所にいます。",
+        "accept": [
+          "たなかさんはじむしょにいます。"
+        ]
+      },
+      "why": "Chủ đề là người → います."
+    },
+    {
+      "id": "c-b10-ya-kaban",
+      "item": "minna1.b10.ya",
+      "err": "to-for-ya",
+      "vi": "Trong cặp có sách, vở, v.v.",
+      "t1": {
+        "stem": "かばんの中[なか]に 本[ほん]＿ ノートが あります。",
+        "choices": [
+          "や",
+          "と",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "かばんの中[なか]に",
+          "本[ほん]や",
+          "ノートが",
+          "あります。"
+        ],
+        "traps": [
+          "本[ほん]と",
+          "います。"
+        ]
+      },
+      "t3": {
+        "target": "かばんの中に本やノートがあります。",
+        "accept": [
+          "かばんのなかにほんやのーとがあります。"
+        ]
+      },
+      "why": "や = liệt kê vài ví dụ (chưa kể hết); と = liệt kê đầy đủ."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b10-iru",
+      "item": "minna1.b10.iru",
+      "err": "aru-vs-iru",
+      "tts": "つくえの うえに ねこが います。",
+      "script": "机[つくえ]の 上[うえ]に 猫[ねこ]が います。",
+      "ask": "Trên bàn có gì?",
+      "choices": [
+        "Con mèo",
+        "Quyển sách",
+        "Không có gì"
+      ],
+      "answer": 0,
+      "why": "猫 → います (sinh vật)."
+    },
+    {
+      "id": "l-b10-doko",
+      "item": "minna1.b10.doko",
+      "err": "de-for-ni-exist",
+      "tts": "ぎんこうは えきの となりに あります。",
+      "script": "銀行[ぎんこう]は 駅[えき]の 隣[となり]に あります。",
+      "ask": "Ngân hàng ở đâu?",
+      "choices": [
+        "Cạnh nhà ga",
+        "Trước nhà ga",
+        "Sau nhà ga"
+      ],
+      "answer": 0,
+      "why": "に chỉ nơi tồn tại; 隣 = bên cạnh."
+    }
+  ]
+}

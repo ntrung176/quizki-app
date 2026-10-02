@@ -1,0 +1,3456 @@
+{
+  "bai": 134,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 134 rèn luyện kỹ năng đọc hiểu các cấu trúc chỉ thời điểm và tiến trình thời gian trong Shin Kanzen N3. Học viên cần nắm rõ đối lập sắc thái giữa sự duy trì liên tục kéo dài (〜以来), quy luật lặp lại theo chu kỳ/cảm xúc (〜たびに), phản xạ tức thời bất ngờ ngoài dự tính (〜たとたん), so với khoảng thời gian mang tính tranh thủ trước khi thay đổi (〜うちに) và khoảng thời gian diễn ra sự việc xen ngang (〜間に／間は).",
+    "steps": [
+      "Xác định mốc thời gian gốc hoặc sự kiện mở đầu khi gặp 〜以来 để nắm bắt trạng thái duy trì liên tục từ quá khứ đến hiện tại.",
+      "Khoanh vùng vế trước của 〜たびに để nhận diện thói quen lặp lại hoặc phản xạ cảm xúc diễn ra mỗi khi điều kiện đó xuất hiện.",
+      "Kiểm tra vế sau của 〜たとたん（に）: nhận diện diễn biến tức thì và các kết quả bất ngờ ngoài ý muốn, loại trừ các đáp án chứa ý chí hay dự định của người nói.",
+      "Phân định rõ ý đồ tác giả khi dùng 〜うちに (nhấn mạnh tranh thủ thời gian trước khi trạng thái thay đổi) so với 〜間に／間は (sự việc chớp nhoáng xen ngang hoặc trạng thái duy trì suốt khoảng).",
+      "Đối chiếu dòng thời gian trong văn bản với 4 phương án trả lời để tránh bẫy đảo lộn thứ tự trước - sau hoặc nhầm lẫn giữa sự việc lặp lại nhiều lần với sự việc chỉ diễn ra một lần."
+    ],
+    "tips": [
+      "使い分け (うちに vs 間に): 〜うちに nhấn mạnh việc tranh thủ làm gì đó trước khi trạng thái thay đổi (thường đi với tính từ, Vない); 〜間に chỉ thuần túy là một hành động/sự việc khác phát sinh chớp nhoáng trong khoảng thời gian diễn ra sự việc A.",
+      "使い分け (〜たとたん vs 〜てから): 〜たとたん miêu tả sự việc vế sau xảy ra ngay tức khắc và mang tính bất ngờ ngoài tầm kiểm soát; 〜てから chỉ thứ tự trước sau đơn thuần và vế sau có thể là hành động có chủ ý.",
+      "使い分け (〜以来 vs 〜てから): 〜以来 nhấn mạnh trạng thái ở vế sau tiếp diễn không gián đoạn suốt từ mốc quá khứ đến nay; không dùng 〜以来 cho hành động đơn lẻ mang tính thời điểm.",
+      "Bẫy thường gặp với 〜たびに: Vế sau của たびに luôn là sự việc lặp đi lặp lại hoặc cảm xúc mỗi lần xảy ra, không dùng cho sự việc chỉ diễn ra duy nhất một lần trong đời.",
+      "Dấu hiệu chọn 間 vs 間に: Nếu vị ngữ vế sau là động từ chỉ trạng thái kéo dài suốt toàn bộ thời gian của vế trước thì dùng 間/間は; nếu là hành động ngắn/khoảnh khắc diễn ra tại một điểm trong khoảng đó thì dùng 間に."
+    ],
+    "grammarFocus": [
+      "～以来 — 接続: Vて形 ／ N + 以来. Sắc thái: Kể từ một thời điểm/sự kiện trong quá khứ đến hiện tại trạng thái vẫn tiếp tục kéo dài. Đối chiếu: khác 〜てから (chỉ chuỗi hành động đơn thuần).",
+      "～度に／たびに — 接続: V辞書形 ／ Nの + たびに. Sắc thái: Mỗi lần A xảy ra thì B cũng lặp lại đều đặn theo quy luật, thói quen hoặc cảm xúc. Đối chiếu: khác 〜たら／〜と (chỉ điều kiện hoặc kết quả tự nhiên đơn lẻ).",
+      "～たとたん（に） — 接続: Vた形 + とたん（に）. Sắc thái: Ngay khoảnh khắc hành động A vừa hoàn thành thì B lập tức xảy ra bất ngờ ngoài ý muốn; vế sau không đi với ý chí/mệnh lệnh. Đối chiếu: khác 〜たら (chỉ điều kiện nối tiếp thông thường).",
+      "～うちに — 接続: V辞書形 ／ Vている ／ い形 ／ な形な ／ Nの + うちに. Sắc thái: Tranh thủ làm việc gì đó trước khi trạng thái/điều kiện thay đổi, hoặc trong lúc đang duy trì tình trạng A thì biến đổi B phát sinh mà không nhận ra (知らないうちに). Đối chiếu: khác 〜間に (không chứa hàm ý tranh thủ).",
+      "～間に／間は — 接続: V辞書形 ／ Vている ／ Nの + 間に／間は. Sắc thái: 〜間に biểu thị sự việc bất ngờ/ngắn phát sinh trong khoảng thời gian A; 〜間は biểu thị trạng thái duy trì liên tục suốt khoảng thời gian A. Đối chiếu: khác 〜うちに (chỉ thuần túy mốc thời gian diễn ra sự kiện)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 55,
+        "items": [
+          "〜うちに（Vる/Vている/Aい/なAな/Nの＋うちに）",
+          "〜ないうちに（Vない＋うちに）"
+        ]
+      },
+      {
+        "bai": 56,
+        "items": [
+          "〜間に（Vている/Nの + 間に）",
+          "〜間（Vている/Nの + 間）"
+        ]
+      },
+      {
+        "bai": 57,
+        "items": [
+          "〜たとたん（に）",
+          "〜か〜ないかのうちに"
+        ]
+      },
+      {
+        "bai": 58,
+        "items": [
+          "〜たびに（Vる/Nの＋たびに）",
+          "〜まま（Vた/Vない/Aい/なAな/Nの＋まま）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "手書きの日記がもたらす心の静寂",
+      "titleVi": "Sự tĩnh lặng trong tâm hồn từ cuốn nhật ký viết tay",
+      "japanese": "私は去年の春に祖父から万年筆をもらって以来、毎日手書きで日記をつけるようになった。以前はスマートフォンのアプリを使っていたが、画面を開いたとたんに通知が目に入り、集中が切れてしまっていた。しかし、静かな部屋で机に向かっている間は、自分の心と深く向き合うことができる。記憶が新しいうちにその日の出来事や感情を紙に書き留めることは、頭の中を整理するのに役立つ。\nノートを開くたびにインクの心地よい香りが広がり、自然と気持ちが落ち着いてくる。忙しく働いている間に短い時間を見つけてペンを走らせるだけで、日々の小さな喜びに気づけるのだ。過去のページを読み返す度に、当時の悩みや成長した自分を客観的に見つめ直すことができる。若いうちに自分の考えを言葉にして残しておくことは、将来にとって貴重な財産になるはずだ。あの日以来ずっと書き続けているこのノートは、今では私のかけがえのない相棒となっている。",
+      "vietnamese": "Kể từ khi nhận được chiếc bút máy từ ông nội vào mùa xuân năm ngoái đến nay, tôi bắt đầu có thói quen viết nhật ký bằng tay mỗi ngày. Trước đây tôi từng dùng ứng dụng trên điện thoại thông minh, nhưng cứ vừa mới mở màn hình ra là thông báo lọt vào mắt ngay khiến tôi bị mất tập trung. Tuy nhiên, trong suốt khoảng thời gian ngồi trước bàn làm việc trong căn phòng yên tĩnh, tôi có thể đối diện sâu sắc với tâm hồn của chính mình. Việc ghi lại những sự việc và cảm xúc trong ngày lên giấy trong khi ký ức còn tươi mới rất có ích cho việc sắp xếp lại suy nghĩ trong đầu.\nMỗi lần mở cuốn sổ tay ra, hương thơm dễ chịu của mực lại lan tỏa, khiến tâm trạng tôi tự nhiên bình tĩnh lại. Chỉ cần tìm một khoảng thời gian ngắn trong khi đang làm việc bận rộn để lia bút, ta đã có thể nhận ra những niềm vui nhỏ bé mỗi ngày. Mỗi lần đọc lại những trang viết trong quá khứ, tôi lại có thể nhìn nhận lại một cách khách quan những trăn trở khi ấy và sự trưởng thành của bản thân. Việc lưu lại suy nghĩ của bản thân thành câu chữ trong khi còn trẻ chắc chắn sẽ trở thành một tài sản quý giá cho tương lai. Cuốn sổ mà tôi vẫn tiếp tục viết kể từ ngày hôm ấy đến nay, giờ đây đã trở thành người bạn đồng hành không thể thay thế của tôi.",
+      "sentences": [
+        {
+          "jp": "私は去年の春に祖父から万年筆をもらって以来、毎日手書きで日記をつけるようになった。",
+          "vi": "Kể từ khi nhận được chiếc bút máy từ ông nội vào mùa xuân năm ngoái đến nay, tôi bắt đầu có thói quen viết nhật ký bằng tay mỗi ngày.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "祖父",
+              "read": "そふ",
+              "vi": "ông nội, ông ngoại"
+            },
+            {
+              "w": "万年筆",
+              "read": "まんねんひつ",
+              "vi": "bút máy"
+            },
+            {
+              "w": "以来",
+              "read": "いらい",
+              "vi": "kể từ đó, từ đó về sau"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "手書き",
+              "read": "てがき",
+              "vi": "viết tay"
+            },
+            {
+              "w": "日記",
+              "read": "にっき",
+              "vi": "nhật ký"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜て以来",
+              "vi": "接続: Vて + 以来 / N + 以来. Sắc thái: Biểu thị kể từ một sự kiện mốc trong quá khứ, trạng thái hoặc hành động kéo dài liên tục không đổi cho tới tận hiện tại. Vế sau là trạng thái tiếp diễn. Đối chiếu: khác với 〜てから (chỉ thứ tự trước sau thông thường, không nhấn mạnh tính tiếp diễn liên tục không ngắt quãng đến nay như 以来)."
+            }
+          ]
+        },
+        {
+          "jp": "以前はスマートフォンのアプリを使っていたが、画面を開いたとたんに通知が目に入り、集中が切れてしまっていた。",
+          "vi": "Trước đây tôi từng dùng ứng dụng trên điện thoại thông minh, nhưng cứ vừa mới mở màn hình ra là thông báo lọt vào mắt ngay khiến tôi bị mất tập trung.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "通知",
+              "read": "つうち",
+              "vi": "thông báo"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "切れる",
+              "read": "きれる",
+              "vi": "hết, đứt"
+            },
+            {
+              "w": "集中が切れる",
+              "read": "しゅうちゅうがきれる",
+              "vi": "mất tập trung, đứt mạch tập trung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん（に）",
+              "vi": "接続: Vた + とたん(に). Sắc thái: Ngay sau khi hành động trước vừa diễn ra thì sự việc bất ngờ, nằm ngoài chủ ý lập tức xảy ra. Vế sau không đi với câu mệnh lệnh, ý chí. Đối chiếu: khác với 〜と (mô tả quy luật khách quan/hành động nối tiếp tự nhiên) và 〜次第 (N2: dùng cho kế hoạch khi làm xong việc gì sẽ làm ngay việc khác)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、静かな部屋で机に向かっている間は、自分の心と深く向き合うことができる。",
+          "vi": "Tuy nhiên, trong suốt khoảng thời gian ngồi trước bàn làm việc trong căn phòng yên tĩnh, tôi có thể đối diện sâu sắc với tâm hồn của chính mình.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn học, bàn làm việc"
+            },
+            {
+              "w": "向かう",
+              "read": "むかう",
+              "vi": "hướng tới, đối mặt"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, nhìn nhận nghiêm túc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "机に向かう",
+              "read": "つくえにむかう",
+              "vi": "ngồi vào bàn làm việc / bàn học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間は",
+              "vi": "接続: Vている / Nの + 間は. Sắc thái: Trong toàn bộ khoảng thời gian hành động A duy trì liên tục thì trạng thái B cũng diễn ra xuyên suốt; trợ từ 'は' nhấn mạnh sự đối lập giữa khoảng thời gian đó với các lúc khác. Đối chiếu: khác với 〜間に (hành động vế sau chỉ mang tính khoảnh khắc/thời điểm trong lúc A diễn ra)."
+            }
+          ]
+        },
+        {
+          "jp": "記憶が新しいうちにその日の出来事や感情を紙に書き留めることは、頭の中を整理するのに役立つ。",
+          "vi": "Việc ghi lại những sự việc và cảm xúc trong ngày lên giấy trong khi ký ức còn tươi mới rất có ích cho việc sắp xếp lại suy nghĩ trong đầu.",
+          "vocab": [
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "ký ức; trí nhớ"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới; còn mới mẻ"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó; ấy"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự việc; biến cố"
+            },
+            {
+              "w": "感情",
+              "read": "かんじょう",
+              "vi": "cảm xúc"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "書き留める",
+              "read": "かきとめる",
+              "vi": "ghi chép lại"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "整理",
+              "read": "せいり",
+              "vi": "sắp xếp;整理"
+            },
+            {
+              "w": "役立つ",
+              "read": "やくだつ",
+              "vi": "có ích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに",
+              "vi": "接続: Aい / Aな / Vている / Vない / Nの + うちに. Sắc thái: Tranh thủ làm việc gì đó trong khi trạng thái hiện tại vẫn chưa biến đổi (nếu để qua đi sẽ khó thực hiện); vế sau có chủ ý. Đối chiếu: khác với 〜間に (chỉ thuần túy khung thời gian song song) và 〜最中に (N2: đang đúng lúc cao trào thì bị xen ngang)."
+            }
+          ]
+        },
+        {
+          "jp": "ノートを開くたびにインクの心地よい香りが広がり、自然と気持ちが落ち着いてくる。",
+          "vi": "Mỗi lần mở cuốn sổ tay ra, hương thơm dễ chịu của mực lại lan tỏa, khiến tâm trạng tôi tự nhiên bình tĩnh lại.",
+          "vocab": [
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "インク",
+              "read": "インク",
+              "vi": "mực in"
+            },
+            {
+              "w": "心地よい",
+              "read": "ここちよい",
+              "vi": "dễ chịu, khoan khoái"
+            },
+            {
+              "w": "香り",
+              "read": "かおり",
+              "vi": "mùi hương, hương thơm"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "落ち着く",
+              "read": "おちつく",
+              "vi": "bình tĩnh, lắng xuống"
+            },
+            {
+              "w": "香りが広がる",
+              "read": "かおりがひろがる",
+              "vi": "mùi hương lan tỏa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "接続: V辞書形 / Nの + たびに. Sắc thái: Mỗi lần, hễ mỗi khi điều A xảy ra thì điều B luôn lặp lại như một cảm xúc hoặc phản ứng quen thuộc. Vế sau không dùng trạng thái tĩnh kéo dài hay chân lý hiển nhiên. Đối chiếu: khác với 〜いつも (chỉ tần suất chung) và 〜と (dùng cho quy luật tự nhiên, còn たびに nhấn mạnh sự lặp lại của từng lần trải nghiệm)."
+            }
+          ]
+        },
+        {
+          "jp": "忙しく働いている間に短い時間を見つけてペンを走らせるだけで、日々の小さな喜びに気づけるのだ。",
+          "vi": "Chỉ cần tìm một khoảng thời gian ngắn trong khi đang làm việc bận rộn để lia bút, ta đã có thể nhận ra những niềm vui nhỏ bé mỗi ngày.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "見つける",
+              "read": "みつける",
+              "vi": "tìm thấy, phát hiện"
+            },
+            {
+              "w": "ペン",
+              "read": "ペン",
+              "vi": "bút"
+            },
+            {
+              "w": "走る",
+              "read": "はしる",
+              "vi": "chạy, thiên về"
+            },
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "喜び",
+              "read": "よろこび",
+              "vi": "niềm vui"
+            },
+            {
+              "w": "気",
+              "read": "き",
+              "vi": "tâm trạng, tinh thần"
+            },
+            {
+              "w": "づける",
+              "read": "づける",
+              "vi": "gắn vào, gán cho"
+            },
+            {
+              "w": "ペンを走らせる",
+              "read": "ぺんをはしらせる",
+              "vi": "lia bút, viết thoăn thoắt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ている間に",
+              "vi": "接続: Vている / Nの + 間に. Sắc thái: Trong khoảng thời gian hành động kéo dài A đang diễn ra, một hành động ngắn / mang tính khoảnh khắc B được thực hiện hoặc xuất hiện. Đối chiếu: khác với 〜間 (trạng thái B kéo dài suốt từ đầu đến cuối A) và 〜うちに (nhấn mạnh yếu tố tranh thủ trước khi điều kiện thay đổi)."
+            }
+          ]
+        },
+        {
+          "jp": "過去のページを読み返す度に、当時の悩みや成長した自分を客観的に見つめ直すことができる。",
+          "vi": "Mỗi lần đọc lại những trang viết trong quá khứ, tôi lại có thể nhìn nhận lại một cách khách quan những trăn trở khi ấy và sự trưởng thành của bản thân.",
+          "vocab": [
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "ページ",
+              "read": "ぺーじ",
+              "vi": "trang"
+            },
+            {
+              "w": "読み返す",
+              "read": "よみかえす",
+              "vi": "đọc lại"
+            },
+            {
+              "w": "度",
+              "read": "たび",
+              "vi": "mỗi lần"
+            },
+            {
+              "w": "当時",
+              "read": "とうじ",
+              "vi": "lúc đó; đương thời"
+            },
+            {
+              "w": "悩み",
+              "read": "なやみ",
+              "vi": "nỗi lo; phiền muộn"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành; phát triển"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "客観",
+              "read": "きゃっかん",
+              "vi": "tính khách quan"
+            },
+            {
+              "w": "客観的",
+              "read": "きゃっかんてき",
+              "vi": "mang tính khách quan"
+            },
+            {
+              "w": "見つめ直す",
+              "read": "みつめなおす",
+              "vi": "nhìn nhận; xem xét lại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜度に（たびに）",
+              "vi": "接続: V辞書形 / Nの + 度に. Sắc thái: Cứ mỗi lần thực hiện hành động vế trước thì vế sau lại cho ra kết quả hoặc cảm xúc tương tự; dạng chữ Hán '度に' mang sắc thái trang trọng, văn viết hơn hiragana. Đối chiếu: khác với 〜たら (chỉ điều kiện giả định một lần duy nhất)."
+            }
+          ]
+        },
+        {
+          "jp": "若いうちに自分の考えを言葉にして残しておくことは、将来にとって貴重な財産になるはずだ。",
+          "vi": "Việc lưu lại suy nghĩ của bản thân thành câu chữ trong khi còn trẻ chắc chắn sẽ trở thành một tài sản quý giá cho tương lai.",
+          "vocab": [
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "言葉にする",
+              "read": "ことばにする",
+              "vi": "diễn đạt thành lời / câu chữ"
+            },
+            {
+              "w": "残す",
+              "read": "のこす",
+              "vi": "để lại, giữ lại"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "貴重",
+              "read": "きちょう",
+              "vi": "quý giá, quý báu"
+            },
+            {
+              "w": "財産",
+              "read": "ざいさん",
+              "vi": "tài sản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに",
+              "vi": "接続: Aい / Aな / Vている / Vない / Nの + うちに. Sắc thái: Tận dụng khoảng thời gian khi còn duy trì trạng thái tuổi trẻ để tích lũy giá trị trước khi thời gian trôi qua. Đối chiếu: khác với 〜間 (chỉ xác định mốc thời gian khách quan không hàm ý tranh thủ cơ hội)."
+            }
+          ]
+        },
+        {
+          "jp": "あの日以来ずっと書き続けているこのノートは、今では私のかけがえのない相棒となっている。",
+          "vi": "Cuốn sổ mà tôi vẫn tiếp tục viết kể từ ngày hôm ấy đến nay, giờ đây đã trở thành người bạn đồng hành không thể thay thế của tôi.",
+          "vocab": [
+            {
+              "w": "あの",
+              "read": "あの",
+              "vi": "kia; đó"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "以来",
+              "read": "いらい",
+              "vi": "kể từ; từ đó đến nay"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "suốt; mãi"
+            },
+            {
+              "w": "書き続けている",
+              "read": "かきつづけている",
+              "vi": "vẫn tiếp tục viết"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "ノート",
+              "read": "のーと",
+              "vi": "vở; sổ ghi chép"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "かけがえ",
+              "read": "かけがえ",
+              "vi": "vật thay thế"
+            },
+            {
+              "w": "かけがえのない",
+              "read": "かけがえのない",
+              "vi": "không gì thay thế được"
+            },
+            {
+              "w": "相棒",
+              "read": "あいぼう",
+              "vi": "bạn đồng hành"
+            },
+            {
+              "w": "なっている",
+              "read": "なっている",
+              "vi": "đã trở thành; đang là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜以来",
+              "vi": "接続: N + 以来 (danh từ chỉ mốc thời gian). Sắc thái: Kể từ mốc thời gian quan trọng đó (あの日) cho đến nay, thói quen viết vẫn được duy trì bền bỉ mỗi ngày. Đối chiếu: khác với 〜から (mốc xuất phát điểm chung chung, không nhấn mạnh tính duy trì liên tục của trạng thái đến hiện tại như 以来)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "万年筆をもらって以来",
+          "label": "Mốc bắt đầu hình thành thói quen"
+        },
+        {
+          "excerpt": "画面を開いたとたんに通知が目に入り",
+          "label": "Lý do từ bỏ ứng dụng điện thoại"
+        },
+        {
+          "excerpt": "記憶が新しいうちに",
+          "label": "Thời điểm lý tưởng để ghi chép"
+        },
+        {
+          "excerpt": "過去のページを読み返す度に",
+          "label": "Ý nghĩa của việc đọc lại nhật ký"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者がスマートフォンのアプリで日記をつけるのをやめた理由は何ですか。",
+          "options": [
+            "通知が表示されることで、日記を書く集中が途切れてしまうから。",
+            "スマートフォンの画面を見るたびに目が疲れてしまうから。",
+            "祖父から万年筆をもらうまでは日記を書く習慣がなかったから。",
+            "アプリでは記憶が新しいうちに感情を整理することができないから。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [1]: '以前はスマートフォンのアプリを使っていたが、画面を開いたとたんに通知が目に入り、集中が切れてしまっていた' (Trước đây tôi dùng ứng dụng trên smartphone, nhưng vừa mở màn hình ra là thông báo lọt vào mắt khiến bị mất tập trung). Phương án 0 hoàn toàn chính xác. Các phương án sai: 1 (bài không đề cập đến mỏi mắt), 2 (không phải lý do bỏ app), 3 (việc ghi chép khi còn mới nhớ là lợi ích của viết tay ở câu 3, không phải nguyên nhân từ bỏ app do bị thông báo làm gián đoạn).",
+          "tip": "Tìm từ khóa 'スマートフォンのアプリ' ở câu 1 và lưu ý vế sau '〜たとたんに' chỉ sự gián đoạn tập trung.",
+          "evi": [
+            1
+          ],
+          "qt": {
+            "q": "作者 đã ngừng viết nhật ký bằng ứng dụng trên điện thoại thông minh vì lý do gì?",
+            "o": [
+              "Vì khi thông báo hiện lên, sự tập trung khi viết nhật ký bị gián đoạn.",
+              "Vì mỗi lần nhìn màn hình điện thoại thông minh, mắt lại bị mỏi.",
+              "Vì trước khi nhận được bút máy từ ông, tác giả chưa có thói quen viết nhật ký.",
+              "Vì với ứng dụng, không thể sắp xếp cảm xúc khi ký ức còn mới."
+            ]
+          }
+        },
+        {
+          "q": "「机に向かっている間」について、文章の説明と合っているものはどれですか。",
+          "options": [
+            "スマートフォンの通知を確認しながら過去の日記を読んでいる。",
+            "静かな環境の中で、じっくりと自分の内面を見つめ直すことができる。",
+            "仕事の合間に短い時間を使って、急いでその日の予定を整理している。",
+            "インクの香りを嗅ぐことで、将来の目標を具体的に決めることができる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [2]: 'しかし、静かな部屋で机に向かっている間は、自分の心と深く向き合うことができる' (Tuy nhiên, trong suốt khoảng thời gian ngồi trước bàn trong căn phòng yên tĩnh, tôi có thể đối diện sâu sắc với tâm hồn của chính mình). Cụm '自分の心と深く向き合う' tương đồng với 'じっくりと自分の内面を見つめ直す'. Phương án 1 chính xác. Các phương án sai: 0 (ngược với việc tác giả tránh xa điện thoại), 2 (lẫn sang câu 5 về thời gian ngắn trong giờ làm), 3 (lắp ghép tùy tiện ý hương thơm ở câu 4 và tương lai ở câu 7).",
+          "tip": "Chú ý cấu trúc '〜間は' ở câu 2 diễn tả trạng thái tĩnh lặng để tự đối diện với nội tâm.",
+          "evi": [
+            2
+          ],
+          "qt": {
+            "q": "Điều nào phù hợp với phần giải thích trong bài về 「机に向かっている間」 (khi ngồi vào bàn)?",
+            "o": [
+              "Vừa kiểm tra thông báo trên điện thoại thông minh vừa đọc nhật ký cũ.",
+              "Có thể bình tâm nhìn lại nội tâm của mình trong một môi trường yên tĩnh.",
+              "Tranh thủ thời gian ngắn giữa giờ làm để vội vàng sắp xếp lịch trình trong ngày.",
+              "Ngửi mùi mực giúp xác định cụ thể các mục tiêu cho tương lai."
+            ]
+          }
+        },
+        {
+          "q": "筆者が手書きで日記を書き続けることの意義として、最も適当なものはどれですか。",
+          "options": [
+            "高価な万年筆を日常的に使うことで、文字を上手に書けるようになること。",
+            "仕事の合間にメモを取ることで、毎日の業務の失敗を減らせること。",
+            "日々の感情を整理し、過去の自分を客観視して未来への財産にできること。",
+            "スマートフォンの利用時間を減らして、睡眠時間を十分に確保すること。"
+          ],
+          "answer": 2,
+          "explainVi": "Đây là câu hỏi suy luận tổng hợp toàn bài. Tác giả nêu rõ các giá trị của viết tay: sắp xếp cảm xúc khi ký ức còn tươi mới (câu [3]), nhìn nhận lại bản thân khách quan qua từng trang cũ (câu [6]), và đúc kết thành tài sản quý báu cho tương lai (câu [7]). Phương án 2 bao quát toàn diện các luận điểm này. Các phương án sai: 0 (bài không bàn về luyện chữ đẹp), 1 (sai bản chất của nhật ký cá nhân thành sổ giảm lỗi công việc), 3 (bài không hề đề cập đến việc tăng thời gian ngủ).",
+          "tip": "Liên kết các luận điểm bổ trợ ở câu 3, 6 và 7 để tìm đáp án khái quát đúng thông điệp của tác giả.",
+          "evi": [
+            3,
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Điều nào phù hợp nhất với ý nghĩa của việc tác giả tiếp tục viết nhật ký bằng tay?",
+            "o": [
+              "Việc sử dụng bút máy đắt tiền hằng ngày giúp viết chữ đẹp hơn.",
+              "Việc ghi chú trong giờ nghỉ giữa công việc giúp giảm sai sót trong công việc hằng ngày.",
+              "Có thể sắp xếp cảm xúc mỗi ngày, nhìn nhận bản thân trong quá khứ một cách khách quan và biến những ghi chép ấy thành tài sản cho tương lai.",
+              "Giảm thời gian sử dụng điện thoại thông minh để bảo đảm ngủ đủ giấc."
+            ]
+          }
+        },
+        {
+          "q": "筆者にとって「このノート」は現在どのような存在になっていますか。",
+          "options": [
+            "過去の失敗を忘れるために、時々読み返すだけの記録帳。",
+            "祖父との思い出を振り返るためだけに大切に保管している宝物。",
+            "毎日持ち歩いて仕事のスケジュールを細かく管理する手帳。",
+            "あの日以来書き続け、今ではかけがえのないパートナーとなった存在。"
+          ],
+          "answer": 3,
+          "explainVi": "Căn cứ vào câu [8]: 'あの日以来ずっと書き続けているこのノートは、今では私のかけがえのない相棒となっている' (Cuốn sổ mà tôi vẫn tiếp tục viết kể từ ngày hôm ấy đến nay, giờ đây đã trở thành người bạn đồng hành không thể thay thế của tôi). '相棒' nghĩa là cộng sự/bạn đồng hành thân thiết. Phương án 3 phản ánh chính xác nội dung câu kết. Các phương án sai: 0 (viết để nhìn lại và trưởng thành chứ không phải để 'quên thất bại'), 1 (tác giả viết hằng ngày chứ không chỉ cất giữ làm kỷ niệm), 2 (cuốn sổ ghi nhật ký tâm trạng chứ không phải sổ quản lý lịch trình công việc).",
+          "tip": "Chú ý từ khóa '相棒' (người bạn đồng hành/đối tác) và mẫu ngữ pháp '〜以来' ở câu kết [8].",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Đối với tác giả, hiện nay 「このノート」 (cuốn sổ này) có ý nghĩa như thế nào?",
+            "o": [
+              "Một cuốn sổ ghi chép chỉ thỉnh thoảng được đọc lại để quên đi những thất bại trong quá khứ.",
+              "Một báu vật được cất giữ cẩn thận chỉ để hồi tưởng những kỷ niệm với ông.",
+              "Một cuốn sổ tay luôn mang theo mỗi ngày để quản lý chi tiết lịch trình công việc.",
+              "Một cuốn sổ được viết liên tục từ ngày hôm đó và giờ đã trở thành một người bạn đồng hành không gì thay thế được."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "木工が教えてくれた時間の豊かさ",
+      "titleVi": "Sự phong phú của thời gian qua bài học từ nghề mộc",
+      "japanese": "都会の慌ただしい生活を離れ、自然豊かな町に移住して木工を始めて以来、私の時間の過ごし方は大きく変わった。以前の私は、一分一秒を惜しむように常に効率だけを追い求めて働いていた。しかし、木という生きた素材と向き合う日々は、私に立ち止まることの大切さを教えてくれた。木は人間が急かしても早く育つわけではなく、年月をかけてじっくりと年輪を重ねていくからだ。\n工房で新しい木材を手にとるたびに、一つとして同じ木目や手触りがないことに深い感動を覚える。窓から心地よい風が吹き込む工房で、黙々と木を削っている間に、心の中にあった焦りや不安は自然と消えていく。木材は乾燥しすぎると割れやすくなるため、程よい湿気を含んで柔らかいうちに、慎重に大まかな形を彫り出さなければならない。自然の素材を扱う作業には、こちらの都合ではなく相手の状態に寄り添う忍耐が求められる。\nある日、急いで仕上げようとして彫刻刀に力を入れすぎたとたんに、刃が滑って木の表面に深い傷がついてしまった。私は失望し、もうその木材を捨てるしかないと諦めかけた。しかし、傷ついた木をどう生かすか試行錯誤しているうちに、その傷を器のデザインの一部として生かす新しい工夫を思いついた。失敗を隠すのではなく、むしろ個性として磨き上げることで、他にはない温かみのある作品へと変化したのだ。完成した器を両手で包み込むように持ったとたんに、胸の奥から温かい感動がこみ上げてきた。\nこの経験は、木工の技術だけでなく、私の人生観そのものを大きく変える契機となった。失敗から生まれた美しさに心を動かされて以来、私は予期せぬ困難を単なる不運だとは思わなくなった。日常の生活の中で計画通りにいかない出来事に直面するたびに、そこから新しい可能性を発見しようと前向きに考えられるようになった。人間関係や自己の成長も、木を削る作業と同じように時間をかけて育むべきものなのだ。私たちが目先の成果や効率ばかりに目を奪われている間は、物事の本質的な豊かさを見落としてしまいがちである。心に余裕があるうちに、自分の歩んできた道のりを静かに振り返る時間を持つことが大切だ。木の年輪が長い年月を刻むように、日々の小さな積み重ねを愛おしみながら、これからも歩んでいきたい。",
+      "vietnamese": "Kể từ khi rời bỏ cuộc sống vội vã nơi đô thị, chuyển đến thị trấn ngập tràn thiên nhiên và bắt đầu làm đồ gỗ thủ công, cách tôi sử dụng thời gian đã thay đổi rất nhiều. Trước đây, tôi luôn làm việc chỉ mải mê theo đuổi hiệu suất như thể tiếc nuối từng phút từng giây. Thế nhưng, những ngày tháng đối diện với chất liệu sống mang tên \"gỗ\" đã dạy cho tôi tầm quan trọng của việc biết dừng chân chậm lại. Đó là bởi vì dẫu con người có hối thúc thì cây cũng chẳng thể lớn nhanh hơn được, mà nó tích lũy từng vòng năm một cách thong thả qua năm tháng.\n\nMỗi lần cầm một khối gỗ mới trong xưởng, tôi lại cảm thấy xúc động sâu sắc khi thấy không có bất kỳ vân gỗ hay cảm giác chạm tay nào lại giống nhau. Trong xưởng mộc nơi làn gió mát lành thổi qua khung cửa sổ, trong khoảng thời gian tôi miệt mài gọt từng thớ gỗ trong yên lặng, nỗi sốt ruột và bất an trong lòng tự nhiên tan biến dần. Vì gỗ nếu khô quá sẽ rất dễ nứt, nên trong khi nó vẫn còn giữ được độ ẩm thích hợp và mềm mại, người thợ phải cẩn thận đục tạc nên hình dáng sơ bộ. Công việc thao tác trên chất liệu tự nhiên đòi hỏi sự kiên nhẫn phải thuận theo và thích ứng với trạng thái của đối phương chứ không thể áp đặt sự thuận tiện của bản thân.\n\nMột ngày nọ, vì nóng vội muốn hoàn thiện sớm nên ngay lúc tôi vừa dùng lực quá mạnh lên con dao khắc, lưỡi dao liền bị trượt đi và để lại một vết xước sâu trên bề mặt gỗ. Tôi vô cùng thất vọng và đã suýt bỏ cuộc, nghĩ rằng chẳng còn cách nào khác ngoài việc vứt bỏ khúc gỗ ấy đi. Tuy nhiên, trong lúc đang liên tục thử nghiệm và tìm tòi cách tận dụng khúc gỗ bị hỏng, tôi đã nảy ra một ý tưởng sáng tạo mới là biến chính vết xước ấy thành một phần thiết kế của chiếc bát. Thay vì che giấu sai lầm, bằng việc trau chuốt và mài giũa nó như một nét độc đáo riêng, khúc gỗ đã biến đổi thành một tác phẩm mang hơi ấm có một không hai. Vừa mới nâng chiếc bát hoàn thiện ôm trọn trong hai lòng bàn tay, một niềm xúc động ấm áp từ tận sâu thẳm lồng ngực liền trào dâng mãnh liệt.\n\nTrải nghiệm này không chỉ dừng lại ở kỹ thuật làm mộc, mà đã trở thành bước ngoặt làm thay đổi sâu sắc chính nhân sinh quan của tôi. Kể từ khi được lay động bởi vẻ đẹp sinh ra từ chính sai lầm, tôi không còn xem những khó khăn bất ngờ xảy đến chỉ đơn thuần là vận rủi nữa. Mỗi lần đối mặt với những sự việc không diễn ra theo kế hoạch trong cuộc sống thường nhật, tôi đã có thể suy nghĩ tích cực hơn để tìm kiếm những khả năng mới từ chính sự việc đó. Các mối quan hệ giữa người với người hay sự trưởng thành của bản thân cũng chính là thứ cần phải dành thời gian vun đắp, hệt như công việc gọt giũa từng thớ gỗ vậy. Trong khoảng thời gian chúng ta cứ mải mê bị thu hút bởi thành quả trước mắt hay hiệu suất, ta rất dễ vô tình bỏ sót sự phong phú mang tính bản chất của vạn vật. Tranh thủ khi trong tâm trí còn sự thảnh thơi, việc dành thời gian để lặng lẽ nhìn lại chặng đường mình đã đi qua là vô cùng quan trọng. Tựa như những vòng vân gỗ khắc ghi năm tháng dài lâu, tôi mong muốn sẽ tiếp tục bước đi trên đường đời, luôn trân trọng và yêu thương từng tích lũy nhỏ bé mỗi ngày.",
+      "sentences": [
+        {
+          "jp": "都会の慌ただしい生活を離れ、自然豊かな町に移住して木工を始めて以来、私の時間の過ごし方は大きく変わった。",
+          "vi": "Kể từ khi rời bỏ cuộc sống vội vã nơi đô thị, chuyển đến thị trấn ngập tràn thiên nhiên và bắt đầu làm đồ gỗ thủ công, cách tôi sử dụng thời gian đã thay đổi rất nhiều.",
+          "vocab": [
+            {
+              "w": "都会",
+              "read": "とかい",
+              "vi": "thành phố, đô thị"
+            },
+            {
+              "w": "慌ただしい",
+              "read": "あわただしい",
+              "vi": "bận rộn, hối hả, vội vã"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "離れる",
+              "read": "はなれる",
+              "vi": "rời xa, tách rời"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "移住",
+              "read": "いじゅう",
+              "vi": "di cư, chuyển đến sinh sống"
+            },
+            {
+              "w": "木工",
+              "read": "もっこう",
+              "vi": "nghề mộc, làm đồ gỗ thủ công"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "以来",
+              "read": "いらい",
+              "vi": "kể từ đó, từ đó về sau"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "過ごす",
+              "read": "すごす",
+              "vi": "trải qua, sống"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜て以来",
+              "vi": "【接続】V-て ＋ 以来／N ＋ 以来。【Sắc thái】Diễn tả một mốc thời gian trong quá khứ kể từ một sự kiện bắt đầu, và sau đó trạng thái hay sự việc vẫn liên tục tiếp diễn cho đến tận hiện tại. Vế sau không dùng cho hành động đơn nhất một lần.【Đối chiếu】So với 『〜てから』(chỉ đơn thuần nói thứ tự trước sau của hành động), 『〜て以来』nhấn mạnh tính liên tục không gián đoạn suốt từ mốc đó đến nay."
+            }
+          ]
+        },
+        {
+          "jp": "以前の私は、一分一秒を惜しむように常に効率だけを追い求めて働いていた。",
+          "vi": "Trước đây, tôi luôn làm việc chỉ mải mê theo đuổi hiệu suất như thể tiếc nuối từng phút từng giây.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "惜しむ",
+              "read": "おしむ",
+              "vi": "tiếc rẻ, tiếc nuối, tận dụng từng chút"
+            },
+            {
+              "w": "常に",
+              "read": "つねに",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "追い求める",
+              "read": "おいもとめる",
+              "vi": "theo đuổi, mải miết tìm kiếm"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "一分一秒",
+              "read": "いっぷんいちびょう",
+              "vi": "từng phút từng giây"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように",
+              "vi": "【接続】V thể ngắn / Nの ＋ ように。【Sắc thái】Dùng để so sánh ví von mang tính ước lệ, tựa như là một trạng thái nào đó.【Đối chiếu】Khác với 『〜ために』(chỉ mục đích rõ ràng có ý chí chủ quan), 『〜ように』khi ví von thể hiện cảm giác hay hình ảnh tương đồng."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、木という生きた素材と向き合う日々は、私に立ち止まることの大切さを教えてくれた。",
+          "vi": "Thế nhưng, những ngày tháng đối diện với chất liệu sống mang tên \"gỗ\" đã dạy cho tôi tầm quan trọng của việc biết dừng chân chậm lại.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "生きる",
+              "read": "いきる",
+              "vi": "sống, tồn tại"
+            },
+            {
+              "w": "素材",
+              "read": "そざい",
+              "vi": "chất liệu, nguyên liệu"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, đối mặt một cách chân thành"
+            },
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "立ち止まる",
+              "read": "たちどまる",
+              "vi": "dừng lại, đứng lại suy ngẫm"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくれる",
+              "vi": "【接続】V-て ＋ くれる。【Sắc thái】Thể hiện hành động của đối tượng khác đem lại giá trị, bài học hoặc lợi ích tinh thần cho bản thân người nói với thái độ biết ơn."
+            }
+          ]
+        },
+        {
+          "jp": "木は人間が急かしても早く育つわけではなく、年月をかけてじっくりと年輪を重ねていくからだ。",
+          "vi": "Đó là bởi vì dẫu con người có hối thúc thì cây cũng chẳng thể lớn nhanh hơn được, mà nó tích lũy từng vòng năm một cách thong thả qua năm tháng.",
+          "vocab": [
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "急かす",
+              "read": "せかす",
+              "vi": "hối thúc, giục giã"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "育つ",
+              "read": "そだつ",
+              "vi": "lớn lên, trưởng thành"
+            },
+            {
+              "w": "年月",
+              "read": "としつき",
+              "vi": "năm tháng, thời gian dài"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "thấu đáo, kỹ càng"
+            },
+            {
+              "w": "年輪",
+              "read": "ねんりん",
+              "vi": "vòng năm của gỗ, vân tuổi cây"
+            },
+            {
+              "w": "重ねる",
+              "read": "かさねる",
+              "vi": "chồng chất, tích lũy dần theo thời gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけではない",
+              "vi": "【接続】Thể thông thường (Na な / N な・である) ＋ わけではない。【Sắc thái】Phủ định một phần hoặc phủ định một suy đoán đương nhiên: không hẳn là, không có nghĩa là.【Đối chiếu】So với 『〜ない』(phủ định toàn phần), 『〜わけではない』làm dịu nhận định, bác bỏ suy nghĩ cực đoan."
+            }
+          ]
+        },
+        {
+          "jp": "工房で新しい木材を手にとるたびに、一つとして同じ木目や手触りがないことに深い感動を覚える。",
+          "vi": "Mỗi lần cầm một khối gỗ mới trong xưởng, tôi lại cảm thấy xúc động sâu sắc khi thấy không có bất kỳ vân gỗ hay cảm giác chạm tay nào lại giống nhau.",
+          "vocab": [
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng thủ công, phòng làm việc nghệ thuật"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "木材",
+              "read": "もくざい",
+              "vi": "gỗ, vật liệu gỗ"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "木目",
+              "read": "もくめ",
+              "vi": "vân gỗ"
+            },
+            {
+              "w": "手触り",
+              "read": "てざわり",
+              "vi": "cảm giác khi sờ/chạm vào"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "感動",
+              "read": "かんどう",
+              "vi": "cảm động"
+            },
+            {
+              "w": "覚える",
+              "read": "おぼえる",
+              "vi": "nhớ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに（度に）",
+              "vi": "【接続】V-る ＋ たびに／Nの ＋ たびに。【Sắc thái】Mỗi khi có sự việc A xảy ra thì đều kéo theo cùng một kết quả hoặc cảm xúc B lặp đi lặp lại không đổi. Không dùng cho những sự việc diễn ra hàng ngày một cách tự nhiên theo chu kỳ cơ thể.【Đối chiếu】So với 『〜と』(chỉ điều kiện tự nhiên/hệ quả tất yếu), 『〜たびに』nhấn mạnh tính quy luật cảm xúc lặp lại mỗi khi có dịp."
+            }
+          ]
+        },
+        {
+          "jp": "窓から心地よい風が吹き込む工房で、黙々と木を削っている間に、心の中にあった焦りや不安は自然と消えていく。",
+          "vi": "Trong xưởng mộc nơi làn gió mát lành thổi qua khung cửa sổ, trong khoảng thời gian tôi miệt mài gọt từng thớ gỗ trong yên lặng, nỗi sốt ruột và bất an trong lòng tự nhiên tan biến dần.",
+          "vocab": [
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "心地よい",
+              "read": "ここちよい",
+              "vi": "dễ chịu, khoan khoái"
+            },
+            {
+              "w": "風",
+              "read": "かぜ",
+              "vi": "gió"
+            },
+            {
+              "w": "吹き込む",
+              "read": "ふきこむ",
+              "vi": "thổi vào, truyền vào"
+            },
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng thủ công, xưởng chế tác"
+            },
+            {
+              "w": "黙々と",
+              "read": "もくもくと",
+              "vi": "lặng lẽ, miệt mài không một lời"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "削る",
+              "read": "けずる",
+              "vi": "gọt, bào, đẽo"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "焦り",
+              "read": "あせり",
+              "vi": "sự nôn nóng, sốt ruột"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "消える",
+              "read": "きえる",
+              "vi": "tắt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に",
+              "vi": "【接続】V-ている / Nの ＋ 間に。【Sắc thái】Trong lúc hành động A đang kéo dài liên tục, thì một sự việc/hành động B mang tính khoảnh khắc hoặc biến chuyển diễn ra và hoàn thành.【Đối chiếu】So với 『〜間（は）』(vế sau cũng phải kéo dài liên tục suốt toàn bộ thời gian A), 『〜間に』vế sau chỉ xảy ra hoặc hoàn tất tại một thời điểm bên trong khoảng thời gian A."
+            }
+          ]
+        },
+        {
+          "jp": "木材は乾燥しすぎると割れやすくなるため、程よい湿気を含んで柔らかいうちに、慎重に大まかな形を彫り出さなければならない。",
+          "vi": "Vì gỗ nếu khô quá sẽ rất dễ nứt, nên trong khi nó vẫn còn giữ được độ ẩm thích hợp và mềm mại, người thợ phải cẩn thận đục tạc nên hình dáng sơ bộ.",
+          "vocab": [
+            {
+              "w": "木材",
+              "read": "もくざい",
+              "vi": "gỗ; vật liệu gỗ"
+            },
+            {
+              "w": "乾燥",
+              "read": "かんそう",
+              "vi": "sự khô; làm khô"
+            },
+            {
+              "w": "割れやすくなる",
+              "read": "われやすくなる",
+              "vi": "trở nên dễ nứt"
+            },
+            {
+              "w": "程よい",
+              "read": "ほどよい",
+              "vi": "vừa phải"
+            },
+            {
+              "w": "湿気",
+              "read": "しっけ",
+              "vi": "độ ẩm"
+            },
+            {
+              "w": "含んで",
+              "read": "ふくんで",
+              "vi": "chứa; có"
+            },
+            {
+              "w": "柔らかい",
+              "read": "やわらかい",
+              "vi": "mềm"
+            },
+            {
+              "w": "慎重",
+              "read": "しんちょう",
+              "vi": "thận trọng"
+            },
+            {
+              "w": "大まか",
+              "read": "おおまか",
+              "vi": "đại khái; sơ lược"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình dạng"
+            },
+            {
+              "w": "彫り出さなければならない",
+              "read": "ほりださなければならない",
+              "vi": "phải chạm khắc ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに",
+              "vi": "【接続】A-い / A-な / N-の / V-る / V-ない ＋ うちに。【Sắc thái】Tranh thủ làm hành động có ý chí trước khi trạng thái hiện tại thay đổi (nếu để trạng thái mất đi thì khó làm được).【Đối chiếu】So với 『〜間に』(chỉ thuần túy nói về khoảng thời gian diễn ra), 『〜うちに』thể hiện tính khẩn trương, ý thức tranh thủ thời cơ vàng trước khi tình huống chuyển biến xấu đi."
+            }
+          ]
+        },
+        {
+          "jp": "自然の素材を扱う作業には、こちらの都合ではなく相手の状態に寄り添う忍耐が求められる。",
+          "vi": "Công việc thao tác trên chất liệu tự nhiên đòi hỏi sự kiên nhẫn phải thuận theo và thích ứng với trạng thái của đối phương chứ không thể áp đặt sự thuận tiện của bản thân.",
+          "vocab": [
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "素材",
+              "read": "そざい",
+              "vi": "nguyên liệu, nguyên vật liệu"
+            },
+            {
+              "w": "扱う",
+              "read": "あつかう",
+              "vi": "xử lý, thao tác, ứng xử với"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "都合",
+              "read": "つごう",
+              "vi": "sự thuận tiện, hoàn cảnh riêng"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "状態",
+              "read": "じょうたい",
+              "vi": "trạng thái, tình trạng"
+            },
+            {
+              "w": "寄り添う",
+              "read": "よりそう",
+              "vi": "gắn bó, hòa mình theo, thấu hiểu"
+            },
+            {
+              "w": "忍耐",
+              "read": "にんたい",
+              "vi": "nhẫn nại, kiên nhẫn"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が求められる",
+              "vi": "【接続】N ＋ が求められる (Dạng bị động của 求める).【Sắc thái】Diễn tả một yêu cầu, phẩm chất cần thiết mang tính khách quan mà công việc hoặc hoàn cảnh đòi hỏi ở người thực hiện."
+            }
+          ]
+        },
+        {
+          "jp": "ある日、急いで仕上げようとして彫刻刀に力を入れすぎたとたんに、刃が滑って木の表面に深い傷がついてしまった。",
+          "vi": "Một ngày nọ, vì nóng vội muốn hoàn thiện sớm nên ngay lúc tôi vừa dùng lực quá mạnh lên con dao khắc, lưỡi dao liền bị trượt đi và để lại một vết xước sâu trên bề mặt gỗ.",
+          "vocab": [
+            {
+              "w": "急ぐ",
+              "read": "いそぐ",
+              "vi": "gấp, khẩn cấp"
+            },
+            {
+              "w": "仕上げる",
+              "read": "しあげる",
+              "vi": "hoàn thiện, làm xong"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "刃",
+              "read": "は",
+              "vi": "lưỡi dao"
+            },
+            {
+              "w": "滑る",
+              "read": "すべる",
+              "vi": "trượt, trơn trượt"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "表面",
+              "read": "ひょうめん",
+              "vi": "bề mặt, bề nổi"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "傷",
+              "read": "きず",
+              "vi": "vết trầy, vết thương"
+            },
+            {
+              "w": "彫刻刀",
+              "read": "ちょうこくとう",
+              "vi": "dao khắc, đục điêu khắc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたん（に）",
+              "vi": "【接続】V-た ＋ とたん（に）。【Sắc thái】Ngay tại khoảnh khắc hành động A vừa kết thúc thì lập tức xảy ra một sự việc B mang tính bất ngờ, ngoài dự tính của người nói. Vế sau không dùng thể hiện ý chí, mệnh lệnh hay dự định của người nói.【Đối chiếu】So với 『〜と』hoặc 『〜たら』, 『〜たとたんに』nhấn mạnh tính đột ngột, chớp nhoáng và tính bất ngờ của sự việc vế sau."
+            }
+          ]
+        },
+        {
+          "jp": "私は失望し、もうその木材を捨てるしかないと諦めかけた。",
+          "vi": "Tôi vô cùng thất vọng và đã suýt bỏ cuộc, nghĩ rằng chẳng còn cách nào khác ngoài việc vứt bỏ khúc gỗ ấy đi.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "失望",
+              "read": "しつぼう",
+              "vi": "thất vọng"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã; không còn"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó; ấy"
+            },
+            {
+              "w": "木材",
+              "read": "もくざい",
+              "vi": "gỗ; vật liệu gỗ"
+            },
+            {
+              "w": "捨てる",
+              "read": "すてる",
+              "vi": "vứt bỏ"
+            },
+            {
+              "w": "しかない",
+              "read": "しかない",
+              "vi": "chỉ còn cách; không còn lựa chọn nào khác"
+            },
+            {
+              "w": "諦めかけた",
+              "read": "あきらめかけた",
+              "vi": "đã gần bỏ cuộc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜しかない",
+              "vi": "【接続】V-る ＋ しかない。【Sắc thái】Không còn lựa chọn hoặc phương pháp nào khác, đành phải chấp nhận làm việc đó dù không mong muốn.【Đối chiếu】Gần nghĩa với 『〜ほかない』, mang cảm giác bế tắc hoặc bắt buộc phải chọn phương án duy nhất còn lại."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、傷ついた木をどう生かすか試行錯誤しているうちに、その傷を器のデザインの一部として生かす新しい工夫を思いついた。",
+          "vi": "Tuy nhiên, trong lúc đang liên tục thử nghiệm và tìm tòi cách tận dụng khúc gỗ bị hỏng, tôi đã nảy ra một ý tưởng sáng tạo mới là biến chính vết xước ấy thành một phần thiết kế của chiếc bát.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "傷つく",
+              "read": "きずつく",
+              "vi": "bị tổn thương, bị đau"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "生かす",
+              "read": "いかす",
+              "vi": "phát huy, tận dụng triệt để"
+            },
+            {
+              "w": "試行",
+              "read": "しこう",
+              "vi": "thử nghiệm, làm thử"
+            },
+            {
+              "w": "錯誤",
+              "read": "さくご",
+              "vi": "sai lầm, sai sót"
+            },
+            {
+              "w": "傷",
+              "read": "きず",
+              "vi": "vết trầy, vết thương"
+            },
+            {
+              "w": "器",
+              "read": "うつわ",
+              "vi": "đồ gốm, chiếc bình"
+            },
+            {
+              "w": "デザイン",
+              "read": "デザイン",
+              "vi": "thiết kế"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "ý tưởng sáng tạo, cải tiến khéo léo"
+            },
+            {
+              "w": "思いつく",
+              "read": "おもいつく",
+              "vi": "nghĩ ra, nảy ra ý tưởng"
+            },
+            {
+              "w": "試行錯誤",
+              "read": "しこうさくご",
+              "vi": "quá trình thử và sai, mò mẫm tìm giải pháp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ているうちに",
+              "vi": "【接続】V-ている ＋ うちに。【Sắc thái】Trong quá trình một hành động đang tiếp diễn liên tục thì tự nhiên nảy sinh một biến chuyển hoặc kết quả mà ban đầu người nói không hề chủ định từ trước.【Đối chiếu】Khác với 『〜うちに』chỉ cơ hội (Aい/Vるうちに làm gì đi), cấu trúc 『V-ているうちに』chỉ sự thay đổi trạng thái diễn ra một cách tự nhiên theo thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "失敗を隠すのではなく、むしろ個性として磨き上げることで、他にはない温かみのある作品へと変化したのだ。",
+          "vi": "Thay vì che giấu sai lầm, bằng việc trau chuốt và mài giũa nó như một nét độc đáo riêng, khúc gỗ đã biến đổi thành một tác phẩm mang hơi ấm có một không hai.",
+          "vocab": [
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "隠す",
+              "read": "かくす",
+              "vi": "che giấu, giấu giếm"
+            },
+            {
+              "w": "むしろ",
+              "read": "むしろ",
+              "vi": "mà ngược lại, thà rằng"
+            },
+            {
+              "w": "個性",
+              "read": "こせい",
+              "vi": "cá tính, nét riêng biệt"
+            },
+            {
+              "w": "磨く",
+              "read": "みがく",
+              "vi": "mài dũa, đánh bóng"
+            },
+            {
+              "w": "他",
+              "read": "た",
+              "vi": "khác, ngoài ra"
+            },
+            {
+              "w": "温かみ",
+              "read": "あたたかみ",
+              "vi": "sự ấm áp, hơi ấm"
+            },
+            {
+              "w": "作品",
+              "read": "さくひん",
+              "vi": "tác phẩm"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "磨き上げる",
+              "read": "みがきあげる",
+              "vi": "mài sáng bóng, trau chuốt tỉ mỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく、むしろ〜",
+              "vi": "【接続】Thể thông thường ＋ のではなく、むしろ〜。【Sắc thái】Bác bỏ cách nghĩ thông thường ở vế trước, nhấn mạnh quan điểm trái ngược mang tính tích cực hơn ở vế sau."
+            }
+          ]
+        },
+        {
+          "jp": "完成した器を両手で包み込むように持ったとたんに、胸の奥から温かい感動がこみ上げてきた。",
+          "vi": "Vừa mới nâng chiếc bát hoàn thiện ôm trọn trong hai lòng bàn tay, một niềm xúc động ấm áp từ tận sâu thẳm lồng ngực liền trào dâng mãnh liệt.",
+          "vocab": [
+            {
+              "w": "完成",
+              "read": "かんせい",
+              "vi": "hoàn thành"
+            },
+            {
+              "w": "器",
+              "read": "うつわ",
+              "vi": "đồ đựng; chiếc bát"
+            },
+            {
+              "w": "両手",
+              "read": "りょうて",
+              "vi": "hai tay"
+            },
+            {
+              "w": "包み込む",
+              "read": "つつみこむ",
+              "vi": "bao bọc; ôm trọn"
+            },
+            {
+              "w": "持った",
+              "read": "もった",
+              "vi": "đã cầm"
+            },
+            {
+              "w": "とたんに",
+              "read": "とたんに",
+              "vi": "ngay khi; vừa... thì"
+            },
+            {
+              "w": "胸",
+              "read": "むね",
+              "vi": "ngực; lòng ngực"
+            },
+            {
+              "w": "奥",
+              "read": "おく",
+              "vi": "sâu bên trong"
+            },
+            {
+              "w": "温かい",
+              "read": "あたたかい",
+              "vi": "ấm áp"
+            },
+            {
+              "w": "感動",
+              "read": "かんどう",
+              "vi": "xúc động"
+            },
+            {
+              "w": "こみ上げてきた",
+              "read": "こみあげてきた",
+              "vi": "dâng trào lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたんに",
+              "vi": "Kết nối với V-た (持った + とたんに). Ý nghĩa: Diễn tả ngay sau khi một hành động vừa thực hiện thì một sự việc bất ngờ khác lập tức xảy ra ('vừa mới cầm... thì cảm xúc trào dâng')."
+            },
+            {
+              "point": "〜ように",
+              "vi": "Kết nối với V-辞書形 (包み込む + ように). Ý nghĩa: Diễn tả trạng thái hoặc cách thức thực hiện hành động ở vế sau ('cầm theo cách như thể ôm trọn/bao bọc lấy')."
+            }
+          ]
+        },
+        {
+          "jp": "この経験は、木工の技術だけでなく、私の人生観そのものを大きく変える契機となった。",
+          "vi": "Trải nghiệm này không chỉ dừng lại ở kỹ thuật làm mộc, mà đã trở thành bước ngoặt làm thay đổi sâu sắc chính nhân sinh quan của tôi.",
+          "vocab": [
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "木工",
+              "read": "もっこう",
+              "vi": "nghề mộc, làm đồ gỗ"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "契機",
+              "read": "けいき",
+              "vi": "bước ngoặt, cơ duyên thúc đẩy thay đổi"
+            },
+            {
+              "w": "人生観",
+              "read": "じんせいかん",
+              "vi": "nhân sinh quan, cách nhìn nhận cuộc sống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく",
+              "vi": "【接続】N / Thể thông thường ＋ だけでなく。【Sắc thái】Không chỉ A mà còn cả B; mở rộng phạm vi từ cụ thể sang bao quát."
+            }
+          ]
+        },
+        {
+          "jp": "失敗から生まれた美しさに心を動かされて以来、私は予期せぬ困難を単なる不運だとは思わなくなった。",
+          "vi": "Kể từ khi được lay động bởi vẻ đẹp sinh ra từ chính sai lầm, tôi không còn xem những khó khăn bất ngờ xảy đến chỉ đơn thuần là vận rủi nữa.",
+          "vocab": [
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "生まれる",
+              "read": "うまれる",
+              "vi": "sinh ra, nảy sinh"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "動かす",
+              "read": "うごかす",
+              "vi": "vận hành, làm chuyển động"
+            },
+            {
+              "w": "以来",
+              "read": "いらい",
+              "vi": "kể từ đó, từ đó về sau"
+            },
+            {
+              "w": "予期せぬ",
+              "read": "よきせぬ",
+              "vi": "không lường trước, bất ngờ"
+            },
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ đơn thuần là"
+            },
+            {
+              "w": "不運",
+              "read": "ふうん",
+              "vi": "vận rủi, không may"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "心を動かされる",
+              "read": "こころをうごかされる",
+              "vi": "bị lay động, bị xúc động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜て以来",
+              "vi": "【接続】V-て ＋ 以来。【Sắc thái】Kể từ thời điểm nhận thức được vẻ đẹp đó cho tới nay, trạng thái tâm lý không coi khó khăn là vận xui được duy trì liên tục và trở thành thái độ sống thường trực.【Đối chiếu】So với 『〜てから』, 『〜て以来』nhấn mạnh mốc khởi đầu mang tính bước ngoặt sâu sắc."
+            }
+          ]
+        },
+        {
+          "jp": "日常の生活の中で計画通りにいかない出来事に直面するたびに、そこから新しい可能性を発見しようと前向きに考えられるようになった。",
+          "vi": "Mỗi lần đối mặt với những sự việc không diễn ra theo kế hoạch trong cuộc sống thường nhật, tôi đã có thể suy nghĩ tích cực hơn để tìm kiếm những khả năng mới từ chính sự việc đó.",
+          "vocab": [
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "đời sống thường nhật"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự việc, sự kiện"
+            },
+            {
+              "w": "直面する",
+              "read": "ちょくめんする",
+              "vi": "đối mặt, chạm trán"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "発見",
+              "read": "はっけん",
+              "vi": "phát hiện"
+            },
+            {
+              "w": "前向きに",
+              "read": "まえむきに",
+              "vi": "tích cực, hướng về phía trước"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "計画通り",
+              "read": "けいかくどおり",
+              "vi": "đúng theo kế hoạch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに（度に）",
+              "vi": "【接続】V-る ＋ たびに／Nの ＋ たびに。【Sắc thái】Cứ mỗi lần gặp phải hoàn cảnh A trong đời sống thì đều dẫn đến phản xạ tâm lý tích cực B.【Đối chiếu】So với 『〜ときはいつも』(văn nói thường ngày), 『〜たびに』trang trọng hơn và nêu bật tính lặp lại của quy luật trải nghiệm."
+            }
+          ]
+        },
+        {
+          "jp": "人間関係や自己の成長も、木を削る作業と同じように時間をかけて育むべきものなのだ。",
+          "vi": "Các mối quan hệ giữa người với người hay sự trưởng thành của bản thân cũng chính là thứ cần phải dành thời gian vun đắp, hệt như công việc gọt giũa từng thớ gỗ vậy.",
+          "vocab": [
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "自己",
+              "read": "じこ",
+              "vi": "bản thân, cái tôi"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "削る",
+              "read": "けずる",
+              "vi": "gọt, bào"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "育む",
+              "read": "はぐくむ",
+              "vi": "nuôi dưỡng, vun đắp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ／べきもの",
+              "vi": "【接続】V-る ＋ べきだ（する → すべき／するべき）。【Sắc thái】Thể hiện nhận định đạo lý hoặc việc đương nhiên nên làm theo lương tâm, chuẩn mực xã hội hoặc sự chiêm nghiệm sâu sắc."
+            }
+          ]
+        },
+        {
+          "jp": "私たちが目先の成果や効率ばかりに目を奪われている間は、物事の本質的な豊かさを見落としてしまいがちである。",
+          "vi": "Trong khoảng thời gian chúng ta cứ mải mê bị thu hút bởi thành quả trước mắt hay hiệu suất, ta rất dễ vô tình bỏ sót sự phong phú mang tính bản chất của vạn vật.",
+          "vocab": [
+            {
+              "w": "目先",
+              "read": "めさき",
+              "vi": "trước mắt, thiển cận"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả đạt được"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "奪う",
+              "read": "うばう",
+              "vi": "cướp đoạt, tước đoạt"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "mọi việc, sự vật sự việc"
+            },
+            {
+              "w": "本質",
+              "read": "ほんしつ",
+              "vi": "bản chất"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "見落とす",
+              "read": "みおとす",
+              "vi": "bỏ sót, nhìn sót"
+            },
+            {
+              "w": "目を奪われる",
+              "read": "めをうばわれる",
+              "vi": "bị mê hoặc, bị cuốn hút tâm trí"
+            },
+            {
+              "w": "本質的",
+              "read": "ほんしつてき",
+              "vi": "mang tính bản chất, cốt lõi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間は",
+              "vi": "【接続】V-ている / Nの ＋ 間は。【Sắc thái】Trong suốt toàn bộ thời gian trạng thái A tiếp diễn, thì tình trạng tiêu cực B ở vế sau cũng luôn luôn tồn tại song song. Trợ từ 『は』mang tính nhấn mạnh giới hạn điều kiện: chừng nào còn A thì chừng đó còn B.【Đối chiếu】So với 『〜間に』(vế sau chỉ là hành động xảy ra tại một thời điểm), 『〜間は』vế sau là trạng thái kéo dài suốt chiều dài của A."
+            }
+          ]
+        },
+        {
+          "jp": "心に余裕があるうちに、自分の歩んできた道のりを静かに振り返る時間を持つことが大切だ。",
+          "vi": "Tranh thủ khi trong tâm trí còn sự thảnh thơi, việc dành thời gian để lặng lẽ nhìn lại chặng đường mình đã đi qua là vô cùng quan trọng.",
+          "vocab": [
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "余裕",
+              "read": "よゆう",
+              "vi": "sự dư dả, thảnh thơi, khoảng trống trong tâm trí"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "歩む",
+              "read": "あゆむ",
+              "vi": "bước đi, tiến bước"
+            },
+            {
+              "w": "道のり",
+              "read": "みちのり",
+              "vi": "hành trình, chặng đường đã qua"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "振り返る",
+              "read": "ふりかえる",
+              "vi": "nhìn lại, ngẫm lại quá khứ"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに",
+              "vi": "【接続】V-る / Nの / Aい / Aな ＋ うちに。【Sắc thái】Khuyên nhủ nên thực hiện hành động nhìn lại bản thân trong khi còn đang có điều kiện thuận lợi (tâm trí còn thư thả), trước khi sự bận rộn lại ập đến cuốn đi sự bình yên này."
+            }
+          ]
+        },
+        {
+          "jp": "木の年輪が長い年月を刻むように、日々の小さな積み重ねを愛おしみながら、これからも歩んでいきたい。",
+          "vi": "Tựa như những vòng vân gỗ khắc ghi năm tháng dài lâu, tôi mong muốn sẽ tiếp tục bước đi trên đường đời, luôn trân trọng và yêu thương từng tích lũy nhỏ bé mỗi ngày.",
+          "vocab": [
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "年月",
+              "read": "としつき",
+              "vi": "năm tháng, thời gian dài"
+            },
+            {
+              "w": "刻む",
+              "read": "きざむ",
+              "vi": "khắc ghi, chạm khắc"
+            },
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "積み重ね",
+              "read": "つみかさね",
+              "vi": "sự tích lũy, gom góp dần theo ngày tháng"
+            },
+            {
+              "w": "愛おしむ",
+              "read": "いとおしむ",
+              "vi": "nâng niu, trân trọng, yêu quý"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "歩む",
+              "read": "あゆむ",
+              "vi": "bước đi, tiến bước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら",
+              "vi": "【接続】V-ます stem ＋ ながら。【Sắc thái】Vừa làm hành động này vừa làm hành động khác đồng thời; hoặc tiến bước trong khi mang theo tâm niệm trân trọng cuộc sống."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "自然豊かな町に移住して木工を始めて以来",
+          "label": "Mốc thay đổi lối sống (〜て以来)"
+        },
+        {
+          "excerpt": "新しい木材を手にとるたびに",
+          "label": "Cảm xúc lặp lại mỗi khi chạm vào gỗ (〜たびに)"
+        },
+        {
+          "excerpt": "程よい湿気を含んで柔らかいうちに",
+          "label": "Thời điểm thích hợp để tạo hình (〜うちに)"
+        },
+        {
+          "excerpt": "彫刻刀に力を入れすぎたとたんに",
+          "label": "Sự cố bất ngờ xảy ra tức thì (〜たとたんに)"
+        },
+        {
+          "excerpt": "効率ばかりに目を奪われている間は",
+          "label": "Giới hạn thời gian của trạng thái tâm lý (〜間は)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者が木工を始めてから気づいたこととして、本文の内容と合っているものはどれか。",
+          "options": [
+            "人間が急いで手入れをすれば、木材をより早く成長させることができる。",
+            "効率を最優先にして作業を進めることで、心の不安を完全に消すことができる。",
+            "木には一つとして同じものがなく、その自然の状態に合わせてじっくり向き合う必要がある。",
+            "乾燥して硬くなった木材のほうが、ひび割れにくく初心者でも形を彫り出しやすい。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ câu [4] 「一つとして同じ木目や手触りがない...」 và câu [7] 「自然の素材を扱う作業には、こちらの都合ではなく相手の状態に寄り添う忍耐が求められる」cho thấy tác giả nhận ra mỗi khúc gỗ đều độc nhất vô nhị và người thợ cần phải kiên nhẫn thuận theo tự nhiên. Phương án 0 sai vì câu [3] khẳng định con người có giục thì cây cũng không lớn nhanh hơn. Phương án 1 sai vì câu [1] chỉ ra lối sống cũ chỉ chạy theo hiệu suất, còn sự bình yên đến từ việc gọt gỗ thong thả (câu [5]). Phương án 3 sai vì câu [6] nêu rõ gỗ quá khô sẽ rất dễ nứt, phải đục đẽo khi gỗ còn độ ẩm thích hợp và mềm mại.",
+          "tip": "Đọc kỹ các chi tiết đối chiếu giữa đặc tính tự nhiên của gỗ và thái độ làm việc của tác giả ở đoạn 1 và đoạn 2.",
+          "evi": [
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Tác giả nhận ra điều gì sau khi bắt đầu làm nghề mộc?",
+            "o": [
+              "Nếu con người chăm sóc gấp rút, họ có thể làm cho gỗ phát triển nhanh hơn.",
+              "Bằng cách ưu tiên hiệu quả lên hàng đầu khi làm việc, có thể xóa bỏ hoàn toàn nỗi bất an trong lòng.",
+              "Không có cây nào giống hệt cây nào, và cần kiên nhẫn đối diện với từng cây theo trạng thái tự nhiên của nó.",
+              "Gỗ đã khô và cứng thì khó nứt hơn, người mới bắt đầu cũng dễ đẽo thành hình hơn."
+            ]
+          }
+        },
+        {
+          "q": "彫刻刀で木に深い傷をつけてしまった後、筆者はどのように対応したか。",
+          "options": [
+            "その木材を捨てるのを諦め、別の新しい木材を使って一から作り直した。",
+            "傷を隠そうとせず、器の個性的なデザインの一部として生かす工夫を施した。",
+            "完璧な美しさを目指すために、傷が見えなくなるまで全体を削り落とした。",
+            "失敗の原因は彫刻刀の切れ味が悪かったからだと考え、道具を買い替えた。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ câu [10] 「その傷を器のデザインの一部として生かす新しい工夫を思いついた」 và câu [11] 「失敗を隠すのではなく、むしろ個性として磨き上げることで...」. Tác giả đã không giấu vết xước mà biến nó thành nét riêng của tác phẩm. Phương án 0 sai vì tác giả chỉ suýt bỏ cuộc (câu [9]) chứ không hề vứt đi để lấy gỗ mới. Phương án 2 sai vì tác giả nhận ra sự hoàn hảo tuyệt đối không phải là vẻ đẹp duy nhất (câu [11], [12]). Phương án 3 sai vì nguyên nhân là do tác giả nóng vội dùng lực quá mạnh (câu [8]), không có chi tiết mua đổi dụng cụ.",
+          "tip": "Chú ý bước chuyển biến tâm lý và hành động từ thất vọng sang tìm tòi sáng tạo (試行錯誤) ở đoạn 3.",
+          "evi": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Sau khi vô tình tạo một vết xước sâu trên gỗ bằng dao khắc, tác giả đã xử lý thế nào?",
+            "o": [
+              "Tác giả từ bỏ ý định vứt bỏ miếng gỗ đó, dùng một miếng gỗ mới khác và làm lại từ đầu.",
+              "Tác giả không tìm cách che vết xước mà nghĩ cách tận dụng nó như một phần trong thiết kế độc đáo của chiếc bát.",
+              "Để hướng đến vẻ đẹp hoàn hảo, tác giả bào đi toàn bộ bề mặt cho đến khi vết xước không còn nhìn thấy.",
+              "Tác giả cho rằng nguyên nhân thất bại là do dao khắc không đủ sắc và thay dụng cụ mới."
+            ]
+          }
+        },
+        {
+          "q": "「予期せぬ困難を単なる不運だとは思わなくなった」とあるが、筆者の考えの変化として最も適切な推論はどれか。",
+          "options": [
+            "困難を避けるために、事前の計画を綿密に立てて効率を高めるようになった。",
+            "思い通りにいかない失敗や挫折の中にも、新たな価値や成長の可能性を見出せるようになった。",
+            "失敗したときは自分の努力不足を受け入れ、すぐに諦めることが大切だと悟った。",
+            "人間関係のトラブルは時間が経てば自然に解決するため、何もしなくてよいと考えるようになった。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ câu [14] và câu [15] 「日常の生活の中で計画通りにいかない出来事に直面するたびに、そこから新しい可能性を発見しようと前向きに考えられるようになった」. Từ bài học biến vết xước trên bát gỗ thành nét đẹp độc đáo, tác giả suy rộng ra cuộc sống: những chuyện không như ý hay khó khăn bất ngờ không phải là vận rủi, mà là cơ hội để khám phá tiềm năng và giá trị mới. Phương án 0 sai vì tác giả không còn chạy theo hiệu suất và kế hoạch cứng nhắc (câu [15], [17]). Phương án 2 sai vì tác giả chọn cách suy nghĩ tích cực (前向き) để vượt qua chứ không cam chịu bỏ cuộc. Phương án 3 sai vì câu [16] khẳng định các mối quan hệ cần phải dành thời gian chủ động vun đắp (育むべきもの).",
+          "tip": "Đây là câu hỏi suy luận triết lý sống: liên hệ bài học từ trải nghiệm làm đồ gỗ đến nhân sinh quan ở đoạn 4.",
+          "evi": [
+            14,
+            15,
+            16
+          ],
+          "qt": {
+            "q": "Cụm từ 「予期せぬ困難を単なる不運だとは思わなくなった」 (không còn nghĩ khó khăn bất ngờ chỉ là điều không may) cho thấy suy nghĩ của tác giả đã thay đổi như thế nào? Suy luận nào phù hợp nhất?",
+            "o": [
+              "Tác giả bắt đầu lập kế hoạch kỹ lưỡng từ trước để tránh khó khăn và nâng cao hiệu quả.",
+              "Tác giả bắt đầu có thể nhìn thấy giá trị mới và khả năng trưởng thành ngay cả trong những thất bại, vấp ngã ngoài dự tính.",
+              "Tác giả nhận ra rằng khi thất bại, điều quan trọng là chấp nhận mình chưa đủ cố gắng và nhanh chóng từ bỏ.",
+              "Tác giả bắt đầu nghĩ rằng rắc rối trong các mối quan hệ sẽ tự nhiên được giải quyết theo thời gian nên không cần làm gì cả."
+            ]
+          }
+        },
+        {
+          "q": "本文全体を通して、筆者が最も伝えたいメッセージは何か。",
+          "options": [
+            "都会での生活を捨てて自然豊かな田舎に移住することこそが、人間にとって唯一の幸せである。",
+            "木工の技術を極めるためには、乾燥した木材の扱い方や道具の使い分けを学ぶことが不可欠である。",
+            "目先の速さや完璧さに囚われず、時間をかけて失敗や日々の積み重ねを慈しむことが豊かな生き方につながる。",
+            "失敗をしたときはすぐに他人に相談し、自分一人で試行錯誤する時間を減らすべきである。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ toàn bộ đoạn kết (câu [17], [18], [19]), tác giả cảnh báo việc tâm trí bị cuốn vào hiệu suất và thành quả trước mắt (目先の成果や効率ばかりに目を奪われている間は), đồng thời nhấn mạnh thông điệp hãy dành thời gian chậm lại, trân trọng những tích lũy nhỏ bé mỗi ngày như những vòng vân gỗ. Phương án 0 sai vì việc chuyển về quê chỉ là bối cảnh cá nhân của tác giả, không phải thông điệp \"duy nhất\". Phương án 1 sai vì bài viết mang tính tản văn chiêm nghiệm chứ không phải sách hướng dẫn kỹ thuật mộc. Phương án 3 sai vì trong bài tác giả trân trọng quá trình tự mình chiêm nghiệm và thử nghiệm tìm tòi (câu [10], [18]).",
+          "tip": "Tập trung vào các câu văn mang tính đúc kết nhân sinh ở đoạn cuối để xác định chủ đề tư tưởng cốt lõi của bài đọc.",
+          "evi": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Xuyên suốt bài đọc, thông điệp tác giả muốn truyền tải nhất là gì?",
+            "o": [
+              "Từ bỏ cuộc sống ở thành phố và chuyển đến vùng quê giàu thiên nhiên chính là niềm hạnh phúc duy nhất của con người.",
+              "Để thành thạo nghề mộc, nhất thiết phải học cách xử lý gỗ khô và cách sử dụng từng loại dụng cụ.",
+              "Không bị cuốn vào tốc độ trước mắt hay sự hoàn hảo, mà trân trọng những thất bại và những tích lũy nhỏ mỗi ngày theo thời gian sẽ dẫn đến một cuộc sống phong phú.",
+              "Khi thất bại, nên lập tức hỏi ý kiến người khác và giảm bớt thời gian tự mình thử nghiệm, tìm cách giải quyết."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "さくらコワーキングスペース 春の特別キャンペーン",
+      "titleVi": "Sakura Coworking Space - Chiến dịch đặc biệt mùa xuân",
+      "japanese": "さくらコワーキングスペース 春の特別キャンペーン\n当施設は、2020年のオープン以来、多くの皆様にご利用いただいております。\n新生活を応援するため、キャンペーンを実施している間は、登録料が半額になります。\nさらに、春休みのうちにWEBから申し込むと、初月の月額利用料が無料になります。\nプラン名｜月額料金｜利用可能時間｜特典\nデイプラン｜8,000円｜平日の9時〜17時の間｜なし\nナイト＆ホリデー｜9,000円｜平日の17時〜23時・土日祝の終日｜なし\nプレミアムプラン｜14,000円｜24時間いつでも利用可能｜利用のたびにドリンク無料\n※1 利用手続きが完了したとたんに、その日からすぐにご利用いただけます。\n※2 デイプランとナイトプランの方は、時間外の間に利用すると30分ごとに300円かかります。\n※3 学生のうちに会員登録された方は、一般料金から毎月1,000円引きとなります。\n※4 前回の退会以来、6か月以上過ぎている元会員も再入会キャンペーンの対象です。\n※5 ロッカーは扉を閉めたとたんにロックされるので、鍵の取り忘れにご注意ください。\n※6 1日利用のビジターの方は、受付を通るたびに利用証をご提示ください。\n※7 特別無料体験チケットは、有効期限が切れないうちにお使いください。",
+      "vietnamese": "Sakura Coworking Space - Chiến dịch đặc biệt mùa xuân\nCơ sở chúng tôi kể từ khi mở cửa vào năm 2020 đến nay đã được đông đảo quý khách sử dụng.\nĐể ủng hộ cuộc sống mới, trong suốt thời gian thực hiện chiến dịch, phí đăng ký sẽ được giảm một nửa.\nHơn nữa, nếu đăng ký qua trang web trong khi còn kỳ nghỉ xuân, phí sử dụng hàng tháng của tháng đầu tiên sẽ được miễn phí.\nTên gói｜Phí hàng tháng｜Thời gian có thể sử dụng｜Đặc quyền\nGói ban ngày｜8.000 yên｜Trong khoảng từ 9:00 đến 17:00 ngày thường｜Không có\nGói đêm và ngày lễ｜9.000 yên｜17:00 đến 23:00 ngày thường và cả ngày thứ Bảy, Chủ nhật, ngày lễ｜Không có\nGói cao cấp｜14.000 yên｜Có thể sử dụng bất cứ lúc nào trong 24 giờ｜Miễn phí đồ uống mỗi lần sử dụng\n※1 Ngay sau khi thủ tục sử dụng hoàn tất, quý khách có thể sử dụng ngay từ chính ngày hôm đó.\n※2 Khách hàng dùng gói Day Plan và Night Plan nếu sử dụng trong khoảng thời gian ngoài giờ quy định sẽ chịu phí 300 yên cho mỗi 30 phút.\n※3 Những người đăng ký hội viên trong khi còn là học sinh - sinh viên sẽ được giảm 1.000 yên mỗi tháng so với giá thông thường.\n※4 Các cựu hội viên đã trải qua hơn 6 tháng kể từ lần hủy tư cách hội viên trước cũng thuộc đối tượng của chiến dịch tái gia nhập.\n※5 Tủ khóa sẽ khóa tự động ngay lúc vừa đóng cửa tủ, nên xin vui lòng cẩn thận không để quên chìa khóa.\n※6 Quý khách vãng lai sử dụng trong ngày vui lòng xuất trình thẻ sử dụng mỗi lần đi qua quầy lễ tân.\n※7 Vé trải nghiệm miễn phí đặc biệt xin vui lòng sử dụng trong khi thời hạn sử dụng chưa hết hạn.",
+      "sentences": [
+        {
+          "jp": "さくらコワーキングスペース 春の特別キャンペーン",
+          "vi": "Sakura Coworking Space - Chiến dịch đặc biệt mùa xuân",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "コワーキングスペース",
+              "read": "こわーきんぐすぺーす",
+              "vi": "không gian làm việc chung"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "きゃんぺーん",
+              "vi": "chiến dịch khuyến mãi"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "春の特別キャンペーン",
+              "why": "Tên chiến dịch ưu đãi đặc biệt diễn ra vào mùa xuân."
+            }
+          ]
+        },
+        {
+          "jp": "当施設は、2020年のオープン以来、多くの皆様にご利用いただいております。",
+          "vi": "Cơ sở chúng tôi kể từ khi mở cửa vào năm 2020 đến nay đã được đông đảo quý khách sử dụng.",
+          "vocab": [
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            },
+            {
+              "w": "オープン",
+              "read": "おーぷん",
+              "vi": "mở cửa, khai trương"
+            },
+            {
+              "w": "以来",
+              "read": "いらい",
+              "vi": "kể từ đó, từ đó về sau"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "皆様",
+              "read": "みなさま",
+              "vi": "quý vị (kính ngữ)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "当施設",
+              "read": "とうしせつ",
+              "vi": "cơ sở này / cơ sở của chúng tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜以来",
+              "vi": "Kể từ khi một sự việc xảy ra trong quá khứ, trạng thái đó vẫn tiếp diễn liên tục cho đến nay."
+            }
+          ],
+          "keys": [
+            {
+              "w": "オープン以来",
+              "why": "Mốc thời gian bắt đầu hoạt động và duy trì liên tục từ năm 2020 đến nay."
+            }
+          ]
+        },
+        {
+          "jp": "新生活を応援するため、キャンペーンを実施している間は、登録料が半額になります。",
+          "vi": "Để ủng hộ cuộc sống mới, trong suốt thời gian thực hiện chiến dịch, phí đăng ký sẽ được giảm một nửa.",
+          "vocab": [
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "応援",
+              "read": "おうえん",
+              "vi": "ủng hộ, cổ vũ"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "キャンペーン",
+              "vi": "chương trình khuyến mãi"
+            },
+            {
+              "w": "実施",
+              "read": "じっし",
+              "vi": "thực hiện, triển khai"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "nửa giá / giảm 50%"
+            },
+            {
+              "w": "新生活",
+              "read": "しんせいかつ",
+              "vi": "cuộc sống mới"
+            },
+            {
+              "w": "登録料",
+              "read": "とうろくりょう",
+              "vi": "phí đăng ký"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間は",
+              "vi": "Trong suốt khoảng thời gian sự việc A diễn ra, trạng thái B được duy trì liên tục."
+            }
+          ],
+          "keys": [
+            {
+              "w": "キャンペーンを実施している間は",
+              "why": "Khoảng thời gian chiến dịch có hiệu lực áp dụng ưu đãi."
+            },
+            {
+              "w": "登録料が半額",
+              "why": "Mức ưu đãi giảm 50% phí đăng ký thành viên ban đầu."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、春休みのうちにWEBから申し込むと、初月の月額利用料が無料になります。",
+          "vi": "Hơn nữa, nếu đăng ký qua trang web trong khi còn kỳ nghỉ xuân, phí sử dụng hàng tháng của tháng đầu tiên sẽ được miễn phí.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa, thêm vào đó"
+            },
+            {
+              "w": "春休み",
+              "read": "はるやすみ",
+              "vi": "kỳ nghỉ xuân"
+            },
+            {
+              "w": "WEB",
+              "read": "WEB",
+              "vi": "trang web, mạng web"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu tiên"
+            },
+            {
+              "w": "月額利用料",
+              "read": "げつがくりようりょう",
+              "vi": "phí sử dụng hàng tháng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに",
+              "vi": "Tranh thủ làm việc gì đó trong khi điều kiện thuận lợi chưa kết thúc hoặc chưa thay đổi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "春休みのうちにWEBから申し込むと",
+              "why": "Điều kiện kết hợp quan trọng: đăng ký trực tuyến trước khi kết thúc kỳ nghỉ xuân."
+            },
+            {
+              "w": "初月の月額利用料が無料",
+              "why": "Ưu đãi miễn phí 100% tiền phí tháng đầu tiên cho người thỏa điều kiện."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜月額料金｜利用可能時間｜特典",
+          "vi": "Tên gói｜Phí hàng tháng｜Thời gian có thể sử dụng｜Đặc quyền",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói dịch vụ"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "特典",
+              "read": "とくてん",
+              "vi": "đặc quyền, ưu đãi đi kèm"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "tiền phí hàng tháng"
+            },
+            {
+              "w": "利用可能時間",
+              "read": "りようかのうじかん",
+              "vi": "thời gian có thể sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "プラン名｜月額料金｜利用可能時間｜特典",
+              "why": "Dòng tiêu đề bảng định nghĩa 4 cột thông tin đối chiếu giữa các gói dịch vụ."
+            }
+          ]
+        },
+        {
+          "jp": "デイプラン｜8,000円｜平日の9時〜17時の間｜なし",
+          "vi": "Gói ban ngày｜8.000 yên｜Trong khoảng từ 9:00 đến 17:00 ngày thường｜Không có",
+          "vocab": [
+            {
+              "w": "デイプラン",
+              "read": "でいぷらん",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "デイ",
+              "read": "でい",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "khoảng thời gian"
+            },
+            {
+              "w": "なし",
+              "read": "なし",
+              "vi": "không có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の間",
+              "vi": "Trong khoảng thời gian cụ thể (từ 9h đến 17h ngày thường)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "8,000円",
+              "why": "Mức phí tháng gói ban ngày."
+            },
+            {
+              "w": "平日の9時〜17時の間",
+              "why": "Khung giờ giới hạn ban ngày của gói Day Plan."
+            }
+          ]
+        },
+        {
+          "jp": "ナイト＆ホリデー｜9,000円｜平日の17時〜23時・土日祝の終日｜なし",
+          "vi": "Gói đêm và ngày lễ｜9.000 yên｜17:00 đến 23:00 ngày thường và cả ngày thứ Bảy, Chủ nhật, ngày lễ｜Không có",
+          "vocab": [
+            {
+              "w": "ナイト＆ホリデー",
+              "read": "ないとあんどほりでー",
+              "vi": "gói ban đêm và ngày lễ"
+            },
+            {
+              "w": "ナイト",
+              "read": "ないと",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "ホリデー",
+              "read": "ほりでー",
+              "vi": "ngày nghỉ; ngày lễ"
+            },
+            {
+              "w": "9,000円",
+              "read": "きゅうせんえん",
+              "vi": "9.000 yên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "23時",
+              "read": "にじゅうさんじ",
+              "vi": "23 giờ"
+            },
+            {
+              "w": "土日祝",
+              "read": "どにちしゅく",
+              "vi": "thứ bảy, chủ nhật và ngày lễ"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ bảy và chủ nhật"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "終日",
+              "read": "しゅうじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "なし",
+              "read": "なし",
+              "vi": "không có"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "9,000円",
+              "why": "Mức phí tháng gói đêm và ngày nghỉ."
+            },
+            {
+              "w": "平日の17時〜23時・土日祝の終日",
+              "why": "Khung giờ áp dụng cho buổi tối ngày thường và trọn ngày nghỉ/cuối tuần."
+            }
+          ]
+        },
+        {
+          "jp": "プレミアムプラン｜14,000円｜24時間いつでも利用可能｜利用のたびにドリンク無料",
+          "vi": "Gói cao cấp｜14.000 yên｜Có thể sử dụng bất cứ lúc nào trong 24 giờ｜Miễn phí đồ uống mỗi lần sử dụng",
+          "vocab": [
+            {
+              "w": "プレミアムプラン",
+              "read": "ぷれみあむぷらん",
+              "vi": "gói cao cấp"
+            },
+            {
+              "w": "プレミアム",
+              "read": "ぷれみあむ",
+              "vi": "cao cấp"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "14,000円",
+              "read": "いちまんよんせんえん",
+              "vi": "14.000 yên"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể; khả thi"
+            },
+            {
+              "w": "たび",
+              "read": "たび",
+              "vi": "mỗi lần"
+            },
+            {
+              "w": "ドリンク",
+              "read": "どりんく",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "Mỗi lần hành động A diễn ra thì sự việc B đều lặp lại tương tự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "14,000円",
+              "why": "Mức phí gói cao cấp toàn thời gian."
+            },
+            {
+              "w": "利用のたびにドリンク無料",
+              "why": "Đặc quyền miễn phí đồ uống mỗi lần tới sử dụng không gian."
+            }
+          ]
+        },
+        {
+          "jp": "※1 利用手続きが完了したとたんに、その日からすぐにご利用いただけます。",
+          "vi": "※1 Ngay sau khi thủ tục sử dụng hoàn tất, quý khách có thể sử dụng ngay từ chính ngày hôm đó.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "手続き",
+              "read": "てつづき",
+              "vi": "thủ tục"
+            },
+            {
+              "w": "完了",
+              "read": "かんりょう",
+              "vi": "hoàn thành, hoàn tất"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "その日",
+              "read": "そのひ",
+              "vi": "ngày hôm đó"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたんに",
+              "vi": "Ngay tức khắc sau khi hành động A vừa hoàn tất thì sự việc B diễn ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "利用手続きが完了したとたんに",
+              "why": "Khoảnh khắc hoàn thành thủ tục kích hoạt quyền sử dụng dịch vụ."
+            },
+            {
+              "w": "その日からすぐにご利用いただけます",
+              "why": "Hiệu lực bắt đầu ngay trong ngày đăng ký mà không phải chờ đợi."
+            }
+          ]
+        },
+        {
+          "jp": "※2 デイプランとナイトプランの方は、時間外の間に利用すると30分ごとに300円かかります。",
+          "vi": "※2 Khách hàng dùng gói Day Plan và Night Plan nếu sử dụng trong khoảng thời gian ngoài giờ quy định sẽ chịu phí 300 yên cho mỗi 30 phút.",
+          "vocab": [
+            {
+              "w": "デイプラン",
+              "read": "でいぷらん",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "デイ",
+              "read": "でい",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói; kế hoạch"
+            },
+            {
+              "w": "ナイトプラン",
+              "read": "ないとぷらん",
+              "vi": "gói ban đêm"
+            },
+            {
+              "w": "ナイト",
+              "read": "ないと",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người; những người"
+            },
+            {
+              "w": "時間外",
+              "read": "じかんがい",
+              "vi": "ngoài giờ"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian; giờ"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "trong khoảng thời gian"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "30分",
+              "read": "さんじゅっぷん",
+              "vi": "30 phút"
+            },
+            {
+              "w": "ごとに",
+              "read": "ごとに",
+              "vi": "mỗi; cứ mỗi"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn; bị tính phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の間に",
+              "vi": "Trong khoảng thời gian (khoảng thời gian ngoài giờ của gói)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "時間外の間に利用すると",
+              "why": "Điều kiện phát sinh phụ phí khi dùng ngoài giờ quy định của gói."
+            },
+            {
+              "w": "30分ごとに300円かかります",
+              "why": "Đơn giá phụ phí phát sinh ngoài giờ."
+            }
+          ]
+        },
+        {
+          "jp": "※3 学生のうちに会員登録された方は、一般料金から毎月1,000円引きとなります。",
+          "vi": "※3 Những người đăng ký hội viên trong khi còn là học sinh - sinh viên sẽ được giảm 1.000 yên mỗi tháng so với giá thông thường.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "うち",
+              "read": "うち",
+              "vi": "trong lúc, khi còn là"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "会員登録",
+              "read": "かいいんとうろく",
+              "vi": "đăng ký hội viên"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (cách nói lịch sự)"
+            },
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "thông thường"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, cước"
+            },
+            {
+              "w": "一般料金",
+              "read": "いっぱんりょうきん",
+              "vi": "mức phí thông thường"
+            },
+            {
+              "w": "毎月",
+              "read": "まいげつ",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            },
+            {
+              "w": "となります",
+              "read": "となります",
+              "vi": "trở thành, được tính là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに",
+              "vi": "Tranh thủ trong khi còn ở một trạng thái nào đó (còn là học sinh, sinh viên)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生のうちに会員登録された方",
+              "why": "Đối tượng được hưởng chính sách ưu đãi giá sinh viên."
+            },
+            {
+              "w": "一般料金から毎月1,000円引き",
+              "why": "Mức giảm cố định 1.000 yên/tháng áp dụng cho sinh viên."
+            }
+          ]
+        },
+        {
+          "jp": "※4 前回の退会以来、6か月以上過ぎている元会員も再入会キャンペーンの対象です。",
+          "vi": "※4 Các cựu hội viên đã trải qua hơn 6 tháng kể từ lần hủy tư cách hội viên trước cũng thuộc đối tượng của chiến dịch tái gia nhập.",
+          "vocab": [
+            {
+              "w": "前回",
+              "read": "ぜんかい",
+              "vi": "lần trước"
+            },
+            {
+              "w": "退会",
+              "read": "たいかい",
+              "vi": "rút hội viên"
+            },
+            {
+              "w": "以来",
+              "read": "いらい",
+              "vi": "kể từ"
+            },
+            {
+              "w": "退会以来",
+              "read": "たいかいいらい",
+              "vi": "kể từ khi rút hội viên"
+            },
+            {
+              "w": "6か月",
+              "read": "ろっかげつ",
+              "vi": "6 tháng"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên, ít nhất"
+            },
+            {
+              "w": "6か月以上",
+              "read": "ろっかげついじょう",
+              "vi": "từ 6 tháng trở lên"
+            },
+            {
+              "w": "過ぎている",
+              "read": "すぎている",
+              "vi": "đã trôi qua"
+            },
+            {
+              "w": "元",
+              "read": "もと",
+              "vi": "cựu, trước đây"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "元会員",
+              "read": "もとかいいん",
+              "vi": "cựu hội viên"
+            },
+            {
+              "w": "再入会",
+              "read": "さいにゅうかい",
+              "vi": "tái gia nhập"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "gia nhập hội viên"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "キャンペーン",
+              "vi": "chiến dịch khuyến mãi"
+            },
+            {
+              "w": "再入会キャンペーン",
+              "read": "さいにゅうかいキャンペーン",
+              "vi": "chiến dịch tái gia nhập"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜以来",
+              "vi": "Kể từ thời điểm hủy hội viên lần trước kéo dài suốt hơn 6 tháng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "前回の退会以来、6か月以上過ぎている",
+              "why": "Điều kiện về khoảng thời gian gián đoạn để được tính ưu đãi như hội viên mới."
+            },
+            {
+              "w": "再入会キャンペーンの対象",
+              "why": "Được công nhận là đối tượng hưởng khuyến mãi tái gia nhập."
+            }
+          ]
+        },
+        {
+          "jp": "※5 ロッカーは扉を閉めたとたんにロックされるので、鍵の取り忘れにご注意ください。",
+          "vi": "※5 Tủ khóa sẽ khóa tự động ngay lúc vừa đóng cửa tủ, nên xin vui lòng cẩn thận không để quên chìa khóa.",
+          "vocab": [
+            {
+              "w": "ロッカー",
+              "read": "ろっかー",
+              "vi": "tủ đồ có khóa"
+            },
+            {
+              "w": "扉",
+              "read": "とびら",
+              "vi": "cánh cửa"
+            },
+            {
+              "w": "閉める",
+              "read": "しめる",
+              "vi": "đóng lại"
+            },
+            {
+              "w": "ロック",
+              "read": "ろっく",
+              "vi": "khóa lại"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khóa"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "取り忘れ",
+              "read": "とりわすれ",
+              "vi": "việc quên lấy (chìa khóa)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たとたんに",
+              "vi": "Ngay khoảnh khắc cánh cửa tủ vừa đóng sập lại thì chốt khóa tự động kích hoạt."
+            }
+          ],
+          "keys": [
+            {
+              "w": "扉を閉めたとたんにロックされる",
+              "why": "Cơ chế tự động khóa ngay khi đóng cửa tủ đồ."
+            },
+            {
+              "w": "鍵の取り忘れにご注意ください",
+              "why": "Lưu ý tránh bị khóa chìa bên trong tủ."
+            }
+          ]
+        },
+        {
+          "jp": "※6 1日利用のビジターの方は、受付を通るたびに利用証をご提示ください。",
+          "vi": "※6 Quý khách vãng lai sử dụng trong ngày vui lòng xuất trình thẻ sử dụng mỗi lần đi qua quầy lễ tân.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "ビジター",
+              "read": "びじたー",
+              "vi": "khách vãng lai"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân"
+            },
+            {
+              "w": "通る",
+              "read": "とおる",
+              "vi": "đi qua"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "1日利用",
+              "read": "いちにちりよう",
+              "vi": "sử dụng trong ngày"
+            },
+            {
+              "w": "利用証",
+              "read": "りようしょう",
+              "vi": "thẻ chứng nhận sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに",
+              "vi": "Mỗi lần khách vãng lai đi qua quầy lễ tân thì đều phải thực hiện việc xuất trình thẻ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1日利用のビジターの方",
+              "why": "Đối tượng áp dụng quy định xuất trình thẻ tại quầy lễ tân."
+            },
+            {
+              "w": "受付を通るたびに利用証をご提示ください",
+              "why": "Yêu cầu bắt buộc xuất trình thẻ mỗi khi qua quầy lễ tân."
+            }
+          ]
+        },
+        {
+          "jp": "※7 特別無料体験チケットは、有効期限が切れないうちにお使いください。",
+          "vi": "※7 Vé trải nghiệm miễn phí đặc biệt xin vui lòng sử dụng trong khi thời hạn sử dụng chưa hết hạn.",
+          "vocab": [
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "体験チケット",
+              "read": "たいけんちけっと",
+              "vi": "vé trải nghiệm"
+            },
+            {
+              "w": "チケット",
+              "read": "チケット",
+              "vi": "vé"
+            },
+            {
+              "w": "有効",
+              "read": "ゆうこう",
+              "vi": "hữu hiệu, có hiệu quả"
+            },
+            {
+              "w": "期限",
+              "read": "きげん",
+              "vi": "thời hạn, hạn chót"
+            },
+            {
+              "w": "切れる",
+              "read": "きれる",
+              "vi": "hết hạn"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "有効期限",
+              "read": "ゆうこうきげん",
+              "vi": "thời hạn hiệu lực"
+            },
+            {
+              "w": "お使いください",
+              "read": "おつかいください",
+              "vi": "xin hãy sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに",
+              "vi": "Tranh thủ sử dụng trong khi vé vẫn còn hạn sử dụng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "特別無料体験チケット",
+              "why": "Loại phiếu ưu đãi trải nghiệm dịch vụ miễn phí."
+            },
+            {
+              "w": "有効期限が切れないうちにお使いください",
+              "why": "Quy định về việc cần sử dụng trước khi vé hết hiệu lực."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "オープン以来",
+          "label": "〜以来"
+        },
+        {
+          "excerpt": "キャンペーンを実施している間は",
+          "label": "〜間は"
+        },
+        {
+          "excerpt": "春休みのうちに",
+          "label": "〜うちに"
+        },
+        {
+          "excerpt": "利用のたびに",
+          "label": "〜たびに"
+        },
+        {
+          "excerpt": "利用手続きが完了したとたんに",
+          "label": "〜たとたんに"
+        },
+        {
+          "excerpt": "前回の退会以来",
+          "label": "〜以来"
+        },
+        {
+          "excerpt": "扉を閉めたとたんに",
+          "label": "〜たとたんに"
+        },
+        {
+          "excerpt": "受付を通るたびに",
+          "label": "〜たびに"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "キャンペーンの概要と入会特典",
+          "topic": 2,
+          "note": "Giới thiệu chiến dịch mùa xuân, giảm phí đăng ký và miễn phí tháng đầu",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "body",
+          "label": "利用プラン一覧と料金表",
+          "topic": 4,
+          "note": "Bảng so sánh 3 gói sử dụng, biểu phí tháng và quyền lợi đi kèm",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "利用開始・追加料金・各種割引の規定",
+          "topic": 8,
+          "note": "Quy định ngày bắt đầu dùng, phụ phí ngoài giờ, giảm giá sinh viên và cựu hội viên",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 14,
+          "kind": "turn",
+          "label": "施設利用時の注意点とチケット案内",
+          "topic": 12,
+          "note": "Lưu ý tủ khóa tự động, quy tắc cho khách vãng lai và hạn dùng vé trải nghiệm",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学生のリンさんは、平日の夜（19時〜21時）と土曜日に勉強するために利用したいと考えています。春休みのうちにWEBから会員登録する場合、最初の月に支払う月額利用料はいくらになりますか。",
+          "options": [
+            "0円",
+            "8,000円",
+            "9,000円",
+            "13,000円"
+          ],
+          "answer": 0,
+          "explainVi": "Theo bảng giá ở dòng 6, nhu cầu dùng tối ngày thường (19h~21h) và thứ Bảy phù hợp với gói 'ナイト＆ホリデー' (phí gốc 9.000 yên). Dù dòng 10 có quy định sinh viên được giảm 1.000 yên/tháng, nhưng theo dòng 3, nếu đăng ký qua trang web trong kỳ nghỉ xuân ('春休みのうちにWEBから申し込むと') thì phí sử dụng hàng tháng của tháng đầu tiên được miễn phí hoàn toàn ('初月の月額利用料が無料になります'). Do đó, tháng đầu tiên Linh phải trả 0 yên.",
+          "tip": "Xác định gói dịch vụ dựa vào khung giờ cần dùng, sau đó đọc kỹ dòng 3 về ưu đãi đặc biệt miễn phí tháng đầu khi đăng ký qua mạng trong kỳ nghỉ xuân.",
+          "evi": [
+            3,
+            6,
+            10
+          ],
+          "qt": {
+            "q": "Sinh viên đại học Lin muốn sử dụng không gian để học vào buổi tối các ngày trong tuần (19:00–21:00) và thứ Bảy. Nếu đăng ký thành viên trên web trong kỳ nghỉ xuân, phí sử dụng hàng tháng phải trả trong tháng đầu tiên là bao nhiêu?",
+            "o": [
+              "0 yên",
+              "8.000 yên",
+              "9.000 yên",
+              "13.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "社会人の山田さんは、7か月前にこのコワーキングスペースを退会しましたが、平日の昼間（10時〜16時）に利用するために再入会したいと考えています。山田さんの利用について、正しいものはどれですか。",
+          "options": [
+            "退会から6か月以上経っているため、再入会キャンペーンの対象となり、手続き完了当日から利用できる。",
+            "昼間利用のデイプランなので、利用するたびに受付で身分証を提示しなければならない。",
+            "以前会員だったため、キャンペーン期間中であっても登録料の割引は受けられない。",
+            "デイプランの利用者は、平日の18時以降に利用しても追加料金はかからない。"
+          ],
+          "answer": 0,
+          "explainVi": "Theo ※4 (dòng 11), cựu hội viên đã nghỉ trên 6 tháng kể từ lần hủy hội viên trước ('前回の退会以来、6か月以上過ぎている元会員') vẫn thuộc đối tượng ưu đãi của chiến dịch tái gia nhập. Đồng thời theo ※1 (dòng 8), ngay khi hoàn tất thủ tục đăng ký ('利用手続きが完了したとたんに'), hội viên có thể sử dụng ngay từ chính ngày hôm đó ('その日からすぐにご利用いただけます'). Vì vậy phương án đầu tiên là đáp án chính xác.",
+          "tip": "Đối chiếu mốc 7 tháng với điều kiện tái gia nhập ở ※4 (退会以来) và thời điểm bắt đầu được phép sử dụng tại ※1 (完了したとたんに).",
+          "evi": [
+            8,
+            11
+          ],
+          "qt": {
+            "q": "Anh Yamada, một người đi làm, đã rời khỏi không gian làm việc chung này cách đây 7 tháng, nhưng muốn đăng ký lại để sử dụng vào ban ngày các ngày trong tuần (10:00–16:00). Điều nào sau đây đúng về việc sử dụng của anh Yamada?",
+            "o": [
+              "Vì đã hơn 6 tháng kể từ khi rời khỏi, anh thuộc đối tượng của chương trình khuyến mãi tái gia nhập và có thể sử dụng ngay trong ngày hoàn tất thủ tục.",
+              "Vì là gói ban ngày, mỗi lần sử dụng anh phải xuất trình giấy tờ tùy thân tại quầy lễ tân.",
+              "Vì trước đây từng là hội viên, anh không được giảm phí đăng ký ngay cả trong thời gian khuyến mãi.",
+              "Người sử dụng gói ban ngày không bị tính thêm phí ngay cả khi sử dụng sau 18 giờ vào ngày thường."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

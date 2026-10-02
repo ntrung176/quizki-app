@@ -1,0 +1,3906 @@
+{
+  "bai": 2,
+  "level": "N5",
+  "intro": "これ／それ／あれ · この／その／あのN · そうです／そうではありません · NのN. Có ÔN LẠI ngữ pháp đã học (bài 1) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "これはわたしの本です。",
+              "ul": "本",
+              "choices": [
+                "ほん",
+                "もと",
+                "ぼん",
+                "はん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「ほん」— đây là âm on-yomi chuẩn của 本 (sách), từ thông dụng nhất trong N5.\n(A) 「ほん」— đúng: âm on-yomi chuẩn của 本, nghĩa \"sách\".\n(B) 「もと」— sai: là âm kun-yomi nghĩa là \"gốc/nền tảng\" (ví dụ: もとの場所), không phải nghĩa \"sách\".\n(C) 「ぼん」— sai: cách đọc sai do nhầm hữu thanh hóa.\n(D) 「はん」— sai: không phải cách đọc của 本 trong bất kỳ trường hợp nào — dễ nhầm vì 半(はん) có hình tương tự.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (trợ động từ)"
+                }
+              ]
+            },
+            {
+              "prompt": "あの人はだれですか。",
+              "ul": "人",
+              "choices": [
+                "ひと",
+                "じん",
+                "にん",
+                "びと"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「ひと」— 人 đứng một mình (danh từ độc lập) đọc theo kun-yomi.\n(A) 「ひと」— đúng: kun-yomi của 人 khi đứng độc lập.\n(B) 「じん」— sai: là âm on-yomi, chỉ dùng khi ghép từ (ví dụ: 日本人「にほんじん」), không dùng khi đứng độc lập.\n(C) 「にん」— sai: cũng là âm on-yomi, chỉ dùng khi ghép từ (ví dụ: 三人「さんにん」), không dùng khi đứng độc lập.\n(D) 「びと」— sai: là biến âm hữu thanh hóa, chỉ xuất hiện ở hậu tố (ví dụ: 旅人「たびびと」), không dùng ở vị trí độc lập.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "kia (chỉ xa)"
+                },
+                {
+                  "t": "人",
+                  "vi": "người"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là? (câu hỏi lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "それはにほんごの本ですか。",
+              "ul": "本",
+              "choices": [
+                "ほん",
+                "もん",
+                "ぽん",
+                "はん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「ほん」— 本 (sách) đọc theo on-yomi.\n(A) 「ほん」— đúng: on-yomi của 本, nghĩa \"sách\".\n(B) 「もん」— sai: là âm của 門(cổng) hoặc 問(câu hỏi), không liên quan đến 本.\n(C) 「ぽん」— sai: là biến âm bán trọc hóa (half-voiced), xuất hiện trong đếm vật hình trụ (一本「いっぽん」) nhưng không dùng khi 本 đứng độc lập nghĩa \"sách\".\n(D) 「はん」— sai: không phải cách đọc của 本 — dễ nhầm với 半(はん).",
+              "glosses": [
+                {
+                  "t": "それ",
+                  "vi": "cái đó"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "にほんごの",
+                  "vi": "của/tiếng Nhật"
+                },
+                {
+                  "t": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là...? (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "これはだれの傘ですか。",
+              "ul": "傘",
+              "choices": [
+                "かさ",
+                "かざ",
+                "さん",
+                "さが"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「かさ」— 傘 (ô/dù) đọc theo kun-yomi.\n(A) 「かさ」— đúng: kun-yomi của 傘, nghĩa \"ô/dù\".\n(B) 「かざ」— sai: là cách đọc sai do nhầm hữu thanh hóa âm「さ」thành「ざ」.\n(C) 「さん」— sai: là âm on-yomi của 傘 nhưng thực tế rất hiếm dùng độc lập trong văn nói thường ngày, N5 chỉ cần biết「かさ」.\n(D) 「さが」— sai: không phải cách đọc của 傘 — là tên riêng (地名 Saga) hay「性」(さが: tính cách).",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "傘",
+                  "vi": "ô/dù"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là? (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "あれはわたしの会社のものです。",
+              "ul": "会社",
+              "choices": [
+                "かいしゃ",
+                "かいさ",
+                "えしゃ",
+                "かいじゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「かいしゃ」— 会社 (công ty) gồm 会(かい) + 社(しゃ), đều là on-yomi.\n(A) 「かいしゃ」— đúng: 会(かい) + 社(しゃ), on-yomi, nghĩa \"công ty\".\n(B) 「かいさ」— sai: đọc thiếu âm「し」nên sai.\n(C) 「えしゃ」— sai: nhầm 会(かい) thành âm「え」— 会 không có cách đọc「え」trong ngữ cảnh này.\n(D) 「かいじゃ」— sai: nhầm hữu thanh hóa「しゃ→じゃ」, là lỗi phổ biến khi không quen phân biệt し và じ.",
+              "glosses": [
+                {
+                  "t": "あれ",
+                  "vi": "cái kia (chỉ rất xa)"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "の",
+                  "vi": "trợ từ sở hữu/chỉ định"
+                },
+                {
+                  "t": "もの",
+                  "vi": "vật/thứ"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "prompt": "これはせんせいの電話ですか。",
+              "ul": "電話",
+              "choices": [
+                "でんわ",
+                "でんは",
+                "てんわ",
+                "でんか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「でんわ」— 電話 (điện thoại) gồm 電(でん) + 話(わ), đều là on-yomi.\n(A) 「でんわ」— đúng: 電(でん) + 話(わ), on-yomi, nghĩa \"điện thoại\".\n(B) 「でんは」— sai: nhầm「わ」thành「は」— đây là lỗi phổ biến vì は và わ đôi khi phát âm giống nhau trong trợ từ, nhưng trong từ ghép phải dùng「わ」.\n(C) 「てんわ」— sai: nhầm 電(でん) thành「てん」— 電 đọc là「でん」không phải「てん」.\n(D) 「でんか」— sai: nhầm 話(わ) thành「か」— 話 không có cách đọc「か」.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "せんせいの",
+                  "vi": "của thầy/cô giáo"
+                },
+                {
+                  "t": "電話",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là? (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "それはあたらしい時計ですね。",
+              "ul": "時計",
+              "choices": [
+                "とけい",
+                "じけい",
+                "ときけい",
+                "とかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「とけい」— 時計 (đồng hồ) là cách đọc đặc biệt (熟字訓 hay âm không quy tắc), không thể suy ra từ on/kun-yomi thông thường.\n(A) 「とけい」— đúng: cách đọc đặc biệt của 時計, nghĩa \"đồng hồ\".\n(B) 「じけい」— sai: dùng âm on-yomi của 時(じ) nhưng từ này không đọc theo quy tắc thông thường.\n(C) 「ときけい」— sai: đọc 時 theo kun-yomi「とき」rồi ghép「けい」, sai vì không khớp với âm chuẩn「とけい」.\n(D) 「とかい」— sai: nhầm「けい」thành「かい」— 計(けい/かず) không có âm「かい」trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "それ",
+                  "vi": "cái đó"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "時計",
+                  "vi": "đồng hồ"
+                },
+                {
+                  "t": "ですね",
+                  "vi": "nhỉ/phải không (xác nhận)"
+                }
+              ]
+            },
+            {
+              "prompt": "このかばんはたなかさんのですか。あの鞄もたなかさんのですか。",
+              "ul": "鞄",
+              "choices": [
+                "かばん",
+                "かわん",
+                "きばん",
+                "かぶん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「かばん」— 鞄 (túi/cặp) đọc theo kun-yomi.\n(A) 「かばん」— đúng: kun-yomi của 鞄, nghĩa \"túi/cặp\".\n(B) 「かわん」— sai: nhầm âm「ば」thành「わ」— b và w gần nhau về vị trí miệng nên dễ lẫn.\n(C) 「きばん」— sai: nhầm âm đầu「か」thành「き」— 鞄 chỉ có cách đọc「かばん」.\n(D) 「かぶん」— sai: nhầm「ばん」thành「ぶん」— âm「ぶん」là đọc của 文(ぶん) hay 分(ぶん), không phải của 鞄.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này (gần người nói)"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "túi/cặp"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "たなかさんの",
+                  "vi": "của anh/chị Tanaka"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là? (câu hỏi)"
+                },
+                {
+                  "t": "あの",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "鞄",
+                  "vi": "túi/cặp"
+                },
+                {
+                  "t": "も",
+                  "vi": "cũng"
+                }
+              ]
+            },
+            {
+              "prompt": "これはだれの財布ですか。",
+              "ul": "財布",
+              "choices": [
+                "さいふ",
+                "ざいふ",
+                "さいぶ",
+                "ざいぶ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「さいふ」— 財布 (ví tiền) gồm 財(さい) + 布(ふ), on-yomi.\n(A) 「さいふ」— đúng: 財(さい) + 布(ふ), on-yomi, nghĩa \"ví tiền\".\n(B) 「ざいふ」— sai: nhầm hữu thanh hóa「さ→ざ」— 財 đọc là「さい」không phải「ざい」(chú ý: 在(ざい) khác 財(さい)).\n(C) 「さいぶ」— sai: nhầm hữu thanh hóa「ふ→ぶ」— 布 đọc là「ふ」không phải「ぶ」.\n(D) 「ざいぶ」— sai: sai cả hai âm, vừa nhầm「さ→ざ」vừa nhầm「ふ→ぶ」.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "財布",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là? (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "あれはにほんの国の電車ですか。",
+              "ul": "電車",
+              "choices": [
+                "でんしゃ",
+                "でんさ",
+                "てんしゃ",
+                "でんじゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「でんしゃ」— 電車 (tàu điện) gồm 電(でん) + 車(しゃ), đều là on-yomi.\n(A) 「でんしゃ」— đúng: 電(でん) + 車(しゃ), on-yomi, nghĩa \"tàu điện\".\n(B) 「でんさ」— sai: thiếu âm「し」trong「しゃ」, đọc sai 車(しゃ).\n(C) 「てんしゃ」— sai: nhầm 電(でん) thành「てん」— 電 không có cách đọc「てん」.\n(D) 「でんじゃ」— sai: nhầm hữu thanh hóa「しゃ→じゃ」— 車 đọc là「しゃ」không phải「じゃ」.",
+              "glosses": [
+                {
+                  "t": "あれ",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "にほんの",
+                  "vi": "của Nhật Bản"
+                },
+                {
+                  "t": "国",
+                  "read": "くに",
+                  "vi": "đất nước"
+                },
+                {
+                  "t": "の",
+                  "vi": "trợ từ sở hữu/chỉ định"
+                },
+                {
+                  "t": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là? (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "それはきれいな写真ですね。どこの写真ですか。",
+              "ul": "写真",
+              "choices": [
+                "しゃしん",
+                "しゃじん",
+                "さしん",
+                "じゃしん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「しゃしん」— 写真 (bức ảnh) gồm 写(しゃ) + 真(しん), đều là on-yomi.\n(A) 「しゃしん」— đúng: 写(しゃ) + 真(しん), on-yomi, nghĩa \"bức ảnh\".\n(B) 「しゃじん」— sai: nhầm hữu thanh hóa「しん→じん」— 真(しん) không đọc là「じん」trong từ này (chú ý:「じん」là đọc của 人/陣 trong các từ khác).\n(C) 「さしん」— sai: nhầm「しゃ→さ」— 写 đọc là「しゃ」không phải「さ」.\n(D) 「じゃしん」— sai: nhầm hữu thanh hóa âm đầu「しゃ→じゃ」— 写 không đọc là「じゃ」.",
+              "glosses": [
+                {
+                  "t": "それ",
+                  "vi": "cái đó"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "きれいな",
+                  "vi": "đẹp"
+                },
+                {
+                  "t": "写真",
+                  "vi": "bức ảnh"
+                },
+                {
+                  "t": "ですね",
+                  "vi": "nhỉ (xác nhận)"
+                },
+                {
+                  "t": "どこの",
+                  "vi": "của đâu/ở đâu"
+                }
+              ]
+            },
+            {
+              "prompt": "このめがねはだれのですか。あれはちちの眼鏡です。",
+              "ul": "眼鏡",
+              "choices": [
+                "めがね",
+                "めかね",
+                "がんきょう",
+                "めぎね"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「めがね」— 眼鏡 (kính mắt) là cách đọc kun-yomi đặc biệt, không suy ra từ on-yomi.\n(A) 「めがね」— đúng: cách đọc kun-yomi đặc biệt của 眼鏡, nghĩa \"kính mắt\".\n(B) 「めかね」— sai: nhầm hữu thanh hóa「が→か」theo chiều ngược — 鏡(かがみ) có âm「か」nhưng khi ghép trong「眼鏡」phải dùng「がね」.\n(C) 「がんきょう」— sai: là on-yomi (眼=がん, 鏡=きょう), đúng về mặt học thuật nhưng trong đời thường N5 người Nhật nói「めがね」.\n(D) 「めぎね」— sai: đổi thứ tự âm sai hoàn toàn, không phải cách đọc hợp lệ.",
+              "glosses": [
+                {
+                  "t": "このめがね",
+                  "vi": "cặp kính này"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "だれのですか",
+                  "vi": "của ai vậy?"
+                },
+                {
+                  "t": "あれ",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "ちちの",
+                  "vi": "của bố (tôi)"
+                },
+                {
+                  "t": "眼鏡",
+                  "vi": "kính mắt"
+                }
+              ]
+            },
+            {
+              "prompt": "そのくつはあたらしいですか。いいえ、この靴はふるいです。",
+              "ul": "靴",
+              "choices": [
+                "くつ",
+                "くず",
+                "ぐつ",
+                "くた"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「くつ」— 靴 (giày) đọc theo kun-yomi.\n(A) 「くつ」— đúng: kun-yomi của 靴, nghĩa \"giày\".\n(B) 「くず」— sai: nhầm「つ→ず」— hữu thanh hóa sai, づ/ず là âm của các từ khác.\n(C) 「ぐつ」— sai: nhầm hữu thanh hóa âm đầu「く→ぐ」— biến âm「ぐつ」chỉ xuất hiện khi ghép sau từ khác (ví dụ: 長靴「ながぐつ」), không dùng khi đứng độc lập.\n(D) 「くた」— sai: nhầm âm cuối「つ→た」— không phải cách đọc hợp lệ của 靴.",
+              "glosses": [
+                {
+                  "t": "その",
+                  "vi": "cái đó (gần người nghe)"
+                },
+                {
+                  "t": "くつ",
+                  "vi": "giày"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "...? (câu hỏi)"
+                },
+                {
+                  "t": "いいえ",
+                  "vi": "không"
+                },
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "靴",
+                  "vi": "giày"
+                },
+                {
+                  "t": "ふるい",
+                  "vi": "cũ"
+                }
+              ]
+            },
+            {
+              "prompt": "これはにほんの新聞ですか。",
+              "ul": "新聞",
+              "choices": [
+                "しんぶん",
+                "しんもん",
+                "じんぶん",
+                "しんふん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「新聞」(tờ báo) đọc là「しんぶん」— 新(しん) + 聞(ぶん), đều là on-yomi. Chú ý: 聞 thường đọc là「きく」(kun) hoặc「ぶん」(on khi ghép). Các phương án sai: 「しんもん」nhầm 聞(ぶん) thành「もん」— 問(もん) là chữ khác; 「じんぶん」nhầm hữu thanh hóa「しん→じん」— 新(しん) không đọc là「じん」; 「しんふん」nhầm hữu thanh hóa「ぶん→ふん」— 聞 ghép trong từ đọc là「ぶん」không phải「ふん」.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "にほんの",
+                  "vi": "của Nhật Bản"
+                },
+                {
+                  "t": "新聞",
+                  "vi": "báo (tờ báo)"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là? (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとのかばんはおおきいですね。この鞄はちいさいです。",
+              "ul": "鞄",
+              "choices": [
+                "かばん",
+                "かわん",
+                "きばん",
+                "かはん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「鞄」(túi/cặp) đọc là「かばん」(kun-yomi). Đây là từ khó viết nhưng cách đọc quan trọng cần nhớ ở N5. Các phương án sai: 「かわん」nhầm「ば→わ」— b và w khác nhau hoàn toàn dù gần nhau về cách phát âm; 「きばん」nhầm âm đầu「か→き」— 鞄 chỉ có một cách đọc duy nhất là「かばん」; 「かはん」nhầm「ば→は」— 「かはん」không phải từ tồn tại, là lỗi do nhầm hữu thanh hóa ngược.",
+              "glosses": [
+                {
+                  "t": "あのひとの",
+                  "vi": "của người kia"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "túi/cặp"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "おおきい",
+                  "vi": "to/lớn"
+                },
+                {
+                  "t": "ですね",
+                  "vi": "nhỉ (xác nhận)"
+                },
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "鞄",
+                  "vi": "túi/cặp"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "ちいさい",
+                  "vi": "nhỏ/bé"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "これはわたしのほんです。",
+              "ul": "ほん",
+              "choices": [
+                "本",
+                "木",
+                "大",
+                "目"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ほん」は「本」（sách）と書きます。\n\n- A「本」→ ĐÚNG. 「ほん」= sách.\n- B「木」→ SAI. Đọc là「き/もく」, nghĩa là cây/gỗ. Hình tự giống「本」nhưng thiếu nét ngang dưới cùng.\n- C「大」→ SAI. Đọc là「おお/だい」, nghĩa là to/lớn. Âm và nghĩa hoàn toàn khác.\n- D「目」→ SAI. Đọc là「め/もく」, nghĩa là mắt. Hình tự vuông dễ nhầm với chữ khác.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này thì"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "です",
+                  "vi": "(là)"
+                }
+              ]
+            },
+            {
+              "prompt": "それはだれのかばんですか。",
+              "ul": "だれ",
+              "choices": [
+                "誰",
+                "何",
+                "今",
+                "名"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「だれ」は「誰」（ai）と書きます。\n\n- A「誰」→ ĐÚNG. 「だれ」= ai.\n- B「何」→ SAI. Đọc là「なに/なん」, nghĩa là cái gì/gì. Hỏi về vật, không hỏi về người.\n- C「今」→ SAI. Đọc là「いま/こん」, nghĩa là bây giờ. Không liên quan đến đại từ nghi vấn chỉ người.\n- D「名」→ SAI. Đọc là「な/めい」, nghĩa là tên. Dễ nhầm vì「名前」có liên quan đến người nhưng không có nghĩa \"ai\".",
+              "glosses": [
+                {
+                  "t": "それは",
+                  "vi": "cái đó thì"
+                },
+                {
+                  "t": "だれの",
+                  "read": "誰の",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "cặp/túi xách"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "(có phải không?)"
+                }
+              ]
+            },
+            {
+              "prompt": "あれはなんねんせいのがくせいですか。",
+              "ul": "がくせい",
+              "choices": [
+                "学生",
+                "先生",
+                "学校",
+                "生日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「がくせい」は「学生」（học sinh/sinh viên）と書きます。\n\n- A「学生」→ ĐÚNG. 「がくせい」= học sinh, sinh viên.\n- B「先生」→ SAI. Đọc là「せんせい」, nghĩa là giáo viên/thầy/cô. Cùng chữ「生」nhưng nghĩa ngược lại.\n- C「学校」→ SAI. Đọc là「がっこう」, nghĩa là trường học. Cùng chữ「学」nhưng chữ sau khác.\n- D「生日」→ SAI. Không phải từ Nhật thông dụng (là Hán tự Trung Quốc nghĩa sinh nhật). Trong tiếng Nhật dùng「たんじょうび」.",
+              "glosses": [
+                {
+                  "t": "あれは",
+                  "vi": "cái kia thì"
+                },
+                {
+                  "t": "なんねんせいの",
+                  "read": "何年生の",
+                  "vi": "năm mấy (của)"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "学生",
+                  "vi": "học sinh/sinh viên"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "(là không?)"
+                }
+              ]
+            },
+            {
+              "prompt": "これはにほんのくるまです。",
+              "ul": "にほん",
+              "choices": [
+                "日本",
+                "日月",
+                "白本",
+                "目本"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にほん」は「日本」（Nhật Bản）と書きます。\n\n- A「日本」→ ĐÚNG. 「にほん/にっぽん」= Nhật Bản.\n- B「日月」→ SAI. Đọc là「にちげつ/じつき」, nghĩa là mặt trời và mặt trăng. Chữ「本」bị thay bằng「月」.\n- C「白本」→ SAI. 「白」(しろ/はく) nghĩa là màu trắng, không liên quan đến Nhật Bản.\n- D「目本」→ SAI. 「目」(め/もく) nghĩa là mắt. Hình tự「目」trông giống「日」nên dễ nhầm.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này thì"
+                },
+                {
+                  "t": "にほんの",
+                  "read": "日本の",
+                  "vi": "của Nhật Bản"
+                },
+                {
+                  "t": "くるま",
+                  "vi": "xe hơi/ô tô"
+                },
+                {
+                  "t": "です",
+                  "vi": "(là)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはわたしのせんせいです。",
+              "ul": "せんせい",
+              "choices": [
+                "先生",
+                "学生",
+                "先月",
+                "人生"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「せんせい」は「先生」（giáo viên/thầy/cô）と書きます。\n\n- A「先生」→ ĐÚNG. 「せんせい」= thầy, cô giáo.\n- B「学生」→ SAI. Đọc là「がくせい」, nghĩa là học sinh. Cùng chữ「生」nhưng chữ đầu khác.\n- C「先月」→ SAI. Đọc là「せんげつ」, nghĩa là tháng trước. Cùng chữ「先」nhưng chữ sau là「月」(tháng) không phải「生」.\n- D「人生」→ SAI. Đọc là「じんせい」, nghĩa là cuộc đời/cuộc sống. Cùng chữ「生」nhưng thứ tự ngược và nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "あのひと",
+                  "read": "あの人",
+                  "vi": "người kia"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên/thầy-cô"
+                }
+              ]
+            },
+            {
+              "prompt": "それはどこのくにのものですか。",
+              "ul": "くに",
+              "choices": [
+                "国",
+                "回",
+                "囲",
+                "固"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「くに」は「国」（đất nước/quốc gia）と書きます。\n\n- A「国」→ ĐÚNG. 「くに/こく」= đất nước, quốc gia.\n- B「回」→ SAI. Đọc là「かい/まわ」, nghĩa là lần/vòng/quay. Hình tự có khung vuông tương tự nhưng bên trong có chữ「口」nhỏ.\n- C「囲」→ SAI. Đọc là「い/かこ」, nghĩa là bao vây/vây quanh. Hình tự cũng có khung vuông nhưng phức tạp hơn.\n- D「固」→ SAI. Đọc là「こ/かた」, nghĩa là cứng/kiên cố. Hình tự tương tự nhưng bên trong là「古」.",
+              "glosses": [
+                {
+                  "t": "それは",
+                  "vi": "cái đó thì"
+                },
+                {
+                  "t": "どこの",
+                  "vi": "của đâu/nước nào"
+                },
+                {
+                  "t": "くにの",
+                  "read": "国の",
+                  "vi": "của nước"
+                },
+                {
+                  "t": "もの",
+                  "vi": "đồ vật/thứ"
+                }
+              ]
+            },
+            {
+              "prompt": "これはあたらしいでんわです。",
+              "ul": "あたらしい",
+              "choices": [
+                "新しい",
+                "小さい",
+                "古い",
+                "多い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あたらしい」は「新しい」（mới）と書きます。\n\n- A「新しい」→ ĐÚNG. 「あたらしい」= mới.\n- B「小さい」→ SAI. Đọc là「ちいさい」, nghĩa là nhỏ. Tính từ chỉ kích thước, không chỉ độ mới.\n- C「古い」→ SAI. Đọc là「ふるい」, nghĩa là cũ. Nghĩa đối lập với「新しい」.\n- D「多い」→ SAI. Đọc là「おおい」, nghĩa là nhiều. Tính từ chỉ số lượng, không liên quan.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này thì"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "新しい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "でんわ",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "です",
+                  "vi": "(là)"
+                }
+              ]
+            },
+            {
+              "prompt": "このとけいはちいさいです。",
+              "ul": "ちいさい",
+              "choices": [
+                "小さい",
+                "大きい",
+                "少ない",
+                "白い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ちいさい」は「小さい」（nhỏ）と書きます。\n\n- A「小さい」→ ĐÚNG. 「ちいさい」= nhỏ, bé.\n- B「大きい」→ SAI. Đọc là「おおきい」, nghĩa là to, lớn. Nghĩa đối lập với「小さい」.\n- C「少ない」→ SAI. Đọc là「すくない」, nghĩa là ít (số lượng). Không chỉ kích thước.\n- D「白い」→ SAI. Đọc là「しろい」, nghĩa là màu trắng. Tính từ chỉ màu sắc, không liên quan đến kích thước.",
+              "glosses": [
+                {
+                  "t": "このとけいは",
+                  "read": "この時計は",
+                  "vi": "chiếc đồng hồ này thì"
+                },
+                {
+                  "t": "ちいさい",
+                  "read": "小さい",
+                  "vi": "nhỏ, bé"
+                },
+                {
+                  "t": "です",
+                  "vi": "(là)"
+                }
+              ]
+            },
+            {
+              "prompt": "これはなんですか。— それはわたしのめがねです。",
+              "ul": "めがね",
+              "choices": [
+                "眼鏡",
+                "眼目",
+                "目鏡",
+                "銀鏡"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「めがね」は「眼鏡」（kính mắt）と書きます。\n\n- A「眼鏡」→ ĐÚNG. 「めがね」= kính mắt. 「眼」(mắt) +「鏡」(gương/kính).\n- B「眼目」→ SAI. Đọc là「がんもく」, nghĩa là điểm chính/trọng tâm. Cùng chữ「眼」nhưng chữ sau là「目」khác nghĩa.\n- C「目鏡」→ SAI. Không phải cách viết chuẩn của「めがね」. Chữ「目」khác với「眼」(「眼」phức tạp hơn, chuyên chỉ con mắt).\n- D「銀鏡」→ SAI. 「銀」(ぎん) nghĩa là bạc (kim loại). Không liên quan đến kính mắt.",
+              "glosses": [
+                {
+                  "t": "これはなんですか",
+                  "vi": "cái này là cái gì?",
+                  "read": "これはなんですか"
+                },
+                {
+                  "t": "それは",
+                  "vi": "cái đó thì"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "めがね",
+                  "read": "眼鏡",
+                  "vi": "kính mắt"
+                }
+              ]
+            },
+            {
+              "prompt": "あのおおきいたてものはなんですか。",
+              "ul": "たてもの",
+              "choices": [
+                "建物",
+                "建具",
+                "立物",
+                "建設"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「たてもの」は「建物」（tòa nhà）と書きます。\n\n- A「建物」→ ĐÚNG. 「たてもの」= tòa nhà, công trình.\n- B「建具」→ SAI. Đọc là「たてぐ」, nghĩa là cửa kéo/các bộ phận ngăn phòng. Cùng chữ「建」nhưng chữ sau khác.\n- C「立物」→ SAI. Không phải từ thông dụng. 「立」(たつ) nghĩa là đứng, không dùng để nói về nhà.\n- D「建設」→ SAI. Đọc là「けんせつ」, nghĩa là xây dựng (hành động). Khác âm và nghĩa.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "kia"
+                },
+                {
+                  "t": "おおきい",
+                  "read": "大きい",
+                  "vi": "to, lớn"
+                },
+                {
+                  "t": "たてものは",
+                  "read": "建物は",
+                  "vi": "tòa nhà thì"
+                },
+                {
+                  "t": "なんですか",
+                  "read": "何ですか",
+                  "vi": "là cái gì?"
+                }
+              ]
+            },
+            {
+              "prompt": "これはわたしのかいしゃのものです。",
+              "ul": "かいしゃ",
+              "choices": [
+                "会社",
+                "会話",
+                "社会",
+                "会計"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かいしゃ」は「会社」（công ty）と書きます。\n\n- A「会社」→ ĐÚNG. 「かいしゃ」= công ty.\n- B「会話」→ SAI. Đọc là「かいわ」, nghĩa là hội thoại/cuộc trò chuyện. Cùng chữ「会」nhưng「話」(はなし) là nói chuyện, không phải công ty.\n- C「社会」→ SAI. Đọc là「しゃかい」, nghĩa là xã hội. Cùng hai chữ「会・社」nhưng thứ tự ngược.\n- D「会計」→ SAI. Đọc là「かいけい」, nghĩa là kế toán/thanh toán. Cùng chữ「会」nhưng chữ sau là「計」khác hẳn.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này thì"
+                },
+                {
+                  "t": "わたしのかいしゃの",
+                  "read": "わたしの会社の",
+                  "vi": "của công ty tôi"
+                },
+                {
+                  "t": "もの",
+                  "vi": "đồ vật/thứ"
+                },
+                {
+                  "t": "です",
+                  "vi": "(là)"
+                }
+              ]
+            },
+            {
+              "prompt": "それはだれのじしょですか。",
+              "ul": "じしょ",
+              "choices": [
+                "辞書",
+                "辞典",
+                "辞去",
+                "図書"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「じしょ」は「辞書」（từ điển）と書きます。\n\n- A「辞書」→ ĐÚNG. 「じしょ」= từ điển (dạng sách nhỏ gọn).\n- B「辞典」→ SAI. Đọc là「じてん」, cũng nghĩa là từ điển nhưng đọc khác. Câu hỏi cho âm「じしょ」nên「辞典」sai.\n- C「辞去」→ SAI. Đọc là「じきょ」, nghĩa là từ chức/xin rút lui. Cùng chữ「辞」nhưng nghĩa hoàn toàn khác.\n- D「図書」→ SAI. Đọc là「としょ」, nghĩa là sách/thư viện. Âm gần「じしょ」nhưng khác hẳn (「と」≠「じ」).",
+              "glosses": [
+                {
+                  "t": "それは",
+                  "vi": "cái đó thì"
+                },
+                {
+                  "t": "だれの",
+                  "read": "誰の",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "じしょ",
+                  "read": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "(có phải không?)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはなんにんかぞくですか。",
+              "ul": "にん",
+              "choices": [
+                "人",
+                "入",
+                "大",
+                "女"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にん/ひと」は「人」（người）と書きます。「なんにん」= mấy người.\n\n- A「人」→ ĐÚNG. 「ひと/にん/じん」= người.\n- B「入」→ SAI. Đọc là「い/はい/にゅう」, nghĩa là vào/nhập. Hình tự giống「人」nhưng nét viết khác (nét phải dài hơn nét trái).\n- C「大」→ SAI. Đọc là「おお/だい」, nghĩa là to/lớn. Giống「人」nhưng có thêm nét ngang.\n- D「女」→ SAI. Đọc là「おんな/じょ」, nghĩa là phụ nữ. Hình tự hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "あのひとは",
+                  "read": "あの人は",
+                  "vi": "người kia thì"
+                },
+                {
+                  "t": "なんにん",
+                  "read": "何人",
+                  "vi": "mấy người"
+                },
+                {
+                  "t": "かぞく",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "(là không?)"
+                }
+              ]
+            },
+            {
+              "prompt": "これはなんがつなんにちのしんぶんですか。",
+              "ul": "にち",
+              "choices": [
+                "日",
+                "月",
+                "目",
+                "白"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「なんにち」の「にち」は「日」（ngày）と書きます。\n\n- A「日」→ ĐÚNG. 「にち/ひ/か」= ngày/mặt trời.\n- B「月」→ SAI. Đọc là「げつ/がつ/つき」, nghĩa là tháng/mặt trăng. Trong câu hỏi「何月」là đúng ở vị trí「月」, nhưng「何日」phải là「日」.\n- C「目」→ SAI. Đọc là「め/もく」, nghĩa là mắt. Hình tự có đường ngang bên trong trông giống「日」nhưng khác.\n- D「白」→ SAI. Đọc là「しろ/はく」, nghĩa là màu trắng. Giống「日」cộng thêm nét trên đỉnh.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này thì"
+                },
+                {
+                  "t": "なんがつ",
+                  "read": "何月",
+                  "vi": "tháng mấy"
+                },
+                {
+                  "t": "なんにちの",
+                  "read": "何日の",
+                  "vi": "ngày mấy của"
+                },
+                {
+                  "t": "しんぶん",
+                  "vi": "báo/tờ báo"
+                }
+              ]
+            },
+            {
+              "prompt": "これはちちのめいしです。",
+              "ul": "めいし",
+              "choices": [
+                "名刺",
+                "名前",
+                "名人",
+                "刺身"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「めいし」は「名刺」（danh thiếp/card visit）と書きます。\n\n- A「名刺」→ ĐÚNG. 「めいし」= danh thiếp.\n- B「名前」→ SAI. Đọc là「なまえ」, nghĩa là tên. Cùng chữ「名」nhưng「前」(まえ) là phía trước/trước, không liên quan đến danh thiếp.\n- C「名人」→ SAI. Đọc là「めいじん」, nghĩa là bậc thầy/danh nhân. Cùng chữ「名」nhưng chữ sau là「人」nghĩa khác hẳn.\n- D「刺身」→ SAI. Đọc là「さしみ」, nghĩa là sashimi (món cá sống). Cùng chữ「刺」nhưng đây là món ăn, không phải danh thiếp.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này thì"
+                },
+                {
+                  "t": "ちちの",
+                  "read": "父の",
+                  "vi": "của bố"
+                },
+                {
+                  "t": "めいし",
+                  "read": "名刺",
+                  "vi": "danh thiếp"
+                },
+                {
+                  "t": "です",
+                  "vi": "(là)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "これはわたしの＿です。まいにちつかいます。",
+              "choices": [
+                "かばん",
+                "でんしゃ",
+                "くに",
+                "なまえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói về một đồ vật của tôi mà tôi dùng mỗi ngày. 「かばん」(cái túi/cặp) là đồ vật cầm tay dùng hằng ngày → đúng. 「でんしゃ」(tàu điện) là phương tiện, không nói 'dùng' theo nghĩa sở hữu cá nhân thông thường. 「くに」(đất nước) không phải đồ vật có thể 'dùng' hằng ngày. 「なまえ」(tên) không phải đồ vật, không 'dùng' theo nghĩa vật lý.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này (chủ đề)"
+                },
+                {
+                  "t": "わたしの",
+                  "read": "",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "つかいます",
+                  "vi": "dùng, sử dụng"
+                }
+              ]
+            },
+            {
+              "stem": "あれはだれの＿ですか。",
+              "choices": [
+                "じしょ",
+                "がっこう",
+                "やま",
+                "まち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về chủ sở hữu của một vật ở xa. 「じしょ」(từ điển) là đồ vật có thể thuộc về ai đó → đúng. 「がっこう」(trường học) là một địa điểm, không hỏi 'của ai' theo nghĩa đó. 「やま」(núi) là địa danh thiên nhiên, không thuộc sở hữu cá nhân. 「まち」(thị trấn/phố) cũng là địa điểm, không phải đồ vật cá nhân.",
+              "glosses": [
+                {
+                  "t": "あれは",
+                  "vi": "cái kia (chủ đề)"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "じしょ",
+                  "vi": "từ điển"
+                }
+              ]
+            },
+            {
+              "stem": "それはせんせいの＿です。たいせつにしてください。",
+              "choices": [
+                "ほん",
+                "くうき",
+                "きせつ",
+                "こえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Yêu cầu giữ gìn cẩn thận vật đó của giáo viên. 「ほん」(sách, 本) là đồ vật cầm tay, giáo viên thường có và cần giữ gìn → đúng. 「くうき」(không khí) không phải đồ vật thuộc sở hữu người. 「きせつ」(mùa/thời tiết) là khái niệm tự nhiên, không hỏi sở hữu. 「こえ」(giọng nói) không phải đồ vật hữu hình.",
+              "glosses": [
+                {
+                  "t": "それは",
+                  "vi": "cái đó (chủ đề)"
+                },
+                {
+                  "t": "せんせいの",
+                  "read": "先生の",
+                  "vi": "của giáo viên"
+                },
+                {
+                  "t": "たいせつにしてください",
+                  "vi": "xin hãy giữ gìn cẩn thận"
+                }
+              ]
+            },
+            {
+              "stem": "これはなんですか。「＿です。」",
+              "choices": [
+                "とけい",
+                "いけ",
+                "はなし",
+                "かぜ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về một vật dụng cụ thể. 「とけい」(đồng hồ) là đồ vật hữu hình có thể trả lời cho câu hỏi 「これはなんですか」→ đúng. 「いけ」(ao, hồ nhỏ) là địa điểm thiên nhiên, không phải đồ vật cầm tay. 「はなし」(câu chuyện/lời nói) là khái niệm trừu tượng. 「かぜ」(gió hoặc cảm lạnh) không thể chỉ bằng 「これ」.",
+              "glosses": [
+                {
+                  "t": "これはなんですか",
+                  "vi": "cái này là gì vậy?"
+                },
+                {
+                  "t": "とけい",
+                  "vi": "đồng hồ"
+                }
+              ]
+            },
+            {
+              "stem": "あのひとの＿はなんですか。「たなかです。」",
+              "choices": [
+                "なまえ",
+                "しごと",
+                "いえ",
+                "かお"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu trả lời là một cái tên người. 「なまえ」(名前, tên) phù hợp vì câu trả lời là 「たなか」 → đúng. 「しごと」(công việc) câu trả lời sẽ là nghề nghiệp, không phải tên. 「いえ」(nhà) câu trả lời sẽ là địa chỉ. 「かお」(khuôn mặt) không thể trả lời bằng tên người.",
+              "glosses": [
+                {
+                  "t": "あのひとの",
+                  "vi": "của người kia"
+                },
+                {
+                  "t": "なまえ",
+                  "read": "名前",
+                  "vi": "tên"
+                },
+                {
+                  "t": "たなかです",
+                  "vi": "là Tanaka"
+                },
+                {
+                  "t": "なん",
+                  "read": "なん",
+                  "vi": "cái gì, gì (何)"
+                }
+              ]
+            },
+            {
+              "stem": "これは＿ですか、えんぴつですか。",
+              "choices": [
+                "ボールペン",
+                "でんしゃ",
+                "かいしゃ",
+                "きって"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi lựa chọn giữa hai đồ vật để viết. 「ボールペン」(bút bi) cùng loại với 「えんぴつ」(bút chì) — đều là dụng cụ viết → đúng. 「でんしゃ」(tàu điện) là phương tiện, không liên quan. 「かいしゃ」(công ty) là địa điểm làm việc. 「きって」(tem thư) không phải dụng cụ viết, không đối lập tự nhiên với bút chì.",
+              "glosses": [
+                {
+                  "t": "えんぴつ",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "ボールペン",
+                  "vi": "bút bi"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "きって",
+                  "vi": "tem thư"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~ (これ = cái này/đây, chỉ vật gần người nói + は trợ từ chủ đề)"
+                }
+              ]
+            },
+            {
+              "stem": "この＿はあたらしいです。きれいですね。",
+              "choices": [
+                "くるま",
+                "にほんご",
+                "てんき",
+                "じかん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu khen một thứ gì đó mới và đẹp. 「くるま」(xe ô tô) là đồ vật hữu hình, có thể mới và đẹp → đúng. 「にほんご」(tiếng Nhật) là ngôn ngữ, không nói 「あたらしい…きれい」theo nghĩa vật chất. 「てんき」(thời tiết) không phải đồ vật sở hữu. 「じかん」(thời gian) là khái niệm trừu tượng, không 'đẹp' theo nghĩa vật thể.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này (định ngữ)"
+                },
+                {
+                  "t": "くるま",
+                  "vi": "xe ô tô"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "新しい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "きれいですね",
+                  "vi": "đẹp nhỉ"
+                }
+              ]
+            },
+            {
+              "stem": "すみません、その＿をみせてください。",
+              "choices": [
+                "ざっし",
+                "にわ",
+                "そら",
+                "まど"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Yêu cầu được xem một vật gì đó. 「ざっし」(tạp chí) là vật cầm tay có thể đưa cho người khác xem → đúng. 「にわ」(sân vườn) là địa điểm không cầm tay được. 「そら」(bầu trời) không thể 'cho xem' bằng tay. 「まど」(cửa sổ) là vật gắn cố định trên tường, không 'đưa cho xem'.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "vi": "xin lỗi / xin phép"
+                },
+                {
+                  "t": "その",
+                  "vi": "cái đó (gần người nghe)"
+                },
+                {
+                  "t": "みせてください",
+                  "vi": "xin cho xem"
+                }
+              ]
+            },
+            {
+              "stem": "これはだれの＿ですか。「わたしのです。」",
+              "choices": [
+                "かさ",
+                "みち",
+                "むら",
+                "かわ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi 'của ai' về một đồ vật cầm tay. 「かさ」(ô/dù) là vật dụng cá nhân thường bị nhầm lẫn chủ sở hữu, rất tự nhiên → đúng. 「みち」(đường) là địa điểm công cộng. 「むら」(làng) là đơn vị địa lý, không hỏi 'của ai'. 「かわ」(sông) cũng là địa điểm tự nhiên không thuộc sở hữu cá nhân.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "かさ",
+                  "vi": "cái ô (dù)"
+                },
+                {
+                  "t": "みち",
+                  "vi": "con đường"
+                },
+                {
+                  "t": "むら",
+                  "vi": "làng"
+                },
+                {
+                  "t": "かわ",
+                  "vi": "con sông"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "あれは＿のたてものです。まいにちでんしゃでいきます。",
+              "choices": [
+                "かいしゃ",
+                "おちゃ",
+                "ちず",
+                "ことば"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Tòa nhà mà mỗi ngày đi tàu đến — đó là nơi làm việc. 「かいしゃ」(会社, công ty) là nơi làm việc, đi bằng tàu điện → đúng. 「おちゃ」(trà) là đồ uống, không phải tòa nhà. 「ちず」(bản đồ) là vật phẳng, không phải tòa nhà. 「ことば」(ngôn ngữ/từ ngữ) là khái niệm trừu tượng, không phải công trình kiến trúc.",
+              "glosses": [
+                {
+                  "t": "あれは",
+                  "vi": "cái kia là"
+                },
+                {
+                  "t": "たてもの",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày, hàng ngày"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi (thì hiện tại/tương lai, thể lịch sự của 行く); 〜へ/で いきます = đi đến ~ / đi bằng ~"
+                }
+              ]
+            },
+            {
+              "stem": "このへやに＿があります。べんきょうするときつかいます。",
+              "choices": [
+                "つくえ",
+                "はる",
+                "そと",
+                "ひる"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Trong phòng có một thứ dùng khi học. 「つくえ」(bàn học) là đồ nội thất dùng khi học → đúng. 「はる」(mùa xuân) là mùa trong năm, không phải đồ vật. 「そと」(bên ngoài) là từ chỉ vị trí, không phải đồ vật. 「ひる」(buổi trưa) là thời gian trong ngày, không phải thứ 'có' trong phòng.",
+              "glosses": [
+                {
+                  "t": "このへやに",
+                  "vi": "trong căn phòng này"
+                },
+                {
+                  "t": "つくえ",
+                  "vi": "cái bàn (học)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (vật)"
+                },
+                {
+                  "t": "べんきょうするとき",
+                  "vi": "khi học"
+                },
+                {
+                  "t": "つかいます",
+                  "vi": "dùng"
+                }
+              ]
+            },
+            {
+              "stem": "それはがくせいの＿ですか。「はい、そうです。」",
+              "choices": [
+                "テキスト",
+                "むかし",
+                "こたえ",
+                "おと"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hỏi về vật của học sinh, câu trả lời 'đúng vậy'. 「テキスト」(sách giáo khoa) là vật học sinh thường có → đúng. 「むかし」(ngày xưa) là thời gian trong quá khứ, không phải vật. 「こたえ」(câu trả lời) là khái niệm trừu tượng. 「おと」(âm thanh/tiếng) không thể cầm tay hay sở hữu vật lý.",
+              "glosses": [
+                {
+                  "t": "それは",
+                  "vi": "cái đó"
+                },
+                {
+                  "t": "がくせいの",
+                  "read": "学生の",
+                  "vi": "của học sinh"
+                },
+                {
+                  "t": "テキスト",
+                  "vi": "sách giáo khoa, textbook"
+                },
+                {
+                  "t": "はい、そうです",
+                  "vi": "vâng, đúng vậy"
+                }
+              ]
+            },
+            {
+              "stem": "これは＿です。わたしがかいたものです。",
+              "choices": [
+                "えはがき",
+                "そうじ",
+                "きもち",
+                "いろ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Thứ tôi đã tự làm (vẽ/viết). 「えはがき」(bưu thiếp có hình) là vật hữu hình, có thể tự vẽ/viết → đúng. 「そうじ」(dọn dẹp) là hành động, không phải vật. 「きもち」(cảm xúc/cảm giác) là trạng thái tinh thần. 「いろ」(màu sắc) là thuộc tính, không phải đồ vật độc lập.",
+              "glosses": [
+                {
+                  "t": "えはがき",
+                  "vi": "bưu thiếp có hình"
+                },
+                {
+                  "t": "わたしがかいたものです",
+                  "vi": "là thứ tôi đã vẽ/viết"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~ (chỉ vật gần người nói + trợ từ chủ đề は)"
+                }
+              ]
+            },
+            {
+              "stem": "この＿はだれのですか。「やまださんのです。」",
+              "choices": [
+                "かぎ",
+                "きおく",
+                "でんき",
+                "ゆき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hỏi chủ sở hữu của một vật nhỏ. 「かぎ」(chìa khóa) là vật cá nhân hay bị nhầm chủ, hỏi 'của ai' rất tự nhiên → đúng. 「きおく」(ký ức) là khái niệm tinh thần, không cầm tay. 「でんき」(điện/ánh sáng) là hiện tượng vật lý, không hỏi 'của ai'. 「ゆき」(tuyết) là hiện tượng thiên nhiên, không thuộc sở hữu cá nhân.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "かぎ",
+                  "vi": "chìa khóa"
+                },
+                {
+                  "t": "だれのですか",
+                  "vi": "của ai vậy?"
+                },
+                {
+                  "t": "やまださんのです",
+                  "vi": "là của anh/chị Yamada"
+                }
+              ]
+            },
+            {
+              "stem": "あれはわたしの＿です。うちにかえってのみます。",
+              "choices": [
+                "おみやげ",
+                "にほん",
+                "しつもん",
+                "かんがえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Vật ở xa, về nhà sẽ uống — là đồ uống/quà mua về. 「おみやげ」(quà mua về) thường là đồ ăn/uống mang về nhà → đúng (kết hợp 'của tôi + về nhà uống'). 「にほん」(Nhật Bản) là tên quốc gia, không uống được. 「しつもん」(câu hỏi) là khái niệm trừu tượng. 「かんがえ」(suy nghĩ/ý kiến) không thể 'uống'.",
+              "glosses": [
+                {
+                  "t": "あれは",
+                  "vi": "cái kia là"
+                },
+                {
+                  "t": "うちにかえって",
+                  "vi": "về nhà rồi"
+                },
+                {
+                  "t": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "おみやげ",
+                  "vi": "quà lưu niệm (ở đây ngầm chỉ đồ uống mua về)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "これはなんですか。",
+              "choices": [
+                "このものはなんですか。",
+                "それはなんですか。",
+                "あれはなんですか。",
+                "これはどこですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 これ",
+              "explain": "Câu gốc dùng 「これ」 chỉ vật gần người nói, hỏi 'cái này là cái gì?'. Đáp án A: 「このもの」= 'vật này' — cùng ý hỏi về vật gần người nói, gần nghĩa nhất. Đáp án B: 「それ」chỉ vật gần người nghe, khác vị trí tham chiếu. Đáp án C: 「あれ」chỉ vật xa cả hai người, khác nghĩa hoàn toàn. Đáp án D: đổi 「なん」thành 「どこ」 → hỏi nơi chốn, không phải hỏi tên vật.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này (gần người nói)"
+                },
+                {
+                  "t": "なん",
+                  "vi": "cái gì"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "đuôi câu hỏi lịch sự"
+                },
+                {
+                  "t": "このものは",
+                  "read": "このものは",
+                  "vi": "cái vật này (thì) — このもの = cách nói thay cho これ khi nhấn mạnh 'vật'"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~ (それ = vật gần người nghe)"
+                },
+                {
+                  "t": "あれは",
+                  "read": "あれは",
+                  "vi": "cái kia là ~ (あれ = vật xa cả hai người)"
+                },
+                {
+                  "t": "はどこですか",
+                  "read": "はどこですか",
+                  "vi": "~ ở đâu vậy? (どこ = đâu, hỏi địa điểm)"
+                }
+              ]
+            },
+            {
+              "prompt": "それはわたしのほんです。",
+              "choices": [
+                "そのほんはわたしのです。",
+                "あのほんはわたしのです。",
+                "これはわたしのほんではありません。",
+                "それはあなたのほんです。"
+              ],
+              "answer": 0,
+              "pt": "B2 それ + B1 NのN",
+              "explain": "Câu gốc: 'Cái đó là sách của tôi.' — 「それ」chỉ vật gần người nghe. Đáp án A: 「そのほんはわたしのです」dùng 「その」chỉ định danh từ cùng vị trí, nghĩa giống hệt. Đáp án B: 「あの」chỉ vật xa cả hai người, sai vị trí tham chiếu. Đáp án C: phủ định 「ではありません」— đổi sang nghĩa trái. Đáp án D: đổi chủ sở hữu thành 「あなたの」— nghĩa khác người sở hữu.",
+              "glosses": [
+                {
+                  "t": "それ",
+                  "vi": "cái đó (gần người nghe)"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị (ngôi thứ hai)"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~ (chỉ vật gần người nói)"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "không phải là ~ (thể phủ định lịch sự của です)"
+                }
+              ]
+            },
+            {
+              "prompt": "あれはたなかさんのかばんではありません。",
+              "choices": [
+                "あのかばんはたなかさんのではありません。",
+                "それはたなかさんのかばんではありません。",
+                "あれはたなかさんのかばんです。",
+                "あれはたなかさんのかばんですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 あれ + B1 NはNではありません",
+              "explain": "Câu gốc: 'Cái kia không phải là túi của Tanaka.' Đáp án A: 「あのかばんはたなかさんのではありません」— dùng 「あの」kết hợp trực tiếp với danh từ, cùng vị trí xa + phủ định → nghĩa tương đương. Đáp án B: đổi 「あれ」→「それ」, sai vị trí (gần người nghe). Đáp án C: bỏ phủ định → nghĩa khẳng định trái nghĩa. Đáp án D: đổi thành câu hỏi → không đồng nghĩa.",
+              "glosses": [
+                {
+                  "t": "あれ",
+                  "vi": "cái kia (xa cả hai người)"
+                },
+                {
+                  "t": "たなかさんの",
+                  "vi": "của anh/chị Tanaka"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "cái túi / cặp"
+                },
+                {
+                  "t": "ではありません",
+                  "vi": "không phải là"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~ (それ = vật gần người nghe)"
+                }
+              ]
+            },
+            {
+              "prompt": "これはだれのじしょですか。",
+              "choices": [
+                "このじしょはだれのですか。",
+                "それはだれのじしょですか。",
+                "これはどんなじしょですか。",
+                "このじしょはなんですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 これ + B1 NのN",
+              "explain": "Câu gốc hỏi 'Từ điển này là của ai?' Đáp án A: 「このじしょはだれのですか」— dùng 「この+N」làm chủ ngữ, cùng hỏi chủ sở hữu từ điển gần người nói → đồng nghĩa. Đáp án B: 「それ」chỉ vật gần người nghe, thay đổi đối tượng tham chiếu. Đáp án C: 「どんな」hỏi loại/tính chất, không hỏi chủ sở hữu. Đáp án D: 「なん」hỏi tên vật, không hỏi ai sở hữu.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "じしょ",
+                  "read": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                },
+                {
+                  "t": "はどんなじしょですか",
+                  "read": "はどんなじしょですか",
+                  "vi": "~ là quyển từ điển như thế nào? (どんな = như thế nào, hỏi đặc điểm/loại)"
+                },
+                {
+                  "t": "はなんですか",
+                  "read": "はなんですか",
+                  "vi": "~ là cái gì vậy? (なん/なに = gì)"
+                }
+              ]
+            },
+            {
+              "prompt": "これはわたしのかさです。それもわたしのかさです。",
+              "choices": [
+                "このかさもそのかさもわたしのです。",
+                "このかさはわたしのです。そのかさはあなたのです。",
+                "これはわたしのかさです。それはあなたのかさです。",
+                "これもそれもわたしのかさではありません。"
+              ],
+              "answer": 0,
+              "pt": "B2 これ・それ + B1 Nも",
+              "explain": "Câu gốc: 'Cái này là ô của tôi. Cái đó cũng là ô của tôi.' — hai chiếc ô đều thuộc về người nói. Đáp án A: 'Cả ô này lẫn ô đó đều là của tôi.' — dùng 「も…も」kép diễn đạt cùng ý → đồng nghĩa nhất. Đáp án B: ô đó thuộc về người khác → sai chủ sở hữu. Đáp án C: giống B. Đáp án D: phủ định cả hai → trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "かさ",
+                  "read": "傘",
+                  "vi": "cái ô / dù"
+                },
+                {
+                  "t": "も",
+                  "vi": "cũng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị"
+                },
+                {
+                  "t": "それも",
+                  "read": "それも",
+                  "vi": "cái đó cũng"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                },
+                {
+                  "t": "のです",
+                  "read": "のです",
+                  "vi": "の (danh từ hóa, chỉ sở hữu 'cái của') + です = là của ~"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "không phải là ~ (phủ định lịch sự của です)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのかたはどなたですか。",
+              "choices": [
+                "あそこにいるかたはどなたですか。",
+                "このかたはどなたですか。",
+                "あのかたはだれのひとですか。",
+                "あのかたはなんですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 あの+N + B1 NはNですか",
+              "explain": "Câu gốc: 'Vị kia là ai ạ?' — hỏi danh tính người ở xa. Đáp án A: 'Vị đang ở đằng kia là ai ạ?' — làm rõ hơn vị trí xa, cùng hỏi danh tính → gần nghĩa nhất. Đáp án B: 「この」chỉ người gần → sai vị trí. Đáp án C: 「だれのひと」không phải cách hỏi danh tính chuẩn tiếng Nhật. Đáp án D: 「なん」hỏi vật/chức danh, không hỏi danh tính người.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "cái/người kia (xa)"
+                },
+                {
+                  "t": "かた",
+                  "read": "方",
+                  "vi": "vị (người, lịch sự)"
+                },
+                {
+                  "t": "どなた",
+                  "vi": "ai (lịch sự)"
+                },
+                {
+                  "t": "あそこ",
+                  "read": "あそこ",
+                  "vi": "đằng kia, chỗ đó"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "にいる",
+                  "read": "にいる",
+                  "vi": "〜にいる = ở/có mặt tại ~ (diễn tả sự tồn tại của người/vật sống, đi với trợ từ に)"
+                },
+                {
+                  "t": "はなんですか",
+                  "read": "はなんですか",
+                  "vi": "~ là cái gì/ai vậy?"
+                }
+              ]
+            },
+            {
+              "prompt": "これはにほんごのほんですか。 — はい、そうです。",
+              "choices": [
+                "これはにほんごのほんですか。 — はい、にほんごのほんです。",
+                "これはにほんごのほんですか。 — いいえ、そうです。",
+                "これはにほんごのほんですか。 — はい、そうではありません。",
+                "これはにほんごのほんですか。 — はい、ちがいます。"
+              ],
+              "answer": 0,
+              "pt": "B2 これ + B2 そうです",
+              "explain": "「そうです」là cách trả lời xác nhận ngắn gọn cho câu hỏi 「〜ですか」. Đáp án A: lặp lại toàn bộ danh từ để khẳng định → cùng nghĩa 'Vâng, đây là sách tiếng Nhật'. Đáp án B: dùng 「いいえ」nhưng theo sau là 「そうです」— mâu thuẫn (không + đúng). Đáp án C: 「はい、そうではありません」— mâu thuẫn (vâng + không phải). Đáp án D: 「ちがいます」nghĩa 'không phải' → trái nghĩa với 「はい」.",
+              "glosses": [
+                {
+                  "t": "にほんごの",
+                  "read": "日本語の",
+                  "vi": "tiếng Nhật (sở hữu)"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "そうです",
+                  "vi": "đúng vậy / vâng đúng"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không, không phải"
+                },
+                {
+                  "t": "ちがいます",
+                  "read": "ちがいます",
+                  "vi": "sai rồi, khác rồi"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                },
+                {
+                  "t": "そうではありません",
+                  "read": "そうではありません",
+                  "vi": "không phải vậy đâu (phủ định lịch sự của そうです)"
+                }
+              ]
+            },
+            {
+              "prompt": "それはにほんのじどうしゃですか。 — いいえ、そうではありません。",
+              "choices": [
+                "それはにほんのじどうしゃですか。 — いいえ、にほんのじどうしゃではありません。",
+                "それはにほんのじどうしゃですか。 — はい、そうです。",
+                "それはにほんのじどうしゃですか。 — いいえ、そのとおりです。",
+                "それはにほんのじどうしゃですか。 — いいえ、にほんのじどうしゃですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 それ + B2 そうではありません",
+              "explain": "「そうではありません」= phủ định 「そうです」, nghĩa 'không phải vậy'. Đáp án A: phủ định trực tiếp toàn bộ vị ngữ → cùng nghĩa 'Không, đây không phải xe hơi Nhật'. Đáp án B: 「はい、そうです」→ khẳng định, trái nghĩa. Đáp án C: 「そのとおりです」= 'đúng vậy' → nghĩa ngược lại (đồng ý). Đáp án D: lặp câu hỏi lại sau 「いいえ」— vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "にほんの",
+                  "read": "日本の",
+                  "vi": "của Nhật"
+                },
+                {
+                  "t": "じどうしゃ",
+                  "read": "自動車",
+                  "vi": "xe hơi / ô tô"
+                },
+                {
+                  "t": "そうではありません",
+                  "vi": "không phải vậy"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không, không phải"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "そのとおり",
+                  "read": "そのとおり",
+                  "vi": "đúng như vậy, đúng thế"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "đúng vậy/phải rồi (khẳng định điều vừa được hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "このとけいはやまださんのですか。",
+              "choices": [
+                "このとけいはやまださんのとけいですか。",
+                "そのとけいはやまださんのですか。",
+                "このとけいはやまださんのではありませんか。",
+                "このとけいはだれのですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 この+N + B1 NのN",
+              "explain": "Câu gốc: 'Chiếc đồng hồ này có phải của Yamada không?' Đáp án A: lặp lại danh từ 「とけい」sau 「の」thay vì rút gọn, nghĩa không đổi → đồng nghĩa. Đáp án B: 「その」chỉ vật gần người nghe, thay đổi đối tượng. Đáp án C: 「ではありませんか」= hỏi phủ định (phải không?), hơi khác sắc thái. Đáp án D: 「だれの」hỏi chủ sở hữu chứ không xác nhận có phải của Yamada không.",
+              "glosses": [
+                {
+                  "t": "とけい",
+                  "read": "時計",
+                  "vi": "đồng hồ"
+                },
+                {
+                  "t": "やまださんの",
+                  "vi": "của Yamada-san"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "đuôi câu hỏi"
+                },
+                {
+                  "t": "ではありませんか",
+                  "read": "ではありませんか",
+                  "vi": "chẳng phải là ~ hay sao? (câu hỏi phủ định để xác nhận)"
+                },
+                {
+                  "t": "はだれのですか",
+                  "read": "はだれのですか",
+                  "vi": "~ là của ai vậy? (だれの = của ai)"
+                }
+              ]
+            },
+            {
+              "prompt": "あれはなんですか。 — あれはえんぴつです。",
+              "choices": [
+                "あのものはえんぴつです。",
+                "それはえんぴつです。",
+                "これはえんぴつではありません。",
+                "あれはえんぴつですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 あれ + B1 NはNです",
+              "explain": "Phần trả lời 'Cái kia là bút chì.' Đáp án A: 「あのもの」= 'vật kia' — cùng chỉ đối tượng xa, khẳng định là bút chì → đồng nghĩa. Đáp án B: 「それ」chỉ vật gần người nghe, sai đối tượng. Đáp án C: phủ định → trái nghĩa. Đáp án D: đổi thành câu hỏi → không phải câu trả lời.",
+              "glosses": [
+                {
+                  "t": "あれ",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "えんぴつ",
+                  "read": "鉛筆",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "なん",
+                  "read": "なん",
+                  "vi": "cái gì, gì (何)"
+                },
+                {
+                  "t": "あのものは",
+                  "read": "あのものは",
+                  "vi": "cái vật kia (あのもの = cách nói thay cho あれ)"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "không phải là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "このかばんはたろうさんのですか。 — いいえ、それはたろうさんのではありません。",
+              "choices": [
+                "このかばんはたろうさんのですか。 — いいえ、このかばんはたろうさんのかばんではありません。",
+                "このかばんはたろうさんのですか。 — はい、そうです。",
+                "このかばんはたろうさんのですか。 — いいえ、このかばんはたろうさんのです。",
+                "このかばんはたろうさんのですか。 — いいえ、それはたろうさんのですか。"
+              ],
+              "answer": 0,
+              "pt": "B2 この/それ + B1 NはNではありません",
+              "explain": "Câu trả lời gốc: 'Không, cái đó không phải của Taro.' Đáp án A: lặp danh từ đầy đủ thay vì rút gọn 「の」→ cùng nghĩa phủ định sở hữu. Đáp án B: 「はい、そうです」= khẳng định, trái nghĩa. Đáp án C: 「いいえ」rồi lại khẳng định là của Taro — mâu thuẫn. Đáp án D: lặp câu hỏi → không phải câu trả lời.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "cái túi"
+                },
+                {
+                  "t": "たろうさんの",
+                  "vi": "của Taro"
+                },
+                {
+                  "t": "ではありません",
+                  "vi": "không phải là"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không, không phải"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "đúng vậy"
+                }
+              ]
+            },
+            {
+              "prompt": "そのノートはだれのですか。 — わたしのです。",
+              "choices": [
+                "そのノートはあなたのものですか。 — はい、わたしのノートです。",
+                "そのノートはだれのですか。 — あなたのです。",
+                "このノートはだれのですか。 — わたしのです。",
+                "そのノートはだれのですか。 — わたしのではありません。"
+              ],
+              "answer": 0,
+              "pt": "B2 その+N + B1 NのN",
+              "explain": "Hỏi 'Quyển vở đó là của ai?' — trả lời 'Của tôi.' Đáp án A: hỏi khẳng định 'Vở đó là đồ vật của anh/chị sao?' → trả lời 'Vâng, đó là vở của tôi.' — cùng xác nhận sở hữu của người trả lời → đồng nghĩa nhất. Đáp án B: trả lời là 「あなたの」(của bạn) → sai người sở hữu. Đáp án C: đổi 「その」→「この」sai vị trí tham chiếu (câu hỏi và trả lời không khớp ngữ cảnh ban đầu). Đáp án D: phủ định → trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "ノート",
+                  "vi": "vở / quyển ghi chép"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "のものですか",
+                  "read": "のものですか",
+                  "vi": "~のものですか = có phải là đồ vật của ~ không? (の thay thế danh từ đã nhắc)"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "không phải là ~"
+                },
+                {
+                  "t": "わたしのです",
+                  "read": "わたしのです",
+                  "vi": "danh từ+の (thay cho danh từ đã nhắc ở trên, tránh lặp) + です = là cái của ~"
+                }
+              ]
+            },
+            {
+              "prompt": "これもそれもやまださんのほんです。",
+              "choices": [
+                "このほんもそのほんもやまださんのです。",
+                "これはやまださんのほんです。それはちがいます。",
+                "これとそれはやまださんのほんですか。",
+                "これはやまださんのほんです。それもやまださんのほんではありません。"
+              ],
+              "answer": 0,
+              "pt": "B1 Nも + B2 これ・それ + B1 NのN",
+              "explain": "Câu gốc: 'Cả cái này lẫn cái đó đều là sách của Yamada.' Đáp án A: 「このほんもそのほんも」= 'cả quyển này lẫn quyển đó' → cùng nghĩa dùng 「も…も」kép. Đáp án B: nửa sau phủ nhận cái đó → nghĩa trái. Đáp án C: chuyển thành câu hỏi → khác mục đích. Đáp án D: nửa sau phủ định cái đó → trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "これも",
+                  "vi": "cái này cũng"
+                },
+                {
+                  "t": "それも",
+                  "vi": "cái đó cũng"
+                },
+                {
+                  "t": "やまださんの",
+                  "vi": "của Yamada"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "ちがいます",
+                  "read": "ちがいます",
+                  "vi": "sai rồi, khác rồi"
+                },
+                {
+                  "t": "このほんもそのほんも",
+                  "read": "このほんもそのほんも",
+                  "vi": "も〜も = cả A và B (đều) — cả quyển sách này và quyển sách đó"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                },
+                {
+                  "t": "これとそれは",
+                  "read": "これとそれは",
+                  "vi": "đây và đó (と nối 2 danh từ) — đây và cái đó (thì)"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "không phải là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはたなかさんですか。 — はい、そうです。たなかさんはわたしのせんせいです。",
+              "choices": [
+                "あのひとはたなかせんせいです。",
+                "あのひとはたなかさんではありません。",
+                "あのひとはわたしのせんせいですか。",
+                "たなかさんはわたしのともだちです。"
+              ],
+              "answer": 0,
+              "pt": "B2 あの+N + B2 そうです + B1 NのN",
+              "explain": "Câu gốc: xác nhận người kia là Tanaka, và Tanaka là thầy/cô của người nói. Đáp án A: 'Người kia là thầy/cô Tanaka.' — gộp cả hai thông tin vào một câu, nghĩa tương đương. Đáp án B: phủ định Tanaka → trái nghĩa. Đáp án C: chỉ hỏi có phải thầy/cô không, mất thông tin danh tính Tanaka. Đáp án D: 「ともだち」(bạn bè) không phải thầy giáo → sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "あのひと",
+                  "read": "あの人",
+                  "vi": "người kia"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi / thầy/cô của tôi"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ gắn sau tên người)"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "たなか",
+                  "read": "たなか",
+                  "vi": "Tanaka (tên riêng)"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "đúng vậy"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "không phải là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "このとけいはにほんのとけいではありません。ドイツのとけいです。",
+              "choices": [
+                "このとけいはにほんのではなく、ドイツのです。",
+                "このとけいはにほんのとけいです。ドイツのとけいではありません。",
+                "このとけいはにほんのとけいですか、ドイツのとけいですか。",
+                "このとけいもドイツのとけいではありません。"
+              ],
+              "answer": 0,
+              "pt": "B2 この+N + B1 NはNではありません + B1 NのN",
+              "explain": "Câu gốc: 'Chiếc đồng hồ này không phải của Nhật, là của Đức.' Đáp án A: 「ではなく」= 'không phải … mà là …' — cùng diễn đạt phủ định Nhật và khẳng định Đức → đồng nghĩa nhất. Đáp án B: đảo ngược — khẳng định Nhật, phủ định Đức → trái nghĩa. Đáp án C: câu hỏi chọn lựa → không đồng nghĩa. Đáp án D: 「も」gợi ý còn cái khác cũng không phải Đức → sai nghĩa.",
+              "glosses": [
+                {
+                  "t": "とけい",
+                  "read": "時計",
+                  "vi": "đồng hồ"
+                },
+                {
+                  "t": "にほんの",
+                  "read": "日本の",
+                  "vi": "của Nhật"
+                },
+                {
+                  "t": "ドイツの",
+                  "vi": "của Đức"
+                },
+                {
+                  "t": "ではありません",
+                  "vi": "không phải là"
+                },
+                {
+                  "t": "にほんのではなく",
+                  "read": "にほんのではなく",
+                  "vi": "〜ではなく、〜 = không phải là ~ mà là ~ (phủ định rồi nêu vế đúng)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 2 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "A: あのかばんはだれのですか。\nB: ＿わたしのかばんです。",
+              "choices": [
+                "それは",
+                "あれは",
+                "これは",
+                "このは"
+              ],
+              "answer": 0,
+              "pt": "B2 それ（指示詞・中距離）",
+              "explain": "Người B đang chỉ lại cái túi mà người A vừa hỏi — vật đó ở gần người A (đối diện trong hội thoại), nên dùng「それ」(vật gần người nghe/đối diện). 「これ」chỉ vật gần người nói. 「あれ」chỉ vật xa cả hai. 「このは」sai hoàn toàn vì「この」là tính từ chỉ thị, phải đi kèm danh từ ngay sau (このN), không đứng một mình.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "read": "かばん",
+                  "vi": "cái túi"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                }
+              ]
+            },
+            {
+              "stem": "これは＿じしょです。",
+              "choices": [
+                "わたしの",
+                "わたしは",
+                "わたしも",
+                "わたしが"
+              ],
+              "answer": 0,
+              "pt": "B1 NのN（sở hữu）",
+              "explain": "Cấu trúc「NのN」dùng trợ từ「の」để thể hiện quan hệ sở hữu: わたし**の**じしょ = từ điển của tôi. 「わたしは」dùng trợ từ chủ đề, không nối danh từ với danh từ. 「わたしも」mang nghĩa 'cũng', không phù hợp văn cảnh này. 「わたしが」là trợ từ chủ ngữ, cũng không thể hiện sở hữu.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "じしょ",
+                  "read": "じしょ",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "わたしの",
+                  "vi": "của tôi"
+                }
+              ]
+            },
+            {
+              "stem": "A: それはなんですか。\nB: ＿ノートです。",
+              "choices": [
+                "これは",
+                "あれは",
+                "それは",
+                "このは"
+              ],
+              "answer": 0,
+              "pt": "B2 これ（指示詞・近称）",
+              "explain": "Người A hỏi về vật gần người B (それ). Khi người B trả lời, vật đó ở ngay tay mình, nên dùng「これ」(vật gần người nói). 「あれ」chỉ vật xa cả hai người. 「それは」sẽ chỉ vật gần người A — người B vừa cầm trên tay thì không dùng それ. 「このは」ngữ pháp sai vì「この」cần đi kèm danh từ.",
+              "glosses": [
+                {
+                  "t": "それ",
+                  "vi": "cái đó (gần người nghe)"
+                },
+                {
+                  "t": "なん",
+                  "vi": "cái gì"
+                },
+                {
+                  "t": "ノート",
+                  "vi": "quyển vở"
+                },
+                {
+                  "t": "これ",
+                  "vi": "cái này (gần người nói)"
+                }
+              ]
+            },
+            {
+              "stem": "＿くつはたなかさんのです。",
+              "choices": [
+                "あの",
+                "あれ",
+                "それ",
+                "この"
+              ],
+              "answer": 0,
+              "pt": "B2 あのN（指示詞・遠称）",
+              "explain": "「あの」là tính từ chỉ thị xa (xa cả người nói lẫn người nghe), đứng trước danh từ: あの**くつ** = đôi giày kia. 「あれ」cũng chỉ vật xa nhưng là đại từ độc lập, không đứng trước danh từ trực tiếp. 「それ」là đại từ chỉ vật gần người nghe, cũng không đứng trước danh từ. 「この」chỉ vật gần người nói, không phù hợp ngữ cảnh vật ở xa.",
+              "glosses": [
+                {
+                  "t": "くつ",
+                  "read": "くつ",
+                  "vi": "đôi giày"
+                },
+                {
+                  "t": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "あの",
+                  "vi": "cái kia (kèm danh từ)"
+                }
+              ]
+            },
+            {
+              "stem": "A: これはスミスさんのほんですか。\nB: いいえ、＿。",
+              "choices": [
+                "そうではありません",
+                "そうです",
+                "ちがいです",
+                "そうじゃないです"
+              ],
+              "answer": 0,
+              "pt": "B2 そうではありません（否定の応答）",
+              "explain": "Khi trả lời phủ định lịch sự cho câu hỏi xác nhận, dùng「そうではありません」. 「そうです」là xác nhận (đúng vậy), trái nghĩa với いいえ. 「ちがいです」không phải mẫu câu chuẩn trong tiếng Nhật lịch sự (dạng đúng là ちがいます). 「そうじゃないです」thông tục, ít lịch sự hơn trong bài thi JLPT N5.",
+              "glosses": [
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "いいえ",
+                  "vi": "không phải"
+                },
+                {
+                  "t": "そうではありません",
+                  "vi": "không phải vậy (lịch sự)"
+                },
+                {
+                  "t": "ちがいです",
+                  "read": "ちがいです",
+                  "vi": "khác/sai rồi (cách nói không chuẩn ngữ pháp)"
+                },
+                {
+                  "t": "スミス",
+                  "read": "すみす",
+                  "vi": "Smith (tên riêng)"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ đi sau tên)"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "đúng vậy/phải rồi"
+                },
+                {
+                  "t": "そうじゃないです",
+                  "read": "そうじゃないです",
+                  "vi": "không phải vậy đâu (cách nói thân mật hơn của そうではありません)"
+                }
+              ]
+            },
+            {
+              "stem": "A: あなたはがくせいですか。\nB: はい、＿。",
+              "choices": [
+                "そうです",
+                "そうではありません",
+                "そうですか",
+                "そうでした"
+              ],
+              "answer": 0,
+              "pt": "B2 そうです（肯定の応答）",
+              "explain": "「そうです」dùng để xác nhận điều vừa được hỏi, tương đương 'đúng vậy'. 「そうではありません」là phủ định, mâu thuẫn với はい. 「そうですか」là câu hỏi ngược lại ('vậy ư?'), không phải câu trả lời. 「そうでした」dùng thì quá khứ, không phù hợp khi nói về hiện tại.",
+              "glosses": [
+                {
+                  "t": "がくせい",
+                  "read": "がくせい",
+                  "vi": "học sinh/sinh viên"
+                },
+                {
+                  "t": "はい",
+                  "vi": "vâng/đúng"
+                },
+                {
+                  "t": "そうです",
+                  "vi": "đúng vậy"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị (ngôi thứ hai)"
+                },
+                {
+                  "t": "そうではありません",
+                  "read": "そうではありません",
+                  "vi": "không phải vậy (phủ định lịch sự)"
+                },
+                {
+                  "t": "そうでした",
+                  "read": "そうでした",
+                  "vi": "đã đúng như vậy (thì quá khứ của そうです)"
+                }
+              ]
+            },
+            {
+              "stem": "これは＿かいしゃのざっしです。",
+              "choices": [
+                "わたしの",
+                "わたしは",
+                "わたしで",
+                "わたしを"
+              ],
+              "answer": 0,
+              "pt": "B1 NのN（所有・連続）",
+              "explain": "Cấu trúc NのN có thể xếp chồng: わたし**の**かいしゃ**の**ざっし = tạp chí của công ty của tôi. Trợ từ「の」liên kết các danh từ. 「わたしは」dùng は làm chủ đề câu, phá vỡ cấu trúc nối danh từ. 「わたしで」dùng で chỉ phương tiện/địa điểm, sai nghĩa. 「わたしを」dùng を chỉ tân ngữ, hoàn toàn sai ở đây.",
+              "glosses": [
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "ざっし",
+                  "read": "ざっし",
+                  "vi": "tạp chí"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                }
+              ]
+            },
+            {
+              "stem": "A: すみません、＿とけいはいくらですか。\nB: それは 3000えんです。",
+              "choices": [
+                "その",
+                "あの",
+                "この",
+                "それの"
+              ],
+              "answer": 0,
+              "pt": "B2 そのN（中距離指示詞）",
+              "explain": "Người A hỏi về chiếc đồng hồ đang ở gần người B (bên quầy hàng chẳng hạn), nên dùng「その」+ danh từ. Người B trả lời bằng「それ」(đại từ) cũng nhất quán. 「あの」chỉ vật xa cả hai. 「この」chỉ vật gần người nói (người A), nhưng chiếc đồng hồ đang ở phía người B. 「それの」sai vì「それ」là đại từ, không ghép thêm「の」trực tiếp trước danh từ kiểu này.",
+              "glosses": [
+                {
+                  "t": "とけい",
+                  "read": "とけい",
+                  "vi": "đồng hồ"
+                },
+                {
+                  "t": "いくら",
+                  "vi": "bao nhiêu tiền"
+                },
+                {
+                  "t": "えん",
+                  "read": "えん",
+                  "vi": "yên (tiền Nhật)"
+                },
+                {
+                  "t": "その",
+                  "vi": "cái đó (kèm danh từ, gần người nghe)"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, xin phép (dùng khi hỏi hoặc làm phiền)"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                }
+              ]
+            },
+            {
+              "stem": "たなかさんはきょうし＿、やまださんもきょうしです。",
+              "choices": [
+                "で、",
+                "は、",
+                "が、",
+                "の、"
+              ],
+              "answer": 0,
+              "pt": "B1 Nも（列挙・追加）",
+              "explain": "Câu ghép hai mệnh đề: 'Tanaka là giáo viên, Yamada cũng là giáo viên.' Danh từ vị ngữ nối bằng「で」(dạng て của です) để tiếp nối. Phần sau dùng「も」thay「は」để nhấn mạnh 'cũng'. 「は」không dùng để nối hai mệnh đề liên tiếp kiểu này. 「が」dùng trong câu nhượng bộ (nhưng/tuy nhiên), không phù hợp. 「の」là trợ từ sở hữu, không thể nối vị ngữ.",
+              "glosses": [
+                {
+                  "t": "きょうし",
+                  "read": "きょうし",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "も",
+                  "vi": "cũng"
+                }
+              ]
+            },
+            {
+              "stem": "A: これはなんですか。\nB: ＿にほんのおちゃです。",
+              "choices": [
+                "それは",
+                "あれは",
+                "これは",
+                "そのは"
+              ],
+              "answer": 0,
+              "pt": "B2 それ vs これ（視点の転換）",
+              "explain": "Người A cầm vật và hỏi (vật gần người A = それ theo góc nhìn của B). Người B trả lời bằng「それは」vì vật đang ở gần người A (người nghe của B). 「あれは」sai vì vật không xa cả hai. 「これは」sai vì vật không ở gần người B. 「そのは」ngữ pháp sai:「その」cần đi ngay trước danh từ.",
+              "glosses": [
+                {
+                  "t": "おちゃ",
+                  "read": "おちゃ",
+                  "vi": "trà (Nhật)"
+                },
+                {
+                  "t": "にほんの",
+                  "read": "にほんの",
+                  "vi": "của Nhật Bản"
+                },
+                {
+                  "t": "それ",
+                  "vi": "cái đó (gần người nghe)"
+                },
+                {
+                  "t": "なん",
+                  "read": "なん",
+                  "vi": "cái gì, gì (何)"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                }
+              ]
+            },
+            {
+              "stem": "これは＿ほんですか、えいごのほんですか。",
+              "choices": [
+                "にほんごの",
+                "にほんごは",
+                "にほんごも",
+                "にほんごが"
+              ],
+              "answer": 0,
+              "pt": "B1 NのN（材料・属性）",
+              "explain": "「NのN」thể hiện thuộc tính/loại: にほんご**の**ほん = sách tiếng Nhật. Câu hỏi liệt kê hai lựa chọn (A か B か). 「にほんごは」dùng は làm chủ đề, phá vỡ cấu trúc nối danh từ. 「にほんごも」mang nghĩa 'cũng tiếng Nhật', sai ngữ nghĩa trong câu hỏi hoặc/là. 「にほんごが」dùng が chỉ chủ ngữ, không phù hợp để nối hai danh từ.",
+              "glosses": [
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "えいご",
+                  "read": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                }
+              ]
+            },
+            {
+              "stem": "A: あれはびょういんですか。\nB: いいえ、＿びょういんではありません。ゆうびんきょくです。",
+              "choices": [
+                "あれは",
+                "これは",
+                "それは",
+                "あのは"
+              ],
+              "answer": 0,
+              "pt": "B2 あれ（遠称指示詞）+ B1 NはNではありません",
+              "explain": "Cả người A và người B đều đang nhìn về phía tòa nhà xa, nên cả hai đều dùng「あれ」nhất quán. 「これは」chỉ vật gần người nói (người B), sai vì tòa nhà ở xa. 「それは」chỉ vật gần người A, nhưng trong ngữ cảnh này cả hai cùng nhìn về phía xa. 「あのは」ngữ pháp sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "びょういん",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "ゆうびんきょく",
+                  "read": "ゆうびんきょく",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "あれ",
+                  "vi": "cái kia (xa cả hai người)"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không, không phải"
+                },
+                {
+                  "t": "ありません",
+                  "read": "ありません",
+                  "vi": "không có, không tồn tại (phủ định lịch sự của aru)"
+                }
+              ]
+            },
+            {
+              "stem": "＿かたはどなたですか。",
+              "choices": [
+                "あの",
+                "あれ",
+                "それ",
+                "その"
+              ],
+              "answer": 0,
+              "pt": "B2 あのN（人を指す遠称）",
+              "explain": "「あのかた」= vị kia (người ở xa, dùng kính ngữ). 「あの」là tính từ chỉ thị xa, đứng trước danh từ. 「あれ」là đại từ, không đứng trước danh từ. 「それ」chỉ vật/người gần người nghe, không phù hợp. 「その」chỉ người/vật gần người nghe, mâu thuẫn với cảnh người đứng xa.",
+              "glosses": [
+                {
+                  "t": "かた",
+                  "read": "かた",
+                  "vi": "vị (từ kính ngữ chỉ người)"
+                },
+                {
+                  "t": "どなた",
+                  "vi": "vị nào (kính ngữ của だれ)"
+                },
+                {
+                  "t": "あの",
+                  "vi": "người/vị kia"
+                }
+              ]
+            },
+            {
+              "stem": "A: これはキムさんのかさですか。\nB: はい、それはキムさん＿かさです。",
+              "choices": [
+                "の",
+                "は",
+                "も",
+                "が"
+              ],
+              "answer": 0,
+              "pt": "B1 NのN（所有）",
+              "explain": "「キムさん**の**かさ」= cái ô của Kim. Trợ từ「の」biểu thị quan hệ sở hữu. 「は」đóng vai trò chủ đề câu, không nối hai danh từ theo quan hệ sở hữu. 「も」có nghĩa 'cũng', làm thay đổi hoàn toàn ý nghĩa câu. 「が」là trợ từ chủ ngữ, không dùng để nối danh từ sở hữu.",
+              "glosses": [
+                {
+                  "t": "かさ",
+                  "read": "かさ",
+                  "vi": "cái ô/dù"
+                },
+                {
+                  "t": "キムさん",
+                  "vi": "anh/chị Kim"
+                },
+                {
+                  "t": "の",
+                  "vi": "trợ từ sở hữu 'của'"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                },
+                {
+                  "t": "それは",
+                  "read": "それは",
+                  "vi": "cái đó là ~"
+                }
+              ]
+            },
+            {
+              "stem": "A: すみません、＿かたはせんせいですか。\nB: はい、そうです。やまだせんせいです。",
+              "choices": [
+                "あの",
+                "その",
+                "この",
+                "あれの"
+              ],
+              "answer": 0,
+              "pt": "B2 あのN（遠距離・人物指示）",
+              "explain": "Người A hỏi về một vị ở xa cả hai người, nên dùng「あの」(chỉ thị xa) + かた. 「その」chỉ người gần người nghe (người B), không phù hợp nếu vị thầy đứng xa. 「この」chỉ người gần người nói (người A), cũng không phù hợp. 「あれの」sai cú pháp: đại từ「あれ」không ghép「の」để đứng trước danh từ người — với người phải dùng「あのかた」không dùng「あれのかた」.",
+              "glosses": [
+                {
+                  "t": "かた",
+                  "read": "かた",
+                  "vi": "vị (kính ngữ)"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên/thầy cô"
+                },
+                {
+                  "t": "あの",
+                  "vi": "vị kia (ở xa)"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, xin phép"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "やまだ",
+                  "read": "やまだ",
+                  "vi": "Yamada (tên riêng)"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "đúng vậy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "B2 これ／それ／あれ",
+              "explain": "Câu đúng: 「すみません、これはだいがくのがくせいのてちょうですか。」— Xin lỗi, cái này có phải là sổ tay của sinh viên đại học không?\nSắp xếp: ô 1=「これは」★, ô 2=「だいがくの」, ô 3=「がくせいの」, ô 4=「てちょう」\nKhung câu cho sẵn từ mở đầu 「すみません、」 và nghi vấn vị ngữ 「ですか。」 ở cuối. Sau từ mở đầu, câu cần đại từ chỉ thị chỉ vật 「これは」 ở ô 1 làm chủ đề câu hỏi. Hai cụm danh từ ghép trợ từ 「の」 phải đứng theo trật tự bổ nghĩa 「だいがくの」 rồi đến 「がくせいの」 để tạo thành cụm \"sinh viên đại học\", bổ nghĩa tiếp cho danh từ 「てちょう」 ở ô 4. Mảnh 「これは」 ở ô ★ chứa đại từ chỉ thị これ đứng trước trợ từ は, bắt buộc làm chủ ngữ đứng ngay sau 「すみません、」 nên không thể xếp vào ô khác.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "read": "",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "これ",
+                  "read": "",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "だいがく",
+                  "read": "",
+                  "vi": "trường đại học"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "",
+                  "vi": "sinh viên"
+                },
+                {
+                  "t": "てちょう",
+                  "read": "",
+                  "vi": "sổ tay"
+                }
+              ],
+              "frame": [
+                "すみません、",
+                "ですか。"
+              ],
+              "pieces": [
+                "これは",
+                "だいがくの",
+                "がくせいの",
+                "てちょう"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B2 このN",
+              "explain": "Câu đúng: 「はい、このほんはにほんごのせんせいのさとうさんのです。」— Vâng, cuốn sách này là của cô Sato, giáo viên tiếng Nhật.\nSắp xếp: ô 1=「このほんは」★, ô 2=「にほんごの」, ô 3=「せんせいの」, ô 4=「さとうさんの」.\nSau khung mở đầu 「はい、」, vị trí ô 1 cần chủ đề của câu là 「このほんは」★ (thể hiện điểm ngữ pháp 「このN」 kết hợp trợ từ は). Tiếp theo, để bổ nghĩa cho tên riêng 「さとうさん」, tiếng Nhật đặt chức danh/chuyên môn đứng trước theo trật tự 「[lĩnh vực]の[chức danh]の[tên]」, do đó bắt buộc ghép 「にほんごの」 (ô 2) liền trước 「せんせいの」 (ô 3) rồi đến 「さとうさんの」 (ô 4). Cụm này kết hợp với khung kết thúc 「です。」 tạo thành vị ngữ sở hữu hoàn chỉnh 「〜さとうさんのです。」 mà không bị lặp lại danh từ 「ほん」. Mảnh 「このほんは」 mang điểm ngữ pháp trọng tâm nên bắt buộc đứng ở ô 1, không thể hoán đổi sang vị trí khác.",
+              "glosses": [
+                {
+                  "t": "はい",
+                  "read": "",
+                  "vi": "vâng"
+                },
+                {
+                  "t": "さとう",
+                  "read": "",
+                  "vi": "Sato"
+                },
+                {
+                  "t": "さん",
+                  "read": "",
+                  "vi": "anh/chị"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách, quyển sách"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "",
+                  "vi": "tiếng Nhật"
+                }
+              ],
+              "frame": [
+                "はい、",
+                "です。"
+              ],
+              "pieces": [
+                "さとうさんの",
+                "このほんは",
+                "せんせいの",
+                "にほんごの"
+              ],
+              "order": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B2 そうです",
+              "explain": "Câu đúng: 「A：これはサントスさんのノートですか。B：はい、そうです。サントスさんのノートです。」— A: \"Đây có phải là vở của anh Santos không?\" B: \"Vâng, đúng vậy. Đó là vở của anh Santos.\".\nSắp xếp: ô 1=「はい、」, ô 2=「そうです。」★, ô 3=「サントスさんの」, ô 4=「ノート」.\nKhung trước là câu hỏi nghi vấn danh từ của người A và nhãn bắt đầu lời đáp của người B, do đó ngay sau lời gọi đáp của B cần từ đồng tình 「はい、」 ở ô 1. Điểm ngữ pháp bài 2 dạy dùng mẫu xác nhận 「そうです。」 để trả lời khẳng định cho câu hỏi danh từ, nên ô 2 mang ngôi sao ★ bắt buộc phải là 「そうです。」 để hoàn thành lời đáp 「はい、そうです。」. Tiếp theo, trước vị ngữ kết thúc câu 「です。」 ở khung sau, cấu trúc sở hữu của bài 2 đòi hỏi cụm danh từ kèm trợ từ 「サントスさんの」 đứng ở ô 3 để bổ nghĩa cho danh từ 「ノート」 ở ô 4. Vì vậy, mảnh mang điểm ngữ pháp 「そうです。」 chỉ có thể đứng ở ô 2 và không thể hoán đổi vị trí với bất kỳ mảnh nào khác.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "read": "",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "サントス",
+                  "read": "",
+                  "vi": "Santos"
+                },
+                {
+                  "t": "さん",
+                  "read": "",
+                  "vi": "anh/chị"
+                },
+                {
+                  "t": "ノート",
+                  "read": "",
+                  "vi": "vở"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "đúng vậy"
+                },
+                {
+                  "t": "はい",
+                  "read": "",
+                  "vi": "vâng"
+                }
+              ],
+              "frame": [
+                "A：これはサントスさんのノートですか。B：",
+                "です。"
+              ],
+              "pieces": [
+                "サントスさんの",
+                "そうです。",
+                "ノート",
+                "はい、"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "B2 そうではありません",
+              "explain": "Câu đúng: 「A：それはミラーさんのですか。　B：いいえ、そうではありません。これはさとうさんのノートですよ。」— A: Cái đó có phải của anh Miller không? B: Không, không phải vậy đâu. Đây là cuốn vở của anh Sato đấy.\nSắp xếp: ô 1=「そうではありません。」★, ô 2=「これは」, ô 3=「さとうさんの」, ô 4=「ノート」 (khớp CHÍNH XÁC \"pieces\"/\"order\"/\"star\" ở trên).\nKhung trước kết thúc bằng lời đáp 「いいえ、」 cho câu hỏi xác nhận danh từ, đòi hỏi ngay sau đó một lời phủ định trực diện 「そうではありません。」 có dấu chấm câu để hoàn thành vế đáp đầu tiên. Sang vế giải thích tiếp theo, mảnh 「これは」 đứng đầu làm chủ ngữ chỉ đồ vật gần người nói, đi liền với cụm bổ nghĩa sở hữu 「さとうさんの」 bổ nghĩa cho danh từ 「ノート」 đứng trước đuôi 「ですよ。」 ở khung sau. Mảnh ở ô ★ là 「そうではありません。」 mang mẫu phủ định trọng tâm của Bài 2 và có dấu chấm ngắt câu, bắt buộc phải đứng ở ô 1 ngay sau 「いいえ、」 chứ không thể xen vào giữa cụm danh từ ở các ô sau.",
+              "glosses": [
+                {
+                  "t": "それ",
+                  "read": "",
+                  "vi": "cái đó"
+                },
+                {
+                  "t": "ミラー",
+                  "read": "",
+                  "vi": "Miller"
+                },
+                {
+                  "t": "さん",
+                  "read": "",
+                  "vi": "anh/chị"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không, không phải"
+                },
+                {
+                  "t": "これ",
+                  "read": "",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "ノート",
+                  "read": "",
+                  "vi": "vở"
+                },
+                {
+                  "t": "そうではありません",
+                  "read": "そうではありません",
+                  "vi": "không phải vậy"
+                },
+                {
+                  "t": "さとう",
+                  "read": "",
+                  "vi": "Sato"
+                }
+              ],
+              "frame": [
+                "A：それはミラーさんのですか。　B：いいえ、",
+                "ですよ。"
+              ],
+              "pieces": [
+                "これは",
+                "ノート",
+                "そうではありません。",
+                "さとうさんの"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B1 NのN",
+              "explain": "Câu đúng: 「あのノートはわたしのにほんごのせんせいのです。」— Cuốn vở kia là của giáo viên tiếng Nhật của tôi.\nSắp xếp: ô 1=「ノートは」, ô 2=「わたしの」, ô 3=「にほんごの」★, ô 4=「せんせいの」 (khớp CHÍNH XÁC \"pieces\"/\"order\"/\"star\" ở trên).\nKhung trước cho từ chỉ định 「あの」 bắt buộc phải đi kèm trực tiếp với danh từ cụ thể mà nó bổ nghĩa, do đó mảnh 「ノートは」 phải đứng ở ô 1 để tạo thành chủ ngữ 「あのノートは」. Tiếp theo, vị ngữ diễn đạt quyền sở hữu theo trật tự tự nhiên từ đại từ nhân xưng đến chuyên môn giảng dạy: 「わたしの」 bổ nghĩa cho 「にほんごの」, rồi đến 「せんせいの」 kết hợp với 「です。」 ở khung sau thành cụm sở hữu lược bỏ danh từ 「せんせいのです。」 (là của giáo viên). Mảnh ở ô ★ là 「にほんごの」 mang điểm ngữ pháp NのN bổ nghĩa định ngữ cho 「せんせい」, bắt buộc phải đứng ở ô 3 ngay trước 「せんせいの」; không thể đứng sau danh từ hay đứng đầu câu sau 「あの」.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "kia"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "ノート",
+                  "read": "",
+                  "vi": "vở"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "わたし",
+                  "read": "",
+                  "vi": "tôi"
+                }
+              ],
+              "frame": [
+                "あの",
+                "です。"
+              ],
+              "pieces": [
+                "せんせいの",
+                "ノートは",
+                "にほんごの",
+                "わたしの"
+              ],
+              "order": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "B2 そのN",
+              "explain": "Câu đúng: 「すみません、そのにほんのてちょうはだれのですか。」— Xin lỗi, cuốn sổ tay Nhật Bản đó là của ai vậy?\nSắp xếp: ô 1=「その」★, ô 2=「にほんの」, ô 3=「てちょうは」, ô 4=「だれの」.\nKhung đầu có lời xin lỗi 「すみません、」 và khung cuối là đuôi câu hỏi 「ですか。」. Định từ chỉ định 「その」 (mảnh ở ô ★) đứng đầu cụm danh từ để bổ nghĩa cho danh từ 「にほんのてちょうは」. Mảnh nghi vấn 「だれの」 đóng vai trò vị ngữ chỉ sở hữu, đứng ngay trước đuôi câu hỏi 「ですか。」. Mảnh 「その」 ở ô ★ là định từ bổ nghĩa cho danh từ nên bắt buộc phải đứng ở ô 1 ngay trước cụm danh từ 「にほんのてちょうは」, không thể đứng ở ô 3 hay ô 4 vì không thể đứng trực tiếp trước từ nghi vấn 「だれの」 hay đứng sát trước đuôi 「ですか。」.",
+              "glosses": [
+                {
+                  "t": "のですか",
+                  "read": "のですか",
+                  "vi": "~のですか = là của ai/việc gì vậy? (の danh từ hóa sở hữu + ですか hỏi xác nhận)"
+                },
+                {
+                  "t": "すみません",
+                  "read": "",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "その",
+                  "read": "",
+                  "vi": "đó"
+                },
+                {
+                  "t": "にほん",
+                  "read": "",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "てちょう",
+                  "read": "",
+                  "vi": "sổ tay"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai, người nào"
+                }
+              ],
+              "frame": [
+                "すみません、",
+                "ですか。"
+              ],
+              "pieces": [
+                "その",
+                "にほんの",
+                "てちょうは",
+                "だれの"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B1 NはNですか",
+              "explain": "Câu đúng: 「A：あのう、あれはにほんのかいしゃのカメラですか。 B：いいえ、ちがいます。」— A: Xin lỗi, kia có phải là máy ảnh của công ty Nhật Bản không? B: Không, không phải.\nSắp xếp: ô 1=「あれは」★, ô 2=「にほんの」, ô 3=「かいしゃの」, ô 4=「カメラ」\nKhung câu đã có từ mở đầu 「A：あのう、」 và vế trả lời 「ですか。 B：いいえ、ちがいます。」. Mảnh ở ô 1 là đại từ 「あれは」 đóng vai trò chủ ngữ trong cấu trúc câu hỏi 「N1はN2ですか」. Các mảnh ở ô 2 「にほんの」 và ô 3 「かいしゃの」 đứng trước để bổ nghĩa cho danh từ 「カメラ」 ở ô 4. Do đó, mảnh chứa điểm ngữ pháp chủ ngữ 「あれは」 phải đứng ở vị trí ô 1.",
+              "glosses": [
+                {
+                  "t": "あのう",
+                  "read": "",
+                  "vi": "à, ừm"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "",
+                  "vi": "không"
+                },
+                {
+                  "t": "ちがいます",
+                  "read": "",
+                  "vi": "không phải, sai rồi"
+                },
+                {
+                  "t": "あれは",
+                  "read": "あれは",
+                  "vi": "cái kia là ~ (あれ = vật xa cả hai người)"
+                },
+                {
+                  "t": "にほん",
+                  "read": "",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "カメラ",
+                  "read": "",
+                  "vi": "máy ảnh"
+                }
+              ],
+              "frame": [
+                "A：あのう、",
+                "ですか。 B：いいえ、ちがいます。"
+              ],
+              "pieces": [
+                "あれは",
+                "にほんの",
+                "かいしゃの",
+                "カメラ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B1 Nも",
+              "explain": "Câu đúng: 「このボールペンはにほんのです。ワットさんのあのボールペンもにほんのですか。」— Cây bút bi này là của Nhật Bản. Cây bút bi kia của anh Watt cũng là của Nhật Bản phải không?\nSắp xếp: ô 1=「ワットさんの」, ô 2=「あの」, ô 3=「ボールペンも」★, ô 4=「にほんの」.\nKhung trước đã đưa ra tiền đề 「このボールペンはにほんのです。」 và khung sau kết thúc bằng 「ですか。」, đòi hỏi câu ở giữa phải dùng trợ từ 「も」 để hỏi về cùng đặc điểm xuất xứ. Trong 4 mảnh, 「あの」 là liên thể từ chỉ định nên bắt buộc phải đứng ngay trước danh từ 「ボールペンも」 để tạo thành cụm 「あのボールペンも」, không thể đứng trước tên riêng 「ワットさんの」. Mảnh 「ワットさんの」 chỉ quyền sở hữu đứng ở ô 1 để bổ nghĩa cho cả cụm 「あのボールペンも」, hoàn chỉnh chủ ngữ 「ワットさんのあのボールペンも」. Mảnh 「にほんの」 bắt buộc đứng ở ô 4 để làm vị ngữ trước 「ですか。」. Do đó, mảnh 「ボールペンも」 mang điểm ngữ pháp 「Nも」 chỉ có thể đứng ở ô 3 (ô ★), không thể đứng ở ô 1 hay ô 2 vì cần các định ngữ đứng trước bổ nghĩa, và không thể đứng ở ô 4 vì sẽ khiến vị ngữ 「にほんの」 bị treo vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "ボールペン",
+                  "read": "",
+                  "vi": "bút bi"
+                },
+                {
+                  "t": "にほん",
+                  "read": "",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "kia"
+                },
+                {
+                  "t": "ワット",
+                  "read": "",
+                  "vi": "Watt"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ đi sau tên)"
+                }
+              ],
+              "frame": [
+                "このボールペンはにほんのです。",
+                "ですか。"
+              ],
+              "pieces": [
+                "あの",
+                "にほんの",
+                "ボールペンも",
+                "ワットさんの"
+              ],
+              "order": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "B2 あれ",
+              "explain": "Câu đúng: 「すみません、あれはさとうさんのくるまのかぎですか。」— Xin lỗi, kia có phải là chìa khóa xe ô tô của ông Sato không?\nSắp xếp: ô 1=「あれは」★, ô 2=「さとうさんの」, ô 3=「くるまの」, ô 4=「かぎ」.\nĐầu câu nghi vấn đứng sau lời chào hỏi 「すみません、」 cần một đại từ chỉ định làm chủ ngữ, ở đây chọn đại từ 「あれは」 ở ô 1 để chỉ vật ở xa cả người nói lẫn người nghe. Cụm danh từ sở hữu nối tiếp nhau theo thứ tự chủ sở hữu trước rồi đến vật thuộc sở hữu: người 「さとうさんの」 ở ô 2 đứng trước phương tiện 「くるまの」 ở ô 3, và 「くるまの」 bổ nghĩa trực tiếp cho danh từ 「かぎ」 ở ô 4 đứng trước vị ngữ 「ですか。」 của khung câu. Mảnh 「あれは」 mang đại từ chỉ định đứng làm chủ ngữ của toàn câu nên bắt buộc phải nằm ở ô 1 ngay sau lời chào.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "read": "",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "あれ",
+                  "read": "",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "さとう",
+                  "read": "",
+                  "vi": "Sato"
+                },
+                {
+                  "t": "さん",
+                  "read": "",
+                  "vi": "anh/chị"
+                },
+                {
+                  "t": "くるま",
+                  "read": "",
+                  "vi": "ô tô"
+                },
+                {
+                  "t": "かぎ",
+                  "read": "",
+                  "vi": "chìa khóa"
+                }
+              ],
+              "frame": [
+                "すみません、",
+                "ですか。"
+              ],
+              "pieces": [
+                "あれは",
+                "さとうさんの",
+                "くるまの",
+                "かぎ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B1 NはNではありません",
+              "explain": "Câu đúng: 「これはわたしのかさではありません。」— Đây không phải là cái ô của tôi.\nSắp xếp: ô 1=「これは」, ô 2=「わたしの」, ô 3=「かさ」, ô 4=「ではありません」★.\nĐầu câu dùng đại từ chỉ định kết hợp trợ từ chủ đề 「これは」 ở ô 1. Tiếp theo là cụm danh từ sở hữu 「わたしの」 ở ô 2 bổ nghĩa cho danh từ 「かさ」 ở ô 3 để tạo thành vị ngữ 「わたしのかさ」. Mẫu câu phủ định danh từ N1はN2ではありません bắt buộc phải dùng đuôi phủ định 「ではありません」 ở ô 4 đứng ngay sau danh từ 「かさ」 và kết thúc bằng dấu chấm của khung câu.",
+              "glosses": [
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "かさ",
+                  "read": "かさ",
+                  "vi": "cái ô, dù"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "không phải là ~"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "これは",
+                "わたしの",
+                "かさ",
+                "ではありません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "B2 このN + B1 NのN",
+              "explain": "Câu đúng: 「あ、このとけいはわたしのにほんごのせんせいのです。」— Ôi, chiếc đồng hồ này là của giáo viên tiếng Nhật của tôi.\nSắp xếp: ô 1=「このとけいは」★, ô 2=「わたしの」, ô 3=「にほんごの」, ô 4=「せんせいの」\nKhung câu cho sẵn từ thốt lên 「あ、」 ở đầu và đuôi câu 「です。」 ở cuối. Mảnh ô 1 chứa chỉ định từ 「この」 đi cùng danh từ và trợ từ chủ ngữ 「このとけいは」. Mảnh ô 2 「わたしの」 và ô 3 「にほんごの」 đứng trước để làm rõ nghĩa cho cụm danh từ sở hữu 「せんせいの」 ở ô 4. Vì thế, mảnh ô 1 mang mẫu chỉ định từ 「このN」 là thành phần chủ ngữ bắt buộc sắp xếp ở ô 1.",
+              "glosses": [
+                {
+                  "t": "のです",
+                  "read": "のです",
+                  "vi": "の (danh từ hóa sở hữu) + です = là của ~"
+                },
+                {
+                  "t": "あ",
+                  "read": "",
+                  "vi": "a, ôi"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "とけい",
+                  "read": "",
+                  "vi": "đồng hồ"
+                },
+                {
+                  "t": "わたし",
+                  "read": "",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "",
+                  "vi": "giáo viên"
+                }
+              ],
+              "frame": [
+                "あ、",
+                "です。"
+              ],
+              "pieces": [
+                "このとけいは",
+                "わたしの",
+                "にほんごの",
+                "せんせいの"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B2 そうですか",
+              "explain": "Câu đúng: 「あ、そうですか。このかばんはきむらさんのですね。」— À, thế à. Cái cặp này là của anh Kimura nhỉ.\nSắp xếp: ô 1=「そうですか。」★, ô 2=「この」, ô 3=「かばんは」, ô 4=「きむらさんの」.\nThán từ 「あ、」 ở đầu câu biểu thị sự nhận ra thông tin mới, ngay sau đó cần cụm từ đáp lại 「そうですか。」 (Thế à / Vậy à) ở ô 1 để kết thúc vế thứ nhất. Vế thứ hai bắt đầu bằng chỉ định từ 「この」 ở ô 2 bổ nghĩa cho danh từ chủ ngữ 「かばんは」 ở ô 3. Cuối cùng, cụm sở hữu 「きむらさんの」 ở ô 4 đứng trước đuôi cảm thán xác nhận 「ですね。」 của khung câu. Mảnh 「そうですか。」 có chứa dấu chấm kết thúc vế cảm thán tiếp nhận thông tin nên bắt buộc phải nằm ở ô 1 ngay sau 「あ、」.",
+              "glosses": [
+                {
+                  "t": "のですね",
+                  "read": "のですね",
+                  "vi": "~のですね = là ~ nhỉ/à (の danh từ hóa + ですね xác nhận đồng tình)"
+                },
+                {
+                  "t": "あ",
+                  "read": "",
+                  "vi": "a, ôi"
+                },
+                {
+                  "t": "そうですか",
+                  "read": "そうですか",
+                  "vi": "vậy à/thế à"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "かばん",
+                  "read": "",
+                  "vi": "cặp sách"
+                },
+                {
+                  "t": "きむら",
+                  "read": "",
+                  "vi": "Kimura"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "anh/chị/ông/bà (kính ngữ đi sau tên)"
+                }
+              ],
+              "frame": [
+                "あ、",
+                "ですね。"
+              ],
+              "pieces": [
+                "そうですか。",
+                "この",
+                "かばんは",
+                "きむらさんの"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B2 あのN + B1 NはNです",
+              "explain": "Câu đúng: 「あ、あのひとはミラーさんのえいごのせんせいです。」— A, người kia là giáo viên tiếng Anh của anh Miller.\nSắp xếp: ô 1=「あのひとは」★, ô 2=「ミラーさんの」, ô 3=「えいごの」, ô 4=「せんせい」.\nKhung đầu có thán từ 「あ、」 cần một chủ ngữ mang chủ đề câu, nên mảnh 「あのひとは」 đứng ở ô 1 để thể hiện điểm ngữ pháp 「あのN」. Khung cuối là 「です。」 đòi hỏi danh từ đứng trước tạo thành vị ngữ 「Nです」, nên danh từ 「せんせい」 phải đứng ở ô 4. Ở giữa, quan hệ sở hữu người 「ミラーさんの」 phải đứng trước bổ nghĩa môn học 「えいごの」 để tạo cụm bổ nghĩa tự nhiên 「ミラーさんのえいごのせんせい」. Do đó mảnh mang điểm ngữ pháp 「あのひとは」 bắt buộc nằm ở ô 1.",
+              "glosses": [
+                {
+                  "t": "あ",
+                  "read": "",
+                  "vi": "a, ôi"
+                },
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "kia"
+                },
+                {
+                  "t": "ひと",
+                  "read": "",
+                  "vi": "người"
+                },
+                {
+                  "t": "ミラー",
+                  "read": "",
+                  "vi": "Miller"
+                },
+                {
+                  "t": "さん",
+                  "read": "",
+                  "vi": "anh/chị"
+                },
+                {
+                  "t": "えいご",
+                  "read": "",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "",
+                  "vi": "giáo viên"
+                }
+              ],
+              "frame": [
+                "あ、",
+                "です。"
+              ],
+              "pieces": [
+                "あのひとは",
+                "ミラーさんの",
+                "えいごの",
+                "せんせい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "B1 Nも + B2 そうです",
+              "explain": "Câu đúng: 「A：あのえいごのほんもサントスさんのですか。　B：はい、そうです。」— A: Cuốn sách tiếng Anh kia cũng là của ông Santos phải không? B: Vâng, đúng vậy.\nSắp xếp: ô 1=「あの」, ô 2=「えいごの」, ô 3=「ほんも」★, ô 4=「サントスさんの」\nKhung đầu câu của người nói 「A：」 cần từ chỉ định 「あの」 ở ô 1 để bắt đầu cụm danh từ. Cụm 「えいごの」 đứng trước danh từ 「ほん」, kết hợp trợ từ 「も」 tạo thành mảnh 「ほんも」 ở ô 3★ thể hiện sự tương đồng. Mảnh chỉ sở hữu 「サントスさんの」 đứng ở ô 4 ngay trước vị ngữ hỏi 「ですか。」 ở khung cuối. Trợ từ 「も」 trong câu hỏi làm tiền đề cho câu trả lời khẳng định 「はい、そうです。」 ở khung thoại của B.",
+              "glosses": [
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "đúng vậy"
+                },
+                {
+                  "t": "えいご",
+                  "read": "",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "サントス",
+                  "read": "",
+                  "vi": "Santos"
+                },
+                {
+                  "t": "さん",
+                  "read": "",
+                  "vi": "anh/chị"
+                },
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "kia"
+                },
+                {
+                  "t": "ほん",
+                  "read": "",
+                  "vi": "sách"
+                }
+              ],
+              "frame": [
+                "A：",
+                "ですか。　B：はい、そうです。"
+              ],
+              "pieces": [
+                "えいごの",
+                "サントスさんの",
+                "あの",
+                "ほんも"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "B2 NのN (quốc tịch/loại)",
+              "explain": "Câu đúng: 「このかばんはわたしのにほんのおみやげです。」— Cái túi này là quà lưu niệm Nhật Bản của tôi.\nSắp xếp: ô 1=「かばんは」, ô 2=「わたしの」, ô 3=「にほんの」★, ô 4=「おみやげ」\nKhung đầu 「この」 đòi hỏi theo sau phải là danh từ chỉ vật 「かばんは」 đi với trợ từ 「は」 làm chủ ngữ. Sau chủ ngữ là cụm định ngữ bổ nghĩa cho danh từ 「おみやげ」 đứng trước 「です。」 ở khung cuối. Cụm sở hữu 「わたしの」 đứng trước cụm xuất xứ 「にほんの」 để cùng bổ nghĩa cho danh từ trung tâm 「おみやげ」. Mảnh 「にほんの」 mang điểm ngữ pháp NのN chỉ quốc tịch và xuất xứ bắt buộc nằm ở ô ★ (ô 3) để liên kết trực tiếp với danh từ 「おみやげ」。",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "わたし",
+                  "read": "",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "おみやげ",
+                  "read": "",
+                  "vi": "quà lưu niệm"
+                },
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "かばん",
+                  "read": "",
+                  "vi": "cặp sách"
+                }
+              ],
+              "frame": [
+                "この",
+                "です。"
+              ],
+              "pieces": [
+                "わたしの",
+                "おみやげ",
+                "にほんの",
+                "かばんは"
+              ],
+              "order": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "starSlot": 2
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "アンさんはミラーさんに「",
+                "はあなたのかばんですか」とききました。ミラーさんは「はい、",
+                "は私のかばんです」とこたえました。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "これ",
+                    "それ",
+                    "あれ",
+                    "この"
+                  ],
+                  "answer": 1,
+                  "explain": "Trong cảnh này, アン đang hỏi ミラー về cái túi — vật đó GẦN phía ミラー (người nghe), nên phải dùng「それ」(cái đó, gần người nghe). ❌「これ」= cái này, gần người NÓI (アン), không hợp vì túi không ở phía アン. ❌「あれ」= cái kia, xa cả hai người, không hợp vì ミラー đang cầm/ở gần túi. ❌「この」= \"cái ... này\" PHẢI đi kèm danh từ ngay sau (ví dụ「このかばん」), không thể đứng một mình làm chủ ngữ."
+                },
+                {
+                  "choices": [
+                    "あれ",
+                    "その",
+                    "これ",
+                    "それ"
+                  ],
+                  "answer": 2,
+                  "explain": "ミラー tự nói về cái túi của MÌNH — vật đó ở gần BẢN THÂN (người nói), nên dùng「これ」(cái này, gần người nói). ❌「あれ」= xa cả hai, không hợp khi ミラー đang cầm túi. ❌「その」= \"cái ... đó\" PHẢI đi kèm danh từ ngay sau (例:「そのかばん」), không thể đứng độc lập làm chủ ngữ. ❌「それ」= gần người NGHE (アン), nhưng lúc này ミラー đang tự mô tả vật của mình nên vật ở phía ミラー, không phải phía アン."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "アンさん",
+                  "vi": "chị An (tên riêng)"
+                },
+                {
+                  "t": "ミラーさん",
+                  "vi": "anh Miller (tên riêng)"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ chỉ đối tượng: nói với ai)"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị (ngôi thứ hai)"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "cái túi, cặp"
+                },
+                {
+                  "t": "ききました",
+                  "read": "ききました",
+                  "vi": "đã hỏi"
+                },
+                {
+                  "t": "はい",
+                  "vi": "vâng, đúng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "私",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu: của)"
+                },
+                {
+                  "t": "こたえました",
+                  "read": "こたえました",
+                  "vi": "đã trả lời"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền dạng phủ định lịch sự của 「そうです」 vào chỗ ＿",
+          "items": [
+            {
+              "stem": "これ＿かばんです。（そう → 〜ではありません）",
+              "choices": [
+                "そうではありません",
+                "そうじゃないです",
+                "そうでありません",
+                "そうではないです"
+              ],
+              "answer": 0,
+              "explain": "「そうです」(đúng vậy) → phủ định lịch sự chuẩn là「そうではありません」. Đây là cấu trúc phủ định của copula dạng danh từ/đại từ chỉ định. ① Đúng: 「そうではありません」là dạng phủ định chuẩn, lịch sự, dùng trong văn viết và giao tiếp trang trọng. ② Sai: 「そうじゃないです」là dạng khẩu ngữ (nói chuyện thường), không sai về nghĩa nhưng kém trang trọng — JLPT N5 ưu tiên dạng ①. ③ Sai: 「そうでありません」quá cổ/hành chính, không dùng trong tiếng Nhật hiện đại hàng ngày. ④ Sai: 「そうではないです」nghe tự nhiên trong khẩu ngữ nhưng không phải dạng chuẩn được dạy ở bài này; Minna no Nihongo dạy「ではありません」là chuẩn mực.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "かばん",
+                  "read": "鞄",
+                  "vi": "túi xách, cặp"
+                },
+                {
+                  "t": "そうではありません",
+                  "vi": "không phải vậy, không đúng"
+                },
+                {
+                  "t": "そうじゃないです",
+                  "read": "そうじゃないです",
+                  "vi": "không phải vậy đâu (cách nói thân mật, khẩu ngữ của そうではありません)"
+                },
+                {
+                  "t": "そうでありません",
+                  "read": "そうでありません",
+                  "vi": "không phải vậy (cách nói hơi cứng/cổ của そうではありません)"
+                },
+                {
+                  "t": "そうではないです",
+                  "read": "そうではないです",
+                  "vi": "không phải vậy (thể ではない + です, thông dụng hơn ではありません một chút)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "これ＿だれのかさですか。",
+              "choices": [
+                "は",
+                "が",
+                "も",
+                "の"
+              ],
+              "answer": 0,
+              "explain": "「これ＿だれのかさですか」— cần trợ từ chủ đề để hỏi 「これ」(cái này) là cái ô dù của ai. ① Đúng:「は」là trợ từ chủ đề (topic marker), dùng để đặt「これ」làm chủ đề câu hỏi: 「これはだれのかさですか」= 'Cái này là ô dù của ai?'. ② Sai:「が」là trợ từ chủ ngữ (subject marker), thường dùng khi muốn nhấn mạnh chủ ngữ mới hoặc trong câu hỏi「だれが〜」(ai làm gì), không phù hợp ở đây vì câu hỏi về sở hữu dùng「は」. ③ Sai:「も」nghĩa là 'cũng', dùng khi muốn nói 'cái này cũng là ô dù của ai đó' — không phù hợp với ngữ cảnh hỏi thông tin. ④ Sai:「の」là trợ từ sở hữu/nối danh từ (NのN = N của N), không dùng làm trợ từ chủ đề.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu) của"
+                },
+                {
+                  "t": "かさ",
+                  "read": "傘",
+                  "vi": "ô dù"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Cái kia là máy tính của anh Yamada à?",
+              "target": "あれはやまださんのパソコンですか。",
+              "model": "あれは やまださんの パソコンですか。",
+              "explain": "Câu hỏi dùng「あれ」(cái kia — chỉ vật ở xa cả người nói lẫn người nghe),「〜さんの〜」(NのN = N của N, sở hữu),「〜ですか」(câu hỏi lịch sự, B1). Cấu trúc: あれ＋は＋やまださん＋の＋パソコン＋ですか。'Cái kia' = あれ (không phải「それ」vì「それ」chỉ vật gần người nghe; không phải「これ」vì「これ」chỉ vật gần người nói). 「やまださんの」= của anh/chị Yamada (NのN sở hữu). 「パソコン」= máy tính cá nhân (personal computer). Câu kết bằng「ですか」để biến thành câu hỏi lịch sự.",
+              "glosses": [
+                {
+                  "t": "あれ",
+                  "vi": "cái kia (xa cả hai)"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "山田さん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "の",
+                  "vi": "của (trợ từ sở hữu NのN)"
+                },
+                {
+                  "t": "パソコン",
+                  "vi": "máy tính (personal computer)"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "có phải … không? (câu hỏi lịch sự)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

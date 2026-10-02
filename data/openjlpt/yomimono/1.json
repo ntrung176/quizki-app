@@ -1,0 +1,1012 @@
+{
+  "bai": 1,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 1 toàn bộ xoay quanh việc GIỚI THIỆU: ai là ai, người nước nào, làm nghề gì. Mọi câu đều có dạng「NはNです / ではありません / ですか」. Đọc hiểu ở đây = nhận diện đúng chủ đề (đứng trước は) và vị ngữ (đứng trước です).",
+    "steps": [
+      "Đọc câu đầu để biết AI đang nói và AI được giới thiệu.",
+      "Với mỗi câu, tìm trợ từ は — danh từ đứng trước は chính là chủ đề (người/vật đang được nói tới).",
+      "Nhìn cuối câu: です = khẳng định, ではありません = phủ định, か = câu hỏi. Đừng nhầm 3 dạng này.",
+      "Gặp câu hỏi「〜は何ですか / だれですか」→ tìm trong bài câu có cùng chủ đề rồi lấy danh từ trước です làm đáp án.",
+      "Để ý も (cũng) và の (của): も nối người cùng đặc điểm, の cho biết quan hệ sở hữu/thuộc về."
+    ],
+    "tips": [
+      "は khi là trợ từ luôn đọc là \"wa\", không đọc \"ha\".",
+      "〜さん dùng để gọi NGƯỜI KHÁC một cách lịch sự — không bao giờ tự thêm vào tên mình.",
+      "Câu phủ định kết thúc bằng じゃありません hoặc ではありません → tuyệt đối không chọn đáp án khẳng định.",
+      "も thay thế cho は (không viết 私はも), nên thấy も nghĩa là \"người/vật này CŨNG giống vế trước\".",
+      "AのB luôn dịch ngược: \"B của A\" (日本語の先生 = giáo viên (của) tiếng Nhật)."
+    ],
+    "grammarFocus": [
+      "NはNです",
+      "NはNではありません",
+      "NはNですか",
+      "Nも",
+      "NのN"
+    ],
+    "reviewFrom": []
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "自己紹介",
+      "titleVi": "Tự giới thiệu",
+      "japanese": "はじめまして。私はミラーです。アメリカ人です。IMCの社員です。学生ではありません。どうぞよろしくお願いします。",
+      "vietnamese": "Xin chào, rất vui được gặp. Tôi là Miller. Tôi là người Mỹ. Tôi là nhân viên của công ty IMC. Tôi không phải là sinh viên. Rất mong được giúp đỡ.",
+      "sentences": [
+        {
+          "jp": "はじめまして。",
+          "vi": "Rất vui được gặp (lần đầu gặp mặt).",
+          "vocab": [
+            {
+              "w": "はじめまして",
+              "read": "はじめまして",
+              "vi": "chào lần đầu gặp mặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ chào hỏi",
+              "vi": "Câu nói cố định khi gặp ai đó lần đầu tiên."
+            }
+          ]
+        },
+        {
+          "jp": "私はミラーです。",
+          "vi": "Tôi là Miller.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "\"N là N\" — khẳng định. 私 là chủ đề (trước は), ミラー là vị ngữ (trước です). は đọc \"wa\"."
+            }
+          ]
+        },
+        {
+          "jp": "アメリカ人です。",
+          "vi": "(Tôi) là người Mỹ.",
+          "vocab": [
+            {
+              "w": "アメリカ",
+              "read": "アメリカ",
+              "vi": "nước Mỹ"
+            },
+            {
+              "w": "〜人",
+              "read": "〜じん",
+              "vi": "người nước ~"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです (lược chủ đề)",
+              "vi": "Khi chủ đề 私 đã rõ ở câu trước thì lược bỏ, chỉ còn vị ngữ + です."
+            }
+          ]
+        },
+        {
+          "jp": "IMCの社員です。",
+          "vi": "(Tôi) là nhân viên của công ty IMC.",
+          "vocab": [
+            {
+              "w": "IMC",
+              "read": "アイ・エム・シー",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "IMCの社員 = nhân viên CỦA IMC. の nối hai danh từ chỉ quan hệ thuộc về."
+            }
+          ]
+        },
+        {
+          "jp": "学生ではありません。",
+          "vi": "(Tôi) không phải là sinh viên.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNではありません",
+              "vi": "Dạng phủ định của です. ではありません = \"không phải là\"."
+            }
+          ]
+        },
+        {
+          "jp": "どうぞよろしくお願いします。",
+          "vi": "Rất mong được giúp đỡ.",
+          "vocab": [
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin mời, xin vui lòng"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "どうぞよろしくお願いします",
+              "read": "どうぞよろしくおねがいします",
+              "vi": "rất mong được giúp đỡ/chỉ giáo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ chào hỏi",
+              "vi": "Câu kết thúc lời tự giới thiệu, thể hiện sự lịch sự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "私はミラーです",
+          "label": "NはNです"
+        },
+        {
+          "excerpt": "IMCの社員",
+          "label": "NのN"
+        },
+        {
+          "excerpt": "学生ではありません",
+          "label": "NはNではありません"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは何ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "学生です",
+            "IMCの社員です",
+            "先生です",
+            "アメリカ人ではありません"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết rõ「IMCの社員です」(tôi là nhân viên IMC) — đây là câu khẳng định bằng です, chỉ nghề nghiệp của Miller. Ngay câu tiếp theo「学生ではありません」(không phải sinh viên) loại thẳng đáp án A. Đáp án C「先生です」không có căn cứ trong bài — bài không nhắc đến giáo viên khi nói về Miller. Đáp án D là câu phủ định về quốc tịch, không phải câu trả lời cho câu hỏi \"は何ですか\" (là gì/làm gì).",
+          "tip": "Câu hỏi「〜は何ですか」hỏi danh tính/nghề nghiệp → tìm câu「〜です」trong bài có cùng chủ đề. Thấy「ではありません」nghĩa là phủ định — loại ngay đáp án đó.",
+          "qt": {
+            "q": "Anh Miller là nghề gì?",
+            "o": [
+              "Là học sinh.",
+              "Là nhân viên của IMC.",
+              "Là giáo viên.",
+              "Không phải là người Mỹ."
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはどこの国の人ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "日本人です",
+            "中国人です",
+            "アメリカ人です",
+            "ブラジル人です"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết「アメリカ人です」— chủ đề ở câu trước là 私 (Miller), câu này lược 私は nhưng ý nghĩa vẫn là \"tôi là người Mỹ\". Công thức: 国名 + 人 = người nước đó (アメリカ人 = người Mỹ, 日本人 = người Nhật…). Bài không nhắc 日本人, 中国人 hay ブラジル人 khi nói về Miller nên A, B, D đều sai.",
+          "tip": "Câu hỏi「どこの国の人ですか」hỏi quốc tịch → tìm từ dạng「〜人です」trong bài. 国名 + 人 là cụm cố định, ráp tên nước vào là ra quốc tịch.",
+          "qt": {
+            "q": "Anh Miller là người nước nào?",
+            "o": [
+              "Là người Nhật.",
+              "Là người Trung Quốc.",
+              "Là người Mỹ.",
+              "Là người Brazil."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "会社の紹介",
+      "titleVi": "Giới thiệu ở công ty",
+      "japanese": "はじめまして。私はミラーです。アメリカ人です。IMCの社員です。\nこちらは田中さんです。田中さんもIMCの社員です。\nあの人はワットさんです。ワットさんは会社員ではありません。さくら大学の先生です。\nサントスさんはブラジル人です。サントスさんは学生ですか。いいえ、学生ではありません。エンジニアです。\nみなさん、どうぞよろしくお願いします。",
+      "vietnamese": "Xin chào, rất vui được gặp. Tôi là Miller. Tôi là người Mỹ. Tôi là nhân viên công ty IMC.\nĐây là anh Tanaka. Anh Tanaka cũng là nhân viên IMC.\nNgười kia là anh Watt. Anh Watt không phải là nhân viên công ty. Anh là giáo viên của Đại học Sakura.\nAnh Santos là người Brazil. Anh Santos có phải là sinh viên không? Không, anh không phải sinh viên. Anh là kỹ sư.\nMọi người, rất mong được giúp đỡ.",
+      "sentences": [
+        {
+          "jp": "はじめまして。私はミラーです。アメリカ人です。IMCの社員です。",
+          "vi": "Rất vui được gặp. Tôi là Miller. Là người Mỹ. Là nhân viên công ty IMC.",
+          "vocab": [
+            {
+              "w": "はじめまして",
+              "read": "はじめまして",
+              "vi": "chào lần đầu gặp mặt"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "アメリカ",
+              "read": "アメリカ",
+              "vi": "nước Mỹ"
+            },
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "アメリカ人",
+              "read": "アメリカじん",
+              "vi": "người Mỹ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Câu khẳng định tự giới thiệu."
+            },
+            {
+              "point": "NのN",
+              "vi": "IMCの社員 = nhân viên của IMC."
+            }
+          ]
+        },
+        {
+          "jp": "こちらは田中さんです。",
+          "vi": "Đây là anh Tanaka.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "こちら",
+              "read": "こちら",
+              "vi": "vị này (cách nói lịch sự giới thiệu người)"
+            },
+            {
+              "w": "〜さん",
+              "read": "〜さん",
+              "vi": "anh/chị/ông/bà (gọi người khác lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "こちらは〜さんです là mẫu trang trọng để giới thiệu người khác."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんもIMCの社員です。",
+          "vi": "Anh Tanaka cũng là nhân viên IMC.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\". Tanaka CŨNG là nhân viên IMC giống Miller. も thay vị trí của は."
+            }
+          ]
+        },
+        {
+          "jp": "あの人はワットさんです。",
+          "vi": "Người kia là anh Watt.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "あの人",
+              "read": "あのひと",
+              "vi": "người kia (ở xa cả người nói lẫn người nghe)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Giới thiệu người ở xa bằng あの人."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんは会社員ではありません。さくら大学の先生です。",
+          "vi": "Anh Watt không phải nhân viên công ty. Anh là giáo viên Đại học Sakura.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "会社員",
+              "read": "かいしゃいん",
+              "vi": "nhân viên công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNではありません",
+              "vi": "Phủ định: Watt KHÔNG phải nhân viên công ty."
+            },
+            {
+              "point": "NのN",
+              "vi": "さくら大学の先生 = giáo viên của Đại học Sakura."
+            }
+          ]
+        },
+        {
+          "jp": "サントスさんはブラジル人です。",
+          "vi": "Anh Santos là người Brazil.",
+          "vocab": [
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "ブラジル",
+              "read": "ブラジル",
+              "vi": "tên riêng Brasil"
+            },
+            {
+              "w": "ブラジル人",
+              "read": "ブラジルじん",
+              "vi": "người Brazil"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Câu khẳng định về quốc tịch."
+            }
+          ]
+        },
+        {
+          "jp": "サントスさんは学生ですか。いいえ、学生ではありません。エンジニアです。",
+          "vi": "Anh Santos có phải sinh viên không? Không, không phải sinh viên. Là kỹ sư.",
+          "vocab": [
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "いいえ",
+              "read": "いいえ",
+              "vi": "không (phủ định)"
+            },
+            {
+              "w": "エンジニア",
+              "read": "エンジニア",
+              "vi": "kỹ sư"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNですか",
+              "vi": "Câu hỏi Yes/No: thêm か cuối câu."
+            },
+            {
+              "point": "NはNではありません",
+              "vi": "Trả lời phủ định: いいえ + ではありません."
+            }
+          ]
+        },
+        {
+          "jp": "みなさん、どうぞよろしくお願いします。",
+          "vi": "Mọi người, rất mong được giúp đỡ.",
+          "vocab": [
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin mời, xin vui lòng"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người, các bạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ chào hỏi",
+              "vi": "Câu kết, chào cả nhóm người."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "田中さんもIMCの社員です",
+          "label": "Nも"
+        },
+        {
+          "excerpt": "ワットさんは会社員ではありません",
+          "label": "NはNではありません"
+        },
+        {
+          "excerpt": "さくら大学の先生",
+          "label": "NのN"
+        },
+        {
+          "excerpt": "サントスさんは学生ですか",
+          "label": "NはNですか"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは何ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "さくら大学の先生です",
+            "IMCの社員です",
+            "エンジニアです",
+            "学生です"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết「田中さんもIMCの社員です」— trợ từ も ở đây nghĩa là \"cũng\", cho biết Tanaka cũng là nhân viên IMC giống Miller. Đáp án A (giáo viên Đại học Sakura) là thông tin của Watt, không phải Tanaka — đừng nhầm người. Đáp án C (kỹ sư) và D (sinh viên) là thông tin của Santos — cũng không phải Tanaka.",
+          "tip": "Thấy も thay chỗ は → người này \"cũng\" có cùng đặc điểm với người vừa nhắc. Đọc câu trước も để biết \"cùng\" với ai.",
+          "qt": {
+            "q": "Anh Tanaka làm nghề gì?",
+            "o": [
+              "Giáo viên của Đại học Sakura",
+              "Nhân viên của IMC",
+              "Kỹ sư",
+              "Học sinh/sinh viên"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは会社員ですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "はい、会社員です",
+            "いいえ、会社員ではありません",
+            "はい、学生です",
+            "いいえ、エンジニアです"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết rõ「ワットさんは会社員ではありません」— ではありません là dạng phủ định, nghĩa là Watt KHÔNG phải nhân viên công ty. Câu trả lời đúng cho câu hỏi Yes/No dạng「〜ですか」là「いいえ、〜ではありません」. Đáp án A sai vì bài nói ngược lại. Đáp án C sai vì 学生 không được nhắc khi nói về Watt. Đáp án D sai vì エンジニア là thông tin của Santos, không phải Watt.",
+          "tip": "Câu hỏi「〜ですか」→ trả lời「はい、〜です」hoặc「いいえ、〜ではありません」. Thấy ではありません trong bài → câu trả lời phải là いいえ.",
+          "qt": {
+            "q": "Anh Watt có phải là nhân viên công ty không?",
+            "o": [
+              "Vâng, là nhân viên công ty",
+              "Không, không phải là nhân viên công ty",
+              "Vâng, là học sinh/sinh viên",
+              "Không, là kỹ sư"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんの仕事は何ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "先生です",
+            "学生です",
+            "エンジニアです",
+            "会社員です"
+          ],
+          "answer": 2,
+          "explainVi": "Bài hỏi「サントスさんは学生ですか」và Santos trả lời「いいえ、学生ではありません。エンジニアです」— câu khẳng định cuối cùng cho biết nghề là エンジニア (kỹ sư). Đáp án B (学生) bị loại ngay vì bài dùng ではありません phủ định. Đáp án A (先生) là nghề của Watt. Đáp án D (会社員) là thứ Watt không phải — Santos không liên quan.",
+          "tip": "Trong hội thoại Yes/No, câu trả lời thật nằm ở CUỐI: いいえ → ではありません → rồi mới nói thật là gì (〜です). Đừng dừng lại ở ではありません — đọc thêm câu ngay sau.",
+          "qt": {
+            "q": "Công việc của anh Santos là gì?",
+            "o": [
+              "Giáo viên",
+              "Học sinh/sinh viên",
+              "Kỹ sư",
+              "Nhân viên công ty"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくらカフェ",
+      "titleVi": "Quán cà phê Sakura",
+      "japanese": "さくらカフェ\nさくらカフェはIMCの喫茶店です。\n田中さんはさくらカフェの店員です。カリナさんもさくらカフェの店員です。田中さんもカリナさんも学生ではありません。\nメニュー｜ねだん\nコーヒー｜300円\nこうちゃ｜300円\nサンドイッチ｜500円\nケーキ｜400円\nジュース｜350円\nコーヒーもこうちゃも300円です。ジュースは300円ではありません。350円です。\nサンドイッチのねだんは500円です。ケーキは500円ではありません。400円です。",
+      "vietnamese": "Quán cà phê Sakura\nSakura Café là quán giải khát của (công ty) IMC.\nAnh Tanaka là nhân viên quán Sakura Café. Chị Karina cũng là nhân viên quán Sakura Café. Cả anh Tanaka lẫn chị Karina đều không phải là sinh viên.\nThực đơn｜Giá\nCà phê｜300 yên\nTrà｜300 yên\nBánh sandwich｜500 yên\nBánh ngọt｜400 yên\nNước ép｜350 yên\nCà phê và trà đều là 300 yên. Nước ép không phải là 300 yên. Là 350 yên.\nGiá của bánh sandwich là 500 yên. Bánh ngọt không phải là 500 yên. Là 400 yên.",
+      "sentences": [
+        {
+          "jp": "さくらカフェ",
+          "vi": "Quán cà phê Sakura (tên quán, dòng tiêu đề).",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "さくらカフェ",
+              "read": "さくらカフェ",
+              "vi": "quán cà phê Sakura (tên riêng)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくらカフェ",
+              "why": "Tên quán — mọi câu hỏi giá món trong bài đều dò trong menu của đúng quán này."
+            }
+          ]
+        },
+        {
+          "jp": "さくらカフェはIMCの喫茶店です。",
+          "vi": "Sakura Café là quán giải khát của IMC.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "喫茶店",
+              "read": "きっさてん",
+              "vi": "quán giải khát, quán cà phê"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "さくらカフェ (chủ đề, trước は) là 喫茶店 (vị ngữ, trước です) — câu khẳng định."
+            },
+            {
+              "point": "NのN",
+              "vi": "IMCの喫茶店 = quán giải khát CỦA IMC."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはさくらカフェの店員です。カリナさんもさくらカフェの店員です。田中さんもカリナさんも学生ではありません。",
+          "vi": "Anh Tanaka là nhân viên quán Sakura Café. Chị Karina cũng là nhân viên quán Sakura Café. Cả hai đều không phải là sinh viên.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "田中さんはさくらカフェの店員です — câu khẳng định về nghề."
+            },
+            {
+              "point": "Nも",
+              "vi": "カリナさんも〜店員です — も lặp lại cho biết Karina CŨNG là nhân viên giống Tanaka."
+            },
+            {
+              "point": "NはNではありません",
+              "vi": "田中さんもカリナさんも学生ではありません — も dùng 2 lần rồi phủ định chung bằng ではありません."
+            }
+          ]
+        },
+        {
+          "jp": "メニュー｜ねだん",
+          "vi": "Thực đơn｜Giá (dòng tiêu đề bảng).",
+          "vocab": [
+            {
+              "w": "メニュー",
+              "read": "メニュー",
+              "vi": "thực đơn"
+            },
+            {
+              "w": "ねだん",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            }
+          ],
+          "keys": [
+            {
+              "w": "ねだん",
+              "why": "Tên cột thứ 2 của bảng — cột chứa số tiền cần dò khi trả lời câu hỏi いくらですか."
+            }
+          ]
+        },
+        {
+          "jp": "コーヒー｜300円",
+          "vi": "Cà phê｜300 yên.",
+          "vocab": [
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (đơn vị tiền Nhật)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "300円",
+              "why": "Giá của コーヒー — cùng giá với こうちゃ, là 1 trong 3 phương án nhiễu của câu hỏi サンドイッチ."
+            }
+          ]
+        },
+        {
+          "jp": "こうちゃ｜300円",
+          "vi": "Trà｜300 yên.",
+          "vocab": [
+            {
+              "w": "こうちゃ",
+              "read": "こうちゃ",
+              "vi": "trà (hồng trà)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "300円",
+              "why": "Giá của こうちゃ — giống コーヒー, không phải giá サンドイッチ."
+            }
+          ]
+        },
+        {
+          "jp": "サンドイッチ｜500円",
+          "vi": "Bánh sandwich｜500 yên.",
+          "vocab": [
+            {
+              "w": "サンドイッチ",
+              "read": "サンドイッチ",
+              "vi": "bánh sandwich"
+            }
+          ],
+          "keys": [
+            {
+              "w": "サンドイッチ",
+              "why": "Chủ đề chính của câu hỏi — dò đúng hàng này để lấy giá."
+            },
+            {
+              "w": "500円",
+              "why": "Đây là căn cứ trực tiếp cho đáp án đúng của câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "ケーキ｜400円",
+          "vi": "Bánh ngọt｜400 yên.",
+          "vocab": [
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh ngọt, bánh kem"
+            }
+          ],
+          "keys": [
+            {
+              "w": "400円",
+              "why": "Giá của ケーキ — dễ nhầm với giá サンドイッチ nếu đọc lướt hàng."
+            }
+          ]
+        },
+        {
+          "jp": "ジュース｜350円",
+          "vi": "Nước ép｜350 yên.",
+          "vocab": [
+            {
+              "w": "ジュース",
+              "read": "ジュース",
+              "vi": "nước ép, nước ngọt"
+            }
+          ],
+          "keys": [
+            {
+              "w": "350円",
+              "why": "Giá của ジュース — thêm 1 phương án nhiễu gần với 300円/400円/500円."
+            }
+          ]
+        },
+        {
+          "jp": "コーヒーもこうちゃも300円です。ジュースは300円ではありません。350円です。",
+          "vi": "Cà phê và trà đều là 300 yên. Nước ép không phải là 300 yên. Là 350 yên.",
+          "vocab": [
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "ジュース",
+              "read": "ジュース",
+              "vi": "nước ép, nước ngọt"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも",
+              "vi": "コーヒーもこうちゃも〜 — も lặp 2 lần: \"cả cà phê lẫn trà đều\"."
+            },
+            {
+              "point": "NはNではありません",
+              "vi": "ジュースは300円ではありません — phủ định rồi nói giá thật ở câu sau (350円です), giống mẫu ở bài đọc dài phía trên."
+            }
+          ]
+        },
+        {
+          "jp": "サンドイッチのねだんは500円です。ケーキは500円ではありません。400円です。",
+          "vi": "Giá của bánh sandwich là 500 yên. Bánh ngọt không phải là 500 yên. Là 400 yên.",
+          "vocab": [
+            {
+              "w": "サンドイッチ",
+              "read": "サンドイッチ",
+              "vi": "bánh sandwich"
+            },
+            {
+              "w": "ねだる",
+              "read": "ねだる",
+              "vi": "vòi vĩnh, xin xỏ"
+            },
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh ngọt, bánh kem"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "サンドイッチのねだん = giá CỦA bánh sandwich."
+            },
+            {
+              "point": "NはNではありません",
+              "vi": "ケーキは500円ではありません — phủ định để tránh nhầm giá ケーキ với giá サンドイッチ, rồi chốt 400円です."
+            }
+          ],
+          "keys": [
+            {
+              "w": "サンドイッチのねだんは500円です",
+              "why": "Câu khẳng định trực tiếp trả lời câu hỏi サンドイッチはいくらですか."
+            },
+            {
+              "w": "ケーキは500円ではありません",
+              "why": "Bẫy: ケーキ KHÔNG phải 500円 (đó là giá サンドイッチ) — loại nhiễu 400円 nhầm chiều."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "さくらカフェはIMCの喫茶店です",
+          "label": "NはNです"
+        },
+        {
+          "excerpt": "カリナさんもさくらカフェの店員です",
+          "label": "Nも"
+        },
+        {
+          "excerpt": "サンドイッチのねだんは500円です",
+          "label": "NのN"
+        },
+        {
+          "excerpt": "ケーキは500円ではありません",
+          "label": "NはNではありません"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu quán",
+          "topic": 1,
+          "qs": [],
+          "note": "Tên quán và quan hệ với IMC — chưa có căn cứ giá, chỉ để định vị bối cảnh."
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "kind": "body",
+          "label": "Nhân viên quán",
+          "topic": 2,
+          "qs": [],
+          "note": "Giới thiệu Tanaka và Karina là nhân viên — không liên quan trực tiếp câu hỏi giá."
+        },
+        {
+          "from": 3,
+          "to": 8,
+          "kind": "point",
+          "label": "Bảng giá thực đơn",
+          "topic": 6,
+          "qs": [
+            1
+          ],
+          "note": "Bảng chính chứa toàn bộ giá món — hàng サンドイッチ｜500円 (dòng 6) là căn cứ trực tiếp cho câu hỏi."
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Câu chốt lại giá (dễ nhầm)",
+          "topic": 10,
+          "qs": [
+            1
+          ],
+          "note": "Bẫy: câu 10 nói ケーキは500円ではありません — dễ khiến học viên tưởng nhầm 500円 là giá ケーキ; phải đọc kỹ câu 9 mới ra giá サンドイッチ."
+        }
+      ],
+      "questions": [
+        {
+          "q": "サンドイッチはいくらですか。",
+          "options": [
+            "300円です",
+            "400円です",
+            "500円です",
+            "350円です"
+          ],
+          "answer": 2,
+          "explainVi": "Bảng ghi rõ「サンドイッチ｜500円」và câu chốt cuối bài nhắc lại「サンドイッチのねだんは500円です」— đây là căn cứ trực tiếp, đáp án C đúng. Đáp án A (300円) là giá của コーヒー và こうちゃ, không phải サンドイッチ. Đáp án B (400円) là giá của ケーキ — bài còn viết thêm「ケーキは500円ではありません」để tránh nhầm 500円 là giá ケーキ, chứ không phải giá サンドイッチ đổi thành 400円. Đáp án D (350円) là giá của ジュース.",
+          "tip": "Câu hỏi「〜はいくらですか」→ tìm đúng TÊN MÓN trong cột đầu bảng, đọc sang cột ねだん cùng hàng. Đừng lấy nhầm số tiền ở hàng trên/dưới — mỗi món chỉ có 1 giá đúng trong bảng.",
+          "evi": [
+            6,
+            10
+          ],
+          "qt": {
+            "q": "Bánh sandwich giá bao nhiêu?",
+            "o": [
+              "300 yên",
+              "400 yên",
+              "500 yên",
+              "350 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,798 @@
+{
+  "bai": 127,
+  "level": "N3",
+  "intro": "～とか（例示・伝聞・口語） · ～てしまう／ちゃう（完了・後悔） · ～なあ · ～っけ · ～てくれない？／てもらえる？.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": []
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": []
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": []
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": []
+        },
+        {
+          "code": "問5 · 用法",
+          "level": "N3–N1",
+          "type": "mcq",
+          "instr": "Chọn câu DÙNG ĐÚNG từ cho sẵn.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "田中さんは来月、海外へ留学する＿言っていましたよ。",
+              "choices": [
+                "とか",
+                "なら",
+                "から",
+                "より"
+              ],
+              "answer": 0,
+              "pt": "～とか（例示・伝聞・口語）",
+              "explain": "Đáp án đúng là「とか」vì mẫu「〜とか（言う）」được dùng trong văn nói để trích dẫn thông tin nghe được một cách không chắc chắn (\"nói là đi du học hay sao đó\"). Phương án「なら」dùng đưa ra giả định hoặc chủ đề (\"nếu là...\"), không dùng để trích dẫn lời nói. Phương án「から」chỉ nguyên nhân (\"bởi vì\") hoặc điểm xuất phát, không phù hợp nghĩa truyền đạt. Phương án「より」dùng trong câu so sánh hơn kém, không kết hợp với động từ nói để truyền đạt thông tin.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "海外",
+                  "read": "かいがい",
+                  "vi": "nước ngoài"
+                },
+                {
+                  "t": "留学",
+                  "read": "りゅうがく",
+                  "vi": "du học"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "stem": "早く食べないと、せっかくのアイスが溶け＿よ。",
+              "choices": [
+                "なきゃ",
+                "ちゃう",
+                "とく",
+                "ちゃ"
+              ],
+              "answer": 1,
+              "pt": "～てしまう／ちゃう（完了・後悔）",
+              "explain": "Đáp án đúng là「ちゃう」vì đây là dạng văn nói rút gọn của「〜てしまう」khi đi sau thể liên dụng của động từ (溶け + ちゃう → 溶けちゃう), diễn tả sự việc ngoài ý muốn sẽ xảy ra (\"kem sẽ bị tan mất đấy\"). Phương án「なきゃ」là dạng rút gọn của「〜なければ（ならない）」mang nghĩa phải làm gì. Phương án「とく」là rút gọn của「〜ておく」mang nghĩa làm sẵn việc gì, không dùng cho tự động từ kem tan. Phương án「ちゃ」là rút gọn của「〜ては」trong cấu trúc cấm đoán, đứng một mình ở đây chưa hoàn chỉnh câu.",
+              "glosses": [
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "nhanh lên"
+                },
+                {
+                  "t": "食べない",
+                  "read": "たべない",
+                  "vi": "không ăn"
+                },
+                {
+                  "t": "せっかく",
+                  "read": "",
+                  "vi": "cất công / mất công"
+                },
+                {
+                  "t": "アイス",
+                  "read": "",
+                  "vi": "kem"
+                },
+                {
+                  "t": "溶け",
+                  "read": "とけ",
+                  "vi": "tan chảy"
+                }
+              ]
+            },
+            {
+              "stem": "子どもの頃に戻って、もう一度あの町で自由に遊びたい＿。",
+              "choices": [
+                "の",
+                "かい",
+                "なあ",
+                "っけ"
+              ],
+              "answer": 2,
+              "pt": "～なあ",
+              "explain": "Đáp án đúng là「なあ」vì mẫu「〜たいなあ」được dùng ở cuối câu trong độc thoại hoặc biểu đạt cảm xúc tha thiết, ước muốn từ nội tâm của người nói (\"ước gì/muốn được chơi tự do biết bao\"). Phương án「の」dùng để giải thích hoặc hỏi nhẹ nhàng, không bộc lộ cảm xúc ước muốn tha thiết. Phương án「かい」là trợ từ nghi vấn thân mật (thường nam giới hỏi), không dùng để ước muốn bản thân. Phương án「っけ」dùng để hỏi lại điều mình không nhớ rõ, không đi với cấu trúc ước muốn.",
+              "glosses": [
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ con"
+                },
+                {
+                  "t": "頃",
+                  "read": "ころ",
+                  "vi": "thời, hồi"
+                },
+                {
+                  "t": "戻って",
+                  "read": "もどって",
+                  "vi": "quay trở lại"
+                },
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "thêm / nữa"
+                },
+                {
+                  "t": "一度",
+                  "read": "いちど",
+                  "vi": "một lần"
+                },
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "đó / kia"
+                },
+                {
+                  "t": "町",
+                  "read": "まち",
+                  "vi": "thị trấn, con phố"
+                },
+                {
+                  "t": "自由に",
+                  "read": "じゆうに",
+                  "vi": "tự do"
+                },
+                {
+                  "t": "遊びたい",
+                  "read": "あそびたい",
+                  "vi": "muốn chơi"
+                }
+              ]
+            },
+            {
+              "stem": "すみません、明日の集合時間は午前何時だ＿？",
+              "choices": [
+                "なあ",
+                "かしら",
+                "かね",
+                "っけ"
+              ],
+              "answer": 3,
+              "pt": "～っけ",
+              "explain": "Đáp án đúng là「っけ」vì mẫu「〜だっけ」đứng cuối câu thể thông thường dùng khi người nói muốn hỏi xác nhận lại một thông tin mình đã biết trước đó nhưng nhất thời quên mất (\"mấy giờ ấy nhỉ?\"). Phương án「なあ」dùng để cảm thán hoặc thể hiện ước muốn, không dùng để hỏi lại thông tin. Phương án「かしら」thể hiện sự tự hỏi phân vân (\"không biết là...\"), không mang tính xác nhận điều đã biết trước đó. Phương án「かね」dùng để hỏi nghi vấn lơ lửng, không có chức năng hỏi lại chuyện đã quên.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "read": "",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "集合時間",
+                  "read": "しゅうごうじかん",
+                  "vi": "thời gian tập trung"
+                },
+                {
+                  "t": "午前",
+                  "read": "ごぜん",
+                  "vi": "buổi sáng"
+                },
+                {
+                  "t": "何時",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                }
+              ]
+            },
+            {
+              "stem": "ちょっと手が離せないから、そこの塩を取っ＿？",
+              "choices": [
+                "てくれない",
+                "てあげない",
+                "てもらわない",
+                "てやらない"
+              ],
+              "answer": 0,
+              "pt": "～てくれない？／てもらえる？",
+              "explain": "Đáp án đúng là「てくれない」vì mẫu「〜てくれない？」là cách nhờ vả thân mật trong hội thoại hàng ngày (\"lấy giùm tôi... được không?\"). Phương án「てあげない」biểu thị người nói không làm gì cho đối phương, không dùng để nhờ người khác giúp. Phương án「てもらわない」là dạng phủ định thông thường của nhận hành động, không dùng để tạo câu nhờ vả trực tiếp. Phương án「てやらない」thể hiện không làm gì cho kẻ dưới/động vật, không phải lời nhờ vả.",
+              "glosses": [
+                {
+                  "t": "ちょっと",
+                  "read": "",
+                  "vi": "một chút / một lát"
+                },
+                {
+                  "t": "手",
+                  "read": "て",
+                  "vi": "tay"
+                },
+                {
+                  "t": "離せない",
+                  "read": "はなせない",
+                  "vi": "không rời ra được, đang bận tay"
+                },
+                {
+                  "t": "そこ",
+                  "read": "",
+                  "vi": "chỗ đó / đằng đó"
+                },
+                {
+                  "t": "塩",
+                  "read": "しお",
+                  "vi": "muối"
+                },
+                {
+                  "t": "取っ",
+                  "read": "とっ",
+                  "vi": "lấy"
+                }
+              ]
+            },
+            {
+              "stem": "「木村さん、どこに行ったか知ってる？」「図書館に行く＿言ってましたよ。」",
+              "choices": [
+                "より",
+                "とか",
+                "ほど",
+                "だけ"
+              ],
+              "answer": 1,
+              "pt": "～とか（例示・伝聞・口語）",
+              "explain": "Đáp án đúng là「とか」vì mẫu「普通形 + とか（言う）」dùng trong văn nói để truyền đạt lại thông tin nghe được một cách đại khái, không mang tính khẳng định tuyệt đối (\"nói là đi thư viện hay gì đó\"). Phương án「より」dùng trong câu so sánh hơn kém, không dùng để trích dẫn lời nói. Phương án「ほど」dùng chỉ mức độ hoặc khoảng chừng, không đi với động từ nói để truyền đạt thông tin. Phương án「だけ」mang nghĩa giới hạn (\"chỉ\"), không dùng để truyền đạt thông tin nghe thoáng qua.",
+              "glosses": [
+                {
+                  "t": "木村さん",
+                  "read": "きむらさん",
+                  "vi": "anh/chị Kimura"
+                },
+                {
+                  "t": "どこ",
+                  "read": "",
+                  "vi": "ở đâu / đâu"
+                },
+                {
+                  "t": "行った",
+                  "read": "いった",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "知ってる",
+                  "read": "しってる",
+                  "vi": "biết"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                },
+                {
+                  "t": "言ってました",
+                  "read": "いってました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "stem": "時間がなくて焦ると、誰でも簡単なミスをし＿ことがある。",
+              "choices": [
+                "ておく",
+                "てある",
+                "てしまう",
+                "てみる"
+              ],
+              "answer": 2,
+              "pt": "～てしまう／ちゃう（完了・後悔）",
+              "explain": "Đáp án đúng là「てしまう」vì mẫu「〜てしまう」gắn sau thể て của động từ (し + てしまう → してしまう) diễn tả việc lỡ làm điều không tốt hoặc mắc lỗi ngoài ý muốn (\"đôi khi lỡ phạm lỗi\"). Phương án「ておく」diễn tả hành động chuẩn bị trước có chủ đích, không hợp với việc phạm lỗi. Phương án「てある」biểu thị trạng thái kết quả của hành động có chủ ý còn lưu lại, không dùng ở dạng này. Phương án「てみる」diễn tả việc làm thử điều gì đó, không phù hợp với việc lỡ phạm lỗi ngoài ý muốn.",
+              "glosses": [
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian"
+                },
+                {
+                  "t": "なくて",
+                  "read": "",
+                  "vi": "không có"
+                },
+                {
+                  "t": "焦ると",
+                  "read": "あせると",
+                  "vi": "khi cuống cuồng, sốt ruột"
+                },
+                {
+                  "t": "誰でも",
+                  "read": "だれでも",
+                  "vi": "bất cứ ai"
+                },
+                {
+                  "t": "簡単",
+                  "read": "かんたん",
+                  "vi": "đơn giản"
+                },
+                {
+                  "t": "ミス",
+                  "read": "",
+                  "vi": "lỗi, sai sót"
+                }
+              ]
+            },
+            {
+              "stem": "学生時代の夏休みは、毎日友達と海へ行って本当に楽しかった＿。",
+              "choices": [
+                "かい",
+                "っけ",
+                "わい",
+                "なあ"
+              ],
+              "answer": 3,
+              "pt": "～なあ",
+              "explain": "Đáp án đúng là「なあ」vì trợ từ「なあ」ở cuối câu thể hiện cảm xúc hoài niệm, cảm thán sâu sắc về trải nghiệm trong quá khứ (\"hồi đó thật là vui biết bao\"). Phương án「かい」là trợ từ nghi vấn thân mật, không dùng để bộc lộ cảm thán hoài niệm. Phương án「っけ」dùng để hỏi lại điều mình không nhớ rõ, không dùng khi đang khẳng định cảm xúc rõ ràng như「本当に楽しかった」. Phương án「わい」là trợ từ phương ngữ/cổ của người lớn tuổi, không phải cách diễn đạt chuẩn ở N3.",
+              "glosses": [
+                {
+                  "t": "学生時代",
+                  "read": "がくせいじだい",
+                  "vi": "thời học sinh/sinh viên"
+                },
+                {
+                  "t": "夏休み",
+                  "read": "なつやすみ",
+                  "vi": "kỳ nghỉ hè"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "海",
+                  "read": "うみ",
+                  "vi": "biển"
+                },
+                {
+                  "t": "行って",
+                  "read": "いって",
+                  "vi": "đi"
+                },
+                {
+                  "t": "本当に",
+                  "read": "ほんとうに",
+                  "vi": "thực sự"
+                },
+                {
+                  "t": "楽しかった",
+                  "read": "たのしかった",
+                  "vi": "đã rất vui"
+                }
+              ]
+            },
+            {
+              "stem": "「来週の月曜日は祝日だから、学校は休みだ＿？」「うん、休みだよ。」",
+              "choices": [
+                "っけ",
+                "なあ",
+                "わ",
+                "ぞ"
+              ],
+              "answer": 0,
+              "pt": "～っけ",
+              "explain": "Đáp án đúng là「っけ」vì mẫu「〜だっけ」dùng cuối câu trong hội thoại để hỏi xác nhận lại điều mình đã từng biết nhưng không chắc nhớ (\"nghỉ học ấy nhỉ?\"). Phương án「なあ」dùng để cảm thán hoặc biểu lộ ước muốn, không dùng để hỏi xác nhận. Phương án「わ」nhấn mạnh nhẹ nhàng thường dùng bởi nữ giới, không dùng để hỏi lại thông tin. Phương án「ぞ」nhấn mạnh quyết liệt hoặc cảnh báo (thường nam giới dùng), không mang chức năng hỏi lại điều đã biết.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "月曜日",
+                  "read": "げつようび",
+                  "vi": "thứ hai"
+                },
+                {
+                  "t": "祝日",
+                  "read": "しゅくじつ",
+                  "vi": "ngày lễ"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "休み",
+                  "read": "やすみ",
+                  "vi": "nghỉ"
+                }
+              ]
+            },
+            {
+              "stem": "この漢字の読み方が分からないので、ちょっと教え＿？",
+              "choices": [
+                "てあげる",
+                "てもらえる",
+                "てみる",
+                "ていく"
+              ],
+              "answer": 1,
+              "pt": "～てくれない？／てもらえる？",
+              "explain": "Đáp án đúng là「てもらえる」vì mẫu「〜てもらえる？」gắn sau thể て của động từ (教え + てもらえる → 教えてもらえる？) là cách nhờ vả người khác làm gì giúp mình một cách lịch sự, thân mật (\"bạn chỉ cho mình được không?\"). Phương án「てあげる」biểu thị người nói làm gì cho đối phương, không dùng để nhờ người khác giúp. Phương án「てみる」mang nghĩa làm thử việc gì, không tạo thành lời nhờ vả. Phương án「ていく」mang nghĩa tiếp diễn rời xa hoặc vào tương lai, không dùng để nhờ giúp đỡ.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "読み方",
+                  "read": "よみかた",
+                  "vi": "cách đọc"
+                },
+                {
+                  "t": "分からない",
+                  "read": "わからない",
+                  "vi": "không hiểu, không biết"
+                },
+                {
+                  "t": "ちょっと",
+                  "read": "",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "教え",
+                  "read": "おしえ",
+                  "vi": "chỉ bảo, dạy"
+                }
+              ]
+            },
+            {
+              "stem": "休日は家で本を読む＿して、静かに過ごすのが好きです。",
+              "choices": [
+                "やら",
+                "なり",
+                "とか",
+                "だの"
+              ],
+              "answer": 2,
+              "pt": "～とか（例示・伝聞・口語）",
+              "explain": "Đáp án đúng là「とか」vì mẫu「普通形 + とか（する）」dùng để nêu ra một hành động tiêu biểu làm ví dụ trong văn nói (\"làm những việc như đọc sách chẳng hạn\"). Phương án「やら」dùng để liệt kê nhưng thường mang sắc thái không rõ ràng, bối rối hoặc hỗn độn, không tự nhiên ở đây. Phương án「なり」biểu thị làm việc này ngay sau việc kia hoặc đưa ra lựa chọn, không dùng nêu ví dụ như「とかして」. Phương án「だの」dùng để liệt kê với thái độ cằn nhằn, phàn nàn, không phù hợp với ngữ cảnh yêu thích thư giãn này.",
+              "glosses": [
+                {
+                  "t": "休日",
+                  "read": "きゅうじつ",
+                  "vi": "ngày nghỉ"
+                },
+                {
+                  "t": "家",
+                  "read": "いえ",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "読む",
+                  "read": "よむ",
+                  "vi": "đọc"
+                },
+                {
+                  "t": "静かに",
+                  "read": "しずかに",
+                  "vi": "yên tĩnh"
+                },
+                {
+                  "t": "過ごす",
+                  "read": "すごす",
+                  "vi": "trải qua, sống"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "stem": "あんなにお世話になったのに、お礼の手紙を出すのを忘れ＿のは失礼だ。",
+              "choices": [
+                "ておく",
+                "てある",
+                "ていく",
+                "てしまう"
+              ],
+              "answer": 3,
+              "pt": "～てしまう／ちゃう（完了・後悔）",
+              "explain": "Đáp án đúng là「てしまう」vì mẫu「〜てしまう」gắn sau thể て của động từ (忘れ + てしまう → 忘れてしまう) diễn tả việc lỡ làm hoặc lỡ quên một điều quan trọng ngoài ý muốn mang sắc thái tiếc nuối, có lỗi (\"việc lỡ quên gửi thư cảm ơn thì thật thất lễ\"). Phương án「ておく」diễn tả hành động chuẩn bị trước có chủ đích, không hợp với việc quên. Phương án「てある」biểu thị trạng thái kết quả của hành động có chủ ý, không đi với tha động từ theo cấu trúc này. Phương án「ていく」mang nghĩa hành động tiếp diễn hướng ra xa, không diễn tả sự lỡ lầm hay hối tiếc.",
+              "glosses": [
+                {
+                  "t": "あんなに",
+                  "read": "",
+                  "vi": "đến mức như vậy / dường ấy"
+                },
+                {
+                  "t": "お世話",
+                  "read": "おせわ",
+                  "vi": "sự giúp đỡ, chăm sóc"
+                },
+                {
+                  "t": "なった",
+                  "read": "",
+                  "vi": "được (giúp đỡ) / trở thành"
+                },
+                {
+                  "t": "お礼",
+                  "read": "おれい",
+                  "vi": "cảm ơn, tạ lễ"
+                },
+                {
+                  "t": "手紙",
+                  "read": "てがみ",
+                  "vi": "lá thư"
+                },
+                {
+                  "t": "出す",
+                  "read": "だす",
+                  "vi": "gửi đi"
+                },
+                {
+                  "t": "忘れ",
+                  "read": "わすれ",
+                  "vi": "quên"
+                },
+                {
+                  "t": "失礼",
+                  "read": "しつれい",
+                  "vi": "thất lễ, bất lịch sự"
+                }
+              ]
+            },
+            {
+              "stem": "今年の冬休みは、温かい南の島へ旅行に行きたい＿。",
+              "choices": [
+                "なあ",
+                "かい",
+                "っけ",
+                "ぜ"
+              ],
+              "answer": 0,
+              "pt": "～なあ",
+              "explain": "Đáp án đúng là「なあ」vì trợ từ「なあ」kết hợp với thể muốn「〜たい」tạo thành「〜たいなあ」bộc lộ ước muốn tha thiết, chân thật từ nội tâm của người nói (\"muốn đi du lịch quá\"). Phương án「かい」là trợ từ nghi vấn thân mật, không biểu đạt cảm xúc ước muốn. Phương án「っけ」dùng để xác nhận lại thông tin đã biết trong quá khứ, không dùng cho mong muốn tương lai. Phương án「ぜ」là trợ từ nhấn mạnh mạnh mẽ của nam giới, không thể hiện cảm xúc ước muốn nội tâm.",
+              "glosses": [
+                {
+                  "t": "今年",
+                  "read": "ことし",
+                  "vi": "năm nay"
+                },
+                {
+                  "t": "冬休み",
+                  "read": "ふゆやすみ",
+                  "vi": "kỳ nghỉ đông"
+                },
+                {
+                  "t": "温かい",
+                  "read": "あたたかい",
+                  "vi": "ấm áp"
+                },
+                {
+                  "t": "南",
+                  "read": "みなみ",
+                  "vi": "phía nam"
+                },
+                {
+                  "t": "島",
+                  "read": "しま",
+                  "vi": "hòn đảo"
+                },
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "du lịch"
+                },
+                {
+                  "t": "行きたい",
+                  "read": "いきたい",
+                  "vi": "muốn đi"
+                }
+              ]
+            },
+            {
+              "stem": "あの有名なレストラン、予約は何時から可能だ＿？",
+              "choices": [
+                "なあ",
+                "っけ",
+                "のよ",
+                "かなあ"
+              ],
+              "answer": 1,
+              "pt": "～っけ",
+              "explain": "Đáp án đúng là「っけ」vì mẫu「〜だっけ」được dùng khi người nói muốn hỏi lại hoặc xác nhận lại điều mình đã biết trước đó nhưng quên mất (\"từ mấy giờ ấy nhỉ?\"). Phương án「なあ」dùng để cảm thán bộc lộ cảm xúc, không dùng để hỏi lại thông tin. Phương án「のよ」dùng để khẳng định hoặc cung cấp thông tin nhẹ nhàng (nữ giới), không mang nghĩa hỏi lại điều đã quên. Phương án「かなあ」dùng để tự hỏi phân vân, không mang sắc thái hỏi lại một sự việc/thông tin cụ thể đã từng biết như「っけ」.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "đó / kia"
+                },
+                {
+                  "t": "有名",
+                  "read": "ゆうめい",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "レストラン",
+                  "read": "",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "予約",
+                  "read": "よやく",
+                  "vi": "đặt chỗ"
+                },
+                {
+                  "t": "何時",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "可能",
+                  "read": "かのう",
+                  "vi": "khả năng, có thể"
+                }
+              ]
+            },
+            {
+              "stem": "荷物が多くて運べないので、少し手伝っ＿？",
+              "choices": [
+                "てあげない",
+                "てもらわない",
+                "てくれない",
+                "てみない"
+              ],
+              "answer": 2,
+              "pt": "～てくれない？／てもらえる？",
+              "explain": "Đáp án đúng là「てくれない」vì cấu trúc「〜てくれない？」dùng trong văn nói thân mật để nhờ đối phương giúp đỡ mình (\"giúp mình một chút được không?\"). Phương án「てあげない」thể hiện người nói không làm gì cho ai, không thể dùng để nhờ vả. Phương án「てもらわない」là dạng phủ định của nhận hành động, không phải là cách nhờ vả tự nhiên. Phương án「てみない」dùng để rủ rê đối phương cùng thử làm việc gì, không phù hợp với ngữ cảnh đang cần nhờ người khác giúp đỡ.",
+              "glosses": [
+                {
+                  "t": "荷物",
+                  "read": "にもつ",
+                  "vi": "hành lý, đồ đạc"
+                },
+                {
+                  "t": "多くて",
+                  "read": "おおくて",
+                  "vi": "nhiều nên..."
+                },
+                {
+                  "t": "運べない",
+                  "read": "はこべない",
+                  "vi": "không khiêng/vận chuyển được"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "手伝っ",
+                  "read": "てつだっ",
+                  "vi": "giúp đỡ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": []
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ.",
+          "items": []
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": []
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,504 @@
+{
+  "id": "minna2.b35",
+  "bai": 35,
+  "titleVi": "Dự định, ý định",
+  "know": [
+    {
+      "id": "minna2.b35.you-to-omotteimasu",
+      "point": "you-to-omotteimasu",
+      "jp": "〜ようと思[おも]っています",
+      "vi": "Đang có ý định ~, dự định sẽ ~ (ý định còn có thể thay đổi)",
+      "en": "Be thinking of ~; intend to ~ (the intention may still change)",
+      "gloss": "留学[りゅうがく]しようと思[おも]っています ／ 転職[てんしょく]しようと思[おも]っています",
+      "glossEn": "留学[りゅうがく]しようと思[おも]っています ／ 転職[てんしょく]しようと思[おも]っています = I am thinking of studying abroad / I am thinking of changing jobs."
+    },
+    {
+      "id": "minna2.b35.tsumori",
+      "point": "tsumori",
+      "jp": "〜つもりです",
+      "vi": "Dự tính ~, có kế hoạch ~ (quyết định hơn, gần như chắc chắn)",
+      "en": "Plan or intend to ~ (a firmer decision, almost certain)",
+      "gloss": "来年[らいねん] 結婚[けっこん]するつもりです ／ やめないつもりです",
+      "glossEn": "来年[らいねん] 結婚[けっこん]するつもりです ／ やめないつもりです = I intend to get married next year / I intend not to quit."
+    },
+    {
+      "id": "minna2.b35.yotei",
+      "point": "yotei",
+      "jp": "〜予定[よてい]です",
+      "vi": "Dự định ~, theo kế hoạch thì ~ (kế hoạch đã được lên lịch cụ thể)",
+      "en": "Plan to ~; be scheduled to ~ (the plan has been specifically scheduled)",
+      "gloss": "来月[らいげつ] 出張[しゅっちょう]の 予定[よてい]です ／ 卒業[そつぎょう]する予定[よてい]です",
+      "glossEn": "来月[らいげつ] 出張[しゅっちょう]の 予定[よてい]です ／ 卒業[そつぎょう]する予定[よてい]です = I am scheduled to go on a business trip next month / I am scheduled to graduate."
+    },
+    {
+      "id": "minna2.b35.koto-ni-suru",
+      "point": "koto-ni-suru",
+      "jp": "〜ことにします ／ 〜ことになります",
+      "vi": "ことにします = quyết định ~ (tự mình); ことになります = (hoàn cảnh/tổ chức) quyết định ~",
+      "en": "ことにします = decide to ~ (on one's own); ことになります = it is decided that ~ (by circumstances or an organization)",
+      "gloss": "日本語[にほんご]を 勉強[べんきょう]することにしました ／ 大阪[おおさか]に 転勤[てんきん]することになりました",
+      "glossEn": "日本語[にほんご]を 勉強[べんきょう]することにしました ／ 大阪[おおさか]に 転勤[てんきん]することになりました = I decided to study Japanese / It was decided that I would be transferred to Osaka."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b35-yo-ryugaku",
+      "item": "minna2.b35.you-to-omotteimasu",
+      "err": "you-to-masu-wrong",
+      "vi": "Tôi đang có ý định đi du học ở Nhật.",
+      "t1": {
+        "stem": "日本[にほん]に 留学[りゅうがく]＿と思[おも]っています。",
+        "choices": [
+          "しよう",
+          "します",
+          "した"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]に",
+          "留学[りゅうがく]しよう",
+          "と思[おも]っています。"
+        ],
+        "traps": [
+          "留学[りゅうがく]します",
+          "留学[りゅうがく]した"
+        ]
+      },
+      "t3": {
+        "target": "日本に留学しようと思っています。",
+        "accept": [
+          "にほんにりゅうがくしようとおもっています"
+        ]
+      },
+      "why": "〜ようと思っています cần thể ý chí (volitional): する→しよう. ✗ しますと思っています — ます-form trước と思っています là sai."
+    },
+    {
+      "id": "c-b35-yo-tenshoku",
+      "item": "minna2.b35.you-to-omotteimasu",
+      "err": "you-to-masu-wrong",
+      "vi": "Tôi đang có ý định chuyển việc vào năm sau.",
+      "t1": {
+        "stem": "来年[らいねん]、転職[てんしょく]＿と思[おも]っています。",
+        "choices": [
+          "しよう",
+          "します",
+          "しない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "来年[らいねん]、",
+          "転職[てんしょく]しよう",
+          "と思[おも]っています。"
+        ],
+        "traps": [
+          "転職[てんしょく]します",
+          "転職[てんしょく]しました"
+        ]
+      },
+      "t3": {
+        "target": "来年、転職しようと思っています。",
+        "accept": [
+          "らいねん、てんしょくしようとおもっています",
+          "らいねんてんしょくしようとおもっています"
+        ]
+      },
+      "why": "転職する (nhóm III: する→しよう). ✗ しますと思っています — trước と思っています phải là thể thường (plain form) hoặc thể ý chí, không phải ます."
+    },
+    {
+      "id": "c-b35-yo-iku",
+      "item": "minna2.b35.you-to-omotteimasu",
+      "err": "you-to-masu-wrong",
+      "vi": "Anh ấy đang có ý định học lên đại học.",
+      "t1": {
+        "stem": "彼[かれ]は 大学[だいがく]に 進学[しんがく]しよう＿思[おも]っています。",
+        "choices": [
+          "と",
+          "に",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "大学[だいがく]に",
+          "進学[しんがく]しよう",
+          "と思[おも]っています。"
+        ],
+        "traps": [
+          "に思[おも]っています",
+          "が思[おも]っています"
+        ]
+      },
+      "t3": {
+        "target": "彼は大学に進学しようと思っています。",
+        "accept": [
+          "かれはだいがくにしんがくしようとおもっています"
+        ]
+      },
+      "why": "〜ようと思っています = thể ý chí + と + 思っています. Trợ từ nối nhất thiết phải là と."
+    },
+    {
+      "id": "c-b35-ts-kekkon",
+      "item": "minna2.b35.tsumori",
+      "err": "tsumori-form-wrong",
+      "vi": "Tôi dự tính kết hôn năm sau.",
+      "t1": {
+        "stem": "来年[らいねん]、結婚[けっこん]する＿です。",
+        "choices": [
+          "つもり",
+          "ため",
+          "こと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "来年[らいねん]、",
+          "結婚[けっこん]する",
+          "つもりです。"
+        ],
+        "traps": [
+          "結婚[けっこん]して",
+          "よていです"
+        ]
+      },
+      "t3": {
+        "target": "来年、結婚するつもりです。",
+        "accept": [
+          "らいねん、けっこんするつもりです",
+          "らいねんけっこんするつもりです"
+        ]
+      },
+      "why": "Vる + つもりです = dự tính (chắc chắn hơn ようと思っています). ✗ 結婚することです — ことです diễn đạt sự thật/giải thích, không phải dự định. ✗ 結婚するためです — ため chỉ mục đích."
+    },
+    {
+      "id": "c-b35-ts-yametai",
+      "item": "minna2.b35.tsumori",
+      "err": "tsumori-form-wrong",
+      "vi": "Tôi dự định không bỏ cuộc.",
+      "t1": {
+        "stem": "諦[あきら]めない＿です。",
+        "choices": [
+          "つもり",
+          "こと",
+          "よう"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "諦[あきら]めない",
+          "つもりです。"
+        ],
+        "traps": [
+          "諦[あきら]めること",
+          "諦[あきら]めないで"
+        ]
+      },
+      "t3": {
+        "target": "諦めないつもりです。",
+        "accept": [
+          "あきらめないつもりです"
+        ]
+      },
+      "why": "Vない + つもりです = dự định KHÔNG làm ~. ✗ 諦めないことです — cấu trúc sai với ý nghĩa dự định."
+    },
+    {
+      "id": "c-b35-ts-shushoku",
+      "item": "minna2.b35.tsumori",
+      "err": "tsumori-form-wrong",
+      "vi": "Sau khi tốt nghiệp, tôi có kế hoạch đi làm tại Nhật.",
+      "t1": {
+        "stem": "卒業[そつぎょう]したら、日本[にほん]で 就職[しゅうしょく]する＿です。",
+        "choices": [
+          "つもり",
+          "ため",
+          "こと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "卒業[そつぎょう]したら、",
+          "日本[にほん]で",
+          "就職[しゅうしょく]する",
+          "つもりです。"
+        ],
+        "traps": [
+          "就職[しゅうしょく]して",
+          "就職[しゅうしょく]しよう"
+        ]
+      },
+      "t3": {
+        "target": "卒業したら、日本で就職するつもりです。",
+        "accept": [
+          "そつぎょうしたら、にほんでしゅうしょくするつもりです"
+        ]
+      },
+      "why": "Vる + つもりです diễn đạt kế hoạch cá nhân đã quyết. ✗ 就職するためです — ため chỉ mục đích, không phải ý định."
+    },
+    {
+      "id": "c-b35-yt-shutcho",
+      "item": "minna2.b35.yotei",
+      "err": "yotei-tsumori-mix",
+      "vi": "Tuần sau tôi có kế hoạch đi công tác.",
+      "t1": {
+        "stem": "来週[らいしゅう]、出張[しゅっちょう]の＿です。",
+        "choices": [
+          "予定[よてい]",
+          "つもり",
+          "こと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "来週[らいしゅう]、",
+          "出張[しゅっちょう]の",
+          "予定[よてい]です。"
+        ],
+        "traps": [
+          "出張[しゅっちょう]するつもり",
+          "出張[しゅっちょう]すること"
+        ]
+      },
+      "t3": {
+        "target": "来週、出張の予定です。",
+        "accept": [
+          "らいしゅう、しゅっちょうのよていです",
+          "らいしゅうしゅっちょうのよていです"
+        ]
+      },
+      "why": "N + の + 予定です = theo kế hoạch đã đặt ra. ✗ 出張のつもりです — つもり không dùng trực tiếp với danh từ qua の (cần Vる + つもり). ✗ 出張のことです — ことです không diễn đạt kế hoạch."
+    },
+    {
+      "id": "c-b35-yt-sotsugyou",
+      "item": "minna2.b35.yotei",
+      "err": "yotei-tsumori-mix",
+      "vi": "Tôi dự định tốt nghiệp vào tháng 3.",
+      "t1": {
+        "stem": "３月[がつ]に 卒業[そつぎょう]する＿です。",
+        "choices": [
+          "予定[よてい]",
+          "ため",
+          "こと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "３月[がつ]に",
+          "卒業[そつぎょう]する",
+          "予定[よてい]です。"
+        ],
+        "traps": [
+          "卒業[そつぎょう]するため",
+          "卒業[そつぎょう]すること"
+        ]
+      },
+      "t3": {
+        "target": "３月に卒業する予定です。",
+        "accept": [
+          "さんがつにそつぎょうするよていです"
+        ]
+      },
+      "why": "Vる + 予定です = kế hoạch đã được lên lịch cụ thể (thường ai cũng biết). ✗ することため — ため không dùng trực tiếp sau する để nói kế hoạch tương lai bản thân. ✗ することことです — cấu trúc lặp không hợp lệ."
+    },
+    {
+      "id": "c-b35-kn-benkyou",
+      "item": "minna2.b35.koto-ni-suru",
+      "err": "koto-ni-mix",
+      "vi": "Tôi đã tự quyết định học tiếng Nhật mỗi ngày.",
+      "t1": {
+        "stem": "毎日[まいにち]、日本語[にほんご]を 勉強[べんきょう]する＿にしました。",
+        "choices": [
+          "こと",
+          "つもり",
+          "よう"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]、",
+          "日本語[にほんご]を",
+          "勉強[べんきょう]する",
+          "ことにしました。"
+        ],
+        "traps": [
+          "勉強[べんきょう]するつもりにしました",
+          "勉強[べんきょう]しよう"
+        ]
+      },
+      "t3": {
+        "target": "毎日、日本語を勉強することにしました。",
+        "accept": [
+          "まいにち、にほんごをべんきょうすることにしました",
+          "まいにちにほんごをべんきょうすることにしました"
+        ]
+      },
+      "why": "Vる + ことにしました = tự mình đã quyết định làm ~. ✗ するつもりにしました — cấu trúc kết hợp sai, không tồn tại."
+    },
+    {
+      "id": "c-b35-kn-tenkin",
+      "item": "minna2.b35.koto-ni-suru",
+      "err": "koto-ni-mix",
+      "vi": "Do quyết định của công ty, tôi sẽ được chuyển đến Osaka.",
+      "t1": {
+        "stem": "大阪[おおさか]に 転勤[てんきん]する＿になりました。",
+        "choices": [
+          "こと",
+          "つもり",
+          "よてい"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "大阪[おおさか]に",
+          "転勤[てんきん]する",
+          "ことになりました。"
+        ],
+        "traps": [
+          "転勤[てんきん]するつもり",
+          "転勤[てんきん]することにしました"
+        ]
+      },
+      "t3": {
+        "target": "大阪に転勤することになりました。",
+        "accept": [
+          "おおさかにてんきんすることになりました"
+        ]
+      },
+      "why": "Vる + ことになりました = (do hoàn cảnh/tổ chức) đã được quyết định ~. Phân biệt: ことにしました = tự mình quyết; ことになりました = quyết định từ bên ngoài."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b35-ryugaku",
+      "item": "minna2.b35.you-to-omotteimasu",
+      "err": "you-to-masu-wrong",
+      "tts": "らいねん にほんに りゅうがくしようと おもっています。",
+      "script": "来年[らいねん]、日本[にほん]に 留学[りゅうがく]しようと 思[おも]っています。",
+      "ask": "Người nói đang dự định làm gì?",
+      "choices": [
+        "Đi du học ở Nhật năm sau",
+        "Đã đi du học ở Nhật",
+        "Muốn đi du lịch Nhật Bản"
+      ],
+      "answer": 0,
+      "why": "〜ようと思っています = đang có ý định; 留学 = du học; 来年 = năm sau. Đây là dự định chưa chắc chắn 100%."
+    },
+    {
+      "id": "l-b35-kekkon-tsumori",
+      "item": "minna2.b35.tsumori",
+      "err": "tsumori-form-wrong",
+      "tts": "らいねん けっこんするつもりです。もう あいてが きまりました。",
+      "script": "来年[らいねん]、結婚[けっこん]するつもりです。もう 相手[あいて]が 決[き]まりました。",
+      "ask": "Điều gì đã xảy ra với người nói?",
+      "choices": [
+        "Đã có người yêu và dự định kết hôn năm sau",
+        "Đang tìm người để kết hôn",
+        "Vừa kết hôn xong"
+      ],
+      "answer": 0,
+      "why": "つもりです = kế hoạch chắc chắn; 相手が決まりました = đã có đối tượng rồi. Phân biệt với ようと思っています (còn chưa chắc)."
+    },
+    {
+      "id": "l-b35-yotei-shigoto",
+      "item": "minna2.b35.yotei",
+      "err": "yotei-tsumori-mix",
+      "tts": "らいしゅう かいぎの よていが あります。かいしゃの しじです。",
+      "script": "来週[らいしゅう]、会議[かいぎ]の 予定[よてい]が あります。会社[かいしゃ]の 指示[しじ]です。",
+      "ask": "Lý do có cuộc họp tuần sau là gì?",
+      "choices": [
+        "Theo chỉ thị của công ty",
+        "Tự mình muốn họp",
+        "Khách hàng yêu cầu họp"
+      ],
+      "answer": 0,
+      "why": "予定があります + 会社の指示 → kế hoạch được đặt ra từ phía tổ chức, không phải ý muốn cá nhân."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b35-ga-suki-tsumori",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 35 ・ 〜つもりです",
+      "vi": "Vì tôi thích Nhật Bản nên tôi dự tính sẽ đi du học.",
+      "t1": {
+        "stem": "日本[にほん]＿ 好[す]きですから、留学[りゅうがく]するつもりです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]が",
+          "好[す]きですから、",
+          "留学[りゅうがく]する",
+          "つもりです。"
+        ],
+        "traps": [
+          "日本[にほん]を",
+          "日本[にほん]に"
+        ]
+      },
+      "t3": {
+        "target": "日本が好きですから、留学するつもりです。",
+        "accept": [
+          "にほんがすきですから、りゅうがくするつもりです"
+        ]
+      },
+      "why": "Dù câu có つもりです của Bài 35, 好き vẫn cần が (lỗi #1 từ Bài 9). ✗ 日本を好きです — 好きです luôn dùng が cho đối tượng."
+    },
+    {
+      "id": "a-b35-to-omou-futsuu",
+      "item": "minna1.b21.futsuu-to",
+      "err": "to-omou-desu",
+      "ambush": true,
+      "src": 21,
+      "context": "Bài 35 ・ 〜ようと思っています",
+      "vi": "Tôi nghĩ anh ấy đang có ý định chuyển việc.",
+      "t1": {
+        "stem": "彼[かれ]は 転職[てんしょく]しようと思[おも]っている＿思[おも]います。",
+        "choices": [
+          "と",
+          "を",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "転職[てんしょく]しようと",
+          "思[おも]っている",
+          "と思[おも]います。"
+        ],
+        "traps": [
+          "思[おも]っていますと思[おも]います",
+          "思[おも]っていると"
+        ]
+      },
+      "t3": {
+        "target": "彼は転職しようと思っていると思います。",
+        "accept": [
+          "かれはてんしょくしようとおもっているとおもいます"
+        ]
+      },
+      "why": "Trước と思います (Bài 21) phải là thể thường: 思っている (thể thường) chứ không phải 思っています (thể lịch sự). Đây là bẫy lồng ghép Bài 21 vào cấu trúc Bài 35."
+    }
+  ]
+}

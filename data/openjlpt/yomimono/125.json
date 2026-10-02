@@ -1,0 +1,3321 @@
+{
+  "bai": 125,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng đọc hiểu các đoạn văn nghị luận và thông báo có cấu trúc lập luận nhiều tầng ở trình độ N3. Người học cần phân biệt rõ sự đối lập sắc thái: 「〜にかかわらず」loại bỏ rào cản điều kiện để khẳng định tính bao quát, 「〜どころか」bác bỏ kỳ vọng ban đầu nhằm làm nổi bật thực tế tương phản hoặc mức độ cực đoan hơn, đối chiếu với 「〜にすぎない」dùng để hạ thấp mức độ/xem nhẹ sự việc, và 「〜はともかく」chủ động gác lại yếu tố phụ để tập trung tuyệt đối vào luận điểm trọng tâm ở vế sau.",
+    "steps": [
+      "Xác định nhanh cặp từ đối nghĩa hoặc phạm vi điều kiện đi trước 「〜にかかわらず」 (như 男女, 有無, 天候) để hiểu rằng kết quả ở vế sau luôn được áp dụng đồng nhất cho mọi đối tượng.",
+      "Khi gặp 「〜どころか」, hãy xác định thông tin vế trước là giả định bị phủ định hoàn toàn, sau đó tập trung phân tích vế sau vì đó mới là thực tế tương phản hoặc mức độ tăng nặng tác giả muốn nhấn mạnh.",
+      "Chú ý thông tin đi kèm 「〜にすぎない」 để nắm bắt thái độ đánh giá của tác giả (chỉ xem sự việc là nhỏ nhặt, không đáng kể hoặc khiêm tốn), tránh chọn các phương án phóng đại tầm quan trọng của sự việc.",
+      "Khoanh vùng vế trước 「〜はともかく」 như một yếu tố phụ được gác lại tạm thời, tập trung đọc kỹ vế sau vì đó là nội dung cốt lõi mà tác giả ưu tiên bàn luận.",
+      "Tổng hợp các liên kết câu để phân định rõ ràng giữa 'luận điểm chính tác giả khẳng định' (vế sau どころか, はともかく) và 'yếu tố bị bác bỏ hoặc xem nhẹ' (vế trước どころか, はともかく, vế chứa にすぎない)."
+    ],
+    "tips": [
+      "Mẹo 使い分け 1 (〜どころか vs 〜ばかりか): 「〜どころか」dùng để phủ định vế trước và đưa ra thực tế trái ngược hoặc tồi tệ hơn nhiều (thậm chí mức tối thiểu cũng không đạt), trong khi「〜ばかりか」chỉ đơn thuần mang nghĩa bổ sung 'không chỉ A mà còn thêm B'.",
+      "Mẹo 使い分け 2 (〜にすぎない vs 〜だけだ): Cả hai đều dịch là 'chỉ', nhưng「〜にすぎない」thể hiện rõ thái độ đánh giá thấp, xem nhẹ sự việc ('chẳng qua chỉ là...'), còn「〜だけだ」mang tính giới hạn phạm vi khách quan.",
+      "Dấu hiệu nhận đáp án với 〜にかかわらず: Đáp án đúng thường chứa các từ mang tính bao quát tuyệt đối như すべて, だれでも, いつでも, không phân biệt đối tượng hay điều kiện.",
+      "Bẫy đảo ngược thực tế với 〜どころか: Câu hỏi đọc hiểu hay gài bẫy lấy thông tin ở vế trước; hãy nhớ vế trước không xảy ra hoặc bị phủ định, đáp án đúng phải phản ánh nội dung vế sau.",
+      "Dấu hiệu trọng tâm với 〜はともかく: Khi tác giả dùng các cụm quen thuộc như 冗談はともかく hay 見た目はともかく, hãy lướt nhanh phần trước và tập trung tìm ý chính ở ngay sau trợ từ は."
+    ],
+    "grammarFocus": [
+      "〜にかかわらず — 接続: N ／ 普通形 + にかかわらず. Sắc thái: Bất kể điều kiện ở vế trước ra sao thì kết quả vế sau không bị ảnh hưởng, thường đi với cặp đối lập (男女, 有無, 賛否); văn phong trang trọng hơn 〜に関係なく.",
+      "〜どころか — 接続: 普通形 ／ N + どころか. Sắc thái: Phủ nhận điều ở vế trước rồi đưa ra thực tế hoàn toàn trái ngược hoặc cực đoan hơn; phân biệt với 〜ばかりか (chỉ mang nghĩa cộng dồn, thêm vào).",
+      "〜にすぎない — 接続: N ／ 普通形 + にすぎない. Sắc thái: Đánh giá sự việc chỉ ở mức độ thấp, không quan trọng hoặc không đáng kể như người ta nghĩ; hàm ý xem nhẹ hoặc khiêm tốn rõ rệt hơn 〜だけだ.",
+      "〜はともかく（として） — 接続: N ／ 普通形 + はともかく（として）. Sắc thái: Tạm gác điều ở vế trước lại (không phủ nhận) để ưu tiên tập trung vào điều quan trọng hơn ở vế sau; thường dùng trong khẩu ngữ trang trọng như 冗談はともかく."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 54,
+        "items": [
+          "〜というより（普通形/N + というより）",
+          "〜にしては（普通形/N + にしては）",
+          "〜わりに(は)（普通形/Nの/Aい/なAな + わりに）"
+        ]
+      },
+      {
+        "bai": 62,
+        "items": [
+          "〜ても（Vて形 + も / Aくても / NAでも / Nでも）",
+          "〜のに（普通形 + のに; なN → なのに, N → なのに）",
+          "〜くせに（普通形 + くせに; なN → なくせに, N → のくせに）"
+        ]
+      },
+      {
+        "bai": 68,
+        "items": [
+          "〜によって（(a) tùy theo/khác nhau theo）",
+          "〜によって（(b) bằng phương tiện/cách）",
+          "〜によって（(c) tác nhân trong câu bị động）",
+          "〜によって（(d) nguyên nhân sự kiện）",
+          "〜による＋N（bổ nghĩa danh từ）",
+          "〜により（dạng trang trọng của によって"
+        ]
+      },
+      {
+        "bai": 70,
+        "items": [
+          "〜に対して（N + に対して）",
+          "〜に対する + N",
+          "〜に比べて（N + に比べて）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "読書と真の思考",
+      "titleVi": "Đọc sách và tư duy thực chất",
+      "japanese": "読書は、年齢や職業にかかわらず、誰にとっても視野を広げる有効な手段である。しかし、本を早く読む技術はともかくとして、ただページをめくるだけでは、深い知識を得るどころか、内容すら忘れてしまう。要約サイトを眺めて分かった気になる人もいるが、それは他人の意見をなぞったにすぎない。自分で深く思考しなければ、読んだ冊数の多さにかかわらず、本当の教養は身につかないだろう。\n知識の量が多いかどうかはともかく、得た情報を自分自身の経験と結びつけて考える姿勢こそが重要だ。受動的に文字を追うだけでは、思考力が深まるどころか、自分で考える力すら失われてしまう。本に書かれている言葉は、思考のきっかけにすぎないのだ。大切なのは、他人の知識を単に蓄えることではなく、自分なりの問いを持って本と対話することである。本を真に自分の糧とするためには、読む量や速さにかかわらず、一冊とじっくり向き合う時間が必要なのである。",
+      "vietnamese": "Đọc sách, bất kể tuổi tác hay nghề nghiệp, là một phương thức hữu hiệu để mở rộng tầm nhìn cho bất kỳ ai. Tuy nhiên, tạm gác kỹ thuật đọc nhanh sang một bên, nếu chỉ đơn thuần lật từng trang sách thì chẳng những không thu nhận được kiến thức sâu sắc, mà trái lại ngay cả nội dung cũng bị quên mất. Cũng có người chỉ xem qua các trang web tóm tắt rồi tự cho là mình đã hiểu, nhưng thực chất điều đó chẳng qua chỉ là sao chép lại ý kiến của người khác mà thôi. Nếu bản thân không suy ngẫm sâu sắc thì bất kể số lượng sách đã đọc nhiều đến đâu, học thức thực sự cũng khó lòng mà hình thành.\nViệc lượng kiến thức có nhiều hay không tạm gác sang một bên, chính thái độ liên kết thông tin tiếp nhận được với trải nghiệm của bản thân mới là điều quan trọng cốt lõi. Nếu chỉ thụ động dõi theo mặt chữ thì năng lực tư duy chẳng những không sâu sắc hơn, mà trái lại ngay cả khả năng tự suy nghĩ cũng bị đánh mất. Những ngôn từ được viết trong sách chẳng qua chỉ là gợi ý khơi nguồn cho tư duy mà thôi. Điều quan trọng không phải là đơn thuần tích trữ tri thức của người khác, mà là phải tự mình đặt ra những câu hỏi để đối thoại cùng cuốn sách. Để thực sự biến cuốn sách thành nguồn dưỡng chất cho bản thân, thì bất kể số lượng hay tốc độ đọc, ta đều cần khoảng thời gian để nghiền ngẫm thấu đáo một cuốn sách.",
+      "sentences": [
+        {
+          "jp": "読書は、年齢や職業にかかわらず、誰にとっても視野を広げる有効な手段である。",
+          "vi": "Đọc sách, bất kể tuổi tác hay nghề nghiệp, là một phương thức hữu hiệu để mở rộng tầm nhìn cho bất kỳ ai.",
+          "vocab": [
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "年齢",
+              "read": "ねんれい",
+              "vi": "tuổi tác, độ tuổi"
+            },
+            {
+              "w": "職業",
+              "read": "しょくぎょう",
+              "vi": "nghề nghiệp"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "視野",
+              "read": "しや",
+              "vi": "tầm nhìn, tầm hiểu biết"
+            },
+            {
+              "w": "広げる",
+              "read": "ひろげる",
+              "vi": "mở rộng, trải ra"
+            },
+            {
+              "w": "有効",
+              "read": "ゆうこう",
+              "vi": "hữu hiệu, có hiệu quả"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "phương tiện, cách thức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にかかわらず",
+              "vi": "【接続】N / Vる・Vない + にかかわらず。【Sắc thái】'Bất kể, không màng đến', biểu thị vế sau không bị chi phối hay ảnh hưởng bởi điều kiện ở vế trước (thường đi với các cặp đối lập hoặc danh từ chỉ sự phân loại như tuổi tác, thời tiết, quốc tịch). 【Đối chiếu】Khác với 〜に関係なく (khẩu ngữ, trung tính hàng ngày), 〜にかかわらず mang sắc thái trang trọng, văn viết hơn. Khác với 〜を問わず (thường dùng trong thông báo quy định/điều kiện tuyển dụng), にかかわらず dùng rộng rãi cho cả hành động cá nhân và quy luật tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、本を早く読む技術はともかくとして、ただページをめくるだけでは、深い知識を得るどころか、内容すら忘れてしまう。",
+          "vi": "Tuy nhiên, tạm gác kỹ thuật đọc nhanh sang một bên, nếu chỉ đơn thuần lật từng trang sách thì chẳng những không thu nhận được kiến thức sâu sắc, mà trái lại ngay cả nội dung cũng bị quên mất.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật, kỹ năng"
+            },
+            {
+              "w": "ともかく",
+              "read": "ともかく",
+              "vi": "dù sao, tạm gác lại"
+            },
+            {
+              "w": "ページ",
+              "read": "ページ",
+              "vi": "trang sách"
+            },
+            {
+              "w": "めくる",
+              "read": "めくる",
+              "vi": "lật (trang sách)"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "tri thức, kiến thức"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はともかく（として）",
+              "vi": "【接続】N + はともかく（として）。【Sắc thái】'Tạm gác... sang một bên', nhấn mạnh rằng vấn đề A có thể chưa cần bàn tới hoặc không phải trọng tâm lúc này, điều quan trọng cần tập trung đánh giá trước hết là vế B. 【Đối chiếu】Gần nghĩa với 〜はさておき (N1), nhưng はともかく mang tính tự nhiên, thông dụng trong cả văn nói lẫn văn viết ở trình độ N3."
+            },
+            {
+              "point": "〜どころか",
+              "vi": "【接続】N / V普通形 / Aい / Aな + どころか。【Sắc thái】'Chẳng những không... mà trái lại' hoặc 'Đâu chỉ dừng ở mức A mà còn tồi tệ hơn/vượt xa tới mức B', dùng để phủ định mạnh mẽ kỳ vọng ở vế trước và đưa ra một thực tế trái ngược hoặc nghiêm trọng hơn nhiều. 【Đối chiếu】Khác với 〜ばかりか (mang nghĩa bổ sung 'không chỉ A mà còn thêm B' cùng chiều hướng), 〜どころか nhấn mạnh sự tương phản, đảo ngược kỳ vọng hoặc chênh lệch mức độ cực lớn."
+            }
+          ]
+        },
+        {
+          "jp": "要約サイトを眺めて分かった気になる人もいるが、それは他人の意見をなぞったにすぎない。",
+          "vi": "Cũng có người chỉ xem qua các trang web tóm tắt rồi tự cho là mình đã hiểu, nhưng thực chất điều đó chẳng qua chỉ là sao chép lại ý kiến của người khác mà thôi.",
+          "vocab": [
+            {
+              "w": "要約",
+              "read": "ようやく",
+              "vi": "tóm tắt"
+            },
+            {
+              "w": "サイト",
+              "read": "さいと",
+              "vi": "trang web"
+            },
+            {
+              "w": "眺めて",
+              "read": "ながめて",
+              "vi": "xem; ngắm"
+            },
+            {
+              "w": "分かった",
+              "read": "わかった",
+              "vi": "đã hiểu"
+            },
+            {
+              "w": "気になる",
+              "read": "きになる",
+              "vi": "cảm thấy; tưởng rằng"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "いる",
+              "read": "いる",
+              "vi": "có; tồn tại"
+            },
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "điều đó"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "なぞった",
+              "read": "なぞった",
+              "vi": "bắt chước; sao chép"
+            },
+            {
+              "w": "すぎない",
+              "read": "すぎない",
+              "vi": "chẳng qua là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすぎない",
+              "vi": "【接続】N / V普通形 + にすぎない。【Sắc thái】'Chẳng qua chỉ là, không hơn gì', dùng để đánh giá thấp, hạ nhẹ mức độ hoặc nhấn mạnh rằng sự việc chỉ dừng lại ở phạm vi hạn chế đó chứ không có gì to tát, đặc biệt. 【Đối chiếu】Gần nghĩa với 〜だけだ, nhưng 〜にすぎない mang tính văn viết trang trọng, thể hiện thái độ đánh giá khách quan hoặc phê phán sự ngộ nhận/thổi phồng."
+            }
+          ]
+        },
+        {
+          "jp": "自分で深く思考しなければ、読んだ冊数の多さにかかわらず、本当の教養は身につかないだろう。",
+          "vi": "Nếu bản thân không suy ngẫm sâu sắc thì bất kể số lượng sách đã đọc nhiều đến đâu, học thức thực sự cũng khó lòng mà hình thành.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy ngẫm, tư duy"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "冊数",
+              "read": "さっすう",
+              "vi": "số lượng cuốn (sách)"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "教養",
+              "read": "きょうよう",
+              "vi": "học thức, giáo dưỡng, tri thức nền tảng"
+            },
+            {
+              "w": "身につく",
+              "read": "みにつく",
+              "vi": "tiếp thu được, ngấm vào bản thân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にかかわらず",
+              "vi": "【接続】N + にかかわらず。【Sắc thái】'Bất kể, không màng đến', ở đây đi với danh từ chỉ quy mô (冊数の多さ) để khẳng định kết quả vế sau (không thể có được học thức thực sự) hoàn toàn độc lập, không thay đổi theo số lượng sách nhiều hay ít."
+            }
+          ]
+        },
+        {
+          "jp": "知識の量が多いかどうかはともかく、得た情報を自分自身の経験と結びつけて考える姿勢こそが重要だ。",
+          "vi": "Việc lượng kiến thức có nhiều hay không tạm gác sang một bên, chính thái độ liên kết thông tin tiếp nhận được với trải nghiệm của bản thân mới là điều quan trọng cốt lõi.",
+          "vocab": [
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "量",
+              "read": "りょう",
+              "vi": "lượng, số lượng"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "ともかく",
+              "read": "ともかく",
+              "vi": "dù sao, tạm gác lại"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "結びつける",
+              "read": "むすびつける",
+              "vi": "liên kết, gắn kết"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "thái độ, tư thế, lập trường"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はともかく",
+              "vi": "【接続】Câu nghi vấn gián tiếp (〜かどうか) / N + はともかく。【Sắc thái】'Chưa bàn đến / Tạm gác chuyện... sang một bên', chuyển hướng sự chú ý từ yếu tố phụ (số lượng tri thức) sang yếu tố bản chất mang tính quyết định (thái độ liên hệ với trải nghiệm cá nhân)."
+            }
+          ]
+        },
+        {
+          "jp": "受動的に文字を追うだけでは、思考力が深まるどころか、自分で考える力すら失われてしまう。",
+          "vi": "Nếu chỉ thụ động dõi theo mặt chữ thì năng lực tư duy chẳng những không sâu sắc hơn, mà trái lại ngay cả khả năng tự suy nghĩ cũng bị đánh mất.",
+          "vocab": [
+            {
+              "w": "受動",
+              "read": "じゅどう",
+              "vi": "tính bị động, thụ động"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "追う",
+              "read": "おう",
+              "vi": "theo dõi, bám theo (đề tài, vụ việc)"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "深まる",
+              "read": "ふかまる",
+              "vi": "sâu sắc hơn, thắt chặt hơn"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, làm mất"
+            },
+            {
+              "w": "受動的",
+              "read": "じゅどうてき",
+              "vi": "mang tính thụ động"
+            },
+            {
+              "w": "思考力",
+              "read": "しこうりょく",
+              "vi": "năng lực tư duy, sức suy nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜どころか",
+              "vi": "【接続】V普通形 + どころか。【Sắc thái】'Chẳng những không... mà trái lại', bác bỏ hoàn toàn khả năng phát triển tư duy và chỉ ra hậu quả thụt lùi tệ hại hơn (mất luôn khả năng tự suy nghĩ)."
+            }
+          ]
+        },
+        {
+          "jp": "本に書かれている言葉は、思考のきっかけにすぎないのだ。",
+          "vi": "Những ngôn từ được viết trong sách chẳng qua chỉ là gợi ý khơi nguồn cho tư duy mà thôi.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "cơ hội, động lực, cớ, gợi ý ban đầu"
+            },
+            {
+              "w": "すぎる",
+              "read": "すぎる",
+              "vi": "quá mức, vượt quá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすぎない",
+              "vi": "【接続】N + にすぎない。【Sắc thái】'Chỉ là / Không hơn gì', làm rõ bản chất của sách vở chỉ đóng vai trò phương tiện gợi mở ban đầu chứ không thay thế được sự tư duy độc lập của người đọc."
+            }
+          ]
+        },
+        {
+          "jp": "大切なのは、他人の知識を単に蓄えることではなく、自分なりの問いを持って本と対話することである。",
+          "vi": "Điều quan trọng không phải là đơn thuần tích trữ tri thức của người khác, mà là phải tự mình đặt ra những câu hỏi để đối thoại cùng cuốn sách.",
+          "vocab": [
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "蓄える",
+              "read": "たくわえる",
+              "vi": "tích trữ, tích lũy"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "問い",
+              "read": "とい",
+              "vi": "câu hỏi"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại, trò chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ではなく〜である",
+              "vi": "【接続】N / Vこと + ではなく ... である。【Sắc thái】'Không phải là A mà chính là B', cấu trúc văn chính luận dùng để phủ định quan niệm sai lầm và khẳng định luận điểm trọng tâm của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "本を真に自分の糧とするためには、読む量や速さにかかわらず、一冊とじっくり向き合う時間が必要なのである。",
+          "vi": "Để thực sự biến cuốn sách thành nguồn dưỡng chất cho bản thân, thì bất kể số lượng hay tốc độ đọc, ta đều cần khoảng thời gian để nghiền ngẫm thấu đáo một cuốn sách.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "真に",
+              "read": "しんに",
+              "vi": "thực sự"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "糧",
+              "read": "かて",
+              "vi": "nguồn nuôi dưỡng"
+            },
+            {
+              "w": "糧とする",
+              "read": "かてとする",
+              "vi": "coi là nguồn nuôi dưỡng"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "để; nhằm"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "量",
+              "read": "りょう",
+              "vi": "lượng"
+            },
+            {
+              "w": "速さ",
+              "read": "はやさ",
+              "vi": "tốc độ"
+            },
+            {
+              "w": "かかわらず",
+              "read": "かかわらず",
+              "vi": "bất kể"
+            },
+            {
+              "w": "一冊",
+              "read": "いっさつ",
+              "vi": "một quyển"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "kỹ lưỡng; thong thả"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện; chuyên tâm vào"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にかかわらず",
+              "vi": "【接続】N + にかかわらず。【Sắc thái】'Bất kể, không màng đến', nhấn mạnh rằng dù đọc nhiều hay ít, đọc nhanh hay chậm thì yếu tố tiên quyết vẫn là sự đầu tư thời gian nghiền ngẫm sâu sắc."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "年齢や職業にかかわらず",
+          "label": "Không phân biệt đối tượng đọc"
+        },
+        {
+          "excerpt": "深い知識を得るどころか、内容すら忘れてしまう",
+          "label": "Hậu quả của việc đọc sách hời hợt"
+        },
+        {
+          "excerpt": "他人の意見をなぞったにすぎない",
+          "label": "Bản chất của việc chỉ đọc tóm tắt"
+        },
+        {
+          "excerpt": "一冊とじっくり向き合う時間",
+          "label": "Lời khuyên cốt lõi của tác giả"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「深い知識を得るどころか、内容すら忘れてしまう」とあるが、どういう意味か。",
+          "options": [
+            "深い知識が得られないだけでなく、本の内容さえ記憶に残らないということ。",
+            "本を早く読むことで、深い知識も内容も完璧に覚えられるということ。",
+            "内容を忘れてしまうのは、読んでいる本の難易度が高すぎることが原因だということ。",
+            "深い知識を得るためには、まず前に読んだ内容を忘れる必要があるということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [1]: 'ただページをめくるだけでは、深い知識を得るどころか、内容すら忘れてしまう' (Nếu chỉ đơn thuần lật từng trang sách thì chẳng những không thu nhận được kiến thức sâu sắc, mà trái lại ngay cả nội dung cũng bị quên mất). Cấu trúc '〜どころか' dùng để nhấn mạnh sự phủ định kết quả tốt (không thu được kiến thức sâu) và đưa ra một thực tế trái ngược, tồi tệ hơn (quên sạch cả nội dung). Do đó phương án 1 là chính xác.\n- Phương án 2 sai vì nói rằng đọc nhanh giúp nhớ trọn vẹn cả kiến thức lẫn nội dung (ngược hoàn toàn ý bài).\n- Phương án 3 sai vì bài không đề cập lý do quên là do sách quá khó.\n- Phương án 4 sai vì giải thích phi lý rằng muốn hiểu sâu thì phải chủ động quên nội dung trước.",
+          "tip": "Nắm vững ý nghĩa mẫu ngữ pháp '〜どころか' (chẳng những không A mà trái lại còn tệ hơn ở mức B) để nhận diện phương án diễn đạt tương đương.",
+          "evi": [
+            1
+          ],
+          "qt": {
+            "q": "Có câu nói rằng “không những không thu được kiến thức sâu sắc mà thậm chí còn quên cả nội dung”; câu này có nghĩa là gì?",
+            "o": [
+              "Không chỉ không thu được kiến thức sâu sắc mà ngay cả nội dung của cuốn sách cũng không còn lưu lại trong trí nhớ.",
+              "Đọc sách nhanh giúp ghi nhớ hoàn hảo cả kiến thức sâu sắc lẫn nội dung.",
+              "Nguyên nhân quên nội dung là vì độ khó của cuốn sách đang đọc quá cao.",
+              "Để thu được kiến thức sâu sắc, trước tiên cần quên nội dung đã đọc trước đó."
+            ]
+          }
+        },
+        {
+          "q": "筆者は、要約サイトを見るだけの人についてどのように考えているか。",
+          "options": [
+            "他人の考えをそのままなぞっているだけで、本当に理解したとは言えない。",
+            "短時間で効率よく深い知識を吸収できる賢い方法を実践している。",
+            "自分独自の新しい視点を発見するために、要約をうまく活用している。",
+            "冊数を増やすことよりも、一冊をじっくり読むことを大切にしている。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [2]: '要約サイトを眺めて分かった気になる人もいるが、それは他人の意見をなぞったにすぎない' (Cũng có người lướt qua các trang tóm tắt rồi tự cho là mình đã hiểu, nhưng điều đó chẳng qua chỉ là sao chép lại ý kiến của người khác mà thôi). Tác giả sử dụng mẫu '〜にすぎない' mang sắc thái phê phán, hạ thấp hành vi này, cho rằng đó không phải là sự thấu hiểu thực sự của chính bản thân. Do đó phương án 1 là đáp án đúng.\n- Phương án 2 sai vì tác giả phê phán chứ không khen đây là cách thông minh hay hiệu quả.\n- Phương án 3 sai vì việc đọc tóm tắt chỉ là lặp lại ý người khác chứ không giúp tìm ra góc nhìn mới của bản thân.\n- Phương án 4 sai vì người đọc tóm tắt thường muốn đốt cháy giai đoạn, trái ngược với thái độ đọc kỹ một cuốn sách.",
+          "tip": "Chú ý sắc thái phê phán / hạ thấp mức độ của cấu trúc '〜にすぎない' khi tác giả nhận xét về một hiện tượng.",
+          "evi": [
+            2
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về những người chỉ xem các trang web tóm tắt?",
+            "o": [
+              "Họ chỉ đang làm theo nguyên xi suy nghĩ của người khác, nên không thể nói là họ đã thực sự hiểu.",
+              "Họ đang áp dụng một phương pháp thông minh giúp tiếp thu kiến thức sâu sắc hiệu quả trong thời gian ngắn.",
+              "Họ khéo léo tận dụng các bản tóm tắt để khám phá góc nhìn mới của riêng mình.",
+              "Họ coi trọng việc đọc kỹ một cuốn sách hơn là tăng số lượng sách đã đọc."
+            ]
+          }
+        },
+        {
+          "q": "「本と対話する」とは、具体的にどのような読書態度を指していると推測できるか。",
+          "options": [
+            "本の内容をそのまま丸暗記して、他人に正確に説明すること。",
+            "書かれている知識を疑問視せず、すべて正しいものとして受け入れること。",
+            "自分の問いや経験と結びつけながら、主体的に考えを深めて読むこと。",
+            "できるだけ多くの本を速読し、要約サイトで答え合わせをすること。"
+          ],
+          "answer": 2,
+          "explainVi": "Đây là câu hỏi suy luận. Căn cứ vào các câu [4] ('得た情報を自分自身の経験と結びつけて考える姿勢' - thái độ liên hệ thông tin với trải nghiệm bản thân), câu [5] (phê phán việc '受動的に文字を追う' - thụ động đọc con chữ), và câu [7] ('他人の知識を単に蓄えることではなく、自分なりの問いを持って本と対話すること'). Tác giả quan niệm 'đối thoại với sách' là việc chủ động đặt câu hỏi và suy ngẫm sâu sắc dựa trên vốn sống của bản thân chứ không tiếp nhận thụ động. Do đó phương án 3 là chính xác.\n- Phương án 1 sai vì học vẹt (丸暗記) chỉ là tích trữ thụ động, đi ngược lại quan điểm của tác giả.\n- Phương án 2 sai vì tiếp nhận mọi thứ không chút nghi vấn là cách đọc thụ động (受動的).\n- Phương án 4 sai vì tác giả phê phán việc đọc lướt chạy theo số lượng và phụ thuộc vào trang tóm tắt.",
+          "tip": "Kết hợp các luận điểm đối lập trong bài (đọc thụ động vs đọc chủ động liên hệ bản thân) để suy luận nghĩa bóng của hình ảnh ẩn dụ '本と対話する'.",
+          "evi": [
+            4,
+            5,
+            7
+          ],
+          "qt": {
+            "q": "Có thể suy đoán rằng “đối thoại với sách” cụ thể chỉ thái độ đọc như thế nào?",
+            "o": [
+              "Học thuộc nguyên văn nội dung sách và giải thích chính xác cho người khác.",
+              "Tiếp nhận mọi kiến thức được viết trong sách như thể tất cả đều đúng, không nghi ngờ gì.",
+              "Vừa liên hệ với những câu hỏi và trải nghiệm của bản thân, vừa chủ động suy nghĩ sâu hơn khi đọc.",
+              "Đọc lướt càng nhiều sách càng tốt rồi đối chiếu đáp án trên các trang web tóm tắt."
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も主張したいことは何か。",
+          "options": [
+            "教養を身につけるためには、何よりも読んだ本の冊数と読む速さを競うべきだ。",
+            "読書の真の価値は、読む量や速さではなく、一冊の本と深く向き合い自ら思考することにある。",
+            "仕事や年齢によって読むべき本の種類は異なるため、まずは要約サイトで選ぶべきだ。",
+            "本に書かれている言葉は絶対的な真理なので、自分の経験よりも本の内容を優先すべきだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu kết [8]: '本を真に自分の糧とするためには、読む量や速さにかかわらず、一冊とじっくり向き合う時間が必要なのである' cùng với toàn bộ lập luận xuyên suốt bài viết. Tác giả nhấn mạnh giá trị cốt lõi của việc đọc sách không nằm ở tốc độ hay số lượng, mà ở việc dành thời gian nghiền ngẫm sâu sắc và tự mình tư duy. Do đó phương án 2 là phương án chính xác nhất.\n- Phương án 1 sai vì bài viết chỉ rõ học thức không phụ thuộc vào số lượng hay tốc độ ('読んだ冊数の多さにかかわらず', '読む量や速さにかかわらず').\n- Phương án 3 sai vì tác giả nêu đọc sách có ích cho mọi người 'bất kể tuổi tác hay nghề nghiệp' và không hề khuyên dùng trang tóm tắt.\n- Phương án 4 sai vì câu [6] khẳng định từ ngữ trong sách 'chỉ là gợi ý khơi nguồn' (思考のきっかけにすぎない), cần phải đối chiếu với kinh nghiệm của bản thân.",
+          "tip": "Đối chiếu câu kết luận tổng kết ở cuối bài viết để nắm bắt thông điệp cốt lõi của tác giả.",
+          "evi": [
+            0,
+            3,
+            6,
+            8
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn nhấn mạnh nhất trong bài viết này là gì?",
+            "o": [
+              "Để trau dồi kiến thức, trước hết cần cạnh tranh về số lượng sách đã đọc và tốc độ đọc.",
+              "Giá trị thực sự của việc đọc sách nằm ở chỗ suy nghĩ sâu sắc về một cuốn sách và tự mình tư duy, chứ không phải ở lượng sách hay tốc độ đọc.",
+              "Vì loại sách nên đọc khác nhau tùy theo công việc và độ tuổi, trước tiên nên chọn sách qua các trang web tóm tắt.",
+              "Những lời được viết trong sách là chân lý tuyệt đối, vì vậy nên ưu tiên nội dung sách hơn trải nghiệm của bản thân."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "現代における読書の真価",
+      "titleVi": "Giá trị đích thực của việc đọc sách trong thời đại ngày nay",
+      "japanese": "近年、インターネットの普及によって、私たちは年齢や専門分野にかかわらず、膨大な情報に触れられるようになった。しかし、短時間で多くの知識を得ようと焦る人が多く、本をじっくり読む人が減っていると言われている。要約サイトや短い動画を見るだけで「本を読んだ」と満足する人が増えているが、それは単に情報を消費しているにすぎない。そのような読み方では、知識が増えるどころか、かえって思考力が浅くなってしまう危険がある。\n本を読む目的は、効率よく知識を詰め込むことではない。著者の考えと対話しながら、自分自身の生き方や社会のあり方を見つめ直すことこそが、読書の本来の意義である。読んだ冊数の多さはともかくとして、一冊の本から何を受け取り、どう考えたかが大切なのである。表面的に文字を追うだけでは、理解が深まるどころか、読んだ内容をすぐに忘れてしまうだろう。したがって、ただ速く読む技術を身につけたとしても、それは表面的なテクニックにすぎない。\n一方で、現代では紙の本だけでなく電子書籍やオーディオブックなど、読書の形も多様化している。それぞれに便利さや特徴があるため、どの手段を選ぶかは個人の好みの問題である。媒体が紙であるか電子であるかにかかわらず、大切なのは内容と真剣に向き合う姿勢そのものである。新しい技術の良し悪しはともかく、私たちが本を通じて何を探求しようとしているのかを忘れてはならない。デジタルツールは読書を便利にするための道具の１つにすぎず、主役は常に読者自身である。\n情報があふれる現代社会だからこそ、私たちは一度立ち止まって本を開く時間を持つべきだ。難解な本に挑戦したとき、すぐに答えが見つからないこともあるだろう。しかし、試行錯誤しながら言葉の意味を考える時間こそが、豊かな心を育てるのである。流行に流されることなく、自分のペースで深く読む習慣を大切にしていきたい。それこそが、変化の激しい時代を生き抜くための確かな力となるはずだ。",
+      "vietnamese": "Trong những năm gần đây, cùng với sự phổ biến của Internet, chúng ta có thể tiếp cận một lượng thông tin khổng lồ bất kể tuổi tác hay lĩnh vực chuyên môn. Tuy nhiên, người ta nói rằng ngày càng có nhiều người nôn nóng muốn thu nạp thật nhiều kiến thức trong thời gian ngắn, khiến số người đọc sách một cách thong thả, kỹ lưỡng ngày càng giảm đi. Ngày càng nhiều người cảm thấy hài lòng khi \"đã đọc sách\" chỉ qua việc xem các trang web tóm tắt hoặc các video ngắn, nhưng điều đó chẳng qua chỉ là việc tiêu thụ thông tin đơn thuần mà thôi. Với cách đọc như vậy, chẳng những kiến thức không tăng lên, mà trái lại còn tiềm ẩn nguy cơ khiến khả năng tư duy trở nên nông cạn.\n\nMục đích của việc đọc sách không phải là nhồi nhét kiến thức một cách hiệu quả. Việc vừa đối thoại với tư tưởng của tác giả, vừa nhìn nhận lại cách sống của bản thân cũng như hiện trạng xã hội mới chính là ý nghĩa đích thực của việc đọc sách. Số lượng sách đã đọc nhiều hay ít tạm gác sang một bên, việc ta đã tiếp nhận được gì và suy ngẫm ra sao từ một cuốn sách mới là điều quan trọng. Nếu chỉ đuổi theo con chữ một cách hời hợt trên bề mặt, chẳng những sự hiểu biết không sâu sắc thêm, mà ta còn nhanh chóng quên đi nội dung vừa đọc. Do đó, cho dù có trang bị được kỹ thuật đọc nhanh đi chăng nữa, thì đó cũng chỉ là một tiểu xảo bề ngoài mà thôi.\n\nMặt khác, trong thời hiện đại, hình thức đọc sách cũng trở nên đa dạng hơn, không chỉ có sách giấy mà còn có sách điện tử, sách nói. Bởi mỗi hình thức đều có sự tiện lợi và đặc trưng riêng, nên việc lựa chọn phương tiện nào là tùy thuộc vào sở thích của mỗi cá nhân. Bất kể phương tiện truyền tải là sách giấy hay sách điện tử, điều quan trọng chính là thái độ đối diện một cách nghiêm túc với nội dung tác phẩm. Tạm gác chuyện công nghệ mới là tốt hay xấu sang một bên, chúng ta không được phép lãng quên điều mà mình đang tìm kiếm thông qua trang sách. Các công cụ kỹ thuật số chỉ là một trong những phương tiện giúp việc đọc trở nên thuận tiện hơn, còn nhân vật chính luôn luôn là bản thân người đọc.\n\nChính vì đang ở trong một xã hội hiện đại ngập tràn thông tin, chúng ta càng nên có những khoảng thời gian dừng lại và mở một cuốn sách ra. Khi thử sức với những cuốn sách khó, đôi khi chúng ta sẽ không thể tìm thấy câu trả lời ngay lập tức. Thế nhưng, chính khoảng thời gian vừa mò mẫm suy ngẫm vừa nghiền ngẫm ý nghĩa của từng câu từ mới nuôi dưỡng nên một tâm hồn phong phú. Tôi mong muốn trân trọng thói quen đọc sâu theo nhịp độ của riêng mình mà không bị cuốn theo trào lưu. Đó chắc chắn sẽ trở thành sức mạnh vững vàng để chúng ta kiên cường bước qua một thời đại đầy biến động.",
+      "sentences": [
+        {
+          "jp": "近年、インターネットの普及によって、私たちは年齢や専門分野にかかわらず、膨大な情報に触れられるようになった。",
+          "vi": "Những năm gần đây, nhờ sự phổ biến của Internet, chúng ta có thể tiếp cận lượng thông tin khổng lồ bất kể tuổi tác hay lĩnh vực chuyên môn.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "gần đây, những năm gần đây"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "普及",
+              "read": "ふきゅう",
+              "vi": "sự phổ cập, phổ biến"
+            },
+            {
+              "w": "年齢",
+              "read": "ねんれい",
+              "vi": "tuổi tác, độ tuổi"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "分野",
+              "read": "ぶんや",
+              "vi": "lĩnh vực"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "膨大",
+              "read": "ぼうだい",
+              "vi": "khổng lồ, to lớn"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "触れる",
+              "read": "ふれる",
+              "vi": "tiếp xúc, chạm tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にかかわらず",
+              "vi": "【接続】N / Vる・Vない ＋ にかかわらず。【Sắc thái】Diễn tả ý 'bất kể / không liên quan tới X, vế sau vẫn diễn ra hoặc giữ nguyên tính chất', yếu tố X không gây ảnh hưởng đến kết quả/hành động. Thường đi kèm các cặp từ đối lập, danh từ chỉ sự phân định hoặc có phạm vi (tuổi tác, giới tính, thời tiết...).【Đối chiếu】Gần nghĩa với 〜を問わず (thường dùng trong văn bản thông báo, quy định tuyển dụng mang tính quy chế), còn 〜にかかわらず linh hoạt hơn trong nhận định và tản văn nghị luận; khác với 〜に関係なく (mang tính khẩu ngữ, đời thường hơn)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、短時間で多くの知識を得ようと焦る人が多く、本をじっくり読む人が減っていると言われている。",
+          "vi": "Tuy nhiên, người ta nói rằng có nhiều người nôn nóng muốn thu nạp nhiều kiến thức trong thời gian ngắn, khiến số người đọc sách kỹ lưỡng đang giảm đi.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "短時間",
+              "read": "たんじかん",
+              "vi": "thời gian ngắn"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "焦る",
+              "read": "あせる",
+              "vi": "sốt ruột, nôn nóng, vội vã"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "kỹ lưỡng, thong thả, từ tốn"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "減る",
+              "read": "へる",
+              "vi": "giảm bớt, suy giảm"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようとする / 〜ようと（焦る）",
+              "vi": "Động từ thể ý chí (V-よう) + と (焦る/する): Diễn tả ý định hoặc nỗ lực làm gì đó nhưng mang tâm lý nôn nóng, vội vã (\"nôn nóng muốn tiếp thu kiến thức trong thời gian ngắn\")."
+            },
+            {
+              "point": "〜と言われている",
+              "vi": "Thể thông thường + と言われている: Dạng bị động truyền đạt, dùng để nêu lên một nhận định, đánh giá chung của xã hội/dư luận (\"người ta nói rằng / được cho là...\")."
+            }
+          ]
+        },
+        {
+          "jp": "要約サイトや短い動画を見るだけで「本を読んだ」と満足する人が増えているが、それは単に情報を消費しているにすぎない。",
+          "vi": "Số người cảm thấy thỏa mãn rằng 'mình đã đọc sách' chỉ bằng việc xem trang web tóm tắt hoặc video ngắn đang tăng lên, nhưng điều đó chẳng qua chỉ là đang tiêu thụ thông tin đơn thuần mà thôi.",
+          "vocab": [
+            {
+              "w": "要約",
+              "read": "ようやく",
+              "vi": "sự tóm tắt, tóm lược"
+            },
+            {
+              "w": "サイト",
+              "read": "サイト",
+              "vi": "trang web, địa điểm"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "動画",
+              "read": "どうが",
+              "vi": "video, đoạn phim"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "満足",
+              "read": "まんぞく",
+              "vi": "hài lòng, thỏa mãn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "消費",
+              "read": "しょうひ",
+              "vi": "sự tiêu dùng, tiêu thụ"
+            },
+            {
+              "w": "すぎる",
+              "read": "すぎる",
+              "vi": "quá mức, vượt quá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすぎない",
+              "vi": "【接続】V普通形 / N / Aな（である） ＋ にすぎない。【Sắc thái】Thể hiện sự đánh giá hạ thấp mức độ: 'chỉ là / không hơn gì...', nhấn mạnh đối tượng không có gì to tát, đặc biệt hay vượt trội hơn mức bình thường.【Đối chiếu】Khác với 〜だけだ (chỉ đơn thuần nêu mức độ giới hạn khách quan, trung tính), 〜にすぎない mang đậm sắc thái chủ quan coi nhẹ/hạ thấp; khác hoàn toàn với 〜にほかならない (khẳng định mạnh mẽ 'chính là / không gì khác ngoài')."
+            }
+          ]
+        },
+        {
+          "jp": "そのような読み方では、知識が増えるどころか、かえって思考力が浅くなってしまう危険がある。",
+          "vi": "Với cách đọc như vậy, chẳng những kiến thức không tăng thêm, mà trái lại còn tiềm ẩn nguy cơ khiến năng lực tư duy trở nên nông cạn.",
+          "vocab": [
+            {
+              "w": "読み方",
+              "read": "よみかた",
+              "vi": "cách đọc"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "ngược lại (so với mong muốn)"
+            },
+            {
+              "w": "思考",
+              "read": "しこう",
+              "vi": "suy nghĩ, tư duy"
+            },
+            {
+              "w": "浅い",
+              "read": "あさい",
+              "vi": "nông, cạn cợt"
+            },
+            {
+              "w": "危険",
+              "read": "きけん",
+              "vi": "nguy hiểm"
+            },
+            {
+              "w": "思考力",
+              "read": "しこうりょく",
+              "vi": "năng lực tư duy, khả năng suy nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜どころか",
+              "vi": "【接続】N / V普通形 / Aい / Aな ＋ どころか。【Sắc thái】Biểu thị ý 'không những không đạt được kết quả mong đợi X mà trái lại còn rơi vào trạng thái Y tồi tệ hơn', hoặc mức độ thực tế đảo ngược hoàn toàn so với giả định.【Đối chiếu】Khác với 〜ばかりか (cộng dồn 'không chỉ A mà còn thêm cả B', hai vế cùng chiều bổ sung), 〜どころか bác bỏ hoàn toàn vế trước và lật ngược tình thế sang vế sau; khác với 〜どころではない (nhấn mạnh hoàn cảnh ngăn cản không thể làm gì)."
+            }
+          ]
+        },
+        {
+          "jp": "本を読む目的は、効率よく知識を詰め込むことではない。",
+          "vi": "Mục đích của việc đọc sách không phải là nhồi nhét kiến thức một cách hiệu quả.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "詰め込む",
+              "read": "つめこむ",
+              "vi": "nhồi nhét, tống vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことではない",
+              "vi": "V-る + ことではない: Danh từ hóa động từ kết hợp với phủ định, dùng để khẳng định bản chất/mục đích không phải là việc gì (\"không phải là việc nhồi nhét kiến thức\")."
+            }
+          ]
+        },
+        {
+          "jp": "著者の考えと対話しながら、自分自身の生き方や社会のあり方を見つめ直すことこそが、読書の本来の意義である。",
+          "vi": "Vừa đối thoại với suy nghĩ của tác giả, vừa nhìn nhận lại cách sống của bản thân cũng như hiện trạng xã hội mới chính là ý nghĩa đích thực của việc đọc sách.",
+          "vocab": [
+            {
+              "w": "著者",
+              "read": "ちょしゃ",
+              "vi": "tác giả"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "sự đối thoại"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "生き方",
+              "read": "いきかた",
+              "vi": "lối sống, cách sống"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "あり方",
+              "read": "ありかた",
+              "vi": "hình thái, cách thức nên có"
+            },
+            {
+              "w": "見つめる",
+              "read": "みつめる",
+              "vi": "nhìn chăm chú, nhìn nhận"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "本来",
+              "read": "ほんらい",
+              "vi": "vốn dĩ, bản chất thực sự"
+            },
+            {
+              "w": "意義",
+              "read": "いぎ",
+              "vi": "ý nghĩa, giá trị đích thực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら",
+              "vi": "V-ます (bỏ ます) + ながら: Diễn tả hai hành động diễn ra đồng thời cùng một lúc (\"vừa đối thoại với suy nghĩ của tác giả vừa...\")."
+            },
+            {
+              "point": "〜こそ",
+              "vi": "N / V-ること + こそ: Trợ từ nhấn mạnh vế trước, mang sắc thái \"chính là...\" (nhấn mạnh việc nhìn nhận lại lối sống chính là ý nghĩa đích thực của việc đọc sách)."
+            }
+          ]
+        },
+        {
+          "jp": "読んだ冊数の多さはともかくとして、一冊の本から何を受け取り、どう考えたかが大切なのである。",
+          "vi": "Số lượng cuốn sách đã đọc nhiều hay ít tạm gác sang một bên, điều quan trọng là ta tiếp nhận được gì và suy ngẫm ra sao từ một cuốn sách.",
+          "vocab": [
+            {
+              "w": "読んだ",
+              "read": "よんだ",
+              "vi": "đã đọc"
+            },
+            {
+              "w": "冊数",
+              "read": "さっすう",
+              "vi": "số quyển"
+            },
+            {
+              "w": "多さ",
+              "read": "おおさ",
+              "vi": "độ nhiều; số lượng lớn"
+            },
+            {
+              "w": "ともかく",
+              "read": "ともかく",
+              "vi": "gác sang một bên"
+            },
+            {
+              "w": "一冊",
+              "read": "いっさつ",
+              "vi": "một quyển"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "何",
+              "read": "なに",
+              "vi": "cái gì"
+            },
+            {
+              "w": "受け取り",
+              "read": "うけとり",
+              "vi": "tiếp nhận"
+            },
+            {
+              "w": "どう",
+              "read": "どう",
+              "vi": "thế nào"
+            },
+            {
+              "w": "考えた",
+              "read": "かんがえた",
+              "vi": "đã suy nghĩ"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はともかく（として）",
+              "vi": "【接続】N ＋ はともかく（として） / 疑問詞節＋かはともかく。【Sắc thái】Diễn đạt ý 'tạm thời không bàn tới X / gác chuyện X sang một bên', nhằm tập trung sự chú ý và nhấn mạnh tính quan trọng của yếu tố Y ở vế sau.【Đối chiếu】Khác với 〜はもちろん (đương nhiên công nhận X rồi bổ sung Y), 〜はともかく coi nhẹ hoặc chủ động hoãn xét xử X để dồn toàn bộ trọng tâm vào Y; khác với 〜はさておき (mang tính chuyển hướng chủ đề bàn luận trang trọng hơn)."
+            }
+          ]
+        },
+        {
+          "jp": "表面的に文字を追うだけでは、理解が深まるどころか、読んだ内容をすぐに忘れてしまうだろう。",
+          "vi": "Nếu chỉ lướt mắt theo con chữ một cách hời hợt bên ngoài, chẳng những hiểu biết không sâu sắc hơn mà có lẽ ta sẽ quên ngay nội dung vừa đọc.",
+          "vocab": [
+            {
+              "w": "表面",
+              "read": "ひょうめん",
+              "vi": "bề mặt, bề nổi"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "追う",
+              "read": "おう",
+              "vi": "đuổi theo, dõi theo"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "深まる",
+              "read": "ふかまる",
+              "vi": "sâu sắc hơn, thắt chặt hơn"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "表面的",
+              "read": "ひょうめんてき",
+              "vi": "bề ngoài, hời hợt, mang tính mặt ngoài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜どころか",
+              "vi": "【接続】V普通形 ＋ どころか。【Sắc thái】Phủ nhận triệt để khả năng đạt được trạng thái tích cực (hiểu sâu) và chỉ ra một hậu quả tiêu cực hoàn toàn trái ngược (quên ngay lập tức).【Đối chiếu】Dùng ở dạng phủ định thực tế để cảnh báo về sai lầm trong phương pháp tiếp cận."
+            }
+          ]
+        },
+        {
+          "jp": "したがって、ただ速く読む技術を身につけたとしても、それは表面的なテクニックにすぎない。",
+          "vi": "Do đó, cho dù có rèn luyện được kỹ năng đọc nhanh đi chăng nữa, thì đó cũng chỉ là tiểu xảo bề ngoài mà thôi.",
+          "vocab": [
+            {
+              "w": "したがって",
+              "read": "したがって",
+              "vi": "do đó"
+            },
+            {
+              "w": "ただ",
+              "read": "ただ",
+              "vi": "chỉ; đơn thuần"
+            },
+            {
+              "w": "速く",
+              "read": "はやく",
+              "vi": "nhanh"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "身につけた",
+              "read": "みにつけた",
+              "vi": "đã học được; đã nắm được"
+            },
+            {
+              "w": "つけた",
+              "read": "つけた",
+              "vi": "đã đạt được"
+            },
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "điều đó"
+            },
+            {
+              "w": "表面",
+              "read": "ひょうめん",
+              "vi": "bề mặt"
+            },
+            {
+              "w": "表面的",
+              "read": "ひょうめんてき",
+              "vi": "mang tính bề mặt"
+            },
+            {
+              "w": "テクニック",
+              "read": "てくにっく",
+              "vi": "kỹ thuật; mẹo"
+            },
+            {
+              "w": "すぎない",
+              "read": "すぎない",
+              "vi": "chẳng qua là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすぎない",
+              "vi": "【接続】N ＋ にすぎない。【Sắc thái】Hạ thấp giá trị của kỹ năng đọc nhanh đơn thuần, khẳng định nó chỉ là công cụ bề mặt chứ không chạm tới bản chất của việc đọc sách.【Đối chiếu】Đi sau danh từ biểu thị sự đánh giá giới hạn tầm thường."
+            }
+          ]
+        },
+        {
+          "jp": "一方で、現代では紙の本だけでなく電子書籍やオーディオブックなど、読書の形も多様化している。",
+          "vi": "Mặt khác, ngày nay hình thức đọc sách cũng trở nên đa dạng hóa, không chỉ có sách giấy mà còn có cả sách điện tử hay sách nói.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "オーディオ",
+              "read": "オーディオ",
+              "vi": "âm thanh, thiết bị âm thanh"
+            },
+            {
+              "w": "ブック",
+              "read": "ブック",
+              "vi": "sách, cuốn sách"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình dạng, hình thức"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, nhiều chiều"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử (e-book)"
+            },
+            {
+              "w": "多様化",
+              "read": "たようか",
+              "vi": "sự đa dạng hóa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "一方で（は）",
+              "vi": "Đứng đầu câu hoặc nối câu (Thể thông thường + 一方で): Biểu thị sự đối chiếu, so sánh giữa hai khía cạnh của một vấn đề (\"Mặt khác / Trái lại...\")."
+            },
+            {
+              "point": "〜だけでなく（〜も）",
+              "vi": "N / Thể thông thường + だけでなく: Diễn tả phạm vi không chỉ giới hạn ở A mà còn mở rộng sang cả B (\"không chỉ sách giấy mà cả sách điện tử...\")."
+            }
+          ]
+        },
+        {
+          "jp": "それぞれに便利さや特徴があるため、どの手段を選ぶかは個人の好みの問題である。",
+          "vi": "Bởi mỗi loại đều có sự tiện lợi và đặc trưng riêng, nên việc chọn phương tiện nào là vấn đề thuộc về sở thích cá nhân.",
+          "vocab": [
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái, từng cái"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "phương thức, phương tiện"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "個人",
+              "read": "こじん",
+              "vi": "cá nhân"
+            },
+            {
+              "w": "好み",
+              "read": "このみ",
+              "vi": "sở thích, thị hiếu"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ため（に）",
+              "vi": "Thể thông thường / Nの + ため: Biểu thị nguyên nhân, lý do khách quan dẫn đến kết quả ở mệnh đề sau (\"Bởi vì/do mỗi loại đều có nét đặc trưng và tiện lợi riêng...\")."
+            },
+            {
+              "point": "疑問詞＋〜か",
+              "vi": "Từ để hỏi (どの手段) + V-る + か: Lồng một câu hỏi vào trong câu chính để tạo thành mệnh đề danh ngữ làm chủ ngữ (\"việc chọn phương tiện nào là vấn đề...\")."
+            }
+          ]
+        },
+        {
+          "jp": "媒体が紙であるか電子であるかにかかわらず、大切なのは内容と真剣に向き合う姿勢そのものである。",
+          "vi": "Bất kể phương tiện truyền tải là sách giấy hay sách điện tử, điều quan trọng chính là bản thân thái độ đối diện nghiêm túc với nội dung tác phẩm.",
+          "vocab": [
+            {
+              "w": "媒体",
+              "read": "ばいたい",
+              "vi": "phương tiện truyền tải, vật trung gian"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "真剣",
+              "read": "しんけん",
+              "vi": "nghiêm túc, nghiêm chỉnh"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, nhìn thẳng vào"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, thái độ, tâm thế"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にかかわらず",
+              "vi": "【接続】[AであるかBであるか] ＋ にかかわらず。【Sắc thái】Kết hợp với cấu trúc 'AかBか' để nhấn mạnh rằng dù rơi vào trường hợp nào trong hai khả năng đối lập thì nguyên lý ở vế sau vẫn luôn đúng và không thay đổi.【Đối chiếu】Là cách dùng điển hình của にかかわらず khi đi cùng các vế lựa chọn tương phản."
+            }
+          ]
+        },
+        {
+          "jp": "新しい技術の良し悪しはともかく、私たちが本を通じて何を探求しようとしているのかを忘れてはならない。",
+          "vi": "Tạm gác chuyện công nghệ mới là tốt hay xấu sang một bên, chúng ta không được phép quên mất bản thân đang muốn tìm kiếm điều gì thông qua cuốn sách.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "良し悪し",
+              "read": "よしあし",
+              "vi": "tốt xấu; ưu nhược điểm"
+            },
+            {
+              "w": "ともかく",
+              "read": "ともかく",
+              "vi": "gác sang một bên"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua"
+            },
+            {
+              "w": "何",
+              "read": "なに",
+              "vi": "cái gì"
+            },
+            {
+              "w": "探求しよう",
+              "read": "たんきゅうしよう",
+              "vi": "định tìm tòi; khám phá"
+            },
+            {
+              "w": "忘れて",
+              "read": "わすれて",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はともかく",
+              "vi": "【接続】N ＋ はともかく。【Sắc thái】Gạt việc tranh luận về ưu khuyết điểm của công nghệ ra một bên để định hướng người đọc chú tâm vào mục đích cốt lõi của hành vi đọc sách.【Đối chiếu】Dạng rút gọn không có として, mang sắc thái diễn đạt tự nhiên, uyển chuyển trong văn luận."
+            }
+          ]
+        },
+        {
+          "jp": "デジタルツールは読書を便利にするための道具の１つにすぎず、主役は常に読者自身である。",
+          "vi": "Công cụ kỹ thuật số chỉ là một trong những phương tiện giúp việc đọc trở nên tiện lợi, còn nhân vật chính luôn luôn là bản thân người đọc.",
+          "vocab": [
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "ツール",
+              "read": "ツール",
+              "vi": "công cụ"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "dụng cụ, công cụ"
+            },
+            {
+              "w": "１つ",
+              "read": "１つ",
+              "vi": "một cái, một điều"
+            },
+            {
+              "w": "すぎる",
+              "read": "すぎる",
+              "vi": "quá mức, vượt quá"
+            },
+            {
+              "w": "主役",
+              "read": "しゅやく",
+              "vi": "nhân vật chính, vai trò chủ đạo"
+            },
+            {
+              "w": "常に",
+              "read": "つねに",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "読者",
+              "read": "どくしゃ",
+              "vi": "độc giả, người đọc"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすぎない",
+              "vi": "【接続】N ＋ にすぎず（thể liên từ nối vế của にすぎない）。【Sắc thái】Khẳng định công cụ số chỉ giữ vai trò phụ trợ nhỏ bé, không thể thay thế cho vai trò chủ động của con người.【Đối chiếu】Dùng dạng にすぎず để liên kết logic tương phản sang vế khẳng định mạnh mẽ phía sau."
+            }
+          ]
+        },
+        {
+          "jp": "情報があふれる現代社会だからこそ、私たちは一度立ち止まって本を開く時間を持つべきだ。",
+          "vi": "Chính vì đang ở trong một xã hội hiện đại ngập tràn thông tin, chúng ta càng nên có những lúc dừng lại để mở một cuốn sách ra.",
+          "vocab": [
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "あふれる",
+              "read": "あふれる",
+              "vi": "tràn trề, dồi dào"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "一度",
+              "read": "いちど",
+              "vi": "một lần"
+            },
+            {
+              "w": "立ち止まる",
+              "read": "たちどまる",
+              "vi": "dừng bước, khựng lại"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở (sách, hội nghị)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からこそ",
+              "vi": "Thể thông thường / N・Na + だからこそ: Nhấn mạnh nguyên nhân duy nhất hoặc nổi bật (\"Chính vì là xã hội hiện đại ngập tràn thông tin nên...\")."
+            },
+            {
+              "point": "〜べきだ",
+              "vi": "V-る + べきだ (する -> すべきだ / するべきだ): Thể hiện ý kiến người nói về một việc nên làm/cần phải làm theo lẽ thường hoặc đạo lý (\"cần phải/nên dành thời gian dừng lại...\")."
+            }
+          ]
+        },
+        {
+          "jp": "難解な本に挑戦したとき、すぐに答えが見つからないこともあるだろう。",
+          "vi": "Khi thử sức với những cuốn sách khó hiểu, có lẽ đôi lúc ta sẽ không thể tìm thấy câu trả lời ngay lập tức.",
+          "vocab": [
+            {
+              "w": "難解",
+              "read": "なんかい",
+              "vi": "khó hiểu, nan giải"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "sự thách thức, đương đầu thử sức"
+            },
+            {
+              "w": "答え",
+              "read": "こたえ",
+              "vi": "câu trả lời"
+            },
+            {
+              "w": "見つかる",
+              "read": "みつかる",
+              "vi": "được tìm thấy, tìm ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜こともある",
+              "vi": "V-る / V-ない + こともある: Diễn tả thỉnh thoảng có trường hợp/tình huống nào đó xảy ra (\"cũng có lúc/có khi không tìm ra câu trả lời ngay\")."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、試行錯誤しながら言葉の意味を考える時間こそが、豊かな心を育てるのである。",
+          "vi": "Thế nhưng, chính khoảng thời gian vừa mò mẫm suy ngẫm vừa ngẫm nghĩ ý nghĩa của ngôn từ mới là thứ nuôi dưỡng một tâm hồn phong phú.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "試行錯誤",
+              "read": "しこうさくご",
+              "vi": "vừa làm vừa rút kinh nghiệm, mò mẫm thử nghiệm"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "育てる",
+              "read": "そだてる",
+              "vi": "nuôi dưỡng, vun đắp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら",
+              "vi": "N (danh động từ) + しながら / V-ます (bỏ ます) + ながら: Thể hiện việc thực hiện hai hành động song song (\"vừa thử và sai/trăn trở vừa suy ngẫm ý nghĩa từ ngữ\")."
+            },
+            {
+              "point": "〜こそ",
+              "vi": "N + こそ: Nhấn mạnh chủ ngữ đứng trước là yếu tố then chốt (\"chính khoảng thời gian suy nghĩ ấy mới là thứ nuôi dưỡng tâm hồn\")."
+            }
+          ]
+        },
+        {
+          "jp": "流行に流されることなく、自分のペースで深く読む習慣を大切にしていきたい。",
+          "vi": "Không để bị cuốn theo trào lưu, tôi muốn trân trọng thói quen đọc sâu theo nhịp độ của chính mình.",
+          "vocab": [
+            {
+              "w": "流行",
+              "read": "りゅうこう",
+              "vi": "trào lưu, xu hướng thịnh hành"
+            },
+            {
+              "w": "流される",
+              "read": "ながされる",
+              "vi": "bị cuốn trôi, bị cuốn theo"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "ペース",
+              "read": "ペース",
+              "vi": "tốc độ, nhịp độ"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことなく",
+              "vi": "V-る + ことなく: Cách nói văn viết trang trọng tương đương với 「〜ないで」, mang ý nghĩa \"mà không làm gì\" (\"mà không bị cuốn theo trào lưu\")."
+            },
+            {
+              "point": "〜ていく",
+              "vi": "V-て + いく: Diễn tả một hành động/thói quen sẽ tiếp tục duy trì và tiếp diễn từ hiện tại hướng về tương lai (\"muốn tiếp tục trân trọng thói quen đọc sâu...\")."
+            }
+          ]
+        },
+        {
+          "jp": "それこそが、変化の激しい時代を生き抜くための確かな力となるはずだ。",
+          "vi": "Chính điều đó chắc chắn sẽ trở thành sức mạnh vững chắc để kiên cường bước qua một thời đại đầy biến động.",
+          "vocab": [
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "激しい",
+              "read": "はげしい",
+              "vi": "dữ dội, mạnh"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "生き抜く",
+              "read": "いきぬく",
+              "vi": "sống sót vượt qua, kiên cường vượt qua"
+            },
+            {
+              "w": "確か",
+              "read": "たしか",
+              "vi": "vững chắc, xác thực, đáng tin cậy"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜抜く（〜ぬく）",
+              "vi": "V-ます (bỏ ます) + 抜く: Động từ phức chỉ sự nỗ lực kiên trì vượt qua khó khăn để làm đến cùng (\"sống sót / kiên cường vượt qua thời đại biến đổi dữ dội\")."
+            },
+            {
+              "point": "〜はずだ",
+              "vi": "Thể thông thường / Nの / Naな + はずだ: Đưa ra phán đoán chắc chắn dựa trên căn cứ logic hoặc lý lẽ thuyết phục (\"chắc chắn sẽ trở thành sức mạnh vững chắc\")."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "年齢や専門分野にかかわらず",
+          "label": "Ngữ pháp: にかかわらず"
+        },
+        {
+          "excerpt": "知識が増えるどころか、かえって思考力が浅くなってしまう",
+          "label": "Ngữ pháp: どころか"
+        },
+        {
+          "excerpt": "単に情報を消費しているにすぎない",
+          "label": "Ngữ pháp: にすぎない"
+        },
+        {
+          "excerpt": "読んだ冊数の多さはともかくとして",
+          "label": "Ngữ pháp: はともかくとして"
+        },
+        {
+          "excerpt": "媒体が紙であるか電子であるかにかかわらず",
+          "label": "Ngữ pháp: にかかわらず (lần 2)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者は、要約サイトや短い動画だけで本の内容を知ろうとすることについて、どのように述べているか。",
+          "options": [
+            "効率的に知識を増やすことができる優れた読書方法である。",
+            "単なる情報の消費にすぎず、思考力を浅くしてしまう恐れがある。",
+            "年齢や専門分野によって、その効果に大きな差が出る。",
+            "本をじっくり読むための準備として非常に役に立つ。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 3 và câu 4 (đoạn 1): Tác giả chỉ ra rằng việc chỉ xem tóm tắt hoặc video ngắn 'それは単に情報を消費しているにすぎない' (chẳng qua chỉ là đang tiêu thụ thông tin đơn thuần) và '知識が増えるどころか、かえって思考力が浅くなってしまう危険がある' (chẳng những không tăng kiến thức mà còn có nguy cơ làm tư duy trở nên nông cạn). Vì vậy, phương án 1 là đáp án chính xác.\n- Phương án 0 sai vì tác giả phê phán chứ không khen là cách đọc ưu việt.\n- Phương án 2 sai vì bài viết nói ai cũng tiếp cận được thông tin bất kể tuổi tác chứ không nói hiệu quả tóm tắt phân hóa theo lứa tuổi.\n- Phương án 3 sai vì tác giả không hề nhận định đây là bước chuẩn bị hữu ích cho việc đọc sâu.",
+          "tip": "Tìm từ khóa '要約サイト', '短い動画' ở đoạn 1 và chú ý cấu trúc phủ định/đánh giá thấp (にすぎない, どころか).",
+          "evi": [
+            2,
+            3
+          ],
+          "qt": {
+            "q": "Tác giả nhận xét thế nào về việc chỉ xem các trang web tóm tắt hoặc video ngắn để tìm hiểu nội dung sách?",
+            "o": [
+              "Đó là một phương pháp đọc sách ưu việt, giúp tăng kiến thức hiệu quả.",
+              "Đó chỉ đơn thuần là tiêu thụ thông tin và có nguy cơ làm tư duy trở nên nông cạn.",
+              "Hiệu quả của cách đó khác biệt đáng kể tùy theo độ tuổi và lĩnh vực chuyên môn.",
+              "Đó là cách rất hữu ích để chuẩn bị đọc sách một cách kỹ lưỡng."
+            ]
+          }
+        },
+        {
+          "q": "読書において最も大切だと筆者が考えていることは何か。",
+          "options": [
+            "短時間でできるだけ多くの冊数を読み終えるテクニックを身につけること。",
+            "著者の主張にすべて賛同し、書かれている知識を完全に記憶すること。",
+            "読んだ冊数よりも、著者の考えと対話しながら深く自分を見つめ直すこと。",
+            "他人よりも早く新しい知識を手に入れて、仕事や学習で活用すること。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu 6 và câu 7 (đoạn 2): Tác giả khẳng định '著者の考えと対話しながら、自分自身の生き方や社会のあり方を見つめ直すことこそが、読書の本来の意義である' (vừa đối thoại với tác giả vừa nhìn nhận lại bản thân mới là ý nghĩa đích thực) và '読んだ冊数の多さはともかくとして、一冊の本から何を受け取り、どう考えたかが大切なのである' (số lượng sách gác sang một bên, nhận được gì và suy nghĩ thế nào mới quan trọng). Do đó, phương án 2 chính xác.\n- Phương án 0 sai vì ở câu 9 tác giả coi việc chỉ đọc nhanh là '表面的なテクニックにすぎない'.\n- Phương án 1 sai vì bài viết nhấn mạnh việc đối thoại và suy ngẫm chứ không phải đồng thuận tuyệt đối hay ghi nhớ máy móc.\n- Phương án 3 sai vì mục đích của đọc sách không phải là ganh đua tốc độ lấy thông tin để phục vụ vụ lợi.",
+          "tip": "Để ý mẫu câu '〜こそが...意義である' và '〜はともかくとして、...が大切なのである' thể hiện trực tiếp quan điểm của tác giả.",
+          "evi": [
+            5,
+            6
+          ],
+          "qt": {
+            "q": "Theo tác giả, điều quan trọng nhất trong việc đọc sách là gì?",
+            "o": [
+              "Rèn luyện kỹ thuật đọc xong càng nhiều sách càng tốt trong thời gian ngắn.",
+              "Đồng tình với toàn bộ lập luận của tác giả và ghi nhớ hoàn toàn những kiến thức được viết trong sách.",
+              "Quan trọng hơn số sách đã đọc là suy ngẫm sâu sắc về bản thân trong khi đối thoại với suy nghĩ của tác giả.",
+              "Tiếp thu kiến thức mới nhanh hơn người khác và vận dụng vào công việc hoặc học tập."
+            ]
+          }
+        },
+        {
+          "q": "電子書籍やオーディオブックなどの新しい読書の形について、筆者の考えと合っているものはどれか。",
+          "options": [
+            "紙の本に比べて思考力が身につかないため、利用を避けるべきである。",
+            "紙か電子かという形式にかかわらず、内容と真剣に向き合うことこそが重要である。",
+            "デジタルツールを使うことによって、読者が何もしなくても深い理解が得られる。",
+            "新しい技術はすべて優れているため、紙の本から電子書籍へ完全に移行すべきだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 12 và câu 14 (đoạn 3): Tác giả viết '媒体が紙であるか電子であるかにかかわらず、大切なのは内容と真剣に向き合う姿勢そのものである' (Bất kể là giấy hay điện tử, điều quan trọng là thái độ đối diện nghiêm túc với nội dung) và công cụ số '道具の１つにすぎず、主役は常に読者自身である'. Do đó, phương án 1 hoàn toàn chính xác.\n- Phương án 0 sai vì tác giả cho rằng mỗi loại có sự tiện lợi riêng và việc chọn lựa tùy sở thích (câu 11), không hề khuyên tránh dùng.\n- Phương án 2 sai vì công cụ chỉ hỗ trợ, chủ thể vẫn là người đọc nỗ lực tư duy.\n- Phương án 3 sai vì tác giả không kêu gọi bỏ hẳn sách giấy mà xem đó là lựa chọn cá nhân.",
+          "tip": "Quan sát cụm '媒体が紙であるか電子であるかにかかわらず' ở đoạn 3 để đối chiếu trực tiếp với các phương án.",
+          "evi": [
+            11,
+            13
+          ],
+          "qt": {
+            "q": "Ý kiến nào phù hợp với suy nghĩ của tác giả về những hình thức đọc sách mới như sách điện tử và sách nói?",
+            "o": [
+              "Nên tránh sử dụng chúng vì không rèn luyện được tư duy như sách giấy.",
+              "Điều quan trọng chính là nghiêm túc đối diện với nội dung, bất kể hình thức là sách giấy hay sách điện tử.",
+              "Việc sử dụng công cụ kỹ thuật số giúp người đọc hiểu sâu mà không cần làm gì.",
+              "Tất cả công nghệ mới đều ưu việt, vì vậy nên chuyển hoàn toàn từ sách giấy sang sách điện tử."
+            ]
+          }
+        },
+        {
+          "q": "【推論】この文章全体を通じて、筆者が読者に最も伝えたい主張はどれか。",
+          "options": [
+            "情報化社会のスピードについていくために、速読技術の習得を急ぐべきだ。",
+            "読書は娯楽にすぎないため、難解な本は避けてわかりやすい本だけを読むべきだ。",
+            "時代の変化に流されず、自分のペースで時間をかけて言葉と向き合い、深く読む習慣を持つべきだ。",
+            "デジタル社会を生き抜くためには、読書よりもインターネットの情報を重視すべきだ。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào đoạn cuối (câu 15, 17, 18, 19): Tác giả kết luận trong xã hội tràn ngập thông tin, ta cần dừng lại để đọc sâu, dành thời gian suy ngẫm ý nghĩa từ ngữ (ngay cả với sách khó) và '流行に流されることなく、自分のペースで深く読む習慣を大切にしていきたい。それこそが、変化の激しい時代を生き抜くための確かな力となるはずだ'. Do đó, phương án 2 phản ánh chính xác nhất thông điệp cốt lõi của toàn văn.\n- Phương án 0 trái ngược với quan điểm phê phán đọc vội/đọc nhanh hời hợt ở đoạn 1 và đoạn 2.\n- Phương án 1 sai vì tác giả khuyến khích đối diện và suy ngẫm trước sách khó ('難解な本に挑戦したとき...').\n- Phương án 3 sai vì tác giả đề cao việc đọc sách sâu sắc để nuôi dưỡng nội lực, chứ không coi nhẹ đọc sách so với Internet.",
+          "tip": "Câu hỏi suy luận chủ đề toàn bài: hãy tổng hợp luận điểm từ phần đặt vấn đề đến kết luận ở đoạn cuối cùng, tìm phương án bao quát được thái độ '深く読む' và '自分のペース'.",
+          "evi": [
+            14,
+            16,
+            17,
+            18
+          ],
+          "qt": {
+            "q": "【Suy luận】Xuyên suốt toàn bài, thông điệp tác giả muốn truyền tải đến người đọc nhất là gì?",
+            "o": [
+              "Nên nhanh chóng học kỹ thuật đọc nhanh để theo kịp tốc độ của xã hội thông tin.",
+              "Vì đọc sách chỉ là giải trí, nên tránh những cuốn sách khó hiểu và chỉ đọc sách dễ hiểu.",
+              "Không chạy theo những biến đổi của thời đại, mà nên có thói quen dành thời gian đối diện với ngôn từ theo nhịp độ riêng và đọc sâu.",
+              "Để vượt qua trong xã hội số, nên coi trọng thông tin trên Internet hơn việc đọc sách."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "コワーキングスペース「MIRAIオフィス」ご利用案内",
+      "titleVi": "Hướng dẫn sử dụng không gian làm việc chung 'MIRAI Office'",
+      "japanese": "コワーキングスペース「MIRAIオフィス」ご利用案内\n立地の便利さはともかくとして、静かに集中できる環境を重視する方に最適な施設です。\n年齢や利用目的にかかわらず、初めてご利用の際は受付で身分証明書をご提示ください。\nプラン名｜利用可能時間｜基本月額料金｜対象者\nデイプラン｜平日 9:00〜18:00｜8,000円｜平日昼間に利用する方\nナイト＆休日｜平日 18:00〜23:00 / 土日祝 終日｜10,000円｜夜間や休日に利用する方\nフルタイム｜全日 24時間利用可能｜15,000円｜いつでも自由に利用する方\nビジター｜9:00〜22:00（1時間単位）｜500円/1時間｜会員登録なしの一時利用\n※表の金額は基本料金にすぎず、個室利用には1時間ごとに500円の追加料金が必要です。\n※利用時間の長短にかかわらず、すべてのプランでフリードリンクをご利用いただけます。\n※ビジター利用は一時利用にすぎないため、専用ロッカーの契約はできません。\n平日の利用はともかく、土日祝日にビジターで終日利用する場合は前日までの予約が必須です。\n当日キャンセルの場合、返金どころか、利用料の全額をキャンセル料としていただきます。\nサイレントブースでは、通話どころか、キーボードを強く叩く音もお控えください。\n学生証をご提示の学生は、月額料金から一律2,000円引きとなります（ビジターは対象外）。",
+      "vietnamese": "Hướng dẫn sử dụng không gian làm việc chung 'MIRAI Office'\nTạm gác sự thuận tiện về vị trí sang một bên, đây là cơ sở tối ưu cho những ai coi trọng môi trường yên tĩnh để tập trung.\nBất kể độ tuổi hay mục đích sử dụng, khi sử dụng lần đầu tiên xin vui lòng xuất trình giấy tờ tùy thân tại quầy lễ tân.\nTên gói｜Thời gian có thể sử dụng｜Phí cơ bản hàng tháng｜Đối tượng\nGói ban ngày｜Ngày thường 9:00〜18:00｜8.000 yên｜Người sử dụng vào ban ngày các ngày trong tuần\nGói buổi tối & ngày nghỉ｜Ngày thường 18:00〜23:00 / Thứ Bảy, CN, ngày lễ cả ngày｜10.000 yên｜Người sử dụng vào ban đêm hoặc ngày nghỉ\nGói toàn thời gian｜Tất cả các ngày có thể sử dụng 24 giờ｜15.000 yên｜Người muốn sử dụng tự do bất cứ lúc nào\nKhách vãng lai｜9:00〜22:00 (đơn vị 1 giờ)｜500 yên/1 giờ｜Sử dụng tạm thời không cần đăng ký thành viên\n※Số tiền trong bảng chỉ là phí cơ bản, việc sử dụng phòng riêng cần thêm phụ phí 500 yên mỗi giờ.\n※Bất kể thời gian sử dụng dài hay ngắn, tất cả các gói đều có thể sử dụng đồ uống miễn phí.\n※Do khách vãng lai chỉ là sử dụng tạm thời, nên không thể ký hợp đồng thuê tủ khóa chuyên dụng.\nTạm gác việc sử dụng ngày thường sang một bên, trường hợp khách vãng lai sử dụng cả ngày vào thứ Bảy, Chủ nhật và ngày lễ thì bắt buộc phải đặt trước từ hôm trước.\nTrường hợp hủy vào đúng ngày sử dụng, không những không được hoàn tiền mà còn phải trả toàn bộ tiền sử dụng làm phí hủy.\nTại khu vực buồng yên tĩnh, không những không được gọi điện thoại mà xin vui lòng hạn chế cả tiếng gõ bàn phím mạnh.\nHọc sinh, sinh viên xuất trình thẻ học sinh/sinh viên sẽ được giảm đồng loạt 2.000 yên từ phí hàng tháng (không áp dụng cho khách vãng lai).",
+      "sentences": [
+        {
+          "jp": "コワーキングスペース「MIRAIオフィス」ご利用案内",
+          "vi": "Hướng dẫn sử dụng không gian làm việc chung 'MIRAI Office'",
+          "vocab": [
+            {
+              "w": "コワーキングスペース",
+              "read": "こわーきんぐすぺーす",
+              "vi": "không gian làm việc chung"
+            },
+            {
+              "w": "MIRAI",
+              "read": "MIRAI",
+              "vi": "tên riêng MIRAI, tương lai"
+            },
+            {
+              "w": "オフィス",
+              "read": "オフィス",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "ご利用案内",
+              "read": "ごりようあんない",
+              "vi": "hướng dẫn sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ご利用案内",
+              "why": "Tiêu đề của văn bản thông báo hướng dẫn sử dụng dịch vụ."
+            }
+          ]
+        },
+        {
+          "jp": "立地の便利さはともかくとして、静かに集中できる環境を重視する方に最適な施設です。",
+          "vi": "Tạm gác sự thuận tiện về vị trí sang một bên, đây là cơ sở tối ưu cho những ai coi trọng môi trường yên tĩnh để tập trung.",
+          "vocab": [
+            {
+              "w": "立地",
+              "read": "りっち",
+              "vi": "vị trí địa lý"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "ともかく",
+              "read": "ともかく",
+              "vi": "dù sao, tạm gác lại"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "重視",
+              "read": "じゅうし",
+              "vi": "coi trọng, chú trọng"
+            },
+            {
+              "w": "最適",
+              "read": "さいてき",
+              "vi": "thích hợp nhất, tối ưu"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はともかく（として）",
+              "vi": "Tạm gác vấn đề A sang một bên để nhấn mạnh vấn đề B quan trọng hơn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "立地の便利さはともかくとして",
+              "why": "Cấu trúc ngữ pháp tạm gác yếu tố vị trí sang một bên để làm nổi bật ưu điểm về không gian yên tĩnh."
+            }
+          ]
+        },
+        {
+          "jp": "年齢や利用目的にかかわらず、初めてご利用の際は受付で身分証明書をご提示ください。",
+          "vi": "Bất kể độ tuổi hay mục đích sử dụng, khi sử dụng lần đầu tiên xin vui lòng xuất trình giấy tờ tùy thân tại quầy lễ tân.",
+          "vocab": [
+            {
+              "w": "年齢",
+              "read": "ねんれい",
+              "vi": "tuổi tác, độ tuổi"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên, mới (chỉ khi đó)"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "身分",
+              "read": "みぶん",
+              "vi": "thân phận, danh tính"
+            },
+            {
+              "w": "証明",
+              "read": "しょうめい",
+              "vi": "chứng minh, minh chứng"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình, đưa ra"
+            },
+            {
+              "w": "利用目的",
+              "read": "りようもくてき",
+              "vi": "mục đích sử dụng"
+            },
+            {
+              "w": "身分証明書",
+              "read": "みぶんしょうめいしょ",
+              "vi": "giấy tờ tùy thân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にかかわらず",
+              "vi": "Bất kể, không phân biệt A, điều kiện phía sau vẫn áp dụng như nhau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "年齢や利用目的にかかわらず",
+              "why": "Quy định áp dụng bình đẳng cho mọi đối tượng không phân biệt tuổi tác hay mục đích."
+            },
+            {
+              "w": "身分証明書をご提示",
+              "why": "Yêu cầu bắt buộc xuất trình giấy tờ tùy thân khi lần đầu đến sử dụng."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜利用可能時間｜基本月額料金｜対象者",
+          "vi": "Tên gói｜Thời gian có thể sử dụng｜Phí cơ bản hàng tháng｜Đối tượng",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói dịch vụ, kế hoạch"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng (áp dụng)"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "tiền phí hàng tháng"
+            },
+            {
+              "w": "対象者",
+              "read": "たいしょうしゃ",
+              "vi": "người thuộc đối tượng áp dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "基本月額料金",
+              "why": "Tiêu đề cột thể hiện mức giá thuê cơ bản theo tháng."
+            }
+          ]
+        },
+        {
+          "jp": "デイプラン｜平日 9:00〜18:00｜8,000円｜平日昼間に利用する方",
+          "vi": "Gói ban ngày｜Ngày thường 9:00〜18:00｜8.000 yên｜Người sử dụng vào ban ngày các ngày trong tuần",
+          "vocab": [
+            {
+              "w": "デイプラン",
+              "read": "でいぷらん",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "9:00〜18:00",
+              "read": "くじからじゅうはちじ",
+              "vi": "9 giờ đến 18 giờ"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người; vị"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "デイプラン",
+              "why": "Tên gói dịch vụ ban ngày ngày thường."
+            },
+            {
+              "w": "平日 9:00〜18:00",
+              "why": "Khung giờ quy định cho gói ban ngày."
+            }
+          ]
+        },
+        {
+          "jp": "ナイト＆休日｜平日 18:00〜23:00 / 土日祝 終日｜10,000円｜夜間や休日に利用する方",
+          "vi": "Gói buổi tối & ngày nghỉ｜Ngày thường 18:00〜23:00 / Thứ Bảy, CN, ngày lễ cả ngày｜10.000 yên｜Người sử dụng vào ban đêm hoặc ngày nghỉ",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ないと",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "休日",
+              "read": "きゅうじつ",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "18:00〜23:00",
+              "read": "じゅうはちじからにじゅうさんじ",
+              "vi": "18 giờ đến 23 giờ"
+            },
+            {
+              "w": "土日祝",
+              "read": "どにちしゅく",
+              "vi": "thứ bảy, chủ nhật và ngày lễ"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ bảy và chủ nhật"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "終日",
+              "read": "しゅうじつ",
+              "vi": "suốt cả ngày"
+            },
+            {
+              "w": "10,000円",
+              "read": "いちまんえん",
+              "vi": "10.000 yên"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người; vị"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ナイト＆休日",
+              "why": "Tên gói dành cho người sử dụng vào buổi tối ngày thường và cả ngày cuối tuần, ngày nghỉ lễ."
+            },
+            {
+              "w": "平日 18:00〜23:00 / 土日祝 終日",
+              "why": "Khung giờ buổi tối ngày thường kết hợp cả ngày cuối tuần và ngày lễ."
+            },
+            {
+              "w": "10,000円",
+              "why": "Mức giá gốc hàng tháng của gói buổi tối và ngày nghỉ."
+            }
+          ]
+        },
+        {
+          "jp": "フルタイム｜全日 24時間利用可能｜15,000円｜いつでも自由に利用する方",
+          "vi": "Gói toàn thời gian｜Tất cả các ngày có thể sử dụng 24 giờ｜15.000 yên｜Người muốn sử dụng tự do bất cứ lúc nào",
+          "vocab": [
+            {
+              "w": "フルタイム",
+              "read": "ふるたいむ",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày; mọi ngày"
+            },
+            {
+              "w": "24時間",
+              "read": "にじゅうよじかん",
+              "vi": "24 giờ"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            },
+            {
+              "w": "15,000円",
+              "read": "いちまんごせんえん",
+              "vi": "15.000 yên"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "自由",
+              "read": "じゆう",
+              "vi": "tự do"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người; vị"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "全日 24時間利用可能",
+              "why": "Đặc điểm của gói toàn thời gian không giới hạn giờ giấc."
+            },
+            {
+              "w": "15,000円",
+              "why": "Giá cước trọn gói 24/7."
+            }
+          ]
+        },
+        {
+          "jp": "ビジター｜9:00〜22:00（1時間単位）｜500円/1時間｜会員登録なしの一時利用",
+          "vi": "Khách vãng lai｜9:00〜22:00 (đơn vị 1 giờ)｜500 yên/1 giờ｜Sử dụng tạm thời không cần đăng ký thành viên",
+          "vocab": [
+            {
+              "w": "ビジター",
+              "read": "びじたー",
+              "vi": "khách vãng lai"
+            },
+            {
+              "w": "9:00〜22:00",
+              "read": "くじからにじゅうにじ",
+              "vi": "9 giờ đến 22 giờ"
+            },
+            {
+              "w": "1時間単位",
+              "read": "いちじかんたんい",
+              "vi": "theo đơn vị một giờ"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "một giờ"
+            },
+            {
+              "w": "単位",
+              "read": "たんい",
+              "vi": "đơn vị"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "会員登録なし",
+              "read": "かいいんとうろくなし",
+              "vi": "không đăng ký thành viên"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "thành viên"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "なし",
+              "read": "なし",
+              "vi": "không có"
+            },
+            {
+              "w": "一時利用",
+              "read": "いちじりよう",
+              "vi": "sử dụng tạm thời"
+            },
+            {
+              "w": "一時",
+              "read": "いちじ",
+              "vi": "tạm thời"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ビジター",
+              "why": "Hình thức sử dụng không cần đóng phí thành viên hàng tháng."
+            },
+            {
+              "w": "500円/1時間",
+              "why": "Mức phí tính theo từng giờ cho khách vãng lai."
+            }
+          ]
+        },
+        {
+          "jp": "※表の金額は基本料金にすぎず、個室利用には1時間ごとに500円の追加料金が必要です。",
+          "vi": "※Số tiền trong bảng chỉ là phí cơ bản, việc sử dụng phòng riêng cần thêm phụ phí 500 yên mỗi giờ.",
+          "vocab": [
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng"
+            },
+            {
+              "w": "金額",
+              "read": "きんがく",
+              "vi": "số tiền"
+            },
+            {
+              "w": "基本料金",
+              "read": "きほんりょうきん",
+              "vi": "phí cơ bản"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí; cước"
+            },
+            {
+              "w": "すぎず",
+              "read": "すぎず",
+              "vi": "chẳng qua là; không hơn"
+            },
+            {
+              "w": "個室利用",
+              "read": "こしつりよう",
+              "vi": "sử dụng phòng riêng"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "1時間ごと",
+              "read": "いちじかんごと",
+              "vi": "mỗi một giờ"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "một giờ"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phí phụ thu"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "bổ sung; thêm"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすぎない",
+              "vi": "Chỉ là... không hơn gì, hạ thấp hoặc nói rõ giới hạn của sự việc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "基本料金にすぎず",
+              "why": "Nhấn mạnh giá niêm yết trong bảng chỉ là giá nền cơ bản, chưa bao gồm phụ phí phòng riêng."
+            },
+            {
+              "w": "1時間ごとに500円の追加料金",
+              "why": "Quy định phụ thu bắt buộc 500 yên/giờ khi sử dụng phòng riêng."
+            }
+          ]
+        },
+        {
+          "jp": "※利用時間の長短にかかわらず、すべてのプランでフリードリンクをご利用いただけます。",
+          "vi": "※Bất kể thời gian sử dụng dài hay ngắn, tất cả các gói đều có thể sử dụng đồ uống miễn phí.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "長短",
+              "read": "ちょうたん",
+              "vi": "dài ngắn"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "フリー",
+              "read": "フリー",
+              "vi": "tự do, miễn phí"
+            },
+            {
+              "w": "ドリンク",
+              "read": "ドリンク",
+              "vi": "đồ uống, thức uống"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "フリードリンク",
+              "read": "ふりーどりんく",
+              "vi": "đồ uống miễn phí tự phục vụ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にかかわらず",
+              "vi": "Bất kể... không phân biệt dài ngắn, quyền lợi vẫn được áp dụng như nhau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "利用時間の長短にかかわらず",
+              "why": "Quy định miễn phí đồ uống không phụ thuộc vào thời lượng khách ngồi tại cơ sở."
+            },
+            {
+              "w": "すべてのプランでフリードリンクをご利用いただけます",
+              "why": "Quyền lợi đồ uống miễn phí áp dụng đồng đều cho mọi gói cước."
+            }
+          ]
+        },
+        {
+          "jp": "※ビジター利用は一時利用にすぎないため、専用ロッカーの契約はできません。",
+          "vi": "※Do khách vãng lai chỉ là sử dụng tạm thời, nên không thể ký hợp đồng thuê tủ khóa chuyên dụng.",
+          "vocab": [
+            {
+              "w": "ビジター",
+              "read": "ビジター",
+              "vi": "khách vãng lai"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "一時",
+              "read": "いちじ",
+              "vi": "tạm thời, nhất thời"
+            },
+            {
+              "w": "すぎる",
+              "read": "すぎる",
+              "vi": "quá mức, vượt quá"
+            },
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "chuyên dụng, dành riêng"
+            },
+            {
+              "w": "ロッカー",
+              "read": "ろっかー",
+              "vi": "tủ khóa đựng đồ"
+            },
+            {
+              "w": "契約",
+              "read": "けいやく",
+              "vi": "hợp đồng, ký hợp đồng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にすぎない",
+              "vi": "Chỉ là việc sử dụng tạm thời không hơn không kém, giải thích lý do không được hưởng quyền lợi dài hạn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一時利用にすぎないため",
+              "why": "Giải thích lý do hạn chế quyền lợi là do tính chất vãng lai, tạm thời."
+            },
+            {
+              "w": "専用ロッカーの契約はできません",
+              "why": "Quy định rõ ràng về việc không cho khách vãng lai thuê tủ khóa cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "平日の利用はともかく、土日祝日にビジターで終日利用する場合は前日までの予約が必須です。",
+          "vi": "Tạm gác việc sử dụng ngày thường sang một bên, trường hợp khách vãng lai sử dụng cả ngày vào thứ Bảy, Chủ nhật và ngày lễ thì bắt buộc phải đặt trước từ hôm trước.",
+          "vocab": [
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "ともかく",
+              "read": "ともかく",
+              "vi": "dù sao, tạm gác lại"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ, ngày quốc lễ"
+            },
+            {
+              "w": "ビジター",
+              "read": "ビジター",
+              "vi": "khách vãng lai"
+            },
+            {
+              "w": "終日",
+              "read": "しゅうじつ",
+              "vi": "cả ngày, suốt ngày"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "必須",
+              "read": "ひっす",
+              "vi": "bắt buộc, thiết yếu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はともかく（として）",
+              "vi": "Tạm gác việc ngày thường sang một bên, nhấn mạnh quy định khắt khe hơn vào ngày nghỉ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日の利用はともかく",
+              "why": "Phân biệt giữa việc sử dụng ngày thường và việc sử dụng vào ngày nghỉ lễ."
+            },
+            {
+              "w": "土日祝日にビジターで終日利用する場合",
+              "why": "Điều kiện cụ thể về đối tượng khách vãng lai dùng cả ngày cuối tuần/ngày lễ."
+            },
+            {
+              "w": "前日までの予約が必須",
+              "why": "Yêu cầu bắt buộc phải đặt chỗ trước ít nhất một ngày."
+            }
+          ]
+        },
+        {
+          "jp": "当日キャンセルの場合、返金どころか、利用料の全額をキャンセル料としていただきます。",
+          "vi": "Trường hợp hủy vào đúng ngày sử dụng, không những không được hoàn tiền mà còn phải trả toàn bộ tiền sử dụng làm phí hủy.",
+          "vocab": [
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, đúng ngày"
+            },
+            {
+              "w": "キャンセル",
+              "read": "きゃんせる",
+              "vi": "hủy bỏ"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "返金",
+              "read": "へんきん",
+              "vi": "hoàn tiền"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "全額",
+              "read": "ぜんがく",
+              "vi": "toàn bộ số tiền"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜どころか",
+              "vi": "Không những không được hoàn tiền mà trái lại còn bị phạt toàn bộ 100% tiền phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "当日キャンセルの場合",
+              "why": "Điều kiện về thời điểm hủy dịch vụ gây phát sinh phí phạt."
+            },
+            {
+              "w": "返金どころか",
+              "why": "Nhấn mạnh sự trái ngược: hoàn toàn không có chuyện được trả lại tiền."
+            },
+            {
+              "w": "利用料の全額をキャンセル料としていただきます",
+              "why": "Mức phạt hủy lịch vào đúng ngày là 100% chi phí."
+            }
+          ]
+        },
+        {
+          "jp": "サイレントブースでは、通話どころか、キーボードを強く叩く音もお控えください。",
+          "vi": "Tại khu vực buồng yên tĩnh, không những không được gọi điện thoại mà xin vui lòng hạn chế cả tiếng gõ bàn phím mạnh.",
+          "vocab": [
+            {
+              "w": "サイレント",
+              "read": "サイレント",
+              "vi": "im lặng, tĩnh lặng"
+            },
+            {
+              "w": "ブース",
+              "read": "ブース",
+              "vi": "buồng riêng, gian hàng"
+            },
+            {
+              "w": "通話",
+              "read": "つうわ",
+              "vi": "gọi điện thoại"
+            },
+            {
+              "w": "キーボード",
+              "read": "キーボード",
+              "vi": "bàn phím"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "叩く",
+              "read": "たたく",
+              "vi": "gõ, đập"
+            },
+            {
+              "w": "音",
+              "read": "おと",
+              "vi": "âm thanh, tiếng động"
+            },
+            {
+              "w": "控える",
+              "read": "ひかえる",
+              "vi": "hạn chế, kiềm chế"
+            },
+            {
+              "w": "お控えください",
+              "read": "おひかえください",
+              "vi": "xin vui lòng hạn chế/tránh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜どころか",
+              "vi": "Đến cả việc nhỏ như gõ phím mạnh còn phải hạn chế thì đừng nói đến việc gọi điện thoại."
+            }
+          ],
+          "keys": [
+            {
+              "w": "サイレントブース",
+              "why": "Khu vực áp dụng quy định giữ yên lặng nghiêm ngặt."
+            },
+            {
+              "w": "通話どころか",
+              "why": "Nhấn mạnh hành vi gọi điện thoại bị nghiêm cấm tuyệt đối tại đây."
+            },
+            {
+              "w": "キーボードを強く叩く音もお控えください",
+              "why": "Nội quy yêu cầu hạn chế phát ra cả tiếng gõ phím ồn ào."
+            }
+          ]
+        },
+        {
+          "jp": "学生証をご提示の学生は、月額料金から一律2,000円引きとなります（ビジターは対象外）。",
+          "vi": "Học sinh, sinh viên xuất trình thẻ học sinh/sinh viên sẽ được giảm đồng loạt 2.000 yên từ phí hàng tháng (không áp dụng cho khách vãng lai).",
+          "vocab": [
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh/sinh viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh/sinh viên"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "chi phí"
+            },
+            {
+              "w": "一律",
+              "read": "いちりつ",
+              "vi": "đồng loạt"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành/được tính là"
+            },
+            {
+              "w": "ビジター",
+              "read": "びじたー",
+              "vi": "khách vãng lai"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "対象外",
+              "read": "たいしょうがい",
+              "vi": "không thuộc đối tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜の（N）",
+              "vi": "ご + Danh từ gốc Hán (hành động của đối phương) + の + Danh từ chỉ người: Dạng tôn kính ngữ rút gọn bổ nghĩa cho danh từ, tương đương với 「ご提示くださる学生 / 提示された学生」 (\"học sinh [người] xuất trình thẻ sinh viên\")."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証をご提示の学生",
+              "why": "Điều kiện cần để được hưởng ưu đãi giảm giá dành cho đối tượng học sinh, sinh viên."
+            },
+            {
+              "w": "月額料金から一律2,000円引き",
+              "why": "Mức giảm giá cụ thể 2.000 yên trừ trực tiếp vào biểu phí tháng."
+            },
+            {
+              "w": "ビジターは対象外",
+              "why": "Quy định loại trừ: khách vãng lai không được hưởng ưu đãi giảm giá sinh viên."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "立地の便利さはともかくとして",
+          "label": "〜はともかく（として） (Tạm gác... sang một bên)"
+        },
+        {
+          "excerpt": "年齢や利用目的にかかわらず",
+          "label": "〜にかかわらず (Bất kể, không phân biệt)"
+        },
+        {
+          "excerpt": "基本料金にすぎず",
+          "label": "〜にすぎない (Chỉ là... không hơn)"
+        },
+        {
+          "excerpt": "利用時間の長短にかかわらず",
+          "label": "〜にかかわらず (Bất kể, không phân biệt)"
+        },
+        {
+          "excerpt": "一時利用にすぎないため",
+          "label": "〜にすぎない (Chỉ là... không hơn)"
+        },
+        {
+          "excerpt": "平日の利用はともかく",
+          "label": "〜はともかく（として） (Tạm gác... sang một bên)"
+        },
+        {
+          "excerpt": "返金どころか",
+          "label": "〜どころか (Không những không... mà trái lại)"
+        },
+        {
+          "excerpt": "通話どころか",
+          "label": "〜どころか (Không những không... mà trái lại)"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "施設の特徴と初回利用時の案内",
+          "topic": 0,
+          "note": "Giới thiệu ưu điểm môi trường tập trung và quy định xuất trình giấy tờ tùy thân cho lần đầu sử dụng.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "body",
+          "label": "利用プラン・料金・対象者一覧表",
+          "topic": 3,
+          "note": "Bảng chi tiết 4 gói dịch vụ gồm khung giờ, mức phí và đối tượng áp dụng.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 10,
+          "kind": "point",
+          "label": "基本料金の補足・設備とサービスの利用条件",
+          "topic": 8,
+          "note": "Các quy định về phụ phí phòng riêng, đồ uống miễn phí và giới hạn thuê tủ khóa đối với khách vãng lai.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 14,
+          "kind": "turn",
+          "label": "予約・キャンセル規定・マナー・学割条件",
+          "topic": 11,
+          "note": "Quy định đặt trước cuối tuần, phí phạt hủy lịch, nội quy buồng yên tĩnh và chính sách giảm giá sinh viên.",
+          "qs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学院生のグエンさんは、平日の夜間（19:00〜22:00）と日曜日の終日に勉強するため、月額プランに加入したいと考えている。学生証を提示して契約する場合、月々の支払額はいくらになるか。",
+          "options": [
+            "6,000円",
+            "8,000円",
+            "10,000円",
+            "13,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Nguyễn muốn dùng vào buổi tối ngày thường (19:00〜22:00) và cả ngày Chủ nhật, nên gói phù hợp là 「ナイト＆休日」 (có khung giờ: 平日 18:00〜23:00 / 土日祝 終日) với giá gốc 10.000 yên/tháng (dòng 5). Kết hợp điều kiện xuất trình thẻ sinh viên được giảm 2.000 yên/tháng (dòng 14), số tiền thực tế phải trả là 10.000 - 2.000 = 8.000 yên.",
+          "tip": "Xác định gói dịch vụ qua khung giờ trong bảng (dòng 5: ナイト＆休日 = 10.000 yên), sau đó kết hợp điều kiện giảm giá sinh viên ở dòng 14 (-2.000 yên).",
+          "evi": [
+            5,
+            14
+          ],
+          "qt": {
+            "q": "Để học vào buổi tối các ngày trong tuần (19:00–22:00) và cả ngày Chủ nhật, học viên cao học Nguyễn muốn đăng ký gói theo tháng. Nếu xuất trình thẻ sinh viên khi đăng ký, mỗi tháng phải trả bao nhiêu?",
+            "o": [
+              "6.000 yên",
+              "8.000 yên",
+              "10.000 yên",
+              "13.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "会員登録をせず、日曜日にビジターとしてこの施設を終日利用したいと考えている山田さんに関する説明として、案内文の内容と合っているものはどれか。",
+          "options": [
+            "月額契約を結べば、ビジター利用であっても専用ロッカーを使用することができる。",
+            "日曜日に終日利用するためには、前日までに利用予約をしておく必要がある。",
+            "個室を利用する場合でも、追加料金を支払う必要は一切ない。",
+            "ビジター利用者は一時利用にすぎないため、フリードリンクを飲むことはできない。"
+          ],
+          "answer": 1,
+          "explainVi": "Dòng 11 nêu rõ: 「土日祝日にビジターで終日利用する場合は前日までの予約が必須です」 (Khách vãng lai dùng cả ngày vào cuối tuần/ngày lễ bắt buộc phải đặt trước từ hôm trước) -> Lựa chọn 2 đúng. Lựa chọn 1 sai vì dòng 10 ghi khách vãng lai không được thuê tủ khóa. Lựa chọn 3 sai vì dòng 8 ghi phòng riêng phụ thu 500 yên/giờ. Lựa chọn 4 sai vì dòng 9 ghi tất cả các gói đều được miễn phí đồ uống bất kể thời gian dài ngắn.",
+          "tip": "Tìm từ khóa 'ビジター' và '土日祝日' trong các câu lưu ý để xác nhận quy định đặt chỗ trước (dòng 11) và loại trừ các phương án sai về tủ khóa (dòng 10), phụ phí (dòng 8), đồ uống (dòng 9).",
+          "evi": [
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Trong các mô tả sau về anh Yamada, người muốn sử dụng cơ sở này cả ngày Chủ nhật với tư cách khách vãng lai mà không đăng ký thành viên, mô tả nào phù hợp với nội dung hướng dẫn?",
+            "o": [
+              "Nếu ký hợp đồng theo tháng, thì dù sử dụng với tư cách khách vãng lai, vẫn có thể dùng tủ khóa riêng.",
+              "Để sử dụng cả ngày Chủ nhật, cần đặt trước chậm nhất là ngày hôm trước.",
+              "Ngay cả khi sử dụng phòng riêng, hoàn toàn không cần trả thêm phí.",
+              "Khách vãng lai chỉ sử dụng tạm thời nên không thể dùng đồ uống miễn phí."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

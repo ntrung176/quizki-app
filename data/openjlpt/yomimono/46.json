@@ -1,0 +1,2335 @@
+{
+  "bai": 46,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 46 tập trung vào bốn mẫu diễn đạt \"thời điểm\" của hành động xoay quanh ところ và ばかり: Vるところ（sắp làm — chuẩn bị bắt đầu）, Vているところ（đang giữa chừng）, Vたところ（vừa mới xong）, Vたばかり（vừa mới — còn nhấn cảm giác mới mẻ/chưa đủ thời gian）. Ba dạng ところ chỉ khác nhau ở thể động từ đứng trước; ばかり và たところ cùng nói \"vừa xong\" nhưng sắc thái khác. Chiến lược: nhận diện thể động từ trước ところ/ばかり là chìa khoá phân biệt bốn mẫu.",
+    "steps": [
+      "Xác định thể động từ đứng TRƯỚC ところ: る形（辞書形）→ sắp làm; ている形 → đang làm; た形 → vừa xong ngay lúc này.",
+      "Phân biệt たところ vs たばかり: cả hai đều dùng た形, nhưng ばかり nhấn mạnh \"còn rất mới, chưa đủ thời gian\", còn たところ nhấn \"chính xác vào lúc này vừa kết thúc\".",
+      "Khi gặp câu hỏi về \"đang làm gì / đã làm chưa / sắp làm gì\", tìm mẫu ところ/ばかり tương ứng trong bài để đối chiếu.",
+      "Ôn ngữ pháp cũ đi kèm: のに逆接（Bài 45）hay xuất hiện khi hành động \"vừa xong mà vẫn còn vấn đề\".",
+      "Câu hỏi suy luận: đọc bối cảnh (thời điểm, trước sau) rồi chọn đáp án khớp với thể ところ/ばかり, không chọn theo cảm tính."
+    ],
+    "tips": [
+      "Ba ところ — nhớ bằng hình ảnh: るところ = \"sắp bước vào\"; ているところ = \"đang ở giữa\"; たところ = \"vừa bước ra\".",
+      "ばかり KHÔNG thay thế được hoàn toàn cho たところ: たばかりです thường kèm cảm giác chủ quan (mới quá, chưa kịp, còn bỡ ngỡ); たところです khách quan hơn (thực tế vừa xong).",
+      "Vるところです ≠ Vるつもりです（Bài 31）: つもり là dự định trong tương lai; るところ là ngay lúc này sắp bắt đầu.",
+      "Vているところです ≠ Vています（Bài 14–15）: ところ nhấn mạnh \"đang giữa chừng ngay lúc này\"; ています có thể là thói quen hoặc trạng thái lâu dài.",
+      "Câu bẫy: たばかりです KHÔNG phải phủ định — ばかり là \"chỉ mới\" không phải \"chỉ\" như ばかり số lượng.",
+      "Khi options/explainVi — tránh dùng らしい/そうです伝聞（Bài 47）hay 使役（Bài 48）; luôn nằm trong scope Bài 1–46."
+    ],
+    "grammarFocus": [
+      "Vるところです（sắp/chuẩn bị làm）",
+      "Vているところです（đang giữa chừng）",
+      "Vたところです（vừa mới xong — thời điểm chính xác）",
+      "Vたばかりです（vừa mới — cảm giác còn mới/chưa đủ thời gian）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接 — mặc dù … vẫn）",
+          "Vる/V/Nのばあいは"
+        ]
+      },
+      {
+        "bai": 44,
+        "items": [
+          "Vすぎます・Aすぎます",
+          "V方（かた）"
+        ]
+      },
+      {
+        "bai": 43,
+        "items": [
+          "V/Aそうです（様態）",
+          "Vてきます"
+        ]
+      },
+      {
+        "bai": 40,
+        "items": [
+          "Vてみます（thử làm）",
+          "疑問詞＋か"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "Vる予定です"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました",
+          "Vています（結果状態）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる/Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "新入社員の朝",
+      "titleVi": "Buổi sáng của nhân viên mới",
+      "japanese": "田中さんは今年の春、IMCに入ったばかりです。\n今日は月曜日の朝で、田中さんはちょうど会社に着いたところです。\nデスクに座って、メールをチェックしているところです。\n課長の山本さんが来て、「田中さん、今、何をしているんですか」と聞きました。\n「メールをチェックしているところです。もうすぐ終わります」と田中さんは答えました。\n山本さんは「そうですか。終わったら、会議の資料を準備するところから始めてください」と言いました。\n田中さんはまだ仕事のやり方がよくわからないので、少し緊張しています。",
+      "vietnamese": "Anh Tanaka vừa vào làm ở IMC từ mùa xuân năm nay.\nHôm nay là sáng thứ Hai, anh Tanaka vừa đến công ty.\nAnh đang ngồi ở bàn làm việc và kiểm tra email.\nTrưởng phòng Yamamoto đến và hỏi \"Anh Tanaka, bây giờ anh đang làm gì vậy?\".\nAnh Tanaka trả lời \"Tôi đang kiểm tra email. Sắp xong rồi ạ\".\nAnh Yamamoto nói \"Vậy à. Xong rồi thì hãy bắt đầu từ việc chuẩn bị tài liệu họp nhé\".\nAnh Tanaka vẫn chưa hiểu rõ cách làm việc nên đang hơi căng thẳng.",
+      "sentences": [
+        {
+          "jp": "田中さんは今年の春、IMCに入ったばかりです。",
+          "vi": "Anh Tanaka vừa mới vào làm ở IMC từ mùa xuân năm nay.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "vào, gia nhập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかりです",
+              "vi": "入ったばかりです = vừa mới vào. ばかり nhấn cảm giác \"còn rất mới, chưa đủ thời gian\" — mùa xuân mới vào nên còn bỡ ngỡ."
+            }
+          ]
+        },
+        {
+          "jp": "今日は月曜日の朝で、田中さんはちょうど会社に着いたところです。",
+          "vi": "Hôm nay là sáng thứ Hai, anh Tanaka vừa đến công ty.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "ちょうど",
+              "read": "ちょうど",
+              "vi": "đúng lúc, vừa vặn"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi, tới nơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたところです",
+              "vi": "着いたところです = vừa đến xong chính xác ngay lúc này. ちょうど ở đây nhấn thêm \"đúng lúc đó\". Khác ばかり: ここでは thời điểm chính xác, không phải cảm giác mới mẻ kéo dài."
+            }
+          ]
+        },
+        {
+          "jp": "デスクに座って、メールをチェックしているところです。",
+          "vi": "Anh đang ngồi ở bàn làm việc và kiểm tra email.",
+          "vocab": [
+            {
+              "w": "デスク",
+              "read": "デスク",
+              "vi": "bàn làm việc (desk)"
+            },
+            {
+              "w": "座ります",
+              "read": "すわります",
+              "vi": "ngồi"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email"
+            },
+            {
+              "w": "チェック",
+              "read": "チェック",
+              "vi": "sự kiểm tra"
+            },
+            {
+              "w": "チェックします",
+              "read": "チェックします",
+              "vi": "kiểm tra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vているところです",
+              "vi": "チェックしているところです = đang kiểm tra email ngay lúc này (đang giữa chừng). Vて（座って）nối trình tự hành động Bài 16."
+            }
+          ]
+        },
+        {
+          "jp": "課長の山本さんが来て、「田中さん、今、何をしているんですか」と聞きました。",
+          "vi": "Trưởng phòng Yamamoto đến và hỏi \"Anh Tanaka, bây giờ anh đang làm gì vậy?\".",
+          "vocab": [
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んですか（Bài 26）",
+              "vi": "しているんですか = hỏi giải thích tình huống. Yamamoto thấy Tanaka đang làm gì đó → hỏi để hiểu bối cảnh."
+            }
+          ]
+        },
+        {
+          "jp": "「メールをチェックしているところです。もうすぐ終わります」と田中さんは答えました。",
+          "vi": "Anh Tanaka trả lời \"Tôi đang kiểm tra email. Sắp xong rồi ạ\".",
+          "vocab": [
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "チェック",
+              "read": "チェック",
+              "vi": "sự kiểm tra"
+            },
+            {
+              "w": "もうすぐ",
+              "read": "もうすぐ",
+              "vi": "sắp, chẳng mấy chốc"
+            },
+            {
+              "w": "終わります",
+              "read": "おわります",
+              "vi": "xong, kết thúc"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "答える",
+              "read": "こたえる",
+              "vi": "trả lời, đáp lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vているところです",
+              "vi": "チェックしているところです = xác nhận đang giữa chừng. Tanaka dùng chính mẫu ところ để trả lời câu hỏi của Yamamoto."
+            }
+          ]
+        },
+        {
+          "jp": "山本さんは「そうですか。終わったら、会議の資料を準備するところから始めてください」と言いました。",
+          "vi": "Anh Yamamoto nói \"Vậy à. Xong rồi thì hãy bắt đầu từ việc chuẩn bị tài liệu họp nhé\".",
+          "vocab": [
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "終わったら = khi xong rồi thì. Điều kiện thời gian trước khi chuyển sang việc tiếp theo."
+            },
+            {
+              "point": "ところ = danh từ \"bước/chỗ\" (KHÔNG phải mẫu Bài 46)",
+              "vi": "準備するところから始めてください = hãy bắt đầu từ BƯỚC chuẩn bị. ところ ở đây là danh từ thuần nghĩa \"bước/khâu\" trong chuỗi công việc — khác hoàn toàn với mẫu Bài 46 (Vるところです = sắp làm ngay bây giờ). Cấu trúc: [Vる + ところ（danh từ）] + から始めます."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはまだ仕事のやり方がよくわからないので、少し緊張しています。",
+          "vi": "Anh Tanaka vẫn chưa hiểu rõ cách làm việc nên đang hơi căng thẳng.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "やり方",
+              "read": "やりかた",
+              "vi": "cách làm, phương pháp làm"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "緊張します",
+              "read": "きんちょうします",
+              "vi": "căng thẳng, hồi hộp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "わからないので = vì không hiểu rõ. ので nêu lý do dẫn đến trạng thái căng thẳng."
+            },
+            {
+              "point": "V方（Bài 44）",
+              "vi": "やり方 = cách làm. V-ます形 bỏ ます + 方: やります → やり + 方."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "IMCに入ったばかりです",
+          "label": "Vたばかりです（vừa mới — cảm giác mới mẻ）"
+        },
+        {
+          "excerpt": "会社に着いたところです",
+          "label": "Vたところです（vừa mới xong — thời điểm chính xác）"
+        },
+        {
+          "excerpt": "メールをチェックしているところです",
+          "label": "Vているところです（đang giữa chừng）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんが今、しているところのことは何ですか。",
+          "evi": [
+            2,
+            4
+          ],
+          "options": [
+            "会議の資料を準備しているところです",
+            "メールをチェックしているところです",
+            "課長と話しているところです",
+            "会社に着いたところです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Tanaka trả lời trực tiếp câu hỏi của Yamamoto bằng「メールをチェックしているところです」— đây là bằng chứng chính xác từ bài: động từ ている trước ところ cho thấy hành động đang diễn ra giữa chừng. Đáp án 0 sai vì chuẩn bị tài liệu là việc TIẾP THEO (sau khi xong email, theo lời Yamamoto); đáp án 2 sai vì đang nói chuyện là bối cảnh nhưng không phải hành động chính Tanaka đang làm; đáp án 3 sai vì「着いたところです」là mẫu たところ (vừa xong ngay lúc này) chỉ thời điểm đến nơi, không phải việc đang làm.",
+          "tip": "Gặp câu hỏi \"〜しているところ\" → tìm đúng mẫu Vているところです trong bài, khớp thể động từ ている. Đừng nhầm với たところ (vừa xong) hay るところ (sắp làm).",
+          "qt": {
+            "q": "Hiện tại anh Tanaka đang làm gì?",
+            "o": [
+              "Đang chuẩn bị tài liệu cuộc họp",
+              "Đang kiểm tra email",
+              "Đang nói chuyện với trưởng phòng",
+              "Vừa đến công ty"
+            ]
+          }
+        },
+        {
+          "q": "「着いたところ」と「入ったばかり」の違いは何ですか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "「着いたところ」は遠い過去で、「入ったばかり」は直前の出来事です",
+            "「着いたところ」は今まさに到着した瞬間を表し、「入ったばかり」は最近のことで、まだ新しい感じがします",
+            "意味は全く同じで、いつでも入れ替えられます",
+            "「着いたところ」は未来のことで、「入ったばかり」は現在のことです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài dùng「ちょうど会社に着いたところです」với từ ちょうど — nhấn mạnh \"đúng khoảnh khắc vừa đến ngay lúc này\" (たところ = thời điểm chính xác, khách quan). Còn「IMCに入ったばかりです」gắn với mùa xuân năm nay — nhấn cảm giác \"vẫn còn mới mẻ, chưa quen\" (ばかり = sắc thái chủ quan, thời gian ngắn chưa đủ). Đáp án 0 sai vì たところ không phải quá khứ xa; đáp án 2 sai vì hai mẫu KHÔNG thể hoán đổi (sắc thái khác nhau rõ ràng); đáp án 3 sai hoàn toàn vì cả hai đều nói về hành động đã xảy ra.",
+          "tip": "Phân biệt nhanh: たところ → ちょうど（đúng lúc đó）= thời điểm chính xác vừa xong; たばかり → cảm giác \"còn rất mới, chưa đủ thời gian/kinh nghiệm\". Thường thấy ばかり đi kèm bối cảnh \"bỡ ngỡ / chưa quen\".",
+          "qt": {
+            "q": "「着いたところ」(vừa mới đến) và 「入ったばかり」(mới vào) khác nhau thế nào?",
+            "o": [
+              "「着いたところ」 chỉ một việc trong quá khứ xa, còn 「入ったばかり」 chỉ một việc vừa mới xảy ra",
+              "「着いたところ」 diễn tả khoảnh khắc vừa đến ngay lúc này, còn 「入ったばかり」 nói về việc xảy ra gần đây và vẫn còn cảm giác mới",
+              "Ý nghĩa hoàn toàn giống nhau và có thể thay thế cho nhau bất cứ lúc nào",
+              "「着いたところ」 nói về tương lai, còn 「入ったばかり」 nói về hiện tại"
+            ]
+          }
+        },
+        {
+          "q": "田中さんはどうして緊張していますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "会議の資料をなくしてしまったから、緊張しています",
+            "課長がとても怖いので、緊張しています",
+            "まだ仕事のやり方がよくわからないので、緊張しています",
+            "今年の春に入ったので、もう仕事がよくわかります"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu cuối bài ngắn nêu lý do trực tiếp:「まだ仕事のやり方がよくわからないので、少し緊張しています」— ので chỉ nguyên nhân (Bài 39): vì chưa hiểu cách làm việc nên căng thẳng. Đáp án 0 sai vì bài không nhắc đến việc làm mất tài liệu họp; đáp án 1 sai vì bài không mô tả Yamamoto là người đáng sợ (ông ấy chỉ hỏi và hướng dẫn); đáp án 3 sai và ngược nghĩa — câu hỏi hỏi lý do căng thẳng, không phải lý do hiểu việc tốt.",
+          "tip": "Câu hỏi \"どうして〜か\" (lý do) → tìm cấu trúc ので / から trong bài chỉ nguyên nhân. Đọc câu có từ「緊張」rồi nhìn về phía ので phía trước.",
+          "qt": {
+            "q": "Vì sao anh Tanaka đang căng thẳng?",
+            "o": [
+              "Anh ấy căng thẳng vì đã làm mất tài liệu cuộc họp",
+              "Anh ấy căng thẳng vì trưởng phòng rất đáng sợ",
+              "Anh ấy căng thẳng vì vẫn chưa hiểu rõ cách làm việc",
+              "Vì đã vào công ty vào mùa xuân năm nay nên anh ấy đã hiểu rõ công việc"
+            ]
+          }
+        },
+        {
+          "q": "山本さんは田中さんに次に何をするように言いましたか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "「メールをもっとチェックしてください」と言いました",
+            "「終わったら、会議の資料を準備するところから始めてください」と言いました",
+            "「早く会議に来てください」と言いました",
+            "「課長のやり方を見てください」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Yamamoto nói chính xác:「終わったら、会議の資料を準備するところから始めてください」— dùng〜たら (Bài 25) chỉ điều kiện thời gian \"khi xong email thì\", và ところ ở đây là danh từ \"bước/khâu\" (không phải mẫu Bài 46). Đáp án 0 sai vì Yamamoto không yêu cầu kiểm tra thêm email; đáp án 2 sai vì không có yêu cầu đến phòng họp nhanh; đáp án 3 sai vì không có yêu cầu xem cách làm của trưởng phòng.",
+          "tip": "Câu hỏi về \"người A nói với B điều gì\" → tìm đúng lời thoại trực tiếp trong dấu「」. Phân biệt ところ danh từ \"bước/khâu\" (〜するところから始める) với ところ mẫu Bài 46 (Vるところです = sắp làm ngay bây giờ).",
+          "qt": {
+            "q": "Ông Yamamoto đã bảo anh Tanaka tiếp theo nên làm gì?",
+            "o": [
+              "Ông ấy nói: 「メールをもっとチェックしてください」 (hãy kiểm tra email thêm nữa)",
+              "Ông ấy nói: 「終わったら、会議の資料を準備するところから始めてください」 (xong rồi thì hãy bắt đầu từ việc chuẩn bị tài liệu cuộc họp)",
+              "Ông ấy nói: 「早く会議に来てください」 (hãy đến cuộc họp sớm)",
+              "Ông ấy nói: 「課長のやり方を見てください」 (hãy xem cách làm của trưởng phòng)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "新入社員・田中さんの一日",
+      "titleVi": "Một ngày của nhân viên mới Tanaka",
+      "japanese": "田中さんはIMCに入社したばかりの新入社員です。今日の仕事の様子を日記に書きました。\n朝九時、会社に着いたところで、課長の山本さんに呼ばれました。\n「田中さん、今から午前中の会議の資料を確認するところです。手伝ってもらえますか」と山本さんが言いました。\n田中さんはちょうどコーヒーを飲もうと思っていたのですが、「わかりました。すぐ行きます」と答えました。\n資料の確認が終わったのに、会議が始まる前にコピーするのを忘れてしまいました。\n急いでコピー機のところへ走って行きましたが、コピー機はすでに誰かが使っているところでした。\n少し待ったあとで、田中さんもコピーを始めました。コピーしているところに、山本さんが来ました。\n「コピーが終わったら、会議室に持ってきてください」と山本さんは言いました。\n田中さんはコピーを終えたところで、急いで会議室に持って行きました。\n会議は十一時に終わりました。田中さんは会議のメモをまとめたばかりなのに、もう昼ごはんの時間になっていました。\n午後、山本さんが「田中さん、この書類の送り方がわかりますか」と聞きました。\n田中さんは入ったばかりで、送り方をまだ習っていなかったので、「すみません、まだわからないんです」と答えました。\n山本さんは「そうですか。今、説明するところですよ。聞いてください」と言って、やさしく教えてくれました。\n田中さんは「先輩がこんなに親切に教えてくれるとは思っていませんでした。嬉しいです」と心の中で思いました。\n夕方、仕事が終わったところで、山本さんに「今日はよく頑張りましたね」と言われました。\n田中さんは会社に来たばかりなのに、もう一つのプロジェクトを任されました。大変ですが、やってみます。",
+      "vietnamese": "Anh Tanaka là nhân viên mới vừa vào công ty IMC. Anh đã ghi lại công việc hôm nay vào nhật ký.\nChín giờ sáng, vừa đến công ty thì anh được trưởng phòng Yamamoto gọi.\n\"Anh Tanaka, tôi SẮP kiểm tra tài liệu họp buổi sáng (ngay bây giờ). Anh có thể giúp tôi không?\" — Yamamoto nói.\nAnh Tanaka vừa định uống cà phê nhưng trả lời \"Vâng, tôi đến ngay\".\nMặc dù đã xác nhận xong tài liệu nhưng lại quên photo trước khi họp bắt đầu.\nAnh vội chạy đến máy photo, nhưng máy đang được ai đó sử dụng.\nSau khi chờ một lúc, anh Tanaka cũng bắt đầu photo. Đúng lúc đang photo thì Yamamoto đến.\n\"Xong photo rồi thì mang vào phòng họp nhé\" — Yamamoto nói.\nVừa photo xong thì anh Tanaka vội mang vào phòng họp.\nCuộc họp kết thúc lúc mười một giờ. Anh Tanaka vừa mới tổng hợp xong ghi chú họp thì đã đến giờ ăn trưa rồi.\nBuổi chiều, Yamamoto hỏi \"Anh Tanaka, anh có biết cách gửi tài liệu này không?\".\nAnh Tanaka vừa mới vào, chưa được học cách gửi, nên trả lời \"Xin lỗi, em vẫn chưa biết ạ\".\nYamamoto nói \"Vậy à. Tôi SẮP giải thích cho anh (ngay bây giờ). Hãy nghe nhé\" rồi tận tình chỉ dạy.\nAnh Tanaka nghĩ trong lòng \"Tôi không nghĩ là đàn anh lại nhiệt tình dạy đến vậy. Vui quá\".\nCuối buổi chiều, vừa xong việc thì anh được Yamamoto nói \"Hôm nay anh làm tốt lắm\".\nAnh Tanaka vừa mới vào công ty mà đã được giao ngay một dự án mới. Vất vả nhưng sẽ cố thử.",
+      "sentences": [
+        {
+          "jp": "田中さんはIMCに入社したばかりの新入社員です。今日の仕事の様子を日記に書きました。",
+          "vi": "Anh Tanaka là nhân viên mới vừa vào công ty IMC. Anh đã ghi lại công việc hôm nay vào nhật ký.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "入社します",
+              "read": "にゅうしゃします",
+              "vi": "vào công ty, gia nhập công ty"
+            },
+            {
+              "w": "新入",
+              "read": "しんにゅう",
+              "vi": "mới vào, mới gia nhập"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "tình hình, tình trạng"
+            },
+            {
+              "w": "日記",
+              "read": "にっき",
+              "vi": "nhật ký"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "新入社員",
+              "read": "しんにゅうしゃいん",
+              "vi": "nhân viên mới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかりの＋N（Bài 46 + Bài 22）",
+              "vi": "入社したばかりの新入社員 = nhân viên mới vừa vào. ばかり + の là mệnh đề bổ nghĩa danh từ（Bài 22）: vừa vào mà đã là nhân viên → còn rất mới."
+            }
+          ]
+        },
+        {
+          "jp": "朝九時、会社に着いたところで、課長の山本さんに呼ばれました。",
+          "vi": "Chín giờ sáng, vừa đến công ty thì anh được trưởng phòng Yamamoto gọi.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi"
+            },
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "呼びます",
+              "read": "よびます",
+              "vi": "gọi"
+            },
+            {
+              "w": "朝九時",
+              "read": "あさくじ",
+              "vi": "chín giờ sáng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたところで",
+              "vi": "着いたところで = vừa đến ngay lúc đó thì. たところ nhấn \"đúng thời điểm vừa xong\" — vừa đến thì lập tức được gọi."
+            }
+          ]
+        },
+        {
+          "jp": "「田中さん、今から午前中の会議の資料を確認するところです。手伝ってもらえますか」と山本さんが言いました。",
+          "vi": "\"Anh Tanaka, tôi SẮP kiểm tra tài liệu họp buổi sáng (ngay bây giờ). Anh có thể giúp tôi không?\" — Yamamoto nói.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "今から",
+              "read": "いまから",
+              "vi": "từ bây giờ, ngay từ bây giờ"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "手伝います",
+              "read": "てつだいます",
+              "vi": "giúp đỡ, hỗ trợ"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "午前中",
+              "read": "ごぜんちゅう",
+              "vi": "trong buổi sáng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるところです",
+              "vi": "確認するところです = sắp bắt đầu kiểm tra ngay bây giờ. 今から（từ bây giờ）kết hợp するところ → đang chuẩn bị bắt đầu."
+            },
+            {
+              "point": "Vてもらえますか（Bài 24）",
+              "vi": "手伝ってもらえますか = anh có thể giúp tôi không? Nhờ vả lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはちょうどコーヒーを飲もうと思っていたのですが、「わかりました。すぐ行きます」と答えました。",
+          "vi": "Anh Tanaka vừa định uống cà phê nhưng trả lời \"Vâng, tôi đến ngay\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "ちょうど",
+              "read": "ちょうど",
+              "vi": "đúng lúc, vừa vặn"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "答える",
+              "read": "こたえる",
+              "vi": "trả lời, đáp lại"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vようと思っていた（Bài 31）",
+              "vi": "飲もうと思っていた = đang định uống cà phê. V意向形（飲もう）+ と思っていた（Bài 31）: \"đang nghĩ sẽ làm\" — diễn đạt dự định dang dở trong quá khứ, trong scope ≤ Bài 46."
+            },
+            {
+              "point": "〜のですが（Bài 26）",
+              "vi": "のですが = bối cảnh tương phản. Định uống cà phê (bối cảnh) nhưng phải trả lời ngay."
+            }
+          ]
+        },
+        {
+          "jp": "資料の確認が終わったのに、会議が始まる前にコピーするのを忘れてしまいました。",
+          "vi": "Mặc dù đã xác nhận xong tài liệu nhưng lại quên photo trước khi họp bắt đầu.",
+          "vocab": [
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "始まる",
+              "read": "はじまる",
+              "vi": "bắt đầu (tự động từ)"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "bản sao, photo"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "コピーします",
+              "read": "コピーします",
+              "vi": "photo, sao chép"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接 Bài 45）",
+              "vi": "終わったのに = mặc dù đã xong mà vẫn. のに biểu thị nghịch lý — làm xong bước này rồi mà vẫn quên bước kia."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "忘れてしまいました = lỡ quên mất. てしまう nhấn sự đáng tiếc vì đã lỡ."
+            }
+          ]
+        },
+        {
+          "jp": "急いでコピー機のところへ走って行きましたが、コピー機はすでに誰かが使っているところでした。",
+          "vi": "Anh vội chạy đến máy photo, nhưng máy đang được ai đó sử dụng.",
+          "vocab": [
+            {
+              "w": "急いで",
+              "read": "いそいで",
+              "vi": "vội vàng"
+            },
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "sao chép"
+            },
+            {
+              "w": "コピー機",
+              "read": "コピーき",
+              "vi": "máy photocopy"
+            },
+            {
+              "w": "ところ",
+              "read": "ところ",
+              "vi": "chỗ; nơi"
+            },
+            {
+              "w": "走って",
+              "read": "はしって",
+              "vi": "chạy"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi"
+            },
+            {
+              "w": "すでに",
+              "read": "すでに",
+              "vi": "đã; rồi"
+            },
+            {
+              "w": "誰か",
+              "read": "だれか",
+              "vi": "ai đó"
+            },
+            {
+              "w": "使っている",
+              "read": "つかっている",
+              "vi": "đang sử dụng"
+            },
+            {
+              "w": "使っているところ",
+              "read": "つかっているところ",
+              "vi": "đang trong lúc sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ところ = danh từ \"chỗ/nơi\" (KHÔNG phải mẫu Bài 46)",
+              "vi": "コピー機のところへ = đến CHỖ máy photo. ところ ở đây là danh từ chỉ vị trí/nơi chốn — khác mẫu Bài 46 (Vているところです = đang giữa chừng). Cấu trúc: [N + の + ところ（nơi chốn）+ へ]."
+            },
+            {
+              "point": "Vているところでした",
+              "vi": "使っているところでした = đang sử dụng (quá khứ). Vているところ trong thì quá khứ: khi Tanaka đến thì máy đang bị người khác dùng dở."
+            }
+          ]
+        },
+        {
+          "jp": "少し待ったあとで、田中さんもコピーを始めました。コピーしているところに、山本さんが来ました。",
+          "vi": "Sau khi chờ một lúc, anh Tanaka cũng bắt đầu photo. Đúng lúc đang photo thì Yamamoto đến.",
+          "vocab": [
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "待ちます",
+              "read": "まちます",
+              "vi": "chờ, đợi"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "bản sao, photo"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで（Bài 34）",
+              "vi": "待ったあとで = sau khi đã chờ. あとで chỉ trình tự: chờ xong rồi mới bắt đầu."
+            },
+            {
+              "point": "Vているところに",
+              "vi": "コピーしているところに = đúng lúc đang photo thì. ところに nhấn mạnh \"đúng giữa lúc đang làm thì có sự kiện bất ngờ xảy đến\"."
+            }
+          ]
+        },
+        {
+          "jp": "「コピーが終わったら、会議室に持ってきてください」と山本さんは言いました。",
+          "vi": "\"Xong photo rồi thì mang vào phòng họp nhé\" — Yamamoto nói.",
+          "vocab": [
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "bản sao, photo"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "持ってきます",
+              "read": "もってきます",
+              "vi": "mang đến"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "終わったら = khi xong rồi thì. Điều kiện thời gian: photo xong là mang vào ngay."
+            },
+            {
+              "point": "Vてきてください（Bài 14）",
+              "vi": "持ってきてください = hãy mang đến. て形 nối hai hành động: mang + đến."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはコピーを終えたところで、急いで会議室に持って行きました。",
+          "vi": "Vừa photo xong thì anh Tanaka vội mang vào phòng họp.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "sao chép"
+            },
+            {
+              "w": "終えた",
+              "read": "おえた",
+              "vi": "đã kết thúc; hoàn tất"
+            },
+            {
+              "w": "ところ",
+              "read": "ところ",
+              "vi": "lúc; vừa mới"
+            },
+            {
+              "w": "急いで",
+              "read": "いそいで",
+              "vi": "vội vàng"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "持って",
+              "read": "もって",
+              "vi": "mang; cầm"
+            },
+            {
+              "w": "持って行きました",
+              "read": "もっていきました",
+              "vi": "đã mang đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたところで",
+              "vi": "終えたところで = vừa xong thì. たところ nhấn đúng thời điểm hoàn thành — vừa photo xong thì ngay lập tức mang đi."
+            }
+          ]
+        },
+        {
+          "jp": "会議は十一時に終わりました。田中さんは会議のメモをまとめたばかりなのに、もう昼ごはんの時間になっていました。",
+          "vi": "Cuộc họp kết thúc lúc mười một giờ. Anh Tanaka vừa mới tổng hợp xong ghi chú họp thì đã đến giờ ăn trưa rồi.",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "ghi chú"
+            },
+            {
+              "w": "まとめる",
+              "read": "まとめる",
+              "vi": "tổng hợp, thu xếp"
+            },
+            {
+              "w": "昼ごはん",
+              "read": "ひるごはん",
+              "vi": "bữa trưa"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "十一時",
+              "read": "じゅういちじ",
+              "vi": "mười một giờ"
+            },
+            {
+              "w": "まとめます",
+              "read": "まとめます",
+              "vi": "tổng hợp, sắp xếp lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかりなのに（Bài 46 + Bài 45）",
+              "vi": "まとめたばかりなのに = vừa mới tổng hợp xong mà (đã hết giờ). ばかり（còn rất mới）+ のに（nghịch lý Bài 45）: vừa xong mà thời gian đã trôi mất."
+            }
+          ]
+        },
+        {
+          "jp": "午後、山本さんが「田中さん、この書類の送り方がわかりますか」と聞きました。",
+          "vi": "Buổi chiều, Yamamoto hỏi \"Anh Tanaka, anh có biết cách gửi tài liệu này không?\".",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "tài liệu, hồ sơ"
+            },
+            {
+              "w": "送る",
+              "read": "おくる",
+              "vi": "gửi"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "送り方",
+              "read": "おくりかた",
+              "vi": "cách gửi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（Bài 44）",
+              "vi": "送り方 = cách gửi. V-ます形 bỏ ます + 方: 送ります → 送り + 方."
+            },
+            {
+              "point": "〜がわかりますか（Bài 9）",
+              "vi": "わかりますか = có biết không? Động từ わかります dùng với が."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは入ったばかりで、送り方をまだ習っていなかったので、「すみません、まだわからないんです」と答えました。",
+          "vi": "Anh Tanaka vừa mới vào, chưa được học cách gửi, nên trả lời \"Xin lỗi, em vẫn chưa biết ạ\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "入った",
+              "read": "はいった",
+              "vi": "đã vào"
+            },
+            {
+              "w": "ばかり",
+              "read": "ばかり",
+              "vi": "vừa mới"
+            },
+            {
+              "w": "送り方",
+              "read": "おくりかた",
+              "vi": "cách gửi"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn chưa"
+            },
+            {
+              "w": "習っていなかった",
+              "read": "ならっていなかった",
+              "vi": "vẫn chưa học"
+            },
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "わからない",
+              "read": "わからない",
+              "vi": "không hiểu; không biết"
+            },
+            {
+              "w": "答えました",
+              "read": "こたえました",
+              "vi": "đã trả lời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかり（lý do）",
+              "vi": "入ったばかりで = vì vừa mới vào. ばかり + で nêu lý do: còn rất mới nên chưa biết gì."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "わからないんです = xin giải thích là chưa biết. んです nhấn \"đây là hoàn cảnh của tôi\"."
+            }
+          ]
+        },
+        {
+          "jp": "山本さんは「そうですか。今、説明するところですよ。聞いてください」と言って、やさしく教えてくれました。",
+          "vi": "Yamamoto nói \"Vậy à. Tôi SẮP giải thích cho anh (ngay bây giờ). Hãy nghe nhé\" rồi tận tình chỉ dạy.",
+          "vocab": [
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "やさしく",
+              "read": "やさしく",
+              "vi": "nhẹ nhàng, tận tình"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるところですよ",
+              "vi": "説明するところですよ = đang chuẩn bị giải thích ngay đây. るところ = sắp bắt đầu; よ cuối câu nhấn mạnh cho người nghe biết."
+            },
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "やさしく教えてくれました = tận tình dạy cho (tôi). くれる = người khác làm điều tốt cho tôi."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは「先輩がこんなに親切に教えてくれるとは思っていませんでした。嬉しいです」と心の中で思いました。",
+          "vi": "Anh Tanaka nghĩ trong lòng \"Tôi không nghĩ là đàn anh lại nhiệt tình dạy đến vậy. Vui quá\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "đàn anh, tiền bối"
+            },
+            {
+              "w": "こんなに",
+              "read": "こんなに",
+              "vi": "như thế này, đến mức này"
+            },
+            {
+              "w": "親切",
+              "read": "しんせつ",
+              "vi": "nhiệt tình, tử tế"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui, hạnh phúc"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "心の中",
+              "read": "こころのなか",
+              "vi": "trong lòng, trong tâm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは思っていませんでした（Bài 21）",
+              "vi": "〜とは思っていませんでした = đã không nghĩ rằng ~. と trích dẫn nội dung suy nghĩ; 思っていませんでした = trạng thái không nghĩ trước đó."
+            }
+          ]
+        },
+        {
+          "jp": "夕方、仕事が終わったところで、山本さんに「今日はよく頑張りましたね」と言われました。",
+          "vi": "Cuối buổi chiều, vừa xong việc thì anh được Yamamoto nói \"Hôm nay anh làm tốt lắm\".",
+          "vocab": [
+            {
+              "w": "夕方",
+              "read": "ゆうがた",
+              "vi": "buổi chiều tối, cuối buổi chiều"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "頑張ります",
+              "read": "がんばります",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたところで",
+              "vi": "終わったところで = vừa xong việc thì. たところ nhấn đúng thời điểm kết thúc — vừa xong thì lập tức nghe khen."
+            },
+            {
+              "point": "〜と言われました",
+              "vi": "言われました = được nói (bị nói). Thể bị động giản dị — xuất hiện tự nhiên trong văn nói khi kể lại lời ai đó nói với mình."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは会社に来たばかりなのに、もう一つのプロジェクトを任されました。大変ですが、やってみます。",
+          "vi": "Anh Tanaka vừa mới vào công ty mà đã được giao ngay một dự án mới. Vất vả nhưng sẽ cố thử.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "プロジェクト",
+              "read": "プロジェクト",
+              "vi": "dự án (project)"
+            },
+            {
+              "w": "任されます",
+              "read": "まかされます",
+              "vi": "được giao trọng trách"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khó khăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかりなのに（Bài 46 + Bài 45）",
+              "vi": "来たばかりなのに = vừa mới đến mà. ばかり（còn rất mới）+ のに（nghịch lý）: mới vào mà đã được giao dự án — thể hiện ngạc nhiên/chút áp lực."
+            },
+            {
+              "point": "Vてみます（Bài 40）",
+              "vi": "やってみます = sẽ thử làm. てみます = thử xem sao, với tâm thế tích cực."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "IMCに入社したばかりの新入社員",
+          "label": "Vたばかりの＋N（vừa mới — mệnh đề bổ nghĩa）"
+        },
+        {
+          "excerpt": "会社に着いたところで",
+          "label": "Vたところで（vừa đến ngay lúc đó）"
+        },
+        {
+          "excerpt": "午前中の会議の資料を確認するところです",
+          "label": "Vるところです（sắp bắt đầu）"
+        },
+        {
+          "excerpt": "コピー機はすでに誰かが使っているところでした",
+          "label": "Vているところでした（đang giữa chừng — quá khứ）"
+        },
+        {
+          "excerpt": "コピーしているところに、山本さんが来ました",
+          "label": "Vているところに（đúng lúc đang làm thì）"
+        },
+        {
+          "excerpt": "コピーを終えたところで",
+          "label": "Vたところで（vừa xong thì）"
+        },
+        {
+          "excerpt": "まとめたばかりなのに",
+          "label": "Vたばかりなのに（vừa xong mà…）"
+        },
+        {
+          "excerpt": "今、説明するところですよ",
+          "label": "Vるところです（sắp bắt đầu）"
+        },
+        {
+          "excerpt": "仕事が終わったところで",
+          "label": "Vたところで（vừa xong thì）"
+        },
+        {
+          "excerpt": "会社に来たばかりなのに",
+          "label": "Vたばかりなのに（mới vào mà đã…）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "朝、田中さんが会社に着いたとき、最初に何が起きましたか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "田中さんはコーヒーを飲み始めました",
+            "山本さんに資料の確認を手伝うように頼まれました",
+            "会議室に資料を持って行きました",
+            "コピー機の前で待ちました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ chuỗi sự kiện ngay đầu:「会社に着いたところで、課長の山本さんに呼ばれました」(vừa đến thì bị gọi), rồi Yamamoto nói「今から午前中の会議の資料を確認するところです。手伝ってもらえますか」— đây là việc ĐẦU TIÊN xảy ra sau khi Tanaka đến, thể hiện qua Vたところで (vừa xong thì ngay lập tức). Đáp án 0 sai vì uống cà phê là điều Tanaka định làm nhưng đã phải nhường lại; đáp án 2 sai vì mang tài liệu vào phòng họp là việc xảy ra SAU khi photo xong; đáp án 3 sai vì chờ trước máy photo là việc xảy ra về sau trong ngày.",
+          "tip": "Câu hỏi \"最初に何が起きましたか\" → đọc sự kiện ngay sau mẫu たところで hoặc たところ ở đầu chuỗi thời gian trong bài. たところで nhấn \"vừa xong thì ngay lập tức việc tiếp theo xảy ra\".",
+          "qt": {
+            "q": "Buổi sáng, khi anh Tanaka đến công ty, chuyện gì đã xảy ra đầu tiên?",
+            "o": [
+              "Anh Tanaka bắt đầu uống cà phê",
+              "Anh Yamamoto nhờ anh Tanaka giúp kiểm tra tài liệu",
+              "Anh Tanaka mang tài liệu đến phòng họp",
+              "Anh Tanaka chờ trước máy photocopy"
+            ]
+          }
+        },
+        {
+          "q": "田中さんがコピーしているところに山本さんが来たとき、山本さんは何と言いましたか。",
+          "evi": [
+            6,
+            7
+          ],
+          "options": [
+            "「コピーはもうしなくていいです」と言いました",
+            "「コピーが終わったら、会議室に持ってきてください」と言いました",
+            "「急いでコピーしてください」と言いました",
+            "「コピー機が壊れていますよ」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nêu rõ:「コピーしているところに、山本さんが来ました。「コピーが終わったら、会議室に持ってきてください」と山本さんは言いました」— lời thoại trực tiếp xác nhận yêu cầu của Yamamoto. Vているところに nhấn \"đúng lúc đang giữa chừng thì người khác xuất hiện\". Đáp án 0 sai vì Yamamoto không nói không cần photo; đáp án 2 sai vì không có yêu cầu vội vàng hơn; đáp án 3 sai vì máy photo vẫn hoạt động bình thường (Tanaka đang dùng).",
+          "tip": "Vているところに ≠ たら: ところに nhấn \"bất ngờ ai đó đến ĐÚNG LÚC đang làm\". Câu hỏi sau mẫu này thường hỏi \"người đến đó nói/làm gì\" → tìm lời thoại trực tiếp ngay tiếp theo trong bài.",
+          "qt": {
+            "q": "Khi anh Yamamoto đến chỗ anh Tanaka đang photocopy, anh Yamamoto đã nói gì?",
+            "o": [
+              "Anh ấy nói: “Không cần photocopy nữa đâu.”",
+              "Anh ấy nói: “Photocopy xong thì mang đến phòng họp nhé.”",
+              "Anh ấy nói: “Hãy nhanh chóng photocopy đi.”",
+              "Anh ấy nói: “Máy photocopy bị hỏng rồi.”"
+            ]
+          }
+        },
+        {
+          "q": "「田中さんは入ったばかりで、送り方をまだ習っていなかった」とありますが、ここでの「ばかり」はどんな意味ですか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "「たくさん」という意味です",
+            "「もう」という意味です",
+            "「まだ日が浅くて、十分な経験がない」という意味です",
+            "「すでに終わった」という意味です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu「入ったばかりで、送り方をまだ習っていなかった」cho thấy ばかり ở đây mang sắc thái \"vừa mới vào, ngày còn ngắn, chưa đủ thời gian để học cách làm việc\" — ばかり dùng bởi vì trọng tâm là cảm giác \"còn rất mới / chưa quen\", không phải chỉ thời điểm chính xác. Đáp án 0 sai vì ばかり không có nghĩa \"nhiều\" (たくさん); đáp án 1 sai vì \"rồi/đã\" (もう) là từ trái nghĩa với ばかり (mới, chưa đủ thời gian); đáp án 3 sai vì \"đã xong\" (すでに終わった) là ý nghĩa của たところ, không phải ばかり.",
+          "tip": "ばかり = \"còn rất mới, chưa đủ thời gian\" → thường xuất hiện cùng \"まだ〜ていない / よくわからない / 経験がない\". Nếu câu có từ まだ đi kèm ばかり, chắc chắn ý nghĩa là \"còn ngắn ngày, chưa quen\".",
+          "qt": {
+            "q": "Trong câu “Anh Tanaka mới vào công ty nên vẫn chưa được học cách gửi tài liệu”, 「ばかり」 ở đây có nghĩa là gì?",
+            "o": [
+              "Nó có nghĩa là “nhiều”.",
+              "Nó có nghĩa là “đã”.",
+              "Nó có nghĩa là “mới đây thôi, chưa có nhiều kinh nghiệm”.",
+              "Nó có nghĩa là “đã kết thúc”."
+            ]
+          }
+        },
+        {
+          "q": "この文章から、田中さんの今日一日についてわかることは何ですか。",
+          "evi": [
+            12,
+            14,
+            15
+          ],
+          "options": [
+            "田中さんは今日、何もミスしないで、完璧に仕事ができました",
+            "田中さんは先輩に親切にしてもらい、大変だったが、新しいプロジェクトも任されました",
+            "田中さんは仕事が嫌いになって、会社を早く帰りました",
+            "田中さんはコピー機の使い方がわからないので、山本さんに教えてもらいました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Tổng hợp toàn bộ sự kiện trong ngày: (1) lỡ quên photo tài liệu họp (「コピーするのを忘れてしまいました」); (2) Yamamoto tận tình dạy cách gửi tài liệu (「やさしく教えてくれました」); (3) cuối ngày được khen「よく頑張りましたね」; (4) được giao dự án mới (「もう一つのプロジェクトを任されました」). Chỉ đáp án 1 bao quát đủ: vất vả nhưng được hỗ trợ và được trao nhiệm vụ mới. Đáp án 0 sai vì rõ ràng có lỡ quên (有ミス); đáp án 2 sai vì Tanaka không về sớm, còn ở lại làm đến cuối ngày; đáp án 3 sai vì Yamamoto dạy cách GỬI TÀI LIỆU (書類の送り方), không phải cách dùng máy photo.",
+          "tip": "Câu hỏi tổng hợp \"一日についてわかることは\" → không chọn đáp án chỉ đúng MỘT chi tiết. Phải tìm đáp án bao quát được CẢ trọng tâm: gặp khó + được giúp + kết quả tích cực. Loại ngay đáp án mâu thuẫn với sự kiện rõ ràng trong bài.",
+          "qt": {
+            "q": "Từ bài đọc này, có thể biết được điều gì về ngày hôm nay của anh Tanaka?",
+            "o": [
+              "Hôm nay anh Tanaka không mắc lỗi nào và làm việc một cách hoàn hảo",
+              "Anh Tanaka được đàn anh đối xử tử tế; dù ngày hôm nay vất vả, anh còn được giao một dự án mới",
+              "Anh Tanaka bắt đầu ghét công việc và về công ty sớm",
+              "Vì không biết cách sử dụng máy photocopy nên anh Tanaka đã được anh Yamamoto chỉ dẫn"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Bể bơi suối nước nóng Asahi mới khai trương",
+      "japanese": "あさひ温泉プールのお知らせ\n先月、駅の近くに新しい温泉プールができたばかりです。\nまだオープンしたばかりですが、もう大人気で、毎日たくさんの人が来ています。\n温泉とプールが一緒に楽しめる、この町で初めての施設です。\n曜日｜開いている時間\n月・水・金｜10:00〜21:00\n土・日・祝日｜9:00〜22:00\n火｜休み\nりょうきんは、大人・子ども・学生で違いますので、よく見てください。\nりょうきん｜大人｜子ども｜学生\n平日｜800円｜300円｜500円\n土・日・祝日｜1,000円｜400円｜600円\n※できたばかりなので、タオルはまだ貸していません。自分で持って来てください。\n※火曜日はプールのそうじをしていますので、休みです。\n電話：045-678-9012（9:00〜18:00）",
+      "vietnamese": "Thông báo bể bơi suối nước nóng Asahi\nTháng trước, gần ga tàu vừa mới xuất hiện một bể bơi suối nước nóng mới.\nTuy mới khai trương chưa lâu nhưng đã rất được ưa chuộng, mỗi ngày có rất nhiều người đến.\nĐây là cơ sở đầu tiên trong thị trấn có thể tận hưởng cả suối nước nóng và bể bơi cùng lúc.\nThứ trong tuần｜Giờ mở cửa\nThứ Hai・Thứ Tư・Thứ Sáu｜10:00〜21:00\nThứ Bảy・Chủ nhật・Ngày lễ｜9:00〜22:00\nThứ Ba｜Nghỉ\nGiá vé khác nhau theo người lớn・trẻ em・học sinh, xin hãy xem kỹ.\nGiá vé｜Người lớn｜Trẻ em｜Học sinh\nNgày thường｜800 yên｜300 yên｜500 yên\nThứ Bảy・Chủ nhật・Ngày lễ｜1.000 yên｜400 yên｜600 yên\n※Vì mới hoàn thành nên hiện chưa cho thuê khăn tắm. Xin quý khách tự mang theo.\n※Vào thứ Ba, bể bơi đang được dọn dẹp nên đóng cửa.\nĐiện thoại: 045-678-9012 (9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "あさひ温泉プールのお知らせ",
+          "vi": "Thông báo bể bơi suối nước nóng Asahi",
+          "vocab": [
+            {
+              "w": "あさひ",
+              "read": "あさひ",
+              "vi": "bình minh; tên riêng Asahi"
+            },
+            {
+              "w": "温泉",
+              "read": "おんせん",
+              "vi": "suối nước nóng, onsen"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 2）",
+              "vi": "あさひ温泉プールのお知らせ = thông báo của bể bơi suối nước nóng Asahi. Tiêu đề thông báo, đặt tên riêng cho cơ sở."
+            }
+          ]
+        },
+        {
+          "jp": "先月、駅の近くに新しい温泉プールができたばかりです。",
+          "keys": [
+            {
+              "w": "先月",
+              "why": "Mốc thời gian mới khai trương — nền tảng để hiểu vì sao dòng ※ sau nói \"できたばかりなので\" (bể bơi còn quá mới nên chưa có khăn cho thuê)."
+            }
+          ],
+          "vi": "Tháng trước, gần ga tàu vừa mới xuất hiện một bể bơi suối nước nóng mới.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga tàu"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, chỗ gần"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "温泉",
+              "read": "おんせん",
+              "vi": "suối nước nóng, onsen"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "được xây xong, hình thành, xuất hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかりです",
+              "vi": "できたばかりです = vừa mới hoàn thành/xuất hiện. できます（Bài 18 nghĩa khác：có thể/hoàn thành）ở đây nghĩa \"hình thành xong\" — kết hợp ばかり nhấn \"còn rất mới, tháng trước mới xong\"."
+            }
+          ]
+        },
+        {
+          "jp": "まだオープンしたばかりですが、もう大人気で、毎日たくさんの人が来ています。",
+          "keys": [
+            {
+              "w": "大人気",
+              "why": "Thông tin nền cho thấy nhu cầu cao — bối cảnh, không phải căn cứ trực tiếp câu hỏi."
+            }
+          ],
+          "vi": "Tuy mới khai trương chưa lâu nhưng đã rất được ưa chuộng, mỗi ngày có rất nhiều người đến.",
+          "vocab": [
+            {
+              "w": "オープン",
+              "read": "オープン",
+              "vi": "sự mở cửa, khai trương"
+            },
+            {
+              "w": "大人気",
+              "read": "だいにんき",
+              "vi": "rất được ưa chuộng, hot"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "オープンします",
+              "read": "オープンします",
+              "vi": "khai trương, mở cửa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかりですが（Bài 46 + が逆接）",
+              "vi": "オープンしたばかりですが = tuy vừa mới khai trương nhưng. ばかり nhấn \"còn rất mới\"; が nối nghịch ý với vế sau (đã rất nổi tiếng dù còn mới)."
+            },
+            {
+              "point": "Vています（習慣・Bài 28 ôn）",
+              "vi": "来ています = (mọi người) đang/vẫn đến. Diễn tả tình trạng lặp lại đều đặn mỗi ngày."
+            }
+          ]
+        },
+        {
+          "jp": "温泉とプールが一緒に楽しめる、この町で初めての施設です。",
+          "vi": "Đây là cơ sở đầu tiên trong thị trấn có thể tận hưởng cả suối nước nóng và bể bơi cùng lúc.",
+          "vocab": [
+            {
+              "w": "温泉",
+              "read": "おんせん",
+              "vi": "suối nước nóng, onsen"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "一緒に",
+              "read": "いっしょに",
+              "vi": "cùng nhau, cùng lúc"
+            },
+            {
+              "w": "楽しめる",
+              "read": "たのしめる",
+              "vi": "có thể tận hưởng (khả năng của 楽しむ)"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn, phố"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên, mới (chỉ khi đó)"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, thiết bị công cộng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "楽しめる = có thể tận hưởng, thể khả năng của 楽しみます. Câu này bổ nghĩa cho danh từ 施設 phía sau（mệnh đề bổ nghĩa danh từ Bài 22）."
+            }
+          ]
+        },
+        {
+          "jp": "曜日｜開いている時間",
+          "keys": [
+            {
+              "w": "開いている時間",
+              "why": "Header bảng giờ mở cửa — mốc để dò hàng thứ Ba (câu hỏi 2: Watto muốn đi tối thứ Ba)."
+            }
+          ],
+          "vi": "Thứ trong tuần｜Giờ mở cửa",
+          "vocab": [
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "開いています",
+              "read": "あいています",
+              "vi": "đang mở cửa (trạng thái)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（情報検索）",
+              "vi": "Hàng tiêu đề (header) của bảng giờ mở cửa, xác định 2 cột: thứ trong tuần / giờ mở cửa — dùng để dò các hàng bên dưới."
+            },
+            {
+              "point": "Vています（結果状態・Bài 29 ôn）",
+              "vi": "開いている = đang ở trạng thái mở (kết quả của 開きます — tự động詞)."
+            }
+          ]
+        },
+        {
+          "jp": "月・水・金｜10:00〜21:00",
+          "vi": "Thứ Hai・Thứ Tư・Thứ Sáu｜10:00〜21:00",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai (viết tắt 月曜日)"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư (viết tắt 水曜日)"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu (viết tắt 金曜日)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとNとN（liệt kê・Bài 4 ôn）",
+              "vi": "月・水・金 = liệt kê 3 ngày bằng dấu ・ (thay cho と trong văn viết bảng biểu, cùng nghĩa \"và\")."
+            }
+          ]
+        },
+        {
+          "jp": "土・日・祝日｜9:00〜22:00",
+          "vi": "Thứ Bảy・Chủ nhật・Ngày lễ｜9:00〜22:00",
+          "vocab": [
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy (viết tắt 土曜日)"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "Chủ nhật (viết tắt 日曜日)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞・時刻（Bài 4）",
+              "vi": "9:00〜22:00 = từ 9 giờ đến 22 giờ. 〜 nối khoảng thời gian, giống NからNまで（Bài 4）."
+            }
+          ]
+        },
+        {
+          "jp": "火｜休み",
+          "keys": [
+            {
+              "w": "火｜休み",
+              "why": "Căn cứ trực tiếp câu hỏi 2: Watto định đi vào tối thứ Ba — hàng này khẳng định thứ Ba nghỉ, không mở cửa dù là buổi tối."
+            }
+          ],
+          "vi": "Thứ Ba｜Nghỉ",
+          "vocab": [
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba (viết tắt 火曜日)"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "ngày nghỉ, sự nghỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（情報検索）",
+              "vi": "Hàng dữ liệu thứ 3 của bảng giờ mở cửa: thứ Ba là ngày duy nhất KHÔNG mở cửa (休み) — ô trống không có thêm cột giờ."
+            }
+          ]
+        },
+        {
+          "jp": "りょうきんは、大人・子ども・学生で違いますので、よく見てください。",
+          "vi": "Giá vé khác nhau theo người lớn・trẻ em・học sinh, xin hãy xem kỹ.",
+          "vocab": [
+            {
+              "w": "りょうき",
+              "read": "りょうき",
+              "vi": "giá cước, tiền phí"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "りょうきん",
+              "read": "りょうきん",
+              "vi": "phí, giá vé (料金)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "違いますので = vì khác nhau nên. ので nối lý do trước lời đề nghị 見てください."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "よく見てください = xin hãy xem kỹ. Lời đề nghị lịch sự hướng dẫn người đọc chú ý bảng giá bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "りょうきん｜大人｜子ども｜学生",
+          "keys": [
+            {
+              "w": "りょうきん｜大人｜子ども｜学生",
+              "why": "Header bảng giá — mốc để dò cột người lớn/trẻ em (câu hỏi 1) và cột học sinh (câu hỏi 2, đáp án nhiễu)."
+            }
+          ],
+          "vi": "Giá vé｜Người lớn｜Trẻ em｜Học sinh",
+          "vocab": [
+            {
+              "w": "りょうき",
+              "read": "りょうき",
+              "vi": "giá cước, tiền phí"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（情報検索）",
+              "vi": "Hàng tiêu đề (header) của bảng giá, xác định 4 cột: loại giá / người lớn / trẻ em / học sinh — dùng để dò các hàng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "平日｜800円｜300円｜500円",
+          "vi": "Ngày thường｜800 yên｜300 yên｜500 yên",
+          "vocab": [
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (không phải cuối tuần/lễ)"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (đơn vị tiền Nhật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞（Bài 11 ôn）",
+              "vi": "800円 = 800 yên. 円 là đơn vị tiền tệ, đọc thẳng số + えん."
+            }
+          ]
+        },
+        {
+          "jp": "土・日・祝日｜1,000円｜400円｜600円",
+          "keys": [
+            {
+              "w": "1,000円",
+              "why": "Giá người lớn cuối tuần/lễ — căn cứ trực tiếp câu hỏi 1 (Miller đi chủ nhật)."
+            },
+            {
+              "w": "400円",
+              "why": "Giá trẻ em cuối tuần/lễ — cộng với giá người lớn để ra tổng tiền câu hỏi 1."
+            }
+          ],
+          "vi": "Thứ Bảy・Chủ nhật・Ngày lễ｜1.000 yên｜400 yên｜600 yên",
+          "vocab": [
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ, ngày quốc lễ"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（情報検索）",
+              "vi": "Hàng dữ liệu thứ 2 của bảng giá: cuối tuần/ngày lễ giá cao hơn ngày thường (1,000円 so với 800円 cho người lớn)."
+            }
+          ]
+        },
+        {
+          "jp": "※できたばかりなので、タオルはまだ貸していません。自分で持って来てください。",
+          "keys": [
+            {
+              "w": "タオルはまだ貸していません",
+              "why": "Bẫy ※ liên quan câu hỏi 2 (đáp án nhiễu \"có thể mượn khăn\" — thực tế CHƯA cho thuê)."
+            }
+          ],
+          "vi": "※Vì mới hoàn thành nên hiện chưa cho thuê khăn tắm. Xin quý khách tự mang theo.",
+          "vocab": [
+            {
+              "w": "できた",
+              "read": "できた",
+              "vi": "vừa hoàn thành; mới làm xong"
+            },
+            {
+              "w": "ばかり",
+              "read": "ばかり",
+              "vi": "vừa mới"
+            },
+            {
+              "w": "タオル",
+              "read": "タオル",
+              "vi": "khăn tắm"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn chưa"
+            },
+            {
+              "w": "貸していません",
+              "read": "かしていません",
+              "vi": "chưa cho mượn"
+            },
+            {
+              "w": "自分で",
+              "read": "じぶんで",
+              "vi": "tự mình"
+            },
+            {
+              "w": "持って",
+              "read": "もって",
+              "vi": "mang; cầm"
+            },
+            {
+              "w": "持って来てください",
+              "read": "もってきてください",
+              "vi": "hãy mang đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたばかりなので（Bài 46 + Bài 39）",
+              "vi": "できたばかりなので = vì vừa mới hoàn thành nên. ばかり（còn rất mới）+ ので（lý do）: chính vì còn mới nên dịch vụ cho thuê khăn chưa kịp chuẩn bị."
+            },
+            {
+              "point": "Vていません（Bài 31 ôn）",
+              "vi": "まだ貸していません = vẫn chưa cho thuê. まだ〜ていません diễn tả việc chưa xảy ra tính đến hiện tại."
+            },
+            {
+              "point": "Vて来てください（Bài 14 + Bài 43 ôn）",
+              "vi": "持って来てください = xin hãy mang đến. Lời đề nghị lịch sự yêu cầu khách tự chuẩn bị khăn."
+            }
+          ]
+        },
+        {
+          "jp": "※火曜日はプールのそうじをしていますので、休みです。",
+          "keys": [
+            {
+              "w": "火曜日は",
+              "why": "Điều kiện câu hỏi 2: Watto định đi vào thứ Ba — dòng này xác nhận lý do thứ Ba đóng cửa."
+            },
+            {
+              "w": "休みです",
+              "why": "Khẳng định lại (cùng bảng) thứ Ba nghỉ — căn cứ trực tiếp loại đáp án \"có thể đi được\"."
+            }
+          ],
+          "vi": "※Vào thứ Ba, bể bơi đang được dọn dẹp nên đóng cửa.",
+          "vocab": [
+            {
+              "w": "火曜日",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "そうじします",
+              "read": "そうじします",
+              "vi": "dọn dẹp, quét dọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていますので（Bài 29 + Bài 39 ôn）",
+              "vi": "そうじをしていますので = vì đang dọn dẹp nên. ています diễn tả hành động đang diễn ra đều đặn (thứ Ba nào cũng vậy), ので nêu lý do đóng cửa."
+            }
+          ]
+        },
+        {
+          "jp": "電話：045-678-9012（9:00〜18:00）",
+          "vi": "Điện thoại: 045-678-9012 (9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（情報検索）",
+              "vi": "Dòng liên hệ cuối bảng thông báo: số điện thoại + khung giờ nghe máy — chi tiết thường xuất hiện trong đề thi 情報検索."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "温泉プールができたばかりです",
+          "label": "Vたばかりです（vừa mới hoàn thành — MỚI Bài 46）"
+        },
+        {
+          "excerpt": "オープンしたばかりですが",
+          "label": "Vたばかりですが（vừa mới — MỚI Bài 46）"
+        },
+        {
+          "excerpt": "できたばかりなので",
+          "label": "Vたばかりなので（vừa mới — lý do・MỚI Bài 46）"
+        },
+        {
+          "excerpt": "楽しめる",
+          "label": "V可能形（Bài 27・ôn lại）"
+        },
+        {
+          "excerpt": "まだ貸していません",
+          "label": "まだ〜ていません（Bài 31・ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Tên cơ sở + giới thiệu bể bơi suối nước nóng mới khai trương, đang hot. Chỉ là bối cảnh, không chứa căn cứ trả lời trực tiếp.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng giờ mở cửa",
+          "topic": 4,
+          "note": "Bảng 曜日×giờ mở cửa: xác nhận thứ Ba nghỉ hẳn kể cả buổi tối (câu 2). Không liên quan câu 1 (câu 1 chỉ hỏi tổng tiền, tra ở bảng giá).",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "Bảng giá vé",
+          "topic": 9,
+          "note": "Bảng giá theo đối tượng × ngày thường/cuối tuần: dòng cuối tuần (1,000円 người lớn + 400円 trẻ em) là căn cứ tính tổng tiền câu 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "turn",
+          "label": "Điều kiện ※ bẫy",
+          "topic": 13,
+          "note": "Hai dòng ※: dòng đầu là bẫy về khăn tắm (chưa cho thuê) dùng làm đáp án nhiễu câu 2; dòng sau xác nhận lại lý do thứ Ba nghỉ.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 14,
+          "to": 14,
+          "kind": "body",
+          "label": "Liên hệ",
+          "topic": 14,
+          "note": "Số điện thoại và khung giờ liên hệ — không liên quan trực tiếp 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは日曜日の朝、子どもと二人であさひ温泉プールに行きたいです。全部でいくら払いますか。",
+          "options": [
+            "1,400円",
+            "1,200円",
+            "800円",
+            "1,300円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0（1,400円）. Chủ nhật thuộc hàng「土・日・祝日」của bảng giá: người lớn 1,000円、trẻ em 400円 → 1,000 + 400 = 1,400円. Đáp án 2（800円）sai vì đó là giá NGÀY THƯỜNG cho 1 người lớn, chưa cộng vé trẻ em và sai cả ngày; đáp án 1（1,200円）và 3（1,300円）sai vì cộng nhầm giữa giá ngày thường và cuối tuần hoặc thiếu vé của 1 người — không khớp đúng cả 2 điều kiện \"chủ nhật\" + \"người lớn với trẻ em\".",
+          "tip": "Câu hỏi ghép 2 điều kiện \"ngày (thường/cuối tuần) + đối tượng (người lớn/trẻ em)\" → trước tiên xác định ĐÚNG hàng theo ngày trong bảng giá, sau đó cộng đúng cột theo từng người trong nhóm đi cùng.",
+          "evi": [
+            9,
+            11
+          ],
+          "qt": {
+            "q": "Anh Miller muốn đi hồ suối nước nóng Asahi cùng con vào sáng Chủ nhật. Tổng cộng phải trả bao nhiêu?",
+            "o": [
+              "1.400 yên",
+              "1.200 yên",
+              "800 yên",
+              "1.300 yên"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは今度の火曜日の夜、初めてあさひ温泉プールに行こうと思っています。ワットさんについて、正しいのはどれですか。",
+          "options": [
+            "火曜日の夜も開いているので、行くことができます",
+            "火曜日は休みなので、行くことができません",
+            "タオルを借りることができるので、持って行かなくてもいいです",
+            "学生ですから、300円で入ることができます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng giờ mở cửa ghi rõ「火｜休み」và dòng ※ giải thích thêm「※火曜日はプールのそうじをしていますので、休みです」— thứ Ba là ngày duy nhất đóng cửa để dọn dẹp, nên Watto KHÔNG thể đi được. Đáp án 0 sai vì trái ngược hoàn toàn với bảng giờ; đáp án 2 sai vì dòng ※ khác ghi rõ「タオルはまだ貸していません」(chưa cho thuê khăn, phải tự mang), không phải có thể mượn; đáp án 3 sai vì 300円 là giá vé của TRẺ EM, không phải học sinh (học sinh là 500円/平日 hoặc 600円/土日祝) — và dù đúng giá thì thứ Ba vẫn đóng cửa nên không liên quan.",
+          "tip": "Câu hỏi ghép \"ngày + có đi được không\" → trước tiên tra ĐÚNG hàng của ngày đó trong bảng giờ mở cửa, rồi đọc dòng ※ liên quan để xác nhận thêm chi tiết (lý do đóng cửa, có được mượn đồ hay không).",
+          "evi": [
+            7,
+            13
+          ],
+          "qt": {
+            "q": "Anh Watt dự định lần đầu đến hồ suối nước nóng Asahi vào tối thứ Ba tới. Điều nào sau đây đúng về anh Watt?",
+            "o": [
+              "Vì hồ cũng mở cửa vào tối thứ Ba nên anh ấy có thể đến",
+              "Vì hồ đóng cửa vào thứ Ba nên anh ấy không thể đến",
+              "Vì có thể mượn khăn nên anh ấy không cần mang theo",
+              "Vì là học sinh nên anh ấy có thể vào với giá 300 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

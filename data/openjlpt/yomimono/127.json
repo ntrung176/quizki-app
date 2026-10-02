@@ -1,0 +1,3203 @@
+{
+  "bai": 127,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học 127 giúp người học nắm bắt các mẫu ngữ pháp khẩu ngữ và bộc lộ tâm lý điển hình trong các đoạn văn hội thoại hoặc nhật ký N3. Điểm mấu chốt là phân biệt rõ sự đối lập giữa việc liệt kê hoặc truyền đạt thông tin mềm mỏng (〜とか), nhớ lại sự việc mơ hồ trong quá khứ (〜っけ), diễn tả sự hoàn tất hoặc nuối tiếc lỡ làm điều không hay (〜てしまう／ちゃう), bộc lộ cảm thán nội tâm tự nhủ (〜なあ), và các mức độ nhờ vả thân mật (〜てくれない？／てもらえる？).",
+    "steps": [
+      "Bước 1: Nhận diện văn cảnh đoạn đọc (hội thoại thân mật, tin nhắn, nhật ký hoặc độc thoại) để nắm bắt đúng giọng điệu và thái độ của nhân vật.",
+      "Bước 2: Gặp 〜とか, phân tích xem là liệt kê ví dụ đại diện (NとかNとか) hay truyền đạt thông tin nghe ngóng một cách đại khái trong khẩu ngữ.",
+      "Bước 3: Khi xuất hiện 〜てしまう hoặc dạng rút gọn 〜ちゃう／〜じゃう, dựa vào mạch cảm xúc để xác định là hoàn tất trọn vẹn hay hối tiếc vì sự việc ngoài ý muốn.",
+      "Bước 4: Xác định 〜なあ là câu cảm thán nội tâm hướng vào bản thân (như 〜たいなあ thể hiện mong muốn), không phải câu hỏi tìm kiếm sự phản hồi từ đối phương.",
+      "Bước 5: Phân tích câu hỏi chứa 〜っけ để nhận ra người nói đang cố nhớ lại chuyện cũ, và chú ý mẫu 〜てくれない？／てもらえる？ để xác định chính xác ai là người thực hiện hành động."
+    ],
+    "tips": [
+      "使い分け 1 (〜とか vs 〜そうだ truyền đạt): 〜とか dùng trong khẩu ngữ để truyền đạt thông tin mang tính ước chừng, nghe loáng thoáng, kém trang trọng và ít chắc chắn hơn 〜そうだ (Bài 63).",
+      "使い分け 2 (〜っけ vs 〜ね / 〜よ): 〜っけ chỉ dùng để hỏi lại/tự hỏi điều mình đã từng biết trong quá khứ nhưng tạm thời quên mất, không dùng cho sự việc mới tiếp nhận lần đầu.",
+      "使い分け 3 (〜てしまう／ちゃう vs 〜のに): 〜てしまう nhấn mạnh hành động đã lỡ xảy ra hoặc kết thúc dứt điểm ngoài dự tính, trong khi 〜のに (Bài 62) nhấn mạnh sự bất mãn, ngược đời giữa hai vế.",
+      "Bẫy chủ thể ở câu nhờ vả: Với 〜てくれない？／てもらえる？, người thực hiện hành động là người nghe (đối phương), tránh nhầm lẫn thành hành động của chính người nói.",
+      "Dấu hiệu biến âm: Trong văn nói hoặc tin nhắn thân mật, 〜てしまう biến thành 〜ちゃう, 〜でしまう biến thành 〜じゃう, biểu thị cảm xúc tiếc nuối hoặc làm xong việc gì đó."
+    ],
+    "grammarFocus": [
+      "～とか — 接続: 普通形 / N ＋ とか (＋ N ＋ とか). Sắc thái: Liệt kê ví dụ không đầy đủ, nêu ví dụ ước chừng hoặc truyền đạt thông tin nghe ngóng không chính thức trong khẩu ngữ. Đối chiếu: Mềm mại và suồng sã hơn 〜など, kém trang trọng hơn 〜そうだ (truyền đạt).",
+      "～てしまう／ちゃう — 接続: Vて形 ＋ しまう (khẩu ngữ: Vて形 → ちゃう, Vで形 → じゃう). Sắc thái: Hoàn tất trọn vẹn hành động ('xong hết rồi') hoặc thể hiện sự hối tiếc, lỡ làm điều không mong muốn. Đối chiếu: Mang sắc thái ngoài ý muốn hoặc dứt điểm, khác với hành động chuẩn bị trước.",
+      "～なあ — 接続: 普通形 ＋ なあ (thường đi với 〜たい, 〜といい). Sắc thái: Cảm thán, bộc lộ cảm xúc chân thật, mong muốn hoặc tiếc nuối dưới dạng độc thoại nội tâm. Đối chiếu: Tự nhủ với chính mình, khác với 〜ね (tìm kiếm sự đồng tình từ người đối thoại).",
+      "～っけ — 接続: 普通形 (Vた/Aかった/N・なAだった) ＋ っけ. Sắc thái: Hỏi lại hoặc cố nhớ lại một sự kiện, thông tin trong quá khứ đã biết nhưng tạm thời không chắc chắn. Đối chiếu: Chỉ dùng cho điều đã từng biết, khác với câu hỏi thông tin mới.",
+      "～てくれない？／てもらえる？ — 接続: Vて形 ＋ くれない？／もらえる？. Sắc thái: Lời nhờ vả, yêu cầu thân mật giữa bạn bè, người thân. Đối chiếu: Lịch sự hơn mệnh lệnh thô (〜てくれ) và thân mật, gần gũi hơn kính ngữ (〜ていただけませんか)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 63,
+        "items": [
+          "〜そうだ（伝聞）: 普通形 ＋ そうだ"
+        ]
+      },
+      {
+        "bai": 65,
+        "items": [
+          "〜らしい（推量・伝聞）"
+        ]
+      },
+      {
+        "bai": 62,
+        "items": [
+          "〜のに（普通形 + のに; なN → なのに, N → なのに）"
+        ]
+      },
+      {
+        "bai": 53,
+        "items": [
+          "〜ものだ（chân lý/lẽ thường・hồi tưởng・cảm thán）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "時間の使い方とデジタルデトックス",
+      "titleVi": "Cách Sử Dụng Thời Gian và Cai Nghiện Kỹ Thuật Số",
+      "japanese": "最近、スマホで動画を見るとか、SNSをチェックするとかしているうちに、あっという間に時間が過ぎちゃうことが多い。「今日は早く寝よう」と決めていたのに、気づいたら夜中になっていて後悔してしまうんだよなあ。先週も「デジタルデトックスをする」って友達に宣言したんだっけ。\n部屋の片づけとか、読みたい本を読むとか、やりたいことはたくさんあるのについ後回しにしてしまう。時間の使い方を見直すのは、本当に難しいものだなあ。そういえば、以前先輩から便利な時間管理アプリを教えてもらったのはいつだっけ。\n一人で習慣を変えるのは大変だから、効果的な集中法があったら誰か教えてくれない？また、おすすめのアプリがあれば、今度会った時にでも使い方を説明してもらえる？無駄な時間をなくして、自分の成長のために毎日をもっと大切に使いたいものだ。",
+      "vietnamese": "Dạo gần đây, trong lúc xem video hay lướt mạng xã hội trên điện thoại, nhiều khi thời gian cứ trôi vèo qua mất. Dù đã định bụng \"hôm nay sẽ đi ngủ sớm\", thế nhưng nhận ra thì đã nửa đêm mất rồi, thật là tiếc nuối biết bao. Tuần trước mình cũng đã tuyên bố với bạn bè là \"sẽ cai nghiện kỹ thuật số\" rồi ấy nhỉ?\nNào là dọn dẹp phòng, nào là đọc những cuốn sách muốn đọc, có bao nhiêu việc muốn làm thế mà lại cứ lỡ hoãn lại. Việc xem xét lại cách sử dụng thời gian thật là khó khăn quá đi mà. Nhắc mới nhớ, không biết mình được tiền bối chỉ cho ứng dụng quản lý thời gian tiện lợi từ bao giờ ấy nhỉ?\nTự một mình thay đổi thói quen quả thật rất vất vả, nên nếu ai có phương pháp tập trung hiệu quả thì chỉ cho mình với được không? Hơn nữa, nếu có ứng dụng nào hay thì lần tới gặp nhau, bạn có thể giải thích cách dùng cho mình được không? Mình thực sự muốn loại bỏ thời gian lãng phí và trân trọng sử dụng mỗi ngày nhiều hơn cho sự phát triển của bản thân.",
+      "sentences": [
+        {
+          "jp": "最近、スマホで動画を見るとか、SNSをチェックするとかしているうちに、あっという間に時間が過ぎちゃうことが多い。",
+          "vi": "Dạo gần đây, trong lúc xem video hay lướt mạng xã hội trên điện thoại, nhiều khi thời gian cứ trôi vèo qua mất.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            },
+            {
+              "w": "動画",
+              "read": "どうが",
+              "vi": "video, đoạn phim"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "SNS",
+              "read": "SNS",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "チェック",
+              "read": "チェック",
+              "vi": "sự kiểm tra"
+            },
+            {
+              "w": "あっという間に",
+              "read": "あっというまに",
+              "vi": "trong nháy mắt, thoắt một cái"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "過ぎる",
+              "read": "よぎる",
+              "vi": "quá, vượt quá"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とか～とか",
+              "vi": "接続: V/A/N thể thông thường + とか. Sắc thái: Liệt kê ví dụ không đầy đủ mang tính khẩu ngữ, gợi mở 'như là... hay là...'. Đối chiếu: Tương tự 〜たり〜たり nhưng 〜とか dùng được linh hoạt cho cả danh từ trực tiếp và phổ biến trong hội thoại thân mật."
+            },
+            {
+              "point": "～ちゃう（てしまう）",
+              "vi": "接続: V-て form (〜てしまう → 〜ちゃう, 〜でしまう → 〜じゃう). Sắc thái: Dạng văn nói rút gọn biểu thị hành động đã hoàn tất trót lọt ngoài ý muốn hoặc nuối tiếc. Đối chiếu: 〜てしまう trang trọng hơn, dùng cả trong văn viết; 〜ちゃう là khẩu ngữ giao tiếp hàng ngày."
+            }
+          ]
+        },
+        {
+          "jp": "「今日は早く寝よう」と決めていたのに、気づいたら夜中になっていて後悔してしまうんだよなあ。",
+          "vi": "Dù đã định bụng 'hôm nay sẽ đi ngủ sớm', thế nhưng nhận ra thì đã nửa đêm mất rồi, thật là tiếc nuối biết bao.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "寝る",
+              "read": "ねる",
+              "vi": "ngủ, đi ngủ"
+            },
+            {
+              "w": "決める",
+              "read": "きめる",
+              "vi": "quyết định"
+            },
+            {
+              "w": "気づく",
+              "read": "きづく",
+              "vi": "nhận ra, nhận thấy"
+            },
+            {
+              "w": "夜中",
+              "read": "よなか",
+              "vi": "nửa đêm"
+            },
+            {
+              "w": "後悔",
+              "read": "こうかい",
+              "vi": "sự hối hận, tiếc nuối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "接続: V-て + しまう. Sắc thái: Biểu thị tâm trạng hối hận, tiếc nuối vì một sự việc lỡ xảy ra ngoài ý muốn ('lỡ... mất rồi'). Đối chiếu: Phân biệt với 〜てしまう chỉ sự hoàn tất công việc đơn thuần."
+            },
+            {
+              "point": "～なあ",
+              "vi": "接続: Cuối câu (Thể thông thường / Tính từ / Trợ từ + なあ). Sắc thái: Thán từ độc thoại nội tâm hoặc bày tỏ cảm xúc chân thành, sâu sắc ('thật là... nhỉ', '...biết bao'). Đối chiếu: Khác 〜ね (hướng đến đối phương tìm sự đồng tình), 〜なあ hướng vào cảm xúc nội tâm của chính người nói."
+            }
+          ]
+        },
+        {
+          "jp": "先週も「デジタルデトックスをする」って友達に宣言したんだっけ。",
+          "vi": "Tuần trước mình cũng đã tuyên bố với bạn bè là 'sẽ cai nghiện kỹ thuật số' rồi ấy nhỉ?",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "デジタルデトックス",
+              "read": "デジタルデトックス",
+              "vi": "thanh lọc kỹ thuật số"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "宣言",
+              "read": "せんげん",
+              "vi": "tuyên bố, công bố"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～っけ",
+              "vi": "接続: Thể quá khứ た / だ + っけ (hoặc です・でしたっけ). Sắc thái: Tự hỏi lại chính mình hoặc hỏi người khác để xác nhận điều mình nhớ không rõ trong quá khứ ('...ấy nhỉ?'). Đối chiếu: Khác câu hỏi xác nhận thông thường 〜ね, 〜っけ thể hiện ký ức đang mơ hồ hoặc bị quên lãng."
+            }
+          ]
+        },
+        {
+          "jp": "部屋の片づけとか、読みたい本を読むとか、やりたいことはたくさんあるのについ後回しにしてしまう。",
+          "vi": "Nào là dọn dẹp phòng, nào là đọc những cuốn sách muốn đọc, có bao nhiêu việc muốn làm thế mà lại cứ lỡ hoãn lại.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "片づけ",
+              "read": "かたづけ",
+              "vi": "việc dọn dẹp, sắp xếp"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "後回し",
+              "read": "あとまわし",
+              "vi": "sự trì hoãn, để dồn lại sau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とか",
+              "vi": "接続: N / V-る + とか. Sắc thái: Liệt kê tiêu biểu các hành động/sự vật ('như là... chẳng hạn'). Đối chiếu: Khác với 〜や (chỉ nối danh từ), 〜とか nối linh hoạt cả mệnh đề động từ trong văn nói."
+            },
+            {
+              "point": "～てしまう",
+              "vi": "接続: V-て + しまう. Sắc thái: Diễn tả hành động xảy ra do vô thức, lỡ làm điều không nên ('lỡ để dồn lại sau')."
+            }
+          ]
+        },
+        {
+          "jp": "時間の使い方を見直すのは、本当に難しいものだなあ。",
+          "vi": "Việc xem xét lại cách sử dụng thời gian thật là khó khăn quá đi mà.",
+          "vocab": [
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "見直す",
+              "read": "みなおす",
+              "vi": "xem xét lại, nhìn nhận lại"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ものだなあ",
+              "vi": "接続: V/A thể thông thường + ものだなあ (Aな + なものだなあ). Sắc thái: Cảm thán sâu sắc về một quy luật, bản chất thực tế hoặc sự chiêm nghiệm ('thật là... biết bao/làm sao'). Đối chiếu: Mang tính chiêm nghiệm triết lý sâu sắc hơn đuôi cảm thán 〜なあ đơn lẻ."
+            }
+          ]
+        },
+        {
+          "jp": "そういえば、以前先輩から便利な時間管理アプリを教えてもらったのはいつだっけ。",
+          "vi": "Nhắc mới nhớ, không biết mình được tiền bối chỉ cho ứng dụng quản lý thời gian tiện lợi từ bao giờ ấy nhỉ?",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, dạo trước"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, đàn anh/chị"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～っけ",
+              "vi": "接続: Nghi vấn từ + だ/だった + っけ. Sắc thái: Cố gắng lục lại trí nhớ về một mốc thời gian/sự việc đã qua ('khi nào ấy nhỉ?')."
+            }
+          ]
+        },
+        {
+          "jp": "一人で習慣を変えるのは大変だから、効果的な集中法があったら誰か教えてくれない？",
+          "vi": "Tự một mình thay đổi thói quen quả thật rất vất vả, nên nếu ai có phương pháp tập trung hiệu quả thì chỉ cho mình với được không?",
+          "vocab": [
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả"
+            },
+            {
+              "w": "効果",
+              "read": "こうか",
+              "vi": "hiệu quả"
+            },
+            {
+              "w": "効果的",
+              "read": "こうかてき",
+              "vi": "có hiệu quả"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "集中法",
+              "read": "しゅうちゅうほう",
+              "vi": "phương pháp tập trung"
+            },
+            {
+              "w": "あったら",
+              "read": "あったら",
+              "vi": "nếu có"
+            },
+            {
+              "w": "誰か",
+              "read": "だれか",
+              "vi": "ai đó"
+            },
+            {
+              "w": "教えて",
+              "read": "おしえて",
+              "vi": "chỉ cho; nói cho biết"
+            },
+            {
+              "w": "くれない",
+              "read": "くれない",
+              "vi": "không thể giúp ... sao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てくれない？",
+              "vi": "接続: V-て + くれない？ Sắc thái: Dùng trong hội thoại thân mật để nhờ vả, yêu cầu người khác làm gì giúp mình một cách nhẹ nhàng ('...giùm mình được không?'). Đối chiếu: Thân mật hơn 〜てください; gần gũi hơn dạng lịch sự 〜てくれませんか."
+            }
+          ]
+        },
+        {
+          "jp": "また、おすすめのアプリがあれば、今度会った時にでも使い方を説明してもらえる？",
+          "vi": "Hơn nữa, nếu có ứng dụng nào hay thì lần tới gặp nhau, bạn có thể giải thích cách dùng cho mình được không?",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại; ngoài ra"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "gợi ý; đề xuất"
+            },
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng"
+            },
+            {
+              "w": "あれば",
+              "read": "あれば",
+              "vi": "nếu có"
+            },
+            {
+              "w": "今度",
+              "read": "こんど",
+              "vi": "lần tới"
+            },
+            {
+              "w": "会った",
+              "read": "あった",
+              "vi": "đã gặp"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "lúc; thời điểm"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "もらえる",
+              "read": "もらえる",
+              "vi": "có thể nhờ; được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てもらえる？",
+              "vi": "接続: V-て + もらえる？ Sắc thái: Lời nhờ vả/đề nghị tế nhị ('bạn có thể làm... cho mình không?'). Đối chiếu: Tương đương về mức độ thân mật với てくれない nhưng hỏi dưới góc độ người nhận hành động (もらう), tạo cảm giác nhã nhặn hơn."
+            }
+          ]
+        },
+        {
+          "jp": "無駄な時間をなくして、自分の成長のために毎日をもっと大切に使いたいものだ。",
+          "vi": "Mình thực sự muốn loại bỏ thời gian lãng phí và trân trọng sử dụng mỗi ngày nhiều hơn cho sự phát triển của bản thân.",
+          "vocab": [
+            {
+              "w": "無駄",
+              "read": "むだ",
+              "vi": "lãng phí, vô ích"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "なくす",
+              "read": "なくす",
+              "vi": "làm mất, đánh mất"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành, phát triển"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～たいものだ",
+              "vi": "接続: V-ます (bỏ ます) + たいものだ. Sắc thái: Thể hiện mong muốn tha thiết, nguyện vọng từ đáy lòng về một điều lý tưởng mang tính dài hạn ('thực sự muốn...'). Đối chiếu: Sâu sắc và trang trọng hơn đuôi mong muốn 〜たい thông thường."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "時間が過ぎちゃう",
+          "label": "Ngữ pháp: ～ちゃう（lỡ/hoàn tất ngoài ý muốn）"
+        },
+        {
+          "excerpt": "後悔してしまうんだよなあ",
+          "label": "Ngữ pháp: ～てしまう ＋ ～なあ（hối tiếc & cảm thán nội tâm）"
+        },
+        {
+          "excerpt": "宣言したんだっけ",
+          "label": "Ngữ pháp: ～っけ（nhớ lại, hỏi xác nhận ký ức）"
+        },
+        {
+          "excerpt": "教えてくれない？",
+          "label": "Ngữ pháp: ～てくれない？（nhờ vả thân mật）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者が後悔している理由は何ですか。",
+          "options": [
+            "スマホを見ていて、いつの間にか夜中になってしまったから。",
+            "友達と夜遅くまでSNSでメッセージのやり取りをしたから。",
+            "先輩に教えてもらった時間管理アプリを消してしまったから。",
+            "部屋の片づけや読書を深夜まで夢中でやりすぎたから。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [0] và [1]: tác giả nói mải xem video và lướt mạng xã hội mà thời gian trôi vèo qua, dù định ngủ sớm nhưng nhận ra đã nửa đêm nên hối hận.\n- Phương án 1 sai vì bài không nói tác giả nhắn tin với bạn mà chỉ xem video/lướt mạng xã hội.\n- Phương án 2 sai vì bài chỉ nói không nhớ rõ tiền bối chỉ app khi nào chứ không phải đã xóa app.\n- Phương án 3 sai vì việc dọn phòng và đọc sách bị tác giả trì hoãn lại (câu [3]), không phải làm quá nhiều đến khuya.",
+          "tip": "Chú ý sự đối lập giữa dự định ban đầu ('định ngủ sớm') và hành động thực tế bị cuốn vào điện thoại.",
+          "evi": [
+            0,
+            1
+          ],
+          "qt": {
+            "q": "Nguyên nhân khiến tác giả hối hận là gì?",
+            "o": [
+              "Vì mải xem điện thoại thông minh mà chẳng hay đã thành nửa đêm.",
+              "Vì đã nhắn tin qua lại với bạn bè trên mạng xã hội đến tận khuya.",
+              "Vì đã xóa ứng dụng quản lý thời gian mà tiền bối giới thiệu.",
+              "Vì đã quá mải mê dọn phòng và đọc sách đến tận khuya."
+            ]
+          }
+        },
+        {
+          "q": "筆者の過去の行動について、文章の内容と合っているものはどれですか。",
+          "options": [
+            "先週、時間を大切にするために新しいアプリを自分で開発した。",
+            "デジタル機器から離れると友達に言ったことがある。",
+            "先輩と一緒に時間管理に関する本を何冊も読んだ。",
+            "効果的な集中法を友達に教えてあげたことがある。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [2]: '先週も「デジタルデトックスをする」って友達に宣言したんだっけ' (Tuần trước mình cũng từng tuyên bố với bạn bè là sẽ 'cai nghiện kỹ thuật số' - tức tạm rời xa các thiết bị số). Do đó phương án 1 hoàn toàn chính xác.\n- Phương án 0 sai vì tác giả không tự phát triển app nào cả.\n- Phương án 2 sai vì tiền bối chỉ từng giới thiệu app (câu [5]), không nhắc đến việc cùng đọc sách.\n- Phương án 3 sai vì tác giả đang cần người khác chỉ cho cách tập trung (câu [6]), không phải từng đi chỉ cho bạn.",
+          "tip": "Cụm từ 'デジタルデトックス' (digital detox) đồng nghĩa với việc tạm rời xa thiết bị kỹ thuật số.",
+          "evi": [
+            2
+          ],
+          "qt": {
+            "q": "Về hành động trong quá khứ của tác giả, điều nào phù hợp với nội dung bài viết?",
+            "o": [
+              "Tuần trước, để trân trọng thời gian, tác giả đã tự phát triển một ứng dụng mới.",
+              "Tác giả từng nói với bạn bè rằng mình sẽ tránh xa các thiết bị kỹ thuật số.",
+              "Tác giả đã cùng tiền bối đọc nhiều cuốn sách về quản lý thời gian.",
+              "Tác giả từng chỉ cho bạn bè một phương pháp tập trung hiệu quả."
+            ]
+          }
+        },
+        {
+          "q": "第3段落の「教えてくれない？」「説明してもらえる？」という表現から、筆者のどのような気持ちが読み取れますか。",
+          "options": [
+            "一人では習慣を変えるのが難しいため、親しい人にアドバイスや協力を求めている。",
+            "相手のスマートフォンの使い方が間違っていると指摘し、注意しようとしている。",
+            "以前教わったアプリの使い方が分かりにくかったので、先輩に不満を伝えている。",
+            "自分の集中法が最も効果的だと確信し、友達にそれを勧めようとしている。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [6] ('一人で習慣を変えるのは大変だから...教えてくれない？') và câu [7] ('説明してもらえる？'), tác giả nhận thấy tự mình thay đổi rất khó nên đã dùng các cấu trúc nhờ vả thân mật để xin lời khuyên và sự hỗ trợ từ bạn bè/người quen.\n- Phương án 1 sai vì tác giả đang tự nhận khuyết điểm của bản thân, không hề phê bình người khác.\n- Phương án 2 sai vì tác giả không hề bày tỏ sự bất mãn hay phàn nàn nào về tiền bối.\n- Phương án 3 sai vì tác giả đang đi hỏi cách tập trung chứ không phải có sẵn phương pháp để khuyên người khác.",
+          "tip": "Phân tích chức năng giao tiếp của ngữ pháp nhờ vả thân mật (てくれない/てもらえる) trong ngữ cảnh chia sẻ khó khăn cá nhân.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Từ những cách diễn đạt 「教えてくれない？」(có thể chỉ cho tôi không?) và 「説明してもらえる？」(có thể giải thích cho tôi được không?) ở đoạn 3, có thể hiểu được tâm trạng nào của tác giả?",
+            "o": [
+              "Vì khó thay đổi thói quen một mình nên tác giả đang nhờ người thân thiết đưa ra lời khuyên và giúp đỡ.",
+              "Tác giả đang chỉ ra rằng cách đối phương sử dụng điện thoại thông minh là sai và định nhắc nhở họ.",
+              "Vì cách sử dụng ứng dụng từng được chỉ dẫn khó hiểu nên tác giả đang bày tỏ sự bất mãn với tiền bối.",
+              "Tác giả tin chắc phương pháp tập trung của mình là hiệu quả nhất và định giới thiệu phương pháp đó cho bạn bè."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章で最も伝えたいことは何ですか。",
+          "options": [
+            "スマートフォンは危険なので、今すぐすべてのSNSをやめるべきだ。",
+            "無駄な時間の使い方を改め、自分の成長のために一日一日を大切に過ごしたい。",
+            "読書や部屋の片づけは、夜中に行うほうが集中できて効果的だ。",
+            "便利なアプリさえ使えば、誰でも簡単に生活習慣を改善できる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu kết luận [8]: '無駄な時間をなくして、自分の成長のために毎日をもっと大切に使いたいものだ' (Tôi thực sự muốn loại bỏ thời gian lãng phí và trân trọng sử dụng mỗi ngày nhiều hơn cho sự phát triển của bản thân). Đây là mong muốn cốt lõi và thông điệp của tác giả.\n- Phương án 0 sai vì quá cực đoan, tác giả không kêu gọi từ bỏ hoàn toàn SNS.\n- Phương án 2 sai vì tác giả hối tiếc khi thức khuya chứ không khuyến khích làm việc đêm.\n- Phương án 3 sai vì bài nhấn mạnh thay đổi thói quen là rất khó khăn (câu [4], [6]), không hề khẳng định chỉ cần app là xong.",
+          "tip": "Câu kết chứa cấu trúc 〜たいものだ thường thể hiện nguyện vọng hoặc thông điệp cốt lõi của người viết.",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn truyền tải nhất trong bài viết này là gì?",
+            "o": [
+              "Điện thoại thông minh nguy hiểm, vì vậy nên ngừng sử dụng tất cả mạng xã hội ngay lập tức.",
+              "Muốn thay đổi cách sử dụng thời gian lãng phí và trân trọng từng ngày vì sự trưởng thành của bản thân.",
+              "Đọc sách và dọn phòng sẽ tập trung và hiệu quả hơn nếu làm vào nửa đêm.",
+              "Chỉ cần dùng ứng dụng tiện lợi thì bất kỳ ai cũng có thể dễ dàng cải thiện thói quen sinh hoạt."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "後回し癖と上手に向き合うために",
+      "titleVi": "Để đối diện và vượt qua thói quen trì hoãn một cách khéo léo",
+      "japanese": "毎日の生活の中で、やらなければならない仕事を後回しにしてしまうことは誰にでもある。\n\n例えば、週末に部屋の掃除をするとか、たまった書類を整理するとか、小さな予定ほどつい先延ばしにしちゃうものだ。「あれ、この書類の提出期限は今日だったっけ」と突然思い出して、慌てて作業を始める人も少なくないだろう。その結果、夜遅くまで作業に追われて「もっと早くやっておけばよかったなあ」と後悔してしまうのである。自分を責めて落ち込む前に、なぜ私たちがこういった行動を繰り返してしまうのかを考える必要がある。\n\n多くの場合、私たちは「完璧にやらなければならない」とか「一人で全部片づけよう」とか考えすぎてしまう。プレッシャーが大きくなると、人は無意識にスマートフォンを見たり別の雑用を始めたりして、現実から逃げてしまうのだ。「昔はこんなに集中力が切れることなんてあったっけ」と首をかしげるが、原因は能力ではなく心の余裕のなさにある。一人で抱え込みすぎると、ストレスがたまって心身ともに疲れてしまうのは当然のことだ。自分の弱さを受け入れて誰かに助けを求めることは、決して恥ずかしいことではない。\n\n困ったときは、身近な人に「ちょっとこの作業を手伝ってくれない？」と軽く声をかけてみるのが良い。また、心が重いときには「少しだけ話を聞いてもらえる？」と素直に頼んでみるだけで、驚くほど気持ちが楽になる。「相手に迷惑をかけちゃうのではないか」と恐れる必要は全くない。なぜなら、人は頼りにされることで「自分は役に立っている」と感じ、相手との絆を深めることができるからだ。人と人との支え合いというのは、案外このような小さな一言から生まれるものだなあと気づかされる。\n\n完璧を目指すのをやめて、「今日はここまでできたら十分だ」と自分を認めてあげる姿勢が大切だ。散歩をするとか、好きなお茶を飲むとかして、意図的に頭を休める時間を作ると良いだろう。悩みを一人でため込まずに「これ、どう思うか教えてくれない？」と周囲に相談しながら進めれば、後回し癖も少しずつ減っていくはずだ。人生の時間は限られているのだから、後悔で時間を無駄にしてしまうのは本当にもったいない。肩の力を抜いて、今日という一日を穏やかな気持ちで過ごしていきたいものだ。",
+      "vietnamese": "Trong cuộc sống hằng ngày, việc lỡ trì hoãn những công việc cần phải làm là điều mà bất kỳ ai cũng có lúc mắc phải.\n\nChẳng hạn như việc dọn dẹp phòng ốc vào cuối tuần hay sắp xếp lại đống giấy tờ tích tụ, những dự định càng nhỏ thì ta lại càng dễ buột miệng trì hoãn. Chắc hẳn không ít người đột nhiên nhớ ra \"Ủa, hạn nộp tập tài liệu này là hôm nay nhỉ?\" rồi cuống cuồng bắt tay vào làm. Kết quả là họ bị công việc cuốn theo đến tận đêm khuya rồi lại hối hận tự nhủ: \"Giá mà mình làm sớm hơn thì tốt biết mấy nhỉ\". Trước khi tự dằn vặt và nản lòng, chúng ta cần suy ngẫm xem tại sao bản thân lại cứ lặp đi lặp lại những hành vi như thế.\n\nTrong nhiều trường hợp, chúng ta thường suy nghĩ quá mức kiểu như \"phải làm thật hoàn hảo\" hay \"phải tự mình giải quyết hết tất cả\". Khi áp lực trở nên quá lớn, con người ta sẽ vô thức xem điện thoại thông minh hoặc bắt đầu làm những việc lặt vặt khác rồi trốn tránh thực tế. Dù ta có nghiêng đầu tự hỏi \"Hồi xưa mình có bao giờ bị mất tập trung đến mức này đâu nhỉ?\", nhưng nguyên nhân không nằm ở năng lực mà là do thiếu đi sự thảnh thơi trong tâm hồn. Nếu cứ ôm đồm quá mức một mình, việc căng thẳng tích tụ và kiệt quệ cả về thể chất lẫn tinh thần là điều đương nhiên. Việc chấp nhận điểm yếu của bản thân và tìm kiếm sự giúp đỡ từ ai đó hoàn toàn không phải là điều đáng xấu hổ.\n\nNhững lúc gặp khó khăn, tốt nhất là nên thử cất lời thật nhẹ nhàng với người thân cận: \"Bạn có thể giúp tôi một chút việc này được không?\". Ngoài ra, khi lòng nặng trĩu, chỉ cần thành thật nhờ cậy \"Bạn có thể lắng nghe tôi một chút được không?\" là tâm trạng đã trở nên nhẹ nhõm đến bất ngờ. Hoàn toàn không cần phải lo sợ rằng \"Liệu mình có đang làm phiền đối phương hay không\". Bởi vì khi được trông cậy, con người sẽ cảm thấy \"mình là người có ích\" và có thể thắt chặt thêm mối gắn kết với đối phương. Ta được thức tỉnh rằng sự nâng đỡ giữa người với người hóa ra lại được sinh ra từ chính những lời nói nhỏ bé như thế nhỉ.\n\nĐiều quan trọng là hãy từ bỏ việc hướng tới sự hoàn hảo và có thái độ công nhận bản thân: \"Hôm nay làm được đến đây là đủ rồi\". Hãy dành thời gian chủ động cho đầu óc nghỉ ngơi như đi dạo hay uống một tách trà mình thích chẳng hạn. Nếu không ôm giữ phiền muộn một mình mà vừa tiến bước vừa hỏi ý kiến xung quanh \"Bạn có thể cho tôi biết bạn nghĩ sao về việc này không?\", thói quen trì hoãn chắc chắn sẽ giảm dần. Thời gian của đời người là có hạn, nên việc lãng phí thời gian vào những nuối tiếc quả thực rất uổng phí. Hãy thả lỏng đôi vai và sống trọn ngày hôm nay với một tâm trạng thật bình yên.",
+      "sentences": [
+        {
+          "jp": "毎日の生活の中で、やらなければならない仕事を後回しにしてしまうことは誰にでもある。",
+          "vi": "Trong cuộc sống hằng ngày, việc lỡ trì hoãn những công việc cần phải làm là điều mà bất kỳ ai cũng có lúc mắc phải.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "やらなければならない",
+              "read": "やらなければならない",
+              "vi": "phải làm"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "後回し",
+              "read": "あとまわし",
+              "vi": "trì hoãn; để sau"
+            },
+            {
+              "w": "してしまう",
+              "read": "してしまう",
+              "vi": "lỡ; cuối cùng làm"
+            },
+            {
+              "w": "誰にでも",
+              "read": "だれにでも",
+              "vi": "bất kỳ ai cũng"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có; tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "【接続】V-て + しまう。【Sắc thái】Diễn tả một hành động lỡ xảy ra ngoài ý muốn hoặc kết quả không mong đợi, mang theo cảm xúc tiếc nuối, tự trách nhẹ nhàng.【Đối chiếu】Khác với 〜ておく (chuẩn bị trước có chủ đích) hay 〜てみる (thử làm)."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、週末に部屋の掃除をするとか、たまった書類を整理するとか、小さな予定ほどつい先延ばしにしちゃうものだ。",
+          "vi": "Chẳng hạn như việc dọn dẹp phòng ốc vào cuối tuần hay sắp xếp lại đống giấy tờ tích tụ, những dự định càng nhỏ thì ta lại càng dễ buột miệng trì hoãn.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "掃除",
+              "read": "そうじ",
+              "vi": "dọn dẹp"
+            },
+            {
+              "w": "たまる",
+              "read": "たまる",
+              "vi": "tích lũy, đọng lại"
+            },
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "tài liệu, giấy tờ"
+            },
+            {
+              "w": "整理",
+              "read": "せいり",
+              "vi": "sắp xếp, chỉnh lý"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            },
+            {
+              "w": "先",
+              "read": "さき",
+              "vi": "phía trước, điểm đến"
+            },
+            {
+              "w": "延ばす",
+              "read": "のばす",
+              "vi": "kéo dài, trì hoãn"
+            },
+            {
+              "w": "先延ばし",
+              "read": "さきのばし",
+              "vi": "sự trì hoãn, khất lần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とか（～とか）",
+              "vi": "【接続】V辞書形／N + とか（+ V辞書形／N + とか）。【Sắc thái】Dùng để liệt kê đại diện các ví dụ một cách thoải mái, khẩu ngữ ('như là... hay là...').【Đối chiếu】Khác với 〜や〜など (trang trọng, văn viết hơn) và 〜たり〜たり (liệt kê hành động quy chuẩn hơn)."
+            },
+            {
+              "point": "～ちゃう",
+              "vi": "【接続】V-て stem co lại (〜てしまう → 〜ちゃう).【Sắc thái】Hình thức khẩu ngữ, thân mật của 〜てしまう, biểu thị hành động lỡ làm hoặc xảy ra mất rồi.【Đối chiếu】Dùng trong văn phong nói/suy nghĩ thường nhật, không dùng trong văn bản hành chính."
+            }
+          ]
+        },
+        {
+          "jp": "「あれ、この書類の提出期限は今日だったっけ」と突然思い出して、慌てて作業を始める人も少なくないだろう。",
+          "vi": "Chắc hẳn không ít người đột nhiên nhớ ra 'Ủa, hạn nộp tập tài liệu này là hôm nay nhỉ?' rồi cuống cuồng bắt tay vào làm.",
+          "vocab": [
+            {
+              "w": "書類",
+              "read": "しょるい",
+              "vi": "tài liệu, giấy tờ"
+            },
+            {
+              "w": "提出",
+              "read": "ていしゅつ",
+              "vi": "việc nộp"
+            },
+            {
+              "w": "期限",
+              "read": "きげん",
+              "vi": "thời hạn, hạn chót"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "突然",
+              "read": "とつぜん",
+              "vi": "đột nhiên"
+            },
+            {
+              "w": "思い出す",
+              "read": "おもいだす",
+              "vi": "nhớ lại"
+            },
+            {
+              "w": "慌てる",
+              "read": "あわてる",
+              "vi": "cuống quýt, vội vàng"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "提出期限",
+              "read": "ていしゅつきげん",
+              "vi": "hạn nộp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～っけ",
+              "vi": "【接続】普通形過去 (〜たっけ / だったっけ) hoặc です・ます (〜でしたっけ / 〜ましたっけ).【Sắc thái】Dùng khi tự hỏi bản thân hoặc hỏi đối phương để xác nhận lại một thông tin mình đã từng biết nhưng không chắc chắn nhớ rõ ('...nhỉ? / ...phải không nhỉ?').【Đối chiếu】Khác với 〜ね (tìm kiếm sự đồng tình ở hiện tại) và 〜か (câu hỏi thông tin mới hoàn toàn)."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、夜遅くまで作業に追われて「もっと早くやっておけばよかったなあ」と後悔してしまうのである。",
+          "vi": "Kết quả là họ bị công việc cuốn theo đến tận đêm khuya rồi lại hối hận tự nhủ: 'Giá mà mình làm sớm hơn thì tốt biết mấy nhỉ'.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "追われる",
+              "read": "おわれる",
+              "vi": "bị cuốn theo, bị thúc bách"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "後悔",
+              "read": "こうかい",
+              "vi": "hối hận, nuối tiếc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～なあ",
+              "vi": "【接続】普通形 / Aい / Aな / N + なあ。【Sắc thái】Trợ từ cuối câu biểu thị cảm xúc thốt lên từ đáy lòng, tự than thở hoặc độc thoại nội tâm sâu sắc ('...thật đấy nhỉ', '...biết bao').【Đối chiếu】Khác với 〜ね (hướng tới người nghe để giao tiếp/xác nhận) hay 〜よ (thông báo kiến thức cho người khác)."
+            },
+            {
+              "point": "～てしまう",
+              "vi": "【接続】V-て + しまう。【Sắc thái】Biểu thị sự hoàn tất của hành động đi kèm tâm trạng tiếc nuối trước kết quả tiêu cực.【Đối chiếu】Khác với câu trần thuật khách quan đơn thuần."
+            }
+          ]
+        },
+        {
+          "jp": "自分を責めて落ち込む前に、なぜ私たちがこういった行動を繰り返してしまうのかを考える必要がある。",
+          "vi": "Trước khi tự dằn vặt và nản lòng, chúng ta cần suy ngẫm xem tại sao bản thân lại cứ lặp đi lặp lại những hành vi như thế.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "責める",
+              "read": "せめる",
+              "vi": "trách móc, dằn vặt"
+            },
+            {
+              "w": "落ち込む",
+              "read": "おちこむ",
+              "vi": "chán nản, suy sụp"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "繰り返す",
+              "read": "くりかえす",
+              "vi": "lặp lại"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "【接続】V-て + しまう。【Sắc thái】Nhấn mạnh xu hướng vô thức, không kiểm soát được dẫn đến kết quả ngoài ý muốn ('lại cứ... mất').【Đối chiếu】Khác với 〜ようとする (có chủ đích thực hiện)."
+            }
+          ]
+        },
+        {
+          "jp": "多くの場合、私たちは「完璧にやらなければならない」とか「一人で全部片づけよう」とか考えすぎてしまう。",
+          "vi": "Trong nhiều trường hợp, chúng ta thường suy nghĩ quá mức kiểu như 'phải làm thật hoàn hảo' hay 'phải tự mình giải quyết hết tất cả'.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "完璧",
+              "read": "かんぺき",
+              "vi": "hoàn hảo"
+            },
+            {
+              "w": "やらなければならない",
+              "read": "やらなければならない",
+              "vi": "phải làm"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "全部",
+              "read": "ぜんぶ",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "片づけよう",
+              "read": "かたづけよう",
+              "vi": "hãy dọn dẹp; giải quyết hết"
+            },
+            {
+              "w": "考えすぎてしまう",
+              "read": "かんがえすぎてしまう",
+              "vi": "suy nghĩ quá nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とか（～とか）",
+              "vi": "【接続】Mệnh đề trích dẫn + とか。【Sắc thái】Đưa ra các suy nghĩ, lý do ví dụ mang tính ước chừng trong tâm trí ('kiểu như là... hay là...').【Đối chiếu】Khác với trích dẫn chính xác tuyệt đối bằng 〜と."
+            },
+            {
+              "point": "～てしまう",
+              "vi": "【接続】V-て (考えすぎて) + しまう。【Sắc thái】Diễn tả tình trạng suy nghĩ quá đà ngoài ý muốn, gây ra gánh nặng tâm lý.【Đối chiếu】Khác với việc chủ động phân tích vấn đề."
+            }
+          ]
+        },
+        {
+          "jp": "プレッシャーが大きくなると、人は無意識にスマートフォンを見たり別の雑用を始めたりして、現実から逃げてしまうのだ。",
+          "vi": "Khi áp lực trở nên quá lớn, con người ta sẽ vô thức xem điện thoại thông minh hoặc bắt đầu làm những việc lặt vặt khác rồi trốn tránh thực tế.",
+          "vocab": [
+            {
+              "w": "プレッシャー",
+              "read": "プレッシャー",
+              "vi": "áp lực"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "無意識",
+              "read": "むいしき",
+              "vi": "vô thức, không tự chủ"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "別",
+              "read": "べつ",
+              "vi": "sự khác biệt, riêng biệt"
+            },
+            {
+              "w": "雑用",
+              "read": "ざつよう",
+              "vi": "việc vặt, tạp vụ"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "現実",
+              "read": "げんじつ",
+              "vi": "thực tế"
+            },
+            {
+              "w": "逃げる",
+              "read": "にげる",
+              "vi": "bỏ chạy, trốn thoát"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "【接続】V-て + しまう。【Sắc thái】Chỉ xu hướng tâm lý tự nhiên buông xuôi, rơi vào hành vi trốn tránh ngoài tầm kiểm soát ý thức.【Đối chiếu】Khác với hành vi nghỉ ngơi có kế hoạch."
+            }
+          ]
+        },
+        {
+          "jp": "「昔はこんなに集中力が切れることなんてあったっけ」と首をかしげるが、原因は能力ではなく心の余裕のなさにある。",
+          "vi": "Dù ta có nghiêng đầu tự hỏi 'Hồi xưa mình có bao giờ bị mất tập trung đến mức này đâu nhỉ?', nhưng nguyên nhân không nằm ở năng lực mà là do thiếu đi sự thảnh thơi trong tâm hồn.",
+          "vocab": [
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "こんなに",
+              "read": "こんなに",
+              "vi": "như thế này, đến mức này"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "切れる",
+              "read": "きれる",
+              "vi": "hết, đứt"
+            },
+            {
+              "w": "首",
+              "read": "くび",
+              "vi": "cổ"
+            },
+            {
+              "w": "かしげる",
+              "read": "かしげる",
+              "vi": "nghiêng, nghiêng đầu"
+            },
+            {
+              "w": "原因",
+              "read": "げんいん",
+              "vi": "nguyên nhân"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "余裕",
+              "read": "よゆう",
+              "vi": "sự thong dong, thảnh thơi (tâm trí/thời gian)"
+            },
+            {
+              "w": "集中力",
+              "read": "しゅうちゅうりょく",
+              "vi": "khả năng tập trung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～っけ",
+              "vi": "【接続】V-た (あった) + っけ。【Sắc thái】Hồi tưởng lại quá khứ để đối chiếu với hiện tại và tự vấn bản thân về một điều mình mơ hồ không nhớ rõ.【Đối chiếu】Khác với câu hỏi hồi tưởng trang trọng 〜でしたでしょうか."
+            }
+          ]
+        },
+        {
+          "jp": "一人で抱え込みすぎると、ストレスがたまって心身ともに疲れてしまうのは当然のことだ。",
+          "vi": "Nếu cứ ôm đồm quá mức một mình, việc căng thẳng tích tụ và kiệt quệ cả về thể chất lẫn tinh thần là điều đương nhiên.",
+          "vocab": [
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "抱え込みすぎる",
+              "read": "かかえこみすぎる",
+              "vi": "ôm đồm quá mức"
+            },
+            {
+              "w": "ストレス",
+              "read": "ストレス",
+              "vi": "căng thẳng"
+            },
+            {
+              "w": "たまって",
+              "read": "たまって",
+              "vi": "tích tụ"
+            },
+            {
+              "w": "心身",
+              "read": "しんしん",
+              "vi": "thể chất và tinh thần"
+            },
+            {
+              "w": "ともに",
+              "read": "ともに",
+              "vi": "cùng; cả hai"
+            },
+            {
+              "w": "疲れてしまう",
+              "read": "つかれてしまう",
+              "vi": "trở nên mệt mỏi"
+            },
+            {
+              "w": "当然",
+              "read": "とうぜん",
+              "vi": "đương nhiên"
+            },
+            {
+              "w": "当然のこと",
+              "read": "とうぜんのこと",
+              "vi": "điều đương nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "【接続】V-て + しまう。【Sắc thái】Nhấn mạnh hệ quả tiêu cực tất yếu không thể tránh khỏi khi bản thân bị quá tải.【Đối chiếu】Khác với biểu đạt trung tính khách quan 〜ことになる."
+            }
+          ]
+        },
+        {
+          "jp": "自分の弱さを受け入れて誰かに助けを求めることは、決して恥ずかしいことではない。",
+          "vi": "Việc chấp nhận điểm yếu của bản thân và tìm kiếm sự giúp đỡ từ ai đó hoàn toàn không phải là điều đáng xấu hổ.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "弱い",
+              "read": "よわい",
+              "vi": "yếu, yếu ớt"
+            },
+            {
+              "w": "受け入れる",
+              "read": "うけいれる",
+              "vi": "chấp nhận, tiếp nhận"
+            },
+            {
+              "w": "助け",
+              "read": "たすけ",
+              "vi": "sự giúp đỡ, sự cứu trợ"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, yêu cầu"
+            },
+            {
+              "w": "決して",
+              "read": "けっして",
+              "vi": "tuyệt đối không, không bao giờ"
+            },
+            {
+              "w": "恥ずかしい",
+              "read": "はずかしい",
+              "vi": "xấu hổ, ngượng ngùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "決して～ない",
+              "vi": "【接続】決して + Phủ định (〜ない / ではない).【Sắc thái】Khẳng định phủ định một cách dứt khoát mang tính động viên và chuẩn mực ('tuyệt đối không...').【Đối chiếu】Mạnh mẽ và trang trọng hơn phủ định thông thường."
+            }
+          ]
+        },
+        {
+          "jp": "困ったときは、身近な人に「ちょっとこの作業を手伝ってくれない？」と軽く声をかけてみるのが良い。",
+          "vi": "Những lúc gặp khó khăn, tốt nhất là nên thử cất lời thật nhẹ nhàng với người thân cận: 'Bạn có thể giúp tôi một chút việc này được không?'.",
+          "vocab": [
+            {
+              "w": "困る",
+              "read": "こまる",
+              "vi": "khó chịu, khốn khổ"
+            },
+            {
+              "w": "身近",
+              "read": "みぢか",
+              "vi": "gần gũi, thân cận"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "một chút, một chút thôi"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "軽い",
+              "read": "かるい",
+              "vi": "nhẹ"
+            },
+            {
+              "w": "声をかける",
+              "read": "こえをかける",
+              "vi": "cất tiếng, mở lời"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てくれない？",
+              "vi": "【接続】V-て + くれない（？）。【Sắc thái】Mẫu câu nhờ vả, yêu cầu người khác làm gì cho mình với ngữ điệu thân mật, tự nhiên giữa bạn bè/đồng nghiệp thân quen ('làm giúp mình được không?').【Đối chiếu】Thân mật hơn 〜てください và 〜ていただけませんか; tương đương 〜てくれる？."
+            }
+          ]
+        },
+        {
+          "jp": "また、心が重いときには「少しだけ話を聞いてもらえる？」と素直に頼んでみるだけで、驚くほど気持ちが楽になる。",
+          "vi": "Ngoài ra, khi lòng nặng trĩu, chỉ cần thành thật nhờ cậy 'Bạn có thể lắng nghe tôi một chút được không?' là tâm trạng đã trở nên nhẹ nhõm đến bất ngờ.",
+          "vocab": [
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "素直",
+              "read": "すなお",
+              "vi": "thành thật, chân thành"
+            },
+            {
+              "w": "頼む",
+              "read": "たのむ",
+              "vi": "nhờ vả, yêu cầu"
+            },
+            {
+              "w": "驚く",
+              "read": "おどろく",
+              "vi": "kinh ngạc, ngạc nhiên"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "楽",
+              "read": "らく",
+              "vi": "thoải mái, nhẹ nhàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てもらえる？",
+              "vi": "【接続】V-て + もらえる（？）。【Sắc thái】Mẫu nhờ vả người khác với sắc thái khiêm tốn, lịch sự nhẹ nhàng hỏi xem đối phương có thể dành sự giúp đỡ cho mình không ('bạn có thể giúp tôi... được không?').【Đối chiếu】Mềm mỏng hơn 〜てくれない？ và thể hiện sự tôn trọng quyết định của đối phương hơn."
+            }
+          ]
+        },
+        {
+          "jp": "「相手に迷惑をかけちゃうのではないか」と恐れる必要は全くない。",
+          "vi": "Hoàn toàn không cần phải lo sợ rằng 'Liệu mình có đang làm phiền đối phương hay không'.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "迷惑をかける",
+              "read": "めいわくをかける",
+              "vi": "làm phiền, gây phiền toái"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "恐れる",
+              "read": "おそれる",
+              "vi": "lo sợ, e ngại"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "全く",
+              "read": "まったく",
+              "vi": "hoàn toàn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ちゃう",
+              "vi": "【接続】V-て stem co lại (かけちゃう = かけてしまう).【Sắc thái】Khẩu ngữ diễn tả nỗi lo sợ lỡ gây ra điều phiền toái ngoài ý muốn cho người khác.【Đối chiếu】Khác với lối viết trang trọng かけてしまうこと."
+            }
+          ]
+        },
+        {
+          "jp": "なぜなら、人は頼りにされることで「自分は役に立っている」と感じ、相手との絆を深めることができるからだ。",
+          "vi": "Bởi vì khi được trông cậy, con người sẽ cảm thấy 'mình là người có ích' và có thể thắt chặt thêm mối gắn kết với đối phương.",
+          "vocab": [
+            {
+              "w": "なぜなら",
+              "read": "なぜなら",
+              "vi": "vì sao thì là vì, nguyên nhân là"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "頼りにする",
+              "read": "たよりにする",
+              "vi": "trông cậy, nhờ cậy"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "役に立つ",
+              "read": "やくにたつ",
+              "vi": "có ích, hữu dụng"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "絆",
+              "read": "きずな",
+              "vi": "mối gắn kết, tình cảm gắn bó"
+            },
+            {
+              "w": "深める",
+              "read": "ふかめる",
+              "vi": "làm sâu sắc thêm, khoét sâu"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "なぜなら～からだ",
+              "vi": "【接続】なぜなら + Mệnh đề lý do + からだ。【Sắc thái】Dùng để giải thích nguyên nhân/lý do cho nhận định vừa nêu ở câu trước một cách rõ ràng, chặt chẽ.【Đối chiếu】Trang trọng và tường minh hơn chỉ dùng から ở cuối câu."
+            }
+          ]
+        },
+        {
+          "jp": "人と人との支え合いというのは、案外このような小さな一言から生まれるものだなあと気づかされる。",
+          "vi": "Ta được thức tỉnh rằng sự nâng đỡ giữa người với người hóa ra lại được sinh ra từ chính những lời nói nhỏ bé như thế nhỉ.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "支える",
+              "read": "ささえる",
+              "vi": "chống đỡ, hỗ trợ"
+            },
+            {
+              "w": "案外",
+              "read": "あんがい",
+              "vi": "ngoài dự tính, hóa ra"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "一言",
+              "read": "ひとこと",
+              "vi": "một câu, một lời"
+            },
+            {
+              "w": "生まれる",
+              "read": "うまれる",
+              "vi": "sinh ra, nảy sinh"
+            },
+            {
+              "w": "気づく",
+              "read": "きづく",
+              "vi": "nhận ra, nhận thấy"
+            },
+            {
+              "w": "支え合い",
+              "read": "ささえあい",
+              "vi": "sự nương tựa, nâng đỡ lẫn nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～なあ",
+              "vi": "【接続】普通形 (生まれるものだ) + なあ。【Sắc thái】Biểu lộ sự cảm thán, ngộ ra một chân lý sâu sắc từ trải nghiệm nội tâm ('...thật đấy nhỉ').【Đối chiếu】Khác với 〜ね vốn dùng để tương tác hướng ra đối thoại bên ngoài."
+            }
+          ]
+        },
+        {
+          "jp": "完璧を目指すのをやめて、「今日はここまでできたら十分だ」と自分を認めてあげる姿勢が大切だ。",
+          "vi": "Điều quan trọng là hãy từ bỏ việc hướng tới sự hoàn hảo và có thái độ công nhận bản thân: 'Hôm nay làm được đến đây là đủ rồi'.",
+          "vocab": [
+            {
+              "w": "完璧",
+              "read": "かんぺき",
+              "vi": "hoàn hảo"
+            },
+            {
+              "w": "目指す",
+              "read": "めざす",
+              "vi": "hướng tới, nhắm tới"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "認める",
+              "read": "みとめる",
+              "vi": "công nhận, thừa nhận"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, tâm thế, thái độ đối diện"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てあげる",
+              "vi": "【接続】V-て + あげる。【Sắc thái】Làm điều tốt đẹp cho đối tượng khác; ở đây dùng hướng về chính bản thân mình ('tự bao dung/công nhận cho mình').【Đối chiếu】Khác với 〜てもらう (nhận hành động từ người khác)."
+            }
+          ]
+        },
+        {
+          "jp": "散歩をするとか、好きなお茶を飲むとかして、意図的に頭を休める時間を作ると良いだろう。",
+          "vi": "Hãy dành thời gian chủ động cho đầu óc nghỉ ngơi như đi dạo hay uống một tách trà mình thích chẳng hạn.",
+          "vocab": [
+            {
+              "w": "散歩",
+              "read": "さんぽ",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "意図",
+              "read": "いと",
+              "vi": "ý đồ, ý định"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "休める",
+              "read": "やすめる",
+              "vi": "cho nghỉ ngơi, làm dịu"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "意図的",
+              "read": "いとてき",
+              "vi": "có chủ đích, có ý thức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とか（～とか）",
+              "vi": "【接続】V辞書形 + とか（+ V辞書形 + とかして）。【Sắc thái】Đưa ra các ví dụ hoạt động thư giãn để minh họa cho giải pháp mà không giới hạn chỉ ở những hành động đó.【Đối chiếu】Khác với liệt kê khép kín bằng 〜と."
+            }
+          ]
+        },
+        {
+          "jp": "悩みを一人でため込まずに「これ、どう思うか教えてくれない？」と周囲に相談しながら進めれば、後回し癖も少しずつ減っていくはずだ。",
+          "vi": "Nếu không ôm giữ phiền muộn một mình mà vừa tiến bước vừa hỏi ý kiến xung quanh 'Bạn có thể cho tôi biết bạn nghĩ sao về việc này không?', thói quen trì hoãn chắc chắn sẽ giảm dần.",
+          "vocab": [
+            {
+              "w": "悩み",
+              "read": "なやみ",
+              "vi": "nỗi lo; phiền muộn"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "ため込まずに",
+              "read": "ためこまずに",
+              "vi": "không dồn nén"
+            },
+            {
+              "w": "これ",
+              "read": "これ",
+              "vi": "điều này"
+            },
+            {
+              "w": "どう",
+              "read": "どう",
+              "vi": "thế nào"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "教えて",
+              "read": "おしえて",
+              "vi": "cho biết; chỉ cho"
+            },
+            {
+              "w": "くれない",
+              "read": "くれない",
+              "vi": "không thể giúp ... sao"
+            },
+            {
+              "w": "周囲",
+              "read": "しゅうい",
+              "vi": "xung quanh"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "trao đổi; xin tư vấn"
+            },
+            {
+              "w": "進めれば",
+              "read": "すすめれば",
+              "vi": "nếu tiến hành"
+            },
+            {
+              "w": "後回し",
+              "read": "あとまわし",
+              "vi": "trì hoãn; để sau"
+            },
+            {
+              "w": "後回し癖",
+              "read": "あとまわしぐせ",
+              "vi": "thói quen trì hoãn"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "減っていく",
+              "read": "へっていく",
+              "vi": "giảm dần"
+            },
+            {
+              "w": "はず",
+              "read": "はず",
+              "vi": "lẽ ra; chắc là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ずに",
+              "vi": "【接続】V-ない (bỏ ない) + ずに (riêng する → せずに).【Sắc thái】Cách diễn đạt trang trọng của 〜ないで ('mà không làm gì').【Đối chiếu】Khác với 〜ないで mang tính khẩu ngữ hơn."
+            },
+            {
+              "point": "～てくれない？",
+              "vi": "【接続】V-て (教えて) + くれない（？）。【Sắc thái】Lời đề nghị thân thiện nhờ người khác chia sẻ góc nhìn hoặc hỗ trợ mình mà không gây áp lực.【Đối chiếu】Tạo cảm giác cởi mở, tự nhiên hơn câu mệnh lệnh."
+            }
+          ]
+        },
+        {
+          "jp": "人生の時間は限られているのだから、後悔で時間を無駄にしてしまうのは本当にもったいない。",
+          "vi": "Thời gian của đời người là có hạn, nên việc lãng phí thời gian vào những nuối tiếc quả thực rất uổng phí.",
+          "vocab": [
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "限られる",
+              "read": "かぎられる",
+              "vi": "bị giới hạn, có hạn"
+            },
+            {
+              "w": "後悔",
+              "read": "こうかい",
+              "vi": "sự hối tiếc, hối hận"
+            },
+            {
+              "w": "無駄",
+              "read": "むだ",
+              "vi": "lãng phí, vô ích"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "もったいない",
+              "read": "もったいない",
+              "vi": "lãng phí, uổng phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "【接続】V-て + しまう。【Sắc thái】Nhấn mạnh sự mất mát đáng tiếc của thời gian quý báu mà không lấy lại được.【Đối chiếu】Khác với câu trần thuật không biểu cảm."
+            }
+          ]
+        },
+        {
+          "jp": "肩の力を抜いて、今日という一日を穏やかな気持ちで過ごしていきたいものだ。",
+          "vi": "Hãy thả lỏng đôi vai và sống trọn ngày hôm nay với một tâm trạng thật bình yên.",
+          "vocab": [
+            {
+              "w": "肩",
+              "read": "かた",
+              "vi": "vai, bờ vai"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "抜く",
+              "read": "ぬく",
+              "vi": "rút ra, lược bớt"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "穏やか",
+              "read": "おだやか",
+              "vi": "bình yên, ôn hòa"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "過ごす",
+              "read": "すごす",
+              "vi": "trải qua, sống"
+            },
+            {
+              "w": "肩の力を抜く",
+              "read": "かたのちからをぬく",
+              "vi": "thả lỏng, trút bỏ căng thẳng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～たいものだ",
+              "vi": "【接続】V-ます stem + たいものだ。【Sắc thái】Bày tỏ ước nguyện, mong mỏi sâu kín và tha thiết từ tận đáy lòng về một lối sống lý tưởng.【Đối chiếu】Khác với 〜たい (mong muốn trực tiếp, nhất thời)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "週末に部屋の掃除をするとか、たまった書類を整理するとか、小さな予定ほどつい先延ばしにしちゃうものだ。",
+          "label": "Hiện tượng trì hoãn từ những việc nhỏ nhặt"
+        },
+        {
+          "excerpt": "人は頼りにされることで「自分は役に立っている」と感じ、相手との絆を深めることができるからだ。",
+          "label": "Ý nghĩa tâm lý tích cực của việc được người khác nhờ cậy"
+        },
+        {
+          "excerpt": "散歩をするとか、好きなお茶を飲むとかして、意図的に頭を休める時間を作ると良いだろう。",
+          "label": "Giải pháp thư giãn chủ động để giảm tải áp lực"
+        }
+      ],
+      "questions": [
+        {
+          "q": "文章によると、人が仕事を後回しにしてしまう主な原因は何だと述べられているか。",
+          "options": [
+            "作業を完璧にこなそうとしたり、何でも一人で抱え込もうとしたりすること。",
+            "昔に比べて自身の集中力や仕事の遂行能力が著しく低下してしまったこと。",
+            "周囲の人たちから過度な期待やプレッシャーを常に直接かけられていること。",
+            "やるべき予定や仕事の量が多すぎて、締め切りを完全に忘れてしまうこと。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ câu [5] và câu [7]: Tác giả chỉ ra nguyên nhân nhiều khi là do chúng ta suy nghĩ quá mức kiểu 'phải làm thật hoàn hảo' hay 'tự mình giải quyết hết' (câu 5), và nguyên nhân không nằm ở năng lực mà do thiếu sự thảnh thơi trong tâm trí (câu 7). Do đó phương án 1 đúng. Các phương án khác sai vì: Phương án 2 sai vì bài nêu rõ nguyên nhân không phải do năng lực giảm sút (câu 7); Phương án 3 sai vì không hề đề cập đến việc người khác trực tiếp đặt kỳ vọng quá mức lên mình; Phương án 4 sai vì việc quên hạn nộp chỉ là một ví dụ biểu hiện tức thời (câu 2), không phải nguyên nhân cốt lõi.",
+          "tip": "Tìm từ khóa liên quan đến nguyên nhân (原因) trong đoạn 2 và đối chiếu với suy nghĩ '完璧に...' trong bài.",
+          "evi": [
+            5,
+            7
+          ],
+          "qt": {
+            "q": "Theo bài viết, nguyên nhân chính khiến mọi người trì hoãn công việc là gì?",
+            "o": [
+              "Cố gắng hoàn thành công việc một cách hoàn hảo hoặc ôm đồm mọi việc một mình.",
+              "Khả năng tập trung và năng lực thực hiện công việc của bản thân đã suy giảm đáng kể so với trước đây.",
+              "Những người xung quanh luôn trực tiếp đặt lên họ những kỳ vọng và áp lực quá lớn.",
+              "Khối lượng công việc và việc cần làm quá nhiều, khiến họ hoàn toàn quên mất hạn chót."
+            ]
+          }
+        },
+        {
+          "q": "筆者は、困ったときに他人に頼ることについてどのように考えているか。",
+          "options": [
+            "自分の能力の低さを認めることになるため、できるだけ避けるべき行為である。",
+            "相手に余計な負担や迷惑をかけてしまう可能性が高いため、慎重に行うべきだ。",
+            "相手にも「役に立っている」という充実感を与え、互いの絆を深めるきっかけになる。",
+            "相手の都合を考えずに何でも頼んでしまうと、人間関係を悪化させる恐れがある。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ câu [12] và [13]: Tác giả khẳng định không cần sợ làm phiền đối phương (câu 12), vì khi được nhờ cậy, con người sẽ cảm thấy 'mình có ích' và qua đó thắt chặt sợi dây gắn kết giữa đôi bên (câu 13). Do đó phương án 3 đúng. Phương án 1 sai vì bài nêu rõ 'nhờ người khác không phải là điều đáng xấu hổ' (câu 9); Phương án 2 sai vì bài nhấn mạnh 'hoàn toàn không cần lo sợ làm phiền' (câu 12); Phương án 4 sai vì bài khuyến khích mở lời nhờ vả thân mật chứ không hề cảnh báo làm xấu quan hệ.",
+          "tip": "Chú ý phần giải thích sau từ nối なぜなら (bởi vì) ở đoạn 3 để thấy được cái nhìn tích cực của tác giả đối với việc nhờ vả.",
+          "evi": [
+            12,
+            13
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về việc nhờ người khác giúp đỡ khi gặp khó khăn?",
+            "o": [
+              "Đó là việc nên tránh hết mức có thể, vì đồng nghĩa với việc thừa nhận năng lực của mình kém.",
+              "Nên cân nhắc cẩn thận vì có khả năng cao sẽ gây thêm gánh nặng hoặc phiền hà cho đối phương.",
+              "Việc đó mang lại cho đối phương cảm giác “mình đang có ích” và trở thành cơ hội để thắt chặt tình cảm giữa hai bên.",
+              "Nếu nhờ vả bất cứ việc gì mà không nghĩ đến hoàn cảnh của đối phương, có nguy cơ làm xấu đi mối quan hệ."
+            ]
+          }
+        },
+        {
+          "q": "後回し癖を減らすための方法として、文章で提案されているものはどれか。",
+          "options": [
+            "すべての仕事をその日のうちに完璧にやり遂げるまで休まないこと。",
+            "少し休憩を取ったり、周囲に意見を聞いて相談しながら進めたりすること。",
+            "他人に頼らず、まずは自分ひとりで集中して解決する癖をつけること。",
+            "反省の気持ちを忘れないように、夜遅くまで自分を厳しく追い込むこと。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ câu [15], [16] và [17]: Tác giả khuyên nên dành thời gian cho đầu óc nghỉ ngơi (câu 16) và trao đổi, tham khảo ý kiến của những người xung quanh chứ không ôm đồm một mình (câu 17). Do đó phương án 2 đúng. Phương án 1 sai vì trái ngược hoàn toàn với lời khuyên 'từ bỏ việc hướng tới sự hoàn hảo' (câu 15); Phương án 3 sai vì bài khuyên nên cởi mở nhờ vả thay vì gánh vác một mình (câu 10, 17); Phương án 4 sai vì tác giả cho rằng việc tự trách và dằn vặt chỉ làm lãng phí thời gian (câu 4, 18).",
+          "tip": "Đọc kỹ đoạn 4 nơi tác giả đưa ra các lời khuyên thực tế để khắc phục thói quen trì hoãn.",
+          "evi": [
+            15,
+            16,
+            17
+          ],
+          "qt": {
+            "q": "Theo bài viết, cách nào được đề xuất để giảm thói quen trì hoãn?",
+            "o": [
+              "Không nghỉ ngơi cho đến khi hoàn thành hoàn hảo mọi công việc trong ngày hôm đó.",
+              "Nghỉ giải lao một chút hoặc vừa hỏi ý kiến, trao đổi với những người xung quanh vừa tiến hành công việc.",
+              "Tạo thói quen không nhờ người khác mà trước hết tự mình tập trung giải quyết.",
+              "Nghiêm khắc ép bản thân làm việc đến tận khuya để không quên cảm giác hối lỗi."
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も伝えたいメッセージは何か。",
+          "options": [
+            "完璧主義や一人での抱え込みを手放し、周囲と支え合いながら穏やかに生きよう。",
+            "日々のスケジュールを徹底的に管理して、予定を絶対に先延ばしにしないようにしよう。",
+            "人間関係のトラブルを防ぐために、できる限り他人の仕事を手伝ってあげるべきだ。",
+            "集中力を高めるためには、スマートフォンの使用を完全に禁止することが不可欠だ。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ toàn bài, đặc biệt là đoạn 3 và đoạn 4 (câu [14], [15], [17], [19]): Tác giả phân tích thói quen trì hoãn bắt nguồn từ áp lực muốn hoàn hảo và ôm đồm một mình, từ đó đúc kết thông điệp hãy thả lỏng, biết nhờ cậy nâng đỡ nhau và sống một cách nhẹ nhàng, bình yên. Do đó phương án 1 là câu trả lời mang tính bao quát và chính xác nhất. Phương án 2 sai vì bài không bàn về quản lý thời gian khắt khe; Phương án 3 sai vì bài không tập trung vào việc đi giúp người khác để tránh xung đột; Phương án 4 sai vì việc xem điện thoại chỉ là ví dụ hành vi khi gặp áp lực, không phải trọng tâm bài viết.",
+          "tip": "Đối chiếu câu kết (câu 19) và sự phát triển ý từ đoạn 1 đến đoạn 4 để rút ra chủ đề tư tưởng lớn nhất của bài viết.",
+          "evi": [
+            14,
+            15,
+            17,
+            19
+          ],
+          "qt": {
+            "q": "Thông điệp mà tác giả muốn truyền tải nhất trong bài viết này là gì?",
+            "o": [
+              "Hãy buông bỏ chủ nghĩa cầu toàn và việc ôm đồm mọi thứ một mình, cùng hỗ trợ lẫn nhau và sống thanh thản.",
+              "Hãy quản lý lịch trình hằng ngày thật triệt để để tuyệt đối không trì hoãn việc cần làm.",
+              "Để tránh rắc rối trong các mối quan hệ, nên giúp đỡ công việc của người khác hết sức có thể.",
+              "Để tăng khả năng tập trung, nhất thiết phải cấm hoàn toàn việc sử dụng điện thoại thông minh."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "手ぶらBBQ施設「フォレストヒルズ」春のご案内",
+      "titleVi": "Hướng dẫn mùa xuân tại cơ sở BBQ trọn gói \"Forest Hills\"",
+      "japanese": "手ぶらBBQ施設「フォレストヒルズ」春のご案内\n「自然の中で家族と楽しく過ごしたいなあ」という方に大人気！\nテントとか寝袋とか、面倒な道具の準備は一切不要です。\n【利用コースと基本料金（1人・3時間）】\nコース名｜利用日｜大人（中学生以上）｜子ども（小学生）\nライトコース｜平日のみ｜2,000円｜1,000円\nレギュラーコース｜全日｜3,500円｜1,800円\nプレミアムコース｜全日｜5,000円｜2,500円\n※未就学児（小学生未満）は全コース無料です。\n【追加オプション・割引】\n・食材セット（肉・野菜）：1人前につき＋1,500円\n・機材の片付けおまかせ：1グループにつき＋2,000円\n・早割：利用日の10日前までにWEB予約で、合計から1,000円引き。\n・学生割：高校生以上のグループ全員が学生証提示で、1人500円引き。\n【よくあるご質問】\nQ：お肉とかジュースとか、好きな食べ物を持ち込んでもいいですか。\nA：自由ですが、買いすぎて残しちゃうともったいないのでご注意ください。\nQ：「予約の締め切りは何日前だったっけ？」と迷っています。\nA：利用日の3日前までWEB受付中ですが、週末はすぐ埋まってしまいます。\nQ：火起こしを手伝ってもらえますか。\nA：はい、初心者の方もお気軽にスタッフへお声がけください。",
+      "vietnamese": "Hướng dẫn mùa xuân tại cơ sở BBQ trọn gói \"Forest Hills\"\nRất được các gia đình ưa chuộng với mong muốn được cùng nhau thư giãn vui vẻ giữa thiên nhiên!\nKhông cần phải chuẩn bị bất kỳ dụng cụ phiền phức nào như lều hay túi ngủ.\n【Các gói sử dụng và mức phí cơ bản (1 người / 3 tiếng)】\nTên gói｜Ngày áp dụng｜Người lớn (học sinh THCS trở lên)｜Trẻ em (tiểu học)\nGói Light｜Chỉ ngày thường｜2.000 yên｜1.000 yên\nGói Standard｜Tất cả các ngày｜3.500 yên｜1.800 yên\nGói Premium｜Tất cả các ngày｜5.000 yên｜2.500 yên\n※ Trẻ em chưa đến tuổi đi học (dưới tiểu học) được miễn phí cho tất cả các gói.\n【Tùy chọn bổ sung & Giảm giá】\n・Set nguyên liệu (thịt, rau): +1.500 yên cho mỗi suất\n・Dịch vụ dọn dẹp thiết bị trọn gói: +2.000 yên cho mỗi nhóm\n・Ưu đãi đặt sớm: Đặt trước qua web trước ngày sử dụng từ 10 ngày trở lên được giảm 1.000 yên trên tổng hóa đơn.\n・Ưu đãi học sinh, sinh viên: Giảm 500 yên/người khi toàn bộ thành viên từ cấp 3 trở lên trong nhóm xuất trình thẻ học sinh/sinh viên.\n【Câu hỏi thường gặp】\nQ: Tôi có thể tự mang đồ ăn yêu thích như thịt hay nước ngọt vào được không?\nA: Quý khách được mang vào tự do, nhưng xin lưu ý đừng mua quá nhiều kẻo ăn thừa lãng phí mất.\nQ: Tôi đang phân vân không biết \"hạn chót đặt chỗ là trước mấy ngày ấy nhỉ?\".\nA: Chúng tôi nhận đặt qua web trước ngày sử dụng 3 ngày, tuy nhiên cuối tuần thường nhanh chóng bị kín chỗ mất.\nQ: Tôi có thể nhờ nhân viên giúp đỡ việc nhóm lửa được không?\nA: Vâng, những quý khách mới bắt đầu cũng xin cứ thoải mái nhờ nhân viên hỗ trợ.",
+      "sentences": [
+        {
+          "jp": "手ぶらBBQ施設「フォレストヒルズ」春のご案内",
+          "vi": "Hướng dẫn mùa xuân tại cơ sở BBQ trọn gói \"Forest Hills\"",
+          "vocab": [
+            {
+              "w": "手ぶら",
+              "read": "てぶら",
+              "vi": "tay không (không mang theo đồ đạc)"
+            },
+            {
+              "w": "BBQ",
+              "read": "BBQ",
+              "vi": "tiệc nướng ngoài trời"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở, địa điểm"
+            },
+            {
+              "w": "フォレストヒルズ",
+              "read": "フォレストヒルズ",
+              "vi": "tên riêng Forest Hills"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông báo"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "手ぶら",
+              "why": "Từ khóa định vị loại hình dịch vụ không cần khách mang theo dụng cụ cắm trại."
+            }
+          ]
+        },
+        {
+          "jp": "「自然の中で家族と楽しく過ごしたいなあ」という方に大人気！",
+          "vi": "Rất được các gia đình ưa chuộng với mong muốn được cùng nhau thư giãn vui vẻ giữa thiên nhiên!",
+          "vocab": [
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "thiên nhiên"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "楽しく",
+              "read": "たのしく",
+              "vi": "một cách vui vẻ"
+            },
+            {
+              "w": "過ごしたい",
+              "read": "すごしたい",
+              "vi": "muốn trải qua"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người; vị"
+            },
+            {
+              "w": "大人気",
+              "read": "だいにんき",
+              "vi": "rất được ưa chuộng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～なあ",
+              "vi": "Biểu đạt cảm xúc, ước muốn hoặc suy nghĩ nội tâm (muốn ~ quá nhỉ/thật)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "過ごしたいなあ",
+              "why": "Thể hiện tâm trạng cảm thán, mong muốn nội tâm của khách hàng."
+            }
+          ]
+        },
+        {
+          "jp": "テントとか寝袋とか、面倒な道具の準備は一切不要です。",
+          "vi": "Không cần phải chuẩn bị bất kỳ dụng cụ phiền phức nào như lều hay túi ngủ.",
+          "vocab": [
+            {
+              "w": "テント",
+              "read": "テント",
+              "vi": "lều, lều cắm trại"
+            },
+            {
+              "w": "寝袋",
+              "read": "ねぶくろ",
+              "vi": "túi ngủ"
+            },
+            {
+              "w": "面倒",
+              "read": "めんどう",
+              "vi": "phiền phức, rắc rối"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, phương tiện"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "一切",
+              "read": "いっさい",
+              "vi": "hoàn toàn, tất cả"
+            },
+            {
+              "w": "不要",
+              "read": "ふよう",
+              "vi": "không cần thiết"
+            },
+            {
+              "w": "一切不要",
+              "read": "いっさいふよう",
+              "vi": "hoàn toàn không cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とか",
+              "vi": "Liệt kê ví dụ đại diện (như là ~ hoặc là ~)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "一切不要",
+              "why": "Khẳng định tuyệt đối không cần chuẩn bị dụng cụ cắm trại cồng kềnh."
+            }
+          ]
+        },
+        {
+          "jp": "【利用コースと基本料金（1人・3時間）】",
+          "vi": "【Các gói sử dụng và mức phí cơ bản (1 người / 3 tiếng)】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用コース",
+              "read": "りようコース",
+              "vi": "gói sử dụng"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa; gói"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "基本料金",
+              "read": "きほんりょうきん",
+              "vi": "phí cơ bản"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "chi phí"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "1 người"
+            },
+            {
+              "w": "3時間",
+              "read": "さんじかん",
+              "vi": "3 giờ"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "コース名｜利用日｜大人（中学生以上）｜子ども（小学生）",
+          "vi": "Tên gói｜Ngày áp dụng｜Người lớn (học sinh THCS trở lên)｜Trẻ em (tiểu học)",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa; gói"
+            },
+            {
+              "w": "コース名",
+              "read": "コースめい",
+              "vi": "tên khóa"
+            },
+            {
+              "w": "名",
+              "read": "めい",
+              "vi": "tên"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用日",
+              "read": "りようび",
+              "vi": "ngày sử dụng"
+            },
+            {
+              "w": "日",
+              "read": "び",
+              "vi": "ngày"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "中学生",
+              "read": "ちゅうがくせい",
+              "vi": "học sinh trung học cơ sở"
+            },
+            {
+              "w": "中学生以上",
+              "read": "ちゅうがくせいいじょう",
+              "vi": "từ học sinh THCS trở lên"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "小学生",
+              "read": "しょうがくせい",
+              "vi": "học sinh tiểu học"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "ライトコース｜平日のみ｜2,000円｜1,000円",
+          "vi": "Gói Light｜Chỉ ngày thường｜2.000 yên｜1.000 yên",
+          "vocab": [
+            {
+              "w": "ライト",
+              "read": "ライト",
+              "vi": "nhẹ"
+            },
+            {
+              "w": "ライトコース",
+              "read": "ライトコース",
+              "vi": "gói nhẹ"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa; gói"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "平日のみ",
+              "read": "へいじつのみ",
+              "vi": "chỉ ngày thường"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のみ",
+              "vi": "N + のみ: Mang nghĩa \"chỉ...\", dùng để giới hạn phạm vi đối tượng/thời gian trong văn viết hoặc thông báo trang trọng (tương đương với だけ). Trong câu chỉ gói này chỉ áp dụng vào các ngày trong tuần (thứ 2 đến thứ 6)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日のみ",
+              "why": "Điều kiện giới hạn ngày sử dụng của gói Light, không dùng được cho cuối tuần hay ngày lễ."
+            },
+            {
+              "w": "2,000円",
+              "why": "Mức giá người lớn gói Light ngày thường."
+            }
+          ]
+        },
+        {
+          "jp": "レギュラーコース｜全日｜3,500円｜1,800円",
+          "vi": "Gói Standard｜Tất cả các ngày｜3.500 yên｜1.800 yên",
+          "vocab": [
+            {
+              "w": "レギュラー",
+              "read": "レギュラー",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "レギュラーコース",
+              "read": "レギュラーコース",
+              "vi": "khóa học tiêu chuẩn"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            },
+            {
+              "w": "1,800円",
+              "read": "せんはっぴゃくえん",
+              "vi": "1.800 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "3,500円",
+              "why": "Mức giá cơ bản của người lớn đối với gói Standard."
+            },
+            {
+              "w": "1,800円",
+              "why": "Mức giá cơ bản của học sinh tiểu học đối với gói Standard."
+            }
+          ]
+        },
+        {
+          "jp": "プレミアムコース｜全日｜5,000円｜2,500円",
+          "vi": "Gói Premium｜Tất cả các ngày｜5.000 yên｜2.500 yên",
+          "vocab": [
+            {
+              "w": "プレミアム",
+              "read": "プレミアム",
+              "vi": "cao cấp"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa học"
+            },
+            {
+              "w": "プレミアムコース",
+              "read": "プレミアムコース",
+              "vi": "khóa học cao cấp"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "2,500円",
+              "read": "にせんごひゃくえん",
+              "vi": "2.500 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "※未就学児（小学生未満）は全コース無料です。",
+          "vi": "※ Trẻ em chưa đến tuổi đi học (dưới tiểu học) được miễn phí cho tất cả các gói.",
+          "vocab": [
+            {
+              "w": "就学",
+              "read": "しゅうがく",
+              "vi": "đi học, nhập học"
+            },
+            {
+              "w": "小学生",
+              "read": "しょうがくせい",
+              "vi": "học sinh tiểu học"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "未就学児",
+              "read": "みしゅうがくじ",
+              "vi": "trẻ em chưa đi học mầm non"
+            },
+            {
+              "w": "未満",
+              "read": "みまん",
+              "vi": "dưới, chưa đủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜未満",
+              "vi": "Số từ / Danh từ chỉ độ tuổi, cấp bậc + 未満: Mang nghĩa \"chưa đủ / dưới mức...\" (không tính mốc được nêu). Trong câu chỉ đối tượng trẻ em dưới độ tuổi học sinh tiểu học (chưa vào lớp 1)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "全コース無料",
+              "why": "Điều kiện miễn giảm 100% phí dịch vụ cơ bản cho trẻ dưới độ tuổi tiểu học."
+            }
+          ]
+        },
+        {
+          "jp": "【追加オプション・割引】",
+          "vi": "【Tùy chọn bổ sung & Giảm giá】",
+          "vocab": [
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "thêm vào, bổ sung"
+            },
+            {
+              "w": "オプション",
+              "read": "オプション",
+              "vi": "tùy chọn, dịch vụ thêm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "・食材セット（肉・野菜）：1人前につき＋1,500円",
+          "vi": "・Set nguyên liệu (thịt, rau): +1.500 yên cho mỗi suất",
+          "vocab": [
+            {
+              "w": "食材",
+              "read": "しょくざい",
+              "vi": "nguyên liệu thực phẩm"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "bộ"
+            },
+            {
+              "w": "食材セット",
+              "read": "しょくざいセット",
+              "vi": "bộ nguyên liệu"
+            },
+            {
+              "w": "肉",
+              "read": "にく",
+              "vi": "thịt"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau củ"
+            },
+            {
+              "w": "人前",
+              "read": "にんまえ",
+              "vi": "suất ăn"
+            },
+            {
+              "w": "1人前",
+              "read": "いちにんまえ",
+              "vi": "một suất"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi"
+            },
+            {
+              "w": "＋1,500円",
+              "read": "プラスせんごひゃくえん",
+              "vi": "cộng thêm 1.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜につき",
+              "vi": "Số từ / Danh từ chỉ số lượng + につき: Biểu thị tỷ lệ, đơn vị chuẩn \"cứ mỗi... / cho mỗi...\". Trong câu có nghĩa là cứ mỗi 1 suất ăn thì tính thêm 1.500 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1人前につき＋1,500円",
+              "why": "Đơn giá tính theo từng suất ăn cho tùy chọn thực phẩm bổ sung."
+            }
+          ]
+        },
+        {
+          "jp": "・機材の片付けおまかせ：1グループにつき＋2,000円",
+          "vi": "・Dịch vụ dọn dẹp thiết bị trọn gói: +2.000 yên cho mỗi nhóm",
+          "vocab": [
+            {
+              "w": "機材",
+              "read": "きざい",
+              "vi": "thiết bị"
+            },
+            {
+              "w": "片付け",
+              "read": "かたづけ",
+              "vi": "dọn dẹp"
+            },
+            {
+              "w": "おまかせ",
+              "read": "おまかせ",
+              "vi": "để bên dịch vụ lo"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "1グループ",
+              "read": "ひとグループ",
+              "vi": "một nhóm"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi"
+            },
+            {
+              "w": "＋2,000円",
+              "read": "プラスにせんえん",
+              "vi": "cộng thêm 2.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜につき",
+              "vi": "Số từ / Danh từ chỉ đơn vị + につき: Biểu thị tỷ lệ, đơn vị quy chuẩn \"cho mỗi... / cứ mỗi...\". Trong câu có nghĩa là cứ mỗi một nhóm sẽ tính phí phụ thu 2.000 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1グループにつき＋2,000円",
+              "why": "Phí tùy chọn dọn dẹp tính trọn gói theo từng nhóm chứ không nhân theo đầu người."
+            }
+          ]
+        },
+        {
+          "jp": "・早割：利用日の10日前までにWEB予約で、合計から1,000円引き。",
+          "vi": "・Ưu đãi đặt sớm: Đặt trước qua web trước ngày sử dụng từ 10 ngày trở lên được giảm 1.000 yên trên tổng hóa đơn.",
+          "vocab": [
+            {
+              "w": "早",
+              "read": "はや",
+              "vi": "sớm"
+            },
+            {
+              "w": "早割",
+              "read": "はやわり",
+              "vi": "giảm giá đặt sớm"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "利用日",
+              "read": "りようび",
+              "vi": "ngày sử dụng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "10日前",
+              "read": "とおかまえ",
+              "vi": "10 ngày trước"
+            },
+            {
+              "w": "WEB",
+              "read": "ウェブ",
+              "vi": "web"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "WEB予約",
+              "read": "ウェブよやく",
+              "vi": "đặt chỗ trên web"
+            },
+            {
+              "w": "合計",
+              "read": "ごうけい",
+              "vi": "tổng cộng"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm/trừ"
+            },
+            {
+              "w": "1,000円引き",
+              "read": "せんえんびき",
+              "vi": "giảm 1.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜までに",
+              "vi": "N (thời gian) / Vる + までに: Biểu thị thời hạn chót \"muộn nhất là trước / trước thời điểm...\". Trong câu chỉ điều kiện phải đặt trước muộn nhất là 10 ngày trước ngày sử dụng dịch vụ để được giảm giá."
+            }
+          ],
+          "keys": [
+            {
+              "w": "10日前までに",
+              "why": "Điều kiện thời hạn đặt chỗ để được hưởng ưu đãi giảm giá sớm 1.000 yên."
+            }
+          ]
+        },
+        {
+          "jp": "・学生割：高校生以上のグループ全員が学生証提示で、1人500円引き。",
+          "vi": "・Ưu đãi học sinh, sinh viên: Giảm 500 yên/người khi toàn bộ thành viên từ cấp 3 trở lên trong nhóm xuất trình thẻ học sinh/sinh viên.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh/sinh viên"
+            },
+            {
+              "w": "学生割",
+              "read": "がくせいわり",
+              "vi": "giảm giá học sinh/sinh viên"
+            },
+            {
+              "w": "高校生",
+              "read": "こうこうせい",
+              "vi": "học sinh trung học phổ thông"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "高校生以上",
+              "read": "こうこうせいいじょう",
+              "vi": "từ học sinh cấp ba trở lên"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "tất cả mọi người"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh/sinh viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "một người"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm/trừ"
+            },
+            {
+              "w": "500円引き",
+              "read": "ごひゃくえんびき",
+              "vi": "giảm 500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜以上",
+              "vi": "N (chỉ cấp bậc, số lượng, độ tuổi) + 以上: Mang nghĩa \"từ... trở lên\" (bao gồm cả mốc được nhắc đến). Trong câu chỉ đối tượng từ cấp học sinh trung học phổ thông (cấp 3) trở lên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "全員が学生証提示",
+              "why": "Điều kiện ràng buộc toàn bộ người trong nhóm phải có thẻ học sinh/sinh viên mới được giảm."
+            },
+            {
+              "w": "1人500円引き",
+              "why": "Mức giảm giá của ưu đãi sinh viên tính trên mỗi người."
+            }
+          ]
+        },
+        {
+          "jp": "【よくあるご質問】",
+          "vi": "【Câu hỏi thường gặp】",
+          "vocab": [
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "Q：お肉とかジュースとか、好きな食べ物を持ち込んでもいいですか。",
+          "vi": "Q: Tôi có thể tự mang đồ ăn yêu thích như thịt hay nước ngọt vào được không?",
+          "vocab": [
+            {
+              "w": "肉",
+              "read": "にく",
+              "vi": "thịt"
+            },
+            {
+              "w": "ジュース",
+              "read": "ジュース",
+              "vi": "nước ép, nước ngọt"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "持ち込む",
+              "read": "もちこむ",
+              "vi": "mang vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～とか",
+              "vi": "Liệt kê ví dụ khẩu ngữ (thịt hay nước ngọt chẳng hạn)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "A：自由ですが、買いすぎて残しちゃうともったいないのでご注意ください。",
+          "vi": "A: Quý khách được mang vào tự do, nhưng xin lưu ý đừng mua quá nhiều kẻo ăn thừa lãng phí mất.",
+          "vocab": [
+            {
+              "w": "自由",
+              "read": "じゆう",
+              "vi": "tự do"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "残す",
+              "read": "のこす",
+              "vi": "để lại, làm thừa"
+            },
+            {
+              "w": "もったいない",
+              "read": "もったいない",
+              "vi": "lãng phí"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ちゃう（てしまう）",
+              "vi": "Biểu thị hành động lỡ xảy ra mang sắc thái tiếc nuối (lỡ để thừa mất)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "残しちゃう",
+              "why": "Từ vựng ngữ pháp trọng tâm chỉ việc lỡ để thừa thức ăn gây lãng phí."
+            }
+          ]
+        },
+        {
+          "jp": "Q：「予約の締め切りは何日前だったっけ？」と迷っています。",
+          "vi": "Q: Tôi đang phân vân không biết \"hạn chót đặt chỗ là trước mấy ngày ấy nhỉ?\".",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "締め切り",
+              "read": "しめきり",
+              "vi": "hạn chót"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "何日前",
+              "read": "なんにちまえ",
+              "vi": "bao nhiêu ngày trước"
+            },
+            {
+              "w": "迷っています",
+              "read": "まよっています",
+              "vi": "đang phân vân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～っけ",
+              "vi": "Hỏi lại để xác nhận điều mình không chắc nhớ rõ (~ ấy nhỉ)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "A：利用日の3日前までWEB受付中ですが、週末はすぐ埋まってしまいます。",
+          "vi": "A: Chúng tôi nhận đặt qua web trước ngày sử dụng 3 ngày, tuy nhiên cuối tuần thường nhanh chóng bị kín chỗ mất.",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "WEB",
+              "read": "WEB",
+              "vi": "trang web, mạng web"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "埋まる",
+              "read": "うまる",
+              "vi": "bị lấp đầy, kín chỗ"
+            },
+            {
+              "w": "受付中",
+              "read": "うけつけちゅう",
+              "vi": "đang tiếp nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てしまう",
+              "vi": "Biểu thị sự việc hoàn tất ngoài ý muốn hoặc kết quả đáng tiếc (bị kín chỗ mất)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "3日前まで",
+              "why": "Thời hạn chót tiếp nhận đặt chỗ trực tuyến qua website."
+            }
+          ]
+        },
+        {
+          "jp": "Q：火起こしを手伝ってもらえますか。",
+          "vi": "Q: Tôi có thể nhờ nhân viên giúp đỡ việc nhóm lửa được không?",
+          "vocab": [
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "起こす",
+              "read": "おこす",
+              "vi": "gây ra, đánh thức"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ"
+            },
+            {
+              "w": "火起こし",
+              "read": "ひおこし",
+              "vi": "nhóm lửa, thổi lửa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てもらえる",
+              "vi": "Nhờ vả, yêu cầu đối phương giúp đỡ một cách lịch sự"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "A：はい、初心者の方もお気軽にスタッフへお声がけください。",
+          "vi": "A: Vâng, những quý khách mới bắt đầu cũng xin cứ thoải mái nhờ nhân viên hỗ trợ.",
+          "vocab": [
+            {
+              "w": "はい",
+              "read": "はい",
+              "vi": "vâng"
+            },
+            {
+              "w": "初心者",
+              "read": "しょしんしゃ",
+              "vi": "người mới bắt đầu"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị/người"
+            },
+            {
+              "w": "気軽",
+              "read": "きがる",
+              "vi": "thoải mái"
+            },
+            {
+              "w": "お気軽",
+              "read": "おきがる",
+              "vi": "cứ tự nhiên/thoải mái"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "声がけ",
+              "read": "こえがけ",
+              "vi": "lời gọi/liên hệ"
+            },
+            {
+              "w": "お声がけ",
+              "read": "おこえがけ",
+              "vi": "liên hệ/gọi cho"
+            },
+            {
+              "w": "ください",
+              "read": "ください",
+              "vi": "xin hãy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お〜ください",
+              "vi": "お + V-masu (bỏ ます) / Danh từ gốc động từ + ください: Mẫu câu yêu cầu, đề nghị đối phương làm gì một cách lịch sự, trang trọng (kính ngữ). Trong câu \"お声がけください\" mang nghĩa \"xin hãy lên tiếng gọi / thoải mái trao đổi với nhân viên\"."
+            },
+            {
+              "point": "お気軽に",
+              "vi": "お + Tính từ đuôi な (bỏ な) + に: Tiền tố lịch sự お kết hợp với phó từ hóa tính từ đuôi な, mang nghĩa \"một cách thoải mái / đừng ngại ngần\" bổ nghĩa cho hành động phía sau."
+            }
+          ],
+          "keys": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "過ごしたいなあ",
+          "label": "～なあ"
+        },
+        {
+          "excerpt": "テントとか寝袋とか",
+          "label": "～とか"
+        },
+        {
+          "excerpt": "お肉とかジュースとか",
+          "label": "～とか"
+        },
+        {
+          "excerpt": "残しちゃう",
+          "label": "～ちゃう（てしまう）"
+        },
+        {
+          "excerpt": "何日前だったっけ",
+          "label": "～っけ"
+        },
+        {
+          "excerpt": "埋まってしまいます",
+          "label": "～てしまう"
+        },
+        {
+          "excerpt": "手伝ってもらえますか",
+          "label": "～てもらえる"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "施設紹介・キャッチコピー",
+          "topic": 0,
+          "note": "Giới thiệu đặc điểm và sự tiện lợi của cơ sở BBQ trọn gói",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 8,
+          "kind": "body",
+          "label": "利用コースと基本料金表",
+          "topic": 3,
+          "note": "Bảng giá cơ bản theo gói, đối tượng ngày áp dụng và quy định miễn phí cho trẻ mầm non",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 13,
+          "kind": "point",
+          "label": "追加オプションと各種割引",
+          "topic": 9,
+          "note": "Chi phí tùy chọn nguyên liệu, dọn dẹp và điều kiện áp dụng giảm giá sớm, giảm giá sinh viên",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 14,
+          "to": 20,
+          "kind": "turn",
+          "label": "よくあるご質問（Q&A）",
+          "topic": 14,
+          "note": "Quy định mang đồ ăn ngoài, thời hạn đặt chỗ trực tuyến và hỗ trợ từ nhân viên",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは妻と小学生の子ども1人、4歳（未就学児）の子ども1人の家族4人で、日曜日にこの施設を利用したいと考えている。「レギュラーコース」を選び、「食材セット」を3人前追加して、利用日の15日前にWEB予約した場合、合計料金はいくらになるか。",
+          "options": [
+            "11,800円",
+            "12,300円",
+            "13,300円",
+            "14,800円"
+          ],
+          "answer": 1,
+          "explainVi": "Chi phí gói Standard ngày Chủ Nhật là người lớn 3.500 yên × 2 người = 7.000 yên; học sinh tiểu học 1.800 yên × 1 người; trẻ mầm non 4 tuổi được miễn phí (0 yên). Tổng phí cơ bản là 8.800 yên. Tùy chọn set nguyên liệu 1.500 yên × 3 suất = 4.500 yên, tạm tính là 13.300 yên. Vì đặt trước 15 ngày nên được hưởng ưu đãi đặt sớm (trước từ 10 ngày trở lên được giảm 1.000 yên trên tổng hóa đơn). Do đó tổng số tiền phải trả là 13.300 yên - 1.000 yên = 12.300 yên.",
+          "tip": "Xác định đúng biểu giá gói Standard cho từng thành viên (lưu ý trẻ 4 tuổi là未就学児 được miễn phí), sau đó cộng thêm tiền 3 suất ăn và trừ đi 1.000 yên của ưu đãi đặt trước 10 ngày (早割).",
+          "evi": [
+            6,
+            8,
+            10,
+            12
+          ],
+          "qt": {
+            "q": "Anh Tanaka muốn cùng gia đình 4 người gồm vợ, một con đang học tiểu học và một con 4 tuổi (chưa đến tuổi đi học tiểu học) sử dụng cơ sở này vào Chủ nhật. Nếu chọn “Gói tiêu chuẩn”, thêm 3 suất “Bộ nguyên liệu” và đặt chỗ trực tuyến trước ngày sử dụng 15 ngày, tổng chi phí là bao nhiêu?",
+            "o": [
+              "11.800 yên",
+              "12.300 yên",
+              "13.300 yên",
+              "14.800 yên"
+            ]
+          }
+        },
+        {
+          "q": "大学生の木村さんは友人3人（全員大学生、計4人）と平日に「ライトコース」を利用し、「機材の片付けおまかせ」を頼む予定である。利用日の5日前に予約し、当日全員が学生証を提示する場合、グループ全体の支払い総額と予約方法について正しいものはどれか。",
+          "options": [
+            "学生割が適用されて総額は8,000円となり、利用日の3日前までなのでWEBで予約できる。",
+            "早割と学生割の両方が適用されて総額は7,000円となり、WEBで予約できる。",
+            "学生割は平日には利用できないため総額は10,000円となり、WEBで予約できる。",
+            "学生割が適用されて総額は8,000円となるが、利用日の5日前はWEB予約の締め切りを過ぎている。"
+          ],
+          "answer": 0,
+          "explainVi": "Phí gói Light ngày thường cho 4 sinh viên (người lớn) là 2.000 yên × 4 = 8.000 yên. Phí dọn dẹp thiết bị là 2.000 yên/nhóm, tạm tính 10.000 yên. Đặt trước 5 ngày nên không được hưởng ưu đãi早割 (yêu cầu trước 10 ngày), nhưng vì cả 4 người đều có thẻ sinh viên nên được hưởng giảm giá sinh viên 500 yên × 4 = 2.000 yên, tổng số tiền còn lại là 8.000 yên. Về thời hạn đặt chỗ, hạn chót đặt qua WEB là trước 3 ngày nên trước 5 ngày hoàn toàn có thể đặt qua WEB bình thường.",
+          "tip": "Đối chiếu từng điều kiện: gói Light ngày thường (2.000 yên × 4), phí dọn dẹp theo nhóm (+2.000 yên), kiểm tra điều kiện giảm giá (5 ngày không đạt 早割 10 ngày, nhưng đạt 学生割 giảm 500 yên/người), và hạn chót đặt WEB là 3 ngày trước khi dùng.",
+          "evi": [
+            5,
+            11,
+            12,
+            13,
+            18
+          ],
+          "qt": {
+            "q": "Anh Kimura, sinh viên đại học, dự định sử dụng “Gói cơ bản” vào ngày thường cùng 3 người bạn (tất cả đều là sinh viên đại học, tổng cộng 4 người) và yêu cầu dịch vụ “Nhờ dọn dẹp thiết bị”. Nếu đặt chỗ trước ngày sử dụng 5 ngày và hôm đó tất cả mọi người xuất trình thẻ sinh viên, phương án nào đúng về tổng số tiền cả nhóm phải trả và cách đặt chỗ?",
+            "o": [
+              "Được áp dụng giảm giá sinh viên, tổng cộng là 8.000 yên; vì có thể đặt chỗ đến 3 ngày trước ngày sử dụng nên có thể đặt trực tuyến.",
+              "Được áp dụng cả giảm giá đặt sớm và giảm giá sinh viên, tổng cộng là 7.000 yên; có thể đặt trực tuyến.",
+              "Không thể sử dụng giảm giá sinh viên vào ngày thường, vì vậy tổng cộng là 10.000 yên; có thể đặt trực tuyến.",
+              "Được áp dụng giảm giá sinh viên, tổng cộng là 8.000 yên, nhưng thời điểm trước ngày sử dụng 5 ngày đã quá hạn đặt chỗ trực tuyến."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

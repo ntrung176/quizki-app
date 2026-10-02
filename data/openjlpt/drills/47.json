@@ -1,0 +1,490 @@
+{
+  "id": "minna2.b47",
+  "bai": 47,
+  "titleVi": "Thay đổi dần dần, hướng đến",
+  "know": [
+    {
+      "id": "minna2.b47.tekimashita",
+      "point": "tekimashita",
+      "jp": "〜てきました",
+      "vi": "Dần dần đã ~, cho đến bây giờ đã ~ (thay đổi từ quá khứ đến hiện tại)",
+      "en": "Have gradually become ~; have come to ~ by now (a change from the past to the present)",
+      "gloss": "暖[あたた]かくなってきました ／ 増[ふ]えてきました ／ 上手[じょうず]になってきました",
+      "glossEn": "暖[あたた]かくなってきました ／ 増[ふ]えてきました ／ 上手[じょうず]になってきました (It has gradually become warmer ／ It has gradually increased ／ I have gradually gotten better)"
+    },
+    {
+      "id": "minna2.b47.teikimasu",
+      "point": "teikimasu",
+      "jp": "〜ていきます",
+      "vi": "Sẽ dần dần ~ (thay đổi tiếp tục hướng đến tương lai)",
+      "en": "Will gradually ~ (a change continuing toward the future)",
+      "gloss": "減[へ]っていきます ／ 発展[はってん]していきます ／ 続[つづ]けていきます",
+      "glossEn": "減[へ]っていきます ／ 発展[はってん]していきます ／ 続[つづ]けていきます (will gradually decrease ／ will continue to develop ／ will continue)"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b47-tki-atataka",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-teiki-swap",
+      "vi": "Dần dần trời đã ấm lên (kể từ mùa đông).",
+      "t1": {
+        "stem": "気温[きおん]が 暖[あたた]かく ＿。",
+        "choices": [
+          "なってきました",
+          "なっていきます",
+          "なりました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "気温[きおん]が",
+          "暖[あたた]かく",
+          "なって",
+          "きました。"
+        ],
+        "traps": [
+          "なっていきます。",
+          "になってきました。"
+        ]
+      },
+      "t3": {
+        "target": "気温が暖かくなってきました。",
+        "accept": [
+          "きおんがあたたかくなってきました。"
+        ]
+      },
+      "why": "〜てきました = thay đổi đã xảy ra dần dần ĐẾN hiện tại. ✗ なっていきます = sẽ thay đổi trong tương lai (ngược chiều thời gian)."
+    },
+    {
+      "id": "c-b47-tki-fueru",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-teiki-swap",
+      "vi": "Dân số đã dần dần tăng lên (cho đến hiện nay).",
+      "t1": {
+        "stem": "人口[じんこう]が ＿。",
+        "choices": [
+          "増[ふ]えてきました",
+          "増[ふ]えていきます",
+          "増[ふ]えました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "人口[じんこう]が",
+          "増[ふ]えて",
+          "きました。"
+        ],
+        "traps": [
+          "増[ふ]えていきます。",
+          "増[ふ]えてきます。"
+        ]
+      },
+      "t3": {
+        "target": "人口が増えてきました。",
+        "accept": [
+          "じんこうがふえてきました。"
+        ]
+      },
+      "why": "増えてきました = đã tăng dần đến bây giờ (nhìn từ quá khứ → hiện tại). ✗ 増えていきます = sẽ tăng (tương lai)."
+    },
+    {
+      "id": "c-b47-tki-jouzu",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-nakunatta",
+      "vi": "Anh ấy dần dần trở nên giỏi tiếng Nhật hơn.",
+      "t1": {
+        "stem": "彼[かれ]は 日本語[にほんご]が 上手[じょうず]に ＿。",
+        "choices": [
+          "なってきました",
+          "なっていきます",
+          "なりたいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "日本語[にほんご]が",
+          "上手[じょうず]に",
+          "なって",
+          "きました。"
+        ],
+        "traps": [
+          "なっていきます。",
+          "じょうずにきました。"
+        ]
+      },
+      "t3": {
+        "target": "彼は日本語が上手になってきました。",
+        "accept": [
+          "かれはにほんごがじょうずになってきました。"
+        ]
+      },
+      "why": "な形容詞 + になって + きました. 上手に = trạng từ (không phải 上手くなって). ✗ なっていきます nói về tương lai."
+    },
+    {
+      "id": "c-b47-tki-gijutsu",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-nakunatta",
+      "vi": "Công nghệ đã phát triển dần dần cho đến nay.",
+      "t1": {
+        "stem": "技術[ぎじゅつ]が ＿。",
+        "choices": [
+          "進歩[しんぽ]してきました",
+          "進歩[しんぽ]していきます",
+          "進歩[しんぽ]しました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "技術[ぎじゅつ]が",
+          "進歩[しんぽ]して",
+          "きました。"
+        ],
+        "traps": [
+          "進歩[しんぽ]していきます。",
+          "発展[はってん]してきています。"
+        ]
+      },
+      "t3": {
+        "target": "技術が進歩してきました。",
+        "accept": [
+          "ぎじゅつがしんぽしてきました。"
+        ]
+      },
+      "why": "する → して + きました. 進歩してきました = đã tiến bộ dần dần. ✗ しました chỉ nói hoàn thành đơn giản, không nhấn mạnh \"dần dần\"."
+    },
+    {
+      "id": "c-b47-tki-kankyou",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-nakunatta",
+      "vi": "Môi trường đã dần dần trở nên xấu đi.",
+      "t1": {
+        "stem": "環境[かんきょう]が 悪[わる]く ＿。",
+        "choices": [
+          "なってきました",
+          "なっていきます",
+          "なりました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "環境[かんきょう]が",
+          "悪[わる]く",
+          "なって",
+          "きました。"
+        ],
+        "traps": [
+          "なっていきます。",
+          "悪[わる]くなりました。"
+        ]
+      },
+      "t3": {
+        "target": "環境が悪くなってきました。",
+        "accept": [
+          "かんきょうがわるくなってきました。"
+        ]
+      },
+      "why": "い形容詞 (悪い) → 悪く + なって + きました. Nhấn mạnh quá trình thay đổi dần, không phải biến đổi đột ngột."
+    },
+    {
+      "id": "c-b47-tii-tsuzukeru",
+      "item": "minna2.b47.teikimasu",
+      "err": "teki-teiki-swap",
+      "vi": "Chúng tôi sẽ tiếp tục cố gắng từ bây giờ trở đi.",
+      "t1": {
+        "stem": "これからも 頑張[がんば]り ＿。",
+        "choices": [
+          "続[つづ]けていきます",
+          "続[つづ]けてきました",
+          "続[つづ]けます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これからも",
+          "頑張[がんば]り",
+          "続[つづ]けて",
+          "いきます。"
+        ],
+        "traps": [
+          "続[つづ]けてきました。",
+          "続[つづ]けていきました。"
+        ]
+      },
+      "t3": {
+        "target": "これからも頑張り続けていきます。",
+        "accept": [
+          "これからもがんばりつづけていきます。"
+        ]
+      },
+      "why": "〜ていきます = sẽ tiếp tục làm trong tương lai. これから (từ bây giờ) kết hợp tự nhiên với ていきます. ✗ てきました nhìn về quá khứ."
+    },
+    {
+      "id": "c-b47-tii-heru",
+      "item": "minna2.b47.teikimasu",
+      "err": "teki-teiki-swap",
+      "vi": "Tỷ lệ sinh sẽ tiếp tục giảm trong tương lai.",
+      "t1": {
+        "stem": "今後[こんご]も 少子化[しょうしか]が 進[すす]んで ＿。",
+        "choices": [
+          "いきます",
+          "きました",
+          "います"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今後[こんご]も",
+          "少子化[しょうしか]が",
+          "進[すす]んで",
+          "いきます。"
+        ],
+        "traps": [
+          "進[すす]んできました。",
+          "進[すす]んでいます。"
+        ]
+      },
+      "t3": {
+        "target": "今後も少子化が進んでいきます。",
+        "accept": [
+          "こんごもしょうしかがすすんでいきます。"
+        ]
+      },
+      "why": "進む → 進んで (む→んで) + いきます = sẽ tiến triển. 今後 = trong tương lai, cho thấy chiều hướng tương lai. ✗ てきました = đã xảy ra."
+    },
+    {
+      "id": "c-b47-tii-groba",
+      "item": "minna2.b47.teikimasu",
+      "err": "teki-nakunatta",
+      "vi": "Toàn cầu hóa sẽ ngày càng phát triển mạnh hơn.",
+      "t1": {
+        "stem": "グローバル化[か]が さらに ＿。",
+        "choices": [
+          "発展[はってん]していきます",
+          "発展[はってん]してきました",
+          "発展[はってん]します"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "グローバル化[か]が",
+          "さらに",
+          "発展[はってん]して",
+          "いきます。"
+        ],
+        "traps": [
+          "発展[はってん]してきました。",
+          "発展[はってん]していきました。"
+        ]
+      },
+      "t3": {
+        "target": "グローバル化がさらに発展していきます。",
+        "accept": [
+          "ぐろーばるかがさらにはってんしていきます。"
+        ]
+      },
+      "why": "発展する → 発展して + いきます = sẽ phát triển tiếp. さらに (thậm chí hơn nữa) kết hợp tự nhiên. ✗ てきました = đã phát triển (quá khứ)."
+    },
+    {
+      "id": "c-b47-tii-digital",
+      "item": "minna2.b47.teikimasu",
+      "err": "teki-teiki-swap",
+      "vi": "Số hóa sẽ tiếp tục tiến nhanh trong xã hội.",
+      "t1": {
+        "stem": "社会[しゃかい]の デジタル化[か]は 急速[きゅうそく]に 進[すす]んで ＿。",
+        "choices": [
+          "いきます",
+          "きました",
+          "いました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "社会[しゃかい]の",
+          "デジタル化[か]は",
+          "急速[きゅうそく]に",
+          "進[すす]んで",
+          "いきます。"
+        ],
+        "traps": [
+          "進[すす]んできました。",
+          "進[すす]でいきます。"
+        ]
+      },
+      "t3": {
+        "target": "社会のデジタル化は急速に進んでいきます。",
+        "accept": [
+          "しゃかいのでじたるかはきゅうそくにすすんでいきます。"
+        ]
+      },
+      "why": "進む → 進んで + いきます (未来). 急速に + ていきます = sẽ phát triển nhanh. ✗ てきました nhìn về quá khứ."
+    },
+    {
+      "id": "c-b47-tki-kourei",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-nakunatta",
+      "vi": "Tỷ lệ người già đã dần dần tăng lên ở Nhật Bản.",
+      "t1": {
+        "stem": "日本[にほん]では 高齢化[こうれいか]が ＿。",
+        "choices": [
+          "進[すす]んできました",
+          "進[すす]んでいきます",
+          "進[すす]みました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本[にほん]では",
+          "高齢化[こうれいか]が",
+          "進[すす]んで",
+          "きました。"
+        ],
+        "traps": [
+          "進[すす]んでいきます。",
+          "増[ふ]えてきました。"
+        ]
+      },
+      "t3": {
+        "target": "日本では高齢化が進んできました。",
+        "accept": [
+          "にほんではこうれいかがすすんできました。"
+        ]
+      },
+      "why": "進む → 進んで + きました. 高齢化 (già hoá dân số) đã tiến triển đến hiện tại. ✗ いきます nói tương lai."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b47-haru",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-teiki-swap",
+      "tts": "さいきん、きおんがあがってきましたね。",
+      "script": "最近[さいきん]、気温[きおん]が 上[あ]がってきましたね。",
+      "ask": "Người nói muốn nói điều gì về nhiệt độ?",
+      "choices": [
+        "Nhiệt độ đã dần dần tăng lên gần đây",
+        "Nhiệt độ sẽ tiếp tục tăng trong tương lai",
+        "Nhiệt độ đột ngột tăng cao hôm nay"
+      ],
+      "answer": 0,
+      "why": "上がってきました = đã tăng dần (quá khứ → hiện tại). さいきん (gần đây) cho thấy đây là xu hướng dần dần, không phải tương lai."
+    },
+    {
+      "id": "l-b47-kongo",
+      "item": "minna2.b47.teikimasu",
+      "err": "teki-teiki-swap",
+      "tts": "こんごも、かんきょうもんだいにとりくんでいきたいとおもいます。",
+      "script": "今後[こんご]も、環境[かんきょう]問題[もんだい]に 取[と]り組[く]んでいきたいと 思[おも]います。",
+      "ask": "Người nói có kế hoạch gì?",
+      "choices": [
+        "Sẽ tiếp tục giải quyết vấn đề môi trường trong tương lai",
+        "Đã cố gắng giải quyết vấn đề môi trường cho đến nay",
+        "Muốn ai đó giải quyết vấn đề môi trường"
+      ],
+      "answer": 0,
+      "why": "ていきたい = muốn tiếp tục làm (tương lai). 今後 = trong tương lai. Phân biệt: ていきます (sẽ tiếp tục) ≠ てきました (đã dần dần)."
+    },
+    {
+      "id": "l-b47-ninkou",
+      "item": "minna2.b47.tekimashita",
+      "err": "teki-nakunatta",
+      "tts": "にほんのじんこうはしだいにへってきました。",
+      "script": "日本[にほん]の 人口[じんこう]は 次第[しだい]に 減[へ]ってきました。",
+      "ask": "Điều gì đã xảy ra với dân số Nhật Bản?",
+      "choices": [
+        "Dân số đã dần dần giảm xuống cho đến nay",
+        "Dân số sẽ tiếp tục giảm trong tương lai",
+        "Dân số giảm đột ngột vào năm ngoái"
+      ],
+      "answer": 0,
+      "why": "減ってきました = đã giảm dần đến hiện tại. 次第に (dần dần) nhấn mạnh quá trình từ từ. ✗ 減っていきます = sẽ giảm (tương lai)."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b47-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 47 ・ 〜てきました",
+      "vi": "Dân số đã dần dần tăng lên (dùng 増える).",
+      "t1": {
+        "stem": "人口[じんこう]が ＿ きました。",
+        "choices": [
+          "増[ふ]えて",
+          "増[ふ]えいて",
+          "増[ふ]やして"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "人口[じんこう]が",
+          "増[ふ]えて",
+          "きました。"
+        ],
+        "traps": [
+          "増[ふ]えいて",
+          "増[ふ]やして"
+        ]
+      },
+      "t3": {
+        "target": "人口が増えてきました。",
+        "accept": [
+          "じんこうがふえてきました。"
+        ]
+      },
+      "why": "増える (nhóm II: える→えて). ✗ 増えいて — KHÔNG thêm い vào giữa. ✗ 増やして — 増やす là động từ khác nghĩa (tăng ai đó cái gì, ngoại động từ). Lỗi te-form Bài 14 cài trong cấu trúc Bài 47."
+    },
+    {
+      "id": "a-b47-youni",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "naru-adj",
+      "ambush": true,
+      "src": 31,
+      "context": "Bài 47 ・ 〜ていきます",
+      "vi": "Kinh tế sẽ dần dần trở nên tốt hơn từ bây giờ.",
+      "t1": {
+        "stem": "これから 経済[けいざい]が ＿ よく なっていきます。",
+        "choices": [
+          "だんだん",
+          "ように",
+          "にように"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これから",
+          "経済[けいざい]が",
+          "だんだん",
+          "よく",
+          "なっていきます。"
+        ],
+        "traps": [
+          "ように",
+          "になっていきます。"
+        ]
+      },
+      "t3": {
+        "target": "これから経済がだんだんよくなっていきます。",
+        "accept": [
+          "これからけいざいがだんだんよくなっていきます。"
+        ]
+      },
+      "why": "よく (phó từ từ い形容詞 いい→よく) + なっていきます. ✗ ように → よくなるようにいきます — ように là mục đích/kỳ vọng (Bài 31), không cần ở đây. Bẫy trộn Bài 31 vào Bài 47."
+    }
+  ]
+}

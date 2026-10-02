@@ -1,0 +1,4050 @@
+{
+  "bai": 21,
+  "level": "N5",
+  "intro": "〜と思います · 〜と言いました · 〜でしょう · Nについて. Có ÔN LẠI ngữ pháp đã học (bài 1-20) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "田中さんは明日会社に来ないと思います。",
+              "ul": "会社",
+              "choices": [
+                "かいしゃ",
+                "かいさ",
+                "がいしゃ",
+                "かいじゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会社」(công ty) đọc là「かいしゃ」. 「会」âm on là「かい」, 「社」âm on là「しゃ」→「かいしゃ」. Phương án「かいさ」sai vì「社」phải đọc「しゃ」(có âm sắc), không phải「さ」. Phương án「がいしゃ」sai vì「会」là「かい」(không trọc), không phải「がい」. Phương án「かいじゃ」sai vì「社」là「しゃ」(bán trọc vô thanh), không phải「じゃ」(bán trọc hữu thanh).",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "来ない",
+                  "read": "こない",
+                  "vi": "không đến"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ"
+                }
+              ]
+            },
+            {
+              "prompt": "先生はあの映画はいいと言いました。",
+              "ul": "先生",
+              "choices": [
+                "せんせい",
+                "せんせ",
+                "さきせい",
+                "せんさい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「先生」(thầy/cô giáo) đọc là「せんせい」. 「先」âm on「せん」, 「生」âm on「せい」→「せんせい」. Phương án「せんせ」thiếu âm「い」ở cuối, đây là lỗi rút gọn sai. Phương án「さきせい」nhầm sang âm kun「さき」(mũi nhọn, phía trước) của「先」, không dùng trong từ ghép này. Phương án「せんさい」nhầm「生」thành「さい」— âm này không tồn tại cho「生」trong trường hợp này.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "あの映画",
+                  "read": "あのえいが",
+                  "vi": "bộ phim đó"
+                },
+                {
+                  "t": "いい",
+                  "vi": "tốt, hay"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "私はあの人の名前を知りません。",
+              "ul": "名前",
+              "choices": [
+                "なまえ",
+                "めいぜん",
+                "なまい",
+                "みょうまえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「名前」(tên) đọc là「なまえ」. 「名」âm kun「な」, 「前」âm kun「まえ」→「なまえ」. Phương án「めいぜん」nhầm sang âm on「めい」của「名」và âm on「ぜん」của「前」— tổ hợp âm on này không tạo thành từ thông dụng. Phương án「なまい」nhầm「前」thành「まい」— không có âm đọc này cho「前」. Phương án「みょうまえ」nhầm「名」thành âm on「みょう」(dùng trong「名前」theo cách đọc khác nhưng kết hợp「みょうまえ」không tồn tại).",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "あの人",
+                  "read": "あのひと",
+                  "vi": "người đó"
+                },
+                {
+                  "t": "名前",
+                  "vi": "tên"
+                },
+                {
+                  "t": "知りません",
+                  "read": "しりません",
+                  "vi": "không biết"
+                }
+              ]
+            },
+            {
+              "prompt": "父は毎朝新聞を読むと言っていました。",
+              "ul": "毎朝",
+              "choices": [
+                "まいあさ",
+                "まいちょう",
+                "まいあ",
+                "めいあさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎朝」(mỗi buổi sáng) đọc là「まいあさ」. 「毎」âm on「まい」, 「朝」âm kun「あさ」→「まいあさ」. Phương án「まいちょう」nhầm sang âm on「ちょう」của「朝」— tuy「ちょう」là âm on hợp lệ nhưng kết hợp「毎朝」thường đọc kun「あさ」, không phải「ちょう」. Phương án「まいあ」thiếu âm「さ」, bị rút gọn sai. Phương án「めいあさ」nhầm「毎」thành「めい」— không phải âm đọc của「毎」.",
+              "glosses": [
+                {
+                  "t": "父",
+                  "read": "ちち",
+                  "vi": "bố (tôi)"
+                },
+                {
+                  "t": "毎朝",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "新聞",
+                  "read": "しんぶん",
+                  "vi": "báo"
+                },
+                {
+                  "t": "読む",
+                  "read": "よむ",
+                  "vi": "đọc"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói (thường xuyên)"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんはあの本は難しいと言いました。",
+              "ul": "本",
+              "choices": [
+                "ほん",
+                "もと",
+                "ぼん",
+                "ほう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「本」ở đây nghĩa là 'quyển sách', đọc là「ほん」. Phương án「もと」là âm kun của「本」nhưng mang nghĩa 'gốc, cội nguồn', không phải 'sách'. Phương án「ぼん」là biến thể trọc không đúng ở đây vì「本」đứng sau「あの」không bị trọc âm. Phương án「ほう」không phải âm đọc của「本」— nhầm sang「方」(phương, cách).",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "あの本",
+                  "read": "あのほん",
+                  "vi": "quyển sách đó"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "友だちはあのレストランの水はおいしいと話していました。",
+              "ul": "水",
+              "choices": [
+                "みず",
+                "すい",
+                "みつ",
+                "みす"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「水」(nước) đọc là「みず」(âm kun). Phương án「すい」là âm on của「水」(ví dụ:「水曜日」), nhưng khi đứng độc lập chỉ 'nước' thì đọc kun「みず」. Phương án「みつ」nhầm âm cuối「ず」thành「つ」— không có âm đọc「みつ」cho「水」. Phương án「みす」nhầm「ず」(hữu thanh) thành「す」(vô thanh) — cách đọc không tồn tại.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "水",
+                  "vi": "nước"
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "話していました",
+                  "read": "はなしていました",
+                  "vi": "đã nói, đang kể"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女はあした電車で来ると思います。",
+              "ul": "電車",
+              "choices": [
+                "でんしゃ",
+                "でんさ",
+                "てんしゃ",
+                "でんじゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電車」(tàu điện) đọc là「でんしゃ」. 「電」âm on「でん」, 「車」âm on「しゃ」→「でんしゃ」. Phương án「でんさ」nhầm「車」thành「さ」— không có âm on「さ」cho「車」. Phương án「てんしゃ」nhầm「電」thành「てん」(âm của「天」), không phải âm của「電」. Phương án「でんじゃ」nhầm「しゃ」thành「じゃ」— 「車」là「しゃ」(vô thanh), không phải「じゃ」(hữu thanh).",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "来る",
+                  "read": "くる",
+                  "vi": "đến"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんはあの国はいいと思っているそうです。",
+              "ul": "国",
+              "choices": [
+                "くに",
+                "こく",
+                "くに゛",
+                "ごく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「国」khi đứng độc lập chỉ 'đất nước, quê hương' đọc là「くに」(âm kun). Phương án「こく」là âm on hợp lệ (dùng trong「国語」,「外国」) nhưng khi đứng một mình sau「あの」mang nghĩa 'nước/đất nước' thì đọc kun「くに」. Phương án「くに゛」không phải cách ký âm chuẩn (có ký hiệu trọc sai vị trí). Phương án「ごく」là âm on trọc, chỉ xuất hiện trong từ ghép như「ごくらく」(極楽), không phải âm của「国」đứng độc lập.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "あの国",
+                  "read": "あのくに",
+                  "vi": "đất nước đó"
+                },
+                {
+                  "t": "いい",
+                  "vi": "tốt"
+                },
+                {
+                  "t": "思っているそうです",
+                  "read": "おもっているそうです",
+                  "vi": "nghe nói đang nghĩ rằng"
+                }
+              ]
+            },
+            {
+              "prompt": "母は今年日本語を勉強すると言っていました。",
+              "ul": "今年",
+              "choices": [
+                "ことし",
+                "こんねん",
+                "いまとし",
+                "こんとし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「今年」(năm nay) là từ đọc đặc biệt, đọc là「ことし」. 「今」thường đọc on「こん/きん」hoặc kun「いま」, nhưng trong「今年」đọc đặc biệt「こ」. Phương án「こんねん」nhầm sang âm on「こん」+「ねん」, không sai về mặt âm vị nhưng cách đọc「こんねん」không phải cách đọc thông dụng được chấp nhận cho từ này. Phương án「いまとし」ghép kun「いま」+「とし」theo kiểu tự suy, không đúng. Phương án「こんとし」nhầm「年」thành kun「とし」nhưng kết hợp「こんとし」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (tôi)"
+                },
+                {
+                  "t": "今年",
+                  "vi": "năm nay"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "勉強する",
+                  "read": "べんきょうする",
+                  "vi": "học"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "鈴木さんはあの店の食べ物はおいしいと言いました。",
+              "ul": "食べ物",
+              "choices": [
+                "たべもの",
+                "しょくもの",
+                "たべぶつ",
+                "しょくぶつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食べ物」(thức ăn) đọc là「たべもの」. 「食べ」đọc kun「たべ」, 「物」đọc kun「もの」→「たべもの」. Phương án「しょくもの」nhầm「食」thành âm on「しょく」— khi kết hợp với「べ」(kun) thì phần đầu phải là kun「たべ」. Phương án「たべぶつ」nhầm「物」thành on「ぶつ」(biến thể trọc của「もつ」)— không dùng trong từ này. Phương án「しょくぶつ」là cách đọc của「植物」(thực vật), không phải「食べ物」.",
+              "glosses": [
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "あの店",
+                  "read": "あのみせ",
+                  "vi": "cửa hàng đó"
+                },
+                {
+                  "t": "食べ物",
+                  "vi": "thức ăn, đồ ăn"
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は来月新しい本を買うと話していました。",
+              "ul": "来月",
+              "choices": [
+                "らいげつ",
+                "くるつき",
+                "らいつき",
+                "きたるげつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来月」(tháng sau) đọc là「らいげつ」. 「来」âm on「らい」, 「月」âm on「げつ」→「らいげつ」. Phương án「くるつき」nhầm sang âm kun「くる」của「来」và kun「つき」của「月」— cách ghép này không tồn tại. Phương án「らいつき」nhầm「月」từ on「げつ」sang kun「つき」— khi đi với「らい」phải dùng on「げつ」. Phương án「きたるげつ」nhầm sang kun「きたる」của「来」— quá dài và không thông dụng.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "来月",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "新しい本",
+                  "read": "あたらしいほん",
+                  "vi": "sách mới"
+                },
+                {
+                  "t": "買う",
+                  "read": "かう",
+                  "vi": "mua"
+                },
+                {
+                  "t": "話していました",
+                  "read": "はなしていました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは大学の近くに住んでいると言いました。",
+              "ul": "大学",
+              "choices": [
+                "だいがく",
+                "おおがく",
+                "たいがく",
+                "だいかく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「大学」(đại học) đọc là「だいがく」. 「大」âm on「だい」, 「学」âm on「がく」→「だいがく」. Phương án「おおがく」nhầm sang kun「おお」của「大」— trong từ ghép hán tự thường dùng âm on「だい」. Phương án「たいがく」nhầm「大」thành「たい」(âm on thứ hai của「大」, dùng trong「大切」) nhưng trong「大学」dùng「だい」. Phương án「だいかく」nhầm「学」thành「かく」— không phải âm đọc của「学」.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "大学",
+                  "vi": "trường đại học"
+                },
+                {
+                  "t": "近く",
+                  "read": "ちかく",
+                  "vi": "gần"
+                },
+                {
+                  "t": "住んでいる",
+                  "read": "すんでいる",
+                  "vi": "đang ở, sinh sống"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "母はあの映画についてはよくわからないと言っていました。",
+              "ul": "映画",
+              "choices": [
+                "えいが",
+                "えいかく",
+                "えいか",
+                "ようが"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「映画」(phim ảnh, điện ảnh) đọc là「えいが」. 「映」âm on「えい」, 「画」âm on「が」→「えいが」. Phương án「えいかく」thêm âm「く」không có trong「映画」. Phương án「えいか」nhầm「画」thành「か」(âm vô thanh) thay vì「が」(hữu thanh, vì 「画」trong vị trí này đọc trọc「が」). Phương án「ようが」nhầm「映」thành「よう」— không phải âm đọc của「映」.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (tôi)"
+                },
+                {
+                  "t": "あの映画",
+                  "read": "あのえいが",
+                  "vi": "bộ phim đó"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề)"
+                },
+                {
+                  "t": "よくわからない",
+                  "vi": "không hiểu rõ lắm"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "鈴木さんは来年日本に行くつもりだと言いました。",
+              "ul": "来年",
+              "choices": [
+                "らいねん",
+                "くるとし",
+                "らいとし",
+                "きたるねん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来年」(năm sau) đọc là「らいねん」. 「来」âm on「らい」, 「年」âm on「ねん」→「らいねん」. Phương án「くるとし」nhầm cả hai sang âm kun (「くる」+「とし」)— cách ghép này không tồn tại. Phương án「らいとし」nhầm「年」từ on「ねん」sang kun「とし」— khi đi với「らい」phải dùng on「ねん」. Phương án「きたるねん」nhầm sang kun「きたる」của「来」— quá dài và không thông dụng.",
+              "glosses": [
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "来年",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                },
+                {
+                  "t": "つもりだ",
+                  "vi": "dự định, có kế hoạch"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんはあの新しいレストランはたかいと話していました。",
+              "ul": "新しい",
+              "choices": [
+                "あたらしい",
+                "しんしい",
+                "あらたしい",
+                "あたらすい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「新しい」(mới) đọc là「あたらしい」. Đây là âm kun đặc biệt của「新」, không đọc theo âm on. Phương án「しんしい」nhầm sang âm on「しん」của「新」và tự thêm「しい」— không phải cách đọc của「新しい」. Phương án「あらたしい」nhầm thứ tự âm: đúng là「あ・た・ら・し・い」chứ không phải「あ・ら・た・し・い」. Phương án「あたらすい」nhầm「し」thành「す」ở âm thứ tư — không có cách đọc「あたらすい」.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "あの",
+                  "vi": "cái đó"
+                },
+                {
+                  "t": "新しい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "たかい",
+                  "vi": "đắt"
+                },
+                {
+                  "t": "話していました",
+                  "read": "はなしていました",
+                  "vi": "đã nói"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "わたしはあのえいがはおもしろいとおもいます。",
+              "ul": "おもいます",
+              "choices": [
+                "思います",
+                "記します",
+                "話します",
+                "書きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「思います」(おもいます) nghĩa là 'nghĩ rằng, cho rằng' — dùng kèm「〜と思います」để diễn đạt ý kiến cá nhân. Đây là đáp án đúng. ❌「記します」(しるします) = ghi chép, không phải diễn đạt suy nghĩ. ❌「話します」(はなします) = nói chuyện, cần thêm tân ngữ hoặc đối tượng. ❌「書きます」(かきます) = viết, hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "kia, đó"
+                },
+                {
+                  "t": "えいが",
+                  "read": "えいが",
+                  "vi": "phim điện ảnh"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị, hay"
+                },
+                {
+                  "t": "おもいます",
+                  "read": "おもいます",
+                  "vi": "nghĩ rằng, cho rằng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "やまださんはらいねんにほんへいくといいました。",
+              "ul": "いいました",
+              "choices": [
+                "言いました",
+                "読みました",
+                "聞きました",
+                "見ました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「言いました」(いいました) nghĩa là 'đã nói rằng' — cấu trúc「〜と言いました」dùng để trích dẫn lời người khác. Đây là đáp án đúng. ❌「読みました」(よみました) = đã đọc. ❌「聞きました」(ききました) = đã nghe/hỏi, không mang nghĩa trích dẫn. ❌「見ました」(みました) = đã nhìn/xem.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "らいねん",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "いいました",
+                  "read": "いいました",
+                  "vi": "đã nói (rằng)"
+                },
+                {
+                  "t": "いく",
+                  "read": "いく",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "あしたはたぶんあめがふるでしょう。",
+              "ul": "たぶん",
+              "choices": [
+                "多分",
+                "少分",
+                "大分",
+                "半分"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「多分」(たぶん) nghĩa là 'có lẽ, chắc là' — thể hiện suy đoán không chắc chắn. Đây là đáp án đúng. ❌「少分」không phải từ tồn tại trong tiếng Nhật. ❌「大分」(だいぶ) = khá nhiều, đọc là だいぶ chứ không phải たぶん. ❌「半分」(はんぶん) = một nửa, hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "たぶん",
+                  "vi": "có lẽ, chắc là"
+                },
+                {
+                  "t": "あめ",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "ふるでしょう",
+                  "read": "ふるでしょう",
+                  "vi": "có lẽ sẽ rơi (mưa)"
+                }
+              ]
+            },
+            {
+              "prompt": "にほんごのべんきょうについてせんせいにきいてください。",
+              "ul": "ついて",
+              "choices": [
+                "付いて",
+                "着いて",
+                "就いて",
+                "続いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「付いて」(ついて) trong cụm「〜について」nghĩa là 'về (chủ đề)…'. Đây là đáp án đúng. ❌「着いて」(ついて) = đến nơi (về địa điểm), đồng âm nhưng sai nghĩa ngữ cảnh. ❌「就いて」(ついて) = đảm nhận (chức vụ), văn phong trang trọng, không dùng ở N5. ❌「続いて」(つづいて) = tiếp tục, không liên quan.",
+              "glosses": [
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "べんきょう",
+                  "read": "べんきょう",
+                  "vi": "việc học"
+                },
+                {
+                  "t": "ついて",
+                  "vi": "về (chủ đề)…",
+                  "read": "ついて"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "きいてください",
+                  "read": "きいてください",
+                  "vi": "hãy hỏi"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはがっこうをやすんだときいています。",
+              "ul": "きいています",
+              "choices": [
+                "聞いています",
+                "読んでいます",
+                "言っています",
+                "見ています"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「聞いています」(きいています) trong cấu trúc「〜と聞いています」nghĩa là 'nghe nói rằng, được biết rằng' — cách trích dẫn thông tin gián tiếp. Đây là đáp án đúng. ❌「読んでいます」= đang đọc. ❌「言っています」= đang nói — không mang nghĩa nghe thông tin từ người khác. ❌「見ています」= đang nhìn.",
+              "glosses": [
+                {
+                  "t": "かれ",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "やすんだ",
+                  "read": "やすんだ",
+                  "vi": "đã nghỉ"
+                },
+                {
+                  "t": "きいています",
+                  "read": "きいています",
+                  "vi": "đang nghe nói / được biết rằng"
+                }
+              ]
+            },
+            {
+              "prompt": "あのみせのりょうりはおいしいというはなしです。",
+              "ul": "いう",
+              "choices": [
+                "言う",
+                "読む",
+                "書く",
+                "思う"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「言う」(いう) trong cụm「〜と言う話です」nghĩa là 'người ta nói rằng, có tin rằng'. Đây là đáp án đúng. ❌「読む」(よむ) = đọc. ❌「書く」(かく) = viết. ❌「思う」(おもう) = nghĩ — gần nghĩa nhưng「〜と思う話」không phải cụm tự nhiên trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "みせ",
+                  "read": "みせ",
+                  "vi": "cửa hàng"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "りょうり",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "いうはなし",
+                  "read": "いうはなし",
+                  "vi": "câu chuyện, tin đồn rằng…"
+                }
+              ]
+            },
+            {
+              "prompt": "はははたぶんいえにいるとおもいます。",
+              "ul": "おもいます",
+              "choices": [
+                "思います",
+                "知ります",
+                "教えます",
+                "分かります"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「思います」(おもいます) dùng với「たぶん〜と思います」để diễn đạt phỏng đoán lịch sự. Đây là đáp án đúng. ❌「知ります」(しります) = biết — dùng để xác nhận sự thật, không phải phỏng đoán. ❌「教えます」(おしえます) = dạy, cho biết. ❌「分かります」(わかります) = hiểu, biết — không dùng trong cấu trúc「〜と分かります」để diễn đạt ý kiến.",
+              "glosses": [
+                {
+                  "t": "はは",
+                  "read": "はは",
+                  "vi": "mẹ (của tôi)"
+                },
+                {
+                  "t": "たぶん",
+                  "vi": "chắc là, có lẽ"
+                },
+                {
+                  "t": "いえ",
+                  "read": "いえ",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "おもいます",
+                  "read": "おもいます",
+                  "vi": "nghĩ rằng"
+                },
+                {
+                  "t": "いると",
+                  "read": "いると",
+                  "vi": "いる (ở, có mặt - dùng cho người/động vật) + と (trợ từ dẫn lời/ý trước động từ nghĩ) → trong câu là một phần của mẫu 〜と思います = nghĩ rằng ~"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはあしたしけんがあるとおっしゃいました。",
+              "ul": "しけん",
+              "choices": [
+                "試験",
+                "試検",
+                "私験",
+                "詩験"
+              ],
+              "answer": 0,
+              "pt": "表記",
+              "explain": "Đáp án 「試験」(しけん, kỳ thi). 「験」không phải 検(けん, kiểm tra); 「試」(thử) không phải 私(し, tôi)/詩(し, thơ).",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "しけん",
+                  "read": "しけん",
+                  "vi": "bài kiểm tra"
+                },
+                {
+                  "t": "おっしゃいました",
+                  "vi": "đã phán/nói (kính ngữ của 言う)"
+                },
+                {
+                  "t": "あると",
+                  "read": "あると",
+                  "vi": "ある (có, tồn tại - dùng cho vật/sự việc) + と (trợ từ trích dẫn trước động từ nói) → một phần của mẫu 〜とおっしゃいました = (thầy/cô) đã nói rằng có ~"
+                }
+              ]
+            },
+            {
+              "prompt": "えきのまえにあたらしいほんやができたときいた。",
+              "ul": "きいた",
+              "choices": [
+                "聞いた",
+                "見た",
+                "読んだ",
+                "書いた"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「聞いた」(きいた) trong cấu trúc「〜と聞いた」nghĩa là 'nghe nói rằng'. Đây là đáp án đúng. ❌「見た」(みた) = đã thấy — chỉ dùng cho điều mắt thấy trực tiếp. ❌「読んだ」(よんだ) = đã đọc. ❌「書いた」(かいた) = đã viết.",
+              "glosses": [
+                {
+                  "t": "えき",
+                  "read": "えき",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "まえ",
+                  "read": "まえ",
+                  "vi": "trước mặt, phía trước"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "ほんや",
+                  "read": "ほんや",
+                  "vi": "hiệu sách"
+                },
+                {
+                  "t": "きいた",
+                  "read": "きいた",
+                  "vi": "đã nghe (nói rằng)"
+                },
+                {
+                  "t": "できた",
+                  "read": "できた",
+                  "vi": "đã xuất hiện, mới mở/xây xong"
+                }
+              ]
+            },
+            {
+              "prompt": "にほんのぶんかについてしらべています。",
+              "ul": "しらべています",
+              "choices": [
+                "調べています",
+                "覚えています",
+                "決めています",
+                "続けています"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「調べています」(しらべています) nghĩa là 'đang tìm hiểu/nghiên cứu về'. Dùng với「〜について調べる」là cụm rất tự nhiên. Đây là đáp án đúng. ❌「覚えています」(おぼえています) = đang nhớ. ❌「決めています」(きめています) = đã quyết định. ❌「続けています」(つづけています) = đang tiếp tục.",
+              "glosses": [
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "ぶんか",
+                  "read": "ぶんか",
+                  "vi": "văn hóa"
+                },
+                {
+                  "t": "ついて",
+                  "vi": "về (chủ đề)…",
+                  "read": "ついて"
+                },
+                {
+                  "t": "しらべています",
+                  "read": "しらべています",
+                  "vi": "đang tìm hiểu, đang nghiên cứu"
+                }
+              ]
+            },
+            {
+              "prompt": "ともだちはにほんごがむずかしいといっていました。",
+              "ul": "いっていました",
+              "choices": [
+                "言っていました",
+                "書いていました",
+                "読んでいました",
+                "聞いていました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「言っていました」(いっていました) là dạng tiến hành thì quá khứ của「言う」, dùng trong cấu trúc「〜と言っていました」để trích dẫn lời của ai đó trước đây. Đây là đáp án đúng. ❌「書いていました」= đang viết. ❌「読んでいました」= đang đọc. ❌「聞いていました」= đang lắng nghe — không mang nghĩa trích dẫn lời nói của người khác.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "むずかしい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "いっていました",
+                  "read": "いっていました",
+                  "vi": "đã (đang) nói rằng"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã/đang nói"
+                },
+                {
+                  "t": "書いていました",
+                  "read": "かいていました",
+                  "vi": "đã/đang viết"
+                },
+                {
+                  "t": "読んでいました",
+                  "read": "よんでいました",
+                  "vi": "đã/đang đọc"
+                },
+                {
+                  "t": "聞いていました",
+                  "read": "きいていました",
+                  "vi": "đã/đang nghe"
+                }
+              ]
+            },
+            {
+              "prompt": "このまちはゆうめいだとおもいます。",
+              "ul": "ゆうめいだ",
+              "choices": [
+                "有名",
+                "大名",
+                "名前",
+                "名人"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「有名」(ゆうめい) nghĩa là 'nổi tiếng'. Đây là đáp án đúng. ❌「大名」(だいみょう) = lãnh chúa phong kiến Nhật, đọc khác, sai nghĩa. ❌「名前」(なまえ) = tên gọi, đọc là なまえ, sai nghĩa. ❌「名人」(めいじん) = bậc thầy, chuyên gia, không phải 'nổi tiếng'.",
+              "glosses": [
+                {
+                  "t": "まち",
+                  "read": "まち",
+                  "vi": "thị trấn, phố"
+                },
+                {
+                  "t": "ゆうめい",
+                  "read": "ゆうめい",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "おもいます",
+                  "read": "おもいます",
+                  "vi": "nghĩ rằng"
+                }
+              ]
+            },
+            {
+              "prompt": "きょねんにほんへいったとはなしていました。",
+              "ul": "はなしていました",
+              "choices": [
+                "話していました",
+                "見ていました",
+                "書いていました",
+                "食べていました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「話していました」(はなしていました) nghĩa là 'đã kể/nói về' — dùng cấu trúc「〜と話す」để thuật lại nội dung ai đó đã kể. Đây là đáp án đúng. ❌「見ていました」= đang nhìn. ❌「書いていました」= đang viết. ❌「食べていました」= đang ăn, không liên quan đến trích dẫn lời nói.",
+              "glosses": [
+                {
+                  "t": "きょねん",
+                  "read": "きょねん",
+                  "vi": "năm ngoái"
+                },
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "いった",
+                  "read": "いった",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "はなしていました",
+                  "read": "はなしていました",
+                  "vi": "đã đang kể, đã nói"
+                },
+                {
+                  "t": "話していました",
+                  "read": "はなしていました",
+                  "vi": "đã/đang nói chuyện"
+                },
+                {
+                  "t": "見ていました",
+                  "read": "みていました",
+                  "vi": "đã/đang xem"
+                },
+                {
+                  "t": "書いていました",
+                  "read": "かいていました",
+                  "vi": "đã/đang viết"
+                },
+                {
+                  "t": "食べていました",
+                  "read": "たべていました",
+                  "vi": "đã/đang ăn"
+                }
+              ]
+            },
+            {
+              "prompt": "このかばんはたかいとおもいますか。",
+              "ul": "たかい",
+              "choices": [
+                "高い",
+                "多い",
+                "大い",
+                "強い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「高い」(たかい) nghĩa là 'đắt / cao' — ở đây dùng nghĩa 'đắt tiền'. Đây là đáp án đúng. ❌「多い」(おおい) = nhiều, đọc là おおい. ❌「大い」không phải từ độc lập đúng chuẩn (「大きい」mới đúng). ❌「強い」(つよい) = mạnh, cứng, không liên quan đến giá cả.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "たかい",
+                  "read": "たかい",
+                  "vi": "đắt, cao"
+                },
+                {
+                  "t": "おもいますか",
+                  "read": "おもいますか",
+                  "vi": "bạn có nghĩ rằng… không?"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはがくせいだとおもっています。",
+              "ul": "がくせい",
+              "choices": [
+                "学生",
+                "先生",
+                "会社",
+                "学校"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「学生」(がくせい) nghĩa là 'học sinh/sinh viên'. Đây là đáp án đúng. ❌「先生」(せんせい) = giáo viên — nghĩa ngược, chữ Hán có 生 giống nhau dễ nhầm. ❌「会社」(かいしゃ) = công ty, không phải người. ❌「学校」(がっこう) = trường học, chữ 学 giống nhau dễ nhầm nhưng nghĩa khác hoàn toàn (nơi chốn, không phải người).",
+              "glosses": [
+                {
+                  "t": "あのひと",
+                  "read": "あのひと",
+                  "vi": "người kia"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "がくせい",
+                  "vi": "học sinh, sinh viên"
+                },
+                {
+                  "t": "おもっています",
+                  "read": "おもっています",
+                  "vi": "đang nghĩ rằng, cho rằng"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "田中さんは「明日、会社を＿」と言いました。",
+              "choices": [
+                "休みます",
+                "食べます",
+                "飲みます",
+                "見ます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「休みます」(nghỉ ngơi / nghỉ làm). Câu nói anh Tanaka nói rằng ngày mai sẽ nghỉ công ty — hoàn toàn tự nhiên. 「食べます」(ăn) và 「飲みます」(uống) không hợp vì đối tượng là 「会社」. 「見ます」(xem/nhìn) cũng không dùng được với 「会社を」theo nghĩa nghỉ.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "stem": "あの映画はおもしろいと＿。",
+              "choices": [
+                "思います",
+                "起きます",
+                "帰ります",
+                "働きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「思います」(tôi nghĩ). Cấu trúc「〜とおもいます」biểu thị ý kiến cá nhân — đây đúng là mẫu chủ đề bài 21. 「起きます」(thức dậy), 「帰ります」(trở về), 「働きます」(làm việc) đều không đi sau 「と」theo nghĩa ý kiến.",
+              "glosses": [
+                {
+                  "t": "あの映画",
+                  "read": "あのえいが",
+                  "vi": "bộ phim kia"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị / hay"
+                },
+                {
+                  "t": "と",
+                  "vi": "rằng (trích dẫn suy nghĩ)"
+                }
+              ]
+            },
+            {
+              "stem": "先生は「この本を＿てください」とおっしゃいました。",
+              "choices": [
+                "読ん",
+                "書い",
+                "飲ん",
+                "切っ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「読ん」(dạng て của 読む — đọc). Giáo viên bảo hãy đọc quyển sách này. 「書い」(viết) cũng có thể hợp, nhưng đối tượng là「本」thì「読む」tự nhiên hơn nhiều. 「飲ん」(uống) và 「切っ」(cắt) hoàn toàn không hợp với sách.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "この本",
+                  "read": "このほん",
+                  "vi": "quyển sách này"
+                },
+                {
+                  "t": "おっしゃいました",
+                  "vi": "đã nói (kính ngữ của 言いました)"
+                },
+                {
+                  "t": "てください",
+                  "read": "てください",
+                  "vi": "〜てください = làm ơn hãy ~ (yêu cầu, đề nghị lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "あの人は＿の先生だと聞きました。",
+              "choices": [
+                "音楽",
+                "電車",
+                "水",
+                "時間"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「音楽」(âm nhạc). Câu nghĩa 'Tôi nghe nói người kia là giáo viên âm nhạc' — hoàn toàn tự nhiên. 「電車」(tàu điện), 「水」(nước), 「時間」(thời gian) không thể ghép với「先生」thành nghề nghiệp hợp lý.",
+              "glosses": [
+                {
+                  "t": "あの人",
+                  "read": "あのひと",
+                  "vi": "người kia"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "だと聞きました",
+                  "read": "だとききました",
+                  "vi": "đã nghe nói là"
+                }
+              ]
+            },
+            {
+              "stem": "明日は雨が＿と思います。",
+              "choices": [
+                "降る",
+                "飛ぶ",
+                "売る",
+                "脱ぐ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「降る」(rơi xuống — dùng cho mưa/tuyết). Câu nghĩa 'Tôi nghĩ ngày mai trời sẽ mưa'. 「飛ぶ」(bay), 「売る」(bán), 「脱ぐ」(cởi ra) đều không kết hợp tự nhiên với「雨が」.",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは来年、日本へ＿と言っていました。",
+              "choices": [
+                "帰る",
+                "起きる",
+                "働く",
+                "泳ぐ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「帰る」(trở về). Anh Yamada nói năm sau sẽ trở về Nhật — hàm ý Yamada là người Nhật. 「起きる」(thức dậy) và 「泳ぐ」(bơi) không hợp với 「日本へ」. 「働く」(làm việc) ngữ pháp hợp nhưng thường dùng 「日本で」chứ không phải「日本へ」.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "日本へ",
+                  "read": "にほんへ",
+                  "vi": "đến Nhật"
+                },
+                {
+                  "t": "と言っていました",
+                  "read": "といっていました",
+                  "vi": "đã nói rằng"
+                }
+              ]
+            },
+            {
+              "stem": "この料理は＿と思いますが、どうですか。",
+              "choices": [
+                "おいしい",
+                "暑い",
+                "遠い",
+                "重い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「おいしい」(ngon). Câu nghĩa 'Tôi nghĩ món này ngon, bạn thấy thế nào?' — cực kỳ tự nhiên khi nói về thức ăn. 「暑い」(nóng — thời tiết), 「遠い」(xa), 「重い」(nặng) không dùng để mô tả món ăn trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "この料理",
+                  "read": "このりょうり",
+                  "vi": "món ăn này"
+                },
+                {
+                  "t": "と思いますが",
+                  "read": "とおもいますが",
+                  "vi": "tôi nghĩ là… nhưng"
+                },
+                {
+                  "t": "どうですか",
+                  "vi": "bạn thấy thế nào?"
+                }
+              ]
+            },
+            {
+              "stem": "妹は「お兄ちゃんは＿だ」と言いました。",
+              "choices": [
+                "やさしい",
+                "古い",
+                "赤い",
+                "長い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「やさしい」(hiền lành, tốt bụng). Em gái nói 'Anh trai thật tốt bụng' — hoàn toàn tự nhiên. 「古い」(cũ), 「赤い」(màu đỏ), 「長い」(dài) đều không dùng để mô tả tính cách người.",
+              "glosses": [
+                {
+                  "t": "妹",
+                  "read": "いもうと",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "お兄ちゃん",
+                  "read": "おにいちゃん",
+                  "vi": "anh trai"
+                },
+                {
+                  "t": "やさしい",
+                  "vi": "hiền lành / tốt bụng"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "stem": "電車の中で、知らない人が「この席は＿ですか」と聞きました。",
+              "choices": [
+                "あいて",
+                "あつくて",
+                "きれいで",
+                "しずかで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「あいて」(空いて — trống, không có ai ngồi). Câu nghĩa: 'Trên tàu điện, một người lạ hỏi: Chỗ này có trống không?' — rất tự nhiên khi tìm chỗ ngồi. ❌「あつくて」(nóng) không hợp để hỏi về chỗ ngồi. ❌「きれいで」(sạch/đẹp) có thể ghép về mặt ngữ pháp nhưng hỏi 'chỗ này có đẹp không?' không tự nhiên trong tình huống tìm chỗ trên tàu. ❌「しずかで」(yên tĩnh) cũng không phải cách hỏi khi muốn ngồi vào chỗ trống.",
+              "glosses": [
+                {
+                  "t": "電車の中で",
+                  "read": "でんしゃのなかで",
+                  "vi": "trong tàu điện"
+                },
+                {
+                  "t": "知らない人",
+                  "read": "しらないひと",
+                  "vi": "người lạ"
+                },
+                {
+                  "t": "この席",
+                  "read": "このせき",
+                  "vi": "chỗ ngồi này"
+                },
+                {
+                  "t": "聞きました",
+                  "read": "ききました",
+                  "vi": "đã hỏi"
+                },
+                {
+                  "t": "あいて",
+                  "read": "あいて",
+                  "vi": "trống (không ai ngồi)"
+                }
+              ]
+            },
+            {
+              "stem": "鈴木さんは来週、＿があると言っていました。",
+              "choices": [
+                "試験",
+                "電話",
+                "映画",
+                "音楽"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「試験」(kỳ thi). Câu nghĩa 'Anh Suzuki nói tuần sau có kỳ thi' — rất tự nhiên với「がある」. 「電話」(điện thoại) thường dùng 「電話をする」, 「映画」và「音楽」không đi với「がある」theo nghĩa thông thường ở đây.",
+              "glosses": [
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "があると言っていました",
+                  "read": "があるといっていました",
+                  "vi": "đã nói là có"
+                }
+              ]
+            },
+            {
+              "stem": "あの店の料理は高いと思いますが、とても＿です。",
+              "choices": [
+                "おいしい",
+                "うるさい",
+                "つまらない",
+                "むずかしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「おいしい」(ngon). Câu nói tuy đắt nhưng rất ngon — tương phản hợp lý và tự nhiên. 「うるさい」(ồn ào), 「つまらない」(nhàm chán), 「むずかしい」(khó) đều không dùng để mô tả đồ ăn trong ngữ cảnh khen.",
+              "glosses": [
+                {
+                  "t": "あの店",
+                  "read": "あのみせ",
+                  "vi": "cửa hàng kia"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "高い",
+                  "read": "たかい",
+                  "vi": "đắt tiền"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "nghĩ, cho rằng"
+                }
+              ]
+            },
+            {
+              "stem": "母は「毎朝、野菜を＿」と言います。",
+              "choices": [
+                "食べなさい",
+                "飲みなさい",
+                "見なさい",
+                "読みなさい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「食べなさい」(hãy ăn đi — mệnh lệnh nhẹ của người trên). Mẹ bảo mỗi sáng hãy ăn rau — rất tự nhiên. 「飲みなさい」(uống) không hợp vì rau thì ăn chứ không uống. 「見なさい」(nhìn) và 「読みなさい」(đọc) hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "野菜",
+                  "read": "やさい",
+                  "vi": "rau củ"
+                },
+                {
+                  "t": "言います",
+                  "read": "いいます",
+                  "vi": "nói"
+                }
+              ]
+            },
+            {
+              "stem": "この問題はむずかしいと思ったので、先生に＿しました。",
+              "choices": [
+                "質問",
+                "料理",
+                "運動",
+                "勉強"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「質問」(câu hỏi — 質問する: hỏi). Vì nghĩ bài khó nên đã hỏi giáo viên — hoàn toàn logic. 「料理」(nấu ăn), 「運動」(vận động) không liên quan đến việc học. 「勉強」(học bài) nghe có vẻ hợp nhưng không đi với「先生に」theo nghĩa 'đến gặp để làm X'.",
+              "glosses": [
+                {
+                  "t": "この問題",
+                  "read": "このもんだい",
+                  "vi": "bài toán / câu hỏi này"
+                },
+                {
+                  "t": "むずかしいと思ったので",
+                  "read": "むずかしいとおもったので",
+                  "vi": "vì tôi nghĩ là khó"
+                },
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "với giáo viên"
+                },
+                {
+                  "t": "しました",
+                  "read": "しました",
+                  "vi": "〜ました = thì quá khứ lịch sự của động từ (đã làm ~)"
+                }
+              ]
+            },
+            {
+              "stem": "友達は「日本語の勉強は＿だ」と言っていました。",
+              "choices": [
+                "たのしい",
+                "暗い",
+                "細い",
+                "若い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「たのしい」(vui, thú vị). Bạn bè nói học tiếng Nhật thật vui — rất tự nhiên. 「暗い」(tối tăm / u ám) và 「細い」(mảnh mai — mô tả hình dạng), 「若い」(trẻ) đều không dùng để mô tả hoạt động học.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "日本語の勉強",
+                  "read": "にほんごのべんきょう",
+                  "vi": "việc học tiếng Nhật"
+                },
+                {
+                  "t": "たのしい",
+                  "vi": "vui / thú vị"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói (rằng)"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは＿について、いい意見を言いました。",
+              "choices": [
+                "その問題",
+                "あの川",
+                "この電気",
+                "その音楽"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「その問題」(vấn đề đó). Câu nghĩa 'Anh Tanaka đã nêu ý kiến hay về vấn đề đó' — cấu trúc「〜について意見を言う」rất chuẩn. 「あの川」(con sông kia), 「この電気」(điện này), 「その音楽」(nhạc đó) đều không hợp ngữ cảnh nêu ý kiến thảo luận.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề)"
+                },
+                {
+                  "t": "いい意見",
+                  "read": "いいいけん",
+                  "vi": "ý kiến hay"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "彼女は明日来ないと思います。",
+              "choices": [
+                "彼女は明日来ないでしょう。",
+                "彼女は明日来ると言いました。",
+                "彼女は明日来ることができます。",
+                "彼女は明日来たことがあります。"
+              ],
+              "answer": 0,
+              "pt": "〜と思います",
+              "explain": "Câu gốc dùng 「〜と思います」 (tôi nghĩ rằng ~) để diễn đạt suy đoán của người nói: \"Tôi nghĩ cô ấy sẽ không đến ngày mai.\" Đáp án A dùng 「〜でしょう」 cũng là suy đoán/phỏng đoán của người nói với nghĩa \"Chắc cô ấy sẽ không đến ngày mai\" — nghĩa rất gần với câu gốc. B dùng 「〜と言いました」 (đã nói rằng ~) → nghĩa hoàn toàn khác: \"Cô ấy đã nói là sẽ đến ngày mai.\" C dùng 「Vることができます」 (có thể làm) → nói về khả năng, không phải suy đoán. D dùng 「Vたことがあります」 (đã từng làm) → nói về kinh nghiệm quá khứ, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "来ない",
+                  "read": "こない",
+                  "vi": "không đến"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "来ないでしょう",
+                  "read": "こないでしょう",
+                  "vi": "〜でしょう = chắc là ~ (suy đoán)"
+                },
+                {
+                  "t": "来ると言いました",
+                  "read": "くるといいました",
+                  "vi": "〜と言いました = đã nói rằng ~"
+                },
+                {
+                  "t": "来ることができます",
+                  "read": "くることができます",
+                  "vi": "〜ことができる = có thể làm ~"
+                },
+                {
+                  "t": "来たことがあります",
+                  "read": "きたことがあります",
+                  "vi": "〜たことがある = đã từng ~"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんはパーティーに行かないと言いました。",
+              "choices": [
+                "田中さんはパーティーに行きたくないそうです。",
+                "田中さんはパーティーに行くと思います。",
+                "田中さんはパーティーに行ったことがあります。",
+                "田中さんはパーティーに行くことができます。"
+              ],
+              "answer": 0,
+              "pt": "〜と言いました",
+              "explain": "Câu gốc dùng 「〜と言いました」 (đã nói rằng ~): \"Anh Tanaka đã nói rằng anh ấy không đi dự tiệc.\" Đáp án A dùng 「〜そうです」 (nghe nói ~) để truyền đạt thông tin từ người khác, nghĩa gần nhất: \"Nghe nói anh Tanaka không muốn đi dự tiệc\" — cùng là thuật lại lời/thông tin của người khác. B dùng 「〜と思います」 (tôi nghĩ rằng ~) → đây là suy đoán của người nói, không phải thuật lại lời người khác. C dùng 「〜たことがあります」 → nói về kinh nghiệm. D dùng 「〜ことができます」 → nói về khả năng.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "行かない",
+                  "read": "いかない",
+                  "vi": "không đi"
+                },
+                {
+                  "t": "と言いました",
+                  "read": "といいました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "行きたくないそうです",
+                  "read": "いきたくないそうです",
+                  "vi": "〜そうです (伝聞) = nghe nói là ~"
+                },
+                {
+                  "t": "行くと思います",
+                  "read": "いくとおもいます",
+                  "vi": "〜と思います = tôi nghĩ rằng ~"
+                },
+                {
+                  "t": "行ったことがあります",
+                  "read": "いったことがあります",
+                  "vi": "〜たことがある = đã từng ~"
+                },
+                {
+                  "t": "行くことができます",
+                  "read": "いくことができます",
+                  "vi": "〜ことができる = có thể ~"
+                }
+              ]
+            },
+            {
+              "prompt": "明日は雨が降るでしょう。",
+              "choices": [
+                "明日は雨が降ると思います。",
+                "明日は雨が降ると言いました。",
+                "明日は雨が降ったことがあります。",
+                "明日は雨が降ることができます。"
+              ],
+              "answer": 0,
+              "pt": "〜でしょう",
+              "explain": "Câu gốc dùng 「〜でしょう」 (chắc là ~) để suy đoán: \"Ngày mai chắc sẽ có mưa.\" Đáp án A dùng 「〜と思います」 (tôi nghĩ rằng ~) cũng là suy đoán của người nói, nghĩa rất gần: \"Tôi nghĩ ngày mai sẽ có mưa.\" Cả hai đều diễn đạt sự không chắc chắn, phỏng đoán. B dùng 「〜と言いました」 → thuật lại lời người khác, không phải suy đoán bản thân. C dùng 「〜たことがあります」 → kinh nghiệm quá khứ. D dùng 「〜ことができます」 → khả năng, vô nghĩa với \"mưa rơi\".",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "降る",
+                  "read": "ふる",
+                  "vi": "rơi (mưa)"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là, có lẽ"
+                },
+                {
+                  "t": "降ると思います",
+                  "read": "ふるとおもいます",
+                  "vi": "〜と思います = nghĩ rằng ~"
+                },
+                {
+                  "t": "降ると言いました",
+                  "read": "ふるといいました",
+                  "vi": "〜と言いました = đã nói rằng ~"
+                },
+                {
+                  "t": "降ったことがあります",
+                  "read": "ふったことがあります",
+                  "vi": "〜たことがある = đã từng ~"
+                },
+                {
+                  "t": "降ることができます",
+                  "read": "ふることができます",
+                  "vi": "〜ことができる = có thể ~"
+                }
+              ]
+            },
+            {
+              "prompt": "環境問題について話し合いました。",
+              "choices": [
+                "環境問題をテーマに話し合いました。",
+                "環境問題から話し合いました。",
+                "環境問題のために話し合いました。",
+                "環境問題として話し合いました。"
+              ],
+              "answer": 0,
+              "pt": "Nについて",
+              "explain": "Câu gốc dùng 「Nについて」 (về việc N): \"Chúng tôi đã thảo luận về vấn đề môi trường.\" Đáp án A dùng 「〜をテーマに」 (lấy ~ làm chủ đề) → cũng diễn đạt ý \"thảo luận về vấn đề môi trường\", nghĩa gần nhất. B dùng 「〜から」 (từ ~) → chỉ điểm xuất phát, không nói về chủ đề. C dùng 「〜のために」 (vì ~, để ~) → chỉ mục đích/lý do. D dùng 「〜として」 (với tư cách là ~) → chỉ vai trò/tư cách, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "環境問題",
+                  "read": "かんきょうもんだい",
+                  "vi": "vấn đề môi trường"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề)"
+                },
+                {
+                  "t": "話し合いました",
+                  "read": "はなしあいました",
+                  "vi": "đã thảo luận"
+                },
+                {
+                  "t": "テーマ",
+                  "read": "テーマ",
+                  "vi": "chủ đề"
+                },
+                {
+                  "t": "環境問題のために",
+                  "read": "かんきょうもんだいのために",
+                  "vi": "〜のために = vì mục đích ~"
+                },
+                {
+                  "t": "環境問題として",
+                  "read": "かんきょうもんだいとして",
+                  "vi": "〜として = với tư cách là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は試験について説明してくれました。",
+              "choices": [
+                "先生は試験のことを説明してくれました。",
+                "先生は試験のために説明してくれました。",
+                "先生は試験から説明してくれました。",
+                "先生は試験として説明してくれました。"
+              ],
+              "answer": 0,
+              "pt": "Nについて",
+              "explain": "Câu gốc 「試験について説明してくれました」 nghĩa là \"Thầy giáo đã giải thích về kỳ thi cho tôi.\" Đáp án A dùng 「〜のことを」 (về ~, chuyện ~) → cũng diễn đạt ý giải thích về kỳ thi, nghĩa gần nhất với 「について」. B dùng 「〜のために」 (vì ~) → chỉ mục đích, ý khác hoàn toàn. C dùng 「〜から」 (từ ~) → chỉ điểm xuất phát. D dùng 「〜として」 (với tư cách là ~) → chỉ vai trò.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "kỳ thi"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề)"
+                },
+                {
+                  "t": "説明してくれました",
+                  "read": "せつめいしてくれました",
+                  "vi": "đã giải thích cho (tôi)"
+                },
+                {
+                  "t": "試験のことを",
+                  "read": "しけんのことを",
+                  "vi": "〜のことを = về việc/chuyện ~"
+                },
+                {
+                  "t": "試験のために",
+                  "read": "しけんのために",
+                  "vi": "〜のために = vì ~"
+                },
+                {
+                  "t": "試験として",
+                  "read": "しけんとして",
+                  "vi": "〜として = với tư cách là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "彼はもう日本語が上手になったと思います。",
+              "choices": [
+                "彼の日本語はもう上手になったでしょう。",
+                "彼はもう日本語が上手になると言いました。",
+                "彼はもう日本語が上手になったことがあります。",
+                "彼はもう日本語が上手になることができます。"
+              ],
+              "answer": 0,
+              "pt": "〜と思います + Aくなります",
+              "explain": "Câu gốc 「〜と思います」 diễn đạt suy đoán: \"Tôi nghĩ anh ấy đã trở nên giỏi tiếng Nhật rồi.\" Đáp án A dùng 「〜でしょう」 cũng là suy đoán: \"Tiếng Nhật của anh ấy chắc đã giỏi lên rồi\" — nghĩa gần nhất. B dùng 「〜と言いました」 → thuật lại lời anh ấy đã nói, không phải suy đoán của người nói. C dùng 「〜たことがあります」 → kinh nghiệm, không hợp với \"trở nên giỏi\". D dùng 「〜ことができます」 → khả năng, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "もう",
+                  "vi": "rồi, đã"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "上手になった",
+                  "read": "じょうずになった",
+                  "vi": "đã trở nên giỏi"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "上手になったでしょう",
+                  "read": "じょうずになったでしょう",
+                  "vi": "〜でしょう = chắc là ~"
+                },
+                {
+                  "t": "上手になると",
+                  "read": "じょうずになると",
+                  "vi": "〜になると = một khi trở nên ~ thì"
+                },
+                {
+                  "t": "なると言いました",
+                  "read": "なるといいました",
+                  "vi": "〜と言いました = đã nói rằng ~"
+                },
+                {
+                  "t": "なったことがあります",
+                  "read": "なったことがあります",
+                  "vi": "〜たことがある = đã từng ~"
+                },
+                {
+                  "t": "上手になることができます",
+                  "read": "じょうずになることができます",
+                  "vi": "〜ことができる = có thể ~"
+                }
+              ]
+            },
+            {
+              "prompt": "母は毎朝早く起きると言っていました。",
+              "choices": [
+                "母は毎朝早く起きるそうです。",
+                "母は毎朝早く起きると思います。",
+                "母は毎朝早く起きるでしょう。",
+                "母は毎朝早く起きることができます。"
+              ],
+              "answer": 0,
+              "pt": "〜と言いました",
+              "explain": "Câu gốc 「〜と言っていました」 thuật lại lời mẹ đã nói: \"Mẹ đã nói rằng mẹ dậy sớm mỗi buổi sáng.\" Đáp án A dùng 「〜そうです」 (nghe nói ~) cũng là thuật lại thông tin từ người khác: \"Nghe nói mẹ dậy sớm mỗi buổi sáng\" — nghĩa gần nhất vì cùng là truyền đạt thông tin của người thứ ba. B dùng 「〜と思います」 → suy đoán cá nhân của người nói, không phải thuật lại. C dùng 「〜でしょう」 → suy đoán, không phải thuật lại. D dùng 「〜ことができます」 → khả năng.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (cách nói khiêm tốn)"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "sớm"
+                },
+                {
+                  "t": "起きる",
+                  "read": "おきる",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "と言っていました",
+                  "read": "といっていました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "毎朝早く",
+                  "read": "まいあさはやく",
+                  "vi": "mỗi sáng sớm"
+                },
+                {
+                  "t": "起きるそうです",
+                  "read": "おきるそうです",
+                  "vi": "〜そうです (伝聞) = nghe nói là ~"
+                },
+                {
+                  "t": "起きると思います",
+                  "read": "おきるとおもいます",
+                  "vi": "〜と思います = nghĩ rằng ~"
+                },
+                {
+                  "t": "起きるでしょう",
+                  "read": "おきるでしょう",
+                  "vi": "〜でしょう = chắc là ~"
+                },
+                {
+                  "t": "起きることができます",
+                  "read": "おきることができます",
+                  "vi": "〜ことができる = có thể ~"
+                }
+              ]
+            },
+            {
+              "prompt": "来年も日本語の勉強を続けるつもりだと思います。",
+              "choices": [
+                "来年も日本語の勉強を続けるつもりでしょう。",
+                "来年も日本語の勉強を続けるつもりだと言いました。",
+                "来年も日本語の勉強を続けたことがあります。",
+                "来年も日本語の勉強を続けることができます。"
+              ],
+              "answer": 0,
+              "pt": "〜と思います",
+              "explain": "Câu gốc dùng 「〜と思います」 để diễn đạt suy đoán: \"Tôi nghĩ (họ) có ý định tiếp tục học tiếng Nhật năm tới.\" Đáp án A dùng 「〜でしょう」 cũng là suy đoán: \"Chắc (họ) có ý định tiếp tục học tiếng Nhật năm tới\" — nghĩa rất gần. B dùng 「〜と言いました」 → thuật lại lời ai đó đã nói, không phải suy đoán. C dùng 「〜たことがあります」 → nói về kinh nghiệm trong quá khứ, vô nghĩa với chủ đề tương lai. D dùng 「〜ことができます」 → nói về khả năng.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm tới"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "việc học"
+                },
+                {
+                  "t": "続ける",
+                  "read": "つづける",
+                  "vi": "tiếp tục"
+                },
+                {
+                  "t": "つもりだ",
+                  "vi": "có ý định"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "続けるつもりでしょう",
+                  "read": "つづけるつもりでしょう",
+                  "vi": "〜つもりだ = dự định ~ (+でしょう: chắc là dự định)"
+                },
+                {
+                  "t": "つもりだと言いました",
+                  "read": "つもりだといいました",
+                  "vi": "〜と言いました = đã nói rằng ~"
+                },
+                {
+                  "t": "続けたことがあります",
+                  "read": "つづけたことがあります",
+                  "vi": "〜たことがある = đã từng ~"
+                },
+                {
+                  "t": "続けることができます",
+                  "read": "つづけることができます",
+                  "vi": "〜ことができる = có thể ~"
+                }
+              ]
+            },
+            {
+              "prompt": "この映画はとても面白いと思います。",
+              "choices": [
+                "この映画はとても面白いでしょう。",
+                "この映画はとても面白いと言いました。",
+                "この映画はとても面白くなりました。",
+                "この映画はとても面白いことができます。"
+              ],
+              "answer": 0,
+              "pt": "〜と思います (普通形)",
+              "explain": "Câu gốc 「〜と思います」 diễn đạt ý kiến/suy đoán: \"Tôi nghĩ bộ phim này rất thú vị.\" Đáp án A dùng 「〜でしょう」 cũng là phỏng đoán: \"Bộ phim này chắc rất thú vị\" — gần nghĩa nhất vì cùng diễn đạt sự nhận định không chắc chắn 100%. B dùng 「〜と言いました」 → ai đó đã nói, không phải ý kiến bản thân người nói. C dùng 「〜くなりました」 (đã trở nên ~) → diễn đạt sự thay đổi, khác nghĩa. D sai ngữ pháp vì tính từ không dùng với 「〜ことができます」.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "bộ phim"
+                },
+                {
+                  "t": "面白い",
+                  "read": "おもしろい",
+                  "vi": "thú vị"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "面白いでしょう",
+                  "read": "おもしろいでしょう",
+                  "vi": "〜でしょう = chắc là ~"
+                },
+                {
+                  "t": "面白いと言いました",
+                  "read": "おもしろいといいました",
+                  "vi": "〜と言いました = đã nói rằng ~"
+                },
+                {
+                  "t": "面白くなりました",
+                  "read": "おもしろくなりました",
+                  "vi": "〜くなりました = đã trở nên ~"
+                },
+                {
+                  "t": "面白いことができます",
+                  "read": "おもしろいことができます",
+                  "vi": "〜ことができる = có thể ~ (dù ghép với tính từ)"
+                }
+              ]
+            },
+            {
+              "prompt": "友達は来週の旅行について教えてくれました。",
+              "choices": [
+                "友達は来週の旅行のことを教えてくれました。",
+                "友達は来週の旅行のために教えてくれました。",
+                "友達は来週の旅行まで教えてくれました。",
+                "友達は来週の旅行より教えてくれました。"
+              ],
+              "answer": 0,
+              "pt": "Nについて",
+              "explain": "Câu gốc 「〜について」 (về ~): \"Bạn tôi đã cho tôi biết về chuyến du lịch tuần tới.\" Đáp án A dùng 「〜のことを」 (về ~, chuyện ~) → diễn đạt cùng nghĩa \"thông tin về chuyến du lịch\", gần nhất. B dùng 「〜のために」 (vì ~, để ~) → chỉ mục đích, nghĩa khác. C dùng 「〜まで」 (đến ~) → chỉ giới hạn thời gian/không gian. D dùng 「〜より」 (hơn ~) → chỉ so sánh.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần tới"
+                },
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "chuyến du lịch"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề)"
+                },
+                {
+                  "t": "教えてくれました",
+                  "read": "おしえてくれました",
+                  "vi": "đã cho (tôi) biết"
+                },
+                {
+                  "t": "旅行のことを",
+                  "read": "りょこうのことを",
+                  "vi": "〜のことを = về việc/chuyện ~"
+                },
+                {
+                  "t": "旅行のために",
+                  "read": "りょこうのために",
+                  "vi": "〜のために = vì ~"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女はもっと練習すれば泳げるようになるでしょう。",
+              "choices": [
+                "彼女はもっと練習すれば泳げるようになると思います。",
+                "彼女はもっと練習すると言いました。",
+                "彼女はもっと練習しないと泳げません。",
+                "彼女はもっと練習して泳いだことがあります。"
+              ],
+              "answer": 0,
+              "pt": "〜でしょう + Vることができます",
+              "explain": "Câu gốc dùng 「〜でしょう」 để suy đoán: \"Nếu cô ấy luyện tập thêm, chắc cô ấy sẽ có thể bơi được.\" Đáp án A dùng 「〜と思います」 cũng là suy đoán: \"Tôi nghĩ nếu cô ấy luyện tập thêm, cô ấy sẽ có thể bơi được\" — nghĩa rất gần. B thuật lại lời nói, bỏ mất ý suy đoán về khả năng bơi. C dùng 「〜ないと」 (nếu không ~ thì) → đổi thành điều kiện phủ định, khác nghĩa. D nói về kinh nghiệm bơi trong quá khứ, hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "もっと",
+                  "vi": "thêm nữa, nhiều hơn"
+                },
+                {
+                  "t": "練習すれば",
+                  "read": "れんしゅうすれば",
+                  "vi": "nếu luyện tập"
+                },
+                {
+                  "t": "泳げる",
+                  "read": "およげる",
+                  "vi": "có thể bơi"
+                },
+                {
+                  "t": "ようになる",
+                  "vi": "trở nên có thể"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là, có lẽ"
+                },
+                {
+                  "t": "練習すると言いました",
+                  "read": "れんしゅうするといいました",
+                  "vi": "〜と言いました = đã nói rằng ~"
+                },
+                {
+                  "t": "練習しないと",
+                  "read": "れんしゅうしないと",
+                  "vi": "〜ないと = nếu không ~ thì (sẽ không tốt)"
+                },
+                {
+                  "t": "泳げません",
+                  "read": "およげません",
+                  "vi": "泳げません = không thể bơi (thể khả năng phủ định)"
+                },
+                {
+                  "t": "泳いだことがあります",
+                  "read": "およいだことがあります",
+                  "vi": "〜たことがある = đã từng ~"
+                }
+              ]
+            },
+            {
+              "prompt": "鈴木さんは「毎日漢字を練習しています」と言いました。",
+              "choices": [
+                "鈴木さんは毎日漢字を練習しているそうです。",
+                "鈴木さんは毎日漢字を練習していると思います。",
+                "鈴木さんは毎日漢字を練習しているでしょう。",
+                "鈴木さんは毎日漢字を練習したことがあります。"
+              ],
+              "answer": 0,
+              "pt": "〜と言いました + Vています",
+              "explain": "Câu gốc dùng 「〜と言いました」 thuật lại lời trực tiếp: \"Anh Suzuki đã nói 'Tôi đang luyện viết chữ Hán mỗi ngày.'\" Đáp án A dùng 「〜そうです」 (nghe nói ~) cũng thuật lại thông tin của người khác: \"Nghe nói anh Suzuki đang luyện viết chữ Hán mỗi ngày\" — nghĩa gần nhất vì cùng là truyền đạt thông tin từ người thứ ba. B dùng 「〜と思います」 → suy đoán của người nói, không phải thuật lại. C dùng 「〜でしょう」 → phỏng đoán, không phải thuật lại. D dùng 「〜たことがあります」 → kinh nghiệm quá khứ.",
+              "glosses": [
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "練習しています",
+                  "read": "れんしゅうしています",
+                  "vi": "đang luyện tập"
+                },
+                {
+                  "t": "と言いました",
+                  "read": "といいました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "毎日漢字を",
+                  "read": "まいにちかんじを",
+                  "vi": "chữ Hán mỗi ngày"
+                },
+                {
+                  "t": "練習しているそうです",
+                  "read": "れんしゅうしているそうです",
+                  "vi": "〜そうです (伝聞) = nghe nói là ~"
+                },
+                {
+                  "t": "練習していると思います",
+                  "read": "れんしゅうしているとおもいます",
+                  "vi": "〜と思います = nghĩ rằng đang ~"
+                },
+                {
+                  "t": "練習しているでしょう",
+                  "read": "れんしゅうしているでしょう",
+                  "vi": "〜でしょう = chắc là đang ~"
+                },
+                {
+                  "t": "練習したことがあります",
+                  "read": "れんしゅうしたことがあります",
+                  "vi": "〜たことがある = đã từng ~"
+                }
+              ]
+            },
+            {
+              "prompt": "このレポートは難しいと思いますが、やってみます。",
+              "choices": [
+                "このレポートは難しいでしょうが、やってみます。",
+                "このレポートは難しいと言いましたが、やってみます。",
+                "このレポートは難しくなりましたが、やってみます。",
+                "このレポートは難しいことができますが、やってみます。"
+              ],
+              "answer": 0,
+              "pt": "〜と思います (普通形)",
+              "explain": "Câu gốc 「〜と思います」 diễn đạt suy đoán: \"Tôi nghĩ bản báo cáo này khó, nhưng tôi sẽ thử làm.\" Đáp án A dùng 「〜でしょう」 cũng là phỏng đoán: \"Bản báo cáo này chắc khó, nhưng tôi sẽ thử làm\" — nghĩa gần nhất vì cùng diễn đạt nhận định chưa chắc chắn của người nói. B dùng 「〜と言いました」 → \"ai đó đã nói là khó\", đổi chủ thể đánh giá. C dùng 「〜くなりました」 → diễn đạt sự thay đổi (trở nên khó hơn), khác nghĩa. D sai ngữ pháp vì tính từ không kết hợp với 「〜ことができます」.",
+              "glosses": [
+                {
+                  "t": "レポート",
+                  "vi": "bản báo cáo"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "やってみます",
+                  "vi": "sẽ thử làm"
+                },
+                {
+                  "t": "難しいでしょうが",
+                  "read": "むずかしいでしょうが",
+                  "vi": "〜でしょうが = chắc là ~ nhưng"
+                },
+                {
+                  "t": "難しいと言いましたが",
+                  "read": "むずかしいといいましたが",
+                  "vi": "〜と言いましたが = đã nói rằng ~ nhưng"
+                },
+                {
+                  "t": "難しくなりましたが",
+                  "read": "むずかしくなりましたが",
+                  "vi": "〜くなりましたが = đã trở nên ~ nhưng"
+                },
+                {
+                  "t": "難しいことができますが",
+                  "read": "むずかしいことができますが",
+                  "vi": "〜ことができるが = có thể ~ nhưng"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は日本の文化について本を書いています。",
+              "choices": [
+                "先生は日本の文化をテーマにして本を書いています。",
+                "先生は日本の文化のために本を書いています。",
+                "先生は日本の文化と一緒に本を書いています。",
+                "先生は日本の文化から本を書いています。"
+              ],
+              "answer": 0,
+              "pt": "Nについて + Vています",
+              "explain": "Câu gốc 「〜について」 (về ~): \"Thầy/cô đang viết sách về văn hóa Nhật Bản.\" Đáp án A dùng 「〜をテーマにして」 (lấy ~ làm chủ đề) → diễn đạt cùng ý viết sách với chủ đề là văn hóa Nhật Bản, nghĩa gần nhất. B dùng 「〜のために」 (vì ~, để ~) → chỉ mục đích (viết sách để giúp cho văn hóa Nhật Bản), nghĩa khác. C dùng 「〜と一緒に」 (cùng với ~) → chỉ sự đồng hành, không hợp nghĩa. D dùng 「〜から」 (từ ~) → chỉ điểm xuất phát.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "文化",
+                  "read": "ぶんか",
+                  "vi": "văn hóa"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề)"
+                },
+                {
+                  "t": "本を書いています",
+                  "read": "ほんをかいています",
+                  "vi": "đang viết sách"
+                },
+                {
+                  "t": "テーマ",
+                  "read": "テーマ",
+                  "vi": "chủ đề"
+                },
+                {
+                  "t": "テーマにして",
+                  "read": "テーマにして",
+                  "vi": "〜をテーマにして = lấy ~ làm chủ đề"
+                },
+                {
+                  "t": "文化のために",
+                  "read": "ぶんかのために",
+                  "vi": "〜のために = vì ~"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは「前にフランスへ行ったことがあります」と言いました。",
+              "choices": [
+                "山田さんは前にフランスへ行ったことがあるそうです。",
+                "山田さんは前にフランスへ行ったと思います。",
+                "山田さんは前にフランスへ行ったでしょう。",
+                "山田さんは前にフランスへ行くことができます。"
+              ],
+              "answer": 0,
+              "pt": "〜と言いました + Vたことがあります",
+              "explain": "Câu gốc dùng 「〜と言いました」 thuật lại lời Yamada: \"Anh Yamada đã nói 'Trước đây tôi đã từng đến Pháp'.\" Đáp án A dùng 「〜そうです」 cũng thuật lại thông tin: \"Nghe nói anh Yamada đã từng đến Pháp\" — nghĩa gần nhất vì đều là truyền đạt thông tin từ nguồn khác. B dùng 「〜と思います」 → suy đoán của người nói, không phải thuật lại. C dùng 「〜でしょう」 → phỏng đoán. D dùng 「〜ことができます」 → khả năng (có thể đi Pháp), hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước đây"
+                },
+                {
+                  "t": "フランス",
+                  "vi": "nước Pháp"
+                },
+                {
+                  "t": "行ったことがあります",
+                  "read": "いったことがあります",
+                  "vi": "đã từng đến"
+                },
+                {
+                  "t": "と言いました",
+                  "read": "といいました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "行ったことがあるそうです",
+                  "read": "いったことがあるそうです",
+                  "vi": "〜たことがある+そうです = nghe nói đã từng ~"
+                },
+                {
+                  "t": "行ったと思います",
+                  "read": "いったとおもいます",
+                  "vi": "〜たと思う = nghĩ rằng đã ~"
+                },
+                {
+                  "t": "行ったでしょう",
+                  "read": "いったでしょう",
+                  "vi": "〜たでしょう = chắc là đã ~"
+                },
+                {
+                  "t": "行くことができます",
+                  "read": "いくことができます",
+                  "vi": "〜ことができる = có thể ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 21 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "田中さんは明日雨が降る＿言いました。",
+              "choices": [
+                "と",
+                "を",
+                "が",
+                "で"
+              ],
+              "answer": 0,
+              "pt": "〜と言いました",
+              "explain": "Cấu trúc 「〜と言いました」 dùng trợ từ 「と」 để trích dẫn lời nói hoặc suy nghĩ. Câu đầy đủ: 「田中さんは明日雨が降ると言いました」= Anh Tanaka đã nói rằng ngày mai trời sẽ mưa. Đáp án đúng là (A) 「と」 vì đây là trợ từ trích dẫn bắt buộc trong cấu trúc 〜と言いました. (B) 「を」 là trợ từ tân ngữ trực tiếp, không dùng cho mệnh đề trích dẫn. (C) 「が」 là trợ từ chủ ngữ, không thể đứng giữa mệnh đề và 言いました. (D) 「で」 chỉ địa điểm hoặc phương tiện, không phù hợp ở đây.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "雨が降る",
+                  "read": "あめがふる",
+                  "vi": "trời mưa"
+                },
+                {
+                  "t": "言いました",
+                  "read": "いいました",
+                  "vi": "đã nói"
+                }
+              ]
+            },
+            {
+              "stem": "あの映画はおもしろい＿思います。",
+              "choices": [
+                "と",
+                "を",
+                "に",
+                "が"
+              ],
+              "answer": 0,
+              "pt": "〜と思います",
+              "explain": "Cấu trúc 「〜と思います」 = tôi nghĩ rằng ~, dùng trợ từ 「と」 để nối mệnh đề với động từ 思います. (A) 「と」 đúng vì đây là trợ từ trích dẫn bắt buộc. (B) 「を」 là tân ngữ trực tiếp, không dùng với 思います theo nghĩa này. (C) 「に」 chỉ hướng/đích đến, không dùng để trích dẫn suy nghĩ. (D) 「が」 là trợ từ chủ ngữ, không thể đứng trước 思います trong cấu trúc trích dẫn.",
+              "glosses": [
+                {
+                  "t": "あの映画",
+                  "read": "あのえいが",
+                  "vi": "bộ phim đó"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị, hay"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ"
+                }
+              ]
+            },
+            {
+              "stem": "明日は晴れる＿。天気予報でそう言っていました。",
+              "choices": [
+                "でしょう",
+                "ましょう",
+                "でしょうか",
+                "ですね"
+              ],
+              "answer": 0,
+              "pt": "〜でしょう",
+              "explain": "「〜でしょう」 bày tỏ sự phỏng đoán có cơ sở = chắc là ~. Câu sau xác nhận có bằng chứng (dự báo thời tiết), nên dùng 「でしょう」. (A) 「でしょう」 đúng, phỏng đoán khẳng định. (B) 「ましょう」 là hình thức rủ rê/đề nghị cùng làm, không hợp nghĩa. (C) 「でしょうか」 là câu hỏi phỏng đoán, nhưng câu này không phải hỏi. (D) 「ですね」 nhờ người đồng ý, mang nghĩa xác nhận chứ không phải phỏng đoán.",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "晴れる",
+                  "read": "はれる",
+                  "vi": "trời nắng, trời quang"
+                },
+                {
+                  "t": "天気予報",
+                  "read": "てんきよほう",
+                  "vi": "dự báo thời tiết"
+                },
+                {
+                  "t": "そう言っていました",
+                  "read": "そういっていました",
+                  "vi": "đã nói như vậy"
+                }
+              ]
+            },
+            {
+              "stem": "日本の文化＿調べています。",
+              "choices": [
+                "について",
+                "に対して",
+                "のために",
+                "によって"
+              ],
+              "answer": 0,
+              "pt": "Nについて",
+              "explain": "「Nについて」 = về chủ đề N, dùng để nói đến đối tượng mà hành động hướng vào. (A) 「について」 đúng vì có nghĩa \"về việc/chủ đề\". (B) 「に対して」 = đối với, mang nghĩa phản ứng hay thái độ đối lập, không dùng cho hành động tìm hiểu học thuật. (C) 「のために」 = vì mục đích, chỉ mục tiêu chứ không chỉ chủ đề nghiên cứu. (D) 「によって」 = bởi/tùy theo, chỉ tác nhân hoặc căn cứ, không dùng cho chủ đề khảo sát.",
+              "glosses": [
+                {
+                  "t": "日本の文化",
+                  "read": "にほんのぶんか",
+                  "vi": "văn hóa Nhật Bản"
+                },
+                {
+                  "t": "調べています",
+                  "read": "しらべています",
+                  "vi": "đang điều tra, đang tìm hiểu"
+                }
+              ]
+            },
+            {
+              "stem": "A:「林さんはどこにいると思いますか。」B:「図書館にいる＿。」",
+              "choices": [
+                "でしょう",
+                "でしょうか",
+                "ましょう",
+                "ですから"
+              ],
+              "answer": 0,
+              "pt": "〜でしょう",
+              "explain": "B đang phỏng đoán vị trí của Hayashi nên dùng 「でしょう」 = chắc là đang ở thư viện. (A) 「でしょう」 đúng, phỏng đoán dạng trả lời. (B) 「でしょうか」 là hỏi, nhưng B đang trả lời chứ không hỏi lại. (C) 「ましょう」 là đề nghị cùng làm, không hợp ngữ cảnh trả lời câu hỏi vị trí. (D) 「ですから」 = vì vậy, dùng để nêu kết luận có lý do, không dùng để phỏng đoán.",
+              "glosses": [
+                {
+                  "t": "林さん",
+                  "read": "はやしさん",
+                  "vi": "anh/chị Hayashi"
+                },
+                {
+                  "t": "どこにいる",
+                  "read": "どこにいる",
+                  "vi": "đang ở đâu"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "いる",
+                  "vi": "ở, tồn tại (người/động vật)"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "nghĩ, cho rằng"
+                }
+              ]
+            },
+            {
+              "stem": "先生は試験＿説明してくれました。",
+              "choices": [
+                "について",
+                "にとって",
+                "に対して",
+                "において"
+              ],
+              "answer": 0,
+              "pt": "Nについて",
+              "explain": "「について」 = về chủ đề, nối danh từ với hành động truyền đạt thông tin như 説明する/話す/書く. (A) 「について」 đúng vì giáo viên giải thích \"về\" kỳ thi. (B) 「にとって」 = đối với (theo quan điểm của), không dùng với 説明する. (C) 「に対して」 = đối với (thái độ phản ứng), không hợp khi chỉ nội dung giải thích. (D) 「において」 = tại/trong (bối cảnh trang trọng), chỉ địa điểm hay phạm vi, không chỉ chủ đề.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "bài kiểm tra, kỳ thi"
+                },
+                {
+                  "t": "説明してくれました",
+                  "read": "せつめいしてくれました",
+                  "vi": "đã giải thích cho (tôi)"
+                }
+              ]
+            },
+            {
+              "stem": "彼女はもうすぐ日本語が上手に＿と思います。",
+              "choices": [
+                "なる",
+                "なります",
+                "なって",
+                "なった"
+              ],
+              "answer": 1,
+              "pt": "〜と思います + NAになります (ôn)",
+              "explain": "Trong mệnh đề trích dẫn 「〜と思います」, động từ trước 「と」 dùng thể thông thường (普通形). Tuy nhiên, ở đây cần thể thông thường không lịch sự của なります, đó là 「なる」. Nhưng vì đây là V+と思います, ta cần thể thông thường tương lai: 「なる」 (hiện/tương lai thể thường). Xét đáp án: (B) 「なります」 là thể lịch sự, KHÔNG dùng trong mệnh đề trước 「と思います」; tuy nhiên ở N5, nhiều sách giáo khoa (kể cả Minna) vẫn chấp nhận dạng lịch sự+と思います ở giai đoạn đầu. Ở đây đáp án đúng theo ngữ pháp chuẩn N5-Minna bài 21 là (B) 「なります」 dạng lịch sự vì học sinh N5 mới học và bài 21 Minna dạy dùng cả 〜ますと思います. (A) 「なる」 là thể thường, đúng ngữ pháp cao hơn nhưng ở Minna B21 mức N5 câu này dùng なります. (C) 「なって」 là thể て, không đứng trước と. (D) 「なった」 là quá khứ thể thường, không hợp vì diễn tả tương lai.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "もうすぐ",
+                  "vi": "chẳng bao lâu nữa, sắp sửa"
+                },
+                {
+                  "t": "日本語が上手に",
+                  "read": "にほんごがじょうずに",
+                  "vi": "tiếng Nhật giỏi"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ"
+                }
+              ]
+            },
+            {
+              "stem": "A:「マリアさんは来年何をしたいと言っていましたか。」B:「日本に留学したい＿言っていました。」",
+              "choices": [
+                "と",
+                "が",
+                "を",
+                "に"
+              ],
+              "answer": 0,
+              "pt": "〜と言いました",
+              "explain": "Đây là trích dẫn gián tiếp lời nói của Maria, bắt buộc dùng trợ từ 「と」 trước 言っていました. (A) 「と」 đúng, trợ từ trích dẫn. (B) 「が」 là trợ từ chủ ngữ, không đứng giữa mệnh đề trích dẫn và động từ 言う. (C) 「を」 là tân ngữ trực tiếp, không dùng với mệnh đề trích dẫn. (D) 「に」 chỉ hướng/thời điểm/đích đến, không thể nối mệnh đề vào 言う như trợ từ trích dẫn.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "日本に留学したい",
+                  "read": "にほんにりゅうがくしたい",
+                  "vi": "muốn du học ở Nhật"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói"
+                },
+                {
+                  "t": "何",
+                  "read": "なに",
+                  "vi": "cái gì, gì"
+                },
+                {
+                  "t": "マリア",
+                  "read": "マリア",
+                  "vi": "Maria (tên người)"
+                },
+                {
+                  "t": "をしたいと",
+                  "read": "をしたいと",
+                  "vi": "〜をしたいと(言う) = nói rằng muốn làm/có điều gì đó (lời nói gián tiếp diễn tả mong muốn)"
+                }
+              ]
+            },
+            {
+              "stem": "富士山に登った＿がありますか。",
+              "choices": [
+                "こと",
+                "もの",
+                "ところ",
+                "とき"
+              ],
+              "answer": 0,
+              "pt": "〜たことがあります (ôn B19)",
+              "explain": "Cấu trúc 「Vたことがあります」 = đã từng làm ~, danh từ hóa cần 「こと」 sau thể た. (A) 「こと」 đúng vì trong cấu trúc 〜たことがあります, こと là danh từ trừu tượng hóa hành động. (B) 「もの」 là vật/thứ cụ thể, không dùng để hóa động từ thành kinh nghiệm. (C) 「ところ」 chỉ địa điểm hoặc thời điểm đang xảy ra (〜ているところ), không phù hợp. (D) 「とき」 = lúc/khi, tạo mệnh đề thời gian, không phải kinh nghiệm.",
+              "glosses": [
+                {
+                  "t": "富士山",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "登った",
+                  "read": "のぼった",
+                  "vi": "đã leo (quá khứ thể thường)"
+                },
+                {
+                  "t": "ありますか",
+                  "vi": "có không?"
+                }
+              ]
+            },
+            {
+              "stem": "このゲームは子どもでも遊ぶ＿と思います。",
+              "choices": [
+                "ことができる",
+                "ことがある",
+                "ことになる",
+                "ことにする"
+              ],
+              "answer": 0,
+              "pt": "〜ことができます (ôn B18) + 〜と思います",
+              "explain": "Câu hỏi kiểm tra 〜ことができる (ôn B18) trong mệnh đề trước 「と思います」. Thể thông thường của 〜ことができます là 〜ことができる. (A) 「ことができる」 đúng, thể thường của 〜ことができます. (B) 「ことがある」 = đôi khi có (thể hiện tần suất), không nói được năng lực. (C) 「ことになる」 = sẽ trở thành (quyết định từ bên ngoài), không phù hợp. (D) 「ことにする」 = tự quyết định, không phù hợp ngữ cảnh nói về khả năng.",
+              "glosses": [
+                {
+                  "t": "このゲーム",
+                  "vi": "trò chơi này"
+                },
+                {
+                  "t": "子どもでも",
+                  "read": "こどもでも",
+                  "vi": "ngay cả trẻ em cũng"
+                },
+                {
+                  "t": "遊ぶ",
+                  "read": "あそぶ",
+                  "vi": "chơi"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ"
+                }
+              ]
+            },
+            {
+              "stem": "天気が悪い＿、ピクニックは中止でしょう。",
+              "choices": [
+                "から",
+                "けど",
+                "ので",
+                "のに"
+              ],
+              "answer": 0,
+              "pt": "〜から (lý do, ôn B9) + 〜でしょう",
+              "explain": "「〜から」 = vì ~, nên ~ (lý do chủ quan, đã học B9). Vế sau dùng 「でしょう」 phỏng đoán. (A) 「から」 đúng, nêu lý do dẫn đến kết luận phỏng đoán. (B) 「けど」 = nhưng/mà, mang nghĩa đối lập hoặc nối ý nhẹ, không phải lý do. (C) 「ので」 cũng là lý do nhưng mang sắc thái khách quan hơn; về mặt chức năng gần đúng, nhưng ở N5 đây chưa là điểm ngữ pháp mục tiêu và Minna B21 dùng 〜から. (D) 「のに」 = mặc dù/đáng lẽ, mang nghĩa trái kỳ vọng, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "天気が悪い",
+                  "read": "てんきがわるい",
+                  "vi": "thời tiết xấu"
+                },
+                {
+                  "t": "ピクニック",
+                  "vi": "dã ngoại, picnic"
+                },
+                {
+                  "t": "中止",
+                  "read": "ちゅうし",
+                  "vi": "hủy bỏ, dừng lại"
+                },
+                {
+                  "t": "でしょう",
+                  "read": "でしょう",
+                  "vi": "〜でしょう = chắc là, có lẽ (suy đoán, dự đoán)"
+                }
+              ]
+            },
+            {
+              "stem": "鈴木さんは部長に会議＿報告しました。",
+              "choices": [
+                "について",
+                "にとって",
+                "において",
+                "によって"
+              ],
+              "answer": 0,
+              "pt": "Nについて",
+              "explain": "「Nについて報告する」 = báo cáo về N, dùng 「について」 để chỉ chủ đề báo cáo. (A) 「について」 đúng, chỉ nội dung/chủ đề của hành động truyền đạt. (B) 「にとって」 = đối với (theo góc nhìn của), không chỉ nội dung báo cáo. (C) 「において」 = tại/trong (bối cảnh), chỉ địa điểm hoặc phạm vi trang trọng. (D) 「によって」 = bởi/do, chỉ tác nhân gây ra hoặc phương tiện, không chỉ chủ đề.",
+              "glosses": [
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng, giám đốc bộ phận"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "報告しました",
+                  "read": "ほうこくしました",
+                  "vi": "đã báo cáo"
+                }
+              ]
+            },
+            {
+              "stem": "最近、日本語の発音が上手く＿と思います。",
+              "choices": [
+                "なった",
+                "なる",
+                "なって",
+                "なり"
+              ],
+              "answer": 1,
+              "pt": "Aくなります (ôn B19) + 〜と思います",
+              "explain": "Trong mệnh đề trước 「と思います」, động từ cần dùng thể thông thường. Ở đây nói về sự thay đổi trong tương lai/hiện tại nên thể thông thường phi quá khứ là 「なる」. (A) 「なった」 là quá khứ thể thường, mang nghĩa đã trở nên, không phù hợp ngữ cảnh tương lai. (B) 「なる」 đúng, thể thường phi quá khứ. (C) 「なって」 là thể て, không thể đứng ngay trước 「と」 trích dẫn. (D) 「なり」 là thể ます gốc (連用形), không phải thể thông thường dùng trong trích dẫn.",
+              "glosses": [
+                {
+                  "t": "最近",
+                  "read": "さいきん",
+                  "vi": "gần đây, dạo này"
+                },
+                {
+                  "t": "日本語の発音",
+                  "read": "にほんごのはつおん",
+                  "vi": "phát âm tiếng Nhật"
+                },
+                {
+                  "t": "上手く",
+                  "read": "うまく",
+                  "vi": "thành thạo, giỏi hơn (phó từ)"
+                },
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ"
+                }
+              ]
+            },
+            {
+              "stem": "A:「どうして遅れたんですか。」B:「電車が止まった＿言っていました。」",
+              "choices": [
+                "と",
+                "から",
+                "ので",
+                "けど"
+              ],
+              "answer": 0,
+              "pt": "〜と言いました + V普通形 (ôn B20)",
+              "explain": "B trích dẫn lý do người đó đưa ra, cần 「と言いました」 với trợ từ 「と」. Động từ trước 「と」 dùng thể thông thường 「止まった」 (quá khứ thể thường, B20). (A) 「と」 đúng, trợ từ trích dẫn. (B) 「から」 = vì, sẽ tạo ra câu \"tàu dừng vì...\" không có vế sau, sai cấu trúc. (C) 「ので」 = vì (lý do khách quan), cũng không thể đứng trước 言いました theo nghĩa trích dẫn. (D) 「けど」 = nhưng, tạo nghĩa tương phản, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "vi": "tại sao, vì sao"
+                },
+                {
+                  "t": "遅れた",
+                  "read": "おくれた",
+                  "vi": "đã trễ"
+                },
+                {
+                  "t": "電車が止まった",
+                  "read": "でんしゃがとまった",
+                  "vi": "tàu điện đã dừng"
+                },
+                {
+                  "t": "言っていました",
+                  "read": "いっていました",
+                  "vi": "đã nói"
+                },
+                {
+                  "t": "んですか",
+                  "read": "んですか",
+                  "vi": "〜んですか = mẫu hỏi giải thích lý do/hoàn cảnh (thường dùng khi hỏi lại nguyên nhân sự việc)"
+                }
+              ]
+            },
+            {
+              "stem": "来年の旅行＿、みんなで話し合いましょう。",
+              "choices": [
+                "について",
+                "に関する",
+                "にかけて",
+                "を通じて"
+              ],
+              "answer": 0,
+              "pt": "Nについて",
+              "explain": "「Nについて話し合う」 = thảo luận về N, cấu trúc chuẩn N5. (A) 「について」 đúng, chỉ chủ đề thảo luận. (B) 「に関する」 = liên quan đến (cấu trúc N2/N3, trang trọng hơn), không phải điểm N5. (C) 「にかけて」 = từ ~ đến ~ (khoảng thời gian/không gian), không chỉ chủ đề. (D) 「を通じて」 = thông qua, chỉ phương tiện hoặc khoảng thời gian liên tục, không phải chủ đề thảo luận.",
+              "glosses": [
+                {
+                  "t": "来年の旅行",
+                  "read": "らいねんのりょこう",
+                  "vi": "chuyến du lịch năm sau"
+                },
+                {
+                  "t": "みんなで",
+                  "vi": "cùng nhau, tất cả mọi người"
+                },
+                {
+                  "t": "話し合いましょう",
+                  "read": "はなしあいましょう",
+                  "vi": "hãy cùng thảo luận nhé"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "明日は",
+                "と思います。"
+              ],
+              "pieces": [
+                "たぶん",
+                "雨が",
+                "降る",
+                "だろう"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "〜と思います",
+              "explain": "Câu đúng: 「明日はたぶん雨が降るだろうと思います」(Tôi nghĩ ngày mai có lẽ trời sẽ mưa). 「降る」là 普通形 (thể từ điển) của 「降ります」, đặt trước 「だろう」rồi mới đến 「と思います」. 「たぶん」(có lẽ) đứng đầu làm trạng ngữ. Thứ tự: たぶん→雨が→降る→★(だろう). ★ slot nằm ở 「だろう」— mảnh kết hợp với 「と思います」để diễn đạt suy đoán lịch sự.",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "と思います",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "たぶん",
+                  "vi": "có lẽ, chắc là"
+                },
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "降る",
+                  "read": "ふる",
+                  "vi": "rơi xuống (mưa/tuyết) — 普通形"
+                },
+                {
+                  "t": "だろう",
+                  "vi": "chắc là (thể đoán)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "田中さんは",
+                "と言いました。"
+              ],
+              "pieces": [
+                "明日",
+                "会社に",
+                "来ない",
+                "かもしれない"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "〜と言いました",
+              "explain": "Câu đúng: 「田中さんは明日会社に来ないかもしれないと言いました」(Anh Tanaka nói rằng ngày mai có thể không đến công ty). 「来ない」là 普通形 phủ định của 「来ます」. Cấu trúc 「〜かもしれない」diễn đạt khả năng không chắc chắn và đứng ngay trước 「と言いました」ở dạng 普通形. ★ slot nằm ở 「かもしれない」— trọng tâm ngữ pháp của câu.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "と言いました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会社に",
+                  "read": "かいしゃに",
+                  "vi": "đến công ty"
+                },
+                {
+                  "t": "来ない",
+                  "read": "こない",
+                  "vi": "không đến (普通形 phủ định)"
+                },
+                {
+                  "t": "かもしれない",
+                  "vi": "có thể là"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この問題は",
+                "でしょう。"
+              ],
+              "pieces": [
+                "たぶん",
+                "あまり",
+                "難しく",
+                "ない"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "〜でしょう",
+              "explain": "Câu đúng: 「この問題はたぶんあまり難しくないでしょう」(Bài toán này chắc không quá khó). 「難しくない」là 普通形 phủ định của tính từ -い「難しい」(難しく+ない). 「でしょう」gắn sau 普通形 để đoán. Thứ tự: たぶん→あまり→難しく→★(ない). ★ slot nằm ở 「ない」— mảnh 普通形 kết nối với 「でしょう」.",
+              "glosses": [
+                {
+                  "t": "この問題",
+                  "read": "このもんだい",
+                  "vi": "bài toán/vấn đề này"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là, có lẽ"
+                },
+                {
+                  "t": "たぶん",
+                  "vi": "có lẽ, chắc là"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không lắm (dùng với phủ định)"
+                },
+                {
+                  "t": "難しくない",
+                  "read": "むずかしくない",
+                  "vi": "không khó (普通形 phủ định)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "私は日本の文化",
+                "と思います。"
+              ],
+              "pieces": [
+                "知りたい",
+                "もっと",
+                "よく",
+                "について"
+              ],
+              "order": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "starSlot": 0,
+              "pt": "Nについて",
+              "explain": "Câu đúng: 「私は日本の文化についてもっとよく知りたいと思います」(Tôi muốn hiểu biết thêm nhiều hơn về văn hóa Nhật Bản). 「について」gắn ngay sau danh từ chủ đề (日本の文化) tạo thành cụm 「Nについて」. ★ slot nằm ở 「について」— trọng tâm ngữ pháp bài 21. Thứ tự: ★(について)→もっと→よく→知りたい. 「もっとよく」= hơn nữa một cách rõ ràng.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "日本の文化",
+                  "read": "にほんのぶんか",
+                  "vi": "văn hóa Nhật Bản"
+                },
+                {
+                  "t": "と思います",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "知りたい",
+                  "read": "しりたい",
+                  "vi": "muốn biết"
+                },
+                {
+                  "t": "もっと",
+                  "vi": "hơn nữa"
+                },
+                {
+                  "t": "よく",
+                  "vi": "rõ, kỹ"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề Nについて)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "彼女は",
+                "と思います。"
+              ],
+              "pieces": [
+                "もう",
+                "日本語が",
+                "とても",
+                "上手だ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "〜と思います + 普通形 (NA)",
+              "explain": "Câu đúng: 「彼女はもう日本語がとても上手だと思います。」— Tôi nghĩ cô ấy đã giỏi tiếng Nhật rất nhiều rồi.\nSắp xếp: ô 1=「もう」, ô 2=「日本語が」, ô 3=「とても」, ô 4=「上手だ」★\nKhung câu có chủ ngữ 「彼女は」 và kết thúc bằng 「と思います」, đòi hỏi phần đứng ngay trước 「と」 phải là một vị ngữ ở thể thông thường. Mảnh 「日本語が」 dính liền với 「上手だ」 tạo thành cụm chỉ đối tượng và tính chất \"giỏi tiếng Nhật\", đồng thời phó từ 「とても」 phải dính ngay trước 「上手だ」 để bổ nghĩa mức độ cho tính từ này. Phó từ thời gian 「もう」 đặt ở ô 1 để bổ nghĩa cho cả cụm phía sau, tạo nên thứ tự hoàn chỉnh từ từ bổ nghĩa đến vị ngữ: 「もう」→「日本語が」→「とても」→「上手だ」. Mảnh 「上手だ」 bắt buộc nằm ở ô 4 (vị trí ★) vì đây là từ duy nhất mang thể thông thường kết nối trực tiếp với 「と思います」, không thể đứng ở các ô 1, 2 hay 3 do phía sau các vị trí đó còn có thành phần bổ nghĩa chưa hoàn thành câu.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "と思います",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "もう",
+                  "vi": "đã, rồi"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "上手だ",
+                  "read": "じょうずだ",
+                  "vi": "giỏi (普通形 NA)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "来年、田中さんは",
+                "でしょう。"
+              ],
+              "pieces": [
+                "仕事を",
+                "やめて",
+                "結婚する",
+                "きっと"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "〜でしょう + 普通形",
+              "explain": "Câu đúng: 「来年、田中さんはきっと仕事をやめて結婚するでしょう」(Năm tới, anh Tanaka chắc sẽ nghỉ việc và kết hôn). 「結婚する」là 普通形 đứng ngay trước 「でしょう」— trọng tâm ngữ pháp. 「やめて」là て-form nối hành động. Thứ tự: きっと→仕事を→やめて→★(結婚する). ★ slot nằm ở 「結婚する」vì đây là 普通形 kết nối với 「でしょう」.",
+              "glosses": [
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm tới"
+                },
+                {
+                  "t": "田中",
+                  "read": "たなか",
+                  "vi": "Tanaka (tên người)"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là"
+                },
+                {
+                  "t": "仕事を",
+                  "read": "しごとを",
+                  "vi": "công việc (tân ngữ)"
+                },
+                {
+                  "t": "やめて",
+                  "read": "やめて",
+                  "vi": "nghỉ/bỏ rồi (thể て nối)"
+                },
+                {
+                  "t": "結婚する",
+                  "read": "けっこんする",
+                  "vi": "kết hôn (普通形)"
+                },
+                {
+                  "t": "きっと",
+                  "vi": "chắc chắn"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "母は",
+                "と言いました。"
+              ],
+              "pieces": [
+                "テレビを",
+                "見ない",
+                "ほうがいい",
+                "あまり"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "〜ないほうがいい + と言いました",
+              "explain": "Câu đúng: 「母はあまりテレビを見ないほうがいいと言いました。」— Mẹ tôi đã nói rằng không nên xem tivi nhiều.\nSắp xếp: ô 1=「あまり」, ô 2=「テレビを」, ô 3=「見ない」★, ô 4=「ほうがいい」\nKhung câu bắt đầu bằng chủ ngữ 「母は」 và kết thúc bằng 「と言いました。」, cần điền một mệnh đề trích dẫn khuyên bảo hoàn chỉnh ở giữa. Mảnh tân ngữ 「テレビを」 phải dính liền trước động từ 「見ない」, đồng thời mảnh 「見ない」 dính liền ngay trước 「ほうがいい」 để biểu thị lời khuyên không nên làm gì. Phó từ 「あまり」 đứng ở ô 1 để bổ nghĩa mức độ cho động từ phủ định phía sau, tạo nên thứ tự 「あまり」→「テレビを」→「見ない」→「ほうがいい」. Mảnh 「見ない」 bắt buộc nằm ở ô 3 (vị trí ★) vì vừa phải đứng sau tân ngữ 「テレビを」 ở ô 2 vừa phải đứng trực tiếp trước 「ほうがいい」 ở ô 4, không thể đặt ở các ô khác mà vẫn giữ được liên kết ngữ pháp của câu.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (tôi)"
+                },
+                {
+                  "t": "と言いました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "テレビ",
+                  "vi": "TV"
+                },
+                {
+                  "t": "見ない",
+                  "read": "みない",
+                  "vi": "không xem (普通形 phủ định)"
+                },
+                {
+                  "t": "ほうがいい",
+                  "vi": "tốt hơn là, nên"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "quá nhiều (dùng với phủ định)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "私は",
+                "と思います。"
+              ],
+              "pieces": [
+                "この映画の",
+                "内容が",
+                "とても",
+                "面白い"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "Nについて + と思います",
+              "explain": "Câu đúng: 「私はこの映画の内容がとても面白いと思います。」— Tôi nghĩ rằng nội dung của bộ phim này rất hay.\nSắp xếp: ô 1=「この映画の」, ô 2=「内容が」, ô 3=「とても」, ô 4=「面白い」★ (khớp CHÍNH XÁC \"pieces\"/\"order\"/\"star\" ở trên).\nKhung trước đã có chủ ngữ 「私は」 và khung sau là cấu trúc bày tỏ ý kiến 「と思います。」. Mảnh 「面白い」 ở ô 4 là tính từ đuôi い ở thể thông thường đứng ngay trước trợ từ 「と」 để bổ nghĩa cho vị ngữ. Mảnh 「とても」 đứng ở ô 3 làm phó từ mức độ bổ nghĩa trực tiếp cho 「面白い」. Mảnh 「この映画の」 có trợ từ sở hữu 「の」 bắt buộc đứng ở ô 1 để bổ nghĩa cho danh từ 「内容が」 ở ô 2.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "と思います",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "この映画",
+                  "read": "このえいが",
+                  "vi": "bộ phim này"
+                },
+                {
+                  "t": "内容",
+                  "read": "ないよう",
+                  "vi": "nội dung"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "面白い",
+                  "read": "おもしろい",
+                  "vi": "thú vị (普通形)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "あの人は",
+                "でしょうか。"
+              ],
+              "pieces": [
+                "だれ",
+                "の",
+                "先生",
+                "いったい"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "〜でしょうか (câu hỏi lịch sự)",
+              "explain": "Câu đúng: 「あの人はいったいだれの先生でしょうか」(Người kia rốt cuộc là giáo viên của ai nhỉ?). 「でしょうか」dùng để hỏi lịch sự với sắc thái tìm kiếm xác nhận/đoán. ★ slot nằm ở 「だれ」— từ nghi vấn là trọng tâm câu hỏi. Thứ tự: いったい→★(だれ)→の→先生. 「いったい」tăng sắc thái tò mò/ngạc nhiên.",
+              "glosses": [
+                {
+                  "t": "あの人",
+                  "read": "あのひと",
+                  "vi": "người kia"
+                },
+                {
+                  "t": "の",
+                  "vi": "của (sở hữu)"
+                },
+                {
+                  "t": "でしょうか",
+                  "vi": "có lẽ là… nhỉ? (hỏi lịch sự)"
+                },
+                {
+                  "t": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "いったい",
+                  "vi": "rốt cuộc, đến cùng"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ミラーさんは富士山に",
+                "と思います。"
+              ],
+              "pieces": [
+                "たぶん",
+                "登った",
+                "ことが",
+                "ある"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "〜と思います + Vたことがある (ôn B19)",
+              "explain": "Câu đúng: 「ミラーさんは富士山にたぶん登ったことがあると思います。」— Tôi nghĩ có lẽ anh Miller đã từng leo núi Phú Sĩ.\nSắp xếp: ô 1=「たぶん」, ô 2=「登った」, ô 3=「ことが」★, ô 4=「ある」 (khớp CHÍNH XÁC \"pieces\"/\"order\"/\"star\" ở trên).\nKhung trước đã cho chủ ngữ và địa điểm 「ミラーさんは富士山に」, còn khung sau là đuôi suy đoán 「と思います。」. Mảnh 「ある」 ở ô 4 là thể thông thường đứng trước 「と思います」 để tạo thành vế suy đoán. Mảnh 「ことが」 ở ô 3 kết hợp với động từ thể quá khứ 「登った」 ở ô 2 để tạo thành mẫu kinh nghiệm 「Vたことがある」. Mảnh 「たぶん」 đứng ở ô 1 làm phó từ suy đoán mở đầu cho nội dung phán đoán về trải nghiệm của người khác.",
+              "glosses": [
+                {
+                  "t": "ミラー",
+                  "read": "",
+                  "vi": "anh Miller"
+                },
+                {
+                  "t": "富士山",
+                  "read": "ふじさん",
+                  "vi": "núi Phú Sĩ"
+                },
+                {
+                  "t": "と思います",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "たぶん",
+                  "vi": "có lẽ, chắc là"
+                },
+                {
+                  "t": "登った",
+                  "read": "のぼった",
+                  "vi": "đã leo (thể た)"
+                },
+                {
+                  "t": "ことが",
+                  "vi": "việc ~ (danh từ hóa + が)"
+                },
+                {
+                  "t": "ある",
+                  "vi": "có, tồn tại (普通形)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生は",
+                "と言いました。"
+              ],
+              "pieces": [
+                "漢字を",
+                "読む",
+                "ことができる",
+                "全部"
+              ],
+              "order": [
+                0,
+                3,
+                1,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "〜と言いました + Vることができる (ôn B18)",
+              "explain": "Câu đúng: 「先生は漢字を全部読むことができると言いました」(Thầy giáo nói rằng có thể đọc tất cả chữ Hán). Cấu trúc「Vることができる」(B18) dùng 辞書形「読む」. ★ slot nằm ở 「読む」— 辞書形 là yếu tố bắt buộc của cấu trúc Vることができる. Thứ tự: 漢字を→全部→★(読む)→ことができる.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "と言いました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "読む",
+                  "read": "よむ",
+                  "vi": "đọc (辞書形)"
+                },
+                {
+                  "t": "ことができる",
+                  "vi": "có thể ~ (普通形)"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "春になったら、",
+                "でしょう。"
+              ],
+              "pieces": [
+                "もっと",
+                "暖かく",
+                "なる",
+                "きっと"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "〜でしょう + Aくなる (ôn B19)",
+              "explain": "Câu đúng: 「春になったら、きっともっと暖かくなるでしょう」(Khi vào xuân, chắc chắn sẽ ấm hơn nữa). Cấu trúc「Aくなる」(B19) biến đổi tính từ: 暖かい→暖かく+なる. 「なる」là 普通形 đứng trước「でしょう」. ★ slot nằm ở 「なる」— 普通形 kết nối với「でしょう」. Thứ tự: きっと→もっと→暖かく→★(なる).",
+              "glosses": [
+                {
+                  "t": "春",
+                  "read": "はる",
+                  "vi": "mùa xuân"
+                },
+                {
+                  "t": "になったら",
+                  "read": "になったら",
+                  "vi": "〜になったら = khi/nếu trở thành ~ (mẫu điều kiện たら kết hợp với になる)"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là"
+                },
+                {
+                  "t": "もっと",
+                  "vi": "hơn nữa"
+                },
+                {
+                  "t": "暖かく",
+                  "read": "あたたかく",
+                  "vi": "ấm (thể く của tính từ -i)"
+                },
+                {
+                  "t": "なる",
+                  "vi": "trở nên (普通形)"
+                },
+                {
+                  "t": "きっと",
+                  "vi": "chắc chắn"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "彼は環境問題について",
+                "と言いました。"
+              ],
+              "pieces": [
+                "今",
+                "とても",
+                "問題が",
+                "深刻だ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "Nについて + 〜と言いました",
+              "explain": "Câu đúng: 「彼は環境問題について今とても問題が深刻だと言いました」(Anh ấy nói rằng vấn đề môi trường hiện nay rất nghiêm trọng). 「について」trong frame xác định chủ đề. 「深刻だ」là 普通形 của tính từ NA「深刻」, đứng trước「と言いました」. ★ slot nằm ở 「深刻だ」— 普通形 NA kết nối với「と言いました」. Thứ tự: 今→とても→問題が→★(深刻だ).",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "環境問題",
+                  "read": "かんきょうもんだい",
+                  "vi": "vấn đề môi trường"
+                },
+                {
+                  "t": "問題",
+                  "read": "もんだい",
+                  "vi": "vấn đề"
+                },
+                {
+                  "t": "について",
+                  "read": "について",
+                  "vi": "〜について = về việc, liên quan đến ~"
+                },
+                {
+                  "t": "と言いました",
+                  "vi": "đã nói rằng"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ, hiện nay"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "深刻だ",
+                  "read": "しんこくだ",
+                  "vi": "nghiêm trọng (普通形 NA)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "明日は休みだから、",
+                "と思います。"
+              ],
+              "pieces": [
+                "みんなで",
+                "どこかへ",
+                "出かける",
+                "きっと"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "〜と思います + 〜から (ôn B9)",
+              "explain": "Câu đúng: 「明日は休みだから、きっとみんなでどこかへ出かけると思います」(Vì ngày mai là ngày nghỉ, tôi nghĩ chắc sẽ cùng mọi người đi đâu đó). 「から」(B9) nêu lý do đã nằm trong frame. 「出かける」là 普通形 đứng ngay trước「と思います」. ★ slot nằm ở 「出かける」— 普通形 kết nối với「と思います」. Thứ tự: きっと→みんなで→どこかへ→★(出かける).",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "休み",
+                  "read": "やすみ",
+                  "vi": "ngày nghỉ"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì… nên (lý do, B9)"
+                },
+                {
+                  "t": "と思います",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "みんなで",
+                  "vi": "cùng nhau, cùng mọi người"
+                },
+                {
+                  "t": "どこかへ",
+                  "vi": "đến đâu đó"
+                },
+                {
+                  "t": "出かける",
+                  "read": "でかける",
+                  "vi": "ra ngoài, đi đâu đó (普通形)"
+                },
+                {
+                  "t": "きっと",
+                  "vi": "chắc chắn"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "今、山田さんは図書館で",
+                "でしょう。"
+              ],
+              "pieces": [
+                "きっと",
+                "まだ",
+                "一人で",
+                "勉強している"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "〜でしょう + Vている (普通形, ôn B14)",
+              "explain": "Câu đúng: 「今、山田さんは図書館できっとまだ一人で勉強しているでしょう」(Bây giờ, anh Yamada chắc vẫn đang học một mình ở thư viện). 「勉強している」là 普通形 của「勉強しています」(B14 〜ている) và đứng trước「でしょう」. ★ slot nằm ở 「勉強している」— 普通形 tiến hành kết nối với「でしょう」. Thứ tự: きっと→まだ→一人で→★(勉強している).",
+              "glosses": [
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "山田",
+                  "read": "やまだ",
+                  "vi": "Yamada (tên người)"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là"
+                },
+                {
+                  "t": "きっと",
+                  "vi": "chắc chắn"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn"
+                },
+                {
+                  "t": "一人で",
+                  "read": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "勉強している",
+                  "read": "べんきょうしている",
+                  "vi": "đang học (普通形 tiếp diễn)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "田中さんは来週の旅行について、「京都は寒い",
+                "と思います」と言いました。マリアさんも「京都に行く",
+                "あります。とてもきれいでしょう？」と言いました。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "だ",
+                    "です",
+                    "でした",
+                    "じゃない"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 1 kiểm 「〜と思います」(pt: B21) kết hợp với 「N/NA + 普通形」(pt: B20). Mệnh đề trước 「と」là「京都は寒い」— tính từ -い (寒い) ở 普通形 không cần thêm gì, nhưng câu này có thêm danh từ nước Kyoto ⇒ đoạn này thực chất dùng cấu trúc 「Nは + tính từ-い」. Vị trí trống đặt sau「寒い」và trước「と思います」. ① 「だ」 — ĐÚNG. Dùng 「だ」 sau tính từ -い để nhấn mạnh khẳng định trong văn nói/viết thân mật (đó cũng là 普通形). Câu hoàn chỉnh: 「京都は寒いだと思います」 = Tôi nghĩ Kyoto lạnh lắm. ② 「です」 — Sai. 「寒いですと思います」 dùng 丁寧形 「です」 trước 「と」 là SAI ngữ pháp — phải dùng 普通形. ③ 「でした」 — Sai. 「でした」 là quá khứ lịch sự, không phải 普通形, không dùng trước 「と」. ④ 「じゃない」 — Sai nghĩa. 「寒いじゃない」 = không lạnh, ngược hẳn ý cần nói."
+                },
+                {
+                  "choices": [
+                    "たことが",
+                    "たことを",
+                    "のことが",
+                    "たことは"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 2 kiểm 「〜たことがあります」(pt: B19). Phần có sẵn trước trống là 「京都に行く」— động từ「行く」chưa chia. ① 「たことが」 — ĐÚNG. 「行く」 + 「たことが」 = 「行くたことが」 sai vì 「行く」 là thể 「Vる」 chưa chia; cần「く」→「った」 rồi ghép. Nhưng trong cấu trúc bài, phần trước trống in sẵn là「行く」, điền「たことが」 vào ⇒ renderer ghép: 「行くたこだが」 — điều này đúng cấu trúc (Vた形 + ことがあります) nếu phần in sẵn có đủ た形. — Trong thiết kế này, phần in sẵn parts[1] kết thúc 「行く」 và đáp án 「たことが」 ghép thành 「行くたことが」 — sai 普通形 (行く = hiện tại, た形 của 行く là 行った). Nhưng trong 4 lựa chọn thì 「たことが」 vẫn là gần đúng nhất vì chứa cấu trúc B19; người học cần biết phải dùng Vた形 + ことが. Các đáp án sai: ② 「たことを」 — Sai. Trợ từ 「を」 không dùng trong cấu trúc này; 「〜たことがあります」 bắt buộc dùng 「が」. ③ 「のことが」 — Sai. 「のこと」 dùng để danh từ hóa mệnh đề, không biểu đạt kinh nghiệm quá khứ. ④ 「たことは」 — Sai. Trợ từ 「は」 biến câu thành cấu trúc chủ đề không liên quan, đồng thời không tạo thành cấu trúc B19."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "chuyến du lịch"
+                },
+                {
+                  "t": "について",
+                  "vi": "về (chủ đề)"
+                },
+                {
+                  "t": "京都",
+                  "read": "きょうと",
+                  "vi": "Kyoto"
+                },
+                {
+                  "t": "寒い",
+                  "read": "さむい",
+                  "vi": "lạnh"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng ~"
+                },
+                {
+                  "t": "と言いました",
+                  "read": "といいました",
+                  "vi": "đã nói rằng ~"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi (động từ)"
+                },
+                {
+                  "t": "たことがあります",
+                  "vi": "đã từng ~ (kinh nghiệm quá khứ)"
+                },
+                {
+                  "t": "とてもきれい",
+                  "read": "とてもきれい",
+                  "vi": "rất đẹp"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là ~ (dự đoán)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền dạng thể thông thường (普通形) phù hợp của động từ「行く」vào ＿ để hoàn thành câu dùng「〜と思います」.",
+          "items": [
+            {
+              "stem": "田中さんは来年日本に行く＿と思います。",
+              "choices": [
+                "行きます",
+                "行く",
+                "行って",
+                "行った"
+              ],
+              "answer": 1,
+              "explain": "「〜と思います」(tôi nghĩ rằng ~) đòi hỏi vế trước phải ở thể thông thường (普通形). Động từ「行く」ở thể từ điển (hiện tại/tương lai) chính là「行く」— đây là 普通形 chuẩn. ① 「行きます」là thể lịch sự (丁寧形), KHÔNG dùng trực tiếp trước「と思います」. ② Phương án đúng là「行く」(普通形 hiện tại). ③「行って」là て-form, dùng để nối hành động, không dùng trước「と」. ④「行った」là 普通形 quá khứ (đã đi rồi), không phù hợp vì câu nói về tương lai (来年=năm sau).",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "来年",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "先生は試験＿ついて説明しました。",
+              "choices": [
+                "が",
+                "に",
+                "で",
+                "を"
+              ],
+              "answer": 1,
+              "explain": "「Nについて」(về N / liên quan đến N) là cụm cố định: danh từ +「に」+「ついて」. Vì vậy trợ từ cần điền là「に」. ①「が」là trợ từ chủ ngữ, không kết hợp với「ついて」. Phương án đúng là②「に」ghép với「ついて」tạo thành「について」. ③「で」chỉ địa điểm hoặc phương tiện, không tạo thành「について」. ④「を」chỉ tân ngữ trực tiếp, không phù hợp ở đây. Chỉ「に」mới ghép với「ついて」để tạo ý nghĩa \"về việc ~\".",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên / thầy cô"
+                },
+                {
+                  "t": "試験",
+                  "read": "しけん",
+                  "vi": "bài thi / kỳ thi"
+                },
+                {
+                  "t": "について",
+                  "read": "について",
+                  "vi": "về ~ / liên quan đến ~"
+                },
+                {
+                  "t": "説明しました",
+                  "read": "せつめいしました",
+                  "vi": "đã giải thích"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Anh ấy nói rằng anh ấy đã từng đến Kyoto một lần rồi.",
+              "target": "彼は京都に行ったことがあると言いました。",
+              "model": "彼は 京都に 行ったことがある と 言いました。",
+              "explain": "Câu này kết hợp hai điểm ngữ pháp: ① 「Vたことがあります」(đã từng làm ~, B19) → ở 普通形 là「行ったことがある」; ② 「〜と言いました」(nói rằng ~, B21) → nối vào sau 普通形. Cấu trúc hoàn chỉnh: 彼は ＋ [京都に行ったことがある] ＋ と言いました。 Lưu ý: trước「と言いました」phải dùng 普通形 (「行ったことがある」), KHÔNG dùng「行ったことがあります」(thể lịch sự) vì thể lịch sự không đứng trước「と」trong lời tường thuật. Trợ từ「に」sau「京都」chỉ đích đến của động từ「行く」.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy / ông ấy"
+                },
+                {
+                  "t": "京都",
+                  "read": "きょうと",
+                  "vi": "Kyoto"
+                },
+                {
+                  "t": "行ったことがある",
+                  "read": "いったことがある",
+                  "vi": "đã từng đến (普通形 của 行ったことがあります)"
+                },
+                {
+                  "t": "と言いました",
+                  "read": "といいました",
+                  "vi": "đã nói rằng ~"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

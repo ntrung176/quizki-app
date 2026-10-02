@@ -1,0 +1,507 @@
+{
+  "id": "minna2.b49",
+  "bai": 49,
+  "titleVi": "Vì, mặc dù - thể thông thường",
+  "know": [
+    {
+      "id": "minna2.b49.node",
+      "point": "node",
+      "jp": "〜ので",
+      "vi": "Vì ~ (lý do khách quan, lịch sự — thể thường + ので)",
+      "en": "Because ~ (an objective reason, politely expressed—plain form + ので)",
+      "gloss": "熱[ねつ]がある ので、休[やす]みます。",
+      "glossEn": "熱[ねつ]がある ので、休[やす]みます。 (Because I have a fever, I will take the day off.)"
+    },
+    {
+      "id": "minna2.b49.noni",
+      "point": "noni",
+      "jp": "〜のに",
+      "vi": "Mặc dù ~ (bất như ý, oán trách — thể thường + のに)",
+      "en": "An actual outcome contrary to expectations — expresses regret or reproach (the situation has already occurred)",
+      "gloss": "薬[くすり]を 飲[の]んだ のに、治[なお]らない。",
+      "glossEn": "普通形[ふつうけい]＋のに（な形容詞[けいようし]・名詞[めいし]→〜なのに） ・ 例: あんなに 勉強[べんきょう]したのに、点数[てんすう]が 低[ひく]かった。（They studied so hard, yet their score was still low — what a shame）"
+    },
+    {
+      "id": "minna2.b49.tame",
+      "point": "tame",
+      "jp": "〜ため(に)",
+      "vi": "Vì ~ (nguyên nhân) / Để ~ (mục đích)",
+      "en": "Because of ~ / due to ~ (a neutral, formal cause)",
+      "gloss": "病気[びょうき]の ために、欠席[けっせき]しました。",
+      "glossEn": "N の ために ／ V普通形[ふつうけい] ために → good or bad, without emotional judgment ・ 例: 台風[たいふう]のために、フライトが延期[えんき]になりました。（The flight was postponed because of the typhoon — an objective statement, not blaming anyone）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b49-nd-kaze",
+      "item": "minna2.b49.node",
+      "err": "node-kara-formal",
+      "vi": "Vì bị cảm, tôi xin nghỉ làm hôm nay.",
+      "t1": {
+        "stem": "風邪[かぜ]を 引[ひ]いた ＿、今日[きょう] 会社[かいしゃ]を 休[やす]みます。",
+        "choices": [
+          "ので",
+          "から",
+          "のに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "風邪[かぜ]を",
+          "引[ひ]いた",
+          "ので、",
+          "今日[きょう]",
+          "会社[かいしゃ]を",
+          "休[やす]みます。"
+        ],
+        "traps": [
+          "から、",
+          "のに、"
+        ]
+      },
+      "t3": {
+        "target": "風邪を引いたので、今日会社を休みます。",
+        "accept": [
+          "かぜをひいたので、きょうかいしゃをやすみます。"
+        ]
+      },
+      "why": "ので là lý do khách quan, lịch sự — phù hợp khi thông báo với cấp trên. ✗ から nghe chủ quan, ít trang trọng hơn trong văn viết/báo cáo lịch sự."
+    },
+    {
+      "id": "c-b49-nd-atama",
+      "item": "minna2.b49.node",
+      "err": "node-futsuu-form",
+      "vi": "Vì đau đầu, tôi không thể tập trung được.",
+      "t1": {
+        "stem": "頭[あたま]が ＿、集中[しゅうちゅう]できません。",
+        "choices": [
+          "痛[いた]いので",
+          "痛[いた]いですので",
+          "痛[いた]くないので"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "頭[あたま]が",
+          "痛[いた]いので、",
+          "集中[しゅうちゅう]できません。"
+        ],
+        "traps": [
+          "痛[いた]いですので、",
+          "痛[いた]くので、"
+        ]
+      },
+      "t3": {
+        "target": "頭が痛いので、集中できません。",
+        "accept": [
+          "あたまがいたいので、しゅうちゅうできません。"
+        ]
+      },
+      "why": "Tính từ い trước ので phải dùng thể thường (いた い ので, không phải いた いです ので). ✗ 痛いですので — để nguyên です trước ので là sai ngữ pháp."
+    },
+    {
+      "id": "c-b49-nd-byouki",
+      "item": "minna2.b49.node",
+      "err": "node-futsuu-form",
+      "vi": "Vì là bệnh nhân nên phải đến bệnh viện.",
+      "t1": {
+        "stem": "病気[びょうき] ＿、病院[びょういん]へ 行[い]かなければなりません。",
+        "choices": [
+          "なので",
+          "だので",
+          "なのに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "病気[びょうき]なので、",
+          "病院[びょういん]へ",
+          "行[い]かなければなりません。"
+        ],
+        "traps": [
+          "病気[びょうき]だので、",
+          "病気[びょうき]なのに、"
+        ]
+      },
+      "t3": {
+        "target": "病気なので、病院へ行かなければなりません。",
+        "accept": [
+          "びょうきなので、びょういんへいかなければなりません。"
+        ]
+      },
+      "why": "Danh từ/な形容詞 + ので cần chèn な trước ので (なので). ✗ だので — không dùng だ trực tiếp trước ので."
+    },
+    {
+      "id": "c-b49-nd-kusuri",
+      "item": "minna2.b49.node",
+      "err": "node-futsuu-form",
+      "vi": "Vì đã uống thuốc, bây giờ đỡ hơn rồi.",
+      "t1": {
+        "stem": "薬[くすり]を 飲[の]んだ ＿、だいぶ 楽[らく]になりました。",
+        "choices": [
+          "ので",
+          "のに",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "薬[くすり]を",
+          "飲[の]んだ",
+          "ので、",
+          "だいぶ",
+          "楽[らく]になりました。"
+        ],
+        "traps": [
+          "のに、",
+          "から、"
+        ]
+      },
+      "t3": {
+        "target": "薬を飲んだので、だいぶ楽になりました。",
+        "accept": [
+          "くすりをのんだので、だいぶらくになりました。"
+        ]
+      },
+      "why": "飲んだ (た-form = thể thường quá khứ) + ので — kết quả tích cực, phù hợp ので. ✗ のに — のに diễn tả kết quả bất như ý (trái kỳ vọng)."
+    },
+    {
+      "id": "c-b49-nn-kusuri",
+      "item": "minna2.b49.noni",
+      "err": "noni-node-confuse",
+      "vi": "Mặc dù đã uống thuốc mà vẫn không khỏi.",
+      "t1": {
+        "stem": "薬[くすり]を 飲[の]んだ ＿、全然[ぜんぜん] 治[なお]らない。",
+        "choices": [
+          "のに",
+          "ので",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "薬[くすり]を",
+          "飲[の]んだ",
+          "のに、",
+          "全然[ぜんぜん]",
+          "治[なお]らない。"
+        ],
+        "traps": [
+          "ので、",
+          "けど、"
+        ]
+      },
+      "t3": {
+        "target": "薬を飲んだのに、全然治らない。",
+        "accept": [
+          "くすりをのんだのに、ぜんぜんなおらない。"
+        ]
+      },
+      "why": "のに = mặc dù (bất như ý — uống thuốc mà không khỏi = trái kỳ vọng). ✗ ので biểu đạt nguyên nhân thuận chiều, không diễn tả sự oán trách."
+    },
+    {
+      "id": "c-b49-nn-netsu",
+      "item": "minna2.b49.noni",
+      "err": "noni-node-confuse",
+      "vi": "Mặc dù bị sốt mà sếp vẫn không cho nghỉ.",
+      "t1": {
+        "stem": "熱[ねつ]が ある ＿、課長[かちょう]は 休[やす]ませてくれません。",
+        "choices": [
+          "のに",
+          "ので",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "熱[ねつ]が",
+          "ある",
+          "のに、",
+          "課長[かちょう]は",
+          "休[やす]ませてくれません。"
+        ],
+        "traps": [
+          "ので、",
+          "けれど、"
+        ]
+      },
+      "t3": {
+        "target": "熱があるのに、課長は休ませてくれません。",
+        "accept": [
+          "ねつがあるのに、かちょうはやすませてくれません。"
+        ]
+      },
+      "why": "のに diễn tả sự oán trách/bất như ý (bị sốt mà không được nghỉ). ✗ ので chỉ nêu lý do thuận chiều, không mang sắc thái oán trách."
+    },
+    {
+      "id": "c-b49-nn-shinsetsu",
+      "item": "minna2.b49.noni",
+      "err": "noni-node-confuse",
+      "vi": "Mặc dù tốt bụng như vậy mà không ai biết.",
+      "t1": {
+        "stem": "あんなに 親切[しんせつ] ＿、だれも 気[き]づかない。",
+        "choices": [
+          "なのに",
+          "なので",
+          "だのに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あんなに",
+          "親切[しんせつ]なのに、",
+          "だれも",
+          "気[き]づかない。"
+        ],
+        "traps": [
+          "親切[しんせつ]なので、",
+          "親切[しんせつ]だのに、"
+        ]
+      },
+      "t3": {
+        "target": "あんなに親切なのに、だれも気づかない。",
+        "accept": [
+          "あんなにしんせつなのに、だれもきづかない。"
+        ]
+      },
+      "why": "な形容詞 + のに cần な (なのに). ✗ だのに — không dùng だ trực tiếp trước のに với な形容詞."
+    },
+    {
+      "id": "c-b49-tm-kesseki",
+      "item": "minna2.b49.tame",
+      "err": "tame-node-confuse",
+      "vi": "Vì bị ốm nên đã vắng mặt buổi họp.",
+      "t1": {
+        "stem": "病気[びょうき]の ＿、会議[かいぎ]を 欠席[けっせき]しました。",
+        "choices": [
+          "ために",
+          "ので",
+          "のに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "病気[びょうき]の",
+          "ために、",
+          "会議[かいぎ]を",
+          "欠席[けっせき]しました。"
+        ],
+        "traps": [
+          "病気[びょうき]ので、",
+          "病気[びょうき]のに、"
+        ]
+      },
+      "t3": {
+        "target": "病気のために、会議を欠席しました。",
+        "accept": [
+          "びょうきのために、かいぎをけっせきしました。"
+        ]
+      },
+      "why": "Danh từ + のために = vì ~ (nguyên nhân, văn phong trang trọng). ✗ 病気ので — danh từ trước ので cần なので, không phải ので trực tiếp."
+    },
+    {
+      "id": "c-b49-tm-shinsatsu",
+      "item": "minna2.b49.tame",
+      "err": "tame-node-confuse",
+      "vi": "Tôi đến bệnh viện để khám bệnh.",
+      "t1": {
+        "stem": "診察[しんさつ]を 受[う]ける ＿、病院[びょういん]に 来[き]ました。",
+        "choices": [
+          "ために",
+          "ので",
+          "のに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "診察[しんさつ]を",
+          "受[う]ける",
+          "ために、",
+          "病院[びょういん]に",
+          "来[き]ました。"
+        ],
+        "traps": [
+          "ので、",
+          "のに、"
+        ]
+      },
+      "t3": {
+        "target": "診察を受けるために、病院に来ました。",
+        "accept": [
+          "しんさつをうけるために、びょういんにきました。"
+        ]
+      },
+      "why": "Vるために = để làm ~ (mục đích). ✗ ので không dùng để diễn đạt mục đích — ので chỉ nêu nguyên nhân."
+    },
+    {
+      "id": "c-b49-tm-okureta",
+      "item": "minna2.b49.tame",
+      "err": "tame-node-confuse",
+      "vi": "Vì đường tắc nên tôi đã đến trễ.",
+      "t1": {
+        "stem": "渋滞[じゅうたい]の ＿、遅[おく]れてしまいました。",
+        "choices": [
+          "ために",
+          "のに",
+          "ので"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "渋滞[じゅうたい]の",
+          "ために、",
+          "遅[おく]れてしまいました。"
+        ],
+        "traps": [
+          "渋滞[じゅうたい]のに、",
+          "渋滞[じゅうたい]なので、"
+        ]
+      },
+      "t3": {
+        "target": "渋滞のために、遅れてしまいました。",
+        "accept": [
+          "じゅうたいのために、おくれてしまいました。"
+        ]
+      },
+      "why": "N + のために = vì ~ (nguyên nhân, khách quan). Đây là nguyên nhân khách quan như ので nhưng ために mang sắc thái văn viết, trang trọng hơn."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b49-nd",
+      "item": "minna2.b49.node",
+      "err": "node-kara-formal",
+      "tts": "きょう は ねつ が あるので、かいしゃを やすみます。どうぞ おだいじに。",
+      "script": "今日[きょう]は 熱[ねつ]が あるので、会社[かいしゃ]を 休[やす]みます。どうぞ お大事[だいじ]に。",
+      "ask": "Người nói làm gì hôm nay và tại sao?",
+      "choices": [
+        "Nghỉ làm vì bị sốt",
+        "Đến bệnh viện vì đau họng",
+        "Đi làm dù bị cảm"
+      ],
+      "answer": 0,
+      "why": "熱があるので = vì bị sốt (lý do) → 会社を休みます = nghỉ làm (kết quả). お大事に = lời chúc giữ gìn sức khoẻ."
+    },
+    {
+      "id": "l-b49-nn",
+      "item": "minna2.b49.noni",
+      "err": "noni-node-confuse",
+      "tts": "くすり を のんだ のに、ぜんぜん なおらない。こまったな。",
+      "script": "薬[くすり]を 飲[の]んだ のに、全然[ぜんぜん] 治[なお]らない。困[こま]ったな。",
+      "ask": "Người nói cảm thấy thế nào về tình trạng của mình?",
+      "choices": [
+        "Oán trách vì uống thuốc mà không khỏi",
+        "Vui vì đã khỏi bệnh",
+        "Muốn đến bệnh viện khám"
+      ],
+      "answer": 0,
+      "why": "のに = mặc dù (bất như ý). 飲んだのに全然治らない = uống thuốc rồi mà vẫn không khỏi — oán trách, thất vọng."
+    },
+    {
+      "id": "l-b49-tm",
+      "item": "minna2.b49.tame",
+      "err": "tame-node-confuse",
+      "tts": "びょうきの ために、かいぎを けっせき しました。もうしわけ ありません。",
+      "script": "病気[びょうき]の ために、会議[かいぎ]を 欠席[けっせき]しました。申[もう]し訳[わけ]ありません。",
+      "ask": "Người nói xin lỗi vì lý do gì?",
+      "choices": [
+        "Vắng mặt buổi họp vì bị ốm",
+        "Đến trễ vì tắc đường",
+        "Không uống thuốc vì bận"
+      ],
+      "answer": 0,
+      "why": "病気のために = vì bị ốm (nguyên nhân). 欠席しました = đã vắng mặt. 申し訳ありません = xin lỗi."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b49-to-cond",
+      "item": "minna1.b23.to-cond",
+      "err": "to-cond-form",
+      "ambush": true,
+      "src": 23,
+      "context": "Bài 49 ・ 〜ので",
+      "vi": "Vì trời mưa nên nếu rẽ phải thì nhìn thấy bệnh viện ngay.",
+      "t1": {
+        "stem": "雨[あめ]が 降[ふ]っているので、右[みぎ]に 曲[ま]がる ＿ 病院[びょういん]が 見[み]えます。",
+        "choices": [
+          "と",
+          "たら",
+          "なら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "雨[あめ]が",
+          "降[ふ]っているので、",
+          "右[みぎ]に",
+          "曲[ま]がると",
+          "病院[びょういん]が",
+          "見[み]えます。"
+        ],
+        "traps": [
+          "曲[ま]がったら",
+          "曲[ま]がれば"
+        ]
+      },
+      "t3": {
+        "target": "雨が降っているので、右に曲がると病院が見えます。",
+        "accept": [
+          "あめがふっているので、みぎにまがるとびょういんがみえます。"
+        ]
+      },
+      "why": "Câu có ので (Bài 49) nhưng bẫy nằm ở điều kiện tự nhiên/chỉ đường: Vると (Bài 23) — thấy ngay sau khi rẽ = kết quả tự nhiên. ✗ たら dùng khi điều kiện chưa chắc chắn, không phải chỉ đường tự nhiên."
+    },
+    {
+      "id": "a-b49-noni-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 49 ・ 〜のに",
+      "vi": "Mặc dù đã đọc sách mà vẫn không hiểu.",
+      "t1": {
+        "stem": "本[ほん]を 読[よ]んだのに、まだ わかりません。この 漢字[かんじ]を ＿ ください。",
+        "choices": [
+          "調[しら]べて",
+          "調[しら]べて",
+          "調[しら]びて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "本[ほん]を",
+          "読[よ]んだのに、",
+          "まだ",
+          "わかりません。",
+          "この 漢字[かんじ]を",
+          "調[しら]べて",
+          "ください。"
+        ],
+        "traps": [
+          "調[しら]びてください。",
+          "調[しら]べるください。"
+        ]
+      },
+      "t3": {
+        "target": "本を読んだのに、まだわかりません。この漢字を調べてください。",
+        "accept": [
+          "ほんをよんだのに、まだわかりません。このかんじをしらべてください。"
+        ]
+      },
+      "why": "Câu có のに (Bài 49) nhưng bẫy nằm ở て-form: 調べる (nhóm II) → 調べて (✓). ✗ 調びて — không thêm て vào ます-stem của nhóm II kiểu nhóm I."
+    }
+  ]
+}

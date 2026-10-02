@@ -1,0 +1,2188 @@
+{
+  "bai": 40,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 40 tập trung vào hai cách diễn đạt sự KHÔNG CHẮC CHẮN: 「疑問詞＋か」(ai/ở đâu/cái gì đó không biết rõ) và「かどうか」(không biết có…hay không). Đồng thời bài giới thiệu Vてみます (thử làm). Chiến lược: khi gặp〜か/かどうか, tìm động từ hoặc tính từ đi kèm (わかりません・知りません・〜ました…) để hiểu nghĩa đầy đủ.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm bối cảnh: ai đang thử điều gì, họ có biết kết quả trước không?",
+      "Tìm mẫu「疑問詞＋か＋V/A」: どこか・何か・だれか・いつか → \"nào đó / gì đó / ai đó\" (không xác định). Chú ý đây là DÙNG疑問詞TRONG câu trần thuật, không phải câu hỏi.",
+      "Tìm mẫu「疑問詞＋か、わかりません／知りません」: どこかわかりません = \"không biết ở đâu\". Vế trước か là mệnh đề phụ, vế sau là động từ nhận thức/thông tin.",
+      "Tìm mẫu「V/A普通形＋かどうか〜」: 好きかどうか = \"có thích hay không\". かどうか luôn đi sau phổ thông hình, vế sau thường là わかりません・決めます・聞きます・確認します.",
+      "Tìm mẫu「Vてみます」: thử làm điều chưa từng làm hoặc không chắc kết quả. Phân biệt với Vます (làm bình thường) và Vようとします (cố làm).",
+      "Câu hỏi suy luận thường hỏi về TẦM QUAN TRỌNG của việc thử, hoặc nhân vật đã biết/chưa biết điều gì đó."
+    ],
+    "tips": [
+      "疑問詞＋か trong câu trần thuật KHÔNG có dấu ? — đây là mệnh đề phụ, không phải câu hỏi độc lập.",
+      "かどうか đứng SAU phổ thông hình (V/Aい辞書形・NAだ/NA・Nだ). Đừng nhầm: おいしいかどうか (đúng) vs おいしいですかどうか (sai).",
+      "てみます có nghĩa \"thử một lần xem sao\" — hàm ý chưa biết kết quả. Câu「食べてみます」= tôi sẽ thử ăn xem.",
+      "Phân biệt: どこかに行く (đi đến một nơi nào đó — không biết rõ đâu) vs どこに行くかわかりません (không biết sẽ đi đâu).",
+      "〜か、〜かどうか dùng với わかりません / 知りません / 決めます / 聞きます / 確認します — nhớ vế sau thường là động từ nhận thức hoặc quyết định.",
+      "Đừng để lọt ngữ pháp bài ≥41: のに (B45), そう様態 (B43), すぎる (B44), かもしれません (B32) là OK nhưng 使役 (B48), 敬語 (B49–50), ように (B36)… cần kiểm kỹ scope."
+    ],
+    "grammarFocus": [
+      "疑問詞＋か〜（…か、わかりません）",
+      "V/A普通形＋かどうか〜（わかりません・確認します）",
+      "Vてみます（thử làm）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）",
+          "Vるために（mục đích）",
+          "Vて〜（nguyên nhân-cảm xúc）"
+        ]
+      },
+      {
+        "bai": 38,
+        "items": [
+          "Vるのが好き・上手",
+          "Vるのを忘れました"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります（tiến bộ）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜かもしれません（không chắc）"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです（dự định）"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vておきます（chuẩn bị）",
+          "Vてあります"
+        ]
+      },
+      {
+        "bai": 28,
+        "items": [
+          "Vやすい・Vにくい"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "どこか・何か（bất định）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "新しいレストランを試してみます",
+      "titleVi": "Thử nhà hàng mới",
+      "japanese": "駅の近くに新しいレストランができました。どんな料理があるか、まだわかりません。\n友達においしいかどうか聞いてみましたが、まだ行ったことがないと言っていました。\nだから、自分で行って、食べてみることにしました。\nメニューを見たら、初めて見る料理がいくつかありました。\nどれがおすすめか店員さんに聞いて、一番人気のパスタを注文しました。\nとてもおいしかったので、また来たいと思います。",
+      "vietnamese": "Gần nhà ga có một nhà hàng mới mở. Tôi vẫn chưa biết ở đó có những món gì.\nTôi đã thử hỏi bạn xem có ngon không, nhưng bạn nói là chưa từng đến đó.\nVì vậy, tôi đã quyết định tự mình đến và thử ăn xem.\nNhìn vào thực đơn, có một vài món tôi chưa từng thấy bao giờ.\nTôi hỏi nhân viên xem món nào được gợi ý, rồi gọi món mì pasta nổi tiếng nhất.\nVì rất ngon nên tôi muốn đến lại.",
+      "sentences": [
+        {
+          "jp": "駅の近くに新しいレストランができました。",
+          "vi": "Gần nhà ga có một nhà hàng mới mở.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần đó, gần"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "できました",
+              "read": "できました",
+              "vi": "đã được tạo ra, đã mở (ra)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（Bài 4）",
+              "vi": "できました = đã mở ra. Thể quá khứ của できます, dùng để thông báo sự kiện đã xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "どんな料理があるか、まだわかりません。",
+          "vi": "Tôi vẫn chưa biết ở đó có những món gì.",
+          "vocab": [
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "loại nào, như thế nào"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn, còn (chưa)"
+            },
+            {
+              "w": "わかりません",
+              "read": "わかりません",
+              "vi": "không biết, không hiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋か、わかりません",
+              "vi": "どんな料理があるか = mệnh đề phụ \"có món gì\". か ở đây KHÔNG phải câu hỏi — nó nối mệnh đề vào わかりません. Nghĩa: không biết có những món gì."
+            }
+          ]
+        },
+        {
+          "jp": "友達においしいかどうか聞いてみましたが、まだ行ったことがないと言っていました。",
+          "vi": "Tôi đã thử hỏi bạn xem có ngon không, nhưng bạn nói là chưa từng đến đó.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "hỏi"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/A普通形＋かどうか〜",
+              "vi": "おいしいかどうか = \"có ngon hay không\". おいしい là phổ thông hình của tính từ い, + かどうか để chỉ tình trạng không chắc về hai phía (ngon/không ngon)."
+            },
+            {
+              "point": "Vてみます",
+              "vi": "聞いてみました = đã thử hỏi xem. みます cho thấy đây là hành động \"thử\" — chưa chắc bạn có biết không."
+            },
+            {
+              "point": "Vたことがあります（Bài 19）",
+              "vi": "行ったことがない = chưa từng đến. Phủ định trải nghiệm: たことがない."
+            },
+            {
+              "point": "〜と言っていました（Bài 21）",
+              "vi": "行ったことがないと言っていました = bạn nói là chưa từng đến. と trích dẫn lời của người khác, 言っていました là thể tiếp diễn quá khứ (đang nói / đã nói và tình trạng còn đó)."
+            }
+          ]
+        },
+        {
+          "jp": "だから、自分で行って、食べてみることにしました。",
+          "vi": "Vì vậy, tôi đã quyết định tự mình đến và thử ăn xem.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, vì thế"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "行う",
+              "read": "おこなう",
+              "vi": "tiến hành, thực hiện"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみます",
+              "vi": "食べてみる = thử ăn xem. てみる ở đây diễn đạt hành động \"thử một lần để biết kết quả\"."
+            },
+            {
+              "point": "Vることにしました（Bài 31）",
+              "vi": "〜ことにしました = đã quyết định làm~. Quyết định của bản thân dẫn đến hành động tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "メニューを見たら、初めて見る料理がいくつかありました。",
+          "vi": "Nhìn vào thực đơn, có một vài món tôi chưa từng thấy bao giờ.",
+          "vocab": [
+            {
+              "w": "メニュー",
+              "read": "メニュー",
+              "vi": "thực đơn"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu, chưa từng"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "いくつか",
+              "read": "いくつか",
+              "vi": "một vài, mấy cái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "メニューを見たら = khi/sau khi nhìn vào thực đơn. たら chỉ thứ tự: nhìn menu → phát hiện điều gì đó."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "初めて見る料理 = món ăn mà lần đầu tiên thấy. 見る trực tiếp bổ nghĩa cho 料理."
+            }
+          ]
+        },
+        {
+          "jp": "どれがおすすめか店員さんに聞いて、一番人気のパスタを注文しました。",
+          "vi": "Tôi hỏi nhân viên xem món nào được gợi ý, rồi gọi món mì pasta nổi tiếng nhất.",
+          "vocab": [
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "món được gợi ý, món đặc trưng"
+            },
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "phổ biến, nổi tiếng"
+            },
+            {
+              "w": "パスタ",
+              "read": "パスタ",
+              "vi": "mì pasta"
+            },
+            {
+              "w": "注文します",
+              "read": "ちゅうもんします",
+              "vi": "gọi món, đặt hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋か〜（わかりません省略）",
+              "vi": "どれがおすすめか…聞いて = hỏi (để biết) món nào được gợi ý. か nối mệnh đề phụ vào 聞く. Ở đây動詞 là 聞く thay vì わかる."
+            },
+            {
+              "point": "〜の中で一番（Bài 12）",
+              "vi": "一番人気のパスタ = món pasta nổi tiếng nhất. Dùng 一番 để chỉ cái vượt trội nhất."
+            }
+          ]
+        },
+        {
+          "jp": "とてもおいしかったので、また来たいと思います。",
+          "vi": "Vì rất ngon nên tôi muốn đến lại.",
+          "vocab": [
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "đến"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, lần nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "おいしかったので = vì ngon. ので nêu lý do một cách lịch sự và tự nhiên."
+            },
+            {
+              "point": "Vたいと思います（Bài 13＋21）",
+              "vi": "来たいと思います = tôi nghĩ muốn đến. Vたい (mong muốn) + と思います (ý kiến/cảm nhận)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "どんな料理があるか、まだわかりません",
+          "label": "疑問詞＋か、わかりません"
+        },
+        {
+          "excerpt": "おいしいかどうか聞いてみました",
+          "label": "かどうか＋Vてみます"
+        },
+        {
+          "excerpt": "食べてみることにしました",
+          "label": "Vてみます"
+        },
+        {
+          "excerpt": "どれがおすすめか店員さんに聞いて",
+          "label": "疑問詞＋か〜聞いて"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人はどうして自分でレストランへ行くことにしましたか。",
+          "evi": [
+            2,
+            3
+          ],
+          "options": [
+            "友達が「おいしい」と言いましたから",
+            "友達がまだそのレストランへ行ったことがなかったから",
+            "メニューにパスタがありましたから",
+            "店員さんがおすすめを教えてくれましたから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ trình tự:「友達においしいかどうか聞いてみましたが、まだ行ったことがないと言っていました」(đã thử hỏi bạn xem có ngon không — nhưng bạn nói chưa từng đến). Vì bạn không biết nên không thể cho câu trả lời →「だから、自分で行って、食べてみることにしました」(vì vậy tự mình đi thử). Đáp án 0 sai và ngược lại — bạn KHÔNG nói ngon, còn chưa đến bao giờ. Đáp án 2 và 3 sai vì đó là sự việc xảy ra SAU KHI đến nhà hàng, không phải lý do để đi.",
+          "tip": "Câu hỏi dạng「どうして〜ことにしましたか」→ tìm chuỗi NGUYÊN NHÂN–KẾT QUẢ trong bài. Dấu hiệu nhận biết:「〜が・だから・それで」thường nối giữa lý do và quyết định.",
+          "qt": {
+            "q": "Người này quyết định tự mình đến nhà hàng vì sao?",
+            "o": [
+              "Vì bạn nói rằng “ngon”",
+              "Vì bạn chưa từng đến nhà hàng đó",
+              "Vì trong thực đơn có món mì Ý",
+              "Vì nhân viên đã cho biết món được đề xuất"
+            ]
+          }
+        },
+        {
+          "q": "この人は何を注文しましたか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "メニューで一番安い料理を注文しました",
+            "初めて見る料理を全部注文しました",
+            "店員さんにどれがおすすめか聞いて、一番人気のパスタを注文しました",
+            "友達がすすめた料理を注文しました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi rõ:「どれがおすすめか店員さんに聞いて、一番人気のパスタを注文しました」(hỏi nhân viên xem món nào được gợi ý — mẫu 疑問詞＋か聞いて, rồi gọi pasta nổi tiếng nhất). Đây là nội dung chép lại gần như nguyên văn từ bài. Đáp án 0 sai vì không nhắc đến giá tiền. Đáp án 1 sai vì người viết chỉ nhìn thấy vài món lạ, không gọi hết. Đáp án 3 sai vì bạn chưa từng đến — không thể gợi ý món gì.",
+          "tip": "Câu hỏi dạng「何を注文しましたか」thường có đáp án trích gần nguyên văn từ bài. Tìm mệnh đề「〜を注文しました」trong bài đọc — đó là chứng cứ trực tiếp, không cần suy luận.",
+          "qt": {
+            "q": "Người này đã gọi món gì?",
+            "o": [
+              "Đã gọi món rẻ nhất trong thực đơn",
+              "Đã gọi tất cả những món lần đầu tiên nhìn thấy",
+              "Đã hỏi nhân viên món nào được đề xuất rồi gọi món mì Ý phổ biến nhất",
+              "Đã gọi món bạn giới thiệu"
+            ]
+          }
+        },
+        {
+          "q": "「食べてみることにしました」の「てみる」はどういう意味ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "もう食べたことがあるので、もう一度食べるという意味です",
+            "食べることができないという意味です",
+            "どんな味か確かめるために、試しに食べるという意味です",
+            "友達に食べてもらうという意味です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Vてみます là mẫu Bài 40: \"thử làm để xem kết quả — chưa biết trước kết quả ra sao\". Trong bài:「自分で行って、食べてみることにしました」= quyết định tự mình đi và thử ăn (vì chưa biết ngon không). Ngữ cảnh xác nhận: trước đó bạn không biết ngon không, nên người viết phải tự TRY trải nghiệm. Đáp án 0 sai vì てみる hàm ý CHƯA BIẾT kết quả — nếu đã ăn rồi sẽ không dùng てみる nữa. Đáp án 1 sai vì「できない」(không thể) hoàn toàn khác nghĩa. Đáp án 3 sai vì てもらう (Bài 24) có nghĩa \"nhờ người khác làm hộ mình\", không phải tự mình thử.",
+          "tip": "てみます = \"thử lần đầu để biết kết quả\". Dấu hiệu nhận biết nhanh: ngữ cảnh trước đó luôn có sự KHÔNG BIẾT (わかりません・行ったことがない…) — vì không biết nên mới CẦN thử.",
+          "qt": {
+            "q": "Trong câu 「食べてみることにしました」, 「てみる」 có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là đã từng ăn rồi nên sẽ ăn thêm một lần nữa",
+              "Có nghĩa là không thể ăn",
+              "Có nghĩa là ăn thử để xác nhận xem vị như thế nào",
+              "Có nghĩa là nhờ bạn ăn giúp"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "初めての一人旅",
+      "titleVi": "Chuyến du lịch một mình lần đầu",
+      "japanese": "ミラーさんは来月、初めて一人で旅行することにしました。どこへ行くかはまだ決めていません。\n日本のどこを旅行したいか、インターネットでいろいろ調べてみました。\n京都と北海道のどちらがいいか、なかなか決められませんでした。\n京都は歴史的な場所が多いので、行ってみたいと思っていました。でも、夏は暑いかどうか心配でした。\n北海道は夏でも涼しいと聞きましたが、電車で行けるかどうかわかりませんでした。\nそれで、旅行会社に行って、担当者にいくつか質問してみました。\n「京都の夏はどのくらい暑いか教えてもらえますか」と聞きました。\n担当者は「七月は三十五度を超えることもあるんです。初めての一人旅なら、北海道のほうがいいかもしれません」と言いました。\n「北海道まで新幹線で行けるかどうかも確認したいんですが」とミラーさんは聞きました。\n「北海道へは飛行機が一番便利です。新幹線は今のところ行けないんです」と担当者が説明しました。\nミラーさんは「飛行機は少し怖いんですが、試しに乗ってみます」と言いました。\n担当者はいろいろなホテルのパンフレットを見せてくれました。どれがいいか、ミラーさんはゆっくり選んでみました。\n最終的に、ミラーさんは北海道の旅行プランを選びました。飛行機のチケットもホテルも予約できたので、とても嬉しかったです。\n来月の旅行が楽しいかどうかはまだわかりませんが、ミラーさんは「きっと楽しいはずだ」と思っています。\n一人旅は不安なこともありますが、新しいことに挑戦してみるのは大切だと思うからです。",
+      "vietnamese": "Anh Miller đã quyết định tháng tới sẽ đi du lịch một mình lần đầu tiên. Anh vẫn chưa quyết định sẽ đi đâu.\nAnh đã thử tìm hiểu trên mạng xem muốn đi du lịch ở đâu ở Nhật.\nAnh mãi không quyết định được giữa Kyoto và Hokkaido cái nào tốt hơn.\nKyoto có nhiều địa điểm lịch sử nên anh muốn đến thử. Nhưng anh lo không biết mùa hè có nóng không.\nAnh nghe nói Hokkaido mùa hè vẫn mát mẻ, nhưng anh không biết có đi được bằng tàu không.\nVì vậy, anh đến công ty du lịch và thử hỏi nhân viên phụ trách một vài câu hỏi.\nAnh hỏi: \"Anh/chị có thể cho tôi biết mùa hè Kyoto nóng khoảng bao nhiêu không?\".\nNhân viên nói: \"Tháng 7 có khi vượt 35 độ đó. Nếu là chuyến một mình đầu tiên, Hokkaido có lẽ phù hợp hơn\".\n\"Tôi cũng muốn xác nhận xem có đi Hokkaido bằng Shinkansen được không\", anh Miller hỏi.\n\"Đến Hokkaido thì máy bay tiện nhất. Hiện tại Shinkansen chưa đến được đó\", nhân viên giải thích.\nAnh Miller nói: \"Tôi hơi sợ máy bay, nhưng tôi sẽ thử đi xem sao\".\nNhân viên đưa anh xem các tờ rơi về khách sạn. Anh Miller thử chọn từ từ xem cái nào ưng.\nCuối cùng, anh Miller chọn gói du lịch Hokkaido. Vì đặt được cả vé máy bay lẫn khách sạn nên anh rất vui.\nAnh chưa biết chuyến đi tháng tới có vui không, nhưng anh nghĩ \"Chắc chắn sẽ vui thôi\".\nTuy đi một mình có những điều lo lắng, nhưng vì anh nghĩ thử thách điều mới mẻ là điều quan trọng.",
+      "sentences": [
+        {
+          "jp": "ミラーさんは来月、初めて一人で旅行することにしました。どこへ行くかはまだ決めていません。",
+          "vi": "Anh Miller đã quyết định tháng tới sẽ đi du lịch một mình lần đầu tiên. Anh vẫn chưa quyết định sẽ đi đâu.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "旅行します",
+              "read": "りょこうします",
+              "vi": "đi du lịch"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "決めます",
+              "read": "きめます",
+              "vi": "quyết định"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることにしました（Bài 31）",
+              "vi": "旅行することにしました = đã quyết định đi du lịch. ことにしました diễn đạt quyết định của bản thân."
+            },
+            {
+              "point": "疑問詞＋か、まだ〜ていません",
+              "vi": "どこへ行くかはまだ決めていません = chưa quyết định sẽ đi đâu. どこへ行くか là mệnh đề phụ làm tân ngữ của 決める."
+            }
+          ]
+        },
+        {
+          "jp": "日本のどこを旅行したいか、インターネットでいろいろ調べてみました。",
+          "vi": "Anh đã thử tìm hiểu trên mạng xem muốn đi du lịch ở đâu ở Nhật.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "調べます",
+              "read": "しらべます",
+              "vi": "tìm hiểu, tra cứu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋か〜",
+              "vi": "どこを旅行したいか = mệnh đề phụ \"muốn đi du lịch ở đâu\". か nối vào 調べる — tìm hiểu xem muốn đi đâu."
+            },
+            {
+              "point": "Vてみます",
+              "vi": "調べてみました = đã thử tìm hiểu. てみる diễn đạt việc chủ động thử tìm kiếm thông tin để xác nhận."
+            }
+          ]
+        },
+        {
+          "jp": "京都と北海道のどちらがいいか、なかなか決められませんでした。",
+          "vi": "Anh mãi không quyết định được giữa Kyoto và Hokkaido cái nào tốt hơn.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (thành phố)"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo phía bắc Nhật)"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi vẫn không (với phủ định)"
+            },
+            {
+              "w": "決める",
+              "read": "きめる",
+              "vi": "quyết định"
+            },
+            {
+              "w": "どちら",
+              "read": "どちら",
+              "vi": "cái nào (trong hai)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋か〜",
+              "vi": "どちらがいいか = mệnh đề phụ \"cái nào tốt hơn\". か kết thúc mệnh đề, nối vào 決める."
+            },
+            {
+              "point": "Vることができません（Bài 18）",
+              "vi": "決められませんでした = không quyết được. Thể có thể phủ định của 決める."
+            }
+          ]
+        },
+        {
+          "jp": "京都は歴史的な場所が多いので、行ってみたいと思っていました。でも、夏は暑いかどうか心配でした。",
+          "vi": "Kyoto có nhiều địa điểm lịch sử nên anh muốn đến thử. Nhưng anh lo không biết mùa hè có nóng không.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm, nơi chốn"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "暑い",
+              "read": "あつい",
+              "vi": "nóng"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng, lo ngại"
+            },
+            {
+              "w": "歴史的",
+              "read": "れきしてき",
+              "vi": "mang tính lịch sử"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "場所が多いので = vì có nhiều địa điểm. ので nêu lý do khách quan dẫn đến mong muốn đến."
+            },
+            {
+              "point": "Vてみたい",
+              "vi": "行ってみたい = muốn đến thử. てみ + たい = muốn thử làm gì đó (chưa biết kết quả trước)."
+            },
+            {
+              "point": "V/A普通形＋かどうか〜",
+              "vi": "暑いかどうか心配でした = lo không biết có nóng không. 暑い là phổ thông hình tính từ い + かどうか + 心配."
+            }
+          ]
+        },
+        {
+          "jp": "北海道は夏でも涼しいと聞きましたが、電車で行けるかどうかわかりませんでした。",
+          "vi": "Anh nghe nói Hokkaido mùa hè vẫn mát mẻ, nhưng anh không biết có đi được bằng tàu không.",
+          "vocab": [
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "涼しい",
+              "read": "すずしい",
+              "vi": "mát mẻ, thoáng đãng"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "行ける",
+              "read": "いける",
+              "vi": "có thể đi"
+            },
+            {
+              "w": "どうか",
+              "read": "どうか",
+              "vi": "liệu có, xin vui lòng"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と聞きました（Bài 21）",
+              "vi": "涼しいと聞きました = nghe nói mát mẻ. と là trợ từ trích dẫn nội dung nghe."
+            },
+            {
+              "point": "V/A普通形＋かどうか、わかりません",
+              "vi": "行けるかどうかわかりませんでした = không biết có đi được không. 行ける (phổ thông hình của 行けます) + かどうか + わかりません."
+            }
+          ]
+        },
+        {
+          "jp": "それで、旅行会社に行って、担当者にいくつか質問してみました。",
+          "vi": "Vì vậy, anh đến công ty du lịch và thử hỏi nhân viên phụ trách một vài câu hỏi.",
+          "vocab": [
+            {
+              "w": "それで",
+              "read": "それで",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "担当",
+              "read": "たんとう",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "質問します",
+              "read": "しつもんします",
+              "vi": "hỏi, đặt câu hỏi"
+            },
+            {
+              "w": "旅行会社",
+              "read": "りょこうがいしゃ",
+              "vi": "công ty du lịch"
+            },
+            {
+              "w": "担当者",
+              "read": "たんとうしゃ",
+              "vi": "người phụ trách, nhân viên phụ trách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみます",
+              "vi": "質問してみました = đã thử hỏi. Hành động \"thử hỏi\" để giải tỏa điều không biết (かどうか) ở các câu trước."
+            }
+          ]
+        },
+        {
+          "jp": "「京都の夏はどのくらい暑いか教えてもらえますか」と聞きました。",
+          "vi": "Anh hỏi: \"Anh/chị có thể cho tôi biết mùa hè Kyoto nóng khoảng bao nhiêu không?\".",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "暑い",
+              "read": "あつい",
+              "vi": "nóng (tính từ い)"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy, cho biết"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "どのくらい",
+              "read": "どのくらい",
+              "vi": "khoảng bao nhiêu, bao nhiêu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋か〜（間接疑問）",
+              "vi": "どのくらい暑いか = mệnh đề gián tiếp \"nóng khoảng bao nhiêu\". か nối mệnh đề phụ vào 教える. Đây là cách hỏi gián tiếp lịch sự."
+            },
+            {
+              "point": "Vてもらえますか（Bài 24）",
+              "vi": "教えてもらえますか = nhờ cho biết. てもらえますか là cách xin lịch sự: \"anh/chị có thể … cho tôi không?\"."
+            }
+          ]
+        },
+        {
+          "jp": "担当者は「七月は三十五度を超えることもあるんです。初めての一人旅なら、北海道のほうがいいかもしれません」と言いました。",
+          "vi": "Nhân viên nói: \"Tháng 7 có khi vượt 35 độ đó. Nếu là chuyến một mình đầu tiên, Hokkaido có lẽ phù hợp hơn\".",
+          "vocab": [
+            {
+              "w": "担当者",
+              "read": "たんとうしゃ",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "七月",
+              "read": "しちがつ",
+              "vi": "tháng bảy"
+            },
+            {
+              "w": "三十五度",
+              "read": "さんじゅうごど",
+              "vi": "35 độ"
+            },
+            {
+              "w": "超える",
+              "read": "こえる",
+              "vi": "vượt quá"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu"
+            },
+            {
+              "w": "一人旅",
+              "read": "ひとりたび",
+              "vi": "chuyến du lịch một mình"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido"
+            },
+            {
+              "w": "ほう",
+              "read": "ほう",
+              "vi": "phía; lựa chọn hơn"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "超えることもあるんです = có khi cũng vượt 35 độ đó. んです nhấn mạnh thông tin muốn giải thích rõ cho người nghe hiểu."
+            },
+            {
+              "point": "〜かもしれません（Bài 32）",
+              "vi": "いいかもしれません = có lẽ tốt hơn. Nhân viên không khẳng định chắc chắn mà đưa ra nhận định có phần chủ quan."
+            },
+            {
+              "point": "NならN（Bài 35相当）",
+              "vi": "一人旅なら = nếu là chuyến một mình. なら chỉ điều kiện/tình huống cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "「北海道まで新幹線で行けるかどうかも確認したいんですが」とミラーさんは聞きました。",
+          "vi": "\"Tôi cũng muốn xác nhận xem có đi Hokkaido bằng Shinkansen được không\", anh Miller hỏi.",
+          "vocab": [
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "行ける",
+              "read": "いける",
+              "vi": "có thể đi"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/A普通形＋かどうか〜",
+              "vi": "行けるかどうかも確認したい = muốn xác nhận xem có đi được không. 行ける là phổ thông hình + かどうか + 確認します."
+            },
+            {
+              "point": "〜んですが（Bài 26）",
+              "vi": "確認したいんですが = tôi muốn xác nhận (và chờ thông tin). んですが tạo câu dẫn chờ phản hồi từ người nghe."
+            }
+          ]
+        },
+        {
+          "jp": "「北海道へは飛行機が一番便利です。新幹線は今のところ行けないんです」と担当者が説明しました。",
+          "vi": "\"Đến Hokkaido thì máy bay tiện nhất. Hiện tại Shinkansen chưa đến được đó\", nhân viên giải thích.",
+          "vocab": [
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "飛行機",
+              "read": "ひこうき",
+              "vi": "máy bay"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "今のところ",
+              "read": "いまのところ",
+              "vi": "hiện tại, hiện nay"
+            },
+            {
+              "w": "行ける",
+              "read": "いける",
+              "vi": "có thể đi"
+            },
+            {
+              "w": "担当",
+              "read": "たんとう",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が一番〜（Bài 12）",
+              "vi": "飛行機が一番便利 = máy bay tiện nhất trong số các phương tiện. Cấu trúc so sánh tuyệt đối."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "行けないんです = (thực ra) không đi được. んです ở đây nhấn mạnh sự thật có thể khác kỳ vọng của người hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは「飛行機は少し怖いんですが、試しに乗ってみます」と言いました。",
+          "vi": "Anh Miller nói: \"Tôi hơi sợ máy bay, nhưng tôi sẽ thử đi xem sao\".",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "飛行機",
+              "read": "ひこうき",
+              "vi": "máy bay"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "怖い",
+              "read": "こわい",
+              "vi": "sợ, đáng sợ"
+            },
+            {
+              "w": "試しに",
+              "read": "ためしに",
+              "vi": "thử, thử xem"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "đi (phương tiện), lên"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んですが（Bài 26）",
+              "vi": "怖いんですが = hơi sợ (nhưng…). んですが thú nhận thực lòng rồi dẫn sang hành động ngược lại."
+            },
+            {
+              "point": "Vてみます",
+              "vi": "乗ってみます = sẽ thử đi xem. てみます nhấn mạnh đây là lần thử — không biết trước cảm giác ra sao."
+            }
+          ]
+        },
+        {
+          "jp": "担当者はいろいろなホテルのパンフレットを見せてくれました。どれがいいか、ミラーさんはゆっくり選んでみました。",
+          "vi": "Nhân viên đưa anh xem các tờ rơi về khách sạn. Anh Miller thử chọn từ từ xem cái nào ưng.",
+          "vocab": [
+            {
+              "w": "担当者",
+              "read": "たんとうしゃ",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại; đa dạng"
+            },
+            {
+              "w": "ホテル",
+              "read": "ほてる",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "パンフレット",
+              "read": "ぱんふれっと",
+              "vi": "tờ giới thiệu"
+            },
+            {
+              "w": "見せてくれました",
+              "read": "みせてくれました",
+              "vi": "đã cho xem"
+            },
+            {
+              "w": "どれ",
+              "read": "どれ",
+              "vi": "cái nào"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt"
+            },
+            {
+              "w": "ミラー",
+              "read": "みらー",
+              "vi": "Mira"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "từ từ"
+            },
+            {
+              "w": "選んでみました",
+              "read": "えらんでみました",
+              "vi": "đã thử chọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "見せてくれました = nhân viên đưa cho xem (ân huệ: người khác làm việc tốt cho mình)."
+            },
+            {
+              "point": "疑問詞＋か〜",
+              "vi": "どれがいいか…選んでみました = thử chọn (để biết) cái nào tốt. か nối mệnh đề phụ vào 選ぶ."
+            },
+            {
+              "point": "Vてみます",
+              "vi": "選んでみました = đã thử chọn. Hành động \"thử\" qua từng tờ rơi để tìm cái phù hợp."
+            }
+          ]
+        },
+        {
+          "jp": "最終的に、ミラーさんは北海道の旅行プランを選びました。飛行機のチケットもホテルも予約できたので、とても嬉しかったです。",
+          "vi": "Cuối cùng, anh Miller chọn gói du lịch Hokkaido. Vì đặt được cả vé máy bay lẫn khách sạn nên anh rất vui.",
+          "vocab": [
+            {
+              "w": "最終",
+              "read": "さいしゅう",
+              "vi": "cuối cùng, sau cùng"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "旅行プラン",
+              "read": "りょこうプラン",
+              "vi": "gói du lịch, kế hoạch du lịch"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "飛行機",
+              "read": "ひこうき",
+              "vi": "máy bay"
+            },
+            {
+              "w": "チケット",
+              "read": "チケット",
+              "vi": "vé"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui, vui mừng"
+            },
+            {
+              "w": "最終的に",
+              "read": "さいしゅうてきに",
+              "vi": "cuối cùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "予約できたので = vì đặt được. ので nêu lý do lịch sự dẫn đến cảm xúc vui mừng."
+            }
+          ]
+        },
+        {
+          "jp": "来月の旅行が楽しいかどうかはまだわかりませんが、ミラーさんは「きっと楽しいはずだ」と思っています。",
+          "vi": "Anh chưa biết chuyến đi tháng tới có vui không, nhưng anh nghĩ \"Chắc chắn sẽ vui thôi\".",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "きっと",
+              "read": "きっと",
+              "vi": "chắc chắn, nhất định"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "はずだ",
+              "read": "はずだ",
+              "vi": "chắc là, đáng lẽ phải"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/A普通形＋かどうか、まだわかりません",
+              "vi": "楽しいかどうかはまだわかりません = chưa biết có vui không. 楽しい (phổ thông hình) + かどうか + わかりません — không chắc cả hai chiều vui/không vui."
+            },
+            {
+              "point": "〜と思っています（Bài 21）",
+              "vi": "「きっと楽しいはずだ」と思っています = đang nghĩ chắc chắn sẽ vui. Trích lời nội tâm của Miller."
+            }
+          ]
+        },
+        {
+          "jp": "一人旅は不安なこともありますが、新しいことに挑戦してみるのは大切だと思うからです。",
+          "vi": "Tuy đi một mình có những điều lo lắng, nhưng vì anh nghĩ thử thách điều mới mẻ là điều quan trọng.",
+          "vocab": [
+            {
+              "w": "旅",
+              "read": "たび",
+              "vi": "chuyến đi, du lịch"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "lo lắng, bất an"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "挑戦します",
+              "read": "ちょうせんします",
+              "vi": "thử thách, thử sức"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "一人旅",
+              "read": "ひとりたび",
+              "vi": "du lịch một mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみる（名詞節）",
+              "vi": "挑戦してみる = thử thách thử. てみる nhấn mạnh hành động \"thử\" điều chưa biết, chưa quen."
+            },
+            {
+              "point": "Vるのは〜です（Bài 38）",
+              "vi": "挑戦してみるのは大切だ = việc thử thách là điều quan trọng. のは danh từ hoá cụm động từ, làm chủ đề câu."
+            },
+            {
+              "point": "〜から（lý do）（Bài 9）",
+              "vi": "大切だと思うからです = vì nghĩ là quan trọng. から nêu lý do cuối câu, giải thích tại sao anh vẫn quyết định đi."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "どこへ行くかはまだ決めていません",
+          "label": "疑問詞＋か〜（未決定）"
+        },
+        {
+          "excerpt": "日本のどこを旅行したいか、インターネットでいろいろ調べてみました",
+          "label": "疑問詞＋か＋Vてみます"
+        },
+        {
+          "excerpt": "京都と北海道のどちらがいいか、なかなか決められませんでした",
+          "label": "疑問詞＋か〜（迷い）"
+        },
+        {
+          "excerpt": "夏は暑いかどうか心配でした",
+          "label": "かどうか〜心配"
+        },
+        {
+          "excerpt": "電車で行けるかどうかわかりませんでした",
+          "label": "かどうかわかりません"
+        },
+        {
+          "excerpt": "試しに乗ってみます",
+          "label": "Vてみます（thử）"
+        },
+        {
+          "excerpt": "来月の旅行が楽しいかどうかはまだわかりません",
+          "label": "かどうかわかりません（kết）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんが最初に悩んでいたことは何ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "旅行会社に行くかどうか迷っていました",
+            "飛行機のチケットが取れるかどうか心配していました",
+            "京都と北海道のどちらへ行くか決められませんでした",
+            "ホテルをどれにするか友達に聞きました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài nêu rõ ngay đoạn đầu:「京都と北海道のどちらがいいか、なかなか決められませんでした」(mãi không quyết định được giữa Kyoto và Hokkaido cái nào tốt hơn) — mẫu 疑問詞＋か、決められません. Đây là điều phân vân ĐẦU TIÊN (最初に悩んでいたこと). Đáp án 0 sai vì việc có đến công ty du lịch không được nhắc đến như điều anh phân vân — anh đến đó ĐỂ GIẢI QUY sự phân vân. Đáp án 1 sai vì lo về vé máy bay không xuất hiện — anh chỉ lo về Shinkansen sau đó. Đáp án 3 sai vì chọn khách sạn xảy ra sau, không phải vấn đề ban đầu.",
+          "tip": "Câu hỏi có「最初に」→ chú ý TRÌNH TỰ xuất hiện trong bài. Đáp án đúng phải nằm ở đoạn ĐẦU của bài đọc. Đáp án bẫy thường là sự kiện có thật nhưng xảy ra SAU.",
+          "qt": {
+            "q": "Ban đầu, ông Miller băn khoăn điều gì?",
+            "o": [
+              "Ông phân vân không biết có nên đến công ty du lịch hay không",
+              "Ông lo không biết có thể đặt được vé máy bay hay không",
+              "Ông không quyết định được nên đi Kyoto hay Hokkaido",
+              "Ông đã hỏi bạn bè nên chọn khách sạn nào"
+            ]
+          }
+        },
+        {
+          "q": "旅行会社の担当者はなぜ北海道をすすめましたか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "北海道のほうが電車で行けるから",
+            "京都は夏でも涼しいから",
+            "ミラーさんが飛行機が好きだから",
+            "七月の京都は暑く、初めての一人旅には北海道のほうがいいかもしれないから"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3. Nhân viên giải thích hai lý do rõ ràng:「七月は三十五度を超えることもあるんです」(tháng 7 Kyoto có khi vượt 35 độ — dùng んです để nhấn mạnh thông tin quan trọng) và「初めての一人旅なら、北海道のほうがいいかもしれません」(nếu là chuyến một mình đầu tiên thì Hokkaido có lẽ phù hợp hơn). Đáp án 0 sai và ngược lại — bài chỉ ra Hokkaido KHÔNG đi được bằng tàu (phải đi máy bay). Đáp án 1 sai và ngược lại với nội dung bài — là KYOTO mùa hè nóng, còn Hokkaido mới mát. Đáp án 2 sai vì bài nói Miller HƠI SỢ máy bay, không phải thích.",
+          "tip": "Câu hỏi「なぜ〜をすすめましたか」→ tìm lời nhân viên nói trực tiếp trong bài (thường có dấu「」). Đọc kỹ CẢ HAI lý do nếu có — đáp án đúng thường gộp đủ cả hai.",
+          "qt": {
+            "q": "Vì sao nhân viên phụ trách của công ty du lịch giới thiệu Hokkaido?",
+            "o": [
+              "Vì có thể đi đến Hokkaido bằng tàu hỏa",
+              "Vì Kyoto mát mẻ ngay cả vào mùa hè",
+              "Vì ông Miller thích máy bay",
+              "Vì Kyoto vào tháng Bảy nóng, và Hokkaido có thể sẽ phù hợp hơn cho chuyến du lịch một mình đầu tiên"
+            ]
+          }
+        },
+        {
+          "q": "「試しに乗ってみます」という文から、ミラーさんについて何がわかりますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "ミラーさんは飛行機が大好きで、よく乗っています",
+            "ミラーさんは飛行機が少し怖いけれど、初めて乗ることに挑戦するつもりです",
+            "ミラーさんはもう飛行機に乗ったことがあります",
+            "ミラーさんは新幹線のほうが好きなので、飛行機には乗りたくないです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu đầy đủ trong bài là:「飛行機は少し怖いんですが、試しに乗ってみます」— んですが thú nhận thực lòng (hơi sợ) rồi dẫn sang quyết định ngược lại (vẫn thử đi). てみます = thử lần đầu xem sao — hàm ý đây là trải nghiệm mới, chưa biết kết quả. Kết hợp:「怖い」(hơi sợ) +「乗ってみます」(sẽ thử đi) → đúng với đáp án 1. Đáp án 0 sai vì bài nói「少し怖い」(hơi sợ), không phải yêu thích. Đáp án 2 sai vì てみます hàm ý CHƯA từng trải nghiệm, còn「乗ったことがある」là đã có kinh nghiệm. Đáp án 3 sai vì bài không nói Miller thích Shinkansen hơn — anh chỉ hỏi có đi được không.",
+          "tip": "てみます trong lời thoại nhân vật → xem câu TRƯỚC ngay đó để biết tại sao phải \"thử\": thường là vì SỢ / KHÔNG CHẮC / CHƯA TỪNG THỬ. Câu trước và câu「てみます」luôn có quan hệ nhân quả.",
+          "qt": {
+            "q": "Từ câu “Tôi sẽ thử đi máy bay xem sao”, có thể biết điều gì về ông Miller?",
+            "o": [
+              "Ông Miller rất thích máy bay và thường xuyên đi máy bay",
+              "Ông Miller hơi sợ máy bay nhưng định thử thách bản thân bằng cách đi máy bay lần đầu",
+              "Ông Miller đã từng đi máy bay rồi",
+              "Vì thích tàu Shinkansen hơn nên ông Miller không muốn đi máy bay"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは旅行の結果についてどう思っていますか。",
+          "evi": [
+            13
+          ],
+          "options": [
+            "来月の旅行が楽しいかどうかはわかりませんが、楽しいはずだと思っています",
+            "旅行はきっと楽しくないと思っています",
+            "旅行をやめることにしました",
+            "一人旅は不安なので、友達と一緒に行くことにしました"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Bài viết dùng đồng thời hai mẫu ngữ pháp trọng tâm của bài:「来月の旅行が楽しいかどうかはまだわかりません」(chưa biết có vui không — mẫu かどうかわかりません) nhưng「きっと楽しいはずだ」と思っています (vẫn tin chắc sẽ vui). Đây là sự đối lập: KHÔNG CHẮC theo nghĩa lý trí (かどうかわかりません) nhưng TIN TƯỞNG theo trực cảm. Đáp án 1 sai và ngược nghĩa —「きっと」(chắc chắn) +「楽しいはずだ」cho thấy Miller LẠC QUAN. Đáp án 2 và 3 sai hoàn toàn — bài kết thúc bằng việc Miller đã đặt vé và khách sạn, không hủy chuyến, cũng không rủ bạn đi cùng.",
+          "tip": "かどうかわかりません + きっと〜はずだ = công thức \"không chắc về tương lai nhưng vẫn kỳ vọng tích cực\". Đây là combo hay xuất hiện ở câu kết bài đọc N4 — nhân vật chấp nhận sự không chắc nhưng vẫn tiến lên.",
+          "qt": {
+            "q": "Ông Miller nghĩ thế nào về kết quả chuyến đi?",
+            "o": [
+              "Ông không biết chuyến đi tháng sau có vui hay không, nhưng nghĩ rằng chắc chắn sẽ vui",
+              "Ông nghĩ chuyến đi chắc chắn sẽ không vui",
+              "Ông đã quyết định hủy chuyến đi",
+              "Vì lo lắng về việc đi một mình nên ông đã quyết định đi cùng bạn bè"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Đợt sale mùa hè của cửa hàng điện máy",
+      "japanese": "さくら電気店　夏のセール\n七月と八月、さくら電気店で夏のセールがあります。安い商品がたくさんありますから、ぜひ見てみてください。\n今回は、テレビ・れいぞうこ・せんたくき・そうじきの四つが特に安くなります。\n商品｜ふつうの値段｜セールの値段｜\nテレビ｜48,000円｜38,000円｜\nれいぞうこ｜65,000円｜52,000円｜\nせんたくき｜42,000円｜35,000円｜\nそうじき｜28,000円｜21,000円｜\n会員カードを持っている方は、セールの値段からもう500円安くなります。\n一つの商品のセールの値段が40,000円以上の場合、送料は無料です。\n※値段が安いかどうか、買う前によく比べてみてください。\n※セールは八月三十一日までです。会員カードを作れるかどうか、店員に聞いてみてください。\n電話：03-1234-5678（毎日　午前十時〜午後七時）",
+      "vietnamese": "Cửa hàng điện máy Sakura — Sale mùa hè\nTháng 7 và tháng 8, cửa hàng điện máy Sakura có đợt sale mùa hè. Có rất nhiều mặt hàng giá rẻ, mời quý khách thử ghé xem.\nLần này, bốn mặt hàng tivi, tủ lạnh, máy giặt, máy hút bụi được giảm giá đặc biệt.\nMặt hàng｜Giá thường｜Giá sale｜\nTivi｜48.000 yên｜38.000 yên｜\nTủ lạnh｜65.000 yên｜52.000 yên｜\nMáy giặt｜42.000 yên｜35.000 yên｜\nMáy hút bụi｜28.000 yên｜21.000 yên｜\nQuý khách có thẻ hội viên sẽ được giảm thêm 500 yên từ giá sale.\nNếu giá sale của một món hàng từ 40.000 yên trở lên, phí vận chuyển sẽ miễn phí.\n※ Hãy so sánh thử kỹ xem giá có rẻ hay không trước khi mua.\n※ Sale kéo dài đến hết ngày 31 tháng 8. Hãy thử hỏi nhân viên xem có làm được thẻ hội viên hay không.\nĐiện thoại: 03-1234-5678 (mỗi ngày, 10 giờ sáng đến 7 giờ tối)",
+      "sentences": [
+        {
+          "jp": "さくら電気店　夏のセール",
+          "vi": "Cửa hàng điện máy Sakura — Sale mùa hè",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "セール",
+              "read": "セール",
+              "vi": "đợt giảm giá, sale"
+            },
+            {
+              "w": "電気店",
+              "read": "でんきてん",
+              "vi": "cửa hàng điện máy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng đầu là tên chương trình khuyến mãi, không phải câu văn đầy đủ — kiểu tiêu đề お知らせ thường gặp trong 問題6."
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくら電気店",
+              "why": "Tên cửa hàng — xác định đây là thông báo của cửa hàng nào, cần nhớ để khớp câu hỏi."
+            },
+            {
+              "w": "夏のセール",
+              "why": "Chủ đề chính của toàn thông báo: đợt giảm giá mùa hè."
+            }
+          ]
+        },
+        {
+          "jp": "七月と八月、さくら電気店で夏のセールがあります。安い商品がたくさんありますから、ぜひ見てみてください。",
+          "vi": "Tháng 7 và tháng 8, cửa hàng điện máy Sakura có đợt sale mùa hè. Có rất nhiều mặt hàng giá rẻ, mời quý khách thử ghé xem.",
+          "vocab": [
+            {
+              "w": "七月",
+              "read": "しちがつ",
+              "vi": "tháng 7"
+            },
+            {
+              "w": "八月",
+              "read": "はちがつ",
+              "vi": "tháng 8"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "セール",
+              "read": "セール",
+              "vi": "đợt giảm giá, sale"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ"
+            },
+            {
+              "w": "商品",
+              "read": "しょうひん",
+              "vi": "mặt hàng, sản phẩm"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, mời hãy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "商品がたくさんありますから = vì có nhiều mặt hàng. から nêu lý do mời khách ghé xem."
+            },
+            {
+              "point": "Vてみてください（Vてみます＋てください）",
+              "vi": "見てみてください = mời (thử) ghé xem. てみる (thử) + てください (Bài 14) ghép lại thành lời mời lịch sự \"hãy thử xem\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "七月と八月",
+              "why": "Khoảng thời gian diễn ra sale — mốc thời gian cần nhớ để đối chiếu điều kiện."
+            }
+          ]
+        },
+        {
+          "jp": "今回は、テレビ・れいぞうこ・せんたくき・そうじきの四つが特に安くなります。",
+          "vi": "Lần này, bốn mặt hàng tivi, tủ lạnh, máy giặt, máy hút bụi được giảm giá đặc biệt.",
+          "vocab": [
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này"
+            },
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "ti-vi"
+            },
+            {
+              "w": "四つ",
+              "read": "よっつ",
+              "vi": "bốn (cái)"
+            },
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt, nhất là"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞（Bài 11, ôn lại）",
+              "vi": "四つ = bốn cái, đếm đồ vật theo dãy đếm thuần Nhật (ひとつ・ふたつ・みっつ・よっつ)."
+            },
+            {
+              "point": "〜くなります（Bài 19, ôn lại）",
+              "vi": "安くなります = trở nên rẻ hơn. Câu này giới thiệu trước 4 mặt hàng sẽ liệt kê trong bảng dưới."
+            }
+          ],
+          "keys": [
+            {
+              "w": "テレビ・れいぞうこ・せんたくき・そうじき",
+              "why": "Danh sách 4 mặt hàng được giảm giá — khớp với 4 hàng trong bảng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "商品｜ふつうの値段｜セールの値段｜",
+          "vi": "Mặt hàng｜Giá thường｜Giá sale｜",
+          "vocab": [
+            {
+              "w": "商品",
+              "read": "しょうひん",
+              "vi": "mặt hàng, sản phẩm"
+            },
+            {
+              "w": "ふつう",
+              "read": "ふつう",
+              "vi": "bình thường, thường"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá cả"
+            },
+            {
+              "w": "セール",
+              "read": "セール",
+              "vi": "đợt giảm giá, sale"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng header của bảng",
+              "vi": "Đây là hàng tiêu đề của bảng giá: cột \"Mặt hàng\", \"Giá thường\", \"Giá sale\" — các hàng dưới phải đọc theo đúng 3 cột này."
+            }
+          ]
+        },
+        {
+          "jp": "テレビ｜48,000円｜38,000円｜",
+          "vi": "Tivi｜48.000 yên｜38.000 yên｜",
+          "vocab": [
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "ti vi"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (đơn vị tiền Nhật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng (助数詞 Bài 11)",
+              "vi": "Ti vi giá thường 48.000 yên, giá sale 38.000 yên — đọc số tiền theo đơn vị 円 (えん)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "テレビ｜48,000円｜38,000円｜",
+              "why": "Ô giá sale ti vi 38,000円 — dùng để loại trừ trong câu hỏi 2 (chưa đủ 40,000円 nên không miễn phí ship)."
+            }
+          ]
+        },
+        {
+          "jp": "れいぞうこ｜65,000円｜52,000円｜",
+          "vi": "Tủ lạnh｜65.000 yên｜52.000 yên｜",
+          "vocab": [
+            {
+              "w": "れいぞうこ",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng",
+              "vi": "Tủ lạnh giá thường 65.000 yên, giá sale 52.000 yên — mặt hàng đắt nhất trong bảng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "れいぞうこ｜65,000円｜52,000円｜",
+              "why": "Ô giá sale tủ lạnh 52,000円 — mặt hàng duy nhất ≥40,000円, là căn cứ đáp án câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "せんたくき｜42,000円｜35,000円｜",
+          "vi": "Máy giặt｜42.000 yên｜35.000 yên｜",
+          "vocab": [
+            {
+              "w": "せんたくき",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng",
+              "vi": "Máy giặt giá thường 42.000 yên, giá sale 35.000 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "せんたくき｜42,000円｜35,000円｜",
+              "why": "Ô giá sale máy giặt 35,000円 — dùng để loại trừ trong câu hỏi 2 (chưa đủ 40,000円)."
+            }
+          ]
+        },
+        {
+          "jp": "そうじき｜28,000円｜21,000円｜",
+          "vi": "Máy hút bụi｜28.000 yên｜21.000 yên｜",
+          "vocab": [
+            {
+              "w": "そうじき",
+              "read": "そうじき",
+              "vi": "máy hút bụi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng",
+              "vi": "Máy hút bụi giá thường 28.000 yên, giá sale 21.000 yên — mặt hàng rẻ nhất trong bảng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そうじき｜28,000円｜21,000円｜",
+              "why": "Ô giá sale máy hút bụi 21,000円 — căn cứ chính của câu hỏi 1 (trước khi trừ tiền thẻ hội viên)."
+            }
+          ]
+        },
+        {
+          "jp": "会員カードを持っている方は、セールの値段からもう500円安くなります。",
+          "vi": "Quý khách có thẻ hội viên sẽ được giảm thêm 500 yên từ giá sale.",
+          "vocab": [
+            {
+              "w": "会員カード",
+              "read": "かいいんかーど",
+              "vi": "thẻ hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "かーど",
+              "vi": "thẻ"
+            },
+            {
+              "w": "持っている",
+              "read": "もっている",
+              "vi": "đang có; sở hữu"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "セール",
+              "read": "せーる",
+              "vi": "đợt giảm giá"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã; thêm nữa"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "安くなります",
+              "read": "やすくなります",
+              "vi": "trở nên rẻ hơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（trạng thái・Bài 15）",
+              "vi": "持っている方 = người đang có (thẻ). ている ở đây chỉ trạng thái sở hữu, không phải hành động đang diễn ra."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "安くなります = trở nên rẻ hơn. Tính từ い bỏ い + くなります diễn tả sự thay đổi trạng thái giá tiền."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員カードを持っている方は、セールの値段からもう500円安くなります",
+              "why": "Điều kiện thẻ hội viên: giảm thêm 500円 từ giá sale — căn cứ chính của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "一つの商品のセールの値段が40,000円以上の場合、送料は無料です。",
+          "vi": "Nếu giá sale của một món hàng từ 40.000 yên trở lên, phí vận chuyển sẽ miễn phí.",
+          "vocab": [
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một (cái)"
+            },
+            {
+              "w": "商品",
+              "read": "しょうひん",
+              "vi": "mặt hàng, sản phẩm"
+            },
+            {
+              "w": "セール",
+              "read": "セール",
+              "vi": "đợt giảm giá, sale"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "送料",
+              "read": "そうりょう",
+              "vi": "phí vận chuyển"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên, từ … trở lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の場合（điều kiện）",
+              "vi": "40,000円以上の場合 = trong trường hợp từ 40.000 yên trở lên. 場合 nêu điều kiện cụ thể để áp dụng quy định."
+            }
+          ],
+          "keys": [
+            {
+              "w": "40,000円以上の場合、送料は無料です",
+              "why": "Điều kiện giới hạn miễn phí ship: giá sale phải ≥40,000円 — căn cứ chính của câu hỏi 2, dễ nhầm với giá thường."
+            }
+          ]
+        },
+        {
+          "jp": "※値段が安いかどうか、買う前によく比べてみてください。",
+          "vi": "※ Hãy so sánh thử kỹ xem giá có rẻ hay không trước khi mua.",
+          "vocab": [
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "前に",
+              "read": "まえに",
+              "vi": "trước khi"
+            },
+            {
+              "w": "比べます",
+              "read": "くらべます",
+              "vi": "so sánh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/A普通形＋かどうか〜（Bài 40）",
+              "vi": "安いかどうか = \"có rẻ hay không\". 安い là phổ thông hình của tính từ い, ghép かどうか để nêu điều chưa chắc (rẻ hay không rẻ)."
+            },
+            {
+              "point": "Vるまえに（Bài 18）",
+              "vi": "買う前に = trước khi mua. まえに nêu mốc thời gian trước khi thực hiện hành động."
+            },
+            {
+              "point": "Vてみてください（Vてみます＋てください）",
+              "vi": "比べてみてください = hãy thử so sánh xem. てみる nhấn mạnh việc \"thử so sánh\" để tự kiểm chứng giá rẻ hay không."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※値段が安いかどうか、買う前によく比べてみてください",
+              "why": "Dòng ※ bẫy: nhắc khách tự so sánh, không phải căn cứ trực tiếp cho câu hỏi mà là lời khuyên chung."
+            }
+          ]
+        },
+        {
+          "jp": "※セールは八月三十一日までです。会員カードを作れるかどうか、店員に聞いてみてください。",
+          "vi": "※ Sale kéo dài đến hết ngày 31 tháng 8. Hãy thử hỏi nhân viên xem có làm được thẻ hội viên hay không.",
+          "vocab": [
+            {
+              "w": "セール",
+              "read": "セール",
+              "vi": "đợt giảm giá, sale"
+            },
+            {
+              "w": "八月",
+              "read": "はちがつ",
+              "vi": "tháng 8"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "作れます",
+              "read": "つくれます",
+              "vi": "có thể làm (thể khả năng của 作ります)"
+            },
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "八月三十一日",
+              "read": "はちがつさんじゅういちにち",
+              "vi": "ngày 31 tháng 8"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NまでですNからNまで（Bài 4）",
+              "vi": "八月三十一日までです = đến hết ngày 31 tháng 8. まで chỉ mốc kết thúc thời hạn."
+            },
+            {
+              "point": "V可能形＋かどうか〜（Bài 27＋Bài 40）",
+              "vi": "作れるかどうか = \"có làm được hay không\". 作れる là thể khả năng (Bài 27) của 作ります, ghép với かどうか (Bài 40) để hỏi gián tiếp."
+            },
+            {
+              "point": "Vてみてください",
+              "vi": "聞いてみてください = hãy thử hỏi xem. てみる nhấn mạnh hành động \"thử hỏi\" vì bản thân chưa biết câu trả lời."
+            }
+          ],
+          "keys": [
+            {
+              "w": "八月三十一日まで",
+              "why": "Từ giới hạn まで: hạn cuối sale — mốc thời gian bẫy nếu câu hỏi hỏi về hạn."
+            }
+          ]
+        },
+        {
+          "jp": "電話：03-1234-5678（毎日　午前十時〜午後七時）",
+          "vi": "Điện thoại: 03-1234-5678 (mỗi ngày, 10 giờ sáng đến 7 giờ tối)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "十時",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "七時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "午前十時〜午後七時 = từ 10 giờ sáng đến 7 giờ tối. Ghi giờ hoạt động liên hệ của cửa hàng."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "値段が安いかどうか、買う前によく比べてみてください",
+          "label": "かどうか＋Vてみます"
+        },
+        {
+          "excerpt": "会員カードを作れるかどうか、店員に聞いてみてください",
+          "label": "可能形＋かどうか＋Vてみます"
+        },
+        {
+          "excerpt": "見てみてください",
+          "label": "Vてみます（mời thử）"
+        },
+        {
+          "excerpt": "セールの値段からもう500円安くなります",
+          "label": "〜くなります（Bài 19, ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu sale",
+          "topic": 0,
+          "note": "Tên cửa hàng, thời gian sale (tháng 7-8) và 4 mặt hàng được giảm giá — thiết lập bối cảnh chung, chưa có căn cứ trả lời câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng giá 4 mặt hàng",
+          "topic": 3,
+          "note": "Bảng header + 4 hàng giá thường/giá sale — dò cột \"Giá sale\" để lấy số tiền gốc cho cả 2 câu hỏi.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "point",
+          "label": "Điều kiện thẻ hội viên & miễn phí ship",
+          "topic": 8,
+          "note": "Hai quy định riêng: giảm thêm 500円 nếu có thẻ hội viên (câu 1), và giá sale ≥40,000円 thì miễn phí ship (câu 2) — phải ÁP THÊM vào giá bảng, không dừng ở số trong bảng.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 12,
+          "kind": "turn",
+          "label": "Chú ý ※ & liên hệ",
+          "topic": 10,
+          "note": "Lời khuyên so sánh giá, hạn sale 31/8, và thông tin liên hệ — không phải căn cứ trả lời, dễ gây nhiễu nếu đọc lướt.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは会員カードを持っています。そうじきをセールで買うと、いくら払いますか。",
+          "options": [
+            "21,000円",
+            "20,500円",
+            "28,000円",
+            "20,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Dò bảng: そうじき giá sale là 21,000円 (hàng そうじき｜28,000円｜21,000円｜). Vì Santos có thẻ hội viên nên được giảm thêm 500円 theo dòng「会員カードを持っている方は、セールの値段からもう500円安くなります」→ 21,000 − 500 = 20,500円. Đáp án 0 sai vì đó là giá sale KHI CHƯA trừ tiền thẻ hội viên — thiếu 1 vế điều kiện (có thẻ). Đáp án 2 sai vì đó là giá thường (chưa sale). Đáp án 3 sai vì trừ nhầm quá tay, không khớp con số 500円 nêu trong bài.",
+          "tip": "Câu hỏi ghép 2 điều kiện (có thẻ hội viên + mua sản phẩm nào) → phải LẤY GIÁ SALE trong bảng rồi ÁP THÊM quy định giảm giá riêng ở dòng văn bên dưới bảng, không dừng lại ở con số trong bảng.",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Ông Santos có thẻ thành viên. Nếu mua máy hút bụi trong đợt giảm giá, ông ấy phải trả bao nhiêu?",
+            "o": [
+              "21.000 yên",
+              "20.500 yên",
+              "28.000 yên",
+              "20.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは一つの商品だけ買って、送料を無料にしたいです。カリナさんはどの商品を買えばいいですか。",
+          "options": [
+            "テレビ",
+            "れいぞうこ",
+            "せんたくき",
+            "そうじき"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Điều kiện miễn phí vận chuyển nêu rõ:「一つの商品のセールの値段が40,000円以上の場合、送料は無料です」— tức giá SALE của MỘT món phải từ 40,000円 trở lên. Dò bảng: テレビ sale 38,000円 (chưa đủ), れいぞうこ sale 52,000円 (đủ, đúng), せんたくき sale 35,000円 (chưa đủ), そうじき sale 21,000円 (chưa đủ). Chỉ có れいぞうこ thỏa cả 2 điều kiện: mua MỘT món + giá sale ≥40,000円.",
+          "tip": "Câu hỏi ghép 2 điều kiện (chỉ mua 1 món + muốn miễn phí ship) → so từng ô GIÁ SALE trong bảng với mức 40,000円 nêu trong dòng điều kiện, đừng nhầm với giá THƯỜNG.",
+          "evi": [
+            5,
+            9
+          ],
+          "qt": {
+            "q": "Chị Karina chỉ muốn mua một món hàng và được miễn phí vận chuyển. Chị Karina nên mua món hàng nào?",
+            "o": [
+              "Tivi",
+              "Tủ lạnh",
+              "Máy giặt",
+              "Máy hút bụi"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

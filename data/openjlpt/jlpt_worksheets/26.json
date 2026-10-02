@@ -1,0 +1,4393 @@
+{
+  "bai": 26,
+  "level": "N4",
+  "intro": "〜んです — giải thích & lý do. Mỗi dạng gắn đúng số 問題 và đúng cấp; phần 練習 nền là giàn giáo, không phải dạng thi.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "熱があるんですか。大丈夫ですか。",
+              "ul": "熱",
+              "choices": [
+                "ねつ",
+                "ねっ",
+                "ねち",
+                "ねと"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「ねつ」 (nhiệt), nghĩa là \"sốt/nhiệt độ\". Từ 「熱」 dùng âm on là 「ねつ」, phát âm rõ ràng với âm cuối \"tsu\". Phương án 「ねっ」 sai vì đây là dạng âm tắc (促音) chỉ xuất hiện khi ghép như 「熱っぽい」, không phải cách đọc độc lập của từ. 「ねち」 và 「ねと」 là những âm không tồn tại cho chữ này — người học dễ nhầm vì nghe tương tự nhưng sai phụ âm cuối.",
+              "glosses": [
+                {
+                  "t": "熱",
+                  "vi": "sốt / nhiệt độ"
+                },
+                {
+                  "t": "があるんですか",
+                  "vi": "〜があるんですか = hỏi với giọng quan tâm (có bị sốt à?)"
+                },
+                {
+                  "t": "大丈夫",
+                  "read": "だいじょうぶ",
+                  "vi": "không sao, ổn không"
+                }
+              ]
+            },
+            {
+              "prompt": "昨日は会議があったんです。",
+              "ul": "会議",
+              "choices": [
+                "かいぎ",
+                "かいき",
+                "かいぎょ",
+                "かいけ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「かいぎ」 (hội nghị), nghĩa là \"cuộc họp\". Chữ 「会」 đọc là 「かい」 và 「議」 đọc là 「ぎ」 (âm on). Phương án 「かいき」 sai vì 「き」 là phụ âm vô thanh, trong khi 「ぎ」 là phụ âm hữu thanh (trọc âm) — đây là bẫy trọc/vô thanh rất phổ biến. 「かいぎょ」 thêm âm 「ょ」 không có trong từ này, còn 「かいけ」 sai hoàn toàn âm của chữ 「議」.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "会議",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "があったんです",
+                  "vi": "〜んです = giải thích lý do (đã có họp mà)"
+                }
+              ]
+            },
+            {
+              "prompt": "体の調子が悪いんです。",
+              "ul": "調子",
+              "choices": [
+                "ちょうし",
+                "ちょうじ",
+                "ちょうす",
+                "ちょし"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「ちょうし」 (điều tử), nghĩa là \"tình trạng/trạng thái sức khỏe\". Chữ 「調」 đọc là 「ちょう」 và 「子」 đọc là 「し」 theo âm on. Phương án 「ちょうじ」 sai vì đổi 「し」 thành 「じ」 (trọc âm), đây là bẫy trọc/vô thanh điển hình. 「ちょうす」 sai phụ âm cuối, còn 「ちょし」 thiếu âm dài 「ょう」 — bẫy rút ngắn trường âm rất hay gặp.",
+              "glosses": [
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể"
+                },
+                {
+                  "t": "調子",
+                  "vi": "tình trạng sức khỏe"
+                },
+                {
+                  "t": "が悪いんです",
+                  "read": "がわるいんです",
+                  "vi": "〜が悪いんです = giải thích (tình trạng xấu đấy)"
+                }
+              ]
+            },
+            {
+              "prompt": "病院へ行くんですか。",
+              "ul": "病院",
+              "choices": [
+                "びょういん",
+                "びょうえん",
+                "びょいん",
+                "びょうおん"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「びょういん」 (bệnh viện), nghĩa là \"bệnh viện\". Từ này gồm 「病」→「びょう」 và 「院」→「いん」. Phương án 「びょうえん」 nhầm 「いん」 thành 「えん」 — đây là lỗi nhầm nguyên âm rất phổ biến. 「びょいん」 mất âm dài 「う」 trong 「びょう」, là bẫy rút ngắn trường âm. 「びょうおん」 nhầm 「いん」 thành 「おん」, sai nguyên âm.",
+              "glosses": [
+                {
+                  "t": "病院",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "へ行くんですか",
+                  "read": "へいくんですか",
+                  "vi": "〜んですか = hỏi với giọng quan tâm (đi bệnh viện à?)"
+                }
+              ]
+            },
+            {
+              "prompt": "薬を飲んだんですが、まだ治らないんです。",
+              "ul": "薬",
+              "choices": [
+                "くすり",
+                "くさり",
+                "くずり",
+                "くすい"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「くすり」 (dược), nghĩa là \"thuốc\". Đây là âm kun (Nhật thuần) của chữ 「薬」, đọc 3 mora: ku-su-ri. Phương án 「くさり」 nhầm 「す」 thành 「さ」 — sai nguyên âm hàng \"s\". 「くずり」 đổi 「す」 thành 「ず」 (trọc âm), đây là bẫy trọc/vô thanh. 「くすい」 đổi âm cuối 「り」 thành 「い」, sai phụ âm cuối hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "を飲んだんですが",
+                  "read": "をのんだんですが",
+                  "vi": "〜んですが = giải thích hoàn cảnh (đã uống thuốc rồi mà...)"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn, chưa"
+                },
+                {
+                  "t": "治らないんです",
+                  "read": "なおらないんです",
+                  "vi": "〜ないんです = bộc lộ (vẫn chưa khỏi đấy)"
+                }
+              ]
+            },
+            {
+              "prompt": "顔色が悪いですね。何かあったんですか。",
+              "ul": "顔色",
+              "choices": [
+                "かおいろ",
+                "かおしょく",
+                "がんいろ",
+                "がんしょく"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「かおいろ」 (nhan sắc/mầu da mặt), nghĩa là \"nước da/sắc mặt\". 「顔」 đọc âm kun là 「かお」 và 「色」 đọc âm kun là 「いろ」. Phương án 「かおしょく」 dùng âm on 「しょく」 cho 「色」 — đây là bẫy nhầm âm on↔kun, không sai hoàn toàn nhưng sai cách đọc ghép từ này. 「がんいろ」 và 「がんしょく」 dùng âm on 「がん」 cho 「顔」 — cũng là bẫy on↔kun, từ ghép này dùng toàn âm kun.",
+              "glosses": [
+                {
+                  "t": "顔色",
+                  "vi": "sắc mặt"
+                },
+                {
+                  "t": "が悪いですね",
+                  "read": "がわるいですね",
+                  "vi": "trông sắc mặt xấu nhỉ"
+                },
+                {
+                  "t": "何か",
+                  "read": "なにか",
+                  "vi": "có gì đó"
+                },
+                {
+                  "t": "あったんですか",
+                  "vi": "〜んですか = hỏi quan tâm (có chuyện gì vậy?)"
+                }
+              ]
+            },
+            {
+              "prompt": "実は、昨日から眠れないんです。",
+              "ul": "実は",
+              "choices": [
+                "じつは",
+                "じっは",
+                "みは",
+                "さねは"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「じつは」 (thực ra), nghĩa là \"thực ra / nói thật là\". 「実」 đọc âm on là 「じつ」. Phương án 「じっは」 nhầm thành 促音 (âm tắc) 「っ」, nhưng 促音 không đứng trước phụ âm 「は」 theo quy tắc ngữ âm tiếng Nhật. 「みは」 nhầm dùng âm kun 「み」 của chữ 「実」 (như trong 「木の実」), sai ngữ cảnh. 「さねは」 là âm kun khác của 「実」 nhưng không dùng trong từ này.",
+              "glosses": [
+                {
+                  "t": "実は",
+                  "vi": "thực ra là, nói thật là"
+                },
+                {
+                  "t": "昨日から",
+                  "read": "きのうから",
+                  "vi": "từ hôm qua"
+                },
+                {
+                  "t": "眠れないんです",
+                  "read": "ねむれないんです",
+                  "vi": "〜ないんです = giải thích (không ngủ được đấy)"
+                }
+              ]
+            },
+            {
+              "prompt": "誕生日なんです。だから、ケーキを買ったんです。",
+              "ul": "誕生日",
+              "choices": [
+                "たんじょうび",
+                "たんじょうひ",
+                "だんじょうび",
+                "たんじょび"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「たんじょうび」 (sinh nhật), nghĩa là \"sinh nhật\". Từ gồm 「誕生」→「たんじょう」 và 「日」→「び」 (âm on hữu thanh khi ghép từ). Phương án 「たんじょうひ」 dùng 「ひ」 (vô thanh) thay vì 「び」 (hữu thanh) — bẫy trọc âm/bán trọc âm khi ghép từ. 「だんじょうび」 đổi 「た」 thành 「だ」 (trọc âm), sai âm đầu của 「誕」. 「たんじょび」 rút ngắn mất âm dài 「う」 trong 「じょう」, là bẫy trường âm điển hình.",
+              "glosses": [
+                {
+                  "t": "誕生日なんです",
+                  "vi": "〜なんです (N+なんです) = bộc lộ (là sinh nhật mà)"
+                },
+                {
+                  "t": "誕生日",
+                  "vi": "sinh nhật"
+                },
+                {
+                  "t": "だから",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "買ったんです",
+                  "read": "かったんです",
+                  "vi": "〜たんです = giải thích lý do đã làm"
+                },
+                {
+                  "t": "ケーキ",
+                  "read": "けーき",
+                  "vi": "bánh kem"
+                }
+              ]
+            },
+            {
+              "prompt": "大切な会議があるので、休めないんです。",
+              "ul": "大切",
+              "choices": [
+                "たいせつ",
+                "たいきり",
+                "おおきり",
+                "おおせつ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「たいせつ」 (trọng yếu), nghĩa là \"quan trọng\". 「大」 đọc âm on là 「たい」 và 「切」 đọc là 「せつ」 theo âm on. Phương án 「たいきり」 nhầm 「切」 sang âm kun 「きり」 — bẫy on↔kun, \"kiri\" là âm kun của 「切」 nhưng không dùng ở đây. 「おおきり」 dùng âm kun 「おお」 cho 「大」 và âm kun 「きり」 cho 「切」 — cả hai đều sai ngữ cảnh từ ghép này. 「おおせつ」 pha trộn kun+on cũng sai.",
+              "glosses": [
+                {
+                  "t": "大切",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "な会議",
+                  "read": "なかいぎ",
+                  "vi": "cuộc họp quan trọng (なadj+N)"
+                },
+                {
+                  "t": "があるので",
+                  "vi": "〜ので = vì có... (lý do lịch sự)"
+                },
+                {
+                  "t": "休めないんです",
+                  "read": "やすめないんです",
+                  "vi": "〜ないんです = giải thích (không thể nghỉ được)"
+                }
+              ]
+            },
+            {
+              "prompt": "疲れているんです。少し休んでもいいですか。",
+              "ul": "疲れて",
+              "choices": [
+                "つかれて",
+                "くたびれて",
+                "いかれて",
+                "おとろえて"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「つかれて」 (dạng te của 疲れる), nghĩa là \"mệt mỏi\". Đây là âm kun của 「疲」, đọc là 「つかれる」. Phương án 「くたびれて」 cũng có nghĩa \"mệt\" nhưng là từ thuần Nhật khác (katabireru), không phải cách đọc của chữ 「疲」. 「いかれて」 nghĩa là \"bị hỏng/phát điên\", hoàn toàn khác nghĩa. 「おとろえて」 là 「衰えて」 nghĩa \"suy yếu\" — cùng trường ngữ nghĩa nhưng khác từ, đây là bẫy nghĩa rất tinh.",
+              "glosses": [
+                {
+                  "t": "疲れて",
+                  "vi": "mệt mỏi (te-form)"
+                },
+                {
+                  "t": "いるんです",
+                  "vi": "〜ているんです = giải thích trạng thái đang mệt"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "休んでもいいですか",
+                  "read": "やすんでもいいですか",
+                  "vi": "được phép nghỉ không?"
+                }
+              ]
+            },
+            {
+              "prompt": "元気がないんですね。心配しています。",
+              "ul": "心配",
+              "choices": [
+                "しんぱい",
+                "しんばい",
+                "しんぱ",
+                "しんへい"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「しんぱい」 (tâm phối), nghĩa là \"lo lắng\". 「心」→「しん」 và 「配」→「ぱい」 (bán trọc âm 「は」→「ぱ」 khi ghép). Phương án 「しんばい」 đổi 「ぱ」 thành 「ば」 (trọc âm đầy), nhưng quy tắc bán trọc âm (半濁音) cho 「は行」 khi ghép từ này là 「ぱ」 chứ không phải 「ば」. 「しんぱ」 thiếu âm cuối 「い」, rút ngắn từ. 「しんへい」 sai hoàn toàn âm của chữ 「配」.",
+              "glosses": [
+                {
+                  "t": "元気がないんですね",
+                  "read": "げんきがないんですね",
+                  "vi": "〜ないんですね = bộc lộ nhận xét (trông không có sức sống nhỉ)"
+                },
+                {
+                  "t": "心配",
+                  "vi": "lo lắng"
+                },
+                {
+                  "t": "しています",
+                  "vi": "đang lo lắng (〜ています trạng thái)"
+                }
+              ]
+            },
+            {
+              "prompt": "無理をしたんですか。体に気をつけてください。",
+              "ul": "無理",
+              "choices": [
+                "むり",
+                "むれ",
+                "むに",
+                "もり"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「むり」 (vô lý), nghĩa là \"cố quá sức / vô lý\". 「無」→「む」 và 「理」→「り」 theo âm on. Phương án 「むれ」 nhầm 「り」 thành 「れ」 — sai nguyên âm, hai âm này nghe gần nhau với người mới học. 「むに」 nhầm 「り」 thành 「に」, cũng là lỗi nhầm âm trong hàng \"n/r\". 「もり」 đổi âm đầu 「む」 thành 「も」 — sai nguyên âm của chữ 「無」.",
+              "glosses": [
+                {
+                  "t": "無理をしたんですか",
+                  "vi": "〜んですか = hỏi quan tâm (đã cố quá sức à?)"
+                },
+                {
+                  "t": "無理",
+                  "vi": "quá sức, cố ép"
+                },
+                {
+                  "t": "体に気をつけて",
+                  "read": "からだにきをつけて",
+                  "vi": "hãy chú ý sức khỏe"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn, xin hãy (yêu cầu lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "有名なレストランなんですが、予約が必要なんです。",
+              "ul": "有名",
+              "choices": [
+                "ゆうめい",
+                "ゆめい",
+                "ゆうめ",
+                "ゆいめい"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「ゆうめい」 (hữu danh), nghĩa là \"nổi tiếng\". 「有」→「ゆう」 (trường âm) và 「名」→「めい」. Phương án 「ゆめい」 rút ngắn 「ゆう」 thành 「ゆ」, mất âm dài — bẫy trường âm rất phổ biến với người Việt vì tiếng Việt không phân biệt trường/đoản âm. 「ゆうめ」 rút ngắn âm cuối 「い」 của 「めい」. 「ゆいめい」 thêm âm 「い」 thừa vào giữa, tạo ra từ không tồn tại.",
+              "glosses": [
+                {
+                  "t": "有名",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "なんですが",
+                  "vi": "〜なんですが (なadj+なんですが) = giải thích hoàn cảnh (là nổi tiếng nhưng...)"
+                },
+                {
+                  "t": "予約",
+                  "read": "よやく",
+                  "vi": "đặt chỗ trước"
+                },
+                {
+                  "t": "が必要なんです",
+                  "read": "がひつようなんです",
+                  "vi": "〜なんです = giải thích (cần đặt trước đấy)"
+                },
+                {
+                  "t": "レストラン",
+                  "read": "れすとらん",
+                  "vi": "nhà hàng"
+                }
+              ]
+            },
+            {
+              "prompt": "会社を休んだんですか。どうしたんですか。",
+              "ul": "会社",
+              "choices": [
+                "かいしゃ",
+                "かいじゃ",
+                "かいさ",
+                "こうしゃ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「かいしゃ」 (hội xã), nghĩa là \"công ty\". 「会」→「かい」 và 「社」→「しゃ」. Phương án 「かいじゃ」 đổi 「しゃ」 thành 「じゃ」 (trọc âm) — bẫy trọc/vô thanh điển hình, \"sha\" và \"ja\" rất dễ nhầm khi nghe. 「かいさ」 mất âm 「ゃ」 (âm nhỏ), biến 「しゃ」 thành 「さ」, sai cả âm ghép nhỏ lẫn phụ âm. 「こうしゃ」 đổi 「かい」 thành 「こう」, nhầm sang từ khác hoàn toàn (「校舎」 = nhà trường).",
+              "glosses": [
+                {
+                  "t": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "を休んだんですか",
+                  "read": "をやすんだんですか",
+                  "vi": "〜んですか = hỏi quan tâm (đã nghỉ làm à?)"
+                },
+                {
+                  "t": "どうしたんですか",
+                  "vi": "〜んですか = chuyện gì vậy? (hỏi nguyên nhân)"
+                }
+              ]
+            },
+            {
+              "prompt": "それで、大事な試験を休んだんですか。",
+              "ul": "大事",
+              "choices": [
+                "だいじ",
+                "たいじ",
+                "だいし",
+                "おおじ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「だいじ」 (đại sự), nghĩa là \"quan trọng\". 「大」→「だい」 (âm on hữu thanh) và 「事」→「じ」. Phương án 「たいじ」 đổi 「だい」 thành 「たい」 (vô thanh) — bẫy trọc/vô thanh ở âm đầu, \"da\" và \"ta\" rất dễ nhầm. 「だいし」 đổi 「じ」 thành 「し」 (vô thanh), tiếp tục bẫy trọc âm ở âm sau. 「おおじ」 dùng âm kun 「おお」 cho 「大」 — bẫy on↔kun, đọc kun cũng có nghĩa nhưng từ 「大事」 theo nghĩa này dùng âm on 「だいじ」.",
+              "glosses": [
+                {
+                  "t": "それで",
+                  "vi": "vì vậy, thế nên"
+                },
+                {
+                  "t": "大事",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "な試験",
+                  "read": "なしけん",
+                  "vi": "kỳ thi quan trọng"
+                },
+                {
+                  "t": "を休んだんですか",
+                  "read": "をやすんだんですか",
+                  "vi": "〜んですか = hỏi xác nhận lý do (đã bỏ thi à?)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "かおいろが悪いですね。大丈夫ですか。",
+              "ul": "かおいろ",
+              "choices": [
+                "顔色",
+                "面色",
+                "頭色",
+                "顔形"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「顔色」(かおいろ) nghĩa là \"sắc mặt, nhan sắc khuôn mặt\", gồm chữ 「顔」(かお) = khuôn mặt và 「色」(いろ) = màu sắc. Phương án 「面色」sai vì 「面」tuy cũng có nghĩa là mặt nhưng từ ghép này không tồn tại trong tiếng Nhật thông dụng. Phương án 「頭色」sai vì 「頭」là đầu, không liên quan đến sắc mặt. Phương án 「顔形」(かおかたち) tuy dùng đúng chữ 「顔」nhưng nghĩa là \"đường nét khuôn mặt\", không phải sắc mặt.",
+              "glosses": [
+                {
+                  "t": "かおいろ",
+                  "vi": "sắc mặt, nhan sắc (từ được gạch chân)"
+                },
+                {
+                  "t": "悪いですね",
+                  "read": "わるいですね",
+                  "vi": "trông không ổn nhỉ"
+                },
+                {
+                  "t": "大丈夫",
+                  "read": "だいじょうぶ",
+                  "vi": "ổn không, không sao chứ"
+                }
+              ]
+            },
+            {
+              "prompt": "ねつがあるんです。だから会社をやすみました。",
+              "ul": "ねつ",
+              "choices": [
+                "熱",
+                "勢",
+                "烈",
+                "執"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「熱」(ねつ) nghĩa là \"sốt, nhiệt độ cao\". Phương án 「勢」(せい/いきおい) nghĩa là \"thế lực, sức mạnh\", không liên quan đến bệnh. Phương án 「烈」(れつ) nghĩa là \"mãnh liệt, dữ dội\", không đọc là ねつ. Phương án 「執」(しつ/しゅう) nghĩa là \"chấp, nắm giữ\", hoàn toàn khác nghĩa và cách đọc.",
+              "glosses": [
+                {
+                  "t": "ねつ",
+                  "vi": "sốt, nhiệt độ (từ được gạch chân)"
+                },
+                {
+                  "t": "があるんです",
+                  "vi": "〜があるんです：sắc thái giải thích (bị có ~)"
+                },
+                {
+                  "t": "だから",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "やすみました",
+                  "vi": "đã nghỉ"
+                }
+              ]
+            },
+            {
+              "prompt": "くすりを飲んだので、もうなおりました。",
+              "ul": "くすり",
+              "choices": [
+                "薬",
+                "葉",
+                "草",
+                "茶"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「薬」(くすり) nghĩa là \"thuốc\". Phương án 「葉」(は/よう) nghĩa là \"lá cây\", hình chữ gần giống 「薬」vì cùng có bộ 艹 (thảo đầu) ở trên, dễ nhầm. Phương án 「草」(くさ) cũng có bộ 艹 và nghĩa là \"cỏ\", trông tương tự nhưng không phải thuốc. Phương án 「茶」(ちゃ) cũng bộ 艹, nghĩa là \"trà\", dễ gây nhầm lẫn nhưng hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "くすり",
+                  "vi": "thuốc (từ được gạch chân)"
+                },
+                {
+                  "t": "飲んだので",
+                  "read": "のんだので",
+                  "vi": "vì đã uống (〜ので：lý do)"
+                },
+                {
+                  "t": "もう",
+                  "vi": "rồi, đã rồi"
+                },
+                {
+                  "t": "なおりました",
+                  "vi": "đã khỏi bệnh"
+                }
+              ]
+            },
+            {
+              "prompt": "かいぎがあるんですが、体の調子が悪いんです。",
+              "ul": "かいぎ",
+              "choices": [
+                "会議",
+                "会話",
+                "会見",
+                "会合"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「会議」(かいぎ) nghĩa là \"cuộc họp\", gồm 「会」= gặp nhau và 「議」= bàn bạc, thảo luận. Phương án 「会話」(かいわ) nghĩa là \"hội thoại, trò chuyện\". Phương án 「会見」(かいけん) nghĩa là \"buổi tiếp kiến, họp báo\". Phương án 「会合」(かいごう) nghĩa là \"buổi tụ họp, cuộc gặp mặt\" — cả ba đều có 「会」nhưng chữ ghép sau khác, nên nghĩa khác hẳn.",
+              "glosses": [
+                {
+                  "t": "かいぎ",
+                  "vi": "cuộc họp (từ được gạch chân)"
+                },
+                {
+                  "t": "があるんですが",
+                  "vi": "〜があるんですが：sắc thái giải thích (có ~ nhưng…)"
+                },
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể"
+                },
+                {
+                  "t": "調子",
+                  "read": "ちょうし",
+                  "vi": "trạng thái, form sức khỏe"
+                },
+                {
+                  "t": "悪いんです",
+                  "read": "わるいんです",
+                  "vi": "〜んです：sắc thái bộc lộ (không ổn)"
+                }
+              ]
+            },
+            {
+              "prompt": "じつは、眠れないんです。心配しないでください。",
+              "ul": "じつは",
+              "choices": [
+                "実",
+                "真",
+                "誠",
+                "正"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「実」(じつ) trong cụm 「実は」nghĩa là \"thật ra, thực ra\". Phương án 「真」(しん/まこと) cũng nghĩa là \"thật\" nhưng cụm 「真は」không phải cách dùng cố định. Phương án 「誠」(まこと/せい) nghĩa là \"thành thật\" nhưng không tạo thành cụm 「誠は」mang nghĩa này. Phương án 「正」(ただ/せい) nghĩa là \"đúng, chính xác\", cũng không ghép được thành 「正は」với nghĩa \"thật ra\".",
+              "glosses": [
+                {
+                  "t": "じつは",
+                  "vi": "実は：thực ra là (từ được gạch chân)"
+                },
+                {
+                  "t": "眠れないんです",
+                  "read": "ねむれないんです",
+                  "vi": "〜んです：sắc thái tâm sự (không ngủ được)"
+                },
+                {
+                  "t": "心配",
+                  "read": "しんぱい",
+                  "vi": "lo lắng"
+                },
+                {
+                  "t": "しないでください",
+                  "vi": "xin đừng ~"
+                }
+              ]
+            },
+            {
+              "prompt": "たんじょうびなんです。だから、ケーキを買いました。",
+              "ul": "たんじょうび",
+              "choices": [
+                "誕生日",
+                "誕生地",
+                "誕生式",
+                "誕生年"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「誕生日」(たんじょうび) nghĩa là \"sinh nhật\", gồm 「誕生」= sự chào đời và 「日」= ngày. Phương án 「誕生地」(たんじょうち) nghĩa là \"nơi sinh\". Phương án 「誕生式」(たんじょうしき) nghĩa là \"lễ mừng sinh nhật\" (ít dùng). Phương án 「誕生年」(たんじょうねん) nghĩa là \"năm sinh\" — ba phương án nhiễu đều dùng 「誕生」nhưng chữ cuối thay đổi nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "たんじょうび",
+                  "vi": "sinh nhật (từ được gạch chân)"
+                },
+                {
+                  "t": "なんです",
+                  "vi": "〜なんです：sắc thái giải thích (là ~, N/なAdj + なんです)"
+                },
+                {
+                  "t": "だから",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                },
+                {
+                  "t": "ケーキ",
+                  "read": "けーき",
+                  "vi": "bánh kem"
+                }
+              ]
+            },
+            {
+              "prompt": "ゆうめいな店なんですか。どこにあるんですか。",
+              "ul": "ゆうめい",
+              "choices": [
+                "有名",
+                "有利",
+                "有力",
+                "有効"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「有名」(ゆうめい) nghĩa là \"nổi tiếng\", gồm 「有」= có và 「名」= tên tuổi. Phương án 「有利」(ゆうり) nghĩa là \"có lợi, thuận lợi\". Phương án 「有力」(ゆうりょく) nghĩa là \"có thế lực, đáng tin\". Phương án 「有効」(ゆうこう) nghĩa là \"có hiệu lực, có giá trị\" — tất cả đều bắt đầu bằng 「有」(ゆう) nhưng chữ sau quyết định nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "ゆうめい",
+                  "vi": "nổi tiếng (từ được gạch chân)"
+                },
+                {
+                  "t": "な店なんですか",
+                  "read": "なみせなんですか",
+                  "vi": "〜なんですか：sắc thái hỏi tình huống (có phải là ~ không)"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あるんですか",
+                  "vi": "〜んですか：sắc thái hỏi quan tâm (có ~ không)"
+                }
+              ]
+            },
+            {
+              "prompt": "むりをしないでください。大事にしてください。",
+              "ul": "むり",
+              "choices": [
+                "無理",
+                "無力",
+                "無用",
+                "無効"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「無理」(むり) nghĩa là \"vô lý, cố quá sức, ép buộc\". Phương án 「無力」(むりょく) nghĩa là \"yếu đuối, không có sức lực\". Phương án 「無用」(むよう) nghĩa là \"vô dụng, không cần thiết\". Phương án 「無効」(むこう) nghĩa là \"vô hiệu, không có giá trị\" — cả bốn đều có 「無」(vô) nhưng chữ ghép sau cho nghĩa khác nhau hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "むり",
+                  "vi": "vô lý, cố quá mức (từ được gạch chân)"
+                },
+                {
+                  "t": "をしないでください",
+                  "vi": "xin đừng làm ~"
+                },
+                {
+                  "t": "大事に",
+                  "read": "だいじに",
+                  "vi": "hãy trân trọng, giữ gìn sức khỏe"
+                },
+                {
+                  "t": "大事にしてください",
+                  "read": "だいじにしてください",
+                  "vi": "hãy giữ gìn, hãy cẩn thận (sức khỏe)"
+                }
+              ]
+            },
+            {
+              "prompt": "つかれているんです。少しやすみたいんです。",
+              "ul": "つかれて",
+              "choices": [
+                "疲れて",
+                "披れて",
+                "被れて",
+                "彼れて"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「疲れて」(つかれて) từ động từ 「疲れる」nghĩa là \"mệt mỏi\". Phương án 「披れて」sai vì 「披」(ひ) nghĩa là \"trải ra, mở ra\", không đọc là つかれ. Phương án 「被れて」(かぶれて) nghĩa là \"bị dị ứng da, bị nhiễm\", đọc là かぶれ chứ không phải つかれ. Phương án 「彼れて」không phải từ tồn tại, 「彼」(かれ) nghĩa là \"anh ấy\", không ghép thành động từ này.",
+              "glosses": [
+                {
+                  "t": "つかれて",
+                  "vi": "mệt mỏi (từ được gạch chân)"
+                },
+                {
+                  "t": "いるんです",
+                  "vi": "〜ているんです：sắc thái tâm sự (đang ~)"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "やすみたいんです",
+                  "vi": "〜たいんです：sắc thái bộc lộ (muốn ~)"
+                }
+              ]
+            },
+            {
+              "prompt": "体にたいせつなことがあるんです。病院へ行ってください。",
+              "ul": "たいせつ",
+              "choices": [
+                "大切",
+                "大節",
+                "大雪",
+                "大設"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「大切」(たいせつ) nghĩa là \"quan trọng, quý trọng\". Phương án 「大節」(たいせつ) tuy cùng âm đọc nhưng 「節」nghĩa là \"tiết, đốt\", mang nghĩa \"tiết lớn/kỳ lớn\" không dùng theo nghĩa \"quan trọng\" trong văn cảnh này. Phương án 「大雪」(おおゆき) nghĩa là \"tuyết lớn\", không đọc là たいせつ theo nghĩa này. Phương án 「大設」không phải từ tồn tại trong tiếng Nhật thông dụng.",
+              "glosses": [
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể"
+                },
+                {
+                  "t": "たいせつ",
+                  "vi": "quan trọng, thiết yếu (từ được gạch chân)"
+                },
+                {
+                  "t": "なことがあるんです",
+                  "vi": "〜なんです：sắc thái giải thích (có điều ~ quan trọng)"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "行ってください",
+                  "read": "いってください",
+                  "vi": "hãy đi"
+                }
+              ]
+            },
+            {
+              "prompt": "元気がないんですね。なにかあったんですか。",
+              "ul": "なに",
+              "choices": [
+                "何",
+                "彼",
+                "他",
+                "誰"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「何」(なに/なん) nghĩa là \"cái gì, điều gì\". Phương án 「彼」(かれ) nghĩa là \"anh ấy\", là đại từ nhân xưng ngôi ba số ít giống đực. Phương án 「他」(ほか/た) nghĩa là \"khác, ngoài ra\", không phải từ để hỏi. Phương án 「誰」(だれ) nghĩa là \"ai\", dùng để hỏi về người chứ không hỏi về sự việc/đồ vật.",
+              "glosses": [
+                {
+                  "t": "元気",
+                  "read": "げんき",
+                  "vi": "khỏe mạnh, tinh thần"
+                },
+                {
+                  "t": "がないんですね",
+                  "vi": "〜んですね：sắc thái nhận xét (không có ~ nhỉ)"
+                },
+                {
+                  "t": "なに",
+                  "vi": "điều gì, cái gì (từ được gạch chân)"
+                },
+                {
+                  "t": "かあったんですか",
+                  "vi": "〜んですか：sắc thái hỏi quan tâm (có ~ xảy ra không)"
+                },
+                {
+                  "t": "なにか",
+                  "read": "なにか",
+                  "vi": "có chuyện gì đó, có việc gì đó"
+                }
+              ]
+            },
+            {
+              "prompt": "それで、びょういんへ行ったんですか。お大事に。",
+              "ul": "びょういん",
+              "choices": [
+                "病院",
+                "病気",
+                "病棟",
+                "病室"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「病院」(びょういん) nghĩa là \"bệnh viện\". Phương án 「病気」(びょうき) nghĩa là \"bệnh tật\". Phương án 「病棟」(びょうとう) nghĩa là \"khu nhà/tòa nhà trong bệnh viện\". Phương án 「病室」(びょうしつ) nghĩa là \"phòng bệnh\" — cả bốn đều bắt đầu bằng 「病」(びょう) nhưng chữ sau xác định nghĩa khác nhau hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "それで",
+                  "vi": "vì vậy, thế rồi"
+                },
+                {
+                  "t": "びょういん",
+                  "vi": "bệnh viện (từ được gạch chân)"
+                },
+                {
+                  "t": "行ったんですか",
+                  "read": "いったんですか",
+                  "vi": "〜んですか：sắc thái hỏi quan tâm (đã đi không)"
+                },
+                {
+                  "t": "お大事に",
+                  "read": "おだいじに",
+                  "vi": "giữ gìn sức khỏe nhé"
+                }
+              ]
+            },
+            {
+              "prompt": "しんぱいしているんです。連絡がないので。",
+              "ul": "しんぱい",
+              "choices": [
+                "心配",
+                "心痛",
+                "心境",
+                "心得"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「心配」(しんぱい) nghĩa là \"lo lắng, lo âu\". Phương án 「心痛」(しんつう) nghĩa là \"đau lòng, sầu muộn\", cùng bộ 「心」nhưng đọc khác (しんつう). Phương án 「心境」(しんきょう) nghĩa là \"tâm trạng, tâm cảnh\". Phương án 「心得」(こころえ) nghĩa là \"hiểu biết, kinh nghiệm\" — tất cả đều dùng 「心」nhưng từ ghép sau thay đổi cả nghĩa lẫn cách đọc.",
+              "glosses": [
+                {
+                  "t": "しんぱい",
+                  "vi": "lo lắng, lo âu (từ được gạch chân)"
+                },
+                {
+                  "t": "しているんです",
+                  "vi": "〜ているんです：sắc thái tâm sự (đang lo)"
+                },
+                {
+                  "t": "連絡",
+                  "read": "れんらく",
+                  "vi": "liên lạc"
+                },
+                {
+                  "t": "がないので",
+                  "vi": "〜ので：vì không có ~ (lý do)"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょうしが悪いんです。昨日から頭が痛いんです。",
+              "ul": "ちょうし",
+              "choices": [
+                "調子",
+                "調整",
+                "調査",
+                "調理"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「調子」(ちょうし) nghĩa là \"tình trạng sức khỏe, điều kiện cơ thể\". Phương án 「調整」(ちょうせい) nghĩa là \"điều chỉnh, chỉnh lý\". Phương án 「調査」(ちょうさ) nghĩa là \"điều tra, khảo sát\". Phương án 「調理」(ちょうり) nghĩa là \"nấu nướng, chế biến thức ăn\" — bốn phương án đều bắt đầu bằng 「調」(ちょう) nhưng chữ sau quyết định nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "ちょうし",
+                  "vi": "trạng thái sức khỏe, form (từ được gạch chân)"
+                },
+                {
+                  "t": "が悪いんです",
+                  "read": "がわるいんです",
+                  "vi": "〜んです：sắc thái tâm sự (~ không ổn)"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "頭が痛いんです",
+                  "read": "あたまがいたいんです",
+                  "vi": "〜んです：sắc thái bộc lộ (bị đau đầu)"
+                }
+              ]
+            },
+            {
+              "prompt": "休んだんですか。実は、大事なようじがあったんです。",
+              "ul": "ようじ",
+              "choices": [
+                "用事",
+                "用意",
+                "用具",
+                "用語"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「用事」(ようじ) nghĩa là \"việc cần làm, việc bận\". Phương án 「用意」(ようい) nghĩa là \"sự chuẩn bị, sẵn sàng\". Phương án 「用具」(ようぐ) nghĩa là \"dụng cụ, công cụ\". Phương án 「用語」(ようご) nghĩa là \"thuật ngữ, từ ngữ chuyên dụng\" — cả bốn đều bắt đầu bằng 「用」(ようじ) nhưng chữ sau hoàn toàn thay đổi nghĩa của từ ghép.",
+              "glosses": [
+                {
+                  "t": "休んだんですか",
+                  "read": "やすんだんですか",
+                  "vi": "〜んですか：sắc thái hỏi tình huống (đã nghỉ à)"
+                },
+                {
+                  "t": "実は",
+                  "read": "じつは",
+                  "vi": "thực ra là"
+                },
+                {
+                  "t": "大事",
+                  "read": "だいじ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "ようじ",
+                  "vi": "việc cần làm, công việc (từ được gạch chân)"
+                },
+                {
+                  "t": "があったんです",
+                  "vi": "〜んです：sắc thái giải thích (đã có ~)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "顔色が悪いですね。＿んですか。",
+              "choices": [
+                "疲れている",
+                "笑っている",
+                "走っている",
+                "起きている"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 疲れている (đang mệt mỏi). Câu hỏi 〜んですか bộc lộ sự quan tâm khi thấy sắc mặt xấu → người hỏi suy đoán đối phương đang mệt. 笑っている (đang cười) mâu thuẫn với sắc mặt xấu — người đang cười thường trông tốt. 走っている (đang chạy) mô tả hành động vận động, không giải thích được nước da xấu. 起きている (đang thức) là trạng thái trung tính, không liên quan đến sắc mặt.",
+              "glosses": [
+                {
+                  "t": "顔色",
+                  "read": "かおいろ",
+                  "vi": "sắc mặt, nước da"
+                },
+                {
+                  "t": "悪い",
+                  "read": "わるい",
+                  "vi": "xấu, tệ"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi tình huống/lý do với sắc thái quan tâm",
+                  "read": "んですか"
+                }
+              ]
+            },
+            {
+              "stem": "実は、昨日から熱があるんです。だから、今日は会社を＿んです。",
+              "choices": [
+                "休む",
+                "始める",
+                "続ける",
+                "移る"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 休む (nghỉ). だから (vì vậy) nối lý do 'có sốt từ hôm qua' → hệ quả hợp lý nhất là nghỉ làm. 始める (bắt đầu) không tạo ra hệ quả logic từ việc bị sốt. 続ける (tiếp tục) mâu thuẫn — đang bệnh thì không nên tiếp tục đi làm mà lại đưa ra như lý do giải thích. 移る (chuyển, lây) không đúng nghĩa trong bối cảnh 'vắng mặt ở công ty'.",
+              "glosses": [
+                {
+                  "t": "実は",
+                  "read": "じつは",
+                  "vi": "thật ra"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích lý do",
+                  "read": "んです"
+                },
+                {
+                  "t": "だから",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "今日は",
+                  "read": "きょうは",
+                  "vi": "hôm nay thì"
+                },
+                {
+                  "t": "があるんです",
+                  "read": "があるんです",
+                  "vi": "có/bị ~ (giải thích lý do, ví dụ 熱がある = bị sốt)"
+                }
+              ]
+            },
+            {
+              "stem": "最近、よく＿んです。ストレスがあるので、心配しています。",
+              "choices": [
+                "眠れない",
+                "遊べない",
+                "飲めない",
+                "話せない"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 眠れない (không ngủ được). Câu sau nêu lý do 'có stress' và đang lo lắng → mất ngủ là triệu chứng phổ biến và tự nhiên nhất liên quan đến stress. 遊べない (không thể chơi) ít liên quan — stress không nhất thiết cản trở vui chơi, và đây không phải lý do đáng lo lắng. 飲めない (không thể uống) không ăn khớp với bối cảnh tâm lý và sức khỏe. 話せない (không thể nói) cũng không có liên kết rõ ràng với stress trong ngữ cảnh lo lắng sức khỏe.",
+              "glosses": [
+                {
+                  "t": "最近",
+                  "read": "さいきん",
+                  "vi": "gần đây"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái tâm sự, bộc lộ cảm xúc",
+                  "read": "んです"
+                },
+                {
+                  "t": "ストレス",
+                  "vi": "căng thẳng, stress"
+                },
+                {
+                  "t": "ので",
+                  "vi": "vì (lý do khách quan)"
+                },
+                {
+                  "t": "心配",
+                  "read": "しんぱい",
+                  "vi": "lo lắng"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường hay"
+                },
+                {
+                  "t": "心配しています",
+                  "read": "しんぱいしています",
+                  "vi": "đang lo lắng"
+                },
+                {
+                  "t": "ストレスがあるので",
+                  "read": "すとれすがあるので",
+                  "vi": "vì có căng thẳng/áp lực"
+                }
+              ]
+            },
+            {
+              "stem": "A「どうして病院に行ったんですか。」B「体の＿が悪いんです。」",
+              "choices": [
+                "調子",
+                "形",
+                "色",
+                "大きさ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 調子 (tình trạng). 体の調子が悪い là cụm cố định nghĩa 'sức khỏe không tốt', phù hợp để giải thích lý do đi bệnh viện. 形 (hình dáng) — 体の形が悪い nghĩa 'dáng người xấu', không phải lý do đi bệnh viện thông thường. 色 (màu sắc) — 体の色が悪い không phải cụm tự nhiên trong tiếng Nhật. 大きさ (kích thước) — 体の大きさが悪い hoàn toàn không tự nhiên và không liên quan đến lý do khám bệnh.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi tình huống/lý do với sắc thái quan tâm",
+                  "read": "んですか"
+                },
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích",
+                  "read": "んです"
+                },
+                {
+                  "t": "行ったんですか",
+                  "read": "いったんですか",
+                  "vi": "đã đi rồi à"
+                },
+                {
+                  "t": "悪いんです",
+                  "read": "わるいんです",
+                  "vi": "không tốt, không ổn"
+                }
+              ]
+            },
+            {
+              "stem": "明日、大切な会議があるんです。だから、今夜は＿んです。",
+              "choices": [
+                "無理できない",
+                "休めない",
+                "眠れない",
+                "遅れられない"
+              ],
+              "answer": 1,
+              "explain": "Đáp án đúng: 休めない (không thể nghỉ). だから nối logic 'ngày mai có họp quan trọng → tối nay không thể nghỉ (phải chuẩn bị)'. 無理できない (không thể cố sức) — logic ngược: trước cuộc họp quan trọng người ta thường phải cố chứ không phải không cố được. 眠れない (không ngủ được) về ngữ cảnh có thể hiểu được, nhưng cặp だから + 今夜 + 明日会議 điển hình gợi đến 'không được nghỉ' hơn là mất ngủ không chủ động. 遅れられない (không thể đến trễ) mô tả ngày mai (明日), không phải tối nay (今夜), nên không ăn khớp thời gian.",
+              "glosses": [
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích lý do",
+                  "read": "んです"
+                },
+                {
+                  "t": "だから",
+                  "vi": "vì vậy"
+                },
+                {
+                  "t": "今夜",
+                  "read": "こんや",
+                  "vi": "tối nay"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会議があるんです",
+                  "read": "かいぎがあるんです",
+                  "vi": "có cuộc họp (giải thích lý do)"
+                }
+              ]
+            },
+            {
+              "stem": "A「元気がないですね。体がだるくて、仕事で＿んですか。」B「ええ、ちょっと疲れているんです。」",
+              "choices": [
+                "疲れている",
+                "怒っている",
+                "喜んでいる",
+                "困っている"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 疲れている (đang mệt mỏi). Câu A hỏi thăm với 「体がだるくて」(người cảm thấy uể oải) → nguyên nhân thể chất rõ ràng → 疲れている là câu trả lời duy nhất khớp hoàn toàn với cả 元気がない lẫn 体がだるい. 怒っている (đang tức giận) — 元気がない không gợi cơn tức giận; cơn giận thường kèm biểu hiện năng động, trái với vẻ uể oải. 喜んでいる (đang vui mừng) — mâu thuẫn trực tiếp với 元気がない và 体がだるい; người đang vui thường trông tràn đầy năng lượng. 困っている (đang gặp khó khăn) — câu gốc nhấn mạnh cảm giác thể chất (だるい = uể oải, nặng nề) chứ không phải tình huống khó xử; 疲れている cụ thể và khớp hơn hẳn.",
+              "glosses": [
+                {
+                  "t": "元気",
+                  "read": "げんき",
+                  "vi": "năng lượng, sức khỏe tốt"
+                },
+                {
+                  "t": "体がだるくて",
+                  "read": "からだがだるくて",
+                  "vi": "người cảm thấy uể oải, nặng nề (te-form: liệt kê nguyên nhân)"
+                },
+                {
+                  "t": "仕事で",
+                  "read": "しごとで",
+                  "vi": "vì công việc"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "sắc thái hỏi tình huống/lý do với giọng quan tâm",
+                  "read": "んですか"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích, tâm sự",
+                  "read": "んです"
+                },
+                {
+                  "t": "疲れているんです",
+                  "read": "つかれているんです",
+                  "vi": "đang mệt mỏi"
+                },
+                {
+                  "t": "ええ",
+                  "read": "ええ",
+                  "vi": "vâng, ừ (đồng ý)"
+                },
+                {
+                  "t": "ちょっと",
+                  "read": "ちょっと",
+                  "vi": "một chút, hơi"
+                },
+                {
+                  "t": "がないですね",
+                  "read": "がないですね",
+                  "vi": "không có ~ nhỉ (元気がない = không có tinh thần/sức sống)"
+                }
+              ]
+            },
+            {
+              "stem": "薬を飲んだんですが、まだ熱が＿んです。",
+              "choices": [
+                "下がらない",
+                "上がらない",
+                "止まらない",
+                "変わらない"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 下がらない (không hạ). 熱が下がる là cụm cố định nghĩa 'hạ sốt' → 下がらない = uống thuốc rồi mà sốt vẫn không hạ, đây là lời than thở tự nhiên. 上がらない (không tăng) — ai cũng không muốn sốt tăng, nhưng câu muốn nói thuốc không có tác dụng hạ sốt, nên 上がらない là chiều hướng sai. 止まらない (không dừng) — 熱が止まる không phải cụm tự nhiên trong tiếng Nhật; người ta nói 熱が下がる/引く chứ không nói 熱が止まる. 変わらない (không thay đổi) — có thể hiểu được nhưng 下がらない cụ thể và tự nhiên hơn khi nói về sốt.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "飲んだ",
+                  "read": "のんだ",
+                  "vi": "đã uống"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn"
+                },
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái than thở, giải thích tình huống",
+                  "read": "んです"
+                }
+              ]
+            },
+            {
+              "stem": "彼女、今日は来ないんですよ。誕生日＿んですから。",
+              "choices": [
+                "なん",
+                "だった",
+                "だから",
+                "でも"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: なん (→ 誕生日なんですから). Danh từ đứng trước んです bắt buộc phải thêm な → 誕生日なんです. なんですから = 'vì (đây) là...' — giải thích lý do với sắc thái thông báo. だった là thể quá khứ thông thường, thiếu hoàn toàn sắc thái giải thích của んです; hơn nữa sinh nhật hôm nay là hiện tại không phải quá khứ. だから là liên từ đứng đầu câu, không thể chen vào giữa danh từ và んです để tạo cụm giải thích. でも (nhưng) là liên từ đối lập, không phù hợp về cú pháp lẫn nghĩa ở vị trí này.",
+              "glosses": [
+                {
+                  "t": "来ない",
+                  "read": "こない",
+                  "vi": "không đến"
+                },
+                {
+                  "t": "んですよ",
+                  "vi": "thông báo thông tin với sắc thái giải thích",
+                  "read": "んですよ"
+                },
+                {
+                  "t": "誕生日",
+                  "read": "たんじょうび",
+                  "vi": "sinh nhật"
+                },
+                {
+                  "t": "〜なんですから",
+                  "vi": "vì là... (danh từ/なAdj + sắc thái giải thích lý do)"
+                },
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy, bạn gái"
+                },
+                {
+                  "t": "今日は",
+                  "read": "きょうは",
+                  "vi": "hôm nay thì"
+                }
+              ]
+            },
+            {
+              "stem": "A「大丈夫ですか。」B「いいえ、ちょっと頭が＿んです。」",
+              "choices": [
+                "痛い",
+                "重い",
+                "固い",
+                "丸い"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 痛い (đau). 頭が痛い là cụm cố định nghĩa 'đau đầu', là cách trả lời tự nhiên nhất khi được hỏi 'bạn có ổn không?'. 重い (nặng) — 頭が重い đúng về cú pháp và đôi khi dùng để nói đầu nặng nề, nhưng ít trực tiếp hơn 痛い khi trả lời câu hỏi thăm sức khỏe; ở N4 cụm chuẩn là 頭が痛い. 固い (cứng) — 頭が固い là thành ngữ nghĩa 'bảo thủ, cứng đầu', không mô tả triệu chứng bệnh. 丸い (tròn) — 頭が丸い mô tả hình dáng cái đầu, không liên quan đến sức khỏe.",
+              "glosses": [
+                {
+                  "t": "大丈夫",
+                  "read": "だいじょうぶ",
+                  "vi": "ổn, không sao"
+                },
+                {
+                  "t": "ちょっと",
+                  "vi": "hơi, một chút"
+                },
+                {
+                  "t": "頭",
+                  "read": "あたま",
+                  "vi": "đầu"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích tình trạng",
+                  "read": "んです"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không (phủ định)"
+                }
+              ]
+            },
+            {
+              "stem": "その店は有名なんですが、値段が＿んです。",
+              "choices": [
+                "高い",
+                "遠い",
+                "古い",
+                "難しい"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 高い (đắt). Câu có cấu trúc tương phản 'nổi tiếng, nhưng...' → 値段が高い (giá đắt) là lý do phàn nàn tự nhiên nhất về một cửa hàng nổi tiếng. 遠い (xa) — mô tả khoảng cách địa lý của cửa hàng, không phải thuộc tính của 値段 (giá); 値段が遠い không phải cụm tự nhiên. 古い (cũ) — 値段が古い không có nghĩa tự nhiên trong tiếng Nhật; giá không 'cũ'. 難しい (khó) — 値段が難しい không phải cách diễn đạt đúng ngữ nghĩa trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "店",
+                  "read": "みせ",
+                  "vi": "cửa hàng"
+                },
+                {
+                  "t": "有名",
+                  "read": "ゆうめい",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "なんですが",
+                  "vi": "なAdj/danh từ + sắc thái giải thích, nhưng...",
+                  "read": "なんですが"
+                },
+                {
+                  "t": "値段",
+                  "read": "ねだん",
+                  "vi": "giá cả"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái tâm sự, giải thích",
+                  "read": "んです"
+                }
+              ]
+            },
+            {
+              "stem": "先生に相談したいんですが、今、＿んですか。",
+              "choices": [
+                "お時間がありますか",
+                "お元気ですか",
+                "お仕事ですか",
+                "おいくつですか"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: お時間がありますか (Thầy/cô có thời gian không?). Câu mở đầu 'muốn hỏi ý kiến thầy/cô' → câu tiếp theo tự nhiên nhất là hỏi xem thầy/cô có thời gian rảnh để nói chuyện không. お元気ですか (Thầy/cô có khỏe không?) — đây là lời chào hỏi xã giao, không phù hợp khi người nói đang cần xin gặp để hỏi tư vấn ngay lúc đó. お仕事ですか (Thầy đang làm việc à?) — ít lịch sự và không trực tiếp xin phép nói chuyện; hơn nữa không kết hợp tự nhiên với 〜んですか trong ngữ cảnh này. おいくつですか (Thầy bao nhiêu tuổi?) — hoàn toàn không liên quan đến việc xin tư vấn.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "相談したい",
+                  "read": "そうだんしたい",
+                  "vi": "muốn hỏi ý kiến, muốn tư vấn"
+                },
+                {
+                  "t": "んですが",
+                  "vi": "sắc thái dẫn dắt, chuẩn bị đề nghị điều gì đó",
+                  "read": "んですが"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi tình huống với sắc thái nhẹ nhàng, lịch sự",
+                  "read": "んですか"
+                },
+                {
+                  "t": "お時間",
+                  "read": "おじかん",
+                  "vi": "thời gian (kính ngữ)"
+                },
+                {
+                  "t": "元気",
+                  "read": "げんき",
+                  "vi": "khỏe, khỏe mạnh"
+                },
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc, việc làm"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có (thời gian/lịch trống)"
+                },
+                {
+                  "t": "いくつ",
+                  "read": "いくつ",
+                  "vi": "mấy, bao nhiêu (tuổi)"
+                },
+                {
+                  "t": "今",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                }
+              ]
+            },
+            {
+              "stem": "体に無理をしてはいけないんです。大事な＿なんですから。",
+              "choices": [
+                "体",
+                "会議",
+                "仕事",
+                "書類"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 体 (cơ thể). Câu khuyên 'không được cố quá sức với cơ thể' → lý do 大事な体なんですから (vì cơ thể là thứ quan trọng) hoàn toàn ăn khớp về nghĩa và cấu trúc. 会議 (cuộc họp) — 大事な会議 đúng nghĩa, nhưng đây sẽ là lý do phải cố sức chứ không phải lý do để bảo vệ bản thân; logic ngược. 仕事 (công việc) — tương tự 会議, 大事な仕事なんですから gợi ý phải cố chứ không nên nghỉ, trái chiều với lời khuyên câu trước. 書類 (tài liệu) — không liên quan đến sức khỏe hay lý do bảo vệ cơ thể.",
+              "glosses": [
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể"
+                },
+                {
+                  "t": "無理をして",
+                  "read": "むりをして",
+                  "vi": "cố quá sức, ép bản thân"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái nhấn mạnh lời khuyên",
+                  "read": "んです"
+                },
+                {
+                  "t": "大事",
+                  "read": "だいじ",
+                  "vi": "quan trọng, quý giá"
+                },
+                {
+                  "t": "なんですから",
+                  "vi": "vì là... (danh từ + sắc thái giải thích lý do)",
+                  "read": "なんですから"
+                },
+                {
+                  "t": "してはいけないんです",
+                  "read": "してはいけないんです",
+                  "vi": "〜てはいけない = không được phép làm ~"
+                }
+              ]
+            },
+            {
+              "stem": "A「なぜ薬を飲まないんですか。」B「この薬は私には＿んです。」",
+              "choices": [
+                "強すぎる",
+                "少なすぎる",
+                "大きすぎる",
+                "多すぎる"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 強すぎる (quá mạnh). Giải thích lý do không uống thuốc → 'thuốc này quá mạnh đối với tôi' là lý do y tế tự nhiên và phổ biến nhất. 少なすぎる (quá ít) — nếu thuốc quá ít thì người ta vẫn muốn uống, không phải lý do từ chối. 大きすぎる (quá lớn) — ý là viên thuốc quá to khó nuốt; về lý thuyết có thể dùng nhưng ít thực tế hơn nhiều so với 強すぎる khi nói về phản ứng của cơ thể với thuốc. 多すぎる (quá nhiều) — ý là lượng thuốc quá nhiều; không tự nhiên bằng 強すぎる và hơn nữa 多い/少ない thường dùng cho số đếm được, không phải dùng để từ chối một loại thuốc.",
+              "glosses": [
+                {
+                  "t": "なぜ",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "飲まない",
+                  "read": "のまない",
+                  "vi": "không uống"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi lý do với sắc thái quan tâm",
+                  "read": "んですか"
+                },
+                {
+                  "t": "には",
+                  "vi": "đối với (tôi)",
+                  "read": "には"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích lý do",
+                  "read": "んです"
+                },
+                {
+                  "t": "私には",
+                  "read": "わたしには",
+                  "vi": "đối với tôi thì"
+                }
+              ]
+            },
+            {
+              "stem": "熱があるんですが、病院に行かなくても＿んですか。",
+              "choices": [
+                "治る",
+                "戻る",
+                "続く",
+                "変わる"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: 治る (khỏi bệnh). Câu hỏi 'dù có sốt mà không đi bệnh viện thì có tự khỏi không?' → 治る là từ duy nhất mang nghĩa 'bệnh tự lành/tự khỏi', phù hợp hoàn toàn. 戻る (trở lại) — 体が戻る đôi khi dùng theo nghĩa 'hồi phục' nhưng không tự nhiên bằng 治る trong câu này; hơn nữa 戻るんですか nghĩa 'sẽ trở lại' gây mơ hồ. 続く (tiếp tục) — nếu điền 続く thì câu hỏi trở thành 'bệnh có kéo dài không?' — chiều nghĩa bi quan, không ăn với ngữ cảnh người đang tự hỏi có thể không đi bệnh viện. 変わる (thay đổi) — 変わるんですか không rõ hướng tốt hay xấu, không tự nhiên khi nói về bệnh tật.",
+              "glosses": [
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt"
+                },
+                {
+                  "t": "んですが",
+                  "vi": "sắc thái dẫn dắt, tâm sự tình huống",
+                  "read": "んですが"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "なくても",
+                  "vi": "dù không...",
+                  "read": "なくても"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi tình huống với sắc thái băn khoăn",
+                  "read": "んですか"
+                },
+                {
+                  "t": "行かなくても",
+                  "read": "いかなくても",
+                  "vi": "dù không đi cũng"
+                },
+                {
+                  "t": "熱があるんですが",
+                  "read": "ねつがあるんですが",
+                  "vi": "tuy có sốt nhưng..."
+                }
+              ]
+            },
+            {
+              "stem": "A「どうして最近、顔色が悪いんですか。」B「それで、先週から病院に通っている＿です。」",
+              "choices": [
+                "ん",
+                "の",
+                "こと",
+                "もの"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng: ん (→ 通っているんです). Câu B giải thích tình huống đang xảy ra để trả lời câu hỏi về sắc mặt → んです là cấu trúc chuẩn để giải thích lý do/tình huống trong hội thoại lịch sự. の — trong văn hội thoại thông thường (非丁寧), 〜のです → 〜の (thân mật, dành cho bạn bè/cấp dưới); trước です trong hội thoại lịch sự giữa người học với người hỏi thăm, ん là dạng chuẩn hơn. こと — danh từ hình thức nghĩa 'sự việc/điều'; 通っていることです nghĩa là '(đó là) việc đang đi...' — sai cấu trúc, không tạo ra 〜んです. もの — danh từ hình thức nghĩa 'thứ/vật'; 通っているものです mang sắc thái khác (thường/quy luật), không phù hợp ngữ cảnh giải thích tình huống cá nhân.",
+              "glosses": [
+                {
+                  "t": "最近",
+                  "read": "さいきん",
+                  "vi": "gần đây"
+                },
+                {
+                  "t": "顔色",
+                  "read": "かおいろ",
+                  "vi": "sắc mặt, nước da"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi lý do với sắc thái quan tâm",
+                  "read": "んですか"
+                },
+                {
+                  "t": "それで",
+                  "vi": "vì vậy, thế nên"
+                },
+                {
+                  "t": "先週",
+                  "read": "せんしゅう",
+                  "vi": "tuần trước"
+                },
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "通っている",
+                  "read": "かよっている",
+                  "vi": "đang đi thường xuyên"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích tình huống",
+                  "read": "んです"
+                },
+                {
+                  "t": "悪いんですか",
+                  "read": "わるいんですか",
+                  "vi": "không tốt à, tệ vậy à"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "顔色が悪いですね。大丈夫ですか。",
+              "choices": [
+                "顔色が悪いですね。元気ですか。",
+                "顔色が悪いですね。病気ですか。",
+                "顔色が悪いですね。疲れましたか。",
+                "顔色が悪いですね。具合はどうですか。"
+              ],
+              "answer": 3,
+              "explain": "Đáp án đúng là 「具合はどうですか」 vì 「具合」 (tình trạng sức khoẻ) kết hợp với 「どうですか」 tạo thành câu hỏi thăm sức khoẻ tổng quát, rất tự nhiên sau khi thấy người kia trông không được khoẻ — gần nghĩa nhất với câu gốc. Phương án A 「元気ですか」 hỏi về sức sống/tinh thần chung chung, không sát cảnh báo vẻ mặt xấu. Phương án B 「病気ですか」 đoán thẳng 'bạn bị bệnh à?' — quá trực tiếp, mang hàm khẳng định. Phương án C 「疲れましたか」 chỉ hỏi về mệt mỏi, thu hẹp phạm vi hơn câu gốc vốn hỏi thăm sức khoẻ nói chung.",
+              "glosses": [
+                {
+                  "t": "顔色",
+                  "read": "かおいろ",
+                  "vi": "sắc mặt"
+                },
+                {
+                  "t": "悪い",
+                  "read": "わるい",
+                  "vi": "xấu, tệ"
+                },
+                {
+                  "t": "大丈夫ですか",
+                  "read": "だいじょうぶですか",
+                  "vi": "có ổn không?"
+                },
+                {
+                  "t": "疲れましたか",
+                  "read": "つかれましたか",
+                  "vi": "đã mệt chưa? (疲れる ở thì quá khứ + ますか)"
+                },
+                {
+                  "t": "具合はどうですか",
+                  "read": "ぐあいはどうですか",
+                  "vi": "tình trạng sức khỏe thế nào? (cách hỏi thăm sức khỏe)"
+                }
+              ]
+            },
+            {
+              "prompt": "実は昨日から熱があるんです。",
+              "choices": [
+                "実は昨日から熱が出ているんです。",
+                "実は昨日から熱が下がったんです。",
+                "実は昨日から熱を測ったんです。",
+                "実は昨日から熱が治ったんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「実は昨日から熱が出ているんです」 vì 「熱が出ている」 (đang bị sốt, sốt đang kéo dài) đồng nghĩa với 「熱がある」 (có sốt) — cùng nói trạng thái sốt đang diễn ra từ hôm qua. Phương án B 「熱が下がった」 nghĩa 'cơn sốt đã hạ' — ngược nghĩa. Phương án C 「熱を測った」 nghĩa 'đã đo thân nhiệt' — chỉ nói hành động đo, không nói đang sốt. Phương án D 「熱が治った」 nghĩa 'sốt đã khỏi' — cũng ngược nghĩa.",
+              "glosses": [
+                {
+                  "t": "実は",
+                  "read": "じつは",
+                  "vi": "thực ra, nói thật"
+                },
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt, nhiệt độ"
+                },
+                {
+                  "t": "熱がある",
+                  "read": "ねつがある",
+                  "vi": "bị sốt (có nhiệt)"
+                },
+                {
+                  "t": "あるんです",
+                  "read": "",
+                  "vi": "〜んです: sắc thái tâm sự/giải thích"
+                },
+                {
+                  "t": "昨日から",
+                  "read": "きのうから",
+                  "vi": "từ hôm qua"
+                },
+                {
+                  "t": "熱が出ているんです",
+                  "read": "ねつがでているんです",
+                  "vi": "đang bị sốt, sốt đang lên (〜ている = đang diễn ra)"
+                },
+                {
+                  "t": "熱が下がったんです",
+                  "read": "ねつがさがったんです",
+                  "vi": "đã hạ sốt (下がる = hạ xuống)"
+                },
+                {
+                  "t": "熱を測ったんです",
+                  "read": "ねつをはかったんです",
+                  "vi": "đã đo (nhiệt độ/sốt) (測る = đo)"
+                }
+              ]
+            },
+            {
+              "prompt": "体の調子が悪いので、今日は会社を休むんです。",
+              "choices": [
+                "体の調子が悪いので、今日は会社を休むつもりなんです。",
+                "体の調子が悪いので、今日は会社に遅れるんです。",
+                "体の調子が悪いので、今日は会社で働くんです。",
+                "体の調子が悪いので、今日は会社に電話するんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「体の調子が悪いので、今日は会社を休むつもりなんです」 vì 「〜つもりなんです」 (có dự định / định sẽ…) diễn đạt ý định nghỉ làm, tương đương câu gốc vốn thông báo ý định đó qua 「〜んです」. Phương án B 「会社に遅れる」 nghĩa 'đến công ty trễ', không phải nghỉ. Phương án C 「会社で働く」 nghĩa 'làm việc ở công ty' — ngược hẳn. Phương án D 「会社に電話する」 nghĩa 'gọi điện cho công ty' — chỉ nói hành động gọi điện, không đồng nhất với việc nghỉ.",
+              "glosses": [
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể"
+                },
+                {
+                  "t": "調子",
+                  "read": "ちょうし",
+                  "vi": "tình trạng (sức khỏe)"
+                },
+                {
+                  "t": "ので",
+                  "read": "",
+                  "vi": "〜ので: vì (lý do lịch sự)"
+                },
+                {
+                  "t": "休むんです",
+                  "read": "やすむんです",
+                  "vi": "〜んです: giải thích lý do nghỉ"
+                },
+                {
+                  "t": "悪いので",
+                  "read": "わるいので",
+                  "vi": "vì (tình trạng) không tốt/tệ"
+                },
+                {
+                  "t": "今日は",
+                  "read": "きょうは",
+                  "vi": "hôm nay thì"
+                },
+                {
+                  "t": "会社を",
+                  "read": "かいしゃを",
+                  "vi": "công ty (nghỉ ở công ty)"
+                },
+                {
+                  "t": "会社に",
+                  "read": "かいしゃに",
+                  "vi": "công ty (đến/tại công ty)"
+                },
+                {
+                  "t": "会社で",
+                  "read": "かいしゃで",
+                  "vi": "công ty (tại công ty)"
+                },
+                {
+                  "t": "休むつもりなんです",
+                  "read": "やすむつもりなんです",
+                  "vi": "〜つもりだ = định/có ý định nghỉ"
+                },
+                {
+                  "t": "会社に遅れるんです",
+                  "read": "かいしゃにおくれるんです",
+                  "vi": "sẽ đến công ty trễ (遅れる = trễ, muộn)"
+                },
+                {
+                  "t": "会社で働くんです",
+                  "read": "かいしゃではたらくんです",
+                  "vi": "làm việc ở công ty (働く = làm việc)"
+                },
+                {
+                  "t": "会社に電話するんです",
+                  "read": "かいしゃにでんわするんです",
+                  "vi": "sẽ gọi điện thoại cho công ty"
+                }
+              ]
+            },
+            {
+              "prompt": "薬を飲んだのに、まだ治らないんです。",
+              "choices": [
+                "薬を飲んだのに、まだよくならないんです。",
+                "薬を飲んだのに、もう治ったんです。",
+                "薬を飲んだのに、また病院に行ったんです。",
+                "薬を飲んだのに、少し楽になったんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「薬を飲んだのに、まだよくならないんです」 vì 「よくならない」 (không trở nên tốt hơn / không khỏi) đồng nghĩa với 「治らない」 (không khỏi bệnh) — cả hai cùng diễn đạt tình trạng chưa hồi phục dù đã uống thuốc. Phương án B 「もう治った」 nghĩa 'đã khỏi rồi' — trái nghĩa. Phương án C 「また病院に行った」 nghĩa 'lại đi bệnh viện' — nói hành động khác, không nói trạng thái bệnh. Phương án D 「少し楽になった」 nghĩa 'đã dễ chịu hơn một chút' — trái chiều với 「治らない」.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "飲んだのに",
+                  "read": "のんだのに",
+                  "vi": "mặc dù đã uống (〜のに: trái với kỳ vọng)"
+                },
+                {
+                  "t": "治らないんです",
+                  "read": "なおらないんです",
+                  "vi": "〜んです: than thở không khỏi bệnh"
+                },
+                {
+                  "t": "病院に",
+                  "read": "びょういんに",
+                  "vi": "đến/ở bệnh viện"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "まだよくならないんです",
+                  "read": "まだよくならないんです",
+                  "vi": "vẫn chưa khá/tốt lên (〜くなる = trở nên ~)"
+                },
+                {
+                  "t": "もう治ったんです",
+                  "read": "もうなおったんです",
+                  "vi": "đã khỏi bệnh rồi (治る = khỏi bệnh)"
+                },
+                {
+                  "t": "少し楽になったんです",
+                  "read": "すこしらくになったんです",
+                  "vi": "đã thấy dễ chịu hơn một chút (〜になる = trở thành)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは今日来ないんですか。用事があるんですか。",
+              "choices": [
+                "田中さんは今日来ないんですか。何かあったんですか。",
+                "田中さんは今日来ないんですか。嫌いなんですか。",
+                "田中さんは今日来ないんですか。知らなかったんですか。",
+                "田中さんは今日来ないんですか。さびしいんですか。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「田中さんは今日来ないんですか。何かあったんですか」 vì 「何かあったんですか」 (có chuyện gì xảy ra không?) là cách diễn đạt tổng quát bao hàm 「用事があるんですか」 (có việc bận không?) — hỏi thăm lý do không đến một cách tự nhiên, gần nghĩa nhất. Phương án B 「嫌いなんですか」 hỏi 'ghét à?' — suy diễn cảm xúc tiêu cực, không liên quan. Phương án C 「知らなかったんですか」 hỏi 'không biết à?' — hỏi về thông tin, không phải lý do vắng mặt. Phương án D 「さびしいんですか」 hỏi 'buồn à?' — nói cảm xúc của người hỏi, lệch ý.",
+              "glosses": [
+                {
+                  "t": "来ないんですか",
+                  "read": "こないんですか",
+                  "vi": "〜んですか: hỏi về tình huống (không đến à?)"
+                },
+                {
+                  "t": "用事",
+                  "read": "ようじ",
+                  "vi": "việc phải làm, công việc bận"
+                },
+                {
+                  "t": "用事があるんですか",
+                  "read": "ようじがあるんですか",
+                  "vi": "〜んですか: hỏi lý do (có việc gì không?)"
+                },
+                {
+                  "t": "田中さんは",
+                  "read": "たなかさんは",
+                  "vi": "anh/chị Tanaka thì"
+                },
+                {
+                  "t": "今日来ないんですか",
+                  "read": "きょうこないんですか",
+                  "vi": "hôm nay không đến à?"
+                },
+                {
+                  "t": "何かあったんですか",
+                  "read": "なにかあったんですか",
+                  "vi": "có chuyện gì xảy ra à?"
+                },
+                {
+                  "t": "嫌いなんですか",
+                  "read": "きらいなんですか",
+                  "vi": "ghét à? (〜なんですか = hỏi xác nhận lý do)"
+                },
+                {
+                  "t": "知らなかったんですか",
+                  "read": "しらなかったんですか",
+                  "vi": "(đã) không biết à?"
+                },
+                {
+                  "t": "さびしいんですか",
+                  "read": "さびしいんですか",
+                  "vi": "buồn/cô đơn à?"
+                }
+              ]
+            },
+            {
+              "prompt": "最近眠れなくて、とても疲れているんです。",
+              "choices": [
+                "最近眠れなくて、かなりくたびれているんです。",
+                "最近眠れなくて、少し元気になったんです。",
+                "最近眠れなくて、体が軽くなったんです。",
+                "最近眠れなくて、ずっと眠っているんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「最近眠れなくて、かなりくたびれているんです」 vì 「くたびれている」 (kiệt sức, mệt lả) là từ đồng nghĩa thông dụng với 「疲れている」 (đang mệt), và 「かなり」 (khá/rất) tương đương 「とても」 (rất). Phương án B 「少し元気になった」 nghĩa 'đã khoẻ lại một chút' — trái nghĩa. Phương án C 「体が軽くなった」 nghĩa 'người nhẹ hơn' — cũng trái chiều với mệt mỏi. Phương án D 「ずっと眠っている」 nghĩa 'cứ ngủ mãi' — mâu thuẫn với 「眠れない」 (không ngủ được).",
+              "glosses": [
+                {
+                  "t": "眠れなくて",
+                  "read": "ねむれなくて",
+                  "vi": "không ngủ được (て-form: liệt kê nguyên nhân)"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất, vô cùng"
+                },
+                {
+                  "t": "疲れているんです",
+                  "read": "つかれているんです",
+                  "vi": "〜んです: giải thích trạng thái mệt mỏi"
+                },
+                {
+                  "t": "最近眠れなくて",
+                  "read": "さいきんねむれなくて",
+                  "vi": "gần đây không ngủ được nên"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "体が",
+                  "read": "からだが",
+                  "vi": "cơ thể, thân thể (thì)"
+                },
+                {
+                  "t": "かなり",
+                  "read": "かなり",
+                  "vi": "khá, khá là"
+                },
+                {
+                  "t": "ずっと",
+                  "read": "ずっと",
+                  "vi": "luôn, mãi, suốt"
+                },
+                {
+                  "t": "かなりくたびれているんです",
+                  "read": "かなりくたびれているんです",
+                  "vi": "khá là mệt mỏi/kiệt sức"
+                },
+                {
+                  "t": "少し元気になったんです",
+                  "read": "すこしげんきになったんです",
+                  "vi": "đã khỏe/tỉnh táo hơn một chút"
+                },
+                {
+                  "t": "体が軽くなったんです",
+                  "read": "からだがかるくなったんです",
+                  "vi": "cơ thể đã trở nên nhẹ nhõm hơn"
+                },
+                {
+                  "t": "ずっと眠っているんです",
+                  "read": "ずっとねむっているんです",
+                  "vi": "ngủ suốt (〜ている = đang tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "prompt": "無理しないでください。体が大切ですから。",
+              "choices": [
+                "無理しないでください。体が大事ですから。",
+                "無理しないでください。体が丈夫ですから。",
+                "無理しないでください。体が強いですから。",
+                "無理しないでください。体が必要ですから。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「無理しないでください。体が大事ですから」 vì 「大事」 (quan trọng, quý trọng) và 「大切」 (quý giá, quan trọng) là cặp từ đồng nghĩa gần như hoàn toàn trong văn nói thông thường. Phương án B 「体が丈夫ですから」 nghĩa 'vì cơ thể khoẻ mạnh' — nói về thể chất, không phải lý do khuyên nghỉ ngơi. Phương án C 「体が強いですから」 nghĩa 'vì cơ thể mạnh' — tương tự B, lệch ý khuyên nhủ. Phương án D 「体が必要ですから」 nghĩa 'vì cơ thể là cần thiết' — cứng nhắc, không tự nhiên trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "無理しないで",
+                  "read": "むりしないで",
+                  "vi": "đừng cố quá sức"
+                },
+                {
+                  "t": "体",
+                  "read": "からだ",
+                  "vi": "cơ thể"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng, cần trân trọng"
+                },
+                {
+                  "t": "から",
+                  "read": "",
+                  "vi": "〜から: vì (lý do)"
+                },
+                {
+                  "t": "ですから",
+                  "read": "ですから",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn, xin hãy"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女は有名な歌手なんだよ。知らなかった？",
+              "choices": [
+                "彼女は有名な歌手なんだよ。聞いていなかった？",
+                "彼女は有名な歌手なんだよ。好きじゃなかった？",
+                "彼女は有名な歌手なんだよ。会ったことある？",
+                "彼女は有名な歌手なんだよ。覚えていた？"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「彼女は有名な歌手なんだよ。聞いていなかった？」 vì 「聞いていなかった？」 (chưa nghe/biết đến à?) là cách diễn đạt gần nghĩa với 「知らなかった？」 (không biết à?) — cả hai đều hỏi xem người nghe có nắm được thông tin đó không. Phương án B 「好きじゃなかった？」 hỏi 'không thích à?' — hỏi về cảm xúc, không phải kiến thức. Phương án C 「会ったことある？」 hỏi 'đã gặp chưa?' — hỏi về kinh nghiệm gặp mặt. Phương án D 「覚えていた？」 hỏi 'có nhớ không?' — ngầm ý đã biết từ trước, không khớp hoàn toàn với 「知らなかった？」.",
+              "glosses": [
+                {
+                  "t": "有名",
+                  "read": "ゆうめい",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "歌手",
+                  "read": "かしゅ",
+                  "vi": "ca sĩ"
+                },
+                {
+                  "t": "なんだよ",
+                  "read": "",
+                  "vi": "〜なんだ: thể thường thân mật của 〜んです (giải thích/tâm sự)"
+                },
+                {
+                  "t": "知らなかった",
+                  "read": "しらなかった",
+                  "vi": "không biết (quá khứ)"
+                },
+                {
+                  "t": "彼女は",
+                  "read": "かのじょは",
+                  "vi": "cô ấy thì"
+                },
+                {
+                  "t": "聞いていなかった",
+                  "read": "きいていなかった",
+                  "vi": "chưa từng nghe (đến) à?"
+                },
+                {
+                  "t": "好きじゃなかった",
+                  "read": "すきじゃなかった",
+                  "vi": "(trước đây) không thích à?"
+                },
+                {
+                  "t": "会ったことある",
+                  "read": "あったことある",
+                  "vi": "〜たことがある = đã từng gặp chưa?"
+                },
+                {
+                  "t": "覚えていた",
+                  "read": "おぼえていた",
+                  "vi": "còn nhớ (đến) không? (〜ている = trạng thái ghi nhớ)"
+                }
+              ]
+            },
+            {
+              "prompt": "心配しないでください。もうすぐ治るんです。",
+              "choices": [
+                "心配しないでください。もうすぐよくなるんです。",
+                "心配しないでください。もうすぐ悪くなるんです。",
+                "心配しないでください。もうすぐ病院に行くんです。",
+                "心配しないでください。もうすぐ薬を買うんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「心配しないでください。もうすぐよくなるんです」 vì 「よくなる」 (trở nên tốt hơn / khỏi bệnh) đồng nghĩa với 「治る」 (khỏi) trong ngữ cảnh bệnh tật. Phương án B 「もうすぐ悪くなる」 nghĩa 'sắp tệ hơn' — ngược nghĩa. Phương án C 「もうすぐ病院に行く」 nghĩa 'sắp đi bệnh viện' — nói hành động, không nói tình trạng hồi phục. Phương án D 「もうすぐ薬を買う」 nghĩa 'sắp mua thuốc' — cũng chỉ nói hành động, không đồng nghĩa với khỏi bệnh.",
+              "glosses": [
+                {
+                  "t": "心配しないでください",
+                  "read": "しんぱいしないでください",
+                  "vi": "xin đừng lo lắng"
+                },
+                {
+                  "t": "もうすぐ",
+                  "read": "",
+                  "vi": "sắp, chẳng bao lâu nữa"
+                },
+                {
+                  "t": "治るんです",
+                  "read": "なおるんです",
+                  "vi": "〜んです: giải thích/trấn an rằng sẽ khỏi"
+                },
+                {
+                  "t": "病院に",
+                  "read": "びょういんに",
+                  "vi": "đến/ở bệnh viện"
+                },
+                {
+                  "t": "薬を",
+                  "read": "くすりを",
+                  "vi": "thuốc (đối tượng)"
+                },
+                {
+                  "t": "もうすぐよくなるんです",
+                  "read": "もうすぐよくなるんです",
+                  "vi": "sắp khá/tốt lên rồi"
+                },
+                {
+                  "t": "もうすぐ悪くなるんです",
+                  "read": "もうすぐわるくなるんです",
+                  "vi": "sắp trở nên xấu/tệ đi"
+                },
+                {
+                  "t": "もうすぐ病院に行くんです",
+                  "read": "もうすぐびょういんにいくんです",
+                  "vi": "sắp/sẽ đi bệnh viện"
+                },
+                {
+                  "t": "もうすぐ薬を買うんです",
+                  "read": "もうすぐくすりをかうんです",
+                  "vi": "sắp/sẽ mua thuốc"
+                }
+              ]
+            },
+            {
+              "prompt": "今日は会議があるんです。だから早く来たんです。",
+              "choices": [
+                "今日は会議があるんです。それで早く来たんです。",
+                "今日は会議があるんです。でも早く来たんです。",
+                "今日は会議があるんです。そして早く来たんです。",
+                "今日は会議があるんです。または早く来たんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「今日は会議があるんです。それで早く来たんです」 vì 「それで」 (vì vậy, do đó) diễn đạt quan hệ nguyên nhân–kết quả giống hệt 「だから」 (vì vậy) — cùng nối lý do và kết quả một cách tự nhiên. Phương án B 「でも」 nghĩa 'nhưng' — diễn đạt tương phản, ngược chiều nhân quả. Phương án C 「そして」 nghĩa 'và rồi' — liệt kê tuần tự, không nhấn mạnh quan hệ nguyên nhân. Phương án D 「または」 nghĩa 'hoặc là' — diễn đạt lựa chọn, hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "会議があるんです",
+                  "read": "かいぎがあるんです",
+                  "vi": "〜んです: giải thích lý do"
+                },
+                {
+                  "t": "だから",
+                  "read": "",
+                  "vi": "vì vậy (kết quả từ lý do trước)"
+                },
+                {
+                  "t": "早く",
+                  "read": "はやく",
+                  "vi": "sớm, nhanh"
+                },
+                {
+                  "t": "今日は",
+                  "read": "きょうは",
+                  "vi": "hôm nay thì"
+                },
+                {
+                  "t": "来たんです",
+                  "read": "きたんです",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "それで",
+                  "read": "それで",
+                  "vi": "それで = vì vậy, do đó (nối tiếp nguyên nhân-kết quả)"
+                },
+                {
+                  "t": "そして",
+                  "read": "そして",
+                  "vi": "そして = và rồi, sau đó (liệt kê/nối tiếp sự việc)"
+                },
+                {
+                  "t": "または",
+                  "read": "または",
+                  "vi": "または = hoặc là (lựa chọn giữa hai vế)"
+                }
+              ]
+            },
+            {
+              "prompt": "誕生日なんです。だからケーキを買ってきたんです。",
+              "choices": [
+                "誕生日なんです。そのためケーキを買ってきたんです。",
+                "誕生日なんです。しかしケーキを買ってきたんです。",
+                "誕生日なんです。ところがケーキを買ってきたんです。",
+                "誕生日なんです。それでもケーキを買ってきたんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「誕生日なんです。そのためケーキを買ってきたんです」 vì 「そのため」 (vì lý do đó, cho mục đích đó) tương đương 「だから」 (vì vậy) trong việc nối nguyên nhân–kết quả — 'vì là sinh nhật nên mua bánh'. Phương án B 「しかし」 nghĩa 'tuy nhiên' — diễn đạt tương phản, không hợp lý. Phương án C 「ところが」 nghĩa 'thế mà / vậy mà' — cũng diễn đạt điều bất ngờ trái chiều. Phương án D 「それでも」 nghĩa 'dù vậy' — hàm ý vượt qua nghịch cảnh, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "誕生日なんです",
+                  "read": "たんじょうびなんです",
+                  "vi": "〜なんです: N+なんです (giải thích đây là sinh nhật)"
+                },
+                {
+                  "t": "だから",
+                  "read": "",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "買ってきたんです",
+                  "read": "かってきたんです",
+                  "vi": "〜んです: giải thích hành động đã làm (đã đi mua về)"
+                },
+                {
+                  "t": "ケーキ",
+                  "read": "ケーキ",
+                  "vi": "bánh kem, bánh ngọt"
+                },
+                {
+                  "t": "そのため",
+                  "read": "そのため",
+                  "vi": "そのため = vì vậy, vì lý do đó (nối nguyên nhân-kết quả)"
+                },
+                {
+                  "t": "しかし",
+                  "read": "しかし",
+                  "vi": "しかし = nhưng, tuy nhiên (nối tương phản)"
+                },
+                {
+                  "t": "ところが",
+                  "read": "ところが",
+                  "vi": "ところが = thế nhưng, vậy mà (tương phản bất ngờ ngoài dự đoán)"
+                },
+                {
+                  "t": "それでも",
+                  "read": "それでも",
+                  "vi": "それでも = dù vậy, dù thế nào vẫn (nhượng bộ)"
+                }
+              ]
+            },
+            {
+              "prompt": "ちょっと頭が痛いんです。少し休んでもいいですか。",
+              "choices": [
+                "ちょっと頭が痛いんです。少し横になってもいいですか。",
+                "ちょっと頭が痛いんです。少し薬を飲んでもいいですか。",
+                "ちょっと頭が痛いんです。少し病院に行ってもいいですか。",
+                "ちょっと頭が痛いんです。少し仕事を続けてもいいですか。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「ちょっと頭が痛いんです。少し横になってもいいですか」 vì 「横になる」 (nằm xuống/nghỉ nằm) là cách thực hiện cụ thể của việc 「休む」 (nghỉ ngơi) khi bị đau đầu — gần nghĩa nhất trong ngữ cảnh. Phương án B 「薬を飲んでもいいですか」 xin phép uống thuốc — hành động khác, không đồng nghĩa với nghỉ. Phương án C 「病院に行ってもいいですか」 xin phép đi bệnh viện — hành động khác và lớn hơn mức 「少し休む」. Phương án D 「仕事を続けてもいいですか」 xin phép tiếp tục làm việc — hoàn toàn ngược lại với nghỉ ngơi.",
+              "glosses": [
+                {
+                  "t": "頭が痛いんです",
+                  "read": "あたまがいたいんです",
+                  "vi": "〜んです: giải thích lý do (đau đầu)"
+                },
+                {
+                  "t": "休んでもいいですか",
+                  "read": "やすんでもいいですか",
+                  "vi": "có thể nghỉ không? (〜てもいいですか: xin phép)"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "薬を",
+                  "read": "くすりを",
+                  "vi": "thuốc (đối tượng)"
+                },
+                {
+                  "t": "病院に",
+                  "read": "びょういんに",
+                  "vi": "đến/ở bệnh viện"
+                },
+                {
+                  "t": "仕事を",
+                  "read": "しごとを",
+                  "vi": "công việc (đối tượng)"
+                },
+                {
+                  "t": "ちょっと",
+                  "read": "ちょっと",
+                  "vi": "một chút, hơi"
+                },
+                {
+                  "t": "少し横になってもいいですか",
+                  "read": "すこしよこになってもいいですか",
+                  "vi": "nằm xuống một chút được không? (〜てもいいですか = xin phép)"
+                },
+                {
+                  "t": "少し薬を飲んでもいいですか",
+                  "read": "すこしくすりをのんでもいいですか",
+                  "vi": "uống thuốc một chút được không?"
+                },
+                {
+                  "t": "少し病院に行ってもいいですか",
+                  "read": "すこしびょういんにいってもいいですか",
+                  "vi": "đi bệnh viện một chút được không?"
+                },
+                {
+                  "t": "少し仕事を続けてもいいですか",
+                  "read": "すこししごとをつづけてもいいですか",
+                  "vi": "tiếp tục công việc một chút được không?"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんはいつも元気ですね。毎日運動しているんですか。",
+              "choices": [
+                "山田さんはいつも元気ですね。毎日体を動かしているんですか。",
+                "山田さんはいつも元気ですね。毎日よく眠っているんですか。",
+                "山田さんはいつも元気ですね。毎日薬を飲んでいるんですか。",
+                "山田さんはいつも元気ですね。毎日病院に行っているんですか。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「山田さんはいつも元気ですね。毎日体を動かしているんですか」 vì 「体を動かす」 (vận động cơ thể / hoạt động thể chất) là cách diễn đạt đồng nghĩa tự nhiên với 「運動する」 (tập thể dục/vận động). Phương án B 「毎日よく眠っている」 hỏi về giấc ngủ — không đồng nghĩa với tập thể dục. Phương án C 「毎日薬を飲んでいる」 hỏi về việc uống thuốc mỗi ngày — khác hoàn toàn. Phương án D 「毎日病院に行っている」 hỏi về việc đến bệnh viện hàng ngày — không liên quan đến tập thể dục.",
+              "glosses": [
+                {
+                  "t": "元気",
+                  "read": "げんき",
+                  "vi": "khỏe mạnh, tràn đầy sức sống"
+                },
+                {
+                  "t": "運動している",
+                  "read": "うんどうしている",
+                  "vi": "đang tập thể dục/vận động"
+                },
+                {
+                  "t": "運動しているんですか",
+                  "read": "うんどうしているんですか",
+                  "vi": "〜んですか: hỏi lý do/tình huống"
+                },
+                {
+                  "t": "山田さんはいつも",
+                  "read": "やまださんはいつも",
+                  "vi": "anh/chị Yamada lúc nào cũng"
+                },
+                {
+                  "t": "体を",
+                  "read": "からだを",
+                  "vi": "cơ thể (đối tượng)"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "hay, thường xuyên"
+                },
+                {
+                  "t": "薬を",
+                  "read": "くすりを",
+                  "vi": "thuốc (đối tượng)"
+                },
+                {
+                  "t": "病院に",
+                  "read": "びょういんに",
+                  "vi": "đến/ở bệnh viện"
+                },
+                {
+                  "t": "毎日運動しているんですか",
+                  "read": "まいにちうんどうしているんですか",
+                  "vi": "ngày nào cũng tập thể dục à"
+                },
+                {
+                  "t": "毎日体を動かしているんですか",
+                  "read": "まいにちからだをうごかしているんですか",
+                  "vi": "có vận động cơ thể mỗi ngày không? (〜ている = duy trì thói quen)"
+                },
+                {
+                  "t": "毎日よく眠っているんですか",
+                  "read": "まいにちよくねむっているんですか",
+                  "vi": "có ngủ ngon mỗi ngày không?"
+                },
+                {
+                  "t": "毎日薬を飲んでいるんですか",
+                  "read": "まいにちくすりをのんでいるんですか",
+                  "vi": "có uống thuốc mỗi ngày không?"
+                }
+              ]
+            },
+            {
+              "prompt": "今日はどうも調子が悪いんです。少し早退してもいいですか。",
+              "choices": [
+                "今日はどうも具合が悪いんです。少し早退してもいいですか。",
+                "今日はどうも機嫌が悪いんです。少し早退してもいいですか。",
+                "今日はどうも天気が悪いんです。少し早退してもいいですか。",
+                "今日はどうも成績が悪いんです。少し早退してもいいですか。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「今日はどうも具合が悪いんです。少し早退してもいいですか」 vì 「具合が悪い」 (tình trạng sức khoẻ không tốt) là từ đồng nghĩa trực tiếp với 「調子が悪い」 (cảm thấy không khoẻ) — cả hai đều nói về tình trạng sức khoẻ không ổn. Phương án B 「機嫌が悪い」 nghĩa 'đang tệ tâm trạng / cáu kỉnh' — nói về cảm xúc, không phải sức khoẻ. Phương án C 「天気が悪い」 nghĩa 'thời tiết xấu' — hoàn toàn khác chủ thể. Phương án D 「成績が悪い」 nghĩa 'kết quả học tập kém' — lệch chủ đề sức khoẻ.",
+              "glosses": [
+                {
+                  "t": "どうも",
+                  "read": "",
+                  "vi": "xem ra, có vẻ (biểu đạt mơ hồ)"
+                },
+                {
+                  "t": "調子が悪いんです",
+                  "read": "ちょうしがわるいんです",
+                  "vi": "〜んです: giải thích tình trạng sức khỏe không tốt"
+                },
+                {
+                  "t": "早退してもいいですか",
+                  "read": "そうたいしてもいいですか",
+                  "vi": "có thể về sớm không? (〜てもいいですか: xin phép)"
+                },
+                {
+                  "t": "今日はどうも",
+                  "read": "きょうはどうも",
+                  "vi": "hôm nay có vẻ, hôm nay sao ấy"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に叱られたんです。だから今日はずっと落ち込んでいるんです。",
+              "choices": [
+                "先生に叱られたんです。それで今日はずっと元気がないんです。",
+                "先生に叱られたんです。でも今日はずっと落ち込んでいるんです。",
+                "先生に叱られたんです。しかし今日はずっと楽しいんです。",
+                "先生に叱られたんです。だから今日はずっとうれしいんです。"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「先生に叱られたんです。それで今日はずっと元気がないんです」 vì 「元気がない」 (không có sinh khí / ủ rũ) là cách diễn đạt đồng nghĩa tự nhiên với 「落ち込んでいる」 (đang chán nản/buồn bã), và 「それで」 giữ quan hệ nguyên nhân–kết quả như 「だから」. Phương án B 「でも今日はずっと落ち込んでいる」 dùng 「でも」 (nhưng) — tạo nghĩa tương phản, không hợp lý vì bị mắng thì đương nhiên buồn. Phương án C 「しかし今日はずっと楽しい」 nghĩa 'nhưng hôm nay vui mãi' — trái nghĩa hoàn toàn. Phương án D 「だから今日はずっとうれしい」 nghĩa 'vì vậy hôm nay vui mừng mãi' — cũng ngược nghĩa với 「落ち込んでいる」.",
+              "glosses": [
+                {
+                  "t": "叱られたんです",
+                  "read": "しかられたんです",
+                  "vi": "〜んです: giải thích việc bị mắng"
+                },
+                {
+                  "t": "だから",
+                  "read": "",
+                  "vi": "vì vậy (dẫn đến kết quả)"
+                },
+                {
+                  "t": "落ち込んでいるんです",
+                  "read": "おちこんでいるんです",
+                  "vi": "〜んです: giải thích trạng thái chán nản/buồn bã"
+                },
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "bởi thầy/cô giáo"
+                },
+                {
+                  "t": "今日はずっと",
+                  "read": "きょうはずっと",
+                  "vi": "hôm nay cứ mãi"
+                },
+                {
+                  "t": "元気がないんです",
+                  "read": "げんきがないんです",
+                  "vi": "không có sức sống/tinh thần"
+                },
+                {
+                  "t": "楽しいんです",
+                  "read": "たのしいんです",
+                  "vi": "thấy vui vẻ"
+                },
+                {
+                  "t": "うれしいんです",
+                  "read": "うれしいんです",
+                  "vi": "vui mừng, hạnh phúc"
+                },
+                {
+                  "t": "それで",
+                  "read": "それで",
+                  "vi": "それで = vì vậy, do đó (nối tiếp nguyên nhân-kết quả)"
+                },
+                {
+                  "t": "しかし",
+                  "read": "しかし",
+                  "vi": "しかし = nhưng, tuy nhiên (nối tương phản)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 (chọn câu dùng từ đúng) chỉ xuất hiện từ N3. Bài 26 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "A：顔色が悪いですね。どうしたんですか。\nB：実は、昨日から熱がある＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "です",
+                "んだ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì vế trước là động từ thể thông thường 「熱がある」 (có sốt) — động từ nối trực tiếp với 「んです」 mà không cần thêm 「な」. Chọn 「なんです」 là sai vì 「な」 chỉ dùng sau danh từ hoặc tính từ đuôi 「な」, không dùng sau động từ. Chọn 「です」 đơn thuần thì mất đi sắc thái giải thích/thanh minh — câu trở thành câu trần thuật bình thường, không hàm ý \"thực ra là vì...\". Chọn 「んだ」 là thể thân mật, không lịch sự trong hội thoại dùng 「です/ます」.",
+              "glosses": [
+                {
+                  "t": "顔色",
+                  "read": "かおいろ",
+                  "vi": "sắc mặt, nước da"
+                },
+                {
+                  "t": "悪い",
+                  "read": "わるい",
+                  "vi": "xấu, không tốt"
+                },
+                {
+                  "t": "どうしたんですか",
+                  "read": "",
+                  "vi": "chuyện gì vậy? (hỏi quan tâm)"
+                },
+                {
+                  "t": "実は",
+                  "read": "じつは",
+                  "vi": "thật ra, thực ra"
+                },
+                {
+                  "t": "熱がある",
+                  "read": "ねつがある",
+                  "vi": "bị sốt"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "sắc thái giải thích/tâm sự tình huống"
+                },
+                {
+                  "t": "昨日から",
+                  "read": "きのうから",
+                  "vi": "từ hôm qua"
+                }
+              ]
+            },
+            {
+              "stem": "A：田中さん、最近元気がないですね。\nB：ちょっと疲れている＿。毎日残業で。",
+              "choices": [
+                "んです",
+                "なんです",
+                "でした",
+                "んですか"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「疲れている」 (đang mệt) là dạng 「động từ て形＋いる」 — đây là động từ, nên nối thẳng vào 「んです」 không cần 「な」. Chọn 「なんです」 sai vì 「な」 không đứng sau động từ. Chọn 「でした」 làm câu thành quá khứ đơn giản, mất hoàn toàn sắc thái đang giải thích lý do cho người hỏi. Chọn 「んですか」 biến câu trả lời thành câu hỏi ngược lại, hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "最近",
+                  "read": "さいきん",
+                  "vi": "gần đây, dạo này"
+                },
+                {
+                  "t": "元気がない",
+                  "read": "げんきがない",
+                  "vi": "thiếu sức sống, trông không khỏe"
+                },
+                {
+                  "t": "疲れている",
+                  "read": "つかれている",
+                  "vi": "đang mệt mỏi"
+                },
+                {
+                  "t": "〜んです",
+                  "read": "",
+                  "vi": "sắc thái giải thích lý do"
+                },
+                {
+                  "t": "残業",
+                  "read": "ざんぎょう",
+                  "vi": "làm thêm giờ (残業)"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "最近元気がないですね",
+                  "read": "さいきんげんきがないですね",
+                  "vi": "dạo này trông không khỏe nhỉ"
+                },
+                {
+                  "t": "毎日残業で",
+                  "read": "まいにちざんぎょうで",
+                  "vi": "ngày nào cũng làm thêm giờ"
+                },
+                {
+                  "t": "ちょっと",
+                  "read": "ちょっと",
+                  "vi": "một chút, hơi"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうして会社を休んだんですか。\nB：体の調子が悪かった＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "です",
+                "ですか"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「悪かった」 là tính từ đuôi 「い」 ở thể quá khứ thông thường — tính từ loại này nối trực tiếp với 「んです」 mà không cần thêm 「な」. Chọn 「なんです」 sai vì 「な」 chỉ dùng sau danh từ/tính từ đuôi 「な」 ở dạng nguyên thể, không dùng sau tính từ 「い」 đã chia quá khứ. Chọn 「です」 thì mất sắc thái giải thích lý do tại sao nghỉ làm. Chọn 「ですか」 biến câu trả lời thành câu hỏi, hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "休んだ",
+                  "read": "やすんだ",
+                  "vi": "đã nghỉ"
+                },
+                {
+                  "t": "体の調子",
+                  "read": "からだのちょうし",
+                  "vi": "tình trạng sức khỏe cơ thể"
+                },
+                {
+                  "t": "悪かった",
+                  "read": "わるかった",
+                  "vi": "đã không tốt (quá khứ)"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "sắc thái giải thích"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            },
+            {
+              "stem": "A：鈴木さん、どこか具合が悪いんですか。\nB：ええ、実は風邪＿。だから薬を飲んでいます。",
+              "choices": [
+                "なんです",
+                "んです",
+                "のです",
+                "だんです"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「なんです」 vì 「風邪」 (bệnh cảm) là danh từ, và quy tắc bắt buộc là danh từ phải thêm 「な」 trước 「んです」, thành 「風邪なんです」. Chọn 「んです」 sai vì nếu nối thẳng danh từ với 「んです」 mà không có 「な」 thì sai ngữ pháp. Chọn 「のです」 cũng mang nghĩa giải thích tương tự nhưng kém tự nhiên hơn trong hội thoại khẩu ngữ so với 「なんです」. Chọn 「だんです」 sai về cấu trúc ngữ pháp — không tồn tại mẫu này trong tiếng Nhật chuẩn.",
+              "glosses": [
+                {
+                  "t": "具合が悪い",
+                  "read": "ぐあいがわるい",
+                  "vi": "cảm thấy không khỏe"
+                },
+                {
+                  "t": "風邪",
+                  "read": "かぜ",
+                  "vi": "cảm cúm"
+                },
+                {
+                  "t": "〜なんです",
+                  "read": "",
+                  "vi": "sắc thái giải thích sau danh từ/なAdj"
+                },
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "飲んでいます",
+                  "read": "のんでいます",
+                  "vi": "đang uống"
+                },
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "実は",
+                  "read": "じつは",
+                  "vi": "thật ra thì"
+                },
+                {
+                  "t": "どこか",
+                  "read": "どこか",
+                  "vi": "ở đâu đó, chỗ nào đó"
+                },
+                {
+                  "t": "ええ",
+                  "read": "ええ",
+                  "vi": "vâng, ừ"
+                },
+                {
+                  "t": "だから",
+                  "read": "だから",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "んですか",
+                  "read": "んですか",
+                  "vi": "〜んですか = có phải là ~ không? (hỏi xác nhận lý do)"
+                }
+              ]
+            },
+            {
+              "stem": "A：山田さん、顔色が悪いですよ。大丈夫ですか。\nB：昨日から眠れなくて、ちょっと大変＿。",
+              "choices": [
+                "なんです",
+                "んです",
+                "です",
+                "んですか"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「なんです」 vì 「大変」 (vất vả, khó khăn) là tính từ đuôi 「な」, và tính từ loại này khi đứng trước 「んです」 bắt buộc phải thêm 「な」 ở giữa, thành 「大変なんです」. Chọn 「んです」 sai vì bỏ qua 「な」 bắt buộc sau tính từ đuôi 「な」. Chọn 「です」 thuần túy thì câu chỉ là nhận xét bình thường, mất đi sắc thái đang thanh minh/giải thích hoàn cảnh. Chọn 「んですか」 biến câu thành câu hỏi trong khi B đang trả lời.",
+              "glosses": [
+                {
+                  "t": "顔色",
+                  "read": "かおいろ",
+                  "vi": "sắc mặt"
+                },
+                {
+                  "t": "大丈夫",
+                  "read": "だいじょうぶ",
+                  "vi": "ổn không, không sao không"
+                },
+                {
+                  "t": "眠れなくて",
+                  "read": "ねむれなくて",
+                  "vi": "không thể ngủ được (dẫn lý do)"
+                },
+                {
+                  "t": "大変",
+                  "read": "たいへん",
+                  "vi": "khổ sở, vất vả (なAdj)"
+                },
+                {
+                  "t": "〜なんです",
+                  "read": "",
+                  "vi": "sắc thái giải thích sau なAdj"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "悪いですよ",
+                  "read": "わるいですよ",
+                  "vi": "trông không tốt đấy"
+                },
+                {
+                  "t": "昨日から",
+                  "read": "きのうから",
+                  "vi": "từ hôm qua"
+                },
+                {
+                  "t": "ちょっと",
+                  "read": "ちょっと",
+                  "vi": "một chút, hơi"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうして病院へ行ったんですか。\nB：先週から頭が痛くて、心配だった＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "でした",
+                "んだ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「心配だった」 là tính từ đuôi 「な」 ở thể quá khứ thông thường (「心配だ」→「心配だった」) — dạng quá khứ này nối trực tiếp với 「んです」. Chọn 「なんです」 sai vì 「な」 chỉ thêm khi tính từ 「な」 ở dạng nguyên thể (「心配な」), không thêm khi đã ở dạng quá khứ 「だった」. Chọn 「でした」 làm câu thành quá khứ thuần túy, mất sắc thái giải thích lý do đi bệnh viện. Chọn 「んだ」 là thể thân mật, không phù hợp trong hội thoại lịch sự.",
+              "glosses": [
+                {
+                  "t": "病院",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "先週",
+                  "read": "せんしゅう",
+                  "vi": "tuần trước"
+                },
+                {
+                  "t": "頭が痛くて",
+                  "read": "あたまがいたくて",
+                  "vi": "đầu đau (dẫn lý do)"
+                },
+                {
+                  "t": "心配だった",
+                  "read": "しんぱいだった",
+                  "vi": "đã lo lắng (quá khứ なAdj)"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "sắc thái giải thích/bộc lộ lý do"
+                },
+                {
+                  "t": "行ったんですか",
+                  "read": "いったんですか",
+                  "vi": "đã đi rồi à"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            },
+            {
+              "stem": "A：田中さん、今日は大事な会議があります。\nB：すみません。実は今日は体の具合が悪くて、無理＿。",
+              "choices": [
+                "なんです",
+                "んです",
+                "のです",
+                "です"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「なんです」 vì 「無理」 (không thể làm được, quá sức) là danh từ trong tiếng Nhật, và danh từ bắt buộc phải thêm 「な」 trước 「んです」, thành 「無理なんです」. Chọn 「んです」 sai vì nối thẳng danh từ với 「んです」 không có 「な」 là sai ngữ pháp. Chọn 「のです」 tuy cùng mang nghĩa giải thích nhưng ít tự nhiên hơn trong hội thoại khẩu ngữ. Chọn 「です」 đơn giản thì mất sắc thái đang xin lỗi và giải thích lý do, câu nghe có vẻ cộc lốc.",
+              "glosses": [
+                {
+                  "t": "大事",
+                  "read": "だいじ",
+                  "vi": "quan trọng (なAdj)"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "体の具合",
+                  "read": "からだのぐあい",
+                  "vi": "tình trạng cơ thể"
+                },
+                {
+                  "t": "無理",
+                  "read": "むり",
+                  "vi": "không thể, vô lý (名詞/なAdj)"
+                },
+                {
+                  "t": "〜なんです",
+                  "read": "",
+                  "vi": "sắc thái giải thích sau danh từ"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "今日は",
+                  "read": "きょうは",
+                  "vi": "hôm nay thì"
+                },
+                {
+                  "t": "実は",
+                  "read": "じつは",
+                  "vi": "thật ra thì"
+                },
+                {
+                  "t": "悪くて",
+                  "read": "わるくて",
+                  "vi": "không tốt, nên..."
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "会議があります",
+                  "read": "かいぎがあります",
+                  "vi": "có cuộc họp/lịch trình"
+                }
+              ]
+            },
+            {
+              "stem": "A：お母さん、どうして薬を飲んでいるんですか。\nB：熱がなかなか治らなくて、困っている＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "ました",
+                "んですか"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「困っている」 (đang gặp khó khăn) là động từ dạng 「て形＋いる」, nối trực tiếp với 「んです」 không cần 「な」. Chọn 「なんです」 sai vì 「な」 không dùng sau động từ. Chọn 「ました」 là thể quá khứ lịch sự đơn thuần, không có sắc thái giải thích và làm mất đi ý nghĩa đang tiếp diễn của hành động. Chọn 「んですか」 biến câu trả lời thành câu hỏi ngược lại, sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt"
+                },
+                {
+                  "t": "なかなか治らなくて",
+                  "read": "なかなかなおらなくて",
+                  "vi": "mãi không, không chịu..."
+                },
+                {
+                  "t": "治らなくて",
+                  "read": "なおらなくて",
+                  "vi": "không khỏi được (dẫn lý do)"
+                },
+                {
+                  "t": "困っている",
+                  "read": "こまっている",
+                  "vi": "đang khó khăn, đang khổ sở"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "sắc thái giải thích lý do"
+                },
+                {
+                  "t": "お母さん",
+                  "read": "おかあさん",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "飲んでいるんですか",
+                  "read": "のんでいるんですか",
+                  "vi": "đang uống à"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうして早退するんですか。\nB：子どもが熱を出して、学校から連絡があった＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "ですか",
+                "でした"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「連絡があった」 (đã có liên lạc) là động từ thể quá khứ thông thường, nối trực tiếp với 「んです」 mà không cần 「な」. Chọn 「なんです」 sai vì 「な」 không dùng sau động từ dù là thể quá khứ hay hiện tại. Chọn 「ですか」 biến câu thành câu hỏi trong khi B đang giải thích lý do về sớm. Chọn 「でした」 chỉ là câu trần thuật quá khứ, không mang sắc thái giải thích/thanh minh cần thiết.",
+              "glosses": [
+                {
+                  "t": "早退する",
+                  "read": "そうたいする",
+                  "vi": "về sớm (trước giờ)"
+                },
+                {
+                  "t": "熱を出して",
+                  "read": "ねつをだして",
+                  "vi": "bị sốt (dẫn lý do)"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "連絡があった",
+                  "read": "れんらくがあった",
+                  "vi": "đã có liên lạc/thông báo"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "sắc thái giải thích/bộc lộ"
+                },
+                {
+                  "t": "子どもが",
+                  "read": "こどもが",
+                  "vi": "con (của tôi)"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            },
+            {
+              "stem": "A：田中さん、最近よく病院へ行っていますね。\nB：ええ、定期検査＿。半年に一度行くことにしているんです。",
+              "choices": [
+                "なんです",
+                "んです",
+                "のです",
+                "です"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「なんです」 vì 「定期検査」 (khám định kỳ) là danh từ, và danh từ bắt buộc phải có 「な」 trước 「んです」, thành 「定期検査なんです」. Chọn 「んです」 sai vì nối thẳng danh từ với 「んです」 không qua 「な」 là sai cấu trúc ngữ pháp. Chọn 「のです」 cũng có nghĩa giải thích tương tự nhưng ít tự nhiên trong khẩu ngữ hàng ngày. Chọn 「です」 đơn giản mất đi sắc thái đang thanh minh tại sao hay đi bệnh viện.",
+              "glosses": [
+                {
+                  "t": "定期検査",
+                  "read": "ていきけんさ",
+                  "vi": "kiểm tra định kỳ"
+                },
+                {
+                  "t": "〜なんです",
+                  "read": "",
+                  "vi": "sắc thái giải thích sau danh từ"
+                },
+                {
+                  "t": "半年に一度",
+                  "read": "はんとしにいちど",
+                  "vi": "nửa năm một lần"
+                },
+                {
+                  "t": "ことにしている",
+                  "read": "ことにしている",
+                  "vi": "đã quyết định làm... (thói quen có ý thức)"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "最近よく",
+                  "read": "さいきんよく",
+                  "vi": "dạo gần đây thường"
+                },
+                {
+                  "t": "病院へ",
+                  "read": "びょういんへ",
+                  "vi": "đến bệnh viện"
+                },
+                {
+                  "t": "行っていますね",
+                  "read": "いっていますね",
+                  "vi": "đang đi đấy nhỉ"
+                },
+                {
+                  "t": "一度行くことにしているんです",
+                  "read": "いちどいくことにしているんです",
+                  "vi": "đã quyết định cứ đi một lần"
+                },
+                {
+                  "t": "ええ",
+                  "read": "ええ",
+                  "vi": "vâng"
+                }
+              ]
+            },
+            {
+              "stem": "A：鈴木さん、今日は顔色がいいですね。\nB：昨日早く寝たので、今日はよく眠れた＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "ですか",
+                "でしょう"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「眠れた」 (đã ngủ được) là động từ thể quá khứ thông thường, nối trực tiếp với 「んです」 để giải thích lý do/kết quả. Chọn 「なんです」 sai vì 「な」 không dùng sau động từ. Chọn 「ですか」 biến câu thành câu hỏi trong khi B đang chia sẻ lý do trông tươi tỉnh hơn. Chọn 「でしょう」 mang nghĩa phỏng đoán hoặc đồng thuận, không phải giải thích thực tế, không phù hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "顔色がいい",
+                  "read": "かおいろがいい",
+                  "vi": "sắc mặt tốt, trông khỏe"
+                },
+                {
+                  "t": "早く寝た",
+                  "read": "はやくねた",
+                  "vi": "đã ngủ sớm"
+                },
+                {
+                  "t": "ので",
+                  "read": "ので",
+                  "vi": "vì... nên... (lý do)"
+                },
+                {
+                  "t": "眠れた",
+                  "read": "ねむれた",
+                  "vi": "đã ngủ được"
+                },
+                {
+                  "t": "〜んです",
+                  "read": "",
+                  "vi": "sắc thái giải thích/tâm sự"
+                },
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "今日は",
+                  "read": "きょうは",
+                  "vi": "hôm nay thì"
+                },
+                {
+                  "t": "昨日早く",
+                  "read": "きのうはやく",
+                  "vi": "hôm qua sớm"
+                },
+                {
+                  "t": "今日はよく",
+                  "read": "きょうはよく",
+                  "vi": "hôm nay thì ngủ được ngon"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうしたんですか。急いでいますね。\nB：大切な会議が5時から＿。だから急いでいます。",
+              "choices": [
+                "あるんです",
+                "あるなんです",
+                "あるです",
+                "あるんですか"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「あるんです」 vì 「ある」 (có) là động từ, nối trực tiếp với 「んです」 thành 「あるんです」. Chọn 「あるなんです」 sai vì thêm 「な」 sau động từ là sai ngữ pháp — 「な」 chỉ dùng sau danh từ hoặc tính từ đuôi 「な」 ở dạng nguyên thể. Chọn 「あるです」 là sai ngữ pháp nghiêm trọng vì không thể nối trực tiếp động từ thể thông thường với 「です」. Chọn 「あるんですか」 biến câu thành câu hỏi trong khi B đang giải thích lý do vội vàng.",
+              "glosses": [
+                {
+                  "t": "急いでいます",
+                  "read": "いそいでいます",
+                  "vi": "đang vội"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "sắc thái giải thích lý do"
+                },
+                {
+                  "t": "だから",
+                  "read": "",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "5時から",
+                  "read": "ごじから",
+                  "vi": "từ 5 giờ"
+                },
+                {
+                  "t": "どうしたんですか",
+                  "read": "どうしたんですか",
+                  "vi": "có chuyện gì vậy? (hỏi thăm tình huống)"
+                }
+              ]
+            },
+            {
+              "stem": "A：山田さん、最近よく眠れていますか。\nB：いいえ、実はストレスで眠れない日が続いている＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "でした",
+                "んだ"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「続いている」 (đang tiếp diễn) là động từ dạng 「て形＋いる」, nối trực tiếp với 「んです」 không cần 「な」. Chọn 「なんです」 sai vì 「な」 không bao giờ đứng sau động từ. Chọn 「でした」 là quá khứ đơn thuần, không còn mang nghĩa tiếp diễn đến hiện tại và mất sắc thái đang tâm sự giải thích. Chọn 「んだ」 là thể thân mật, không lịch sự trong hội thoại dùng 「です/ます」.",
+              "glosses": [
+                {
+                  "t": "眠れていますか",
+                  "read": "ねむれていますか",
+                  "vi": "đang ngủ được không?"
+                },
+                {
+                  "t": "ストレス",
+                  "read": "",
+                  "vi": "căng thẳng (stress)"
+                },
+                {
+                  "t": "眠れない",
+                  "read": "ねむれない",
+                  "vi": "không thể ngủ được"
+                },
+                {
+                  "t": "続いている",
+                  "read": "つづいている",
+                  "vi": "đang tiếp diễn, liên tục"
+                },
+                {
+                  "t": "〜んです",
+                  "read": "",
+                  "vi": "sắc thái giải thích/tâm sự"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "最近よく",
+                  "read": "さいきんよく",
+                  "vi": "dạo gần đây thường"
+                },
+                {
+                  "t": "実はストレスで",
+                  "read": "じつはストレスで",
+                  "vi": "thật ra là vì stress"
+                },
+                {
+                  "t": "日が",
+                  "read": "ひが",
+                  "vi": "ngày mà..."
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうして昨日の飲み会に来なかったんですか。\nB：体の調子が悪くて、大事を取って休んだ＿。",
+              "choices": [
+                "んです",
+                "なんです",
+                "のでした",
+                "んですか"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「んです」 vì 「休んだ」 (đã nghỉ) là động từ thể quá khứ thông thường, nối trực tiếp với 「んです」 để giải thích lý do không đến buổi nhậu. Chọn 「なんです」 sai vì 「な」 không đứng sau động từ. Chọn 「のでした」 nghe rất cứng nhắc và văn viết, không tự nhiên trong hội thoại hàng ngày. Chọn 「んですか」 biến câu trả lời thành câu hỏi ngược lại, sai hoàn toàn ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "飲み会",
+                  "read": "のみかい",
+                  "vi": "buổi nhậu, tiệc uống"
+                },
+                {
+                  "t": "体の調子が悪くて",
+                  "read": "からだのちょうしがわるくて",
+                  "vi": "cơ thể không khỏe (dẫn lý do)"
+                },
+                {
+                  "t": "大事を取って",
+                  "read": "だいじをとって",
+                  "vi": "cẩn thận giữ gìn sức khỏe"
+                },
+                {
+                  "t": "休んだ",
+                  "read": "やすんだ",
+                  "vi": "đã nghỉ"
+                },
+                {
+                  "t": "んです",
+                  "read": "んです",
+                  "vi": "sắc thái giải thích lý do"
+                },
+                {
+                  "t": "昨日の",
+                  "read": "きのうの",
+                  "vi": "của hôm qua"
+                },
+                {
+                  "t": "来なかったんですか",
+                  "read": "こなかったんですか",
+                  "vi": "đã không đến à"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                }
+              ]
+            },
+            {
+              "stem": "A：田中さん、それで結局病院へ行ったんですか。\nB：はい、医者に「無理は体に悪い」と言われて、入院が必要＿。",
+              "choices": [
+                "なんです",
+                "んです",
+                "のでした",
+                "だんです"
+              ],
+              "answer": 0,
+              "explain": "Đáp án đúng là 「なんです」 vì 「必要」 (cần thiết) là danh từ trong tiếng Nhật (không phải tính từ đuôi 「い」), và danh từ bắt buộc phải thêm 「な」 trước 「んです」, thành 「必要なんです」. Chọn 「んです」 sai vì nối thẳng danh từ với 「んです」 không qua 「な」 là sai ngữ pháp. Chọn 「のでした」 nghe rất văn viết và cứng nhắc, không phù hợp trong hội thoại tự nhiên. Chọn 「だんです」 không tồn tại trong tiếng Nhật chuẩn — đây là cấu trúc sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "結局",
+                  "read": "けっきょく",
+                  "vi": "rốt cuộc, cuối cùng"
+                },
+                {
+                  "t": "無理は体に悪い",
+                  "read": "むりはからだにわるい",
+                  "vi": "cố quá thì hại sức khỏe"
+                },
+                {
+                  "t": "入院",
+                  "read": "にゅういん",
+                  "vi": "nhập viện"
+                },
+                {
+                  "t": "必要",
+                  "read": "ひつよう",
+                  "vi": "cần thiết (名詞/なAdj)"
+                },
+                {
+                  "t": "〜なんです",
+                  "read": "",
+                  "vi": "sắc thái giải thích sau danh từ/なAdj"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "結局病院へ",
+                  "read": "けっきょくびょういんへ",
+                  "vi": "rốt cuộc đến bệnh viện"
+                },
+                {
+                  "t": "行ったんですか",
+                  "read": "いったんですか",
+                  "vi": "đã đi rồi à"
+                },
+                {
+                  "t": "医者に",
+                  "read": "いしゃに",
+                  "vi": "bởi bác sĩ"
+                },
+                {
+                  "t": "言われて",
+                  "read": "いわれて",
+                  "vi": "bị nói rằng..."
+                },
+                {
+                  "t": "それで",
+                  "read": "それで",
+                  "vi": "vì vậy"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "実は",
+                "んです。"
+              ],
+              "pieces": [
+                "頭が",
+                "痛くて",
+                "会社を",
+                "休んだ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": 2,
+              "explain": "Câu đúng: 実は頭が★痛くて会社を休んだんです。Thứ tự: 頭が(0)→痛くて(1)→会社を(2)→休んだ(3). 痛くて là くて-form của い-adj 痛い, dùng nối hai vế (đau đầu → nghỉ làm). 休んだ là thể thường quá khứ trước んです. ★=痛くて ở ô 3.",
+              "glosses": [
+                {
+                  "t": "実は",
+                  "read": "じつは",
+                  "vi": "thực ra là"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích / tâm sự"
+                },
+                {
+                  "t": "頭が",
+                  "read": "あたまが",
+                  "vi": "đầu (chủ ngữ)"
+                },
+                {
+                  "t": "痛くて",
+                  "read": "いたくて",
+                  "vi": "đau và... (くて-form nối vế)"
+                },
+                {
+                  "t": "会社を",
+                  "read": "かいしゃを",
+                  "vi": "công ty (tân ngữ)"
+                },
+                {
+                  "t": "休んだ",
+                  "read": "やすんだ",
+                  "vi": "đã nghỉ (thể thường quá khứ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "どうして",
+                "んですか。"
+              ],
+              "pieces": [
+                "先週",
+                "急に",
+                "会社を",
+                "休んだ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": 2,
+              "explain": "Câu đúng: どうして★先週急に会社を休んだんですか。Thứ tự: 先週(0)→急に(1)→会社を(2)→休んだ(3). 先週 (tuần trước) là trạng từ thời gian đứng đầu, 急に (đột ngột) bổ nghĩa hành động, 休んだ là thể thường quá khứ. ★=先週 ở ô 2.",
+              "glosses": [
+                {
+                  "t": "どうして",
+                  "vi": "tại sao, vì sao"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi lý do / tình huống với sắc thái quan tâm"
+                },
+                {
+                  "t": "先週",
+                  "read": "せんしゅう",
+                  "vi": "tuần trước (trạng từ thời gian)"
+                },
+                {
+                  "t": "急に",
+                  "read": "きゅうに",
+                  "vi": "đột ngột"
+                },
+                {
+                  "t": "会社を",
+                  "read": "かいしゃを",
+                  "vi": "công ty (tân ngữ của 休む)"
+                },
+                {
+                  "t": "休んだ",
+                  "read": "やすんだ",
+                  "vi": "đã nghỉ (thể thường quá khứ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "顔色が悪いですね。",
+                "んですか。"
+              ],
+              "pieces": [
+                "体の",
+                "具合が",
+                "少し",
+                "悪い"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": 2,
+              "explain": "Câu đúng: 顔色が悪いですね。★体の具合が少し悪いんですか。Thứ tự: 体の(0)→具合が(1)→少し(2)→悪い(3). 体の具合が = tình trạng cơ thể (chủ ngữ), 少し bổ nghĩa mức độ, 悪い là い-adj thể thường. ★=体の ở ô 2.",
+              "glosses": [
+                {
+                  "t": "顔色が悪いですね",
+                  "read": "かおいろがわるいですね",
+                  "vi": "trông sắc mặt không tốt nhỉ"
+                },
+                {
+                  "t": "悪い",
+                  "read": "わるい",
+                  "vi": "xấu, không tốt (い-adj thể thường)"
+                },
+                {
+                  "t": "んですか",
+                  "vi": "hỏi tình huống / lý do (quan tâm)"
+                },
+                {
+                  "t": "体の",
+                  "read": "からだの",
+                  "vi": "của cơ thể"
+                },
+                {
+                  "t": "具合が",
+                  "read": "ぐあいが",
+                  "vi": "tình trạng sức khỏe (chủ ngữ)"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút (bổ nghĩa mức độ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "薬を飲んだのに、",
+                "んです。"
+              ],
+              "pieces": [
+                "まだ",
+                "熱が",
+                "全然",
+                "下がらない"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": 2,
+              "explain": "Câu đúng: 薬を飲んだのに、まだ★熱が全然下がらないんです。Thứ tự: まだ(0)→熱が(1)→全然(2)→下がらない(3). のに = mặc dù... nhưng (tương phản). まだ (vẫn còn) và 全然 (hoàn toàn không) cùng nhấn mạnh sốt chưa hạ. 下がらない là thể phủ định thường. ★=熱が ở ô 3.",
+              "glosses": [
+                {
+                  "t": "薬を飲んだのに",
+                  "read": "くすりをのんだのに",
+                  "vi": "mặc dù đã uống thuốc (tương phản)"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích / tâm sự"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn"
+                },
+                {
+                  "t": "熱が",
+                  "read": "ねつが",
+                  "vi": "sốt (chủ ngữ)"
+                },
+                {
+                  "t": "全然",
+                  "read": "ぜんぜん",
+                  "vi": "hoàn toàn không (bổ nghĩa phủ định)"
+                },
+                {
+                  "t": "下がらない",
+                  "read": "さがらない",
+                  "vi": "không hạ (thể phủ định thường)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "田中さんは",
+                "んです。"
+              ],
+              "pieces": [
+                "まだ",
+                "大学の",
+                "学生",
+                "な"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": 2,
+              "explain": "Câu đúng: 田中さんは★まだ大学の学生なんです。Thứ tự: まだ(0)→大学の(1)→学生(2)→な(3). まだ (vẫn còn) đứng đầu nhấn mạnh Tanaka vẫn là sinh viên. Danh từ bắt buộc dùng な trước んです (N+なんです). ★=まだ ở ô 2.",
+              "glosses": [
+                {
+                  "t": "田中さんは",
+                  "read": "たなかさんは",
+                  "vi": "Tanaka-san (chủ đề)"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn"
+                },
+                {
+                  "t": "大学の",
+                  "read": "だいがくの",
+                  "vi": "của đại học (bổ nghĩa cho 学生)"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "sinh viên"
+                },
+                {
+                  "t": "な",
+                  "vi": "liên kết danh từ với んです (N+なんです)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "昨日",
+                "んですよ。"
+              ],
+              "pieces": [
+                "とても",
+                "大切な",
+                "会議が",
+                "あった"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "explain": "Câu đúng: 昨日とても★大切な会議があったんですよ。Thứ tự: とても(0) → 大切な(1) → 会議が(2) → あった(3). とても bổ nghĩa cho 大切な, 大切な修飾会議が (cuộc họp rất quan trọng), あった là thể thường quá khứ của ある, nối んですよ. Nếu để 会議が trước 大切な thì phá vỡ cấu trúc な-adj修飾名詞. ★ = 大切な ở ô 3.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "んですよ",
+                  "vi": "sắc thái giải thích, nhấn mạnh thông tin"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "大切な",
+                  "read": "たいせつな",
+                  "vi": "quan trọng (な-adj bổ nghĩa danh từ)"
+                },
+                {
+                  "t": "会議が",
+                  "read": "かいぎが",
+                  "vi": "cuộc họp (chủ ngữ)"
+                },
+                {
+                  "t": "あった",
+                  "vi": "đã có (thể thường quá khứ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "最近",
+                "んです。"
+              ],
+              "pieces": [
+                "ストレスで",
+                "夜も",
+                "よく",
+                "眠れない"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": 2,
+              "explain": "Câu đúng: 最近★ストレスで夜もよく眠れないんです。Thứ tự: ストレスで(0)→夜も(1)→よく(2)→眠れない(3). ストレスで là nguyên nhân (vì stress, dùng で), 夜も (cả ban đêm cũng), よく bổ nghĩa tần suất, 眠れない là thể khả năng phủ định thường trước んです. ★=ストレスで ở ô 2.",
+              "glosses": [
+                {
+                  "t": "最近",
+                  "read": "さいきん",
+                  "vi": "gần đây, dạo này"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái tâm sự / giải thích"
+                },
+                {
+                  "t": "ストレスで",
+                  "vi": "vì stress (nguyên nhân, dùng で)"
+                },
+                {
+                  "t": "夜も",
+                  "read": "よるも",
+                  "vi": "cả ban đêm cũng"
+                },
+                {
+                  "t": "よく",
+                  "vi": "thường xuyên (bổ nghĩa phủ định: không ngủ được đàng hoàng)"
+                },
+                {
+                  "t": "眠れない",
+                  "read": "ねむれない",
+                  "vi": "không ngủ được (thể khả năng phủ định thường)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "どうしたんですか。",
+                "んです。"
+              ],
+              "pieces": [
+                "仕事で",
+                "少し",
+                "疲れて",
+                "いる"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": 2,
+              "explain": "Câu đúng: どうしたんですか。仕事で★少し疲れているんです。Thứ tự: 仕事で(0)→少し(1)→疲れて(2)→いる(3). 仕事で (vì công việc), 少し bổ nghĩa mức độ, 疲れている = te-form + いる (đang mệt), いる là thể thường bắt buộc trước んです (không dùng います). ★=少し ở ô 3.",
+              "glosses": [
+                {
+                  "t": "どうしたんですか",
+                  "vi": "bạn sao thế? (hỏi quan tâm)"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích"
+                },
+                {
+                  "t": "仕事で",
+                  "read": "しごとで",
+                  "vi": "vì công việc (nguyên nhân)"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút (bổ nghĩa mức độ)"
+                },
+                {
+                  "t": "疲れて",
+                  "read": "つかれて",
+                  "vi": "mệt (te-form, nối với いる)"
+                },
+                {
+                  "t": "いる",
+                  "vi": "đang (thể thường — bắt buộc đứng trước んです, không dùng います)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "山田さんは",
+                "んですよ。"
+              ],
+              "pieces": [
+                "今日が",
+                "ちょうど",
+                "誕生日",
+                "な"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": 2,
+              "explain": "Câu đúng: 山田さんは★今日がちょうど誕生日なんですよ。Thứ tự: 今日が(0)→ちょうど(1)→誕生日(2)→な(3). 今日が nhấn mạnh đúng hôm nay là sinh nhật. ちょうど (đúng, vừa đúng) bổ nghĩa. 誕生日 là danh từ bắt buộc + な trước んです. ★=今日が ở ô 2.",
+              "glosses": [
+                {
+                  "t": "山田さんは",
+                  "read": "やまださんは",
+                  "vi": "Yamada-san (chủ đề)"
+                },
+                {
+                  "t": "んですよ",
+                  "vi": "sắc thái thông báo, nhấn mạnh"
+                },
+                {
+                  "t": "今日が",
+                  "read": "きょうが",
+                  "vi": "hôm nay (nhấn mạnh bằng が)"
+                },
+                {
+                  "t": "ちょうど",
+                  "vi": "đúng, vừa đúng"
+                },
+                {
+                  "t": "誕生日",
+                  "read": "たんじょうび",
+                  "vi": "sinh nhật"
+                },
+                {
+                  "t": "な",
+                  "vi": "liên kết danh từ với んです (N+なんです)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "無理しないで。",
+                "んですから。"
+              ],
+              "pieces": [
+                "体が",
+                "一番",
+                "大事",
+                "な"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "explain": "Câu đúng: 無理しないで。体が★一番大事なんですから。Thứ tự: 体が(0) → 一番(1) → 大事(2) → な(3). 体が là chủ ngữ, 一番 (nhất) bổ nghĩa mức độ cho 大事, 大事な là な-adj nối んです (大事な＋んです). Các mảnh cần xuất hiện đầy đủ và đúng thứ tự; nếu đặt な trước 大事 thì sai cú pháp な-adj. ★ = 体が ở ô 2.",
+              "glosses": [
+                {
+                  "t": "無理しないで",
+                  "read": "むりしないで",
+                  "vi": "đừng cố quá sức"
+                },
+                {
+                  "t": "な",
+                  "vi": "liên kết な-adj với んです (大事な＋んです)"
+                },
+                {
+                  "t": "んですから",
+                  "vi": "vì mà... (sắc thái nhấn mạnh lý do)"
+                },
+                {
+                  "t": "体が",
+                  "read": "からだが",
+                  "vi": "cơ thể (chủ ngữ)"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất, quan trọng nhất"
+                },
+                {
+                  "t": "大事",
+                  "read": "だいじ",
+                  "vi": "quan trọng (な-adj, cần な để nối んです)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生、",
+                "んですが…。"
+              ],
+              "pieces": [
+                "授業について",
+                "昨日の",
+                "ことがある",
+                "聞きたい"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 2,
+              "pt": 2,
+              "explain": "Câu đúng: 「先生、昨日の授業について聞きたいことがあるんですが…。」— Thưa thầy/cô, em có điều muốn hỏi về tiết học hôm qua ạ.\nSắp xếp: ô 1=「昨日の」, ô 2=「授業について」, ô 3=「聞きたい」★, ô 4=「ことがある」\nKhung đầu là lời gọi 「先生、」 cần nối với một trạng ngữ chỉ thời gian hoặc chủ đề, nên cụm danh từ 「昨日の」 đứng đầu để bổ nghĩa cho 「授業について」 ở ô 2 tạo thành 「昨日の授業について」 (về tiết học hôm qua). Tiếp theo, động từ thể muốn 「聞きたい」 ở ô 3 làm định ngữ bổ nghĩa cho danh từ 「こと」 trong cụm 「ことがある」 ở ô 4, tạo thành cụm 「聞きたいことがある」 (có điều muốn hỏi). Cụm này kết hợp tự nhiên với khung đuôi 「んですが…。」 để tạo thành lời mở đầu nhờ vả, hỏi han lịch sự đặc trưng của bài 26. Mảnh 「聞きたい」 ở ô 3 mang ngôi sao bắt buộc phải đứng trước 「ことがある」 để bổ nghĩa cho danh từ, không thể đứng sau khung đầu hay đứng trước khung đuôi vì sẽ sai cấu trúc ngữ pháp.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "んですが",
+                  "vi": "sắc thái mở đầu yêu cầu nhẹ / ngập ngừng"
+                },
+                {
+                  "t": "授業",
+                  "read": "じゅぎょう",
+                  "vi": "tiết học"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "こと",
+                  "read": "",
+                  "vi": "chuyện"
+                },
+                {
+                  "t": "ある",
+                  "read": "",
+                  "vi": "có"
+                },
+                {
+                  "t": "聞きたい",
+                  "read": "ききたい",
+                  "vi": "muốn hỏi (〜たい: mong muốn)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "それで遅れました。",
+                "んです。"
+              ],
+              "pieces": [
+                "朝、",
+                "電車が",
+                "急に",
+                "止まった"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": 2,
+              "explain": "Câu đúng: それで遅れました。朝、★電車が急に止まったんです。Thứ tự: 朝、(0)→電車が(1)→急に(2)→止まった(3). 朝 là trạng từ thời gian đứng đầu. 電車が là chủ ngữ với が (tự động từ 止まる). 急に (đột ngột) bổ nghĩa hành động. ★=電車が ở ô 3.",
+              "glosses": [
+                {
+                  "t": "それで遅れました",
+                  "read": "それでおくれました",
+                  "vi": "vì vậy đã đến muộn"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích lý do"
+                },
+                {
+                  "t": "朝、",
+                  "read": "あさ、",
+                  "vi": "buổi sáng"
+                },
+                {
+                  "t": "電車が",
+                  "read": "でんしゃが",
+                  "vi": "tàu điện (chủ ngữ với が)"
+                },
+                {
+                  "t": "急に",
+                  "read": "きゅうに",
+                  "vi": "đột ngột"
+                },
+                {
+                  "t": "止まった",
+                  "read": "とまった",
+                  "vi": "đã dừng (thể thường quá khứ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "心配しないでください。",
+                "んですよ。"
+              ],
+              "pieces": [
+                "もう",
+                "すっかり",
+                "大丈夫",
+                "な"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": 2,
+              "explain": "Câu đúng: 心配しないでください。★もうすっかり大丈夫なんですよ。Thứ tự: もう(0)→すっかり(1)→大丈夫(2)→な(3). もう (đã rồi) hàm ý thay đổi trạng thái, すっかり (hoàn toàn) nhấn mạnh đã hồi phục. 大丈夫 là な-adj bắt buộc + な trước んです. ★=もう ở ô 2.",
+              "glosses": [
+                {
+                  "t": "心配しないでください",
+                  "read": "しんぱいしないでください",
+                  "vi": "xin đừng lo lắng"
+                },
+                {
+                  "t": "な",
+                  "vi": "liên kết な-adj với んです (大丈夫+な+んです)"
+                },
+                {
+                  "t": "んですよ",
+                  "vi": "sắc thái khẳng định / trấn an"
+                },
+                {
+                  "t": "もう",
+                  "vi": "đã rồi (hàm ý thay đổi trạng thái)"
+                },
+                {
+                  "t": "すっかり",
+                  "vi": "hoàn toàn (nhấn mạnh hồi phục đầy đủ)"
+                },
+                {
+                  "t": "大丈夫",
+                  "read": "だいじょうぶ",
+                  "vi": "ổn, không sao (な-adj)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "調子はどうですか。",
+                "んです。"
+              ],
+              "pieces": [
+                "最近",
+                "少し",
+                "よくなって",
+                "きた"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "explain": "Câu đúng: 調子はどうですか。最近少し★よくなってきたんです。Thứ tự: 最近(0) → 少し(1) → よくなって(2) → きた(3). 最近 là trạng từ thời gian đứng đầu, 少し bổ nghĩa mức độ, よくなってきた = te-form + きた (dần dần trở nên tốt hơn, diễn tiến đến hiện tại). きた là thể thường quá khứ nối んです. Nếu đảo よくなって và きた thì phá vỡ cấu trúc 〜てきた. ★ = 少し ở ô 3.",
+              "glosses": [
+                {
+                  "t": "調子はどうですか",
+                  "read": "ちょうしはどうですか",
+                  "vi": "tình trạng sức khỏe thế nào?"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích / báo cáo tình hình"
+                },
+                {
+                  "t": "最近",
+                  "read": "さいきん",
+                  "vi": "gần đây, dạo này"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "よくなって",
+                  "vi": "trở nên tốt hơn (te-form, nối với きた)"
+                },
+                {
+                  "t": "きた",
+                  "vi": "đã... dần dần (〜てきた: diễn tiến đến hiện tại)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "だから",
+                "んですね。"
+              ],
+              "pieces": [
+                "疲れて",
+                "いて",
+                "元気が",
+                "ない"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": 2,
+              "explain": "Câu đúng: だから疲れていて★元気がないんですね。Thứ tự: 疲れて(0)→いて(1)→元気が(2)→ない(3). 疲れていて = te-form của 疲れている (liên kết hai vế: mệt nên...). 元気がない (không có sức sống) là thể thường phủ định. ★=元気が ở ô 4.",
+              "glosses": [
+                {
+                  "t": "だから",
+                  "vi": "vì vậy, cho nên"
+                },
+                {
+                  "t": "んですね",
+                  "vi": "sắc thái xác nhận / đồng cảm"
+                },
+                {
+                  "t": "疲れて",
+                  "read": "つかれて",
+                  "vi": "mệt (te-form, nối tiếp)"
+                },
+                {
+                  "t": "いて",
+                  "vi": "đang... và (te-form của いる, liên kết hai vế)"
+                },
+                {
+                  "t": "元気が",
+                  "read": "げんきが",
+                  "vi": "sức sống, tinh thần (chủ ngữ)"
+                },
+                {
+                  "t": "ない",
+                  "vi": "không có (thể phủ định thường)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "きのうから体の調子がわるい",
+                "。熱があるので、今日は会社を休みました。",
+                "、大切な会議があったので、少し心配です。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "んです",
+                    "です",
+                    "でした",
+                    "んでした"
+                  ],
+                  "answer": 0,
+                  "explain": "Giải thích tình huống → んです."
+                },
+                {
+                  "choices": [
+                    "でも",
+                    "だから",
+                    "それで",
+                    "そして"
+                  ],
+                  "answer": 0,
+                  "explain": "\"nghỉ làm NHƯNG lại lo\" → tương phản でも."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "体の調子",
+                  "read": "からだのちょうし",
+                  "vi": "tình trạng cơ thể"
+                },
+                {
+                  "t": "わるい",
+                  "vi": "xấu, không tốt"
+                },
+                {
+                  "t": "熱",
+                  "read": "ねつ",
+                  "vi": "sốt"
+                },
+                {
+                  "t": "あるので",
+                  "vi": "〜ので = vì có (lý do)"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "休みました",
+                  "read": "やすみました",
+                  "vi": "đã nghỉ"
+                },
+                {
+                  "t": "大切",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "心配",
+                  "read": "しんぱい",
+                  "vi": "lo lắng"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia về thể thường, quá khứ — dạng đứng trước 〜んです.",
+          "items": [
+            {
+              "stem": "休みます（普通形・過去）→ ＿",
+              "choices": [
+                "休んだ",
+                "休みた",
+                "休んた",
+                "休んでた"
+              ],
+              "answer": 0,
+              "explain": "休む (nhóm 1, đuôi む) → 休んだ. どうして休んだんですか.",
+              "glosses": [
+                {
+                  "t": "休みます",
+                  "read": "やすみます",
+                  "vi": "nghỉ (thể ます)"
+                },
+                {
+                  "t": "普通形",
+                  "read": "ふつうけい",
+                  "vi": "thể thường"
+                },
+                {
+                  "t": "過去",
+                  "read": "かこ",
+                  "vi": "quá khứ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "すみません、電車＿止まったんです。",
+              "choices": [
+                "が",
+                "を",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "止まる là tự động từ → chủ thể đi với が: 電車が止まる.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "止まった",
+                  "read": "とまった",
+                  "vi": "đã dừng (tự động từ)"
+                },
+                {
+                  "t": "んです",
+                  "vi": "sắc thái giải thích"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật — luyện sản xuất.",
+          "items": [
+            {
+              "vi": "Thực ra tôi bị đau đầu đấy.",
+              "target": "実はあたまがいたいんです",
+              "model": "実は あたまが 痛いんです。",
+              "explain": "いAdj 痛い → 痛いんです (giữ い rồi +んです). 実は mở đầu lời tâm sự/giải thích."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,503 @@
+{
+  "id": "minna1.b25",
+  "bai": 25,
+  "titleVi": "Điều kiện & giả định — 〜たら・〜ても",
+  "know": [
+    {
+      "id": "minna1.b25.tara",
+      "point": "tara",
+      "jp": "〜たら、〜",
+      "vi": "Điều kiện / giả định (nếu / khi ... thì)",
+      "en": "If/when ~ (a condition that is fulfilled; the た + ら form)",
+      "gloss": "た形[けい]＋ら → nếu làm X thì làm Y",
+      "glossEn": "駅[えき]に 着[つ]いたら、電話[でんわ]してください。 — When you arrive at the station, please call me."
+    },
+    {
+      "id": "minna1.b25.temo",
+      "point": "temo",
+      "jp": "〜ても、〜",
+      "vi": "Nhượng bộ (dù ... vẫn)",
+      "en": "Concessive hypothetical — “even if …, still”",
+      "gloss": "て形[けい]＋も → dù làm X vẫn Y",
+      "glossEn": "V-て＋も ／ い-adj語幹[ごかん]くても ／ な-adj・N＋でも ・ 例: どんなに 寒[さむ]くても、彼[かれ]は 毎朝[まいあさ] ジョギングします。（No matter how cold it is, he still jogs every morning）"
+    },
+    {
+      "id": "minna1.b25.moshi-tara",
+      "point": "moshi-tara",
+      "jp": "もし〜たら、〜",
+      "vi": "Giả định có nhấn mạnh (nếu như)",
+      "en": "Emphatic hypothetical (if)",
+      "gloss": "もし (giả sử) +〜たら → nhấn mạnh tính giả định",
+      "glossEn": "もし (assuming) +〜たら → emphasizes the hypothetical nature"
+    },
+    {
+      "id": "minna1.b25.tara-vs",
+      "point": "tara-vs",
+      "jp": "たら ／ と ／ てから ／ ば の 違[ちが]い",
+      "vi": "Phân biệt 4 dạng điều kiện / nối câu",
+      "en": "Distinguishing four conditional / clause-linking forms",
+      "gloss": "たら=giả định tự do; と=tất yếu/quy luật; てから=sau khi (trình tự); ば=giả thiết",
+      "glossEn": "たら=open-ended hypothetical; と=inevitable result/general rule; てから=after (sequence); ば=hypothetical condition"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b25-tara-ame",
+      "item": "minna1.b25.tara",
+      "err": "tara-form",
+      "vi": "Nếu trời mưa thì tôi ở nhà.",
+      "t1": {
+        "stem": "雨[あめ]が ＿、家[いえ]に います。",
+        "choices": [
+          "降[ふ]ったら",
+          "降[ふ]るたら",
+          "降[ふ]りたら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "雨[あめ]が 降[ふ]ったら、",
+          "家[いえ]に います。"
+        ],
+        "traps": [
+          "降[ふ]るたら、",
+          "降[ふ]りたら、"
+        ]
+      },
+      "t3": {
+        "target": "雨が降ったら、家にいます。",
+        "accept": [
+          "あめがふったら、いえにいます。"
+        ]
+      },
+      "why": "たら = thể た ＋ ら: 降る→降った→降ったら。✗ 降るたら — không ghép từ điển + たら。"
+    },
+    {
+      "id": "c-b25-tara-hima",
+      "item": "minna1.b25.tara",
+      "err": "tara-form",
+      "vi": "Nếu có thời gian thì đi chơi.",
+      "t1": {
+        "stem": "暇[ひま]＿、遊[あそ]びに 行[い]きます。",
+        "choices": [
+          "だったら",
+          "なたら",
+          "だたら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "暇[ひま]だったら、",
+          "遊[あそ]びに 行[い]きます。"
+        ],
+        "traps": [
+          "暇[ひま]なたら、",
+          "暇[ひま]だたら、"
+        ]
+      },
+      "t3": {
+        "target": "暇だったら、遊びに行きます。",
+        "accept": [
+          "ひまだったら、あそびにいきます。"
+        ]
+      },
+      "why": "な-adj/N thể た: 暇 → 暇だった → 暇だったら。✗ 暇なたら（なら は hypothetical khác）。"
+    },
+    {
+      "id": "c-b25-tara-takai",
+      "item": "minna1.b25.tara",
+      "err": "tara-form",
+      "vi": "Nếu đắt thì không mua.",
+      "t1": {
+        "stem": "高[たか]＿、買[か]いません。",
+        "choices": [
+          "かったら",
+          "いたら",
+          "くたら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "高[たか]かったら、",
+          "買[か]いません。"
+        ],
+        "traps": [
+          "高[たか]いたら、",
+          "高[たか]くたら、"
+        ]
+      },
+      "t3": {
+        "target": "高かったら、買いません。",
+        "accept": [
+          "たかかったら、かいません。"
+        ]
+      },
+      "why": "い-adj thể た: 高い→高かった→高かったら。✗ 高いたら（giữ nguyên い）。"
+    },
+    {
+      "id": "c-b25-temo-takai",
+      "item": "minna1.b25.temo",
+      "err": "temo-form",
+      "vi": "Dù đắt vẫn mua.",
+      "t1": {
+        "stem": "高[たか]＿、買[か]います。",
+        "choices": [
+          "くても",
+          "いても",
+          "くて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "高[たか]くても、",
+          "買[か]います。"
+        ],
+        "traps": [
+          "高[たか]いても、",
+          "高[たか]くて、"
+        ]
+      },
+      "t3": {
+        "target": "高くても、買います。",
+        "accept": [
+          "たかくても、かいます。"
+        ]
+      },
+      "why": "い-adj dùng ても: bỏ い thêm くても (高い→高くても)。✗ 高いても（giữ い）。"
+    },
+    {
+      "id": "c-b25-temo-benkyou",
+      "item": "minna1.b25.temo",
+      "err": "temo-form",
+      "vi": "Dù học nhiều đến đâu vẫn không nhớ.",
+      "t1": {
+        "stem": "たくさん 勉強[べんきょう]し＿、覚[おぼ]えられません。",
+        "choices": [
+          "ても",
+          "たら",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "たくさん 勉強[べんきょう]しても、",
+          "覚[おぼ]えられません。"
+        ],
+        "traps": [
+          "勉強[べんきょう]したら、",
+          "勉強[べんきょう]してから、"
+        ]
+      },
+      "t3": {
+        "target": "たくさん勉強しても、覚えられません。",
+        "accept": [
+          "たくさんべんきょうしても、おぼえられません。"
+        ]
+      },
+      "why": "Nhượng bộ: する→して→しても。たら sẽ nói kết quả sau điều kiện (không có nghĩa \"dù vẫn\")。"
+    },
+    {
+      "id": "c-b25-temo-shizuka",
+      "item": "minna1.b25.temo",
+      "err": "temo-form",
+      "vi": "Dù yên tĩnh, tôi không ngủ được.",
+      "t1": {
+        "stem": "静[しず]か＿、眠[ねむ]れません。",
+        "choices": [
+          "でも",
+          "くても",
+          "だても"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "静[しず]かでも、",
+          "眠[ねむ]れません。"
+        ],
+        "traps": [
+          "静[しず]かくても、",
+          "静[しず]かだても、"
+        ]
+      },
+      "t3": {
+        "target": "静かでも、眠れません。",
+        "accept": [
+          "しずかでも、ねむれません。"
+        ]
+      },
+      "why": "な-adj dùng でも (静か→静かでも)。✗ 静かくても（い-adj cách）。"
+    },
+    {
+      "id": "c-b25-moshi-yasumi",
+      "item": "minna1.b25.moshi-tara",
+      "err": "tara-form",
+      "vi": "Nếu như ngày mai nghỉ thì đi chơi xa.",
+      "t1": {
+        "stem": "もし 明日[あした] 休[やす]み＿、遠[とお]くへ 行[い]きます。",
+        "choices": [
+          "だったら",
+          "なら",
+          "だたら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もし 明日[あした] 休[やす]みだったら、",
+          "遠[とお]くへ 行[い]きます。"
+        ],
+        "traps": [
+          "休[やす]みなたら、",
+          "休[やす]みだたら、"
+        ]
+      },
+      "t3": {
+        "target": "もし明日休みだったら、遠くへ行きます。",
+        "accept": [
+          "もしあしたやすみだったら、とおくへいきます。"
+        ]
+      },
+      "why": "もし nhấn mạnh tính giả định; kết hợp với 〜たら. 休み (danh từ) → 休みだったら。"
+    },
+    {
+      "id": "c-b25-moshi-okane",
+      "item": "minna1.b25.moshi-tara",
+      "err": "tara-form",
+      "vi": "Nếu như có tiền thì đi du lịch nước ngoài.",
+      "t1": {
+        "stem": "もし お金[かね]が あ＿、外国[がいこく]へ 旅行[りょこう]します。",
+        "choices": [
+          "ったら",
+          "るたら",
+          "りたら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もし お金[かね]が あったら、",
+          "外国[がいこく]へ 旅行[りょこう]します。"
+        ],
+        "traps": [
+          "あるたら、",
+          "ありたら、"
+        ]
+      },
+      "t3": {
+        "target": "もしお金があったら、外国へ旅行します。",
+        "accept": [
+          "もしおかねがあったら、がいこくへりょこうします。"
+        ]
+      },
+      "why": "ある→あった→あったら。もし強調giả định。✗ あるたら（từ điển + たら）。"
+    },
+    {
+      "id": "c-b25-taravs-spring",
+      "item": "minna1.b25.tara-vs",
+      "err": "tara-to-confuse",
+      "vi": "Nếu trời ấm lên thì đi ngắm hoa (tình huống giả định, không tất yếu).",
+      "t1": {
+        "stem": "暖[あたた]かく なっ＿、花見[はなみ]を します。",
+        "choices": [
+          "たら",
+          "と",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "暖[あたた]かく なったら、",
+          "花見[はなみ]を します。"
+        ],
+        "traps": [
+          "なると、",
+          "なってから、"
+        ]
+      },
+      "t3": {
+        "target": "暖かくなったら、花見をします。",
+        "accept": [
+          "あたたかくなったら、はなみをします。"
+        ]
+      },
+      "why": "たら = điều kiện giả định (có thể xảy ra, có thể không). と = quy luật tất yếu (暖かくなると花が咲く). てから = sau khi (trình tự bắt buộc Bài 16)."
+    },
+    {
+      "id": "c-b25-taravs-denki",
+      "item": "minna1.b25.tara-vs",
+      "err": "tara-to-confuse",
+      "vi": "Nếu bấm nút thì đèn bật (quy luật tất yếu, không dùng たら).",
+      "t1": {
+        "stem": "ボタンを 押[お]す＿、電気[でんき]が つきます。",
+        "choices": [
+          "と",
+          "たら",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ボタンを 押[お]すと、",
+          "電気[でんき]が つきます。"
+        ],
+        "traps": [
+          "押[お]したら、",
+          "押[お]してから、"
+        ]
+      },
+      "t3": {
+        "target": "ボタンを押すと、電気がつきます。",
+        "accept": [
+          "ぼたんをおすと、でんきがつきます。"
+        ]
+      },
+      "why": "と = quy luật / tất yếu (bấm nút → đèn bật, luôn luôn). たら = giả định (không dùng cho quy luật vật lý)."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b25-tara",
+      "item": "minna1.b25.tara",
+      "err": "tara-form",
+      "tts": "あめがふったら、うちにいます。",
+      "script": "雨[あめ]が 降[ふ]ったら、うちに います。",
+      "ask": "Người nói sẽ làm gì nếu trời mưa?",
+      "choices": [
+        "Ở nhà",
+        "Đi ra ngoài",
+        "Đi mua sắm"
+      ],
+      "answer": 0,
+      "why": "降ったら = thể た ＋ ら → điều kiện. Kết quả là ở nhà."
+    },
+    {
+      "id": "l-b25-temo",
+      "item": "minna1.b25.temo",
+      "err": "temo-form",
+      "tts": "たかくても、このかばんをかいます。",
+      "script": "高[たか]くても、この かばんを 買[か]います。",
+      "ask": "Người nói sẽ mua cái gì dù đắt?",
+      "choices": [
+        "Chiếc túi xách này",
+        "Quyển sách này",
+        "Cái áo này"
+      ],
+      "answer": 0,
+      "why": "高くても = dù đắt vẫn (くても = い-adj nhượng bộ)."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b25-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 25 ・ もし〜たら (good ki điều kiện giả định)",
+      "vi": "Nếu anh ấy thích cà phê, tôi sẽ mua giúp.",
+      "t1": {
+        "stem": "もし 彼[かれ]が コーヒー＿ 好[す]きだったら、買[か]ってあげます。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もし 彼[かれ]が コーヒーが 好[す]きだったら、",
+          "買[か]って あげます。"
+        ],
+        "traps": [
+          "コーヒーを 好[す]きだったら、"
+        ]
+      },
+      "t3": {
+        "target": "もし彼がコーヒーが好きだったら、買ってあげます。",
+        "accept": [
+          "もしかれがこーひーがすきだったら、かってあげます。"
+        ]
+      },
+      "why": "PHỤC KÍCH: dù câu dùng もし〜たら của Bài 25, 好き vẫn cần が (lỗi Bài 9). ✗ コーヒーを好き。"
+    },
+    {
+      "id": "a-b25-kara-riyuu",
+      "item": "minna1.b09.kara",
+      "err": "kara-place",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 25 ・ 〜ても (nhượng bộ + lý do から)",
+      "vi": "Dù mệt, vì có hẹn nên vẫn đến.",
+      "t1": {
+        "stem": "疲[つか]れていても、約束[やくそく]が あります＿、行[い]きます。",
+        "choices": [
+          "から",
+          "てから",
+          "まで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "疲[つか]れていても、",
+          "約束[やくそく]が ありますから、",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "ありますてから、",
+          "ありますまで、"
+        ]
+      },
+      "t3": {
+        "target": "疲れていても、約束がありますから、行きます。",
+        "accept": [
+          "つかれていても、やくそくがありますから、いきます。"
+        ]
+      },
+      "why": "PHỤC KÍCH: 〜ても là Bài 25; lý do \"vì có hẹn\" = 約束がありますから (から Bài 9). てから ≠ から lý do。"
+    },
+    {
+      "id": "a-b25-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 25 ・ 〜たら (điều kiện)",
+      "vi": "Nếu hiểu tiếng Nhật thì công việc sẽ thuận lợi hơn.",
+      "t1": {
+        "stem": "日本語[にほんご]＿ わかったら、仕事[しごと]が 楽[らく]に なります。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が わかったら、",
+          "仕事[しごと]が 楽[らく]に なります。"
+        ],
+        "traps": [
+          "日本語[にほんご]を わかったら、"
+        ]
+      },
+      "t3": {
+        "target": "日本語がわかったら、仕事が楽になります。",
+        "accept": [
+          "にほんごがわかったら、しごとがらくになります。"
+        ]
+      },
+      "why": "PHỤC KÍCH: わかります luôn dùng が (Bài 9). わかったら = わかる→わかった→わかったら (Bài 25)。✗ 日本語をわかったら。"
+    }
+  ]
+}

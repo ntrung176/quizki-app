@@ -1,0 +1,2203 @@
+{
+  "bai": 39,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 39 tập trung ba cách diễn đạt NGUYÊN NHÂN và MỤC ĐÍCH: ①〜て（V/Aて）dùng khi cảm xúc/trạng thái là hệ quả tự nhiên của nguyên nhân trước đó; ②〜ので diễn đạt lý do lịch sự, khách quan hơn〜から; ③〜のために・〜るために nêu mục đích của hành động. Bài đọc này đặt trong bối cảnh nhân vật giải thích lý do đến muộn và những sự cố xảy ra trên đường — ngữ cảnh thực tế nhất để luyện ba mẫu trên.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm ai đang viết/nói, chuyện gì xảy ra và kết quả ra sao.",
+      "Nhận ra V/Aて〜: khi thấy て ở cuối động từ/tính từ rồi theo sau là cảm xúc (困りました、驚きました、うれしかった…), đó là nguyên nhân−cảm xúc.",
+      "Phân biệt〜ので với〜から: ので lịch sự hơn, hay dùng khi giải thích với người trên (sếp, thầy). Câu hỏi trắc nghiệm thường khai thác sự khác biệt này.",
+      "〜のために là mục đích của danh từ (Nのために), 〜るために là mục đích của hành động (Vるために). Hai dạng luôn đứng TRƯỚC động từ chính.",
+      "Chú ý trình tự sự kiện: câu nào là nguyên nhân, câu nào là kết quả/hành động. Trắc nghiệm hay hỏi \"tại sao làm X?\" — tìm câu có〜ので hoặc〜て trước X.",
+      "Ôn lại: 〜んです (Bài 26) hay xuất hiện cùng ので để giải thích lý do,〜てしまいました (Bài 29) hay đi với て nguyên nhân khi chuyện ngoài ý muốn."
+    ],
+    "tips": [
+      "て nguyên nhân/cảm xúc KHÁC て trình tự (Bài 16): \"困って、電話しました\" = vì bối rối nên gọi điện (nguyên nhân−kết quả), không phải \"làm xong rồi làm\". Ngữ cảnh cảm xúc là dấu hiệu nhận biết.",
+      "〜ので đứng ngay sau thể thông thường (普通形) của động từ/tính từ, nhưng NA・N + な + ので (ví dụ: 大事なので、静かなので).",
+      "〜から cũng là lý do (Bài 9), nhưng〜ので lịch sự và khách quan hơn; trong email/hội thoại công sở→ ưu tiên ので.",
+      "Vるために phải dùng thể từ điển (Bài 18): \"練習するために\" KHÔNG phải \"練習してために\" hay \"練習したために\".",
+      "Nのために: N là danh từ chỉ mục đích/người hưởng lợi: \"健康のために\" (vì/để sức khoẻ), \"家族のために\" (vì gia đình).",
+      "Tránh nhầm のに mục đích (Bài 42) — bài 42 chưa học, bài 39 KHÔNG dùng のに."
+    ],
+    "grammarFocus": [
+      "V/Aて〜（原因・感情: nguyên nhân−cảm xúc）",
+      "〜ので（lý do lịch sự）",
+      "Nのために（vì/để N）",
+      "Vるために（để làm V）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 38,
+        "items": [
+          "Vるのは〜です",
+          "Vるのが好き・上手"
+        ]
+      },
+      {
+        "bai": 37,
+        "items": [
+          "V受身形（được/bị）"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります",
+          "Vるように"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました（vô tình/đáng tiếc）",
+          "Vています（kết quả trạng thái）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích lý do）",
+          "V・Aんですか"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる・Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 20,
+        "items": [
+          "普通形（thể thông thường）"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vて〜（nối trình tự/lý do）",
+          "Vてから"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "遅刻の理由",
+      "titleVi": "Lý do đến muộn",
+      "japanese": "今朝、電車が止まって、会社に遅刻してしまいました。\n部長に「どうして遅れたんですか」と聞かれて、とても困りました。\n「電車が止まったので、遅くなりました。申し訳ありません」と言いました。\n部長は「わかりました。次からは早めに出てください」と言いました。\n私はこんなことがないように、明日から早く起きるつもりです。\n遅刻しないために、毎朝アラームを二つかけることにしました。",
+      "vietnamese": "Sáng nay tàu điện bị dừng, tôi đã đến công ty muộn mất rồi.\nBị trưởng phòng hỏi \"Tại sao anh đến muộn vậy?\", tôi rất bối rối.\nTôi nói \"Vì tàu điện bị dừng nên tôi đến muộn. Xin lỗi anh ạ\".\nTrưởng phòng nói \"Thôi được rồi. Từ lần sau hãy ra khỏi nhà sớm hơn nhé\".\nTôi dự định từ mai sẽ dậy sớm để không xảy ra chuyện như thế này nữa.\nĐể không đến muộn, tôi đã quyết định đặt hai cái báo thức mỗi buổi sáng.",
+      "sentences": [
+        {
+          "jp": "今朝、電車が止まって、会社に遅刻してしまいました。",
+          "vi": "Sáng nay tàu điện bị dừng, tôi đã đến công ty muộn mất rồi.",
+          "vocab": [
+            {
+              "w": "今朝",
+              "read": "けさ",
+              "vi": "sáng nay"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "止まります",
+              "read": "とまります",
+              "vi": "dừng lại"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "遅刻します",
+              "read": "ちこくします",
+              "vi": "đến muộn, trễ giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Aて〜（原因・感情）",
+              "vi": "電車が止まって、遅刻してしまいました = vì tàu dừng nên đã đến muộn. て ở đây nêu NGUYÊN NHÂN dẫn đến kết quả ngoài ý muốn (してしまいました)."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "遅刻してしまいました = đã trễ giờ mất rồi. てしまいました thể hiện điều ngoài ý muốn đã xảy ra hoàn toàn."
+            }
+          ]
+        },
+        {
+          "jp": "部長に「どうして遅れたんですか」と聞かれて、とても困りました。",
+          "vi": "Bị trưởng phòng hỏi \"Tại sao anh đến muộn vậy?\", tôi rất bối rối.",
+          "vocab": [
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "どうして",
+              "read": "どうして",
+              "vi": "tại sao, vì sao"
+            },
+            {
+              "w": "遅れます",
+              "read": "おくれます",
+              "vi": "đến trễ, chậm"
+            },
+            {
+              "w": "聞かれます",
+              "read": "きかれます",
+              "vi": "bị hỏi (thể bị động)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "bối rối, khó xử"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身（Bài 37）",
+              "vi": "聞かれて = bị hỏi. 聞く → 聞かれる. Bị động (迷惑受身) thể hiện hành động ảnh hưởng đến mình."
+            },
+            {
+              "point": "V/Aて〜（原因・感情）",
+              "vi": "聞かれて、困りました = vì bị hỏi (nguyên nhân) nên bối rối (cảm xúc). て nối nguyên nhân với cảm xúc/trạng thái tâm lý."
+            },
+            {
+              "point": "〜んですか（Bài 26）",
+              "vi": "遅れたんですか = \"Anh trễ à?\" — trưởng phòng đã nhận thấy điều bất thường nên dùng んですか để hỏi lý do."
+            }
+          ]
+        },
+        {
+          "jp": "「電車が止まったので、遅くなりました。申し訳ありません」と言いました。",
+          "vi": "Tôi nói \"Vì tàu điện bị dừng nên tôi đến muộn. Xin lỗi anh ạ\".",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "止まります",
+              "read": "とまります",
+              "vi": "dừng lại"
+            },
+            {
+              "w": "遅くなります",
+              "read": "おそくなります",
+              "vi": "trở nên muộn, chậm lại"
+            },
+            {
+              "w": "申し訳ありません",
+              "read": "もうしわけありません",
+              "vi": "xin lỗi (rất trang trọng)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので",
+              "vi": "電車が止まったので = vì tàu bị dừng. ので lịch sự hơn から — thích hợp khi giải thích với cấp trên (trưởng phòng). 止まった (thể た thông thường) + ので."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "遅くなりました = đã trở nên muộn. Biến đổi trạng thái: 遅い（muộn）→ 遅くなる."
+            }
+          ]
+        },
+        {
+          "jp": "部長は「わかりました。次からは早めに出てください」と言いました。",
+          "vi": "Trưởng phòng nói \"Thôi được rồi. Từ lần sau hãy ra khỏi nhà sớm hơn nhé\".",
+          "vocab": [
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "lần sau, tiếp theo"
+            },
+            {
+              "w": "早め",
+              "read": "はやめ",
+              "vi": "sớm hơn bình thường"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra (khỏi nhà)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "出てください = hãy ra (khỏi nhà). Yêu cầu lịch sự từ cấp trên."
+            }
+          ]
+        },
+        {
+          "jp": "私はこんなことがないように、明日から早く起きるつもりです。",
+          "vi": "Tôi dự định từ mai sẽ dậy sớm để không xảy ra chuyện như thế này nữa.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "こんな",
+              "read": "こんな",
+              "vi": "như thế này"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "việc, chuyện"
+            },
+            {
+              "w": "ない",
+              "read": "ない",
+              "vi": "không có"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm"
+            },
+            {
+              "w": "起きる",
+              "read": "おきる",
+              "vi": "thức dậy"
+            },
+            {
+              "w": "つもり",
+              "read": "つもり",
+              "vi": "dự định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるつもりです（Bài 31）",
+              "vi": "早く起きるつもりです = dự định dậy sớm. つもり nêu ý định chủ quan của người nói."
+            },
+            {
+              "point": "Vるように（Bài 36）",
+              "vi": "こんなことがないように = để không xảy ra chuyện như vậy. ように nêu mục tiêu/kết quả mong đợi."
+            }
+          ]
+        },
+        {
+          "jp": "遅刻しないために、毎朝アラームを二つかけることにしました。",
+          "vi": "Để không đến muộn, tôi đã quyết định đặt hai cái báo thức mỗi buổi sáng.",
+          "vocab": [
+            {
+              "w": "遅刻",
+              "read": "ちこく",
+              "vi": "việc đi trễ"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi buổi sáng"
+            },
+            {
+              "w": "アラーム",
+              "read": "アラーム",
+              "vi": "báo thức (alarm)"
+            },
+            {
+              "w": "二つ",
+              "read": "ふたつ",
+              "vi": "hai cái"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "かけます",
+              "read": "かけます",
+              "vi": "đặt, bật (báo thức)"
+            },
+            {
+              "w": "ことにします",
+              "read": "ことにします",
+              "vi": "quyết định (làm)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために",
+              "vi": "遅刻しないために = để không đến muộn. Vないために nêu MỤC ĐÍCH (muốn tránh X) cho hành động theo sau."
+            },
+            {
+              "point": "ことにしました（Bài 31）",
+              "vi": "かけることにしました = đã quyết định đặt. ことにする là quyết định của bản thân."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "電車が止まって、会社に遅刻してしまいました",
+          "label": "V/Aて〜（nguyên nhân−kết quả）"
+        },
+        {
+          "excerpt": "電車が止まったので、遅くなりました",
+          "label": "〜ので（lý do lịch sự）"
+        },
+        {
+          "excerpt": "遅刻しないために、毎朝アラームを二つかけることにしました",
+          "label": "Vるために（mục đích）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「私」はどうして遅刻しましたか。",
+          "evi": [
+            0,
+            2
+          ],
+          "options": [
+            "道が込んでいて、遅れました",
+            "電車が止まったので、遅くなりました",
+            "アラームがなかったから、起きられませんでした",
+            "部長に「遅く来てください」と言われたから、遅れました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết trích trực tiếp lời giải thích của nhân vật với trưởng phòng:「電車が止まったので、遅くなりました」(vì tàu điện bị dừng nên tôi đến muộn). Đây là mẫu〜ので bài 39 — lý do lịch sự, khách quan, phù hợp khi giải thích với cấp trên. Đáp án 0 sai vì bài không hề nhắc đến kẹt xe. Đáp án 2 sai vì nhân vật ĐÃ đặt báo thức (là kế hoạch SAU SỰ CỐ), không phải lý do trễ. Đáp án 3 sai hoàn toàn — trưởng phòng yêu cầu ra khỏi nhà SỚM hơn, không phải đến muộn.",
+          "tip": "Câu hỏi \"tại sao X xảy ra\" → tìm câu có〜ので /〜て /〜から ngay trước kết quả đó. Ở đây「電車が止まって」(て nguyên nhân) và「止まったので」(ので lý do) cùng xuất hiện — đọc cả hai để không bỏ sót.",
+          "qt": {
+            "q": "「私」 (tôi) đã đi muộn vì sao?",
+            "o": [
+              "Đường đông nên tôi đến muộn",
+              "Tàu dừng nên tôi đến muộn",
+              "Vì không có chuông báo thức nên tôi không thể thức dậy",
+              "Vì trưởng phòng bảo “hãy đến muộn” nên tôi đã đến muộn"
+            ]
+          }
+        },
+        {
+          "q": "「私」はこれからどうするつもりですか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "毎朝バスで会社に行くつもりです",
+            "部長に毎朝電話するつもりです",
+            "毎朝早く起きて、アラームを二つかけるつもりです",
+            "電車をやめて、自転車で来るつもりです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu hai hành động cụ thể:「明日から早く起きるつもりです」(dự định dậy sớm từ mai) và「毎朝アラームを二つかけることにしました」(đã quyết định đặt hai báo thức mỗi sáng). Phương án 2 gộp chính xác cả hai — dậy sớm VÀ đặt hai báo thức. Đáp án 0 và 3 sai vì bài không nhắc đến đổi phương tiện. Đáp án 1 sai vì không có chi tiết gọi điện cho trưởng phòng hàng sáng.",
+          "tip": "Câu hỏi \"sẽ làm gì\" thường gộp nhiều hành động — đọc HẾT đoạn cuối bài, đừng dừng ở câu đầu tiên tìm được. Chú ý cả〜つもりです (ý định) lẫん〜ことにしました (quyết định) vì cả hai đều nêu kế hoạch tương lai.",
+          "qt": {
+            "q": "「私」 (tôi) dự định sẽ làm gì từ giờ trở đi?",
+            "o": [
+              "Tôi dự định đi làm bằng xe buýt mỗi sáng",
+              "Tôi dự định gọi điện cho trưởng phòng mỗi sáng",
+              "Tôi dự định thức dậy sớm và đặt hai chiếc chuông báo thức mỗi sáng",
+              "Tôi dự định bỏ đi tàu và đi làm bằng xe đạp"
+            ]
+          }
+        },
+        {
+          "q": "「遅刻しないために」という文の「ために」はどんな意味ですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "遅刻したから（lý do đã xảy ra）",
+            "遅刻しないことを目的として（để không đến muộn — mục đích）",
+            "遅刻してもいいように（để cũng được muộn）",
+            "遅刻したので（vì đã muộn）"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「遅刻しないために、毎朝アラームを二つかけることにしました」dùng Vないために = \"để không làm V\" — nêu MỤC ĐÍCH của hành động đặt báo thức. ために ở đây hướng về tương lai (tránh điều xảy ra), khác hoàn toàn với から / ので chỉ lý do của điều ĐÃ xảy ra. Đáp án 0 và 3 sai vì から / ので là lý do quá khứ, không phải mục đích tương lai. Đáp án 2 sai nghĩa hoàn toàn — \"để cũng được muộn\" trái ngược bối cảnh bài.",
+          "tip": "Phân biệt nhanh: ために = MỤC ĐÍCH (hướng về tương lai, muốn đạt/tránh X); から / ので = LÝ DO (giải thích điều đã xảy ra). Câu có ために luôn còn một hành động chủ động THEO SAU nó.",
+          "qt": {
+            "q": "Trong câu 「遅刻しないために」 (“để không đi muộn”), 「ために」 có nghĩa như thế nào?",
+            "o": [
+              "Vì đã đi muộn (lý do đã xảy ra)",
+              "Nhằm mục đích không đi muộn (để không đến muộn — mục đích)",
+              "Để dù có đi muộn cũng không sao (để cũng được muộn)",
+              "Vì đã đi muộn (vì đã muộn)"
+            ]
+          }
+        },
+        {
+          "q": "「私」が部長に謝ったとき、どの表現を使いましたか。（Suy luận）",
+          "evi": [
+            2
+          ],
+          "options": [
+            "「ごめんなさい」と言いました",
+            "「すみませんでした」と言いました",
+            "「申し訳ありません」と言いました",
+            "「遅れてしまいました」と言いました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài trích trực tiếp lời nhân vật nói với trưởng phòng:「申し訳ありません」— đây là lời xin lỗi trang trọng nhất trong tiếng Nhật, phù hợp với ngữ cảnh xin lỗi cấp trên (部長) trong môi trường công sở. Đáp án 0「ごめんなさい」là xin lỗi bình thường dùng với bạn bè/người thân, không đủ trang trọng. Đáp án 1「すみませんでした」tuy lịch sự nhưng bài không dùng mẫu này. Đáp án 3「遅れてしまいました」chỉ mô tả sự việc, không phải lời xin lỗi.",
+          "tip": "Câu hỏi trích lời thoại — luôn quay lại đọc nguyên văn trong bài, đừng đoán. Mức độ trang trọng của lời xin lỗi: ごめんなさい (thân mật) < すみません (thông thường) < 申し訳ありません (rất trang trọng, dùng với cấp trên).",
+          "qt": {
+            "q": "Khi 「私」 (tôi) xin lỗi trưởng phòng, đã dùng cách diễn đạt nào? (Suy luận)",
+            "o": [
+              "Tôi đã nói 「ごめんなさい」 (xin lỗi)",
+              "Tôi đã nói 「すみませんでした」 (tôi xin lỗi)",
+              "Tôi đã nói 「申し訳ありません」 (tôi vô cùng xin lỗi)",
+              "Tôi đã nói 「遅れてしまいました」 (tôi đã lỡ đến muộn)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "山田さんのメール",
+      "titleVi": "Email của anh Yamada",
+      "japanese": "ミラーさん、こんにちは。昨日の会議に遅れてしまい、申し訳ありませんでした。\n実は、昨日はいくつかのことが重なってしまったんです。\nまず、朝、家を出るとき、財布を忘れたことに気がついて、急いで取りに帰りました。\nそのせいで、いつもより十五分遅く家を出たんです。\n駅に着いたら、電車が事故のために止まっていました。\n駅員さんの話では、線路に問題があったので、電車が動けないということでした。\n三十分ぐらい待ちましたが、電車はなかなか来なくて、本当に困りました。\nやっと電車に乗れたと思ったら、今度は駅の近くで人身事故があって、また止まってしまいました。\nその間、会社に連絡しようと思って、スマホを出したら、バッテリーが切れていて、驚きました。\n電話するために、駅の公衆電話を探しましたが、なかなか見つかりませんでした。\nやっと公衆電話を見つけて、会社に電話したら、受付のワンさんが出てくれました。\n「山田さん、大丈夫ですか。心配していましたよ」と言ってくれて、とてもうれしかったです。\nそのあと、電車がようやく動いたので、急いで会議室に向かいました。\n会議には四十分遅れて参加しました。部長はとても忙しかったですが、「大変でしたね」と言ってくれました。\n今後このようなことがないように、スマホの充電を毎晩確認することにしました。\n大切な会議を乱してしまい、本当に申し訳ありませんでした。\n今後ともよろしくお願いします。山田",
+      "vietnamese": "Chào anh Miller. Hôm qua tôi đã đến họp muộn, thật xin lỗi anh.\nThực ra hôm qua nhiều chuyện đã dồn vào cùng một lúc.\nĐầu tiên, khi ra khỏi nhà vào buổi sáng, tôi phát hiện mình quên ví nên đã vội vàng chạy về lấy.\nVì vậy tôi ra khỏi nhà trễ hơn thường lệ mười lăm phút.\nKhi đến ga, tàu điện đang bị dừng vì có sự cố.\nTheo nhân viên nhà ga, vì có vấn đề trên đường ray nên tàu không thể chạy được.\nTôi đã đợi khoảng ba mươi phút nhưng tàu mãi không đến, thật sự rất bối rối.\nTưởng cuối cùng cũng lên được tàu rồi, thì lần này lại có tai nạn người gần ga và tàu lại bị dừng tiếp.\nTrong lúc đó, tôi định liên lạc với công ty nên lấy điện thoại ra thì pin đã hết, thật bất ngờ.\nĐể gọi điện, tôi tìm điện thoại công cộng ở ga nhưng mãi không thấy.\nCuối cùng tìm được điện thoại công cộng rồi gọi vào công ty thì chị Wang ở lễ tân đã nghe máy.\nChị nói \"Anh Yamada ơi, anh có ổn không? Chúng em đã lo lắng lắm đấy\" — nghe thế tôi vui lắm.\nSau đó tàu điện cuối cùng cũng chạy được nên tôi đã vội vàng đi đến phòng họp.\nTôi tham dự họp muộn bốn mươi phút. Trưởng phòng rất bận nhưng đã nói \"Anh vất vả nhỉ\".\nĐể từ nay không xảy ra chuyện như vậy nữa, tôi đã quyết định kiểm tra pin điện thoại mỗi tối.\nTôi đã làm gián đoạn cuộc họp quan trọng, thật sự rất xin lỗi.\nMong anh tiếp tục giúp đỡ tôi. Yamada",
+      "sentences": [
+        {
+          "jp": "ミラーさん、こんにちは。昨日の会議に遅れてしまい、申し訳ありませんでした。",
+          "vi": "Chào anh Miller. Hôm qua tôi đã đến họp muộn, thật xin lỗi anh.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "こんにちは",
+              "read": "こんにちは",
+              "vi": "xin chào"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "遅れます",
+              "read": "おくれます",
+              "vi": "đến muộn, trễ"
+            },
+            {
+              "w": "申し訳ありません",
+              "read": "もうしわけありません",
+              "vi": "thật xin lỗi (rất trang trọng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "遅れてしまい = đã lỡ đến muộn mất rồi. てしまう thể hiện điều ngoài ý muốn/đáng tiếc đã hoàn thành. (遅れてしまい là dạng nối câu)."
+            }
+          ]
+        },
+        {
+          "jp": "実は、昨日はいくつかのことが重なってしまったんです。",
+          "vi": "Thực ra hôm qua nhiều chuyện đã dồn vào cùng một lúc.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "重なります",
+              "read": "かさなります",
+              "vi": "trùng nhau, dồn cùng lúc"
+            },
+            {
+              "w": "いくつか",
+              "read": "いくつか",
+              "vi": "vài, một số"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "重なってしまったんです = giải thích bối cảnh/lý do. んです mở đầu phần giải thích dài cho người nhận email."
+            }
+          ]
+        },
+        {
+          "jp": "まず、朝、家を出るとき、財布を忘れたことに気がついて、急いで取りに帰りました。",
+          "vi": "Đầu tiên, khi ra khỏi nhà vào buổi sáng, tôi phát hiện mình quên ví nên đã vội vàng chạy về lấy.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra (khỏi nhà)"
+            },
+            {
+              "w": "財布",
+              "read": "さいふ",
+              "vi": "ví tiền"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "気がつきます",
+              "read": "きがつきます",
+              "vi": "phát hiện ra, để ý thấy"
+            },
+            {
+              "w": "急ぎます",
+              "read": "いそぎます",
+              "vi": "vội vàng"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "đầu tiên, trước hết"
+            },
+            {
+              "w": "取ります",
+              "read": "とります",
+              "vi": "lấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "家を出るとき = khi ra khỏi nhà. Vるとき: thời điểm hành động đang sắp xảy ra."
+            },
+            {
+              "point": "Vたことに気がつきます",
+              "vi": "財布を忘れたことに気がついて = phát hiện ra (rằng) đã quên ví. Vたこと (Bài 22: mệnh đề bổ nghĩa) + に気がつく."
+            },
+            {
+              "point": "V/Aて〜（原因・感情）",
+              "vi": "気がついて、急いで帰りました = vì phát hiện ra (nguyên nhân) nên vội chạy về (hành động kết quả)."
+            },
+            {
+              "point": "VにVます（Bài 13）",
+              "vi": "取りに帰りました = về (nhà) để lấy (ví). Vに行く/来る/帰る nêu mục đích di chuyển."
+            }
+          ]
+        },
+        {
+          "jp": "そのせいで、いつもより十五分遅く家を出たんです。",
+          "vi": "Vì vậy tôi ra khỏi nhà trễ hơn thường lệ mười lăm phút.",
+          "vocab": [
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "thường lệ, hay"
+            },
+            {
+              "w": "遅く",
+              "read": "おそく",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "そのせいで",
+              "read": "そのせいで",
+              "vi": "vì chuyện đó, do nguyên nhân đó"
+            },
+            {
+              "w": "十五分",
+              "read": "じゅうごふん",
+              "vi": "mười lăm phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜より〜（Bài 12）",
+              "vi": "いつもより遅く = muộn hơn so với bình thường. より so sánh."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "出たんです = giải thích nguyên nhân tiếp theo trong chuỗi sự cố."
+            }
+          ]
+        },
+        {
+          "jp": "駅に着いたら、電車が事故のために止まっていました。",
+          "vi": "Khi đến ga, tàu điện đang bị dừng vì có sự cố.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến, tới nơi"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "事故",
+              "read": "じこ",
+              "vi": "sự cố, tai nạn"
+            },
+            {
+              "w": "止まっています",
+              "read": "とまっています",
+              "vi": "đang dừng (kết quả trạng thái)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "駅に着いたら = khi đến ga. たら điều kiện thời gian: đến rồi thì thấy kết quả."
+            },
+            {
+              "point": "Nのために",
+              "vi": "事故のために = vì (có) sự cố. Nのために nêu nguyên nhân/lý do (danh từ)."
+            },
+            {
+              "point": "Vています（結果状態・Bài 29）",
+              "vi": "止まっていました = đang ở trạng thái dừng. Kết quả của hành động dừng vẫn đang kéo dài."
+            }
+          ]
+        },
+        {
+          "jp": "駅員さんの話では、線路に問題があったので、電車が動けないということでした。",
+          "vi": "Theo nhân viên nhà ga, vì có vấn đề trên đường ray nên tàu không thể chạy được.",
+          "vocab": [
+            {
+              "w": "駅員",
+              "read": "えきいん",
+              "vi": "nhân viên nhà ga"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, thông tin"
+            },
+            {
+              "w": "線路",
+              "read": "せんろ",
+              "vi": "đường ray"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "動きます",
+              "read": "うごきます",
+              "vi": "di chuyển, chạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので",
+              "vi": "線路に問題があったので = vì có vấn đề trên đường ray. ので lịch sự, thích hợp trong thông báo chính thức của nhà ga."
+            },
+            {
+              "point": "〜ということでした",
+              "vi": "動けないということでした = (nhân viên nói) là tàu không thể chạy. ということ (Bài 22: mệnh đề bổ nghĩa) + でした truyền đạt lại thông tin nghe được."
+            }
+          ]
+        },
+        {
+          "jp": "三十分ぐらい待ちましたが、電車はなかなか来なくて、本当に困りました。",
+          "vi": "Tôi đã đợi khoảng ba mươi phút nhưng tàu mãi không đến, thật sự rất bối rối.",
+          "vocab": [
+            {
+              "w": "待つ",
+              "read": "まつ",
+              "vi": "chờ đợi, đợi"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi vẫn không (đi với phủ định)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "bối rối, khó xử"
+            },
+            {
+              "w": "三十分",
+              "read": "さんじゅっぷん",
+              "vi": "ba mươi phút"
+            },
+            {
+              "w": "ぐらい",
+              "read": "ぐらい",
+              "vi": "khoảng (xấp xỉ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が（nhưng）",
+              "vi": "待ちましたが = đã đợi nhưng. が nêu sự tương phản (đợi mà tàu vẫn không đến)."
+            },
+            {
+              "point": "V/Aて〜（原因・感情）",
+              "vi": "電車はなかなか来なくて、困りました = vì tàu mãi không đến (nguyên nhân) nên bối rối (cảm xúc). て nối nguyên nhân với cảm xúc tâm lý."
+            }
+          ]
+        },
+        {
+          "jp": "やっと電車に乗れたと思ったら、今度は駅の近くで人身事故があって、また止まってしまいました。",
+          "vi": "Tưởng cuối cùng cũng lên được tàu rồi, thì lần này lại có tai nạn người gần ga và tàu lại bị dừng tiếp.",
+          "vocab": [
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng cũng, sau bao lâu"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "乗ります",
+              "read": "のります",
+              "vi": "lên (tàu, xe)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "今度",
+              "read": "こんど",
+              "vi": "lần này, lần tiếp theo"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "人身",
+              "read": "じんしん",
+              "vi": "tính mạng, thân thể"
+            },
+            {
+              "w": "事故",
+              "read": "じこ",
+              "vi": "sự cố, tai nạn"
+            },
+            {
+              "w": "止まる",
+              "read": "とまる",
+              "vi": "dừng lại, đứng yên"
+            },
+            {
+              "w": "人身事故",
+              "read": "じんしんじこ",
+              "vi": "tai nạn liên quan đến người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思ったら（Bài 25 応用）",
+              "vi": "やっと乗れたと思ったら = tưởng đã lên được tàu rồi thì (bất ngờ). たら sau ý nghĩ/kỳ vọng → kết quả bất ngờ trái chiều."
+            },
+            {
+              "point": "V/Aて〜（原因）",
+              "vi": "人身事故があって、また止まってしまいました = vì có tai nạn người (nguyên nhân) nên tàu lại bị dừng (kết quả). て nối nguyên nhân với hệ quả."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "また止まってしまいました = lại bị dừng mất rồi. てしまう nhấn mạnh điều ngoài ý muốn lại xảy ra lần nữa."
+            }
+          ]
+        },
+        {
+          "jp": "その間、会社に連絡しようと思って、スマホを出したら、バッテリーが切れていて、驚きました。",
+          "vi": "Trong lúc đó, tôi định liên lạc với công ty nên lấy điện thoại ra thì pin đã hết, thật bất ngờ.",
+          "vocab": [
+            {
+              "w": "その間",
+              "read": "そのあいだ",
+              "vi": "trong lúc đó, trong thời gian đó"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "連絡します",
+              "read": "れんらくします",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "バッテリー",
+              "read": "バッテリー",
+              "vi": "pin (battery)"
+            },
+            {
+              "w": "切れます",
+              "read": "きれます",
+              "vi": "hết, cạn kiệt"
+            },
+            {
+              "w": "驚きます",
+              "read": "おどろきます",
+              "vi": "bất ngờ, ngạc nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V意向形＋と思って（Bài 31）",
+              "vi": "連絡しようと思って = nghĩ định liên lạc. しよう (ý hướng) + と思って là ý định chưa thực hiện."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "スマホを出したら = khi lấy điện thoại ra thì. たら → phát hiện kết quả bất ngờ."
+            },
+            {
+              "point": "V/Aて〜（原因・感情）",
+              "vi": "バッテリーが切れていて、驚きました = vì pin hết (nguyên nhân) nên bất ngờ (cảm xúc)."
+            }
+          ]
+        },
+        {
+          "jp": "電話するために、駅の公衆電話を探しましたが、なかなか見つかりませんでした。",
+          "vi": "Để gọi điện, tôi tìm điện thoại công cộng ở ga nhưng mãi không thấy.",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "公衆",
+              "read": "こうしゅう",
+              "vi": "công chúng, công cộng"
+            },
+            {
+              "w": "探します",
+              "read": "さがします",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi không, khó mà (dùng với phủ định)"
+            },
+            {
+              "w": "見つかります",
+              "read": "みつかります",
+              "vi": "tìm thấy (dạng tự động)"
+            },
+            {
+              "w": "公衆電話",
+              "read": "こうしゅうでんわ",
+              "vi": "điện thoại công cộng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために",
+              "vi": "電話するために = để gọi điện. するために nêu MỤC ĐÍCH của hành động tìm kiếm. Vるために + V2: để làm V thì làm V2."
+            }
+          ]
+        },
+        {
+          "jp": "やっと公衆電話を見つけて、会社に電話したら、受付のワンさんが出てくれました。",
+          "vi": "Cuối cùng tìm được điện thoại công cộng rồi gọi vào công ty thì chị Wang ở lễ tân đã nghe máy.",
+          "vocab": [
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng mới, vất vả lắm mới"
+            },
+            {
+              "w": "公衆",
+              "read": "こうしゅう",
+              "vi": "công chúng, công cộng"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "見つけます",
+              "read": "みつけます",
+              "vi": "tìm thấy (tha động từ)"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp tân"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "bắt máy, nghe (điện thoại)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて〜（Bài 16）",
+              "vi": "見つけて、電話したら = tìm được rồi gọi. て nối trình tự hai hành động."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "電話したら = khi gọi vào thì (phát hiện kết quả: chị Wang nghe máy)."
+            },
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "出てくれました = (chị Wang) đã nghe máy cho mình. てくれる = làm điều tốt cho người nói."
+            }
+          ]
+        },
+        {
+          "jp": "「山田さん、大丈夫ですか。心配していましたよ」と言ってくれて、とてもうれしかったです。",
+          "vi": "Chị nói \"Anh Yamada ơi, anh có ổn không? Chúng em đã lo lắng lắm đấy\" — nghe thế tôi vui lắm.",
+          "vocab": [
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "ổn không, không sao không"
+            },
+            {
+              "w": "心配します",
+              "read": "しんぱいします",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui, mừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれて（Bài 24）",
+              "vi": "言ってくれて = (chị ấy) đã nói (cho tôi nghe). てくれる = hành động tốt hướng về người nói."
+            },
+            {
+              "point": "V/Aて〜（原因・感情）",
+              "vi": "言ってくれて、うれしかったです = vì được nói những điều đó (nguyên nhân) nên tôi vui (cảm xúc). て nối nguyên nhân với cảm xúc tích cực."
+            }
+          ]
+        },
+        {
+          "jp": "そのあと、電車がようやく動いたので、急いで会議室に向かいました。",
+          "vi": "Sau đó tàu điện cuối cùng cũng chạy được nên tôi đã vội vàng đi đến phòng họp.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "ようやく",
+              "read": "ようやく",
+              "vi": "cuối cùng cũng, sau bao lâu"
+            },
+            {
+              "w": "動きます",
+              "read": "うごきます",
+              "vi": "di chuyển, chạy"
+            },
+            {
+              "w": "急ぐ",
+              "read": "いそぐ",
+              "vi": "gấp, khẩn cấp"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "向かいます",
+              "read": "むかいます",
+              "vi": "đi đến, hướng đến"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので",
+              "vi": "電車がようやく動いたので = vì tàu cuối cùng chạy được. ので nêu lý do khách quan dẫn đến hành động vội vàng đi."
+            }
+          ]
+        },
+        {
+          "jp": "会議には四十分遅れて参加しました。部長はとても忙しかったですが、「大変でしたね」と言ってくれました。",
+          "vi": "Tôi tham dự họp muộn bốn mươi phút. Trưởng phòng rất bận nhưng đã nói \"Anh vất vả nhỉ\".",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "遅れる",
+              "read": "おくれる",
+              "vi": "chậm, trễ"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham dự, tham gia"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khổ sở"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "四十分",
+              "read": "しじゅっぷん",
+              "vi": "bốn mươi phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（nối trình tự/nguyên nhân — Bài 16）",
+              "vi": "遅れて参加しました = tham dự (trong trình trạng) đã đến muộn. て nối trình tự/nguyên nhân: đến muộn rồi mới tham dự họp."
+            },
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "言ってくれました = (trưởng phòng) đã nói (điều an ủi) cho tôi. Hành động tốt hướng về người nói."
+            }
+          ]
+        },
+        {
+          "jp": "今後このようなことがないように、スマホの充電を毎晩確認することにしました。",
+          "vi": "Để từ nay không xảy ra chuyện như vậy nữa, tôi đã quyết định kiểm tra pin điện thoại mỗi tối.",
+          "vocab": [
+            {
+              "w": "今後",
+              "read": "こんご",
+              "vi": "từ nay về sau"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            },
+            {
+              "w": "充電",
+              "read": "じゅうでん",
+              "vi": "sạc pin, pin đã sạc"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "kiểm tra, xác nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるように（Bài 36）",
+              "vi": "このようなことがないように = để (mục tiêu) không xảy ra chuyện như vậy. Vないように nêu mục tiêu hướng đến."
+            },
+            {
+              "point": "ことにしました（Bài 31）",
+              "vi": "確認することにしました = đã quyết định kiểm tra. ことにする là quyết định của bản thân."
+            }
+          ]
+        },
+        {
+          "jp": "大切な会議を乱してしまい、本当に申し訳ありませんでした。",
+          "vi": "Tôi đã làm gián đoạn cuộc họp quan trọng, thật sự rất xin lỗi.",
+          "vocab": [
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "乱します",
+              "read": "みだします",
+              "vi": "làm xáo trộn, gián đoạn"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "申し訳",
+              "read": "もうしわけ",
+              "vi": "xin lỗi, không có lý do gì để bào chữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまいます（Bài 29）",
+              "vi": "乱してしまい = đã lỡ làm gián đoạn. てしまう nhấn mạnh sự hối tiếc về điều đã xảy ra. (乱してしまい = dạng nối câu)."
+            }
+          ]
+        },
+        {
+          "jp": "今後ともよろしくお願いします。山田",
+          "vi": "Mong anh tiếp tục giúp đỡ tôi. Yamada",
+          "vocab": [
+            {
+              "w": "今後とも",
+              "read": "こんごとも",
+              "vi": "từ nay trở đi, về sau này cũng"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "よろしくお願いします",
+              "read": "よろしくおねがいします",
+              "vi": "mong được giúp đỡ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "よろしくお願いします（Bài 1）",
+              "vi": "Công thức kết thúc thư/email. 今後とも = từ nay về sau cũng (dùng trong văn bản trang trọng)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "財布を忘れたことに気がついて、急いで取りに帰りました",
+          "label": "V/Aて〜（nguyên nhân−kết quả）"
+        },
+        {
+          "excerpt": "線路に問題があったので、電車が動けない",
+          "label": "〜ので（lý do lịch sự）"
+        },
+        {
+          "excerpt": "事故のために止まっていました",
+          "label": "Nのために（nguyên nhân）"
+        },
+        {
+          "excerpt": "電話するために、駅の公衆電話を探しました",
+          "label": "Vるために（mục đích）"
+        },
+        {
+          "excerpt": "電車はなかなか来なくて、本当に困りました",
+          "label": "V/Aて〜（nguyên nhân−cảm xúc）"
+        },
+        {
+          "excerpt": "言ってくれて、とてもうれしかったです",
+          "label": "V/Aて〜（nguyên nhân−cảm xúc tích cực）"
+        },
+        {
+          "excerpt": "電車がようやく動いたので、急いで会議室に向かいました",
+          "label": "〜ので（lý do → hành động）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "山田さんが会議に遅れた理由をすべて選んでください。（Suy luận tổng hợp）",
+          "evi": [
+            2,
+            4,
+            7
+          ],
+          "options": [
+            "財布を忘れて帰ったことと、電車が二回止まったことです",
+            "電車が遅かっただけです",
+            "会議室が遠かったので、遅れました",
+            "スマホのバッテリーが切れたので、遅れました"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Email liệt kê ba nguyên nhân cộng dồn:「財布を忘れたことに気がついて、急いで取りに帰りました」(① quên ví → về lấy, trễ 15 phút);「電車が事故のために止まっていました」(② tàu dừng lần 1 vì sự cố);「人身事故があって、また止まってしまいました」(③ tàu dừng lần 2 vì tai nạn người). Phương án 0 gộp đúng hai nhóm chính: quên ví + tàu dừng HAI lần. Đáp án 1 sai vì tàu không chỉ chậm mà dừng hẳn, và không phải chỉ một lý do. Đáp án 2 sai vì bài không nhắc đến phòng họp ở xa. Đáp án 3 sai vì pin hết là sự cố liên lạc riêng — không phải nguyên nhân trễ họp.",
+          "tip": "Câu hỏi \"liệt kê tất cả lý do\" → đọc toàn bộ bài, đếm bao nhiêu sự kiện gây trễ. Dùng dấu hiệu〜て（nguyên nhân）,〜のために,〜ので để nhận ra từng mắt xích trong chuỗi sự cố.",
+          "qt": {
+            "q": "Hãy chọn tất cả lý do khiến anh Yamada đến muộn cuộc họp. (Tổng hợp suy luận)",
+            "o": [
+              "Vì đã quên ví nên phải quay về lấy, và tàu đã dừng hai lần",
+              "Chỉ vì tàu chạy chậm",
+              "Vì phòng họp ở xa nên đã đến muộn",
+              "Vì pin điện thoại thông minh hết nên đã đến muộn"
+            ]
+          }
+        },
+        {
+          "q": "山田さんはどうして公衆電話を使いましたか。",
+          "evi": [
+            8,
+            9
+          ],
+          "options": [
+            "公衆電話のほうが安いので、使いました",
+            "スマホのバッテリーが切れていたので、公衆電話を探しました",
+            "駅員さんに「公衆電話を使ってください」と言われたので、使いました",
+            "会社の電話番号を知らなかったから、公衆電話で調べました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nêu rõ chuỗi sự kiện:「スマホを出したら、バッテリーが切れていて、驚きました」(lấy điện thoại ra thì pin hết) →「電話するために、駅の公衆電話を探しました」(để gọi điện nên tìm điện thoại công cộng). Hai câu này trực tiếp giải thích lý do: pin hết → không dùng được điện thoại → phải tìm điện thoại công cộng. Đáp án 0 sai vì bài không so sánh giá. Đáp án 2 sai vì nhân viên nhà ga không đề xuất điều này. Đáp án 3 sai vì vấn đề là PIN HẾT, không phải thiếu số điện thoại.",
+          "tip": "Câu hỏi \"tại sao làm X\" → tìm câu ngay TRƯỚC hành động X có〜ので /〜て /〜から. Ở đây「バッテリーが切れていて」(て nguyên nhân) + mục đích「電話するために」là hai dấu hiệu song song — đọc cả hai mới hiểu đầy đủ.",
+          "qt": {
+            "q": "Tại sao anh Yamada đã dùng điện thoại công cộng?",
+            "o": [
+              "Vì điện thoại công cộng rẻ hơn nên đã dùng",
+              "Vì pin điện thoại thông minh đã hết nên anh ấy đi tìm điện thoại công cộng",
+              "Vì nhân viên nhà ga đã nói: 「公衆電話を使ってください」 (hãy dùng điện thoại công cộng), nên anh ấy đã dùng",
+              "Vì không biết số điện thoại của công ty nên đã tra cứu bằng điện thoại công cộng"
+            ]
+          }
+        },
+        {
+          "q": "メールの中で、山田さんは「ので」をどんな場面で使いましたか。",
+          "evi": [
+            5,
+            12
+          ],
+          "options": [
+            "友達に話すときに使いました",
+            "命令するときに使いました",
+            "上の人や正式な場面で、丁寧に理由を説明するときに使いました",
+            "感情を表すときに使いました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Trong email gửi đồng nghiệp Miller,「ので」xuất hiện ở những chỗ giải thích lý do khách quan:「線路に問題があったので、電車が動けない」(vì đường ray có vấn đề);「電車がようやく動いたので、急いで向かいました」(vì tàu chạy được nên vội đi). Đây là email công sở trang trọng → ので phù hợp hơn から vì lịch sự và khách quan hơn. Đáp án 0 sai: email này gửi đồng nghiệp/cấp trên, không phải bạn bè. Đáp án 1 sai vì ので không dùng để ra lệnh. Đáp án 3 sai vì cảm xúc (驚き、うれしい) trong bài dùng〜て chứ không dùng ので.",
+          "tip": "Nhớ quy tắc: ので = lý do LỊCH SỰ/KHÁCH QUAN, dùng trong email, báo cáo, giải thích với người trên. Khi bài có cả ので và から, hãy chú ý ai đang nói với ai và bối cảnh trang trọng hay thân mật.",
+          "qt": {
+            "q": "Trong email, anh Yamada đã dùng 「ので」 trong tình huống như thế nào?",
+            "o": [
+              "Anh ấy dùng khi nói chuyện với bạn bè",
+              "Anh ấy dùng khi ra lệnh",
+              "Anh ấy dùng khi lịch sự giải thích lý do với cấp trên hoặc trong tình huống trang trọng",
+              "Anh ấy dùng khi bày tỏ cảm xúc"
+            ]
+          }
+        },
+        {
+          "q": "山田さんは今後、遅刻しないためにどうすることにしましたか。",
+          "evi": [
+            14
+          ],
+          "options": [
+            "毎朝タクシーで会社に行くことにしました",
+            "電車を使わないことにしました",
+            "毎晩スマホの充電を確認することにしました",
+            "部長に毎朝連絡することにしました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu rõ:「今後このようなことがないように、スマホの充電を毎晩確認することにしました」(để từ nay không xảy ra chuyện như vậy, đã quyết định kiểm tra pin điện thoại mỗi tối). Đây dùng ことにしました (Bài 31 — quyết định của bản thân) và Vないように (Bài 36 — hướng đến mục tiêu tránh X). Đáp án 0 và 1 sai vì bài không nhắc đến đổi phương tiện hay bỏ tàu điện. Đáp án 3 sai vì kế hoạch cụ thể là kiểm tra pin, không phải gọi điện cho trưởng phòng mỗi sáng.",
+          "tip": "Khi bài hỏi kế hoạch/quyết định → tìm「ことにしました」hoặc「つもりです」. Chú ý bối cảnh: kế hoạch phải LOGIC gắn với sự cố đã xảy ra trong bài — pin hết là sự cố → kiểm tra pin là giải pháp hợp lý.",
+          "qt": {
+            "q": "Để không đi muộn trong thời gian tới, anh Yamada đã quyết định làm gì?",
+            "o": [
+              "Anh ấy quyết định đi làm bằng taxi mỗi sáng",
+              "Anh ấy quyết định không đi tàu nữa",
+              "Anh ấy quyết định kiểm tra việc sạc điện thoại thông minh mỗi tối",
+              "Anh ấy quyết định liên lạc với trưởng phòng mỗi sáng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Sửa chữa và dọn vệ sinh ở chung cư",
+      "japanese": "さくらマンション　工事とそうじのお知らせ\nいつも、さくらマンションに住んでいただき、ありがとうございます。\n来週、水道工事とエレベーターの点検があるので、下のとおりお知らせします。\n工事・そうじ｜曜日｜時間｜対象（階）\n水道工事｜火｜9:00〜12:00｜1階〜5階\nエレベーター点検｜水｜10:00〜15:00｜全部の階\n廊下のそうじ｜木｜8:00〜9:30｜1階と2階\n※水道工事のため、火曜日の午前中は水が出ません。前の日までに、お風呂とせんたくのための水を準備しておいてください。\n※エレベーター点検のために、水曜日は使えませんので、階段を使ってください。\nすみませんが、よろしくお願いします。\n質問がある人は、1階の管理人室か電話で聞いてください。\n電話：03-4567-8901（月〜金　9:00〜18:00）",
+      "vietnamese": "Thông báo sửa chữa và dọn vệ sinh của chung cư Sakura\nCảm ơn quý vị đã luôn sống tại chung cư Sakura.\nTuần sau, vì có việc sửa đường nước và kiểm tra thang máy nên xin thông báo như dưới đây.\nViệc sửa chữa・dọn vệ sinh｜Thứ｜Giờ｜Đối tượng (tầng)\nSửa đường nước｜Ba｜9:00〜12:00｜Tầng 1〜tầng 5\nKiểm tra thang máy｜Tư｜10:00〜15:00｜Tất cả các tầng\nDọn vệ sinh hành lang｜Năm｜8:00〜9:30｜Tầng 1 và tầng 2\n※ Vì sửa đường nước nên buổi sáng thứ Ba sẽ không có nước. Trước đó một ngày, xin hãy chuẩn bị sẵn nước để tắm và giặt đồ.\n※ Vì kiểm tra thang máy nên thứ Tư không dùng được thang máy, xin hãy đi thang bộ.\nXin lỗi vì làm phiền quý vị, rất mong quý vị thông cảm.\nNgười nào có câu hỏi, xin hỏi ở phòng quản lý tầng 1 hoặc gọi điện thoại.\nĐiện thoại: 03-4567-8901 (Thứ Hai〜Thứ Sáu 9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "さくらマンション　工事とそうじのお知らせ",
+          "vi": "Thông báo sửa chữa và dọn vệ sinh của chung cư Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "マンション",
+              "read": "マンション",
+              "vi": "chung cư (mansion)"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "việc sửa chữa, thi công"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "そうじ",
+              "read": "そうじ",
+              "vi": "dọn vệ sinh"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "工事とそうじのお知らせ",
+              "why": "Tiêu đề nêu chủ đề chính: thông báo về việc sửa chữa (nước, thang máy) và dọn vệ sinh — định hướng toàn bài."
+            }
+          ]
+        },
+        {
+          "jp": "いつも、さくらマンションに住んでいただき、ありがとうございます。",
+          "vi": "Cảm ơn quý vị đã luôn sống tại chung cư Sakura.",
+          "vocab": [
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "マンション",
+              "read": "マンション",
+              "vi": "căn hộ, chung cư"
+            },
+            {
+              "w": "住みます",
+              "read": "すみます",
+              "vi": "sinh sống, cư trú"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "いただきます",
+              "read": "いただきます",
+              "vi": "nhận được (lịch sự, dùng thay cho もらいます trong lời cảm ơn trang trọng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていただき（Bài 24 応用）",
+              "vi": "住んでいただき、ありがとうございます = cảm ơn quý vị đã sống (ở đây). Vていただく là cách dùng lịch sự của Vてもらう (Bài 24) — thường xuất hiện trong lời cảm ơn mở đầu thông báo chính thức."
+            }
+          ]
+        },
+        {
+          "jp": "来週、水道工事とエレベーターの点検があるので、下のとおりお知らせします。",
+          "vi": "Tuần sau, vì có việc sửa đường nước và kiểm tra thang máy nên xin thông báo như dưới đây.",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "水道",
+              "read": "すいどう",
+              "vi": "đường nước, nước máy"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "việc sửa chữa, thi công"
+            },
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "点検",
+              "read": "てんけん",
+              "vi": "kiểm tra"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "phía dưới"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので",
+              "vi": "点検があるので = vì có (việc) kiểm tra. ので nêu lý do lịch sự, khách quan — hợp với văn phong thông báo chính thức gửi cư dân."
+            },
+            {
+              "point": "〜とおり（Bài 34）",
+              "vi": "下のとおり = như (nội dung) ở dưới đây. とおり chỉ sự đúng theo, khớp với."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水道工事とエレベーターの点検がある",
+              "why": "Nêu 2 sự việc sẽ diễn ra: sửa nước và kiểm tra thang máy — mở đầu cho bảng chi tiết bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "工事・そうじ｜曜日｜時間｜対象（階）",
+          "vi": "Việc sửa chữa・dọn vệ sinh｜Thứ｜Giờ｜Đối tượng (tầng)",
+          "vocab": [
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "việc sửa chữa, thi công"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "階",
+              "read": "かい",
+              "vi": "tầng (nhà)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "対象（階）",
+              "why": "Cột \"đối tượng (tầng)\" là căn cứ chính để trả lời câu hỏi 1 — phải khớp tầng nhân vật ở với phạm vi tầng trong hàng."
+            }
+          ]
+        },
+        {
+          "jp": "水道工事｜火｜9:00〜12:00｜1階〜5階",
+          "vi": "Sửa đường nước｜Ba｜9:00〜12:00｜Tầng 1〜tầng 5",
+          "vocab": [
+            {
+              "w": "水道",
+              "read": "すいどう",
+              "vi": "nước máy, hệ thống cấp nước"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "công trình, thi công"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "12:00",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "5階",
+              "read": "ごかい",
+              "vi": "tầng 5"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N〜N（phạm vi）",
+              "vi": "1階〜5階 = từ tầng 1 đến tầng 5. 〜 nối hai điểm để chỉ phạm vi (giống NからNまで, Bài 4)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水道工事｜火｜9:00〜12:00｜1階〜5階",
+              "why": "Hàng bảng căn cứ trực tiếp câu hỏi 1: sửa nước vào thứ Ba, ảnh hưởng tầng 1 đến tầng 5 — Santos ở tầng 3 nằm trong phạm vi này."
+            }
+          ]
+        },
+        {
+          "jp": "エレベーター点検｜水｜10:00〜15:00｜全部の階",
+          "vi": "Kiểm tra thang máy｜Tư｜10:00〜15:00｜Tất cả các tầng",
+          "vocab": [
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "点検",
+              "read": "てんけん",
+              "vi": "kiểm tra (thiết bị, quy trình)"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư (viết tắt của 水曜日)"
+            },
+            {
+              "w": "全部",
+              "read": "ぜんぶ",
+              "vi": "tất cả, toàn bộ"
+            },
+            {
+              "w": "階",
+              "read": "かい",
+              "vi": "tầng (lầu)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "エレベーター点検｜水｜10:00〜15:00｜全部の階",
+              "why": "Hàng bảng căn cứ câu hỏi 2: kiểm tra thang máy vào thứ Tư, áp dụng TẤT CẢ các tầng — không phân biệt tầng nào."
+            }
+          ]
+        },
+        {
+          "jp": "廊下のそうじ｜木｜8:00〜9:30｜1階と2階",
+          "vi": "Dọn vệ sinh hành lang｜Năm｜8:00〜9:30｜Tầng 1 và tầng 2",
+          "vocab": [
+            {
+              "w": "廊下",
+              "read": "ろうか",
+              "vi": "hành lang"
+            },
+            {
+              "w": "そうじ",
+              "read": "そうじ",
+              "vi": "việc dọn dẹp"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "8:00",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "9:30",
+              "read": "くじはん",
+              "vi": "9 giờ 30"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "2階",
+              "read": "にかい",
+              "vi": "tầng 2"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとN（Bài 4）",
+              "vi": "1階と2階 = tầng 1 và tầng 2. と nối hai danh từ cùng lúc là đối tượng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "廊下のそうじ｜木｜8:00〜9:30｜1階と2階",
+              "why": "Hàng nhiễu: dọn vệ sinh hành lang là THỨ NĂM, chỉ tầng 1-2 — không liên quan câu hỏi 1 (thứ Ba) hay câu hỏi 2 (thứ Tư)."
+            }
+          ]
+        },
+        {
+          "jp": "※水道工事のため、火曜日の午前中は水が出ません。前の日までに、お風呂とせんたくのための水を準備しておいてください。",
+          "vi": "※ Vì sửa đường nước nên buổi sáng thứ Ba sẽ không có nước. Trước đó một ngày, xin hãy chuẩn bị sẵn nước để tắm và giặt đồ.",
+          "vocab": [
+            {
+              "w": "水道",
+              "read": "すいどう",
+              "vi": "đường nước, nước máy"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "việc sửa chữa, thi công"
+            },
+            {
+              "w": "火曜日",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra (ở đây: nước chảy ra)"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "風呂",
+              "read": "ふろ",
+              "vi": "bồn tắm, việc tắm bồn"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "午前中",
+              "read": "ごぜんちゅう",
+              "vi": "buổi sáng, trong buổi sáng"
+            },
+            {
+              "w": "前の日",
+              "read": "まえのひ",
+              "vi": "ngày trước đó, hôm trước"
+            },
+            {
+              "w": "お風呂",
+              "read": "おふろ",
+              "vi": "tắm, bồn tắm"
+            },
+            {
+              "w": "せんたく",
+              "read": "せんたく",
+              "vi": "giặt đồ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのため（nguyên nhân）",
+              "vi": "水道工事のため = vì (có) việc sửa đường nước. Nのため nêu nguyên nhân bằng danh từ, đứng đầu câu để giải thích kết quả phía sau (水が出ません)."
+            },
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "前の日までに = trước ngày hôm trước (chậm nhất là lúc đó). までに nêu hạn chót phải hoàn thành."
+            },
+            {
+              "point": "Nのための（mục đích）",
+              "vi": "お風呂とせんたくのための水 = nước để (dùng cho việc) tắm và giặt đồ. Nのための＋N: N (mục đích) dùng để bổ nghĩa cho danh từ theo sau."
+            },
+            {
+              "point": "Vておいてください（Bài 30＋14）",
+              "vi": "準備しておいてください = xin hãy chuẩn bị sẵn trước. Vておく = làm trước cho sẵn sàng, kết hợp với Vてください thành lời yêu cầu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火曜日の午前中は水が出ません",
+              "why": "※ bẫy quan trọng: xác nhận LẠI khung giờ mất nước (đúng thứ Ba, buổi sáng) — căn cứ trực tiếp câu hỏi 1."
+            },
+            {
+              "w": "前の日までに",
+              "why": "Từ giới hạn thời gian までに: hạn chót chuẩn bị nước là TRƯỚC một ngày, dễ đọc nhầm thành \"cùng ngày\"."
+            }
+          ]
+        },
+        {
+          "jp": "※エレベーター点検のために、水曜日は使えませんので、階段を使ってください。",
+          "vi": "※ Vì kiểm tra thang máy nên thứ Tư không dùng được thang máy, xin hãy đi thang bộ.",
+          "vocab": [
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "点検",
+              "read": "てんけん",
+              "vi": "kiểm tra (thiết bị, quy trình)"
+            },
+            {
+              "w": "水曜日",
+              "read": "すいようび",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "使えます",
+              "read": "つかえます",
+              "vi": "dùng được (thể khả năng của 使う)"
+            },
+            {
+              "w": "階段",
+              "read": "かいだん",
+              "vi": "cầu thang bộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのために（nguyên nhân）",
+              "vi": "エレベーター点検のために = vì (có) việc kiểm tra thang máy. Cùng nghĩa với Nのため ở câu trên, chỉ khác trợ từ に đi kèm."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "使えません = không dùng được. 使う → 使える (khả năng) → 使えません (phủ định)."
+            },
+            {
+              "point": "〜ので",
+              "vi": "使えませんので = vì không dùng được (nên). ので nối lý do (thang máy không dùng được) với yêu cầu phía sau (階段を使ってください), lịch sự hơn từ から."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水曜日は使えませんので、階段を使ってください",
+              "why": "Bẫy ※ quan trọng nhất câu hỏi 2: thứ Tư KHÔNG dùng được thang máy → phải đi cầu thang bộ, là đáp án trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "すみませんが、よろしくお願いします。",
+          "vi": "Xin lỗi vì làm phiền quý vị, rất mong quý vị thông cảm.",
+          "vocab": [
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "よろしくお願いします（Bài 1）",
+              "vi": "Câu chào/xin lỗi công thức thường thấy cuối thông báo, mong người đọc thông cảm. すみませんが nêu lời xin lỗi ngắn gọn trước khi kết thúc thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "質問がある人は、1階の管理人室か電話で聞いてください。",
+          "vi": "Người nào có câu hỏi, xin hỏi ở phòng quản lý tầng 1 hoặc gọi điện thoại.",
+          "vocab": [
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "管理人室",
+              "read": "かんりにんしつ",
+              "vi": "phòng quản lý (chung cư)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋N（mệnh đề bổ nghĩa danh từ・Bài 22）",
+              "vi": "質問がある人 = người (mà) có câu hỏi. ある bổ nghĩa cho 人 (người)."
+            },
+            {
+              "point": "NかN（Bài 6）",
+              "vi": "管理人室か電話で = ở phòng quản lý hoặc bằng điện thoại. か nêu lựa chọn giữa hai cách liên hệ."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "聞いてください = xin hãy hỏi. Yêu cầu lịch sự hướng dẫn cư dân khi có thắc mắc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1階の管理人室か電話で聞いてください",
+              "why": "Kênh liên hệ khi cần hỏi thêm — không phải căn cứ trả lời 2 câu hỏi chính nhưng là chi tiết \"chất đề thật\"."
+            }
+          ]
+        },
+        {
+          "jp": "電話：03-4567-8901（月〜金　9:00〜18:00）",
+          "vi": "Điện thoại: 03-4567-8901 (Thứ Hai〜Thứ Sáu 9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai (viết tắt của 月曜日)"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu (viết tắt của 金曜日)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4）",
+              "vi": "月〜金 = từ thứ Hai đến thứ Sáu. Cách viết tắt 〜 thay cho から〜まで trong văn bản thông báo."
+            }
+          ]
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đầu & lý do thông báo",
+          "topic": 0,
+          "note": "Tiêu đề + lời cảm ơn + lý do chung (sửa nước, kiểm tra thang máy) — chỉ định hướng chủ đề, chưa có căn cứ trả lời câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng lịch sửa chữa & vệ sinh",
+          "topic": 3,
+          "note": "Bảng chính chứa 3 hàng: sửa nước (thứ Ba, tầng 1-5) là căn cứ câu 1; kiểm tra thang máy (thứ Tư, tất cả tầng) là căn cứ câu 2; dọn hành lang (thứ Năm) là hàng nhiễu không liên quan 2 câu hỏi.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Điều kiện ※ áp dụng",
+          "topic": 7,
+          "note": "Hai dòng ※ bẫy quan trọng: xác nhận LẠI chi tiết mất nước thứ Ba sáng (câu 1) và bắt buộc đi cầu thang bộ thứ Tư vì thang máy không dùng được (câu 2) — đây mới là câu trả lời trực tiếp.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "body",
+          "label": "Lời xin lỗi & liên hệ",
+          "topic": 10,
+          "note": "Lời xin lỗi kết thúc + kênh liên hệ khi có thắc mắc — không chứa căn cứ cho 2 câu hỏi chính.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "水道工事とエレベーターの点検があるので",
+          "label": "〜ので（lý do lịch sự）"
+        },
+        {
+          "excerpt": "水道工事のため、火曜日の午前中は水が出ません",
+          "label": "Nのため（nguyên nhân）"
+        },
+        {
+          "excerpt": "エレベーター点検のために、水曜日は使えませんので",
+          "label": "Nのために（nguyên nhân）＋〜ので"
+        },
+        {
+          "excerpt": "お風呂とせんたくのための水を準備しておいてください",
+          "label": "Nのための＋N（mục đích）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは3階に住んでいます。火曜日の午前中、サントスさんの部屋はどうなりますか。",
+          "options": [
+            "エレベーターが使えなくなります",
+            "水が出なくなります",
+            "廊下がそうじ中で歩けません",
+            "何も変わりません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Dò bảng: hàng「水道工事｜火｜9:00〜12:00｜1階〜5階」— sửa đường nước vào thứ Ba, ảnh hưởng TẦNG 1 ĐẾN TẦNG 5. Santos ở tầng 3 nằm trong phạm vi đó, và dòng ※ ghi rõ「火曜日の午前中は水が出ません」(sáng thứ Ba không có nước). Đáp án 0 sai vì kiểm tra thang máy là NGÀY THỨ TƯ, không phải thứ Ba. Đáp án 2 sai vì dọn vệ sinh hành lang là thứ Năm, chỉ ảnh hưởng tầng 1–2. Đáp án 3 sai vì câu hỏi hỏi đúng ngày thứ Ba có ảnh hưởng thật (mất nước).",
+          "tip": "Câu hỏi ghép 2 điều kiện (ngày + tầng) — trước tiên xác định ĐÚNG NGÀY trong bảng, sau đó kiểm tra cột \"đối tượng (tầng)\" có bao gồm tầng của nhân vật không, đừng nhầm sang hàng khác cùng bảng.",
+          "evi": [
+            4,
+            7
+          ],
+          "qt": {
+            "q": "Ông Santos sống ở tầng 3. Vào buổi sáng thứ Ba, căn hộ của ông Santos sẽ thế nào?",
+            "o": [
+              "Thang máy sẽ không sử dụng được",
+              "Nước sẽ không chảy",
+              "Hành lang đang được dọn dẹp nên không thể đi lại",
+              "Không có gì thay đổi"
+            ]
+          }
+        },
+        {
+          "q": "水曜日にエレベーターを使いたい人は、どうしなければなりませんか。",
+          "options": [
+            "管理人室に電話をかけなければなりません",
+            "前の日に水を準備しなければなりません",
+            "階段を使わなければなりません",
+            "9:00〜12:00に出かけなければなりません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Dòng ※ ghi rõ「エレベーター点検のために、水曜日は使えませんので、階段を使ってください」— vì kiểm tra thang máy nên thứ Tư không dùng được, phải đi CẦU THANG BỘ. Đáp án 0 sai vì gọi điện phòng quản lý chỉ dành cho ai có câu hỏi, không liên quan đến việc lên xuống tầng. Đáp án 1 sai vì chuẩn bị nước trước là yêu cầu của việc SỬA ĐƯỜNG NƯỚC (thứ Ba), không phải kiểm tra thang máy (thứ Tư). Đáp án 3 sai vì 9:00〜12:00 là giờ sửa đường nước, còn thang máy kiểm tra từ 10:00〜15:00, và bài không yêu cầu phải ra ngoài.",
+          "tip": "Đề hỏi \"phải làm gì\" → tìm câu có Vなければなりません hoặc Vてください ngay sau dòng ※ liên quan đúng NGÀY được hỏi. Đừng lẫn yêu cầu của hàng thứ Ba sang thứ Tư dù cùng nằm trong thông báo.",
+          "evi": [
+            5,
+            8
+          ],
+          "qt": {
+            "q": "Những người muốn sử dụng thang máy vào thứ Tư phải làm gì?",
+            "o": [
+              "Phải gọi điện đến phòng quản lý",
+              "Phải chuẩn bị nước từ ngày hôm trước",
+              "Phải sử dụng cầu thang",
+              "Phải ra ngoài trong khoảng từ 9:00 to 12:00"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

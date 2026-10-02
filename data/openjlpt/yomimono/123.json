@@ -1,0 +1,3360 @@
+{
+  "bai": 123,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng đọc hiểu các đoạn văn bàn về thói quen, xu hướng biến đổi và đánh giá tính cách trong đời sống sinh hoạt. Trọng tâm là nắm bắt và phân biệt sắc thái phê phán hành vi lặp lại (〜てばかりいる), sự biến đổi liên tục theo một chiều của hiện tượng (〜一方だ), khuynh hướng tiêu cực hay xảy ra (〜がちだ) và đặc tính/cảm giác mang sắc thái bên ngoài (〜っぽい).",
+    "steps": [
+      "Xác định chủ thể hành động: Phân biệt rõ câu văn đang nói về hành vi có ý chí của con người (てばかりいる, がちだ, っぽい) hay xu hướng diễn tiến khách quan của sự vật, hiện tượng (一方だ).",
+      "Nắm bắt thái độ của tác giả: Chú ý dấu hiệu phàn nàn/chê trách khi gặp 〜てばかりいる, cảnh báo thói quen xấu/nguy cơ với 〜がちだ, hoặc đánh giá cảm tính với 〜っぽい.",
+      "Theo dõi mạch biến đổi với 〜一方だ: Kết hợp quan sát các động từ biến đổi (増える, 減る, 悪化する...) để xác định chiều hướng tăng hoặc giảm liên tục của vấn đề trong văn bản.",
+      "Phân tích cấu trúc chuyển ý: Đoạn văn xuất hiện 〜がちだ thường đi kèm với các liên từ tương phản (しかし, が) để dẫn dắt đến giải pháp hoặc lời khuyên của tác giả ở vế sau.",
+      "Loại trừ phương án bẫy: Cẩn thận loại bỏ các phương án mang sắc thái tích cực hoặc mô tả sự việc trung tính khi văn cảnh chứa các mẫu câu vốn dĩ mang hàm ý tiêu cực này."
+    ],
+    "tips": [
+      "Bẫy thái độ: 〜てばかりいる luôn thể hiện sự bất mãn/phàn nàn của người nói; các phương án khen ngợi hoặc miêu tả trung lập đều là bẫy.",
+      "Dấu hiệu 〜一方だ: Luôn đi với động từ chỉ sự thay đổi (変化動詞); không dùng cho hành vi có ý chí đơn thuần của con người.",
+      "使い分け (がちだ vs っぽい): 〜がちだ biểu thị tần suất/xu hướng hành vi tiêu cực hay xảy ra (忘れがち, 遠慮しがち), còn 〜っぽい biểu thị tính chất, diện mạo hoặc cảm giác bên ngoài (怒りっぽい, 白っぽい, 子どもっぽい).",
+      "使い分け (てばかりいる vs 一方だ): 〜てばかりいる nhấn mạnh người làm mãi một việc không ngừng và bỏ bê việc khác, còn 〜一方だ diễn tả một tình trạng khách quan ngày càng biến đổi theo một chiều.",
+      "Lưu ý vế sau của 〜がちだ: Cụm 〜がちだが thường đóng vai trò nêu thực trạng phổ biến để tác giả đưa ra quan điểm cốt lõi ngay sau đó."
+    ],
+    "grammarFocus": [
+      "〜てばかりいる — 接続: Vて + ばかりいる. Sắc thái: Cứ làm mãi một việc duy nhất, bỏ bê những việc khác cần làm; mang hàm ý phê bình, phàn nàn. Đối chiếu: Khác 〜だけ (chỉ mang tính định lượng trung tính).",
+      "〜一方だ — 接続: V辞書形 + 一方だ. Sắc thái: Diễn tả tình trạng/sự việc ngày càng biến đổi theo một chiều hướng nhất định (thường là tiêu cực, xấu đi). Đối chiếu: Khác 〜てばかりいる (chỉ hành động lặp lại của con người).",
+      "〜がちだ — 接続: Vます(bỏ ます) ／ N + がちだ. Sắc thái: Thường hay, có khuynh hướng dễ rơi vào trạng thái tiêu cực hoặc không mong muốn. Đối chiếu: Khác 〜やすい (dễ xảy ra do bản chất/cơ chế khách quan).",
+      "〜っぽい — 接続: Vます(bỏ ます) ／ N ／ い形語幹 + っぽい. Sắc thái: Có vẻ, đậm tính chất hoặc dễ bộc lộ đặc điểm nào đó (thường dùng trong văn nói/tính cách). Đối chiếu: Khác 〜がちだ (khuynh hướng tần suất của hành vi)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ（Vる + べきだ: nên/lẽ phải）",
+          "〜ものだ（chân lý/lẽ thường・hồi tưởng・cảm thán）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "〜せいで（普通形/なAdj+な/N+の＋せいで）",
+          "〜せいか（普通形/なAdj+な/N+の＋せいか）"
+        ]
+      },
+      {
+        "bai": 64,
+        "items": [
+          "〜ようだ（普通形 + ようだ; なAdj → なようだ; N → のようだ）",
+          "〜みたいだ（なAdj/N bỏ だ + みたいだ）"
+        ]
+      },
+      {
+        "bai": 66,
+        "items": [
+          "〜ば〜ほど（Vば + Vるほど / Aければ + Aいほど）",
+          "〜ほど（普通形 + ほど）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "デジタル社会と心のゆとり",
+      "titleVi": "Xã hội số và khoảng lặng cho tâm hồn",
+      "japanese": "最近の若者は、休日に部屋でスマートフォンを見てばかりいると言われる。SNSを開くと情報が多すぎて、集中力が落ちる一方だ。その結果、物事を深く考えずに表面だけで判断しがちになる。さらに、少しでも自分の思い通りにならないと、怒りっぽい態度を取る人も増えているようだ。\n便利さに頼ってばかりいると、自分でじっくり問題と向き合う力が弱まる。また、短時間の動画を見慣れたせいで、長文を読むのを面倒くさがり、飽きっぽい性格になってしまう傾向もある。忙しい日常では、自分の心や体の変化を見落としがちだ。デジタル機器を使う時間が長くなれば、ストレスや不安が募る一方である。だからこそ、たまには画面から離れて、自分自身の時間を静かに見つめ直すことが大切だ。",
+      "vietnamese": "Người ta nói rằng giới trẻ ngày nay vào ngày nghỉ chỉ toàn nhìn chăm chú vào điện thoại thông minh trong phòng. Cứ mỗi lần mở mạng xã hội là thông tin lại quá nhiều, khiến cho khả năng tập trung ngày càng giảm sút. Hệ quả là, người ta thường hay phán đoán chỉ dựa vào bề nổi mà không suy nghĩ thấu đáo mọi chuyện. Hơn nữa, dường như số người có thái độ dễ nổi cáu chỉ vì sự việc không theo ý mình dù một chút cũng đang tăng lên.\nNếu cứ ỷ lại mãi vào sự tiện lợi, năng lực tự mình đối mặt kỹ lưỡng với vấn đề sẽ bị suy yếu. Ngoài ra, vì đã quen xem các video ngắn, người ta cũng có khuynh hướng ngại đọc văn bản dài và dần hình thành tính cách cả thèm chóng chán. Trong nhịp sống thường nhật bận rộn, chúng ta rất dễ bỏ sót những biến chuyển của tâm trí và cơ thể mình. Nếu thời gian sử dụng thiết bị kỹ thuật số ngày càng dài, sự căng thẳng và bất an sẽ chỉ ngày càng chồng chất. Chính vì vậy, thỉnh thoảng việc rời xa màn hình để tĩnh lặng nhìn nhận lại thời gian của chính bản thân là điều vô cùng quan trọng.",
+      "sentences": [
+        {
+          "jp": "最近の若者は、休日に部屋でスマートフォンを見てばかりいると言われる。",
+          "vi": "Người ta nói rằng giới trẻ ngày nay vào ngày nghỉ chỉ toàn nhìn chăm chú vào điện thoại thông minh trong phòng.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "giới trẻ, thanh niên"
+            },
+            {
+              "w": "休日",
+              "read": "きゅうじつ",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てばかりいる",
+              "vi": "【接続】V-て ＋ ばかりいる。【Sắc thái】Diễn tả hành động lặp đi lặp lại hoặc làm liên tục một việc gì đó đến mức thái quá, mang hàm ý phê phán hoặc không hài lòng của người nói.【Đối chiếu】Khác với 〜だけ (chỉ mang tính giới hạn khách quan, trung tính) và 〜ばかり (N+ばかり chỉ toàn là danh từ đó; còn V-てばかりいる nhấn mạnh vào hành động động từ bị lặp đi lặp lại quá mức)."
+            }
+          ]
+        },
+        {
+          "jp": "SNSを開くと情報が多すぎて、集中力が落ちる一方だ。",
+          "vi": "Cứ mỗi lần mở mạng xã hội là thông tin lại quá nhiều, khiến cho khả năng tập trung ngày càng giảm sút.",
+          "vocab": [
+            {
+              "w": "SNS",
+              "read": "エスエヌエス",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "多すぎて",
+              "read": "おおすぎて",
+              "vi": "quá nhiều"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "sự tập trung"
+            },
+            {
+              "w": "集中力",
+              "read": "しゅうちゅうりょく",
+              "vi": "khả năng tập trung"
+            },
+            {
+              "w": "落ちる",
+              "read": "おちる",
+              "vi": "suy giảm"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một chiều; ngày càng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方だ",
+              "vi": "【接続】V-辞書形 ＋ 一方だ (thường đi với các động từ biểu thị sự biến đổi như 落ちる, 増える, 減る, 悪化する).【Sắc thái】Diễn tả xu hướng biến đổi liên tục không ngừng theo một chiều hướng nhất định (thường là hướng tiêu cực hoặc bất lợi).【Đối chiếu】Khác với 〜ていく (chỉ sự biến đổi đơn thuần theo thời gian), 一方だ nhấn mạnh mức độ biến chuyển mạnh mẽ và liên tục không có dấu hiệu dừng lại."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、物事を深く考えずに表面だけで判断しがちになる。",
+          "vi": "Hệ quả là, người ta thường hay phán đoán chỉ dựa vào bề nổi mà không suy nghĩ thấu đáo mọi chuyện.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "sự vật sự việc, mọi chuyện"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "表面",
+              "read": "ひょうめん",
+              "vi": "bề mặt, bề nổi"
+            },
+            {
+              "w": "判断",
+              "read": "はんだん",
+              "vi": "phán đoán, đánh giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がちだ",
+              "vi": "【接続】V-ます (bỏ ます) / N ＋ がちだ。【Sắc thái】Diễn tả xu hướng hay xảy ra hoặc dễ rơi vào một tình trạng nào đó, hầu hết dùng cho khuynh hướng tiêu cực, thiếu sót hoặc không mong muốn.【Đối chiếu】Khác với 〜やすい (やすい nêu đặc tính khách quan dễ làm gì, ví dụ chữ này dễ đọc; còn がちだ nhấn mạnh tần suất hay phạm phải sai lầm/khuyết điểm trong thực tế)."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、少しでも自分の思い通りにならないと、怒りっぽい態度を取る人も増えているようだ。",
+          "vi": "Hơn nữa, dường như số người có thái độ dễ nổi cáu chỉ vì sự việc không theo ý mình dù một chút cũng đang tăng lên.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "思い",
+              "read": "おもい",
+              "vi": "suy nghĩ, tâm tư"
+            },
+            {
+              "w": "怒り",
+              "read": "いかり",
+              "vi": "cơn giận, sự tức giận"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "思い通り",
+              "read": "おもいどおり",
+              "vi": "theo ý muốn, như ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜っぽい",
+              "vi": "【接続】V-ます (bỏ ます) / A-い (bỏ い) / N ＋ っぽい (ở đây 怒る → 怒りっぽい).【Sắc thái】Diễn tả tính chất, thiên hướng hay bộc phát một trạng thái hoặc tính khí nào đó (thường mang nghĩa chê bai: hay giận, hay quên, mau chán).【Đối chiếu】Khác với 〜らしい (thể hiện đúng bản chất tích cực, ví dụ 男らしい) và 〜がちだ (がちだ chỉ tần suất hành động xảy ra; còn っぽい gắn với tính cách, bản tính)."
+            }
+          ]
+        },
+        {
+          "jp": "便利さに頼ってばかりいると、自分でじっくり問題と向き合う力が弱まる。",
+          "vi": "Nếu cứ ỷ lại mãi vào sự tiện lợi, năng lực tự mình đối mặt kỹ lưỡng với vấn đề sẽ bị suy yếu.",
+          "vocab": [
+            {
+              "w": "便利さ",
+              "read": "べんりさ",
+              "vi": "sự tiện lợi"
+            },
+            {
+              "w": "頼る",
+              "read": "たよる",
+              "vi": "trông cậy, phó mặc vào"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "thấu đáo, kỹ càng"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối mặt, đối diện"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "弱まる",
+              "read": "よわまる",
+              "vi": "yếu đi, giảm bớt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てばかりいる",
+              "vi": "【接続】V-て ＋ ばかりいる (ở đây: 頼ってばかりいる).【Sắc thái】Chỉ trích hành vi quá mức phụ thuộc vào sự tiện ích, cảnh báo hậu quả làm mất đi năng lực tự thân.【Đối chiếu】Khác với 〜ているだけ (chỉ đơn thuần nêu trạng thái 'chỉ đang dựa vào'), てばかりいる bộc lộ rõ sự bất đồng và phê phán của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "また、短時間の動画を見慣れたせいで、長文を読むのを面倒くさがり、飽きっぽい性格になってしまう傾向もある。",
+          "vi": "Ngoài ra, vì đã quen xem các video ngắn, người ta cũng có khuynh hướng ngại đọc văn bản dài và dần hình thành tính cách cả thèm chóng chán.",
+          "vocab": [
+            {
+              "w": "短時間",
+              "read": "たんじかん",
+              "vi": "thời gian ngắn"
+            },
+            {
+              "w": "動画",
+              "read": "どうが",
+              "vi": "video, đoạn phim"
+            },
+            {
+              "w": "見慣れる",
+              "read": "みなれる",
+              "vi": "quen mắt, quen nhìn/xem"
+            },
+            {
+              "w": "長文",
+              "read": "ちょうぶん",
+              "vi": "đoạn văn dài, bài viết dài"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "面倒い",
+              "read": "めんどうい",
+              "vi": "phiền phức, phiền toái"
+            },
+            {
+              "w": "さがる",
+              "read": "さがる",
+              "vi": "hạ xuống, lùi lại"
+            },
+            {
+              "w": "飽き",
+              "read": "あき",
+              "vi": "sự chán ngấy, nhàm chán"
+            },
+            {
+              "w": "性格",
+              "read": "せいかく",
+              "vi": "đặc tính, bản chất đặc thù (của lĩnh vực)"
+            },
+            {
+              "w": "傾向",
+              "read": "けいこう",
+              "vi": "khuynh hướng, xu hướng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜っぽい",
+              "vi": "【接続】V-ます (bỏ ます) ＋ っぽい (ở đây: 飽きる → 飽きっぽい).【Sắc thái】Biểu thị nét tính cách dễ nản lòng, không kiên trì theo đuổi việc gì lâu dài.【Đối chiếu】Khác với 〜がちだ (nhấn mạnh tình huống thường bị xảy ra; còn 飽きっぽい trở thành một tính từ miêu tả tính khí con người)."
+            }
+          ]
+        },
+        {
+          "jp": "忙しい日常では、自分の心や体の変化を見落としがちだ。",
+          "vi": "Trong nhịp sống thường nhật bận rộn, chúng ta rất dễ bỏ sót những biến chuyển của tâm trí và cơ thể mình.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "thường nhật, cuộc sống hàng ngày"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "見落とす",
+              "read": "みおとす",
+              "vi": "bỏ sót, nhìn sót, không nhận ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がちだ",
+              "vi": "【接続】V-ます (bỏ ます) ＋ がちだ (ở đây: 見落とす → 見落としがちだ).【Sắc thái】Diễn tả tình trạng sơ suất vô ý thường xảy ra do hoàn cảnh cuộc sống bận rộn chi phối.【Đối chiếu】Khác với 〜おそれがある (nguy cơ xấu trong tương lai mang tính dự báo); がちだ nhấn mạnh thói quen/xu hướng thường mắc phải ở hiện tại."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル機器を使う時間が長くなれば、ストレスや不安が募る一方である。",
+          "vi": "Nếu thời gian sử dụng thiết bị kỹ thuật số ngày càng dài, sự căng thẳng và bất an sẽ chỉ ngày càng chồng chất.",
+          "vocab": [
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "デジタル機器",
+              "read": "デジタルきき",
+              "vi": "thiết bị kỹ thuật số"
+            },
+            {
+              "w": "機器",
+              "read": "きき",
+              "vi": "thiết bị"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "長くなれば",
+              "read": "ながくなれば",
+              "vi": "nếu trở nên dài hơn"
+            },
+            {
+              "w": "ストレス",
+              "read": "ストレス",
+              "vi": "căng thẳng"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "bất an"
+            },
+            {
+              "w": "募る",
+              "read": "つのる",
+              "vi": "gia tăng"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một chiều; ngày càng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方である",
+              "vi": "【接続】V-辞書形 ＋ 一方である (ở đây: 募る ＋ 一方である).【Sắc thái】Dạng trang trọng của 〜一方だ trong văn viết, diễn tả mức độ tăng tiến không ngừng của cảm xúc tiêu cực.【Đối chiếu】So với 〜ばかりだ (thiên về cảm thán cá nhân tiêu cực), 一方である mang tính văn phong phân tích, diễn giải xu thế khách quan hơn."
+            }
+          ]
+        },
+        {
+          "jp": "だからこそ、たまには画面から離れて、自分自身の時間を静かに見つめ直すことが大切だ。",
+          "vi": "Chính vì vậy, thỉnh thoảng việc rời xa màn hình để tĩnh lặng nhìn nhận lại thời gian của chính bản thân là điều vô cùng quan trọng.",
+          "vocab": [
+            {
+              "w": "だからこそ",
+              "read": "だからこそ",
+              "vi": "chính vì thế, chính vì vậy (nhấn mạnh)"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "離れる",
+              "read": "はなれる",
+              "vi": "rời xa, tách rời"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "見つめる",
+              "read": "みつめる",
+              "vi": "nhìn chăm chú, nhìn nhận"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "見つめ直す",
+              "read": "みつめなおす",
+              "vi": "nhìn nhận lại, suy xét lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からこそ",
+              "vi": "【接続】普通形 ＋ からこそ (ở đây là だからこそ).【Sắc thái】Nhấn mạnh nguyên nhân, lý do cốt lõi: 'Chính vì lý do đó nên...'.【Đối chiếu】Khác với から thông thường (nêu lý do trung tính), からこそ nhấn mạnh tính tất yếu dẫn tới đề xuất, kết luận dứt khoát ở vế sau."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "集中力が落ちる一方だ",
+          "label": "Xu hướng suy giảm liên tục (〜一方だ)"
+        },
+        {
+          "excerpt": "怒りっぽい態度",
+          "label": "Tính khí dễ cáu gắt (〜っぽい)"
+        },
+        {
+          "excerpt": "便利さに頼ってばかりいると",
+          "label": "Ỷ lại quá mức (〜てばかりいる)"
+        },
+        {
+          "excerpt": "見落としがちだ",
+          "label": "Thường hay sơ suất bỏ qua (〜がちだ)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者によると、SNSの利用によってどのような問題が起きているか。",
+          "options": [
+            "情報が多すぎることで集中力が低下し、物事を表面だけで判断するようになる。",
+            "スマートフォンを見る時間が減り、人と直接会話する機会が失われている。",
+            "短い動画を見ることで情報処理の速度が上がり、長文を読むのが得意になる。",
+            "自分の思い通りにならないときでも、我慢強く対応できるようになる。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [1] và [2]: việc mở SNS ngập tràn thông tin khiến khả năng tập trung liên tục giảm sút (集中力が落ちる一方だ) và dẫn tới việc chỉ phán đoán bề nổi (表面だけで判断しがちになる). Do đó phương án 1 đúng.\n- Phương án 2 sai vì bài viết nói người trẻ xem điện thoại rất nhiều chứ không phải thời gian giảm đi.\n- Phương án 3 sai vì xem video ngắn khiến người ta ngại đọc văn bản dài (câu [5]), chứ không phải đọc giỏi hơn.\n- Phương án 4 sai vì người ta có xu hướng dễ cáu giận hơn chứ không phải kiên nhẫn chịu đựng (câu [3]).",
+          "tip": "Tìm từ khóa 'SNS', '情報' và đối chiếu hệ quả được nêu ngay sau đó ở câu [1] và [2].",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Theo tác giả, việc sử dụng SNS đang gây ra vấn đề gì?",
+            "o": [
+              "Thông tin quá nhiều làm giảm khả năng tập trung, khiến người ta chỉ phán đoán sự việc qua vẻ bề ngoài.",
+              "Thời gian nhìn vào điện thoại thông minh giảm đi, khiến cơ hội trò chuyện trực tiếp với mọi người bị mất đi.",
+              "Xem video ngắn giúp tốc độ xử lý thông tin tăng lên và khiến người ta giỏi đọc văn bản dài.",
+              "Ngay cả khi mọi việc không như ý mình, người ta cũng có thể ứng xử một cách kiên nhẫn."
+            ]
+          }
+        },
+        {
+          "q": "本文中の「飽きっぽい性格」や「怒りっぽい態度」という表現から、現代人のどのような変化が読み取れるか。",
+          "options": [
+            "デジタル技術のおかげで、自分の感情を素直に表現できるようになったこと。",
+            "便利な環境や短いコンテンツに慣れた結果、忍耐力や持続力が低下していること。",
+            "他人の意見を尊重し、穏やかにコミュニケーションを取るようになったこと。",
+            "長い文章を素早く理解して、物事を深く洞察できるようになったこと。"
+          ],
+          "answer": 1,
+          "explainVi": "Câu hỏi suy luận về sắc thái của cụm từ '飽きっぽい' (chóng chán) và '怒りっぽい' (dễ nổi nóng). Tác giả phân tích rằng việc xem video ngắn và phụ thuộc vào sự tiện lợi khiến con người mất dần khả năng tập trung lâu dài và trở nên thiếu kiên nhẫn khi sự việc không như ý (câu [3], [5]). Điều này phản ánh sự suy giảm tính nhẫn nại và sự bền bỉ. Do đó phương án 2 đúng.\n- Phương án 1 sai vì 'thể hiện cảm xúc thành thật' mang nghĩa tích cực, lệch với hàm ý phê phán của tác giả.\n- Phương án 3 sai vì thái độ dễ nổi giận thể hiện sự thiếu kiềm chế chứ không phải giao tiếp hòa nhã.\n- Phương án 4 sai vì bài chỉ ra con người lười đọc văn bản dài và suy nghĩ nông cạn (câu [2], [5]).",
+          "tip": "Chú ý hậu tố 〜っぽい mang sắc thái tiêu cực chỉ tính khí, kết hợp các dẫn chứng về việc ngại đọc dài và dễ nổi cáu.",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Từ những cách diễn đạt “tính cách mau chán” và “thái độ dễ nổi nóng” trong bài, có thể nhận ra con người hiện đại đang thay đổi như thế nào?",
+            "o": [
+              "Nhờ công nghệ kỹ thuật số, người ta đã có thể bày tỏ cảm xúc của mình một cách chân thành.",
+              "Do đã quen với môi trường tiện lợi và nội dung ngắn, khả năng kiên nhẫn và bền bỉ đang suy giảm.",
+              "Người ta đã bắt đầu tôn trọng ý kiến của người khác và giao tiếp một cách ôn hòa.",
+              "Người ta đã có thể nhanh chóng hiểu các văn bản dài và nhìn nhận sự việc sâu sắc hơn."
+            ]
+          }
+        },
+        {
+          "q": "「便利さに頼ってばかりいると」どうなると筆者は述べているか。",
+          "options": [
+            "ストレスや不安を感じることが完全になくなる。",
+            "自力で問題に向き合ってじっくり考える力が衰えてしまう。",
+            "短時間で多くの仕事を処理する能力が飛躍的に伸びる。",
+            "周囲の人々との関係が以前よりもスムーズになる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [4]: 「便利さに頼ってばかりいると、自分でじっくり問題と向き合う力が弱まる。」 (Nếu cứ ỷ lại mãi vào sự tiện lợi, năng lực tự mình đối mặt kỹ lưỡng với vấn đề sẽ bị suy yếu). Cụm '弱まる' đồng nghĩa với '衰える', do đó phương án 2 chính xác.\n- Phương án 1 sai vì căng thẳng và bất an ngày càng tăng lên chứ không mất đi (câu [7]).\n- Phương án 3 sai vì bài không đề cập đến việc nâng cao năng suất xử lý công việc.\n- Phương án 4 sai vì bài không hề nhắc đến việc quan hệ xã hội trở nên trôi chảy hơn.",
+          "tip": "Đọc kỹ câu [4] chứa cấu trúc '〜てばかりいると' để tìm kết quả ở vế sau.",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Tác giả nói điều gì sẽ xảy ra nếu cứ mãi dựa vào sự tiện lợi?",
+            "o": [
+              "Cảm giác căng thẳng và lo lắng sẽ hoàn toàn biến mất.",
+              "Khả năng tự mình đối mặt với vấn đề và suy nghĩ kỹ sẽ suy yếu.",
+              "Khả năng xử lý nhiều công việc trong thời gian ngắn sẽ tăng vượt bậc.",
+              "Các mối quan hệ với những người xung quanh sẽ trở nên suôn sẻ hơn trước."
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も伝えたいことは何か。",
+          "options": [
+            "スマートフォンの使用を完全に禁止して、デジタル機器のない生活を送るべきだ。",
+            "便利な道具に頼り切るのをやめ、時には画面から離れて自分を見つめ直すことが大切だ。",
+            "短い動画の視聴をやめて、毎日必ず長文の読書だけに専念すべきだ。",
+            "怒りっぽい性格を直すために、SNSで積極的に多くの人と交流するべきだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu kết bài [8]: 「だからこそ、たまには画面から離れて、自分自身の時間を静かに見つめ直すことが大切だ。」 Tác giả khuyên thỉnh thoảng nên tạm rời xa màn hình thiết bị để tĩnh lặng suy ngẫm lại về bản thân thay vì để công nghệ cuốn đi. Do đó phương án 2 là thông điệp chính xác nhất.\n- Phương án 1 sai vì tác giả chỉ khuyên 'thỉnh thoảng rời xa' (たまには画面から離れて), không hề cực đoan đòi cấm hoàn toàn.\n- Phương án 3 sai vì tác giả không bắt buộc phải đọc sách dài mỗi ngày.\n- Phương án 4 sai vì SNS là nguyên nhân gây nhiễu loạn thông tin chứ không phải phương pháp chữa tính nóng nảy.",
+          "tip": "Thông điệp chính của đoạn văn nghị luận thường nằm ở câu kết mang cấu trúc tổng kết như 'だからこそ...大切だ'.",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn truyền đạt nhất trong bài viết này là gì?",
+            "o": [
+              "Nên cấm hoàn toàn việc sử dụng điện thoại thông minh và sống cuộc sống không có thiết bị kỹ thuật số.",
+              "Điều quan trọng là ngừng phụ thuộc hoàn toàn vào những công cụ tiện lợi và thỉnh thoảng rời mắt khỏi màn hình để nhìn lại bản thân.",
+              "Nên ngừng xem video ngắn và nhất định chỉ tập trung đọc văn bản dài mỗi ngày.",
+              "Để sửa tính cách dễ nổi nóng, nên tích cực giao lưu với nhiều người trên mạng xã hội."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "情報化社会における思考の深さと心の余裕",
+      "titleVi": "Độ sâu của tư duy và sự thảnh thơi trong tâm hồn giữa xã hội thông tin",
+      "japanese": "近年、スマートフォンが普及したことで、私たちは暇さえあれば画面を見てばかりいる。電車の中や休憩時間だけでなく、食事中までSNSの短い動画をスクロールし続けてしまう人も少なくない。このような習慣が身につくと、長文を落ち着いて読むことが面倒になり、本を読む時間は減る一方だ。その結果、多くの人が物事の表面だけを見て、すぐに判断しがちになっている。じっくりと考えずに浅い情報に頼る姿勢は、どこか子供っぽい印象を周りに与えてしまうだろう。\nまた、短時間の刺激に慣れすぎると、私たちは日常生活で少しでも待たされると怒りっぽくなってしまう。相手の返信が少し遅れただけで不安になり、不満をSNSに書き込んでばかりいる若者も増えているという。忙しい現代社会では、効率を求めることで心に余裕をなくしてしまう傾向が強まる一方だ。ストレスがたまると、人は他人の小さな失敗を厳しく批判しがちである。自分の意見と異なる考えを持つ人に対して、感情的で安っぽい言葉を投げつけてしまうことも珍しくない。\nしかし、本当に価値のある知識や深い人間関係は、短い時間で簡単に手に入るものではない。失敗を恐れて手軽な情報ばかりを求めていると、物事の本質を見抜く力は衰える一方だ。自ら深く考えずに他人の意見を受け入れてばかりいると、自分自身の確固たる視点を失ってしまう。便利な道具に頼り切る生活を続けていると、人間らしい豊かな感性も鈍りがちになる。デジタル機器がもたらすスピードに流されるだけの生活は、どこか嘘っぽい充実感しか生まないのではないだろうか。\n私たちは今こそ、画面から少し目を離し、静かに自分と向き合う時間を取り戻す必要がある。便利なテクノロジーの欠点に不満を言ってばかりいても、問題は何も解決しない。意識して立ち止まる努力をしなければ、時間に追われる毎日は加速する一方だろう。忙しい時ほど、私たちは周囲への感謝や思いやりを忘れがちになるからだ。日々の便利さに感謝しつつも、自分の頭で深く考える姿勢を大切にしていきたいものだ。",
+      "vietnamese": "Những năm gần đây, với sự phổ biến của điện thoại thông minh, chúng ta hễ rảnh rỗi là lại chỉ toàn dán mắt vào màn hình. Không chỉ trên tàu điện hay trong giờ giải lao, mà ngay cả trong lúc ăn cơm cũng có không ít người cứ liên tục lướt các video ngắn trên mạng xã hội. Khi thói quen này đã hình thành, việc bình tĩnh đọc một bài viết dài sẽ trở nên phiền toái, và thời gian đọc sách ngày càng giảm đi. Kết quả là, nhiều người thường có xu hướng chỉ nhìn vào bề nổi của sự việc rồi vội vàng phán xét. Thái độ phụ thuộc vào thông tin hời hợt mà không suy nghĩ thấu đáo có lẽ sẽ tạo cho những người xung quanh ấn tượng có phần trẻ con.\n\nNgoài ra, nếu quá quen với những kích thích ngắn hạn, chúng ta sẽ trở nên dễ nổi cáu khi bị bắt phải chờ đợi dù chỉ một chút trong đời sống hàng ngày. Người ta nói rằng số lượng người trẻ tuổi cảm thấy bất an chỉ vì đối phương trả lời tin nhắn chậm một chút, rồi cứ mãi đăng những lời phàn nàn lên mạng xã hội cũng đang gia tăng. Trong xã hội hiện đại bận rộn, xu hướng đánh mất sự thảnh thơi trong tâm hồn do mải mê theo đuổi sự hiệu quả ngày càng trở nên mạnh mẽ. Khi căng thẳng tích tụ, con người thường hay chỉ trích gay gắt những lỗi lầm nhỏ nhặt của người khác. Việc buông ra những lời lẽ rẻ tiền đầy cảm tính đối với những người có quan điểm khác với mình cũng không phải là hiếm.\n\nTuy nhiên, những tri thức thực sự có giá trị và các mối quan hệ sâu sắc không phải là thứ có thể dễ dàng có được trong một thời gian ngắn. Nếu vì sợ thất bại mà cứ chỉ tìm kiếm những thông tin tiện lợi, năng lực nhìn thấu bản chất của sự việc sẽ ngày càng suy giảm. Nếu cứ mãi tiếp nhận ý kiến của người khác mà không tự mình suy nghĩ sâu sắc, chúng ta sẽ đánh mất đi góc nhìn vững chắc của chính bản thân mình. Nếu cứ tiếp tục cuộc sống phụ thuộc hoàn toàn vào những công cụ tiện lợi, sự nhạy cảm phong phú mang tính con người cũng thường dễ bị mai một đi. Cuộc sống chỉ bị cuốn theo tốc độ mà các thiết bị kỹ thuật số mang lại liệu có phải chỉ sinh ra cảm giác thỏa mãn có vẻ giả tạo hay không?\n\nChính lúc này đây, chúng ta cần phải rời mắt khỏi màn hình một chút và lấy lại khoảng thời gian để tĩnh tâm đối diện với chính mình. Dù có cứ mãi phàn nàn về những nhược điểm của công nghệ tiện lợi thì cũng chẳng giải quyết được vấn đề gì. Nếu không nỗ lực có ý thức để dừng lại, chuỗi ngày bị thời gian rượt đuổi có lẽ sẽ ngày một tăng tốc. Bởi vì càng vào những lúc bận rộn, chúng ta lại càng dễ quên đi lòng biết ơn và sự quan tâm chu đáo dành cho những người xung quanh. Vừa biết ơn sự tiện lợi hàng ngày, chúng ta vừa nên trân trọng thái độ tự dùng bộ não của mình để suy nghĩ một cách sâu sắc.",
+      "sentences": [
+        {
+          "jp": "近年、スマートフォンが普及したことで、私たちは暇さえあれば画面を見てばかりいる。",
+          "vi": "Những năm gần đây, với sự phổ biến của điện thoại thông minh, chúng ta hễ rảnh rỗi là lại chỉ toàn dán mắt vào màn hình.",
+          "vocab": [
+            {
+              "w": "近年",
+              "read": "きんねん",
+              "vi": "những năm gần đây"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh; hiện đại"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "普及した",
+              "read": "ふきゅうした",
+              "vi": "đã trở nên phổ biến"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "暇",
+              "read": "ひま",
+              "vi": "thời gian rảnh"
+            },
+            {
+              "w": "暇さえあれば",
+              "read": "ひまさえあれば",
+              "vi": "hễ có thời gian rảnh"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "見て",
+              "read": "みて",
+              "vi": "xem; nhìn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てばかりいる",
+              "vi": "[接続] V-て + ばかりいる. [Sắc thái] Diễn tả hành vi lặp đi lặp lại liên tục hoặc chỉ làm duy nhất một việc đó, mang hàm ý phàn nàn, phê phán của người nói (tiêu cực). [Đối chiếu] Khác với 〜だけ／〜のみ (chỉ thuần túy giới hạn số lượng/hành động mang tính trung tính, khách quan), 〜てばかりいる luôn mang sắc thái cảm xúc bất mãn (\"suốt ngày chỉ toàn làm X\"). Khác với 〜たばかり (V-た + ばかり, diễn tả hành động vừa mới xảy ra xong)."
+            }
+          ]
+        },
+        {
+          "jp": "電車の中や休憩時間だけでなく、食事中までSNSの短い動画をスクロールし続けてしまう人も少なくない。",
+          "vi": "Không chỉ trên tàu điện hay trong giờ giải lao, mà ngay cả trong lúc ăn cơm cũng có không ít người cứ liên tục lướt các video ngắn trên mạng xã hội.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "休憩",
+              "read": "きゅうけい",
+              "vi": "giải lao"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "食事",
+              "read": "しょくじ",
+              "vi": "bữa ăn"
+            },
+            {
+              "w": "食事中",
+              "read": "しょくじちゅう",
+              "vi": "trong bữa ăn"
+            },
+            {
+              "w": "SNS",
+              "read": "エスエヌエス",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn"
+            },
+            {
+              "w": "動画",
+              "read": "どうが",
+              "vi": "video"
+            },
+            {
+              "w": "スクロール",
+              "read": "スクロール",
+              "vi": "cuộn màn hình"
+            },
+            {
+              "w": "続けて",
+              "read": "つづけて",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "少なくない",
+              "read": "すくなくない",
+              "vi": "không ít"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく",
+              "vi": "[接続] N / V thể thông thường + だけでなく. [Sắc thái] Diễn tả ý nghĩa \"không chỉ A mà còn cả B\", mở rộng phạm vi sự việc. [Đối chiếu] Tương đương 〜ばかりでなく nhưng mang tính phổ thông hơn; khác với 〜はもちろん (A là hiển nhiên, kéo theo cả B)."
+            }
+          ]
+        },
+        {
+          "jp": "このような習慣が身につくと、長文を落ち着いて読むことが面倒になり、本を読む時間は減る一方だ。",
+          "vi": "Khi thói quen này đã hình thành, việc bình tĩnh đọc một bài viết dài sẽ trở nên phiền toái, và thời gian đọc sách ngày càng giảm đi.",
+          "vocab": [
+            {
+              "w": "このような",
+              "read": "このような",
+              "vi": "như thế này"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "身",
+              "read": "み",
+              "vi": "bản thân"
+            },
+            {
+              "w": "身につく",
+              "read": "みにつく",
+              "vi": "trở thành thói quen"
+            },
+            {
+              "w": "長文",
+              "read": "ちょうぶん",
+              "vi": "văn bản dài"
+            },
+            {
+              "w": "落ち着いて",
+              "read": "おちついて",
+              "vi": "bình tĩnh"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "面倒",
+              "read": "めんどう",
+              "vi": "phiền phức"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "減る",
+              "read": "へる",
+              "vi": "giảm"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một chiều; ngày càng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方だ",
+              "vi": "[接続] V-辞書形 (động từ biến đổi/xu hướng như 減る, 増える, 悪化する) + 一方だ. [Sắc thái] Diễn tả một chiều hướng thay đổi (tăng, giảm, xấu đi...) liên tục tiếp diễn không ngừng theo một hướng nhất định. [Đối chiếu] Khác với 〜ていく (chỉ chiều hướng diễn tiến nói chung, không nhấn mạnh tính chất \"liên tục không dừng một chiều\" mạnh mẽ như 一方だ). Gần nghĩa với 〜ばかりだ (thường chỉ xu hướng xấu), nhưng 〜一方だ dùng linh hoạt cho cả biến đổi khách quan số liệu/hiện tượng."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、多くの人が物事の表面だけを見て、すぐに判断しがちになっている。",
+          "vi": "Kết quả là, nhiều người thường có xu hướng chỉ nhìn vào bề nổi của sự việc rồi vội vàng phán xét.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "mọi việc, sự vật sự việc"
+            },
+            {
+              "w": "表面",
+              "read": "ひょうめん",
+              "vi": "bề mặt, bề nổi"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "判断",
+              "read": "はんだん",
+              "vi": "phán đoán, đánh giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がちだ",
+              "vi": "[接続] V-ます (bỏ ます) / N + がちだ. [Sắc thái] Diễn tả khuynh hướng, xu hướng hay xảy ra một sự việc/hành động không mong muốn, có tính tiêu cực hoặc đáng tiếc. [Đối chiếu] Khác với 〜やすい (chỉ tính chất dễ xảy ra do đặc tính tự nhiên khách quan, trung tính), 〜がちだ nhấn mạnh tần suất hay mắc lỗi/bị rơi vào trạng thái tiêu cực do thói quen, tâm lý. Khác với 〜気味 (cảm giác chớm có triệu chứng thể chất/tâm trạng)."
+            }
+          ]
+        },
+        {
+          "jp": "じっくりと考えずに浅い情報に頼る姿勢は、どこか子供っぽい印象を周りに与えてしまうだろう。",
+          "vi": "Thái độ phụ thuộc vào thông tin hời hợt mà không suy nghĩ thấu đáo có lẽ sẽ tạo cho những người xung quanh ấn tượng có phần trẻ con.",
+          "vocab": [
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "thấu đáo, kỹ càng"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "浅い",
+              "read": "あさい",
+              "vi": "nông cạn, cạn cợt"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "頼る",
+              "read": "たよる",
+              "vi": "trông cậy, phó mặc vào"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, thái độ tiếp cận"
+            },
+            {
+              "w": "子供",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "印象",
+              "read": "いんしょう",
+              "vi": "ấn tượng"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh, mọi người xung quanh"
+            },
+            {
+              "w": "与える",
+              "read": "あたえる",
+              "vi": "trao tặng, gây ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜っぽい",
+              "vi": "[接続] N / A-い (bỏ い) / V-ます (bỏ ます) + っぽい. [Sắc thái] Mang tính chất, vẻ ngoài hoặc khuynh hướng giống như N/A (thường mang cảm giác tiêu cực, hời hợt, không phải bản chất thật). Ở đây 子供っぽい chỉ người lớn nhưng có thái độ/tính cách trẻ con, hời hợt. [Đối chiếu] Khác với 〜らしい (mang đúng bản chất tích cực, vd: 子供らしい - trẻ con đúng tính chất hồn nhiên của trẻ con), khác với 〜のようだ (so sánh ví von hình ảnh)."
+            }
+          ]
+        },
+        {
+          "jp": "また、短時間の刺激に慣れすぎると、私たちは日常生活で少しでも待たされると怒りっぽくなってしまう。",
+          "vi": "Ngoài ra, nếu quá quen với những kích thích ngắn hạn, chúng ta sẽ trở nên dễ nổi cáu khi bị bắt phải chờ đợi dù chỉ một chút trong đời sống hàng ngày.",
+          "vocab": [
+            {
+              "w": "短時間",
+              "read": "たんじかん",
+              "vi": "thời gian ngắn"
+            },
+            {
+              "w": "刺激",
+              "read": "しげき",
+              "vi": "kích thích"
+            },
+            {
+              "w": "慣れる",
+              "read": "なれる",
+              "vi": "quen, làm quen"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "đời sống thường nhật"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "待たす",
+              "read": "またす",
+              "vi": "bắt chờ, để đợi"
+            },
+            {
+              "w": "怒り",
+              "read": "いかり",
+              "vi": "cơn giận, sự tức giận"
+            },
+            {
+              "w": "日常生活",
+              "read": "にちじょうせいかつ",
+              "vi": "đời sống thường nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜っぽい",
+              "vi": "[接続] V-ます (bỏ ます) + っぽい (怒る -> 怒りっぽい). [Sắc thái] Diễn tả tính khí, khuynh hướng tâm lý rất dễ nổi cáu, dễ bốc hỏa hoặc bị chi phối bởi cảm xúc. [Đối chiếu] 怒りっぽい chỉ nét tính cách dễ nổi giận; khác với 怒りやすい (tính chất khách quan) và khác với 怒りがちだ (nghiêng về việc hay có hành vi nổi giận trong các tình huống cụ thể)."
+            }
+          ]
+        },
+        {
+          "jp": "相手の返信が少し遅れただけで不安になり、不満をSNSに書き込んでばかりいる若者も増えているという。",
+          "vi": "Người ta nói rằng số lượng người trẻ tuổi cảm thấy bất an chỉ vì đối phương trả lời tin nhắn chậm một chút, rồi cứ mãi đăng những lời phàn nàn lên mạng xã hội cũng đang gia tăng.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "返信",
+              "read": "へんしん",
+              "vi": "hồi âm, trả lời tin nhắn"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "遅れる",
+              "read": "おくれる",
+              "vi": "chậm, trễ"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "bất an, lo lắng"
+            },
+            {
+              "w": "不満",
+              "read": "ふまん",
+              "vi": "bất mãn, không hài lòng"
+            },
+            {
+              "w": "SNS",
+              "read": "SNS",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "書き込む",
+              "read": "かきこむ",
+              "vi": "viết vào, đăng tải"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てばかりいる",
+              "vi": "[接続] V-て + ばかりいる. [Sắc thái] Cứ mãi lặp đi lặp lại việc phàn nàn trên mạng xã hội, thể hiện sự chê trách hoặc ngán ngẩm đối với thói quen tiêu cực của giới trẻ. [Đối chiếu] Khác với 〜だけ書く (chỉ viết đơn thuần, không cảm xúc), 〜てばかりいる nhấn mạnh sự thái quá, làm việc đó liên tục thay vì các việc hữu ích khác."
+            }
+          ]
+        },
+        {
+          "jp": "忙しい現代社会では、効率を求めることで心に余裕をなくしてしまう傾向が強まる一方だ。",
+          "vi": "Trong xã hội hiện đại bận rộn, xu hướng đánh mất sự thảnh thơi trong tâm hồn do mải mê theo đuổi sự hiệu quả ngày càng trở nên mạnh mẽ.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại"
+            },
+            {
+              "w": "現代社会",
+              "read": "げんだいしゃかい",
+              "vi": "xã hội hiện đại"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm; yêu cầu"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng; tâm trí"
+            },
+            {
+              "w": "余裕",
+              "read": "よゆう",
+              "vi": "dư dả; khoảng trống"
+            },
+            {
+              "w": "なくして",
+              "read": "なくして",
+              "vi": "làm mất; không còn"
+            },
+            {
+              "w": "傾向",
+              "read": "けいこう",
+              "vi": "khuynh hướng"
+            },
+            {
+              "w": "強まる",
+              "read": "つよまる",
+              "vi": "mạnh lên"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một chiều; ngày càng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方だ",
+              "vi": "[接続] V-辞書形 + 一方だ (強まる一方だ). [Sắc thái] Xu hướng mất đi sự thảnh thơi ngày một tăng mạnh, diễn tiến liên tục không có dấu hiệu đảo chiều. [Đối chiếu] Đi với động từ thể hiện sự biến đổi (強まる); khác với 〜つつある (đang trong quá trình biến đổi dần dần nhưng chưa nhấn mạnh sự dốc một chiều không ngừng như 一方だ)."
+            }
+          ]
+        },
+        {
+          "jp": "ストレスがたまると、人は他人の小さな失敗を厳しく批判しがちである。",
+          "vi": "Khi căng thẳng tích tụ, con người thường hay chỉ trích gay gắt những lỗi lầm nhỏ nhặt của người khác.",
+          "vocab": [
+            {
+              "w": "ストレス",
+              "read": "ストレス",
+              "vi": "stress, căng thẳng"
+            },
+            {
+              "w": "たまる",
+              "read": "たまる",
+              "vi": "tích lũy, đọng lại"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai lầm"
+            },
+            {
+              "w": "厳しい",
+              "read": "きびしい",
+              "vi": "nghiêm khắc"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "phê phán, chỉ trích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がちだ",
+              "vi": "[接続] V-ます (bỏ ます) + がちである (批判しがちだ/である). [Sắc thái] Khi bị căng thẳng thì con người rất hay rơi vào thói quen/tật xấu là chỉ trích người khác. [Đối chiếu] Khác với 批判しやすい (dễ bị chỉ trích hoặc có điều kiện thuận lợi để chỉ trích); がちである nhấn mạnh tần suất hành vi xấu lặp lại do hoàn cảnh tâm lý tác động."
+            }
+          ]
+        },
+        {
+          "jp": "自分の意見と異なる考えを持つ人に対して、感情的で安っぽい言葉を投げつけてしまうことも珍しくない。",
+          "vi": "Việc buông ra những lời lẽ rẻ tiền đầy cảm tính đối với những người có quan điểm khác với mình cũng không phải là hiếm.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau, bất đồng"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "感情",
+              "read": "かんじょう",
+              "vi": "cảm xúc, tình cảm"
+            },
+            {
+              "w": "安っぽい",
+              "read": "やすっぽい",
+              "vi": "rẻ tiền, tầm thường"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "投げる",
+              "read": "なげる",
+              "vi": "ném, buông ra (lời nói)"
+            },
+            {
+              "w": "珍しい",
+              "read": "めずらしい",
+              "vi": "hiếm, hiếm thấy"
+            },
+            {
+              "w": "感情的",
+              "read": "かんじょうてき",
+              "vi": "cảm tính, xúc động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜っぽい",
+              "vi": "[接続] A-い (bỏ い) + っぽい (安っぽい). [Sắc thái] Diễn tả tính chất rẻ tiền, tầm thường, thiếu chiều sâu và giá trị (từ ngữ cảm tính hời hợt). [Đối chiếu] Khác với 安い (chỉ giá thành thấp thuần túy khách quan), 安っぽい mang tính đánh giá phẩm chất, giá trị kém cỏi với hàm ý xem thường."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、本当に価値のある知識や深い人間関係は、短い時間で簡単に手に入るものではない。",
+          "vi": "Tuy nhiên, những tri thức thực sự có giá trị và các mối quan hệ sâu sắc không phải là thứ có thể dễ dàng có được trong một thời gian ngắn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "人間関係",
+              "read": "にんげんかんけい",
+              "vi": "mối quan hệ giữa người với người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものではない",
+              "vi": "[接続] V-辞書形 + ものではない. [Sắc thái] Diễn tả một chân lý, lời khuyên răn mang tính đạo lý hoặc thực tế rằng \"không thể nào / không phải là thứ có thể làm một cách đơn giản\". [Đối chiếu] Khác với 〜わけではない (phủ định một phần mang tính logic); 〜ものではない nhấn mạnh bản chất của sự việc theo lẽ tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "失敗を恐れて手軽な情報ばかりを求めていると、物事の本質を見抜く力は衰える一方だ。",
+          "vi": "Nếu vì sợ thất bại mà cứ chỉ tìm kiếm những thông tin tiện lợi, năng lực nhìn thấu bản chất của sự việc sẽ ngày càng suy giảm.",
+          "vocab": [
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại"
+            },
+            {
+              "w": "恐れて",
+              "read": "おそれて",
+              "vi": "sợ hãi"
+            },
+            {
+              "w": "手軽な",
+              "read": "てがるな",
+              "vi": "tiện lợi; dễ dàng"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "求めて",
+              "read": "もとめて",
+              "vi": "tìm kiếm; đòi hỏi"
+            },
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "sự việc"
+            },
+            {
+              "w": "本質",
+              "read": "ほんしつ",
+              "vi": "bản chất"
+            },
+            {
+              "w": "見抜く",
+              "read": "みぬく",
+              "vi": "nhìn thấu"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "năng lực"
+            },
+            {
+              "w": "衰える",
+              "read": "おとろえる",
+              "vi": "suy yếu"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một chiều; ngày càng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方だ",
+              "vi": "[接続] V-辞書形 + 一方だ (衰える一方だ). [Sắc thái] Năng lực phán đoán, nhìn thấu bản chất ngày càng suy tàn, tụt dốc liên tục theo thời gian. [Đối chiếu] Đi kèm động từ chỉ sự suy giảm 衰える; so với 〜ていく thì 一方だ mang sắc thái nhấn mạnh mức độ suy thoái không điểm dừng rõ rệt hơn."
+            }
+          ]
+        },
+        {
+          "jp": "自ら深く考えずに他人の意見を受け入れてばかりいると、自分自身の確固たる視点を失ってしまう。",
+          "vi": "Nếu cứ mãi tiếp nhận ý kiến của người khác mà không tự mình suy nghĩ sâu sắc, chúng ta sẽ đánh mất đi góc nhìn vững chắc của chính bản thân mình.",
+          "vocab": [
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "受け入れる",
+              "read": "うけいれる",
+              "vi": "tiếp nhận, chấp nhận"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính mình"
+            },
+            {
+              "w": "確固",
+              "read": "かっこ",
+              "vi": "vững chắc, kiên định"
+            },
+            {
+              "w": "視点",
+              "read": "してん",
+              "vi": "quan điểm, góc nhìn"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, làm mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てばかりいる",
+              "vi": "[接続] V-て + ばかりいる (受け入れてばかりいる). [Sắc thái] Chỉ toàn thụ động nghe theo ý kiến người khác mà không tự mình tư duy, thể hiện sự cảnh báo về thói quen thụ động tiêu cực. [Đối chiếu] Khác với 〜だけ受け入れる (chỉ chấp nhận thông tin đó, không nhận thông tin khác); 〜てばかりいる nhấn mạnh hành động lặp đi lặp lại như một tật xấu triền miên."
+            }
+          ]
+        },
+        {
+          "jp": "便利な道具に頼り切る生活を続けていると、人間らしい豊かな感性も鈍りがちになる。",
+          "vi": "Nếu cứ tiếp tục cuộc sống phụ thuộc hoàn toàn vào những công cụ tiện lợi, sự nhạy cảm phong phú mang tính con người cũng thường dễ bị mai một đi.",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "dụng cụ, công cụ"
+            },
+            {
+              "w": "頼る",
+              "read": "たよる",
+              "vi": "trông cậy, phó mặc vào"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "人間らしい",
+              "read": "にんげんらしい",
+              "vi": "đậm tính người, như con người"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "感性",
+              "read": "かんせい",
+              "vi": "cảm tính, độ nhạy cảm"
+            },
+            {
+              "w": "鈍る",
+              "read": "にぶる",
+              "vi": "cùn đi, yếu đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がちだ",
+              "vi": "[接続] V-ます (bỏ ます) + がちになる (鈍りがちになる). [Sắc thái] Cảm quan, sự nhạy bén của con người rất hay bị cùn mòn, chai sạn đi do môi trường sống phụ thuộc công nghệ. [Đối chiếu] Khác với 鈍りやすい (thuộc tính dễ bị cùn do cấu tạo); 鈍りがちになる nhấn mạnh việc thường xuyên bị rơi vào trạng thái tiêu cực đó."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル機器がもたらすスピードに流されるだけの生活は、どこか嘘っぽい充実感しか生まないのではないだろうか。",
+          "vi": "Cuộc sống chỉ bị cuốn theo tốc độ mà các thiết bị kỹ thuật số mang lại liệu có phải chỉ sinh ra cảm giác thỏa mãn có vẻ giả tạo hay không?",
+          "vocab": [
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "機器",
+              "read": "きき",
+              "vi": "thiết bị, máy móc"
+            },
+            {
+              "w": "もたらす",
+              "read": "もたらす",
+              "vi": "đem lại, mang lại"
+            },
+            {
+              "w": "スピード",
+              "read": "スピード",
+              "vi": "tốc độ"
+            },
+            {
+              "w": "流す",
+              "read": "ながす",
+              "vi": "cho chảy, lan truyền"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "嘘",
+              "read": "うそ",
+              "vi": "nói dối, không thật"
+            },
+            {
+              "w": "充実",
+              "read": "じゅうじつ",
+              "vi": "sự phong phú, đầy đủ"
+            },
+            {
+              "w": "生む",
+              "read": "うむ",
+              "vi": "sinh ra, tạo ra"
+            },
+            {
+              "w": "充実感",
+              "read": "じゅうじつかん",
+              "vi": "cảm giác sung túc, thỏa mãn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜っぽい",
+              "vi": "[接続] N + っぽい (嘘っぽい). [Sắc thái] Mang vẻ giả tạo, không chân thật, chỉ là vỏ bọc bên ngoài chứ không có thực chất. [Đối chiếu] Khác với 嘘である (khẳng định là lời nói dối 100%); 嘘っぽい mang sắc thái cảm nhận chủ quan \"có vẻ giả tạo, không đem lại cảm giác tin cậy thật sự\"."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは今こそ、画面から少し目を離し、静かに自分と向き合う時間を取り戻す必要がある。",
+          "vi": "Chính lúc này đây, chúng ta cần phải rời mắt khỏi màn hình một chút và lấy lại khoảng thời gian để tĩnh tâm đối diện với chính mình.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "離す",
+              "read": "はなす",
+              "vi": "buông ra, tách rời"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, nhìn thẳng vào"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "取り戻す",
+              "read": "とりもどす",
+              "vi": "lấy lại, khôi phục"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜必要がある",
+              "vi": "[接続] V-辞書形 + 必要がある. [Sắc thái] Diễn tả sự cần thiết, việc nên làm theo nhận định khách quan của người viết. [Đối chiếu] Tương tự 〜なければならない nhưng mang tính chất văn viết nghị luận, phân tích nhu cầu khách quan thay vì bổn phận mang tính bắt buộc cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "便利なテクノロジーの欠点に不満を言ってばかりいても、問題は何も解決しない。",
+          "vi": "Dù có cứ mãi phàn nàn về những nhược điểm của công nghệ tiện lợi thì cũng chẳng giải quyết được vấn đề gì.",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "テクノロジー",
+              "read": "テクノロジー",
+              "vi": "công nghệ"
+            },
+            {
+              "w": "欠点",
+              "read": "けってん",
+              "vi": "khuyết điểm, nhược điểm"
+            },
+            {
+              "w": "不満",
+              "read": "ふまん",
+              "vi": "bất mãn, không hài lòng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "解決",
+              "read": "かいけつ",
+              "vi": "giải quyết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てばかりいる",
+              "vi": "[接続] V-て + ばかりいる (不満を言ってばかりいても). [Sắc thái] Cứ mãi cằn nhằn, than vãn về khuyết điểm một cách vô ích mà không hành động. [Đối chiếu] Đi với 〜ても (dù có cứ mãi... thì cũng không...); so với だけ言う thì てばかりいる thể hiện rõ thái độ phê phán hành vi cằn nhằn triền miên."
+            }
+          ]
+        },
+        {
+          "jp": "意識して立ち止まる努力をしなければ、時間に追われる毎日は加速する一方だろう。",
+          "vi": "Nếu không nỗ lực có ý thức để dừng lại, chuỗi ngày bị thời gian rượt đuổi có lẽ sẽ ngày một tăng tốc.",
+          "vocab": [
+            {
+              "w": "意識して",
+              "read": "いしきして",
+              "vi": "có ý thức; chủ động"
+            },
+            {
+              "w": "立ち止まる",
+              "read": "たちどまる",
+              "vi": "dừng lại"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "時間に追われる",
+              "read": "じかんにおわれる",
+              "vi": "bị thời gian thúc ép"
+            },
+            {
+              "w": "追われる",
+              "read": "おわれる",
+              "vi": "bị đuổi; bị thúc ép"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "加速",
+              "read": "かそく",
+              "vi": "tăng tốc"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một chiều; ngày càng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方だ",
+              "vi": "[接続] V-辞書形 + 一方だろう (加速する一方だろう). [Sắc thái] Nhịp sống bị thời gian thúc ép sẽ ngày càng tăng tốc, diễn tiến xấu đi không kiểm soát được nếu không dừng lại. [Đối chiếu] Kết hợp với 〜だろう để đưa ra dự đoán chắc chắn về xu hướng phát triển một chiều trong tương lai."
+            }
+          ]
+        },
+        {
+          "jp": "忙しい時ほど、私たちは周囲への感謝や思いやりを忘れがちになるからだ。",
+          "vi": "Bởi vì càng vào những lúc bận rộn, chúng ta lại càng dễ quên đi lòng biết ơn và sự quan tâm chu đáo dành cho những người xung quanh.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "lúc; thời điểm"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "周囲",
+              "read": "しゅうい",
+              "vi": "xung quanh"
+            },
+            {
+              "w": "感謝",
+              "read": "かんしゃ",
+              "vi": "lòng biết ơn"
+            },
+            {
+              "w": "思いやり",
+              "read": "おもいやり",
+              "vi": "sự quan tâm; cảm thông"
+            },
+            {
+              "w": "忘れがち",
+              "read": "わすれがち",
+              "vi": "dễ quên; thường quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がちだ",
+              "vi": "[接続] V-ます (bỏ ます) + がちになる (忘れがちになる). [Sắc thái] Rất hay vô tình quên mất sự biết ơn, thấu hiểu trong lúc bận rộn (thói quen, sơ suất đáng tiếc). [Đối chiếu] Khác với 忘れる傾向がある (cách nói học thuật, trung tính); 忘れがちになる thể hiện sự cảm thông xen lẫn tiếc nuối về xu hướng tiêu cực hay gặp ở con người."
+            }
+          ]
+        },
+        {
+          "jp": "日々の便利さに感謝しつつも、自分の頭で深く考える姿勢を大切にしていきたいものだ。",
+          "vi": "Vừa biết ơn sự tiện lợi hàng ngày, chúng ta vừa nên trân trọng thái độ tự dùng bộ não của mình để suy nghĩ một cách sâu sắc.",
+          "vocab": [
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "感謝",
+              "read": "かんしゃ",
+              "vi": "biết ơn, cảm tạ"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, tâm thế, thái độ đối diện"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たいものだ",
+              "vi": "[接続] V-ます (bỏ ます) + たいものだ. [Sắc thái] Diễn tả mong muốn sâu sắc, tâm nguyện tha thiết từ tận đáy lòng mang tính lý tưởng, chiêm nghiệm. [Đối chiếu] Khác với 〜たい (ước muốn tức thời, cá nhân như 食べたい); 〜たいものだ mang tính chất suy ngẫm, hướng tới giá trị sống lâu dài trong văn viết nghị luận."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "物事の表面だけを見て、すぐに判断しがちになっている",
+          "label": "Xu hướng phán xét vội vàng"
+        },
+        {
+          "excerpt": "相手の返信が少し遅れただけで不安になり、不満をSNSに書き込んでばかりいる",
+          "label": "Tâm lý bất an và thói quen phàn nàn"
+        },
+        {
+          "excerpt": "物事の本質を見抜く力は衰える一方だ",
+          "label": "Sự suy giảm khả năng nhìn nhận bản chất"
+        },
+        {
+          "excerpt": "静かに自分と向き合う時間を取り戻す必要がある",
+          "label": "Giải pháp tĩnh tâm đối diện bản thân"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「短時間の刺激に慣れすぎると」どうなると筆者は述べているか。",
+          "options": [
+            "待つことに耐えられなくなり、他人のミスにも寛容になれず怒りっぽくなる。",
+            "スマートフォンを見る時間が減り、本を落ち着いて読めるようになる。",
+            "SNSで他人の意見を深く尊重し、建設的な議論ができるようになる。",
+            "デジタル機器を完全に使わなくなり、日常生活に満足するようになる。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 5 (短時間の刺激に慣れすぎると、私たちは日常生活で少しでも待たされると怒りっぽくなってしまう) và câu 8 (ストレスがたまると、人は他人の小さな失敗を厳しく批判しがちである). Khi quen với kích thích ngắn hạn, con người mất kiên nhẫn khi phải chờ đợi, dễ nổi nóng và hay chỉ trích lỗi lầm của người khác. Các phương án sai: Phương án 1 trái ngược với đoạn 1 (thời gian đọc sách giảm đi); Phương án 2 và 4 hoàn toàn không được nhắc đến và đi ngược lại thực tế được mô tả trong bài.",
+          "tip": "Tìm từ khóa '短時間の刺激' ở đầu đoạn 2 và đối chiếu các câu miêu tả hệ quả ngay sau đó.",
+          "evi": [
+            5,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "「短時間の刺激に慣れすぎると」(khi quá quen với những kích thích trong thời gian ngắn) thì sẽ xảy ra điều gì, theo tác giả?",
+            "o": [
+              "Trở nên không thể chịu đựng việc chờ đợi, không thể bao dung với lỗi lầm của người khác và dễ nổi nóng.",
+              "Thời gian nhìn điện thoại thông minh giảm xuống, và có thể bình tĩnh đọc sách.",
+              "Trở nên biết tôn trọng sâu sắc ý kiến của người khác trên mạng xã hội và có thể thảo luận mang tính xây dựng.",
+              "Hoàn toàn không còn sử dụng thiết bị kỹ thuật số và trở nên hài lòng với cuộc sống hằng ngày."
+            ]
+          }
+        },
+        {
+          "q": "筆者によると、手軽な情報ばかりに頼っていると、どのような問題が生じるか。",
+          "options": [
+            "知識が増えすぎて、日常生活で何を選択すべきか迷ってしまう。",
+            "物事の本質を見抜く力が衰え、自分自身の確固たる視点を失ってしまう。",
+            "人間関係が急速に広がり、自分のプライベートな時間が完全になくなる。",
+            "テクノロジーの欠点を克服し、すべての問題が簡単に解決できるようになる。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 11 (失敗を恐れて手軽な情報ばかりを求めていると、物事の本質を見抜く力は衰える一方だ) và câu 12 (自ら深く考えずに他人の意見を受け入れてばかりいると、自分自身の確固たる視点を失ってしまう). Tác giả chỉ rõ việc chỉ dựa vào thông tin tiện lợi sẽ làm cùn mòn năng lực nhìn thấu bản chất và đánh mất quan điểm độc lập. Các phương án 0, 2, 3 sai lệch hoàn toàn nội dung hoặc đưa ra kết luận tích cực phi lý không có trong bài.",
+          "tip": "Chú ý đoạn 3 nói về tác hại của việc chỉ tìm kiếm '手軽な情報' và '他人の意見を受け入れてばかりいる'.",
+          "evi": [
+            11,
+            12,
+            13
+          ],
+          "qt": {
+            "q": "Theo tác giả, nếu chỉ dựa vào những thông tin dễ tiếp cận thì sẽ nảy sinh vấn đề gì?",
+            "o": [
+              "Kiến thức tăng quá nhiều khiến ta phân vân không biết nên chọn gì trong cuộc sống hằng ngày.",
+              "Khả năng nhìn thấu bản chất sự việc suy giảm và ta đánh mất góc nhìn vững chắc của chính mình.",
+              "Các mối quan hệ nhanh chóng mở rộng, khiến ta hoàn toàn không còn thời gian riêng tư.",
+              "Ta khắc phục được những thiếu sót của công nghệ và có thể dễ dàng giải quyết mọi vấn đề."
+            ]
+          }
+        },
+        {
+          "q": "「嘘っぽい充実感」という表現から、筆者のどのような考えが読み取れるか。（推論・ニュアンス）",
+          "options": [
+            "デジタル機器で素早く得た満足感は表面的なもので、真の心の豊かさには繋がらない。",
+            "ネット上の情報はすべて嘘であるため、一切信用してはならないということ。",
+            "テクノロジーを使いこなせば、誰でも短時間で深い知識を手に入れられるということ。",
+            "画面を見る時間を増やせば増やすほど、人生の充実感が高まるということ。"
+          ],
+          "answer": 0,
+          "explainVi": "Câu 14 dùng từ '嘘っぽい充実感' (sự thỏa mãn có vẻ giả tạo) ngay sau khi phân tích ở câu 10 rằng tri thức giá trị và mối quan hệ sâu sắc không thể có được nhanh chóng, và câu 13 rằng cảm tính con người bị cùn mòn. Điều này thể hiện suy luận của tác giả: cảm giác thỏa mãn tức thì do các thiết bị số mang lại chỉ là vỏ bọc hời hợt, không phải là sự phong phú thực chất trong tâm hồn. Phương án 1 quy chụp cực đoan; phương án 2 và 3 trái ngược với luận điểm phê phán của tác giả.",
+          "tip": "Phân tích hậu tố 〜っぽい mang sắc thái 'có vẻ như vậy nhưng không phải thực chất' kết hợp với ngữ cảnh đoạn 3.",
+          "evi": [
+            10,
+            13,
+            14
+          ],
+          "qt": {
+            "q": "Từ cách diễn đạt 「嘘っぽい充実感」(cảm giác trọn vẹn có vẻ giả tạo), có thể hiểu được suy nghĩ nào của tác giả? (Suy luận và sắc thái)",
+            "o": [
+              "Cảm giác thỏa mãn có được nhanh chóng nhờ thiết bị kỹ thuật số chỉ là bề ngoài và không dẫn đến sự phong phú thật sự trong tâm hồn.",
+              "Vì mọi thông tin trên mạng đều là giả nên tuyệt đối không được tin vào bất cứ thông tin nào.",
+              "Nếu biết sử dụng công nghệ thành thạo, ai cũng có thể thu nhận kiến thức sâu rộng trong thời gian ngắn.",
+              "Thời gian nhìn màn hình càng tăng thì cảm giác trọn vẹn trong cuộc sống càng cao."
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も主張したいことは何か。",
+          "options": [
+            "スマートフォンやSNSの使用を今すぐ完全に禁止し、過去の生活に戻るべきだ。",
+            "デジタル機器の便利さに不満を言うのをやめて、すべての情報を鵜呑みにすべきだ。",
+            "便利さに感謝しつつも、時には立ち止まり、自分の頭で深く考える姿勢を持つべきだ。",
+            "効率を最優先にして、できるだけ短い時間で多くの情報を処理する習慣をつけるべきだ。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào toàn bộ đoạn 4, đặc biệt là câu 15 (静かに自分と向き合う時間を取り戻す必要がある) và câu 19 (日々の便利さに感謝しつつも、自分の頭で深く考える姿勢を大切にしていきたいものだ). Tác giả không cực đoan bài trừ công nghệ mà khuyên nên biết ơn sự tiện lợi đồng thời phải biết dừng lại để tự suy nghĩ sâu sắc. Phương án 0 cực đoan (đòi cấm hoàn toàn); Phương án 1 và 3 ngược lại hoàn toàn với tư tưởng chủ đạo của bài viết.",
+          "tip": "Đọc kỹ đoạn kết (đoạn 4), đặc biệt là câu cuối cùng chứa cấu trúc 〜たいものだ thể hiện nguyện vọng cốt lõi của tác giả.",
+          "evi": [
+            15,
+            16,
+            17,
+            19
+          ],
+          "qt": {
+            "q": "Trong bài viết này, điều tác giả muốn nhấn mạnh nhất là gì?",
+            "o": [
+              "Nên cấm hoàn toàn việc sử dụng điện thoại thông minh và mạng xã hội ngay lập tức, rồi quay lại lối sống trước đây.",
+              "Nên ngừng phàn nàn về sự tiện lợi của các thiết bị kỹ thuật số và tin tất cả thông tin một cách vô điều kiện.",
+              "Dù biết ơn sự tiện lợi, đôi khi ta vẫn nên dừng lại và giữ thái độ suy nghĩ sâu sắc bằng chính đầu óc của mình.",
+              "Nên đặt hiệu quả lên hàng đầu và hình thành thói quen xử lý càng nhiều thông tin càng tốt trong thời gian ngắn nhất có thể."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "フィットネスクラブ『アクティブ』秋の会員募集のご案内",
+      "titleVi": "Thông báo chiêu mộ hội viên mùa thu của Câu lạc bộ Thể hình 'Active'",
+      "japanese": "フィットネスクラブ『アクティブ』秋の会員募集のご案内\n休日に家でスマホを見てばかりいて、運動不足になりがちな方へ！\n「最近食べてばかりいる」「筋力が低下する一方だ」とお悩みの方。\n放置すると体重は増加する一方ですし、1人では途中で諦めがちです。\n飽きっぽい方でも安心！昔っぽい古い設備ではなく、最新設備が揃っています。\n【利用プラン一覧】\nプラン名｜利用可能時間｜月額料金｜特徴\nデイ会員｜平日 10:00〜17:00｜6,000円｜平日の昼間に利用したい方向け\nナイト会員｜平日 17:00〜23:00｜7,500円｜仕事帰りに通いたい方向け\nフル会員｜全日 10:00〜23:00｜9,500円｜いつでも通いたい方向け\n学生会員｜全日 10:00〜20:00｜5,000円｜高校生・大学生限定\n【オプション・割引】\n・専用ロッカー：月額1,000円（※フル会員は無料）。\n・パーソナル指導：1回60分あたり3,000円（予約制）。\n・ペア入会割引：2名以上で同時入会の場合、毎月1,000円引き。\n・他社乗換割引：他社ジムから変更の場合、入会後2か月間は月額半額。\n【お申込み時のご注意】\n※1 キャンペーン中は入会金（通常5,000円）が無料になります。\n※2 複数の割引の重複はできません（割引額が大きい方を適用）。\n※3 学生会員は学生証の提示が必要で、他社乗換割引は適用外です。\n※4 ナイト会員は土日祝日および平日17時前は利用できません。",
+      "vietnamese": "Thông báo chiêu mộ hội viên mùa thu của Câu lạc bộ Thể hình 'Active'\nDành cho những ai ngày nghỉ ở nhà chỉ toàn xem điện thoại và hay bị thiếu vận động!\nDành cho những ai đang trăn trở rằng 'dạo này toàn ăn với ăn', 'cơ bắp ngày càng giảm sút'.\nNếu cứ để mặc thì cân nặng sẽ ngày càng tăng lên, và nếu chỉ có một mình thì thường hay bỏ cuộc giữa chừng.\nNgười hay cả thèm chóng chán cũng hoàn toàn yên tâm! Không phải cơ sở vật chất kiểu cũ ngày xưa, chúng tôi trang bị đầy đủ thiết bị tối tân.\n【Danh sách các gói dịch vụ】\nTên gói｜Thời gian có thể sử dụng｜Phí hàng tháng｜Đặc điểm\nHội viên Ban ngày｜Ngày thường 10:00〜17:00｜6.000 yên｜Dành cho người muốn sử dụng vào ban ngày các ngày trong tuần\nHội viên Ban đêm｜Ngày thường 17:00〜23:00｜7.500 yên｜Dành cho người muốn đi tập vào buổi tối sau giờ làm\nHội viên Toàn thời gian｜Tất cả các ngày 10:00〜23:00｜9.500 yên｜Dành cho người muốn đi tập bất cứ lúc nào\nHội viên Học sinh/Sinh viên｜Tất cả các ngày 10:00〜20:00｜5.000 yên｜Dành riêng cho học sinh cấp 3 và sinh viên đại học\n【Dịch vụ tùy chọn & Giảm giá】\n・Tủ đồ cá nhân chuyên dụng: 1.000 yên/tháng (※Miễn phí đối với Hội viên Toàn thời gian).\n・Hướng dẫn kèm riêng: 3.000 yên cho mỗi buổi 60 phút (cần đặt trước).\n・Giảm giá đăng ký theo cặp: Trường hợp đăng ký cùng lúc từ 2 người trở lên, giảm 1.000 yên mỗi tháng cho mỗi người.\n・Giảm giá chuyển đổi từ nơi khác: Trường hợp chuyển từ phòng gym khác sang, giảm một nửa phí hàng tháng trong 2 tháng đầu sau khi gia nhập.\n【Lưu ý quan trọng khi đăng ký】\n※1 Trong thời gian chiến dịch, phí gia nhập (thông thường 5.000 yên) sẽ được miễn phí.\n※2 Không được áp dụng trùng lặp nhiều chương trình giảm giá (sẽ áp dụng mức giảm giá có số tiền lớn hơn).\n※3 Hội viên Học sinh/Sinh viên cần xuất trình thẻ học sinh/sinh viên và không được áp dụng giảm giá chuyển đổi từ nơi khác.\n※4 Hội viên Ban đêm không thể sử dụng cơ sở vào các ngày thứ Bảy, Chủ nhật, ngày lễ và trước 17:00 các ngày trong tuần.",
+      "sentences": [
+        {
+          "jp": "フィットネスクラブ『アクティブ』秋の会員募集のご案内",
+          "vi": "Thông báo chiêu mộ hội viên mùa thu của Câu lạc bộ Thể hình 'Active'",
+          "vocab": [
+            {
+              "w": "フィットネスクラブ",
+              "read": "フィットネスクラブ",
+              "vi": "câu lạc bộ thể hình"
+            },
+            {
+              "w": "アクティブ",
+              "read": "アクティブ",
+              "vi": "năng động, tên riêng Active"
+            },
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "chiêu mộ, tuyển chọn"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜（接頭辞）",
+              "vi": "接続: ご + Danh từ Hán Nhật (案内). Ý nghĩa: Tiền tố trang trọng, lịch sự dùng trong thông báo gửi tới khách hàng/người đọc."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "休日に家でスマホを見てばかりいて、運動不足になりがちな方へ！",
+          "vi": "Dành cho những ai ngày nghỉ ở nhà chỉ toàn xem điện thoại và hay bị thiếu vận động!",
+          "vocab": [
+            {
+              "w": "休日",
+              "read": "きゅうじつ",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "見て",
+              "read": "みて",
+              "vi": "xem; nhìn"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "thiếu hụt"
+            },
+            {
+              "w": "運動不足",
+              "read": "うんどうぶそく",
+              "vi": "thiếu vận động"
+            },
+            {
+              "w": "なりがちな",
+              "read": "なりがちな",
+              "vi": "dễ trở nên; thường bị"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người; vị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てばかりいる",
+              "vi": "Diễn tả hành động lặp đi lặp lại nhiều lần mang tính tiêu cực (chỉ toàn làm mỗi việc ~)."
+            },
+            {
+              "point": "～がちだ",
+              "vi": "Diễn tả xu hướng xấu dễ xảy ra, thường hay bị như thế nào đó."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "「最近食べてばかりいる」「筋力が低下する一方だ」とお悩みの方。",
+          "vi": "Dành cho những ai đang trăn trở rằng 'dạo này toàn ăn với ăn', 'cơ bắp ngày càng giảm sút'.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "食べてばかりいる",
+              "read": "たべてばかりいる",
+              "vi": "chỉ toàn ăn"
+            },
+            {
+              "w": "筋力",
+              "read": "きんりょく",
+              "vi": "sức cơ"
+            },
+            {
+              "w": "低下する",
+              "read": "ていかする",
+              "vi": "suy giảm"
+            },
+            {
+              "w": "一方だ",
+              "read": "いっぽうだ",
+              "vi": "cứ ngày càng"
+            },
+            {
+              "w": "お悩み",
+              "read": "おなやみ",
+              "vi": "nỗi lo"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～てばかりいる",
+              "vi": "Diễn tả việc suốt ngày chỉ toàn làm một hành động nào đó (toàn ăn uống)."
+            },
+            {
+              "point": "～一方だ",
+              "vi": "Diễn tả xu hướng biến đổi liên tục theo một chiều hướng nhất định (ngày càng giảm sút)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "放置すると体重は増加する一方ですし、1人では途中で諦めがちです。",
+          "vi": "Nếu cứ để mặc thì cân nặng sẽ ngày càng tăng lên, và nếu chỉ có một mình thì thường hay bỏ cuộc giữa chừng.",
+          "vocab": [
+            {
+              "w": "放置する",
+              "read": "ほうちする",
+              "vi": "bỏ mặc"
+            },
+            {
+              "w": "体重",
+              "read": "たいじゅう",
+              "vi": "cân nặng"
+            },
+            {
+              "w": "増加する",
+              "read": "ぞうかする",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "ngày càng"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "một người"
+            },
+            {
+              "w": "途中",
+              "read": "とちゅう",
+              "vi": "giữa chừng"
+            },
+            {
+              "w": "諦めがち",
+              "read": "あきらめがち",
+              "vi": "thường dễ bỏ cuộc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～一方だ",
+              "vi": "Diễn tả xu hướng ngày càng tiếp diễn không ngừng (cân nặng ngày càng tăng)."
+            },
+            {
+              "point": "～がちだ",
+              "vi": "Diễn tả xu hướng tiêu cực thường hay xảy ra (hay bỏ cuộc giữa chừng)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "飽きっぽい方でも安心！昔っぽい古い設備ではなく、最新設備が揃っています。",
+          "vi": "Người hay cả thèm chóng chán cũng hoàn toàn yên tâm! Không phải cơ sở vật chất kiểu cũ ngày xưa, chúng tôi trang bị đầy đủ thiết bị tối tân.",
+          "vocab": [
+            {
+              "w": "飽き",
+              "read": "あき",
+              "vi": "sự chán ngấy, nhàm chán"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "an tâm, yên tâm"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "古い",
+              "read": "ふるい",
+              "vi": "cũ (tính từ い)"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "thiết bị"
+            },
+            {
+              "w": "最新",
+              "read": "さいしん",
+              "vi": "mới nhất, tối tân"
+            },
+            {
+              "w": "揃う",
+              "read": "そろう",
+              "vi": "hội đủ, tập hợp đầy đủ"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở vật chất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～っぽい",
+              "vi": "Mang tính chất, có vẻ hay dễ bị (飽きっぽい: hay chán, cả thèm chóng chán; 昔っぽい: mang phong cách ngày xưa/cũ kỹ)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "【利用プラン一覧】",
+          "vi": "【Danh sách các gói dịch vụ】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "一覧",
+              "read": "いちらん",
+              "vi": "danh sách, bảng kê"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "プラン名｜利用可能時間｜月額料金｜特徴",
+          "vi": "Tên gói｜Thời gian có thể sử dụng｜Phí hàng tháng｜Đặc điểm",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, có thể"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng, theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "デイ会員｜平日 10:00〜17:00｜6,000円｜平日の昼間に利用したい方向け",
+          "vi": "Hội viên Ban ngày｜Ngày thường 10:00〜17:00｜6.000 yên｜Dành cho người muốn sử dụng vào ban ngày các ngày trong tuần",
+          "vocab": [
+            {
+              "w": "デイ",
+              "read": "デイ",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "方向",
+              "read": "ほうこう",
+              "vi": "phương hướng, chiều hướng"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho, hướng tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "接続: N + 向け. Ý nghĩa: Chỉ đối tượng mục tiêu được hướng tới, 'dành riêng cho / thích hợp cho...' (ở đây là dành cho đối tượng muốn sử dụng vào ban ngày các ngày trong tuần)."
+            },
+            {
+              "point": "〜たい",
+              "vi": "接続: V(bỏ ます) + たい. Ý nghĩa: Biểu thị mong muốn, nguyện vọng của chủ thể hành động ('muốn sử dụng')."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "ナイト会員｜平日 17:00〜23:00｜7,500円｜仕事帰りに通いたい方向け",
+          "vi": "Hội viên Ban đêm｜Ngày thường 17:00〜23:00｜7.500 yên｜Dành cho người muốn đi tập vào buổi tối sau giờ làm",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "通う",
+              "read": "かよう",
+              "vi": "đi đến (thường xuyên), theo học"
+            },
+            {
+              "w": "方向",
+              "read": "ほうこう",
+              "vi": "phương hướng, chiều hướng"
+            },
+            {
+              "w": "仕事帰り",
+              "read": "しごとがえり",
+              "vi": "trên đường đi làm về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "接続: N + 向け. Ý nghĩa: Mang nghĩa 'dành cho / hướng tới đối tượng...' (dành cho người muốn đi tập trên đường đi làm về)."
+            },
+            {
+              "point": "〜帰りに",
+              "vi": "接続: N + 帰りに (hoặc V-る/V-た + 帰りに). Ý nghĩa: Biểu thị hành động diễn ra nhân tiện trên đường quay về từ đâu đó ('trên đường đi làm về')."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ナイト会員",
+              "why": "Gói hội viên dành cho người chỉ đi tập vào buổi tối các ngày trong tuần (17:00〜23:00)."
+            },
+            {
+              "w": "7,500円",
+              "why": "Mức phí hàng tháng tiêu chuẩn của gói hội viên ban đêm."
+            }
+          ]
+        },
+        {
+          "jp": "フル会員｜全日 10:00〜23:00｜9,500円｜いつでも通いたい方向け",
+          "vi": "Hội viên Toàn thời gian｜Tất cả các ngày 10:00〜23:00｜9.500 yên｜Dành cho người muốn đi tập bất cứ lúc nào",
+          "vocab": [
+            {
+              "w": "フル",
+              "read": "フル",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "10:00〜23:00",
+              "read": "じゅうじからにじゅうさんじまで",
+              "vi": "từ 10:00 đến 23:00"
+            },
+            {
+              "w": "9,500円",
+              "read": "きゅうせんごひゃくえん",
+              "vi": "9.500 yên"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "通いたい",
+              "read": "かよいたい",
+              "vi": "muốn đi thường xuyên"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "接続: N + 向け. Ý nghĩa: Mang nghĩa 'dành cho / thích hợp cho...' (dành cho người muốn đến tập bất cứ lúc nào)."
+            },
+            {
+              "point": "いつでも",
+              "vi": "接続: Nghi vấn từ いつ + でも. Ý nghĩa: Biểu thị sự không giới hạn về thời gian, mang nghĩa 'bất cứ lúc nào'."
+            }
+          ],
+          "keys": [
+            {
+              "w": "フル会員",
+              "why": "Gói hội viên duy nhất được phép sử dụng tất cả các ngày cả ngày thường lẫn cuối tuần đến 23:00."
+            },
+            {
+              "w": "全日 10:00〜23:00",
+              "why": "Khung giờ mở rộng cả ngày lẫn đêm và bao gồm cả thứ Bảy, Chủ nhật."
+            }
+          ]
+        },
+        {
+          "jp": "学生会員｜全日 10:00〜20:00｜5,000円｜高校生・大学生限定",
+          "vi": "Hội viên Học sinh/Sinh viên｜Tất cả các ngày 10:00〜20:00｜5.000 yên｜Dành riêng cho học sinh cấp 3 và sinh viên đại học",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "tất cả các ngày"
+            },
+            {
+              "w": "高校生",
+              "read": "こうこうせい",
+              "vi": "học sinh cấp 3"
+            },
+            {
+              "w": "大学生",
+              "read": "だいがくせい",
+              "vi": "sinh viên đại học"
+            },
+            {
+              "w": "限定",
+              "read": "げんてい",
+              "vi": "giới hạn, dành riêng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜限定",
+              "vi": "接続: N + 限定. Ý nghĩa: Hậu tố biểu thị sự giới hạn riêng biệt, 'chỉ dành riêng cho đối tượng N' (ở đây chỉ dành cho học sinh cấp 3 và sinh viên đại học)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生会員",
+              "why": "Gói ưu đãi giá rẻ dành riêng cho học sinh và sinh viên."
+            },
+            {
+              "w": "全日 10:00〜20:00",
+              "why": "Giới hạn giờ tập chỉ đến 20:00 tối, không đáp ứng nhu cầu tập đến 21:00."
+            }
+          ]
+        },
+        {
+          "jp": "【オプション・割引】",
+          "vi": "【Dịch vụ tùy chọn & Giảm giá】",
+          "vocab": [
+            {
+              "w": "オプション",
+              "read": "オプション",
+              "vi": "tùy chọn, dịch vụ thêm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "各種",
+              "read": "かくしゅ",
+              "vi": "các loại"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "・専用ロッカー：月額1,000円（※フル会員は無料）。",
+          "vi": "・Tủ đồ cá nhân chuyên dụng: 1.000 yên/tháng (※Miễn phí đối với Hội viên Toàn thời gian).",
+          "vocab": [
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "chuyên dụng"
+            },
+            {
+              "w": "ロッカー",
+              "read": "ロッカー",
+              "vi": "tủ khóa"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "フル",
+              "read": "フル",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "専用ロッカー：月額1,000円",
+              "why": "Phí thuê tủ đồ cá nhân chuyên dụng hàng tháng."
+            },
+            {
+              "w": "※フル会員は無料",
+              "why": "Điều kiện miễn phí tủ đồ chỉ dành riêng cho hội viên toàn thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "・パーソナル指導：1回60分あたり3,000円（予約制）。",
+          "vi": "・Hướng dẫn kèm riêng: 3.000 yên cho mỗi buổi 60 phút (cần đặt trước).",
+          "vocab": [
+            {
+              "w": "パーソナル",
+              "read": "パーソナル",
+              "vi": "cá nhân"
+            },
+            {
+              "w": "指導",
+              "read": "しどう",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "60分",
+              "read": "ろくじゅっぷん",
+              "vi": "60 phút"
+            },
+            {
+              "w": "あたり",
+              "read": "あたり",
+              "vi": "mỗi"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "予約制",
+              "read": "よやくせい",
+              "vi": "theo chế độ đặt trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜あたり",
+              "vi": "接続: N (số từ / đơn vị đo lường) + あたり. Ý nghĩa: Biểu thị mức tính trên mỗi một đơn vị ('mỗi lần 60 phút có giá 3.000 yên')."
+            },
+            {
+              "point": "〜制",
+              "vi": "接続: N + 制. Ý nghĩa: Hậu tố biểu thị quy chế, hình thức hoạt động ('hình thức/chế độ đặt trước')."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "・ペア入会割引：2名以上で同時入会の場合、毎月1,000円引き。",
+          "vi": "・Giảm giá đăng ký theo cặp: Trường hợp đăng ký cùng lúc từ 2 người trở lên, giảm 1.000 yên mỗi tháng cho mỗi người.",
+          "vocab": [
+            {
+              "w": "ペア",
+              "read": "ペア",
+              "vi": "cặp đôi"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "gia nhập"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "2名",
+              "read": "にめい",
+              "vi": "hai người"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "同時",
+              "read": "どうじ",
+              "vi": "đồng thời"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "毎月",
+              "read": "まいげつ",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の場合",
+              "vi": "接続: N + の場合 (hoặc Thể thông thường + 場合). Ý nghĩa: Nêu lên điều kiện hoặc tình huống giả định, 'trong trường hợp...' (trong trường hợp cùng đăng ký từ 2 người trở lên)."
+            },
+            {
+              "point": "〜以上",
+              "vi": "接続: N (số từ) + 以上. Ý nghĩa: Biểu thị mức số lượng từ mốc đó trở lên ('từ 2 người trở lên')."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ペア入会割引",
+              "why": "Ưu đãi khi đăng ký cùng lúc từ hai người trở lên."
+            },
+            {
+              "w": "毎月1,000円引き",
+              "why": "Mức giảm giá cố định hàng tháng cho mỗi người khi đăng ký theo cặp."
+            }
+          ]
+        },
+        {
+          "jp": "・他社乗換割引：他社ジムから変更の場合、入会後2か月間は月額半額。",
+          "vi": "・Giảm giá chuyển đổi từ nơi khác: Trường hợp chuyển từ phòng gym khác sang, giảm một nửa phí hàng tháng trong 2 tháng đầu sau khi gia nhập.",
+          "vocab": [
+            {
+              "w": "他社",
+              "read": "たしゃ",
+              "vi": "công ty khác"
+            },
+            {
+              "w": "乗換",
+              "read": "のりかえ",
+              "vi": "chuyển đổi"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "ジム",
+              "read": "ジム",
+              "vi": "phòng gym"
+            },
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "gia nhập"
+            },
+            {
+              "w": "入会後",
+              "read": "にゅうかいご",
+              "vi": "sau khi gia nhập"
+            },
+            {
+              "w": "2か月間",
+              "read": "にかげつかん",
+              "vi": "trong 2 tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "một nửa giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜の場合",
+              "vi": "接続: N + の場合. Ý nghĩa: Nêu tình huống, trường hợp ('trong trường hợp chuyển từ phòng tập của công ty khác sang')."
+            },
+            {
+              "point": "〜後",
+              "vi": "接続: N + 後 (ご / あと) (hoặc V-た + 後). Ý nghĩa: Chỉ mốc thời gian sau một sự kiện ('sau khi nhập hội')."
+            }
+          ],
+          "keys": [
+            {
+              "w": "他社乗換割引",
+              "why": "Ưu đãi dành cho khách hàng chuyển từ phòng tập của công ty khác sang."
+            },
+            {
+              "w": "入会後2か月間は月額半額",
+              "why": "Thời hạn và mức giảm giá một nửa phí tháng cho 2 tháng đầu tiên."
+            }
+          ]
+        },
+        {
+          "jp": "【お申込み時のご注意】",
+          "vi": "【Lưu ý quan trọng khi đăng ký】",
+          "vocab": [
+            {
+              "w": "お申込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "khi/lúc"
+            },
+            {
+              "w": "ご注意",
+              "read": "ごちゅうい",
+              "vi": "lưu ý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（に／の）",
+              "vi": "接続: N + の時 (hoặc V-る/V-た + 時). Ý nghĩa: Biểu thị thời điểm diễn ra sự việc ('vào lúc / khi đăng ký')."
+            },
+            {
+              "point": "お／ご〜（接頭辞）",
+              "vi": "接続: お/ご + N (Hán từ / Thuần Nhật). Ý nghĩa: Tiền tố kính ngữ biểu thị thái độ lịch sự, trang trọng đối với khách hàng (お申込み, ご注意)."
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "※1 キャンペーン中は入会金（通常5,000円）が無料になります。",
+          "vi": "※1 Trong thời gian chiến dịch, phí gia nhập (thông thường 5.000 yên) sẽ được miễn phí.",
+          "vocab": [
+            {
+              "w": "キャンペーン",
+              "read": "キャンペーン",
+              "vi": "chiến dịch khuyến mãi"
+            },
+            {
+              "w": "キャンペーン中",
+              "read": "キャンペーンちゅう",
+              "vi": "trong thời gian khuyến mãi"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "gia nhập"
+            },
+            {
+              "w": "入会金",
+              "read": "にゅうかいきん",
+              "vi": "phí gia nhập"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜中（ちゅう／じゅう）",
+              "vi": "接続: N (chỉ khoảng thời gian/sự kiện) + 中. Ý nghĩa: Biểu thị trong suốt khoảng thời gian sự kiện đang diễn ra ('trong thời gian diễn ra chiến dịch khuyến mãi')."
+            },
+            {
+              "point": "〜になる",
+              "vi": "接続: N / Na + になる (A-い bỏ い + くなる). Ý nghĩa: Biểu thị sự thay đổi hoặc chuyển biến sang một trạng thái mới ('trở nên/được miễn phí')."
+            }
+          ],
+          "keys": [
+            {
+              "w": "キャンペーン中",
+              "why": "Thời gian diễn ra chương trình khuyến mãi mùa thu."
+            },
+            {
+              "w": "入会金（通常5,000円）が無料",
+              "why": "Quy định miễn phí gia nhập trong đợt khuyến mãi giúp tiết kiệm 5.000 yên."
+            }
+          ]
+        },
+        {
+          "jp": "※2 複数の割引の重複はできません（割引額が大きい方を適用）。",
+          "vi": "※2 Không được áp dụng trùng lặp nhiều chương trình giảm giá (sẽ áp dụng mức giảm giá có số tiền lớn hơn).",
+          "vocab": [
+            {
+              "w": "複数",
+              "read": "ふくすう",
+              "vi": "nhiều"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "重複",
+              "read": "ちょうふく",
+              "vi": "trùng lặp"
+            },
+            {
+              "w": "できません",
+              "read": "できません",
+              "vi": "không thể"
+            },
+            {
+              "w": "割引額",
+              "read": "わりびきがく",
+              "vi": "mức giảm giá"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn"
+            },
+            {
+              "w": "方",
+              "read": "ほう",
+              "vi": "phần/người được chọn"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ができる／できない",
+              "vi": "接続: N + ができる/できない (hoặc V-る + ことができる). Ý nghĩa: Biểu thị khả năng hoặc quy định cho phép/không cho phép ('không thể áp dụng trùng lặp nhiều mức giảm giá')."
+            },
+            {
+              "point": "〜方（ほう）",
+              "vi": "接続: A-い / A-な / Nの + 方. Ý nghĩa: Biểu thị sự so sánh lựa chọn giữa các đối tượng ('áp dụng bên/khoản có số tiền giảm lớn hơn')."
+            }
+          ],
+          "keys": [
+            {
+              "w": "重複はできません",
+              "why": "Quy định không cho phép cộng dồn nhiều loại giảm giá cùng lúc."
+            },
+            {
+              "w": "割引額が大きい方を適用",
+              "why": "Nguyên tắc chọn ưu đãi có giá trị giảm cao nhất khi thỏa nhiều điều kiện."
+            }
+          ]
+        },
+        {
+          "jp": "※3 学生会員は学生証の提示が必要で、他社乗換割引は適用外です。",
+          "vi": "※3 Hội viên Học sinh/Sinh viên cần xuất trình thẻ học sinh/sinh viên và không được áp dụng giảm giá chuyển đổi từ nơi khác.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "他社",
+              "read": "たしゃ",
+              "vi": "công ty khác"
+            },
+            {
+              "w": "乗換",
+              "read": "のりかえ",
+              "vi": "chuyển đổi, đổi tuyến"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "sự áp dụng"
+            },
+            {
+              "w": "適用外",
+              "read": "てきようがい",
+              "vi": "ngoài phạm vi áp dụng, không áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が必要だ",
+              "vi": "接続: N + が必要だ / が必要で. Ý nghĩa: Biểu thị yêu cầu, điều kiện bắt buộc phải có ('cần xuất trình thẻ học sinh - sinh viên')."
+            },
+            {
+              "point": "〜外（がい）",
+              "vi": "接続: N + 外. Ý nghĩa: Hậu tố mang nghĩa loại trừ, nằm ngoài phạm vi áp dụng ('nằm ngoài đối tượng áp dụng giảm giá chuyển đổi')."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証の提示が必要",
+              "why": "Điều kiện bắt buộc phải có thẻ học sinh sinh viên hợp lệ để đăng ký gói học sinh."
+            },
+            {
+              "w": "他社乗換割引は適用外",
+              "why": "Giới hạn không được kết hợp ưu đãi chuyển đổi phòng tập đối với gói học sinh."
+            }
+          ]
+        },
+        {
+          "jp": "※4 ナイト会員は土日祝日および平日17時前は利用できません。",
+          "vi": "※4 Hội viên Ban đêm không thể sử dụng cơ sở vào các ngày thứ Bảy, Chủ nhật, ngày lễ và trước 17:00 các ngày trong tuần.",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "利用不可",
+              "read": "りようふか",
+              "vi": "không thể sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "および（及び）",
+              "vi": "接続: N1 + および + N2. Ý nghĩa: Liên từ nối trang trọng mang nghĩa 'và / cùng với', thường dùng trong văn bản quy định hành chính ('ngày thứ Bảy, Chủ Nhật, ngày lễ và trước 17 giờ ngày thường')."
+            },
+            {
+              "point": "〜前",
+              "vi": "接続: N (thời gian) + 前 (hoặc V-る + 前). Ý nghĩa: Chỉ mốc thời gian trước thời điểm được nêu ('trước 17 giờ')."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土日祝日および平日17時前は利用できません",
+              "why": "Điều khoản cấm hội viên ban đêm sử dụng phòng tập vào ngày nghỉ cuối tuần và ngày lễ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "見てばかりいて",
+          "label": "～てばかりいる"
+        },
+        {
+          "excerpt": "食べてばかりいる",
+          "label": "～てばかりいる"
+        },
+        {
+          "excerpt": "筋力が低下する一方だ",
+          "label": "～一方だ"
+        },
+        {
+          "excerpt": "体重は増加する一方ですし",
+          "label": "～一方だ"
+        },
+        {
+          "excerpt": "運動不足になりがちな方",
+          "label": "～がちだ"
+        },
+        {
+          "excerpt": "途中で諦めがちです",
+          "label": "～がちだ"
+        },
+        {
+          "excerpt": "飽きっぽい方",
+          "label": "～っぽい"
+        },
+        {
+          "excerpt": "昔っぽい古い設備",
+          "label": "～っぽい"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 4,
+          "kind": "intro",
+          "label": "キャッチコピーと導入",
+          "topic": 1,
+          "note": "運動不足や悩みに寄り添うキャンペーン導入部",
+          "qs": []
+        },
+        {
+          "from": 5,
+          "to": 10,
+          "kind": "body",
+          "label": "利用プランと料金一覧",
+          "topic": 6,
+          "note": "4つの会員プランと利用可能時間・月額料金の表",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 15,
+          "kind": "body",
+          "label": "オプションと各種割引",
+          "topic": 11,
+          "note": "ロッカー・パーソナル指導料金およびペア・乗換割引",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 16,
+          "to": 20,
+          "kind": "point",
+          "label": "申込み時の注意事項",
+          "topic": 16,
+          "note": "入会金無料、割引重複不可、学生会員・ナイト会員の利用制限",
+          "qs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "会社員の田中さんは、平日の夜（仕事帰り）に通う予定で、他社のジムから『アクティブ』に1人で乗り換えて入会します。専用ロッカーも契約する場合、入会初月の支払額（月額料金＋オプション代）として正しいものはどれですか。",
+          "options": [
+            "4,750円",
+            "3,750円",
+            "7,500円",
+            "8,500円"
+          ],
+          "answer": 0,
+          "explainVi": "田中さんは平日の仕事帰りに通うため「ナイト会員」（通常月額7,500円）が適しています。キャンペーン中につき入会金（通常5,000円）は無料です（※1）。他社ジムからの乗換割引が適用されるため、入会後2か月間は月額料金が半額の3,750円（7,500円÷2）となります。さらに専用ロッカー代（月額1,000円）が加算されるため、初月の支払額は3,750円＋1,000円＝4,750円となります（ロッカー無料はフル会員のみ）。",
+          "tip": "Thời gian tập (tối ngày thường) định hình gói Night Member (7.500 yên). Chú ý áp dụng ưu đãi chuyển nhượng giảm 50% phí tháng (còn 3.750 yên), cộng thêm phí tủ đồ (1.000 yên vì không phải Full Member), và phí nhập hội được miễn phí.",
+          "evi": [
+            8,
+            12,
+            15,
+            17
+          ],
+          "qt": {
+            "q": "Nhân viên công ty Tanaka dự định đến câu lạc bộ vào các buổi tối trong tuần (sau giờ làm) và đăng ký một mình bằng cách chuyển từ phòng gym của công ty khác sang «アクティブ». Nếu đăng ký thêm tủ khóa riêng, số tiền phải trả trong tháng đầu tiên (phí tháng + phí tùy chọn) là bao nhiêu?",
+            "o": [
+              "4.750 yên",
+              "3.750 yên",
+              "7.500 yên",
+              "8.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "大学生のヤンさんと友人の2人は、土日も含めて夜21時まで利用したいと考えています。ヤンさんたちに最も適したプランと、2人で同時に入会した場合のヤンさんの1か月目の月額料金の組み合わせとして正しいものはどれですか。",
+          "options": [
+            "フル会員 ―― 8,500円",
+            "フル会員 ―― 9,500円",
+            "学生会員 ―― 4,000円",
+            "ナイト会員 ―― 6,500円"
+          ],
+          "answer": 0,
+          "explainVi": "ヤンさんたちは「土日も含めて夜21時まで」の利用を希望しています。「学生会員」は全日利用可能ですが20:00までのため21時までは利用できず、「ナイト会員」は土日祝日の利用が不可です（※4）。したがって条件を満たすのは全日10:00〜23:00利用可能な「フル会員」（通常9,500円）のみです。さらに友人と2名で同時に申し込むため「ペア入会割引」が適用され、毎月1,000円引きとなるため、月額料金は9,500円－1,000円＝8,500円となります。",
+          "tip": "Đối chiếu đồng thời 2 điều kiện: thứ Bảy/Chủ nhật và giờ tập đến 21:00. Gói học sinh chỉ đến 20:00, gói ban đêm không áp dụng cuối tuần, nên chỉ có Full Member thỏa mãn. Kết hợp giảm giá theo cặp (2 người) giảm 1.000 yên/tháng.",
+          "evi": [
+            9,
+            10,
+            14,
+            20
+          ],
+          "qt": {
+            "q": "Sinh viên đại học Yang và một người bạn muốn sử dụng câu lạc bộ đến 21 giờ, kể cả thứ Bảy và Chủ nhật. Tổ hợp nào gồm gói phù hợp nhất với họ và phí tháng của Yang trong tháng đầu tiên khi cả hai cùng đăng ký?",
+            "o": [
+              "Hội viên gói đầy đủ ―― 8.500 yên",
+              "Hội viên gói đầy đủ ―― 9.500 yên",
+              "Hội viên sinh viên ―― 4.000 yên",
+              "Hội viên buổi tối ―― 6.500 yên"
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

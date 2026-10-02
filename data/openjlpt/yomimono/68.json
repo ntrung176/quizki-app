@@ -1,0 +1,3588 @@
+{
+  "bai": 68,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 68 luyện 〜によって／〜により／〜による — một mẫu ĐA NGHĨA rất quan trọng ở N3. Cùng một cấu trúc N＋によって nhưng có 4 nghĩa khác nhau tùy ngữ cảnh: (a) TÙY THEO / khác nhau theo: \"人によって考え方が違う\"; (b) BẰNG phương tiện/cách: \"話し合いによって問題を解決する\"; (c) DO — tác nhân trong câu bị động: \"この絵はピカソによって描かれた\"; (d) NGUYÊN NHÂN — (thường xấu hoặc trung tính): \"地震によって多くの家が壊れた\". による＋N dùng làm định ngữ: \"努力による成功\" (thành công nhờ nỗ lực). により = dạng trang trọng (văn viết) của によって. Đọc hiểu: xác định đúng nghĩa nào của によって qua ngữ cảnh câu (câu bị động? đa dạng? công cụ?).",
+    "steps": [
+      "接続 của によって: N（普通形の名詞句）＋によって／により／による＋N。 Nhận ra danh từ đứng trước.",
+      "Xác định nghĩa (a)–(d): nếu câu có \"〜は違う / 異なる / さまざまだ\" → nghĩa (a) tùy theo. Nếu câu có 受身（られる）→ nghĩa (c) tác nhân. Nếu diễn đạt phương pháp/cách làm → nghĩa (b). Nếu diễn đạt nguyên nhân sự kiện xấu → nghĩa (d).",
+      "Phân biệt によって（(c) tác nhân bị động）với を使って（dụng cụ cụ thể）và ために（nguyên nhân có ý chí, B39）.",
+      "による＋N là cụm định ngữ: \"〜によるN\" = \"N do/theo/bằng 〜\". Chú ý nó bổ nghĩa cho danh từ theo sau.",
+      "により = によって văn viết/trang trọng hơn: xuất hiện nhiều trong văn bản hành chính, báo chí. Nghĩa hoàn toàn giống nhau.",
+      "Câu hỏi suy luận: \"Nghĩa nào của によって trong câu này?\" → đọc ngữ cảnh, không đoán mò."
+    ],
+    "tips": [
+      "使い分け 1 — 4 nghĩa của によって: (a) tùy theo → câu thường có \"違う/異なる\"; (b) bằng cách → chủ ngữ chủ động; (c) tác nhân bị động → câu có 〜られる; (d) nguyên nhân → kết quả thường là sự việc xảy ra, không kiểm soát được.",
+      "使い分け 2 — によって (c) vs を使って: \"刀によって切られた\" (tác nhân/phương tiện trong bị động) ≠ \"刀を使って切った\" (chủ động, dùng dụng cụ). Câu bị động thì dùng によって, câu chủ động thì dùng を使って.",
+      "によって (d) vs せいで（B59）: によって trung tính hoặc hơi nghiêm túc (thiên tai, sự kiện lịch sử); せいで chỉ nguyên nhân XẤU với hàm ý đổ lỗi (khẩu ngữ). Bài thi hay hỏi phân biệt điều này.",
+      "による＋N: 接続は \"N1によるN2\" (N2 do/theo N1). Ví dụ: 地震による被害 (thiệt hại do động đất), 投票による決定 (quyết định bằng bỏ phiếu). Không thêm によるN xong lại thêm によって nữa trong một câu.",
+      "Nhận dạng trong đề thi: câu hỏi hỏi \"〜によって、どんな意味で使われていますか\" → đọc kỹ ngữ cảnh câu đó (có 違う? có られ? có方法?)."
+    ],
+    "grammarFocus": [
+      "〜によって（(a) tùy theo/khác nhau theo）— N + によって + 違う/異なる",
+      "〜によって（(b) bằng phương tiện/cách）— N + によって + Vる（chủ động, giải quyết/đạt được）",
+      "〜によって（(c) tác nhân trong câu bị động）— NがN2によって + Vられる",
+      "〜によって（(d) nguyên nhân sự kiện）— NによってN2が〜（結果）",
+      "〜による＋N（bổ nghĩa danh từ）— N1によるN2",
+      "〜により（dạng trang trọng của によって — văn viết/hành chính）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 37,
+        "items": [
+          "受身形（〜られる）: câu bị động",
+          "NがNに〜られる（tác nhân trong bị động）"
+        ]
+      },
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ（bổn phận/lẽ phải nên）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）"
+        ]
+      },
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ（suy luận có căn cứ logic）"
+        ]
+      },
+      {
+        "bai": 67,
+        "items": [
+          "〜について（về chủ đề）",
+          "〜に関して（trang trọng hơn）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "地域によって違う食文化",
+      "titleVi": "Văn hóa ẩm thực khác nhau theo từng vùng",
+      "japanese": "日本では、地域によって食文化がかなり異なる。例えば、みそ汁に使うみその種類は、地域によって違う。関西では白みそが好まれ、関東では赤みそや合わせみそが多く使われる。これらの違いは、長い歴史と気候の違いによって生まれたと言われている。また、うどんのだしも地域によって大きく変わる。このような食文化の多様性は、日本の魅力の一つだと思う。旅行によって各地の食文化を直接体験することは、とても価値があるはずだ。ぜひ日本の各地を訪れて、その土地だけの味を楽しんでほしい。",
+      "vietnamese": "Ở Nhật Bản, văn hóa ẩm thực khá khác nhau tùy từng vùng. Ví dụ, loại miso dùng trong canh miso cũng khác nhau theo từng vùng. Ở vùng Kansai người ta ưa dùng miso trắng, còn ở Kanto thì miso đỏ và miso hỗn hợp được dùng nhiều hơn. Sự khác biệt này được cho là đã sinh ra từ lịch sử lâu dài và sự khác biệt về khí hậu. Ngoài ra, nước dùng của udon cũng thay đổi nhiều tùy theo từng vùng. Sự đa dạng về văn hóa ẩm thực như vậy là một trong những sức hút của Nhật Bản. Thông qua việc du lịch, trực tiếp trải nghiệm văn hóa ẩm thực từng vùng chắc là rất có giá trị. Mong mọi người hãy ghé thăm các vùng của Nhật và tận hưởng hương vị đặc trưng của từng nơi.",
+      "sentences": [
+        {
+          "jp": "日本では、地域によって食文化がかなり異なる。",
+          "vi": "Ở Nhật Bản, văn hóa ẩm thực khá khác nhau tùy từng vùng.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "vùng, khu vực"
+            },
+            {
+              "w": "食",
+              "read": "しょく",
+              "vi": "ẩm thực, ăn uống"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "かなり",
+              "read": "かなり",
+              "vi": "khá, tương đối"
+            },
+            {
+              "w": "異なります",
+              "read": "ことなります",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "食文化",
+              "read": "しょくぶんか",
+              "vi": "văn hóa ẩm thực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo — Bài 68 MỚI）",
+              "vi": "接続: N（地域）＋によって。 地域によって〜異なる = \"tùy theo từng vùng mà khác nhau\". Nghĩa (a): diễn đạt sự KHÁC BIỆT, thường đi kèm 違う/異なる/さまざまだ. Sắc thái: によって trung tính, chỉ sự đa dạng; ≠ せいで（Bài 59 — chỉ nguyên nhân xấu có hàm ý đổ lỗi）."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、みそ汁に使うみその種類は、地域によって違う。",
+          "vi": "Ví dụ, loại miso dùng trong canh miso cũng khác nhau theo từng vùng.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "種類",
+              "read": "しゅるい",
+              "vi": "loại, chủng loại"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "みそ汁",
+              "read": "みそしる",
+              "vi": "canh miso"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo）",
+              "vi": "地域によって違う = \"khác nhau tùy theo từng vùng\". Câu này củng cố nghĩa (a) — 違う là dấu hiệu nhận diện quan trọng."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "みそ汁に使うみそ = miso (mà người ta) dùng trong canh miso. Vる bổ nghĩa cho 〜みそ."
+            }
+          ]
+        },
+        {
+          "jp": "関西では白みそが好まれ、関東では赤みそや合わせみそが多く使われる。",
+          "vi": "Ở vùng Kansai người ta ưa dùng miso trắng, còn ở Kanto thì miso đỏ và miso hỗn hợp được dùng nhiều hơn.",
+          "vocab": [
+            {
+              "w": "関西",
+              "read": "かんさい",
+              "vi": "vùng Kansai (Osaka, Kyoto...)"
+            },
+            {
+              "w": "白みそ",
+              "read": "しろみそ",
+              "vi": "miso trắng"
+            },
+            {
+              "w": "好む",
+              "read": "このむ",
+              "vi": "thích, ưa chuộng"
+            },
+            {
+              "w": "関東",
+              "read": "かんとう",
+              "vi": "vùng Kanto (Tokyo...)"
+            },
+            {
+              "w": "赤みそ",
+              "read": "あかみそ",
+              "vi": "miso đỏ"
+            },
+            {
+              "w": "合わせみそ",
+              "read": "あわせみそ",
+              "vi": "miso hỗn hợp"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "受身形（〜られる — Bài 37）",
+              "vi": "好まれる = được ưa chuộng; 使われる = được sử dụng. Câu bị động xã hội (Bài 37): chủ thể không rõ, nhấn mạnh vào hành động được thực hiện."
+            }
+          ]
+        },
+        {
+          "jp": "これらの違いは、長い歴史と気候の違いによって生まれたと言われている。",
+          "vi": "Sự khác biệt này được cho là đã sinh ra từ lịch sử lâu dài và sự khác biệt về khí hậu.",
+          "vocab": [
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "気候",
+              "read": "きこう",
+              "vi": "khí hậu"
+            },
+            {
+              "w": "生まれます",
+              "read": "うまれます",
+              "vi": "được sinh ra, hình thành"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "これら",
+              "read": "これら",
+              "vi": "những cái này, các điều này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân — Bài 68 MỚI）",
+              "vi": "接続: N（歴史と気候の違い）＋によって＋結果（生まれた）。 Nghĩa (d): diễn đạt NGUYÊN NHÂN dẫn đến kết quả (trung tính hoặc khách quan). Sắc thái: によって câu này = \"do/từ\" nguyên nhân khách quan (lịch sử, khí hậu); ≠ せいで（đổ lỗi）; ≠ おかげで（biết ơn）."
+            },
+            {
+              "point": "〜と言われている（Bài 21 + 受身）",
+              "vi": "と言われている = được người ta cho là, được nói rằng. 受身 (Bài 37) + ている (trạng thái kéo dài)."
+            }
+          ]
+        },
+        {
+          "jp": "また、うどんのだしも地域によって大きく変わる。",
+          "vi": "Ngoài ra, nước dùng của udon cũng thay đổi nhiều tùy theo từng vùng.",
+          "vocab": [
+            {
+              "w": "うどん",
+              "read": "うどん",
+              "vi": "mì udon"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "大きく",
+              "read": "おおきく",
+              "vi": "rất, nhiều (phó từ)"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "だし",
+              "read": "だし",
+              "vi": "nước dùng, nước hầm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo）",
+              "vi": "地域によって変わる = \"thay đổi tùy theo từng vùng\". Nghĩa (a) — biến thể của \"違う\": ở đây dùng \"変わる\" cũng là dấu hiệu của nghĩa tùy theo."
+            }
+          ]
+        },
+        {
+          "jp": "このような食文化の多様性は、日本の魅力の一つだと思う。",
+          "vi": "Sự đa dạng về văn hóa ẩm thực như vậy là một trong những sức hút của Nhật Bản.",
+          "vocab": [
+            {
+              "w": "食",
+              "read": "しょく",
+              "vi": "ẩm thực, ăn uống"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, nhiều chiều"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "魅力",
+              "read": "みりょく",
+              "vi": "sức hút, sức cuốn hút"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "多様性",
+              "read": "たようせい",
+              "vi": "sự đa dạng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "〜だと思う = tôi nghĩ rằng. Ý kiến chủ quan của người viết."
+            }
+          ]
+        },
+        {
+          "jp": "旅行によって各地の食文化を直接体験することは、とても価値があるはずだ。",
+          "vi": "Thông qua việc du lịch, trực tiếp trải nghiệm văn hóa ẩm thực từng vùng chắc là rất có giá trị.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "各地",
+              "read": "かくち",
+              "vi": "các vùng, khắp nơi"
+            },
+            {
+              "w": "食",
+              "read": "しょく",
+              "vi": "ẩm thực, ăn uống"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "直接",
+              "read": "ちょくせつ",
+              "vi": "trực tiếp"
+            },
+            {
+              "w": "体験します",
+              "read": "たいけんします",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(b) bằng phương tiện/cách — Bài 68 MỚI）",
+              "vi": "接続: N（旅行）＋によって。 旅行によって〜体験する = \"thông qua/bằng cách du lịch mà trải nghiệm\". Nghĩa (b): diễn đạt PHƯƠNG TIỆN/CÁCH để đạt được kết quả. Sắc thái: によって (b) ≠ によって (a) — ở đây không có \"違う\"; chủ thể chủ động dùng \"旅行\" như một phương tiện."
+            },
+            {
+              "point": "〜はずだ（Bài 51）",
+              "vi": "価値があるはずだ = \"chắc là rất có giá trị\". Suy luận có căn cứ (trải nghiệm trực tiếp là cách học tốt nhất — logic)."
+            }
+          ]
+        },
+        {
+          "jp": "ぜひ日本の各地を訪れて、その土地だけの味を楽しんでほしい。",
+          "vi": "Mong mọi người hãy ghé thăm các vùng của Nhật và tận hưởng hương vị đặc trưng của từng nơi.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "各地",
+              "read": "かくち",
+              "vi": "các vùng, khắp nơi"
+            },
+            {
+              "w": "訪れます",
+              "read": "おとずれます",
+              "vi": "ghé thăm, đến thăm"
+            },
+            {
+              "w": "土地",
+              "read": "とち",
+              "vi": "vùng đất, nơi đó"
+            },
+            {
+              "w": "味",
+              "read": "あじ",
+              "vi": "hương vị, vị"
+            },
+            {
+              "w": "楽しみます",
+              "read": "たのしみます",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, mong là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてほしい（Bài 36 応用）",
+              "vi": "楽しんでほしい = mong (mọi người) hãy tận hưởng. Vてほしい = mong ai đó làm gì."
+            },
+            {
+              "point": "Vて（nối trình tự Bài 16）",
+              "vi": "訪れて〜楽しんでほしい = ghé thăm rồi tận hưởng. て nối hai hành động theo thứ tự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "地域によって食文化がかなり異なる",
+          "label": "〜によって (a) tùy theo + 異なる"
+        },
+        {
+          "excerpt": "地域によって違う",
+          "label": "〜によって (a) tùy theo + 違う"
+        },
+        {
+          "excerpt": "長い歴史と気候の違いによって生まれた",
+          "label": "Sắc thái: によって (d) nguyên nhân khách quan"
+        },
+        {
+          "excerpt": "旅行によって各地の食文化を直接体験すること",
+          "label": "〜によって (b) bằng phương tiện/cách"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「地域によって食文化がかなり異なる」の「によって」はどんな意味ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "原因・理由を表す（〜が原因で）",
+            "手段・方法を表す（〜を使って/〜の方法で）",
+            "受け身文の動作主を表す（〜に〜られる）",
+            "「場合によって異なる」という多様性を表す（〜次第で違う）"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là (d) — nghĩa (a) TÙY THEO/ĐA DẠNG. Bằng chứng trực tiếp: câu gốc viết「地域によって食文化がかなり異なる」— vế sau là「異なる」(khác nhau), đây là dấu hiệu đặc trưng của nghĩa (a). Tại sao 3 đáp án kia sai? (a) \"nguyên nhân (d)\" sai vì không có kết quả/sự kiện xảy ra — chỉ nói \"khác nhau\", không nói \"vì thế mà gây ra việc gì\". (b) \"phương tiện/bằng cách\" sai vì không có hành động chủ động nào được thực hiện bằng 地域. (c) \"tác nhân bị động\" sai vì câu không có thể bị động （〜られる）.",
+          "tip": "Vế sau là 違う / 異なる / さまざまだ / 変わる → ngay lập tức nhận ra nghĩa (a) TÙY THEO. Không cần đọc thêm — chỉ cần thấy các từ \"khác nhau\" này là xác định được.",
+          "qt": {
+            "q": "Trong câu 「地域によって食文化がかなり異なる」, 「によって」 có nghĩa là gì?",
+            "o": [
+              "Chỉ nguyên nhân, lý do (do ～)",
+              "Chỉ phương tiện, cách thức (dùng ～/bằng cách ～)",
+              "Chỉ tác nhân thực hiện hành động trong câu bị động (bị ～ bởi ～)",
+              "Diễn tả sự đa dạng trong câu “「場合によって異なる」” (khác nhau tùy theo ～)"
+            ]
+          }
+        },
+        {
+          "q": "「旅行によって各地の食文化を直接体験することは〜」の「によって」の意味は何ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "旅行が原因で問題が起きたことを表す",
+            "旅行という手段・方法を使って体験することを表す",
+            "旅行によって感じ方が異なることを表す",
+            "旅行を行った動作主を受け身で表す"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là (b) — nghĩa (b) PHƯƠNG TIỆN/BẰNG CÁCH. Bằng chứng: câu gốc viết「旅行によって各地の食文化を直接体験することは〜」— 旅行 (du lịch) là phương tiện/cách để 体験する (trải nghiệm). Chủ thể chủ động dùng du lịch như một công cụ để đạt mục đích. Tại sao 3 đáp án kia sai? (a) \"旅行が原因で問題が起きた\" sai hoàn toàn — văn bản không nói du lịch gây ra vấn đề gì. (c) \"感じ方が異なる\" sai vì không có từ 違う/異なる trong câu này. (d) \"受け身の動作主\" sai vì 体験する là động từ chủ động, không có 〜られる.",
+          "tip": "Câu có chủ thể chủ động + によって + Vる (không phải られる, không có 違う) → nghĩa (b) PHƯƠNG TIỆN/BẰNG CÁCH. Hỏi thử: \"Người ta dùng X như công cụ/cách để làm Y không?\" — có thì là (b).",
+          "qt": {
+            "q": "「旅行によって各地の食文化を直接体験することは〜」— 「によって」 ở đây có nghĩa là gì?",
+            "o": [
+              "Diễn tả việc vấn đề xảy ra do chuyến du lịch",
+              "Diễn tả việc trải nghiệm bằng phương tiện hoặc cách thức là chuyến du lịch",
+              "Diễn tả việc cách cảm nhận khác nhau tùy theo chuyến du lịch",
+              "Diễn tả tác nhân thực hiện chuyến du lịch trong câu bị động"
+            ]
+          }
+        },
+        {
+          "q": "「長い歴史と気候の違いによって生まれた」と「地域によって食文化が異なる」では、「によって」の使い方が違います。どう違いますか。",
+          "evi": [
+            0,
+            3
+          ],
+          "options": [
+            "前者は「tùy theo」、後者は「bằng cách」の意味で使われている",
+            "前者は「nguyên nhân」、後者は「tùy theo/異なる」の意味で使われている",
+            "両方とも同じ意味で使われている",
+            "前者は受け身文の動作主、後者は手段を表す"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là (b) — Câu trước (前者):「長い歴史と気候の違いによって生まれた」— \"lịch sử và khí hậu\" là NGUYÊN NHÂN dẫn đến kết quả là 生まれた (hình thành/ra đời) → nghĩa (d) NGUYÊN NHÂN. Câu sau (後者):「地域によって食文化が異なる」— vế sau là 異なる (khác nhau) → nghĩa (a) TÙY THEO. Tại sao 3 đáp án kia sai? (a) nhầm \"前者=tùy theo, 後者=bằng cách\" — ngược lại hoàn toàn. (c) \"同じ意味\" sai vì hai câu rõ ràng dùng によって với nghĩa khác nhau. (d) \"前者=tác nhân bị động\" sai vì 生まれた (ra đời) không phải câu bị động với tác nhân người.",
+          "tip": "Phân biệt nhanh (a) vs (d): câu có 違う/異なる → (a) tùy theo; câu có \"sự kiện/kết quả XẢY RA\" (生まれた、起きた、できた) mà không có 違う → (d) nguyên nhân.",
+          "qt": {
+            "q": "Trong 「長い歴史と気候の違いによって生まれた」 và 「地域によって食文化が異なる」, cách dùng 「によって」 khác nhau như thế nào?",
+            "o": [
+              "Ở câu trước, 「によって」 có nghĩa là “tùy theo”; ở câu sau, có nghĩa là “bằng cách”",
+              "Ở câu trước, 「によって」 có nghĩa là “nguyên nhân”; ở câu sau, có nghĩa là “tùy theo/khác nhau”",
+              "Cả hai đều được dùng với cùng một nghĩa",
+              "Ở câu trước, 「によって」 chỉ tác nhân trong câu bị động; ở câu sau, chỉ phương tiện"
+            ]
+          }
+        },
+        {
+          "q": "この文章の内容と合っているものはどれですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "関西では赤みそが最もよく使われる",
+            "日本の食文化の違いは地域の歴史や気候と関係がある",
+            "うどんのだしはどの地域でも同じだ",
+            "旅行によって食文化を体験することはあまり意味がない"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là (b): \"Sự khác biệt ẩm thực Nhật liên quan đến lịch sử và khí hậu từng vùng.\" Bằng chứng trực tiếp từ bài:「これらの違いは、長い歴史と気候の違いによって生まれたと言われている」— rõ ràng nêu lịch sử và khí hậu là nguyên nhân tạo ra sự khác biệt. Tại sao 3 đáp án kia sai? (a) \"関西で赤みそが最もよく使われる\" sai — bài viết「関西では白みそが好まれ」(miso TRẮNG được ưa ở Kansai), không phải đỏ. (c) \"うどんのだしはどこでも同じ\" sai — bài viết「うどんのだしも地域によって大きく変わる」(cũng thay đổi theo vùng). (d) \"旅行体験はあまり意味がない\" sai hoàn toàn — bài viết「とても価値があるはずだ」(rất có giá trị).",
+          "tip": "Câu hỏi nội dung → tìm câu văn chứa bằng chứng trực tiếp (quote JP), loại trừ đáp án trái ngược. Đặc biệt chú ý các từ ngữ dễ nhầm: 白みそ vs 赤みそ, 変わる vs 同じ.",
+          "qt": {
+            "q": "Điều nào phù hợp với nội dung bài đọc này?",
+            "o": [
+              "Ở Kansai, miso đỏ được dùng phổ biến nhất",
+              "Sự khác biệt trong văn hóa ẩm thực Nhật Bản có liên quan đến lịch sử và khí hậu của từng vùng",
+              "Nước dùng udon giống nhau ở mọi vùng",
+              "Trải nghiệm văn hóa ẩm thực qua du lịch không có nhiều ý nghĩa"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "言葉の選び方とコミュニケーション",
+      "titleVi": "Cách lựa chọn từ ngữ và giao tiếp",
+      "japanese": "同じことを相手に伝える場合でも、言葉の選び方によって受ける印象は大きく変わる。たとえば、仕事でミスをした同僚に、「どうして失敗したのか」と尋ねるか、「次はどうすればいいと思うか」と尋ねるかによって、相手の受け止め方は全く異なるだろう。前者は相手を責めているように感じられるが、後者は前向きな解決を目指していると感じられるからだ。\nつまり、コミュニケーションの質は、どのような言葉を用いるかという選択によって決まると言える。人は誰でも、言葉によって励まされたり、逆に深く傷つけられたりすることがある。そのため、自分の言いたいことだけを一方的に話すのではなく、相手の立場に立った言葉を使うことが大切である。\n人間関係のトラブルの多くは、悪意によるものではなく、ちょっとした言葉の使い方の違いによって起こる。日頃から相手への思いやりを持って丁寧な言葉を選ぶ努力により、より良い信頼関係を築くことができるはずだ。",
+      "vietnamese": "Dù là truyền đạt cùng một nội dung tới đối phương, ấn tượng nhận lại vẫn thay đổi rất nhiều tùy thuộc vào cách chọn từ ngữ. Chẳng hạn, khi hỏi một đồng nghiệp vừa mắc lỗi trong công việc, việc bạn hỏi \"Tại sao lại thất bại thế?\" hay hỏi \"Cậu nghĩ lần tới nên làm thế nào?\" sẽ khiến cách đón nhận của đối phương hoàn toàn khác nhau. Đó là vì câu hỏi trước mang lại cảm giác như đang trách móc, còn câu hỏi sau lại tạo cảm giác hướng tới một giải pháp tích cực.\nTóm lại, có thể nói chất lượng giao tiếp được quyết định bởi sự lựa chọn dùng từ ngữ như thế nào. Bất kỳ ai cũng có lúc được khích lệ bởi lời nói, hoặc ngược lại, bị tổn thương sâu sắc. Vì thế, thay vì chỉ nói một chiều những điều bản thân muốn nói, việc sử dụng những từ ngữ đứng trên lập trường của đối phương là rất quan trọng.\nPhần lớn những rắc rối trong quan hệ giữa người với người không phải do ác ý, mà phát sinh do sự khác biệt nhỏ trong cách dùng từ. Nhờ nỗ lực luôn biết quan tâm đến đối phương và chọn lọc từ ngữ lịch sự, chắc chắn chúng ta sẽ xây dựng được mối quan hệ tin cậy tốt đẹp hơn.",
+      "sentences": [
+        {
+          "jp": "同じことを相手に伝える場合でも、言葉の選び方によって受ける印象は大きく変わる。",
+          "vi": "Dù là truyền đạt cùng một nội dung tới đối phương, ấn tượng nhận lại vẫn thay đổi rất nhiều tùy thuộc vào cách chọn từ ngữ.",
+          "vocab": [
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người nghe"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "選び方",
+              "read": "えらびかた",
+              "vi": "cách lựa chọn"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "印象",
+              "read": "いんしょう",
+              "vi": "ấn tượng"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo — Bài 68 MỚI）",
+              "vi": "接続: N＋によって。言葉の選び方によって〜変わる = \"thay đổi tùy theo cách chọn từ ngữ\". Biểu thị sự đa dạng, khác biệt tùy vào yếu tố đi trước; vế sau thường đi với 違う, 異なる, 変わる, さまざまだ."
+            },
+            {
+              "point": "〜場合（でも）（Bài 42）",
+              "vi": "接続: Vる＋場合でも. \"ngay cả trong trường hợp...\""
+            }
+          ],
+          "keys": [
+            {
+              "w": "言葉の選び方によって受ける印象は大きく変わる",
+              "why": "Khái quát luận điểm mở đầu về ảnh hưởng trực tiếp của việc lựa chọn từ ngữ tới ấn tượng người nghe."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、仕事でミスをした同僚に、「どうして失敗したのか」と尋ねるか、「次はどうすればいいと思うか」と尋ねるかによって、相手の受け止め方は全く異なるだろう。",
+          "vi": "Chẳng hạn, khi hỏi một đồng nghiệp vừa mắc lỗi trong công việc, việc bạn hỏi \"Tại sao lại thất bại thế?\" hay hỏi \"Cậu nghĩ lần tới nên làm thế nào?\" sẽ khiến cách đón nhận của đối phương hoàn toàn khác nhau.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "ミス",
+              "read": "ミス",
+              "vi": "lỗi, sai sót"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "どうして",
+              "read": "どうして",
+              "vi": "tại sao, vì sao"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, mắc lỗi"
+            },
+            {
+              "w": "尋ねる",
+              "read": "たずねる",
+              "vi": "hỏi, thăm dò ý kiến"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "受け止める",
+              "read": "うけとめる",
+              "vi": "đón nhận, tiếp nhận"
+            },
+            {
+              "w": "全く",
+              "read": "まったく",
+              "vi": "hoàn toàn"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau, bất đồng"
+            },
+            {
+              "w": "受け止め方",
+              "read": "うけとめかた",
+              "vi": "cách tiếp nhận, cách đón nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo — Bài 68 MỚI）",
+              "vi": "接続: 節＋かによって。〜と尋ねるか〜と尋ねるかによって〜異なる = \"cách đón nhận khác nhau hoàn toàn tùy theo việc hỏi cách A hay hỏi cách B\"."
+            },
+            {
+              "point": "〜か〜か（nghi vấn lồng — Bài 40）",
+              "vi": "接続: 普通形＋か＋普通形＋か。Dùng để nêu ra các phương án lựa chọn lồng trong câu."
+            },
+            {
+              "point": "〜だろう（phỏng đoán — Bài 32）",
+              "vi": "接続: 普通形＋だろう。Phỏng đoán có mức độ chắc chắn tương đối cao của người nói."
+            }
+          ],
+          "keys": [
+            {
+              "w": "「どうして失敗したのか」",
+              "why": "Từ khóa định vị vế thứ nhất (前者) trong ví dụ câu hỏi khi đồng nghiệp mắc lỗi, là căn cứ trả lời câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "前者は相手を責めているように感じられるが、後者は前向きな解決を目指していると感じられるからだ。",
+          "vi": "Đó là vì câu hỏi trước mang lại cảm giác như đang trách móc, còn câu hỏi sau lại tạo cảm giác hướng tới một giải pháp tích cực.",
+          "vocab": [
+            {
+              "w": "前者",
+              "read": "ぜんしゃ",
+              "vi": "cái trước, điều nêu trước"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "責める",
+              "read": "せめる",
+              "vi": "trách móc, đổ lỗi, truy cứu"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "後者",
+              "read": "こうしゃ",
+              "vi": "cái sau, điều nêu sau"
+            },
+            {
+              "w": "前向き",
+              "read": "まえむき",
+              "vi": "tích cực, hướng về phía trước"
+            },
+            {
+              "w": "解決",
+              "read": "かいけつ",
+              "vi": "giải quyết, giải pháp"
+            },
+            {
+              "w": "目指す",
+              "read": "めざす",
+              "vi": "hướng tới, nhắm mục tiêu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように感じられる（tự phát / bị động — Bài 37）",
+              "vi": "接続: V/A/N＋ように感じられる。Diễn tả một cảm giác, ấn tượng tự nhiên nảy sinh trong tâm trí."
+            },
+            {
+              "point": "〜からだ（giải thích lý do — Bài 26）",
+              "vi": "接続: 普通形＋からだ。Đặt ở cuối câu để giải thích nguyên nhân/lý do cho nhận định vừa nêu ở câu trước."
+            }
+          ],
+          "keys": [
+            {
+              "w": "前者は相手を責めているように",
+              "why": "Cụm giải thích cảm giác tiêu cực do câu hỏi trước tạo ra, chứa chỉ thị từ 前者 cần đối chiếu với câu 1."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、コミュニケーションの質は、どのような言葉を用いるかという選択によって決まると言える。",
+          "vi": "Tóm lại, có thể nói chất lượng giao tiếp được quyết định bởi sự lựa chọn dùng từ ngữ như thế nào.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "コミュニケーション",
+              "read": "コミュニケーション",
+              "vi": "giao tiếp, trao đổi"
+            },
+            {
+              "w": "質",
+              "read": "しつ",
+              "vi": "chất lượng"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "用いる",
+              "read": "もちいる",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "選択",
+              "read": "せんたく",
+              "vi": "sự lựa chọn"
+            },
+            {
+              "w": "決まる",
+              "read": "きまる",
+              "vi": "được quyết định"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(b) phương tiện / căn cứ quyết định — Bài 68 MỚI）",
+              "vi": "接続: N＋によって。選択によって決まる = \"được quyết định bởi/thông qua sự lựa chọn\". Biểu thị nhân tố quyết định hoặc phương thức tạo ra kết quả."
+            },
+            {
+              "point": "〜と言える（Bài 51）",
+              "vi": "接続: 普通形＋と言える。Dùng để đưa ra nhận định hoặc đúc kết mang tính logic: \"có thể nói rằng...\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ kết luận đoạn, đánh dấu phát biểu quy luật chất lượng giao tiếp do cách chọn từ quyết định."
+            }
+          ]
+        },
+        {
+          "jp": "人は誰でも、言葉によって励まされたり、逆に深く傷つけられたりすることがある。",
+          "vi": "Bất kỳ ai cũng có lúc được khích lệ bởi lời nói, hoặc ngược lại, bị tổn thương sâu sắc.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "励ます",
+              "read": "はげます",
+              "vi": "động viên, khích lệ"
+            },
+            {
+              "w": "逆に",
+              "read": "ぎゃくに",
+              "vi": "ngược lại"
+            },
+            {
+              "w": "深く",
+              "read": "ふかく",
+              "vi": "sâu sắc, sâu đậm"
+            },
+            {
+              "w": "傷つける",
+              "read": "きずつける",
+              "vi": "làm tổn thương"
+            },
+            {
+              "w": "誰でも",
+              "read": "だれでも",
+              "vi": "bất kỳ ai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân / (c) tác nhân bị động — Bài 68 MỚI）",
+              "vi": "接続: N＋によって＋受身形。言葉によって励まされる／傷つけられる = \"được khích lệ / bị tổn thương bởi lời nói\". Vừa là tác nhân gây tác động trong thể bị động, vừa là nguyên nhân tạo ra cảm xúc."
+            },
+            {
+              "point": "〜たり〜たりする（Bài 19）＆受身形（Bài 37）",
+              "vi": "接続: V-た-り V-た-りする. Liệt kê các trạng thái có thể xảy ra: có lúc được khích lệ, có lúc bị tổn thương."
+            },
+            {
+              "point": "〜ことがある（Bài 19/43）",
+              "vi": "接続: Vる＋ことがある. Diễn đạt thỉnh thoảng có trường hợp/sự việc như vậy xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、自分の言いたいことだけを一方的に話すのではなく、相手の立場に立った言葉を使うことが大切である。",
+          "vi": "Vì thế, thay vì chỉ nói một chiều những điều bản thân muốn nói, việc sử dụng những từ ngữ đứng trên lập trường của đối phương là rất quan trọng.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "lập trường, hoàn cảnh, vị trí"
+            },
+            {
+              "w": "立つ",
+              "read": "たつ",
+              "vi": "đứng, ở vị trí"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "一方的",
+              "read": "いっぽうてき",
+              "vi": "một chiều, đơn phương"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく（Bài 58）",
+              "vi": "接続: 普通形＋のではなく。話すのではなく = \"không phải là nói... mà là...\". Dùng để phủ định hành động không nên làm và hướng tới hành động cần thiết."
+            },
+            {
+              "point": "〜ことが大切だ／である（Bài 38）",
+              "vi": "接続: Vる＋ことが大切だ. Danh từ hóa động từ để nêu lời khuyên hoặc nguyên tắc ứng xử quan trọng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "相手の立場に立った言葉を使うことが大切である",
+              "why": "Mẫu câu thể hiện chủ trương [〜が大切である], đưa ra lời khuyên cốt lõi về thái độ khi giao tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "人間関係のトラブルの多くは、悪意によるものではなく、ちょっとした言葉の使い方の違いによって起こる。",
+          "vi": "Phần lớn những rắc rối trong quan hệ giữa người với người không phải do ác ý, mà phát sinh do sự khác biệt nhỏ trong cách dùng từ.",
+          "vocab": [
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "トラブル",
+              "read": "トラブル",
+              "vi": "rắc rối, sự cố"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "悪意",
+              "read": "あくい",
+              "vi": "ác ý, ý đồ xấu"
+            },
+            {
+              "w": "ちょっとした",
+              "read": "ちょっとした",
+              "vi": "nhỏ, chút ít, thoáng qua"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "起こる",
+              "read": "おこる",
+              "vi": "xảy ra, phát sinh"
+            },
+            {
+              "w": "人間関係",
+              "read": "にんげんかんけい",
+              "vi": "mối quan hệ giữa người với người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜による＋N（bổ nghĩa danh từ — Bài 68 MỚI）",
+              "vi": "接続: N1＋による＋N2。悪意によるもの = \"thứ do ác ý (gây ra)\". Dùng による đứng trước danh từ để bổ nghĩa nguyên nhân/nguồn gốc."
+            },
+            {
+              "point": "〜によって（(d) nguyên nhân — Bài 68 MỚI）",
+              "vi": "接続: N＋によって。違いによって起こる = \"xảy ra do sự khác biệt\". Diễn đạt nguyên nhân trực tiếp dẫn tới sự việc/kết quả."
+            }
+          ],
+          "keys": [
+            {
+              "w": "悪意によるものではなく",
+              "why": "Cấu trúc phủ định [〜ではなく] nhằm loại trừ nguyên nhân ác ý, làm rõ bản chất thực sự của xung đột."
+            },
+            {
+              "w": "ちょっとした言葉の使い方の違い",
+              "why": "Cụm danh từ chỉ nguyên nhân then chốt gây ra rắc rối trong quan hệ, là căn cứ trả lời câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "日頃から相手への思いやりを持って丁寧な言葉を選ぶ努力により、より良い信頼関係を築くことができるはずだ。",
+          "vi": "Nhờ nỗ lực luôn biết quan tâm đến đối phương và chọn lọc từ ngữ lịch sự, chắc chắn chúng ta sẽ xây dựng được mối quan hệ tin cậy tốt đẹp hơn.",
+          "vocab": [
+            {
+              "w": "日頃",
+              "read": "ひごろ",
+              "vi": "thường ngày, hằng ngày"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "思いやり",
+              "read": "おもいやり",
+              "vi": "sự chu đáo, sự quan tâm, thấu hiểu"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận, nhã nhặn"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực, sự cố gắng"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "築く",
+              "read": "きずく",
+              "vi": "xây dựng, bồi đắp"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "信頼関係",
+              "read": "しんらいかんけい",
+              "vi": "mối quan hệ tin cậy, sự tin tưởng lẫn nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜により（dạng trang trọng của によって — Bài 68 MỚI）",
+              "vi": "接続: N＋により。努力により〜築くことができる = \"nhờ nỗ lực mà có thể xây dựng được...\". Biểu thị phương tiện, phương pháp đạt được thành quả trong văn phong trang trọng/văn viết nghị luận."
+            },
+            {
+              "point": "〜はずだ（chắc chắn — Bài 46/53）",
+              "vi": "接続: 普通形＋はずだ。Thể hiện niềm tin và phán đoán có cơ sở vững chắc của người viết."
+            }
+          ],
+          "keys": [
+            {
+              "w": "より良い信頼関係を築くことができるはずだ",
+              "why": "Câu chốt toàn bài với đuôi phỏng đoán chắc chắn [はずだ], khẳng định kết quả tích cực của việc chọn từ lịch sự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "言葉の選び方によって受ける印象は大きく変わる",
+          "label": "〜によって (a) tùy theo + 変わる"
+        },
+        {
+          "excerpt": "言葉によって励まされたり",
+          "label": "〜によって (d) nguyên nhân / (c) tác nhân bị động"
+        },
+        {
+          "excerpt": "悪意によるものではなく",
+          "label": "〜による＋N (bổ nghĩa danh từ)"
+        },
+        {
+          "excerpt": "努力により、より良い信頼関係を築くことができる",
+          "label": "〜により (dạng trang trọng của によって: phương tiện/cách thức)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「前者は相手を責めているように感じられる」とあるが、ここでの「前者」とはどのような問いかけのことか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "「次はどうすればいいと思うか」と今後の解決策を尋ねる聞き方",
+            "「どうして失敗したのか」とミスの理由を追及する聞き方",
+            "相手のミスに何も言わず自分でやり直してしまう方法",
+            "失敗した同僚の代わりに上司へ理由を説明する聞き方"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là (b) [index 1]. Bằng chứng trực tiếp ở câu 1 và câu 2: Câu 1 nêu ra hai cách hỏi đồng nghiệp khi họ mắc lỗi: cách thứ nhất (trước) là 「どうして失敗したのか」(Tại sao lại thất bại?) và cách thứ hai (sau) là 「次はどうすればいいと思うか」(Nghĩ lần tới nên làm thế nào?). Đến câu 2, tác giả dùng「前者」(cái được nêu trước) để chỉ cách hỏi 「どうして失敗したのか」và nhận xét rằng cách này khiến người nghe cảm giác như đang bị trách móc, truy vấn. Tại sao 3 phương án kia sai? (a) \"Hỏi giải pháp cho lần tới\" sai vì đây là 「後者」(cái được nêu sau), mang hướng tích cực giải quyết vấn đề. (c) \"Tự làm lại mà không nói gì\" sai vì trong bài đang so sánh hai cách hỏi bằng lời, không đề cập đến việc im lặng tự làm. (d) \"Giải thích lý do thay đồng nghiệp với cấp trên\" sai vì bài nói về cuộc đối thoại trực tiếp giữa hai đồng nghiệp, hoàn toàn không nhắc đến việc báo cáo với cấp trên.",
+          "tip": "Khi gặp câu hỏi chỉ thị「前者」(cái trước) / 「後者」(cái sau), hãy nhìn ngay về câu liền trước có cấu trúc liệt kê lựa chọn dạng \"AかBか\": 前者 luôn là vế A được nêu đầu tiên, 後者 luôn là vế B được nêu sau.",
+          "qt": {
+            "q": "Trong câu 「前者は相手を責めているように感じられる」, 「前者」 ở đây là kiểu hỏi như thế nào?",
+            "o": [
+              "Cách hỏi về giải pháp cho tương lai bằng câu 「次はどうすればいいと思うか」 (Bạn nghĩ lần sau nên làm thế nào?)",
+              "Cách hỏi để truy vấn lý do mắc lỗi bằng câu 「どうして失敗したのか」 (Tại sao lại thất bại?)",
+              "Cách làm là không nói gì về lỗi của đối phương mà tự mình làm lại",
+              "Cách hỏi bằng việc thay đồng nghiệp đã mắc lỗi giải thích lý do với cấp trên"
+            ]
+          }
+        },
+        {
+          "q": "筆者によると、人間関係のトラブルが起こる主な原因は何か。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "お互いに相手をだまそうとする強い悪意があること",
+            "言いたいことを相手に全く伝えずに一人で我慢すること",
+            "ちょっとした言葉の使い方の違いや配慮の不足",
+            "仕事でミスをした同僚を厳しく責めすぎること"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là (c) [index 2]. Bằng chứng trực tiếp ở câu 6: 「人間関係のトラブルの多くは、悪意によるものではなく、ちょっとした言葉の使い方の違いによって起こる」(Phần lớn những rắc rối trong quan hệ con người không phải do ác ý, mà phát sinh do sự khác biệt nhỏ trong cách dùng từ). Tại sao 3 phương án kia sai? (a) \"Có ác ý mạnh mẽ muốn lừa dối nhau\" sai vì bài khẳng định rõ ràng là「悪意によるものではなく」(không phải do ác ý). (b) \"Nhịn không nói gì mà chịu đựng một mình\" sai vì bài không đề cập đến việc im lặng chịu đựng mà nói về việc cách dùng từ khi giao tiếp. (d) \"Trách móc quá nghiêm khắc đồng nghiệp mắc lỗi\" sai vì đây chỉ là một ví dụ minh họa cụ thể ở đoạn 1, không phải là nguyên nhân tổng quát cốt lõi cho mọi rắc rối quan hệ con người mà tác giả đúc kết.",
+          "tip": "Chú ý cấu trúc「AではなくBによって起こる」(không phải do A mà do B gây ra) để xác định chính xác nguyên nhân thực sự mà tác giả muốn khẳng định, tránh bẫy các chi tiết bị tác giả phủ định.",
+          "qt": {
+            "q": "Theo tác giả, nguyên nhân chính khiến rắc rối trong quan hệ giữa người với người xảy ra là gì?",
+            "o": [
+              "Có ác ý mạnh mẽ khi hai bên tìm cách lừa dối nhau",
+              "Một mình chịu đựng mà không hề truyền đạt điều mình muốn nói cho đối phương",
+              "Sự khác biệt nhỏ trong cách dùng từ hoặc thiếu sự quan tâm đến đối phương",
+              "Trách móc quá gay gắt đồng nghiệp mắc lỗi trong công việc"
+            ]
+          }
+        },
+        {
+          "q": "良い人間関係を築くためのコミュニケーションについて、筆者はどのように考えているか。",
+          "evi": [
+            3,
+            5,
+            7
+          ],
+          "options": [
+            "相手の立場や気持ちに配慮し、前向きで丁寧な言葉遣いを心がけることが大切だ。",
+            "自分の言いたいことを率直に全て伝えることが最も大切なので、言葉を選ぶ必要はない。",
+            "ミスをした同僚には原因を厳しく追及し、二度と同じ失敗をさせないように話すべきだ。",
+            "言葉によるトラブルを避けるために、仕事以外の会話をできるだけ減らすほうがよい。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là (a) [index 0]. Bằng chứng tổng hợp từ câu 5 và câu 7: Tác giả nhấn mạnh「相手の立場に立った言葉を使うことが大切である」(điều quan trọng là dùng từ ngữ đứng trên lập trường của đối phương) và đúc kết ở câu cuối「相手への思いやりを持って丁寧な言葉を選ぶ努力により、より良い信頼関係を築くことができるはずだ」(nhờ nỗ lực quan tâm đối phương và chọn từ ngữ lịch sự, chắc chắn sẽ xây dựng được quan hệ tin cậy tốt đẹp hơn). Tại sao 3 phương án kia sai? (b) \"Cứ nói thẳng hết mọi điều mình muốn nói, không cần chọn từ\" sai vì trái ngược hoàn toàn với phê phán ở câu 5:「自分の言いたいことだけを一方的に話すのではなく」. (c) \"Phải truy cứu nghiêm khắc nguyên nhân mắc lỗi\" sai vì câu 2 đã chỉ ra cách hỏi này chỉ mang lại cảm giác tiêu cực, bị trách móc. (d) \"Giảm bớt trò chuyện ngoài công việc\" sai vì bài viết khuyên cải thiện cách dùng từ và quan tâm lẫn nhau chứ không hề khuyên giảm bớt giao tiếp.",
+          "tip": "Câu hỏi ý kiến tác giả ở bài 中文 thường được đúc kết ở câu kết đoạn cuối mang các từ khóa khẳng định mạnh như「〜が大切だ」「〜はずだ」「〜と言える」. Phương án đúng thường là câu diễn đạt lại (paraphrase) trọn vẹn thông điệp này.",
+          "qt": {
+            "q": "Về cách giao tiếp để xây dựng mối quan hệ tốt đẹp, tác giả nghĩ như thế nào?",
+            "o": [
+              "Điều quan trọng là quan tâm đến lập trường và cảm xúc của đối phương, đồng thời cố gắng dùng lời lẽ tích cực và lịch sự.",
+              "Vì điều quan trọng nhất là nói thẳng tất cả những gì mình muốn nói nên không cần lựa chọn lời lẽ.",
+              "Nên truy vấn gay gắt nguyên nhân đối với đồng nghiệp mắc lỗi và nói chuyện để họ không lặp lại cùng một thất bại lần nữa.",
+              "Để tránh rắc rối do lời nói gây ra, tốt hơn là giảm tối đa các cuộc trò chuyện ngoài công việc."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Ví dụ cụ thể",
+          "topic": 0,
+          "note": "Nêu sự thay đổi ấn tượng qua cách chọn từ ngữ và dẫn chứng so sánh hai cách hỏi 前者 - 後者.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "body",
+          "label": "Quy luật giao tiếp & Tầm quan trọng",
+          "topic": 5,
+          "note": "Dùng つまり và そのため để chỉ ra chất lượng giao tiếp phụ thuộc từ ngữ, khuyên nên đứng ở lập trường đối phương.",
+          "qs": [
+            3
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "point",
+          "label": "Nguyên nhân rắc rối & Kết luận của tác giả",
+          "topic": 7,
+          "note": "Chỉ rõ rắc rối bắt nguồn từ khác biệt dùng từ chứ không phải ác ý (câu 6), chốt giải pháp thấu cảm để xây dựng lòng tin (câu 7).",
+          "qs": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "文化の伝わり方と地域の多様性",
+      "titleVi": "Cách văn hóa lan truyền và sự đa dạng vùng miền",
+      "japanese": "日本には、地域によって大きく異なる文化や習慣が多く残っている。\nたとえば、祭りの形式や料理の作り方、言葉のアクセントなどは、地域によってさまざまだ。\nこれらの違いは、昔からの交通の不便さや地理的な条件によって生まれたと考えられている。\nそのため、隣の県同士でも、食べ物の味つけが全く異なる場合がある。\nこうした地域による文化の違いを研究することは、日本の歴史を理解するうえで非常に重要だ。\n一方、現代では、インターネットやテレビなどのメディアによって、地域の文化の差が少しずつ縮まっている。\nつまり、情報の広がりによって、以前ほど地域差が大きくなくなっているのだ。\nしかし、それでも地域ごとの独自の文化は守られるべきだと思う。\nなぜなら、各地の文化の多様性こそが、その国の豊かさを作り出すからだ。\nまた、歴史的に見ると、多くの文化や技術は異文化との交流によって発展してきた。\nたとえば、印刷技術は中国から伝わり、その後、各地の工夫によってさらに改良された。\nこの技術は、当初、木版によって文字を印刷する方法だったが、やがて金属活字による印刷に変わった。\nこのような技術の進歩によって、書物が広く普及し、多くの人が知識を得られるようになった。\nつまり、技術の変化は、ある一人の天才によってのみ作り出されるのではなく、多くの人々の積み重ねによって実現するのだ。\n現在の日本語も、長い歴史のなかで、さまざまな影響によって変化してきた言語だ。\nたとえば、現代日本語の語彙の中には、外来語によって豊かになった部分も多い。\n地域の方言も、標準語への移行によって失われているものもある。\nそうした言語の変化について、もっと多くの人が関心を持つべきだと思う。\nまとめると、文化や言語の変化は、歴史・交流・技術など、さまざまな要因によって引き起こされるものだ。\nその多様なプロセスを学ぶことで、私たちは自分たちの文化をより深く理解できるはずだ。",
+      "vietnamese": "Ở Nhật Bản, có nhiều văn hóa và phong tục khác nhau nhiều tùy theo từng vùng vẫn còn được lưu giữ.\nVí dụ, hình thức lễ hội, cách nấu các món ăn, hay trọng âm ngôn ngữ đều rất đa dạng tùy theo từng vùng.\nNgười ta cho rằng những sự khác biệt này được hình thành do sự bất tiện về giao thông từ xưa và các điều kiện địa lý.\nVì thế, ngay cả giữa các tỉnh liền kề, hương vị món ăn cũng có thể hoàn toàn khác nhau.\nViệc nghiên cứu sự khác biệt về văn hóa theo từng vùng như vậy là rất quan trọng để hiểu lịch sử Nhật Bản.\nMặt khác, trong thời đại hiện nay, sự khác biệt về văn hóa vùng miền đang dần thu hẹp lại nhờ các phương tiện truyền thông như internet và truyền hình.\nTức là, nhờ sự lan truyền của thông tin, sự khác biệt vùng miền không còn lớn như trước nữa.\nTuy nhiên, dù vậy, tôi vẫn cho rằng văn hóa độc đáo của từng vùng nên được bảo tồn.\nVì sự đa dạng văn hóa ở mỗi vùng chính là thứ tạo nên sự phong phú của đất nước đó.\nNgoài ra, nhìn từ góc độ lịch sử, nhiều nền văn hóa và công nghệ đã phát triển thông qua giao lưu với văn hóa khác.\nVí dụ, kỹ thuật in ấn được du nhập từ Trung Quốc, và sau đó được cải tiến thêm nhờ sự sáng tạo của từng vùng.\nBan đầu, kỹ thuật này là phương pháp in chữ bằng bản khắc gỗ, nhưng rồi chuyển sang in bằng chữ kim loại.\nNhờ sự tiến bộ kỹ thuật như vậy, sách vở được phổ biến rộng rãi, và nhiều người có thể tiếp thu kiến thức.\nTức là, sự thay đổi của công nghệ không chỉ được tạo ra bởi một thiên tài duy nhất, mà được thực hiện nhờ sự tích lũy của nhiều người.\nTiếng Nhật hiện đại cũng là một ngôn ngữ đã thay đổi trong lịch sử lâu dài dưới nhiều ảnh hưởng khác nhau.\nVí dụ, trong từ vựng tiếng Nhật hiện đại, có nhiều phần được làm phong phú bởi các từ ngoại lai.\nTrong các phương ngữ vùng, cũng có những thứ đang dần bị mất đi do sự chuyển dịch sang tiếng chuẩn.\nTôi nghĩ rằng nên có nhiều người hơn quan tâm đến sự thay đổi của ngôn ngữ như vậy.\nTóm lại, sự thay đổi về văn hóa và ngôn ngữ là thứ được gây ra bởi nhiều yếu tố khác nhau như lịch sử, giao lưu, công nghệ.\nBằng cách học hỏi quá trình đa dạng đó, chúng ta chắc có thể hiểu sâu hơn về văn hóa của chính mình.",
+      "sentences": [
+        {
+          "jp": "日本には、地域によって大きく異なる文化や習慣が多く残っている。",
+          "vi": "Ở Nhật Bản, có nhiều văn hóa và phong tục khác nhau nhiều tùy theo từng vùng vẫn còn được lưu giữ.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau, bất đồng"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "phong tục, thói quen"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "残ります",
+              "read": "のこります",
+              "vi": "còn lại, được lưu giữ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo — Bài 68 MỚI）",
+              "vi": "地域によって大きく異なる = \"khác nhau nhiều tùy theo từng vùng\". Nghĩa (a): 異なる là dấu hiệu nhận biết."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "地域によって大きく異なる文化や習慣 = văn hóa và phong tục (mà) khác nhau nhiều theo vùng. Cả mệnh đề dài bổ nghĩa cho 文化や習慣."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、祭りの形式や料理の作り方、言葉のアクセントなどは、地域によってさまざまだ。",
+          "vi": "Ví dụ, hình thức lễ hội, cách nấu các món ăn, hay trọng âm ngôn ngữ đều rất đa dạng tùy theo từng vùng.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "祭り",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "形式",
+              "read": "けいしき",
+              "vi": "hình thức"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, nấu ăn"
+            },
+            {
+              "w": "作り方",
+              "read": "つくりかた",
+              "vi": "cách làm, cách nấu"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "アクセント",
+              "read": "アクセント",
+              "vi": "trọng âm, ngữ điệu"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng, nhiều loại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo）",
+              "vi": "地域によってさまざまだ = \"đa dạng tùy theo từng vùng\". Nghĩa (a) — ở đây \"さまざまだ\" thay cho 違う/異なる nhưng vẫn là nghĩa tùy theo."
+            },
+            {
+              "point": "V方（Bài 44）",
+              "vi": "作り方 = cách làm. Vます（作り）+ 方 = cách làm gì đó (Bài 44)."
+            }
+          ]
+        },
+        {
+          "jp": "これらの違いは、昔からの交通の不便さや地理的な条件によって生まれたと考えられている。",
+          "vi": "Người ta cho rằng những sự khác biệt này được hình thành do sự bất tiện về giao thông từ xưa và các điều kiện địa lý.",
+          "vocab": [
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "昔から",
+              "read": "むかしから",
+              "vi": "từ xưa, từ ngày xưa"
+            },
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "不便さ",
+              "read": "ふべんさ",
+              "vi": "sự bất tiện"
+            },
+            {
+              "w": "地理",
+              "read": "ちり",
+              "vi": "địa lý"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "生まれる",
+              "read": "うまれる",
+              "vi": "sinh ra, nảy sinh"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "地理的",
+              "read": "ちりてき",
+              "vi": "thuộc địa lý, về địa lý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân — Bài 68 MỚI）",
+              "vi": "接続: N（交通の不便さや地理的な条件）＋によって＋結果（生まれた）。 Nghĩa (d): nguyên nhân dẫn đến kết quả (khách quan, không phải đổ lỗi). Sắc thái: によって (d) trung tính; せいで（Bài 59）sẽ là \"tại sự bất tiện\" với hàm ý phàn nàn."
+            },
+            {
+              "point": "〜と考えられている（受身応用 Bài 37）",
+              "vi": "と考えられている = được người ta cho là, được cho rằng. Câu bị động xã hội (Bài 37)."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、隣の県同士でも、食べ物の味つけが全く異なる場合がある。",
+          "vi": "Vì thế, ngay cả giữa các tỉnh liền kề, hương vị món ăn cũng có thể hoàn toàn khác nhau.",
+          "vocab": [
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "liền kề, bên cạnh"
+            },
+            {
+              "w": "県",
+              "read": "けん",
+              "vi": "tỉnh (đơn vị hành chính)"
+            },
+            {
+              "w": "同士",
+              "read": "どうし",
+              "vi": "cùng nhóm, bạn bè"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "味つけ",
+              "read": "あじつけ",
+              "vi": "cách nêm gia vị, hương vị"
+            },
+            {
+              "w": "全く",
+              "read": "まったく",
+              "vi": "hoàn toàn"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau, bất đồng"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì thế, vì vậy"
+            },
+            {
+              "w": "〜同士",
+              "read": "〜どうし",
+              "vi": "với nhau, giữa cùng loại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合がある（Bài 45）",
+              "vi": "〜場合がある = có trường hợp. 場合 (Bài 45) chỉ khả năng/tình huống."
+            }
+          ]
+        },
+        {
+          "jp": "こうした地域による文化の違いを研究することは、日本の歴史を理解するうえで非常に重要だ。",
+          "vi": "Việc nghiên cứu sự khác biệt về văn hóa theo từng vùng như vậy là rất quan trọng để hiểu lịch sử Nhật Bản.",
+          "vocab": [
+            {
+              "w": "こうした",
+              "read": "こうした",
+              "vi": "như vậy, loại thế này"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "違い",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "研究します",
+              "read": "けんきゅうします",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "理解します",
+              "read": "りかいします",
+              "vi": "hiểu, lý giải"
+            },
+            {
+              "w": "非常に",
+              "read": "ひじょうに",
+              "vi": "rất, cực kỳ"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜による＋N（Bài 68 MỚI）",
+              "vi": "接続: N1（地域）による＋N2（文化の違い）= \"sự khác biệt văn hóa THEO/DO từng vùng\". による＋N là cụm định ngữ bổ nghĩa cho danh từ đứng sau. Sắc thái: によって (động từ theo sau) ↔ による (danh từ theo sau) — cùng nghĩa nhưng cú pháp khác."
+            },
+            {
+              "point": "Vることは〜（Bài 38）",
+              "vi": "研究することは〜 = việc nghiên cứu là〜. Vること biến động từ thành danh từ (Bài 38)."
+            }
+          ]
+        },
+        {
+          "jp": "一方、現代では、インターネットやテレビなどのメディアによって、地域の文化の差が少しずつ縮まっている。",
+          "vi": "Mặt khác, trong thời đại hiện nay, sự khác biệt về văn hóa vùng miền đang dần thu hẹp lại nhờ các phương tiện truyền thông như internet và truyền hình.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, một phía"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "thời đại hiện nay, hiện đại"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "ti-vi"
+            },
+            {
+              "w": "メディア",
+              "read": "メディア",
+              "vi": "phương tiện truyền thông"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "差",
+              "read": "さ",
+              "vi": "sự khác biệt, khoảng cách"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "縮まります",
+              "read": "ちぢまります",
+              "vi": "thu hẹp lại, rút ngắn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(b) bằng phương tiện/cách）",
+              "vi": "メディアによって〜縮まっている = \"đang thu hẹp nhờ/bằng phương tiện truyền thông\". Nghĩa (b): PHƯƠNG TIỆN giúp đạt được kết quả. Chủ ngữ thụ động (差が縮まる) và メディア là phương tiện."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、情報の広がりによって、以前ほど地域差が大きくなくなっているのだ。",
+          "vi": "Tức là, nhờ sự lan truyền của thông tin, sự khác biệt vùng miền không còn lớn như trước nữa.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "広がり",
+              "read": "ひろがり",
+              "vi": "sự lan rộng, sự phổ biến"
+            },
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, trước kia"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "地域差",
+              "read": "ちいきさ",
+              "vi": "sự khác biệt vùng miền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân）",
+              "vi": "情報の広がりによって〜なくなっている = \"do sự lan truyền thông tin mà không còn (lớn như trước)\". Nghĩa (d) nguyên nhân — kết quả trung tính, không đổ lỗi."
+            },
+            {
+              "point": "〜ほど（Bài 66）",
+              "vi": "以前ほど〜なくなっている = \"không còn (lớn) bằng trước nữa\". ほど trong câu phủ định = \"không đến mức như vậy\" (Bài 66)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、それでも地域ごとの独自の文化は守られるべきだと思う。",
+          "vi": "Tuy nhiên, dù vậy, tôi vẫn cho rằng văn hóa độc đáo của từng vùng nên được bảo tồn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên, nhưng"
+            },
+            {
+              "w": "それでも",
+              "read": "それでも",
+              "vi": "dù vậy, dù thế"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "独自",
+              "read": "どくじ",
+              "vi": "độc đáo, riêng biệt"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "守ります",
+              "read": "まもります",
+              "vi": "bảo vệ, bảo tồn"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "守られるべきだ = \"nên được bảo vệ\". 受身形（守られる）+ べきだ = nên được (bảo tồn). べきだ = bổn phận/lẽ phải nên (Bài 53). Ôn lại."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "守られるべきだと思う = tôi nghĩ nên được bảo vệ. と思う = ý kiến chủ quan."
+            }
+          ]
+        },
+        {
+          "jp": "なぜなら、各地の文化の多様性こそが、その国の豊かさを作り出すからだ。",
+          "vi": "Vì sự đa dạng văn hóa ở mỗi vùng chính là thứ tạo nên sự phong phú của đất nước đó.",
+          "vocab": [
+            {
+              "w": "なぜなら",
+              "read": "なぜなら",
+              "vi": "bởi vì, lý do là"
+            },
+            {
+              "w": "各地",
+              "read": "かくち",
+              "vi": "các vùng, khắp nơi"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng, nhiều chiều"
+            },
+            {
+              "w": "国",
+              "read": "くに",
+              "vi": "đất nước, quê hương"
+            },
+            {
+              "w": "豊かさ",
+              "read": "ゆたかさ",
+              "vi": "sự phong phú, sự giàu có"
+            },
+            {
+              "w": "作り出します",
+              "read": "つくりだします",
+              "vi": "tạo ra, tạo nên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜こそが（強調）",
+              "vi": "多様性こそが = chính là sự đa dạng. こそ nhấn mạnh từ trước nó."
+            },
+            {
+              "point": "〜からだ（Bài 9）",
+              "vi": "なぜなら〜からだ = lý do là vì〜. からだ ở cuối nêu nguyên nhân/lý do rõ ràng."
+            }
+          ]
+        },
+        {
+          "jp": "また、歴史的に見ると、多くの文化や技術は異文化との交流によって発展してきた。",
+          "vi": "Ngoài ra, nhìn từ góc độ lịch sử, nhiều nền văn hóa và công nghệ đã phát triển thông qua giao lưu với văn hóa khác.",
+          "vocab": [
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật, công nghệ"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu, trao đổi"
+            },
+            {
+              "w": "発展します",
+              "read": "はってんします",
+              "vi": "phát triển"
+            },
+            {
+              "w": "歴史的",
+              "read": "れきしてき",
+              "vi": "thuộc lịch sử, về mặt lịch sử"
+            },
+            {
+              "w": "異文化",
+              "read": "いぶんか",
+              "vi": "văn hóa khác, văn hóa ngoại lai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(b) bằng phương tiện/cách）",
+              "vi": "交流によって発展してきた = \"đã phát triển thông qua giao lưu\". Nghĩa (b): giao lưu là PHƯƠNG TIỆN/CÁCH để phát triển."
+            },
+            {
+              "point": "Vてきた（Bài 43）",
+              "vi": "発展してきた = đã phát triển (theo dòng thời gian đến hiện tại). てくる = quá trình từ quá khứ đến hiện tại (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、印刷技術は中国から伝わり、その後、各地の工夫によってさらに改良された。",
+          "vi": "Ví dụ, kỹ thuật in ấn được du nhập từ Trung Quốc, và sau đó được cải tiến thêm nhờ sự sáng tạo của từng vùng.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "印刷",
+              "read": "いんさつ",
+              "vi": "sự in ấn"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "中国",
+              "read": "ちゅうごく",
+              "vi": "Trung Quốc"
+            },
+            {
+              "w": "伝わります",
+              "read": "つたわります",
+              "vi": "được truyền đến, du nhập"
+            },
+            {
+              "w": "その後",
+              "read": "そのご",
+              "vi": "sau đó"
+            },
+            {
+              "w": "各地",
+              "read": "かくち",
+              "vi": "các vùng, khắp nơi"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "sự sáng tạo, sự cải tiến"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa, thêm nữa"
+            },
+            {
+              "w": "改良します",
+              "read": "かいりょうします",
+              "vi": "cải tiến, cải thiện"
+            },
+            {
+              "w": "印刷技術",
+              "read": "いんさつぎじゅつ",
+              "vi": "kỹ thuật in ấn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân/phương tiện）",
+              "vi": "各地の工夫によって改良された = \"được cải tiến nhờ sự sáng tạo của từng vùng\". 接続: N（各地の工夫）＋によって＋受身（改良された）。 Ở đây kết hợp nghĩa (b) phương tiện + câu bị động — rất phổ biến trong văn bản lịch sử/kỹ thuật."
+            },
+            {
+              "point": "受身形（Bài 37）",
+              "vi": "改良された = được cải tiến. 受身 câu bị động; chủ thể cải tiến là \"各地の工夫\" theo sau によって."
+            }
+          ]
+        },
+        {
+          "jp": "この技術は、当初、木版によって文字を印刷する方法だったが、やがて金属活字による印刷に変わった。",
+          "vi": "Ban đầu, kỹ thuật này là phương pháp in chữ bằng bản khắc gỗ, nhưng rồi chuyển sang in bằng chữ kim loại.",
+          "vocab": [
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "当初",
+              "read": "とうしょ",
+              "vi": "ban đầu, lúc đầu"
+            },
+            {
+              "w": "木版",
+              "read": "もくはん",
+              "vi": "bản khắc gỗ"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ viết"
+            },
+            {
+              "w": "印刷",
+              "read": "いんさつ",
+              "vi": "sự in ấn"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "やがて",
+              "read": "やがて",
+              "vi": "rồi, cuối cùng, chẳng bao lâu"
+            },
+            {
+              "w": "金属",
+              "read": "きんぞく",
+              "vi": "kim loại"
+            },
+            {
+              "w": "活字",
+              "read": "かつじ",
+              "vi": "chữ in"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "金属活字",
+              "read": "きんぞくかつじ",
+              "vi": "chữ kim loại (movable type)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(b) bằng phương tiện）",
+              "vi": "木版によって文字を印刷する = \"in chữ bằng bản khắc gỗ\". Nghĩa (b) phương tiện — 木版は道具/方法."
+            },
+            {
+              "point": "〜による＋N（Bài 68 MỚI）",
+              "vi": "金属活字による印刷 = \"việc in bằng chữ kim loại\". による＋N bổ nghĩa cho 印刷. Phân biệt: によって + Vる（câu hành động）↔ による + N（bổ nghĩa danh từ）."
+            }
+          ]
+        },
+        {
+          "jp": "このような技術の進歩によって、書物が広く普及し、多くの人が知識を得られるようになった。",
+          "vi": "Nhờ sự tiến bộ kỹ thuật như vậy, sách vở được phổ biến rộng rãi, và nhiều người có thể tiếp thu kiến thức.",
+          "vocab": [
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "進歩",
+              "read": "しんぽ",
+              "vi": "sự tiến bộ"
+            },
+            {
+              "w": "書物",
+              "read": "しょもつ",
+              "vi": "sách vở, văn bản"
+            },
+            {
+              "w": "広い",
+              "read": "ひろい",
+              "vi": "rộng (tính từ い)"
+            },
+            {
+              "w": "普及します",
+              "read": "ふきゅうします",
+              "vi": "phổ biến, lan rộng"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "得られます",
+              "read": "えられます",
+              "vi": "có thể tiếp thu, có thể đạt được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân — Bài 68 MỚI）",
+              "vi": "技術の進歩によって〜普及した = \"nhờ sự tiến bộ kỹ thuật mà phổ biến\". Nghĩa (d): nguyên nhân dẫn đến kết quả tốt (ở đây gần với nghĩa \"nhờ\" nhưng によって không có sắc thái cảm ơn như おかげで)."
+            },
+            {
+              "point": "〜ようになった（Bài 36）",
+              "vi": "得られるようになった = trở nên có thể tiếp thu được. ようになる = sự thay đổi trạng thái/khả năng (Bài 36)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、技術の変化は、ある一人の天才によってのみ作り出されるのではなく、多くの人々の積み重ねによって実現するのだ。",
+          "vi": "Tức là, sự thay đổi của công nghệ không chỉ được tạo ra bởi một thiên tài duy nhất, mà được thực hiện nhờ sự tích lũy của nhiều người.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "sự thay đổi"
+            },
+            {
+              "w": "天才",
+              "read": "てんさい",
+              "vi": "thiên tài"
+            },
+            {
+              "w": "作り出す",
+              "read": "つくりだす",
+              "vi": "tạo ra, sản xuất"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "積み重ね",
+              "read": "つみかさね",
+              "vi": "sự tích lũy, sự chồng chất"
+            },
+            {
+              "w": "実現します",
+              "read": "じつげんします",
+              "vi": "thực hiện được, thành hiện thực"
+            },
+            {
+              "w": "〜のみ",
+              "read": "〜のみ",
+              "vi": "chỉ (trang trọng hơn だけ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(c) tác nhân trong câu bị động）",
+              "vi": "一人の天才によってのみ作り出される = \"chỉ được tạo ra bởi một thiên tài duy nhất\". 接続: N（天才）＋によって＋V受身（作り出される＝thể bị động của 作り出す）。 Nghĩa (c): tác nhân (người/vật thực hiện) trong câu BỊ ĐỘNG — luôn đi với động từ thể 受身."
+            },
+            {
+              "point": "〜によって（(d) nguyên nhân）ふたたび",
+              "vi": "多くの人々の積み重ねによって実現する = \"được thực hiện nhờ sự tích lũy của nhiều người\". Nghĩa (d)/(b) kết hợp: nguyên nhân/phương tiện."
+            },
+            {
+              "point": "〜のではなく（Bài 38応用）",
+              "vi": "によってのみ生まれるのではなく = \"không phải chỉ được tạo ra bởi\". のではない = \"không phải vì/chứ không\". Dùng để đưa ra đối chiếu/đính chính."
+            }
+          ]
+        },
+        {
+          "jp": "現在の日本語も、長い歴史のなかで、さまざまな影響によって変化してきた言語だ。",
+          "vi": "Tiếng Nhật hiện đại cũng là một ngôn ngữ đã thay đổi trong lịch sử lâu dài dưới nhiều ảnh hưởng khác nhau.",
+          "vocab": [
+            {
+              "w": "現在",
+              "read": "げんざい",
+              "vi": "hiện tại, hiện nay"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài (tính từ い)"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng, nhiều loại"
+            },
+            {
+              "w": "影響",
+              "read": "えいきょう",
+              "vi": "ảnh hưởng"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "言語",
+              "read": "げんご",
+              "vi": "ngôn ngữ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân）",
+              "vi": "さまざまな影響によって変化してきた = \"đã thay đổi do nhiều ảnh hưởng khác nhau\". Nghĩa (d): nguyên nhân — ở đây nhiều yếu tố ảnh hưởng là nguyên nhân của sự thay đổi."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "さまざまな影響によって変化してきた言語 = ngôn ngữ (đã thay đổi do nhiều ảnh hưởng). Cả mệnh đề bổ nghĩa cho 言語."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、現代日本語の語彙の中には、外来語によって豊かになった部分も多い。",
+          "vi": "Ví dụ, trong từ vựng tiếng Nhật hiện đại, có nhiều phần được làm phong phú bởi các từ ngoại lai.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "語彙",
+              "read": "ごい",
+              "vi": "từ vựng"
+            },
+            {
+              "w": "外来",
+              "read": "がいらい",
+              "vi": "ngoại lai, từ bên ngoài tới"
+            },
+            {
+              "w": "豊かになります",
+              "read": "ゆたかになります",
+              "vi": "trở nên phong phú"
+            },
+            {
+              "w": "部分",
+              "read": "ぶぶん",
+              "vi": "phần, bộ phận"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "外来語",
+              "read": "がいらいご",
+              "vi": "từ ngoại lai, từ vay mượn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân）",
+              "vi": "外来語によって豊かになった = \"trở nên phong phú nhờ từ ngoại lai\". Nghĩa (d): nguyên nhân tích cực — ở đây không dùng おかげで vì văn phong học thuật/trung tính, không biểu đạt cảm ơn cụ thể."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "豊かになった = đã trở nên phong phú. NA（豊か）＋になる = thay đổi thành trạng thái đó (Bài 19)."
+            }
+          ]
+        },
+        {
+          "jp": "地域の方言も、標準語への移行によって失われているものもある。",
+          "vi": "Trong các phương ngữ vùng, cũng có những thứ đang dần bị mất đi do sự chuyển dịch sang tiếng chuẩn.",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "方言",
+              "read": "ほうげん",
+              "vi": "phương ngữ, tiếng địa phương"
+            },
+            {
+              "w": "標準",
+              "read": "ひょうじゅん",
+              "vi": "tiêu chuẩn, chuẩn mực"
+            },
+            {
+              "w": "移行",
+              "read": "いこう",
+              "vi": "sự chuyển dịch, sự chuyển sang"
+            },
+            {
+              "w": "失われます",
+              "read": "うしなわれます",
+              "vi": "bị mất đi"
+            },
+            {
+              "w": "標準語",
+              "read": "ひょうじゅんご",
+              "vi": "tiếng chuẩn, ngôn ngữ chuẩn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân）",
+              "vi": "移行によって失われている = \"đang bị mất đi do sự chuyển dịch\". Nghĩa (d): nguyên nhân của kết quả tiêu cực — nhưng によって trung tính (không có hàm ý đổ lỗi như せいで)."
+            }
+          ]
+        },
+        {
+          "jp": "そうした言語の変化について、もっと多くの人が関心を持つべきだと思う。",
+          "vi": "Tôi nghĩ rằng nên có nhiều người hơn quan tâm đến sự thay đổi của ngôn ngữ như vậy.",
+          "vocab": [
+            {
+              "w": "そうした",
+              "read": "そうした",
+              "vi": "như vậy, loại thế đó"
+            },
+            {
+              "w": "言語",
+              "read": "げんご",
+              "vi": "ngôn ngữ"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "関心",
+              "read": "かんしん",
+              "vi": "sự quan tâm, sự chú ý"
+            },
+            {
+              "w": "持ちます",
+              "read": "もちます",
+              "vi": "có, giữ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 67 ôn lại）",
+              "vi": "言語の変化について = \"về sự thay đổi của ngôn ngữ\". について đã học Bài 21, ôn lại sâu ở Bài 67."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "関心を持つべきだ = \"nên quan tâm, lẽ ra nên quan tâm\". べきだ = bổn phận/lẽ phải nên (Bài 53)."
+            }
+          ]
+        },
+        {
+          "jp": "まとめると、文化や言語の変化は、歴史・交流・技術など、さまざまな要因によって引き起こされるものだ。",
+          "vi": "Tóm lại, sự thay đổi về văn hóa và ngôn ngữ là thứ được gây ra bởi nhiều yếu tố khác nhau như lịch sử, giao lưu, công nghệ.",
+          "vocab": [
+            {
+              "w": "まとめる",
+              "read": "まとめる",
+              "vi": "tổng hợp, thu xếp"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "言語",
+              "read": "げんご",
+              "vi": "ngôn ngữ"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "歴史",
+              "read": "れきし",
+              "vi": "lịch sử"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng, nhiều loại"
+            },
+            {
+              "w": "要因",
+              "read": "よういん",
+              "vi": "yếu tố, nguyên nhân"
+            },
+            {
+              "w": "引き起こします",
+              "read": "ひきおこします",
+              "vi": "gây ra, gây nên"
+            },
+            {
+              "w": "まとめると",
+              "read": "まとめると",
+              "vi": "tóm lại, để tóm tắt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân + 受身）",
+              "vi": "さまざまな要因によって引き起こされる = \"được gây ra bởi nhiều yếu tố\". 接続: N（要因）＋によって＋受身（引き起こされる）。 Kết hợp: nghĩa (d) nguyên nhân + nghĩa (c) tác nhân bị động — thường gặp trong văn học thuật."
+            },
+            {
+              "point": "〜ものだ（Bài 53）",
+              "vi": "引き起こされるものだ = \"vốn là thứ được gây ra bởi\". ものだ = chân lý/lẽ thường (Bài 53)."
+            }
+          ]
+        },
+        {
+          "jp": "その多様なプロセスを学ぶことで、私たちは自分たちの文化をより深く理解できるはずだ。",
+          "vi": "Bằng cách học hỏi quá trình đa dạng đó, chúng ta chắc có thể hiểu sâu hơn về văn hóa của chính mình.",
+          "vocab": [
+            {
+              "w": "多様",
+              "read": "たよう",
+              "vi": "đa dạng"
+            },
+            {
+              "w": "プロセス",
+              "read": "プロセス",
+              "vi": "quá trình"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "自分たち",
+              "read": "じぶんたち",
+              "vi": "chính mình (số nhiều), chúng ta"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "深く",
+              "read": "ふかく",
+              "vi": "sâu sắc (phó từ)"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことで（Bài 38応用 + Bài 39 ので）",
+              "vi": "学ぶことで = \"bằng cách học\". Vること（danh từ hóa Bài 38）＋で（phương tiện/căn cứ Bài 6）= \"thông qua việc làm〜\"."
+            },
+            {
+              "point": "〜はずだ（Bài 51）",
+              "vi": "理解できるはずだ = \"chắc có thể hiểu được\". Suy luận có căn cứ: nếu học hỏi quá trình → logic dẫn đến hiểu sâu hơn."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "地域によって大きく異なる文化や習慣",
+          "label": "〜によって (a) tùy theo + 異なる"
+        },
+        {
+          "excerpt": "地域による文化の違い",
+          "label": "〜による＋N（bổ nghĩa danh từ）"
+        },
+        {
+          "excerpt": "メディアによって、地域の文化の差が少しずつ縮まっている",
+          "label": "〜によって (b) bằng phương tiện"
+        },
+        {
+          "excerpt": "ある一人の天才によってのみ作り出されるのではなく",
+          "label": "Sắc thái: によって (c) tác nhân + のではなく đối chiếu"
+        },
+        {
+          "excerpt": "さまざまな要因によって引き起こされるものだ",
+          "label": "〜によって (d) nguyên nhân + 受身 + ものだ"
+        },
+        {
+          "excerpt": "各地の工夫によってさらに改良された",
+          "label": "〜によって + 受身（(d)/(b) kết hợp）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「現代では、メディアによって地域の文化の差が縮まっている」とあります。ここでの「によって」の意味は何ですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "メディアによって文化の差が異なることを表す（tùy theo）",
+            "メディアが原因・手段となって結果が生じることを表す（bằng/do）",
+            "メディアという受け身文の動作主を表す（tác nhân bị động）",
+            "メディアに関する研究テーマを表す（về chủ đề）"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là (b) — nghĩa (b) PHƯƠNG TIỆN / NGUYÊN NHÂN. Bằng chứng:「インターネットやテレビなどのメディアによって、地域の文化の差が少しずつ縮まっている」— メディア (truyền thông) là PHƯƠNG TIỆN/NGUYÊN NHÂN dẫn đến kết quả 差が縮まっている (sự khác biệt thu hẹp). Tại sao 3 đáp án kia sai? (a) \"tùy theo\" sai — không có 違う/異なる/さまざまだ trong câu này, sự khác biệt đang thu hẹp chứ không nói đa dạng tùy theo. (c) \"tác nhân bị động\" sai — 縮まっている không phải thể bị động (縮まられる sẽ là bị động), đây là tự động từ (intransitive). (d) \"về chủ đề nghiên cứu\" sai hoàn toàn — によって không mang nghĩa について (về chủ đề).",
+          "tip": "Câu không có 違う/異なる và không có 〜られる → loại ngay (a) và (c). Nếu N đứng trước によって là công cụ/lực lượng tạo ra kết quả → nghĩa (b)/(d) phương tiện/nguyên nhân.",
+          "qt": {
+            "q": "Có câu 「現代では、メディアによって地域の文化の差が縮まっている」 (Ngày nay, nhờ các phương tiện truyền thông, sự khác biệt về văn hóa giữa các vùng đang thu hẹp). 「によって」 ở đây có nghĩa là gì?",
+            "o": [
+              "Biểu thị sự khác nhau về văn hóa tùy theo phương tiện truyền thông (tùy theo)",
+              "Biểu thị việc kết quả phát sinh do phương tiện truyền thông là nguyên nhân hoặc phương tiện (bằng/do)",
+              "Biểu thị tác nhân thực hiện hành động trong câu bị động có phương tiện truyền thông làm tác nhân (tác nhân bị động)",
+              "Biểu thị chủ đề nghiên cứu liên quan đến phương tiện truyền thông (về chủ đề)"
+            ]
+          }
+        },
+        {
+          "q": "「技術の変化は、ある一人の天才によってのみ作り出されるのではなく、多くの人々の積み重ねによって実現する」とあります。この文で「によって」は何回使われ、それぞれどんな意味ですか。",
+          "evi": [
+            13
+          ],
+          "options": [
+            "1回だけ使われ、両方とも「tùy theo」の意味",
+            "2回使われ、両方とも「原因・手段」の意味",
+            "2回使われ、前者は「受け身の動作主（tác nhân）」、後者は「原因・手段」の意味",
+            "2回使われ、前者は「tùy theo」、後者は「手段」の意味"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là (c): によって xuất hiện 2 lần với 2 nghĩa khác nhau. Lần 1:「ある一人の天才によってのみ作り出されるのではなく」— 作り出される là thể BỊ ĐỘNG của 作り出す; 天才 (thiên tài) là TÁC NHÂN thực hiện hành động → nghĩa (c) tác nhân bị động. Lần 2:「多くの人々の積み重ねによって実現する」— 積み重ね (sự tích lũy) là PHƯƠNG TIỆN/NGUYÊN NHÂN của 実現する (thực hiện được) → nghĩa (b)/(d). Tại sao 3 đáp án kia sai? (a) \"1 lần duy nhất\" sai — đếm lại thấy rõ 2 lần. (b) \"cả hai đều là nguyên nhân/phương tiện\" sai — lần đầu CÓ động từ bị động 作り出される, nên đúng là (c). (d) \"前者=tùy theo\" sai — không có 違う/異なる.",
+          "tip": "Thấy によって + Vられる (thể bị động) → ngay lập tức là nghĩa (c) TÁC NHÂN. Đây là dấu hiệu chắc chắn nhất, không cần phân tích thêm.",
+          "qt": {
+            "q": "Có câu 「技術の変化は、ある一人の天才によってのみ作り出されるのではなく、多くの人々の積み重ねによって実現する」 (Sự thay đổi về kỹ thuật không chỉ được tạo ra bởi một thiên tài, mà được hiện thực hóa nhờ sự tích lũy đóng góp của nhiều người). Trong câu này, 「によって」 được dùng mấy lần, và mỗi lần có nghĩa gì?",
+            "o": [
+              "Chỉ được dùng một lần, cả hai chỗ đều mang nghĩa “tùy theo”",
+              "Được dùng hai lần, cả hai đều mang nghĩa “nguyên nhân/phương tiện”",
+              "Được dùng hai lần; chỗ đầu là “tác nhân trong câu bị động (tác nhân)”, chỗ sau là “nguyên nhân/phương tiện”",
+              "Được dùng hai lần; chỗ đầu là “tùy theo”, chỗ sau là “phương tiện”"
+            ]
+          }
+        },
+        {
+          "q": "文章の内容から、「地域による文化の違い」の意味は何ですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "地域が原因で問題が起きた文化",
+            "地域に関する学術的な研究",
+            "地域ごとに異なる（ある）文化の違い",
+            "地域のメディアによって広まった文化"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là (c): \"Sự khác biệt văn hóa tồn tại khác nhau ở từng vùng.\" Cấu trúc「地域による文化の違い」= N1（地域）+ による + N2（文化の違い）= \"sự khác biệt văn hóa THEO/DO từng vùng\". Đây là dạng rút gọn của「地域によって（異なる）文化の違い」. Bài dùng liên tục mẫu「地域によって〜異なる」nên による ở đây mang nghĩa (a) tùy theo vùng. Tại sao 3 đáp án kia sai? (a) \"文化が問題を起こした\" sai — không có ngữ cảnh gây vấn đề. (b) \"nghiên cứu học thuật về địa phương\" sai — による ở đây không có nghĩa \"về chủ đề nghiên cứu\". (d) \"được lan truyền bởi truyền thông địa phương\" sai — không có đề cập đến media trong câu này.",
+          "tip": "による + N (danh từ đứng sau) = dạng định ngữ rút gọn từ によって. Đọc ngữ cảnh xung quanh để xác định nghĩa nào ((a)/(b)/(d)) — thường N2 là kết quả/thuộc tính phản ánh nguyên danh từ N1.",
+          "qt": {
+            "q": "Dựa vào nội dung bài viết, 「地域による文化の違い」 (sự khác biệt về văn hóa tùy theo vùng miền) có nghĩa là gì?",
+            "o": [
+              "Văn hóa có vấn đề xảy ra do vùng miền gây ra",
+              "Nghiên cứu học thuật liên quan đến vùng miền",
+              "Sự khác biệt về những nền văn hóa khác nhau ở từng vùng",
+              "Văn hóa lan rộng nhờ các phương tiện truyền thông của vùng"
+            ]
+          }
+        },
+        {
+          "q": "筆者が「地域ごとの文化は守られるべきだ」と述べた理由として、文章から分かることは何ですか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "地域の文化が失われても、技術の進歩で回復できるから",
+            "各地の文化の多様性こそが国の豊かさを作り出すから",
+            "インターネットによって地域文化がさらに広まるから",
+            "すべての地域で食文化が同じになるべきだから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là (b): \"Sự đa dạng văn hóa ở mỗi vùng chính là thứ tạo nên sự phong phú của đất nước.\" Bằng chứng trực tiếp:「なぜなら、各地の文化の多様性こそが、その国の豊かさを作り出すからだ」— câu này dùng なぜなら〜からだ để nêu LÝ DO cụ thể ngay sau lập luận \"守られるべきだ\". こそが nhấn mạnh: chính sự đa dạng văn hóa là tạo ra sự phong phú. Tại sao 3 đáp án kia sai? (a) \"kỹ thuật tiến bộ có thể phục hồi văn hóa đã mất\" — bài không đề cập điều này. (c) \"internet sẽ lan rộng văn hóa địa phương hơn nữa\" sai — bài nói internet làm THU HẸP sự khác biệt (縮まっている), không làm lan rộng. (d) \"tất cả vùng nên có ẩm thực giống nhau\" hoàn toàn trái với lập luận của bài.",
+          "tip": "Câu hỏi \"筆者の理由は何か\" → tìm ngay cặp なぜなら〜からだ trong bài. Đây là cấu trúc báo hiệu LÝ DO chính thức của tác giả — gần như chắc chắn là đáp án.",
+          "qt": {
+            "q": "Theo bài viết, có thể biết điều gì về lý do tác giả nói rằng “văn hóa ở từng vùng nên được gìn giữ”?",
+            "o": [
+              "Vì dù văn hóa vùng miền mất đi, vẫn có thể khôi phục bằng tiến bộ kỹ thuật",
+              "Vì chính sự đa dạng văn hóa ở các vùng tạo nên sự giàu có của đất nước",
+              "Vì Internet khiến văn hóa vùng miền lan rộng hơn nữa",
+              "Vì văn hóa ẩm thực nên giống nhau ở tất cả các vùng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "青空カルチャーセンター　出張教室のご案内",
+      "titleVi": "Thông báo lớp học lưu động của Trung tâm Văn hóa Aozora",
+      "japanese": "青空カルチャーセンター　出張教室のご案内\n当センターでは、書道・生け花・茶道の出張教室を、市内だけでなく市外の会場でも行っています。料金は、地域や季節、申し込み方法によって異なりますので、下の表をよくご確認のうえお申し込みください。\n教室｜地域｜通常料金（1回）｜繁忙期料金（1回）\n書道｜市内｜3,000円｜3,500円\n書道｜市外｜4,000円｜4,500円\n生け花｜市内｜3,500円｜4,000円\n生け花｜市外｜4,500円｜5,000円\n茶道｜市内｜4,000円｜4,500円\n茶道｜市外｜5,000円｜5,500円\n※繁忙期（12月・3月）は、講師のスケジュール調整によって費用が増えるため、通常より料金が高くなります。\n※市外の会場は、講師の移動距離によって、さらに片道500円の交通費が別途かかる場合があります。\n※インターネットからの事前申し込みは、申し込み方法によって割引が受けられ、市内・市外とも全料金から300円引きになります。\n※電話での当日申し込みは、割引の対象外です。\nまた、生徒が5人以上集まる場合は、人数によって1人あたりの料金がさらに安くなることもありますので、詳しくはお問い合わせください。\nお問い合わせ：青空カルチャーセンター（電話：03-2222-6666／受付　平日9時〜17時）",
+      "vietnamese": "Trung tâm Văn hóa Aozora — Thông báo lớp học lưu động\nTrung tâm chúng tôi tổ chức các lớp học lưu động về thư pháp, cắm hoa, trà đạo không chỉ trong thành phố mà cả ở các địa điểm ngoài thành phố. Phí sẽ khác nhau tùy theo vùng, mùa và cách đăng ký, xin quý khách xem kỹ bảng dưới đây trước khi đăng ký.\nLớp học｜Khu vực｜Phí thông thường (1 buổi)｜Phí mùa cao điểm (1 buổi)\nThư pháp｜Trong thành phố｜3.000 yên｜3.500 yên\nThư pháp｜Ngoài thành phố｜4.000 yên｜4.500 yên\nCắm hoa｜Trong thành phố｜3.500 yên｜4.000 yên\nCắm hoa｜Ngoài thành phố｜4.500 yên｜5.000 yên\nTrà đạo｜Trong thành phố｜4.000 yên｜4.500 yên\nTrà đạo｜Ngoài thành phố｜5.000 yên｜5.500 yên\n※ Vào mùa cao điểm (tháng 12, tháng 3), do việc điều chỉnh lịch của giảng viên làm tăng chi phí nên giá sẽ cao hơn bình thường.\n※ Địa điểm ngoài thành phố, tùy theo khoảng cách di chuyển của giảng viên, có thể phát sinh thêm phí đi lại một chiều 500 yên.\n※ Đăng ký trước qua Internet sẽ được giảm giá tùy theo cách đăng ký, cả trong và ngoài thành phố đều được giảm 300 yên trên tổng phí.\n※ Đăng ký qua điện thoại vào ngày học không thuộc diện được giảm giá.\nNgoài ra, nếu có từ 5 học viên trở lên, phí mỗi người có thể rẻ hơn nữa tùy theo số lượng người, xin liên hệ để biết chi tiết.\nLiên hệ: Trung tâm Văn hóa Aozora (điện thoại: 03-2222-6666 / tiếp nhận: ngày thường 9 giờ〜17 giờ)",
+      "sentences": [
+        {
+          "jp": "青空カルチャーセンター　出張教室のご案内",
+          "vi": "Trung tâm Văn hóa Aozora — Thông báo lớp học lưu động.",
+          "vocab": [
+            {
+              "w": "青空",
+              "read": "あおぞら",
+              "vi": "bầu trời xanh"
+            },
+            {
+              "w": "カルチャー",
+              "read": "カルチャー",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "công tác, đi lưu động"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "カルチャーセンター",
+              "read": "カルチャーセンター",
+              "vi": "trung tâm văn hóa"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn"
+            }
+          ],
+          "keys": [
+            {
+              "w": "出張教室",
+              "why": "Tiêu đề nêu chủ đề: lớp học ĐI LƯU ĐỘNG, dịch vụ tổ chức tại nhiều địa điểm khác nhau — mấu chốt để hiểu vì sao giá khác theo vùng."
+            }
+          ]
+        },
+        {
+          "jp": "当センターでは、書道・生け花・茶道の出張教室を、市内だけでなく市外の会場でも行っています。料金は、地域や季節、申し込み方法によって異なりますので、下の表をよくご確認のうえお申し込みください。",
+          "vi": "Trung tâm chúng tôi tổ chức các lớp học lưu động về thư pháp, cắm hoa, trà đạo không chỉ trong thành phố mà cả ở các địa điểm ngoài thành phố. Phí sẽ khác nhau tùy theo vùng, mùa và cách đăng ký, xin quý khách xem kỹ bảng dưới đây trước khi đăng ký.",
+          "vocab": [
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "書道",
+              "read": "しょどう",
+              "vi": "thư pháp"
+            },
+            {
+              "w": "生け花",
+              "read": "いけばな",
+              "vi": "cắm hoa"
+            },
+            {
+              "w": "茶道",
+              "read": "さどう",
+              "vi": "trà đạo"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "đi công tác"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm, hội trường"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, cước phí"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa (trong năm)"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau, bất đồng"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng (biểu)"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo — Bài 68 MỚI）",
+              "vi": "接続: N（地域や季節、申し込み方法）＋によって＋異なる。 Đây là câu TUYÊN BỐ chính của cả thông báo: PHÍ khác nhau tùy 3 yếu tố — vùng, mùa, cách đăng ký. Nghĩa (a): 異なる là dấu hiệu nhận diện. Đây chính là lý do có ≥2 bảng ※ chồng nhau bên dưới."
+            }
+          ],
+          "keys": [
+            {
+              "w": "地域や季節、申し込み方法によって異なります",
+              "why": "Câu chốt của cả tờ thông báo: 3 điều kiện làm giá thay đổi — vùng, mùa, cách đăng ký. Câu hỏi 1 và 2 đều dựa trên câu này."
+            }
+          ]
+        },
+        {
+          "jp": "教室｜地域｜通常料金（1回）｜繁忙期料金（1回）",
+          "vi": "Lớp học｜Khu vực｜Phí thông thường (1 buổi)｜Phí mùa cao điểm (1 buổi).",
+          "vocab": [
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "繁忙",
+              "read": "はんぼう",
+              "vi": "sự bận rộn, cao điểm"
+            },
+            {
+              "w": "繁忙期",
+              "read": "はんぼうき",
+              "vi": "mùa cao điểm, mùa bận rộn"
+            }
+          ],
+          "keys": [
+            {
+              "w": "繁忙期料金",
+              "why": "Header cột giá mùa cao điểm — cần đối chiếu với dòng ※ mùa 12/3 khi tính phí câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "書道｜市内｜3,000円｜3,500円",
+          "vi": "Thư pháp｜Trong thành phố｜3.000 yên｜3.500 yên.",
+          "vocab": [
+            {
+              "w": "書道",
+              "read": "しょどう",
+              "vi": "thư pháp"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "3,000円",
+              "why": "Giá gốc thư pháp trong thành phố mùa thường — mốc để cộng/trừ phụ phí, giảm giá."
+            }
+          ]
+        },
+        {
+          "jp": "書道｜市外｜4,000円｜4,500円",
+          "vi": "Thư pháp｜Ngoài thành phố｜4.000 yên｜4.500 yên.",
+          "vocab": [
+            {
+              "w": "書道",
+              "read": "しょどう",
+              "vi": "thư pháp"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "4,000円",
+              "read": "よんせんえん",
+              "vi": "4.000 yên"
+            },
+            {
+              "w": "4,500円",
+              "read": "よんせんごひゃくえん",
+              "vi": "4.500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "4,000円",
+              "why": "Giá thư pháp ngoài thành phố — sẽ cộng thêm phí đi lại ở dòng ※ bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "生け花｜市内｜3,500円｜4,000円",
+          "vi": "Cắm hoa｜Trong thành phố｜3.500 yên｜4.000 yên.",
+          "vocab": [
+            {
+              "w": "生け花",
+              "read": "いけばな",
+              "vi": "nghệ thuật cắm hoa"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            },
+            {
+              "w": "4,000円",
+              "read": "よんせんえん",
+              "vi": "4.000 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "4,000円",
+              "why": "Giá cắm hoa trong thành phố mùa cao điểm (12月) — ô đáp án chính xác của câu hỏi 2 (ワンさん, 生け花, 市内, 12月)."
+            }
+          ]
+        },
+        {
+          "jp": "生け花｜市外｜4,500円｜5,000円",
+          "vi": "Cắm hoa｜Ngoài thành phố｜4.500 yên｜5.000 yên.",
+          "vocab": [
+            {
+              "w": "生け花",
+              "read": "いけばな",
+              "vi": "cắm hoa"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "5,000円",
+              "read": "5,000えん",
+              "vi": "5.000 yên (giá cắm hoa ngoài thành phố mùa cao điểm)"
+            }
+          ]
+        },
+        {
+          "jp": "茶道｜市内｜4,000円｜4,500円",
+          "vi": "Trà đạo｜Trong thành phố｜4.000 yên｜4.500 yên.",
+          "vocab": [
+            {
+              "w": "茶道",
+              "read": "さどう",
+              "vi": "trà đạo"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "4,000円",
+              "read": "よんせんえん",
+              "vi": "4.000 yên"
+            },
+            {
+              "w": "4,500円",
+              "read": "よんせんごひゃくえん",
+              "vi": "4.500 yên"
+            }
+          ]
+        },
+        {
+          "jp": "茶道｜市外｜5,000円｜5,500円",
+          "vi": "Trà đạo｜Ngoài thành phố｜5.000 yên｜5.500 yên.",
+          "vocab": [
+            {
+              "w": "茶道",
+              "read": "さどう",
+              "vi": "trà đạo"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "5,500円",
+              "read": "5,500えん",
+              "vi": "5.500 yên (giá trà đạo ngoài thành phố mùa cao điểm)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "5,000円",
+              "why": "Giá trà đạo ngoài thành phố mùa THƯỜNG (10月 không phải 12/3) — ô đáp án gốc của câu hỏi 1 (ミンさん, 茶道, 市外, tháng 10)."
+            }
+          ]
+        },
+        {
+          "jp": "※繁忙期（12月・3月）は、講師のスケジュール調整によって費用が増えるため、通常より料金が高くなります。",
+          "vi": "Vào mùa cao điểm (tháng 12, tháng 3), do việc điều chỉnh lịch của giảng viên làm tăng chi phí nên giá sẽ cao hơn bình thường.",
+          "vocab": [
+            {
+              "w": "繁忙",
+              "read": "はんぼう",
+              "vi": "sự bận rộn, cao điểm"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "講師",
+              "read": "こうし",
+              "vi": "giảng viên"
+            },
+            {
+              "w": "スケジュール",
+              "read": "スケジュール",
+              "vi": "lịch trình, kế hoạch"
+            },
+            {
+              "w": "調整",
+              "read": "ちょうせい",
+              "vi": "điều chỉnh"
+            },
+            {
+              "w": "費用",
+              "read": "ひよう",
+              "vi": "chi phí"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "スケジュール調整",
+              "read": "スケジュールちょうせい",
+              "vi": "điều chỉnh lịch trình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(d) nguyên nhân — Bài 68 MỚI）",
+              "vi": "接続: N（講師のスケジュール調整）＋によって＋結果（費用が増える）。 Nghĩa (d): NGUYÊN NHÂN khách quan dẫn đến chi phí tăng — không phải đổ lỗi (≠ せいで Bài 59), chỉ giải thích lý do khách quan mùa cao điểm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "12月・3月",
+              "why": "Xác định \"mùa cao điểm\" — điều kiện quyết định dùng cột giá nào trong bảng (通常 hay 繁忙期)."
+            }
+          ]
+        },
+        {
+          "jp": "※市外の会場は、講師の移動距離によって、さらに片道500円の交通費が別途かかる場合があります。",
+          "vi": "Địa điểm ngoài thành phố, tùy theo khoảng cách di chuyển của giảng viên, có thể phát sinh thêm phí đi lại một chiều 500 yên.",
+          "vocab": [
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "講師",
+              "read": "こうし",
+              "vi": "giảng viên"
+            },
+            {
+              "w": "移動",
+              "read": "いどう",
+              "vi": "di chuyển"
+            },
+            {
+              "w": "距離",
+              "read": "きょり",
+              "vi": "khoảng cách"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "片道",
+              "read": "かたみち",
+              "vi": "một chiều"
+            },
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "別途",
+              "read": "べっと",
+              "vi": "riêng, ngoài ra"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "移動距離",
+              "read": "いどうきょり",
+              "vi": "khoảng cách di chuyển"
+            },
+            {
+              "w": "交通費",
+              "read": "こうつうひ",
+              "vi": "phí đi lại, tiền xe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo）",
+              "vi": "講師の移動距離によって〜かかる場合があります = \"tùy theo khoảng cách di chuyển mà có thể phát sinh (thêm phí)\". Nghĩa (a): mức phụ phí THAY ĐỔI tùy khoảng cách — không phải số cố định."
+            },
+            {
+              "point": "〜場合があります（Bài 45 ôn）",
+              "vi": "〜場合があります = có trường hợp (là). 場合 (Bài 45) chỉ khả năng/tình huống có thể xảy ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "片道500円の交通費",
+              "why": "Phụ phí CỘNG THÊM cho lớp học ngoài thành phố — bắt buộc phải cộng vào giá bảng khi tính tổng phí câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "※インターネットからの事前申し込みは、申し込み方法によって割引が受けられ、市内・市外とも全料金から300円引きになります。",
+          "vi": "Đăng ký trước qua Internet sẽ được giảm giá tùy theo cách đăng ký, cả trong và ngoài thành phố đều được giảm 300 yên trên tổng phí.",
+          "vocab": [
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "Internet"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước đó"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "受けられ",
+              "read": "うけられ",
+              "vi": "được hưởng"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "全料金",
+              "read": "ぜんりょうきん",
+              "vi": "toàn bộ phí"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo）",
+              "vi": "申し込み方法によって割引が受けられ = \"tùy theo cách đăng ký mà được giảm giá\". Nghĩa (a): mức ưu đãi THAY ĐỔI theo cách đăng ký (Internet vs điện thoại) — câu hỏi phải chú ý điều kiện này để trừ đúng 300円."
+            }
+          ],
+          "keys": [
+            {
+              "w": "300円引き",
+              "why": "Mức giảm giá KHI đăng ký qua Internet — điều kiện thứ 3 (cách đăng ký) phải trừ vào tổng nếu nhân vật đăng ký online."
+            }
+          ]
+        },
+        {
+          "jp": "※電話での当日申し込みは、割引の対象外です。",
+          "vi": "Đăng ký qua điện thoại vào ngày học không thuộc diện được giảm giá.",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, hôm diễn ra"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng (áp dụng)"
+            },
+            {
+              "w": "対象外",
+              "read": "たいしょうがい",
+              "vi": "ngoài diện áp dụng, không thuộc đối tượng"
+            }
+          ],
+          "keys": [
+            {
+              "w": "電話での当日申し込みは、割引の対象外",
+              "why": "Bẫy: đăng ký QUA ĐIỆN THOẠI thì KHÔNG được giảm 300円 — loại trừ trực tiếp với dòng giảm giá Internet ở trên."
+            }
+          ]
+        },
+        {
+          "jp": "また、生徒が5人以上集まる場合は、人数によって1人あたりの料金がさらに安くなることもありますので、詳しくはお問い合わせください。",
+          "vi": "Ngoài ra, nếu có từ 5 học viên trở lên, phí mỗi người có thể rẻ hơn nữa tùy theo số lượng người, xin liên hệ để biết chi tiết.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra"
+            },
+            {
+              "w": "生徒",
+              "read": "せいと",
+              "vi": "học sinh"
+            },
+            {
+              "w": "5人",
+              "read": "ごにん",
+              "vi": "5 người"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "集まる",
+              "read": "あつまる",
+              "vi": "tập hợp"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "1 người"
+            },
+            {
+              "w": "あたり",
+              "read": "あたり",
+              "vi": "mỗi"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "安くなる",
+              "read": "やすくなる",
+              "vi": "trở nên rẻ hơn"
+            },
+            {
+              "w": "詳しく",
+              "read": "くわしく",
+              "vi": "chi tiết"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（(a) tùy theo）",
+              "vi": "人数によって〜安くなる = \"tùy theo số lượng người mà rẻ hơn\". Nghĩa (a) — lần xuất hiện thứ 4 của によって trong bài, củng cố nghĩa TÙY THEO."
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：青空カルチャーセンター（電話：03-2222-6666／受付　平日9時〜17時）",
+          "vi": "Liên hệ: Trung tâm Văn hóa Aozora (điện thoại: 03-2222-6666 / tiếp nhận: ngày thường 9 giờ〜17 giờ).",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "青空",
+              "read": "あおぞら",
+              "vi": "bầu trời xanh"
+            },
+            {
+              "w": "カルチャー",
+              "read": "カルチャー",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "tiếp nhận, quầy lễ tân"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (không phải cuối tuần/lễ)"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "地域や季節、申し込み方法によって異なります",
+          "label": "〜によって (a) tùy theo — 3 điều kiện làm giá thay đổi"
+        },
+        {
+          "excerpt": "講師のスケジュール調整によって費用が増える",
+          "label": "〜によって (d) nguyên nhân khách quan"
+        },
+        {
+          "excerpt": "申し込み方法によって割引が受けられ",
+          "label": "〜によって (a) tùy theo — cách đăng ký"
+        },
+        {
+          "excerpt": "生徒が5人以上集まる場合は",
+          "label": "〜場合は — Bài 45 ôn"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề + tuyên bố chung",
+          "topic": 1,
+          "note": "Nêu chủ đề (lớp lưu động) và câu chốt: giá khác theo vùng/mùa/cách đăng ký — chìa khóa đọc toàn bài.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 2,
+          "to": 8,
+          "kind": "point",
+          "label": "Bảng giá 3 lớp × 2 vùng × 2 mùa",
+          "topic": 2,
+          "note": "Bảng chính: dò đúng hàng (lớp học + vùng) và đúng cột (mùa thường/cao điểm) để lấy giá gốc.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Phụ phí mùa cao điểm & đi lại ngoài thành phố",
+          "topic": 9,
+          "note": "Bẫy cộng thêm: mùa 12/3 dùng cột phải; ngoài thành phố cộng thêm 500円 đi lại.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "turn",
+          "label": "Giảm giá theo cách đăng ký",
+          "topic": 11,
+          "note": "Bẫy trừ tiền: chỉ đăng ký Internet trước mới được trừ 300円; điện thoại ngày học thì KHÔNG.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 13,
+          "to": 14,
+          "kind": "body",
+          "label": "Ưu đãi nhóm đông & liên hệ",
+          "topic": 14,
+          "note": "Thông tin phụ, không phải căn cứ chính của 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミンさんは、来月（10月）市外で茶道の出張教室を1回申し込みます。インターネットで事前に申し込む場合、いくら払いますか。",
+          "options": [
+            "4,700円",
+            "5,000円",
+            "5,200円",
+            "5,500円"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 5,200円. Cách tính theo 3 bước: ① 茶道・市外・通常料金（10月は繁忙期の12月・3月ではない）＝5,000円（第9行「茶道｜市外｜5,000円｜5,500円」の通常料金欄）。② 市外の会場なので、片道500円の交通費を加算＝5,000＋500＝5,500円（※2文目「市外の会場は〜片道500円の交通費が別途かかる」）。③ インターネットで事前申し込みなので、全料金から300円引き＝5,500－300＝5,200円（※3文目「全料金から300円引きになります」——「全料金」は交通費を含めた合計）。Tại sao các nhiễu sai: (a) 4,700円 chỉ trừ 300円 từ giá lớp học rồi quên cộng lại phí đi lại 500円 (5,000－300＝4,700, tính sai thứ tự). (b) 5,000円 quên cả phí đi lại VÀ giảm giá, chỉ lấy giá lớp học gốc. (d) 5,500円 quên áp dụng giảm giá Internet 300円 sau khi đã cộng phí đi lại.",
+          "tip": "Ghép 3 điều kiện theo đúng THỨ TỰ: (1) lớp học + vùng → dò đúng hàng bảng lấy giá gốc; (2) tháng có phải 12/3 không → chọn đúng cột (thường/cao điểm); (3) thị外 → cộng thêm 500円 đi lại; (4) Internet trước → trừ 300円 trên TỔNG (đã gồm phí đi lại).",
+          "evi": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Minh-san đăng ký một buổi trà đạo lưu động ở ngoài thành phố vào tháng sau (tháng 10). Nếu đăng ký trước qua Internet thì phải trả bao nhiêu?",
+            "o": [
+              "4.700 yên",
+              "5.000 yên",
+              "5.200 yên",
+              "5.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんは12月に市内で生け花の出張教室を申し込みたいですが、当日電話で申し込むつもりです。いくら払いますか。",
+          "options": [
+            "3,500円",
+            "4,000円",
+            "3,700円",
+            "4,300円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 4,000円. Cách tính: 生け花・市内・12月（繁忙期）料金＝4,000円（第6行「生け花｜市内｜3,500円｜4,000円」の繁忙期欄）。市内なので交通費は不要。電話での当日申し込みは「割引の対象外」（※4文目）なので、300円引きは適用されない。よって4,000円のまま。Tại sao các nhiễu sai: (a) 3,500円 dùng nhầm giá mùa THƯỜNG thay vì mùa cao điểm tháng 12. (c) 3,700円 là trừ nhầm giảm giá 300円 dù đăng ký qua điện thoại (không được giảm). (d) 4,300円 cộng nhầm phí đi lại dù học TRONG thành phố (không cần phí đi lại).",
+          "tip": "Thấy \"12月/3月\" → luôn dùng cột 繁忙期料金. Thấy \"電話で当日申し込み\" → luôn LOẠI TRỪ giảm giá 300円 (chỉ Internet trước mới được).",
+          "evi": [
+            5,
+            9,
+            12
+          ],
+          "qt": {
+            "q": "Wang-san muốn đăng ký một buổi cắm hoa lưu động trong thành phố vào tháng 12, nhưng dự định đăng ký qua điện thoại ngay trong ngày. Phải trả bao nhiêu?",
+            "o": [
+              "3.500 yên",
+              "4.000 yên",
+              "3.700 yên",
+              "4.300 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

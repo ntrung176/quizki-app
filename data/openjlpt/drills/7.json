@@ -1,0 +1,369 @@
+{
+  "id": "minna1.b07",
+  "bai": 7,
+  "titleVi": "Cho & nhận, công cụ — あげます・もらいます",
+  "know": [
+    {
+      "id": "minna1.b07.de-tool",
+      "point": "de-tool",
+      "jp": "〜で (công cụ／ngôn ngữ)",
+      "vi": "Dùng で chỉ công cụ hoặc ngôn ngữ thực hiện hành động",
+      "gloss": "bằng ～ (đũa/bút/tiếng Nhật)"
+    },
+    {
+      "id": "minna1.b07.ageru",
+      "point": "ageru",
+      "jp": "NにNをあげます",
+      "vi": "Tặng/cho ai cái gì (hướng ra ngoài)",
+      "gloss": "cho ～ (cái) ～"
+    },
+    {
+      "id": "minna1.b07.morau",
+      "point": "morau",
+      "jp": "Nに／から Nをもらいます",
+      "vi": "Nhận cái gì từ ai (hướng vào trong)",
+      "gloss": "nhận từ ～ (cái) ～"
+    },
+    {
+      "id": "minna1.b07.mou-mada",
+      "point": "mou-mada",
+      "jp": "もう〜ました ／ まだです",
+      "vi": "Đã làm rồi / Chưa (trả lời もう〜ましたか)",
+      "gloss": "đã … rồi ／ chưa (đâu)"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b07-de-tool-hashi",
+      "item": "minna1.b07.de-tool",
+      "err": "de-tool-vs-wo",
+      "vi": "Tôi ăn cơm bằng đũa.",
+      "t1": {
+        "stem": "はし＿ ごはんを 食[た]べます。",
+        "choices": [
+          "で",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "はしで",
+          "ごはんを",
+          "食[た]べます。"
+        ],
+        "traps": [
+          "はしを",
+          "ごはんで"
+        ]
+      },
+      "t3": {
+        "target": "はしでごはんを食べます。",
+        "accept": [
+          "はしでごはんをたべます。"
+        ]
+      },
+      "why": "Công cụ dùng で (はし＝đũa). を chỉ tân ngữ trực tiếp (ごはん) — một câu không thể có hai を."
+    },
+    {
+      "id": "c-b07-de-tool-nihongo",
+      "item": "minna1.b07.de-tool",
+      "err": "de-tool-vs-wo",
+      "vi": "Tôi viết thư bằng tiếng Nhật.",
+      "t1": {
+        "stem": "日本語[にほんご]＿ 手紙[てがみ]を 書[か]きます。",
+        "choices": [
+          "で",
+          "に",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]で",
+          "手紙[てがみ]を",
+          "書[か]きます。"
+        ],
+        "traps": [
+          "日本語[にほんご]を",
+          "日本語[にほんご]に"
+        ]
+      },
+      "t3": {
+        "target": "日本語で手紙を書きます。",
+        "accept": [
+          "にほんごでてがみをかきます。"
+        ]
+      },
+      "why": "言語[げんご]（ngôn ngữ）もで：日本語[にほんご]で書[か]きます。に chỉ điểm đến/người nhận — không dùng cho ngôn ngữ."
+    },
+    {
+      "id": "c-b07-ageru-hana",
+      "item": "minna1.b07.ageru",
+      "err": "age-morau-dir",
+      "vi": "Tôi tặng hoa cho chị Yamada.",
+      "t1": {
+        "stem": "山田[やまだ]さん＿ 花[はな]を あげます。",
+        "choices": [
+          "に",
+          "から",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "山田[やまだ]さんに",
+          "花[はな]を",
+          "あげます。"
+        ],
+        "traps": [
+          "山田[やまだ]さんから",
+          "もらいます。"
+        ]
+      },
+      "t3": {
+        "target": "山田さんに花をあげます。",
+        "accept": [
+          "やまださんにはなをあげます。"
+        ]
+      },
+      "why": "あげます: tôi → người khác. Người nhận dùng に (✗ から). から+あげます nghĩa ngược hướng."
+    },
+    {
+      "id": "c-b07-ageru-okane",
+      "item": "minna1.b07.ageru",
+      "err": "age-morau-dir",
+      "vi": "Chị Maria tặng tiền cho em trai.",
+      "t1": {
+        "stem": "マリアさんは 弟[おとうと]に ＿ を あげました。",
+        "choices": [
+          "お金[かね]",
+          "もらいます",
+          "花[はな]から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "マリアさんは",
+          "弟[おとうと]に",
+          "お金[かね]を",
+          "あげました。"
+        ],
+        "traps": [
+          "もらいました。",
+          "弟[おとうと]から"
+        ]
+      },
+      "t3": {
+        "target": "マリアさんは弟にお金をあげました。",
+        "accept": [
+          "まりあさんはおとうとにおかねをあげました。"
+        ]
+      },
+      "why": "Chủ ngữ là Maria (người cho), hướng: Maria → em trai. あげます đúng hướng. もらいます đảo hướng — sai."
+    },
+    {
+      "id": "c-b07-morau-purezento",
+      "item": "minna1.b07.morau",
+      "err": "age-morau-dir",
+      "vi": "Tôi nhận quà từ bạn.",
+      "t1": {
+        "stem": "友[とも]だち＿ プレゼントを もらいました。",
+        "choices": [
+          "に",
+          "から",
+          "を"
+        ],
+        "answer": 1
+      },
+      "t2": {
+        "chips": [
+          "友[とも]だちに",
+          "プレゼントを",
+          "もらいました。"
+        ],
+        "traps": [
+          "あげました。",
+          "友[とも]だちを"
+        ]
+      },
+      "t3": {
+        "target": "友だちにプレゼントをもらいました。",
+        "accept": [
+          "ともだちにぷれぜんとをもらいました。",
+          "友だちからプレゼントをもらいました。",
+          "ともだちからぷれぜんとをもらいました。"
+        ]
+      },
+      "why": "もらいます: người khác → tôi. Người cho dùng に hoặc から (cả hai đều đúng). Dùng あげます sai hướng — tôi không thể tự \"tặng\" cho mình."
+    },
+    {
+      "id": "c-b07-morau-tegami",
+      "item": "minna1.b07.morau",
+      "err": "age-morau-dir",
+      "vi": "Anh Tanaka nhận được thư từ gia đình.",
+      "t1": {
+        "stem": "田中[たなか]さんは 家族[かぞく]から ＿ を もらいました。",
+        "choices": [
+          "手紙[てがみ]",
+          "プレゼント",
+          "お金[かね]からを"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "家族[かぞく]から",
+          "手紙[てがみ]を",
+          "もらいました。"
+        ],
+        "traps": [
+          "あげました。",
+          "家族[かぞく]に あげました。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは家族から手紙をもらいました。",
+        "accept": [
+          "たなかさんはかぞくからてがみをもらいました。"
+        ]
+      },
+      "why": "家族から = từ gia đình (xuất phát). もらいます nhận →田中さん. あげます đảo hướng hoàn toàn."
+    },
+    {
+      "id": "c-b07-mou-tabemashita",
+      "item": "minna1.b07.mou-mada",
+      "err": "mou-mada-form",
+      "vi": "A: Bạn đã ăn cơm chưa? — B: Rồi, ăn rồi.",
+      "t1": {
+        "stem": "A: もう ごはんを 食[た]べましたか。B: ＿。",
+        "choices": [
+          "はい、もう 食[た]べました",
+          "はい、まだ 食[た]べました",
+          "いいえ、もう 食[た]べました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "はい、",
+          "もう",
+          "食[た]べました。"
+        ],
+        "traps": [
+          "まだ 食[た]べました。",
+          "はい、まだです。"
+        ]
+      },
+      "t3": {
+        "target": "はい、もう食べました。",
+        "accept": [
+          "はい、もうたべました。"
+        ]
+      },
+      "why": "Đã làm = もう + Vました. \"まだ食べました\" vô nghĩa — まだ chỉ đi với dạng phủ định."
+    },
+    {
+      "id": "c-b07-mada-desu",
+      "item": "minna1.b07.mou-mada",
+      "err": "mou-mada-form",
+      "vi": "A: Bạn đã gửi email chưa? — B: Chưa.",
+      "t1": {
+        "stem": "A: もう メールを 送[おく]りましたか。B: ＿。",
+        "choices": [
+          "いいえ、まだです",
+          "いいえ、まだ 送[おく]りました",
+          "はい、まだです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "いいえ、",
+          "まだです。"
+        ],
+        "traps": [
+          "まだ 送[おく]りました。",
+          "もうです。"
+        ]
+      },
+      "t3": {
+        "target": "いいえ、まだです。",
+        "accept": [
+          "いいえ、まだです。"
+        ]
+      },
+      "why": "Chưa làm = まだです (lịch sự, gọn) hoặc まだ〜ていません. KHÔNG nói \"まだ送りました\" — ました là quá khứ khẳng định."
+    },
+    {
+      "id": "c-b07-de-tool-pen",
+      "item": "minna1.b07.de-tool",
+      "err": "de-tool-vs-wo",
+      "vi": "Hãy viết tên bằng bút bi.",
+      "t1": {
+        "stem": "ボールペン＿ 名前[なまえ]を 書[か]いてください。",
+        "choices": [
+          "で",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ボールペンで",
+          "名前[なまえ]を",
+          "書[か]いてください。"
+        ],
+        "traps": [
+          "ボールペンを",
+          "ボールペンに"
+        ]
+      },
+      "t3": {
+        "target": "ボールペンで名前を書いてください。",
+        "accept": [
+          "ぼーるぺんでなまえをかいてください。"
+        ]
+      },
+      "why": "ボールペン（bút bi）là công cụ → で. Câu đã có một を (名前[なまえ]を) — không thể thêm を thứ hai cho ボールペン."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b07-1",
+      "item": "minna1.b07.ageru",
+      "err": "age-morau-dir",
+      "tts": "ミラーさんは たなかさんに ほんを あげました。",
+      "script": "ミラーさんは 田中[たなか]さんに 本[ほん]を あげました。",
+      "ask": "Anh Miller đã làm gì?",
+      "choices": [
+        "Tặng sách cho anh Tanaka",
+        "Nhận sách từ anh Tanaka",
+        "Gửi thư cho anh Tanaka"
+      ],
+      "answer": 0,
+      "why": "あげました = tặng; Miller → Tanaka. Người nhận là たなかさん (に)."
+    },
+    {
+      "id": "l-b07-2",
+      "item": "minna1.b07.mou-mada",
+      "err": "mou-mada-form",
+      "tts": "もう しゅくだいを しましたか。いいえ、まだです。",
+      "script": "もう 宿題[しゅくだい]を しましたか。いいえ、まだです。",
+      "ask": "Người B trả lời thế nào?",
+      "choices": [
+        "Chưa làm bài tập",
+        "Đã làm bài tập rồi",
+        "Không có bài tập"
+      ],
+      "answer": 0,
+      "why": "まだです = chưa (làm); câu trả lời ngắn lịch sự khi chưa hoàn thành."
+    }
+  ]
+}

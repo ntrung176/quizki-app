@@ -1,0 +1,509 @@
+{
+  "id": "minna2.b31",
+  "bai": 31,
+  "titleVi": "Sự thay đổi, sai khiến",
+  "know": [
+    {
+      "id": "minna2.b31.you-ni-naru",
+      "point": "you-ni-naru",
+      "jp": "〜ようになります",
+      "vi": "Trở nên ~, đến mức ~, bắt đầu ~ (thay đổi dần dần, thường với động từ)",
+      "en": "Become ~, reach the point of ~, begin to ~ (a gradual change, usually with verbs)",
+      "gloss": "泳[およ]げるようになりました ／ 食[た]べるようになりました",
+      "glossEn": "泳[およ]げるようになりました ／ 食[た]べるようになりました"
+    },
+    {
+      "id": "minna2.b31.naku-naru",
+      "point": "naku-naru",
+      "jp": "〜なくなります",
+      "vi": "Trở nên không còn ~ nữa (thay đổi phủ định)",
+      "en": "Come to no longer ~ (a negative change)",
+      "gloss": "食[た]べなくなりました ／ 吸[す]わなくなりました",
+      "glossEn": "食[た]べなくなりました ／ 吸[す]わなくなりました"
+    },
+    {
+      "id": "minna2.b31.saseru",
+      "point": "saseru",
+      "jp": "〜させます",
+      "vi": "Bắt/cho ~ làm (thể sai khiến — người trên → người dưới)",
+      "en": "Make/let ~ do (causative form — from a superior to a subordinate)",
+      "gloss": "子供[こども]を 練習[れんしゅう]させます ／ 学生[がくせい]に 読[よ]ませます",
+      "glossEn": "子供[こども]を 練習[れんしゅう]させます ／ 学生[がくせい]に 読[よ]ませます"
+    },
+    {
+      "id": "minna2.b31.sasete-kudasai",
+      "point": "sasete-kudasai",
+      "jp": "〜させてください",
+      "vi": "Xin cho tôi được ~ (sai khiến + xin phép lịch sự — mình tự làm)",
+      "en": "Please let me ~ (a polite request for permission)",
+      "gloss": "説明[せつめい]させてください ／ 休[やす]ませてください",
+      "glossEn": "私[わたし]に 説明[せつめい]させてください。 = Please let me explain."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b31-ynn-oyogu",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "you-ni-naru-wrong",
+      "vi": "Sau khi luyện tập, tôi đã trở nên có thể bơi được.",
+      "t1": {
+        "stem": "練習[れんしゅう]して、泳[およ]げる＿。",
+        "choices": [
+          "ようになりました",
+          "になりました",
+          "ようにしました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "練習[れんしゅう]して、",
+          "泳[およ]げる",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "になりました。",
+          "ようにしました。"
+        ]
+      },
+      "t3": {
+        "target": "練習して、泳げるようになりました。",
+        "accept": [
+          "れんしゅうして、およげるようになりました。"
+        ]
+      },
+      "why": "動詞[どうし]の 可能形[かのうけい] + ようになりました = thay đổi dần dần đến mức có thể làm. ✗ 泳げるになりました — になります chỉ dùng cho danh từ/tính từ, không dùng trực tiếp sau thể khả năng. ✗ ようにしました = cố gắng/quyết định làm (chủ thể cố ý), khác nghĩa."
+    },
+    {
+      "id": "c-b31-ynn-hanasu",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "you-ni-naru-wrong",
+      "vi": "Nhờ học tiếng Nhật mỗi ngày, tôi đã bắt đầu nói được tiếng Nhật.",
+      "t1": {
+        "stem": "毎日[まいにち] 日本語[にほんご]を 勉強[べんきょう]して、日本語[にほんご]が 話[はな]せる＿。",
+        "choices": [
+          "ようになりました",
+          "ようにしました",
+          "ようになります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が",
+          "話[はな]せる",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "話[はな]せました。",
+          "ようにしました。"
+        ]
+      },
+      "t3": {
+        "target": "毎日日本語を勉強して、日本語が話せるようになりました。",
+        "accept": [
+          "まいにちにほんごをべんきょうして、にほんごがはなせるようになりました。"
+        ]
+      },
+      "why": "ようになりました = thay đổi dần dần (trước đây không nói được, giờ thì nói được). ✗ ようにしました = cố gắng/quyết định làm (chủ thể cố ý), khác nghĩa hoàn toàn."
+    },
+    {
+      "id": "c-b31-ynn-taberu",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "you-ni-naru-wrong",
+      "vi": "Từ khi sang Nhật, tôi đã bắt đầu ăn rau hàng ngày.",
+      "t1": {
+        "stem": "日本[にほん]に 来[き]てから、毎日[まいにち] 野菜[やさい]を 食[た]べる＿。",
+        "choices": [
+          "ようになりました",
+          "になりました",
+          "ようにしてください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "野菜[やさい]を",
+          "食[た]べる",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "食[た]べました。",
+          "ようにしました。"
+        ]
+      },
+      "t3": {
+        "target": "日本に来てから、毎日野菜を食べるようになりました。",
+        "accept": [
+          "にほんにきてから、まいにちやさいをたべるようになりました。"
+        ]
+      },
+      "why": "食[た]べるようになりました = trước không ăn, bây giờ bắt đầu ăn (thay đổi thói quen). Cấu trúc: V辞書形[じしょけい] + ようになりました. ✗ 食[た]べるになりました — になります không dùng trực tiếp sau V辞書形."
+    },
+    {
+      "id": "c-b31-nkn-tabako",
+      "item": "minna2.b31.naku-naru",
+      "err": "naku-naru-wrong",
+      "vi": "Kể từ năm ngoái, tôi đã không còn hút thuốc nữa.",
+      "t1": {
+        "stem": "去年[きょねん]から、タバコを 吸[す]わ＿。",
+        "choices": [
+          "なくなりました",
+          "ないになりました",
+          "なくしました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "タバコを",
+          "吸[す]わ",
+          "なく",
+          "なりました。"
+        ],
+        "traps": [
+          "吸[す]いません。",
+          "なくしました。"
+        ]
+      },
+      "t3": {
+        "target": "去年から、タバコを吸わなくなりました。",
+        "accept": [
+          "きょねんから、たばこをすわなくなりました。"
+        ]
+      },
+      "why": "Vない形[けい] (ない → なく) + なりました = trở nên không còn ~. 吸う (nhóm I) → 吸わない → 吸わなく + なりました = 吸わなくなりました. ✗ 吸わないになりました — sai cấu trúc; phải biến ない → なく rồi mới + なります."
+    },
+    {
+      "id": "c-b31-nkn-neru",
+      "item": "minna2.b31.naku-naru",
+      "err": "naku-naru-wrong",
+      "vi": "Gần đây tôi không còn thức khuya nữa.",
+      "t1": {
+        "stem": "最近[さいきん]、遅[おそ]く 寝[ね]＿。",
+        "choices": [
+          "なくなりました",
+          "るようになりました",
+          "ないでいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "最近[さいきん]、",
+          "遅[おそ]く",
+          "寝[ね]なく",
+          "なりました。"
+        ],
+        "traps": [
+          "寝[ね]るようになりました。",
+          "なりません。"
+        ]
+      },
+      "t3": {
+        "target": "最近、遅く寝なくなりました。",
+        "accept": [
+          "さいきん、おそくねなくなりました。"
+        ]
+      },
+      "why": "寝[ね]なくなりました = 寝[ね]る (nhóm II: る → ない = 寝[ね]ない) → ない → なく + なりました = không còn ngủ muộn nữa. ✗ 寝[ね]るようになりました = bắt đầu ngủ muộn (ngược nghĩa hoàn toàn). Lưu ý: thể ない của nhóm II chỉ bỏ る rồi thêm ない."
+    },
+    {
+      "id": "c-b31-sas-kodomo",
+      "item": "minna2.b31.saseru",
+      "err": "saseru-wrong",
+      "vi": "Cha mẹ cho con cái luyện tập piano.",
+      "t1": {
+        "stem": "親[おや]は 子供[こども]に ピアノを 練習[れんしゅう]＿。",
+        "choices": [
+          "させます",
+          "させています",
+          "してもらいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "親[おや]は",
+          "子供[こども]に",
+          "ピアノを",
+          "練習[れんしゅう]させます。"
+        ],
+        "traps": [
+          "練習[れんしゅう]します。",
+          "練習[れんしゅう]してもらいます。"
+        ]
+      },
+      "t3": {
+        "target": "親は子供にピアノを練習させます。",
+        "accept": [
+          "おやはこどもにぴあのをれんしゅうさせます。"
+        ]
+      },
+      "why": "させます = người trên bắt/cho người dưới làm. Cấu trúc: 親[おや]は 子供[こども]に〜させます (に = người bị sai khiến, vì có tân ngữ ピアノを). ✗ してもらいます = cha mẹ nhờ con làm cho mình (ngược hướng)."
+    },
+    {
+      "id": "c-b31-sas-kacho",
+      "item": "minna2.b31.saseru",
+      "err": "saseru-wrong",
+      "vi": "Trưởng phòng bắt nhân viên làm thêm giờ.",
+      "t1": {
+        "stem": "課長[かちょう]は 社員[しゃいん]を 残業[ざんぎょう]＿。",
+        "choices": [
+          "させました",
+          "させてもらいました",
+          "してもらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "課長[かちょう]は",
+          "社員[しゃいん]を",
+          "残業[ざんぎょう]",
+          "させました。"
+        ],
+        "traps": [
+          "残業[ざんぎょう]しました。",
+          "させてもらいました。"
+        ]
+      },
+      "t3": {
+        "target": "課長は社員を残業させました。",
+        "accept": [
+          "かちょうはしゃいんをざんぎょうさせました。"
+        ]
+      },
+      "why": "課長[かちょう] (người trên) → 社員[しゃいん] (người dưới): bắt làm thêm → させました. Dùng を vì 残業する là động từ nội động (không có tân ngữ riêng); dùng に khi có tân ngữ đích kèm theo (例: 社員[しゃいん]に 報告書[ほうこくしょ]を 書[か]かせます). ✗ させてもらいました = tôi được phép làm (chiều ngược lại)."
+    },
+    {
+      "id": "c-b31-sas-yomaseru",
+      "item": "minna2.b31.saseru",
+      "err": "saseru-wrong",
+      "vi": "Giáo viên cho học sinh đọc bài văn.",
+      "t1": {
+        "stem": "先生[せんせい]は 学生[がくせい]に 文章[ぶんしょう]を ＿。",
+        "choices": [
+          "読[よ]ませました",
+          "読[よ]んでもらいました",
+          "読[よ]んでもいいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]は",
+          "学生[がくせい]に",
+          "文章[ぶんしょう]を",
+          "読[よ]ませました。"
+        ],
+        "traps": [
+          "読[よ]んでもらいました。",
+          "読[よ]みました。"
+        ]
+      },
+      "t3": {
+        "target": "先生は学生に文章を読ませました。",
+        "accept": [
+          "せんせいはがくせいにぶんしょうをよませました。"
+        ]
+      },
+      "why": "読む (nhóm I: む-row → あ-row: 読ま + せる = 読ませる) → lịch sự: 読ませます. Đây là dạng sai khiến chuẩn của nhóm I. ✗ 読みさせます — sai khi thêm させる vào ます-stem; luật nhóm I phải đổi âm cuối sang あ-row trước."
+    },
+    {
+      "id": "c-b31-stk-setsumei",
+      "item": "minna2.b31.sasete-kudasai",
+      "err": "sasete-kudasai-wrong",
+      "vi": "Xin cho tôi được giải thích một chút.",
+      "t1": {
+        "stem": "ちょっと 説明[せつめい]＿。",
+        "choices": [
+          "させてください",
+          "してください",
+          "させてもらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ちょっと",
+          "説明[せつめい]",
+          "させて",
+          "ください。"
+        ],
+        "traps": [
+          "説明[せつめい]してください。",
+          "説明[せつめい]させてもらいました。"
+        ]
+      },
+      "t3": {
+        "target": "ちょっと説明させてください。",
+        "accept": [
+          "ちょっとせつめいさせてください。"
+        ]
+      },
+      "why": "させてください = xin cho TÔI được làm (mình tự làm). ✗ してください = nhờ NGƯỜI KHÁC làm — ngược nhau hoàn toàn. 説明する (nhóm III: する → させる) + てください = 説明させてください."
+    },
+    {
+      "id": "c-b31-stk-yasumu",
+      "item": "minna2.b31.sasete-kudasai",
+      "err": "sasete-kudasai-wrong",
+      "vi": "Tôi không khoẻ, xin cho tôi được nghỉ hôm nay.",
+      "t1": {
+        "stem": "体[からだ]の 調子[ちょうし]が 悪[わる]いので、今日[きょう] 休[やす]ませ＿。",
+        "choices": [
+          "てください",
+          "てもいいです",
+          "てもらいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]",
+          "休[やす]ませ",
+          "て",
+          "ください。"
+        ],
+        "traps": [
+          "休[やす]んでください。",
+          "休[やす]めばいいです。"
+        ]
+      },
+      "t3": {
+        "target": "体の調子が悪いので、今日休ませてください。",
+        "accept": [
+          "からだのちょうしがわるいので、きょうやすませてください。"
+        ]
+      },
+      "why": "休む (nhóm I: む → ま + せてください = 休ませてください) = xin cho tôi được nghỉ. ✗ 休んでください = xin người khác hãy nghỉ (ngược hướng hoàn toàn)."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b31-ynn",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "you-ni-naru-wrong",
+      "tts": "にほんに きてから、はしで ごはんを たべられるように なりました。",
+      "script": "日本[にほん]に 来[き]てから、箸[はし]でご飯[はん]を 食[た]べられるように なりました。",
+      "ask": "Người nói muốn nói điều gì?",
+      "choices": [
+        "Từ khi đến Nhật, họ đã có thể ăn bằng đũa",
+        "Họ thường xuyên ăn cơm bằng đũa ở Nhật",
+        "Họ không thể ăn bằng đũa ở Nhật"
+      ],
+      "answer": 0,
+      "why": "〜ようになりました = thay đổi dần đến mức có thể làm; 食[た]べられる = thể khả năng (bị động/khả năng) của 食[た]べる (nhóm II). Câu ngụ ý trước đây không ăn được bằng đũa, giờ thì ăn được rồi."
+    },
+    {
+      "id": "l-b31-sas",
+      "item": "minna2.b31.saseru",
+      "err": "saseru-wrong",
+      "tts": "はは は まいにち わたしに へやを そうじさせます。",
+      "script": "母[はは]は 毎日[まいにち] わたしに 部屋[へや]を 掃除[そうじ]させます。",
+      "ask": "Mẹ làm gì?",
+      "choices": [
+        "Mẹ bắt tôi dọn phòng mỗi ngày",
+        "Mẹ dọn phòng giúp tôi mỗi ngày",
+        "Tôi nhờ mẹ dọn phòng mỗi ngày"
+      ],
+      "answer": 0,
+      "why": "母[はは]は〜させます = mẹ bắt/cho tôi làm (mẹ là người ra lệnh, tôi là người thực hiện). ✗ してもらいます = tôi được mẹ làm cho (hướng ngược lại)."
+    },
+    {
+      "id": "l-b31-stk",
+      "item": "minna2.b31.sasete-kudasai",
+      "err": "sasete-kudasai-wrong",
+      "tts": "すみません、すこし かんがえさせてください。",
+      "script": "すみません、少[すこ]し 考[かんが]えさせてください。",
+      "ask": "Người nói muốn gì?",
+      "choices": [
+        "Xin cho người nói được suy nghĩ một chút",
+        "Xin người nghe hãy suy nghĩ một chút",
+        "Người nói đang nghĩ về điều gì đó"
+      ],
+      "answer": 0,
+      "why": "考[かんが]えさせてください = xin cho TÔI được suy nghĩ (mình tự làm). 考[かんが]える (nhóm II: る → させる = 考えさせる) + てください. ✗ 考[かんが]えてください = nhờ người khác nghĩ."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b31-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 31 ・ ようになります",
+      "vi": "Tôi đã luyện tập mỗi ngày và trở nên có thể bơi được. (Chú ý て-form của する)",
+      "t1": {
+        "stem": "毎日[まいにち] 練習[れんしゅう]＿、泳[およ]げるようになりました。",
+        "choices": [
+          "して",
+          "しまして",
+          "します"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "練習[れんしゅう]して、",
+          "泳[およ]げる",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "練習[れんしゅう]しまして、",
+          "練習[れんしゅう]します、"
+        ]
+      },
+      "t3": {
+        "target": "毎日練習して、泳げるようになりました。",
+        "accept": [
+          "まいにちれんしゅうして、およげるようになりました。"
+        ]
+      },
+      "why": "て形[けい]接続[せつぞく]: する → して (nhóm III). ✗ しまして — thể lịch sự ます-stem + まして chỉ dùng trong văn phong trang trọng, không nối câu thông thường. Bài 31 dùng ようになりました, nhưng bẫy nằm ở て-form nối câu (Bài 14)."
+    },
+    {
+      "id": "a-b31-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 31 ・ させてください",
+      "vi": "Nội dung này tôi không hiểu, xin cho tôi được hỏi thầy.",
+      "t1": {
+        "stem": "この 内容[ないよう]＿ わかりませんので、先生[せんせい]に 聞[き]かせてください。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 内容[ないよう]が",
+          "わかりませんので、",
+          "先生[せんせい]に",
+          "聞[き]かせてください。"
+        ],
+        "traps": [
+          "内容[ないよう]を"
+        ]
+      },
+      "t3": {
+        "target": "この内容がわかりませんので、先生に聞かせてください。",
+        "accept": [
+          "このないようがわかりませんので、せんせいにきかせてください。"
+        ]
+      },
+      "why": "わかります luôn dùng が cho đối tượng (lỗi Bài 9). ✗ この内容をわかりません. Phần 聞[き]かせてください = Bài 31 (聞く nhóm I: く → か + せてください). Bẫy kép: cần nhớ が của わかります dù câu đang luyện Bài 31."
+    }
+  ]
+}

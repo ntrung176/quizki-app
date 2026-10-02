@@ -1,0 +1,2754 @@
+{
+  "bai": 30,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 30 tập trung vào hai mẫu ngữ pháp liên quan đến \"trạng thái/chuẩn bị\": 「Vてあります」(trạng thái do ai đó cố ý tạo ra, dùng với 他動詞) và「Vておきます」(làm sẵn trước cho mục đích gì đó). Đọc hiểu ở đây = nhận ra AI đã LÀM GÌ SẴN và TRẠNG THÁI KẾT QUẢ hiện tại là gì. Chú ý phân biệt với Bài 29:「窓が開いています」(自動詞 ている = cửa đang mở, không rõ ai mở) khác「窓が開けてあります」(他動詞 てある = cửa được mở sẵn, có người cố ý mở).",
+    "steps": [
+      "Đọc lướt để nắm ngữ cảnh: ai đang chuẩn bị gì cho sự kiện nào.",
+      "Tìm động từ tha động詞 (他動詞) kết thúc bằng 〜てあります → đó là trạng thái cố ý do ai đó tạo ra.",
+      "Tìm 〜ておきます / 〜ておきました → đó là hành động làm sẵn/trước để chuẩn bị.",
+      "Câu hỏi thường hỏi: cái gì ĐÃ được chuẩn bị sẵn? Ai đã làm? Tại sao làm trước?",
+      "Gặp câu suy luận: nhìn ngữ cảnh chung (ai đang nói, ai sẽ đến, sự kiện là gì) để chọn đáp án."
+    ],
+    "tips": [
+      "他動詞＋てあります (trạng thái): chủ ngữ thường là VẬT (飲み物が買ってあります = đồ uống đã được mua sẵn rồi).",
+      "自動詞＋ています (Bài 29) mô tả trạng thái tự nhiên, không ai \"cố ý\": 窓が開いています. Còn 他動詞＋てあります = ai đó cố ý làm: 窓が開けてあります.",
+      "〜ておきます nhấn mạnh HÀNH ĐỘNG làm sẵn trước, chủ ngữ thường là NGƯỜI: 私は飲み物を買っておきます.",
+      "Bẫy hay gặp: nhầm てあります với ています — nhớ て＋ある chỉ dùng với tha động詞.",
+      "〜ておく có thể kết hợp thể た: 〜ておきました (đã làm sẵn), thể て: 〜ておいて (làm sẵn rồi…)."
+    ],
+    "grammarFocus": [
+      "Vてあります（他動詞＋てある）",
+      "Vておきます"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 29,
+        "items": [
+          "自動詞 vs 他動詞",
+          "Vています（結果状態）",
+          "Vてしまいました"
+        ]
+      },
+      {
+        "bai": 28,
+        "items": [
+          "V1ながらV2",
+          "Vています（習慣）",
+          "Vやすい・にくい"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（〜えます/られます）",
+          "Nしか〜ない"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです",
+          "Vんですか"
+        ]
+      },
+      {
+        "bai": 25,
+        "items": [
+          "〜たら",
+          "もし〜たら",
+          "〜ても"
+        ]
+      },
+      {
+        "bai": 24,
+        "items": [
+          "Vてあげます",
+          "Vてもらいます",
+          "Vてくれます"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき",
+          "〜と（điều kiện tự nhiên）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる/Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vてください"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "旅行の準備",
+      "titleVi": "Chuẩn bị cho chuyến đi",
+      "japanese": "あしたの旅行のために、もう準備してあります。ホテルは先週予約してあります。地図もかばんの中に入れてあります。今日は早く寝るために、お風呂に入っておきます。カメラの電池も充電しておきました。友達に「明日の朝8時に駅に来てください」と伝えておきました。あとは天気がいいといいと思います。",
+      "vietnamese": "Để chuẩn bị cho chuyến đi ngày mai, tôi đã sắp xếp xong rồi. Khách sạn đã được đặt từ tuần trước. Bản đồ cũng đã được bỏ vào trong túi. Để đi ngủ sớm hôm nay, tôi sẽ tắm trước. Pin máy ảnh cũng đã được sạc sẵn rồi. Tôi đã nhắn với bạn: \"Ngày mai sáng 8 giờ hãy đến ga nhé\". Bây giờ chỉ mong thời tiết đẹp thôi.",
+      "sentences": [
+        {
+          "jp": "あしたの旅行のために、もう準備してあります。",
+          "vi": "Để chuẩn bị cho chuyến đi ngày mai, tôi đã sắp xếp xong rồi.",
+          "vocab": [
+            {
+              "w": "あした",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "chuyến đi, du lịch"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "〜のために",
+              "read": "のために",
+              "vi": "để làm gì, vì mục đích gì"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã (rồi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "準備してあります = đã được chuẩn bị sẵn (có người cố ý làm). Dùng với 他動詞 準備する."
+            }
+          ]
+        },
+        {
+          "jp": "ホテルは先週予約してあります。",
+          "vi": "Khách sạn đã được đặt từ tuần trước.",
+          "vocab": [
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "予約してあります = đã đặt sẵn (ai đó đã cố ý đặt trước). Chủ ngữ là ホテル — vật ở trạng thái \"đã được đặt\"."
+            }
+          ]
+        },
+        {
+          "jp": "地図もかばんの中に入れてあります。",
+          "vi": "Bản đồ cũng đã được bỏ vào trong túi.",
+          "vocab": [
+            {
+              "w": "地図",
+              "read": "ちず",
+              "vi": "bản đồ"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi, cặp"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "bỏ vào, đặt vào (他動詞)"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "入れてあります = đã bỏ sẵn vào (他動詞 入れる → 入れてある). も: bản đồ CŨNG được chuẩn bị."
+            }
+          ]
+        },
+        {
+          "jp": "今日は早く寝るために、お風呂に入っておきます。",
+          "vi": "Để đi ngủ sớm hôm nay, tôi sẽ tắm trước.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "寝ます",
+              "read": "ねます",
+              "vi": "ngủ"
+            },
+            {
+              "w": "風呂",
+              "read": "ふろ",
+              "vi": "bồn tắm, việc tắm bồn"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "vào, tắm (入る)"
+            },
+            {
+              "w": "お風呂",
+              "read": "おふろ",
+              "vi": "bồn tắm, phòng tắm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきます",
+              "vi": "入っておきます = tắm trước (để sẵn sàng đi ngủ sớm). 〜ておく nhấn mạnh làm sẵn vì một mục đích cụ thể."
+            },
+            {
+              "point": "Vるために（Bài 18）",
+              "vi": "寝るために = để ngủ (mục đích). 辞書形 + ために."
+            }
+          ]
+        },
+        {
+          "jp": "カメラの電池も充電しておきました。",
+          "vi": "Pin máy ảnh cũng đã được sạc sẵn rồi.",
+          "vocab": [
+            {
+              "w": "カメラ",
+              "read": "カメラ",
+              "vi": "máy ảnh"
+            },
+            {
+              "w": "電池",
+              "read": "でんち",
+              "vi": "pin"
+            },
+            {
+              "w": "充電します",
+              "read": "じゅうでんします",
+              "vi": "sạc điện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきました",
+              "vi": "充電しておきました = đã sạc sẵn rồi (hành động làm trước có chủ đích). Thể quá khứ của 〜ておきます."
+            }
+          ]
+        },
+        {
+          "jp": "友達に「明日の朝8時に駅に来てください」と伝えておきました。",
+          "vi": "Tôi đã nhắn với bạn: \"Ngày mai sáng 8 giờ hãy đến ga nhé\".",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "来てください",
+              "read": "きてください",
+              "vi": "hãy đến"
+            },
+            {
+              "w": "伝えておきました",
+              "read": "つたえておきました",
+              "vi": "đã báo trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきました",
+              "vi": "伝えておきました = đã nhắn trước (để bạn biết). Việc nhắn tin được làm sẵn có chủ đích."
+            },
+            {
+              "point": "〜と言いました / 〜と伝える（Bài 21）",
+              "vi": "「〜」と伝えた = nhắn rằng \"…\". Trích dẫn nội dung nhắn."
+            }
+          ]
+        },
+        {
+          "jp": "あとは天気がいいといいと思います。",
+          "vi": "Bây giờ chỉ mong thời tiết đẹp thôi.",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "あと",
+              "read": "あと",
+              "vi": "còn lại, sau đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜といいと思います（Bài 23＋21）",
+              "vi": "天気がいいといいと思います = tôi nghĩ/mong thời tiết tốt. 〜と（Bài 23: điều kiện tự nhiên）＋いいと思います（Bài 21）."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ホテルは先週予約してあります",
+          "label": "Vてあります（他動詞）"
+        },
+        {
+          "excerpt": "地図もかばんの中に入れてあります",
+          "label": "Vてあります（他動詞）"
+        },
+        {
+          "excerpt": "お風呂に入っておきます",
+          "label": "Vておきます（làm sẵn trước）"
+        },
+        {
+          "excerpt": "カメラの電池も充電しておきました",
+          "label": "Vておきました（đã làm sẵn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ホテルについて、何がわかりますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "今日予約します",
+            "まだ予約していません",
+            "先週予約してあります",
+            "友達が予約しました"
+          ],
+          "answer": 2,
+          "explainVi": "「ホテルは先週予約してあります」と書いてあります。「予約してあります」は他動詞「予約する」＋てある = khách sạn đang ở trạng thái đã được đặt (ai đó cố ý đặt từ trước). Phương án 0 (今日予約します) sai vì bài nói đã đặt từ tuần trước rồi, không phải hôm nay. Phương án 1 (まだ予約していません) trái ngược với てあります. Phương án 3 (友達が予約しました) không có trong bài — không nêu ai đặt.",
+          "tip": "Câu hỏi hỏi \"cái gì đang ở trạng thái nào\" → tìm 他動詞＋てあります trong bài. てあります = có người cố ý làm, kết quả vẫn còn đó.",
+          "qt": {
+            "q": "Về khách sạn, có thể biết điều gì?",
+            "o": [
+              "Hôm nay sẽ đặt",
+              "Vẫn chưa đặt",
+              "Đã đặt từ tuần trước",
+              "Bạn đã đặt"
+            ]
+          }
+        },
+        {
+          "q": "この人はどうしてお風呂に入っておきますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "旅行が好きだからです",
+            "友達が来るからです",
+            "今日は暑いからです",
+            "早く寝るためです"
+          ],
+          "answer": 3,
+          "explainVi": "「今日は早く寝るために、お風呂に入っておきます」→ mục đích tắm trước được nêu rõ bằng「早く寝るために」= để ngủ sớm. 〜ために chỉ mục đích, 〜ておきます nhấn mạnh làm sẵn vì một lý do cụ thể. Phương án 0 (旅行が好きだから) không được đề cập. Phương án 1 (友達が来る) không có trong đoạn ngắn này. Phương án 2 (暑いから) bịa đặt hoàn toàn.",
+          "tip": "Câu hỏi \"どうして〜ておきますか\" → tìm「〜するために」hoặc「〜から」ngay trước/sau động từ ておく trong bài.",
+          "qt": {
+            "q": "Người này chuẩn bị đi tắm bồn vì sao?",
+            "o": [
+              "Vì thích du lịch",
+              "Vì bạn sẽ đến",
+              "Vì hôm nay trời nóng",
+              "Để đi ngủ sớm"
+            ]
+          }
+        },
+        {
+          "q": "この人はまだしていないことは何ですか。",
+          "evi": [
+            1,
+            4,
+            6
+          ],
+          "options": [
+            "ホテルの予約",
+            "地図の準備",
+            "天気の確認",
+            "電池の充電"
+          ],
+          "answer": 2,
+          "explainVi": "「あとは天気がいいといいと思います」= người này chỉ mong thời tiết tốt chứ không có cách xác nhận hay chuẩn bị nó — đây là việc DUY NHẤT chưa/không thể làm. Ngược lại: ホテルの予約 → 「先週予約してあります」(đã đặt); 地図の準備 → 「かばんの中に入れてあります」(đã bỏ vào túi); 電池の充電 → 「充電しておきました」(đã sạc). Câu hỏi dạng suy luận: phải đọc toàn bài để loại trừ.",
+          "tip": "Câu hỏi \"まだしていないこと\" → gạch chân mọi thứ có てあります/ておきました (= đã làm), rồi tìm thứ còn lại không có dấu hiệu hoàn thành.",
+          "qt": {
+            "q": "Điều gì người này vẫn chưa làm?",
+            "o": [
+              "Đặt khách sạn",
+              "Chuẩn bị bản đồ",
+              "Kiểm tra thời tiết",
+              "Sạc pin"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "パーティーの準備",
+      "titleVi": "Chuẩn bị buổi tiệc",
+      "japanese": "らいしゅうの土曜日に、友達のサリンさんの誕生日パーティーをします。\nみんなで準備することにしました。\nまず、会場はもう決めてあります。私のアパートでやることにしました。\n飲み物はスーパーで買っておきました。冷蔵庫に入れてあります。\nケーキは田中さんが注文しておいてくれました。\nテーブルの上には皿やコップが並べてあります。\n部屋もきれいに掃除しておきました。\n窓にはかわいい飾りも付けてあります。\nサリンさんへのプレゼントはもう買ってあります。\nカードも書いてあります。「いつも元気でいてください」と書きました。\n音楽のリストも準備しておきました。サリンさんが好きな曲ばかりです。\n料理は当日に作ると思っていますが、材料は昨日スーパーで買っておきました。\nみんなに「土曜日の午後3時に来てください」と連絡してあります。\nサリンさんには内緒にしておきました。サプライズパーティーですから。\nあとは当日がとても楽しくなるといいと思います。\nサリンさんがびっくりしてくれたら、うれしいです。",
+      "vietnamese": "Thứ Bảy tuần tới, chúng tôi sẽ tổ chức tiệc sinh nhật cho bạn Sarin.\nMọi người đã quyết định cùng nhau chuẩn bị.\nTrước tiên, địa điểm đã được quyết định rồi. Chúng tôi sẽ tổ chức ở căn hộ của tôi.\nĐồ uống đã được mua ở siêu thị. Đã được bỏ vào tủ lạnh.\nBánh kem đã được anh Tanaka đặt sẵn cho.\nTrên bàn đã được bày sẵn đĩa và cốc.\nPhòng cũng đã được dọn dẹp sạch sẽ.\nTrang trí xinh xắn cũng đã được dán lên cửa sổ.\nQuà tặng cho Sarin cũng đã được mua rồi.\nThiệp cũng đã được viết. Tôi đã viết: \"Hãy luôn mạnh khoẻ nhé\".\nDanh sách nhạc cũng đã được chuẩn bị. Toàn là những bài Sarin thích.\nTôi đang nghĩ sẽ nấu ăn vào ngày đó, nhưng nguyên liệu đã được mua sẵn ở siêu thị từ hôm qua.\nMọi người đã được liên lạc: \"Thứ Bảy chiều 3 giờ hãy đến nhé\".\nVới Sarin thì đã giữ bí mật. Vì đây là tiệc bất ngờ mà.\nCòn lại tôi nghĩ sẽ rất tuyệt nếu buổi đó thật vui.\nNếu Sarin ngạc nhiên thì tôi sẽ rất vui.",
+      "sentences": [
+        {
+          "jp": "らいしゅうの土曜日に、友達のサリンさんの誕生日パーティーをします。",
+          "vi": "Thứ Bảy tuần tới, chúng tôi sẽ tổ chức tiệc sinh nhật cho bạn Sarin.",
+          "vocab": [
+            {
+              "w": "しゅう",
+              "read": "しゅう",
+              "vi": "luyện tập, tuần"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "サリン",
+              "read": "サリン",
+              "vi": "tên riêng Sarin"
+            },
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời, chào đời"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc"
+            },
+            {
+              "w": "らいしゅう",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "ngày sinh nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにVます（Bài 4）",
+              "vi": "〜曜日に = vào thứ ~. に chỉ thời điểm."
+            }
+          ]
+        },
+        {
+          "jp": "みんなで準備することにしました。",
+          "vi": "Mọi người đã quyết định cùng nhau chuẩn bị.",
+          "vocab": [
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "みんなで",
+              "read": "みんなで",
+              "vi": "mọi người cùng nhau (で = phương tiện/cách thức)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることにしました（Bài 22）",
+              "vi": "することにした = đã quyết định làm. Vる＋ことにする diễn đạt quyết định."
+            }
+          ]
+        },
+        {
+          "jp": "まず、会場はもう決めてあります。私のアパートでやることにしました。",
+          "vi": "Trước tiên, địa điểm đã được quyết định rồi. Chúng tôi sẽ tổ chức ở căn hộ của tôi.",
+          "vocab": [
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã, rồi"
+            },
+            {
+              "w": "決めてあります",
+              "read": "きめてあります",
+              "vi": "đã quyết định sẵn"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "アパート",
+              "read": "あぱーと",
+              "vi": "căn hộ"
+            },
+            {
+              "w": "やる",
+              "read": "やる",
+              "vi": "làm, tổ chức"
+            },
+            {
+              "w": "ことにしました",
+              "read": "ことにしました",
+              "vi": "đã quyết định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "決めてあります = đã được quyết định (他動詞 決める → 決めてある). Địa điểm đang ở trạng thái \"đã chốt\"."
+            },
+            {
+              "point": "Vることにしました（Bài 22）",
+              "vi": "やることにした = đã quyết định làm (tổ chức) ở đây."
+            }
+          ]
+        },
+        {
+          "jp": "飲み物はスーパーで買っておきました。冷蔵庫に入れてあります。",
+          "vi": "Đồ uống đã được mua ở siêu thị. Đã được bỏ vào tủ lạnh.",
+          "vocab": [
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            },
+            {
+              "w": "冷蔵庫",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "bỏ vào, đặt vào (他動詞)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきました",
+              "vi": "買っておきました = đã mua sẵn trước (có chủ đích). Nhấn mạnh hành động làm trước."
+            },
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "入れてあります = đã được bỏ vào (他動詞 入れる → 入れてある). Trạng thái hiện tại của đồ uống."
+            }
+          ]
+        },
+        {
+          "jp": "ケーキは田中さんが注文しておいてくれました。",
+          "vi": "Bánh kem đã được anh Tanaka đặt sẵn cho.",
+          "vocab": [
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh kem"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "注文します",
+              "read": "ちゅうもんします",
+              "vi": "đặt hàng, đặt trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておいてくれました",
+              "vi": "注文しておいてくれた = đã làm sẵn (ておく) cho mình (くれる, Bài 24). Kết hợp 2 mẫu: ておく＋てくれる."
+            }
+          ]
+        },
+        {
+          "jp": "テーブルの上には皿やコップが並べてあります。",
+          "vi": "Trên bàn đã được bày sẵn đĩa và cốc.",
+          "vocab": [
+            {
+              "w": "テーブル",
+              "read": "テーブル",
+              "vi": "bàn (bàn ăn/bàn tiệc)"
+            },
+            {
+              "w": "皿",
+              "read": "さら",
+              "vi": "đĩa"
+            },
+            {
+              "w": "コップ",
+              "read": "コップ",
+              "vi": "cốc, ly"
+            },
+            {
+              "w": "並べます",
+              "read": "ならべます",
+              "vi": "bày, sắp xếp (他動詞)"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "phía trên, mặt trên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "並べてあります = đã được bày sẵn (他動詞 並べる → 並べてある). Trạng thái hiện tại: đĩa cốc đang bày trên bàn."
+            },
+            {
+              "point": "NやN（Bài 10）",
+              "vi": "皿やコップ = đĩa và cốc (liệt kê không đầy đủ, còn những thứ khác nữa)."
+            }
+          ]
+        },
+        {
+          "jp": "部屋もきれいに掃除しておきました。",
+          "vi": "Phòng cũng đã được dọn dẹp sạch sẽ.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "掃除します",
+              "read": "そうじします",
+              "vi": "dọn dẹp, quét dọn"
+            },
+            {
+              "w": "きれいに",
+              "read": "きれいに",
+              "vi": "sạch sẽ, gọn gàng (副詞)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきました",
+              "vi": "掃除しておきました = đã dọn sẵn (trước khi tiệc bắt đầu). 〜ておく nhấn mạnh làm trước có chủ đích."
+            }
+          ]
+        },
+        {
+          "jp": "窓にはかわいい飾りも付けてあります。",
+          "vi": "Trang trí xinh xắn cũng đã được dán lên cửa sổ.",
+          "vocab": [
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "かわいい",
+              "read": "かわいい",
+              "vi": "xinh xắn, dễ thương"
+            },
+            {
+              "w": "飾り",
+              "read": "かざり",
+              "vi": "đồ trang trí"
+            },
+            {
+              "w": "付けます",
+              "read": "つけます",
+              "vi": "gắn, dán, đặt lên (他動詞)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "付けてあります = đã được gắn sẵn (他動詞 付ける → 付けてある). Trang trí đang ở trạng thái \"đã dán\"."
+            }
+          ]
+        },
+        {
+          "jp": "サリンさんへのプレゼントはもう買ってあります。",
+          "vi": "Quà tặng cho Sarin cũng đã được mua rồi.",
+          "vocab": [
+            {
+              "w": "サリン",
+              "read": "サリン",
+              "vi": "tên riêng Sarin"
+            },
+            {
+              "w": "プレゼント",
+              "read": "プレゼント",
+              "vi": "quà tặng"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua (他動詞)"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã rồi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "買ってあります = đã mua sẵn rồi (quà đang ở trạng thái \"đã được mua\"). Nhấn mạnh KẾT QUẢ hiện tại."
+            }
+          ]
+        },
+        {
+          "jp": "カードも書いてあります。「いつも元気でいてください」と書きました。",
+          "vi": "Thiệp cũng đã được viết. Tôi đã viết: \"Hãy luôn mạnh khoẻ nhé\".",
+          "vocab": [
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thiệp, thẻ"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết (他動詞)"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "書いてあります = đã được viết sẵn (他動詞 書く → 書いてある). Thiệp đang ở trạng thái \"đã viết\"."
+            },
+            {
+              "point": "〜と書きました / 〜と言いました（Bài 21）",
+              "vi": "「〜」と書きました = đã viết rằng \"〜\". Trích dẫn nội dung viết."
+            }
+          ]
+        },
+        {
+          "jp": "音楽のリストも準備しておきました。サリンさんが好きな曲ばかりです。",
+          "vi": "Danh sách nhạc cũng đã được chuẩn bị. Toàn là những bài Sarin thích.",
+          "vocab": [
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "リスト",
+              "read": "リスト",
+              "vi": "danh sách"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "サリン",
+              "read": "サリン",
+              "vi": "tên riêng Sarin"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "曲",
+              "read": "きょく",
+              "vi": "bài nhạc, bản nhạc"
+            },
+            {
+              "w": "ばかり",
+              "read": "ばかり",
+              "vi": "toàn, chỉ toàn (ở đây dùng với nghĩa \"toàn là\")"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきました",
+              "vi": "準備しておきました = đã chuẩn bị sẵn (trước tiệc). ておく nhấn mạnh làm trước có chủ đích."
+            },
+            {
+              "point": "Vる/Vている＋N（Bài 22）",
+              "vi": "サリンさんが好きな曲 = bài nhạc mà Sarin thích. Mệnh đề bổ nghĩa danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "料理は当日に作ると思っていますが、材料は昨日スーパーで買っておきました。",
+          "vi": "Tôi đang nghĩ sẽ nấu ăn vào ngày đó, nhưng nguyên liệu đã được mua sẵn ở siêu thị từ hôm qua.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, việc nấu ăn"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, ngày diễn ra sự kiện"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, nấu"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "材料",
+              "read": "ざいりょう",
+              "vi": "nguyên liệu"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思っています（Bài 21）",
+              "vi": "作ると思っています = đang nghĩ sẽ nấu. と思っている diễn đạt dự định/kế hoạch hiện tại (mà chưa chốt hẳn)."
+            },
+            {
+              "point": "Vておきました",
+              "vi": "買っておきました = đã mua sẵn nguyên liệu từ hôm qua (để chuẩn bị nấu ăn ngày tiệc)."
+            }
+          ]
+        },
+        {
+          "jp": "みんなに「土曜日の午後3時に来てください」と連絡してあります。",
+          "vi": "Mọi người đã được liên lạc: \"Thứ Bảy chiều 3 giờ hãy đến nhé\".",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều, sau 12 giờ"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "連絡します",
+              "read": "れんらくします",
+              "vi": "liên lạc, thông báo (他動詞)"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            },
+            {
+              "w": "3時",
+              "read": "さんじ",
+              "vi": "3 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "連絡してあります = đã liên lạc sẵn rồi (他動詞 連絡する → 連絡してある). Trạng thái: mọi người đã được thông báo."
+            },
+            {
+              "point": "〜と言いました / 〜と伝える（Bài 21）",
+              "vi": "「〜」と連絡した = liên lạc nói rằng \"〜\". Trích dẫn nội dung thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "サリンさんには内緒にしておきました。サプライズパーティーですから。",
+          "vi": "Với Sarin thì đã giữ bí mật. Vì đây là tiệc bất ngờ mà.",
+          "vocab": [
+            {
+              "w": "サリン",
+              "read": "サリン",
+              "vi": "tên riêng Sarin"
+            },
+            {
+              "w": "内緒",
+              "read": "ないしょ",
+              "vi": "bí mật, giữ kín"
+            },
+            {
+              "w": "サプライズパーティー",
+              "read": "サプライズパーティー",
+              "vi": "tiệc bất ngờ"
+            },
+            {
+              "w": "サプライズ",
+              "read": "サプライズ",
+              "vi": "bất ngờ (surprise)"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "tiệc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきました",
+              "vi": "内緒にしておきました = đã giữ bí mật sẵn (và tiếp tục giữ). 〜ておく nhấn mạnh trạng thái duy trì có chủ đích."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "サプライズパーティーですから = vì là tiệc bất ngờ. から nêu lý do ở cuối câu."
+            }
+          ]
+        },
+        {
+          "jp": "あとは当日がとても楽しくなるといいと思います。",
+          "vi": "Còn lại tôi nghĩ sẽ rất tuyệt nếu buổi đó thật vui.",
+          "vocab": [
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày đó"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, vui vẻ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "あと",
+              "read": "あと",
+              "vi": "còn lại, sau đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くなる（Bài 19）",
+              "vi": "楽しくなる = trở nên vui (thay đổi trạng thái từ tính từ い)."
+            },
+            {
+              "point": "〜といいと思います（Bài 23＋21）",
+              "vi": "楽しくなるといいと思います = tôi mong trở nên vui. と（Bài 23: kết quả tự nhiên）＋いいと思います（Bài 21: mong muốn）."
+            }
+          ]
+        },
+        {
+          "jp": "サリンさんがびっくりしてくれたら、うれしいです。",
+          "vi": "Nếu Sarin ngạc nhiên thì tôi sẽ rất vui.",
+          "vocab": [
+            {
+              "w": "サリン",
+              "read": "サリン",
+              "vi": "tên riêng Sarin"
+            },
+            {
+              "w": "びっくり",
+              "read": "びっくり",
+              "vi": "sự ngạc nhiên, giật mình"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui mừng, hạnh phúc"
+            },
+            {
+              "w": "びっくりします",
+              "read": "びっくりします",
+              "vi": "ngạc nhiên, giật mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくれたら（Bài 24＋25）",
+              "vi": "びっくりしてくれたら = nếu (Sarin) ngạc nhiên cho (mình). てくれる（Bài 24） kết hợp với 〜たら（Bài 25）."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "会場はもう決めてあります",
+          "label": "Vてあります（他動詞 決める）"
+        },
+        {
+          "excerpt": "冷蔵庫に入れてあります",
+          "label": "Vてあります（他動詞 入れる）"
+        },
+        {
+          "excerpt": "飲み物はスーパーで買っておきました",
+          "label": "Vておきました（làm sẵn trước）"
+        },
+        {
+          "excerpt": "テーブルの上には皿やコップが並べてあります",
+          "label": "Vてあります（他動詞 並べる）"
+        },
+        {
+          "excerpt": "音楽のリストも準備しておきました",
+          "label": "Vておきました（chuẩn bị sẵn）"
+        },
+        {
+          "excerpt": "サリンさんには内緒にしておきました",
+          "label": "Vておきました（duy trì trạng thái）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ケーキについて、何がわかりますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "この人が注文しておきました",
+            "田中さんが注文しておいてくれました",
+            "まだ注文していません",
+            "サリンさんが買いました"
+          ],
+          "answer": 1,
+          "explainVi": "「ケーキは田中さんが注文しておいてくれました」と書いてあります。主語は「田中さん」なので、đặt bánh là anh Tanaka chứ không phải người viết. 「注文しておいてくれた」= ておく (làm sẵn trước) + てくれる (làm cho mình, Bài 24) → Tanaka đã chủ động đặt sẵn giúp. Phương án 0 (この人が注文した) nhầm người thực hiện. Phương án 2 (まだ注文していない) trái với bài. Phương án 3 (サリンさんが買った) hoàn toàn bịa.",
+          "tip": "Câu hỏi \"〜について何がわかりますか\" với động từ ておいてくれた → chú ý CHỦ NGỮ (は/が) trước động từ để xác định AI đã làm gì.",
+          "qt": {
+            "q": "Về chiếc bánh, điều gì được biết?",
+            "o": [
+              "Người này đã đặt trước",
+              "Anh Tanaka đã đặt trước giúp",
+              "Vẫn chưa đặt",
+              "Cô Sarin đã mua"
+            ]
+          }
+        },
+        {
+          "q": "みんなへの連絡で、何時に来てほしいと書きましたか。",
+          "evi": [
+            12
+          ],
+          "options": [
+            "午前10時",
+            "午後1時",
+            "午後3時",
+            "午後5時"
+          ],
+          "answer": 2,
+          "explainVi": "「みんなに「土曜日の午後3時に来てください」と連絡してあります」と書いてあります。「午後3時」が答えです。「連絡してあります」= 他動詞 連絡する + てある → mọi người đã được thông báo (trạng thái hoàn thành). Trích dẫn「〜と連絡する」chứa nội dung giờ giấc cụ thể. Ba phương án còn lại (10時/午後1時/午後5時) không xuất hiện trong bài.",
+          "tip": "Câu hỏi về con số/giờ giấc → tìm chuỗi「〜時」trong bài, thường nằm trong dấu ngoặc kép「」của câu trích dẫn.",
+          "qt": {
+            "q": "Trong tin nhắn gửi mọi người, đã viết muốn mọi người đến lúc mấy giờ?",
+            "o": [
+              "10 giờ sáng",
+              "1 giờ chiều",
+              "3 giờ chiều",
+              "5 giờ chiều"
+            ]
+          }
+        },
+        {
+          "q": "なぜサリンさんには連絡しませんでしたか。",
+          "evi": [
+            13
+          ],
+          "options": [
+            "サリンさんの電話番号を知らないからです",
+            "サリンさんはパーティーが嫌いだからです",
+            "サプライズパーティーだから、内緒にしておきたいからです",
+            "サリンさんはまだ来られないからです"
+          ],
+          "answer": 2,
+          "explainVi": "「サリンさんには内緒にしておきました。サプライズパーティーですから」= đã chủ đích giữ bí mật với Sarin vì đây là tiệc bất ngờ. 「内緒にしておく」= ておく dùng để DUY TRÌ trạng thái bí mật có chủ đích. 「〜ですから」nêu lý do trực tiếp. Phương án 0, 1, 3 đều không được đề cập trong bài — đây là bẫy thông tin bịa.",
+          "tip": "Câu hỏi \"なぜ〜しませんでしたか\" → tìm「〜から/〜ので/〜ために」sau hành động tương ứng trong bài. ておく đi kèm lý do duy trì trạng thái.",
+          "qt": {
+            "q": "Tại sao không liên lạc với cô Sarin?",
+            "o": [
+              "Vì không biết số điện thoại của cô Sarin",
+              "Vì cô Sarin không thích tiệc tùng",
+              "Vì đây là tiệc bất ngờ nên muốn giữ bí mật",
+              "Vì cô Sarin vẫn chưa thể đến"
+            ]
+          }
+        },
+        {
+          "q": "料理についての説明で、正しいのはどれですか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "昨日全部作ってあります",
+            "当日に作ると思っていて、材料は昨日スーパーで買っておきました",
+            "田中さんが作っておいてくれました",
+            "スーパーで買ってあります"
+          ],
+          "answer": 1,
+          "explainVi": "「料理は当日に作ると思っていますが、材料は昨日スーパーで買っておきました」と書いてあります。料理 = nấu ăn vào ngày tiệc (chưa làm); nguyên liệu = đã mua sẵn từ hôm qua (ておきました). Phương án 0 (昨日全部作ってある) sai — chưa nấu, chỉ mua nguyên liệu. Phương án 2 (田中さんが作った) sai — Tanaka chỉ đặt bánh. Phương án 3 (スーパーで買ってある) nhầm: bài dùng ておきました (nhấn mạnh hành động làm sẵn) chứ không phải てあります (trạng thái), và đây là nguyên liệu, không phải món ăn mua sẵn.",
+          "tip": "Phân biệt ておきました (đã làm sẵn — nhấn mạnh HÀNH ĐỘNG chuẩn bị) và てあります (đang ở trạng thái đã được làm — nhấn mạnh KẾT QUẢ). Đáp án đúng phải khớp cả nội dung lẫn mẫu ngữ pháp.",
+          "qt": {
+            "q": "Trong phần giải thích về món ăn, câu nào đúng?",
+            "o": [
+              "Đã làm tất cả từ hôm qua",
+              "Định làm vào ngày hôm đó và đã mua nguyên liệu ở siêu thị hôm qua",
+              "Anh Tanaka đã làm giúp từ trước",
+              "Đã mua ở siêu thị"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "パーティー会場のお知らせ",
+      "titleVi": "Thông báo: Cho thuê hội trường tiệc",
+      "japanese": "さくら市国際交流センター　パーティー会場のお知らせ\n誕生日パーティーや歓迎会のために、会場を借りることができます。\n部屋にはテーブルといすが置いてあります。かざりも少し用意してあります。\n会場｜曜日｜時間｜料金\nひまわり室｜金・土｜18:00〜21:00｜2,000円\nさくら室｜金・土｜18:00〜21:00｜3,500円\nたんぽぽ室｜日｜13:00〜16:00｜1,500円\nひまわり室は15人まで、さくら室は30人まで使うことができます。\n料理や飲み物は自分で買っておいてください。冷蔵庫も置いてあります。\nサービス｜料金\nマイク｜500円\nテーブルクロス｜300円\n※予約は3日前までにしておいてください。日曜日と祝日はお休みです。\n電話：082-123-4567（月〜土　9:00〜18:00）",
+      "vietnamese": "Trung tâm giao lưu quốc tế thành phố Sakura — Thông báo về hội trường tiệc\nQuý vị có thể thuê hội trường cho tiệc sinh nhật hay tiệc chào mừng.\nTrong phòng đã có sẵn bàn và ghế. Một ít đồ trang trí cũng đã được chuẩn bị sẵn.\nHội trường｜Thứ｜Giờ｜Giá\nPhòng Hướng Dương｜Thứ Sáu, Thứ Bảy｜18:00〜21:00｜2.000 yên\nPhòng Hoa Anh Đào｜Thứ Sáu, Thứ Bảy｜18:00〜21:00｜3.500 yên\nPhòng Bồ Công Anh｜Chủ Nhật｜13:00〜16:00｜1.500 yên\nPhòng Hướng Dương dùng được tối đa 15 người, phòng Hoa Anh Đào tối đa 30 người.\nĐồ ăn và đồ uống xin quý vị tự mua trước. Tủ lạnh cũng đã có sẵn trong phòng.\nDịch vụ｜Giá\nMicro｜500 yên\nKhăn trải bàn｜300 yên\n※Xin hãy đặt trước chậm nhất 3 ngày trước ngày sử dụng. Chủ Nhật và ngày lễ trung tâm nghỉ.\nĐiện thoại: 082-123-4567 (Thứ Hai〜Thứ Bảy, 9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "さくら市国際交流センター　パーティー会場のお知らせ",
+          "vi": "Trung tâm giao lưu quốc tế thành phố Sakura — Thông báo về hội trường tiệc",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "buổi tiệc"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "hội trường, địa điểm tổ chức"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "誕生日パーティーや歓迎会のために、会場を借りることができます。",
+          "vi": "Quý vị có thể thuê hội trường cho tiệc sinh nhật hay tiệc chào mừng.",
+          "vocab": [
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời, chào đời"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc, party"
+            },
+            {
+              "w": "歓迎",
+              "read": "かんげい",
+              "vi": "hoan nghênh, chào đón"
+            },
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "借ります",
+              "read": "かります",
+              "vi": "thuê, mượn"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            },
+            {
+              "w": "歓迎会",
+              "read": "かんげいかい",
+              "vi": "tiệc chào mừng, tiệc hoan nghênh"
+            },
+            {
+              "w": "〜のために",
+              "read": "のために",
+              "vi": "vì mục đích gì"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "借りることができます = có thể thuê được. 辞書形＋ことができる diễn đạt khả năng."
+            },
+            {
+              "point": "NやN（Bài 10）",
+              "vi": "誕生日パーティーや歓迎会 = tiệc sinh nhật hay tiệc chào mừng (liệt kê không đầy đủ)."
+            }
+          ]
+        },
+        {
+          "jp": "部屋にはテーブルといすが置いてあります。かざりも少し用意してあります。",
+          "vi": "Trong phòng đã có sẵn bàn và ghế. Một ít đồ trang trí cũng đã được chuẩn bị sẵn.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "テーブル",
+              "read": "テーブル",
+              "vi": "bàn"
+            },
+            {
+              "w": "置きます",
+              "read": "おきます",
+              "vi": "đặt, để (他動詞)"
+            },
+            {
+              "w": "かざり",
+              "read": "かざり",
+              "vi": "đồ trang trí"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một ít"
+            },
+            {
+              "w": "用意します",
+              "read": "よういします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "いす",
+              "read": "いす",
+              "vi": "ghế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "置いてあります／用意してあります = đã được đặt sẵn／chuẩn bị sẵn (他動詞 置く・用意する → てある). Trạng thái hiện tại của phòng."
+            }
+          ]
+        },
+        {
+          "jp": "会場｜曜日｜時間｜料金",
+          "vi": "Hội trường｜Thứ｜Giờ｜Giá",
+          "vocab": [
+            {
+              "w": "会場",
+              "read": "かいじょう",
+              "vi": "địa điểm tổ chức"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá tiền, cước phí"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "ひまわり室｜金・土｜18:00〜21:00｜2,000円",
+          "vi": "Phòng Hướng Dương｜Thứ Sáu, Thứ Bảy｜18:00〜21:00｜2.000 yên",
+          "vocab": [
+            {
+              "w": "ひまわり",
+              "read": "ひまわり",
+              "vi": "hoa hướng dương"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu (viết tắt)"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy (viết tắt)"
+            },
+            {
+              "w": "ひまわり室",
+              "read": "ひまわりしつ",
+              "vi": "phòng Hướng Dương"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (đơn vị tiền)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "ひまわり室｜金・土｜18:00〜21:00｜2,000円",
+              "why": "Hàng bảng ひまわり室: có Thứ Sáu, nhưng câu 1 sau xác nhận chỉ chứa 15人まで → loại vì không đủ chỗ cho 25人."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "さくら室｜金・土｜18:00〜21:00｜3,500円",
+          "vi": "Phòng Hoa Anh Đào｜Thứ Sáu, Thứ Bảy｜18:00〜21:00｜3.500 yên",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; Sakura"
+            },
+            {
+              "w": "さくら室",
+              "read": "さくらしつ",
+              "vi": "phòng Sakura"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "18:00",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            },
+            {
+              "w": "21:00",
+              "read": "にじゅういちじ",
+              "vi": "21 giờ"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくら室｜金・土｜18:00〜21:00｜3,500円",
+              "why": "Hàng bảng さくら室: có Thứ Sáu (khớp điều kiện 金曜日 của câu 1) và 30人 (xem câu sau) → đáp án câu 1."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "たんぽぽ室｜日｜13:00〜16:00｜1,500円",
+          "vi": "Phòng Bồ Công Anh｜Chủ Nhật｜13:00〜16:00｜1.500 yên",
+          "vocab": [
+            {
+              "w": "たんぽぽ",
+              "read": "たんぽぽ",
+              "vi": "hoa bồ công anh; Tanpopo"
+            },
+            {
+              "w": "たんぽぽ室",
+              "read": "たんぽぽしつ",
+              "vi": "phòng Tanpopo"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "13:00",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "16:00",
+              "read": "じゅうろくじ",
+              "vi": "16 giờ"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "たんぽぽ室｜日｜13:00〜16:00｜1,500円",
+              "why": "たんぽぽ室 chỉ mở Chủ Nhật（日）→ không dùng được cho tiệc thứ Sáu, là phương án nhiễu của câu 1."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "ひまわり室は15人まで、さくら室は30人まで使うことができます。",
+          "vi": "Phòng Hướng Dương dùng được tối đa 15 người, phòng Hoa Anh Đào tối đa 30 người.",
+          "vocab": [
+            {
+              "w": "ひまわり",
+              "read": "ひまわり",
+              "vi": "hoa hướng dương; Himawari"
+            },
+            {
+              "w": "ひまわり室",
+              "read": "ひまわりしつ",
+              "vi": "phòng Himawari"
+            },
+            {
+              "w": "15人",
+              "read": "じゅうごにん",
+              "vi": "15 người"
+            },
+            {
+              "w": "まで",
+              "read": "まで",
+              "vi": "đến; tối đa"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; Sakura"
+            },
+            {
+              "w": "さくら室",
+              "read": "さくらしつ",
+              "vi": "phòng Sakura"
+            },
+            {
+              "w": "30人",
+              "read": "さんじゅうにん",
+              "vi": "30 người"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            }
+          ],
+          "keys": [
+            {
+              "w": "15人まで",
+              "why": "Giới hạn sức chứa ひまわり室 — 25人 vượt quá nên loại phòng này khỏi câu 1."
+            },
+            {
+              "w": "30人まで",
+              "why": "Giới hạn sức chứa さくら室 — 25人 vẫn nằm trong 30人まで → xác nhận đáp án câu 1."
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまで（Bài 4）",
+              "vi": "15人まで = tối đa đến 15 người. まで chỉ giới hạn trên."
+            },
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "使うことができます = có thể sử dụng được."
+            }
+          ]
+        },
+        {
+          "jp": "料理や飲み物は自分で買っておいてください。冷蔵庫も置いてあります。",
+          "vi": "Đồ ăn và đồ uống xin quý vị tự mua trước. Tủ lạnh cũng đã có sẵn trong phòng.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn"
+            },
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "自分で",
+              "read": "じぶんで",
+              "vi": "tự mình"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "冷蔵庫",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            },
+            {
+              "w": "置く",
+              "read": "おく",
+              "vi": "đặt, để"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておいてください",
+              "vi": "買っておいてください = xin hãy mua sẵn trước (kết hợp ておく＋てください, Bài 14). Yêu cầu làm trước có chủ đích."
+            },
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "置いてあります = tủ lạnh đã được đặt sẵn trong phòng (trạng thái)."
+            }
+          ]
+        },
+        {
+          "jp": "サービス｜料金",
+          "vi": "Dịch vụ｜Giá",
+          "vocab": [
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "マイク｜500円",
+          "vi": "Micro｜500 yên",
+          "vocab": [
+            {
+              "w": "マイク",
+              "read": "マイク",
+              "vi": "micro"
+            }
+          ],
+          "keys": [
+            {
+              "w": "マイク｜500円",
+              "why": "Ô giá マイク trong bảng dịch vụ — 1 trong 2 số cần cộng cho câu hỏi 2."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "テーブルクロス｜300円",
+          "vi": "Khăn trải bàn｜300 yên",
+          "vocab": [
+            {
+              "w": "テーブルクロス",
+              "read": "テーブルクロス",
+              "vi": "khăn trải bàn"
+            }
+          ],
+          "keys": [
+            {
+              "w": "テーブルクロス｜300円",
+              "why": "Ô giá テーブルクロス — số còn lại cần cộng với マイク cho câu hỏi 2 (500＋300＝800円)."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "※予約は3日前までにしておいてください。日曜日と祝日はお休みです。",
+          "vi": "※Xin hãy đặt trước chậm nhất 3 ngày trước ngày sử dụng. Chủ Nhật và ngày lễ trung tâm nghỉ.",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ Nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "3日前",
+              "read": "みっかまえ",
+              "vi": "3 ngày trước"
+            },
+            {
+              "w": "〜までに",
+              "read": "までに",
+              "vi": "trước hạn, chậm nhất là (Bài 17)"
+            },
+            {
+              "w": "お休み",
+              "read": "おやすみ",
+              "vi": "nghỉ"
+            }
+          ],
+          "keys": [
+            {
+              "w": "※予約は3日前までにしておいてください",
+              "why": "Bẫy ※: điều kiện đặt trước 3 ngày — không liên quan trực tiếp câu hỏi nhưng học viên cần nhận diện đây là ngoại lệ/điều kiện, không phải căn cứ chọn phòng hay giá."
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておいてください",
+              "vi": "予約は…しておいてください = xin hãy đặt trước sẵn (giúp trung tâm chuẩn bị). ておく＋てください."
+            },
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "3日前までに = chậm nhất là 3 ngày trước. までに chỉ hạn chót."
+            }
+          ]
+        },
+        {
+          "jp": "電話：082-123-4567（月〜土　9:00〜18:00）",
+          "vi": "Điện thoại: 082-123-4567 (Thứ Hai〜Thứ Bảy, 9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai (viết tắt)"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "テーブルといすが置いてあります",
+          "label": "Vてあります（他動詞 置く）"
+        },
+        {
+          "excerpt": "かざりも少し用意してあります",
+          "label": "Vてあります（他動詞 用意する）"
+        },
+        {
+          "excerpt": "料理や飲み物は自分で買っておいてください",
+          "label": "Vておいてください（làm sẵn trước）"
+        },
+        {
+          "excerpt": "予約は3日前までにしておいてください",
+          "label": "Vておいてください（làm sẵn trước）"
+        },
+        {
+          "excerpt": "ひまわり室は15人まで、さくら室は30人まで使うことができます",
+          "label": "Vることができます（Bài 18・ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & mục đích thuê",
+          "topic": 0,
+          "note": "Tiêu đề thông báo và mục đích thuê hội trường — chưa có căn cứ trả lời câu hỏi nào.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "kind": "body",
+          "label": "Trang bị sẵn trong phòng",
+          "topic": 2,
+          "note": "Mô tả trạng thái てあります của bàn ghế, đồ trang trí — bối cảnh chung, không phải căn cứ câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng hội trường & sức chứa",
+          "topic": 4,
+          "note": "Bảng chính chứa 3 phòng với thứ/giờ/giá và giới hạn số người — đây là căn cứ để trả lời câu hỏi 1 (ghép điều kiện thứ + số người).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "body",
+          "label": "Đồ ăn tự chuẩn bị & tủ lạnh",
+          "topic": 8,
+          "note": "Thông tin phụ về đồ ăn/tủ lạnh — không liên quan trực tiếp 2 câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "point",
+          "label": "Bảng dịch vụ thuê thêm",
+          "topic": 9,
+          "note": "Bảng giá dịch vụ (mic, khăn trải bàn) — căn cứ để cộng tiền cho câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "turn",
+          "label": "Điều kiện ※ & liên hệ",
+          "topic": 12,
+          "note": "Bẫy ※: hạn đặt trước 3 ngày, ngày nghỉ — không phải căn cứ của 2 câu hỏi nhưng dễ nhầm là điều kiện chọn phòng.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは金曜日の夜、25人でパーティーをしたいです。どちらの会場がいいですか。",
+          "options": [
+            "ひまわり室",
+            "さくら室",
+            "たんぽぽ室",
+            "どちらも使えません"
+          ],
+          "answer": 1,
+          "explainVi": "25人が入る会場が必要です。「ひまわり室は15人まで」なので25人は入りません。「さくら室は30人まで使うことができます」ので、25人でも大丈夫です。曜日も表で「さくら室｜金・土」なので金曜日も使えます。人数（25人）と曜日（金曜日）の2つの条件を合わせると答えは「さくら室」です。「たんぽぽ室」は日曜日しか使えないので条件に合いません。",
+          "tip": "「〜人で」「何曜日」のように条件が2つ出たら、表の列（曜日・人数の説明文）を両方チェックしてから選ぶ。",
+          "evi": [
+            5,
+            7
+          ],
+          "qt": {
+            "q": "Anh Miller muốn tổ chức tiệc vào tối thứ Sáu cho 25 người. Phòng nào phù hợp?",
+            "o": [
+              "Phòng Himawari",
+              "Phòng Sakura",
+              "Phòng Tanpopo",
+              "Cả hai đều không thể sử dụng"
+            ]
+          }
+        },
+        {
+          "q": "マイクとテーブルクロスを借りたら、いくら払いますか。",
+          "options": [
+            "300円",
+            "500円",
+            "800円",
+            "2,000円"
+          ],
+          "answer": 2,
+          "explainVi": "「サービス｜料金」の表に「マイク｜500円」「テーブルクロス｜300円」とあります。2つ借りるので500円＋300円＝800円です。0（300円）はテーブルクロスだけ、1（500円）はマイクだけの値段で、どちらも1つしか計算していません。3（2,000円）は会場料金（ひまわり室）の値段で、サービス料金ではありません。",
+          "tip": "「〜と〜を借りたら」のように2つの物が出たら、表から2つの値段を探して足し算する。",
+          "evi": [
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Nếu thuê micro và khăn trải bàn thì phải trả bao nhiêu tiền?",
+            "o": [
+              "300 yên",
+              "500 yên",
+              "800 yên",
+              "2.000 yên"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "共同利用室のルール",
+      "titleVi": "Nội quy phòng sử dụng chung",
+      "japanese": "さくら国際交流センター　共同利用室のルール\nこのセンターには部屋が3つあります。使う前にルールを読んでおいてください。\n部屋｜使ってもいいこと｜だめなこと｜定員\n会議室｜会議、パソコン使用｜食べ物、飲み物｜10人\n多目的ホール｜ダンス、音楽の練習｜くつのまま入ること｜30人\n学習室｜勉強、読書｜大きい声で話すこと｜15人\n会議室にはホワイトボードとプロジェクターが置いてあります。\n学習室の机の上には辞書も少し置いてあります。\n使い終わったら、机やいすは元の場所に戻しておいてください。\n多目的ホールの壁には避難口の地図がはってあります。\n会議室のかぎは、受付で借りて、使い終わったらすぐに返しておいてください。\n※使う日の1週間前までに、受付で予約しておいてください。\n受付：1階（月〜金　9:00〜19:00、土　9:00〜17:00）",
+      "vietnamese": "Trung tâm giao lưu quốc tế Sakura — Nội quy phòng sử dụng chung\nTrung tâm này có 3 phòng. Xin hãy đọc nội quy trước khi sử dụng.\nPhòng｜Được phép làm｜Không được làm｜Sức chứa\nPhòng họp｜Họp, dùng máy tính｜Đồ ăn, đồ uống｜10 người\nHội trường đa năng｜Tập múa, tập nhạc｜Đi giày vào trong｜30 người\nPhòng học tập｜Học bài, đọc sách｜Nói chuyện lớn tiếng｜15 người\nTrong phòng họp đã được đặt sẵn bảng trắng và máy chiếu.\nTrên bàn của phòng học tập cũng đã được để sẵn một ít từ điển.\nKhi dùng xong, xin hãy để bàn ghế trở về đúng chỗ cũ.\nTrên tường hội trường đa năng đã được dán sẵn bản đồ lối thoát hiểm.\nChìa khóa phòng họp, xin hãy mượn ở quầy lễ tân, dùng xong thì trả lại ngay.\n※Xin hãy đặt chỗ trước tại quầy lễ tân chậm nhất 1 tuần trước ngày sử dụng.\nQuầy lễ tân: tầng 1 (Thứ Hai〜Thứ Sáu 9:00〜19:00, Thứ Bảy 9:00〜17:00)",
+      "sentences": [
+        {
+          "jp": "さくら国際交流センター　共同利用室のルール",
+          "vi": "Trung tâm giao lưu quốc tế Sakura — Nội quy phòng sử dụng chung",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "共同",
+              "read": "きょうどう",
+              "vi": "chung, cùng nhau"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "nội quy, quy định"
+            },
+            {
+              "w": "さくら国際交流センター",
+              "read": "さくらこくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế Sakura"
+            },
+            {
+              "w": "利用室",
+              "read": "りようしつ",
+              "vi": "phòng sử dụng"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "このセンターには部屋が3つあります。使う前にルールを読んでおいてください。",
+          "vi": "Trung tâm này có 3 phòng. Xin hãy đọc nội quy trước khi sử dụng.",
+          "vocab": [
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "ルール",
+              "read": "ルール",
+              "vi": "quy tắc, nội quy"
+            },
+            {
+              "w": "読みます",
+              "read": "よみます",
+              "vi": "đọc"
+            },
+            {
+              "w": "3つ",
+              "read": "みっつ",
+              "vi": "3 cái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vまえに（Bài 16）",
+              "vi": "使う前に = trước khi sử dụng. 辞書形＋まえに."
+            },
+            {
+              "point": "Vておいてください",
+              "vi": "読んでおいてください = xin hãy đọc trước sẵn (ておく＋てください, Bài 14). Yêu cầu chuẩn bị trước khi dùng phòng."
+            }
+          ]
+        },
+        {
+          "jp": "部屋｜使ってもいいこと｜だめなこと｜定員",
+          "vi": "Phòng｜Được phép làm｜Không được làm｜Sức chứa",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "定員",
+              "read": "ていいん",
+              "vi": "sức chứa, số người tối đa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです（Bài 15）",
+              "vi": "使ってもいいこと = việc được phép làm. Vてもいい diễn đạt sự cho phép."
+            }
+          ]
+        },
+        {
+          "jp": "会議室｜会議、パソコン使用｜食べ物、飲み物｜10人",
+          "vi": "Phòng họp｜Họp, dùng máy tính｜Đồ ăn, đồ uống｜10 người",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính (personal computer)"
+            },
+            {
+              "w": "使用",
+              "read": "しよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn"
+            },
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "10人",
+              "read": "じゅうにん",
+              "vi": "10 người"
+            }
+          ],
+          "keys": [
+            {
+              "w": "会議室｜会議、パソコン使用｜食べ物、飲み物｜10人",
+              "why": "Hàng 会議室: được phép chỉ 会議・パソコン使用, KHÔNG có ダンス → phương án nhiễu của câu 1."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "多目的ホール｜ダンス、音楽の練習｜くつのまま入ること｜30人",
+          "vi": "Hội trường đa năng｜Tập múa, tập nhạc｜Đi giày vào trong｜30 người",
+          "vocab": [
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "ホール",
+              "read": "ホール",
+              "vi": "hội trường"
+            },
+            {
+              "w": "ダンス",
+              "read": "ダンス",
+              "vi": "nhảy múa, khiêu vũ"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "vào, đi vào"
+            },
+            {
+              "w": "多目的ホール",
+              "read": "たもくてきホール",
+              "vi": "hội trường đa năng"
+            },
+            {
+              "w": "くつ",
+              "read": "くつ",
+              "vi": "giày"
+            },
+            {
+              "w": "30人",
+              "read": "さんじゅうにん",
+              "vi": "30 người"
+            }
+          ],
+          "keys": [
+            {
+              "w": "ダンス、音楽の練習",
+              "why": "Cột \"được phép làm\" của 多目的ホール có ダンス → khớp điều kiện mục đích của Lee-san (câu hỏi 1)."
+            },
+            {
+              "w": "30人",
+              "why": "Sức chứa 30人 ≥ 6人 (Lee-san + 5 bạn) → xác nhận đủ chỗ, đáp án câu hỏi 1."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "学習室｜勉強、読書｜大きい声で話すこと｜15人",
+          "vi": "Phòng học tập｜Học bài, đọc sách｜Nói chuyện lớn tiếng｜15 người",
+          "vocab": [
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học bài"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "話します",
+              "read": "はなします",
+              "vi": "nói chuyện"
+            },
+            {
+              "w": "学習室",
+              "read": "がくしゅうしつ",
+              "vi": "phòng học tập"
+            },
+            {
+              "w": "大きい声",
+              "read": "おおきいこえ",
+              "vi": "giọng nói lớn"
+            },
+            {
+              "w": "15人",
+              "read": "じゅうごにん",
+              "vi": "15 người"
+            }
+          ],
+          "keys": [
+            {
+              "w": "学習室｜勉強、読書｜大きい声で話すこと｜15人",
+              "why": "Hàng 学習室: chỉ dùng cho 勉強・読書, không có ダンス → phương án nhiễu của câu 1."
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "会議室にはホワイトボードとプロジェクターが置いてあります。",
+          "vi": "Trong phòng họp đã được đặt sẵn bảng trắng và máy chiếu.",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "ホワイト",
+              "read": "ほわいと",
+              "vi": "màu trắng"
+            },
+            {
+              "w": "ボード",
+              "read": "ぼーど",
+              "vi": "bảng"
+            },
+            {
+              "w": "ホワイトボード",
+              "read": "ほわいとぼーど",
+              "vi": "bảng trắng"
+            },
+            {
+              "w": "プロジェクター",
+              "read": "ぷろじぇくたー",
+              "vi": "máy chiếu"
+            },
+            {
+              "w": "置いてあります",
+              "read": "おいてあります",
+              "vi": "được đặt sẵn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "置いてあります = đã được đặt sẵn (他動詞 置く → 置いてある). Phòng họp đang ở trạng thái đã chuẩn bị sẵn thiết bị."
+            }
+          ]
+        },
+        {
+          "jp": "学習室の机の上には辞書も少し置いてあります。",
+          "vi": "Trên bàn của phòng học tập cũng đã được để sẵn một ít từ điển.",
+          "vocab": [
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "học tập"
+            },
+            {
+              "w": "学習室",
+              "read": "がくしゅうしつ",
+              "vi": "phòng học"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn học"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "bên trên"
+            },
+            {
+              "w": "辞書",
+              "read": "じしょ",
+              "vi": "từ điển"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một ít"
+            },
+            {
+              "w": "置いてあります",
+              "read": "おいてあります",
+              "vi": "được đặt sẵn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "置いてあります = đã được để sẵn (他動詞 置く → 置いてある). Từ điển đang ở trạng thái đã chuẩn bị sẵn trên bàn."
+            }
+          ]
+        },
+        {
+          "jp": "使い終わったら、机やいすは元の場所に戻しておいてください。",
+          "vi": "Khi dùng xong, xin hãy để bàn ghế trở về đúng chỗ cũ.",
+          "vocab": [
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn học, bàn làm việc"
+            },
+            {
+              "w": "元",
+              "read": "もと",
+              "vi": "trước đây, nguyên là"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "戻します",
+              "read": "もどします",
+              "vi": "trả lại, đưa về (他動詞)"
+            },
+            {
+              "w": "使い終わります",
+              "read": "つかいおわります",
+              "vi": "dùng xong"
+            },
+            {
+              "w": "いす",
+              "read": "いす",
+              "vi": "ghế"
+            },
+            {
+              "w": "元の場所",
+              "read": "もとのばしょ",
+              "vi": "chỗ cũ, vị trí ban đầu"
+            }
+          ],
+          "keys": [
+            {
+              "w": "使い終わったら",
+              "why": "Mốc thời điểm khớp đúng câu hỏi 2「使い終わったとき」— chỉ dòng cần soi."
+            },
+            {
+              "w": "机やいすは元の場所に戻しておいてください",
+              "why": "Việc PHẢI làm sau khi dùng xong — căn cứ trực tiếp cho đáp án đúng câu hỏi 2."
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "使い終わったら = khi dùng xong (điều kiện thời điểm)."
+            },
+            {
+              "point": "Vておいてください",
+              "vi": "戻しておいてください = xin hãy để trở về sẵn vị trí cũ (làm sẵn cho người dùng sau). ておく＋てください."
+            }
+          ]
+        },
+        {
+          "jp": "多目的ホールの壁には避難口の地図がはってあります。",
+          "vi": "Trên tường hội trường đa năng đã được dán sẵn bản đồ lối thoát hiểm.",
+          "vocab": [
+            {
+              "w": "多目的",
+              "read": "たもくてき",
+              "vi": "đa mục đích"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "ホール",
+              "read": "ほーる",
+              "vi": "hội trường"
+            },
+            {
+              "w": "多目的ホール",
+              "read": "たもくてきほーる",
+              "vi": "hội trường đa năng"
+            },
+            {
+              "w": "壁",
+              "read": "かべ",
+              "vi": "bức tường"
+            },
+            {
+              "w": "避難",
+              "read": "ひなん",
+              "vi": "sơ tán"
+            },
+            {
+              "w": "避難口",
+              "read": "ひなんぐち",
+              "vi": "lối thoát hiểm"
+            },
+            {
+              "w": "地図",
+              "read": "ちず",
+              "vi": "bản đồ"
+            },
+            {
+              "w": "はってあります",
+              "read": "はってあります",
+              "vi": "được dán sẵn"
+            }
+          ],
+          "keys": [
+            {
+              "w": "避難口の地図がはってあります",
+              "why": "Trang bị an toàn có sẵn — dùng làm phương án nhiễu ở câu hỏi 2 (địa đồ KHÔNG được gỡ xuống, khác việc \"phải làm\" như trả bàn ghế)."
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあります（他動詞）",
+              "vi": "はってあります = đã được dán sẵn (他動詞 はる → はってある). Bản đồ lối thoát hiểm đang ở trạng thái đã dán sẵn trên tường."
+            }
+          ]
+        },
+        {
+          "jp": "会議室のかぎは、受付で借りて、使い終わったらすぐに返しておいてください。",
+          "vi": "Chìa khóa phòng họp, xin hãy mượn ở quầy lễ tân, dùng xong thì trả lại ngay.",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "かぎ",
+              "read": "かぎ",
+              "vi": "chìa khóa"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân"
+            },
+            {
+              "w": "借りて",
+              "read": "かりて",
+              "vi": "mượn"
+            },
+            {
+              "w": "使い終わったら",
+              "read": "つかいおわったら",
+              "vi": "sau khi dùng xong"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "返しておいてください",
+              "read": "かえしておいてください",
+              "vi": "hãy nhớ trả lại"
+            }
+          ],
+          "keys": [
+            {
+              "w": "使い終わったらすぐに返しておいてください",
+              "why": "Một việc PHẢI làm khác sau khi dùng xong (trả chìa khóa) — dễ nhầm lẫn với câu hỏi 2 vì cùng cấu trúc「使い終わったら」nhưng chỉ áp dụng cho 会議室 có mượn chìa khóa."
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて形（liệt kê hành động, Bài 14）",
+              "vi": "借りて…返して = mượn rồi…trả (nối 2 hành động theo trình tự bằng て形)."
+            },
+            {
+              "point": "Vておいてください",
+              "vi": "返しておいてください = xin hãy trả lại sẵn ngay (ておく＋てください). Nhấn mạnh hành động cần hoàn tất ngay để chuẩn bị cho người dùng sau."
+            }
+          ]
+        },
+        {
+          "jp": "※使う日の1週間前までに、受付で予約しておいてください。",
+          "vi": "※Xin hãy đặt chỗ trước tại quầy lễ tân chậm nhất 1 tuần trước ngày sử dụng.",
+          "vocab": [
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân, quầy tiếp tân"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "使う日",
+              "read": "つかうひ",
+              "vi": "ngày sử dụng"
+            },
+            {
+              "w": "1週間前",
+              "read": "いっしゅうかんまえ",
+              "vi": "1 tuần trước"
+            },
+            {
+              "w": "〜までに",
+              "read": "までに",
+              "vi": "trước hạn, chậm nhất là (Bài 17)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "※使う日の1週間前までに、受付で予約しておいてください",
+              "why": "Bẫy ※: điều kiện đặt phòng trước 1 tuần — không phải căn cứ của 2 câu hỏi nhưng học viên dễ nhầm là điều kiện chọn phòng."
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "1週間前までに = chậm nhất là 1 tuần trước. までに chỉ hạn chót."
+            },
+            {
+              "point": "Vておいてください",
+              "vi": "予約しておいてください = xin hãy đặt chỗ sẵn trước (ておく＋てください). Nhấn mạnh hành động cần làm sẵn có thời hạn."
+            }
+          ]
+        },
+        {
+          "jp": "受付：1階（月〜金　9:00〜19:00、土　9:00〜17:00）",
+          "vi": "Quầy lễ tân: tầng 1 (Thứ Hai〜Thứ Sáu 9:00〜19:00, Thứ Bảy 9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai (viết tắt)"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu (viết tắt)"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy (viết tắt)"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "会議室にはホワイトボードとプロジェクターが置いてあります",
+          "label": "Vてあります（他動詞 置く）"
+        },
+        {
+          "excerpt": "辞書も少し置いてあります",
+          "label": "Vてあります（他動詞 置く）"
+        },
+        {
+          "excerpt": "避難口の地図がはってあります",
+          "label": "Vてあります（他動詞 はる）"
+        },
+        {
+          "excerpt": "机やいすは元の場所に戻しておいてください",
+          "label": "Vておいてください（làm sẵn trước）"
+        },
+        {
+          "excerpt": "すぐに返しておいてください",
+          "label": "Vておいてください（làm sẵn trước）"
+        },
+        {
+          "excerpt": "受付で予約しておいてください",
+          "label": "Vておいてください（làm sẵn trước）"
+        },
+        {
+          "excerpt": "使ってもいいこと",
+          "label": "Vてもいいです（Bài 15・ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & yêu cầu đọc trước",
+          "topic": 1,
+          "note": "Tiêu đề nội quy và lời nhắc đọc trước khi dùng phòng — chưa có căn cứ trả lời câu hỏi nào.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng 3 phòng: được phép / cấm / định viên",
+          "topic": 4,
+          "note": "Bảng chính liệt kê việc được phép làm và sức chứa từng phòng — căn cứ ghép mục đích (ダンス) và số người cho câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "body",
+          "label": "Trang bị sẵn trong phòng",
+          "topic": 6,
+          "note": "Mô tả てあります của bảng trắng, máy chiếu, từ điển — bối cảnh, không phải căn cứ 2 câu hỏi (là nhiễu vì đây là đồ có sẵn, không phải việc phải làm).",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 10,
+          "kind": "point",
+          "label": "Việc phải làm sau khi dùng xong",
+          "topic": 8,
+          "note": "Quy định trả bàn ghế về chỗ cũ, dán bản đồ thoát hiểm, trả chìa khóa — câu 8 là căn cứ trực tiếp câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "turn",
+          "label": "Điều kiện ※ đặt trước & liên hệ",
+          "topic": 11,
+          "note": "Bẫy ※: hạn đặt phòng trước 1 tuần — không liên quan trực tiếp 2 câu hỏi nhưng dễ nhầm là điều kiện chọn phòng.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは友達5人とダンスの練習をしたいです。どの部屋がいいですか。",
+          "options": [
+            "会議室",
+            "多目的ホール",
+            "学習室",
+            "どの部屋も使えません"
+          ],
+          "answer": 1,
+          "explainVi": "ダンスの練習ができる部屋を表から探します。「多目的ホール｜ダンス、音楽の練習｜…｜30人」なので、ダンスの練習が「使ってもいいこと」に入っていて、6人（リーさん＋友達5人）も定員30人以内で問題ありません。会議室は「会議、パソコン使用」だけでダンスはできません。学習室は「勉強、読書」用の部屋なのでダンスには合いません。",
+          "tip": "「〜がしたい」という目的が出たら、表の「使ってもいいこと」の列から目的に合う部屋を探し、次に人数が定員以内か確認する。",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Lý muốn luyện tập nhảy cùng 5 người bạn. Phòng nào phù hợp?",
+            "o": [
+              "Phòng họp",
+              "Hội trường đa năng",
+              "Phòng học",
+              "Không thể sử dụng phòng nào"
+            ]
+          }
+        },
+        {
+          "q": "部屋を使い終わったとき、何をしなければなりませんか。",
+          "options": [
+            "机やいすを元の場所に戻しておきます",
+            "ホワイトボードを新しく買います",
+            "辞書を家に持って帰ります",
+            "避難口の地図を外します"
+          ],
+          "answer": 0,
+          "explainVi": "「使い終わったら、机やいすは元の場所に戻しておいてください」と書いてあります。使用後は机といすを元の位置に戻すことが求められています。ホワイトボードは既に「置いてあります」＝備え付けの設備なので買う必要はありません。辞書は部屋に「置いてある」もので持ち帰るものではありません。避難口の地図は「はってあります」＝安全のために貼ってあるもので、外してはいけません。",
+          "tip": "「〜たとき、何をしなければなりませんか」→ 使用後のルールを述べた文（「使い終わったら」の後）を探す。",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Khi sử dụng phòng xong, bạn phải làm gì?",
+            "o": [
+              "Đặt bàn và ghế về chỗ cũ",
+              "Mua bảng trắng mới",
+              "Mang từ điển về nhà",
+              "Tháo bản đồ lối thoát hiểm xuống"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

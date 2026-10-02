@@ -1,0 +1,452 @@
+{
+  "id": "minna2.b28",
+  "bai": 28,
+  "titleVi": "Thể bị động",
+  "know": [
+    {
+      "id": "minna2.b28.ukemi-kihon",
+      "point": "ukemi-kihon",
+      "jp": "受[う]け身[み]形[けい]の作[つく]り方[かた]",
+      "vi": "Chia động từ sang thể bị động (3 nhóm)",
+      "en": "Conjugating verbs into the passive voice (3 groups)",
+      "gloss": "書[か]く→書[か]かれる ／ 褒[ほ]める→褒[ほ]められる ／ する→される",
+      "glossEn": "書[か]く→書[か]かれる ／ 褒[ほ]める→褒[ほ]められる ／ する→される"
+    },
+    {
+      "id": "minna2.b28.ni-rareru",
+      "point": "ni-rareru",
+      "jp": "〜に〜られます",
+      "vi": "Bị động trực tiếp — người cụ thể gây ra dùng に",
+      "en": "Direct passive — use に for a specific agent",
+      "gloss": "先生[せんせい]に 叱[しか]られました",
+      "glossEn": "先生[せんせい]に 叱[しか]られました"
+    },
+    {
+      "id": "minna2.b28.ni-yotte",
+      "point": "ni-yotte",
+      "jp": "〜によって〜られました",
+      "vi": "Bị động khách thể — tác nhân danh nhân/tổ chức dùng によって",
+      "en": "Object passive — use によって when the agent is a named person or organization",
+      "gloss": "この 小説[しょうせつ]は 夏目漱石[なつめそうせき]によって 書[か]かれました",
+      "glossEn": "この 小説[しょうせつ]は 夏目漱石[なつめそうせき]によって 書[か]かれました"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b28-uk-nusum",
+      "item": "minna2.b28.ukemi-kihon",
+      "err": "ukemi-form-wrong",
+      "vi": "Chia động từ 盗む sang thể bị động lịch sự là gì?",
+      "t1": {
+        "stem": "盗[ぬす]む → ＿",
+        "choices": [
+          "盗[ぬす]まれます",
+          "盗[ぬす]みられます",
+          "盗[ぬす]まります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "盗[ぬす]まれます"
+        ],
+        "traps": [
+          "盗[ぬす]みられます",
+          "盗[ぬす]まります"
+        ]
+      },
+      "t3": {
+        "target": "盗まれます",
+        "accept": [
+          "ぬすまれます"
+        ]
+      },
+      "why": "む (nhóm I) → ない-form 盗[ぬす]まない → bỏ ない → thêm れる → 盗[ぬす]まれる → lịch sự: 盗[ぬす]まれます。✗ 盗[ぬす]みられます — không thêm られる vào ます-stem。✗ 盗[ぬす]まります — thiếu れ。"
+    },
+    {
+      "id": "c-b28-uk-shikaru",
+      "item": "minna2.b28.ukemi-kihon",
+      "err": "ukemi-form-wrong",
+      "vi": "Chia động từ 叱る sang thể bị động lịch sự là gì?",
+      "t1": {
+        "stem": "叱[しか]る → ＿",
+        "choices": [
+          "叱[しか]られます",
+          "叱[しか]りられます",
+          "叱[しか]れます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "叱[しか]られます"
+        ],
+        "traps": [
+          "叱[しか]りられます",
+          "叱[しか]れます"
+        ]
+      },
+      "t3": {
+        "target": "叱られます",
+        "accept": [
+          "しかられます"
+        ]
+      },
+      "why": "叱[しか]る (nhóm I: ない-form 叱[しか]らない) → 叱[しか]られる → 叱[しか]られます。✗ 叱[しか]りられます — không thêm られ vào ます-stem nhóm I。✗ 叱[しか]れます — thiếu ら。"
+    },
+    {
+      "id": "c-b28-uk-homeru",
+      "item": "minna2.b28.ukemi-kihon",
+      "err": "ukemi-form-wrong",
+      "vi": "Chia động từ 褒める sang thể bị động lịch sự là gì?",
+      "t1": {
+        "stem": "褒[ほ]める → ＿",
+        "choices": [
+          "褒[ほ]められます",
+          "褒[ほ]まれます",
+          "褒[ほ]めます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "褒[ほ]められます"
+        ],
+        "traps": [
+          "褒[ほ]まれます",
+          "褒[ほ]めます"
+        ]
+      },
+      "t3": {
+        "target": "褒められます",
+        "accept": [
+          "ほめられます"
+        ]
+      },
+      "why": "褒[ほ]める (nhóm II) → bỏ る → thêm られる → 褒[ほ]められる → lịch sự 褒[ほ]められます。✗ 褒[ほ]まれます — sai âm, không tồn tại。✗ 褒[ほ]めます — đây là chủ động \"khen\", không phải bị động。"
+    },
+    {
+      "id": "c-b28-ni-shikaru",
+      "item": "minna2.b28.ni-rareru",
+      "err": "ukemi-ni-wrong",
+      "vi": "Tôi bị thầy giáo mắng.",
+      "t1": {
+        "stem": "私[わたし]は 先生[せんせい]＿ 叱[しか]られました。",
+        "choices": [
+          "に",
+          "を",
+          "によって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]は",
+          "先生[せんせい]に",
+          "叱[しか]られました。"
+        ],
+        "traps": [
+          "先生[せんせい]を",
+          "先生[せんせい]によって"
+        ]
+      },
+      "t3": {
+        "target": "私は先生に叱られました。",
+        "accept": [
+          "わたしはせんせいにしかられました。"
+        ]
+      },
+      "why": "Người trực tiếp thực hiện hành động (先生[せんせい]) dùng に trong câu bị động。✗ を — を không chỉ tác nhân bị động。✗ によって — によって dùng cho danh nhân hoặc văn viết trang trọng, không dùng cho quan hệ thường ngày như thầy-trò。"
+    },
+    {
+      "id": "c-b28-ni-fumu",
+      "item": "minna2.b28.ni-rareru",
+      "err": "ukemi-ni-wrong",
+      "vi": "Tôi bị người đứng bên cạnh giẫm lên chân.",
+      "t1": {
+        "stem": "隣[となり]の 人[ひと]＿ 足[あし]を 踏[ふ]まれました。",
+        "choices": [
+          "に",
+          "が",
+          "によって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "隣[となり]の 人[ひと]に",
+          "足[あし]を",
+          "踏[ふ]まれました。"
+        ],
+        "traps": [
+          "隣[となり]の 人[ひと]が",
+          "隣[となり]の 人[ひと]によって"
+        ]
+      },
+      "t3": {
+        "target": "隣の人に足を踏まれました。",
+        "accept": [
+          "となりのひとにあしをふまれました。"
+        ]
+      },
+      "why": "踏[ふ]む (nhóm I) → ない-form 踏[ふ]まない → 踏[ふ]まれる。人 (người cụ thể, quan hệ gần) → に。✗ が chỉ chủ ngữ chủ động。✗ によって không dùng cho tình huống giao tiếp thường ngày như thế này。"
+    },
+    {
+      "id": "c-b28-ni-yobu",
+      "item": "minna2.b28.ni-rareru",
+      "err": "ukemi-ni-wrong",
+      "vi": "Tôi được trưởng phòng gọi vào phòng họp.",
+      "t1": {
+        "stem": "課長[かちょう]に 会議室[かいぎしつ]に ＿。",
+        "choices": [
+          "呼[よ]ばれました",
+          "呼[よ]ばれます",
+          "呼[よ]びました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "課長[かちょう]に",
+          "会議室[かいぎしつ]に",
+          "呼[よ]ばれました。"
+        ],
+        "traps": [
+          "呼[よ]びました。",
+          "呼[よ]ばせました。"
+        ]
+      },
+      "t3": {
+        "target": "課長に会議室に呼ばれました。",
+        "accept": [
+          "かちょうにかいぎしつによばれました。"
+        ]
+      },
+      "why": "呼[よ]ぶ (nhóm I) → ない-form 呼[よ]ばない → 呼[よ]ばれる → 呼[よ]ばれました (quá khứ bị động)。✗ 呼[よ]びました — chủ động \"tôi gọi\", không phải bị động。✗ 呼[よ]ばせました — sai khiến \"bắt người khác gọi\"。"
+    },
+    {
+      "id": "c-b28-ny-hatsumei",
+      "item": "minna2.b28.ni-yotte",
+      "err": "ukemi-ni-yotte-wrong",
+      "vi": "Điện thoại được phát minh bởi Bell.",
+      "t1": {
+        "stem": "電話[でんわ]は ベル＿ 発明[はつめい]されました。",
+        "choices": [
+          "によって",
+          "に",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電話[でんわ]は",
+          "ベルによって",
+          "発明[はつめい]されました。"
+        ],
+        "traps": [
+          "ベルに",
+          "ベルで"
+        ]
+      },
+      "t3": {
+        "target": "電話はベルによって発明されました。",
+        "accept": [
+          "でんわはべるによってはつめいされました。"
+        ]
+      },
+      "why": "Tác nhân là danh nhân lịch sử → によって (văn viết trang trọng, nhấn mạnh \"do tay người đó\")。✗ で — で chỉ phương tiện/công cụ, không chỉ người。"
+    },
+    {
+      "id": "c-b28-ny-tateru",
+      "item": "minna2.b28.ni-yotte",
+      "err": "ukemi-ni-yotte-wrong",
+      "vi": "Tòa nhà này được xây dựng vào năm 1950.",
+      "t1": {
+        "stem": "このビルは 1950年[ねん]＿ 建[た]てられました。",
+        "choices": [
+          "に",
+          "によって",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このビルは",
+          "1950年[ねん]に",
+          "建[た]てられました。"
+        ],
+        "traps": [
+          "1950年[ねん]によって",
+          "1950年[ねん]で"
+        ]
+      },
+      "t3": {
+        "target": "このビルは1950年に建てられました。",
+        "accept": [
+          "このびるは1950ねんにたてられました。"
+        ]
+      },
+      "why": "時間・年代 (1950年[ねん]) → dùng に, KHÔNG dùng によって。によって chỉ tác nhân là chủ thể (người/tổ chức), không bao giờ dùng cho thời gian。✗ によって — 1950年 là thời gian, không phải người。"
+    },
+    {
+      "id": "c-b28-ny-tsukau",
+      "item": "minna2.b28.ni-yotte",
+      "err": "ukemi-ni-yotte-wrong",
+      "vi": "Tiếng Nhật được sử dụng khắp thế giới.",
+      "t1": {
+        "stem": "日本語[にほんご]は 世界中[せかいじゅう]で ＿。",
+        "choices": [
+          "使[つか]われています",
+          "使[つか]われました",
+          "使[つか]います"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]は",
+          "世界中[せかいじゅう]で",
+          "使[つか]われて",
+          "います。"
+        ],
+        "traps": [
+          "使[つか]います。",
+          "使[つか]われました。"
+        ]
+      },
+      "t3": {
+        "target": "日本語は世界中で使われています。",
+        "accept": [
+          "にほんごはせかいじゅうでつかわれています。"
+        ]
+      },
+      "why": "使[つか]う (nhóm I) → ない-form 使[つか]わない → 使[つか]われる → 使[つか]われています (bị động trạng thái liên tục)。✗ 使[つか]います — chủ động \"tôi dùng\"。✗ 使[つか]われました — quá khứ, không diễn đạt \"hiện vẫn đang\"。"
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b28-shikaru",
+      "item": "minna2.b28.ni-rareru",
+      "err": "ukemi-ni-wrong",
+      "tts": "きのう かちょうに しかられました。ほうこくを わすれたから です。",
+      "script": "昨日[きのう] 課長[かちょう]に 叱[しか]られました。報告[ほうこく]を 忘[わす]れたからです。",
+      "ask": "Người nói bị ai mắng và vì lý do gì?",
+      "choices": [
+        "Bị trưởng phòng mắng vì quên báo cáo",
+        "Bị đồng nghiệp mắng vì đến trễ",
+        "Bị khách hàng phàn nàn vì quên hẹn"
+      ],
+      "answer": 0,
+      "why": "課長[かちょう]に叱[しか]られました = bị trưởng phòng mắng (に chỉ người trực tiếp)。報告[ほうこく]を忘[わす]れたから = vì quên báo cáo。"
+    },
+    {
+      "id": "l-b28-sakka",
+      "item": "minna2.b28.ni-yotte",
+      "err": "ukemi-ni-yotte-wrong",
+      "tts": "このしょうせつは ゆうめいなさっかによってかかれました。せかいじゅうでよまれています。",
+      "script": "この 小説[しょうせつ]は 有名[ゆうめい]な 作家[さっか]によって 書[か]かれました。世界中[せかいじゅう]で 読[よ]まれています。",
+      "ask": "Cuốn tiểu thuyết này do ai viết và tình trạng hiện tại thế nào?",
+      "choices": [
+        "Được viết bởi nhà văn nổi tiếng, hiện được đọc khắp thế giới",
+        "Được dịch bởi nhà văn nổi tiếng, hiện được bán khắp thế giới",
+        "Được viết bởi nhà văn nổi tiếng, hiện đã ngừng lưu hành"
+      ],
+      "answer": 0,
+      "why": "有名[ゆうめい]な作家[さっか]によって書[か]かれました = bởi tác giả nổi tiếng (によって cho danh nhân/tổ chức)。世界中[せかいじゅう]で読[よ]まれています = được đọc khắp thế giới。"
+    },
+    {
+      "id": "l-b28-dorobou",
+      "item": "minna2.b28.ni-rareru",
+      "err": "ukemi-ni-wrong",
+      "tts": "えきのまえで どろぼうに さいふをぬすまれました。こまりました。",
+      "script": "駅[えき]の 前[まえ]で 泥棒[どろぼう]に 財布[さいふ]を 盗[ぬす]まれました。困[こま]りました。",
+      "ask": "Chuyện gì đã xảy ra với người nói?",
+      "choices": [
+        "Bị kẻ trộm lấy mất ví trước ga tàu",
+        "Bị mất điện thoại trong ga tàu",
+        "Bị va vào người và ngã trước ga tàu"
+      ],
+      "answer": 0,
+      "why": "泥棒[どろぼう]に盗[ぬす]まれました = bị kẻ trộm (に, người cụ thể) lấy mất。財布[さいふ] = ví tiền。駅[えき]の前[まえ] = trước ga。"
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b28-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 28 ・ 〜に〜られます",
+      "vi": "Vì tôi thích mèo, tôi rất vui khi được bạn bè tặng cho một con.",
+      "t1": {
+        "stem": "猫[ねこ]＿ 好[す]きですから、友達[ともだち]にプレゼントされてとてもうれしかったです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "猫[ねこ]が",
+          "好[す]きですから、",
+          "友達[ともだち]に",
+          "プレゼントされて",
+          "とてもうれしかったです。"
+        ],
+        "traps": [
+          "猫[ねこ]を",
+          "猫[ねこ]に"
+        ]
+      },
+      "t3": {
+        "target": "猫が好きですから、友達にプレゼントされてとてもうれしかったです。",
+        "accept": [
+          "ねこがすきですから、ともだちにぷれぜんとされてとてもうれしかったです。"
+        ]
+      },
+      "why": "Câu dùng bị động プレゼントされる (Bài 28) nhưng bẫy nằm ở 好[す]き cần が (Bài 9)。✗ 猫[ねこ]を好[す]きです — 好[す]き luôn đi với が cho đối tượng yêu thích。"
+    },
+    {
+      "id": "a-b28-te-form-homeru",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 28 ・ 〜に〜られます ・ 〜てから",
+      "vi": "Sau khi được khen, tôi cố gắng hơn.",
+      "t1": {
+        "stem": "先生[せんせい]に褒[ほ]め＿、もっと頑張[がんば]りました。",
+        "choices": [
+          "られてから",
+          "てから",
+          "られた"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]に",
+          "褒[ほ]められてから、",
+          "もっと",
+          "頑張[がんば]りました。"
+        ],
+        "traps": [
+          "褒[ほ]めてから、",
+          "褒[ほ]められた、"
+        ]
+      },
+      "t3": {
+        "target": "先生に褒められてから、もっと頑張りました。",
+        "accept": [
+          "せんせいにほめられてから、もっとがんばりました。"
+        ]
+      },
+      "why": "褒[ほ]める (nhóm II) → bị động 褒[ほ]められる → て-form bị động 褒[ほ]められて + から (Bài 14/16)。✗ 褒[ほ]めてから — đây là chủ động \"sau khi khen\", không phải bị động。"
+    }
+  ]
+}

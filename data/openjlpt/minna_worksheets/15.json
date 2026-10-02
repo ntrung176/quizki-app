@@ -1,0 +1,360 @@
+{
+  "bai": 15,
+  "bunpou": [
+    {
+      "stem": "ここで 写真[しゃしん]を 撮[と]っても ＿ か。",
+      "choices": [
+        "いいです",
+        "いけません",
+        "います",
+        "ありません"
+      ],
+      "answer": 0,
+      "explain": "てもいいですか = xin phép làm gì; いいです là hỏi xem có được không; いけません dùng để cấm, không phải hỏi."
+    },
+    {
+      "stem": "この 部屋[へや]に 入[はい]っては ＿。",
+      "choices": [
+        "いけません",
+        "いいです",
+        "います",
+        "ありません"
+      ],
+      "answer": 0,
+      "explain": "てはいけません = cấm làm gì; いいです ngược nghĩa (cho phép); います biểu thị trạng thái/hành động đang diễn ra."
+    },
+    {
+      "stem": "田中[たなか]さんは 東京[とうきょう]に ＿。",
+      "choices": [
+        "住[す]んでいます",
+        "住[す]みます",
+        "住[す]みました",
+        "住[す]んでいません"
+      ],
+      "answer": 0,
+      "explain": "ています biểu thị trạng thái hiện tại kéo dài (đang sống/cư trú); 住みます là hiện tại/tương lai, không nêu trạng thái."
+    },
+    {
+      "stem": "山田[やまだ]さんの 電話番号[でんわばんごう]を 知[し]っていますか。— いいえ、＿。",
+      "choices": [
+        "知[し]りません",
+        "知[し]っていません",
+        "知[し]りますか",
+        "知[し]っています"
+      ],
+      "answer": 0,
+      "explain": "知る/知らない: phủ định \"không biết\" là 知りません (không phải 知っていません); 知っています là khẳng định \"có biết\"."
+    },
+    {
+      "stem": "エアコンを ＿ もいいですか。",
+      "choices": [
+        "つけて",
+        "つけるて",
+        "つきて",
+        "つけます"
+      ],
+      "answer": 0,
+      "explain": "てもいいですか: phải dùng thể て trước もいいですか; つける (nhóm 2) → つけて; つけるて là sai hoàn toàn."
+    },
+    {
+      "stem": "ミラーさんは 銀行[ぎんこう]で ＿。",
+      "choices": [
+        "働[はたら]いています",
+        "働[はたら]きます",
+        "働[はたら]いていました",
+        "働[はたら]きました"
+      ],
+      "answer": 0,
+      "explain": "ています biểu thị nghề nghiệp/trạng thái hiện tại đang tiếp diễn; 働きます chỉ nêu hành động, không nhấn trạng thái."
+    },
+    {
+      "stem": "ここで タバコを 吸[す]っては ＿。",
+      "choices": [
+        "いけません",
+        "いいです",
+        "います",
+        "なりません"
+      ],
+      "answer": 0,
+      "explain": "てはいけません = cấm đoán rõ ràng; いいです nghĩa ngược (cho phép); なりません thường dùng với なければ, không dùng với ては."
+    },
+    {
+      "stem": "カリナさんは 結婚[けっこん]して ＿。",
+      "choices": [
+        "います",
+        "いません",
+        "いました",
+        "ありません"
+      ],
+      "answer": 0,
+      "explain": "結婚しています = trạng thái kết hôn hiện tại (đã và đang kết hôn); いません là phủ định; いました là quá khứ."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "に",
+      "で",
+      "を",
+      "が",
+      "は",
+      "と",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "田中[たなか]さんは 大阪[おおさか]＿ 住[す]んでいます。",
+        "answer": "に",
+        "explain": "住む dùng に cho địa điểm cư trú: 大阪に住む; で chỉ nơi diễn ra hành động, không phải nơi cư trú."
+      },
+      {
+        "stem": "山田[やまだ]さんは 会社[かいしゃ]＿ 働[はたら]いています。",
+        "answer": "で",
+        "explain": "で chỉ nơi diễn ra hoạt động làm việc; に dùng với động từ chỉ hướng/đến, không dùng với 働く."
+      },
+      {
+        "stem": "あのレストラン＿ 知[し]っていますか。",
+        "answer": "を",
+        "explain": "知る dùng を cho đối tượng biết đến: 〜を知っています; が dùng khi nhấn mạnh chủ ngữ, không phải đối tượng biết."
+      },
+      {
+        "stem": "ここ＿ 写真[しゃしん]を 撮[と]ってもいいですか。",
+        "answer": "で",
+        "explain": "で chỉ địa điểm thực hiện hành động (chụp ảnh ở đây); に mang nghĩa hướng đến, không phù hợp."
+      },
+      {
+        "stem": "この 部屋[へや]＿ 入[はい]ってはいけません。",
+        "answer": "に",
+        "explain": "入る dùng に cho đích đến (vào phòng); で chỉ nơi diễn ra hành động, không dùng với 入る."
+      },
+      {
+        "stem": "ミラーさん＿ 結婚[けっこん]していますか。",
+        "answer": "は",
+        "explain": "は đánh dấu chủ đề câu hỏi về ミラーさん; が dùng khi nhấn mạnh hoặc trong mệnh đề phụ."
+      },
+      {
+        "stem": "図書館[としょかん]で 携帯[けいたい]＿ 使[つか]ってもいいですか。",
+        "answer": "を",
+        "explain": "を đánh dấu tân ngữ của 使う; 携帯を使う = dùng điện thoại; を bắt buộc với động từ tác động."
+      },
+      {
+        "stem": "子供[こども]＿ お酒[さけ]を 飲[の]んではいけません。",
+        "answer": "は",
+        "explain": "は nhấn mạnh chủ đề bị cấm (trẻ em đặc biệt không được uống); が không mang sắc thái nhấn mạnh tương phản này."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "撮[と]ります",
+      "prompt": "Xin phép chụp ảnh?",
+      "choices": [
+        "撮[と]ってもいいですか",
+        "撮[と]りてもいいですか",
+        "撮[と]るてもいいですか",
+        "撮[と]りますか"
+      ],
+      "answer": 0,
+      "explain": "撮る (nhóm 1: り→って): 撮って + もいいですか = xin phép; 撮りて là sai chia thể て."
+    },
+    {
+      "base": "吸[す]います",
+      "prompt": "Cấm hút thuốc?",
+      "choices": [
+        "吸[す]ってはいけません",
+        "吸[す]いてはいけません",
+        "吸[す]うてはいけません",
+        "吸[す]りてはいけません"
+      ],
+      "answer": 0,
+      "explain": "吸う (nhóm 1: う→って): 吸って + はいけません = cấm; 吸いて là sai — う không thành いて."
+    },
+    {
+      "base": "知[し]っています",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "知[し]りません",
+        "知[し]っていません",
+        "知[し]りますか",
+        "知[し]っていますか"
+      ],
+      "answer": 0,
+      "explain": "Phủ định của 知っています là 知りません (không phải 知っていません); 知る/知らない là cặp riêng biệt với ています."
+    },
+    {
+      "base": "住[す]みます",
+      "prompt": "Trạng thái đang sống ở?",
+      "choices": [
+        "住[す]んでいます",
+        "住[す]みます",
+        "住[す]んでいました",
+        "住[す]みません"
+      ],
+      "answer": 0,
+      "explain": "住む → 住んで (み→んで) + います = 住んでいます (trạng thái cư trú hiện tại); 住みます chỉ là hiện tại/tương lai đơn."
+    },
+    {
+      "base": "帰[かえ]ります",
+      "prompt": "Xin phép về sớm?",
+      "choices": [
+        "帰[かえ]ってもいいですか",
+        "帰[かえ]りてもいいですか",
+        "帰[かえ]るてもいいですか",
+        "帰[かえ]りますか"
+      ],
+      "answer": 0,
+      "explain": "帰る (nhóm 1: り→って): 帰って + もいいですか = xin phép về; 帰りて là sai chia."
+    },
+    {
+      "base": "働[はたら]きます",
+      "prompt": "Trạng thái đang làm việc?",
+      "choices": [
+        "働[はたら]いています",
+        "働[はたら]きます",
+        "働[はたら]いていました",
+        "働[はたら]きません"
+      ],
+      "answer": 0,
+      "explain": "働く → 働いて (き→いて) + います = 働いています (đang/có việc làm); 働きます là hành động không nêu trạng thái."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "ここで",
+        "写真[しゃしん]を",
+        "撮[と]っても",
+        "いいですか。"
+      ],
+      "vi": "Tôi có thể chụp ảnh ở đây không?",
+      "explain": "Địa điểm+で + tân ngữ + thể て+も + いいですか; cấu trúc xin phép: [nơi]で [Vて]もいいですか."
+    },
+    {
+      "chips": [
+        "田中[たなか]さんは",
+        "東京[とうきょう]に",
+        "住[す]んでいます。"
+      ],
+      "vi": "Anh Tanaka đang sống ở Tokyo.",
+      "explain": "Chủ đề + địa điểm+に (nơi cư trú dùng に) + 住んでいます (trạng thái đang sống)."
+    },
+    {
+      "chips": [
+        "いいえ、",
+        "知[し]りません。"
+      ],
+      "vi": "Không, tôi không biết.",
+      "explain": "Phủ định của 知っていますか là 知りません; không dùng 知っていません — đây là quy tắc đặc biệt của 知る."
+    },
+    {
+      "chips": [
+        "この",
+        "部屋[へや]に",
+        "入[はい]っては",
+        "いけません。"
+      ],
+      "vi": "Không được vào phòng này.",
+      "explain": "Đích vào+に + thể て+は + いけません; cấu trúc cấm đoán: [Vては]いけません; に chỉ đích đến của 入る."
+    },
+    {
+      "chips": [
+        "山田[やまだ]さんは",
+        "銀行[ぎんこう]で",
+        "働[はたら]いています。"
+      ],
+      "vi": "Chị Yamada đang làm việc ở ngân hàng.",
+      "explain": "Địa điểm làm việc dùng で; 働いています = trạng thái có việc làm hiện tại."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "としょかんで けいたいを つかっても いいですか。",
+      "ask": "Người nói đang xin phép làm gì?",
+      "choices": [
+        "Dùng điện thoại trong thư viện",
+        "Ăn uống trong thư viện",
+        "Chụp ảnh trong thư viện"
+      ],
+      "answer": 0,
+      "script": "図書館[としょかん]で 携帯[けいたい]を 使[つか]っても いいですか。",
+      "explain": "けいたい = điện thoại; つかっても = thể て+も; としょかん = thư viện — xác nhận xin phép dùng điện thoại."
+    },
+    {
+      "tts": "やまださんの じゅうしょを しっていますか。 いいえ、しりません。",
+      "ask": "Người trả lời có biết địa chỉ của Yamada không?",
+      "choices": [
+        "Không biết",
+        "Có biết",
+        "Biết một phần"
+      ],
+      "answer": 0,
+      "script": "山田[やまだ]さんの 住所[じゅうしょ]を 知[し]っていますか。— いいえ、知[し]りません。",
+      "explain": "しりません = 知りません = \"không biết\" (phủ định của 知っています); いいえ + しりません xác nhận không biết."
+    },
+    {
+      "tts": "ここで たばこを すっては いけません。",
+      "ask": "Điền từ bạn nghe được: ここで タバコを ___ いけません。",
+      "choices": [
+        "吸[す]っては",
+        "吸[す]っても",
+        "吸[す]りては"
+      ],
+      "answer": 0,
+      "script": "ここで タバコを 吸[す]っては いけません。",
+      "explain": "すっては = 吸っては: て+は trước いけません là cấu trúc cấm; て+も trước いいです là cho phép — hai mẫu đối lập."
+    },
+    {
+      "tts": "みらーさんは けっこんしています。",
+      "ask": "Anh Miller hiện đang ở tình trạng nào?",
+      "choices": [
+        "Đã kết hôn",
+        "Sắp kết hôn",
+        "Chưa kết hôn"
+      ],
+      "answer": 0,
+      "script": "ミラーさんは 結婚[けっこん]しています。",
+      "explain": "結婚しています = trạng thái đã và đang kết hôn; không nghe まだ (chưa) hay もうすぐ (sắp)."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi có thể chụp ảnh ở đây không?",
+      "target": "ここで写真を撮ってもいいですか。",
+      "accept": [
+        "ここでしゃしんをとってもいいですか。"
+      ],
+      "explain": "Xin phép: [nơi]で + tân ngữ + Vて + もいいですか; 撮る → 撮って (り→って)."
+    },
+    {
+      "vi": "Anh Tanaka đang sống ở Tokyo.",
+      "target": "田中さんは東京に住んでいます。",
+      "accept": [
+        "たなかさんはとうきょうにすんでいます。"
+      ],
+      "explain": "住む dùng に cho địa điểm cư trú; 住んでいます (み→んで+います) diễn đạt trạng thái đang sống."
+    },
+    {
+      "vi": "Không, tôi không biết.",
+      "target": "いいえ、知りません。",
+      "accept": [
+        "いいえ、しりません。"
+      ],
+      "explain": "Phủ định của 知る là 知りません; không dùng 知っていません — 知る là trường hợp đặc biệt trong tiếng Nhật."
+    },
+    {
+      "vi": "Không được hút thuốc ở đây.",
+      "target": "ここでタバコを吸ってはいけません。",
+      "accept": [
+        "ここでたばこをすってはいけません。"
+      ],
+      "explain": "Cấm đoán: [nơi]で + tân ngữ + Vて + はいけません; 吸う → 吸って (う→って)."
+    },
+    {
+      "vi": "Chị Yamada đang làm việc ở ngân hàng.",
+      "target": "山田さんは銀行で働いています。",
+      "accept": [
+        "やまださんはぎんこうではたらいています。"
+      ],
+      "explain": "働く dùng で cho nơi làm việc; 働いています (き→いて+います) diễn đạt trạng thái có việc làm hiện tại."
+    }
+  ]
+}

@@ -1,0 +1,1271 @@
+{
+  "bai": 6,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 6 tập trung vào việc mô tả hoạt động cuối tuần bằng tha động từ (NをVます) và các mẫu rủ rê lịch sự (いっしょにVませんか / Vましょう). Đọc hiểu ở đây = nhận diện đúng ai làm gì, làm với ai, và phân biệt câu hỏi / lời đề nghị / trả lời.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm bối cảnh: Ai đang nói? Đang nói về ngày nào? Cuối tuần hay ngày thường?",
+      "Với mỗi câu, tìm trợ từ を — danh từ trước を là tân ngữ (vật bị tác động), động từ sau を là hành động.",
+      "Chú ý mẫu rủ rê: 〜ませんか (mời/đề nghị lịch sự) và 〜ましょう (cùng nhau làm) — đây là ngữ pháp MỚI của Bài 6.",
+      "Gặp NかN: đọc là \"N hoặc N\" (lựa chọn), khác với の (sở hữu) và と (cùng nhau).",
+      "Chú ý それから (sau đó) để theo dõi trình tự các hoạt động trong ngày.",
+      "Câu hỏi đọc hiểu về \"ai làm gì\" → tìm câu có を + động từ phù hợp; về \"với ai\" → tìm trợ từ と."
+    ],
+    "tips": [
+      "を luôn đọc là \"o\" (không đọc \"wo\") — đây là trợ từ đánh dấu tân ngữ của tha động từ.",
+      "いっしょにVませんか là lời MỜI lịch sự (\"Cùng ... nhé?\") — đừng nhầm với câu hỏi phủ định thông thường.",
+      "Vましょう là đề nghị/đồng thuận (\"Cùng làm ... thôi!\") — thường dùng để trả lời いっしょにVませんか.",
+      "NかN dùng khi liệt kê 2 lựa chọn (コーヒーかお茶 = cà phê hoặc trà); khác với NとN (cả hai cùng lúc).",
+      "それから nối hai hành động theo trình tự thời gian: \"Làm A, SAU ĐÓ làm B.\"",
+      "Động từ Bài 6 đều ở thể ます — chú ý ます/ません/ました để nhận ra khẳng định/phủ định/quá khứ."
+    ],
+    "grammarFocus": [
+      "NをVます（tha động từ）",
+      "Nをします",
+      "何をVますか",
+      "NかN",
+      "いっしょにVませんか",
+      "Vましょう",
+      "それから"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 5,
+        "items": [
+          "NへVます（行きます/来ます）— đi đến đâu",
+          "NでVます（phương tiện: バスで、でんしゃで）",
+          "人とVます（đi cùng ai）"
+        ]
+      },
+      {
+        "bai": 4,
+        "items": [
+          "Vます・Vません（khẳng định/phủ định thể ます）",
+          "NからNまで（từ ... đến ...）",
+          "そして（và rồi, nối câu）"
+        ]
+      },
+      {
+        "bai": 1,
+        "items": [
+          "NはNです / NはNではありません（giới thiệu nhân vật）",
+          "NのN（sở hữu: 私の友達）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "週末の予定",
+      "titleVi": "Kế hoạch cuối tuần",
+      "japanese": "田中さんは週末に何をしますか。映画を見ます。それからレストランで晩ごはんを食べます。ミラーさんもいっしょに見ませんか。はい、いっしょに見ましょう。",
+      "vietnamese": "Cuối tuần anh Tanaka làm gì? Anh ấy xem phim. Sau đó ăn tối ở nhà hàng. Anh Miller có muốn cùng xem không? Vâng, cùng xem thôi.",
+      "sentences": [
+        {
+          "jp": "田中さんは週末に何をしますか。",
+          "vi": "Cuối tuần anh Tanaka làm gì?",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "何",
+              "read": "なに",
+              "vi": "cái gì"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "何をVますか",
+              "vi": "\"Làm gì?\" — 何 là tân ngữ không xác định, を đánh dấu tân ngữ, します = làm."
+            }
+          ]
+        },
+        {
+          "jp": "映画を見ます。",
+          "vi": "Xem phim.",
+          "vocab": [
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim (điện ảnh)"
+            },
+            {
+              "w": "見ます",
+              "read": "みます",
+              "vi": "xem, nhìn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（tha động từ）",
+              "vi": "映画を見ます: を đánh dấu tân ngữ — phim là thứ được xem."
+            }
+          ]
+        },
+        {
+          "jp": "それからレストランで晩ごはんを食べます。",
+          "vi": "Sau đó ăn tối ở nhà hàng.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "晩ごはん",
+              "read": "ばんごはん",
+              "vi": "bữa tối"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "それから",
+              "vi": "Nối hai hoạt động theo trình tự: xem phim → sau đó ăn tối."
+            },
+            {
+              "point": "NをVます（tha động từ）",
+              "vi": "晩ごはんを食べます: bữa tối là thứ được ăn."
+            },
+            {
+              "point": "NでVます（địa điểm）",
+              "vi": "レストランで = tại nhà hàng; ôn lại で chỉ nơi hành động xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんもいっしょに見ませんか。",
+          "vi": "Anh Miller có muốn cùng xem không?",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いっしょにVませんか",
+              "vi": "Lời mời lịch sự: \"Cùng xem không?\" — dạng phủ định ません + か nhưng nghĩa là MỜI, không phải hỏi."
+            },
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\" (ôn Bài 1): Miller CŨNG được mời cùng xem."
+            }
+          ]
+        },
+        {
+          "jp": "はい、いっしょに見ましょう。",
+          "vi": "Vâng, cùng xem thôi.",
+          "vocab": [
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "はい",
+              "read": "はい",
+              "vi": "vâng, có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vましょう",
+              "vi": "Đồng ý và đề nghị cùng làm: \"Cùng xem thôi!\" — đây là câu trả lời tích cực cho いっしょにVませんか."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "何をしますか",
+          "label": "何をVますか"
+        },
+        {
+          "excerpt": "映画を見ます",
+          "label": "NをVます（tha động từ）"
+        },
+        {
+          "excerpt": "それからレストランで晩ごはんを食べます",
+          "label": "それから + NをVます"
+        },
+        {
+          "excerpt": "いっしょに見ませんか",
+          "label": "いっしょにVませんか（lời mời）"
+        },
+        {
+          "excerpt": "いっしょに見ましょう",
+          "label": "Vましょう（đồng ý）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは週末に何をしますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "音楽を聞きます",
+            "映画を見ます",
+            "本を読みます",
+            "テニスをします"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết rõ ràng「映画を見ます」— trong câu「田中さんは週末に何をしますか」thì「映画を見ます」là câu trả lời trực tiếp. を + 見ます = tha động từ, phim là thứ được xem. Đáp án 0 (nghe nhạc), 2 (đọc sách), 3 (chơi tennis) đều không xuất hiện trong đoạn văn ngắn này — bài chỉ nhắc đến xem phim và ăn tối.",
+          "tip": "Câu hỏi「何をVますか」→ tìm ngay câu trả lời sau dấu hỏi trong bài, thường theo dạng「NをVます」. Từ nào đứng TRƯỚC を chính là câu trả lời.",
+          "qt": {
+            "q": "Cuối tuần, anh Tanaka sẽ làm gì?",
+            "o": [
+              "Nghe nhạc",
+              "Xem phim",
+              "Đọc sách",
+              "Chơi tennis"
+            ]
+          }
+        },
+        {
+          "q": "田中さんは映画の後で何をしますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "うちへ帰ります",
+            "テレビを見ます",
+            "レストランで晩ごはんを食べます",
+            "コーヒーを飲みます"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài dùng「それからレストランで晩ごはんを食べます」— từ「それから」(sau đó) cho biết đây là hoạt động TIẾP THEO sau khi xem phim. Đáp án 0 (về nhà) sai vì bài không nhắc. Đáp án 1 (xem TV) sai — xem TV khác xem phim (映画), và cũng không có trong bài. Đáp án 3 (uống cà phê) xuất hiện ở đoạn dài, không phải đoạn ngắn này.",
+          "tip": "Thấy「それから」→ hoạt động ngay sau đó là đáp án cho câu hỏi \"làm gì TIẾP THEO\". Đọc câu ngay sau「それから」là ra ngay.",
+          "qt": {
+            "q": "Sau khi xem phim, anh Tanaka sẽ làm gì?",
+            "o": [
+              "Về nhà",
+              "Xem tivi",
+              "Ăn tối ở nhà hàng",
+              "Uống cà phê"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは映画を見ますか。",
+          "evi": [
+            3,
+            4
+          ],
+          "options": [
+            "いいえ、見ません",
+            "はい、いっしょに見ます",
+            "わかりません",
+            "あとで見ます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Tanaka mời「ミラーさんもいっしょに見ませんか」và Miller trả lời「はい、いっしょに見ましょう」— はい = đồng ý, 見ましょう = cùng xem. Vậy Miller sẽ cùng xem phim. Đáp án 0 (không xem) sai vì Miller nói はい. Đáp án 2 và 3 sai vì bài không hề nói \"chưa biết\" hay \"xem sau\".",
+          "tip": "Thấy「いっしょにVませんか」→ đây là lời MỜI. Nếu có「はい、Vましょう」theo sau → người được mời ĐỒNG Ý và SẼ làm cùng. Tìm はい/いいえ ngay sau lời mời để trả lời nhanh.",
+          "qt": {
+            "q": "Anh Miller có xem phim không?",
+            "o": [
+              "Không, sẽ không xem",
+              "Vâng, sẽ xem cùng nhau",
+              "Không biết",
+              "Xem sau"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "カリナさんのメール",
+      "titleVi": "Email của Karina",
+      "japanese": "カリナさんはワンさんにメールを書きます。「ワンさん、こんにちは。今週の土曜日にいっしょに買い物をしませんか。デパートへ行きます。バスで行きます。それからカフェでコーヒーかお茶を飲みましょう。私の友達のマリアさんも来ます。マリアさんはブラジル人です。日本語の学校の学生です。マリアさんはよく日本語の本を読みます。音楽も聞きます。土曜日にいっしょに行きませんか。どうぞよろしくお願いします。カリナ」",
+      "vietnamese": "Karina viết email cho Wang.\n\"Wang ơi, xin chào. Thứ Bảy tuần này bạn có muốn cùng đi mua sắm không?\nMình sẽ đi đến trung tâm thương mại. Đi bằng xe buýt. Sau đó cùng uống cà phê hoặc trà ở quán cà phê.\nBạn của mình là Maria cũng sẽ đến.\nMaria là người Brazil. Bạn ấy là học sinh của trường tiếng Nhật.\nMaria thường đọc sách tiếng Nhật. Bạn ấy cũng nghe nhạc.\nThứ Bảy cùng đi nhé?\nRất mong được hồi âm. Karina\"",
+      "sentences": [
+        {
+          "jp": "カリナさんはワンさんにメールを書きます。",
+          "vi": "Karina viết email cho Wang.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "書きます",
+              "read": "かきます",
+              "vi": "viết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（tha động từ）",
+              "vi": "メールを書きます: email là thứ được viết (tân ngữ với を)."
+            }
+          ]
+        },
+        {
+          "jp": "「ワンさん、こんにちは。今週の土曜日にいっしょに買い物をしませんか。",
+          "vi": "\"Wang ơi, xin chào. Thứ Bảy tuần này bạn có muốn cùng đi mua sắm không?",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "こんにちは",
+              "read": "こんにちは",
+              "vi": "xin chào"
+            },
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "Thứ Bảy"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いっしょにVませんか",
+              "vi": "Lời mời: \"Cùng đi mua sắm không?\" — 買い物をします là Nをします (mua sắm = danh từ + をします)."
+            },
+            {
+              "point": "Nをします",
+              "vi": "買い物をします: kết hợp danh từ + をします để diễn đạt hoạt động (đi mua sắm)."
+            }
+          ]
+        },
+        {
+          "jp": "デパートへ行きます。",
+          "vi": "Sẽ đến trung tâm thương mại.",
+          "vocab": [
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "trung tâm thương mại, bách hóa"
+            },
+            {
+              "w": "行きます",
+              "read": "いきます",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます（行きます）",
+              "vi": "Ôn Bài 5: デパートへ行きます — đi đến trung tâm thương mại. へ chỉ hướng đến."
+            }
+          ]
+        },
+        {
+          "jp": "バスで行きます。",
+          "vi": "Đi bằng xe buýt.",
+          "vocab": [
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "Ôn Bài 5: バスで = bằng xe buýt. で chỉ phương tiện di chuyển."
+            }
+          ]
+        },
+        {
+          "jp": "それからカフェでコーヒーかお茶を飲みましょう。",
+          "vi": "Sau đó cùng uống cà phê hoặc trà ở quán cà phê.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "それから",
+              "vi": "Nối trình tự: mua sắm → SAU ĐÓ uống cà phê/trà."
+            },
+            {
+              "point": "NかN",
+              "vi": "コーヒーかお茶 = cà phê HOẶC trà — đưa ra 2 lựa chọn."
+            },
+            {
+              "point": "Vましょう",
+              "vi": "飲みましょう = \"cùng uống thôi\" — đề nghị cùng làm (không cần đối tác đồng ý thêm)."
+            },
+            {
+              "point": "NをVます（tha động từ）",
+              "vi": "コーヒーかお茶を飲みます: đồ uống là tân ngữ với を."
+            }
+          ]
+        },
+        {
+          "jp": "私の友達のマリアさんも来ます。",
+          "vi": "Bạn của mình là Maria cũng sẽ đến.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "マリア",
+              "read": "まりあ",
+              "vi": "Maria"
+            },
+            {
+              "w": "さん",
+              "read": "さん",
+              "vi": "hậu tố lịch sự"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（sở hữu）",
+              "vi": "私の友達のマリアさん: \"Maria — bạn của tôi\". Ôn Bài 1."
+            },
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\": Maria CŨNG sẽ đến (ngoài Wang và Karina). Ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "マリアさんはブラジル人です。日本語の学校の学生です。",
+          "vi": "Maria là người Brazil. Bạn ấy là học sinh của trường tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "マリア",
+              "read": "マリア",
+              "vi": "Maria (tên người)"
+            },
+            {
+              "w": "ブラジル",
+              "read": "ブラジル",
+              "vi": "tên riêng Brasil"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "ブラジル人",
+              "read": "ブラジルじん",
+              "vi": "người Brazil"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Giới thiệu Maria: người Brazil, học sinh trường tiếng Nhật. Ôn Bài 1."
+            },
+            {
+              "point": "NのN",
+              "vi": "日本語の学校の学生: học sinh CỦA trường CỦA tiếng Nhật — nhiều の nối liền. Ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "マリアさんはよく日本語の本を読みます。",
+          "vi": "Maria thường hay đọc sách tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "マリア",
+              "read": "マリア",
+              "vi": "Maria (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読みます",
+              "read": "よみます",
+              "vi": "đọc"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "thường hay, thường xuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（tha động từ）",
+              "vi": "日本語の本を読みます: sách là tân ngữ với を; 日本語の本 = NのN (sách tiếng Nhật)."
+            }
+          ]
+        },
+        {
+          "jp": "音楽も聞きます。",
+          "vi": "Bạn ấy cũng nghe nhạc.",
+          "vocab": [
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（tha động từ）",
+              "vi": "も thay thế trợ từ を (音楽も = nhạc cũng, là tân ngữ): nhạc là tân ngữ của nghe."
+            },
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\": ngoài đọc sách, Maria CŨNG nghe nhạc. Ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "土曜日にいっしょに行きませんか。",
+          "vi": "Thứ Bảy cùng đi nhé?",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "Thứ Bảy"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "行きません",
+              "read": "いきません",
+              "vi": "không đi (thể phủ định)"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いっしょにVませんか",
+              "vi": "Lời mời lịch sự: \"Thứ Bảy cùng đi không?\" — ngữ pháp MỚI Bài 6; lặp lại lời mời đi cùng một lần nữa để nhấn mạnh."
+            }
+          ]
+        },
+        {
+          "jp": "どうぞよろしくお願いします。カリナ」",
+          "vi": "Rất mong được hồi âm. Karina\"",
+          "vocab": [
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin mời, xin vui lòng"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "どうぞよろしくお願いします",
+              "read": "どうぞよろしくおねがいします",
+              "vi": "rất mong được giúp đỡ/hồi âm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ",
+              "vi": "Câu kết thư lịch sự, sau đó ký tên người gửi (カリナ). 」 đóng ngoặc lời thư."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "いっしょに買い物をしませんか",
+          "label": "いっしょにVませんか（lời mời）"
+        },
+        {
+          "excerpt": "買い物をしませんか",
+          "label": "Nをします"
+        },
+        {
+          "excerpt": "バスで行きます",
+          "label": "NでVます（phương tiện — ôn Bài 5）"
+        },
+        {
+          "excerpt": "コーヒーかお茶を飲みましょう",
+          "label": "NかN + Vましょう"
+        },
+        {
+          "excerpt": "それからカフェで",
+          "label": "それから（trình tự）"
+        },
+        {
+          "excerpt": "土曜日にいっしょに行きませんか",
+          "label": "いっしょにVませんか（lời mời — Bài 6）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんとワンさんはどこへ行きますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "カフェへ行きます",
+            "デパートへ行きます",
+            "映画館へ行きます",
+            "学校へ行きます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Trong email Karina viết「デパートへ行きます」— デパート là trung tâm thương mại, へ chỉ hướng đến, rõ ràng là điểm đến của chuyến đi. Đáp án 0 (quán cà phê) sai — カフェ xuất hiện trong bài nhưng là điểm đến SAU KHI đi mua sắm, không phải điểm đến chính. Đáp án 2 (rạp chiếu phim) và 3 (trường học) không được nhắc đến trong email này.",
+          "tip": "Câu hỏi「どこへ行きますか」→ tìm「Nへ行きます」trong bài. へ là dấu hiệu chỉ ĐIỂM ĐẾN. Chú ý thứ tự: điểm đến đầu tiên khác với điểm đến SAU ĐÓ (それから).",
+          "qt": {
+            "q": "Karina và Wang sẽ đi đâu?",
+            "o": [
+              "Đi đến quán cà phê",
+              "Đi đến cửa hàng bách hóa",
+              "Đi đến rạp chiếu phim",
+              "Đi đến trường học"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんたちはデパートの後で何をしますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "うちへ帰ります",
+            "えいがを見ます",
+            "カフェでコーヒーかお茶を飲みます",
+            "レストランで晩ごはんを食べます"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết「それからカフェでコーヒーかお茶を飲みましょう」— それから = sau đó (sau khi đi mua sắm ở デパート), hoạt động tiếp theo là uống cà phê HOẶC trà ở quán cà phê. Đáp án 0 (về nhà) sai — bài không nhắc. Đáp án 1 (xem phim) sai — đây là đoạn email, không có kế hoạch xem phim. Đáp án 3 (ăn tối ở nhà hàng) sai — ăn tối xuất hiện ở đoạn ngắn trên (về Tanaka), không phải email này.",
+          "tip": "Thấy「それから」→ hoạt động NGAY SAU là câu trả lời cho \"làm gì sau đó\". Đừng nhầm với hoạt động ở đoạn văn khác dù từ vựng trông giống.",
+          "qt": {
+            "q": "Sau khi đến cửa hàng bách hóa, Karina và mọi người sẽ làm gì?",
+            "o": [
+              "Về nhà",
+              "Xem phim",
+              "Uống cà phê hoặc trà ở quán cà phê",
+              "Ăn bữa tối ở nhà hàng"
+            ]
+          }
+        },
+        {
+          "q": "マリアさんについて正しいものはどれですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "マリアさんはアメリカ人です",
+            "マリアさんはカリナさんのお姉さんです",
+            "マリアさんはブラジル人です。日本語の学校の学生です。",
+            "マリアさんは会社員です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết rõ「マリアさんはブラジル人です。日本語の学校の学生です。」— hai câu NはNです liên tiếp giới thiệu Maria: người Brazil và là học sinh trường tiếng Nhật. Đáp án 0 sai vì bài nói ブラジル人 (người Brazil), không phải アメリカ人 (người Mỹ). Đáp án 1 sai vì bài nói「私の友達」(bạn của tôi), không phải お姉さん (chị gái). Đáp án 3 sai vì Maria là 学生 (học sinh), không phải 会社員 (nhân viên công ty).",
+          "tip": "Câu hỏi「〜について正しいものはどれですか」→ đối chiếu từng đáp án với bài viết. Đáp án đúng thường là câu TRÍCH NGUYÊN VĂN hoặc gần giống nhất. Loại ngay đáp án nào dùng từ KHÔNG có trong bài.",
+          "qt": {
+            "q": "Điều nào sau đây đúng về Maria?",
+            "o": [
+              "Maria là người Mỹ",
+              "Maria là chị gái của Karina",
+              "Maria là người Brazil. Cô ấy là học viên ở trường tiếng Nhật.",
+              "Maria là nhân viên công ty"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "セットのメニューを読む",
+      "titleVi": "Đọc thực đơn: Set đồ ăn nhanh",
+      "japanese": "さくらファストフード　セットのメニュー\nお昼にセットを食べませんか。飲み物もいっしょに選びます。\nセット｜たべもの｜のみもの｜ねだん\nAセット｜ハンバーガー｜コーラ｜500円\nBセット｜ハンバーガー｜コーヒーかお茶｜550円\nCセット｜サンドイッチ｜コーヒーかお茶｜600円\n※飲み物はコーヒーかお茶かコーラから一つ選びます。\nお店は11時から20時までです。それから、友達といっしょに来ませんか。",
+      "vietnamese": "Fastfood Sakura — Thực đơn set.\nBạn có muốn ăn set vào buổi trưa không? Đồ uống cũng chọn cùng luôn.\nSet｜Món ăn｜Đồ uống｜Giá tiền.\nSet A｜Hamburger｜Cola｜500 yên.\nSet B｜Hamburger｜Cà phê hoặc trà｜550 yên.\nSet C｜Sandwich｜Cà phê hoặc trà｜600 yên.\n※Đồ uống chọn một trong ba: cà phê, trà hoặc cola.\nCửa hàng mở từ 11 giờ đến 20 giờ. Sau đó, bạn có muốn cùng đến với bạn bè không?",
+      "sentences": [
+        {
+          "jp": "さくらファストフード　セットのメニュー",
+          "vi": "Fastfood Sakura — Thực đơn set.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "ファストフード",
+              "read": "ファストフード",
+              "vi": "đồ ăn nhanh (fast food)"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "メニュー",
+              "read": "メニュー",
+              "vi": "thực đơn"
+            },
+            {
+              "w": "さくらファストフード",
+              "read": "さくらファストフード",
+              "vi": "Fastfood Sakura (tên quán)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "セットのメニュー",
+              "why": "tiêu đề cho biết đây là bảng thực đơn set — cần dò cột món ăn/đồ uống để trả lời câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "お昼にセットを食べませんか。飲み物もいっしょに選びます。",
+          "vi": "Bạn có muốn ăn set vào buổi trưa không? Đồ uống cũng chọn cùng luôn.",
+          "vocab": [
+            {
+              "w": "お昼",
+              "read": "おひる",
+              "vi": "buổi trưa"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVませんか（Bài 6）",
+              "vi": "セットを食べませんか = mời ăn set — cùng mẫu いっしょにVませんか, dùng ませんか để rủ rê lịch sự."
+            },
+            {
+              "point": "NをVます（tha động từ・Bài 6）",
+              "vi": "セットを食べます: set là tân ngữ của 食べます, を đánh dấu tân ngữ."
+            },
+            {
+              "point": "Nも",
+              "vi": "飲み物も選びます: も thay を (ôn Bài 1) — đồ uống CŨNG là thứ được chọn, ngoài món ăn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "飲み物もいっしょに選びます",
+              "why": "cho biết mỗi set đi kèm 1 đồ uống được chọn cùng — điều kiện nền để dò cột のみもの trong bảng"
+            }
+          ]
+        },
+        {
+          "jp": "セット｜たべもの｜のみもの｜ねだん",
+          "vi": "Set｜Món ăn｜Đồ uống｜Giá tiền.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "たべる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "ねだん",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "たべもの",
+              "read": "たべもの",
+              "vi": "món ăn, đồ ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 4 cột: tên set, món ăn, đồ uống, giá tiền."
+            }
+          ]
+        },
+        {
+          "jp": "Aセット｜ハンバーガー｜コーラ｜500円",
+          "vi": "Set A｜Hamburger｜Cola｜500 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "ハンバーガー",
+              "read": "ハンバーガー",
+              "vi": "hamburger"
+            },
+            {
+              "w": "コーラ",
+              "read": "コーラ",
+              "vi": "cola"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "Aセット｜ハンバーガー｜コーラ｜500円",
+              "why": "Set A món ăn là ハンバーガー, không phải サンドイッチ — bị loại khỏi câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "Bセット｜ハンバーガー｜コーヒーかお茶｜550円",
+          "vi": "Set B｜Hamburger｜Cà phê hoặc trà｜550 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "ハンバーガー",
+              "read": "ハンバーガー",
+              "vi": "hamburger"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà"
+            },
+            {
+              "w": "550円",
+              "read": "ごひゃくごじゅうえん",
+              "vi": "550 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NかN（Bài 6）",
+              "vi": "コーヒーかお茶 = cà phê hoặc trà — đưa ra 2 lựa chọn đồ uống."
+            }
+          ],
+          "keys": [
+            {
+              "w": "Bセット｜ハンバーガー｜コーヒーかお茶｜550円",
+              "why": "Set B có コーヒー nhưng món ăn vẫn là ハンバーガー, không phải サンドイッチ — nhiễu của câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "Cセット｜サンドイッチ｜コーヒーかお茶｜600円",
+          "vi": "Set C｜Sandwich｜Cà phê hoặc trà｜600 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "サンドイッチ",
+              "read": "サンドイッチ",
+              "vi": "sandwich"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà"
+            },
+            {
+              "w": "600円",
+              "read": "ろっぴゃくえん",
+              "vi": "600 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NかN（Bài 6）",
+              "vi": "コーヒーかお茶 = cà phê hoặc trà, lặp lại mẫu NかN ở Set C."
+            }
+          ],
+          "keys": [
+            {
+              "w": "サンドイッチ",
+              "why": "Set C có món ăn là サンドイッチ — khớp điều kiện thứ nhất của câu hỏi (muốn ăn サンドイッチ)"
+            },
+            {
+              "w": "コーヒーかお茶",
+              "why": "Set C cho chọn コーヒー trong 2 lựa chọn đồ uống — khớp điều kiện thứ hai của câu hỏi (muốn uống コーヒー), là ô quyết định Cセット đúng"
+            }
+          ]
+        },
+        {
+          "jp": "※飲み物はコーヒーかお茶かコーラから一つ選びます。",
+          "vi": "※Đồ uống chọn một trong ba: cà phê, trà hoặc cola.",
+          "vocab": [
+            {
+              "w": "飲み物",
+              "read": "のみもの",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà"
+            },
+            {
+              "w": "コーラ",
+              "read": "コーラ",
+              "vi": "cola"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NかNかN（Bài 6 mở rộng）",
+              "vi": "コーヒーかお茶かコーラ = cà phê hoặc trà hoặc cola — nối 3 lựa chọn bằng か, cùng mẫu NかN của Bài 6."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※飲み物はコーヒーかお茶かコーラから一つ選びます",
+              "why": "dòng ※ xác nhận đồ uống chỉ chọn 1 trong 3 loại — nhắc lại phạm vi lựa chọn, tránh hiểu nhầm chọn được nhiều đồ uống"
+            }
+          ]
+        },
+        {
+          "jp": "お店は11時から20時までです。それから、友達といっしょに来ませんか。",
+          "vi": "Cửa hàng mở từ 11 giờ đến 20 giờ. Sau đó, bạn có muốn cùng đến với bạn bè không?",
+          "vocab": [
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "お店",
+              "read": "おみせ",
+              "vi": "cửa hàng, quán"
+            },
+            {
+              "w": "11時",
+              "read": "じゅういちじ",
+              "vi": "11 giờ"
+            },
+            {
+              "w": "20時",
+              "read": "にじゅうじ",
+              "vi": "20 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（ôn Bài 4）",
+              "vi": "11時から20時まで = từ 11 giờ đến 20 giờ, ôn lại mẫu からまで chỉ khoảng thời gian."
+            },
+            {
+              "point": "それから（ôn Bài 4）",
+              "vi": "それから = sau đó, nối câu giờ mở cửa với lời mời đến cùng bạn bè."
+            },
+            {
+              "point": "人といっしょにVませんか（Bài 6 + ôn Bài 4）",
+              "vi": "友達といっしょに来ませんか: と = cùng ai (ôn Bài 4), いっしょにVませんか = lời mời lịch sự (Bài 6)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "セットを食べませんか",
+          "label": "NをVませんか（lời mời — Bài 6）"
+        },
+        {
+          "excerpt": "コーヒーかお茶",
+          "label": "NかN（Bài 6）"
+        },
+        {
+          "excerpt": "コーヒーかお茶かコーラ",
+          "label": "NかNかN（Bài 6 mở rộng）"
+        },
+        {
+          "excerpt": "11時から20時までです",
+          "label": "NからNまで（ôn Bài 4）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời",
+          "topic": 1,
+          "note": "Nêu tên quán và mời ăn set trưa; cho biết đồ uống được chọn cùng — điều kiện nền để dò bảng.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng 3 set A/B/C",
+          "topic": 5,
+          "note": "Bảng chính trả lời câu hỏi: dò hàng có cả サンドイッチ (món ăn) và コーヒー (đồ uống) — chỉ Cセット khớp đủ 2 điều kiện.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 6,
+          "kind": "turn",
+          "label": "Bẫy ※ giới hạn đồ uống",
+          "topic": 6,
+          "note": "Dòng ※ nhắc chỉ chọn 1 trong 3 đồ uống — không liên quan trực tiếp câu hỏi nhưng dễ gây nhầm là chọn được nhiều loại.",
+          "qs": []
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "body",
+          "label": "Giờ mở cửa & lời mời cuối",
+          "topic": 7,
+          "note": "Thông tin giờ bán và lời mời đến cùng bạn bè — không phải căn cứ của câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんはサンドイッチを食べます。コーヒーも飲みます。ミラーさんはどのセットを選びますか。",
+          "options": [
+            "Aセット",
+            "Bセット",
+            "Cセット",
+            "どのセットも食べません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2 (Cセット). Bảng ghi rõ「Cセット｜サンドイッチ｜コーヒーかお茶｜600円」— Set C có món ăn là サンドイッチ, và đồ uống là コーヒーかお茶 (chọn được コーヒー). Miller muốn ăn サンドイッチ và uống コーヒー nên cả 2 điều kiện đều khớp với Cセット. Đáp án 0 (Aセット) sai vì món ăn là ハンバーガー, không phải サンドイッチ. Đáp án 1 (Bセット) sai vì cũng là ハンバーガー, không phải サンドイッチ, dù đồ uống có コーヒー. Đáp án 3 sai vì Cセット đã khớp đủ 2 điều kiện.",
+          "tip": "Câu hỏi ghép 2 điều kiện \"món ăn + đồ uống\" — phải dò TRÊN CÙNG MỘT HÀNG của bảng. サンドイッチ chỉ xuất hiện ở hàng Cセット, nên lọc theo cột món ăn trước cho nhanh, rồi kiểm tra cột đồ uống có コーヒー không.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Anh Miller ăn bánh mì sandwich. Anh ấy cũng uống cà phê. Anh Miller sẽ chọn set nào?",
+            "o": [
+              "Set A",
+              "Set B",
+              "Set C",
+              "Anh ấy không ăn set nào cả"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

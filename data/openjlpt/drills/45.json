@@ -1,0 +1,502 @@
+{
+  "id": "minna2.b45",
+  "bai": 45,
+  "titleVi": "Chỉ, vừa mới",
+  "know": [
+    {
+      "id": "minna2.b45.dake",
+      "point": "dake",
+      "jp": "〜だけ",
+      "vi": "Chỉ ~, mỗi ~, chỉ có ~ (giới hạn trung lập)",
+      "en": "Only ~; each ~; just ~ (neutral limitation)",
+      "gloss": "野菜[やさい]だけ 食[た]べます ／ 少し[すこし]だけ",
+      "glossEn": "野菜[やさい]だけ 食[た]べます ／ 少し[すこし]だけ — I eat only vegetables / just a little."
+    },
+    {
+      "id": "minna2.b45.shika",
+      "point": "shika",
+      "jp": "〜しか〜ません",
+      "vi": "Chỉ có ~ (nhấn mạnh giới hạn, bắt buộc đi với phủ định)",
+      "en": "Only ~ (emphasizes a limitation; must be used with a negative)",
+      "gloss": "魚[さかな]しか 食[た]べません ／ 少し[すこし]しか ありません",
+      "glossEn": "魚[さかな]しか 食[た]べません ／ 少し[すこし]しか ありません — I eat nothing but fish / there is only a little."
+    },
+    {
+      "id": "minna2.b45.bakari",
+      "point": "bakari",
+      "jp": "〜ばかり",
+      "vi": "Toàn là ~ / cứ ~ mãi / vừa mới ~ (た + ばかり)",
+      "en": "Nothing but ~ / keep ~ing / have just ~ed (た + ばかり)",
+      "gloss": "肉[にく]ばかり 食[た]べています ／ 食[た]べたばかりです",
+      "glossEn": "肉[にく]ばかり 食[た]べています ／ 食[た]べたばかりです — I am eating nothing but meat / I have just eaten."
+    },
+    {
+      "id": "minna2.b45.dakedenaku",
+      "point": "dakedenaku",
+      "jp": "〜だけでなく",
+      "vi": "Không chỉ ~ mà còn (mở rộng phạm vi)",
+      "en": "Not only ~ but also ~ (expanding the scope)",
+      "gloss": "野菜[やさい]だけでなく 肉[にく]も 好[す]きです",
+      "glossEn": "野菜[やさい]だけでなく 肉[にく]も 好[す]きです — I like not only vegetables but also meat."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b45-dake-yasai",
+      "item": "minna2.b45.dake",
+      "err": "dake-shika-confuse",
+      "vi": "Con tôi chỉ ăn rau thôi.",
+      "t1": {
+        "stem": "子供[こども]は 野菜[やさい]＿ 食[た]べます。",
+        "choices": [
+          "だけ",
+          "しか",
+          "ばかり"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "子供[こども]は",
+          "野菜[やさい]だけ",
+          "食[た]べます。"
+        ],
+        "traps": [
+          "しか",
+          "ばかり"
+        ]
+      },
+      "t3": {
+        "target": "子供は野菜だけ食べます。",
+        "accept": [
+          "こどもはやさいだけたべます。"
+        ]
+      },
+      "why": "だけ = chỉ, trung lập, vị ngữ vẫn dùng thể khẳng định. ✗ しか bắt buộc đi với phủ định (食べません)."
+    },
+    {
+      "id": "c-b45-dake-sukoshi",
+      "item": "minna2.b45.dake",
+      "err": "dake-shika-confuse",
+      "vi": "Cho tôi một chút thôi nhé.",
+      "t1": {
+        "stem": "少し[すこし]＿ ください。",
+        "choices": [
+          "だけ",
+          "しか",
+          "さえ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "少し[すこし]だけ",
+          "ください。"
+        ],
+        "traps": [
+          "しか",
+          "ばかり"
+        ]
+      },
+      "t3": {
+        "target": "少しだけください。",
+        "accept": [
+          "すこしだけください。"
+        ]
+      },
+      "why": "だけ sau lượng từ = \"chỉ chừng đó\". ✗ しか ください là sai vì しか bắt buộc phủ định."
+    },
+    {
+      "id": "c-b45-shika-sakana",
+      "item": "minna2.b45.shika",
+      "err": "shika-no-neg",
+      "vi": "Anh ấy chỉ ăn cá thôi (không ăn thứ gì khác).",
+      "t1": {
+        "stem": "彼[かれ]は 魚[さかな]しか ＿。",
+        "choices": [
+          "食[た]べません",
+          "食[た]べます",
+          "食[た]べている"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "魚[さかな]しか",
+          "食[た]べません。"
+        ],
+        "traps": [
+          "食[た]べます。",
+          "食[た]べている。"
+        ]
+      },
+      "t3": {
+        "target": "彼は魚しか食べません。",
+        "accept": [
+          "かれはさかなしかたべません。"
+        ]
+      },
+      "why": "しか luôn kết hợp với phủ định (〜ません/〜ない). ✗ 魚しか食べます — bắt buộc phải phủ định sau しか."
+    },
+    {
+      "id": "c-b45-shika-sukoshi",
+      "item": "minna2.b45.shika",
+      "err": "shika-no-neg",
+      "vi": "Tôi chỉ có ít tiền thôi (ý: không đủ).",
+      "t1": {
+        "stem": "お金[かね]が 少し[すこし]しか ＿。",
+        "choices": [
+          "ありません",
+          "あります",
+          "ない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お金[かね]が",
+          "少し[すこし]しか",
+          "ありません。"
+        ],
+        "traps": [
+          "あります。",
+          "あった。"
+        ]
+      },
+      "t3": {
+        "target": "お金が少ししかありません。",
+        "accept": [
+          "おかねがすこししかありません。"
+        ]
+      },
+      "why": "しか〜ません nhấn mạnh số lượng ít hơn kỳ vọng. ✗ ありますは sai vì しか đòi phủ định."
+    },
+    {
+      "id": "c-b45-bakari-niku",
+      "item": "minna2.b45.bakari",
+      "err": "bakari-form",
+      "vi": "Dạo này anh ấy cứ ăn thịt mãi.",
+      "t1": {
+        "stem": "最近[さいきん]、彼[かれ]は 肉[にく]＿ 食[た]べています。",
+        "choices": [
+          "ばかり",
+          "だけ",
+          "しか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "最近[さいきん]",
+          "彼[かれ]は",
+          "肉[にく]ばかり",
+          "食[た]べています。"
+        ],
+        "traps": [
+          "だけ",
+          "しか"
+        ]
+      },
+      "t3": {
+        "target": "最近、彼は肉ばかり食べています。",
+        "accept": [
+          "さいきん、かれはにくばかりたべています。",
+          "さいきんかれはにくばかりたべています。"
+        ]
+      },
+      "why": "ばかり = cứ ~ mãi (hàm trách cứ / phàn nàn). ✗ だけ trung lập hơn, không mang sắc thái phàn nàn."
+    },
+    {
+      "id": "c-b45-bakari-tabeta",
+      "item": "minna2.b45.bakari",
+      "err": "bakari-form",
+      "vi": "Tôi vừa mới ăn xong.",
+      "t1": {
+        "stem": "食[た]べた＿ です。",
+        "choices": [
+          "ばかり",
+          "だけ",
+          "ところ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食[た]べた",
+          "ばかり",
+          "です。"
+        ],
+        "traps": [
+          "だけです。",
+          "ところです。"
+        ]
+      },
+      "t3": {
+        "target": "食べたばかりです。",
+        "accept": [
+          "たべたばかりです。"
+        ]
+      },
+      "why": "た + ばかり = vừa mới làm xong (hành động rất gần đây). ✗ たところ cũng \"vừa mới\" nhưng ばかり nhấn mạnh tính \"mới tinh\"."
+    },
+    {
+      "id": "c-b45-bakari-okashi",
+      "item": "minna2.b45.bakari",
+      "err": "bakari-form",
+      "vi": "Cô bé đó cứ ăn kẹo bánh mãi.",
+      "t1": {
+        "stem": "あの 子[こ]は 菓子[かし]＿ 食[た]べてばかりいます。",
+        "choices": [
+          "を",
+          "が",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 子[こ]は",
+          "菓子[かし]を",
+          "食[た]べてばかり",
+          "います。"
+        ],
+        "traps": [
+          "菓子[かし]が",
+          "菓子[かし]で"
+        ]
+      },
+      "t3": {
+        "target": "あの子は菓子を食べてばかりいます。",
+        "accept": [
+          "あのこはかしをたべてばかりいます。"
+        ]
+      },
+      "why": "食べてばかりいます = cứ ăn mãi không thôi. Vẫn cần を cho tân ngữ của 食べる. ✗ が/で sai trợ từ."
+    },
+    {
+      "id": "c-b45-dakedenaku-yasai-niku",
+      "item": "minna2.b45.dakedenaku",
+      "err": "dakedenaku-form",
+      "vi": "Cô ấy không chỉ ăn rau mà còn ăn thịt nữa.",
+      "t1": {
+        "stem": "彼女[かのじょ]は 野菜[やさい]＿ 肉[にく]も 食[た]べます。",
+        "choices": [
+          "だけでなく",
+          "だけ",
+          "ばかりで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "野菜[やさい]だけでなく",
+          "肉[にく]も",
+          "食[た]べます。"
+        ],
+        "traps": [
+          "野菜[やさい]だけ",
+          "ばかりで"
+        ]
+      },
+      "t3": {
+        "target": "彼女は野菜だけでなく肉も食べます。",
+        "accept": [
+          "かのじょはやさいだけでなくにくもたべます。"
+        ]
+      },
+      "why": "だけでなく〜も = không chỉ...mà còn...; vế sau cần も. ✗ だけ không có nghĩa mở rộng."
+    },
+    {
+      "id": "c-b45-dakedenaku-tokubetsu",
+      "item": "minna2.b45.dakedenaku",
+      "err": "dakedenaku-form",
+      "vi": "Anh ấy không chỉ chọn đồ ăn ngon mà còn rất đặc biệt về cách nấu.",
+      "t1": {
+        "stem": "彼[かれ]は 食材[しょくざい]だけでなく、料理[りょうり]の 方法[ほうほう]に＿ こだわります。",
+        "choices": [
+          "も",
+          "だけ",
+          "しか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "食材[しょくざい]だけでなく、",
+          "料理[りょうり]の 方法[ほうほう]にも",
+          "こだわります。"
+        ],
+        "traps": [
+          "方法[ほうほう]に だけ",
+          "しか"
+        ]
+      },
+      "t3": {
+        "target": "彼は食材だけでなく、料理の方法にもこだわります。",
+        "accept": [
+          "かれはしょくざいだけでなく、りょうりのほうほうにもこだわります。"
+        ]
+      },
+      "why": "だけでなく〜も: vế sau dùng も. こだわります = đặc biệt chú trọng. ✗ しか sẽ cần phủ định."
+    },
+    {
+      "id": "c-b45-dake-vs-shika",
+      "item": "minna2.b45.shika",
+      "err": "dake-shika-confuse",
+      "vi": "Tôi chỉ thích cá. (câu nhấn mạnh không thích gì khác)",
+      "t1": {
+        "stem": "私[わたし]は 魚[さかな]＿ 好[す]きじゃありません。",
+        "choices": [
+          "しか",
+          "だけ",
+          "ばかり"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]は",
+          "魚[さかな]しか",
+          "好[す]きじゃありません。"
+        ],
+        "traps": [
+          "だけ",
+          "ばかり"
+        ]
+      },
+      "t3": {
+        "target": "私は魚しか好きじゃありません。",
+        "accept": [
+          "わたしはさかなしかすきじゃありません。"
+        ]
+      },
+      "why": "しか〜ません/じゃありません: nhấn mạnh chỉ thích mỗi cá, không thích thứ gì khác. ✗ だけ đi với khẳng định (好きです), không đi với じゃありません."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b45-shika",
+      "item": "minna2.b45.shika",
+      "err": "shika-no-neg",
+      "tts": "わたしは やさいしか たべません。にくや さかなは きらいです。",
+      "script": "私[わたし]は 野菜[やさい]しか 食[た]べません。肉[にく]や 魚[さかな]は 嫌[きら]いです。",
+      "ask": "Người nói có ăn thịt và cá không?",
+      "choices": [
+        "Không, họ không ăn thịt và cá",
+        "Có, họ ăn tất cả mọi thứ",
+        "Chỉ ăn cá, không ăn thịt"
+      ],
+      "answer": 0,
+      "why": "しか〜ません = chỉ ăn rau, không ăn gì khác. 嫌いです xác nhận không thích thịt và cá."
+    },
+    {
+      "id": "l-b45-bakari",
+      "item": "minna2.b45.bakari",
+      "err": "bakari-form",
+      "tts": "さいきん かれは かしばかり たべています。はを みがいてほしいです。",
+      "script": "最近[さいきん] 彼[かれ]は 菓子[かし]ばかり 食[た]べています。歯[は]を 磨[みが]いてほしいです。",
+      "ask": "Người nói muốn anh ấy làm gì?",
+      "choices": [
+        "Đánh răng sau khi ăn kẹo bánh",
+        "Bỏ ăn kẹo bánh hoàn toàn",
+        "Ăn nhiều rau hơn"
+      ],
+      "answer": 0,
+      "why": "ばかり食べている = cứ ăn mãi (hàm phàn nàn). 歯を磨いてほしい = muốn anh ấy đánh răng."
+    },
+    {
+      "id": "l-b45-dakedenaku",
+      "item": "minna2.b45.dakedenaku",
+      "err": "dakedenaku-form",
+      "tts": "あのみせは やさいだけでなく、にくも さかなも とくべつです。",
+      "script": "あの 店[みせ]は 野菜[やさい]だけでなく、肉[にく]も 魚[さかな]も 特別[とくべつ]です。",
+      "ask": "Điều gì đặc biệt ở cửa hàng đó?",
+      "choices": [
+        "Cả rau, thịt và cá đều đặc biệt",
+        "Chỉ có rau là đặc biệt",
+        "Chỉ có thịt và cá là đặc biệt"
+      ],
+      "answer": 0,
+      "why": "だけでなく〜も〜も = không chỉ...mà còn...và cả... Cả ba thứ đều được đề cập là đặc biệt."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b45-tekara-shika",
+      "item": "minna1.b16.tekara",
+      "err": "tekara-vs-kara",
+      "ambush": true,
+      "src": 16,
+      "context": "Bài 45 ・ 〜しか〜ません",
+      "vi": "Sau khi ăn xong, tôi chỉ uống trà xanh thôi.",
+      "t1": {
+        "stem": "食[た]べ＿、お茶[ちゃ]しか 飲[の]みません。",
+        "choices": [
+          "てから",
+          "てばかり",
+          "てもから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食[た]べてから、",
+          "お茶[ちゃ]しか",
+          "飲[の]みません。"
+        ],
+        "traps": [
+          "食[た]べてばかり、",
+          "食[た]べから、"
+        ]
+      },
+      "t3": {
+        "target": "食べてから、お茶しか飲みません。",
+        "accept": [
+          "たべてから、おちゃしかのみません。",
+          "たべてからおちゃしかのみません。"
+        ]
+      },
+      "why": "てから (Bài 16) = sau khi làm xong (trình tự bắt buộc). ✗ てばかり không có nghĩa \"sau khi\". しか〜ません là bài 45."
+    },
+    {
+      "id": "a-b45-suki-ga-dake",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 45 ・ 〜だけ",
+      "vi": "Tôi chỉ thích cá và rau thôi.",
+      "t1": {
+        "stem": "私[わたし]は 魚[さかな]と 野菜[やさい]＿ 好[す]きです。だけ それだけ 好[す]きです。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]は",
+          "魚[さかな]と 野菜[やさい]だけ",
+          "が",
+          "好[す]きです。"
+        ],
+        "traps": [
+          "魚[さかな]と 野菜[やさい]を",
+          "好[す]きします。"
+        ]
+      },
+      "t3": {
+        "target": "私は魚と野菜だけが好きです。",
+        "accept": [
+          "わたしはさかなとやさいだけがすきです。"
+        ]
+      },
+      "why": "好き luôn cần が cho đối tượng (lỗi Bài 9). だけ bổ nghĩa cho danh từ trước が. ✗ 野菜を好きです là sai."
+    }
+  ]
+}

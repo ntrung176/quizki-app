@@ -1,0 +1,1400 @@
+{
+  "bai": 4,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 4 luyện đọc về lịch sinh hoạt hằng ngày: giờ thức dậy, giờ làm việc, giờ nghỉ. Đây là bài ĐẦU TIÊN có động từ — mọi động từ đều ở thể ます (lịch sự). Tập trung nhận diện giờ giấc (〜時・〜分), phạm vi từ〜まで (từ...đến), và trạng thái hiện tại/quá khứ của hành động.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm chủ đề: bài nói về ai, làm gì, lúc mấy giờ.",
+      "Tìm các cụm giờ (〜時・〜分) — chúng trả lời câu hỏi \"いつ/何時に\" (lúc mấy giờ).",
+      "Nhận diện động từ cuối câu: ます = hiện tại/thói quen, ません = phủ định, ました = quá khứ, ませんでした = phủ định quá khứ.",
+      "Tìm cụm NからNまで — N đầu là điểm bắt đầu, N sau là điểm kết thúc (giờ, địa điểm).",
+      "Khi thấy そして, biết đây là \"và rồi\" — nối hai hành động/sự kiện liên tiếp.",
+      "Câu hỏi đọc hiểu thường hỏi \"mấy giờ làm X\" hoặc \"có làm Y không\" — tìm câu tương ứng trong bài để chọn đáp án."
+    ],
+    "tips": [
+      "〜時 đọc là \"〜じ\" (7時 = しちじ, 9時 = くじ — chú ý 4時 = よじ, 7時 = しちじ, 9時 = くじ khác với số thông thường).",
+      "〜分 đọc biến thể: 1分=いっぷん, 3分=さんぷん, 6分=ろっぷん, 8分=はっぷん, 10分=じゅっぷん — để ý những phút có âm biến đổi.",
+      "Vます (hiện tại/thói quen) ≠ Vました (đã làm — quá khứ). Đọc kỹ đuôi câu trước khi chọn đáp án.",
+      "Nと trong bài này = \"cùng với N\" (người đồng hành), khác と nối danh sách ở Bài 6.",
+      "そして nối hai câu/mệnh đề: \"và rồi, tiếp theo\" — khác với それから (sau đó) chưa học đến Bài 6.",
+      "Câu hỏi \"〜ましたか\" → trả lời \"はい、〜ました\" hoặc \"いいえ、〜ませんでした\" — không được trả lời bằng ます."
+    ],
+    "grammarFocus": [
+      "〜時・〜分（giờ・phút）",
+      "Vます / Vません（hiện tại/thói quen – khẳng định/phủ định）",
+      "Vました / Vませんでした（quá khứ – khẳng định/phủ định）",
+      "NからNまで（từ N đến N）",
+      "Nと（cùng với N）",
+      "そして（và rồi, tiếp theo）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 1,
+        "items": [
+          "NはNです",
+          "NはNではありません",
+          "NのN（quan hệ sở hữu/thuộc về）"
+        ]
+      },
+      {
+        "bai": 2,
+        "items": [
+          "これ・それ・あれ",
+          "NのN（sở hữu）"
+        ]
+      },
+      {
+        "bai": 3,
+        "items": [
+          "NはNにあります／います",
+          "ここ・そこ・あそこ（vị trí）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "ミラーさんの一日",
+      "titleVi": "Một ngày của anh Miller",
+      "japanese": "ミラーさんは毎朝6時に起きます。7時から8時まで日本語を勉強します。IMCは9時から5時までです。ミラーさんは土曜日に働きません。昨日、ミラーさんは11時に寝ました。",
+      "vietnamese": "Mỗi buổi sáng anh Miller thức dậy lúc 6 giờ. Anh học tiếng Nhật từ 7 giờ đến 8 giờ. Công ty IMC làm việc từ 9 giờ đến 5 giờ. Anh Miller không làm việc vào thứ Bảy. Hôm qua, anh Miller đi ngủ lúc 11 giờ.",
+      "sentences": [
+        {
+          "jp": "ミラーさんは毎朝6時に起きます。",
+          "vi": "Mỗi buổi sáng anh Miller thức dậy lúc 6 giờ.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi buổi sáng"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "thức dậy"
+            },
+            {
+              "w": "6時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（giờ）",
+              "vi": "6時 = \"6 giờ\". に sau giờ cụ thể = \"lúc\" (chỉ thời điểm)."
+            },
+            {
+              "point": "Vます（thói quen）",
+              "vi": "起きます = thức dậy (hàng ngày). Đuôi ます = hiện tại hoặc thói quen lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "7時から8時まで日本語を勉強します。",
+          "vi": "Anh học tiếng Nhật từ 7 giờ đến 8 giờ.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học (bài)"
+            },
+            {
+              "w": "7時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（từ...đến）",
+              "vi": "7時から8時まで = từ 7 giờ đến 8 giờ. から = điểm bắt đầu, まで = điểm kết thúc."
+            },
+            {
+              "point": "Vます",
+              "vi": "勉強します = học (thói quen hằng ngày)."
+            },
+            {
+              "point": "を（trợ từ tân ngữ）",
+              "vi": "日本語を = tiếng Nhật (tân ngữ trực tiếp). を = trợ từ tân ngữ — chính thức học ở Bài 6, dùng trước cho bài đọc tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "IMCは9時から5時までです。",
+          "vi": "Công ty IMC làm việc từ 9 giờ đến 5 giờ.",
+          "vocab": [
+            {
+              "w": "IMC",
+              "read": "アイ・エム・シー",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "5時",
+              "read": "ごじ",
+              "vi": "5 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（từ...đến）",
+              "vi": "9時から5時まで = từ 9 giờ đến 5 giờ. Dùng với です (danh từ vị ngữ) chỉ giờ hoạt động."
+            },
+            {
+              "point": "NはNです（ôn Bài 1）",
+              "vi": "IMCは〜です = giờ làm việc của IMC là...."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは土曜日に働きません。",
+          "vi": "Anh Miller không làm việc vào thứ Bảy.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "働きません",
+              "read": "はたらきません",
+              "vi": "không làm việc (phủ định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vません（phủ định hiện tại）",
+              "vi": "働きません = không làm việc. Đuôi ません = phủ định của ます."
+            }
+          ]
+        },
+        {
+          "jp": "昨日、ミラーさんは11時に寝ました。",
+          "vi": "Hôm qua, anh Miller đi ngủ lúc 11 giờ.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "寝ました",
+              "read": "ねました",
+              "vi": "đã đi ngủ (quá khứ)"
+            },
+            {
+              "w": "11時",
+              "read": "じゅういちじ",
+              "vi": "11 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（quá khứ khẳng định）",
+              "vi": "寝ました = đã ngủ/đi ngủ. ました là đuôi quá khứ lịch sự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "7時から8時まで日本語を勉強します",
+          "label": "NからNまで + Vます"
+        },
+        {
+          "excerpt": "土曜日に働きません",
+          "label": "Vません（phủ định）"
+        },
+        {
+          "excerpt": "11時に寝ました",
+          "label": "Vました（quá khứ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは何時に起きますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "5時に起きます",
+            "6時に起きます",
+            "7時に起きます",
+            "9時に起きます"
+          ],
+          "answer": 1,
+          "explainVi": "「毎朝6時に起きます」— câu đầu bài ghi rõ Miller thức dậy lúc 6 giờ, vậy đáp án B (6時) là đúng. A (5時) và C (7時) không có trong bài — 7時 là giờ bắt đầu học tiếng Nhật, không phải giờ thức dậy. D (9時) là giờ bắt đầu làm việc ở IMC, cũng không phải giờ ngủ dậy.",
+          "tip": "Câu hỏi \"何時に起きますか\" → tìm động từ 起きます trong bài và đọc số giờ ngay trước に. Số giờ đó chính là đáp án.",
+          "qt": {
+            "q": "Ông Miller thức dậy lúc mấy giờ?",
+            "o": [
+              "Thức dậy lúc 5 giờ",
+              "Thức dậy lúc 6 giờ",
+              "Thức dậy lúc 7 giờ",
+              "Thức dậy lúc 9 giờ"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは土曜日に働きますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "はい、9時から5時まで働きます",
+            "はい、毎朝働きます",
+            "いいえ、土曜日に働きません",
+            "いいえ、昨日働きませんでした"
+          ],
+          "answer": 2,
+          "explainVi": "「土曜日に働きません」— bài dùng đuôi phủ định ません, nên trả lời phải bắt đầu bằng いいえ. Đáp án C (いいえ、土曜日に働きません) phản ánh đúng câu trong bài. A và B đều dùng はい (khẳng định) — sai vì bài nói không làm việc. D dùng いいえ nhưng nói \"hôm qua không làm\" (ませんでした — quá khứ) trong khi câu hỏi hỏi về thứ Bảy nói chung (thói quen), không phải hôm qua.",
+          "tip": "Thấy ません trong bài → trả lời bằng いいえ + ません (cùng thì, không đổi sang ませんでした). Câu hỏi thói quen → đừng đổi sang quá khứ.",
+          "qt": {
+            "q": "Ông Miller có làm việc vào thứ Bảy không?",
+            "o": [
+              "Có, làm việc từ 9 giờ đến 5 giờ",
+              "Có, làm việc mỗi sáng",
+              "Không, không làm việc vào thứ Bảy",
+              "Không, hôm qua đã không làm việc"
+            ]
+          }
+        },
+        {
+          "q": "昨日、ミラーさんは何時に寝ましたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "9時に寝ました",
+            "10時に寝ました",
+            "11時に寝ました",
+            "12時に寝ました"
+          ],
+          "answer": 2,
+          "explainVi": "「昨日、ミラーさんは11時に寝ました」— bài ghi rõ đêm qua Miller ngủ lúc 11 giờ, vậy đáp án C (11時) đúng. A (9時) là giờ bắt đầu làm việc ở IMC — dễ nhầm vì số 9 xuất hiện trong bài. B (10時) và D (12時) không xuất hiện trong bài này.",
+          "tip": "Câu hỏi dùng ましたか (quá khứ) → tìm câu có ました trong bài và từ khoá \"昨日\" (hôm qua). Đọc số giờ ngay trước に.",
+          "qt": {
+            "q": "Hôm qua, ông Miller đi ngủ lúc mấy giờ?",
+            "o": [
+              "Đi ngủ lúc 9 giờ",
+              "Đi ngủ lúc 10 giờ",
+              "Đi ngủ lúc 11 giờ",
+              "Đi ngủ lúc 12 giờ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "カリナさんのスケジュール",
+      "titleVi": "Lịch sinh hoạt của Karina",
+      "japanese": "カリナさんはさくら大学の学生です。毎日6時半に起きます。\n7時から7時30分まで朝ごはんを食べます。そして、8時に大学へ行きます。\n大学は9時から4時までです。カリナさんはワンさんといっしょに勉強します。\n昨日は月曜日でした。カリナさんは9時から12時まで日本語のクラスがありました。\n12時から1時まで昼ごはんを食べました。ワンさんもいっしょに食べました。\n午後は3時から4時まで図書館で勉強しました。\n4時に大学が終わりました。カリナさんはうちへ帰りました。\nそして、シャワーを浴びました。6時に夕ごはんを食べました。\n昨日の夜、カリナさんは日本語を勉強しませんでした。テレビを見ました。11時に寝ました。",
+      "vietnamese": "Karina là sinh viên trường đại học Sakura. Mỗi ngày cô thức dậy lúc 6 giờ rưỡi.\nTừ 7 giờ đến 7 giờ 30 phút cô ăn sáng. Và rồi, cô đi đến trường lúc 8 giờ.\nTrường đại học hoạt động từ 9 giờ đến 4 giờ. Karina học cùng với Wang.\nHôm qua là thứ Hai. Karina có lớp tiếng Nhật từ 9 giờ đến 12 giờ.\nTừ 12 giờ đến 1 giờ, cô đã ăn trưa. Wang cũng ăn cùng.\nBuổi chiều, cô đã học ở thư viện từ 3 giờ đến 4 giờ.\nLúc 4 giờ trường tan học. Karina đã về nhà.\nVà rồi, cô tắm. Lúc 6 giờ cô ăn tối.\nTối hôm qua, Karina đã không học tiếng Nhật. Cô xem ti-vi. Cô đi ngủ lúc 11 giờ.",
+      "sentences": [
+        {
+          "jp": "カリナさんはさくら大学の学生です。",
+          "vi": "Karina là sinh viên trường đại học Sakura.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "さくら大学",
+              "read": "さくらだいがく",
+              "vi": "Đại học Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（ôn Bài 1）",
+              "vi": "NのN（さくら大学の学生）+ です để giới thiệu danh tính."
+            }
+          ]
+        },
+        {
+          "jp": "毎日6時半に起きます。",
+          "vi": "Mỗi ngày cô thức dậy lúc 6 giờ rưỡi.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "thức dậy"
+            },
+            {
+              "w": "6時半",
+              "read": "ろくじはん",
+              "vi": "6 giờ rưỡi (6:30)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時半（〜giờ rưỡi）",
+              "vi": "半 = rưỡi (30 phút). 6時半 = 6 giờ 30 phút."
+            },
+            {
+              "point": "Vます（thói quen）",
+              "vi": "起きます = thức dậy (hàng ngày, thể hiện thói quen)."
+            }
+          ]
+        },
+        {
+          "jp": "7時から7時30分まで朝ごはんを食べます。そして、8時に大学へ行きます。",
+          "vi": "Từ 7 giờ đến 7 giờ 30 phút cô ăn sáng. Và rồi, cô đi đến trường lúc 8 giờ.",
+          "vocab": [
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べます",
+              "read": "たべます",
+              "vi": "ăn"
+            },
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "行きます",
+              "read": "いきます",
+              "vi": "đi"
+            },
+            {
+              "w": "7時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            },
+            {
+              "w": "7時30分",
+              "read": "しちじさんじゅっぷん",
+              "vi": "7 giờ 30 phút"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（từ...đến）",
+              "vi": "7時から7時30分まで = từ 7 giờ đến 7 giờ 30 phút."
+            },
+            {
+              "point": "そして（và rồi）",
+              "vi": "そして nối hai hành động liên tiếp: ăn sáng xong → đi học."
+            },
+            {
+              "point": "Vます",
+              "vi": "食べます・行きます đều là thể ます — thói quen hằng ngày."
+            },
+            {
+              "point": "を（trợ từ tân ngữ）",
+              "vi": "朝ごはんを = bữa sáng (tân ngữ trực tiếp của 食べます). を = trợ từ tân ngữ — chính thức học ở Bài 6, dùng trước cho bài đọc tự nhiên."
+            },
+            {
+              "point": "へ + động từ di chuyển",
+              "vi": "大学へ行きます = đi đến trường. へ chỉ hướng/đích đến của di chuyển — chính thức học ở Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "大学は9時から4時までです。",
+          "vi": "Trường đại học hoạt động từ 9 giờ đến 4 giờ.",
+          "vocab": [
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "4時",
+              "read": "よじ",
+              "vi": "4 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで + です",
+              "vi": "Giờ hoạt động: NからNまでです. 4時 đọc là よじ (không phải しじ)."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはワンさんといっしょに勉強します。",
+          "vi": "Karina học cùng với Wang.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nと（cùng với N）",
+              "vi": "ワンさんと = cùng với Wang. と ở đây chỉ người đồng hành."
+            }
+          ]
+        },
+        {
+          "jp": "昨日は月曜日でした。カリナさんは9時から12時まで日本語のクラスがありました。",
+          "vi": "Hôm qua là thứ Hai. Karina có lớp tiếng Nhật từ 9 giờ đến 12 giờ.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "12時",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "ありました",
+              "read": "ありました",
+              "vi": "đã có (quá khứ của あります)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "ありました = đã có (lớp học). でした = quá khứ của です."
+            },
+            {
+              "point": "NからNまで（từ...đến）",
+              "vi": "9時から12時まで = từ 9 giờ đến 12 giờ."
+            }
+          ]
+        },
+        {
+          "jp": "12時から1時まで昼ごはんを食べました。ワンさんもいっしょに食べました。",
+          "vi": "Từ 12 giờ đến 1 giờ, cô đã ăn trưa. Wang cũng ăn cùng.",
+          "vocab": [
+            {
+              "w": "昼ごはん",
+              "read": "ひるごはん",
+              "vi": "bữa trưa"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べました",
+              "read": "たべました",
+              "vi": "đã ăn (quá khứ)"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "1時",
+              "read": "いちじ",
+              "vi": "1 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "食べました = đã ăn."
+            },
+            {
+              "point": "Nも（ôn Bài 1）",
+              "vi": "ワンさんも = Wang cũng (giống Karina). も thay thế vị trí は."
+            },
+            {
+              "point": "を（trợ từ tân ngữ）",
+              "vi": "昼ごはんを = bữa trưa (tân ngữ trực tiếp của 食べました). を = trợ từ tân ngữ — chính thức học ở Bài 6, dùng trước cho bài đọc tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "午後は3時から4時まで図書館で勉強しました。",
+          "vi": "Buổi chiều, cô đã học ở thư viện từ 3 giờ đến 4 giờ.",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "勉強しました",
+              "read": "べんきょうしました",
+              "vi": "đã học (quá khứ)"
+            },
+            {
+              "w": "3時",
+              "read": "さんじ",
+              "vi": "3 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（từ...đến）",
+              "vi": "3時から4時まで = từ 3 giờ đến 4 giờ."
+            },
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "勉強しました = đã học."
+            }
+          ]
+        },
+        {
+          "jp": "4時に大学が終わりました。カリナさんはうちへ帰りました。",
+          "vi": "Lúc 4 giờ trường tan học. Karina đã về nhà.",
+          "vocab": [
+            {
+              "w": "4時",
+              "read": "よじ",
+              "vi": "4 giờ"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "đại học"
+            },
+            {
+              "w": "終わりました",
+              "read": "おわりました",
+              "vi": "đã kết thúc"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "うち",
+              "read": "うち",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰りました",
+              "read": "かえりました",
+              "vi": "đã về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "終わりました・帰りました = đã kết thúc, đã về nhà."
+            },
+            {
+              "point": "へ + động từ di chuyển",
+              "vi": "うちへ帰りました = đã về nhà. へ chỉ hướng/đích đến của di chuyển — chính thức học ở Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "そして、シャワーを浴びました。6時に夕ごはんを食べました。",
+          "vi": "Và rồi, cô tắm. Lúc 6 giờ cô ăn tối.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "シャワー",
+              "read": "シャワー",
+              "vi": "vòi hoa sen, tắm vòi"
+            },
+            {
+              "w": "浴びました",
+              "read": "あびました",
+              "vi": "đã tắm (quá khứ của 浴びます)"
+            },
+            {
+              "w": "夕ごはん",
+              "read": "ゆうごはん",
+              "vi": "bữa tối"
+            },
+            {
+              "w": "食べました",
+              "read": "たべました",
+              "vi": "đã ăn (quá khứ)"
+            },
+            {
+              "w": "6時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そして（và rồi）",
+              "vi": "そして nối hành động liên tiếp: về nhà → tắm → ăn tối."
+            },
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "浴びました・食べました = các hành động đã xảy ra hôm qua."
+            },
+            {
+              "point": "を（trợ từ tân ngữ）",
+              "vi": "シャワーを・夕ごはんを = tân ngữ trực tiếp của động từ. を = trợ từ tân ngữ — chính thức học ở Bài 6, dùng trước cho bài đọc tự nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "昨日の夜、カリナさんは日本語を勉強しませんでした。テレビを見ました。11時に寝ました。",
+          "vi": "Tối hôm qua, Karina đã không học tiếng Nhật. Cô xem ti-vi. Cô đi ngủ lúc 11 giờ.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強しませんでした",
+              "read": "べんきょうしませんでした",
+              "vi": "đã không học (phủ định quá khứ)"
+            },
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "ti-vi"
+            },
+            {
+              "w": "見ました",
+              "read": "みました",
+              "vi": "đã xem (quá khứ)"
+            },
+            {
+              "w": "寝ました",
+              "read": "ねました",
+              "vi": "đã đi ngủ (quá khứ)"
+            },
+            {
+              "w": "11時",
+              "read": "じゅういちじ",
+              "vi": "11 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vませんでした（phủ định quá khứ）",
+              "vi": "勉強しませんでした = đã không học. ませんでした = đuôi phủ định quá khứ lịch sự."
+            },
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "見ました・寝ました = đã xem, đã ngủ."
+            },
+            {
+              "point": "を（trợ từ tân ngữ）",
+              "vi": "日本語を・テレビを = tân ngữ trực tiếp (tiếng Nhật, ti-vi). を = trợ từ tân ngữ — chính thức học ở Bài 6, dùng trước cho bài đọc tự nhiên."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "7時から7時30分まで朝ごはんを食べます",
+          "label": "NからNまで + Vます"
+        },
+        {
+          "excerpt": "ワンさんといっしょに勉強します",
+          "label": "Nと（cùng với）"
+        },
+        {
+          "excerpt": "そして、8時に大学へ行きます",
+          "label": "そして（và rồi）"
+        },
+        {
+          "excerpt": "9時から12時まで日本語のクラスがありました",
+          "label": "NからNまで + Vました"
+        },
+        {
+          "excerpt": "日本語を勉強しませんでした",
+          "label": "Vませんでした（phủ định quá khứ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは毎日何時に起きますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "6時に起きます",
+            "6時半に起きます",
+            "7時に起きます",
+            "8時に起きます"
+          ],
+          "answer": 1,
+          "explainVi": "「毎日6時半に起きます」— bài ghi rõ Karina thức dậy lúc 6 giờ rưỡi (6時半) mỗi ngày, vậy đáp án B đúng. A (6時) gần đúng nhưng thiếu 半 (rưỡi) — đọc bài cần phân biệt 6時 và 6時半. C (7時) là giờ bắt đầu ăn sáng, không phải giờ thức dậy. D (8時) là giờ đi học, cũng không phải giờ ngủ dậy.",
+          "tip": "半 = \"rưỡi\" = 30 phút. 6時半 ≠ 6時 — luôn đọc kỹ có 半 hay không để tránh nhầm giờ chẵn và giờ rưỡi.",
+          "qt": {
+            "q": "Mỗi ngày chị Karina thức dậy lúc mấy giờ?",
+            "o": [
+              "Thức dậy lúc 6 giờ",
+              "Thức dậy lúc 6 giờ rưỡi",
+              "Thức dậy lúc 7 giờ",
+              "Thức dậy lúc 8 giờ"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはだれといっしょに勉強しますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "ミラーさんと勉強します",
+            "サントスさんと勉強します",
+            "ワンさんと勉強します",
+            "ひとりで勉強します"
+          ],
+          "answer": 2,
+          "explainVi": "「カリナさんはワンさんといっしょに勉強します」— bài ghi rõ Karina học cùng Wang (ワンさん). と ở đây là trợ từ chỉ người đồng hành \"cùng với\", nên đáp án C đúng. A (ミラーさん) và B (サントスさんと) là tên người trong bộ sách nhưng không xuất hiện trong bài này. D (ひとりで = một mình) sai vì bài nói Karina học cùng Wang, không học một mình.",
+          "tip": "Câu hỏi \"だれと〜しますか\" → tìm Nと trong bài. Trợ từ と ngay sau tên người = \"cùng với người đó\".",
+          "qt": {
+            "q": "Chị Karina học cùng với ai?",
+            "o": [
+              "Học cùng với anh Miller",
+              "Học cùng với anh Santos",
+              "Học cùng với anh Wang",
+              "Học một mình"
+            ]
+          }
+        },
+        {
+          "q": "昨日の夜、カリナさんは何をしましたか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "日本語を勉強しました",
+            "テレビを見ました",
+            "うちへ帰りませんでした",
+            "12時に寝ました"
+          ],
+          "answer": 1,
+          "explainVi": "「昨日の夜、カリナさんは日本語を勉強しませんでした。テレビを見ました。」— tối qua Karina KHÔNG học tiếng Nhật mà đã xem ti-vi, vậy đáp án B (テレビを見ました) đúng. A (日本語を勉強しました) sai vì bài dùng しませんでした (phủ định quá khứ — đã không học). C (うちへ帰りませんでした) sai vì bài nói Karina đã về nhà (帰りました — khẳng định). D (12時に寝ました) sai vì bài ghi Karina ngủ lúc 11時, không phải 12時.",
+          "tip": "Khi thấy しませんでした (phủ định quá khứ), câu đó là hành động KHÔNG làm — đừng chọn hành động đó làm đáp án. Tìm câu ました (khẳng định) ngay sau để biết hành động thực sự đã xảy ra.",
+          "qt": {
+            "q": "Tối hôm qua, chị Karina đã làm gì?",
+            "o": [
+              "Đã học tiếng Nhật",
+              "Đã xem tivi",
+              "Đã không về nhà",
+              "Đã đi ngủ lúc 12 giờ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら図書館とさくらプールの時間",
+      "titleVi": "Giờ mở cửa thư viện Sakura và bể bơi Sakura",
+      "japanese": "さくら図書館とさくらプールの時間\nみなさん、さくら町にさくら図書館とさくらプールがあります。図書館とプールは月曜日から日曜日まであります。\n曜日｜図書館｜プール\n月・火・水・木｜9時から6時まで｜10時から7時まで\n金・土｜9時から8時まで｜10時から9時まで\n日｜9時から5時まで｜休みです\n※月曜日から土曜日まで、プールは休みではありません。日曜日はプールが休みです。図書館は休みではありません。\n電話：0120-45-6789（9時から5時まで）",
+      "vietnamese": "Giờ mở cửa thư viện Sakura và bể bơi Sakura\nXin chào mọi người, ở thị trấn Sakura có thư viện Sakura và bể bơi Sakura. Thư viện và bể bơi có từ thứ Hai đến Chủ nhật.\nThứ｜Thư viện｜Bể bơi\nHai・Ba・Tư・Năm｜Từ 9 giờ đến 6 giờ｜Từ 10 giờ đến 7 giờ\nSáu・Bảy｜Từ 9 giờ đến 8 giờ｜Từ 10 giờ đến 9 giờ\nChủ nhật｜Từ 9 giờ đến 5 giờ｜Nghỉ\n※Từ thứ Hai đến thứ Bảy, bể bơi không nghỉ. Chủ nhật bể bơi nghỉ. Thư viện không nghỉ.\nĐiện thoại：0120-45-6789（từ 9 giờ đến 5 giờ）",
+      "sentences": [
+        {
+          "jp": "さくら図書館とさくらプールの時間",
+          "vi": "Giờ mở cửa thư viện Sakura và bể bơi Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "さくら図書館",
+              "read": "さくらとしょかん",
+              "vi": "thư viện Sakura"
+            },
+            {
+              "w": "さくらプール",
+              "read": "さくらプール",
+              "vi": "bể bơi Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとN（ôn Bài 4）",
+              "vi": "図書館とプール = thư viện và bể bơi. と nối 2 danh từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくら図書館",
+              "why": "tên địa điểm thứ nhất trong bảng — cần nhớ để dò đúng cột."
+            },
+            {
+              "w": "さくらプール",
+              "why": "tên địa điểm thứ hai trong bảng — câu hỏi hỏi về giờ của chỗ này."
+            }
+          ]
+        },
+        {
+          "jp": "みなさん、さくら町にさくら図書館とさくらプールがあります。図書館とプールは月曜日から日曜日まであります。",
+          "vi": "Xin chào mọi người, ở thị trấn Sakura có thư viện Sakura và bể bơi Sakura. Thư viện và bể bơi có từ thứ Hai đến Chủ nhật.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người, xin chào các bạn"
+            },
+            {
+              "w": "さくら町",
+              "read": "さくらまち",
+              "vi": "thị trấn Sakura"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có (đồ vật/địa điểm)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにあります（ôn Bài 3）",
+              "vi": "さくら町に〜あります = ở thị trấn Sakura có〜. Câu tồn tại của địa điểm."
+            },
+            {
+              "point": "NからNまで（ôn Bài 4）",
+              "vi": "月曜日から日曜日まで = từ thứ Hai đến Chủ nhật — cả 2 nơi đều mở cửa trong khoảng này (giờ cụ thể xem bảng)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月曜日から日曜日まで",
+              "why": "câu giới thiệu chung: cả tuần đều mở cửa — nhưng KHÔNG có nghĩa là mọi ngày cùng giờ, phải dò bảng mới ra giờ chính xác."
+            }
+          ]
+        },
+        {
+          "jp": "曜日｜図書館｜プール",
+          "vi": "Thứ｜Thư viện｜Bể bơi",
+          "vocab": [
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "曜日｜図書館｜プール",
+              "why": "hàng tiêu đề bảng — xác định thứ tự 3 cột để dò đúng ô."
+            }
+          ]
+        },
+        {
+          "jp": "月・火・水・木｜9時から6時まで｜10時から7時まで",
+          "vi": "Hai・Ba・Tư・Năm｜Từ 9 giờ đến 6 giờ｜Từ 10 giờ đến 7 giờ",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "6時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            },
+            {
+              "w": "7時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（ôn Bài 4）",
+              "vi": "9時から6時まで／10時から7時まで = từ 9 giờ đến 6 giờ／từ 10 giờ đến 7 giờ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月・火・水・木",
+              "why": "nhóm 4 ngày thường — dễ nhầm với hàng 金・土 nếu không đọc kỹ."
+            },
+            {
+              "w": "10時から7時まで",
+              "why": "giờ mở cửa bể bơi các ngày thường — là nhiễu gần đúng cho câu hỏi về Chủ nhật."
+            }
+          ]
+        },
+        {
+          "jp": "金・土｜9時から8時まで｜10時から9時まで",
+          "vi": "Sáu・Bảy｜Từ 9 giờ đến 8 giờ｜Từ 10 giờ đến 9 giờ",
+          "vocab": [
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（ôn Bài 4）",
+              "vi": "9時から8時まで／10時から9時まで = giờ mở cửa dài hơn vào cuối tuần."
+            }
+          ],
+          "keys": [
+            {
+              "w": "金・土",
+              "why": "ngày cuối tuần, KHÔNG phải Chủ nhật — bẫy nếu nhầm với 日 ở hàng dưới."
+            },
+            {
+              "w": "10時から9時まで",
+              "why": "giờ bể bơi thứ Sáu/Bảy — nhiễu gần đúng, dễ chọn nhầm cho câu hỏi Chủ nhật."
+            }
+          ]
+        },
+        {
+          "jp": "日｜9時から5時まで｜休みです",
+          "vi": "Chủ nhật｜Từ 9 giờ đến 5 giờ｜Nghỉ",
+          "vocab": [
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "休みです",
+              "read": "やすみです",
+              "vi": "là ngày nghỉ"
+            },
+            {
+              "w": "5時",
+              "read": "ごじ",
+              "vi": "5 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（ôn Bài 1）",
+              "vi": "休みです = (bể bơi Chủ nhật) là ngày nghỉ. Câu danh từ vị ngữ."
+            },
+            {
+              "point": "NからNまで（ôn Bài 4）",
+              "vi": "9時から5時まで = giờ mở cửa thư viện Chủ nhật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日",
+              "why": "từ khoá ngày trong câu hỏi — dòng này là căn cứ chính."
+            },
+            {
+              "w": "休みです",
+              "why": "đáp án đúng của câu hỏi: bể bơi Chủ nhật NGHỈ, không có giờ mở cửa."
+            }
+          ]
+        },
+        {
+          "jp": "※月曜日から土曜日まで、プールは休みではありません。日曜日はプールが休みです。図書館は休みではありません。",
+          "vi": "※Từ thứ Hai đến thứ Bảy, bể bơi không nghỉ. Chủ nhật bể bơi nghỉ. Thư viện không nghỉ.",
+          "vocab": [
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "プール",
+              "read": "プール",
+              "vi": "bể bơi"
+            },
+            {
+              "w": "休みではありません",
+              "read": "やすみではありません",
+              "vi": "không phải là ngày nghỉ"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（ôn Bài 4）",
+              "vi": "月曜日から土曜日まで = từ thứ Hai đến thứ Bảy."
+            },
+            {
+              "point": "NはNではありません（ôn Bài 1）",
+              "vi": "休みではありません = phủ định của 休みです — khẳng định KHÔNG nghỉ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日曜日はプールが休みです",
+              "why": "nhắc lại rõ ràng: Chủ nhật bể bơi nghỉ — củng cố đáp án đúng."
+            },
+            {
+              "w": "図書館は休みではありません",
+              "why": "bẫy: thư viện KHÔNG nghỉ Chủ nhật, chỉ bể bơi nghỉ — dễ nhầm 2 nơi."
+            }
+          ]
+        },
+        {
+          "jp": "電話：0120-45-6789（9時から5時まで）",
+          "vi": "Điện thoại：0120-45-6789（từ 9 giờ đến 5 giờ）",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "5時",
+              "read": "ごじ",
+              "vi": "5 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（ôn Bài 4）",
+              "vi": "9時から5時まで = giờ nhận điện thoại liên hệ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "電話：0120-45-6789",
+              "why": "thông tin liên hệ — không phải căn cứ câu hỏi giờ mở cửa."
+            }
+          ]
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề + giới thiệu",
+          "topic": 0,
+          "note": "Giới thiệu có 2 địa điểm (thư viện, bể bơi) và khoảng mở cửa chung cả tuần — chưa có giờ cụ thể từng ngày.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "kind": "body",
+          "label": "Header bảng",
+          "topic": 2,
+          "note": "Xác định 3 cột: Thứ / Thư viện / Bể bơi — cần nhớ thứ tự này để dò đúng ô ở các hàng dưới (cột 3 = プール).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "kind": "body",
+          "label": "Giờ các ngày thường + cuối tuần",
+          "topic": 3,
+          "note": "Hai hàng dễ gây nhiễu cho câu hỏi về Chủ nhật vì đều có giờ dạng \"10時から〜まで\" gần giống nhau.",
+          "qs": []
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "kind": "point",
+          "label": "Giờ Chủ nhật + chú thích ※",
+          "topic": 5,
+          "note": "Khối chứa đáp án chính: hàng 日 ghi rõ プール = 休みです, dòng ※ nhắc lại và phân biệt với 図書館 (không nghỉ) — bẫy nếu nhầm 2 địa điểm.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "turn",
+          "label": "Liên hệ",
+          "topic": 7,
+          "note": "Thông tin điện thoại — không liên quan câu hỏi giờ mở cửa, dễ bị phân tâm nếu đọc lướt.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "9時から5時まで",
+          "label": "NからNまで（ôn Bài 4）"
+        },
+        {
+          "excerpt": "休みです",
+          "label": "NはNです（ôn Bài 1）"
+        },
+        {
+          "excerpt": "休みではありません",
+          "label": "NはNではありません（ôn Bài 1）"
+        },
+        {
+          "excerpt": "月曜日から日曜日まで",
+          "label": "NからNまで（ôn Bài 4）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "日曜日、プールは何時から何時までですか。",
+          "options": [
+            "9時から5時までです",
+            "10時から7時までです",
+            "10時から9時までです",
+            "休みです"
+          ],
+          "answer": 3,
+          "explainVi": "Ở hàng 「日｜9時から5時まで｜休みです」— cột プール (cột thứ 3) của hàng 日 (Chủ nhật) ghi rõ 休みです (nghỉ), dòng ※ cũng nhắc lại 「日曜日はプールが休みです」, vậy đáp án D (休みです) đúng. A (9時から5時まで) là giờ CỦA THƯ VIỆN vào Chủ nhật (cột 2), không phải bể bơi — nhầm cột. B (10時から7時まで) là giờ bể bơi vào thứ Hai-Năm, không phải Chủ nhật — nhầm hàng. C (10時から9時まで) là giờ bể bơi vào thứ Sáu-Bảy, cũng không phải Chủ nhật — nhầm hàng gần Chủ nhật nhất.",
+          "tip": "Dò bảng theo 2 bước: (1) tìm đúng HÀNG theo ngày hỏi (日 = Chủ nhật), (2) tìm đúng CỘT theo địa điểm hỏi (プール = cột 3, xem header). Đọc dòng ※ để xác nhận lại.",
+          "evi": [
+            2,
+            5,
+            6
+          ],
+          "qt": {
+            "q": "Vào Chủ nhật, hồ bơi mở cửa từ mấy giờ đến mấy giờ?",
+            "o": [
+              "Từ 9 giờ đến 5 giờ",
+              "Từ 10 giờ đến 7 giờ",
+              "Từ 10 giờ đến 9 giờ",
+              "Đóng cửa"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

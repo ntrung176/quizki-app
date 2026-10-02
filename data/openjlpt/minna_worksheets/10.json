@@ -1,0 +1,379 @@
+{
+  "bai": 10,
+  "bunpou": [
+    {
+      "stem": "机[つくえ]の 上[うえ]に 本[ほん]が ＿。",
+      "choices": [
+        "あります",
+        "います",
+        "です",
+        "あります（いません）"
+      ],
+      "answer": 0,
+      "explain": "本[ほん] là vật vô tri → あります; います chỉ dùng cho người và động vật."
+    },
+    {
+      "stem": "椅子[いす]の 下[した]に 猫[ねこ]が ＿。",
+      "choices": [
+        "います",
+        "あります",
+        "です",
+        "おります"
+      ],
+      "answer": 0,
+      "explain": "猫[ねこ] là động vật → います; あります dùng cho đồ vật vô tri."
+    },
+    {
+      "stem": "田中[たなか]さんは 事務所[じむしょ]＿ います。",
+      "choices": [
+        "に",
+        "で",
+        "を",
+        "へ"
+      ],
+      "answer": 0,
+      "explain": "に chỉ vị trí tồn tại (います/あります); で chỉ nơi diễn ra hành động động."
+    },
+    {
+      "stem": "銀行[ぎんこう]は 駅[えき]の 隣[となり]＿ あります。",
+      "choices": [
+        "に",
+        "で",
+        "を",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "Vị trí tồn tại + あります → に; で sai vì あります không phải hành động diễn ra tại nơi đó."
+    },
+    {
+      "stem": "かばんの 中[なか]に 本[ほん]＿ ノートが あります。",
+      "choices": [
+        "や",
+        "と",
+        "を",
+        "も"
+      ],
+      "answer": 0,
+      "explain": "や liệt kê không đầy đủ (vân vân); と liệt kê đầy đủ; や ngụ ý \"còn có thể có thứ khác nữa\"."
+    },
+    {
+      "stem": "冷蔵庫[れいぞうこ]の 前[まえ]に 犬[いぬ]が ＿。",
+      "choices": [
+        "います",
+        "あります",
+        "いません",
+        "あります（います）"
+      ],
+      "answer": 0,
+      "explain": "犬[いぬ] là động vật → います (khẳng định); あります dành cho vật vô tri."
+    },
+    {
+      "stem": "駅[えき]の 近[ちか]くに コンビニが ＿。",
+      "choices": [
+        "あります",
+        "います",
+        "おります",
+        "いあります"
+      ],
+      "answer": 0,
+      "explain": "コンビニ là cửa hàng (vật/địa điểm vô tri) → あります; います dùng cho sinh vật."
+    },
+    {
+      "stem": "公園[こうえん]に 子[こ]ども＿ 老人[ろうじん]が います。",
+      "choices": [
+        "や",
+        "と",
+        "に",
+        "の"
+      ],
+      "answer": 0,
+      "explain": "や liệt kê không đầy đủ (trong công viên còn có thể có người khác); と hàm ý đây là danh sách hoàn chỉnh."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "に",
+      "が",
+      "は",
+      "の",
+      "へ",
+      "で",
+      "と"
+    ],
+    "items": [
+      {
+        "stem": "部屋[へや]＿ 男[おとこ]の 人[ひと]が います。",
+        "answer": "に",
+        "explain": "に chỉ vị trí tồn tại với います; で sai vì で chỉ nơi diễn ra hành động."
+      },
+      {
+        "stem": "図書館[としょかん]は 駅[えき]の 前[まえ]＿ あります。",
+        "answer": "に",
+        "explain": "Vị trí + あります → に; で sai vì あります là tồn tại chứ không phải hành động."
+      },
+      {
+        "stem": "テーブルの 上[うえ]＿ 鍵[かぎ]が あります。",
+        "answer": "に",
+        "explain": "[Vị trí に] + [vật が] + あります là cấu trúc cơ bản Bài 10."
+      },
+      {
+        "stem": "公園[こうえん]＿ 猫[ねこ]が います。",
+        "answer": "に",
+        "explain": "に chỉ nơi tồn tại với います; は/が không đứng sau danh từ chỉ địa điểm ở vị trí này."
+      },
+      {
+        "stem": "スーパーは 駅[えき]＿ 隣[となり]に あります。",
+        "answer": "の",
+        "explain": "の nối danh từ sở hữu: 駅[えき]の隣[となり] = cạnh nhà ga; に đứng sau 隣[となり] chỉ vị trí."
+      },
+      {
+        "stem": "かばんに 本[ほん]＿ ノートが あります。",
+        "answer": "が",
+        "explain": "本[ほん]やノート là chủ ngữ tồn tại → が; ở đây や được hiểu là một phần của cụm chủ ngữ."
+      },
+      {
+        "stem": "田中[たなか]さん＿ 会議室[かいぎしつ]に います。",
+        "answer": "は",
+        "explain": "田中[たなか]さん là chủ đề câu → は; が dùng khi muốn nhấn mạnh \"chính ông Tanaka (chứ không ai khác)\"."
+      },
+      {
+        "stem": "庭[にわ]＿ 木[き]が あります。",
+        "answer": "に",
+        "explain": "庭[にわ] là vị trí tồn tại của 木[き] → に; cấu trúc [nơi に] + [vật が] + あります."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "あります",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "ありません",
+        "いません",
+        "ないです",
+        "あるじゃありません"
+      ],
+      "answer": 0,
+      "explain": "Phủ định lịch sự của あります → ありません; いません là phủ định của います (sinh vật)."
+    },
+    {
+      "base": "います",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "いません",
+        "ありません",
+        "ないです",
+        "いないです"
+      ],
+      "answer": 0,
+      "explain": "Phủ định lịch sự của います → いません; ありません chỉ dùng cho vật vô tri."
+    },
+    {
+      "base": "あります",
+      "prompt": "Thể quá khứ (hôm qua có)?",
+      "choices": [
+        "ありました",
+        "いました",
+        "ありません",
+        "あります"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định: あります → ありました; いました là quá khứ của います."
+    },
+    {
+      "base": "います",
+      "prompt": "猫[ねこ] (con mèo) — dùng động từ tồn tại nào?",
+      "choices": [
+        "います",
+        "あります",
+        "です",
+        "おります"
+      ],
+      "answer": 0,
+      "explain": "猫[ねこ] là động vật → います; あります dùng cho đồ vật vô tri."
+    },
+    {
+      "base": "あります",
+      "prompt": "机[つくえ] (cái bàn) — dùng động từ tồn tại nào?",
+      "choices": [
+        "あります",
+        "います",
+        "です",
+        "おります"
+      ],
+      "answer": 0,
+      "explain": "机[つくえ] là đồ vật vô tri → あります; います dùng cho người và động vật."
+    },
+    {
+      "base": "あります",
+      "prompt": "Thể phủ định quá khứ (hôm qua không có)?",
+      "choices": [
+        "ありませんでした",
+        "いませんでした",
+        "ありません",
+        "なかったです"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ lịch sự: あります → ありませんでした; ありません là phủ định hiện tại."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "机[つくえ]の 上[うえ]に",
+        "本[ほん]が",
+        "あります。"
+      ],
+      "vi": "Trên bàn có sách.",
+      "explain": "Cấu trúc tồn tại: [Nơi に] + [vật/người が] + あります/います; nơi chốn đứng đầu câu."
+    },
+    {
+      "chips": [
+        "田中[たなか]さんは",
+        "事務所[じむしょ]に",
+        "います。"
+      ],
+      "vi": "Anh Tanaka ở trong văn phòng.",
+      "explain": "[Chủ đề は] + [vị trí に] + います; に chỉ nơi tồn tại của người."
+    },
+    {
+      "chips": [
+        "かばんの 中[なか]に",
+        "本[ほん]や",
+        "ノートが",
+        "あります。"
+      ],
+      "vi": "Trong cặp có sách, vở, v.v.",
+      "explain": "や liệt kê không đầy đủ (ám chỉ còn thứ khác); [nơi に] + [vật や vật が] + あります."
+    },
+    {
+      "chips": [
+        "公園[こうえん]に",
+        "子[こ]どもや",
+        "老人[ろうじん]が",
+        "います。"
+      ],
+      "vi": "Trong công viên có trẻ em, người già, v.v.",
+      "explain": "や nối hai nhóm người không đầy đủ; が đánh dấu chủ ngữ tồn tại trước います."
+    },
+    {
+      "chips": [
+        "図書館[としょかん]は",
+        "駅[えき]の",
+        "前[まえ]に",
+        "あります。"
+      ],
+      "vi": "Thư viện ở phía trước nhà ga.",
+      "explain": "[Chủ đề は] + [vị trí の前[まえ]に] + あります; の nối danh từ chỉ nơi với từ chỉ phương hướng."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "つくえの うえに ねこが います。",
+      "ask": "Con mèo ở đâu?",
+      "choices": [
+        "Trên bàn",
+        "Dưới ghế",
+        "Trong hộp"
+      ],
+      "answer": 0,
+      "script": "机[つくえ]の 上[うえ]に 猫[ねこ]が います。",
+      "explain": "うえ = phía trên; つくえのうえに = trên bàn; nghe rõ うえ là đủ xác định vị trí."
+    },
+    {
+      "tts": "ぎんこうは えきの となりに あります。",
+      "ask": "Ngân hàng ở đâu?",
+      "choices": [
+        "Cạnh nhà ga",
+        "Trước siêu thị",
+        "Sau thư viện"
+      ],
+      "answer": 0,
+      "script": "銀行[ぎんこう]は 駅[えき]の 隣[となり]に あります。",
+      "explain": "となり = cạnh bên; えきのとなり = cạnh nhà ga; あります xác nhận đây là vị trí tồn tại."
+    },
+    {
+      "tts": "かばんの なかに ほんや ノートが あります。",
+      "ask": "Trong cặp có những gì?",
+      "choices": [
+        "Sách và vở (và có thể còn nữa)",
+        "Chỉ có sách",
+        "Sách, vở và bút (đầy đủ)"
+      ],
+      "answer": 0,
+      "script": "かばんの 中[なか]に 本[ほん]や ノートが あります。",
+      "explain": "や liệt kê không đầy đủ → ngụ ý có thể còn thứ khác; と mới là liệt kê đầy đủ."
+    },
+    {
+      "tts": "たなかさんは かいぎしつに います。",
+      "ask": "Anh Tanaka đang ở đâu?",
+      "choices": [
+        "Trong phòng họp",
+        "Trong văn phòng",
+        "Ở nhà ga"
+      ],
+      "answer": 0,
+      "script": "田中[たなか]さんは 会議室[かいぎしつ]に います。",
+      "explain": "かいぎしつ = 会議室[かいぎしつ] (phòng họp); に います = đang ở tại đó."
+    },
+    {
+      "tts": "こうえんに こどもや ろうじんが います。",
+      "ask": "Ai đang ở trong công viên?",
+      "choices": [
+        "Trẻ em và người già",
+        "Chỉ có trẻ em",
+        "Chỉ có người già"
+      ],
+      "answer": 0,
+      "script": "公園[こうえん]に 子[こ]どもや 老人[ろうじん]が います。",
+      "explain": "Nghe được こども (trẻ em) và ろうじん (người già); や ngụ ý cả hai đều có mặt."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Trên bàn có sách.",
+      "target": "机の上に本があります。",
+      "accept": [
+        "つくえのうえにほんがあります。",
+        "机の上に本があります"
+      ],
+      "explain": "Cấu trúc: [Nơi の上[うえ]に] + [vật が] + あります; 本[ほん] vô tri → あります."
+    },
+    {
+      "vi": "Dưới ghế có con mèo.",
+      "target": "椅子の下に猫がいます。",
+      "accept": [
+        "いすのしたにねこがいます。",
+        "椅子の下に猫がいます"
+      ],
+      "explain": "猫[ねこ] là động vật → います; [nơi の下[した]に] + [動物 が] + います."
+    },
+    {
+      "vi": "Thư viện ở phía trước nhà ga.",
+      "target": "図書館は駅の前にあります。",
+      "accept": [
+        "としょかんはえきのまえにあります。",
+        "図書館は駅の前にあります"
+      ],
+      "explain": "[Chủ đề は] + [vị trí の前[まえ]に] + あります; thư viện là địa điểm vô tri → あります."
+    },
+    {
+      "vi": "Trong cặp có sách, vở, v.v.",
+      "target": "かばんの中に本やノートがあります。",
+      "accept": [
+        "かばんのなかにほんやのーとがあります。",
+        "かばんの中に本やノートがあります"
+      ],
+      "explain": "や liệt kê không đầy đủ (v.v. = など); [nơi に] + [vật やvật が] + あります."
+    },
+    {
+      "vi": "Anh Tanaka ở trong phòng họp.",
+      "target": "田中さんは会議室にいます。",
+      "accept": [
+        "たなかさんはかいぎしつにいます。",
+        "田中さんは会議室にいます"
+      ],
+      "explain": "田中[たなか]さん là người → います; 会議室[かいぎしつ]に là vị trí tồn tại."
+    }
+  ]
+}

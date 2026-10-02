@@ -1,0 +1,522 @@
+{
+  "id": "skm3.b58",
+  "bai": 58,
+  "titleVi": "Mỗi lần…là / Để nguyên trạng thái",
+  "know": [
+    {
+      "id": "skm3.b58.tabini",
+      "point": "tabini",
+      "jp": "〜たびに",
+      "vi": "Mỗi lần ~ là (luôn xảy ra cùng)",
+      "en": "Every time ~ (it consistently happens as a result)",
+      "gloss": "V辞書形[じしょけい]／N + たびに ＋ kết quả lặp ・ 例: 旅行[りょこう]するたびに、お土産[みやげ]を買[か]ってきます。（Mỗi lần đi du lịch, tôi đều mua quà về）",
+      "glossEn": "V辞書形[じしょけい]／N + たびに ＋ a repeated result ・ 例: 旅行[りょこう]するたびに、お土産[みやげ]を買[か]ってきます。（Every time I travel, I bring back a souvenir）"
+    },
+    {
+      "id": "skm3.b58.mama",
+      "point": "mama",
+      "jp": "〜まま（で）",
+      "vi": "Để nguyên / giữ nguyên trạng thái (không thay đổi)",
+      "en": "Leave something as it is / keep the state unchanged",
+      "gloss": "V た ／ Vている ／ A ／ N + まま（で）・ 例: 彼[かれ]は電気[でんき]を消[け]したまま、本[ほん]を読[よ]んでいた。（Anh ta đọc sách mà vẫn để tắt đèn）",
+      "glossEn": "V た ／ Vている ／ A ／ N + まま（で）・ 例: 彼[かれ]は電気[でんき]を消[け]したまま、本[ほん]を読[よ]んでいた。（He was reading a book with the light left off）"
+    },
+    {
+      "id": "skm3.b58.ta-mama",
+      "point": "ta-mama",
+      "jp": "〜たまま",
+      "vi": "Giữ nguyên trạng thái sau khi hành động đã xảy ra",
+      "en": "Keep the state unchanged after an action has occurred",
+      "gloss": "Vた ＋ まま ・ 例: 翌朝[よくあさ]、窓[まど]は 開[あ]けたままになっていた。（Sáng hôm sau cửa sổ vẫn còn để nguyên mở）",
+      "glossEn": "Vた ＋ まま ・ 例: 翌朝[よくあさ]、窓[まど]は 開[あ]けたままになっていた。（The next morning, the window was still left open）"
+    },
+    {
+      "id": "skm3.b58.tabini-vs-mama",
+      "point": "tabini-vs-mama",
+      "jp": "たびに ≠ まま ≠ ながら",
+      "vi": "Phân biệt: たびに (lặp), まま (trạng thái bất biến), ながら (đồng thời)",
+      "en": "Distinguishing: たびに (repetition), まま (an unchanged state), ながら (simultaneous actions)",
+      "gloss": "たびに (lặp) ≠ まま (trạng thái bất biến) ≠ ながら (đồng thời) ・ 例: 旅行[りょこう]するたびに土産[みやげ]を買[か]う／制服[せいふく]を着[き]たまま授業中[じゅぎょうちゅう]に寝[ね]た／音楽[おんがく]を聞[き]きながら勉強[べんきょう]する（Mỗi lần đi／mặc nguyên đồng phục／vừa nghe nhạc vừa học）",
+      "glossEn": "たびに (repetition) ≠ まま (an unchanged state) ≠ ながら (simultaneous actions) ・ 例: 旅行[りょこう]するたびに土産[みやげ]を買[か]う／制服[せいふく]を着[き]たまま授業中[じゅぎょうちゅう]に寝[ね]た／音楽[おんがく]を聞[き]きながら勉強[べんきょう]する（Every time I travel / slept while still wearing my uniform / studied while listening to music）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b58-disc-1",
+      "item": "skm3.b58.tabini-vs-mama",
+      "err": "tabini-for-mama",
+      "vi": "Anh ấy ngủ quên, để nguyên đèn bật.",
+      "t1": {
+        "stem": "彼[かれ]は 電気[でんき]をつけた＿、寝[ね]てしまった。",
+        "choices": [
+          "まま",
+          "たびに",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "電気[でんき]を",
+          "つけたまま、",
+          "寝[ね]て",
+          "しまった。"
+        ],
+        "traps": [
+          "つけたたびに、",
+          "つけながら、"
+        ]
+      },
+      "t3": {
+        "target": "彼は電気をつけたまま、寝てしまった。",
+        "accept": [
+          "かれはでんきをつけたまま、ねてしまった。"
+        ]
+      },
+      "why": "「つけたまま」= để nguyên đèn bật (trạng thái GIỮ NGUYÊN sau hành động つけた). ✗ たびに = mỗi lần ~ là, diễn tả lặp lại → không phù hợp vì đây không phải hành động lặp. ✗ ながら = vừa bật đèn vừa ngủ (hành động đồng thời chủ đích) → sai sắc thái."
+    },
+    {
+      "id": "c-b58-disc-2",
+      "item": "skm3.b58.tabini-vs-mama",
+      "err": "nagara-for-mama",
+      "vi": "Cô ấy bước vào nhà mà không tháo giày.",
+      "t1": {
+        "stem": "彼女[かのじょ]は 靴[くつ]を履[は]いた＿、家[いえ]に入[はい]ってしまった。",
+        "choices": [
+          "まま",
+          "ながら",
+          "たびに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "靴[くつ]を",
+          "履[は]いたまま、",
+          "家[いえ]に",
+          "入[はい]って",
+          "しまった。"
+        ],
+        "traps": [
+          "履[は]きながら、",
+          "履[は]くたびに、"
+        ]
+      },
+      "t3": {
+        "target": "彼女は靴を履いたまま、家に入ってしまった。",
+        "accept": [
+          "かのじょはくつをはいたまま、いえにはいってしまった。"
+        ]
+      },
+      "why": "「履[は]いたまま」= vẫn để nguyên giày (trạng thái tồn tại sau hành động 履いた). ✗ 履きながら = vừa đi giày vừa vào nhà (chủ đích đồng thời) → sai nghĩa. ✗ 履くたびに = mỗi lần đi giày là... → không phù hợp ngữ cảnh."
+    },
+    {
+      "id": "c-b58-disc-3",
+      "item": "skm3.b58.tabini",
+      "err": "tabini-for-mama",
+      "vi": "Mỗi lần đi du lịch, tôi đều mua quà về.",
+      "t1": {
+        "stem": "旅行[りょこう]する＿、お土産[みやげ]を買[か]ってきます。",
+        "choices": [
+          "たびに",
+          "まま",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "旅行[りょこう]する",
+          "たびに、",
+          "お土産[みやげ]を",
+          "買[か]って",
+          "きます。"
+        ],
+        "traps": [
+          "旅行[りょこう]したまま、",
+          "旅行[りょこう]しながら、"
+        ]
+      },
+      "t3": {
+        "target": "旅行するたびに、お土産を買ってきます。",
+        "accept": [
+          "りょこうするたびに、おみやげをかってきます。"
+        ]
+      },
+      "why": "「旅行[りょこう]するたびに」= mỗi lần đi du lịch là (lặp đi lặp lại). Vị ngữ nối たびに phải là 辞書形 (する), không phải た. ✗ まま = để nguyên trạng thái → không phù hợp."
+    },
+    {
+      "id": "c-b58-disc-4",
+      "item": "skm3.b58.tabini-vs-mama",
+      "err": "nagara-for-mama",
+      "vi": "Đừng ngủ trong lớp mà mặc nguyên đồng phục.",
+      "t1": {
+        "stem": "制服[せいふく]を着[き]た＿ 授業[じゅぎょう]中[ちゅう]に 寝[ね]てはいけません。",
+        "choices": [
+          "まま",
+          "ながら",
+          "たびに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "制服[せいふく]を",
+          "着[き]たまま",
+          "授業[じゅぎょう]中[ちゅう]に",
+          "寝[ね]ては",
+          "いけません。"
+        ],
+        "traps": [
+          "着[き]ながら",
+          "着[き]るたびに"
+        ]
+      },
+      "t3": {
+        "target": "制服を着たまま授業中に寝てはいけません。",
+        "accept": [
+          "せいふくをきたままじゅぎょうちゅうにねてはいけません。"
+        ]
+      },
+      "why": "「着[き]たまま」= mặc nguyên đồng phục (trạng thái GIỮ NGUYÊN). ✗ 着ながら = vừa mặc đồng phục vừa ngủ → ながら ngụ ý hai hành động song song chủ đích, không nhấn mạnh \"để nguyên\"."
+    },
+    {
+      "id": "c-b58-tabini-form",
+      "item": "skm3.b58.tabini",
+      "err": "tabini-form-wrong",
+      "vi": "Mỗi lần gặp cô giáo ấy, tôi đều nhớ lại thời học sinh.",
+      "t1": {
+        "stem": "あの 先生[せんせい]に 会[あ]う＿、学生[がくせい]時代[じだい]を思[おも]い出[だ]します。",
+        "choices": [
+          "たびに",
+          "たまま",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 先生[せんせい]に",
+          "会[あ]うたびに、",
+          "学生[がくせい]時代[じだい]を",
+          "思[おも]い出[だ]します。"
+        ],
+        "traps": [
+          "会[あ]ったたびに、",
+          "会[あ]いながら、"
+        ]
+      },
+      "t3": {
+        "target": "あの先生に会うたびに、学生時代を思い出します。",
+        "accept": [
+          "あのせんせいにあうたびに、がくせいじだいをおもいだします。"
+        ]
+      },
+      "why": "「会[あ]うたびに」= mỗi lần gặp là (辞書形 + たびに). ✗ 会ったたびに — không dùng た-form trước たびに (đó là lỗi hình thức rất phổ biến ở N3). たびに ≠ まま: đây là hành động lặp, không phải trạng thái giữ nguyên."
+    },
+    {
+      "id": "c-b58-tabini-noun",
+      "item": "skm3.b58.tabini",
+      "err": "tabini-form-wrong",
+      "vi": "Mỗi lần xem bộ phim đó, tôi đều khóc.",
+      "t1": {
+        "stem": "あの 映画[えいが]を見[み]る＿、涙[なみだ]が出[で]ます。",
+        "choices": [
+          "たびに",
+          "まま",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 映画[えいが]を",
+          "見[み]るたびに、",
+          "涙[なみだ]が",
+          "出[で]ます。"
+        ],
+        "traps": [
+          "見[み]たまま、",
+          "見[み]ながら、"
+        ]
+      },
+      "t3": {
+        "target": "あの映画を見るたびに、涙が出ます。",
+        "accept": [
+          "あのえいがをみるたびに、なみだがでます。"
+        ]
+      },
+      "why": "辞書形 見る + たびに = mỗi lần xem. Kết quả (涙が出る) luôn xảy ra mỗi lần. ✗ 見ながら = vừa xem vừa khóc (đồng thời) → đúng nghĩa nhưng KHÔNG nhấn mạnh tính lặp đi lặp lại qua nhiều lần."
+    },
+    {
+      "id": "c-b58-mama-state",
+      "item": "skm3.b58.mama",
+      "err": "nagara-for-mama",
+      "vi": "Anh ta đọc sách mà không bật đèn (phòng tối).",
+      "t1": {
+        "stem": "彼[かれ]は 電気[でんき]を消[け]した＿、本[ほん]を読[よ]んでいた。",
+        "choices": [
+          "まま",
+          "ながら",
+          "たびに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "電気[でんき]を",
+          "消[け]したまま、",
+          "本[ほん]を",
+          "読[よ]んで",
+          "いた。"
+        ],
+        "traps": [
+          "消[け]しながら、",
+          "消[け]すたびに、"
+        ]
+      },
+      "t3": {
+        "target": "彼は電気を消したまま、本を読んでいた。",
+        "accept": [
+          "かれはでんきをけしたまま、ほんをよんでいた。"
+        ]
+      },
+      "why": "「消[け]したまま」= sau khi tắt đèn, để nguyên tình trạng tối. まま nhấn mạnh trạng thái KHÔNG ĐỔI kéo dài. ✗ 消しながら = vừa tắt đèn vừa đọc sách (đồng thời, phi lý) ✗."
+    },
+    {
+      "id": "c-b58-mama-open",
+      "item": "skm3.b58.ta-mama",
+      "err": "tabini-for-mama",
+      "vi": "Cửa sổ vẫn còn mở khi tôi thức dậy vào sáng hôm sau.",
+      "t1": {
+        "stem": "翌朝[よくあさ]、窓[まど]は 開[あ]けた＿になっていた。",
+        "choices": [
+          "まま",
+          "たびに",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "翌朝[よくあさ]、",
+          "窓[まど]は",
+          "開[あ]けた",
+          "まま",
+          "になっていた。"
+        ],
+        "traps": [
+          "開[あ]けるたびに",
+          "開[あ]けながら"
+        ]
+      },
+      "t3": {
+        "target": "翌朝、窓は開けたままになっていた。",
+        "accept": [
+          "よくあさ、まどはあけたままになっていた。"
+        ]
+      },
+      "why": "「開[あ]けたまま」= vẫn để nguyên cửa sổ mở (trạng thái sau khi 開けた). Cấu trúc Vた + まま + になっていた rất thường gặp ở N3. ✗ たびに = lặp lại → hoàn toàn sai ngữ cảnh (đây là một lần cụ thể)."
+    },
+    {
+      "id": "c-b58-disc-5",
+      "item": "skm3.b58.tabini-vs-mama",
+      "err": "tabini-for-mama",
+      "vi": "Chị ấy nói chuyện điện thoại mà không rời mắt khỏi màn hình máy tính.",
+      "t1": {
+        "stem": "パソコンの画面[がめん]から目[め]を離[はな]さない＿、電話[でんわ]で話[はな]し続[つづ]けた。",
+        "choices": [
+          "まま",
+          "たびに",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "パソコンの 画面[がめん]から",
+          "目[め]を 離[はな]さない",
+          "まま、",
+          "電話[でんわ]で",
+          "話[はな]し 続[つづ]けた。"
+        ],
+        "traps": [
+          "離[はな]さないたびに、",
+          "離[はな]さないながら、"
+        ]
+      },
+      "t3": {
+        "target": "パソコンの画面から目を離さないまま、電話で話し続けた。",
+        "accept": [
+          "ぱそこんのがめんからめをはなさないまま、でんわではなしつづけた。"
+        ]
+      },
+      "why": "「目[め]を離[はな]さないまま」= không rời mắt khỏi màn hình, giữ nguyên trạng thái đó mà làm. ない形 + まま cũng hợp lệ. ✗ ながら = vừa không nhìn vừa nói chuyện (logic tự mâu thuẫn về cách dùng). ✗ たびに = mỗi lần không nhìn là... → sai."
+    },
+    {
+      "id": "c-b58-tabini-noun2",
+      "item": "skm3.b58.tabini",
+      "err": "tabini-form-wrong",
+      "vi": "Mỗi dịp lễ Tết, bà ngoại tôi đều nấu món đó.",
+      "t1": {
+        "stem": "お正月[しょうがつ]の＿、祖母[そぼ]はあの料理[りょうり]を作[つく]る。",
+        "choices": [
+          "たびに",
+          "まま",
+          "ながら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お 正月[しょうがつ]の",
+          "たびに、",
+          "祖母[そぼ]は",
+          "あの 料理[りょうり]を",
+          "作[つく]る。"
+        ],
+        "traps": [
+          "お 正月[しょうがつ]のまま、",
+          "お 正月[しょうがつ]のながら、"
+        ]
+      },
+      "t3": {
+        "target": "お正月のたびに、祖母はあの料理を作る。",
+        "accept": [
+          "おしょうがつのたびに、そぼはあのりょうりをつくる。"
+        ]
+      },
+      "why": "Danh từ + の + たびに = mỗi dịp ~ là. Đây là cách nối たびに với danh từ (N のたびに). Không nhầm với まま hay ながら vì đây rõ ràng là hành động lặp theo sự kiện định kỳ."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b58-tabini",
+      "item": "skm3.b58.tabini",
+      "err": "tabini-for-mama",
+      "tts": "かのじょは にほんに くるたびに、きものを かいます。",
+      "script": "彼女[かのじょ]は 日本[にほん]に 来[く]るたびに、着物[きもの]を 買[か]います。",
+      "ask": "Cô ấy làm gì mỗi khi đến Nhật?",
+      "choices": [
+        "Mua kimono",
+        "Mặc nguyên kimono",
+        "Vừa đi vừa mua"
+      ],
+      "answer": 0,
+      "why": "来るたびに + 着物を買います = mỗi lần đến Nhật là mua kimono (lặp đi lặp lại). Không phải trạng thái まま hay hành động đồng thời ながら."
+    },
+    {
+      "id": "l-b58-mama",
+      "item": "skm3.b58.ta-mama",
+      "err": "nagara-for-mama",
+      "tts": "かれは くつを はいたまま、へやに はいってきた。",
+      "script": "彼[かれ]は 靴[くつ]を 履[は]いたまま、部屋[へや]に 入[はい]ってきた。",
+      "ask": "Điều gì không bình thường trong hành động của anh ta?",
+      "choices": [
+        "Vào phòng mà không tháo giày",
+        "Vừa đi giày vừa chạy",
+        "Tháo giày mỗi lần vào"
+      ],
+      "answer": 0,
+      "why": "履[は]いたまま = vẫn đang mang giày (trạng thái giữ nguyên sau 履く). Điều bất thường là không tháo giày trước khi vào phòng."
+    },
+    {
+      "id": "l-b58-disc",
+      "item": "skm3.b58.tabini-vs-mama",
+      "err": "tabini-for-mama",
+      "tts": "まどを あけたまま ねたので、あさ さむくて めが さめました。",
+      "script": "窓[まど]を 開[あ]けたまま 寝[ね]たので、朝[あさ] 寒[さむ]くて 目[め]が 覚[さ]めました。",
+      "ask": "Tại sao người nói thức dậy vào buổi sáng?",
+      "choices": [
+        "Vì để nguyên cửa sổ mở nên lạnh",
+        "Vì mỗi lần mở cửa là lạnh",
+        "Vì vừa mở cửa vừa ngủ"
+      ],
+      "answer": 0,
+      "why": "開[あ]けたまま = để nguyên cửa sổ mở (trạng thái不変). Kết quả: sáng ra lạnh. Đây là まま, không phải たびに (lặp) hay ながら (đồng thời)."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b58-toki-tense",
+      "item": "minna1.b23.toki-tense",
+      "err": "toki-tense-wrong",
+      "ambush": true,
+      "src": 23,
+      "context": "第58課 ・ まま / たびに",
+      "vi": "Mỗi khi đi ra ngoài, tôi luôn khóa cửa rồi mới đi (khóa cửa xong rồi đi).",
+      "t1": {
+        "stem": "外出[がいしゅつ]する＿、かぎをかけたまま出[で]かけることにしています。",
+        "choices": [
+          "たびに",
+          "ときに",
+          "まま"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "外出[がいしゅつ]する",
+          "たびに、",
+          "かぎを",
+          "かけた",
+          "まま",
+          "出[で]かける",
+          "ことにしています。"
+        ],
+        "traps": [
+          "外出[がいしゅつ]したたびに、",
+          "外出[がいしゅつ]するとき、"
+        ]
+      },
+      "t3": {
+        "target": "外出するたびに、かぎをかけたまま出かけることにしています。",
+        "accept": [
+          "がいしゅつするたびに、かぎをかけたままでかけることにしています。"
+        ]
+      },
+      "why": "「外出[がいしゅつ]するたびに」= mỗi lần ra ngoài là (lặp, 辞書形 + たびに). ✗ したたびに — lỗi cổ điển Bài 23: dùng た-form trước たびに thay vì 辞書形. Phần 「かけたまま」trong cùng câu giúp học viên phân biệt vị trí Vた (trước まま) ≠ vị trí 辞書形 (trước たびに)."
+    },
+    {
+      "id": "a-b58-youni-naru",
+      "item": "minna2.b31.you-ni-naru",
+      "err": "you-ni-naru-wrong",
+      "ambush": true,
+      "src": 31,
+      "context": "第58課 ・ まま + 〜ようになる",
+      "vi": "Dần dần anh ấy quen với việc ngủ mà vẫn để đèn bật.",
+      "t1": {
+        "stem": "電気[でんき]をつけたまま 眠[ねむ]る＿になった。",
+        "choices": [
+          "ように",
+          "ままに",
+          "たびに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "電気[でんき]を",
+          "つけたまま",
+          "眠[ねむ]る",
+          "ように",
+          "なった。"
+        ],
+        "traps": [
+          "眠[ねむ]るままに なった。",
+          "眠[ねむ]るたびに なった。"
+        ]
+      },
+      "t3": {
+        "target": "電気をつけたまま眠るようになった。",
+        "accept": [
+          "でんきをつけたままねむるようになった。"
+        ]
+      },
+      "why": "ようになった = trở nên có thói quen (thay đổi dần — B31). つけたまま = để nguyên đèn bật (B58). Bẫy kép: まま đúng ở vế trước (Vたまま), ように đúng ở vế sau (ようになった). ✗ ままになった = sai cú pháp. ✗ たびになった = vô nghĩa."
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+{
+  "id": "minna1.b06",
+  "bai": 6,
+  "titleVi": "Hành động & rủ rê — 〜を・〜ませんか",
+  "know": [
+    {
+      "id": "minna1.b06.wo-obj",
+      "point": "wo-obj",
+      "jp": "Nを Vます",
+      "vi": "Tân ngữ trực tiếp (を)",
+      "gloss": "làm gì với N — を đánh dấu vật/việc chịu tác động"
+    },
+    {
+      "id": "minna1.b06.de-place",
+      "point": "de-place",
+      "jp": "〜で Vます",
+      "vi": "Nơi diễn ra hành động (で)",
+      "gloss": "ở ～ (làm gì) — で ≠ に tồn tại, ≠ で phương tiện"
+    },
+    {
+      "id": "minna1.b06.masenka",
+      "point": "masenka",
+      "jp": "〜ませんか",
+      "vi": "Rủ rê lịch sự",
+      "gloss": "bạn không muốn … cùng không? — lịch sự, không chắc chắn"
+    },
+    {
+      "id": "minna1.b06.mashou",
+      "point": "mashou",
+      "jp": "〜ましょう",
+      "vi": "Đề nghị cùng làm",
+      "gloss": "hãy cùng … nào! — chắc hơn ませんか, cả đôi đã sẵn lòng"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b06-wo-obj-koohii",
+      "item": "minna1.b06.wo-obj",
+      "err": "wo-drop",
+      "vi": "Mỗi sáng tôi uống cà phê.",
+      "t1": {
+        "stem": "毎朝[まいあさ]、コーヒー＿ 飲[の]みます。",
+        "choices": [
+          "を",
+          "が",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎朝[まいあさ]",
+          "コーヒーを",
+          "飲[の]みます。"
+        ],
+        "traps": [
+          "コーヒーが",
+          "コーヒーは"
+        ]
+      },
+      "t3": {
+        "target": "毎朝コーヒーを飲みます。",
+        "accept": [
+          "まいあさこーひーをのみます。"
+        ]
+      },
+      "why": "を đánh dấu tân ngữ của tha động từ 飲[の]みます. BẨY TƯƠNG LAI: 好[す]きな飲[の]み物[もの]が コーヒーです (Bài 9 dùng が, không phải を)."
+    },
+    {
+      "id": "c-b06-wo-obj-eiga",
+      "item": "minna1.b06.wo-obj",
+      "err": "wo-drop",
+      "vi": "Hôm qua tôi đã xem phim.",
+      "t1": {
+        "stem": "昨日[きのう]、映画[えいが]＿ 見[み]ました。",
+        "choices": [
+          "を",
+          "が",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]",
+          "映画[えいが]を",
+          "見[み]ました。"
+        ],
+        "traps": [
+          "映画[えいが]が",
+          "映画[えいが]に"
+        ]
+      },
+      "t3": {
+        "target": "昨日映画を見ました。",
+        "accept": [
+          "きのうえいがをみました。"
+        ]
+      },
+      "why": "映画[えいが]を見[み]ます = xem phim (を tân ngữ). ⚠ Bài 9 phục kích: 映画[えいが]が 好[す]きです — を → が khi nói sở thích!"
+    },
+    {
+      "id": "c-b06-wo-obj-nani",
+      "item": "minna1.b06.wo-obj",
+      "err": "wo-drop",
+      "vi": "Bạn ăn gì vào bữa trưa?",
+      "t1": {
+        "stem": "昼[ひる]ごはんに 何[なに]＿ 食[た]べますか。",
+        "choices": [
+          "を",
+          "が",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昼[ひる]ごはんに",
+          "何[なに]を",
+          "食[た]べますか。"
+        ],
+        "traps": [
+          "何[なに]が",
+          "何[なに]を 食[た]べましたか。"
+        ]
+      },
+      "t3": {
+        "target": "昼ごはんに何を食べますか。",
+        "accept": [
+          "ひるごはんになにをたべますか。"
+        ]
+      },
+      "why": "何[なに]を〜ますか — từ hỏi tân ngữ. を bắt buộc ngay cả khi tân ngữ là từ hỏi."
+    },
+    {
+      "id": "c-b06-de-place-resutoran",
+      "item": "minna1.b06.de-place",
+      "err": "de-place-vs-ni",
+      "vi": "Tôi ăn cơm ở nhà hàng.",
+      "t1": {
+        "stem": "レストラン＿ ご飯[はん]を 食[た]べます。",
+        "choices": [
+          "で",
+          "に",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "レストランで",
+          "ご飯[はん]を",
+          "食[た]べます。"
+        ],
+        "traps": [
+          "レストランに",
+          "ご飯[はん]が"
+        ]
+      },
+      "t3": {
+        "target": "レストランでご飯を食べます。",
+        "accept": [
+          "れすとらんでごはんをたべます。"
+        ]
+      },
+      "why": "で = nơi DIỄN RA hành động (食[た]べます). ✗ レストランに食べます — に ở đây sai; に chỉ đích đến hoặc nơi tồn tại."
+    },
+    {
+      "id": "c-b06-de-place-toshokan",
+      "item": "minna1.b06.de-place",
+      "err": "de-place-vs-ni",
+      "vi": "Cuối tuần tôi đọc sách ở thư viện.",
+      "t1": {
+        "stem": "週末[しゅうまつ]は 図書館[としょかん]＿ 本[ほん]を 読[よ]みます。",
+        "choices": [
+          "で",
+          "に",
+          "へ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "週末[しゅうまつ]は",
+          "図書館[としょかん]で",
+          "本[ほん]を",
+          "読[よ]みます。"
+        ],
+        "traps": [
+          "図書館[としょかん]に",
+          "本[ほん]が"
+        ]
+      },
+      "t3": {
+        "target": "週末は図書館で本を読みます。",
+        "accept": [
+          "しゅうまつはとしょかんでほんをよみます。"
+        ]
+      },
+      "why": "Hành động 読[よ]む diễn ra tại 図書館[としょかん] → で. (に = đích đến hoặc tồn tại — hành động không dùng に.)"
+    },
+    {
+      "id": "c-b06-masenka-hirugohann",
+      "item": "minna1.b06.masenka",
+      "err": "masho-vs-masenka",
+      "vi": "Chúng ta cùng ăn trưa nhé? (rủ lịch sự)",
+      "t1": {
+        "stem": "いっしょに 昼[ひる]ごはんを 食[た]べ＿。",
+        "choices": [
+          "ませんか。",
+          "ましょう。",
+          "ますか。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "いっしょに",
+          "昼[ひる]ごはんを",
+          "食[た]べませんか。"
+        ],
+        "traps": [
+          "食[た]べましょう。",
+          "食[た]べますか。"
+        ]
+      },
+      "t3": {
+        "target": "いっしょに昼ごはんを食べませんか。",
+        "accept": [
+          "いっしょにひるごはんをたべませんか。"
+        ]
+      },
+      "why": "ませんか = rủ lịch sự, chưa biết ý kiến người kia. ましょう mạnh hơn — dùng khi đôi bên đã cùng muốn."
+    },
+    {
+      "id": "c-b06-masenka-karaoke",
+      "item": "minna1.b06.masenka",
+      "err": "masho-vs-masenka",
+      "vi": "Bạn có muốn đi hát karaoke không?",
+      "t1": {
+        "stem": "カラオケに 行[い]き＿。",
+        "choices": [
+          "ませんか。",
+          "ましょう。",
+          "ます。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "カラオケに",
+          "行[い]きませんか。"
+        ],
+        "traps": [
+          "行[い]きましょう。",
+          "カラオケを 行[い]きませんか。"
+        ]
+      },
+      "t3": {
+        "target": "カラオケに行きませんか。",
+        "accept": [
+          "からおけにいきませんか。"
+        ]
+      },
+      "why": "ませんか rủ nhẹ nhàng, tôn trọng ý kiến đối phương. 行[い]く là tự động từ → đích đến に (không phải を)."
+    },
+    {
+      "id": "c-b06-mashou-koohii",
+      "item": "minna1.b06.mashou",
+      "err": "masho-vs-masenka",
+      "vi": "Uống cà phê thôi! (cả hai đều muốn)",
+      "t1": {
+        "stem": "コーヒーを 飲[の]み＿。",
+        "choices": [
+          "ましょう。",
+          "ませんか。",
+          "ますか。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "コーヒーを",
+          "飲[の]みましょう。"
+        ],
+        "traps": [
+          "飲[の]みませんか。",
+          "コーヒーが 飲[の]みましょう。"
+        ]
+      },
+      "t3": {
+        "target": "コーヒーを飲みましょう。",
+        "accept": [
+          "こーひーをのみましょう。"
+        ]
+      },
+      "why": "ましょう = cùng làm đi (chắc chắn, đôi bên đồng thuận). ませんか = còn hỏi ý kiến, chưa chắc."
+    },
+    {
+      "id": "c-b06-mashou-kaerimashou",
+      "item": "minna1.b06.mashou",
+      "err": "masho-vs-masenka",
+      "vi": "Thôi về đi nào.",
+      "t1": {
+        "stem": "そろそろ 帰[かえ]り＿。",
+        "choices": [
+          "ましょう。",
+          "ませんか。",
+          "ました。"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "そろそろ",
+          "帰[かえ]りましょう。"
+        ],
+        "traps": [
+          "帰[かえ]りませんか。",
+          "帰[かえ]りました。"
+        ]
+      },
+      "t3": {
+        "target": "そろそろ帰りましょう。",
+        "accept": [
+          "そろそろかえりましょう。"
+        ]
+      },
+      "why": "そろそろ = \"đã đến lúc rồi\" → ましょう (quyết định cùng nhau), ませんか nghe phân vân hơn."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b06-1",
+      "item": "minna1.b06.de-place",
+      "err": "de-place-vs-ni",
+      "tts": "きょう、かいしゃの しょくどうで ひるごはんを たべませんか。",
+      "script": "今日[きょう]、会社[かいしゃ]の 食堂[しょくどう]で 昼[ひる]ごはんを 食[た]べませんか。",
+      "ask": "Người nói đang rủ làm gì, ở đâu?",
+      "choices": [
+        "Ăn trưa ở căng-tin công ty",
+        "Ăn trưa ở nhà hàng ngoài",
+        "Uống cà phê ở căng-tin"
+      ],
+      "answer": 0,
+      "why": "食堂[しょくどう]で = ở căng-tin (nơi diễn ra hành động); ませんか = rủ ăn trưa cùng."
+    },
+    {
+      "id": "l-b06-2",
+      "item": "minna1.b06.masenka",
+      "err": "masho-vs-masenka",
+      "tts": "えいがを みましょう。それから、いっしょに ばんごはんを たべましょう。",
+      "script": "映画[えいが]を 見[み]ましょう。それから、いっしょに 晩[ばん]ごはんを 食[た]べましょう。",
+      "ask": "Người nói đề nghị làm mấy việc?",
+      "choices": [
+        "Xem phim rồi ăn tối cùng nhau",
+        "Xem phim rồi đi karaoke",
+        "Ăn tối rồi đi xem phim"
+      ],
+      "answer": 0,
+      "why": "見[み]ましょう → ましょう (đề nghị chắc chắn); 晩[ばん]ごはんを食[た]べましょう → cả hai đều tán thành."
+    }
+  ]
+}

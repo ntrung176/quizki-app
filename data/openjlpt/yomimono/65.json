@@ -1,0 +1,3730 @@
+{
+  "bai": 65,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 65 luyện 〜らしい với HAI nghĩa hoàn toàn khác nhau: ① 推量・伝聞 らしい = \"nghe nói / hình như\" — truyền đạt thông tin nghe từ BÊN NGOÀI (tin đồn, báo, người khác nói), người nói ít cam kết cá nhân, căn cứ GIÁN TIẾP. ② Nらしい = \"ra dáng / đúng chất N\" — diễn đạt tính chất điển hình (男らしい, 春らしい, 学生らしい). Đối chiếu sắc thái cực kỳ quan trọng: らしい (nghe đồn, gián tiếp, khách quan) ≠ ようだ/みたいだ (căn cứ trực tiếp từ giác quan/kinh nghiệm — Bài 64) ≠ そうだ伝聞 (nguồn thông tin rõ ràng, cụ thể — Bài 63). 接続 (①): 普通形 + らしい (なAdj/N bỏ だ). 接続 (②): N + らしい + N (bổ nghĩa) hoặc N + らしい (vị ngữ).",
+    "steps": [
+      "接続 ①伝聞: 普通形 + らしい. なAdj → 〜なAdj（だ→省略）+ らしい: 「便利らしい」. N → N（だ→省略）+ らしい: 「人気らしい」.",
+      "接続 ②Nらしい: N + らしい — ví dụ 春らしい天気、男らしい行動、学生らしい質問. Khi bổ nghĩa cho danh từ: Nらしい + N.",
+      "使い分け: らしい ①伝聞 vs ようだ（Bài 64）— hỏi \"người nói trực tiếp quan sát/trải nghiệm không?\" Nếu KHÔNG (nghe từ người khác/tin tức) → らしい. Nếu CÓ (tự nhìn thấy/ngửi/cảm nhận) → ようだ.",
+      "使い分け: らしい vs そうだ伝聞（Bài 63）— そうだ: nguồn rõ ràng, cụ thể (\"Anh ấy nói rằng…\"). らしい: nghe đồn lan truyền, nguồn mơ hồ, thông tin bên ngoài.",
+      "注意: らしい ②Nらしい KHÔNG thể thay bằng ようだ hay そうだ vì đây là nghĩa \"điển hình\", không phải suy đoán. Ví dụ: 男らしい ≠ 男のようだ.",
+      "Câu hỏi suy luận: \"Vì sao dùng らしい chứ không phải ようだ?\" → xét nguồn thông tin: trực tiếp hay gián tiếp."
+    ],
+    "tips": [
+      "使い分け 1 — らしい vs ようだ theo nguồn căn cứ: 「彼が引っ越したらしい」(nghe nói, không tự thấy) ≠ 「荷物がないところを見ると、引っ越したようだ」(tự nhìn thấy nhà trống → suy đoán trực tiếp). Bài thi hay cho đoạn mô tả và hỏi chọn mẫu đúng.",
+      "使い分け 2 — らしい vs そうだ伝聞（Bài 63）: 「田中さんが転職したそうだ」(ai đó nói cụ thể, nguồn rõ) ≠ 「田中さんが転職したらしい」(tin lan truyền, không rõ ai nói). らしい gián tiếp hơn, nguồn mơ hồ hơn.",
+      "②Nらしい chú ý: 春らしい天気 = \"thời tiết đúng chất mùa xuân (ấm áp, tươi sáng)\". Khác với 春のような天気 (thời tiết giống mùa xuân — so sánh). らしい = ĐÚNG CHẤT bản thân N; ような = GIỐNG N (so sánh từ bên ngoài).",
+      "接続 cẩn thận: なAdj bỏ だ trước らしい: 親切（だ）→ 親切らしい ○ / 親切なら しい ×. N bỏ だ: 先生（だ）→ 先生らしい ○. Tính từ い thì giữ nguyên: 忙しいらしい ○.",
+      "Nhận dạng trong câu hỏi đọc hiểu: \"〜らしい\" + câu trước không có \"〜を見ると/によると\" → thường là 伝聞 nguồn mơ hồ. Có \"〜によると\" → gần với そうだ hơn, nhưng bài này tập trung vào らしい lan truyền."
+    ],
+    "grammarFocus": [
+      "〜らしい（推量・伝聞）— 普通形（なAdj/N bỏ だ）+ らしい: \"nghe nói / hình như\" — căn cứ gián tiếp từ bên ngoài, người nói ít cam kết",
+      "Nらしい — N + らしい: \"ra dáng / đúng chất N\" (男らしい・春らしい・学生らしい)"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 64,
+        "items": [
+          "〜ようだ・〜みたいだ（suy đoán căn cứ trực tiếp）"
+        ]
+      },
+      {
+        "bai": 63,
+        "items": [
+          "〜そうだ伝聞（nghe nói — nguồn rõ）"
+        ]
+      },
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ（suy luận có căn cứ logic）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜でしょう（phán đoán chung）",
+          "〜かもしれません（khả năng）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "春らしい季節のニュース",
+      "titleVi": "Tin tức mùa xuân đúng chất",
+      "japanese": "今年の春は、例年より暖かい日が多いらしい。友達から聞いたのだが、近くの公園の桜がもう満開らしい。春らしい天気が続いているので、外でお花見をする人が増えているようだ。一方、ニュースによると、今年は花粉の量が去年より多いらしく、マスクが売り切れているらしい。薬局の店員さんも「今年は特にひどいらしいですよ」と言っていた。それを聞いて、私も薬を早めに買いに行くことにした。春らしい陽気が続くのはうれしいが、花粉には困ってしまう。それでも、春らしい景色の中を散歩するのは、気持ちいいものだと思う。",
+      "vietnamese": "Nghe nói mùa xuân năm nay có nhiều ngày ấm hơn mọi năm. Tôi nghe từ bạn bè rằng hoa anh đào ở công viên gần đây đã nở rộ rồi. Vì thời tiết đúng chất mùa xuân kéo dài nên trông có vẻ ngày càng nhiều người đi ngắm hoa ngoài trời. Mặt khác, theo tin tức, nghe nói năm nay lượng phấn hoa nhiều hơn năm ngoái và khẩu trang đã bán hết. Nhân viên nhà thuốc cũng nói \"Nghe nói năm nay đặc biệt tệ đấy\". Nghe vậy, tôi quyết định đi mua thuốc sớm hơn. Tuy vui vì thời tiết đúng chất mùa xuân kéo dài, nhưng phấn hoa thì thật phiền. Dù vậy, tôi nghĩ đi dạo giữa cảnh đẹp đúng chất mùa xuân thật dễ chịu.",
+      "sentences": [
+        {
+          "jp": "今年の春は、例年より暖かい日が多いらしい。",
+          "vi": "Nghe nói mùa xuân năm nay có nhiều ngày ấm hơn mọi năm.",
+          "vocab": [
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "例年",
+              "read": "れいねん",
+              "vi": "mọi năm"
+            },
+            {
+              "w": "暖かい",
+              "read": "あたたかい",
+              "vi": "ấm áp"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "接続: いAdj（暖かい）の普通形 + らしい。 \"nghe nói / hình như\" — căn cứ thông tin BÊN NGOÀI, người nói không trực tiếp đo nhiệt độ. Sắc thái: らしい khác ようだ（Bài 64 — tự cảm nhận trực tiếp）và そうだ伝聞（Bài 63 — nguồn rõ ràng）. Ở đây là tin đồn lan rộng, nguồn mơ hồ."
+            },
+            {
+              "point": "NよりAdj（Bài 12）",
+              "vi": "例年より暖かい = ấm hơn mọi năm. より = so sánh hơn (Bài 12)."
+            }
+          ]
+        },
+        {
+          "jp": "友達から聞いたのだが、近くの公園の桜がもう満開らしい。",
+          "vi": "Tôi nghe từ bạn bè rằng hoa anh đào ở công viên gần đây đã nở rộ rồi.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "nghe, hỏi"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần đây, lân cận"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "満開",
+              "read": "まんかい",
+              "vi": "nở rộ (hoa)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "接続: N（満開）だ→省略 + らしい。 満開らしい = \"nghe nói đã nở rộ rồi\". Dù bạn nói đã nói với người viết, らしい vẫn dùng vì thông tin GIÁN TIẾP (người viết không tự nhìn thấy). Phân biệt: nếu người viết tự đến công viên và thấy → 満開のようだ（ようだ Bài 64 — căn cứ trực tiếp）."
+            },
+            {
+              "point": "〜のだが（Bài 26 んですが）",
+              "vi": "聞いたのだが = tôi nghe nói thì... のだが = giải thích bối cảnh, mở đầu thông tin."
+            }
+          ]
+        },
+        {
+          "jp": "春らしい天気が続いているので、外でお花見をする人が増えているようだ。",
+          "vi": "Vì thời tiết đúng chất mùa xuân kéo dài nên trông có vẻ ngày càng nhiều người đi ngắm hoa ngoài trời.",
+          "vocab": [
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "続きます",
+              "read": "つづきます",
+              "vi": "kéo dài, tiếp tục"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "花見",
+              "read": "はなみ",
+              "vi": "ngắm hoa, lễ hội hoa"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên, nhiều hơn"
+            },
+            {
+              "w": "お花見",
+              "read": "おはなみ",
+              "vi": "ngắm hoa anh đào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "春らしい天気 = \"thời tiết đúng chất mùa xuân\". 接続: N（春）+ らしい + N（天気）. Đây là nghĩa ② Nらしい = điển hình, đúng bản chất của N. Khác với 春のような天気 (giống mùa xuân — so sánh từ ngoài). Nらしい nhấn: \"đây MỚI ĐÚNG LÀ cái người ta mong đợi từ mùa xuân\"."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "続いているので = vì kéo dài. ので lý do lịch sự."
+            },
+            {
+              "point": "〜ようだ（Bài 64）",
+              "vi": "増えているようだ = trông có vẻ tăng. ようだ = suy đoán từ quan sát trực tiếp (nhìn thấy người đông hơn ở công viên). Phân biệt với らしい: ở đây người viết TỰ QUAN SÁT → ようだ đúng hơn らしい."
+            }
+          ]
+        },
+        {
+          "jp": "一方、ニュースによると、今年は花粉の量が去年より多いらしく、マスクが売り切れているらしい。",
+          "vi": "Mặt khác, theo tin tức, nghe nói năm nay lượng phấn hoa nhiều hơn năm ngoái và khẩu trang đã bán hết.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, một mặt"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "tin tức"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "花粉",
+              "read": "かふん",
+              "vi": "phấn hoa"
+            },
+            {
+              "w": "量",
+              "read": "りょう",
+              "vi": "lượng, số lượng"
+            },
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "マスク",
+              "read": "マスク",
+              "vi": "khẩu trang"
+            },
+            {
+              "w": "売り切れます",
+              "read": "うりきれます",
+              "vi": "bán hết, cháy hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしく（中止形）＋ らしい",
+              "vi": "接続: いAdj（多い 普通形）+ らしく. らしく là dạng trung chỉ (て形) của らしい, nối sang mệnh đề tiếp theo. 多いらしく、〜らしい = \"nghe nói nhiều hơn, và nghe nói cũng…\" — hai lần らしい đều dựa vào nguồn tin tức gián tiếp."
+            },
+            {
+              "point": "Nによると（Bài 47）",
+              "vi": "ニュースによると = theo tin tức. によると thường đi kèm 〜そうだ/らしい để truyền đạt thông tin (Bài 47)."
+            }
+          ]
+        },
+        {
+          "jp": "薬局の店員さんも「今年は特にひどいらしいですよ」と言っていた。",
+          "vi": "Nhân viên nhà thuốc cũng nói \"Nghe nói năm nay đặc biệt tệ đấy\".",
+          "vocab": [
+            {
+              "w": "薬局",
+              "read": "やっきょく",
+              "vi": "nhà thuốc"
+            },
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            },
+            {
+              "w": "今年",
+              "read": "ことし",
+              "vi": "năm nay"
+            },
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "ひどい",
+              "read": "ひどい",
+              "vi": "tệ, nặng, nghiêm trọng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいです（丁寧体）",
+              "vi": "接続: いAdj（ひどい 普通形）+ らしい + です（丁寧）。 ひどいらしいです = \"nghe nói tệ lắm\". Chú ý: らしい trong lời nhân viên = truyền đạt thông tin họ nghe từ khách hàng/tin tức — người nói cũng không tự xác nhận mà lại truyền tiếp."
+            },
+            {
+              "point": "〜と言っていた（Bài 21）",
+              "vi": "「〜」と言っていた = đã nói rằng \"…\". と言う trích lời + ていた quá khứ kéo dài."
+            }
+          ]
+        },
+        {
+          "jp": "それを聞いて、私も薬を早めに買いに行くことにした。",
+          "vi": "Nghe vậy, tôi quyết định đi mua thuốc sớm hơn.",
+          "vocab": [
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "điều đó"
+            },
+            {
+              "w": "聞いて",
+              "read": "きいて",
+              "vi": "nghe"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "薬",
+              "read": "くすり",
+              "vi": "thuốc"
+            },
+            {
+              "w": "早め",
+              "read": "はやめ",
+              "vi": "sớm hơn"
+            },
+            {
+              "w": "買い",
+              "read": "かい",
+              "vi": "mua"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（nguyên nhân Bài 39）",
+              "vi": "聞いて = nghe vậy rồi (và). て nối nguyên nhân → kết quả."
+            },
+            {
+              "point": "Vることにした（Bài 36）",
+              "vi": "買いに行くことにした = quyết định đi mua. ことにする = quyết định (do bản thân) (Bài 36)."
+            },
+            {
+              "point": "Vに行く（Bài 13）",
+              "vi": "買いに行く = đi mua. Vます(bỏ)に行く = đi để làm V (Bài 13)."
+            }
+          ]
+        },
+        {
+          "jp": "春らしい陽気が続くのはうれしいが、花粉には困ってしまう。",
+          "vi": "Tuy vui vì thời tiết đúng chất mùa xuân kéo dài, nhưng phấn hoa thì thật phiền.",
+          "vocab": [
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "陽気",
+              "read": "ようき",
+              "vi": "khí hậu, thời tiết (vui vẻ, ấm áp)"
+            },
+            {
+              "w": "続く",
+              "read": "つづく",
+              "vi": "tiếp tục, kéo dài"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui mừng, hạnh phúc"
+            },
+            {
+              "w": "花粉",
+              "read": "かふん",
+              "vi": "phấn hoa"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "phiền, khó chịu, bí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "春らしい陽気 = \"thời tiết đúng chất mùa xuân\". Lần thứ hai xuất hiện Nらしい trong bài — nhấn mạnh tính điển hình lý tưởng của mùa xuân."
+            },
+            {
+              "point": "Vのは〜（Bài 38）",
+              "vi": "続くのはうれしい = (việc) kéo dài thì vui. のは danh từ hoá mệnh đề."
+            },
+            {
+              "point": "〜が（nhưng Bài 20）",
+              "vi": "うれしいが = vui nhưng... が nối hai vế đối lập nhẹ."
+            }
+          ]
+        },
+        {
+          "jp": "それでも、春らしい景色の中を散歩するのは、気持ちいいものだと思う。",
+          "vi": "Dù vậy, tôi nghĩ đi dạo giữa cảnh đẹp đúng chất mùa xuân thật dễ chịu.",
+          "vocab": [
+            {
+              "w": "それでも",
+              "read": "それでも",
+              "vi": "dù vậy"
+            },
+            {
+              "w": "春らしい",
+              "read": "はるらしい",
+              "vi": "mang vẻ mùa xuân"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "phong cảnh"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "散歩する",
+              "read": "さんぽする",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "気持ちいい",
+              "read": "きもちいい",
+              "vi": "dễ chịu"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "春らしい景色 = \"cảnh đẹp đúng chất mùa xuân\". Lần thứ ba — xuyên suốt bài ngắn, Nらしい gắn với 春 ba lần để làm rõ sắc thái \"điển hình\"."
+            },
+            {
+              "point": "〜ものだ（Bài 53）",
+              "vi": "気持ちいいものだ = đó là điều dễ chịu / quả là dễ chịu. ものだ = chân lý/cảm nhận chung (Bài 53)."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "ものだと思う = tôi nghĩ đó là điều dễ chịu. と思う = ý kiến chủ quan."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "今年の春は、例年より暖かい日が多いらしい",
+          "label": "〜らしい（伝聞 — nghe nói, căn cứ gián tiếp）"
+        },
+        {
+          "excerpt": "近くの公園の桜がもう満開らしい",
+          "label": "〜らしい（伝聞 — nghe từ bạn, chưa tự thấy）"
+        },
+        {
+          "excerpt": "春らしい天気が続いているので",
+          "label": "Sắc thái: Nらしい（đúng chất mùa xuân）"
+        },
+        {
+          "excerpt": "今年は花粉の量が去年より多いらしく、マスクが売り切れているらしい",
+          "label": "〜らしく…らしい（hai thông tin gián tiếp liên tiếp）"
+        },
+        {
+          "excerpt": "春らしい景色の中を散歩するのは",
+          "label": "Sắc thái: Nらしい vs ようだ（điển hình ≠ so sánh）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「近くの公園の桜がもう満開らしい」と書いていますが、なぜ「らしい」を使いましたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "書いた人が自分で公園に行って、桜を見たからです",
+            "書いた人が桜を見て、満開だと確信しているからです",
+            "書いた人は友達から聞いただけで、自分では見ていないからです",
+            "満開かどうかはっきりわからなくて、半分以下しか咲いていないからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: người viết KHÔNG tự đến công viên mà chỉ nghe từ bạn — câu liền trước ghi rõ「友達から聞いたのだが」(tôi nghe từ bạn nói rằng). Thông tin gián tiếp, căn cứ từ bên ngoài → dùng らしい. Tại sao các đáp án khác sai? Đáp án 0 (\"tự đến xem\") sai vì người viết không tự đi — nếu tự thấy thì phải dùng「満開のようだ」(ようだ Bài 64 — căn cứ trực tiếp). Đáp án 1 (\"xác tin chắc chắn\") sai vì らしい thể hiện người nói KHÔNG cam kết cá nhân — nghe đồn thì không xác nhận. Đáp án 3 (\"chưa nở hết\") không có căn cứ trong bài và sai hoàn toàn về nghĩa.",
+          "tip": "Thấy cụm \"〜から聞いた / 〜によると\" + thông tin người nói chưa tự kiểm chứng → ngay lập tức chọn らしい (căn cứ gián tiếp, không cam kết). Nếu người nói tự nhìn/nghe/cảm nhận trực tiếp → ようだ.",
+          "qt": {
+            "q": "Câu viết 「近くの公園の桜がもう満開らしい」 (có vẻ như hoa anh đào ở công viên gần đây đã nở rộ rồi) dùng 「らしい」 vì sao?",
+            "o": [
+              "Vì người viết đã tự mình đến công viên và ngắm hoa anh đào",
+              "Vì người viết đã ngắm hoa anh đào và tin chắc rằng hoa đã nở rộ",
+              "Vì người viết chỉ nghe bạn kể, còn bản thân thì chưa nhìn thấy",
+              "Vì không biết rõ hoa đã nở rộ hay chưa, và hoa mới nở chưa đến một nửa"
+            ]
+          }
+        },
+        {
+          "q": "「春らしい天気が続いている」の「春らしい」はどんな意味ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "春のような天気に見えるということ",
+            "春と聞いたということ",
+            "春として典型的・理想的な天気ということ",
+            "春になりつつあるということ"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 春らしい天気 là Nらしい nghĩa ② — \"thời tiết mang đúng đặc trưng điển hình của mùa xuân\" (ấm áp, trong sáng, dễ chịu — đúng như người ta kỳ vọng). Tại sao các đáp án khác sai? Đáp án 0 \"春のような天気 (giống mùa xuân)\" dùng ような là so sánh từ bên ngoài — hàm ý \"trời này giống mùa xuân nhưng thực ra chưa chắc là xuân\"; còn 春らしい nhấn \"ĐÂY MỚI ĐÚNG LÀ mùa xuân thật sự\". Đáp án 1 \"nghe nói là xuân\" nhầm với nghĩa ① 伝聞 của らしい — ở đây không có yếu tố nghe đồn nào. Đáp án 3 \"đang dần thành xuân\" không phải nghĩa của らしい.",
+          "tip": "Nらしい (danh từ + らしい đứng trước danh từ khác hoặc cuối câu) = \"đúng chất / ra dáng N\" — điển hình, lý tưởng. Khác hoàn toàn với so sánh ような (giống N từ bên ngoài) và khác với 伝聞 らしい (nghe nói).",
+          "qt": {
+            "q": "Trong 「春らしい天気が続いている」, 「春らしい」 có nghĩa là gì?",
+            "o": [
+              "Thời tiết trông có vẻ như thời tiết mùa xuân",
+              "Nghe nói là mùa xuân",
+              "Thời tiết điển hình, lý tưởng của mùa xuân",
+              "Đang dần chuyển sang mùa xuân"
+            ]
+          }
+        },
+        {
+          "q": "「増えているようだ」と「満開らしい」はどう違いますか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "意味は同じで、どちらでも使えます",
+            "「ようだ」は自分が直接見て推測、「らしい」は人から聞いた間接情報に基づいています",
+            "「ようだ」は丁寧語、「らしい」は普通語です",
+            "「ようだ」は確実、「らしい」は不確実で可能性が低いです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: sự khác biệt nằm ở NGUỒN CĂN CỨ. 「増えているようだ」— người viết tự nhìn thấy công viên ngày càng đông người ngắm hoa → căn cứ TRỰC TIẾP từ giác quan của bản thân → dùng ようだ (Bài 64). 「満開らしい」— người viết không đến công viên, chỉ nghe bạn kể → căn cứ GIÁN TIẾP → dùng らしい. Tại sao các đáp án khác sai? Đáp án 0 (\"nghĩa giống nhau, dùng được cả hai\") sai vì đây là hai mẫu có sắc thái hoàn toàn khác nhau về nguồn thông tin. Đáp án 2 (\"ようだ lịch sự hơn\") hoàn toàn sai — không phải vấn đề lịch sự. Đáp án 3 (\"ようだ chắc chắn hơn\") cũng không đúng — ようだ và らしい đều thể hiện sự không chắc chắn, khác nhau ở nguồn căn cứ.",
+          "tip": "Hỏi nhanh \"người nói có TRỰC TIẾP nhìn thấy/ngửi thấy/cảm nhận không?\" — Có → ようだ; Không (nghe từ người khác/tin tức) → らしい. Đây là câu hỏi then chốt để phân biệt hai mẫu này.",
+          "qt": {
+            "q": "「増えているようだ」 và 「満開らしい」 khác nhau thế nào?",
+            "o": [
+              "Chúng có cùng nghĩa và có thể dùng thay thế cho nhau",
+              "「ようだ」 dựa trên suy đoán của chính mình sau khi trực tiếp nhìn thấy; 「らしい」 dựa trên thông tin gián tiếp nghe từ người khác",
+              "「ようだ」 là cách nói lịch sự; 「らしい」 là cách nói thông thường",
+              "「ようだ」 thể hiện sự chắc chắn; 「らしい」 thể hiện sự không chắc chắn và khả năng thấp"
+            ]
+          }
+        },
+        {
+          "q": "「今年は特にひどいらしいですよ」と言っていた薬局の店員の気持ちはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "自分で花粉の量を測って、確かめた",
+            "聞いたり、見聞きした情報を伝えている",
+            "花粉のことが全くわからない",
+            "花粉が少ないと思っている"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: nhân viên nhà thuốc nói「今年は特にひどいらしいですよ」— chính trong lời họ đã dùng らしい, tức là họ đang truyền đạt thông tin nghe từ ニュース/khách hàng chứ KHÔNG tự đo lượng phấn hoa. らしい = người nói relay thông tin gián tiếp, ít cam kết cá nhân. Tại sao các đáp án khác sai? Đáp án 0 (\"tự đo, tự xác nhận\") sai vì nếu tự đo sẽ dùng 確認した/わかった chứ không dùng らしい. Đáp án 2 (\"không biết gì về phấn hoa\") sai vì nhân viên đang truyền đạt thông tin — họ biết, chỉ là nghe qua. Đáp án 3 (\"nghĩ phấn hoa ít\") ngược với nội dung câu (ひどい = tệ/nặng).",
+          "tip": "Khi thấy らしい trong lời ai đó nói, hỏi ngay \"họ có tự xác minh không?\" — Không (chỉ relay thông tin) → đó là 伝聞 らしい, người nói là trung gian truyền tin. Điều này cũng có nghĩa là らしい \"lây\" từ người này sang người khác như tin đồn.",
+          "qt": {
+            "q": "Tâm trạng nào phù hợp với nhân viên hiệu thuốc đã nói 「今年は特にひどいらしいですよ」?",
+            "o": [
+              "Đã tự mình đo lượng phấn hoa và xác nhận",
+              "Đang truyền đạt thông tin nghe được hoặc biết được qua việc nghe ngóng",
+              "Hoàn toàn không biết gì về phấn hoa",
+              "Nghĩ rằng phấn hoa ít"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "「社会人らしさ」とは何か",
+      "titleVi": "Thế nào là \"đúng chất người đi làm\"",
+      "japanese": "最近の調査によると、新入社員の多くが「社会人らしい行動ができるか」と不安を感じているらしい。学校を卒業したばかりのころは、学生気分がなかなか抜けないものだ。\nしかし、社会に出ると、自分の行動に責任を持たなければならない。ある会社の先輩の話では、最近はスーツを着ていても、言葉遣いや挨拶がきちんとしていない人が増えているらしい。先輩は「スーツを着るだけで社会人になれるわけではない」と言っていた。つまり、「社会人らしい人」とは、外見だけでなく、周りの人のことを考えて行動できる人のことなのだ。\nそのため、最初から完璧を目指す必要はないが、毎日の挨拶や時間を守ることを大切にしたい。失敗したときも、すぐに報告して謝ることができれば、立派な社会人らしい姿と言えるだろう。小さな基本を積み重ねることが、本当の成長につながるのだ。",
+      "vietnamese": "Theo một khảo sát gần đây, nghe nói nhiều nhân viên mới đang cảm thấy bất an không biết mình có thể hành xử đúng chất một người đi làm hay không. Vào thời điểm vừa mới tốt nghiệp trường học, người ta thường khó mà dứt bỏ ngay được tâm lý sinh viên.\nThế nhưng, khi bước ra ngoài xã hội, ta phải chịu trách nhiệm về hành động của chính mình. Theo lời kể của một tiền bối ở công ty nọ, nghe nói dạo gần đây dù đang mặc âu phục nhưng số người không chỉn chu về cách dùng từ hay chào hỏi lại đang tăng lên. Tiền bối ấy đã nói rằng: \"Không phải cứ mặc âu phục vào là trở thành người đi làm được đâu\". Nói cách khác, \"người đúng chất người đi làm\" là người không chỉ có vẻ bề ngoài, mà còn biết suy nghĩ cho những người xung quanh rồi mới hành động.\nVì thế, dù không cần phải nhắm tới sự hoàn hảo ngay từ đầu, nhưng chúng ta nên coi trọng việc chào hỏi mỗi ngày và việc tuân thủ giờ giấc. Ngay cả khi mắc lỗi, nếu có thể báo cáo ngay và xin lỗi, thì đó cũng có thể coi là một dáng dấp rất đúng chất người đi làm đàng hoàng. Việc tích lũy từ những điều cơ bản nhỏ bé chính là thứ dẫn đến sự trưởng thành thực sự.",
+      "sentences": [
+        {
+          "jp": "最近の調査によると、新入社員の多くが「社会人らしい行動ができるか」と不安を感じているらしい。",
+          "vi": "Theo một khảo sát gần đây, nghe nói nhiều nhân viên mới đang cảm thấy bất an không biết mình có thể hành xử đúng chất một người đi làm hay không.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "dạo gần đây"
+            },
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "cuộc điều tra, khảo sát"
+            },
+            {
+              "w": "新入",
+              "read": "しんにゅう",
+              "vi": "mới vào, mới gia nhập"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động, cách hành xử"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "bất an, lo lắng"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "新入社員",
+              "read": "しんにゅうしゃいん",
+              "vi": "nhân viên mới vào công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によると（Bài 63 / N4）",
+              "vi": "接続: N + によると。 Dùng để dẫn nguồn thông tin (\"theo như...\"). Thường đi kèm với dạng truyền đạt hoặc suy đoán ở cuối câu như 〜そうだ, 〜らしい."
+            },
+            {
+              "point": "Nらしい（Bài 65 - đúng chất N）",
+              "vi": "接続: N（社会人）+ らしい + N（行動）。 Mang ý nghĩa \"đúng chất, ra dáng, chuẩn mực của một người đi làm ngoài xã hội\". Nhấn mạnh phẩm chất điển hình mà một người đi làm cần có."
+            },
+            {
+              "point": "〜らしい（Bài 65 - 推量・伝聞）",
+              "vi": "接続: V普通形（感じている）+ らしい。 \"nghe nói / hình như\" — diễn đạt thông tin gián tiếp từ nguồn bên ngoài (từ cuộc khảo sát), người nói không trực tiếp xác nhận từng cá nhân mà truyền đạt lại một cách khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "学校を卒業したばかりのころは、学生気分がなかなか抜けないものだ。",
+          "vi": "Vào thời điểm vừa mới tốt nghiệp trường học, người ta thường khó mà dứt bỏ ngay được tâm lý sinh viên.",
+          "vocab": [
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "卒業",
+              "read": "そつぎょう",
+              "vi": "tốt nghiệp"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "気分",
+              "read": "きぶん",
+              "vi": "tâm trạng, tâm lý, thói quen"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi không, khó mà (dùng với phủ định)"
+            },
+            {
+              "w": "抜けます",
+              "read": "ぬけます",
+              "vi": "rút ra, dứt bỏ, biến mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たばかり（Bài 46 / Bài 59）",
+              "vi": "接続: Vた + ばかり。 Diễn đạt hành động vừa mới xảy ra chưa lâu theo cảm nhận chủ quan của người nói (\"vừa mới tốt nghiệp\")."
+            },
+            {
+              "point": "〜ものだ（Bài 49 / N3）",
+              "vi": "接続: V辞書形 + ものだ。 Diễn đạt một chân lý, quy luật tự nhiên hay một lẽ thường tình (\"người ta thường... là chuyện đương nhiên\")."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、社会に出ると、自分の行動に責任を持たなければならない。",
+          "vi": "Thế nhưng, khi bước ra ngoài xã hội, ta phải chịu trách nhiệm về hành động của chính mình.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội, môi trường làm việc"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "持ちます",
+              "read": "もちます",
+              "vi": "mang, nắm giữ, chịu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tất yếu - Bài 23）",
+              "vi": "接続: V辞書形（出る）+ と。 Diễn đạt điều kiện tất yếu, hễ bước ra ngoài xã hội làm việc thì tự nhiên phải gánh vác trách nhiệm."
+            },
+            {
+              "point": "〜なければならない（Bài 17）",
+              "vi": "接続: Vない bỏ い + ければならない。 Biểu thị nghĩa vụ, bổn phận bắt buộc phải thực hiện (\"phải chịu trách nhiệm\")."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý quan trọng từ thói quen sinh viên sang yêu cầu trách nhiệm bắt buộc của người đi làm."
+            }
+          ]
+        },
+        {
+          "jp": "ある会社の先輩の話では、最近はスーツを着ていても、言葉遣いや挨拶がきちんとしていない人が増えているらしい。",
+          "vi": "Theo lời kể của một tiền bối ở công ty nọ, nghe nói dạo gần đây dù đang mặc âu phục nhưng số người không chỉn chu về cách dùng từ hay chào hỏi lại đang tăng lên.",
+          "vocab": [
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, người đi trước"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "スーツ",
+              "read": "スーツ",
+              "vi": "bộ com-lê, âu phục"
+            },
+            {
+              "w": "着ます",
+              "read": "きます",
+              "vi": "mặc (áo, âu phục)"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "挨拶",
+              "read": "あいさつ",
+              "vi": "chào hỏi"
+            },
+            {
+              "w": "きちんと",
+              "read": "きちんと",
+              "vi": "chỉn chu, đàng hoàng, ngăn nắp"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "言葉遣い",
+              "read": "ことばづかい",
+              "vi": "cách dùng từ ngữ, cách ăn nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "接続: Vて + も。 Biểu thị sự nhượng bộ (\"cho dù có đang mặc vest...\")."
+            },
+            {
+              "point": "〜らしい（Bài 65 - 伝聞）",
+              "vi": "接続: V普通形（増えている）+ らしい。 \"nghe nói là...\" — thông tin nhận được từ lời kể gián tiếp của vị tiền bối, người nói truyền đạt lại mà không tự mình khảo sát thực tế."
+            }
+          ],
+          "keys": [
+            {
+              "w": "言葉遣いや挨拶がきちんとしていない",
+              "why": "Cung cấp dẫn chứng thực tế giải thích vì sao chỉ mặc vest là chưa đủ (căn cứ câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "先輩は「スーツを着るだけで社会人になれるわけではない」と言っていた。",
+          "vi": "Tiền bối ấy đã nói rằng: \"Không phải cứ mặc âu phục vào là trở thành người đi làm được đâu\".",
+          "vocab": [
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối"
+            },
+            {
+              "w": "スーツ",
+              "read": "すーつ",
+              "vi": "bộ vest"
+            },
+            {
+              "w": "着る",
+              "read": "きる",
+              "vi": "mặc"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đi làm"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "なれる",
+              "read": "なれる",
+              "vi": "có thể trở thành"
+            },
+            {
+              "w": "言っていた",
+              "read": "いっていた",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜わけではない（Bài 53）",
+              "vi": "接続: V普通形 + わけではない。 Phủ định một phần hoặc phủ định suy luận thông thường (\"không hẳn là / không phải cứ... là được\"). Mặc vest không đồng nghĩa với việc đã là người đi làm thực thụ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "スーツを着るだけで社会人になれるわけではない",
+              "why": "Câu nói then chốt của tiền bối cảnh báo về ngộ nhận hình thức bên ngoài (căn cứ câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、「社会人らしい人」とは、外見だけでなく、周りの人のことを考えて行動できる人のことなのだ。",
+          "vi": "Nói cách khác, \"người đúng chất người đi làm\" là người không chỉ có vẻ bề ngoài, mà còn biết suy nghĩ cho những người xung quanh rồi mới hành động.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "外見",
+              "read": "がいけん",
+              "vi": "vẻ bề ngoài, diện mạo"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（Bài 65 - đúng chất N）",
+              "vi": "接続: N（社会人）+ らしい + N（人）。 Nghĩa ② của らしい: diễn đạt tính chất tiêu biểu, bản chất chuẩn mực đúng nghĩa của danh từ (\"người đúng chất là người của xã hội\")."
+            },
+            {
+              "point": "〜だけでなく（Bài 44 / N4）",
+              "vi": "接続: N + だけでなく。 Mang nghĩa \"không chỉ... (mà còn)\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tóm lược báo hiệu tác giả chuẩn bị đưa ra định nghĩa cốt lõi (căn cứ câu 1)."
+            },
+            {
+              "w": "外見だけでなく、周りの人のことを考えて行動できる人",
+              "why": "Khái niệm trọng tâm trả lời trực tiếp cho câu hỏi về người đi làm thực thụ (căn cứ câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、最初から完璧を目指す必要はないが、毎日の挨拶や時間を守ることを大切にしたい。",
+          "vi": "Vì thế, dù không cần phải nhắm tới sự hoàn hảo ngay từ đầu, nhưng chúng ta nên coi trọng việc chào hỏi mỗi ngày và việc tuân thủ giờ giấc.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "ban đầu, lúc đầu"
+            },
+            {
+              "w": "完璧",
+              "read": "かんぺき",
+              "vi": "hoàn hảo"
+            },
+            {
+              "w": "目指します",
+              "read": "めざします",
+              "vi": "hướng tới, nhắm tới"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "挨拶",
+              "read": "あいさつ",
+              "vi": "chào hỏi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "守ります",
+              "read": "まもります",
+              "vi": "tuân thủ, giữ gìn"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, coi trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜必要はない（N4）",
+              "vi": "接続: V辞書形 + 必要はない。 Diễn đạt \"không cần thiết phải làm gì\"."
+            },
+            {
+              "point": "〜たい（Bài 13）",
+              "vi": "接続: Vます bỏ ます + たい。 Bày tỏ mong muốn, nguyện vọng của người nói (\"muốn coi trọng...\")."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため",
+              "why": "Liên từ chỉ hệ quả dẫn dắt vào các lời khuyên hành động thực tế (căn cứ câu 3)."
+            }
+          ]
+        },
+        {
+          "jp": "失敗したときも、すぐに報告して謝ることができれば、立派な社会人らしい姿と言えるだろう。",
+          "vi": "Ngay cả khi mắc lỗi, nếu có thể báo cáo ngay và xin lỗi, thì đó cũng có thể coi là một dáng dấp rất đúng chất người đi làm đàng hoàng.",
+          "vocab": [
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, mắc lỗi"
+            },
+            {
+              "w": "報告",
+              "read": "ほうこく",
+              "vi": "báo cáo"
+            },
+            {
+              "w": "謝ります",
+              "read": "あやまります",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "立派",
+              "read": "りっぱ",
+              "vi": "đàng hoàng, đường hoàng, tuyệt vời"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "姿",
+              "read": "すがた",
+              "vi": "vóc dáng, diện mạo, tác phong"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（điều kiện - Bài 35）",
+              "vi": "接続: V可能形（できれば）。 \"nếu có thể làm được...\" — giả định điều kiện thuận lợi."
+            },
+            {
+              "point": "Nらしい（Bài 65 - đúng chất N）",
+              "vi": "接続: N（社会人）+ らしい + N（姿）。 Thể hiện dáng vẻ, tác phong đúng chuẩn mực của người đi làm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "すぐに報告して謝ることができれば",
+              "why": "Hành vi ứng xử mẫu mực khi gặp sai sót được tác giả đề cao (căn cứ câu 3)."
+            }
+          ]
+        },
+        {
+          "jp": "小さな基本を積み重ねることが、本当の成長につながるのだ。",
+          "vi": "Việc tích lũy từ những điều cơ bản nhỏ bé chính là thứ dẫn đến sự trưởng thành thực sự.",
+          "vocab": [
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "積み重ねます",
+              "read": "つみかさねます",
+              "vi": "tích lũy, bồi đắp từng chút một"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "trưởng thành, phát triển"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "dẫn đến, liên kết"
+            },
+            {
+              "w": "つながります",
+              "read": "つながります",
+              "vi": "dẫn tới, liên kết tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vること（danh từ hóa - Bài 38）",
+              "vi": "接続: V辞書形 + こと。 Biến cụm động từ thành danh từ làm chủ ngữ trong câu."
+            },
+            {
+              "point": "〜のだ / 〜んだ（Bài 26）",
+              "vi": "接続: 普通形 + のだ。 Dùng để nhấn mạnh kết luận, giải thích bản chất sâu xa của vấn đề."
+            }
+          ],
+          "keys": [
+            {
+              "w": "小さな基本を積み重ねることが、本当の成長につながるのだ",
+              "why": "Câu kết đúc kết phương châm rèn luyện cốt lõi để đạt được sự trưởng thành thực sự (căn cứ câu 3)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "不安を感じているらしい",
+          "label": "〜らしい（推量・伝聞 — nghe nói / dường như, căn cứ gián tiếp từ khảo sát）"
+        },
+        {
+          "excerpt": "増えているらしい",
+          "label": "〜らしい（伝聞 — nghe kể từ tiền bối, thông tin gián tiếp）"
+        },
+        {
+          "excerpt": "社会人らしい人",
+          "label": "Nらしい（đúng chất / ra dáng — thể hiện phẩm chất điển hình của một người đi làm）"
+        },
+        {
+          "excerpt": "社会人らしい姿",
+          "label": "Nらしい（đúng chất — tác phong chuẩn mực đáng có của người đi làm）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「社会人らしい人」とあるが、筆者はどのような人のことだと説明しているか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "高いスーツを着て、丁寧な言葉遣いができる人",
+            "外見だけでなく、周囲の人のことを考えて行動できる人",
+            "学生時代の気分を忘れずに、自由に自分の意見が言える人",
+            "最初から一度も失敗をしないで、完璧に仕事をこなす人"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「外見だけでなく」 — Trong câu 5, tác giả giải thích rõ ràng qua từ nối định nghĩa:「つまり、「社会人らしい人」とは、外見だけでなく、周りの人のことを考えて行動できる人のことなのだ」(Nói cách khác, \"người đúng chất người đi làm\" là người không chỉ có vẻ ngoài mà còn biết suy nghĩ cho những người xung quanh rồi mới hành động). Phương án 「高いスーツを着て」 sai vì tác giả và tiền bối đã nhấn mạnh chỉ mặc âu phục là chưa đủ. Phương án 「学生時代の気分を忘れずに」 sai vì ở câu 1 và 2 đã nêu rõ bước ra xã hội phải dứt bỏ tâm lý sinh viên và có trách nhiệm. Phương án 「最初から一度も失敗を」 sai vì ở câu 6 tác giả khẳng định「最初から完璧を目指す必要はない」(không cần nhắm tới sự hoàn hảo ngay từ đầu).",
+          "tip": "Khi gặp câu hỏi định nghĩa từ khóa 「〜とはどういうことか / どのような人のことか」, hãy tìm ngay các từ nối mang tính giải thích/định nghĩa như 「つまり」「〜とは…のことだ」 ở câu văn chứa từ khóa đó để bắt trúng đáp án định nghĩa chính xác.",
+          "qt": {
+            "q": "Tác giả giải thích 「社会人らしい人」 (người có phong thái của người đi làm) là người như thế nào?",
+            "o": [
+              "Người mặc vest đắt tiền và có thể dùng lời lẽ lịch sự",
+              "Người không chỉ chú trọng vẻ ngoài mà còn có thể suy nghĩ đến những người xung quanh khi hành động",
+              "Người không quên tâm trạng thời còn là học sinh, sinh viên và có thể tự do nói lên ý kiến của mình",
+              "Người hoàn thành công việc một cách hoàn hảo ngay từ đầu mà không mắc lỗi dù chỉ một lần"
+            ]
+          }
+        },
+        {
+          "q": "先輩によると、なぜ「スーツを着るだけで社会人になれるわけではない」のか。",
+          "evi": [
+            3,
+            4
+          ],
+          "options": [
+            "スーツを着ていても、言葉遣いや挨拶などの基本ができていない人がいるから",
+            "新入社員はまだ学生気分が抜けておらず、スーツが似合っていないから",
+            "会社では服装よりも、難しい専門の仕事を覚えることのほうが大切だから",
+            "最近の調査で、スーツを着ないで働く若い社員が増えていると分かったから"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「スーツを着ていても」 — Trong câu 3 và 4, tiền bối nhận xét:「最近はスーツを着ていても、言葉遣いや挨拶がきちんとしていない人が増えているらしい。先輩は「スーツを着るだけで社会人になれるわけではない」と言っていた」(Dạo gần đây dù mặc âu phục nhưng số người không chỉn chu ăn nói hay chào hỏi lại tăng lên. Tiền bối nói rằng không phải cứ mặc vest là thành người đi làm). Do đó, lý do là vì có người dù mặc vest nhưng chưa làm được những điều cơ bản như chào hỏi hay cách ăn nói. Phương án 「新入社員はまだ学生気分が」 sai vì bài không nói đến việc \"không hợp mặc vest\". Phương án 「会社では服装よりも」 và 「最近の調査で、スーツを」 đưa ra các chi tiết không hề xuất hiện trong bài đọc (công việc chuyên môn khó, số người không mặc vest đi làm tăng).",
+          "tip": "Câu hỏi lý do 「なぜ〜のか」 dẫn lời nhân vật trong bài: Hãy đối chiếu câu trích dẫn với câu văn liền kề trước đó (thường chứa nguyên nhân thực tế mà nhân vật quan sát thấy) để tìm ra lý do trực tiếp.",
+          "qt": {
+            "q": "Theo người đi trước, tại sao 「スーツを着るだけで社会人になれるわけではない」 (chỉ mặc vest thì không có nghĩa là có thể trở thành người đi làm)?",
+            "o": [
+              "Vì có những người dù mặc vest nhưng vẫn chưa nắm được những điều cơ bản như cách dùng lời lẽ hay chào hỏi",
+              "Vì nhân viên mới vẫn chưa thoát khỏi tâm trạng thời học sinh, sinh viên và mặc vest không hợp",
+              "Vì ở công ty, học những công việc chuyên môn khó quan trọng hơn trang phục",
+              "Vì một cuộc khảo sát gần đây cho thấy số nhân viên trẻ làm việc mà không mặc vest đang tăng lên"
+            ]
+          }
+        },
+        {
+          "q": "本当の意味で成長するために、筆者はどのように行動するのがよいと考えているか。",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "options": [
+            "失敗を絶対に恐れず、最初から完璧な成果だけを目指して努力すること",
+            "誰の助けも借りずに、自分ひとりの力ですべての責任を背負い込むこと",
+            "挨拶や時間を守ること、失敗時の迅速な報告といった基本を地道に積み重ねること",
+            "先輩や周囲の人から怒られないように、まずは外見や服装を完璧に整えること"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「挨拶や時間を守ること」 — Ở đoạn cuối (câu 6, 7, 8), tác giả kết luận: Không cần hoàn hảo ngay từ đầu, mà quan trọng là coi trọng việc chào hỏi mỗi ngày, tuân thủ giờ giấc, khi mắc lỗi thì nhanh chóng báo cáo và xin lỗi; chính việc tích lũy từng bước những điều cơ bản nhỏ bé này mới dẫn tới sự trưởng thành thực sự. Phương án 「失敗を絶対に恐れず」 sai vì câu 6 ghi「完璧を目指す必要はない」. Phương án 「誰の助けも借りずに」 không được nhắc tới và đi ngược lại tinh thần biết nghĩ cho tập thể xung quanh. Phương án 「先輩や周囲の人から」 sai vì tác giả nhấn mạnh không chỉ dừng lại ở vẻ bề ngoài.",
+          "tip": "Với câu hỏi quan điểm tác giả 「筆者はどう考えているか」 ở bài nghị luận/essay, câu trả lời thường nằm ở đoạn văn cuối cùng (đoạn kết luận, chứa các ý kiến chốt lại). Hãy tổng hợp ý cốt lõi thay vì chọn những đáp án mang tính tuyệt đối hóa như 'toàn bộ', 'hoàn hảo'.",
+          "qt": {
+            "q": "Để trưởng thành theo đúng nghĩa, tác giả cho rằng nên hành động như thế nào?",
+            "o": [
+              "Không bao giờ sợ thất bại và nỗ lực chỉ nhắm đến những thành quả hoàn hảo ngay từ đầu",
+              "Tự mình gánh vác mọi trách nhiệm mà không nhờ bất kỳ ai giúp đỡ",
+              "Kiên trì tích lũy những điều cơ bản như chào hỏi, đúng giờ và nhanh chóng báo cáo khi mắc lỗi",
+              "Trước hết chỉnh trang vẻ ngoài và trang phục thật hoàn hảo để không bị người đi trước hay những người xung quanh trách mắng"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Đặt vấn đề・Ý thức trách nhiệm",
+          "topic": 2,
+          "note": "Nêu tâm lý lo lắng của nhân viên mới và khẳng định bước ngoặt phải tự chịu trách nhiệm khi ra xã hội.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "kind": "body",
+          "label": "Thực trạng・Góc nhìn tiền bối",
+          "topic": 4,
+          "note": "Chỉ ra nghịch lý người mặc vest nhưng thiếu kỹ năng cơ bản; bẫy ngộ nhận về vẻ bề ngoài.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 5,
+          "to": 5,
+          "kind": "point",
+          "label": "Định nghĩa cốt lõi của tác giả",
+          "topic": 5,
+          "note": "Khẳng định bản chất người đi làm thực thụ là biết nghĩ cho xung quanh chứ không chỉ ở ngoại hình.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "point",
+          "label": "Hành động cụ thể & Đúc kết",
+          "topic": 8,
+          "note": "Đưa ra các thói quen nền tảng cần làm và kết luận việc tích lũy điều nhỏ tạo nên sự trưởng thành thực sự.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "コミュニティの噂と人物評",
+      "titleVi": "Tin đồn trong cộng đồng và đánh giá con người",
+      "japanese": "私の住む地域には、毎月第一土曜日に小さなマーケットが開かれている。\nそのマーケットで、最近あるうわさが広まっているらしい。\nうわさによると、マーケットで人気の野菜を売っているタナカさんという農家の方が、来月から出店をやめるらしい。\nタナカさんの野菜はいつも新鮮で人気があり、並ぶ前から行列ができるらしく、地域の人たちに大変愛されているらしい。\nしかし、詳しい理由は誰も知らないらしく、ただ「体調が優れないらしい」と聞いた人がいるようだ。\nタナカさんは農家らしい誠実な人柄で、いつも丁寧に野菜の育て方を説明してくれるそうだ。\nまた、マーケットの主催者であるサトウさんは、このうわさを聞いてとても心配しているらしい。\nサトウさんはリーダーらしい落ち着いた対応で、「まずタナカさんに直接話を聞く」と言ったらしい。\nその結果、タナカさんは出店を完全にやめるのではなく、二か月ほど休むだけらしいということがわかった。\nそれを聞いて、地域の人たちはみんな安心したようだ。\nうわさとは、いつの間にか事実と違う形に変わってしまうものだ。\nつまり、うわさを聞いたとき、そのまま信じてしまうのは危険らしく、本人に確認することが大切らしい。\nところで、マーケットにはタナカさん以外にも、学生らしい若い売り手が増えているらしい。\nある大学生は手作りのアクセサリーを売っているらしく、毎回すぐに売り切れてしまうらしい。\nその大学生は学生らしい元気な笑顔で接客をしていると、常連のお客さんが教えてくれた。\nマーケットはもともと地元の農家が中心だったが、最近は若い人たちの参加も増えているらしい。\nそのため、以前より活気があるらしく、来場者数も増えているらしいと、地域の新聞に書いてあった。\nマーケットが地域コミュニティの中心になってきているらしいのは、とてもうれしいことだ。\nただ、うわさに左右されず、正確な情報を確認し合うことが、良いコミュニティを作るためには大切だと思う。\n来月のマーケットに、私も春らしい気持ちで参加しようと思っている。",
+      "vietnamese": "Ở khu dân cư nơi tôi sống, vào thứ Bảy đầu tiên mỗi tháng có một khu chợ nhỏ được mở.\nỞ khu chợ đó, nghe nói gần đây có một tin đồn đang lan rộng.\nTheo tin đồn, nghe nói bác Tanaka — người nông dân nổi tiếng bán rau ở chợ — từ tháng sau sẽ ngừng tham gia.\nNghe nói rau của bác Tanaka luôn tươi ngon và nổi tiếng đến mức người ta xếp hàng trước khi mở quầy, và bác được người dân trong vùng rất yêu quý.\nTuy nhiên, nghe nói không ai biết lý do cụ thể, chỉ có người nghe nói \"hình như sức khoẻ không được tốt\".\nBác Tanaka có tính cách chân thật đúng chất người nông dân, nghe nói luôn giải thích tỉ mỉ cách trồng rau cho mọi người.\nNgoài ra, nghe nói anh Sato — người tổ chức chợ — rất lo lắng khi nghe tin này.\nAnh Sato với phong thái bình tĩnh đúng chất người lãnh đạo, nghe nói đã nói \"trước tiên sẽ trực tiếp hỏi bác Tanaka\".\nKết quả, được biết bác Tanaka không hoàn toàn ngừng tham gia mà chỉ nghỉ khoảng hai tháng thôi.\nNghe vậy, trông có vẻ mọi người trong cộng đồng đều yên tâm.\nTin đồn là thứ trước khi hay biết đã biến thành hình dạng khác so với sự thật.\nTức là, nghe nói khi nghe tin đồn mà cứ tin ngay thì nguy hiểm, và nghe nói xác nhận trực tiếp với đương sự là điều quan trọng.\nNhân tiện, nghe nói ở chợ ngoài bác Tanaka, số người bán trẻ trông đúng chất sinh viên cũng đang tăng lên.\nNghe nói một sinh viên đại học đang bán đồ trang sức handmade và nghe nói lần nào cũng bán hết nhanh chóng đến mức nổi tiếng.\nMột khách hàng quen thuộc đã kể rằng sinh viên đó phục vụ khách với nụ cười năng động đúng chất sinh viên.\nNghe nói chợ vốn dĩ lấy người nông dân địa phương làm trung tâm, nhưng gần đây người trẻ tham gia cũng tăng lên.\nVì vậy, nghe nói sôi động hơn trước và lượng khách đến cũng tăng lên, theo bài viết trên tờ báo địa phương.\nNghe nói khu chợ đang trở thành trung tâm của cộng đồng địa phương, đó là điều rất đáng mừng.\nTuy nhiên, tôi nghĩ không bị tin đồn chi phối mà xác nhận thông tin chính xác với nhau là điều quan trọng để xây dựng cộng đồng tốt đẹp.\nTôi đang nghĩ sẽ tham gia chợ tháng sau với tâm trạng đúng chất mùa xuân.",
+      "sentences": [
+        {
+          "jp": "私の住む地域には、毎月第一土曜日に小さなマーケットが開かれている。",
+          "vi": "Ở khu dân cư nơi tôi sống, vào thứ Bảy đầu tiên mỗi tháng có một khu chợ nhỏ được mở.",
+          "vocab": [
+            {
+              "w": "住む",
+              "read": "すむ",
+              "vi": "ở, cư trú, sinh sống"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, khu dân cư"
+            },
+            {
+              "w": "毎月",
+              "read": "まいつき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "開かれます",
+              "read": "ひらかれます",
+              "vi": "được mở (hội/chợ)"
+            },
+            {
+              "w": "第一土曜日",
+              "read": "だいいちどようび",
+              "vi": "thứ Bảy đầu tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "私の住む地域 = khu vực (mà tôi) đang sống. Vる bổ nghĩa cho 地域."
+            },
+            {
+              "point": "V受身（Bài 37）",
+              "vi": "開かれている = đang được mở. 受身形 nhấn sự kiện xảy ra, không cần chủ thể."
+            }
+          ]
+        },
+        {
+          "jp": "そのマーケットで、最近あるうわさが広まっているらしい。",
+          "vi": "Ở khu chợ đó, nghe nói gần đây có một tin đồn đang lan rộng.",
+          "vocab": [
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn, tin đồn"
+            },
+            {
+              "w": "広まります",
+              "read": "ひろまります",
+              "vi": "lan rộng, phổ biến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "接続: Vている（普通形）+ らしい。 広まっているらしい = \"nghe nói đang lan rộng\". Người viết không trực tiếp chứng kiến — thông tin từ bên ngoài, căn cứ gián tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "うわさによると、マーケットで人気の野菜を売っているタナカさんという農家の方が、来月から出店をやめるらしい。",
+          "vi": "Theo tin đồn, nghe nói bác Tanaka — người nông dân nổi tiếng bán rau ở chợ — từ tháng sau sẽ ngừng tham gia.",
+          "vocab": [
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "nổi tiếng, được ưa chuộng"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau củ"
+            },
+            {
+              "w": "売ります",
+              "read": "うります",
+              "vi": "bán"
+            },
+            {
+              "w": "タナカ",
+              "read": "タナカ",
+              "vi": "tên riêng Tanaka"
+            },
+            {
+              "w": "農家",
+              "read": "のうか",
+              "vi": "nhà nông, nông dân"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "出店",
+              "read": "しゅってん",
+              "vi": "tham gia bán hàng (ở chợ/sự kiện)"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "やめます",
+              "read": "やめます",
+              "vi": "ngừng, thôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "接続: Vる（普通形）+ らしい。 やめるらしい = \"nghe nói sẽ ngừng\". うわさによると thường đi cùng らしい — nguồn là \"tin đồn\", rất mơ hồ và gián tiếp. Phân biệt: NによるとV + そうだ（Bài 47 — nguồn rõ, cụ thể hơn）vs NによるとV + らしい（nguồn mơ hồ, tin lan truyền）."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "人気の野菜を売っているタナカさんという農家の方 = bác Tanaka người nông dân bán rau nổi tiếng. という nối tên (Bài 33)."
+            }
+          ]
+        },
+        {
+          "jp": "タナカさんの野菜はいつも新鮮で人気があり、並ぶ前から行列ができるらしく、地域の人たちに大変愛されているらしい。",
+          "vi": "Nghe nói rau của bác Tanaka luôn tươi ngon và được ưa chuộng, có người xếp hàng trước cả khi mở quầy, và bác được người dân trong vùng rất yêu quý.",
+          "vocab": [
+            {
+              "w": "タナカ",
+              "read": "タナカ",
+              "vi": "tên riêng Tanaka"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau, rau củ"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "新鮮",
+              "read": "しんせん",
+              "vi": "tươi, tươi ngon"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "sự yêu thích, nổi tiếng"
+            },
+            {
+              "w": "並びます",
+              "read": "ならびます",
+              "vi": "xếp hàng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "行列",
+              "read": "ぎょうれつ",
+              "vi": "hàng dài người xếp hàng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "rất, vô cùng"
+            },
+            {
+              "w": "愛されます",
+              "read": "あいされます",
+              "vi": "được yêu quý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしく…らしい（中止形 + 終止形）",
+              "vi": "人気らしく（中止）、愛されているらしい（終止）. 接続: N（人気）だ→省略 + らしく → Vている（愛されている）+ らしい. Hai らしい liên tiếp — đều là 伝聞, nguồn từ tin đồn/bên ngoài."
+            },
+            {
+              "point": "〜受身（Bài 37）",
+              "vi": "愛されている = được yêu quý. 受身形 ở đây nhấn việc được cộng đồng yêu quý (tác nhân = 地域の人たち)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、詳しい理由は誰も知らないらしく、ただ「体調が優れないらしい」と聞いた人がいるようだ。",
+          "vi": "Tuy nhiên, nghe nói không ai biết lý do cụ thể, chỉ có người nghe nói \"hình như sức khoẻ không được tốt\".",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên, nhưng"
+            },
+            {
+              "w": "詳しい",
+              "read": "くわしい",
+              "vi": "chi tiết, cụ thể"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "体調",
+              "read": "たいちょう",
+              "vi": "tình trạng sức khoẻ"
+            },
+            {
+              "w": "優れません",
+              "read": "すぐれません",
+              "vi": "không tốt (sức khoẻ)"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしく…ようだ",
+              "vi": "知らないらしく（伝聞 gián tiếp）→ いるようだ（ようだ trực tiếp từ câu kế: \"có người\" là thông tin tổng hợp người viết biết）. Ở đây よう ≠ らしい: らしい = nghe đồn, ようだ = quan sát/tổng hợp tình huống trực tiếp hơn."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "「体調が優れないらしい」と聞いた人 = người đã nghe nói rằng \"hình như sức khoẻ không tốt\"."
+            }
+          ]
+        },
+        {
+          "jp": "タナカさんは農家らしい誠実な人柄で、いつも丁寧に野菜の育て方を説明してくれるそうだ。",
+          "vi": "Bác Tanaka có tính cách chân thật đúng chất người nông dân, nghe nói luôn giải thích tỉ mỉ cách trồng rau cho mọi người.",
+          "vocab": [
+            {
+              "w": "タナカ",
+              "read": "タナカ",
+              "vi": "tên riêng Tanaka"
+            },
+            {
+              "w": "農家",
+              "read": "のうか",
+              "vi": "nhà nông, nông dân"
+            },
+            {
+              "w": "誠実",
+              "read": "せいじつ",
+              "vi": "chân thật, thành thật"
+            },
+            {
+              "w": "人柄",
+              "read": "ひとがら",
+              "vi": "tính cách, phẩm chất con người"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "tỉ mỉ, cẩn thận"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau, rau củ"
+            },
+            {
+              "w": "育てる",
+              "read": "そだてる",
+              "vi": "nuôi dưỡng, bồi dưỡng"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            },
+            {
+              "w": "育て方",
+              "read": "そだてかた",
+              "vi": "cách trồng, cách nuôi dưỡng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "農家らしい誠実な人柄 = \"tính cách chân thật đúng chất người nông dân\". 接続: N（農家）+ らしい + N（人柄）. Nらしい = điển hình của N, thể hiện đặc trưng lý tưởng. Người nông dân = chân thật, chăm chỉ → \"đúng chất nông dân\"."
+            },
+            {
+              "point": "〜そうだ伝聞（Bài 47）",
+              "vi": "説明してくれるそうだ = nghe nói luôn giải thích. そうだ伝聞 ở đây vì nguồn khá rõ (từ khách hàng quen). So sánh với らしい (nguồn mơ hồ hơn) ở các câu khác."
+            },
+            {
+              "point": "Vてくれる（Bài 24）",
+              "vi": "説明してくれる = giải thích cho (chúng ta). てくれる = người khác làm vì lợi ích người nói/nhóm (Bài 24)."
+            },
+            {
+              "point": "V方（Bài 44）",
+              "vi": "育て方 = cách trồng. Vます(bỏ)方 = cách làm V (Bài 44)."
+            }
+          ]
+        },
+        {
+          "jp": "また、マーケットの主催者であるサトウさんは、このうわさを聞いてとても心配しているらしい。",
+          "vi": "Ngoài ra, nghe nói anh Sato — người tổ chức chợ — rất lo lắng khi nghe tin này.",
+          "vocab": [
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "主催",
+              "read": "しゅさい",
+              "vi": "chủ trì, đơn vị tổ chức chính"
+            },
+            {
+              "w": "サトウ",
+              "read": "サトウ",
+              "vi": "tên riêng Sato"
+            },
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "心配します",
+              "read": "しんぱいします",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm nữa"
+            },
+            {
+              "w": "主催者",
+              "read": "しゅさいしゃ",
+              "vi": "người tổ chức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "心配しているらしい = \"nghe nói đang lo lắng\". Vている（普通形）+ らしい."
+            },
+            {
+              "point": "Vて（nguyên nhân Bài 39）",
+              "vi": "うわさを聞いて = nghe tin đồn rồi (nên). て nối nguyên nhân → cảm xúc."
+            }
+          ]
+        },
+        {
+          "jp": "サトウさんはリーダーらしい落ち着いた対応で、「まずタナカさんに直接話を聞く」と言ったらしい。",
+          "vi": "Anh Sato với phong thái bình tĩnh đúng chất người lãnh đạo, nghe nói đã nói \"trước tiên sẽ trực tiếp hỏi bác Tanaka\".",
+          "vocab": [
+            {
+              "w": "サトウ",
+              "read": "さとう",
+              "vi": "Satō"
+            },
+            {
+              "w": "リーダーらしい",
+              "read": "りーだーらしい",
+              "vi": "mang phong thái lãnh đạo"
+            },
+            {
+              "w": "リーダー",
+              "read": "りーだー",
+              "vi": "người lãnh đạo"
+            },
+            {
+              "w": "落ち着いた",
+              "read": "おちついた",
+              "vi": "điềm tĩnh"
+            },
+            {
+              "w": "対応",
+              "read": "たいおう",
+              "vi": "cách xử lý"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước hết"
+            },
+            {
+              "w": "タナカ",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "直接",
+              "read": "ちょくせつ",
+              "vi": "trực tiếp"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "lời nói"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "nghe"
+            },
+            {
+              "w": "言った",
+              "read": "いった",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "リーダーらしい落ち着いた対応 = \"phong thái bình tĩnh đúng chất người lãnh đạo\". 接続: N（リーダー）+ らしい + N（対応）. Lãnh đạo = bình tĩnh, hành động có trách nhiệm → \"đúng chất leader\"."
+            },
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "と言ったらしい = \"nghe nói đã nói\". Vた（普通形）+ らしい — toàn bộ lời trích dẫn + らしい = tin đồn về điều anh ấy đã nói."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、タナカさんは出店を完全にやめるのではなく、二か月ほど休むだけらしいということがわかった。",
+          "vi": "Kết quả, được biết bác Tanaka không hoàn toàn ngừng tham gia mà chỉ nghỉ khoảng hai tháng thôi.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "タナカ",
+              "read": "タナカ",
+              "vi": "tên riêng Tanaka"
+            },
+            {
+              "w": "出店",
+              "read": "しゅってん",
+              "vi": "tham gia bán hàng (ở chợ/sự kiện)"
+            },
+            {
+              "w": "完全に",
+              "read": "かんぜんに",
+              "vi": "hoàn toàn"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "休みます",
+              "read": "やすみます",
+              "vi": "nghỉ"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "やめます",
+              "read": "やめます",
+              "vi": "ngừng, dừng (làm gì)"
+            },
+            {
+              "w": "二か月",
+              "read": "にかげつ",
+              "vi": "hai tháng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいということがわかった",
+              "vi": "休むだけらしいということがわかった = \"được biết hình như chỉ nghỉ thôi\". 接続: Vる + だけ + らしい. らしいということ = danh từ hoá toàn bộ thông tin らしい → làm tân ngữ của わかった."
+            },
+            {
+              "point": "〜のではなく（Bài 26 のだ + ではなく）",
+              "vi": "完全にやめるのではなく = \"không phải là ngừng hẳn, mà…\". のではなく phủ định một mệnh đề rồi nêu cái đúng (のだ Bài 26 + ではなく). (Mẫu わけではない để học sau.)"
+            }
+          ]
+        },
+        {
+          "jp": "それを聞いて、地域の人たちはみんな安心したようだ。",
+          "vi": "Nghe vậy, trông có vẻ mọi người trong cộng đồng đều yên tâm.",
+          "vocab": [
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "安心します",
+              "read": "あんしんします",
+              "vi": "yên tâm, nhẹ nhõm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64）",
+              "vi": "安心したようだ = \"trông có vẻ đều yên tâm\". ようだ = người viết suy đoán từ quan sát tình huống (thấy mọi người phản ứng nhẹ nhõm). Phân biệt: ở đây là nhận xét từ quan sát trực tiếp → ようだ（Bài 64），không phải らしい（nghe đồn）."
+            },
+            {
+              "point": "Vて（nguyên nhân Bài 39）",
+              "vi": "それを聞いて = nghe điều đó rồi (mà). て nối nguyên nhân → kết quả cảm xúc."
+            }
+          ]
+        },
+        {
+          "jp": "うわさとは、いつの間にか事実と違う形に変わってしまうものだ。",
+          "vi": "Tin đồn là thứ trước khi hay biết đã biến thành hình dạng khác so với sự thật.",
+          "vocab": [
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "いつの間にか",
+              "read": "いつのまにか",
+              "vi": "trước khi hay biết, tự lúc nào"
+            },
+            {
+              "w": "事実",
+              "read": "じじつ",
+              "vi": "sự thật"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình dạng, hình thức"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi, biến thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものだ（Bài 53）",
+              "vi": "変わってしまうものだ = đó là bản chất/chân lý: (tin đồn) thay đổi thành hình dạng khác. ものだ = chân lý, lẽ thường (Bài 53)."
+            },
+            {
+              "point": "Vてしまう（Bài 29）",
+              "vi": "変わってしまう = đã biến thành (ngoài ý muốn, đáng tiếc). てしまう = hoàn thành không cố ý (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、うわさを聞いたとき、そのまま信じてしまうのは危険らしく、本人に確認することが大切らしい。",
+          "vi": "Tức là, nghe nói khi nghe tin đồn mà cứ tin ngay thì nguy hiểm, và nghe nói xác nhận trực tiếp với đương sự là điều quan trọng.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "そのまま",
+              "read": "そのまま",
+              "vi": "nguyên như vậy, không kiểm tra"
+            },
+            {
+              "w": "信じます",
+              "read": "しんじます",
+              "vi": "tin tưởng"
+            },
+            {
+              "w": "危険",
+              "read": "きけん",
+              "vi": "nguy hiểm"
+            },
+            {
+              "w": "本人",
+              "read": "ほんにん",
+              "vi": "đương sự, chính người đó"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしく…らしい（中止+終止）",
+              "vi": "危険らしく（中止）、大切らしい（終止）. 接続: N/なAdj（危険/大切）だ→省略 + らしく/らしい. Ở đây người viết truyền đạt như bài học rút ra từ tình huống — dùng らしい để giữ thái độ khách quan, không quả quyết quá mức."
+            },
+            {
+              "point": "Vのは〜（Bài 38）",
+              "vi": "信じてしまうのは危険 = (việc) tin ngay thì nguy hiểm. のは danh từ hoá mệnh đề làm chủ ngữ."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "うわさを聞いたとき = khi nghe tin đồn. とき = khi (Bài 23)."
+            }
+          ]
+        },
+        {
+          "jp": "ところで、マーケットにはタナカさん以外にも、学生らしい若い売り手が増えているらしい。",
+          "vi": "Nhân tiện, nghe nói ở chợ ngoài bác Tanaka, số người bán trẻ trông đúng chất sinh viên cũng đang tăng lên.",
+          "vocab": [
+            {
+              "w": "ところで",
+              "read": "ところで",
+              "vi": "nhân tiện, à này"
+            },
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "タナカ",
+              "read": "タナカ",
+              "vi": "tên riêng Tanaka"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "売り手",
+              "read": "うりて",
+              "vi": "người bán hàng"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "以外にも",
+              "read": "いがいにも",
+              "vi": "ngoài ra, bên cạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）＋ 〜らしい（伝聞）",
+              "vi": "学生らしい若い売り手 = \"người bán trẻ đúng chất sinh viên\" (Nらしい — điển hình). 増えているらしい = \"nghe nói đang tăng\" (伝聞 — gián tiếp). Một câu chứa CẢ HAI nghĩa らしい — điển hình để phân biệt."
+            }
+          ]
+        },
+        {
+          "jp": "ある大学生は手作りのアクセサリーを売っているらしく、毎回すぐに売り切れてしまうらしい。",
+          "vi": "Nghe nói một sinh viên đại học đang bán đồ trang sức handmade và lần nào cũng bán hết rất nhanh.",
+          "vocab": [
+            {
+              "w": "大学生",
+              "read": "だいがくせい",
+              "vi": "sinh viên đại học"
+            },
+            {
+              "w": "手作り",
+              "read": "てづくり",
+              "vi": "thủ công, tự làm"
+            },
+            {
+              "w": "アクセサリー",
+              "read": "アクセサリー",
+              "vi": "đồ trang sức, phụ kiện"
+            },
+            {
+              "w": "売る",
+              "read": "うる",
+              "vi": "bán"
+            },
+            {
+              "w": "毎回",
+              "read": "まいかい",
+              "vi": "mỗi lần"
+            },
+            {
+              "w": "売り切れます",
+              "read": "うりきれます",
+              "vi": "bán hết, hết hàng"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức, nhanh chóng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしく…らしい（伝聞 liên tiếp）",
+              "vi": "売っているらしく（中止）、売り切れてしまうらしい（終止）. Cả hai đều là 伝聞 — thông tin nghe từ bên ngoài về người bán này."
+            },
+            {
+              "point": "〜てしまう（Bài 29）",
+              "vi": "売り切れてしまう = bán hết sạch (hoàn tất, có sắc thái \"đã hết mất\"). Vて + しまう (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "その大学生は学生らしい元気な笑顔で接客をしていると、常連のお客さんが教えてくれた。",
+          "vi": "Một khách hàng quen thuộc đã kể rằng sinh viên đó phục vụ khách với nụ cười năng động đúng chất sinh viên.",
+          "vocab": [
+            {
+              "w": "大学生",
+              "read": "だいがくせい",
+              "vi": "sinh viên đại học"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh, vui vẻ"
+            },
+            {
+              "w": "笑顔",
+              "read": "えがお",
+              "vi": "nụ cười"
+            },
+            {
+              "w": "接客",
+              "read": "せっきゃく",
+              "vi": "phục vụ khách hàng"
+            },
+            {
+              "w": "常連",
+              "read": "じょうれん",
+              "vi": "khách hàng quen thuộc"
+            },
+            {
+              "w": "お客",
+              "read": "おきゃく",
+              "vi": "khách hàng, khách"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "学生らしい元気な笑顔 = \"nụ cười năng động đúng chất sinh viên\". 接続: N（学生）+ らしい + N（笑顔）. Sinh viên = trẻ trung, năng động → \"đúng chất sinh viên\"."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "教えてくれた = đã kể cho (tôi). てくれる = người khác làm vì lợi ích người nói (Bài 24)."
+            },
+            {
+              "point": "〜と（trích lời Bài 21）",
+              "vi": "していると、〜が教えてくれた = \"(khách) kể rằng đang phục vụ với…\". と trích dẫn nội dung."
+            }
+          ]
+        },
+        {
+          "jp": "マーケットはもともと地元の農家が中心だったが、最近は若い人たちの参加も増えているらしい。",
+          "vi": "Nghe nói chợ vốn dĩ lấy người nông dân địa phương làm trung tâm, nhưng gần đây người trẻ tham gia cũng tăng lên.",
+          "vocab": [
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "もともと",
+              "read": "もともと",
+              "vi": "vốn dĩ, ban đầu"
+            },
+            {
+              "w": "地元",
+              "read": "じもと",
+              "vi": "địa phương, trong vùng"
+            },
+            {
+              "w": "農家",
+              "read": "のうか",
+              "vi": "nhà nông, nông dân"
+            },
+            {
+              "w": "中心",
+              "read": "ちゅうしん",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "増えているらしい = \"nghe nói đang tăng lên\". Vている（普通形）+ らしい."
+            },
+            {
+              "point": "〜が（nhưng Bài 20）",
+              "vi": "中心だったが = vốn là trung tâm nhưng. が nối hai vế đối lập."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、以前より活気があるらしく、来場者数も増えているらしいと、地域の新聞に書いてあった。",
+          "vi": "Vì vậy, nghe nói sôi động hơn trước và lượng khách đến cũng tăng lên, theo bài viết trên tờ báo địa phương.",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây"
+            },
+            {
+              "w": "活気",
+              "read": "かっき",
+              "vi": "sự sôi động, khí thế"
+            },
+            {
+              "w": "来場",
+              "read": "らいじょう",
+              "vi": "sự tới tham dự"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "新聞",
+              "read": "しんぶん",
+              "vi": "báo"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy, vì thế"
+            },
+            {
+              "w": "来場者数",
+              "read": "らいじょうしゃすう",
+              "vi": "lượng khách đến tham dự"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしく…らしいと〜に書いてあった（Bài 30）",
+              "vi": "活気があるらしく、増えているらしい + と + 新聞に書いてあった. Toàn bộ nội dung らしい được trích từ báo địa phương. てある = ghi lại (Bài 30)."
+            },
+            {
+              "point": "NよりAdj（Bài 12）",
+              "vi": "以前より活気がある = sôi động hơn trước. より = so sánh hơn."
+            }
+          ]
+        },
+        {
+          "jp": "マーケットが地域コミュニティの中心になってきているらしいのは、とてもうれしいことだ。",
+          "vi": "Nghe nói khu chợ đang trở thành trung tâm của cộng đồng địa phương, đó là điều rất đáng mừng.",
+          "vocab": [
+            {
+              "w": "マーケット",
+              "read": "マーケット",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "コミュニティ",
+              "read": "コミュニティ",
+              "vi": "cộng đồng"
+            },
+            {
+              "w": "中心",
+              "read": "ちゅうしん",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui mừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいのは〜だ",
+              "vi": "なってきているらしいのは = (chuyện) nghe nói đang trở thành. 接続: Vてきている（普通形）+ らしい + のは (danh từ hoá). てきた = tiếp diễn đến hiện tại (Bài 43)."
+            },
+            {
+              "point": "〜てきます/てきた（Bài 43）",
+              "vi": "なってきている = đang dần trở thành (tiến trình đến hiện tại). Vてきている = Bài 43."
+            }
+          ]
+        },
+        {
+          "jp": "ただ、うわさに左右されず、正確な情報を確認し合うことが、良いコミュニティを作るためには大切だと思う。",
+          "vi": "Tuy nhiên, tôi nghĩ không bị tin đồn chi phối mà xác nhận thông tin chính xác với nhau là điều quan trọng để xây dựng cộng đồng tốt đẹp.",
+          "vocab": [
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "左右されます",
+              "read": "さゆうされます",
+              "vi": "bị chi phối, bị ảnh hưởng"
+            },
+            {
+              "w": "正確",
+              "read": "せいかく",
+              "vi": "chính xác"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "コミュニティ",
+              "read": "コミュニティ",
+              "vi": "cộng đồng"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "ただ",
+              "read": "ただ",
+              "vi": "tuy nhiên, nhưng mà"
+            },
+            {
+              "w": "確認し合います",
+              "read": "かくにんしあいます",
+              "vi": "cùng nhau xác nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないで（Bài 23）",
+              "vi": "うわさに左右されず = không bị tin đồn chi phối mà... Vないで（bỏ で → ず là văn viết trang trọng）= không làm V mà làm việc khác."
+            },
+            {
+              "point": "Vることが大切だ（Bài 39応用）",
+              "vi": "確認し合うことが大切だ = (việc) cùng xác nhận là quan trọng. VることがAdj = Vを danh từ hoá làm chủ ngữ."
+            },
+            {
+              "point": "Vるためには（Bài 42）",
+              "vi": "コミュニティを作るためには = để xây dựng cộng đồng thì. Vるために = mục đích có ý chí (Bài 42/60)."
+            }
+          ]
+        },
+        {
+          "jp": "来月のマーケットに、私も春らしい気持ちで参加しようと思っている。",
+          "vi": "Tôi đang nghĩ sẽ tham gia chợ tháng sau với tâm trạng đúng chất mùa xuân.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "マーケット",
+              "read": "まーけっと",
+              "vi": "khu chợ"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "春らしい",
+              "read": "はるらしい",
+              "vi": "mang vẻ mùa xuân"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm xúc"
+            },
+            {
+              "w": "参加しよう",
+              "read": "さんかしよう",
+              "vi": "định tham gia"
+            },
+            {
+              "w": "思っている",
+              "read": "おもっている",
+              "vi": "đang nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "春らしい気持ち = \"tâm trạng đúng chất mùa xuân\" — tươi vui, mới mẻ, tích cực. Kết thúc bài dài bằng Nらしい cột lại chủ đề hai nghĩa らしい của bài."
+            },
+            {
+              "point": "V意向形＋と思っている（Bài 31）",
+              "vi": "参加しようと思っている = đang nghĩ sẽ tham gia. V意向形 + と思っている = ý định đang hình thành (Bài 31)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "あるうわさが広まっているらしい",
+          "label": "〜らしい（伝聞 — tin đồn lan truyền, nguồn mơ hồ）"
+        },
+        {
+          "excerpt": "タナカさんは農家らしい誠実な人柄で",
+          "label": "Sắc thái: Nらしい（đúng chất người nông dân）"
+        },
+        {
+          "excerpt": "サトウさんはリーダーらしい落ち着いた対応で",
+          "label": "Sắc thái: Nらしい（đúng chất lãnh đạo）"
+        },
+        {
+          "excerpt": "学生らしい若い売り手が増えているらしい",
+          "label": "Sắc thái: Nらしい（điển hình）+ 〜らしい（伝聞）— một câu hai nghĩa"
+        },
+        {
+          "excerpt": "安心したようだ",
+          "label": "〜ようだ（Bài 64）vs らしい — quan sát trực tiếp vs nghe đồn"
+        },
+        {
+          "excerpt": "危険らしく、本人に確認することが大切らしい",
+          "label": "〜らしく…らしい（truyền đạt bài học khách quan）"
+        },
+        {
+          "excerpt": "春らしい気持ちで参加しようと思っている",
+          "label": "Sắc thái: Nらしい（kết bài — tâm trạng đúng chất mùa xuân）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「タナカさんは出店をやめるらしい」とありますが、この情報はどこから来ていますか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "書いた人がタナカさんに直接会って聞きました",
+            "うわさとして広まっている情報で、はっきりした情報源はわかりません",
+            "マーケットの主催者サトウさんが公式に発表しました",
+            "地域の新聞に書いてあったことです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: bài viết dùng cấu trúc「うわさによると、〜らしい」— nguồn là \"tin đồn\" (うわさ), rất mơ hồ, không rõ ai nói đầu tiên. らしい = người viết nghe thông tin từ bên ngoài nhưng không biết chắc. Tại sao các đáp án khác sai? Đáp án 0 (\"trực tiếp gặp Tanaka-san\") sai vì nếu người viết tự gặp, bài sẽ dùng「〜と言っていた」hoặc「〜と話してくれた」chứ không dùng らしい. Đáp án 2 (\"Sato thông báo chính thức\") sai — nếu có thông báo chính thức/nguồn rõ ràng thì phải dùng「〜そうだ」(Bài 47); らしい ám chỉ nguồn MƠ HỒ. Đáp án 3 (\"báo địa phương\") sai vì đoạn về báo nằm ở cuối bài, nói về sự sôi động của chợ, không nói về Tanaka-san nghỉ bán.",
+          "tip": "うわさによると + らしい = combo tin đồn cổ điển — nguồn mơ hồ nhất có thể. Nếu nguồn rõ (người cụ thể nói, báo viết rõ) → そうだ (Bài 47); nguồn mờ/tin lan truyền → らしい.",
+          "qt": {
+            "q": "Có câu 「タナカさんは出店をやめるらしい」(nghe nói ông/bà Tanaka sẽ ngừng bán hàng ở chợ), nhưng thông tin này bắt nguồn từ đâu?",
+            "o": [
+              "Người viết đã gặp trực tiếp ông/bà Tanaka và hỏi",
+              "Đây là thông tin đang lan truyền dưới dạng tin đồn, và không rõ nguồn tin cụ thể",
+              "Ông Sato, người tổ chức chợ, đã chính thức thông báo",
+              "Đó là thông tin được viết trên tờ báo địa phương"
+            ]
+          }
+        },
+        {
+          "q": "「農家らしい誠実な人柄」と「学生らしい若い売り手」の「らしい」は、「うわさが広まっているらしい」の「らしい」とどう違いますか。",
+          "evi": [
+            1,
+            5,
+            12
+          ],
+          "options": [
+            "意味は同じで、どちらも「聞いた情報を伝える」意味です",
+            "前者は「Nとして典型的・理想的」を表し、後者は「聞いた情報（伝聞）」を表します",
+            "前者は「まるでNのようだ（比喩）」を表し、後者は「Nらしい」と同じです",
+            "前者は「Nになりたい」を表し、後者は「Nかもしれない」を表します"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 農家らしい誠実な人柄 — cấu trúc N（農家）+ らしい + N（人柄）→ Nらしい nghĩa ② \"tính cách chân thật ĐÚNG CHẤT người nông dân\" — mô tả đặc trưng điển hình, lý tưởng của một người nông dân thật sự. うわさが広まっているらしい — cấu trúc Vている（普通形）+ らしい → 伝聞 nghĩa ① \"nghe nói đang lan rộng\" — truyền đạt thông tin gián tiếp từ bên ngoài. Tại sao các đáp án khác sai? Đáp án 0 (\"cả hai đều là truyền đạt thông tin nghe được\") sai vì 農家らしい không liên quan đến nghe đồn — đây là nhận xét về tính cách điển hình. Đáp án 2 (\"前者 = so sánh như N\") nhầm với ような — Nらしい nhấn \"đúng chất, điển hình của chính N\" còn ような = \"trông giống N (từ bên ngoài)\". Đáp án 3 hoàn toàn sai cả hai nghĩa.",
+          "tip": "Nらしい + danh từ (hoặc cuối câu nhận xét về người/vật) = \"đúng chất N\" (điển hình); Vる/いAdj/なAdj普通形 + らしい cuối câu nhận định = \"nghe nói\" (伝聞). Hai mẫu khác nhau ở VỊ TRÍ và LOẠI TỪ đứng trước らしい.",
+          "qt": {
+            "q": "「農家らしい誠実な人柄」(tính cách chân thành đúng chất nhà nông) và 「学生らしい若い売り手」(người bán trẻ đúng chất sinh viên) có 「らしい」 khác với 「うわさが広まっているらしい」(nghe nói tin đồn đang lan rộng) như thế nào?",
+            "o": [
+              "Nghĩa giống nhau; cả hai đều có nghĩa là “truyền đạt thông tin đã nghe được”",
+              "Cách dùng trước biểu thị “điển hình/lý tưởng với tư cách là N”, còn cách dùng sau biểu thị “thông tin nghe được (truyền đạt lại)”",
+              "Cách dùng trước biểu thị “giống như N” (so sánh), còn cách dùng sau giống với “Nらしい”",
+              "Cách dùng trước biểu thị “muốn trở thành N”, còn cách dùng sau biểu thị “có thể là N”"
+            ]
+          }
+        },
+        {
+          "q": "「安心したようだ」とありますが、ここでなぜ「らしい」ではなく「ようだ」を使っていますか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "「らしい」より「ようだ」のほうが丁寧だからです",
+            "書いた人が人々の反応を直接見て、推測しているからです",
+            "「らしい」は人間の感情に使えないからです",
+            "「ようだ」は伝聞で、「らしい」は自分の意見だからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: câu này xuất hiện SAU khi sự thật được Sato xác nhận và mọi người đều biết — người viết TRỰC TIẾP quan sát/cảm nhận phản ứng nhẹ nhõm của cộng đồng xung quanh mình → căn cứ trực tiếp → dùng ようだ (Bài 64). Nếu chỉ nghe người khác kể lại rằng mọi người yên tâm → sẽ phải dùng らしい. Tại sao các đáp án khác sai? Đáp án 0 (\"ようだ lịch sự hơn\") hoàn toàn sai — ようだ và らしい không phân biệt theo mức độ lịch sự. Đáp án 2 (\"らしい không dùng cho cảm xúc người\") sai vì bài này đã dùng「心配しているらしい」— らしい hoàn toàn dùng được với cảm xúc. Đáp án 3 (\"ようだ = truyền đạt, らしい = ý kiến cá nhân\") đảo ngược hoàn toàn ý nghĩa.",
+          "tip": "ようだ = \"mắt tôi thấy / tai tôi nghe trực tiếp → suy ra\"; らしい = \"thông tin từ bên ngoài → tôi relay lại\". Khi bài hỏi tại sao dùng ようだ chứ không らしい, hãy tìm xem người viết có TRỰC TIẾP chứng kiến không.",
+          "qt": {
+            "q": "Có câu 「安心したようだ」(có vẻ đã yên tâm), tại sao ở đây lại dùng 「ようだ」 chứ không dùng 「らしい」?",
+            "o": [
+              "Vì 「ようだ」 lịch sự hơn 「らしい」",
+              "Vì người viết trực tiếp nhìn thấy phản ứng của mọi người và suy đoán từ đó",
+              "Vì không thể dùng 「らしい」 với cảm xúc của con người",
+              "Vì 「ようだ」 dùng để truyền đạt điều nghe được, còn 「らしい」 diễn đạt ý kiến của bản thân"
+            ]
+          }
+        },
+        {
+          "q": "この文章でうわさについて、筆者はどんな考えを持っていますか。",
+          "evi": [
+            11,
+            18
+          ],
+          "options": [
+            "うわさはいつも正しいので、そのまま信じるべきだ",
+            "うわさを聞いたら、すぐに誰かに伝えることが大切だ",
+            "うわさを聞いたとき、本人に確認することが大切で、そのまま信じるのは危険だ",
+            "うわさはコミュニティを壊すので、絶対に広めてはいけない"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: bài có hai câu làm bằng chứng rõ ràng. Câu 1:「うわさを聞いたとき、そのまま信じてしまうのは危険らしく、本人に確認することが大切らしい」— tin đồn nguy hiểm nếu tin vội, cần xác nhận. Câu 2:「うわさに左右されず、正確な情報を確認し合うことが大切だと思う」— không bị tin đồn chi phối, xác nhận thông tin chính xác. Tại sao các đáp án khác sai? Đáp án 0 (\"tin đồn luôn đúng, nên tin ngay\") ngược hẳn với nội dung bài. Đáp án 1 (\"nghe đồn xong phải kể lại ngay\") không có trong bài — người viết khuyến khích XÁC NHẬN chứ không phải lan truyền tiếp. Đáp án 3 (\"tuyệt đối không được lan truyền\") quá cực đoan — bài không nói vậy, chỉ nói không nên tin mù quáng và cần xác nhận.",
+          "tip": "Câu hỏi về \"ý kiến tác giả\" → tìm câu kết luận cuối đoạn văn (thường dùng〜と思う、〜が大切だ、〜べきだ). Đừng bị lừa bởi đáp án nghe có vẻ đúng một nửa — phải khớp TOÀN BỘ ý của tác giả.",
+          "qt": {
+            "q": "Trong bài viết này, tác giả có suy nghĩ như thế nào về tin đồn?",
+            "o": [
+              "Tin đồn luôn đúng nên nên tin ngay như vậy",
+              "Khi nghe tin đồn, điều quan trọng là nhanh chóng kể lại cho ai đó",
+              "Khi nghe tin đồn, điều quan trọng là xác nhận với chính người liên quan; tin ngay như vậy là nguy hiểm",
+              "Tin đồn phá hoại cộng đồng nên tuyệt đối không được lan truyền"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "桜町グルメ通信　～今、うわさの新店紹介～",
+      "titleVi": "Bản tin ẩm thực khu Sakuramachi — Giới thiệu quán mới đang được đồn thổi",
+      "japanese": "桜町グルメ通信　～今、うわさの新店紹介～\n桜町商店街に、今月オープンしたばかりの三軒のお店が、早くも地域で人気らしいです。\nどのお店も行列ができるらしく、平日の昼でも三十分待ちになることがあるそうです。\nお店｜特徴｜看板メニュー｜料金\nめん処さくら｜店主は元有名店の職人らしい｜特製みそラーメン｜900円\nカフェ結（ゆい）｜店内が広く落ち着けるらしい｜季節のケーキセット｜750円\n定食屋あさひ｜地元の野菜を使うらしい｜日替わり定食｜800円\n※三店とも、平日15時から17時の間は「アイドルタイム価格」で全メニュー100円引きになります。\n※カフェ結は、四名以上のグループで来店すると、ケーキセットが50円引きになるらしいです（要事前連絡）。\n※定食屋あさひは、月曜が定休日で、日替わり定食は売り切れ次第終了です。\nなお、めん処さくらだけは現金のみで、カード払いはできないらしいので、ご注意ください。\nこの三軒のおかげで、桜町商店街はすっかり活気らしい活気を取り戻したようです。\n問い合わせ：桜町商店街振興組合（電話：03-4567-8901、平日9時～18時）",
+      "vietnamese": "Bản tin ẩm thực khu Sakuramachi — Giới thiệu quán mới đang được đồn thổi\nNghe nói ba quán vừa khai trương tháng này ở khu phố mua sắm Sakuramachi đã nhanh chóng nổi tiếng trong vùng.\nNghe nói quán nào cũng có người xếp hàng, nghe đâu ngay cả ban ngày ngày thường cũng có lúc phải đợi tới ba mươi phút.\nQuán｜Đặc điểm｜Món đặc trưng｜Giá\nMì Sakura｜Nghe nói chủ quán từng là đầu bếp ở tiệm nổi tiếng｜Mì miso đặc biệt｜900 yên\nCà phê Yui｜Nghe nói không gian rộng, yên tĩnh dễ chịu｜Set bánh theo mùa｜750 yên\nQuán cơm Asahi｜Nghe nói dùng rau củ địa phương｜Cơm phần đổi món theo ngày｜800 yên\n※ Cả ba quán, trong khung giờ 15h–17h ngày thường sẽ giảm 100 yên cho tất cả món theo mức giá \"giờ vắng khách\".\n※ Quán Cà phê Yui, nghe nói nếu đi nhóm từ bốn người trở lên thì set bánh được giảm 50 yên (cần liên hệ trước).\n※ Quán cơm Asahi nghỉ vào thứ Hai, cơm phần đổi món theo ngày sẽ hết khi bán hết.\nNgoài ra, nghe nói chỉ riêng Mì Sakura chỉ nhận tiền mặt, không thể thanh toán bằng thẻ, xin lưu ý.\nNhờ có ba quán này mà khu phố mua sắm Sakuramachi trông có vẻ đã lấy lại đúng chất sôi động vốn có.\nLiên hệ: Hiệp hội chấn hưng khu phố mua sắm Sakuramachi (điện thoại: 03-4567-8901, ngày thường 9h–18h)",
+      "sentences": [
+        {
+          "jp": "桜町グルメ通信　～今、うわさの新店紹介～",
+          "vi": "Bản tin ẩm thực khu Sakuramachi — Giới thiệu quán mới đang được đồn thổi",
+          "vocab": [
+            {
+              "w": "桜町",
+              "read": "さくらまち",
+              "vi": "Sakuramachi"
+            },
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "グルメ通信",
+              "read": "ぐるめつうしん",
+              "vi": "bản tin ẩm thực"
+            },
+            {
+              "w": "グルメ",
+              "read": "ぐるめ",
+              "vi": "ẩm thực"
+            },
+            {
+              "w": "通信",
+              "read": "つうしん",
+              "vi": "bản tin"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "新店紹介",
+              "read": "しんてんしょうかい",
+              "vi": "giới thiệu cửa hàng mới"
+            },
+            {
+              "w": "新店",
+              "read": "しんてん",
+              "vi": "cửa hàng mới"
+            },
+            {
+              "w": "紹介",
+              "read": "しょうかい",
+              "vi": "giới thiệu"
+            }
+          ],
+          "keys": [
+            {
+              "w": "うわさの新店紹介",
+              "why": "tiêu đề nêu chủ đề bản tin: giới thiệu quán mới đang được đồn — định hướng toàn bài xoay quanh らしい (nghe đồn)."
+            }
+          ]
+        },
+        {
+          "jp": "桜町商店街に、今月オープンしたばかりの三軒のお店が、早くも地域で人気らしいです。",
+          "vi": "Nghe nói ba quán vừa khai trương tháng này ở khu phố mua sắm Sakuramachi đã nhanh chóng nổi tiếng trong vùng.",
+          "vocab": [
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "商店",
+              "read": "しょうてん",
+              "vi": "cửa hàng, tiệm"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "オープン",
+              "read": "オープン",
+              "vi": "sự mở cửa, khai trương"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "早くも",
+              "read": "はやくも",
+              "vi": "nhanh chóng, sớm đã"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, vùng"
+            },
+            {
+              "w": "人気",
+              "read": "にんき",
+              "vi": "sự yêu thích, nổi tiếng"
+            },
+            {
+              "w": "商店街",
+              "read": "しょうてんがい",
+              "vi": "khu phố mua sắm"
+            },
+            {
+              "w": "三軒",
+              "read": "さんげん",
+              "vi": "ba quán, ba căn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "接続: N（人気）だ→省略 + らしい。 人気らしい = \"nghe nói được ưa chuộng\". Câu mở đầu ngay lập tức xác lập tông giọng \"nghe đồn\" — người viết truyền đạt tin nổi tiếng lan trong khu phố, không tự khẳng định."
+            },
+            {
+              "point": "Vたばかり（Bài 58 ôn）",
+              "vi": "オープンしたばかり = vừa mới khai trương. たばかり = vừa mới làm xong (Bài 58)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "人気らしいです",
+              "why": "từ khóa mẫu trọng tâm bài 65 — nghe nói nổi tiếng, mở đầu tông truyền đạt gián tiếp cho cả bài."
+            }
+          ]
+        },
+        {
+          "jp": "どのお店も行列ができるらしく、平日の昼でも三十分待ちになることがあるそうです。",
+          "vi": "Nghe nói quán nào cũng có người xếp hàng, nghe đâu ngay cả ban ngày ngày thường cũng có lúc phải đợi tới ba mươi phút.",
+          "vocab": [
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "行列",
+              "read": "ぎょうれつ",
+              "vi": "hàng người xếp"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "昼",
+              "read": "ひる",
+              "vi": "ban ngày, buổi trưa"
+            },
+            {
+              "w": "三十分",
+              "read": "さんじゅっぷん",
+              "vi": "ba mươi phút"
+            },
+            {
+              "w": "待ち",
+              "read": "まち",
+              "vi": "sự chờ đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしく（中止形）",
+              "vi": "接続: Vる（できる）+ らしく。 行列ができるらしく = \"nghe nói có xếp hàng, và...\" — らしく nối sang mệnh đề sau, vẫn giữ sắc thái nghe đồn."
+            },
+            {
+              "point": "〜そうです伝聞（Bài 63 ôn）",
+              "vi": "待ちになることがあるそうです = nghe nói có lúc phải đợi. そうだ伝聞 (Bài 63) — đối chiếu với らしい: そうだ nguồn cụ thể hơn (bản tin tự thuật), らしい mơ hồ hơn (tin đồn lan truyền)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "行列ができるらしく",
+              "why": "mẫu 65 thứ hai — nghe nói xếp hàng, gợi ý mức độ \"hot\" của các quán, liên quan câu hỏi về nguồn thông tin."
+            }
+          ]
+        },
+        {
+          "jp": "お店｜特徴｜看板メニュー｜料金",
+          "vi": "Quán｜Đặc điểm｜Món đặc trưng｜Giá",
+          "vocab": [
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            },
+            {
+              "w": "看板メニュー",
+              "read": "かんばんメニュー",
+              "vi": "món đặc trưng, món chủ lực"
+            },
+            {
+              "w": "メニュー",
+              "read": "メニュー",
+              "vi": "thực đơn"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá tiền"
+            }
+          ],
+          "keys": [
+            {
+              "w": "看板メニュー｜料金",
+              "why": "hàng tiêu đề bảng — cột giá và món đặc trưng là căn cứ chính để trả lời câu hỏi tính phí."
+            }
+          ]
+        },
+        {
+          "jp": "めん処さくら｜店主は元有名店の職人らしい｜特製みそラーメン｜900円",
+          "vi": "Mì Sakura｜Nghe nói chủ quán từng là đầu bếp ở tiệm nổi tiếng｜Mì miso đặc biệt｜900 yên",
+          "vocab": [
+            {
+              "w": "処",
+              "read": "しょ",
+              "vi": "nơi chốn, quán"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "店主",
+              "read": "てんしゅ",
+              "vi": "chủ quán"
+            },
+            {
+              "w": "有名",
+              "read": "ゆうめい",
+              "vi": "nổi tiếng"
+            },
+            {
+              "w": "職人",
+              "read": "しょくにん",
+              "vi": "người thợ, nghệ nhân"
+            },
+            {
+              "w": "特製",
+              "read": "とくせい",
+              "vi": "đặc chế, làm riêng"
+            },
+            {
+              "w": "ラーメン",
+              "read": "ラーメン",
+              "vi": "ramen (mì Nhật)"
+            },
+            {
+              "w": "元",
+              "read": "もと",
+              "vi": "trước đây, nguyên là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "接続: N（職人）だ→省略 + らしい。 職人らしい = \"nghe nói là đầu bếp\". Trong bảng, mỗi ô \"đặc điểm\" đều gắn らしい — nhấn rằng đây toàn là tin đồn về từng quán, chưa được xác minh trực tiếp."
+            }
+          ],
+          "keys": [
+            {
+              "w": "900円",
+              "why": "giá món chủ lực của Mì Sakura — căn cứ tính phí câu hỏi 1."
+            },
+            {
+              "w": "職人らしい",
+              "why": "đặc điểm gắn nhãn らしい, đối chiếu với ghi chú thanh toán tiền mặt riêng của quán này ở dòng ※."
+            }
+          ]
+        },
+        {
+          "jp": "カフェ結（ゆい）｜店内が広く落ち着けるらしい｜季節のケーキセット｜750円",
+          "vi": "Cà phê Yui｜Nghe nói không gian rộng, yên tĩnh dễ chịu｜Set bánh theo mùa｜750 yên",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "かふぇ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "結",
+              "read": "ゆい",
+              "vi": "Yui"
+            },
+            {
+              "w": "店内",
+              "read": "てんない",
+              "vi": "trong quán"
+            },
+            {
+              "w": "広く",
+              "read": "ひろく",
+              "vi": "rộng"
+            },
+            {
+              "w": "落ち着ける",
+              "read": "おちつける",
+              "vi": "có thể thư giãn"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa"
+            },
+            {
+              "w": "ケーキセット",
+              "read": "けーきせっと",
+              "vi": "combo bánh và đồ uống"
+            },
+            {
+              "w": "ケーキ",
+              "read": "けーき",
+              "vi": "bánh ngọt"
+            },
+            {
+              "w": "セット",
+              "read": "せっと",
+              "vi": "combo"
+            },
+            {
+              "w": "750円",
+              "read": "ななひゃくごじゅうえん",
+              "vi": "750 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "落ち着けるらしい = \"nghe nói yên tĩnh dễ chịu\". Vる可能形（落ち着ける、Bài 27 ôn）+ らしい."
+            },
+            {
+              "point": "V可能形（Bài 27 ôn）",
+              "vi": "落ち着ける = có thể yên tĩnh, thư thái được. 可能形 của 落ち着く (Bài 27)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "750円",
+              "why": "giá set bánh của Cà phê Yui — cần cộng/trừ theo điều kiện nhóm 4 người ở dòng ※ để trả lời câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "定食屋あさひ｜地元の野菜を使うらしい｜日替わり定食｜800円",
+          "vi": "Quán cơm Asahi｜Nghe nói dùng rau củ địa phương｜Cơm phần đổi món theo ngày｜800 yên",
+          "vocab": [
+            {
+              "w": "定食",
+              "read": "ていしょく",
+              "vi": "set cơm, suất ăn trọn bộ"
+            },
+            {
+              "w": "あさひ",
+              "read": "あさひ",
+              "vi": "bình minh; tên riêng Asahi"
+            },
+            {
+              "w": "地元",
+              "read": "じもと",
+              "vi": "địa phương"
+            },
+            {
+              "w": "野菜",
+              "read": "やさい",
+              "vi": "rau, rau củ"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "日替わり",
+              "read": "ひがわり",
+              "vi": "đổi món theo ngày"
+            },
+            {
+              "w": "定食屋",
+              "read": "ていしょくや",
+              "vi": "quán cơm phần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（伝聞）",
+              "vi": "使うらしい = \"nghe nói dùng (rau địa phương)\". Vる（普通形）+ らしい."
+            }
+          ],
+          "keys": [
+            {
+              "w": "800円",
+              "why": "giá cơm phần Asahi — liên quan câu hỏi 2 về ngày nghỉ và giờ bán hết."
+            }
+          ]
+        },
+        {
+          "jp": "※三店とも、平日15時から17時の間は「アイドルタイム価格」で全メニュー100円引きになります。",
+          "vi": "※ Cả ba quán, trong khung giờ 15h–17h ngày thường sẽ giảm 100 yên cho tất cả món theo mức giá \"giờ vắng khách\".",
+          "vocab": [
+            {
+              "w": "三店とも",
+              "read": "さんてんとも",
+              "vi": "cả ba cửa hàng"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "15時",
+              "read": "じゅうごじ",
+              "vi": "15 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "khoảng thời gian"
+            },
+            {
+              "w": "アイドルタイム価格",
+              "read": "あいどるたいむかかく",
+              "vi": "giá giờ vắng khách"
+            },
+            {
+              "w": "アイドル",
+              "read": "あいどる",
+              "vi": "vắng khách"
+            },
+            {
+              "w": "タイム",
+              "read": "たいむ",
+              "vi": "thời gian"
+            },
+            {
+              "w": "価格",
+              "read": "かかく",
+              "vi": "giá cả"
+            },
+            {
+              "w": "全メニュー",
+              "read": "ぜんめにゅー",
+              "vi": "toàn bộ thực đơn"
+            },
+            {
+              "w": "メニュー",
+              "read": "めにゅー",
+              "vi": "thực đơn"
+            },
+            {
+              "w": "100円引き",
+              "read": "ひゃくえんびき",
+              "vi": "giảm 100 yên"
+            },
+            {
+              "w": "100円",
+              "read": "ひゃくえん",
+              "vi": "100 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "được giảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（tính chất/tiêu chí, Bài 16 ôn）",
+              "vi": "「アイドルタイム価格」で = với mức giá \"giờ vắng khách\". で đánh dấu tiêu chí/hình thức áp dụng (Bài 16)."
+            },
+            {
+              "point": "Nの間（Bài 56 ôn）",
+              "vi": "15時から17時の間 = trong khoảng 15h đến 17h. 間 = khoảng thời gian (danh từ, Bài 56)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "15時から17時",
+              "why": "điều kiện giờ giảm giá — phải khớp với giờ khách đến trong câu hỏi 1."
+            },
+            {
+              "w": "100円引き",
+              "why": "mức giảm áp dụng cho MỌI quán trong khung giờ này — điều kiện cộng/trừ chính của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "※カフェ結は、四名以上のグループで来店すると、ケーキセットが50円引きになるらしいです（要事前連絡）。",
+          "vi": "※ Quán Cà phê Yui, nghe nói nếu đi nhóm từ bốn người trở lên thì set bánh được giảm 50 yên (cần liên hệ trước).",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "かふぇ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "結",
+              "read": "ゆい",
+              "vi": "Yui"
+            },
+            {
+              "w": "四名以上",
+              "read": "よんめいいじょう",
+              "vi": "từ bốn người trở lên"
+            },
+            {
+              "w": "グループ",
+              "read": "ぐるーぷ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "来店すると",
+              "read": "らいてんすると",
+              "vi": "khi đến quán"
+            },
+            {
+              "w": "ケーキセット",
+              "read": "けーきせっと",
+              "vi": "combo bánh và đồ uống"
+            },
+            {
+              "w": "ケーキ",
+              "read": "けーき",
+              "vi": "bánh ngọt"
+            },
+            {
+              "w": "セット",
+              "read": "せっと",
+              "vi": "combo"
+            },
+            {
+              "w": "50円引き",
+              "read": "ごじゅうえんびき",
+              "vi": "giảm 50 yên"
+            },
+            {
+              "w": "50円",
+              "read": "ごじゅうえん",
+              "vi": "50 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "なる",
+              "read": "なる",
+              "vi": "được giảm"
+            },
+            {
+              "w": "要事前連絡",
+              "read": "ようじぜんれんらく",
+              "vi": "cần liên hệ trước"
+            },
+            {
+              "w": "事前連絡",
+              "read": "じぜんれんらく",
+              "vi": "liên hệ trước"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいです（伝聞）",
+              "vi": "接続: Vる（なる）+ らしいです。 50円引きになるらしいです = \"nghe nói được giảm 50 yên\". Ngay cả trong dòng ※ điều kiện ưu đãi, người viết bản tin vẫn dùng らしい vì thông tin nghe được từ quán, chưa xác nhận chính thức."
+            },
+            {
+              "point": "Vと（điều kiện, Bài 23/61 ôn）",
+              "vi": "来店すると、〜になる = nếu đến quán thì sẽ (được giảm). と = điều kiện tất yếu (Bài 61)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "四名以上のグループ",
+              "why": "điều kiện SỐ NGƯỜI để được giảm giá tại Cà phê Yui — ghép với giờ đến để tính tổng tiền câu hỏi 1."
+            },
+            {
+              "w": "50円引きになるらしい",
+              "why": "mức giảm riêng của Cà phê Yui khi đi nhóm đông — cần cộng dồn với giảm giá giờ vắng khách."
+            }
+          ]
+        },
+        {
+          "jp": "※定食屋あさひは、月曜が定休日で、日替わり定食は売り切れ次第終了です。",
+          "vi": "※ Quán cơm Asahi nghỉ vào thứ Hai, cơm phần đổi món theo ngày sẽ hết khi bán hết.",
+          "vocab": [
+            {
+              "w": "定食",
+              "read": "ていしょく",
+              "vi": "set cơm, suất ăn trọn bộ"
+            },
+            {
+              "w": "あさひ",
+              "read": "あさひ",
+              "vi": "bình minh; tên riêng Asahi"
+            },
+            {
+              "w": "月曜",
+              "read": "げつよう",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "定休",
+              "read": "ていきゅう",
+              "vi": "ngày nghỉ định kỳ"
+            },
+            {
+              "w": "日替わり",
+              "read": "ひがわり",
+              "vi": "đổi món theo ngày"
+            },
+            {
+              "w": "売り切れ",
+              "read": "うりきれ",
+              "vi": "bán hết, hết hàng"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "ngay khi, tùy thuộc"
+            },
+            {
+              "w": "終了",
+              "read": "しゅうりょう",
+              "vi": "kết thúc"
+            },
+            {
+              "w": "定休日",
+              "read": "ていきゅうび",
+              "vi": "ngày nghỉ định kỳ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた+次第（sau khi V xong ngay, ôn khái niệm gần B71 nhưng dùng dạng cố định 売り切れ次第）",
+              "vi": "売り切れ次第終了 = hết khi bán hết. Cụm cố định thường gặp trên biển hiệu, không dùng ngữ pháp mới ngoài scope."
+            },
+            {
+              "point": "Nで（tiếp nối câu, Bài 16 ôn）",
+              "vi": "定休日で、〜終了です = nghỉ định kỳ, và... で nối hai vế danh từ/tính từ (Bài 16)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月曜が定休日",
+              "why": "điều kiện NGÀY quán Asahi đóng cửa — quyết định câu hỏi 2 (nhân vật có đi được ngày đó không)."
+            },
+            {
+              "w": "売り切れ次第終了",
+              "why": "điều kiện giờ/số lượng có hạn — bẫy nếu nhân vật đến muộn."
+            }
+          ]
+        },
+        {
+          "jp": "なお、めん処さくらだけは現金のみで、カード払いはできないらしいので、ご注意ください。",
+          "vi": "Ngoài ra, nghe nói chỉ riêng Mì Sakura chỉ nhận tiền mặt, không thể thanh toán bằng thẻ, xin lưu ý.",
+          "vocab": [
+            {
+              "w": "処",
+              "read": "しょ",
+              "vi": "nơi chốn, quán"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "現金",
+              "read": "げんきん",
+              "vi": "tiền mặt"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "払い",
+              "read": "はらい",
+              "vi": "thanh toán, chi trả"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "なお",
+              "read": "なお",
+              "vi": "ngoài ra, thêm nữa"
+            },
+            {
+              "w": "カード払い",
+              "read": "カードばらい",
+              "vi": "thanh toán bằng thẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいので（伝聞＋原因）",
+              "vi": "接続: Vない（できない）+ らしいので。 できないらしいので = \"nghe nói không thể (nên)…\". らしい kết hợp với ので (Bài 39 ôn) — nghe đồn rồi đưa ra lời khuyên."
+            },
+            {
+              "point": "Nのみ（Bài 27 ôn しか〜ない tương đương trang trọng）",
+              "vi": "現金のみ = chỉ tiền mặt. のみ = chỉ, giống しか〜ない nhưng trang trọng hơn, thường thấy trên biển báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "現金のみ",
+              "why": "điều kiện thanh toán riêng của Mì Sakura — bẫy nếu câu hỏi hỏi về cách trả tiền hoặc tổng số tiền mang theo."
+            }
+          ]
+        },
+        {
+          "jp": "この三軒のおかげで、桜町商店街はすっかり活気らしい活気を取り戻したようです。",
+          "vi": "Nhờ có ba quán này mà khu phố mua sắm Sakuramachi trông có vẻ đã lấy lại đúng chất sôi động vốn có.",
+          "vocab": [
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "三軒",
+              "read": "さんげん",
+              "vi": "ba cửa hàng/cơ sở"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào"
+            },
+            {
+              "w": "桜町商店街",
+              "read": "さくらまちしょうてんがい",
+              "vi": "phố mua sắm Sakuramachi"
+            },
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố"
+            },
+            {
+              "w": "商店街",
+              "read": "しょうてんがい",
+              "vi": "phố mua sắm"
+            },
+            {
+              "w": "商店",
+              "read": "しょうてん",
+              "vi": "cửa hàng"
+            },
+            {
+              "w": "街",
+              "read": "まち",
+              "vi": "phố"
+            },
+            {
+              "w": "すっかり",
+              "read": "すっかり",
+              "vi": "hoàn toàn"
+            },
+            {
+              "w": "活気らしい",
+              "read": "かっきらしい",
+              "vi": "đầy vẻ sôi động"
+            },
+            {
+              "w": "活気",
+              "read": "かっき",
+              "vi": "sức sống, sự nhộn nhịp"
+            },
+            {
+              "w": "取り戻した",
+              "read": "とりもどした",
+              "vi": "đã lấy lại, khôi phục"
+            },
+            {
+              "w": "よう",
+              "read": "よう",
+              "vi": "có vẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで（Bài 59 ôn）",
+              "vi": "この三軒のおかげで = nhờ có ba quán này. おかげで = nhờ (điều tốt) (Bài 59)."
+            },
+            {
+              "point": "Nらしい（đúng chất）",
+              "vi": "活気らしい活気 = \"đúng chất sôi động thật sự\" (nhấn mạnh: không phải sôi động giả tạo mà là sôi động điển hình, đúng nghĩa). 接続: N（活気）+ らしい + N（活気）— lặp lại chính danh từ để nhấn mạnh tính điển hình, câu kết bài quay lại nghĩa ② của らしい."
+            },
+            {
+              "point": "〜ようだ（Bài 64 ôn）",
+              "vi": "取り戻したようです = trông có vẻ đã lấy lại. ようだ = suy đoán từ quan sát trực tiếp cảnh phố xá (Bài 64) — khác với らしい (nghe đồn) dùng ở các câu trên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "活気らしい活気",
+              "why": "câu kết dùng Nらしい nghĩa \"đúng chất\" — không phải căn cứ trả lời câu hỏi tính phí, mà củng cố chủ điểm ngữ pháp bài."
+            }
+          ]
+        },
+        {
+          "jp": "問い合わせ：桜町商店街振興組合（電話：03-4567-8901、平日9時～18時）",
+          "vi": "Liên hệ: Hiệp hội chấn hưng khu phố mua sắm Sakuramachi (điện thoại: 03-4567-8901, ngày thường 9h–18h)",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "sự 문의, liên hệ hỏi đáp"
+            },
+            {
+              "w": "桜町商店街振興組合",
+              "read": "さくらまちしょうてんがいしんこうくみあい",
+              "vi": "Hiệp hội xúc tiến phố mua sắm Sakuramachi"
+            },
+            {
+              "w": "桜町商店街",
+              "read": "さくらまちしょうてんがい",
+              "vi": "phố mua sắm Sakuramachi"
+            },
+            {
+              "w": "桜",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố"
+            },
+            {
+              "w": "商店街",
+              "read": "しょうてんがい",
+              "vi": "phố mua sắm"
+            },
+            {
+              "w": "商店",
+              "read": "しょうてん",
+              "vi": "cửa hàng"
+            },
+            {
+              "w": "街",
+              "read": "まち",
+              "vi": "phố"
+            },
+            {
+              "w": "振興組合",
+              "read": "しんこうくみあい",
+              "vi": "hiệp hội xúc tiến"
+            },
+            {
+              "w": "振興",
+              "read": "しんこう",
+              "vi": "xúc tiến, phát triển"
+            },
+            {
+              "w": "組合",
+              "read": "くみあい",
+              "vi": "hiệp hội"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "03-4567-8901",
+              "read": "ぜろさんよんごろくななはちきゅうぜろいち",
+              "vi": "số điện thoại"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "18時",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日9時～18時",
+              "why": "giờ liên hệ hiệp hội — không phải giờ quán, tránh nhầm với khung giờ giảm giá 15-17h."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "早くも地域で人気らしいです",
+          "label": "〜らしい（伝聞 — nghe đồn nổi tiếng, mẫu trọng tâm Bài 65）"
+        },
+        {
+          "excerpt": "どのお店も行列ができるらしく",
+          "label": "〜らしく（伝聞 — nghe nói xếp hàng, mẫu trọng tâm Bài 65）"
+        },
+        {
+          "excerpt": "カード払いはできないらしいので",
+          "label": "〜らしいので（伝聞 kết hợp lý do — ôn ので Bài 39）"
+        },
+        {
+          "excerpt": "この三軒のおかげで",
+          "label": "Ôn lại: 〜おかげで（Bài 59）"
+        },
+        {
+          "excerpt": "活気らしい活気を取り戻したようです",
+          "label": "Sắc thái: Nらしい（đúng chất）＋ ようだ（Bài 64 ôn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & mở đầu",
+          "topic": 1,
+          "note": "Giới thiệu 3 quán mới nổi tiếng qua tin đồn — xác lập tông らしい cho cả bài.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "body",
+          "label": "Bảng quán × đặc điểm × món × giá",
+          "topic": 3,
+          "note": "Bảng chính chứa giá gốc từng quán — căn cứ số học cho câu hỏi tính phí.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện ※ giảm giá/ngoại lệ",
+          "topic": 7,
+          "note": "Ba dòng ※ chứa điều kiện chồng nhau (giờ, số người, ngày nghỉ) — bẫy chính của cả 2 câu hỏi.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 10,
+          "kind": "point",
+          "label": "Ghi chú thanh toán",
+          "topic": 10,
+          "note": "Điều kiện thanh toán riêng của Mì Sakura — dễ bị bỏ sót khi tính tổng tiền.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "body",
+          "label": "Kết luận & liên hệ",
+          "topic": 11,
+          "note": "Câu kết dùng Nらしい + ようだ để chốt chủ điểm ngữ pháp; dòng liên hệ không phải căn cứ trả lời.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは、平日の16時にカフェ結に一人で行って、ケーキセットを注文しました。ミラーさんはいくら払いますか。",
+          "options": [
+            "750円",
+            "700円",
+            "650円",
+            "600円"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: giá gốc set bánh Cà phê Yui là 750円 (bảng, hàng \"カフェ結\"). 16h nằm trong khung 15時〜17時 → được áp dụng \"アイドルタイム価格\" giảm 100円 (dòng ※1) → 750−100=650円. Điều kiện giảm 50円 cho nhóm ≥4 người (dòng ※2) KHÔNG áp dụng vì Miller đi một mình. Tại sao các đáp án khác sai? 750円 (đáp án 0) là giá gốc, quên áp dụng giảm giá giờ vắng khách. 700円 (đáp án 1) là trừ nhầm 50円 (mức giảm nhóm, không áp dụng cho 1 người) thay vì 100円. 600円 (đáp án 3) là cộng dồn cả hai mức giảm (100+50), nhưng Miller đi một mình nên không đủ điều kiện giảm nhóm.",
+          "tip": "Bài toán ghép 2 điều kiện: trước tiên xác định giá gốc trong bảng, sau đó kiểm tra TỪNG dòng ※ xem điều kiện (giờ/số người) có khớp không — chỉ cộng/trừ đúng phần thỏa điều kiện, không tự động cộng dồn mọi ưu đãi.",
+          "evi": [
+            5,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Anh Miller đến quán cà phê Yui một mình lúc 16 giờ ngày thường và gọi set bánh ngọt. Anh Miller phải trả bao nhiêu tiền?",
+            "o": [
+              "750 yên",
+              "700 yên",
+              "650 yên",
+              "600 yên"
+            ]
+          }
+        },
+        {
+          "q": "来週の月曜日、リーさんは友達と二人で桜町商店街に行き、定食屋あさひで日替わり定食を食べたいと思っています。この計画についてどれが正しいですか。",
+          "options": [
+            "月曜日は定休日なので、定食屋あさひでは日替わり定食を食べられない",
+            "月曜日でも、16時に行けば必ず日替わり定食を食べられる",
+            "二人以上のグループなので、料金が50円引きになる",
+            "カードで支払えば、追加料金なしで食べられる"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: dòng ※ ghi rõ「定食屋あさひは、月曜が定休日で」— quán Asahi nghỉ vào thứ Hai, nên kế hoạch đi vào thứ Hai tuần sau là không thể thực hiện được, bất kể giờ nào. Tại sao các đáp án khác sai? Đáp án 1 (\"16h chắc chắn ăn được\") sai vì quán đã đóng cửa cả ngày thứ Hai, không liên quan đến giờ giấc. Đáp án 2 (\"nhóm 2 người được giảm 50 yên\") sai vì ưu đãi giảm 50円 cho nhóm chỉ áp dụng ở Cà phê Yui và yêu cầu từ 4 người trở lên, không áp dụng cho quán Asahi hay nhóm 2 người. Đáp án 3 (\"trả thẻ không phụ phí\") sai vì điều kiện thanh toán thẻ chỉ được nhắc đến ở Mì Sakura (không nhận thẻ), không liên quan đến quán Asahi.",
+          "tip": "Khi câu hỏi ghép \"ngày + số người + quán cụ thể\", luôn kiểm tra ĐÚNG dòng ※ của ĐÚNG quán đó trước — đừng để điều kiện của quán khác (như giảm giá nhóm ở Cà phê Yui) làm nhiễu đáp án.",
+          "evi": [
+            9
+          ],
+          "qt": {
+            "q": "Thứ Hai tuần sau, anh Lee dự định đến phố mua sắm Sakuramachi cùng một người bạn và muốn ăn suất ăn theo ngày tại quán ăn Asahi. Điều nào sau đây đúng về kế hoạch này?",
+            "o": [
+              "Vì thứ Hai là ngày nghỉ, nên không thể ăn suất ăn theo ngày tại quán ăn Asahi",
+              "Ngay cả vào thứ Hai, nếu đến lúc 16 giờ thì chắc chắn có thể ăn suất ăn theo ngày",
+              "Vì là nhóm từ hai người trở lên nên được giảm 50 yên",
+              "Nếu thanh toán bằng thẻ thì có thể ăn mà không mất thêm phí"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

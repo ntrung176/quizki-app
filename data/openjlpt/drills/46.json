@@ -1,0 +1,474 @@
+{
+  "id": "minna2.b46",
+  "bai": 46,
+  "titleVi": "Nếu, trong trường hợp",
+  "know": [
+    {
+      "id": "minna2.b46.nara",
+      "point": "nara",
+      "jp": "〜なら",
+      "vi": "Nếu (đã là) ~, trong trường hợp ~ (dựa trên thông tin người nghe đề cập)",
+      "en": "If ~; in the case of ~ (based on information mentioned by the listener)",
+      "gloss": "京都[きょうと]に 行[い]くなら、金閣寺[きんかくじ]がおすすめです。",
+      "glossEn": "京都[きょうと]に 行[い]くなら、金閣寺[きんかくじ]がおすすめです。 — If you are going to Kyoto, I recommend the Golden Pavilion."
+    },
+    {
+      "id": "minna2.b46.tara",
+      "point": "tara",
+      "jp": "〜たら",
+      "vi": "Nếu/khi ~ thì (điều kiện được thực hiện; thể た + ら)",
+      "en": "If/when ~ (a condition that is fulfilled; the た + ら form)",
+      "gloss": "駅[えき]に 着[つ]いたら、電話[でんわ]してください。",
+      "glossEn": "駅[えき]に 着[つ]いたら、電話[でんわ]してください。 — When you arrive at the station, please call me."
+    },
+    {
+      "id": "minna2.b46.ba",
+      "point": "ba",
+      "jp": "〜ば",
+      "vi": "Nếu ~ thì (điều kiện giả định; đuôi ～ば / ～ければ)",
+      "en": "If ~, then ~ (hypothetical condition; ～ば / ～ければ endings)",
+      "gloss": "時間[じかん]があれば、ぜひ 来[き]てください。",
+      "glossEn": "時間[じかん]があれば、ぜひ 来[き]てください。 — If you have time, please do come."
+    },
+    {
+      "id": "minna2.b46.to-cond",
+      "point": "to-cond",
+      "jp": "V辞書形[じしょけい] と、〜",
+      "vi": "Hễ/nếu ~ (điều kiện tự nhiên, kết quả tự động; từ điển-form + と)",
+      "en": "〜と: an inevitable/natural condition — the result occurs automatically; do NOT use a command or volitional expression afterward",
+      "gloss": "この 道[みち]をまっすぐ 行[い]くと、駅[えき]があります。",
+      "glossEn": "動詞[どうし]辞書形[じしょけい]＋と ・ 例: あの 角[かど]を 右[みぎ]に 曲[ま]がると、駅[えき]が 見[み]えます（Turn right at that corner and the station comes into view right away — an inevitable result）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b46-nara-kyoto",
+      "item": "minna2.b46.nara",
+      "err": "nara-vs-tara",
+      "vi": "Nếu bạn đến Kyoto, tôi khuyên bạn nên ghé chùa Vàng.",
+      "t1": {
+        "stem": "京都[きょうと]に 行[い]く＿、金閣寺[きんかくじ]がおすすめですよ。",
+        "choices": [
+          "なら",
+          "たら",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "京都[きょうと]に",
+          "行[い]くなら、",
+          "金閣寺[きんかくじ]が",
+          "おすすめですよ。"
+        ],
+        "traps": [
+          "行[い]ったら、",
+          "行[い]けば、"
+        ]
+      },
+      "t3": {
+        "target": "京都に行くなら、金閣寺がおすすめですよ。",
+        "accept": [
+          "きょうとにいくなら、きんかくじがおすすめですよ。"
+        ]
+      },
+      "why": "なら dùng khi phản hồi thông tin người kia đề cập (\"Tôi sẽ đi Kyoto\"). なら gắn với từ điển-form (行く). ✗ たら có nghĩa \"sau khi đến\" không phù hợp câu khuyên."
+    },
+    {
+      "id": "c-b46-nara-omiyage",
+      "item": "minna2.b46.nara",
+      "err": "nara-vs-tara",
+      "vi": "Nếu bạn muốn quà lưu niệm, cửa hàng ở gần nhà ga rất tốt đấy.",
+      "t1": {
+        "stem": "お土産[みやげ]を 買[か]う＿、駅[えき]の 近[ちか]くのお店[みせ]がいいですよ。",
+        "choices": [
+          "なら",
+          "ば",
+          "たら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お土産[みやげ]を",
+          "買[か]うなら、",
+          "駅[えき]の 近[ちか]くの",
+          "お店[みせ]がいいですよ。"
+        ],
+        "traps": [
+          "買[か]えば、",
+          "買[か]ったら、"
+        ]
+      },
+      "t3": {
+        "target": "お土産を買うなら、駅の近くのお店がいいですよ。",
+        "accept": [
+          "おみやげをかうなら、えきのちかくのおみせがいいですよ。"
+        ]
+      },
+      "why": "なら phù hợp khi đưa lời khuyên/đề xuất dựa trên điều người nghe muốn làm. ✗ ば/たら không tự nhiên trong câu khuyên kiểu này."
+    },
+    {
+      "id": "c-b46-tara-denwa",
+      "item": "minna2.b46.tara",
+      "err": "tara-form",
+      "vi": "Khi đến nơi du lịch, hãy gọi điện cho tôi nhé.",
+      "t1": {
+        "stem": "観光地[かんこうち]に 着[つ]い＿、電話[でんわ]してください。",
+        "choices": [
+          "たら",
+          "なら",
+          "ば"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "観光地[かんこうち]に",
+          "着[つ]いたら、",
+          "電話[でんわ]して",
+          "ください。"
+        ],
+        "traps": [
+          "着[つ]くなら、",
+          "着[つ]けば、"
+        ]
+      },
+      "t3": {
+        "target": "観光地に着いたら、電話してください。",
+        "accept": [
+          "かんこうちについたら、でんわしてください。"
+        ]
+      },
+      "why": "たら diễn đạt \"khi điều kiện được thực hiện xong sẽ làm tiếp\". 着く→着いた+ら. ✗ なら không phù hợp vì không có thông tin đã đề cập trước."
+    },
+    {
+      "id": "c-b46-tara-meibutsu",
+      "item": "minna2.b46.tara",
+      "err": "tara-form",
+      "vi": "Nếu đi Osaka, nhất định hãy thử đặc sản ở đó nhé.",
+      "t1": {
+        "stem": "大阪[おおさか]に 行[い]っ＿、名物[めいぶつ]を ぜひ 食[た]べてみてください。",
+        "choices": [
+          "たら",
+          "と",
+          "なら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "大阪[おおさか]に",
+          "行[い]ったら、",
+          "名物[めいぶつ]を",
+          "ぜひ 食[た]べてみてください。"
+        ],
+        "traps": [
+          "行[い]くと、",
+          "行[い]くなら、"
+        ]
+      },
+      "t3": {
+        "target": "大阪に行ったら、名物をぜひ食べてみてください。",
+        "accept": [
+          "おおさかにいったら、めいぶつをぜひたべてみてください。"
+        ]
+      },
+      "why": "行く→行った+ら = たら. Câu mệnh lệnh/yêu cầu sau たら là tự nhiên. ✗ と không dùng với vế sau là yêu cầu/mệnh lệnh."
+    },
+    {
+      "id": "c-b46-ba-jikan",
+      "item": "minna2.b46.ba",
+      "err": "ba-form-wrong",
+      "vi": "Nếu có thời gian, tôi muốn đến thăm địa danh nổi tiếng đó.",
+      "t1": {
+        "stem": "時間[じかん]が あれ＿、その 名所[めいしょ]に 行[い]きたいです。",
+        "choices": [
+          "ば",
+          "たら",
+          "と"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "時間[じかん]が",
+          "あれば、",
+          "その 名所[めいしょ]に",
+          "行[い]きたいです。"
+        ],
+        "traps": [
+          "あったら、",
+          "あると、"
+        ]
+      },
+      "t3": {
+        "target": "時間があれば、その名所に行きたいです。",
+        "accept": [
+          "じかんがあれば、そのめいしょにいきたいです。"
+        ]
+      },
+      "why": "ある→あれば (nhóm I: う→え段+ば). ば dùng cho điều kiện giả định tổng quát. ✗ と không dùng khi vế sau là ～たい."
+    },
+    {
+      "id": "c-b46-ba-yasui",
+      "item": "minna2.b46.ba",
+      "err": "ba-form-wrong",
+      "vi": "Nếu rẻ hơn thì tôi sẽ mua quà lưu niệm đó.",
+      "t1": {
+        "stem": "もっと 安[やす]けれ＿、そのお土産[みやげ]を 買[か]います。",
+        "choices": [
+          "ば",
+          "たら",
+          "なら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もっと",
+          "安[やす]ければ、",
+          "そのお土産[みやげ]を",
+          "買[か]います。"
+        ],
+        "traps": [
+          "安[やす]かったら、",
+          "安[やす]いなら、"
+        ]
+      },
+      "t3": {
+        "target": "もっと安ければ、そのお土産を買います。",
+        "accept": [
+          "もっとやすければ、そのおみやげをかいます。"
+        ]
+      },
+      "why": "い形容詞 安い → 安けれ+ば (い→けれ+ば). ✗ 安いたら は không tồn tại; ✗ 安かったら là quá khứ giả định, ý nghĩa khác."
+    },
+    {
+      "id": "c-b46-to-michi",
+      "item": "minna2.b46.to-cond",
+      "err": "to-vs-tara",
+      "vi": "Đi thẳng con đường này thì sẽ thấy điểm du lịch nổi tiếng.",
+      "t1": {
+        "stem": "この 道[みち]を まっすぐ 行[い]く＿、有名[ゆうめい]な 観光地[かんこうち]があります。",
+        "choices": [
+          "と",
+          "たら",
+          "なら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 道[みち]を",
+          "まっすぐ 行[い]くと、",
+          "有名[ゆうめい]な",
+          "観光地[かんこうち]があります。"
+        ],
+        "traps": [
+          "行[い]ったら、",
+          "行[い]くなら、"
+        ]
+      },
+      "t3": {
+        "target": "この道をまっすぐ行くと、有名な観光地があります。",
+        "accept": [
+          "このみちをまっすぐいくと、ゆうめいなかんこうちがあります。"
+        ]
+      },
+      "why": "と (điều kiện tự nhiên) dùng để chỉ đường hoặc kết quả tất yếu. Vế sau là sự thật khách quan, không phải yêu cầu. ✗ たら/なら không tự nhiên khi chỉ đường."
+    },
+    {
+      "id": "c-b46-to-hidari",
+      "item": "minna2.b46.to-cond",
+      "err": "to-vs-tara",
+      "vi": "Nếu rẽ trái ở ngã tư đó, sẽ thấy ngay nhà hàng đặc sản.",
+      "t1": {
+        "stem": "あの 交差点[こうさてん]を 左[ひだり]に 曲[ま]がる＿、名物[めいぶつ]レストランがあります。",
+        "choices": [
+          "と",
+          "ば",
+          "たら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 交差点[こうさてん]を",
+          "左[ひだり]に 曲[ま]がると、",
+          "名物[めいぶつ]レストランが",
+          "あります。"
+        ],
+        "traps": [
+          "曲[ま]がれば、",
+          "曲[ま]がったら、"
+        ]
+      },
+      "t3": {
+        "target": "あの交差点を左に曲がると、名物レストランがあります。",
+        "accept": [
+          "あのこうさてんをひだりにまがると、めいぶつれすとらんがあります。"
+        ]
+      },
+      "why": "と sau từ điển-form chỉ kết quả tự động/chỉ đường (Bài 23). Vế sau ～があります là sự thật khách quan. ✗ たら/ば phù hợp câu ý muốn, không phải chỉ đường."
+    },
+    {
+      "id": "c-b46-nara-annai",
+      "item": "minna2.b46.nara",
+      "err": "nara-vs-tara",
+      "vi": "Nếu bạn muốn được hướng dẫn tham quan, tôi sẵn sàng dẫn đường cho bạn.",
+      "t1": {
+        "stem": "案内[あんない]が 必要[ひつよう]＿、ご 案内[あんない]しますよ。",
+        "choices": [
+          "なら",
+          "たら",
+          "ば"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "案内[あんない]が",
+          "必要[ひつよう]なら、",
+          "ご 案内[あんない]し",
+          "ますよ。"
+        ],
+        "traps": [
+          "必要[ひつよう]だったら、",
+          "必要[ひつよう]なければ、"
+        ]
+      },
+      "t3": {
+        "target": "案内が必要なら、ご案内しますよ。",
+        "accept": [
+          "あんないがひつようなら、ごあんないしますよ。"
+        ]
+      },
+      "why": "なら gắn sau danh từ/な形容詞 (必要) trực tiếp: 必要なら. ✗ 必要だったら là quá khứ không tự nhiên ở đây."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b46-nara-kyoto",
+      "item": "minna2.b46.nara",
+      "err": "nara-vs-tara",
+      "tts": "きょうとにいくなら、きんかくじはぜひいってみてください。",
+      "script": "京都[きょうと]に 行[い]くなら、金閣寺[きんかくじ]はぜひ 行[い]ってみてください。",
+      "ask": "Người nói đang làm gì?",
+      "choices": [
+        "Khuyên nên đến thăm chùa Vàng nếu đến Kyoto",
+        "Hỏi chùa Vàng có ở Kyoto không",
+        "Kể về chuyến đi Kyoto"
+      ],
+      "answer": 0,
+      "why": "〜なら + ぜひ〜てください = đưa lời khuyên dựa trên thông tin người kia sẽ đi Kyoto."
+    },
+    {
+      "id": "l-b46-tara-denwa",
+      "item": "minna2.b46.tara",
+      "err": "tara-form",
+      "tts": "えきについたら、でんわしてください。むかえにいきます。",
+      "script": "駅[えき]に 着[つ]いたら、電話[でんわ]してください。迎[むか]えに 行[い]きます。",
+      "ask": "Người nói yêu cầu gì?",
+      "choices": [
+        "Gọi điện khi đến ga, họ sẽ ra đón",
+        "Đón ở ga rồi mới gọi điện",
+        "Đến ga lúc điện thoại rung"
+      ],
+      "answer": 0,
+      "why": "着いたら = khi/sau khi đến ga. でんわしてください = yêu cầu gọi điện. 迎えに行きます = tôi sẽ ra đón."
+    },
+    {
+      "id": "l-b46-to-michi",
+      "item": "minna2.b46.to-cond",
+      "err": "to-vs-tara",
+      "tts": "このみちをまっすぐいくと、みぎがわにゆうめいなあなばがありますよ。",
+      "script": "この 道[みち]をまっすぐ 行[い]くと、右側[みぎがわ]に 有名[ゆうめい]な 穴場[あなば]がありますよ。",
+      "ask": "Theo người nói, đi thẳng con đường này thì sẽ thấy gì?",
+      "choices": [
+        "Một nơi ít người biết nhưng tuyệt vời ở bên phải",
+        "Một nhà ga ở bên trái",
+        "Không có gì đặc biệt"
+      ],
+      "answer": 0,
+      "why": "〜と (điều kiện tự nhiên) + 右側に穴場がある = mô tả kết quả tất yếu khi đi theo hướng đó."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b46-to-cond-b23",
+      "item": "minna1.b23.to-cond",
+      "err": "to-cond-form",
+      "ambush": true,
+      "src": 23,
+      "context": "Bài 46 ・ 〜と (điều kiện tự nhiên)",
+      "vi": "Nhờ hướng dẫn của bạn, đi thẳng con đường này (từ điển-form) thì thấy điểm du lịch nổi tiếng.",
+      "t1": {
+        "stem": "この 道[みち]をまっすぐ ＿、有名[ゆうめい]な 観光地[かんこうち]があります。",
+        "choices": [
+          "行[い]くと",
+          "行[い]ったと",
+          "行[い]ければと"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 道[みち]を",
+          "まっすぐ 行[い]くと、",
+          "有名[ゆうめい]な",
+          "観光地[かんこうち]があります。"
+        ],
+        "traps": [
+          "行[い]ったと、",
+          "行[い]くとき、"
+        ]
+      },
+      "t3": {
+        "target": "この道をまっすぐ行くと、有名な観光地があります。",
+        "accept": [
+          "このみちをまっすぐいくと、ゆうめいなかんこうちがあります。"
+        ]
+      },
+      "why": "と (Bài 23) cần từ điển-form (行く+と). ✗ 行ったと = thể た + と không phải dạng điều kiện. Bài 46 ôn lại と từ B23 trong văn cảnh du lịch."
+    },
+    {
+      "id": "a-b46-tara-b25",
+      "item": "minna1.b25.tara",
+      "err": "tara-form",
+      "ambush": true,
+      "src": 25,
+      "context": "Bài 46 ・ 〜たら",
+      "vi": "Nếu tìm được nơi ít người biết mà tuyệt vời đó, hãy cho tôi biết nhé.",
+      "t1": {
+        "stem": "あの 穴場[あなば]を ＿、教[おし]えてください。",
+        "choices": [
+          "見[み]つけたら",
+          "見[み]つけるなら",
+          "見[み]つければ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの 穴場[あなば]を",
+          "見[み]つけたら、",
+          "教[おし]えて",
+          "ください。"
+        ],
+        "traps": [
+          "見[み]つけるなら、",
+          "見[み]つかれば、"
+        ]
+      },
+      "t3": {
+        "target": "あの穴場を見つけたら、教えてください。",
+        "accept": [
+          "あのあなばをみつけたら、おしえてください。"
+        ]
+      },
+      "why": "たら (Bài 25) = thể た + ら: 見つけた+ら. Vế sau là yêu cầu (〜てください) — phù hợp たら. ✗ なら dùng khi phản hồi thông tin đã đề cập, không phù hợp đây."
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "bai": 4,
+  "bunpou": [
+    {
+      "stem": "今[いま]＿ 9時[じ]15分[ふん]です。",
+      "choices": [
+        "は",
+        "に",
+        "が",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「今は〜です」dùng「は」làm chủ đề để nói \"Bây giờ là…\". 「に」chỉ thời điểm của hành động (〜に 起きる), không dùng để khai báo giờ hiện tại."
+    },
+    {
+      "stem": "銀行[ぎんこう]は 9時[じ]＿ 3時[じ]までです。",
+      "choices": [
+        "から",
+        "まで",
+        "に",
+        "は"
+      ],
+      "answer": 0,
+      "explain": "「から〜まで」chỉ khoảng thời gian từ—đến: 9時から3時まで. Điền「から」ở điểm bắt đầu; 「まで」ở điểm kết thúc (đã có「まで」phía sau)."
+    },
+    {
+      "stem": "毎朝[まいあさ] 7時[じ]に 起[お]き＿。",
+      "choices": [
+        "ます",
+        "ました",
+        "ません",
+        "ませんでした"
+      ],
+      "answer": 0,
+      "explain": "「ます」là thể hiện tại/thói quen (mỗi sáng = thói quen). 「ました」là quá khứ; 「ません/ませんでした」là phủ định."
+    },
+    {
+      "stem": "昨日[きのう]の夜[よる]、11時[じ]に 寝[ね]＿。",
+      "choices": [
+        "ました",
+        "ます",
+        "ません",
+        "ませんです"
+      ],
+      "answer": 0,
+      "explain": "「昨日」là quá khứ → dùng「ました」. 「ます」là hiện tại/tương lai; 「ません」là phủ định hiện tại; 「ませんです」không phải hình thức chuẩn."
+    },
+    {
+      "stem": "昨日[きのう]、勉強[べんきょう]し＿。",
+      "choices": [
+        "ませんでした",
+        "ませんです",
+        "まませんでした",
+        "ましたじゃありません"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ: V ませんでした. 「ませんです」không chuẩn; 「まませんでした」lặp âm sai; 「ましたじゃ…」ghép hai hình thức không được."
+    },
+    {
+      "stem": "田中[たなか]さん＿ 図書館[としょかん]へ 行[い]きます。",
+      "choices": [
+        "と",
+        "が",
+        "を",
+        "で"
+      ],
+      "answer": 0,
+      "explain": "「と」chỉ người cùng hành động (\"cùng với anh Tanaka\"). 「が」chỉ chủ ngữ; 「を」theo sau tân ngữ trực tiếp; 「で」chỉ phương tiện/địa điểm hoạt động."
+    },
+    {
+      "stem": "銀行[ぎんこう]の休[やす]みは 土曜日[どようび]＿日曜日[にちようび]です。",
+      "choices": [
+        "と",
+        "や",
+        "まで",
+        "に"
+      ],
+      "answer": 0,
+      "explain": "「と」liệt kê đầy đủ hai mục (và chỉ hai): 土曜日と日曜日. 「や」liệt kê không đầy đủ (còn ngày khác nữa); 「まで」chỉ khoảng thời gian."
+    },
+    {
+      "stem": "火曜日[かようび]から 金曜日[きんようび]＿ 働[はたら]きます。",
+      "choices": [
+        "まで",
+        "から",
+        "に",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「から〜まで」: điểm kết thúc dùng「まで」. Đã có「から」ở đầu → điền「まで」cuối khoảng. 「に」chỉ thời điểm cụ thể, không dùng cho khoảng thời gian."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "に",
+      "から",
+      "まで",
+      "は",
+      "も",
+      "が",
+      "を",
+      "と"
+    ],
+    "items": [
+      {
+        "stem": "毎朝[まいあさ] 6時[じ]＿ 起[お]きます。",
+        "answer": "に",
+        "explain": "「に」chỉ thời điểm của hành động: 6時に起きます (dậy vào lúc 6 giờ). 「から」chỉ điểm bắt đầu khoảng thời gian, không dùng với thời điểm của hành động."
+      },
+      {
+        "stem": "授業[じゅぎょう]は 8時[じ]＿ 12時[じ]までです。",
+        "answer": "から",
+        "explain": "「から〜まで」: điểm bắt đầu dùng「から」. 已có「まで」sau 12時 → ô trống phải là「から」."
+      },
+      {
+        "stem": "郵便局[ゆうびんきょく]は 9時[じ]から 5時[じ]＿です。",
+        "answer": "まで",
+        "explain": "「から〜まで」: điểm kết thúc dùng「まで」. 已có「から」sau 9時 → ô trống phải là「まで」."
+      },
+      {
+        "stem": "ミラーさん＿ 一緒[いっしょ]に 昼[ひる]ごはんを 食[た]べます。",
+        "answer": "と",
+        "explain": "「と」chỉ người cùng hành động: ミラーさんと一緒に (cùng với anh Miller). 「に」chỉ đích/địa điểm; 「が」chỉ chủ ngữ."
+      },
+      {
+        "stem": "昨日[きのう]、日本語[にほんご]＿ 勉強[べんきょう]しました。",
+        "answer": "を",
+        "explain": "「を」theo sau tân ngữ trực tiếp: 日本語を勉強します (học tiếng Nhật). Động từ 勉強する là tha động từ cần「を」."
+      },
+      {
+        "stem": "図書館[としょかん]の休[やす]み＿ 月曜日[げつようび]です。",
+        "answer": "は",
+        "explain": "「は」đánh dấu chủ đề: 図書館の休みは〜. 「が」nhấn mạnh không cần thiết trong câu giới thiệu ngày nghỉ thông thường."
+      },
+      {
+        "stem": "毎日[まいにち] 何時[なんじ]＿ 寝[ね]ますか。",
+        "answer": "に",
+        "explain": "「に」chỉ thời điểm: 何時に寝ますか (ngủ vào mấy giờ?). 「を」theo sau tân ngữ; 「は」làm chủ đề — cả hai đều không dùng với thời điểm."
+      },
+      {
+        "stem": "9時[じ]＿ 働[はたら]きます。",
+        "answer": "から",
+        "explain": "「9時から」chỉ điểm bắt đầu (từ 9 giờ bắt đầu làm). 「に」chỉ thời điểm cụ thể; 「まで」chỉ điểm kết thúc."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "起[お]きます",
+      "prompt": "Thể quá khứ (sáng qua)?",
+      "choices": [
+        "起[お]きました",
+        "起[お]きません",
+        "起[お]きませんでした",
+        "起[お]きますでした"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định: ます → ました. 「ませんでした」là phủ định quá khứ; 「きますでした」không phải hình thức chuẩn."
+    },
+    {
+      "base": "寝[ね]ます",
+      "prompt": "Thể phủ định quá khứ (tối qua không ngủ)?",
+      "choices": [
+        "寝[ね]ませんでした",
+        "寝[ね]ませんです",
+        "寝[ね]ましたじゃありません",
+        "寝[ね]ません"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ: ます → ませんでした. 「ません」là phủ định hiện tại; 「ませんです」và「ましたじゃ…」không phải hình thức chuẩn."
+    },
+    {
+      "base": "働[はたら]きます",
+      "prompt": "Thể phủ định (không đi làm)?",
+      "choices": [
+        "働[はたら]きません",
+        "働[はたら]きました",
+        "働[はたら]きませんでした",
+        "働[はたら]きないです"
+      ],
+      "answer": 0,
+      "explain": "Phủ định hiện tại: ます → ません. 「ました」là quá khứ khẳng định; 「ませんでした」là phủ định quá khứ; 「ないです」là thể thông tục."
+    },
+    {
+      "base": "勉強[べんきょう]します",
+      "prompt": "Thể quá khứ phủ định (hôm qua không học)?",
+      "choices": [
+        "勉強[べんきょう]しませんでした",
+        "勉強[べんきょう]しませんです",
+        "勉強[べんきょう]しました",
+        "勉強[べんきょう]しません"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ: します → しませんでした. 「しました」là quá khứ khẳng định; 「しません」là phủ định hiện tại; 「しませんです」không chuẩn."
+    },
+    {
+      "base": "休[やす]みます",
+      "prompt": "Thể quá khứ (hôm qua nghỉ)?",
+      "choices": [
+        "休[やす]みました",
+        "休[やす]みます",
+        "休[やす]みませんでした",
+        "休[やす]みませんです"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định: ます → ました. 「みます」là hiện tại; 「みませんでした」là phủ định quá khứ; 「みませんです」không chuẩn."
+    },
+    {
+      "base": "終[お]わります",
+      "prompt": "Thể phủ định (chưa xong)?",
+      "choices": [
+        "終[お]わりません",
+        "終[お]わりました",
+        "終[お]わりませんでした",
+        "終[お]わります"
+      ],
+      "answer": 0,
+      "explain": "Phủ định hiện tại: ます → ません. 「りました」là quá khứ khẳng định; 「りませんでした」là phủ định quá khứ; 「ります」là hiện tại khẳng định."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "今[いま]",
+        "9時[じ]15分[ふん]",
+        "です。"
+      ],
+      "vi": "Bây giờ là 9 giờ 15 phút.",
+      "explain": "Cấu trúc: 今は + giờ + です (hoặc không cần は). Thời gian đứng trước「です」, không cần trợ từ thêm."
+    },
+    {
+      "chips": [
+        "銀行[ぎんこう]は",
+        "9時[じ]から",
+        "3時[じ]まで",
+        "です。"
+      ],
+      "vi": "Ngân hàng mở từ 9 giờ đến 3 giờ.",
+      "explain": "Cấu trúc「から〜まで」: N は + giờ から + giờ まで + です. 「から」và「まで」bắt buộc theo đúng thứ tự bắt đầu—kết thúc."
+    },
+    {
+      "chips": [
+        "昨日[きのう]",
+        "田中[たなか]さんと",
+        "図書館[としょかん]へ",
+        "行[い]きました。"
+      ],
+      "vi": "Hôm qua tôi đi thư viện cùng anh Tanaka.",
+      "explain": "Trật tự: thời gian (昨日) + người đi cùng (と) + đích (へ) + động từ. Phó từ thời gian đứng đầu câu; 「と」theo sau người."
+    },
+    {
+      "chips": [
+        "銀行[ぎんこう]の休[やす]みは",
+        "土曜日[どようび]と",
+        "日曜日[にちようび]です。"
+      ],
+      "vi": "Ngày nghỉ của ngân hàng là thứ Bảy và Chủ nhật.",
+      "explain": "Liệt kê đầy đủ hai ngày dùng「と」: A と B です. 「の」nối sở hữu (休みの ngân hàng); 「と」liệt kê đứng sau ngày đầu tiên."
+    },
+    {
+      "chips": [
+        "毎朝[まいあさ]",
+        "7時[じ]に",
+        "起[お]きます。"
+      ],
+      "vi": "Mỗi sáng tôi dậy lúc 7 giờ.",
+      "explain": "Trật tự: phó từ tần số (毎朝) + thời điểm に + động từ. 「に」chỉ thời điểm của hành động, đứng sau giờ cụ thể."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "ゆうびんきょくは くじから ごじまでです。",
+      "ask": "Bưu điện mở từ mấy giờ đến mấy giờ?",
+      "choices": [
+        "Từ 9 giờ đến 5 giờ",
+        "Từ 5 giờ đến 9 giờ",
+        "Từ 8 giờ đến 4 giờ"
+      ],
+      "answer": 0,
+      "script": "郵便局[ゆうびんきょく]は 9時[じ]から 5時[じ]までです。",
+      "explain": "「くじ」= 9時, 「ごじ」= 5時; cấu trúc「から〜まで」chỉ khoảng thời gian. Đáp án sai đảo ngược giờ mở/đóng."
+    },
+    {
+      "tts": "としょかんの やすみは げつようびと もくようびです。",
+      "ask": "Thư viện nghỉ thứ mấy?",
+      "choices": [
+        "Thứ Hai và thứ Năm",
+        "Thứ Hai và thứ Ba",
+        "Thứ Năm và thứ Sáu"
+      ],
+      "answer": 0,
+      "script": "図書館[としょかん]の休[やす]みは 月曜日[げつようび]と 木曜日[もくようび]です。",
+      "explain": "「げつようび」= 月曜日 (thứ Hai); 「もくようび」= 木曜日 (thứ Năm). Cẩn thận: 「かようび」(thứ Ba), 「きんようび」(thứ Sáu) dễ nhầm âm."
+    },
+    {
+      "tts": "きのう じゅういちじに ねました。",
+      "ask": "Tối qua người nói ngủ lúc mấy giờ?",
+      "choices": [
+        "Lúc 11 giờ",
+        "Lúc 10 giờ",
+        "Lúc 12 giờ"
+      ],
+      "answer": 0,
+      "script": "昨日[きのう] 11時[じ]に 寝[ね]ました。",
+      "explain": "「じゅういちじ」= 11時 (11 giờ). 「じゅうじ」= 10 giờ; 「じゅうにじ」= 12 giờ — phân biệt ichi/ni cuối số."
+    },
+    {
+      "tts": "まいあさ なんじに おきますか。",
+      "ask": "Câu hỏi này hỏi về điều gì?",
+      "choices": [
+        "Mấy giờ thức dậy mỗi sáng",
+        "Mấy giờ đi ngủ mỗi tối",
+        "Làm gì mỗi sáng"
+      ],
+      "answer": 0,
+      "script": "毎朝[まいあさ] 何時[なんじ]に 起[お]きますか。",
+      "explain": "「何時に起きますか」hỏi giờ thức dậy (起きる). 「寝ますか」mới là hỏi giờ ngủ; 「何をしますか」mới hỏi làm gì."
+    },
+    {
+      "tts": "かようびから きんようびまで はたらきます。",
+      "ask": "Người nói làm việc từ thứ mấy đến thứ mấy?",
+      "choices": [
+        "Từ thứ Ba đến thứ Sáu",
+        "Từ thứ Hai đến thứ Năm",
+        "Từ thứ Tư đến thứ Bảy"
+      ],
+      "answer": 0,
+      "script": "火曜日[かようび]から 金曜日[きんようび]まで 働[はたら]きます。",
+      "explain": "「かようび」= 火曜日 (thứ Ba); 「きんようび」= 金曜日 (thứ Sáu). Đáp án sai nhầm げつようび (thứ Hai) và もくようび (thứ Năm)."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Bây giờ là 7 giờ rưỡi.",
+      "target": "今7時半です。",
+      "accept": [
+        "いま7じはんです。",
+        "今七時半です。"
+      ],
+      "explain": "「今〜です」khai báo giờ hiện tại; 「7時半」= 7 giờ 30 (半 = nửa giờ). Không cần trợ từ giữa今 và giờ."
+    },
+    {
+      "vi": "Từ 8 giờ đến 9 giờ tôi học tiếng Nhật.",
+      "target": "8時から9時まで日本語を勉強します。",
+      "accept": [
+        "8じから9じまでにほんごをべんきょうします。",
+        "八時から九時まで日本語を勉強します。"
+      ],
+      "explain": "「から〜まで」chỉ khoảng thời gian; 「日本語を勉強します」dùng「を」theo sau tân ngữ trực tiếp."
+    },
+    {
+      "vi": "Hôm qua tôi đã không làm việc.",
+      "target": "昨日働きませんでした。",
+      "accept": [
+        "きのうはたらきませんでした。",
+        "昨日は働きませんでした。"
+      ],
+      "explain": "Phủ định quá khứ: ます → ませんでした. 「昨日」đứng đầu câu làm phó từ thời gian (có thể thêm「は」hoặc không)."
+    },
+    {
+      "vi": "Tôi làm việc cùng chị Karina.",
+      "target": "カリナさんと働きます。",
+      "accept": [
+        "かりなさんとはたらきます。"
+      ],
+      "explain": "「と」chỉ người cùng hành động: カリナさんと働きます. Không dùng「に」(đích) hay「で」(phương tiện/địa điểm)."
+    },
+    {
+      "vi": "Ngày nghỉ của tôi là thứ Tư và thứ Bảy.",
+      "target": "休みは水曜日と土曜日です。",
+      "accept": [
+        "やすみはすいようびとどようびです。",
+        "私の休みは水曜日と土曜日です。"
+      ],
+      "explain": "「と」liệt kê đầy đủ hai ngày. 「水曜日」= thứ Tư; 「土曜日」= thứ Bảy; 「は」làm chủ đề cho 休み."
+    }
+  ]
+}

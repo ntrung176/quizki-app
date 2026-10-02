@@ -1,0 +1,379 @@
+{
+  "bai": 9,
+  "bunpou": [
+    {
+      "stem": "わたしは 日本[にほん]の 音楽[おんがく]＿ 好[す]きです。",
+      "choices": [
+        "が",
+        "を",
+        "に",
+        "で"
+      ],
+      "answer": 0,
+      "explain": "好[す]きです/嫌[きら]いです/上手[じょうず]です/わかります đều đòi が cho đối tượng; dễ nhầm を vì tiếng Việt dùng \"thích cái gì\" như tân ngữ."
+    },
+    {
+      "stem": "ミラーさんは 漢字[かんじ]が だいたい ＿。",
+      "choices": [
+        "わかります",
+        "わかりません",
+        "好[す]きです",
+        "上手[じょうず]です"
+      ],
+      "answer": 0,
+      "explain": "だいたい (đại khái, phần lớn) hàm ý hiểu phần nhiều → わかります (khẳng định); わかりません mâu thuẫn với だいたい."
+    },
+    {
+      "stem": "カリナさんは 絵[え]が ＿ です。",
+      "choices": [
+        "上手[じょうず]",
+        "たくさん",
+        "よく",
+        "だいたい"
+      ],
+      "answer": 0,
+      "explain": "上手[じょうず] là tính từ な chỉ kỹ năng, dùng cho người; たくさん/よく là trạng từ, không đứng trước です."
+    },
+    {
+      "stem": "お金[かね]が 全然[ぜんぜん] ＿。",
+      "choices": [
+        "ありません",
+        "あります",
+        "わかりません",
+        "好[す]きです"
+      ],
+      "answer": 0,
+      "explain": "全然[ぜんぜん] (hoàn toàn không) bắt buộc đi với phủ định → ありません; 全然あります là sai ngữ pháp."
+    },
+    {
+      "stem": "「どうして 朝[あさ]ごはんを 食[た]べませんか。」「時間[じかん]が ありません＿。」",
+      "choices": [
+        "から",
+        "が",
+        "を",
+        "ね"
+      ],
+      "answer": 0,
+      "explain": "から cuối câu giải thích lý do (vì…); ở đây = \"vì không có thời gian\"; が đứng sau chủ ngữ, không dùng cuối câu giải thích."
+    },
+    {
+      "stem": "わたしは スポーツ＿ あまり 好[す]きじゃありません。",
+      "choices": [
+        "が",
+        "を",
+        "に",
+        "は"
+      ],
+      "answer": 0,
+      "explain": "Đối tượng của 好[す]きです → が; は cũng có thể dùng để đối chiếu nhưng が là chuẩn Bài 9 Minna."
+    },
+    {
+      "stem": "田中[たなか]さんは 料理[りょうり]が ＿ 上手[じょうず]です。",
+      "choices": [
+        "とても",
+        "あまり",
+        "全然[ぜんぜん]",
+        "少[すこ]し"
+      ],
+      "answer": 0,
+      "explain": "とても bổ nghĩa khẳng định cho 上手[じょうず]です; あまり/全然[ぜんぜん] đi với phủ định."
+    },
+    {
+      "stem": "わたしは スポーツが ＿。",
+      "choices": [
+        "好[す]きじゃありません",
+        "好[す]きません",
+        "好[す]きくないです",
+        "好[す]きではあります"
+      ],
+      "answer": 0,
+      "explain": "好[す]き là tính từ な → phủ định: じゃありません; 好[す]きません sai (ません là cho động từ)."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "が",
+      "を",
+      "に",
+      "で",
+      "と",
+      "から",
+      "は"
+    ],
+    "items": [
+      {
+        "stem": "わたしは 犬[いぬ]＿ 好[す]きです。",
+        "answer": "が",
+        "explain": "好[す]きです + đối tượng が; không dùng を như tiếng Việt \"thích con chó\"."
+      },
+      {
+        "stem": "日曜日[にちようび]、友[とも]だち＿ テニスを します。",
+        "answer": "と",
+        "explain": "と chỉ \"cùng với\" (bạn cùng chơi tennis); に sẽ mang nghĩa \"đưa tennis cho bạn\" — sai."
+      },
+      {
+        "stem": "漢字[かんじ]が わかりません＿、ひらがなで 書[か]きます。",
+        "answer": "から",
+        "explain": "から cuối mệnh đề = \"vì…\" (lý do); nối nguyên nhân với kết quả theo Bài 9."
+      },
+      {
+        "stem": "ミラーさんは 歌[うた]＿ 上手[じょうず]です。",
+        "answer": "が",
+        "explain": "Đối tượng của 上手[じょうず]です → が; を sai vì 上手[じょうず] không phải động từ chuyển tiếp."
+      },
+      {
+        "stem": "わたしは 細[こま]かい お金[かね]＿ ありません。",
+        "answer": "が",
+        "explain": "ありません/あります + chủ ngữ tồn tại → が; を sai vì あります không phải động từ hành động."
+      },
+      {
+        "stem": "デパート＿ プレゼントを 買[か]います。",
+        "answer": "で",
+        "explain": "Nơi thực hiện hành động mua → で; に sai vì không di chuyển đến デパート trong câu này."
+      },
+      {
+        "stem": "わたしは 日本[にほん]の アニメ＿ 好[す]きです。",
+        "answer": "が",
+        "explain": "アニメ là đối tượng của 好[す]きです → が; mẫu cố định: Nが好[す]きです."
+      },
+      {
+        "stem": "時間[じかん]が ありません＿、どこも 行[い]きません。",
+        "answer": "から",
+        "explain": "から cuối mệnh đề giải thích lý do: \"vì không có thời gian\"."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "好[す]きです",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "好[す]きじゃありません",
+        "好[す]きません",
+        "好[す]きくないです",
+        "好[す]きではあります"
+      ],
+      "answer": 0,
+      "explain": "好[す]き là tính từ な → phủ định: じゃありません (hoặc ではありません); ません chỉ dùng cho động từ."
+    },
+    {
+      "base": "あります",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "ありません",
+        "ないです",
+        "ありませんでした",
+        "あるじゃありません"
+      ],
+      "answer": 0,
+      "explain": "Phủ định lịch sự của あります → ありません; ないです là thể thông thường (casual)."
+    },
+    {
+      "base": "わかります",
+      "prompt": "Đi sau 全然[ぜんぜん]…?",
+      "choices": [
+        "わかりません",
+        "わかります",
+        "よく わかります",
+        "わかりますか"
+      ],
+      "answer": 0,
+      "explain": "全然[ぜんぜん] bắt buộc đi với phủ định → わかりません; 全然わかります sai ngữ pháp."
+    },
+    {
+      "base": "上手[じょうず]です",
+      "prompt": "Đi sau あまり…?",
+      "choices": [
+        "上手[じょうず]じゃありません",
+        "上手[じょうず]です",
+        "とても 上手[じょうず]です",
+        "上手[じょうず]ですね"
+      ],
+      "answer": 0,
+      "explain": "あまり đi với phủ định → 上手[じょうず]じゃありません; あまり上手[じょうず]です mâu thuẫn."
+    },
+    {
+      "base": "嫌[きら]いです",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "嫌[きら]いじゃありません",
+        "嫌[きら]いません",
+        "嫌[きら]くないです",
+        "嫌[きら]くありません"
+      ],
+      "answer": 0,
+      "explain": "嫌[きら]い là tính từ な → phủ định: じゃありません; くない chỉ dùng cho tính từ い."
+    },
+    {
+      "base": "あります",
+      "prompt": "Đi sau たくさん…?",
+      "choices": [
+        "あります",
+        "ありません",
+        "ありませんでした",
+        "ないです"
+      ],
+      "answer": 0,
+      "explain": "たくさん (nhiều) đi với khẳng định → あります; không như ぜんぜん/あまり phải đi với phủ định."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "カリナさんは",
+        "絵[え]が",
+        "とても",
+        "上手[じょうず]です。"
+      ],
+      "vi": "Karina vẽ rất giỏi.",
+      "explain": "[Chủ ngữ は] + [đối tượng が] + [trạng từ] + [tính từ な + です]; が phải đứng trước trạng từ."
+    },
+    {
+      "chips": [
+        "時間[じかん]が",
+        "ありませんから",
+        "どこも",
+        "行[い]きません。"
+      ],
+      "vi": "Vì không có thời gian nên không đi đâu cả.",
+      "explain": "Mệnh đề nguyên nhân (ありませんから) đứng trước mệnh đề kết quả; どこも + phủ định = không đi đâu cả."
+    },
+    {
+      "chips": [
+        "あなたは",
+        "どうして",
+        "日本語[にほんご]を",
+        "勉強[べんきょう]しますか。"
+      ],
+      "vi": "Tại sao bạn học tiếng Nhật?",
+      "explain": "どうして (tại sao) đứng sau chủ ngữ; 日本語[にほんご]を là tân ngữ trước động từ."
+    },
+    {
+      "chips": [
+        "わたしは",
+        "日本[にほん]の",
+        "音楽[おんがく]が",
+        "好[す]きです。"
+      ],
+      "vi": "Tôi thích nhạc Nhật.",
+      "explain": "[Chủ đề は] + [danh từ sở hữu の] + [đối tượng が] + 好[す]きです; の nối danh từ."
+    },
+    {
+      "chips": [
+        "ミラーさんは",
+        "漢字[かんじ]が",
+        "だいたい",
+        "わかります。"
+      ],
+      "vi": "Anh Miller hiểu đại khái chữ Hán.",
+      "explain": "だいたい (đại khái) là trạng từ đứng trước động từ; が đánh dấu đối tượng của わかります."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "わたしは スポーツが あまり 好きじゃありません。",
+      "ask": "Người nói cảm thấy thế nào về thể thao?",
+      "choices": [
+        "Rất thích",
+        "Không thích lắm",
+        "Hoàn toàn không thích"
+      ],
+      "answer": 1,
+      "script": "わたしは スポーツが あまり 好[す]きじゃありません。",
+      "explain": "あまり + phủ định = \"không lắm\" (mức độ vừa phải); ぜんぜん + phủ định mới là \"hoàn toàn không\"."
+    },
+    {
+      "tts": "ミラーさんは 漢字が だいたい わかります。",
+      "ask": "Anh Miller hiểu chữ Hán ở mức nào?",
+      "choices": [
+        "Hiểu phần lớn",
+        "Hiểu một chút",
+        "Không hiểu gì"
+      ],
+      "answer": 0,
+      "script": "ミラーさんは 漢字[かんじ]が だいたい わかります。",
+      "explain": "だいたい = đại khái/phần lớn, ở mức cao; 少[すこ]し mới là \"một chút\" còn わかりません mới là không hiểu."
+    },
+    {
+      "tts": "じかんが ありませんから、テレビを みません。",
+      "ask": "Tại sao người nói không xem TV?",
+      "choices": [
+        "Vì không có thời gian",
+        "Vì không thích TV",
+        "Vì không có TV"
+      ],
+      "answer": 0,
+      "script": "時間[じかん]が ありませんから、テレビを 見[み]ません。",
+      "explain": "ありませんから = \"vì không có\"; lý do được nêu rõ là 時間[じかん] (thời gian), không phải sở thích hay đồ vật."
+    },
+    {
+      "tts": "絵が とても 上手です。",
+      "ask": "Điền từ bạn nghe được: 絵が ___ 上手です。",
+      "choices": [
+        "とても",
+        "あまり",
+        "少[すこ]し"
+      ],
+      "answer": 0,
+      "script": "絵[え]が とても 上手[じょうず]です。",
+      "explain": "とても (rất) đi với khẳng định 上手[じょうず]です; あまり chỉ đi với phủ định."
+    },
+    {
+      "tts": "お金が 全然 ありません。",
+      "ask": "Điền từ bạn nghe được: お金が ___ ありません。",
+      "choices": [
+        "全然[ぜんぜん]",
+        "たくさん",
+        "だいたい"
+      ],
+      "answer": 0,
+      "script": "お金[かね]が 全然[ぜんぜん] ありません。",
+      "explain": "全然[ぜんぜん] bắt buộc đi với phủ định → ありません; たくさん đi với khẳng định."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi thích nhạc Nhật.",
+      "target": "わたしは日本の音楽が好きです。",
+      "accept": [
+        "わたしはにほんのおんがくがすきです。",
+        "私は日本の音楽が好きです。"
+      ],
+      "explain": "Cấu trúc: [chủ ngữ は] + [đối tượng が] + 好[す]きです; đối tượng dùng が không phải を."
+    },
+    {
+      "vi": "Anh Tanaka nấu ăn giỏi.",
+      "target": "田中さんは料理が上手です。",
+      "accept": [
+        "たなかさんはりょうりがじょうずです。"
+      ],
+      "explain": "上手[じょうず]です + đối tượng が; 料理[りょうり]が上手[じょうず] là cụm cố định."
+    },
+    {
+      "vi": "Vì không có thời gian nên tôi không xem TV.",
+      "target": "時間がありませんから、テレビを見ません。",
+      "accept": [
+        "じかんがありませんから、テレビをみません。",
+        "時間がありませんからテレビを見ません。"
+      ],
+      "explain": "Mệnh đề nguyên nhân + から + mệnh đề kết quả; から đứng cuối vế nguyên nhân."
+    },
+    {
+      "vi": "Tôi không thích thể thao.",
+      "target": "わたしはスポーツが好きじゃありません。",
+      "accept": [
+        "わたしはすぽーつがすきじゃありません。",
+        "わたしはスポーツが好きではありません。"
+      ],
+      "explain": "好[す]き (tính từ な) phủ định → じゃありません; スポーツ là đối tượng → が."
+    },
+    {
+      "vi": "Tôi hoàn toàn không có tiền.",
+      "target": "お金が全然ありません。",
+      "accept": [
+        "おかねがぜんぜんありません。"
+      ],
+      "explain": "全然[ぜんぜん] + ありません = hoàn toàn không có; お金[かね] là chủ ngữ tồn tại → が."
+    }
+  ]
+}

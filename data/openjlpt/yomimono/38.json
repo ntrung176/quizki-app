@@ -1,0 +1,2318 @@
+{
+  "bai": 38,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 38 giới thiệu danh từ hoá bằng の: động từ + の biến cụm động từ thành \"danh từ\" để làm chủ đề, tân ngữ, hoặc đi kèm 好き・上手・忘れる. Khác Bài 18 (こと→辞書形のこと), の ở Bài 38 thiên về cảm giác/giác quan/sự việc cụ thể và hay dùng hơn trong văn nói. Chiến lược: khi gặp Vる/Vた + の, hãy đọc の như \"việc ~\", \"chuyện ~\" rồi xem nó làm gì trong câu (chủ đề, tân ngữ, bổ ngữ).",
+    "steps": [
+      "Đọc lướt toàn bài để nắm chủ đề (sở thích, tài năng, quên việc gì) và nhân vật đang nói về ai.",
+      "Tìm mẫu [Vる＋のは〜です]: の bao nguyên cả cụm động từ trước nó → làm chủ đề. Vế sau (〜です) là nhận xét/đánh giá về việc đó.",
+      "Tìm mẫu [Vる＋のが好き/上手/得意/速い]: の làm tân ngữ đứng trước が, đi kèm tính từ đánh giá.",
+      "Tìm mẫu [Vる＋のを忘れました / 知っています]: の làm tân ngữ của động từ nhận thức hoặc quên/nhớ.",
+      "Câu hỏi trắc nghiệm có thể hỏi về sở thích, khả năng, hoặc hành động bị quên → tìm đúng mẫu の tương ứng trong bài.",
+      "Ôn lại ngữ pháp cũ: 好き (Bài 9), 上手 (Bài 9), 受身 (Bài 37), ようになる (Bài 36), 〜んです (Bài 26), 〜と思います (Bài 21)."
+    ],
+    "tips": [
+      "Vるの vs Vること: cả hai đều danh từ hoá, nhưng の thiên về \"sự việc cụ thể/giác quan\" (thấy/nghe/quên/nhớ), こと thiên về sự thật/khái niệm. Bài 38 dùng の.",
+      "Nhớ: の sau V phải dùng thể từ điển (辞書形) hoặc Vている — KHÔNG dùng Vます trực tiếp trước の.",
+      "好きなのは (tính từ な + の): khác 好きなのは ở đây の là danh từ thay thế (\"cái mà tôi thích\"). Đừng nhầm với のは danh từ hoá.",
+      "Câu [Vるのが上手です] = giỏi làm việc ~. Để ý が (KHÔNG dùng を ở đây dù の là tân ngữ về nghĩa).",
+      "忘れます + のを: \"quên làm việc ~\" — のを là tân ngữ của 忘れます. So sánh: のを忘れる ≠ のを知る (nhưng cùng cấu trúc).",
+      "Đừng nhầm のは (chủ đề hoá) với のに (Bài 45: \"mặc dù\") — のに chưa học, nên thấy のに trong đề là bẫy!"
+    ],
+    "grammarFocus": [
+      "Vるのは〜です（danh từ hoá の làm chủ đề）",
+      "Vるのが好き・上手・速い",
+      "Vるのを忘れました・知っています"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 37,
+        "items": [
+          "V受身形（〜られます）"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります（tiến bộ, thay đổi）"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです（dự định）"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました（lỡ làm, hoàn tất với tiếc nuối）"
+        ]
+      },
+      {
+        "bai": 28,
+        "items": [
+          "Vながら（vừa… vừa…）",
+          "Vています（thói quen）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）",
+          "Nなんです"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる/Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります（変化）"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "Vることができます",
+          "趣味はVることです"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです",
+          "〜が上手です"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "私の趣味",
+      "titleVi": "Sở thích của tôi",
+      "japanese": "私の趣味は写真を撮ることです。でも、最近は料理を作るのも好きになりました。\n料理を作るのは時間がかかりますが、楽しいです。\n先週、友達の誕生日にケーキを焼きました。うまく焼けるか心配でしたが、友達においしいと言ってもらいました。\n実は昨日、砂糖を入れるのを忘れてしまいました。だから、全然甘くなかったです。\n友達は「料理を作るのが上手になりましたね」と言ってくれました。\nもっと上手に作れるように、毎週練習するつもりです。",
+      "vietnamese": "Sở thích của tôi là chụp ảnh. Nhưng gần đây tôi cũng đã thích nấu ăn.\nNấu ăn tuy mất thời gian nhưng vui.\nTuần trước tôi nướng bánh cho sinh nhật bạn. Tôi lo không nướng được ngon, nhưng bạn đã khen là ngon.\nThực ra hôm qua tôi đã quên cho đường vào. Vì vậy bánh không ngọt chút nào.\nBạn nói với tôi rằng \"Bạn nấu ăn giỏi hơn rồi nhỉ\".\nTôi dự định tập luyện mỗi tuần để nấu ngon hơn nữa.",
+      "sentences": [
+        {
+          "jp": "私の趣味は写真を撮ることです。でも、最近は料理を作るのも好きになりました。",
+          "vi": "Sở thích của tôi là chụp ảnh. Nhưng gần đây tôi cũng đã thích nấu ăn.",
+          "vocab": [
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, bức ảnh"
+            },
+            {
+              "w": "撮ります",
+              "read": "とります",
+              "vi": "chụp (ảnh)"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, nấu ăn"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, tạo ra, nấu"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "趣味はVることです（Bài 18）",
+              "vi": "趣味は写真を撮ることです = sở thích là chụp ảnh. こと danh từ hoá (Bài 18) làm vị ngữ sau は."
+            },
+            {
+              "point": "Vるのも好きになりました",
+              "vi": "料理を作るのも好きになりました = cũng đã thích nấu ăn. の danh từ hoá cụm V + が好き (Bài 9). も = \"cũng thêm\" (Bài 1)."
+            }
+          ]
+        },
+        {
+          "jp": "料理を作るのは時間がかかりますが、楽しいです。",
+          "vi": "Nấu ăn tuy mất thời gian nhưng vui.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "mất (thời gian, tiền)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのは〜です",
+              "vi": "料理を作るのは = việc nấu ăn (chủ đề). の danh từ hoá cụm \"料理を作る\", は làm chủ đề. Nhận xét: \"mất thời gian nhưng vui\"."
+            }
+          ]
+        },
+        {
+          "jp": "先週、友達の誕生日にケーキを焼きました。うまく焼けるか心配でしたが、友達においしいと言ってもらいました。",
+          "vi": "Tuần trước tôi nướng bánh cho sinh nhật bạn. Tôi lo không nướng được ngon, nhưng bạn đã khen là ngon.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời, chào đời"
+            },
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh kem, bánh ngọt"
+            },
+            {
+              "w": "焼きます",
+              "read": "やきます",
+              "vi": "nướng"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "khéo léo, ngon, tốt"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vえます（可能形 — Bài 27）",
+              "vi": "焼けるか = có nướng được không. Thể có thể của 焼く. Vえるか = \"liệu có ~ được không\" biểu thị lo lắng."
+            },
+            {
+              "point": "Vてもらいました（Bài 24）",
+              "vi": "おいしいと言ってもらいました = được bạn khen là ngon. もらう = nhận (hành động từ người khác)."
+            }
+          ]
+        },
+        {
+          "jp": "実は昨日、砂糖を入れるのを忘れてしまいました。だから、全然甘くなかったです。",
+          "vi": "Thực ra hôm qua tôi đã quên cho đường vào. Vì vậy bánh không ngọt chút nào.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "砂糖",
+              "read": "さとう",
+              "vi": "đường"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "全然",
+              "read": "ぜんぜん",
+              "vi": "hoàn toàn (với phủ định: không chút nào)"
+            },
+            {
+              "w": "甘い",
+              "read": "あまい",
+              "vi": "ngọt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのを忘れてしまいました",
+              "vi": "砂糖を入れるのを忘れてしまいました = đã quên cho đường vào. の danh từ hoá \"入れる\" → làm tân ngữ của 忘れる. てしまいました (Bài 29) = lỡ làm (tiếc nuối)."
+            }
+          ]
+        },
+        {
+          "jp": "友達は「料理を作るのが上手になりましたね」と言ってくれました。",
+          "vi": "Bạn nói với tôi rằng \"Bạn nấu ăn giỏi hơn rồi nhỉ\".",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, khéo"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが上手になりました",
+              "vi": "料理を作るのが上手になりました = nấu ăn đã giỏi hơn. の danh từ hoá + が上手 (Bài 9). になりました (Bài 19) = đã trở thành (thay đổi)."
+            },
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "言ってくれました = bạn đã (chủ động) nói cho tôi biết. くれる = ai đó làm gì cho mình."
+            }
+          ]
+        },
+        {
+          "jp": "もっと上手に作れるように、毎週練習するつもりです。",
+          "vi": "Tôi dự định tập luyện mỗi tuần để nấu ngon hơn nữa.",
+          "vocab": [
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "作れる",
+              "read": "つくれる",
+              "vi": "có thể làm, có thể tạo"
+            },
+            {
+              "w": "毎週",
+              "read": "まいしゅう",
+              "vi": "mỗi tuần"
+            },
+            {
+              "w": "練習します",
+              "read": "れんしゅうします",
+              "vi": "luyện tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるように（Bài 36）",
+              "vi": "もっと上手に作れるように = để có thể nấu giỏi hơn. ように biểu thị mục đích/mong muốn hướng tới."
+            },
+            {
+              "point": "Vるつもりです（Bài 31）",
+              "vi": "練習するつもりです = dự định luyện tập. つもり biểu thị ý định chủ quan của người nói."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "料理を作るのも好きになりました",
+          "label": "Vるのが好き（danh từ hoá の）"
+        },
+        {
+          "excerpt": "料理を作るのは時間がかかりますが",
+          "label": "Vるのは〜（chủ đề hoá）"
+        },
+        {
+          "excerpt": "砂糖を入れるのを忘れてしまいました",
+          "label": "Vるのを忘れました"
+        },
+        {
+          "excerpt": "料理を作るのが上手になりましたね",
+          "label": "Vるのが上手になりました"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人の趣味は何ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "料理を作ることと、ケーキを食べることです",
+            "写真を撮ることです",
+            "友達と誕生日パーティーをすることです",
+            "毎週練習することです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu mở đầu bài viết nêu rõ:「私の趣味は写真を撮ることです」(sở thích của tôi là chụp ảnh) — đây là câu trả lời trực tiếp cho câu hỏi về趣味. Nấu ăn (料理) chỉ là thứ gần đây yêu thích thêm:「最近は料理を作るのも好きになりました」(cũng ĐÃ THÍCH, dùng も = thêm vào). Đáp án 0 sai vì bài không nhắc đến \"ăn bánh\"; đáp án 2 sai vì tiệc sinh nhật chỉ là sự kiện xảy ra, không phải sở thích; đáp án 3 sai vì \"luyện tập mỗi tuần\" là kế hoạch tương lai, không phải趣味.",
+          "tip": "Câu hỏi về趣味: tìm mẫu「趣味はVることです」hoặc「Vるのが好きです」— đó là câu trả lời chính. Các sự kiện/kế hoạch xung quanh chỉ là bối cảnh, không phải sở thích.",
+          "qt": {
+            "q": "Sở thích của người này là gì?",
+            "o": [
+              "Nấu ăn và ăn bánh kem",
+              "Chụp ảnh",
+              "Tổ chức tiệc sinh nhật với bạn bè",
+              "Luyện tập mỗi tuần"
+            ]
+          }
+        },
+        {
+          "q": "昨日ケーキが甘くなかった理由は何ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "焼く時間が長かったからです",
+            "砂糖を入れるのを忘れたからです",
+            "友達がおいしいと言わなかったからです",
+            "ケーキの作り方を知らなかったからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết trình bày nguyên nhân rõ ràng:「実は昨日、砂糖を入れるのを忘れてしまいました。だから、全然甘くなかったです」— đây là mẫu Vるのを忘れてしまいました của Bài 38 (の danh từ hoá \"入れる\" làm tân ngữ của忘れる) + だから nối nguyên nhân → kết quả. Đáp án 0 sai vì bài không đề cập thời gian nướng dài; đáp án 2 sai và ngược lại — bạn đã khen ngon (友達においしいと言ってもらいました) ở tuần trước; đáp án 3 sai vì bài cho thấy người viết đã biết cách làm bánh, chỉ là quên bỏ đường.",
+          "tip": "Câu hỏi hỏi \"lý do\" → tìm だから / 〜ので / 〜から trong bài. Chú ý mẫu「のを忘れてしまいました」— \"quên LÀM VIỆC gì\" là bằng chứng nguyên nhân trực tiếp.",
+          "qt": {
+            "q": "Vì sao chiếc bánh kem hôm qua không ngọt?",
+            "o": [
+              "Vì thời gian nướng quá lâu",
+              "Vì đã quên cho đường vào",
+              "Vì bạn bè không nói là ngon",
+              "Vì không biết cách làm bánh kem"
+            ]
+          }
+        },
+        {
+          "q": "友達はこの人についてどう言いましたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "「ケーキを焼くのが下手ですね」と言いました",
+            "「料理を作るのが上手になりましたね」と言いました",
+            "「毎週練習するのはむずかしいですね」と言いました",
+            "「写真を撮るのが好きですね」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài dẫn nguyên văn lời bạn:「料理を作るのが上手になりましたね」と言ってくれました — đây là mẫu Vるのが上手になりました của Bài 38 (の danh từ hoá + が上手 + になる = trở nên giỏi). Đáp án 0 sai và đối lập hoàn toàn — bạn khen \"giỏi hơn rồi\" chứ không chê. Đáp án 2 và 3 sai vì nội dung này không xuất hiện trong lời thoại của bạn — đây là bẫy dùng từ ngữ quen thuộc từ bài nhưng ghép sai ngữ cảnh.",
+          "tip": "Câu hỏi về lời thoại trực tiếp (誰々は〜と言いました) → tìm đúng người + đúng dấu ngoặc kép「」trong bài. Nội dung phải khớp chính xác, không được đổi chiều (giỏi↔kém).",
+          "qt": {
+            "q": "Bạn của người này đã nói gì về người này?",
+            "o": [
+              "「ケーキを焼くのが下手ですね」(Bạn nướng bánh kem dở nhỉ)",
+              "「料理を作るのが上手になりましたね」(Bạn đã nấu ăn giỏi hơn rồi nhỉ)",
+              "「毎週練習するのはむずかしいですね」(Luyện tập mỗi tuần khó nhỉ)",
+              "「写真を撮るのが好きですね」(Bạn thích chụp ảnh nhỉ)"
+            ]
+          }
+        },
+        {
+          "q": "この人はこれからどうするつもりですか。（推論）",
+          "evi": [
+            5
+          ],
+          "options": [
+            "写真を撮るのをやめて、料理だけ練習するつもりです",
+            "友達に料理を作ってもらうつもりです",
+            "もっと上手に作れるように、毎週練習するつもりです",
+            "来週から料理教室に通うつもりです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu cuối bài ghi rõ:「もっと上手に作れるように、毎週練習するつもりです」— mẫu Vるつもりです (Bài 31) biểu thị dự định, kết hợp với ように (Bài 36) chỉ mục tiêu muốn hướng tới. Đáp án 0 sai vì bài không nói người viết bỏ chụp ảnh — đây là bẫy ghép hai thông tin (ảnh + nấu ăn) không có trong bài. Đáp án 1 sai vì bài không nhắc đến việc nhờ bạn nấu. Đáp án 3 sai vì bài không đề cập lớp học nấu ăn (lớp nấu ăn chỉ xuất hiện ở bài đọc dài).",
+          "tip": "Câu hỏi推論 về kế hoạch → tìm「〜つもりです」hoặc「〜ようと思っています」ở cuối bài. Loại ngay đáp án có thông tin KHÔNG xuất hiện trong bài hoặc MÂU THUẪN với nội dung đã đọc.",
+          "qt": {
+            "q": "Người này dự định sẽ làm gì từ bây giờ? (suy luận)",
+            "o": [
+              "Dự định ngừng chụp ảnh và chỉ luyện nấu ăn",
+              "Dự định nhờ bạn nấu ăn cho mình",
+              "Dự định luyện tập mỗi tuần để có thể nấu ăn giỏi hơn",
+              "Dự định bắt đầu theo học lớp nấu ăn từ tuần sau"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "趣味について話しましょう",
+      "titleVi": "Hãy nói về sở thích",
+      "japanese": "ミラーさんはさくら日本語学校の学生です。今日は授業で「趣味」について話しました。\n先生が「みなさんは何かするのが好きですか」と聞きました。\nミラーさんは「音楽を聴くのが一番好きです。特にクラシックが好きです」と言いました。\n「音楽を聴くのはリラックスできるし、気分もよくなります」とも言いました。\nカリナさんは「私は絵を描くのが好きです。子供のころから好きなんです」と言いました。\nカリナさんは色を選ぶのも上手です。クラスのみんなに「すごい」と言われました。\n田中さんは「料理を作るのが趣味です。特に和食を作るのが得意です」と言いました。\n田中さんは先月料理教室に通い始めて、いろいろな料理が作れるようになりました。\nワンさんはスポーツが好きです。「走るのが速いんです。毎朝６時に走っています」と言いました。\n「でも、昨日は起きるのが遅くて、走るのを忘れてしまいました」と言って、みんなが笑いました。\nサントスさんは「写真を撮るのが好きです。日本の町の写真をよく撮ります」と言いました。\n「先週、電車の中で有名な景色を撮った写真のポスターを見ました。ああいう写真が撮れるようになりたいと思っています」と続けました。\n先生は「趣味はとても大切です。好きなことをするのは心にいいですよ」と言いました。\nそれから、「趣味で友達ができることも多いですね。みなさんの趣味のことをもっと知りたいです」と言いました。\n授業の後で、みんなで趣味についていろいろ話しました。自分の好きなことを話すのは楽しかったです。\nミラーさんは「今度、一緒に音楽を聴きに行きませんか」とみんなを誘いました。",
+      "vietnamese": "Anh Miller là học sinh của trường tiếng Nhật Sakura. Hôm nay trong giờ học mọi người đã nói về \"sở thích\".\nGiáo viên hỏi \"Các bạn có thích làm gì không?\".\nAnh Miller nói \"Tôi thích nghe nhạc nhất. Đặc biệt là nhạc cổ điển\".\nAnh cũng nói \"Nghe nhạc vừa có thể thư giãn vừa khiến tâm trạng tốt hơn\".\nChị Karina nói \"Tôi thích vẽ tranh. Từ nhỏ tôi đã thích rồi\".\nChị Karina cũng giỏi chọn màu sắc. Mọi người trong lớp đã khen \"Tuyệt vời!\".\nAnh Tanaka nói \"Sở thích của tôi là nấu ăn. Đặc biệt tôi giỏi làm đồ ăn Nhật\".\nTháng trước anh Tanaka bắt đầu học lớp nấu ăn và đã có thể nấu được nhiều món hơn.\nAnh Wang thích thể thao. Anh nói \"Tôi chạy nhanh lắm. Mỗi sáng 6 giờ tôi chạy bộ\".\n\"Nhưng hôm qua dậy muộn nên đã quên chạy bộ rồi\", anh nói và mọi người cười.\nAnh Santos nói \"Tôi thích chụp ảnh. Tôi hay chụp ảnh các con phố của Nhật Bản\".\n\"Tuần trước trong tàu điện tôi thấy một tờ áp phích có những tấm ảnh phong cảnh nổi tiếng. Tôi đang mong muốn có thể chụp được những tấm ảnh như vậy\" anh tiếp tục.\nGiáo viên nói \"Sở thích rất quan trọng. Làm những điều mình thích thì tốt cho tinh thần đấy\".\nRồi thầy nói \"Thông qua sở thích cũng có thể kết bạn nhiều đấy nhỉ. Tôi muốn biết thêm về sở thích của các bạn\".\nSau buổi học, mọi người cùng nói chuyện nhiều về sở thích. Nói về điều mình thích thật vui.\nAnh Miller rủ mọi người \"Hôm nào chúng ta cùng đi nghe nhạc không?\".",
+      "sentences": [
+        {
+          "jp": "ミラーさんはさくら日本語学校の学生です。今日は授業で「趣味」について話しました。",
+          "vi": "Anh Miller là học sinh của trường tiếng Nhật Sakura. Hôm nay trong giờ học mọi người đã nói về \"sở thích\".",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "buổi học, tiết học"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "話します",
+              "read": "はなします",
+              "vi": "nói chuyện, nói"
+            },
+            {
+              "w": "日本語学校",
+              "read": "にほんごがっこう",
+              "vi": "trường tiếng Nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NについてV（Bài 21）",
+              "vi": "趣味について話しました = nói về sở thích. について = về chủ đề ~."
+            }
+          ]
+        },
+        {
+          "jp": "先生が「みなさんは何かするのが好きですか」と聞きました。",
+          "vi": "Giáo viên hỏi \"Các bạn có thích làm gì không?\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người, các bạn"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó (Bài 13)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが好きですか",
+              "vi": "何かするのが好きですか = có thích làm gì không? の danh từ hoá \"する\", が好き (Bài 9). Câu hỏi mở của giáo viên."
+            },
+            {
+              "point": "〜と聞きました（Bài 21）",
+              "vi": "Trích dẫn câu hỏi của giáo viên bằng と。"
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは「音楽を聴くのが一番好きです。特にクラシックが好きです」と言いました。",
+          "vi": "Anh Miller nói \"Tôi thích nghe nhạc nhất. Đặc biệt là nhạc cổ điển\".",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "聴きます",
+              "read": "ききます",
+              "vi": "nghe (âm nhạc)"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "クラシック",
+              "read": "クラシック",
+              "vi": "nhạc cổ điển"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが一番好きです",
+              "vi": "音楽を聴くのが一番好きです = thích nghe nhạc nhất. の danh từ hoá + が好き (Bài 9) + 一番 (Bài 12: so sánh nhất)."
+            }
+          ]
+        },
+        {
+          "jp": "「音楽を聴くのはリラックスできるし、気分もよくなります」とも言いました。",
+          "vi": "Anh cũng nói \"Nghe nhạc vừa có thể thư giãn vừa khiến tâm trạng tốt hơn\".",
+          "vocab": [
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "聴く",
+              "read": "きく",
+              "vi": "nghe (nhạc, âm thanh)"
+            },
+            {
+              "w": "リラックス",
+              "read": "リラックス",
+              "vi": "thư giãn, thả lỏng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "気分",
+              "read": "きぶん",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのは〜（chủ đề）",
+              "vi": "音楽を聴くのは = việc nghe nhạc (chủ đề). の danh từ hoá \"聴く\" + は chủ đề. Vế sau nhận xét về \"việc nghe nhạc\"."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "気分もよくなります = tâm trạng cũng tốt hơn. Tính từ い (よい→よく) + なる = trở nên ~."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは「私は絵を描くのが好きです。子供のころから好きなんです」と言いました。",
+          "vi": "Chị Karina nói \"Tôi thích vẽ tranh. Từ hồi nhỏ tôi đã thích rồi\".",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "絵",
+              "read": "え",
+              "vi": "tranh"
+            },
+            {
+              "w": "描く",
+              "read": "かく",
+              "vi": "vẽ"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "子供",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "ころ",
+              "read": "ころ",
+              "vi": "thời; hồi"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが好きです",
+              "vi": "絵を描くのが好きです = thích vẽ tranh. の danh từ hoá + が好き (Bài 9). Mẫu trọng tâm của bài 38."
+            },
+            {
+              "point": "〜なんです（Bài 26）",
+              "vi": "好きなんです = thực ra tôi đã thích rồi. な sau tính từ な/danh từ + んです để giải thích bối cảnh."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは色を選ぶのも上手です。クラスのみんなに「すごい」と言われました。",
+          "vi": "Chị Karina cũng giỏi chọn màu sắc. Mọi người trong lớp đã khen \"Tuyệt vời!\".",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "色",
+              "read": "いろ",
+              "vi": "màu sắc"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn lựa"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "すごい",
+              "read": "すごい",
+              "vi": "tuyệt, ghê gớm"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが上手です",
+              "vi": "色を選ぶのも上手です = cũng giỏi chọn màu. の danh từ hoá \"選ぶ\" + が上手 (Bài 9)."
+            },
+            {
+              "point": "Vられました（受身 — Bài 37）",
+              "vi": "言われました = được nói, được khen. 受身形 của 言う. Karina được mọi người khen."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは「料理を作るのが趣味です。特に和食を作るのが得意です」と言いました。",
+          "vi": "Anh Tanaka nói \"Sở thích của tôi là nấu ăn. Đặc biệt tôi giỏi làm đồ ăn Nhật\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "和食",
+              "read": "わしょく",
+              "vi": "đồ ăn Nhật Bản"
+            },
+            {
+              "w": "得意",
+              "read": "とくい",
+              "vi": "giỏi, sở trường"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが趣味です",
+              "vi": "料理を作るのが趣味です = sở thích là nấu ăn. の danh từ hoá + が趣味 (biến thể của Vるのは〜です)."
+            },
+            {
+              "point": "Vるのが得意です",
+              "vi": "和食を作るのが得意です = giỏi làm đồ ăn Nhật. の danh từ hoá + が得意. 得意 là từ cùng nhóm với 上手 (Bài 9)."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは先月料理教室に通い始めて、いろいろな料理が作れるようになりました。",
+          "vi": "Tháng trước anh Tanaka bắt đầu học lớp nấu ăn và đã có thể nấu được nhiều món hơn.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "通います",
+              "read": "かよいます",
+              "vi": "đi lại thường xuyên, đi học"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "作れる",
+              "read": "つくれる",
+              "vi": "có thể làm, có thể tạo"
+            },
+            {
+              "w": "料理教室",
+              "read": "りょうりきょうしつ",
+              "vi": "lớp học nấu ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるようになりました（Bài 36）",
+              "vi": "作れるようになりました = đã có thể nấu được. ようになる biểu thị sự thay đổi khả năng theo thời gian. Kết hợp V可能形 (Bài 27) + ようになる (Bài 36)."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんはスポーツが好きです。「走るのが速いんです。毎朝６時に走っています」と言いました。",
+          "vi": "Anh Wang thích thể thao. Anh nói \"Tôi chạy nhanh lắm. Mỗi sáng 6 giờ tôi chạy bộ\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang"
+            },
+            {
+              "w": "スポーツ",
+              "read": "スポーツ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "走る",
+              "read": "はしる",
+              "vi": "chạy"
+            },
+            {
+              "w": "速い",
+              "read": "はやい",
+              "vi": "nhanh"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "６時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            },
+            {
+              "w": "走っています",
+              "read": "はしっています",
+              "vi": "đang chạy"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが速いんです",
+              "vi": "走るのが速いんです = việc chạy của tôi nhanh = tôi chạy nhanh. の danh từ hoá \"走る\" + が速い (tính từ đánh giá). んです (Bài 26) = giải thích/nhấn mạnh."
+            },
+            {
+              "point": "Vています（習慣 — Bài 28）",
+              "vi": "走っています = (thói quen) đang chạy bộ mỗi sáng. Vているbiểu thị hành động lặp đi lặp lại theo thói quen."
+            }
+          ]
+        },
+        {
+          "jp": "「でも、昨日は起きるのが遅くて、走るのを忘れてしまいました」と言って、みんなが笑いました。",
+          "vi": "\"Nhưng hôm qua dậy muộn nên đã quên chạy bộ rồi\", anh nói và mọi người cười.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "走る",
+              "read": "はしる",
+              "vi": "chạy, thiên về"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "笑います",
+              "read": "わらいます",
+              "vi": "cười"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが遅い",
+              "vi": "起きるのが遅くて = việc dậy muộn (và). の danh từ hoá \"起きる\" + が遅い. Cùng cấu trúc với のが速い ở câu trước."
+            },
+            {
+              "point": "Vるのを忘れてしまいました",
+              "vi": "走るのを忘れてしまいました = đã quên chạy bộ. の danh từ hoá \"走る\" làm tân ngữ của 忘れる. てしまいました (Bài 29) = lỡ/đã lỡ."
+            }
+          ]
+        },
+        {
+          "jp": "サントスさんは「写真を撮るのが好きです。日本の町の写真をよく撮ります」と言いました。",
+          "vi": "Anh Santos nói \"Tôi thích chụp ảnh. Tôi hay chụp ảnh các con phố của Nhật Bản\".",
+          "vocab": [
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, bức ảnh"
+            },
+            {
+              "w": "撮ります",
+              "read": "とります",
+              "vi": "chụp (ảnh)"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn, phố phường"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが好きです",
+              "vi": "写真を撮るのが好きです = thích chụp ảnh. Mẫu trọng tâm của bài 38 lặp lại để củng cố."
+            }
+          ]
+        },
+        {
+          "jp": "「先週、電車の中で有名な景色を撮った写真のポスターを見ました。ああいう写真が撮れるようになりたいと思っています」と続けました。",
+          "vi": "\"Tuần trước trong tàu điện tôi thấy một tờ áp phích có những tấm ảnh phong cảnh nổi tiếng. Tôi đang mong muốn có thể chụp được những tấm ảnh như vậy\" anh tiếp tục.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "有名",
+              "read": "ゆうめい",
+              "vi": "nổi tiếng"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "phong cảnh, cảnh vật"
+            },
+            {
+              "w": "撮る",
+              "read": "とる",
+              "vi": "chụp ảnh, quay phim"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, hình chụp"
+            },
+            {
+              "w": "ポスター",
+              "read": "ポスター",
+              "vi": "áp phích, poster"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "撮れる",
+              "read": "とれる",
+              "vi": "có thể chụp"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "続けます",
+              "read": "つづけます",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "ああいう",
+              "read": "ああいう",
+              "vi": "như vậy, như thế kia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa — Bài 22）",
+              "vi": "有名な景色を撮った写真のポスター = áp phích có những tấm ảnh đã chụp phong cảnh nổi tiếng. Vた (撮った) bổ nghĩa cho 写真 (Bài 22). Cách đọc: [có名な景色を撮った]写真 → poser chứa bức ảnh đó."
+            },
+            {
+              "point": "Vるようになりたい（Bài 36）",
+              "vi": "撮れるようになりたい = muốn trở nên có thể chụp được. Vるようになる (Bài 36) + たい (Bài 13) = mong muốn thay đổi khả năng."
+            }
+          ]
+        },
+        {
+          "jp": "先生は「趣味はとても大切です。好きなことをするのは心にいいですよ」と言いました。",
+          "vi": "Giáo viên nói \"Sở thích rất quan trọng. Làm những điều mình thích thì tốt cho tinh thần đấy\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, quý giá"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "tâm, trái tim, tinh thần"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのは〜です（chủ đề）",
+              "vi": "好きなことをするのは心にいいです = việc làm những điều mình thích thì tốt cho tinh thần. の danh từ hoá cả cụm \"好きなことをする\" → làm chủ đề."
+            }
+          ]
+        },
+        {
+          "jp": "それから、「趣味で友達ができることも多いですね。みなさんの趣味のことをもっと知りたいです」と言いました。",
+          "vi": "Rồi thầy nói \"Qua sở thích cũng có thể kết bạn nhiều đấy nhỉ. Tôi muốn biết thêm về sở thích của các bạn\".",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "友達ができます",
+              "read": "ともだちができます",
+              "vi": "kết được bạn, có thêm bạn"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, thêm nữa"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "〜で",
+              "read": "で",
+              "vi": "bằng/qua (phương tiện, cách thức)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることも多い（Bài 18）",
+              "vi": "友達ができることも多い = cũng có nhiều trường hợp kết được bạn. こと danh từ hoá (Bài 18) + も多い."
+            },
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "もっと知りたいです = muốn biết thêm. たい biểu thị nguyện vọng của người nói."
+            }
+          ]
+        },
+        {
+          "jp": "授業の後で、みんなで趣味についていろいろ話しました。自分の好きなことを話すのは楽しかったです。",
+          "vi": "Sau buổi học, mọi người cùng nói chuyện nhiều về sở thích. Nói về điều mình thích thật vui.",
+          "vocab": [
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều thứ, đủ loại"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân, của mình"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị (tính từ い)"
+            },
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau khi, sau đó"
+            },
+            {
+              "w": "みんなで",
+              "read": "みんなで",
+              "vi": "mọi người cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのは〜かったです（quá khứ）",
+              "vi": "話すのは楽しかったです = việc nói (chuyện) thật vui. のは chủ đề + tính từ い quá khứ (Bài 12)."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは「今度、一緒に音楽を聴きに行きませんか」とみんなを誘いました。",
+          "vi": "Anh Miller rủ mọi người \"Hôm nào chúng ta cùng đi nghe nhạc không?\".",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "今度",
+              "read": "こんど",
+              "vi": "lần này, hôm nào đó"
+            },
+            {
+              "w": "一緒に",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "聴く",
+              "read": "きく",
+              "vi": "nghe (nhạc, âm thanh)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "誘います",
+              "read": "さそいます",
+              "vi": "rủ, mời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vに行きます（Bài 13）",
+              "vi": "音楽を聴きに行きませんか = (cùng) đi nghe nhạc không? Vます形 + に行く = đi để làm ~."
+            },
+            {
+              "point": "〜ませんか（Bài 6）",
+              "vi": "Câu mời/đề nghị lịch sự: ませんか = có muốn ~không?"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "音楽を聴くのが一番好きです",
+          "label": "Vるのが好きです（sở thích）"
+        },
+        {
+          "excerpt": "音楽を聴くのはリラックスできるし",
+          "label": "Vるのは〜（chủ đề hoá）"
+        },
+        {
+          "excerpt": "色を選ぶのも上手です",
+          "label": "Vるのが上手です"
+        },
+        {
+          "excerpt": "走るのが速いんです",
+          "label": "Vるのが速い（đánh giá）"
+        },
+        {
+          "excerpt": "走るのを忘れてしまいました",
+          "label": "Vるのを忘れました"
+        },
+        {
+          "excerpt": "好きなことをするのは心にいいですよ",
+          "label": "Vるのは〜（tổng kết）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんの趣味は何ですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "音楽を聴くことです",
+            "料理を作ることです",
+            "絵を描くことです",
+            "写真を撮ることです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Karina tự nói rõ:「私は絵を描くのが好きです。子供のころから好きなんです」— mẫu Vるのが好きです của Bài 38, kèm んです (Bài 26) nhấn mạnh đây là điều thật sự. Đáp án 0 sai — nghe nhạc (音楽を聴く) là sở thích của Miller, không phải Karina. Đáp án 1 sai — nấu ăn (料理を作る) là sở thích của Tanaka. Đáp án 3 sai — chụp ảnh (写真を撮る) là sở thích của Santos. Bài đọc này mỗi nhân vật nói sở thích khác nhau — cần gắn đúng người với đúng sở thích.",
+          "tip": "Bài đọc nhiều nhân vật: ghi nhanh sơ đồ \"tên → sở thích\" khi đọc lần đầu. Câu hỏi hỏi ai thì tìm đúng lời thoại của người đó (「〜は…と言いました」), đừng nhầm sang nhân vật khác.",
+          "qt": {
+            "q": "Sở thích của bạn Karina là gì?",
+            "o": [
+              "Nghe nhạc",
+              "Nấu ăn",
+              "Vẽ tranh",
+              "Chụp ảnh"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんはどうして昨日走りませんでしたか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "体の調子が悪かったからです",
+            "走るのが嫌いになったからです",
+            "起きるのが遅かったから、走るのを忘れてしまいました",
+            "雨が降っていたから、走れませんでした"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài ghi nguyên văn lời Wang:「昨日は起きるのが遅くて、走るのを忘れてしまいました」— câu này dùng liên tiếp hai mẫu của Bài 38: (1) 起きるのが遅くて = việc dậy muộn (のが遅い, tương tự のが速い ở câu trước), (2) 走るのを忘れてしまいました = đã quên chạy bộ (のを忘れる). Đáp án 0 sai — bài không nhắc đến sức khoẻ kém. Đáp án 1 sai và đối lập — bài nói Wang thích thể thao (スポーツが好きです) và chạy mỗi sáng. Đáp án 3 sai — bài không đề cập trời mưa.",
+          "tip": "Câu hỏi \"どうして〜しませんでしたか\" → tìm mẫu「〜て、〜てしまいました」hoặc「〜のを忘れた」trong bài. Chú ý: câu có hai mệnh đề nối bằng て thường trình bày CẢ CHUỖI NGUYÊN NHÂN → KẾT QUẢ.",
+          "qt": {
+            "q": "Tại sao hôm qua bạn Wang không chạy?",
+            "o": [
+              "Vì tình trạng sức khỏe không tốt",
+              "Vì đã không còn thích chạy nữa",
+              "Vì thức dậy muộn nên đã quên chạy",
+              "Vì trời mưa nên không thể chạy"
+            ]
+          }
+        },
+        {
+          "q": "先生は「好きなことをするのはどうだ」と言いましたか。",
+          "evi": [
+            12
+          ],
+          "options": [
+            "「時間がかかるから、あまりよくない」と言いました",
+            "「心にいい」と言いました",
+            "「友達が減る」と言いました",
+            "「むずかしいから、やめたほうがいい」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài dẫn lời giáo viên:「好きなことをするのは心にいいですよ」— mẫu Vるのは〜 của Bài 38: の danh từ hoá cả cụm「好きなことをする」làm chủ đề, vế nhận xét là「心にいい」(tốt cho tinh thần). Đáp án 0 sai và ngược chiều — giáo viên nói趣味は大切 (quan trọng), không phải không tốt. Đáp án 2 sai hoàn toàn và ngược lại —「趣味で友達ができることも多い」= có thể kết bạn nhiều hơn. Đáp án 3 sai vì nội dung này hoàn toàn không xuất hiện trong lời thầy — đây là bẫy thêm từ ngữ nghe có vẻ hợp lý nhưng bịa ra.",
+          "tip": "Câu hỏi về lời thầy giáo → tìm「先生は〜と言いました」trong bài. Loại ngay đáp án CÓ NỘI DUNG NGƯỢC với bài (tốt↔không tốt, tăng↔giảm bạn bè). Chỉ chọn đáp án có thể trích thẳng từ bài.",
+          "qt": {
+            "q": "Giáo viên nói rằng việc làm điều mình thích thì thế nào?",
+            "o": [
+              "Nói rằng 「時間がかかるから、あまりよくない」 (vì tốn thời gian nên không tốt lắm)",
+              "Nói rằng 「心にいい」 (tốt cho tinh thần)",
+              "Nói rằng 「友達が減る」 (bạn bè sẽ ít đi)",
+              "Nói rằng 「むずかしいから、やめたほうがいい」 (vì khó nên tốt hơn là nên dừng lại)"
+            ]
+          }
+        },
+        {
+          "q": "この授業から分かることは何ですか。（推論）",
+          "evi": [
+            2,
+            6,
+            14
+          ],
+          "options": [
+            "みんな同じ趣味を持っています",
+            "ミラーさんは料理を作るのが一番好きです",
+            "学生たちはそれぞれ違う趣味を持っていて、趣味について話すのを楽しみました",
+            "田中さんは趣味がないから、料理教室に通い始めました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài liệt kê sở thích của từng người: Miller (音楽を聴く), Karina (絵を描く), Tanaka (料理を作る), Wang (走る), Santos (写真を撮る) — mỗi người khác nhau. Câu áp cuối xác nhận cảm xúc:「自分の好きなことを話すのは楽しかったです」= việc nói về điều mình thích thật vui (mẫu のは〜かったです). Đáp án 0 sai vì các sở thích RÕ RÀNG khác nhau. Đáp án 1 sai vì Miller nói「音楽を聴くのが一番好きです」(nhạc, không phải nấu ăn). Đáp án 3 sai và bịa ra lý do — bài nói Tanaka thích nấu ăn (料理を作るのが趣味です), không nói \"không có趣味\".",
+          "tip": "Câu推論 tổng kết: kiểm tra từng đáp án xem có MÂU THUẪN với nội dung bài không. Đáp án đúng thường phải khái quát được NHIỀU CHI TIẾT trong bài, không chỉ một người hay một sự kiện.",
+          "qt": {
+            "q": "Có thể hiểu được điều gì từ buổi học này? (suy luận)",
+            "o": [
+              "Mọi người đều có cùng một sở thích",
+              "Bạn Miller thích nấu ăn nhất",
+              "Các học viên có những sở thích khác nhau và đã vui vẻ trò chuyện về sở thích",
+              "Bạn Tanaka bắt đầu tham gia lớp học nấu ăn vì không có sở thích"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Tuyển thành viên câu lạc bộ sở thích",
+      "japanese": "さくら市国際交流センター　趣味クラブ会員募集\n走ったり、料理を作ったり、写真を撮ったりするのが好きな人はいませんか。一緒に趣味クラブに入りませんか。\nクラブ｜曜日｜時間｜会費\nランニング｜火・木｜午前7時〜8時｜月500円\n料理｜土｜午後2時〜4時｜月1,200円\n写真｜日｜午後1時〜3時｜月800円\nランニングクラブは、走るのが好きな人ならだれでも参加できます。\n料理クラブは、材料費がかかりますから、少し高いです。\n写真クラブは、写真を撮るのが好きな人だけではなく、写真を見るのが好きな人も参加できます。\n※申し込む前に、一度クラブの見学に来てください。\n※会費を払うのを忘れないでください。忘れた人は、その月は参加できません。\n国際交流センター　電話：042-555-3210（月〜金　9:00〜17:00）",
+      "vietnamese": "Trung tâm giao lưu quốc tế thành phố Sakura tuyển thành viên câu lạc bộ sở thích\nBạn có phải là người thích chạy bộ, thích nấu ăn, hay thích chụp ảnh không? Hãy cùng tham gia câu lạc bộ sở thích với chúng tôi nhé.\nCâu lạc bộ｜Thứ｜Giờ｜Hội phí\nChạy bộ｜Thứ Ba・Thứ Năm｜7:00〜8:00 sáng｜500 yên/tháng\nNấu ăn｜Thứ Bảy｜14:00〜16:00｜1.200 yên/tháng\nẢnh｜Chủ Nhật｜13:00〜15:00｜800 yên/tháng\nCâu lạc bộ chạy bộ thì bất kỳ ai thích chạy bộ đều có thể tham gia.\nCâu lạc bộ nấu ăn tốn phí nguyên liệu nên hơi đắt hơn một chút.\nCâu lạc bộ ảnh không chỉ dành cho người thích chụp ảnh, mà người thích ngắm ảnh cũng có thể tham gia.\n※Trước khi đăng ký, hãy đến tham quan câu lạc bộ một lần.\n※Xin đừng quên đóng hội phí. Người quên sẽ không thể tham gia trong tháng đó.\nTrung tâm giao lưu quốc tế　Điện thoại: 042-555-3210 (Thứ Hai〜Thứ Sáu　9:00〜17:00)",
+      "sentences": [
+        {
+          "jp": "さくら市国際交流センター　趣味クラブ会員募集",
+          "vi": "Trung tâm giao lưu quốc tế thành phố Sakura tuyển thành viên câu lạc bộ sở thích",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "thành viên, hội viên"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "tuyển, chiêu mộ"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "趣味クラブ会員募集",
+              "why": "Tiêu đề thông báo — xác định chủ đề: tuyển thành viên câu lạc bộ sở thích."
+            }
+          ]
+        },
+        {
+          "jp": "走ったり、料理を作ったり、写真を撮ったりするのが好きな人はいませんか。一緒に趣味クラブに入りませんか。",
+          "vi": "Bạn có phải là người thích chạy bộ, thích nấu ăn, hay thích chụp ảnh không? Hãy cùng tham gia câu lạc bộ sở thích với chúng tôi nhé.",
+          "vocab": [
+            {
+              "w": "走ります",
+              "read": "はしります",
+              "vi": "chạy"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, nấu ăn"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh"
+            },
+            {
+              "w": "撮る",
+              "read": "とる",
+              "vi": "chụp ảnh, quay phim"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "gia nhập, vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたり Vたりするのが好き（Bài 19 + Bài 38）",
+              "vi": "走ったり、料理を作ったり、写真を撮ったりするの = việc (khi thì) chạy bộ, (khi thì) nấu ăn, (khi thì) chụp ảnh. Vたり (Bài 19: liệt kê vài hành động tiêu biểu) + する được danh từ hoá bằng の (Bài 38) rồi đi kèm が好きな人 (người thích ~)."
+            },
+            {
+              "point": "〜ませんか（Bài 6）",
+              "vi": "趣味クラブに入りませんか = bạn có muốn gia nhập câu lạc bộ sở thích không? Câu mời lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "走ったり、料理を作ったり、写真を撮ったりする",
+              "why": "Liệt kê 3 mảng hoạt động của 3 câu lạc bộ — mở đầu để đối chiếu với bảng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "クラブ｜曜日｜時間｜会費",
+          "vi": "Câu lạc bộ｜Thứ｜Giờ｜Hội phí",
+          "vocab": [
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "hội phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "クラブ｜曜日｜時間｜会費",
+              "why": "Header bảng — 4 cột cần dò khi ghép điều kiện của nhân vật."
+            }
+          ]
+        },
+        {
+          "jp": "ランニング｜火・木｜午前7時〜8時｜月500円",
+          "vi": "Chạy bộ｜Thứ Ba・Thứ Năm｜7:00〜8:00 sáng｜500 yên/tháng",
+          "vocab": [
+            {
+              "w": "ランニング",
+              "read": "ランニング",
+              "vi": "chạy bộ"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "7時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "火・木",
+              "why": "Ngày họp câu lạc bộ chạy bộ — khớp lịch rảnh của Lý (火曜日と木曜日の朝) ở câu hỏi 1."
+            },
+            {
+              "w": "午前7時〜8時",
+              "why": "Khung giờ sáng — khớp \"朝\" (buổi sáng) mà Lý rảnh."
+            },
+            {
+              "w": "月500円",
+              "why": "Hội phí rẻ nhất trong 3 câu lạc bộ — bẫy nếu chọn theo giá mà không xét sở thích ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "料理｜土｜午後2時〜4時｜月1,200円",
+          "vi": "Nấu ăn｜Thứ Bảy｜14:00〜16:00｜1.200 yên/tháng",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "nấu ăn; món ăn"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "2時",
+              "read": "にじ",
+              "vi": "2 giờ"
+            },
+            {
+              "w": "4時",
+              "read": "よじ",
+              "vi": "4 giờ"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "1,200円",
+              "read": "せんにひゃくえん",
+              "vi": "1.200 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "土",
+              "why": "Câu lạc bộ nấu ăn họp thứ Bảy — trùng lịch Lý bận đi làm → loại ở câu hỏi 1."
+            },
+            {
+              "w": "月1,200円",
+              "why": "Hội phí đắt nhất — dễ bị nhầm gán cho câu lạc bộ ảnh ở câu hỏi 2 (bẫy số tiền sai câu lạc bộ)."
+            }
+          ]
+        },
+        {
+          "jp": "写真｜日｜午後1時〜3時｜月800円",
+          "vi": "Ảnh｜Chủ Nhật｜13:00〜15:00｜800 yên/tháng",
+          "vocab": [
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "1時",
+              "read": "いちじ",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "3時",
+              "read": "さんじ",
+              "vi": "3 giờ"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "800円",
+              "read": "はっぴゃくえん",
+              "vi": "800 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "日",
+              "why": "Câu lạc bộ ảnh họp Chủ Nhật — trùng lịch Lý bận đi làm → loại ở câu hỏi 1."
+            },
+            {
+              "w": "月800円",
+              "why": "Hội phí đúng của câu lạc bộ ảnh — căn cứ số tiền cho câu hỏi 2 (Watt thích chụp ảnh)."
+            }
+          ]
+        },
+        {
+          "jp": "ランニングクラブは、走るのが好きな人ならだれでも参加できます。",
+          "vi": "Câu lạc bộ chạy bộ thì bất kỳ ai thích chạy bộ đều có thể tham gia.",
+          "vocab": [
+            {
+              "w": "ランニング",
+              "read": "ランニング",
+              "vi": "chạy bộ"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "走る",
+              "read": "はしる",
+              "vi": "chạy, thiên về"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが好きな人（Bài 38）",
+              "vi": "走るのが好きな人 = người thích chạy bộ. の danh từ hoá \"走る\" + が好き (Bài 9) + な人 (tính từ な bổ nghĩa danh từ, Bài 8). Điều kiện tuyển của câu lạc bộ chạy bộ."
+            },
+            {
+              "point": "Nならだれでも（Bài 20 ôn: 普通形 điều kiện）",
+              "vi": "好きな人ならだれでも = nếu là người thích thì bất kỳ ai cũng. なら làm điều kiện theo chủ đề, だれでも = ai cũng được."
+            }
+          ],
+          "keys": [
+            {
+              "w": "走るのが好きな人ならだれでも参加できます",
+              "why": "Điều kiện tham gia câu lạc bộ chạy bộ: chỉ cần thích chạy, không giới hạn gì thêm."
+            }
+          ]
+        },
+        {
+          "jp": "料理クラブは、材料費がかかりますから、少し高いです。",
+          "vi": "Câu lạc bộ nấu ăn tốn phí nguyên liệu nên hơi đắt hơn một chút.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "材料",
+              "read": "ざいりょう",
+              "vi": "nguyên liệu"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "đắt, cao"
+            },
+            {
+              "w": "材料費",
+              "read": "ざいりょうひ",
+              "vi": "phí nguyên liệu"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn, mất (tiền, thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（lý do — Bài 9）",
+              "vi": "材料費がかかりますから = vì tốn phí nguyên liệu nên. từ nối lý do (đã học Bài 9) giải thích vì sao hội phí câu lạc bộ nấu ăn cao hơn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "材料費がかかりますから、少し高いです",
+              "why": "Giải thích lý do hội phí cao hơn — không phải điều kiện tuyển, dễ gây nhiễu nếu đọc lướt."
+            }
+          ]
+        },
+        {
+          "jp": "写真クラブは、写真を撮るのが好きな人だけではなく、写真を見るのが好きな人も参加できます。",
+          "vi": "Câu lạc bộ ảnh không chỉ dành cho người thích chụp ảnh, mà người thích ngắm ảnh cũng có thể tham gia.",
+          "vocab": [
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, hình chụp"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "撮る",
+              "read": "とる",
+              "vi": "chụp ảnh, quay phim"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "見ます",
+              "read": "みます",
+              "vi": "xem, ngắm"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "〜だけではなく",
+              "read": "だけではなく",
+              "vi": "không chỉ ~ (mà còn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのが好きな人（Bài 38）",
+              "vi": "写真を撮るのが好きな人 / 写真を見るのが好きな人 = người thích chụp ảnh / người thích ngắm ảnh. の danh từ hoá \"撮る\"・\"見る\" + が好き (Bài 9) + な人, lặp lại mẫu trọng tâm bài 38 để mở rộng điều kiện tham gia câu lạc bộ ảnh."
+            }
+          ],
+          "keys": [
+            {
+              "w": "写真を撮るのが好きな人だけではなく",
+              "why": "Xác nhận câu lạc bộ ảnh nhận cả người thích chụp ảnh — bổ trợ cho câu hỏi 2, nhưng giá tiền quyết định vẫn phải tra ở dòng bảng 写真 (không phải dòng này)."
+            }
+          ]
+        },
+        {
+          "jp": "※申し込む前に、一度クラブの見学に来てください。",
+          "vi": "※Trước khi đăng ký, hãy đến tham quan câu lạc bộ một lần.",
+          "vocab": [
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký, xin gia nhập"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "一度",
+              "read": "いちど",
+              "vi": "một lần"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan, dự thính"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに（Bài 18）",
+              "vi": "申し込むまえに = trước khi đăng ký. Vる (辞書形) + まえに đã học ở Bài 18."
+            },
+            {
+              "point": "Vに来てください（Bài 5 + Bài 14）",
+              "vi": "見学に来てください = hãy đến tham quan. Vます-stem＋に来る (mục đích di chuyển, Bài 5) + てください (Bài 14, đề nghị lịch sự)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※申し込む前に、一度クラブの見学に来てください",
+              "why": "Dòng ※ bẫy: điều kiện bắt buộc trước khi đăng ký, không liên quan trực tiếp đến 2 câu hỏi nhưng dễ gây rối khi dò bảng."
+            }
+          ]
+        },
+        {
+          "jp": "※会費を払うのを忘れないでください。忘れた人は、その月は参加できません。",
+          "vi": "※Xin đừng quên đóng hội phí. Người quên sẽ không thể tham gia trong tháng đó.",
+          "vocab": [
+            {
+              "w": "会費",
+              "read": "かいひ",
+              "vi": "hội phí"
+            },
+            {
+              "w": "払います",
+              "read": "はらいます",
+              "vi": "trả, thanh toán"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのを忘れないでください（Bài 38 + Bài 17）",
+              "vi": "会費を払うのを忘れないでください = xin đừng quên đóng hội phí. の danh từ hoá \"払う\" làm tân ngữ của 忘れる (mẫu trọng tâm Bài 38), kết hợp với Vないでください (Bài 17: xin đừng làm ~)."
+            },
+            {
+              "point": "Vた＋N（mệnh đề bổ nghĩa — Bài 22）",
+              "vi": "忘れた人 = người (đã) quên. Vた (忘れた) bổ nghĩa cho danh từ 人, chỉ người thuộc trường hợp đó."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会費を払うのを忘れないでください",
+              "why": "Dòng ※ bẫy: quên đóng hội phí sẽ không được tham gia tháng đó — điều kiện phụ, không phải căn cứ chọn câu lạc bộ."
+            }
+          ]
+        },
+        {
+          "jp": "国際交流センター　電話：042-555-3210（月〜金　9:00〜17:00）",
+          "vi": "Trung tâm giao lưu quốc tế　Điện thoại: 042-555-3210 (Thứ Hai〜Thứ Sáu　9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời",
+          "topic": 0,
+          "note": "Giới thiệu thông báo tuyển thành viên câu lạc bộ sở thích và mời tham gia — chưa có căn cứ trả lời câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng ngày/giờ/hội phí",
+          "topic": 2,
+          "note": "Bảng chính chứa 曜日・時間・会費 của 3 câu lạc bộ — căn cứ trực tiếp để ghép lịch rảnh (câu 1) và giá tiền (câu 2).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "point",
+          "label": "Điều kiện tham gia từng câu lạc bộ",
+          "topic": 8,
+          "note": "Giải thích điều kiện tuyển của từng câu lạc bộ, đặc biệt câu lạc bộ ảnh nhận cả người thích chụp lẫn thích ngắm ảnh — căn cứ chọn đúng câu lạc bộ theo sở thích (câu 2).",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Điều kiện ※ bẫy",
+          "topic": 10,
+          "note": "Hai dòng ※ nêu điều kiện phụ (phải đi tham quan trước, không được quên đóng phí) — không phải căn cứ chọn câu lạc bộ, dễ gây nhiễu nếu nhầm là điều kiện chính.",
+          "qs": []
+        },
+        {
+          "from": 11,
+          "to": 11,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 11,
+          "note": "Số điện thoại và giờ làm việc của trung tâm — thông tin liên hệ, không liên quan câu hỏi.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "走るのが好きな人ならだれでも参加できます",
+          "label": "Vるのが好きな人（điều kiện tuyển — Bài 38）"
+        },
+        {
+          "excerpt": "会費を払うのを忘れないでください",
+          "label": "Vるのを忘れないでください（Bài 38）"
+        },
+        {
+          "excerpt": "材料費がかかりますから",
+          "label": "〜から（lý do — Bài 9, ôn lại）"
+        },
+        {
+          "excerpt": "申し込む前に",
+          "label": "Vるまえに（Bài 18, ôn lại）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは火曜日と木曜日の朝、時間があります。でも、土曜日と日曜日は仕事があって、参加できません。リーさんが参加できるクラブはどれですか。",
+          "options": [
+            "料理クラブ",
+            "写真クラブ",
+            "ランニングクラブ",
+            "どのクラブにも参加できません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2 (ランニングクラブ). Bảng ghi rõ:「ランニング｜火・木｜午前7時〜8時｜月500円」— câu lạc bộ chạy bộ họp vào thứ Ba và thứ Năm buổi sáng, đúng khung thời gian Lý rảnh (火曜日と木曜日の朝). Đáp án 0 (料理クラブ) sai vì họp thứ Bảy (土), lúc Lý đang bận đi làm. Đáp án 1 (写真クラブ) sai vì họp Chủ Nhật (日), cũng trùng lịch bận của Lý. Đáp án 3 sai vì đã có một câu lạc bộ khớp lịch — không phải \"không tham gia được câu lạc bộ nào\".",
+          "tip": "Câu hỏi ghép NGÀY + GIỜ rảnh của nhân vật với cột 曜日・時間 trong bảng. Đọc kỹ nhân vật RẢNH lúc nào và BẬN lúc nào rồi loại các câu lạc bộ trùng lịch bận.",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Anh Lee có thời gian vào buổi sáng thứ Ba và thứ Năm. Nhưng thứ Bảy và Chủ nhật anh ấy phải làm việc nên không thể tham gia. Anh Lee có thể tham gia câu lạc bộ nào?",
+            "o": [
+              "Câu lạc bộ nấu ăn",
+              "Câu lạc bộ nhiếp ảnh",
+              "Câu lạc bộ chạy bộ",
+              "Không thể tham gia câu lạc bộ nào"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは写真を撮るのが好きです。会費をできるだけ安くしたいと思っています。ワットさんはどのクラブに申し込んで、一か月いくら払いますか。",
+          "options": [
+            "料理クラブに申し込んで、1,200円払います",
+            "写真クラブに申し込んで、800円払います",
+            "ランニングクラブに申し込んで、500円払います",
+            "写真クラブに申し込んで、1,200円払います"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Đề bài ghép 2 điều kiện: (1) ワットさんは写真を撮るのが好き → sở thích khớp với 写真クラブ (câu lạc bộ ảnh); (2) 会費をできるだけ安くしたい → trong các câu lạc bộ, Watt chỉ có thể chọn câu lạc bộ khớp sở thích của mình, và bảng ghi rõ「写真｜日｜午後1時〜3時｜月800円」→ hội phí 800円/tháng. Đáp án 0 sai vì料理クラブ (nấu ăn) không khớp sở thích chụp ảnh của Watt, dù giá 1,200円 đúng là của câu lạc bộ đó. Đáp án 2 sai vì tuy 500円 rẻ nhất nhưng ランニングクラブ (chạy bộ) không phải sở thích của Watt. Đáp án 3 sai vì tuy đúng câu lạc bộ (写真) nhưng SAI SỐ TIỀN — 1,200円 là giá của料理クラブ, không phải写真クラブ.",
+          "tip": "Câu hỏi ghép SỞ THÍCH + GIÁ TIỀN: trước tiên xác định câu lạc bộ đúng theo sở thích, sau đó mới tra đúng cột 会費 của CHÍNH câu lạc bộ đó — đừng nhầm giá của câu lạc bộ khác dù nghe \"rẻ hơn\".",
+          "evi": [
+            3,
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Anh Watt thích chụp ảnh. Anh ấy muốn phí hội viên rẻ nhất có thể. Anh Watt đăng ký câu lạc bộ nào và trả bao nhiêu cho một tháng?",
+            "o": [
+              "Đăng ký câu lạc bộ nấu ăn và trả 1.200 yên",
+              "Đăng ký câu lạc bộ nhiếp ảnh và trả 800 yên",
+              "Đăng ký câu lạc bộ chạy bộ và trả 500 yên",
+              "Đăng ký câu lạc bộ nhiếp ảnh và trả 1.200 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

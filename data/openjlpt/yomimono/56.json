@@ -1,0 +1,3577 @@
+{
+  "bai": 56,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 56 luyện 〜間に và 〜間: hai mẫu thời gian liên quan đến \"trong khoảng thời gian\" nhưng khác nhau về sắc thái. 間に = một sự việc XẢY RA TẠI MỘT ĐIỂM trong khoảng (điểm, không kéo dài); 間 = hành động/trạng thái KÉO DÀI SUỐT CẢ khoảng đó (liên tục từ đầu đến cuối). Phân biệt thêm với うちに (Bài 55 đã học): うちに nhấn \"tranh thủ trước khi trạng thái đổi\" (có sắc thái chủ ý); 間に chỉ đơn thuần mô tả khoảng thời gian trung tính (không cần tranh thủ, chỉ kể sự việc). Đọc hiểu: chú ý sau 間 có に hay không — đó là chìa khóa phân biệt điểm/suốt.",
+    "steps": [
+      "接続 của 間に: Vている/Vない・Aい・なAな・Nの + 間に. Câu \"sự việc xảy ra TRONG LÚC\" = dùng 間に (hành động phụ là điểm, không kéo dài).",
+      "接続 của 間: Vている/Nの + 間（に を 省略）. Câu \"hành động KÉO DÀI SUỐT cả khoảng\" = dùng 間 (không có に, thường đi với ずっと).",
+      "Nhận dạng nhanh: thấy 間に → tìm sự việc ngắn bất ngờ. Thấy 間（ずっと・〜し続けた）→ hành động liên tục.",
+      "Đối chiếu うちに (Bài 55): \"若いうちに挑戦しよう\" (tranh thủ, có ý chí); ≠ \"出かけている間に荷物が届いた\" (trung tính, chỉ kể).",
+      "Câu hỏi sắc thái: \"Vì sao dùng 間に chứ không dùng うちに/間?\" → giải thích bằng điểm vs suốt vs tranh thủ.",
+      "Ôn lại てしまう (B29) khi gặp hành động ngoài ý muốn xảy ra trong khoảng; ので (B39) nêu lý do; てきた (B43) hành động đến gần."
+    ],
+    "tips": [
+      "使い分け 1 — 間に vs 間: \"寝ている間に地震が起きた\"（地震 = sự kiện tức thời → 間に）≠ \"寝ている間ずっと夢を見ていた\"（ずっと kéo dài → 間）. Dấu hiệu: có ずっと/〜し続ける → dùng 間.",
+      "使い分け 2 — 間に vs うちに: 間に = trung tính, chỉ kể thời điểm; うちに = có sắc thái tranh thủ/cảnh báo. \"若いうちに\" (tranh thủ) ≠ \"若い間に\" (chỉ mô tả khoảng tuổi trẻ). Bài thi hay hỏi chọn đúng theo ngữ cảnh.",
+      "間に đi với sự việc NGOÀI Ý MUỐN hoặc TỰ NHIÊN xảy ra (泥棒が入った, 赤ちゃんが泣いた). 間 đi với hành động CHỦ ĐỘNG KÉO DÀI (勉強し続けた, 眠り続けた).",
+      "Nhận dạng trong câu hỏi: hỏi \"〜の間に何が起きましたか\" → tìm sự kiện ngắn trong bài; hỏi \"〜の間どうしていましたか\" → tìm hành động liên tục."
+    ],
+    "grammarFocus": [
+      "〜間に（Vている/Nの + 間に）— sự việc xảy ra TẠI MỘT ĐIỂM trong khoảng",
+      "〜間（Vている/Nの + 間）— hành động/trạng thái kéo dài SUỐT khoảng"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 55,
+        "items": [
+          "〜うちに（tranh thủ trước khi trạng thái đổi — đối chiếu với 間に）"
+        ]
+      },
+      {
+        "bai": 43,
+        "items": [
+          "〜てきた（hành động đến gần người nói）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "〜てしまいました（hoàn thành ngoài ý muốn/tiếc nuối）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "留守の間に",
+      "titleVi": "Trong lúc vắng nhà",
+      "japanese": "今日、買い物に出かけた。出かけている間に、宅配便が届いてしまった。受け取れなかったので、不在通知が郵便受けに入っていた。家を空けている間、ずっと雨が降り続けていたらしい。帰ってきたら、庭がびしょびしょに濡れていた。家の中に入ると、飼っている猫が鳴き続けていた。どうやら、出かけている間に何か怖いものを見たのかもしれない。あとで調べたら、近所で工事が始まったとのことだった。次に出かける時は、猫のことが心配なので、できるだけ短い時間にするつもりだ。",
+      "vietnamese": "Hôm nay tôi ra ngoài mua đồ. Trong lúc tôi vắng nhà, gói hàng đã được giao đến mà tôi không nhận được. Vì không nhận được nên phiếu báo vắng mặt đã được bỏ vào hộp thư. Trong suốt thời gian tôi vắng nhà, trời mưa mãi không ngừng. Khi về đến nhà, sân vườn ướt sũng hết cả. Vừa bước vào trong nhà, con mèo nuôi cứ kêu mãi. Có lẽ trong lúc tôi ra ngoài, nó đã thấy điều gì đó đáng sợ. Sau khi tra hỏi thì thấy gần đây có công trình xây dựng bắt đầu. Lần sau ra ngoài, vì lo cho mèo nên tôi định sẽ để thời gian ngắn thôi.",
+      "sentences": [
+        {
+          "jp": "今日、買い物に出かけた。",
+          "vi": "Hôm nay tôi ra ngoài mua đồ.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua đồ, mua sắm"
+            },
+            {
+              "w": "出かけます",
+              "read": "でかけます",
+              "vi": "ra ngoài, đi ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vに行く/来る（Bài 13）",
+              "vi": "買い物に出かけた = ra ngoài để mua đồ. Vます（bỏ ます）に + động từ di chuyển = mục đích di chuyển (Bài 13)."
+            }
+          ]
+        },
+        {
+          "jp": "出かけている間に、宅配便が届いてしまった。",
+          "vi": "Trong lúc tôi vắng nhà, gói hàng đã được giao đến mà tôi không nhận được.",
+          "vocab": [
+            {
+              "w": "出かける",
+              "read": "でかける",
+              "vi": "ra ngoài, đi ra ngoài"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "宅配",
+              "read": "たくはい",
+              "vi": "giao hàng tận nhà"
+            },
+            {
+              "w": "届きます",
+              "read": "とどきます",
+              "vi": "đến nơi, được giao đến"
+            },
+            {
+              "w": "宅配便",
+              "read": "たくはいびん",
+              "vi": "dịch vụ giao hàng tận nhà, bưu kiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に",
+              "vi": "接続: Vている（出かけている）+ 間に. 出かけている間に = \"trong lúc đang ra ngoài\" — sự việc 宅配便が届く xảy ra TẠI MỘT ĐIỂM trong khoảng đó (giao hàng là hành động ngắn/điểm, không kéo dài suốt). Sắc thái: 間に TRUNG TÍNH (chỉ kể), khác うちに (Bài 55 — nhấn tranh thủ/chủ ý). Nếu dùng 間 (không có に) thì sai vì đó phải là hành động liên tục suốt khoảng."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "届いてしまった = đã được giao (mà không nhận được — sắc thái tiếc/ngoài ý muốn). てしまう (Bài 29) diễn đạt kết quả hoàn thành với hàm ý luyến tiếc hoặc không mong muốn."
+            }
+          ]
+        },
+        {
+          "jp": "受け取れなかったので、不在通知が郵便受けに入っていた。",
+          "vi": "Vì không nhận được nên phiếu báo vắng mặt đã được bỏ vào hộp thư.",
+          "vocab": [
+            {
+              "w": "受け取ります",
+              "read": "うけとります",
+              "vi": "nhận (hàng, thư)"
+            },
+            {
+              "w": "不在",
+              "read": "ふざい",
+              "vi": "vắng mặt, vắng nhà"
+            },
+            {
+              "w": "通知",
+              "read": "つうち",
+              "vi": "thông báo"
+            },
+            {
+              "w": "郵便受け",
+              "read": "ゆうびんうけ",
+              "vi": "hộp thư"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "不在通知",
+              "read": "ふざいつうち",
+              "vi": "phiếu báo không có mặt ở nhà"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "受け取れなかったので = vì không nhận được. ので nêu lý do lịch sự (Bài 39). Ở đây là lý do cho việc có phiếu báo."
+            },
+            {
+              "point": "V可能形の否定（Bài 27）",
+              "vi": "受け取れなかった = không nhận được (không thể nhận). 可能形 受け取れる + ない + た (Bài 27)."
+            }
+          ]
+        },
+        {
+          "jp": "家を空けている間、ずっと雨が降り続けていたらしい。",
+          "vi": "Trong suốt thời gian tôi vắng nhà, trời mưa mãi không ngừng.",
+          "vocab": [
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "空ける",
+              "read": "あける",
+              "vi": "để trống, vắng nhà"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "mãi, suốt, liên tục"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降る",
+              "read": "ふる",
+              "vi": "(mưa/tuyết) rơi, xuống"
+            },
+            {
+              "w": "家を空けます",
+              "read": "いえをあけます",
+              "vi": "vắng nhà, để nhà trống"
+            },
+            {
+              "w": "降り続けます",
+              "read": "ふりつづけます",
+              "vi": "mưa mãi, tiếp tục mưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（không có に）",
+              "vi": "接続: Vている（家を空けている）+ 間. 家を空けている間ずっと = \"suốt TOÀN BỘ khoảng thời gian vắng nhà\" — trời mưa LIÊN TỤC từ đầu đến cuối, không chỉ tại một điểm. Sắc thái: 間（không có に）+ ずっと = hành động/trạng thái kéo dài đều suốt khoảng, đối chiếu 間に (câu trước) = chỉ xảy ra tại một điểm. Đây là sự khác biệt cốt lõi."
+            },
+            {
+              "point": "〜らしい（Bài 47）",
+              "vi": "降り続けていたらしい = nghe nói / hình như mưa mãi không ngừng. らしい = truyền đạt thông tin từ bên ngoài (Bài 47)."
+            }
+          ]
+        },
+        {
+          "jp": "帰ってきたら、庭がびしょびしょに濡れていた。",
+          "vi": "Khi về đến nhà, sân vườn ướt sũng hết cả.",
+          "vocab": [
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về"
+            },
+            {
+              "w": "庭",
+              "read": "にわ",
+              "vi": "sân vườn"
+            },
+            {
+              "w": "びしょびしょ",
+              "read": "びしょびしょ",
+              "vi": "ướt sũng, ướt đẫm"
+            },
+            {
+              "w": "濡れます",
+              "read": "ぬれます",
+              "vi": "bị ướt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "帰ってきたら = khi về thì (sau khi về). たら nêu điều kiện/thời điểm cụ thể (Bài 25)."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "帰ってきた = đã về (đến chỗ người nói). てくる = hành động di chuyển về phía người nói (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "家の中に入ると、飼っている猫が鳴き続けていた。",
+          "vi": "Vừa bước vào trong nhà, con mèo nuôi cứ kêu mãi.",
+          "vocab": [
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "bước vào"
+            },
+            {
+              "w": "飼います",
+              "read": "かいます",
+              "vi": "nuôi (thú)"
+            },
+            {
+              "w": "猫",
+              "read": "ねこ",
+              "vi": "mèo"
+            },
+            {
+              "w": "鳴く",
+              "read": "なく",
+              "vi": "kêu, hót"
+            },
+            {
+              "w": "家の中",
+              "read": "いえのなか",
+              "vi": "trong nhà"
+            },
+            {
+              "w": "鳴き続けます",
+              "read": "なきつづけます",
+              "vi": "kêu mãi, tiếp tục kêu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "入ると = vừa bước vào thì. と = kết quả tự nhiên/tức thì sau hành động (Bài 23)."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "飼っている猫 = con mèo (đang) nuôi. Vている bổ nghĩa cho 猫 (Bài 22)."
+            }
+          ]
+        },
+        {
+          "jp": "どうやら、出かけている間に何か怖いものを見たのかもしれない。",
+          "vi": "Có lẽ trong lúc tôi ra ngoài, nó đã thấy điều gì đó đáng sợ.",
+          "vocab": [
+            {
+              "w": "どうやら",
+              "read": "どうやら",
+              "vi": "hình như"
+            },
+            {
+              "w": "出かけている",
+              "read": "でかけている",
+              "vi": "đang đi vắng"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "trong lúc"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "thứ gì đó"
+            },
+            {
+              "w": "怖い",
+              "read": "こわい",
+              "vi": "đáng sợ"
+            },
+            {
+              "w": "もの",
+              "read": "もの",
+              "vi": "thứ, vật"
+            },
+            {
+              "w": "見た",
+              "read": "みた",
+              "vi": "đã thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 2）",
+              "vi": "Lần thứ hai: 出かけている間に = \"trong lúc đang ra ngoài\" — mèo nhìn thấy điều gì đó (điểm, tức thời). 間に tiếp tục nhấn sự kiện ngắn xảy ra trong khoảng. Reinforcement: 間に = điểm, không phải suốt."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "見たのかもしれない = có lẽ đã nhìn thấy (không chắc chắn). かもしれない = khả năng (Bài 32)."
+            }
+          ]
+        },
+        {
+          "jp": "あとで調べたら、近所で工事が始まったとのことだった。",
+          "vi": "Sau khi tra hỏi thì thấy gần đây có công trình xây dựng bắt đầu.",
+          "vocab": [
+            {
+              "w": "調べます",
+              "read": "しらべます",
+              "vi": "tra hỏi, tìm hiểu"
+            },
+            {
+              "w": "近所",
+              "read": "きんじょ",
+              "vi": "gần đây, khu lân cận"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "công trình xây dựng"
+            },
+            {
+              "w": "始まります",
+              "read": "はじまります",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "あとで",
+              "read": "あとで",
+              "vi": "sau đó, sau này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とのことだ（Bài 47 そうです応用）",
+              "vi": "始まったとのことだった = nghe nói là đã bắt đầu. とのことだ = cách nói trang trọng hơn để truyền đạt thông tin từ người khác."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "調べたら = khi tra hỏi thì. たら chỉ thời điểm phát hiện ra điều gì đó."
+            }
+          ]
+        },
+        {
+          "jp": "次に出かける時は、猫のことが心配なので、できるだけ短い時間にするつもりだ。",
+          "vi": "Lần sau ra ngoài, vì lo cho mèo nên tôi định sẽ để thời gian ngắn thôi.",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "lần sau, tiếp theo"
+            },
+            {
+              "w": "出かける",
+              "read": "でかける",
+              "vi": "ra ngoài, đi ra ngoài"
+            },
+            {
+              "w": "猫",
+              "read": "ねこ",
+              "vi": "mèo"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "できるだけ",
+              "read": "できるだけ",
+              "vi": "hết sức có thể, càng…càng tốt"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "心配なので = vì lo lắng. ので nêu lý do (Bài 39)."
+            },
+            {
+              "point": "〜つもりだ（Bài 31）",
+              "vi": "するつもりだ = định làm. Vるつもりだ = ý định của người nói (Bài 31)."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "出かける時 = khi ra ngoài. Vる + とき = thời điểm chưa xảy ra (Bài 23)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "出かけている間に、宅配便が届いてしまった",
+          "label": "〜間に（điểm trong khoảng — sự kiện ngắn）"
+        },
+        {
+          "excerpt": "家を空けている間、ずっと雨が降り続けていたらしい",
+          "label": "〜間（suốt khoảng — hành động liên tục）"
+        },
+        {
+          "excerpt": "出かけている間に何か怖いものを見た",
+          "label": "〜間に（điểm, lần 2）"
+        },
+        {
+          "excerpt": "家を空けている間、ずっと",
+          "label": "Sắc thái: 間＋ずっと = liên tục suốt (≠ 間に điểm)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「出かけている間に、宅配便が届いてしまった」の「間に」はどんな意味ですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "出かけている間、ずっと宅配便が届き続けたという意味です",
+            "出かけている時間の途中のある一時点に宅配便が届いたという意味です",
+            "出かけようとした瞬間に宅配便が届いたという意味です",
+            "出かける前に宅配便を送ったという意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 1 đúng vì 「間に」diễn đạt một sự việc xảy ra TẠI MỘT ĐIỂM trong khoảng thời gian — câu văn ghi「出かけている間に、宅配便が届いてしまった」: việc giao hàng (届く) xảy ra một lần, tức thời, không kéo dài. Đáp án 0 sai vì 宅配便 chỉ đến MỘT LẦN chứ không \"届き続ける\" (giao liên tục suốt); nếu hành động kéo dài suốt khoảng mới dùng 間（không に）. Đáp án 2 sai vì 「〜しようとした瞬間」là chính xác khoảnh khắc chuẩn bị ra ngoài, không phải giữa khoảng đang vắng nhà.",
+          "tip": "Vế sau 間に là một sự việc XẢY RA MỘT LẦN / tức thời (届いた, 起きた, 見た)? → 間に (điểm). Vế sau là hành động/trạng thái KÉO DÀI có ずっと/〜し続ける? → 間（không に）.",
+          "qt": {
+            "q": "「出かけている間に、宅配便が届いてしまった」 nghĩa là gì về 「間に」 (trong lúc)?",
+            "o": [
+              "Có nghĩa là trong suốt thời gian đi ra ngoài, chuyển phát tận nhà liên tục được giao đến",
+              "Có nghĩa là chuyển phát tận nhà được giao đến tại một thời điểm nào đó trong lúc đang đi ra ngoài",
+              "Có nghĩa là chuyển phát tận nhà được giao đến đúng lúc định đi ra ngoài",
+              "Có nghĩa là đã gửi chuyển phát tận nhà trước khi đi ra ngoài"
+            ]
+          }
+        },
+        {
+          "q": "「家を空けている間、ずっと雨が降り続けていた」と「出かけている間に何か怖いものを見た」の違いは何ですか。",
+          "evi": [
+            1,
+            3
+          ],
+          "options": [
+            "「間」は過去のこと、「間に」は現在のことを表しています",
+            "「間」はずっと続く動作・状態、「間に」はある時点に起きた出来事を表しています",
+            "「間」は天気に使い、「間に」は動物に使います",
+            "意味は同じで、どちらを使っても正しいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 1 đúng: câu「家を空けている間、ずっと雨が降り続けていた」dùng 間（không に）+ ずっと vì mưa rơi LIÊN TỤC suốt toàn bộ khoảng vắng nhà (hành động kéo dài đều); câu「出かけている間に何か怖いものを見た」dùng 間に vì mèo thấy điều gì đó chỉ TẠI MỘT THỜI ĐIỂM trong khoảng đó (sự kiện ngắn, tức thời). Đáp án 0 sai: phân biệt của 間/間に không liên quan đến thì quá khứ/hiện tại. Đáp án 2 sai: 間 và 間に đều dùng được cho nhiều chủ đề, không phân theo \"thiên khí\" hay \"động vật\".",
+          "tip": "Thấy ずっと / 〜し続ける đi kèm → dùng 間（không に）(suốt). Không có ずっと mà vế sau là sự kiện bất ngờ/ngắn → 間に (điểm). Hai câu này là cặp đối chiếu hoàn hảo để nhớ ngay.",
+          "qt": {
+            "q": "「家を空けている間、ずっと雨が降り続けていた」 và 「出かけている間に何か怖いものを見た」 khác nhau như thế nào?",
+            "o": [
+              "「間」 diễn tả việc đã xảy ra trong quá khứ, còn 「間に」 diễn tả việc đang xảy ra ở hiện tại",
+              "「間」 diễn tả một hành động hoặc trạng thái kéo dài suốt một khoảng thời gian, còn 「間に」 diễn tả một sự việc xảy ra tại một thời điểm nào đó",
+              "「間」 được dùng với thời tiết, còn 「間に」 được dùng với động vật",
+              "Nghĩa giống nhau, dùng cách nào cũng đúng"
+            ]
+          }
+        },
+        {
+          "q": "この文章で猫が鳴き続けていた理由として、最も合う選択肢はどれですか。",
+          "evi": [
+            5,
+            6,
+            7
+          ],
+          "options": [
+            "宅配便を受け取るために鳴いていたからです",
+            "雨が降っていたのが怖くて鳴いていたからです",
+            "出かけている間に近所の工事の音を聞いて怖かったのかもしれないからです",
+            "毎日いつも鳴き続けているからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án 2 đúng: bài ghi「出かけている間に何か怖いものを見たのかもしれない」, rồi tiếp「近所で工事が始まったとのことだった」— từ hai thông tin này suy ra mèo có thể đã nghe tiếng công trình và sợ. Đáp án 1 sai: bài không có liên kết nào giữa mèo kêu và việc nhận bưu kiện. Đáp án 3 sai: câu「毎日いつも鳴き続けている」không có trong bài, đây là suy diễn tùy tiện. Lưu ý: dùng かもしれない nên đây chỉ là suy đoán, không khẳng định.",
+          "tip": "Câu hỏi suy luận nguyên nhân — tìm đoạn bài có かもしれない (suy đoán) và nối với bằng chứng gần nhất (工事 = công trình). Đáp án đúng thường tổng hợp 2 chi tiết từ bài, không chỉ trích dẫn một câu.",
+          "qt": {
+            "q": "Trong bài này, phương án nào phù hợp nhất với lý do con mèo cứ kêu mãi?",
+            "o": [
+              "Vì nó kêu để nhận chuyển phát tận nhà",
+              "Vì nó kêu vì sợ trời mưa",
+              "Vì có thể nó đã nghe thấy tiếng công trình gần nhà trong lúc chủ đi ra ngoài và cảm thấy sợ",
+              "Vì ngày nào nó cũng cứ kêu mãi"
+            ]
+          }
+        },
+        {
+          "q": "筆者が次から「できるだけ短い時間」で出かけようとする理由は何ですか。",
+          "evi": [
+            6,
+            8
+          ],
+          "options": [
+            "宅配便をまた受け取れないことが心配だからです",
+            "雨が降ると庭が濡れるからです",
+            "留守にしている間に猫が怖い思いをするかもしれないと心配しているからです",
+            "郵便受けが工事で壊れるかもしれないからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án 2 đúng: bài viết trực tiếp「猫のことが心配なので、できるだけ短い時間にするつもりだ」— lý do rõ ràng là lo cho mèo có thể sợ hãi trong lúc vắng nhà (「出かけている間に何か怖いものを見たのかもしれない」). Đáp án 0 sai: lo về bưu kiện (宅配便) không được nhắc đến như lý do trong câu kết; hơn nữa tác giả đề cập đến 猫 chứ không phải 宅配便. Đáp án 3 sai: bài không đề cập gì đến việc hộp thư bị hỏng vì công trình.",
+          "tip": "Câu hỏi \"tại sao tác giả định làm X\" → tìm ので hoặc から ngay trước hoặc sau X trong bài. Đáp án đúng thường nằm ngay cạnh hành động được hỏi, không cần suy luận xa.",
+          "qt": {
+            "q": "Vì sao người viết định lần tới sẽ đi ra ngoài trong 「できるだけ短い時間」 (thời gian ngắn nhất có thể)?",
+            "o": [
+              "Vì lo rằng lần nữa sẽ không nhận được chuyển phát tận nhà",
+              "Vì trời mưa thì khu vườn sẽ bị ướt",
+              "Vì lo rằng trong lúc vắng nhà, con mèo có thể sẽ trải qua chuyện đáng sợ",
+              "Vì hộp thư có thể bị hỏng do công trình"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "通勤電車での発見",
+      "titleVi": "Phát hiện trên chuyến tàu đi làm",
+      "japanese": "毎日の通勤電車の中で、人々はどのように過ごしているだろうか。スマホを見ている人が多い一方、本を読んでいる人もいる。私は、電車に乗っている間、ずっと本を読むことにしている。\nしかし、電車に乗っている間に、予期しない出来事が起きることもある。たとえば、急に電車が止まったり、窓から素晴らしい景色が見えたりする。ある日、本を読んでいる間に、隣の人が美しい絵を描いていることに気づいた。その人は短い時間でノートに素晴らしい風景を描いていた。\nつまり、移動の時間はただ目的地へ行く時間ではない。自分の世界に集中している間も、周りの変化に心を向けることが大切だ。そのため、私は最近、本を読むのを時々やめて、外を見たり周りを観察したりしている。そうすると、毎日の通勤が少し楽しくなった。",
+      "vietnamese": "Trên những chuyến tàu điện đi làm hàng ngày, mọi người dành thời gian như thế nào nhỉ? Trong khi có nhiều người nhìn vào điện thoại thông minh, cũng có những người đọc sách. Tôi thì trong suốt thời gian đi tàu điện, tôi luôn quyết định đọc sách.\nTuy nhiên, trong lúc đang đi tàu, cũng có khi xảy ra những sự việc không lường trước được. Ví dụ như tàu điện đột ngột dừng lại, hay từ cửa sổ có thể nhìn thấy cảnh sắc tuyệt vời. Một ngày nọ, trong lúc đang đọc sách, tôi nhận ra người bên cạnh đang vẽ một bức tranh rất đẹp. Người đó đã vẽ một phong cảnh tuyệt vời vào cuốn sổ tay chỉ trong thời gian ngắn.\nTóm lại, thời gian di chuyển không đơn thuần chỉ là thời gian để đi đến điểm đích. Ngay cả trong suốt thời gian tập trung vào thế giới của bản thân, việc hướng tâm trí đến những thay đổi xung quanh cũng rất quan trọng. Vì lý do đó, dạo gần đây thỉnh thoảng tôi dừng đọc sách, ngắm nhìn bên ngoài và quan sát xung quanh. Làm như vậy, việc đi làm hàng ngày đã trở nên vui vẻ hơn một chút.",
+      "sentences": [
+        {
+          "jp": "毎日の通勤電車の中で、人々はどのように過ごしているだろうか。",
+          "vi": "Trên những chuyến tàu điện đi làm hàng ngày, mọi người dành thời gian như thế nào nhỉ?",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "通勤",
+              "read": "つうきん",
+              "vi": "đi làm (bằng phương tiện)"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "人々",
+              "read": "ひとびと",
+              "vi": "mọi người, con người"
+            },
+            {
+              "w": "過ごします",
+              "read": "すごします",
+              "vi": "dành thời gian, trải qua"
+            },
+            {
+              "w": "通勤電車",
+              "read": "つうきんでんしゃ",
+              "vi": "tàu điện đi làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だろうか（Bài 47/N4）",
+              "vi": "どのように過ごしているだろうか = liệu mọi người đang dành thời gian như thế nào nhỉ (câu hỏi tự vấn, mở đầu cho bài luận)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "どのように過ごしているだろうか",
+              "why": "Câu hỏi đặt vấn đề mở đầu bài đọc, hướng sự chú ý vào cách mọi người sử dụng thời gian trên tàu."
+            }
+          ]
+        },
+        {
+          "jp": "スマホを見ている人が多い一方、本を読んでいる人もいる。",
+          "vi": "Trong khi có nhiều người nhìn vào điện thoại thông minh, cũng có những người đọc sách.",
+          "vocab": [
+            {
+              "w": "スマホ",
+              "read": "スマホ",
+              "vi": "điện thoại thông minh (smartphone)"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, trong khi (trái lại)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方（で）（Bài 53）",
+              "vi": "接続: 普通形（なAdj+な / N+の）+ 一方（で）. スマホを見ている人が多い一方 = trong khi nhiều người nhìn màn hình điện thoại (thì ngược lại cũng có người đọc sách). Mẫu đối lập hai mặt của sự việc (Bài 53)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ đối chiếu hai hiện tượng hành vi trái ngược nhau của hành khách."
+            }
+          ]
+        },
+        {
+          "jp": "私は、電車に乗っている間、ずっと本を読むことにしている。",
+          "vi": "Tôi thì trong suốt thời gian đi tàu điện, tôi luôn duy trì thói quen đọc sách.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "乗っている",
+              "read": "のっている",
+              "vi": "đang đi bằng"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "trong lúc"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "suốt"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（Bài 56）",
+              "vi": "接続: Vている（乗っている）+ 間. 電車に乗っている間 = \"trong suốt thời gian đang đi tàu\". Vế sau là hành động/trạng thái kéo dài liên tục từ đầu đến cuối khoảng thời gian (ずっと本を読む), KHÔNG có に."
+            },
+            {
+              "point": "〜ことにしている（Bài 52）",
+              "vi": "接続: V辞書形 + ことにしている. 本を読むことにしている = duy trì thói quen do bản thân tự quyết định (Bài 52)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、電車に乗っている間に、予期しない出来事が起きることもある。",
+          "vi": "Tuy nhiên, trong lúc đang đi tàu, cũng có khi xảy ra những sự việc không lường trước được.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "乗る",
+              "read": "のる",
+              "vi": "lên xe, cưỡi"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "予期します",
+              "read": "よきします",
+              "vi": "dự đoán, lường trước"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự việc, sự kiện"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "xảy ra, phát sinh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（Bài 56）",
+              "vi": "接続: Vている（乗っている）+ 間に. 電車に乗っている間に = \"trong lúc đang đi tàu\" — sự việc 出来事が起きる (xảy ra sự kiện) là điểm phát sinh bộc phát TẠI MỘT THỜI ĐIỂM trong khoảng đi tàu, nên BẮT BUỘC dùng 間に (có に)."
+            },
+            {
+              "point": "V辞書形 + こともある（Bài 51）",
+              "vi": "起きることもある = cũng có khi xảy ra (diễn tả tần suất thỉnh thoảng có trường hợp xảy ra)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý mang tính bước ngoặt, mở ra những sự việc bất ngờ ngoài dự kiến."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、急に電車が止まったり、窓から素晴らしい景色が見えたりする。",
+          "vi": "Ví dụ như tàu điện đột ngột dừng lại, hay từ cửa sổ có thể nhìn thấy cảnh sắc tuyệt vời.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột ngột, đột nhiên"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "止まる",
+              "read": "とまる",
+              "vi": "dừng lại, đứng yên"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "素晴らしい",
+              "read": "すばらしい",
+              "vi": "tuyệt vời, xuất sắc"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "cảnh sắc, phong cảnh"
+            },
+            {
+              "w": "見えます",
+              "read": "みえます",
+              "vi": "nhìn thấy (khả năng tự nhiên - Bài 27)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たり〜たりする（Bài 19）",
+              "vi": "止まったり...見えたりする = liệt kê đại diện vài hành động/sự việc tiêu biểu (Bài 19)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たとえば",
+              "why": "Từ báo hiệu dẫn chứng ví dụ cụ thể để làm rõ cho câu trước."
+            }
+          ]
+        },
+        {
+          "jp": "ある日、本を読んでいる間に、隣の人が美しい絵を描いていることに気づいた。",
+          "vi": "Một ngày nọ, trong lúc đang đọc sách, tôi nhận ra người bên cạnh đang vẽ một bức tranh rất đẹp.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "絵",
+              "read": "え",
+              "vi": "tranh, bức vẽ"
+            },
+            {
+              "w": "描きます",
+              "read": "かきます",
+              "vi": "vẽ (tranh)"
+            },
+            {
+              "w": "気づきます",
+              "read": "きづきます",
+              "vi": "nhận ra, phát hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（Bài 56）",
+              "vi": "接続: Vている（読んでいる）+ 間に. 本を読んでいる間に = \"trong lúc đang đọc sách\" — khoảnh khắc nhận ra (気づいた) xảy ra TẠI MỘT ĐIỂM thời gian ngắn trong khoảng đọc sách dài."
+            }
+          ],
+          "keys": [
+            {
+              "w": "気づいた",
+              "why": "Động từ nhận thức đánh dấu trải nghiệm thực tế khiến tác giả thay đổi suy nghĩ."
+            }
+          ]
+        },
+        {
+          "jp": "その人は短い時間でノートに素晴らしい風景を描いていた。",
+          "vi": "Người đó đã vẽ một phong cảnh tuyệt vời vào cuốn sổ tay chỉ trong thời gian ngắn.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "素晴らしい",
+              "read": "すばらしい",
+              "vi": "tuyệt vời, xuất sắc"
+            },
+            {
+              "w": "風景",
+              "read": "ふうけい",
+              "vi": "phong cảnh"
+            },
+            {
+              "w": "描く",
+              "read": "えがく",
+              "vi": "vẽ, miêu tả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（phạm vi thời gian - Bài 13）",
+              "vi": "短い時間で = hoàn thành trong khoảng thời gian ngắn."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、移動の時間はただ目的地へ行く時間ではない。",
+          "vi": "Tóm lại, thời gian di chuyển không đơn thuần chỉ là thời gian để đi đến điểm đích.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "移動",
+              "read": "いどう",
+              "vi": "di chuyển"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "目的地",
+              "read": "もくてきち",
+              "vi": "điểm đích, nơi đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「つまり」",
+              "vi": "つまり = tóm lại / nói cách khác — từ nối dùng để tổng kết luận điểm cốt lõi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tóm lược dùng để chuẩn bị đưa ra định nghĩa và kết luận trọng tâm."
+            }
+          ]
+        },
+        {
+          "jp": "自分の世界に集中している間も、周りの変化に心を向けることが大切だ。",
+          "vi": "Ngay cả trong suốt thời gian tập trung vào thế giới của bản thân, việc hướng tâm trí đến những thay đổi xung quanh cũng rất quan trọng.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "集中します",
+              "read": "しゅうちゅうします",
+              "vi": "tập trung"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh, mọi người xung quanh"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "sự thay đổi"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "向ける",
+              "read": "むける",
+              "vi": "hướng về, hướng tới"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "心を向ける",
+              "read": "こころをむける",
+              "vi": "hướng tâm trí đến, chú ý đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（Bài 56）",
+              "vi": "接続: Vている（集中している）+ 間 + も. 集中している間も = \"ngay cả trong suốt khoảng thời gian đang tập trung\". Trạng thái tập trung kéo dài xuyên suốt nên dùng 間 (không に)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "心を向けることが大切だ",
+              "why": "Cụm vị ngữ mang tính đánh giá, khẳng định thông điệp và chủ trương cốt lõi của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、私は最近、本を読むのを時々やめて、外を見たり周りを観察したりしている。",
+          "vi": "Vì lý do đó, dạo gần đây thỉnh thoảng tôi dừng đọc sách, ngắm nhìn bên ngoài và quan sát xung quanh.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "時々",
+              "read": "ときどき",
+              "vi": "thỉnh thoảng"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh, mọi người xung quanh"
+            },
+            {
+              "w": "観察します",
+              "read": "かんさつします",
+              "vi": "quan sát"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「そのため」",
+              "vi": "そのため = vì lý do đó — từ nối chỉ nguyên nhân (câu 8) dẫn tới hành động thực tế (câu 9)."
+            },
+            {
+              "point": "Vの（danh từ hóa - Bài 38）",
+              "vi": "本を読むの = việc đọc sách (Bài 38)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため",
+              "why": "Liên từ chỉ quan hệ nhân quả, giải thích nguyên do dẫn tới sự thay đổi thói quen."
+            },
+            {
+              "w": "周りを観察したりしている",
+              "why": "Cụm từ chỉ hành động thực tế mới của tác giả nhằm chú ý đến thế giới xung quanh."
+            }
+          ]
+        },
+        {
+          "jp": "そうすると、毎日の通勤が少し楽しくなった。",
+          "vi": "Làm như vậy, việc đi làm hàng ngày đã trở nên vui vẻ hơn một chút.",
+          "vocab": [
+            {
+              "w": "そうすると",
+              "read": "そうすると",
+              "vi": "thế thì, như vậy thì"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "通勤",
+              "read": "つうきん",
+              "vi": "đi làm (bằng phương tiện)"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui vẻ, thú vị (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「そうすると」",
+              "vi": "そうすると = nếu làm như thế / thế là — từ nối chỉ kết quả tích cực nảy sinh sau hành động."
+            },
+            {
+              "point": "Aい -> Aく＋なる（Bài 19）",
+              "vi": "楽しくなった = trở nên vui vẻ hơn (sự thay đổi trạng thái)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "楽しくなった",
+              "why": "Từ chỉ cảm xúc thể hiện kết quả tích cực thu được từ việc thay đổi hành vi."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "乗っている間、ずっと本を読む",
+          "label": "〜間（suốt khoảng — hành động kéo dài liên tục）"
+        },
+        {
+          "excerpt": "乗っている間に、予期しない出来事が起きる",
+          "label": "〜間に（điểm trong khoảng — sự việc bộc phát tại một thời điểm）"
+        },
+        {
+          "excerpt": "本を読んでいる間に、隣の人が美しい絵を描いていることに気づいた",
+          "label": "〜間に（điểm trong khoảng — bộc phát nhận ra điều mới）"
+        },
+        {
+          "excerpt": "集中している間も",
+          "label": "〜間（suốt khoảng — trạng thái duy trì trong suốt khoảng thời gian）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「移動の時間はただ目的地へ行く時間ではない」とあるが、どういうことか。",
+          "options": [
+            "移動時間は本を読んだりスマホを見たりするためだけの時間であるということ",
+            "移動時間は目的地に向かうだけでなく、周りの出来事に心を向ける時間でもあるということ",
+            "移動時間は急に電車が止まるので絵を描く練習をする時間であるということ",
+            "移動時間は短いので何もしないで静かに過ごすべきだということ"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「移動時間は目的地に向かう」 — vì ở câu 8 bài đọc nêu rõ luận điểm: 「自分の世界に集中している間も、周りの変化に心を向けることが大切だ」 (Ngay cả trong lúc tập trung vào thế giới của mình, việc hướng tâm trí đến những thay đổi xung quanh cũng rất quan trọng). Như vậy thời gian di chuyển không chỉ là việc thụ động đi đến đích mà còn là cơ hội chú ý đến xung quanh. Phương án 「移動時間は本を読んだり」 sai vì bài đọc phủ định việc chỉ thu mình xem điện thoại/đọc sách. Phương án 「移動時間は急に電車が」 sai vì vẽ tranh chỉ là một ví dụ tác giả quan sát thấy ở người bên cạnh, không phải là mục đích đi tàu. Phương án 「移動時間は短いので」 sai vì tác giả không khuyên ngồi im không làm gì.",
+          "tip": "Dạng câu hỏi 「〜とあるが、どういうことか」 yêu cầu giải thích nội dung gạch chân. Hãy đọc câu tiếp theo (câu 8) chứa từ bổ nghĩa chi tiết để tìm bản chất luận điểm của tác giả.",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Câu “Thời gian di chuyển không chỉ là thời gian để đi đến đích” có nghĩa là gì?",
+            "o": [
+              "Thời gian di chuyển chỉ là thời gian để đọc sách hoặc xem điện thoại thông minh.",
+              "Thời gian di chuyển không chỉ là để hướng đến đích mà còn là thời gian để chú ý đến những việc xảy ra xung quanh.",
+              "Thời gian di chuyển là thời gian để luyện vẽ vì tàu điện đột nhiên dừng lại.",
+              "Thời gian di chuyển ngắn nên nên dành thời gian yên lặng, không làm gì cả."
+            ]
+          }
+        },
+        {
+          "q": "筆者はなぜ本を読むのを時々やめるようになったのか。",
+          "options": [
+            "電車に乗っている間、ずっと本を読むのが嫌になったから",
+            "本を読んでいる間、隣の人から注意されたから",
+            "自分の世界に集中するより、周りの景色や出来事に気づくことが大切だと思ったから",
+            "スマホを見ている人が増えて、本を読むのが恥ずかしくなったから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「自分の世界に集中するより」 — vì câu 8 và 9 nêu rõ lý do: tác giả nhận ra việc chú ý đến những biến đổi xung quanh là quan trọng, do đó (そのため) đã quyết định thỉnh thoảng ngừng đọc sách để ngắm cảnh và quan sát. Phương án 「電車に乗っている間」 sai vì tác giả không hề ghét việc đọc sách. Phương án 「本を読んでいる間」 sai vì người bên cạnh không hề nhắc nhở hay phàn nàn tác giả. Phương án 「スマホを見ている人が増え」 sai vì bài đọc không đề cập đến việc cảm thấy xấu hổ khi đọc sách.",
+          "tip": "Dạng câu hỏi 「なぜ〜のか」 tìm nguyên nhân. Hãy tìm từ nối nguyên nhân/kết quả 「そのため」 ở câu 9 và soi lại câu 8 ngay trước đó để thấy căn cứ quyết định của tác giả.",
+          "evi": [
+            5,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Vì sao tác giả bắt đầu thỉnh thoảng ngừng đọc sách?",
+            "o": [
+              "Vì tác giả không còn thích đọc sách suốt thời gian đi tàu điện nữa.",
+              "Vì người ngồi bên cạnh đã nhắc nhở tác giả khi tác giả đang đọc sách.",
+              "Vì tác giả nghĩ rằng việc chú ý đến cảnh vật và sự việc xung quanh quan trọng hơn là chỉ tập trung vào thế giới riêng của mình.",
+              "Vì số người xem điện thoại thông minh tăng lên nên tác giả cảm thấy ngượng khi đọc sách."
+            ]
+          }
+        },
+        {
+          "q": "通勤時間の過ごし方について、筆者はどう考えているか。",
+          "options": [
+            "通勤時間は自分の世界に集中して本を読むのが一番よい",
+            "通勤時間は急な出来事が多いので、スマホだけを見るべきだ",
+            "通勤時間は単に移動するだけでなく、周りを観察することで楽しく過ごすことができる",
+            "通勤時間は短い時間なので、何もせず休むのがよい"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「通勤時間は単に移動する」 — vì ở đoạn 3 (câu 8, 9, 10), tác giả tổng kết rằng thời gian đi làm không chỉ đơn thuần là di chuyển, việc quan sát xung quanh giúp chuyến đi làm trở nên vui vẻ và thú vị hơn. Phương án 「通勤時間は自分の世界に」 sai vì tác giả đã thay đổi suy nghĩ, không còn cho rằng chỉ thu mình đọc sách suốt là tốt nhất. Phương án 「通勤時間は急な出来事が」 sai vì tác giả không khuyên chỉ nhìn màn hình điện thoại. Phương án 「通勤時間は短い時間なので」 sai vì tác giả khuyến khích quan sát xung quanh chứ không phải chỉ ngồi nghỉ không làm gì.",
+          "tip": "Dạng câu hỏi 「筆者はどう考えているか」 hỏi ý kiến/kết luận của tác giả. Hãy tập trung đọc kĩ đoạn cuối chứa các từ kết nối tổng kết như 「つまり」「そのため」「そうすると」.",
+          "evi": [
+            8,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về cách dành thời gian đi làm?",
+            "o": [
+              "Tốt nhất là tập trung vào thế giới riêng của mình và đọc sách trong thời gian đi làm.",
+              "Vì có nhiều sự việc bất ngờ xảy ra trong thời gian đi làm nên chỉ nên nhìn vào điện thoại thông minh.",
+              "Thời gian đi làm không chỉ đơn thuần là di chuyển; có thể trải qua thời gian đó một cách vui vẻ bằng cách quan sát xung quanh.",
+              "Vì thời gian đi làm ngắn nên tốt nhất là nghỉ ngơi mà không làm gì cả."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Thói quen trên tàu",
+          "topic": 0,
+          "note": "Đặt vấn đề về cách mọi người đi tàu và giới thiệu thói quen chỉ tập trung đọc sách của tác giả.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "turn",
+          "label": "Bước ngoặt・Trải nghiệm bất ngờ",
+          "topic": 3,
+          "note": "Chuyển ý bằng「しかし」và kể lại sự kiện thấy người bên cạnh vẽ tranh tuyệt đẹp.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "point",
+          "label": "Chủ kiến tác giả",
+          "topic": 8,
+          "note": "Đúc kết sau「つまり」để khẳng định tầm quan trọng của việc để tâm đến biến đổi xung quanh.",
+          "qs": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "body",
+          "label": "Hành động mới & Kết quả",
+          "topic": 9,
+          "note": "Tác giả thay đổi hành vi chịu khó quan sát xung quanh hơn, giúp chuyến đi làm trở nên vui vẻ hơn.",
+          "qs": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "旅行している間のこと",
+      "titleVi": "Chuyện xảy ra trong khi đi du lịch",
+      "japanese": "先週、一週間の旅行から帰ってきた。\n旅行している間に、家の中でいくつかのことが起きていた。\nまず、旅行に出発する前にセットしておいた洗濯機が止まってしまっていた。\n出発した後すぐに故障したのだろう。\nまた、出かけている間に近所から手紙が届いていた。\n開けてみると、来月から道路工事が始まるというお知らせだった。\n旅行している間ずっと、家のことが少し気になっていたのは正直なところだ。\nしかし、旅行している間に友達とたくさん話ができて、とても楽しかった。\n友達と過ごしている間、時間を忘れて笑い続けていた。\n夜、ホテルで休んでいる間に、家族からメッセージが届いていた。\n「猫が元気にしているよ」という報告で、それを読んで安心できた。\n旅行中、夜は疲れているので、ホテルに着くとすぐ眠ってしまっていた。\n眠っている間にもたくさんの夢を見た気がする。\n旅行先で、あるレストランに入った時のことが印象的だった。\n席に座っている間に、料理が次々と運ばれてきた。\nその間ずっと、窓の外の美しい景色を楽しみながら食べることができた。\n以前、友達から「若いうちに旅行すべきだ」と言われたことを思い出した。\nその言葉の意味が、旅行している間に少しずつ分かってきた気がした。\n帰宅した日の夜、旅行の思い出を日記に書いている間、眠くなってしまった。\n書いている間に眠ってしまったので、日記は半分しか書けなかった。\n次の旅行では、出かける前に家のことをもっとしっかり準備しておこうと思う。\nそして、旅行している間も、できるだけ日記を書くようにしたい。",
+      "vietnamese": "Tuần trước, tôi vừa trở về từ chuyến du lịch một tuần.\nTrong khoảng thời gian đi du lịch, trong nhà đã xảy ra một vài chuyện.\nĐầu tiên, máy giặt đã được cài trước khi khởi hành đã bị dừng lại.\nChắc là bị hỏng ngay sau khi đi.\nNgoài ra, trong lúc tôi ra ngoài, thư từ hàng xóm đã được giao đến.\nMở ra xem thì là thông báo từ tháng sau sẽ bắt đầu thi công đường.\nThành thật mà nói, trong suốt thời gian du lịch, tôi hơi lo về nhà một chút.\nNhưng trong lúc du lịch, tôi được nói chuyện nhiều với bạn bè, rất vui.\nTrong lúc ở cùng bạn bè, chúng tôi cười mãi đến quên cả thời gian.\nTối, trong lúc nghỉ ở khách sạn, tin nhắn từ gia đình đã đến.\nTin nhắn báo \"mèo đang khỏe\", đọc xong thấy an tâm.\nTrong chuyến đi, tối nào cũng mệt nên vừa về đến khách sạn là ngủ ngay.\nTrong lúc ngủ, tôi có cảm giác mình mơ nhiều giấc.\nCó một điều ấn tượng lúc bước vào một nhà hàng ở nơi đến du lịch.\nTrong lúc ngồi chờ ở chỗ ngồi, đồ ăn được mang ra liên tiếp.\nTrong suốt thời gian đó, tôi vừa ngắm cảnh đẹp bên ngoài cửa sổ vừa ăn.\nTôi nhớ lại lời bạn nói trước đây: \"Nên đi du lịch khi còn trẻ\".\nTôi có cảm giác ý nghĩa của câu đó dần dần thấm vào mình trong lúc du lịch.\nTối ngày trở về, trong lúc viết nhật ký về chuyến đi, tôi ngủ gật mất.\nVì ngủ thiếp đi trong lúc đang viết nên nhật ký chỉ viết được một nửa.\nChuyến đi tiếp theo, tôi muốn chuẩn bị kỹ hơn về nhà cửa trước khi đi.\nVà trong lúc du lịch, tôi muốn viết nhật ký đều đặn hết sức có thể.",
+      "sentences": [
+        {
+          "jp": "先週、一週間の旅行から帰ってきた。",
+          "vi": "Tuần trước, tôi vừa trở về từ chuyến du lịch một tuần.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "trở về"
+            },
+            {
+              "w": "一週間",
+              "read": "いっしゅうかん",
+              "vi": "một tuần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "帰ってきた = đã trở về (đến chỗ người nói). てくる = hành động hướng về phía người nói (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "旅行している間に、家の中でいくつかのことが起きていた。",
+          "vi": "Trong khoảng thời gian đi du lịch, trong nhà đã xảy ra một vài chuyện.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "xảy ra"
+            },
+            {
+              "w": "家の中",
+              "read": "いえのなか",
+              "vi": "trong nhà"
+            },
+            {
+              "w": "いくつか",
+              "read": "いくつか",
+              "vi": "một vài, mấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に",
+              "vi": "接続: Vている（旅行している）+ 間に. 旅行している間に = \"trong khoảng thời gian đang du lịch\" — các sự việc xảy ra tại các điểm khác nhau trong đó. 間に = khoảng thời gian trung tính (chỉ kể lại) ≠ うちに (nhấn tranh thủ). Câu mở đề tóm tắt toàn bộ nội dung của bài."
+            }
+          ]
+        },
+        {
+          "jp": "まず、旅行に出発する前にセットしておいた洗濯機が止まってしまっていた。",
+          "vi": "Đầu tiên, máy giặt đã được cài trước khi khởi hành đã bị dừng lại.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "出発します",
+              "read": "しゅっぱつします",
+              "vi": "khởi hành, xuất phát"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "洗濯",
+              "read": "せんたく",
+              "vi": "việc giặt giũ"
+            },
+            {
+              "w": "止まります",
+              "read": "とまります",
+              "vi": "dừng lại, ngừng"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "đầu tiên, trước hết"
+            },
+            {
+              "w": "洗濯機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ておく（Bài 30）",
+              "vi": "セットしておいた = đã cài để chuẩn bị sẵn. ておく = làm trước để chuẩn bị (Bài 30)."
+            },
+            {
+              "point": "〜てしまっていた（Bài 29）",
+              "vi": "止まってしまっていた = đã bị dừng mất rồi. てしまう（Bài 29）+ ていた = trạng thái đã hoàn thành ngoài ý muốn."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "出発する前にセットしておいた洗濯機 = chiếc máy giặt đã được cài trước khi khởi hành. Vた bổ nghĩa cho 洗濯機."
+            }
+          ]
+        },
+        {
+          "jp": "出発した後すぐに故障したのだろう。",
+          "vi": "Chắc là bị hỏng ngay sau khi đi.",
+          "vocab": [
+            {
+              "w": "出発した",
+              "read": "しゅっぱつした",
+              "vi": "đã khởi hành"
+            },
+            {
+              "w": "後",
+              "read": "あと",
+              "vi": "sau đó"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "故障した",
+              "read": "こしょうした",
+              "vi": "đã bị hỏng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで（Bài 34）",
+              "vi": "出発した後 = sau khi khởi hành. Vた + あとで = sau khi làm xong V (Bài 34)."
+            },
+            {
+              "point": "〜のだろう（Bài 32 でしょう + 普通形）",
+              "vi": "故障したのだろう = chắc là đã bị hỏng. のだろう diễn đạt phán đoán/suy đoán tự hỏi bản thân."
+            }
+          ]
+        },
+        {
+          "jp": "また、出かけている間に近所から手紙が届いていた。",
+          "vi": "Ngoài ra, trong lúc tôi ra ngoài, thư từ hàng xóm đã được giao đến.",
+          "vocab": [
+            {
+              "w": "出かける",
+              "read": "でかける",
+              "vi": "ra ngoài, đi ra ngoài"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "近所",
+              "read": "きんじょ",
+              "vi": "gần đây, hàng xóm"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "thư"
+            },
+            {
+              "w": "届きます",
+              "read": "とどきます",
+              "vi": "đến nơi, được giao"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 3）",
+              "vi": "Lần thứ ba: 出かけている間に = \"trong lúc đang ra ngoài\". 手紙が届く là sự kiện ngắn (điểm) → dùng 間に. Reinforcement: mỗi lần 間に xuất hiện là một sự kiện ngắn/điểm."
+            }
+          ]
+        },
+        {
+          "jp": "開けてみると、来月から道路工事が始まるというお知らせだった。",
+          "vi": "Mở ra xem thì là thông báo từ tháng sau sẽ bắt đầu thi công đường.",
+          "vocab": [
+            {
+              "w": "開けます",
+              "read": "あけます",
+              "vi": "mở ra"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "道路",
+              "read": "どうろ",
+              "vi": "đường sá, con đường"
+            },
+            {
+              "w": "工事",
+              "read": "こうじ",
+              "vi": "việc sửa chữa, thi công"
+            },
+            {
+              "w": "始まる",
+              "read": "はじまる",
+              "vi": "bắt đầu (tự động từ)"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "道路工事",
+              "read": "どうろこうじ",
+              "vi": "thi công đường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てみる（Bài 40）",
+              "vi": "開けてみると = thử mở ra thì. てみる = thử làm (Bài 40)."
+            },
+            {
+              "point": "〜という N（Bài 33）",
+              "vi": "始まるというお知らせ = thông báo rằng sẽ bắt đầu. という nối nội dung với danh từ (Bài 33)."
+            }
+          ]
+        },
+        {
+          "jp": "旅行している間ずっと、家のことが少し気になっていたのは正直なところだ。",
+          "vi": "Thành thật mà nói, trong suốt thời gian du lịch, tôi hơi lo về nhà một chút.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "hơn hẳn, hơn nhiều"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "気になります",
+              "read": "きになります",
+              "vi": "lo lắng, băn khoăn"
+            },
+            {
+              "w": "正直",
+              "read": "しょうじき",
+              "vi": "thành thật, trung thực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（không có に）＋ ずっと",
+              "vi": "旅行している間ずっと = \"suốt TOÀN BỘ thời gian du lịch\". 間（không có に）+ ずっと = trạng thái kéo dài liên tục từ đầu đến cuối. Đối chiếu 間に ở các câu trên = chỉ tại điểm nhất định. Đây là lần thứ hai dùng cấu trúc 間 + ずっと để nhấn tính liên tục."
+            },
+            {
+              "point": "Vているのは〜だ（Bài 38）",
+              "vi": "気になっていたのは正直なところだ = thật ra là đã lo. のは + だ nhấn mạnh thông tin (Bài 38)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、旅行している間に友達とたくさん話ができて、とても楽しかった。",
+          "vi": "Nhưng trong lúc du lịch, tôi được nói chuyện nhiều với bạn bè, rất vui.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "旅行している",
+              "read": "りょこうしている",
+              "vi": "đang đi du lịch"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "trong lúc"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "chuyện trò"
+            },
+            {
+              "w": "できて",
+              "read": "できて",
+              "vi": "có thể làm được"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "楽しかった",
+              "read": "たのしかった",
+              "vi": "đã rất vui"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 4）",
+              "vi": "旅行している間に = \"trong khoảng thời gian du lịch\" — những cuộc trò chuyện (từng cuộc, mỗi cuộc là điểm trong khoảng). Vẫn là 間に vì đây là các sự kiện xảy ra trong khoảng, không nhấn liên tục."
+            },
+            {
+              "point": "Vて（nối nguyên nhân/cảm xúc Bài 39）",
+              "vi": "話ができて、楽しかった = được nói chuyện rồi vui. て nối nguyên nhân với cảm xúc (Bài 39)."
+            }
+          ]
+        },
+        {
+          "jp": "友達と過ごしている間、時間を忘れて笑い続けていた。",
+          "vi": "Trong lúc ở cùng bạn bè, chúng tôi cười mãi đến quên cả thời gian.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "過ごします",
+              "read": "すごします",
+              "vi": "trải qua (thời gian), ở cùng"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            },
+            {
+              "w": "笑う",
+              "read": "わらう",
+              "vi": "cười"
+            },
+            {
+              "w": "笑い続けます",
+              "read": "わらいつづけます",
+              "vi": "cười mãi, tiếp tục cười"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（không có に）",
+              "vi": "過ごしている間 = \"trong SUỐT khoảng thời gian đang ở cùng bạn\". 間（không có に）= hành động/trạng thái kéo dài đều suốt. Ở đây: 笑い続けていた（cười không ngừng）là hành động liên tục → dùng 間 chứ không phải 間に."
+            }
+          ]
+        },
+        {
+          "jp": "夜、ホテルで休んでいる間に、家族からメッセージが届いていた。",
+          "vi": "Tối, trong lúc nghỉ ở khách sạn, tin nhắn từ gia đình đã đến.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "tối, ban đêm"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "休みます",
+              "read": "やすみます",
+              "vi": "nghỉ ngơi"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn"
+            },
+            {
+              "w": "届く",
+              "read": "とどく",
+              "vi": "đến, tới nơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 5）",
+              "vi": "ホテルで休んでいる間に = \"trong lúc đang nghỉ ở khách sạn\". メッセージが届く là sự kiện ngắn/điểm → 間に. Lần thứ năm: mỗi lần 間に là một sự kiện bất ngờ/ngắn xảy ra trong khoảng."
+            }
+          ]
+        },
+        {
+          "jp": "「猫が元気にしているよ」という報告で、それを読んで安心できた。",
+          "vi": "Tin nhắn báo \"mèo đang khỏe\", đọc xong thấy an tâm.",
+          "vocab": [
+            {
+              "w": "猫",
+              "read": "ねこ",
+              "vi": "mèo"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khỏe mạnh"
+            },
+            {
+              "w": "報告",
+              "read": "ほうこく",
+              "vi": "báo cáo, thông báo"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "安心します",
+              "read": "あんしんします",
+              "vi": "an tâm, yên tâm"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜という N（Bài 33）",
+              "vi": "「猫が元気にしているよ」という報告 = thông báo rằng \"mèo đang khỏe\". という nối nội dung với danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "旅行中、夜は疲れているので、ホテルに着くとすぐ眠ってしまっていた。",
+          "vi": "Trong chuyến đi, tối nào cũng mệt nên vừa về đến khách sạn là ngủ ngay.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "疲れます",
+              "read": "つかれます",
+              "vi": "mệt"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi, tới"
+            },
+            {
+              "w": "眠ります",
+              "read": "ねむります",
+              "vi": "ngủ"
+            },
+            {
+              "w": "旅行中",
+              "read": "りょこうちゅう",
+              "vi": "trong chuyến đi, trong lúc du lịch"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "疲れているので = vì đang mệt. ので nêu lý do (Bài 39)."
+            },
+            {
+              "point": "〜てしまっていた（Bài 29）",
+              "vi": "眠ってしまっていた = đã ngủ thiếp đi mất. てしまう = hoàn thành (thường ngoài ý muốn, Bài 29)."
+            },
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "着くとすぐ = vừa đến thì ngay lập tức. と = kết quả tức thì tất yếu."
+            }
+          ]
+        },
+        {
+          "jp": "眠っている間にもたくさんの夢を見た気がする。",
+          "vi": "Trong lúc ngủ, tôi có cảm giác mình mơ nhiều giấc.",
+          "vocab": [
+            {
+              "w": "眠ります",
+              "read": "ねむります",
+              "vi": "ngủ"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "夢",
+              "read": "ゆめ",
+              "vi": "ước mơ"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "夢を見ます",
+              "read": "ゆめをみます",
+              "vi": "mơ, thấy giấc mơ"
+            },
+            {
+              "w": "気がします",
+              "read": "きがします",
+              "vi": "có cảm giác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 6）",
+              "vi": "眠っている間に = \"trong lúc đang ngủ\". 夢を見る = thấy giấc mơ (điểm/sự việc trong khoảng ngủ). 間に xuất hiện lần thứ sáu: mỗi lần đều là sự kiện/sự việc tại một điểm."
+            },
+            {
+              "point": "〜気がする（Bài 38 のが〜応用）",
+              "vi": "見た気がする = có cảm giác là đã mơ. 気がする = có cảm giác, cảm thấy như."
+            }
+          ]
+        },
+        {
+          "jp": "旅行先で、あるレストランに入った時のことが印象的だった。",
+          "vi": "Có một điều ấn tượng lúc bước vào một nhà hàng ở nơi đến du lịch.",
+          "vocab": [
+            {
+              "w": "旅行先",
+              "read": "りょこうさき",
+              "vi": "điểm đến du lịch"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "một, nào đó"
+            },
+            {
+              "w": "レストラン",
+              "read": "れすとらん",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "入った",
+              "read": "はいった",
+              "vi": "đã vào"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "thời điểm"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "chuyện, việc"
+            },
+            {
+              "w": "印象的",
+              "read": "いんしょうてき",
+              "vi": "ấn tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時のこと（Bài 23 〜とき）",
+              "vi": "入った時のこと = chuyện khi bước vào. Vた + 時のこと = chuyện xảy ra lúc đó (Bài 23)."
+            }
+          ]
+        },
+        {
+          "jp": "席に座っている間に、料理が次々と運ばれてきた。",
+          "vi": "Trong lúc ngồi chờ ở chỗ ngồi, đồ ăn được mang ra liên tiếp.",
+          "vocab": [
+            {
+              "w": "席",
+              "read": "せき",
+              "vi": "chỗ ngồi, ghế"
+            },
+            {
+              "w": "座ります",
+              "read": "すわります",
+              "vi": "ngồi"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "đồ ăn, món ăn"
+            },
+            {
+              "w": "次々と",
+              "read": "つぎつぎと",
+              "vi": "liên tiếp, lần lượt"
+            },
+            {
+              "w": "運びます",
+              "read": "はこびます",
+              "vi": "mang, chuyển"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 7）",
+              "vi": "席に座っている間に = \"trong lúc đang ngồi\". Đồ ăn được mang ra (事件として) — mỗi lượt mang ra là điểm trong khoảng ngồi. 間に = trung tính, không phải tranh thủ."
+            },
+            {
+              "point": "V受身形（Bài 37）",
+              "vi": "運ばれてきた = được mang đến. 受身 (Bài 37) + てくる (Bài 43) = được mang đến phía người nói."
+            }
+          ]
+        },
+        {
+          "jp": "その間ずっと、窓の外の美しい景色を楽しみながら食べることができた。",
+          "vi": "Trong suốt thời gian đó, tôi vừa ngắm cảnh đẹp bên ngoài cửa sổ vừa ăn.",
+          "vocab": [
+            {
+              "w": "その間",
+              "read": "そのあいだ",
+              "vi": "trong suốt khoảng thời gian đó"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "hơn hẳn, hơn nhiều"
+            },
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "外",
+              "read": "そと",
+              "vi": "bên ngoài"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "cảnh, phong cảnh"
+            },
+            {
+              "w": "楽しむ",
+              "read": "たのしむ",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（không có に）+ ずっと",
+              "vi": "その間ずっと = \"suốt khoảng thời gian đó\". 間（không có に）+ ずっと = hành động kéo dài liên tục (vừa ngắm cảnh vừa ăn, không ngừng). Đối chiếu trực tiếp với 間に câu trước (sự kiện ngắn) → đây là cặp 間に/間 trong cùng văn cảnh, rõ ràng nhất."
+            },
+            {
+              "point": "Vながら（Bài 28）",
+              "vi": "楽しみながら食べる = vừa thưởng thức vừa ăn. Vます（bỏ ます）+ ながら = vừa…vừa (Bài 28)."
+            }
+          ]
+        },
+        {
+          "jp": "以前、友達から「若いうちに旅行すべきだ」と言われたことを思い出した。",
+          "vi": "Tôi nhớ lại lời bạn nói trước đây: \"Nên đi du lịch khi còn trẻ\".",
+          "vocab": [
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ, còn trẻ"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "思い出します",
+              "read": "おもいだします",
+              "vi": "nhớ lại, hồi tưởng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Bài 55 — ôn, đối chiếu）",
+              "vi": "若いうちに = \"khi còn trẻ / tranh thủ lúc còn trẻ\". うちに nhấn sắc thái tranh thủ trước khi trạng thái (còn trẻ) đổi. Đối chiếu: nếu dùng 若い間に thì chỉ mô tả khoảng thời gian, mất sắc thái \"tranh thủ\"."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "旅行すべきだ = nên đi du lịch (bổn phận/lẽ phải). べき = lời khuyên mạnh (Bài 53)."
+            },
+            {
+              "point": "V受身形（Bài 37）",
+              "vi": "言われた = được nghe nói / bị nói. 受身 của 言う (Bài 37)."
+            }
+          ]
+        },
+        {
+          "jp": "その言葉の意味が、旅行している間に少しずつ分かってきた気がした。",
+          "vi": "Tôi có cảm giác ý nghĩa của câu đó dần dần thấm vào mình trong lúc du lịch.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "câu nói, từ, lời"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "dần dần, từng chút một"
+            },
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "hiểu, nắm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 8）",
+              "vi": "旅行している間に = \"trong khoảng thời gian du lịch\". Sự hiểu biết (分かる) đến dần dần — mỗi lần hiểu thêm là một điểm trong khoảng. Vẫn là 間に vì đây là sự kiện (tuy nhiều lần) trong khoảng, không phải trạng thái liên tục đơn giản."
+            },
+            {
+              "point": "〜てきた（Bài 43）",
+              "vi": "分かってきた = dần dần hiểu ra (đến gần người nói / hướng về hiện tại). てくる = thay đổi dần dần hướng về hiện tại (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "帰宅した日の夜、旅行の思い出を日記に書いている間、眠くなってしまった。",
+          "vi": "Tối ngày trở về, trong lúc viết nhật ký về chuyến đi, tôi ngủ gật mất.",
+          "vocab": [
+            {
+              "w": "帰宅します",
+              "read": "きたくします",
+              "vi": "trở về nhà"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "思い出",
+              "read": "おもいで",
+              "vi": "kỷ niệm, hồi ức"
+            },
+            {
+              "w": "日記",
+              "read": "にっき",
+              "vi": "nhật ký"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "眠くなります",
+              "read": "ねむくなります",
+              "vi": "trở nên buồn ngủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（không có に）",
+              "vi": "日記に書いている間 = \"trong SUỐT lúc đang viết nhật ký\". Ở đây 間 không có に vì người viết đang ở trong trạng thái viết (liên tục) — không phải sự kiện ngắn. Cũng có thể hiểu là: buồn ngủ (眠くなる) là trạng thái dần đến, không phải điểm cụ thể."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "眠くなってしまった = đã trở nên buồn ngủ mất. てしまう (Bài 29) = kết quả ngoài ý muốn."
+            }
+          ]
+        },
+        {
+          "jp": "書いている間に眠ってしまったので、日記は半分しか書けなかった。",
+          "vi": "Vì ngủ thiếp đi trong lúc đang viết nên nhật ký chỉ viết được một nửa.",
+          "vocab": [
+            {
+              "w": "書けます",
+              "read": "かけます",
+              "vi": "có thể viết"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "眠る",
+              "read": "ねむる",
+              "vi": "ngủ"
+            },
+            {
+              "w": "日記",
+              "read": "にっき",
+              "vi": "nhật ký"
+            },
+            {
+              "w": "半分",
+              "read": "はんぶん",
+              "vi": "một nửa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 9, đối chiếu ngay）",
+              "vi": "書いている間に眠ってしまった = \"trong lúc đang viết, ngủ thiếp đi\". 眠る là sự kiện điểm (ngủ ập đến) → dùng 間に. So sánh trực tiếp với câu trước (書いている間 = suốt lúc viết) — cùng hoạt động \"viết\" nhưng góc nhìn khác nhau."
+            },
+            {
+              "point": "〜てしまった（Bài 29）",
+              "vi": "眠ってしまった = đã ngủ thiếp đi mất. てしまう = ngoài ý muốn."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "眠ってしまったので = vì đã ngủ thiếp. ので nêu lý do."
+            },
+            {
+              "point": "Nしか〜ない（Bài 27）",
+              "vi": "半分しか書けなかった = chỉ viết được có một nửa. しか〜ない = chỉ…mà thôi (Bài 27)."
+            }
+          ]
+        },
+        {
+          "jp": "次の旅行では、出かける前に家のことをもっとしっかり準備しておこうと思う。",
+          "vi": "Chuyến đi tiếp theo, tôi muốn chuẩn bị kỹ hơn về nhà cửa trước khi đi.",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "出かける",
+              "read": "でかける",
+              "vi": "ra ngoài, đi ra ngoài"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "chắc chắn, kỹ lưỡng"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ておく（Bài 30）",
+              "vi": "準備しておこう = chuẩn bị sẵn để sau dùng. ておく = làm trước để chuẩn bị (Bài 30). Thể ý chí (よう) của てておく."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "〜しようと思う = có ý muốn làm. V意向形 + と思う = muốn/dự định làm (Bài 21)."
+            }
+          ]
+        },
+        {
+          "jp": "そして、旅行している間も、できるだけ日記を書くようにしたい。",
+          "vi": "Và trong lúc du lịch, tôi muốn viết nhật ký đều đặn hết sức có thể.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và, rồi"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "できるだけ",
+              "read": "できるだけ",
+              "vi": "hết sức có thể, càng nhiều càng tốt"
+            },
+            {
+              "w": "日記",
+              "read": "にっき",
+              "vi": "nhật ký"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間も（biến thể của 間）",
+              "vi": "旅行している間も = \"ngay cả trong lúc du lịch\". 間（suốt）+ も（cũng, ngay cả）= nhấn mạnh ngay trong khoảng đó cũng vẫn làm. Vẫn là cấu trúc 間 (liên tục), không phải 間に (điểm)."
+            },
+            {
+              "point": "〜ようにしたい（Bài 36）",
+              "vi": "書くようにしたい = muốn cố gắng viết. ようにする = cố gắng để làm (Bài 36)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "旅行している間に、家の中でいくつかのことが起きていた",
+          "label": "〜間に（điểm — câu đề bài）"
+        },
+        {
+          "excerpt": "出かけている間に近所から手紙が届いていた",
+          "label": "〜間に（điểm — sự kiện ngắn）"
+        },
+        {
+          "excerpt": "旅行している間ずっと、家のことが少し気になっていた",
+          "label": "〜間＋ずっと（suốt — trạng thái liên tục）"
+        },
+        {
+          "excerpt": "その間ずっと、窓の外の美しい景色を楽しみながら食べることができた",
+          "label": "Sắc thái: 間（không に）+ ずっと = liên tục suốt, ≠ 間に điểm"
+        },
+        {
+          "excerpt": "書いている間に眠ってしまったので",
+          "label": "〜間に（điểm — ngủ ập đến trong lúc viết）"
+        },
+        {
+          "excerpt": "若いうちに旅行すべきだ",
+          "label": "うちに（Bài 55 ôn — tranh thủ, ≠ 間に trung tính）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「旅行している間に〜が起きた」という文では、「間に」はどんな意味ですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "旅行している間、ずっと何かが起き続けていたということです",
+            "旅行が終わった後に何かが起きたということです",
+            "旅行している時間の途中で、ある時点に何かが起きたということです",
+            "旅行に出発する前に何かが準備されていたということです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án 2 đúng: câu mở bài ghi「旅行している間に、家の中でいくつかのことが起きていた」— 間に chỉ các sự kiện (máy giặt hỏng, thư đến, tin nhắn…) xảy ra TẠI NHỮNG ĐIỂM khác nhau trong khoảng du lịch, không phải liên tục suốt. Đáp án 0 sai: \"ずっと〜起き続けた\" (xảy ra liên tục suốt) là nghĩa của 間（không に）, không phải 間に. Đáp án 1 sai: 間に không có nghĩa \"sau khi kết thúc\" — đó là 後で / てから. Đáp án 3 sai: 間に không liên quan đến việc chuẩn bị trước khi đi.",
+          "tip": "間に = \"trong khoảng, tại một thời điểm nào đó\". Phân biệt ngay: suốt → 間＋ずっと; sau khi xong → 後で/てから; trước khi → 前に. Chỉ 間に mới là \"giữa khoảng, xảy ra một lần\".",
+          "qt": {
+            "q": "Trong câu 「旅行している間に〜が起きた」, 「間に」có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là suốt thời gian đi du lịch, điều gì đó liên tục xảy ra",
+              "Có nghĩa là điều gì đó xảy ra sau khi chuyến du lịch kết thúc",
+              "Có nghĩa là điều gì đó xảy ra vào một thời điểm giữa lúc đi du lịch",
+              "Có nghĩa là điều gì đó đã được chuẩn bị trước khi khởi hành đi du lịch"
+            ]
+          }
+        },
+        {
+          "q": "「旅行している間ずっと家のことが気になっていた」と「席に座っている間に料理が次々と運ばれてきた」の違いとして正しいものはどれですか。",
+          "evi": [
+            6,
+            14
+          ],
+          "options": [
+            "「ずっと〜間」は旅行中のこと、「〜間に」は食事中のことを表しています",
+            "「〜間ずっと」は状態が継続して続いていたこと、「〜間に」はその時間の途中に起きた出来事を表しています",
+            "「〜間ずっと」は過去のこと、「〜間に」は現在のことを表しています",
+            "意味は同じで、どちらも入れ替えて使うことができます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 1 đúng: câu「旅行している間ずっと、家のことが少し気になっていた」dùng 間＋ずっと — trạng thái lo lắng KÉO DÀI LIÊN TỤC suốt cả chuyến đi (từ đầu đến cuối, không ngắt quãng). Câu「席に座っている間に料理が次々と運ばれてきた」dùng 間に — đồ ăn được mang ra TỪNG LẦN (mỗi lần là một điểm) trong lúc ngồi chờ, không phải liên tục đều đặn. Đáp án 0 sai: câu phân loại theo nội dung (du lịch/ăn uống), không phải theo ngữ pháp. Đáp án 2 sai: cả hai đều nói về quá khứ. Đáp án 3 sai: không thể hoán đổi — thay 間ずっと bằng 間に thì mất nghĩa liên tục; thay 間に bằng 間ずっと thì sai vì đồ ăn không \"mang ra đều đặn suốt\" mà từng lần.",
+          "tip": "Thấy ずっと đi kèm 間 → trạng thái liên tục SUỐT (間, không に). Thấy 間に mà không có ずっと → sự kiện xảy ra TẠI MỘT ĐIỂM trong khoảng. Hai câu này là cặp đối chiếu trực tiếp nhất trong bài dài.",
+          "qt": {
+            "q": "Đâu là điểm khác nhau giữa 「旅行している間ずっと家のことが気になっていた」 và 「席に座っている間に料理が次々と運ばれてきた」?",
+            "o": [
+              "「ずっと〜間」 nói về những việc trong chuyến du lịch, còn 「〜間に」 nói về những việc trong lúc ăn",
+              "「〜間ずっと」 diễn tả một trạng thái tiếp tục kéo dài, còn 「〜間に」 diễn tả một sự việc xảy ra vào giữa khoảng thời gian đó",
+              "「〜間ずっと」 nói về chuyện trong quá khứ, còn 「〜間に」 nói về chuyện hiện tại",
+              "Hai cách nói có cùng ý nghĩa và có thể thay thế cho nhau"
+            ]
+          }
+        },
+        {
+          "q": "「若いうちに旅行すべきだ」という友達の言葉が文章に引用されています。ここで「うちに」の代わりに「間に」を使うと、意味はどう変わりますか。",
+          "evi": [
+            16
+          ],
+          "options": [
+            "全く同じ意味になります",
+            "「間に」にすると「旅行しないと損だ」という強い警告の意味が強まります",
+            "「間に」にすると「若い時期の途中で」という中立的な時間の説明になり、「まだその時期があるうちに急いで」という意味が薄れます",
+            "「間に」にすると文法的に間違いになります"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án 2 đúng: bài trích lời bạn「若いうちに旅行すべきだ」— うちに (Bài 55) mang sắc thái \"tranh thủ trước khi trạng thái thay đổi\" (trước khi không còn trẻ nữa), ẩn chứa tính cấp bách và chủ ý. Nếu đổi thành「若い間に旅行すべきだ」thì chỉ còn nghĩa \"trong khoảng thời gian còn trẻ, đi du lịch đi\" — trung tính, mất hẳn sắc thái \"hãy tranh thủ kẻo muộn\". Đáp án 0 sai: hai mẫu khác nghĩa rõ rệt (sắc thái tranh thủ vs. mô tả trung tính). Đáp án 1 sai: 間に không tạo ra \"cảnh báo mạnh hơn\" mà ngược lại — nó yếu hơn うちに vì không có sắc thái cấp bách. Đáp án 3 sai: 若い間に hoàn toàn đúng ngữ pháp, chỉ khác sắc thái.",
+          "tip": "Ngữ cảnh có \"tranh thủ / kẻo muộn / chủ ý làm trước khi đổi\"? → うちに. Chỉ kể thời điểm trung tính, không có sắc thái cấp bách? → 間に. Cặp うちに/間に thường xuất hiện cùng trong đề thi N3.",
+          "qt": {
+            "q": "Lời người bạn 「若いうちに旅行すべきだ」 được trích dẫn trong bài. Nếu dùng 「間に」 thay cho 「うちに」 ở đây thì ý nghĩa sẽ thay đổi như thế nào?",
+            "o": [
+              "Ý nghĩa sẽ hoàn toàn giống nhau",
+              "Dùng 「間に」 sẽ làm tăng ý nghĩa cảnh báo mạnh mẽ rằng “không đi du lịch thì sẽ thiệt”",
+              "Dùng 「間に」 sẽ diễn tả trung tính về thời gian, với nghĩa “vào giữa khoảng thời gian còn trẻ”, và làm giảm sắc thái “hãy tranh thủ khi vẫn còn trong giai đoạn đó”",
+              "Dùng 「間に」 sẽ khiến câu sai ngữ pháp"
+            ]
+          }
+        },
+        {
+          "q": "筆者が次の旅行の前にしようとしていることは何ですか。",
+          "evi": [
+            20
+          ],
+          "options": [
+            "猫を誰かに預けることです",
+            "洗濯機を新しいものに買い替えることです",
+            "出かける前に家のことをしっかり準備しておくことです",
+            "旅行をやめて家にいることです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án 2 đúng: bài ghi trực tiếp「次の旅行では、出かける前に家のことをもっとしっかり準備しておこうと思う」— tác giả rút ra bài học từ kinh nghiệm: máy giặt hỏng (止まってしまっていた) và thư đến (手紙が届いていた) trong lúc vắng nhà, nên lần sau muốn chuẩn bị kỹ hơn trước khi đi. Đáp án 0 sai: gửi mèo cho ai không được nhắc đến trong bài. Đáp án 1 sai: mua máy giặt mới cũng không được đề cập. Đáp án 3 sai: tác giả muốn đi du lịch tiếp theo chứ không bỏ đi (「次の旅行では」).",
+          "tip": "Câu hỏi \"筆者がしようとしていること\" → tìm「〜と思う」hoặc「〜つもりだ」ở phần cuối bài — đây thường là nơi tác giả nêu dự định. Đáp án đúng thường là trích dẫn gần như nguyên văn từ đó.",
+          "qt": {
+            "q": "Tác giả định làm gì trước chuyến du lịch tiếp theo?",
+            "o": [
+              "Gửi mèo cho ai đó chăm hộ",
+              "Thay máy giặt bằng một chiếc mới",
+              "Chuẩn bị chu đáo mọi việc trong nhà trước khi đi",
+              "Thôi không đi du lịch nữa và ở nhà"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくらタウン「一時預かりサービス」のご案内",
+      "titleVi": "Thông báo: Dịch vụ trông trẻ / giữ đồ tạm thời của Sakura Town",
+      "japanese": "さくらタウン「一時預かりサービス」のご案内\nさくらタウンでは、お買い物をしている間に、お子さんを安心してお預かりするサービスを行っています。\nまた、大きい荷物を持って買い物をするのは大変ですから、荷物預かりサービスもご利用いただけます。\nお預かりしている間、経験のあるスタッフが責任を持ってお世話いたします。\nサービス｜時間｜料金｜対象\nお子さま一時預かり｜10:00〜18:00（1時間単位）｜1時間500円｜1歳〜6歳\nお荷物預かり｜10:00〜20:00｜1個1時間100円｜サイズ制限なし\n会員の方には、料金の割引があります。\n会員種類｜割引｜条件\nさくらカード会員｜一時預かり料金が2割引｜入会金無料、当日入会可\n一般（会員以外）｜割引なし｜－\n※土曜・日曜・祝日は、混雑のため一時預かりの料金が1時間700円になります（会員割引は土日も適用されます）。\n※お子さまをお預かりできるのは最大3時間までです。3時間を超える場合はご利用いただけません。\n※お申し込みは、ご利用の30分前までに1階受付でお願いいたします。\nお問い合わせ：さくらタウン お客様サービスセンター（電話：0120-56-7788　10:00〜20:00）",
+      "vietnamese": "Thông báo: Dịch vụ trông trẻ / giữ đồ tạm thời của Sakura Town\nTại Sakura Town, chúng tôi cung cấp dịch vụ trông trẻ an tâm trong lúc quý khách mua sắm.\nNgoài ra, vì mang hành lý lớn đi mua sắm rất vất vả, quý khách cũng có thể sử dụng dịch vụ giữ đồ.\nTrong suốt thời gian gửi, nhân viên có kinh nghiệm sẽ chăm sóc con em quý khách với trách nhiệm cao.\nDịch vụ｜Thời gian｜Phí｜Đối tượng\nTrông trẻ tạm thời｜10:00〜18:00 (theo đơn vị 1 giờ)｜500 yên/giờ｜1〜6 tuổi\nGiữ đồ｜10:00〜20:00｜100 yên/giờ/kiện｜không giới hạn kích thước\nQuý khách là hội viên sẽ được giảm giá.\nLoại hội viên｜Giảm giá｜Điều kiện\nHội viên thẻ Sakura｜Giảm 20% phí trông trẻ tạm thời｜Miễn phí gia nhập, có thể đăng ký ngay trong ngày\nKhách thường (không phải hội viên)｜Không giảm giá｜－\n※Thứ Bảy, Chủ Nhật, ngày lễ vì đông khách nên phí trông trẻ tạm thời tăng lên 700 yên/giờ (giảm giá hội viên vẫn áp dụng cả thứ Bảy Chủ Nhật).\n※Thời gian trông trẻ tối đa là 3 tiếng. Nếu vượt quá 3 tiếng thì không thể sử dụng dịch vụ.\n※Vui lòng đăng ký tại quầy lễ tân tầng 1 trước giờ sử dụng 30 phút.\nLiên hệ: Trung tâm Dịch vụ Khách hàng Sakura Town (Điện thoại: 0120-56-7788, 10:00〜20:00).",
+      "sentences": [
+        {
+          "jp": "さくらタウン「一時預かりサービス」のご案内",
+          "vi": "Thông báo: Dịch vụ trông trẻ / giữ đồ tạm thời của Sakura Town.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "タウン",
+              "read": "タウン",
+              "vi": "thị trấn, khu đô thị"
+            },
+            {
+              "w": "一時",
+              "read": "いちじ",
+              "vi": "tạm thời, nhất thời"
+            },
+            {
+              "w": "預かる",
+              "read": "あずかる",
+              "vi": "giữ hộ, trông coi"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "さくらタウン",
+              "read": "さくらタウン",
+              "vi": "Sakura Town (tên khu mua sắm)"
+            },
+            {
+              "w": "一時預かり",
+              "read": "いちじあずかり",
+              "vi": "trông giữ tạm thời"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn"
+            }
+          ]
+        },
+        {
+          "jp": "さくらタウンでは、お買い物をしている間に、お子さんを安心してお預かりするサービスを行っています。",
+          "vi": "Tại Sakura Town, chúng tôi cung cấp dịch vụ trông trẻ an tâm trong lúc quý khách mua sắm.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "タウン",
+              "read": "タウン",
+              "vi": "thị trấn, khu đô thị"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "お子さん",
+              "read": "おこさん",
+              "vi": "con (cách nói lịch sự)"
+            },
+            {
+              "w": "安心します",
+              "read": "あんしんします",
+              "vi": "an tâm"
+            },
+            {
+              "w": "預かる",
+              "read": "あずかる",
+              "vi": "giữ hộ, trông coi"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "行います",
+              "read": "おこないます",
+              "vi": "thực hiện, tiến hành"
+            },
+            {
+              "w": "お買い物",
+              "read": "おかいもの",
+              "vi": "việc mua sắm"
+            },
+            {
+              "w": "お預かりします",
+              "read": "おあずかりします",
+              "vi": "trông giữ, nhận giữ hộ (khiêm nhường ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間に（lần 1 — mẫu trọng tâm bài 56）",
+              "vi": "接続: Vている（している）+ 間に. お買い物をしている間に = \"trong lúc đang mua sắm\" — hành động trông trẻ diễn ra TRONG khoảng thời gian đó (dịch vụ áp dụng suốt lúc khách mua đồ, nhưng nhấn mốc \"trong lúc\" chứ không phải bản thân việc trông trẻ kéo dài liên tục theo nghĩa 間). Đây là câu mở đầu nêu ý tưởng cốt lõi của dịch vụ: khách gửi con TRONG lúc mua sắm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "お買い物をしている間に",
+              "why": "câu giới thiệu cốt lõi dịch vụ — xác nhận đây là trông trẻ TRONG LÚC khách mua sắm, không phải giữ qua đêm"
+            }
+          ]
+        },
+        {
+          "jp": "また、大きい荷物を持って買い物をするのは大変ですから、荷物預かりサービスもご利用いただけます。",
+          "vi": "Ngoài ra, vì mang hành lý lớn đi mua sắm rất vất vả, quý khách cũng có thể sử dụng dịch vụ giữ đồ.",
+          "vocab": [
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "to, lớn"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "持ちます",
+              "read": "もちます",
+              "vi": "mang, cầm"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả"
+            },
+            {
+              "w": "預かる",
+              "read": "あずかる",
+              "vi": "giữ hộ, trông coi"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "ご利用いただけます",
+              "read": "ごりよういただけます",
+              "vi": "quý khách có thể sử dụng (khiêm nhường ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので／〜から（Bài 39 ôn）",
+              "vi": "大変ですから = vì vất vả nên. から nêu lý do (đã học từ Bài 9, được dùng lại tự nhiên cùng ので ở Bài 39)."
+            },
+            {
+              "point": "Vて（nối hành động Bài 16）",
+              "vi": "荷物を持って買い物をする = mang hành lý rồi mua sắm. て nối 2 hành động liên tiếp (Bài 16)."
+            }
+          ]
+        },
+        {
+          "jp": "お預かりしている間、経験のあるスタッフが責任を持ってお世話いたします。",
+          "vi": "Trong suốt thời gian gửi, nhân viên có kinh nghiệm sẽ chăm sóc con em quý khách với trách nhiệm cao.",
+          "vocab": [
+            {
+              "w": "預かる",
+              "read": "あずかる",
+              "vi": "giữ hộ, trông coi"
+            },
+            {
+              "w": "間",
+              "read": "ま",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "お世話いたします",
+              "read": "おせわいたします",
+              "vi": "chăm sóc (khiêm nhường ngữ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜間（không có に — mẫu trọng tâm bài 56, lần 2）",
+              "vi": "接続: Vている（預かりしている）+ 間（không に）. お預かりしている間 = \"SUỐT trong khoảng thời gian đang trông giữ\" — hành động chăm sóc (お世話いたします) diễn ra LIÊN TỤC suốt cả khoảng, không phải một điểm. Đối chiếu trực tiếp với 間に ở câu trên: 間に (câu 2) chỉ mốc thời gian mà dịch vụ áp dụng; 間（câu này）nhấn hành động chăm sóc kéo dài không ngắt quãng suốt lúc đó."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "経験のあるスタッフ = nhân viên có kinh nghiệm. のある bổ nghĩa cho スタッフ (Bài 22)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "お預かりしている間、経験のあるスタッフが責任を持ってお世話いたします",
+              "why": "câu đối chiếu 間 (không に) — hành động chăm sóc kéo dài suốt, khác với 間に ở câu trước"
+            }
+          ]
+        },
+        {
+          "jp": "サービス｜時間｜料金｜対象",
+          "vi": "Dịch vụ｜Thời gian｜Phí｜Đối tượng.",
+          "vocab": [
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, cước phí"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 4 cột của bảng dịch vụ: dịch vụ, thời gian, phí, đối tượng."
+            }
+          ]
+        },
+        {
+          "jp": "お子さま一時預かり｜10:00〜18:00（1時間単位）｜1時間500円｜1歳〜6歳",
+          "vi": "Trông trẻ tạm thời｜10:00〜18:00 (theo đơn vị 1 giờ)｜500 yên/giờ｜1〜6 tuổi.",
+          "vocab": [
+            {
+              "w": "お子さま",
+              "read": "おこさま",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "一時預かり",
+              "read": "いちじあずかり",
+              "vi": "trông giữ tạm thời"
+            },
+            {
+              "w": "10:00",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "18:00",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "単位",
+              "read": "たんい",
+              "vi": "đơn vị"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "1歳",
+              "read": "いっさい",
+              "vi": "1 tuổi"
+            },
+            {
+              "w": "6歳",
+              "read": "ろくさい",
+              "vi": "6 tuổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "10:00〜18:00 = từ 10 giờ đến 18 giờ. Ôn lại cấu trúc からまで chỉ khoảng thời gian (Bài 4)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1時間500円",
+              "why": "đơn giá trông trẻ ngày thường — dữ kiện cộng vào phép tính phí ở câu hỏi 1 (trước khi cộng phụ thu cuối tuần)"
+            },
+            {
+              "w": "1歳〜6歳",
+              "why": "điều kiện độ tuổi được nhận trông — cần đối chiếu với tuổi con trong câu hỏi để loại trừ nhiễu"
+            }
+          ]
+        },
+        {
+          "jp": "お荷物預かり｜10:00〜20:00｜1個1時間100円｜サイズ制限なし",
+          "vi": "Giữ đồ｜10:00〜20:00｜100 yên/giờ/kiện｜không giới hạn kích thước.",
+          "vocab": [
+            {
+              "w": "お荷物",
+              "read": "おにもつ",
+              "vi": "hành lý"
+            },
+            {
+              "w": "預かり",
+              "read": "あずかり",
+              "vi": "nhận giữ"
+            },
+            {
+              "w": "10:00",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "20:00",
+              "read": "にじゅうじ",
+              "vi": "20 giờ"
+            },
+            {
+              "w": "1個",
+              "read": "いっこ",
+              "vi": "1 món"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "100円",
+              "read": "ひゃくえん",
+              "vi": "100 yên"
+            },
+            {
+              "w": "サイズ",
+              "read": "サイズ",
+              "vi": "kích thước"
+            },
+            {
+              "w": "制限",
+              "read": "せいげん",
+              "vi": "giới hạn"
+            },
+            {
+              "w": "なし",
+              "read": "なし",
+              "vi": "không có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない・Nがない（否定形の対比）",
+              "vi": "サイズ制限なし = không có giới hạn kích thước. なし = dạng viết tắt trang trọng của ない, hay dùng trong bảng biểu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1個1時間100円",
+              "why": "đơn giá giữ đồ — là phương án nhiễu nếu câu hỏi hỏi về phí trông TRẺ, vì đây là dịch vụ khác (giữ đồ, không phải trẻ)"
+            }
+          ]
+        },
+        {
+          "jp": "会員の方には、料金の割引があります。",
+          "vi": "Quý khách là hội viên sẽ được giảm giá.",
+          "vocab": [
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "quý vị, người (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにはNがあります（Bài 9 ôn）",
+              "vi": "会員の方には割引があります = với hội viên thì có giảm giá. には nhấn đối tượng, ôn lại cấu trúc があります (Bài 9)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員の方には、料金の割引があります",
+              "why": "câu báo trước điều kiện giảm giá — dấu hiệu phải dò xuống bảng hội viên để tính phí chính xác"
+            }
+          ]
+        },
+        {
+          "jp": "会員種類｜割引｜条件",
+          "vi": "Loại hội viên｜Giảm giá｜Điều kiện.",
+          "vocab": [
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "種類",
+              "read": "しゅるい",
+              "vi": "loại, chủng loại"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "会員種類",
+              "read": "かいいんしゅるい",
+              "vi": "loại hội viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 3 cột của bảng hội viên: loại hội viên, giảm giá, điều kiện."
+            }
+          ]
+        },
+        {
+          "jp": "さくらカード会員｜一時預かり料金が2割引｜入会金無料、当日入会可",
+          "vi": "Hội viên thẻ Sakura｜Giảm 20% phí trông trẻ tạm thời｜Miễn phí gia nhập, có thể đăng ký ngay trong ngày.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "一時",
+              "read": "いちじ",
+              "vi": "tạm thời, nhất thời"
+            },
+            {
+              "w": "預かる",
+              "read": "あずかる",
+              "vi": "giữ hộ, trông coi"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "nhập hội, gia nhập"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngay trong ngày"
+            },
+            {
+              "w": "さくらカード",
+              "read": "さくらカード",
+              "vi": "thẻ Sakura (tên riêng)"
+            },
+            {
+              "w": "2割引",
+              "read": "にわりびき",
+              "vi": "giảm 20%"
+            },
+            {
+              "w": "入会金",
+              "read": "にゅうかいきん",
+              "vi": "phí gia nhập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（入会できる→入会可）",
+              "vi": "当日入会可 = có thể gia nhập ngay trong ngày. 可 là cách viết rút gọn trang trọng của できる, hay gặp trong bảng biểu/thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一時預かり料金が2割引",
+              "why": "mức giảm giá hội viên — nhân với phí gốc (500円 hoặc 700円) để tính đáp án câu hỏi ghép điều kiện"
+            },
+            {
+              "w": "当日入会可",
+              "why": "điều kiện gia nhập — loại trừ nhiễu \"phải đăng ký trước\" trong câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "一般（会員以外）｜割引なし｜－",
+          "vi": "Khách thường (không phải hội viên)｜Không giảm giá｜－.",
+          "vocab": [
+            {
+              "w": "一般",
+              "read": "いっぱん",
+              "vi": "thông thường, phổ thông"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "会員以外",
+              "read": "かいいんいがい",
+              "vi": "ngoài hội viên, không phải hội viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N以外（Nしか〜ないの対比・Bài 27 ôn）",
+              "vi": "会員以外 = ngoài hội viên ra. 以外 đối lập với しか〜ない (Bài 27): 以外 = \"trừ ra\", しか = \"chỉ có\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "割引なし",
+              "why": "hàng khách thường — là phương án nhiễu (không được giảm) nếu câu hỏi vô tình cho nhân vật KHÔNG phải hội viên"
+            }
+          ]
+        },
+        {
+          "jp": "※土曜・日曜・祝日は、混雑のため一時預かりの料金が1時間700円になります（会員割引は土日も適用されます）。",
+          "vi": "※Thứ Bảy, Chủ Nhật, ngày lễ vì đông khách nên phí trông trẻ tạm thời tăng lên 700 yên/giờ (giảm giá hội viên vẫn áp dụng cả thứ Bảy Chủ Nhật).",
+          "vocab": [
+            {
+              "w": "土曜",
+              "read": "どよう",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜",
+              "read": "にちよう",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "混雑",
+              "read": "こんざつ",
+              "vi": "đông đúc"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "do, vì"
+            },
+            {
+              "w": "一時預かり",
+              "read": "いちじあずかり",
+              "vi": "trông giữ tạm thời"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "1時間",
+              "read": "いちじかん",
+              "vi": "1 giờ"
+            },
+            {
+              "w": "700円",
+              "read": "ななひゃくえん",
+              "vi": "700 yên"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành"
+            },
+            {
+              "w": "会員割引",
+              "read": "かいいんわりびき",
+              "vi": "giảm giá hội viên"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy và Chủ nhật"
+            },
+            {
+              "w": "適用されます",
+              "read": "てきようされます",
+              "vi": "được áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのため（Bài 42 ôn）",
+              "vi": "混雑のため = vì lý do đông khách. Nのため nêu nguyên nhân trang trọng (Bài 42)."
+            },
+            {
+              "point": "〜になります（Bài 19 ôn）",
+              "vi": "700円になります = trở thành 700 yên (thay đổi mức giá). になる chỉ sự biến đổi (Bài 19)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一時預かりの料金が1時間700円になります",
+              "why": "bẫy ※ then chốt — phí cuối tuần KHÁC ngày thường (700円 thay vì 500円), phải dùng đúng giá này nếu câu hỏi rơi vào thứ Bảy/Chủ Nhật"
+            },
+            {
+              "w": "会員割引は土日も適用されます",
+              "why": "xác nhận giảm giá hội viên vẫn áp dụng cả cuối tuần — cần thiết để tính đúng phép nhân giảm giá trên giá 700円"
+            }
+          ]
+        },
+        {
+          "jp": "※お子さまをお預かりできるのは最大3時間までです。3時間を超える場合はご利用いただけません。",
+          "vi": "※Thời gian trông trẻ tối đa là 3 tiếng. Nếu vượt quá 3 tiếng thì không thể sử dụng dịch vụ.",
+          "vocab": [
+            {
+              "w": "お子さま",
+              "read": "おこさま",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "お預かり",
+              "read": "おあずかり",
+              "vi": "nhận giữ"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "最大",
+              "read": "さいだい",
+              "vi": "tối đa"
+            },
+            {
+              "w": "3時間",
+              "read": "さんじかん",
+              "vi": "3 giờ"
+            },
+            {
+              "w": "超える",
+              "read": "こえる",
+              "vi": "vượt quá"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "ご利用",
+              "read": "ごりよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "いただけません",
+              "read": "いただけません",
+              "vi": "không thể sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまで（Bài 4 ôn）",
+              "vi": "最大3時間まで = tối đa đến 3 tiếng. まで chỉ giới hạn (Bài 4)."
+            },
+            {
+              "point": "V可能形の否定（ご利用いただけません）",
+              "vi": "ご利用いただけません = quý khách không thể sử dụng được. 可能形 phủ định lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "最大3時間まで",
+              "why": "giới hạn thời lượng — bẫy nếu câu hỏi hỏi về khách gửi quá 3 tiếng (dịch vụ không nhận)"
+            }
+          ]
+        },
+        {
+          "jp": "※お申し込みは、ご利用の30分前までに1階受付でお願いいたします。",
+          "vi": "※Vui lòng đăng ký tại quầy lễ tân tầng 1 trước giờ sử dụng 30 phút.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "30分前",
+              "read": "さんじゅっぷんまえ",
+              "vi": "trước 30 phút"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17 ôn）",
+              "vi": "30分前までに = trước 30 phút (hạn chót). までに chỉ mốc hạn (Bài 17)."
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくらタウン お客様サービスセンター（電話：0120-56-7788　10:00〜20:00）",
+          "vi": "Liên hệ: Trung tâm Dịch vụ Khách hàng Sakura Town (Điện thoại: 0120-56-7788, 10:00〜20:00).",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "タウン",
+              "read": "タウン",
+              "vi": "thị trấn, khu đô thị"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            },
+            {
+              "w": "サービスセンター",
+              "read": "サービスセンター",
+              "vi": "trung tâm dịch vụ"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "お買い物をしている間に、お子さんを安心してお預かりする",
+          "label": "〜間に（mốc thời gian — dịch vụ trong lúc mua sắm）"
+        },
+        {
+          "excerpt": "お預かりしている間、経験のあるスタッフが責任を持ってお世話いたします",
+          "label": "〜間（suốt — hành động chăm sóc liên tục）"
+        },
+        {
+          "excerpt": "混雑のため一時預かりの料金が1時間700円になります",
+          "label": "Nのため（Bài 42 ôn）"
+        },
+        {
+          "excerpt": "一時預かり料金が2割引",
+          "label": "割引（cấu trúc giảm giá — dữ kiện tính phí）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu dịch vụ",
+          "topic": 1,
+          "note": "Giới thiệu 2 dịch vụ (trông trẻ, giữ đồ) và nhấn mẫu 間に/間 — chưa có số liệu, chỉ định hướng chủ đề.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng dịch vụ & phí cơ bản",
+          "topic": 5,
+          "note": "Bảng chính cho biết phí gốc theo giờ của từng dịch vụ (trẻ 500円, đồ 100円) — căn cứ đầu tiên cho cả 2 câu hỏi.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng giảm giá hội viên",
+          "topic": 9,
+          "note": "Bảng phụ cho biết mức giảm giá 2割引 dành cho hội viên thẻ Sakura — điều kiện thứ hai cần ghép vào phép tính phí.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 11,
+          "to": 13,
+          "kind": "turn",
+          "label": "Bẫy ※ phụ thu cuối tuần & giới hạn giờ",
+          "topic": 11,
+          "note": "Ba dòng ※ chứa điều kiện dễ bỏ sót: phí cuối tuần tăng lên 700円, giới hạn tối đa 3 tiếng, hạn đăng ký trước 30 phút — đây là nơi câu hỏi hay gài bẫy.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 14,
+          "to": 14,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 14,
+          "note": "Thông tin liên hệ trung tâm dịch vụ khách hàng — không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "さくらカード会員のリンさんは、日曜日に2歳のお子さんを2時間預けたいです。いくら払いますか。",
+          "options": [
+            "800円",
+            "1,000円",
+            "1,120円",
+            "1,400円"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án 2 (1,120円) đúng vì cần ghép 3 điều kiện: (1) 日曜日 → áp dụng bảng ※「土曜・日曜・祝日は…1時間700円になります」, không phải giá ngày thường 500円; (2) 2歳のお子さん nằm trong đối tượng「1歳〜6歳」của bảng trông trẻ, hợp lệ; (3) さくらカード会員 → bảng hội viên ghi「一時預かり料金が2割引」và dòng ※ xác nhận「会員割引は土日も適用されます」. Tính: 700円×2時間=1,400円, giảm 20% → 1,400×0.8=1,120円. Đáp án 0 (800円) sai vì đã tính nhầm giá ngày thường (500円×2時間=1,000円rồi giảm sai). Đáp án 1 (1,000円) sai vì đó là giá ngày thường KHÔNG giảm giá (500円×2), quên cả điều kiện Chủ Nhật lẫn hội viên. Đáp án 3 (1,400円) sai vì đã tính đúng giá cuối tuần nhưng QUÊN áp dụng giảm giá hội viên.",
+          "tip": "Câu hỏi ghép điều kiện phí: luôn kiểm tra theo thứ tự (1) ngày trong tuần → chọn đúng cột giá, (2) đối tượng có hợp lệ không, (3) có giảm giá gì được cộng/trừ không, RỒI mới nhân số giờ. Bỏ sót 1 bước là sai toàn bộ phép tính.",
+          "evi": [
+            5,
+            11,
+            9
+          ],
+          "qt": {
+            "q": "Thành viên thẻ Sakura, chị Lin muốn gửi con 2 tuổi trong 2 giờ vào Chủ nhật. Chị ấy phải trả bao nhiêu?",
+            "o": [
+              "800 yên",
+              "1.000 yên",
+              "1.120 yên",
+              "1.400 yên"
+            ]
+          }
+        },
+        {
+          "q": "会員ではないお客さんが、平日にスーツケース1個を3時間預けたいです。荷物預かりサービスの料金と、預けられる時間について正しいものはどれですか。",
+          "options": [
+            "300円で、3時間まで問題なく預けられます",
+            "210円で、3時間まで問題なく預けられます",
+            "300円だが、3時間は最大時間を超えているので預けられません",
+            "一般の人は荷物預かりサービスを利用できません"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án 0 đúng: bảng ghi「お荷物預かり｜10:00〜20:00｜1個1時間100円｜サイズ制限なし」— phí giữ đồ là 100円/1時間/1個, không phân biệt ngày thường/cuối tuần (chỉ trông TRẺ mới có phụ thu ※700円) và không có hội viên cũng dùng được (bảng hội viên chỉ ghi giảm giá cho 一時預かり = trông trẻ, không đề cập giữ đồ). Vậy 3時間×100円=300円. Về giới hạn giờ: dòng ※「お子さまをお預かりできるのは最大3時間まで」CHỈ áp dụng cho dịch vụ trông TRẺ (お子さま), không áp dụng cho giữ đồ — nên 3 tiếng giữ đồ hoàn toàn hợp lệ. Đáp án 1 (210円) sai vì tự ý giảm giá 30% không có căn cứ nào trong bài (giảm giá chỉ áp dụng cho 一時預かり trẻ em). Đáp án 2 sai vì nhầm giới hạn \"tối đa 3 tiếng\" của dịch vụ trông trẻ sang giữ đồ. Đáp án 3 sai vì bảng không ghi điều kiện hội viên nào cho dịch vụ giữ đồ — ai cũng dùng được.",
+          "tip": "Bẫy thường gặp: đọc lướt sẽ tưởng mọi ※ áp dụng cho CẢ hai dịch vụ. Luôn kiểm tra chủ ngữ của từng dòng ※ (ở đây là「お子さまを」= chỉ nói về trẻ em) trước khi áp mức giới hạn/giảm giá sang dịch vụ khác.",
+          "evi": [
+            6
+          ],
+          "qt": {
+            "q": "Một khách hàng không phải hội viên muốn gửi một chiếc vali trong 3 giờ vào ngày thường. Đâu là thông tin đúng về phí dịch vụ giữ hành lý và thời gian có thể gửi?",
+            "o": [
+              "Với giá 300 yên, có thể gửi mà không vấn đề gì trong tối đa 3 giờ",
+              "Với giá 210 yên, có thể gửi mà không vấn đề gì trong tối đa 3 giờ",
+              "Giá là 300 yên, nhưng không thể gửi vì 3 giờ vượt quá thời gian tối đa",
+              "Người không phải hội viên không thể sử dụng dịch vụ giữ hành lý"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

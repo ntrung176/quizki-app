@@ -1,0 +1,479 @@
+{
+  "id": "skm3.b59",
+  "bai": 59,
+  "titleVi": "Nhân quả kèm thái độ",
+  "know": [
+    {
+      "id": "skm3.b59.okage",
+      "point": "okage",
+      "jp": "〜おかげで",
+      "vi": "Nhờ có ~ mà (kết quả tốt, biết ơn)",
+      "en": "Thanks to ~ (a positive result, expressing gratitude)",
+      "gloss": "N の おかげで ／ V普通形[ふつうけい] おかげで → kết quả[けっか] TỐT ・ 例: 毎日[まいにち]運動[うんどう]したおかげで、体[からだ]の調子[ちょうし]がよくなりました。（Nhờ tập thể dục mỗi ngày mà sức khoẻ cải thiện hẳn）",
+      "glossEn": "N の おかげで ／ V普通形[ふつうけい] おかげで → a GOOD result[けっか] ・ 例: 毎日[まいにち]運動[うんどう]したおかげで、体[からだ]の調子[ちょうし]がよくなりました。（Thanks to exercising every day, my health improved significantly）"
+    },
+    {
+      "id": "skm3.b59.sei",
+      "point": "sei",
+      "jp": "〜せいで",
+      "vi": "Tại ~ mà / Do lỗi ~ (kết quả xấu, trách cứ)",
+      "en": "Because of ~ / due to ~ (a negative result, assigning blame)",
+      "gloss": "N の せいで ／ V普通形[ふつうけい] せいで → kết quả[けっか] XẤU ・ 例: 彼[かれ]のせいで、大事[だいじ]な会議[かいぎ]に遅刻[ちこく]してしまいました。（Tại hắn mà tôi bị trễ buổi họp quan trọng）",
+      "glossEn": "N の せいで ／ V普通形[ふつうけい] せいで → a BAD result[けっか] ・ 例: 彼[かれ]のせいで、大事[だいじ]な会議[かいぎ]に遅刻[ちこく]してしまいました。（Because of him, I ended up being late for an important meeting）"
+    },
+    {
+      "id": "skm3.b59.tame",
+      "point": "tame",
+      "jp": "〜ために (nguyên nhân[げんいん])",
+      "vi": "Vì ~, do ~ (nguyên nhân trung tính, trang trọng)",
+      "en": "Because of ~ / due to ~ (a neutral, formal cause)",
+      "gloss": "N の ために ／ V普通形[ふつうけい] ために → tốt hoặc xấu, không mang thái độ cảm xúc ・ 例: 台風[たいふう]のために、フライトが延期[えんき]になりました。（Do bão mà chuyến bay bị hoãn — khách quan, không đổ lỗi ai）",
+      "glossEn": "N の ために ／ V普通形[ふつうけい] ために → good or bad, without emotional judgment ・ 例: 台風[たいふう]のために、フライトが延期[えんき]になりました。（The flight was postponed because of the typhoon — an objective statement, not blaming anyone）"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b59-disc-gokaku",
+      "item": "skm3.b59.okage",
+      "err": "okage-sei-wrong",
+      "vi": "Nhờ sự giúp đỡ của thầy giáo mà tôi đã đỗ kỳ thi.",
+      "t1": {
+        "stem": "先生[せんせい]に 助[たす]けていただいた ＿、試験[しけん]に 合格[ごうかく]できました。",
+        "choices": [
+          "おかげで",
+          "せいで",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]に",
+          "助[たす]けていただいた",
+          "おかげで、",
+          "試験[しけん]に",
+          "合格[ごうかく]できました。"
+        ],
+        "traps": [
+          "せいで、",
+          "ために、"
+        ]
+      },
+      "t3": {
+        "target": "先生に助けていただいたおかげで、試験に合格できました。",
+        "accept": [
+          "せんせいにたすけていただいたおかげで、しけんにごうかくできました。"
+        ]
+      },
+      "why": "合格[ごうかく]できた = kết quả TỐT → dùng おかげで (biết ơn). ✗ せいで chỉ dùng cho kết quả XẤU. ✗ ために ở đây thiếu sắc thái biết ơn với người giúp mình."
+    },
+    {
+      "id": "c-b59-disc-chikoku",
+      "item": "skm3.b59.sei",
+      "err": "okage-sei-wrong",
+      "vi": "Do hắn gây ra mà tôi đã bị trễ buổi họp quan trọng.",
+      "t1": {
+        "stem": "彼[かれ]の ＿、大事[だいじ]な 会議[かいぎ]に 遅刻[ちこく]してしまいました。",
+        "choices": [
+          "せいで",
+          "おかげで",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]の",
+          "せいで、",
+          "大事[だいじ]な",
+          "会議[かいぎ]に",
+          "遅刻[ちこく]してしまいました。"
+        ],
+        "traps": [
+          "おかげで、",
+          "ために、"
+        ]
+      },
+      "t3": {
+        "target": "彼のせいで、大事な会議に遅刻してしまいました。",
+        "accept": [
+          "かれのせいで、だいじなかいぎにちこくしてしまいました。"
+        ]
+      },
+      "why": "遅刻[ちこく]した = kết quả XẤU + thái độ trách cứ → せいで. ✗ おかげで chỉ dùng khi kết quả tốt. てしまいました gia cố thêm sắc thái tiếc nuối."
+    },
+    {
+      "id": "c-b59-disc-ambiguous",
+      "item": "skm3.b59.tame",
+      "err": "tame-okage-confuse",
+      "vi": "Do bão mà chuyến bay bị hoãn. (trung tính — không ai có lỗi)",
+      "t1": {
+        "stem": "台風[たいふう]の ＿、フライトが 延[えん]期[き]になりました。",
+        "choices": [
+          "ために",
+          "せいで",
+          "おかげで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "台風[たいふう]の",
+          "ために、",
+          "フライトが",
+          "延期[えんき]に",
+          "なりました。"
+        ],
+        "traps": [
+          "せいで、",
+          "おかげで、"
+        ]
+      },
+      "t3": {
+        "target": "台風のために、フライトが延期になりました。",
+        "accept": [
+          "たいふうのために、ふらいとがえんきになりました。"
+        ]
+      },
+      "why": "台風[たいふう] = thiên tai, không ai có lỗi → ために (trung tính, khách quan). ✗ せいで ám chỉ ai đó/cái gì đó CÓ LỖI (oán trách). おかげで ✗ vì kết quả không tốt."
+    },
+    {
+      "id": "c-b59-okage-noun",
+      "item": "skm3.b59.okage",
+      "err": "okage-sei-wrong",
+      "vi": "Nhờ sự ủng hộ của gia đình mà tôi vượt qua được giai đoạn khó khăn.",
+      "t1": {
+        "stem": "家族[かぞく]の 支[ささ]え ＿、つらい 時期[じき]を 乗[の]り越[こ]えられました。",
+        "choices": [
+          "のおかげで",
+          "のせいで",
+          "のために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "家族[かぞく]の",
+          "支[ささ]えの",
+          "おかげで、",
+          "つらい 時期[じき]を",
+          "乗[の]り越[こ]えられました。"
+        ],
+        "traps": [
+          "支[ささ]えのせいで、",
+          "支[ささ]えのために、"
+        ]
+      },
+      "t3": {
+        "target": "家族の支えのおかげで、つらい時期を乗り越えられました。",
+        "accept": [
+          "かぞくのささえのおかげで、つらいじきをのりこえられました。"
+        ]
+      },
+      "why": "N の おかげで: danh từ (支[ささ]え) + の + おかげで. 乗[の]り越[こ]えられた = kết quả tốt → おかげで. ✗ のせいで mang nghĩa trách cứ, không hợp."
+    },
+    {
+      "id": "c-b59-sei-byoki",
+      "item": "skm3.b59.sei",
+      "err": "okage-sei-wrong",
+      "vi": "Tại vì ốm mà tôi không thể tham dự buổi tiệc.",
+      "t1": {
+        "stem": "風邪[かぜ]を 引[ひ]いた ＿、パーティーに 出席[しゅっせき]できませんでした。",
+        "choices": [
+          "せいで",
+          "おかげで",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "風邪[かぜ]を",
+          "引[ひ]いた",
+          "せいで、",
+          "パーティーに",
+          "出席[しゅっせき]できませんでした。"
+        ],
+        "traps": [
+          "おかげで、",
+          "ために、"
+        ]
+      },
+      "t3": {
+        "target": "風邪を引いたせいで、パーティーに出席できませんでした。",
+        "accept": [
+          "かぜをひいたせいで、ぱーていにしゅっせきできませんでした。"
+        ]
+      },
+      "why": "出席[しゅっせき]できなかった = kết quả XẤU do lỗi (ốm) → せいで. ✗ ために sẽ đúng về mặt ngữ pháp nhưng mất đi sắc thái tiếc/trách đặc trưng N3."
+    },
+    {
+      "id": "c-b59-tame-jiko",
+      "item": "skm3.b59.tame",
+      "err": "tame-okage-confuse",
+      "vi": "Do xảy ra tai nạn mà giao thông bị ùn tắc nghiêm trọng.",
+      "t1": {
+        "stem": "事故[じこ]が 起[お]きた ＿、道路[どうろ]が 激[はげ]しく 渋滞[じゅうたい]しました。",
+        "choices": [
+          "ために",
+          "せいで",
+          "おかげで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "事故[じこ]が",
+          "起[お]きた",
+          "ために、",
+          "道路[どうろ]が",
+          "激[はげ]しく",
+          "渋滞[じゅうたい]しました。"
+        ],
+        "traps": [
+          "せいで、",
+          "おかげで、"
+        ]
+      },
+      "t3": {
+        "target": "事故が起きたために、道路が激しく渋滞しました。",
+        "accept": [
+          "じこがおきたために、どうろがはげしくじゅうたいしました。"
+        ]
+      },
+      "why": "ために (nguyên nhân[げんいん]) = trung tính, tường thuật khách quan sự kiện. ✗ せいで ngầm trách ai đó — ở đây không có đối tượng cụ thể để trách. Văn phong ために phù hợp văn báo cáo/tường thuật."
+    },
+    {
+      "id": "c-b59-disc-irony",
+      "item": "skm3.b59.sei",
+      "err": "okage-sei-wrong",
+      "vi": "Chính vì cậu cứ làm phiền mà tôi không tập trung được.",
+      "t1": {
+        "stem": "あなたが うるさい ＿、全然[ぜんぜん] 集中[しゅうちゅう]できませんでした。",
+        "choices": [
+          "せいで",
+          "おかげで",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あなたが",
+          "うるさい",
+          "せいで、",
+          "全然[ぜんぜん]",
+          "集中[しゅうちゅう]できませんでした。"
+        ],
+        "traps": [
+          "おかげで、",
+          "ために、"
+        ]
+      },
+      "t3": {
+        "target": "あなたがうるさいせいで、全然集中できませんでした。",
+        "accept": [
+          "あなたがうるさいせいで、ぜんぜんしゅうちゅうできませんでした。"
+        ]
+      },
+      "why": "せいで đi với い形容詞[けいようし]の普通形[ふつうけい] (うるさい). Kết quả: 集中[しゅうちゅう]できない = XẤU, có trách cứ người nghe → せいで rõ ràng nhất."
+    },
+    {
+      "id": "c-b59-okage-verb",
+      "item": "skm3.b59.okage",
+      "err": "okage-sei-wrong",
+      "vi": "Nhờ tập luyện đều đặn mỗi ngày mà sức khỏe tôi cải thiện hẳn.",
+      "t1": {
+        "stem": "毎日[まいにち] 運動[うんどう]した ＿、体[からだ]の 調子[ちょうし]がよくなりました。",
+        "choices": [
+          "おかげで",
+          "せいで",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "運動[うんどう]した",
+          "おかげで、",
+          "体[からだ]の",
+          "調子[ちょうし]が",
+          "よくなりました。"
+        ],
+        "traps": [
+          "せいで、",
+          "ために、"
+        ]
+      },
+      "t3": {
+        "target": "毎日運動したおかげで、体の調子がよくなりました。",
+        "accept": [
+          "まいにちうんどうしたおかげで、からだのちょうしがよくなりました。"
+        ]
+      },
+      "why": "Vた + おかげで: hành động trong quá khứ dẫn đến kết quả TỐT hiện tại → おかげで. ✗ ために có thể dùng nhưng không thể hiện thái độ biết ơn bản thân khi tự mình nỗ lực."
+    },
+    {
+      "id": "c-b59-tame-tensai",
+      "item": "skm3.b59.tame",
+      "err": "tame-okage-confuse",
+      "vi": "Do thiên tai liên tiếp, nhiều vùng rơi vào cảnh thiếu lương thực.",
+      "t1": {
+        "stem": "相次[あいつ]ぐ 天災[てんさい]の ＿、多[おお]くの 地域[ちいき]が 食糧[しょくりょう]不足[ぶそく]に 陥[おちい]りました。",
+        "choices": [
+          "ために",
+          "せいで",
+          "おかげで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "相次[あいつ]ぐ",
+          "天災[てんさい]の",
+          "ために、",
+          "多[おお]くの 地域[ちいき]が",
+          "食糧[しょくりょう]不足[ぶそく]に",
+          "陥[おちい]りました。"
+        ],
+        "traps": [
+          "せいで、",
+          "おかげで、"
+        ]
+      },
+      "t3": {
+        "target": "相次ぐ天災のために、多くの地域が食糧不足に陥りました。",
+        "accept": [
+          "あいつぐてんさいのために、おおくのちいきがしょくりょうぶそくにおちいりました。"
+        ]
+      },
+      "why": "N の ために: danh từ + の + ために (nguyên nhân[げんいん] trang trọng). 天災[てんさい] = không ai có lỗi → ために khách quan hơn. ✗ せいで ngầm đổ lỗi cho ai."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b59-okage",
+      "item": "skm3.b59.okage",
+      "err": "okage-sei-wrong",
+      "tts": "せんせいが ていねいに おしえてくださった おかげで、にほんごが じょうずに なりました。",
+      "script": "先生[せんせい]が 丁寧[ていねい]に 教[おし]えてくださった おかげで、日本語[にほんご]が 上手[じょうず]に なりました。",
+      "ask": "Câu này diễn đạt điều gì?",
+      "choices": [
+        "Biết ơn thầy vì nhờ thầy dạy mà tiếng Nhật tiến bộ",
+        "Trách thầy vì dạy không tốt nên tiếng Nhật kém",
+        "Giải thích lý do trung tính tại sao tiếng Nhật tốt hơn"
+      ],
+      "answer": 0,
+      "why": "おかげで = nhờ có ~ mà (kết quả tốt, biết ơn). 上手[じょうず]になった = tiến bộ → thái độ biết ơn người dạy."
+    },
+    {
+      "id": "l-b59-sei",
+      "item": "skm3.b59.sei",
+      "err": "okage-sei-wrong",
+      "tts": "きのう かれが おくれた せいで、みんな たくさん またされました。",
+      "script": "昨日[きのう]、彼[かれ]が 遅[おく]れた せいで、みんなが 長[なが]い 間[あいだ] 待[ま]たされました。",
+      "ask": "Người nói có thái độ gì trong câu này?",
+      "choices": [
+        "Trách anh ấy vì đến muộn làm mọi người phải đợi lâu",
+        "Biết ơn anh ấy vì đã đến và mọi người có thể gặp nhau",
+        "Giải thích khách quan rằng anh ấy đến muộn"
+      ],
+      "answer": 0,
+      "why": "せいで = tại ~ mà (kết quả xấu, đổ lỗi). 待[ま]たされた (bị bắt đợi) = kết quả XẤU, cả nhóm bị ảnh hưởng."
+    },
+    {
+      "id": "l-b59-tame",
+      "item": "skm3.b59.tame",
+      "err": "tame-okage-confuse",
+      "tts": "おおゆきの ために、でんしゃが とまってしまいました。",
+      "script": "大雪[おおゆき]の ために、電車[でんしゃ]が 止[と]まってしまいました。",
+      "ask": "Tại sao dùng ために thay vì せいで ở đây?",
+      "choices": [
+        "Vì tuyết rơi dày là thiên nhiên, không có ai cụ thể bị trách",
+        "Vì kết quả là tốt, nên không dùng せいで",
+        "Vì ために chỉ dùng cho câu văn viết trang trọng dài"
+      ],
+      "answer": 0,
+      "why": "大雪[おおゆき] (tuyết dày) = hiện tượng tự nhiên, không đổ lỗi cho ai → ために. せいで ngầm ám chỉ ai đó có lỗi."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b59-kara",
+      "item": "minna1.b09.kara",
+      "err": "node-kara-formal",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 59 · おかげで",
+      "vi": "Vì giáo viên giỏi nên tôi có thể học tốt. (cài lỗi: から vs ので — lý do thể lịch sự)",
+      "t1": {
+        "stem": "先生[せんせい]が 上手[じょうず]です ＿、よく 勉強[べんきょう]できます。",
+        "choices": [
+          "から",
+          "ので",
+          "おかげで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "先生[せんせい]が",
+          "上手[じょうず]ですから、",
+          "よく",
+          "勉強[べんきょう]できます。"
+        ],
+        "traps": [
+          "上手[じょうず]なので、",
+          "上手[じょうず]なおかげで、"
+        ]
+      },
+      "t3": {
+        "target": "先生が上手ですから、よく勉強できます。",
+        "accept": [
+          "せんせいがじょうずですから、よくべんきょうできます。"
+        ]
+      },
+      "why": "から đứng sau thể lịch sự (です/ます) hoặc thể thường — lý do chủ quan, thông dụng. ので đứng sau thể thường: 上手[じょうず]なので ✓ (なので với な形容詞[けいようし]), cũng đúng nhưng văn phong lịch sự/khách quan hơn. ✗ 上手ですおかげで — おかげで không tiếp trực tiếp sau thể lịch sự. Bẫy kép: B09 lý do + phân biệt から/ので (B49)."
+    },
+    {
+      "id": "a-b59-shimatta",
+      "item": "minna2.b39.te-shimaimashita",
+      "err": "tsm-shimau-tense",
+      "ambush": true,
+      "src": 39,
+      "context": "Bài 59 · せいで",
+      "vi": "Tại vì anh ấy không thông báo mà tôi đã mất vé mất rồi. (cài lỗi: てしまいました — tense sai)",
+      "t1": {
+        "stem": "彼[かれ]が 連絡[れんらく]しなかった せいで、チケットを ＿。",
+        "choices": [
+          "なくしてしまいました",
+          "なくしてしまいます",
+          "なくしました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]が",
+          "連絡[れんらく]しなかった",
+          "せいで、",
+          "チケットを",
+          "なくして",
+          "しまいました。"
+        ],
+        "traps": [
+          "なくしてしまいます。",
+          "なくします。"
+        ]
+      },
+      "t3": {
+        "target": "彼が連絡しなかったせいで、チケットをなくしてしまいました。",
+        "accept": [
+          "かれがれんらくしなかったせいで、ちけっとをなくしてしまいました。"
+        ]
+      },
+      "why": "てしまいました = sự việc đáng tiếc đã xảy ra (quá khứ). ✗ てしまいます là hiện tại/tương lai — không hợp với ngữ cảnh đã mất rồi. せいで + てしまいました: kết hợp tự nhiên khi muốn nhấn mạnh cả lỗi của người khác lẫn sự tiếc nuối."
+    }
+  ]
+}

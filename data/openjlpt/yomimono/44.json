@@ -1,0 +1,2478 @@
+{
+  "bai": 44,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 44 tập trung vào ba mẫu ngữ pháp gắn liền với \"trình độ, mức độ và cách làm\": すぎます（quá mức, vượt ngưỡng）, やすい・にくい（dễ/khó khi làm gì）, và V方（phương pháp thực hiện）. Chủ đề bài đọc là dùng thiết bị/máy mới — ngữ cảnh tự nhiên nhất để cả ba mẫu xuất hiện cùng nhau. Chiến lược: nhận diện đuôi -すぎ、-やすい/-にくい、-方 để xác định mẫu ngữ pháp, sau đó đọc nội dung xung quanh để hiểu đối tượng và lý do.",
+    "steps": [
+      "Đọc lướt toàn đoạn để nắm bối cảnh: ai mua/nhận đồ gì mới, dùng ra sao, kết quả thế nào.",
+      "Tìm đuôi すぎ: động từ ます形 bỏ ます + すぎます, hoặc tính từ い bỏ い + すぎます / tính từ な bỏ な + すぎます → mang nghĩa \"quá mức\".",
+      "Tìm やすい / にくい gắn sau V-ます形 (bỏ ます): やすい = dễ, にくい = khó. Chú ý đây là tính từ い → chia như tính từ い bình thường (やすかった, にくいです…).",
+      "Tìm V方: V-ます形 bỏ ます + 方（かた）= \"cách làm\". Thường xuất hiện với 教えます（dạy cách）, 知っています（biết cách）, わかりません（không biết cách）.",
+      "Câu hỏi trắc nghiệm có thể hỏi về lý do, kết quả, hoặc yêu cầu suy luận từ tình huống → đọc kỹ toàn đoạn, không chỉ đoạn đầu.",
+      "Ôn lại ngữ pháp cũ: Vてしまいました（Bài 29）, Vておきます（Bài 30）, Vてあります（Bài 30）, そうです様態（Bài 43）, Vやすい・にくい（Bài 28 ôn lại）."
+    ],
+    "tips": [
+      "すぎます LUÔN gắn với V-ます形 bỏ ます hoặc A-い bỏ い / A-な bỏ な. Ví dụ: 食べすぎます、高すぎます、静かすぎます.",
+      "やすい / にくい là tính từ い → phủ định: やすくない / にくくない; quá khứ: やすかった / にくかった.",
+      "V方 không nhầm với 方向（ほうこう = hướng）hay 方法（ほうほう = phương pháp công thức）— V方 đơn giản là \"cách làm động tác V cụ thể\".",
+      "Câu hỏi suy luận: nhìn vào KẾT QUẢ của hành động (すぎた→ hậu quả gì) để chọn đáp án đúng.",
+      "〜てしまいました（Bài 29）thường đi kèm すぎ để nói việc đã lỡ xảy ra quá mức: 食べすぎてしまいました = đã lỡ ăn quá nhiều.",
+      "そうです様態（Bài 43）hay xuất hiện trước すぎ/やすい để mô tả ngoại quan: 壊れそうで怖い = trông có vẻ sắp hỏng đáng sợ."
+    ],
+    "grammarFocus": [
+      "Vすぎます・Aすぎます（quá mức）",
+      "Vやすいです・Vにくいです（dễ/khó làm）",
+      "V方（かた）—cách làm"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 43,
+        "items": [
+          "V/Aそうです（様態 — trông có vẻ）",
+          "Vてきます・Vていきます"
+        ]
+      },
+      {
+        "bai": 42,
+        "items": [
+          "Vるのに〜",
+          "Nに〜時間がかかります"
+        ]
+      },
+      {
+        "bai": 40,
+        "items": [
+          "Vてみます（thử làm）",
+          "疑問詞＋か"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）",
+          "Vるために"
+        ]
+      },
+      {
+        "bai": 38,
+        "items": [
+          "Vるのが好き・上手",
+          "Vるのを忘れます"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようになります（trở nên có thể）",
+          "Vるようにします"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vてあります",
+          "Vておきます"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました",
+          "自動詞 vs 他動詞"
+        ]
+      },
+      {
+        "bai": 28,
+        "items": [
+          "Vやすい・Vにくい（ôn, củng cố）",
+          "Vながらします"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき",
+          "〜と（điều kiện tự nhiên）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる/Vている＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "新しいコーヒーメーカーの使い方",
+      "titleVi": "Cách dùng máy pha cà phê mới",
+      "japanese": "先週、新しいコーヒーメーカーを買いました。使い方がよくわからなかったので、最初はコーヒーを入れすぎてしまいました。\nとても苦くて、飲みにくかったです。\n取扱説明書を読んで、正しい使い方を覚えました。\nこのメーカーはボタンが大きくて、操作しやすいです。\n今は毎朝おいしいコーヒーを作ることができます。\n友達にも使い方を教えてあげたいと思っています。",
+      "vietnamese": "Tuần trước tôi mua một cái máy pha cà phê mới. Vì không hiểu rõ cách dùng, lần đầu tôi đã lỡ cho cà phê vào quá nhiều.\nCà phê đắng lắm và khó uống.\nTôi đọc sách hướng dẫn và ghi nhớ cách dùng đúng.\nMáy này có nút to nên dễ thao tác.\nBây giờ mỗi sáng tôi có thể pha được cà phê ngon.\nTôi cũng đang nghĩ muốn dạy bạn bè cách dùng.",
+      "sentences": [
+        {
+          "jp": "先週、新しいコーヒーメーカーを買いました。",
+          "vi": "Tuần trước tôi mua một cái máy pha cà phê mới.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "メーカー",
+              "read": "メーカー",
+              "vi": "nhà sản xuất"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            },
+            {
+              "w": "コーヒーメーカー",
+              "read": "コーヒーメーカー",
+              "vi": "máy pha cà phê"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "買いました = đã mua. Thể ました của 買います dùng cho hành động đã hoàn thành trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "使い方がよくわからなかったので、最初はコーヒーを入れすぎてしまいました。",
+          "vi": "Vì không hiểu rõ cách dùng, lần đầu tôi đã lỡ cho cà phê vào quá nhiều.",
+          "vocab": [
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách dùng, cách sử dụng"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, lần đầu"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "cho vào, đổ vào"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "rõ ràng, thường xuyên"
+            },
+            {
+              "w": "わかります",
+              "read": "わかります",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（かた）",
+              "vi": "使い方 = cách dùng. V-ます形 bỏ ます + 方: 使います→使い方."
+            },
+            {
+              "point": "Vすぎてしまいました",
+              "vi": "入れすぎてしまいました = đã lỡ cho vào quá nhiều. すぎ = quá mức; てしまいました（Bài 29）= đã lỡ xảy ra rồi, hàm ý đáng tiếc."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "わからなかったので = vì không biết. ので nêu lý do dẫn đến kết quả."
+            }
+          ]
+        },
+        {
+          "jp": "とても苦くて、飲みにくかったです。",
+          "vi": "Cà phê đắng lắm và khó uống.",
+          "vocab": [
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "苦い",
+              "read": "にがい",
+              "vi": "đắng"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vにくかったです",
+              "vi": "飲みにくかったです = quá khứ của 飲みにくいです（khó uống）. Vにくい là tính từ い → quá khứ dùng くかった."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "苦くて = đắng và (nối tính từ い với vế tiếp). Diễn tả lý do/hệ quả."
+            }
+          ]
+        },
+        {
+          "jp": "取扱説明書を読んで、正しい使い方を覚えました。",
+          "vi": "Tôi đọc sách hướng dẫn và ghi nhớ cách dùng đúng.",
+          "vocab": [
+            {
+              "w": "取扱",
+              "read": "とりあつかい",
+              "vi": "sử dụng, thao tác"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "読みます",
+              "read": "よみます",
+              "vi": "đọc"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "học thuộc, ghi nhớ"
+            },
+            {
+              "w": "取扱説明書",
+              "read": "とりあつかいせつめいしょ",
+              "vi": "sách hướng dẫn sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（ôn）",
+              "vi": "使い方 xuất hiện lần 2. 正しい使い方 = cách dùng đúng — mệnh đề 正しい bổ nghĩa danh từ 使い方（Bài 22）."
+            },
+            {
+              "point": "Vて〜（Bài 16）",
+              "vi": "読んで、覚えました = đọc xong rồi ghi nhớ. て形 nối trình tự."
+            }
+          ]
+        },
+        {
+          "jp": "このメーカーはボタンが大きくて、操作しやすいです。",
+          "vi": "Máy này có nút to nên dễ thao tác.",
+          "vocab": [
+            {
+              "w": "メーカー",
+              "read": "メーカー",
+              "vi": "nhà sản xuất"
+            },
+            {
+              "w": "ボタン",
+              "read": "ボタン",
+              "vi": "nút bấm"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "to, lớn"
+            },
+            {
+              "w": "操作します",
+              "read": "そうさします",
+              "vi": "thao tác, vận hành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすいです",
+              "vi": "操作しやすいです = dễ thao tác. 操作し（ます形 bỏ ます）+ やすい. やすい là tính từ い."
+            },
+            {
+              "point": "〜くて（nguyên nhân）",
+              "vi": "ボタンが大きくて = nút to nên (vì nút to). くて nối lý do với hệ quả 操作しやすい."
+            }
+          ]
+        },
+        {
+          "jp": "今は毎朝おいしいコーヒーを作ることができます。",
+          "vi": "Bây giờ mỗi sáng tôi có thể pha được cà phê ngon.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, pha (cà phê)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "作ることができます = có thể làm. Hình thức khả năng bằng 辞書形 + ことができます."
+            }
+          ]
+        },
+        {
+          "jp": "友達にも使い方を教えてあげたいと思っています。",
+          "vi": "Tôi cũng đang nghĩ muốn dạy bạn bè cách dùng.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng"
+            },
+            {
+              "w": "教えてあげたい",
+              "read": "おしえてあげたい",
+              "vi": "muốn chỉ cho"
+            },
+            {
+              "w": "思っています",
+              "read": "おもっています",
+              "vi": "đang nghĩ, dự định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（ôn lần 3）",
+              "vi": "使い方 = cách dùng. Lần này đứng trong vị trí tân ngữ của 教えます — \"dạy cách dùng\"."
+            },
+            {
+              "point": "Vてあげます（Bài 24/41）",
+              "vi": "教えてあげます = dạy (cho người kia, xuất phát từ mình). Hành động vì lợi ích của bạn bè."
+            },
+            {
+              "point": "Vたいと思っています（Bài 13+21）",
+              "vi": "たい = muốn; と思っています = đang nghĩ. Diễn tả dự định/nguyện vọng đang ấp ủ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "使い方がよくわからなかった",
+          "label": "V方（cách dùng）"
+        },
+        {
+          "excerpt": "コーヒーを入れすぎてしまいました",
+          "label": "Vすぎてしまいました"
+        },
+        {
+          "excerpt": "飲みにくかったです",
+          "label": "Vにくかったです"
+        },
+        {
+          "excerpt": "操作しやすいです",
+          "label": "Vやすいです"
+        },
+        {
+          "excerpt": "正しい使い方を覚えました",
+          "label": "V方（cách dùng đúng）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "どうして最初のコーヒーは飲みにくかったですか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "コーヒーメーカーが古かったから、うまく作れませんでした",
+            "コーヒーを入れすぎてしまったから、とても苦かったです",
+            "取扱説明書を読まなかったから、電源が入りませんでした",
+            "ボタンが小さくて、操作しにくかったです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ trình tự nhân quả:「使い方がよくわからなかったので、コーヒーを入れすぎてしまいました。とても苦くて、飲みにくかったです」— vì không biết cách dùng → cho cà phê vào QUÁ NHIỀU (入れすぎ) → đắng quá (苦くて) → khó uống (飲みにくかった). Đây là chuỗi nhân quả điển hình của すぎ: hành động vượt mức → hậu quả tiêu cực. Đáp án 0 sai vì bài không đề cập máy cũ — ngược lại máy vừa mua (新しい). Đáp án 2 sai vì bài ghi rõ vấn đề là 入れすぎ chứ không phải điện không vào. Đáp án 3 sai vì bài sau đó nói「ボタンが大きくて、操作しやすい」— nút to và DỄ thao tác, không khó.",
+          "tip": "Gặp câu hỏi \"なぜ〜にくかったか/なぜ〜すぎたか\" → tìm chuỗi nhân quả: NGUYÊN NHÂN (わからない) → HÀNH ĐỘNG すぎ → HẬU QUẢ (苦い/飲みにくい). Ba từ chốt nằm liên tiếp trong bài.",
+          "qt": {
+            "q": "Vì sao cà phê lúc đầu khó uống?",
+            "o": [
+              "Vì máy pha cà phê đã cũ nên không thể pha ngon",
+              "Vì đã cho quá nhiều cà phê nên cà phê rất đắng",
+              "Vì không đọc hướng dẫn sử dụng nên máy không bật lên",
+              "Vì nút bấm nhỏ nên khó thao tác"
+            ]
+          }
+        },
+        {
+          "q": "この人はどうして今おいしいコーヒーを作ることができますか。",
+          "evi": [
+            3,
+            5
+          ],
+          "options": [
+            "新しいコーヒーメーカーは自動なので、何もしなくてもいいです",
+            "取扱説明書を読んで、正しい使い方を覚えたからです",
+            "友達が正しい使い方を教えてくれたからです",
+            "コーヒーを入れすぎないように、毎日練習したからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu trực tiếp:「取扱説明書を読んで、正しい使い方を覚えました」(đọc sách hướng dẫn → ghi nhớ cách dùng đúng), rồi ngay sau đó:「今は毎朝おいしいコーヒーを作ることができます」(bây giờ pha được ngon mỗi sáng). Chuỗi V方+てから→結果 rõ ràng: 読む → 覚える → できる. Đáp án 0 sai vì bài không hề nói máy \"tự động\" hay \"không cần làm gì\". Đáp án 2 sai vì câu cuối bài ghi người này MUỐN dạy bạn bè (教えてあげたい) — nghĩa là bạn bè chưa dạy, ngược lại là mình đi dạy. Đáp án 3 sai vì bài không đề cập luyện tập hàng ngày — giải pháp là đọc sách hướng dẫn, không phải luyện tập.",
+          "tip": "Câu hỏi \"どうして〜できますか\" → tìm hành động CỤ THỂ ngay trước kết quả đó trong bài. V方 thường là chìa khóa: ai đó ĐÃ HỌC CÁCH → SAU ĐÓ mới làm được.",
+          "qt": {
+            "q": "Vì sao bây giờ người này có thể pha cà phê ngon?",
+            "o": [
+              "Máy pha cà phê mới là loại tự động nên không cần làm gì cả",
+              "Vì đã đọc hướng dẫn sử dụng và học được cách dùng đúng",
+              "Vì một người bạn đã chỉ cho cách dùng đúng",
+              "Vì đã luyện tập mỗi ngày để không cho quá nhiều cà phê"
+            ]
+          }
+        },
+        {
+          "q": "このコーヒーメーカーはどんな特徴がありますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "ボタンが多くて、操作しにくいです",
+            "デザインはいいですが、コーヒーがおいしくないです",
+            "ボタンが大きくて、操作しやすいです",
+            "取扱説明書がないので、使い方がわかりにくいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu đặc điểm của máy bằng câu:「このメーカーはボタンが大きくて、操作しやすいです」(nút to → dễ thao tác). Đây là mẫu Vやすい điển hình — nút TO (大きくて = lý do) dẫn đến dễ thao tác (やすい = kết quả). Đáp án 0 sai và ngược lại — bài nói ボタンが大きくて (to) chứ không phải 多くて (nhiều) hay 操作しにくい. Đáp án 1 sai vì bài không đánh giá vị cà phê là không ngon — ngược lại「おいしいコーヒーを作ることができます」. Đáp án 3 sai vì bài có sách hướng dẫn (取扱説明書) và người dùng đã đọc — không phải không có hướng dẫn.",
+          "tip": "Câu hỏi hỏi \"đặc điểm của đồ vật\" (どんな特徴) → tìm câu có やすい/にくい hoặc mẫu tính chất trực tiếp mô tả vật đó. Đáp án thường trích lại gần nguyên văn câu trong bài.",
+          "qt": {
+            "q": "Máy pha cà phê này có đặc điểm gì?",
+            "o": [
+              "Có nhiều nút bấm nên khó thao tác",
+              "Thiết kế đẹp nhưng cà phê không ngon",
+              "Nút bấm lớn nên dễ thao tác",
+              "Không có hướng dẫn sử dụng nên khó hiểu cách dùng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "スマートフォンの使い方で困ったこと",
+      "titleVi": "Những rắc rối về cách dùng điện thoại thông minh",
+      "japanese": "先月、私はやっとスマートフォンを買いました。前のケータイはもう古くて、使いにくくなっていたので、新しいものに変えたんです。\n最初はスマートフォンの使い方がまったくわからなくて、困りました。\n画面が大きくて文字が見やすいのはよかったのですが、アプリの入れ方や設定の変え方がわからなかったんです。\n友達のワンさんはスマートフォンをよく知っているので、使い方を教えてもらいました。\nワンさんは「このアプリは操作しやすいから、最初はこれを使ってみてください」と言いました。\nでも、私はすぐに使いすぎてしまいました。\nゲームが楽しくて、夜遅くまでやってしまったんです。その夜は寝るのが遅すぎて、次の朝はとても眠かったです。\n会社に来た時、上司の田中さんが「顔色が悪そうですね。大丈夫ですか」と言いました。\n私は「昨日、スマートフォンを使いすぎてしまったんです。すみません」と正直に答えました。\n田中さんは「仕事の前日は早く寝なければなりませんよ」と言いました。それはわかっているんですが、ゲームをやめにくかったんです。\n今は使う時間を決めておきました。毎晩9時以降はスマートフォンを使わないようにしています。\nそうすると、前より早く眠れるようになりました。\n先週、母がスマートフォンを使いたいと言い出したので、基本的な使い方を教えてあげました。\n母は「画面が明るすぎる」と言ったので、明るさの調整の仕方を教えました。\n母は「ありがとう。でも、文字の打ち方がまだよくわからない」と言いました。\n次の週末に、もっとゆっくり教えてあげるつもりです。\nスマートフォンはとても便利ですが、使い方を間違えると、生活のリズムが崩れてしまうと思います。\n何でも使いすぎは良くない、ということを学びました。",
+      "vietnamese": "Tháng trước tôi cuối cùng cũng mua được điện thoại thông minh. Điện thoại cũ đã già lắm và trở nên khó dùng nên tôi đổi sang cái mới.\nLúc đầu tôi hoàn toàn không biết cách dùng điện thoại thông minh và rất lúng túng.\nMàn hình to nên chữ dễ đọc là điểm tốt, nhưng tôi không biết cách cài ứng dụng hay cách đổi cài đặt.\nBạn tôi là anh Wang rất rành điện thoại thông minh nên tôi nhờ anh ấy chỉ cách dùng.\nAnh Wang nói \"Ứng dụng này dễ thao tác nên lúc đầu hãy thử dùng cái này nhé\".\nNhưng tôi đã lỡ dùng quá nhiều ngay lập tức.\nChơi game vui quá nên tôi đã lỡ chơi đến tận khuya. Đêm đó tôi ngủ muộn quá, sáng hôm sau buồn ngủ lắm.\nKhi đến công ty, sếp Tanaka nói \"Trông mặt anh có vẻ không ổn. Anh có sao không?\".\nTôi thành thật trả lời \"Hôm qua em đã lỡ dùng điện thoại quá nhiều. Xin lỗi anh\".\nAnh Tanaka nói \"Đêm trước ngày đi làm phải đi ngủ sớm đấy\". Tôi hiểu điều đó, nhưng khó bỏ game lắm.\nBây giờ tôi đã quyết định sẵn thời gian dùng. Mỗi tối sau 9 giờ tôi không dùng điện thoại nữa.\nLàm vậy thì tôi trở nên ngủ được sớm hơn trước.\nTuần trước mẹ tôi nói muốn dùng điện thoại thông minh nên tôi đã dạy mẹ cách dùng cơ bản.\nMẹ nói \"Màn hình sáng quá\" nên tôi dạy cách điều chỉnh độ sáng.\nMẹ nói \"Cảm ơn con. Nhưng mẹ vẫn chưa hiểu rõ cách gõ chữ\".\nCuối tuần tới tôi định sẽ dạy từ từ hơn.\nĐiện thoại thông minh rất tiện lợi, nhưng tôi nghĩ nếu dùng sai cách thì nhịp sinh hoạt sẽ bị rối.\nTôi đã học được bài học rằng việc gì dùng quá mức cũng không tốt.",
+      "sentences": [
+        {
+          "jp": "先月、私はやっとスマートフォンを買いました。前のケータイはもう古くて、使いにくくなっていたので、新しいものに変えたんです。",
+          "vi": "Tháng trước tôi cuối cùng cũng mua được điện thoại thông minh. Điện thoại cũ đã già lắm và trở nên khó dùng nên tôi đổi sang cái mới.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "買いました",
+              "read": "かいました",
+              "vi": "đã mua"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, cũ"
+            },
+            {
+              "w": "ケータイ",
+              "read": "ケータイ",
+              "vi": "điện thoại di động"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "đã, rồi"
+            },
+            {
+              "w": "古くて",
+              "read": "ふるくて",
+              "vi": "cũ"
+            },
+            {
+              "w": "使いにくくなっていた",
+              "read": "つかいにくくなっていた",
+              "vi": "đã trở nên khó sử dụng"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "もの",
+              "read": "もの",
+              "vi": "đồ vật, thứ"
+            },
+            {
+              "w": "変えた",
+              "read": "かえた",
+              "vi": "đã đổi, thay"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vにくくなっていた",
+              "vi": "使いにくくなっていた = đã trở nên khó dùng. Vにくい（tính từ い）+ くなる（Bài 19: trở nên）+ ている（trạng thái）."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "変えたんです = giải thích lý do đổi điện thoại. んです ở đây cung cấp bối cảnh."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "使いにくくなっていたので = vì trở nên khó dùng. ので nêu lý do."
+            }
+          ]
+        },
+        {
+          "jp": "最初はスマートフォンの使い方がまったくわからなくて、困りました。",
+          "vi": "Lúc đầu tôi hoàn toàn không biết cách dùng điện thoại thông minh và rất lúng túng.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "まったく",
+              "read": "まったく",
+              "vi": "hoàn toàn (đi với phủ định)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "khó xử, lúng túng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（かた）",
+              "vi": "使い方 = cách dùng. 使います ます形 bỏ ます + 方."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "わからなくて = không biết và (nối lý do với hệ quả 困りました)."
+            }
+          ]
+        },
+        {
+          "jp": "画面が大きくて文字が見やすいのはよかったのですが、アプリの入れ方や設定の変え方がわからなかったんです。",
+          "vi": "Màn hình to nên chữ dễ đọc là điểm tốt, nhưng tôi không biết cách cài ứng dụng hay cách đổi cài đặt.",
+          "vocab": [
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "見ます",
+              "read": "みます",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng (app)"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "cài, cho vào"
+            },
+            {
+              "w": "設定",
+              "read": "せってい",
+              "vi": "cài đặt"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい",
+              "vi": "見やすい = dễ nhìn/đọc. 見ます ます形 bỏ ます + やすい."
+            },
+            {
+              "point": "V方（2 lần）",
+              "vi": "入れ方 = cách cài; 変え方 = cách đổi. Cả hai là V-ます形 bỏ ます + 方, đứng sau N（アプリ/設定）の để chỉ cụ thể."
+            },
+            {
+              "point": "〜のは〜（Bài 38）",
+              "vi": "見やすいのはよかった = việc dễ nhìn là điều tốt. Vのは danh từ hóa động từ/tính từ."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "わからなかったんです = giải thích điều đã gặp khó khăn."
+            }
+          ]
+        },
+        {
+          "jp": "友達のワンさんはスマートフォンをよく知っているので、使い方を教えてもらいました。",
+          "vi": "Bạn tôi là anh Wang rất rành điện thoại thông minh nên tôi nhờ anh ấy chỉ cách dùng.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "知っています",
+              "read": "しっています",
+              "vi": "biết, rành (trạng thái)"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（ôn）",
+              "vi": "使い方 = cách dùng. Đứng ở vị trí tân ngữ của 教えてもらう."
+            },
+            {
+              "point": "Vてもらいます（Bài 24）",
+              "vi": "教えてもらいました = được/nhờ chỉ cho. Người nói nhận được hành động từ Wang."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "よく知っているので = vì biết rõ. ので nối lý do với việc nhờ."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「このアプリは操作しやすいから、最初はこれを使ってみてください」と言いました。",
+          "vi": "Anh Wang nói \"Ứng dụng này dễ thao tác nên lúc đầu hãy thử dùng cái này nhé\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng"
+            },
+            {
+              "w": "操作します",
+              "read": "そうさします",
+              "vi": "thao tác, vận hành"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vやすい",
+              "vi": "操作しやすい = dễ thao tác. 操作し（ます形 bỏ ます）+ やすい. Anh Wang đánh giá ứng dụng."
+            },
+            {
+              "point": "Vてみてください（Bài 40）",
+              "vi": "使ってみてください = hãy thử dùng đi. てみます（thử）+ てください（yêu cầu）."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "操作しやすいから = vì dễ thao tác. から nêu lý do."
+            }
+          ]
+        },
+        {
+          "jp": "でも、私はすぐに使いすぎてしまいました。",
+          "vi": "Nhưng tôi đã lỡ dùng quá nhiều ngay lập tức.",
+          "vocab": [
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vすぎてしまいました",
+              "vi": "使いすぎてしまいました = đã lỡ dùng quá nhiều. すぎ (quá mức) + てしまいました（Bài 29: đã lỡ xảy ra, đáng tiếc）."
+            }
+          ]
+        },
+        {
+          "jp": "ゲームが楽しくて、夜遅くまでやってしまったんです。その夜は寝るのが遅すぎて、次の朝はとても眠かったです。",
+          "vi": "Chơi game vui quá nên tôi đã lỡ chơi đến tận khuya. Đêm đó tôi ngủ muộn quá, sáng hôm sau buồn ngủ lắm.",
+          "vocab": [
+            {
+              "w": "ゲーム",
+              "read": "ゲーム",
+              "vi": "trò chơi, game"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "寝ます",
+              "read": "ねます",
+              "vi": "ngủ"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "眠い",
+              "read": "ねむい",
+              "vi": "buồn ngủ"
+            },
+            {
+              "w": "夜遅く",
+              "read": "よるおそく",
+              "vi": "khuya, đêm muộn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aすぎて",
+              "vi": "遅すぎて = muộn quá và (hệ quả). 遅い bỏ い + すぎ + て形."
+            },
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "やってしまったんです = đã lỡ chơi đến khuya. てしまう + んです kết hợp: giải thích việc đáng tiếc đã xảy ra."
+            },
+            {
+              "point": "〜のが（Bài 38）",
+              "vi": "寝るのが遅すぎて = việc đi ngủ quá muộn và... Vるのが danh từ hóa động từ làm chủ ngữ của すぎて."
+            }
+          ]
+        },
+        {
+          "jp": "会社に来た時、上司の田中さんが「顔色が悪そうですね。大丈夫ですか」と言いました。",
+          "vi": "Khi đến công ty, sếp Tanaka nói \"Trông mặt anh có vẻ không ổn. Anh có sao không?\".",
+          "vocab": [
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên, sếp"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "顔色",
+              "read": "かおいろ",
+              "vi": "sắc mặt"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "không sao, ổn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aそうです（様態 Bài 43）",
+              "vi": "顔色が悪そうですね = trông mặt có vẻ không ổn. Tính từ い bỏ い + そうです: nhận xét dựa trên ngoại quan."
+            },
+            {
+              "point": "〜時（Bài 23）",
+              "vi": "来た時 = khi đến. V た + 時 = tại thời điểm đã đến rồi."
+            }
+          ]
+        },
+        {
+          "jp": "私は「昨日、スマートフォンを使いすぎてしまったんです。すみません」と正直に答えました。",
+          "vi": "Tôi thành thật trả lời \"Hôm qua em đã lỡ dùng điện thoại quá nhiều. Xin lỗi anh\".",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "使いすぎてしまった",
+              "read": "つかいすぎてしまった",
+              "vi": "đã lỡ dùng quá nhiều"
+            },
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "正直に",
+              "read": "しょうじきに",
+              "vi": "một cách thành thật"
+            },
+            {
+              "w": "答えました",
+              "read": "こたえました",
+              "vi": "đã trả lời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vすぎてしまったんです",
+              "vi": "使いすぎてしまったんです = đã lỡ dùng quá nhiều (giải thích). すぎ + てしまった + んです: ba mẫu kết hợp để nêu bối cảnh đáng tiếc."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは「仕事の前日は早く寝なければなりませんよ」と言いました。それはわかっているんですが、ゲームをやめにくかったんです。",
+          "vi": "Anh Tanaka nói \"Đêm trước ngày đi làm phải đi ngủ sớm đấy\". Tôi hiểu điều đó, nhưng khó bỏ game lắm.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước, đêm trước"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm"
+            },
+            {
+              "w": "寝る",
+              "read": "ねる",
+              "vi": "ngủ, đi ngủ"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "ゲーム",
+              "read": "ゲーム",
+              "vi": "trò chơi (game)"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "やめます",
+              "read": "やめます",
+              "vi": "bỏ, dừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vなければなりません（Bài 17）",
+              "vi": "寝なければなりません = phải đi ngủ. Lời nhắc của Tanaka."
+            },
+            {
+              "point": "Vにくかったんです",
+              "vi": "やめにくかったんです = quá khứ của やめにくい（khó bỏ）. Vにくい là tính từ い → にくかった + んです giải thích lý do thật lòng."
+            },
+            {
+              "point": "〜んですが（Bài 26）",
+              "vi": "わかっているんですが = \"tôi hiểu, nhưng…\". んですが thừa nhận rồi dẫn vào điều đối lập."
+            }
+          ]
+        },
+        {
+          "jp": "今は使う時間を決めておきました。毎晩9時以降はスマートフォンを使わないようにしています。",
+          "vi": "Bây giờ tôi đã quyết định sẵn thời gian dùng. Mỗi tối sau 9 giờ tôi không dùng điện thoại nữa.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "決めます",
+              "read": "きめます",
+              "vi": "quyết định"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "từ ... trở đi, sau ..."
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておきます（Bài 30）",
+              "vi": "決めておきました = đã quyết định sẵn (để chuẩn bị/phòng ngừa). ておく = làm sẵn trước."
+            },
+            {
+              "point": "Vないようにしています（Bài 36）",
+              "vi": "使わないようにしています = đang cố không dùng. Vないように＋します = cố gắng để không làm."
+            }
+          ]
+        },
+        {
+          "jp": "そうすると、前より早く眠れるようになりました。",
+          "vi": "Làm vậy thì tôi trở nên ngủ được sớm hơn trước.",
+          "vocab": [
+            {
+              "w": "そうすると",
+              "read": "そうすると",
+              "vi": "thế thì, như vậy thì"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, trước đây"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "眠ります",
+              "read": "ねむります",
+              "vi": "ngủ được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "そうすると = nếu làm vậy thì. と nối điều kiện tự nhiên với kết quả tất yếu."
+            },
+            {
+              "point": "Vるようになりました（Bài 36）",
+              "vi": "眠れるようになりました = trở nên ngủ được. Vる + ようになる = chuyển sang trạng thái có thể làm được."
+            },
+            {
+              "point": "NよりAdv（Bài 12）",
+              "vi": "前より早く = sớm hơn trước. より so sánh."
+            }
+          ]
+        },
+        {
+          "jp": "先週、母がスマートフォンを使いたいと言い出したので、基本的な使い方を教えてあげました。",
+          "vi": "Tuần trước mẹ tôi nói muốn dùng điện thoại thông minh nên tôi đã dạy mẹ cách dùng cơ bản.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (của mình, khiêm tốn)"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản, nền tảng"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "言い出します",
+              "read": "いいだします",
+              "vi": "bắt đầu nói, nói ra"
+            },
+            {
+              "w": "基本的な",
+              "read": "きほんてきな",
+              "vi": "cơ bản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（ôn）",
+              "vi": "使い方 = cách dùng. Đứng ở vị trí tân ngữ của 教えてあげる."
+            },
+            {
+              "point": "Vてあげます（Bài 24）",
+              "vi": "教えてあげました = dạy cho mẹ. Hành động từ người nói đến mẹ."
+            },
+            {
+              "point": "Vたい（Bài 13）",
+              "vi": "使いたい = muốn dùng. Nguyện vọng của mẹ."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "言い出したので = vì mẹ nói ra điều đó. ので nêu lý do."
+            }
+          ]
+        },
+        {
+          "jp": "母は「画面が明るすぎる」と言ったので、明るさの調整の仕方を教えました。",
+          "vi": "Mẹ nói \"Màn hình sáng quá\" nên tôi dạy cách điều chỉnh độ sáng.",
+          "vocab": [
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (tôi)"
+            },
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "明るい",
+              "read": "あかるい",
+              "vi": "sáng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "調整",
+              "read": "ちょうせい",
+              "vi": "điều chỉnh"
+            },
+            {
+              "w": "仕方",
+              "read": "しかた",
+              "vi": "cách làm (します→し方)"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "明るさ",
+              "read": "あかるさ",
+              "vi": "độ sáng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aすぎる",
+              "vi": "明るすぎる = sáng quá. 明るい bỏ い + すぎる（thể từ điển của すぎます）."
+            },
+            {
+              "point": "V方（ôn: 仕方）",
+              "vi": "仕方 = cách làm. します ます形 し + 方. 調整の仕方 = cách điều chỉnh."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "と言ったので = vì mẹ nói vậy. ので nêu lý do hành động."
+            }
+          ]
+        },
+        {
+          "jp": "母は「ありがとう。でも、文字の打ち方がまだよくわからない」と言いました。",
+          "vi": "Mẹ nói \"Cảm ơn con. Nhưng mẹ vẫn chưa hiểu rõ cách gõ chữ\".",
+          "vocab": [
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "打ち方",
+              "read": "うちかた",
+              "vi": "cách gõ"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn chưa"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "rõ, kỹ"
+            },
+            {
+              "w": "わからない",
+              "read": "わからない",
+              "vi": "không hiểu"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（ôn: 打ち方）",
+              "vi": "打ち方 = cách gõ. 打ちます ます形 bỏ ます + 方."
+            },
+            {
+              "point": "普通形（Bài 20）",
+              "vi": "わからない = thể thông thường phủ định của わかります. Mẹ dùng thể thân mật khi nói chuyện với con."
+            }
+          ]
+        },
+        {
+          "jp": "次の週末に、もっとゆっくり教えてあげるつもりです。",
+          "vi": "Cuối tuần tới tôi định sẽ dạy từ từ hơn.",
+          "vocab": [
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "từ từ, chậm rãi"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるつもりです（Bài 31）",
+              "vi": "教えてあげるつもりです = định dạy cho mẹ. つもり diễn tả dự định cá nhân."
+            },
+            {
+              "point": "Vてあげます（Bài 24）",
+              "vi": "教えてあげる = dạy cho (mẹ). Lặp lại mẫu hành động vì lợi ích người khác."
+            }
+          ]
+        },
+        {
+          "jp": "スマートフォンはとても便利ですが、使い方を間違えると、生活のリズムが崩れてしまうと思います。",
+          "vi": "Điện thoại thông minh rất tiện lợi, nhưng tôi nghĩ nếu dùng sai cách thì nhịp sinh hoạt sẽ bị rối.",
+          "vocab": [
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng, cách dùng"
+            },
+            {
+              "w": "間違えます",
+              "read": "まちがえます",
+              "vi": "nhầm, sai"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "sinh hoạt, cuộc sống"
+            },
+            {
+              "w": "リズム",
+              "read": "リズム",
+              "vi": "nhịp điệu"
+            },
+            {
+              "w": "崩れます",
+              "read": "くずれます",
+              "vi": "bị rối, sụp đổ, hỏng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（ôn: 使い方）",
+              "vi": "使い方を間違える = dùng sai cách. 使い方 là tân ngữ của 間違える."
+            },
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "間違えると = nếu dùng sai thì. と nối điều kiện với kết quả tự nhiên."
+            },
+            {
+              "point": "Vてしまう（Bài 29）",
+              "vi": "崩れてしまう = bị rối mất. てしまう diễn tả kết quả ngoài ý muốn."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "と思います = tôi nghĩ. Người nói đưa ra ý kiến/nhận định."
+            }
+          ]
+        },
+        {
+          "jp": "何でも使いすぎは良くない、ということを学びました。",
+          "vi": "Tôi đã học được bài học rằng việc gì dùng quá mức cũng không tốt.",
+          "vocab": [
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "良くない",
+              "read": "よくない",
+              "vi": "không tốt"
+            },
+            {
+              "w": "学びます",
+              "read": "まなびます",
+              "vi": "học, học hỏi"
+            },
+            {
+              "w": "何でも",
+              "read": "なんでも",
+              "vi": "bất cứ thứ gì, mọi thứ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vすぎ（danh từ hóa）",
+              "vi": "使いすぎ = việc dùng quá mức. Vすぎ（không có ます）dùng như danh từ."
+            },
+            {
+              "point": "〜ということ（Bài 22）",
+              "vi": "という + こと = điều mà (nối mệnh đề với こと làm danh từ). Tổng kết bài học rút ra."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "使い方がまったくわからなくて",
+          "label": "V方（cách dùng）"
+        },
+        {
+          "excerpt": "文字が見やすい",
+          "label": "Vやすい"
+        },
+        {
+          "excerpt": "アプリの入れ方や設定の変え方",
+          "label": "V方（入れ方・変え方）"
+        },
+        {
+          "excerpt": "操作しやすいから",
+          "label": "Vやすい（lý do）"
+        },
+        {
+          "excerpt": "使いすぎてしまいました",
+          "label": "Vすぎてしまいました"
+        },
+        {
+          "excerpt": "寝るのが遅すぎて",
+          "label": "Aすぎて"
+        },
+        {
+          "excerpt": "ゲームをやめにくかったんです",
+          "label": "Vにくかった"
+        },
+        {
+          "excerpt": "明るさの調整の仕方を教えました",
+          "label": "V方（仕方）"
+        },
+        {
+          "excerpt": "文字の打ち方がまだよくわからない",
+          "label": "V方（打ち方）"
+        },
+        {
+          "excerpt": "使いすぎは良くない",
+          "label": "Vすぎ（danh từ hóa）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人が最初にスマートフォンを使った時、どんな問題がありましたか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "画面が小さくて、文字が見にくかったです",
+            "スマートフォンが壊れてしまいました",
+            "使い方がわからなくて、アプリの入れ方や設定の変え方がわかりませんでした",
+            "ワンさんが使い方を教えてくれなかったので、困りました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết liệt kê hai vấn đề ban đầu rõ ràng:「スマートフォンの使い方がまったくわからなくて、困りました」(hoàn toàn không biết cách dùng) và「アプリの入れ方や設定の変え方がわからなかったんです」(không biết cách cài app hay đổi cài đặt) — hai vấn đề liên quan đến V方. Đáp án 0 sai và ngược lại — bài ghi rõ「画面が大きくて文字が見やすい」(màn hình to, chữ DỄ đọc) là điểm TỐT, không phải vấn đề. Đáp án 1 sai vì máy không hỏng — người dùng vừa mua. Đáp án 3 sai vì anh Wang đã chỉ (教えてもらいました), không từ chối.",
+          "tip": "Câu hỏi hỏi \"vấn đề ban đầu\" (どんな問題) → tìm mệnh đề có わからない/困る/〜にくい ở đoạn đầu bài. Loại ngay đáp án nào MÂU THUẪN với nội dung bài (ngược dấu: 見やすい ≠ 見にくい).",
+          "qt": {
+            "q": "Người này gặp vấn đề gì khi lần đầu sử dụng điện thoại thông minh?",
+            "o": [
+              "Màn hình nhỏ nên khó nhìn chữ",
+              "Điện thoại thông minh bị hỏng",
+              "Không biết cách sử dụng nên không biết cách cài ứng dụng và thay đổi cài đặt",
+              "Vì anh Wan không chỉ cách sử dụng nên người này gặp khó khăn"
+            ]
+          }
+        },
+        {
+          "q": "この人はどうして次の朝、会社で眠かったですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "スマートフォンが壊れて、心配していたからです",
+            "ゲームが楽しくて夜遅くまでやってしまい、寝るのが遅すぎたからです",
+            "ワンさんとゲームをしながら、遅くまで話していたからです",
+            "田中さんに怒られて、眠れなかったからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài trình bày chuỗi nhân quả rõ ràng:「ゲームが楽しくて、夜遅くまでやってしまったんです」(game vui → đã lỡ chơi đến khuya) →「その夜は寝るのが遅すぎて、次の朝はとても眠かったです」(ngủ muộn QUÁ → sáng sau buồn ngủ). Đây là chuỗi ba mức: やってしまう (lỡ chơi, Bài 29) → Aすぎて (muộn quá) → 眠かった (kết quả). Đáp án 0 sai vì bài không đề cập điện thoại hỏng. Đáp án 2 sai vì không có chi tiết nào về anh Wang chơi game cùng hay nói chuyện khuya. Đáp án 3 sai vì anh Tanaka chỉ NÓI nhắc nhở vào sáng hôm sau, không phải nguyên nhân buồn ngủ.",
+          "tip": "Chuỗi すぎ → kết quả tiêu cực thường xuất hiện liên tiếp trong cùng một đoạn. Nhận dạng: 楽しくて → やってしまう → 遅すぎて → 眠い. Đáp án đúng phải bao gồm ĐỦ cả lý do trực tiếp (すぎ) lẫn hậu quả.",
+          "qt": {
+            "q": "Tại sao sáng hôm sau người này buồn ngủ ở công ty?",
+            "o": [
+              "Vì điện thoại thông minh bị hỏng nên họ lo lắng",
+              "Vì trò chơi vui nên họ đã chơi đến khuya và đi ngủ quá muộn",
+              "Vì vừa chơi trò chơi với anh Wan vừa nói chuyện đến khuya",
+              "Vì bị anh Tanaka mắng nên họ không ngủ được"
+            ]
+          }
+        },
+        {
+          "q": "この人はスマートフォンを使いすぎないために、今どんな工夫をしていますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "スマートフォンをかばんの中に入れて、見ないようにしています",
+            "毎晩9時以降はスマートフォンを使わないようにしています",
+            "ゲームのアプリをすべて消してしまいました",
+            "ワンさんに時間を管理してもらっています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài nêu giải pháp cụ thể bằng hai câu liên tiếp:「今は使う時間を決めておきました」(đã quyết định sẵn thời gian dùng — Vておきました Bài 30) và「毎晩9時以降はスマートフォンを使わないようにしています」(mỗi tối sau 9 giờ cố không dùng — Vないようにしています Bài 36). Đây là biện pháp tự kiểm soát rõ ràng và cụ thể. Đáp án 0 sai vì bài không đề cập để điện thoại trong túi hay không nhìn vào. Đáp án 2 sai vì bài không nói đã xóa game — vẫn đang dùng nhưng giới hạn giờ. Đáp án 3 sai vì bài không nhắc đến anh Wang quản lý thời gian hộ.",
+          "tip": "「工夫」(biện pháp/cải tiến) thường đi với Vておきます (chuẩn bị sẵn) hoặc Vないようにします (cố không làm). Khi gặp câu hỏi \"どんな工夫をしていますか\", tìm hai mẫu này trong bài.",
+          "qt": {
+            "q": "Hiện giờ người này đang làm gì để không sử dụng điện thoại thông minh quá nhiều?",
+            "o": [
+              "Để điện thoại thông minh vào trong túi để không nhìn vào nó",
+              "Không sử dụng điện thoại thông minh sau 9 giờ mỗi tối",
+              "Đã xóa hết các ứng dụng trò chơi",
+              "Đang nhờ anh Wan quản lý thời gian giúp"
+            ]
+          }
+        },
+        {
+          "q": "この文章を読んで、スマートフォンについてこの人が一番伝えたいことは何だと思いますか。",
+          "evi": [
+            16,
+            17
+          ],
+          "options": [
+            "スマートフォンはとても便利なので、みんな使うべきです",
+            "母のようにスマートフォンが使えない人には教えてあげることが大切です",
+            "スマートフォンは便利だが、使い方を間違えると生活に悪い影響があるので、使いすぎに注意が必要です",
+            "ゲームアプリは入れないほうがいいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Hai câu cuối bài chứa quan điểm tổng quát của người viết:「スマートフォンはとても便利ですが、使い方を間違えると、生活のリズムが崩れてしまうと思います」(tiện lợi nhưng dùng sai cách → cuộc sống bị rối) và「何でも使いすぎは良くない、ということを学びました」(gì dùng quá mức cũng không tốt). Đây là kết luận bao trùm toàn bài. Đáp án 0 sai — bài KHÔNG nói ai cũng nên dùng (không có べきです), ngược lại còn cảnh báo nguy cơ. Đáp án 1 sai vì dạy mẹ chỉ là một chi tiết trong bài, không phải thông điệp chính. Đáp án 3 sai và quá cực đoan — bài chỉ nói cần chú ý cách dùng chứ không khuyên xóa game.",
+          "tip": "Câu hỏi suy luận về \"thông điệp chính\" (一番伝えたいこと) → tìm câu ở ĐOẠN CUỐI bài có cấu trúc tổng kết: 〜と思います hoặc 〜ということを学びました. Đáp án đúng thường kết hợp CẢ ưu điểm lẫn cảnh báo (便利だが/しかし) chứ không cực đoan một chiều.",
+          "qt": {
+            "q": "Đọc bài viết này, bạn nghĩ điều người này muốn truyền đạt nhất về điện thoại thông minh là gì?",
+            "o": [
+              "Điện thoại thông minh rất tiện lợi nên mọi người nên sử dụng",
+              "Điều quan trọng là chỉ dạy những người không biết sử dụng điện thoại thông minh, như mẹ",
+              "Điện thoại thông minh tiện lợi, nhưng sử dụng không đúng cách có thể ảnh hưởng xấu đến cuộc sống, vì vậy cần chú ý không sử dụng quá nhiều",
+              "Tốt hơn là không cài ứng dụng trò chơi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Sale quần áo và cách đổi trả",
+      "japanese": "洋服屋「みどりや」のお知らせ―セールとサイズ交換について\nみどりやでは、今、シャツとズボンのセールをしています。9月末までの1か月間だけですので、ぜひ店に来てください。\nサイズ｜シャツ｜ズボン\nＳ｜1,500円｜2,000円\nＭ｜1,700円｜2,200円\nＬ｜1,900円｜2,400円\nＬＬ｜2,100円｜2,600円\n買ったあとで、サイズが大きすぎたら、または小さすぎたら、買った日から1週間以内に交換できます。\n交換の返し方｜必要なもの\n店に来る｜レシートと洋服\n郵便で送る｜レシートのコピーと洋服（送料はお客様が払ってください）\n※洗い方を間違えて洗ったシャツやズボンは交換できません。買う前に、洗い方をよく読んでください。\n※交換の返し方について、わからないことがあれば、気軽に電話してください。\n電話：03-4567-8901（月〜土　10:00〜19:00、日曜と祝日は休みです）",
+      "vietnamese": "Thông báo của cửa hàng quần áo「Midoriya」— Về sale và đổi size\nỞ Midoriya, hiện đang có sale áo sơ mi và quần. Chỉ diễn ra trong 1 tháng đến hết tháng 9 nên xin hãy ghé cửa hàng.\nSize｜Áo sơ mi｜Quần\nS｜1.500 yên｜2.000 yên\nM｜1.700 yên｜2.200 yên\nL｜1.900 yên｜2.400 yên\nLL｜2.100 yên｜2.600 yên\nSau khi mua, nếu size quá to, hoặc quá nhỏ, bạn có thể đổi trong vòng 1 tuần kể từ ngày mua.\nCách trả để đổi｜Đồ cần mang theo\nĐến cửa hàng｜Hóa đơn và quần áo\nGửi qua bưu điện｜Bản sao hóa đơn và quần áo (khách trả tiền gửi hàng)\n※Áo sơ mi hay quần đã giặt sai cách giặt thì không thể đổi được. Trước khi mua, hãy đọc kỹ cách giặt.\n※Nếu có điều gì chưa rõ về cách trả để đổi hàng, xin đừng ngại gọi điện.\nĐiện thoại: 03-4567-8901 (Thứ Hai〜Thứ Bảy, 10:00〜19:00, nghỉ Chủ Nhật và ngày lễ)",
+      "sentences": [
+        {
+          "jp": "洋服屋「みどりや」のお知らせ―セールとサイズ交換について",
+          "vi": "Thông báo của cửa hàng quần áo「Midoriya」— Về sale và đổi size",
+          "vocab": [
+            {
+              "w": "洋服",
+              "read": "ようふく",
+              "vi": "quần áo"
+            },
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "セール",
+              "read": "セール",
+              "vi": "sale, giảm giá"
+            },
+            {
+              "w": "サイズ",
+              "read": "サイズ",
+              "vi": "kích cỡ, size"
+            },
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "đổi, trao đổi"
+            },
+            {
+              "w": "洋服屋",
+              "read": "ようふくや",
+              "vi": "cửa hàng quần áo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "サイズ交換について = về việc đổi size. について nêu chủ đề của thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "サイズ交換について",
+              "why": "Tiêu đề nêu chủ đề toàn bài: thông báo có 2 phần — sale giá và cách đổi size, cả 2 câu hỏi đều xoay quanh phần đổi hàng."
+            }
+          ]
+        },
+        {
+          "jp": "みどりやでは、今、シャツとズボンのセールをしています。9月末までの1か月間だけですので、ぜひ店に来てください。",
+          "vi": "Ở Midoriya, hiện đang có sale áo sơ mi và quần. Chỉ diễn ra trong 1 tháng đến hết tháng 9 nên xin hãy ghé cửa hàng.",
+          "vocab": [
+            {
+              "w": "みどりや",
+              "read": "みどりや",
+              "vi": "tên cửa hàng Midoriya"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "シャツ",
+              "read": "シャツ",
+              "vi": "áo sơ mi"
+            },
+            {
+              "w": "ズボン",
+              "read": "ズボン",
+              "vi": "quần dài"
+            },
+            {
+              "w": "セール",
+              "read": "セール",
+              "vi": "đợt giảm giá"
+            },
+            {
+              "w": "しています",
+              "read": "しています",
+              "vi": "đang tổ chức, đang có"
+            },
+            {
+              "w": "9月末",
+              "read": "くがつまつ",
+              "vi": "cuối tháng 9"
+            },
+            {
+              "w": "1か月間",
+              "read": "いっかげつかん",
+              "vi": "trong một tháng"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "cửa hàng"
+            },
+            {
+              "w": "来てください",
+              "read": "きてください",
+              "vi": "hãy đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（Bài 15）",
+              "vi": "セールをしています = đang có sale (trạng thái đang diễn ra)."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "1か月間だけですので = vì chỉ trong 1 tháng. ので nêu lý do nên đến sớm."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "来てください = xin hãy đến."
+            }
+          ],
+          "keys": [
+            {
+              "w": "9月末までの1か月間だけ",
+              "why": "Giới hạn thời gian sale bằng まで＋だけ — bẫy nếu học viên nghĩ sale kéo dài lâu hơn."
+            }
+          ]
+        },
+        {
+          "jp": "サイズ｜シャツ｜ズボン",
+          "vi": "Size｜Áo sơ mi｜Quần",
+          "vocab": [
+            {
+              "w": "サイズ",
+              "read": "サイズ",
+              "vi": "kích cỡ, size"
+            },
+            {
+              "w": "シャツ",
+              "read": "シャツ",
+              "vi": "áo sơ mi"
+            },
+            {
+              "w": "ズボン",
+              "read": "ズボン",
+              "vi": "quần"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "Ｓ｜1,500円｜2,000円",
+          "vi": "S｜1.500 yên｜2.000 yên",
+          "vocab": [
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (tiền Nhật)"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "Ｍ｜1,700円｜2,200円",
+          "vi": "M｜1.700 yên｜2.200 yên",
+          "vocab": [
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (tiền Nhật)"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "Ｌ｜1,900円｜2,400円",
+          "vi": "L｜1.900 yên｜2.400 yên",
+          "vocab": [
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (tiền Nhật)"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "ＬＬ｜2,100円｜2,600円",
+          "vi": "LL｜2.100 yên｜2.600 yên",
+          "vocab": [
+            {
+              "w": "ＬＬ",
+              "read": "ＬＬ",
+              "vi": "cỡ rất lớn, cỡ LL"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (tiền Nhật)"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "買ったあとで、サイズが大きすぎたら、または小さすぎたら、買った日から1週間以内に交換できます。",
+          "vi": "Sau khi mua, nếu size quá to, hoặc quá nhỏ, bạn có thể đổi trong vòng 1 tuần kể từ ngày mua.",
+          "vocab": [
+            {
+              "w": "買った",
+              "read": "かった",
+              "vi": "đã mua"
+            },
+            {
+              "w": "あとで",
+              "read": "あとで",
+              "vi": "sau khi"
+            },
+            {
+              "w": "サイズ",
+              "read": "サイズ",
+              "vi": "kích cỡ"
+            },
+            {
+              "w": "大きすぎたら",
+              "read": "おおきすぎたら",
+              "vi": "nếu quá to"
+            },
+            {
+              "w": "または",
+              "read": "または",
+              "vi": "hoặc là"
+            },
+            {
+              "w": "小さすぎたら",
+              "read": "ちいさすぎたら",
+              "vi": "nếu quá nhỏ"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "1週間",
+              "read": "いっしゅうかん",
+              "vi": "một tuần"
+            },
+            {
+              "w": "以内",
+              "read": "いない",
+              "vi": "trong vòng"
+            },
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "đổi, thay"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで（Bài 16 ôn）",
+              "vi": "買ったあとで = sau khi mua. Vた + あとで chỉ trình tự sau."
+            },
+            {
+              "point": "Aすぎたら（Bài 44 — MỚI, dạng たら）",
+              "vi": "大きすぎたら／小さすぎたら = nếu quá to／nếu quá nhỏ. Tính từ い bỏ い + すぎ, rồi chia たら（điều kiện, Bài 25）để nói \"nếu lỡ quá mức thì...\". Không dùng \"場合\" (mẫu đó thuộc Bài 45, chưa học)."
+            },
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "交換できます = có thể đổi được."
+            }
+          ],
+          "keys": [
+            {
+              "w": "大きすぎたら、または小さすぎたら",
+              "why": "Điều kiện được đổi hàng: size quá to HOẶC quá nhỏ — căn cứ chính cho câu hỏi 1 (ワットさん thấy áo quá to)."
+            },
+            {
+              "w": "買った日から1週間以内",
+              "why": "Giới hạn thời gian đổi hàng bằng から〜以内 — mốc thời hạn học viên phải nhớ."
+            }
+          ]
+        },
+        {
+          "jp": "交換の返し方｜必要なもの",
+          "vi": "Cách trả để đổi｜Đồ cần mang theo",
+          "vocab": [
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "đổi, thay"
+            },
+            {
+              "w": "返し方",
+              "read": "かえしかた",
+              "vi": "cách trả lại"
+            },
+            {
+              "w": "必要な",
+              "read": "ひつような",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "もの",
+              "read": "もの",
+              "vi": "thứ, đồ vật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（かた）― MỚI",
+              "vi": "返し方 = cách trả (để đổi hàng). 返します ます形 bỏ ます + 方."
+            }
+          ],
+          "keys": [
+            {
+              "w": "交換の返し方｜必要なもの",
+              "why": "Header bảng 2 — 2 cột \"cách trả\" và \"đồ cần mang\", câu hỏi 1 phải dò đúng hàng khớp cách gửi."
+            }
+          ]
+        },
+        {
+          "jp": "店に来る｜レシートと洋服",
+          "vi": "Đến cửa hàng｜Hóa đơn và quần áo",
+          "vocab": [
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "đến"
+            },
+            {
+              "w": "レシート",
+              "read": "レシート",
+              "vi": "hóa đơn, biên lai"
+            },
+            {
+              "w": "洋服",
+              "read": "ようふく",
+              "vi": "quần áo"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "店に来る｜レシートと洋服",
+              "why": "Hàng \"đến cửa hàng\" — nhiễu gần với câu hỏi 1 vì ワットさん không đến cửa hàng nên KHÔNG dùng hàng này."
+            }
+          ]
+        },
+        {
+          "jp": "郵便で送る｜レシートのコピーと洋服（送料はお客様が払ってください）",
+          "vi": "Gửi qua bưu điện｜Bản sao hóa đơn và quần áo (khách trả tiền gửi hàng)",
+          "vocab": [
+            {
+              "w": "郵便",
+              "read": "ゆうびん",
+              "vi": "bưu điện"
+            },
+            {
+              "w": "送ります",
+              "read": "おくります",
+              "vi": "gửi"
+            },
+            {
+              "w": "レシート",
+              "read": "レシート",
+              "vi": "hóa đơn, biên lai"
+            },
+            {
+              "w": "コピー",
+              "read": "コピー",
+              "vi": "bản sao"
+            },
+            {
+              "w": "洋服",
+              "read": "ようふく",
+              "vi": "quần áo"
+            },
+            {
+              "w": "送料",
+              "read": "そうりょう",
+              "vi": "phí gửi hàng"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "払います",
+              "read": "はらいます",
+              "vi": "trả (tiền)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（Bài 5 ôn）",
+              "vi": "郵便で送る = gửi bằng đường bưu điện. で chỉ phương tiện."
+            },
+            {
+              "point": "Vてください（Bài 14 ôn）",
+              "vi": "払ってください = xin hãy trả (tiền). て形 của 払います + ください."
+            }
+          ],
+          "keys": [
+            {
+              "w": "郵便で送る｜レシートのコピーと洋服",
+              "why": "Hàng \"gửi bưu điện\" — căn cứ TRỰC TIẾP câu hỏi 1: ワットさん gửi bưu điện nên cần レシートのコピー và 洋服."
+            },
+            {
+              "w": "送料はお客様が払ってください",
+              "why": "Điều kiện phụ dễ bị nhầm là phải làm trước khi giặt — nhiễu cho câu hỏi 2 (đáp án \"trả phí gửi trước\" sai)."
+            }
+          ]
+        },
+        {
+          "jp": "※洗い方を間違えて洗ったシャツやズボンは交換できません。買う前に、洗い方をよく読んでください。",
+          "vi": "※Áo sơ mi hay quần đã giặt sai cách giặt thì không thể đổi được. Trước khi mua, hãy đọc kỹ cách giặt.",
+          "vocab": [
+            {
+              "w": "洗い方",
+              "read": "あらいかた",
+              "vi": "cách giặt"
+            },
+            {
+              "w": "間違えて",
+              "read": "まちがえて",
+              "vi": "làm sai, nhầm"
+            },
+            {
+              "w": "洗った",
+              "read": "あらった",
+              "vi": "đã giặt"
+            },
+            {
+              "w": "シャツ",
+              "read": "シャツ",
+              "vi": "áo sơ mi"
+            },
+            {
+              "w": "ズボン",
+              "read": "ズボン",
+              "vi": "quần dài"
+            },
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "đổi, thay"
+            },
+            {
+              "w": "できません",
+              "read": "できません",
+              "vi": "không thể"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "kỹ, cẩn thận"
+            },
+            {
+              "w": "読んでください",
+              "read": "よんでください",
+              "vi": "hãy đọc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（かた）― MỚI, lần 2",
+              "vi": "洗い方 = cách giặt (xuất hiện 2 lần trong dòng này). 洗います ます形 bỏ ます + 方."
+            },
+            {
+              "point": "Vて間違えて（Bài 16 ôn）",
+              "vi": "間違えて洗った = giặt nhầm cách. て形 nối nguyên nhân với hành động."
+            },
+            {
+              "point": "Vるまえに（Bài 18 ôn）",
+              "vi": "買うまえに = trước khi mua."
+            }
+          ],
+          "keys": [
+            {
+              "w": "洗い方を間違えて洗ったシャツやズボンは交換できません",
+              "why": "Bẫy ※ quan trọng nhất: giặt sai cách → MẤT quyền đổi hàng — căn cứ chính cho câu hỏi 2."
+            },
+            {
+              "w": "買う前に、洗い方をよく読んでください",
+              "why": "Hành động cần làm TRƯỚC KHI GIẶT — đúng nội dung câu hỏi 2 hỏi \"洗う前にどうしたほうがいいですか\"."
+            }
+          ]
+        },
+        {
+          "jp": "※交換の返し方について、わからないことがあれば、気軽に電話してください。",
+          "vi": "※Nếu có điều gì chưa rõ về cách trả để đổi hàng, xin đừng ngại gọi điện.",
+          "vocab": [
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "đổi, thay"
+            },
+            {
+              "w": "返し方",
+              "read": "かえしかた",
+              "vi": "cách trả lại"
+            },
+            {
+              "w": "わからない",
+              "read": "わからない",
+              "vi": "không hiểu"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều, việc"
+            },
+            {
+              "w": "気軽に",
+              "read": "きがるに",
+              "vi": "thoải mái, không ngại"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V方（ôn: 返し方）",
+              "vi": "返し方 = cách trả (để đổi hàng), xuất hiện lần 2 trong bài — nhắc lại từ dòng bảng phía trên."
+            },
+            {
+              "point": "〜ば（Bài 35）",
+              "vi": "わからないことがあれば = nếu có điều gì chưa rõ. あります thể ば diễn tả điều kiện giả định."
+            },
+            {
+              "point": "Vてください（Bài 14 ôn）",
+              "vi": "電話してください = xin hãy gọi điện. します thể て + ください."
+            }
+          ],
+          "keys": [
+            {
+              "w": "交換の返し方について、わからないことがあれば、気軽に電話してください",
+              "why": "Nhiễu cho câu hỏi 2: đây là chỗ để hỏi về CÁCH TRẢ HÀNG, không phải cách giặt — phân biệt 返し方 vs 洗い方."
+            }
+          ]
+        },
+        {
+          "jp": "電話：03-4567-8901（月〜土　10:00〜19:00、日曜と祝日は休みです）",
+          "vi": "Điện thoại: 03-4567-8901 (Thứ Hai〜Thứ Bảy, 10:00〜19:00, nghỉ Chủ Nhật và ngày lễ)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜",
+              "read": "にちよう",
+              "vi": "Chủ Nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "nghỉ"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "大きすぎたら、または小さすぎたら",
+          "label": "Aすぎたら（quá mức, Bài 44）"
+        },
+        {
+          "excerpt": "交換の返し方",
+          "label": "V方（返し方）"
+        },
+        {
+          "excerpt": "洗い方を間違えて洗った",
+          "label": "V方（洗い方）"
+        },
+        {
+          "excerpt": "洗い方をよく読んでください",
+          "label": "V方（洗い方、ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu sale",
+          "topic": 0,
+          "note": "Tiêu đề nêu chủ đề (sale + đổi size); dòng 1 giới hạn thời gian sale bằng まで＋だけ — không phải căn cứ trực tiếp cho 2 câu hỏi nhưng nêu bối cảnh mua hàng.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "body",
+          "label": "Bảng giá theo size",
+          "topic": 2,
+          "note": "Bảng giá S/M/L/LL cho shirt và quần — không phải căn cứ đáp án của 2 câu hỏi (câu hỏi hỏi về ĐỔI hàng, không hỏi giá), nhưng cần đọc để hiểu bối cảnh mua đúng size.",
+          "qs": []
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "point",
+          "label": "Điều kiện đổi hàng theo size",
+          "topic": 7,
+          "note": "Điều kiện được đổi: quá to/quá nhỏ, trong 1 tuần — căn cứ trực tiếp cho câu hỏi 1 (ワットさん áo quá to, xác nhận có quyền đổi trước khi tra bảng cách trả).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng cách trả để đổi",
+          "topic": 8,
+          "note": "Bảng 2 hàng: đến cửa hàng (レシート gốc) vs gửi bưu điện (レシートのコピー + tự trả phí gửi) — câu hỏi 1 phải dò đúng hàng \"gửi bưu điện\".",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 11,
+          "to": 13,
+          "kind": "turn",
+          "label": "Điều kiện ※ và liên hệ",
+          "topic": 11,
+          "note": "Hai dòng ※ là bẫy quan trọng: giặt sai cách → mất quyền đổi (câu hỏi 2), và số điện thoại chỉ dùng để hỏi về 返し方 (cách trả) chứ không phải 洗い方 (cách giặt) — dễ nhầm 2 từ V方 gần giống nhau.",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワットさんはシャツのＭサイズを買いましたが、着てみたら大きすぎました。ワットさんは店に行かないで、郵便で交換したいです。何を送ればいいですか。",
+          "options": [
+            "レシートとシャツ",
+            "レシートのコピーとシャツ",
+            "シャツだけ送ればいいです",
+            "レシートのコピーだけ送ればいいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng thứ hai ghi rõ hàng「郵便で送る｜レシートのコピーと洋服」— khi gửi qua bưu điện (không đến cửa hàng), cần gửi BẢN SAO hóa đơn (レシートのコピー) và quần áo (洋服/シャツ), khác với hàng「店に来る｜レシートと洋服」(đến cửa hàng thì mang hóa đơn GỐC). Đáp án 0 sai vì đó là điều kiện cho trường hợp ĐẾN CỬA HÀNG, không phải gửi bưu điện. Đáp án 2 và 3 sai vì đều thiếu một trong hai thứ cần gửi — bảng yêu cầu CẢ hai (レシートのコピー và 洋服), không phải chỉ một thứ.",
+          "tip": "Câu hỏi ghép 2 điều kiện: (1) cách trả là gửi bưu điện hay đến cửa hàng, (2) cần mang/gửi gì tương ứng — luôn dò đúng HÀNG trong bảng thứ hai, đừng nhầm sang hàng kia.",
+          "evi": [
+            7,
+            10
+          ],
+          "qt": {
+            "q": "Ông Watson đã mua áo sơ mi cỡ M, nhưng mặc thử thì thấy quá rộng. Ông Watson muốn đổi qua đường bưu điện mà không đến cửa hàng. Ông ấy cần gửi những gì?",
+            "o": [
+              "Hóa đơn và áo sơ mi",
+              "Bản sao hóa đơn và áo sơ mi",
+              "Chỉ cần gửi áo sơ mi",
+              "Chỉ cần gửi bản sao hóa đơn"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんはズボンのＬＬサイズを買うつもりです。もし小さすぎたら交換したいので、洗う前にどうしたほうがいいですか。",
+          "options": [
+            "交換の返し方を電話で聞いたほうがいいです",
+            "洗い方をよく読んでから洗ったほうがいいです",
+            "店で新しいＬサイズと交換したほうがいいです",
+            "送料を先に払ったほうがいいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Ghép 2 điều kiện: (1) muốn giữ quyền được đổi hàng nếu size quá nhỏ, (2) hành động cần làm TRƯỚC KHI GIẶT. Thông báo ghi rõ ở dòng ※:「洗い方を間違えて洗ったシャツやズボンは交換できません。買う前に、洗い方をよく読んでください」— nghĩa là nếu giặt sai cách thì MẤT quyền đổi hàng, nên phải đọc kỹ cách giặt trước khi giặt để không giặt sai. Đáp án 0 sai vì việc cần làm là đọc cách giặt (洗い方), không phải hỏi cách trả hàng (返し方) — hai việc khác nhau. Đáp án 2 sai vì bài không nói phải đổi ngay tại chỗ, và ví dụ hỏi về việc cần làm TRƯỚC KHI GIẶT chứ không phải đổi size khác ngay. Đáp án 3 sai vì trả phí gửi chỉ áp dụng khi CHỌN cách gửi bưu điện, không liên quan đến việc giặt đồ.",
+          "tip": "Phân biệt hai từ V方 dễ nhầm trong bài: 返し方 (cách trả hàng để đổi) và 洗い方 (cách giặt). Câu hỏi nói về GIẶT thì phải tìm đúng dòng ※ có 洗い方, không lẫn sang 返し方.",
+          "evi": [
+            11
+          ],
+          "qt": {
+            "q": "Ông Santos định mua quần cỡ LL. Nếu quần quá nhỏ và ông ấy muốn đổi, thì trước khi giặt nên làm gì?",
+            "o": [
+              "Nên hỏi cách đổi qua điện thoại",
+              "Nên đọc kỹ cách giặt rồi mới giặt",
+              "Nên đổi sang quần cỡ L mới tại cửa hàng",
+              "Nên trả phí gửi hàng trước"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

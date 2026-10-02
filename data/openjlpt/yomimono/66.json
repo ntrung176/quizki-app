@@ -1,0 +1,3480 @@
+{
+  "bai": 66,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 66 luyện ba mẫu diễn đạt MỨC ĐỘ: ① 〜ほど = \"đến mức / đến nỗi\" — nhấn mạnh mức độ CAO, thường cực đoan (\"立てないほど疲れた\"). ② 〜くらい/ぐらい = mức XẤP XỈ / TỐI THIỂU / ví dụ nhỏ (\"泣きたいくらいつらい\" — không đến nỗi khóc, nhưng gần đó; hoặc \"お茶くらい飲める\" — tối thiểu uống trà được). ③ 〜ば〜ほど = \"càng A càng B\" — hai vế tăng cùng chiều. Đối chiếu cốt lõi: ほど (mức cao, nhấn mạnh cực đoan) ↔ くらい (mức xấp xỉ/nhẹ hơn, ví dụ tối thiểu). 接続: 普通形＋ほど; 普通形＋くらい; Vば＋Vるほど / Aければ＋Aいほど.",
+    "steps": [
+      "接続①: 普通形 + ほど. Ví dụ: Vない + ほど (立てないほど); Aい + ほど (暑いほど). Dấu hiệu: câu sau thường là kết quả CỰC ĐOAN, bất ngờ.",
+      "接続②: 普通形 + くらい. Dấu hiệu: mức gần đó / tối thiểu / ví dụ nhỏ. \"泣きたいくらい\" = gần khóc, không hẳn đã khóc. \"お茶くらい\" = ít nhất trà thì được.",
+      "接続③ ば〜ほど: Vば + Vるほど (例: 練習すれば練習するほど) / Aければ + Aいほど (例: 早ければ早いほど) / なAdjなら + なほど. Cả hai vế PHẢI là cùng từ hoặc cặp có hướng tăng/giảm cùng chiều.",
+      "使い分け ほど vs くらい: \"死ぬほど疲れた\" (cực đoan, ほど) ≠ \"少し疲れたくらいだ\" (xấp xỉ mức nhỏ, くらい). Hỏi: \"Người viết muốn nhấn mạnh mức cực đoan hay chỉ nêu mức xấp xỉ tối thiểu?\" → đúng mẫu.",
+      "Câu hỏi suy luận: \"Vì sao dùng ほど chứ không dùng くらい?\" → trả lời bằng sắc thái cường độ trong bài.",
+      "Ôn lại: ば (Bài 35 / Bài 61) — điều kiện giả định. ば〜ほど là ứng dụng đặc biệt của ば để diễn đạt tỷ lệ thuận."
+    ],
+    "tips": [
+      "使い分け 1 — ほど vs くらい theo cường độ: \"泣くほど感動した\" (xúc động đến mức khóc — cực đoan, thực sự/gần thực) ≠ \"泣きたいくらい感動した\" (xúc động đến mức muốn khóc — xấp xỉ, cường điệu nhẹ). ほど nhấn mạnh hơn, くらい nhẹ hơn và thường thêm sắc thái \"ví dụ tối thiểu\".",
+      "使い分け 2 — くらい dùng như \"tối thiểu/ví dụ nhỏ\": \"これくらいできる\" (ít nhất cái này được) ≠ ほど (không dùng cho ý này). Khi câu mang nghĩa \"ít nhất, chí ít\" → くらい/ぐらい, không phải ほど.",
+      "ば〜ほど: vế ほど LUÔN là động từ thể từ điển (Vる) hoặc tính từ nguyên dạng. \"練習すれば練習するほど上手になる\" — chú ý: lặp lại cùng từ (練習する). Bài thi hay hỏi điền vào chỗ trống.",
+      "注意 接続: ほど với なAdj → 「静かなほど」; với N → 「N（の/である）ほど」 (hiếm, văn viết). くらい với なAdj → 「静かなくらい」; với N → 「Nくらい」. Đừng nhầm だ/な trước ほど/くらい.",
+      "読解ヒント: ば〜ほど luôn mang ý \"tỷ lệ thuận\". Nếu thấy cặp \"〜ば…〜ほど\" trong bài → tìm hai chiều tăng/giảm cùng nhau để chọn đáp án đúng."
+    ],
+    "grammarFocus": [
+      "〜ほど（普通形 + ほど）— \"đến mức / đến nỗi\": nhấn mạnh mức độ CAO, cực đoan",
+      "〜くらい/ぐらい（普通形 + くらい）— mức XẤP XỈ / tối thiểu / ví dụ nhỏ; nhẹ hơn ほど",
+      "〜ば〜ほど（Vば + Vるほど / Aければ + Aいほど）— \"càng A càng B\": hai vế tăng cùng chiều"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 61,
+        "items": [
+          "〜ば（điều kiện giả định — nền tảng của ば〜ほど）"
+        ]
+      },
+      {
+        "bai": 65,
+        "items": [
+          "〜らしい（truyền đạt gián tiếp — tái dùng trong bài dài）"
+        ]
+      },
+      {
+        "bai": 64,
+        "items": [
+          "〜ようだ（suy đoán căn cứ trực tiếp）"
+        ]
+      },
+      {
+        "bai": 58,
+        "items": [
+          "〜たびに（mỗi lần — tái dùng trong bài ngắn）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "練習すればするほど",
+      "titleVi": "Càng luyện tập càng tiến bộ",
+      "japanese": "日本語を勉強し始めてから、もうすぐ一年になる。最初のころは、ひらがなを覚えるだけで頭が痛くなるほど大変だった。今は、毎日少しくらい練習しても、なかなか上達しないと感じることがある。しかし、先生は「練習すればするほど、必ず上手になる」と言ってくれた。その言葉を聞いて、少し気持ちが楽になった。確かに、続ければ続けるほど、読める字が増えてきた。練習を重ねるたびに、少しずつ自信もついてきた。諦めたくなるほど難しいと感じる日もあるが、それでも続けていきたい。半年後には、今より自然に話せるようになっているはずだ。",
+      "vietnamese": "Kể từ khi bắt đầu học tiếng Nhật, sắp được một năm rồi. Lúc đầu, chỉ cần nhớ bảng chữ hiragana thôi cũng khổ đến mức bị đau đầu. Bây giờ, đôi khi tôi cảm thấy dù luyện tập một chút mỗi ngày thì cũng chẳng tiến bộ được bao nhiêu. Nhưng thầy giáo đã nói với tôi: \"Càng luyện tập càng chắc chắn giỏi hơn\". Nghe câu đó, tôi thấy lòng nhẹ hơn một chút. Đúng là, càng tiếp tục thì số chữ đọc được càng nhiều lên. Mỗi lần luyện tập thêm, sự tự tin cũng dần dần được bồi đắp. Cũng có ngày cảm thấy khó đến mức muốn bỏ cuộc, nhưng dù vậy tôi vẫn muốn tiếp tục. Nửa năm nữa, chắc là tôi sẽ có thể nói tự nhiên hơn bây giờ.",
+      "sentences": [
+        {
+          "jp": "日本語を勉強し始めてから、もうすぐ一年になる。",
+          "vi": "Kể từ khi bắt đầu học tiếng Nhật, sắp được một năm rồi.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học, học tập"
+            },
+            {
+              "w": "もうすぐ",
+              "read": "もうすぐ",
+              "vi": "sắp, chẳng mấy chốc"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "一年",
+              "read": "いちねん",
+              "vi": "một năm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "勉強し始めてから = kể từ khi bắt đầu học. てから = \"kể từ sau khi V\" (Bài 16)."
+            },
+            {
+              "point": "Vます＋始める（複合動詞）",
+              "vi": "勉強し始めて = bắt đầu học. Vます（bỏ ます）+ 始める."
+            }
+          ]
+        },
+        {
+          "jp": "最初のころは、ひらがなを覚えるだけで頭が痛くなるほど大変だった。",
+          "vi": "Lúc đầu, chỉ cần nhớ bảng chữ hiragana thôi cũng khổ đến mức bị đau đầu.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "nhớ, học thuộc"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "痛い",
+              "read": "いたい",
+              "vi": "đau"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khó khăn"
+            },
+            {
+              "w": "ころ",
+              "read": "ころ",
+              "vi": "khoảng thời gian, hồi"
+            },
+            {
+              "w": "ひらがな",
+              "read": "ひらがな",
+              "vi": "bảng chữ hiragana"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけで（Bài 11 だけ + で）",
+              "vi": "覚えるだけで = chỉ cần nhớ thôi mà (đã…). だけ = chỉ + で = phương tiện/nguyên nhân."
+            },
+            {
+              "point": "〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 頭が痛くなる（Vる 普通形）+ ほど. \"đến mức bị đau đầu\" — ほど nhấn mạnh mức độ CAO, cực đoan: chỉ học hiragana mà đã khổ đến tận mức đau đầu. Sắc thái: ほど ≠ くらい — nếu dùng 「頭が痛くなるくらい」sẽ nhẹ hơn, chỉ là \"xấp xỉ mức đau đầu\". ほど đây nhấn THỰC SỰ đến mức đó."
+            }
+          ]
+        },
+        {
+          "jp": "今は、毎日少しくらい練習しても、なかなか上達しないと感じることがある。",
+          "vi": "Bây giờ, đôi khi tôi cảm thấy dù luyện tập một chút mỗi ngày thì cũng chẳng tiến bộ được bao nhiêu.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "練習します",
+              "read": "れんしゅうします",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "chẳng mấy (+ phủ định)"
+            },
+            {
+              "w": "上達します",
+              "read": "じょうたつします",
+              "vi": "tiến bộ, lên tay"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くらい（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 少し（副詞修飾）+ くらい. \"毎日少しくらい練習しても\" = \"dù chỉ luyện tập khoảng một chút mỗi ngày\". くらい đây mang nghĩa mức XẤP XỈ / TỐI THIỂU — \"chỉ chừng đó thôi\". Sắc thái: くらい ≠ ほど — くらい nhẹ hơn, không nhấn cực đoan; dùng khi nêu ví dụ tối thiểu hoặc mức xấp xỉ."
+            },
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "練習しても = dù luyện tập đi nữa. ても = dù…vẫn (Bài 25)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、先生は「練習すればするほど、必ず上手になる」と言ってくれた。",
+          "vi": "Nhưng thầy giáo đã nói với tôi: \"Càng luyện tập càng chắc chắn giỏi hơn\".",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "thầy giáo, giáo viên"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "chắc chắn"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, khéo"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 練習すれば（Vば形）+ 練習するほど（Vる + ほど）. \"練習すればするほど上手になる\" = \"càng luyện tập càng giỏi hơn\". 〜ば〜ほど diễn đạt tỷ lệ thuận: hai vế tăng cùng chiều. Lưu ý: lặp lại cùng động từ (練習する → 練習すれば + 練習するほど). 接続 Aければ + Aいほど (tính từ い); なAdjなら + なほど (tính từ な). Nền tảng: ば (Bài 35/61) điều kiện giả định + ほど mức độ."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "言ってくれた = đã nói cho (tôi nghe). てくれる = người khác làm gì vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "その言葉を聞いて、少し気持ちが楽になった。",
+          "vi": "Nghe câu đó, tôi thấy lòng nhẹ hơn một chút.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, từ ngữ"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "nghe"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "楽",
+              "read": "らく",
+              "vi": "nhẹ nhàng, thoải mái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（原因/nối mệnh đề Bài 39）",
+              "vi": "その言葉を聞いて = nghe câu đó rồi (mà). て diễn đạt nguyên nhân/trình tự."
+            },
+            {
+              "point": "〜になった（Bài 19〜くなります）",
+              "vi": "楽になった = đã trở nên thoải mái hơn. なAdj + になる = trở nên (Bài 19)."
+            }
+          ]
+        },
+        {
+          "jp": "確かに、続ければ続けるほど、読める字が増えてきた。",
+          "vi": "Đúng là, càng tiếp tục thì số chữ đọc được càng nhiều lên.",
+          "vocab": [
+            {
+              "w": "確かに",
+              "read": "たしかに",
+              "vi": "đúng là, quả thật"
+            },
+            {
+              "w": "続けます",
+              "read": "つづけます",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "読めます",
+              "read": "よめます",
+              "vi": "đọc được"
+            },
+            {
+              "w": "字",
+              "read": "じ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên, nhiều thêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "続ければ続けるほど = \"càng tiếp tục càng…\". Lặp lại 続ける — cùng động từ hai vế. Dạng: Vば + Vるほど."
+            },
+            {
+              "point": "Vてきた（Bài 43）",
+              "vi": "増えてきた = đã tăng dần lên (theo thời gian đến hiện tại). てくる diễn đạt sự thay đổi dần (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "練習を重ねるたびに、少しずつ自信もついてきた。",
+          "vi": "Mỗi lần luyện tập thêm, sự tự tin cũng dần dần được bồi đắp.",
+          "vocab": [
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "重ねます",
+              "read": "かさねます",
+              "vi": "tích lũy, chồng thêm"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "自信",
+              "read": "じしん",
+              "vi": "sự tự tin"
+            },
+            {
+              "w": "つきます",
+              "read": "つきます",
+              "vi": "được bồi đắp, được hình thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに（Bài 58）",
+              "vi": "重ねるたびに = mỗi lần tích lũy thêm. Vるたびに = mỗi khi V thì đều… (Bài 58). Ôn lại."
+            },
+            {
+              "point": "Vてきた（Bài 43）",
+              "vi": "ついてきた = đã dần dần hình thành. てくる = thay đổi dần đến hiện tại."
+            }
+          ]
+        },
+        {
+          "jp": "諦めたくなるほど難しいと感じる日もあるが、それでも続けていきたい。",
+          "vi": "Cũng có ngày cảm thấy khó đến mức muốn bỏ cuộc, nhưng dù vậy tôi vẫn muốn tiếp tục.",
+          "vocab": [
+            {
+              "w": "諦めたくなる",
+              "read": "あきらめたくなる",
+              "vi": "cảm thấy muốn bỏ cuộc"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có"
+            },
+            {
+              "w": "それでも",
+              "read": "それでも",
+              "vi": "dù vậy"
+            },
+            {
+              "w": "続けていきたい",
+              "read": "つづけていきたい",
+              "vi": "muốn tiếp tục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 諦めたくなる（Vる 普通形）+ ほど. \"諦めたくなるほど難しい\" = \"khó đến mức (thậm chí) muốn bỏ cuộc\". ほど nhấn mức độ CAO: mức độ khó khăn đạt đến điểm cực đoan là muốn từ bỏ."
+            },
+            {
+              "point": "Vていきたい（Bài 43）",
+              "vi": "続けていきたい = muốn tiếp tục đi (hướng về phía trước). ていく = tiến về tương lai (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "半年後には、今より自然に話せるようになっているはずだ。",
+          "vi": "Nửa năm nữa, chắc là tôi sẽ có thể nói tự nhiên hơn bây giờ.",
+          "vocab": [
+            {
+              "w": "半年",
+              "read": "はんとし",
+              "vi": "nửa năm"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "自然に",
+              "read": "しぜんに",
+              "vi": "một cách tự nhiên"
+            },
+            {
+              "w": "話せます",
+              "read": "はなせます",
+              "vi": "nói được"
+            },
+            {
+              "w": "半年後",
+              "read": "はんとしご",
+              "vi": "nửa năm sau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになった（Bài 36）",
+              "vi": "話せるようになっている = đã trở nên có thể nói. ようになる = thay đổi trạng thái (Bài 36). Ở đây: ようになっているはずだ = kỳ vọng logic."
+            },
+            {
+              "point": "〜はずだ（Bài 51）",
+              "vi": "はずだ = \"lẽ ra/chắc là\" — suy luận có căn cứ logic. Ôn Bài 51. Đối chiếu: ここでの はずだ ≠ くらい — khẳng định suy luận, không phải ước lượng nhỏ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "頭が痛くなるほど大変だった",
+          "label": "〜ほど（mức độ CAO, cực đoan）"
+        },
+        {
+          "excerpt": "毎日少しくらい練習しても",
+          "label": "〜くらい（mức xấp xỉ/tối thiểu）"
+        },
+        {
+          "excerpt": "練習すればするほど、必ず上手になる",
+          "label": "〜ば〜ほど（càng A càng B）"
+        },
+        {
+          "excerpt": "続ければ続けるほど",
+          "label": "〜ば〜ほど（lặp lại cùng động từ）"
+        },
+        {
+          "excerpt": "諦めたくなるほど難しい",
+          "label": "Sắc thái: ほど vs くらい（cực đoan ↔ xấp xỉ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「頭が痛くなるほど大変だった」と「毎日少しくらい練習しても」の「ほど」と「くらい」はどう違いますか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "「ほど」は程度が軽い、「くらい」は程度が強いことを表します",
+            "「ほど」は程度が高く極端なことを強調し、「くらい」は大体の程度や小さな例を表します",
+            "意味は同じで、どちらを使っても変わりません",
+            "「ほど」は動詞の後だけ使い、「くらい」は名詞の後だけ使います"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án ② đúng vì bài dùng hai mẫu theo hai hướng khác nhau: \"頭が痛くなるほど大変だった\" — mức độ vất vả đạt tới điểm CỰC ĐOAN là đau đầu thật sự; ほど ở đây nhấn mạnh kết quả cực đoan, không phải ước lượng. Ngược lại \"毎日少しくらい練習しても\" — くらい chỉ mức XẤP XỈ/TỐI THIỂU (\"chỉ chừng một chút thôi\"), không cực đoan. ① sai vì hoán đổi ngược nghĩa. ③ sai vì hai từ không thay thế nhau được. ④ sai vì cả hai đều dùng được sau động từ và tính từ.",
+          "tip": "Mức độ CỰC ĐOAN, kết quả bất ngờ/thực sự đạt tới → ほど; Mức XẤP XỈ, ví dụ tối thiểu, \"chỉ chừng đó thôi\" → くらい.",
+          "qt": {
+            "q": "「頭が痛くなるほど大変だった」（đã vất vả đến mức đau đầu）và 「毎日少しくらい練習しても」（dù mỗi ngày chỉ luyện tập một chút）thì 「ほど」 và 「くらい」 khác nhau như thế nào?",
+            "o": [
+              "「ほど」 biểu thị mức độ nhẹ, còn 「くらい」 biểu thị mức độ mạnh",
+              "「ほど」 nhấn mạnh mức độ cao, cực đoan, còn 「くらい」 biểu thị mức độ đại khái hoặc một ví dụ nhỏ",
+              "Nghĩa giống nhau, dùng từ nào cũng không khác gì",
+              "「ほど」 chỉ dùng sau động từ, còn 「くらい」 chỉ dùng sau danh từ"
+            ]
+          }
+        },
+        {
+          "q": "「練習すればするほど、必ず上手になる」の意味として、最も正しいものはどれですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "練習したら、一度だけ上手になることができます",
+            "練習しなくても、自然に上手になります",
+            "練習する量が増えるにつれて、その分だけ上手さも増していきます",
+            "練習するかどうかに関係なく、上手になります"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án ③ đúng. \"練習すればするほど、必ず上手になる\" dùng mẫu ば〜ほど diễn đạt tỷ lệ thuận: lượng luyện tập tăng → mức độ giỏi tăng tương ứng. ① sai vì không phải \"một lần\"; ② sai vì phải luyện tập mới giỏi, không tự nhiên; ④ sai vì việc luyện tập hoàn toàn có liên quan — chính luyện tập mới tạo ra sự tiến bộ.",
+          "tip": "Thấy cặp Vば＋Vるほど (lặp cùng động từ) → nghĩa tất yếu là \"càng A càng B\" (tỷ lệ thuận), không phải điều kiện thông thường.",
+          "qt": {
+            "q": "Câu 「練習すればするほど、必ず上手になる」 có nghĩa nào đúng nhất?",
+            "o": [
+              "Nếu luyện tập thì có thể giỏi lên chỉ một lần",
+              "Ngay cả khi không luyện tập, cũng sẽ tự nhiên giỏi lên",
+              "Khi lượng luyện tập tăng lên, mức độ thành thạo cũng tăng theo tương ứng",
+              "Sẽ giỏi lên bất kể có luyện tập hay không"
+            ]
+          }
+        },
+        {
+          "q": "「諦めたくなるほど難しい」について、ここで「ほど」を使う理由として最も適切なものはどれですか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "難しさが少しある程度を表したかったからです",
+            "難しさが「諦めたくなる」という極端なレベルに達していることを強調したかったからです",
+            "「くらい」より丁寧な表現にしたかったからです",
+            "「とても」と同じ意味で使っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án ② đúng. \"諦めたくなるほど難しい\" — ほど nhấn mạnh mức độ khó khăn ĐÃ ĐẠT TỚI điểm cực đoan là muốn bỏ cuộc; người viết muốn nhấn thực sự khó đến tận mức đó. ① sai vì ほど không diễn đạt \"mức nhỏ\". ③ sai vì ほど và くらい không phân biệt theo độ lịch sự. ④ sai vì \"とても\" chỉ là \"rất\", trong khi ほど còn nêu cụ thể mốc so sánh (muốn bỏ cuộc).",
+          "tip": "Khi câu sau ほど là một kết quả/trạng thái cực đoan và rõ ràng → chọn ほど, không phải くらい; くらい sẽ làm nhẹ sắc thái đi đáng kể.",
+          "qt": {
+            "q": "Về 「諦めたくなるほど難しい」, lý do thích hợp nhất để dùng 「ほど」 ở đây là gì?",
+            "o": [
+              "Vì muốn biểu thị mức độ khó chỉ ở một mức độ nào đó",
+              "Vì muốn nhấn mạnh độ khó đã đạt đến mức cực đoan là “muốn bỏ cuộc”",
+              "Vì muốn dùng cách diễn đạt lịch sự hơn 「くらい」",
+              "Được dùng với nghĩa giống như 「とても」"
+            ]
+          }
+        },
+        {
+          "q": "この文章の内容として、正しいものはどれですか。",
+          "evi": [
+            3,
+            4,
+            7
+          ],
+          "options": [
+            "筆者は日本語の勉強を途中でやめてしまった",
+            "先生に励まされて、筆者は練習を続ける気持ちになった",
+            "筆者は最初からひらがなを簡単に覚えることができた",
+            "毎日たくさん練習したので、もう上手に話せるようになった"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án ② đúng. Bài dẫn chứng rõ: \"先生は「練習すればするほど、必ず上手になる」と言ってくれた\" → \"少し気持ちが楽になった\" → \"それでも続けていきたい\" — chuỗi này cho thấy lời thầy đã khích lệ người viết tiếp tục. ① sai vì bài nói \"それでも続けていきたい\" (muốn tiếp tục). ③ sai vì \"ひらがなを覚えるだけで頭が痛くなるほど大変だった\" (lúc đầu rất khó). ④ sai vì bài không nói đã nói được tốt, mà chỉ nói \"半年後には…話せるようになっているはずだ\" (kỳ vọng tương lai).",
+          "tip": "Câu hỏi nội dung bài → lần lượt loại từng lựa chọn bằng câu trích dẫn cụ thể trong bài; đừng dựa vào cảm giác chung.",
+          "qt": {
+            "q": "Phát biểu nào đúng với nội dung bài đọc này?",
+            "o": [
+              "Người viết đã ngừng học tiếng Nhật giữa chừng",
+              "Được thầy giáo động viên, người viết đã muốn tiếp tục luyện tập",
+              "Ngay từ đầu, người viết đã có thể dễ dàng ghi nhớ hiragana",
+              "Vì đã luyện tập nhiều mỗi ngày nên người viết đã có thể nói giỏi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "小さな目標から始める",
+      "titleVi": "Bắt đầu từ những mục tiêu nhỏ",
+      "japanese": "新しい習慣を身につけようとするとき、最初から高い目標を立ててしまう人が多い。たとえば、「毎日一時間運動する」と決めても、三日もすれば体が動かなくなるほど疲れてしまい、すぐにやめてしまうことがある。初めから頑張りすぎると、続けることが苦しくなってしまうのだ。\nしかし、物事は続ければ続けるほど、少しずつ体が慣れて、自然と生活の一部になっていくものだ。そのため、最初は「毎日五分くらい散歩する」というような、簡単にできる小さな目標から始めるほうがよい。五分くらいなら、どんなに忙しい日でも無理なく続けられるだろう。\nつまり、大切なのは最初から大きな成果を求めることではなく、毎日無理なく続けられる工夫をすることである。小さな行動を積み重ねるうちに、自分にもできるという自信がついて、目標を少しずつ大きくしていけるようになるのだ。",
+      "vietnamese": "Khi định hình thành một thói quen mới, có nhiều người thường đặt mục tiêu quá cao ngay từ đầu. Ví dụ, dù quyết định \"mỗi ngày tập thể dục một tiếng\", nhưng chỉ cần khoảng ba ngày là đã mệt đến mức cơ thể không cử động nổi, và có khi bỏ cuộc ngay. Nếu cố gắng quá sức ngay từ đầu thì việc duy trì sẽ trở nên khổ sở.\nTuy nhiên, mọi việc càng tiếp tục thì cơ thể sẽ dần dần quen, và việc đó sẽ tự nhiên trở thành một phần của cuộc sống. Vì vậy, lúc đầu nên bắt đầu từ những mục tiêu nhỏ dễ thực hiện như \"mỗi ngày đi dạo khoảng năm phút\". Nếu chỉ khoảng năm phút thì dù vào ngày bận rộn đến mức nào đi nữa ta cũng có thể duy trì mà không bị quá sức.\nTóm lại, điều quan trọng không phải là đòi hỏi thành quả lớn ngay từ đầu, mà là tìm cách để duy trì mỗi ngày mà không bị quá sức. Trong lúc tích lũy từng hành động nhỏ, ta sẽ có được sự tự tin rằng bản thân cũng làm được, và dần dần có thể mở rộng mục tiêu lớn hơn.",
+      "sentences": [
+        {
+          "jp": "新しい習慣を身につけようとするとき、最初から高い目標を立ててしまう人が多い。",
+          "vi": "Khi định hình thành một thói quen mới, có nhiều người thường đặt mục tiêu quá cao ngay từ đầu.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "身につけます",
+              "read": "みにつけます",
+              "vi": "tiếp thu, hình thành (thói quen, kỹ năng)"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "ban đầu, lúc đầu"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao"
+            },
+            {
+              "w": "目標",
+              "read": "もくひょう",
+              "vi": "mục tiêu"
+            },
+            {
+              "w": "立てます",
+              "read": "たてます",
+              "vi": "lập, dựng (mục tiêu, kế hoạch)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vようとする（Bài 54）",
+              "vi": "身につけようとする = định/cố gắng hình thành thói quen. Thể ý chí + とする biểu thị ý định hoặc hành động sắp diễn ra."
+            },
+            {
+              "point": "〜てしまう（Bài 29）",
+              "vi": "立ててしまう = lỡ đặt, thường đặt (mang sắc thái tiếc nuối hoặc ngoài ý muốn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "最初から高い目標を立ててしまう人が多い",
+              "why": "Nêu lên hiện tượng và sai lầm phổ biến của nhiều người khi bắt đầu hình thành thói quen mới."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、「毎日一時間運動する」と決めても、三日もすれば体が動かなくなるほど疲れてしまい、すぐにやめてしまうことがある。",
+          "vi": "Ví dụ, dù quyết định \"mỗi ngày tập thể dục một tiếng\", nhưng chỉ cần khoảng ba ngày là đã mệt đến mức cơ thể không cử động nổi, và có khi bỏ cuộc ngay.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "運動します",
+              "read": "うんどうします",
+              "vi": "vận động, tập thể dục"
+            },
+            {
+              "w": "決めます",
+              "read": "きめます",
+              "vi": "quyết định"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, thân thể"
+            },
+            {
+              "w": "動きます",
+              "read": "うごきます",
+              "vi": "cử động, di chuyển"
+            },
+            {
+              "w": "疲れます",
+              "read": "つかれます",
+              "vi": "mệt mỏi"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "一時間",
+              "read": "いちじかん",
+              "vi": "một tiếng, một giờ"
+            },
+            {
+              "w": "三日",
+              "read": "みっか",
+              "vi": "ba ngày"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "やめます",
+              "read": "やめます",
+              "vi": "từ bỏ, dừng lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "決めても = dù có quyết định. Vて + も biểu thị sự nhượng bộ (dù... nhưng...)."
+            },
+            {
+              "point": "〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 動かなくなる（Vない・普通形）+ ほど. \"mệt đến mức cơ thể không cử động nổi\". ほど dùng để nhấn mạnh mức độ CAO, cực đoan của sự việc (mệt đến tận cùng)."
+            },
+            {
+              "point": "〜ことがある（Bài 19）",
+              "vi": "やめてしまうことがある = đôi khi/có lúc bỏ cuộc. Vる + ことがある diễn tả thỉnh thoảng có sự việc xảy ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たとえば",
+              "why": "Dấu hiệu mở đầu ví dụ cụ thể minh họa cho việc đặt mục tiêu quá sức."
+            },
+            {
+              "w": "体が動かなくなるほど疲れてしまい",
+              "why": "Cụm từ then chốt miêu tả mức độ kiệt sức trầm trọng, là căn cứ trả lời trực tiếp cho câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "初めから頑張りすぎると、続けることが苦しくなってしまうのだ。",
+          "vi": "Nếu cố gắng quá sức ngay từ đầu thì việc duy trì sẽ trở nên khổ sở.",
+          "vocab": [
+            {
+              "w": "初め",
+              "read": "はじめ",
+              "vi": "ban đầu, lúc đầu"
+            },
+            {
+              "w": "頑張ります",
+              "read": "がんばります",
+              "vi": "cố gắng"
+            },
+            {
+              "w": "続けます",
+              "read": "つづけます",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "苦しい",
+              "read": "くるしい",
+              "vi": "khổ sở, khó khăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vます＋すぎる（Bài 44）",
+              "vi": "頑張りすぎる = cố gắng quá mức. Động từ bỏ ます + すぎる diễn tả hành động vượt quá giới hạn thích hợp."
+            },
+            {
+              "point": "〜のだ／〜んだ（Bài 26）",
+              "vi": "苦しくなってしまうのだ = giải thích lý do, bản chất của vấn đề."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、物事は続ければ続けるほど、少しずつ体が慣れて、自然と生活の一部になっていくものだ。",
+          "vi": "Tuy nhiên, mọi việc càng tiếp tục thì cơ thể sẽ dần dần quen, và việc đó sẽ tự nhiên trở thành một phần của cuộc sống.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "mọi việc, sự vật sự việc"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một, dần dần"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "慣れます",
+              "read": "なれます",
+              "vi": "quen, quen thuộc"
+            },
+            {
+              "w": "自然と",
+              "read": "しぜんと",
+              "vi": "tự nhiên, một cách tự nhiên"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 続ければ（Vば）+ 続ける（Vる）+ ほど. \"càng duy trì thì càng...\". Mẫu ngữ pháp diễn đạt hai vế biến đổi tỉ lệ thuận cùng chiều: mức độ của hành động vế trước tăng lên thì vế sau cũng thay đổi theo."
+            },
+            {
+              "point": "〜ていく（Bài 46）",
+              "vi": "なっていく = dần trở thành (sự thay đổi tiếp diễn hướng tới tương lai)."
+            },
+            {
+              "point": "〜ものだ（Bài 50）",
+              "vi": "一部になっていくものだ = diễn tả quy luật tự nhiên, chân lý thông thường (\"vốn dĩ là như vậy\")."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý mang tính bản lề, phủ định cách làm sai ở trên để mở ra quy luật hình thành thói quen."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、最初は「毎日五分くらい散歩する」というような、簡単にできる小さな目標から始めるほうがよい。",
+          "vi": "Vì vậy, lúc đầu nên bắt đầu từ những mục tiêu nhỏ dễ thực hiện như \"mỗi ngày đi dạo khoảng năm phút\".",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "散歩します",
+              "read": "さんぽします",
+              "vi": "đi dạo"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ dàng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ"
+            },
+            {
+              "w": "目標",
+              "read": "もくひょう",
+              "vi": "mục tiêu"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "五分",
+              "read": "ごふん",
+              "vi": "năm phút"
+            },
+            {
+              "w": "よい",
+              "read": "よい",
+              "vi": "tốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くらい（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 五分（số từ/đại lượng）+ くらい. \"khoảng năm phút / chừng năm phút\". くらい biểu thị mức XẤP XỈ hoặc một ví dụ TỐI THIỂU, nhẹ nhàng (khác với ほど mang tính cực đoan)."
+            },
+            {
+              "point": "〜というような（Bài 59）",
+              "vi": "散歩するというような = những ví dụ kiểu như là đi dạo."
+            },
+            {
+              "point": "〜ほうがよい（Bài 32）",
+              "vi": "始めるほうがよい = nên bắt đầu. Khuyên nhủ phương án tốt hơn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "小さな目標から始めるほうがよい",
+              "why": "Chủ trương giải pháp quan trọng của tác giả, đóng vai trò định hướng căn cứ cho câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "五分くらいなら、どんなに忙しい日でも無理なく続けられるだろう。",
+          "vi": "Nếu chỉ khoảng năm phút thì dù vào ngày bận rộn đến mức nào đi nữa ta cũng có thể duy trì mà không bị quá sức.",
+          "vocab": [
+            {
+              "w": "五分くらい",
+              "read": "ごふんくらい",
+              "vi": "khoảng 5 phút"
+            },
+            {
+              "w": "どんなに",
+              "read": "どんなに",
+              "vi": "dù... đến đâu"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "無理なく",
+              "read": "むりなく",
+              "vi": "không quá sức"
+            },
+            {
+              "w": "続けられる",
+              "read": "つづけられる",
+              "vi": "có thể tiếp tục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くらい（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 五分 + くらい + なら. \"Nếu chỉ chừng năm phút\". Ở đây くらい nhấn mạnh mức độ nhỏ, tối thiểu, dễ thực hiện."
+            },
+            {
+              "point": "どんなに〜ても（Bài 25）",
+              "vi": "どんなに忙しい日でも = dù ngày bận đến thế nào đi nữa."
+            },
+            {
+              "point": "〜だろう（Bài 32）",
+              "vi": "続けられるだろう = chắc là có thể tiếp tục. Phỏng đoán mang tính logic của người viết."
+            }
+          ],
+          "keys": [
+            {
+              "w": "どんなに忙しい日でも無理なく続けられる",
+              "why": "Giải thích nguyên nhân cốt lõi vì sao mục tiêu nhỏ lại hiệu quả, căn cứ trực tiếp trả lời câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、大切なのは最初から大きな成果を求めることではなく、毎日無理なく続けられる工夫をすることである。",
+          "vi": "Tóm lại, điều quan trọng không phải là đòi hỏi thành quả lớn ngay từ đầu, mà là tìm cách để duy trì mỗi ngày mà không bị quá sức.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "thành quả, kết quả"
+            },
+            {
+              "w": "求めます",
+              "read": "もとめます",
+              "vi": "tìm kiếm, mong cầu, đòi hỏi"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "無理",
+              "read": "むり",
+              "vi": "quá sức, gượng ép"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "工夫",
+              "read": "くふう",
+              "vi": "công phu, cách thức, biện pháp khéo léo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ではなく（Bài 41）",
+              "vi": "求めることではなく = không phải là tìm kiếm... mà là..."
+            },
+            {
+              "point": "〜である（文体）",
+              "vi": "工夫をすることである = phong cách văn viết trang trọng, khẳng định luận điểm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり、大切なのは",
+              "why": "Liên từ tổng kết kết hợp từ nhấn mạnh báo hiệu quan điểm quan trọng nhất của bài, căn cứ cho câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "小さな行動を積み重ねるうちに、自分にもできるという自信がついて、目標を少しずつ大きくしていけるようになるのだ。",
+          "vi": "Trong lúc tích lũy từng hành động nhỏ, ta sẽ có được sự tự tin rằng bản thân cũng làm được, và dần dần có thể mở rộng mục tiêu lớn hơn.",
+          "vocab": [
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "積み重ねます",
+              "read": "つみかさねます",
+              "vi": "tích lũy, bồi đắp"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân, mình"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "自信",
+              "read": "じしん",
+              "vi": "sự tự tin"
+            },
+            {
+              "w": "目標",
+              "read": "もくひょう",
+              "vi": "mục tiêu"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "大きくします",
+              "read": "おおきくします",
+              "vi": "làm lớn lên, mở rộng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜うちに（Bài 55）",
+              "vi": "積み重ねるうちに = trong quá trình tích lũy. Vる + うちに diễn tả trong khi một trạng thái/hành động đang diễn ra thì có sự thay đổi mới xuất hiện."
+            },
+            {
+              "point": "〜ようになる（Bài 36）",
+              "vi": "いけるようになる = dần dần trở nên có thể thực hiện được."
+            },
+            {
+              "point": "〜のだ（Bài 26）",
+              "vi": "lời kết luận nhấn mạnh thông điệp của bài viết."
+            }
+          ],
+          "keys": [
+            {
+              "w": "目標を少しずつ大きくしていけるようになるのだ",
+              "why": "Chỉ ra kết quả tích cực lâu dài khi tích lũy hành động nhỏ, bổ trợ hoàn thiện quan điểm tác giả cho câu hỏi 3."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "体が動かなくなるほど疲れてしまい",
+          "label": "〜ほど（nhấn mạnh mức độ CAO, cực đoan）"
+        },
+        {
+          "excerpt": "続ければ続けるほど",
+          "label": "〜ば〜ほど（càng… càng… — hai vế tăng cùng chiều）"
+        },
+        {
+          "excerpt": "毎日五分くらい散歩する",
+          "label": "〜くらい（mức xấp xỉ / ví dụ tối thiểu）"
+        },
+        {
+          "excerpt": "五分くらいなら",
+          "label": "〜くらい（mức tối thiểu / nhẹ nhàng）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「体が動かなくなるほど疲れてしまい」とあるが、どういうことか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "疲れが非常にひどくて、もう動けないくらい限界になること",
+            "激しい運動で本当に怪我をして動けなくなること",
+            "三日間休んだせいで体が重くなって動けなくなること",
+            "毎日少しずつ運動して徐々に疲労がたまること"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án ① đúng vì câu số 2 trong bài nêu: 「…三日もすれば体が動かなくなるほど疲れてしまい、すぐにやめてしまうことがある」. Mẫu「〜ほど」ở đây nhấn mạnh mức độ CAO, CỰC ĐOAN của sự mệt mỏi — kiệt sức đến nỗi không thể cử động cơ thể được nữa. ② sai vì bài nói do mệt mỏi cực độ chứ không phải bị chấn thương (怪我). ③ sai vì bài nói sau khi tập được khoảng ba ngày (三日もすれば) chứ không phải do nghỉ 3 ngày. ④ sai vì đây là trường hợp tập quá sức ngay từ đầu (毎日一時間), không phải tập tích lũy từng chút một.",
+          "tip": "Khi gặp câu hỏi giải thích cụm từ chứa「〜ほど」, hãy nhớ「ほど」nhấn mạnh mức độ cực đoan/đạt tới giới hạn (đến mức...). Hãy tìm phương án diễn đạt mức độ nghiêm trọng tương đương mà không bị suy diễn lệch sang chấn thương hay bệnh tật.",
+          "qt": {
+            "q": "Cụm 「体が動かなくなるほど疲れてしまい」 có nghĩa là gì?",
+            "o": [
+              "Mệt mỏi nghiêm trọng đến mức kiệt sức, gần như không thể cử động được nữa",
+              "Bị thương thật sự và không thể cử động được vì tập thể dục quá sức",
+              "Cơ thể trở nên nặng nề và không thể cử động được vì đã nghỉ ba ngày",
+              "Tập thể dục từng chút một mỗi ngày và dần tích tụ mệt mỏi"
+            ]
+          }
+        },
+        {
+          "q": "筆者が「最初は小さな目標から始めるほうがよい」と言うのはなぜか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "最初から高い目標を立てると、すぐに結果が出なくて飽きてしまうから",
+            "小さな目標なら、どんなに忙しい日でも無理をせずに続けやすいから",
+            "小さな目標を達成すれば、それ以上運動をしなくてもよくなるから",
+            "長い時間運動をすると、体に悪い影響が出ることが多いから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án ② đúng vì căn cứ vào câu 5 và câu 6: 「最初は「毎日五分くらい散歩する」というような、簡単にできる小さな目標から始めるほうがよい。五分くらいなら、どんなに忙しい日でも無理なく続けられるだろう。」. Mục tiêu nhỏ (như 5 phút đi dạo) giúp người thực hiện dù bận rộn đến đâu cũng không bị quá sức và dễ duy trì liên tục. ① sai vì bài không đề cập đến việc \"nhanh chán vì không có kết quả\" (飽きてしまう). ③ sai vì mục đích là tích lũy để sau này nâng dần mục tiêu lên chứ không phải \"không cần tập nữa\". ④ sai vì bài không khẳng định tập lâu sẽ gây hại cho cơ thể.",
+          "tip": "Câu hỏi lý do「なぜ」được giải quyết nhanh bằng cách tìm liên từ chỉ nguyên nhân/kết quả như「そのため」,「なら」ở ngay câu chứa từ khóa hoặc câu liền sau.",
+          "qt": {
+            "q": "Vì sao tác giả nói rằng 「最初は小さな目標から始めるほうがよい」?",
+            "o": [
+              "Vì nếu đặt mục tiêu cao ngay từ đầu mà không sớm thấy kết quả thì sẽ chán",
+              "Vì với mục tiêu nhỏ, ta dễ tiếp tục mà không phải cố quá sức, dù ngày đó bận đến đâu",
+              "Vì nếu đạt được mục tiêu nhỏ thì không cần tập thể dục thêm nữa",
+              "Vì tập thể dục trong thời gian dài thường gây ảnh hưởng xấu đến cơ thể"
+            ]
+          }
+        },
+        {
+          "q": "新しい習慣を身につけるとき、筆者は何が大切だと考えているか。",
+          "evi": [
+            6,
+            7
+          ],
+          "options": [
+            "最初から高い目標を決めて、強い気持ちで毎日やり抜くこと",
+            "疲れたときは無理をせず、別の新しい習慣に変えること",
+            "最初から大きな成果を求めず、無理なく続けられる工夫をしていくこと",
+            "忙しいときは休んで、時間に余裕ができてから始めること"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án ③ đúng vì căn cứ vào đoạn cuối (câu 7 và câu 8): 「つまり、大切なのは最初から大きな成果を求めることではなく、毎日無理なく続けられる工夫をすることである。小さな行動を積み重ねるうちに、自分にもできるという自信がついて、目標を少しずつ大きくしていけるようになるのだ。」. Người viết khẳng định cốt lõi là không nôn nóng đòi hỏi kết quả lớn ngay, mà cần có cách thức duy trì thói quen nhỏ một cách tự nhiên, từ đó xây dựng sự tự tin và nâng dần quy mô. ① sai vì trái ngược hoàn toàn với quan điểm của tác giả ở đoạn 1 (phê phán việc đặt mục tiêu quá cao). ② sai vì bài không khuyên đổi sang thói quen khác (別の習慣に変える). ④ sai vì tác giả khuyên chọn mục tiêu nhỏ để ngay cả ngày bận rộn vẫn duy trì được, chứ không phải bỏ mặc chờ lúc rảnh rỗi.",
+          "tip": "Với câu hỏi nắm bắt tư tưởng của tác giả (筆者の考え), trọng tâm thường nằm ở đoạn kết luận sau các liên từ như「つまり」(tóm lại) hoặc cấu trúc khẳng định「〜ではなく、〜ことである」.",
+          "qt": {
+            "q": "Khi hình thành một thói quen mới, tác giả cho rằng điều gì là quan trọng?",
+            "o": [
+              "Đặt mục tiêu cao ngay từ đầu và kiên trì thực hiện mỗi ngày với quyết tâm mạnh mẽ",
+              "Khi mệt thì đừng cố quá sức, hãy đổi sang một thói quen mới khác",
+              "Không mong đợi thành quả lớn ngay từ đầu mà tìm cách để có thể tiếp tục thực hiện một cách vừa sức",
+              "Khi bận thì nghỉ ngơi, đợi đến khi có thời gian rảnh rồi mới bắt đầu"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Hiện tượng & ví dụ thất bại",
+          "topic": 0,
+          "note": "Nêu thực trạng người mới bắt đầu hay đặt mục tiêu quá cao dẫn đến kiệt sức và bỏ cuộc; chú ý bẫy hiểu sai mức độ mệt mỏi ở ví dụ minh họa.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "kind": "turn",
+          "label": "Bước ngoặt quy luật",
+          "topic": 3,
+          "note": "Dùng liên từ chuyển ý 'しかし' để chỉ ra quy luật hình thành thói quen là cơ thể cần thời gian để thích nghi dần.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "kind": "body",
+          "label": "Giải pháp & lý do mục tiêu nhỏ",
+          "topic": 4,
+          "note": "Đưa ra lời khuyên nên bắt đầu từ mục tiêu nhỏ dễ làm và giải thích lý do vì dù bận rộn vẫn duy trì được; căn cứ trả lời câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "point",
+          "label": "Kết luận cốt lõi & lời khuyên",
+          "topic": 6,
+          "note": "Tổng kết thông điệp cốt lõi với liên từ 'つまり': quan trọng là duy trì đều đặn không quá sức chứ không phải thành quả lớn ngay từ đầu; căn cứ trả lời câu hỏi 3.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "上達への道",
+      "titleVi": "Con đường tiến bộ",
+      "japanese": "私が日本語を学び始めたのは、三年前のことだ。\nきっかけは、仕事でよく日本のお客さんと話す機会があったからだ。\nそのころは、挨拶程度しかできなかった。\nしかし、日本語を勉強し始めると、すぐに気づいたことがある。\n日本語は、勉強すればするほど奥が深く、知りたいことが増えていくということだ。\n文法を一つ覚えるたびに、また新しい疑問が生まれる。\nこれは苦しいことではなく、むしろうれしいことだと思うようになった。\nまた、日本語の読み方や書き方だけでなく、日本の文化や考え方についても、知れば知るほど面白いと感じた。\nたとえば、日本人は相手への配慮を言葉の中に込める文化があるらしい。\n言葉の使い方を学べば学ぶほど、その繊細さがよく理解できるようになった。\nある日、日本語の先輩から「語学は諦めたくなるほど難しい時期が必ず来る」と言われた。\nそして「その時期を過ぎれば過ぎるほど、急に楽になる瞬間が来る」とも教えてもらった。\nその言葉は本当だったようだ。\n去年の秋ごろから、私は日本語が少しずつ楽しくなってきた。\n今では、映画を字幕なしで見るのが難しいくらい、まだまだ実力が足りない。\nしかし、半年前と比べると、聴き取れる言葉が明らかに増えた。\nこれも、続けた結果だと感じている。\nこれからも、無理をしない程度に毎日少しずつ続けていくつもりだ。\n学べば学ぶほど、日本語の世界は広がっていく。\nそして、その世界を広げることが、今の私には一番の楽しみになっている。\n努力は必ず報われると、今は信じている。",
+      "vietnamese": "Tôi bắt đầu học tiếng Nhật là cách đây ba năm.\nDuyên cớ là vì ở chỗ làm tôi thường có cơ hội nói chuyện với khách hàng người Nhật.\nHồi đó, tôi chỉ làm được vài câu chào hỏi thôi.\nNhưng khi bắt đầu học tiếng Nhật, tôi nhận ra ngay một điều.\nĐó là tiếng Nhật càng học càng sâu, và những thứ muốn biết cứ tăng mãi lên.\nMỗi lần học thêm một ngữ pháp, lại nảy sinh thêm câu hỏi mới.\nTôi dần dần nghĩ đây không phải là khổ sở mà ngược lại là điều vui.\nHơn nữa, không chỉ cách đọc, cách viết tiếng Nhật, về văn hóa và tư duy của Nhật Bản, tôi cũng càng tìm hiểu càng thấy thú vị.\nVí dụ, nghe nói người Nhật có văn hóa gửi gắm sự quan tâm đến đối phương vào trong lời nói.\nCàng học cách dùng ngôn ngữ, tôi càng hiểu được sự tinh tế đó hơn.\nMột hôm, người đi trước trong tiếng Nhật có nói với tôi: \"Học ngoại ngữ chắc chắn sẽ có giai đoạn khó đến mức muốn bỏ cuộc\".\nVà cũng dạy thêm: \"Càng qua được giai đoạn đó thì càng có lúc đột nhiên thấy dễ hơn\".\nCó vẻ như những lời đó đúng thật.\nTừ mùa thu năm ngoái, tiếng Nhật dần dần trở nên thú vị với tôi hơn.\nHiện tại, thực lực còn thiếu đến mức xem phim không phụ đề vẫn còn khó.\nNhưng so với nửa năm trước thì số từ nghe được đã tăng rõ rệt.\nTôi cảm thấy đây cũng là kết quả của việc đã kiên trì.\nTừ nay tôi cũng định tiếp tục mỗi ngày một chút, trong mức không ép bản thân quá.\nCàng học, thế giới tiếng Nhật càng mở rộng ra.\nVà việc mở rộng thế giới đó đang trở thành niềm vui lớn nhất của tôi bây giờ.\nHiện tại tôi tin rằng nỗ lực chắc chắn sẽ được đền đáp.",
+      "sentences": [
+        {
+          "jp": "私が日本語を学び始めたのは、三年前のことだ。",
+          "vi": "Tôi bắt đầu học tiếng Nhật là cách đây ba năm.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "学び始めた",
+              "read": "まなびはじめた",
+              "vi": "đã bắt đầu học"
+            },
+            {
+              "w": "三年前",
+              "read": "さんねんまえ",
+              "vi": "ba năm trước"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "việc, chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のは〜だ（Bài 38）",
+              "vi": "私が日本語を学び始めたのは三年前だ = Việc tôi bắt đầu học là ba năm trước. のは = danh từ hóa mệnh đề (Bài 38)."
+            }
+          ]
+        },
+        {
+          "jp": "きっかけは、仕事でよく日本のお客さんと話す機会があったからだ。",
+          "vi": "Duyên cớ là vì ở chỗ làm tôi thường có cơ hội nói chuyện với khách hàng người Nhật.",
+          "vocab": [
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "duyên cớ, động lực ban đầu"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "お客さん",
+              "read": "おきゃくさん",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からだ（Bài 9 から応用）",
+              "vi": "あったからだ = vì có (cơ hội). から + だ nêu lý do ở thể thông thường, dùng sau mệnh đề."
+            },
+            {
+              "point": "Nで（場所 Bài 6）",
+              "vi": "仕事で = ở chỗ làm. で chỉ địa điểm/phạm vi hành động."
+            }
+          ]
+        },
+        {
+          "jp": "そのころは、挨拶程度しかできなかった。",
+          "vi": "Hồi đó, tôi chỉ làm được vài câu chào hỏi thôi.",
+          "vocab": [
+            {
+              "w": "挨拶",
+              "read": "あいさつ",
+              "vi": "lời chào hỏi"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "そのころ",
+              "read": "そのころ",
+              "vi": "hồi đó, khoảng thời gian đó"
+            },
+            {
+              "w": "程度",
+              "read": "ていど",
+              "vi": "mức độ, chừng mực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nしか〜ない（Bài 27）",
+              "vi": "挨拶程度しかできなかった = chỉ chào hỏi thôi không làm được gì khác. しか + 否定 = chỉ… mà thôi (Bài 27)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、日本語を勉強し始めると、すぐに気づいたことがある。",
+          "vi": "Nhưng khi bắt đầu học tiếng Nhật, tôi nhận ra ngay một điều.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học tập"
+            },
+            {
+              "w": "し始める",
+              "read": "しはじめる",
+              "vi": "bắt đầu làm"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "気づいた",
+              "read": "きづいた",
+              "vi": "đã nhận ra"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều, việc"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "勉強し始めると = khi bắt đầu học thì (kết quả tự nhiên). と = điều kiện/hệ quả tất yếu (Bài 23)."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "気づいたこと = điều (mà) tôi đã nhận ra. Vた bổ nghĩa cho こと (Bài 22)."
+            }
+          ]
+        },
+        {
+          "jp": "日本語は、勉強すればするほど奥が深く、知りたいことが増えていくということだ。",
+          "vi": "Đó là tiếng Nhật càng học càng sâu, và những thứ muốn biết cứ tăng mãi lên.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học, học tập"
+            },
+            {
+              "w": "奥",
+              "read": "おく",
+              "vi": "phía sâu bên trong"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "奥が深い",
+              "read": "おくがふかい",
+              "vi": "sâu sắc, uyên thâm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 勉強すれば（Vば）+ 勉強するほど（Vるほど）. \"勉強すればするほど奥が深い\" = \"càng học càng sâu sắc\". 〜ば〜ほど = tỷ lệ thuận: hai vế tăng cùng chiều. Vế ほど luôn là Vる (thể từ điển)."
+            },
+            {
+              "point": "〜ということだ（Bài 33 応用）",
+              "vi": "…ということだ = đó là điều rằng…. Tổng kết/định nghĩa điều vừa nêu."
+            }
+          ]
+        },
+        {
+          "jp": "文法を一つ覚えるたびに、また新しい疑問が生まれる。",
+          "vi": "Mỗi lần học thêm một ngữ pháp, lại nảy sinh thêm câu hỏi mới.",
+          "vocab": [
+            {
+              "w": "文法",
+              "read": "ぶんぽう",
+              "vi": "ngữ pháp"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "覚えます",
+              "read": "おぼえます",
+              "vi": "nhớ, học thuộc"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "生まれます",
+              "read": "うまれます",
+              "vi": "nảy sinh, ra đời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たびに（Bài 58）",
+              "vi": "覚えるたびに = mỗi lần học thêm thì. Vるたびに = mỗi khi V là (đều)… (Bài 58). Ôn lại."
+            }
+          ]
+        },
+        {
+          "jp": "これは苦しいことではなく、むしろうれしいことだと思うようになった。",
+          "vi": "Tôi dần dần nghĩ đây không phải là khổ sở mà ngược lại là điều vui.",
+          "vocab": [
+            {
+              "w": "苦しい",
+              "read": "くるしい",
+              "vi": "khổ sở, đau khổ"
+            },
+            {
+              "w": "むしろ",
+              "read": "むしろ",
+              "vi": "ngược lại, thay vào đó"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui, hạnh phúc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではなく（Bài 22 応用）",
+              "vi": "ことではなく = không phải là (điều) mà. のではなく = \"không phải là X (mà là Y)\" — phủ nhận rồi đề xuất vế thay thế."
+            },
+            {
+              "point": "〜ようになった（Bài 36）",
+              "vi": "思うようになった = đã trở nên nghĩ như vậy (thay đổi dần dần). Vるようになる = dần dần trở nên V (Bài 36)."
+            }
+          ]
+        },
+        {
+          "jp": "また、日本語の読み方や書き方だけでなく、日本の文化や考え方についても、知れば知るほど面白いと感じた。",
+          "vi": "Hơn nữa, không chỉ cách đọc, cách viết tiếng Nhật, về văn hóa và tư duy của Nhật Bản, tôi cũng càng tìm hiểu càng thấy thú vị.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "読み方",
+              "read": "よみかた",
+              "vi": "cách đọc"
+            },
+            {
+              "w": "書き方",
+              "read": "かきかた",
+              "vi": "cách viết"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "考え方",
+              "read": "かんがえかた",
+              "vi": "cách suy nghĩ, tư duy"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "面白い",
+              "read": "おもしろい",
+              "vi": "thú vị"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく（Bài 16 〜だけ応用）",
+              "vi": "読み方や書き方だけでなく = không chỉ cách đọc, cách viết. だけでなく = không chỉ mà còn."
+            },
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "知れば知るほど面白い = \"càng biết càng thú vị\". 知る → 知れば（ば形）+ 知るほど. Tỷ lệ thuận: biết nhiều hơn → thú vị hơn tương ứng."
+            },
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "文化や考え方について = về văn hóa và tư duy. について = về (chủ đề), ôn Bài 21."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、日本人は相手への配慮を言葉の中に込める文化があるらしい。",
+          "vi": "Ví dụ, nghe nói người Nhật có văn hóa gửi gắm sự quan tâm đến đối phương vào trong lời nói.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "日本人",
+              "read": "にっぽんじん",
+              "vi": "người Nhật Bản"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương"
+            },
+            {
+              "w": "配慮",
+              "read": "はいりょ",
+              "vi": "sự quan tâm, sự chú ý"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "ngôn ngữ, lời nói"
+            },
+            {
+              "w": "込めます",
+              "read": "こめます",
+              "vi": "gửi gắm, lồng vào"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（Bài 65）",
+              "vi": "あるらしい = \"nghe nói là có\". らしい = truyền đạt gián tiếp từ bên ngoài — người nói không trực tiếp quan sát. Ôn Bài 65."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "言葉の中に込める文化 = văn hóa gửi gắm vào trong lời nói. Vる bổ nghĩa cho 文化."
+            }
+          ]
+        },
+        {
+          "jp": "言葉の使い方を学べば学ぶほど、その繊細さがよく理解できるようになった。",
+          "vi": "Càng học cách dùng ngôn ngữ, tôi càng hiểu được sự tinh tế đó hơn.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách dùng"
+            },
+            {
+              "w": "学びます",
+              "read": "まなびます",
+              "vi": "học, học hỏi"
+            },
+            {
+              "w": "繊細さ",
+              "read": "せんさいさ",
+              "vi": "sự tinh tế"
+            },
+            {
+              "w": "理解します",
+              "read": "りかいします",
+              "vi": "hiểu, lý giải"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "学べば学ぶほど = \"càng học càng…\". 学ぶ → 学べば（ば形）+ 学ぶほど. Lặp lại động từ. Tỷ lệ thuận: học nhiều → hiểu nhiều hơn."
+            },
+            {
+              "point": "〜ようになった（Bài 36）",
+              "vi": "理解できるようになった = đã trở nên hiểu được. 可能形 + ようになる = dần dần có thể V (Bài 36)."
+            }
+          ]
+        },
+        {
+          "jp": "ある日、日本語の先輩から「語学は諦めたくなるほど難しい時期が必ず来る」と言われた。",
+          "vi": "Một hôm, người đi trước trong tiếng Nhật có nói với tôi: \"Học ngoại ngữ chắc chắn sẽ có giai đoạn khó đến mức muốn bỏ cuộc\".",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "người đi trước, đàn anh/chị"
+            },
+            {
+              "w": "語学",
+              "read": "ごがく",
+              "vi": "ngoại ngữ, ngôn ngữ học"
+            },
+            {
+              "w": "諦めます",
+              "read": "あきらめます",
+              "vi": "bỏ cuộc, từ bỏ"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "giai đoạn, thời kỳ"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "ある日",
+              "read": "あるひ",
+              "vi": "một hôm, một ngày nọ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "諦めたくなるほど難しい = \"khó đến mức muốn bỏ cuộc\". 接続: 諦めたくなる（Vる 普通形）+ ほど + 難しい（kết quả/trạng thái）. ほど nhấn mức cực đoan."
+            },
+            {
+              "point": "Vられた（受身 Bài 37）",
+              "vi": "言われた = được nói với (tôi). 受身形 = bị động (Bài 37)."
+            }
+          ]
+        },
+        {
+          "jp": "そして「その時期を過ぎれば過ぎるほど、急に楽になる瞬間が来る」とも教えてもらった。",
+          "vi": "Và cũng dạy thêm: \"Càng qua được giai đoạn đó thì càng có lúc đột nhiên thấy dễ hơn\".",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời gian, giai đoạn"
+            },
+            {
+              "w": "過ぎます",
+              "read": "すぎます",
+              "vi": "qua, vượt qua"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột ngột, bất chợt"
+            },
+            {
+              "w": "楽",
+              "read": "らく",
+              "vi": "dễ dàng, thoải mái"
+            },
+            {
+              "w": "瞬間",
+              "read": "しゅんかん",
+              "vi": "khoảnh khắc"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "過ぎれば過ぎるほど = \"càng qua được thì càng…\". Lặp lại 過ぎる — cùng động từ. Tỷ lệ thuận: vượt qua giai đoạn khó nhiều hơn → cảm giác nhẹ nhàng tăng tương ứng."
+            },
+            {
+              "point": "Vてもらった（Bài 24）",
+              "vi": "教えてもらった = đã được dạy. てもらう = nhận hành động từ người khác (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "その言葉は本当だったようだ。",
+          "vi": "Có vẻ như những lời đó đúng thật.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "sự thật, đúng thật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64）",
+              "vi": "本当だったようだ = \"có vẻ như đã là sự thật\". ようだ = suy đoán có căn cứ trực tiếp từ kinh nghiệm của người nói (Bài 64). Ôn lại."
+            }
+          ]
+        },
+        {
+          "jp": "去年の秋ごろから、私は日本語が少しずつ楽しくなってきた。",
+          "vi": "Từ mùa thu năm ngoái, tiếng Nhật dần dần trở nên thú vị với tôi hơn.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "ごろ",
+              "read": "ごろ",
+              "vi": "khoảng, vào khoảng"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "楽しくなってきた",
+              "read": "たのしくなってきた",
+              "vi": "dần trở nên thú vị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くなってきた（Bài 19 + 43）",
+              "vi": "楽しくなってきた = đã dần dần trở nên thú vị. Aく + なる（Bài 19）+ てくる（Bài 43 — thay đổi dần)."
+            }
+          ]
+        },
+        {
+          "jp": "今では、映画を字幕なしで見るのが難しいくらい、まだまだ実力が足りない。",
+          "vi": "Hiện tại, thực lực còn thiếu đến mức xem phim không phụ đề vẫn còn khó.",
+          "vocab": [
+            {
+              "w": "今では",
+              "read": "いまでは",
+              "vi": "hiện tại, bây giờ thì"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim"
+            },
+            {
+              "w": "字幕",
+              "read": "じまく",
+              "vi": "phụ đề"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "まだまだ",
+              "read": "まだまだ",
+              "vi": "vẫn chưa, còn lâu"
+            },
+            {
+              "w": "実力",
+              "read": "じつりょく",
+              "vi": "thực lực, năng lực thực"
+            },
+            {
+              "w": "足ります",
+              "read": "たります",
+              "vi": "đủ, đủ dùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くらい（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 難しい（Aい 普通形）+ くらい. \"映画を字幕なしで見るのが難しいくらい実力が足りない\" = \"thực lực còn thiếu đến mức / ở mức độ mà xem phim không phụ đề còn khó\". くらい ở đây nêu MỨC ĐỘ XẤP XỈ làm ví dụ — không nhấn cực đoan như ほど; người nói thừa nhận mức độ thiếu sót nhưng không cường điệu mức cực đoan."
+            },
+            {
+              "point": "のが〜（Bài 38）",
+              "vi": "映画を見るのが難しい = việc xem phim khó. Vるのが = danh từ hóa động từ (Bài 38)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、半年前と比べると、聴き取れる言葉が明らかに増えた。",
+          "vi": "Nhưng so với nửa năm trước thì số từ nghe được đã tăng rõ rệt.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "半年",
+              "read": "はんとし",
+              "vi": "nửa năm"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "比べます",
+              "read": "くらべます",
+              "vi": "so sánh"
+            },
+            {
+              "w": "聴く",
+              "read": "きく",
+              "vi": "nghe (nhạc, âm thanh)"
+            },
+            {
+              "w": "取れる",
+              "read": "とれる",
+              "vi": "có thể lấy, tuột ra"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "明らかに",
+              "read": "あきらかに",
+              "vi": "rõ ràng, rõ rệt"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "半年前",
+              "read": "はんとしまえ",
+              "vi": "nửa năm trước"
+            },
+            {
+              "w": "聴き取れます",
+              "read": "ききとれます",
+              "vi": "nghe và phân biệt được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と比べると（Bài 12応用 + と Bài 23）",
+              "vi": "半年前と比べると = khi so với nửa năm trước thì. と比べる = so sánh với N (Bài 12/23)."
+            }
+          ]
+        },
+        {
+          "jp": "これも、続けた結果だと感じている。",
+          "vi": "Tôi cảm thấy đây cũng là kết quả của việc đã kiên trì.",
+          "vocab": [
+            {
+              "w": "続けます",
+              "read": "つづけます",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "続けた結果 = kết quả của việc đã kiên trì. Vた + N (Bài 22)."
+            },
+            {
+              "point": "Vている（Bài 14 状態）",
+              "vi": "感じている = đang cảm thấy (trạng thái cảm nhận liên tục)."
+            }
+          ]
+        },
+        {
+          "jp": "これからも、無理をしない程度に毎日少しずつ続けていくつもりだ。",
+          "vi": "Từ nay tôi cũng định tiếp tục mỗi ngày một chút, trong mức không ép bản thân quá.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ, sắp tới"
+            },
+            {
+              "w": "無理",
+              "read": "むり",
+              "vi": "ép quá mức, cố sức"
+            },
+            {
+              "w": "程度に",
+              "read": "ていどに",
+              "vi": "ở mức độ, trong phạm vi"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "これからも",
+              "read": "これからも",
+              "vi": "từ nay cũng, cả sau này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜程度に（ほど/くらい類義）",
+              "vi": "無理をしない程度に = \"trong mức không ép quá\". 程度 = mức độ — diễn đạt phạm vi/giới hạn. Liên quan đến ほど/くらい: tất cả đều liên quan đến MỨC ĐỘ; 程度に thường dùng để chỉ \"trong giới hạn/phạm vi hợp lý\"."
+            },
+            {
+              "point": "Vていくつもり（Bài 31 + Bài 43）",
+              "vi": "続けていくつもりだ = định tiếp tục đi (về phía trước). つもり = dự định (Bài 31) + ていく = hướng tương lai (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "学べば学ぶほど、日本語の世界は広がっていく。",
+          "vi": "Càng học, thế giới tiếng Nhật càng mở rộng ra.",
+          "vocab": [
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "広がります",
+              "read": "ひろがります",
+              "vi": "mở rộng ra, trải dài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "学べば学ぶほど = \"càng học càng…\". Dạng điển hình: Vば + Vるほど với lặp lại cùng động từ. Ở đây: 学ぶ → 学べば + 学ぶほど → 世界は広がっていく (vế B = kết quả tỷ lệ thuận)."
+            },
+            {
+              "point": "Vていく（Bài 43）",
+              "vi": "広がっていく = cứ mở rộng dần ra (hướng tương lai). ていく = biến đổi theo hướng tiến về phía trước (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "そして、その世界を広げることが、今の私には一番の楽しみになっている。",
+          "vi": "Và việc mở rộng thế giới đó đang trở thành niềm vui lớn nhất của tôi bây giờ.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó, kia"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "広げる",
+              "read": "ひろげる",
+              "vi": "mở rộng"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "việc"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất"
+            },
+            {
+              "w": "楽しみ",
+              "read": "たのしみ",
+              "vi": "niềm vui, điều mong đợi"
+            },
+            {
+              "w": "なっている",
+              "read": "なっている",
+              "vi": "đang trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることが（Bài 38）",
+              "vi": "その世界を広げること = việc mở rộng thế giới đó. Vること = danh từ hóa (Bài 38)."
+            },
+            {
+              "point": "〜になっている（Bài 19 + Bài 14）",
+              "vi": "楽しみになっている = đã trở thành niềm vui (trạng thái hiện tại là kết quả của thay đổi). なる（Bài 19）+ ている（Bài 14）."
+            }
+          ]
+        },
+        {
+          "jp": "努力は必ず報われると、今は信じている。",
+          "vi": "Hiện tại tôi tin rằng nỗ lực chắc chắn sẽ được đền đáp.",
+          "vocab": [
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực, cố gắng"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "chắc chắn, nhất định"
+            },
+            {
+              "w": "報われます",
+              "read": "むくわれます",
+              "vi": "được đền đáp, được trả công"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "信じます",
+              "read": "しんじます",
+              "vi": "tin tưởng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と信じている（Bài 21 + 14）",
+              "vi": "報われると信じている = đang tin là sẽ được đền đáp. と + 信じる = tin rằng (tương tự と思う Bài 21). ている = trạng thái niềm tin hiện tại."
+            },
+            {
+              "point": "Vられる（受身 Bài 37）",
+              "vi": "報われる = được đền đáp. 受身形 thể bị động từ 報う (Bài 37)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "勉強すればするほど奥が深く",
+          "label": "〜ば〜ほど（càng học càng sâu）"
+        },
+        {
+          "excerpt": "知れば知るほど面白いと感じた",
+          "label": "〜ば〜ほど（càng biết càng thú vị）"
+        },
+        {
+          "excerpt": "語学は諦めたくなるほど難しい時期が必ず来る",
+          "label": "〜ほど（mức độ CAO — cực đoan）"
+        },
+        {
+          "excerpt": "その時期を過ぎれば過ぎるほど",
+          "label": "〜ば〜ほど（càng qua được thì càng…）"
+        },
+        {
+          "excerpt": "映画を字幕なしで見るのが難しいくらい",
+          "label": "Sắc thái: くらい（mức xấp xỉ — nhẹ hơn ほど）"
+        },
+        {
+          "excerpt": "学べば学ぶほど、日本語の世界は広がっていく",
+          "label": "〜ば〜ほど（tỷ lệ thuận）"
+        },
+        {
+          "excerpt": "言葉の使い方を学べば学ぶほど、その繊細さがよく理解できるようになった",
+          "label": "Sắc thái: ば〜ほど + ようになった（tiến bộ dần dần）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「勉強すればするほど奥が深く」という表現について、正しい説明はどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "勉強することで、日本語がどんどん簡単になるという意味です",
+            "勉強する量が増えれば増えるほど、日本語のより深い部分が分かってくるという意味です",
+            "一度だけ勉強すれば、深いところまで理解できるという意味です",
+            "勉強しすぎると、逆に分からなくなるという意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án ② đúng. \"勉強すればするほど奥が深く、知りたいことが増えていく\" — mẫu ば〜ほど diễn đạt tỷ lệ thuận: học nhiều → hiểu thêm chiều sâu của tiếng Nhật. ① sai vì bài nói \"奥が深い\" (sâu hơn), không phải \"簡単になる\" (dễ hơn). ③ sai vì ば〜ほど không diễn đạt \"chỉ cần một lần\". ④ sai hoàn toàn — không có ý nghĩa học nhiều lại kém hơn trong bài này.",
+          "tip": "ば〜ほど = tỷ lệ thuận (hai vế tăng cùng chiều); bao giờ cũng có thể diễn đạt bằng \"càng A càng B\" — không bao giờ là \"nghịch chiều\" hay \"một lần duy nhất\".",
+          "qt": {
+            "q": "Về cách diễn đạt 「勉強すればするほど奥が深く」 (càng học càng thấy sâu sắc), lời giải thích nào đúng?",
+            "o": [
+              "Có nghĩa là tiếng Nhật ngày càng trở nên dễ hơn nhờ học tập",
+              "Có nghĩa là càng học nhiều thì càng hiểu được những khía cạnh sâu sắc hơn của tiếng Nhật",
+              "Có nghĩa là chỉ cần học một lần là có thể hiểu đến tận những khía cạnh sâu sắc",
+              "Có nghĩa là nếu học quá nhiều thì ngược lại sẽ không hiểu được"
+            ]
+          }
+        },
+        {
+          "q": "筆者は「諦めたくなるほど難しい時期」と「映画を字幕なしで見るのが難しいくらい実力が足りない」という二つの表現を使っています。「ほど」と「くらい」の使い分けについて、最も正しい説明はどれですか。",
+          "evi": [
+            10,
+            14
+          ],
+          "options": [
+            "「ほど」は書き言葉、「くらい」は話し言葉の違いだけです",
+            "「ほど」は極端に高い程度の強調、「くらい」はおおよその程度や一例を示します",
+            "「ほど」と「くらい」は同じ意味で、どちらを使っても変わりません",
+            "「ほど」は動詞の後でしか使えず、「くらい」は形容詞の後でしか使えません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án ② đúng. Bài dùng hai mẫu với sắc thái khác nhau rõ rệt: \"諦めたくなるほど難しい時期\" — ほど nhấn mức độ CỰC ĐOAN (khó đến tận mức muốn bỏ cuộc, người đi trước cảnh báo điều này sẽ xảy ra chắc chắn); \"映画を字幕なしで見るのが難しいくらい実力が足りない\" — くらい nêu MỨC XẤP XỈ làm ví dụ minh họa mức độ thiếu sót, không nhấn cực đoan. ① sai vì hai từ không phân biệt theo phong cách viết/nói. ③ sai vì chúng KHÔNG thay thế nhau được mà không thay đổi sắc thái. ④ sai vì cả hai đều có thể đi sau động từ và tính từ.",
+          "tip": "ほど → cường độ MẠNH, kết quả cực đoan thực sự; くらい → mức ĐỘ XẤP XỈ, nêu ví dụ tối thiểu/nhẹ. Khi đề hỏi so sánh hai từ, luôn dẫn câu trích dẫn để xác định sắc thái.",
+          "qt": {
+            "q": "Tác giả dùng hai cách diễn đạt 「諦めたくなるほど難しい時期」 (giai đoạn khó đến mức muốn bỏ cuộc) và 「映画を字幕なしで見るのが難しいくらい実力が足りない」 (năng lực chưa đủ đến mức việc xem phim không có phụ đề cũng khó). Cách giải thích nào chính xác nhất về sự khác nhau trong cách dùng 「ほど」 và 「くらい」?",
+            "o": [
+              "The only difference is that 「ほど」 is used in written language and 「くらい」 in spoken language",
+              "「ほど」 emphasizes an extremely high degree, while 「くらい」 indicates an approximate degree or gives an example",
+              "「ほど」 and 「くらい」 mean the same thing and can be used interchangeably",
+              "「ほど」 can only follow verbs, and 「くらい」 can only follow adjectives"
+            ]
+          }
+        },
+        {
+          "q": "この文章の筆者についての説明として、正しいものはどれですか。",
+          "evi": [
+            0,
+            1,
+            13
+          ],
+          "options": [
+            "筆者は日本語の勉強をやめたいと思っているが、続けている",
+            "筆者は最初から日本語が得意で、苦労したことはない",
+            "筆者は仕事でのきっかけから日本語を学び始め、三年間続けて少しずつ上達してきた",
+            "筆者は今、映画を字幕なしで楽しめるレベルになっている"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án ③ đúng. Bài viết nêu rõ: \"きっかけは、仕事でよく日本のお客さんと話す機会があったからだ\" (duyên cớ từ công việc) + \"三年前\" (ba năm trước) + \"少しずつ楽しくなってきた\" (dần dần tiến bộ). ① sai vì người viết không nói muốn bỏ cuộc — ngược lại \"続けていくつもりだ\". ② sai vì \"そのころは、挨拶程度しかできなかった\" (lúc đầu chỉ chào được vài câu). ④ sai vì \"映画を字幕なしで見るのが難しいくらい実力が足りない\" (vẫn chưa đủ trình độ xem phim không phụ đề).",
+          "tip": "Câu hỏi về thông tin tác giả → đối chiếu từng lựa chọn với câu trích dẫn cụ thể; chú ý phủ định (ない/しかできない) và thì (た/ている/つもり) để không bị đánh lừa.",
+          "qt": {
+            "q": "Đâu là mô tả đúng về tác giả bài viết này?",
+            "o": [
+              "Tác giả muốn ngừng học tiếng Nhật nhưng vẫn đang tiếp tục",
+              "Ngay từ đầu tác giả đã giỏi tiếng Nhật và chưa từng gặp khó khăn",
+              "Tác giả bắt đầu học tiếng Nhật từ một cơ hội trong công việc, đã tiếp tục suốt ba năm và dần tiến bộ",
+              "Hiện giờ tác giả đã đạt đến trình độ có thể thưởng thức phim mà không cần phụ đề"
+            ]
+          }
+        },
+        {
+          "q": "「学べば学ぶほど、日本語の世界は広がっていく」という一文で、筆者が伝えたいことは何ですか。",
+          "evi": [
+            18
+          ],
+          "options": [
+            "日本語は一定のレベルに達したら、それ以上広がらないということ",
+            "日本語の学習は量よりも質が大切ということ",
+            "日本語の勉強量と理解・楽しみの深さは比例していて、学ぶほど世界が豊かになるということ",
+            "日本語を学ぶと、世界中に友達ができるということ"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án ③ đúng. \"学べば学ぶほど、日本語の世界は広がっていく\" dùng ば〜ほど thể hiện tỷ lệ thuận: học nhiều → thế giới tiếng Nhật mở rộng tương ứng. Văn cảnh bài ủng hộ: \"勉強すればするほど奥が深く\" và \"知れば知るほど面白い\" — tất cả đều nhấn niềm vui/sự hiểu biết tăng theo lượng học. ① sai vì bài không đặt giới hạn cho việc học. ② sai vì bài không so sánh \"lượng vs. chất\". ④ sai vì bài nói về thế giới ngôn ngữ/văn hóa mở rộng, không phải kết bạn khắp thế giới.",
+          "tip": "Câu hỏi \"筆者が伝えたいこと\" (ý chính tác giả) với ば〜ほど → tìm lựa chọn nêu đúng quan hệ TỶ LỆ THUẬN của hai yếu tố trong câu, khớp với toàn bộ giọng văn bài.",
+          "qt": {
+            "q": "Trong câu 「学べば学ぶほど、日本語の世界は広がっていく」 (càng học thì thế giới tiếng Nhật càng rộng mở), tác giả muốn truyền đạt điều gì?",
+            "o": [
+              "Tiếng Nhật sẽ không mở rộng thêm nữa khi đã đạt đến một trình độ nhất định",
+              "Điều quan trọng trong việc học tiếng Nhật là chất lượng hơn số lượng",
+              "Lượng học tiếng Nhật tỷ lệ thuận với chiều sâu của sự hiểu biết và niềm vui; càng học thì thế giới càng phong phú",
+              "Khi học tiếng Nhật, ta sẽ kết bạn được trên khắp thế giới"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "まとめて申し込むほどお得なキャンペーン",
+      "titleVi": "Thông báo: Chiến dịch giảm giá lũy tiến của lớp học gốm sứ Sakura",
+      "japanese": "さくら陶芸教室　冬の体験レッスン　まとめて申し込むほどお得なキャンペーン\n陶芸に興味がある方はいませんか。一人で参加してもいいですし、友達を誘えば誘うほど一人あたりの料金がお得になります。初めての方でも先生が丁寧に教えますので、安心して参加してください。\n回数｜通常料金（1回）｜割引後（1人あたり）｜備考\n1回｜3,000円｜3,000円｜割引なし\n3回｜9,000円｜2,400円｜10%引き\n5回｜15,000円｜1,800円｜20%引き\n10回｜30,000円｜1,200円｜30%引き\nこのように、申し込む回数が多ければ多いほど、1回あたりの料金は安くなっていきます。\nさらに、会員の方は、上の割引後の料金から追加で500円引きになります。\n申し込み時期｜追加割引\n今月中｜さらに300円引き\n来月以降｜追加割引なし\n※早く申し込めば申し込むほど、追加割引が多く受けられますので、迷っている方は今月中のお申し込みをおすすめします。\n※体験に使う道具はすべてこちらで用意しますので、手ぶらで来られるくらい準備は簡単です。\n※キャンセルの場合、レッスン3日前までなら無料ですが、それ以降は料金の半額をいただきます。\n【申し込み・問い合わせ】さくら陶芸教室　電話：075-222-6688（火〜土　10:00〜18:00）",
+      "vietnamese": "Lớp học gốm sứ Sakura — Buổi trải nghiệm mùa đông — Chiến dịch: đăng ký gộp càng nhiều càng lời\nCó ai đang quan tâm đến gốm sứ không? Tham gia một mình cũng được, và nếu bạn rủ càng nhiều bạn bè thì giá mỗi người càng có lợi hơn. Dù là người mới, thầy giáo cũng sẽ dạy tỉ mỉ nên hãy yên tâm tham gia.\nSố buổi｜Giá thường (1 buổi)｜Giá sau giảm (mỗi người)｜Ghi chú\n1 buổi｜3.000 yên｜3.000 yên｜Không giảm\n3 buổi｜9.000 yên｜2.400 yên｜Giảm 10%\n5 buổi｜15.000 yên｜1.800 yên｜Giảm 20%\n10 buổi｜30.000 yên｜1.200 yên｜Giảm 30%\nNhư vậy, số buổi đăng ký càng nhiều thì giá mỗi buổi càng rẻ đi dần.\nHơn nữa, hội viên sẽ được giảm thêm 500 yên từ mức giá đã giảm ở trên.\nThời điểm đăng ký｜Giảm thêm\nTrong tháng này｜Giảm thêm 300 yên\nTừ tháng sau｜Không giảm thêm\n※Đăng ký càng sớm thì càng được giảm thêm nhiều, nên nếu còn đang phân vân, chúng tôi khuyên bạn nên đăng ký trong tháng này.\n※Dụng cụ dùng trong buổi trải nghiệm đều do chúng tôi chuẩn bị sẵn, nên việc chuẩn bị đơn giản đến mức bạn có thể đến tay không.\n※Trường hợp hủy, nếu trước 3 ngày so với buổi học thì miễn phí, nhưng sau đó chúng tôi sẽ thu nửa số tiền.\n【Đăng ký・liên hệ】Lớp học gốm sứ Sakura　Điện thoại: 075-222-6688 (Thứ Ba〜Thứ Bảy　10:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "さくら陶芸教室　冬の体験レッスン　まとめて申し込むほどお得なキャンペーン",
+          "vi": "Lớp học gốm sứ Sakura — Buổi trải nghiệm mùa đông — Chiến dịch: đăng ký gộp càng nhiều càng lời",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "陶芸",
+              "read": "とうげい",
+              "vi": "nghề gốm"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "体験レッスン",
+              "read": "たいけんレッスン",
+              "vi": "buổi học trải nghiệm"
+            },
+            {
+              "w": "レッスン",
+              "read": "レッスン",
+              "vi": "buổi học, bài học"
+            },
+            {
+              "w": "まとめる",
+              "read": "まとめる",
+              "vi": "tổng hợp, thu xếp"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "得",
+              "read": "とく",
+              "vi": "lợi ích, món hời"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "キャンペーン",
+              "vi": "chiến dịch khuyến mãi"
+            },
+            {
+              "w": "陶芸教室",
+              "read": "とうげいきょうしつ",
+              "vi": "lớp học gốm sứ"
+            },
+            {
+              "w": "まとめて",
+              "read": "まとめて",
+              "vi": "gộp lại, cùng lúc"
+            },
+            {
+              "w": "お得な",
+              "read": "おとくな",
+              "vi": "có lợi, hời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ほど（Bài 66 — TRỌNG TÂM, ngay trong tiêu đề）",
+              "vi": "接続: 申し込む（Vる 普通形）+ ほど。 \"まとめて申し込むほどお得な\" = \"đăng ký gộp càng nhiều thì càng có lợi\". Ở đây ほど mang sắc thái mức độ tăng dần theo hành động, báo trước chủ đề chính của cả thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "陶芸に興味がある方はいませんか。一人で参加してもいいですし、友達を誘えば誘うほど一人あたりの料金がお得になります。初めての方でも先生が丁寧に教えますので、安心して参加してください。",
+          "vi": "Có ai đang quan tâm đến gốm sứ không? Tham gia một mình cũng được, và nếu bạn rủ càng nhiều bạn bè thì giá mỗi người càng có lợi hơn. Dù là người mới, thầy giáo cũng sẽ dạy tỉ mỉ nên hãy yên tâm tham gia.",
+          "vocab": [
+            {
+              "w": "陶芸",
+              "read": "とうげい",
+              "vi": "làm gốm"
+            },
+            {
+              "w": "興味",
+              "read": "きょうみ",
+              "vi": "hứng thú"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị, người"
+            },
+            {
+              "w": "いませんか",
+              "read": "いませんか",
+              "vi": "có ai không?"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một người"
+            },
+            {
+              "w": "参加してもいい",
+              "read": "さんかしてもいい",
+              "vi": "tham gia cũng được"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "誘えば",
+              "read": "さそえば",
+              "vi": "nếu rủ"
+            },
+            {
+              "w": "誘う",
+              "read": "さそう",
+              "vi": "rủ"
+            },
+            {
+              "w": "一人あたり",
+              "read": "ひとりあたり",
+              "vi": "mỗi người"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, giá tiền"
+            },
+            {
+              "w": "お得",
+              "read": "おとく",
+              "vi": "có lợi, tiết kiệm"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở nên"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "丁寧に",
+              "read": "ていねいに",
+              "vi": "một cách tận tình"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy, chỉ dẫn"
+            },
+            {
+              "w": "安心して",
+              "read": "あんしんして",
+              "vi": "yên tâm"
+            },
+            {
+              "w": "参加してください",
+              "read": "さんかしてください",
+              "vi": "hãy tham gia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 誘えば（Vば形）+ 誘うほど（Vるほど）。 \"友達を誘えば誘うほど一人あたりの料金がお得になる\" = \"càng rủ bạn thì giá mỗi người càng có lợi\". Tỷ lệ thuận: số bạn rủ thêm tăng → mức lợi tăng tương ứng. Lưu ý lặp cùng động từ 誘う."
+            },
+            {
+              "point": "〜てもいい（Bài 15）",
+              "vi": "参加してもいい = tham gia cũng được. Vてもいい = cho phép làm gì (Bài 15). Ôn lại."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "丁寧に教えますので = vì (thầy) sẽ dạy tỉ mỉ nên. ので nêu lý do lịch sự (Bài 39). Ôn lại."
+            }
+          ],
+          "keys": [
+            {
+              "w": "友達を誘えば誘うほど一人あたりの料金がお得になります",
+              "why": "Câu chủ đề của chiến dịch — rủ càng đông càng lợi, nhưng giá cụ thể vẫn phải dò Bảng số buổi bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "回数｜通常料金（1回）｜割引後（1人あたり）｜備考",
+          "vi": "Số buổi｜Giá thường (1 buổi)｜Giá sau giảm (mỗi người)｜Ghi chú",
+          "vocab": [
+            {
+              "w": "回数",
+              "read": "かいすう",
+              "vi": "số lần, số buổi"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "備考",
+              "read": "びこう",
+              "vi": "ghi chú"
+            },
+            {
+              "w": "通常料金",
+              "read": "つうじょうりょうきん",
+              "vi": "giá thường"
+            },
+            {
+              "w": "割引後",
+              "read": "わりびきご",
+              "vi": "sau khi giảm giá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng tiêu đề bảng",
+              "vi": "Header của Bảng A: cột số buổi × giá thường × giá sau giảm × ghi chú."
+            }
+          ],
+          "keys": [
+            {
+              "w": "回数｜通常料金（1回）｜割引後（1人あたり）｜備考",
+              "why": "Header Bảng A — xác định đúng cột \"giá sau giảm (mỗi người)\" trước khi dò các hàng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "1回｜3,000円｜3,000円｜割引なし",
+          "vi": "1 buổi｜3.000 yên｜3.000 yên｜Không giảm",
+          "vocab": [
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "1 lần"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "割引なし",
+              "read": "わりびきなし",
+              "vi": "không giảm giá"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "1回｜3,000円｜3,000円｜割引なし",
+              "why": "Mốc gốc: đăng ký 1 buổi không được giảm — dùng để so sánh mức tăng dần của các mốc sau."
+            }
+          ]
+        },
+        {
+          "jp": "3回｜9,000円｜2,400円｜10%引き",
+          "vi": "3 buổi｜9.000 yên｜2.400 yên｜Giảm 10%",
+          "vocab": [
+            {
+              "w": "3回",
+              "read": "さんかい",
+              "vi": "3 lần"
+            },
+            {
+              "w": "9,000円",
+              "read": "きゅうせんえん",
+              "vi": "9.000 yên"
+            },
+            {
+              "w": "2,400円",
+              "read": "にせんよんひゃくえん",
+              "vi": "2.400 yên"
+            },
+            {
+              "w": "10%引き",
+              "read": "じゅっぱーせんとびき",
+              "vi": "giảm 10%"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "3回｜9,000円｜2,400円｜10%引き",
+              "why": "Ô căn cứ chính của câu hỏi 2 (đăng ký 3 buổi, không hội viên) — giá mỗi buổi 2,400円."
+            }
+          ]
+        },
+        {
+          "jp": "5回｜15,000円｜1,800円｜20%引き",
+          "vi": "5 buổi｜15.000 yên｜1.800 yên｜Giảm 20%",
+          "vocab": [
+            {
+              "w": "5回",
+              "read": "ごかい",
+              "vi": "5 lần"
+            },
+            {
+              "w": "15,000円",
+              "read": "いちまんごせんえん",
+              "vi": "15.000 yên"
+            },
+            {
+              "w": "1,800円",
+              "read": "せんはっぴゃくえん",
+              "vi": "1.800 yên"
+            },
+            {
+              "w": "20%引き",
+              "read": "にじゅっぱーせんとびき",
+              "vi": "giảm 20%"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "5回｜15,000円｜1,800円｜20%引き",
+              "why": "Ô căn cứ chính của câu hỏi 1 (đăng ký 5 buổi) — giá gốc sau giảm theo số buổi là 1,800円/回, trước khi trừ thêm hội viên + thời điểm."
+            }
+          ]
+        },
+        {
+          "jp": "10回｜30,000円｜1,200円｜30%引き",
+          "vi": "10 buổi｜30.000 yên｜1.200 yên｜Giảm 30%",
+          "vocab": [
+            {
+              "w": "10回",
+              "read": "じゅっかい",
+              "vi": "10 lần"
+            },
+            {
+              "w": "30,000円",
+              "read": "さんまんえん",
+              "vi": "30.000 yên"
+            },
+            {
+              "w": "1,200円",
+              "read": "せんにひゃくえん",
+              "vi": "1.200 yên"
+            },
+            {
+              "w": "30%引き",
+              "read": "さんじゅっぱーせんとびき",
+              "vi": "giảm 30%"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "10回｜30,000円｜1,200円｜30%引き",
+              "why": "Mốc giảm sâu nhất — bẫy nếu học viên nhầm mốc 10回 cho câu hỏi hỏi về 5回."
+            }
+          ]
+        },
+        {
+          "jp": "このように、申し込む回数が多ければ多いほど、1回あたりの料金は安くなっていきます。",
+          "vi": "Như vậy, số buổi đăng ký càng nhiều thì giá mỗi buổi càng rẻ đi dần.",
+          "vocab": [
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "回数",
+              "read": "かいすう",
+              "vi": "số lần"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ"
+            },
+            {
+              "w": "このように",
+              "read": "このように",
+              "vi": "như thế này, như vậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 多ければ（Aければ）+ 多いほど（Aいほど）。 \"回数が多ければ多いほど、料金は安くなっていく\" = \"số buổi càng nhiều thì giá càng rẻ\". Tỷ lệ thuận với tính từ い lặp lại (多い), khác với ví dụ động từ ở câu trước — cùng cấu trúc Vば/Aければ + ほど. Đây là câu tổng kết ý nghĩa Bảng A."
+            },
+            {
+              "point": "Vていきます（Bài 43）",
+              "vi": "安くなっていきます = sẽ rẻ dần đi (theo chiều tương lai). Aく + なる（Bài 19）+ ていく = biến đổi dần về sau (Bài 43)."
+            }
+          ]
+        },
+        {
+          "jp": "さらに、会員の方は、上の割引後の料金から追加で500円引きになります。",
+          "vi": "Hơn nữa, hội viên sẽ được giảm thêm 500 yên từ mức giá đã giảm ở trên.",
+          "vocab": [
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (cách nói lịch sự)"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "phía trên"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "割引後",
+              "read": "わりびきご",
+              "vi": "sau khi giảm giá"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "追加で",
+              "read": "ついかで",
+              "vi": "thêm vào"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm/trừ"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành; được tính là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nから（Bài 4 応用）",
+              "vi": "割引後の料金から = từ mức giá đã giảm. から chỉ điểm bắt đầu tính toán."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員の方は、上の割引後の料金から追加で500円引き",
+              "why": "Điều kiện chồng thứ 2 (hội viên) — cộng dồn với giảm giá theo số buổi ở Bảng A, căn cứ tính phí câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "申し込み時期｜追加割引",
+          "vi": "Thời điểm đăng ký｜Giảm thêm",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời gian, giai đoạn"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "申し込み時期",
+              "read": "もうしこみじき",
+              "vi": "thời điểm đăng ký"
+            },
+            {
+              "w": "追加割引",
+              "read": "ついかわりびき",
+              "vi": "giảm giá thêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng tiêu đề bảng",
+              "vi": "Header của Bảng B: thời điểm đăng ký × mức giảm thêm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "申し込み時期｜追加割引",
+              "why": "Header Bảng B — điều kiện chồng thứ 3, phải đối chiếu cùng lúc với Bảng A + dòng hội viên."
+            }
+          ]
+        },
+        {
+          "jp": "今月中｜さらに300円引き",
+          "vi": "Trong tháng này｜Giảm thêm 300 yên",
+          "vocab": [
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "今月中",
+              "read": "こんげつちゅう",
+              "vi": "trong tháng này"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm/trừ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "今月中｜さらに300円引き",
+              "why": "Ô căn cứ chính của câu hỏi 1 (đăng ký trong tháng này) — cộng thêm giảm 300円."
+            }
+          ]
+        },
+        {
+          "jp": "来月以降｜追加割引なし",
+          "vi": "Từ tháng sau｜Không giảm thêm",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "từ ... trở đi, sau ..."
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "来月以降",
+              "read": "らいげついこう",
+              "vi": "từ tháng sau trở đi"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "来月以降｜追加割引なし",
+              "why": "Bẫy câu hỏi 2 (đăng ký tháng sau) — không được giảm thêm dù đăng ký số buổi nhiều."
+            }
+          ]
+        },
+        {
+          "jp": "※早く申し込めば申し込むほど、追加割引が多く受けられますので、迷っている方は今月中のお申し込みをおすすめします。",
+          "vi": "Đăng ký càng sớm thì càng được giảm thêm nhiều, nên nếu còn đang phân vân, chúng tôi khuyên bạn nên đăng ký trong tháng này.",
+          "vocab": [
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm"
+            },
+            {
+              "w": "申し込めば",
+              "read": "もうしこめば",
+              "vi": "nếu đăng ký"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "thêm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "追加割引",
+              "read": "ついかわりびき",
+              "vi": "giảm giá bổ sung"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều"
+            },
+            {
+              "w": "受けられます",
+              "read": "うけられます",
+              "vi": "có thể nhận được"
+            },
+            {
+              "w": "迷っている",
+              "read": "まよっている",
+              "vi": "đang phân vân"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (cách nói lịch sự)"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "今月中",
+              "read": "こんげつちゅう",
+              "vi": "trong tháng này"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký; đơn đăng ký"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "đề xuất; khuyến nghị"
+            },
+            {
+              "w": "おすすめします",
+              "read": "おすすめします",
+              "vi": "khuyến nghị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば〜ほど（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 申し込めば（Vば形）+ 申し込むほど（Vるほど）。 \"早く申し込めば申し込むほど、追加割引が多く受けられる\" = \"đăng ký càng sớm thì càng được giảm thêm nhiều\". Đây là cụm ※ nhắc lại mẫu trọng tâm lần thứ 3 trong bài, liên kết trực tiếp với Bảng B (thời điểm đăng ký)."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "受けられます = có thể nhận được. 受ける → 受けられる (可能形). Ôn lại Bài 27."
+            }
+          ],
+          "keys": [
+            {
+              "w": "早く申し込めば申し込むほど、追加割引が多く受けられます",
+              "why": "Nhắc lại quy tắc thời điểm bằng lời — xác nhận lại nội dung Bảng B, tránh nhầm \"đăng ký sớm\" với \"đăng ký nhiều buổi\"."
+            }
+          ]
+        },
+        {
+          "jp": "※体験に使う道具はすべてこちらで用意しますので、手ぶらで来られるくらい準備は簡単です。",
+          "vi": "Dụng cụ dùng trong buổi trải nghiệm đều do chúng tôi chuẩn bị sẵn, nên việc chuẩn bị đơn giản đến mức bạn có thể đến tay không.",
+          "vocab": [
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "dụng cụ"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "用意します",
+              "read": "よういします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "手ぶら",
+              "read": "てぶら",
+              "vi": "tay không"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くらい（Bài 66 — TRỌNG TÂM）",
+              "vi": "接続: 来られる（Vる 可能形 普通形）+ くらい。 \"手ぶらで来られるくらい準備は簡単\" = \"chuẩn bị đơn giản đến mức có thể đến tay không\". くらい ở đây nêu MỨC ĐỘ làm ví dụ minh họa (không cực đoan như ほど) — khác với ば〜ほど ở các câu trên vốn diễn đạt tỷ lệ thuận, còn くらい chỉ nêu một mức cụ thể để hình dung độ đơn giản."
+            },
+            {
+              "point": "Nで（phương tiện, Bài 7）",
+              "vi": "手ぶらで来られる = có thể đến bằng (trạng thái) tay không. で chỉ cách thức/trạng thái đi kèm."
+            }
+          ]
+        },
+        {
+          "jp": "※キャンセルの場合、レッスン3日前までなら無料ですが、それ以降は料金の半額をいただきます。",
+          "vi": "Trường hợp hủy, nếu trước 3 ngày so với buổi học thì miễn phí, nhưng sau đó chúng tôi sẽ thu nửa số tiền.",
+          "vocab": [
+            {
+              "w": "キャンセル",
+              "read": "キャンセル",
+              "vi": "hủy"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "レッスン",
+              "read": "レッスン",
+              "vi": "buổi học, bài học"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "以降",
+              "read": "いこう",
+              "vi": "từ ... trở đi, sau ..."
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "nửa giá"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでなら（Bài 4 応用 + Bài 20 なら）",
+              "vi": "3日前までなら = nếu là trước 3 ngày thì. まで + なら = giả định trong phạm vi thời gian."
+            }
+          ],
+          "keys": [
+            {
+              "w": "レッスン3日前までなら無料ですが、それ以降は料金の半額をいただきます",
+              "why": "Bẫy: câu hỏi tính phí không đề cập hủy, nhưng dòng này dễ bị nhầm lẫn với dòng giảm giá nếu đọc lướt — không liên quan đến 2 câu hỏi chính."
+            }
+          ]
+        },
+        {
+          "jp": "【申し込み・問い合わせ】さくら陶芸教室　電話：075-222-6688（火〜土　10:00〜18:00）",
+          "vi": "【Đăng ký・liên hệ】Lớp học gốm sứ Sakura　Điện thoại: 075-222-6688 (Thứ Ba〜Thứ Bảy　10:00〜18:00)",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "liên hệ, hỏi thăm"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "陶芸",
+              "read": "とうげい",
+              "vi": "nghề gốm"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Dòng liên hệ",
+              "vi": "Thông tin đăng ký/điện thoại đặt cuối thông báo — chuẩn 問題7, không phải căn cứ tính phí."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "まとめて申し込むほどお得なキャンペーン",
+          "label": "〜ほど（Bài 66 — mức độ tăng dần, ngay trong tiêu đề）"
+        },
+        {
+          "excerpt": "友達を誘えば誘うほど一人あたりの料金がお得になります",
+          "label": "〜ば〜ほど（càng rủ càng lợi）"
+        },
+        {
+          "excerpt": "申し込む回数が多ければ多いほど、1回あたりの料金は安くなっていきます",
+          "label": "〜ば〜ほど（Aければ + Aいほど — số buổi càng nhiều càng rẻ）"
+        },
+        {
+          "excerpt": "早く申し込めば申し込むほど、追加割引が多く受けられます",
+          "label": "〜ば〜ほど（đăng ký càng sớm càng lợi）"
+        },
+        {
+          "excerpt": "手ぶらで来られるくらい準備は簡単です",
+          "label": "Sắc thái: くらい（mức xấp xỉ — nhẹ hơn ほど）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu chiến dịch",
+          "topic": 0,
+          "note": "Tên lớp học + tên chiến dịch \"càng đăng ký nhiều càng lời\" + lời mời tham gia. Nêu ý chính nhưng chưa có số liệu cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng A — giá theo số buổi",
+          "topic": 2,
+          "note": "Bảng số buổi × giá gốc × giá sau giảm; đây là căn cứ ĐẦU TIÊN cho cả 2 câu hỏi tính phí (phải xác định đúng hàng theo số buổi trước).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "body",
+          "label": "Tổng kết quy tắc số buổi",
+          "topic": 7,
+          "note": "Câu diễn giải lại nguyên tắc \"số buổi càng nhiều càng rẻ\" bằng ば〜ほど — không thêm số liệu mới.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 11,
+          "kind": "point",
+          "label": "Điều kiện hội viên & Bảng B — thời điểm đăng ký",
+          "topic": 10,
+          "note": "Hai điều kiện chồng thêm: hội viên (-500円) và thời điểm đăng ký (今月中 -300円 / 来月以降 không giảm) — phải cộng dồn đúng với giá ở Bảng A.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 14,
+          "kind": "turn",
+          "label": "Điều kiện ※ (nhắc lại + bẫy)",
+          "topic": 12,
+          "note": "Dòng ※ đầu nhắc lại quy tắc thời điểm; 2 dòng ※ sau (dụng cụ, hủy lịch) là chi tiết PHỤ không liên quan đến việc tính phí — bẫy nếu học viên nhầm lẫn.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 15,
+          "to": 15,
+          "kind": "body",
+          "label": "Liên hệ",
+          "topic": 15,
+          "note": "Thông tin đăng ký/điện thoại — không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは会員で、今月中に5回コースを申し込みます。1回あたりいくら払いますか。",
+          "options": [
+            "1,800円",
+            "1,300円",
+            "1,000円",
+            "1,500円"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 1,000円. Theo Bảng A, đăng ký 5回 thì giá sau giảm là 1,800円/回（5回｜15,000円｜1,800円｜20%引き）. Vì リーさん là hội viên nên được giảm thêm 500円 (「会員の方は、上の割引後の料金から追加で500円引き」) → 1,800－500＝1,300円. Vì đăng ký trong tháng này (今月中) nên được giảm thêm 300円 (「今月中｜さらに300円引き」) → 1,300－300＝1,000円. Đáp án 1,800円 sai vì bỏ sót cả 2 lần giảm thêm (hội viên + thời điểm). Đáp án 1,300円 sai vì chỉ trừ phần hội viên mà quên phần giảm theo thời điểm đăng ký. Đáp án 1,500円 không khớp với bất kỳ phép tính nào trong bảng.",
+          "tip": "Câu hỏi ghép 3 điều kiện: trước tiên dò Bảng A theo SỐ BUỔI để lấy giá gốc sau giảm, rồi cộng dồn TỪNG bước giảm thêm (hội viên → thời điểm) theo đúng thứ tự nêu trong bài — thiếu 1 bước là ra sai số tiền.",
+          "evi": [
+            5,
+            8,
+            10
+          ],
+          "qt": {
+            "q": "Anh/chị Lee là hội viên và sẽ đăng ký khóa 5 buổi trong tháng này. Mỗi buổi phải trả bao nhiêu?",
+            "o": [
+              "1.800 yên",
+              "1.300 yên",
+              "1.000 yên",
+              "1.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんは会員ではありません。来月、3回コースを申し込むつもりです。1回あたりいくら払いますか。",
+          "options": [
+            "2,400円",
+            "2,100円",
+            "1,900円",
+            "3,000円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 2,400円. Theo Bảng A, đăng ký 3回 thì giá sau giảm là 2,400円/回（3回｜9,000円｜2,400円｜10%引き）. Vì サントスさん KHÔNG phải hội viên nên không được giảm thêm 500円. Vì đăng ký từ tháng sau (来月) nên rơi vào hàng「来月以降｜追加割引なし」— không được giảm thêm 300円. Do đó giá cuối cùng vẫn là 2,400円, không có khoản giảm nào cộng thêm. Đáp án 2,100円 và 1,900円 sai vì đã trừ nhầm phần giảm thêm (300円 hoặc cả 500円) dù サントスさん không đủ điều kiện. Đáp án 3,000円 sai vì đó là giá của gói 1回, không phải 3回.",
+          "tip": "Bẫy thường gặp: thấy có bảng giảm thêm là trừ luôn, nhưng phải kiểm tra ĐỦ điều kiện (có phải hội viên không? có đăng ký đúng thời điểm không?) trước khi cộng dồn — nếu không đủ điều kiện thì giữ nguyên giá ở Bảng A.",
+          "evi": [
+            4,
+            11
+          ],
+          "qt": {
+            "q": "Anh/chị Santos không phải là hội viên. Tháng sau, anh/chị ấy dự định đăng ký khóa 3 buổi. Mỗi buổi phải trả bao nhiêu?",
+            "o": [
+              "2.400 yên",
+              "2.100 yên",
+              "1.900 yên",
+              "3.000 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

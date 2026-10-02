@@ -1,0 +1,503 @@
+{
+  "id": "minna1.b22",
+  "bai": 22,
+  "titleVi": "Mệnh đề bổ nghĩa danh từ — 名詞修飾",
+  "know": [
+    {
+      "id": "minna1.b22.shuushoku",
+      "point": "shuushoku",
+      "jp": "[V 普通形[ふつうけい]] ＋ 名詞[めいし]",
+      "vi": "Mệnh đề động từ bổ nghĩa danh từ (cơ bản)",
+      "en": "A verb clause modifying a noun (basic)",
+      "gloss": "ミラーさんが作[つく]ったケーキ ／ 昨日[きのう]買[か]った本[ほん]",
+      "glossEn": "ミラーさんが作[つく]ったケーキ ／ 昨日[きのう]買[か]った本[ほん]"
+    },
+    {
+      "id": "minna1.b22.ga-in-clause",
+      "point": "ga-in-clause",
+      "jp": "修飾節[しゅうしょくせつ]の 中[なか]の が",
+      "vi": "Chủ ngữ trong mệnh đề bổ nghĩa dùng が (không は) — khó nhất",
+      "en": "The subject in a modifying clause uses が (not は) — the hardest point",
+      "gloss": "私[わたし]が住[す]んでいる町[まち] (✗ 私[わたし]は住[す]んでいる町[まち])",
+      "glossEn": "私[わたし]が住[す]んでいる町[まち] (✗ 私[わたし]は住[す]んでいる町[まち])"
+    },
+    {
+      "id": "minna1.b22.noun-mod-adj",
+      "point": "noun-mod-adj",
+      "jp": "形容詞[けいようし]・名詞[めいし] ＋ 名詞[めいし]",
+      "vi": "Tính từ い／な (và danh từ) bổ nghĩa danh từ",
+      "en": "い／な adjectives (and nouns) modifying a noun",
+      "gloss": "背[せ]が高[たか]い人[ひと] ／ きれいな町[まち]",
+      "glossEn": "背[せ]が高[たか]い人[ひと] ／ きれいな町[まち]"
+    },
+    {
+      "id": "minna1.b22.mod-jikan",
+      "point": "mod-jikan",
+      "jp": "修飾節[しゅうしょくせつ] ＋ 抽象名詞[ちゅうしょうめいし]",
+      "vi": "Bổ nghĩa thời gian / danh từ trừu tượng",
+      "en": "Modifying time expressions / abstract nouns",
+      "gloss": "約束[やくそく]した時間[じかん] ／ 友[とも]だちに会[あ]う約束[やくそく]",
+      "glossEn": "約束[やくそく]した時間[じかん] ／ 友[とも]だちに会[あ]う約束[やくそく]"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b22-sh-cake",
+      "item": "minna1.b22.shuushoku",
+      "err": "mod-clause-form",
+      "vi": "Bánh anh Miller làm rất ngon.",
+      "t1": {
+        "stem": "ミラーさんが ＿ ケーキは とても おいしいです。",
+        "choices": [
+          "作[つく]った",
+          "作[つく]りました",
+          "作[つく]ります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ミラーさんが",
+          "作[つく]った",
+          "ケーキは",
+          "とても",
+          "おいしいです。"
+        ],
+        "traps": [
+          "作[つく]りました",
+          "ミラーさんは"
+        ]
+      },
+      "t3": {
+        "target": "ミラーさんが作ったケーキはとてもおいしいです。",
+        "accept": [
+          "みらーさんがつくったけーきはとてもおいしいです。"
+        ]
+      },
+      "why": "Mệnh đề bổ nghĩa dùng thể thường: 作[つく]った (✗ 作[つく]りましたケーキ). Chủ ngữ trong mệnh đề là ミラーさんが."
+    },
+    {
+      "id": "c-b22-sh-hon",
+      "item": "minna1.b22.shuushoku",
+      "err": "mod-clause-form",
+      "vi": "Đây là cuốn sách tôi đã mua hôm qua.",
+      "t1": {
+        "stem": "これは 昨日[きのう] ＿ 本[ほん]です。",
+        "choices": [
+          "買[か]った",
+          "買[か]いました",
+          "買[か]います"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これは",
+          "昨日[きのう]",
+          "買[か]った",
+          "本[ほん]です。"
+        ],
+        "traps": [
+          "買[か]いました",
+          "買[か]います"
+        ]
+      },
+      "t3": {
+        "target": "これは昨日買った本です。",
+        "accept": [
+          "これはきのうかった本です。",
+          "これはきのうかったほんです。"
+        ]
+      },
+      "why": "買[か]った本 = sách (mà) đã mua. Mệnh đề bổ nghĩa luôn thể thường, không 買[か]いました本."
+    },
+    {
+      "id": "c-b22-ga-machi",
+      "item": "minna1.b22.ga-in-clause",
+      "err": "wa-in-clause",
+      "vi": "Thị trấn tôi đang sống rất yên tĩnh.",
+      "t1": {
+        "stem": "私[わたし]＿ 住[す]んでいる町[まち]は 静[しず]かです。",
+        "choices": [
+          "が",
+          "は",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]が",
+          "住[す]んでいる",
+          "町[まち]は",
+          "静[しず]かです。"
+        ],
+        "traps": [
+          "私[わたし]は",
+          "私[わたし]を"
+        ]
+      },
+      "t3": {
+        "target": "私が住んでいる町は静かです。",
+        "accept": [
+          "わたしがすんでいるまちはしずかです。"
+        ]
+      },
+      "why": "Chủ ngữ TRONG mệnh đề bổ nghĩa dùng が: 私[わたし]が住[す]んでいる町. ✗ 私[わたし]は住[す]んでいる町 — は dành cho chủ đề câu chính."
+    },
+    {
+      "id": "c-b22-ga-sensei",
+      "item": "minna1.b22.ga-in-clause",
+      "err": "wa-in-clause",
+      "vi": "Người tôi gặp hôm qua là thầy giáo.",
+      "t1": {
+        "stem": "昨日[きのう] 私[わたし]＿ 会[あ]った 人[ひと]は 先生[せんせい]です。",
+        "choices": [
+          "が",
+          "は",
+          "も"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]",
+          "私[わたし]が",
+          "会[あ]った",
+          "人[ひと]は",
+          "先生[せんせい]です。"
+        ],
+        "traps": [
+          "私[わたし]は",
+          "私[わたし]も"
+        ]
+      },
+      "t3": {
+        "target": "昨日私が会った人は先生です。",
+        "accept": [
+          "きのうわたしがあったひとはせんせいです。"
+        ]
+      },
+      "why": "私[わたし]が会[あ]った人 = người (mà) tôi đã gặp. Trong mệnh đề bổ nghĩa luôn là が, không は."
+    },
+    {
+      "id": "c-b22-ga-tokei",
+      "item": "minna1.b22.ga-in-clause",
+      "err": "wa-in-clause",
+      "vi": "Đây là chiếc đồng hồ mẹ đã cho tôi.",
+      "t1": {
+        "stem": "これは 母[はは]＿ くれた 時計[とけい]です。",
+        "choices": [
+          "が",
+          "は",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これは",
+          "母[はは]が",
+          "くれた",
+          "時計[とけい]です。"
+        ],
+        "traps": [
+          "母[はは]は",
+          "母[はは]に"
+        ]
+      },
+      "t3": {
+        "target": "これは母がくれた時計です。",
+        "accept": [
+          "これははははがくれたとけいです。",
+          "これはははがくれたとけいです。"
+        ]
+      },
+      "why": "母[はは]がくれた時計 = đồng hồ (mà) mẹ đã cho. Chủ ngữ mệnh đề con dùng が."
+    },
+    {
+      "id": "c-b22-adj-takai",
+      "item": "minna1.b22.noun-mod-adj",
+      "err": "mod-adj-form",
+      "vi": "Người cao kia là anh Miller.",
+      "t1": {
+        "stem": "あそこに いる 背[せ]が ＿ 人[ひと]は ミラーさんです。",
+        "choices": [
+          "高[たか]い",
+          "高[たか]いな",
+          "高[たか]くて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あそこに いる",
+          "背[せ]が",
+          "高[たか]い",
+          "人[ひと]は",
+          "ミラーさんです。"
+        ],
+        "traps": [
+          "高[たか]いな",
+          "高[たか]くて"
+        ]
+      },
+      "t3": {
+        "target": "あそこにいる背が高い人はミラーさんです。",
+        "accept": [
+          "あそこにいるせがたかいひとはみらーさんです。"
+        ]
+      },
+      "why": "Tính từ い nối thẳng danh từ: 高[たか]い人 (✗ 高[たか]いな人)."
+    },
+    {
+      "id": "c-b22-adj-kirei",
+      "item": "minna1.b22.noun-mod-adj",
+      "err": "mod-adj-form",
+      "vi": "Tôi muốn sống ở một thị trấn đẹp.",
+      "t1": {
+        "stem": "＿ 町[まち]に 住[す]みたいです。",
+        "choices": [
+          "きれいな",
+          "きれい",
+          "きれいの"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "きれいな",
+          "町[まち]に",
+          "住[す]みたいです。"
+        ],
+        "traps": [
+          "きれいの",
+          "きれい"
+        ]
+      },
+      "t3": {
+        "target": "きれいな町に住みたいです。",
+        "accept": [
+          "きれいなまちにすみたいです。"
+        ]
+      },
+      "why": "Tính từ な cần な khi bổ nghĩa danh từ: きれいな町 (✗ きれいの町 ／ ✗ きれい町)."
+    },
+    {
+      "id": "c-b22-jikan-yakusoku",
+      "item": "minna1.b22.mod-jikan",
+      "err": "mod-clause-form",
+      "vi": "Tôi đã quên mất giờ đã hẹn.",
+      "t1": {
+        "stem": "友[とも]だちと ＿ 時間[じかん]を 忘[わす]れました。",
+        "choices": [
+          "約束[やくそく]した",
+          "約束[やくそく]しました",
+          "約束[やくそく]する"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "友[とも]だちと",
+          "約束[やくそく]した",
+          "時間[じかん]を",
+          "忘[わす]れました。"
+        ],
+        "traps": [
+          "約束[やくそく]しました",
+          "約束[やくそく]する"
+        ]
+      },
+      "t3": {
+        "target": "友だちと約束した時間を忘れました。",
+        "accept": [
+          "ともだちとやくそくしたじかんをわすれました。"
+        ]
+      },
+      "why": "約束[やくそく]した時間 = giờ (mà) đã hẹn. Danh từ trừu tượng cũng nhận mệnh đề bổ nghĩa thể thường."
+    },
+    {
+      "id": "c-b22-jikan-au",
+      "item": "minna1.b22.mod-jikan",
+      "err": "mod-clause-form",
+      "vi": "Hôm nay tôi có hẹn gặp bạn.",
+      "t1": {
+        "stem": "今日[きょう] 友[とも]だちに ＿ 約束[やくそく]が あります。",
+        "choices": [
+          "会[あ]う",
+          "会[あ]います",
+          "会[あ]った"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]",
+          "友[とも]だちに",
+          "会[あ]う",
+          "約束[やくそく]が",
+          "あります。"
+        ],
+        "traps": [
+          "会[あ]います",
+          "会[あ]いました"
+        ]
+      },
+      "t3": {
+        "target": "今日友だちに会う約束があります。",
+        "accept": [
+          "きょうともだちにあうやくそくがあります。"
+        ]
+      },
+      "why": "会[あ]う約束 = lời hẹn (sẽ) gặp. Mệnh đề bổ nghĩa dùng thể thường (会[あ]う), không 会[あ]います."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b22-ga",
+      "item": "minna1.b22.ga-in-clause",
+      "err": "wa-in-clause",
+      "tts": "わたしが すんでいる まちは とても しずかです。",
+      "script": "私[わたし]が 住[す]んでいる 町[まち]は とても 静[しず]かです。",
+      "ask": "Thị trấn người nói đang sống thế nào?",
+      "choices": [
+        "Rất yên tĩnh",
+        "Rất náo nhiệt",
+        "Rất xa"
+      ],
+      "answer": 0,
+      "why": "Mệnh đề bổ nghĩa 私[わたし]が住[す]んでいる町 — chủ ngữ dùng が; vế chính 静[しず]かです."
+    },
+    {
+      "id": "l-b22-sh",
+      "item": "minna1.b22.shuushoku",
+      "err": "mod-clause-form",
+      "tts": "ミラーさんが つくった ケーキは おいしかったです。",
+      "script": "ミラーさんが 作[つく]った ケーキは おいしかったです。",
+      "ask": "Bánh anh Miller làm thế nào?",
+      "choices": [
+        "Đã rất ngon",
+        "Không ngon",
+        "Hơi đắng"
+      ],
+      "answer": 0,
+      "why": "作[つく]ったケーキ = bánh (đã) làm. Mệnh đề bổ nghĩa thể thường."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b22-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ が với đối tượng",
+      "vi": "Cuốn sách mà người tôi thích đã viết rất nổi tiếng.",
+      "t1": {
+        "stem": "私[わたし]が 好[す]き＿ 人[ひと]が 書[か]いた 本[ほん]は 有名[ゆうめい]です。",
+        "choices": [
+          "な",
+          "を",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "私[わたし]が",
+          "好[す]きな",
+          "人[ひと]が",
+          "書[か]いた",
+          "本[ほん]は",
+          "有名[ゆうめい]です。"
+        ],
+        "traps": [
+          "好[す]きを",
+          "好[す]きが"
+        ]
+      },
+      "t3": {
+        "target": "私が好きな人が書いた本は有名です。",
+        "accept": [
+          "わたしがすきなひとがかいたほんはゆうめいです。"
+        ]
+      },
+      "why": "Dù câu có mệnh đề bổ nghĩa (人[ひと]が書[か]いた本), 好[す]き vẫn cần が (好[す]きな人) — lỗi #1 từ Bài 9. ✗ 好[す]きを人."
+    },
+    {
+      "id": "a-b22-ga-jouzu",
+      "item": "minna1.b09.jouzu",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ が với đối tượng",
+      "vi": "Người hát giỏi mà tôi gặp hôm qua là ca sĩ.",
+      "t1": {
+        "stem": "昨日[きのう] 会[あ]った 歌[うた]＿ 上手[じょうず]な 人[ひと]は 歌手[かしゅ]です。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう] 会[あ]った",
+          "歌[うた]が",
+          "上手[じょうず]な",
+          "人[ひと]は",
+          "歌手[かしゅ]です。"
+        ],
+        "traps": [
+          "歌[うた]を"
+        ]
+      },
+      "t3": {
+        "target": "昨日会った歌が上手な人は歌手です。",
+        "accept": [
+          "きのうあったうたがじょうずなひとはかしゅです。"
+        ]
+      },
+      "why": "上手[じょうず] cần が cho lĩnh vực (歌[うた]が上手[じょうず]) — lỗi Bài 9. Câu lồng mệnh đề bổ nghĩa 会[あ]った人 của Bài 22 — bẫy kép."
+    },
+    {
+      "id": "a-b22-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ が với đối tượng",
+      "vi": "Người hiểu được kanji này là thầy giáo mà tôi gặp hôm qua.",
+      "t1": {
+        "stem": "この 漢字[かんじ]＿ わかる 人[ひと]は 昨日[きのう] 会[あ]った 先生[せんせい]です。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 漢字[かんじ]が",
+          "わかる",
+          "人[ひと]は",
+          "昨日[きのう] 会[あ]った",
+          "先生[せんせい]です。"
+        ],
+        "traps": [
+          "漢字[かんじ]を"
+        ]
+      },
+      "t3": {
+        "target": "この漢字がわかる人は昨日会った先生です。",
+        "accept": [
+          "このかんじがわかるひとはきのうあったせんせいです。"
+        ]
+      },
+      "why": "わかる luôn dùng が cho đối tượng (漢字[かんじ]がわかる) — lỗi Bài 9. Vế sau 昨日[きのう]会[あ]った先生 là mệnh đề bổ nghĩa Bài 22."
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "bai": 5,
+  "bunpou": [
+    {
+      "stem": "電車[でんしゃ]＿ 会社[かいしゃ]へ 行[い]きます。",
+      "choices": [
+        "で",
+        "と",
+        "に",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「で」chỉ phương tiện di chuyển: 電車で行く (đi bằng tàu điện). 「と」chỉ người cùng đi; 「に」chỉ đích (会社に行く cũng đúng nhưng ở đây đã có「へ」); 「を」chỉ tân ngữ trực tiếp."
+    },
+    {
+      "stem": "来週[らいしゅう]、ミラーさんは 日本[にほん]＿ 来[き]ます。",
+      "choices": [
+        "へ",
+        "に",
+        "から",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「へ」chỉ hướng/đích đến của di chuyển. 「に」cũng dùng được với 来ます/行きます nhưng「へ」nhấn mạnh hướng; 「から」chỉ xuất phát; 「を」chỉ tân ngữ."
+    },
+    {
+      "stem": "友達[ともだち]＿ 映画[えいが]を 見[み]に 行[い]きます。",
+      "choices": [
+        "と",
+        "で",
+        "に",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "「と」chỉ người cùng hành động: 友達と行く. 「で」chỉ phương tiện/địa điểm hoạt động; 「に」chỉ đích hoặc mục đích; 「が」chỉ chủ ngữ."
+    },
+    {
+      "stem": "新幹線[しんかんせん]＿ 大阪[おおさか]へ 行[い]きます。",
+      "choices": [
+        "で",
+        "に",
+        "と",
+        "へ"
+      ],
+      "answer": 0,
+      "explain": "「で」chỉ phương tiện: 新幹線で (bằng tàu shinkansen). 「に」ở đây không dùng cho phương tiện; 「と」chỉ người; 「へ」đã xuất hiện sau đích đến."
+    },
+    {
+      "stem": "毎日[まいにち] 学校[がっこう]＿ 帰[かえ]ります。",
+      "choices": [
+        "へ",
+        "が",
+        "を",
+        "に"
+      ],
+      "answer": 0,
+      "explain": "「へ」chỉ hướng của 帰ります (về). 「に」cũng dùng được với 帰る nhưng「へ」tự nhiên hơn trong ngữ cảnh chỉ hướng; 「が/を」không dùng với 帰る."
+    },
+    {
+      "stem": "来週[らいしゅう]の 土曜日[どようび]＿ 京都[きょうと]へ 行[い]きます。",
+      "choices": [
+        "に",
+        "で",
+        "を",
+        "と"
+      ],
+      "answer": 0,
+      "explain": "「に」chỉ thời điểm cụ thể: 土曜日に行く. 「で」chỉ phương tiện/địa điểm hoạt động; 「を」tân ngữ; 「と」người cùng đi."
+    },
+    {
+      "stem": "＿ 日本[にほん]へ 行[い]きますか。— 来月[らいげつ]です。",
+      "choices": [
+        "いつ",
+        "どこ",
+        "なに",
+        "だれと"
+      ],
+      "answer": 0,
+      "explain": "「いつ」hỏi thời gian (\"khi nào?\"); câu trả lời「来月」là thời gian → khớp. 「どこ」hỏi địa điểm; 「なに」hỏi vật; 「だれと」hỏi người đi cùng."
+    },
+    {
+      "stem": "タクシー＿ 病院[びょういん]へ 行[い]きました。",
+      "choices": [
+        "で",
+        "と",
+        "に",
+        "が"
+      ],
+      "answer": 0,
+      "explain": "「で」chỉ phương tiện: タクシーで (bằng taxi). 「と」chỉ người cùng đi; 「に」chỉ thời điểm hoặc đích (ở đây đích đã là「へ」); 「が」chỉ chủ ngữ."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "へ",
+      "で",
+      "と",
+      "に",
+      "が",
+      "を",
+      "から"
+    ],
+    "items": [
+      {
+        "stem": "地下鉄[ちかてつ]＿ 会社[かいしゃ]へ 行[い]きます。",
+        "answer": "で",
+        "explain": "「で」chỉ phương tiện di chuyển: 地下鉄で (bằng tàu điện ngầm). Không nhầm với「に」(đích) vì đích đã được chỉ bởi「へ」sau."
+      },
+      {
+        "stem": "家族[かぞく]＿ 北海道[ほっかいどう]へ 旅行[りょこう]します。",
+        "answer": "と",
+        "explain": "「と」chỉ người cùng hành động: 家族と旅行する (du lịch cùng gia đình). 「で」chỉ phương tiện/địa điểm hoạt động."
+      },
+      {
+        "stem": "毎朝[まいあさ] 学校[がっこう]＿ 行[い]きます。",
+        "answer": "へ",
+        "explain": "「へ」chỉ hướng/đích đến của 行きます. 「に」cũng chấp nhận được về nghĩa nhưng「へ」nhấn mạnh hướng di chuyển."
+      },
+      {
+        "stem": "昨日[きのう] 8時[じ]＿ 家[いえ]へ 帰[かえ]りました。",
+        "answer": "に",
+        "explain": "「に」chỉ thời điểm của hành động: 8時に帰る. 「から」chỉ điểm xuất phát; 「で」chỉ phương tiện — cả hai không dùng với giờ cụ thể."
+      },
+      {
+        "stem": "バス＿ 駅[えき]へ 行[い]きます。",
+        "answer": "で",
+        "explain": "「で」chỉ phương tiện: バスで (bằng xe buýt). Đây là mẫu phương tiện + で + đích へ tiêu biểu của Bài 5."
+      },
+      {
+        "stem": "日曜日[にちようび]＿ 友達[ともだち]と 公園[こうえん]へ 行[い]きます。",
+        "answer": "に",
+        "explain": "「に」chỉ thời điểm: 日曜日に行く (đi vào Chủ nhật). Ngày trong tuần + に + hành động là cấu trúc chuẩn."
+      },
+      {
+        "stem": "先週[せんしゅう]、彼女[かのじょ]＿ 映画館[えいがかん]へ 行[い]きました。",
+        "answer": "と",
+        "explain": "「と」chỉ người cùng hành động: 彼女と行く (đi cùng bạn gái). 「に」chỉ thời điểm hay đích; 「で」chỉ phương tiện."
+      },
+      {
+        "stem": "新幹線[しんかんせん]＿ 東京[とうきょう]＿ 来[き]ました。",
+        "answer": "で",
+        "explain": "「新幹線で」chỉ phương tiện; 「東京へ」chỉ đích đến. Ô trống đầu là「で」(phương tiện); ô sau là「へ」(đích) — nhưng ở đây chỉ điền「で」."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "行[い]きます",
+      "prompt": "Thể phủ định (hiện tại)?",
+      "choices": [
+        "行[い]きません",
+        "行[い]きました",
+        "行[い]かない",
+        "行[い]きます"
+      ],
+      "answer": 0,
+      "explain": "Phủ định hiện tại: ます → ません. 「きました」là quá khứ khẳng định; 「かない」là thể thông tục; 「きます」là hiện tại khẳng định."
+    },
+    {
+      "base": "行[い]きます",
+      "prompt": "Thể khẳng định quá khứ?",
+      "choices": [
+        "行[い]きました",
+        "行[い]きません",
+        "行[い]きませんでした",
+        "行[い]きます"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định: ます → ました. 「きません」là phủ định hiện tại; 「きませんでした」là phủ định quá khứ."
+    },
+    {
+      "base": "行[い]きます",
+      "prompt": "Thể phủ định quá khứ?",
+      "choices": [
+        "行[い]きませんでした",
+        "行[い]きません",
+        "行[い]きました",
+        "行[い]かなかった"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ: ます → ませんでした. 「きません」là phủ định hiện tại; 「きました」là quá khứ khẳng định; 「かなかった」là thể thông tục."
+    },
+    {
+      "base": "来[き]ます",
+      "prompt": "Thể phủ định (hiện tại)?",
+      "choices": [
+        "来[き]ません",
+        "来[き]ました",
+        "来[き]ませんでした",
+        "来[き]ます"
+      ],
+      "answer": 0,
+      "explain": "Phủ định hiện tại của 来ます: 来ません. Động từ 来る là bất quy tắc nhưng chia ます-form bình thường: きます → きません → きました → きませんでした."
+    },
+    {
+      "base": "帰[かえ]ります",
+      "prompt": "Thể phủ định quá khứ?",
+      "choices": [
+        "帰[かえ]りませんでした",
+        "帰[かえ]りません",
+        "帰[かえ]りました",
+        "帰[かえ]りますか"
+      ],
+      "answer": 0,
+      "explain": "Phủ định quá khứ: ります → りませんでした. 「りません」là phủ định hiện tại; 「りました」là quá khứ khẳng định; 「りますか」là câu hỏi."
+    },
+    {
+      "base": "帰[かえ]ります",
+      "prompt": "Thể khẳng định quá khứ?",
+      "choices": [
+        "帰[かえ]りました",
+        "帰[かえ]りません",
+        "帰[かえ]りませんでした",
+        "帰[かえ]ります"
+      ],
+      "answer": 0,
+      "explain": "Quá khứ khẳng định: ります → りました. Đuôi「た」thay thế「す」trong ます, không thêm「でした」vào ます."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "電車[でんしゃ]で",
+        "会社[かいしゃ]へ",
+        "毎日[まいにち]",
+        "行[い]きます。"
+      ],
+      "vi": "Mỗi ngày tôi đi làm bằng tàu điện.",
+      "explain": "Trật tự chuẩn: phó từ tần số (毎日) + phương tiện で + đích へ + động từ. Trong thực tế「毎日」có thể đứng đầu hoặc trước「電車で」."
+    },
+    {
+      "chips": [
+        "友達[ともだち]と",
+        "週末[しゅうまつ]",
+        "映画[えいが]を",
+        "見[み]に 行[い]きます。"
+      ],
+      "vi": "Cuối tuần tôi đi xem phim cùng bạn.",
+      "explain": "Trật tự: người と + thời gian + tân ngữ を + 動詞. 「見に行きます」là cấu trúc mục đích (V に行く)."
+    },
+    {
+      "chips": [
+        "新幹線[しんかんせん]で",
+        "ミラーさんは",
+        "大阪[おおさか]へ",
+        "行[い]きます。"
+      ],
+      "vi": "Anh Miller đi Osaka bằng tàu shinkansen.",
+      "explain": "Phương tiện「で」đứng trước chủ đề「は」hoặc sau; đích「へ」đứng trước động từ. Trật tự linh hoạt nhưng「へ行きます」phải liền nhau."
+    },
+    {
+      "chips": [
+        "来週[らいしゅう]の",
+        "土曜日[どようび]に",
+        "京都[きょうと]へ",
+        "行[い]きます。"
+      ],
+      "vi": "Tôi sẽ đến Kyoto vào thứ Bảy tuần tới.",
+      "explain": "Thời gian (来週の土曜日に) đứng đầu; đích「京都へ」+ động詞「行きます」. 「に」chỉ thời điểm cụ thể sau ngày trong tuần."
+    },
+    {
+      "chips": [
+        "いつ",
+        "日本[にほん]へ",
+        "行[い]きますか。"
+      ],
+      "vi": "Bạn đi Nhật khi nào?",
+      "explain": "Từ hỏi「いつ」đứng đầu câu hỏi; theo sau là đích「へ」+ động từ + か. 「いつ」hỏi thời gian, không thể thay bằng「どこ」hay「なに」."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "まいにち ちかてつで かいしゃへ いきます。",
+      "ask": "Người này đi làm bằng phương tiện gì?",
+      "choices": [
+        "Tàu điện ngầm",
+        "Xe buýt",
+        "Taxi"
+      ],
+      "answer": 0,
+      "script": "毎日[まいにち] 地下鉄[ちかてつ]で 会社[かいしゃ]へ 行[い]きます。",
+      "explain": "「ちかてつ」= 地下鉄[ちかてつ] (tàu điện ngầm); 「で」chỉ phương tiện. Câu không đề cập xe buýt hay taxi."
+    },
+    {
+      "tts": "せんしゅうの にちようびに かのじょと きょうとへ いきました。",
+      "ask": "Người này đi Kyoto vào ngày nào và cùng với ai?",
+      "choices": [
+        "Chủ nhật tuần trước, cùng bạn gái",
+        "Thứ 7 tuần trước, đi một mình",
+        "Chủ nhật tuần này, cùng gia đình"
+      ],
+      "answer": 0,
+      "script": "先週[せんしゅう]の 日曜日[にちようび]に 彼女[かのじょ]と 京都[きょうと]へ 行[い]きました。",
+      "explain": "「せんしゅうの にちようび」= tuần trước, Chủ nhật; 「かのじょと」= cùng bạn gái. Cẩn thận: 「どようび」= thứ 7 (không phải Chủ nhật)."
+    },
+    {
+      "tts": "しんかんせんで おおさかへ いきます。",
+      "ask": "Người này đi Osaka bằng phương tiện gì?",
+      "choices": [
+        "Tàu shinkansen",
+        "Máy bay",
+        "Xe buýt"
+      ],
+      "answer": 0,
+      "script": "新幹線[しんかんせん]で 大阪[おおさか]へ 行[い]きます。",
+      "explain": "「しんかんせん」= 新幹線[しんかんせん] (tàu cao tốc); 「で」chỉ phương tiện. Máy bay và xe buýt không được đề cập."
+    },
+    {
+      "tts": "らいしゅうの どようびに にほんへ きます。",
+      "ask": "Khi nào người này đến Nhật?",
+      "choices": [
+        "Thứ 7 tuần tới",
+        "Chủ nhật tuần tới",
+        "Thứ 7 tuần này"
+      ],
+      "answer": 0,
+      "script": "来週[らいしゅう]の 土曜日[どようび]に 日本[にほん]へ 来[き]ます。",
+      "explain": "「らいしゅう」= 来週 (tuần tới); 「どようび」= 土曜日 (thứ 7). Cẩn thận: 「にちようび」= Chủ nhật; 「こんしゅう」= tuần này."
+    },
+    {
+      "tts": "ともだちと バスで えきへ いきました。",
+      "ask": "Điền thông tin: đi cùng ___ bằng ___ đến ___.",
+      "choices": [
+        "bạn bè / xe buýt / ga tàu",
+        "gia đình / tàu điện / trường học",
+        "bạn gái / taxi / bệnh viện"
+      ],
+      "answer": 0,
+      "script": "友達[ともだち]と バスで 駅[えき]へ 行[い]きました。",
+      "explain": "「ともだちと」(người と) + 「バスで」(phương tiện で) + 「えきへ」(đích へ): ba yếu tố chính của Bài 5 xuất hiện cùng lúc."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Mỗi ngày tôi đi làm bằng tàu điện.",
+      "target": "毎日電車で会社へ行きます。",
+      "accept": [
+        "まいにちでんしゃでかいしゃへいきます。",
+        "毎日電車で会社へいきます。"
+      ],
+      "explain": "Cấu trúc: phó từ + phương tiện で + đích へ + 行きます. 「で」chỉ phương tiện; 「へ」chỉ đích — không thể hoán đổi."
+    },
+    {
+      "vi": "Cuối tuần tôi đi xem phim cùng bạn.",
+      "target": "週末友達と映画を見に行きます。",
+      "accept": [
+        "しゅうまつともだちとえいがをみにいきます。",
+        "週末ともだちと映画を見に行きます。"
+      ],
+      "explain": "「と」chỉ người cùng đi; 「映画を見に行く」là cấu trúc mục đích V に行く (đi để làm gì)."
+    },
+    {
+      "vi": "Anh Miller đi Osaka bằng tàu shinkansen.",
+      "target": "ミラーさんは新幹線で大阪へ行きます。",
+      "accept": [
+        "みらーさんはしんかんせんでおおさかへいきます。"
+      ],
+      "explain": "「で」chỉ phương tiện (新幹線で); 「へ」chỉ đích (大阪へ). Trật tự phương tiện đứng trước đích."
+    },
+    {
+      "vi": "Khi nào bạn về nhà? — Tôi về vào thứ Sáu.",
+      "target": "いつ家へ帰りますか。金曜日に帰ります。",
+      "accept": [
+        "いつうちへかえりますか。きんようびにかえります。",
+        "いつ家へかえりますか。金曜日にかえります。"
+      ],
+      "explain": "「いつ」hỏi thời gian; trả lời dùng「金曜日に」(ngày + に). 「帰ります」đi với「へ」(đích) hoặc「に」(đích)."
+    },
+    {
+      "vi": "Tuần tới anh Miller sẽ đến Nhật Bản.",
+      "target": "来週ミラーさんは日本へ来ます。",
+      "accept": [
+        "らいしゅうみらーさんはにほんへきます。"
+      ],
+      "explain": "「へ」chỉ hướng đến của 来ます. 「来週」đứng đầu câu làm phó từ thời gian; 「は」đánh dấu chủ đề ミラーさん."
+    }
+  ]
+}

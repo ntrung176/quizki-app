@@ -1,0 +1,4098 @@
+{
+  "bai": 29,
+  "level": "N4",
+  "intro": "自動詞↔他動詞 · Vています(trạng thái kết quả) · 〜てしまいました. Có ÔN LẠI ngữ pháp đã học (bài 1-28) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "電気が消えていますね。",
+              "ul": "消え",
+              "choices": [
+                "きえ",
+                "けえ",
+                "こえ",
+                "きい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「消える」(きえる) là tự động từ nghĩa 'tắt, biến mất'. Đọc là きえ(る). — Phương án けえ không tồn tại. Phương án こえ là âm của 「声」(tiếng). Phương án きい không phải âm đọc của 「消え」.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "điện, đèn điện"
+                },
+                {
+                  "t": "消えています",
+                  "read": "きえています",
+                  "vi": "đang tắt (trạng thái đã tắt rồi)"
+                }
+              ]
+            },
+            {
+              "prompt": "ドアが開いたままになっています。",
+              "ul": "開い",
+              "choices": [
+                "あい",
+                "ひらい",
+                "かい",
+                "はい"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「開く」(ひらく) là tự động từ nghĩa 'mở ra'. Dạng て là ひらい(て). — Phương án あい là âm ON của 「愛」. Phương án かい là âm của 「買い」. Phương án はい là âm của 「入り」hay lời đáp 'vâng', không liên quan.",
+              "glosses": [
+                {
+                  "t": "ドア",
+                  "vi": "cánh cửa"
+                },
+                {
+                  "t": "開いた",
+                  "read": "ひらいた",
+                  "vi": "đã mở (trạng thái còn mở)"
+                },
+                {
+                  "t": "ままになっています",
+                  "vi": "vẫn cứ ở trạng thái đó"
+                }
+              ]
+            },
+            {
+              "prompt": "窓を閉めておいてください。",
+              "ul": "閉め",
+              "choices": [
+                "しめ",
+                "とじめ",
+                "とめ",
+                "さめ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「閉める」(しめる) là tha động từ nghĩa 'đóng (cái gì đó)'. Đọc là しめ(る). — Phương án とじめ không tồn tại (「閉じる」đọc là とじる, không phải とじめ). Phương án とめ là 「止める」nghĩa 'dừng lại'. Phương án さめ là 「冷める」nghĩa 'nguội'.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "閉めておいて",
+                  "read": "しめておいて",
+                  "vi": "đóng trước đi (để dành trạng thái đóng)"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy làm giúp (đề nghị lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "コップが割れてしまいました。",
+              "ul": "割れ",
+              "choices": [
+                "われ",
+                "かれ",
+                "さけ",
+                "われい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「割れる」(われる) là tự động từ nghĩa 'vỡ'. Đọc là われ(る). — Phương án かれ là âm của 「彼」(anh ấy) hay 「枯れる」(héo). Phương án さけ là âm của 「裂ける」(rách) hoặc 「酒」. Phương án われい không tồn tại.",
+              "glosses": [
+                {
+                  "t": "コップ",
+                  "vi": "cái cốc, ly thủy tinh"
+                },
+                {
+                  "t": "割れてしまいました",
+                  "read": "われてしまいました",
+                  "vi": "đã bị vỡ rồi (lỡ vỡ mất)"
+                }
+              ]
+            },
+            {
+              "prompt": "電気をつけたまま寝てしまいました。",
+              "ul": "寝て",
+              "choices": [
+                "ねて",
+                "せて",
+                "しんて",
+                "にて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「寝る」(ねる) nghĩa 'ngủ'. Dạng て là ねて. — Phương án せて là dạng て của 「する」biến thể hoặc 「背負う」, không phải 「寝る」. Phương án しんて không tồn tại. Phương án にて là trợ từ 'ở, tại', không phải động từ.",
+              "glosses": [
+                {
+                  "t": "電気をつけたまま",
+                  "read": "でんきをつけたまま",
+                  "vi": "để nguyên đèn bật"
+                },
+                {
+                  "t": "寝てしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "đã lỡ ngủ quên mất"
+                }
+              ]
+            },
+            {
+              "prompt": "鍵をかけるのを忘れてしまいました。",
+              "ul": "鍵",
+              "choices": [
+                "かぎ",
+                "けん",
+                "かい",
+                "かく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「鍵」(かぎ) nghĩa 'chìa khóa, ổ khóa', đọc theo âm Kun là かぎ. — Phương án けん là âm On của nhiều chữ khác (「券」「剣」). Phương án かい là âm On của 「会」「貝」. Phương án かく là âm On của 「各」「角」, không phải 「鍵」.",
+              "glosses": [
+                {
+                  "t": "鍵をかける",
+                  "read": "かぎをかける",
+                  "vi": "khóa (cửa)"
+                },
+                {
+                  "t": "忘れてしまいました",
+                  "read": "わすれてしまいました",
+                  "vi": "đã lỡ quên mất"
+                }
+              ]
+            },
+            {
+              "prompt": "エアコンが壊れていて、困っています。",
+              "ul": "壊れ",
+              "choices": [
+                "こわれ",
+                "やぶれ",
+                "くずれ",
+                "われ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「壊れる」(こわれる) là tự động từ nghĩa 'bị hỏng, bị vỡ (đồ vật)'. Đọc là こわれ(る). — Phương án やぶれ là 「破れる」nghĩa 'bị rách'. Phương án くずれ là 「崩れる」nghĩa 'sụp đổ'. Phương án われ là 「割れる」nghĩa 'vỡ (ly, kính)', không phải 'hỏng máy'.",
+              "glosses": [
+                {
+                  "t": "エアコン",
+                  "vi": "máy điều hòa"
+                },
+                {
+                  "t": "壊れていて",
+                  "read": "こわれていて",
+                  "vi": "đang bị hỏng (trạng thái hỏng còn đó)"
+                },
+                {
+                  "t": "困っています",
+                  "read": "こまっています",
+                  "vi": "đang khổ sở, bất tiện"
+                }
+              ]
+            },
+            {
+              "prompt": "財布を落としてしまいました。",
+              "ul": "財布",
+              "choices": [
+                "さいふ",
+                "ざいぶ",
+                "さいぷ",
+                "ざいふ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「財布」đọc là さいふ (「財」=さい, 「布」=ふ). — Phương án ざいぶ sai vì 「布」không đọc ぶ. Phương án さいぷ sai vì ぷ là âm bán trọc, không phải âm đúng của 「布」. Phương án ざいふ sai vì 「財」đọc là さい (vô thanh), không phải ざい.",
+              "glosses": [
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "落としてしまいました",
+                  "read": "おとしてしまいました",
+                  "vi": "đã lỡ đánh rơi mất"
+                }
+              ]
+            },
+            {
+              "prompt": "電気のスイッチを切り忘れてしまいました。",
+              "ul": "切り",
+              "choices": [
+                "きり",
+                "ぎり",
+                "さり",
+                "けり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「切る」(きる) nghĩa 'cắt; tắt (điện)'. Dạng ます stem là きり. — Phương án ぎり sai vì 「切」đọc là き (vô thanh), không phải ぎ (hữu thanh). Phương án さり không phải âm đọc của 「切」. Phương án けり là dạng quá khứ văn ngữ, không phải âm đọc.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện"
+                },
+                {
+                  "t": "スイッチ",
+                  "vi": "công tắc"
+                },
+                {
+                  "t": "切り忘れて",
+                  "read": "きりわすれて",
+                  "vi": "quên tắt (đi)"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ… mất rồi"
+                }
+              ]
+            },
+            {
+              "prompt": "その引き出しはもう開けてあります。",
+              "ul": "引き出し",
+              "choices": [
+                "ひきだし",
+                "いんきだし",
+                "びきだし",
+                "ひきでし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「引き出し」đọc là ひきだし (「引き」=ひき, 「出し」=だし). — Phương án いんきだし sai vì 「引」âm On là いん nhưng khi ghép tự thân từ này dùng âm Kun ひき. Phương án びきだし sai vì 「引」là vô thanh ひ, không phải hữu thanh び. Phương án thứ hai (lặp) là bẫy không phân biệt được; trong thực tế choices sẽ là: ひきだし / いんきだし / びきだし / ひきでし — đáp án 0 là ひきだし đúng.",
+              "glosses": [
+                {
+                  "t": "引き出し",
+                  "read": "ひきだし",
+                  "vi": "ngăn kéo"
+                },
+                {
+                  "t": "開けてあります",
+                  "read": "あけてあります",
+                  "vi": "đã mở sẵn rồi (ai đó mở và để nguyên)"
+                },
+                {
+                  "t": "はもう",
+                  "read": "はもう",
+                  "vi": "đã ~ rồi (も う nhấn mạnh việc đã hoàn tất từ trước)"
+                }
+              ]
+            },
+            {
+              "prompt": "椅子が倒れてしまいました。",
+              "ul": "倒れ",
+              "choices": [
+                "たおれ",
+                "だおれ",
+                "たれ",
+                "こおれ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「倒れる」(たおれる) là tự động từ nghĩa 'đổ, ngã (vật)'. Đọc là たおれ(る). — Phương án だおれ sai vì た là vô thanh, không phải hữu thanh だ. Phương án たれ thiếu âm お, không phải âm đọc của 「倒」. Phương án こおれ không phải âm đọc của chữ này.",
+              "glosses": [
+                {
+                  "t": "椅子",
+                  "read": "いす",
+                  "vi": "cái ghế"
+                },
+                {
+                  "t": "倒れてしまいました",
+                  "read": "たおれてしまいました",
+                  "vi": "đã lỡ đổ ngã mất"
+                }
+              ]
+            },
+            {
+              "prompt": "灯りをつけたまま出かけてしまいました。",
+              "ul": "灯り",
+              "choices": [
+                "あかり",
+                "ともり",
+                "ひかり",
+                "あがり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「灯り」đọc là あかり, nghĩa 'ánh đèn'. — Phương án ともり nghe gần nhưng sai; 「灯る」(ともる) là động từ 'thắp sáng', còn danh từ 「灯り」đọc あかり. Phương án ひかり là 「光」nghĩa 'ánh sáng (chung)'. Phương án あがり là 「上がり」nghĩa 'đi lên'.",
+              "glosses": [
+                {
+                  "t": "灯り",
+                  "read": "あかり",
+                  "vi": "ánh đèn, ánh sáng (đèn)"
+                },
+                {
+                  "t": "つけたまま",
+                  "vi": "để nguyên trạng thái bật"
+                },
+                {
+                  "t": "出かけてしまいました",
+                  "read": "でかけてしまいました",
+                  "vi": "đã lỡ đi ra ngoài mất"
+                }
+              ]
+            },
+            {
+              "prompt": "机の上に書類が散らかっています。",
+              "ul": "書類",
+              "choices": [
+                "しょるい",
+                "しょりゅう",
+                "かきるい",
+                "しょうるい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書類」đọc là しょるい (「書」=しょ, 「類」=るい). — Phương án しょりゅう nhầm 「類」(るい) thành りゅう. Phương án かきるい nhầm âm On の「書」thành âm Kun かき. Phương án しょうるい thêm âm kéo dài không đúng sau しょ.",
+              "glosses": [
+                {
+                  "t": "机",
+                  "read": "つくえ",
+                  "vi": "bàn làm việc"
+                },
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "giấy tờ, tài liệu"
+                },
+                {
+                  "t": "散らかっています",
+                  "read": "ちらかっています",
+                  "vi": "đang bày bừa (trạng thái còn bừa bãi)"
+                },
+                {
+                  "t": "上に",
+                  "read": "うえに",
+                  "vi": "ở trên"
+                }
+              ]
+            },
+            {
+              "prompt": "パソコンの電源を消してしまいました。",
+              "ul": "電源",
+              "choices": [
+                "でんげん",
+                "でんえん",
+                "てんげん",
+                "でんけん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電源」đọc là でんげん (「電」=でん, 「源」=げん). — Phương án でんえん là 「田園」nghĩa 'đồng quê'. Phương án てんげん nhầm 「電」(でん) thành てん. Phương án でんけん nhầm 「源」(げん) thành けん.",
+              "glosses": [
+                {
+                  "t": "パソコン",
+                  "vi": "máy tính cá nhân"
+                },
+                {
+                  "t": "電源",
+                  "read": "でんげん",
+                  "vi": "nguồn điện, nút nguồn"
+                },
+                {
+                  "t": "消してしまいました",
+                  "read": "けしてしまいました",
+                  "vi": "đã lỡ tắt mất"
+                }
+              ]
+            },
+            {
+              "prompt": "鍵を閉めるのを忘れてしまって、もどりました。",
+              "ul": "忘れ",
+              "choices": [
+                "わすれ",
+                "なくれ",
+                "おくれ",
+                "はずれ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「忘れる」(わすれる) nghĩa 'quên'. Đọc là わすれ(る). — Phương án なくれ gần với 「なくす」(mất, làm mất) nhưng không phải âm đọc của 「忘」. Phương án おくれ là 「遅れる」nghĩa 'bị trễ'. Phương án はずれ là 「外れる」nghĩa 'trượt, sai'.",
+              "glosses": [
+                {
+                  "t": "鍵を閉める",
+                  "read": "かぎをしめる",
+                  "vi": "khóa cửa"
+                },
+                {
+                  "t": "忘れてしまって",
+                  "read": "わすれてしまって",
+                  "vi": "đã lỡ quên mất"
+                },
+                {
+                  "t": "もどりました",
+                  "vi": "đã quay lại"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "まどがあいています。だれかがまどをあけたようです。",
+              "ul": "あいて",
+              "choices": [
+                "開いて",
+                "空いて",
+                "明いて",
+                "閲いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あいて」ở đây là 「開いて」(mở — tự động từ 開く), mô tả trạng thái cửa sổ đang mở. Đáp án đúng là 「開いて」. ❌「空いて」(あいて) dùng để nói chỗ trống/rảnh (ghế trống, thời gian rảnh), không dùng cho cửa/cửa sổ. ❌「明いて」không phải chữ Hán chuẩn cho 'mở' trong trường hợp này; 「明」đọc là あき/あか và nghĩa là sáng/bình minh. ❌「閲いて」không tồn tại; 「閲」(えつ) nghĩa là duyệt/xem xét, không liên quan.",
+              "glosses": [
+                {
+                  "t": "まど",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "あいています",
+                  "read": "あいています",
+                  "vi": "đang ở trạng thái mở"
+                },
+                {
+                  "t": "だれか",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "あけた",
+                  "read": "あけた",
+                  "vi": "đã mở (tha động từ)"
+                },
+                {
+                  "t": "ようです",
+                  "read": "ようです",
+                  "vi": "có vẻ, hình như là"
+                }
+              ]
+            },
+            {
+              "prompt": "でんきがきえています。だれかがでんきをけしたのでしょう。",
+              "ul": "きえて",
+              "choices": [
+                "消えて",
+                "決えて",
+                "滅えて",
+                "絶えて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「きえて」là 「消えて」(tắt/biến mất — tự động từ 消える), diễn tả trạng thái đèn đang tắt. Đáp án đúng là 「消えて」. ❌「決えて」không tồn tại dưới dạng này; 「決」(けつ/きめ) nghĩa là quyết định. ❌「滅えて」(ほろびて) thường viết là 滅びて, nghĩa là diệt vong, không dùng cho đèn. ❌「絶えて」(たえて) nghĩa là dứt/chấm dứt (âm thanh, liên lạc), không dùng cho đèn điện.",
+              "glosses": [
+                {
+                  "t": "でんき",
+                  "read": "でんき",
+                  "vi": "đèn điện / điện"
+                },
+                {
+                  "t": "きえています",
+                  "read": "きえています",
+                  "vi": "đang tắt (trạng thái kết quả)"
+                },
+                {
+                  "t": "けした",
+                  "read": "けした",
+                  "vi": "đã tắt (tha động từ)"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "しょう",
+                  "read": "でしょう",
+                  "vi": "chắc là, có lẽ"
+                }
+              ]
+            },
+            {
+              "prompt": "コップがわれてしまいました。あやまってわってしまったんです。",
+              "ul": "われて",
+              "choices": [
+                "割れて",
+                "破れて",
+                "裂れて",
+                "折れて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「われて」là 「割れて」(vỡ — tự động từ 割れる), dùng cho đồ vật cứng như cốc, đĩa, kính. Đáp án đúng là 「割れて」. ❌「破れて」(やぶれて) nghĩa là rách, dùng cho giấy, vải, túi — không dùng cho thủy tinh. ❌「裂れて」không tồn tại dạng này; 「裂」(さける) nghĩa là xé toạc, dùng cho vải/da. ❌「折れて」(おれて) nghĩa là gãy, dùng cho que/xương/cành cây, không phải vỡ.",
+              "glosses": [
+                {
+                  "t": "コップ",
+                  "vi": "cốc (thủy tinh)"
+                },
+                {
+                  "t": "われてしまいました",
+                  "read": "われてしまいました",
+                  "vi": "đã bị vỡ (lỡ tay)"
+                },
+                {
+                  "t": "あやまって",
+                  "read": "あやまって",
+                  "vi": "lỡ tay / nhầm lẫn"
+                },
+                {
+                  "t": "わって",
+                  "read": "わって",
+                  "vi": "làm vỡ (tha động từ)"
+                },
+                {
+                  "t": "たん",
+                  "read": "んです",
+                  "vi": "là vì... (giải thích)"
+                },
+                {
+                  "t": "わってしまったんです",
+                  "read": "わってしまったんです",
+                  "vi": "〜てしまったんです = đã lỡ làm vỡ (giải thích lý do, tha động từ 割る)"
+                }
+              ]
+            },
+            {
+              "prompt": "かぎがこわれてしまって、ドアがあかなくなりました。",
+              "ul": "こわれて",
+              "choices": [
+                "壊れて",
+                "崩れて",
+                "破れて",
+                "壊して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「こわれて」là 「壊れて」(hỏng/vỡ — tự động từ 壊れる), dùng cho máy móc, đồ vật bị hỏng. Đáp án đúng là 「壊れて」. ❌「崩れて」(くずれて) nghĩa là sụp đổ/tan rã (đất, tường đổ), không dùng cho ổ khóa. ❌「破れて」(やぶれて) nghĩa là rách, không dùng cho đồ vật cứng như khóa. ❌「壊して」(こわして) là tha động từ (ai đó làm hỏng), nhưng câu hỏi yêu cầu tự động từ vì chủ ngữ là 「鍵」tự hỏng.",
+              "glosses": [
+                {
+                  "t": "かぎ",
+                  "read": "かぎ",
+                  "vi": "chìa khóa / ổ khóa"
+                },
+                {
+                  "t": "こわれてしまって",
+                  "read": "こわれてしまって",
+                  "vi": "đã bị hỏng (lỡ)"
+                },
+                {
+                  "t": "あかなくなりました",
+                  "read": "あかなくなりました",
+                  "vi": "không mở được nữa"
+                },
+                {
+                  "t": "ドア",
+                  "read": "ドア",
+                  "vi": "cửa"
+                }
+              ]
+            },
+            {
+              "prompt": "ストーブがついています。だれかがつけたまましゅっぱつしたようです。",
+              "ul": "ついて",
+              "choices": [
+                "点いて",
+                "付いて",
+                "着いて",
+                "就いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ついて」ở đây là 「点いて」(bật/sáng lên — tự động từ 点く), dùng cho đèn/lò/máy đang bật. Đáp án đúng là 「点いて」. ❌「付いて」(ついて) nghĩa là dính/bám theo, không dùng cho trạng thái bật của thiết bị. ❌「着いて」(ついて) nghĩa là đến nơi (đến ga, đến nhà), không liên quan. ❌「就いて」(ついて) nghĩa là nhậm chức/đảm nhận công việc, không liên quan đến thiết bị.",
+              "glosses": [
+                {
+                  "t": "ストーブ",
+                  "vi": "lò sưởi"
+                },
+                {
+                  "t": "ついています",
+                  "read": "ついています",
+                  "vi": "đang bật (trạng thái đang sáng/bật)"
+                },
+                {
+                  "t": "つけたまま",
+                  "read": "つけたまま",
+                  "vi": "để nguyên trạng thái đã bật"
+                },
+                {
+                  "t": "しゅっぱつした",
+                  "read": "しゅっぱつした",
+                  "vi": "đã khởi hành"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "よう",
+                  "read": "ようです",
+                  "vi": "có vẻ là"
+                }
+              ]
+            },
+            {
+              "prompt": "むすこがテレビをけしてしまって、みていたドラマがとちゅうになりました。",
+              "ul": "けして",
+              "choices": [
+                "消して",
+                "隠して",
+                "滅して",
+                "抹して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「けして」là 「消して」(tắt — tha động từ 消す), dùng khi ai đó tắt TV, đèn. Đáp án đúng là 「消して」. ❌「隠して」(かくして) nghĩa là giấu/che giấu, không phải tắt. ❌「滅して」không phải từ chuẩn ở đây; 「滅」(ほろぼして) dùng trong văn cảnh tiêu diệt/diệt vong, rất khác nghĩa. ❌「抹して」không tồn tại dạng này; 「抹消」(まっしょう) là xóa sổ/tẩy xóa, không dùng cho tắt TV.",
+              "glosses": [
+                {
+                  "t": "むすこ",
+                  "read": "むすこ",
+                  "vi": "con trai"
+                },
+                {
+                  "t": "けしてしまって",
+                  "read": "けしてしまって",
+                  "vi": "đã tắt đi mất (lỡ)"
+                },
+                {
+                  "t": "とちゅう",
+                  "read": "とちゅう",
+                  "vi": "giữa chừng"
+                },
+                {
+                  "t": "テレビ",
+                  "read": "テレビ",
+                  "vi": "ti vi"
+                },
+                {
+                  "t": "てい",
+                  "read": "みていた",
+                  "vi": "đang xem (lúc đó)"
+                },
+                {
+                  "t": "ドラマ",
+                  "read": "ドラマ",
+                  "vi": "phim truyền hình"
+                },
+                {
+                  "t": "うに",
+                  "read": "とちゅう",
+                  "vi": "giữa chừng, dở dang"
+                },
+                {
+                  "t": "とちゅうになりました",
+                  "read": "とちゅうになりました",
+                  "vi": "〜になる (quá khứ) = đã trở thành/dở dang giữa chừng"
+                }
+              ]
+            },
+            {
+              "prompt": "ゆかにほんがおちています。だれかがおとしてしまったのかもしれません。",
+              "ul": "おちて",
+              "choices": [
+                "落ちて",
+                "降ちて",
+                "堕ちて",
+                "垂ちて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おちて」là 「落ちて」(rơi — tự động từ 落ちる), mô tả trạng thái sách đã rơi xuống sàn. Đáp án đúng là 「落ちて」. ❌「降ちて」không tồn tại; 「降」(おりて/ふって) dùng cho xuống tàu hoặc mưa rơi, không viết kết hợp này. ❌「堕ちて」(おちて) là chữ Hán khác, dùng trong văn học ý nghĩa sa ngã/đọa lạc về tinh thần, không dùng cho vật rơi thông thường. ❌「垂ちて」không tồn tại; 「垂れる」(たれる) nghĩa là rủ xuống/nhỏ giọt.",
+              "glosses": [
+                {
+                  "t": "ゆか",
+                  "read": "ゆか",
+                  "vi": "sàn nhà"
+                },
+                {
+                  "t": "おちています",
+                  "read": "おちています",
+                  "vi": "đang nằm rơi xuống (trạng thái)"
+                },
+                {
+                  "t": "おとしてしまった",
+                  "read": "おとしてしまった",
+                  "vi": "đã lỡ đánh rơi"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "かも",
+                  "read": "かもしれません",
+                  "vi": "có thể là, có lẽ"
+                },
+                {
+                  "t": "かもしれません",
+                  "read": "かもしれません",
+                  "vi": "〜かもしれない (thể lịch sự) = có thể/có lẽ là ~"
+                }
+              ]
+            },
+            {
+              "prompt": "ドアがしまっています。なかにだれもいないようです。",
+              "ul": "しまって",
+              "choices": [
+                "閉まって",
+                "締まって",
+                "詰まって",
+                "占まって"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しまって」ở đây là 「閉まって」(đóng — tự động từ 閉まる), dùng cho cửa đang trong trạng thái đóng. Đáp án đúng là 「閉まって」. ❌「締まって」(しまって) cũng đọc giống nhưng viết bằng 「締」, nghĩa là siết chặt/buộc chặt (thắt lưng, hợp đồng), không dùng cho cửa đóng. ❌「詰まって」(つまって) nghĩa là bị tắc nghẽn (đường ống tắc, lịch kín), không liên quan. ❌「占まって」không tồn tại; 「占」(しめる/うらなう) nghĩa là chiếm/bói toán.",
+              "glosses": [
+                {
+                  "t": "ドア",
+                  "vi": "cánh cửa"
+                },
+                {
+                  "t": "しまっています",
+                  "read": "しまっています",
+                  "vi": "đang đóng (trạng thái)"
+                },
+                {
+                  "t": "だれもいない",
+                  "read": "だれもいない",
+                  "vi": "không có ai"
+                },
+                {
+                  "t": "なか",
+                  "read": "なかに",
+                  "vi": "ở bên trong"
+                },
+                {
+                  "t": "よう",
+                  "read": "ようです",
+                  "vi": "có vẻ là"
+                }
+              ]
+            },
+            {
+              "prompt": "はなびんをたおしてしまって、みずがこぼれました。",
+              "ul": "たおして",
+              "choices": [
+                "倒して",
+                "崩して",
+                "伏して",
+                "傾して"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「たおして」là 「倒して」(làm đổ/lật ngã — tha động từ 倒す), dùng khi ai đó vô tình làm đổ vật. Đáp án đúng là 「倒して」. ❌「崩して」(くずして) nghĩa là phá vỡ cấu trúc/làm sụp (như phá tường, đổi tiền lẻ), không dùng cho bình hoa ngã. ❌「伏して」(ふして) nghĩa là cúi xuống/phủ phục, không phải làm đổ vật. ❌「傾して」không phải từ chuẩn; 「傾ける」(かたむける) nghĩa là nghiêng, nhưng không viết như này trong tiếng Nhật hiện đại.",
+              "glosses": [
+                {
+                  "t": "はなびん",
+                  "read": "はなびん",
+                  "vi": "bình hoa"
+                },
+                {
+                  "t": "たおしてしまって",
+                  "read": "たおしてしまって",
+                  "vi": "đã lỡ làm đổ"
+                },
+                {
+                  "t": "こぼれました",
+                  "vi": "nước tràn ra"
+                },
+                {
+                  "t": "みずがこぼれました",
+                  "read": "みずがこぼれました",
+                  "vi": "nước đã bị đổ/tràn ra (こぼれる: tự động từ, kết quả không chủ ý)"
+                }
+              ]
+            },
+            {
+              "prompt": "まどをしめるのをわすれてしまって、へやがさむくなりました。",
+              "ul": "しめる",
+              "choices": [
+                "閉める",
+                "絞める",
+                "占める",
+                "締める"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「しめる」ở đây là 「閉める」(đóng — tha động từ 閉める), dùng khi ai đó chủ động đóng cửa/cửa sổ. Đáp án đúng là 「閉める」. ❌「絞める」(しめる) nghĩa là siết cổ/thắt chặt bằng tay, hoàn toàn khác nghĩa. ❌「占める」(しめる) nghĩa là chiếm phần/chiếm tỉ lệ (dân số chiếm 30%), không dùng cho hành động đóng cửa. ❌「締める」(しめる) nghĩa là thắt/siết (thắt cà vạt, siết vít), không phải đóng cửa sổ.",
+              "glosses": [
+                {
+                  "t": "まどをしめる",
+                  "read": "まどをしめる",
+                  "vi": "đóng cửa sổ (tha động từ)"
+                },
+                {
+                  "t": "わすれてしまって",
+                  "read": "わすれてしまって",
+                  "vi": "đã lỡ quên mất"
+                },
+                {
+                  "t": "さむくなりました",
+                  "read": "さむくなりました",
+                  "vi": "đã trở nên lạnh"
+                }
+              ]
+            },
+            {
+              "prompt": "さいふをなくしてしまいました。どこかにおとしてしまったようです。",
+              "ul": "なくして",
+              "choices": [
+                "無くして",
+                "亡くして",
+                "失くして",
+                "抜くして"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "「なくして」ở đây là 「失くして」(mất đồ vật — tha động từ 失くす), dùng khi đánh mất đồ vật. Đáp án đúng là 「失くして」. ❌「無くして」(なくして) cũng đọc giống, nhưng 「無くする」mang nghĩa 'làm cho không còn tồn tại/loại bỏ' (loại bỏ rào cản), thiên về trừu tượng; trong thực tế JLPT, 「失くす」là chuẩn cho mất đồ. ❌「亡くして」(なくして) nghĩa là mất đi người thân (mất cha mẹ/vợ chồng), không dùng cho đồ vật. ❌「抜くして」không tồn tại; 「抜く」(ぬく) nghĩa là rút ra/nhổ ra.",
+              "glosses": [
+                {
+                  "t": "さいふ",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "なくしてしまいました",
+                  "vi": "đã lỡ đánh mất"
+                },
+                {
+                  "t": "おとしてしまった",
+                  "read": "おとしてしまった",
+                  "vi": "đã lỡ đánh rơi"
+                },
+                {
+                  "t": "どこか",
+                  "read": "どこか",
+                  "vi": "đâu đó"
+                },
+                {
+                  "t": "よう",
+                  "read": "ようです",
+                  "vi": "có vẻ là"
+                }
+              ]
+            },
+            {
+              "prompt": "でんとうがきれてしまって、へやがまっくらになりました。",
+              "ul": "きれて",
+              "choices": [
+                "切れて",
+                "折れて",
+                "欠れて",
+                "截れて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「きれて」là 「切れて」(đứt/cháy — tự động từ 切れる), dùng khi bóng đèn cháy, dây đứt. Đáp án đúng là 「切れて」. ❌「折れて」(おれて) nghĩa là gãy (cành cây gãy, bút gãy), không dùng cho bóng đèn cháy. ❌「欠れて」không tồn tại dạng này; 「欠ける」(かける) nghĩa là bị sứt/thiếu một mảnh (bát sứt), không phải bóng cháy. ❌「截れて」không phải từ thông dụng trong tiếng Nhật hiện đại; 「截」(たつ) là từ văn ngữ, không phải từ JLPT.",
+              "glosses": [
+                {
+                  "t": "でんとう",
+                  "read": "でんとう",
+                  "vi": "bóng đèn"
+                },
+                {
+                  "t": "きれてしまって",
+                  "read": "きれてしまって",
+                  "vi": "đã bị đứt/cháy (bóng đèn)"
+                },
+                {
+                  "t": "まっくら",
+                  "read": "まっくら",
+                  "vi": "tối đen hoàn toàn"
+                },
+                {
+                  "t": "へやがまっくらになりました",
+                  "read": "へやがまっくらになりました",
+                  "vi": "〜になる (quá khứ) = căn phòng đã trở nên tối om"
+                }
+              ]
+            },
+            {
+              "prompt": "このへやはいまでんきがついています。だれかがつけたまましゅくだいをわすれてかえったようです。",
+              "ul": "つけた",
+              "choices": [
+                "点けた",
+                "付けた",
+                "着けた",
+                "就けた"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「つけた」ở đây là 「点けた」(bật — tha động từ 点ける), dùng khi ai đó bật đèn/lò/thiết bị. Đáp án đúng là 「点けた」. ❌「付けた」(つけた) nghĩa là gắn/đính/tên gọi, không dùng cho bật thiết bị điện. ❌「着けた」(つけた) nghĩa là đeo (đồng hồ, trang sức)/neo đậu tàu, không liên quan đến bật đèn. ❌「就けた」(つけた) nghĩa là bổ nhiệm/cho ai nhậm chức, hoàn toàn không liên quan.",
+              "glosses": [
+                {
+                  "t": "でんきがついています",
+                  "read": "でんきがついています",
+                  "vi": "đèn đang bật"
+                },
+                {
+                  "t": "つけたまま",
+                  "read": "つけたまま",
+                  "vi": "để nguyên trạng thái bật"
+                },
+                {
+                  "t": "しゅくだい",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "はい",
+                  "read": "いま",
+                  "vi": "bây giờ"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "えっ",
+                  "read": "かえった",
+                  "vi": "đã về, đã rời đi"
+                },
+                {
+                  "t": "よう",
+                  "read": "ようです",
+                  "vi": "có vẻ là"
+                },
+                {
+                  "t": "このへや",
+                  "read": "このへや",
+                  "vi": "căn phòng này (この部屋)"
+                },
+                {
+                  "t": "わすれてかえったようです",
+                  "read": "わすれてかえったようです",
+                  "vi": "quên (làm gì đó) rồi về mất - 〜ようです = có vẻ như, dường như (suy đoán)"
+                }
+              ]
+            },
+            {
+              "prompt": "おさけをのみすぎてしまって、グラスをわってしまいました。",
+              "ul": "わって",
+              "choices": [
+                "割って",
+                "破って",
+                "砕いて",
+                "裂いて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「わって」là 「割って」(làm vỡ — tha động từ 割る), dùng khi ai đó làm vỡ đồ thủy tinh/gốm. Đáp án đúng là 「割って」. ❌「破って」(やぶって) nghĩa là xé rách (giấy, phong bì) hoặc phá vỡ (kỷ lục), không dùng cho ly thủy tinh vỡ. ❌「砕いて」(くだいて) nghĩa là nghiền/đập vụn thành nhiều mảnh (đá, đường), sắc thái mạnh hơn và chủ ý hơn so với vô tình làm vỡ. ❌「裂いて」(さいて) nghĩa là xé toạc (vải, thịt), dùng cho vật liệu mềm, không cho thủy tinh.",
+              "glosses": [
+                {
+                  "t": "おさけ",
+                  "read": "おさけ",
+                  "vi": "rượu sake"
+                },
+                {
+                  "t": "のみすぎてしまって",
+                  "read": "のみすぎてしまって",
+                  "vi": "đã lỡ uống quá nhiều"
+                },
+                {
+                  "t": "グラス",
+                  "vi": "ly thủy tinh"
+                },
+                {
+                  "t": "わってしまいました",
+                  "read": "わってしまいました",
+                  "vi": "đã lỡ làm vỡ"
+                }
+              ]
+            },
+            {
+              "prompt": "じしんで、たなのほんがぜんぶたおれてしまいました。",
+              "ul": "たおれて",
+              "choices": [
+                "倒れて",
+                "崩れて",
+                "転んで",
+                "落ちて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「たおれて」là 「倒れて」(ngã đổ — tự động từ 倒れる), dùng khi vật đứng thẳng bị ngã ngang (sách trên kệ ngã). Đáp án đúng là 「倒れて」. ❌「崩れて」(くずれて) nghĩa là sụp đổ/tan vỡ cấu trúc (tường sụp, đất lở), sắc thái mạnh hơn và toàn bộ cấu trúc tan rã, không phù hợp cho sách ngã. ❌「転んで」(ころんで) nghĩa là ngã (người ngã, vật lăn), thường dùng cho người hoặc vật tròn, không chuẩn cho sách trên kệ. ❌「落ちて」(おちて) nghĩa là rơi xuống (từ trên cao xuống), nhưng 「倒れる」mô tả đúng hơn trạng thái sách trên kệ bị đổ ngang.",
+              "glosses": [
+                {
+                  "t": "じしん",
+                  "read": "じしん",
+                  "vi": "động đất"
+                },
+                {
+                  "t": "たな",
+                  "read": "たな",
+                  "vi": "kệ / giá sách"
+                },
+                {
+                  "t": "たおれてしまいました",
+                  "read": "たおれてしまいました",
+                  "vi": "đã ngã đổ hết (tự động từ)"
+                },
+                {
+                  "t": "ぜんぶ",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "朝起きたら、窓が＿いました。誰かが夜中に開けたのでしょう。",
+              "choices": [
+                "開いて",
+                "閉まって",
+                "割れて",
+                "消えて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về trạng thái kết quả. 「開く」(あく) là tự động từ \"mở ra\", dạng て+いる diễn tả trạng thái cửa sổ đang ở trạng thái mở — chọn 「開いて」. 「閉まって」(しまって) là \"đang đóng\" — ngược nghĩa, vô lý. 「割れて」(われて) là \"đang vỡ\" — đề không nói cửa sổ bị vỡ. 「消えて」(きえて) là \"đã tắt/biến mất\" — dùng cho đèn hoặc hiện tượng biến mất, không dùng cho cửa sổ.",
+              "glosses": [
+                {
+                  "t": "朝起きたら",
+                  "read": "あさおきたら",
+                  "vi": "khi thức dậy buổi sáng"
+                },
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開いて",
+                  "read": "あいて",
+                  "vi": "đang mở (tự động từ, trạng thái mở)"
+                },
+                {
+                  "t": "夜中に",
+                  "read": "よなかに",
+                  "vi": "vào giữa đêm"
+                },
+                {
+                  "t": "開けた",
+                  "read": "あけた",
+                  "vi": "đã mở (tha động từ)"
+                },
+                {
+                  "t": "誰かが",
+                  "read": "だれかが",
+                  "vi": "ai đó (chủ ngữ)"
+                },
+                {
+                  "t": "しょう",
+                  "read": "でしょう",
+                  "vi": "chắc là"
+                },
+                {
+                  "t": "いました",
+                  "read": "いました",
+                  "vi": "〜ていました = đã ở trạng thái ~ (quá khứ của ている, dùng cho tự động từ như 開いている)"
+                }
+              ]
+            },
+            {
+              "stem": "電気を＿のを忘れて、部屋を出てしまいました。",
+              "choices": [
+                "消す",
+                "開ける",
+                "閉める",
+                "割る"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電気を消す」là cụm cố định nghĩa \"tắt đèn\" — tha động từ 「消す」(けす) dùng với điện/lửa/âm thanh. Câu diễn tả lỡ quên tắt đèn. 「開ける」(あける) là \"mở\" — không dùng với đèn. 「閉める」(しめる) là \"đóng\" (cửa, cửa sổ) — không kết hợp với 「電気」. 「割る」(わる) là \"đập vỡ\" — hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "điện / đèn điện"
+                },
+                {
+                  "t": "消す",
+                  "read": "けす",
+                  "vi": "tắt (đèn, lửa…)"
+                },
+                {
+                  "t": "忘れて",
+                  "read": "わすれて",
+                  "vi": "quên mất"
+                },
+                {
+                  "t": "部屋を出て",
+                  "read": "へやをでて",
+                  "vi": "ra khỏi phòng"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ làm (〜てしまう)"
+                }
+              ]
+            },
+            {
+              "stem": "地震で花瓶が棚から落ちて、＿てしまいました。",
+              "choices": [
+                "割れ",
+                "消え",
+                "閉まっ",
+                "開い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bình hoa rơi xuống nên bị vỡ — dùng tự động từ 「割れる」(われる). 「〜てしまいました」diễn tả việc đáng tiếc xảy ra ngoài ý muốn. 「消え」(きえ) là \"biến mất/tắt\" — không áp dụng cho bình hoa. 「閉まっ」(しまっ) là \"đóng lại\" — vô nghĩa khi nói bình hoa rơi. 「開い」(あい) là \"mở ra\" — cũng không hợp với bình hoa.",
+              "glosses": [
+                {
+                  "t": "地震",
+                  "read": "じしん",
+                  "vi": "động đất"
+                },
+                {
+                  "t": "花瓶",
+                  "read": "かびん",
+                  "vi": "bình hoa"
+                },
+                {
+                  "t": "棚から",
+                  "read": "たなから",
+                  "vi": "từ kệ"
+                },
+                {
+                  "t": "落ちて",
+                  "read": "おちて",
+                  "vi": "rơi xuống"
+                },
+                {
+                  "t": "割れ",
+                  "read": "われ",
+                  "vi": "vỡ (tự động từ)"
+                },
+                {
+                  "t": "しま",
+                  "read": "てしまいました",
+                  "vi": "đã trót/lỡ làm... mất (đáng tiếc)"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまう (quá khứ) = đã lỡ/hoàn toàn ~ (tiếc nuối, ngoài ý muốn)"
+                }
+              ]
+            },
+            {
+              "stem": "ドアが＿いて、中に入れませんでした。",
+              "choices": [
+                "閉まっ",
+                "開い",
+                "消え",
+                "割れ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Vì không vào được bên trong nên cửa phải ở trạng thái đóng — dùng tự động từ 「閉まる」(しまる) dạng て+いる. 「開い」(あい) là \"đang mở\" — nếu cửa mở thì vào được, mâu thuẫn với nội dung. 「消え」(きえ) là \"biến mất\" — vô nghĩa với cửa. 「割れ」(われ) là \"vỡ\" — cửa vỡ không liên quan đến việc không vào được.",
+              "glosses": [
+                {
+                  "t": "ドア",
+                  "vi": "cánh cửa"
+                },
+                {
+                  "t": "閉まって",
+                  "read": "しまって",
+                  "vi": "đang đóng (tự động từ, trạng thái đóng)"
+                },
+                {
+                  "t": "中に入れ",
+                  "read": "なかにはいれ",
+                  "vi": "có thể vào bên trong"
+                },
+                {
+                  "t": "ませんでした",
+                  "vi": "đã không thể"
+                }
+              ]
+            },
+            {
+              "stem": "すみません、エアコンを＿てもいいですか。暑いですね。",
+              "choices": [
+                "つけ",
+                "消し",
+                "閉め",
+                "割っ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Trời nóng nên xin phép bật máy điều hòa — tha động từ 「つける」nghĩa \"bật\" (máy, đèn). 「消し」(けし) là \"tắt\" — trời nóng thì không tắt điều hòa. 「閉め」(しめ) là \"đóng\" (cửa, sổ) — không dùng với máy điều hòa. 「割っ」(わっ) là \"đập vỡ\" — hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "エアコン",
+                  "vi": "máy điều hòa"
+                },
+                {
+                  "t": "つけ",
+                  "vi": "bật (máy, đèn…)"
+                },
+                {
+                  "t": "暑いですね",
+                  "read": "あついですね",
+                  "vi": "trời nóng nhỉ"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "てもいいですか",
+                  "read": "てもいいですか",
+                  "vi": "〜てもいいですか = ~ cũng được không? (xin phép)"
+                }
+              ]
+            },
+            {
+              "stem": "窓を＿てください。風が強くて寒いですから。",
+              "choices": [
+                "閉め",
+                "開け",
+                "つけ",
+                "消し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Gió mạnh, trời lạnh → xin đóng cửa sổ lại — tha động từ 「閉める」(しめる). 「開け」(あけ) là \"mở\" — ngược với yêu cầu logic khi trời lạnh. 「つけ」là \"bật\" (điện, máy) — không dùng với cửa sổ. 「消し」(けし) là \"tắt\" — cũng không kết hợp được với 「窓」.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "閉め",
+                  "read": "しめ",
+                  "vi": "đóng (tha động từ)"
+                },
+                {
+                  "t": "風が強くて",
+                  "read": "かぜがつよくて",
+                  "vi": "gió mạnh"
+                },
+                {
+                  "t": "寒いですから",
+                  "read": "さむいですから",
+                  "vi": "vì trời lạnh"
+                },
+                {
+                  "t": "くだ",
+                  "read": "ください",
+                  "vi": "xin hãy làm giúp"
+                }
+              ]
+            },
+            {
+              "stem": "子どもがガラスを＿てしまって、怒られました。",
+              "choices": [
+                "割っ",
+                "消し",
+                "閉め",
+                "つけ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Trẻ em làm vỡ kính → bị mắng — tha động từ 「割る」(わる) nghĩa \"đập vỡ\" (tác động có chủ thể). 「消し」(けし) là \"tắt\" — không dùng với kính. 「閉め」(しめ) là \"đóng\" — không áp dụng cho kính. 「つけ」là \"bật\" — hoàn toàn sai ngữ cảnh việc làm vỡ kính.",
+              "glosses": [
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "ガラス",
+                  "vi": "kính, tấm kính"
+                },
+                {
+                  "t": "割って",
+                  "read": "わって",
+                  "vi": "đập vỡ (tha động từ)"
+                },
+                {
+                  "t": "怒られました",
+                  "read": "おこられました",
+                  "vi": "bị mắng"
+                },
+                {
+                  "t": "しま",
+                  "read": "てしまって",
+                  "vi": "đã trót làm... mất rồi"
+                }
+              ]
+            },
+            {
+              "stem": "会議が終わったら、プロジェクターの電源を＿てください。",
+              "choices": [
+                "消し",
+                "つけ",
+                "開け",
+                "割っ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Sau cuộc họp thì tắt máy chiếu — 「電源を消す」là \"tắt nguồn\". 「つけ」là \"bật\" — họp xong mà bật là ngược lại. 「開け」(あけ) là \"mở\" — không dùng với nguồn điện. 「割っ」(わっ) là \"đập vỡ\" — sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "プロジェクター",
+                  "vi": "máy chiếu"
+                },
+                {
+                  "t": "電源",
+                  "read": "でんげん",
+                  "vi": "nguồn điện"
+                },
+                {
+                  "t": "消し",
+                  "read": "けし",
+                  "vi": "tắt"
+                },
+                {
+                  "t": "終わったら",
+                  "read": "おわったら",
+                  "vi": "khi kết thúc thì"
+                },
+                {
+                  "t": "くだ",
+                  "read": "ください",
+                  "vi": "xin hãy làm giúp"
+                }
+              ]
+            },
+            {
+              "stem": "鍵を忘れて、ドアが＿てしまって困りました。",
+              "choices": [
+                "閉まっ",
+                "開い",
+                "割れ",
+                "消え"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Quên chìa khóa, cửa đã đóng lại nên khổ sở — tự động từ 「閉まる」diễn tả cửa ở trạng thái đóng (tự đóng, không phải ai đóng). 「開い」(あい) là \"đang mở\" — nếu cửa mở thì không khổ sở. 「割れ」(われ) là \"vỡ\" — cửa vỡ là trường hợp khác. 「消え」(きえ) là \"biến mất\" — không hợp với cửa.",
+              "glosses": [
+                {
+                  "t": "鍵を忘れて",
+                  "read": "かぎをわすれて",
+                  "vi": "quên chìa khóa"
+                },
+                {
+                  "t": "閉まって",
+                  "read": "しまって",
+                  "vi": "đóng lại (tự động từ)"
+                },
+                {
+                  "t": "困りました",
+                  "read": "こまりました",
+                  "vi": "đã khổ sở, bối rối"
+                },
+                {
+                  "t": "ドア",
+                  "read": "ドア",
+                  "vi": "cửa"
+                },
+                {
+                  "t": "しま",
+                  "read": "てしまって",
+                  "vi": "đã trót... mất"
+                }
+              ]
+            },
+            {
+              "stem": "この機械は古くて、よく＿てしまいます。",
+              "choices": [
+                "壊れ",
+                "閉まっ",
+                "開い",
+                "消え"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Máy cũ nên hay bị hỏng — tự động từ 「壊れる」(こわれる) nghĩa \"hỏng, bị hư\" (không chủ ý). 「閉まっ」(しまっ) là \"đóng lại\" — không diễn tả máy bị hỏng. 「開い」(あい) là \"mở ra\" — không áp dụng. 「消え」(きえ) là \"biến mất\" — có thể gần nghĩa nhưng 「壊れる」mới đúng với máy móc bị hư hỏng.",
+              "glosses": [
+                {
+                  "t": "機械",
+                  "read": "きかい",
+                  "vi": "máy móc"
+                },
+                {
+                  "t": "古くて",
+                  "read": "ふるくて",
+                  "vi": "vì cũ"
+                },
+                {
+                  "t": "壊れ",
+                  "read": "こわれ",
+                  "vi": "hỏng, bị hỏng (tự động từ)"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "hay, thường xuyên"
+                },
+                {
+                  "t": "しま",
+                  "read": "てしまいます",
+                  "vi": "lại bị/trót... mất"
+                },
+                {
+                  "t": "てしまいます",
+                  "read": "てしまいます",
+                  "vi": "〜てしまう (hiện tại/thói quen) = thường/dễ bị ~ (ngoài ý muốn)"
+                }
+              ]
+            },
+            {
+              "stem": "誰かがテレビを＿てくれたので、部屋が静かになりました。",
+              "choices": [
+                "消し",
+                "つけ",
+                "開け",
+                "閉め"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Phòng trở nên yên tĩnh → ai đó đã tắt tivi — 「消す」(けす) tắt âm thanh/hình ảnh. 「つけ」là \"bật\" — bật tivi thì phòng ồn hơn, mâu thuẫn. 「開け」(あけ) là \"mở\" — không dùng với tivi. 「閉め」(しめ) là \"đóng\" — cũng không kết hợp với tivi.",
+              "glosses": [
+                {
+                  "t": "テレビ",
+                  "vi": "tivi"
+                },
+                {
+                  "t": "消して",
+                  "read": "けして",
+                  "vi": "tắt đi"
+                },
+                {
+                  "t": "くれたので",
+                  "vi": "vì ai đó đã làm cho mình"
+                },
+                {
+                  "t": "静かになりました",
+                  "read": "しずかになりました",
+                  "vi": "đã trở nên yên tĩnh"
+                },
+                {
+                  "t": "誰かがテレビを",
+                  "read": "だれかがテレビを",
+                  "vi": "ai đó (làm gì đó với) ti vi"
+                },
+                {
+                  "t": "部屋が",
+                  "read": "へやが",
+                  "vi": "căn phòng (chủ ngữ)"
+                },
+                {
+                  "t": "てく",
+                  "read": "てくれた",
+                  "vi": "đã làm giúp (cho mình)"
+                }
+              ]
+            },
+            {
+              "stem": "引き出しを＿たまま、出かけてしまいました。",
+              "choices": [
+                "開け",
+                "閉め",
+                "壊し",
+                "消し"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「開けたまま出かける」nghĩa \"ra ngoài mà để ngăn kéo mở\" — tha động từ 「開ける」(あける). 「閉め」(しめ) là \"đóng\" — đóng ngăn kéo rồi ra ngoài là bình thường, không đáng tiếc. 「壊し」(こわし) là \"phá hỏng\" — quá mức với ngăn kéo. 「消し」(けし) là \"tắt\" — không dùng với ngăn kéo.",
+              "glosses": [
+                {
+                  "t": "引き出し",
+                  "read": "ひきだし",
+                  "vi": "ngăn kéo"
+                },
+                {
+                  "t": "開けた",
+                  "read": "あけた",
+                  "vi": "đã mở (tha động từ)"
+                },
+                {
+                  "t": "〜たまま",
+                  "vi": "để nguyên trạng thái đó"
+                },
+                {
+                  "t": "出かけて",
+                  "read": "でかけて",
+                  "vi": "ra ngoài"
+                },
+                {
+                  "t": "しま",
+                  "read": "てしまいました",
+                  "vi": "đã trót làm... mất"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまう (quá khứ) = đã lỡ/hoàn toàn ~ (tiếc nuối)"
+                }
+              ]
+            },
+            {
+              "stem": "大切なファイルを誤って＿てしまいました。",
+              "choices": [
+                "消し",
+                "閉め",
+                "開け",
+                "割っ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Sơ ý xóa mất tệp quan trọng — 「消す」(けす) trong ngữ cảnh dữ liệu nghĩa \"xóa/xóa mất\". 「閉め」(しめ) là \"đóng\" — đóng file không gây mất dữ liệu. 「開け」(あけ) là \"mở\" — mở file không phải vấn đề. 「割っ」(わっ) là \"đập vỡ\" — không dùng với tệp tin.",
+              "glosses": [
+                {
+                  "t": "大切な",
+                  "read": "たいせつな",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "ファイル",
+                  "vi": "tệp tin, hồ sơ"
+                },
+                {
+                  "t": "誤って",
+                  "read": "あやまって",
+                  "vi": "nhầm lẫn, sơ ý"
+                },
+                {
+                  "t": "消して",
+                  "read": "けして",
+                  "vi": "xóa đi, tắt đi"
+                },
+                {
+                  "t": "しま",
+                  "read": "てしまいました",
+                  "vi": "đã trót làm... mất"
+                },
+                {
+                  "t": "てしまいました",
+                  "read": "てしまいました",
+                  "vi": "〜てしまう (quá khứ) = đã lỡ làm ~ (tiếc nuối, sai sót)"
+                }
+              ]
+            },
+            {
+              "stem": "昨日、自転車が＿てしまって、修理に出しました。",
+              "choices": [
+                "壊れ",
+                "割れ",
+                "消え",
+                "閉まっ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Xe đạp hỏng nên đem sửa — tự động từ 「壊れる」(こわれる) dùng cho đồ vật bị hư hỏng (cơ học). 「割れ」(われ) là \"vỡ\" — thường dùng cho vật bằng kính/gốm, không phải xe đạp. 「消え」(きえ) là \"biến mất\" — xe đạp không biến mất. 「閉まっ」(しまっ) là \"đóng\" — không áp dụng cho xe đạp.",
+              "glosses": [
+                {
+                  "t": "自転車",
+                  "read": "じてんしゃ",
+                  "vi": "xe đạp"
+                },
+                {
+                  "t": "壊れて",
+                  "read": "こわれて",
+                  "vi": "bị hỏng (tự động từ)"
+                },
+                {
+                  "t": "修理に出しました",
+                  "read": "しゅうりにだしました",
+                  "vi": "đã đem đi sửa"
+                },
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "って",
+                  "read": "てしまって",
+                  "vi": "đã bị... mất (đáng tiếc)"
+                },
+                {
+                  "t": "てしまって",
+                  "read": "てしまって",
+                  "vi": "〜てしまって = (dạng て nối câu của てしまう) đã lỡ ~, rồi..."
+                }
+              ]
+            },
+            {
+              "stem": "夜遅く帰ったら、家の電気が全部＿ていました。みんな寝ていたようです。",
+              "choices": [
+                "消え",
+                "開い",
+                "割れ",
+                "壊れ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Về muộn, đèn trong nhà đều tắt (tự động từ 「消える」diễn tả trạng thái đèn không sáng) — mọi người đã ngủ. 「開い」(あい) là \"mở\" — không dùng với đèn. 「割れ」(われ) là \"vỡ\" — đèn không vỡ. 「壊れ」(こわれ) là \"hỏng\" — nếu dùng 「壊れている」ngụ ý đèn bị hư, không phải đơn giản là tắt.",
+              "glosses": [
+                {
+                  "t": "夜遅く",
+                  "read": "よるおそく",
+                  "vi": "tối muộn"
+                },
+                {
+                  "t": "帰ったら",
+                  "read": "かえったら",
+                  "vi": "khi về đến nhà"
+                },
+                {
+                  "t": "電気が全部",
+                  "read": "でんきがぜんぶ",
+                  "vi": "toàn bộ đèn"
+                },
+                {
+                  "t": "消えて",
+                  "read": "きえて",
+                  "vi": "đã tắt (tự động từ, trạng thái tắt)"
+                },
+                {
+                  "t": "寝ていた",
+                  "read": "ねていた",
+                  "vi": "đang ngủ"
+                },
+                {
+                  "t": "家の",
+                  "read": "いえの",
+                  "vi": "của nhà, trong nhà"
+                },
+                {
+                  "t": "みんな",
+                  "read": "みんな",
+                  "vi": "mọi người"
+                },
+                {
+                  "t": "よう",
+                  "read": "ようです",
+                  "vi": "có vẻ là"
+                },
+                {
+                  "t": "ていました",
+                  "read": "ていました",
+                  "vi": "〜ていました = đã đang ở trạng thái ~ (quá khứ của ている)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "ドアが開いています。",
+              "choices": [
+                "だれかがドアを開けました。",
+                "ドアはずっと閉まっていました。",
+                "だれかがドアを閉めてしまいました。",
+                "ドアを開けてもらいました。"
+              ],
+              "answer": 0,
+              "pt": "自動詞+Vています(結果状態)",
+              "explain": "「開いています」là 自動詞「開く」ở dạng Vています biểu thị trạng thái kết quả — cánh cửa đang ở trạng thái mở. Phương án A: 「だれかがドアを開けました」dùng 他動詞「開ける」+ chủ thể người, gần nghĩa nhất vì ai đó đã mở nên cửa mới đang mở — đây là câu đúng. Phương án B: 「閉まっていました」là trạng thái đóng, nghĩa ngược lại. Phương án C: 「閉めてしまいました」dùng 他動詞「閉める」+ Vてしまいました nghĩa 'đã lỡ đóng', nghĩa ngược + thêm sắc thái hối tiếc. Phương án D: 「開けてもらいました」(B24) nghĩa 'được nhờ mở', không phản ánh trạng thái hiện tại.",
+              "glosses": [
+                {
+                  "t": "ドア",
+                  "vi": "cái cửa"
+                },
+                {
+                  "t": "開いて",
+                  "read": "あいて",
+                  "vi": "mở (tự động từ 開く)"
+                },
+                {
+                  "t": "います",
+                  "vi": "đang ở trạng thái (結果状態)"
+                },
+                {
+                  "t": "だれか",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "ずっと",
+                  "read": "ずっと",
+                  "vi": "luôn, mãi, suốt khoảng thời gian đó"
+                },
+                {
+                  "t": "てい",
+                  "read": "開いています",
+                  "vi": "đang mở (trạng thái)"
+                },
+                {
+                  "t": "開けました",
+                  "read": "あけました",
+                  "vi": "đã mở (tha động từ 開ける, thì quá khứ)"
+                },
+                {
+                  "t": "閉めてしまいました",
+                  "read": "しめてしまいました",
+                  "vi": "〜てしまう = đã đóng mất (tha động từ 閉める)"
+                },
+                {
+                  "t": "開けてもらいました",
+                  "read": "あけてもらいました",
+                  "vi": "〜てもらう = được (ai đó) mở giúp cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "電気がついています。",
+              "choices": [
+                "電気は今もついたままですか。",
+                "電気をつけてくれましたか。",
+                "電気をつけてしまいましたね。",
+                "電気はつきやすいですね。"
+              ],
+              "answer": 0,
+              "pt": "自動詞+Vています(結果状態)",
+              "explain": "「ついています」— 自動詞「つく」+ Vています = đèn đang ở trạng thái bật. Phương án A: 「つけたままですか」(B22 mệnh đề bổ nghĩa N) diễn đạt trạng thái 'vẫn đang bật', gần nghĩa nhất. Phương án B: 「つけてくれましたか」(B24 Vてくれます) hỏi 'ai đã bật cho mình', tập trung vào hành động người khác chứ không phải trạng thái. Phương án C: 「つけてしまいました」— đã lỡ bật, có sắc thái hối tiếc, không phải trạng thái đang bật. Phương án D: 「つきやすい」(B28 Vやすい) = 'dễ bật', khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "điện, đèn"
+                },
+                {
+                  "t": "ついて",
+                  "read": "ついて",
+                  "vi": "bật sáng (tự động từ つく — kết quả)"
+                },
+                {
+                  "t": "います",
+                  "vi": "đang ở trạng thái"
+                },
+                {
+                  "t": "てい",
+                  "read": "ついています",
+                  "vi": "đang bật, đang sáng (đèn)"
+                },
+                {
+                  "t": "今もついたままですか",
+                  "read": "いまもついたままですか",
+                  "vi": "〜たまま = vẫn giữ nguyên trạng thái đã ~, ...ですか hỏi xác nhận"
+                },
+                {
+                  "t": "をつけてくれましたか",
+                  "read": "をつけてくれましたか",
+                  "vi": "〜てくれる = (ai đó) đã bật giúp cho (mình) à?"
+                },
+                {
+                  "t": "をつけてしまいましたね",
+                  "read": "をつけてしまいましたね",
+                  "vi": "〜てしまう = đã lỡ bật mất nhỉ"
+                },
+                {
+                  "t": "はつきやすいですね",
+                  "read": "はつきやすいですね",
+                  "vi": "〜やすい = dễ bật/dễ sáng nhỉ"
+                }
+              ]
+            },
+            {
+              "prompt": "財布を電車の中に忘れてしまいました。",
+              "choices": [
+                "電車の中に財布を置き忘れてしまったんです。",
+                "電車の中で財布を見てもらいました。",
+                "電車の中で財布を忘れないでください。",
+                "電車の中に財布を置いてあげました。"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました(已完了+後悔)",
+              "explain": "「忘れてしまいました」= đã trót quên (Vてしまいました biểu thị hành động hoàn thành ngoài ý muốn, kèm sắc thái hối tiếc). Phương án A: 「置き忘れてしまったんです」(B26 〜んです để giải thích) + 「置き忘れてしまった」= đã lỡ bỏ quên → gần nghĩa nhất. Phương án B: 「見てもらいました」(B24) = 'được nhờ xem', không liên quan đến việc quên. Phương án C: 「忘れないでください」(B17 Vないでください) = 'xin đừng quên', là lời khuyên, không phải tường thuật sự việc đã xảy ra. Phương án D: 「置いてあげました」(B24 Vてあげます) = 'đã để lại cho ai', sắc thái ban ơn, nghĩa khác hẳn.",
+              "glosses": [
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "電車の中に",
+                  "read": "でんしゃのなかに",
+                  "vi": "trong xe lửa"
+                },
+                {
+                  "t": "忘れて",
+                  "read": "わすれて",
+                  "vi": "quên (đã lỡ quên)"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã trót làm (hoàn thành + hối tiếc)"
+                },
+                {
+                  "t": "置き忘れてしまったんです",
+                  "read": "おきわすれてしまったんです",
+                  "vi": "置き忘れる (để quên) + 〜てしまったんです = đã lỡ để quên mất (giải thích lý do)"
+                },
+                {
+                  "t": "見てもらいました",
+                  "read": "みてもらいました",
+                  "vi": "〜てもらう = được (ai đó) tìm/xem giúp cho"
+                },
+                {
+                  "t": "忘れないでください",
+                  "read": "わすれないでください",
+                  "vi": "〜ないでください = xin đừng ~"
+                },
+                {
+                  "t": "置いてあげました",
+                  "read": "おいてあげました",
+                  "vi": "〜てあげる = để giúp (cho người khác)"
+                }
+              ]
+            },
+            {
+              "prompt": "窓が開いています。寒いですね。",
+              "choices": [
+                "窓が開けてあります。寒いですね。",
+                "窓を開けています。寒いですね。",
+                "窓が閉まっています。寒いですね。",
+                "窓を開けてくれました。寒いですね。"
+              ],
+              "answer": 0,
+              "pt": "自動詞+Vています(結果状態)",
+              "explain": "「窓が開いています」— 自動詞「開く」+ Vています: cửa sổ đang ở trạng thái mở, nên lạnh. Phương án A: 「開けてあります」(B24-mở rộng, Vてある) cũng diễn đạt trạng thái sau hành động cố ý — gần nghĩa nhất, cả hai đều mô tả trạng thái mở. Phương án B: 「窓を開けています」dùng 他動詞「開ける」+ chủ thể (ai đó) đang tiến hành mở, không phải trạng thái kết quả. Phương án C: 「閉まっています」= cửa sổ đang đóng — nghĩa ngược. Phương án D: 「開けてくれました」(B24) = ai đó đã mở cho mình, tập trung vào ân huệ.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開いています",
+                  "read": "あいています",
+                  "vi": "đang mở (trạng thái, tự động từ)"
+                },
+                {
+                  "t": "寒い",
+                  "read": "さむい",
+                  "vi": "lạnh"
+                },
+                {
+                  "t": "開けてあります",
+                  "read": "あけてあります",
+                  "vi": "〜てある = đã được mở sẵn (trạng thái do ai đó cố ý làm, còn lưu kết quả)"
+                },
+                {
+                  "t": "開けています",
+                  "read": "あけています",
+                  "vi": "〜ている (tha động từ) = đang mở / đã mở và giữ trạng thái"
+                },
+                {
+                  "t": "閉まっています",
+                  "read": "しまっています",
+                  "vi": "〜ている (tự động từ 閉まる) = đang ở trạng thái đóng"
+                },
+                {
+                  "t": "開けてくれました",
+                  "read": "あけてくれました",
+                  "vi": "〜てくれる = (ai đó) đã mở giúp cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "宿題を全部やってしまいました。",
+              "choices": [
+                "宿題はもう全部終わりました。",
+                "宿題を全部やらなければなりませんでした。",
+                "宿題を全部やってもらいました。",
+                "宿題を全部やらないでしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました(完了・すっきり)",
+              "explain": "「やってしまいました」ở đây mang nghĩa hoàn thành dứt điểm (すっきり感), không nhất thiết có hối tiếc. Phương án A: 「全部終わりました」(B19 Aくなります gần nghĩa) = 'đã xong hết' — gần nghĩa nhất, cùng nghĩa hoàn thành. Phương án B: 「やらなければなりませんでした」(B17) = 'đã phải làm', nói về nghĩa vụ quá khứ, không phải hoàn thành. Phương án C: 「やってもらいました」(B24) = 'được nhờ người khác làm cho', nghĩa hoàn toàn khác. Phương án D: 「やらないでしまいました」sai ngữ pháp — 「しまう」không kết hợp trực tiếp với Vないで.",
+              "glosses": [
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "やってしまいました",
+                  "vi": "đã làm xong hết rồi (hoàn thành dứt điểm)"
+                },
+                {
+                  "t": "はもう全部終わりました",
+                  "read": "はもうぜんぶおわりました",
+                  "vi": "もう〜終わる = đã xong hết ~ rồi"
+                },
+                {
+                  "t": "やらなければなりませんでした",
+                  "read": "やらなければなりませんでした",
+                  "vi": "〜なければなりません (quá khứ) = đã phải làm ~"
+                },
+                {
+                  "t": "やってもらいました",
+                  "read": "やってもらいました",
+                  "vi": "〜てもらう = được (ai) làm giúp cho"
+                },
+                {
+                  "t": "やらないでしまいました",
+                  "read": "やらないでしまいました",
+                  "vi": "kết hợp không tự nhiên của 〜ないで + しまう - không làm mà (kết thúc), thường là đáp án nhiễu/sai"
+                }
+              ]
+            },
+            {
+              "prompt": "ケーキを子どもが全部食べてしまいました。",
+              "choices": [
+                "子どもがケーキを全部食べてしまったんです。",
+                "子どもはケーキを全部食べることができました。",
+                "子どもにケーキを全部食べさせました。",
+                "子どもがケーキを食べながら泣いていました。"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました(遺憾・後悔)",
+              "explain": "「食べてしまいました」= đứa trẻ đã lỡ ăn hết bánh (sắc thái tiếc nuối của người nói). Phương án A: 「食べてしまったんです」(B26 〜んです) = 'đã ăn hết rồi đấy' — dùng んです để giải thích, nghĩa gần nhất. Phương án B: 「食べることができました」(B18 Vることができます) = 'đã có thể ăn được', nhấn mạnh khả năng, không có sắc thái tiếc. Phương án C: 「食べさせました」= 'đã bắt/cho ăn' (使役形, chưa học ở B29) — hoàn toàn sai nghĩa. Phương án D: 「食べながら泣いていました」(B28 V1ながらV2) = 'vừa ăn vừa khóc', hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh ngọt"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "đứa trẻ"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "食べてしまいました",
+                  "read": "たべてしまいました",
+                  "vi": "đã ăn hết (đáng tiếc)"
+                },
+                {
+                  "t": "泣いていました",
+                  "read": "ないていました",
+                  "vi": "đã khóc, lúc đó đang khóc"
+                },
+                {
+                  "t": "全部食べてしまいました",
+                  "read": "ぜんぶたべてしまいました",
+                  "vi": "đã ăn hết sạch mất rồi"
+                },
+                {
+                  "t": "食べてしまったんです",
+                  "read": "たべてしまったんです",
+                  "vi": "〜てしまったんです = đã lỡ ăn hết mất rồi (giải thích lý do)"
+                },
+                {
+                  "t": "食べることができました",
+                  "read": "たべることができました",
+                  "vi": "〜ことができる (quá khứ) = đã có thể ăn được"
+                },
+                {
+                  "t": "食べさせました",
+                  "read": "たべさせました",
+                  "vi": "〜させる = khiến/cho (ai đó) ăn (thể sai khiến)"
+                },
+                {
+                  "t": "食べながら",
+                  "read": "たべながら",
+                  "vi": "〜ながら = vừa ăn vừa ~"
+                }
+              ]
+            },
+            {
+              "prompt": "彼女は毎朝ジョギングをしています。",
+              "choices": [
+                "彼女は毎朝ジョギングをする習慣があります。",
+                "彼女は毎朝ジョギングをしてもいいですか。",
+                "彼女は毎朝ジョギングをしたことがあります。",
+                "彼女は毎朝ジョギングをしやすいです。"
+              ],
+              "answer": 0,
+              "pt": "Vています(習慣) — B28",
+              "explain": "「しています」với phó từ「毎朝」biểu thị thói quen (習慣) — B28. Phương án A: 「する習慣があります」= 'có thói quen chạy bộ' — nghĩa gần nhất, cùng diễn đạt thói quen. Phương án B: 「してもいいですか」(B15) = 'tôi có thể chạy bộ không?', xin phép, sai nghĩa. Phương án C: 「したことがあります」(B19) = 'đã từng chạy bộ', kinh nghiệm quá khứ, khác nghĩa. Phương án D: 「しやすい」(B28 Vやすい) = 'dễ chạy bộ', tính dễ dàng, không phải thói quen.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "ジョギングをしています",
+                  "vi": "đang có thói quen chạy bộ (習慣)"
+                },
+                {
+                  "t": "ジョギングをする習慣があります",
+                  "read": "ジョギングをするしゅうかんがあります",
+                  "vi": "〜する習慣がある = có thói quen làm ~"
+                },
+                {
+                  "t": "ジョギングをしてもいいですか",
+                  "read": "ジョギングをしてもいいですか",
+                  "vi": "〜てもいいですか = làm ~ cũng được không? (xin phép)"
+                },
+                {
+                  "t": "ジョギングをしたことがあります",
+                  "read": "ジョギングをしたことがあります",
+                  "vi": "〜たことがある = đã từng làm ~"
+                },
+                {
+                  "t": "ジョギングをしやすいです",
+                  "read": "ジョギングをしやすいです",
+                  "vi": "〜やすい = dễ làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "この部屋の電気が消えています。",
+              "choices": [
+                "この部屋は暗くなっています。",
+                "この部屋の電気を消してしまいました。",
+                "この部屋の電気が消えてもいいですか。",
+                "この部屋の電気を消してくれましたか。"
+              ],
+              "answer": 0,
+              "pt": "自動詞+Vています(結果状態)",
+              "explain": "「消えています」— 自動詞「消える」+ Vています: đèn đang ở trạng thái tắt. Phương án A: 「暗くなっています」(B19 Aくなります + Vています) = 'đang trở nên/đã trở nên tối', gần nghĩa nhất vì đèn tắt → phòng tối. Phương án B: 「消してしまいました」dùng 他動詞「消す」+ てしまいました = 'đã lỡ tắt đi', nhấn mạnh hành động người tắt + hối tiếc, không mô tả trạng thái hiện tại. Phương án C: 「消えてもいいですか」(B15) = 'có được phép tắt không?', xin phép, sai hoàn toàn. Phương án D: 「消してくれましたか」(B24) = 'đã tắt cho mình chưa?', hỏi ân huệ.",
+              "glosses": [
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện"
+                },
+                {
+                  "t": "消えています",
+                  "read": "きえています",
+                  "vi": "đang tắt (trạng thái, tự động từ 消える)"
+                },
+                {
+                  "t": "暗くなっています",
+                  "read": "くらくなっています",
+                  "vi": "〜くなる+ている = đã trở nên (tối) và đang duy trì trạng thái đó"
+                },
+                {
+                  "t": "消してしまいました",
+                  "read": "けしてしまいました",
+                  "vi": "〜てしまう = đã tắt mất (tha động từ 消す)"
+                },
+                {
+                  "t": "消えてもいいですか",
+                  "read": "きえてもいいですか",
+                  "vi": "〜てもいいですか = ~ (tắt) cũng được chứ?"
+                },
+                {
+                  "t": "消してくれましたか",
+                  "read": "けしてくれましたか",
+                  "vi": "〜てくれる = (ai đó) đã tắt giúp cho mình à?"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんに送ったメールがまちがえて消えてしまいました。",
+              "choices": [
+                "田中さんへ送ったメールがうっかり消えてしまったんです。",
+                "田中さんに送るメールはまだ消えていませんでした。",
+                "田中さんへのメールは消えないで送れました。",
+                "田中さんにメールを消してもらいました。"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました(遺憾) + B22 Vた+N",
+              "explain": "Câu gốc kết hợp B22 (「送った」bổ nghĩa cho「メール」) và B29 (「消えてしまいました」— 自動詞 + Vてしまいました = lỡ mất ngoài ý muốn). Phương án A: 「うっかり消えてしまったんです」(B26 〜んです) = 'đã lỡ bị xóa rồi đấy (do sơ ý)' — gần nghĩa nhất. Phương án B: 「消えていませんでした」= 'chưa từng bị xóa', phủ định trạng thái quá khứ, sai nghĩa. Phương án C: 「消えないで送れました」(B23 Vないで) = 'đã gửi được mà không bị xóa', trái nghĩa. Phương án D: 「消してもらいました」(B24) = 'được nhờ xóa', cố ý xóa, sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "田中さんに送った",
+                  "read": "たなかさんにおくった",
+                  "vi": "đã gửi cho Tanaka (mệnh đề bổ nghĩa N, B22)"
+                },
+                {
+                  "t": "メール",
+                  "vi": "email"
+                },
+                {
+                  "t": "まちがえて",
+                  "read": "まちがえて",
+                  "vi": "do nhầm lẫn"
+                },
+                {
+                  "t": "消えてしまいました",
+                  "read": "きえてしまいました",
+                  "vi": "đã lỡ bị xóa mất (自動詞+てしまいました)"
+                },
+                {
+                  "t": "がうっかり消えてしまったんです",
+                  "read": "がうっかりきえてしまったんです",
+                  "vi": "うっかり (vô tình, lỡ) + 〜てしまったんです = đã vô tình biến mất (giải thích lý do)"
+                },
+                {
+                  "t": "はまだ消えていませんでした",
+                  "read": "はまだきえていませんでした",
+                  "vi": "まだ〜ていませんでした = vẫn chưa ~ (phủ định tiếp diễn quá khứ)"
+                },
+                {
+                  "t": "消えないで送れました",
+                  "read": "きえないでおくれました",
+                  "vi": "〜ないで = không (bị) ~ mà; 送れる (thể khả năng của 送る) = đã có thể gửi (không bị mất)"
+                },
+                {
+                  "t": "消してもらいました",
+                  "read": "けしてもらいました",
+                  "vi": "〜てもらう = được (ai) xóa giúp cho"
+                }
+              ]
+            },
+            {
+              "prompt": "鍵を家に忘れてしまい、入ることができませんでした。",
+              "choices": [
+                "鍵を家に置いてきたので、入れませんでした。",
+                "鍵を忘れたら、入ることができます。",
+                "鍵がなくても、入ることができました。",
+                "鍵を家に置いてもらったので、入れました。"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました(後悔) + B18 Vることができます",
+              "explain": "「忘れてしまい」là dạng trung gian (てしまい) nối hai vế: đã lỡ quên chìa khóa → không thể vào được. Phương án A: 「置いてきたので、入れませんでした」(B27 可能形 phủ định) = 'vì bỏ lại nên không vào được' — gần nghĩa nhất, cùng nguyên nhân-kết quả. Phương án B: 「忘れたら、入ることができます」(B25 Vたら) = 'nếu quên thì vào được', nghĩa ngược lại. Phương án C: 「なくても、入ることができました」(B25 Vても) = 'dù không có vẫn vào được', trái nghĩa. Phương án D: 「置いてもらったので、入れました」(B24) = 'được nhờ đặt lại nên vào được', nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "鍵",
+                  "read": "かぎ",
+                  "vi": "chìa khóa"
+                },
+                {
+                  "t": "忘れてしまい",
+                  "read": "わすれてしまい",
+                  "vi": "đã lỡ quên (てしまい = dạng trung gian nối câu)"
+                },
+                {
+                  "t": "入ることができませんでした",
+                  "read": "はいることができませんでした",
+                  "vi": "đã không thể vào được (B18 phủ định quá khứ)"
+                },
+                {
+                  "t": "家に",
+                  "read": "いえに",
+                  "vi": "về nhà, ở nhà"
+                },
+                {
+                  "t": "置いてきたので",
+                  "read": "おいてきたので",
+                  "vi": "〜てくる = làm rồi mới đến (đã để lại rồi mới đi) + ので = vì nên"
+                },
+                {
+                  "t": "入れませんでした",
+                  "read": "はいれませんでした",
+                  "vi": "入れる (thể khả năng của 入る, phủ định quá khứ) = đã không thể vào được"
+                },
+                {
+                  "t": "忘れたら",
+                  "read": "わすれたら",
+                  "vi": "〜たら = nếu/khi đã ~ thì"
+                },
+                {
+                  "t": "入ることができます",
+                  "read": "はいることができます",
+                  "vi": "〜ことができる = có thể làm ~ (hiện tại)"
+                },
+                {
+                  "t": "鍵がなくても",
+                  "read": "かぎがなくても",
+                  "vi": "〜なくても = dù không có ~ cũng"
+                },
+                {
+                  "t": "入ることができました",
+                  "read": "はいることができました",
+                  "vi": "〜ことができました = đã có thể làm ~ (quá khứ)"
+                },
+                {
+                  "t": "置いてもらったので",
+                  "read": "おいてもらったので",
+                  "vi": "〜てもらう (quá khứ) + ので = vì được (ai) để giúp cho nên"
+                },
+                {
+                  "t": "入れました",
+                  "read": "はいれました",
+                  "vi": "入れる (thể khả năng của 入る, quá khứ) = đã có thể vào được"
+                }
+              ]
+            },
+            {
+              "prompt": "音楽を聴きながら、本を読んでいます。",
+              "choices": [
+                "音楽を聴きながら、勉強するのが好きです。",
+                "音楽を聴いてから、本を読みました。",
+                "音楽を聴いたとき、本を読みます。",
+                "音楽を聴かないで、本を読んでいます。"
+              ],
+              "answer": 0,
+              "pt": "V1stemながらV2 — B28",
+              "explain": "「聴きながら」(B28) = vừa nghe nhạc vừa đọc sách, hai hành động đồng thời. Phương án A: 「聴きながら、勉強するのが好き」cũng dùng ながら, diễn đạt thói quen/sở thích vừa nghe vừa học — gần nghĩa nhất (cùng cấu trúc ながら). Phương án B: 「聴いてから」(B16 Vてから) = 'sau khi nghe rồi mới đọc', tuần tự chứ không đồng thời. Phương án C: 「聴いたとき」(B23 Vたとき) = 'khi đã nghe', thời điểm, không đồng thời. Phương án D: 「聴かないで」(B23 Vないで) = 'mà không nghe nhạc', nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "音楽を聴き",
+                  "read": "おんがくをきき",
+                  "vi": "nghe nhạc (stem của 聴く)"
+                },
+                {
+                  "t": "ながら",
+                  "vi": "vừa … vừa …"
+                },
+                {
+                  "t": "本を読んでいます",
+                  "read": "ほんをよんでいます",
+                  "vi": "đang đọc sách"
+                },
+                {
+                  "t": "勉強するのが",
+                  "read": "べんきょうするのが",
+                  "vi": "việc học, chuyện học"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "聴いてから",
+                  "read": "きいてから",
+                  "vi": "〜てから = sau khi làm ~"
+                },
+                {
+                  "t": "読みました",
+                  "read": "よみました",
+                  "vi": "đã đọc (読む, thì quá khứ)"
+                },
+                {
+                  "t": "聴いたとき",
+                  "read": "きいたとき",
+                  "vi": "〜たとき = khi đã ~ (mốc thời gian)"
+                },
+                {
+                  "t": "読みます",
+                  "read": "よみます",
+                  "vi": "đọc (thì hiện tại/tương lai)"
+                },
+                {
+                  "t": "聴かないで",
+                  "read": "きかないで",
+                  "vi": "〜ないで = không làm ~ mà (làm việc khác)"
+                }
+              ]
+            },
+            {
+              "prompt": "このペンは書きやすいですね。インクがよく出ます。",
+              "choices": [
+                "このペンはとても使いやすいですね。",
+                "このペンは書くことができますね。",
+                "このペンで書いてしまいましたね。",
+                "このペンは書きにくいですね。"
+              ],
+              "answer": 0,
+              "pt": "Vやすい — B28",
+              "explain": "「書きやすい」(B28) = dễ viết, vì mực ra đều. Phương án A: 「使いやすい」(B28) = 'dễ dùng' — cũng dùng Vやすい, gần nghĩa nhất (bút dễ viết → dễ dùng). Phương án B: 「書くことができます」(B18) = 'có thể viết được', nói về khả năng chứ không phải tính dễ dàng. Phương án C: 「書いてしまいました」= 'đã lỡ viết', sắc thái hối tiếc, sai nghĩa. Phương án D: 「書きにくい」(B28 Vにくい) = 'khó viết', nghĩa đối lập.",
+              "glosses": [
+                {
+                  "t": "ペン",
+                  "vi": "bút"
+                },
+                {
+                  "t": "書きやすい",
+                  "read": "かきやすい",
+                  "vi": "dễ viết (B28 Vやすい)"
+                },
+                {
+                  "t": "インク",
+                  "vi": "mực"
+                },
+                {
+                  "t": "よく出ます",
+                  "read": "よくでます",
+                  "vi": "chảy ra tốt"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "使いやすいですね",
+                  "read": "つかいやすいですね",
+                  "vi": "〜やすい = dễ dùng nhỉ"
+                },
+                {
+                  "t": "書くことができますね",
+                  "read": "かくことができますね",
+                  "vi": "〜ことができる = có thể viết được nhỉ"
+                },
+                {
+                  "t": "書いてしまいましたね",
+                  "read": "かいてしまいましたね",
+                  "vi": "〜てしまう = đã lỡ viết mất nhỉ"
+                },
+                {
+                  "t": "書きにくいですね",
+                  "read": "かきにくいですね",
+                  "vi": "〜にくい = khó viết nhỉ"
+                }
+              ]
+            },
+            {
+              "prompt": "山の上からは海が見えます。",
+              "choices": [
+                "山の上からは海を見ることができます。",
+                "山の上から海を見てしまいました。",
+                "山の上から海が見えなくなりました。",
+                "山の上からは海しか見えません。"
+              ],
+              "answer": 0,
+              "pt": "NがV見えます — B27",
+              "explain": "「海が見えます」(B27 NがV見えます) = biển hiện ra trong tầm mắt một cách tự nhiên (không cần cố ý nhìn). Phương án A: 「海を見ることができます」(B18) = 'có thể nhìn thấy biển', nhấn mạnh khả năng, gần nghĩa nhất. Phương án B: 「海を見てしまいました」= 'đã lỡ nhìn biển', có sắc thái không chủ ý/hối tiếc, không phù hợp. Phương án C: 「見えなくなりました」(B19 Aくなります) = 'đã không thấy nữa', trạng thái thay đổi, trái nghĩa. Phương án D: 「海しか見えません」(B27 Nしか〜ない) = 'chỉ thấy mỗi biển', thêm nghĩa hạn chế.",
+              "glosses": [
+                {
+                  "t": "山の上から",
+                  "read": "やまのうえから",
+                  "vi": "từ trên đỉnh núi"
+                },
+                {
+                  "t": "海",
+                  "read": "うみ",
+                  "vi": "biển"
+                },
+                {
+                  "t": "見えます",
+                  "read": "みえます",
+                  "vi": "thấy được (tự nhiên, B27)"
+                },
+                {
+                  "t": "見ることができます",
+                  "read": "みることができます",
+                  "vi": "〜ことができる = có thể nhìn thấy được"
+                },
+                {
+                  "t": "見てしまいました",
+                  "read": "みてしまいました",
+                  "vi": "〜てしまう = đã lỡ nhìn thấy"
+                },
+                {
+                  "t": "見えなくなりました",
+                  "read": "みえなくなりました",
+                  "vi": "〜なくなる = trở nên không còn ~ được nữa (mất khả năng nhìn thấy)"
+                },
+                {
+                  "t": "見えません",
+                  "read": "みえません",
+                  "vi": "見える (phủ định) = không nhìn thấy được"
+                }
+              ]
+            },
+            {
+              "prompt": "冷蔵庫に牛乳が一本しかありません。",
+              "choices": [
+                "冷蔵庫の牛乳はもう一本だけです。",
+                "冷蔵庫に牛乳が一本もあります。",
+                "冷蔵庫に牛乳が一本でもありますか。",
+                "冷蔵庫の牛乳を一本飲んでしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Nしか〜ない — B27",
+              "explain": "「一本しかありません」(B27) = chỉ có một chai thôi (hàm ý ít, không đủ). Phương án A: 「一本だけです」= 'chỉ một chai' — gần nghĩa nhất, cùng ý chỉ có một. Phương án B: 「一本もあります」= 'có đến một chai' (Nも = nhấn mạnh có), sắc thái ngược lại. Phương án C: 「一本でもありますか」= 'có dù chỉ một chai không?', câu hỏi, không cùng nghĩa. Phương án D: 「一本飲んでしまいました」= 'đã lỡ uống một chai', nói về hành động uống, không liên quan số lượng còn lại.",
+              "glosses": [
+                {
+                  "t": "冷蔵庫",
+                  "read": "れいぞうこ",
+                  "vi": "tủ lạnh"
+                },
+                {
+                  "t": "牛乳",
+                  "read": "ぎゅうにゅう",
+                  "vi": "sữa bò"
+                },
+                {
+                  "t": "一本しかありません",
+                  "read": "いっぽんしかありません",
+                  "vi": "chỉ còn một chai (B27 Nしか〜ない)"
+                },
+                {
+                  "t": "はもう一本だけです",
+                  "read": "はもういっぽんだけです",
+                  "vi": "もう〜だけ = chỉ còn ~ mà thôi"
+                },
+                {
+                  "t": "一本もあります",
+                  "read": "いっぽんもあります",
+                  "vi": "〜も = ngay cả/đến ~ cũng có (nhấn mạnh)"
+                },
+                {
+                  "t": "一本でもありますか",
+                  "read": "いっぽんでもありますか",
+                  "vi": "〜でも = dù chỉ ~ cũng có được không? (hỏi tối thiểu)"
+                },
+                {
+                  "t": "飲んでしまいました",
+                  "read": "のんでしまいました",
+                  "vi": "〜てしまう = đã lỡ uống hết mất"
+                }
+              ]
+            },
+            {
+              "prompt": "子どものとき、よく川で魚を釣ったことがあります。",
+              "choices": [
+                "子どものころ、川で魚を釣ったことがあります。",
+                "子どものとき、川で魚が釣れてしまいました。",
+                "子どものとき、川で魚を釣ることができません。",
+                "子どものとき、川で魚を釣りながら遊んでいました。"
+              ],
+              "answer": 0,
+              "pt": "Vたことがあります — B19 + B23 Vとき",
+              "explain": "「釣ったことがあります」(B19) biểu thị kinh nghiệm quá khứ. 「子どものとき」(B23) = khi còn nhỏ. Phương án A: 「子どものころ、釣ったことがあります」= 'hồi còn nhỏ, đã từng câu cá' — gần nghĩa nhất, 「ころ」và「とき」đều chỉ thời điểm/giai đoạn. Phương án B: 「釣れてしまいました」dùng 自動詞「釣れる」(câu được) + てしまいました = 'đã lỡ câu được', sắc thái bất ngờ, không phải kinh nghiệm thuần túy. Phương án C: 「釣ることができません」(B18 phủ định hiện tại) = 'hiện tại không câu được', thì hiện tại, sai. Phương án D: 「釣りながら遊んでいました」(B28 ながら) = 'vừa câu vừa chơi', không biểu thị kinh nghiệm đã từng.",
+              "glosses": [
+                {
+                  "t": "子どものとき",
+                  "read": "こどものとき",
+                  "vi": "khi còn nhỏ (B23 Vとき)"
+                },
+                {
+                  "t": "川で",
+                  "read": "かわで",
+                  "vi": "ở sông"
+                },
+                {
+                  "t": "魚を釣った",
+                  "read": "さかなをつった",
+                  "vi": "câu cá"
+                },
+                {
+                  "t": "ことがあります",
+                  "vi": "đã từng (B19 Vたことがあります)"
+                },
+                {
+                  "t": "遊んでいました",
+                  "read": "あそんでいました",
+                  "vi": "đã chơi, lúc đó đang chơi"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường, hay"
+                },
+                {
+                  "t": "子どものころ",
+                  "read": "こどものころ",
+                  "vi": "〜ころ = hồi ~, thời ~ (sắc thái hồi tưởng, giống とき)"
+                },
+                {
+                  "t": "釣れてしまいました",
+                  "read": "つれてしまいました",
+                  "vi": "釣れる (tự động/khả năng câu được) + てしまう = đã lỡ câu được (ngoài ý muốn)"
+                },
+                {
+                  "t": "釣ることができません",
+                  "read": "つることができません",
+                  "vi": "〜ことができない = không thể làm ~"
+                },
+                {
+                  "t": "釣りながら",
+                  "read": "つりながら",
+                  "vi": "〜ながら = vừa câu cá vừa ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 29 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "窓が＿。だれかが開けたんですか。",
+              "choices": [
+                "開けています",
+                "開いています",
+                "開けてしまいました",
+                "開いてあります"
+              ],
+              "answer": 1,
+              "pt": "自動詞+ています（結果状態）",
+              "explain": "Chủ ngữ là「窓」(cửa sổ) — vật vô tri không tự mở được, cần dùng **自動詞**「開く」(あく). Kết hợp「ています」diễn tả *kết quả*: cửa sổ đang ở trạng thái mở. ① 「開けています」dùng **他動詞**「開ける」(あける) — cần tân ngữ với「を」, sai vì chủ ngữ là cửa sổ, không phải người. ③ 「開けてしまいました」(他動詞+てしまう) — không phù hợp khi chủ ngữ là vật. ④ 「開いてあります」(自動詞+てある) —「てある」thường dùng với 他動詞 để diễn tả ai đó đã chủ ý làm sẵn, kết hợp với 自動詞 sai ngữ pháp.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開いています",
+                  "read": "あいています",
+                  "vi": "đang ở trạng thái mở (tự động từ)"
+                },
+                {
+                  "t": "だれか",
+                  "vi": "ai đó"
+                },
+                {
+                  "t": "けた",
+                  "read": "開けた",
+                  "vi": "đã mở"
+                },
+                {
+                  "t": "すか",
+                  "read": "んですか",
+                  "vi": "là... phải không? (hỏi giải thích)"
+                },
+                {
+                  "t": "開けています",
+                  "read": "あけています",
+                  "vi": "〜ている (tha động từ 開ける) = đang mở / đã mở và duy trì"
+                },
+                {
+                  "t": "開けてしまいました",
+                  "read": "あけてしまいました",
+                  "vi": "〜てしまう = đã trót/lỡ mở"
+                },
+                {
+                  "t": "開いてあります",
+                  "read": "あいてあります",
+                  "vi": "〜てある (tự động từ 開く) = đã được mở sẵn, trạng thái kết quả"
+                }
+              ]
+            },
+            {
+              "stem": "ドアを＿ままにしないでください。",
+              "choices": [
+                "開いた",
+                "開けた",
+                "開いている",
+                "開けている"
+              ],
+              "answer": 1,
+              "pt": "他動詞+たまま",
+              "explain": "Chủ ngữ ẩn là *người*, hành động chủ ý nên dùng **他動詞**「開ける」(あける).「Vたまま」= giữ nguyên trạng thái sau khi đã làm V → 「開けたまま」= để cửa mở toang. ① 「開いた」dùng 自動詞 — sai vì ai đó chủ ý mở chứ cửa không tự mở. ③④ Dạng「〜ているまま」không tự nhiên trong mẫu này; mẫu chuẩn là「Vたまま」thể た.",
+              "glosses": [
+                {
+                  "t": "ドア",
+                  "vi": "cửa"
+                },
+                {
+                  "t": "開けた",
+                  "read": "あけた",
+                  "vi": "đã mở (hành động chủ ý)"
+                },
+                {
+                  "t": "まま",
+                  "vi": "giữ nguyên trạng thái"
+                },
+                {
+                  "t": "しないでください",
+                  "vi": "xin đừng để như vậy"
+                }
+              ]
+            },
+            {
+              "stem": "A：電気がついていますね。／B：あ、本当だ。昨日の夜、消すのを忘れて＿。",
+              "choices": [
+                "消えてしまいました",
+                "消してしまいました",
+                "消えています",
+                "消しています"
+              ],
+              "answer": 1,
+              "pt": "他動詞+てしまいました（後悔）",
+              "explain": "B nói quên không tắt đèn → hành động *chủ ý* (tắt đèn) dùng **他動詞**「消す」. Kết hợp「てしまいました」diễn tả sự hối tiếc vì đã để xảy ra việc không mong muốn. ① 「消えてしまいました」dùng 自動詞「消える」= đèn tự tắt — sai ngữ nghĩa (đèn vẫn còn bật). ③ 「消えています」= đèn đang tắt — mâu thuẫn với tình huống A vừa nói đèn đang sáng. ④ 「消しています」= đang tắt (tiến hành) — không diễn tả được sắc thái hối tiếc.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện"
+                },
+                {
+                  "t": "ついています",
+                  "vi": "đang bật (trạng thái)"
+                },
+                {
+                  "t": "消すのを忘れて",
+                  "read": "けすのをわすれて",
+                  "vi": "quên tắt"
+                },
+                {
+                  "t": "消してしまいました",
+                  "read": "けしてしまいました",
+                  "vi": "đã lỡ (không tắt) / tắt mất rồi"
+                },
+                {
+                  "t": "本当だ",
+                  "read": "ほんとうだ",
+                  "vi": "đúng thật, thật vậy"
+                },
+                {
+                  "t": "昨日の",
+                  "read": "昨日の夜",
+                  "vi": "tối hôm qua"
+                },
+                {
+                  "t": "消えてしまいました",
+                  "read": "きえてしまいました",
+                  "vi": "〜てしまう (tự động từ 消える) = đã tắt mất (ngoài ý muốn)"
+                },
+                {
+                  "t": "消えています",
+                  "read": "きえています",
+                  "vi": "〜ている (tự động từ) = đang ở trạng thái tắt"
+                },
+                {
+                  "t": "消しています",
+                  "read": "けしています",
+                  "vi": "〜ている (tha động từ 消す) = đang tắt/đã tắt và duy trì"
+                }
+              ]
+            },
+            {
+              "stem": "この漢字は形が複雑で、＿。",
+              "choices": [
+                "書きにくいです",
+                "書きやすいです",
+                "書いています",
+                "書いてしまいました"
+              ],
+              "answer": 0,
+              "pt": "Vにくい（難しい）",
+              "explain": "「複雑で」= phức tạp → suy ra chữ này *khó viết*, dùng「Vにくい」(khó làm V). ② 「書きやすい」= dễ viết — nghĩa ngược lại với ngữ cảnh phức tạp. ③ 「書いています」= đang viết — không diễn tả tính chất khó/dễ. ④ 「書いてしまいました」= đã lỡ viết — không liên quan.",
+              "glosses": [
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "複雑",
+                  "read": "ふくざつ",
+                  "vi": "phức tạp"
+                },
+                {
+                  "t": "書きにくい",
+                  "read": "かきにくい",
+                  "vi": "khó viết"
+                },
+                {
+                  "t": "形が",
+                  "read": "かたちが",
+                  "vi": "hình dạng (chủ ngữ)"
+                },
+                {
+                  "t": "書きやすいです",
+                  "read": "かきやすいです",
+                  "vi": "〜やすい = dễ viết"
+                },
+                {
+                  "t": "書いています",
+                  "read": "かいています",
+                  "vi": "〜ている = đang viết"
+                },
+                {
+                  "t": "書いてしまいました",
+                  "read": "かいてしまいました",
+                  "vi": "〜てしまう = đã lỡ viết"
+                }
+              ]
+            },
+            {
+              "stem": "パソコンが＿しまいました。大事なデータが消えたかもしれません。",
+              "choices": [
+                "壊れて",
+                "壊して",
+                "壊れた",
+                "壊した"
+              ],
+              "answer": 0,
+              "pt": "自動詞+てしまいました（遺憾）",
+              "explain": "Chủ ngữ là「パソコン」— máy tính *tự bị hỏng* (không phải ai làm hỏng), dùng **自動詞**「壊れる」(こわれる).「てしまいました」diễn tả sự đáng tiếc. ② 「壊して」dùng 他動詞「壊す」= ai đó làm hỏng — sai vì không có chủ thể người. ③④ Thiếu「て」nối「しまいました」— sai hình thức ngữ pháp.",
+              "glosses": [
+                {
+                  "t": "パソコン",
+                  "vi": "máy tính"
+                },
+                {
+                  "t": "壊れて",
+                  "read": "こわれて",
+                  "vi": "bị hỏng (tự động từ)"
+                },
+                {
+                  "t": "大事なデータ",
+                  "read": "だいじなデータ",
+                  "vi": "dữ liệu quan trọng"
+                },
+                {
+                  "t": "消えた",
+                  "read": "きえた",
+                  "vi": "đã mất / biến mất"
+                },
+                {
+                  "t": "しま",
+                  "read": "しまいました",
+                  "vi": "đã trót/lỡ... mất"
+                },
+                {
+                  "t": "かも",
+                  "read": "かもしれません",
+                  "vi": "có thể là"
+                },
+                {
+                  "t": "しまいました",
+                  "read": "しまいました",
+                  "vi": "〜てしまう (quá khứ) = đã hỏng/lỡ ~ mất"
+                },
+                {
+                  "t": "かもしれません",
+                  "read": "かもしれません",
+                  "vi": "〜かもしれない = có thể/có lẽ"
+                }
+              ]
+            },
+            {
+              "stem": "母が大切にしていた花びんを落として＿。本当に申し訳なかったです。",
+              "choices": [
+                "しまいました",
+                "あげました",
+                "くれました",
+                "もらいました"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました（後悔・謝罪）",
+              "explain": "Câu diễn tả việc vô ý làm vỡ bình hoa của mẹ → hối hận dùng「てしまいました」. ② 「あげました」= làm ơn cho ai — sai hoàn toàn về nghĩa. ③ 「くれました」= ai làm ơn cho mình — sai chủ thể. ④ 「もらいました」= được nhờ ai làm — sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "大切にしていた",
+                  "read": "たいせつにしていた",
+                  "vi": "đã nâng niu / quý trọng"
+                },
+                {
+                  "t": "花びん",
+                  "read": "はなびん",
+                  "vi": "bình hoa"
+                },
+                {
+                  "t": "落として",
+                  "read": "おとして",
+                  "vi": "làm rơi"
+                },
+                {
+                  "t": "申し訳なかった",
+                  "read": "もうしわけなかった",
+                  "vi": "thực sự xin lỗi / thấy có lỗi"
+                },
+                {
+                  "t": "母が",
+                  "read": "ははが",
+                  "vi": "mẹ (chủ ngữ)"
+                },
+                {
+                  "t": "本当に",
+                  "read": "ほんとうに",
+                  "vi": "thật sự"
+                }
+              ]
+            },
+            {
+              "stem": "A：鍵はどこにありますか。／B：テーブルの上に＿よ。",
+              "choices": [
+                "置いてあります",
+                "置いています",
+                "置いてしまいました",
+                "置いてもらいます"
+              ],
+              "answer": 0,
+              "pt": "他動詞+てあります（準備の結果）",
+              "explain": "「てあります」(他動詞) diễn tả *ai đó đã đặt sẵn* với mục đích → chìa khóa đang ở trên bàn do ai đó để sẵn. ② 「置いています」= (ai đó) đang đặt — diễn tả hành động đang xảy ra, không tự nhiên trong ngữ cảnh trả lời chìa khóa ở đâu. ③ 「置いてしまいました」= đã lỡ đặt — hàm ý hối tiếc, không phù hợp. ④ 「置いてもらいます」= sẽ nhờ ai đặt — thì tương lai, sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "鍵",
+                  "read": "かぎ",
+                  "vi": "chìa khóa"
+                },
+                {
+                  "t": "テーブルの上",
+                  "read": "テーブルのうえ",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "置いてあります",
+                  "read": "おいてあります",
+                  "vi": "đã đặt sẵn ở đó (kết quả của hành động có chủ ý)"
+                },
+                {
+                  "t": "すか",
+                  "read": "ありますか",
+                  "vi": "có ở đó không? (câu hỏi)"
+                },
+                {
+                  "t": "はどこにありますか",
+                  "read": "はどこにありますか",
+                  "vi": "〜はどこにありますか = ~ ở đâu? (hỏi vị trí)"
+                },
+                {
+                  "t": "置いています",
+                  "read": "おいています",
+                  "vi": "〜ている (tha động từ 置く) = đang để/đã đặt"
+                },
+                {
+                  "t": "置いてしまいました",
+                  "read": "おいてしまいました",
+                  "vi": "〜てしまう = đã lỡ để (ở đâu đó)"
+                },
+                {
+                  "t": "置いてもらいます",
+                  "read": "おいてもらいます",
+                  "vi": "〜てもらう = nhờ/được ai đó để giúp"
+                }
+              ]
+            },
+            {
+              "stem": "毎朝、音楽を聴き＿ジョギングしています。",
+              "choices": [
+                "たら",
+                "ながら",
+                "ても",
+                "てから"
+              ],
+              "answer": 1,
+              "pt": "V1stemながらV2（同時動作）",
+              "explain": "Hai hành động diễn ra *đồng thời* → dùng「V1stemながらV2」= vừa V1 vừa V2.「聴き」là thân của「聴く」. ① 「たら」= nếu/khi ~ — diễn tả điều kiện, không phải đồng thời. ③ 「ても」= dù ~ vẫn — nhượng bộ, không phải đồng thời. ④ 「てから」= sau khi ~ — tuần tự, không đồng thời.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "音楽を聴き",
+                  "read": "おんがくをきき",
+                  "vi": "nghe nhạc (dạng thân stem)"
+                },
+                {
+                  "t": "ジョギング",
+                  "vi": "chạy bộ"
+                },
+                {
+                  "t": "てい",
+                  "read": "しています",
+                  "vi": "đang làm (thói quen)"
+                }
+              ]
+            },
+            {
+              "stem": "この道を＿と、右側にコンビニが見えますよ。",
+              "choices": [
+                "曲がる",
+                "曲がった",
+                "曲がれば",
+                "曲がって"
+              ],
+              "answer": 0,
+              "pt": "V（普通形）とV2（条件・必然）",
+              "explain": "「〜とV2」= hễ V1 thì V2 (kết quả tất yếu) — dùng thể từ điển (辞書形). Vừa rẽ là tất yếu thấy cửa hàng. ② 「曲がった」= thể た — sai hình thức, mẫu「〜と」cần thể từ điển. ③ 「曲がれば」dùng mẫu「〜ば」có thể dùng nhưng「〜と」tự nhiên hơn khi chỉ dẫn đường; câu hỏi test mẫu「〜と」. ④ 「曲がって」= te-form — không thể điền trước「と」trong mẫu điều kiện này.",
+              "glosses": [
+                {
+                  "t": "道",
+                  "read": "みち",
+                  "vi": "con đường"
+                },
+                {
+                  "t": "曲がる",
+                  "read": "まがる",
+                  "vi": "rẽ / quẹo"
+                },
+                {
+                  "t": "右側",
+                  "read": "みぎがわ",
+                  "vi": "phía bên phải"
+                },
+                {
+                  "t": "見えます",
+                  "read": "みえます",
+                  "vi": "nhìn thấy (tự nhiên)"
+                },
+                {
+                  "t": "コンビニ",
+                  "read": "コンビニ",
+                  "vi": "cửa hàng tiện lợi"
+                },
+                {
+                  "t": "ますよ",
+                  "read": "見えますよ",
+                  "vi": "sẽ nhìn thấy đó"
+                }
+              ]
+            },
+            {
+              "stem": "A：どうして遅刻したんですか。／B：電車が止まって＿んです。",
+              "choices": [
+                "いる",
+                "しまった",
+                "あった",
+                "おいた"
+              ],
+              "answer": 1,
+              "pt": "Vてしまった（完了・遺憾）+んです（説明）",
+              "explain": "B giải thích lý do đến muộn: tàu điện *đã bị dừng* (sự việc hoàn tất ngoài ý muốn)「てしまった」+ 「んです」giải thích. ① 「いる」= đang trong trạng thái — hàm ý tàu vẫn đang dừng hiện tại, không nhấn mạnh sự đã rồi. ③ 「あった」= 他動詞+てある — 「止まる」là 自動詞, không kết hợp「てある」. ④ 「おいた」= 他動詞+ておく (làm sẵn) — hoàn toàn sai ngữ nghĩa.",
+              "glosses": [
+                {
+                  "t": "遅刻した",
+                  "read": "ちこくした",
+                  "vi": "đến muộn"
+                },
+                {
+                  "t": "電車が止まって",
+                  "read": "でんしゃがとまって",
+                  "vi": "tàu điện dừng lại"
+                },
+                {
+                  "t": "んです",
+                  "vi": "đó là vì... (giải thích nguyên nhân)"
+                },
+                {
+                  "t": "どうして",
+                  "read": "どうして",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "すか",
+                  "read": "んですか",
+                  "vi": "là... à? (hỏi giải thích)"
+                }
+              ]
+            },
+            {
+              "stem": "先生に手紙を書いて＿ので、とても嬉しかったです。",
+              "choices": [
+                "あげた",
+                "もらった",
+                "くれた",
+                "おいた"
+              ],
+              "answer": 2,
+              "pt": "Vてくれます（恩恵・受け取り）",
+              "explain": "「先生に〜てくれた」= thầy giáo đã *làm ơn* viết thư cho mình → người nhận ơn là người nói. ① 「あげた」= mình làm ơn cho người khác — sai chiều hướng. ② 「もらった」= mình được nhận ơn (nhờ ai làm) — nghĩa gần đúng nhưng cấu trúc phải là「先生に書いてもらった」(nhờ thầy viết); còn「てくれた」là thầy tự nguyện làm. ④ 「おいた」= làm sẵn để dùng sau — không liên quan đến sắc thái nhận ơn.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "手紙を書いて",
+                  "read": "てがみをかいて",
+                  "vi": "viết thư"
+                },
+                {
+                  "t": "嬉しかった",
+                  "read": "うれしかった",
+                  "vi": "đã vui / hạnh phúc"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "この薬は眠く＿、運転するときは気をつけてください。",
+              "choices": [
+                "なりやすいので",
+                "なりにくいので",
+                "なってしまったので",
+                "なっているので"
+              ],
+              "answer": 0,
+              "pt": "AくなりやすいのでV（注意）",
+              "explain": "「眠くなりやすい」= dễ buồn ngủ → cảnh báo khi lái xe, kết hợp「〜ので」giải thích lý do. ② 「なりにくい」= khó buồn ngủ — ngược nghĩa, không cần cảnh báo. ③ 「なってしまった」= đã lỡ buồn ngủ rồi — thì quá khứ, không phải đặc tính của thuốc. ④ 「なっている」= đang trong trạng thái buồn ngủ — cũng thì hiện tại cụ thể, không diễn tả tính chất thường xuyên.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "眠く",
+                  "read": "ねむく",
+                  "vi": "buồn ngủ (dạng く của 眠い)"
+                },
+                {
+                  "t": "なりやすい",
+                  "vi": "dễ trở nên ~"
+                },
+                {
+                  "t": "運転する",
+                  "read": "うんてんする",
+                  "vi": "lái xe"
+                },
+                {
+                  "t": "気をつけてください",
+                  "read": "きをつけてください",
+                  "vi": "hãy cẩn thận nhé"
+                },
+                {
+                  "t": "運転するときは",
+                  "read": "うんてんするときは",
+                  "vi": "〜とき = khi ~, lúc ~"
+                },
+                {
+                  "t": "なりにくいので",
+                  "read": "なりにくいので",
+                  "vi": "〜にくい = khó ~ + ので (lý do)"
+                },
+                {
+                  "t": "なってしまったので",
+                  "read": "なってしまったので",
+                  "vi": "〜てしまう (quá khứ) + ので = vì đã lỡ trở nên ~"
+                },
+                {
+                  "t": "なっているので",
+                  "read": "なっているので",
+                  "vi": "〜ている + ので = vì đang/đã ở trạng thái ~"
+                }
+              ]
+            },
+            {
+              "stem": "あの映画は感動的で、思わず泣いて＿。",
+              "choices": [
+                "しまいました",
+                "あげました",
+                "くれました",
+                "おきました"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました（思わず・感情的結果）",
+              "explain": "「思わず」= bất giác — hành động xảy ra ngoài ý muốn → diễn tả bằng「てしまいました」. ② 「あげました」= làm ơn cho ai — không liên quan. ③ 「くれました」= ai làm ơn cho mình — sai chủ thể. ④ 「おきました」= làm sẵn để dùng sau — sai hoàn toàn ngữ nghĩa.",
+              "glosses": [
+                {
+                  "t": "感動的",
+                  "read": "かんどうてき",
+                  "vi": "đầy cảm xúc / xúc động"
+                },
+                {
+                  "t": "思わず",
+                  "read": "おもわず",
+                  "vi": "bất giác / không tự chủ được"
+                },
+                {
+                  "t": "泣いて",
+                  "read": "ないて",
+                  "vi": "khóc"
+                },
+                {
+                  "t": "映画は",
+                  "read": "えいがは",
+                  "vi": "bộ phim (chủ đề)"
+                }
+              ]
+            },
+            {
+              "stem": "子どものころ、母に毎晩絵本を読んで＿。",
+              "choices": [
+                "あげました",
+                "もらいました",
+                "くれました",
+                "しまいました"
+              ],
+              "answer": 2,
+              "pt": "Vてくれます（過去・恩恵）",
+              "explain": "「母に〜てくれました」= mẹ *làm ơn* đọc sách cho mình hồi nhỏ — mẹ là người ban ơn, người nói là người nhận. ① 「あげました」= mình làm ơn cho người khác — sai chiều. ② 「もらいました」= mình nhờ mẹ đọc (mình chủ động nhờ) — sai sắc thái: mẹ tự nguyện đọc, không phải bị nhờ. ④ 「しまいました」= lỡ làm — sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "子どものころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "毎晩",
+                  "read": "まいばん",
+                  "vi": "mỗi tối"
+                },
+                {
+                  "t": "絵本",
+                  "read": "えほん",
+                  "vi": "sách tranh"
+                },
+                {
+                  "t": "読んで",
+                  "read": "よんで",
+                  "vi": "đọc"
+                },
+                {
+                  "t": "母に",
+                  "read": "ははに",
+                  "vi": "cho mẹ, với mẹ"
+                },
+                {
+                  "t": "毎晩絵本を",
+                  "read": "まいばんえほんを",
+                  "vi": "mỗi tối (đọc) truyện tranh"
+                }
+              ]
+            },
+            {
+              "stem": "スマホの画面が割れて＿。修理に出さなければなりません。",
+              "choices": [
+                "しまいました",
+                "あります",
+                "おきました",
+                "くれました"
+              ],
+              "answer": 0,
+              "pt": "Vてしまいました（完了・遺憾）",
+              "explain": "「画面が割れてしまいました」= màn hình đã bị vỡ mất — sự việc hoàn tất ngoài ý muốn, cần sửa. 「割れる」là 自動詞 (màn hình tự vỡ/bị vỡ). ② 「あります」= 他動詞+てある — 「割れる」là 自動詞 không kết hợp「てある」. ③ 「おきました」= làm sẵn để dùng sau — vô lý khi nói về màn hình vỡ. ④ 「くれました」= ai làm ơn — không liên quan.",
+              "glosses": [
+                {
+                  "t": "スマホ",
+                  "vi": "điện thoại thông minh"
+                },
+                {
+                  "t": "画面が割れて",
+                  "read": "がめんがわれて",
+                  "vi": "màn hình bị vỡ"
+                },
+                {
+                  "t": "修理に出す",
+                  "read": "しゅうりにだす",
+                  "vi": "đem đi sửa"
+                },
+                {
+                  "t": "なければなりません",
+                  "vi": "phải làm ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "財布を",
+                "。"
+              ],
+              "pieces": [
+                "忘れて",
+                "中に",
+                "しまいました",
+                "電車の"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vてしまいました・他動詞 忘れる",
+              "explain": "Câu đúng: 「財布を電車の中に忘れてしまいました。」— Tôi đã lỡ bỏ quên ví trên tàu điện.\nSắp xếp: ô 1=「電車の」, ô 2=「中に」, ô 3=「忘れて」★, ô 4=「しまいました」\nKhung câu bắt đầu bằng tân ngữ 「財布を」, cần một cụm địa điểm và động từ chia thể 「Vてしまいました」 ở cuối câu. Cụm 「電車の」 và 「中に」 bắt buộc dính liền thành 「電車の中に」 vì danh từ chứa の phải đi liền với danh từ chỉ vị trí 中. Mảnh 「忘れて」 ở thể て cũng dính chặt với mảnh 「しまいました」 đứng ngay sau nó để tạo thành mẫu ngữ pháp trót lỡ 「忘れてしまいました」. Do mảnh 「しまいました」 chiếm ô 4 ở cuối câu và hai ô 1, 2 dành cho cụm địa điểm, mảnh 「忘れて」 bắt buộc phải đặt tại ô 3 (ô ★) để làm động từ chính mang thể て đứng liền trước 「しまいました」.",
+              "glosses": [
+                {
+                  "t": "電車の中に",
+                  "read": "でんしゃのなかに",
+                  "vi": "trên (trong) tàu điện"
+                },
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "忘れて",
+                  "read": "わすれて",
+                  "vi": "quên đi (て-form của 忘れる — 他動詞)"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ/trót làm (= Vてしまいました)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このパソコンは",
+                "。"
+              ],
+              "pieces": [
+                "壊れて",
+                "から",
+                "います",
+                "二日前"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vています(結果状態)・自動詞 壊れる",
+              "explain": "Câu đúng: 「このパソコンは二日前から壊れています。」— Cái máy tính này bị hỏng từ hai ngày trước.\nSắp xếp: ô 1=「二日前」, ô 2=「から」, ô 3=「壊れて」★, ô 4=「います」\nKhung câu có chủ ngữ 「このパソコンは」 ở đầu và kết thúc bằng dấu chấm, nên khoảng trống ở giữa cần một bổ ngữ thời gian và vị ngữ động từ hoàn chỉnh. Hai mảnh 「二日前」 (ô 1) và 「から」 (ô 2) bắt buộc phải dính liền tạo thành cụm trạng từ 「二日前から」, còn 「壊れて」 (ô 3) phải gắn liền trước 「います」 (ô 4) để tạo nên hình thái 「Vて + います」. Theo trật tự tiếng Nhật, bổ ngữ thời gian 「二日前から」 đứng trước vị ngữ, nối liền sau chủ ngữ 「このパソコンは」. Do đó mảnh ở ô 3 ★ bắt buộc phải là 「壊れて」 để làm thể て đi kèm trợ động từ 「います」 ở cuối câu, không thể nằm ở ô 1 hay 2 (vốn thuộc cụm danh từ + trợ từ) cũng không thể đứng ở ô 4 (vị trí kết câu của 「います」).",
+              "glosses": [
+                {
+                  "t": "二日前から",
+                  "read": "ふつかまえから",
+                  "vi": "từ hai ngày trước"
+                },
+                {
+                  "t": "パソコン",
+                  "vi": "máy tính cá nhân"
+                },
+                {
+                  "t": "壊れて",
+                  "read": "こわれて",
+                  "vi": "hỏng/vỡ (て-form của 壊れる — 自動詞)"
+                },
+                {
+                  "t": "います",
+                  "vi": "đang ở trạng thái ~ (Vています kết quả)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "間違えて",
+                "。"
+              ],
+              "pieces": [
+                "しまいました",
+                "強く",
+                "ドアを",
+                "閉めて"
+              ],
+              "order": [
+                2,
+                1,
+                3,
+                0
+              ],
+              "starSlot": 2,
+              "pt": "Vてしまいました・他動詞 閉める",
+              "explain": "Câu đúng: 「間違えてドアを強く閉めてしまいました。」— Tôi đã lỡ tay đóng mạnh cửa do nhầm lẫn.\nSắp xếp: ô 1=「ドアを」, ô 2=「強く」, ô 3=「閉めて」★, ô 4=「しまいました」\nKhung câu bắt đầu bằng trạng từ 「間違えて」 và kết thúc bằng dấu chấm, do đó khoảng trống cần một cụm tân ngữ, trạng từ bổ nghĩa và vị ngữ động từ. Mảnh 「ドアを」 (ô 1) dính với trợ từ を làm tân ngữ, trạng từ 「強く」 (ô 2) bổ nghĩa trực tiếp cho động từ, còn mảnh 「閉めて」 (ô 3) bắt buộc dính liền trước 「しまいました」 (ô 4) để tạo thành cấu trúc thể て đi với trợ động từ. Trong tiếng Nhật, tân ngữ 「ドアを」 và trạng từ chỉ cách thức 「強く」 đứng trước vị ngữ động từ, tạo nên trình tự các khối từ ô 1 đến ô 4. Do đó mảnh ở ô 3 ★ phải là 「閉めて」 để đứng ở dạng thể て kết hợp với 「しまいました」 ngay sau nó, không thể đứng ở ô 1 hay 2 (dành cho bổ ngữ) và không thể đứng ở ô 4 (vị trí của trợ động từ kết thúc câu).",
+              "glosses": [
+                {
+                  "t": "間違えて",
+                  "read": "まちがえて",
+                  "vi": "nhầm / lỡ tay"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ làm (Vてしまいました)"
+                },
+                {
+                  "t": "強く",
+                  "read": "つよく",
+                  "vi": "mạnh (trạng từ)"
+                },
+                {
+                  "t": "ドアを",
+                  "vi": "cái cửa (tân ngữ với を — 他動詞)"
+                },
+                {
+                  "t": "閉めて",
+                  "read": "しめて",
+                  "vi": "đóng (て-form của 閉める — 他動詞)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "カバンの",
+                "。"
+              ],
+              "pieces": [
+                "入って",
+                "スマホが",
+                "います",
+                "中に"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vています(結果状態)・自動詞 入る",
+              "explain": "Câu đúng: 「カバンの中にスマホが入っています。」— Điện thoại đang ở trong túi xách.\nSắp xếp: ô 1=「中に」, ô 2=「スマホが」, ô 3=「入って」★, ô 4=「います」\nKhung câu đã có danh từ chỉ địa điểm 「カバンの」 ở đầu và dấu chấm ở cuối, nên khoảng trống cần hoàn thiện vị trí, chủ ngữ và vị ngữ động từ. Mảnh 「中に」 (ô 1) bắt buộc dính ngay sau 「カバンの」 để làm rõ địa điểm, mảnh 「スマホが」 (ô 2) làm chủ ngữ với trợ từ が, còn 「入って」 (ô 3) phải đi liền trước 「います」 (ô 4) để tạo thành hình thái thể て đi kèm trợ động từ. Trong tiếng Nhật, trạng ngữ chỉ địa điểm 「カバンの中に」 và chủ ngữ 「スマホが」 lần lượt đứng trước vị ngữ động từ. Do đó mảnh ở ô 3 ★ phải là 「入って」 để giữ dạng thể て liên kết trực tiếp với 「います」 ở ô 4, không thể đứng ở ô 1 (vốn cần danh từ chỉ vị trí nối tiếp 「カバンの」) hay ô 2, ô 4.",
+              "glosses": [
+                {
+                  "t": "カバンの中に",
+                  "read": "カバンのなかに",
+                  "vi": "trong túi (địa điểm + に)"
+                },
+                {
+                  "t": "入って",
+                  "read": "はいって",
+                  "vi": "đã vào/đang ở trong (て-form của 入る — 自動詞)"
+                },
+                {
+                  "t": "スマホが",
+                  "vi": "điện thoại thông minh (chủ ngữ + が)"
+                },
+                {
+                  "t": "います",
+                  "vi": "đang ở trạng thái ~ (Vています kết quả)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "友だちに",
+                "よ。"
+              ],
+              "pieces": [
+                "話して",
+                "うっかり",
+                "しまいました",
+                "秘密を"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vてしまいました",
+              "explain": "Câu đúng: 「友だちにうっかり秘密を話してしまいましたよ。」— Tôi đã lỡ miệng nói bí mật với bạn mất rồi đấy.\nSắp xếp: ô 1=「うっかり」, ô 2=「秘密を」, ô 3=「話して」★, ô 4=「しまいました」\nKhung câu đã có bổ ngữ đối tượng 「友だちに」 ở đầu và kết thúc bằng 「よ。」, nên phần giữa cần bổ sung trạng từ, tân ngữ và vị ngữ động từ. Mảnh 「秘密を」 (ô 2) dính liền trợ từ を làm tân ngữ, mảnh 「話して」 (ô 3) bắt buộc đứng ngay trước 「しまいました」 (ô 4) để tạo nên mẫu thể て đi cùng trợ động từ, còn 「うっかり」 (ô 1) là trạng từ bổ nghĩa cho toàn bộ vị ngữ. Trật tự tiếng Nhật sắp xếp trạng từ 「うっかり」 và tân ngữ 「秘密を」 đứng trước vị ngữ động từ 「話してしまいました」. Do đó mảnh ở ô 3 ★ bắt buộc phải là 「話して」 để đóng vai trò động từ thể て kết nối với 「しまいました」 ở ô 4, không thể thay thế cho trạng từ hay tân ngữ ở ô 1, 2 và cũng không thể đứng ở ô 4.",
+              "glosses": [
+                {
+                  "t": "友だちに",
+                  "read": "ともだちに",
+                  "vi": "với bạn (đối tượng + に)"
+                },
+                {
+                  "t": "話して",
+                  "read": "はなして",
+                  "vi": "nói (て-form của 話す)"
+                },
+                {
+                  "t": "うっかり",
+                  "vi": "vô ý, sơ ý, lỡ miệng"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ/trót làm (Vてしまいました)"
+                },
+                {
+                  "t": "秘密を",
+                  "read": "ひみつを",
+                  "vi": "bí mật (tân ngữ + を)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "ので安心しました。"
+              ],
+              "pieces": [
+                "消えて",
+                "火が",
+                "いた",
+                "もう"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "Vていた(結果状態)・自動詞 消える",
+              "explain": "Câu đúng: 「火がもう消えていたので安心しました。」— Lửa đã tắt rồi nên tôi an tâm.\nSắp xếp: ô 1=「火が」, ô 2=「もう」, ô 3=「消えて」★, ô 4=「いた」\nKhung câu phía sau có 「ので安心しました」 nên bốn ô trống cần tạo thành một mệnh đề chỉ nguyên nhân đứng trước 「ので」. Mảnh 「消えて」 bắt buộc dính liền ngay trước 「いた」 tạo thành cụm 「消えていた」 diễn tả trạng thái kết quả, không thể tách rời hay đảo thứ tự. Trạng từ 「もう」 đứng ngay trước cụm 「消えていた」 để bổ nghĩa, còn chủ ngữ 「火が」 đứng ở đầu câu. Mảnh 「消えて」 phải ở ô 3 (ô ★) do phải làm cầu nối dính liền trước 「いた」 ở ô 4, không thể đứng ở ô 4 do 「いた」 không đứng trước thể て, cũng không thể lên ô 1 hay ô 2 do phải đứng sau chủ ngữ 「火が」 và trạng từ 「もう」.",
+              "glosses": [
+                {
+                  "t": "ので安心しました",
+                  "read": "のでやすしんしました",
+                  "vi": "nên tôi đã yên tâm"
+                },
+                {
+                  "t": "消えて",
+                  "read": "きえて",
+                  "vi": "tắt (て-form của 消える — 自動詞)"
+                },
+                {
+                  "t": "火が",
+                  "read": "ひが",
+                  "vi": "lửa (chủ ngữ + が)"
+                },
+                {
+                  "t": "いた",
+                  "vi": "đã ở trạng thái ~ (た-form của いる — kết quả quá khứ)"
+                },
+                {
+                  "t": "もう",
+                  "vi": "đã, rồi (trạng từ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "家に",
+                "。"
+              ],
+              "pieces": [
+                "電気が",
+                "いました",
+                "帰ったら",
+                "ついて"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "V/Aたら + Vています(結果状態)・自動詞 つく",
+              "explain": "Câu đúng: 「家に帰ったら電気がついていました。」— Khi về đến nhà tôi thấy đèn đang bật.\nSắp xếp: ô 1=「帰ったら」, ô 2=「電気が」, ô 3=「ついて」★, ô 4=「いました」\nKhung câu bắt đầu bằng 「家に」 nên ô trống đầu tiên cần một động từ di chuyển nối liền ngay sau để hoàn chỉnh cụm chỉ điểm đến. Mảnh 「帰ったら」 phải ghép liền với 「家に」 thành mệnh đề thời gian 「家に帰ったら」, đồng thời hai mảnh 「ついて」 và 「いました」 bắt buộc dính chặt với nhau thành cụm 「ついていました」 không thể tách rời. Mệnh đề phụ 「家に帰ったら」 đứng đầu câu, tiếp theo đến chủ ngữ 「電気が」 rồi tới vị ngữ 「ついていました」. Do đó mảnh 「ついて」 phải đặt ở ô 3 (ô ★) để làm cầu nối dính liền trước 「いました」 ở ô 4, không thể đặt ở ô 4 do 「いました」 không thể đứng trước thể て, cũng không thể lên ô 1 hay ô 2 do vị ngữ phải đứng sau chủ ngữ 「電気が」.",
+              "glosses": [
+                {
+                  "t": "家に",
+                  "read": "いえに",
+                  "vi": "về nhà, đến nhà"
+                },
+                {
+                  "t": "電気が",
+                  "read": "でんきが",
+                  "vi": "đèn điện (chủ ngữ + が)"
+                },
+                {
+                  "t": "いました",
+                  "vi": "đã đang ở trạng thái ~ (Vていました — kết quả quá khứ)"
+                },
+                {
+                  "t": "帰ったら",
+                  "read": "かえったら",
+                  "vi": "khi về đến (Vたら = mẫu điều kiện)"
+                },
+                {
+                  "t": "ついて",
+                  "vi": "sáng lên / bật (て-form của つく — 自動詞)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ドアが",
+                "よ。"
+              ],
+              "pieces": [
+                "いるん",
+                "開いて",
+                "まだ",
+                "です"
+              ],
+              "order": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "〜んです + Vています(結果状態)・自動詞 開く",
+              "explain": "Câu đúng: 「ドアがまだ開いているんですよ。」— Cửa vẫn còn đang mở đấy nhé.\nSắp xếp: ô 1=「まだ」, ô 2=「開いて」★, ô 3=「いるん」, ô 4=「です」\nKhung câu mở đầu bằng chủ ngữ 「ドアが」 và kết thúc bằng trợ từ 「よ」, đòi hỏi bốn ô trống phải tạo thành vị ngữ hoàn chỉnh kết thúc bằng 「です」. Ba mảnh 「開いて」, 「いるん」, 「です」 bắt buộc dính liền liên tiếp với nhau thành cụm 「開いているんです」, trong đó thể て 「開いて」 nối liền vào 「いるん」 và 「いるん」 nối trực tiếp vào 「です」. Trạng từ 「まだ」 đứng ngay sau chủ ngữ 「ドアが」 để bổ nghĩa cho vị ngữ 「開いているんです」 đứng sau. Mảnh 「開いて」 bắt buộc phải ở ô 2 (ô ★), không thể đứng ở ô 1 do trạng từ 「まだ」 phải đứng trước động từ, và cũng không thể lùi sang ô 3 hay ô 4 do 「いるん」 cùng 「です」 chỉ được phép đứng sau thể て.",
+              "glosses": [
+                {
+                  "t": "いるんです",
+                  "vi": "〜んです = đang ở trạng thái (nhấn mạnh/giải thích)"
+                },
+                {
+                  "t": "ドアが",
+                  "vi": "cánh cửa (chủ ngữ + が)"
+                },
+                {
+                  "t": "開いて",
+                  "read": "あいて",
+                  "vi": "mở (て-form của 開く — 自動詞)"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn, chưa ~ (trạng từ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "鍵を",
+                "。"
+              ],
+              "pieces": [
+                "中に",
+                "しまいました",
+                "バッグの",
+                "入れて"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "Vてしまいました・他動詞 入れる",
+              "explain": "Câu đúng: 「鍵をバッグの中に入れてしまいました。」— Tôi lỡ nhét chìa khóa vào trong túi mất rồi.\nSắp xếp: ô 1=「バッグの」, ô 2=「中に」, ô 3=「入れて」★, ô 4=「しまいました」\nKhung câu đã có tân ngữ 「鍵を」 ở đầu, yêu cầu bốn ô trống phải tạo thành cụm địa điểm cùng vị ngữ tác động lên tân ngữ đó. Mảnh 「バッグの」 bắt buộc nối liền với 「中に」 thành cụm vị trí 「バッグの中に」, đồng thời thể て 「入れて」 phải dính chặt ngay trước 「しまいました」 thành cụm 「入れてしまいました」. Cụm chỉ vị trí 「バッグの中に」 đứng trước để bổ nghĩa cho động từ 「入れてしまいました」 ở cuối câu. Vì vậy mảnh 「入れて」 phải đặt ở ô 3 (ô ★) để dính liền trước 「しまいました」 ở ô 4, không thể chuyển sang ô 4 do 「しまいました」 không đứng trước thể て, cũng không thể lên ô 1 hay ô 2 do cụm địa điểm 「バッグの中に」 phải đứng trước động từ.",
+              "glosses": [
+                {
+                  "t": "バッグの中に",
+                  "read": "バッグのなかに",
+                  "vi": "vào trong túi (địa điểm + に)"
+                },
+                {
+                  "t": "鍵を",
+                  "read": "かぎを",
+                  "vi": "chìa khóa (tân ngữ + を)"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ làm (Vてしまいました — tiếc nuối)"
+                },
+                {
+                  "t": "入れて",
+                  "read": "いれて",
+                  "vi": "cho vào / nhét vào (て-form của 入れる — 他動詞)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "天気がいい日は、",
+                "から、写真を撮りましょう。"
+              ],
+              "pieces": [
+                "きれいに",
+                "富士山が",
+                "見えます",
+                "ここから"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "NがV見えます",
+              "explain": "Câu đúng: 「天気がいい日は、ここから富士山がきれいに見えますから、写真を撮りましょう。」— Vào những ngày thời tiết đẹp, từ đây nhìn thấy núi Phú Sĩ rất đẹp nên chúng ta hãy chụp ảnh nhé.\nSắp xếp: ô 1=「ここから」, ô 2=「富士山が」★, ô 3=「きれいに」, ô 4=「見えます」\nĐầu câu đã có mốc thời gian 「天気がいい日は、」 và đuôi câu là liên từ 「から、写真を撮りましょう。」, đòi hỏi đứng ngay trước khung đuôi phải là động từ 「見えます」 ở ô 4 để tạo thành vế chỉ lý do 「〜見えますから」. Phó từ 「きれいに」 bổ nghĩa cho động từ nên bắt buộc phải đứng ngay trước 「見えます」 ở ô 3 tạo thành cụm 「きれいに見えます」. Theo cấu trúc biểu đạt khả năng tri giác 「[Địa điểm]から [Danh từ]が 見えます」, bổ ngữ địa điểm 「ここから」 đứng ở ô 1 chỉ nơi quan sát. Mảnh 「富士山が」 mang trợ từ 「が」 chỉ đối tượng được nhìn thấy của 「見えます」, bắt buộc phải đứng sau vị trí 「ここから」 và trước cụm 「きれいに見えます」 nên chỉ có thể nằm ở ô 2 mang dấu sao.",
+              "glosses": [
+                {
+                  "t": "天気",
+                  "read": "てんき",
+                  "vi": "thời tiết"
+                },
+                {
+                  "t": "いい",
+                  "read": "",
+                  "vi": "đẹp"
+                },
+                {
+                  "t": "日",
+                  "read": "ひ",
+                  "vi": "ngày"
+                },
+                {
+                  "t": "写真",
+                  "read": "しゃしん",
+                  "vi": "ảnh"
+                },
+                {
+                  "t": "撮りましょう",
+                  "read": "とりましょう",
+                  "vi": "cùng chụp"
+                },
+                {
+                  "t": "きれいに",
+                  "vi": "một cách đẹp đẽ (trạng từ)"
+                },
+                {
+                  "t": "富士山が",
+                  "read": "ふじさんが",
+                  "vi": "núi Phú Sĩ (chủ ngữ + が của 見える)"
+                },
+                {
+                  "t": "見えます",
+                  "read": "みえます",
+                  "vi": "nhìn thấy được (tự nhiên — 自動詞 tri giác)"
+                },
+                {
+                  "t": "ここ",
+                  "read": "",
+                  "vi": "đây"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "して",
+                "テレビを見ながら",
+                "しまいました",
+                "宿題を"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "V1stemながらV2 + Vてしまいました",
+              "explain": "Câu đúng: 「テレビを見ながら宿題をしてしまいました。」— Tôi đã lỡ vừa xem ti vi vừa làm bài tập mất rồi.\nSắp xếp: ô 1=「テレビを見ながら」, ô 2=「宿題を」, ô 3=「して」★, ô 4=「しまいました」\nKhung câu cần xếp hành động phụ diễn ra đồng thời ở phía trước và hành động chính ở phía sau. Mảnh 「して」 bắt buộc dính liền ngay trước 「しまいました」 thành cụm 「してしまいました」, đồng thời mảnh 「宿題を」 dính ngay trước 「して」 để tạo thành cụm tân ngữ - động từ 「宿題をして」. Mệnh đề 「テレビを見ながら」 đứng ở ô 1 làm hành động phụ xảy ra song song với hành động chính. Mảnh ở ô ★ (ô 3) là 「して」; mảnh này không thể đứng ở ô 1 hay ô 2 vì phải tiếp nhận trợ từ 「を」 từ 「宿題を」, và cũng không thể đứng ở ô 4 vì phải nằm ngay trước 「しまいました」 để tạo dạng nối liền.",
+              "glosses": [
+                {
+                  "t": "して",
+                  "vi": "làm (て-form của する)"
+                },
+                {
+                  "t": "テレビを見ながら",
+                  "read": "テレビをみながら",
+                  "vi": "vừa xem TV (V1ながら)"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ làm (Vてしまいました)"
+                },
+                {
+                  "t": "宿題を",
+                  "read": "しゅくだいを",
+                  "vi": "bài tập (tân ngữ + を)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生に",
+                "。"
+              ],
+              "pieces": [
+                "もらいました",
+                "パソコンを",
+                "直して",
+                "壊れた"
+              ],
+              "order": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "starSlot": 2,
+              "pt": "Vてもらいました・他動詞 直す",
+              "explain": "Câu đúng: 「先生に壊れたパソコンを直してもらいました。」— Tôi đã được thầy giáo sửa giúp chiếc máy tính bị hỏng.\nSắp xếp: ô 1=「壊れた」, ô 2=「パソコンを」, ô 3=「直して」★, ô 4=「もらいました」\nPhía trước ô 1 có 「先生に」 chỉ đối tượng thực hiện hành động, cần nối tiếp bằng vật thể và hành động được nhận. Mảnh 「壊れた」 bắt buộc dính liền ngay trước danh từ 「パソコンを」 để tạo thành cụm bổ nghĩa 「壊れたパソコンを」, trong khi mảnh 「直して」 dính liền ngay trước 「もらいました」 thành cụm 「直してもらいました」. Khối tân ngữ 「壊れたパソコンを」 đứng trước vị ngữ 「直してもらいました」 theo đúng trật tự bổ ngữ đứng trước động từ. Mảnh rơi vào ô ★ (ô 3) là 「直して」; mảnh này không thể đứng ở ô 1 hay ô 2 vì phải nhận tân ngữ 「パソコンを」 phía trước, và không thể đứng ở ô 4 vì phải nằm ngay trước 「もらいました」 để hoàn chỉnh cụm hành động được giúp đỡ.",
+              "glosses": [
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "nhờ thầy/cô (người thực hiện + に)"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "nhờ ~ làm cho mình (Vてもらいました)"
+                },
+                {
+                  "t": "パソコンを",
+                  "vi": "máy tính (tân ngữ + を)"
+                },
+                {
+                  "t": "直して",
+                  "read": "なおして",
+                  "vi": "sửa (て-form của 直す — 他動詞)"
+                },
+                {
+                  "t": "壊れた",
+                  "read": "こわれた",
+                  "vi": "đã hỏng / bị hỏng (Vた修飾 — 自動詞 壊れる)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "拾って",
+                "落ちていた",
+                "警察に届けました",
+                "財布を"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 0,
+              "pt": "Vた+N・自動詞 落ちる (修飾節)",
+              "explain": "Câu đúng: 「落ちていた財布を拾って警察に届けました。」— Tôi đã nhặt chiếc ví bị rơi và mang giao cho cảnh sát.\nSắp xếp: ô 1=「落ちていた」★, ô 2=「財布を」, ô 3=「拾って」, ô 4=「警察に届けました」\nĐầu câu cần một cụm định ngữ để làm rõ đặc điểm của danh từ, sau đó là dãy hành động diễn ra theo trình tự thời gian. Mảnh 「落ちていた」 bắt buộc dính liền ngay trước danh từ 「財布を」 để tạo thành cụm bổ nghĩa 「落ちていた財布を」, và danh từ mang trợ từ 「財布を」 này dính liền với động từ 「拾って」 tạo thành cụm 「財布を拾って」. Động từ dạng nối 「拾って」 đứng trước hành động kế tiếp 「警察に届けました」 ở ô 4 theo đúng thứ tự xảy ra của sự việc. Mảnh ở ô ★ (ô 1) là 「落ちていた」; mảnh này không thể đứng ở ô 2, ô 3 hay ô 4 vì đây là động từ bổ nghĩa, bắt buộc phải đứng trước danh từ 「財布を」 để giải thích trạng thái của chiếc ví.",
+              "glosses": [
+                {
+                  "t": "拾って",
+                  "read": "ひろって",
+                  "vi": "nhặt (て-form của 拾う, nối hành động)"
+                },
+                {
+                  "t": "落ちていた",
+                  "read": "おちていた",
+                  "vi": "đang nằm dưới đất / đã rơi (Vていた修飾 — 自動詞 落ちる)"
+                },
+                {
+                  "t": "警察に届けました",
+                  "read": "けいさつにとどけました",
+                  "vi": "đã nộp cho cảnh sát"
+                },
+                {
+                  "t": "財布を",
+                  "read": "さいふを",
+                  "vi": "ví tiền (tân ngữ + を của 拾う)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "気をつけていても",
+                "また",
+                "間違えて",
+                "しまいました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "V/Aても + Vてしまいました",
+              "explain": "Câu đúng: 「気をつけていてもまた間違えてしまいました。」— Dù đã chú ý cẩn thận nhưng tôi lại lỡ nhầm mất rồi.\nSắp xếp: ô 1=「気をつけていても」, ô 2=「また」, ô 3=「間違えて」★, ô 4=「しまいました」\nKhung câu cần một vế điều kiện nhượng bộ ở đầu và vế kết quả không mong muốn ở sau. Hai mảnh 「間違えて」 và 「しまいました」 bắt buộc phải dính liền nhau tạo thành cụm 「間違えてしまいました」 vì 「しまいました」 chỉ đứng ngay sau động từ thể て. Trạng từ 「また」 đứng ngay trước cụm động từ này để bổ nghĩa, còn mảnh 「気をつけていても」 làm vế mở đầu ở ô 1. Vì mảnh 「間違えて」 phải nối trực tiếp với ô 4 「しまいました」, nên mảnh 「間違えて」 bắt buộc nằm ở ô 3 (ô ★) và không thể đặt ở ô 1 hay ô 2 vì sẽ bị chia cắt khỏi 「しまいました」.",
+              "glosses": [
+                {
+                  "t": "気をつけていても",
+                  "read": "きをつけていても",
+                  "vi": "dù đã cẩn thận (Vても — nhượng bộ)"
+                },
+                {
+                  "t": "また",
+                  "vi": "lại, nữa (trạng từ nhấn mạnh lặp lại)"
+                },
+                {
+                  "t": "間違えて",
+                  "read": "まちがえて",
+                  "vi": "nhầm (て-form của 間違える)"
+                },
+                {
+                  "t": "しまいました",
+                  "vi": "đã lỡ làm (Vてしまいました — tiếc nuối)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "やすい",
+                "ので気をつけてください",
+                "このコップは",
+                "割れ"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 1,
+              "pt": "Vやすい・自動詞 割れる",
+              "explain": "Câu đúng: 「このコップは割れやすいので気をつけてください。」— Cái cốc này dễ vỡ nên xin hãy cẩn thận.\nSắp xếp: ô 1=「このコップは」, ô 2=「割れ」★, ô 3=「やすい」, ô 4=「ので気をつけてください」\nKhung câu bắt đầu bằng chủ đề chiếc cốc và kết thúc bằng vế chỉ nguyên nhân - kết quả 「ので気をつけてください」. Mảnh 「割れ」 và mảnh 「やすい」 bắt buộc phải dính liền nhau tạo thành cụm 「割れやすい」 vì đuôi 「やすい」 cần động từ dạng thân ます đứng ngay phía trước. Mảnh chủ đề 「このコップは」 đứng đầu ở ô 1, liên kết với cụm tính từ 「割れやすい」 rồi mới nối vào ô 4 chỉ lý do. Vì mảnh 「割れ」 phải đứng ngay trước ô 3 「やすい」 để tạo tính từ hoàn chỉnh, mảnh 「割れ」 bắt buộc nằm ở ô 2 (ô ★) và không thể đứng ở vị trí khác như ô 1 hay ô 4 do sẽ bị tách rời khỏi 「やすい」.",
+              "glosses": [
+                {
+                  "t": "やすい",
+                  "vi": "dễ ~ (đuôi Vやすい)"
+                },
+                {
+                  "t": "ので気をつけてください",
+                  "read": "のできをつけてください",
+                  "vi": "vì vậy hãy cẩn thận (ので = lý do)"
+                },
+                {
+                  "t": "このコップは",
+                  "vi": "cái cốc này (chủ đề + は)"
+                },
+                {
+                  "t": "割れ",
+                  "read": "われ",
+                  "vi": "ます-stem của 割れる (自動詞 — vỡ)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "朝起きたら、まどが",
+                "。ゆうべ閉めるのを忘れて、寝て",
+                "。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "開いていました",
+                    "開けていました",
+                    "閉まっていました",
+                    "開きます"
+                  ],
+                  "answer": 0,
+                  "explain": "Sáng dậy thấy cửa sổ vẫn đang MỞ (trạng thái kết quả) → tự động từ 「開く」+「ています」= 「開いていました」. 「開けていました」(tha động từ, ai đó đang mở) sai chủ thể; 「閉まっていました」(đang đóng) ngược nghĩa; 「開きます」sai thì."
+                },
+                {
+                  "choices": [
+                    "しまいました",
+                    "おきました",
+                    "いました",
+                    "みました"
+                  ],
+                  "answer": 0,
+                  "explain": "Quên đóng cửa rồi NGỦ QUÊN (đáng tiếc) → 「寝てしまいました」(〜てしまう = lỡ/trót làm). 「おきました」(để sẵn), 「いました」, 「みました」(thử) đều sai sắc thái."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "朝起きたら",
+                  "read": "あさおきたら",
+                  "vi": "sáng thức dậy thì (〜たら)"
+                },
+                {
+                  "t": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "ゆうべ",
+                  "vi": "tối qua"
+                },
+                {
+                  "t": "閉めるのを忘れて",
+                  "read": "しめるのをわすれて",
+                  "vi": "quên đóng"
+                },
+                {
+                  "t": "寝て",
+                  "read": "ねて",
+                  "vi": "ngủ"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chọn tự động từ (自動詞) tương ứng với tha động từ.",
+          "items": [
+            {
+              "stem": "他動詞「開ける」 ↔ 自動詞「＿」",
+              "choices": [
+                "開く",
+                "開かる",
+                "閉める",
+                "開けられる"
+              ],
+              "answer": 0,
+              "explain": "Cặp 自/他: tha động từ 「開ける」(あける — ai đó mở) ↔ tự động từ 「開く」(あく — tự mở). 「開かる」không tồn tại; 「閉める」là đóng (ngược); 「開けられる」là thể khả năng/bị động.",
+              "glosses": [
+                {
+                  "t": "開ける",
+                  "read": "あける",
+                  "vi": "mở (tha động từ)"
+                },
+                {
+                  "t": "開く",
+                  "read": "あく",
+                  "vi": "mở (tự động từ)"
+                },
+                {
+                  "t": "他動詞",
+                  "read": "たどうし",
+                  "vi": "ngoại động từ (tha động từ)"
+                },
+                {
+                  "t": "自動詞",
+                  "read": "じどうし",
+                  "vi": "nội động từ (tự động từ)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "あ、電気＿消えていますよ。",
+              "choices": [
+                "が",
+                "を",
+                "に",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "「消える」là TỰ động từ → chủ thể đi với 「が」: 電気が消える. (Nếu dùng tha động từ 「消す」thì mới là を.)",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện"
+                },
+                {
+                  "t": "消えています",
+                  "read": "きえています",
+                  "vi": "đang tắt (trạng thái kết quả)"
+                },
+                {
+                  "t": "ますよ",
+                  "read": "消えていますよ",
+                  "vi": "đang tắt đó nhé"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi lỡ đánh mất ví rồi.",
+              "target": "財布をなくしてしまいました",
+              "model": "財布を なくしてしまいました。",
+              "explain": "「〜てしまいました」diễn tả việc lỡ/trót làm đáng tiếc. なくす (làm mất) → なくしてしまいました; 財布 dùng 「を」(tha động từ).",
+              "glosses": [
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "なくしてしまいました",
+                  "vi": "đã lỡ làm mất (〜てしまう)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

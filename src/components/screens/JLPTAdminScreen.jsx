@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import {
-    collection, query, onSnapshot, doc, setDoc, deleteDoc, serverTimestamp, orderBy
+    doc, setDoc, deleteDoc, serverTimestamp
 } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
+import { 
+    subscribeJLPTTests, 
+    getSynchronousJLPTTests, 
+    isJLPTDataLoaded, 
+    updateSingleJLPTTestInCache, 
+    removeSingleJLPTTestFromCache 
+} from '../../services/jlptDataService';
 import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown, Sparkles } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
@@ -374,11 +381,19 @@ const normalizeQuestions = (rawQuestions) => {
 
 const JLPTAdminScreen = ({ userId }) => {
     const location = useLocation();
-    const [tests, setTests] = useState([]);
+    const [tests, setTests] = useState(() => {
+        const cached = getSynchronousJLPTTests();
+        if (cached && cached.length > 0) {
+            const list = [...cached];
+            list.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+            return list;
+        }
+        return [];
+    });
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedLevelFilter, setSelectedLevelFilter] = useState('All');
     const [selectedTypeFilter, setSelectedTypeFilter] = useState('All');
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(() => !isJLPTDataLoaded());
     const [editingTest, setEditingTest] = useState(null);
     const [formData, setFormData] = useState({ ...EMPTY_TEST });
     const [saving, setSaving] = useState(false);
@@ -440,16 +455,19 @@ const JLPTAdminScreen = ({ userId }) => {
             return matchesSearch && matchesLevel && matchesType;
         });
     }, [tests, searchQuery, selectedLevelFilter, selectedTypeFilter]);
-    // Load tests
+
+    // Load tests via unified singleton cache
     useEffect(() => {
-        if (!db) return;
-        const q = query(collection(db, testsPath), orderBy('createdAt', 'desc'));
-        const unsub = onSnapshot(q, (snap) => {
-            setTests(snap.docs.map(d => ({ id: d.id, ...d.data() })));
+        const unsubscribe = subscribeJLPTTests((latestTests) => {
+            const list = [...latestTests];
+            list.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+            setTests(list);
             setLoading(false);
         });
-        return () => unsub();
-    }, [testsPath]);
+        return () => {
+            unsubscribe();
+        };
+    }, []);
     // Notification auto-clear
     useEffect(() => {
         if (notification) {
@@ -526,6 +544,7 @@ const JLPTAdminScreen = ({ userId }) => {
                 testData.createdBy = editingTest.createdBy || 'admin';
             }
             await setDoc(doc(db, testsPath, testId), testData);
+            updateSingleJLPTTestInCache(testId, { id: testId, ...testData });
             notify('success', editingTest ? 'Cập nhật đề thi thành công!' : 'Tạo đề thi mới thành công!');
             resetForm();
         } catch (e) {
@@ -539,6 +558,7 @@ const JLPTAdminScreen = ({ userId }) => {
         if (!confirmDelete) return;
         try {
             await deleteDoc(doc(db, testsPath, confirmDelete.id));
+            removeSingleJLPTTestFromCache(confirmDelete.id);
             notify('success', 'Đã xóa đề thi thành công');
             if (editingTest?.id === confirmDelete.id) resetForm();
         } catch (e) {

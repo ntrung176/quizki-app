@@ -1,0 +1,2160 @@
+{
+  "bai": 41,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 41 tập trung vào yarimori (やりもらい) dạng KÍNH NGỮ: くださいます / いただきます / さしあげます. Ba mẫu này thêm sắc thái lịch sự/khiêm nhường vào hành động cho/nhận so với dạng cơ bản (Bài 24). Chiến lược đọc: mỗi khi gặp Vて＋くださいます・いただきます・さしあげます, xác định (1) AI làm, (2) làm CHO AI, (3) mức độ lịch sự.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm quan hệ các nhân vật: ai là người trên (sếp, hàng xóm cao tuổi), ai là người dưới/ngang hàng.",
+      "Phân biệt hướng hành động: くださいます = người CÓ VỊ TRÍ CAO làm điều tốt CHO mình; いただきます = mình ĐƯỢC người trên làm cho (góc nhìn người nhận khiêm nhường); さしあげます = mình làm cho NGƯỜI TRÊN (khiêm nhường).",
+      "So sánh với dạng Bài 24: くれます→くださいます（lịch sự hơn）; もらいます→いただきます（khiêm nhường）; あげます→さしあげます（khiêm nhường với người trên）.",
+      "Câu hỏi trắc nghiệm thường hỏi: ai giúp ai, dùng mẫu nào, hoặc so sánh mức lịch sự — đọc kỹ chủ ngữ và tân ngữ.",
+      "Tìm từ chỉ ân huệ (親切・助かります・お世話になります) — đây là bối cảnh điển hình của Bài 41.",
+      "Ôn từ Bài 24: てあげます・てもらいます・てくれます — bài này tái dùng cả 3 khi nói về bạn bè ngang hàng."
+    ],
+    "tips": [
+      "くださいます = くれます + kính trọng. Chủ ngữ PHẢI là người có vị thế cao hơn mình (sếp, hàng xóm lớn tuổi, thầy cô).",
+      "いただきます = もらいます + khiêm nhường. Mình nhận ân huệ từ người trên, nhấn mạnh lòng biết ơn.",
+      "さしあげます = あげます + khiêm nhường. Dùng khi mình làm điều tốt CHO người trên — tránh dùng cho bạn bè ngang hàng.",
+      "Bẫy hay gặp: nhầm くださいます (người trên→mình) với いただきます (mình nhận từ người trên) — nội dung giống nhau nhưng GÓC NHÌN khác.",
+      "Nhớ: \"いただく\" nghĩa gốc là \"nhận, ăn/uống\" (khiêm nhường) — cùng chữ với \"いただきます\" trước bữa ăn.",
+      "さしあげます KHÔNG dùng cho đồ vật (あげます/差し上げます): ở đây chỉ dùng dạng Vてさしあげます cho HÀNH ĐỘNG."
+    ],
+    "grammarFocus": [
+      "Vてくださいます（người trên làm điều tốt cho mình — kính trọng）",
+      "Vていただきます（mình được người trên làm cho — khiêm nhường）",
+      "Vてさしあげます（mình làm điều tốt cho người trên — khiêm nhường）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 24,
+        "items": [
+          "Vてあげます",
+          "Vてもらいます",
+          "Vてくれます（yarimori cơ bản Bài 24）"
+        ]
+      },
+      {
+        "bai": 40,
+        "items": [
+          "Vてみます（thử làm）",
+          "〜かどうか（không biết… hay không）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）",
+          "Vるために（vì mục đích）"
+        ]
+      },
+      {
+        "bai": 37,
+        "items": [
+          "Vられます（thể bị động — bài ôn ngắn）"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです（dự định）"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "Vてしまいました（hoàn toàn, tiếc/vui）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vてくれた人）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vて〜て（nối hành động trình tự）",
+          "Vてから"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "引っ越しのお礼",
+      "titleVi": "Lời cảm ơn khi chuyển nhà",
+      "japanese": "先月、私は新しいアパートに引っ越しました。\n引っ越しの日、田中部長が車で荷物を運んでくださいました。\n隣の山本さんも手伝ってくださいました。とても助かりました。\n友達のカリナさんには、料理を作ってもらいました。\n私もカリナさんに近くのスーパーを教えてあげました。\n山本さんにはお菓子を持っていってさしあげるつもりです。\nみなさんに本当に感謝しています。",
+      "vietnamese": "Tháng trước tôi chuyển đến căn hộ mới.\nVào ngày chuyển nhà, trưởng phòng Tanaka đã chở hành lý giúp tôi bằng xe ô tô.\nAnh Yamamoto nhà bên cạnh cũng đã giúp đỡ tôi. Nhờ vậy tôi đỡ vất vả rất nhiều.\nTôi nhờ bạn Karina nấu cơm cho tôi.\nTôi cũng chỉ cho Karina siêu thị gần đó.\nTôi định mang bánh kẹo sang biếu anh Yamamoto.\nTôi thực sự biết ơn tất cả mọi người.",
+      "sentences": [
+        {
+          "jp": "先月、私は新しいアパートに引っ越しました。",
+          "vi": "Tháng trước tôi chuyển đến căn hộ mới.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "căn hộ"
+            },
+            {
+              "w": "引っ越しました",
+              "read": "ひっこしました",
+              "vi": "đã chuyển nhà"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（Bài 4）",
+              "vi": "引っ越しました = đã chuyển nhà. Thể quá khứ lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "引っ越しの日、田中部長が車で荷物を運んでくださいました。",
+          "vi": "Vào ngày chuyển nhà, trưởng phòng Tanaka đã chở hành lý giúp tôi bằng xe ô tô.",
+          "vocab": [
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "việc chuyển nhà"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "車",
+              "read": "くるま",
+              "vi": "xe ô tô"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "運びます",
+              "read": "はこびます",
+              "vi": "vận chuyển, chở"
+            },
+            {
+              "w": "引っ越しの日",
+              "read": "ひっこしのひ",
+              "vi": "ngày chuyển nhà"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくださいました",
+              "vi": "運んでくださいました = trưởng phòng Tanaka (người trên) ĐÃ giúp chở hành lý. くださいます là dạng kính trọng của くれます — dùng khi người CÓ VỊ THẾ CAO làm điều tốt cho mình."
+            }
+          ]
+        },
+        {
+          "jp": "隣の山本さんも手伝ってくださいました。とても助かりました。",
+          "vi": "Anh Yamamoto nhà bên cạnh cũng đã giúp đỡ tôi. Nhờ vậy tôi đỡ vất vả rất nhiều.",
+          "vocab": [
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "nhà bên cạnh, hàng xóm"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "手伝います",
+              "read": "てつだいます",
+              "vi": "giúp đỡ"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "助かります",
+              "read": "たすかります",
+              "vi": "được cứu, đỡ vất vả, may quá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくださいました",
+              "vi": "手伝ってくださいました = anh Yamamoto (hàng xóm người lớn tuổi hơn) đã giúp. くださいます dùng vì người giúp có vị thế đáng kính trọng."
+            }
+          ]
+        },
+        {
+          "jp": "友達のカリナさんには、料理を作ってもらいました。",
+          "vi": "Tôi nhờ bạn Karina nấu cơm cho tôi.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, việc nấu ăn"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, nấu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらいました（Bài 24）",
+              "vi": "作ってもらいました = nhờ/được Karina nấu. もらいます = nhận hành động từ người khác. Vì Karina là bạn bè NGANG HÀNG nên dùng もらいます (không dùng いただきます)."
+            }
+          ]
+        },
+        {
+          "jp": "私もカリナさんに近くのスーパーを教えてあげました。",
+          "vi": "Tôi cũng chỉ cho Karina siêu thị gần đó.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "教えてあげました",
+              "read": "おしえてあげました",
+              "vi": "đã chỉ cho"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあげました（Bài 24）",
+              "vi": "教えてあげました = tôi chỉ CHO Karina. あげます = mình làm điều tốt cho người khác (bạn bè, người bằng vai). Karina là bạn ngang hàng nên dùng あげます (không cần さしあげます)."
+            }
+          ]
+        },
+        {
+          "jp": "山本さんにはお菓子を持っていってさしあげるつもりです。",
+          "vi": "Tôi định mang bánh kẹo sang biếu anh Yamamoto.",
+          "vocab": [
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "お菓子",
+              "read": "おかし",
+              "vi": "bánh kẹo"
+            },
+            {
+              "w": "持っていきます",
+              "read": "もっていきます",
+              "vi": "mang đi, đem theo"
+            },
+            {
+              "w": "さしあげる",
+              "read": "さしあげる",
+              "vi": "biếu, tặng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてさしあげます",
+              "vi": "持っていってさしあげる = mang sang biếu anh Yamamoto. さしあげます là dạng khiêm nhường của あげます — dùng khi mình làm điều tốt CHO NGƯỜI TRÊN (hàng xóm đáng kính)."
+            },
+            {
+              "point": "Vるつもりです（Bài 31）",
+              "vi": "さしあげるつもりです = tôi định biếu. つもり = dự định, ý định của mình."
+            }
+          ]
+        },
+        {
+          "jp": "みなさんに本当に感謝しています。",
+          "vi": "Tôi thực sự biết ơn tất cả mọi người.",
+          "vocab": [
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thật sự, thực sự"
+            },
+            {
+              "w": "感謝します",
+              "read": "かんしゃします",
+              "vi": "biết ơn, cảm ơn"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người, quý vị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（Bài 15）",
+              "vi": "感謝しています = đang/vẫn biết ơn. Vています diễn tả trạng thái liên tục của cảm xúc."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "運んでくださいました",
+          "label": "Vてくださいました（người trên giúp mình — kính trọng）"
+        },
+        {
+          "excerpt": "手伝ってくださいました",
+          "label": "Vてくださいました（hàng xóm đáng kính giúp mình）"
+        },
+        {
+          "excerpt": "料理を作ってもらいました",
+          "label": "Vてもらいました（nhờ bạn bè ngang hàng — Bài 24）"
+        },
+        {
+          "excerpt": "教えてあげました",
+          "label": "Vてあげました（mình làm cho bạn bè — Bài 24）"
+        },
+        {
+          "excerpt": "持っていってさしあげるつもりです",
+          "label": "Vてさしあげます（mình làm cho người trên — khiêm nhường）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中部長はどんなことをしてくれましたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "料理を作ってくれました",
+            "車で荷物を運んでくれました",
+            "近くのスーパーを教えてくれました",
+            "お菓子を持ってきてくれました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài ghi rõ:「田中部長が車で荷物を運んでくださいました」— trưởng phòng Tanaka dùng XE ÔTÔ chở ĐỒ ĐẠC giúp tôi. Đây là bằng chứng trực tiếp, không cần suy luận. Đáp án 0 sai vì nấu ăn là việc của Karina (「料理を作ってもらいました」). Đáp án 2 sai vì chỉ siêu thị là do chính tôi làm cho Karina (「教えてあげました」). Đáp án 3 sai vì mang bánh kẹo là dự định của tôi dành cho Yamamoto (「さしあげるつもりです」), không phải trưởng phòng. Lưu ý: câu hỏi dùng「くれました」(dạng thường Bài 24) dù bài dùng「くださいました」(kính ngữ) — hai dạng cùng nội dung nhưng khác mức lịch sự, nên câu trả lời vẫn khớp.",
+          "tip": "Khi câu hỏi hỏi \"誰が何をしてくれましたか\", hãy tìm mệnh đề「Nが〜てくださいました／くれました／もらいました」trong bài, đối chiếu CHỦ NGỮ và NỘI DUNG HÀNH ĐỘNG — loại nhanh các đáp án nhầm nhân vật.",
+          "qt": {
+            "q": "Trưởng phòng Tanaka đã làm gì giúp người viết?",
+            "o": [
+              "Đã nấu ăn giúp",
+              "Đã chở hành lý bằng ô tô giúp",
+              "Đã chỉ cho biết siêu thị gần đó",
+              "Đã mang bánh kẹo đến giúp"
+            ]
+          }
+        },
+        {
+          "q": "筆者（書いた人）はどうして「さしあげる」という言葉を使いましたか。",
+          "evi": [
+            2,
+            5
+          ],
+          "options": [
+            "山本さんは筆者の友達だから",
+            "山本さんは筆者のお兄さんだから",
+            "山本さんは隣のかなり年上の人なので、丁寧な言い方をしたから",
+            "さしあげます = あげますと同じ意味で、いつでも使えるから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài mô tả Yamamoto bằng「隣の山本さんも手伝ってくださいました」— dùng くださいました (kính ngữ Bài 41) → Yamamoto là người đáng kính trọng (hàng xóm lớn tuổi hơn). Khi mình (người dưới) làm điều tốt CHO người đáng kính đó, phải dùng さしあげます (khiêm nhường), không dùng あげます (ngang hàng). Đáp án 0 sai: Yamamoto không phải bạn bè ngang hàng — dùng あげます cho quan hệ bạn bè là thiếu lịch sự. Đáp án 1 sai vì bài không có chi tiết Yamamoto là anh trai. Đáp án 3 sai quan trọng: さしあげます KHÔNG thể dùng tự do — nó CHỈ dùng khi người nhận có vị thế cao hơn mình, dùng bừa là sai hoàn toàn.",
+          "tip": "Để chọn đúng あげます / さしあげます: nhìn vào CÁCH BÀI MÔ TẢ người nhận — nếu dùng くださいました / いただきました với họ → họ là người trên → phải dùng さしあげます khi mình làm ngược lại cho họ.",
+          "qt": {
+            "q": "Tại sao tác giả (người viết) dùng từ 「さしあげる」(làm/tặng cho)?",
+            "o": [
+              "Vì ông Yamamoto là bạn của người viết",
+              "Vì ông Yamamoto là anh trai của người viết",
+              "Vì ông Yamamoto là người hàng xóm lớn tuổi hơn khá nhiều, nên người viết dùng cách nói lịch sự",
+              "Vì 「さしあげます」 = 「あげます」, có cùng nghĩa và có thể dùng bất cứ lúc nào"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんについての説明で、正しいものはどれですか。",
+          "evi": [
+            3,
+            4
+          ],
+          "options": [
+            "筆者の上司で、荷物を運んでくださいました",
+            "筆者の友達で、料理を作ってもらいました。筆者もスーパーを教えてあげました",
+            "年上の隣人で、お菓子をもらいました",
+            "筆者の同僚で、一緒に引っ越ししました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài xác nhận hai điểm về Karina: (1)「友達のカリナさん」= Karina là BẠN BÈ (ngang hàng); (2) hai hành động cho-nhận hai chiều:「料理を作ってもらいました」(Karina nấu cho mình — もらいます Bài 24) và「近くのスーパーを教えてあげました」(mình chỉ siêu thị cho Karina — あげます Bài 24). Đây là quan hệ bình đẳng, không dùng kính ngữ. Đáp án 0 sai: bài ghi Karina là「友達」, không phải thượng cấp, không dùng くださいました. Đáp án 2 sai: người hàng xóm năm ngoái là Yamamoto, và Yamamoto KHÔNG nhận bánh kẹo từ Karina. Đáp án 3 sai vì bài không nhắc đến cùng chuyển nhà.",
+          "tip": "Xác định nhân vật nhanh: \"友達\" = bạn bè ngang hàng → dùng Bài 24 (あげます・もらいます・くれます). \"部長・上司・年上の人\" = người trên → dùng kính ngữ Bài 41 (くださいます・いただきます・さしあげます).",
+          "qt": {
+            "q": "Mô tả nào về cô Karina là đúng?",
+            "o": [
+              "Là cấp trên của người viết và đã chở hành lý giúp",
+              "Là bạn của người viết, đã nấu ăn giúp. Người viết cũng đã chỉ cho cô ấy siêu thị",
+              "Là người hàng xóm lớn tuổi và đã nhận bánh kẹo",
+              "Là đồng nghiệp của người viết và đã cùng chuyển nhà"
+            ]
+          }
+        },
+        {
+          "q": "この文章で、「くださいました」と「もらいました」のちがいは何ですか。（最もよく説明しているものを選んでください）",
+          "evi": [
+            1,
+            2,
+            3
+          ],
+          "options": [
+            "どちらも同じ意味で、違いはありません",
+            "くださいました = 上の人が自分のためにしてくれた（尊敬）; もらいました = 友達にしてもらった（ふつう）",
+            "くださいました = 自分が上の人のためにした; もらいました = 自分が下の人のためにした",
+            "もらいました = 上の人が自分のためにしてくれた; くださいました = 友達にしてもらった"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài dùng くださいました hai lần:「田中部長が車で荷物を運んでくださいました」và「隣の山本さんも手伝ってくださいました」— cả hai đều là người CÓ VỊ THẾ CAO HƠN (sếp / hàng xóm đáng kính) làm điều tốt CHO mình, nên dùng kính ngữ くださいます. Bài dùng もらいました ở:「友達のカリナさんには、料理を作ってもらいました」— Karina là bạn bè ngang hàng, nên chỉ cần dùng もらいます (Bài 24, không có sắc thái kính trọng). Đáp án 0 sai: hai mẫu KHÔNG đồng nghĩa hoàn toàn — khác nhau ở quan hệ xã hội và sắc thái lịch sự. Đáp án 2 sai: nhầm hướng hành động — くださいます là NGƯỜI TRÊN làm cho mình, không phải mình làm cho người trên. Đáp án 3 sai: đảo ngược hoàn toàn ý nghĩa.",
+          "tip": "Phân biệt nhanh bằng CHỦ NGỮ: くださいました → chủ ngữ là người trên (部長/山本さん); もらいました → chủ ngữ là bạn bè ngang hàng (カリナさん). Hướng ân huệ đều là \"→ tôi\", chỉ khác mức lịch sự.",
+          "qt": {
+            "q": "Trong bài này, sự khác nhau giữa 「くださいました」 và 「もらいました」 là gì? (Hãy chọn cách giải thích phù hợp nhất.)",
+            "o": [
+              "Cả hai đều có cùng nghĩa, không có gì khác nhau",
+              "「くださいました」 = người ở vị thế cao hơn đã làm giúp cho mình (kính ngữ); 「もらいました」 = được bạn bè làm giúp (cách nói thông thường)",
+              "「くださいました」 = mình đã làm cho người ở vị thế cao hơn; 「もらいました」 = mình đã làm cho người ở vị thế thấp hơn",
+              "「もらいました」 = người ở vị thế cao hơn đã làm giúp cho mình; 「くださいました」 = được bạn bè làm giúp"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "引っ越し後の感謝の手紙",
+      "titleVi": "Thư cảm ơn sau khi chuyển nhà",
+      "japanese": "田中部長、\n先日は引っ越しを手伝っていただきまして、本当にありがとうございました。\nあの日、部長が朝早くから来てくださったおかげで、スムーズに引っ越しができました。\n重い家具を一人で運ぶつもりでしたが、部長が一緒に運んでくださったので、とても助かりました。\n実は、前の日の夜、一人でできるかどうかずっと心配していたんです。\nでも、部長が来てくださったので、心配がなくなりました。\nまた、引っ越しが終わってから、近くのいいレストランを教えていただきました。\nあのレストランで同僚のワットさんたちと一緒に食事をしてみましたが、料理がとてもおいしかったです。\nワットさんが店の予約をしてくれたので、私はとても楽でした。\n新しいアパートは会社から少し遠いですが、駅が近くて便利です。\n先週、母が来てくれました。新しい部屋を見て、「いい部屋ね」と言ってくれました。\n母には荷物の整理を手伝ってもらいました。おかげで部屋がきれいになりました。\n新しい生活に慣れたら、ぜひ部長のお宅にも遊びに行きたいと思っています。\nそのときは手作りのお菓子を持っていってさしあげたいと思います。\n今後ともよろしくお願いします。\n山田より",
+      "vietnamese": "Kính gửi trưởng phòng Tanaka,\nHôm trước trưởng phòng đã giúp đỡ việc chuyển nhà cho tôi, tôi thực sự biết ơn vô cùng.\nHôm đó nhờ trưởng phòng đến từ sáng sớm nên việc chuyển nhà diễn ra thuận lợi.\nTôi định tự mình chuyển đồ nặng một mình, nhưng vì trưởng phòng cùng chuyển nên tôi đỡ vất vả rất nhiều.\nThực ra tối hôm trước tôi đã lo lắng mãi không biết một mình có làm được không.\nNhưng vì trưởng phòng đã đến nên nỗi lo biến mất.\nNgoài ra, sau khi chuyển nhà xong, trưởng phòng còn giới thiệu cho tôi một nhà hàng ngon gần đó.\nTôi đã thử đến ăn ở nhà hàng đó cùng với đồng nghiệp Watt và các bạn, thức ăn ngon tuyệt.\nVì anh Watt đặt chỗ nhà hàng nên tôi rất thoải mái.\nCăn hộ mới hơi xa công ty nhưng gần ga nên tiện.\nTuần trước mẹ đến thăm tôi. Mẹ nhìn phòng mới và nói \"Phòng đẹp đó con\".\nTôi nhờ mẹ giúp sắp xếp đồ đạc. Nhờ đó phòng trở nên gọn gàng.\nKhi đã quen với cuộc sống mới, tôi nhất định muốn đến chơi nhà trưởng phòng.\nLúc đó tôi định mang bánh kẹo tự làm sang biếu trưởng phòng.\nMong trưởng phòng tiếp tục quan tâm chỉ bảo.\nYamada kính gửi",
+      "sentences": [
+        {
+          "jp": "田中部長、",
+          "vi": "Kính gửi trưởng phòng Tanaka,",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Xưng hô trong thư（Bài 21 văn phong）",
+              "vi": "田中部長 = \"Trưởng phòng Tanaka\" — cách mở đầu thư trang trọng trong tiếng Nhật, không thêm は。"
+            }
+          ]
+        },
+        {
+          "jp": "先日は引っ越しを手伝っていただきまして、本当にありがとうございました。",
+          "vi": "Hôm trước trưởng phòng đã giúp đỡ việc chuyển nhà cho tôi, tôi thực sự biết ơn vô cùng.",
+          "vocab": [
+            {
+              "w": "先日",
+              "read": "せんじつ",
+              "vi": "hôm trước, ngày trước"
+            },
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "việc chuyển nhà"
+            },
+            {
+              "w": "手伝います",
+              "read": "てつだいます",
+              "vi": "giúp đỡ"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thật sự"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていただきまして",
+              "vi": "手伝っていただきまして = tôi đã được giúp đỡ (khiêm nhường). いただきます là dạng khiêm nhường của もらいます — nhìn từ góc độ người NHẬN ân huệ từ người trên. Ở đây ます→まして dùng vì nối câu (như て形)."
+            }
+          ]
+        },
+        {
+          "jp": "あの日、部長が朝早くから来てくださったおかげで、スムーズに引っ越しができました。",
+          "vi": "Hôm đó nhờ trưởng phòng đến từ sáng sớm nên việc chuyển nhà diễn ra thuận lợi.",
+          "vocab": [
+            {
+              "w": "あの日",
+              "read": "あのひ",
+              "vi": "ngày hôm đó"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "朝早く",
+              "read": "あさはやく",
+              "vi": "sáng sớm"
+            },
+            {
+              "w": "早くから",
+              "read": "はやくから",
+              "vi": "từ sớm"
+            },
+            {
+              "w": "来てくださった",
+              "read": "きてくださった",
+              "vi": "đã đến"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ ơn"
+            },
+            {
+              "w": "おかげで",
+              "read": "おかげで",
+              "vi": "nhờ... mà"
+            },
+            {
+              "w": "スムーズ",
+              "read": "スムーズ",
+              "vi": "trôi chảy"
+            },
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "việc chuyển nhà"
+            },
+            {
+              "w": "できました",
+              "read": "できました",
+              "vi": "đã có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくださった",
+              "vi": "来てくださった = đã đến (ngài đã cho mình được ân huệ). くださる là dạng từ điển của くださいます (quá khứ: くださった). Chủ ngữ = trưởng phòng (người trên)."
+            },
+            {
+              "point": "〜おかげで",
+              "vi": "くださったおかげで = nhờ trưởng phòng đến. おかげで = nhờ ơn (dùng cho kết quả TỐT)."
+            }
+          ]
+        },
+        {
+          "jp": "重い家具を一人で運ぶつもりでしたが、部長が一緒に運んでくださったので、とても助かりました。",
+          "vi": "Tôi định tự mình chuyển đồ nặng một mình, nhưng vì trưởng phòng cùng chuyển nên tôi đỡ vất vả rất nhiều.",
+          "vocab": [
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "家具",
+              "read": "かぐ",
+              "vi": "đồ nội thất"
+            },
+            {
+              "w": "運びます",
+              "read": "はこびます",
+              "vi": "chuyển, vận chuyển"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "助かります",
+              "read": "たすかります",
+              "vi": "được cứu, đỡ vất vả"
+            },
+            {
+              "w": "一人で",
+              "read": "ひとりで",
+              "vi": "một mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるつもりでした（Bài 31）",
+              "vi": "運ぶつもりでした = tôi đã định chuyển (một mình). Quá khứ của つもり — kế hoạch ban đầu nhưng thực tế khác."
+            },
+            {
+              "point": "Vてくださったので",
+              "vi": "運んでくださったので = vì trưởng phòng đã cùng chuyển. くださった（quá khứ kính trọng）+ ので（lý do lịch sự Bài 39）."
+            }
+          ]
+        },
+        {
+          "jp": "実は、前の日の夜、一人でできるかどうかずっと心配していたんです。",
+          "vi": "Thực ra tối hôm trước tôi đã lo lắng mãi không biết một mình có làm được không.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thật ra"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "前の日",
+              "read": "まえのひ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "かどうか",
+              "read": "かどうか",
+              "vi": "có... hay không"
+            },
+            {
+              "w": "ずっと",
+              "read": "ずっと",
+              "vi": "suốt, luôn luôn"
+            },
+            {
+              "w": "心配していた",
+              "read": "しんぱいしていた",
+              "vi": "đã lo lắng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かどうか（Bài 40）",
+              "vi": "できるかどうか = không biết có làm được không. かどうか dùng khi không chắc có/không."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "心配していたんです = thực ra đang lo lắng mà (giải thích tâm trạng). んです nhấn mạnh đây là thông tin mới/giải thích."
+            }
+          ]
+        },
+        {
+          "jp": "でも、部長が来てくださったので、心配がなくなりました。",
+          "vi": "Nhưng vì trưởng phòng đã đến nên nỗi lo biến mất.",
+          "vocab": [
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "sự lo lắng, nỗi lo"
+            },
+            {
+              "w": "なくなる",
+              "read": "なくなる",
+              "vi": "mất đi, hết"
+            },
+            {
+              "w": "なくなります",
+              "read": "なくなります",
+              "vi": "biến mất, không còn nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくださったので",
+              "vi": "来てくださったので = vì trưởng phòng đã đến. Lặp mẫu くださる + ので diễn tả lý do (ân huệ từ người trên → kết quả tốt)."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "なくなりました = trở nên không còn. Biến đổi trạng thái."
+            }
+          ]
+        },
+        {
+          "jp": "また、引っ越しが終わってから、近くのいいレストランを教えていただきました。",
+          "vi": "Ngoài ra, sau khi chuyển nhà xong, trưởng phòng còn giới thiệu cho tôi một nhà hàng ngon gần đó.",
+          "vocab": [
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "việc chuyển nhà"
+            },
+            {
+              "w": "終わります",
+              "read": "おわります",
+              "vi": "kết thúc, xong"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy, giới thiệu, chỉ cho biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "終わってから = sau khi kết thúc. Hành động hoàn thành trước rồi mới có việc tiếp theo."
+            },
+            {
+              "point": "Vていただきました",
+              "vi": "教えていただきました = được trưởng phòng giới thiệu (tôi được nhận ân huệ). いただきます nhìn từ góc người NHẬN — khiêm nhường, tôn trọng người đã giúp."
+            }
+          ]
+        },
+        {
+          "jp": "あのレストランで同僚のワットさんたちと一緒に食事をしてみましたが、料理がとてもおいしかったです。",
+          "vi": "Tôi đã thử đến ăn ở nhà hàng đó cùng với đồng nghiệp Watt và các bạn, thức ăn ngon tuyệt.",
+          "vocab": [
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "食事",
+              "read": "しょくじ",
+              "vi": "bữa ăn"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみました（Bài 40）",
+              "vi": "食事をしてみました = thử đi ăn. みます = thử làm điều gì chưa trải qua."
+            },
+            {
+              "point": "〜たちと一緒に（Bài 4）",
+              "vi": "ワットさんたちと一緒に = cùng với Watt và mọi người. たち = hậu tố số nhiều, と一緒に = cùng với."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんが店の予約をしてくれたので、私はとても楽でした。",
+          "vi": "Vì anh Watt đặt chỗ nhà hàng nên tôi rất thoải mái.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "cửa hàng"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "してくれた",
+              "read": "してくれた",
+              "vi": "đã làm giúp"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "楽",
+              "read": "らく",
+              "vi": "nhàn, thoải mái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれたので（Bài 24）",
+              "vi": "予約をしてくれたので = vì Watt đã đặt chỗ cho mình. くれます = dạng THƯỜNG (Bài 24) vì Watt là đồng nghiệp ngang hàng — không dùng くださいます."
+            }
+          ]
+        },
+        {
+          "jp": "新しいアパートは会社から少し遠いですが、駅が近くて便利です。",
+          "vi": "Căn hộ mới hơi xa công ty nhưng gần ga nên tiện.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "chung cư, căn hộ"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "遠い",
+              "read": "とおい",
+              "vi": "xa"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga (tàu)"
+            },
+            {
+              "w": "近い",
+              "read": "ちかい",
+              "vi": "gần (tính từ い)"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が〜（đối lập）",
+              "vi": "遠いですが = xa nhưng (that said). が nối hai thông tin đối lập nhẹ."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "近くて便利です = gần VÀ tiện. Nối tính từ い với vế sau bằng くて."
+            }
+          ]
+        },
+        {
+          "jp": "先週、母が来てくれました。新しい部屋を見て、「いい部屋ね」と言ってくれました。",
+          "vi": "Tuần trước mẹ đến thăm tôi. Mẹ nhìn phòng mới và nói \"Phòng đẹp đó con\".",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (của mình)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "来てくれました、言ってくれました = mẹ đã đến, đã nói (làm điều tốt cho mình). Dùng くれます vì mẹ là thành viên gia đình — trong gia đình KHÔNG dùng kính ngữ くださいます cho nội bộ gia đình."
+            }
+          ]
+        },
+        {
+          "jp": "母には荷物の整理を手伝ってもらいました。おかげで部屋がきれいになりました。",
+          "vi": "Tôi nhờ mẹ giúp sắp xếp đồ đạc. Nhờ đó phòng trở nên gọn gàng.",
+          "vocab": [
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (tôi)"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "đồ đạc, hành lý"
+            },
+            {
+              "w": "整理",
+              "read": "せいり",
+              "vi": "sắp xếp, dọn dẹp"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "gọn gàng, sạch sẽ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらいました（Bài 24）",
+              "vi": "手伝ってもらいました = nhờ mẹ giúp, được mẹ giúp. もらいます dùng cho việc nhờ/được từ người thân, bạn bè (không phải kính ngữ)."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "きれいになりました = trở nên gọn gàng. になります cho danh từ/tính từ な."
+            }
+          ]
+        },
+        {
+          "jp": "新しい生活に慣れたら、ぜひ部長のお宅にも遊びに行きたいと思っています。",
+          "vi": "Khi đã quen với cuộc sống mới, tôi nhất định muốn đến chơi nhà trưởng phòng.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống, sinh hoạt"
+            },
+            {
+              "w": "慣れます",
+              "read": "なれます",
+              "vi": "quen với, thích nghi"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "宅",
+              "read": "たく",
+              "vi": "nhà, tư gia"
+            },
+            {
+              "w": "遊び",
+              "read": "あそび",
+              "vi": "trò chơi, sự vui chơi"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, bằng mọi cách"
+            },
+            {
+              "w": "お宅",
+              "read": "おたく",
+              "vi": "nhà của người khác (lịch sự)"
+            },
+            {
+              "w": "遊びに行きます",
+              "read": "あそびにいきます",
+              "vi": "đến chơi, ghé thăm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "慣れたら = khi đã quen. たら điều kiện thời gian — sau khi điều kiện xảy ra thì…"
+            },
+            {
+              "point": "Vたいと思っています（Bài 13+21）",
+              "vi": "遊びに行きたいと思っています = tôi đang nghĩ muốn đến chơi. Vたい（muốn）+ と思っています（đang nghĩ）. ぜひ nhấn mạnh ý muốn thiết tha: \"nhất định muốn đến\"."
+            }
+          ]
+        },
+        {
+          "jp": "そのときは手作りのお菓子を持っていってさしあげたいと思います。",
+          "vi": "Lúc đó tôi định mang bánh kẹo tự làm sang biếu trưởng phòng.",
+          "vocab": [
+            {
+              "w": "手作り",
+              "read": "てづくり",
+              "vi": "tự làm bằng tay, handmade"
+            },
+            {
+              "w": "お菓子",
+              "read": "おかし",
+              "vi": "bánh kẹo"
+            },
+            {
+              "w": "持っていきます",
+              "read": "もっていきます",
+              "vi": "mang đi, đem theo"
+            },
+            {
+              "w": "さしあげる",
+              "read": "さしあげる",
+              "vi": "biếu, tặng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "そのとき",
+              "read": "そのとき",
+              "vi": "lúc đó, khi đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてさしあげたい",
+              "vi": "持っていってさしあげたい = tôi muốn mang biếu (trưởng phòng). さしあげます = khiêm nhường khi mình làm điều tốt CHO người có vị thế cao hơn (trưởng phòng). Vたいと思います = muốn làm."
+            }
+          ]
+        },
+        {
+          "jp": "今後ともよろしくお願いします。",
+          "vi": "Mong trưởng phòng tiếp tục quan tâm chỉ bảo.",
+          "vocab": [
+            {
+              "w": "今後とも",
+              "read": "こんごとも",
+              "vi": "từ nay về sau, tiếp tục"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "よろしくお願いします",
+              "read": "よろしくおねがいします",
+              "vi": "mong được nhờ cậy, trân trọng kính nhờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Cụm kết thư（xã giao）",
+              "vi": "今後ともよろしくお願いします = kết thúc thư trang trọng. Cụm cố định hay dùng trong email, thư kinh doanh."
+            }
+          ]
+        },
+        {
+          "jp": "山田より",
+          "vi": "Yamada kính gửi",
+          "vocab": [
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "より",
+              "read": "より",
+              "vi": "từ (người gửi), kính gửi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜より（kết thư）",
+              "vi": "山田より = từ Yamada. より ở cuối thư = cách ký tên trang trọng, lịch sự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "引っ越しを手伝っていただきまして",
+          "label": "Vていただきます（mình được người trên giúp — khiêm nhường）"
+        },
+        {
+          "excerpt": "来てくださったおかげで",
+          "label": "Vてくださる（người trên đến giúp — kính trọng）"
+        },
+        {
+          "excerpt": "運んでくださったので",
+          "label": "Vてくださる + ので（ân huệ từ người trên → kết quả）"
+        },
+        {
+          "excerpt": "教えていただきました",
+          "label": "Vていただきました（được người trên chỉ dẫn — khiêm nhường）"
+        },
+        {
+          "excerpt": "予約をしてくれたので",
+          "label": "Vてくれた（đồng nghiệp ngang hàng — Bài 24）"
+        },
+        {
+          "excerpt": "来てくれました",
+          "label": "Vてくれました（mẹ — trong gia đình không dùng くださいます）"
+        },
+        {
+          "excerpt": "持っていってさしあげたいと思います",
+          "label": "Vてさしあげます（mình làm cho người trên — khiêm nhường）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "山田さんはどうして「手伝っていただきました」という言い方をしましたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "田中部長は友達だから、いただきますを使いました",
+            "田中部長は上司なので、もらいますの丁寧な形「いただきます」を使いました",
+            "手伝ってもらいましたと同じ意味で、どちらも使えます",
+            "いただきますは食べるときの言葉で、ここでは間違いです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Thư mở đầu bằng「先日は引っ越しを手伝っていただきまして」— Yamada dùng いただきます vì Tanaka là上司 (thượng cấp), và いただきます = dạng KHIÊM NHƯỜNG của もらいます (Bài 24), dùng khi người NHẬN muốn tỏ lòng kính trọng người đã giúp. Đáp án 0 sai: 田中部長 là thượng cấp, KHÔNG phải bạn bè — nếu là bạn bè thì dùng もらいます bình thường. Đáp án 2 sai quan trọng: もらいます và いただきます KHÔNG hoàn toàn thay thế nhau — いただきます có sắc thái khiêm nhường và kính trọng mà もらいます thiếu. Đáp án 3 sai hoàn toàn: いただきます trong văn phạm Bài 41 là Vていただきます (nhận ân huệ từ người trên), hoàn toàn khác với câu cảm ơn trước bữa ăn.",
+          "tip": "Nhớ hướng của いただきます: GÓC NHÌN CỦA NGƯỜI NHẬN — \"tôi được (người trên) làm cho\". Khi viết thư/nói với thượng cấp → いただきます; khi nói với bạn bè/người ngang hàng → もらいます.",
+          "qt": {
+            "q": "Vì sao anh/chị Yamada dùng cách nói 「手伝っていただきました」(đã được giúp đỡ)?",
+            "o": [
+              "Vì trưởng phòng Tanaka là bạn nên đã dùng 「いただきます」",
+              "Vì trưởng phòng Tanaka là cấp trên nên đã dùng dạng lịch sự của 「もらいます」 là 「いただきます」",
+              "Có cùng nghĩa với 「手伝ってもらいました」, có thể dùng cả hai cách",
+              "「いただきます」 là cách nói dùng khi ăn, nên dùng ở đây là sai"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんについて、山田さんはどんな言い方をしましたか。そして、それはなぜですか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "「くださいました」を使いました。ワットさんは上司だからです",
+            "「くれたので」を使いました。ワットさんは同僚で、対等な関係だからです",
+            "「いただきました」を使いました。ワットさんは年上だからです",
+            "「さしあげました」を使いました。山田さんがワットさんのために何かしたからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài ghi rõ:「ワットさんが店の予約をしてくれたので、私はとても楽でした」— dùng くれた (dạng thường Bài 24). Lý do: bài xác nhận Watt là「同僚」(đồng nghiệp ngang hàng) → quan hệ bình đẳng → dùng くれます, KHÔNG dùng kính ngữ くださいます. Đáp án 0 sai: くださいました là dạng kính trọng dùng cho người trên (sếp/hàng xóm lớn tuổi) — Watt là đồng nghiệp ngang hàng, dùng くださいました là quá lịch sự không tự nhiên. Đáp án 2 sai: いただきました = mình nhận từ người TRÊN (khiêm nhường) — không phù hợp với đồng nghiệp. Đáp án 3 sai: さしあげました = mình làm cho người trên — ngược hướng hành động (Watt làm cho tôi, không phải tôi làm cho Watt).",
+          "tip": "Bẫy hay gặp: cùng là \"người khác làm điều tốt cho mình\" nhưng chọn くれます hay くださいます phụ thuộc vào QUAN HỆ. Nhìn vào từ mô tả người đó trong bài: \"同僚/友達\" → くれます; \"部長/先生/年上\" → くださいます.",
+          "qt": {
+            "q": "Anh/chị Yamada đã dùng cách nói nào về anh Watt? Và vì sao?",
+            "o": [
+              "Đã dùng 「くださいました」. Vì anh Watt là cấp trên",
+              "Đã dùng 「くれたので」. Vì anh Watt là đồng nghiệp và có quan hệ ngang hàng",
+              "Đã dùng 「いただきました」. Vì anh Watt lớn tuổi hơn",
+              "Đã dùng 「さしあげました」. Vì Yamada đã làm điều gì đó cho anh Watt"
+            ]
+          }
+        },
+        {
+          "q": "山田さんが「さしあげたい」と言ったのは、誰のためですか。そして、それはどんな状況ですか。",
+          "evi": [
+            12,
+            13
+          ],
+          "options": [
+            "カリナさんのために、引っ越しの日に料理を作ってさしあげました",
+            "田中部長の自宅に訪問するとき、手作りのお菓子を持っていってさしあげたいと思っています",
+            "母のために、荷物を整理してさしあげました",
+            "ワットさんのために、レストランを教えてさしあげました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài ghi:「新しい生活に慣れたら、ぜひ部長のお宅にも遊びに行きたいと思っています。そのときは手作りのお菓子を持っていってさしあげたいと思います」— Yamada muốn đến chơi NHÀ TRƯỞNG PHÒNG và mang bánh kẹo tự làm sang biếu. さしあげます (khiêm nhường) dùng đúng vì mình (người dưới) làm điều tốt CHO người trên (部長). Đáp án 0 sai: nấu ăn là Karina làm cho Yamada (「料理を作ってもらいました」), không phải Yamada làm cho Karina, và không dùng さしあげます cho bạn bè. Đáp án 2 sai: mẹ giúp sắp xếp đồ đạc cho Yamada (「手伝ってもらいました」) — đây là Yamada nhận ân huệ từ mẹ, không phải Yamada làm cho mẹ. Đáp án 3 sai: Yamada NHẬN thông tin nhà hàng từ trưởng phòng (「教えていただきました」), không phải Yamada chỉ Watt.",
+          "tip": "さしあげます = あげます với người trên. Dấu hiệu nhận biết trong bài: (1) người nhận được gọi bằng chức danh (部長/先生) hoặc kính xưng (お宅); (2) người làm là Yamada (tôi). Hai điều kiện này phải cùng đúng.",
+          "qt": {
+            "q": "Khi anh/chị Yamada nói 「さしあげたい」, anh/chị ấy muốn làm việc đó cho ai? Và trong tình huống nào?",
+            "o": [
+              "Làm món ăn cho chị Karina vào ngày chuyển nhà",
+              "Anh/chị ấy dự định mang bánh tự làm đến biếu khi đến thăm nhà trưởng phòng Tanaka",
+              "Sắp xếp hành lý giúp mẹ",
+              "Chỉ cho anh Watt một nhà hàng"
+            ]
+          }
+        },
+        {
+          "q": "この手紙の内容と合っているものはどれですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "山田さんは引っ越しの日、一人ですべての荷物を運びました",
+            "田中部長と山田さんは一緒に重い家具を運び、山田さんはとても助かりました",
+            "母が来て、新しい部屋が気に入らないと言いました",
+            "山田さんは新しいアパートが駅から遠くて不便だと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài ghi rõ:「重い家具を一人で運ぶつもりでしたが、部長が一緒に運んでくださったので、とても助かりました」— trưởng phòng ĐÃ cùng chuyển đồ nặng và Yamada cảm thấy rất đỡ vất vả. Đáp án 0 sai:「一人で運ぶつもりでした」= Yamada ĐÃ ĐỊNH một mình, nhưng thực tế trưởng phòng đã giúp — từ chốt là つもりでした (dự định ban đầu, không xảy ra). Đáp án 2 sai:「新しい部屋を見て、「いい部屋ね」と言ってくれました」= mẹ khen phòng đẹp, không phải chê. Đáp án 3 sai:「会社から少し遠いですが、駅が近くて便利です」= hơi xa công ty NHƯNG gần ga nên TIỆN — bài đánh giá là tiện lợi, không phải bất tiện.",
+          "tip": "Với câu hỏi \"内容と合っているものはどれか\" (câu nào đúng với bài), hãy kiểm tra TỪ KHÓA PHỦ ĐỊNH và TỪ ĐỐI LẬP (つもりでしたが / 遠いですが) — đây là bẫy đảo nghĩa phổ biến nhất. Đọc kỹ mệnh đề sau \"が\" để biết kết quả thực tế.",
+          "qt": {
+            "q": "Điều nào phù hợp với nội dung bức thư này?",
+            "o": [
+              "Vào ngày chuyển nhà, anh/chị Yamada đã tự mình chuyển tất cả hành lý",
+              "Trưởng phòng Tanaka và anh/chị Yamada cùng chuyển đồ nội thất nặng, và anh/chị Yamada đã được giúp đỡ rất nhiều",
+              "Mẹ đến chơi và nói rằng bà không thích căn phòng mới",
+              "Anh/chị Yamada nghĩ căn hộ mới xa ga và bất tiện"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Set trưa mừng chuyển nhà ở nhà hàng",
+      "japanese": "さくら食堂　引っ越し祝いランチセット\nこの春、近くに引っ越したみなさん、当店でお祝いのランチを食べませんか。\nセット｜メイン｜サイド｜値段\nAセット｜①グループから一つ｜スープ｜850円\nBセット｜①か②グループから一つ｜スープとサラダ｜1,050円\nメインは①グループか②グループから一つ選んでください。\nグループ｜メニュー\n①（和食）｜親子丼・焼き魚・うどん\n②（洋食）｜ハンバーグ・パスタ\n店長がていねいに料理を説明してくださいますので、初めての方も安心です。\nBセットを選んだ方には、デザートのケーキも無料でつけていただけます。\n※4人以上のグループで来たら、前の日までに電話で申し込んでください。当日のキャンセルは料金がかかります。\n電話：045-333-5566（月〜土　11:00〜20:00）　メール：sakura-shokudo@city-sample.jp",
+      "vietnamese": "Nhà hàng Sakura　Set trưa mừng chuyển nhà\nMùa xuân này, các bạn đã chuyển đến ở gần đây ơi, bạn có muốn ăn bữa trưa mừng tân gia tại quán không?\nSet｜Món chính｜Món kèm｜Giá\nSet A｜Một món từ nhóm ①｜Súp｜850 yên\nSet B｜Một món từ nhóm ① hoặc ②｜Súp và salad｜1.050 yên\nMón chính vui lòng chọn một món từ nhóm ① hoặc nhóm ②.\nNhóm｜Thực đơn\n① (Món Nhật)｜Cơm gà trứng・Cá nướng・Udon\n② (Món Tây)｜Hamburger steak・Mì Ý\nQuản lý quán sẽ giải thích món ăn kỹ càng cho mình, nên người mới đến quán lần đầu cũng yên tâm.\nKhách chọn Set B thì cả bánh ngọt tráng miệng cũng được tặng kèm miễn phí cho mình.\n※Nếu đến theo nhóm từ 4 người trở lên, vui lòng đăng ký qua điện thoại trước một ngày. Việc hủy trong ngày sẽ mất phí.\nĐiện thoại: 045-333-5566 (Thứ Hai〜Thứ Bảy　11:00〜20:00)　Email: sakura-shokudo@city-sample.jp",
+      "sentences": [
+        {
+          "jp": "さくら食堂　引っ越し祝いランチセット",
+          "vi": "Nhà hàng Sakura — Set trưa mừng chuyển nhà.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "食堂",
+              "read": "しょくどう",
+              "vi": "nhà hàng, quán ăn"
+            },
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "việc chuyển nhà"
+            },
+            {
+              "w": "祝い",
+              "read": "いわい",
+              "vi": "lời chúc mừng, quà mừng"
+            },
+            {
+              "w": "ランチ",
+              "read": "ランチ",
+              "vi": "bữa trưa, cơm trưa"
+            },
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "引っ越し祝い",
+              "read": "ひっこしいわい",
+              "vi": "mừng chuyển nhà, mừng tân gia"
+            },
+            {
+              "w": "ランチセット",
+              "read": "らんちせっと",
+              "vi": "set (suất) ăn trưa"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "この春、近くに引っ越したみなさん、当店でお祝いのランチを食べませんか。",
+          "vi": "Mùa xuân này, các bạn đã chuyển đến ở gần đây ơi, bạn có muốn ăn bữa trưa mừng tân gia tại quán không?",
+          "vocab": [
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "引っ越した",
+              "read": "ひっこした",
+              "vi": "đã chuyển nhà"
+            },
+            {
+              "w": "当店",
+              "read": "とうてん",
+              "vi": "quán chúng tôi (cách gọi trang trọng)"
+            },
+            {
+              "w": "お祝い",
+              "read": "おいわい",
+              "vi": "lời chúc mừng, tiệc mừng"
+            },
+            {
+              "w": "ランチ",
+              "read": "ランチ",
+              "vi": "bữa trưa, cơm trưa"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "この春",
+              "read": "このはる",
+              "vi": "mùa xuân này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "引っ越した（Bài 19、mệnh đề bổ nghĩa Bài 22）",
+              "vi": "引っ越したみなさん = các bạn đã chuyển nhà. Thể た làm mệnh đề bổ nghĩa cho danh từ みなさん."
+            },
+            {
+              "point": "Vませんか（Bài 6）",
+              "vi": "食べませんか = bạn có muốn ăn không? Rủ rê lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "セット｜メイン｜サイド｜値段",
+          "vi": "Set — Món chính — Món kèm — Giá (hàng tiêu đề bảng).",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "せっと",
+              "vi": "set, suất"
+            },
+            {
+              "w": "メイン",
+              "read": "めいん",
+              "vi": "món chính"
+            },
+            {
+              "w": "サイド",
+              "read": "さいど",
+              "vi": "món kèm, món phụ"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "値段",
+              "why": "Cột giá của bảng — cần đối chiếu để trả lời câu hỏi \"いくら払いますか\" (câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "Aセット｜①グループから一つ｜スープ｜850円",
+          "vi": "Set A — Một món từ nhóm ① — Súp — 850 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "｜①",
+              "read": "｜①",
+              "vi": "mục một, số một"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "スープ",
+              "read": "すーぷ",
+              "vi": "súp"
+            },
+            {
+              "w": "Aセット",
+              "read": "えーせっと",
+              "vi": "Set A"
+            },
+            {
+              "w": "850円",
+              "read": "はっぴゃくごじゅうえん",
+              "vi": "850 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "Aセット",
+              "why": "Set A chỉ cho chọn nhóm ①, khác Set B — dễ nhầm khi Miller muốn ăn món nhóm② (câu 1)."
+            },
+            {
+              "w": "850円",
+              "why": "Giá Set A — đáp án nhiễu gần đúng cho câu 1 (dễ chọn nhầm nếu quên Miller chọn Set B)."
+            }
+          ]
+        },
+        {
+          "jp": "Bセット｜①か②グループから一つ｜スープとサラダ｜1,050円",
+          "vi": "Set B — Một món từ nhóm ① hoặc ② — Súp và salad — 1.050 yên.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "｜①",
+              "read": "｜①",
+              "vi": "mục một, số một"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "スープ",
+              "read": "スープ",
+              "vi": "súp"
+            },
+            {
+              "w": "サラダ",
+              "read": "さらだ",
+              "vi": "salad"
+            },
+            {
+              "w": "Bセット",
+              "read": "びーせっと",
+              "vi": "Set B"
+            },
+            {
+              "w": "1,050円",
+              "read": "せんごじゅうえん",
+              "vi": "1.050 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜（Bài 6）",
+              "vi": "①か②グループ = nhóm ① hoặc nhóm ②. か nối 2 lựa chọn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "Bセット",
+              "why": "Set Miller chọn — căn cứ chính để tính tiền, câu hỏi 1."
+            },
+            {
+              "w": "①か②グループから一つ",
+              "why": "Set B cho phép chọn CẢ nhóm①lẫn②, nên hamburger (nhóm②) vẫn hợp lệ trong giá Set B — khớp điều kiện câu 1."
+            },
+            {
+              "w": "1,050円",
+              "why": "Giá trọn gói của Set B — đáp án đúng câu hỏi 1, không cộng thêm theo món."
+            }
+          ]
+        },
+        {
+          "jp": "メインは①グループか②グループから一つ選んでください。",
+          "vi": "Món chính vui lòng chọn một món từ nhóm ① hoặc nhóm ②.",
+          "vocab": [
+            {
+              "w": "メイン",
+              "read": "メイン",
+              "vi": "món chính"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "lựa chọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜か〜（Bài 6）",
+              "vi": "①グループか②グループ = nhóm ① hoặc nhóm ②. か nối 2 lựa chọn."
+            },
+            {
+              "point": "〜から選んでください（Bài 14）",
+              "vi": "①グループか②グループから選んでください = xin hãy chọn từ nhóm ① hoặc nhóm ②. Vてください yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "グループ｜メニュー",
+          "vi": "Nhóm — Thực đơn (hàng tiêu đề bảng).",
+          "vocab": [
+            {
+              "w": "グループ",
+              "read": "ぐるーぷ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "メニュー",
+              "read": "めにゅー",
+              "vi": "thực đơn"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "①（和食）｜親子丼・焼き魚・うどん",
+          "vi": "Nhóm ① (Món Nhật) — Cơm gà trứng, Cá nướng, Udon.",
+          "vocab": [
+            {
+              "w": "①（",
+              "read": "①（",
+              "vi": "mục 1, ký hiệu 1"
+            },
+            {
+              "w": "和食",
+              "read": "わしょく",
+              "vi": "món ăn Nhật"
+            },
+            {
+              "w": "親子",
+              "read": "おやこ",
+              "vi": "cha mẹ và con"
+            },
+            {
+              "w": "丼",
+              "read": "どんぶり",
+              "vi": "bát tô, món cơm bát"
+            },
+            {
+              "w": "焼き魚",
+              "read": "やきざかな",
+              "vi": "cá nướng"
+            },
+            {
+              "w": "うどん",
+              "read": "うどん",
+              "vi": "mì udon"
+            },
+            {
+              "w": "親子丼",
+              "read": "おやこどん",
+              "vi": "cơm gà trứng (oyakodon)"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "②（洋食）｜ハンバーグ・パスタ",
+          "vi": "Nhóm ② (Món Tây) — Hamburger steak, Mì Ý.",
+          "vocab": [
+            {
+              "w": "②（",
+              "read": "②（",
+              "vi": "mục 2, ký hiệu 2"
+            },
+            {
+              "w": "洋食",
+              "read": "ようしょく",
+              "vi": "món ăn phương Tây"
+            },
+            {
+              "w": "ハンバーグ",
+              "read": "はんばーぐ",
+              "vi": "hamburger steak"
+            },
+            {
+              "w": "パスタ",
+              "read": "ぱすた",
+              "vi": "mì Ý"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ハンバーグ",
+              "why": "Món Miller muốn ăn — thuộc nhóm②, chỉ hợp lệ trong Set B (câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "店長がていねいに料理を説明してくださいますので、初めての方も安心です。",
+          "vi": "Quản lý quán sẽ giải thích món ăn kỹ càng cho mình, nên người mới đến quán lần đầu cũng yên tâm.",
+          "vocab": [
+            {
+              "w": "店長",
+              "read": "てんちょう",
+              "vi": "quản lý quán, chủ quán"
+            },
+            {
+              "w": "ていねい",
+              "read": "ていねい",
+              "vi": "sự lịch thiệp, cẩn thận"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            },
+            {
+              "w": "ていねいに",
+              "read": "ていねいに",
+              "vi": "một cách kỹ càng, cẩn thận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくださいます（Bài 41）",
+              "vi": "説明してくださいますので = quản lý quán (người có vị thế cao hơn khách trong bối cảnh phục vụ) giải thích giúp cho mình. くださいます thể hiện sự kính trọng."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "説明してくださいますので = vì quản lý quán giải thích giúp cho, nên… ので nêu lý do lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "説明してくださいますので",
+              "why": "Ngữ pháp trọng tâm bài 41 (くださいます) — không phải căn cứ câu hỏi, nhưng là điểm cần dừng mắt để nhận diện văn phong ưu đãi dịch vụ."
+            }
+          ]
+        },
+        {
+          "jp": "Bセットを選んだ方には、デザートのケーキも無料でつけていただけます。",
+          "vi": "Khách chọn Set B thì cả bánh ngọt tráng miệng cũng được tặng kèm miễn phí cho mình.",
+          "vocab": [
+            {
+              "w": "セット",
+              "read": "セット",
+              "vi": "set, combo"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            },
+            {
+              "w": "デザート",
+              "read": "でざーと",
+              "vi": "món tráng miệng"
+            },
+            {
+              "w": "ケーキ",
+              "read": "けーき",
+              "vi": "bánh ngọt, bánh kem"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "選んだ方",
+              "read": "えらんだかた",
+              "vi": "người đã chọn, vị khách đã chọn"
+            },
+            {
+              "w": "つけます",
+              "read": "つけます",
+              "vi": "thêm vào, gắn kèm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていただけます（Bài 41）",
+              "vi": "つけていただけます = mình được (quán) thêm tặng kèm cho (khiêm nhường + khả năng). いただけます = thể khả năng của いただきます — \"có thể được nhận\", dùng khi thông báo mời khách một cách lịch sự thay vì nói thẳng つけてくれます/つけます."
+            }
+          ],
+          "keys": [
+            {
+              "w": "Bセットを選んだ方",
+              "why": "Xác nhận lại điều kiện chọn Set B — củng cố căn cứ giá 1,050円 cho câu hỏi 1 (Miller chọn Set B thì được thêm cả ưu đãi này, giá món chính vẫn không đổi)."
+            },
+            {
+              "w": "無料でつけていただけます",
+              "why": "Ưu đãi kèm theo Set B, dùng kính ngữ bài 41 — không phải căn cứ tính tiền, tránh nhầm là phải trả thêm."
+            }
+          ]
+        },
+        {
+          "jp": "※4人以上のグループで来たら、前の日までに電話で申し込んでください。当日のキャンセルは料金がかかります。",
+          "vi": "※Nếu đến theo nhóm từ 4 người trở lên, vui lòng đăng ký qua điện thoại trước một ngày. Việc hủy trong ngày sẽ mất phí.",
+          "vocab": [
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký, xin đăng ký"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, hôm diễn ra"
+            },
+            {
+              "w": "キャンセル",
+              "read": "きゃんせる",
+              "vi": "hủy"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "4人以上",
+              "read": "よにんいじょう",
+              "vi": "từ 4 người trở lên"
+            },
+            {
+              "w": "前の日",
+              "read": "まえのひ",
+              "vi": "ngày hôm trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "来たら = nếu đến. たら nêu điều kiện — nếu xảy ra việc \"đến theo nhóm 4 người trở lên\" thì phải đăng ký trước."
+            },
+            {
+              "point": "Nまでに（Bài 4/17）",
+              "vi": "前の日までに = trước ngày hôm trước, chậm nhất là trước đó một hôm. までに = hạn chót."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "申し込んでください = xin hãy đăng ký."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※4人以上のグループ",
+              "why": "Ngưỡng số người bắt buộc đăng ký trước — Karina đi 5 người vượt ngưỡng này, căn cứ chính câu hỏi 2."
+            },
+            {
+              "w": "前の日までに電話で申し込んでください",
+              "why": "Hành động BẮT BUỘC khi vượt ngưỡng 4 người — đáp án đúng câu hỏi 2."
+            },
+            {
+              "w": "当日のキャンセルは料金がかかります",
+              "why": "Bẫy phụ: nói về phí hủy, không phải điều kiện đăng ký — dễ nhầm sang các đáp án nhiễu khác của câu 2."
+            }
+          ]
+        },
+        {
+          "jp": "電話：045-333-5566（月〜土　11:00〜20:00）　メール：sakura-shokudo@city-sample.jp",
+          "vi": "Điện thoại: 045-333-5566 (Thứ Hai〜Thứ Bảy　11:00〜20:00) Email: sakura-shokudo@city-sample.jp",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "メール",
+              "read": "めーる",
+              "vi": "email"
+            },
+            {
+              "w": "sakura",
+              "read": "sakura",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "shokudo",
+              "read": "shokudo",
+              "vi": "nhà ăn, quán ăn"
+            },
+            {
+              "w": "city",
+              "read": "city",
+              "vi": "thành phố"
+            },
+            {
+              "w": "sample",
+              "read": "sample",
+              "vi": "mẫu, bản mẫu"
+            },
+            {
+              "w": "jp",
+              "read": "jp",
+              "vi": "tên miền Nhật Bản"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời",
+          "topic": 0,
+          "note": "Giới thiệu tên quán và lời mời khách mới chuyển nhà đến ăn set trưa — chưa có căn cứ trả lời câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng Set & giá",
+          "topic": 4,
+          "note": "Bảng chính chứa giá 2 set: Set A chỉ chọn nhóm①, Set B chọn①hoặc②. Đây là căn cứ tính tiền cho câu hỏi 1 (Miller chọn Set B).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "point",
+          "label": "Bảng nhóm món",
+          "topic": 7,
+          "note": "Chi tiết món trong nhóm①（和食）và②（洋食）— dùng để xác nhận hamburger thuộc nhóm② nên chỉ Set B mới cho chọn.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "body",
+          "label": "Ưu đãi phục vụ & kính ngữ",
+          "topic": 9,
+          "note": "Hai câu minh họa ngữ pháp trọng tâm bài 41 (くださいます／いただけます) về dịch vụ và ưu đãi kèm Set B — không phải căn cứ tính tiền, tránh nhầm phải trả thêm.",
+          "qs": []
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "turn",
+          "label": "Điều kiện ※ & liên hệ",
+          "topic": 11,
+          "note": "Dòng ※ nêu ngưỡng bắt buộc đăng ký trước khi đi nhóm từ 4 người trở lên — căn cứ chính cho câu hỏi 2 (Karina đi 5 người).",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "説明してくださいますので",
+          "label": "Vてくださいます（quản lý quán giải thích giúp — kính trọng, Bài 41）"
+        },
+        {
+          "excerpt": "つけていただけます",
+          "label": "Vていただけます（khách được tặng kèm — khiêm nhường + khả năng, Bài 41）"
+        },
+        {
+          "excerpt": "から一つ選んでください",
+          "label": "Vてください（ôn Bài 14）"
+        },
+        {
+          "excerpt": "までに電話で申し込んで",
+          "label": "Nまでに（ôn Bài 4/17）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは一人で行きます。②グループのハンバーグが食べたいので、Bセットを選びました。いくら払いますか。",
+          "options": [
+            "850円",
+            "1,050円",
+            "1,900円",
+            "2,100円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1,050円. Bảng ghi rõ:「Bセット｜①か②グループから一つ｜スープとサラダ｜1,050円」— Miller chọn Set B (được phép chọn món chính từ CẢ nhóm ① lẫn nhóm ②), nên chỉ cần trả đúng giá Set B là 1,050円, bất kể chọn hamburger (nhóm②) hay món khác. Đáp án 850円 sai vì đó là giá Set A, không phải Set B. Đáp án 1,900円 và 2,100円 sai vì đều là phép cộng sai (cộng gộp giá 2 set lại) — bảng đã ghi giá TRỌN GÓI theo từng set, không cộng thêm theo món chọn.",
+          "tip": "Bài toán ghép 2 điều kiện (set nào cho phép chọn nhóm nào + món muốn ăn): trước tiên xem CỘT MEIN của set để biết set đó cho chọn nhóm nào, sau đó đọc giá cùng hàng — đừng cộng giá theo món vì giá đã trọn gói theo set.",
+          "evi": [
+            4,
+            8
+          ],
+          "qt": {
+            "q": "Anh Miller đi một mình. Vì muốn ăn món hamburger thuộc nhóm ②, anh ấy đã chọn set B. Anh ấy phải trả bao nhiêu?",
+            "o": [
+              "850 yên",
+              "1.050 yên",
+              "1.900 yên",
+              "2.100 yên"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんたちは5人でお祝いのランチに行きたいです。何をしなければなりませんか。",
+          "options": [
+            "当日、お店に来てからメニューを選ぶ",
+            "前の日までに電話で申し込む",
+            "店長にお礼の手紙を書いてさしあげる",
+            "駅まで迎えに来てもらう"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1 (phương án thứ 2). Thông báo ghi rõ:「※4人以上のグループで来たら、前の日までに電話で申し込んでください」— nhóm Karina đi 5 người (từ 4 người trở lên), nên BẮT BUỘC phải đăng ký qua điện thoại trước một ngày. Đáp án \"đến quán rồi chọn món luôn\" sai vì bỏ qua điều kiện phải đăng ký trước khi đi theo nhóm đông. Đáp án \"viết thư cảm ơn quản lý quán\" sai vì thông báo không hề nhắc đến việc này — đây là chi tiết bịa, đánh lạc hướng bằng ngữ pháp さしあげます của bài 41. Đáp án \"nhờ đón ở ga\" sai vì thông báo hoàn toàn không có dịch vụ đưa đón từ ga.",
+          "tip": "Với câu hỏi \"phải làm gì\" khi có điều kiện về SỐ NGƯỜI, hãy dò đúng dòng ※ chú ý — dòng ※ luôn chứa điều kiện ràng buộc (số người, thời hạn đăng ký, phí hủy). Đối chiếu số người trong câu hỏi với ngưỡng ghi trong thông báo (4人以上) trước khi chọn.",
+          "evi": [
+            11
+          ],
+          "qt": {
+            "q": "Karina và mọi người muốn đi ăn bữa trưa mừng chuyển nhà với 5 người. Họ phải làm gì?",
+            "o": [
+              "Đến ngày hôm đó, sau khi đến quán mới chọn món",
+              "Gọi điện đăng ký trước một ngày",
+              "Viết thư cảm ơn gửi tặng quản lý quán",
+              "Nhờ đón ở ga"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

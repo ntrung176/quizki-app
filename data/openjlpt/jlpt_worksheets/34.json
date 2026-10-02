@@ -1,0 +1,3824 @@
+{
+  "bai": 34,
+  "level": "N4",
+  "intro": "〜とおりに (đúng như) · 〜たあとで (sau khi) · 〜まま (để nguyên). Có ÔN LẠI ngữ pháp đã học (bài 1-33) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "レシピのとおりに料理したら、とても美味しくできた。",
+              "ul": "料理",
+              "choices": [
+                "りょうり",
+                "りょうれ",
+                "らうり",
+                "りょうし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「料理」đọc là「りょうり」. Đây là từ âm Hán (on'yomi): 料＝りょう, 理＝り. Phương án「りょうれ」sai vì 理 không đọc là「れ」. Phương án「らうり」sai vì 料 không đọc là「ら」(đây là lỗi đọc sai nguyên âm đầu). Phương án「りょうし」sai vì 理 không đọc là「し」; 「りょうし」là cách đọc của 漁師 (ngư dân) hoặc 猟師 (thợ săn), không liên quan.",
+              "glosses": [
+                {
+                  "t": "レシピ",
+                  "vi": "công thức nấu ăn"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo, làm đúng như"
+                },
+                {
+                  "t": "料理",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "美味しくできた",
+                  "vi": "làm ra ngon"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất, vô cùng"
+                },
+                {
+                  "t": "したら",
+                  "read": "したら",
+                  "vi": "〜たら = nếu/khi làm xong ~ thì (điều kiện, kết quả)"
+                }
+              ]
+            },
+            {
+              "prompt": "説明書のとおりに組み立てると、うまくいった。",
+              "ul": "説明書",
+              "choices": [
+                "せつめいしょ",
+                "せつみょうしょ",
+                "せつめいじょ",
+                "せちめいしょ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「説明書」đọc là「せつめいしょ」. 説＝せつ, 明＝めい, 書＝しょ, đều là on'yomi. Phương án「せつみょうしょ」sai vì 明 không đọc là「みょう」trong tổ hợp này (みょう là cách đọc của 明 trong 明日/あした hoặc 翌日, nhưng không áp dụng ở đây). Phương án「せつめいじょ」sai vì 書 không đọc là「じょ」; 「じょ」là cách đọc của 序 hoặc 女. Phương án「せちめいしょ」sai vì 説 không đọc là「せち」.",
+              "glosses": [
+                {
+                  "t": "説明書",
+                  "vi": "hướng dẫn sử dụng, sách giải thích"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "組み立てる",
+                  "read": "くみたてる",
+                  "vi": "lắp ráp"
+                },
+                {
+                  "t": "うまくいった",
+                  "vi": "thành công, suôn sẻ"
+                }
+              ]
+            },
+            {
+              "prompt": "先生の指示のとおりに書いてください。",
+              "ul": "指示",
+              "choices": [
+                "しじ",
+                "しめ",
+                "ゆびさ",
+                "しきし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「指示」đọc là「しじ」. 指＝し (on'yomi), 示＝じ (on'yomi). Phương án「しめ」sai vì 示 đọc kun'yomi là「しめ(す)」nhưng khi ghép thành từ Hán-Nhật thì phải dùng on'yomi「じ」. Phương án「ゆびさ」sai vì đó là cách đọc kun của 指差す (chỉ tay vào), không phải từ ghép Hán. Phương án「しきし」sai vì 示 không đọc là「きし」; 「しきし」là cách đọc của 色紙 (giấy màu).",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "指示",
+                  "vi": "chỉ thị, hướng dẫn"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "書いて",
+                  "read": "かいて",
+                  "vi": "viết"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy, làm ơn"
+                }
+              ]
+            },
+            {
+              "prompt": "薬を飲んだあとで、すぐ横になった。",
+              "ul": "薬",
+              "choices": [
+                "くすり",
+                "くすれ",
+                "くさり",
+                "くずり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「薬」đọc là「くすり」(kun'yomi). Đây là từ thuần Nhật quan trọng cần ghi nhớ đúng. Phương án「くすれ」sai vì âm cuối「れ」không tồn tại trong cách đọc này. Phương án「くさり」sai vì đó là cách đọc của 鎖 (xích, dây chuyền), không liên quan. Phương án「くずり」sai vì âm「ず」không có trong「くすり」; đây là lỗi nhầm「す」và「ず」(thanh không và thanh trọc).",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "飲んだ",
+                  "read": "のんだ",
+                  "vi": "uống"
+                },
+                {
+                  "t": "あとで",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "横になった",
+                  "read": "よこになった",
+                  "vi": "nằm xuống"
+                },
+                {
+                  "t": "すぐ",
+                  "read": "すぐ",
+                  "vi": "ngay lập tức"
+                }
+              ]
+            },
+            {
+              "prompt": "シャワーを浴びたあとで、着替えずにそのまま寝てしまった。",
+              "ul": "着替え",
+              "choices": [
+                "きがえ",
+                "きかえ",
+                "きがい",
+                "ちゃくがえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「着替え」đọc là「きがえ」. 着＝き (kun'yomi của 着る), 替え＝がえ (biến âm của かえ). Phương án「きかえ」sai vì 替 biến âm thành「がえ」(trọc hóa) chứ không giữ nguyên「かえ」khi ghép sau「き」. Phương án「きがい」sai vì âm cuối「い」không xuất hiện ở đây. Phương án「ちゃくがえ」sai vì 着 ở đây dùng kun'yomi「き」, không dùng on'yomi「ちゃく」.",
+              "glosses": [
+                {
+                  "t": "シャワーを浴びた",
+                  "read": "シャワーをあびた",
+                  "vi": "tắm vòi sen"
+                },
+                {
+                  "t": "あとで",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "着替え",
+                  "vi": "thay quần áo"
+                },
+                {
+                  "t": "そのまま",
+                  "vi": "để nguyên như vậy"
+                },
+                {
+                  "t": "寝てしまった",
+                  "read": "ねてしまった",
+                  "vi": "đã ngủ mất"
+                }
+              ]
+            },
+            {
+              "prompt": "仕事が終わったあとで、友達と食事をした。",
+              "ul": "食事",
+              "choices": [
+                "しょくじ",
+                "しょくし",
+                "じきじ",
+                "しょくち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食事」đọc là「しょくじ」. 食＝しょく, 事＝じ, đều là on'yomi. Phương án「しょくし」sai vì 事 đọc on'yomi là「じ」(có trọc), không phải「し」(không trọc). Phương án「じきじ」sai vì 食 có on'yomi là「じき」(ví dụ 食器・じっき), nhưng khi ghép 食事 thì phải dùng「しょく」. Phương án「しょくち」sai vì 事 không đọc là「ち」; 「ち」là âm của các chữ như 地・知.",
+              "glosses": [
+                {
+                  "t": "仕事",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "終わった",
+                  "read": "おわった",
+                  "vi": "kết thúc"
+                },
+                {
+                  "t": "あとで",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "食事",
+                  "vi": "bữa ăn, ăn cơm"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "食事をした",
+                  "read": "しょくじをした",
+                  "vi": "đã dùng bữa (〜をした = đã làm ~)"
+                }
+              ]
+            },
+            {
+              "prompt": "電気をつけたまま出かけてしまった。",
+              "ul": "電気",
+              "choices": [
+                "でんき",
+                "でんけ",
+                "てんき",
+                "でんぎ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電気」đọc là「でんき」. 電＝でん, 気＝き, đều là on'yomi. Phương án「でんけ」sai vì 気 không đọc là「け」trong từ này; 「け」là kun'yomi của 気 trong một số thành ngữ. Phương án「てんき」sai vì đó là cách đọc của 天気 (thời tiết), khác chữ; 電 đọc là「でん」, không phải「てん」. Phương án「でんぎ」sai vì 気 không bị trọc hóa thành「ぎ」trong tổ hợp này.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "vi": "điện, đèn điện"
+                },
+                {
+                  "t": "つけたまま",
+                  "vi": "để nguyên (đèn đang bật)"
+                },
+                {
+                  "t": "出かけて",
+                  "read": "でかけて",
+                  "vi": "ra ngoài"
+                },
+                {
+                  "t": "出かけてしまった",
+                  "read": "でかけてしまった",
+                  "vi": "〜てしまった = lỡ/trót ra ngoài (tiếc nuối, việc ngoài ý muốn)"
+                }
+              ]
+            },
+            {
+              "prompt": "窓を開けたまま雨が降ってきた。",
+              "ul": "窓",
+              "choices": [
+                "まど",
+                "まと",
+                "まだ",
+                "まの"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「窓」đọc là「まど」(kun'yomi). Đây là từ thuần Nhật quan trọng. Phương án「まと」sai vì「まと」là cách đọc của 的 (mục tiêu), không phải 窓; âm cuối「と」và「ど」khác nhau ở chỗ trọc hóa. Phương án「まだ」sai vì「まだ」là trạng từ (còn chưa), không phải cách đọc của 窓. Phương án「まの」sai vì 窓 hoàn toàn không có âm「の」.",
+              "glosses": [
+                {
+                  "t": "窓",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開けたまま",
+                  "read": "あけたまま",
+                  "vi": "để nguyên mở"
+                },
+                {
+                  "t": "雨が降ってきた",
+                  "read": "あめがふってきた",
+                  "vi": "mưa bắt đầu rơi"
+                }
+              ]
+            },
+            {
+              "prompt": "医者の指導のとおりに運動を続けている。",
+              "ul": "指導",
+              "choices": [
+                "しどう",
+                "しとう",
+                "しどく",
+                "しほう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「指導」đọc là「しどう」. 指＝し, 導＝どう (on'yomi). Phương án「しとう」sai vì 導 đọc on'yomi là「どう」(có trọc), không phải「とう」(không trọc); 「しとう」là cách đọc của 死闘 (tử chiến). Phương án「しどく」sai vì 導 không đọc là「どく」; 「しどく」không phải từ Nhật thông dụng. Phương án「しほう」sai vì 導 không đọc là「ほう」; 「しほう」là cách đọc của 四方 (bốn phía) hoặc 司法 (tư pháp).",
+              "glosses": [
+                {
+                  "t": "医者",
+                  "read": "いしゃ",
+                  "vi": "bác sĩ"
+                },
+                {
+                  "t": "指導",
+                  "vi": "chỉ đạo, hướng dẫn"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "運動を続けている",
+                  "read": "うんどうをつづけている",
+                  "vi": "tiếp tục tập thể dục"
+                }
+              ]
+            },
+            {
+              "prompt": "靴を履いたまま家に入ってしまった。",
+              "ul": "靴",
+              "choices": [
+                "くつ",
+                "くず",
+                "ぐつ",
+                "くち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「靴」đọc là「くつ」(kun'yomi). Đây là từ thuần Nhật. Phương án「くず」sai vì「くず」là cách đọc của 屑 (rác, cặn bã), khác hẳn về nghĩa; và âm「ず」(trọc) khác「つ」(không trọc). Phương án「ぐつ」sai vì đầu âm「ぐ」(trọc hóa) chỉ xuất hiện khi 靴 đứng sau từ khác, ví dụ 長靴 (ながぐつ), nhưng khi đứng độc lập thì đọc là「くつ」không trọc. Phương án「くち」sai vì「くち」là cách đọc của 口 (miệng).",
+              "glosses": [
+                {
+                  "t": "靴",
+                  "vi": "giày"
+                },
+                {
+                  "t": "履いたまま",
+                  "read": "はいたまま",
+                  "vi": "để nguyên (đang đi giày)"
+                },
+                {
+                  "t": "家に入って",
+                  "read": "いえにはいって",
+                  "vi": "vào nhà"
+                },
+                {
+                  "t": "入ってしまった",
+                  "read": "はいってしまった",
+                  "vi": "〜てしまった = lỡ/trót vào (tiếc nuối, không nên làm)"
+                }
+              ]
+            },
+            {
+              "prompt": "授業のあとで、先生に質問した。",
+              "ul": "授業",
+              "choices": [
+                "じゅぎょう",
+                "じゅきょう",
+                "じゅうぎょう",
+                "しゅぎょう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「授業」đọc là「じゅぎょう」. 授＝じゅ, 業＝ぎょう, đều là on'yomi. Phương án「じゅきょう」sai vì 業 không đọc là「きょう」(không trọc); 業 có on'yomi là「ぎょう」(trọc) hoặc「ごう」. Phương án「じゅうぎょう」sai vì 授 đọc là「じゅ」(ngắn), không phải「じゅう」(dài). Phương án「しゅぎょう」sai vì 授 đọc là「じゅ」(trọc), không phải「しゅ」(không trọc); 「しゅぎょう」là cách đọc của 修行 (tu hành, khổ luyện).",
+              "glosses": [
+                {
+                  "t": "授業",
+                  "vi": "tiết học, bài giảng"
+                },
+                {
+                  "t": "あとで",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "質問した",
+                  "read": "しつもんした",
+                  "vi": "đặt câu hỏi"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                }
+              ]
+            },
+            {
+              "prompt": "手順のとおりに作業を進めてください。",
+              "ul": "手順",
+              "choices": [
+                "てじゅん",
+                "てしゅん",
+                "しゅじゅん",
+                "てずん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「手順」đọc là「てじゅん」. 手＝て (kun'yomi), 順＝じゅん (on'yomi); 順 bị trọc hóa thành「じゅん」khi ghép. Phương án「てしゅん」sai vì 順 đọc là「じゅん」(trọc), không phải「しゅん」(không trọc); 「しゅん」là âm của 瞬 hoặc 春. Phương án「しゅじゅん」sai vì 手 đọc kun là「て」, không phải「しゅ」; 「しゅじゅん」không phải từ thông dụng. Phương án「てずん」sai vì 順 không đọc là「ずん」; đây là lỗi nhầm「じゅ」và「ず」.",
+              "glosses": [
+                {
+                  "t": "手順",
+                  "vi": "trình tự, các bước thực hiện"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "作業を進めて",
+                  "read": "さぎょうをすすめて",
+                  "vi": "tiến hành công việc"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy, làm ơn"
+                }
+              ]
+            },
+            {
+              "prompt": "コートを着たまま部屋に入ってもいいですか。",
+              "ul": "部屋",
+              "choices": [
+                "へや",
+                "べや",
+                "ほや",
+                "ぺや"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「部屋」đọc là「へや」(kun'yomi của 屋, còn 部 đọc là「へ」theo từ ghép này). Đây là từ ghép đặc biệt cần nhớ. Phương án「べや」sai vì âm đầu「べ」(trọc) khác với「へ」(không trọc); 「べや」không phải từ Nhật. Phương án「ほや」sai vì「ほ」và「へ」khác nhau về hàng âm; đây là lỗi nhầm lẫn về âm đầu. Phương án「ぺや」sai vì「ぺ」(bán trọc) hoàn toàn không có trong cách đọc của 部屋.",
+              "glosses": [
+                {
+                  "t": "コート",
+                  "vi": "áo khoác"
+                },
+                {
+                  "t": "着たまま",
+                  "read": "きたまま",
+                  "vi": "để nguyên (đang mặc)"
+                },
+                {
+                  "t": "部屋",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "入って",
+                  "read": "はいって",
+                  "vi": "vào"
+                },
+                {
+                  "t": "入ってもいいですか",
+                  "read": "はいってもいいですか",
+                  "vi": "〜てもいいですか = có được phép làm ~ không (xin phép)"
+                }
+              ]
+            },
+            {
+              "prompt": "地図のとおりに歩いたが、道に迷ってしまった。",
+              "ul": "地図",
+              "choices": [
+                "ちず",
+                "ちつ",
+                "じず",
+                "ちす"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「地図」đọc là「ちず」. 地＝ち (on'yomi), 図＝ず (on'yomi, trọc hóa khi ghép sau ち). Phương án「ちつ」sai vì 図 không đọc là「つ」; đây là lỗi nhầm「ず」và「つ」(cả hai đều là hàng「た」nhưng khác trọc). Phương án「じず」sai vì 地 đọc on'yomi là「ち」(không trọc), không phải「じ」(trọc); 「じ」là kun'yomi của 地 trong một số từ. Phương án「ちす」sai vì 図 đọc là「ず」(trọc), không phải「す」(không trọc).",
+              "glosses": [
+                {
+                  "t": "地図",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "歩いた",
+                  "read": "あるいた",
+                  "vi": "đi bộ"
+                },
+                {
+                  "t": "道に迷って",
+                  "read": "みちにまよって",
+                  "vi": "lạc đường"
+                },
+                {
+                  "t": "迷ってしまった",
+                  "read": "まよってしまった",
+                  "vi": "〜てしまった = lỡ bị lạc (kết quả ngoài ý muốn, tiếc nuối)"
+                }
+              ]
+            },
+            {
+              "prompt": "シートベルトをしたまま眠ってしまった。",
+              "ul": "眠って",
+              "choices": [
+                "ねむって",
+                "みんって",
+                "ねって",
+                "えむって"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「眠って」là dạng て của 眠る, đọc là「ねむって」(kun'yomi: ね・む). Phương án「みんって」sai vì「みん」là on'yomi của 眠 (ví dụ 睡眠・すいみん), không dùng để đọc dạng hoạt động「眠る」trong văn nói; và「みんって」không phải dạng chia đúng. Phương án「ねって」sai vì thiếu âm「む」; 「ねる」là cách đọc của 寝る (một chữ khác, nghĩa tương tự nhưng khác kanji). Phương án「えむって」sai hoàn toàn vì 眠 không có âm đầu「え」; đây là phương án gây bẫy bằng âm ngẫu nhiên.",
+              "glosses": [
+                {
+                  "t": "シートベルト",
+                  "vi": "dây an toàn"
+                },
+                {
+                  "t": "したまま",
+                  "vi": "để nguyên (đang thắt)"
+                },
+                {
+                  "t": "眠って",
+                  "vi": "ngủ (dạng て)"
+                },
+                {
+                  "t": "しまった",
+                  "vi": "đã lỡ làm (mất)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "せんせいのせつめいのとおりに、くすりをのんでください。",
+              "ul": "せつめい",
+              "choices": [
+                "説明",
+                "注意",
+                "意見",
+                "命令"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Hãy uống thuốc đúng theo lời giải thích của bác sĩ.\"\n• 「説明（せつめい）」 = sự giải thích → ĐÚNG, vì bác sĩ giải thích cách uống thuốc rồi bệnh nhân làm theo.\n• 「注意（ちゅうい）」 = sự chú ý / lưu ý — không sai nghĩa nhưng cụm 「注意のとおりに」 không tự nhiên trong văn cảnh hướng dẫn dùng thuốc; hơn nữa âm đọc hoàn toàn khác.\n• 「意見（いけん）」 = ý kiến — làm theo \"ý kiến\" thì không phù hợp khi nói về hướng dẫn uống thuốc cụ thể.\n• 「命令（めいれい）」 = mệnh lệnh — có thể dùng 「命令のとおりに」 nhưng âm đọc là「めいれい」, và bối cảnh uống thuốc không phải nhận mệnh lệnh quân sự.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên / bác sĩ"
+                },
+                {
+                  "t": "説明",
+                  "read": "せつめい",
+                  "vi": "sự giải thích"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng như, theo đúng"
+                },
+                {
+                  "t": "くすりをのんで",
+                  "read": "くすりをのんで",
+                  "vi": "uống thuốc"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "せつめい",
+                  "read": "せつめい",
+                  "vi": "giải thích, lời giải thích"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy, làm ơn"
+                }
+              ]
+            },
+            {
+              "prompt": "このりょうりは、レシピのとおりに、ざいりょうをじゅんびしました。",
+              "ul": "ざいりょう",
+              "choices": [
+                "材料",
+                "食料",
+                "原料",
+                "調料"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi đã chuẩn bị nguyên liệu đúng theo công thức nấu ăn.\"\n• 「材料（ざいりょう）」 = nguyên liệu (để nấu ăn, làm đồ vật) → ĐÚNG, đây là từ dùng cho nguyên liệu nấu ăn trong công thức.\n• 「食料（しょくりょう）」 = thực phẩm, lương thực (nói chung) — không dùng trong ngữ cảnh chuẩn bị theo công thức cụ thể.\n• 「原料（げんりょう）」 = nguyên liệu thô (dùng trong công nghiệp, sản xuất) — không tự nhiên khi nói nấu ăn ở nhà.\n• 「調料（ちょうりょう）」 = không phải từ tiêu chuẩn trong tiếng Nhật hiện đại; gia vị thường nói là「調味料（ちょうみりょう）」.",
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn / nấu ăn"
+                },
+                {
+                  "t": "レシピ",
+                  "vi": "công thức nấu ăn"
+                },
+                {
+                  "t": "材料",
+                  "read": "ざいりょう",
+                  "vi": "nguyên liệu"
+                },
+                {
+                  "t": "じゅんびしました",
+                  "read": "じゅんびしました",
+                  "vi": "chuẩn bị"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "りょうり",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "ざいりょう",
+                  "read": "ざいりょう",
+                  "vi": "nguyên liệu"
+                },
+                {
+                  "t": "とおり",
+                  "read": "とおり",
+                  "vi": "theo, đúng như"
+                }
+              ]
+            },
+            {
+              "prompt": "しゅくだいをしたあとで、てを洗ってから、ゆうしょくをたべました。",
+              "ul": "ゆうしょく",
+              "choices": [
+                "夕食",
+                "昼食",
+                "朝食",
+                "間食"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Sau khi làm bài tập về nhà, rửa tay rồi ăn bữa tối.\"\n• 「夕食（ゆうしょく）」 = bữa tối → ĐÚNG, phù hợp với trình tự: làm bài → rửa tay → ăn tối.\n• 「昼食（ちゅうしょく）」 = bữa trưa — không hợp lý vì bài tập về nhà thường làm buổi chiều/tối.\n• 「朝食（ちょうしょく）」 = bữa sáng — hoàn toàn sai trình tự thời gian.\n• 「間食（かんしょく）」 = ăn vặt giữa bữa — không phải bữa chính, không phù hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "しゅくだいをした",
+                  "read": "しゅくだいをした",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "たあとで",
+                  "vi": "sau khi làm (xong)"
+                },
+                {
+                  "t": "夕食",
+                  "read": "ゆうしょく",
+                  "vi": "bữa tối"
+                },
+                {
+                  "t": "てを洗って",
+                  "read": "てをあらって",
+                  "vi": "rửa tay"
+                },
+                {
+                  "t": "ゆうしょく",
+                  "read": "ゆうしょく",
+                  "vi": "bữa tối"
+                },
+                {
+                  "t": "ゆうしょくをたべました",
+                  "read": "ゆうしょくをたべました",
+                  "vi": "đã ăn cơm tối (〜を食べました = đã ăn ~)"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはシャワーをあびたあとで、かがみのまえにたちました。",
+              "ul": "かがみ",
+              "choices": [
+                "鏡",
+                "窓",
+                "壁",
+                "棚"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Sau khi tắm vòi sen, anh ấy đứng trước gương.\"\n• 「鏡（かがみ）」 = gương → ĐÚNG, hành động tự nhiên sau khi tắm.\n• 「窓（まど）」 = cửa sổ — âm đọc「まど」, đứng trước cửa sổ không liên quan đến tắm xong.\n• 「壁（かべ）」 = tường — âm đọc「かべ」, không có lý do đứng trước tường sau khi tắm.\n• 「棚（たな）」 = giá kệ — âm đọc「たな」, không liên quan ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "シャワーをあびた",
+                  "read": "シャワーをあびた",
+                  "vi": "tắm vòi sen"
+                },
+                {
+                  "t": "たあとで",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "鏡",
+                  "read": "かがみ",
+                  "vi": "gương"
+                },
+                {
+                  "t": "まえにたちました",
+                  "read": "まえにたちました",
+                  "vi": "đứng trước"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "anh ấy (彼は, chủ ngữ được nêu chủ đề)"
+                },
+                {
+                  "t": "かがみのまえに",
+                  "read": "かがみのまえに",
+                  "vi": "trước gương (鏡の前に = ở trước ~)"
+                }
+              ]
+            },
+            {
+              "prompt": "ドアをあけたまま、ねてしまいました。",
+              "ul": "あけた",
+              "choices": [
+                "戸",
+                "窓",
+                "壁",
+                "扉"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi đã ngủ quên mà để cửa mở.\"\n• 「戸（と）」 = cửa (dạng kéo/trượt hoặc cửa nhà) → ĐÚNG, 「戸を開けたまま」là cụm cố định, tự nhiên.\n• 「窓（まど）」 = cửa sổ — đọc là「まど」không phải「と」; câu hỏi dùng furigana「あけた」chỉ là phần động từ, từ đích là chữ Hán chỉ \"cửa\".\n• 「壁（かべ）」 = tường — không thể \"mở\" tường.\n• 「扉（とびら）」 = cánh cửa (văn chương, cửa lớn) — gần nghĩa nhưng âm đọc là「とびら」không phải「と」; ở đây stem dùng「と」nên 戸 là đáp án.",
+              "glosses": [
+                {
+                  "t": "戸",
+                  "read": "と",
+                  "vi": "cửa (kéo/trượt, kiểu truyền thống)"
+                },
+                {
+                  "t": "たまま",
+                  "vi": "để nguyên trạng thái (không đổi)",
+                  "read": "たまま"
+                },
+                {
+                  "t": "ねて",
+                  "read": "ねて",
+                  "vi": "ngủ"
+                },
+                {
+                  "t": "ドア",
+                  "read": "ドア",
+                  "vi": "cửa (cửa ra vào)"
+                },
+                {
+                  "t": "あけたまま",
+                  "read": "あけたまま",
+                  "vi": "〜たまま = cứ để nguyên trạng thái (mở) mà không đóng lại"
+                },
+                {
+                  "t": "ねてしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "〜てしまいました = đã lỡ ngủ mất (tiếc nuối, lịch sự quá khứ)"
+                }
+              ]
+            },
+            {
+              "prompt": "でんきをつけたまま、がっこうへいってしまいました。",
+              "ul": "でんき",
+              "choices": [
+                "電気",
+                "電話",
+                "電車",
+                "電池"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi đã để đèn bật mà đi học.\"\n• 「電気（でんき）」 = đèn điện → ĐÚNG, 「電気をつけたまま」= để đèn bật không tắt, rất tự nhiên.\n• 「電話（でんわ）」 = điện thoại — 「電話をつけたまま」không thành cụm có nghĩa rõ trong ngữ cảnh này.\n• 「電車（でんしゃ）」 = tàu điện — không thể \"bật\" tàu điện.\n• 「電池（でんち）」 = pin — không dùng「つける」với pin.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện / điện"
+                },
+                {
+                  "t": "たまま",
+                  "vi": "để nguyên (không tắt)",
+                  "read": "たまま"
+                },
+                {
+                  "t": "がっこうへいって",
+                  "read": "がっこうへいって",
+                  "vi": "đi học"
+                },
+                {
+                  "t": "でんきをつけたまま",
+                  "read": "でんきをつけたまま",
+                  "vi": "〜たまま = để nguyên đèn đang bật (không tắt) mà"
+                },
+                {
+                  "t": "いってしまいました",
+                  "read": "いってしまいました",
+                  "vi": "〜てしまいました = đã lỡ đi mất (tiếc nuối)"
+                }
+              ]
+            },
+            {
+              "prompt": "ふくをきたまま、うみでおよぎました。",
+              "ul": "ふく",
+              "choices": [
+                "服",
+                "靴",
+                "帽子",
+                "袋"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi bơi ở biển mà vẫn mặc nguyên quần áo.\"\n• 「服（ふく）」 = quần áo → ĐÚNG, 「服を着たまま」= vẫn mặc nguyên quần áo, đây là cụm tự nhiên và ý nghĩa hợp lý.\n• 「靴（くつ）」 = giày — âm đọc「くつ」không phải「ふく」; ngoài ra thường dùng「履く（はく）」không phải「着る」với giày.\n• 「帽子（ぼうし）」 = mũ — âm đọc「ぼうし」, hơn nữa mũ dùng「かぶる」không phải「着る」.\n• 「袋（ふくろ）」 = túi — âm đọc「ふくろ」dù có chứa âm「ふく」nhưng nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "服",
+                  "read": "ふく",
+                  "vi": "quần áo"
+                },
+                {
+                  "t": "きたまま",
+                  "read": "きたまま",
+                  "vi": "mặc nguyên không cởi"
+                },
+                {
+                  "t": "うみでおよぎました",
+                  "read": "うみでおよぎました",
+                  "vi": "bơi ở biển"
+                },
+                {
+                  "t": "ふく",
+                  "read": "ふく",
+                  "vi": "quần áo"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいのしじのとおりに、レポートをていしゅつしました。",
+              "ul": "しじ",
+              "choices": [
+                "指示",
+                "指定",
+                "指摘",
+                "指名"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi đã nộp báo cáo đúng theo hướng dẫn của giáo viên.\"\n• 「指示（しじ）」 = chỉ thị, hướng dẫn cụ thể → ĐÚNG, dùng khi cấp trên/giáo viên đưa ra lệnh/hướng dẫn cụ thể.\n• 「指定（してい）」 = chỉ định, quy định — âm khác「してい」; nghĩa thiên về \"quy định sẵn\" chứ không phải hướng dẫn trực tiếp.\n• 「指摘（してき）」 = chỉ ra (lỗi), nhận xét — âm「してき」; 「指摘のとおりに」sẽ có nghĩa \"theo lời nhận xét\" không tự nhiên.\n• 「指名（しめい）」 = chỉ định tên người — âm「しめい」, không liên quan đến cách làm báo cáo.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "指示",
+                  "read": "しじ",
+                  "vi": "chỉ thị, hướng dẫn"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "レポートをていしゅつしました",
+                  "read": "レポートをていしゅつしました",
+                  "vi": "nộp báo cáo"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "のしじのとおりに",
+                  "read": "のしじのとおりに",
+                  "vi": "〜のとおりに = đúng theo như ~ (chỉ thị của giáo viên)"
+                }
+              ]
+            },
+            {
+              "prompt": "くすりをのんだあとで、すこしやすみました。",
+              "ul": "やすみ",
+              "choices": [
+                "休み",
+                "止まり",
+                "眠り",
+                "歩き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Sau khi uống thuốc, tôi đã nghỉ ngơi một chút.\"\n• 「休む（やすむ）」→ 「休み（やすみ）ました」 = đã nghỉ → ĐÚNG, hành động hợp lý sau khi uống thuốc.\n• 「止まる（とまる）」→ 「止まり（とまり）ました」= dừng lại — âm đọc「とまり」, nghĩa không phù hợp ngữ cảnh.\n• 「眠る（ねむる）」→ 「眠り（ねむり）ました」= ngủ — gần nghĩa nhưng「眠る」thiên về \"chìm vào giấc ngủ\", còn câu dùng「少し」(một chút) hợp với「休む」hơn.\n• 「歩く（あるく）」→ 「歩き（あるき）ました」= đi bộ — âm「あるき」, không liên quan uống thuốc.",
+              "glosses": [
+                {
+                  "t": "くすりをのんだ",
+                  "read": "くすりをのんだ",
+                  "vi": "uống thuốc"
+                },
+                {
+                  "t": "だあとで",
+                  "vi": "sau khi",
+                  "read": "だあとで"
+                },
+                {
+                  "t": "やすみました",
+                  "read": "やすみました",
+                  "vi": "nghỉ ngơi"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "すこし",
+                  "read": "すこし",
+                  "vi": "một chút, hơi"
+                }
+              ]
+            },
+            {
+              "prompt": "りょうりのほんのとおりに、スープをつくりましたが、あじがちがいました。",
+              "ul": "あじ",
+              "choices": [
+                "味",
+                "色",
+                "形",
+                "量"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi làm súp đúng theo sách nấu ăn nhưng vị lại khác.\"\n• 「味（あじ）」 = vị, mùi vị → ĐÚNG, khi nấu theo công thức mà vẫn không đúng vị là phàn nàn phổ biến.\n• 「色（いろ）」 = màu sắc — âm「いろ」, màu sắc của súp không thường là điểm than phiền chính.\n• 「形（かたち）」 = hình dạng — âm「かたち」, không liên quan súp.\n• 「量（りょう）」 = lượng/số lượng — âm「りょう」, nói lượng khác thì ít tự nhiên hơn vị khác.",
+              "glosses": [
+                {
+                  "t": "料理の本",
+                  "read": "りょうりのほん",
+                  "vi": "sách nấu ăn"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "味",
+                  "read": "あじ",
+                  "vi": "mùi vị"
+                },
+                {
+                  "t": "ちがいました",
+                  "read": "ちがいました",
+                  "vi": "khác, sai"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "りょうり",
+                  "vi": "nấu ăn, món ăn"
+                },
+                {
+                  "t": "ほんの",
+                  "read": "ほんの",
+                  "vi": "cuốn sách (theo sách)"
+                },
+                {
+                  "t": "スープ",
+                  "read": "スープ",
+                  "vi": "súp"
+                },
+                {
+                  "t": "つくりました",
+                  "read": "つくりました",
+                  "vi": "đã làm, đã nấu"
+                },
+                {
+                  "t": "あじ",
+                  "read": "あじ",
+                  "vi": "vị, mùi vị"
+                }
+              ]
+            },
+            {
+              "prompt": "しごとをおわったあとで、どうりょうとのみにいきました。",
+              "ul": "どうりょう",
+              "choices": [
+                "同僚",
+                "部長",
+                "先輩",
+                "後輩"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Sau khi xong việc, tôi đi uống với đồng nghiệp.\"\n• 「同僚（どうりょう）」 = đồng nghiệp cùng cấp → ĐÚNG, đây là từ mục tiêu với âm đọc「どうりょう」.\n• 「部長（ぶちょう）」 = trưởng phòng — âm「ぶちょう」; tuy cũng đi uống được nhưng không phải đáp án.\n• 「先輩（せんぱい）」 = đàn anh/chị trong công ty — âm「せんぱい」; gần nghĩa nhưng khác cấp bậc với「同僚」.\n• 「後輩（こうはい）」 = đàn em — âm「こうはい」; đối lập với「先輩」, không phải đáp án.",
+              "glosses": [
+                {
+                  "t": "しごとをおわった",
+                  "read": "しごとをおわった",
+                  "vi": "xong việc"
+                },
+                {
+                  "t": "たあとで",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "同僚",
+                  "read": "どうりょう",
+                  "vi": "đồng nghiệp cùng cấp"
+                },
+                {
+                  "t": "のみにいきました",
+                  "read": "のみにいきました",
+                  "vi": "đi uống (rượu/bia)"
+                },
+                {
+                  "t": "どうりょう",
+                  "read": "どうりょう",
+                  "vi": "đồng nghiệp"
+                }
+              ]
+            },
+            {
+              "prompt": "せつめいしょのとおりに、きかいをそうさしてください。",
+              "ul": "せつめいしょ",
+              "choices": [
+                "説明書",
+                "申込書",
+                "報告書",
+                "診断書"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Hãy vận hành máy đúng theo sách hướng dẫn.\"\n• 「説明書（せつめいしょ）」 = sách hướng dẫn sử dụng → ĐÚNG, đây là tài liệu đi kèm máy móc.\n• 「申込書（もうしこみしょ）」 = đơn đăng ký — âm「もうしこみしょ」, không liên quan vận hành máy.\n• 「報告書（ほうこくしょ）」 = báo cáo — âm「ほうこくしょ」, không dùng để vận hành máy.\n• 「診断書（しんだんしょ）」 = giấy chứng nhận y tế — âm「しんだんしょ」, liên quan y tế không phải máy móc.",
+              "glosses": [
+                {
+                  "t": "説明書",
+                  "read": "せつめいしょ",
+                  "vi": "sách hướng dẫn sử dụng"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "機械",
+                  "read": "きかい",
+                  "vi": "máy móc"
+                },
+                {
+                  "t": "そうさして",
+                  "read": "そうさして",
+                  "vi": "vận hành, thao tác"
+                },
+                {
+                  "t": "せつめいしょ",
+                  "read": "せつめいしょ",
+                  "vi": "sách hướng dẫn, tài liệu giải thích"
+                },
+                {
+                  "t": "きかい",
+                  "read": "きかい",
+                  "vi": "máy móc"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy, làm ơn"
+                }
+              ]
+            },
+            {
+              "prompt": "くつをはいたまま、へやにはいってしまいました。",
+              "ul": "くつ",
+              "choices": [
+                "靴",
+                "服",
+                "眼鏡",
+                "帽子"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi đã vào phòng mà vẫn đi nguyên giày.\"\n• 「靴（くつ）」 = giày → ĐÚNG, 「靴を履いたまま」= vẫn đi giày không bỏ ra; ở Nhật phải bỏ giày trước khi vào nhà nên đây là hành động lỗi phép.\n• 「服（ふく）」 = quần áo — dùng「着る（きる）」không phải「履く（はく）」; nếu dùng「服を履いたまま」là sai ngữ pháp.\n• 「眼鏡（めがね）」 = kính mắt — dùng「かける」không phải「履く」; âm「めがね」.\n• 「帽子（ぼうし）」 = mũ — dùng「かぶる」không phải「履く」; âm「ぼうし」.",
+              "glosses": [
+                {
+                  "t": "靴",
+                  "read": "くつ",
+                  "vi": "giày"
+                },
+                {
+                  "t": "はいたまま",
+                  "read": "はいたまま",
+                  "vi": "vẫn đi nguyên (giày/tất)"
+                },
+                {
+                  "t": "へやにはいって",
+                  "read": "へやにはいって",
+                  "vi": "vào phòng"
+                },
+                {
+                  "t": "くつ",
+                  "read": "くつ",
+                  "vi": "giày, dép"
+                },
+                {
+                  "t": "はいってしまいました",
+                  "read": "はいってしまいました",
+                  "vi": "〜てしまいました = đã lỡ vào (tiếc nuối, không nên)"
+                }
+              ]
+            },
+            {
+              "prompt": "ははのつくりかたのとおりに、カレーをつくってみました。",
+              "ul": "つくりかた",
+              "choices": [
+                "作り方",
+                "使い方",
+                "食べ方",
+                "飲み方"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Tôi đã thử nấu cà ri đúng theo cách của mẹ.\"\n• 「作り方（つくりかた）」 = cách làm/nấu → ĐÚNG, 「作り方のとおりに」= theo đúng cách nấu của mẹ.\n• 「使い方（つかいかた）」 = cách sử dụng — âm「つかいかた」; dùng cho dụng cụ chứ không phải nấu ăn.\n• 「食べ方（たべかた）」 = cách ăn — âm「たべかた」; \"theo cách ăn của mẹ\" để nấu là vô nghĩa.\n• 「飲み方（のみかた）」 = cách uống — âm「のみかた」; liên quan đồ uống, không phải nấu cà ri.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "作り方",
+                  "read": "つくりかた",
+                  "vi": "cách làm, cách nấu"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "カレーをつくって",
+                  "read": "カレーをつくって",
+                  "vi": "nấu cà ri"
+                },
+                {
+                  "t": "つくりかた",
+                  "read": "つくりかた",
+                  "vi": "cách làm, công thức"
+                },
+                {
+                  "t": "つくってみました",
+                  "read": "つくってみました",
+                  "vi": "〜てみました = đã thử làm ~ (thử nghiệm)"
+                }
+              ]
+            },
+            {
+              "prompt": "えいがをみたあとで、かんそうをはなしあいました。",
+              "ul": "かんそう",
+              "choices": [
+                "感想",
+                "感情",
+                "感覚",
+                "感動"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu có nghĩa: \"Sau khi xem phim, chúng tôi đã trao đổi cảm nhận với nhau.\"\n• 「感想（かんそう）」 = cảm nhận/ý kiến sau khi trải nghiệm → ĐÚNG, 「感想を話し合う」= thảo luận cảm nhận sau phim, rất tự nhiên.\n• 「感情（かんじょう）」 = cảm xúc (tức giận, buồn, vui) — âm「かんじょう」; 「感情を話し合う」không tự nhiên bằng「感想」.\n• 「感覚（かんかく）」 = cảm giác, giác quan — âm「かんかく」; thiên về cảm giác thể chất, không phải ý kiến về phim.\n• 「感動（かんどう）」 = cảm động, xúc động — âm「かんどう」; là danh từ/động từ chỉ trạng thái, không dùng「〜を話し合う」tự nhiên.",
+              "glosses": [
+                {
+                  "t": "えいがをみた",
+                  "read": "えいがをみた",
+                  "vi": "xem phim"
+                },
+                {
+                  "t": "たあとで",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "感想",
+                  "read": "かんそう",
+                  "vi": "cảm nhận, ý kiến sau khi trải nghiệm"
+                },
+                {
+                  "t": "はなしあいました",
+                  "read": "はなしあいました",
+                  "vi": "trao đổi, thảo luận"
+                },
+                {
+                  "t": "かんそう",
+                  "read": "かんそう",
+                  "vi": "cảm tưởng, cảm nghĩ"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "先生の＿とおりに、レポートを書いた。",
+              "choices": [
+                "指示",
+                "返事",
+                "質問",
+                "感想"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'đã viết báo cáo đúng theo ＿ của giáo viên'. 「指示」(chỉ thị, hướng dẫn) là điều giáo viên đưa ra để học sinh làm theo — hoàn toàn tự nhiên với 「〜とおりに」. 「返事」(hồi âm, câu trả lời) là phản hồi, không phải thứ người ta 'làm theo'. 「質問」(câu hỏi) không thể làm 'đúng theo'. 「感想」(cảm nghĩ, cảm tưởng) là ý kiến cá nhân, không có nghĩa chỉ dẫn để theo.",
+              "glosses": [
+                {
+                  "t": "先生の",
+                  "read": "せんせいの",
+                  "vi": "của giáo viên"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo, làm đúng như"
+                },
+                {
+                  "t": "レポートを書いた",
+                  "read": "レポートをかいた",
+                  "vi": "đã viết báo cáo"
+                }
+              ]
+            },
+            {
+              "stem": "この料理は＿のとおりに作れば、必ずおいしくなる。",
+              "choices": [
+                "レシピ",
+                "メモ",
+                "ニュース",
+                "スケジュール"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'nếu nấu đúng theo ＿, nhất định sẽ ngon'. 「レシピ」(công thức nấu ăn) là thứ người ta làm theo khi nấu — khớp hoàn toàn. 「メモ」(ghi chú) là mảnh giấy ghi vội, không phải công thức nấu ăn có cấu trúc. 「ニュース」(tin tức) không liên quan đến nấu ăn. 「スケジュール」(lịch trình, kế hoạch thời gian) không phải hướng dẫn nấu ăn.",
+              "glosses": [
+                {
+                  "t": "料理は",
+                  "read": "りょうりは",
+                  "vi": "món ăn thì"
+                },
+                {
+                  "t": "のとおりに作れば",
+                  "read": "のとおりにつくれば",
+                  "vi": "nếu làm đúng theo"
+                },
+                {
+                  "t": "必ずおいしくなる",
+                  "read": "かならずおいしくなる",
+                  "vi": "nhất định sẽ ngon"
+                }
+              ]
+            },
+            {
+              "stem": "薬を飲んだあとで、しばらく＿してください。",
+              "choices": [
+                "安静",
+                "運動",
+                "外出",
+                "残業"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'sau khi uống thuốc, xin hãy ＿ một lúc'. 「安静」(an tĩnh, nghỉ ngơi yên tĩnh) là điều bác sĩ thường khuyên sau khi uống thuốc — tự nhiên và đúng văn cảnh. 「運動」(vận động, tập thể dục) là việc không nên làm ngay sau khi uống thuốc, ngược nghĩa. 「外出」(ra ngoài) cũng trái với khuyến cáo sau khi uống thuốc. 「残業」(làm thêm giờ) hoàn toàn không liên quan đến việc uống thuốc.",
+              "glosses": [
+                {
+                  "t": "薬を飲んだあとで",
+                  "read": "くすりをのんだあとで",
+                  "vi": "sau khi uống thuốc"
+                },
+                {
+                  "t": "しばらく",
+                  "vi": "trong một lúc, một chút"
+                },
+                {
+                  "t": "してください",
+                  "vi": "xin hãy làm"
+                }
+              ]
+            },
+            {
+              "stem": "ドアを開けた＿、部屋に入った。",
+              "choices": [
+                "まま",
+                "とおり",
+                "あとで",
+                "ほど"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'đi vào phòng với cửa vẫn để mở (không đóng lại)'. 「まま」diễn tả trạng thái để nguyên không thay đổi — 'mở cửa rồi cứ để vậy mà vào' là cách dùng chuẩn. 「とおり」có nghĩa 'đúng như, y như' thường dùng với danh từ/động từ chỉ hướng dẫn, không diễn tả trạng thái kéo dài. 「あとで」có nghĩa 'sau khi' — câu trở thành 'sau khi mở cửa vào phòng' nhưng thiếu sắc thái 'để nguyên'. 「ほど」diễn tả mức độ, không phù hợp ở đây.",
+              "glosses": [
+                {
+                  "t": "ドアを開けた",
+                  "read": "ドアをあけた",
+                  "vi": "đã mở cửa"
+                },
+                {
+                  "t": "部屋に入った",
+                  "read": "へやにはいった",
+                  "vi": "đi vào phòng"
+                }
+              ]
+            },
+            {
+              "stem": "電気をつけた＿で寝てしまった。",
+              "choices": [
+                "まま",
+                "とおり",
+                "あいだ",
+                "ため"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'đã ngủ quên trong tình trạng đèn vẫn bật'. 「まま」diễn tả trạng thái duy trì — bật đèn rồi cứ để đèn sáng như vậy mà ngủ, đây là mẫu 「〜たまま」kinh điển. 「とおり」nghĩa 'đúng như' không diễn tả trạng thái đèn vẫn sáng. 「あいだ」nghĩa 'trong khoảng thời gian, trong lúc' — câu có nghĩa khác hẳn, không mang sắc thái vô tình để nguyên. 「ため」nghĩa 'vì, do' thể hiện nguyên nhân, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "電気をつけた",
+                  "read": "でんきをつけた",
+                  "vi": "đã bật đèn"
+                },
+                {
+                  "t": "で寝てしまった",
+                  "read": "でねてしまった",
+                  "vi": "đã ngủ quên mất"
+                }
+              ]
+            },
+            {
+              "stem": "服を着た＿、海に飛び込んでしまった。",
+              "choices": [
+                "まま",
+                "あとで",
+                "とおりに",
+                "せいで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'vẫn đang mặc quần áo (không cởi ra) mà nhảy xuống biển'. 「まま」diễn tả trạng thái 'để nguyên, không thay đổi' — quần áo vẫn mặc nguyên trên người mà nhảy xuống, đây là dùng 「〜たまま」đúng chuẩn. 「あとで」nghĩa 'sau khi mặc quần áo mới nhảy xuống biển' — đúng về thứ tự nhưng mất đi sắc thái quan trọng là 'vẫn còn mặc nguyên'. 「とおりに」nghĩa 'đúng như, theo' không phù hợp văn cảnh này. 「せいで」nghĩa 'vì, do (tiêu cực)' thể hiện nguyên nhân, sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "服を着た",
+                  "read": "ふくをきた",
+                  "vi": "mặc quần áo"
+                },
+                {
+                  "t": "海に飛び込んでしまった",
+                  "read": "うみにとびこんでしまった",
+                  "vi": "đã nhảy xuống biển mất rồi"
+                }
+              ]
+            },
+            {
+              "stem": "説明書の＿とおりに機械を組み立てた。",
+              "choices": [
+                "説明書",
+                "手順",
+                "意見",
+                "予定"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu nói 'lắp ráp máy đúng theo ＿ trong sách hướng dẫn'. 「手順」(thủ tục, trình tự các bước) là thứ được ghi trong sách hướng dẫn để người ta làm theo từng bước — hoàn toàn tự nhiên. 「説明書」(sách hướng dẫn) đã xuất hiện ở đầu câu rồi, lặp lại sẽ thừa và kỳ lạ. 「意見」(ý kiến, quan điểm) là suy nghĩ của người, không phải trình tự kỹ thuật để làm theo. 「予定」(kế hoạch, lịch dự kiến) là thời gian biểu, không phải các bước hướng dẫn lắp ráp.",
+              "glosses": [
+                {
+                  "t": "説明書の",
+                  "read": "せつめいしょの",
+                  "vi": "của sách hướng dẫn"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "機械を組み立てた",
+                  "read": "きかいをくみたてた",
+                  "vi": "đã lắp ráp máy"
+                }
+              ]
+            },
+            {
+              "stem": "シャワーを浴びたあとで、髪を＿してください。",
+              "choices": [
+                "乾燥",
+                "洗濯",
+                "掃除",
+                "整理"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'sau khi tắm, xin hãy ＿ tóc'. 「乾燥」(làm khô, sấy khô) là việc làm sau khi tắm để tóc không còn ướt — hoàn toàn hợp lý và tự nhiên với 「髪」. 「洗濯」(giặt giũ) là giặt quần áo, không dùng cho tóc. 「掃除」(dọn dẹp, lau chùi) dùng cho phòng, nhà, không dùng cho tóc. 「整理」(sắp xếp, chỉnh lý) thường dùng cho đồ vật, tài liệu, không tự nhiên khi nói về tóc.",
+              "glosses": [
+                {
+                  "t": "シャワーを浴びたあとで",
+                  "read": "シャワーをあびたあとで",
+                  "vi": "sau khi tắm vòi sen"
+                },
+                {
+                  "t": "髪を",
+                  "read": "かみを",
+                  "vi": "tóc"
+                },
+                {
+                  "t": "してください",
+                  "vi": "xin hãy làm"
+                }
+              ]
+            },
+            {
+              "stem": "コーチの＿とおりに練習したら、タイムが上がった。",
+              "choices": [
+                "アドバイス",
+                "スピーチ",
+                "ニュース",
+                "チャンス"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'luyện tập đúng theo ＿ của huấn luyện viên thì thành tích cải thiện'. 「アドバイス」(lời khuyên, tư vấn) là điều huấn luyện viên đưa ra để vận động viên làm theo — rất tự nhiên với 「〜とおりに」. 「スピーチ」(bài phát biểu) là bài diễn văn trước đám đông, không phải hướng dẫn luyện tập. 「ニュース」(tin tức) là thông tin thời sự, không phải chỉ dẫn tập luyện. 「チャンス」(cơ hội) là danh từ chỉ thời điểm, không thể làm theo được.",
+              "glosses": [
+                {
+                  "t": "コーチの",
+                  "vi": "của huấn luyện viên"
+                },
+                {
+                  "t": "とおりに練習したら",
+                  "read": "とおりにれんしゅうしたら",
+                  "vi": "nếu luyện tập đúng theo"
+                },
+                {
+                  "t": "タイムが上がった",
+                  "read": "タイムがあがった",
+                  "vi": "thành tích (thời gian) đã cải thiện"
+                }
+              ]
+            },
+            {
+              "stem": "窓を開けた＿眠ってしまったので、風邪をひいた。",
+              "choices": [
+                "まま",
+                "あとで",
+                "ために",
+                "ながら"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'vì ngủ quên với cửa sổ vẫn mở (không đóng lại) nên bị cảm'. 「まま」diễn tả trạng thái duy trì không thay đổi — cửa sổ mở rồi cứ để vậy mà ngủ, gây ra hậu quả bị cảm, là mẫu 「〜たまま」rất tự nhiên. 「あとで」nghĩa 'sau khi mở cửa sổ mới ngủ' — đúng thứ tự nhưng không nói được việc cửa vẫn còn mở. 「ために」là 'để, vì mục đích' hoặc 'vì nguyên nhân' — cấu trúc khác hẳn. 「ながら」nghĩa 'vừa … vừa' cần hai hành động đồng thời chứ không diễn tả trạng thái.",
+              "glosses": [
+                {
+                  "t": "窓を開けた",
+                  "read": "まどをあけた",
+                  "vi": "đã mở cửa sổ"
+                },
+                {
+                  "t": "眠ってしまった",
+                  "read": "ねむってしまった",
+                  "vi": "đã ngủ quên mất"
+                },
+                {
+                  "t": "風邪をひいた",
+                  "read": "かぜをひいた",
+                  "vi": "bị cảm"
+                }
+              ]
+            },
+            {
+              "stem": "料理番組で見た＿のとおりに作ったら、うまくできた。",
+              "choices": [
+                "方法",
+                "記事",
+                "広告",
+                "感想"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'làm đúng theo ＿ đã xem trên chương trình nấu ăn thì ra thành phẩm ngon'. 「方法」(phương pháp, cách làm) là điều người xem ghi nhớ từ chương trình nấu ăn rồi áp dụng — hoàn toàn tự nhiên với 「〜のとおりに作る」. 「記事」(bài báo, bài viết) là nội dung truyền thông dạng chữ, không phải hướng dẫn kỹ thuật nấu ăn từ TV. 「広告」(quảng cáo) là nội dung tiếp thị sản phẩm, không có 'cách làm' để làm theo. 「感想」(cảm nghĩ, cảm tưởng) là ý kiến chủ quan sau khi xem/trải nghiệm, không phải quy trình để thực hành theo.",
+              "glosses": [
+                {
+                  "t": "料理番組",
+                  "read": "りょうりばんぐみ",
+                  "vi": "chương trình nấu ăn (TV)"
+                },
+                {
+                  "t": "で見た",
+                  "read": "でみた",
+                  "vi": "đã xem trên (chương trình)"
+                },
+                {
+                  "t": "方法",
+                  "read": "ほうほう",
+                  "vi": "phương pháp, cách làm"
+                },
+                {
+                  "t": "のとおりに作ったら",
+                  "read": "のとおりにつくったら",
+                  "vi": "khi làm đúng theo"
+                },
+                {
+                  "t": "うまくできた",
+                  "vi": "làm ra thành công / ngon"
+                }
+              ]
+            },
+            {
+              "stem": "靴を履いた＿、家の中に入ってしまった。",
+              "choices": [
+                "まま",
+                "あとで",
+                "とおりに",
+                "ために"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'vẫn đang đi giày (không tháo ra) mà đi vào trong nhà'. Đây là hành vi trái với văn hóa Nhật, và 「まま」hoàn toàn diễn tả được trạng thái 'đi giày rồi vẫn để nguyên mà vào'. 「あとで」nghĩa 'sau khi đi giày vào nhà' — đúng thứ tự nhưng mất đi sắc thái đi giày vào nhà (vô lễ). 「とおりに」nghĩa 'đúng theo' không phù hợp với cảnh này. 「ために」nghĩa 'vì, để' thể hiện mục đích hoặc nguyên nhân, không diễn tả trạng thái.",
+              "glosses": [
+                {
+                  "t": "靴を履いた",
+                  "read": "くつをはいた",
+                  "vi": "đã đi giày"
+                },
+                {
+                  "t": "家の中に入ってしまった",
+                  "read": "いえのなかにはいってしまった",
+                  "vi": "đã đi vào trong nhà mất rồi"
+                }
+              ]
+            },
+            {
+              "stem": "マニュアルの＿とおりに操作すれば、エラーは出ない。",
+              "choices": [
+                "手続き",
+                "記事",
+                "広告",
+                "報告"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'nếu thao tác đúng theo ＿ trong sách hướng dẫn, sẽ không có lỗi'. 「手続き」(thủ tục, các bước thao tác) là trình tự từng bước ghi trong manual để người dùng làm theo — hoàn toàn phù hợp. 「記事」(bài báo, bài viết) là nội dung truyền thông, không phải hướng dẫn kỹ thuật. 「広告」(quảng cáo) là nội dung tiếp thị, không có trình tự thao tác để làm theo. 「報告」(báo cáo) là tài liệu tổng hợp kết quả, không phải hướng dẫn sử dụng.",
+              "glosses": [
+                {
+                  "t": "マニュアルの",
+                  "vi": "của sách hướng dẫn (manual)"
+                },
+                {
+                  "t": "とおりに操作すれば",
+                  "read": "とおりにそうさすれば",
+                  "vi": "nếu thao tác đúng theo"
+                },
+                {
+                  "t": "エラーは出ない",
+                  "read": "エラーはでない",
+                  "vi": "sẽ không có lỗi"
+                }
+              ]
+            },
+            {
+              "stem": "食事をしたあとで、歯を＿ことが大切だ。",
+              "choices": [
+                "磨く",
+                "乾かす",
+                "洗う",
+                "切る"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'sau khi ăn, điều quan trọng là ＿ răng'. 「磨く」(đánh bóng, chà, đánh — ở đây là đánh răng) là từ đúng và chuẩn nhất để nói về chăm sóc răng sau bữa ăn, cụm 「歯を磨く」rất phổ biến. 「乾かす」(làm khô) dùng cho tóc, quần áo, không dùng cho răng. 「洗う」(rửa) thường dùng cho tay, mặt, bát đĩa — nói 「歯を洗う」không tự nhiên bằng 「磨く」trong tiếng Nhật. 「切る」(cắt) hoàn toàn không liên quan đến vệ sinh răng miệng.",
+              "glosses": [
+                {
+                  "t": "食事をしたあとで",
+                  "read": "しょくじをしたあとで",
+                  "vi": "sau khi ăn cơm"
+                },
+                {
+                  "t": "歯を",
+                  "read": "はを",
+                  "vi": "răng"
+                },
+                {
+                  "t": "ことが大切だ",
+                  "read": "ことがたいせつだ",
+                  "vi": "là điều quan trọng"
+                }
+              ]
+            },
+            {
+              "stem": "コートを着た＿、そのまま会議室に入った。",
+              "choices": [
+                "まま",
+                "あいだ",
+                "ついでに",
+                "かわりに"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói 'vẫn mặc nguyên áo khoác (không cởi ra) mà vào thẳng phòng họp'. 「まま」diễn tả trạng thái duy trì — mặc áo khoác rồi cứ để nguyên vào phòng họp, kết hợp với 「そのまま」ở vế sau càng rõ ý. 「あいだ」nghĩa 'trong khoảng thời gian, trong lúc' — 'trong lúc mặc áo khoác vào phòng họp' không tự nhiên. 「ついでに」nghĩa 'nhân tiện, tiện thể' thể hiện làm thêm việc khác khi đang làm một việc, không phù hợp. 「かわりに」nghĩa 'thay vì, thay thế' thể hiện sự thay thế, không diễn tả trạng thái để nguyên.",
+              "glosses": [
+                {
+                  "t": "コートを着た",
+                  "read": "コートをきた",
+                  "vi": "đã mặc áo khoác"
+                },
+                {
+                  "t": "そのまま",
+                  "vi": "cứ như vậy, để nguyên"
+                },
+                {
+                  "t": "会議室に入った",
+                  "read": "かいぎしつにはいった",
+                  "vi": "đã vào phòng họp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "先生の説明のとおりに、レポートを書きました。",
+              "choices": [
+                "先生の説明に従って、レポートを書きました。",
+                "先生の説明が終わってから、レポートを書きました。",
+                "先生の説明を聞いたまま、レポートを出しました。",
+                "先生の説明でしょうから、レポートを書いておきました。"
+              ],
+              "answer": 0,
+              "pt": "V／Nのとおりに",
+              "explain": "Câu gốc dùng「のとおりに」nghĩa \"theo đúng như ~\". Đáp án A「に従って」(ni shitagatte) mang nghĩa \"tuân theo, làm theo\" — gần nghĩa nhất. B nói \"sau khi nghe xong mới viết\" (thứ tự thời gian, lệch nghĩa). C「〜たまま」hàm ý giữ nguyên trạng thái \"để nguyên như khi nghe\", sắc thái khác. D thêm「でしょうから」(suy đoán) và「ておきました」(làm trước để phòng), nghĩa lệch hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "先生の説明のとおりに",
+                  "read": "せんせいのせつめいのとおりに",
+                  "vi": "theo đúng như lời giải thích của thầy"
+                },
+                {
+                  "t": "レポートを書きました",
+                  "read": "レポートをかきました",
+                  "vi": "đã viết báo cáo"
+                },
+                {
+                  "t": "先生の説明に従って",
+                  "read": "せんせいのせつめいにしたがって",
+                  "vi": "tuân theo lời giải thích của thầy"
+                },
+                {
+                  "t": "出しました",
+                  "read": "だしました",
+                  "vi": "đã nộp, đã đưa ra"
+                },
+                {
+                  "t": "終わってから",
+                  "read": "おわってから",
+                  "vi": "〜てから = sau khi làm xong ~ (rồi mới làm việc tiếp theo)"
+                },
+                {
+                  "t": "聞いたまま",
+                  "read": "きいたまま",
+                  "vi": "〜たまま = cứ giữ nguyên trạng thái đã ~ (không đổi)"
+                },
+                {
+                  "t": "でしょうから",
+                  "read": "でしょうから",
+                  "vi": "〜でしょうから = vì chắc là ~ (suy đoán làm lý do)"
+                },
+                {
+                  "t": "書いておきました",
+                  "read": "かいておきました",
+                  "vi": "〜ておく = làm sẵn/chuẩn bị trước việc ~"
+                }
+              ]
+            },
+            {
+              "prompt": "宿題をしたあとで、ゲームをしてもいいです。",
+              "choices": [
+                "宿題をすれば、ゲームをしてもいいです。",
+                "宿題をしながら、ゲームをしてもいいです。",
+                "宿題をするまえに、ゲームをしてもいいです。",
+                "宿題をしてから、ゲームをしてもいいです。"
+              ],
+              "answer": 3,
+              "pt": "Vたあとで",
+              "explain": "「Vたあとで」nhấn mạnh thứ tự: \"sau khi V xong rồi mới ~\". Đáp án D「〜てから」cũng diễn đạt thứ tự thời gian tương tự, gần nghĩa nhất. A「すれば」(điều kiện giả định) không nhấn mạnh thứ tự mà nhấn điều kiện. B「ながら」(vừa làm vừa làm — đồng thời) ngược nghĩa hoàn toàn. C「まえに」(trước khi) — thứ tự ngược lại.",
+              "glosses": [
+                {
+                  "t": "宿題をしたあとで",
+                  "read": "しゅくだいをしたあとで",
+                  "vi": "sau khi làm bài tập về nhà xong"
+                },
+                {
+                  "t": "ゲームをしてもいいです",
+                  "read": "",
+                  "vi": "được phép chơi game"
+                },
+                {
+                  "t": "宿題をしてから",
+                  "read": "しゅくだいをしてから",
+                  "vi": "sau khi làm bài tập về nhà xong"
+                },
+                {
+                  "t": "宿題をすれば",
+                  "read": "しゅくだいをすれば",
+                  "vi": "動詞ば形 (〜すれば) = nếu làm ~ thì (giả định)"
+                },
+                {
+                  "t": "宿題をしながら",
+                  "read": "しゅくだいをしながら",
+                  "vi": "〜ながら = vừa làm ~ vừa làm việc khác"
+                },
+                {
+                  "t": "宿題をするまえに",
+                  "read": "しゅくだいをするまえに",
+                  "vi": "〜まえに = trước khi làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "窓を開けたまま、寝てしまいました。",
+              "choices": [
+                "窓を開けた状態で、そのまま寝てしまいました。",
+                "窓を開けてから、寝るつもりでした。",
+                "窓を開けたあとで、すぐ寝ました。",
+                "窓を開けようとして、寝てしまいました。"
+              ],
+              "answer": 0,
+              "pt": "V／Aいまま",
+              "explain": "「〜たまま」nghĩa \"để nguyên trạng thái ~ (mà không thay đổi)\". Đáp án A「〜た状態で、そのまま」diễn đạt lại cùng ý \"trong trạng thái đã mở cửa sổ\", gần nghĩa nhất. B「〜てから〜つもりでした」nói về dự định sau hành động, không nói trạng thái. C「〜たあとで、すぐ」nói thứ tự thời gian, không nhấn mạnh trạng thái duy trì. D「〜ようとして」(cố gắng làm mà cuối cùng...) khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "窓を開けたまま",
+                  "read": "まどをあけたまま",
+                  "vi": "để nguyên trạng thái cửa sổ đã mở"
+                },
+                {
+                  "t": "寝てしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "đã ngủ quên mất"
+                },
+                {
+                  "t": "窓を開けた状態で",
+                  "read": "まどをあけたじょうたいで",
+                  "vi": "trong trạng thái cửa sổ đã mở"
+                },
+                {
+                  "t": "すぐ",
+                  "read": "すぐ",
+                  "vi": "ngay, ngay lập tức"
+                },
+                {
+                  "t": "そのまま",
+                  "read": "そのまま",
+                  "vi": "そのまま = cứ để nguyên như vậy, không thay đổi trạng thái"
+                },
+                {
+                  "t": "開けてから",
+                  "read": "あけてから",
+                  "vi": "〜てから = sau khi làm ~ (xong rồi mới...)"
+                },
+                {
+                  "t": "寝るつもりでした",
+                  "read": "ねるつもりでした",
+                  "vi": "〜つもりでした = đã định làm ~ (nhưng có thể không thành)"
+                },
+                {
+                  "t": "開けたあとで",
+                  "read": "あけたあとで",
+                  "vi": "〜たあとで = sau khi ~"
+                },
+                {
+                  "t": "開けようとして",
+                  "read": "あけようとして",
+                  "vi": "〜ようとして = định/toan làm ~ (thì xảy ra việc khác)"
+                }
+              ]
+            },
+            {
+              "prompt": "お風呂に入ったあとで、牛乳を飲みます。",
+              "choices": [
+                "お風呂に入りながら、牛乳を飲みます。",
+                "お風呂に入ってから、牛乳を飲みます。",
+                "お風呂に入るまえに、牛乳を飲みます。",
+                "お風呂に入れば、牛乳を飲みます。"
+              ],
+              "answer": 1,
+              "pt": "Vたあとで",
+              "explain": "「Vたあとで」chỉ thứ tự: \"sau khi tắm xong rồi uống sữa\". Đáp án B「〜てから」cũng diễn đạt thứ tự thời gian, gần nghĩa nhất. A「ながら」nghĩa vừa tắm vừa uống sữa — đồng thời, lệch nghĩa. C「まえに」nghĩa trước khi tắm — ngược thứ tự. D「〜れば」là điều kiện, không phải thứ tự thời gian.",
+              "glosses": [
+                {
+                  "t": "お風呂に入ったあとで",
+                  "read": "おふろにはいったあとで",
+                  "vi": "sau khi tắm xong"
+                },
+                {
+                  "t": "牛乳を飲みます",
+                  "read": "ぎゅうにゅうをのみます",
+                  "vi": "uống sữa"
+                },
+                {
+                  "t": "お風呂に入ってから",
+                  "read": "おふろにはいってから",
+                  "vi": "sau khi tắm xong"
+                },
+                {
+                  "t": "入りながら",
+                  "read": "はいりながら",
+                  "vi": "〜ながら = vừa làm ~ vừa làm việc khác"
+                },
+                {
+                  "t": "入るまえに",
+                  "read": "はいるまえに",
+                  "vi": "〜まえに = trước khi làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "地図のとおりに歩いたら、すぐ着きました。",
+              "choices": [
+                "地図に書いてあるとおりに歩いたら、すぐ着きました。",
+                "地図を見ながら歩いたあとで、すぐ着きました。",
+                "地図を見るまま歩いたら、もっと遠くなりました。",
+                "地図でしょうから、すぐ着けるはずです。"
+              ],
+              "answer": 0,
+              "pt": "V／Nのとおりに",
+              "explain": "「地図のとおりに」nghĩa \"theo đúng như bản đồ\". Đáp án A「地図に書いてあるとおりに」là cách nói đầy đủ hơn cùng nghĩa \"theo đúng những gì ghi trong bản đồ\" — gần nghĩa nhất. B dùng「ながら〜あとで」ghép hai cấu trúc lộn xộn, nghĩa lệch. C「〜たら、もっと遠くなりました」kết quả ngược lại câu gốc. D「〜でしょうから」thêm suy đoán, nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "地図のとおりに",
+                  "read": "ちずのとおりに",
+                  "vi": "theo đúng như bản đồ"
+                },
+                {
+                  "t": "歩いたら",
+                  "read": "あるいたら",
+                  "vi": "khi đi bộ"
+                },
+                {
+                  "t": "すぐ着きました",
+                  "read": "すぐつきました",
+                  "vi": "đã đến ngay lập tức"
+                },
+                {
+                  "t": "遠くなりました",
+                  "read": "とおくなりました",
+                  "vi": "đã trở nên xa hơn"
+                },
+                {
+                  "t": "もっと",
+                  "read": "もっと",
+                  "vi": "hơn nữa, nhiều hơn"
+                },
+                {
+                  "t": "書いてあるとおりに",
+                  "read": "かいてあるとおりに",
+                  "vi": "〜てあるとおりに = đúng như những gì đã được viết/chuẩn bị sẵn"
+                },
+                {
+                  "t": "見ながら",
+                  "read": "みながら",
+                  "vi": "〜ながら = vừa làm ~ vừa làm việc khác"
+                },
+                {
+                  "t": "歩いたあとで",
+                  "read": "あるいたあとで",
+                  "vi": "〜たあとで = sau khi ~"
+                },
+                {
+                  "t": "見るまま",
+                  "read": "みるまま",
+                  "vi": "〜まま = giữ nguyên trạng thái ~ (thường dùng với thể た)"
+                },
+                {
+                  "t": "でしょうから",
+                  "read": "でしょうから",
+                  "vi": "〜でしょうから = vì chắc là ~ (suy đoán làm lý do)"
+                },
+                {
+                  "t": "着けるはずです",
+                  "read": "つけるはずです",
+                  "vi": "〜はずです = chắc chắn là ~ (suy luận có căn cứ)"
+                }
+              ]
+            },
+            {
+              "prompt": "財布がかばんの中に入っています。",
+              "choices": [
+                "財布はかばんの中にある状態です。",
+                "財布をかばんの中に入れておきました。",
+                "財布をかばんの中に入れてしまいました。",
+                "財布はかばんの中に入れるつもりです。"
+              ],
+              "answer": 0,
+              "pt": "Vています (結果状態) — B29",
+              "explain": "「〜ています」ở đây biểu thị kết quả trạng thái: \"(ví) đang ở trong túi\". Đáp án A「〜ある状態です」diễn đạt cùng ý \"đang ở trong trạng thái có ví trong túi\" — gần nghĩa nhất. B「ておきました」nhấn mạnh hành động làm sẵn chủ ý, không chỉ trạng thái. C「てしまいました」nhấn mạnh tiếc nuối hoặc hoàn tất ngoài ý muốn. D「〜つもりです」là dự định tương lai, hoàn toàn lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "財布がかばんの中に入っています",
+                  "read": "さいふがかばんのなかにはいっています",
+                  "vi": "ví đang ở trong túi (trạng thái kết quả)"
+                },
+                {
+                  "t": "財布はかばんの中にある状態です",
+                  "read": "さいふはかばんのなかにあるじょうたいです",
+                  "vi": "ví đang ở trong trạng thái nằm trong túi"
+                },
+                {
+                  "t": "入れておきました",
+                  "read": "いれておきました",
+                  "vi": "〜ておく = làm sẵn/chuẩn bị trước"
+                },
+                {
+                  "t": "入れてしまいました",
+                  "read": "いれてしまいました",
+                  "vi": "〜てしまう = làm xong hẳn/lỡ làm ~ rồi"
+                },
+                {
+                  "t": "入れるつもりです",
+                  "read": "いれるつもりです",
+                  "vi": "〜つもりです = định làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "会議室に椅子が並べてあります。",
+              "choices": [
+                "会議室に椅子が並べられています。",
+                "会議室に椅子を並べておきます。",
+                "会議室に椅子が並んでいます。",
+                "会議室に椅子を並べたあとで、会議が始まりました。"
+              ],
+              "answer": 0,
+              "pt": "Vてあります — B30",
+              "explain": "「〜てあります」nghĩa \"đã được làm sẵn (có chủ ý)\". Đáp án A「並べられています」(thể bị động tiến hành — ghế đang được xếp) rất gần nghĩa, diễn đạt kết quả hành động có chủ ý — gần nghĩa nhất. B「ておきます」là tương lai chủ ý, không phải trạng thái hiện tại. C「並んでいます」là tự động từ, không nhấn mạnh có người xếp. D thêm「あとで」chuyển sang thứ tự thời gian, lệch hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "椅子が並べてあります",
+                  "read": "いすがならべてあります",
+                  "vi": "ghế đã được xếp sẵn (có chủ ý)"
+                },
+                {
+                  "t": "椅子が並べられています",
+                  "read": "いすがならべられています",
+                  "vi": "ghế đang được xếp (bị động kết quả)"
+                },
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "始まりました",
+                  "read": "はじまりました",
+                  "vi": "đã bắt đầu"
+                },
+                {
+                  "t": "並べておきます",
+                  "read": "ならべておきます",
+                  "vi": "〜ておく = làm sẵn/chuẩn bị trước"
+                },
+                {
+                  "t": "並んでいます",
+                  "read": "ならんでいます",
+                  "vi": "〜ている = đang ở trạng thái ~ (kết quả còn duy trì)"
+                },
+                {
+                  "t": "並べたあとで",
+                  "read": "ならべたあとで",
+                  "vi": "〜たあとで = sau khi ~"
+                }
+              ]
+            },
+            {
+              "prompt": "明日は雨が降るかもしれません。",
+              "choices": [
+                "明日は雨が降るでしょう。",
+                "明日は雨が降る可能性があります。",
+                "明日は絶対に雨が降ります。",
+                "明日は雨が降るつもりです。"
+              ],
+              "answer": 1,
+              "pt": "〜かもしれません — B32",
+              "explain": "「〜かもしれません」nghĩa \"có thể ~, biết đâu ~\" (khả năng không chắc). Đáp án B「〜可能性があります」(có khả năng xảy ra) diễn đạt cùng mức độ không chắc chắn — gần nghĩa nhất. A「〜でしょう」cũng là suy đoán nhưng độ chắc chắn cao hơn「かもしれません」. C「絶対に」(chắc chắn tuyệt đối) hoàn toàn ngược nghĩa. D「〜つもりです」là dự định của chủ thể — dùng cho người, không dùng cho thời tiết.",
+              "glosses": [
+                {
+                  "t": "雨が降るかもしれません",
+                  "read": "あめがふるかもしれません",
+                  "vi": "có thể trời mưa"
+                },
+                {
+                  "t": "雨が降る可能性があります",
+                  "read": "あめがふるかのうせいがあります",
+                  "vi": "có khả năng trời mưa"
+                },
+                {
+                  "t": "明日は",
+                  "read": "あしたは",
+                  "vi": "còn về ngày mai thì"
+                },
+                {
+                  "t": "絶対に",
+                  "read": "ぜったいに",
+                  "vi": "chắc chắn, tuyệt đối"
+                },
+                {
+                  "t": "降るでしょう",
+                  "read": "ふるでしょう",
+                  "vi": "〜でしょう = chắc là ~ (suy đoán)"
+                },
+                {
+                  "t": "降るつもりです",
+                  "read": "ふるつもりです",
+                  "vi": "〜つもりです = định làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "ここでたばこを吸うな。",
+              "choices": [
+                "ここでたばこを吸ってはいけません。",
+                "ここでたばこを吸わないほうがいいです。",
+                "ここでたばこを吸うつもりはありません。",
+                "ここでたばこを吸ってしまいました。"
+              ],
+              "answer": 0,
+              "pt": "Vるな — B33",
+              "explain": "「Vるな」là cấm đoán mạnh (mệnh lệnh phủ định thể thông thường). Đáp án A「〜てはいけません」cũng diễn đạt sự cấm đoán — gần nghĩa nhất. B「〜ないほうがいいです」chỉ là lời khuyên nhẹ nhàng, không mang tính cấm đoán. C「〜つもりはありません」là ý định của bản thân người nói, không phải lệnh cấm. D「〜てしまいました」nghĩa đã lỡ làm rồi, ngược hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "たばこを吸うな",
+                  "read": "たばこをすうな",
+                  "vi": "cấm hút thuốc (mệnh lệnh phủ định mạnh)"
+                },
+                {
+                  "t": "たばこを吸ってはいけません",
+                  "read": "たばこをすってはいけません",
+                  "vi": "không được phép hút thuốc"
+                },
+                {
+                  "t": "ここでたばこを",
+                  "read": "ここでたばこを",
+                  "vi": "hút thuốc ở đây (ここで = ở đây, たばこを吸う = hút thuốc)"
+                },
+                {
+                  "t": "吸わないほうがいいです",
+                  "read": "すわないほうがいいです",
+                  "vi": "〜ないほうがいい = không nên làm ~"
+                },
+                {
+                  "t": "吸うつもりはありません",
+                  "read": "すうつもりはありません",
+                  "vi": "〜つもりはありません = không có ý định làm ~"
+                },
+                {
+                  "t": "吸ってしまいました",
+                  "read": "すってしまいました",
+                  "vi": "〜てしまう = lỡ làm/làm xong hẳn ~"
+                }
+              ]
+            },
+            {
+              "prompt": "「さくら」という映画を見たことがありますか。",
+              "choices": [
+                "「さくら」と呼ばれる映画を見たことがありますか。",
+                "「さくら」という映画を見るつもりです。",
+                "「さくら」という映画はむずかしいでしょう。",
+                "「さくら」という映画を見たまま帰りました。"
+              ],
+              "answer": 0,
+              "pt": "〜というN — B33",
+              "explain": "「〜というN」nghĩa \"N gọi là ~, N tên là ~\". Đáp án A「〜と呼ばれるN」(N được gọi là ~) diễn đạt lại cùng ý bằng cách dùng thể bị động, gần nghĩa nhất. B thay đổi thành câu dự định tương lai, không liên quan. C thêm suy đoán「でしょう」về độ khó, lệch nghĩa. D thêm「〜たまま」chuyển sang nghĩa trạng thái duy trì, hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "「さくら」という映画",
+                  "read": "「さくら」というえいが",
+                  "vi": "bộ phim tên là \"Sakura\""
+                },
+                {
+                  "t": "見たことがありますか",
+                  "read": "みたことがありますか",
+                  "vi": "bạn đã từng xem chưa?"
+                },
+                {
+                  "t": "「さくら」と呼ばれる映画",
+                  "read": "「さくら」とよばれるえいが",
+                  "vi": "bộ phim được gọi là \"Sakura\""
+                },
+                {
+                  "t": "帰りました",
+                  "read": "かえりました",
+                  "vi": "đã về, đã trở về"
+                },
+                {
+                  "t": "むずかしい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "見るつもりです",
+                  "read": "みるつもりです",
+                  "vi": "〜つもりです = định làm ~"
+                },
+                {
+                  "t": "むずかしいでしょう",
+                  "read": "むずかしいでしょう",
+                  "vi": "〜でしょう = chắc là ~ (suy đoán)"
+                },
+                {
+                  "t": "見たまま",
+                  "read": "みたまま",
+                  "vi": "〜たまま = cứ giữ nguyên trạng thái đã ~"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーの前に、部屋を掃除しておきます。",
+              "choices": [
+                "パーティーが始まってから、部屋を掃除します。",
+                "パーティーのために、あらかじめ部屋を掃除します。",
+                "パーティーの前に、部屋を掃除したままにします。",
+                "パーティーの前に、部屋を掃除するな。"
+              ],
+              "answer": 1,
+              "pt": "Vておきます — B30",
+              "explain": "「〜ておきます」nghĩa \"làm trước để chuẩn bị (có mục đích)\". Đáp án B「〜のために、あらかじめ〜します」(vì mục đích ~, làm trước) diễn đạt cùng ý chuẩn bị có chủ ý — gần nghĩa nhất. A「〜てから」nói làm sau khi bữa tiệc bắt đầu, ngược thứ tự. C「〜たままにします」nghĩa để nguyên trạng thái đã quét, sắc thái khác. D「〜するな」là cấm đoán, hoàn toàn lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "部屋を掃除しておきます",
+                  "read": "へやをそうじしておきます",
+                  "vi": "dọn phòng trước để chuẩn bị"
+                },
+                {
+                  "t": "パーティーの前に",
+                  "read": "パーティーのまえに",
+                  "vi": "trước bữa tiệc"
+                },
+                {
+                  "t": "あらかじめ部屋を掃除します",
+                  "read": "あらかじめへやをそうじします",
+                  "vi": "dọn phòng trước (có chuẩn bị)"
+                },
+                {
+                  "t": "始まってから",
+                  "read": "はじまってから",
+                  "vi": "〜てから = sau khi ~ (xong rồi mới...)"
+                },
+                {
+                  "t": "パーティーのために",
+                  "read": "パーティーのために",
+                  "vi": "〜のために = vì/để phục vụ cho mục đích ~"
+                },
+                {
+                  "t": "掃除したままにします",
+                  "read": "そうじしたままにします",
+                  "vi": "〜たままにする = cứ để nguyên trạng thái ~ như vậy"
+                },
+                {
+                  "t": "掃除するな",
+                  "read": "そうじするな",
+                  "vi": "động từ nguyên thể + な = đừng làm ~ (mệnh lệnh cấm, văn nói mạnh)"
+                }
+              ]
+            },
+            {
+              "prompt": "このペンは書きやすいです。",
+              "choices": [
+                "このペンで書くのは簡単です。",
+                "このペンで書いたほうがいいです。",
+                "このペンで書いてしまいました。",
+                "このペンで書くつもりです。"
+              ],
+              "answer": 0,
+              "pt": "Vやすい／Vにくい — B28",
+              "explain": "「〜やすい」nghĩa \"dễ làm ~\". Đáp án A「〜のは簡単です」(việc viết thì dễ) diễn đạt lại cùng ý bằng từ「簡単」— gần nghĩa nhất. B「〜ほうがいいです」là lời khuyên, không phải đánh giá độ dễ. C「〜てしまいました」nghĩa lỡ viết rồi, lệch hoàn toàn. D「〜つもりです」là dự định, không liên quan đến tính chất của bút.",
+              "glosses": [
+                {
+                  "t": "書きやすいです",
+                  "read": "かきやすいです",
+                  "vi": "dễ viết"
+                },
+                {
+                  "t": "書くのは簡単です",
+                  "read": "かくのはかんたんです",
+                  "vi": "việc viết thì dễ"
+                },
+                {
+                  "t": "ペン",
+                  "read": "ぺん",
+                  "vi": "cây bút"
+                },
+                {
+                  "t": "書いたほうがいいです",
+                  "read": "かいたほうがいいです",
+                  "vi": "〜たほうがいい = nên làm ~"
+                },
+                {
+                  "t": "書いてしまいました",
+                  "read": "かいてしまいました",
+                  "vi": "〜てしまう = lỡ làm/làm xong hẳn ~"
+                },
+                {
+                  "t": "書くつもりです",
+                  "read": "かくつもりです",
+                  "vi": "〜つもりです = định làm ~"
+                }
+              ]
+            },
+            {
+              "prompt": "来週、友だちと映画を見に行こうと思っています。",
+              "choices": [
+                "来週、友だちと映画を見に行くつもりです。",
+                "来週、友だちと映画を見に行ったあとで、話します。",
+                "来週、友だちと映画を見に行くかもしれません。",
+                "来週、友だちと映画を見に行くな。"
+              ],
+              "answer": 0,
+              "pt": "V意向形 — B31",
+              "explain": "「V意向形＋と思っています」nghĩa \"đang có ý định ~, đang nghĩ sẽ ~\". Đáp án A「〜つもりです」cũng diễn đạt ý định/kế hoạch, gần nghĩa nhất. B「〜たあとで、話します」chuyển sang thứ tự thời gian, lệch nghĩa. C「〜かもしれません」là khả năng không chắc chắn, yếu hơn so với ý định rõ ràng. D「〜行くな」là cấm đoán, hoàn toàn ngược nghĩa.",
+              "glosses": [
+                {
+                  "t": "映画を見に行こうと思っています",
+                  "read": "えいがをみにいこうとおもっています",
+                  "vi": "đang nghĩ sẽ đi xem phim"
+                },
+                {
+                  "t": "映画を見に行くつもりです",
+                  "read": "えいがをみにいくつもりです",
+                  "vi": "có dự định đi xem phim"
+                },
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "友だちと",
+                  "read": "ともだちと",
+                  "vi": "cùng với bạn"
+                },
+                {
+                  "t": "話します",
+                  "read": "はなします",
+                  "vi": "sẽ nói chuyện, sẽ kể"
+                },
+                {
+                  "t": "行ったあとで",
+                  "read": "いったあとで",
+                  "vi": "〜たあとで = sau khi ~"
+                },
+                {
+                  "t": "行くかもしれません",
+                  "read": "いくかもしれません",
+                  "vi": "〜かもしれません = có thể ~ (không chắc chắn)"
+                }
+              ]
+            },
+            {
+              "prompt": "冷蔵庫には牛乳しかありません。",
+              "choices": [
+                "冷蔵庫には牛乳だけあります。",
+                "冷蔵庫には牛乳もあります。",
+                "冷蔵庫には牛乳がたくさんあります。",
+                "冷蔵庫には牛乳が入れてあります。"
+              ],
+              "answer": 0,
+              "pt": "Vしか〜ない — B27",
+              "explain": "「Nしか〜ない」nghĩa \"chỉ có N (mà thôi), không có gì khác ngoài N\". Đáp án A「〜だけあります」(chỉ có ~ thôi) diễn đạt cùng ý — gần nghĩa nhất. B「〜もあります」nghĩa \"cũng có\", ngầm nói còn thứ khác nữa — lệch nghĩa. C「〜がたくさんあります」nghĩa \"có rất nhiều\", không có ý \"chỉ mình\". D「〜が入れてあります」nhấn mạnh đã để sẵn, không phải số lượng giới hạn.",
+              "glosses": [
+                {
+                  "t": "牛乳しかありません",
+                  "read": "ぎゅうにゅうしかありません",
+                  "vi": "chỉ có sữa (không có gì khác)"
+                },
+                {
+                  "t": "牛乳だけあります",
+                  "read": "ぎゅうにゅうだけあります",
+                  "vi": "chỉ có sữa mà thôi"
+                },
+                {
+                  "t": "冷蔵庫",
+                  "read": "れいぞうこ",
+                  "vi": "tủ lạnh"
+                },
+                {
+                  "t": "入れてあります",
+                  "read": "いれてあります",
+                  "vi": "đã được để/cất vào (trạng thái)"
+                },
+                {
+                  "t": "たくさん",
+                  "read": "たくさん",
+                  "vi": "nhiều"
+                }
+              ]
+            },
+            {
+              "prompt": "説明書のとおりに組み立てれば、簡単にできます。",
+              "choices": [
+                "説明書に書かれているように組み立てれば、簡単にできます。",
+                "説明書を読んだあとで、簡単に組み立てます。",
+                "説明書を読んだまま、組み立ててしまいました。",
+                "説明書でしょうから、組み立てておきます。"
+              ],
+              "answer": 0,
+              "pt": "V／Nのとおりに",
+              "explain": "「説明書のとおりに」nghĩa \"theo đúng như hướng dẫn sử dụng\". Đáp án A「説明書に書かれているように」(theo như những gì được viết trong hướng dẫn) diễn đạt lại cùng ý bằng cách dùng thể bị động và「ように」— gần nghĩa nhất. B「〜たあとで」chuyển sang thứ tự thời gian, không nhấn mạnh việc làm theo hướng dẫn. C「〜たまま〜てしまいました」hàm ý để nguyên + lỡ làm, sắc thái tiêu cực không liên quan. D「〜でしょうから〜ておきます」thêm suy đoán và hành động chuẩn bị, lệch hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "説明書のとおりに",
+                  "read": "せつめいしょのとおりに",
+                  "vi": "theo đúng như hướng dẫn sử dụng"
+                },
+                {
+                  "t": "組み立てれば",
+                  "read": "くみたてれば",
+                  "vi": "nếu lắp ráp"
+                },
+                {
+                  "t": "説明書に書かれているように",
+                  "read": "せつめいしょにかかれているように",
+                  "vi": "theo như những gì được viết trong hướng dẫn"
+                },
+                {
+                  "t": "簡単にできます",
+                  "read": "かんたんにできます",
+                  "vi": "có thể làm một cách dễ dàng"
+                },
+                {
+                  "t": "読んだあとで",
+                  "read": "よんだあとで",
+                  "vi": "〜たあとで = sau khi ~"
+                },
+                {
+                  "t": "読んだまま",
+                  "read": "よんだまま",
+                  "vi": "〜たまま = cứ giữ nguyên trạng thái đã ~"
+                },
+                {
+                  "t": "組み立ててしまいました",
+                  "read": "くみたててしまいました",
+                  "vi": "〜てしまう = lỡ làm/làm xong hẳn ~"
+                },
+                {
+                  "t": "説明書でしょうから",
+                  "read": "せつめいしょでしょうから",
+                  "vi": "〜でしょうから = vì chắc là ~ (suy đoán làm lý do)"
+                },
+                {
+                  "t": "組み立てておきます",
+                  "read": "くみたてておきます",
+                  "vi": "〜ておく = làm sẵn/chuẩn bị trước"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 34 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "先生が説明した＿、もう一度やってみてください。",
+              "choices": [
+                "とおりに",
+                "あとで",
+                "ままで",
+                "ながら"
+              ],
+              "answer": 0,
+              "pt": "Vたとおりに",
+              "explain": "Câu có nghĩa \"Hãy thử làm lại đúng theo cách thầy/cô đã giải thích.\" → cần 「とおりに」(theo đúng như ~). ① 「とおりに」đúng: Vた＋とおりに = làm theo đúng như hành động đó. ② 「あとで」sai: Vたあとで chỉ thứ tự thời gian (sau khi V thì ~), không mang nghĩa 'theo đúng'. ③ 「ままで」sai: Vたまま／Aいまま = giữ nguyên trạng thái, không liên quan. ④ 「ながら」sai: V1stemながらV2 = vừa V1 vừa V2 cùng lúc, không phù hợp ngữ nghĩa.",
+              "glosses": [
+                {
+                  "t": "説明した",
+                  "read": "せつめいした",
+                  "vi": "đã giải thích"
+                },
+                {
+                  "t": "もう一度",
+                  "read": "もういちど",
+                  "vi": "thêm một lần nữa"
+                },
+                {
+                  "t": "やってみて",
+                  "vi": "thử làm"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy, làm ơn"
+                }
+              ]
+            },
+            {
+              "stem": "手を洗った＿、ご飯を食べましょう。",
+              "choices": [
+                "あとで",
+                "とおりに",
+                "まま",
+                "ほうがいい"
+              ],
+              "answer": 0,
+              "pt": "Vたあとで",
+              "explain": "Câu có nghĩa \"Sau khi rửa tay, hãy ăn cơm.\" → thứ tự hành động → dùng 「Vたあとで」. ① 「あとで」đúng: Vた＋あとで = sau khi V (hành động trước → sau). ② 「とおりに」sai: nghĩa là 'theo đúng như ~', không diễn thứ tự thời gian. ③ 「まま」sai: diễn trạng thái giữ nguyên, không phù hợp. ④ 「ほうがいい」sai: Vたほうがいいです = lời khuyên 'nên làm', không nối hai mệnh đề theo thứ tự.",
+              "glosses": [
+                {
+                  "t": "手を洗った",
+                  "read": "てをあらった",
+                  "vi": "đã rửa tay"
+                },
+                {
+                  "t": "ご飯を食べましょう",
+                  "read": "ごはんをたべましょう",
+                  "vi": "hãy ăn cơm nào"
+                }
+              ]
+            },
+            {
+              "stem": "窓を開けた＿、寝てしまいました。",
+              "choices": [
+                "まま",
+                "あとで",
+                "とおりに",
+                "ながら"
+              ],
+              "answer": 0,
+              "pt": "Vたまま",
+              "explain": "Câu có nghĩa \"Để nguyên cửa sổ mở, lỡ ngủ quên mất.\" → trạng thái giữ nguyên khi thực hiện hành động khác → 「Vたまま」. ① 「まま」đúng: Vた＋まま = để nguyên trạng thái đó mà ~; đây là ngữ pháp Bài 34. ② 「あとで」sai: diễn thứ tự thời gian, không có nghĩa 'để nguyên'. ③ 「とおりに」sai: nghĩa 'theo đúng như ~', không phù hợp. ④ 「ながら」sai: V1stemながらV2 = hai hành động song song chủ động, không diễn trạng thái bị động giữ nguyên.",
+              "glosses": [
+                {
+                  "t": "窓を開けた",
+                  "read": "まどをあけた",
+                  "vi": "đã mở cửa sổ"
+                },
+                {
+                  "t": "寝てしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "lỡ ngủ quên mất"
+                }
+              ]
+            },
+            {
+              "stem": "レシピに書いてある＿、料理を作りました。",
+              "choices": [
+                "とおりに",
+                "あとで",
+                "ままで",
+                "ように"
+              ],
+              "answer": 0,
+              "pt": "Nのとおりに",
+              "explain": "Câu có nghĩa \"Tôi đã nấu ăn đúng theo những gì được viết trong công thức.\" → 「とおりに」(theo đúng như ~). ① 「とおりに」đúng: N／Vのとおりに = làm theo đúng như N／V đó. ② 「あとで」sai: Vたあとで = sau khi V, không mang nghĩa 'theo đúng'. ③ 「ままで」sai: giữ nguyên trạng thái, không phù hợp. ④ 「ように」sai: 〜ように cũng có nghĩa 'theo cách ~' nhưng mang sắc thái mục đích hoặc yêu cầu gián tiếp, không phải 'làm đúng theo' như 「とおりに」; hơn nữa ở đây 「書いてある」là động từ te-form, ghép với 「とおりに」tự nhiên hơn.",
+              "glosses": [
+                {
+                  "t": "レシピ",
+                  "vi": "công thức nấu ăn"
+                },
+                {
+                  "t": "書いてある",
+                  "read": "かいてある",
+                  "vi": "được viết sẵn"
+                },
+                {
+                  "t": "料理を作りました",
+                  "read": "りょうりをつくりました",
+                  "vi": "đã nấu ăn"
+                }
+              ]
+            },
+            {
+              "stem": "靴を履いた＿、部屋に入ってしまいました。",
+              "choices": [
+                "まま",
+                "あとで",
+                "とおりに",
+                "ほうがいい"
+              ],
+              "answer": 0,
+              "pt": "Vたまま",
+              "explain": "Câu có nghĩa \"Vẫn đi nguyên giày, lỡ bước vào phòng.\" → trạng thái 'vẫn còn đi giày' giữ nguyên → 「Vたまま」. ① 「まま」đúng. ② 「あとで」sai: thứ tự, không phải trạng thái giữ nguyên. ③ 「とおりに」sai: theo đúng như ~, không phù hợp ngữ cảnh. ④ 「ほうがいい」sai: lời khuyên, không diễn trạng thái.",
+              "glosses": [
+                {
+                  "t": "靴を履いた",
+                  "read": "くつをはいた",
+                  "vi": "đã đi giày"
+                },
+                {
+                  "t": "部屋に入ってしまいました",
+                  "read": "へやにはいってしまいました",
+                  "vi": "lỡ bước vào phòng"
+                }
+              ]
+            },
+            {
+              "stem": "地図を見ながら、先生が教えてくれた＿駅まで歩きました。",
+              "choices": [
+                "とおりに",
+                "あとで",
+                "まま",
+                "つもりで"
+              ],
+              "answer": 0,
+              "pt": "Vたとおりに",
+              "explain": "Câu có nghĩa \"Vừa xem bản đồ, tôi đã đi bộ đến ga đúng theo đường thầy/cô đã chỉ.\" → 「とおりに」. Lưu ý câu còn dùng 「ながら」(B28: vừa ~ vừa ~) ôn xoắn ốc. ① 「とおりに」đúng. ② 「あとで」sai: thứ tự thời gian, không phù hợp. ③ 「まま」sai: trạng thái giữ nguyên. ④ 「つもりで」sai: 〜つもりで = với ý định là ~, không phù hợp ngữ nghĩa.",
+              "glosses": [
+                {
+                  "t": "地図を見ながら",
+                  "read": "ちずをみながら",
+                  "vi": "vừa xem bản đồ"
+                },
+                {
+                  "t": "教えてくれた",
+                  "read": "おしえてくれた",
+                  "vi": "đã chỉ dạy cho"
+                },
+                {
+                  "t": "駅まで歩きました",
+                  "read": "えきまであるきました",
+                  "vi": "đã đi bộ đến ga"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                }
+              ]
+            },
+            {
+              "stem": "テレビをつけた＿、出かけてしまいました。",
+              "choices": [
+                "まま",
+                "あとで",
+                "とおりに",
+                "ながら"
+              ],
+              "answer": 0,
+              "pt": "Vたまま",
+              "explain": "Câu có nghĩa \"Để nguyên TV đang bật, lỡ ra ngoài mất.\" → 「Vたまま」(B34). 「でしまいました」(B29) ôn xoắn ốc. ① 「まま」đúng: trạng thái TV vẫn đang bật giữ nguyên khi ra ngoài. ② 「あとで」sai: thứ tự thời gian, không phải trạng thái. ③ 「とおりに」sai: nghĩa 'theo đúng'. ④ 「ながら」sai: diễn hai hành động song song chủ động, không diễn trạng thái bị giữ nguyên.",
+              "glosses": [
+                {
+                  "t": "テレビをつけた",
+                  "vi": "đã bật TV"
+                },
+                {
+                  "t": "出かけてしまいました",
+                  "read": "でかけてしまいました",
+                  "vi": "lỡ ra ngoài"
+                }
+              ]
+            },
+            {
+              "stem": "薬を飲んだ＿、少し休んでください。",
+              "choices": [
+                "あとで",
+                "まま",
+                "とおりに",
+                "ようとして"
+              ],
+              "answer": 0,
+              "pt": "Vたあとで",
+              "explain": "Câu có nghĩa \"Sau khi uống thuốc, hãy nghỉ ngơi một chút.\" → thứ tự rõ ràng → 「Vたあとで」. ① 「あとで」đúng. ② 「まま」sai: giữ nguyên trạng thái, không diễn thứ tự. ③ 「とおりに」sai: 'theo đúng như ~', không phù hợp. ④ 「ようとして」sai: Vようとして = khi đang định làm V thì ~, nghĩa khác hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "薬を飲んだ",
+                  "read": "くすりをのんだ",
+                  "vi": "đã uống thuốc"
+                },
+                {
+                  "t": "少し休んでください",
+                  "read": "すこしやすんでください",
+                  "vi": "hãy nghỉ ngơi một chút"
+                }
+              ]
+            },
+            {
+              "stem": "A: この書類、どうやって書けばいいですか。 B: 見本の＿書いてみてください。",
+              "choices": [
+                "とおりに",
+                "あとで",
+                "まま",
+                "だけに"
+              ],
+              "answer": 0,
+              "pt": "Nのとおりに",
+              "explain": "B trả lời \"Hãy thử viết theo đúng bản mẫu.\" → N＋のとおりに (theo đúng như N). ① 「とおりに」đúng: 見本のとおりに = theo đúng bản mẫu. ② 「あとで」sai: sau khi ~, không phù hợp. ③ 「まま」sai: giữ nguyên trạng thái. ④ 「だけに」sai: 〜だけに = chính vì ~, mang nghĩa nguyên nhân/mức độ, hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "書類",
+                  "read": "しょるい",
+                  "vi": "tài liệu, văn bản"
+                },
+                {
+                  "t": "見本",
+                  "read": "みほん",
+                  "vi": "mẫu, bản mẫu"
+                },
+                {
+                  "t": "書いてみて",
+                  "read": "かいてみて",
+                  "vi": "thử viết"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "xin hãy, làm ơn"
+                },
+                {
+                  "t": "どうやって",
+                  "read": "どうやって",
+                  "vi": "làm thế nào/bằng cách nào (hỏi cách thức)"
+                },
+                {
+                  "t": "書けばいいですか",
+                  "read": "かけばいいですか",
+                  "vi": "〜ばいいですか = nên làm (thế nào) thì được (hỏi xin lời khuyên)"
+                }
+              ]
+            },
+            {
+              "stem": "シャワーを浴びた＿、すぐ寝るつもりです。",
+              "choices": [
+                "あとで",
+                "まま",
+                "とおりに",
+                "ながら"
+              ],
+              "answer": 0,
+              "pt": "Vたあとで",
+              "explain": "Câu có nghĩa \"Sau khi tắm, tôi dự định ngủ ngay.\" → thứ tự: tắm trước → ngủ sau. Câu còn dùng 「つもりです」(B31) ôn xoắn ốc. ① 「あとで」đúng. ② 「まま」sai: giữ nguyên trạng thái tắm → ngủ, không hợp lý + sai cấu trúc nghĩa. ③ 「とおりに」sai: 'theo đúng như ~'. ④ 「ながら」sai: hai hành động song song, không thể vừa tắm vừa ngủ.",
+              "glosses": [
+                {
+                  "t": "シャワーを浴びた",
+                  "read": "シャワーをあびた",
+                  "vi": "đã tắm"
+                },
+                {
+                  "t": "すぐ寝るつもりです",
+                  "read": "すぐねるつもりです",
+                  "vi": "dự định ngủ ngay"
+                }
+              ]
+            },
+            {
+              "stem": "コートを着た＿電車に乗っていたら、汗をかいてしまいました。",
+              "choices": [
+                "まま",
+                "あとで",
+                "とおりに",
+                "ように"
+              ],
+              "answer": 0,
+              "pt": "Vたまま",
+              "explain": "Câu có nghĩa \"Vẫn mặc nguyên áo khoác đi tàu điện thì lỡ đổ mồ hôi.\" → 「Vたまま」+ 「てしまいました」(B29: lỡ làm) ôn xoắn ốc. ① 「まま」đúng. ② 「あとで」sai: thứ tự, không phải trạng thái. ③ 「とおりに」sai: 'theo đúng'. ④ 「ように」sai: mục đích/yêu cầu gián tiếp, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "コートを着た",
+                  "read": "コートをきた",
+                  "vi": "đã mặc áo khoác"
+                },
+                {
+                  "t": "電車に乗っていたら",
+                  "read": "でんしゃにのっていたら",
+                  "vi": "khi đang đi tàu điện"
+                },
+                {
+                  "t": "汗をかいてしまいました",
+                  "read": "あせをかいてしまいました",
+                  "vi": "lỡ bị đổ mồ hôi"
+                }
+              ]
+            },
+            {
+              "stem": "先生の指示の＿に準備しておきましたから、もう大丈夫です。",
+              "choices": [
+                "とおり",
+                "あと",
+                "まま",
+                "つもり"
+              ],
+              "answer": 0,
+              "pt": "Nのとおりに",
+              "explain": "Câu có nghĩa \"Tôi đã chuẩn bị sẵn đúng theo chỉ thị của thầy/cô rồi, nên ổn thôi.\" → N＋のとおり(に). Câu còn dùng 「ておきました」(B30: làm trước/chuẩn bị sẵn) ôn xoắn ốc. ① 「とおり」đúng: 指示のとおりに＋準備しておきました = chuẩn bị đúng theo chỉ thị. ② 「あと」sai: N＋のあと = sau N, không phải 'theo đúng'. ③ 「まま」sai: giữ nguyên trạng thái. ④ 「つもり」sai: N＋のつもり = có ý định ~, nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "指示",
+                  "read": "しじ",
+                  "vi": "chỉ thị, hướng dẫn"
+                },
+                {
+                  "t": "準備しておきました",
+                  "read": "じゅんびしておきました",
+                  "vi": "đã chuẩn bị sẵn"
+                },
+                {
+                  "t": "大丈夫",
+                  "read": "だいじょうぶ",
+                  "vi": "không sao, ổn"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                }
+              ]
+            },
+            {
+              "stem": "彼は財布を落としたことに気づかない＿、歩き続けていました。",
+              "choices": [
+                "まま",
+                "あとで",
+                "とおりに",
+                "ながら"
+              ],
+              "answer": 0,
+              "pt": "Aいまま / Vていまま",
+              "explain": "Câu có nghĩa \"Anh ấy vẫn không nhận ra mình đánh rơi ví, tiếp tục đi bộ.\" → trạng thái 'không nhận ra' giữ nguyên → 「Aいまま」/ 「Vないまま」. ① 「まま」đúng: 気づかない(否定形)＋まま = vẫn trong trạng thái không biết. ② 「あとで」sai: thứ tự hành động. ③ 「とおりに」sai: 'theo đúng như'. ④ 「ながら」sai: V1stemながらV2 = hai hành động đồng thời có chủ ý; ở đây 'không nhận ra' không phải hành động chủ ý.",
+              "glosses": [
+                {
+                  "t": "財布を落とした",
+                  "read": "さいふをおとした",
+                  "vi": "đã đánh rơi ví"
+                },
+                {
+                  "t": "気づかない",
+                  "read": "きづかない",
+                  "vi": "không nhận ra"
+                },
+                {
+                  "t": "歩き続けていました",
+                  "read": "あるきつづけていました",
+                  "vi": "tiếp tục đi bộ"
+                },
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy, hắn"
+                },
+                {
+                  "t": "ことに気づかない",
+                  "read": "ことにきづかない",
+                  "vi": "không nhận ra rằng, không để ý rằng"
+                }
+              ]
+            },
+            {
+              "stem": "バスに乗った＿、バッグを電車の中に忘れてきてしまったと気づきました。",
+              "choices": [
+                "あとで",
+                "まま",
+                "とおりに",
+                "ために"
+              ],
+              "answer": 0,
+              "pt": "Vたあとで",
+              "explain": "Câu có nghĩa \"Sau khi lên xe buýt, tôi mới nhận ra mình đã bỏ quên túi trên tàu điện.\" → thứ tự rõ: lên xe buýt → nhận ra → 「Vたあとで」. ① 「あとで」đúng. ② 「まま」sai: nếu dùng 「乗ったまま」= vẫn đang ngồi trên xe, nghĩa khác và không phù hợp. ③ 「とおりに」sai: 'theo đúng'. ④ 「ために」sai: Vるために = mục đích để ~, không diễn thứ tự thời gian.",
+              "glosses": [
+                {
+                  "t": "バスに乗った",
+                  "read": "バスにのった",
+                  "vi": "đã lên xe buýt"
+                },
+                {
+                  "t": "忘れてきてしまった",
+                  "read": "わすれてきてしまった",
+                  "vi": "lỡ để quên mang theo"
+                },
+                {
+                  "t": "気づきました",
+                  "read": "きづきました",
+                  "vi": "nhận ra"
+                },
+                {
+                  "t": "電車の中に",
+                  "read": "でんしゃのなかに",
+                  "vi": "ở trong tàu điện"
+                },
+                {
+                  "t": "バッグ",
+                  "read": "バッグ",
+                  "vi": "cái túi, túi xách"
+                }
+              ]
+            },
+            {
+              "stem": "A:「駅はどこですか。」B:「この道を＿まっすぐ行けばわかりますよ。」",
+              "choices": [
+                "とおりに",
+                "まま",
+                "あとで",
+                "ように"
+              ],
+              "answer": 0,
+              "pt": "Nのとおりに",
+              "explain": "B trả lời \"Nếu đi thẳng theo đúng con đường này thì sẽ thấy.\" → この道のとおりに = theo đúng con đường này. ① 「とおりに」đúng: この道のとおりに＋まっすぐ行けば = đi theo đúng con đường, đây là cách dùng N＋のとおりに. ② 「まま」sai: この道のまま = giữ nguyên trên con đường này, có thể nói được nhưng thường dùng với trạng thái người/vật, không tự nhiên bằng 「とおりに」khi chỉ đường cụ thể. ③ 「あとで」sai: sau khi con đường này → vô nghĩa. ④ 「ように」sai: 〜ように thường dùng cho yêu cầu gián tiếp hoặc mục đích, không phải 'theo đúng con đường này'.",
+              "glosses": [
+                {
+                  "t": "この道",
+                  "read": "このみち",
+                  "vi": "con đường này"
+                },
+                {
+                  "t": "まっすぐ行けば",
+                  "read": "まっすぐいけば",
+                  "vi": "nếu đi thẳng"
+                },
+                {
+                  "t": "駅はどこですか",
+                  "read": "えきはどこですか",
+                  "vi": "Nhà ga ở đâu ạ?"
+                },
+                {
+                  "t": "わかりますよ",
+                  "read": "わかりますよ",
+                  "vi": "sẽ hiểu/biết thôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Chọn mẫu đúng điền vào chỗ trống; một số câu là dạng sắp xếp 4 mảnh (★).",
+          "items": [
+            {
+              "pt": "V／Nのとおりに",
+              "explain": "Câu đúng: 「先生が言ったとおりに、教科書をもう一度読みました。」— Tôi đã đọc lại sách giáo khoa một lần nữa đúng như thầy giáo đã nói.\nSắp xếp: ô 1=「言った」, ô 2=「とおりに、」★, ô 3=「教科書を」, ô 4=「もう一度」\nKhung đầu 「先生が」 làm chủ ngữ cho mệnh đề phụ, đòi hỏi động từ thể quá khứ 「言った」 ở ô 1 để bổ nghĩa cho mẫu 「〜とおりに」. Mẫu ngữ pháp 「とおりに、」 đặt ở ô 2 ngay sau động từ để hoàn chỉnh mệnh đề \"đúng như lời thầy đã nói\". Tiếp theo, tân ngữ 「教科書を」 ở ô 3 đi với phó từ 「もう一度」 ở ô 4 để làm rõ đối tượng và cách thức thực hiện cho động từ khung cuối 「読みました。」. Mảnh 「とおりに、」 ở ô 2 bắt buộc phải đứng sau động từ 「言った」 và có dấu phẩy ngắt mệnh đề nên không thể đặt ở ô 1 hay chuyển xuống ô 3, 4.",
+              "glosses": [
+                {
+                  "t": "一度読みました",
+                  "read": "いちどよみました",
+                  "vi": "đã đọc lại một lần"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "教科書",
+                  "read": "きょうかしょ",
+                  "vi": "sách giáo khoa"
+                },
+                {
+                  "t": "とおりに",
+                  "read": "",
+                  "vi": "theo như"
+                },
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "thêm, nữa"
+                },
+                {
+                  "t": "言った",
+                  "read": "いった",
+                  "vi": "đã nói"
+                }
+              ],
+              "frame": [
+                "先生が",
+                "読みました。"
+              ],
+              "pieces": [
+                "教科書を",
+                "とおりに、",
+                "もう一度",
+                "言った"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vたあとで",
+              "explain": "Câu đúng: 「毎晩シャワーを浴びたあとで、みんなと晩ご飯を食べます。」— Mỗi tối sau khi tắm vòi hoa sen xong, tôi ăn cơm tối cùng mọi người.\nSắp xếp: ô 1=「シャワーを」, ô 2=「浴びた」, ô 3=「あとで、」★, ô 4=「みんなと」.\nKhung đầu 「毎晩」 chỉ thời gian, đi với tân ngữ 「シャワーを」 ở ô 1 và động từ thể quá khứ 「浴びた」 ở ô 2. Mẫu câu chỉ thứ tự hành động 「〜たあとで」 đứng sau động từ thể quá khứ 「浴びた」 nên mảnh 「あとで、」 nằm ở ô 3 ★. Tiếp theo là cụm chỉ đối tượng 「みんなと」 ở ô 4 bổ nghĩa cho vị ngữ 「晩ご飯を食べます。」 ở khung cuối.",
+              "glosses": [
+                {
+                  "t": "毎晩",
+                  "read": "まいばん",
+                  "vi": "mỗi tối"
+                },
+                {
+                  "t": "晩ご飯",
+                  "read": "ばんごはん",
+                  "vi": "cơm tối"
+                },
+                {
+                  "t": "食べます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                },
+                {
+                  "t": "シャワー",
+                  "read": "シャワー",
+                  "vi": "vòi hoa sen"
+                },
+                {
+                  "t": "浴びた",
+                  "read": "あびた",
+                  "vi": "đã tắm (vòi sen)"
+                },
+                {
+                  "t": "あとで",
+                  "read": "",
+                  "vi": "sau khi"
+                },
+                {
+                  "t": "みんな",
+                  "read": "",
+                  "vi": "mọi người"
+                }
+              ],
+              "frame": [
+                "毎晩",
+                "晩ご飯を食べます。"
+              ],
+              "pieces": [
+                "シャワーを",
+                "浴びた",
+                "あとで、",
+                "みんなと"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "V／Aいまま",
+              "explain": "Câu đúng: 「昨夜は部屋の窓を開けたままでベッドで寝てしまいました。」— Tối qua tôi đã lỡ ngủ trên giường trong trạng thái mở cửa sổ phòng.\nSắp xếp: ô 1=「部屋の窓を」, ô 2=「開けた」, ô 3=「ままで」★, ô 4=「ベッドで」.\nKhung đầu 「昨夜は」 làm trạng ngữ chỉ thời gian, đi với tân ngữ 「部屋の窓を」 ở ô 1 và động từ thể quá khứ 「開けた」 ở ô 2. Mẫu câu 「〜まま」 giữ nguyên trạng thái đứng sau động từ thể quá khứ 「開けた」 nên mảnh 「ままで」 nằm ở ô 3 ★. Nối tiếp là cụm chỉ địa điểm 「ベッドで」 ở ô 4 bổ nghĩa cho động từ trót lỡ 「寝てしまいました。」 ở khung cuối.",
+              "glosses": [
+                {
+                  "t": "昨夜",
+                  "read": "ゆうべ",
+                  "vi": "tối qua"
+                },
+                {
+                  "t": "寝てしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "đã lỡ ngủ mất"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "窓",
+                  "read": "まど",
+                  "vi": "cửa sổ"
+                },
+                {
+                  "t": "開けた",
+                  "read": "あけた",
+                  "vi": "đã mở"
+                },
+                {
+                  "t": "まま",
+                  "read": "",
+                  "vi": "cứ để nguyên"
+                },
+                {
+                  "t": "ベッド",
+                  "read": "",
+                  "vi": "giường"
+                }
+              ],
+              "frame": [
+                "昨夜は",
+                "寝てしまいました。"
+              ],
+              "pieces": [
+                "部屋の窓を",
+                "開けた",
+                "ままで",
+                "ベッドで"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "V／Nのとおりに",
+              "explain": "Câu đúng: 「線のとおりに、紙をハサミで切ってください。」— Hãy cắt giấy bằng kéo theo đúng đường kẻ.\nSắp xếp: ô 1=「とおりに、」★, ô 2=「紙を」, ô 3=「ハサミで」, ô 4=「切って」\nKhung đầu 「線の」 kết thúc bằng trợ từ sở hữu 「の」 nên bắt buộc nối trực tiếp với danh từ/mẫu ngữ pháp 「とおりに、」 ở ô 1 để hoàn thành cấu trúc 「Nのとおりに」 (theo đúng đường kẻ). Nối tiếp phía sau, tân ngữ 「紙を」 ở ô 2 và phương tiện 「ハサミで」 ở ô 3 làm rõ đối tượng cùng công cụ thực hiện. Động từ thể Te 「切って」 ở ô 4 đi liền với vị ngữ khung sau 「ください。」 để tạo thành câu yêu cầu 「切ってください」. Mảnh 「とおりに、」 ở ô 1 bổ nghĩa trực tiếp cho 「線の」 và mang dấu phẩy ngắt mệnh đề, do đó không thể xếp ở ô 2, 3 hay 4.",
+              "glosses": [
+                {
+                  "t": "線",
+                  "read": "せん",
+                  "vi": "đường kẻ, vạch"
+                },
+                {
+                  "t": "ください",
+                  "read": "",
+                  "vi": "xin hãy, vui lòng"
+                },
+                {
+                  "t": "紙",
+                  "read": "かみ",
+                  "vi": "giấy"
+                },
+                {
+                  "t": "切って",
+                  "read": "きって",
+                  "vi": "cắt"
+                },
+                {
+                  "t": "とおりに",
+                  "read": "",
+                  "vi": "theo đúng như"
+                },
+                {
+                  "t": "ハサミ",
+                  "read": "",
+                  "vi": "cái kéo"
+                }
+              ],
+              "frame": [
+                "線の",
+                "ください。"
+              ],
+              "pieces": [
+                "紙を",
+                "切って",
+                "とおりに、",
+                "ハサミで"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "V／Aいまま",
+              "explain": "Câu đúng: 「電気をつけたまま出かけてしまいました。」— Tôi trót đi ra ngoài trong trạng thái vẫn bật điện.\nSắp xếp: ô 1=「つけた」, ô 2=「まま」★, ô 3=「出かけて」, ô 4=「しまい」.\nSau trợ từ 「電気を」 ở khung đầu, ta cần một động từ thể た để bổ nghĩa cho 「まま」, nên ô 1 phải là 「つけた」. Mẫu câu 「Vた＋まま」 thể hiện giữ nguyên trạng thái nên ô 2 là 「まま」★. Tiếp theo, trạng thái bật điện này đi kèm hành động ra ngoài nên ô 3 nối tiếp bằng thể て 「出かけて」. Mảnh ô 4 「しまい」 kết hợp với 「ました。」 ở khung cuối tạo thành cấu trúc 「〜てしまいました」 chỉ sự trót làm gì đó. Mảnh 「まま」 ở ô ★ bắt buộc đứng ngay sau thể た 「つけた」 để biểu thị trạng thái không đổi và không thể đứng ở ô khác.",
+              "glosses": [
+                {
+                  "t": "出かけてしまいました",
+                  "read": "でかけてしまいました",
+                  "vi": "đã ra ngoài mất"
+                },
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện"
+                },
+                {
+                  "t": "まま",
+                  "vi": "để nguyên trạng thái ~"
+                },
+                {
+                  "t": "つけた",
+                  "vi": "đã bật"
+                }
+              ],
+              "frame": [
+                "電気を",
+                "ました。"
+              ],
+              "pieces": [
+                "まま",
+                "つけた",
+                "出かけて",
+                "しまい"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vたあとで",
+              "explain": "Câu đúng: 「説明書を読んだあとで、機械を組み立てました。」— Sau khi đọc sách hướng dẫn, tôi đã lắp ráp máy móc.\nSắp xếp: ô 1=「読んだ」, ô 2=「あとで、」★, ô 3=「機械を」, ô 4=「組み立て」\nKhung đầu 「説明書を」 kết hợp với động từ 「読んだ」 ở ô 1 để tạo thành mệnh đề chỉ hành động hoàn thành trước. Mẫu ngữ pháp 「Vた＋あとで」 diễn tả thứ tự trước sau, nên mảnh 「あとで、」 phải đặt ngay sau động từ thể た ở ô 2★. Sau dấu phẩy là tân ngữ 「機械を」 ở ô 3 làm đối tượng cho động từ 「組み立て」 ở ô 4, kết nối hoàn chỉnh với khung cuối 「ました。」.",
+              "glosses": [
+                {
+                  "t": "組み立てました",
+                  "read": "くみたてました",
+                  "vi": "đã lắp ráp"
+                },
+                {
+                  "t": "説明書",
+                  "read": "せつめいしょ",
+                  "vi": "hướng dẫn sử dụng"
+                },
+                {
+                  "t": "読んだ",
+                  "read": "よんだ",
+                  "vi": "đã đọc"
+                },
+                {
+                  "t": "あとで",
+                  "vi": "sau khi ~"
+                },
+                {
+                  "t": "機械",
+                  "read": "きかい",
+                  "vi": "máy móc"
+                }
+              ],
+              "frame": [
+                "説明書を",
+                "ました。"
+              ],
+              "pieces": [
+                "読んだ",
+                "あとで、",
+                "機械を",
+                "組み立て"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "V／Nのとおりに",
+              "explain": "Câu đúng: 「地図に書いてあるとおりに、ここまで来ました。」— Tôi đã đến đây đúng như những gì được ghi trên bản đồ.\nSắp xếp: ô 1=「書いて」, ô 2=「ある」, ô 3=「とおりに、」★, ô 4=「ここまで」.\nSau trợ từ 「地図に」 ở khung đầu, động từ 「書く」 cần chia thể て là 「書いて」 ở ô 1 để nối với ô 2 「ある」 tạo thành cụm 「書いてある」 (được ghi sẵn). Mẫu ngữ pháp 「V thể thông thường ＋ とおりに」 đòi hỏi mảnh ô 3 「とおりに、」★ phải đứng ngay sau thể nguyên dạng 「ある」. Cuối cùng, ô 4 「ここまで」 đi trước khung cuối 「来ました。」 để chỉ mục đích di chuyển \"đến đây\". Mảnh 「とおりに、」 ở ô ★ bắt buộc đứng ở ô 3 vì nó cần thể nguyên dạng 「ある」 đi phía trước và có dấu phẩy ngắt câu với vế sau.",
+              "glosses": [
+                {
+                  "t": "地図",
+                  "read": "ちず",
+                  "vi": "bản đồ"
+                },
+                {
+                  "t": "来ました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "とおりに",
+                  "read": "",
+                  "vi": "theo như"
+                },
+                {
+                  "t": "書いてある",
+                  "read": "かいてある",
+                  "vi": "được viết sẵn, có ghi"
+                },
+                {
+                  "t": "ここまで",
+                  "read": "ここまで",
+                  "vi": "đến đây/đến chỗ này (phạm vi tới)"
+                }
+              ],
+              "frame": [
+                "地図に",
+                "来ました。"
+              ],
+              "pieces": [
+                "とおりに、",
+                "書いて",
+                "ある",
+                "ここまで"
+              ],
+              "order": [
+                1,
+                2,
+                0,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "V／Aいまま",
+              "explain": "Câu đúng: 「靴を履いたまま、部屋に入ってしまいました。」— Tôi đã lỡ đi cả giày vào trong phòng.\nSắp xếp: ô 1=「履いた」, ô 2=「まま、」★, ô 3=「部屋に」, ô 4=「入って」\nKhung đầu 「靴を」 đòi hỏi động từ chỉ hành động mang giày thể た là 「履いた」 ở ô 1. Mẫu ngữ pháp 「Vた＋まま」 biểu thị giữ nguyên trạng thái nên mảnh 「まま、」 phải ở ô 2★ ngay sau 「履いた」. Sau dấu phẩy là địa điểm 「部屋に」 ở ô 3 chỉ hướng đi vào, kết hợp với động từ thể て 「入って」 ở ô 4 để đi liền với khung cuối 「しまいました。」 diễn tả sự trót làm điều không nên.",
+              "glosses": [
+                {
+                  "t": "部屋に入ってしまいました",
+                  "read": "へやにはいってしまいました",
+                  "vi": "đã bước vào phòng mất"
+                },
+                {
+                  "t": "靴",
+                  "read": "くつ",
+                  "vi": "giày"
+                },
+                {
+                  "t": "履いた",
+                  "read": "はいた",
+                  "vi": "đã mang/đi (giày)"
+                },
+                {
+                  "t": "まま",
+                  "vi": "để nguyên trạng thái ~"
+                }
+              ],
+              "frame": [
+                "靴を",
+                "しまいました。"
+              ],
+              "pieces": [
+                "履いた",
+                "まま、",
+                "部屋に",
+                "入って"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "V1stemながらV2",
+              "explain": "Câu đúng: 「音楽を聴きながら勉強することができますか。」— Bạn có thể vừa nghe nhạc vừa học bài được không?\nSắp xếp: ô 1=「聴き」, ô 2=「ながら」★, ô 3=「勉強する」, ô 4=「ことが」.\nSau trợ từ 「音楽を」 ở khung đầu, động từ 「聴く」 bỏ 「ます」 thành ô 1 「聴き」 để ghép trực tiếp với mảnh ô 2 「ながら」★ biểu thị hai hành động diễn ra đồng thời. Tiếp đó là hành động thứ hai ở ô 3 「勉強する」. Mảnh ô 4 「ことが」 đứng ngay sau 「勉強する」 để danh từ hóa hành động học và kết nối với khung cuối 「できますか。」 biểu thị khả năng. Mảnh 「ながら」 ở ô ★ bắt buộc phải đứng ở ô 2 ngay sau ô 1 「聴き」 và trước động từ ô 3 「勉強する」 để thể hiện việc vừa nghe vừa làm hành động tiếp theo.",
+              "glosses": [
+                {
+                  "t": "することができますか",
+                  "read": "することができますか",
+                  "vi": "〜ことができる = có thể làm được ~ (khả năng)"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "できますか",
+                  "vi": "có thể không?"
+                },
+                {
+                  "t": "ながら",
+                  "vi": "vừa ~ vừa ~"
+                },
+                {
+                  "t": "聴き",
+                  "read": "きき",
+                  "vi": "nghe (dạng stem)"
+                },
+                {
+                  "t": "勉強する",
+                  "read": "べんきょうする",
+                  "vi": "học bài"
+                }
+              ],
+              "frame": [
+                "音楽を",
+                "できますか。"
+              ],
+              "pieces": [
+                "ながら",
+                "聴き",
+                "勉強する",
+                "ことが"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vにくい",
+              "explain": "Câu đúng: 「この漢字は書きにくいから、もっと練習したほうがいいです。」— Hán tự này khó viết nên bạn nên luyện tập nhiều hơn.\nSắp xếp: ô 1=「書き」, ô 2=「にくいから、」★, ô 3=「もっと」, ô 4=「練習した」.\nSau chủ ngữ 「この漢字は」 ở khung đầu, ta cần động từ bỏ 「ます」 là ô 1 「書き」 để gắn với mảnh ô 2 「にくいから、」★ nhằm chỉ sự khó khăn và lý do. Tiếp theo, phó từ ô 3 「もっと」 đứng trước động từ ô 4 「練習した」 để bổ nghĩa cho hành động luyện tập. Động từ chia thể た 「練習した」 này kết nối trực tiếp với khung cuối 「ほうがいいです。」 để đưa ra lời khuyên. Mảnh 「にくいから、」 ở ô ★ phải đứng ở ô 2 ngay sau ô 1 「書き」 để tạo thành cụm khó viết và có liên từ 「から、」 chuyển sang vế khuyên nhủ phía sau.",
+              "glosses": [
+                {
+                  "t": "練習したほうがいいです",
+                  "read": "れんしゅうしたほうがいいです",
+                  "vi": "nên luyện tập thêm thì tốt hơn"
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "漢字",
+                  "read": "かんじ",
+                  "vi": "chữ Hán, kanji"
+                },
+                {
+                  "t": "にくい",
+                  "read": "",
+                  "vi": "khó"
+                },
+                {
+                  "t": "書き",
+                  "read": "かき",
+                  "vi": "viết"
+                },
+                {
+                  "t": "もっと",
+                  "read": "もっと",
+                  "vi": "hơn nữa, nhiều hơn"
+                }
+              ],
+              "frame": [
+                "この漢字は",
+                "ほうがいいです。"
+              ],
+              "pieces": [
+                "にくいから、",
+                "書き",
+                "もっと",
+                "練習した"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vています(結果状態)",
+              "explain": "Câu đúng: 「ドアが開いています。だれかが開けたんでしょう。」— Cửa đang mở. Chắc là ai đó đã mở đấy.\nSắp xếp: ô 1=「ドアが」, ô 2=「開いて」, ô 3=「います。」★, ô 4=「だれかが」\nKhung câu có vế sau 「開けたんでしょう。」 đi với chủ ngữ 「だれかが」 đứng ngay trước nó. Trợ từ 「が」 đi sau danh từ 「ドア」 làm chủ ngữ cho hành động/trạng thái mở cửa, tạo thành cụm 「ドアが」 ở ô 1. Động từ dạng て là 「開いて」 đứng ở ô 2 kết hợp trực tiếp với 「います。」 ở ô 3★ để diễn tả trạng thái cửa đang mở (Vています). Do đó, mảnh 「います。」 ở ô ★ bắt buộc phải đứng ngay sau 「開いて」 và không thể xếp vào vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "開けた",
+                  "read": "あけた",
+                  "vi": "đã mở (ai đó mở)"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "chắc là ~"
+                },
+                {
+                  "t": "ドア",
+                  "vi": "cánh cửa"
+                },
+                {
+                  "t": "開いています",
+                  "read": "あいています",
+                  "vi": "đang mở (trạng thái kết quả)"
+                },
+                {
+                  "t": "だれか",
+                  "read": "だれか",
+                  "vi": "ai đó"
+                }
+              ],
+              "frame": [
+                "",
+                "開けたんでしょう。"
+              ],
+              "pieces": [
+                "ドアが",
+                "開いて",
+                "います。",
+                "だれかが"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vておきます",
+              "explain": "Câu đúng: 「旅行に行く前に、ホテルを予約しておいたほうがいいですよ。」— Trước khi đi du lịch, bạn nên đặt trước khách sạn thì tốt hơn đấy.\nSắp xếp: ô 1=「ホテルを」, ô 2=「予約して」, ô 3=「おいた」★, ô 4=「ほうが」\nTân ngữ chỉ nơi chốn đi với trợ từ 「を」 tạo thành 「ホテルを」 đặt ở ô 1 ngay sau mệnh đề thời gian. Động từ thể て là 「予約して」 ở ô 2 đứng trước 「おいた」 ở ô 3★ để tạo thành cấu trúc Vておきます (chuẩn bị trước). Cụm 「予約しておいた」 tiếp tục kết hợp với 「ほうが」 ở ô 4 và đuôi câu cho sẵn 「いいですよ。」 để hoàn thành mẫu khuyên bảo Vたほうがいい. Do mang ý nghĩa chuẩn bị trước và bổ nghĩa cho 「ほうが」, mảnh 「おいた」 ở ô ★ bắt buộc phải nằm ở ô 3.",
+              "glosses": [
+                {
+                  "t": "ほうがいいですよ",
+                  "read": "ほうがいいですよ",
+                  "vi": "〜たほうがいいですよ = nên làm ~ đấy (lời khuyên, よ nhấn mạnh)"
+                },
+                {
+                  "t": "旅行",
+                  "read": "りょこう",
+                  "vi": "du lịch, chuyến đi"
+                },
+                {
+                  "t": "行く",
+                  "read": "いく",
+                  "vi": "đi"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi"
+                },
+                {
+                  "t": "ホテル",
+                  "read": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "予約して",
+                  "read": "よやくして",
+                  "vi": "đặt trước, đặt chỗ"
+                },
+                {
+                  "t": "おいた",
+                  "read": "",
+                  "vi": "sẵn, làm trước"
+                },
+                {
+                  "t": "ほうが",
+                  "read": "ほうが",
+                  "vi": "nên... hơn (so sánh lựa chọn)"
+                }
+              ],
+              "frame": [
+                "旅行に行く前に、",
+                "いいですよ。"
+              ],
+              "pieces": [
+                "ホテルを",
+                "予約して",
+                "おいた",
+                "ほうが"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vるな",
+              "explain": "Câu đúng: 「彼女は「絶対に遅れるな」というメッセージを送ってきました。」— Cô ấy đã gửi tin nhắn với nội dung 'tuyệt đối không được đến muộn'.\nSắp xếp: ô 1=「絶対に」, ô 2=「遅れるな」★, ô 3=「という」, ô 4=「メッセージを」\nPhó từ 「絶対に」 bổ nghĩa cho động từ cấm đoán 「遅れるな」 để tạo thành trích dẫn trực tiếp 「絶対に遅れるな」. Cụm trích dẫn này kết hợp với 「という」 đứng trước danh từ 「メッセージを」 để giải thích nội dung tin nhắn. Cuối cùng, danh từ mang trợ từ 「メッセージを」 làm tân ngữ cho động từ đuôi 「送ってきました。」. Vì 「遅れるな」 mang thể cấm đoán (Vるな) nằm trong nội dung trích dẫn trước 「という」, mảnh ở ô ★ không thể đứng ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "送ってきました",
+                  "read": "おくってきました",
+                  "vi": "đã gửi đến"
+                },
+                {
+                  "t": "絶対に",
+                  "read": "ぜったいに",
+                  "vi": "chắc chắn, tuyệt đối"
+                },
+                {
+                  "t": "遅れる",
+                  "read": "おくれる",
+                  "vi": "trễ, muộn"
+                },
+                {
+                  "t": "という",
+                  "read": "という",
+                  "vi": "〜という = (nói) rằng ~/gọi là ~ (trích dẫn nội dung)"
+                },
+                {
+                  "t": "メッセージ",
+                  "read": "メッセージ",
+                  "vi": "tin nhắn"
+                }
+              ],
+              "frame": [
+                "彼女は「",
+                "送ってきました。"
+              ],
+              "pieces": [
+                "絶対に",
+                "遅れるな」",
+                "という",
+                "メッセージを"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Vるつもりです",
+              "explain": "Câu đúng: 「来月、友達の結婚式に出席するつもりです。」— Tháng sau, tôi định sẽ tham dự lễ kết hôn của bạn.\nSắp xếp: ô 1=「友達の」, ô 2=「結婚式に」, ô 3=「出席する」, ô 4=「つもり」★\nKhung câu cho sẵn mốc thời gian 「来月、」 ở đầu và đuôi khẳng định 「です。」 ở cuối. Danh từ 「友達の」 ở ô 1 bổ nghĩa cho 「結婚式に」 ở ô 2 để chỉ địa điểm tham gia. Động từ thể nguyên dạng 「出席する」 ở ô 3 đi kèm với 「つもり」 ở ô 4★ để diễn tả ý định Vるつもりです (dự định làm gì). Do 「つもり」 đứng trực tiếp sau động từ thể từ điển và đứng trước 「です。」, mảnh ở ô ★ bắt buộc phải xếp ở ô 4.",
+              "glosses": [
+                {
+                  "t": "つもりです",
+                  "vi": "dự định ~"
+                },
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "結婚式",
+                  "read": "けっこんしき",
+                  "vi": "lễ cưới"
+                },
+                {
+                  "t": "出席する",
+                  "read": "しゅっせきする",
+                  "vi": "tham dự"
+                }
+              ],
+              "frame": [
+                "来月、",
+                "です。"
+              ],
+              "pieces": [
+                "友達の",
+                "結婚式に",
+                "出席する",
+                "つもり"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "V／Nのとおりに",
+              "explain": "Câu đúng: 「コーチの指示したとおりに、選手たちは練習を続けました。」— Đúng như chỉ thị của huấn luyện viên, các vận động viên đã tiếp tục luyện tập.\nSắp xếp: ô 1=「指示した」, ô 2=「とおりに、」★, ô 3=「選手たちは」, ô 4=「練習を」\nKhung câu có sẵn mở đầu 「コーチの」 kết hợp với động từ thể quá khứ 「指示した」 ở ô 1 để bổ nghĩa cho mẫu ngữ pháp. Cụm 「とおりに、」 ở ô 2★ đứng ngay sau động từ thể quá khứ (Vた) để tạo thành cấu trúc Vとおりに (làm theo đúng như...). Mệnh đề tiếp theo bắt đầu bằng chủ ngữ 「選手たちは」 ở ô 3 và tân ngữ 「練習を」 ở ô 4 kết hợp với vị ngữ cho sẵn 「続けました。」. Vì biểu thị ý nghĩa làm theo chỉ thị vừa nêu ở mệnh đề trước, mảnh 「とおりに、」 ở ô ★ chỉ có thể nằm ở ô 2.",
+              "glosses": [
+                {
+                  "t": "練習を続けました",
+                  "read": "れんしゅうをつづけました",
+                  "vi": "đã tiếp tục luyện tập"
+                },
+                {
+                  "t": "コーチ",
+                  "vi": "huấn luyện viên"
+                },
+                {
+                  "t": "指示した",
+                  "read": "しじした",
+                  "vi": "đã chỉ thị"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "theo đúng như ~"
+                },
+                {
+                  "t": "選手たち",
+                  "read": "せんしゅたち",
+                  "vi": "các vận động viên"
+                }
+              ],
+              "frame": [
+                "コーチの",
+                "続けました。"
+              ],
+              "pieces": [
+                "指示した",
+                "とおりに、",
+                "選手たちは",
+                "練習を"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "説明書のとおりに棚を組み立て",
+                "、うまくできました。でも、つかれて、電気をつけた",
+                "寝てしまいました。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "たあとで",
+                    "るまえに",
+                    "ながら",
+                    "ても"
+                  ],
+                  "answer": 0,
+                  "explain": "Lắp xong RỒI mới thành công → 「組み立てたあとで」(〜たあとで = sau khi). 「るまえに」(trước khi - ngược), 「ながら」(đồng thời), 「ても」(dù vẫn) đều sai."
+                },
+                {
+                  "choices": [
+                    "まま",
+                    "あとで",
+                    "とおり",
+                    "ながら"
+                  ],
+                  "answer": 0,
+                  "explain": "Để nguyên đèn ĐANG BẬT mà ngủ → 「つけたまま」(〜まま = giữ nguyên trạng thái). Các đáp án kia sai cấu trúc/nghĩa."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "説明書",
+                  "read": "せつめいしょ",
+                  "vi": "sách hướng dẫn"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng như"
+                },
+                {
+                  "t": "棚",
+                  "read": "たな",
+                  "vi": "kệ, giá"
+                },
+                {
+                  "t": "組み立て",
+                  "read": "くみたて",
+                  "vi": "lắp ráp"
+                },
+                {
+                  "t": "電気をつけたまま",
+                  "read": "でんきをつけたまま",
+                  "vi": "để nguyên đèn bật"
+                },
+                {
+                  "t": "寝てしまいました",
+                  "read": "ねてしまいました",
+                  "vi": "lỡ ngủ mất"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ về thể thường quá khứ (đứng trước 〜あとで).",
+          "items": [
+            {
+              "stem": "食べます → 〜たあとで → 食＿あとで",
+              "choices": [
+                "べた",
+                "べて",
+                "べる",
+                "べました"
+              ],
+              "answer": 0,
+              "explain": "「〜たあとで」dùng thể た: 食べる → 食べた → 食べたあとで (sau khi ăn). 「べて」(thể て), 「べる」(từ điển), 「べました」(lịch sự) đều sai vị trí này.",
+              "glosses": [
+                {
+                  "t": "食べます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                },
+                {
+                  "t": "〜たあとで",
+                  "vi": "sau khi (dùng thể た)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "レシピ＿とおりに作れば、おいしくできます。",
+              "choices": [
+                "の",
+                "に",
+                "を",
+                "が"
+              ],
+              "answer": 0,
+              "explain": "「N のとおりに」= đúng theo N: レシピのとおりに (đúng theo công thức). Sau danh từ dùng 「の」trước 「とおりに」.",
+              "glosses": [
+                {
+                  "t": "レシピ",
+                  "vi": "công thức"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng theo"
+                },
+                {
+                  "t": "作れば",
+                  "read": "つくれば",
+                  "vi": "nếu làm (điều kiện ば)"
+                },
+                {
+                  "t": "おいしく",
+                  "read": "おいしく",
+                  "vi": "một cách ngon (làm cho ngon)"
+                },
+                {
+                  "t": "できます",
+                  "read": "できます",
+                  "vi": "có thể làm được"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi để nguyên đèn bật rồi đi ra ngoài.",
+              "target": "電気をつけたまま出かけました",
+              "model": "電気を つけたまま 出かけました。",
+              "explain": "「Vたまま」= để nguyên trạng thái sau khi V. つける → つけた → つけたまま (để nguyên bật). 電気を (đối tượng) dùng を.",
+              "glosses": [
+                {
+                  "t": "電気",
+                  "read": "でんき",
+                  "vi": "đèn điện"
+                },
+                {
+                  "t": "つけたまま",
+                  "vi": "để nguyên bật (〜まま)"
+                },
+                {
+                  "t": "出かけました",
+                  "read": "でかけました",
+                  "vi": "đã ra ngoài"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

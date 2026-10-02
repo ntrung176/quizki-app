@@ -1,0 +1,3745 @@
+{
+  "bai": 6,
+  "level": "N5",
+  "intro": "NをVます · NをNします · 何をVますか · NかN · いっしょにVませんか／Vましょう. Có ÔN LẠI ngữ pháp đã học (bài 1-5) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "毎朝、私は六時に起きます。",
+              "ul": "毎朝",
+              "choices": [
+                "まいあさ",
+                "まいちょう",
+                "めいあさ",
+                "まいあそ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎朝」là「まいあさ」— 「毎」(mai/mỗi) đọc âm On là「まい」, 「朝」(buổi sáng) đọc âm Kun là「あさ」, ghép lại là「まいあさ」. Phương án「まいちょう」sai vì「朝」đọc On mới là「ちょう」nhưng từ này dùng Kun「あさ」. Phương án「めいあさ」sai vì「毎」không có cách đọc「めい」. Phương án「まいあそ」sai vì không tồn tại cách đọc「あそ」cho「朝」.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "六時",
+                  "read": "ろくじ",
+                  "vi": "sáu giờ"
+                },
+                {
+                  "t": "起きます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                }
+              ]
+            },
+            {
+              "prompt": "昼ご飯に何を食べましたか。",
+              "ul": "昼ご飯",
+              "choices": [
+                "ひるごはん",
+                "ちゅうごはん",
+                "ひるごばん",
+                "ひるこはん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「昼ご飯」là「ひるごはん」—「昼」đọc Kun là「ひる」(buổi trưa),「ご飯」đọc là「ごはん」(cơm/bữa ăn). Phương án「ちゅうごはん」sai vì「昼」đọc On là「ちゅう」không dùng trong từ này. Phương án「ひるごばん」sai vì「飯」đọc là「はん」không phải「ばん」. Phương án「ひるこはん」sai vì「ご飯」có âm trọc「ご」, không phải「こ」.",
+              "glosses": [
+                {
+                  "t": "昼ご飯",
+                  "vi": "cơm trưa, bữa trưa"
+                },
+                {
+                  "t": "何",
+                  "read": "なに",
+                  "vi": "cái gì"
+                },
+                {
+                  "t": "食べました",
+                  "read": "たべました",
+                  "vi": "đã ăn"
+                }
+              ]
+            },
+            {
+              "prompt": "一緒に映画を見ませんか。",
+              "ul": "映画",
+              "choices": [
+                "えいが",
+                "えいかく",
+                "えいわ",
+                "えいごう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「映画」là「えいが」—「映」đọc On là「えい」,「画」đọc On là「が」(âm trọc của「か」). Phương án「えいかく」sai vì「画」không đọc「かく」trong từ này. Phương án「えいわ」sai vì「画」không đọc「わ」. Phương án「えいごう」sai vì「画」không đọc「ごう」.",
+              "glosses": [
+                {
+                  "t": "一緒に",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "映画",
+                  "vi": "phim điện ảnh"
+                },
+                {
+                  "t": "見ません",
+                  "read": "みません",
+                  "vi": "không xem"
+                }
+              ]
+            },
+            {
+              "prompt": "夜、お茶を飲みながら本を読みます。",
+              "ul": "飲み",
+              "choices": [
+                "のみ",
+                "いのみ",
+                "たのみ",
+                "すいのみ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「飲み」là「のみ」— động từ「飲む」(uống) chia dạng conjunctive「飲み」, đọc là「のみ」. Phương án「いのみ」sai vì「飲」không có âm「いの」. Phương án「たのみ」sai vì đó là cách đọc của「頼み」(nhờ vả), không phải「飲み」. Phương án「すいのみ」sai vì「すい」là cách đọc On của「水」, không liên quan.",
+              "glosses": [
+                {
+                  "t": "夜",
+                  "read": "よる",
+                  "vi": "buổi tối"
+                },
+                {
+                  "t": "お茶",
+                  "read": "おちゃ",
+                  "vi": "trà"
+                },
+                {
+                  "t": "飲み",
+                  "vi": "uống (dạng liên kết)"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "読みます",
+                  "read": "よみます",
+                  "vi": "đọc"
+                },
+                {
+                  "t": "ながら",
+                  "read": "ながら",
+                  "vi": "〜ながら = vừa làm... vừa làm... (hai hành động xảy ra đồng thời)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生と一緒にレストランへ行きました。",
+              "ul": "先生",
+              "choices": [
+                "せんせい",
+                "せんしょう",
+                "さきせい",
+                "せんそう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「先生」là「せんせい」—「先」đọc On là「せん」,「生」đọc On là「せい」. Phương án「せんしょう」sai vì「生」không đọc「しょう」trong từ này (「しょう」là cách đọc khác của「生」nhưng không dùng ở đây). Phương án「さきせい」sai vì「先」đọc Kun là「さき」nhưng trong từ ghép này phải dùng On. Phương án「せんそう」sai vì đó là cách đọc của「戦争」(chiến tranh).",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "一緒に",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "行きました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "レストラン",
+                  "read": "れすとらん",
+                  "vi": "nhà hàng"
+                }
+              ]
+            },
+            {
+              "prompt": "今日は会社を休みました。",
+              "ul": "会社",
+              "choices": [
+                "かいしゃ",
+                "かいじゃ",
+                "えしゃ",
+                "かいさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会社」là「かいしゃ」—「会」đọc On là「かい」,「社」đọc On là「しゃ」. Phương án「かいじゃ」sai vì「社」đọc là「しゃ」(bán trọc), không phải「じゃ」(toàn trọc). Phương án「えしゃ」sai vì「会」không đọc「え」trong từ ghép On-yomi. Phương án「かいさ」sai vì「社」không đọc「さ」.",
+              "glosses": [
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "休みました",
+                  "read": "やすみました",
+                  "vi": "đã nghỉ"
+                }
+              ]
+            },
+            {
+              "prompt": "電車で駅まで行きませんか。",
+              "ul": "電車",
+              "choices": [
+                "でんしゃ",
+                "でんじゃ",
+                "てんしゃ",
+                "でんさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電車」là「でんしゃ」—「電」đọc On là「でん」,「車」đọc On là「しゃ」. Phương án「でんじゃ」sai vì「車」đọc bán trọc「しゃ」chứ không đọc toàn trọc「じゃ」. Phương án「てんしゃ」sai vì「電」đọc là「でん」không phải「てん」(dù「天」mới đọc「てん」). Phương án「でんさ」sai vì「車」không đọc「さ」.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "行きません",
+                  "read": "いきません",
+                  "vi": "không đi"
+                }
+              ]
+            },
+            {
+              "prompt": "あの新しいカフェでコーヒーを飲みましょう。",
+              "ul": "新しい",
+              "choices": [
+                "あたらしい",
+                "あらたしい",
+                "しんしい",
+                "あたらさい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「新しい」là「あたらしい」— tính từ đuôi「い」, đọc Kun là「あたらしい」. Phương án「あらたしい」sai vì hoán đổi vị trí「た」và「ら」, rất dễ nhầm nhưng sai về thứ tự âm tiết. Phương án「しんしい」sai vì「新」đọc On là「しん」nhưng「新しい」là tính từ Kun, không đọc theo On. Phương án「あたらさい」sai vì đuôi tính từ là「しい」không phải「さい」.",
+              "glosses": [
+                {
+                  "t": "新しい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "飲みましょう",
+                  "read": "のみましょう",
+                  "vi": "hãy cùng uống nhé"
+                },
+                {
+                  "t": "カフェ",
+                  "read": "かふぇ",
+                  "vi": "quán cà phê"
+                },
+                {
+                  "t": "コーヒー",
+                  "read": "こーひー",
+                  "vi": "cà phê"
+                }
+              ]
+            },
+            {
+              "prompt": "友だちと公園で昼ご飯を食べました。",
+              "ul": "公園",
+              "choices": [
+                "こうえん",
+                "こうおん",
+                "くえん",
+                "こうえい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「公園」là「こうえん」—「公」đọc On là「こう」,「園」đọc On là「えん」. Phương án「こうおん」sai vì「園」không đọc「おん」(「おん」là cách đọc của「音」). Phương án「くえん」sai vì「公」không đọc「く」trong từ ghép này. Phương án「こうえい」sai vì「園」không đọc「えい」.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "公園",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "食べました",
+                  "read": "たべました",
+                  "vi": "đã ăn"
+                },
+                {
+                  "t": "昼ご飯",
+                  "read": "ひるごはん",
+                  "vi": "cơm trưa, bữa trưa"
+                }
+              ]
+            },
+            {
+              "prompt": "土曜日に図書館へ来てください。",
+              "ul": "図書館",
+              "choices": [
+                "としょかん",
+                "としょかく",
+                "としょうかん",
+                "ずしょかん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「図書館」là「としょかん」—「図」đọc On là「と」,「書」đọc On là「しょ」,「館」đọc On là「かん」. Phương án「としょかく」sai vì「館」đọc là「かん」không phải「かく」(「かく」là cách đọc của「角」hay「画」). Phương án「としょうかん」sai vì「書」đọc là「しょ」, không kéo dài âm thành「しょう」. Phương án「ずしょかん」sai vì「図」đọc là「と」(Kun), không phải「ず」(On).",
+              "glosses": [
+                {
+                  "t": "土曜日",
+                  "read": "どようび",
+                  "vi": "thứ Bảy"
+                },
+                {
+                  "t": "図書館",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "来て",
+                  "read": "きて",
+                  "vi": "đến (dạng te)"
+                },
+                {
+                  "t": "てください",
+                  "read": "てください",
+                  "vi": "〜てください = xin hãy làm ~ (yêu cầu lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "週末に水族館へ行きましょう。",
+              "ul": "水族館",
+              "choices": [
+                "すいぞくかん",
+                "みずぞくかん",
+                "すいぞくかく",
+                "すいぞくこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「水族館」là「すいぞくかん」—「水」đọc On là「すい」,「族」đọc On là「ぞく」(trọc của「そく」),「館」đọc On là「かん」. Phương án「みずぞくかん」sai vì「水」trong từ ghép On-yomi phải đọc「すい」không phải Kun「みず」. Phương án「すいぞくかく」sai vì「館」đọc là「かん」không phải「かく」. Phương án「すいぞくこう」sai vì「館」không đọc「こう」.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "水族館",
+                  "vi": "thủy cung, bể cá"
+                },
+                {
+                  "t": "行きましょう",
+                  "read": "いきましょう",
+                  "vi": "hãy đi nhé"
+                }
+              ]
+            },
+            {
+              "prompt": "毎日、学校で日本語を勉強します。",
+              "ul": "学校",
+              "choices": [
+                "がっこう",
+                "がくこう",
+                "がっこ",
+                "がいこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「学校」là「がっこう」—「学」đọc On là「がく」nhưng trước「こう」bị đồng hóa thành「がっ」(âm thúc促音),「校」đọc On là「こう」. Phương án「がくこう」sai vì bỏ mất âm thúc「っ」— đây là bẫy rất phổ biến. Phương án「がっこ」sai vì「校」đọc là「こう」(dài), không phải「こ」(ngắn). Phương án「がいこう」sai vì「学」không đọc「がい」, đây là cách đọc của「外」.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "学校",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "勉強",
+                  "read": "べんきょう",
+                  "vi": "học tập"
+                },
+                {
+                  "t": "します",
+                  "read": "します",
+                  "vi": "する (làm) chia dạng lịch sự ~ます, thì hiện tại/tương lai"
+                }
+              ]
+            },
+            {
+              "prompt": "来週、山田さんの家に来てください。",
+              "ul": "来週",
+              "choices": [
+                "らいしゅう",
+                "きしゅう",
+                "らいじゅう",
+                "らいしゅ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来週」là「らいしゅう」—「来」đọc On là「らい」(tuần tới/năm tới),「週」đọc On là「しゅう」. Phương án「きしゅう」sai vì「来」đọc Kun là「き」(trong「来る・来て」) nhưng trong từ ghép On này phải là「らい」. Phương án「らいじゅう」sai vì「週」đọc「しゅう」có âm「し」(bán trọc), không trọc hóa thành「じゅう」. Phương án「らいしゅ」sai vì「週」kết thúc bằng âm kéo dài「しゅう」, bỏ「う」là thiếu âm dài.",
+              "glosses": [
+                {
+                  "t": "来週",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "家",
+                  "read": "いえ",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "来て",
+                  "read": "きて",
+                  "vi": "đến (dạng te)"
+                },
+                {
+                  "t": "てください",
+                  "read": "てください",
+                  "vi": "〜てください = xin hãy làm ~ (yêu cầu lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "今日の午後、友だちとカフェで会います。",
+              "ul": "午後",
+              "choices": [
+                "ごご",
+                "ごうご",
+                "こご",
+                "ごこ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「午後」là「ごご」—「午」đọc On là「ご」,「後」đọc On là「ご」, ghép lại「ごご」. Phương án「ごうご」sai vì「午」đọc là「ご」(ngắn), không phải「ごう」(dài). Phương án「こご」sai vì「午」không đọc「こ」(「こ」là Kun của「子」hay「個」). Phương án「ごこ」sai vì「後」đọc On là「ご」(trọc), không phải「こ」(bất trọc) trong từ ghép này.",
+              "glosses": [
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "午後",
+                  "vi": "buổi chiều (sau 12 giờ)"
+                },
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "会います",
+                  "read": "あいます",
+                  "vi": "gặp"
+                },
+                {
+                  "t": "カフェ",
+                  "read": "かふぇ",
+                  "vi": "quán cà phê"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "まいにちあさろっじにおきます。",
+              "ul": "おきます",
+              "choices": [
+                "起きます",
+                "走きます",
+                "記きます",
+                "超きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「起きます」là động từ «thức dậy». Chữ 起 (き) có bộ 走 (chạy) ở dưới, nghĩa là «đứng dậy, khởi động». — 走きます không phải từ thực (走 đọc là はし-る); 記きます sai (記 = ghi chép, き có cách đọc khác); 超きます sai (超 = vượt qua, không đọc là お-きる).",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "あさ",
+                  "read": "あさ",
+                  "vi": "buổi sáng"
+                },
+                {
+                  "t": "ろっじに",
+                  "read": "ろっじに",
+                  "vi": "lúc 6 giờ"
+                },
+                {
+                  "t": "おきます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                }
+              ]
+            },
+            {
+              "prompt": "きょうともだちといっしょにひるごはんをたべませんか。",
+              "ul": "たべませんか",
+              "choices": [
+                "食べませんか",
+                "飯べませんか",
+                "養べませんか",
+                "倉べませんか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食べませんか」đến từ 食べる (た-べる) nghĩa «ăn», dùng mời rủ ai đó cùng làm gì. Chữ 食 có bộ 食 (thực phẩm). — 飯べませんか sai vì 飯 (めし) = cơm, không kết hợp với べる; 養べませんか sai vì 養 = nuôi dưỡng, không đọc là た-べる; 倉べませんか sai vì 倉 = kho lẫm, không liên quan.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "ともだちと",
+                  "read": "ともだちと",
+                  "vi": "cùng với bạn"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "ひるごはん",
+                  "read": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "たべませんか",
+                  "read": "たべませんか",
+                  "vi": "không ăn sao? (mời rủ)"
+                }
+              ]
+            },
+            {
+              "prompt": "のどがかわきましたね。みずをのみましょう。",
+              "ul": "のみましょう",
+              "choices": [
+                "飲みましょう",
+                "飯みましょう",
+                "食みましょう",
+                "欲みましょう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「飲みましょう」từ 飲む (の-む) nghĩa «uống», dạng đề nghị cùng làm. Chữ 飲 có bộ 食 (thực, liên quan ăn uống). — 飯みましょう sai (飯 = cơm, đọc là めし/はん); 食みましょう sai vì 食 đọc là た-べる hoặc しょく chứ không phải の-む; 欲みましょう sai vì 欲 = muốn/ham muốn.",
+              "glosses": [
+                {
+                  "t": "のどが",
+                  "vi": "cổ họng"
+                },
+                {
+                  "t": "かわきました",
+                  "read": "かわきました",
+                  "vi": "đã khô (khát nước)"
+                },
+                {
+                  "t": "みず",
+                  "read": "みず",
+                  "vi": "nước"
+                },
+                {
+                  "t": "のみましょう",
+                  "read": "のみましょう",
+                  "vi": "hãy uống (đề nghị cùng làm)"
+                }
+              ]
+            },
+            {
+              "prompt": "あしたいっしょにえいがをみませんか。",
+              "ul": "みませんか",
+              "choices": [
+                "見ませんか",
+                "目ませんか",
+                "視ませんか",
+                "観ませんか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「見ませんか」từ 見る (み-る) nghĩa «xem, nhìn», là từ N5 cơ bản.\n(A) 「見ませんか」— đúng: từ 見る (みる) nghĩa xem/nhìn, là từ N5 cơ bản.\n(B) 「目ませんか」— sai: 目 (め) = con mắt, là danh từ chứ không phải động từ.\n(C) 「視ませんか」— sai: 視 (し) cùng nghĩa «nhìn» nhưng không phải từ N5 và không đọc là み-る.\n(D) 「観ませんか」— sai: 観 (かん) dùng ở trình độ N4/N3, không phải từ chính trong N5.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "えいが",
+                  "read": "えいが",
+                  "vi": "phim điện ảnh"
+                },
+                {
+                  "t": "みませんか",
+                  "read": "みませんか",
+                  "vi": "không xem sao? (mời rủ)"
+                }
+              ]
+            },
+            {
+              "prompt": "がっこうからでんしゃでうちにかえります。",
+              "ul": "でんしゃ",
+              "choices": [
+                "電車",
+                "電気",
+                "電話",
+                "電池"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電車」(でんしゃ) nghĩa là «tàu điện / xe lửa», phương tiện di chuyển phổ biến. — 電気 (でんき) = điện/ánh điện; 電話 (でんわ) = điện thoại; 電池 (でんち) = pin. Cả ba đều có chữ 電 nhưng chữ thứ hai hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện, xe lửa"
+                },
+                {
+                  "t": "うち",
+                  "read": "うち",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "かえります",
+                  "read": "かえります",
+                  "vi": "trở về"
+                }
+              ]
+            },
+            {
+              "prompt": "このほんはあたらしいです。",
+              "ul": "あたらしい",
+              "choices": [
+                "新しいです",
+                "親しいです",
+                "近しいです",
+                "辛しいです"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「新しい」(あたらしい) nghĩa «mới». Chữ 新 có bộ 斤 (rìu) và 木 (cây), gốc «chặt cây mới». — 親しい (したしい) = thân thiết (âm khác, nghĩa khác); 近しい (ちかしい) = gần gũi, cũng âm khác; 辛しい không phải từ thực (辛 = cay/khổ, đọc là から-い hoặc つら-い).",
+              "glosses": [
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはまいあさこうえんをさんぽします。おおきいこうえんです。",
+              "ul": "おおきい",
+              "choices": [
+                "大きい",
+                "太きい",
+                "犬きい",
+                "天きい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「大きい」(おおきい) nghĩa «to, lớn». Chữ 大 là người dang tay (to lớn). — 太きい sai vì 太 (ふと-い) = mập/to tròn, âm khác; 犬きい sai vì 犬 (いぬ) = chó, không liên quan; 天きい sai vì 天 (てん) = trời, âm và nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "まいあさ",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "さんぽします",
+                  "read": "さんぽします",
+                  "vi": "đi dạo"
+                },
+                {
+                  "t": "おおきい",
+                  "read": "おおきい",
+                  "vi": "to, rộng lớn"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka (tên người)"
+                }
+              ]
+            },
+            {
+              "prompt": "いっしょにかいしゃへいきましょう。",
+              "ul": "かいしゃ",
+              "choices": [
+                "会社",
+                "会話",
+                "会計",
+                "会場"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会社」(かいしゃ) nghĩa «công ty». Gồm 会 (gặp gỡ, hội) + 社 (tổ chức, thần xã). — 会話 (かいわ) = hội thoại; 会計 (かいけい) = kế toán/thanh toán; 会場 (かいじょう) = hội trường. Cả ba đều có 会 nhưng chữ thứ hai khác hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "いきましょう",
+                  "read": "いきましょう",
+                  "vi": "hãy đi (đề nghị cùng làm)"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはまいにちがっこうにきます。",
+              "ul": "きます",
+              "choices": [
+                "来ます",
+                "木ます",
+                "気ます",
+                "基ます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来ます」(きます) từ 来る (く-る) nghĩa «đến, đi đến (về phía người nói)». Chữ 来 hình người đứng trên lúa. — 木ます sai vì 木 (き) = cây, là danh từ; 気ます sai vì 気 (き) = khí/tâm trạng, không phải động từ di chuyển; 基ます sai vì 基 (き/もと) = nền tảng.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "きます",
+                  "read": "きます",
+                  "vi": "đến"
+                }
+              ]
+            },
+            {
+              "prompt": "がくせいはとしょかんでべんきょうします。ちいさいとしょかんです。",
+              "ul": "ちいさい",
+              "choices": [
+                "小さい",
+                "少さい",
+                "子さい",
+                "下さい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「小さい」(ちいさい) nghĩa «nhỏ bé». Chữ 小 gồm ba chấm nhỏ. — 少さい sai vì 少 (すく-ない/すこ-し) = ít, không đọc là ちい-さい; 子さい sai vì 子 (こ) = đứa trẻ, là danh từ; 下さい là 「ください」= xin hãy cho, hoàn toàn khác ngữ cảnh và cách đọc.",
+              "glosses": [
+                {
+                  "t": "がくせい",
+                  "read": "がくせい",
+                  "vi": "học sinh/sinh viên"
+                },
+                {
+                  "t": "としょかん",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "べんきょうします",
+                  "read": "べんきょうします",
+                  "vi": "học bài"
+                },
+                {
+                  "t": "ちいさい",
+                  "read": "ちいさい",
+                  "vi": "nhỏ bé"
+                }
+              ]
+            },
+            {
+              "prompt": "らいねんにほんへいきたいです。",
+              "ul": "らいねん",
+              "choices": [
+                "来年",
+                "来月",
+                "来日",
+                "来週"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来年」(らいねん) nghĩa «năm sau». Gồm 来 (lai/đến) + 年 (năm). — 来月 (らいげつ) = tháng sau; 来日 (らいにち) = đến Nhật (dùng trong văn viết trang trọng, không phải N5 thông dụng); 来週 (らいしゅう) = tuần sau. Tất cả đều có 来 nhưng đơn vị thời gian khác nhau.",
+              "glosses": [
+                {
+                  "t": "らいねん",
+                  "read": "らいねん",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "いきたい",
+                  "read": "いきたい",
+                  "vi": "muốn đi"
+                }
+              ]
+            },
+            {
+              "prompt": "なんじにおひるをたべますか。じゅうにじにたべます。",
+              "ul": "じゅうにじ",
+              "choices": [
+                "十二時",
+                "十三時",
+                "二十時",
+                "十一時"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「十二時」(じゅうにじ) = 12 giờ, buổi trưa. 十二 = mười hai (10+2). — 十三時 (じゅうさんじ) = 13 giờ chiều; 二十時 (にじゅうじ) = 20 giờ tối; 十一時 (じゅういちじ) = 11 giờ. Câu hỏi về bữa trưa nên 12 giờ (十二時) là hợp lý và đúng nghĩa.",
+              "glosses": [
+                {
+                  "t": "なんじに",
+                  "read": "なんじに",
+                  "vi": "lúc mấy giờ"
+                },
+                {
+                  "t": "おひる",
+                  "read": "おひる",
+                  "vi": "buổi trưa"
+                },
+                {
+                  "t": "じゅうにじ",
+                  "read": "じゅうにじ",
+                  "vi": "12 giờ"
+                },
+                {
+                  "t": "たべます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                }
+              ]
+            },
+            {
+              "prompt": "このくにのなまえはなんですか。",
+              "ul": "なまえ",
+              "choices": [
+                "名前",
+                "名字",
+                "名刺",
+                "名人"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「名前」(なまえ) nghĩa «tên gọi». Gồm 名 (tên) + 前 (phía trước/trước). Đây là từ N5 cơ bản nhất để hỏi tên. — 名字 (みょうじ/なじ) = họ (family name); 名刺 (めいし) = danh thiếp; 名人 (めいじん) = bậc thầy/danh nhân. Tất cả đều có 名 nhưng nghĩa khác hẳn.",
+              "glosses": [
+                {
+                  "t": "くに",
+                  "read": "くに",
+                  "vi": "đất nước, quốc gia"
+                },
+                {
+                  "t": "なまえ",
+                  "read": "なまえ",
+                  "vi": "tên"
+                },
+                {
+                  "t": "なんですか",
+                  "read": "なんですか",
+                  "vi": "là gì vậy?"
+                }
+              ]
+            },
+            {
+              "prompt": "ともだちがうちにきました。いっしょにおちゃをのみましょう。",
+              "ul": "きました",
+              "choices": [
+                "来ました",
+                "帰りました",
+                "行きました",
+                "起きました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来ました」(きました) là quá khứ của 来る (ku-ru) = đến. Bạn «đã đến nhà» của người nói nên dùng 来. — 帰りました (かえりました) = đã về nhà (về nơi của mình, ngược chiều); 行きました (いきました) = đã đi (rời khỏi vị trí người nói); 起きました (おきました) = đã thức dậy (không liên quan di chuyển).",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "うち",
+                  "read": "うち",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "きました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "おちゃ",
+                  "read": "おちゃ",
+                  "vi": "trà"
+                },
+                {
+                  "t": "のみましょう",
+                  "read": "のみましょう",
+                  "vi": "hãy uống cùng nhau"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                }
+              ]
+            },
+            {
+              "prompt": "ひがしやまさんはまいつきなんにちにがっこうにきますか。",
+              "ul": "まいつき",
+              "choices": [
+                "毎月",
+                "毎日",
+                "毎年",
+                "毎週"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎月」(まいつき) nghĩa «mỗi tháng». Gồm 毎 (mỗi) + 月 (tháng/mặt trăng). Câu hỏi dùng 「何日」(ngày mấy) nên đơn vị thời gian phải là «tháng» mới logic. — 毎日 (まいにち) = mỗi ngày; 毎年 (まいとし/まいねん) = mỗi năm; 毎週 (まいしゅう) = mỗi tuần. Tất cả có 毎 nhưng đơn vị khác.",
+              "glosses": [
+                {
+                  "t": "まいつき",
+                  "read": "まいつき",
+                  "vi": "mỗi tháng"
+                },
+                {
+                  "t": "なんにち",
+                  "read": "なんにち",
+                  "vi": "ngày mấy, mấy ngày"
+                },
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "きますか",
+                  "read": "きますか",
+                  "vi": "có đến không?"
+                },
+                {
+                  "t": "ひがしやまさん",
+                  "read": "ひがしやまさん",
+                  "vi": "anh/chị Higashiyama (tên người)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "毎朝、コーヒーを＿。",
+              "choices": [
+                "飲みます",
+                "食べます",
+                "見ます",
+                "聞きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「飲みます」(uống) vì cà phê là đồ uống, động từ dùng là「飲む」(uống). 「食べます」(ăn) dùng cho thức ăn, không dùng cho đồ uống. 「見ます」(nhìn/xem) là hành động dùng mắt. 「聞きます」(nghe) là hành động dùng tai. Cả ba đều sai ngữ nghĩa với cà phê.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                }
+              ]
+            },
+            {
+              "stem": "あの映画は三時間です。いっしょに＿ませんか。",
+              "choices": [
+                "見",
+                "読み",
+                "書き",
+                "乗り"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「見」vì「映画を見る」(xem phim) là cụm từ cố định trong tiếng Nhật. 「読み」(đọc) dùng cho sách/báo, không dùng cho phim. 「書き」(viết) là hành động tạo ra chữ. 「乗り」(lên/cưỡi) dùng cho phương tiện giao thông. Ba đáp án kia đều không kết hợp được tự nhiên với「映画」.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "bộ phim"
+                },
+                {
+                  "t": "三時間",
+                  "read": "さんじかん",
+                  "vi": "ba tiếng đồng hồ"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "見ません",
+                  "read": "みません",
+                  "vi": "không xem"
+                },
+                {
+                  "t": "ませんか",
+                  "read": "ませんか",
+                  "vi": "〜ませんか = mời/rủ ai đó cùng làm gì (bạn có muốn ~ không?)"
+                }
+              ]
+            },
+            {
+              "stem": "ひるごはんは学校の食堂で＿。",
+              "choices": [
+                "食べます",
+                "飲みます",
+                "起きます",
+                "寝ます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「食べます」(ăn) vì「ひるごはんを食べる」(ăn bữa trưa) là cụm từ tự nhiên. 「飲みます」(uống) không dùng cho「ごはん」vốn là cơm/bữa ăn. 「起きます」(thức dậy) và 「寝ます」(ngủ) đều là hành động không liên quan đến ăn uống tại nhà ăn.",
+              "glosses": [
+                {
+                  "t": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "食堂",
+                  "read": "しょくどう",
+                  "vi": "nhà ăn, căng-tin"
+                },
+                {
+                  "t": "食べます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは毎日電車で会社へ＿。",
+              "choices": [
+                "行きます",
+                "来ます",
+                "帰ります",
+                "泳ぎます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「行きます」(đi) vì chủ thể đang di chuyển từ nơi khác đến công ty, dùng「行く」khi điểm đến là xa người nói. 「来ます」(đến/lại) dùng khi di chuyển về phía người nói. 「帰ります」(về) dùng khi quay về nhà/nơi xuất phát. 「泳ぎます」(bơi) là hành động không liên quan đến di chuyển bằng tàu điện.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "stem": "のどがかわきました。水を＿たいです。",
+              "choices": [
+                "飲み",
+                "食べ",
+                "洗い",
+                "書き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「飲み」vì「水を飲む」(uống nước) là cụm từ tự nhiên khi nói đến khát nước. 「食べ」(ăn) dùng cho thức ăn rắn, không dùng cho nước. 「洗い」(rửa) là hành động làm sạch, không liên quan đến khát. 「書き」(viết) hoàn toàn không liên quan đến「水」trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "のど",
+                  "vi": "cổ họng"
+                },
+                {
+                  "t": "かわきました",
+                  "vi": "khô, khát"
+                },
+                {
+                  "t": "水",
+                  "read": "みず",
+                  "vi": "nước"
+                },
+                {
+                  "t": "飲みたい",
+                  "read": "のみたい",
+                  "vi": "muốn uống"
+                },
+                {
+                  "t": "たいです",
+                  "read": "たいです",
+                  "vi": "〜たいです = muốn làm ~"
+                }
+              ]
+            },
+            {
+              "stem": "この本は＿です。子どもも読めます。",
+              "choices": [
+                "やさしい",
+                "むずかしい",
+                "たかい",
+                "あぶない"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「やさしい」(dễ) vì câu sau nói「子どもも読める」(trẻ em cũng đọc được), ngụ ý sách đơn giản/dễ đọc. 「むずかしい」(khó) mâu thuẫn trực tiếp với ý nghĩa câu sau. 「たかい」(đắt/cao) nói về giá/độ cao, không liên quan đến khả năng đọc. 「あぶない」(nguy hiểm) không hợp nghĩa với sách dành cho trẻ em.",
+              "glosses": [
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "読めます",
+                  "read": "よめます",
+                  "vi": "có thể đọc được"
+                },
+                {
+                  "t": "やさしい",
+                  "vi": "dễ, đơn giản"
+                }
+              ]
+            },
+            {
+              "stem": "あしたいっしょに昼ごはんを食べに＿ませんか。",
+              "choices": [
+                "行き",
+                "来",
+                "起き",
+                "帰り"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「行き」vì mẫu「〜に行く」(đi để làm gì) thể hiện rủ rê đi ra ngoài ăn cùng. 「来」(đến) dùng khi mời người khác đến chỗ mình, ngữ cảnh ở đây không phải vậy. 「起き」(thức dậy) hoàn toàn không phù hợp với việc rủ đi ăn. 「帰り」(về) mang nghĩa quay về, ngược với hành động ra ngoài.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "昼ごはん",
+                  "read": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "食べに行き",
+                  "read": "たべにいき",
+                  "vi": "đi để ăn"
+                },
+                {
+                  "t": "ませんか",
+                  "read": "ませんか",
+                  "vi": "〜ませんか = mời/rủ ai đó cùng làm gì (bạn có muốn ~ không?)"
+                }
+              ]
+            },
+            {
+              "stem": "先生は教室で学生に日本語を＿。",
+              "choices": [
+                "教えます",
+                "習います",
+                "聞きます",
+                "書きます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「教えます」(dạy) vì chủ thể là「先生」(giáo viên), người thực hiện hành động dạy. 「習います」(học) đúng ngữ cảnh học tiếng Nhật nhưng chủ thể phải là học sinh, không phải giáo viên. 「聞きます」(nghe/hỏi) không phù hợp với vai trò của giáo viên trong lớp. 「書きます」(viết) không diễn đạt được vai trò truyền đạt kiến thức của giáo viên.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "教室",
+                  "read": "きょうしつ",
+                  "vi": "phòng học"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "教えます",
+                  "read": "おしえます",
+                  "vi": "dạy"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                }
+              ]
+            },
+            {
+              "stem": "週末、友だちといっしょに映画館へ映画を＿に行きます。",
+              "choices": [
+                "見",
+                "読み",
+                "買い",
+                "乗り"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「見」vì「映画を見る」(xem phim) là cụm cố định, và đi đến rạp phim thì mục đích là xem phim. 「読み」(đọc) dùng cho sách/tạp chí, không dùng cho phim. 「買い」(mua) sai vì đi đến「映画館」(rạp phim) không phải để mua. 「乗り」(lên xe/tàu) là hành động di chuyển, không phải mục đích đến rạp.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "映画館",
+                  "read": "えいがかん",
+                  "vi": "rạp chiếu phim"
+                },
+                {
+                  "t": "映画を見",
+                  "read": "えいがをみ",
+                  "vi": "xem phim"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                }
+              ]
+            },
+            {
+              "stem": "あの店の料理は＿ですが、おいしいです。",
+              "choices": [
+                "高い",
+                "新しい",
+                "大きい",
+                "長い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「高い」(đắt) vì mẫu「〜ですが、おいしい」(tuy đắt nhưng ngon) tạo ra sự tương phản tự nhiên thường gặp khi nói về nhà hàng. 「新しい」(mới) không tạo nghĩa đối lập rõ ràng với ngon. 「大きい」(to lớn) miêu tả kích thước không liên quan đến sự đánh đổi khi chọn quán ăn. 「長い」(dài) cũng không phù hợp để đánh giá quán ăn.",
+              "glosses": [
+                {
+                  "t": "店",
+                  "read": "みせ",
+                  "vi": "cửa hàng, quán"
+                },
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "高い",
+                  "read": "たかい",
+                  "vi": "đắt tiền"
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "ですが",
+                  "read": "ですが",
+                  "vi": "nhưng, tuy... nhưng"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは毎朝六時に＿。",
+              "choices": [
+                "起きます",
+                "寝ます",
+                "帰ります",
+                "休みます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「起きます」(thức dậy) vì「毎朝六時」(6 giờ sáng mỗi ngày) là ngữ cảnh điển hình của việc thức dậy vào buổi sáng. 「寝ます」(đi ngủ) thường xảy ra vào ban đêm, không phải buổi sáng. 「帰ります」(về nhà) là hành động thường xảy ra vào chiều tối. 「休みます」(nghỉ ngơi) không đặc trưng cho một giờ cụ thể vào buổi sáng.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "六時",
+                  "read": "ろくじ",
+                  "vi": "sáu giờ"
+                },
+                {
+                  "t": "起きます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                }
+              ]
+            },
+            {
+              "stem": "図書館では本を＿ことができます。",
+              "choices": [
+                "借りる",
+                "売る",
+                "作る",
+                "運ぶ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「借りる」(mượn) vì chức năng chính của thư viện là cho mượn sách. 「売る」(bán) sai vì thư viện không bán sách, đó là chức năng của hiệu sách. 「作る」(làm/tạo ra) không phải chức năng của thư viện đối với sách. 「運ぶ」(vận chuyển/mang) không phải hành động điển hình của người dùng thư viện.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "借りる",
+                  "read": "かりる",
+                  "vi": "mượn"
+                },
+                {
+                  "t": "できます",
+                  "read": "できます",
+                  "vi": "có thể làm được"
+                },
+                {
+                  "t": "ことができます",
+                  "read": "ことができます",
+                  "vi": "〜ことができます = có thể làm được ~"
+                }
+              ]
+            },
+            {
+              "stem": "もう十二時ですね。おなかが＿ました。いっしょにお昼を食べませんか。",
+              "choices": [
+                "すきました",
+                "おきました",
+                "つきました",
+                "なりました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「すきました」vì「おなかがすく」là cụm từ cố định nghĩa là 'đói bụng', và đây là lý do tự nhiên để rủ đi ăn trưa. 「おきました」(thức dậy/xảy ra) không kết hợp với「おなか」để tạo nghĩa đói. 「つきました」(đến nơi/đính kèm) cũng không dùng với「おなか」. 「なりました」(trở thành) sai vì mẫu đúng phải là「おなかがすく」chứ không phải「おなかになる」.",
+              "glosses": [
+                {
+                  "t": "もう",
+                  "vi": "rồi, đã"
+                },
+                {
+                  "t": "十二時",
+                  "read": "じゅうにじ",
+                  "vi": "mười hai giờ"
+                },
+                {
+                  "t": "おなか",
+                  "vi": "bụng"
+                },
+                {
+                  "t": "すきました",
+                  "vi": "(bụng) đói"
+                },
+                {
+                  "t": "お昼",
+                  "read": "おひる",
+                  "vi": "buổi trưa, bữa trưa"
+                },
+                {
+                  "t": "食べませんか",
+                  "read": "たべませんか",
+                  "vi": "không ăn cùng à? (lời mời)"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                }
+              ]
+            },
+            {
+              "stem": "スーパーで野菜と果物を＿。",
+              "choices": [
+                "買いました",
+                "飲みました",
+                "見せました",
+                "教えました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「買いました」(đã mua) vì hoạt động tại siêu thị là mua đồ, và rau củ quả là mặt hàng điển hình. 「飲みました」(đã uống) không dùng cho rau và quả. 「見せました」(đã cho xem) là hành động chỉ đồ vật cho người khác thấy, không liên quan đến mua sắm. 「教えました」(đã dạy/chỉ) là hành động truyền đạt thông tin, không phải mua hàng.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "野菜",
+                  "read": "やさい",
+                  "vi": "rau củ"
+                },
+                {
+                  "t": "果物",
+                  "read": "くだもの",
+                  "vi": "hoa quả"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                }
+              ]
+            },
+            {
+              "stem": "このコーヒーは＿ですね。砂糖を入れてもいいですか。",
+              "choices": [
+                "にがい",
+                "からい",
+                "すっぱい",
+                "あまい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「にがい」(đắng) vì cà phê có vị đắng, và việc muốn cho đường vào là phản ứng tự nhiên khi thứ gì đó quá đắng. 「からい」(cay) là vị cay như ớt, không dùng để mô tả cà phê. 「すっぱい」(chua) là vị chua như chanh, không liên quan đến lý do cho đường vào cà phê. 「あまい」(ngọt) mâu thuẫn hoàn toàn vì nếu đã ngọt thì không cần thêm đường.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "砂糖",
+                  "read": "さとう",
+                  "vi": "đường"
+                },
+                {
+                  "t": "入れてもいいですか",
+                  "read": "いれてもいいですか",
+                  "vi": "có được cho vào không?"
+                },
+                {
+                  "t": "にがい",
+                  "vi": "đắng"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "いっしょにコーヒーを飲みませんか。",
+              "choices": [
+                "コーヒーを飲みましょう。",
+                "コーヒーを飲みます。",
+                "コーヒーを飲みません。",
+                "コーヒーはどうですか。"
+              ],
+              "answer": 0,
+              "pt": "NをVます・いっしょにVませんか",
+              "explain": "Câu gốc「いっしょにコーヒーを飲みませんか」là dạng mời lịch sự 「～ませんか」, nghĩa \"Cùng uống cà phê không?\". Đáp án A「飲みましょう」cũng là dạng mời/đề nghị, nghĩa \"Hãy cùng uống đi\" — đồng nghĩa gần nhất vì cả hai đều mang ý cùng làm việc đó. B「飲みます」chỉ khẳng định \"tôi uống\", không có ý mời. C「飲みません」phủ định \"không uống\". D「コーヒーはどうですか」hỏi ý kiến về cà phê, không phải lời mời cùng uống.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "コーヒーを",
+                  "vi": "cà phê (tân ngữ)"
+                },
+                {
+                  "t": "飲みませんか",
+                  "read": "のみませんか",
+                  "vi": "không uống cùng nhau sao? (mời)"
+                },
+                {
+                  "t": "飲みましょう",
+                  "read": "のみましょう",
+                  "vi": "〜ましょう = hãy cùng ~ (đề nghị, rủ rê làm gì)"
+                },
+                {
+                  "t": "コーヒーはどうですか",
+                  "read": "コーヒーはどうですか",
+                  "vi": "〜はどうですか = ~ thì thế nào? (dùng để mời, gợi ý)"
+                }
+              ]
+            },
+            {
+              "prompt": "あなたは何をしますか。",
+              "choices": [
+                "あなたはどんなことをしますか。",
+                "あなたはどこへ行きますか。",
+                "あなたはいつ来ますか。",
+                "あなたはだれとしますか。"
+              ],
+              "answer": 0,
+              "pt": "何をVますか",
+              "explain": "「何をしますか」hỏi \"Bạn làm gì?\", từ 「何」hỏi nội dung hành động. A「どんなことをしますか」hỏi \"Bạn làm loại việc gì?\" — cùng hỏi về nội dung hành động, đồng nghĩa gần nhất. B hỏi địa điểm (どこへ). C hỏi thời gian (いつ). D hỏi người cùng làm (だれと), đều lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "何を",
+                  "read": "なにを",
+                  "vi": "làm gì (tân ngữ hỏi)"
+                },
+                {
+                  "t": "しますか",
+                  "vi": "sẽ làm / làm không?"
+                },
+                {
+                  "t": "行きますか",
+                  "read": "いきますか",
+                  "vi": "có đi không / đi (đâu)"
+                },
+                {
+                  "t": "来ますか",
+                  "read": "きますか",
+                  "vi": "có đến không / đến (khi nào)"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị (đại từ nhân xưng)"
+                },
+                {
+                  "t": "どんな",
+                  "read": "どんな",
+                  "vi": "như thế nào, loại gì"
+                },
+                {
+                  "t": "いつ",
+                  "read": "いつ",
+                  "vi": "khi nào"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "はどこへ行きますか",
+                  "read": "はどこへいきますか",
+                  "vi": "〜はどこへ行きますか = ~ đi đâu? (へ chỉ hướng đến)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしは毎朝シャワーをあびます。",
+              "choices": [
+                "わたしは毎朝シャワーをします。",
+                "わたしは毎朝シャワーをみます。",
+                "わたしは毎朝シャワーにいきます。",
+                "わたしは毎朝シャワーがすきです。"
+              ],
+              "answer": 0,
+              "pt": "NをVます",
+              "explain": "「シャワーをあびます」nghĩa \"tắm vòi sen\". A「シャワーをします」cũng mang nghĩa \"tắm vòi sen\" theo cấu trúc 「NをNします」, đây là dạng suru-động từ tương đương. B「シャワーをみます」nghĩa \"nhìn/xem vòi sen\", sai hoàn toàn. C「シャワーにいきます」nghĩa \"đi đến vòi sen\", lạ về nghĩa. D「シャワーがすきです」nghĩa \"thích vòi sen\", không đồng nghĩa.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "シャワーを",
+                  "vi": "tắm vòi sen (tân ngữ)"
+                },
+                {
+                  "t": "あびます",
+                  "vi": "tắm (dưới vòi sen/nước)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi (đến làm gì)"
+                },
+                {
+                  "t": "すきです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "シャワーにいきます",
+                  "read": "シャワーにいきます",
+                  "vi": "名詞に行きます = đi đến/đi làm ~ (に chỉ mục đích/hướng đi kèm động từ di chuyển)"
+                },
+                {
+                  "t": "シャワーがすきです",
+                  "read": "シャワーがすきです",
+                  "vi": "名詞が好きです = thích ~ (が đánh dấu đối tượng yêu thích)"
+                }
+              ]
+            },
+            {
+              "prompt": "週末は映画を見ましょう。",
+              "choices": [
+                "週末はいっしょに映画を見ませんか。",
+                "週末は映画を見ません。",
+                "週末に映画を見たいです。",
+                "週末は映画が好きです。"
+              ],
+              "answer": 0,
+              "pt": "Vましょう・NをVます",
+              "explain": "「見ましょう」là dạng ～ましょう (đề nghị cùng làm). A「見ませんか」cũng là dạng mời cùng xem phim, đồng nghĩa gần nhất với ～ましょう. B「見ません」phủ định. C「見たいです」diễn đạt mong muốn cá nhân, không phải mời. D「映画が好きです」nói về sở thích, không đề nghị.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "映画を",
+                  "read": "えいがを",
+                  "vi": "phim (tân ngữ)"
+                },
+                {
+                  "t": "見ましょう",
+                  "read": "みましょう",
+                  "vi": "hãy cùng xem nhé (đề nghị)"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "見ませんか",
+                  "read": "みませんか",
+                  "vi": "〜ませんか = bạn có muốn ~ không? (mời rủ lịch sự)"
+                },
+                {
+                  "t": "見たいです",
+                  "read": "みたいです",
+                  "vi": "〜たいです = muốn làm ~ (nguyện vọng)"
+                }
+              ]
+            },
+            {
+              "prompt": "ランチは和食か洋食にしましょう。",
+              "choices": [
+                "ランチは和食か洋食を食べましょう。",
+                "ランチは和食も洋食も食べません。",
+                "ランチは和食と洋食にしましょう。",
+                "ランチは和食か洋食が好きですか。"
+              ],
+              "answer": 0,
+              "pt": "NかN・Vましょう",
+              "explain": "Câu gốc dùng 「AかB」(A hay B) và ～ましょう. A「和食か洋食を食べましょう」giữ nguyên「AかB」và vẫn là đề nghị cùng ăn — đồng nghĩa gần nhất. B「和食も洋食も食べません」phủ định cả hai, lệch nghĩa. C「和食と洋食」nghĩa \"cả hai\" thay vì \"hay\", thay đổi nghĩa. D hỏi sở thích, không phải đề nghị.",
+              "glosses": [
+                {
+                  "t": "ランチ",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "和食か洋食",
+                  "read": "わしょくかようしょく",
+                  "vi": "đồ ăn Nhật hay đồ ăn Tây"
+                },
+                {
+                  "t": "にしましょう",
+                  "vi": "hãy chọn... đi (đề nghị)"
+                },
+                {
+                  "t": "好きですか",
+                  "read": "すきですか",
+                  "vi": "có thích không?"
+                },
+                {
+                  "t": "食べましょう",
+                  "read": "たべましょう",
+                  "vi": "〜ましょう = hãy cùng ~ (đề nghị)"
+                }
+              ]
+            },
+            {
+              "prompt": "かれは毎日日本語を勉強します。",
+              "choices": [
+                "かれは毎日日本語の勉強をします。",
+                "かれは毎日日本語を話しません。",
+                "かれは毎日日本語を読みます。",
+                "かれは毎日日本語が上手です。"
+              ],
+              "answer": 0,
+              "pt": "NをNします (suru-động từ)",
+              "explain": "「日本語を勉強します」và「日本語の勉強をします」đều nghĩa \"học tiếng Nhật\" — một dùng 「NをVする」, một dùng dạng danh từ hóa 「Nの勉強をする」, hai cách nói đồng nghĩa. B「話しません」nghĩa \"không nói\". C「読みます」nghĩa \"đọc\", khác với \"học\". D「上手です」nói về trình độ, không phải hành động.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "日本語を",
+                  "read": "にほんごを",
+                  "vi": "tiếng Nhật (tân ngữ)"
+                },
+                {
+                  "t": "勉強します",
+                  "read": "べんきょうします",
+                  "vi": "học (suru-động từ)"
+                },
+                {
+                  "t": "話しません",
+                  "read": "はなしません",
+                  "vi": "không nói"
+                },
+                {
+                  "t": "読みます",
+                  "read": "よみます",
+                  "vi": "đọc"
+                },
+                {
+                  "t": "上手です",
+                  "read": "じょうずです",
+                  "vi": "giỏi"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "anh ấy/cậu ấy (đại từ nhân xưng ngôi thứ 3) + は chủ đề"
+                }
+              ]
+            },
+            {
+              "prompt": "あなたはいつテニスをしますか。",
+              "choices": [
+                "あなたはいつテニスをしますか。— テニスは何曜日にしますか。",
+                "あなたはどこでテニスをしますか。",
+                "あなたはだれとテニスをしますか。",
+                "あなたはなぜテニスをしますか。"
+              ],
+              "answer": 0,
+              "pt": "いつVますか・NをNします",
+              "explain": "「いつテニスをしますか」hỏi thời điểm chơi tennis. A「テニスは何曜日にしますか」hỏi \"Bạn chơi tennis ngày thứ mấy?\" — cũng hỏi về thời gian, đồng nghĩa gần nhất với いつ. B「どこで」hỏi địa điểm. C「だれと」hỏi người cùng chơi. D「なぜ」hỏi lý do — đều lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "いつ",
+                  "vi": "khi nào"
+                },
+                {
+                  "t": "テニスを",
+                  "vi": "tennis (tân ngữ)"
+                },
+                {
+                  "t": "しますか",
+                  "vi": "làm/chơi không?"
+                },
+                {
+                  "t": "何曜日",
+                  "read": "なんようび",
+                  "vi": "thứ mấy (ngày nào trong tuần)"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "なぜ",
+                  "read": "なぜ",
+                  "vi": "tại sao"
+                },
+                {
+                  "t": "はどこでテニスをしますか",
+                  "read": "はどこでテニスをしますか",
+                  "vi": "〜はどこで = làm ~ ở đâu? (で chỉ nơi diễn ra hành động, khác へ chỉ hướng đến)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしは東京から大阪まで新幹線で行きます。",
+              "choices": [
+                "わたしは新幹線に乗って東京から大阪まで行きます。",
+                "わたしは東京から大阪まで歩いて行きます。",
+                "わたしは東京から大阪まで飛行機で行きます。",
+                "わたしは新幹線で東京に帰ります。"
+              ],
+              "answer": 0,
+              "pt": "NからNまで・NでVます (ôn)",
+              "explain": "Câu gốc nói \"đi từ Tokyo đến Osaka bằng Shinkansen\". A「新幹線に乗って東京から大阪まで行きます」cũng nói \"đi từ Tokyo đến Osaka bằng cách đi tàu Shinkansen\" — cùng phương tiện, cùng hành trình. B dùng「歩いて」(đi bộ), phương tiện khác. C dùng「飛行機で」(máy bay), phương tiện khác. D「帰ります」nghĩa trở về, không phải đi.",
+              "glosses": [
+                {
+                  "t": "東京から大阪まで",
+                  "read": "とうきょうからおおさかまで",
+                  "vi": "từ Tokyo đến Osaka"
+                },
+                {
+                  "t": "新幹線で",
+                  "read": "しんかんせんで",
+                  "vi": "bằng tàu Shinkansen"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "乗って",
+                  "read": "のって",
+                  "vi": "lên (tàu xe), đi bằng"
+                },
+                {
+                  "t": "歩いて",
+                  "read": "あるいて",
+                  "vi": "đi bộ"
+                },
+                {
+                  "t": "飛行機で",
+                  "read": "ひこうきで",
+                  "vi": "bằng máy bay"
+                },
+                {
+                  "t": "帰ります",
+                  "read": "かえります",
+                  "vi": "trở về"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "かのじょはともだちとスーパーへ行きます。",
+              "choices": [
+                "かのじょはともだちといっしょにスーパーへ行きます。",
+                "かのじょはひとりでスーパーへ行きます。",
+                "かのじょはともだちとスーパーで買います。",
+                "かのじょはともだちとスーパーから来ます。"
+              ],
+              "answer": 0,
+              "pt": "NとVます・NへVます (ôn)",
+              "explain": "「ともだちとスーパーへ行きます」nghĩa \"cùng bạn đi đến siêu thị\". A「ともだちといっしょにスーパーへ行きます」thêm「いっしょに」để nhấn mạnh \"cùng nhau\" — đồng nghĩa. B「ひとりで」nghĩa đi một mình, trái nghĩa. C「スーパーで買います」nói hành động mua ở siêu thị, không phải đi đến. D「スーパーから来ます」nghĩa từ siêu thị đến, hướng ngược lại.",
+              "glosses": [
+                {
+                  "t": "かのじょは",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "ともだちと",
+                  "vi": "cùng với bạn"
+                },
+                {
+                  "t": "スーパーへ",
+                  "vi": "đến siêu thị"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "買います",
+                  "read": "かいます",
+                  "vi": "mua"
+                },
+                {
+                  "t": "来ます",
+                  "read": "きます",
+                  "vi": "đến"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "ひとりで",
+                  "read": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "スーパーで買います",
+                  "read": "すーぱーでかいます",
+                  "vi": "場所で = tại ~ (で chỉ nơi diễn ra hành động)"
+                },
+                {
+                  "t": "スーパーから来ます",
+                  "read": "すーぱーからきます",
+                  "vi": "場所から来ます = đến từ ~ (から chỉ điểm xuất phát)"
+                }
+              ]
+            },
+            {
+              "prompt": "あしたのパーティーはいつですか。",
+              "choices": [
+                "パーティーは何時に始まりますか。",
+                "パーティーはどこでありますか。",
+                "パーティーはだれが来ますか。",
+                "パーティーは何をしますか。"
+              ],
+              "answer": 0,
+              "pt": "いつVますか (ôn) — thời gian",
+              "explain": "「いつですか」hỏi thời điểm. A「何時に始まりますか」hỏi \"mấy giờ bắt đầu?\" — cũng hỏi về thời gian, đồng nghĩa gần nhất. B「どこで」hỏi địa điểm. C「だれが」hỏi người. D「何をしますか」hỏi hoạt động — đều không hỏi về thời gian.",
+              "glosses": [
+                {
+                  "t": "あしたの",
+                  "vi": "của ngày mai"
+                },
+                {
+                  "t": "パーティーは",
+                  "vi": "bữa tiệc thì"
+                },
+                {
+                  "t": "いつですか",
+                  "vi": "là khi nào?"
+                },
+                {
+                  "t": "何時に",
+                  "read": "なんじに",
+                  "vi": "vào lúc mấy giờ"
+                },
+                {
+                  "t": "始まりますか",
+                  "read": "はじまりますか",
+                  "vi": "có bắt đầu không?"
+                },
+                {
+                  "t": "来ますか",
+                  "read": "きますか",
+                  "vi": "có đến không?"
+                },
+                {
+                  "t": "何をしますか",
+                  "read": "なにをしますか",
+                  "vi": "làm gì?"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, diễn ra"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "どこでありますか",
+                  "read": "どこでありますか",
+                  "vi": "〜はどこで = ~ diễn ra ở đâu? (で chỉ nơi tổ chức sự việc)"
+                }
+              ]
+            },
+            {
+              "prompt": "いっしょに写真をとりませんか。",
+              "choices": [
+                "いっしょに写真をとりましょう。",
+                "写真をとってください。",
+                "写真をとりません。",
+                "写真がとれません。"
+              ],
+              "answer": 0,
+              "pt": "NをVます・いっしょにVませんか",
+              "explain": "「写真をとりませんか」là mời cùng chụp ảnh (～ませんか). A「写真をとりましょう」cũng mời cùng làm (～ましょう), đồng nghĩa. B「写真をとってください」là yêu cầu/nhờ vả, không phải mời cùng. C「写真をとりません」phủ định thông thường. D「写真がとれません」diễn đạt không thể chụp được.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "写真をとりませんか",
+                  "read": "しゃしんをとりませんか",
+                  "vi": "không chụp ảnh cùng nhau sao? (mời)"
+                },
+                {
+                  "t": "写真をとりましょう",
+                  "read": "しゃしんをとりましょう",
+                  "vi": "〜ましょう = hãy cùng chụp ảnh (đề nghị)"
+                },
+                {
+                  "t": "写真をとってください",
+                  "read": "しゃしんをとってください",
+                  "vi": "〜てください = xin hãy làm ~ (yêu cầu lịch sự)"
+                },
+                {
+                  "t": "写真がとれません",
+                  "read": "しゃしんがとれません",
+                  "vi": "動詞可能形+ない = không thể ~ được (とれる là thể khả năng của とる, phủ định)"
+                }
+              ]
+            },
+            {
+              "prompt": "きのう何時に起きましたか。",
+              "choices": [
+                "きのうは何時ごろ起きましたか。",
+                "きのうはどこで起きましたか。",
+                "きのうは何をしましたか。",
+                "きのうは何時間寝ましたか。"
+              ],
+              "answer": 0,
+              "pt": "〜時 (ôn) / 何をVますか — thời gian",
+              "explain": "「何時に起きましたか」hỏi giờ thức dậy. A「何時ごろ起きましたか」hỏi \"khoảng mấy giờ thức dậy?\" — cùng hỏi về giờ, đồng nghĩa gần nhất (ごろ chỉ thêm sắc thái ước lượng). B「どこで」hỏi địa điểm. C「何をしましたか」hỏi hoạt động. D「何時間寝ましたか」hỏi ngủ bao nhiêu tiếng — khác với giờ thức dậy.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "何時に",
+                  "read": "なんじに",
+                  "vi": "lúc mấy giờ"
+                },
+                {
+                  "t": "起きましたか",
+                  "read": "おきましたか",
+                  "vi": "đã thức dậy không?"
+                },
+                {
+                  "t": "何時間寝ましたか",
+                  "read": "なんじかんねましたか",
+                  "vi": "đã ngủ mấy tiếng?"
+                },
+                {
+                  "t": "ごろ",
+                  "read": "ごろ",
+                  "vi": "khoảng, tầm (thời gian)"
+                },
+                {
+                  "t": "はどこで起きましたか",
+                  "read": "はどこでおきましたか",
+                  "vi": "〜はどこで = ~ đã xảy ra/làm ở đâu? (で chỉ nơi hành động diễn ra)"
+                }
+              ]
+            },
+            {
+              "prompt": "バスか電車で学校へ行きます。",
+              "choices": [
+                "バスまたは電車を使って学校へ行きます。",
+                "バスと電車で学校へ行きます。",
+                "バスか電車で学校から帰ります。",
+                "バスか電車が学校へ来ます。"
+              ],
+              "answer": 0,
+              "pt": "NかN・NでVます・NへVます (ôn)",
+              "explain": "「バスか電車で学校へ行きます」nghĩa \"đi đến trường bằng xe buýt hay tàu điện\". A「バスまたは電車を使って学校へ行きます」cũng nói \"dùng xe buýt hoặc tàu điện đi đến trường\" — またはvà か đều là \"hoặc/hay\", đồng nghĩa. B「バスと電車で」nghĩa \"cả hai\", không phải lựa chọn. C「帰ります」hướng về nhà, không phải đến trường. D「バスか電車が来ます」chủ ngữ là xe, không phải người đi.",
+              "glosses": [
+                {
+                  "t": "バスか電車で",
+                  "read": "バスかでんしゃで",
+                  "vi": "bằng xe buýt hay tàu điện"
+                },
+                {
+                  "t": "学校へ",
+                  "read": "がっこうへ",
+                  "vi": "đến trường"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "使って",
+                  "read": "つかって",
+                  "vi": "dùng, sử dụng"
+                },
+                {
+                  "t": "帰ります",
+                  "read": "かえります",
+                  "vi": "trở về"
+                },
+                {
+                  "t": "来ます",
+                  "read": "きます",
+                  "vi": "đến"
+                },
+                {
+                  "t": "または",
+                  "read": "または",
+                  "vi": "hoặc là"
+                },
+                {
+                  "t": "バスと電車で",
+                  "read": "バスとでんしゃで",
+                  "vi": "AとB = A và B (liệt kê đầy đủ các đối tượng)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは今日図書館で本を読みます。",
+              "choices": [
+                "田中さんは今日図書館へ行って本を読みます。",
+                "田中さんは今日図書館で本を買います。",
+                "田中さんは今日家で本を読みます。",
+                "田中さんは今日図書館に本があります。"
+              ],
+              "answer": 0,
+              "pt": "NでVます・NをVます (ôn)",
+              "explain": "「図書館で本を読みます」nghĩa \"đọc sách ở thư viện\". A「図書館へ行って本を読みます」nghĩa \"đi đến thư viện rồi đọc sách\" — cùng địa điểm và hành động, đồng nghĩa gần nhất. B「本を買います」đổi hành động thành \"mua\". C「家で」đổi địa điểm thành \"ở nhà\". D「本があります」nói về sự tồn tại của sách, không phải hành động đọc.",
+              "glosses": [
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "図書館で",
+                  "read": "としょかんで",
+                  "vi": "ở thư viện"
+                },
+                {
+                  "t": "本を読みます",
+                  "read": "ほんをよみます",
+                  "vi": "đọc sách"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "kính ngữ (ông/bà/anh/chị)"
+                },
+                {
+                  "t": "行って",
+                  "read": "いって",
+                  "vi": "đi (rồi)"
+                },
+                {
+                  "t": "買います",
+                  "read": "かいます",
+                  "vi": "mua"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "prompt": "もっとゆっくり話しませんか。",
+              "choices": [
+                "もっとゆっくり話しましょう。",
+                "もっとゆっくり話してください。",
+                "もっとゆっくり話さないでください。",
+                "もっとゆっくり話しています。"
+              ],
+              "answer": 0,
+              "pt": "いっしょにVませんか — lời đề nghị",
+              "explain": "「話しませんか」là ～ませんか — mời/đề nghị nhẹ nhàng. A「話しましょう」là ～ましょう — cũng là đề nghị cùng làm, đồng nghĩa gần nhất về sắc thái cùng hành động. B「話してください」là yêu cầu đối phương làm, không phải đề nghị cùng. C「話さないでください」là yêu cầu KHÔNG làm. D「話しています」là đang nói (diễn đạt hiện tại tiếp diễn), không phải đề nghị.",
+              "glosses": [
+                {
+                  "t": "もっとゆっくり",
+                  "vi": "chậm hơn nữa"
+                },
+                {
+                  "t": "話しませんか",
+                  "read": "はなしませんか",
+                  "vi": "không nói chậm hơn sao? (mời/đề nghị nhẹ)"
+                },
+                {
+                  "t": "話しましょう",
+                  "read": "はなしましょう",
+                  "vi": "〜ましょう = hãy cùng ~ (đề nghị)"
+                },
+                {
+                  "t": "話してください",
+                  "read": "はなしてください",
+                  "vi": "〜てください = xin hãy ~ (yêu cầu lịch sự)"
+                },
+                {
+                  "t": "話さないでください",
+                  "read": "はなさないでください",
+                  "vi": "〜ないでください = xin đừng ~ (yêu cầu phủ định lịch sự)"
+                },
+                {
+                  "t": "話しています",
+                  "read": "はなしています",
+                  "vi": "〜ています = đang ~ / trạng thái tiếp diễn"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 6 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "毎朝、田中さんはコーヒー＿飲みます。",
+              "choices": [
+                "が",
+                "を",
+                "で",
+                "に"
+              ],
+              "answer": 1,
+              "pt": "NをVます",
+              "explain": "Trợ từ「を」đánh dấu tân ngữ trực tiếp của động từ hành động「飲みます」— \"uống CÁI GÌ\". Chọn「が」sai vì「が」đánh dấu chủ ngữ, không phải tân ngữ. Chọn「で」sai vì「で」chỉ phương tiện hoặc địa điểm hành động. Chọn「に」sai vì「に」chỉ điểm đến hoặc thời điểm, không phải tân ngữ trực tiếp.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                }
+              ]
+            },
+            {
+              "stem": "A：「週末に＿しますか。」 B：「テニスをします。」",
+              "choices": [
+                "どこを",
+                "いつを",
+                "何を",
+                "だれを"
+              ],
+              "answer": 2,
+              "pt": "何をVますか",
+              "explain": "Câu hỏi về **hoạt động** dùng「何を～しますか」(làm gì?). Câu trả lời「テニスをします」cho thấy đây là hỏi về việc làm. Chọn「どこを」sai vì「どこ」hỏi địa điểm và「どこへ／どこで」mới tự nhiên, không dùng「を」với「する」hỏi địa điểm. Chọn「いつを」sai vì「いつ」hỏi thời gian và không đi với「を」. Chọn「だれを」sai vì「だれ」hỏi người, câu trả lời là môn thể thao chứ không phải người.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "テニス",
+                  "vi": "quần vợt"
+                },
+                {
+                  "t": "します",
+                  "vi": "làm, chơi"
+                }
+              ]
+            },
+            {
+              "stem": "A：「映画＿音楽を聞きますか。」 B：「映画です。」",
+              "choices": [
+                "も",
+                "か",
+                "と",
+                "や"
+              ],
+              "answer": 1,
+              "pt": "NかN",
+              "explain": "「NかN」dùng để hỏi lựa chọn \"N hay N\" — tương đương \"hay\" trong tiếng Việt khi hỏi lựa một trong hai. Câu trả lời「映画です」xác nhận đây là câu hỏi lựa chọn. Chọn「も」sai vì「も」có nghĩa \"cũng\", không hỏi lựa chọn. Chọn「と」sai vì「と」nghĩa \"và\", liệt kê đầy đủ chứ không hỏi chọn cái nào. Chọn「や」sai vì「や」cũng liệt kê (không đầy đủ) chứ không hỏi lựa chọn.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "聞きます",
+                  "read": "ききます",
+                  "vi": "nghe"
+                }
+              ]
+            },
+            {
+              "stem": "いっしょに昼ごはん＿食べませんか。",
+              "choices": [
+                "を食べますか",
+                "を食べませんか",
+                "が食べますか",
+                "に食べませんか"
+              ],
+              "answer": 1,
+              "pt": "いっしょにVませんか",
+              "explain": "「いっしょにVませんか」là mẫu **mời rủ** lịch sự \"Cùng ... không?\". Tân ngữ「昼ごはん」cần trợ từ「を」trước động từ. Chọn「を食べますか」sai vì「Vますか」chỉ hỏi thông tin trung tính, không phải lời mời. Chọn「が食べますか」sai vì「が」không đánh dấu tân ngữ trực tiếp của「食べます」. Chọn「に食べませんか」sai vì「に」không dùng để đánh dấu tân ngữ của「食べます」.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "昼ごはん",
+                  "read": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "食べませんか",
+                  "read": "たべませんか",
+                  "vi": "không ăn ... sao? (mời)"
+                },
+                {
+                  "t": "食べますか",
+                  "read": "たべますか",
+                  "vi": "食べる (ăn) chia dạng lịch sự nghi vấn ~ますか = có ăn/sẽ ăn ~ không?"
+                }
+              ]
+            },
+            {
+              "stem": "A：「図書館へ行きましょう＿。」 B：「いいですね。」",
+              "choices": [
+                "ね",
+                "か",
+                "よ",
+                "も"
+              ],
+              "answer": 0,
+              "pt": "Vましょう",
+              "explain": "「Vましょうね」dùng「ね」để tạo sự đồng thuận nhẹ nhàng, xác nhận lại với người nghe — phù hợp khi B đáp「いいですね」(hay đấy). Chọn「か」sai vì「Vましょうか」là hỏi \"Tôi làm ... cho bạn nhé?\" (đề nghị một chiều), không phải lời rủ cùng nhau. Chọn「よ」sai vì「よ」nhấn mạnh khẳng định một chiều, không tự nhiên sau「Vましょう」khi rủ cùng. Chọn「も」sai vì「も」nghĩa \"cũng\", không phù hợp cuối câu mời.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "行きましょう",
+                  "read": "いきましょう",
+                  "vi": "hãy cùng đi"
+                },
+                {
+                  "t": "いいですね",
+                  "vi": "hay đấy, tốt nhỉ"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは毎日日本語＿勉強します。",
+              "choices": [
+                "が",
+                "を",
+                "で",
+                "と"
+              ],
+              "answer": 1,
+              "pt": "NをNします（suru-動詞）",
+              "explain": "「勉強します」là suru-động từ (「勉強」+ します). Tân ngữ trực tiếp「日本語」cần trợ từ「を」. Chọn「が」sai vì「が」đánh dấu chủ ngữ; chủ ngữ câu này đã là「田中さんは」. Chọn「で」sai vì「で」chỉ phương tiện/địa điểm, không phải tân ngữ học tập. Chọn「と」sai vì「と」chỉ \"cùng với ai\" chứ không đánh dấu môn học là tân ngữ.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "勉強します",
+                  "read": "べんきょうします",
+                  "vi": "học"
+                }
+              ]
+            },
+            {
+              "stem": "A：「何時から何時まで働きますか。」 B：「九時＿五時まで働きます。」",
+              "choices": [
+                "まで",
+                "から",
+                "で",
+                "に"
+              ],
+              "answer": 1,
+              "pt": "B4 NからNまで (ôn)",
+              "explain": "「NからNまで」là mẫu \"từ N đến N\". Câu trả lời cần「から」(từ) sau 「九時」để hoàn thành cặp「から～まで」. Chọn「まで」sai vì「まで」nghĩa \"đến\", không phải \"từ\". Chọn「で」sai vì「で」chỉ phương tiện hoặc địa điểm, không chỉ điểm bắt đầu thời gian. Chọn「に」sai vì「に」chỉ thời điểm cụ thể, không chỉ điểm bắt đầu trong cấu trúc「から～まで」.",
+              "glosses": [
+                {
+                  "t": "何時",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "働きます",
+                  "read": "はたらきます",
+                  "vi": "làm việc"
+                },
+                {
+                  "t": "九時",
+                  "read": "くじ",
+                  "vi": "chín giờ"
+                },
+                {
+                  "t": "五時",
+                  "read": "ごじ",
+                  "vi": "năm giờ"
+                }
+              ]
+            },
+            {
+              "stem": "A：「週末に＿行きますか。」 B：「映画館か公園へ行きます。」",
+              "choices": [
+                "どこへ",
+                "いつへ",
+                "何が",
+                "だれに"
+              ],
+              "answer": 0,
+              "pt": "NかN + B5 NへVます (ôn)",
+              "explain": "Câu hỏi hỏi về **điểm đến** (vì câu trả lời dùng「へ行きます」), nên phải dùng「どこへ」. Câu trả lời「映画館か公園」dùng「か」(hay) cho thấy lựa chọn. Chọn「いつへ」sai vì「いつ」hỏi thời gian và「へ」không đi sau「いつ」. Chọn「何が」sai vì「何が」hỏi chủ ngữ, không hỏi nơi đến. Chọn「だれに」sai vì「だれ」hỏi về người, không phải điểm đến.",
+              "glosses": [
+                {
+                  "t": "週末",
+                  "read": "しゅうまつ",
+                  "vi": "cuối tuần"
+                },
+                {
+                  "t": "映画館",
+                  "read": "えいがかん",
+                  "vi": "rạp chiếu phim"
+                },
+                {
+                  "t": "公園",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは電車＿会社へ行きます。",
+              "choices": [
+                "を",
+                "が",
+                "で",
+                "へ"
+              ],
+              "answer": 2,
+              "pt": "B5 NでVます (ôn)",
+              "explain": "「Nで」chỉ **phương tiện di chuyển** — \"đi bằng N\". Ở đây「電車で」= bằng tàu điện. Chọn「を」sai vì「を」đánh dấu tân ngữ trực tiếp; điểm đến mới dùng「へ」. Chọn「が」sai vì「が」đánh dấu chủ ngữ, chủ ngữ là「田中さんは」rồi. Chọn「へ」sai vì「へ」chỉ hướng/đích đến, không chỉ phương tiện.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは友達＿テニスをします。",
+              "choices": [
+                "に",
+                "と",
+                "が",
+                "で"
+              ],
+              "answer": 1,
+              "pt": "B5 NとVます (ôn)",
+              "explain": "「Nと～します」nghĩa \"làm cùng với N\" — \"cùng với bạn bè chơi tennis\". Chọn「に」sai vì「に」chỉ điểm đến hoặc người nhận gián tiếp, không phải đối tượng cùng hành động. Chọn「が」sai vì「が」đánh dấu chủ ngữ. Chọn「で」sai vì「で」chỉ phương tiện hoặc địa điểm, không phải người cùng làm.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "テニス",
+                  "vi": "quần vợt"
+                },
+                {
+                  "t": "します",
+                  "vi": "chơi, làm"
+                }
+              ]
+            },
+            {
+              "stem": "A：「＿テストをしますか。」 B：「来週の火曜日にします。」",
+              "choices": [
+                "どこで",
+                "いつ",
+                "何を",
+                "だれと"
+              ],
+              "answer": 1,
+              "pt": "B5 いつVますか (ôn)",
+              "explain": "Câu trả lời「来週の火曜日に」chỉ **thời gian**, nên câu hỏi phải là「いつ」(khi nào). Chọn「どこで」sai vì「どこで」hỏi địa điểm, câu trả lời là thời gian. Chọn「何を」sai vì「何を」hỏi làm gì, nhưng câu đã có「テストをします」rồi. Chọn「だれと」sai vì「だれと」hỏi cùng với ai, câu trả lời không đề cập người.",
+              "glosses": [
+                {
+                  "t": "テスト",
+                  "vi": "bài kiểm tra"
+                },
+                {
+                  "t": "来週",
+                  "read": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "火曜日",
+                  "read": "かようび",
+                  "vi": "thứ Ba"
+                },
+                {
+                  "t": "テストをしますか",
+                  "read": "テストをしますか",
+                  "vi": "〜をしますか = (có) làm/thi ~ không? (hỏi về việc/hoạt động)"
+                },
+                {
+                  "t": "にします",
+                  "read": "にします",
+                  "vi": "〜にします = quyết định chọn/làm vào (thời điểm hoặc lựa chọn)"
+                }
+              ]
+            },
+            {
+              "stem": "いっしょにコーヒーを飲み＿。",
+              "choices": [
+                "ませんか",
+                "ましょう",
+                "ますか",
+                "ません"
+              ],
+              "answer": 1,
+              "pt": "Vましょう",
+              "explain": "「Vましょう」là lời **đề nghị/khẳng định cùng nhau** \"Hãy cùng ...\", mang tính quyết đoán nhẹ hơn「Vませんか」. Chọn「ませんか」cũng đúng nghĩa \"rủ\" nhưng mang hình thức hỏi ý kiến (nhẹ hơn), còn câu này cần dạng「ましょう」theo yêu cầu điền vào chỗ trống. Chọn「ますか」sai vì đó chỉ là câu hỏi thông tin trung tính, không phải lời mời. Chọn「ません」sai vì「ません」là phủ định, không phải lời mời.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "飲みましょう",
+                  "read": "のみましょう",
+                  "vi": "hãy cùng uống"
+                }
+              ]
+            },
+            {
+              "stem": "A：「何をしますか。」 B：「音楽＿聞きます。」",
+              "choices": [
+                "が",
+                "に",
+                "を",
+                "で"
+              ],
+              "answer": 2,
+              "pt": "NをVます",
+              "explain": "「音楽を聞きます」— 「を」đánh dấu tân ngữ trực tiếp「音楽」của động từ「聞きます」. Chọn「が」sai vì「が」đánh dấu chủ ngữ, không phải tân ngữ nghe nhạc. Chọn「に」sai vì「に」chỉ điểm đến hoặc thời điểm. Chọn「で」sai vì「で」chỉ phương tiện hoặc địa điểm hành động.",
+              "glosses": [
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "聞きます",
+                  "read": "ききます",
+                  "vi": "nghe"
+                },
+                {
+                  "t": "何をしますか",
+                  "read": "なにをしますか",
+                  "vi": "làm gì? (câu hỏi việc đang/sẽ làm)"
+                }
+              ]
+            },
+            {
+              "stem": "A：「どこで昼ごはんを食べますか。」 B：「食堂＿食べます。」",
+              "choices": [
+                "へ",
+                "に",
+                "で",
+                "を"
+              ],
+              "answer": 2,
+              "pt": "B5 NでVます (địa điểm, ôn)",
+              "explain": "「Nで」không chỉ phương tiện mà còn chỉ **địa điểm diễn ra hành động** — \"ăn ở nhà ăn\". Chọn「へ」sai vì「へ」chỉ hướng di chuyển, không phải địa điểm hành động. Chọn「に」sai vì「に」chỉ điểm đến (đến nhà ăn), không phải nơi thực hiện hành động ăn. Chọn「を」sai vì「を」đánh dấu tân ngữ trực tiếp, mà tân ngữ ở đây đã là「昼ごはん」rồi.",
+              "glosses": [
+                {
+                  "t": "どこで",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "昼ごはん",
+                  "read": "ひるごはん",
+                  "vi": "bữa trưa"
+                },
+                {
+                  "t": "食堂",
+                  "read": "しょくどう",
+                  "vi": "nhà ăn, căng-tin"
+                },
+                {
+                  "t": "食べます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                }
+              ]
+            },
+            {
+              "stem": "A：「映画を見ます＿、音楽を聞きます＿。どちらがすきですか。」",
+              "choices": [
+                "か／が",
+                "か／か",
+                "も／も",
+                "や／や"
+              ],
+              "answer": 1,
+              "pt": "NかN (lựa chọn trong câu ghép)",
+              "explain": "「Vます**か**、Vます**か**」dùng「か」sau **mỗi vế** để liệt kê hai lựa chọn ngang nhau, rồi hỏi「どちら」(cái nào). Chọn「か／が」sai vì vế sau cần「か」chứ không phải「が」để hoàn thành cấu trúc lựa chọn song song. Chọn「も／も」sai vì「Vますも」không phải cú pháp đúng; 「も」dùng ở danh từ, không sau「Vます」theo cách này. Chọn「や／や」sai vì「や」chỉ dùng giữa danh từ liệt kê không đầy đủ, không sau「Vます」.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "見ます",
+                  "read": "みます",
+                  "vi": "xem"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "聞きます",
+                  "read": "ききます",
+                  "vi": "nghe"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "cái nào (trong hai)"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "NをVます",
+              "explain": "Câu đúng: 「わたしはまいあさうちでパンとたまごをたべます。」— Mỗi sáng tôi ăn bánh mì và trứng ở nhà.\nSắp xếp: ô 1=「まいあさ」, ô 2=「うちで」, ô 3=「パンと」, ô 4=「たまごを」★.\nSau chủ ngữ 「わたしは」 ở khung đầu, ô 1 cần trạng từ chỉ thời gian 「まいあさ」 và ô 2 cần trạng từ chỉ nơi chốn 「うちで」 để bổ nghĩa cho hành động. Tiếp theo, ô 3 chứa 「パンと」 thể hiện phép liệt kê danh từ \"bánh mì và...\", buộc phải nối trực tiếp với danh từ 「たまごを」 ở ô 4 ★ mang trợ từ tân ngữ 「を」 đứng ngay trước động từ 「たべます。」 ở khung cuối. Do đó, mảnh 「たまごを」 bắt buộc phải nằm ở ô 4 ★.",
+              "glosses": [
+                {
+                  "t": "をたべます",
+                  "read": "をたべます",
+                  "vi": "〜をたべます = ăn ~ (たべる chia thì hiện tại/tương lai lịch sự)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "まいあさ",
+                  "read": "まいあさ",
+                  "vi": "mỗi sáng"
+                },
+                {
+                  "t": "うち",
+                  "read": "",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "パン",
+                  "read": "",
+                  "vi": "bánh mì"
+                },
+                {
+                  "t": "たまご",
+                  "read": "",
+                  "vi": "trứng"
+                }
+              ],
+              "frame": [
+                "わたしは",
+                "たべます。"
+              ],
+              "pieces": [
+                "まいあさ",
+                "うちで",
+                "パンと",
+                "たまごを"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NをVます (ôn B5 NでVます)",
+              "explain": "Câu đúng: 「きのうとしょかんでしんぶんをよみました。」— Hôm qua tôi đã đọc báo ở thư viện.\nSắp xếp: ô 1=「きのう」, ô 2=「としょかんで」, ô 3=「しんぶんを」★, ô 4=「よみました」。\nTrạng từ chỉ thời gian quá khứ 「きのう」 đứng đầu ở ô 1, tiếp theo là danh từ địa điểm hành động dính trợ từ 「としょかんで」 ở ô 2. Cấu trúc tác động 「NをVます」 yêu cầu danh từ chỉ đối tượng kèm trợ từ 「しんぶんを」 đứng ở ô 3 ngay trước động詞 quá khứ 「よみました」 ở vị trí cuối câu. Mảnh ở ô ★ 「しんぶんを」 mang trợ từ tác động 「を」 bổ nghĩa cho động từ 「よみました」 nên phải đứng ở ô 3 ngay trước vị ngữ, không thể đứng trước trạng từ địa điểm hay thời gian.",
+              "glosses": [
+                {
+                  "t": "としょかん",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "しんぶん",
+                  "read": "",
+                  "vi": "báo"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "よみました",
+                  "read": "よみました",
+                  "vi": "đã đọc"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "としょかんで",
+                "しんぶんを",
+                "きのう",
+                "よみました"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "何をVますか",
+              "explain": "Câu đúng: 「あしたのあさにスーパーでなにをかいますか。」— Sáng mai bạn sẽ mua gì ở siêu thị?\nSắp xếp: ô 1=「あさに」, ô 2=「スーパーで」, ô 3=「なにを」★, ô 4=「かいます」\nKhung cho sẵn cụm thời gian 「あしたの」 ở đầu và đuôi câu hỏi 「か。」 ở cuối. Cụm thời gian cụ thể 「あさに」 nối tiếp sau 「あしたの」, theo sau là địa điểm diễn ra hành động 「スーパーで」. Trợ từ từ nghi vấn 「なにを」 đứng trước động từ 「かいます」 để hỏi về tân ngữ tác động. Mảnh 「なにを」 chứa trợ từ tân ngữ 「を」 buộc phải đứng ở ô 3 ngay trước động từ 「かいます」 và không thể đứng sau động từ hay chen vào trước cụm địa điểm.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "read": "",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "あさ",
+                  "read": "",
+                  "vi": "buổi sáng"
+                },
+                {
+                  "t": "なにを",
+                  "read": "なにを",
+                  "vi": "なにを = làm cái gì (なに=gì + を trợ từ chỉ đối tượng)"
+                },
+                {
+                  "t": "スーパー",
+                  "read": "",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "かいます",
+                  "read": "",
+                  "vi": "mua"
+                }
+              ],
+              "frame": [
+                "あしたの",
+                "か。"
+              ],
+              "pieces": [
+                "あさに",
+                "なにを",
+                "スーパーで",
+                "かいます"
+              ],
+              "order": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vましょう",
+              "explain": "Câu đúng: 「こんばんレストランでいっしょにごはんをたべましょうか。」— Tối nay chúng mình cùng ăn cơm ở nhà hàng nhé?\nSắp xếp: ô 1=「レストランで」, ô 2=「いっしょに」, ô 3=「ごはんを」, ô 4=「たべましょう」★\nKhung đầu 「こんばん」 chỉ thời gian đòi hỏi theo sau là địa điểm diễn ra hành động đi với trợ từ 「で」 là 「レストランで」. Trạng từ rủ rê 「いっしょに」 đứng trước tân ngữ 「ごはんを」 mang trợ từ 「を」. Động từ dạng rủ rê 「たべましょう」 đứng ở vị trí cuối câu ngay trước khung cuối 「か。」 để tạo thành câu hỏi đề nghị. Mảnh 「たべましょう」 thể hiện điểm ngữ pháp Vましょう bắt buộc phải ở ô ★ (ô 4) làm vị ngữ chính cho toàn câu.",
+              "glosses": [
+                {
+                  "t": "こんばん",
+                  "read": "",
+                  "vi": "tối nay"
+                },
+                {
+                  "t": "ごはん",
+                  "read": "",
+                  "vi": "cơm / bữa ăn"
+                },
+                {
+                  "t": "たべましょう",
+                  "read": "",
+                  "vi": "cùng ăn / hãy ăn"
+                },
+                {
+                  "t": "レストラン",
+                  "read": "",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                }
+              ],
+              "frame": [
+                "こんばん",
+                "か。"
+              ],
+              "pieces": [
+                "ごはんを",
+                "たべましょう",
+                "レストランで",
+                "いっしょに"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NをVますか",
+              "explain": "Câu đúng: 「きょうのろくじにレストランでコーヒーをのみますか。」— Hôm nay vào lúc 6 giờ bạn có uống cà phê ở nhà hàng không?\nSắp xếp: ô 1=「ろくじに」, ô 2=「レストランで」, ô 3=「コーヒーを」★, ô 4=「のみます」\nKhung cho sẵn cụm chỉ thời gian 「きょうの」 ở đầu và trợ từ nghi vấn 「か。」 ở cuối câu. Cụm mốc thời gian 「ろくじに」 đi sau 「きょうの」, tiếp đến là địa điểm thực hiện hành động 「レストランで」. Tân ngữ 「コーヒーを」 đứng ngay trước động từ 「のみます」 để hoàn chỉnh cụm vị ngữ. Mảnh 「コーヒーを」 chứa trợ từ chỉ đối tượng tác động 「を」 buộc phải đứng ở ô 3 ngay trước động từ 「のみます」, không thể đặt sau động từ hay chen vào giữa trợ từ chỉ thời gian, địa điểm.",
+              "glosses": [
+                {
+                  "t": "のみますか",
+                  "read": "のみますか",
+                  "vi": "có uống không?"
+                },
+                {
+                  "t": "きょう",
+                  "read": "",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "ろくじ",
+                  "read": "",
+                  "vi": "6 giờ"
+                },
+                {
+                  "t": "レストラン",
+                  "read": "",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "コーヒー",
+                  "read": "コーヒー",
+                  "vi": "cà phê (danh từ mượn từ tiếng Anh coffee)"
+                }
+              ],
+              "frame": [
+                "きょうの",
+                "か。"
+              ],
+              "pieces": [
+                "ろくじに",
+                "レストランで",
+                "コーヒーを",
+                "のみます"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Vませんか",
+              "explain": "Câu đúng: 「あしたのばんにいっしょにごはんをたべませんか。」— Tối mai bạn có muốn cùng ăn cơm với tôi không?\nSắp xếp: ô 1=「ばんに」, ô 2=「いっしょに」, ô 3=「ごはんを」, ô 4=「たべません」★\nKhung cho sẵn cụm chỉ thời gian 「あしたの」 ở đầu và trợ từ nghi vấn 「か。」 ở cuối câu. Cụm mốc thời gian 「ばんに」 nối tiếp 「あしたの」, phó từ rủ rê 「いっしょに」 đứng trước tân ngữ 「ごはんを」. Động từ dạng phủ định 「たべません」 đứng sau tân ngữ. Mảnh 「たべません」 khi kết hợp với trợ từ 「か。」 ở khung sau sẽ tạo thành cấu trúc rủ rê 「〜ませんか」, bắt buộc phải đứng ở ô 4 để làm vị ngữ và không thể đặt trước các danh từ hay phó từ.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "read": "",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "ばん",
+                  "read": "",
+                  "vi": "buổi tối"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "ごはん",
+                  "read": "",
+                  "vi": "cơm / bữa ăn"
+                },
+                {
+                  "t": "たべません",
+                  "read": "",
+                  "vi": "không ăn"
+                }
+              ],
+              "frame": [
+                "あしたの",
+                "か。"
+              ],
+              "pieces": [
+                "ばんに",
+                "いっしょに",
+                "ごはんを",
+                "たべません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NをVます",
+              "explain": "Câu đúng: 「まいにちにほんごをべんきょうします。」— Hàng ngày tôi học tiếng Nhật.\nSắp xếp: ô 1=「まいにち」, ô 2=「にほんごを」★, ô 3=「べんきょう」, ô 4=「します」\nTrạng từ chỉ thời gian 「まいにち」 đứng ở ô 1 đầu câu để làm mốc thời gian. Mảnh 「にほんごを」 ở ô 2 ★ chứa trợ từ tác động 「を」 nối danh từ chỉ ngôn ngữ với động từ phía sau, thể hiện điểm ngữ pháp 「NをVます」. Danh từ hành động 「べんきょう」 ở ô 3 ghép trực tiếp với động từ 「します」 ở ô 4 để tạo thành vị ngữ hoàn chỉnh kết thúc bằng dấu chấm ở khung đuôi.",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "hằng ngày"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "べんきょうします",
+                  "read": "べんきょうします",
+                  "vi": "học"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "まいにち",
+                "にほんごを",
+                "べんきょう",
+                "します"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "何をVますか",
+              "explain": "Câu đúng: 「やまださんはまいばんうちでなにをききますか。」— Anh Yamada nghe cái gì ở nhà mỗi tối vậy?\nSắp xếp: ô 1=「まいばん」, ô 2=「うちで」, ô 3=「なにを」★, ô 4=「ききます」\nKhung cho sẵn chủ ngữ 「やまださんは」 ở đầu và trợ từ nghi vấn 「か。」 ở cuối câu. Cụm chỉ thời gian 「まいばん」 đứng trước địa điểm 「うちで」 để xác định bối cảnh của hành động. Từ hỏi tân ngữ 「なにを」 phải đặt ở ô 3 ★ ngay trước động từ 「ききます」 để tạo thành câu hỏi nghi vấn 何をVますか. Động từ 「ききます」 đứng ở ô 4 kết hợp với 「か。」 tạo thành đuôi câu hỏi 「ききますか。」.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "うち",
+                  "read": "",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "なにを",
+                  "read": "なにを",
+                  "vi": "なにを = làm cái gì (なに=gì + を trợ từ chỉ đối tượng)"
+                },
+                {
+                  "t": "まいばん",
+                  "read": "",
+                  "vi": "mỗi tối"
+                },
+                {
+                  "t": "ききます",
+                  "read": "",
+                  "vi": "nghe"
+                }
+              ],
+              "frame": [
+                "やまださんは",
+                "か。"
+              ],
+              "pieces": [
+                "うちで",
+                "なにを",
+                "まいばん",
+                "ききます"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "ôn B5 NとVます + NでVます + NへVます",
+              "explain": "Câu đúng: 「ともだちとでんしゃでとうきょうへいきます。」— Tôi đi Tokyo bằng tàu điện cùng với bạn.\nSắp xếp: ô 1=「ともだちと」, ô 2=「でんしゃで」, ô 3=「とうきょうへ」★, ô 4=「いきます」。\nĐộng từ chỉ sự di chuyển 「いきます」 cần đứng ở cuối câu tại ô 4 để làm vị ngữ. Danh từ chỉ điểm đến 「とうきょう」 phải đi kèm trợ từ chỉ hướng 「へ」 thành cụm 「とうきょうへ」 và đứng ngay trước động từ ở ô 3 ★. Các cụm chỉ người đi cùng 「ともだちと」 và phương tiện 「でんしゃで」 lần lượt bổ nghĩa ở ô 1 và ô 2. Mảnh ở ô 3 ★ chứa trợ từ 「へ」 thể hiện đích đến của hành động nên không thể chuyển sang ô khác.",
+              "glosses": [
+                {
+                  "t": "でんしゃで",
+                  "read": "でんしゃで",
+                  "vi": "bằng tàu điện (でんしゃ=tàu điện + で trợ từ chỉ phương tiện/cách thức)"
+                },
+                {
+                  "t": "とうきょう",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "いきます",
+                  "read": "",
+                  "vi": "đi"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "でんしゃで",
+                "とうきょうへ",
+                "ともだちと",
+                "いきます"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NかN + NをVますか",
+              "explain": "Câu đúng: 「にちようびはこうえんのみせでジュースかみずをのみます。」— Vào chủ nhật, tôi uống nước trái cây hoặc nước lọc ở cửa hàng trong công viên.\nSắp xếp: ô 1=「こうえんの」, ô 2=「みせで」, ô 3=「ジュースか」★, ô 4=「みずを」.\nKhung câu bắt đầu bằng mốc thời gian 「にちようびは」 và kết thúc bằng vị ngữ hành động 「のみます。」. Bổ ngữ nơi chốn bắt buộc phải ghép 「こうえんの」 bổ nghĩa cho danh từ địa điểm 「みせで」 thành cụm 「こうえんのみせで」 (tại cửa hàng trong công viên). Tiếp theo, tân ngữ của hành động uống là sự lựa chọn giữa hai đồ uống theo cấu trúc 「NかN」, nên 「ジュースか」 phải đứng trước danh từ thứ hai mang trợ từ tân ngữ 「みずを」. Do đó, mảnh 「ジュースか」 mang trợ từ lựa chọn bắt buộc phải nằm ở ô 3 để kết nối trực tiếp với 「みずを」 ngay trước động từ.",
+              "glosses": [
+                {
+                  "t": "にちようび",
+                  "read": "",
+                  "vi": "chủ nhật"
+                },
+                {
+                  "t": "のみます",
+                  "read": "",
+                  "vi": "uống"
+                },
+                {
+                  "t": "みせ",
+                  "read": "",
+                  "vi": "cửa hàng"
+                },
+                {
+                  "t": "みず",
+                  "read": "",
+                  "vi": "nước"
+                },
+                {
+                  "t": "ジュース",
+                  "read": "",
+                  "vi": "nước trái cây"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "",
+                  "vi": "công viên"
+                }
+              ],
+              "frame": [
+                "にちようびは",
+                "のみます。"
+              ],
+              "pieces": [
+                "みせで",
+                "みずを",
+                "ジュースか",
+                "こうえんの"
+              ],
+              "order": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NをNします (ôn B4 〜時から〜時まで)",
+              "explain": "Câu đúng: 「くじからじゅういちじまでしごとをします。」— Tôi làm việc từ 9 giờ đến 11 giờ.\nSắp xếp: ô 1=「くじから」, ô 2=「じゅういちじまで」, ô 3=「しごとを」★, ô 4=「します」。\nCấu trúc chỉ khoảng thời gian 「〜から〜まで」 đòi hỏi điểm bắt đầu 「くじから」 ở ô 1 đi trước điểm kết thúc 「じゅういちじまで」 ở ô 2. Cụm danh từ kết hợp trợ từ tân ngữ 「しごとを」 đóng vai trò đối tượng của hành động, bắt buộc nằm ở ô 3 ★ ngay trước động từ 「します」 ở ô 4. Mảnh ở ô 3 ★ mang trợ từ 「を」 nên chỉ có thể đứng trước động từ để hoàn chỉnh mẫu ngữ pháp làm việc.",
+              "glosses": [
+                {
+                  "t": "をします",
+                  "read": "をします",
+                  "vi": "〜をします = làm ~ (をする, dùng với danh từ chỉ hoạt động)"
+                },
+                {
+                  "t": "じゅういちじ",
+                  "read": "じゅういちじ",
+                  "vi": "11 giờ"
+                },
+                {
+                  "t": "しごと",
+                  "read": "",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "くじ",
+                  "read": "くじ",
+                  "vi": "9 giờ"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "じゅういちじまで",
+                "しごとを",
+                "くじから",
+                "します"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "何をVますか (ôn B5 いつVますか)",
+              "explain": "Câu đúng: 「あなたはあしたのごごにともだちとなにをしますか。」— Chiều mai bạn sẽ làm gì cùng với bạn bè?\nSắp xếp: ô 1=「あしたの」, ô 2=「ごごに」, ô 3=「ともだちと」, ô 4=「なにを」★。\nKhung câu yêu cầu xác định hành động nghi vấn với chủ ngữ 「あなたは」 và vị ngữ nghi vấn 「しますか。」 ở hai đầu. Trợ từ 「の」 nối hai danh từ thời gian thành cụm 「あしたのごごに」 chiếm ô 1 và ô 2, tiếp theo là cụm đối tác 「ともだちと」 ở ô 3. Từ hỏi tân ngữ 「なにを」 bắt buộc phải nằm ở ô 4 ★ ngay trước động từ nghi vấn 「しますか。」 để hỏi về nội dung công việc. Mảnh ở ô 4 ★ không thể đứng trước các thành phần trạng ngữ vì phải liên kết trực tiếp với động từ ở cuối câu.",
+              "glosses": [
+                {
+                  "t": "あなた",
+                  "read": "",
+                  "vi": "bạn"
+                },
+                {
+                  "t": "します",
+                  "read": "",
+                  "vi": "làm"
+                },
+                {
+                  "t": "ごごに",
+                  "read": "ごごに",
+                  "vi": "vào buổi chiều (ごご=buổi chiều + に trợ từ chỉ thời điểm)"
+                },
+                {
+                  "t": "なにを",
+                  "read": "なにを",
+                  "vi": "なにを = làm cái gì (なに=gì + を trợ từ chỉ đối tượng)"
+                },
+                {
+                  "t": "あした",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "",
+                  "vi": "bạn / bạn bè"
+                }
+              ],
+              "frame": [
+                "あなたは",
+                "しますか。"
+              ],
+              "pieces": [
+                "ごごに",
+                "なにを",
+                "あしたの",
+                "ともだちと"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NをNします (ôn B4 〜時 + B5 NでVます)",
+              "explain": "Câu đúng: 「はちじにいえでにほんごのべんきょうをします。」— Tôi học tiếng Nhật ở nhà lúc 8 giờ.\nSắp xếp: ô 1=「はちじに」, ô 2=「いえで」, ô 3=「にほんごの」, ô 4=「べんきょうを」★\nTrạng từ chỉ thời gian 「はちじに」 đứng ở đầu câu, nối tiếp bởi địa điểm diễn ra hành động 「いえで」 mang trợ từ 「で」. Danh từ 「にほんごの」 đứng trước để bổ nghĩa cho danh từ 「べんきょう」 tạo thành cụm tân ngữ 「にほんごのべんきょうを」. Mảnh 「べんきょうを」 kết hợp với động từ ở khung cuối 「します。」 tạo thành cấu trúc NをNします. Mảnh 「べんきょうを」 chứa trợ từ tân ngữ 「を」 thuộc điểm ngữ pháp NをNします bắt buộc đứng ở ô ★ (ô 4) ngay trước 「します。」.",
+              "glosses": [
+                {
+                  "t": "をします",
+                  "read": "をします",
+                  "vi": "〜をします = làm ~ (をする, dùng với danh từ chỉ hoạt động)"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "はちじに",
+                  "read": "はちじに",
+                  "vi": "vào lúc 8 giờ (はちじ=8 giờ + に trợ từ chỉ thời điểm)"
+                },
+                {
+                  "t": "べんきょう",
+                  "read": "",
+                  "vi": "việc học / học tập"
+                },
+                {
+                  "t": "いえ",
+                  "read": "いえ",
+                  "vi": "nhà"
+                }
+              ],
+              "frame": [
+                "",
+                "します。"
+              ],
+              "pieces": [
+                "にほんごの",
+                "はちじに",
+                "べんきょうを",
+                "いえで"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "Vませんか (lời mời lịch sự)",
+              "explain": "Câu đúng: 「きょうのひるにいっしょにひるごはんをたべませんか。」— Trưa nay cùng ăn cơm trưa với mình không?\nSắp xếp: ô 1=「ひるに」, ô 2=「いっしょに」, ô 3=「ひるごはんを」, ô 4=「たべませんか。」★\nKhung đầu câu có 「きょうの」 (danh từ + の) nên phía sau bắt buộc phải đi với danh từ chỉ thời gian 「ひるに」 ở ô 1. Tiếp theo, phó từ 「いっしょに」 ở ô 2 đứng trước cụm tân ngữ 「ひるごはんを」 ở ô 3 để bổ nghĩa cho hành động ăn. Vị ngữ rủ rê lịch sự 「たべませんか。」 (mẫu Vませんか) nằm ở ô 4 ★ giữ vai trò kết thúc câu hỏi và không thể đứng ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "たべませんか",
+                  "read": "",
+                  "vi": "cùng ăn không / ăn nhé"
+                },
+                {
+                  "t": "ひる",
+                  "read": "ひる",
+                  "vi": "buổi trưa"
+                },
+                {
+                  "t": "ひるごはん",
+                  "read": "ひるごはん",
+                  "vi": "cơm trưa"
+                }
+              ],
+              "frame": [
+                "きょうの",
+                ""
+              ],
+              "pieces": [
+                "いっしょに",
+                "たべませんか。",
+                "ひるに",
+                "ひるごはんを"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NかN (lựa chọn giữa 2 hành động) + NをNします",
+              "explain": "Câu đúng: 「にちようびにかいものをしますか、べんきょうをしますか。」— Vào Chủ nhật bạn sẽ đi mua sắm hay sẽ học bài?\nSắp xếp: ô 1=「かいものを」, ô 2=「しますか、」★, ô 3=「べんきょうを」, ô 4=「します」.\nKhung đã cho trước thời gian 「にちようびに」 đòi hỏi tân ngữ phía sau. Cụm 「かいものを」 đứng ngay sau thời gian để làm tân ngữ cho động từ 「しますか、」. Trợ từ nghi vấn 「か、」 ở cuối câu đầu đóng vai trò nối hai lựa chọn câu hỏi, nên mảnh 「しますか、」 bắt buộc phải nằm ở ô 2★ ngay trước lựa chọn thứ hai 「べんきょうを」. Cuối cùng, mảnh 「します」 kết hợp với 「か。」 ở khung sau để hoàn thành câu hỏi thứ hai.",
+              "glosses": [
+                {
+                  "t": "にちようび",
+                  "read": "にちようび",
+                  "vi": "chủ nhật"
+                },
+                {
+                  "t": "しますか",
+                  "read": "しますか",
+                  "vi": "〜しますか = bạn có làm ~ không? (câu hỏi lịch sự)"
+                },
+                {
+                  "t": "かいもの",
+                  "read": "かいもの",
+                  "vi": "mua sắm"
+                },
+                {
+                  "t": "べんきょう",
+                  "read": "べんきょう",
+                  "vi": "học, việc học"
+                },
+                {
+                  "t": "をします",
+                  "read": "をします",
+                  "vi": "〜をします = làm ~ (をする, dùng với danh từ chỉ hoạt động)"
+                }
+              ],
+              "frame": [
+                "にちようびに",
+                "か。"
+              ],
+              "pieces": [
+                "しますか、",
+                "かいものを",
+                "べんきょうを",
+                "します"
+              ],
+              "order": [
+                1,
+                0,
+                2,
+                3
+              ],
+              "starSlot": 1
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "アリさんはまいにちコーヒーを",
+                "います。きょうわたしはアリさんに「いっしょにこうえんへ",
+                "か」といいました。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "のみて",
+                    "のみます",
+                    "のみ",
+                    "のんで"
+                  ],
+                  "answer": 1,
+                  "explain": "Chỗ trống 1 kiểm điểm ngữ pháp「NをVます」(tân ngữ trực tiếp + thể lịch sự). Câu cần dạng 「〜をのみます」= uống cà phê (hành động thường ngày, thể lịch sự Vます). ① 「のみて」— dạng て-form, không đứng một mình cuối vị ngữ độc lập. ③ 「のみ」— gốc ren'yōkei, cũng không kết thúc câu. ④ 「のんで」— て-form của biến âm, sai vai trò cú pháp ở đây. Chỉ ② 「のみます」là thể lịch sự hoàn chỉnh, đúng với văn cảnh \"mỗi ngày uống cà phê\"."
+                },
+                {
+                  "choices": [
+                    "いきましょう",
+                    "いきます",
+                    "いきません",
+                    "いきました"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 2 kiểm điểm ngữ pháp「Vましょう」(cùng làm nhé — lời mời rủ). Toàn câu là「いっしょにこうえんへいきましょうか」= \"Cùng đi công viên nhé?\". ① 「いきましょう(か)」— đúng, dạng ましょう dùng để rủ rê/đề nghị cùng làm. ② 「いきます」— thể lịch sự thường, chỉ tường thuật sự thật, không mang ý mời. ③ 「いきません」— phủ định, nghĩa \"không đi\", trái nghĩa. ④ 「いきました」— quá khứ, không phù hợp ngữ cảnh mời hiện tại."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "いきましょうか",
+                  "read": "いきましょうか",
+                  "vi": "cùng đi nhé?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "「します」はどんな動詞のかたですか。もとのかたち（じしょけい）を えらんでください。",
+          "items": [
+            {
+              "stem": "テニスをします。→「します」のもとのかたち → ＿",
+              "choices": [
+                "する",
+                "して",
+                "し",
+                "します"
+              ],
+              "answer": 0,
+              "explain": "「します」は「する」（suru-động từ）の 「ます」けいです。「する」がもとのかたち（từ điển）です。\n• 「する」→ ĐÚNG: đây là dạng gốc (じしょけい) của động từ する.\n• 「して」→ SAI: đây là dạng て-けい (dùng để nối câu hoặc nhờ ai đó làm gì).\n• 「し」→ SAI: đây là phần gốc (ご/stem) trước khi gắn đuôi, không phải từ điển hoàn chỉnh.\n• 「します」→ SAI: đây chính là dạng 「ます」けい đang cho trong đề, không phải dạng gốc.",
+              "glosses": [
+                {
+                  "t": "テニス",
+                  "vi": "tennis"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ chỉ tân ngữ trực tiếp"
+                },
+                {
+                  "t": "します",
+                  "read": "します",
+                  "vi": "làm, chơi (dạng lịch sự của する)"
+                },
+                {
+                  "t": "もとのかたち",
+                  "vi": "dạng gốc / từ điển"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "いっしょにえいが＿みませんか。",
+              "choices": [
+                "で",
+                "へ",
+                "を",
+                "と"
+              ],
+              "answer": 2,
+              "explain": "「えいがをみる」— 「を」là TRỢ TỪ chỉ TÂN NGỮ TRỰC TIẾP (N を V), đứng sau danh từ chỉ đối tượng của hành động. Ở đây「えいが」(bộ phim) là thứ được xem, nên dùng「を」.\n• 「で」→ SAI: 「で」chỉ phương tiện, địa điểm diễn ra hành động (例：バスでいきます).\n• 「へ」→ SAI: 「へ」chỉ hướng di chuyển (例：がっこうへいきます).\n• 「を」→ ĐÚNG: chỉ tân ngữ trực tiếp — đây là điểm ngữ pháp cốt lõi Bài 6「N を V ます」.\n• 「と」→ SAI: 「と」chỉ người cùng thực hiện hành động (例：ともだちといきます); không đứng sau vật/đối tượng của hành động.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "えいが",
+                  "read": "映画",
+                  "vi": "bộ phim"
+                },
+                {
+                  "t": "みませんか",
+                  "read": "見ませんか",
+                  "vi": "không (cùng) xem... sao? (lời mời lịch sự)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Chúng ta cùng uống cà phê nhé!",
+              "target": "コーヒーをのみましょう。",
+              "model": "コーヒー を のみましょう。",
+              "explain": "Cấu trúc「〜ましょう」dùng để ĐỀ NGHỊ/MỜI cùng làm một việc (tương đương 'hãy cùng…' / 'ta cùng… nhé'). Khung câu là「N を V ましょう」:\n• 「コーヒー」= cà phê — danh từ tân ngữ.\n• 「を」= trợ từ chỉ tân ngữ trực tiếp (N を V).\n• 「のみましょう」(飲みましょう) = hãy cùng uống — dạng「ましょう」của「のみます」.\nLưu ý: không cần dịch 'chúng ta' vì tiếng Nhật thường tỉnh lược chủ ngữ khi ngữ cảnh rõ. Dạng「〜ましょう」khác「〜ませんか」ở chỗ:「ましょう」mang tính đề xuất trực tiếp/thân mật hơn, còn「ませんか」mang sắc thái hỏi ý kiến/mời lịch sự hơn.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ chỉ tân ngữ trực tiếp"
+                },
+                {
+                  "t": "のみましょう",
+                  "read": "飲みましょう",
+                  "vi": "hãy cùng uống (dạng đề nghị lịch sự của 飲む)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2046 @@
+{
+  "bai": 47,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 47 giới thiệu ba mẫu dùng khi truyền đạt thông tin NGHE ĐƯỢC từ nguồn khác: 「〜そうです（伝聞）」(nghe nói…), 「〜らしいです」(hình như, có vẻ/nghe đồn) và 「Nによると〜そうです/らしいです」(theo N thì…). Điểm mấu chốt: 伝聞 そう nối với PHỔ THÔNG HÌNH (普通形), KHÔNG phải ますstem (đó là 様態そう của Bài 43). Khi đọc, chú ý tìm nguồn tin (によると) và phân biệt người nói TỰ NHẬN XÉT hay đang DẪN LẠI lời người khác.",
+    "steps": [
+      "Đọc lướt để biết ai đang nói, thông tin nghe từ đâu (ニュース? 友達? 先生?).",
+      "Tìm mẫu 「〜そうです」— kiểm tra TỪ NỐI TRƯỚC: nếu là 普通形 (Vる/Vた/Vない, A/NAだ) = 伝聞 (B47); nếu là ますstem/なそう = 様態 (B43).",
+      "Tìm「〜らしいです」— thường đi kèm nguồn tin không chắc chắn, mang sắc thái \"nghe đồn / hình như\".",
+      "Tìm「Nによると」ở đầu mệnh đề — N là NGUỒN TIN; cuối câu thường có そうです hoặc らしいです.",
+      "Câu hỏi trắc nghiệm hay hỏi: thông tin đó từ đâu, ai nói, có chắc không — tìm によると + nguồn cụ thể trong bài.",
+      "Ôn lại ngữ pháp cũ đang tái dùng: 〜と思います (B21), 〜んです (B26), 〜そう様態 (B43), Vているところ/Vたばかり (B46)."
+    ],
+    "tips": [
+      "伝聞 そう: 普通形 + そうです → 「雨が降るそうです」(nghe nói sắp mưa). Khác 様態: ますstem + そう → 「おいしそうです」(trông có vẻ ngon).",
+      "「らしい」mang thêm sắc thái CHỦ QUAN / PHỎNG ĐOÁN từ bằng chứng gián tiếp, không nhất thiết có nguồn rõ ràng như そうです.",
+      "「Nによると」PHẢI theo sau bởi câu kết thúc bằng そうです hoặc らしいです — cặp cố định, không kết thúc bằng です trần.",
+      "Danh từ / NAだ + らしい/そう(伝聞): NA → 「便利らしいです」(không cần だ); N → 「先生らしいです」.",
+      "Đừng nhầm によると (theo nguồn tin) với によって (do/vì, tùy theo) — B37/38 khác hoàn toàn về nghĩa.",
+      "様態そう của B43 phủ định là「〜そうにありません/なさそうです」; 伝聞そう của B47 phủ định là「〜ないそうです」."
+    ],
+    "grammarFocus": [
+      "普通形＋そうです（伝聞 — nghe nói）",
+      "〜らしいです（hình như/nghe đồn）",
+      "Nによると〜そうです/らしいです（theo N thì…）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 46,
+        "items": [
+          "Vるところです",
+          "Vたばかりです",
+          "Vているところです"
+        ]
+      },
+      {
+        "bai": 43,
+        "items": [
+          "V/Aそうです（様態 — trông có vẻ）"
+        ]
+      },
+      {
+        "bai": 40,
+        "items": [
+          "〜かどうか〜",
+          "Vてみます"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）",
+          "Nのために"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜でしょう",
+          "〜かもしれません"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vる予定です",
+          "まだVていません"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 20,
+        "items": [
+          "普通形（thể thông thường）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "近所のうわさ",
+      "titleVi": "Tin đồn hàng xóm",
+      "japanese": "田中さんによると、駅の近くに新しいカフェができたそうです。\nそのカフェはコーヒーがとてもおいしいらしいです。\n友達に聞いたら、週末はいつも混んでいるそうです。\n私はまだ行ったことがないので、来週行ってみようと思っています。\nミラーさんの話では、そのカフェは月曜日が定休日らしいです。\n予約が必要かどうか、あとで調べてみます。",
+      "vietnamese": "Theo anh Tanaka, nghe nói gần ga có một quán cà phê mới mở.\nNghe đồn cà phê ở quán đó rất ngon.\nHỏi bạn thì nghe nói cuối tuần lúc nào cũng đông.\nTôi chưa đến bao giờ nên định tuần tới thử đến xem.\nTheo lời anh Miller, hình như quán đó đóng cửa vào thứ Hai.\nCó cần đặt chỗ không, tôi sẽ tra thử sau.",
+      "sentences": [
+        {
+          "jp": "田中さんによると、駅の近くに新しいカフェができたそうです。",
+          "vi": "Theo anh Tanaka, nghe nói gần ga có một quán cà phê mới mở.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (tên người)"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga (tàu điện/xe lửa)"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, gần đó"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "によると",
+              "read": "によると",
+              "vi": "theo (nguồn tin)"
+            },
+            {
+              "w": "できました",
+              "read": "できました",
+              "vi": "đã mở/được tạo ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nによると〜そうです（B47）",
+              "vi": "田中さんによると = theo anh Tanaka; できたそうです = nghe nói đã mở. Cặp によると…そうです nêu nguồn tin rõ ràng."
+            },
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "できた (た形 = 普通形 quá khứ) + そうです = nghe nói đã mở. Đây là 伝聞そう, KHÔNG phải 様態そう."
+            }
+          ]
+        },
+        {
+          "jp": "そのカフェはコーヒーがとてもおいしいらしいです。",
+          "vi": "Nghe đồn cà phê ở quán đó rất ngon.",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいです（B47）",
+              "vi": "おいしいらしいです = nghe đồn là ngon / hình như ngon. Không có nguồn rõ ràng như によると — chỉ là thông tin nghe được chung chung."
+            }
+          ]
+        },
+        {
+          "jp": "友達に聞いたら、週末はいつも混んでいるそうです。",
+          "vi": "Hỏi bạn thì nghe nói cuối tuần lúc nào cũng đông.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "lúc nào cũng"
+            },
+            {
+              "w": "混みます",
+              "read": "こみます",
+              "vi": "đông, tấp nập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "混んでいる (普通形) + そうです = nghe nói (bạn kể) là lúc nào cũng đông. Nguồn tin là 友達."
+            },
+            {
+              "point": "〜たら（B25）",
+              "vi": "聞いたら = khi/sau khi hỏi (điều kiện thời gian dẫn đến thông tin tiếp theo)."
+            }
+          ]
+        },
+        {
+          "jp": "私はまだ行ったことがないので、来週行ってみようと思っています。",
+          "vi": "Tôi chưa đến bao giờ nên định tuần tới thử đến xem.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn, chưa"
+            },
+            {
+              "w": "行った",
+              "read": "いった",
+              "vi": "đã đi"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "行ってみよう",
+              "read": "いってみよう",
+              "vi": "thử đi"
+            },
+            {
+              "w": "思っています",
+              "read": "おもっています",
+              "vi": "đang nghĩ, dự định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたことがない（B19）",
+              "vi": "行ったことがない = chưa từng đến. 普通形否定 của Vたことがあります."
+            },
+            {
+              "point": "〜ので（B39）",
+              "vi": "行ったことがないので = vì chưa từng đến. ので nêu lý do nhẹ nhàng hơn から."
+            },
+            {
+              "point": "Vてみます（B40）",
+              "vi": "行ってみよう = thử đến xem. ようと思っています = đang nghĩ sẽ làm (B21+B31)."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんの話では、そのカフェは月曜日が定休日らしいです。",
+          "vi": "Theo lời anh Miller, hình như quán đó đóng cửa vào thứ Hai.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "lời nói, câu chuyện"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "定休",
+              "read": "ていきゅう",
+              "vi": "ngày nghỉ định kỳ"
+            },
+            {
+              "w": "定休日",
+              "read": "ていきゅうび",
+              "vi": "ngày nghỉ định kỳ, ngày đóng cửa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nの話では〜らしいです（B47）",
+              "vi": "ミラーさんの話では = theo lời anh Miller. らしいです = hình như/nghe nói. Cách nêu nguồn tin bằng Nの話では cũng dùng được thay cho によると."
+            }
+          ]
+        },
+        {
+          "jp": "予約が必要かどうか、あとで調べてみます。",
+          "vi": "Có cần đặt chỗ không, tôi sẽ tra thử sau.",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "調べます",
+              "read": "しらべます",
+              "vi": "tra cứu, tìm hiểu"
+            },
+            {
+              "w": "あとで",
+              "read": "あとで",
+              "vi": "sau này, sau đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かどうか〜（B40）",
+              "vi": "予約が必要かどうか = không biết có cần đặt chỗ hay không. かどうか nêu điều còn chưa biết rõ."
+            },
+            {
+              "point": "Vてみます（B40）",
+              "vi": "調べてみます = thử tra xem. Hành động thử để biết kết quả."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "田中さんによると、駅の近くに新しいカフェができたそうです",
+          "label": "Nによると〜そうです（伝聞）"
+        },
+        {
+          "excerpt": "コーヒーがとてもおいしいらしいです",
+          "label": "〜らしいです（nghe đồn）"
+        },
+        {
+          "excerpt": "週末はいつも混んでいるそうです",
+          "label": "普通形＋そうです（伝聞）"
+        },
+        {
+          "excerpt": "そのカフェは月曜日が定休日らしいです",
+          "label": "〜らしいです（nguồn: Nの話では）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人は新しいカフェのことをだれから聞きましたか。",
+          "evi": [
+            0,
+            2,
+            4
+          ],
+          "options": [
+            "自分で調べて知りました",
+            "田中さんや友達、ミラーさんなど何人かから聞きました",
+            "田中さん一人から聞きました",
+            "カフェの店員に教えてもらいました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài có ba nguồn tin riêng biệt: (1)「田中さんによると」(theo anh Tanaka — mẫu Nによると B47), (2)「友達に聞いたら」(hỏi bạn — nguồn là bạn bè), (3)「ミラーさんの話では」(theo lời anh Miller — Nの話では B47). Đáp án 1 \"田中さんや友達、ミラーさんなど何人かから\" khớp chính xác cả ba nguồn đó. Đáp án 0 sai vì bài chưa tự điều tra (câu cuối mới nói「調べてみます」). Đáp án 2 sai vì chỉ nhắc một nguồn. Đáp án 3 không có trong bài.",
+          "tip": "Khi bài có nhiều mẫu「Nによると」/「Nの話では」, đó là tín hiệu có nhiều nguồn tin. Đáp án \"nhiều người\" thường đúng hơn đáp án chỉ nhắc một tên.",
+          "qt": {
+            "q": "Theo anh Tanaka, người này nghe về quán cà phê mới từ ai?",
+            "o": [
+              "Tự tìm hiểu rồi biết",
+              "Nghe từ một số người như anh Tanaka, bạn bè và anh Miller",
+              "Chỉ nghe từ anh Tanaka",
+              "Được nhân viên quán cà phê cho biết"
+            ]
+          }
+        },
+        {
+          "q": "このカフェについて正しいのはどれですか。",
+          "evi": [
+            2,
+            4
+          ],
+          "options": [
+            "月曜日が定休日で、週末はすいているそうです",
+            "週末はいつも混んでいて、月曜日が定休日らしいです",
+            "予約が必要で、コーヒーはあまりおいしくないそうです",
+            "カフェは遠くて、まだオープンしていないそうです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài ghi rõ hai sự thật được nghe:「週末はいつも混んでいるそうです」(nghe nói cuối tuần luôn đông — 伝聞そう B47) và「月曜日が定休日らしいです」(hình như đóng cửa thứ Hai — らしい B47). Đáp án 1 khớp cả hai. Đáp án 0 sai vì nói cuối tuần \"すいている\" (vắng) — ngược lại. Đáp án 2 và 3 hoàn toàn không có trong bài.",
+          "tip": "Câu hỏi \"正しいのはどれですか\" → tìm đáp án ghép được TẤT CẢ các chi tiết đã nêu. Loại ngay đáp án có bất kỳ chi tiết nào mâu thuẫn với bài.",
+          "qt": {
+            "q": "Điều nào sau đây đúng về quán cà phê này?",
+            "o": [
+              "Nghe nói quán nghỉ vào thứ Hai và cuối tuần thì vắng khách",
+              "Nghe nói cuối tuần lúc nào quán cũng đông và thứ Hai là ngày nghỉ",
+              "Nghe nói cần đặt chỗ và cà phê không ngon lắm",
+              "Nghe nói quán ở xa và vẫn chưa mở cửa"
+            ]
+          }
+        },
+        {
+          "q": "「できたそうです」の「そうです」はどんな使い方ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "様態そう — 見た目・様子を表す（B43）",
+            "伝聞そう — 聞いた情報を伝える（B47）",
+            "意見を言う〜と思います（B21）",
+            "推量の〜でしょう（B32）"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Nhìn vào từ NỐI TRƯỚC そうです:「できた」là 普通形 (た形 — quá khứ thông thường) → đây là 伝聞そう (B47: nghe nói). Thêm vào đó, bài có「田中さんによると」làm nguồn tin rõ ràng — đặc trưng của 伝聞そう. Đáp án 0 (様態そう B43) sai vì 様態そう nối với ますstem (ví dụ:「おいしそう」,「できそう」— không có た形). Đáp án 2 và 3 là mẫu hoàn toàn khác, không liên quan.",
+          "tip": "Phân biệt ngay bằng TỪ NỐI: 普通形 (Vる/Vた/Vない) + そうです = 伝聞 (B47); ますstem + そう = 様態 (B43). Thấy「〜たそうです」→ luôn là 伝聞.",
+          "qt": {
+            "q": "「できたそうです」: 「そうです」 được dùng theo cách nào?",
+            "o": [
+              "そう biểu thị vẻ ngoài hoặc trạng thái (B43)",
+              "そう biểu thị thông tin nghe được (B47)",
+              "〜と思います để nêu ý kiến (B21)",
+              "〜でしょう biểu thị suy đoán (B32)"
+            ]
+          }
+        },
+        {
+          "q": "この人は来週カフェへ行くと確信していますか。",
+          "evi": [
+            3,
+            5
+          ],
+          "options": [
+            "はい、もう予約しました",
+            "いいえ、予約が必要かどうかまだ調べていないので、確信はありません",
+            "はい、田中さんと一緒に行く予定です",
+            "いいえ、月曜日が定休日だから来週は行けません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Người viết dùng「来週行ってみようと思っています」(〜ようと思う B21+31 — ý định, chưa chắc chắn) và ngay câu cuối viết「予約が必要かどうか、あとで調べてみます」(〜かどうか B40 — chưa biết có cần đặt chỗ không, còn phải tra). Hai chi tiết này cộng lại = chưa xác nhận được, không thể khẳng định. Đáp án 0 sai vì bài không nhắc đến đặt chỗ. Đáp án 2 sai vì bài không có kế hoạch đi cùng Tanaka. Đáp án 3 sai vì định đến tuần tới, không nhất thiết là thứ Hai.",
+          "tip": "Thấy「〜ようと思っています」(ý định) +「〜かどうか調べてみます」(còn phải tra) → chưa chắc chắn. Đây là cặp tín hiệu \"chưa quyết định dứt khoát\" rất hay gặp trong câu hỏi suy luận.",
+          "qt": {
+            "q": "Người này có chắc chắn sẽ đến quán cà phê vào tuần tới không?",
+            "o": [
+              "Có, họ đã đặt chỗ rồi",
+              "Không, họ vẫn chưa tìm hiểu xem có cần đặt chỗ hay không nên chưa chắc chắn",
+              "Có, họ dự định đi cùng anh Tanaka",
+              "Không, vì thứ Hai quán nghỉ nên tuần tới họ không thể đi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ニュースと職場のうわさ",
+      "titleVi": "Tin tức và đồn đại nơi công sở",
+      "japanese": "今朝、テレビのニュースによると、来月から電車の料金が上がるそうです。\nそれを聞いて、同僚のワンさんが「本当ですか。困りましたね」と言いました。\n私も毎日電車で通勤しているので、少し心配になりました。\nワンさんによると、バスの料金は変わらないらしいです。\nバスで通えるかどうか、今度調べてみようと思っています。\nところで、会社でも最近いろいろなうわさがあります。\n山田部長の話では、来年、大阪に新しいオフィスができるそうです。\nそのオフィスには若い社員が転勤するらしいです。\n田中さんは「私も行くかもしれません」と言っていました。\n私は大阪に行ったことがあるので、大阪のことは少しわかります。\n大阪は食べ物がおいしくて、人が元気らしいです。\n友達に聞いたら、大阪のオフィスは駅からすぐだそうです。\nインターネットの情報によると、その辺りは新しいカフェやレストランが多いそうです。\n田中さんは「大阪に行けたら楽しそうですね」と嬉しそうに言っていました。\nでも、まだ正式な発表はないので、うわさの段階らしいです。\n来月の会議で詳しいことが分かるそうです。みんな楽しみにしています。",
+      "vietnamese": "Sáng nay theo bản tin truyền hình, nghe nói từ tháng tới giá vé tàu điện sẽ tăng.\nNghe tin đó, đồng nghiệp Wang nói \"Thật sao? Phiền quá nhỉ\".\nTôi cũng đi làm bằng tàu mỗi ngày nên hơi lo.\nTheo anh Wang, hình như giá vé xe buýt không thay đổi.\nCó đi được bằng xe buýt không, tôi định lần này thử tra xem.\nNhân tiện, ở công ty dạo này cũng có nhiều tin đồn khác nhau.\nTheo lời trưởng phòng Yamada, nghe nói năm tới sẽ mở văn phòng mới ở Osaka.\nNghe đồn nhân viên trẻ sẽ được chuyển đến văn phòng đó.\nAnh Tanaka nói \"Có thể tôi cũng sẽ đi\".\nTôi đã từng đến Osaka nên biết một chút về Osaka.\nHình như Osaka có đồ ăn ngon và người dân năng động.\nKhi hỏi bạn thì nghe nói văn phòng Osaka ngay gần ga.\nTheo thông tin trên mạng, nghe nói khu vực đó có nhiều quán cà phê và nhà hàng mới.\nAnh Tanaka nói \"Nếu được đi Osaka thì có vẻ vui nhỉ\" với vẻ mặt vui mừng.\nNhưng chưa có thông báo chính thức nên hình như vẫn còn ở giai đoạn đồn đại.\nNghe nói tháng tới trong cuộc họp sẽ biết chi tiết hơn. Mọi người đang mong chờ.",
+      "sentences": [
+        {
+          "jp": "今朝、テレビのニュースによると、来月から電車の料金が上がるそうです。",
+          "vi": "Sáng nay theo bản tin truyền hình, nghe nói từ tháng tới giá vé tàu điện sẽ tăng.",
+          "vocab": [
+            {
+              "w": "今朝",
+              "read": "けさ",
+              "vi": "sáng nay"
+            },
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "truyền hình"
+            },
+            {
+              "w": "ニュース",
+              "read": "ニュース",
+              "vi": "bản tin, tin tức"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá vé, phí"
+            },
+            {
+              "w": "上がります",
+              "read": "あがります",
+              "vi": "tăng, lên"
+            },
+            {
+              "w": "によると",
+              "read": "によると",
+              "vi": "theo (nguồn tin)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nによると〜そうです（B47）",
+              "vi": "テレビのニュースによると = theo bản tin TV; 上がるそうです = nghe nói sẽ tăng. Mẫu chuẩn nêu nguồn tin."
+            },
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "上がる (辞書形 = 普通形 hiện tại) + そうです = nghe nói (tàu) sẽ tăng giá."
+            }
+          ]
+        },
+        {
+          "jp": "それを聞いて、同僚のワンさんが「本当ですか。困りましたね」と言いました。",
+          "vi": "Nghe tin đó, đồng nghiệp Wang nói \"Thật sao? Phiền quá nhỉ\".",
+          "vocab": [
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật, thực sự"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "phiền, khó xử, lo lắng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜て（nguyên nhân B16）",
+              "vi": "それを聞いて = nghe tin đó (rồi phản ứng). Vて nối nguyên nhân/bối cảnh với hành động tiếp theo."
+            },
+            {
+              "point": "〜と言いました（B21）",
+              "vi": "Trích lời trực tiếp của Wang trong 「」."
+            }
+          ]
+        },
+        {
+          "jp": "私も毎日電車で通勤しているので、少し心配になりました。",
+          "vi": "Tôi cũng đi làm bằng tàu mỗi ngày nên hơi lo.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "通勤します",
+              "read": "つうきんします",
+              "vi": "đi làm (đi-về)"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（B39）",
+              "vi": "通勤しているので = vì (tôi) đang đi làm bằng tàu. ので nêu lý do tự nhiên dẫn đến lo lắng."
+            },
+            {
+              "point": "〜になりました（B19）",
+              "vi": "心配になりました = trở nên lo lắng. 〜になります biến đổi trạng thái."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんによると、バスの料金は変わらないらしいです。",
+          "vi": "Theo anh Wang, hình như giá vé xe buýt không thay đổi.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nによると〜らしいです（B47）",
+              "vi": "ワンさんによると = theo anh Wang; 変わらないらしいです = hình như không thay đổi. によると + らしい: có nguồn nhưng vẫn mang sắc thái chưa chắc chắn."
+            },
+            {
+              "point": "〜らしいです（B47）",
+              "vi": "変わらないらしいです = hình như không đổi. 普通形否定 (変わらない) + らしい = nghe đồn / có vẻ."
+            }
+          ]
+        },
+        {
+          "jp": "バスで通えるかどうか、今度調べてみようと思っています。",
+          "vi": "Có đi được bằng xe buýt không, tôi định lần này thử tra xem.",
+          "vocab": [
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "通います",
+              "read": "かよいます",
+              "vi": "đi lại (thường xuyên)"
+            },
+            {
+              "w": "今度",
+              "read": "こんど",
+              "vi": "lần này, lần tới"
+            },
+            {
+              "w": "調べます",
+              "read": "しらべます",
+              "vi": "tra cứu, tìm hiểu"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かどうか〜（B40）",
+              "vi": "バスで通えるかどうか = không biết có đi được bằng xe buýt hay không. Câu chưa biết kết quả."
+            },
+            {
+              "point": "Vてみます（B40）",
+              "vi": "調べてみよう = thử tra xem. ようと思っています = đang có dự định (B31)."
+            }
+          ]
+        },
+        {
+          "jp": "ところで、会社でも最近いろいろなうわさがあります。",
+          "vi": "Nhân tiện, ở công ty dạo này cũng có nhiều tin đồn khác nhau.",
+          "vocab": [
+            {
+              "w": "ところで",
+              "read": "ところで",
+              "vi": "nhân tiện, tiện đây (chuyển chủ đề)"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "いろいろな",
+              "read": "いろいろな",
+              "vi": "nhiều loại, đủ thứ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（B9）",
+              "vi": "うわさがあります = có tin đồn. が + あります chỉ sự tồn tại của sự kiện/thông tin."
+            }
+          ]
+        },
+        {
+          "jp": "山田部長の話では、来年、大阪に新しいオフィスができるそうです。",
+          "vi": "Theo lời trưởng phòng Yamada, nghe nói năm tới sẽ mở văn phòng mới ở Osaka.",
+          "vocab": [
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (tên người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng, trưởng bộ phận"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "lời nói, thông tin"
+            },
+            {
+              "w": "来年",
+              "read": "らいねん",
+              "vi": "năm tới"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "オフィス",
+              "read": "オフィス",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nの話では〜そうです（B47）",
+              "vi": "山田部長の話では = theo lời trưởng phòng Yamada. Cách nêu nguồn tin khác với によると nhưng cùng chức năng; cuối câu vẫn dùng そうです."
+            },
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "できる (辞書形) + そうです = nghe nói sẽ mở/được tạo ra."
+            }
+          ]
+        },
+        {
+          "jp": "そのオフィスには若い社員が転勤するらしいです。",
+          "vi": "Nghe đồn nhân viên trẻ sẽ được chuyển đến văn phòng đó.",
+          "vocab": [
+            {
+              "w": "オフィス",
+              "read": "オフィス",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "転勤します",
+              "read": "てんきんします",
+              "vi": "chuyển công tác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいです（B47）",
+              "vi": "転勤するらしいです = nghe đồn sẽ chuyển công tác. Không có nguồn cụ thể → らしい phù hợp hơn そうです."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは「私も行くかもしれません」と言っていました。",
+          "vi": "Anh Tanaka nói \"Có thể tôi cũng sẽ đi\".",
+          "vocab": [
+            {
+              "w": "田中さん",
+              "read": "たなかさん",
+              "vi": "anh/chị Tanaka"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "言っていました",
+              "read": "いっていました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれません（B32）",
+              "vi": "行くかもしれません = có thể sẽ đi. Mức độ chắc chắn thấp hơn そうです/らしいです — đây là ý kiến cá nhân của Tanaka."
+            },
+            {
+              "point": "〜と言っていました（B21）",
+              "vi": "Vていました = đang nói (trạng thái/hành động kéo dài trong quá khứ). Trích lời của Tanaka."
+            }
+          ]
+        },
+        {
+          "jp": "私は大阪に行ったことがあるので、大阪のことは少しわかります。",
+          "vi": "Tôi đã từng đến Osaka nên biết một chút về Osaka.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka"
+            },
+            {
+              "w": "行った",
+              "read": "いった",
+              "vi": "đã đi"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "わかります",
+              "read": "わかります",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたことがあります（B19）",
+              "vi": "行ったことがある = đã từng đến. Kinh nghiệm trong quá khứ."
+            },
+            {
+              "point": "〜ので（B39）",
+              "vi": "行ったことがあるので = vì đã từng đến. Lý do giải thích vì sao biết Osaka."
+            }
+          ]
+        },
+        {
+          "jp": "大阪は食べ物がおいしくて、人が元気らしいです。",
+          "vi": "Hình như Osaka có đồ ăn ngon và người dân năng động.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "năng động, khoẻ mạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいです（B47）",
+              "vi": "人が元気らしいです = hình như người dân (Osaka) năng động. Thông tin nghe được kết hợp với ấn tượng cá nhân."
+            },
+            {
+              "point": "〜くて（B16）",
+              "vi": "おいしくて = ngon và (nối tính từ い sang vế sau)."
+            }
+          ]
+        },
+        {
+          "jp": "友達に聞いたら、大阪のオフィスは駅からすぐだそうです。",
+          "vi": "Khi hỏi bạn thì nghe nói văn phòng Osaka ngay gần ga.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "オフィス",
+              "read": "オフィス",
+              "vi": "văn phòng"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga"
+            },
+            {
+              "w": "すぐ",
+              "read": "すぐ",
+              "vi": "ngay lập tức, rất gần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "駅からすぐだそうです = nghe nói ngay gần ga. だ (普通形 của danh từ/NA) + そうです = 伝聞."
+            },
+            {
+              "point": "〜たら（B25）",
+              "vi": "聞いたら = khi/sau khi hỏi (điều kiện thời gian dẫn đến thông tin tiếp theo). Chú ý: KHÁC 〜たところです (B46) = vừa mới làm xong (diễn tả trạng thái ngay sau hành động); ở đây たら chỉ đơn giản là \"sau khi hỏi thì (biết được)\"."
+            }
+          ]
+        },
+        {
+          "jp": "インターネットの情報によると、その辺りは新しいカフェやレストランが多いそうです。",
+          "vi": "Theo thông tin trên mạng, nghe nói khu vực đó có nhiều quán cà phê và nhà hàng mới.",
+          "vocab": [
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "辺り",
+              "read": "あたり",
+              "vi": "khu vực xung quanh"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nによると〜そうです（B47）",
+              "vi": "インターネットの情報によると = theo thông tin trên mạng; 多いそうです = nghe nói nhiều. Nguồn tin là internet."
+            },
+            {
+              "point": "NやN（B10）",
+              "vi": "カフェやレストラン = quán cà phê và nhà hàng (liệt kê một phần, còn nhiều thứ khác)."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは「大阪に行けたら楽しそうですね」と嬉しそうに言っていました。",
+          "vi": "Anh Tanaka nói \"Nếu được đi Osaka thì có vẻ vui nhỉ\" với vẻ mặt vui mừng.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "行ける",
+              "read": "いける",
+              "vi": "có thể đi"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "嬉しい",
+              "read": "うれしい",
+              "vi": "vui mừng, hạnh phúc"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そう（様態 B43）",
+              "vi": "楽しそうですね = có vẻ vui nhỉ; 嬉しそうに = trông có vẻ vui mừng. Đây là 様態そう（B43）— diễn tả cảm nhận/vẻ bề ngoài, KHÔNG phải 伝聞そう。"
+            },
+            {
+              "point": "〜たら（B25）",
+              "vi": "行けたら = nếu được đi. Điều kiện giả định."
+            }
+          ]
+        },
+        {
+          "jp": "でも、まだ正式な発表はないので、うわさの段階らしいです。",
+          "vi": "Nhưng chưa có thông báo chính thức nên hình như vẫn còn ở giai đoạn đồn đại.",
+          "vocab": [
+            {
+              "w": "正式",
+              "read": "せいしき",
+              "vi": "chính thức"
+            },
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "thông báo, công bố"
+            },
+            {
+              "w": "うわさ",
+              "read": "うわさ",
+              "vi": "tin đồn"
+            },
+            {
+              "w": "段階",
+              "read": "だんかい",
+              "vi": "giai đoạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしいです（B47）",
+              "vi": "うわさの段階らしいです = hình như vẫn còn ở giai đoạn đồn đại. らしい phù hợp khi người nói không chắc chắn hoàn toàn."
+            },
+            {
+              "point": "〜ので（B39）",
+              "vi": "まだ正式な発表はないので = vì chưa có thông báo chính thức. ので nêu lý do."
+            }
+          ]
+        },
+        {
+          "jp": "来月の会議で詳しいことが分かるそうです。みんな楽しみにしています。",
+          "vi": "Nghe nói tháng tới trong cuộc họp sẽ biết chi tiết hơn. Mọi người đang mong chờ.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "詳しい",
+              "read": "くわしい",
+              "vi": "chi tiết, cụ thể"
+            },
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "biết, hiểu"
+            },
+            {
+              "w": "楽しみにします",
+              "read": "たのしみにします",
+              "vi": "mong chờ, trông đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "分かるそうです = nghe nói sẽ biết. 分かる (辞書形 = 普通形) + そうです = 伝聞."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "テレビのニュースによると、来月から電車の料金が上がるそうです",
+          "label": "Nによると〜そうです（伝聞）"
+        },
+        {
+          "excerpt": "バスの料金は変わらないらしいです",
+          "label": "〜らしいです（nghe đồn）"
+        },
+        {
+          "excerpt": "山田部長の話では、来年、大阪に新しいオフィスができるそうです",
+          "label": "Nの話では〜そうです（伝聞）"
+        },
+        {
+          "excerpt": "そのオフィスには若い社員が転勤するらしいです",
+          "label": "〜らしいです（không rõ nguồn）"
+        },
+        {
+          "excerpt": "インターネットの情報によると、その辺りは新しいカフェやレストランが多いそうです",
+          "label": "Nによると〜そうです（nguồn: internet）"
+        },
+        {
+          "excerpt": "楽しそうですね",
+          "label": "様態そう（B43 — phân biệt với 伝聞そう）"
+        },
+        {
+          "excerpt": "うわさの段階らしいです",
+          "label": "〜らしいです（chưa chắc chắn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "電車の料金が上がるという情報はどこから来ましたか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "ワンさんに聞きました",
+            "テレビのニュースで知りました",
+            "山田部長の話から分かりました",
+            "インターネットで調べました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu mở đầu bài dài ghi rõ:「今朝、テレビのニュースによると、来月から電車の料金が上がるそうです」— mẫu「Nによると〜そうです」(B47) chỉ ra nguồn tin là テレビのニュース. Đáp án 0 sai vì Wang (ワン) là người nghe tin cùng và bình luận, không phải nguồn gốc tin tức. Đáp án 2 sai vì Yamada nói về văn phòng Osaka, không liên quan giá tàu. Đáp án 3 sai vì bài không nhắc đến tra internet cho thông tin này.",
+          "tip": "「Nによると」là dấu hiệu nguồn tin rõ nhất trong bài (B47). Khi hỏi \"thông tin từ đâu\", tìm ngay mẫu によると — N trước đó chính là câu trả lời.",
+          "qt": {
+            "q": "Thông tin về việc giá vé tàu điện tăng là từ đâu?",
+            "o": [
+              "Nghe từ anh Wang",
+              "Biết được qua tin tức trên truyền hình",
+              "Biết được qua lời trưởng phòng Yamada",
+              "Tìm hiểu trên Internet"
+            ]
+          }
+        },
+        {
+          "q": "大阪の新しいオフィスについて正しいのはどれですか。",
+          "evi": [
+            6,
+            11
+          ],
+          "options": [
+            "今月できる予定で、料金が上がる前に転勤するそうです",
+            "来年できるそうで、駅からすぐの場所にあるらしいです",
+            "すでにできていて、田中さんがもう転勤しました",
+            "山田部長が正式に発表して、全員が転勤するそうです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài có hai thông tin về văn phòng Osaka: (1)「山田部長の話では、来年、大阪に新しいオフィスができるそうです」(năm tới — 伝聞そう B47), (2)「大阪のオフィスは駅からすぐだそうです」(ngay gần ga — 伝聞そう B47). Đáp án 1 khớp cả hai. Đáp án 0 sai vì nói \"今月\" (tháng này) và \"全員転勤\" — cả hai đều không có trong bài. Đáp án 2 sai vì văn phòng CHƯA MỞ (来年できる). Đáp án 3 sai vì bài nói「まだ正式な発表はない」(chưa có thông báo chính thức).",
+          "tip": "Câu hỏi \"正しいのはどれですか\" → gạch dưới từng chi tiết trong đáp án rồi kiểm tra từng cái trong bài. Đáp án sai thường chứa một chi tiết bị đảo ngược hoặc không có trong bài.",
+          "qt": {
+            "q": "Điều nào sau đây đúng về văn phòng mới ở Osaka?",
+            "o": [
+              "Nghe nói dự định sẽ mở trong tháng này, và sẽ chuyển công tác trước khi giá vé tăng",
+              "Nghe nói sẽ mở vào năm sau, và dường như ở ngay gần nhà ga",
+              "Đã mở rồi, và anh Tanaka đã chuyển công tác đến đó",
+              "Trưởng phòng Yamada đã chính thức thông báo rằng tất cả mọi người sẽ chuyển công tác"
+            ]
+          }
+        },
+        {
+          "q": "「楽しそうですね」と「できるそうです」の「そう」の使い方はどう違いますか。",
+          "evi": [
+            6,
+            13
+          ],
+          "options": [
+            "両方とも伝聞そう（B47）で、聞いた情報を伝えています",
+            "「楽しそう」は様態そう（B43）、「できるそう」は伝聞そう（B47）です",
+            "両方とも様態そう（B43）で、見た目や雰囲気を表しています",
+            "「楽しそう」は伝聞そう（B47）、「できるそう」は様態そう（B43）です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Nhìn vào từ NỐI trước そう trong từng trường hợp: \"楽しそう\" = ますstem của 楽しい (楽し) + そう → 様態そう (B43, diễn tả cảm nhận/vẻ bề ngoài). \"できるそうです\" = 辞書形 của できる (普通形 hiện tại) + そうです → 伝聞そう (B47, dẫn lại thông tin nghe được). Đây là cặp phân biệt cốt lõi của B47. Đáp án 0 và 2 nhầm khi gộp cả hai vào cùng một loại. Đáp án 3 đảo ngược hoàn toàn.",
+          "tip": "Quy tắc nhận dạng tốc độ: \"楽し + そう\" (bỏ い, thêm そう) = 様態 B43; \"楽しい + そうです\" (giữ nguyên 普通形) = 伝聞 B47. Thấy い/だ ngay trước そうです → 伝聞.",
+          "qt": {
+            "q": "Cách dùng 「そう」 trong 「楽しそうですね」(trông có vẻ vui nhỉ) và 「できるそうです」(nghe nói sẽ được mở) khác nhau như thế nào?",
+            "o": [
+              "Cả hai đều là そう chỉ thông tin nghe được (B47), truyền đạt thông tin đã nghe",
+              "「楽しそう」 là そう chỉ vẻ ngoài, trạng thái (B43), còn 「できるそう」 là そう chỉ thông tin nghe được (B47)",
+              "Cả hai đều là そう chỉ vẻ ngoài, trạng thái (B43), diễn tả vẻ ngoài hoặc không khí",
+              "「楽しそう」 là そう chỉ thông tin nghe được (B47), còn 「できるそう」 là そう chỉ vẻ ngoài, trạng thái (B43)"
+            ]
+          }
+        },
+        {
+          "q": "「うわさの段階らしいです」とはどういう意味ですか。",
+          "evi": [
+            14
+          ],
+          "options": [
+            "正式な発表があって、もう決まっているという意味です",
+            "まだ正式な発表がなく、確かな情報ではないという意味です",
+            "山田部長がうわさを全部否定したという意味です",
+            "来月の会議で全員に発表するという意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu ngay trước đó giải thích lý do:「まだ正式な発表はないので、うわさの段階らしいです」— vì (ので) chưa có thông báo chính thức nên vẫn ở giai đoạn đồn đại.「らしいです」(B47) thêm sắc thái \"hình như, có vẻ\" — người nói không khẳng định chắc chắn. Đáp án 0 sai vì ngược lại (bài nói \"まだ正式な発表はない\"). Đáp án 2 không có trong bài (Yamada không phủ nhận). Đáp án 3 nhầm — bài nói họp để \"biết thêm chi tiết\", không phải \"thông báo cho toàn bộ\".",
+          "tip": "らしいです = \"hình như, nghe đồn\" — mang sắc thái CHƯA CHẮC CHẮN, khác với そうです (dẫn nguồn cụ thể hơn). Khi thấy らしい, đáp án đúng thường mô tả tình huống \"chưa xác nhận / chưa chính thức\".",
+          "qt": {
+            "q": "「うわさの段階らしいです」 nghĩa là gì?",
+            "o": [
+              "Có nghĩa là đã có thông báo chính thức và mọi việc đã được quyết định",
+              "Có nghĩa là vẫn chưa có thông báo chính thức và thông tin chưa chắc chắn",
+              "Có nghĩa là trưởng phòng Yamada đã phủ nhận toàn bộ tin đồn",
+              "Có nghĩa là mọi người sẽ được thông báo trong cuộc họp tháng sau"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Tour ngắm sao một ngày ở núi Sakura",
+      "japanese": "さくら山　星空観察一日ツアー\n天気予報によると、今月の週末は星がきれいに見えるそうです。さくら山は星がよく見える山で、有名らしいですよ。\nコースとお金｜出発時間｜帰り時間｜おとな料金｜こども料金\n昼コース｜9:00｜16:00｜4,000円｜2,000円\n夜コース｜17:00｜21:00｜5,000円｜2,500円\n出発は北駅か中央駅から選べます。バスの中でガイドさんの話が聞けるそうです。\n申し込みについて｜土曜日｜日曜日\n7/4｜◎できます｜×できません\n7/11｜×できません｜○もうすぐいっぱいになります\n7/18｜◎できます｜◎できます\n7/25｜◎できます｜×できません\n※こども料金は小学生と中学生の方です。小学生になっていないお子さんは無料らしいです。\n※申し込みは出発日の3日前までにお願いします。3日を過ぎるとキャンセルできないそうです。\nさくら旅行社　電話：03-4567-8901（月〜金　9:00〜18:00）",
+      "vietnamese": "Tour ngắm sao một ngày ở núi Sakura\nTheo dự báo thời tiết, nghe nói các cuối tuần tháng này sao sẽ nhìn rất đẹp. Nghe nói núi Sakura là ngọn núi nhìn sao rất rõ, nổi tiếng đấy.\nLộ trình và giá tiền｜giờ xuất phát｜giờ về｜giá người lớn｜giá trẻ em\nLộ trình ban ngày｜9:00｜16:00｜4.000 yên｜2.000 yên\nLộ trình ban đêm｜17:00｜21:00｜5.000 yên｜2.500 yên\nCó thể chọn xuất phát từ ga Bắc hoặc ga Trung tâm. Nghe nói trên xe buýt có thể nghe hướng dẫn viên giới thiệu.\nVề việc đăng ký｜thứ Bảy｜Chủ Nhật\n4/7｜◎ Đăng ký được｜× Không đăng ký được\n11/7｜× Không đăng ký được｜○ Sắp hết chỗ\n18/7｜◎ Đăng ký được｜◎ Đăng ký được\n25/7｜◎ Đăng ký được｜× Không đăng ký được\n※Giá trẻ em áp dụng cho học sinh tiểu học và trung học cơ sở. Nghe nói trẻ chưa vào tiểu học thì miễn phí.\n※Xin vui lòng đăng ký trước ngày khởi hành 3 ngày. Nghe nói quá 3 ngày thì không hủy được nữa.\nCông ty du lịch Sakura　Điện thoại: 03-4567-8901 (Thứ Hai〜Thứ Sáu　9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "さくら山　星空観察一日ツアー",
+          "vi": "Tour ngắm sao một ngày ở núi Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "星空",
+              "read": "ほしぞら",
+              "vi": "bầu trời sao"
+            },
+            {
+              "w": "観察",
+              "read": "かんさつ",
+              "vi": "quan sát, ngắm"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour, chuyến du lịch"
+            },
+            {
+              "w": "さくら山",
+              "read": "さくらやま",
+              "vi": "núi Sakura (tên riêng)"
+            },
+            {
+              "w": "一日",
+              "read": "いちにち",
+              "vi": "một ngày"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "天気予報によると、今月の週末は星がきれいに見えるそうです。さくら山は星がよく見える山で、有名らしいですよ。",
+          "vi": "Theo dự báo thời tiết, nghe nói các cuối tuần tháng này sao sẽ nhìn rất đẹp. Nghe nói núi Sakura là ngọn núi nhìn sao rất rõ, nổi tiếng đấy.",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "予報",
+              "read": "よほう",
+              "vi": "dự báo"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "星",
+              "read": "ほし",
+              "vi": "sao (trên trời)"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "見えます",
+              "read": "みえます",
+              "vi": "nhìn thấy được"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "山",
+              "read": "やま",
+              "vi": "núi"
+            },
+            {
+              "w": "有名",
+              "read": "ゆうめい",
+              "vi": "nổi tiếng"
+            },
+            {
+              "w": "天気予報",
+              "read": "てんきよほう",
+              "vi": "dự báo thời tiết"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "rõ, thường xuyên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nによると〜そうです（B47）",
+              "vi": "天気予報によると = theo dự báo thời tiết; 見えるそうです = nghe nói sẽ nhìn thấy (đẹp). Mẫu nêu nguồn tin rõ ràng."
+            },
+            {
+              "point": "〜らしいです（B47）",
+              "vi": "有名らしいですよ = nghe đồn là nổi tiếng đấy. NAだ (有名) bỏ だ + らしい."
+            },
+            {
+              "point": "〜で（B16 nối danh từ）",
+              "vi": "星がよく見える山で = là ngọn núi nhìn sao rõ, và (nối câu tiếp)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "天気予報によると",
+              "why": "Cụm nêu nguồn tin đầu bài — mở đầu văn phong 伝聞そう/らしい của cả tờ thông báo."
+            }
+          ]
+        },
+        {
+          "jp": "コースとお金｜出発時間｜帰り時間｜おとな料金｜こども料金",
+          "vi": "Lộ trình và giá tiền｜giờ xuất phát｜giờ về｜giá người lớn｜giá trẻ em",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, tuyến"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "出発",
+              "read": "しゅっぱつ",
+              "vi": "xuất phát, khởi hành"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "おとな",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá tiền, phí"
+            },
+            {
+              "w": "こども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "出発時間",
+              "read": "しゅっぱつじかん",
+              "vi": "giờ xuất phát"
+            },
+            {
+              "w": "帰り時間",
+              "read": "かえりじかん",
+              "vi": "giờ về"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "おとな料金",
+              "why": "Tiêu đề cột giá người lớn — dùng để dò cùng hàng với コース khi tính tổng tiền."
+            },
+            {
+              "w": "こども料金",
+              "why": "Tiêu đề cột giá trẻ em — bắt buộc phải cộng thêm khi khách đi cùng con."
+            }
+          ]
+        },
+        {
+          "jp": "昼コース｜9:00｜16:00｜4,000円｜2,000円",
+          "vi": "Lộ trình ban ngày｜9:00｜16:00｜4.000 yên｜2.000 yên",
+          "vocab": [
+            {
+              "w": "昼",
+              "read": "ひる",
+              "vi": "ban ngày, buổi trưa"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "4,000円",
+              "why": "Giá người lớn lộ trình ban ngày — dùng làm nhiễu nếu nhầm với 夜コース (câu hỏi 1 hỏi người CHỈ rảnh buổi tối)."
+            }
+          ]
+        },
+        {
+          "jp": "夜コース｜17:00｜21:00｜5,000円｜2,500円",
+          "vi": "Lộ trình ban đêm｜17:00｜21:00｜5.000 yên｜2.500 yên",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "夜コース",
+              "why": "Khớp điều kiện \"夜しか時間がありません\" của câu hỏi 1 — phải chọn đúng hàng này."
+            },
+            {
+              "w": "5,000円",
+              "why": "Giá người lớn lộ trình đêm — cộng với giá trẻ em để ra đáp án câu hỏi 1."
+            },
+            {
+              "w": "2,500円",
+              "why": "Giá trẻ em lộ trình đêm — vế thứ hai cần cộng vào cho câu hỏi 1 (đi cùng con)."
+            }
+          ]
+        },
+        {
+          "jp": "出発は北駅か中央駅から選べます。バスの中でガイドさんの話が聞けるそうです。",
+          "vi": "Có thể chọn xuất phát từ ga Bắc hoặc ga Trung tâm. Nghe nói trên xe buýt có thể nghe hướng dẫn viên giới thiệu.",
+          "vocab": [
+            {
+              "w": "出発",
+              "read": "しゅっぱつ",
+              "vi": "xuất phát, khởi hành"
+            },
+            {
+              "w": "北",
+              "read": "きた",
+              "vi": "phía bắc, hướng bắc"
+            },
+            {
+              "w": "中央",
+              "read": "ちゅうおう",
+              "vi": "trung tâm, trung ương"
+            },
+            {
+              "w": "選びます",
+              "read": "えらびます",
+              "vi": "chọn, lựa chọn"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "ガイド",
+              "read": "ガイド",
+              "vi": "hướng dẫn viên"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "lời nói, câu chuyện"
+            },
+            {
+              "w": "聞けます",
+              "read": "きけます",
+              "vi": "có thể nghe (khả năng của 聞きます)"
+            },
+            {
+              "w": "北駅",
+              "read": "きたえき",
+              "vi": "ga Bắc (tên riêng)"
+            },
+            {
+              "w": "中央駅",
+              "read": "ちゅうおうえき",
+              "vi": "ga Trung tâm (tên riêng)"
+            },
+            {
+              "w": "ガイドさん",
+              "read": "ガイドさん",
+              "vi": "hướng dẫn viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vか（B6）",
+              "vi": "北駅か中央駅 = ga Bắc hoặc ga Trung tâm. か nối hai lựa chọn."
+            },
+            {
+              "point": "可能形（B27）",
+              "vi": "選べます・聞けます = có thể chọn, có thể nghe. Thể khả năng của 選びます・聞きます."
+            },
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "聞けるそうです = nghe nói là có thể nghe được. 聞ける (可能形 = 普通形) + そうです = 伝聞."
+            }
+          ]
+        },
+        {
+          "jp": "申し込みについて｜土曜日｜日曜日",
+          "vi": "Về việc đăng ký｜thứ Bảy｜Chủ Nhật",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ Nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nについて（B21）",
+              "vi": "申し込みについて = về việc đăng ký. Nêu chủ đề của bảng phía dưới."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜日",
+              "why": "Tiêu đề cột thứ Bảy — dễ nhầm cột với 日曜日 khi dò hàng 7/11 ở câu hỏi 2."
+            },
+            {
+              "w": "日曜日",
+              "why": "Tiêu đề cột Chủ Nhật — khớp trực tiếp điều kiện \"7月11日の日曜日\" trong câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "7/4｜◎できます｜×できません",
+          "vi": "4/7｜◎ Đăng ký được｜× Không đăng ký được",
+          "vocab": [
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "7/11｜×できません｜○もうすぐいっぱいになります",
+          "vi": "11/7｜× Không đăng ký được｜○ Sắp hết chỗ",
+          "vocab": [
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "もうすぐ",
+              "read": "もうすぐ",
+              "vi": "sắp, chẳng bao lâu nữa"
+            },
+            {
+              "w": "いっぱい",
+              "read": "いっぱい",
+              "vi": "đầy, hết chỗ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になります（B19）",
+              "vi": "いっぱいになります = trở nên đầy/hết chỗ. Biến đổi trạng thái."
+            }
+          ],
+          "keys": [
+            {
+              "w": "7/11",
+              "why": "Đúng ngày khách Karina muốn đăng ký ở câu hỏi 2 — hàng bảng cần dò."
+            },
+            {
+              "w": "×できません",
+              "why": "Cột thứ Bảy 7/11 = KHÔNG đăng ký được — bẫy nếu chọn nhầm cột với Chủ Nhật."
+            },
+            {
+              "w": "○もうすぐいっぱいになります",
+              "why": "Cột Chủ Nhật 7/11 = còn đăng ký được nhưng SẮP HẾT CHỖ, không phải ◎ hay × — đáp án đúng câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "7/18｜◎できます｜◎できます",
+          "vi": "18/7｜◎ Đăng ký được｜◎ Đăng ký được",
+          "vocab": [
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "7/25｜◎できます｜×できません",
+          "vi": "25/7｜◎ Đăng ký được｜× Không đăng ký được",
+          "vocab": [
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "※こども料金は小学生と中学生の方です。小学生になっていないお子さんは無料らしいです。",
+          "vi": "※Giá trẻ em áp dụng cho học sinh tiểu học và trung học cơ sở. Nghe nói trẻ chưa vào tiểu học thì miễn phí.",
+          "vocab": [
+            {
+              "w": "こども料金",
+              "read": "こどもりょうきん",
+              "vi": "giá vé trẻ em"
+            },
+            {
+              "w": "こども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá tiền, phí"
+            },
+            {
+              "w": "小学生",
+              "read": "しょうがくせい",
+              "vi": "học sinh tiểu học"
+            },
+            {
+              "w": "中学生",
+              "read": "ちゅうがくせい",
+              "vi": "học sinh trung học cơ sở"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "なっていない",
+              "read": "なっていない",
+              "vi": "chưa trở thành"
+            },
+            {
+              "w": "お子さん",
+              "read": "おこさん",
+              "vi": "con, trẻ em"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になっていない（B19否定）",
+              "vi": "小学生になっていない = chưa trở thành học sinh tiểu học (chưa vào tiểu học)."
+            },
+            {
+              "point": "〜らしいです（B47）",
+              "vi": "無料らしいです = nghe nói là miễn phí. Thông tin thêm mang sắc thái chưa chắc chắn tuyệt đối."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※こども料金は小学生と中学生の方です",
+              "why": "Định nghĩa rõ đối tượng áp dụng giá trẻ em — cần để xác nhận \"con\" trong câu hỏi 1 tính đúng cột giá."
+            }
+          ]
+        },
+        {
+          "jp": "※申し込みは出発日の3日前までにお願いします。3日を過ぎるとキャンセルできないそうです。",
+          "vi": "※Xin vui lòng đăng ký trước ngày khởi hành 3 ngày. Nghe nói quá 3 ngày thì không hủy được nữa.",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "出発",
+              "read": "しゅっぱつ",
+              "vi": "xuất phát, khởi hành"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "お願いします",
+              "read": "おねがいします",
+              "vi": "xin vui lòng, nhờ"
+            },
+            {
+              "w": "過ぎます",
+              "read": "すぎます",
+              "vi": "quá, vượt qua"
+            },
+            {
+              "w": "キャンセル",
+              "read": "キャンセル",
+              "vi": "hủy"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "出発日",
+              "read": "しゅっぱつび",
+              "vi": "ngày khởi hành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（B14）",
+              "vi": "3日前までに = trước (hạn) 3 ngày trước. までに nêu hạn chót."
+            },
+            {
+              "point": "〜と（B23）",
+              "vi": "3日を過ぎると = nếu/hễ quá 3 ngày thì. と nêu kết quả tất yếu."
+            },
+            {
+              "point": "普通形＋そうです（伝聞 B47）",
+              "vi": "キャンセルできないそうです = nghe nói là không hủy được. できない (可能形否定 = 普通形) + そうです = 伝聞."
+            }
+          ]
+        },
+        {
+          "jp": "さくら旅行社　電話：03-4567-8901（月〜金　9:00〜18:00）",
+          "vi": "Công ty du lịch Sakura　Điện thoại: 03-4567-8901 (Thứ Hai〜Thứ Sáu　9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "旅行社",
+              "read": "りょこうしゃ",
+              "vi": "công ty du lịch"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "天気予報によると、今月の週末は星がきれいに見えるそうです",
+          "label": "Nによると〜そうです（伝聞）"
+        },
+        {
+          "excerpt": "さくら山は星がよく見える山で、有名らしいですよ",
+          "label": "〜らしいです（nghe đồn）"
+        },
+        {
+          "excerpt": "バスの中でガイドさんの話が聞けるそうです",
+          "label": "普通形＋そうです（伝聞 — từ 可能形 B27）"
+        },
+        {
+          "excerpt": "3日を過ぎるとキャンセルできないそうです",
+          "label": "普通形＋そうです（伝聞 — phủ định）"
+        },
+        {
+          "excerpt": "小学生になっていないお子さんは無料らしいです",
+          "label": "〜らしいです（ôn: B19 〜になります）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Tên tour và lời giới thiệu chung (nguồn tin dự báo thời tiết) — chưa có căn cứ trả lời câu hỏi, chỉ set bối cảnh.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 4,
+          "kind": "point",
+          "label": "Bảng giờ & giá theo コース",
+          "topic": 2,
+          "note": "Bảng chính cho câu hỏi 1: xác định コース theo giờ rồi cộng đúng cột giá người lớn + trẻ em.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 5,
+          "to": 5,
+          "kind": "body",
+          "label": "Ga xuất phát & hướng dẫn viên",
+          "topic": 5,
+          "note": "Thông tin bổ sung về nơi xuất phát và trải nghiệm trên xe — không phải căn cứ của 2 câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 6,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng lịch đăng ký theo ngày×thứ",
+          "topic": 6,
+          "note": "Bảng dùng cho câu hỏi 2: đọc tiêu đề cột (土曜日/日曜日) rồi dò đúng hàng ngày 7/11 và đúng cột thứ (Chủ Nhật) để lấy trạng thái đăng ký.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 13,
+          "kind": "turn",
+          "label": "Điều kiện ※ & liên hệ",
+          "topic": 11,
+          "note": "Các dòng ※ nêu ngoại lệ/giới hạn (đối tượng giá trẻ em, hạn hủy 3 ngày) — bẫy dễ nhầm khi ghép điều kiện, không phải căn cứ trực tiếp của 2 câu hỏi này.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワットさんは夜しか時間がありません。子どもと二人で行きたいです。ワットさんはいくら払いますか。",
+          "options": [
+            "6,000円",
+            "7,500円",
+            "9,000円",
+            "4,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 7,500円. Wat chỉ rảnh buổi tối → phải chọn 夜コース (17:00〜21:00), theo bảng giá おとな5,000円・こども2,500円; đi cùng con (2 người: 1 người lớn + 1 trẻ em) nên tổng tiền = 5,000＋2,500＝7,500円. Đáp án 0 (6,000円) sai vì đó là tổng giá 昼コース cho 1 người lớn + 1 trẻ em (4,000＋2,000). Đáp án 2 (9,000円) sai vì cộng nhầm 2 người lớn giá đêm (5,000×2). Đáp án 3 (4,000円) chỉ là giá おとな của 昼コース, thiếu phần trẻ em và sai コース.",
+          "tip": "Ghép 2 điều kiện: (1) thời gian rảnh (đêm) → chọn đúng hàng コース trong bảng; (2) đi cùng ai (người lớn + trẻ em) → cộng đúng CẢ HAI cột giá của cùng 1 hàng đó, không lấy nhầm hàng khác.",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Watto chỉ có thời gian vào buổi tối. Anh ấy muốn đi cùng con. Watto phải trả bao nhiêu tiền?",
+            "o": [
+              "6.000 yên",
+              "7.500 yên",
+              "9.000 yên",
+              "4.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは7月11日の日曜日に申し込みたいですが、この日はどうですか。",
+          "options": [
+            "◎ 申し込みができます",
+            "× 申し込みができません",
+            "○ もうすぐいっぱいになります。急いだほうがいいです",
+            "土曜日しか申し込めません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bảng đăng ký ghi rõ hàng「7/11｜×できません｜○もうすぐいっぱいになります」— cột Chủ Nhật (日曜日) của ngày 7/11 là ○ (sắp hết chỗ), KHÔNG phải × hay ◎. Đáp án 0 sai vì nhầm sang ◎. Đáp án 1 sai vì nhầm sang × (đó là cột thứ Bảy). Đáp án 3 không đúng vì bảng cho thấy Chủ Nhật 7/11 vẫn còn đăng ký được (chỉ sắp hết chỗ), không phải hoàn toàn không nhận Chủ Nhật.",
+          "tip": "Bài toán dò bảng theo NGÀY + THỨ: tìm đúng hàng ngày trước, rồi tìm đúng cột thứ (土/日) — dễ nhầm cột bên cạnh nếu đọc vội.",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Karina muốn đăng ký vào Chủ nhật, ngày 11 tháng 7. Ngày này thì thế nào?",
+            "o": [
+              "◎ Có thể đăng ký",
+              "× Không thể đăng ký",
+              "○ Sắp kín chỗ rồi. Nên nhanh lên",
+              "Chỉ có thể đăng ký vào thứ Bảy"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

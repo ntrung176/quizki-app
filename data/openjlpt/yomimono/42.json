@@ -1,0 +1,2318 @@
+{
+  "bai": 42,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 42 tập trung vào ba mẫu có liên quan đến MỤC ĐÍCH và CHI PHÍ: 「〜のために」nêu MỤC ĐÍCH hoặc VÌ LỢI ÍCH của ai, 「〜のに〜がかかります」nói về thứ CẦN để thực hiện một việc, và「〜にお金・時間がかかります」diễn đạt sự TỐN KÉM. Đọc hiểu bài này = phân biệt ba mẫu này trong văn cảnh chuẩn bị thi chứng chỉ.",
+    "steps": [
+      "Đọc lướt toàn bài: ai đang chuẩn bị cho kỳ thi gì, và mục tiêu của họ là gì?",
+      "Mỗi lần gặp「〜のために」: hỏi \"đây là mục đích (Vるために) hay vì lợi ích của ai (Nのために)?\" — hai dạng cú pháp khác nhau.",
+      "Khi gặp「〜のに〜がかかります」: vế trước のに chỉ VIỆC CẦN LÀM, vế sau chỉ thứ CẦN (tiền, thời gian, dụng cụ).",
+      "Chú ý「〜にかかります」: N (việc/hành trình) + に + thời gian/tiền + かかります — chủ đề là VIỆC, không phải người.",
+      "Câu hỏi suy luận: kết hợp thông tin từ nhiều câu (mục tiêu + chi phí + thời gian) để suy ra kết luận.",
+      "Ôn lại: んです (B26) giải thích lý do; Vてあります (B30) trạng thái chuẩn bị; のに (B42) — KHÔNG nhầm với のに逆接 (B45 mới dạy)."
+    ],
+    "tips": [
+      "「Vるのに」trong bài này = \"để V\" (công dụng/điều cần), KHÔNG phải \"mặc dù V\" (のに逆接 — chưa học tới B45).",
+      "「Nのために」có thể là \"vì N\" (lợi ích) hoặc \"vì mục tiêu N\" — đọc ngữ cảnh để phân biệt.",
+      "「〜にかかります」: chủ ngữ là sự kiện/hành trình — e.g.「試験に3000円かかります」(kỳ thi tốn 3000 yên).",
+      "Phân biệt のに (công dụng B42) với ために (mục đích B42): のに hay đi với vật/tiền/thời gian cụ thể; ために nêu mục đích tổng quát hơn.",
+      "てあります (B30): chuẩn bị xong giờ vẫn còn tác dụng — dùng đúng văn cảnh chuẩn bị trước kỳ thi.",
+      "かかります: hãy nhớ chủ ngữ là VIỆC (kỳ thi, việc đi lại) chứ không phải người — không viết「私にかかります」."
+    ],
+    "grammarFocus": [
+      "Vる/Nのために（mục đích / vì lợi ích）",
+      "Vるのに〜がかかります（cần … để làm …）",
+      "Nに〜時間・お金がかかります（tốn thời gian / tiền）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 41,
+        "items": [
+          "Vていただきます",
+          "Vてあげます / Vてもらいます"
+        ]
+      },
+      {
+        "bai": 40,
+        "items": [
+          "Vてみます",
+          "〜かどうか"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "Nのために（lợi ích, tiền thân mẫu B42）",
+          "〜ので"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vてあります（trạng thái chuẩn bị）",
+          "Vておきます"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "Vる予定です"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích lý do）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "Vたいです",
+          "どこか・何か"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜がわかります",
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "試験のための準備",
+      "titleVi": "Chuẩn bị cho kỳ thi",
+      "japanese": "ミラーさんは日本語能力試験を受けるために、毎日2時間勉強しています。\n試験に申し込むのに、インターネットが必要です。\n試験の申し込みに1週間かかりました。\n受験料は5700円で、支払いにも時間がかかりました。\n合格するために、もっと練習しなければならないと思っています。\nカリナさんは「頑張っているんですね。私も応援しています」と言いました。",
+      "vietnamese": "Anh Miller đang học 2 tiếng mỗi ngày để thi kỳ thi năng lực tiếng Nhật.\nĐể đăng ký thi, cần có internet.\nViệc đăng ký thi mất một tuần.\nLệ phí thi là 5700 yên, và việc thanh toán cũng tốn thời gian.\nAnh nghĩ mình phải luyện tập nhiều hơn để đậu.\nKarina nói \"Bạn đang cố gắng thật nhỉ. Tôi cũng cổ vũ bạn đó\".",
+      "sentences": [
+        {
+          "jp": "ミラーさんは日本語能力試験を受けるために、毎日2時間勉強しています。",
+          "vi": "Anh Miller đang học 2 tiếng mỗi ngày để thi kỳ thi năng lực tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "受けます",
+              "read": "うけます",
+              "vi": "thi, dự thi"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học, học bài"
+            },
+            {
+              "w": "日本語能力試験",
+              "read": "にほんごのうりょくしけん",
+              "vi": "kỳ thi năng lực tiếng Nhật (JLPT)"
+            },
+            {
+              "w": "〜時間",
+              "read": "じかん",
+              "vi": "〜 tiếng (đơn vị thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（mục đích）",
+              "vi": "受けるために = \"để thi\". Vる + ために chỉ mục đích của hành động tiếp theo (毎日勉強しています). Chủ ngữ của cả hai vế phải CÙNG người."
+            },
+            {
+              "point": "Vています（Bài 14）",
+              "vi": "勉強しています = đang học (hành động diễn ra liên tục)."
+            }
+          ]
+        },
+        {
+          "jp": "試験に申し込むのに、インターネットが必要です。",
+          "vi": "Để đăng ký thi, cần có internet.",
+          "vocab": [
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi"
+            },
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký, nộp đơn"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "必要です",
+              "read": "ひつようです",
+              "vi": "cần thiết, cần phải có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに〜が必要/かかります（công dụng）",
+              "vi": "申し込むのに = \"để đăng ký\" (chỉ điều kiện/phương tiện cần có). Vるのに + thứ CẦN THIẾT. Khác ために: のに đi với yêu cầu cụ thể (dụng cụ, tiền, thời gian), ために thiên về mục tiêu chung."
+            }
+          ]
+        },
+        {
+          "jp": "試験の申し込みに1週間かかりました。",
+          "vi": "Việc đăng ký thi mất một tuần.",
+          "vocab": [
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký (danh từ)"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "〜週間",
+              "read": "しゅうかん",
+              "vi": "〜 tuần (đơn vị thời gian)"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn (thời gian/tiền)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nに〜時間がかかります",
+              "vi": "試験の申し込みに1週間かかりました = \"việc đăng ký tốn 1 tuần\". Cấu trúc: N（công việc/hành trình）+ に + thời lượng/số tiền + かかります. Chủ ngữ là VIỆC, không phải người."
+            }
+          ]
+        },
+        {
+          "jp": "受験料は5700円で、支払いにも時間がかかりました。",
+          "vi": "Lệ phí thi là 5700 yên, và việc thanh toán cũng tốn thời gian.",
+          "vocab": [
+            {
+              "w": "受験",
+              "read": "じゅけん",
+              "vi": "việc dự thi, thi cử"
+            },
+            {
+              "w": "支払い",
+              "read": "しはらい",
+              "vi": "việc thanh toán"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "受験料",
+              "read": "じゅけんりょう",
+              "vi": "lệ phí thi"
+            },
+            {
+              "w": "〜円",
+              "read": "えん",
+              "vi": "〜 yên (đơn vị tiền)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nに〜時間がかかります",
+              "vi": "支払いにも時間がかかりました = \"việc thanh toán cũng tốn thời gian\". も nhấn mạnh \"cũng tốn\" thêm ngoài những thứ đã tốn trước đó (Bài 1: Nも)."
+            },
+            {
+              "point": "NはNです（Bài 1）",
+              "vi": "受験料は5700円で — で nối hai vế mệnh đề (Bài 16: 〜で nối danh từ/tính từ な)."
+            }
+          ]
+        },
+        {
+          "jp": "合格するために、もっと練習しなければならないと思っています。",
+          "vi": "Anh nghĩ mình phải luyện tập nhiều hơn để đậu.",
+          "vocab": [
+            {
+              "w": "合格します",
+              "read": "ごうかくします",
+              "vi": "đậu (kỳ thi), đỗ"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "練習します",
+              "read": "れんしゅうします",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（mục đích）",
+              "vi": "合格するために = \"để đậu\". Mục đích rõ ràng: đậu thi → cần phải luyện tập nhiều hơn."
+            },
+            {
+              "point": "Vなければならない（Bài 17）",
+              "vi": "練習しなければならない = \"phải luyện tập\". Diễn đạt nghĩa vụ/cần thiết."
+            },
+            {
+              "point": "〜と思っています（Bài 21）",
+              "vi": "と思っています = đang nghĩ (trạng thái tiếp diễn của suy nghĩ)."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは「頑張っているんですね。私も応援しています」と言いました。",
+          "vi": "Karina nói \"Bạn đang cố gắng thật nhỉ. Tôi cũng cổ vũ bạn đó\".",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "頑張っている",
+              "read": "がんばっている",
+              "vi": "đang cố gắng"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "応援しています",
+              "read": "おうえんしています",
+              "vi": "đang ủng hộ"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んですね（Bài 26）",
+              "vi": "頑張っているんですね = \"Đang cố gắng đó nhỉ\". んです + ね: Karina đã NHẬN THẤY sự nỗ lực của Miller và bày tỏ sự đồng cảm/xác nhận."
+            },
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "Trích lời Karina trong「」."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "受けるために、毎日2時間勉強しています",
+          "label": "Vるために（mục đích）"
+        },
+        {
+          "excerpt": "申し込むのに、インターネットが必要です",
+          "label": "Vるのに〜が必要（công dụng）"
+        },
+        {
+          "excerpt": "試験の申し込みに1週間かかりました",
+          "label": "Nに〜時間がかかります"
+        },
+        {
+          "excerpt": "支払いにも時間がかかりました",
+          "label": "Nに〜時間がかかります（も）"
+        },
+        {
+          "excerpt": "合格するために、もっと練習しなければならない",
+          "label": "Vるために + Vなければならない"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんはどうして毎日2時間勉強していますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "日本語が好きだから、勉強しています",
+            "日本語能力試験を受けるために、勉強しています",
+            "カリナさんに頼まれたので、勉強しています",
+            "インターネットの使い方を覚えるために、勉強しています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Ngay câu đầu bài viết nêu rõ:「日本語能力試験を受けるために、毎日2時間勉強しています」— cấu trúc Vるために đặt MỤC ĐÍCH (受けるために = để thi) TRƯỚC hành động chính (毎日2時間勉強しています). Đây là bằng chứng trực tiếp và dứt khoát. Đáp án 0 sai vì bài không hề đề cập đến việc thích tiếng Nhật làm lý do — ために khẳng định mục đích cụ thể, không phải cảm xúc. Đáp án 2 sai vì bài không nhắc đến Karina nhờ Miller học. Đáp án 3 sai vì internet chỉ được dùng để đăng ký thi (申し込むのに), không phải mục đích học.",
+          "tip": "Vるために luôn đứng ĐẦU câu hoặc vế trước, nêu MỤC ĐÍCH rõ ràng. Khi hỏi \"なぜ〜していますか\", hãy tìm câu có ために trong bài — đó chính là câu trả lời.",
+          "qt": {
+            "q": "Vì sao anh Miller học 2 tiếng mỗi ngày?",
+            "o": [
+              "Anh ấy học vì thích tiếng Nhật",
+              "Anh ấy học để tham gia Kỳ thi Năng lực Nhật ngữ",
+              "Anh ấy học vì cô Karina đã nhờ",
+              "Anh ấy học để ghi nhớ cách sử dụng Internet"
+            ]
+          }
+        },
+        {
+          "q": "試験の申し込みについて、正しいものはどれですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "申し込みはすぐに終わりました",
+            "申し込むのに電話が必要です",
+            "申し込みに1週間かかりました",
+            "申し込みにお金はかかりませんでした"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài nêu rõ:「試験の申し込みに1週間かかりました」(việc đăng ký thi tốn một tuần) — đây là mẫu Nに〜時間がかかります, chủ ngữ là VIỆC (申し込み), không phải người. Đáp án 0 sai vì bài nói ngược lại: đăng ký tốn MỘT TUẦN, không phải xong ngay (すぐに終わった). Đáp án 1 sai vì bài nói「申し込むのに、インターネットが必要です」— cần INTERNET, không phải điện thoại (電話). Đáp án 3 sai vì bài ghi rõ「受験料は5700円」— có lệ phí thi, không phải miễn phí.",
+          "tip": "Khi câu hỏi hỏi về sự kiện cụ thể (đăng ký, thanh toán…), tìm câu trong bài có cùng danh từ chủ đề đó kèm かかりました hoặc 必要です — đó là câu trả lời. Loại ngay đáp án nào mâu thuẫn với số liệu cụ thể trong bài.",
+          "qt": {
+            "q": "Điều nào sau đây đúng về việc đăng ký dự thi?",
+            "o": [
+              "Việc đăng ký đã hoàn tất ngay",
+              "Cần có điện thoại để đăng ký",
+              "Mất một tuần để đăng ký",
+              "Không mất phí đăng ký"
+            ]
+          }
+        },
+        {
+          "q": "この文章から、ミラーさんについて何が分かりますか。",
+          "evi": [
+            0,
+            4
+          ],
+          "options": [
+            "ミラーさんはもう試験に合格しました",
+            "ミラーさんは試験の準備をしていて、もっと練習したいと思っています",
+            "ミラーさんはインターネットが使えないので、申し込めませんでした",
+            "ミラーさんは受験料が高すぎると思って、試験をやめました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài cung cấp hai bằng chứng song song: (1)「毎日2時間勉強しています」(đang học 2 tiếng mỗi ngày = đang trong giai đoạn chuẩn bị); (2)「合格するために、もっと練習しなければならないと思っています」(nghĩ mình phải luyện thêm để đậu = chưa tự tin, muốn tiếp tục luyện). Hai bằng chứng này khớp chính xác với đáp án 1. Đáp án 0 sai vì bài không nói Miller đã đậu — anh ấy đang chuẩn bị, chưa thi. Đáp án 2 sai vì bài nói「申し込むのに、インターネットが必要」và「申し込みに1週間かかりました」— anh đã đăng ký xong, internet không phải rào cản. Đáp án 3 sai hoàn toàn — bài không nhắc đến việc Miller bỏ thi vì lệ phí quá cao.",
+          "tip": "Câu hỏi dạng \"〜について何が分かりますか\" đòi hỏi kết hợp NHIỀU thông tin từ bài. Gạch chân từng chi tiết về nhân vật rồi đối chiếu với từng đáp án — loại bất kỳ đáp án nào mâu thuẫn hoặc không có căn cứ trong bài.",
+          "qt": {
+            "q": "Qua đoạn văn này, chúng ta biết được điều gì về anh Miller?",
+            "o": [
+              "Anh Miller đã đỗ kỳ thi rồi",
+              "Anh Miller đang chuẩn bị cho kỳ thi và muốn luyện tập thêm",
+              "Anh Miller không thể đăng ký vì không sử dụng được Internet",
+              "Anh Miller nghĩ lệ phí dự thi quá cao nên đã bỏ kỳ thi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "日本語試験への挑戦",
+      "titleVi": "Thử thách kỳ thi tiếng Nhật",
+      "japanese": "ワンさんは来年の春、日本へ留学するために、今日本語を一生懸命勉強しています。\n留学するために、まずN2に合格しなければなりません。\nN2の試験に合格するのに、たくさんの時間と努力が必要だと分かっています。\n先生は「N2を受けるのに、1000時間ぐらい勉強しなければならないと言われています」と教えてくれました。\nワンさんは毎日3時間勉強していますが、試験まであと6か月しかありません。\n勉強のために、いい参考書を買いました。その参考書を買うのに3000円かかりました。\nまた、週に2回、日本語教室に通っています。日本語教室に通うのに、バスで30分かかります。\n教室の授業料は月に1万円です。N2に合格するまでに、かなりのお金がかかります。\nワンさんは今アルバイトをしています。留学のお金を貯めるために、週に4日働いています。\nアルバイトが終わってから、毎晩図書館で勉強しています。\n山田さんは「毎日そんなに頑張っているんですか。すごいですね」と言いました。\nワンさんは「夢のために頑張っています。日本の大学で建築を勉強したいんです」と答えました。\nそれを聞いた山田さんは、ワンさんが使っている参考書を見せてもらいました。\n「この本、N2の試験に合格するのに、本当に役に立つんですか」と聞きました。\nワンさんは「はい、この本のおかげで、難しい読解問題がだいぶ分かるようになりました」と答えました。\nそして「今月中に第1回の模擬試験を受けてみるつもりです。結果がよければ、自信がつくと思います」と続けました。\n山田さんは「応援しています。夢がかなうといいですね」と言いました。\nワンさんは「ありがとうございます。諦めないで頑張ります」と笑顔で答えました。",
+      "vietnamese": "Anh Wang đang chăm chỉ học tiếng Nhật để đi du học Nhật vào mùa xuân năm sau.\nĐể du học, trước tiên anh phải đậu N2.\nAnh biết rằng để đậu kỳ thi N2 cần rất nhiều thời gian và nỗ lực.\nGiáo viên cho anh biết: \"Người ta nói rằng để thi N2 phải học khoảng 1000 tiếng\".\nAnh Wang đang học 3 tiếng mỗi ngày, nhưng còn chỉ 6 tháng nữa đến kỳ thi.\nAnh đã mua một cuốn sách tham khảo tốt để học. Để mua cuốn sách đó tốn 3000 yên.\nNgoài ra, anh đang theo học lớp tiếng Nhật 2 lần một tuần. Đi đến lớp tiếng Nhật mất 30 phút bằng xe buýt.\nHọc phí lớp là 10.000 yên mỗi tháng. Đến khi đậu N2 thì sẽ tốn khá nhiều tiền.\nHiện anh Wang đang làm thêm. Để dành tiền đi du học, anh làm việc 4 ngày một tuần.\nSau khi tan ca làm thêm, mỗi tối anh học ở thư viện.\nAnh Yamada nói: \"Mỗi ngày anh cố gắng vậy sao? Giỏi thật nhỉ\".\nAnh Wang trả lời: \"Tôi đang cố gắng vì ước mơ. Tôi muốn học kiến trúc tại đại học ở Nhật\".\nNghe vậy, anh Yamada đã xem cuốn sách tham khảo mà anh Wang đang dùng.\n\"Quyển này có thực sự hữu ích để đậu kỳ thi N2 không?\" anh hỏi.\nAnh Wang trả lời: \"Vâng, nhờ quyển này, tôi đã hiểu được khá nhiều bài đọc hiểu khó\".\nRồi anh nói tiếp: \"Tôi dự định thử làm đề thi thử lần 1 trong tháng này. Nếu kết quả tốt thì tôi nghĩ sẽ tự tin hơn\".\nAnh Yamada nói: \"Tôi cổ vũ anh. Chúc ước mơ thành hiện thực nhé\".\nAnh Wang cười đáp: \"Cảm ơn anh. Tôi sẽ không bỏ cuộc và cố gắng tiếp\".",
+      "sentences": [
+        {
+          "jp": "ワンさんは来年の春、日本へ留学するために、今日本語を一生懸命勉強しています。",
+          "vi": "Anh Wang đang chăm chỉ học tiếng Nhật để đi du học Nhật vào mùa xuân năm sau.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "来年",
+              "read": "らいねん",
+              "vi": "năm sau"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "留学します",
+              "read": "りゅうがくします",
+              "vi": "du học"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "一生懸命",
+              "read": "いっしょうけんめい",
+              "vi": "hết sức, chăm chỉ"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（mục đích）",
+              "vi": "留学するために = \"để đi du học\". Đây là mục đích tổng quát, dẫn đến hành động 勉強しています."
+            },
+            {
+              "point": "Vています（Bài 14）",
+              "vi": "勉強しています = đang học (hành động diễn ra liên tục)."
+            }
+          ]
+        },
+        {
+          "jp": "留学するために、まずN2に合格しなければなりません。",
+          "vi": "Để du học, trước tiên anh phải đậu N2.",
+          "vocab": [
+            {
+              "w": "留学",
+              "read": "りゅうがく",
+              "vi": "du học"
+            },
+            {
+              "w": "合格します",
+              "read": "ごうかくします",
+              "vi": "đậu (kỳ thi)"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên, đầu tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（mục đích）",
+              "vi": "留学するために = mục đích. Câu thứ hai tiếp tục dùng ために để nêu lý do/mục đích cho hành động bắt buộc."
+            },
+            {
+              "point": "Vなければなりません（Bài 17）",
+              "vi": "合格しなければなりません = \"phải đậu\". Nghĩa vụ cần thực hiện."
+            }
+          ]
+        },
+        {
+          "jp": "N2の試験に合格するのに、たくさんの時間と努力が必要だと分かっています。",
+          "vi": "Anh biết rằng để đậu kỳ thi N2 cần rất nhiều thời gian và nỗ lực.",
+          "vocab": [
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "合格",
+              "read": "ごうかく",
+              "vi": "thi đỗ, trúng tuyển"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực, cố gắng"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに〜が必要（công dụng）",
+              "vi": "合格するのに = \"để đậu\" — chỉ ĐIỀU KIỆN cần có (thời gian + nỗ lực). のに đi với yêu cầu cụ thể."
+            },
+            {
+              "point": "〜と分かっています（Bài 9・22）",
+              "vi": "と分かっています = đang biết/hiểu (trạng thái tiếp diễn). 分かります (Bài 9) + Vている (Bài 14)."
+            }
+          ]
+        },
+        {
+          "jp": "先生は「N2を受けるのに、1000時間ぐらい勉強しなければならないと言われています」と教えてくれました。",
+          "vi": "Giáo viên cho anh biết: \"Người ta nói rằng để thi N2 phải học khoảng 1000 tiếng\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "N2",
+              "read": "エヌツー",
+              "vi": "N2"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "dự thi"
+            },
+            {
+              "w": "1000時間ぐらい",
+              "read": "せんじかんぐらい",
+              "vi": "khoảng 1000 giờ"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học tập"
+            },
+            {
+              "w": "言われています",
+              "read": "いわれています",
+              "vi": "được nói rằng"
+            },
+            {
+              "w": "教えてくれました",
+              "read": "おしえてくれました",
+              "vi": "đã cho biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに（công dụng）",
+              "vi": "N2を受けるのに = \"để thi N2\". Giáo viên nêu điều kiện: muốn thi thì cần 1000 tiếng học."
+            },
+            {
+              "point": "〜と教えてくれました（Bài 41）",
+              "vi": "教えてくれました = (giáo viên) đã cho biết/chỉ dạy. てくれます (Bài 24・41): người khác làm việc tốt cho mình."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは毎日3時間勉強していますが、試験まであと6か月しかありません。",
+          "vi": "Anh Wang đang học 3 tiếng mỗi ngày, nhưng còn chỉ 6 tháng nữa đến kỳ thi.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "3時間",
+              "read": "さんじかん",
+              "vi": "3 giờ"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học tập"
+            },
+            {
+              "w": "勉強しています",
+              "read": "べんきょうしています",
+              "vi": "đang học"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi"
+            },
+            {
+              "w": "あと",
+              "read": "あと",
+              "vi": "còn lại"
+            },
+            {
+              "w": "6か月",
+              "read": "ろっかげつ",
+              "vi": "6 tháng"
+            },
+            {
+              "w": "しかありません",
+              "read": "しかありません",
+              "vi": "chỉ còn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていますが（Bài 14・20）",
+              "vi": "勉強していますが = đang học, nhưng. が nối hai vế tương phản."
+            },
+            {
+              "point": "〜しか〜ない（Bài 27）",
+              "vi": "あと6か月しかありません = \"chỉ còn 6 tháng thôi\". しか + phủ định nhấn mạnh sự ít ỏi."
+            }
+          ]
+        },
+        {
+          "jp": "勉強のために、いい参考書を買いました。その参考書を買うのに3000円かかりました。",
+          "vi": "Anh đã mua một cuốn sách tham khảo tốt để học. Để mua cuốn sách đó tốn 3000 yên.",
+          "vocab": [
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "参考",
+              "read": "さんこう",
+              "vi": "sự tham khảo"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "参考書",
+              "read": "さんこうしょ",
+              "vi": "sách tham khảo"
+            },
+            {
+              "w": "〜円",
+              "read": "えん",
+              "vi": "〜 yên (tiền)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのために（lợi ích/mục đích）",
+              "vi": "勉強のために = \"để (cho) việc học\". Đây là dạng Nのために — danh từ + のために."
+            },
+            {
+              "point": "Vるのに〜お金がかかります（Bài 42）",
+              "vi": "その参考書を買うのに3000円かかりました = \"để mua cuốn sách đó tốn 3000 yên\". Vるのに + số tiền + かかります: chỉ chi phí để thực hiện việc V."
+            }
+          ]
+        },
+        {
+          "jp": "また、週に2回、日本語教室に通っています。日本語教室に通うのに、バスで30分かかります。",
+          "vi": "Ngoài ra, anh đang theo học lớp tiếng Nhật 2 lần một tuần. Đi đến lớp tiếng Nhật mất 30 phút bằng xe buýt.",
+          "vocab": [
+            {
+              "w": "週",
+              "read": "しゅう",
+              "vi": "tuần"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "通います",
+              "read": "かよいます",
+              "vi": "đi lại đều đặn, theo học"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, hơn nữa"
+            },
+            {
+              "w": "週に〜回",
+              "read": "しゅうに〜かい",
+              "vi": "〜 lần mỗi tuần"
+            },
+            {
+              "w": "日本語教室",
+              "read": "にほんごきょうしつ",
+              "vi": "lớp học tiếng Nhật"
+            },
+            {
+              "w": "〜分",
+              "read": "ふん/ぷん",
+              "vi": "〜 phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに〜時間がかかります",
+              "vi": "日本語教室に通うのに = \"để đi đến lớp\". のに chỉ HÀNH TRÌNH/việc cần làm. バスで30分かかります = mất 30 phút bằng xe buýt."
+            },
+            {
+              "point": "Nで（Bài 5・7）",
+              "vi": "バスで = bằng xe buýt. で chỉ phương tiện di chuyển."
+            }
+          ]
+        },
+        {
+          "jp": "教室の授業料は月に1万円です。N2に合格するまでに、かなりのお金がかかります。",
+          "vi": "Học phí lớp là 10.000 yên mỗi tháng. Đến khi đậu N2 thì sẽ tốn khá nhiều tiền.",
+          "vocab": [
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "月に",
+              "read": "つきに",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "合格",
+              "read": "ごうかく",
+              "vi": "thi đỗ, trúng tuyển"
+            },
+            {
+              "w": "かなり",
+              "read": "かなり",
+              "vi": "khá, đáng kể"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "授業料",
+              "read": "じゅぎょうりょう",
+              "vi": "học phí"
+            },
+            {
+              "w": "〜万円",
+              "read": "まんえん",
+              "vi": "〜 vạn yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nにお金がかかります",
+              "vi": "かなりのお金がかかります = \"tốn khá nhiều tiền\". Mẫu Nにかかります diễn đạt tổng chi phí tích lũy."
+            },
+            {
+              "point": "Nまでに/Vるまでに（Bài 17）",
+              "vi": "N2に合格するまでに = \"cho đến khi đậu N2\". までに chỉ thời hạn/mốc thời gian — hoàn thành việc gì trước mốc đó."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは今アルバイトをしています。留学のお金を貯めるために、週に4日働いています。",
+          "vi": "Hiện anh Wang đang làm thêm. Để dành tiền đi du học, anh làm việc 4 ngày một tuần.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "アルバイト",
+              "read": "アルバイト",
+              "vi": "việc làm thêm"
+            },
+            {
+              "w": "しています",
+              "read": "しています",
+              "vi": "đang làm"
+            },
+            {
+              "w": "留学",
+              "read": "りゅうがく",
+              "vi": "du học"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "貯める",
+              "read": "ためる",
+              "vi": "tiết kiệm"
+            },
+            {
+              "w": "週",
+              "read": "しゅう",
+              "vi": "tuần"
+            },
+            {
+              "w": "週に4日",
+              "read": "しゅうによっか",
+              "vi": "4 ngày mỗi tuần"
+            },
+            {
+              "w": "4日",
+              "read": "よっか",
+              "vi": "4 ngày"
+            },
+            {
+              "w": "働いています",
+              "read": "はたらいています",
+              "vi": "đang làm việc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（mục đích）",
+              "vi": "貯めるために = \"để dành dụm\". Mục đích của việc đi làm 4 ngày/tuần là để tiết kiệm tiền du học."
+            }
+          ]
+        },
+        {
+          "jp": "アルバイトが終わってから、毎晩図書館で勉強しています。",
+          "vi": "Sau khi tan ca làm thêm, mỗi tối anh học ở thư viện.",
+          "vocab": [
+            {
+              "w": "アルバイト",
+              "read": "アルバイト",
+              "vi": "việc làm thêm"
+            },
+            {
+              "w": "終わります",
+              "read": "おわります",
+              "vi": "kết thúc, xong"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "終わってから = \"sau khi xong\". Hành động thứ nhất hoàn thành rồi mới thực hiện hành động thứ hai."
+            }
+          ]
+        },
+        {
+          "jp": "山田さんは「毎日そんなに頑張っているんですか。すごいですね」と言いました。",
+          "vi": "Anh Yamada nói: \"Mỗi ngày anh cố gắng vậy sao? Giỏi thật nhỉ\".",
+          "vocab": [
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "そんなに",
+              "read": "そんなに",
+              "vi": "vậy, đến vậy"
+            },
+            {
+              "w": "頑張る",
+              "read": "がんばる",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "すごい",
+              "read": "すごい",
+              "vi": "giỏi, ghê, tuyệt"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V・んですか（Bài 26）",
+              "vi": "頑張っているんですか = \"Anh đang cố gắng vậy sao?\". Yamada đã NHẬN THẤY sự nỗ lực và hỏi để xác nhận/hiểu rõ hơn."
+            },
+            {
+              "point": "〜ですね（Bài 4）",
+              "vi": "すごいですね = \"giỏi thật nhỉ\". ね tìm sự đồng cảm từ người nghe."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「夢のために頑張っています。日本の大学で建築を勉強したいんです」と答えました。",
+          "vi": "Anh Wang trả lời: \"Tôi đang cố gắng vì ước mơ. Tôi muốn học kiến trúc tại đại học ở Nhật\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "夢",
+              "read": "ゆめ",
+              "vi": "ước mơ, giấc mơ"
+            },
+            {
+              "w": "頑張る",
+              "read": "がんばる",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "建築",
+              "read": "けんちく",
+              "vi": "kiến trúc"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "答える",
+              "read": "こたえる",
+              "vi": "trả lời, đáp lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのために（vì lợi ích/mục đích）",
+              "vi": "夢のために = \"vì ước mơ\". Nのために: danh từ ước mơ là mục tiêu/động lực của hành động cố gắng."
+            },
+            {
+              "point": "〜たいんです（Bài 13・26）",
+              "vi": "勉強したいんです = \"tôi muốn học đó\". んです + たい: vừa bày tỏ mong muốn vừa giải thích lý do cố gắng."
+            }
+          ]
+        },
+        {
+          "jp": "それを聞いた山田さんは、ワンさんが使っている参考書を見せてもらいました。",
+          "vi": "Nghe vậy, anh Yamada đã xem cuốn sách tham khảo mà anh Wang đang dùng.",
+          "vocab": [
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "điều đó"
+            },
+            {
+              "w": "聞いた",
+              "read": "きいた",
+              "vi": "đã nghe"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang"
+            },
+            {
+              "w": "使っている",
+              "read": "つかっている",
+              "vi": "đang sử dụng"
+            },
+            {
+              "w": "参考",
+              "read": "さんこう",
+              "vi": "tham khảo"
+            },
+            {
+              "w": "参考書",
+              "read": "さんこうしょ",
+              "vi": "sách tham khảo"
+            },
+            {
+              "w": "見せてもらいました",
+              "read": "みせてもらいました",
+              "vi": "đã được cho xem"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "ワンさんが使っている参考書 = \"cuốn sách (mà) Wang đang dùng\". Vている + N: mệnh đề bổ nghĩa cho danh từ."
+            },
+            {
+              "point": "Vてもらいます（Bài 24・41）",
+              "vi": "見せてもらいました = \"được Wang cho xem\". Yamada nhận hành động (cho xem sách) từ Wang."
+            }
+          ]
+        },
+        {
+          "jp": "「この本、N2の試験に合格するのに、本当に役に立つんですか」と聞きました。",
+          "vi": "\"Quyển này có thực sự hữu ích để đậu kỳ thi N2 không?\" anh hỏi.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "合格",
+              "read": "ごうかく",
+              "vi": "thi đỗ, trúng tuyển"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "役に立ちます",
+              "read": "やくにたちます",
+              "vi": "hữu ích, có ích"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに（công dụng）",
+              "vi": "N2の試験に合格するのに = \"để đậu kỳ thi N2\". のに hỏi về công dụng của quyển sách đối với mục tiêu đậu N2."
+            },
+            {
+              "point": "V・んですか（Bài 26）",
+              "vi": "役に立つんですか = \"có thực sự hữu ích không?\". Yamada đang cầm sách trong tay → hỏi về tác dụng thực tế của nó."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「はい、この本のおかげで、難しい読解問題がだいぶ分かるようになりました」と答えました。",
+          "vi": "Anh Wang trả lời: \"Vâng, nhờ quyển này, tôi đã hiểu được khá nhiều bài đọc hiểu khó\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "読解",
+              "read": "どっかい",
+              "vi": "đọc hiểu, luận giải văn bản"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "だいぶ",
+              "read": "だいぶ",
+              "vi": "khá nhiều, đáng kể"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "答える",
+              "read": "こたえる",
+              "vi": "trả lời, đáp lại"
+            },
+            {
+              "w": "おかげで",
+              "read": "おかげで",
+              "vi": "nhờ (ơn của), nhờ vào"
+            },
+            {
+              "w": "読解問題",
+              "read": "どっかいもんだい",
+              "vi": "bài tập đọc hiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようになりました（Bài 36）",
+              "vi": "分かるようになりました = \"đã trở nên hiểu được\". ようになります (Bài 36): diễn đạt sự thay đổi/tiến bộ dần dần đạt được."
+            }
+          ]
+        },
+        {
+          "jp": "そして「今月中に第1回の模擬試験を受けてみるつもりです。結果がよければ、自信がつくと思います」と続けました。",
+          "vi": "Rồi anh nói tiếp: \"Tôi dự định thử làm đề thi thử lần 1 trong tháng này. Nếu kết quả tốt thì tôi nghĩ sẽ tự tin hơn\".",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "今月中",
+              "read": "こんげつちゅう",
+              "vi": "trong tháng này"
+            },
+            {
+              "w": "第1回",
+              "read": "だいいっかい",
+              "vi": "lần thứ nhất"
+            },
+            {
+              "w": "模擬",
+              "read": "もぎ",
+              "vi": "mô phỏng"
+            },
+            {
+              "w": "模擬試験",
+              "read": "もぎしけん",
+              "vi": "thi thử"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi"
+            },
+            {
+              "w": "受けてみる",
+              "read": "うけてみる",
+              "vi": "thử dự thi"
+            },
+            {
+              "w": "つもり",
+              "read": "つもり",
+              "vi": "dự định"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "よければ",
+              "read": "よければ",
+              "vi": "nếu tốt"
+            },
+            {
+              "w": "自信",
+              "read": "じしん",
+              "vi": "sự tự tin"
+            },
+            {
+              "w": "自信がつく",
+              "read": "じしんがつく",
+              "vi": "có thêm tự tin"
+            },
+            {
+              "w": "つく",
+              "read": "つく",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "思います",
+              "read": "おもいます",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "続けました",
+              "read": "つづけました",
+              "vi": "đã tiếp lời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみるつもりです（Bài 40・31）",
+              "vi": "受けてみるつもりです = \"dự định thử làm\". Vてみます (Bài 40) + つもりです (Bài 31): dự định thử nghiệm."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "自信がつくと思います = \"tôi nghĩ sẽ tự tin hơn\". Đưa ra nhận định/suy đoán của mình."
+            }
+          ]
+        },
+        {
+          "jp": "山田さんは「応援しています。夢がかなうといいですね」と言いました。",
+          "vi": "Anh Yamada nói: \"Tôi cổ vũ anh. Chúc ước mơ thành hiện thực nhé\".",
+          "vocab": [
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "応援します",
+              "read": "おうえんします",
+              "vi": "cổ vũ, ủng hộ"
+            },
+            {
+              "w": "夢",
+              "read": "ゆめ",
+              "vi": "ước mơ"
+            },
+            {
+              "w": "かなう",
+              "read": "かなう",
+              "vi": "đáp ứng, thành hiện thực"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "かないます",
+              "read": "かないます",
+              "vi": "thành hiện thực, ứng nghiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜といいですね（Bài 23）",
+              "vi": "夢がかなうといいですね = \"mong ước mơ thành hiện thực nhỉ\". と＋いいですね: diễn đạt mong muốn điều tốt đẹp xảy ra cho người khác."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「ありがとうございます。諦めないで頑張ります」と笑顔で答えました。",
+          "vi": "Anh Wang cười đáp: \"Cảm ơn anh. Tôi sẽ không bỏ cuộc và cố gắng tiếp\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "諦めます",
+              "read": "あきらめます",
+              "vi": "bỏ cuộc, từ bỏ"
+            },
+            {
+              "w": "頑張る",
+              "read": "がんばる",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "笑顔",
+              "read": "えがお",
+              "vi": "nụ cười, khuôn mặt tươi cười"
+            },
+            {
+              "w": "答える",
+              "read": "こたえる",
+              "vi": "trả lời, đáp lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないで（Bài 17）",
+              "vi": "諦めないで頑張ります = \"không bỏ cuộc mà cố gắng\". Vないで nối hai hành động: không làm A mà làm B."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "日本へ留学するために、今日本語を一生懸命勉強しています",
+          "label": "Vるために（mục đích tổng quát）"
+        },
+        {
+          "excerpt": "N2の試験に合格するのに、たくさんの時間と努力が必要",
+          "label": "Vるのに〜が必要（điều kiện cần）"
+        },
+        {
+          "excerpt": "その参考書を買うのに3000円かかりました",
+          "label": "Vるのに〜お金がかかります"
+        },
+        {
+          "excerpt": "日本語教室に通うのに、バスで30分かかります",
+          "label": "Vるのに〜時間がかかります"
+        },
+        {
+          "excerpt": "夢のために頑張っています",
+          "label": "Nのために（vì ước mơ）"
+        },
+        {
+          "excerpt": "N2の試験に合格するのに、本当に役に立つんですか",
+          "label": "Vるのに（công dụng） + んですか"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワンさんはどうして日本語を勉強していますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "日本の音楽が好きだから、勉強しています",
+            "来年の春、日本へ留学するために、勉強しています",
+            "山田さんに頼まれたので、勉強しています",
+            "日本語の先生になりたいから、勉強しています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu mở đầu bài nêu rõ:「来年の春、日本へ留学するために、今日本語を一生懸命勉強しています」— cấu trúc Vるために (留学するために = để du học) chỉ MỤC ĐÍCH rõ ràng của việc học tiếng Nhật hiện tại. Câu này là bằng chứng trực tiếp, dứt khoát. Đáp án 0 sai vì bài không đề cập đến âm nhạc Nhật — ために xác định mục đích cụ thể, không phải sở thích. Đáp án 2 sai vì Yamada chỉ là người hỏi thăm, không nhờ Wang học. Đáp án 3 sai vì Wang muốn học KIẾN TRÚC (建築) tại Nhật, không phải trở thành giáo viên tiếng Nhật.",
+          "tip": "Vるために đứng TRƯỚC hành động chính = câu trả lời cho mọi câu hỏi \"なぜ〜していますか\". Tìm ために trong câu đầu bài — thường chứa mục đích chính của nhân vật.",
+          "qt": {
+            "q": "Vì sao anh Wang học tiếng Nhật?",
+            "o": [
+              "Vì thích âm nhạc Nhật Bản nên đang học",
+              "Đang học để sang Nhật du học vào mùa xuân năm sau",
+              "Đang học vì được anh Yamada nhờ",
+              "Đang học vì muốn trở thành giáo viên tiếng Nhật"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんが日本語教室に通うのに、どのぐらい時間がかかりますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "歩いて30分かかります",
+            "電車で30分かかります",
+            "バスで30分かかります",
+            "バスで1時間かかります"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu rõ:「日本語教室に通うのに、バスで30分かかります」— mẫu Vるのに〜時間がかかります: (通うのに = để đi đến lớp) + (バスで = bằng xe buýt) + (30分かかります = mất 30 phút). Ba yếu tố phương tiện, thời gian, hành trình đều khớp chính xác với đáp án 2. Đáp án 0 sai vì bài nói バスで (xe buýt), không phải 歩いて (đi bộ). Đáp án 1 sai vì bài nói バスで, không phải 電車で (tàu điện). Đáp án 3 sai vì thời gian là 30分 (30 phút), không phải 1時間 (1 tiếng).",
+          "tip": "Vるのに〜かかります hỏi về CHI PHÍ (tiền/thời gian) để thực hiện việc V. Khi gặp câu hỏi dạng này, tìm câu trong bài có chính xác cùng động từ + のに + かかります — số liệu cụ thể (phương tiện, thời gian) chính là đáp án.",
+          "qt": {
+            "q": "Anh Wang mất bao lâu để đến lớp học tiếng Nhật?",
+            "o": [
+              "Mất 30 phút đi bộ",
+              "Mất 30 phút đi tàu điện",
+              "Mất 30 phút đi xe buýt",
+              "Mất 1 giờ đi xe buýt"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんはどんな夢を持っていますか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "日本語の先生になりたいと思っています",
+            "日本の大学で建築を勉強したいと思っています",
+            "日本でアルバイトをしながら生活したいと思っています",
+            "日本語能力試験のN1に合格したいと思っています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Wang trả lời Yamada bằng hai câu liên tiếp:「夢のために頑張っています」(đang cố gắng vì ước mơ) rồi giải thích cụ thể ước mơ đó là gì:「日本の大学で建築を勉強したいんです」(muốn học kiến trúc ở đại học Nhật). たいんです (Bài 13 + 26) vừa bày tỏ mong muốn vừa giải thích lý do cố gắng — đây chính là ước mơ. Đáp án 0 sai vì Wang muốn HỌC kiến trúc, không phải làm giáo viên tiếng Nhật. Đáp án 2 sai vì Wang làm thêm để DÀNH TIỀN du học, không phải muốn sống ở Nhật bằng tiền làm thêm lâu dài. Đáp án 3 sai vì bài nói mục tiêu thi là N2 (để du học), không phải N1.",
+          "tip": "「Nのために頑張っています」→ N chính là động lực/ước mơ. Câu tiếp theo thường giải thích cụ thể N là gì — đọc cả hai câu liên tiếp mới có đủ thông tin để trả lời.",
+          "qt": {
+            "q": "Anh Wang có ước mơ như thế nào?",
+            "o": [
+              "Anh ấy nghĩ mình muốn trở thành giáo viên tiếng Nhật",
+              "Anh ấy nghĩ mình muốn học ngành kiến trúc tại một trường đại học ở Nhật Bản",
+              "Anh ấy nghĩ mình muốn vừa làm thêm vừa sống ở Nhật Bản",
+              "Anh ấy nghĩ mình muốn đỗ kỳ thi năng lực tiếng Nhật N1"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんのお金について、文章の内容に合っているものはどれですか。",
+          "evi": [
+            5,
+            7
+          ],
+          "options": [
+            "ワンさんは参考書を買うのにお金がかからなかったです",
+            "日本語教室の授業料は週に1万円です",
+            "参考書は3000円で、毎月1万円の授業料もかかっています",
+            "ワンさんはお金がたくさんあるから、アルバイトをしていません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài cung cấp hai chi tiết số liệu cần KẾT HỢP: (1)「その参考書を買うのに3000円かかりました」(mua sách tốn 3000 yên — mẫu Vるのに〜お金がかかります); (2)「教室の授業料は月に1万円です」(học phí lớp là 10.000 yên mỗi tháng). Đáp án 2 tổng hợp chính xác cả hai chi tiết này. Đáp án 0 sai vì「3000円かかりました」xác nhận rõ mua sách CÓ TỐN tiền, không phải miễn phí. Đáp án 1 sai vì bài nói「月に1万円」(mỗi THÁNG), không phải「週に1万円」(mỗi tuần) — đây là bẫy số liệu phổ biến. Đáp án 3 sai vì bài nói rõ Wang đang làm thêm「留学のお金を貯めるために」(để dành tiền du học), tức là ĐANG CẦN tiền, không phải đã có đủ.",
+          "tip": "Câu hỏi kết hợp nhiều chi tiết số liệu (tiền, tần suất, thời gian): đọc kỹ đơn vị (月に vs 週に, 円 vs 万円). Loại ngay đáp án nào dùng SAI đơn vị so với bài — đó là bẫy phổ biến nhất của dạng câu hỏi này.",
+          "qt": {
+            "q": "Về tiền bạc của anh Wang, nội dung nào phù hợp với bài đọc?",
+            "o": [
+              "Anh Wang không tốn tiền để mua sách tham khảo",
+              "Học phí lớp tiếng Nhật là 10.000 yên mỗi tuần",
+              "Sách tham khảo giá 3.000 yên và học phí 10.000 yên mỗi tháng cũng phải trả",
+              "Anh Wang không làm thêm vì có nhiều tiền"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Phòng tự học và phòng họp của thư viện thành phố",
+      "japanese": "中央図書館　勉強室・会議室のご案内\n中央図書館では、静かに勉強するのに便利な部屋を貸しています。テストのために勉強したい人は、ぜひ利用してください。\n部屋｜時間｜大人｜学生\n自習室｜9:00〜21:00｜300円｜100円\n勉強室（1人用）｜9:00〜21:00｜500円｜200円\n会議室（グループ用）｜9:00〜17:00｜1000円｜500円\n部屋を借りるのに、図書館カードが必要です。カードがない人は、受付で作ることができます。\n※会議室を予約するのに、お金がかかりますから、使う3日前までに申し込んでください。\n※月曜日は休みですから、休みの日のために勉強したい人は、金曜日までに借りたい部屋を決めておいてください。\n静かに勉強するのに、自習室と勉強室は一人で使ってください。会議室は3人以上のグループのために作られた部屋です。\n受付：1階　電話：03-1234-5678　Eメール：library@chuo.jp",
+      "vietnamese": "Thư viện Trung tâm — Thông báo về phòng tự học và phòng họp\nThư viện Trung tâm cho thuê những phòng tiện lợi để học yên tĩnh. Ai muốn học để chuẩn bị cho kỳ thi thì xin hãy sử dụng.\nPhòng｜Giờ mở cửa｜Người lớn｜Học sinh/sinh viên\nPhòng tự học｜9:00〜21:00｜300 yên｜100 yên\nPhòng học (dùng 1 người)｜9:00〜21:00｜500 yên｜200 yên\nPhòng họp (dùng cho nhóm)｜9:00〜17:00｜1000 yên｜500 yên\nĐể thuê phòng, cần có thẻ thư viện. Ai chưa có thẻ thì có thể làm tại quầy tiếp tân.\n※Để đặt phòng họp thì tốn tiền, nên hãy đăng ký trước 3 ngày trước khi sử dụng.\n※Thứ Hai thư viện nghỉ, nên ai muốn học vào đúng hôm nghỉ thì hãy quyết định trước phòng muốn thuê trước thứ Sáu.\nĐể học yên tĩnh, phòng tự học và phòng học xin hãy dùng một mình. Phòng họp là phòng được làm ra cho nhóm từ 3 người trở lên.\nQuầy tiếp tân: tầng 1　Điện thoại: 03-1234-5678　Email: library@chuo.jp",
+      "sentences": [
+        {
+          "jp": "中央図書館　勉強室・会議室のご案内",
+          "vi": "Thư viện Trung tâm — Thông báo về phòng tự học và phòng họp",
+          "vocab": [
+            {
+              "w": "中央",
+              "read": "ちゅうおう",
+              "vi": "trung tâm, trung ương"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "中央図書館",
+              "read": "ちゅうおうとしょかん",
+              "vi": "thư viện trung tâm"
+            },
+            {
+              "w": "勉強室",
+              "read": "べんきょうしつ",
+              "vi": "phòng học"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "中央図書館",
+              "why": "Tên cơ sở phát hành thông báo — xác định đây là tờ お知らせ của thư viện."
+            }
+          ]
+        },
+        {
+          "jp": "中央図書館では、静かに勉強するのに便利な部屋を貸しています。テストのために勉強したい人は、ぜひ利用してください。",
+          "vi": "Thư viện Trung tâm cho thuê những phòng tiện lợi để học yên tĩnh. Ai muốn học để chuẩn bị cho kỳ thi thì xin hãy sử dụng.",
+          "vocab": [
+            {
+              "w": "中央",
+              "read": "ちゅうおう",
+              "vi": "trung tâm, trung ương"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "静かに",
+              "read": "しずかに",
+              "vi": "một cách yên tĩnh"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "便利な",
+              "read": "べんりな",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "貸します",
+              "read": "かします",
+              "vi": "cho thuê, cho mượn"
+            },
+            {
+              "w": "テスト",
+              "read": "テスト",
+              "vi": "bài kiểm tra, kỳ thi"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "利用します",
+              "read": "りようします",
+              "vi": "sử dụng, tận dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに便利です（công dụng, Bài 42）",
+              "vi": "勉強するのに便利な部屋 = \"phòng tiện lợi để học\". Vる + のに + 便利です/な: nêu công dụng của vật đối với việc V."
+            },
+            {
+              "point": "Nのために（mục đích, Bài 42）",
+              "vi": "テストのために = \"vì (để chuẩn bị cho) kỳ thi\". Danh từ テスト + のために nêu mục đích của việc muốn học."
+            }
+          ],
+          "keys": [
+            {
+              "w": "静かに勉強するのに便利な部屋を貸しています",
+              "why": "Nêu mục đích chung của cả 3 loại phòng — nền tảng để dò bảng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "部屋｜時間｜大人｜学生",
+          "vi": "Phòng｜Giờ mở cửa｜Người lớn｜Học sinh/sinh viên",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "部屋｜時間｜大人｜学生",
+              "why": "Header bảng — xác định cột 学生 để dò giá cho sinh viên ở câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "自習室｜9:00〜21:00｜300円｜100円",
+          "vi": "Phòng tự học｜9:00〜21:00｜300 yên｜100 yên",
+          "vocab": [
+            {
+              "w": "自習",
+              "read": "じしゅう",
+              "vi": "sự tự học"
+            },
+            {
+              "w": "自習室",
+              "read": "じしゅうしつ",
+              "vi": "phòng tự học"
+            },
+            {
+              "w": "〜円",
+              "read": "えん",
+              "vi": "〜 yên (đơn vị tiền)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "自習室｜9:00〜21:00｜300円｜100円",
+              "why": "Nhiễu gần đáp án câu hỏi 1 — giá 100円 dễ bị nhầm với giá 学生 của 会議室."
+            }
+          ]
+        },
+        {
+          "jp": "勉強室（1人用）｜9:00〜21:00｜500円｜200円",
+          "vi": "Phòng học (dùng 1 người)｜9:00〜21:00｜500 yên｜200 yên",
+          "vocab": [
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học tập"
+            },
+            {
+              "w": "勉強室",
+              "read": "べんきょうしつ",
+              "vi": "phòng học"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "1 người"
+            },
+            {
+              "w": "1人用",
+              "read": "ひとりよう",
+              "vi": "dành cho 1 người"
+            },
+            {
+              "w": "9:00〜21:00",
+              "read": "くじからにじゅういちじまで",
+              "vi": "từ 9:00 đến 21:00"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "200円",
+              "read": "にひゃくえん",
+              "vi": "200 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "勉強室（1人用）｜9:00〜21:00｜500円｜200円",
+              "why": "Nhiễu gần đáp án câu hỏi 1 — giá 200円 dễ bị nhầm với giá 学生 của 会議室."
+            }
+          ]
+        },
+        {
+          "jp": "会議室（グループ用）｜9:00〜17:00｜1000円｜500円",
+          "vi": "Phòng họp (dùng cho nhóm)｜9:00〜17:00｜1000 yên｜500 yên",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "グループ用",
+              "read": "グループよう",
+              "vi": "dành cho nhóm"
+            },
+            {
+              "w": "9:00〜17:00",
+              "read": "くじからじゅうななじまで",
+              "vi": "từ 9:00 đến 17:00"
+            },
+            {
+              "w": "1000円",
+              "read": "せんえん",
+              "vi": "1000 yên"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "会議室（グループ用）｜9:00〜17:00｜1000円｜500円",
+              "why": "Hàng bảng chứa đáp án câu hỏi 1: sinh viên dùng 会議室 trả 500円 (cột 学生)."
+            }
+          ]
+        },
+        {
+          "jp": "部屋を借りるのに、図書館カードが必要です。カードがない人は、受付で作ることができます。",
+          "vi": "Để thuê phòng, cần có thẻ thư viện. Ai chưa có thẻ thì có thể làm tại quầy tiếp tân.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "借ります",
+              "read": "かります",
+              "vi": "thuê, mượn"
+            },
+            {
+              "w": "図書館カード",
+              "read": "としょかんカード",
+              "vi": "thẻ thư viện"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "必要です",
+              "read": "ひつようです",
+              "vi": "cần thiết, cần phải có"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy tiếp tân, lễ tân"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, tạo ra"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに〜が必要です（công dụng, Bài 42）",
+              "vi": "借りるのに、カードが必要です = \"để thuê thì cần có thẻ\". Vるのに + thứ CẦN THIẾT — cùng mẫu với のに của bài 42."
+            },
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "作ることができます = \"có thể làm được\". 辞書形＋ことができます diễn đạt khả năng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "図書館カードが必要です",
+              "why": "Điều kiện chung để thuê bất kỳ phòng nào — không liên quan trực tiếp câu hỏi nhưng dễ bị nhiễu."
+            }
+          ]
+        },
+        {
+          "jp": "※会議室を予約するのに、お金がかかりますから、使う3日前までに申し込んでください。",
+          "vi": "※Để đặt phòng họp thì tốn tiền, nên hãy đăng ký trước 3 ngày trước khi sử dụng.",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt chỗ"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "かかる",
+              "read": "かかる",
+              "vi": "tốn, mất"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký, nộp đơn"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "tốn (thời gian/tiền)"
+            },
+            {
+              "w": "〜日前",
+              "read": "〜にちまえ",
+              "vi": "trước 〜 ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに〜お金がかかります（Bài 42）",
+              "vi": "予約するのに、お金がかかります = \"để đặt trước thì tốn tiền\". Mẫu trọng tâm Bài 42: Vるのに + số tiền/thời gian + かかります."
+            },
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "3日前までに = \"trước 3 ngày\". までに chỉ thời hạn phải hoàn thành trước mốc đó."
+            },
+            {
+              "point": "〜てください（Bài 14）",
+              "vi": "申し込んでください = \"xin hãy đăng ký\". Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3日前までに申し込んでください",
+              "why": "Bẫy nhiễu câu hỏi 2: quy định đặt trước chỉ áp dụng khi thư viện MỞ CỬA, không giúp mở cửa vào ngày nghỉ."
+            }
+          ]
+        },
+        {
+          "jp": "※月曜日は休みですから、休みの日のために勉強したい人は、金曜日までに借りたい部屋を決めておいてください。",
+          "vi": "※Thứ Hai thư viện nghỉ, nên ai muốn học vào đúng hôm nghỉ thì hãy quyết định trước phòng muốn thuê trước thứ Sáu.",
+          "vocab": [
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "休みです",
+              "read": "やすみです",
+              "vi": "nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "金曜日",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "借りる",
+              "read": "かりる",
+              "vi": "mượn, vay"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "決めます",
+              "read": "きめます",
+              "vi": "quyết định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのために（Bài 42）",
+              "vi": "休みの日のために = \"vì (để dùng vào) ngày nghỉ\". Danh từ 休みの日 + のために nêu mục đích chuẩn bị."
+            },
+            {
+              "point": "Vておいてください（Bài 30・14）",
+              "vi": "決めておいてください = \"xin hãy quyết định trước\". Vておきます (chuẩn bị trước, Bài 30) + てください (Bài 14)."
+            },
+            {
+              "point": "Nまでに（Bài 17）",
+              "vi": "金曜日までに = \"trước thứ Sáu\". Mốc thời hạn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月曜日は休みですから",
+              "why": "Căn cứ chính câu hỏi 2: thứ Hai thư viện nghỉ → không thuê được phòng bất kể loại nào."
+            }
+          ]
+        },
+        {
+          "jp": "静かに勉強するのに、自習室と勉強室は一人で使ってください。会議室は3人以上のグループのために作られた部屋です。",
+          "vi": "Để học yên tĩnh, phòng tự học và phòng học xin hãy dùng một mình. Phòng họp là phòng được làm ra cho nhóm từ 3 người trở lên.",
+          "vocab": [
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "自習",
+              "read": "じしゅう",
+              "vi": "sự tự học"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "dùng, sử dụng"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "作られます",
+              "read": "つくられます",
+              "vi": "được làm ra (thụ động của 作ります)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "一人で",
+              "read": "ひとりで",
+              "vi": "một mình"
+            },
+            {
+              "w": "〜人以上",
+              "read": "〜にんいじょう",
+              "vi": "từ 〜 người trở lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのに便利です（công dụng, Bài 42）",
+              "vi": "静かに勉強するのに = \"để học yên tĩnh\". Lặp lại mẫu のに công dụng đã nêu ở câu 2, nhấn mạnh mục đích sử dụng đúng của từng loại phòng."
+            },
+            {
+              "point": "Nのために（mục đích, Bài 42）",
+              "vi": "グループのために作られた = \"được làm ra vì (dành cho) nhóm\". Nのために nêu đối tượng/mục đích tồn tại của phòng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会議室は3人以上のグループのために作られた部屋です",
+              "why": "Xác nhận 会議室 dành cho nhóm ≥3 người — củng cố ngữ cảnh câu hỏi 1 (グループの勉強)."
+            }
+          ]
+        },
+        {
+          "jp": "受付：1階　電話：03-1234-5678　Eメール：library@chuo.jp",
+          "vi": "Quầy tiếp tân: tầng 1　Điện thoại: 03-1234-5678　Email: library@chuo.jp",
+          "vocab": [
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "library",
+              "read": "library",
+              "vi": "thư viện"
+            },
+            {
+              "w": "chuo",
+              "read": "chuo",
+              "vi": "trung tâm, tên riêng Chuo"
+            },
+            {
+              "w": "jp",
+              "read": "jp",
+              "vi": "tên miền Nhật Bản"
+            },
+            {
+              "w": "〜階",
+              "read": "かい",
+              "vi": "〜 tầng"
+            },
+            {
+              "w": "Eメール",
+              "read": "イーメール",
+              "vi": "email, thư điện tử"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "勉強するのに便利な部屋を貸しています",
+          "label": "Vるのに便利です（công dụng）"
+        },
+        {
+          "excerpt": "テストのために勉強したい人",
+          "label": "Nのために（mục đích）"
+        },
+        {
+          "excerpt": "会議室を予約するのに、お金がかかります",
+          "label": "Vるのに〜お金がかかります"
+        },
+        {
+          "excerpt": "休みの日のために勉強したい人",
+          "label": "Nのために（mục đích）"
+        },
+        {
+          "excerpt": "借りるのに、図書館カードが必要です",
+          "label": "Vるのに〜が必要です"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & mục đích",
+          "topic": 0,
+          "note": "Giới thiệu thư viện cho thuê phòng học yên tĩnh, phục vụ ai chuẩn bị thi cử — nền cho toàn bộ thông báo.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng giờ & giá theo phòng",
+          "topic": 2,
+          "note": "Bảng chính chứa căn cứ câu hỏi 1: dò đúng cột 学生 và hàng 会議室 để ra giá 500円.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 6,
+          "kind": "body",
+          "label": "Điều kiện thẻ thư viện",
+          "topic": 6,
+          "note": "Điều kiện chung để thuê phòng, không phải căn cứ chính của câu hỏi nào.",
+          "qs": []
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Điều kiện ※ đặt trước & ngày nghỉ",
+          "topic": 8,
+          "note": "Hai dòng ※ dễ gây bẫy: dòng 7 chỉ áp dụng khi thư viện mở cửa; dòng 8 nêu thứ Hai nghỉ hẳn — là căn cứ chính câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "body",
+          "label": "Quy tắc dùng phòng & liên hệ",
+          "topic": 9,
+          "note": "Nhắc lại mục đích sử dụng từng loại phòng và thông tin liên hệ, không phải căn cứ trực tiếp của câu hỏi nào.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは大学生です。会議室でグループの勉強をしたいです。お金はいくらかかりますか。",
+          "options": [
+            "1000円かかります",
+            "500円かかります",
+            "300円かかります",
+            "200円かかります"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1 (500円). Bảng ghi rõ hàng「会議室（グループ用）｜9:00〜17:00｜1000円｜500円」— cột \"学生\" (học sinh/sinh viên) của phòng 会議室 là 500円. Câu hỏi ghép 2 điều kiện: (1) loại người = 学生 (đại học sinh), (2) loại phòng = 会議室 (dùng nhóm) → phải dò đúng CỘT 学生 và HÀNG 会議室. Đáp án 0 (1000円) sai vì đó là giá cột 大人, không phải 学生. Đáp án 2 (300円) và 3 (200円) sai vì đó là giá của 自習室 và 勉強室 — nhầm hàng phòng, không phải 会議室.",
+          "tip": "Khi câu hỏi cho 2 điều kiện (loại người + loại phòng), phải dò ĐÚNG GIAO của 1 cột và 1 hàng trong bảng — đừng chỉ nhìn 1 điều kiện rồi chọn đại.",
+          "evi": [
+            2,
+            5
+          ],
+          "qt": {
+            "q": "Anh Santos là sinh viên đại học. Anh ấy muốn học nhóm trong phòng họp. Phải trả bao nhiêu tiền?",
+            "o": [
+              "Tốn 1.000 yên",
+              "Tốn 500 yên",
+              "Tốn 300 yên",
+              "Tốn 200 yên"
+            ]
+          }
+        },
+        {
+          "q": "リーさんは来週の月曜日に会議室を借りたいです。どうすればいいですか。",
+          "options": [
+            "月曜日の3日前までに予約すれば借りられます",
+            "月曜日は休みだから、別の日に借りなければなりません",
+            "電話をかければ、月曜日でも借りられます",
+            "月曜日は学生だけ借りることができます"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Thông báo ghi rõ「※月曜日は休みですから」— thứ Hai thư viện NGHỈ, nên không thể thuê phòng bất kể loại phòng nào, và Lee phải chọn ngày khác. Đáp án 0 sai vì \"đặt trước 3 ngày\" (3日前までに申し込んでください) chỉ áp dụng cho 会議室 vào NGÀY MỞ CỬA, không giúp mở cửa vào ngày nghỉ. Đáp án 2 sai vì bài không nói gọi điện có thể thuê phòng vào ngày nghỉ — 電話 chỉ là số liên hệ chung. Đáp án 3 sai vì bài không hề nói thứ Hai chỉ dành riêng cho 学生.",
+          "tip": "Luôn kiểm tra dòng ※ về ngày nghỉ TRƯỚC khi áp dụng điều kiện đặt trước hay giá cả — ngày nghỉ định kỳ \"đè\" lên mọi điều kiện khác trong bảng.",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Anh Lee muốn thuê phòng họp vào thứ Hai tuần sau. Anh ấy nên làm thế nào?",
+            "o": [
+              "Có thể thuê nếu đặt trước chậm nhất là 3 ngày trước thứ Hai",
+              "Vì thứ Hai là ngày nghỉ nên phải thuê vào ngày khác",
+              "Nếu gọi điện thì có thể thuê cả vào thứ Hai",
+              "Chỉ sinh viên mới có thể thuê vào thứ Hai"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

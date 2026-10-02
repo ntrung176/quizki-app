@@ -1,0 +1,369 @@
+{
+  "bai": 2,
+  "bunpou": [
+    {
+      "stem": "＿は 本[ほん]です。",
+      "choices": [
+        "これ",
+        "この",
+        "ここ",
+        "それの"
+      ],
+      "answer": 0,
+      "explain": "「これ」là đại từ độc lập, đứng trước「は」làm chủ đề. 「この」là liên thể từ, bắt buộc đứng ngay trước danh từ (この本[ほん]); không thể đứng trước「は」."
+    },
+    {
+      "stem": "＿時計[とけい]は いくらですか。",
+      "choices": [
+        "この",
+        "これ",
+        "ここ",
+        "それ"
+      ],
+      "answer": 0,
+      "explain": "「この」là liên thể từ, đứng trực tiếp trước danh từ (この時計). 「これ」là đại từ độc lập, không thể đứng kề ngay danh từ; 「ここ」chỉ nơi chốn."
+    },
+    {
+      "stem": "これは 田中[たなか]さん＿かばんです。",
+      "choices": [
+        "の",
+        "は",
+        "が",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「の」nối danh từ sở hữu: 田中さんのかばん = cặp của anh Tanaka. 「は/が/を」không có chức năng nối sở hữu giữa hai danh từ."
+    },
+    {
+      "stem": "A:それは あなたの 鍵[かぎ]ですか。 B:はい、＿。",
+      "choices": [
+        "そうです",
+        "そうですか",
+        "そうじゃありません",
+        "ちがいますか"
+      ],
+      "answer": 0,
+      "explain": "「はい、そうです」là câu trả lời khẳng định chuẩn sau câu hỏi Yes/No. 「そうですか」là phản ứng \"À vậy sao?\" biểu lộ ngạc nhiên, không dùng để xác nhận."
+    },
+    {
+      "stem": "A:あれは 車[くるま]ですか。 B:いいえ、＿。",
+      "choices": [
+        "そうじゃありません",
+        "そうです",
+        "そうですね",
+        "そうません"
+      ],
+      "answer": 0,
+      "explain": "「いいえ、そうじゃありません」là phủ định của「そうです」. 「そうです」là xác nhận; 「そうですね」là đồng ý/xác nhận có suy nghĩ; 「そうません」không tồn tại."
+    },
+    {
+      "stem": "＿人[ひと]は 誰[だれ]ですか。",
+      "choices": [
+        "あの",
+        "あれ",
+        "あそこ",
+        "あれの"
+      ],
+      "answer": 0,
+      "explain": "「あの」là liên thể từ chỉ vật/người xa cả hai, đứng kề danh từ (あの人). 「あれ」là đại từ độc lập; 「あそこ」chỉ địa điểm — cả hai không thể đứng trực tiếp trước danh từ."
+    },
+    {
+      "stem": "この 机[つくえ]は 先生[せんせい]＿です。",
+      "choices": [
+        "の",
+        "は",
+        "が",
+        "か"
+      ],
+      "answer": 0,
+      "explain": "「先生のです」= của thầy/cô (「の」thay thế cho danh từ sở hữu đã hiểu ngầm). 「先生はです/がです」sai cấu trúc; 「先生かです」là câu hỏi không hoàn chỉnh."
+    },
+    {
+      "stem": "A:その いすは 誰[だれ]のですか。 B:私[わたし]＿です。",
+      "choices": [
+        "の",
+        "は",
+        "が",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「私のです」= của tôi; 「の」đại diện cho danh từ vừa hỏi (いす). Không thể dùng「は/が/を」trong vị trí thay thế danh từ sở hữu này."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "の",
+      "は",
+      "も",
+      "か",
+      "が",
+      "を",
+      "と"
+    ],
+    "items": [
+      {
+        "stem": "これ＿ 田中[たなか]さんの 本[ほん]です。",
+        "answer": "は",
+        "explain": "「は」đánh dấu chủ đề「これ」trong câu trần thuật. 「が」dùng khi nhấn mạnh chủ ngữ (thường trong câu hỏi 何が〜 hoặc câu quan hệ)."
+      },
+      {
+        "stem": "その かばん＿ 私[わたし]のです。",
+        "answer": "は",
+        "explain": "「は」làm chủ đề cho「そのかばん」. 「が」nhấn mạnh (không tự nhiên trong câu trần thuật đơn giản); 「の」theo sau danh từ để chỉ sở hữu, không dùng giữa cụm liên thể từ và は."
+      },
+      {
+        "stem": "あれ＿ 何[なん]ですか。",
+        "answer": "は",
+        "explain": "「あれは何ですか」là câu hỏi chủ đề chuẩn. 「あれが何ですか」nghe không tự nhiên; 「が」thường đi với động từ tồn tại (あります/います) hay câu nhấn mạnh."
+      },
+      {
+        "stem": "この 時計[とけい]は 私[わたし]＿です。",
+        "answer": "の",
+        "explain": "「私のです」= của tôi; 「の」thay thế cho danh từ đã hiểu ngầm (時計). Đây là cấu trúc sở hữu rút gọn đặc trưng Bài 2."
+      },
+      {
+        "stem": "それ＿ ミラーさんの 鍵[かぎ]ですか。",
+        "answer": "は",
+        "explain": "「は」đánh dấu chủ đề「それ」trong câu hỏi Yes/No. 「が」nhấn mạnh không cần thiết ở đây."
+      },
+      {
+        "stem": "あの 車[くるま]は 先生[せんせい]＿ですか。",
+        "answer": "の",
+        "explain": "「先生のですか」hỏi \"có phải của thầy không?\"; 「の」thay thế danh từ 車 đã hiểu ngầm. Không thể dùng「は/が」trong vị trí thay thế danh từ sở hữu."
+      },
+      {
+        "stem": "この いす＿ あの 机[つくえ]も 私[わたし]のです。",
+        "answer": "も",
+        "explain": "「このいすも」= cái ghế này cũng; 「も」thêm đối tượng vào danh sách (cả ghế lẫn bàn đều là của tôi). 「は」sẽ tạo câu đối lập, không mang nghĩa \"cũng\"."
+      },
+      {
+        "stem": "これは 誰[だれ]＿かばんですか。",
+        "answer": "の",
+        "explain": "「誰のかばん」= cặp của ai; 「の」nối quan hệ sở hữu (người の vật). 「が」sau 誰 tạo cấu trúc khác (誰が〜 = ai làm gì), không dùng trong cấu trúc sở hữu này."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "これ",
+      "prompt": "Đứng trước danh từ 本[ほん]?",
+      "choices": [
+        "この本[ほん]",
+        "これ本[ほん]",
+        "ここの本[ほん]",
+        "この本[ほん]の"
+      ],
+      "answer": 0,
+      "explain": "Đại từ「これ」→ liên thể từ「この」khi đứng trước danh từ. 「これ本」thiếu liên từ; 「ここの」biến「ここ」(địa điểm) thành sở hữu, sai về loại chỉ thị."
+    },
+    {
+      "base": "あれ",
+      "prompt": "Đứng trước danh từ 車[くるま]?",
+      "choices": [
+        "あの車[くるま]",
+        "あれ車[くるま]",
+        "あそこ車[くるま]",
+        "あれの車[くるま]"
+      ],
+      "answer": 0,
+      "explain": "「あれ」→「あの」khi đứng trước danh từ. 「あれの車」nghe như \"xe của cái đó\" — nhầm lẫn với sở hữu; 「あそこ」là địa điểm, không phải chỉ thị vật/người."
+    },
+    {
+      "base": "本[ほん]です。",
+      "prompt": "Thể phủ định?",
+      "choices": [
+        "本[ほん]じゃありません。",
+        "本[ほん]ません。",
+        "本[ほん]ではです。",
+        "ないです。"
+      ],
+      "answer": 0,
+      "explain": "Phủ định danh từ: N じゃありません (hoặc ではありません). 「ません」là phủ định của động từ thể ます, không dùng với danh từ; 「ないです」là thể thông tục."
+    },
+    {
+      "base": "はい、そうです。",
+      "prompt": "Đổi sang phủ định (いいえ…)?",
+      "choices": [
+        "いいえ、そうじゃありません。",
+        "いいえ、そうです。",
+        "いいえ、そうですか。",
+        "いいえ、そうません。"
+      ],
+      "answer": 0,
+      "explain": "Phủ định「そうです」là「そうじゃありません」. Không thể giữ「そうです」sau「いいえ」; 「そうですか」là ngạc nhiên; 「そうません」không tồn tại trong tiếng Nhật."
+    },
+    {
+      "base": "この時計[とけい]は 私[わたし]のです。",
+      "prompt": "Hỏi \"của ai?\" (＿のですか)?",
+      "choices": [
+        "この時計[とけい]は 誰[だれ]のですか。",
+        "この時計[とけい]は 誰[だれ]ですか。",
+        "この時計[とけい]は 何[なん]のですか。",
+        "この時計[とけい]は 誰[だれ]がですか。"
+      ],
+      "answer": 0,
+      "explain": "「誰のですか」hỏi chủ sở hữu: ai の (của ai). 「誰ですか」hỏi nhận dạng người; 「何のですか」hỏi \"loại gì\"; 「誰がですか」sai cấu trúc."
+    },
+    {
+      "base": "それ",
+      "prompt": "Đứng trước 鍵[かぎ]: dạng đúng?",
+      "choices": [
+        "その鍵[かぎ]",
+        "それ鍵[かぎ]",
+        "そこ鍵[かぎ]",
+        "それの鍵[かぎ]"
+      ],
+      "answer": 0,
+      "explain": "「それ」→「その」khi đứng trước danh từ. 「それの鍵」nhầm sang cấu trúc sở hữu; 「そこ」chỉ địa điểm; 「それ鍵」thiếu liên từ."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "これは",
+        "何[なん]ですか。"
+      ],
+      "vi": "Cái này là gì vậy?",
+      "explain": "「これは何ですか」: chủ đề は + từ hỏi + ですか. Đây là cấu trúc hỏi tên/loại đồ vật cơ bản Bài 2."
+    },
+    {
+      "chips": [
+        "この かばんは",
+        "誰[だれ]のですか。"
+      ],
+      "vi": "Cái túi này là của ai vậy?",
+      "explain": "「誰のですか」hỏi chủ sở hữu; 「この + N は」làm chủ đề. Từ hỏi「誰の」đứng sau は, trước ですか."
+    },
+    {
+      "chips": [
+        "あれは",
+        "田中[たなか]さんの",
+        "車[くるま]です。"
+      ],
+      "vi": "Cái kia là xe của anh Tanaka.",
+      "explain": "「あれは + [sở hữu の] + danh từ + です」: đại từ chỉ thị xa làm chủ đề, cụm sở hữu đứng giữa."
+    },
+    {
+      "chips": [
+        "その 時計[とけい]は",
+        "いくらですか。"
+      ],
+      "vi": "Cái đồng hồ đó bao nhiêu tiền?",
+      "explain": "「いくらですか」hỏi giá tiền; chủ đề là「その時計」(liên thể từ + danh từ). Trật tự: chủ đề は + từ hỏi + ですか."
+    },
+    {
+      "chips": [
+        "いいえ、",
+        "そうじゃ",
+        "ありません。"
+      ],
+      "vi": "Không, không phải vậy.",
+      "explain": "「そうじゃありません」là phủ định của「そうです」; じゃ và ありません không thể tách rời hay đảo vị trí."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "あれは にほんごの じしょです。",
+      "ask": "Quyển từ điển nằm ở đâu so với người nói và người nghe?",
+      "choices": [
+        "Xa cả hai người",
+        "Gần người nói",
+        "Gần người nghe"
+      ],
+      "answer": 0,
+      "script": "あれは 日本語[にほんご]の 辞書[じしょ]です。",
+      "explain": "「あれ」chỉ vật xa cả người nói lẫn người nghe. 「これ」gần người nói; 「それ」gần người nghe."
+    },
+    {
+      "tts": "このかばんは たなかさんのです。",
+      "ask": "Cái túi là của ai?",
+      "choices": [
+        "Của anh Tanaka",
+        "Của người nói",
+        "Của người nghe"
+      ],
+      "answer": 0,
+      "script": "この かばんは 田中[たなか]さんのです。",
+      "explain": "「田中さんのです」= của anh Tanaka; 「の」thay thế danh từ かばん đã hiểu ngầm. Câu không đề cập người nói hay người nghe."
+    },
+    {
+      "tts": "それは なんですか。ほんですか。",
+      "ask": "Người nói đang hỏi điều gì?",
+      "choices": [
+        "Hỏi tên đồ vật gần người nghe",
+        "Hỏi giá đồ vật",
+        "Hỏi chủ sở hữu"
+      ],
+      "answer": 0,
+      "script": "それは 何[なん]ですか。本[ほん]ですか。",
+      "explain": "「それは何ですか」hỏi tên/loại đồ vật (物の名前). 「それ」chỉ vật gần người nghe. Không hỏi giá (いくら) hay chủ sở hữu (誰の)."
+    },
+    {
+      "tts": "いいえ、そうじゃありません。それはわたしのとけいです。",
+      "ask": "Người trả lời xác nhận hay phủ định câu hỏi trước?",
+      "choices": [
+        "Phủ định",
+        "Xác nhận",
+        "Không rõ"
+      ],
+      "answer": 0,
+      "script": "いいえ、そうじゃありません。それは 私[わたし]の 時計[とけい]です。",
+      "explain": "「いいえ、そうじゃありません」= phủ định câu hỏi trước, sau đó cung cấp thông tin đúng. 「はい、そうです」mới là xác nhận."
+    },
+    {
+      "tts": "このつくえはせんせいのですか。",
+      "ask": "Câu này hỏi điều gì về cái bàn?",
+      "choices": [
+        "Hỏi bàn có phải của thầy/cô không",
+        "Hỏi bàn ở đâu",
+        "Hỏi bàn bao nhiêu tiền"
+      ],
+      "answer": 0,
+      "script": "この 机[つくえ]は 先生[せんせい]のですか。",
+      "explain": "「先生のですか」hỏi sở hữu (của thầy/cô không?). Hỏi địa điểm dùng「どこ」; hỏi giá dùng「いくら」— cả hai đều không có trong câu."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Cái này là cặp của anh Tanaka.",
+      "target": "これは田中さんのかばんです。",
+      "accept": [
+        "これはたなかさんのかばんです。"
+      ],
+      "explain": "Cấu trúc: これは + [người の] + vật + です. 「の」nối sở hữu bắt buộc; không thể thay bằng「が」hay bỏ."
+    },
+    {
+      "vi": "Cái đồng hồ đó bao nhiêu tiền?",
+      "target": "その時計はいくらですか。",
+      "accept": [
+        "そのとけいはいくらですか。"
+      ],
+      "explain": "Hỏi giá: [liên thể từ + N] は いくらですか。「その」đứng trước danh từ (không dùng「それ」trực tiếp trước danh từ)."
+    },
+    {
+      "vi": "Không, không phải vậy.",
+      "target": "いいえ、そうじゃありません。",
+      "accept": [
+        "いいえ、そうではありません。",
+        "いいえ、ちがいます。"
+      ],
+      "explain": "「そうじゃありません」phủ định「そうです」; dạng trang trọng là「そうではありません」; 「ちがいます」(sai rồi) cũng được chấp nhận."
+    },
+    {
+      "vi": "Cái chìa khóa này là của ai?",
+      "target": "このかぎは誰のですか。",
+      "accept": [
+        "このかぎはだれのですか。"
+      ],
+      "explain": "「誰のですか」hỏi chủ sở hữu; 「の」thay thế danh từ鍵[かぎ] đã hiểu ngầm. 「この + N は」làm chủ đề."
+    },
+    {
+      "vi": "Cái kia là xe của thầy/cô giáo.",
+      "target": "あれは先生の車です。",
+      "accept": [
+        "あれはせんせいのくるまです。"
+      ],
+      "explain": "Cấu trúc: あれは + [người の] + vật + です. 「あれ」chỉ vật xa; 「の」nối sở hữu giữa hai danh từ."
+    }
+  ]
+}

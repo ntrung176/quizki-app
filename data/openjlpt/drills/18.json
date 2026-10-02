@@ -1,0 +1,519 @@
+{
+  "id": "minna1.b18",
+  "bai": 18,
+  "titleVi": "Khả năng & thể từ điển — ことができます",
+  "know": [
+    {
+      "id": "minna1.b18.jisho-form",
+      "point": "jisho-form",
+      "jp": "辞書形[じしょけい]の作[つく]り方[かた]",
+      "vi": "Chia động từ sang thể từ điển (3 nhóm)",
+      "en": "Conjugating verbs into the dictionary form (three groups)",
+      "gloss": "書[か]きます→書[か]く ／ 食[た]べます→食[た]べる ／ します→する",
+      "glossEn": "書[か]きます→書[か]く ／ 食[た]べます→食[た]べる ／ します→する"
+    },
+    {
+      "id": "minna1.b18.koto-ga-dekiru",
+      "point": "koto-ga-dekiru",
+      "jp": "〜ことが できます",
+      "vi": "Diễn đạt khả năng (có thể làm)",
+      "en": "Can ~; be able to ~ (expressing ability with a verb clause)",
+      "gloss": "Vる ＋ ことが ＋ できます",
+      "glossEn": "漢字[かんじ]を 読[よ]む ことが できます。 — I can read kanji."
+    },
+    {
+      "id": "minna1.b18.shumi",
+      "point": "shumi",
+      "jp": "趣味[しゅみ]は 〜ことです",
+      "vi": "Nói sở thích / thú vui",
+      "en": "Talking about hobbies / things you enjoy",
+      "gloss": "趣味は Vることです",
+      "glossEn": "趣味は Vることです"
+    },
+    {
+      "id": "minna1.b18.mae-ni",
+      "point": "mae-ni",
+      "jp": "Vる／Nの まえに",
+      "vi": "Trước khi / trước lúc",
+      "en": "Before / prior to",
+      "gloss": "Vる(辞書形) ＋ まえに ／ N ＋ の ＋ まえに",
+      "glossEn": "Vる(辞書形) ＋ まえに ／ N ＋ の ＋ まえに"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b18-jf-kaku",
+      "item": "minna1.b18.jisho-form",
+      "err": "jisho-form-wrong",
+      "vi": "Dạng từ điển của 書きます là gì?",
+      "t1": {
+        "stem": "書[か]きます → ＿",
+        "choices": [
+          "書[か]く",
+          "書[か]き",
+          "書[か]ける"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "書[か]く"
+        ],
+        "traps": [
+          "書[か]き",
+          "書[か]ける"
+        ]
+      },
+      "t3": {
+        "target": "書く",
+        "accept": [
+          "かく"
+        ]
+      },
+      "why": "Nhóm I: ます-stem き → đổi thành く (くぐすつぬぶむう-row). ✗ 書き không phải thể từ điển."
+    },
+    {
+      "id": "c-b18-jf-taberu",
+      "item": "minna1.b18.jisho-form",
+      "err": "jisho-form-wrong",
+      "vi": "Dạng từ điển của 食べます là gì?",
+      "t1": {
+        "stem": "食[た]べます → ＿",
+        "choices": [
+          "食[た]べる",
+          "食[た]べ",
+          "食[た]ぶ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食[た]べる"
+        ],
+        "traps": [
+          "食[た]べ",
+          "食[た]ぶ"
+        ]
+      },
+      "t3": {
+        "target": "食べる",
+        "accept": [
+          "たべる"
+        ]
+      },
+      "why": "Nhóm II (る-verb): giữ ます-stem + る. ✗ 食べ là ます-stem thuần, chưa phải từ điển."
+    },
+    {
+      "id": "c-b18-kgd-oyogu",
+      "item": "minna1.b18.koto-ga-dekiru",
+      "err": "koto-form",
+      "vi": "Tôi biết bơi.",
+      "t1": {
+        "stem": "泳[およ]ぐ ＿ できます。",
+        "choices": [
+          "ことが",
+          "こと",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "泳[およ]ぐ",
+          "ことが",
+          "できます。"
+        ],
+        "traps": [
+          "泳[およ]ぐこと できます。",
+          "泳[およ]ぐを"
+        ]
+      },
+      "t3": {
+        "target": "泳ぐことができます。",
+        "accept": [
+          "およぐことができます。"
+        ]
+      },
+      "why": "〜ことができます: 辞書形 + こと + が + できます. ✗ ことできます thiếu が; ✗ 泳ぐできます thiếu こと."
+    },
+    {
+      "id": "c-b18-kgd-kuruma",
+      "item": "minna1.b18.koto-ga-dekiru",
+      "err": "dekiru-ga",
+      "vi": "Anh Tanaka lái được ô tô.",
+      "t1": {
+        "stem": "田中[たなか]さんは 車[くるま]を 運転[うんてん]する こと＿ できます。",
+        "choices": [
+          "が",
+          "を",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "車[くるま]を 運転[うんてん]する",
+          "ことが",
+          "できます。"
+        ],
+        "traps": [
+          "ことを",
+          "できません。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは車を運転することができます。",
+        "accept": [
+          "たなかさんはくるまをうんてんすることができます。"
+        ]
+      },
+      "why": "こと là danh từ hoá → できます đi với が (〜ことが できます). ✗ ことを できます."
+    },
+    {
+      "id": "c-b18-kgd-nihongo",
+      "item": "minna1.b18.koto-ga-dekiru",
+      "err": "dekiru-ga",
+      "vi": "Tôi nói được tiếng Nhật (dạng ngắn, dùng できます trực tiếp).",
+      "t1": {
+        "stem": "わたしは 日本語[にほんご]＿ できます。",
+        "choices": [
+          "が",
+          "を",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "日本語[にほんご]が",
+          "できます。"
+        ],
+        "traps": [
+          "日本語[にほんご]を",
+          "できません。"
+        ]
+      },
+      "t3": {
+        "target": "わたしは日本語ができます。",
+        "accept": [
+          "わたしはにほんごができます。",
+          "私は日本語ができます。"
+        ]
+      },
+      "why": "できます kiểu trực tiếp (N + が + できます) — khuôn B9 lần 3. ✗ 日本語をできます. Giống 好き・上手・わかります đều cần が."
+    },
+    {
+      "id": "c-b18-sh-hon",
+      "item": "minna1.b18.shumi",
+      "err": "koto-form",
+      "vi": "Sở thích của tôi là đọc sách.",
+      "t1": {
+        "stem": "趣味[しゅみ]は 本[ほん]を ＿ ことです。",
+        "choices": [
+          "読[よ]む",
+          "読[よ]み",
+          "読[よ]んで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "趣味[しゅみ]は",
+          "本[ほん]を",
+          "読[よ]む",
+          "ことです。"
+        ],
+        "traps": [
+          "読[よ]み ことです。",
+          "読[よ]んで ことです。"
+        ]
+      },
+      "t3": {
+        "target": "趣味は本を読むことです。",
+        "accept": [
+          "しゅみはほんをよむことです。"
+        ]
+      },
+      "why": "趣味は 〜ことです: dùng 辞書形 + ことです. ✗ 読みことです — ます-stem không dùng ở đây."
+    },
+    {
+      "id": "c-b18-sh-ryokou",
+      "item": "minna1.b18.shumi",
+      "err": "koto-form",
+      "vi": "Sở thích của anh ấy là đi du lịch.",
+      "t1": {
+        "stem": "彼[かれ]の 趣味[しゅみ]は 旅行[りょこう]＿ ことです。",
+        "choices": [
+          "する",
+          "して",
+          "の"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]の 趣味[しゅみ]は",
+          "旅行[りょこう]する",
+          "ことです。"
+        ],
+        "traps": [
+          "旅行[りょこう]して",
+          "旅行[りょこう]の"
+        ]
+      },
+      "t3": {
+        "target": "彼の趣味は旅行することです。",
+        "accept": [
+          "かれのしゅみはりょこうすることです。"
+        ]
+      },
+      "why": "旅行する = する compound verb → 辞書形 là する. ✗ 旅行して ことです — て-form không dùng trước こと."
+    },
+    {
+      "id": "c-b18-mn-tabe",
+      "item": "minna1.b18.mae-ni",
+      "err": "jisho-form-wrong",
+      "vi": "Trước khi ăn, hãy rửa tay.",
+      "t1": {
+        "stem": "食[た]べる まえに、手[て]を ＿ ください。",
+        "choices": [
+          "洗[あら]って",
+          "洗[あら]います",
+          "洗[あら]う まえに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食[た]べる まえに、",
+          "手[て]を",
+          "洗[あら]って",
+          "ください。"
+        ],
+        "traps": [
+          "食[た]べて まえに、",
+          "食[た]べます まえに、"
+        ]
+      },
+      "t3": {
+        "target": "食べるまえに、手を洗ってください。",
+        "accept": [
+          "たべるまえに、てをあらってください。"
+        ]
+      },
+      "why": "まえに yêu cầu 辞書形 (食べる) — không dùng て-form hay ます-form trước まえに."
+    },
+    {
+      "id": "c-b18-mn-neru",
+      "item": "minna1.b18.mae-ni",
+      "err": "jisho-form-wrong",
+      "vi": "Trước khi đi ngủ, tôi uống sữa.",
+      "t1": {
+        "stem": "寝[ね]る まえに、牛乳[ぎゅうにゅう]を ＿。",
+        "choices": [
+          "飲[の]みます",
+          "飲[の]んでいます",
+          "飲[の]んでください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "寝[ね]る まえに、",
+          "牛乳[ぎゅうにゅう]を",
+          "飲[の]みます。"
+        ],
+        "traps": [
+          "寝[ね]て まえに、",
+          "寝[ね]ます まえに、"
+        ]
+      },
+      "t3": {
+        "target": "寝るまえに、牛乳を飲みます。",
+        "accept": [
+          "ねるまえに、ぎゅうにゅうをのみます。"
+        ]
+      },
+      "why": "寝る là 辞書形 đúng → dùng trước まえに. ✗ 寝てまえに / 寝ますまえに đều sai."
+    },
+    {
+      "id": "c-b18-mn-shokuji",
+      "item": "minna1.b18.mae-ni",
+      "err": "jisho-form-wrong",
+      "vi": "Trước bữa ăn, rửa tay đi.",
+      "t1": {
+        "stem": "食事[しょくじ]の まえに、手[て]を 洗[あら]って ＿。",
+        "choices": [
+          "ください",
+          "あります",
+          "います"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "食事[しょくじ]の まえに、",
+          "手[て]を",
+          "洗[あら]って",
+          "ください。"
+        ],
+        "traps": [
+          "食事[しょくじ]する まえに、",
+          "食事[しょくじ]して まえに、"
+        ]
+      },
+      "t3": {
+        "target": "食事のまえに、手を洗ってください。",
+        "accept": [
+          "しょくじのまえに、てをあらってください。"
+        ]
+      },
+      "why": "N の まえに: danh từ + の + まえに (✓ 食事の まえに). Phần chính 洗ってください là Bài 14."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b18-dekiru",
+      "item": "minna1.b18.koto-ga-dekiru",
+      "err": "dekiru-ga",
+      "tts": "わたしは にほんごを はなすことが できます。",
+      "script": "わたしは 日本語[にほんご]を 話[はな]すことが できます。",
+      "ask": "Người nói nói được gì?",
+      "choices": [
+        "Nói được tiếng Nhật",
+        "Viết được tiếng Nhật",
+        "Đọc được tiếng Nhật"
+      ],
+      "answer": 0,
+      "why": "ことができます = có thể làm; 話す = nói."
+    },
+    {
+      "id": "l-b18-maeni",
+      "item": "minna1.b18.mae-ni",
+      "err": "jisho-form-wrong",
+      "tts": "ねるまえに、はをみがきます。",
+      "script": "寝[ね]る まえに、歯[は]を みがきます。",
+      "ask": "Người nói làm gì trước khi ngủ?",
+      "choices": [
+        "Đánh răng",
+        "Uống sữa",
+        "Đọc sách"
+      ],
+      "answer": 0,
+      "why": "寝るまえに = trước khi ngủ; 歯をみがく = đánh răng."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b18-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 18 ・ ことができます (できます gần nghĩa わかります — bẫy が/を lần 3)",
+      "vi": "Trước khi đi ngủ, tôi đọc tin tức; tôi hiểu tiếng Nhật đơn giản.",
+      "t1": {
+        "stem": "簡単[かんたん]な 日本語[にほんご]＿ わかりますから、ニュースを 読[よ]むことが できます。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "簡単[かんたん]な 日本語[にほんご]が",
+          "わかりますから、",
+          "ニュースを 読[よ]む",
+          "ことが できます。"
+        ],
+        "traps": [
+          "日本語[にほんご]を"
+        ]
+      },
+      "t3": {
+        "target": "簡単な日本語がわかりますから、ニュースを読むことができます。",
+        "accept": [
+          "かんたんなにほんごがわかりますから、にゅーすをよむことができます。"
+        ]
+      },
+      "why": "わかります luôn dùng が (lỗi Bài 9 — tái xuất trong câu Bài 18). ✗ 日本語を わかります. Phần ことができます là Bài 18 — bẫy kép."
+    },
+    {
+      "id": "a-b18-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 18 ・ 趣味は〜こと / ことができます",
+      "vi": "Tôi thích bơi lội nên sở thích của tôi là bơi.",
+      "t1": {
+        "stem": "水泳[すいえい]＿ 好[す]きですから、趣味[しゅみ]は 泳[およ]ぐことです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "水泳[すいえい]が",
+          "好[す]きですから、",
+          "趣味[しゅみ]は",
+          "泳[およ]ぐことです。"
+        ],
+        "traps": [
+          "水泳[すいえい]を"
+        ]
+      },
+      "t3": {
+        "target": "水泳が好きですから、趣味は泳ぐことです。",
+        "accept": [
+          "すいえいがすきですから、しゅみはおよぐことです。"
+        ]
+      },
+      "why": "好き dùng が (khuôn B9 vĩnh viễn). ✗ 水泳を好きです. Phần 趣味は〜ことです là Bài 18."
+    },
+    {
+      "id": "a-b18-ga-jouzu",
+      "item": "minna1.b09.jouzu",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 18 ・ ことができます ＋ 上手",
+      "vi": "Chị ấy giỏi lái xe nên có thể lái một mình.",
+      "t1": {
+        "stem": "彼女[かのじょ]は 運転[うんてん]＿ 上手[じょうず]ですから、一人[ひとり]で 運転[うんてん]することが できます。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼女[かのじょ]は",
+          "運転[うんてん]が",
+          "上手[じょうず]ですから、",
+          "一人[ひとり]で 運転[うんてん]する",
+          "ことが できます。"
+        ],
+        "traps": [
+          "運転[うんてん]を"
+        ]
+      },
+      "t3": {
+        "target": "彼女は運転が上手ですから、一人で運転することができます。",
+        "accept": [
+          "かのじょはうんてんがじょうずですから、ひとりでうんてんすることができます。"
+        ]
+      },
+      "why": "上手 cần が (lỗi Bài 9 lần 3). ✗ 運転を上手です. Phần ことができます là Bài 18 — bẫy kép."
+    }
+  ]
+}

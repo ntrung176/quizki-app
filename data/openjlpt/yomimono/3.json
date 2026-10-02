@@ -1,0 +1,1139 @@
+{
+  "bai": 3,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 3 luyện hỏi – đáp về VỊ TRÍ: đây/đó/kia (ここ/そこ/あそこ) và \"vật/người ở đâu\" (〜にあります／います). Đọc hiểu loại bài này = xác định đúng chủ đề (trước は), vị trí (trước に), và động từ cuối (あります cho đồ vật, います cho người/động vật).",
+    "steps": [
+      "Đọc lướt toàn bài để biết bối cảnh: đang ở đâu (tòa nhà, cửa hàng, văn phòng…)?",
+      "Tìm ここ/そこ/あそこ và こちら/そちら/あちら — chúng chỉ địa điểm theo góc nhìn người nói.",
+      "Với câu「NはNにあります／います」: N1 (trước は) = thứ đang tìm, N2 (trước に) = nơi chứa nó.",
+      "Phân biệt あります (đồ vật vô tri) và います (người/sinh vật). Nhầm hai từ này là sai cơ bản.",
+      "Câu hỏi lựa chọn「AですかBですか」chú ý 2 lựa chọn trong câu hỏi — câu trả lời phải chọn đúng một trong hai.",
+      "Gặp câu hỏi đọc hiểu: đối chiếu trực tiếp với câu có chứa に + あります/います trong bài."
+    ],
+    "tips": [
+      "こちら/そちら/あちら = phiên bản lịch sự của ここ/そこ/あそこ, thường dùng ở nơi công cộng, dịch vụ.",
+      "あります ↔ đồ vật / います ↔ người và động vật — không dùng lẫn lộn.",
+      "「〜はどこですか」= \"~ ở đâu?\" — dạng hỏi vị trí hay gặp nhất; đáp án có dạng「〜にあります／います」.",
+      "NはAですか、Bですか: đây là câu hỏi buộc chọn 1 trong 2 — không được trả lời はい/いいえ.",
+      "Đừng nhầm「ここはNです」(nơi này là N) với「Nはここにあります」(N ở đây).",
+      "〜の N (B2): nhớ lại sở hữu — e.g. 1かいのトイレ = nhà vệ sinh tầng 1."
+    ],
+    "grammarFocus": [
+      "ここ・そこ・あそこ",
+      "こちら・そちら・あちら",
+      "NはＮにあります",
+      "NはＮにいます",
+      "NはＡですか、Ｂですか"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 1,
+        "items": [
+          "NはNです",
+          "NのN（quan hệ thuộc về）",
+          "NはNですか",
+          "NはNではありません"
+        ]
+      },
+      {
+        "bai": 2,
+        "items": [
+          "これ・それ・あれ（chỉ đồ vật）",
+          "この・その・あの＋N",
+          "NのN（sở hữu）",
+          "そうです・そうではありません"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "トイレはどこですか",
+      "titleVi": "Nhà vệ sinh ở đâu vậy?",
+      "japanese": "すみません、トイレはどこですか。\nトイレはあそこにあります。エレベーターもあそこにあります。\nエレベーターは1かいですか、2かいですか。\n1かいです。\nありがとうございます。",
+      "vietnamese": "Xin lỗi, nhà vệ sinh ở đâu vậy ạ?\nNhà vệ sinh ở đằng kia. Thang máy cũng ở đằng kia.\nThang máy ở tầng 1 hay tầng 2 ạ?\nTầng 1.\nCảm ơn.",
+      "sentences": [
+        {
+          "jp": "すみません、トイレはどこですか。",
+          "vi": "Xin lỗi, nhà vệ sinh ở đâu vậy ạ?",
+          "vocab": [
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi / cho hỏi"
+            },
+            {
+              "w": "トイレ",
+              "read": "トイレ",
+              "vi": "nhà vệ sinh"
+            },
+            {
+              "w": "どこ",
+              "read": "どこ",
+              "vi": "ở đâu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNですか",
+              "vi": "「どこですか」= hỏi vị trí. Đây là mẫu B1 tái dùng — chủ đề là トイレ, hỏi nơi chốn bằng どこ."
+            }
+          ]
+        },
+        {
+          "jp": "トイレはあそこにあります。エレベーターもあそこにあります。",
+          "vi": "Nhà vệ sinh ở đằng kia. Thang máy cũng ở đằng kia.",
+          "vocab": [
+            {
+              "w": "トイレ",
+              "read": "トイレ",
+              "vi": "nhà vệ sinh"
+            },
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            },
+            {
+              "w": "あそこ",
+              "read": "あそこ",
+              "vi": "đằng kia (xa cả người nói lẫn người nghe)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにあります",
+              "vi": "「トイレはあそこにあります」: トイレ (vật) ở (に) あそこ → dùng あります vì là đồ vật vô tri."
+            },
+            {
+              "point": "NもNにあります",
+              "vi": "「エレベーターもあそこにあります」: も = \"cũng\" — thang máy cũng ở cùng hướng đó."
+            }
+          ]
+        },
+        {
+          "jp": "エレベーターは1かいですか、2かいですか。",
+          "vi": "Thang máy ở tầng 1 hay tầng 2 ạ?",
+          "vocab": [
+            {
+              "w": "エレベーター",
+              "read": "エレベーター",
+              "vi": "thang máy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはAですか、Bですか",
+              "vi": "Câu hỏi buộc chọn 1 trong 2: \"tầng 1 hay tầng 2?\" — không trả lời はい/いいえ."
+            }
+          ]
+        },
+        {
+          "jp": "1かいです。",
+          "vi": "Tầng 1.",
+          "vocab": [
+            {
+              "w": "1かい",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです (lược chủ đề)",
+              "vi": "Chủ đề エレベーター đã rõ → lược bỏ, chỉ cần trả lời 1かいです."
+            }
+          ]
+        },
+        {
+          "jp": "ありがとうございます。",
+          "vi": "Cảm ơn.",
+          "vocab": [
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "ありがとうございます",
+              "read": "ありがとうございます",
+              "vi": "cảm ơn (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ lịch sự",
+              "vi": "Câu cảm ơn cố định, dùng sau khi nhận thông tin/giúp đỡ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "トイレはあそこにあります",
+          "label": "NはNにあります"
+        },
+        {
+          "excerpt": "エレベーターもあそこにあります",
+          "label": "NもNにあります（も = cũng）"
+        },
+        {
+          "excerpt": "エレベーターは1かいですか、2かいですか",
+          "label": "NはAですか、Bですか"
+        }
+      ],
+      "questions": [
+        {
+          "q": "トイレはどこにありますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "1かいのエレベーターのなかにあります",
+            "あそこにあります",
+            "2かいにあります",
+            "エレベーターのまえにあります"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết rõ:「トイレはあそこにあります」— nhà vệ sinh (トイレ) ở đằng kia (あそこ). Đáp án B「あそこにあります」trích thẳng câu này nên đúng. Đáp án A (trong thang máy tầng 1) và D (trước thang máy) không hề được nhắc trong bài. Đáp án C (tầng 2) là số tầng của thang máy, không phải của nhà vệ sinh — bẫy nhầm tầng.",
+          "tip": "Thấy câu hỏi \"どこにありますか\" → tìm ngay câu「Nはどこ/あそこ/そこ/ここにあります」trong bài và chép lại vị trí. Đừng đoán thêm.",
+          "qt": {
+            "q": "Nhà vệ sinh ở đâu?",
+            "o": [
+              "Ở bên trong thang máy tầng 1",
+              "Ở đằng kia",
+              "Ở tầng 2",
+              "Ở phía trước thang máy"
+            ]
+          }
+        },
+        {
+          "q": "エレベーターは何かいですか。",
+          "evi": [
+            2,
+            3
+          ],
+          "options": [
+            "2かいです",
+            "3かいです",
+            "1かいです",
+            "わかりません"
+          ],
+          "answer": 2,
+          "explainVi": "Bài hỏi buộc chọn「エレベーターは1かいですか、2かいですか」và câu trả lời là「1かいです」— thang máy ở tầng 1. Đáp án C「1かいです」là đúng. Đáp án A (tầng 2) là tầng của khu giày dép (くつうりば), không phải thang máy — rất dễ nhầm vì cả hai được nhắc gần nhau. Đáp án B (tầng 3) và D (không biết) hoàn toàn không có trong bài.",
+          "tip": "Khi bài có câu hỏi \"AですかBですか\", câu trả lời BẮT BUỘC là A hoặc B — không được chọn số tầng khác hoặc \"không biết\".",
+          "qt": {
+            "q": "Thang máy ở tầng mấy?",
+            "o": [
+              "Ở tầng 2",
+              "Ở tầng 3",
+              "Ở tầng 1",
+              "Không biết"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "デパートの案内",
+      "titleVi": "Hướng dẫn trong trung tâm thương mại",
+      "japanese": "いらっしゃいませ。ここはさくらデパートです。\nインフォメーションはこちらです。\nすみません、くつうりばはどこですか。\nくつうりばはそこにあります。あのエスカレーターもそこにあります。\nそのエスカレーターは1かいですか、2かいですか。\nこのエスカレーターは1かいと2かいのあいだにあります。くつうりばは2かいです。\nレストランもありますか。\nはい、あります。レストランはあちらにあります。6かいです。\nカリナさんはどこにいますか。\nカリナさんはインフォメーションのちかくにいます。\nありがとうございます。",
+      "vietnamese": "Xin chào quý khách. Đây là trung tâm thương mại Sakura.\nQuầy thông tin ở đây ạ.\nXin lỗi, khu giày dép ở đâu vậy ạ?\nKhu giày dép ở đó. Thang cuốn đằng kia cũng ở đó.\nThang cuốn đó ở tầng 1 hay tầng 2 ạ?\nThang cuốn này ở giữa tầng 1 và tầng 2. Khu giày dép ở tầng 2.\nCó nhà hàng không ạ?\nVâng, có ạ. Nhà hàng ở đằng kia. Tầng 6.\nChị Karina đang ở đâu vậy ạ?\nChị Karina đang ở gần quầy thông tin.\nCảm ơn.",
+      "sentences": [
+        {
+          "jp": "いらっしゃいませ。ここはさくらデパートです。",
+          "vi": "Xin chào quý khách. Đây là trung tâm thương mại Sakura.",
+          "vocab": [
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "trung tâm thương mại, bách hóa"
+            },
+            {
+              "w": "いらっしゃいませ",
+              "read": "いらっしゃいませ",
+              "vi": "xin chào quý khách (nhân viên chào)"
+            },
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "đây, nơi này (gần người nói)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ここ",
+              "vi": "「ここはNです」= \"nơi này là N\". ここ chỉ vị trí ở gần người nói."
+            },
+            {
+              "point": "NはNです",
+              "vi": "Câu giới thiệu địa điểm — ôn mẫu B1."
+            }
+          ]
+        },
+        {
+          "jp": "インフォメーションはこちらです。",
+          "vi": "Quầy thông tin ở đây ạ.",
+          "vocab": [
+            {
+              "w": "インフォメーション",
+              "read": "インフォメーション",
+              "vi": "quầy thông tin"
+            },
+            {
+              "w": "こちら",
+              "read": "こちら",
+              "vi": "đây, phía này (lịch sự hơn ここ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "こちら",
+              "vi": "こちら là dạng lịch sự của ここ, dùng trong môi trường phục vụ/công cộng."
+            }
+          ]
+        },
+        {
+          "jp": "すみません、くつうりばはどこですか。",
+          "vi": "Xin lỗi, khu giày dép ở đâu vậy ạ?",
+          "vocab": [
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi / cho hỏi"
+            },
+            {
+              "w": "くつ",
+              "read": "くつ",
+              "vi": "giày, dép"
+            },
+            {
+              "w": "うりば",
+              "read": "うりば",
+              "vi": "khu bán hàng, quầy"
+            },
+            {
+              "w": "どこ",
+              "read": "どこ",
+              "vi": "ở đâu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNですか (hỏi vị trí)",
+              "vi": "「どこですか」hỏi vị trí — ôn B1. Kết hợp với くつうりば làm chủ đề."
+            }
+          ]
+        },
+        {
+          "jp": "くつうりばはそこにあります。あのエスカレーターもそこにあります。",
+          "vi": "Khu giày dép ở đó. Thang cuốn đằng kia cũng ở đó.",
+          "vocab": [
+            {
+              "w": "エスカレーター",
+              "read": "エスカレーター",
+              "vi": "thang cuốn"
+            },
+            {
+              "w": "そこ",
+              "read": "そこ",
+              "vi": "đó, nơi đó (gần người nghe)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにあります",
+              "vi": "「くつうりばはそこにあります」: くつうりば (vật/nơi) ở そこ → dùng あります."
+            },
+            {
+              "point": "あのN",
+              "vi": "「あのエスカレーター」= thang cuốn đằng kia (xa cả 2 người) — ôn B2."
+            },
+            {
+              "point": "NもNにあります",
+              "vi": "「あのエスカレーターもそこにあります」: も = \"cũng\" — thang cuốn cũng ở vùng đó."
+            }
+          ]
+        },
+        {
+          "jp": "そのエスカレーターは1かいですか、2かいですか。",
+          "vi": "Thang cuốn đó ở tầng 1 hay tầng 2 ạ?",
+          "vocab": [
+            {
+              "w": "エスカレーター",
+              "read": "エスカレーター",
+              "vi": "thang cuốn"
+            },
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó (gần người nghe) — chỉ thang cuốn vừa nhắc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはAですか、Bですか",
+              "vi": "Câu hỏi chọn 1 trong 2 phương án: tầng 1 hay tầng 2?"
+            },
+            {
+              "point": "そのN",
+              "vi": "「そのエスカレーター」= thang cuốn đó (đã được nhắc trước) — ôn B2."
+            }
+          ]
+        },
+        {
+          "jp": "このエスカレーターは1かいと2かいのあいだにあります。くつうりばは2かいです。",
+          "vi": "Thang cuốn này ở giữa tầng 1 và tầng 2. Khu giày dép ở tầng 2.",
+          "vocab": [
+            {
+              "w": "エスカレーター",
+              "read": "エスカレーター",
+              "vi": "thang cuốn"
+            },
+            {
+              "w": "あいだ",
+              "read": "あいだ",
+              "vi": "ở giữa, khoảng giữa (vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này (gần người nói)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにあります",
+              "vi": "「エスカレーターはあいだにあります」: thang cuốn (vật) ở vị trí giữa 2 tầng."
+            },
+            {
+              "point": "このN",
+              "vi": "「このエスカレーター」= thang cuốn này (ở gần người nói) — ôn B2."
+            },
+            {
+              "point": "あいだ (vị trí từ — học ở Bài 10)",
+              "vi": "「1かいと2かいのあいだ」= giữa tầng 1 và tầng 2. Từ này thuộc Bài 10; ở đây giữ lại vì không thể diễn đạt ý \"ở giữa\" bằng ここ/そこ/あそこ."
+            }
+          ]
+        },
+        {
+          "jp": "レストランもありますか。",
+          "vi": "Có nhà hàng không ạ?",
+          "vocab": [
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NもV (ôn B1)",
+              "vi": "「レストランも」: も = \"cũng có không?\" — hỏi thêm sau khi đã hỏi về くつうりば."
+            }
+          ]
+        },
+        {
+          "jp": "はい、あります。レストランはあちらにあります。6かいです。",
+          "vi": "Vâng, có ạ. Nhà hàng ở đằng kia. Tầng 6.",
+          "vocab": [
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "あちら",
+              "read": "あちら",
+              "vi": "đằng kia (lịch sự hơn あそこ, xa cả 2 người)"
+            },
+            {
+              "w": "6かい",
+              "read": "ろっかい",
+              "vi": "tầng 6"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "あちら",
+              "vi": "あちら là dạng lịch sự của あそこ, dùng trong môi trường phục vụ/công cộng."
+            },
+            {
+              "point": "NはNにあります",
+              "vi": "「レストランはあちらにあります」: nhà hàng (nơi chốn) ở đằng kia."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはどこにいますか。",
+          "vi": "Chị Karina đang ở đâu vậy ạ?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにいますか",
+              "vi": "「どこにいますか」hỏi vị trí của NGƯỜI — dùng います (không phải あります)."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはインフォメーションのちかくにいます。",
+          "vi": "Chị Karina đang ở gần quầy thông tin.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "インフォメーション",
+              "read": "インフォメーション",
+              "vi": "quầy thông tin"
+            },
+            {
+              "w": "ちかく",
+              "read": "ちかく",
+              "vi": "gần, ở gần (vị trí từ — học ở Bài 10)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにいます",
+              "vi": "「カリナさんはちかくにいます」: Karina (người) ở (に) gần quầy thông tin → dùng います."
+            },
+            {
+              "point": "NのN",
+              "vi": "「インフォメーションのちかく」= gần quầy thông tin — の nối 2 danh từ (ôn B1)."
+            },
+            {
+              "point": "ちかく (vị trí từ — học ở Bài 10)",
+              "vi": "「インフォメーションのちかく」= gần quầy thông tin. Từ này thuộc Bài 10; giữ lại vì đây là câu trả lời cần tra cứu trong bài đọc."
+            }
+          ]
+        },
+        {
+          "jp": "ありがとうございます。",
+          "vi": "Cảm ơn.",
+          "vocab": [
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "ありがとうございます",
+              "read": "ありがとうございます",
+              "vi": "cảm ơn (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ lịch sự",
+              "vi": "Câu cảm ơn kết thúc hội thoại."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ここはさくらデパートです",
+          "label": "ここ + NはNです (ôn B1)"
+        },
+        {
+          "excerpt": "インフォメーションはこちらです",
+          "label": "こちら (lịch sự)"
+        },
+        {
+          "excerpt": "くつうりばはそこにあります。あのエスカレーターもそこにあります",
+          "label": "NはNにあります / NもNにあります"
+        },
+        {
+          "excerpt": "そのエスカレーターは1かいですか、2かいですか",
+          "label": "NはAですか、Bですか"
+        },
+        {
+          "excerpt": "レストランはあちらにあります",
+          "label": "あちら (lịch sự)"
+        },
+        {
+          "excerpt": "カリナさんはインフォメーションのちかくにいます",
+          "label": "NはNにいます (ちかく = Bài 10, giữ lại có chú thích)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "くつうりばは何かいにありますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "1かいにあります",
+            "3かいにあります",
+            "6かいにあります",
+            "2かいにあります"
+          ],
+          "answer": 3,
+          "explainVi": "Bài ghi rõ「くつうりばは2かいです」— khu giày dép (くつうりば) ở tầng 2, nên đáp án D「2かいにあります」đúng. Đáp án A (tầng 1) là vị trí của エスカレーター (thang cuốn), không phải くつうりば — bẫy nhầm đối tượng. Đáp án C (tầng 6) là tầng của レストラン (nhà hàng) — cũng được nhắc trong bài nhưng là thứ khác. Đáp án B (tầng 3) không hề xuất hiện trong bài.",
+          "tip": "Bài có nhiều tầng khác nhau cho nhiều nơi — đọc câu hỏi xem HỎI VỀ CÁI GÌ rồi mới tìm câu tương ứng; đừng lấy số tầng của thứ khác.",
+          "qt": {
+            "q": "Quầy bán giày ở tầng mấy?",
+            "o": [
+              "Ở tầng 1",
+              "Ở tầng 3",
+              "Ở tầng 6",
+              "Ở tầng 2"
+            ]
+          }
+        },
+        {
+          "q": "レストランはどこにありますか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "インフォメーションはここにあります",
+            "2かいにあります",
+            "あちらの6かいにあります",
+            "エスカレーターはそこにあります"
+          ],
+          "answer": 2,
+          "explainVi": "Bài nói「レストランはあちらにあります。6かいです」— nhà hàng ở đằng kia (あちら), tầng 6. Đáp án C「あちらの6かいにあります」kết hợp đủ cả hướng (あちら) lẫn tầng (6かい) nên đúng. Đáp án B (tầng 2) là tầng của くつうりば, không phải レストラン — bẫy nhầm số tầng. Đáp án A và D thì chủ đề trong câu trả lời sai (インフォメーション / エスカレーター) — không hỏi về những thứ đó.",
+          "tip": "Câu trả lời tốt nhất phải khớp CẢ hướng (あちら/そこ/…) lẫn số tầng; chọn đáp án gộp đủ hai thông tin thì gần như chắc chắn đúng.",
+          "qt": {
+            "q": "Nhà hàng ở đâu?",
+            "o": [
+              "Information ở đây",
+              "Ở tầng 2",
+              "Ở tầng 6 phía đằng kia",
+              "Thang cuốn ở chỗ đó"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはいますか。どこにいますか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "カリナさんはレストランにいます",
+            "カリナさんはインフォメーションのちかくにいます",
+            "カリナさんはくつうりばにいます",
+            "カリナさんは6かいにいます"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết「カリナさんはインフォメーションのちかくにいます」— Karina đang ở gần quầy thông tin. Đáp án B trích chính xác câu này nên đúng. Chú ý: câu dùng います (không phải あります) vì Karina là NGƯỜI — nếu đổi sang あります là sai ngữ pháp cơ bản. Đáp án A (レストラン), C (くつうりば), D (6かい) đều là các địa điểm khác trong bài — bẫy nhầm vị trí.",
+          "tip": "Câu hỏi về NGƯỜI thì tìm「〜にいます」trong bài — います chỉ người/động vật, あります chỉ đồ vật.",
+          "qt": {
+            "q": "Chị Karina có ở đó không? Chị ấy ở đâu?",
+            "o": [
+              "Chị Karina ở nhà hàng",
+              "Chị Karina ở gần quầy thông tin",
+              "Chị Karina ở quầy bán giày",
+              "Chị Karina ở tầng 6"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくらデパート　うりばあんない",
+      "titleVi": "Danh bạ quầy hàng trung tâm thương mại Sakura",
+      "japanese": "さくらデパート　うりばあんない\nいらっしゃいませ。ここはさくらデパートです。\nインフォメーションはこちらです。うりばはあちらです。\nかい｜うりば\n1かい｜くつ・かばん\n2かい｜ほん\n3かい｜ふく・とけい\n6かい｜レストラン\nすみません、とけいうりばは何かいですか。\nとけいうりばは3かいです。ふくうりばも3かいです。\nトイレは2かいですか、6かいですか。\nトイレは2かいと6かいにあります。\nカリナさんはそこにいます。\nありがとうございます。",
+      "vietnamese": "Danh bạ quầy hàng trung tâm thương mại Sakura\nXin chào quý khách. Đây là trung tâm thương mại Sakura.\nQuầy thông tin ở đây ạ. Quầy hàng ở đằng kia ạ.\nTầng｜Quầy hàng\nTầng 1｜Giày dép・túi xách\nTầng 2｜Sách\nTầng 3｜Quần áo・đồng hồ\nTầng 6｜Nhà hàng\nXin lỗi, quầy đồng hồ ở tầng mấy vậy ạ?\nQuầy đồng hồ ở tầng 3. Quầy quần áo cũng ở tầng 3.\nNhà vệ sinh ở tầng 2 hay tầng 6 ạ?\nNhà vệ sinh ở tầng 2 và tầng 6.\nChị Karina đang ở đó.\nCảm ơn.",
+      "sentences": [
+        {
+          "jp": "さくらデパート　うりばあんない",
+          "vi": "Danh bạ quầy hàng trung tâm thương mại Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "trung tâm thương mại, bách hóa"
+            },
+            {
+              "w": "うりば",
+              "read": "うりば",
+              "vi": "khu bán hàng, quầy"
+            },
+            {
+              "w": "あんない",
+              "read": "あんない",
+              "vi": "hướng dẫn, danh bạ"
+            }
+          ],
+          "keys": [
+            {
+              "w": "うりばあんない",
+              "why": "Tiêu đề cho biết đây là danh bạ TẦNG–QUẦY HÀNG — cần dò bảng khi có câu hỏi về tầng."
+            }
+          ]
+        },
+        {
+          "jp": "いらっしゃいませ。ここはさくらデパートです。",
+          "vi": "Xin chào quý khách. Đây là trung tâm thương mại Sakura.",
+          "vocab": [
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hóa tổng hợp"
+            },
+            {
+              "w": "いらっしゃいませ",
+              "read": "いらっしゃいませ",
+              "vi": "xin chào quý khách (nhân viên chào)"
+            },
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "đây, nơi này (gần người nói)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ここ",
+              "vi": "「ここはNです」= \"nơi này là N\" — ôn cách dùng ここ ở đầu bài."
+            },
+            {
+              "point": "NはNです",
+              "vi": "Câu giới thiệu địa điểm — ôn mẫu Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "インフォメーションはこちらです。うりばはあちらです。",
+          "vi": "Quầy thông tin ở đây ạ. Quầy hàng ở đằng kia ạ.",
+          "vocab": [
+            {
+              "w": "インフォメーション",
+              "read": "インフォメーション",
+              "vi": "quầy thông tin"
+            },
+            {
+              "w": "こちら",
+              "read": "こちら",
+              "vi": "đây, phía này (lịch sự hơn ここ)"
+            },
+            {
+              "w": "あちら",
+              "read": "あちら",
+              "vi": "đằng kia (lịch sự hơn あそこ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "こちら・あちら",
+              "vi": "こちら/あちら là dạng lịch sự của ここ/あそこ, dùng ở nơi phục vụ/công cộng như trung tâm thương mại."
+            }
+          ]
+        },
+        {
+          "jp": "かい｜うりば",
+          "vi": "Tầng｜Quầy hàng",
+          "vocab": [
+            {
+              "w": "かい",
+              "read": "かい",
+              "vi": "tầng (đơn vị đếm tầng nhà)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "かい｜うりば",
+              "why": "Header bảng: cột trái = số tầng, cột phải = tên quầy hàng — dò theo hàng."
+            }
+          ]
+        },
+        {
+          "jp": "1かい｜くつ・かばん",
+          "vi": "Tầng 1｜Giày dép・túi xách",
+          "vocab": [
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách, cặp"
+            },
+            {
+              "w": "1かい",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "くつ",
+              "read": "くつ",
+              "vi": "giày, dép"
+            }
+          ],
+          "keys": [
+            {
+              "w": "1かい｜くつ・かばん",
+              "why": "Tầng 1 = giày dép/túi xách — dùng để loại nếu câu hỏi không hỏi về 2 món này."
+            }
+          ]
+        },
+        {
+          "jp": "2かい｜ほん",
+          "vi": "Tầng 2｜Sách",
+          "vocab": [
+            {
+              "w": "2かい",
+              "read": "にかい",
+              "vi": "tầng 2"
+            },
+            {
+              "w": "ほん",
+              "read": "ほん",
+              "vi": "sách"
+            }
+          ]
+        },
+        {
+          "jp": "3かい｜ふく・とけい",
+          "vi": "Tầng 3｜Quần áo・đồng hồ",
+          "vocab": [
+            {
+              "w": "とけい",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "3かい",
+              "read": "さんかい",
+              "vi": "tầng 3"
+            },
+            {
+              "w": "ふく",
+              "read": "ふく",
+              "vi": "quần áo"
+            }
+          ],
+          "keys": [
+            {
+              "w": "3かい",
+              "why": "Ô trả lời trực tiếp câu hỏi \"とけいうりばは何かいですか\" — とけい nằm ở hàng tầng 3."
+            },
+            {
+              "w": "ふく・とけい",
+              "why": "とけい (đồng hồ) và ふく (quần áo) ở CÙNG tầng 3 — dễ gộp nhầm với tầng khác."
+            }
+          ]
+        },
+        {
+          "jp": "6かい｜レストラン",
+          "vi": "Tầng 6｜Nhà hàng",
+          "vocab": [
+            {
+              "w": "レストラン",
+              "read": "レストラン",
+              "vi": "nhà hàng"
+            },
+            {
+              "w": "6かい",
+              "read": "ろっかい",
+              "vi": "tầng 6"
+            }
+          ],
+          "keys": [
+            {
+              "w": "6かい｜レストラン",
+              "why": "Tầng 6 = nhà hàng, KHÔNG phải quầy đồng hồ — bẫy nhiễu của câu hỏi chính."
+            }
+          ]
+        },
+        {
+          "jp": "すみません、とけいうりばは何かいですか。",
+          "vi": "Xin lỗi, quầy đồng hồ ở tầng mấy vậy ạ?",
+          "vocab": [
+            {
+              "w": "すみません",
+              "read": "すみません",
+              "vi": "xin lỗi / cho hỏi"
+            },
+            {
+              "w": "とけい",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "何かい",
+              "read": "なんかい",
+              "vi": "tầng mấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNですか (hỏi vị trí/số tầng)",
+              "vi": "「何かいですか」hỏi số tầng — ôn mẫu hỏi bằng nghi vấn từ ở Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "とけいうりばは何かいですか",
+              "why": "Câu hỏi chính của cả bài: cần dò đúng hàng とけい trong bảng, không lấy nhầm hàng ふく hay レストラン."
+            }
+          ]
+        },
+        {
+          "jp": "とけいうりばは3かいです。ふくうりばも3かいです。",
+          "vi": "Quầy đồng hồ ở tầng 3. Quầy quần áo cũng ở tầng 3.",
+          "vocab": [
+            {
+              "w": "とけい",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "も",
+              "read": "も",
+              "vi": "cũng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "「とけいうりばは3かいです」trả lời trực tiếp câu hỏi về số tầng — ôn mẫu Bài 1."
+            },
+            {
+              "point": "Nも",
+              "vi": "「ふくうりばも3かいです」: も = \"cũng\" — quầy quần áo cũng ở tầng 3 giống quầy đồng hồ. Ôn Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "とけいうりばは3かいです",
+              "why": "Câu trả lời trực tiếp cho câu hỏi chính — căn cứ đáp án đúng."
+            }
+          ]
+        },
+        {
+          "jp": "トイレは2かいですか、6かいですか。",
+          "vi": "Nhà vệ sinh ở tầng 2 hay tầng 6 ạ?",
+          "vocab": [
+            {
+              "w": "トイレ",
+              "read": "トイレ",
+              "vi": "nhà vệ sinh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはAですか、Bですか",
+              "vi": "Câu hỏi buộc chọn 1 trong 2: \"tầng 2 hay tầng 6?\" — mẫu MỚI của Bài 3."
+            }
+          ],
+          "keys": [
+            {
+              "w": "トイレは2かいですか、6かいですか",
+              "why": "Câu hỏi phụ dễ gây nhiễu: nhà vệ sinh KHÔNG phải quầy đồng hồ, đừng lấy nhầm số tầng của câu này."
+            }
+          ]
+        },
+        {
+          "jp": "トイレは2かいと6かいにあります。",
+          "vi": "Nhà vệ sinh ở tầng 2 và tầng 6.",
+          "vocab": [
+            {
+              "w": "トイレ",
+              "read": "トイレ",
+              "vi": "nhà vệ sinh"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có, tồn tại (đồ vật/nơi chốn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにあります",
+              "vi": "「トイレは2かいと6かいにあります」: トイレ (đồ vật/nơi chốn) ở (に) 2 tầng — mẫu MỚI của Bài 3."
+            }
+          ],
+          "keys": [
+            {
+              "w": "トイレは2かいと6かいにあります",
+              "why": "Bẫy: nhà vệ sinh ở CẢ 2 tầng khác nhau (2 và 6), không phải 1 tầng duy nhất như quầy đồng hồ — đừng lấy nhầm số tầng của câu hỏi chính."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはそこにいます。",
+          "vi": "Chị Karina đang ở đó.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "そこ",
+              "read": "そこ",
+              "vi": "đó, nơi đó (gần người nghe)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNにいます",
+              "vi": "「カリナさんはそこにいます」: Karina (người) ở (に) そこ → dùng います vì là người — mẫu MỚI của Bài 3."
+            }
+          ]
+        },
+        {
+          "jp": "ありがとうございます。",
+          "vi": "Cảm ơn.",
+          "vocab": [
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "ありがとうございます",
+              "read": "ありがとうございます",
+              "vi": "cảm ơn (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thành ngữ lịch sự",
+              "vi": "Câu cảm ơn kết thúc hội thoại."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "インフォメーションはこちらです。うりばはあちらです",
+          "label": "こちら・あちら（mẫu MỚI Bài 3）"
+        },
+        {
+          "excerpt": "トイレは2かいですか、6かいですか",
+          "label": "NはAですか、Bですか（mẫu MỚI Bài 3）"
+        },
+        {
+          "excerpt": "トイレは2かいと6かいにあります",
+          "label": "NはNにあります（mẫu MỚI Bài 3）"
+        },
+        {
+          "excerpt": "カリナさんはそこにいます",
+          "label": "NはNにいます（mẫu MỚI Bài 3）"
+        },
+        {
+          "excerpt": "ここはさくらデパートです",
+          "label": "NはNです（ôn Bài 1）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Chào & hướng dẫn quầy",
+          "topic": 1,
+          "note": "Mở đầu giới thiệu địa điểm và chỉ hướng quầy thông tin/quầy hàng — chưa có số liệu để trả lời câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "body",
+          "label": "Bảng tầng — quầy hàng",
+          "topic": 3,
+          "note": "Bảng chính: mỗi hàng là 1 tầng và mặt hàng của tầng đó. Đây là nơi tra ô \"とけい\" ở tầng 3 để trả lời câu hỏi.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "point",
+          "label": "Hỏi–đáp quầy đồng hồ",
+          "topic": 9,
+          "note": "Câu hỏi chính của bài và câu trả lời trực tiếp \"3かい\" — căn cứ đáp án đúng nằm ở đây.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "turn",
+          "label": "Nhà vệ sinh (bẫy 2 tầng)",
+          "topic": 11,
+          "note": "Chỗ dễ bẫy: nhà vệ sinh ở CẢ 2 tầng (2 và 6), không liên quan quầy đồng hồ — đừng nhầm lẫn khi dò bảng.",
+          "qs": []
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "body",
+          "label": "Kết thúc",
+          "topic": 12,
+          "note": "Karina ở đâu và lời cảm ơn — kết thúc thông báo, không chứa số liệu tầng.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "とけいうりばは何かいですか。",
+          "options": [
+            "1かいです",
+            "2かいです",
+            "3かいです",
+            "6かいです"
+          ],
+          "answer": 2,
+          "explainVi": "Bảng ghi rõ「3かい｜ふく・とけい」và câu trả lời trực tiếp「とけいうりばは3かいです」— quầy đồng hồ (とけいうりば) ở tầng 3, nên đáp án C「3かいです」đúng. Đáp án A (tầng 1) là tầng của くつ・かばん (giày dép, túi xách) — bẫy nhầm quầy. Đáp án B (tầng 2) là tầng của ほん (sách), không phải とけい. Đáp án D (tầng 6) là tầng của レストラン (nhà hàng) — cũng xuất hiện trong bài nhưng là quầy khác.",
+          "tip": "Câu hỏi \"何かいですか\" → tìm đúng HÀNG trong bảng có tên quầy trùng với câu hỏi, đừng lấy số tầng của quầy khác chỉ vì nó gần đó.",
+          "evi": [
+            6,
+            9
+          ],
+          "qt": {
+            "q": "Quầy đồng hồ ở tầng mấy?",
+            "o": [
+              "Tầng 1",
+              "Tầng 2",
+              "Tầng 3",
+              "Tầng 6"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

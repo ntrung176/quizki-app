@@ -1,0 +1,3611 @@
+{
+  "bai": 69,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 69 luyện hai mẫu phân biệt VAI TRÒ và GÓC NHÌN: 〜として = \"với tư cách / vai trò / danh nghĩa N\" (lập trường, chức năng: 留学生として日本に来た); 〜にとって = \"đối với N thì (đánh giá/cảm nhận chủ quan của ai đó)\" (私にとって家族が一番大切). Sắc thái cốt lõi: として nhấn vào CHỨC NĂNG / VỊ TRÍ của chủ thể (người ấy đang đóng vai trò gì, hành động với danh nghĩa gì); にとって nhấn vào ĐÁNH GIÁ / CẢM NHẬN từ góc nhìn của N (điều đó có ý nghĩa/giá trị thế nào đối với N). Đọc hiểu: chú ý ai là chủ ngữ, câu đang nói về chức năng hay cảm nhận để không nhầm として và にとって.",
+    "steps": [
+      "接続 として: N（vai trò/lập trường）＋ として → hỏi \"chủ thể đang hành động VỚI TƯ CÁCH gì?\".",
+      "接続 にとって: N（người/nhóm）＋ にとって → hỏi \"từ góc nhìn / đánh giá của N, điều đó là thế nào?\".",
+      "Phân biệt: \"留学生として勉強する\" (vai trò du học sinh) ≠ \"留学生にとって難しい\" (đối với du học sinh mà đánh giá thì khó). Câu として thường nối với hành động; にとって thường nối với tính từ/đánh giá.",
+      "Nhận ra các mẫu ôn lại: と思う（Bài 21）, べき（Bài 53）, ので（Bài 39）, おかげで（Bài 59）, つもり（Bài 31）, によって（Bài 68）.",
+      "Câu hỏi suy luận: \"Vì sao tác giả dùng として chứ không phải にとって?\" → tìm xem câu đó nói về VAI TRÒ hay GÓC NHÌN.",
+      "Highlights: tìm những chỗ cả として và にとって cùng xuất hiện trong đoạn văn để đối chiếu trực tiếp."
+    ],
+    "tips": [
+      "使い分け 1 — として vs にとって: \"代表として発言する\" (phát biểu VỚI TƯ CÁCH đại diện — vai trò) ≠ \"代表にとって大切な仕事だ\" (đối với đại diện MÀ NÓI thì đây là việc quan trọng — đánh giá). Thử thay thế: nếu câu nói về HÀNH ĐỘNG theo vai trò → として; nếu câu nói về SỰ ĐÁNH GIÁ / CẢM NHẬN → にとって.",
+      "使い分け 2 — にとって vs に対して（Bài 70, CẤM dùng）: にとって = góc nhìn đánh giá chủ quan (\"đối với tôi thì X là…\"); に対して (chưa học) = đối tượng tác động hoặc tương phản. Không nhầm hai mẫu này.",
+      "として có thể mang nghĩa \"với danh nghĩa / trong vai trò\": 趣味として絵を描く (vẽ tranh với tư cách sở thích, không phải nghề nghiệp); プレゼントとして贈る (tặng với danh nghĩa quà).",
+      "Dấu hiệu nhận mẫu trong câu hỏi: câu hỏi \"〜としてどう行動しましたか\" = hỏi hành động theo vai trò → として; câu hỏi \"〜にとってどういう意味がありますか\" = hỏi ý nghĩa/cảm nhận → にとって.",
+      "Đừng nhầm にとって với に + とって（取って）: とって ở đây KHÔNG phải te-form của 取る mà là mẫu ngữ pháp N + にとって viết liền."
+    ],
+    "grammarFocus": [
+      "〜として（N + として）— với tư cách / vai trò / danh nghĩa N",
+      "〜にとって（N + にとって）— đối với N thì (đánh giá / cảm nhận chủ quan)"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います（ý kiến chủ quan）"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです（dự định）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）"
+        ]
+      },
+      {
+        "bai": 53,
+        "items": [
+          "〜べきだ（lẽ phải / bổn phận）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（nhờ vào, kết quả tốt）"
+        ]
+      },
+      {
+        "bai": 68,
+        "items": [
+          "〜によって（tùy theo / khác nhau theo）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "留学生としての一年",
+      "titleVi": "Một năm với tư cách du học sinh",
+      "japanese": "私は去年、留学生として日本に来た。最初は、言葉も文化も違うので、毎日が挑戦だった。私にとって、一番難しかったのは敬語だ。しかし、クラスメートや先生のおかげで、少しずつ慣れることができた。留学生として、日本語だけでなく日本の考え方も学ぶべきだと思う。この経験は、将来社会人として働くときにも、きっと役に立つはずだ。日本での生活は、私にとって大切な宝物になった。これからも、留学生としての誇りを忘れないようにしたい。",
+      "vietnamese": "Năm ngoái, tôi đến Nhật với tư cách du học sinh. Lúc đầu, vì ngôn ngữ lẫn văn hóa đều khác nên mỗi ngày là một thách thức. Đối với tôi, điều khó nhất là kính ngữ. Nhưng nhờ các bạn cùng lớp và thầy cô, tôi dần quen được. Với tư cách du học sinh, tôi nghĩ không chỉ tiếng Nhật mà cả cách suy nghĩ của Nhật cũng nên học. Kinh nghiệm này chắc chắn sẽ hữu ích khi tôi làm việc với tư cách người đi làm trong tương lai. Cuộc sống ở Nhật đã trở thành báu vật quý giá đối với tôi. Từ nay tôi muốn không quên đi niềm tự hào với tư cách một du học sinh.",
+      "sentences": [
+        {
+          "jp": "私は去年、留学生として日本に来た。",
+          "vi": "Năm ngoái, tôi đến Nhật với tư cách du học sinh.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "留学生",
+              "read": "りゅうがくせい",
+              "vi": "du học sinh"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来た",
+              "read": "きた",
+              "vi": "đã đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "接続: N（留学生）＋ として. Nghĩa: \"với tư cách / trong vai trò du học sinh\". として nhấn vào LẬP TRƯỜNG / CHỨC NĂNG của chủ thể khi hành động. Đối chiếu: 留学生にとって（sẽ dùng sau）= \"đối với du học sinh mà nói\" — đó là góc nhìn đánh giá, không phải vai trò hành động."
+            }
+          ]
+        },
+        {
+          "jp": "最初は、言葉も文化も違うので、毎日が挑戦だった。",
+          "vi": "Lúc đầu, vì ngôn ngữ lẫn văn hóa đều khác nên mỗi ngày là một thách thức.",
+          "vocab": [
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "ngôn ngữ, lời nói"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác, khác nhau"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thách thức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "違うので = vì khác. ので nêu lý do một cách lịch sự."
+            },
+            {
+              "point": "Nも〜も（Bài 4）",
+              "vi": "言葉も文化も = cả ngôn ngữ lẫn văn hóa. も…も = liệt kê hai thứ cùng đặc điểm."
+            }
+          ]
+        },
+        {
+          "jp": "私にとって、一番難しかったのは敬語だ。",
+          "vi": "Đối với tôi, điều khó nhất là kính ngữ.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất"
+            },
+            {
+              "w": "難しかった",
+              "read": "むずかしかった",
+              "vi": "đã khó"
+            },
+            {
+              "w": "敬語",
+              "read": "けいご",
+              "vi": "kính ngữ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "接続: N（私）＋ にとって. Nghĩa: \"đối với tôi mà nói / từ góc nhìn của tôi thì\". にとって nêu ĐÁNH GIÁ / CẢM NHẬN chủ quan của N. Sắc thái: khác hoàn toàn với として — ở đây không nói về vai trò mà nói về MỨC ĐỘ KHÓ cảm nhận được từ góc nhìn của tôi."
+            },
+            {
+              "point": "Vた/Aかった + のは〜だ（Bài 38）",
+              "vi": "難しかったのは敬語だ = điều khó là kính ngữ. のは + N/こと = nhấn mạnh chủ đề."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、クラスメートや先生のおかげで、少しずつ慣れることができた。",
+          "vi": "Nhưng nhờ các bạn cùng lớp và thầy cô, tôi dần quen được.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "クラスメート",
+              "read": "クラスメート",
+              "vi": "bạn cùng lớp"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "おかげ",
+              "read": "おかげ",
+              "vi": "nhờ vào, ơn huệ"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một, dần dần"
+            },
+            {
+              "w": "慣れます",
+              "read": "なれます",
+              "vi": "quen, quen thuộc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜おかげで（Bài 59）",
+              "vi": "クラスメートや先生のおかげで = nhờ bạn cùng lớp và thầy cô. おかげで = nhờ vào (kết quả tốt, biết ơn). 接続: N の + おかげで."
+            },
+            {
+              "point": "Vることができた（Bài 27）",
+              "vi": "慣れることができた = đã có thể quen được. できる = có thể (Bài 27)."
+            }
+          ]
+        },
+        {
+          "jp": "留学生として、日本語だけでなく日本の考え方も学ぶべきだと思う。",
+          "vi": "Với tư cách du học sinh, tôi nghĩ không chỉ tiếng Nhật mà cả cách suy nghĩ của Nhật cũng nên học.",
+          "vocab": [
+            {
+              "w": "留学生",
+              "read": "りゅうがくせい",
+              "vi": "du học sinh"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "考え方",
+              "read": "かんがえかた",
+              "vi": "cách suy nghĩ, quan điểm"
+            },
+            {
+              "w": "学びます",
+              "read": "まなびます",
+              "vi": "học, học hỏi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "留学生として = với tư cách du học sinh. として tiếp tục nhấn vào VAI TRÒ: hành động (学ぶ) được thực hiện từ lập trường của du học sinh."
+            },
+            {
+              "point": "〜べきだ（Bài 53）",
+              "vi": "学ぶべきだ = nên học, lẽ phải học. べき diễn đạt bổn phận/lẽ phải (Bài 53)."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "べきだと思う = tôi nghĩ là nên. と思う = ý kiến chủ quan (Bài 21)."
+            }
+          ]
+        },
+        {
+          "jp": "この経験は、将来社会人として働くときにも、きっと役に立つはずだ。",
+          "vi": "Kinh nghiệm này chắc chắn sẽ hữu ích khi tôi làm việc với tư cách người đi làm trong tương lai.",
+          "vocab": [
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "将来",
+              "read": "しょうらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "働きます",
+              "read": "はたらきます",
+              "vi": "làm việc"
+            },
+            {
+              "w": "きっと",
+              "read": "きっと",
+              "vi": "chắc chắn, nhất định"
+            },
+            {
+              "w": "役に立ちます",
+              "read": "やくにたちます",
+              "vi": "có ích, hữu dụng"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đi làm, người trưởng thành trong xã hội"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "社会人として = với tư cách người đi làm. として chỉ vai trò trong tương lai khi hành động làm việc."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "働くとき = khi làm việc. Vる + とき = thời điểm (Bài 23)."
+            },
+            {
+              "point": "〜はずだ（Bài 51）",
+              "vi": "役に立つはずだ = chắc chắn sẽ hữu ích (suy luận có căn cứ logic: trải nghiệm du học là cơ sở rõ ràng). Ôn Bài 51."
+            }
+          ]
+        },
+        {
+          "jp": "日本での生活は、私にとって大切な宝物になった。",
+          "vi": "Cuộc sống ở Nhật đã trở thành báu vật quý giá đối với tôi.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "cuộc sống"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "大切な",
+              "read": "たいせつな",
+              "vi": "quý giá, quan trọng"
+            },
+            {
+              "w": "宝物",
+              "read": "たからもの",
+              "vi": "báu vật"
+            },
+            {
+              "w": "なった",
+              "read": "なった",
+              "vi": "đã trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "私にとって = đối với tôi. にとって đặt GÓC NHÌN ĐÁNH GIÁ: cuộc sống Nhật được đánh giá là \"báu vật\" từ góc nhìn của người viết. Đây là ĐỐI CHIẾU rõ với として: câu trước (として) nói về vai trò hành động; câu này (にとって) nói về GIÁ TRỊ CẢM NHẬN."
+            },
+            {
+              "point": "〜になった（Bài 19）",
+              "vi": "宝物になった = đã trở thành báu vật. になる = trở thành (Bài 19)."
+            }
+          ]
+        },
+        {
+          "jp": "これからも、留学生としての誇りを忘れないようにしたい。",
+          "vi": "Từ nay tôi muốn không quên đi niềm tự hào với tư cách một du học sinh.",
+          "vocab": [
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ nay, từ đây trở đi"
+            },
+            {
+              "w": "留学生",
+              "read": "りゅうがくせい",
+              "vi": "du học sinh"
+            },
+            {
+              "w": "誇り",
+              "read": "ほこり",
+              "vi": "niềm tự hào"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜としての＋N（Bài 69）",
+              "vi": "留学生としての誇り = niềm tự hào CỦA (tư cách) du học sinh. として + の kết nối vai trò với danh từ theo sau (としての + N)."
+            },
+            {
+              "point": "〜ないようにしたい（Bài 36）",
+              "vi": "忘れないようにしたい = muốn cố không quên. ないようにする = cố để không (Bài 36)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "留学生として日本に来た",
+          "label": "〜として（vai trò / tư cách hành động）"
+        },
+        {
+          "excerpt": "私にとって、一番難しかったのは敬語だ",
+          "label": "Sắc thái: にとって（góc nhìn đánh giá）"
+        },
+        {
+          "excerpt": "留学生として、日本語だけでなく日本の考え方も学ぶべきだと思う",
+          "label": "〜として（lập trường khi đưa ra ý kiến）"
+        },
+        {
+          "excerpt": "日本での生活は、私にとって大切な宝物になった",
+          "label": "Sắc thái: にとって（đánh giá giá trị cảm nhận）"
+        },
+        {
+          "excerpt": "留学生としての誇り",
+          "label": "〜としての＋N（vai trò bổ nghĩa danh từ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「留学生として日本に来た」の「として」はどんな意味ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "留学生のことが好きだという意味です",
+            "留学生という立場・役割で行動したという意味です",
+            "留学生にとって日本は好きだという意味です",
+            "留学生から日本に電話したという意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 2 đúng. Câu \"留学生として日本に来た\" dùng として để chỉ TƯ CÁCH / VAI TRÒ mà chủ thể hành động (đến Nhật trong vai trò du học sinh, không phải khách du lịch hay người đi làm). として trả lời câu hỏi \"đến Nhật với danh nghĩa gì?\" → vai trò hành động rõ ràng.\n\nCác đáp án sai: Đáp án 1 (好きだ) không liên quan — として không nói về cảm xúc. Đáp án 3 nhiễu bằng にとって nhưng にとって = góc nhìn đánh giá chủ quan (\"đối với du học sinh thì\"), không phải tư cách hành động. Đáp án 4 (電話した) vô nghĩa ngữ pháp.",
+          "tip": "Hỏi \"hành động đó được thực hiện VỚI TƯ CÁCH / DANH NGHĨA gì?\" → dùng として. Nếu câu hỏi là \"đối với N thì điều đó có ý nghĩa/giá trị thế nào?\" → dùng にとって.",
+          "qt": {
+            "q": "「留学生として日本に来た」(đến Nhật với tư cách du học sinh), 「として」có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là thích du học sinh",
+              "Có nghĩa là hành động với tư cách hoặc vai trò là du học sinh",
+              "Có nghĩa là đối với du học sinh, Nhật Bản là nơi yêu thích",
+              "Có nghĩa là gọi điện từ du học sinh đến Nhật Bản"
+            ]
+          }
+        },
+        {
+          "q": "「私にとって、一番難しかったのは敬語だ」と「留学生として日本に来た」の違いは何ですか。",
+          "evi": [
+            0,
+            2
+          ],
+          "options": [
+            "「にとって」は書き言葉、「として」は話し言葉です",
+            "「にとって」は評価・感想を述べる視点を表し、「として」は役割・立場を表します",
+            "「にとって」は行動の目的を表し、「として」は原因を表します",
+            "両方同じ意味なので、どちらを使っても問題ありません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 2 đúng — mô tả chính xác sự phân biệt cốt lõi:\n• \"私にとって、一番難しかったのは敬語だ\" → にとって đặt GÓC NHÌN CHỦ QUAN của người nói để đánh giá mức độ khó. Câu nói về CẢM NHẬN của tôi, không phải hành động.\n• \"留学生として日本に来た\" → として chỉ TƯ CÁCH / LẬP TRƯỜNG khi hành động (đến Nhật). Câu nói về VAI TRÒ, không phải cảm nhận.\n\nCác đáp án sai: Đáp án 1 nhầm về phong cách ngôn ngữ — cả hai đều dùng được cả nói lẫn viết. Đáp án 3 nhầm chức năng (にとって không nói về mục đích; として không nói về nguyên nhân). Đáp án 4 sai hoàn toàn — hai mẫu KHÔNG thay thế được nhau.",
+          "tip": "として đi với HÀNH ĐỘNG (来た, 働く, 発言する…); にとって đi với ĐÁNH GIÁ / TÍNH TỪ (難しい, 大切だ, 価値がある…). Thử thay vị ngữ: nếu là động từ hành động → として; nếu là tính từ / danh từ đánh giá → にとって.",
+          "qt": {
+            "q": "「私にとって、一番難しかったのは敬語だ」(Đối với tôi, điều khó nhất là kính ngữ) và 「留学生として日本に来た」(đến Nhật với tư cách du học sinh) khác nhau thế nào?",
+            "o": [
+              "「にとって」là văn viết, còn 「として」là văn nói",
+              "「にとって」biểu thị góc nhìn để nêu đánh giá hoặc cảm nhận, còn 「として」biểu thị vai trò hoặc vị thế",
+              "「にとって」biểu thị mục đích của hành động, còn 「として」biểu thị nguyên nhân",
+              "Cả hai có cùng ý nghĩa nên dùng từ nào cũng được"
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が「留学生として」大切だと思っていることは何ですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "日本語だけを一生懸命勉強すること",
+            "日本語だけでなく、日本の考え方も学ぶこと",
+            "敬語を完璧に使えるようになること",
+            "クラスメートと仲良くすること"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 2 đúng. Bằng chứng trực tiếp trong bài: \"留学生として、日本語だけでなく日本の考え方も学ぶべきだと思う.\" Mẫu \"だけでなく〜も\" (không chỉ…mà cả…) cho thấy tác giả đề cao CẢ HAI: tiếng Nhật VÀ cách suy nghĩ của người Nhật.\n\nCác đáp án sai: Đáp án 1 (日本語だけ) đi ngược lại — bài nói \"không chỉ tiếng Nhật\". Đáp án 3 (敬語を完璧に) là điều khó nhất chứ không phải mục tiêu tác giả đặt ra với tư cách du học sinh. Đáp án 4 (クラスメートと仲良く) không được đề cập là điều \"大切だと思う\".",
+          "tip": "Tìm câu có として ngay trước động từ ý kiến (べきだと思う, 大切だと思う…) — đó là lời nhận xét từ LẬP TRƯỜNG của vai trò đó, nội dung trả lời câu hỏi loại này.",
+          "qt": {
+            "q": "Trong bài viết này, tác giả cho rằng điều gì là quan trọng 「留学生として」(với tư cách du học sinh)?",
+            "o": [
+              "Chỉ chăm chỉ học tiếng Nhật",
+              "Học cả cách suy nghĩ của người Nhật, không chỉ tiếng Nhật",
+              "Có thể sử dụng kính ngữ một cách hoàn hảo",
+              "Thân thiết với các bạn cùng lớp"
+            ]
+          }
+        },
+        {
+          "q": "「日本での生活は、私にとって大切な宝物になった」から分かる筆者の気持ちは何ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "日本での生活は難しくて大変だったという気持ち",
+            "日本での生活は自分にとってとても価値があり、大切に思っているという気持ち",
+            "日本での生活は友達のためになったという気持ち",
+            "日本での生活はあまり意味がなかったという気持ち"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 2 đúng. Câu \"私にとって大切な宝物になった\" dùng にとって để diễn đạt ĐÁNH GIÁ GIÁ TRỊ từ góc nhìn của tác giả: cuộc sống ở Nhật — xét từ góc nhìn riêng của tôi — đã trở thành \"báu vật\" (宝物 = vật quý nhất). にとって + tính từ đánh giá (大切な) xác nhận đây là cảm nhận chủ quan của người viết.\n\nCác đáp án sai: Đáp án 1 (難しくて大変) nhầm với thông tin ở đầu bài (挑戦だった) nhưng đó không phải cảm xúc được diễn đạt qua câu này. Đáp án 3 (友達のため) bóp méo nội dung — câu nói về GIÁ TRỊ ĐỐI VỚI TÔI, không phải cho bạn bè. Đáp án 4 (あまり意味がなかった) trái nghĩa hoàn toàn.",
+          "tip": "にとって + 大切 / 価値がある / 宝物 / 嬉しい… = câu đang nói về GIÁ TRỊ / CẢM NHẬN CỦA N đối với điều gì đó — đây là dấu hiệu điển hình của にとって.",
+          "qt": {
+            "q": "Có thể hiểu được cảm xúc nào của tác giả từ câu 「日本での生活は、私にとって大切な宝物になった」(Cuộc sống ở Nhật đã trở thành một báu vật quý giá đối với tôi)?",
+            "o": [
+              "Cảm giác rằng cuộc sống ở Nhật khó khăn và vất vả",
+              "Cảm giác rằng cuộc sống ở Nhật rất có giá trị đối với bản thân và được trân trọng",
+              "Cảm giác rằng cuộc sống ở Nhật có ích cho bạn bè",
+              "Cảm giác rằng cuộc sống ở Nhật không có ý nghĩa gì nhiều"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "現代人にとっての手紙",
+      "titleVi": "Bức thư tay đối với con người hiện đại",
+      "japanese": "最近はメールやSNSが普及し、誰でも簡単に連絡ができるようになった。忙しい現代人にとって、時間をかけずにメッセージを送れるのは大変便利なことだ。しかし、便利さだけで人間関係が深まるとは限らない。\nたとえば、手紙はどうだろうか。多くの人は手紙を単なる情報を伝える手段として考えているかもしれない。だが、手紙を受け取る人にとって、手書きの文字には特別な温かさがある。相手が自分のために時間を使ってくれたという事実は、メールでは味わえない喜びになるのだ。\nつまり、手紙は単なる連絡の道具ではなく、相手を大切にする気持ちを伝える方法として大きな価値を持っている。そのように考えると、スピードが重視される社会に生きる私たちにとって、心を込めて手紙を書く時間はかけがえのないものだと言えるだろう。",
+      "vietnamese": "Dạo gần đây, khi email và mạng xã hội trở nên phổ biến, ai cũng có thể liên lạc một cách dễ dàng. Đối với những con người hiện đại bận rộn, việc có thể gửi tin nhắn mà không mất thời gian là một điều vô cùng tiện lợi. Tuy nhiên, không hẳn là chỉ nhờ sự tiện lợi mà mối quan hệ giữa người với người có thể trở nên sâu sắc hơn.\nChẳng hạn như, thư tay thì thế nào? Nhiều người có lẽ đang xem thư từ đơn thuần như một phương tiện để truyền đạt thông tin. Nhưng đối với người nhận thư, từng nét chữ viết tay luôn mang một hơi ấm đặc biệt. Sự thật rằng đối phương đã dành thời gian vì mình sẽ trở thành niềm vui mà email không thể mang lại được.\nTóm lại, thư từ không đơn thuần là công cụ liên lạc, mà mang một giá trị to lớn như một phương thức để truyền tải tình cảm trân trọng đối phương. Nghĩ như vậy, đối với chúng ta đang sống trong một xã hội coi trọng tốc độ, khoảng thời gian nắn nót viết một lá thư bằng cả tấm lòng có thể nói là một điều vô giá.",
+      "sentences": [
+        {
+          "jp": "最近はメールやSNSが普及し、誰でも簡単に連絡ができるようになった。",
+          "vi": "Dạo gần đây, khi email và mạng xã hội trở nên phổ biến, ai cũng có thể liên lạc một cách dễ dàng.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email"
+            },
+            {
+              "w": "SNS",
+              "read": "エスエヌエス",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "普及し",
+              "read": "ふきゅうし",
+              "vi": "phổ biến"
+            },
+            {
+              "w": "誰",
+              "read": "だれ",
+              "vi": "ai"
+            },
+            {
+              "w": "簡単に",
+              "read": "かんたんに",
+              "vi": "một cách dễ dàng"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "なった",
+              "read": "なった",
+              "vi": "đã trở nên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V-可能形 + ようになる（Bài 36）",
+              "vi": "連絡ができるようになった = đã có thể liên lạc được. Diễn tả sự biến đổi trạng thái, từ chỗ không thể hoặc khó khăn trở thành có thể làm được."
+            }
+          ]
+        },
+        {
+          "jp": "忙しい現代人にとって、時間をかけずにメッセージを送れるのは大変便利なことだ。",
+          "vi": "Đối với những con người hiện đại bận rộn, việc có thể gửi tin nhắn mà không mất thời gian là một điều vô cùng tiện lợi.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, ngày nay"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn, thông điệp"
+            },
+            {
+              "w": "送れる",
+              "read": "おくれる",
+              "vi": "có thể gửi"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vô cùng, rất"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "現代人",
+              "read": "げんだいじん",
+              "vi": "người hiện đại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "接続: N（現代人）＋ にとって. Nghĩa: \"đối với người hiện đại thì...\". Dùng để nêu lập trường, góc nhìn đánh giá hoặc cảm nhận chủ quan của một đối tượng."
+            },
+            {
+              "point": "V-ないで / V-ずに（Bài 34）",
+              "vi": "時間をかけずに = mà không tốn thời gian. V-ずに là dạng văn viết trang trọng của V-ないで."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、便利さだけで人間関係が深まるとは限らない。",
+          "vi": "Tuy nhiên, không hẳn là chỉ nhờ sự tiện lợi mà mối quan hệ giữa người với người có thể trở nên sâu sắc hơn.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "深まる",
+              "read": "ふかまる",
+              "vi": "sâu sắc hơn, thắt chặt hơn"
+            },
+            {
+              "w": "限る",
+              "read": "かぎる",
+              "vi": "giới hạn, hạn chế"
+            },
+            {
+              "w": "人間関係",
+              "read": "にんげんかんけい",
+              "vi": "mối quan hệ giữa con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは限らない（Bài 43）",
+              "vi": "深まるとは限らない = không hẳn / không nhất thiết là sẽ sâu sắc hơn. Dùng để phủ định một phần, nêu rõ không phải lúc nào điều đó cũng đúng."
+            },
+            {
+              "point": "Aさ（Bài 40）",
+              "vi": "便利さ = sự tiện lợi. Chuyển đổi tính từ sang danh từ chỉ tính chất, mức độ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "とは限らない",
+              "why": "Mẫu câu phủ định một phần báo hiệu sự chuyển hướng, phản biện lại quan điểm cho rằng tiện lợi là đủ."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、手紙はどうだろうか。",
+          "vi": "Chẳng hạn như, thư tay thì thế nào?",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "thư tay, lá thư"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はどうだろうか（N3）",
+              "vi": "手紙はどうだろうか = lá thư thì thế nào nhỉ? Dùng để đưa ra ví dụ và gợi mở suy nghĩ cho người đọc."
+            }
+          ]
+        },
+        {
+          "jp": "多くの人は手紙を単なる情報を伝える手段として考えているかもしれない。",
+          "vi": "Nhiều người có lẽ đang xem thư từ đơn thuần như một phương tiện để truyền đạt thông tin.",
+          "vocab": [
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, truyền tải"
+            },
+            {
+              "w": "手段",
+              "read": "しゅだん",
+              "vi": "phương tiện, cách thức"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "接続: N（手段）＋ として. Nghĩa: \"với tư cách / với vai trò / như là một phương tiện\". Dùng để chỉ rõ chức năng hoặc vai trò của đối tượng."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "考えているかもしれない = có lẽ đang nghĩ là... Phỏng đoán một khả năng có thể xảy ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "単なる情報を伝える手段として",
+              "why": "Cụm từ được hỏi trực tiếp ở câu hỏi 1, thể hiện quan niệm phiến diện của số đông coi thư từ chỉ là công cụ truyền tin."
+            },
+            {
+              "w": "考えているかもしれない",
+              "why": "Đuôi câu phỏng đoán nêu lên quan niệm thông thường của nhiều người nhằm làm bàn đạp để tác giả bác bỏ."
+            }
+          ]
+        },
+        {
+          "jp": "だが、手紙を受け取る人にとって、手書きの文字には特別な温かさがある。",
+          "vi": "Nhưng đối với người nhận thư, từng nét chữ viết tay luôn mang một hơi ấm đặc biệt.",
+          "vocab": [
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "受け取る",
+              "read": "うけとる",
+              "vi": "nhận lấy"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "手書き",
+              "read": "てがき",
+              "vi": "viết tay"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ viết, ký tự"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "温かさ",
+              "read": "あたたかさ",
+              "vi": "sự ấm áp, hơi ấm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "接続: N（受け取る人）＋ にとって. Nghĩa: \"đối với người nhận thư mà nói\". Nêu góc nhìn cảm nhận, trải nghiệm trực tiếp của người tiếp nhận."
+            }
+          ],
+          "keys": [
+            {
+              "w": "だが",
+              "why": "Liên từ chuyển ý quan trọng lật ngược định kiến ở câu trước, dẫn vào giá trị cảm xúc thực sự của thư tay."
+            }
+          ]
+        },
+        {
+          "jp": "相手が自分のために時間を使ってくれたという事実は、メールでは味わえない喜びになるのだ。",
+          "vi": "Sự thật rằng đối phương đã dành thời gian vì mình sẽ trở thành niềm vui mà email không thể mang lại được.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "事実",
+              "read": "じじつ",
+              "vi": "sự thật, thực tế"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "味わう",
+              "read": "あじわう",
+              "vi": "nếm trải, cảm nhận, thưởng thức"
+            },
+            {
+              "w": "喜び",
+              "read": "よろこび",
+              "vi": "niềm vui"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくれる（Bài 24）",
+              "vi": "時間を使ってくれた = đã dành thời gian cho mình. Thể hiện sự trân trọng đối với hành động mà người khác làm cho mình."
+            },
+            {
+              "point": "〜という＋N（Bài 40）",
+              "vi": "時間を使ってくれたという事実 = sự thật rằng đối phương đã dành thời gian... Dùng để giải thích nội dung cho danh từ trừu tượng."
+            },
+            {
+              "point": "〜のだ（Bài 26）",
+              "vi": "喜びになるのだ = mang sắc thái giải thích lý do sâu xa của cảm xúc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "相手が自分のために時間を使ってくれた",
+              "why": "Căn cứ trực tiếp giải thích nguyên nhân người nhận cảm thấy xúc động và vui mừng cho câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、手紙は単なる連絡の道具ではなく、相手を大切にする気持ちを伝える方法として大きな価値を持っている。",
+          "vi": "Tóm lại, thư từ không đơn thuần là công cụ liên lạc, mà mang một giá trị to lớn như một phương thức để truyền tải tình cảm trân trọng đối phương.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, tức là"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ đơn thuần là"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, đồ dùng"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng, trân trọng"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "接続: N（方法）＋ として. Nghĩa: \"như một phương thức / với vai trò là phương pháp truyền tải\". Nhấn mạnh chức năng ý nghĩa của việc viết thư."
+            },
+            {
+              "point": "〜ではなく（N4/N3）",
+              "vi": "道具ではなく = không phải là công cụ mà là... Phủ định vế trước để khẳng định mạnh mẽ vế sau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ kết luận dùng để tóm lược và khẳng định bản chất thực sự cùng giá trị lớn lao của bức thư."
+            },
+            {
+              "w": "相手を大切にする気持ちを伝える方法",
+              "why": "Định nghĩa cốt lõi của tác giả về ý nghĩa của thư tay, là căn cứ trực tiếp trả lời câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "そのように考えると、スピードが重視される社会に生きる私たちにとって、心を込めて手紙を書く時間はかけがえのないものだと言えるだろう。",
+          "vi": "Nghĩ như vậy, đối với chúng ta đang sống trong một xã hội coi trọng tốc độ, khoảng thời gian nắn nót viết một lá thư bằng cả tấm lòng có thể nói là một điều vô giá.",
+          "vocab": [
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "スピード",
+              "read": "スピード",
+              "vi": "tốc độ"
+            },
+            {
+              "w": "重視",
+              "read": "じゅうし",
+              "vi": "coi trọng, chú trọng"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "生きる",
+              "read": "いきる",
+              "vi": "sống, tồn tại"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "込める",
+              "read": "こめる",
+              "vi": "dồn vào, gửi gắm"
+            },
+            {
+              "w": "手紙",
+              "read": "てがみ",
+              "vi": "lá thư"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "かけがえ",
+              "read": "かけがえ",
+              "vi": "thay thế, vật thay thế"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            },
+            {
+              "w": "心を込める",
+              "read": "こころをこめる",
+              "vi": "dồn hết tâm trí, đặt trọn tấm lòng"
+            },
+            {
+              "w": "かけがえのない",
+              "read": "かけがえのない",
+              "vi": "vô giá, không gì thay thế được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "接続: N（私たち）＋ にとって. Nghĩa: \"đối với chúng ta\". Xác định đối tượng đang trải nghiệm và nhận định giá trị trong hoàn cảnh xã hội."
+            },
+            {
+              "point": "V-受身形（Bài 37）",
+              "vi": "スピードが重視される = tốc độ được coi trọng. Thể bị động diễn tả thực trạng khách quan trong xã hội."
+            },
+            {
+              "point": "〜と言えるだろう（N3）",
+              "vi": "〜と言えるだろう = có thể nói rằng... Cách kết luận, nhận định mang tính khái quát và khiêm tốn."
+            }
+          ],
+          "keys": [
+            {
+              "w": "かけがえのないものだと言えるだろう",
+              "why": "Cách diễn đạt khẳng định ở cuối bài thể hiện rõ chủ trương của tác giả về giá trị vô giá của thời gian viết thư."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "忙しい現代人にとって",
+          "label": "〜にとって（góc nhìn đánh giá / lập trường cảm nhận）"
+        },
+        {
+          "excerpt": "情報を伝える手段として",
+          "label": "〜として（chức năng / vai trò của sự vật）"
+        },
+        {
+          "excerpt": "手紙を受け取る人にとって",
+          "label": "〜にとって（đối tượng tiếp nhận và cảm nhận）"
+        },
+        {
+          "excerpt": "気持ちを伝える方法として",
+          "label": "〜として（vai trò / phương tiện thể hiện）"
+        },
+        {
+          "excerpt": "私たちにとって",
+          "label": "〜にとって（chủ thể nhận định giá trị）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "第2段落に「単なる情報を伝える手段として」とあるが、どういうことか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "手紙をただ用件や事実を相手に知らせる道具だと見なしているということ",
+            "手紙をメールよりも速く連絡できる道具だと思っているということ",
+            "手紙を人間関係を深めるための唯一の方法だと信じているということ",
+            "手紙を受け取る人が返事を書く義務があると考えているということ"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「手紙をただ用件や事実を」 — Cụm từ \"単なる情報を伝える手段として\" (như một phương tiện đơn thuần để truyền đạt thông tin) chỉ việc xem bức thư thuần túy như một công cụ trao đổi sự việc, thông báo nội dung/công việc mà chưa thấy được giá trị cảm xúc bên trong nó.\n\nCác phương án còn lại sai vì:\n- 「手紙をメールよりも速く」: Bài viết nêu rõ email mới là công cụ truyền tin nhanh chóng, không phải thư tay.\n- 「手紙を人間関係を深める」: Tác giả chỉ ra rằng nhiều người chỉ coi thư là công cụ truyền tin, chứ chưa nhận thức được việc nó giúp thắt chặt tình cảm.\n- 「手紙を受け取る人が」: Bài đọc hoàn toàn không đề cập đến \"nghĩa vụ phải viết thư hồi âm\" (返事を書く義務).",
+          "tip": "Khi gặp dạng câu hỏi giải thích cụm từ \"〜とあるが、どういうことか\", hãy tìm phương án diễn đạt tương đương (paraphrase). Ở đây: \"情報\" tương đương \"用件や事実\", \"手段\" tương đương \"道具\", \"単なる〜として考える\" tương đương \"ただ〜だと見なす\".",
+          "qt": {
+            "q": "Ở đoạn 2 có câu 「単なる情報を伝える手段として」(như một phương tiện chỉ để truyền đạt thông tin); điều đó có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là xem thư như một công cụ chỉ để báo cho người khác biết việc cần làm hoặc sự thật",
+              "Có nghĩa là nghĩ rằng thư là một công cụ có thể liên lạc nhanh hơn email",
+              "Có nghĩa là tin rằng thư là cách duy nhất để làm sâu sắc thêm các mối quan hệ giữa người với người",
+              "Có nghĩa là cho rằng người nhận thư có nghĩa vụ phải viết thư trả lời"
+            ]
+          }
+        },
+        {
+          "q": "筆者によると、手紙を受け取った人が温かさや喜びを感じるのはなぜか。",
+          "evi": [
+            5,
+            6
+          ],
+          "options": [
+            "手書きの文字のほうが漢字の間違いが少ないから",
+            "メールよりも多くの情報を一度に知ることができるから",
+            "相手が自分のために時間をかけて書いてくれたことが伝わるから",
+            "すぐに返信を書かなくても相手に失礼にならないから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「相手が自分のために時間を」 — Căn cứ vào câu 5 và câu 6 trong bài: \"手紙を受け取る人にとって、手書きの文字には特別な温かさがある。相手が自分のために時間を使ってくれたという事実は、メールでは味わえない喜びになるのだ\" (Đối với người nhận, nét chữ viết tay mang hơi ấm đặc biệt. Sự thật rằng đối phương đã dành thời gian vì mình chính là niềm vui không thể có ở email).\n\nCác phương án còn lại sai vì:\n- 「手書きの文字のほうが」: Bài viết không hề so sánh việc ít hay nhiều lỗi chữ Hán (漢字の間違い).\n- 「メールよりも多くの情報を」: Thư tay không nhằm mục đích truyền tải lượng thông tin nhiều hơn email.\n- 「すぐに返信を書かなくても」: Bài viết không đề cập đến việc thất lễ hay quy định về thời gian hồi âm (返信).",
+          "tip": "Với câu hỏi lý do \"なぜ〜のか\", hãy chú ý các câu chứa liên từ nguyên nhân hoặc cấu trúc biểu thị cảm xúc như \"〜という事実は、〜喜びになるのだ\". Tìm phương án diễn đạt lại ý tác giả đã nêu: đối phương đã bỏ thời gian vì mình (相手が時間を使ってくれた).",
+          "qt": {
+            "q": "Theo tác giả, tại sao người nhận thư lại cảm thấy ấm áp và vui mừng?",
+            "o": [
+              "Vì chữ viết tay ít có lỗi chữ Hán hơn",
+              "Vì có thể biết nhiều thông tin cùng một lúc hơn so với email",
+              "Vì người nhận cảm nhận được rằng đối phương đã dành thời gian viết thư cho mình",
+              "Vì dù không viết thư trả lời ngay thì cũng không thất lễ với đối phương"
+            ]
+          }
+        },
+        {
+          "q": "手紙について、筆者はどのように考えているか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "スピードが重視される現代社会では、手紙は役に立たないものになってしまった。",
+            "メールを使うのをやめて、連絡をすべて手紙に変えるべきだ。",
+            "便利で速い時代だからこそ、相手を思って心を込めて手紙を書くことには大切な価値がある。",
+            "忙しい現代人にとって手紙を書く時間は負担が大きすぎるので、書かないほうがよい。"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: 「便利で速い時代だからこそ」 — Căn cứ vào đoạn cuối (câu 7 và câu 8): \"手紙は単なる連絡の道具ではなく、相手を大切にする気持ちを伝える方法として大きな価値を持っている... 心を込めて手紙を書く時間はかけがえのないものだと言えるだろう\". Tác giả khẳng định trong xã hội coi trọng tốc độ hiện nay, việc dành thời gian viết thư chứa đựng tấm lòng mang một giá trị vô giá.\n\nCác phương án còn lại sai vì:\n- 「スピードが重視される現代」: Sai hoàn toàn với quan điểm bài viết (tác giả không cho rằng thư tay là vô dụng).\n- 「メールを使うのをやめて」: Mang tính cực đoan (tác giả không hề khuyên bỏ hẳn email để chuyển 100% sang viết thư tay).\n- 「忙しい現代人にとって」: Đi ngược lại tư tưởng bài viết (tác giả khuyến khích trân trọng việc viết thư chứ không xem đó là gánh nặng cần tránh).",
+          "tip": "Câu hỏi về quan điểm của tác giả (筆者の考え) thường nằm ở phần kết bài sau các từ nối tổng kết như つまり, そのように考えると. Hãy cảnh giác và loại bỏ các phương án có từ ngữ cực đoan như \"すべて〜べき\", \"役に立たない\".",
+          "qt": {
+            "q": "Tác giả nghĩ như thế nào về thư?",
+            "o": [
+              "Trong xã hội hiện đại, nơi tốc độ được coi trọng, thư đã trở nên vô dụng.",
+              "Nên ngừng dùng email và chuyển tất cả việc liên lạc sang thư.",
+              "Chính vì thời đại tiện lợi và nhanh chóng nên việc nghĩ đến đối phương và viết thư bằng cả tấm lòng mới có giá trị quan trọng.",
+              "Đối với người hiện đại bận rộn, thời gian viết thư là gánh nặng quá lớn, vì vậy tốt hơn là không viết."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Vấn đề tiện lợi",
+          "topic": 2,
+          "note": "Nêu thực trạng liên lạc nhanh chóng thời hiện đại và đặt nghi vấn về việc tiện lợi chưa chắc giúp gắn kết mối quan hệ.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "kind": "body",
+          "label": "Quan niệm thông thường",
+          "topic": 4,
+          "note": "Đưa ra cách nhìn phổ biến coi thư chỉ là công cụ truyền tin, cẩn thận bẫy nhầm lẫn quan niệm số đông với ý kiến tác giả.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "kind": "turn",
+          "label": "Bước ngoặt・Giá trị cảm xúc",
+          "topic": 5,
+          "note": "Bác bỏ định kiến bằng việc chỉ ra sự ấm áp của chữ viết tay và công sức người viết dành cho đối phương.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "point",
+          "label": "Kết luận của tác giả",
+          "topic": 7,
+          "note": "Tổng kết bản chất của thư tay là trao gửi sự trân trọng và khẳng định thời gian viết thư là điều vô giá.",
+          "qs": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "仕事と家族、それぞれの役割と視点",
+      "titleVi": "Công việc và gia đình — vai trò và góc nhìn của mỗi người",
+      "japanese": "人は生きる中で、さまざまな役割を担う。\n仕事では社員として、または管理職として責任を持って行動することが求められる。\n家庭では親として、あるいは子として、それぞれの立場で家族を支える。\n役割が変わると、行動の仕方だけでなく、物事の見方も変わることがある。\nたとえば、部長として部下に指示を出すとき、決断はいつも簡単ではない。\n部長にとって、チーム全体の成果を考えることが最優先だからだ。\nしかし、部下にとっては、毎日の仕事のやりやすさが大切なことが多い。\nつまり、同じ出来事でも、立場によってその意味や評価が違うことがある。\nこれは家庭でも同じだ。\nたとえば、子供が初めて一人で電車に乗って学校へ行ったとき、子供にとっては大きな冒険だ。\n一方、親にとっては、我が子の成長を感じる喜びと同時に、心配する気持ちもある。\nこのように、同じ出来事が、関わる人それぞれにとって全く違う意味を持つことがある。\n私は教師として働いて十年になる。\n教師として、生徒の成長を見守ることが最も大切な仕事だと思っている。\nしかし、それと同時に、私にとっても生徒から多くのことを学んでいると感じる。\n教える立場の人間として、学ぶことをやめるべきではないと思うからだ。\n生徒にとって先生は「教えてくれる人」かもしれないが、先生にとって生徒は「成長させてくれる存在」でもある。\nこうした相互の関係こそが、教育を成り立たせる大切な要素だと考える。\nどんな役割を持つ人も、自分の立場としての責任を果たしながら、他の人にとっての見方も理解しようとするべきだ。\nそうすることで、仕事でも家庭でも、よりよい関係が生まれるのではないかと思う。",
+      "vietnamese": "Con người trong cuộc sống gánh vác nhiều vai trò khác nhau.\nTrong công việc, người ta được yêu cầu hành động có trách nhiệm với tư cách nhân viên, hoặc với tư cách người quản lý.\nTrong gia đình, mỗi người chống đỡ gia đình từ lập trường của mình — với tư cách cha mẹ hay với tư cách con cái.\nKhi vai trò thay đổi, không chỉ cách hành động mà cách nhìn nhận sự việc cũng đôi khi thay đổi theo.\nChẳng hạn, khi ra chỉ thị cho cấp dưới với tư cách trưởng phòng, quyết định luôn không đơn giản.\nBởi vì đối với trưởng phòng, việc nghĩ đến kết quả của cả nhóm là ưu tiên hàng đầu.\nNhưng đối với cấp dưới, điều quan trọng thường là sự thuận tiện trong công việc hàng ngày.\nTức là, cùng một sự việc nhưng ý nghĩa và đánh giá của nó có thể khác nhau tùy theo lập trường.\nĐiều này cũng như vậy trong gia đình.\nChẳng hạn, khi đứa con lần đầu tiên tự đi tàu đến trường, đối với đứa con đó là một cuộc phiêu lưu lớn.\nNgược lại, đối với cha mẹ, ngoài niềm vui cảm nhận sự trưởng thành của con còn có cả sự lo lắng.\nNhư vậy, cùng một sự kiện có thể mang ý nghĩa hoàn toàn khác nhau đối với mỗi người liên quan.\nTôi đã làm việc với tư cách giáo viên được mười năm.\nVới tư cách giáo viên, tôi nghĩ việc dõi theo sự trưởng thành của học sinh là công việc quan trọng nhất.\nNhưng đồng thời, tôi cũng cảm thấy bản thân học được nhiều điều từ học sinh — đối với tôi cũng vậy.\nBởi vì tôi nghĩ người đứng ở vị trí dạy học không nên dừng việc học lại.\nĐối với học sinh, thầy cô có thể là \"người dạy\", nhưng đối với thầy cô, học sinh lại là \"sự tồn tại giúp mình trưởng thành\".\nTôi cho rằng mối quan hệ tương hỗ như vậy chính là yếu tố quan trọng làm nên giáo dục.\nBất kỳ ai dù đang giữ vai trò nào, vừa hoàn thành trách nhiệm với tư cách của mình, vừa nên cố gắng hiểu cách nhìn từ lập trường của người khác.\nBằng cách đó, dù trong công việc hay gia đình, tôi nghĩ những mối quan hệ tốt đẹp hơn sẽ được tạo ra.",
+      "sentences": [
+        {
+          "jp": "人は生きる中で、さまざまな役割を担う。",
+          "vi": "Con người trong cuộc sống gánh vác nhiều vai trò khác nhau.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "生きる",
+              "read": "いきる",
+              "vi": "sống"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong, giữa"
+            },
+            {
+              "w": "さまざま",
+              "read": "さまざま",
+              "vi": "đa dạng"
+            },
+            {
+              "w": "さまざまな",
+              "read": "さまざまな",
+              "vi": "đa dạng"
+            },
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò"
+            },
+            {
+              "w": "担う",
+              "read": "になう",
+              "vi": "đảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる中で（Bài 22 + 普通形）",
+              "vi": "生きる中で = trong quá trình sống. Vる + 中で = trong lúc, trong quá trình làm V."
+            }
+          ]
+        },
+        {
+          "jp": "仕事では社員として、または管理職として責任を持って行動することが求められる。",
+          "vi": "Trong công việc, người ta được yêu cầu hành động có trách nhiệm với tư cách nhân viên, hoặc với tư cách người quản lý.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "または",
+              "read": "または",
+              "vi": "hoặc là"
+            },
+            {
+              "w": "管理",
+              "read": "かんり",
+              "vi": "quản lý"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "行動します",
+              "read": "こうどうします",
+              "vi": "hành động"
+            },
+            {
+              "w": "求められます",
+              "read": "もとめられます",
+              "vi": "được yêu cầu (thụ động)"
+            },
+            {
+              "w": "管理職",
+              "read": "かんりしょく",
+              "vi": "người quản lý, vị trí quản lý"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "社員として / 管理職として = với tư cách nhân viên / với tư cách quản lý. として dùng hai lần để chỉ CÁC VAI TRÒ KHÁC NHAU trong cùng ngữ cảnh công việc. 接続: N（社員/管理職）＋ として."
+            },
+            {
+              "point": "Vる受身形（Bài 37）",
+              "vi": "求められる = được yêu cầu. Thụ động (Bài 37) — ai đó đặt yêu cầu lên chủ thể."
+            }
+          ]
+        },
+        {
+          "jp": "家庭では親として、あるいは子として、それぞれの立場で家族を支える。",
+          "vi": "Trong gia đình, mỗi người chống đỡ gia đình từ lập trường của mình — với tư cách cha mẹ hay với tư cách con cái.",
+          "vocab": [
+            {
+              "w": "家庭",
+              "read": "かてい",
+              "vi": "gia đình, gia đình nhỏ"
+            },
+            {
+              "w": "親",
+              "read": "おや",
+              "vi": "cha mẹ"
+            },
+            {
+              "w": "あるいは",
+              "read": "あるいは",
+              "vi": "hoặc là, hay là"
+            },
+            {
+              "w": "子",
+              "read": "こ",
+              "vi": "đứa trẻ, con cái"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi cái, từng cái"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "lập trường, vị trí"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "支えます",
+              "read": "ささえます",
+              "vi": "chống đỡ, hỗ trợ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "親として / 子として = với tư cách cha mẹ / với tư cách con. として tiếp tục nhấn VAI TRÒ / LẬP TRƯỜNG trong gia đình. Đây là ví dụ cụ thể: cùng một người có thể có nhiều tư cách khác nhau (xã hội và gia đình)."
+            }
+          ]
+        },
+        {
+          "jp": "役割が変わると、行動の仕方だけでなく、物事の見方も変わることがある。",
+          "vi": "Khi vai trò thay đổi, không chỉ cách hành động mà cách nhìn nhận sự việc cũng đôi khi thay đổi theo.",
+          "vocab": [
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "仕方",
+              "read": "しかた",
+              "vi": "cách làm, phương cách"
+            },
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "sự việc, mọi thứ"
+            },
+            {
+              "w": "見方",
+              "read": "みかた",
+              "vi": "cách nhìn nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "変わると = khi thay đổi thì (kết quả tự nhiên theo). と = điều kiện/kết quả tất yếu."
+            },
+            {
+              "point": "〜だけでなく〜も（Bài 33）",
+              "vi": "行動の仕方だけでなく、見方も = không chỉ cách hành động mà cả cách nhìn. だけでなく…も = không chỉ…mà cả."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、部長として部下に指示を出すとき、決断はいつも簡単ではない。",
+          "vi": "Chẳng hạn, khi ra chỉ thị cho cấp dưới với tư cách trưởng phòng, quyết định luôn không đơn giản.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "chẳng hạn, ví dụ như"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "部下",
+              "read": "ぶか",
+              "vi": "cấp dưới"
+            },
+            {
+              "w": "指示",
+              "read": "しじ",
+              "vi": "chỉ thị, chỉ dẫn"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "決断",
+              "read": "けつだん",
+              "vi": "quyết định, quyết đoán"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ dàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "部長として = với tư cách trưởng phòng. として chỉ VAI TRÒ khi thực hiện hành động (ra chỉ thị)."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "指示を出すとき = khi ra chỉ thị. Vる + とき = thời điểm (Bài 23)."
+            }
+          ]
+        },
+        {
+          "jp": "部長にとって、チーム全体の成果を考えることが最優先だからだ。",
+          "vi": "Bởi vì đối với trưởng phòng, việc nghĩ đến kết quả của cả nhóm là ưu tiên hàng đầu.",
+          "vocab": [
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "チーム",
+              "read": "チーム",
+              "vi": "nhóm, đội"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn thể, cả"
+            },
+            {
+              "w": "成果",
+              "read": "せいか",
+              "vi": "kết quả, thành tích"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "優先",
+              "read": "ゆうせん",
+              "vi": "sự ưu tiên"
+            },
+            {
+              "w": "最優先",
+              "read": "さいゆうせん",
+              "vi": "ưu tiên hàng đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "部長にとって = đối với trưởng phòng. にとって đặt GÓC NHÌN ĐÁNH GIÁ: từ vị trí của trưởng phòng mà xem xét, ưu tiên hàng đầu là gì. Đây là câu đối chiếu trực tiếp với câu trước (として): trước = vai trò khi hành động; đây = đánh giá từ góc nhìn của người ở vai trò đó."
+            },
+            {
+              "point": "Vることが〜（Bài 38）",
+              "vi": "考えることが最優先だ = việc suy nghĩ là ưu tiên nhất. Vること = danh hóa động từ (Bài 38)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、部下にとっては、毎日の仕事のやりやすさが大切なことが多い。",
+          "vi": "Nhưng đối với cấp dưới, điều quan trọng thường là sự thuận tiện trong công việc hàng ngày.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "部下",
+              "read": "ぶか",
+              "vi": "cấp dưới"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày, hàng ngày"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "やりやすさ",
+              "read": "やりやすさ",
+              "vi": "sự dễ làm, tính thuận tiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとっては（Bài 69）",
+              "vi": "部下にとっては = đối với cấp dưới thì. にとって + は = nhấn mạnh góc nhìn đánh giá của đối tượng cụ thể, tạo sự đối chiếu với câu trước (部長にとって)."
+            },
+            {
+              "point": "Vやすさ（Bài 44）",
+              "vi": "やりやすさ = sự dễ làm. Vやすい（Bài 44）→ Vやすさ（danh từ hóa）."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、同じ出来事でも、立場によってその意味や評価が違うことがある。",
+          "vi": "Tức là, cùng một sự việc nhưng ý nghĩa và đánh giá của nó có thể khác nhau tùy theo lập trường.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự việc, sự kiện"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "địa vị, lập trường"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "đánh giá"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（Bài 68）",
+              "vi": "立場によって = tùy theo lập trường. によって = tùy theo / khác nhau theo N (Bài 68). Ôn lại Bài 68."
+            },
+            {
+              "point": "〜ことがある（Bài 19）",
+              "vi": "違うことがある = đôi khi khác nhau. Vることがある = có lúc, đôi khi (Bài 19)."
+            }
+          ]
+        },
+        {
+          "jp": "これは家庭でも同じだ。",
+          "vi": "Điều này cũng như vậy trong gia đình.",
+          "vocab": [
+            {
+              "w": "家庭",
+              "read": "かてい",
+              "vi": "gia đình, gia đình nhỏ"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, như vậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNと同じ（Bài 12）",
+              "vi": "これは同じだ = điều này cũng như vậy. 同じ = giống nhau (Bài 12). Câu chuyển mạch — liên kết hai ví dụ (công việc và gia đình)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、子供が初めて一人で電車に乗って学校へ行ったとき、子供にとっては大きな冒険だ。",
+          "vi": "Chẳng hạn, khi đứa con lần đầu tiên tự đi tàu đến trường, đối với đứa con đó là một cuộc phiêu lưu lớn.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "子供",
+              "read": "こども",
+              "vi": "trẻ em, con cái"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "乗る",
+              "read": "のる",
+              "vi": "lên xe, cưỡi"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "冒険",
+              "read": "ぼうけん",
+              "vi": "phiêu lưu, mạo hiểm"
+            },
+            {
+              "w": "一人で",
+              "read": "ひとりで",
+              "vi": "một mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとっては（Bài 69）",
+              "vi": "子供にとっては = đối với đứa con thì. にとって nêu GÓC NHÌN ĐÁNH GIÁ của đứa trẻ — cùng một sự kiện, đứa trẻ nhìn nhận là \"phiêu lưu lớn\"."
+            },
+            {
+              "point": "Vたとき（Bài 23）",
+              "vi": "行ったとき = khi đã đi. Vた + とき = thời điểm sau khi hành động hoàn thành."
+            }
+          ]
+        },
+        {
+          "jp": "一方、親にとっては、我が子の成長を感じる喜びと同時に、心配する気持ちもある。",
+          "vi": "Ngược lại, đối với cha mẹ, ngoài niềm vui cảm nhận sự trưởng thành của con còn có cả sự lo lắng.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một mặt khác, ngược lại"
+            },
+            {
+              "w": "親",
+              "read": "おや",
+              "vi": "cha mẹ"
+            },
+            {
+              "w": "我が",
+              "read": "わが",
+              "vi": "của tôi, của chúng tôi"
+            },
+            {
+              "w": "子",
+              "read": "こ",
+              "vi": "đứa trẻ, con cái"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành, phát triển"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "喜び",
+              "read": "よろこび",
+              "vi": "niềm vui"
+            },
+            {
+              "w": "同時に",
+              "read": "どうじに",
+              "vi": "đồng thời, cùng lúc"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng, lo ngại"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "我が子",
+              "read": "わがこ",
+              "vi": "con của mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとっては（Bài 69）",
+              "vi": "親にとっては = đối với cha mẹ thì. Đối chiếu trực tiếp với câu trước (子供にとっては): cùng sự kiện nhưng GÓC NHÌN khác nhau theo người."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "感じる喜び = niềm vui cảm nhận được. Vる bổ nghĩa cho 喜び."
+            }
+          ]
+        },
+        {
+          "jp": "このように、同じ出来事が、関わる人それぞれにとって全く違う意味を持つことがある。",
+          "vi": "Như vậy, cùng một sự kiện có thể mang ý nghĩa hoàn toàn khác nhau đối với mỗi người liên quan.",
+          "vocab": [
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự việc, sự kiện"
+            },
+            {
+              "w": "関わります",
+              "read": "かかわります",
+              "vi": "liên quan, dính dáng"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "それぞれ",
+              "read": "それぞれ",
+              "vi": "mỗi người, từng người"
+            },
+            {
+              "w": "全く",
+              "read": "まったく",
+              "vi": "hoàn toàn"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "このように",
+              "read": "このように",
+              "vi": "như vậy, theo cách này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜それぞれにとって（Bài 69）",
+              "vi": "関わる人それぞれにとって = đối với mỗi người liên quan. にとって mở rộng để diễn đạt GÓC NHÌN của từng cá nhân một."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "関わる人 = người liên quan. Vる bổ nghĩa cho 人."
+            }
+          ]
+        },
+        {
+          "jp": "私は教師として働いて十年になる。",
+          "vi": "Tôi đã làm việc với tư cách giáo viên được mười năm.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "教師",
+              "read": "きょうし",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "働いて",
+              "read": "はたらいて",
+              "vi": "làm việc"
+            },
+            {
+              "w": "十年",
+              "read": "じゅうねん",
+              "vi": "mười năm"
+            },
+            {
+              "w": "なる",
+              "read": "なる",
+              "vi": "trở thành, đạt đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "教師として = với tư cách giáo viên. として tiếp tục chỉ VAI TRÒ / TƯ CÁCH trong suốt thời gian làm việc."
+            },
+            {
+              "point": "Vて〜になる（Bài 19）",
+              "vi": "働いて十年になる = làm việc được mười năm. て + 〜になる = thời gian đã trôi qua."
+            }
+          ]
+        },
+        {
+          "jp": "教師として、生徒の成長を見守ることが最も大切な仕事だと思っている。",
+          "vi": "Với tư cách giáo viên, tôi nghĩ việc dõi theo sự trưởng thành của học sinh là công việc quan trọng nhất.",
+          "vocab": [
+            {
+              "w": "教師",
+              "read": "きょうし",
+              "vi": "giáo viên, thầy cô"
+            },
+            {
+              "w": "生徒",
+              "read": "せいと",
+              "vi": "học sinh"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "見守ります",
+              "read": "みまもります",
+              "vi": "dõi theo, trông nom"
+            },
+            {
+              "w": "最も",
+              "read": "もっとも",
+              "vi": "nhất, cực kỳ"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "教師として = với tư cách giáo viên. として chỉ LẬP TRƯỜNG khi người viết đưa ra ý kiến (đây là trách nhiệm khi đứng trong vai trò giáo viên)."
+            },
+            {
+              "point": "Vることが〜（Bài 38）",
+              "vi": "見守ることが大切な仕事だ = việc dõi theo là công việc quan trọng. Vること = danh hóa (Bài 38)."
+            },
+            {
+              "point": "〜と思っている（Bài 21）",
+              "vi": "大切だと思っている = đang nghĩ/cho rằng là quan trọng. と思っている = ý kiến đang duy trì (Bài 21)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、それと同時に、私にとっても生徒から多くのことを学んでいると感じる。",
+          "vi": "Nhưng đồng thời, tôi cũng cảm thấy bản thân học được nhiều điều từ học sinh — đối với tôi cũng vậy.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "それ",
+              "read": "それ",
+              "vi": "điều đó"
+            },
+            {
+              "w": "同時に",
+              "read": "どうじに",
+              "vi": "đồng thời"
+            },
+            {
+              "w": "それと同時に",
+              "read": "それとどうじに",
+              "vi": "đồng thời với điều đó"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "生徒",
+              "read": "せいと",
+              "vi": "học sinh"
+            },
+            {
+              "w": "多くの",
+              "read": "おおくの",
+              "vi": "nhiều"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều, việc"
+            },
+            {
+              "w": "学んでいる",
+              "read": "まなんでいる",
+              "vi": "đang học"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとっても（Bài 69）",
+              "vi": "私にとっても = đối với tôi cũng vậy. にとって + も = \"đối với N cũng\". Ở đây cùng đoạn văn có cả として (vai trò giáo viên) và にとって (đánh giá từ góc nhìn của giáo viên) — đây là ví dụ điển hình về sự phối hợp hai mẫu."
+            }
+          ]
+        },
+        {
+          "jp": "教える立場の人間として、学ぶことをやめるべきではないと思うからだ。",
+          "vi": "Bởi vì tôi nghĩ người đứng ở vị trí dạy học không nên dừng việc học lại.",
+          "vocab": [
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "lập trường, vị trí"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "やめます",
+              "read": "やめます",
+              "vi": "dừng lại, bỏ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69）",
+              "vi": "教える立場の人間として = với tư cách người đứng ở vị trí dạy học. として chỉ VAI TRÒ phức tạp hơn (cụm N + として)."
+            },
+            {
+              "point": "〜べきではない（Bài 53）",
+              "vi": "やめるべきではない = không nên dừng lại. べきではない = phủ định của べき (Bài 53)."
+            }
+          ]
+        },
+        {
+          "jp": "生徒にとって先生は「教えてくれる人」かもしれないが、先生にとって生徒は「成長させてくれる存在」でもある。",
+          "vi": "Đối với học sinh, thầy cô có thể là \"người dạy\", nhưng đối với thầy cô, học sinh lại là \"sự tồn tại giúp mình trưởng thành\".",
+          "vocab": [
+            {
+              "w": "生徒",
+              "read": "せいと",
+              "vi": "học viên, học sinh"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "成長させます",
+              "read": "せいちょうさせます",
+              "vi": "làm cho trưởng thành (sử dụng hình)"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "sự tồn tại, thực thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69）",
+              "vi": "生徒にとって / 先生にとって = đối với học sinh / đối với thầy cô. Câu này dùng にとって HAI LẦN để đối chiếu GÓC NHÌN của hai phía: cùng mối quan hệ nhưng ý nghĩa đánh giá hoàn toàn khác nhau tùy người. Đây là ví dụ điển hình của にとって = góc nhìn chủ quan."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "教えてくれる人かもしれない = có thể là người dạy. かもしれない = khả năng (Bài 32)."
+            },
+            {
+              "point": "Vてくれる（Bài 24）",
+              "vi": "教えてくれる = dạy cho (mình). てくれる = ai đó làm gì vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "こうした相互の関係こそが、教育を成り立たせる大切な要素だと考える。",
+          "vi": "Tôi cho rằng mối quan hệ tương hỗ như vậy chính là yếu tố quan trọng làm nên giáo dục.",
+          "vocab": [
+            {
+              "w": "こうした",
+              "read": "こうした",
+              "vi": "như vậy, kiểu này"
+            },
+            {
+              "w": "相互",
+              "read": "そうご",
+              "vi": "tương hỗ, lẫn nhau"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "成り立たせます",
+              "read": "なりたたせます",
+              "vi": "làm cho thành lập được, làm nên"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "要素",
+              "read": "ようそ",
+              "vi": "yếu tố"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜こそが（強調）",
+              "vi": "関係こそが = mối quan hệ đó CHÍNH LÀ. こそ nhấn mạnh chủ thể."
+            },
+            {
+              "point": "〜と考える（Bài 21）",
+              "vi": "大切な要素だと考える = cho rằng là yếu tố quan trọng. と考える ≈ と思う, văn phong trang trọng hơn."
+            }
+          ]
+        },
+        {
+          "jp": "どんな役割を持つ人も、自分の立場としての責任を果たしながら、他の人にとっての見方も理解しようとするべきだ。",
+          "vi": "Bất kỳ ai dù đang giữ vai trò nào, vừa hoàn thành trách nhiệm với tư cách của mình, vừa nên cố gắng hiểu cách nhìn từ lập trường của người khác.",
+          "vocab": [
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "như thế nào (hỏi đặc điểm)"
+            },
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "立場",
+              "read": "たちば",
+              "vi": "địa vị, lập trường"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "果たします",
+              "read": "はたします",
+              "vi": "hoàn thành, thực hiện (trách nhiệm)"
+            },
+            {
+              "w": "他の",
+              "read": "ほかの",
+              "vi": "khác, người khác"
+            },
+            {
+              "w": "見方",
+              "read": "みかた",
+              "vi": "cách xem, cách nhìn"
+            },
+            {
+              "w": "理解します",
+              "read": "りかいします",
+              "vi": "hiểu, lý giải"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として / 〜にとって（Bài 69）",
+              "vi": "自分の立場としての責任 = trách nhiệm với tư cách lập trường của mình (として = vai trò); 他の人にとっての見方 = cách nhìn đứng từ góc nhìn của người khác (にとって = từ góc nhìn / đối với N). Câu này dùng CẢ HAI mẫu trong một câu — đây là câu tổng kết toàn bài, phân biệt sắc thái rõ nhất."
+            },
+            {
+              "point": "〜ながら（Bài 28）",
+              "vi": "果たしながら = vừa hoàn thành vừa. Vながら = làm hai việc đồng thời (Bài 28)."
+            },
+            {
+              "point": "〜ようとするべきだ（Bài 36 + 53）",
+              "vi": "理解しようとするべきだ = nên cố gắng hiểu. Vようとする（Bài 31/36 ý chí）+ べき（Bài 53 lẽ phải）."
+            }
+          ]
+        },
+        {
+          "jp": "そうすることで、仕事でも家庭でも、よりよい関係が生まれるのではないかと思う。",
+          "vi": "Bằng cách đó, dù trong công việc hay gia đình, tôi nghĩ những mối quan hệ tốt đẹp hơn sẽ được tạo ra.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "家庭",
+              "read": "かてい",
+              "vi": "gia đình, gia đình nhỏ"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "生まれます",
+              "read": "うまれます",
+              "vi": "được tạo ra, nảy sinh"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "よりよい",
+              "read": "よりよい",
+              "vi": "tốt hơn, tốt đẹp hơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そうすることで（Bài 7 + 普通形）",
+              "vi": "そうすることで = bằng cách đó. することで = bằng cách làm, nhờ vào hành động đó."
+            },
+            {
+              "point": "〜のではないかと思う（Bài 21）",
+              "vi": "よりよい関係が生まれるのではないかと思う = tôi nghĩ là những quan hệ tốt đẹp hơn có lẽ sẽ nảy sinh. のではないか = dạng phỏng đoán trang trọng + と思う."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "社員として、または管理職として責任を持って行動することが求められる",
+          "label": "〜として（vai trò hành động trong công việc）"
+        },
+        {
+          "excerpt": "部長にとって、チーム全体の成果を考えることが最優先だからだ",
+          "label": "Sắc thái: にとって（đánh giá ưu tiên từ góc nhìn trưởng phòng）"
+        },
+        {
+          "excerpt": "部下にとっては、毎日の仕事のやりやすさが大切なことが多い",
+          "label": "Sắc thái: にとっては（góc nhìn cấp dưới — đối chiếu với trưởng phòng）"
+        },
+        {
+          "excerpt": "立場によってその意味や評価が違うことがある",
+          "label": "〜によって（Bài 68 — tùy theo lập trường）"
+        },
+        {
+          "excerpt": "生徒にとって先生は「教えてくれる人」かもしれないが、先生にとって生徒は「成長させてくれる存在」でもある",
+          "label": "Sắc thái: にとって×2（đối chiếu hai góc nhìn đối lập）"
+        },
+        {
+          "excerpt": "自分の立場としての責任を果たしながら、他の人にとっての見方も理解しようとするべきだ",
+          "label": "として vs にとって trong cùng một câu (tổng kết)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「部長として部下に指示を出す」の「として」と「部長にとって、チーム全体の成果を考えることが最優先だ」の「にとって」の違いは何ですか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "「として」は書き言葉で「にとって」は話し言葉です",
+            "「として」は部長という役割・立場で行動することを表し、「にとって」は部長の視点からの評価・価値観を表します",
+            "「として」は原因を表し、「にとって」は結果を表します",
+            "両方とも同じ意味で、どちらを使っても文の意味は変わりません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 2 đúng. Hai câu trong bài đặt cạnh nhau để đối chiếu trực tiếp:\n• \"部長として部下に指示を出す\" → として chỉ TƯ CÁCH / VAI TRÒ khi thực hiện hành động (指示を出す = ra chỉ thị). Câu trả lời \"hành động được làm với danh nghĩa gì?\".\n• \"部長にとって、チーム全体の成果を考えることが最優先だ\" → にとって đặt GÓC NHÌN của trưởng phòng để ĐÁNH GIÁ điều gì là ưu tiên nhất. Câu trả lời \"từ lập trường của N, điều gì quan trọng nhất?\".\n\nCác đáp án sai: Đáp án 1 nhầm về phong cách — cả hai đều dùng được trong văn viết và nói. Đáp án 3 nhầm chức năng ngữ pháp hoàn toàn. Đáp án 4 sai — hai mẫu có chức năng khác nhau, KHÔNG thể thay thế.",
+          "tip": "Sau として thường là ĐỘNG TỪ HÀNH ĐỘNG (指示を出す, 働く, 学ぶ…); sau にとって thường là ĐÁNH GIÁ / TÌNH TRẠNG (最優先だ, 大切だ, 難しい…). Hỏi: \"câu đang nói về HỌ LÀM GÌ hay HỌ NGHĨ/CẢM GÌ?\" → làm gì = として; nghĩ/cảm = にとって.",
+          "qt": {
+            "q": "Điểm khác nhau giữa “với tư cách là trưởng phòng, chỉ thị cho cấp dưới” và “đối với trưởng phòng, việc nghĩ đến thành quả của cả nhóm là ưu tiên hàng đầu” là gì?",
+            "o": [
+              "“Với tư cách là” dùng trong văn viết, còn “đối với” dùng trong văn nói",
+              "“Với tư cách là” diễn tả hành động trong vai trò hoặc vị thế trưởng phòng, còn “đối với” diễn tả sự đánh giá hoặc quan điểm giá trị từ góc nhìn của trưởng phòng",
+              "“Với tư cách là” diễn tả nguyên nhân, còn “đối với” diễn tả kết quả",
+              "Cả hai đều có cùng ý nghĩa, dùng từ nào cũng không làm thay đổi ý nghĩa của câu"
+            ]
+          }
+        },
+        {
+          "q": "「子供にとっては大きな冒険だ」「親にとっては…喜びと同時に心配する気持ちもある」から分かることは何ですか。",
+          "evi": [
+            9,
+            10
+          ],
+          "options": [
+            "子供は冒険が好きで、親は心配性だということです",
+            "同じ出来事でも、立場や視点が違うと、その意味や感じ方が異なるということです",
+            "子供と親は電車の乗り方について意見が合わないということです",
+            "親は子供に電車に乗らせるべきではないと思っているということです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 2 đúng. Bài dùng にとって hai lần để so sánh đối chiếu cùng một sự kiện (đứa con tự đi tàu lần đầu) từ hai góc nhìn:\n• \"子供にとっては大きな冒険だ\" → với đứa con: đây là PHIÊU LƯU LỚN (hào hứng).\n• \"親にとっては、喜びと同時に心配する気持ちもある\" → với cha mẹ: đây là VUI + LO LẮNG (cảm xúc phức tạp hơn).\nCùng một sự kiện, hai にとって, hai đánh giá hoàn toàn khác — đây là điểm mấu chốt của đoạn văn.\n\nCác đáp án sai: Đáp án 1 (子供は冒険が好きで) đơn giản hóa quá — câu không nói về sở thích chung mà về CẢM NHẬN của họ với sự kiện cụ thể này. Đáp án 3 (意見が合わない) lệch hướng — không có xung đột ý kiến ở đây. Đáp án 4 (乗らせるべきではない) không có trong bài.",
+          "tip": "Khi thấy にとって xuất hiện 2 lần với hai chủ thể khác nhau → đây là cấu trúc ĐỐI CHIẾU GÓC NHÌN. Câu hỏi thường hỏi \"rút ra điều gì?\" → trả lời: cùng sự việc, đánh giá khác nhau tùy người.",
+          "qt": {
+            "q": "Từ “đối với đứa trẻ thì đó là một cuộc phiêu lưu lớn” và “đối với cha mẹ thì đó là niềm vui… đồng thời cũng có cảm giác lo lắng”, có thể hiểu được điều gì?",
+            "o": [
+              "Điều đó có nghĩa là trẻ con thích phiêu lưu, còn cha mẹ hay lo lắng",
+              "Điều đó có nghĩa là ngay cả cùng một sự việc, ý nghĩa và cảm nhận cũng khác nhau tùy theo vị thế và góc nhìn",
+              "Điều đó có nghĩa là con cái và cha mẹ không đồng ý với nhau về cách đi tàu điện",
+              "Điều đó có nghĩa là cha mẹ cho rằng không nên để con đi tàu điện"
+            ]
+          }
+        },
+        {
+          "q": "筆者が「教師として」大切だと考えていることと、「私にとって」生徒から得ているものは何ですか。",
+          "evi": [
+            13,
+            14
+          ],
+          "options": [
+            "教師として：生徒に勉強を教えること、私にとって：給料をもらうこと",
+            "教師として：生徒の成長を見守ること、私にとって：生徒から多くのことを学ぶこと",
+            "教師として：敬語を正しく使うこと、私にとって：新しい友達を作ること",
+            "教師として：学校のルールを守ること、私にとって：休みをとること"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án 2 đúng. Bài nêu rõ cả hai phần:\n• \"教師として、生徒の成長を見守ることが最も大切な仕事だと思っている\" → として chỉ VAI TRÒ GIÁO VIÊN và bổn phận đi kèm (dõi theo sự trưởng thành của học sinh).\n• \"私にとっても生徒から多くのことを学んでいると感じる\" → にとって đặt GÓC NHÌN CÁ NHÂN của tác giả và điều có giá trị từ góc nhìn đó (học được nhiều từ học sinh).\n\nCác đáp án sai: Đáp án 1 (給料) không được đề cập. Đáp án 3 (敬語 / 新しい友達) không liên quan đến nội dung bài này. Đáp án 4 (学校のルール / 休み) bịa đặt.",
+          "tip": "Câu hỏi ghép \"として [vai trò] → làm gì?\" VÀ \"にとって [ai đó] → thu được gì?\" thường xuất hiện khi hai mẫu dùng song song. Xác định riêng từng mẫu trong bài rồi ghép đôi.",
+          "qt": {
+            "q": "Điều mà tác giả cho là quan trọng “với tư cách là giáo viên” và điều tác giả nhận được từ học sinh “đối với bản thân mình” là gì?",
+            "o": [
+              "Với tư cách là giáo viên: dạy học sinh; đối với bản thân: nhận lương",
+              "Với tư cách là giáo viên: dõi theo sự trưởng thành của học sinh; đối với bản thân: học được nhiều điều từ học sinh",
+              "Với tư cách là giáo viên: sử dụng kính ngữ đúng cách; đối với bản thân: kết bạn mới",
+              "Với tư cách là giáo viên: tuân thủ nội quy trường học; đối với bản thân: nghỉ ngơi"
+            ]
+          }
+        },
+        {
+          "q": "「自分の立場としての責任を果たしながら、他の人にとっての見方も理解しようとするべきだ」とは、筆者がどんなことを伝えたいのですか。",
+          "evi": [
+            18
+          ],
+          "options": [
+            "自分の役割だけを完璧にこなせばよいということです",
+            "他の人の立場を無視して、自分の仕事に集中すべきだということです",
+            "自分の役割・立場での責任を果たすと同時に、他者の視点からの見方も理解しようとすることが大切だということです",
+            "役割より、人間関係のほうが重要だということです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án 3 đúng. Đây là câu tổng kết của toàn bài, dùng cả hai mẫu trong một câu duy nhất:\n• \"自分の立場としての責任を果たしながら\" → として chỉ VAI TRÒ / LẬP TRƯỜNG của bản thân và trách nhiệm đi kèm.\n• \"他の人にとっての見方も理解しようとするべきだ\" → にとって chỉ GÓC NHÌN CỦA NGƯỜI KHÁC cần được hiểu và tôn trọng.\nThông điệp: không thể chỉ làm tốt vai trò của mình (として) — còn phải đặt mình vào góc nhìn của người khác (にとって). Cả hai thiếu một cái đều chưa đủ.\n\nCác đáp án sai: Đáp án 1 (自分の役割だけ) chỉ nắm được vế として, bỏ qua にとって. Đáp án 2 (他の人の立場を無視) đi ngược hoàn toàn với thông điệp bài. Đáp án 4 (役割より人間関係) không phải lập luận của tác giả — bài không đặt hai yếu tố này đối lập.",
+          "tip": "Khi cả として và にとって xuất hiện trong cùng một câu → câu đó thường là câu TỔNG KẾT / KẾT LUẬN. Đáp án đúng phải phản ánh ĐẦY ĐỦ cả hai ý: vai trò của mình (として) VÀ góc nhìn của người khác (にとって).",
+          "qt": {
+            "q": "Khi nói “vừa hoàn thành trách nhiệm trong vị thế của mình, vừa cố gắng hiểu góc nhìn của người khác”, tác giả muốn truyền đạt điều gì?",
+            "o": [
+              "Điều đó có nghĩa là chỉ cần hoàn thành thật tốt vai trò của mình",
+              "Điều đó có nghĩa là nên phớt lờ vị thế của người khác và tập trung vào công việc của mình",
+              "Điều đó có nghĩa là vừa hoàn thành trách nhiệm trong vai trò và vị thế của mình, vừa cố gắng hiểu cách nhìn từ góc độ của người khác là điều quan trọng",
+              "Điều đó có nghĩa là các mối quan hệ quan trọng hơn vai trò"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら国際交流センター　外国人ボランティア募集のお知らせ",
+      "titleVi": "Thông báo: Trung tâm Giao lưu Quốc tế Sakura tuyển tình nguyện viên hỗ trợ người nước ngoài",
+      "japanese": "さくら国際交流センター　外国人ボランティア募集のお知らせ\n当センターでは、外国人住民と地域社会をつなぐボランティアを募集しています。国際交流の担い手として活動してくださる方を歓迎します。ボランティアにとって、この活動は日本語や日本文化を学ぶよい機会にもなるはずです。\n役割｜主な仕事｜必要な条件｜謝礼\n通訳ボランティア｜病院や市役所で通訳として働きます｜日本語と母語の両方ができる方｜1回1,500円\n日本語教室サポーター｜留学生にとって分かりやすい説明をしながら日本語を教えます｜日本語教育の経験は不要です｜1回1,000円\n地域イベント案内係｜外国人観光客に地域の案内係として道案内をします｜土日に活動できる方｜交通費のみ支給\n※通訳ボランティアは、専門用語が多いため、医療通訳の経験がある方が望ましいです。\n※日本語教室サポーターにとって、留学生と日本語で話すことは自分の日本語学習のためにもなりますので、初めての方にもおすすめです。\n※3か月以上続けてくださる方には、次回からの謝礼が1回につき200円増えます。\n※交通費は、活動場所によって支給される金額が異なりますので、事前にセンターへご確認ください。\n参加希望の方は、ボランティアとしての心構えを書いた作文（400字程度）を添えて、来月10日までにお申し込みください。\nお問い合わせ：さくら国際交流センター（電話：03-1234-5678、月〜金 9:00〜17:00）",
+      "vietnamese": "Thông báo: Trung tâm Giao lưu Quốc tế Sakura tuyển tình nguyện viên hỗ trợ người nước ngoài\nTrung tâm chúng tôi đang tuyển tình nguyện viên kết nối cư dân nước ngoài với cộng đồng địa phương. Chúng tôi hoan nghênh những ai hoạt động với tư cách người gánh vác giao lưu quốc tế. Đối với tình nguyện viên, hoạt động này chắc chắn cũng là cơ hội tốt để học tiếng Nhật và văn hóa Nhật.\nVai trò｜Công việc chính｜Điều kiện cần｜Thù lao\nTình nguyện viên thông dịch｜Làm việc với tư cách thông dịch viên tại bệnh viện hoặc tòa thị chính｜Người biết cả tiếng Nhật và tiếng mẹ đẻ｜1.500 yên/lần\nTrợ giảng lớp tiếng Nhật｜Dạy tiếng Nhật vừa giải thích sao cho dễ hiểu đối với du học sinh｜Không cần kinh nghiệm giảng dạy tiếng Nhật｜1.000 yên/lần\nNhân viên hướng dẫn sự kiện địa phương｜Chỉ đường cho khách du lịch nước ngoài với tư cách nhân viên hướng dẫn địa phương｜Người có thể hoạt động thứ Bảy, Chủ nhật｜Chỉ hỗ trợ tiền đi lại\n※ Tình nguyện viên thông dịch nên có kinh nghiệm thông dịch y tế vì có nhiều thuật ngữ chuyên môn.\n※ Đối với trợ giảng lớp tiếng Nhật, việc nói chuyện bằng tiếng Nhật với du học sinh cũng trở thành cơ hội cho việc học tiếng Nhật của chính mình, nên rất khuyến khích người mới bắt đầu.\n※ Người tiếp tục hoạt động từ 3 tháng trở lên sẽ được tăng thù lao thêm 200 yên/lần từ lần sau.\n※ Tiền đi lại được hỗ trợ khác nhau tùy theo địa điểm hoạt động, nên xin xác nhận trước với Trung tâm.\nNgười muốn tham gia xin đính kèm bài luận (khoảng 400 chữ) viết về tâm thế của mình với tư cách tình nguyện viên, và đăng ký trước ngày 10 tháng sau.\nLiên hệ: Trung tâm Giao lưu Quốc tế Sakura (điện thoại: 03-1234-5678, Thứ Hai〜Thứ Sáu 9:00〜17:00)",
+      "sentences": [
+        {
+          "jp": "さくら国際交流センター　外国人ボランティア募集のお知らせ",
+          "vi": "Thông báo: Trung tâm Giao lưu Quốc tế Sakura tuyển tình nguyện viên hỗ trợ người nước ngoài",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "外国",
+              "read": "がいこく",
+              "vi": "nước ngoài, ngoại quốc"
+            },
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "tuyển, chiêu mộ"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            },
+            {
+              "w": "外国人",
+              "read": "がいこくじん",
+              "vi": "người nước ngoài"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "外国人ボランティア募集のお知らせ",
+              "why": "tiêu đề xác định chủ đề: thông báo tuyển tình nguyện viên hỗ trợ người nước ngoài"
+            }
+          ]
+        },
+        {
+          "jp": "当センターでは、外国人住民と地域社会をつなぐボランティアを募集しています。国際交流の担い手として活動してくださる方を歓迎します。ボランティアにとって、この活動は日本語や日本文化を学ぶよい機会にもなるはずです。",
+          "vi": "Trung tâm chúng tôi đang tuyển tình nguyện viên kết nối cư dân nước ngoài với cộng đồng địa phương. Chúng tôi hoan nghênh những ai hoạt động với tư cách người gánh vác giao lưu quốc tế. Đối với tình nguyện viên, hoạt động này chắc chắn cũng là cơ hội tốt để học tiếng Nhật và văn hóa Nhật.",
+          "vocab": [
+            {
+              "w": "当センター",
+              "read": "とうセンター",
+              "vi": "trung tâm chúng tôi"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "外国人",
+              "read": "がいこくじん",
+              "vi": "người nước ngoài"
+            },
+            {
+              "w": "外国人住民",
+              "read": "がいこくじんじゅうみん",
+              "vi": "cư dân nước ngoài"
+            },
+            {
+              "w": "外国",
+              "read": "がいこく",
+              "vi": "nước ngoài"
+            },
+            {
+              "w": "住民",
+              "read": "じゅうみん",
+              "vi": "cư dân"
+            },
+            {
+              "w": "地域社会",
+              "read": "ちいきしゃかい",
+              "vi": "cộng đồng địa phương"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "つなぐ",
+              "read": "つなぐ",
+              "vi": "kết nối"
+            },
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "tuyển, chiêu mộ"
+            },
+            {
+              "w": "国際交流",
+              "read": "こくさいこうりゅう",
+              "vi": "giao lưu quốc tế"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "担い手",
+              "read": "にないて",
+              "vi": "người đảm nhận"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị, người"
+            },
+            {
+              "w": "歓迎",
+              "read": "かんげい",
+              "vi": "hoan nghênh"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "日本文化",
+              "read": "にほんぶんか",
+              "vi": "văn hóa Nhật Bản"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học"
+            },
+            {
+              "w": "よい",
+              "read": "よい",
+              "vi": "tốt"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "なる",
+              "read": "なる",
+              "vi": "trở thành"
+            },
+            {
+              "w": "はず",
+              "read": "はず",
+              "vi": "đáng lẽ, chắc là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69 target）",
+              "vi": "接続: N（国際交流の担い手）＋ として. 国際交流の担い手として活動する = hoạt động với tư cách người gánh vác giao lưu quốc tế. として nhấn VAI TRÒ mà tình nguyện viên đảm nhận khi hành động."
+            },
+            {
+              "point": "〜にとって（Bài 69 target）",
+              "vi": "接続: N（ボランティア）＋ にとって. ボランティアにとって = đối với tình nguyện viên (mà nói). にとって đặt GÓC NHÌN ĐÁNH GIÁ: hoạt động này có giá trị gì từ phía người tham gia — đối chiếu trực tiếp với として ngay câu trước."
+            },
+            {
+              "point": "〜はずだ（Bài 51 ôn）",
+              "vi": "よい機会にもなるはずだ = chắc chắn cũng sẽ trở thành cơ hội tốt. はず = suy luận có căn cứ logic (Bài 51)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "国際交流の担い手として活動してくださる方を歓迎します",
+              "why": "thiết lập として = vai trò chung mọi tình nguyện viên đảm nhận, làm nền cho として trong bảng vai trò cụ thể"
+            },
+            {
+              "w": "ボランティアにとって、この活動は日本語や日本文化を学ぶよい機会にもなる",
+              "why": "đối chiếu にとって: giá trị của hoạt động từ góc nhìn người tham gia — liên quan câu hỏi suy luận về として/にとって"
+            }
+          ]
+        },
+        {
+          "jp": "役割｜主な仕事｜必要な条件｜謝礼",
+          "vi": "Vai trò｜Công việc chính｜Điều kiện cần｜Thù lao",
+          "vocab": [
+            {
+              "w": "役割",
+              "read": "やくわり",
+              "vi": "vai trò"
+            },
+            {
+              "w": "主",
+              "read": "おも",
+              "vi": "chủ nhân, gia chủ"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "sự cần thiết, nhu cầu"
+            },
+            {
+              "w": "条件",
+              "read": "じょうけん",
+              "vi": "điều kiện"
+            },
+            {
+              "w": "謝礼",
+              "read": "しゃれい",
+              "vi": "thù lao, tiền cảm ơn"
+            },
+            {
+              "w": "必要な条件",
+              "read": "ひつような じょうけん",
+              "vi": "điều kiện cần thiết"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "役割｜主な仕事｜必要な条件｜謝礼",
+              "why": "header bảng chính 4 cột: vai trò/công việc/điều kiện/thù lao — khung dò căn cứ cho cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "通訳ボランティア｜病院や市役所で通訳として働きます｜日本語と母語の両方ができる方｜1回1,500円",
+          "vi": "Tình nguyện viên thông dịch｜Làm việc với tư cách thông dịch viên tại bệnh viện hoặc tòa thị chính｜Người biết cả tiếng Nhật và tiếng mẹ đẻ｜1.500 yên/lần",
+          "vocab": [
+            {
+              "w": "通訳ボランティア",
+              "read": "つうやくボランティア",
+              "vi": "tình nguyện viên phiên dịch"
+            },
+            {
+              "w": "通訳",
+              "read": "つうやく",
+              "vi": "phiên dịch"
+            },
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "市役所",
+              "read": "しやくしょ",
+              "vi": "tòa thị chính"
+            },
+            {
+              "w": "働きます",
+              "read": "はたらきます",
+              "vi": "làm việc"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "母語",
+              "read": "ぼご",
+              "vi": "tiếng mẹ đẻ"
+            },
+            {
+              "w": "両方",
+              "read": "りょうほう",
+              "vi": "cả hai"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị, người"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69 target）",
+              "vi": "通訳として働きます = làm việc với tư cách thông dịch viên. として chỉ VAI TRÒ cụ thể của hàng bảng này, đối chiếu với として ở dòng thứ 3 trong bảng (案内係として)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "通訳ボランティア｜病院や市役所で通訳として働きます｜日本語と母語の両方ができる方｜1回1,500円",
+              "why": "căn cứ chính câu hỏi 1: vai trò thông dịch — điều kiện ngôn ngữ + thù lao gốc 1,500円, cần ghép với ※ kinh nghiệm y tế và ※ tăng thù lao 3 tháng"
+            }
+          ]
+        },
+        {
+          "jp": "日本語教室サポーター｜留学生にとって分かりやすい説明をしながら日本語を教えます｜日本語教育の経験は不要です｜1回1,000円",
+          "vi": "Trợ giảng lớp tiếng Nhật｜Dạy tiếng Nhật vừa giải thích sao cho dễ hiểu đối với du học sinh｜Không cần kinh nghiệm giảng dạy tiếng Nhật｜1.000 yên/lần",
+          "vocab": [
+            {
+              "w": "日本語教室サポーター",
+              "read": "にほんごきょうしつサポーター",
+              "vi": "người hỗ trợ lớp tiếng Nhật"
+            },
+            {
+              "w": "日本語教室",
+              "read": "にほんごきょうしつ",
+              "vi": "lớp học tiếng Nhật"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "サポーター",
+              "read": "サポーター",
+              "vi": "người hỗ trợ"
+            },
+            {
+              "w": "留学生",
+              "read": "りゅうがくせい",
+              "vi": "du học sinh"
+            },
+            {
+              "w": "分かりやすい",
+              "read": "わかりやすい",
+              "vi": "dễ hiểu"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "教えます",
+              "read": "おしえます",
+              "vi": "dạy"
+            },
+            {
+              "w": "日本語教育",
+              "read": "にほんごきょういく",
+              "vi": "giáo dục tiếng Nhật"
+            },
+            {
+              "w": "教育",
+              "read": "きょういく",
+              "vi": "giáo dục"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm"
+            },
+            {
+              "w": "不要",
+              "read": "ふよう",
+              "vi": "không cần thiết"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69 target）",
+              "vi": "留学生にとって分かりやすい説明をしながら = vừa giải thích sao cho dễ hiểu ĐỐI VỚI du học sinh. にとって đặt GÓC NHÌN của người nghe (du học sinh) để đánh giá mức độ dễ hiểu — khác với として ở hàng trên (nói về vai trò hành động)."
+            },
+            {
+              "point": "〜ながら（Bài 28 ôn）",
+              "vi": "説明をしながら教えます = vừa giải thích vừa dạy. Vながら = làm hai việc đồng thời (Bài 28)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日本語教室サポーター｜留学生にとって分かりやすい説明をしながら日本語を教えます｜日本語教育の経験は不要です｜1回1,000円",
+              "why": "ô nhiễu tiềm năng: vai trò trợ giảng không cần kinh nghiệm — thù lao 1,000円 thấp hơn thông dịch, dễ nhầm nếu chọn sai vai trò"
+            }
+          ]
+        },
+        {
+          "jp": "地域イベント案内係｜外国人観光客に地域の案内係として道案内をします｜土日に活動できる方｜交通費のみ支給",
+          "vi": "Nhân viên hướng dẫn sự kiện địa phương｜Chỉ đường cho khách du lịch nước ngoài với tư cách nhân viên hướng dẫn địa phương｜Người có thể hoạt động thứ Bảy, Chủ nhật｜Chỉ hỗ trợ tiền đi lại",
+          "vocab": [
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "イベント",
+              "read": "イベント",
+              "vi": "sự kiện"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "外国",
+              "read": "がいこく",
+              "vi": "nước ngoài, ngoại quốc"
+            },
+            {
+              "w": "観光",
+              "read": "かんこう",
+              "vi": "du lịch, tham quan"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "道案内",
+              "read": "みちあんない",
+              "vi": "chỉ đường"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "支給",
+              "read": "しきゅう",
+              "vi": "sự chi cấp, cấp phát"
+            },
+            {
+              "w": "観光客",
+              "read": "かんこうきゃく",
+              "vi": "khách du lịch"
+            },
+            {
+              "w": "案内係",
+              "read": "あんないがかり",
+              "vi": "nhân viên hướng dẫn"
+            },
+            {
+              "w": "交通費",
+              "read": "こうつうひ",
+              "vi": "tiền đi lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として（Bài 69 target）",
+              "vi": "地域の案内係として道案内をします = chỉ đường với tư cách nhân viên hướng dẫn địa phương. として chỉ VAI TRÒ khi thực hiện hành động chỉ đường cho khách du lịch."
+            }
+          ],
+          "keys": [
+            {
+              "w": "地域イベント案内係｜外国人観光客に地域の案内係として道案内をします｜土日に活動できる方｜交通費のみ支給",
+              "why": "căn cứ chính câu hỏi 2: vai trò hướng dẫn — điều kiện hoạt động cuối tuần, chỉ nhận tiền đi lại (không có 謝礼 tiền mặt cố định)"
+            }
+          ]
+        },
+        {
+          "jp": "※通訳ボランティアは、専門用語が多いため、医療通訳の経験がある方が望ましいです。",
+          "vi": "※ Tình nguyện viên thông dịch nên có kinh nghiệm thông dịch y tế vì có nhiều thuật ngữ chuyên môn.",
+          "vocab": [
+            {
+              "w": "通訳",
+              "read": "つうやく",
+              "vi": "phiên dịch (nói)"
+            },
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "用語",
+              "read": "ようご",
+              "vi": "thuật ngữ, từ ngữ"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "医療",
+              "read": "いりょう",
+              "vi": "y tế, chữa bệnh"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "望ましい",
+              "read": "のぞましい",
+              "vi": "nên có, mong muốn có"
+            },
+            {
+              "w": "専門用語",
+              "read": "せんもんようご",
+              "vi": "thuật ngữ chuyên môn"
+            },
+            {
+              "w": "医療通訳",
+              "read": "いりょうつうやく",
+              "vi": "thông dịch y tế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ため（Bài 60 ôn）",
+              "vi": "専門用語が多いため = vì có nhiều thuật ngữ chuyên môn. ため nêu lý do (Bài 60 ôn), văn phong trang trọng hơn ので."
+            }
+          ],
+          "keys": [
+            {
+              "w": "医療通訳の経験がある方が望ましいです",
+              "why": "điều kiện phụ của vai trò thông dịch: kinh nghiệm y tế — ghép với hàng bảng thông dịch để xác định ai phù hợp nhất"
+            }
+          ]
+        },
+        {
+          "jp": "※日本語教室サポーターにとって、留学生と日本語で話すことは自分の日本語学習のためにもなりますので、初めての方にもおすすめです。",
+          "vi": "※ Đối với trợ giảng lớp tiếng Nhật, việc nói chuyện bằng tiếng Nhật với du học sinh cũng trở thành cơ hội cho việc học tiếng Nhật của chính mình, nên rất khuyến khích người mới bắt đầu.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "サポーター",
+              "read": "サポーター",
+              "vi": "người hỗ trợ, trợ giảng"
+            },
+            {
+              "w": "留学生",
+              "read": "りゅうがくせい",
+              "vi": "du học sinh"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "学習",
+              "read": "がくしゅう",
+              "vi": "việc học tập"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên, mới (chỉ khi đó)"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "món được khuyên, món nổi tiếng"
+            },
+            {
+              "w": "日本語学習",
+              "read": "にほんごがくしゅう",
+              "vi": "việc học tiếng Nhật"
+            },
+            {
+              "w": "初めての方",
+              "read": "はじめてのかた",
+              "vi": "người mới bắt đầu, người lần đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にとって（Bài 69 target）",
+              "vi": "日本語教室サポーターにとって = đối với trợ giảng lớp tiếng Nhật (mà nói). にとって lần thứ hai đặt GÓC NHÌN của chính trợ giảng để nêu LỢI ÍCH họ nhận được — đối chiếu với にとって ở hàng bảng (nói về du học sinh), cho thấy một vai trò có thể được nhìn từ nhiều phía."
+            },
+            {
+              "point": "〜ので（Bài 39 ôn）",
+              "vi": "〜になりますので = vì trở thành…nên. ので nêu lý do lịch sự (Bài 39)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日本語教室サポーターにとって、留学生と日本語で話すことは自分の日本語学習のためにもなります",
+              "why": "điều kiện phù hợp: vai trò trợ giảng tốt cho người muốn học thêm, không cần kinh nghiệm — liên quan việc phân biệt vai trò trong câu hỏi suy luận"
+            }
+          ]
+        },
+        {
+          "jp": "※3か月以上続けてくださる方には、次回からの謝礼が1回につき200円増えます。",
+          "vi": "※ Người tiếp tục hoạt động từ 3 tháng trở lên sẽ được tăng thù lao thêm 200 yên/lần từ lần sau.",
+          "vocab": [
+            {
+              "w": "3か月",
+              "read": "さんかげつ",
+              "vi": "3 tháng"
+            },
+            {
+              "w": "以上",
+              "read": "いじょう",
+              "vi": "trở lên"
+            },
+            {
+              "w": "続けて",
+              "read": "つづけて",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "くださる",
+              "read": "くださる",
+              "vi": "vui lòng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "次回",
+              "read": "じかい",
+              "vi": "lần sau"
+            },
+            {
+              "w": "謝礼",
+              "read": "しゃれい",
+              "vi": "thù lao"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "200円",
+              "read": "にひゃくえん",
+              "vi": "200 yên"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てくださる方には（Bài 24 ôn）",
+              "vi": "続けてくださる方 = người (vì lợi ích trung tâm) tiếp tục giúp đỡ. てくださる = kính ngữ của てくれる (Bài 24 ôn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3か月以上続けてくださる方には、次回からの謝礼が1回につき200円増えます",
+              "why": "điều kiện tăng thù lao: hoạt động liên tục ≥3 tháng → +200円/lần — bắt buộc để tính đúng tổng thù lao câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "※交通費は、活動場所によって支給される金額が異なりますので、事前にセンターへご確認ください。",
+          "vi": "※ Tiền đi lại được hỗ trợ khác nhau tùy theo địa điểm hoạt động, nên xin xác nhận trước với Trung tâm.",
+          "vocab": [
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "活動",
+              "read": "かつどう",
+              "vi": "hoạt động"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "支給されます",
+              "read": "しきゅうされます",
+              "vi": "được cấp, được hỗ trợ"
+            },
+            {
+              "w": "金額",
+              "read": "きんがく",
+              "vi": "số tiền"
+            },
+            {
+              "w": "異なります",
+              "read": "ことなります",
+              "vi": "khác nhau"
+            },
+            {
+              "w": "事前に",
+              "read": "じぜんに",
+              "vi": "trước, trước đó"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            },
+            {
+              "w": "活動場所",
+              "read": "かつどうばしょ",
+              "vi": "địa điểm hoạt động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（Bài 68 ôn）",
+              "vi": "活動場所によって金額が異なります = số tiền khác nhau TÙY THEO địa điểm hoạt động. によって = tùy theo/khác nhau theo N (Bài 68). Ôn lại Bài 68."
+            }
+          ],
+          "keys": [
+            {
+              "w": "交通費は、活動場所によって支給される金額が異なります",
+              "why": "bẫy: tiền đi lại của vai trò hướng dẫn KHÔNG cố định, khác theo địa điểm — không thể tính số tiền chính xác như謝礼 cố định của 2 vai trò kia"
+            }
+          ]
+        },
+        {
+          "jp": "参加希望の方は、ボランティアとしての心構えを書いた作文（400字程度）を添えて、来月10日までにお申し込みください。",
+          "vi": "Người muốn tham gia xin đính kèm bài luận (khoảng 400 chữ) viết về tâm thế của mình với tư cách tình nguyện viên, và đăng ký trước ngày 10 tháng sau.",
+          "vocab": [
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "tham gia"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "nguyện vọng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "心構え",
+              "read": "こころがまえ",
+              "vi": "tâm thế"
+            },
+            {
+              "w": "書いた",
+              "read": "かいた",
+              "vi": "đã viết"
+            },
+            {
+              "w": "作文",
+              "read": "さくぶん",
+              "vi": "bài văn"
+            },
+            {
+              "w": "400字",
+              "read": "よんひゃくじ",
+              "vi": "400 chữ"
+            },
+            {
+              "w": "程度",
+              "read": "ていど",
+              "vi": "khoảng"
+            },
+            {
+              "w": "添えて",
+              "read": "そえて",
+              "vi": "đính kèm"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "10日",
+              "read": "とおか",
+              "vi": "ngày 10"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "ください",
+              "read": "ください",
+              "vi": "vui lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜としての＋N（Bài 69 target）",
+              "vi": "ボランティアとしての心構え = tâm thế với tư cách tình nguyện viên. として + の kết nối vai trò với danh từ theo sau, giống mẫu ở bài đọc dài (留学生としての誇り)."
+            },
+            {
+              "point": "Nまでに（Bài 17 ôn）",
+              "vi": "来月10日までに = trước hạn là ngày 10 tháng sau. までに nhấn mạnh hạn chót (Bài 17 ôn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "来月10日までにお申し込みください",
+              "why": "hạn đăng ký chung cho mọi vai trò — thông tin phụ, không phải căn cứ tính điều kiện phù hợp/thù lao"
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくら国際交流センター（電話：03-1234-5678、月〜金 9:00〜17:00）",
+          "vi": "Liên hệ: Trung tâm Giao lưu Quốc tế Sakura (điện thoại: 03-1234-5678, Thứ Hai〜Thứ Sáu 9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "liên hệ, hỏi thông tin"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "国際交流の担い手として活動してくださる方を歓迎します",
+          "label": "〜として（vai trò chung của mọi tình nguyện viên）"
+        },
+        {
+          "excerpt": "ボランティアにとって、この活動は日本語や日本文化を学ぶよい機会にもなるはずです",
+          "label": "Sắc thái: にとって（giá trị hoạt động từ góc nhìn người tham gia）"
+        },
+        {
+          "excerpt": "通訳として働きます",
+          "label": "〜として（vai trò cụ thể trong bảng — thông dịch）"
+        },
+        {
+          "excerpt": "留学生にとって分かりやすい説明をしながら",
+          "label": "Sắc thái: にとって（góc nhìn người nghe — đối chiếu với として）"
+        },
+        {
+          "excerpt": "交通費は、活動場所によって支給される金額が異なります",
+          "label": "〜によって（Bài 68 ôn — tùy theo địa điểm）"
+        },
+        {
+          "excerpt": "ボランティアとしての心構えを書いた作文",
+          "label": "〜としての＋N（vai trò bổ nghĩa danh từ）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời mời chung",
+          "topic": 0,
+          "note": "Tiêu đề thông báo tuyển tình nguyện viên + lời mời chung nêu cả として (vai trò gánh vác) và にとって (giá trị nhận được) — thiết lập chủ đề, chưa có căn cứ đáp án cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng 3 vai trò (công việc・điều kiện・thù lao)",
+          "topic": 2,
+          "note": "Bảng chính: mỗi hàng là 1 vai trò với công việc/điều kiện/thù lao — dòng 通訳ボランティア và 地域イベント案内係 là căn cứ chính của câu hỏi 1 và 2, dòng 日本語教室サポーター là ô nhiễu tiềm năng.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 8,
+          "kind": "point",
+          "label": "Ba ghi chú ※ điều kiện & tăng thù lao",
+          "topic": 8,
+          "note": "Ba dòng ※ nêu điều kiện phụ của thông dịch (kinh nghiệm y tế), lợi ích của trợ giảng, và mức tăng thù lao khi hoạt động liên tục ≥3 tháng — bắt buộc cộng vào thù lao gốc để ra đúng số tiền câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 9,
+          "kind": "turn",
+          "label": "Ghi chú ※ tiền đi lại theo địa điểm (bẫy)",
+          "topic": 9,
+          "note": "Dòng ※ về tiền đi lại KHÔNG cố định mà tùy theo địa điểm — bẫy cho câu hỏi 2 nếu nhầm tưởng có thể tính ra số tiền chính xác cho vai trò hướng dẫn.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "body",
+          "label": "Hạn đăng ký & liên hệ",
+          "topic": 10,
+          "note": "Thông tin đăng ký (bài luận, hạn chót) và liên hệ trung tâm — không phải căn cứ trực tiếp của 2 câu hỏi về vai trò/thù lao.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "リーさんは日本語と母語（中国語）の両方ができて、病院で働いた医療通訳の経験もあります。3か月続けて活動するつもりです。4か月目の謝礼は1回いくらになりますか。",
+          "options": [
+            "1,000円",
+            "1,200円",
+            "1,500円",
+            "1,700円"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3（1,700円）。表を見ると、通訳ボランティアは日本語と母語の両方ができる方が対象で、リーさんの条件（両言語＋医療通訳の経験）に合います（謝礼の元は1回1,500円）。※には「3か月以上続けてくださる方には、次回からの謝礼が1回につき200円増えます」とあるので、3か月続けた後の4か月目からは1,500円＋200円＝1,700円になります。選択肢0（1,000円）は日本語教室サポーターの謝礼で、役割を間違えています。選択肢1（1,200円）はどの役割の謝礼とも一致しない金額です。選択肢2（1,500円）は3か月続けた後の増額分を忘れた元の金額です。",
+          "tip": "Câu hỏi ghép 3 điều kiện (vai trò phù hợp theo ngôn ngữ+kinh nghiệm, hoạt động liên tục ≥3 tháng, hỏi thù lao TỪ LẦN SAU) → phải cộng thù lao gốc trong bảng với mức tăng ở dòng ※, không được chỉ lấy giá gốc.",
+          "evi": [
+            3,
+            6,
+            8
+          ],
+          "qt": {
+            "q": "Anh Lee biết cả tiếng Nhật và tiếng mẹ đẻ (tiếng Trung), đồng thời có kinh nghiệm phiên dịch y tế tại bệnh viện. Anh dự định tiếp tục hoạt động trong 3 tháng. Sang tháng thứ 4, tiền thù lao mỗi lần là bao nhiêu?",
+            "o": [
+              "1.000 yên",
+              "1.200 yên",
+              "1.500 yên",
+              "1.700 yên"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは土曜日と日曜日だけ時間があり、外国人観光客に日本の町を案内するのが好きです。謝礼の金額は気にしません。カリナさんに合う役割はどれですか。",
+          "options": [
+            "通訳ボランティア — 病院や市役所で通訳として働けるから",
+            "日本語教室サポーター — 留学生にとって分かりやすい説明ができるから",
+            "地域イベント案内係 — 土日に活動でき、観光客の案内係として道案内ができるから",
+            "どの役割も土日には活動できないので、申し込めない"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2（地域イベント案内係）。表を見ると、地域イベント案内係は「土日に活動できる方」が対象で、カリナさんの空いている曜日（土・日）と一致します。仕事内容も「外国人観光客に地域の案内係として道案内をします」で、カリナさんが好きな「観光客に町を案内すること」と合っています。なお、この役割は謝礼が「交通費のみ支給」で、※には「交通費は活動場所によって支給される金額が異なります」ともありますが、カリナさんは「謝礼の金額は気にしません」と言っているので、この点は選ぶ妨げになりません。選択肢0は通訳ボランティアの説明ですが、対象は「日本語と母語の両方ができる方」で、案内が好きというカリナさんの希望とは関係がありません。選択肢1は日本語教室サポーターですが、仕事は日本語を教えることで、道案内とは異なります。選択肢3は誤りで、実際には地域イベント案内係が土日に活動できます。",
+          "tip": "Câu hỏi ghép điều kiện THỨ RẢNH（土日）và SỞ THÍCH／NỘI DUNG CÔNG VIỆC（案内・道案内）→ phải dò cả cột điều kiện VÀ cột công việc chính trong bảng, không chỉ dựa vào tên vai trò nghe \"hợp\".",
+          "evi": [
+            5,
+            9
+          ],
+          "qt": {
+            "q": "Chị Karina chỉ có thời gian vào thứ Bảy và Chủ nhật, và thích hướng dẫn khách du lịch nước ngoài tham quan các thị trấn Nhật Bản. Chị không quan tâm đến mức thù lao. Vai trò nào phù hợp với chị Karina?",
+            "o": [
+              "Tình nguyện viên phiên dịch — vì có thể làm phiên dịch tại bệnh viện và văn phòng thành phố",
+              "Hỗ trợ viên lớp học tiếng Nhật — vì có thể giải thích dễ hiểu cho du học sinh",
+              "Nhân viên hướng dẫn sự kiện địa phương — vì có thể hoạt động vào thứ Bảy và Chủ nhật, đồng thời hướng dẫn đường đi cho khách du lịch",
+              "Không thể đăng ký vì không có vai trò nào hoạt động vào thứ Bảy và Chủ nhật"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "id": "minna1.b17",
+  "bai": 17,
+  "titleVi": "Thể ない & nghĩa vụ — なければなりません",
+  "know": [
+    {
+      "id": "minna1.b17.nai-form",
+      "point": "nai-form",
+      "jp": "動詞[どうし]ない形[けい]",
+      "vi": "Chia thể ない (phủ định từ điển)",
+      "en": "Conjugate into the ない-form (dictionary-form negation)",
+      "gloss": "行[い]く→行[い]かない ／ 食[た]べる→食[た]べない ／ する→しない",
+      "glossEn": "行[い]く→行[い]かない ／ 食[た]べる→食[た]べない ／ する→しない"
+    },
+    {
+      "id": "minna1.b17.naide",
+      "point": "naide",
+      "jp": "〜ないでください",
+      "vi": "Xin đừng làm (yêu cầu phủ định lịch sự)",
+      "en": "Please do not do it (polite negative request)",
+      "gloss": "Vない ＋ でください",
+      "glossEn": "Vない ＋ でください"
+    },
+    {
+      "id": "minna1.b17.nakereba",
+      "point": "nakereba",
+      "jp": "〜なければなりません",
+      "vi": "Phải làm (nghĩa vụ — 2 lần phủ định!)",
+      "en": "Must do (obligation — double negative!)",
+      "gloss": "Vない → Vなければ ＋ なりません",
+      "glossEn": "Vない → Vなければ ＋ なりません"
+    },
+    {
+      "id": "minna1.b17.nakutemo",
+      "point": "nakutemo",
+      "jp": "〜なくてもいいです",
+      "vi": "Không cần làm (miễn trừ)",
+      "en": "Even if one does not ~ (concessive negation)",
+      "gloss": "Vない → Vなくても ＋ いいです",
+      "glossEn": "無理[むり]しなくても、大丈夫[だいじょうぶ]です ／ 来[こ]なくても、構[かま]いません"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b17-nf-iku",
+      "item": "minna1.b17.nai-form",
+      "err": "nai-form-wrong",
+      "vi": "Thể ない của 行く là gì?",
+      "t1": {
+        "stem": "行[い]く → ＿",
+        "choices": [
+          "行[い]かない",
+          "行[い]きない",
+          "行[い]かます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "行[い]かない"
+        ],
+        "traps": [
+          "行[い]きない",
+          "行[い]かます"
+        ]
+      },
+      "t3": {
+        "target": "行かない",
+        "accept": [
+          "いかない"
+        ]
+      },
+      "why": "Nhóm I (五段): đổi âm う-row → あ-row rồi thêm ない. 行く → 行か + ない. ✗ 行きない — không dùng ます-stem."
+    },
+    {
+      "id": "c-b17-nf-nomu",
+      "item": "minna1.b17.nai-form",
+      "err": "nai-form-wrong",
+      "vi": "Thể ない của 飲む là gì?",
+      "t1": {
+        "stem": "飲[の]む → ＿",
+        "choices": [
+          "飲[の]まない",
+          "飲[の]みない",
+          "飲[の]もない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "飲[の]まない"
+        ],
+        "traps": [
+          "飲[の]みない",
+          "飲[の]もない"
+        ]
+      },
+      "t3": {
+        "target": "飲まない",
+        "accept": [
+          "のまない"
+        ]
+      },
+      "why": "飲む (nhóm I): む → ま + ない = 飲まない. ✗ 飲みない — ます-stem みない là sai."
+    },
+    {
+      "id": "c-b17-nd-shashin",
+      "item": "minna1.b17.naide",
+      "err": "naide-form",
+      "vi": "Xin đừng chụp ảnh ở đây.",
+      "t1": {
+        "stem": "ここで 写真[しゃしん]を ＿。",
+        "choices": [
+          "撮[と]らないでください",
+          "撮[と]りないでください",
+          "撮[と]ってください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ここで",
+          "写真[しゃしん]を",
+          "撮[と]らないで",
+          "ください。"
+        ],
+        "traps": [
+          "撮[と]りないでください。",
+          "撮[と]ってください。"
+        ]
+      },
+      "t3": {
+        "target": "ここで写真を撮らないでください。",
+        "accept": [
+          "ここでしゃしんをとらないでください。"
+        ]
+      },
+      "why": "撮る (nhóm I): る → ら + ない → 撮らないでください. ✗ 撮りないでください — dùng ます-stem は sai."
+    },
+    {
+      "id": "c-b17-nd-hayaku",
+      "item": "minna1.b17.naide",
+      "err": "naide-form",
+      "vi": "Xin đừng lo lắng.",
+      "t1": {
+        "stem": "心配[しんぱい]＿。",
+        "choices": [
+          "しないでください",
+          "しなくてもいいです",
+          "してください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "心配[しんぱい]しないで",
+          "ください。"
+        ],
+        "traps": [
+          "心配[しんぱい]してください。",
+          "心配[しんぱい]しなくてください。"
+        ]
+      },
+      "t3": {
+        "target": "心配しないでください。",
+        "accept": [
+          "しんぱいしないでください。"
+        ]
+      },
+      "why": "する → しない → しないでください (nhóm III). ✗ しなくてください — dạng sai; phải dùng ないでください."
+    },
+    {
+      "id": "c-b17-nk-houkoku",
+      "item": "minna1.b17.nakereba",
+      "err": "nakereba-meaning",
+      "vi": "Tôi phải nộp báo cáo.",
+      "t1": {
+        "stem": "レポートを ＿。",
+        "choices": [
+          "出[だ]さなければなりません",
+          "出[だ]さなくてもいいです",
+          "出[だ]してください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "レポートを",
+          "出[だ]さなければ",
+          "なりません。"
+        ],
+        "traps": [
+          "出[だ]さなくてもいいです。",
+          "出[だ]してください。"
+        ]
+      },
+      "t3": {
+        "target": "レポートを出さなければなりません。",
+        "accept": [
+          "れぽーとをださなければなりません。"
+        ]
+      },
+      "why": "出す (nhóm I): す → さ + ない → 出さない → 出さなければ + なりません = phải nộp. Bẫy: 2 phủ định → nghĩa khẳng định."
+    },
+    {
+      "id": "c-b17-nk-kusuri",
+      "item": "minna1.b17.nakereba",
+      "err": "nakereba-meaning",
+      "vi": "Bạn phải uống thuốc này.",
+      "t1": {
+        "stem": "この 薬[くすり]を ＿。",
+        "choices": [
+          "飲[の]まなければなりません",
+          "飲[の]まなくてもいいです",
+          "飲[の]んでください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 薬[くすり]を",
+          "飲[の]まなければ",
+          "なりません。"
+        ],
+        "traps": [
+          "飲[の]まなくてもなりません。",
+          "飲[の]まなくてもいいです。"
+        ]
+      },
+      "t3": {
+        "target": "この薬を飲まなければなりません。",
+        "accept": [
+          "このくすりをのまなければなりません。"
+        ]
+      },
+      "why": "飲む → 飲まない → 飲まなければなりません = phải uống. ✗ なくてもなりません không có nghĩa."
+    },
+    {
+      "id": "c-b17-ni-hayaku",
+      "item": "minna1.b17.nakutemo",
+      "err": "nakereba-meaning",
+      "vi": "Bạn không cần đến sớm.",
+      "t1": {
+        "stem": "早[はや]く 来[こ]＿。",
+        "choices": [
+          "なくてもいいです",
+          "なければなりません",
+          "ないでください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "早[はや]く",
+          "来[こ]なくても",
+          "いいです。"
+        ],
+        "traps": [
+          "来[こ]なければなりません。",
+          "来[こ]ないでください。"
+        ]
+      },
+      "t3": {
+        "target": "早く来なくてもいいです。",
+        "accept": [
+          "はやくこなくてもいいです。"
+        ]
+      },
+      "why": "来る (nhóm III): こない → こなくても + いいです = không cần đến. Phân biệt: なければなりません = PHẢI, なくてもいいです = KHÔNG CẦN."
+    },
+    {
+      "id": "c-b17-ni-seifuku",
+      "item": "minna1.b17.nakutemo",
+      "err": "nakereba-meaning",
+      "vi": "Bạn không cần mặc đồng phục.",
+      "t1": {
+        "stem": "制服[せいふく]を ＿。",
+        "choices": [
+          "着[き]なくてもいいです",
+          "着[き]なければなりません",
+          "着[き]ないでください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "制服[せいふく]を",
+          "着[き]なくても",
+          "いいです。"
+        ],
+        "traps": [
+          "着[き]なければなりません。",
+          "着[き]なくてもなりません。"
+        ]
+      },
+      "t3": {
+        "target": "制服を着なくてもいいです。",
+        "accept": [
+          "せいふくをきなくてもいいです。"
+        ]
+      },
+      "why": "着る (nhóm II): る → 着ない → 着なくてもいいです = không cần mặc. ✗ なくてもなりません là dạng sai không tồn tại."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b17-nakereba",
+      "item": "minna1.b17.nakereba",
+      "err": "nakereba-meaning",
+      "tts": "あしたは しけんが ありますから、きょう べんきょうしなければなりません。",
+      "script": "明日[あした]は 試験[しけん]が ありますから、今日[きょう] 勉強[べんきょう]しなければなりません。",
+      "ask": "Người nói phải làm gì hôm nay?",
+      "choices": [
+        "Phải học bài",
+        "Không cần học bài",
+        "Xin đừng học bài"
+      ],
+      "answer": 0,
+      "why": "なければなりません = phải làm; 試験があるから = vì có kỳ thi."
+    },
+    {
+      "id": "l-b17-nakutemo",
+      "item": "minna1.b17.nakutemo",
+      "err": "naide-form",
+      "tts": "きょうは にちようびですから、はやく おきなくてもいいです。",
+      "script": "今日[きょう]は 日曜日[にちようび]ですから、早[はや]く 起[お]きなくてもいいです。",
+      "ask": "Hôm nay người nói có cần dậy sớm không?",
+      "choices": [
+        "Không cần dậy sớm",
+        "Phải dậy sớm",
+        "Xin đừng dậy sớm"
+      ],
+      "answer": 0,
+      "why": "なくてもいいです = không cần làm; 日曜日ですから = vì là Chủ nhật."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b17-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 好きです × Bài 17 ・ ないでください",
+      "vi": "Tôi thích tiếng Nhật nên tôi không cần phải bảo tôi đừng học.",
+      "t1": {
+        "stem": "日本語[にほんご]＿ 好[す]きですから、勉強[べんきょう]しないでとは 言[い]わないでください。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が",
+          "好[す]きですから、",
+          "勉強[べんきょう]しないでとは",
+          "言[い]わないでください。"
+        ],
+        "traps": [
+          "日本語[にほんご]を"
+        ]
+      },
+      "t3": {
+        "target": "日本語が好きですから、勉強しないでとは言わないでください。",
+        "accept": [
+          "にほんごがすきですから、べんきょうしないでとはいわないでください。"
+        ]
+      },
+      "why": "Câu dùng ないでください của Bài 17, nhưng 好き vẫn phải cần が (lỗi cốt lõi Bài 9). ✗ 日本語を好きです."
+    },
+    {
+      "id": "a-b17-kara-place",
+      "item": "minna1.b09.kara",
+      "err": "kara-place",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ 〜から × Bài 17 ・ なければなりません",
+      "vi": "Vì ngày mai có cuộc họp nên tôi phải đến đúng giờ.",
+      "t1": {
+        "stem": "明日[あした]は 会議[かいぎ]が あります＿、時間通[じかんどお]りに 来[こ]なければなりません。",
+        "choices": [
+          "から",
+          "が",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "明日[あした]は",
+          "会議[かいぎ]が",
+          "ありますから、",
+          "時間通[じかんどお]りに",
+          "来[こ]なければなりません。"
+        ],
+        "traps": [
+          "ありますが、",
+          "ありますを、"
+        ]
+      },
+      "t3": {
+        "target": "明日は会議がありますから、時間通りに来なければなりません。",
+        "accept": [
+          "あしたはかいぎがありますから、じかんどおりにこなければなりません。"
+        ]
+      },
+      "why": "から đứng NGAY SAU vế lý do (lỗi Bài 9). Phần なければなりません là Bài 17 — câu bẫy kép."
+    },
+    {
+      "id": "a-b17-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 9 ・ わかります × Bài 17 ・ なくてもいいです",
+      "vi": "Bạn không cần lo, tôi hiểu quy tắc này rồi.",
+      "t1": {
+        "stem": "このルール＿ わかりますから、心配[しんぱい]しなくてもいいです。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "このルールが",
+          "わかりますから、",
+          "心配[しんぱい]しなくても",
+          "いいです。"
+        ],
+        "traps": [
+          "このルールを"
+        ]
+      },
+      "t3": {
+        "target": "このルールがわかりますから、心配しなくてもいいです。",
+        "accept": [
+          "このるーるがわかりますから、しんぱいしなくてもいいです。"
+        ]
+      },
+      "why": "わかります luôn dùng が cho đối tượng (lỗi Bài 9). Phần なくてもいいです là Bài 17."
+    }
+  ]
+}

@@ -1,0 +1,1512 @@
+{
+  "bai": 19,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 19 giới thiệu THỂ た — thể quá khứ/hoàn thành của động từ. Hai mẫu quan trọng nhất: 「Vたことがあります」(đã từng làm ~) và 「V1たりV2たりします」(khi thì ~, khi thì ~). Ngoài ra có 「〜くなります／〜になります」diễn tả sự thay đổi. Đọc hiểu ở đây = nhận ra động từ thể た, phân biệt \"đã từng\" với \"đã làm lần này\", và nắm chiều thay đổi (→ tăng/giảm/trở thành).",
+    "steps": [
+      "Đọc lướt toàn bài để nắm chủ đề: nói về ai, trải nghiệm gì, có gì thay đổi.",
+      "Tìm tất cả động từ thể た (đuôi た・だ sau gốc động từ) — đây là hành động đã xảy ra.",
+      "Với mẫu「〜たことがあります」: chủ thể đã có TRẢI NGHIỆM đó trong cuộc đời; phân biệt với「〜ました」= \"đã làm lần này\".",
+      "Với「V1たりV2たりします」: liệt kê 2+ ví dụ tiêu biểu, không phải tất cả hoạt động; chọn đáp án phù hợp cả hai động từ.",
+      "Với「〜くなります／〜になります」: xác định tính từ/danh từ trước なります và hướng thay đổi (tốt hơn, ấm hơn, bận hơn...).",
+      "Gặp そろそろ: dịch là \"sắp rồi / gần đến lúc rồi\" — chú ý ngữ cảnh thời gian."
+    ],
+    "tips": [
+      "た形 được chia theo nhóm động từ GIỐNG như て形 — nếu biết て形 thì đổi て→た, で→だ là ra た形.",
+      "「〜たことがあります」hỏi kinh nghiệm cả đời, KHÔNG hỏi lần cụ thể → không trả lời bằng いつ hay どこで cụ thể.",
+      "「たりたりします」luôn xuất hiện thành cặp; động từ cuối (します) không nhất thiết phải là する mà là dạng lịch sự phù hợp.",
+      "「〜くなります」dùng với tính từ い (bỏ い → く + なります); 「〜になります」dùng với tính từ な và danh từ.",
+      "そろそろ thường đứng đầu câu hoặc trước động từ; nó báo hiệu \"thời điểm sắp đến\" hoặc \"đã đến lúc\".",
+      "Cẩn thận với câu hỏi \"đã LÀM hay CHƯA làm\" — câu trả lời phủ định là「〜たことがありません」hoặc「いいえ、まだ〜たことがありません」."
+    ],
+    "grammarFocus": [
+      "た形",
+      "Vたことがあります",
+      "V1たりV2たりします",
+      "〜くなります",
+      "〜になります",
+      "そろそろ"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 4,
+        "items": [
+          "Vました（quá khứ lịch sự）",
+          "〜ね"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "〜へ行きます／来ます",
+          "〜で（phương tiện）"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "〜をVます（tha động từ）",
+          "それから"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "〜いです（tính từ い）",
+          "とても",
+          "あまり〜ない"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです",
+          "〜から（lý do）"
+        ]
+      },
+      {
+        "bai": 12,
+        "items": [
+          "Aかったです（quá khứ tính từ い）",
+          "NよりNのほうが〜"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "Vたいです",
+          "どこか"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形（nền tảng để hiểu た形）",
+          "Vています"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから（sau khi làm ~）"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "ない形",
+          "Vなければなりません"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "辞書形",
+          "Vることができます"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "日本の食べ物",
+      "titleVi": "Đồ ăn Nhật Bản",
+      "japanese": "カリナさんはインドネシア人です。去年、日本へ来ました。日本の食べ物をいろいろ食べました。すしも食べたことがあります。はじめはからかったですが、今は日本の食べ物が好きになりました。",
+      "vietnamese": "Karina là người Indonesia. Năm ngoái, cô ấy đến Nhật. Cô ấy đã ăn thử nhiều loại đồ ăn Nhật. Cô ấy cũng đã từng ăn sushi. Lúc đầu thấy cay, nhưng bây giờ cô ấy đã trở nên thích đồ ăn Nhật rồi.",
+      "sentences": [
+        {
+          "jp": "カリナさんはインドネシア人です。",
+          "vi": "Karina là người Indonesia.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "インドネシア",
+              "read": "インドネシア",
+              "vi": "Indonesia"
+            },
+            {
+              "w": "インドネシア人",
+              "read": "インドネシアじん",
+              "vi": "người Indonesia"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Câu khẳng định cơ bản giới thiệu nhân vật — ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "去年、日本へ来ました。",
+          "vi": "Năm ngoái, cô ấy đến Nhật.",
+          "vocab": [
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来ました",
+              "read": "きました",
+              "vi": "đã đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜へ来ます／Vました",
+              "vi": "〜へ = hướng đến; ました = quá khứ lịch sự (Bài 4–5)."
+            }
+          ]
+        },
+        {
+          "jp": "日本の食べ物をいろいろ食べました。",
+          "vi": "Cô ấy đã ăn thử nhiều loại đồ ăn Nhật.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "食べました",
+              "read": "たべました",
+              "vi": "đã ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます（tha động từ）",
+              "vi": "を đánh dấu tân ngữ của 食べました — ôn Bài 6."
+            }
+          ]
+        },
+        {
+          "jp": "すしも食べたことがあります。",
+          "vi": "Cô ấy cũng đã từng ăn sushi.",
+          "vocab": [
+            {
+              "w": "食べたことがあります",
+              "read": "たべたことがあります",
+              "vi": "đã từng ăn"
+            },
+            {
+              "w": "すし",
+              "read": "すし",
+              "vi": "sushi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたことがあります",
+              "vi": "食べた là た形 của 食べる. Toàn mẫu = \"đã từng có trải nghiệm ăn\". も = \"cũng\" (Bài 1)."
+            }
+          ]
+        },
+        {
+          "jp": "はじめはからかったですが、今は日本の食べ物が好きになりました。",
+          "vi": "Lúc đầu thấy cay, nhưng bây giờ cô ấy đã trở nên thích đồ ăn Nhật rồi.",
+          "vocab": [
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "からい",
+              "read": "からい",
+              "vi": "cay (tính từ い)"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "好きになりました",
+              "read": "すきになりました",
+              "vi": "đã trở nên thích"
+            },
+            {
+              "w": "からかったです",
+              "read": "からかったです",
+              "vi": "đã (từng) cay (quá khứ tính từ い: からい → からかった)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aかったです",
+              "vi": "からい → からかったです: quá khứ tính từ い — ôn Bài 12."
+            },
+            {
+              "point": "〜になります",
+              "vi": "好き（な）+ になりました = \"trở nên thích\" — mẫu mới Bài 19 (tính từ な / danh từ + になります)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "食べたことがあります",
+          "label": "Vたことがあります"
+        },
+        {
+          "excerpt": "好きになりました",
+          "label": "〜になります（sự thay đổi）"
+        },
+        {
+          "excerpt": "からかったです",
+          "label": "Aかったです（quá khứ tính từ い）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんはすしを食べたことがありますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "はい、食べたことがあります",
+            "いいえ、食べたことがありません",
+            "はい、毎日食べます",
+            "いいえ、すしは好きではありません"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Bài viết có câu「すしも食べたことがあります」— đây là mẫu「Vたことがあります」(đã từng có trải nghiệm), xác nhận Karina ĐÃ TỪNG ăn sushi. Đáp án 1 sai vì bài nói rõ CÓ ăn rồi, không phải chưa. Đáp án 2 sai vì「たことがあります」chỉ nói đến TRẢI NGHIỆM TRONG ĐỜI, không có nghĩa là ăn hằng ngày. Đáp án 3 sai vì bài không nói Karina không thích sushi — ngược lại, cuối bài cô ấy còn「好きになりました」(trở nên thích đồ ăn Nhật).",
+          "tip": "Thấy「〜たことがあります」= hỏi về TRẢI NGHIỆM ĐÃ CÓ. Tìm từ khóa trong bài: nếu có câu đó → trả lời「はい、〜たことがあります」; nếu có「〜たことがありません」hoặc「まだ〜」→ trả lời chưa từng.",
+          "qt": {
+            "q": "Cô Karina đã từng ăn sushi chưa?",
+            "o": [
+              "Vâng, đã từng ăn",
+              "Không, chưa từng ăn",
+              "Vâng, ăn hằng ngày",
+              "Không, không thích sushi"
+            ]
+          }
+        },
+        {
+          "q": "今、カリナさんは日本の食べ物をどう思いますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "あまり好きではありません",
+            "好きになりました",
+            "まだからいと思います",
+            "ぜんぜん食べません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu cuối bài viết rõ:「今は日本の食べ物が好きになりました」— từ khóa「今は」(bây giờ) + mẫu「〜になりました」(đã trở nên) xác nhận CÔ ẤY ĐÃ THAY ĐỔI cảm nhận, hiện tại thích đồ ăn Nhật. Đáp án 0 sai vì ngược hoàn toàn với「好きになりました」. Đáp án 2 sai vì「はじめはからかった」(lúc ĐẦU thấy cay) — chỉ tả quá khứ, không phải cảm nhận hiện tại. Đáp án 3 sai vì bài nói cô ấy đã ăn nhiều thứ (「いろいろ食べました」), không phải không ăn gì.",
+          "tip": "Câu hỏi「今〜どう思いますか」→ tìm từ「今は」hoặc「〜になりました」trong bài. Mẫu「〜になりました」= sự thay đổi đã hoàn thành → đây là cảm nhận HIỆN TẠI, không phải lúc đầu.",
+          "qt": {
+            "q": "Bây giờ, cô Karina nghĩ thế nào về đồ ăn Nhật Bản?",
+            "o": [
+              "Không thích lắm",
+              "Đã trở nên yêu thích",
+              "Vẫn nghĩ là cay",
+              "Hoàn toàn không ăn"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ミラーさんの日本生活",
+      "titleVi": "Cuộc sống ở Nhật của anh Miller",
+      "japanese": "私はアメリカ人のミラーです。日本に来て、一年になりました。\n日本語の勉強はたいへんでしたが、今はだいぶ上手になりました。\n先週の休みに京都へ行きました。きれいなお寺を見たり、おいしいものを食べたりしました。\n京都へは新幹線で行きました。はじめて新幹線に乗りましたが、とても速くてびっくりしました。\n富士山に登ったことがありますか？私はまだありません。でも、いつかぜひ登りたいです。\nワットさんは富士山に登ったことがあります。日本語の勉強もたいへんでしたが、富士山もたいへんでした。\n日本の四季も好きになりました。秋は葉っぱがきれいになって、冬は寒くなります。\nそろそろ日本語能力試験を受けたいです。もっと上手になりたいです。",
+      "vietnamese": "Tôi là Miller, người Mỹ. Tôi đã đến Nhật được một năm rồi.\nViệc học tiếng Nhật thật vất vả, nhưng bây giờ tôi đã giỏi hơn nhiều rồi.\nKỳ nghỉ tuần trước, tôi đã đến Kyoto. Tôi đã vừa ngắm những ngôi đền đẹp, vừa ăn những món ngon.\nTôi đến Kyoto bằng shinkansen. Đó là lần đầu tiên tôi đi shinkansen, nên tôi rất ngạc nhiên vì nó nhanh quá.\nBạn đã từng leo núi Phú Sĩ chưa? Tôi thì vẫn chưa. Nhưng tôi nhất định muốn leo một ngày nào đó.\nAnh Watt đã từng leo núi Phú Sĩ. Việc học tiếng Nhật cũng vất vả, leo núi Phú Sĩ cũng vất vả.\nTôi cũng đã trở nên yêu thích bốn mùa ở Nhật. Mùa thu lá cây trở nên đẹp, mùa đông thì trở nên lạnh.\nTôi muốn thi JLPT rồi. Tôi muốn giỏi tiếng Nhật hơn nữa.",
+      "sentences": [
+        {
+          "jp": "私はアメリカ人のミラーです。日本に来て、一年になりました。",
+          "vi": "Tôi là Miller, người Mỹ. Tôi đã đến Nhật được một năm rồi.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "アメリカ",
+              "read": "アメリカ",
+              "vi": "Mỹ"
+            },
+            {
+              "w": "アメリカ人",
+              "read": "アメリカじん",
+              "vi": "người Mỹ"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller"
+            },
+            {
+              "w": "日本",
+              "read": "にほん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来て",
+              "read": "きて",
+              "vi": "đến"
+            },
+            {
+              "w": "一年",
+              "read": "いちねん",
+              "vi": "một năm"
+            },
+            {
+              "w": "になりました",
+              "read": "になりました",
+              "vi": "đã được, đã tròn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nになります",
+              "vi": "一年になりました = \"đã được một năm\" — diễn tả sự thay đổi trạng thái sang danh từ (Bài 19)."
+            },
+            {
+              "point": "て形（Vて）",
+              "vi": "来て = て形 của 来る, nối hai vế câu — ôn Bài 14."
+            }
+          ]
+        },
+        {
+          "jp": "日本語の勉強はたいへんでしたが、今はだいぶ上手になりました。",
+          "vi": "Việc học tiếng Nhật thật vất vả, nhưng bây giờ tôi đã giỏi hơn nhiều rồi.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "たいへん",
+              "read": "たいへん",
+              "vi": "rất, vô cùng"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "だいぶ",
+              "read": "だいぶ",
+              "vi": "khá nhiều, đáng kể"
+            },
+            {
+              "w": "上手になりました",
+              "read": "じょうずになりました",
+              "vi": "đã trở nên giỏi hơn"
+            },
+            {
+              "w": "たいへんでした",
+              "read": "たいへんでした",
+              "vi": "đã vất vả, đã khó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になります",
+              "vi": "上手（な）+ になりました = trở nên giỏi — tính từ な + になります (Bài 19)."
+            },
+            {
+              "point": "NAでした",
+              "vi": "たいへんでした = quá khứ của tính từ な — ôn Bài 12."
+            }
+          ]
+        },
+        {
+          "jp": "先週の休みに京都へ行きました。",
+          "vi": "Kỳ nghỉ tuần trước, tôi đã đến Kyoto.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "ngày nghỉ, kỳ nghỉ"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜へ行きます／Vました",
+              "vi": "〜へ chỉ hướng di chuyển; ました = quá khứ — ôn Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "きれいなお寺を見たり、おいしいものを食べたりしました。",
+          "vi": "Tôi đã vừa ngắm những ngôi đền đẹp, vừa ăn những món ngon.",
+          "vocab": [
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "お寺",
+              "read": "おてら",
+              "vi": "chùa, đền"
+            },
+            {
+              "w": "見たり",
+              "read": "みたり",
+              "vi": "đã ngắm / (khi thì) ngắm"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon"
+            },
+            {
+              "w": "食べたりしました",
+              "read": "たべたりしました",
+              "vi": "(khi thì) ăn — cuối mẫu たりします"
+            },
+            {
+              "w": "きれいな",
+              "read": "きれいな",
+              "vi": "đẹp (tính từ な)"
+            },
+            {
+              "w": "もの",
+              "read": "もの",
+              "vi": "đồ, vật, thứ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V1たりV2たりします",
+              "vi": "見たり〜食べたりしました = khi thì ngắm, khi thì ăn — liệt kê hoạt động tiêu biểu (Bài 19). Mỗi động từ: た形 + り."
+            }
+          ]
+        },
+        {
+          "jp": "京都へは新幹線で行きました。",
+          "vi": "Tôi đến Kyoto bằng shinkansen.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu shinkansen (tàu cao tốc)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "で",
+              "read": "で",
+              "vi": "bằng (phương tiện)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "新幹線で = bằng shinkansen — ôn Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "はじめて新幹線に乗りましたが、とても速くてびっくりしました。",
+          "vi": "Đó là lần đầu tiên tôi đi shinkansen, nên tôi rất ngạc nhiên vì nó nhanh quá.",
+          "vocab": [
+            {
+              "w": "はじめて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "乗りました",
+              "read": "のりました",
+              "vi": "đã lên (tàu/xe)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "速くて",
+              "read": "はやくて",
+              "vi": "nhanh (て形 của 速い)"
+            },
+            {
+              "w": "びっくり",
+              "read": "びっくり",
+              "vi": "sự ngạc nhiên, giật mình"
+            },
+            {
+              "w": "びっくりしました",
+              "read": "びっくりしました",
+              "vi": "đã ngạc nhiên, giật mình"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くて（nối tính từ）",
+              "vi": "速くて = vì nhanh / nhanh và — て形 của tính từ い nối vế nguyên nhân — ôn Bài 16."
+            }
+          ]
+        },
+        {
+          "jp": "富士山に登ったことがありますか？私はまだありません。でも、いつかぜひ登りたいです。",
+          "vi": "Bạn đã từng leo núi Phú Sĩ chưa? Tôi thì vẫn chưa. Nhưng tôi nhất định muốn leo một ngày nào đó.",
+          "vocab": [
+            {
+              "w": "富士山",
+              "read": "ふじさん",
+              "vi": "núi Phú Sĩ"
+            },
+            {
+              "w": "に",
+              "read": "に",
+              "vi": "lên, đến (đích)"
+            },
+            {
+              "w": "登ったことがありますか",
+              "read": "のぼったことがありますか",
+              "vi": "đã từng leo chưa?"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "まだありません",
+              "read": "まだありません",
+              "vi": "vẫn chưa"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "いつか",
+              "read": "いつか",
+              "vi": "một ngày nào đó"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, rất mong"
+            },
+            {
+              "w": "登りたいです",
+              "read": "のぼりたいです",
+              "vi": "muốn leo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたことがあります／ありません",
+              "vi": "登った là た形 của 登る. Câu hỏi trải nghiệm và phủ định trải nghiệm (Bài 19)."
+            },
+            {
+              "point": "まだ",
+              "vi": "まだ + ありません = \"vẫn chưa\" — ôn Bài 15 (まだ〜ていません)."
+            },
+            {
+              "point": "ぜひ〜たいです",
+              "vi": "ぜひ nhấn mạnh mong muốn; Vたいです = muốn làm ~ — ôn Bài 13."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんは富士山に登ったことがあります。日本語の勉強もたいへんでしたが、富士山もたいへんでした。",
+          "vi": "Anh Watt đã từng leo núi Phú Sĩ. Việc học tiếng Nhật cũng vất vả, leo núi Phú Sĩ cũng vất vả.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "富士山",
+              "read": "ふじさん",
+              "vi": "núi Phú Sĩ"
+            },
+            {
+              "w": "登ったことがあります",
+              "read": "のぼったことがあります",
+              "vi": "đã từng leo"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "たいへん",
+              "read": "たいへん",
+              "vi": "rất, vô cùng"
+            },
+            {
+              "w": "に",
+              "read": "に",
+              "vi": "trợ từ chỉ đích đến"
+            },
+            {
+              "w": "も〜が、〜も",
+              "read": "も〜が、〜も",
+              "vi": "cũng ~ nhưng, ~ cũng (đối chiếu song song)"
+            },
+            {
+              "w": "たいへんでした",
+              "read": "たいへんでした",
+              "vi": "đã vất vả (quá khứ lịch sự của tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたことがあります",
+              "vi": "Xác nhận Watt có trải nghiệm leo Phú Sĩ — mẫu Bài 19."
+            },
+            {
+              "point": "NAでした",
+              "vi": "たいへんでした = quá khứ lịch sự của たいへんだ — ôn Bài 12."
+            }
+          ]
+        },
+        {
+          "jp": "日本の四季も好きになりました。",
+          "vi": "Tôi cũng đã trở nên yêu thích bốn mùa ở Nhật.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "四季",
+              "read": "しき",
+              "vi": "bốn mùa"
+            },
+            {
+              "w": "好きになりました",
+              "read": "すきになりました",
+              "vi": "đã trở nên thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になります",
+              "vi": "好き（な）+ になりました = trở nên yêu thích — ôn mẫu Bài 19."
+            },
+            {
+              "point": "Nも",
+              "vi": "も = \"cũng\" — ôn Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "秋は葉っぱがきれいになって、冬は寒くなります。",
+          "vi": "Mùa thu lá cây trở nên đẹp, mùa đông thì trở nên lạnh.",
+          "vocab": [
+            {
+              "w": "秋",
+              "read": "あき",
+              "vi": "mùa thu"
+            },
+            {
+              "w": "葉っぱ",
+              "read": "はっぱ",
+              "vi": "lá cây"
+            },
+            {
+              "w": "きれい",
+              "read": "きれい",
+              "vi": "sạch sẽ, đẹp (tính từ な)"
+            },
+            {
+              "w": "冬",
+              "read": "ふゆ",
+              "vi": "mùa đông"
+            },
+            {
+              "w": "寒くなります",
+              "read": "さむくなります",
+              "vi": "trở nên lạnh"
+            },
+            {
+              "w": "きれいになって",
+              "read": "きれいになって",
+              "vi": "trở nên đẹp (て形 — nối vế)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になります（tính từ な）",
+              "vi": "きれいになる = trở nên đẹp — tính từ な + になります (Bài 19)."
+            },
+            {
+              "point": "〜くなります（tính từ い）",
+              "vi": "寒い → 寒く + なります = trở nên lạnh (Bài 19). Bỏ い → く + なります."
+            }
+          ]
+        },
+        {
+          "jp": "そろそろ日本語能力試験を受けたいです。",
+          "vi": "Tôi muốn thi JLPT rồi.",
+          "vocab": [
+            {
+              "w": "そろそろ",
+              "read": "そろそろ",
+              "vi": "sắp rồi, gần đến lúc"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "能力",
+              "read": "のうりょく",
+              "vi": "năng lực, khả năng"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "受けたいです",
+              "read": "うけたいです",
+              "vi": "muốn thi"
+            },
+            {
+              "w": "日本語能力試験",
+              "read": "にほんごのうりょくしけん",
+              "vi": "kỳ thi năng lực tiếng Nhật (JLPT)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "そろそろ",
+              "vi": "そろそろ = \"sắp rồi / đã gần đến lúc rồi\" — mẫu mới Bài 19."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "受けたいです = muốn thi — mẫu Bài 13. Câu hoàn chỉnh, lịch sự, không cần と思っています."
+            }
+          ]
+        },
+        {
+          "jp": "もっと上手になりたいです。",
+          "vi": "Tôi muốn giỏi tiếng Nhật hơn nữa.",
+          "vocab": [
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa, nhiều hơn"
+            },
+            {
+              "w": "上手になりたいです",
+              "read": "じょうずになりたいです",
+              "vi": "muốn trở nên giỏi hơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になりたいです",
+              "vi": "〜になります + たい = muốn trở thành/trở nên ~; kết hợp Bài 13 (Vたい) và Bài 19 (〜になります)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "きれいなお寺を見たり、おいしいものを食べたりしました",
+          "label": "V1たりV2たりします"
+        },
+        {
+          "excerpt": "富士山に登ったことがありますか",
+          "label": "Vたことがありますか"
+        },
+        {
+          "excerpt": "まだありません",
+          "label": "Vたことがありません（phủ định trải nghiệm）"
+        },
+        {
+          "excerpt": "上手になりました",
+          "label": "〜になります（tính từ な）"
+        },
+        {
+          "excerpt": "寒くなります",
+          "label": "〜くなります（tính từ い）"
+        },
+        {
+          "excerpt": "そろそろ日本語能力試験を受けたいです",
+          "label": "そろそろ + Vたいです"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは先週の休みに何をしましたか。",
+          "evi": [
+            2,
+            3
+          ],
+          "options": [
+            "富士山に登りました",
+            "東京で友だちに会いました",
+            "きれいなお寺を見たり、おいしいものを食べたりしました",
+            "日本語能力試験を受けました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu rõ:「先週の休みに京都へ行きました。きれいなお寺を見たり、おいしいものを食べたりしました」— đây là mẫu「V1たりV2たりします」liệt kê hai hoạt động tiêu biểu ở Kyoto. Đáp án 0 sai vì bài nói Miller「まだ(富士山に登ったことが)ありません」(vẫn chưa leo Phú Sĩ). Đáp án 1 sai vì bài không nhắc đến việc gặp bạn bè ở Tokyo. Đáp án 3 sai vì bài nói Miller「そろそろ〜受けたいです」(muốn thi sắp tới), chưa thi.",
+          "tip": "Câu hỏi「何をしましたか」+ thời điểm cụ thể → tìm câu có cùng từ thời gian trong bài (「先週の休み」). Mẫu「たりたりします」là dấu hiệu liệt kê hoạt động — đây thường là đáp án đúng.",
+          "qt": {
+            "q": "Anh Miller đã làm gì trong kỳ nghỉ tuần trước?",
+            "o": [
+              "Đã leo núi Phú Sĩ",
+              "Đã gặp bạn ở Tokyo",
+              "Đã ngắm những ngôi chùa đẹp và ăn những món ngon",
+              "Đã tham gia kỳ thi năng lực tiếng Nhật"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは富士山に登ったことがありますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "はい、登ったことがあります",
+            "いいえ、まだ登ったことがありません",
+            "はい、去年登りました",
+            "いいえ、登りたくないです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết có câu:「富士山に登ったことがありますか？私はまだありません」— từ「まだありません」là cách rút gọn của「まだ登ったことがありません」, nghĩa là vẫn CHƯA CÓ trải nghiệm leo Phú Sĩ. Đáp án 0 sai vì bài nói rõ「まだありません」(vẫn chưa). Đáp án 2 sai vì bài không hề nói Miller đã leo năm ngoái — năm ngoái chỉ nhắc đến chuyện ĐẾN NHẬT (「去年、日本へ来ました」). Đáp án 3 sai vì bài nói Miller「いつかぜひ登りたいです」(nhất định muốn leo một ngày nào đó), tức là MUỐN leo, không phải không muốn.",
+          "tip": "Từ khóa「まだありません」sau câu hỏi「〜たことがありますか」= CHƯA có trải nghiệm đó. Đừng nhầm「まだ」(vẫn chưa) với「もう」(đã rồi). Phủ định trải nghiệm =「まだ〜たことがありません」.",
+          "qt": {
+            "q": "Anh Miller đã từng leo núi Phú Sĩ chưa?",
+            "o": [
+              "Vâng, tôi đã từng leo rồi",
+              "Không, tôi vẫn chưa từng leo",
+              "Vâng, tôi đã leo năm ngoái",
+              "Không, tôi không muốn leo"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんの日本語はどうなりましたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "あまり変わりませんでした",
+            "だいぶ上手になりました",
+            "まだたいへんです",
+            "下手になりました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ:「今はだいぶ上手になりました」— từ khóa「今は」(bây giờ) + mẫu「〜になりました」(đã trở nên) + 「だいぶ」(khá nhiều) xác nhận tiếng Nhật của Miller ĐÃ CÓ SỰ THAY ĐỔI theo chiều tốt hơn. Đáp án 0 sai vì bài nói rõ có sự thay đổi (「になりました」). Đáp án 2 sai vì「たいへんでした」dùng thể quá khứ — chỉ vất vả LÚC ĐẦU, không phải bây giờ. Đáp án 3 sai và ngược hoàn toàn — bài nói「上手になりました」(giỏi hơn), không phải kém đi.",
+          "tip": "Câu hỏi「〜はどうなりましたか」→ tìm mẫu「〜になりました」hoặc「〜くなりました」trong bài để thấy chiều THAY ĐỔI (tốt hơn/xấu hơn/nhiều hơn...). Chú ý「今は」báo hiệu trạng thái HIỆN TẠI, không phải quá khứ.",
+          "qt": {
+            "q": "Tiếng Nhật của anh Miller đã tiến triển thế nào?",
+            "o": [
+              "Không thay đổi mấy",
+              "Đã trở nên khá giỏi",
+              "Vẫn còn vất vả",
+              "Đã trở nên kém hơn"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "日本文化たいけんまつりのお知らせ",
+      "titleVi": "Thông báo: Lễ hội trải nghiệm văn hóa Nhật Bản",
+      "japanese": "日本文化たいけんまつりのお知らせ\nさくら市で日本文化たいけんまつりがあります。着物を着たり、お茶を飲んだりしたことがありますか。まだの人は、ぜひ来てください。子どもも大人も来てください。\nたいけん｜時間｜お金\n着物｜午前１０時〜１２時｜５００円\nお茶｜午後１時〜３時｜３００円\n書道｜午後３時〜４時｜２００円\n※着物もお茶もしたいです。そんな人は、７００円になります。\n電話：０３−９８７６−５４３２（月〜金　９時〜１７時）",
+      "vietnamese": "Thông báo: Lễ hội trải nghiệm văn hóa Nhật Bản\nTại thành phố Sakura sẽ có lễ hội trải nghiệm văn hóa Nhật Bản. Bạn đã từng mặc thử kimono, hay uống thử trà đạo chưa? Ai chưa từng thì xin hãy đến nhé. Trẻ em và người lớn đều xin hãy đến.\nTrải nghiệm｜Giờ｜Giá tiền\nKimono｜10 giờ〜12 giờ sáng｜500 yên\nTrà đạo｜13 giờ〜15 giờ｜300 yên\nThư pháp｜15 giờ〜16 giờ｜200 yên\n※Muốn làm cả kimono và trà đạo. Người như vậy thì sẽ thành 700 yên.\nĐiện thoại: 03-9876-5432 (Thứ Hai〜Thứ Sáu, 9 giờ〜17 giờ)",
+      "sentences": [
+        {
+          "jp": "日本文化たいけんまつりのお知らせ",
+          "vi": "Thông báo: Lễ hội trải nghiệm văn hóa Nhật Bản.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "まつり",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "日本文化",
+              "read": "にほんぶんか",
+              "vi": "văn hóa Nhật Bản"
+            },
+            {
+              "w": "たいけん",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのお知らせ",
+              "vi": "たいけんまつりのお知らせ = thông báo về (việc) lễ hội trải nghiệm. Tiêu đề danh từ đơn giản (Bài 1: NのN ôn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日本文化たいけんまつりのお知らせ",
+              "why": "Tiêu đề — xác định toàn bài nói về lễ hội trải nghiệm văn hóa, không phải khám sức khỏe hay lớp học."
+            }
+          ]
+        },
+        {
+          "jp": "さくら市で日本文化たいけんまつりがあります。着物を着たり、お茶を飲んだりしたことがありますか。まだの人は、ぜひ来てください。子どもも大人も来てください。",
+          "vi": "Tại thành phố Sakura sẽ có lễ hội trải nghiệm văn hóa Nhật Bản. Bạn đã từng mặc thử kimono, hay uống thử trà đạo chưa? Ai chưa từng thì xin hãy đến nhé. Trẻ em và người lớn đều xin hãy đến.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hóa"
+            },
+            {
+              "w": "まつり",
+              "read": "まつり",
+              "vi": "lễ hội"
+            },
+            {
+              "w": "着物",
+              "read": "きもの",
+              "vi": "kimono"
+            },
+            {
+              "w": "着たり",
+              "read": "きたり",
+              "vi": "(khi thì) mặc"
+            },
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà (trà đạo)"
+            },
+            {
+              "w": "飲んだり",
+              "read": "のんだり",
+              "vi": "(khi thì) uống"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "来てください",
+              "read": "きてください",
+              "vi": "xin hãy đến (Bài 14 ôn: Vてください)"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "大人",
+              "read": "おとな",
+              "vi": "người lớn"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "したことがありますか",
+              "read": "したことがありますか",
+              "vi": "đã từng làm chưa?"
+            },
+            {
+              "w": "まだの人",
+              "read": "まだのひと",
+              "vi": "người vẫn chưa (có trải nghiệm đó)"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, nhất quyết (Bài 18 ôn)"
+            },
+            {
+              "w": "子どもも大人も",
+              "read": "こどももおとなも",
+              "vi": "trẻ em cũng, người lớn cũng (đều)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでNがあります（Bài 9 ôn）",
+              "vi": "さくら市で〜まつりがあります = tại thành phố Sakura có (diễn ra) lễ hội."
+            },
+            {
+              "point": "V1たりV2たりしたことがありますか",
+              "vi": "着たり〜飲んだりしたことがありますか = đã từng (khi thì) mặc, (khi thì) uống thử chưa — mẫu MỚI Bài 19: たりたりします ghép với たことがあります trong lời mời."
+            },
+            {
+              "point": "ぜひVてください（Bài 14・18 ôn）",
+              "vi": "ぜひ来てください = xin nhất định hãy đến. ぜひ nhấn mạnh lời mời, Vてください là mẫu nhờ vả lịch sự."
+            },
+            {
+              "point": "NもNも（Bài 1 ôn）",
+              "vi": "子どもも大人も = trẻ em cũng, người lớn cũng — も liệt kê song song đã học Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくら市で日本文化たいけんまつりがあります",
+              "why": "Xác định nơi tổ chức và loại sự kiện — lễ hội trải nghiệm văn hóa."
+            },
+            {
+              "w": "着物を着たり、お茶を飲んだりしたことがありますか",
+              "why": "Lời mời trải nghiệm — gợi ý các hoạt động chính (kimono, trà đạo) khớp với bảng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "たいけん｜時間｜お金",
+          "vi": "Trải nghiệm｜Giờ｜Giá tiền.",
+          "vocab": [
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ (tên cột 2)"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền (tên cột 3)"
+            },
+            {
+              "w": "たいけん",
+              "read": "たいけん",
+              "vi": "trải nghiệm (tên cột 1)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（header bảng）",
+              "vi": "Header bảng 3 cột: trải nghiệm — giờ — giá tiền. Cấu trúc liệt kê danh từ đơn giản."
+            }
+          ],
+          "keys": [
+            {
+              "w": "たいけん｜時間｜お金",
+              "why": "Header bảng — xác định 3 cột cần dò khi trả lời câu hỏi giá/giờ."
+            }
+          ]
+        },
+        {
+          "jp": "着物｜午前１０時〜１２時｜５００円",
+          "vi": "Kimono｜10 giờ〜12 giờ sáng｜500 yên.",
+          "vocab": [
+            {
+              "w": "着物",
+              "read": "きもの",
+              "vi": "kimono"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "午前１０時",
+              "read": "ごぜんじゅうじ",
+              "vi": "10 giờ sáng"
+            },
+            {
+              "w": "５００円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "１０時〜１２時 = từ 10 giờ đến 12 giờ, giống mẫu NからNまで."
+            }
+          ],
+          "keys": [
+            {
+              "w": "着物｜午前１０時〜１２時｜５００円",
+              "why": "Hàng bảng \"kimono\" — giờ buổi sáng, giá 500円; căn cứ chính cho câu hỏi chọn hoạt động buổi sáng."
+            }
+          ]
+        },
+        {
+          "jp": "お茶｜午後１時〜３時｜３００円",
+          "vi": "Trà đạo｜13 giờ〜15 giờ｜300 yên.",
+          "vocab": [
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà (trà đạo)"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "午後１時",
+              "read": "ごごいちじ",
+              "vi": "1 giờ chiều (13 giờ)"
+            },
+            {
+              "w": "３００円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "午後１時〜３時 = từ 1 giờ đến 3 giờ chiều."
+            }
+          ],
+          "keys": [
+            {
+              "w": "お茶｜午後１時〜３時｜３００円",
+              "why": "Hàng bảng \"trà đạo\" — giờ chiều sớm, giá 300円; nhiễu dễ nhầm giờ với thư pháp."
+            }
+          ]
+        },
+        {
+          "jp": "書道｜午後３時〜４時｜２００円",
+          "vi": "Thư pháp｜15 giờ〜16 giờ｜200 yên.",
+          "vocab": [
+            {
+              "w": "書道",
+              "read": "しょどう",
+              "vi": "thư pháp"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "午後３時",
+              "read": "ごごさんじ",
+              "vi": "3 giờ chiều (15 giờ)"
+            },
+            {
+              "w": "２００円",
+              "read": "にひゃくえん",
+              "vi": "200 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "午後３時〜４時 = từ 3 giờ đến 4 giờ chiều."
+            }
+          ],
+          "keys": [
+            {
+              "w": "書道｜午後３時〜４時｜２００円",
+              "why": "Hàng bảng \"thư pháp\" — giờ cuối ngày, giá rẻ nhất 200円; nhiễu cho câu hỏi \"hoạt động nào rẻ nhất\"."
+            }
+          ]
+        },
+        {
+          "jp": "※着物もお茶もしたいです。そんな人は、７００円になります。",
+          "vi": "※Muốn làm cả kimono và trà đạo. Người như vậy thì sẽ thành 700 yên.",
+          "vocab": [
+            {
+              "w": "着物も",
+              "read": "きものも",
+              "vi": "kimono cũng"
+            },
+            {
+              "w": "お茶も",
+              "read": "おちゃも",
+              "vi": "trà đạo cũng"
+            },
+            {
+              "w": "そんな",
+              "read": "そんな",
+              "vi": "như vậy, đó"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "したいです",
+              "read": "したいです",
+              "vi": "muốn làm"
+            },
+            {
+              "w": "そんな人",
+              "read": "そんなひと",
+              "vi": "người như vậy"
+            },
+            {
+              "w": "７００円になります",
+              "read": "ななひゃくえんになります",
+              "vi": "sẽ thành 700 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nになります",
+              "vi": "７００円になります = \"sẽ thành 700 yên\" — mẫu MỚI Bài 19 (danh từ + になります diễn tả kết quả/số tiền thay đổi khi gộp combo)."
+            },
+            {
+              "point": "NもNもしたいです（Bài 1・13 ôn）",
+              "vi": "着物もお茶もしたいです = \"cũng muốn (làm) kimono, cũng muốn (làm) trà đạo\" — も liệt kê song song (Bài 1) + Vたいです (Bài 13); KHÔNG dùng mệnh đề bổ nghĩa danh từ (Vたい＋N) vì đó là ngữ pháp Bài 22, chưa học tới ở Bài 19."
+            }
+          ],
+          "keys": [
+            {
+              "w": "着物もお茶もしたいです。そんな人は、７００円になります",
+              "why": "Dòng ※ giá combo — bẫy: 500＋300＝800 nhưng thực tế giảm còn 700円 nếu làm cả hai."
+            }
+          ]
+        },
+        {
+          "jp": "電話：０３−９８７６−５４３２（月〜金　９時〜１７時）",
+          "vi": "Điện thoại: 03-9876-5432 (Thứ Hai〜Thứ Sáu, 9 giờ〜17 giờ).",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつからきん",
+              "vi": "thứ Hai đến thứ Sáu"
+            },
+            {
+              "w": "９時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "１７時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "９時〜１７時",
+              "read": "くじからじゅうしちじ",
+              "vi": "từ 9 đến 17 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "月〜金、９時〜１７時 = biểu đạt khoảng thời gian giống NからNまで đã học ở Bài 4."
+            }
+          ],
+          "keys": [
+            {
+              "w": "電話：０３−９８７６−５４３２",
+              "why": "Thông tin liên hệ — chi tiết \"chất đề thi thật\", không phải căn cứ câu hỏi."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "着物を着たり、お茶を飲んだりしたことがありますか",
+          "label": "V1たりV2たりしたことがありますか"
+        },
+        {
+          "excerpt": "７００円になります",
+          "label": "Nになります"
+        },
+        {
+          "excerpt": "ぜひ来てください",
+          "label": "ぜひ／Vてください（Bài 14・18 ôn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 0,
+          "kind": "intro",
+          "label": "Tiêu đề",
+          "topic": 0,
+          "note": "Xác định chủ đề: lễ hội trải nghiệm văn hóa Nhật Bản.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 1,
+          "to": 1,
+          "kind": "body",
+          "label": "Lời mời & giới thiệu",
+          "topic": 1,
+          "note": "Lời mời trải nghiệm kimono/trà đạo — nêu tên các hoạt động sẽ xuất hiện trong bảng.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng hoạt động・giờ・giá",
+          "topic": 2,
+          "note": "Bảng 3 cột: kimono (sáng, 500円), trà đạo (chiều sớm, 300円), thư pháp (chiều muộn, 200円) — chứa ô đáp án chính.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "turn",
+          "label": "Chú ý ※ giá combo & liên hệ",
+          "topic": 6,
+          "note": "Dòng ※: muốn làm cả kimono+trà đạo → giá combo 700円 — dễ bị nhầm với phép cộng 800円 nếu không đọc kỹ.",
+          "qs": [
+            1
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "着物もお茶もしたいです。いくら払いますか。",
+          "options": [
+            "５００円",
+            "８００円",
+            "７００円",
+            "２００円"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2 (700円). Bài viết có dòng ※:「着物もお茶もしたいです。そんな人は、７００円になります」— đây là mẫu「Nになります」xác nhận giá COMBO đặc biệt. Đáp án 0 (500円) sai vì đó chỉ là giá riêng của kimono. Đáp án 1 (800円) sai — đây là bẫy cộng đơn giản 500＋300, nhưng bài nói rõ giá combo thực tế là 700円 (rẻ hơn). Đáp án 3 (200円) sai vì đó là giá của thư pháp, không liên quan đến câu hỏi.",
+          "tip": "Câu hỏi ghép 2 điều kiện (kimono + trà đạo) → phải tìm dòng ※ riêng cho combo, KHÔNG được tự cộng giá 2 hàng trong bảng. Từ khóa「Nも Nも」+「そんな人は」luôn dẫn tới dòng ※ có giá đặc biệt.",
+          "evi": [
+            2,
+            3,
+            4,
+            6
+          ],
+          "qt": {
+            "q": "Bạn muốn tham gia cả trải nghiệm mặc kimono và uống trà. Bạn sẽ trả bao nhiêu?",
+            "o": [
+              "500 yên",
+              "800 yên",
+              "700 yên",
+              "200 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

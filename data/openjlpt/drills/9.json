@@ -1,0 +1,348 @@
+{
+  "id": "minna1.b09",
+  "bai": 9,
+  "titleVi": "Sở thích, kỹ năng & lý do",
+  "know": [
+    {
+      "id": "minna1.b09.suki",
+      "point": "suki",
+      "jp": "〜が 好[す]きです",
+      "vi": "Diễn đạt sở thích",
+      "gloss": "thích / ghét ～"
+    },
+    {
+      "id": "minna1.b09.jouzu",
+      "point": "jouzu",
+      "jp": "〜が 上手[じょうず]です",
+      "vi": "Nói về kỹ năng",
+      "gloss": "giỏi / kém ～"
+    },
+    {
+      "id": "minna1.b09.wakaru",
+      "point": "wakaru",
+      "jp": "〜が わかります",
+      "vi": "Hiểu biết & sở hữu",
+      "gloss": "hiểu ～ / có ～"
+    },
+    {
+      "id": "minna1.b09.fukushi",
+      "point": "fukushi",
+      "jp": "副詞[ふくし] ＋ 否定[ひてい]",
+      "vi": "Phó từ mức độ",
+      "gloss": "あまり・全然 ＋ phủ định"
+    },
+    {
+      "id": "minna1.b09.kara",
+      "point": "kara",
+      "jp": "〜から、〜",
+      "vi": "Nêu lý do",
+      "gloss": "vì ～ nên ～"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-suki-music",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "vi": "Tôi thích nhạc Nhật.",
+      "t1": {
+        "stem": "わたしは 日本[にほん]の 音楽[おんがく]＿ 好[す]きです。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "日本[にほん]の",
+          "音楽[おんがく]が",
+          "好[す]きです。"
+        ],
+        "traps": [
+          "音楽[おんがく]を"
+        ]
+      },
+      "t3": {
+        "target": "わたしは日本の音楽が好きです。",
+        "accept": [
+          "わたしはにほんのおんがくがすきです。",
+          "私は日本の音楽が好きです。"
+        ]
+      },
+      "why": "好き dùng が cho đối tượng yêu thích — đừng nhầm を."
+    },
+    {
+      "id": "c-jouzu-e",
+      "item": "minna1.b09.jouzu",
+      "err": "word-order",
+      "vi": "Karina vẽ rất giỏi.",
+      "t1": {
+        "stem": "カリナさんは 絵[え]＿ とても 上手[じょうず]です。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "カリナさんは",
+          "絵[え]が",
+          "とても",
+          "上手[じょうず]です。"
+        ],
+        "traps": [
+          "絵[え]を",
+          "上手[じょうず]じゃありません。"
+        ]
+      },
+      "t3": {
+        "target": "カリナさんは絵がとても上手です。",
+        "accept": [
+          "かりなさんはえがとてもじょうずです。"
+        ]
+      },
+      "why": "Trật tự: 主題は → 対象が → 副詞(とても) → 述語(上手です)."
+    },
+    {
+      "id": "c-amari-ryouri",
+      "item": "minna1.b09.fukushi",
+      "err": "amari-affirmative",
+      "vi": "Tôi nấu ăn không giỏi lắm.",
+      "t1": {
+        "stem": "わたしは 料理[りょうり]が あまり ＿。",
+        "choices": [
+          "上手[じょうず]じゃありません",
+          "上手[じょうず]です",
+          "上手[じょうず]ですか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "料理[りょうり]が",
+          "あまり",
+          "上手[じょうず]じゃありません。"
+        ],
+        "traps": [
+          "とても",
+          "上手[じょうず]です。"
+        ]
+      },
+      "t3": {
+        "target": "わたしは料理があまり上手じゃありません。",
+        "accept": [
+          "わたしはりょうりがあまりじょうずじゃありません。",
+          "わたしは料理があまり上手ではありません。"
+        ]
+      },
+      "why": "あまり bắt buộc đi với phủ định → 上手じゃありません."
+    },
+    {
+      "id": "c-zenzen-okane",
+      "item": "minna1.b09.fukushi",
+      "err": "amari-affirmative",
+      "vi": "Tôi hoàn toàn không có tiền.",
+      "t1": {
+        "stem": "お金[かね]が 全然[ぜんぜん] ＿。",
+        "choices": [
+          "ありません",
+          "あります",
+          "好[す]きです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お金[かね]が",
+          "全然[ぜんぜん]",
+          "ありません。"
+        ],
+        "traps": [
+          "あります。",
+          "たくさん"
+        ]
+      },
+      "t3": {
+        "target": "お金が全然ありません。",
+        "accept": [
+          "おかねがぜんぜんありません。"
+        ]
+      },
+      "why": "全然 ＋ phủ định luôn luôn → ありません."
+    },
+    {
+      "id": "c-kara-jikan",
+      "item": "minna1.b09.kara",
+      "err": "kara-place",
+      "vi": "Vì không có thời gian nên tôi không xem TV.",
+      "t1": {
+        "stem": "時間[じかん]が ありません＿、テレビを 見[み]ません。",
+        "choices": [
+          "から",
+          "が",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "時間[じかん]が",
+          "ありませんから",
+          "テレビを",
+          "見[み]ません。"
+        ],
+        "traps": [
+          "ありますから",
+          "見[み]ます。"
+        ]
+      },
+      "t3": {
+        "target": "時間がありませんから、テレビを見ません。",
+        "accept": [
+          "じかんがありませんから、テレビをみません。",
+          "時間がありませんからテレビを見ません。"
+        ]
+      },
+      "why": "から đứng ngay sau vế lý do (時間がありません)."
+    },
+    {
+      "id": "c-suki-conj",
+      "item": "minna1.b09.suki",
+      "err": "suki-conj",
+      "vi": "Tôi không thích thể thao.",
+      "t1": {
+        "stem": "わたしは スポーツが ＿。",
+        "choices": [
+          "好[す]きじゃありません",
+          "好[す]きません",
+          "好[す]きくないです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "スポーツが",
+          "好[す]きじゃありません。"
+        ],
+        "traps": [
+          "好[す]きません。",
+          "スポーツを"
+        ]
+      },
+      "t3": {
+        "target": "わたしはスポーツが好きじゃありません。",
+        "accept": [
+          "わたしはすぽーつがすきじゃありません。",
+          "わたしはスポーツが好きではありません。"
+        ]
+      },
+      "why": "好き là tính từ な → 好きじゃありません (✗ 好きません)."
+    },
+    {
+      "id": "c-wakaru-kanji",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "vi": "Anh Miller hiểu đại khái chữ Hán.",
+      "t1": {
+        "stem": "ミラーさんは 漢字[かんじ]が だいたい ＿。",
+        "choices": [
+          "わかります",
+          "わかりません",
+          "好[す]きです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ミラーさんは",
+          "漢字[かんじ]が",
+          "だいたい",
+          "わかります。"
+        ],
+        "traps": [
+          "漢字[かんじ]を",
+          "わかりません。"
+        ]
+      },
+      "t3": {
+        "target": "ミラーさんは漢字がだいたいわかります。",
+        "accept": [
+          "みらーさんはかんじがだいたいわかります。"
+        ]
+      },
+      "why": "わかります dùng が; だいたい đi với khẳng định."
+    },
+    {
+      "id": "c-kira-eiga",
+      "item": "minna1.b09.suki",
+      "err": "kira-i-adj",
+      "vi": "Anh Tanaka không ghét phim.",
+      "t1": {
+        "stem": "田中[たなか]さんは 映画[えいが]が ＿。",
+        "choices": [
+          "嫌[きら]いじゃありません",
+          "嫌[きら]くないです",
+          "嫌[きら]いません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "映画[えいが]が",
+          "嫌[きら]いじゃありません。"
+        ],
+        "traps": [
+          "嫌[きら]くないです。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは映画が嫌いじゃありません。",
+        "accept": [
+          "たなかさんはえいががきらいじゃありません。",
+          "田中さんは映画が嫌いではありません。"
+        ]
+      },
+      "why": "嫌い là tính từ な dù kết thúc bằng い → 嫌いじゃありません."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-amari",
+      "item": "minna1.b09.fukushi",
+      "err": "amari-affirmative",
+      "tts": "わたしは スポーツが あまり 好きじゃありません。",
+      "script": "わたしは スポーツが あまり 好[す]きじゃありません。",
+      "ask": "Người nói cảm thấy thế nào về thể thao?",
+      "choices": [
+        "Không thích lắm",
+        "Rất thích",
+        "Hoàn toàn không thích"
+      ],
+      "answer": 0,
+      "why": "あまり〜ません = không ～ lắm."
+    },
+    {
+      "id": "l-kara",
+      "item": "minna1.b09.kara",
+      "err": "kara-place",
+      "tts": "じかんが ありませんから、テレビを みません。",
+      "script": "時間[じかん]が ありませんから、テレビを 見[み]ません。",
+      "ask": "Tại sao người nói không xem TV?",
+      "choices": [
+        "Vì không có thời gian",
+        "Vì không thích TV",
+        "Vì không có TV"
+      ],
+      "answer": 0,
+      "why": "〜から nêu lý do."
+    }
+  ]
+}

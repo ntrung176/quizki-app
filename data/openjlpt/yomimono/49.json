@@ -1,0 +1,2704 @@
+{
+  "bai": 49,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 49 giới thiệu 尊敬語 (そんけいご) — ngôn ngữ tôn trọng dùng để NÂng hành động của NGƯỜI TRÊN (giám đốc, khách quý, thầy cô…) lên. Có ba cách tạo 尊敬語: (1) V受身形 dùng như tôn kính (読まれます、来られます); (2) おVますになります (お書きになります); (3) động từ đặc biệt (いらっしゃいます、召し上がります、ご覧になります、おっしゃいます、なさいます、くださいます). Quy tắc quan trọng nhất: 尊敬語 LUÔN nói về hành động của người khác (cấp trên/khách), KHÔNG BAO GIỜ dùng cho bản thân.",
+    "steps": [
+      "Đọc lướt để xác định AI đang làm hành động — người trên (giám đốc/khách) hay người nói (nhân viên).",
+      "Khi thấy いらっしゃいます → nghĩa là \"ở đó / đến / đi\" (ba động từ hợp nhất) — xem ngữ cảnh để xác định nghĩa cụ thể.",
+      "Khi thấy お〜になります → tìm động từ ます形 nằm giữa お và になります (おVますになります). Đây là 尊敬語 trung cấp.",
+      "Phân biệt V受身形-尊敬 vs V受身形-bị động: nếu chủ thể là người trên và không có nghĩa \"bị\" thì là 尊敬. Ví dụ: 社長が読まれました = \"ngài giám đốc đã đọc\" (尊敬).",
+      "Câu hỏi hay hỏi: ai làm hành động đó, tên đặc biệt của động từ 尊敬語 là gì, suy luận thái độ/quan hệ nhân vật.",
+      "Ôn lại ngữ pháp cũ:〜んです (B26), て形-nối (B16), mệnh đề bổ nghĩa N (B22), Vてもらいます (B24), 〜と思います (B21)."
+    ],
+    "tips": [
+      "Bộ ba いる→いらっしゃる / 行く→いらっしゃる / 来る→いらっしゃる: cả ba dùng chung một từ — ngữ cảnh quyết định nghĩa.",
+      "おっしゃいます (言う), なさいます (する), 召し上がります (食べる・飲む), ご覧になります (見る), くださいます (くれる): HỌC THUỘC cặp gốc↔tôn kính.",
+      "お〜になります chỉ áp dụng cho wago (và漢語): お書きになります OK, ×おします (する → なさいます); ×おいらっしゃいになります (đã có từ đặc biệt).",
+      "〜られます (受身形) dùng tôn kính nghe NHẸ hơn お〜になります — gặp ở văn phòng, thông báo. お〜になります/ từ đặc biệt dùng khi muốn tôn trọng cao hơn.",
+      "Dấu hiệu nhận đáp án: câu hỏi hỏi về hành động của 社長/お客様 → tìm câu trong bài có いらっしゃいます/召し上がります/ご覧/おっしゃい/なさい/くださいます.",
+      "謙譲語 (mình hạ thấp) học ở Bài 50 — tuyệt đối không nhầm: 参ります (khiêm nhường) ≠ いらっしゃいます (tôn kính)."
+    ],
+    "grammarFocus": [
+      "V受身形（尊敬） — 読まれます・来られます",
+      "おVますになります — お書きになります・お使いになります",
+      "いらっしゃいます（=行く/来る/いる）",
+      "召し上がります（=食べる/飲む）",
+      "ご覧になります（=見る）",
+      "おっしゃいます（=言う）",
+      "なさいます（=する）",
+      "くださいます（=くれる）",
+      "お・ご＋N（尊敬の接頭語）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 48,
+        "items": [
+          "V使役形（Vさせます）",
+          "Vさせていただきます"
+        ]
+      },
+      {
+        "bai": 47,
+        "items": [
+          "〜そうです（伝聞）",
+          "〜らしいです",
+          "Nによると"
+        ]
+      },
+      {
+        "bai": 46,
+        "items": [
+          "Vているところです",
+          "Vたところです"
+        ]
+      },
+      {
+        "bai": 44,
+        "items": [
+          "V方（cách làm）",
+          "Vすぎます"
+        ]
+      },
+      {
+        "bai": 41,
+        "items": [
+          "Vていただきます（謙譲、sơ qua）",
+          "Vてくれます"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）",
+          "Nのために"
+        ]
+      },
+      {
+        "bai": 37,
+        "items": [
+          "V受身形（bị động）— để phân biệt với 尊敬"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 24,
+        "items": [
+          "Vてもらいます",
+          "Vてくれます"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる/Vている＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜とおっしゃいました（trích lời）"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vて〜（nối trình tự）"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください（yêu cầu）",
+          "Vています（đang làm）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "社長がいらっしゃいます",
+      "titleVi": "Ngài giám đốc đã đến",
+      "japanese": "今日、山田商事の田村社長がわが社にいらっしゃいました。\n社長は応接室で部長とお話しになりました。\n社長は会議資料をご覧になってから、いくつかご質問なさいました。\n昼食は社長室でお弁当を召し上がりました。\nお帰りのとき、社長は「今日はお世話になりました」とおっしゃいました。\nわたしたちは出口まで社長をお見送りしました。\nとても丁寧な方で、わたしたちに温かいお言葉をくださいました。",
+      "vietnamese": "Hôm nay, ngài giám đốc Tamura của công ty thương mại Yamada đã đến công ty chúng tôi.\nNgài giám đốc đã nói chuyện với trưởng phòng trong phòng tiếp khách.\nSau khi xem xét tài liệu cuộc họp, ngài đã đặt một số câu hỏi.\nBữa trưa, ngài dùng cơm hộp trong phòng giám đốc.\nLúc ra về, ngài giám đốc nói \"Hôm nay đã làm phiền mọi người rồi\".\nChúng tôi đã tiễn ngài giám đốc ra đến cổng ra.\nNgài là người rất lịch sự và đã ban cho chúng tôi những lời nói ấm áp.",
+      "sentences": [
+        {
+          "jp": "今日、山田商事の田村社長がわが社にいらっしゃいました。",
+          "vi": "Hôm nay, ngài giám đốc Tamura của công ty thương mại Yamada đã đến công ty chúng tôi.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "商事",
+              "read": "しょうじ",
+              "vi": "công ty thương mại"
+            },
+            {
+              "w": "田村",
+              "read": "たむら",
+              "vi": "Tamura (họ người)"
+            },
+            {
+              "w": "社長",
+              "read": "しゃちょう",
+              "vi": "giám đốc, tổng giám đốc"
+            },
+            {
+              "w": "社",
+              "read": "しゃ",
+              "vi": "công ty, đền thờ"
+            },
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "山田商事",
+              "read": "やまだしょうじ",
+              "vi": "công ty thương mại Yamada (tên công ty)"
+            },
+            {
+              "w": "わが社",
+              "read": "わがしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "いらっしゃいました",
+              "read": "いらっしゃいました",
+              "vi": "đã đến (尊敬語 của 来ました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いらっしゃいます（来る→尊敬）",
+              "vi": "いらっしゃいました = \"đã đến\" dùng 尊敬語 vì chủ thể là 社長 (người trên). Thể thường: 田村社長が来ました → 尊敬語: いらっしゃいました."
+            }
+          ]
+        },
+        {
+          "jp": "社長は応接室で部長とお話しになりました。",
+          "vi": "Ngài giám đốc đã nói chuyện với trưởng phòng trong phòng tiếp khách.",
+          "vocab": [
+            {
+              "w": "社長",
+              "read": "しゃちょう",
+              "vi": "giám đốc, tổng giám đốc"
+            },
+            {
+              "w": "応接",
+              "read": "おうせつ",
+              "vi": "tiếp khách"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "お話しになりました",
+              "read": "おはなしになりました",
+              "vi": "đã nói chuyện (尊敬語 của 話しました)"
+            },
+            {
+              "w": "応接室",
+              "read": "おうせつしつ",
+              "vi": "phòng tiếp khách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おVますになります",
+              "vi": "お話し(はなし)になりました = \"đã nói chuyện\" (尊敬語). Cấu trúc: お + 話し(ますstem) + になりました. Thể thường: 話しました → 尊敬語: お話しになりました. Lưu ý: 話す → ますstem là 話し (có し), không phải 話."
+            }
+          ]
+        },
+        {
+          "jp": "社長は会議資料をご覧になってから、いくつかご質問なさいました。",
+          "vi": "Sau khi xem xét tài liệu cuộc họp, ngài đã đặt một số câu hỏi.",
+          "vocab": [
+            {
+              "w": "社長",
+              "read": "しゃちょう",
+              "vi": "giám đốc, tổng giám đốc"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "ご覧になります",
+              "read": "ごらんになります",
+              "vi": "xem, nhìn (尊敬語 của 見ます)"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "なさる",
+              "read": "なさる",
+              "vi": "làm, thực hiện"
+            },
+            {
+              "w": "会議資料",
+              "read": "かいぎしりょう",
+              "vi": "tài liệu cuộc họp"
+            },
+            {
+              "w": "いくつか",
+              "read": "いくつか",
+              "vi": "một số, vài"
+            },
+            {
+              "w": "ご質問",
+              "read": "ごしつもん",
+              "vi": "câu hỏi (尊敬の接頭語 ご)"
+            },
+            {
+              "w": "なさいます",
+              "read": "なさいます",
+              "vi": "làm (尊敬語 của します)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご覧になります（見る→尊敬）",
+              "vi": "ご覧になって = \"đã xem\" (尊敬語 của 見て). Từ đặc biệt: 見る → ご覧になる."
+            },
+            {
+              "point": "なさいます（する→尊敬）",
+              "vi": "ご質問なさいました = \"đã đặt câu hỏi\" (尊敬語 của 質問しました). する → なさる/なさいます."
+            },
+            {
+              "point": "Vてから（B16）",
+              "vi": "ご覧になってから = sau khi xem xong. Hành động hoàn thành (見て) trước rồi mới hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "昼食は社長室でお弁当を召し上がりました。",
+          "vi": "Bữa trưa, ngài dùng cơm hộp trong phòng giám đốc.",
+          "vocab": [
+            {
+              "w": "昼食",
+              "read": "ちゅうしょく",
+              "vi": "bữa trưa"
+            },
+            {
+              "w": "社長",
+              "read": "しゃちょう",
+              "vi": "giám đốc, tổng giám đốc"
+            },
+            {
+              "w": "弁当",
+              "read": "べんとう",
+              "vi": "cơm hộp"
+            },
+            {
+              "w": "召し上がりました",
+              "read": "めしあがりました",
+              "vi": "đã dùng bữa (尊敬語 của 食べました)"
+            },
+            {
+              "w": "社長室",
+              "read": "しゃちょうしつ",
+              "vi": "phòng giám đốc"
+            },
+            {
+              "w": "お弁当",
+              "read": "おべんとう",
+              "vi": "cơm hộp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "召し上がります（食べる/飲む→尊敬）",
+              "vi": "召し上がりました = \"đã ăn/dùng\" (尊敬語 của 食べました). Một từ đặc biệt dùng cho cả ăn lẫn uống."
+            },
+            {
+              "point": "お＋N（尊敬の接頭語）",
+              "vi": "お弁当 ở đây là お dùng tôn trọng khi nói về đồ vật của người trên."
+            }
+          ]
+        },
+        {
+          "jp": "お帰りのとき、社長は「今日はお世話になりました」とおっしゃいました。",
+          "vi": "Lúc ra về, ngài giám đốc nói \"Hôm nay đã làm phiền mọi người rồi\".",
+          "vocab": [
+            {
+              "w": "帰り",
+              "read": "かえり",
+              "vi": "chiều về, lượt về"
+            },
+            {
+              "w": "社長",
+              "read": "しゃちょう",
+              "vi": "giám đốc, tổng giám đốc"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "お世話になりました",
+              "read": "おせわになりました",
+              "vi": "đã được quan tâm/làm phiền (thành ngữ lịch sự)"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "お帰り",
+              "read": "おかえり",
+              "vi": "việc ra về (尊敬の接頭語 お)"
+            },
+            {
+              "w": "おっしゃいました",
+              "read": "おっしゃいました",
+              "vi": "đã nói (尊敬語 của 言いました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おっしゃいます（言う→尊敬）",
+              "vi": "おっしゃいました = \"đã nói\" (尊敬語 của 言いました). Từ đặc biệt: 言う → おっしゃる/おっしゃいます."
+            },
+            {
+              "point": "〜とき（B23）",
+              "vi": "お帰りのとき = lúc/khi ra về. N + のとき."
+            }
+          ]
+        },
+        {
+          "jp": "わたしたちは出口まで社長をお見送りしました。",
+          "vi": "Chúng tôi đã tiễn ngài giám đốc ra đến cổng ra.",
+          "vocab": [
+            {
+              "w": "出口",
+              "read": "でぐち",
+              "vi": "cổng ra, lối ra"
+            },
+            {
+              "w": "社長",
+              "read": "しゃちょう",
+              "vi": "giám đốc, tổng giám đốc"
+            },
+            {
+              "w": "見送り",
+              "read": "みおくり",
+              "vi": "sự tiễn đưa, tiễn biệt"
+            },
+            {
+              "w": "お見送りします",
+              "read": "おみおくりします",
+              "vi": "tiễn (người đi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "謙譲語: お見送りしました",
+              "vi": "お見送りしました = \"đã tiễn\". わたしたち là chủ thể tiễn, hành động hướng đến 社長 (người trên) → đây là 謙譲語 (hạ thấp hành động của mình để tôn trọng người nhận). KHÔNG phải 尊敬語. 謙譲語 học đầy đủ ở Bài 50."
+            }
+          ]
+        },
+        {
+          "jp": "とても丁寧な方で、わたしたちに温かいお言葉をくださいました。",
+          "vi": "Ngài là người rất lịch sự và đã ban cho chúng tôi những lời nói ấm áp.",
+          "vocab": [
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "lịch sự, cẩn thận"
+            },
+            {
+              "w": "温かい",
+              "read": "あたたかい",
+              "vi": "ấm áp"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "くださる",
+              "read": "くださる",
+              "vi": "cho, ban cho"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (cách nói lịch sự hơn 人)"
+            },
+            {
+              "w": "お言葉",
+              "read": "おことば",
+              "vi": "lời nói (尊敬の接頭語 お)"
+            },
+            {
+              "w": "くださいました",
+              "read": "くださいました",
+              "vi": "đã ban/cho (尊敬語 của くれました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "くださいます（くれる→尊敬）",
+              "vi": "くださいました = \"đã cho/ban\" (尊敬語 của くれました). Chủ thể là 社長 (người trên) cho nhân viên → dùng くださいます."
+            },
+            {
+              "point": "お＋N（尊敬の接頭語）",
+              "vi": "お言葉 = \"lời nói\" của người trên. お thêm vào trước danh từ để tôn trọng."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "わが社にいらっしゃいました",
+          "label": "いらっしゃいます（来る→尊敬）"
+        },
+        {
+          "excerpt": "お話しになりました",
+          "label": "おVますになります（話す→尊敬）"
+        },
+        {
+          "excerpt": "ご覧になってから",
+          "label": "ご覧になります（見る→尊敬）"
+        },
+        {
+          "excerpt": "ご質問なさいました",
+          "label": "なさいます（する→尊敬）"
+        },
+        {
+          "excerpt": "お弁当を召し上がりました",
+          "label": "召し上がります（食べる→尊敬）"
+        },
+        {
+          "excerpt": "とおっしゃいました",
+          "label": "おっしゃいます（言う→尊敬）"
+        },
+        {
+          "excerpt": "お言葉をくださいました",
+          "label": "くださいます（くれる→尊敬）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田村社長は昼食に何をなさいましたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "応接室でコーヒーを飲みました",
+            "社長室でお弁当を召し上がりました",
+            "外のレストランで食事しました",
+            "昼食は召し上がりませんでした"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ:「昼食は社長室でお弁当を召し上がりました」(bữa trưa, ngài dùng cơm hộp trong phòng giám đốc). Từ chốt là 召し上がりました — 尊敬語 đặc biệt của 食べます/飲みます, dùng khi người ăn/uống là người trên (社長). Đáp án 0 sai vì bài không nhắc đến cà phê trong phòng tiếp khách. Đáp án 2 sai vì ngài ăn trong phòng giám đốc (社長室), không phải nhà hàng bên ngoài. Đáp án 3 sai vì bài nói ngài đã dùng bữa (召し上がりました), không phải nhịn ăn.",
+          "tip": "Thấy 召し上がります → ngay lập tức nhận ra đây là 尊敬語 của 食べる/飲む. Một từ dùng cho CẢ ăn lẫn uống — học thuộc cặp này sẽ nhận ra bất kỳ câu hỏi nào về bữa ăn của người trên.",
+          "qt": {
+            "q": "Ông Tamura đã dùng bữa trưa như thế nào?",
+            "o": [
+              "Uống cà phê ở phòng tiếp khách",
+              "Dùng cơm hộp ở phòng chủ tịch",
+              "Ăn ở nhà hàng bên ngoài",
+              "Không dùng bữa trưa"
+            ]
+          }
+        },
+        {
+          "q": "社長が帰るときに何とおっしゃいましたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "「また来ます」とおっしゃいました",
+            "「お世話になりました」とおっしゃいました",
+            "「ありがとうございます」とおっしゃいました",
+            "「すみませんでした」とおっしゃいました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi rõ:「お帰りのとき、社長は「今日はお世話になりました」とおっしゃいました」— khi ra về, ngài nói \"Hôm nay đã làm phiền mọi người\". おっしゃいました là 尊敬語 của 言いました — người kể dùng từ đặc biệt này vì chủ thể là 社長 (người trên). Đáp án 0 sai vì ngài không nói \"また来ます\". Đáp án 2 và 3 sai vì bài trích nguyên lời, không phải ありがとう hay すみません.",
+          "tip": "Câu hỏi dạng「何とおっしゃいましたか」→ tìm đoạn có dấu ngoặc kép「」trong bài, ngay trước または sau とおっしゃいました. Nội dung trong「」chính là đáp án.",
+          "qt": {
+            "q": "Khi chủ tịch ra về, ông ấy đã nói gì?",
+            "o": [
+              "Đã nói: 「また来ます」 (Tôi sẽ lại đến)",
+              "Đã nói: 「お世話になりました」 (Cảm ơn vì đã giúp đỡ tôi)",
+              "Đã nói: 「ありがとうございます」 (Xin cảm ơn)",
+              "Đã nói: 「すみませんでした」 (Tôi xin lỗi)"
+            ]
+          }
+        },
+        {
+          "q": "「いらっしゃいました」は次のどの動詞の尊敬語ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "話します（だけ）",
+            "見ます（だけ）",
+            "来ます（だけ）",
+            "来ます・行きます・います（三つ全部）"
+          ],
+          "answer": 3,
+          "explainVi": "Đáp án đúng là 3. いらっしゃいます là 尊敬語 của BA động từ cùng lúc: 来る（đến）, 行く（đi）, いる（ở/có mặt）. Trong bài này「田村社長がわが社にいらっしゃいました」= \"ngài đã ĐẾN công ty chúng tôi\" → nghĩa là 来る. Nhưng trong ngữ cảnh khác,「社長は今日お宅にいらっしゃいます」= \"ngài có mặt ở nhà hôm nay\" (いる). Đáp án 0, 1, 2 đều chỉ nêu một động từ — sai vì bỏ sót hai động từ còn lại. Đây là từ 尊敬語 đặc biệt nhất của Bài 49: một từ phủ ba nghĩa, ngữ cảnh quyết định.",
+          "tip": "いらっしゃいます = \"Bộ ba trong một\": 来る + 行く + いる. Khi thi gặp câu hỏi về いらっしゃいます, luôn chọn đáp án nêu ĐỦ BA động từ — đáp án chỉ nêu một hoặc hai là bẫy.",
+          "qt": {
+            "q": "「いらっしゃいました」 là kính ngữ tôn trọng của động từ nào sau đây?",
+            "o": [
+              "Nói chuyện (chỉ vậy)",
+              "Nhìn (chỉ vậy)",
+              "Đến (chỉ vậy)",
+              "Đến, đi, ở (cả ba)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "お客様がいらっしゃった日",
+      "titleVi": "Ngày khách quý ghé thăm",
+      "japanese": "先週の水曜日、わたしが勤めているさくら電機に大切なお客様がいらっしゃいました。\nお客様は田中物産の松本部長と山本課長のお二人でした。\n松本部長は以前からわが社とお取引がある方で、山本課長は今回初めていらっしゃいました。\nわたしは受付で「お待ちしておりました。どうぞこちらへ」とご案内しました。\nまず、会議室で田島専務が新しい製品についてご説明なさいました。\n松本部長は熱心にメモをお取りになりながら、時々ご質問なさいました。\n山本課長は製品のカタログをじっくりご覧になりました。\n田島専務は「何かご不明な点がございましたら、何でもおっしゃってください」とおっしゃいました。\n松本部長は「御社の新製品はとてもよくできているとおっしゃっていましたね」と山本課長に確認なさいました。\n昼食のとき、お客様は和食をお選びになって、天ぷら定食を召し上がりました。\nわたしは「お口に合いましたか」とお聞きしました。\n松本部長は「とてもおいしゅうございました。ごちそうさまでした」とおっしゃいました。\n午後は工場を見学なさいました。工場長が製造工程をご説明なさりながらご案内なさいました。\n松本部長は製造ラインを熱心にご覧になって、写真もお撮りになりました。\nお帰りの際に、松本部長は「今日はとても勉強になりました。また来させていただきます」とおっしゃいました。\nわたしたちは玄関まで二人をお見送りして、深くお辞儀をしました。\n後で課長が「お客様はとても喜ばれたようだね。よかったよ」とおっしゃいました。\n大切なお客様をお迎えする日は緊張しますが、うまくお役に立てて、わたしもうれしかったです。",
+      "vietnamese": "Thứ Tư tuần trước, công ty điện máy Sakura — nơi tôi đang làm việc — đã đón một vị khách quan trọng.\nKhách là hai người: trưởng phòng Matsumoto và trưởng nhóm Yamamoto của công ty thương mại Tanaka.\nTrưởng phòng Matsumoto là người từ trước đến nay đã có giao dịch với công ty chúng tôi; còn trưởng nhóm Yamamoto là lần đầu tiên đến thăm.\nTôi đón ở quầy lễ tân và hướng dẫn \"Chúng tôi đã chờ đón quý vị. Xin mời đi lối này\".\nTrước tiên, trong phòng họp, phó tổng giám đốc Tajima đã thuyết trình về sản phẩm mới.\nTrong khi chăm chú ghi chú, trưởng phòng Matsumoto thỉnh thoảng đặt câu hỏi.\nTrưởng nhóm Yamamoto đã xem kỹ catalogue sản phẩm.\nPhó tổng giám đốc Tajima nói \"Nếu có điểm nào chưa rõ, xin cứ thẳng thắn hỏi\".\nTrưởng phòng Matsumoto xác nhận với trưởng nhóm Yamamoto \"Sản phẩm mới của quý công ty được làm rất tốt, đúng không?\".\nTrong bữa trưa, quý khách chọn món Nhật và đã thưởng thức bữa ăn tempura định thực.\nTôi hỏi \"Quý vị có hợp khẩu vị không ạ?\".\nTrưởng phòng Matsumoto nói \"Ngon lắm. Cảm ơn vì bữa ăn\".\nBuổi chiều, quý khách đã tham quan nhà máy. Ngài giám đốc nhà máy vừa giải thích quy trình sản xuất vừa hướng dẫn tham quan.\nTrưởng phòng Matsumoto chăm chú nhìn dây chuyền sản xuất và cũng đã chụp ảnh.\nKhi chia tay, trưởng phòng Matsumoto nói \"Hôm nay tôi đã học hỏi được rất nhiều. Tôi sẽ lại đến thăm\".\nChúng tôi tiễn hai vị ra đến cổng chính và cúi đầu sâu chào.\nSau đó, trưởng nhóm của tôi nói \"Khách có vẻ rất hài lòng nhỉ. Tốt lắm\".\nNhững ngày đón tiếp khách quý tôi rất hồi hộp, nhưng đã giúp ích được thì tôi cũng vui.",
+      "sentences": [
+        {
+          "jp": "先週の水曜日、わたしが勤めているさくら電機に大切なお客様がいらっしゃいました。",
+          "vi": "Thứ Tư tuần trước, công ty điện máy Sakura — nơi tôi đang làm việc — đã đón một vị khách quan trọng.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "水曜日",
+              "read": "すいようび",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "勤めています",
+              "read": "つとめています",
+              "vi": "đang làm việc (tại)"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "電機",
+              "read": "でんき",
+              "vi": "máy điện, thiết bị điện"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "khách quý (お・〜様 tôn trọng)"
+            },
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "さくら電機",
+              "read": "さくらでんき",
+              "vi": "công ty điện máy Sakura (tên công ty)"
+            },
+            {
+              "w": "いらっしゃいました",
+              "read": "いらっしゃいました",
+              "vi": "đã đến (尊敬語 của 来ました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いらっしゃいます（来る→尊敬）",
+              "vi": "いらっしゃいました = khách đến. お客様 là người trên → dùng 尊敬語 thay vì 来ました."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa N（B22）",
+              "vi": "わたしが勤めている + さくら電機 = \"công ty điện máy Sakura mà tôi đang làm\". Vている bổ nghĩa danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "お客様は田中物産の松本部長と山本課長のお二人でした。",
+          "vi": "Khách là hai người: trưởng phòng Matsumoto và trưởng nhóm Yamamoto của công ty thương mại Tanaka.",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "物産",
+              "read": "ぶっさん",
+              "vi": "sản vật, tên công ty thương mại"
+            },
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng nhóm, trưởng ca"
+            },
+            {
+              "w": "田中物産",
+              "read": "たなかぶっさん",
+              "vi": "công ty thương mại Tanaka (tên công ty)"
+            },
+            {
+              "w": "お二人",
+              "read": "おふたり",
+              "vi": "hai người (お tôn kính)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お＋N（尊敬の接頭語）",
+              "vi": "お二人 = \"hai người\" với お biểu thị sự tôn trọng với khách. Dạng thường: 二人 (ふたり)."
+            }
+          ]
+        },
+        {
+          "jp": "松本部長は以前からわが社とお取引がある方で、山本課長は今回初めていらっしゃいました。",
+          "vi": "Trưởng phòng Matsumoto là người từ trước đến nay đã có giao dịch với công ty chúng tôi; còn trưởng nhóm Yamamoto là lần đầu tiên đến thăm.",
+          "vocab": [
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "以前",
+              "read": "いぜん",
+              "vi": "trước đây, từ trước"
+            },
+            {
+              "w": "社",
+              "read": "しゃ",
+              "vi": "công ty, đền thờ"
+            },
+            {
+              "w": "取引",
+              "read": "とりひき",
+              "vi": "giao dịch, mua bán"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "お取引",
+              "read": "おとりひき",
+              "vi": "giao dịch, quan hệ thương mại (お tôn trọng)"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người (lịch sự hơn 人)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いらっしゃいました（来る→尊敬）",
+              "vi": "今回初めていらっしゃいました = lần này lần đầu đến. Dùng いらっしゃる vì khách là người trên."
+            },
+            {
+              "point": "お＋N（尊敬の接頭語）",
+              "vi": "お取引 = giao dịch. Tiền tố お dùng trong bối cảnh kinh doanh lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "わたしは受付で「お待ちしておりました。どうぞこちらへ」とご案内しました。",
+          "vi": "Tôi đón ở quầy lễ tân và hướng dẫn \"Chúng tôi đã chờ đón quý vị. Xin mời đi lối này\".",
+          "vocab": [
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân, tiếp tân"
+            },
+            {
+              "w": "お待ちしておりました",
+              "read": "おまちしておりました",
+              "vi": "đã đợi (lời lịch sự của 待っていました)"
+            },
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin mời, xin vui lòng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "ご案内します",
+              "read": "ごあんないします",
+              "vi": "hướng dẫn, chỉ đường (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "謙譲語: お待ちしておりました・ご案内しました",
+              "vi": "お待ちしておりました = \"đã chờ đón\" — hành động của わたし (người kể) hướng đến khách → đây là 謙譲語 (hạ thấp hành động của mình để tôn trọng người nhận). Tương tự, ご案内しました = \"đã hướng dẫn\" — người nói hạ thấp mình. Cả hai là 謙譲語, KHÔNG phải 尊敬語. 謙譲語 học đầy đủ ở Bài 50."
+            }
+          ]
+        },
+        {
+          "jp": "まず、会議室で田島専務が新しい製品についてご説明なさいました。",
+          "vi": "Trước tiên, trong phòng họp, phó tổng giám đốc Tajima đã thuyết trình về sản phẩm mới.",
+          "vocab": [
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "田島",
+              "read": "たじま",
+              "vi": "tên riêng Tajima"
+            },
+            {
+              "w": "専務",
+              "read": "せんむ",
+              "vi": "giám đốc điều hành"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "なさる",
+              "read": "なさる",
+              "vi": "làm, thực hiện"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            },
+            {
+              "w": "田島専務",
+              "read": "たじませんむ",
+              "vi": "phó tổng giám đốc Tajima"
+            },
+            {
+              "w": "新しい製品",
+              "read": "あたらしいせいひん",
+              "vi": "sản phẩm mới"
+            },
+            {
+              "w": "ご説明",
+              "read": "ごせつめい",
+              "vi": "thuyết trình, giải thích (ご tôn kính)"
+            },
+            {
+              "w": "なさいました",
+              "read": "なさいました",
+              "vi": "đã làm (尊敬語 của しました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "なさいます（する→尊敬）",
+              "vi": "ご説明なさいました = \"đã thuyết trình\" (尊敬語 của 説明しました). 田島専務 là người có chức vụ cao → dùng なさいます."
+            },
+            {
+              "point": "〜について（B38）",
+              "vi": "新しい製品について = về sản phẩm mới. について chỉ chủ đề của hành động."
+            }
+          ]
+        },
+        {
+          "jp": "松本部長は熱心にメモをお取りになりながら、時々ご質問なさいました。",
+          "vi": "Trong khi chăm chú ghi chú, trưởng phòng Matsumoto thỉnh thoảng đặt câu hỏi.",
+          "vocab": [
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "熱心に",
+              "read": "ねっしんに",
+              "vi": "nhiệt tình, chăm chú"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "ghi chú, memo"
+            },
+            {
+              "w": "時々",
+              "read": "ときどき",
+              "vi": "thỉnh thoảng"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "なさる",
+              "read": "なさる",
+              "vi": "làm, thực hiện"
+            },
+            {
+              "w": "お取りになります",
+              "read": "おとりになります",
+              "vi": "lấy, ghi (尊敬語 của 取ります)"
+            },
+            {
+              "w": "ご質問",
+              "read": "ごしつもん",
+              "vi": "câu hỏi (ご tôn kính)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おVますになります",
+              "vi": "お取りになりながら = \"trong khi ghi chú\" (尊敬語 của 取りながら). Cấu trúc: お + 取り(ますstem) + になり + ながら."
+            },
+            {
+              "point": "なさいます（する→尊敬）",
+              "vi": "ご質問なさいました = \"đã hỏi\". ご質問 (N tôn kính) + なさいました."
+            },
+            {
+              "point": "Vながら（B28）",
+              "vi": "お取りになりながら = vừa ghi chú vừa (hỏi). ながら nối hai hành động cùng lúc."
+            }
+          ]
+        },
+        {
+          "jp": "山本課長は製品のカタログをじっくりご覧になりました。",
+          "vi": "Trưởng nhóm Yamamoto đã xem kỹ catalogue sản phẩm.",
+          "vocab": [
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "カタログ",
+              "read": "カタログ",
+              "vi": "catalogue, danh mục sản phẩm"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "kỹ lưỡng, cẩn thận"
+            },
+            {
+              "w": "ご覧になりました",
+              "read": "ごらんになりました",
+              "vi": "đã xem (尊敬語 của 見ました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご覧になります（見る→尊敬）",
+              "vi": "ご覧になりました = \"đã xem\" (尊敬語 của 見ました). Từ đặc biệt: 見る → ご覧になる."
+            }
+          ]
+        },
+        {
+          "jp": "田島専務は「何かご不明な点がございましたら、何でもおっしゃってください」とおっしゃいました。",
+          "vi": "Phó tổng giám đốc Tajima nói \"Nếu có điểm nào chưa rõ, xin cứ thẳng thắn hỏi\".",
+          "vocab": [
+            {
+              "w": "田島",
+              "read": "たじま",
+              "vi": "Tajima"
+            },
+            {
+              "w": "専務",
+              "read": "せんむ",
+              "vi": "giám đốc điều hành"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "ご不明",
+              "read": "ごふめい",
+              "vi": "chưa rõ"
+            },
+            {
+              "w": "不明",
+              "read": "ふめい",
+              "vi": "không rõ"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm; vấn đề"
+            },
+            {
+              "w": "ございましたら",
+              "read": "ございましたら",
+              "vi": "nếu có"
+            },
+            {
+              "w": "何でも",
+              "read": "なんでも",
+              "vi": "bất cứ điều gì"
+            },
+            {
+              "w": "おっしゃってください",
+              "read": "おっしゃってください",
+              "vi": "xin hãy nói/cho biết"
+            },
+            {
+              "w": "おっしゃいました",
+              "read": "おっしゃいました",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おっしゃいます（言う→尊敬）",
+              "vi": "おっしゃいました = \"đã nói\" (cuối câu, người nói là 田島専務). おっしゃってください = \"xin hãy nói\" — đây là 尊敬語 dùng trong lời mời khách phát biểu."
+            },
+            {
+              "point": "〜たら（B25）",
+              "vi": "ございましたら = nếu có. たら dùng điều kiện lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "松本部長は「御社の新製品はとてもよくできているとおっしゃっていましたね」と山本課長に確認なさいました。",
+          "vi": "Trưởng phòng Matsumoto xác nhận với trưởng nhóm Yamamoto: \"(Ai đó cấp trên/đáng kính) đã nói rằng sản phẩm mới của quý công ty được làm rất tốt, đúng không?\" — Matsumoto dùng おっしゃる để nhắc lại lời của người mà ông tôn trọng (người trên hoặc bên thứ ba đáng kính).",
+          "vocab": [
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "御社",
+              "read": "おんしゃ",
+              "vi": "quý công ty (cách nói tôn kính về công ty đối tác)"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "山本",
+              "read": "やまもと",
+              "vi": "Yamamoto (họ người)"
+            },
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận"
+            },
+            {
+              "w": "なさる",
+              "read": "なさる",
+              "vi": "làm, thực hiện"
+            },
+            {
+              "w": "新製品",
+              "read": "しんせいひん",
+              "vi": "sản phẩm mới"
+            },
+            {
+              "w": "よくできています",
+              "read": "よくできています",
+              "vi": "được làm tốt, chất lượng tốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おっしゃいます（言う→尊敬）",
+              "vi": "おっしゃっていましたね = \"đã nói (trước đây)\". CHỦ THỂ nói ở đây là người mà 松本部長 tôn trọng (người cấp trên hoặc bên thứ ba đáng kính — không phải Matsumoto tự nói). Matsumoto dùng おっしゃる (尊敬語 của 言う) để trích lời người đó khi nói với Yamamoto. Điểm mấu chốt: おっしゃる luôn chỉ hành động \"nói\" của NGƯỜI TRÊN, không bao giờ của chính mình."
+            },
+            {
+              "point": "なさいます（する→尊敬）",
+              "vi": "確認なさいました = \"đã xác nhận\". 松本部長 là người trên → dùng なさる."
+            },
+            {
+              "point": "〜と思います/〜と言いました（B21）",
+              "vi": "とおっしゃっていました = đã nói rằng~. と trích dẫn nội dung + おっしゃる (尊敬語 của 言う)."
+            }
+          ]
+        },
+        {
+          "jp": "昼食のとき、お客様は和食をお選びになって、天ぷら定食を召し上がりました。",
+          "vi": "Trong bữa trưa, quý khách chọn món Nhật và đã thưởng thức bữa ăn tempura định thực.",
+          "vocab": [
+            {
+              "w": "昼食",
+              "read": "ちゅうしょく",
+              "vi": "bữa trưa"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "和食",
+              "read": "わしょく",
+              "vi": "ẩm thực Nhật Bản"
+            },
+            {
+              "w": "選び",
+              "read": "えらび",
+              "vi": "sự lựa chọn, chọn lọc"
+            },
+            {
+              "w": "天ぷら",
+              "read": "てんぷら",
+              "vi": "món tempura"
+            },
+            {
+              "w": "定食",
+              "read": "ていしょく",
+              "vi": "set cơm, suất ăn trọn bộ"
+            },
+            {
+              "w": "召し上がりました",
+              "read": "めしあがりました",
+              "vi": "đã thưởng thức (尊敬語 của 食べました)"
+            },
+            {
+              "w": "お選びになります",
+              "read": "おえらびになります",
+              "vi": "chọn (尊敬語 của 選びます)"
+            },
+            {
+              "w": "天ぷら定食",
+              "read": "てんぷらていしょく",
+              "vi": "bữa ăn định thực tempura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おVますになります",
+              "vi": "お選びになって = \"đã chọn\" (尊敬語 của 選びました). Cấu trúc: お + 選び(ますstem) + になって (て形 để nối)."
+            },
+            {
+              "point": "召し上がります（食べる→尊敬）",
+              "vi": "召し上がりました = \"đã ăn/dùng bữa\". Dùng cho khách vì là người trên."
+            },
+            {
+              "point": "〜とき（B23）",
+              "vi": "昼食のとき = vào giờ ăn trưa. N + のとき."
+            }
+          ]
+        },
+        {
+          "jp": "わたしは「お口に合いましたか」とお聞きしました。",
+          "vi": "Tôi hỏi \"Quý vị có hợp khẩu vị không ạ?\".",
+          "vocab": [
+            {
+              "w": "口",
+              "read": "くち",
+              "vi": "miệng, lối vào"
+            },
+            {
+              "w": "合う",
+              "read": "あう",
+              "vi": "khớp, đúng, phù hợp"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "お口に合います",
+              "read": "おくちにあいます",
+              "vi": "hợp khẩu vị (cách nói lịch sự)"
+            },
+            {
+              "w": "お聞きします",
+              "read": "おききします",
+              "vi": "hỏi (lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お＋N（尊敬の接頭語）",
+              "vi": "お口 = miệng (của khách). Tiền tố お dùng khi nói về bộ phận cơ thể hoặc đồ vật của người trên để tôn trọng."
+            }
+          ]
+        },
+        {
+          "jp": "松本部長は「とてもおいしゅうございました。ごちそうさまでした」とおっしゃいました。",
+          "vi": "Trưởng phòng Matsumoto nói \"Ngon lắm. Cảm ơn vì bữa ăn\".",
+          "vocab": [
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "ごちそうさま",
+              "read": "ごちそうさま",
+              "vi": "cảm ơn vì bữa ăn"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "おいしゅうございました",
+              "read": "おいしゅうございました",
+              "vi": "\"đã rất ngon\" (cách nói cực kỳ lịch sự của おいしかったです)"
+            },
+            {
+              "w": "ごちそうさまでした",
+              "read": "ごちそうさまでした",
+              "vi": "cảm ơn vì bữa ăn (thành ngữ sau bữa ăn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おっしゃいます（言う→尊敬）",
+              "vi": "おっしゃいました = 松本部長 đã nói. Người trần thuật dùng 尊敬語 khi nhắc đến lời của người trên."
+            }
+          ]
+        },
+        {
+          "jp": "午後は工場を見学なさいました。工場長が製造工程をご説明なさりながらご案内なさいました。",
+          "vi": "Buổi chiều, quý khách đã tham quan nhà máy. Ngài giám đốc nhà máy vừa giải thích quy trình sản xuất vừa hướng dẫn tham quan.",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy"
+            },
+            {
+              "w": "見学します",
+              "read": "けんがくします",
+              "vi": "tham quan, học tập thực địa"
+            },
+            {
+              "w": "なさる",
+              "read": "なさる",
+              "vi": "làm, thực hiện"
+            },
+            {
+              "w": "製造",
+              "read": "せいぞう",
+              "vi": "sự sản xuất, chế tạo"
+            },
+            {
+              "w": "工程",
+              "read": "こうてい",
+              "vi": "công đoạn, quy trình chế tác"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "工場長",
+              "read": "こうじょうちょう",
+              "vi": "giám đốc nhà máy, người có chức vụ trong nhà máy"
+            },
+            {
+              "w": "製造工程",
+              "read": "せいぞうこうてい",
+              "vi": "quy trình sản xuất"
+            },
+            {
+              "w": "ご説明なさいます",
+              "read": "ごせつめいなさいます",
+              "vi": "giải thích (尊敬語: ご説明なさる)"
+            },
+            {
+              "w": "ご案内なさいます",
+              "read": "ごあんないなさいます",
+              "vi": "hướng dẫn (尊敬語: ご案内なさる)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "なさいます（する→尊敬）",
+              "vi": "見学なさいました = \"đã tham quan\" (尊敬語 của 見学しました). Chủ thể là お客様."
+            },
+            {
+              "point": "ご〜なさいます（尊敬語）",
+              "vi": "ご説明なさりながらご案内なさいました = 工場長 vừa giải thích vừa hướng dẫn. 工場長 là người có chức vụ → dùng 尊敬語 (ご説明なさる). Tránh nhầm: ご説明します / ご案内します là 謙譲語 (hành động của người nói hạ thấp mình), KHÔNG dùng cho hành động của 工場長."
+            },
+            {
+              "point": "Vながら（B28）",
+              "vi": "ご説明なさりながら = vừa giải thích vừa (hướng dẫn). なさり là ながら-stem của なさる. Hai hành động đồng thời."
+            }
+          ]
+        },
+        {
+          "jp": "松本部長は製造ラインを熱心にご覧になって、写真もお撮りになりました。",
+          "vi": "Trưởng phòng Matsumoto chăm chú nhìn dây chuyền sản xuất và cũng đã chụp ảnh.",
+          "vocab": [
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "製造ライン",
+              "read": "せいぞうライン",
+              "vi": "dây chuyền sản xuất"
+            },
+            {
+              "w": "ライン",
+              "read": "ライン",
+              "vi": "dây chuyền, đường kẻ"
+            },
+            {
+              "w": "熱心",
+              "read": "ねっしん",
+              "vi": "nhiệt tình, hăng hái"
+            },
+            {
+              "w": "ご覧になります",
+              "read": "ごらんになります",
+              "vi": "xem, nhìn (尊敬語 của 見ます)"
+            },
+            {
+              "w": "写真",
+              "read": "しゃしん",
+              "vi": "ảnh, chụp ảnh"
+            },
+            {
+              "w": "撮る",
+              "read": "とる",
+              "vi": "chụp ảnh, quay phim"
+            },
+            {
+              "w": "お撮りになります",
+              "read": "おとりになります",
+              "vi": "chụp (尊敬語 của 撮ります)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご覧になります（見る→尊敬）",
+              "vi": "ご覧になって = \"đã xem\" (尊敬語 của 見て). て形 nối sang hành động tiếp theo."
+            },
+            {
+              "point": "おVますになります",
+              "vi": "お撮りになりました = \"đã chụp\" (尊敬語 của 撮りました). Cấu trúc: お + 撮り(ますstem) + になりました."
+            }
+          ]
+        },
+        {
+          "jp": "お帰りの際に、松本部長は「今日はとても勉強になりました。また来させていただきます」とおっしゃいました。",
+          "vi": "Khi chia tay, trưởng phòng Matsumoto nói \"Hôm nay tôi đã học hỏi được rất nhiều. Tôi sẽ lại đến thăm\".",
+          "vocab": [
+            {
+              "w": "帰り",
+              "read": "かえり",
+              "vi": "chiều về, lượt về"
+            },
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "勉強になりました",
+              "read": "べんきょうになりました",
+              "vi": "đã học hỏi được nhiều, bổ ích"
+            },
+            {
+              "w": "来させていただきます",
+              "read": "こさせていただきます",
+              "vi": "sẽ xin phép đến thăm (させていただく Bài 48 — Matsumoto hạ thấp hành động của mình)"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "お帰りの際",
+              "read": "おかえりのさい",
+              "vi": "khi ra về, lúc chia tay (lịch sự)"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, lần nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おっしゃいます（言う→尊敬）",
+              "vi": "おっしゃいました = 松本部長 đã nói. Người kể chuyện dùng 尊敬語 cho lời của khách."
+            },
+            {
+              "point": "させていただきます（Bài 48）",
+              "vi": "来させていただきます = \"tôi xin phép đến\" — Matsumoto tự hạ thấp hành động của mình (謙譲語). Cấu trúc させていただく học ở Bài 48 (Vさせていただきます). Bài 49 gặp lại để nhận biết: đây là lời của Matsumoto tự nói về mình, không phải 尊敬語."
+            }
+          ]
+        },
+        {
+          "jp": "わたしたちは玄関まで二人をお見送りして、深くお辞儀をしました。",
+          "vi": "Chúng tôi tiễn hai vị ra đến cổng chính và cúi đầu sâu chào.",
+          "vocab": [
+            {
+              "w": "わたしたち",
+              "read": "わたしたち",
+              "vi": "chúng tôi"
+            },
+            {
+              "w": "玄関",
+              "read": "げんかん",
+              "vi": "cửa ra vào"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "お見送りして",
+              "read": "おみおくりして",
+              "vi": "tiễn"
+            },
+            {
+              "w": "見送り",
+              "read": "みおくり",
+              "vi": "việc tiễn"
+            },
+            {
+              "w": "深く",
+              "read": "ふかく",
+              "vi": "sâu; cung kính"
+            },
+            {
+              "w": "お辞儀をしました",
+              "read": "おじぎをしました",
+              "vi": "đã cúi chào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "謙譲語: お見送りしました",
+              "vi": "お見送りしました = \"đã tiễn\" — hành động của わたしたち (người kể/nhân viên) hướng đến khách (người trên). Đây là 謙譲語: người nói hạ thấp hành động của mình để tôn trọng người nhận. KHÔNG phải 尊敬語. 謙譲語 học đầy đủ ở Bài 50."
+            },
+            {
+              "point": "Vて〜（B16）",
+              "vi": "お見送りして、お辞儀をしました = tiễn xong rồi cúi đầu. Nối hai hành động trình tự."
+            }
+          ]
+        },
+        {
+          "jp": "後で課長が「お客様はとても喜ばれたようだね。よかったよ」とおっしゃいました。",
+          "vi": "Sau đó, trưởng nhóm của tôi nói \"Khách có vẻ rất hài lòng nhỉ. Tốt lắm\".",
+          "vocab": [
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau đó, sau này"
+            },
+            {
+              "w": "課長",
+              "read": "かちょう",
+              "vi": "trưởng nhóm (của người nói)"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "喜ばれました",
+              "read": "よろこばれました",
+              "vi": "đã vui/hài lòng (V受身形 dùng tôn kính: 喜ぶ→喜ばれる)"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "〜ようだ",
+              "read": "〜ようだ",
+              "vi": "có vẻ như~"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身形（尊敬）",
+              "vi": "喜ばれた = \"đã vui/hài lòng\" — đây là 受身形 dùng theo nghĩa 尊敬語. お客様 là chủ thể + 喜ぶ → 喜ばれる (尊敬). Khác nghĩa bị động (被害受身) vì chủ thể là người trên, không có hàm ý \"bị làm gì\"."
+            },
+            {
+              "point": "おっしゃいます（言う→尊敬）",
+              "vi": "おっしゃいました = 課長 đã nói. 課長 là người trên so với người kể → dùng 尊敬語."
+            }
+          ]
+        },
+        {
+          "jp": "大切なお客様をお迎えする日は緊張しますが、うまくお役に立てて、わたしもうれしかったです。",
+          "vi": "Những ngày đón tiếp khách quý tôi rất hồi hộp, nhưng đã giúp ích được thì tôi cũng vui.",
+          "vocab": [
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "お迎えします",
+              "read": "おむかえします",
+              "vi": "đón tiếp (lịch sự)"
+            },
+            {
+              "w": "緊張します",
+              "read": "きんちょうします",
+              "vi": "hồi hộp, căng thẳng"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "khéo léo, suôn sẻ"
+            },
+            {
+              "w": "役",
+              "read": "やく",
+              "vi": "vai trò, tác dụng"
+            },
+            {
+              "w": "立てる",
+              "read": "たてる",
+              "vi": "dựng lên, lập nên"
+            },
+            {
+              "w": "うれしい",
+              "read": "うれしい",
+              "vi": "vui mừng, hạnh phúc"
+            },
+            {
+              "w": "お役に立ちます",
+              "read": "おやくにたちます",
+              "vi": "giúp ích được, có ích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa N（B22）",
+              "vi": "お客様をお迎えする日 = \"những ngày đón khách\". Vる bổ nghĩa cho N (日)."
+            },
+            {
+              "point": "〜が（逆接）",
+              "vi": "緊張しますが = hồi hộp nhưng~. が nối hai vế đối lập."
+            },
+            {
+              "point": "Vて〜（B16）",
+              "vi": "お役に立てて、うれしかった = giúp ích được thì vui. て形 nêu nguyên nhân/điều kiện."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "お客様がいらっしゃいました",
+          "label": "いらっしゃいます（来る→尊敬）"
+        },
+        {
+          "excerpt": "田島専務が新しい製品についてご説明なさいました",
+          "label": "なさいます（する→尊敬）"
+        },
+        {
+          "excerpt": "メモをお取りになりながら",
+          "label": "おVますになります（取る→尊敬）"
+        },
+        {
+          "excerpt": "カタログをじっくりご覧になりました",
+          "label": "ご覧になります（見る→尊敬）"
+        },
+        {
+          "excerpt": "和食をお選びになって",
+          "label": "おVますになります（選ぶ→尊敬）"
+        },
+        {
+          "excerpt": "天ぷら定食を召し上がりました",
+          "label": "召し上がります（食べる→尊敬）"
+        },
+        {
+          "excerpt": "とおっしゃいました",
+          "label": "おっしゃいます（言う→尊敬）"
+        },
+        {
+          "excerpt": "写真もお撮りになりました",
+          "label": "おVますになります（撮る→尊敬）"
+        },
+        {
+          "excerpt": "お客様はとても喜ばれたようだね",
+          "label": "V受身形（尊敬）— 喜ぶ→喜ばれる"
+        }
+      ],
+      "questions": [
+        {
+          "q": "松本部長と山本課長について、正しいものはどれですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "二人とも今回初めてさくら電機にいらっしゃいました",
+            "松本部長は以前からさくら電機と取引があり、山本課長は今回初めていらっしゃいました",
+            "山本課長は以前からさくら電機と取引があり、松本部長は今回初めていらっしゃいました",
+            "二人とも以前からさくら電機と取引がある方でした"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết phân biệt rõ hai người:「松本部長は以前からわが社とお取引がある方で、山本課長は今回初めていらっしゃいました」— Matsumoto đã có giao dịch từ trước (以前から), còn Yamamoto lần đầu đến (今回初めて). Đáp án 0 sai vì chỉ Yamamoto mới lần đầu, không phải cả hai. Đáp án 2 sai vì nhầm vai — bài nói ngược lại (Matsumoto có giao dịch, không phải Yamamoto). Đáp án 3 sai vì Yamamoto lần đầu đến, không phải cả hai đã có giao dịch.",
+          "tip": "Câu hỏi so sánh hai nhân vật → đọc cẩn thận VỊ TRÍ của mỗi tên người trong câu bài. Bẫy thường là đổi chỗ hai tên (đáp án 2 trong câu này). Tìm từ chốt 以前から (từ trước) và 今回初めて (lần đầu) để phân biệt nhanh.",
+          "qt": {
+            "q": "Điều nào sau đây đúng về Trưởng phòng Matsumoto và Tổ trưởng Yamamoto?",
+            "o": [
+              "Cả hai đều lần đầu đến Công ty Điện tử Sakura vào dịp này",
+              "Trưởng phòng Matsumoto đã giao dịch với Công ty Điện tử Sakura từ trước, còn Tổ trưởng Yamamoto lần đầu đến vào dịp này",
+              "Tổ trưởng Yamamoto đã giao dịch với Công ty Điện tử Sakura từ trước, còn Trưởng phòng Matsumoto lần đầu đến vào dịp này",
+              "Cả hai đều đã giao dịch với Công ty Điện tử Sakura từ trước"
+            ]
+          }
+        },
+        {
+          "q": "この文章の中で、「食べました」の尊敬語として使われている表現はどれですか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "いらっしゃいました",
+            "おっしゃいました",
+            "召し上がりました",
+            "ご覧になりました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài có câu「天ぷら定食を召し上がりました」— お客様 dùng bữa trưa → người ăn là người trên → dùng 召し上がります (尊敬語 của 食べる/飲む). Đáp án 0 sai: いらっしゃいます là 尊敬語 của 来る/行く/いる (đến/đi/có mặt), không liên quan đến ăn uống. Đáp án 1 sai: おっしゃいます là 尊敬語 của 言う (nói). Đáp án 3 sai: ご覧になります là 尊敬語 của 見る (nhìn/xem). Đây là câu hỏi kiểm tra bộ từ vựng 尊敬語 đặc biệt — mỗi từ có một \"cặp gốc\" riêng.",
+          "tip": "HỌC THUỘC bảng cặp gốc↔尊敬語: 食べる/飲む→召し上がる; 言う→おっしゃる; 見る→ご覧になる; いる/来る/行く→いらっしゃる; する→なさる; くれる→くださる. Khi gặp câu hỏi \"X の尊敬語はどれ\", dò bảng này ngay lập tức.",
+          "qt": {
+            "q": "Trong đoạn văn này, cách diễn đạt nào được dùng làm kính ngữ tôn kính của 「食べました」 (đã ăn)?",
+            "o": [
+              "đã đến",
+              "đã nói",
+              "đã dùng bữa",
+              "đã xem"
+            ]
+          }
+        },
+        {
+          "q": "課長は「お客様はとても喜ばれたようだね」とおっしゃいました。「喜ばれた」の使い方について、正しい説明はどれですか。",
+          "evi": [
+            16
+          ],
+          "options": [
+            "お客様が誰かに喜ばされた（被害受身）という意味です",
+            "V受身形を尊敬語として使っていて、「お客様が喜んだ」という意味です",
+            "「喜ぶ」の可能形（喜べる）の過去形です",
+            "「喜ぶ」の使役形（喜ばせる）の受身です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. 喜ばれた ở đây là V受身形 dùng theo nghĩa 尊敬語 — không phải bị động. Dấu hiệu nhận biết: chủ thể là お客様 (người trên) + động từ không có ý nghĩa \"bị ai làm gì\" → đây là 尊敬語 nhẹ (受身形-尊敬). Nghĩa: \"khách đã vui/hài lòng\". Đáp án 0 sai vì 被害受身 (bị động thiệt hại) yêu cầu ai đó GÂY RA hành động cho khách — ngữ cảnh không có điều đó. Đáp án 2 sai vì 喜ばれた không phải thể có thể (可能形 của 喜ぶ sẽ là 喜べる). Đáp án 3 sai vì 使役受身 của 喜ぶ sẽ là 喜ばされた (4 âm), không phải 喜ばれた (3 âm).",
+          "tip": "Phân biệt nhanh V受身形-尊敬 vs 被害受身: nếu CHỦ THỂ là người trên (khách, cấp trên) và KHÔNG có ai gây ra hành động lên họ → là 尊敬. Nếu chủ thể BỊ người khác làm gì → là 被害受身. 喜ばれた với お客様 làm chủ thể = 尊敬 điển hình.",
+          "qt": {
+            "q": "Trưởng phòng nói: “Có vẻ khách hàng đã rất vui.” Cách dùng của 「喜ばれた」 (đã vui) được giải thích đúng như thế nào?",
+            "o": [
+              "Có nghĩa là khách hàng bị ai đó làm cho vui (thể bị động mang ý chịu tác động bất lợi)",
+              "Dùng thể bị động V làm kính ngữ tôn kính, với nghĩa “khách hàng đã vui”",
+              "Là dạng quá khứ của thể khả năng của 「喜ぶ」 (có thể vui)",
+              "Là thể bị động của thể sai khiến của 「喜ぶ」 (làm cho vui)"
+            ]
+          }
+        },
+        {
+          "q": "お客様が帰るときに、松本部長は何とおっしゃいましたか。また、わたしたちはどうしましたか。",
+          "evi": [
+            14,
+            15
+          ],
+          "options": [
+            "「また来ます」とおっしゃった。わたしたちはそのまま仕事に戻りました",
+            "「今日はとても勉強になりました。また来させていただきます」とおっしゃった。わたしたちは玄関まで二人をお見送りして、深くお辞儀をしました",
+            "「御社の製品はすばらしい」とおっしゃった。わたしたちは写真を一緒に撮りました",
+            "「ごちそうさまでした」とおっしゃった。わたしたちは応接室で待っていました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi rõ ĐỦ HAI chi tiết:「お帰りの際に、松本部長は「今日はとても勉強になりました。また来させていただきます」とおっしゃいました」(lời của Matsumoto) VÀ「わたしたちは玄関まで二人をお見送りして、深くお辞儀をしました」(hành động của nhân viên). Đáp án 0 sai vì lời thoại sai và nhân viên không \"quay lại làm việc ngay\". Đáp án 2 sai vì「御社の製品はすばらしい」là nội dung thảo luận buổi sáng, không phải lúc ra về; cũng không ai chụp ảnh cùng. Đáp án 3 sai vì「ごちそうさまでした」là câu nói sau bữa ăn, không phải lúc chia tay.",
+          "tip": "Câu hỏi \"X は何とおっしゃいましたか。また〜はどうしましたか\" → cần tìm ĐẠI TỪ CỦA CẢ HAI vế trong bài, không chỉ một. Loại ngay đáp án nào có sai sót ở VẾ THỨ HAI (hành động nhân viên) — đó thường là bẫy.",
+          "qt": {
+            "q": "Khi khách hàng ra về, Trưởng phòng Matsumoto đã nói gì? Và chúng tôi đã làm gì?",
+            "o": [
+              "Ông ấy nói: “Tôi sẽ lại đến.” Chúng tôi trở về làm việc như thường",
+              "Ông ấy nói: “Hôm nay tôi đã học hỏi được rất nhiều. Tôi xin phép được đến thăm lần nữa.” Chúng tôi tiễn hai người ra tận cửa chính và cúi chào thật sâu",
+              "Ông ấy nói: “Sản phẩm của quý công ty thật tuyệt vời.” Chúng tôi cùng chụp ảnh",
+              "Ông ấy nói: “Cảm ơn vì bữa ăn.” Chúng tôi đợi trong phòng tiếp khách"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Buổi nói chuyện đặc biệt & tham quan nhà máy tại đại học Sakura",
+      "japanese": "さくら大学　特別講演会・工場見学のお知らせ\nIMCの中村社長がさくら大学にいらっしゃって、講演会でお話しになります。学生だけでなく、社会人も参加できます。\n講演会の後、ご希望の方はIMCの新しい工場も見学なさることができます。\n行事｜日｜時間｜場所｜定員\n講演会｜11月14日（土）｜13時〜14時半｜大学ホール｜200人まで\n工場見学｜11月14日（土）｜15時〜16時｜IMC新工場｜40人まで\n講演会の資料は、当日ホールの入り口でご覧になれます。\n※工場見学だけ申し込む方も、講演会に参加する方も、11月10日までに大学のホームページで申し込んでください。\n※工場見学は、大学からバスで20分かかります。バス代は無料です。\nお問い合わせ：さくら大学学生課　042-555-1188（月〜金　9時〜17時）",
+      "vietnamese": "Thông báo: Buổi nói chuyện đặc biệt và tham quan nhà máy tại đại học Sakura\nNgài giám đốc Nakamura của IMC sẽ đến đại học Sakura và nói chuyện trong buổi thuyết trình. Không chỉ sinh viên, người đi làm cũng có thể tham gia.\nSau buổi thuyết trình, những ai muốn có thể tham quan nhà máy mới của IMC.\nSự kiện｜Ngày｜Giờ｜Địa điểm｜Số người tối đa\nBuổi thuyết trình｜Ngày 14/11 (Thứ Bảy)｜13:00〜14:30｜Hội trường đại học｜Tối đa 200 người\nTham quan nhà máy｜Ngày 14/11 (Thứ Bảy)｜15:00〜16:00｜Nhà máy mới của IMC｜Tối đa 40 người\nTài liệu buổi thuyết trình có thể xem được ở cửa vào hội trường trong ngày hôm đó.\n※ Dù chỉ đăng ký tham quan nhà máy hay đăng ký cả buổi thuyết trình, xin hãy đăng ký trên trang web của trường trước ngày 10/11.\n※ Tham quan nhà máy mất 20 phút đi xe buýt từ trường. Tiền xe buýt miễn phí.\nLiên hệ: Phòng Công tác sinh viên đại học Sakura　042-555-1188 (Thứ Hai〜Thứ Sáu　9:00〜17:00)",
+      "sentences": [
+        {
+          "jp": "さくら大学　特別講演会・工場見学のお知らせ",
+          "vi": "Thông báo: Buổi nói chuyện đặc biệt và tham quan nhà máy tại đại học Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "特別",
+              "read": "とくべつ",
+              "vi": "đặc biệt"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài giảng, buổi thuyết trình"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy, xưởng"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan (học tập)"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "講演会",
+              "read": "こうえんかい",
+              "vi": "buổi thuyết trình, buổi nói chuyện"
+            },
+            {
+              "w": "工場見学",
+              "read": "こうじょうけんがく",
+              "vi": "tham quan nhà máy"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "特別講演会・工場見学のお知らせ",
+              "why": "Tiêu đề nêu 2 hoạt động chính (講演会 + 工場見学) — khung để đối chiếu bảng giờ ở dưới."
+            }
+          ]
+        },
+        {
+          "jp": "IMCの中村社長がさくら大学にいらっしゃって、講演会でお話しになります。学生だけでなく、社会人も参加できます。",
+          "vi": "Ngài giám đốc Nakamura của IMC sẽ đến đại học Sakura và nói chuyện trong buổi thuyết trình. Không chỉ sinh viên, người đi làm cũng có thể tham gia.",
+          "vocab": [
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "中村",
+              "read": "なかむら",
+              "vi": "Nakamura (họ người)"
+            },
+            {
+              "w": "社長",
+              "read": "しゃちょう",
+              "vi": "giám đốc"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài giảng, buổi thuyết trình"
+            },
+            {
+              "w": "お話しになります",
+              "read": "おはなしになります",
+              "vi": "sẽ nói chuyện (尊敬語 của 話します)"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "社会",
+              "read": "しゃかい",
+              "vi": "xã hội"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "いらっしゃって",
+              "read": "いらっしゃって",
+              "vi": "sẽ đến (尊敬語 của 来て)"
+            },
+            {
+              "w": "〜だけでなく",
+              "read": "〜だけでなく",
+              "vi": "không chỉ~ (mà còn)"
+            },
+            {
+              "w": "社会人",
+              "read": "しゃかいじん",
+              "vi": "người đi làm, người đã đi làm (không còn là sinh viên)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いらっしゃいます（来る→尊敬）",
+              "vi": "いらっしゃって = \"sẽ đến\" (尊敬語 của 来て). Chủ thể là 中村社長 (người trên) → dùng いらっしゃる thay vì 来る."
+            },
+            {
+              "point": "おVますになります",
+              "vi": "お話しになります = \"sẽ nói chuyện\" (尊敬語 của 話します). Cấu trúc: お + 話し(ますstem) + になります."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生だけでなく、社会人も参加できます",
+              "why": "Điều kiện đối tượng tham gia — xác nhận cả người đi làm (như nhân vật câu hỏi) đều được dự."
+            }
+          ]
+        },
+        {
+          "jp": "講演会の後、ご希望の方はIMCの新しい工場も見学なさることができます。",
+          "vi": "Sau buổi thuyết trình, những ai muốn có thể tham quan nhà máy mới của IMC.",
+          "vocab": [
+            {
+              "w": "講演会",
+              "read": "こうえんかい",
+              "vi": "buổi diễn thuyết"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài diễn thuyết"
+            },
+            {
+              "w": "後",
+              "read": "あと",
+              "vi": "sau; sau đó"
+            },
+            {
+              "w": "ご希望の方",
+              "read": "ごきぼうのかた",
+              "vi": "người có nguyện vọng"
+            },
+            {
+              "w": "ご希望",
+              "read": "ごきぼう",
+              "vi": "nguyện vọng"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "nguyện vọng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "IMC",
+              "read": "アイエムシー",
+              "vi": "IMC"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy"
+            },
+            {
+              "w": "見学なさる",
+              "read": "けんがくなさる",
+              "vi": "tham quan (kính ngữ)"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan"
+            },
+            {
+              "w": "なさる",
+              "read": "なさる",
+              "vi": "làm (kính ngữ)"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "なさいます（する→尊敬）",
+              "vi": "見学なさることができます = \"có thể tham quan\" (尊敬語 của 見学することができます). する → なさる."
+            },
+            {
+              "point": "Vることができます（B18）",
+              "vi": "見学なさることができます = có thể tham quan được. 辞書形＋ことができます diễn đạt khả năng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "講演会の後",
+              "why": "Trình tự sự kiện: 見学 diễn ra SAU 講演会 — gợi ý so giờ hai hoạt động khi xét điều kiện thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "行事｜日｜時間｜場所｜定員",
+          "vi": "Sự kiện｜Ngày｜Giờ｜Địa điểm｜Số người tối đa",
+          "vocab": [
+            {
+              "w": "行事",
+              "read": "ぎょうじ",
+              "vi": "sự kiện, hoạt động"
+            },
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "ngày, mặt trời"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "定員",
+              "read": "ていいん",
+              "vi": "số người tối đa, sức chứa"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "講演会｜11月14日（土）｜13時〜14時半｜大学ホール｜200人まで",
+          "vi": "Buổi thuyết trình｜Ngày 14/11 (Thứ Bảy)｜13:00〜14:30｜Hội trường đại học｜Tối đa 200 người",
+          "vocab": [
+            {
+              "w": "講演会",
+              "read": "こうえんかい",
+              "vi": "buổi diễn thuyết"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài diễn thuyết"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "14日",
+              "read": "じゅうよっか",
+              "vi": "ngày 14"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "Thứ bảy"
+            },
+            {
+              "w": "13時",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "14時半",
+              "read": "じゅうよじはん",
+              "vi": "14 giờ 30"
+            },
+            {
+              "w": "大学ホール",
+              "read": "だいがくホール",
+              "vi": "hội trường đại học"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "đại học"
+            },
+            {
+              "w": "ホール",
+              "read": "ホール",
+              "vi": "hội trường"
+            },
+            {
+              "w": "200人",
+              "read": "にひゃくにん",
+              "vi": "200 người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（B4）",
+              "vi": "13時〜14時半 = từ 13 giờ đến 14 giờ rưỡi. から〜まで chỉ khoảng thời gian."
+            }
+          ],
+          "keys": [
+            {
+              "w": "13時〜14時半",
+              "why": "Giờ 講演会 — nhân vật chỉ rảnh từ 15時 nên KHÔNG kịp giờ này (đã kết thúc lúc 14時半)."
+            }
+          ]
+        },
+        {
+          "jp": "工場見学｜11月14日（土）｜15時〜16時｜IMC新工場｜40人まで",
+          "vi": "Tham quan nhà máy｜Ngày 14/11 (Thứ Bảy)｜15:00〜16:00｜Nhà máy mới của IMC｜Tối đa 40 người",
+          "vocab": [
+            {
+              "w": "工場見学",
+              "read": "こうじょうけんがく",
+              "vi": "tham quan nhà máy"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "14日",
+              "read": "じゅうよっか",
+              "vi": "ngày 14"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "Thứ bảy"
+            },
+            {
+              "w": "15時",
+              "read": "じゅうごじ",
+              "vi": "15 giờ"
+            },
+            {
+              "w": "16時",
+              "read": "じゅうろくじ",
+              "vi": "16 giờ"
+            },
+            {
+              "w": "IMC",
+              "read": "アイエムシー",
+              "vi": "IMC"
+            },
+            {
+              "w": "新工場",
+              "read": "しんこうじょう",
+              "vi": "nhà máy mới"
+            },
+            {
+              "w": "40人",
+              "read": "よんじゅうにん",
+              "vi": "40 người"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "15時〜16時",
+              "why": "Giờ 工場見学 — bắt đầu ĐÚNG lúc nhân vật rảnh (午後3時) nên tham gia được, là căn cứ chính của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "講演会の資料は、当日ホールの入り口でご覧になれます。",
+          "vi": "Tài liệu buổi thuyết trình có thể xem được ở cửa vào hội trường trong ngày hôm đó.",
+          "vocab": [
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài giảng, buổi thuyết trình"
+            },
+            {
+              "w": "資料",
+              "read": "しりょう",
+              "vi": "tài liệu"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngày hôm đó, chính ngày"
+            },
+            {
+              "w": "ホール",
+              "read": "ホール",
+              "vi": "hội trường"
+            },
+            {
+              "w": "入り口",
+              "read": "いりぐち",
+              "vi": "cửa vào, lối vào"
+            },
+            {
+              "w": "ご覧になれます",
+              "read": "ごらんになれます",
+              "vi": "có thể xem được (尊敬語 khả năng của 見られます)"
+            },
+            {
+              "w": "なれる",
+              "read": "なれる",
+              "vi": "có thể trở thành, quen"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご覧になります（見る→尊敬）",
+              "vi": "ご覧になれます = \"có thể xem được\" — dạng khả năng của ご覧になります (尊敬語 của 見る). Dùng khi mời khách xem tài liệu một cách lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "資料は、当日ホールの入り口でご覧になれます",
+              "why": "Bẫy nhiễu ở câu hỏi 2: tài liệu XEM được tại chỗ, KHÔNG phải mua/trả phí — không sinh ra khoản tiền nào."
+            }
+          ]
+        },
+        {
+          "jp": "※工場見学だけ申し込む方も、講演会に参加する方も、11月10日までに大学のホームページで申し込んでください。",
+          "vi": "※ Dù chỉ đăng ký tham quan nhà máy hay đăng ký cả buổi thuyết trình, xin hãy đăng ký trên trang web của trường trước ngày 10/11.",
+          "vocab": [
+            {
+              "w": "工場見学",
+              "read": "こうじょうけんがく",
+              "vi": "tham quan nhà máy"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "申し込む方",
+              "read": "もうしこむかた",
+              "vi": "người đăng ký"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "講演会",
+              "read": "こうえんかい",
+              "vi": "buổi diễn thuyết"
+            },
+            {
+              "w": "講演",
+              "read": "こうえん",
+              "vi": "bài diễn thuyết"
+            },
+            {
+              "w": "参加する",
+              "read": "さんかする",
+              "vi": "tham gia"
+            },
+            {
+              "w": "参加",
+              "read": "さんか",
+              "vi": "sự tham gia"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "月",
+              "read": "がつ",
+              "vi": "tháng"
+            },
+            {
+              "w": "10日",
+              "read": "とおか",
+              "vi": "ngày 10"
+            },
+            {
+              "w": "までに",
+              "read": "までに",
+              "vi": "trước thời hạn"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "đại học"
+            },
+            {
+              "w": "ホームページ",
+              "read": "ホームページ",
+              "vi": "trang web"
+            },
+            {
+              "w": "申し込んでください",
+              "read": "もうしこんでください",
+              "vi": "hãy đăng ký"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（B17）",
+              "vi": "11月10日までに = trước/chậm nhất là ngày 10/11. までに chỉ hạn chót phải xong việc."
+            },
+            {
+              "point": "Vてください（B14）",
+              "vi": "申し込んでください = xin hãy đăng ký. Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "11月10日までに大学のホームページで申し込んでください",
+              "why": "※ điều kiện đăng ký: qua trang web, KHÔNG mất phí đăng ký — bẫy loại đáp án \"200円 đăng ký\" ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "※工場見学は、大学からバスで20分かかります。バス代は無料です。",
+          "vi": "※ Tham quan nhà máy mất 20 phút đi xe buýt từ trường. Tiền xe buýt miễn phí.",
+          "vocab": [
+            {
+              "w": "工場見学",
+              "read": "こうじょうけんがく",
+              "vi": "tham quan nhà máy"
+            },
+            {
+              "w": "工場",
+              "read": "こうじょう",
+              "vi": "nhà máy"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "đại học"
+            },
+            {
+              "w": "バスで",
+              "read": "バスで",
+              "vi": "bằng xe buýt"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "20分",
+              "read": "にじゅっぷん",
+              "vi": "20 phút"
+            },
+            {
+              "w": "かかります",
+              "read": "かかります",
+              "vi": "mất (thời gian)"
+            },
+            {
+              "w": "バス代",
+              "read": "バスだい",
+              "vi": "tiền xe buýt"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện, B5）",
+              "vi": "バスで20分かかります = mất 20 phút bằng xe buýt. で chỉ phương tiện di chuyển."
+            }
+          ],
+          "keys": [
+            {
+              "w": "大学からバスで20分かかります",
+              "why": "Bẫy câu hỏi 2: 20分 chỉ là THỜI GIAN di chuyển, KHÔNG phải căn cứ để tính tiền — dễ nhầm sang đáp án \"1000円 vì đi 20 phút\"."
+            },
+            {
+              "w": "バス代は無料です",
+              "why": "Căn cứ trực tiếp câu hỏi 2: バス代 = 0円, bẫy vì 20分 gây tưởng lầm là có phí theo quãng đường/thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくら大学学生課　042-555-1188（月〜金　9時〜17時）",
+          "vi": "Liên hệ: Phòng Công tác sinh viên đại học Sakura　042-555-1188 (Thứ Hai〜Thứ Sáu　9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ; hỏi đáp"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "sự hỏi đáp"
+            },
+            {
+              "w": "さくら大学学生課",
+              "read": "さくらだいがくがくせいか",
+              "vi": "Phòng công tác sinh viên Đại học Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "đại học"
+            },
+            {
+              "w": "学生課",
+              "read": "がくせいか",
+              "vi": "phòng công tác sinh viên"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "Thứ hai"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "Thứ sáu"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu 2 hoạt động",
+          "topic": 0,
+          "note": "Nêu tên sự kiện (講演会・工場見学), khách mời, điều kiện đối tượng tham gia (社会人 cũng được), và trình tự trước-sau giữa hai hoạt động — nền tảng để đối chiếu bảng giờ, nhưng không chứa số giờ cụ thể nên không phải căn cứ trực tiếp.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng giờ & định viên",
+          "topic": 4,
+          "note": "Bảng chứa cột 時間 của 講演会 (13時〜14時半) và 工場見学 (15時〜16時) — căn cứ chính để so với giờ rảnh của nhân vật ở câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 6,
+          "kind": "turn",
+          "label": "Xem tài liệu tại chỗ",
+          "topic": 6,
+          "note": "Tài liệu xem tại cửa hội trường ngày diễn ra, không nói đến phí — bẫy nhẹ giúp loại đáp án \"500円 tài liệu\" ở câu hỏi 2, nhưng KHÔNG phải căn cứ trực tiếp (evi thật nằm ở dòng バス代無料).",
+          "qs": []
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Điều kiện ※: hạn đăng ký & bus",
+          "topic": 8,
+          "note": "Hai dòng ※: hạn đăng ký qua web trước 11月10日 (không phí), và bus đến nhà máy 20 phút nhưng MIỄN PHÍ — căn cứ trực tiếp câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 9,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 9,
+          "note": "Số điện thoại và giờ làm việc của phòng công tác sinh viên, không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "中村社長がさくら大学にいらっしゃって",
+          "label": "いらっしゃいます（来る→尊敬）"
+        },
+        {
+          "excerpt": "講演会でお話しになります",
+          "label": "おVますになります（話す→尊敬）"
+        },
+        {
+          "excerpt": "工場も見学なさることができます",
+          "label": "なさいます（する→尊敬）"
+        },
+        {
+          "excerpt": "ホールの入り口でご覧になれます",
+          "label": "ご覧になります（見る→尊敬、可能形）"
+        },
+        {
+          "excerpt": "11月10日までに大学のホームページで申し込んでください",
+          "label": "Nまでに（B17）・Vてください（B14）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは社会人です。仕事があるので、11月14日は午後3時からしか時間がありません。田中さんは何ができますか。",
+          "options": [
+            "13時からの講演会だけ聞くことができます",
+            "15時からの工場見学だけ参加することができます",
+            "講演会も工場見学も両方参加することができます",
+            "午後3時からは何も参加できません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng ghi rõ: 講演会 diễn ra 13時〜14時半 (13:00-14:30), còn 工場見学 diễn ra 15時〜16時 (15:00-16:00). Vì田中さん chỉ có thời gian từ 15時 (午後3時) trở đi, nên không kịp giờ講演会 (đã bắt đầu lúc 13時, kết thúc trước khi田中さん rảnh) nhưng vừa kịp 工場見学 (bắt đầu đúng 15時). Đáp án 0 sai vì講演会 đã kết thúc lúc 14時半, trước khi田中さん rảnh. Đáp án 2 sai vì không thể tham gia講演会 do trùng giờ đang bận việc. Đáp án 3 sai vì田中さん vẫn kịp tham gia工場見学 lúc 15時.",
+          "tip": "Gặp câu hỏi \"chỉ rảnh từ giờ X\" → so giờ đó với CẢ HAI cột 時間 trong bảng, xem sự kiện nào bắt đầu ĐÚNG LÚC hoặc SAU giờ rảnh của nhân vật.",
+          "evi": [
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Anh Tanaka là người đi làm. Vì có công việc nên ngày 14 tháng 11, anh ấy chỉ có thời gian từ 3 giờ chiều. Anh Tanaka có thể tham gia hoạt động nào?",
+            "o": [
+              "Anh ấy chỉ có thể nghe buổi diễn thuyết bắt đầu lúc 1 giờ chiều",
+              "Anh ấy chỉ có thể tham gia chuyến tham quan nhà máy bắt đầu lúc 3 giờ chiều",
+              "Anh ấy có thể tham gia cả buổi diễn thuyết lẫn chuyến tham quan nhà máy",
+              "Từ 3 giờ chiều, anh ấy không thể tham gia hoạt động nào"
+            ]
+          }
+        },
+        {
+          "q": "リーさんは工場見学だけに申し込みたいです。工場見学の後、家に帰るまでにお金はいくらかかりますか。",
+          "options": [
+            "0円（バス代は無料です）",
+            "大学のホームページに申し込む200円だけかかります",
+            "講演会の資料代500円かかります",
+            "バスで20分かかるので、バス代は1000円かかります"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Bài viết ghi rõ:「工場見学は、大学からバスで20分かかります。バス代は無料です」— việc di chuyển bằng xe buýt đến nhà máy mất 20 phút NHƯNG tiền xe buýt là miễn phí (無料). Bài không hề nhắc đến phí đăng ký qua trang web, phí tài liệu, hay giá vé xe buýt cụ thể nào khác — các con số 200円, 500円, 1000円 ở đáp án 1, 2, 3 đều KHÔNG có trong bài, là bịa thêm để đánh lừa.",
+          "tip": "Câu hỏi hỏi \"いくらかかりますか\" → luôn tìm đúng dòng có chữ 円 hoặc 無料 trong bài. Nếu bài ghi 無料, mọi đáp án có số tiền cụ thể đều là nhiễu.",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Anh Lee chỉ muốn đăng ký tham quan nhà máy. Sau chuyến tham quan nhà máy, sẽ mất bao nhiêu tiền cho đến khi anh ấy về nhà?",
+            "o": [
+              "0 yên (phí xe buýt miễn phí)",
+              "Chỉ mất 200 yên để đăng ký trên trang web của trường đại học",
+              "Mất 500 yên tiền tài liệu của buổi diễn thuyết",
+              "Vì đi xe buýt mất 20 phút nên phí xe buýt là 1.000 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

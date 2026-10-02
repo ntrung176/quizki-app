@@ -1,0 +1,2291 @@
+{
+  "bai": 35,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 35 tập trung vào 3 mẫu điều kiện mới: ば形（nếu…thì）, なら（nếu là…thì）, và 疑問詞＋ばいいですか（làm thế nào / đi đâu / khi nào thì tốt nhất?). Bài đọc đặt trong khung cảnh tư vấn du lịch — ngữ cảnh thực tế nhất để luyện 3 mẫu này cùng lúc. Chiến lược: nhận diện \"điều kiện → kết quả\" rồi xác định loại ば: động từ godan, ichidan, hay tính từ い/な.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm khung cảnh: ai đang hỏi ai, về chủ đề gì (tư vấn, cách làm, điều kiện).",
+      "Tìm ば形 trong câu: động từ godan → đổi âm cuối sang hàng え rồi thêm ば（行く→行けば）; ichidan → bỏ る thêm れば（食べる→食べれば）; tính từ い → đổi い→ければ（安い→安ければ）.",
+      "Nhận diện なら: sau danh từ hoặc V普通形 → dùng để giả định \"nếu là X thì…\", thường gặp khi người khác đã đề cập chủ đề trước.",
+      "Tìm dạng 疑問詞＋ばいいですか: どうすればいいですか / どこへ行けばいいですか / いつ行けばいいですか → hỏi hướng giải quyết tốt nhất.",
+      "Câu hỏi trắc nghiệm thường hỏi về điều kiện/kết quả hoặc lời khuyên cụ thể — tìm vế ば/なら và vế kết quả sau đó.",
+      "Ôn ngữ pháp cũ: 〜たら（B25）, 〜と（B23）, 〜てください（B14）, 〜ほうがいい（B32）, 〜んです（B26）."
+    ],
+    "tips": [
+      "ば形 godan: thay âm cuối sang hàng え + ば (行く→行けば, 飲む→飲めば, 乗る→乗れば, 話す→話せば, 待つ→待てば).",
+      "ば形 ichidan (る動詞): bỏ る → thêm れば (食べる→食べれば, 起きる→起きれば).",
+      "ば形 tính từ い: bỏ い → thêm ければ (安い→安ければ, 近い→近ければ, 早い→早ければ).",
+      "なら KHÁC ば: なら dùng khi NGƯỜI KIA đã nhắc đến chủ đề — \"nếu X thì…\" dựa trên thông tin vừa nghe.",
+      "どうすればいいですか ≠ どうしたらいいですか: cả hai đều hỏi \"làm thế nào cho tốt?\" — trong bài 35 trọng tâm là ば.",
+      "Đừng nhầm なら với なら（接続）trong câu thứ hai — luôn kiểm tra có danh từ/V普通形 đứng trước không."
+    ],
+    "grammarFocus": [
+      "V/Aば（điều kiện: 行けば / 安ければ）",
+      "Nなら・V普通形なら",
+      "疑問詞＋V/Aばいいですか"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 34,
+        "items": [
+          "Vたあとで",
+          "Vるとおりに"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜ほうがいいです",
+          "〜かもしれません"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "Vる予定です"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vてあります",
+          "Vておきます"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（〜えます/られます）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです",
+          "Nなんです"
+        ]
+      },
+      {
+        "bai": 25,
+        "items": [
+          "〜たら",
+          "もし〜たら"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜と（điều kiện tự nhiên）",
+          "〜とき"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "旅行の相談",
+      "titleVi": "Tư vấn du lịch",
+      "japanese": "ミラーさんは来月京都へ行く予定です。でも、京都のことをあまり知りません。\n友達のたなかさんに「京都なら、まず金閣寺へ行けばいいと思いますよ」と言いました。\n「電車で行けば、バスより便利ですよ」とも教えてくれました。\n「宿泊するなら、早く予約しておいたほうがいいですよ。安ければ、インターネットで予約できますよ」とたなかさんは言いました。\nミラーさんは「どうすればいいか、よくわかりました。ありがとうございます」と言いました。\n「京都に行けば、きっと日本の文化がもっとわかりますよ」とたなかさんは最後に言いました。",
+      "vietnamese": "Tháng tới anh Miller dự định đi Kyoto. Nhưng anh không biết nhiều về Kyoto.\nBạn anh là Tanaka nói \"Nếu là Kyoto thì mình nghĩ trước tiên nên đến Kim Các Tự (Kinkakuji)\".\n\"Nếu đi bằng tàu điện thì tiện hơn xe buýt đấy\" — anh ấy cũng chỉ cho.\n\"Nếu định ở lại thì nên đặt phòng sớm nhé. Nếu muốn rẻ thì đặt qua mạng được đấy\" — Tanaka nói.\nAnh Miller nói \"Tôi đã hiểu rõ phải làm thế nào rồi. Cảm ơn anh nhiều!\".\n\"Nếu anh đến Kyoto, chắc chắn anh sẽ hiểu văn hoá Nhật Bản thêm nhiều\" — Tanaka nói cuối cùng.",
+      "sentences": [
+        {
+          "jp": "ミラーさんは来月京都へ行く予定です。でも、京都のことをあまり知りません。",
+          "vi": "Tháng tới anh Miller dự định đi Kyoto. Nhưng anh không biết nhiều về Kyoto.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "dự định, kế hoạch"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる予定です（Bài 31）",
+              "vi": "行く予定です = dự định đi. Dùng để nói kế hoạch đã lên trước."
+            }
+          ]
+        },
+        {
+          "jp": "友達のたなかさんに「京都なら、まず金閣寺へ行けばいいと思いますよ」と言いました。",
+          "vi": "Bạn anh là Tanaka nói \"Nếu là Kyoto thì mình nghĩ trước tiên nên đến Kim Các Tự\".",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "金閣寺",
+              "read": "きんかくじ",
+              "vi": "Kim Các Tự (Kinkakuji)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên, đầu tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nなら",
+              "vi": "京都なら = nếu là (chủ đề) Kyoto thì. Tanaka vừa nghe Miller nói Kyoto → dùng なら để \"dựa vào thông tin đó mà tư vấn\"."
+            },
+            {
+              "point": "V/Aば（行けばいい）",
+              "vi": "行けばいい = nếu đi thì tốt → lời khuyên. 行く (godan): く→け＋ば = 行けば."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "と思いますよ = tôi nghĩ. Softens the advice."
+            }
+          ]
+        },
+        {
+          "jp": "「電車で行けば、バスより便利ですよ」とも教えてくれました。",
+          "vi": "\"Nếu đi bằng tàu điện thì tiện hơn xe buýt đấy\" — anh ấy cũng chỉ cho.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Aば",
+              "vi": "電車で行けば = nếu đi bằng tàu điện. 行く (godan): く→け＋ば = 行けば. Điều kiện dẫn đến kết quả \"tiện hơn xe buýt\"."
+            },
+            {
+              "point": "NよりNA（Bài 12）",
+              "vi": "バスより便利 = tiện hơn xe buýt. より so sánh."
+            }
+          ]
+        },
+        {
+          "jp": "「宿泊するなら、早く予約しておいたほうがいいですよ。安ければ、インターネットで予約できますよ」とたなかさんは言いました。",
+          "vi": "\"Nếu định ở lại thì nên đặt phòng sớm nhé. Nếu muốn rẻ thì đặt qua mạng được đấy\" — Tanaka nói.",
+          "vocab": [
+            {
+              "w": "宿泊します",
+              "read": "しゅくはくします",
+              "vi": "lưu trú, ở lại qua đêm"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước, đặt phòng"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V普通形なら",
+              "vi": "宿泊するなら = nếu (anh) định ở lại. Dùng V普通形 + なら khi giả định dựa trên ý định/tình huống người kia."
+            },
+            {
+              "point": "Vておく（Bài 30）",
+              "vi": "予約しておいたほうがいい = nên đặt trước (để chuẩn bị sẵn). Vておく = làm trước để sẵn sàng."
+            },
+            {
+              "point": "Vたほうがいい（Bài 32）",
+              "vi": "〜ほうがいいですよ = nên làm. Lời khuyên trực tiếp."
+            },
+            {
+              "point": "Aければ（安ければ）",
+              "vi": "安ければ = nếu (muốn) rẻ. 安い (tính từ い): い→ければ = 安ければ. Điều kiện tính từ."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは「どうすればいいか、よくわかりました。ありがとうございます」と言いました。",
+          "vi": "Anh Miller nói \"Tôi đã hiểu rõ phải làm thế nào rồi. Cảm ơn anh nhiều!\".",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "どうすればいいか",
+              "read": "どうすればいいか",
+              "vi": "phải làm thế nào thì tốt"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "rõ ràng, kỹ (hiểu rõ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋ばいいか",
+              "vi": "どうすればいいか = phải làm thế nào thì tốt. どう＋すれば（する→すれば）＋いいか. Đây là dạng 疑問詞＋ばいいですか nhúng trong câu."
+            }
+          ]
+        },
+        {
+          "jp": "「京都に行けば、きっと日本の文化がもっとわかりますよ」とたなかさんは最後に言いました。",
+          "vi": "\"Nếu anh đến Kyoto, chắc chắn anh sẽ hiểu văn hoá Nhật Bản thêm nhiều\" — Tanaka nói cuối cùng.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "きっと",
+              "read": "きっと",
+              "vi": "chắc chắn, nhất định"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "文化",
+              "read": "ぶんか",
+              "vi": "văn hoá"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "thêm nữa, nhiều hơn"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "最後",
+              "read": "さいご",
+              "vi": "cuối cùng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Aば",
+              "vi": "行けば = nếu đi. 行く (godan) → 行けば. Điều kiện mang lại kết quả tích cực \"hiểu văn hoá thêm\"."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "京都なら、まず金閣寺へ行けばいいと思いますよ",
+          "label": "Nなら・Vば"
+        },
+        {
+          "excerpt": "電車で行けば、バスより便利ですよ",
+          "label": "Vば（điều kiện）"
+        },
+        {
+          "excerpt": "安ければ、インターネットで予約できますよ",
+          "label": "Aければ（điều kiện）"
+        },
+        {
+          "excerpt": "どうすればいいか",
+          "label": "疑問詞＋ばいいか"
+        },
+        {
+          "excerpt": "宿泊するなら",
+          "label": "V普通形なら"
+        }
+      ],
+      "questions": [
+        {
+          "q": "たなかさんは京都でまずどこへ行くことをすすめましたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "「まず電車に乗ればいいですよ」と言いました",
+            "「まず金閣寺へ行けばいいと思いますよ」と言いました",
+            "「まずインターネットで予約すればいいですよ」と言いました",
+            "「まずバスに乗ればいいですよ」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết trích lời Tanaka trực tiếp:「京都なら、まず金閣寺へ行けばいいと思いますよ」— \"Nếu là Kyoto thì trước tiên nên đến Kim Các Tự\". Cấu trúc Nなら dùng vì Miller vừa nhắc đến Kyoto → Tanaka \"dựa vào đó mà tư vấn\". 行けばいい là ば形 của 行く (godan: く→け＋ば) = \"làm vậy thì tốt\". Đáp án 0 sai vì câu về điện thoại (電車) là lời khuyên về phương tiện, không phải địa điểm đến đầu tiên. Đáp án 2 sai vì インターネット là lời khuyên về đặt phòng rẻ, không phải điểm tham quan. Đáp án 3 sai vì バス không được nhắc đến như lời khuyên — ngược lại, Tanaka nói đi điện thoại thì TIỆN HƠN xe buýt.",
+          "tip": "Câu hỏi hỏi \"điều Tanaka khuyên\" → tìm đúng câu trích lời Tanaka trong bài. なら + ばいい = combo tư vấn kinh điển của Bài 35, thường xuất hiện cùng nhau.",
+          "qt": {
+            "q": "Anh Tanaka đã khuyên trước tiên nên đi đâu ở Kyoto?",
+            "o": [
+              "Anh ấy nói: “Trước tiên, bạn nên đi tàu điện.”",
+              "Anh ấy nói: “Tôi nghĩ trước tiên bạn nên đến chùa Kinkakuji.”",
+              "Anh ấy nói: “Trước tiên, bạn nên đặt chỗ qua Internet.”",
+              "Anh ấy nói: “Trước tiên, bạn nên đi xe buýt.”"
+            ]
+          }
+        },
+        {
+          "q": "安く宿泊したいなら、たなかさんは何をすればいいと言いましたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "早く電車に乗ればいいと言いました",
+            "金閣寺の近くに泊まればいいと言いました",
+            "インターネットで予約すればいいと言いました",
+            "バスで行けばいいと言いました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài có câu:「安ければ、インターネットで予約できますよ」— \"Nếu muốn rẻ thì đặt qua mạng được đấy\". 安ければ là ば形 của tính từ い (安い: い→ければ = 安ければ) — điều kiện tính từ. Đây là câu trả lời cho điều kiện \"muốn rẻ\". Đáp án 0 sai vì「早く電車に乗ればいい」không hề xuất hiện trong bài — đây là nhầm lẫn giữa phương tiện di chuyển và cách đặt phòng. Đáp án 1 sai vì「金閣寺の近く」không được nhắc đến liên quan đến chỗ ở. Đáp án 3 sai vì バス là phương tiện di chuyển, không phải lời khuyên về chỗ ở rẻ.",
+          "tip": "Đáp án đúng thường là câu BÁM SÁT từ/cụm từ trong bài. Khi hỏi về điều kiện \"rẻ\" → tìm câu có 安ければ hoặc 安く → đó là câu chứa đáp án.",
+          "qt": {
+            "q": "Nếu muốn lưu trú với giá rẻ, anh Tanaka nói nên làm gì?",
+            "o": [
+              "Anh ấy nói nên đi tàu điện sớm.",
+              "Anh ấy nói nên ở gần chùa Kinkakuji.",
+              "Anh ấy nói nên đặt chỗ qua Internet.",
+              "Anh ấy nói nên đi bằng xe buýt."
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは最後に何と言いましたか。（内容を選んでください）",
+          "evi": [
+            4
+          ],
+          "options": [
+            "「まだ京都のことがわかりません」と言いました",
+            "「どうすればいいか、よくわかりました」と言いました",
+            "「来月は行かないつもりです」と言いました",
+            "「金閣寺へ行きたくないです」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài trích nguyên văn lời Miller:「どうすればいいか、よくわかりました。ありがとうございます」— \"Tôi đã hiểu rõ phải làm thế nào rồi. Cảm ơn anh!\" Cụm どうすればいいか là mẫu 疑問詞＋ばいいか nhúng trong câu: どう＋する→すれば＋いいか. Đáp án 0 sai hoàn toàn — đối lập với nội dung: わかりました = đã hiểu, không phải chưa hiểu. Đáp án 2 sai vì Miller không hề nói không muốn đi — ngược lại, ở câu mở đầu có「行く予定です」. Đáp án 3 sai vì không có câu nào Miller từ chối Kim Các Tự.",
+          "tip": "Câu hỏi về \"lời nói cuối của nhân vật\" → tìm câu trích lời trực tiếp (「…」と言いました) của nhân vật đó. Câu nào có từ chốt わかりました + ありがとう → đó là kết thúc hội thoại.",
+          "qt": {
+            "q": "Cuối cùng anh Miller đã nói gì? (Hãy chọn nội dung.)",
+            "o": [
+              "Anh ấy nói: “Tôi vẫn chưa biết về Kyoto.”",
+              "Anh ấy nói: “Tôi đã hiểu rõ nên làm gì rồi.”",
+              "Anh ấy nói: “Tôi định không đi vào tháng sau.”",
+              "Anh ấy nói: “Tôi không muốn đến chùa Kinkakuji.”"
+            ]
+          }
+        },
+        {
+          "q": "「宿泊するなら、早く予約しておいたほうがいいですよ」という文は、どんな意味ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "宿泊するのは難しいから、予約しなくていいという意味です",
+            "宿泊するつもりがあるなら、早めに予約しておくことをすすめているという意味です",
+            "宿泊する前に、金閣寺に行かなければならないという意味です",
+            "宿泊は高いから、インターネットを使わないほうがいいという意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「宿泊するなら、早く予約しておいたほうがいいですよ」gồm hai cấu trúc: (1) 宿泊するなら = V普通形 + なら = \"nếu (anh) định ở lại\" — giả định dựa trên ý định của Miller; (2) 早く予約しておいたほうがいい = Vておく + ほうがいい = \"nên đặt phòng sớm để chuẩn bị sẵn\". Kết hợp → đây là lời khuyên CÓ ĐIỀU KIỆN: \"nếu định ở lại thì nên làm vậy\". Đáp án 0 sai vì bài không nói 予約しなくていい — ngược lại, Tanaka KHUYẾN KHÍCH đặt phòng sớm. Đáp án 2 sai vì không có điều kiện nào buộc phải đến Kim Các Tự trước khi đặt phòng. Đáp án 3 sai và mâu thuẫn với câu ngay sau:「インターネットで予約できますよ」= khuyến khích dùng mạng, không phải cấm.",
+          "tip": "Câu hỏi dạng \"文はどんな意味ですか\" → phân tích từng cấu trúc trong câu đó: なら = điều kiện giả định, ておく = làm trước để sẵn sàng, ほうがいい = lời khuyên. Ghép lại → nghĩa tổng thể là lời khuyên có điều kiện.",
+          "qt": {
+            "q": "Câu “Nếu lưu trú thì bạn nên đặt chỗ trước sớm” có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là vì việc lưu trú khó khăn nên không cần đặt chỗ.",
+              "Có nghĩa là nếu định lưu trú thì người nói khuyên nên đặt chỗ trước sớm.",
+              "Có nghĩa là trước khi lưu trú thì phải đến chùa Kinkakuji.",
+              "Có nghĩa là vì lưu trú tốn kém nên tốt hơn là không dùng Internet."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "旅行相談メール",
+      "titleVi": "Email tư vấn du lịch",
+      "japanese": "カリナさん、こんにちは。\n来月、友達と一緒に北海道へ旅行しようと思っています。でも、北海道は初めてですから、何から準備すればいいか、よくわからないんです。\nカリナさんは去年北海道に行ったと聞きましたから、いくつか教えていただけませんか。\nまず、北海道なら、どの季節に行けばいいと思いますか。来月はちょうど7月ですから、夏ですね。\n夏に行けば、ラベンダーが見られると友達が言っていました。本当ですか。\nまた、札幌から富良野まで、どうやって行けばいいですか。電車で行けますか。\n宿泊のことも相談したいんですが、できれば安ければ安いほどいいです。民宿なら、ホテルより安いですか。\n食べ物については、北海道なら何を食べればいいですか。おすすめはありますか。\n友達はあまり辛い食べ物が食べられないんですが、北海道の料理はどうですか。\nそれから、旅行の日数はどのくらいにすればいいですか。4泊5日では短いですか。\nもし時間があれば、函館にも行きたいんですが、4泊5日なら函館まで行けますか。\n服装についても聞いてもいいですか。7月でも、北海道は涼しいと聞きました。\n涼しければ、どんな服を持っていけばいいですか。\nカリナさんが北海道旅行の計画を立てるとき、どんなことに気をつけましたか。\n何か困ったことがあれば、どうすればいいか教えてください。\nいろいろ聞いてしまいましたが、知っていることがあれば、ぜひ教えてください。\nよろしくお願いします。ミラー",
+      "vietnamese": "Chị Karina, xin chào.\nTháng tới tôi định đi du lịch Hokkaido cùng bạn. Nhưng đây là lần đầu tiên nên tôi không biết phải chuẩn bị gì từ đâu.\nTôi nghe nói năm ngoái chị có đến Hokkaido, nên xin chị chỉ giúp một vài điều được không?\nTrước tiên, nếu là Hokkaido thì chị nghĩ nên đi vào mùa nào? Tháng tới đúng là tháng 7, tức là mùa hè rồi.\nNếu đi vào mùa hè thì sẽ nhìn thấy hoa lavender — bạn tôi nói vậy. Có đúng không ạ?\nNgoài ra, từ Sapporo đến Furano thì nên đi bằng gì? Đi tàu điện được không?\nTôi cũng muốn hỏi về chỗ ở, nếu được thì càng rẻ càng tốt. Nếu là nhà trọ dân dã thì rẻ hơn khách sạn không ạ?\nVề ẩm thực, nếu là Hokkaido thì nên ăn gì? Có món gì chị khuyên không?\nBạn tôi không ăn được đồ cay lắm, nhưng đồ ăn Hokkaido thì thế nào ạ?\nNgoài ra, nên đi bao nhiêu ngày? 4 đêm 5 ngày có ngắn không?\nNếu có thời gian thì tôi cũng muốn đến Hakodate, nhưng nếu là 4 đêm 5 ngày thì đến được Hakodate không?\nCho tôi hỏi về trang phục được không? Tôi nghe nói dù là tháng 7 nhưng Hokkaido vẫn mát.\nNếu trời mát thì nên mang quần áo gì?\nKhi chị lên kế hoạch du lịch Hokkaido, chị chú ý những điều gì?\nNếu có điều gì khó khăn thì xin cho biết nên làm thế nào?\nTôi hỏi nhiều quá rồi, nhưng nếu biết điều gì thì xin chị chỉ giúp nhé.\nNhờ chị nhiều. Miller",
+      "sentences": [
+        {
+          "jp": "カリナさん、こんにちは。",
+          "vi": "Chị Karina, xin chào.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "こんにちは",
+              "read": "こんにちは",
+              "vi": "xin chào (ban ngày)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Lời chào mở đầu thư/email",
+              "vi": "Mở đầu email thân mật bằng tên + こんにちは."
+            }
+          ]
+        },
+        {
+          "jp": "来月、友達と一緒に北海道へ旅行しようと思っています。でも、北海道は初めてですから、何から準備すればいいか、よくわからないんです。",
+          "vi": "Tháng tới tôi định đi du lịch Hokkaido cùng bạn. Nhưng vì đây là lần đầu tiên nên tôi không biết phải chuẩn bị gì từ đâu.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "準備します",
+              "read": "じゅんびします",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V意向形＋と思っています（Bài 31）",
+              "vi": "旅行しようと思っています = đang có ý định đi du lịch. 意向形 của する→しよう."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "北海道は初めてですから = vì Hokkaido là lần đầu. から nêu lý do dẫn đến sự lúng túng không biết chuẩn bị gì."
+            },
+            {
+              "point": "疑問詞＋ばいいか",
+              "vi": "何から準備すればいいか = nên chuẩn bị gì từ đâu trước. 何から + する→すれば + いいか."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "わからないんです = giải thích lý do viết email."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは去年北海道に行ったと聞きましたから、いくつか教えていただけませんか。",
+          "vi": "Tôi nghe nói năm ngoái chị có đến Hokkaido, nên xin chị chỉ giúp một vài điều được không?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "去年",
+              "read": "きょねん",
+              "vi": "năm ngoái"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "いくつか",
+              "read": "いくつか",
+              "vi": "một vài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と聞きました（Bài 21）",
+              "vi": "行ったと聞きました = tôi nghe nói (chị) đã đi. と trích dẫn nội dung nghe."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "から = vì thế, lý do dẫn đến việc nhờ hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "まず、北海道なら、どの季節に行けばいいと思いますか。来月はちょうど7月ですから、夏ですね。",
+          "vi": "Trước tiên, nếu là Hokkaido thì chị nghĩ nên đi vào mùa nào? Tháng tới đúng là tháng 7 nên là mùa hè rồi.",
+          "vocab": [
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "季節",
+              "read": "きせつ",
+              "vi": "mùa"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "ちょうど",
+              "read": "ちょうど",
+              "vi": "đúng, vừa đúng"
+            },
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nなら",
+              "vi": "北海道なら = nếu là Hokkaido. Miller vừa nhắc Hokkaido → dùng なら để \"dựa trên chủ đề đó mà hỏi\"."
+            },
+            {
+              "point": "疑問詞＋ばいいですか",
+              "vi": "どの季節に行けばいいですか = nên đi vào mùa nào? どの季節に + 行く→行けば + いいですか. 行く (godan): く→け＋ば."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "7月ですから = vì là tháng 7. から nêu lý do dẫn đến nhận xét \"tức là mùa hè\"."
+            }
+          ]
+        },
+        {
+          "jp": "夏に行けば、ラベンダーが見られると友達が言っていました。本当ですか。",
+          "vi": "Nếu đi vào mùa hè thì sẽ nhìn thấy hoa lavender — bạn tôi nói vậy. Có đúng không ạ?",
+          "vocab": [
+            {
+              "w": "夏",
+              "read": "なつ",
+              "vi": "mùa hè"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "ラベンダー",
+              "read": "ラベンダー",
+              "vi": "hoa lavender"
+            },
+            {
+              "w": "見られます",
+              "read": "みられます",
+              "vi": "nhìn thấy được, có thể thấy"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "本当",
+              "read": "ほんとう",
+              "vi": "thật sự, đúng thật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Aば",
+              "vi": "夏に行けば = nếu đi vào mùa hè. 行く (godan): く→け＋ば = 行けば."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "見られる = có thể thấy (ichidan 見る → 見られる)."
+            }
+          ]
+        },
+        {
+          "jp": "また、札幌から富良野まで、どうやって行けばいいですか。電車で行けますか。",
+          "vi": "Ngoài ra, từ Sapporo đến Furano thì nên đi bằng gì? Đi tàu điện được không?",
+          "vocab": [
+            {
+              "w": "札幌",
+              "read": "さっぽろ",
+              "vi": "Sapporo (thành phố Hokkaido)"
+            },
+            {
+              "w": "富良野",
+              "read": "ふらの",
+              "vi": "Furano (thành phố Hokkaido)"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "行ける",
+              "read": "いける",
+              "vi": "có thể đi"
+            },
+            {
+              "w": "どうやって",
+              "read": "どうやって",
+              "vi": "bằng cách nào, đi thế nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋ばいいですか",
+              "vi": "どうやって行けばいいですか = nên đi bằng cách nào? どうやって + 行く→行けば + いいですか."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "行けますか = đi được không? (godan 行く → 行けます)."
+            }
+          ]
+        },
+        {
+          "jp": "宿泊のことも相談したいんですが、できれば安ければ安いほどいいです。民宿なら、ホテルより安いですか。",
+          "vi": "Tôi cũng muốn hỏi về chỗ ở, nếu được thì càng rẻ càng tốt. Nếu là nhà trọ dân dã thì rẻ hơn khách sạn không ạ?",
+          "vocab": [
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú, chỗ ở (đêm)"
+            },
+            {
+              "w": "相談します",
+              "read": "そうだんします",
+              "vi": "hỏi ý kiến, trao đổi"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "安い",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い)"
+            },
+            {
+              "w": "民宿",
+              "read": "みんしゅく",
+              "vi": "nhà trọ dân dã, homestay Nhật"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aければ〜ほどいい（cấu trúc mở rộng, chưa học chính thức）",
+              "vi": "安ければ安いほどいい = càng rẻ càng tốt. Cấu trúc: Aければ + Aいほど + いい (tính từ い: い→ければ). Lưu ý: 〜ばほど chưa là ngữ pháp chính thức trong Bài 35 — ở đây dùng để mở rộng ば形 đã học."
+            },
+            {
+              "point": "Nなら",
+              "vi": "民宿なら = nếu là nhà trọ. Giả định loại chỗ ở để so sánh."
+            }
+          ]
+        },
+        {
+          "jp": "食べ物については、北海道なら何を食べればいいですか。おすすめはありますか。",
+          "vi": "Về ẩm thực, nếu là Hokkaido thì nên ăn gì? Có món gì chị khuyên không?",
+          "vocab": [
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn"
+            },
+            {
+              "w": "について",
+              "read": "について",
+              "vi": "về; liên quan đến"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido"
+            },
+            {
+              "w": "何",
+              "read": "なに",
+              "vi": "cái gì"
+            },
+            {
+              "w": "食べれば",
+              "read": "たべれば",
+              "vi": "ăn; nếu ăn"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt; được"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "gợi ý; đề xuất"
+            },
+            {
+              "w": "あります",
+              "read": "あります",
+              "vi": "có; tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nなら",
+              "vi": "北海道なら = nếu là (ở) Hokkaido. なら dựa trên chủ đề \"Hokkaido\" đã nêu trước."
+            },
+            {
+              "point": "疑問詞＋ばいいですか",
+              "vi": "何を食べればいいですか = nên ăn gì? 何を + 食べる→食べれば（ichidan: る→れば）+ いいですか."
+            }
+          ]
+        },
+        {
+          "jp": "友達はあまり辛い食べ物が食べられないんですが、北海道の料理はどうですか。",
+          "vi": "Bạn tôi không ăn được đồ cay lắm, nhưng đồ ăn Hokkaido thì thế nào ạ?",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "辛い",
+              "read": "からい",
+              "vi": "cay"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, thức ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "食べられない = không ăn được. ichidan 食べる → 食べられる → phủ định 食べられない."
+            },
+            {
+              "point": "〜んですが（Bài 26）",
+              "vi": "んですが = thực ra là vậy, nhưng… Giới thiệu bối cảnh rồi dẫn câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "それから、旅行の日数はどのくらいにすればいいですか。4泊5日では短いですか。",
+          "vi": "Ngoài ra, nên đi bao nhiêu ngày? 4 đêm 5 ngày có ngắn không?",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "日数",
+              "read": "にっすう",
+              "vi": "số ngày"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn"
+            },
+            {
+              "w": "4泊5日",
+              "read": "よんぱくいつか",
+              "vi": "4 đêm 5 ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞＋ばいいですか",
+              "vi": "どのくらいにすればいいですか = nên làm bao lâu/nhiêu ngày thì tốt? どのくらい + する→すれば + いいですか."
+            }
+          ]
+        },
+        {
+          "jp": "もし時間があれば、函館にも行きたいんですが、4泊5日なら函館まで行けますか。",
+          "vi": "Nếu có thời gian thì tôi cũng muốn đến Hakodate, nhưng nếu là 4 đêm 5 ngày thì đến được Hakodate không?",
+          "vocab": [
+            {
+              "w": "もし",
+              "read": "もし",
+              "vi": "nếu"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "あれば",
+              "read": "あれば",
+              "vi": "nếu có"
+            },
+            {
+              "w": "函館",
+              "read": "はこだて",
+              "vi": "Hakodate"
+            },
+            {
+              "w": "行きたい",
+              "read": "いきたい",
+              "vi": "muốn đi"
+            },
+            {
+              "w": "4泊5日",
+              "read": "よんぱくいつか",
+              "vi": "4 đêm 5 ngày"
+            },
+            {
+              "w": "行けます",
+              "read": "いけます",
+              "vi": "có thể đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もし〜ば",
+              "vi": "もし時間があれば = nếu có thời gian. もし nhấn thêm tính giả định. ある (godan đặc biệt): ある→あれば."
+            },
+            {
+              "point": "〜なら（số ngày）",
+              "vi": "4泊5日なら = nếu là 4 đêm 5 ngày. Danh từ + なら."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "行けますか = đi được không?"
+            }
+          ]
+        },
+        {
+          "jp": "服装についても聞いてもいいですか。7月でも、北海道は涼しいと聞きました。",
+          "vi": "Cho tôi hỏi về trang phục được không? Tôi nghe nói dù là tháng 7 nhưng Hokkaido vẫn mát.",
+          "vocab": [
+            {
+              "w": "服装",
+              "read": "ふくそう",
+              "vi": "trang phục"
+            },
+            {
+              "w": "について",
+              "read": "について",
+              "vi": "về; liên quan đến"
+            },
+            {
+              "w": "聞いて",
+              "read": "きいて",
+              "vi": "hỏi; nghe"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt; được"
+            },
+            {
+              "w": "7月",
+              "read": "しちがつ",
+              "vi": "tháng 7"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido"
+            },
+            {
+              "w": "涼しい",
+              "read": "すずしい",
+              "vi": "mát mẻ"
+            },
+            {
+              "w": "聞きました",
+              "read": "ききました",
+              "vi": "đã nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいですか（Bài 15）",
+              "vi": "聞いてもいいですか = hỏi được không? Xin phép lịch sự."
+            },
+            {
+              "point": "〜と聞きました（Bài 21）",
+              "vi": "涼しいと聞きました = tôi nghe nói (là) mát. と trích dẫn thông tin."
+            }
+          ]
+        },
+        {
+          "jp": "涼しければ、どんな服を持っていけばいいですか。",
+          "vi": "Nếu trời mát thì nên mang quần áo gì?",
+          "vocab": [
+            {
+              "w": "涼しい",
+              "read": "すずしい",
+              "vi": "mát mẻ (tính từ い)"
+            },
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "như thế nào (hỏi đặc điểm)"
+            },
+            {
+              "w": "服",
+              "read": "ふく",
+              "vi": "quần áo"
+            },
+            {
+              "w": "持っていきます",
+              "read": "もっていきます",
+              "vi": "mang đi, mang theo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Aければ（涼しければ）",
+              "vi": "涼しければ = nếu (trời) mát. 涼しい (tính từ い): い→ければ = 涼しければ."
+            },
+            {
+              "point": "疑問詞＋ばいいですか",
+              "vi": "どんな服を持っていけばいいですか = nên mang quần áo gì? どんな＋持っていく（godan: く→け＋ば）＋いいですか."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんが北海道旅行の計画を立てるとき、どんなことに気をつけましたか。",
+          "vi": "Khi chị lên kế hoạch du lịch Hokkaido, chị chú ý những điều gì?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "北海道",
+              "read": "ほっかいどう",
+              "vi": "Hokkaido (đảo lớn nhất phía bắc Nhật Bản)"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "立てます",
+              "read": "たてます",
+              "vi": "lập (kế hoạch)"
+            },
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "như thế nào (hỏi đặc điểm)"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "計画を立てるとき = khi lập kế hoạch. Vる + とき chỉ thời điểm."
+            }
+          ]
+        },
+        {
+          "jp": "何か困ったことがあれば、どうすればいいか教えてください。",
+          "vi": "Nếu có điều gì khó khăn thì xin cho biết nên làm thế nào?",
+          "vocab": [
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "困った",
+              "read": "こまった",
+              "vi": "gặp khó khăn; rắc rối"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "việc; điều"
+            },
+            {
+              "w": "あれば",
+              "read": "あれば",
+              "vi": "nếu có"
+            },
+            {
+              "w": "どう",
+              "read": "どう",
+              "vi": "thế nào"
+            },
+            {
+              "w": "すれば",
+              "read": "すれば",
+              "vi": "làm; nếu làm"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt; nên"
+            },
+            {
+              "w": "教えて",
+              "read": "おしえて",
+              "vi": "chỉ cho; nói cho biết"
+            },
+            {
+              "w": "ください",
+              "read": "ください",
+              "vi": "xin hãy; làm ơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Aば（あれば）",
+              "vi": "何か〜ことがあれば = nếu có điều gì (khó khăn). ある→あれば (godan)."
+            },
+            {
+              "point": "疑問詞＋ばいいか",
+              "vi": "どうすればいいか = nên làm thế nào thì tốt. どう＋すれば（する→すれば）＋いいか. Mẫu Bài 35 — hỏi hướng giải quyết."
+            }
+          ]
+        },
+        {
+          "jp": "いろいろ聞いてしまいましたが、知っていることがあれば、ぜひ教えてください。",
+          "vi": "Tôi hỏi nhiều quá rồi, nhưng nếu biết điều gì thì xin chị chỉ giúp nhé.",
+          "vocab": [
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều thứ, đủ loại"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, xin hãy (nhấn mạnh)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "聞いてしまいました = đã lỡ hỏi nhiều quá. てしまう = làm gì đó đến mức hoàn toàn (thường có sắc thái tiếc/lỡ)."
+            },
+            {
+              "point": "V/Aば（あれば）",
+              "vi": "知っていることがあれば = nếu có điều gì biết. ある→あれば."
+            }
+          ]
+        },
+        {
+          "jp": "よろしくお願いします。ミラー",
+          "vi": "Nhờ chị nhiều. Miller",
+          "vocab": [
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "よろしくお願いします",
+              "read": "よろしくおねがいします",
+              "vi": "nhờ anh/chị, mong được giúp đỡ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Lời kết thúc thư",
+              "vi": "Câu kết email lịch sự chuẩn mực."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "北海道なら、どの季節に行けばいいと思いますか",
+          "label": "Nなら・Vば（tư vấn）"
+        },
+        {
+          "excerpt": "夏に行けば、ラベンダーが見られると友達が言っていました",
+          "label": "Vば（điều kiện→kết quả）"
+        },
+        {
+          "excerpt": "安ければ安いほどいいです",
+          "label": "Aければ〜ほどいい"
+        },
+        {
+          "excerpt": "民宿なら、ホテルより安いですか",
+          "label": "Nなら（so sánh）"
+        },
+        {
+          "excerpt": "何を食べればいいですか",
+          "label": "疑問詞＋ばいいですか"
+        },
+        {
+          "excerpt": "もし時間があれば、函館にも行きたい",
+          "label": "もし〜ば"
+        },
+        {
+          "excerpt": "涼しければ、どんな服を持っていけばいいですか",
+          "label": "Aければ・疑問詞＋ばいいですか"
+        },
+        {
+          "excerpt": "何か困ったことがあれば、どうすればいいか教えてください",
+          "label": "V/Aば（あれば）・疑問詞＋ばいいか"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは北海道についてどうして詳しくないんですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "去年北海道に行ったことがありますが、忘れてしまいました",
+            "北海道は初めてだから、何から準備すればいいかわからないんです",
+            "カリナさんが北海道に行かないほうがいいと言いましたから、詳しくないんです",
+            "インターネットで調べたけど、情報がなかったから、わからないんです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nêu rõ lý do ngay từ đầu:「北海道は初めてですから、何から準備すればいいか、よくわからないんです」— \"Vì đây là lần đầu tiên đến Hokkaido nên không biết phải chuẩn bị gì từ đâu\". Hai cấu trúc chủ chốt: ①「初めてですから」= vì lần đầu (から nêu lý do); ②「何から準備すればいいか」= 疑問詞 + ばいいか nhúng trong câu = \"nên chuẩn bị gì trước\". Đáp án 0 sai vì Miller CHƯA đến Hokkaido bao giờ, không có chuyện \"đã đến rồi quên\". Đáp án 2 sai vì bài không nhắc đến việc Karina nói không nên đến Hokkaido. Đáp án 3 sai vì bài không đề cập Miller đã tra internet nhưng không tìm được thông tin.",
+          "tip": "Câu hỏi \"なぜ詳しくないか\" → tìm câu có から (lý do) trong bài. から đứng sau lý do → đọc ngay TRƯỚC から để tìm đáp án.",
+          "qt": {
+            "q": "Miller không rành về Hokkaido vì sao?",
+            "o": [
+              "Anh ấy đã từng đến Hokkaido năm ngoái nhưng đã quên mất",
+              "Vì đây là lần đầu tiên đến Hokkaido nên anh ấy không biết phải chuẩn bị từ đâu",
+              "Vì Karina đã nói rằng tốt hơn là không nên đến Hokkaido nên anh ấy không rành về nơi này",
+              "Anh ấy đã tìm trên Internet nhưng không có thông tin nên không biết"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはどうして「夏に行けばラベンダーが見られる」ことを知っていますか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "自分で北海道に行ったとき、ラベンダーを見たことがあります",
+            "カリナさんのメールにそう書いてありました",
+            "友達がそう言っていたから、知っています",
+            "先生に「夏に行けばいい」と教えてもらいました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết nêu nguồn thông tin rõ ràng:「夏に行けば、ラベンダーが見られると友達が言っていました」— \"Bạn tôi nói nếu đi vào mùa hè thì sẽ thấy hoa lavender\". 友達が言っていました = BẠN của Miller đã nói, không phải Karina, không phải thầy giáo, không phải kinh nghiệm cá nhân. Đáp án 0 sai vì Miller CHƯA đến Hokkaido bao giờ (北海道は初めて). Đáp án 1 sai vì Karina chưa trả lời — đây là email Miller GỬI cho Karina, chưa có hồi âm. Đáp án 3 sai vì bài không nhắc đến thầy giáo.",
+          "tip": "Câu hỏi về \"ai nói / nguồn thông tin\" → tìm chủ ngữ của〜と言っていました /〜と聞きました trong câu có nội dung liên quan. Chủ ngữ đó = nguồn thông tin.",
+          "qt": {
+            "q": "Vì sao Miller biết rằng 「夏に行けばラベンダーが見られる」 (đến vào mùa hè thì có thể ngắm hoa oải hương)?",
+            "o": [
+              "Anh ấy đã từng nhìn thấy hoa oải hương khi tự mình đến Hokkaido",
+              "Điều đó được viết trong email của Karina",
+              "Anh ấy biết vì bạn của anh ấy đã nói như vậy",
+              "Anh ấy được giáo viên dạy rằng 「夏に行けばいい」 (nên đi vào mùa hè)"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはなぜ宿泊について「安ければ安いほどいい」と言いましたか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "北海道のホテルはとても高いから、安い宿に泊まらなければならないと思っています",
+            "できるだけ安く泊まりたいという希望を伝えているんです",
+            "民宿はホテルより必ず安いと聞いたから、そう言いました",
+            "カリナさんが「安い宿がいい」と教えてくれましたから、そう言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu trong bài:「できれば安ければ安いほどいいです」— \"nếu được thì càng rẻ càng tốt\". できれば = \"nếu có thể\" (nêu mong muốn lịch sự); 安ければ安いほどいい = cấu trúc Aければ〜ほどいい = \"càng A thì càng tốt\". Đây rõ ràng là MONG MUỐN CÁ NHÂN của Miller, không phải khẳng định thực tế. Đáp án 0 sai vì bài không nói ホテルはとても高い là thực tế — chỉ là Miller muốn rẻ nhất có thể. Đáp án 2 sai vì bài không nói 民宿 nhất định rẻ hơn khách sạn — đây chỉ là câu hỏi Miller đặt ra cho Karina. Đáp án 3 sai vì người nói câu đó là MILLER, không phải Karina.",
+          "tip": "できれば + ほどいい → đây là công thức diễn đạt MONG MUỐN LINH HOẠT (\"nếu được thì tốt nhất là…\"). Không nhầm với khẳng định thực tế hay thông tin từ người khác.",
+          "qt": {
+            "q": "Vì sao Miller nói về chỗ nghỉ rằng 「安ければ安いほどいい」 (càng rẻ càng tốt)?",
+            "o": [
+              "Anh ấy nghĩ rằng khách sạn ở Hokkaido rất đắt nên phải ở chỗ trọ rẻ",
+              "Anh ấy đang bày tỏ mong muốn được ở với giá càng rẻ càng tốt",
+              "Anh ấy nói vậy vì nghe nói nhà trọ kiểu minshuku chắc chắn rẻ hơn khách sạn",
+              "Anh ấy nói vậy vì Karina đã bảo rằng 「安い宿がいい」 (chỗ trọ rẻ thì tốt)"
+            ]
+          }
+        },
+        {
+          "q": "「もし時間があれば、函館にも行きたい」という文から、ミラーさんについて何がわかりますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "ミラーさんは必ず函館へ行く予定です",
+            "4泊5日の旅行なら、函館への訪問は確実に可能です",
+            "ミラーさんは函館に行けるかどうか、まだわかっていません",
+            "ミラーさんは函館よりラベンダーのほうが見たいです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu trong bài:「もし時間があれば、函館にも行きたいんですが、4泊5日なら函館まで行けますか」— \"NẾU có thời gian thì muốn đến Hakodate, nhưng liệu 4 đêm 5 ngày có đến được không?\" Hai cấu trúc giả định xuất hiện cùng nhau: もし〜ば (điều kiện chưa chắc: \"nếu có thời gian\") + なら (giả định số ngày: \"nếu là 4 đêm 5 ngày\"). Cả hai đều là điều kiện CHƯA CHẮC → Miller chưa biết có thể đến Hakodate không. Đáp án 0 sai vì「必ず」(nhất định) mâu thuẫn với もし〜ば — もし biểu thị tính không chắc. Đáp án 1 sai vì bài không xác nhận Hakodate chắc chắn khả thi — Miller CÒN ĐANG HỎI Karina. Đáp án 3 sai hoàn toàn — bài không so sánh giữa Hakodate và lavender về mức độ mong muốn.",
+          "tip": "もし〜ば là dấu hiệu ĐIỀU KIỆN CHƯA CHẮC. Gặp もし → nhân vật chưa biết kết quả, đang giả định. Đáp án nào dùng từ \"必ず / 確実に\" đi kèm với もし〜ば → loại ngay.",
+          "qt": {
+            "q": "Từ câu 「もし時間があれば、函館にも行きたい」 (nếu có thời gian, tôi cũng muốn đến Hakodate), có thể biết điều gì về Miller?",
+            "o": [
+              "Miller chắc chắn dự định sẽ đến Hakodate",
+              "Nếu chuyến đi kéo dài 4 đêm 5 ngày thì chắc chắn có thể đến Hakodate",
+              "Miller vẫn chưa biết liệu mình có thể đến Hakodate hay không",
+              "Miller muốn ngắm hoa oải hương hơn là đến Hakodate"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Góc tư vấn du lịch của trung tâm giao lưu quốc tế",
+      "japanese": "あさひ市国際交流センター　旅行相談コーナー\n旅行のことで困ったことがあれば相談員に聞いてください。旅行先を決めていないなら、まず「おすすめの場所」の相談がいいですよ。\n曜日｜午前｜午後｜夜\n月｜交通とホテル｜｜交通とホテル\n火｜｜おすすめの場所｜\n水｜交通とホテル｜｜\n木｜｜おすすめの場所｜食べ物\nサントスさんは来月旅行をしますから、相談コーナーへ行くことにしました。次はサントスさんの今週の予定です。\n日｜曜日｜午前の予定｜午後・夜の予定\n7｜月｜仕事｜仕事\n8｜火｜仕事｜\n9｜水｜｜仕事\n10｜木｜｜旅行\n※相談は無料です。予約すれば、待たずに相談できます。土曜日と日曜日は休みです。\n【場所】あさひ市国際交流センター2階　電話：042-555-8080　Eメール：soudan@asahi-ex.jp",
+      "vietnamese": "Trung tâm giao lưu quốc tế thành phố Asahi — Góc tư vấn du lịch\nNếu có điều gì khó khăn về chuyện du lịch thì hãy hỏi nhân viên tư vấn. Nếu (bạn) chưa quyết định điểm đến thì trước tiên tư vấn về \"địa điểm nên đi\" là tốt đấy.\nThứ｜Buổi sáng｜Buổi chiều｜Buổi tối\nThứ Hai｜Giao thông và khách sạn｜｜Giao thông và khách sạn\nThứ Ba｜｜Địa điểm nên đi｜\nThứ Tư｜Giao thông và khách sạn｜｜\nThứ Năm｜｜Địa điểm nên đi｜Ẩm thực\nVì anh Santos tháng tới sẽ đi du lịch nên đã quyết định đến góc tư vấn. Sau đây là lịch tuần này của anh Santos.\nNgày｜Thứ｜Lịch buổi sáng｜Lịch buổi chiều・tối\n7｜Thứ Hai｜Đi làm｜Đi làm\n8｜Thứ Ba｜Đi làm｜\n9｜Thứ Tư｜｜Đi làm\n10｜Thứ Năm｜｜Đi du lịch\n※Tư vấn miễn phí. Nếu đặt trước thì có thể tư vấn mà không phải chờ. Thứ Bảy và Chủ Nhật nghỉ.\n【Địa điểm】Tầng 2 Trung tâm giao lưu quốc tế thành phố Asahi　Điện thoại: 042-555-8080　Email: soudan@asahi-ex.jp",
+      "sentences": [
+        {
+          "jp": "あさひ市国際交流センター　旅行相談コーナー",
+          "vi": "Trung tâm giao lưu quốc tế thành phố Asahi — Góc tư vấn du lịch",
+          "vocab": [
+            {
+              "w": "あさひ市国際交流センター",
+              "read": "あさひしこくさいこうりゅうせんたー",
+              "vi": "Trung tâm Giao lưu Quốc tế thành phố Asahi"
+            },
+            {
+              "w": "あさひ市",
+              "read": "あさひし",
+              "vi": "thành phố Asahi"
+            },
+            {
+              "w": "あさひ",
+              "read": "あさひ",
+              "vi": "Asahi"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうせんたー",
+              "vi": "trung tâm giao lưu quốc tế"
+            },
+            {
+              "w": "国際交流",
+              "read": "こくさいこうりゅう",
+              "vi": "giao lưu quốc tế"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "せんたー",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "旅行相談コーナー",
+              "read": "りょこうそうだんこーなー",
+              "vi": "góc tư vấn du lịch"
+            },
+            {
+              "w": "旅行相談",
+              "read": "りょこうそうだん",
+              "vi": "tư vấn du lịch"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn"
+            },
+            {
+              "w": "コーナー",
+              "read": "こーなー",
+              "vi": "góc; khu vực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng đầu nêu tên cơ quan + tên dịch vụ, không phải câu văn hoàn chỉnh."
+            }
+          ]
+        },
+        {
+          "jp": "旅行のことで困ったことがあれば相談員に聞いてください。旅行先を決めていないなら、まず「おすすめの場所」の相談がいいですよ。",
+          "vi": "Nếu có điều gì khó khăn về chuyện du lịch thì hãy hỏi nhân viên tư vấn. Nếu (bạn) chưa quyết định điểm đến thì trước tiên tư vấn về \"địa điểm nên đi\" là tốt đấy.",
+          "vocab": [
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "困ったこと",
+              "read": "こまったこと",
+              "vi": "điều khó khăn, chuyện rắc rối"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, hỏi ý kiến"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "決めます",
+              "read": "きめます",
+              "vi": "quyết định"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "điều được khuyên, điều nên làm"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "相談員",
+              "read": "そうだんいん",
+              "vi": "nhân viên tư vấn"
+            },
+            {
+              "w": "旅行先",
+              "read": "りょこうさき",
+              "vi": "điểm đến du lịch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Aば（あれば）",
+              "vi": "困ったことがあれば = nếu có điều khó khăn. ある (godan) → あれば. Điều kiện mở đầu thông báo, mời liên hệ khi cần."
+            },
+            {
+              "point": "V普通形なら（決めていないなら）",
+              "vi": "決めていないなら = nếu (bạn) chưa quyết định. V普通形（ている の phủ định：決めていない）＋なら — giả định dựa trên tình huống thường gặp của khách."
+            }
+          ],
+          "keys": [
+            {
+              "w": "おすすめの場所",
+              "why": "Tên chủ đề tư vấn xuất hiện lại trong câu hỏi 1 — phải khớp đúng tên gọi này khi dò Bảng A."
+            }
+          ]
+        },
+        {
+          "jp": "曜日｜午前｜午後｜夜",
+          "vi": "Thứ｜Buổi sáng｜Buổi chiều｜Buổi tối",
+          "vocab": [
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng tiêu đề bảng",
+              "vi": "Header của Bảng A: cột thứ trong tuần × 3 buổi trong ngày."
+            }
+          ],
+          "keys": [
+            {
+              "w": "曜日｜午前｜午後｜夜",
+              "why": "Header Bảng A — xác định đúng cột buổi (sáng/chiều/tối) trước khi dò hàng bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "月｜交通とホテル｜｜交通とホテル",
+          "vi": "Thứ Hai｜Giao thông và khách sạn｜｜Giao thông và khách sạn",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai (viết tắt 月曜日)"
+            },
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとN（Bài 4）",
+              "vi": "交通とホテル = giao thông và khách sạn. と nối 2 danh từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月｜交通とホテル｜｜交通とホテル",
+              "why": "Thứ Hai có chủ đề 交通とホテル vào sáng và tối — căn cứ loại đáp án nhiễu 0 của câu hỏi 2 (Santos bận cả ngày thứ Hai)."
+            }
+          ]
+        },
+        {
+          "jp": "火｜｜おすすめの場所｜",
+          "vi": "Thứ Ba｜｜Địa điểm nên đi｜",
+          "vocab": [
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba (viết tắt 火曜日)"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "món được khuyên, món nổi tiếng"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm, nơi chốn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1）",
+              "vi": "おすすめの場所 = địa điểm được khuyên. の nối 2 danh từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火｜｜おすすめの場所｜",
+              "why": "Thứ Ba chỉ có おすすめの場所 vào buổi CHIỀU — đây là ô căn cứ chính của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "水｜交通とホテル｜｜",
+          "vi": "Thứ Tư｜Giao thông và khách sạn｜｜",
+          "vocab": [
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư (viết tắt 水曜日)"
+            },
+            {
+              "w": "交通",
+              "read": "こうつう",
+              "vi": "giao thông"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng (ô trống)",
+              "vi": "Ô trống nghĩa là buổi đó không có nội dung tư vấn nào."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水｜交通とホテル｜｜",
+              "why": "Thứ Tư chỉ có 交通とホテル vào buổi SÁNG — ô căn cứ chính của câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "木｜｜おすすめの場所｜食べ物",
+          "vi": "Thứ Năm｜｜Địa điểm nên đi｜Ẩm thực",
+          "vocab": [
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm (viết tắt 木曜日)"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "món được khuyên, món nổi tiếng"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "đồ ăn, ẩm thực"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "木｜｜おすすめの場所｜食べ物",
+              "why": "Thứ Năm cũng có おすすめの場所 vào buổi chiều — bẫy đáp án 3 của câu hỏi 1 (đúng chủ đề nhưng Santos bận đi du lịch)."
+            }
+          ]
+        },
+        {
+          "jp": "サントスさんは来月旅行をしますから、相談コーナーへ行くことにしました。次はサントスさんの今週の予定です。",
+          "vi": "Vì anh Santos tháng tới sẽ đi du lịch nên đã quyết định đến góc tư vấn. Sau đây là lịch tuần này của anh Santos.",
+          "vocab": [
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, hỏi ý kiến"
+            },
+            {
+              "w": "コーナー",
+              "read": "コーナー",
+              "vi": "khu, quầy, góc (khu vực riêng)"
+            },
+            {
+              "w": "行くことにしました",
+              "read": "いくことにしました",
+              "vi": "đã quyết định đi (dạng lịch sự)"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "lịch trình, dự định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（lý do, Bài 9）",
+              "vi": "旅行をしますから = vì (sắp) đi du lịch. から nêu lý do dẫn đến quyết định đi tư vấn."
+            },
+            {
+              "point": "Vることにしました（quyết định）",
+              "vi": "行くことにしました = đã quyết định đi. Diễn tả quyết định của bản thân."
+            }
+          ]
+        },
+        {
+          "jp": "日｜曜日｜午前の予定｜午後・夜の予定",
+          "vi": "Ngày｜Thứ｜Lịch buổi sáng｜Lịch buổi chiều・tối",
+          "vocab": [
+            {
+              "w": "日",
+              "read": "にち",
+              "vi": "ngày, mặt trời"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "lịch trình, kế hoạch"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng tiêu đề bảng",
+              "vi": "Header của Bảng B: lịch cá nhân của Santos theo ngày."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日｜曜日｜午前の予定｜午後・夜の予定",
+              "why": "Header Bảng B — phải đối chiếu với Bảng A theo đúng buổi sáng/chiều-tối."
+            }
+          ]
+        },
+        {
+          "jp": "7｜月｜仕事｜仕事",
+          "vi": "7｜Thứ Hai｜Đi làm｜Đi làm",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc, đi làm"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "7｜月｜仕事｜仕事",
+              "why": "Ngày 7 Santos đi làm CẢ NGÀY — căn cứ loại đáp án 0 của câu hỏi 2 (không thể tư vấn thứ Hai)."
+            }
+          ]
+        },
+        {
+          "jp": "8｜火｜仕事｜",
+          "vi": "8｜Thứ Ba｜Đi làm｜",
+          "vocab": [
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc, đi làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng (ô trống)",
+              "vi": "Chiều và tối ngày 8 không ghi gì → Santos rảnh vào buổi đó."
+            }
+          ],
+          "keys": [
+            {
+              "w": "8｜火｜仕事｜",
+              "why": "Ngày 8 Santos chỉ bận buổi sáng, chiều/tối trống (rảnh) — khớp đúng với Bảng A thứ Ba có おすすめの場所 buổi chiều → căn cứ chính câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "9｜水｜｜仕事",
+          "vi": "9｜Thứ Tư｜｜Đi làm",
+          "vocab": [
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc, đi làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng (ô trống)",
+              "vi": "Buổi sáng ngày 9 không ghi gì → Santos rảnh vào buổi sáng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "9｜水｜｜仕事",
+              "why": "Ngày 9 Santos rảnh buổi SÁNG (chỉ bận chiều/tối) — khớp Bảng A thứ Tư có 交通とホテル buổi sáng → căn cứ chính câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "10｜木｜｜旅行",
+          "vi": "10｜Thứ Năm｜｜Đi du lịch",
+          "vocab": [
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "10｜木｜｜旅行",
+              "why": "Ngày 10 Santos đi du lịch cả chiều/tối → dù thứ Năm cũng có おすすめの場所, Santos KHÔNG rảnh — bẫy loại đáp án 3 của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "※相談は無料です。予約すれば、待たずに相談できます。土曜日と日曜日は休みです。",
+          "vi": "Tư vấn miễn phí. Nếu đặt trước thì có thể tư vấn mà không phải chờ. Thứ Bảy và Chủ Nhật nghỉ.",
+          "vocab": [
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, hỏi ý kiến"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "予約します",
+              "read": "よやくします",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "待たずに",
+              "read": "またずに",
+              "vi": "mà không chờ"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "ngày nghỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vば（予約すれば）",
+              "vi": "予約すれば = nếu đặt trước. する (bất quy tắc): すれば. Điều kiện dẫn đến kết quả \"không phải chờ\"."
+            },
+            {
+              "point": "Vないで（待たずに, ôn Bài 23）",
+              "vi": "待たずに = mà không chờ (thể văn viết của 待たないで)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜日と日曜日は休みです",
+              "why": "Cụm ※ giới hạn ngày nghỉ — bẫy nếu học viên chọn nhầm thứ Bảy/Chủ Nhật cho tư vấn."
+            }
+          ]
+        },
+        {
+          "jp": "【場所】あさひ市国際交流センター2階　電話：042-555-8080　Eメール：soudan@asahi-ex.jp",
+          "vi": "【Địa điểm】Tầng 2 Trung tâm giao lưu quốc tế thành phố Asahi　Điện thoại: 042-555-8080　Email: soudan@asahi-ex.jp",
+          "vocab": [
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "あさひ",
+              "read": "あさひ",
+              "vi": "bình minh; tên riêng Asahi"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "soudan",
+              "read": "soudan",
+              "vi": "sự thảo luận, tư vấn"
+            },
+            {
+              "w": "asahi",
+              "read": "asahi",
+              "vi": "bình minh; tên riêng Asahi"
+            },
+            {
+              "w": "ex",
+              "read": "ex",
+              "vi": "sự trao đổi, ví dụ"
+            },
+            {
+              "w": "jp",
+              "read": "jp",
+              "vi": "tên miền Nhật Bản"
+            },
+            {
+              "w": "階",
+              "read": "かい",
+              "vi": "tầng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Dòng liên hệ",
+              "vi": "Thông tin địa điểm/điện thoại/email đặt cuối thông báo — chuẩn 問題6."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "困ったことがあれば相談員に聞いてください",
+          "label": "Vば（điều kiện）"
+        },
+        {
+          "excerpt": "旅行先を決めていないなら、まず「おすすめの場所」の相談がいいですよ",
+          "label": "V普通形なら"
+        },
+        {
+          "excerpt": "予約すれば、待たずに相談できます",
+          "label": "Vば（điều kiện→kết quả）"
+        },
+        {
+          "excerpt": "旅行をしますから",
+          "label": "〜から（lý do, ôn tập）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Tên cơ quan/dịch vụ + gợi ý tổng quát khi chưa quyết định điểm đến. Chưa có căn cứ trả lời câu hỏi.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng A — lịch tư vấn theo chủ đề",
+          "topic": 2,
+          "note": "Bảng chủ đề tư vấn theo thứ × buổi; đây là căn cứ chính để xác định BUỔI nào có おすすめの場所 (câu 1) và 交通とホテル (câu 2).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "body",
+          "label": "Chuyển đoạn — giới thiệu lịch Santos",
+          "topic": 7,
+          "note": "Nêu lý do Santos đến tư vấn và dẫn vào Bảng B lịch cá nhân của anh.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 13,
+          "kind": "point",
+          "label": "Bảng B — lịch cá nhân Santos",
+          "topic": 8,
+          "note": "Lịch bận/rảnh của Santos theo ngày; phải ghép với Bảng A để tìm buổi vừa đúng chủ đề vừa rảnh. Ô trống = rảnh.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 14,
+          "to": 14,
+          "kind": "turn",
+          "label": "Điều kiện ※ & liên hệ",
+          "topic": 14,
+          "note": "Bẫy: thứ Bảy/Chủ Nhật nghỉ (không liên quan lịch Santos nhưng dễ chọn nhầm); dòng liên hệ không phải căn cứ câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは「おすすめの場所」について相談したいです。今週、いつなら相談できますか。",
+          "options": [
+            "7日（月）の夜",
+            "8日（火）の午後",
+            "9日（水）の午前",
+            "10日（木）の午後"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1: 8日（火）の午後. Theo Bảng A, chủ đề「おすすめの場所」chỉ có vào 火曜日の午後 và 木曜日の午後. Đối chiếu Bảng B: ngày 8（火）Santos chỉ đi làm buổi sáng（8｜火｜仕事｜ — cột chiều/tối để trống）nên buổi chiều rảnh, khớp đúng giờ tư vấn. Đáp án 0 sai vì 月曜日の夜 không có chủ đề おすすめの場所（bảng ghi 交通とホテル). Đáp án 2 sai vì 水曜日の午前 chủ đề là 交通とホテル, không phải おすすめの場所. Đáp án 3 sai vì tuy 木曜日の午後 đúng chủ đề, nhưng Santos ngày 10（木）lại đi du lịch cả buổi chiều/tối（10｜木｜｜旅行）nên không thể đến.",
+          "tip": "Câu hỏi ghép 2 điều kiện: trước tiên dò Bảng A tìm ĐÚNG chủ đề+buổi, sau đó dò Bảng B tìm ô TRỐNG (rảnh) trùng đúng buổi đó — 2 bảng phải khớp nhau mới chọn được.",
+          "evi": [
+            4,
+            10
+          ],
+          "qt": {
+            "q": "Santos muốn hỏi tư vấn về “おすすめの場所” (địa điểm được đề xuất). Tuần này, khi nào anh ấy có thể đến tư vấn?",
+            "o": [
+              "Tối thứ Hai ngày 7",
+              "Chiều thứ Ba ngày 8",
+              "Sáng thứ Tư ngày 9",
+              "Chiều thứ Năm ngày 10"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんが「交通とホテル」について相談できるのはいつですか。",
+          "options": [
+            "7日（月）の午前",
+            "9日（水）の午前",
+            "9日（水）の夜",
+            "10日（木）の午前"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1: 9日（水）の午前. Theo Bảng A, chủ đề「交通とホテル」có vào 月曜日の午前・夜 và 水曜日の午前. Đối chiếu Bảng B: ngày 9（水）buổi sáng Santos không ghi gì（9｜水｜｜仕事 — cột sáng trống）nên rảnh, khớp đúng 水曜日の午前. Đáp án 0 sai vì ngày 7（月）Santos đi làm cả buổi sáng lẫn chiều/tối（7｜月｜仕事｜仕事）nên bận suốt cả ngày. Đáp án 2 sai vì tuy ngày 9 buổi sáng rảnh, nhưng 水曜日の夜 không nằm trong bảng tư vấn về 交通とホテル (bảng chỉ ghi 午前 cho thứ Tư), và buổi tối ngày 9 Santos còn phải đi làm. Đáp án 3 sai vì 木曜日 hoàn toàn không có chủ đề 交通とホテル trong Bảng A（thứ Năm chỉ có おすすめの場所・食べ物）.",
+          "tip": "Khi câu hỏi hỏi \"khi nào có thể tư vấn về chủ đề X\", luôn kiểm tra ĐỦ 2 lớp: (1) chủ đề X có ở buổi nào trong Bảng A, (2) buổi đó nhân vật có thật sự rảnh trong Bảng B không — thiếu 1 lớp là chọn nhầm ô nhiễu.",
+          "evi": [
+            5,
+            11
+          ],
+          "qt": {
+            "q": "Santos có thể hỏi tư vấn về “交通とホテル” (giao thông và khách sạn) khi nào?",
+            "o": [
+              "Sáng thứ Hai ngày 7",
+              "Sáng thứ Tư ngày 9",
+              "Tối thứ Tư ngày 9",
+              "Sáng thứ Năm ngày 10"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

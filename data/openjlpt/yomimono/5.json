@@ -1,0 +1,1393 @@
+{
+  "bai": 5,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 5 tập trung vào DI CHUYỂN: đi đâu (〜へ行きます), bằng gì (〜で行きます), với ai (〜と行きます) và khi nào (いつ〜ますか). Đọc hiểu ở đây = xác định đích đến, phương tiện, người đồng hành, và thời gian của từng chuyến đi.",
+    "steps": [
+      "Đọc câu đầu để biết chủ đề (ai đang nói, đang lên kế hoạch đi đâu).",
+      "Tìm trợ từ へ — danh từ đứng trước へ là ĐÍCH ĐẾN (nơi sẽ đến).",
+      "Tìm trợ từ で đi kèm danh từ phương tiện — danh từ trước で là PHƯƠNG TIỆN DI CHUYỂN.",
+      "Tìm trợ từ と đi kèm tên người — đó là NGƯỜI ĐỒNG HÀNH.",
+      "Tìm いつ ở đầu câu hỏi hoặc cụm thời gian (〜時、〜から〜まで) — đó là thông tin THỜI GIAN.",
+      "Phân biệt 行きます (đi), 来ます (đến/lai), 帰ります (về) — hướng di chuyển khác nhau."
+    ],
+    "tips": [
+      "へ đọc là \"e\" khi là trợ từ chỉ hướng/đích — không đọc \"he\".",
+      "で phương tiện (Bài 5) khác で nơi chốn (Bài sau) — ở Bài 5 danh từ trước で luôn là phương tiện (電車・バス・飛行機・タクシー).",
+      "行きます = đi khỏi đây; 来ます = đến chỗ này (hoặc chỗ người nghe); 帰ります = về nhà/về nước — ba động từ này KHÔNG thay thế được nhau.",
+      "いつ là \"khi nào\" — câu trả lời thường là 〜時・〜曜日・〜月 hoặc cụm 〜から〜まで học ở Bài 4.",
+      "Câu hỏi về thời gian → đọc kỹ toàn đoạn, tìm số giờ/ngày gần nhất với chủ đề.",
+      "〜と Vます ở Bài 5 là \"cùng người đó làm V\" — と khác は: と không thay chủ đề, chỉ bổ sung người đồng hành."
+    ],
+    "grammarFocus": [
+      "Nへ行きます／来ます／帰ります",
+      "NでVます（phương tiện）",
+      "人とVます",
+      "いつVますか"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 4,
+        "items": [
+          "〜時・〜分（thời gian）",
+          "NからNまで",
+          "Vます・Vません",
+          "Vました・Vませんでした",
+          "Nと（cùng ai）"
+        ]
+      },
+      {
+        "bai": 1,
+        "items": [
+          "NはNです",
+          "NのN（sở hữu）"
+        ]
+      },
+      {
+        "bai": 3,
+        "items": [
+          "NはNにあります／います（nơi chốn）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "電車で大阪へ",
+      "titleVi": "Đến Osaka bằng tàu điện",
+      "japanese": "ミラーさんは明日、大阪へ行きます。電車で行きます。田中さんと行きます。9時に東京駅へ来ます。大阪から東京へ6時に帰ります。",
+      "vietnamese": "Ngày mai anh Miller đến Osaka. Anh đi bằng tàu điện. Anh đi cùng anh Tanaka. Anh đến ga Tokyo lúc 9 giờ. Anh về Tokyo từ Osaka lúc 6 giờ.",
+      "sentences": [
+        {
+          "jp": "ミラーさんは明日、大阪へ行きます。",
+          "vi": "Ngày mai anh Miller đến Osaka.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nへ行きます",
+              "vi": "大阪へ行きます = đi đến Osaka. へ chỉ hướng/đích đến, đọc là \"e\"."
+            }
+          ]
+        },
+        {
+          "jp": "電車で行きます。",
+          "vi": "Anh đi bằng tàu điện.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "電車で行きます = đi BẰNG tàu điện. で đứng sau danh từ phương tiện."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんと行きます。",
+          "vi": "Anh đi cùng anh Tanaka.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人とVます",
+              "vi": "田中さんと行きます = đi CÙNG anh Tanaka. と chỉ người đồng hành."
+            }
+          ]
+        },
+        {
+          "jp": "9時に東京駅へ来ます。",
+          "vi": "Anh đến ga Tokyo lúc 9 giờ.",
+          "vocab": [
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "lúc 9 giờ"
+            },
+            {
+              "w": "東京駅",
+              "read": "とうきょうえき",
+              "vi": "ga Tokyo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（thời gian）",
+              "vi": "9時に = lúc 9 giờ. に sau giờ chỉ thời điểm. (Bài 4)"
+            },
+            {
+              "point": "Nへ来ます",
+              "vi": "東京駅へ来ます = đến ga Tokyo. 来ます dùng khi hướng di chuyển là TỚI chỗ người nói/nghe."
+            }
+          ]
+        },
+        {
+          "jp": "大阪から東京へ6時に帰ります。",
+          "vi": "Anh về Tokyo từ Osaka lúc 6 giờ.",
+          "vocab": [
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "6時",
+              "read": "ろくじ",
+              "vi": "lúc 6 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNへ帰ります",
+              "vi": "大阪から東京へ帰ります = về Tokyo từ Osaka. から (từ) + へ (đến). 帰ります = \"về\" (về chỗ cũ/nhà/thành phố gốc). (から復習Bài 4)"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "大阪へ行きます",
+          "label": "Nへ行きます（đích đến）"
+        },
+        {
+          "excerpt": "電車で行きます",
+          "label": "NでVます（phương tiện）"
+        },
+        {
+          "excerpt": "田中さんと行きます",
+          "label": "人とVます（đồng hành）"
+        },
+        {
+          "excerpt": "東京駅へ来ます",
+          "label": "Nへ来ます"
+        },
+        {
+          "excerpt": "大阪から東京へ6時に帰ります",
+          "label": "NからNへ帰ります（Bài 4 ôn）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは何で大阪へ行きますか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "バスで行きます",
+            "飛行機で行きます",
+            "電車で行きます",
+            "タクシーで行きます"
+          ],
+          "answer": 2,
+          "explainVi": "本文に「電車で行きます」とあります。で は phương tiện — 電車で = bằng tàu điện. Đáp án A (バス/xe buýt), B (飛行機/máy bay), D (タクシー/taxi) đều KHÔNG xuất hiện trong bài. Bài chỉ nhắc một phương tiện duy nhất cho chuyến đi Osaka này.",
+          "tip": "Tìm trợ từ で đi sau danh từ phương tiện (電車・バス・飛行機…). Danh từ đứng TRƯỚC で = cách di chuyển.",
+          "qt": {
+            "q": "Miller đi Osaka bằng gì?",
+            "o": [
+              "Đi bằng xe buýt",
+              "Đi bằng máy bay",
+              "Đi bằng tàu điện",
+              "Đi bằng taxi"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはだれと大阪へ行きますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "一人で行きます",
+            "田中さんと行きます",
+            "ワットさんと行きます",
+            "サントスさんと行きます"
+          ],
+          "answer": 1,
+          "explainVi": "本文に「田中さんと行きます」とあります。と sau tên người = đi CÙNG người đó. Đáp án A (一人で/đi một mình) sai vì bài nói rõ có người đi cùng. ワット và サントス không được nhắc đến trong đoạn này.",
+          "tip": "Tìm trợ từ と đi sau tên người — 〈tên〉さんと = \"cùng với 〈tên〉\". Nếu không thấy tên nào + と thì câu trả lời là 一人で (đi một mình).",
+          "qt": {
+            "q": "Miller đi Osaka với ai?",
+            "o": [
+              "Đi một mình",
+              "Đi cùng anh Tanaka",
+              "Đi cùng anh Watt",
+              "Đi cùng anh Santos"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはいつ東京駅へ来ますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "6時に来ます",
+            "8時に来ます",
+            "9時に来ます",
+            "10時に来ます"
+          ],
+          "answer": 2,
+          "explainVi": "本文に「9時に東京駅へ来ます」とあります。に sau giờ chỉ THỜI ĐIỂM cụ thể — 9時に = lúc 9 giờ. Đáp án A (6時) sai vì 6 giờ là giờ VỀ từ Osaka (「6時に帰ります」), không phải giờ đến ga. Đáp án B (8時) và D (10時) không xuất hiện trong bài.",
+          "tip": "いつ = \"khi nào\" → tìm con số giờ + に gần với động từ 来ます. Chú ý bài có nhiều giờ khác nhau — đọc kỹ từng câu để biết giờ nào gắn với hành động nào.",
+          "qt": {
+            "q": "Miller đến ga Tokyo lúc nào?",
+            "o": [
+              "Đến lúc 6 giờ",
+              "Đến lúc 8 giờ",
+              "Đến lúc 9 giờ",
+              "Đến lúc 10 giờ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "旅行の計画",
+      "titleVi": "Kế hoạch du lịch",
+      "japanese": "ワットさんはIMCの社員です。来週、京都へ旅行します。東京から京都まで新幹線で行きます。ワットさんは月曜日の朝8時に東京駅へ来ます。田中さんも東京駅へ来ます。田中さんと京都へ行きます。ワットさんは京都で会社へ行きます。田中さんも来ます。仕事は月曜日から水曜日までです。水曜日の夜、ワットさんは飛行機で大阪へ行きます。田中さんは電車で東京へ帰ります。ワットさんはいつ東京へ帰りますか。木曜日に帰ります。",
+      "vietnamese": "Anh Watt là nhân viên công ty IMC. Tuần tới anh đi du lịch đến Kyoto. Anh đi từ Tokyo đến Kyoto bằng tàu cao tốc Shinkansen. Anh Watt đến ga Tokyo vào lúc 8 giờ sáng thứ Hai. Anh Tanaka cũng đến ga Tokyo. Anh đi cùng anh Tanaka đến Kyoto. Anh Watt đến công ty ở Kyoto. Anh Tanaka cũng đến. Công việc diễn ra từ thứ Hai đến thứ Tư. Tối thứ Tư, anh Watt đi đến Osaka bằng máy bay. Anh Tanaka về Tokyo bằng tàu điện. Anh Watt về Tokyo khi nào? Anh về vào thứ Năm.",
+      "sentences": [
+        {
+          "jp": "ワットさんはIMCの社員です。",
+          "vi": "Anh Watt là nhân viên công ty IMC.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "IMC",
+              "read": "IMC",
+              "vi": "IMC (tên công ty)"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Câu khẳng định giới thiệu. (Bài 1 ôn)"
+            },
+            {
+              "point": "NのN",
+              "vi": "IMCの社員 = nhân viên của IMC. (Bài 1 ôn)"
+            }
+          ]
+        },
+        {
+          "jp": "来週、京都へ旅行します。",
+          "vi": "Tuần tới anh đi du lịch đến Kyoto.",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nへ行きます／Vます（địa điểm + hành động）",
+              "vi": "京都へ旅行します = du lịch đến Kyoto. へ chỉ đích đến của chuyến đi."
+            }
+          ]
+        },
+        {
+          "jp": "東京から京都まで新幹線で行きます。",
+          "vi": "Anh đi từ Tokyo đến Kyoto bằng tàu cao tốc Shinkansen.",
+          "vocab": [
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "新幹線",
+              "read": "しんかんせん",
+              "vi": "tàu cao tốc Shinkansen"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "東京から京都まで = từ Tokyo đến Kyoto. から = từ, まで = đến."
+            },
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "新幹線で行きます = đi BẰNG Shinkansen. で sau phương tiện."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんは月曜日の朝8時に東京駅へ来ます。",
+          "vi": "Anh Watt đến ga Tokyo vào lúc 8 giờ sáng thứ Hai.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "lúc 8 giờ"
+            },
+            {
+              "w": "東京駅",
+              "read": "とうきょうえき",
+              "vi": "ga Tokyo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（Bài 4 ôn）",
+              "vi": "8時に = lúc 8 giờ. に sau giờ chỉ thời điểm cụ thể."
+            },
+            {
+              "point": "Nへ来ます",
+              "vi": "東京駅へ来ます = đến ga Tokyo. 来ます dùng khi đến chỗ người nói/quan sát."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんも東京駅へ来ます。",
+          "vi": "Anh Tanaka cũng đến ga Tokyo.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "東京駅",
+              "read": "とうきょうえき",
+              "vi": "ga Tokyo"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも（Bài 1 ôn）",
+              "vi": "も = \"cũng\". Tanaka CŨNG đến ga Tokyo như Watt."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんと京都へ行きます。",
+          "vi": "Anh đi cùng anh Tanaka đến Kyoto.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人とVます",
+              "vi": "田中さんと京都へ行きます = đi CÙNG anh Tanaka đến Kyoto. と chỉ người đồng hành (Bài 5)."
+            },
+            {
+              "point": "Nへ行きます",
+              "vi": "京都へ行きます = đi đến Kyoto."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんは京都で会社へ行きます。田中さんも来ます。",
+          "vi": "Anh Watt đến công ty ở Kyoto. Anh Tanaka cũng đến.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nへ行きます／来ます",
+              "vi": "会社へ行きます = đi đến công ty; 田中さんも来ます = Tanaka cũng đến (cùng địa điểm)."
+            }
+          ]
+        },
+        {
+          "jp": "仕事は月曜日から水曜日までです。",
+          "vi": "Công việc diễn ra từ thứ Hai đến thứ Tư.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "月曜日",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "水曜日",
+              "read": "すいようび",
+              "vi": "thứ Tư"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "月曜日から水曜日まで = từ thứ Hai đến thứ Tư. から–まで cũng dùng cho ngày trong tuần."
+            }
+          ]
+        },
+        {
+          "jp": "水曜日の夜、ワットさんは飛行機で大阪へ行きます。",
+          "vi": "Tối thứ Tư, anh Watt đi đến Osaka bằng máy bay.",
+          "vocab": [
+            {
+              "w": "水曜日",
+              "read": "すいようび",
+              "vi": "thứ Tư"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "飛行機",
+              "read": "ひこうき",
+              "vi": "máy bay"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "飛行機で行きます = đi BẰNG máy bay. Khác với 電車で (bằng tàu điện) — phương tiện thay đổi nhưng cấu trúc giống nhau."
+            },
+            {
+              "point": "Nへ行きます",
+              "vi": "大阪へ行きます = đi đến Osaka."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは電車で東京へ帰ります。",
+          "vi": "Anh Tanaka về Tokyo bằng tàu điện.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "電車で帰ります = về BẰNG tàu điện."
+            },
+            {
+              "point": "Nへ帰ります",
+              "vi": "東京へ帰ります = về Tokyo. 帰ります dùng khi quay trở về nơi gốc (nhà, thành phố mình ở)."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんはいつ東京へ帰りますか。木曜日に帰ります。",
+          "vi": "Anh Watt về Tokyo khi nào? Anh về vào thứ Năm.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "木曜日",
+              "read": "もくようび",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "いつ",
+              "read": "いつ",
+              "vi": "khi nào, lúc nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いつVますか",
+              "vi": "いつ帰りますか = Về khi nào? Câu hỏi về thời gian. Trả lời: 木曜日に帰ります = về vào thứ Năm."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "京都へ旅行します",
+          "label": "Nへ行きます／Vます（đích đến）"
+        },
+        {
+          "excerpt": "新幹線で行きます",
+          "label": "NでVます（phương tiện）"
+        },
+        {
+          "excerpt": "東京から京都まで",
+          "label": "NからNまで（Bài 4 ôn）"
+        },
+        {
+          "excerpt": "東京駅へ来ます",
+          "label": "Nへ来ます"
+        },
+        {
+          "excerpt": "田中さんと京都へ行きます",
+          "label": "人とVます（đồng hành）"
+        },
+        {
+          "excerpt": "飛行機で大阪へ行きます",
+          "label": "NでVます（phương tiện thứ 2）"
+        },
+        {
+          "excerpt": "電車で東京へ帰ります",
+          "label": "Nへ帰ります"
+        },
+        {
+          "excerpt": "ワットさんはいつ東京へ帰りますか",
+          "label": "いつVますか"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワットさんは何で京都へ行きますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "電車で行きます",
+            "飛行機で行きます",
+            "新幹線で行きます",
+            "バスで行きます"
+          ],
+          "answer": 2,
+          "explainVi": "本文に「東京から京都まで新幹線で行きます」とあります。新幹線で = bằng tàu cao tốc Shinkansen — đây là phương tiện từ Tokyo đến Kyoto. Đáp án B (飛行機/máy bay) là bẫy nguy hiểm: bài CÓ nhắc máy bay nhưng ở câu khác — 「飛行機で大阪へ行きます」(từ Kyoto đến Osaka), không phải đến Kyoto. Đáp án A (電車) là phương tiện của 田中さん về Tokyo. Đáp án D (バス) không xuất hiện.",
+          "tip": "Bài dài có nhiều phương tiện — luôn đọc kèm đích đến (〜へ) để biết phương tiện nào dùng cho chặng nào. 新幹線で → 京都へ; 飛行機で → 大阪へ; 電車で → 東京へ.",
+          "qt": {
+            "q": "Ông Watt đi Kyoto bằng gì?",
+            "o": [
+              "Đi bằng tàu điện",
+              "Đi bằng máy bay",
+              "Đi bằng tàu Shinkansen",
+              "Đi bằng xe buýt"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんはだれと京都へ行きますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "ミラーさんと行きます",
+            "田中さんと行きます",
+            "サントスさんと行きます",
+            "一人で行きます"
+          ],
+          "answer": 1,
+          "explainVi": "本文に「田中さんと京都へ行きます」とあります。と sau tên người = đi CÙNG người đó đến Kyoto. Đáp án A (ミラー) là nhân vật ở đoạn 1, không xuất hiện trong đoạn này. Đáp án C (サントス) và D (一人で/đi một mình) đều không khớp với bài.",
+          "tip": "Tìm 〈tên〉さんと + 動詞 — đó là người đồng hành. Nếu đề hỏi \"với ai đến Kyoto\" thì đọc câu có 京都へ行きます và xem trước nó là と gì.",
+          "qt": {
+            "q": "Ông Watt đi Kyoto với ai?",
+            "o": [
+              "Đi với ông Miller",
+              "Đi với ông Tanaka",
+              "Đi với ông Santos",
+              "Đi một mình"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんはいつ東京へ帰りますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "月曜日に帰ります",
+            "水曜日に帰ります",
+            "木曜日に帰ります",
+            "火曜日に帰ります"
+          ],
+          "answer": 2,
+          "explainVi": "本文に「木曜日に帰ります」とあります。木曜日に = vào thứ Năm — đây là câu trả lời thẳng cho câu hỏi 「いつ東京へ帰りますか」ngay trong bài. Đáp án A (月曜日/thứ Hai) là ngày Watt BẮT ĐẦU đi, không phải ngày về. Đáp án B (水曜日/thứ Tư) là ngày Watt bay sang Osaka — dễ nhầm vì câu đó cũng nhắc 大阪+飛行機. Đáp án D (火曜日/thứ Ba) không xuất hiện trong bài.",
+          "tip": "いつ帰りますか → tìm 帰ります + に sau ngày trong tuần. Bài này tự hỏi rồi tự trả lời: \"ワットさんはいつ東京へ帰りますか。木曜日に帰ります。\" — đọc thấy câu hỏi là đã có đáp án ngay bên dưới.",
+          "qt": {
+            "q": "Khi nào ông Watt trở về Tokyo?",
+            "o": [
+              "Trở về vào thứ Hai",
+              "Trở về vào thứ Tư",
+              "Trở về vào thứ Năm",
+              "Trở về vào thứ Ba"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "東京駅から大阪へ　バスの時間",
+      "titleVi": "Giờ xe buýt từ ga Tokyo đến Osaka",
+      "japanese": "東京駅から大阪へ　バスの時間\nあさひバスは東京駅から大阪までのバスです。バスは3,000円です。\nサントスさんは来週の火曜日に大阪へ行きます。田中さんと大阪へ行きます。\n便｜東京駅　出発｜大阪　到着\n1番｜7時｜10時\n2番｜8時｜11時\n3番｜9時｜12時\n4番｜10時｜13時\nサントスさんと田中さんは9時のバスで大阪へ行きます。\n※土曜日と日曜日はバスがありません。\n電話：03-1234-5678（朝9時から夜6時まで）",
+      "vietnamese": "Giờ xe buýt từ ga Tokyo đến Osaka\nXe buýt Asahi là xe buýt chạy từ ga Tokyo đến Osaka. Vé xe buýt là 3.000 yên.\nAnh Santos thứ Ba tuần tới đi Osaka. Anh đi Osaka cùng anh Tanaka.\nChuyến｜Giờ đi (ga Tokyo)｜Giờ đến (Osaka)\nSố 1｜7 giờ｜10 giờ\nSố 2｜8 giờ｜11 giờ\nSố 3｜9 giờ｜12 giờ\nSố 4｜10 giờ｜13 giờ\nAnh Santos và anh Tanaka đi Osaka bằng xe buýt lúc 9 giờ.\n※ Thứ Bảy và Chủ nhật không có xe buýt.\nĐiện thoại: 03-1234-5678 (sáng 9 giờ đến tối 6 giờ)",
+      "sentences": [
+        {
+          "jp": "東京駅から大阪へ　バスの時間",
+          "vi": "Giờ xe buýt từ ga Tokyo đến Osaka",
+          "vocab": [
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ giấc"
+            },
+            {
+              "w": "東京駅",
+              "read": "とうきょうえき",
+              "vi": "ga Tokyo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNへ（Bài 4 ôn）",
+              "vi": "東京駅から大阪へ = từ ga Tokyo đến Osaka. から (từ) + へ (đến)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "東京駅から大阪へ",
+              "why": "Tiêu đề cho biết tuyến xe: điểm đi ga Tokyo, điểm đến Osaka — khớp 2 cột đầu của bảng."
+            }
+          ]
+        },
+        {
+          "jp": "あさひバスは東京駅から大阪までのバスです。バスは3,000円です。",
+          "vi": "Xe buýt Asahi là xe buýt chạy từ ga Tokyo đến Osaka. Vé xe buýt là 3.000 yên.",
+          "vocab": [
+            {
+              "w": "あさひバス",
+              "read": "あさひバス",
+              "vi": "xe buýt Asahi"
+            },
+            {
+              "w": "あさひ",
+              "read": "あさひ",
+              "vi": "Asahi"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "東京駅",
+              "read": "とうきょうえき",
+              "vi": "ga Tokyo"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（Bài 1 ôn）",
+              "vi": "あさひバスは…バスです / バスは3,000円です — câu khẳng định giới thiệu."
+            },
+            {
+              "point": "NからNまでのN（Bài 4 ôn＋の）",
+              "vi": "東京駅から大阪までのバス = xe buýt chạy từ ga Tokyo đến Osaka. の nối cụm から〜まで với danh từ バス."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3,000円",
+              "why": "Giá vé — thông tin phụ, không phải căn cứ câu hỏi (câu hỏi chỉ hỏi giờ/số chuyến)."
+            }
+          ]
+        },
+        {
+          "jp": "サントスさんは来週の火曜日に大阪へ行きます。田中さんと大阪へ行きます。",
+          "vi": "Anh Santos thứ Ba tuần tới đi Osaka. Anh đi Osaka cùng anh Tanaka.",
+          "vocab": [
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần tới"
+            },
+            {
+              "w": "火曜日",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nへ行きます",
+              "vi": "大阪へ行きます = đi đến Osaka. へ chỉ đích đến."
+            },
+            {
+              "point": "人とVます",
+              "vi": "田中さんと大阪へ行きます = đi CÙNG anh Tanaka đến Osaka. と chỉ người đồng hành."
+            }
+          ],
+          "keys": [
+            {
+              "w": "サントスさん",
+              "why": "Nhân vật chính của câu hỏi — cần theo dõi giờ xe buýt của Santos ở dòng cuối cùng."
+            },
+            {
+              "w": "田中さんと",
+              "why": "Xác nhận Santos đi CÙNG Tanaka — cả hai cùng đi 1 chuyến xe."
+            }
+          ]
+        },
+        {
+          "jp": "便｜東京駅　出発｜大阪　到着",
+          "vi": "Chuyến | Giờ đi (ga Tokyo) | Giờ đến (Osaka)",
+          "vocab": [
+            {
+              "w": "便",
+              "read": "びん",
+              "vi": "chuyến (xe/tàu/bay)"
+            },
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "出発",
+              "read": "しゅっぱつ",
+              "vi": "xuất phát, khởi hành"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "到着",
+              "read": "とうちゃく",
+              "vi": "đến nơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1 ôn）",
+              "vi": "Hàng tiêu đề bảng: 便 / 出発 / 到着 — mỗi cột là 1 danh từ mốc để dò theo hàng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "出発",
+              "why": "Cột giờ ĐI — câu hỏi hỏi giờ xuất phát từ ga Tokyo, phải dò đúng cột này."
+            },
+            {
+              "w": "到着",
+              "why": "Cột giờ ĐẾN Osaka — dễ nhầm với cột giờ đi nếu đọc lướt."
+            }
+          ]
+        },
+        {
+          "jp": "1番｜7時｜10時",
+          "vi": "Số 1 | 7 giờ | 10 giờ",
+          "vocab": [
+            {
+              "w": "1番",
+              "read": "いちばん",
+              "vi": "số 1, chuyến số 1"
+            },
+            {
+              "w": "7時",
+              "read": "しちじ",
+              "vi": "lúc 7 giờ"
+            },
+            {
+              "w": "10時",
+              "read": "じゅうじ",
+              "vi": "lúc 10 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（Bài 4 ôn）",
+              "vi": "7時・10時 = lúc 7 giờ, lúc 10 giờ. Hàng bảng ghi giờ đi và giờ đến của chuyến 1番."
+            }
+          ],
+          "keys": [
+            {
+              "w": "1番",
+              "why": "Chuyến số 1 — không phải chuyến 9時 nên là đáp án nhiễu (giờ đi 7時 khác 9時 trong bài)."
+            }
+          ]
+        },
+        {
+          "jp": "2番｜8時｜11時",
+          "vi": "Số 2 | 8 giờ | 11 giờ",
+          "vocab": [
+            {
+              "w": "2番",
+              "read": "にばん",
+              "vi": "số 2, chuyến số 2"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "lúc 8 giờ"
+            },
+            {
+              "w": "11時",
+              "read": "じゅういちじ",
+              "vi": "lúc 11 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（Bài 4 ôn）",
+              "vi": "8時・11時 = lúc 8 giờ, lúc 11 giờ — giờ đi và giờ đến của chuyến 2番."
+            }
+          ],
+          "keys": [
+            {
+              "w": "2番",
+              "why": "Chuyến số 2 — giờ đi 8時 khác 9時 nên KHÔNG phải đáp án đúng, dùng làm nhiễu."
+            }
+          ]
+        },
+        {
+          "jp": "3番｜9時｜12時",
+          "vi": "Số 3 | 9 giờ | 12 giờ",
+          "vocab": [
+            {
+              "w": "3番",
+              "read": "さんばん",
+              "vi": "số 3, chuyến số 3"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "lúc 9 giờ"
+            },
+            {
+              "w": "12時",
+              "read": "じゅうにじ",
+              "vi": "lúc 12 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（Bài 4 ôn）",
+              "vi": "9時・12時 = lúc 9 giờ, lúc 12 giờ — chuyến 3番 khởi hành đúng giờ Santos đi (9時)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3番｜9時｜12時",
+              "why": "Hàng ĐÁP ÁN ĐÚNG — chuyến 3番 khởi hành 9時, khớp đúng câu Santos và Tanaka đi."
+            }
+          ]
+        },
+        {
+          "jp": "4番｜10時｜13時",
+          "vi": "Số 4 | 10 giờ | 13 giờ",
+          "vocab": [
+            {
+              "w": "4番",
+              "read": "よんばん",
+              "vi": "số 4, chuyến số 4"
+            },
+            {
+              "w": "10時",
+              "read": "じゅうじ",
+              "vi": "lúc 10 giờ"
+            },
+            {
+              "w": "13時",
+              "read": "じゅうさんじ",
+              "vi": "lúc 13 giờ (1 giờ chiều)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時（Bài 4 ôn）",
+              "vi": "10時・13時 = lúc 10 giờ, lúc 13 giờ — giờ đi và giờ đến của chuyến 4番."
+            }
+          ],
+          "keys": [
+            {
+              "w": "4番",
+              "why": "Chuyến số 4 — giờ đi 10時 khác 9時, dùng làm nhiễu (dễ nhầm vì gần với giờ đúng)."
+            }
+          ]
+        },
+        {
+          "jp": "サントスさんと田中さんは9時のバスで大阪へ行きます。",
+          "vi": "Anh Santos và anh Tanaka đi Osaka bằng xe buýt lúc 9 giờ.",
+          "vocab": [
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            },
+            {
+              "w": "大阪",
+              "read": "おおさか",
+              "vi": "Osaka (tên thành phố)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "lúc 9 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "9時のバスで行きます = đi BẰNG chuyến xe buýt lúc 9 giờ. で sau danh từ phương tiện."
+            },
+            {
+              "point": "Nへ行きます",
+              "vi": "大阪へ行きます = đi đến Osaka."
+            }
+          ],
+          "keys": [
+            {
+              "w": "9時のバスで大阪へ行きます",
+              "why": "Câu trả lời TRỰC TIẾP cho câu hỏi: Santos đi bằng chuyến 9時 — dò bảng ra 3番."
+            }
+          ]
+        },
+        {
+          "jp": "※土曜日と日曜日はバスがありません。",
+          "vi": "※ Thứ Bảy và Chủ nhật không có xe buýt.",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "バス",
+              "read": "バス",
+              "vi": "xe buýt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとN（Bài 4 ôn）",
+              "vi": "土曜日と日曜日 = thứ Bảy và Chủ nhật. と nối 2 danh từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜日と日曜日はバスがありません",
+              "why": "Bẫy ngày nghỉ — nhưng Santos đi 火曜日 (thứ Ba) nên KHÔNG ảnh hưởng đáp án, chỉ để test đọc kỹ."
+            }
+          ]
+        },
+        {
+          "jp": "電話：03-1234-5678（朝9時から夜6時まで）",
+          "vi": "Điện thoại: 03-1234-5678 (sáng 9 giờ đến tối 6 giờ)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "03-1234-5678",
+              "read": "ぜろさんのいちにさんよんのごろくななはち",
+              "vi": "số điện thoại"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "6時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "朝9時から夜6時まで = từ 9 giờ sáng đến 6 giờ tối — giờ liên hệ, không liên quan câu hỏi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "電話：03-1234-5678",
+              "why": "Thông tin liên hệ — không phải căn cứ đáp án, chỉ là chi tiết \"chất thông báo thật\"."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "大阪へ行きます",
+          "label": "Nへ行きます（đích đến）"
+        },
+        {
+          "excerpt": "田中さんと大阪へ行きます",
+          "label": "人とVます（đồng hành・Bài 5）"
+        },
+        {
+          "excerpt": "9時のバスで大阪へ行きます",
+          "label": "NでVます（phương tiện・Bài 5）"
+        },
+        {
+          "excerpt": "東京駅から大阪までのバス",
+          "label": "NからNまで（Bài 4 ôn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu chuyến đi",
+          "topic": 2,
+          "note": "Tiêu đề nêu tuyến xe; câu 3 giới thiệu Santos đi Osaka cùng Tanaka — đọc để biết AI cần tra bảng.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng giờ xe buýt",
+          "topic": 3,
+          "note": "Bảng 4 chuyến, mỗi hàng gồm số chuyến + giờ đi + giờ đến — cần dò đúng cột và đúng hàng theo giờ 9時.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "point",
+          "label": "Câu trả lời trực tiếp",
+          "topic": 8,
+          "note": "Câu này nói thẳng Santos đi chuyến 9時 — ghép với bảng ở khối trên ra đáp án 3番.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Chú ý ※ & liên hệ",
+          "topic": 9,
+          "note": "Dòng ※ về ngày nghỉ (thứ Bảy/Chủ nhật) là bẫy không liên quan vì Santos đi thứ Ba; dòng điện thoại chỉ là thông tin liên hệ.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんと田中さんは何番のバスで大阪へ行きますか。",
+          "options": [
+            "1番のバスです",
+            "2番のバスです",
+            "3番のバスです",
+            "4番のバスです"
+          ],
+          "answer": 2,
+          "explainVi": "本文に「サントスさんと田中さんは9時のバスで大阪へ行きます」とあります。表を見ると「3番｜9時｜12時」— 9時に東京駅を出発するのは3番のバスです。Đáp án A (1番) khởi hành 7時, B (2番) khởi hành 8時, D (4番) khởi hành 10時 — đều KHÔNG khớp giờ 9時 mà bài nói Santos và Tanaka đi.",
+          "tip": "Đọc câu cuối cùng trước để biết GIỜ (9時), rồi dò cột \"東京駅　出発\" trong bảng để tìm đúng hàng — số chuyến (便) nằm ở cột đầu tiên của hàng đó.",
+          "evi": [
+            3,
+            6,
+            8
+          ],
+          "qt": {
+            "q": "Anh Santos và anh Tanaka đi Osaka bằng chuyến xe buýt số mấy?",
+            "o": [
+              "Chuyến xe buýt số 1",
+              "Chuyến xe buýt số 2",
+              "Chuyến xe buýt số 3",
+              "Chuyến xe buýt số 4"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

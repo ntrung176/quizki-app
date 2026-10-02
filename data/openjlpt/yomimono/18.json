@@ -1,0 +1,1607 @@
+{
+  "bai": 18,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 18 giới thiệu **thể từ điển** (辞書形) và 3 mẫu quan trọng: 「Vることができます」(có thể làm được), 「趣味はVることです」(sở thích là…), 「Vるまえに」(trước khi làm…). Đọc hiểu ở đây = nhận ra THÊM ĐƯỢC / SỞ THÍCH / TRÌNH TỰ HÀNH ĐỘNG (trước sau).",
+    "steps": [
+      "Đọc lướt qua toàn bài để biết ai đang nói và chủ đề là sở thích hay lịch trình hàng ngày.",
+      "Tìm「ことができます」→ đó là khả năng. Động từ trước こと là thể từ điển (đuôi る hoặc u-sound).",
+      "Tìm「趣味は〜ことです」→ phần trước こと là sở thích của người đó.",
+      "Tìm「まえに」→ hành động SAU まえに là việc làm TRƯỚC; hành động chính (câu tiếp theo) là việc làm SAU.",
+      "Chú ý「なかなか〜ません」→ khó làm được việc đó.「ぜひ」→ muốn làm rất nhiệt tình.",
+      "Kiểm tra trình tự: câu nào là trước (まえに), câu nào là sau — đừng đảo ngược khi chọn đáp án."
+    ],
+    "tips": [
+      "「ことができます」đi sau thể từ điển, không sau thể ます — viết 泳ぐことができます (✔), NOT 泳ぎますことができます (✘).",
+      "「趣味は〜ことです」: 趣味 đứng trước は, cụm Vること đứng trước です, bản thân こと là danh từ hóa động từ.",
+      "「Vるまえに」khác「Vてから」: まえに = \"trước khi\", てから = \"sau khi\". Đừng nhầm chiều thời gian.",
+      "「なかなか〜ません」là cặp cố định = \"mãi không…/ khó mà…\". Nếu thấy なかなか thì câu phải có ません.",
+      "「ぜひ」= \"nhất định, hãy (cùng tôi)…\" — thể hiện sự nhiệt tình, thường đi với Vましょう・Vてください.",
+      "「Nのまえに」dùng với danh từ chỉ sự kiện (食事のまえに, 仕事のまえに); 「Vるまえに」dùng với động từ."
+    ],
+    "grammarFocus": [
+      "辞書形（thể từ điển）",
+      "Vることができます",
+      "趣味はVることです",
+      "Vるまえに・Nのまえに",
+      "なかなか〜ません",
+      "ぜひ"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです",
+          "〜が上手です",
+          "〜がわかります",
+          "どうして〜から"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "Vたいです",
+          "Vに行きます（mục đích di chuyển）"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vてください",
+          "Vています"
+        ]
+      },
+      {
+        "bai": 15,
+        "items": [
+          "Vてもいいです",
+          "Vています（trạng thái/nghề）",
+          "知っています"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから（trình tự）",
+          "Vて Vて（nối nhiều hành động）"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "ない形",
+          "Vなければなりません",
+          "Vなくてもいいです"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "カリナさんの趣味",
+      "titleVi": "Sở thích của Karina",
+      "japanese": "カリナさんの趣味は料理をすることです。カリナさんは日本料理を作ることができます。毎朝、シャワーを浴びるまえに、ストレッチをします。でも、なかなか早く起きることができません。ぜひ、いっしょに日本料理を食べてください。",
+      "vietnamese": "Sở thích của Karina là nấu ăn. Karina có thể nấu món ăn Nhật Bản. Mỗi sáng, trước khi tắm, cô ấy tập giãn cơ. Nhưng, khó mà dậy sớm được. Nhất định hãy cùng ăn món Nhật nhé!",
+      "sentences": [
+        {
+          "jp": "カリナさんの趣味は料理をすることです。",
+          "vi": "Sở thích của Karina là nấu ăn.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "趣味はVることです",
+              "vi": "「趣味は〔料理をする〕ことです」— こと danh từ hóa cụm động từ, dùng thể từ điển (する) trước こと."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは日本料理を作ることができます。",
+          "vi": "Karina có thể nấu món ăn Nhật Bản.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "日本料理",
+              "read": "にほんりょうり",
+              "vi": "món ăn Nhật Bản"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます",
+              "vi": "「作る」là thể từ điển, gắn ことができます → \"có thể làm được\". を vẫn đứng sau tân ngữ (日本料理を)."
+            }
+          ]
+        },
+        {
+          "jp": "毎朝、シャワーを浴びるまえに、ストレッチをします。",
+          "vi": "Mỗi sáng, trước khi tắm, cô ấy tập giãn cơ.",
+          "vocab": [
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "シャワー",
+              "read": "シャワー",
+              "vi": "vòi hoa sen, tắm vòi"
+            },
+            {
+              "w": "浴びる",
+              "read": "あびる",
+              "vi": "tắm, hứng chịu"
+            },
+            {
+              "w": "ストレッチ",
+              "read": "ストレッチ",
+              "vi": "bài tập giãn cơ (stretching)"
+            },
+            {
+              "w": "シャワーを浴びる",
+              "read": "シャワーをあびる",
+              "vi": "tắm (dội nước)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに",
+              "vi": "「まえに」đứng sau hành động làm MỐC; hành động chính xảy ra TRƯỚC mốc đó. Ở đây: MỐC = シャワーを浴びる (tắm); hành động chính = ストレッチをします (tập giãn cơ TRƯỚC khi tắm)."
+            }
+          ]
+        },
+        {
+          "jp": "でも、なかなか早く起きることができません。",
+          "vi": "Nhưng, khó mà dậy sớm được.",
+          "vocab": [
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi không, khó mà (dùng với phủ định)"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm, nhanh (phó từ từ はやい)"
+            },
+            {
+              "w": "起きる",
+              "read": "おきる",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng (nối mâu thuẫn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "なかなか〜ません",
+              "vi": "「なかなか」đi cùng phủ định ことができません → \"khó mà dậy sớm được\"."
+            },
+            {
+              "point": "Vることができません",
+              "vi": "否定形 của Vることができます: 起きる → 起きることができません."
+            }
+          ]
+        },
+        {
+          "jp": "ぜひ、いっしょに日本料理を食べてください。",
+          "vi": "Nhất định hãy cùng ăn món Nhật nhé!",
+          "vocab": [
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, nhất quyết (thể hiện nhiệt tình)"
+            },
+            {
+              "w": "いっしょに",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ぜひ",
+              "vi": "「ぜひ」thể hiện sự mời mọc nhiệt tình, kết hợp với 〜てください (Bài 14) để mời người khác."
+            },
+            {
+              "point": "Vてください (ôn Bài 14)",
+              "vi": "「食べてください」= xin hãy ăn — yêu cầu/mời lịch sự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "趣味は料理をすることです",
+          "label": "趣味はVることです"
+        },
+        {
+          "excerpt": "日本料理を作ることができます",
+          "label": "Vることができます"
+        },
+        {
+          "excerpt": "シャワーを浴びるまえに",
+          "label": "Vるまえに"
+        },
+        {
+          "excerpt": "なかなか早く起きることができません",
+          "label": "なかなか〜ません"
+        },
+        {
+          "excerpt": "ぜひ、いっしょに日本料理を食べてください",
+          "label": "ぜひ"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんの趣味は何ですか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "ストレッチをすることです",
+            "日本語を勉強することです",
+            "料理をすることです",
+            "早く起きることです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Ngay câu đầu bài có「カリナさんの趣味は料理をすることです」— đây là câu trả lời trực tiếp, mẫu 趣味はVることです. Đáp án 0 sai vì ストレッチ là thói quen buổi sáng của Karina, không phải sở thích (趣味). Đáp án 1 sai vì bài không đề cập việc học tiếng Nhật. Đáp án 3 sai vì「なかなか早く起きることができません」— dậy sớm là điều Karina KHÔNG làm được, không phải sở thích.",
+          "tip": "Tìm mẫu「趣味は〜ことです」trong bài — đây chính là câu trả lời cho \"sở thích là gì\". Mẫu này luôn có 趣味は ở đầu và ことです ở cuối.",
+          "qt": {
+            "q": "Sở thích của chị Karina là gì?",
+            "o": [
+              "Tập giãn cơ",
+              "Học tiếng Nhật",
+              "Nấu ăn",
+              "Dậy sớm"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは毎朝、シャワーを浴びるまえに何をしますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "料理をします",
+            "日本料理を食べます",
+            "ストレッチをします",
+            "早く起きます"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết rõ「シャワーを浴びるまえに、ストレッチをします」— hành động nằm trong câu chính (ストレッチ) là việc làm TRƯỚC MỐC (シャワーを浴びる). Đáp án 0 sai vì 料理 là sở thích của Karina, không liên quan đến thói quen buổi sáng được nêu ở đây. Đáp án 1 sai vì ăn món Nhật là lời mời ở cuối bài, không phải thói quen buổi sáng. Đáp án 3 sai vì「なかなか早く起きることができません」— dậy sớm là điều Karina khó làm được.",
+          "tip": "Khi gặp「Aまえに、B」→ B là việc làm TRƯỚC, A là MỐC thời gian. Đừng nhầm: まえに chỉ \"trước khi\", không phải \"sau khi\".",
+          "qt": {
+            "q": "Mỗi sáng, chị Karina làm gì trước khi tắm vòi sen?",
+            "o": [
+              "Nấu ăn",
+              "Ăn món Nhật",
+              "Tập giãn cơ",
+              "Dậy sớm"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはなかなか何ができませんか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "日本料理を作ることができません",
+            "早く起きることができません",
+            "ストレッチをすることができません",
+            "日本語を話すことができません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết「でも、なかなか早く起きることができません」— なかなか + ことができません là cặp cố định nghĩa là \"khó mà làm được\". Đáp án 0 sai vì bài nói rõ「日本料理を作ることができます」— Karina CÓ THỂ nấu món Nhật (khẳng định). Đáp án 2 sai vì Karina vẫn tập ストレッチ mỗi sáng — bài không nói cô ấy không thể làm điều này. Đáp án 3 sai vì bài không đề cập khả năng nói tiếng Nhật của Karina.",
+          "tip": "Nhìn ngay cặp「なかなか〜ません」— đây là dấu hiệu điều gì đó KHÓ LÀM. Câu đúng sẽ chứa chính xác từ ngữ xuất hiện giữa なかなか và ません trong bài.",
+          "qt": {
+            "q": "Chị Karina không thể làm gì dù rất cố gắng?",
+            "o": [
+              "Không thể nấu món Nhật",
+              "Không thể dậy sớm",
+              "Không thể tập giãn cơ",
+              "Không thể nói tiếng Nhật"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ミラーさんの休みの過ごし方",
+      "titleVi": "Cách Miller tận hưởng ngày nghỉ",
+      "japanese": "私はスポーツが好きです。特にテニスが好きで、毎週末友達とテニスをします。私はテニスをすることができます。でも、サッカーはなかなかうまくすることができません。私の趣味はテニスをすることと、音楽を聴くことです。テニスをするまえに、必ず水を飲みます。そして、ストレッチをします。試合のまえに、友達といっしょに話します。休みの日、朝ごはんを食べるまえに、ジョギングをします。ジョギングは体にいいですが、なかなか続けることができません。カリナさんはピアノを弾くことができます。私は弾くことができません。でも、ぜひピアノを弾きたいです。毎日練習したいです。田中さん：「日本語を教えることができます。ぜひいっしょに勉強しましょう。」私は日本語をもっと勉強したいです。ぜひ、みなさんもテニスをしてください。",
+      "vietnamese": "Tôi thích thể thao. Đặc biệt là tôi thích tennis và mỗi cuối tuần chơi tennis với bạn bè. Tôi có thể chơi tennis. Nhưng khó mà chơi giỏi bóng đá được. Sở thích của tôi là chơi tennis và nghe nhạc. Trước khi chơi tennis, tôi nhất định uống nước. Rồi tập giãn cơ. Trước trận đấu, tôi nói chuyện cùng bạn bè. Ngày nghỉ, trước khi ăn sáng, tôi chạy bộ. Chạy bộ tốt cho sức khỏe, nhưng khó mà duy trì được. Karina có thể chơi piano. Tôi thì không thể. Nhưng tôi nhất định muốn chơi piano. Tôi muốn luyện tập mỗi ngày. Anh Tanaka nói: \"Tôi có thể dạy tiếng Nhật. Hãy cùng học nhé.\" Tôi muốn học tiếng Nhật nhiều hơn. Nhất định hãy chơi tennis đi, mọi người ơi!",
+      "sentences": [
+        {
+          "jp": "私はスポーツが好きです。特にテニスが好きで、毎週末友達とテニスをします。",
+          "vi": "Tôi thích thể thao. Đặc biệt là tôi thích tennis và mỗi cuối tuần chơi tennis với bạn bè.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "スポーツ",
+              "read": "スポーツ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt là"
+            },
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "quần vợt"
+            },
+            {
+              "w": "毎週末",
+              "read": "まいしゅうまつ",
+              "vi": "mỗi cuối tuần"
+            },
+            {
+              "w": "毎週",
+              "read": "まいしゅう",
+              "vi": "mỗi tuần"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "します",
+              "read": "します",
+              "vi": "chơi/làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が好きです (ôn Bài 9)",
+              "vi": "「スポーツが好きです」、「テニスが好きで」— mẫu ôn Bài 9; 〜で nối tính từ な."
+            },
+            {
+              "point": "人とVます (ôn Bài 4)",
+              "vi": "「友達とテニスをします」— と chỉ người cùng hành động."
+            }
+          ]
+        },
+        {
+          "jp": "私はテニスをすることができます。でも、サッカーはなかなかうまくすることができません。",
+          "vi": "Tôi có thể chơi tennis. Nhưng khó mà chơi giỏi bóng đá được.",
+          "vocab": [
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "tennis"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "サッカー",
+              "read": "サッカー",
+              "vi": "bóng đá"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi không, khó mà (dùng với phủ định)"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "giỏi, khéo (phó từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます",
+              "vi": "「テニスをすることができます」= có thể chơi tennis. する là thể từ điển."
+            },
+            {
+              "point": "なかなか〜ません",
+              "vi": "「なかなかうまくすることができません」= khó mà chơi giỏi được. Cặp なかなか + ません là dấu hiệu cần nhớ."
+            }
+          ]
+        },
+        {
+          "jp": "私の趣味はテニスをすることと、音楽を聴くことです。",
+          "vi": "Sở thích của tôi là chơi tennis và nghe nhạc.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "quần vợt"
+            },
+            {
+              "w": "する",
+              "read": "する",
+              "vi": "làm/chơi"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "聴く",
+              "read": "きく",
+              "vi": "nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "趣味はVることです",
+              "vi": "Liệt kê 2 sở thích bằng〔Vること〕と〔Vること〕— こと danh từ hóa động từ thể từ điển."
+            }
+          ]
+        },
+        {
+          "jp": "テニスをするまえに、必ず水を飲みます。そして、ストレッチをします。",
+          "vi": "Trước khi chơi tennis, tôi nhất định uống nước. Rồi tập giãn cơ.",
+          "vocab": [
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "tennis"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định, chắc chắn (luôn làm)"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "飲む",
+              "read": "のむ",
+              "vi": "uống"
+            },
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "ストレッチ",
+              "read": "ストレッチ",
+              "vi": "bài tập giãn cơ (stretching)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに",
+              "vi": "「テニスをする（thể từ điển）まえに」= trước khi chơi tennis. Vるまえに đứng đầu câu, hành động được làm trước nằm trong câu chính."
+            }
+          ]
+        },
+        {
+          "jp": "試合のまえに、友達といっしょに話します。",
+          "vi": "Trước trận đấu, tôi nói chuyện cùng bạn bè.",
+          "vocab": [
+            {
+              "w": "試合",
+              "read": "しあい",
+              "vi": "trận đấu, thi đấu"
+            },
+            {
+              "w": "まえる",
+              "read": "まえる",
+              "vi": "tiến lên, đi trước"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのまえに",
+              "vi": "「試合（danh từ）のまえに」= trước trận đấu. Khi trước まえに là danh từ thì dùng N + のまえに (không phải Vるまえに)."
+            }
+          ]
+        },
+        {
+          "jp": "休みの日、朝ごはんを食べるまえに、ジョギングをします。",
+          "vi": "Ngày nghỉ, trước khi ăn sáng, tôi chạy bộ.",
+          "vocab": [
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "朝ごはん",
+              "read": "あさごはん",
+              "vi": "bữa sáng"
+            },
+            {
+              "w": "ごはん",
+              "read": "ごはん",
+              "vi": "cơm, bữa ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "ジョギング",
+              "read": "ジョギング",
+              "vi": "chạy bộ (jogging)"
+            },
+            {
+              "w": "休みの日",
+              "read": "やすみのひ",
+              "vi": "ngày nghỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに",
+              "vi": "「食べるまえに」= trước khi ăn. Thể từ điển 食べる + まえに. Hành động ジョギングをします xảy ra TRƯỚC bữa sáng."
+            }
+          ]
+        },
+        {
+          "jp": "ジョギングは体にいいですが、なかなか続けることができません。",
+          "vi": "Chạy bộ tốt cho sức khỏe, nhưng khó mà duy trì được.",
+          "vocab": [
+            {
+              "w": "ジョギング",
+              "read": "ジョギング",
+              "vi": "chạy bộ (jogging)"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể, sức khỏe"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi không, khó mà (dùng với phủ định)"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "なかなか〜ません",
+              "vi": "「なかなか続けることができません」= mãi không duy trì được. なかなか + ことができません (khả năng phủ định)."
+            },
+            {
+              "point": "Vることができません",
+              "vi": "「続ける（thể từ điển）ことができません」= không thể tiếp tục."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはピアノを弾くことができます。私は弾くことができません。",
+          "vi": "Karina có thể chơi piano. Tôi thì không thể.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "弾く",
+              "read": "ひく",
+              "vi": "chơi (đàn)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます / できません",
+              "vi": "Đối lập giữa Karina (できます) và Miller (できません) — cùng một khung mẫu, khẳng định và phủ định."
+            }
+          ]
+        },
+        {
+          "jp": "でも、ぜひピアノを弾きたいです。毎日練習したいです。",
+          "vi": "Nhưng tôi nhất định muốn chơi piano. Tôi muốn luyện tập mỗi ngày.",
+          "vocab": [
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "弾く",
+              "read": "ひく",
+              "vi": "chơi (đàn)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "練習する",
+              "read": "れんしゅうする",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, cố gắng (nguyện vọng mạnh)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ぜひ",
+              "vi": "「ぜひ〜たいです」= nhất định muốn… — ぜひ tăng cường độ mong muốn."
+            },
+            {
+              "point": "Vたいです (ôn Bài 13)",
+              "vi": "「弾きたいです」「練習したいです」— thể từ điển bỏ る/u → gốc + たいです, diễn đạt mong muốn (ôn Bài 13)."
+            }
+          ]
+        },
+        {
+          "jp": "田中さん：「日本語を教えることができます。ぜひいっしょに勉強しましょう。」",
+          "vi": "Anh Tanaka nói: \"Tôi có thể dạy tiếng Nhật. Hãy cùng học nhé.\"",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "勉強する",
+              "read": "べんきょうする",
+              "vi": "học, học bài"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます",
+              "vi": "「教えることができます」= có thể dạy. 教える là thể từ điển."
+            },
+            {
+              "point": "ぜひ",
+              "vi": "「ぜひいっしょに勉強しましょう」= nhất định hãy cùng học nhé — ぜひ kết hợp với Vましょう (lời mời nhiệt tình)."
+            }
+          ]
+        },
+        {
+          "jp": "私は日本語をもっと勉強したいです。",
+          "vi": "Tôi muốn học tiếng Nhật nhiều hơn.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "học tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたいです (ôn Bài 13)",
+              "vi": "「勉強したいです」= muốn học. もっと nhấn mạnh \"nhiều hơn\"."
+            }
+          ]
+        },
+        {
+          "jp": "ぜひ、みなさんもテニスをしてください。",
+          "vi": "Nhất định hãy chơi tennis đi, mọi người ơi!",
+          "vocab": [
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "tennis"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người, các bạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ぜひ",
+              "vi": "「ぜひ〜てください」= nhất định hãy… — mời mọi người nhiệt tình. Câu kết bài theo phong cách chia sẻ."
+            },
+            {
+              "point": "Vてください (ôn Bài 14)",
+              "vi": "「してください」= xin hãy làm — yêu cầu/mời lịch sự (Bài 14). Không dùng Vてみてください (Bài 23, ngoài scope)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "私はテニスをすることができます",
+          "label": "Vることができます"
+        },
+        {
+          "excerpt": "私の趣味はテニスをすることと、音楽を聴くことです",
+          "label": "趣味はVることです"
+        },
+        {
+          "excerpt": "テニスをするまえに",
+          "label": "Vるまえに"
+        },
+        {
+          "excerpt": "試合のまえに",
+          "label": "Nのまえに"
+        },
+        {
+          "excerpt": "なかなか続けることができません",
+          "label": "なかなか〜ません"
+        },
+        {
+          "excerpt": "ぜひいっしょに勉強しましょう",
+          "label": "ぜひ"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんの趣味は何ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "ジョギングをすることです",
+            "テニスをすることと、音楽を聴くことです",
+            "ピアノを弾くことと、サッカーをすることです",
+            "日本語を勉強することです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết rõ「私の趣味はテニスをすることと、音楽を聴くことです」— liệt kê hai sở thích bằng mẫu〔Vること〕と〔Vること〕. Đáp án 0 sai vì ジョギング là thói quen ngày nghỉ của Miller, không phải sở thích được nêu trong câu 趣味は. Đáp án 2 sai vì bài nói Miller KHÔNG chơi giỏi bóng đá (なかなかうまくすることができません), còn piano là sở thích muốn học (ぜひ弾きたいです) — không phải sở thích hiện tại. Đáp án 3 sai vì Miller muốn học tiếng Nhật (勉強したいです) nhưng bài không gọi đó là 趣味.",
+          "tip": "Tìm câu「私の趣味は〜ことです」— đó là câu trả lời trực tiếp. Cẩn thận: ジョギング, ピアノ, 日本語 cũng xuất hiện trong bài nhưng với vai trò khác (thói quen / ước muốn), không phải 趣味.",
+          "qt": {
+            "q": "Sở thích của anh Miller là gì?",
+            "o": [
+              "Chạy bộ",
+              "Chơi tennis và nghe nhạc",
+              "Chơi piano và chơi bóng đá",
+              "Học tiếng Nhật"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんは朝ごはんを食べるまえに何をしますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "ストレッチをします",
+            "水を飲みます",
+            "ジョギングをします",
+            "テニスをします"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết「休みの日、朝ごはんを食べるまえに、ジョギングをします」— まえに chỉ hành động làm TRƯỚC, ジョギング là hành động trong câu chính, tức là việc làm trước bữa sáng. Đáp án 0 sai vì ストレッチ được làm TRƯỚC KHI chơi tennis (テニスをするまえに), không phải trước bữa sáng. Đáp án 1 sai vì 水を飲みます cũng làm trước khi chơi tennis, không liên quan đến bữa sáng. Đáp án 3 sai vì テニス là sở thích cuối tuần, không phải thói quen buổi sáng ngày nghỉ.",
+          "tip": "Đọc kỹ MỐC thời gian:「テニスをするまえに」và「朝ごはんを食べるまえに」là hai câu khác nhau. Câu hỏi hỏi về 朝ごはんを食べるまえに — chỉ tìm hành động trong câu có まえに đó.",
+          "qt": {
+            "q": "Anh Miller làm gì trước khi ăn sáng?",
+            "o": [
+              "Tập giãn cơ",
+              "Uống nước",
+              "Chạy bộ",
+              "Chơi tennis"
+            ]
+          }
+        },
+        {
+          "q": "田中さんについて、正しいものはどれですか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "田中さんは日本語を勉強したいです",
+            "田中さんは日本語を教えることができます",
+            "田中さんはテニスができます",
+            "田中さんはピアノを弾くことができません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết rõ「田中さん：「日本語を教えることができます。」」— Tanaka tự nói anh ấy CÓ THỂ dạy tiếng Nhật, mẫu Vることができます. Đáp án 0 sai vì người MUỐN HỌC tiếng Nhật là Miller (「私は日本語をもっと勉強したいです」), không phải Tanaka. Đáp án 2 sai vì bài không nhắc đến khả năng tennis của Tanaka. Đáp án 3 sai vì bài không đề cập Tanaka và piano — thông tin về piano liên quan đến Miller và Karina.",
+          "tip": "Câu hỏi hỏi về 田中さん → chỉ tìm những câu có「田中さん」làm chủ ngữ trong bài. Đừng nhầm thông tin của các nhân vật khác (Miller, Karina) với Tanaka.",
+          "qt": {
+            "q": "Câu nào sau đây về anh Tanaka là đúng?",
+            "o": [
+              "Anh Tanaka muốn học tiếng Nhật",
+              "Anh Tanaka có thể dạy tiếng Nhật",
+              "Anh Tanaka biết chơi tennis",
+              "Anh Tanaka không thể chơi piano"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくらスポーツクラブのお知らせ",
+      "titleVi": "Thông báo: Câu lạc bộ thể thao Sakura",
+      "japanese": "さくらスポーツクラブのお知らせ\nさくらスポーツクラブでは、水泳とテニスを習うことができます。\nどちらのクラスも初めての人から始めることができます。\n趣味はスポーツをすることですか。ぜひ、いっしょに始めましょう。\n先生の趣味も水泳をすることです。\nクラス｜勉強すること｜曜日と時間\n水泳教室｜泳ぐことができます｜火・木　午後６時〜７時\nテニス教室｜テニスをすることができます｜土　午前１０時〜１２時\n※クラスが始まるまえに、受付で名前を書いてください。\n電話：０６−２２２２−３３３３（月〜金　９時〜１８時）",
+      "vietnamese": "Thông báo: Câu lạc bộ thể thao Sakura\nTại câu lạc bộ thể thao Sakura, bạn có thể học bơi và tennis.\nCả hai lớp đều có thể bắt đầu từ người mới.\nSở thích của bạn là chơi thể thao phải không? Nhất định hãy cùng bắt đầu nhé.\nSở thích của thầy giáo cũng là bơi lội.\nLớp｜Nội dung học｜Thứ và giờ\nLớp bơi｜Có thể bơi được｜Thứ Ba・Thứ Năm　18:00〜19:00\nLớp tennis｜Có thể chơi tennis được｜Thứ Bảy　10:00〜12:00\n※Trước khi lớp bắt đầu, xin hãy viết tên ở quầy lễ tân.\nĐiện thoại: 06-2222-3333 (Thứ Hai〜Thứ Sáu, 9 giờ〜18 giờ)",
+      "sentences": [
+        {
+          "jp": "さくらスポーツクラブのお知らせ",
+          "vi": "Thông báo: Câu lạc bộ thể thao Sakura.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "スポーツ",
+              "read": "スポーツ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "スポーツクラブ",
+              "read": "スポーツクラブ",
+              "vi": "câu lạc bộ thể thao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのお知らせ",
+              "vi": "さくらスポーツクラブのお知らせ = thông báo về câu lạc bộ thể thao Sakura. Tiêu đề danh từ đơn giản (Bài 1: NのN)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくらスポーツクラブのお知らせ",
+              "why": "Tiêu đề — xác định toàn bài nói về câu lạc bộ thể thao, không phải trường học hay bệnh viện."
+            }
+          ]
+        },
+        {
+          "jp": "さくらスポーツクラブでは、水泳とテニスを習うことができます。",
+          "vi": "Tại câu lạc bộ thể thao Sakura, bạn có thể học bơi và tennis.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "スポーツ",
+              "read": "スポーツ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "tennis"
+            },
+            {
+              "w": "習う",
+              "read": "ならう",
+              "vi": "học, học tập (kỹ năng)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます",
+              "vi": "「習うことができます」= có thể học được. 習う là thể từ điển, đây là mẫu MỚI của Bài 18."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水泳とテニスを習うことができます",
+              "why": "Hai môn học được mở tại câu lạc bộ — cần khớp với tên lớp trong bảng ở câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "どちらのクラスも初めての人から始めることができます。",
+          "vi": "Cả hai lớp đều có thể bắt đầu từ người mới.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu, mới bắt đầu"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "どちらも",
+              "read": "どちらも",
+              "vi": "cả hai, cả hai bên đều (Bài 12 ôn: どちら)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます",
+              "vi": "「始めることができます」= có thể bắt đầu được. 始める là thể từ điển."
+            },
+            {
+              "point": "どちら（Bài 12 ôn）",
+              "vi": "「どちらのクラスも」= cả hai lớp đều — どちら đã học ở Bài 12 (so sánh 2 vật)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "どちらのクラスも初めての人から始めることができます",
+              "why": "Xác nhận: không cần kinh nghiệm trước, cả 2 lớp đều nhận người mới — bẫy cho câu hỏi về điều kiện tham gia."
+            }
+          ]
+        },
+        {
+          "jp": "趣味はスポーツをすることですか。ぜひ、いっしょに始めましょう。",
+          "vi": "Sở thích của bạn là chơi thể thao phải không? Nhất định hãy cùng bắt đầu nhé.",
+          "vocab": [
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "スポーツ",
+              "read": "スポーツ",
+              "vi": "thể thao"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "始める",
+              "read": "はじめる",
+              "vi": "bắt đầu"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định (nhiệt tình mời)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "趣味はVることです",
+              "vi": "「趣味はスポーツをすることですか」= sở thích của bạn là chơi thể thao phải không? Mẫu MỚI của Bài 18: こと danh từ hóa động từ thể từ điển."
+            },
+            {
+              "point": "ぜひ",
+              "vi": "「ぜひ、いっしょに始めましょう」= nhất định hãy cùng bắt đầu — ぜひ + Vましょう thể hiện lời mời nhiệt tình, mẫu MỚI của Bài 18."
+            }
+          ],
+          "keys": [
+            {
+              "w": "趣味はスポーツをすることですか",
+              "why": "Câu mời gọi bằng mẫu 趣味はVることです — không phải căn cứ số liệu, chỉ là lời chào mở đầu."
+            }
+          ]
+        },
+        {
+          "jp": "先生の趣味も水泳をすることです。",
+          "vi": "Sở thích của thầy giáo cũng là bơi lội.",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "thầy/cô giáo"
+            },
+            {
+              "w": "趣味",
+              "read": "しゅみ",
+              "vi": "sở thích"
+            },
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "趣味はVることです",
+              "vi": "「先生の趣味も水泳をすることです」= sở thích của thầy giáo cũng là bơi lội — mẫu MỚI của Bài 18 lặp lại lần 2, も thay は vì đang liệt kê thêm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "先生の趣味も水泳をすることです",
+              "why": "Thông tin phụ giới thiệu thêm, không phải căn cứ câu hỏi về giờ học."
+            }
+          ]
+        },
+        {
+          "jp": "クラス｜勉強すること｜曜日と時間",
+          "vi": "Lớp｜Nội dung học｜Thứ và giờ.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nと（Bài 4 ôn）",
+              "vi": "「曜日と時間」= thứ và giờ. と nối 2 danh từ, mẫu đã học Bài 4."
+            }
+          ],
+          "keys": [
+            {
+              "w": "クラス｜勉強すること｜曜日と時間",
+              "why": "Header bảng — 3 cột: tên lớp, nội dung học được, thứ/giờ học."
+            }
+          ]
+        },
+        {
+          "jp": "水泳教室｜泳ぐことができます｜火・木　午後６時〜７時",
+          "vi": "Lớp bơi｜Có thể bơi được｜Thứ Ba・Thứ Năm　18:00〜19:00.",
+          "vocab": [
+            {
+              "w": "水泳教室",
+              "read": "すいえいきょうしつ",
+              "vi": "lớp học bơi"
+            },
+            {
+              "w": "水泳",
+              "read": "すいえい",
+              "vi": "bơi lội"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "泳ぐ",
+              "read": "およぐ",
+              "vi": "bơi"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            },
+            {
+              "w": "火・木",
+              "read": "かようび・もくようび",
+              "vi": "thứ Ba và thứ Năm"
+            },
+            {
+              "w": "火",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もくようび",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "午後６時〜７時",
+              "read": "ごごろくじ〜しちじ",
+              "vi": "từ 6 đến 7 giờ chiều"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "６時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            },
+            {
+              "w": "７時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます",
+              "vi": "「泳ぐことができます」= có thể bơi được. 泳ぐ là thể từ điển — mẫu MỚI của Bài 18 xuất hiện trong ô bảng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "水泳教室",
+              "why": "Tên lớp bơi — cần khớp với câu hỏi hỏi về nội dung/giờ của lớp này."
+            },
+            {
+              "w": "火・木　午後６時〜７時",
+              "why": "Giờ học lớp bơi: thứ Ba và thứ Năm, 18h–19h — dễ nhầm với giờ lớp tennis ở hàng dưới."
+            }
+          ]
+        },
+        {
+          "jp": "テニス教室｜テニスをすることができます｜土　午前１０時〜１２時",
+          "vi": "Lớp tennis｜Có thể chơi tennis được｜Thứ Bảy　10:00〜12:00.",
+          "vocab": [
+            {
+              "w": "テニス教室",
+              "read": "テニスきょうしつ",
+              "vi": "lớp học quần vợt"
+            },
+            {
+              "w": "テニス",
+              "read": "テニス",
+              "vi": "quần vợt"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "する",
+              "read": "する",
+              "vi": "chơi/làm"
+            },
+            {
+              "w": "できます",
+              "read": "できます",
+              "vi": "có thể"
+            },
+            {
+              "w": "土",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "午前１０時〜１２時",
+              "read": "ごぜんじゅうじ〜じゅうにじ",
+              "vi": "từ 10 đến 12 giờ sáng"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "１０時",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "１２時",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることができます",
+              "vi": "「テニスをすることができます」= có thể chơi tennis được. する là thể từ điển — mẫu MỚI của Bài 18 xuất hiện lần thứ 3."
+            }
+          ],
+          "keys": [
+            {
+              "w": "テニス教室",
+              "why": "Tên lớp tennis — cần khớp với câu hỏi hỏi về giờ/nội dung của lớp này."
+            },
+            {
+              "w": "土　午前１０時〜１２時",
+              "why": "Giờ học lớp tennis: thứ Bảy, 10h–12h sáng — căn cứ chính để trả lời câu hỏi về giờ lớp tennis."
+            }
+          ]
+        },
+        {
+          "jp": "※クラスが始まるまえに、受付で名前を書いてください。",
+          "vi": "※Trước khi lớp bắt đầu, xin hãy viết tên ở quầy lễ tân.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "始まる",
+              "read": "はじまる",
+              "vi": "bắt đầu (tự động từ)"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "quầy lễ tân, quầy tiếp nhận"
+            },
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "名前を書く",
+              "read": "なまえをかく",
+              "vi": "viết tên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに",
+              "vi": "「クラスが始まるまえに」= trước khi lớp bắt đầu. Mẫu MỚI của Bài 18: 始まる là thể từ điển + まえに."
+            },
+            {
+              "point": "Vてください（Bài 14 ôn）",
+              "vi": "「名前を書いてください」= xin hãy viết tên — mẫu yêu cầu lịch sự đã học Bài 14."
+            }
+          ],
+          "keys": [
+            {
+              "w": "クラスが始まるまえに",
+              "why": "Mốc thời gian: việc viết tên phải làm TRƯỚC khi lớp bắt đầu, không phải sau."
+            },
+            {
+              "w": "受付で名前を書いてください",
+              "why": "Việc bắt buộc trước khi vào lớp — dòng ※ chú ý quan trọng, dễ bị bỏ sót nếu chỉ đọc bảng."
+            }
+          ]
+        },
+        {
+          "jp": "電話：０６−２２２２−３３３３（月〜金　９時〜１８時）",
+          "vi": "Điện thoại: 06-2222-3333 (Thứ Hai〜Thứ Sáu, 9 giờ〜18 giờ).",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "０６−２２２２−３３３３",
+              "read": "ぜろろく−にににに−さんさんさんさん",
+              "vi": "số điện thoại"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつようび〜きんようび",
+              "vi": "từ thứ Hai đến thứ Sáu"
+            },
+            {
+              "w": "月",
+              "read": "げつようび",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "金",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "９時〜１８時",
+              "read": "くじ〜じゅうはちじ",
+              "vi": "từ 9 đến 18 giờ"
+            },
+            {
+              "w": "９時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "１８時",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "月〜金、９時〜１８時 = biểu đạt khoảng thời gian giống NからNまで đã học ở Bài 4."
+            }
+          ],
+          "keys": [
+            {
+              "w": "電話：０６−２２２２−３３３３",
+              "why": "Thông tin liên hệ — chi tiết \"chất đề thi thật\", không phải căn cứ câu hỏi."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "水泳とテニスを習うことができます",
+          "label": "Vることができます"
+        },
+        {
+          "excerpt": "趣味はスポーツをすることですか",
+          "label": "趣味はVることです"
+        },
+        {
+          "excerpt": "先生の趣味も水泳をすることです",
+          "label": "趣味はVることです"
+        },
+        {
+          "excerpt": "クラスが始まるまえに",
+          "label": "Vるまえに"
+        },
+        {
+          "excerpt": "ぜひ、いっしょに始めましょう",
+          "label": "ぜひ"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 0,
+          "kind": "intro",
+          "label": "Tiêu đề",
+          "topic": 0,
+          "note": "Xác định chủ đề: thông báo câu lạc bộ thể thao.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 1,
+          "to": 4,
+          "kind": "body",
+          "label": "Giới thiệu & mời gọi",
+          "topic": 1,
+          "note": "Câu lạc bộ mở 2 môn (bơi, tennis), ai cũng bắt đầu được, lời mời tham gia, sở thích của thầy giáo.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 5,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng lớp học",
+          "topic": 5,
+          "note": "Bảng 3 cột: tên lớp, nội dung học được, thứ/giờ — chứa ô đáp án chính về giờ lớp tennis.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Chú ý ※ & liên hệ",
+          "topic": 8,
+          "note": "Dòng ※ nhắc việc phải viết tên TRƯỚC khi lớp bắt đầu — dễ bị bỏ sót nếu chỉ đọc bảng.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "テニスを習うことができるのはいつですか。",
+          "options": [
+            "火・木　午後６時〜７時",
+            "土　午前１０時〜１２時",
+            "月〜金　９時〜１８時",
+            "クラスが始まるまえ"
+          ],
+          "answer": 1,
+          "explainVi": "【Bằng chứng trong bài】Bảng ghi rõ hàng「テニス教室｜テニスをすることができます｜土　午前１０時〜１２時」— cột thứ 3 cho biết lớp tennis học vào thứ Bảy, 10 giờ đến 12 giờ sáng → đáp án ② đúng.\n【Tại sao các đáp án khác sai】\n① 火・木　午後６時〜７時 — đây là giờ của lớp BƠI (水泳教室), không phải tennis; nhiễu do đổi hàng trong bảng.\n③ 月〜金　９時〜１８時 — đây là giờ làm việc của số điện thoại liên hệ, không phải giờ học lớp tennis.\n④ クラスが始まるまえ — đây là mốc thời gian phải viết tên ở quầy lễ tân (dòng ※), không phải giờ học tennis.",
+          "tip": "Câu hỏi ghép điều kiện \"テニス\" + \"いつ\" → chỉ tìm đúng HÀNG có チクラス＝テニス教室 trong bảng, đọc cột thứ 3 (曜日と時間). Đừng lấy nhầm giờ ở hàng lớp bơi hay giờ điện thoại.",
+          "evi": [
+            7
+          ],
+          "qt": {
+            "q": "Có thể học quần vợt vào lúc nào?",
+            "o": [
+              "Thứ Ba, thứ Năm, từ 6 đến 7 giờ tối",
+              "Thứ Bảy, từ 10 giờ sáng đến 12 giờ trưa",
+              "Từ thứ Hai đến thứ Sáu, từ 9 giờ sáng đến 6 giờ chiều",
+              "Trước khi lớp học bắt đầu"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

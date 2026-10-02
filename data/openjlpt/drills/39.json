@@ -1,0 +1,495 @@
+{
+  "id": "minna2.b39",
+  "bai": 39,
+  "titleVi": "Hối tiếc, giá như",
+  "know": [
+    {
+      "id": "minna2.b39.te-shimaimashita",
+      "point": "te-shimaimashita",
+      "jp": "〜てしまいました",
+      "vi": "Lỡ ~ mất rồi, đã ~ rồi (tiếc nuối quá khứ)",
+      "en": "Accidentally ~; have already ~ (past regret)",
+      "gloss": "財布[さいふ]を 忘[わす]れてしまいました — Tôi đã lỡ quên ví mất rồi.",
+      "glossEn": "財布[さいふ]を 忘[わす]れてしまいました — I accidentally forgot my wallet."
+    },
+    {
+      "id": "minna2.b39.ba-yokatta",
+      "point": "ba-yokatta",
+      "jp": "〜ばよかった",
+      "vi": "Giá như ~ thì tốt (hối tiếc về điều đã không làm)",
+      "en": "I wish I had ~; it would have been better if ~ (regret about the past)",
+      "gloss": "早[はや]く 来[く]ればよかった — Giá mà đến sớm hơn thì tốt.",
+      "glossEn": "早[はや]く起[お]きればよかった (I should have gotten up early.)"
+    },
+    {
+      "id": "minna2.b39.kereba-yokatta",
+      "point": "kereba-yokatta",
+      "jp": "〜ければよかった",
+      "vi": "Giá như ~ (với tính từ い, hối tiếc)",
+      "en": "If only ~ (with い-adjectives, expressing regret)",
+      "gloss": "もっと 注意深[ちゅういぶか]ければよかった — Giá mà thận trọng hơn thì tốt.",
+      "glossEn": "もっと 注意深[ちゅういぶか]ければよかった — If only I had been more careful—it would have been better."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b39-tsm-saifu",
+      "item": "minna2.b39.te-shimaimashita",
+      "err": "tsm-shimau-tense",
+      "vi": "Tôi đã lỡ quên ví tiền mất rồi.",
+      "t1": {
+        "stem": "財布[さいふ]を ＿。",
+        "choices": [
+          "忘[わす]れてしまいました",
+          "忘[わす]れてしまいます",
+          "忘[わす]れてしまって"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "財布[さいふ]を",
+          "忘[わす]れて",
+          "しまいました。"
+        ],
+        "traps": [
+          "しまいます。",
+          "しまって。"
+        ]
+      },
+      "t3": {
+        "target": "財布を忘れてしまいました。",
+        "accept": [
+          "さいふをわすれてしまいました。"
+        ]
+      },
+      "why": "〜てしまいました = quá khứ tiếc nuối. ✗ しまいます là thì hiện tại/tương lai — không diễn tả sự việc ĐÃ xảy ra."
+    },
+    {
+      "id": "c-b39-tsm-daishippai",
+      "item": "minna2.b39.te-shimaimashita",
+      "err": "tsm-shimau-tense",
+      "vi": "Tôi đã lỡ mắc sai lầm nghiêm trọng trong bài kiểm tra.",
+      "t1": {
+        "stem": "テストで 大失敗[だいしっぱい]を ＿。",
+        "choices": [
+          "してしまいました",
+          "してしまいます",
+          "してしまいたい"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "テストで",
+          "大失敗[だいしっぱい]を",
+          "して",
+          "しまいました。"
+        ],
+        "traps": [
+          "しまいます。",
+          "しまうでしょう。"
+        ]
+      },
+      "t3": {
+        "target": "テストで大失敗をしてしまいました。",
+        "accept": [
+          "てすとでだいしっぱいをしてしまいました。"
+        ]
+      },
+      "why": "する → して (nhóm III) + しまいました. 大失敗[だいしっぱい]をしてしまいました = đã lỡ gây ra sai lầm lớn."
+    },
+    {
+      "id": "c-b39-tsm-shitsugen",
+      "item": "minna2.b39.te-shimaimashita",
+      "err": "tsm-te-form",
+      "vi": "Tôi đã lỡ nói nhầm trước mặt sếp mất rồi.",
+      "t1": {
+        "stem": "上司[じょうし]の 前[まえ]で 失言[しつげん]を ＿。",
+        "choices": [
+          "してしまいました",
+          "してよかったです",
+          "していません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "上司[じょうし]の 前[まえ]で",
+          "失言[しつげん]を",
+          "して",
+          "しまいました。"
+        ],
+        "traps": [
+          "してしまいます。",
+          "してよかった。"
+        ]
+      },
+      "t3": {
+        "target": "上司の前で失言をしてしまいました。",
+        "accept": [
+          "じょうしのまえでしつげんをしてしまいました。"
+        ]
+      },
+      "why": "てしまいました diễn tả hành động tiếc nuối đã hoàn thành. 失言[しつげん]をする → してしまいました."
+    },
+    {
+      "id": "c-b39-tsm-koukai",
+      "item": "minna2.b39.te-shimaimashita",
+      "err": "tsm-shimau-tense",
+      "vi": "Anh ấy đã lỡ xin lỗi rồi nên bây giờ rất hối hận.",
+      "t1": {
+        "stem": "彼[かれ]は 謝[あやま]っ＿、後悔[こうかい]しています。",
+        "choices": [
+          "てしまいました",
+          "てしまいます",
+          "てよかったです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "謝[あやま]って",
+          "しまいました、",
+          "後悔[こうかい]して",
+          "います。"
+        ],
+        "traps": [
+          "しまいます、",
+          "しませんでした、"
+        ]
+      },
+      "t3": {
+        "target": "彼は謝ってしまいました、後悔しています。",
+        "accept": [
+          "かれはあやまってしまいました、こうかいしています。"
+        ]
+      },
+      "why": "謝[あやま]る → 謝[あやま]って (る→って, nhóm I) + しまいました. Kết hợp với 後悔[こうかい]しています diễn tả tiếc nuối hiện tại."
+    },
+    {
+      "id": "c-b39-by-hayaku",
+      "item": "minna2.b39.ba-yokatta",
+      "err": "by-ba-form",
+      "vi": "Giá mà tôi đến sớm hơn thì tốt.",
+      "t1": {
+        "stem": "もっと 早[はや]く ＿よかった。",
+        "choices": [
+          "来[く]れば",
+          "来[き]たら",
+          "来[く]るなら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もっと 早[はや]く",
+          "来[く]れば",
+          "よかった。"
+        ],
+        "traps": [
+          "来[き]たらよかった。",
+          "来[く]るとよかった。"
+        ]
+      },
+      "t3": {
+        "target": "もっと早く来ればよかった。",
+        "accept": [
+          "もっとはやくくればよかった。"
+        ]
+      },
+      "why": "来[く]る → 来[く]れば (nhóm III không quy tắc: くる→くれば) + よかった. ✗ 来[き]たら → thể たら khác nghĩa; 来るなら → điều kiện tình huống, không phải hối tiếc ばよかった."
+    },
+    {
+      "id": "c-b39-by-benkyou",
+      "item": "minna2.b39.ba-yokatta",
+      "err": "by-ba-form",
+      "vi": "Giá mà tôi đã học hành chăm chỉ hơn thì tốt.",
+      "t1": {
+        "stem": "もっと 勉強[べんきょう]すれ＿よかった。",
+        "choices": [
+          "ば",
+          "たら",
+          "なら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もっと",
+          "勉強[べんきょう]すれば",
+          "よかった。"
+        ],
+        "traps": [
+          "勉強[べんきょう]したらよかった。",
+          "勉強[べんきょう]するならよかった。"
+        ]
+      },
+      "t3": {
+        "target": "もっと勉強すればよかった。",
+        "accept": [
+          "もっとべんきょうすればよかった。"
+        ]
+      },
+      "why": "する → すれば (nhóm III: する→すれば) + よかった = hối tiếc điều không làm. ✗ なら không dùng cho hối tiếc cá nhân về quá khứ."
+    },
+    {
+      "id": "c-b39-by-yuuki",
+      "item": "minna2.b39.ba-yokatta",
+      "err": "by-ba-form",
+      "vi": "Giá mà tôi có dũng khí để thử thách thì tốt.",
+      "t1": {
+        "stem": "チャレンジする 勇気[ゆうき]があれ＿よかった。",
+        "choices": [
+          "ば",
+          "たら",
+          "なら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "チャレンジする",
+          "勇気[ゆうき]が",
+          "あれば",
+          "よかった。"
+        ],
+        "traps": [
+          "あったらよかった。",
+          "あるならよかった。"
+        ]
+      },
+      "t3": {
+        "target": "チャレンジする勇気があればよかった。",
+        "accept": [
+          "ちゃれんじするゆうきがあればよかった。"
+        ]
+      },
+      "why": "ある → あれば (nhóm I: ある→あれば) + よかった. Diễn đạt hối tiếc vì thiếu dũng khí."
+    },
+    {
+      "id": "c-b39-ky-chui",
+      "item": "minna2.b39.kereba-yokatta",
+      "err": "ky-iadj-form",
+      "vi": "Giá mà tôi cẩn thận hơn thì đã không mắc lỗi.",
+      "t1": {
+        "stem": "もっと 注意深[ちゅういぶか]＿よかった。",
+        "choices": [
+          "ければ",
+          "くてば",
+          "ならば"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もっと",
+          "注意深[ちゅういぶか]ければ",
+          "よかった。"
+        ],
+        "traps": [
+          "注意深[ちゅういぶか]くてばよかった。",
+          "注意深[ちゅういぶか]ならよかった。"
+        ]
+      },
+      "t3": {
+        "target": "もっと注意深ければよかった。",
+        "accept": [
+          "もっとちゅういぶかければよかった。"
+        ]
+      },
+      "why": "注意深[ちゅういぶか]い (tính từ い): い → ければ + よかった. ✗ くてば không tồn tại trong tiếng Nhật; ✗ ならば dùng cho danh từ/な形容詞."
+    },
+    {
+      "id": "c-b39-ky-hayai",
+      "item": "minna2.b39.kereba-yokatta",
+      "err": "ky-iadj-form",
+      "vi": "Giá mà mình phản ứng nhanh hơn thì đã giải quyết được vấn đề.",
+      "t1": {
+        "stem": "対応[たいおう]が 早[はや]＿よかった。",
+        "choices": [
+          "ければ",
+          "いならば",
+          "かったなら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "対応[たいおう]が",
+          "早[はや]ければ",
+          "よかった。"
+        ],
+        "traps": [
+          "早[はや]いならばよかった。",
+          "早[はや]かったならよかった。"
+        ]
+      },
+      "t3": {
+        "target": "対応が早ければよかった。",
+        "accept": [
+          "たいおうがはやければよかった。"
+        ]
+      },
+      "why": "早[はや]い (tính từ い): い → ければ + よかった. ✗ 早[はや]いなら は điều kiện hiện tại, không phải hối tiếc quá khứ."
+    },
+    {
+      "id": "c-b39-ky-nakereba",
+      "item": "minna2.b39.kereba-yokatta",
+      "err": "ky-iadj-form",
+      "vi": "Giá mà tôi không bất cẩn như vậy thì tốt.",
+      "t1": {
+        "stem": "もっと 注意深[ちゅういぶか]＿よかった。（否定）",
+        "choices": [
+          "ければよかった",
+          "なければよかった",
+          "くなかったよかった"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もっと",
+          "注意深[ちゅういぶか]ければ",
+          "よかった。"
+        ],
+        "traps": [
+          "注意深[ちゅういぶか]なければよかった。",
+          "注意深[ちゅういぶか]くなければ。"
+        ]
+      },
+      "t3": {
+        "target": "もっと注意深ければよかった。",
+        "accept": [
+          "もっとちゅういぶかければよかった。"
+        ]
+      },
+      "why": "注意深[ちゅういぶか]い (tính từ い): い → ければよかった. ✗ なければ = phủ định; ✗ くなかったよかった không tồn tại."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b39-tsm",
+      "item": "minna2.b39.te-shimaimashita",
+      "err": "tsm-shimau-tense",
+      "tts": "さいふをいえにわすれてしまいました。もっとちゅういすればよかったです。",
+      "script": "財布[さいふ]を 家[いえ]に 忘[わす]れてしまいました。もっと 注意[ちゅうい]すればよかったです。",
+      "ask": "Người nói cảm thấy thế nào và tại sao?",
+      "choices": [
+        "Tiếc vì đã quên ví ở nhà và giá mà cẩn thận hơn",
+        "Vui vì tìm lại được ví",
+        "Lo lắng vì sắp mất ví"
+      ],
+      "answer": 0,
+      "why": "忘[わす]れてしまいました = đã lỡ quên (tiếc nuối); 注意[ちゅうい]すればよかった = giá mà cẩn thận hơn."
+    },
+    {
+      "id": "l-b39-by",
+      "item": "minna2.b39.ba-yokatta",
+      "err": "by-ba-form",
+      "tts": "もっとはやくかれにあやまればよかった。いまさらこうかいしてもおそいですね。",
+      "script": "もっと 早[はや]く 彼[かれ]に 謝[あやま]ればよかった。今更[いまさら] 後悔[こうかい]しても 遅[おそ]いですね。",
+      "ask": "Người nói hối tiếc về điều gì?",
+      "choices": [
+        "Giá mà xin lỗi anh ấy sớm hơn",
+        "Đã xin lỗi nhưng anh ấy không tha thứ",
+        "Muốn xin lỗi nhưng chưa làm"
+      ],
+      "answer": 0,
+      "why": "謝[あやま]ればよかった = giá mà xin lỗi (điều đáng ra phải làm mà không làm). 今更[いまさら]後悔[こうかい]しても遅[おそ]い = hối tiếc bây giờ thì đã muộn."
+    },
+    {
+      "id": "l-b39-ky",
+      "item": "minna2.b39.kereba-yokatta",
+      "err": "ky-iadj-form",
+      "tts": "しけんにしっぱいしてしまいました。もっとまじめにべんきょうすればよかったし、あたまがよければよかったです。",
+      "script": "試験[しけん]に 失敗[しっぱい]してしまいました。もっと 真面目[まじめ]に 勉強[べんきょう]すればよかったし、頭[あたま]がよければよかったです。",
+      "ask": "Người nói hối tiếc điều gì về kết quả thi?",
+      "choices": [
+        "Giá mà học nghiêm túc hơn và thông minh hơn",
+        "Giá mà không đi thi",
+        "Vui vì đã cố gắng thi"
+      ],
+      "answer": 0,
+      "why": "勉強[べんきょう]すればよかった = giá mà học hành; 頭[あたま]がよければよかった = giá mà thông minh hơn (いい→よければ, biến thể bất quy tắc của い形容詞[けいようし])."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b39-te-form-isogu",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 39 ・ 〜てしまいました",
+      "vi": "Tôi đã lỡ vội vàng và gây ra sai lầm nghiêm trọng. Giá mà cẩn thận hơn.",
+      "t1": {
+        "stem": "急[いそ]＿しまいました。もっと 慎重[しんちょう]にすればよかった。",
+        "choices": [
+          "いでしまいました",
+          "ぎしまいました",
+          "いましまいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "急[いそ]いで",
+          "しまいました。",
+          "もっと 慎重[しんちょう]に",
+          "すれば",
+          "よかった。"
+        ],
+        "traps": [
+          "急[いそ]ぎしまいました。",
+          "急[いそ]いましまいました。"
+        ]
+      },
+      "t3": {
+        "target": "急いでしまいました。もっと慎重にすればよかった。",
+        "accept": [
+          "いそいでしまいました。もっとしんちょうにすればよかった。"
+        ]
+      },
+      "why": "急[いそ]ぐ (nhóm I: ぐ→いで) → 急[いそ]いで + しまいました. ✗ 急[いそ]ぎしまいました = sai te-form (lỗi Bài 14). すればよかった là ngữ pháp Bài 39 — bẫy kép."
+    },
+    {
+      "id": "a-b39-te-form-koukaisuru",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 39 ・ 〜てしまいました ／ 〜ばよかった",
+      "vi": "Tôi đã lỡ nói nhầm và bây giờ hối hận. Giá mà không nói thì tốt.",
+      "t1": {
+        "stem": "余計[よけい]なことを 言[い]＿しまいました。言[い]わなければよかった。",
+        "choices": [
+          "ってしまいました",
+          "いしまいました",
+          "いてしまいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "余計[よけい]なことを",
+          "言[い]って",
+          "しまいました。",
+          "言[い]わなければよかった。"
+        ],
+        "traps": [
+          "言[い]いしまいました。",
+          "言[い]いてしまいました。"
+        ]
+      },
+      "t3": {
+        "target": "余計なことを言ってしまいました。言わなければよかった。",
+        "accept": [
+          "よけいなことをいってしまいました。いわなければよかった。"
+        ]
+      },
+      "why": "言[い]う (nhóm I: う→って) → 言[い]って + しまいました. ✗ 言[い]いしまいました = sai te-form (lỗi Bài 14). 言[い]わなければよかった = ngữ pháp Bài 39 — bẫy kép."
+    }
+  ]
+}

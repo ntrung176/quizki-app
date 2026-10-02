@@ -1,0 +1,528 @@
+{
+  "id": "minna2.b44",
+  "bai": 44,
+  "titleVi": "Khả năng, tiến bộ",
+  "know": [
+    {
+      "id": "minna2.b44.koto-ga-dekiru",
+      "point": "koto-ga-dekiru",
+      "jp": "〜ことができます",
+      "vi": "Có thể ~, có khả năng ~ (diễn đạt khả năng với mệnh đề động từ)",
+      "en": "Can ~; be able to ~ (expressing ability with a verb clause)",
+      "gloss": "漢字[かんじ]を 読[よ]む ことが できます。",
+      "glossEn": "漢字[かんじ]を 読[よ]む ことが できます。 — I can read kanji."
+    },
+    {
+      "id": "minna2.b44.you-ni-narimashita",
+      "point": "you-ni-narimashita",
+      "jp": "〜できるようになりました",
+      "vi": "Đã trở nên có thể ~, giờ đã làm được ~ (diễn đạt sự thay đổi khả năng)",
+      "en": "Have become able to ~; can now ~ (expressing a change in ability)",
+      "gloss": "泳[およ]げるように なりました。",
+      "glossEn": "泳[およ]げるように なりました。 — I can swim now."
+    },
+    {
+      "id": "minna2.b44.koto-ni-shimashita",
+      "point": "koto-ni-shimashita",
+      "jp": "〜ことにしました",
+      "vi": "Đã quyết định ~ (cá nhân tự quyết)",
+      "en": "Have decided to ~ (a personal decision)",
+      "gloss": "毎日[まいにち] 練習[れんしゅう]する ことに しました。",
+      "glossEn": "毎日[まいにち] 練習[れんしゅう]する ことに しました。 — I decided to practice every day."
+    },
+    {
+      "id": "minna2.b44.you-ni-shimasu",
+      "point": "you-ni-shimasu",
+      "jp": "〜ようにします",
+      "vi": "Cố gắng để ~, đặt mục tiêu hành vi (thường kết hợp từ điển-form hoặc ない-form)",
+      "en": "Make an effort to ~; set a behavioral goal (often used with the dictionary form or ない-form)",
+      "gloss": "毎日[まいにち] 単語[たんご]を 覚[おぼ]えるように します。",
+      "glossEn": "毎日[まいにち] 単語[たんご]を 覚[おぼ]えるように します。 — I will make an effort to memorize vocabulary every day."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b44-kgd-kanji",
+      "item": "minna2.b44.koto-ga-dekiru",
+      "err": "koto-form",
+      "vi": "Tôi có thể đọc được khoảng 300 chữ kanji.",
+      "t1": {
+        "stem": "漢字[かんじ]を 300字[じ]ぐらい 読[よ]む ＿ できます。",
+        "choices": [
+          "ことが",
+          "するが",
+          "のが"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "漢字[かんじ]を",
+          "300字[じ]ぐらい",
+          "読[よ]む",
+          "ことが",
+          "できます。"
+        ],
+        "traps": [
+          "するが",
+          "のが"
+        ]
+      },
+      "t3": {
+        "target": "漢字を300字ぐらい読むことができます。",
+        "accept": [
+          "かんじを300じぐらいよむことができます。"
+        ]
+      },
+      "why": "〜ことができます = có thể ~; こと nominalizes the verb. ✗ 読むができます — thiếu こと làm danh từ hoá động từ."
+    },
+    {
+      "id": "c-b44-kgd-shiken",
+      "item": "minna2.b44.koto-ga-dekiru",
+      "err": "koto-form",
+      "vi": "Anh ấy có thể vượt qua kỳ thi chứng chỉ không?",
+      "t1": {
+        "stem": "彼[かれ]は 資格[しかく]試験[しけん]に 合格[ごうかく]する ＿ できますか。",
+        "choices": [
+          "ことが",
+          "ことを",
+          "のは"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "資格[しかく]試験[しけん]に",
+          "合格[ごうかく]する",
+          "ことが",
+          "できますか。"
+        ],
+        "traps": [
+          "ことを",
+          "のに"
+        ]
+      },
+      "t3": {
+        "target": "彼は資格試験に合格することができますか。",
+        "accept": [
+          "かれはしかくしけんにごうかくすることができますか。"
+        ]
+      },
+      "why": "ことができます — が là trợ từ đúng sau こと. ✗ ことを — できます cần が, không phải を."
+    },
+    {
+      "id": "c-b44-kgd-gengaku",
+      "item": "minna2.b44.koto-ga-dekiru",
+      "err": "koto-form",
+      "vi": "Gần đây tôi không có thể học ngoại ngữ mỗi ngày được.",
+      "t1": {
+        "stem": "最近[さいきん]、毎日[まいにち] 語学[ごがく]を 勉強[べんきょう]する ＿ できません。",
+        "choices": [
+          "ことが",
+          "ようが",
+          "ことを"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "最近[さいきん]、",
+          "毎日[まいにち]",
+          "語学[ごがく]を",
+          "勉強[べんきょう]する",
+          "ことが",
+          "できません。"
+        ],
+        "traps": [
+          "ようが",
+          "できることを"
+        ]
+      },
+      "t3": {
+        "target": "最近、毎日語学を勉強することができません。",
+        "accept": [
+          "さいきん、まいにちごがくをべんきょうすることができません。"
+        ]
+      },
+      "why": "Phủ định: 〜ことができません. Cấu trúc giữ nguyên, chỉ đổi できます→できません."
+    },
+    {
+      "id": "c-b44-ynn-oyogu",
+      "item": "minna2.b44.you-ni-narimashita",
+      "err": "naru-adj",
+      "vi": "Nhờ luyện tập hàng ngày, cuối cùng tôi đã bơi được.",
+      "t1": {
+        "stem": "毎日[まいにち] 練習[れんしゅう]したので、やっと 泳[およ]げる ＿ なりました。",
+        "choices": [
+          "ように",
+          "ための",
+          "のに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "練習[れんしゅう]したので、",
+          "やっと",
+          "泳[およ]げる",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "ための",
+          "のに"
+        ]
+      },
+      "t3": {
+        "target": "毎日練習したので、やっと泳げるようになりました。",
+        "accept": [
+          "まいにちれんしゅうしたので、やっとおよげるようになりました。"
+        ]
+      },
+      "why": "〜できるようになりました = đã trở nên có thể ~. Động từ khả năng (泳げる) + ように + なりました. ✗ 泳げるのになりました — のに ở đây nghĩa khác (bất ngờ)."
+    },
+    {
+      "id": "c-b44-ynn-shiken",
+      "item": "minna2.b44.you-ni-narimashita",
+      "err": "naru-adj",
+      "vi": "Sau khi học 6 tháng, tôi đã đọc được chữ kanji rồi.",
+      "t1": {
+        "stem": "6ヶ月[かげつ] 勉強[べんきょう]して、漢字[かんじ]が 読[よ]める ＿。",
+        "choices": [
+          "ようになりました",
+          "ようにします",
+          "ようになります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "6ヶ月[かげつ]",
+          "勉強[べんきょう]して、",
+          "漢字[かんじ]が",
+          "読[よ]める",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "ようにします。",
+          "ようになります。"
+        ]
+      },
+      "t3": {
+        "target": "6ヶ月勉強して、漢字が読めるようになりました。",
+        "accept": [
+          "6かげつべんきょうして、かんじがよめるようになりました。"
+        ]
+      },
+      "why": "〜ようになりました (quá khứ) = đã trở nên. ✗ ようになります = hiện tại/tương lai (chưa xảy ra). ✗ ようにします = cố gắng đạt mục tiêu."
+    },
+    {
+      "id": "c-b44-ynn-joutatsu",
+      "item": "minna2.b44.you-ni-narimashita",
+      "err": "naru-adj",
+      "vi": "Từng chút một tôi đã tiến bộ và có thể nói được tiếng Nhật rồi.",
+      "t1": {
+        "stem": "少[すこ]しずつ 上達[じょうたつ]して、日本語[にほんご]が 話[はな]せる ＿ なりました。",
+        "choices": [
+          "ように",
+          "ための",
+          "ことで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "少[すこ]しずつ",
+          "上達[じょうたつ]して、",
+          "日本語[にほんご]が",
+          "話[はな]せる",
+          "ように",
+          "なりました。"
+        ],
+        "traps": [
+          "ための",
+          "ことに"
+        ]
+      },
+      "t3": {
+        "target": "少しずつ上達して、日本語が話せるようになりました。",
+        "accept": [
+          "すこしずつじょうたつして、にほんごがはなせるようになりました。"
+        ]
+      },
+      "why": "話せる (thể khả năng của 話す) + ようになりました. Vocab 上達します, 少しずつ là của bài 44."
+    },
+    {
+      "id": "c-b44-kns-mainichi",
+      "item": "minna2.b44.koto-ni-shimashita",
+      "err": "koto-form",
+      "vi": "Tôi đã quyết định mỗi ngày sẽ học kỹ năng tiếng Nhật.",
+      "t1": {
+        "stem": "毎日[まいにち] 日本語[にほんご]の 技能[ぎのう]を 練習[れんしゅう]する ＿。",
+        "choices": [
+          "ことにしました",
+          "ことになりました",
+          "ようにしました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "日本語[にほんご]の",
+          "技能[ぎのう]を",
+          "練習[れんしゅう]する",
+          "ことに",
+          "しました。"
+        ],
+        "traps": [
+          "ことになりました。",
+          "ようにしました。"
+        ]
+      },
+      "t3": {
+        "target": "毎日日本語の技能を練習することにしました。",
+        "accept": [
+          "まいにちにほんごのぎのうをれんしゅうすることにしました。"
+        ]
+      },
+      "why": "ことにしました = tự mình quyết định. ✗ ことになりました = quyết định do hoàn cảnh/người khác. ✗ ようにしました = cố gắng (mục tiêu)."
+    },
+    {
+      "id": "c-b44-kns-shikaku",
+      "item": "minna2.b44.koto-ni-shimashita",
+      "err": "koto-form",
+      "vi": "Tôi đã quyết định thi lấy chứng chỉ vào tháng tới.",
+      "t1": {
+        "stem": "来月[らいげつ]、資格[しかく]試験[しけん]を 受[う]ける ＿。",
+        "choices": [
+          "ことにしました",
+          "ことができました",
+          "ようになりました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "来月[らいげつ]、",
+          "資格[しかく]試験[しけん]を",
+          "受[う]ける",
+          "ことに",
+          "しました。"
+        ],
+        "traps": [
+          "ことができました。",
+          "ようになりました。"
+        ]
+      },
+      "t3": {
+        "target": "来月、資格試験を受けることにしました。",
+        "accept": [
+          "らいげつ、しかくしけんをうけることにしました。"
+        ]
+      },
+      "why": "ことにしました biểu thị quyết định cá nhân chủ động. ✗ ことができました = đã có thể làm (khả năng), nghĩa hoàn toàn khác."
+    },
+    {
+      "id": "c-b44-yns-tango",
+      "item": "minna2.b44.you-ni-shimasu",
+      "err": "naru-adj",
+      "vi": "Tôi sẽ cố gắng mỗi ngày ghi nhớ 10 từ mới.",
+      "t1": {
+        "stem": "毎日[まいにち] 単語[たんご]を 10個[こ] 覚[おぼ]える ＿。",
+        "choices": [
+          "ようにします",
+          "ようになります",
+          "ことにします"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "単語[たんご]を",
+          "10個[こ]",
+          "覚[おぼ]える",
+          "ように",
+          "します。"
+        ],
+        "traps": [
+          "ようになります。",
+          "ことにします。"
+        ]
+      },
+      "t3": {
+        "target": "毎日単語を10個覚えるようにします。",
+        "accept": [
+          "まいにちたんごを10このおぼえるようにします。"
+        ]
+      },
+      "why": "ようにします = đặt mục tiêu cố gắng đạt được. ✗ ようになります = mô tả sự thay đổi tự nhiên. ✗ ことにします = quyết định."
+    },
+    {
+      "id": "c-b44-yns-nikkyo",
+      "item": "minna2.b44.you-ni-shimasu",
+      "err": "naru-adj",
+      "vi": "Tôi sẽ cố gắng không quên thực hiện bài tập hàng ngày.",
+      "t1": {
+        "stem": "日課[にっか]を 忘[わす]れない ＿。",
+        "choices": [
+          "ようにします",
+          "ようになりました",
+          "ことにしました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日課[にっか]を",
+          "忘[わす]れない",
+          "ように",
+          "します。"
+        ],
+        "traps": [
+          "ようになりました。",
+          "ことにしました。"
+        ]
+      },
+      "t3": {
+        "target": "日課を忘れないようにします。",
+        "accept": [
+          "にっかをわすれないようにします。"
+        ]
+      },
+      "why": "ない-form + ようにします = cố gắng không làm ~. ✗ ようになりました = đã (không còn) làm — quá khứ, đã xảy ra rồi."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b44-ynn",
+      "item": "minna2.b44.you-ni-narimashita",
+      "err": "naru-adj",
+      "tts": "にほんごで かいぎが できるように なりました。",
+      "script": "日本語[にほんご]で 会議[かいぎ]が できるように なりました。",
+      "ask": "Người nói muốn nói điều gì?",
+      "choices": [
+        "Giờ đã có thể họp bằng tiếng Nhật",
+        "Đang cố gắng để có thể họp bằng tiếng Nhật",
+        "Đã quyết định họp bằng tiếng Nhật"
+      ],
+      "answer": 0,
+      "why": "できるようになりました = đã trở nên có thể; đây là kết quả đã đạt được, không phải mục tiêu hay quyết định."
+    },
+    {
+      "id": "l-b44-kns",
+      "item": "minna2.b44.koto-ni-shimashita",
+      "err": "koto-form",
+      "tts": "しかくしけんにごうかくするために、まいにちれんしゅうすることにしました。",
+      "script": "資格[しかく]試験[しけん]に 合格[ごうかく]するために、毎日[まいにち] 練習[れんしゅう]する ことに しました。",
+      "ask": "Người nói đã làm gì?",
+      "choices": [
+        "Quyết định luyện tập mỗi ngày để thi đỗ chứng chỉ",
+        "Đã thi đỗ chứng chỉ rồi",
+        "Đang cố gắng thi đỗ chứng chỉ"
+      ],
+      "answer": 0,
+      "why": "ことにしました = đã quyết định (tự mình); ために = để đạt mục đích."
+    },
+    {
+      "id": "l-b44-yns",
+      "item": "minna2.b44.you-ni-shimasu",
+      "err": "naru-adj",
+      "tts": "じしんをもてるように、すこしずつちゃくじつにがんばります。",
+      "script": "自信[じしん]を 持[も]てるように、少[すこ]しずつ 着実[ちゃくじつ]に がんばります。",
+      "ask": "Người nói đang nói về điều gì?",
+      "choices": [
+        "Cố gắng từng bước để có thể tự tin",
+        "Đã trở nên tự tin rồi",
+        "Quyết định không cần tự tin nữa"
+      ],
+      "answer": 0,
+      "why": "持てるように + がんばります = cố gắng để đạt được mục tiêu. 着実に, 少しずつ là vocab bài 44."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b44-passive-b28",
+      "item": "minna2.b28.ni-rareru",
+      "err": "te-juju-dir",
+      "ambush": true,
+      "src": 28,
+      "context": "Bài 44 ・ ことができます + bị động Bài 28",
+      "vi": "Bài báo đó được viết bởi ai? Anh ấy có thể đọc được không?",
+      "t1": {
+        "stem": "その 記事[きじ]は 誰[だれ]＿ 書[か]かれましたか。彼[かれ]は 読[よ]む ことが できますか。",
+        "choices": [
+          "に",
+          "が",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "その 記事[きじ]は",
+          "誰[だれ]に",
+          "書[か]かれましたか。",
+          "彼[かれ]は",
+          "読[よ]む ことが",
+          "できますか。"
+        ],
+        "traps": [
+          "誰[だれ]が",
+          "誰[だれ]を"
+        ]
+      },
+      "t3": {
+        "target": "その記事は誰に書かれましたか。彼は読むことができますか。",
+        "accept": [
+          "そのきじはだれにかかれましたか。かれはよむことができますか。"
+        ]
+      },
+      "why": "Câu bị động (Bài 28): tác nhân dùng に (誰に書かれた). ✗ 誰が書かれた — が không dùng cho tác nhân bị động. Phần ことができます là Bài 44."
+    },
+    {
+      "id": "a-b44-you-desu-b33",
+      "item": "minna2.b33.you-rashii",
+      "err": "mod-adj-form",
+      "ambush": true,
+      "src": 33,
+      "context": "Bài 44 ・ ようになりました + ようです Bài 33",
+      "vi": "Có vẻ như anh ấy đã trở nên có thể viết email bằng tiếng Nhật rồi.",
+      "t1": {
+        "stem": "彼[かれ]は 日本語[にほんご]で メールが 書[か]ける ように なった ＿。",
+        "choices": [
+          "ようです",
+          "そうです",
+          "らしいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "彼[かれ]は",
+          "日本語[にほんご]で",
+          "メールが",
+          "書[か]ける",
+          "ように",
+          "なった",
+          "ようです。"
+        ],
+        "traps": [
+          "そうです。",
+          "らしいです。"
+        ]
+      },
+      "t3": {
+        "target": "彼は日本語でメールが書けるようになったようです。",
+        "accept": [
+          "かれはにほんごでめーるがかけるようになったようです。"
+        ]
+      },
+      "why": "ようです (Bài 33) = suy đoán từ bằng chứng quan sát được. ✗ そうです = nghe nói (truyền đạt). Câu ようになった là Bài 44 — bẫy kép: phân biệt ように (Bài 44) vs ようです (Bài 33)."
+    }
+  ]
+}

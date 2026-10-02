@@ -1,0 +1,3510 @@
+{
+  "bai": 133,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này tập trung rèn luyện kỹ năng đọc hiểu với các mẫu câu tương phản và nhượng bộ đặc trưng trong N3. Điểm mấu chốt là nắm bắt sự đối lập về sắc thái: 「〜にしては」 thể hiện kết quả bất ngờ lệch chuẩn, 「〜くせに」 bộc lộ thái độ phê phán trách móc cá nhân, 「〜にもかかわらず」 mang tính trang trọng khách quan trong văn viết, còn 「〜ながら（も）」 diễn tả sự nhượng bộ trước một thực tế hiển nhiên.",
+    "steps": [
+      "Xác định quan hệ chủ ngữ ở hai vế: khi gặp 「〜くせに」 hoặc 「〜ながら（も）」 thì chủ thể của hai vế bắt buộc phải đồng nhất một đối tượng.",
+      "Phân tích tiêu chuẩn ngầm định ở vế trước của 「〜にしては」 để nhận diện đánh giá ở vế sau là cao hơn hay thấp hơn mức kỳ vọng thông thường.",
+      "Đánh giá thái độ và cảm xúc của người viết: vế sau của 「〜くせに」 luôn mang hàm ý tiêu cực, bất mãn nên lập tức loại các đáp án có ý khen ngợi hoặc trung lập.",
+      "Nhận diện văn phong bài đọc: cấu trúc 「〜にもかかわらず」 thường xuất hiện trong các đoạn văn nghị luận hoặc tin tức trang trọng để chỉ sự việc diễn ra trái ngược với thực tế đã nêu.",
+      "Tập trung vào vế sau liên từ nhượng bộ: thông điệp chính, quan điểm cốt lõi của tác giả hoặc đáp án cho câu hỏi đọc hiểu luôn nằm ở vế thứ hai."
+    ],
+    "tips": [
+      "Bẫy thái độ với くせに: 「〜くせに」 không bao giờ dùng để khen ngợi; nếu câu hỏi đọc hiểu hỏi về thái độ tích cực thì loại ngay phương án chứa くせに.",
+      "Dấu hiệu nhận biết にしては: Vế trước thường là mốc cụ thể (tuổi tác, giá tiền, thời gian học...) để làm thước đo so sánh cho kết quả lệch chuẩn ở vế sau.",
+      "使い分け にしては vs わりに(は) (Bài 54): 「〜にしては」 đi trực tiếp với mốc/tên cụ thể (7 tuổi, 100 yên), còn 「〜わりに(は)」 thường kết hợp với danh từ chỉ mức độ hoặc tính từ có tính co giãn (tuổi tác, giá cả).",
+      "使い分け くせに vs のに (Bài 62): Cả hai đều chỉ sự đối lập, nhưng 「〜くせに」 mang đậm sắc thái khinh thị, trách móc chủ quan và bắt buộc đồng chủ ngữ, còn 「〜のに」 thể hiện sự bất ngờ, tiếc nuối khách quan hơn.",
+      "使い分け ながら（も） vs ながら (đồng thời): 「〜ながらも」 thể hiện sự nhượng bộ tương phản (thường gặp: 小さいながら, 忙しいながらも, 知っていながら), khác hoàn toàn với 「Vます + ながら」 dùng để chỉ hai hành động diễn ra song song."
+    ],
+    "grammarFocus": [
+      "〜にしては — 接続: N ／ 普通形 + にしては. Sắc thái: So với/xét theo tiêu chuẩn ở vế trước thì kết quả ở vế sau bất ngờ ngoài dự kiến (có thể tốt hơn hoặc xấu hơn). Đối chiếu: Khác với わりに(は) ở chỗ にしては đi trực tiếp với các mốc cụ thể.",
+      "〜くせに — 接続: 普通形 ／ Nの ／ なAdjな + くせに. Sắc thái: Mặc dù/thế mà lại..., thể hiện rõ sự bất mãn, chỉ trích, coi thường; hai vế phải cùng một chủ thể. Đối chiếu: Sắc thái chê trách gay gắt hơn のに và không dùng để khen.",
+      "〜にもかかわらず — 接続: 普通形 ／ N (bỏ だ hoặc である) ／ なAdj (である) + にもかかわらず. Sắc thái: Mặc dù/bất chấp thực tế vế trước, vế sau vẫn xảy ra trái ngược đáng ngạc nhiên. Đối chiếu: Trang trọng hơn のに, chủ yếu dùng trong văn viết và văn nghị luận.",
+      "〜ながら（も） — 接続: 動詞ます形 ／ い形容詞語幹 ／ なAdj/N + で/であり + ながら（も）. Sắc thái: Tuy/dù rằng... nhưng..., thừa nhận trạng thái ở vế trước nhưng vế sau lại có biểu hiện mâu thuẫn; hai vế cùng chủ thể. Đối chiếu: Khác với ながら diễn tả hai hành động đồng thời."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 54,
+        "items": [
+          "〜というより（普通形/N + というより）",
+          "〜にしては（普通形/N + にしては）",
+          "〜わりに(は)（普通形/Nの/Aい/なAな + わりに）"
+        ]
+      },
+      {
+        "bai": 62,
+        "items": [
+          "〜ても（Vて形 + も / Aくても / NAでも / Nでも）",
+          "〜のに（普通形 + のに; なN → なのに, N → なのに）",
+          "〜くせに（普通形 + くせに; なN → なくせに, N → のくせに）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（普通形/なAdj+な/N+の＋おかげで）",
+          "〜せいで（普通形/なAdj+な/N+の＋せいで）",
+          "〜せいか（普通形/なAdj+な/N+の＋せいか）"
+        ]
+      },
+      {
+        "bai": 70,
+        "items": [
+          "〜に対して（N + に対して）",
+          "〜に対する + N",
+          "〜に比べて（N + に比べて）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "真の成長と向き合う姿勢",
+      "titleVi": "Thái độ đối diện với sự trưởng thành thực sự",
+      "japanese": "私の工房に入った新人は、まだ見習いにしては非常に丁寧な仕事をする。しかし世間には、自分には実力がないくせに、他人の失敗ばかり批判する若者も少なくない。自分のミスだと気づいているくせに、言い訳ばかりして責任を逃れようとする態度は見苦しい。厳しい指摘を受けたにもかかわらず、その新人は不満な顔を一切見せずに素直に聞き入れた。\n技術の面ではまだ未熟ながらも、向上心を持って毎日の練習に励んでいる姿は立派である。一方で、失敗を恐れて挑戦しない人は、多くの知識を持っているにしては成長の機会を逃してしまう。忙しいスケジュールにもかかわらず、自分の仕事に責任を持って最後までやり遂げることが何より大切だ。迷いや不安を抱えながらも、真摯に現実と向き合うことで、人は大きく成長できるのだ。他人を羨むのではなく、自分の未熟さを受け入れて一歩ずつ前進していきたいものだ。",
+      "vietnamese": "Người mới vào xưởng của tôi, xét theo việc vẫn còn là người học việc thì làm việc vô cùng cẩn thận. Thế nhưng ngoài xã hội, không ít người trẻ dù bản thân chẳng có thực lực thế mà chỉ toàn chỉ trích thất bại của người khác. Dù biết rõ là lỗi của bản thân thế mà toàn viện cớ để trốn tránh trách nhiệm, thái độ ấy thật khó coi. Mặc dù bị nhắc nhở nghiêm khắc, người mới đó hoàn toàn không để lộ vẻ bất mãn mà ngoan ngoãn lắng nghe.\n\nVề mặt kỹ thuật, dù vẫn còn non nớt nhưng hình ảnh anh ấy nỗ lực luyện tập mỗi ngày với tinh thần cầu tiến thật đáng khâm phục. Mặt khác, những người vì sợ thất bại mà không dám thử thách, thì dù có nhiều kiến thức đi chăng nữa cũng sẽ bỏ lỡ cơ hội trưởng thành. Bất chấp lịch trình bận rộn, việc có trách nhiệm với công việc của mình và hoàn thành đến cùng quan trọng hơn bất cứ điều gì. Dù ôm nỗi hoang mang và lo lắng, nhưng bằng cách chân thành đối diện với thực tế, con người mới có thể trưởng thành vượt bậc. Thay vì ghen tị với người khác, chúng ta nên chấp nhận sự non nớt của bản thân và từng bước tiến về phía trước.",
+      "sentences": [
+        {
+          "jp": "私の工房に入った新人は、まだ見習いにしては非常に丁寧な仕事をする。",
+          "vi": "Người mới vào xưởng của tôi, xét theo việc vẫn còn là người học việc thì làm việc vô cùng cẩn thận.",
+          "vocab": [
+            {
+              "w": "工房",
+              "read": "こうぼう",
+              "vi": "xưởng chế tác, xưởng thủ công"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "見習い",
+              "read": "みならい",
+              "vi": "người học việc, tập sự"
+            },
+            {
+              "w": "非常",
+              "read": "ひじょう",
+              "vi": "sự khẩn cấp, bất thường"
+            },
+            {
+              "w": "丁寧",
+              "read": "ていねい",
+              "vi": "cẩn thận, tỉ mỉ, chu đáo"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては",
+              "vi": "接続: N / 普通形（Aな/N bỏ だ hoặc である） + にしては. Sắc thái: Đưa ra đánh giá bất ngờ, không tương xứng (vượt trội hơn hoặc kém hơn) so với tiêu chuẩn/sự thật đã nêu ở vế trước. Đối chiếu: Khác với 〜わりに (có thể dùng với tính từ chỉ mức độ rộng rãi hơn), 〜にしては đi với danh từ/dữ kiện cụ thể mang tính tiêu chuẩn rõ ràng và nhấn mạnh cảm xúc ngạc nhiên của người nói."
+            }
+          ]
+        },
+        {
+          "jp": "しかし世間には、自分には実力がないくせに、他人の失敗ばかり批判する若者も少なくない。",
+          "vi": "Thế nhưng ngoài xã hội, không ít người trẻ dù bản thân chẳng có thực lực thế mà chỉ toàn chỉ trích thất bại của người khác.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "世間",
+              "read": "せけん",
+              "vi": "xã hội, miệng đời, người đời"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "実力",
+              "read": "じつりょく",
+              "vi": "thực lực, năng lực thực tế"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "phê phán, chỉ trích"
+            },
+            {
+              "w": "若者",
+              "read": "わかもの",
+              "vi": "lớp trẻ, thanh niên"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "接続: 普通形（Aな+な / N+の） + くせに. Sắc thái: Thể hiện sự bất mãn, coi thường, trách móc hoặc phê phán mạnh mẽ của người nói khi vế sau trái ngược với điều kiện/thân phận ở vế trước. Chủ ngữ hai vế phải cùng một đối tượng (và không dùng cho bản thân người nói khi tự trách). Đối chiếu: Khác với 〜のに (bày tỏ tiếc nuối hoặc ngạc nhiên khách quan/chủ quan), 〜くせに luôn mang hàm ý tiêu cực, chê bai gay gắt đối phương."
+            }
+          ]
+        },
+        {
+          "jp": "自分のミスだと気づいているくせに、言い訳ばかりして責任を逃れようとする態度は見苦しい。",
+          "vi": "Dù biết rõ là lỗi của bản thân thế mà toàn viện cớ để trốn tránh trách nhiệm, thái độ ấy thật khó coi.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "ミス",
+              "read": "ミス",
+              "vi": "lỗi, sai sót"
+            },
+            {
+              "w": "気づく",
+              "read": "きづく",
+              "vi": "nhận ra, nhận thấy"
+            },
+            {
+              "w": "言い訳",
+              "read": "いいわけ",
+              "vi": "biện bạch, viện cớ"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "逃れる",
+              "read": "のがれる",
+              "vi": "trốn tránh, né tránh"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "見苦しい",
+              "read": "みぐるしい",
+              "vi": "khó coi, chướng mắt, đáng xấu hổ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "接続: Vている + くせに. Sắc thái: Chỉ trích gay gắt hành vi trốn tránh thực tế dù trong lòng đã nhận thức rõ ràng. Đối chiếu: Khác với 〜ものの (trang trọng, nhượng bộ trung tính), 〜くせに thể hiện cảm xúc phê phán gay gắt về đạo đức hoặc thái độ của đối tượng."
+            }
+          ]
+        },
+        {
+          "jp": "厳しい指摘を受けたにもかかわらず、その新人は不満な顔を一切見せずに素直に聞き入れた。",
+          "vi": "Mặc dù bị nhắc nhở nghiêm khắc, người mới đó hoàn toàn không để lộ vẻ bất mãn mà ngoan ngoãn lắng nghe.",
+          "vocab": [
+            {
+              "w": "厳しい",
+              "read": "きびしい",
+              "vi": "nghiêm khắc"
+            },
+            {
+              "w": "指摘",
+              "read": "してき",
+              "vi": "chỉ trích, nhắc nhở, chỉ ra"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "不満",
+              "read": "ふまん",
+              "vi": "bất mãn, không hài lòng"
+            },
+            {
+              "w": "顔",
+              "read": "かお",
+              "vi": "khuôn mặt, nét mặt"
+            },
+            {
+              "w": "一切",
+              "read": "いっさい",
+              "vi": "hoàn toàn... không (đi với phủ định)"
+            },
+            {
+              "w": "見せる",
+              "read": "みせる",
+              "vi": "cho xem, để lộ"
+            },
+            {
+              "w": "素直",
+              "read": "すなお",
+              "vi": "ngoan ngoãn, tiếp thu, thẳng thắn"
+            },
+            {
+              "w": "聞き入れる",
+              "read": "ききいれる",
+              "vi": "lắng nghe và tiếp thu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にもかかわらず",
+              "vi": "接続: N / 普通形（Aな/N có thể dùng である） + にもかかわらず. Sắc thái: Bất chấp/Mặc dù một sự việc/hoàn cảnh đang diễn ra, nhưng một hành động hoặc kết quả trái ngược bất ngờ vẫn xảy ra (văn viết trang trọng). Đối chiếu: Khác với 〜のに (khẩu ngữ, biểu thị cảm xúc tiếc nuối cá nhân), 〜にもかかわらず mang tính văn viết, khách quan và trang trọng hơn nhiều; khác với 〜ものの (nhượng bộ theo logic), 〜にもかかわらず nhấn mạnh sự đối lập mạnh mẽ giữa hoàn cảnh và kết quả."
+            }
+          ]
+        },
+        {
+          "jp": "技術の面ではまだ未熟ながらも、向上心を持って毎日の練習に励んでいる姿は立派である。",
+          "vi": "Về mặt kỹ thuật, dù vẫn còn non nớt nhưng hình ảnh anh ấy nỗ lực luyện tập mỗi ngày với tinh thần cầu tiến thật đáng khâm phục.",
+          "vocab": [
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "面",
+              "read": "めん",
+              "vi": "mặt, khía cạnh"
+            },
+            {
+              "w": "未熟",
+              "read": "みじゅく",
+              "vi": "chưa thành thạo, non nớt"
+            },
+            {
+              "w": "向上心",
+              "read": "こうじょうしん",
+              "vi": "tinh thần cầu tiến, chí tiến thủ"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "励む",
+              "read": "はげむ",
+              "vi": "chăm chỉ, nỗ lực hết mình"
+            },
+            {
+              "w": "姿",
+              "read": "すがた",
+              "vi": "vóc dáng, diện mạo, tác phong"
+            },
+            {
+              "w": "立派",
+              "read": "りっぱ",
+              "vi": "tuyệt vời, đáng khâm phục, xuất sắc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "接続: V-ます-stem / Aい / Aな-stem / N + ながら（も）. Sắc thái: Bày tỏ sự nhượng bộ 'tuy... nhưng...', công nhận một trạng thái/hạn chế thực tế đang tồn tại ở vế trước nhưng vế sau vẫn có điểm tích cực hoặc hành động đối lập. Thường dùng với các từ chỉ trạng thái tinh thần, hạn chế (未熟, 残念, 狭い, 小さい). Đối chiếu: Khác với 〜ながら diễn tả hai hành động đồng thời (V1 vừa làm... vừa làm V2), 〜ながらも mang nghĩa nhượng bộ trái ngược (tương tự けれども nhưng cô đọng, trang trọng hơn trong văn viết)."
+            }
+          ]
+        },
+        {
+          "jp": "一方で、失敗を恐れて挑戦しない人は、多くの知識を持っているにしては成長の機会を逃してしまう。",
+          "vi": "Mặt khác, những người vì sợ thất bại mà không dám thử thách, thì dù có nhiều kiến thức đi chăng nữa cũng sẽ bỏ lỡ cơ hội trưởng thành.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "恐れる",
+              "read": "おそれる",
+              "vi": "sợ hãi, e ngại"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử thách, dám đương đầu"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "逃す",
+              "read": "のがす",
+              "vi": "bỏ lỡ, tuột mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては",
+              "vi": "接続: V普通形 + にしては. Sắc thái: Đưa ra sự đánh giá không tương xứng với lượng kiến thức có sẵn (có nhiều kiến thức mà lại không trưởng thành, kết quả kém hơn kỳ vọng). Đối chiếu: Khác với 〜わりに (nhấn mạnh tỷ lệ tương đối), 〜にしては nhấn mạnh kết luận bất ngờ so với thực tế được coi là tiền đề."
+            }
+          ]
+        },
+        {
+          "jp": "忙しいスケジュールにもかかわらず、自分の仕事に責任を持って最後までやり遂げることが何より大切だ。",
+          "vi": "Bất chấp lịch trình bận rộn, việc có trách nhiệm với công việc của mình và hoàn thành đến cùng quan trọng hơn bất cứ điều gì.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "スケジュール",
+              "read": "スケジュール",
+              "vi": "lịch trình, kế hoạch"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "責任",
+              "read": "せきにん",
+              "vi": "trách nhiệm"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "最後",
+              "read": "さいご",
+              "vi": "cuối cùng"
+            },
+            {
+              "w": "やり遂げる",
+              "read": "やりとげる",
+              "vi": "hoàn thành trọn vẹn, làm đến cùng"
+            },
+            {
+              "w": "何より",
+              "read": "なにより",
+              "vi": "hơn bất cứ điều gì, hơn cả"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にもかかわらず",
+              "vi": "接続: N / Aい + にもかかわらず. Sắc thái: Thể hiện việc kiên định hoàn thành trách nhiệm bất chấp hoàn cảnh khách quan bận rộn cản trở. Đối chiếu: Mang sắc thái trang trọng, khách quan hơn 〜のに."
+            }
+          ]
+        },
+        {
+          "jp": "迷いや不安を抱えながらも、真摯に現実と向き合うことで、人は大きく成長できるのだ。",
+          "vi": "Dù ôm nỗi hoang mang và lo lắng, nhưng bằng cách chân thành đối diện với thực tế, con người mới có thể trưởng thành vượt bậc.",
+          "vocab": [
+            {
+              "w": "迷い",
+              "read": "まよい",
+              "vi": "sự hoang mang, do dự"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "抱える",
+              "read": "かかえる",
+              "vi": "ôm ấp, vướng phải, mang trong lòng"
+            },
+            {
+              "w": "真摯",
+              "read": "しんし",
+              "vi": "chân thành, nghiêm túc"
+            },
+            {
+              "w": "現実",
+              "read": "げんじつ",
+              "vi": "thực tế"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, đối mặt trực tiếp"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "接続: V-ます-stem + ながらも. Sắc thái: Thừa nhận trạng thái tâm lý lo âu nhưng hành động vươn lên tích cực vẫn được khẳng định ở vế sau. Đối chiếu: Khác với 〜つつも (cùng nghĩa nhượng bộ văn viết nhưng thường đi với hối hận/day dứt), 〜ながらも mang sắc thái nỗ lực, tích cực hơn trong văn nghị luận."
+            }
+          ]
+        },
+        {
+          "jp": "他人を羨むのではなく、自分の未熟さを受け入れて一歩ずつ前進していきたいものだ。",
+          "vi": "Thay vì ghen tị với người khác, chúng ta nên chấp nhận sự non nớt của bản thân và từng bước tiến về phía trước.",
+          "vocab": [
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác"
+            },
+            {
+              "w": "羨む",
+              "read": "うらやむ",
+              "vi": "ghen tị"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "未熟",
+              "read": "みじゅく",
+              "vi": "non nớt"
+            },
+            {
+              "w": "未熟さ",
+              "read": "みじゅくさ",
+              "vi": "sự non nớt"
+            },
+            {
+              "w": "受け入れて",
+              "read": "うけいれて",
+              "vi": "chấp nhận"
+            },
+            {
+              "w": "一歩",
+              "read": "いっぽ",
+              "vi": "một bước"
+            },
+            {
+              "w": "一歩ずつ",
+              "read": "いっぽずつ",
+              "vi": "từng bước một"
+            },
+            {
+              "w": "前進",
+              "read": "ぜんしん",
+              "vi": "tiến lên"
+            },
+            {
+              "w": "前進して",
+              "read": "ぜんしんして",
+              "vi": "tiến về phía trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たいものだ",
+              "vi": "接続: V-ます-stem + たいものだ. Sắc thái: Thể hiện mong muốn sâu sắc, mang tính lý tưởng, chiêm nghiệm của người nói (ước gì, rất muốn...). Đối chiếu: Khác với 〜たい đơn thuần (chỉ ý muốn nhất thời), 〜たいものだ thể hiện nguyện vọng mang tính định hướng lâu dài, phổ quát trong văn tản văn/nghị luận."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "まだ見習いにしては非常に丁寧な仕事をする",
+          "label": "Đánh giá cao người mới: Làm việc cẩn thận dù còn là người học việc"
+        },
+        {
+          "excerpt": "自分には実力がないくせに、他人の失敗ばかり批判する",
+          "label": "Phê phán thái độ xấu: Bản thân kém cỏi nhưng lại hay chỉ trích người khác"
+        },
+        {
+          "excerpt": "厳しい指摘を受けたにもかかわらず、その新人は不満な顔を一切見せずに素直に聞き入れた",
+          "label": "Tinh thần cầu thị: Bị nhắc nhở nghiêm khắc nhưng vẫn ngoan ngoãn tiếp thu"
+        },
+        {
+          "excerpt": "技術の面ではまだ未熟ながらも、向上心を持って毎日の練習に励んでいる",
+          "label": "Nỗ lực vươn lên: Dù tay nghề còn non nớt nhưng luôn chăm chỉ rèn luyện"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者は、工房に入った「新人」のどのような点を評価しているか。",
+          "options": [
+            "見習いでありながら丁寧に作業し、厳しい指摘にも素直に耳を傾ける点",
+            "すでに熟練した職人並みの高い技術を持ち、ミスを全くしない点",
+            "他人の失敗を鋭く見抜いて、積極的に批判や指摘ができる点",
+            "知識が豊富で、失敗するリスクのある難しい挑戦を避ける点"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 0 (S1: 'まだ見習いにしては非常に丁寧な仕事をする'), câu 3 (S4: '厳しい指摘を受けたにもかかわらず...素直に聞き入れた') và câu 4 (S5: '技術の面ではまだ未熟ながらも、向上心を持って毎日の練習に励んでいる姿は立派である'). Tác giả đánh giá cao việc người mới dù chỉ đang học việc nhưng làm việc tỉ mỉ và tiếp thu nghiêm túc khi bị nhắc nhở.\n- Phương án 1 sai vì tác giả nói người mới vẫn còn 'chưa thành thạo' (未熟) chứ chưa phải thợ lành nghề không mắc lỗi.\n- Phương án 2 sai vì đây là thái độ xấu bị tác giả phê phán ở câu 1 và câu 2, không phải điểm tác giả khen ngợi ở người mới.\n- Phương án 3 sai vì việc có kiến thức nhưng né tránh thử thách là điều tiêu cực được nêu ở câu 5.",
+          "tip": "Tìm các từ khóa miêu tả '新人' (người mới) ở đoạn 1 và đầu đoạn 2 để đối chiếu các phẩm chất được khen.",
+          "evi": [
+            0,
+            3,
+            4
+          ],
+          "qt": {
+            "q": "Theo tác giả, người “新人” (người mới) vào xưởng được đánh giá cao ở điểm nào?",
+            "o": [
+              "Làm việc cẩn thận dù đang là người học việc, và chăm chú lắng nghe một cách chân thành ngay cả khi nhận được những lời góp ý nghiêm khắc",
+              "Đã có kỹ thuật cao ngang với thợ lành nghề và hoàn toàn không mắc lỗi",
+              "Nhìn thấu lỗi lầm của người khác một cách sắc bén và có thể chủ động phê bình, góp ý",
+              "Có kiến thức phong phú và tránh những thử thách khó khăn có nguy cơ thất bại"
+            ]
+          }
+        },
+        {
+          "q": "第1段落の「くせに」という表現から、筆者のどのような気持ちが読み取れるか。",
+          "options": [
+            "失敗を恐れて新しいことに挑戦できない若者への深い同情",
+            "実力や自覚がないにもかかわらず、責任逃れや他者批判をする人への強い憤りや非難",
+            "経験が浅い人が先輩から厳しい指摘を受けることに対する不満",
+            "知識はあるのに行動が伴わない自分自身の未熟さに対する反省"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 1 (S2: '自分には実力がないくせに、他人の失敗ばかり批判する') và câu 2 (S3: '自分のミスだと気づいているくせに、言い訳ばかりして責任を逃れようとする態度は見苦しい'). Mẫu câu 〜くせに thể hiện sự bất mãn, trách móc và coi thường mạnh mẽ của người nói đối với những người thiếu thực lực nhưng hay phán xét hoặc biết lỗi mà tìm cách trốn tránh.\n- Phương án 0 sai vì tác giả không hề 'đồng cảm sâu sắc' mà đang chỉ trích thái độ tiêu cực.\n- Phương án 2 sai vì tác giả khen ngợi người học việc khi chịu tiếp thu nhắc nhở, chứ không bất mãn với người dạy.\n- Phương án 3 sai vì 'くせに' ở đây dùng để phê phán người khác ngoài xã hội, không phải tác giả tự trách bản thân mình.",
+          "tip": "Mẫu ngữ pháp 〜くせに luôn mang sắc thái chỉ trích, bất mãn, trách móc gay gắt đối phương.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Từ cách diễn đạt “くせに” (mặc dù… nhưng lại…) ở đoạn 1, có thể nhận ra cảm xúc nào của tác giả?",
+            "o": [
+              "Sự cảm thông sâu sắc dành cho những người trẻ sợ thất bại nên không thể thử điều mới",
+              "Sự phẫn nộ và lên án mạnh mẽ đối với những người dù không có năng lực hay không tự nhận thức được bản thân, lại trốn tránh trách nhiệm và chỉ trích người khác",
+              "Sự bất mãn về việc người ít kinh nghiệm bị tiền bối góp ý nghiêm khắc",
+              "Sự tự kiểm điểm về sự non kém của bản thân khi có kiến thức nhưng hành động không theo kịp"
+            ]
+          }
+        },
+        {
+          "q": "本文によると、知識を持ちながらも成長の機会を逃してしまうのはどのような人か。",
+          "options": [
+            "経験が浅いのに自分の能力を過信して失敗を繰り返す人",
+            "失敗することを恐れるあまり、新しい挑戦に踏み出せない人",
+            "厳しいスケジュールに追われて自分の仕事に責任を持てない人",
+            "他人の意見を聞き入れず、すべて自分ひとりで解決しようとする人"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 5 (S6: '一方で、失敗を恐れて挑戦しない人は、多くの知識を持っているにしては成長の機会を逃してしまう'). Tác giả nêu rõ người có nhiều kiến thức nhưng lại bỏ lỡ cơ hội phát triển là người vì sợ thất bại mà không dám dấn thân thử thách.\n- Phương án 0 sai vì bài viết không đề cập đến việc tự tin thái quá dẫn đến thất bại liên tiếp.\n- Phương án 2 sai vì bài viết khẳng định dù bận rộn vẫn phải có trách nhiệm hoàn thành công việc (câu 6), không đồng tình với việc bỏ bê.\n- Phương án 3 sai vì đây không phải lý do khiến người có kiến thức mất cơ hội phát triển được nói tới trong câu 5.",
+          "tip": "Đọc kỹ câu 5 (câu thứ hai của đoạn 2) để thấy mối quan hệ nguyên nhân - kết quả giữa '失敗を恐れて挑戦しない' và '成長の機会を逃す'.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Theo bài đọc, kiểu người nào dù có kiến thức vẫn bỏ lỡ cơ hội trưởng thành?",
+            "o": [
+              "Người còn ít kinh nghiệm nhưng quá tự tin vào năng lực của mình và liên tục mắc lỗi",
+              "Người vì quá sợ thất bại nên không dám bắt đầu thử thách mới",
+              "Người bị lịch trình khắc nghiệt cuốn đi nên không thể có trách nhiệm với công việc của mình",
+              "Người không tiếp nhận ý kiến của người khác và cố giải quyết mọi việc một mình"
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も主張したいことは何か。",
+          "options": [
+            "他人の目を気にして批判を避けることこそが、失敗を防ぐ最善の方法である。",
+            "知識や経験の有無にかかわらず、他人の欠点を厳しく指摘し合って技術を高めるべきだ。",
+            "自分の未熟さや不安を受け入れ、責任感を持って誠実に挑戦し続けることが大切である。",
+            "見習いのうちは責任ある仕事を避け、できるだけ知識の習得だけに集中したほうがよい。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào các câu kết luận ở đoạn 2 (câu 6: '自分の仕事に責任を持って最後までやり遂げる', câu 7: '迷いや不安を抱えながらも、真摯に現実と向き合うことで、人は大きく成長できる', câu 8: '自分の未熟さを受け入れて一歩ずつ前進していきたい'). Tác giả đúc kết thông điệp chính: cốt lõi của sự trưởng thành là dám nhìn nhận sự non nớt của bản thân, không trốn tránh trách nhiệm và kiên trì nỗ lực đối diện với thực tế.\n- Phương án 0 sai vì đi ngược lại tư tưởng bài viết (tác giả khuyến khích đối mặt thực tế và thử thách chứ không trốn tránh).\n- Phương án 1 sai vì bài viết phê phán việc chỉ trích người khác mà thiếu thực lực.\n- Phương án 3 sai vì tác giả đề cao tinh thần trách nhiệm và làm việc nghiêm túc ngay từ khi còn học việc.",
+          "tip": "Đối chiếu các câu cuối bài (câu 7, 8) – nơi tác giả đúc kết thông điệp và bài học triết lý của toàn bài văn.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Trong bài viết này, tác giả muốn nhấn mạnh điều gì nhất?",
+            "o": [
+              "Quan tâm đến cách nhìn của người khác và tránh bị phê bình chính là cách tốt nhất để ngăn ngừa thất bại",
+              "Bất kể có kiến thức hay kinh nghiệm hay không, mọi người nên nghiêm khắc chỉ ra khuyết điểm của nhau để nâng cao kỹ thuật",
+              "Điều quan trọng là chấp nhận sự non kém và bất an của bản thân, có tinh thần trách nhiệm và tiếp tục thử sức một cách chân thành",
+              "Khi còn là người học việc, tốt hơn nên tránh những công việc có trách nhiệm và chỉ tập trung tiếp thu kiến thức nhiều nhất có thể"
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "情報社会における実践者の勇気と批評の罠",
+      "titleVi": "Lòng dũng cảm của người thực hành và cái bẫy của sự chỉ trích trong xã hội thông tin",
+      "japanese": "現代はインターネットを使えば、誰でも簡単に知識や技術を手に入れられる時代である。このように情報が豊富にある時代であるにもかかわらず、自ら深く学ぼうとする人は意外に少ない。むしろ、少しネットで調べただけで全てを理解した気になり、他人の努力を批判する人が増えている。自分では何も行動を起こさないくせに、他人の失敗ばかりを厳しく指摘する態度は決して良くない。何かを成し遂げるためには、批判する側ではなく、自ら挑戦する側に立つことが大切だ。\n\n例えば、私の職場に新しく入ったある若手社員は、経験が浅い分野の企画を任された。彼は経験不足による不安を感じながらも、毎日熱心に先輩や専門家に意見を聞いて回った。その結果、短い準備期間にしては、非常に具体的で説得力のある提案書を完成させた。新人の提案にしては完成度が高く、社内の会議でも多くの賛同を集めることができた。ところが、一部の先輩は「まだ現実の厳しさを分かっていない」と陰で文句を言っていた。その先輩たちは、企画の背景をよく知りもしないくせに、新人の前向きな挑戦を軽く見ていたのだ。\n\n新しいことに挑戦する人は、未熟ながらも一歩ずつ前進し、着実に実力を身につけていく。一方で、口先だけで他人を評価する人は、失敗を恐れて自分の安全な場所から出ようとしない。失敗する可能性が高い困難な状況にもかかわらず、勇気を出して行動する姿こそが信頼を生む。真の専門家とは、知識の多さを誇る人ではなく、学び続ける謙虚さを持つ人のことである。\n\n周囲からの否定的な意見に惑わされず、自分の目標に向かって努力を続けるのは簡単ではない。しかし、他人の評価ばかりを気にして行動をやめてしまえば、成長の機会を失ってしまう。私たちは、物事の表面だけを見て批判するのではなく、行動している人の熱意を尊重すべきだ。そして自らも、失敗を恐れる心を克服し、小さな一歩を踏み出す勇気を持ちたいものだ。批評家になるよりも、不器用でも実践者であり続けることこそが、豊かな人生を切り開くのである。",
+      "vietnamese": "Thời nay là thời đại mà nếu sử dụng internet, ai cũng có thể dễ dàng có được kiến thức và kỹ thuật. Bất chấp việc đang ở trong một thời đại thông tin phong phú như thế này, số người tự mình học hỏi sâu sắc lại ít một cách bất ngờ. Trái lại, ngày càng có nhiều người chỉ mới tra cứu một chút trên mạng đã tưởng như mình hiểu hết mọi thứ và đi chỉ trích nỗ lực của người khác. Dù bản thân chẳng hề có hành động gì thế mà lại chỉ chăm chăm chỉ trích gay gắt thất bại của người khác, thái độ ấy tuyệt đối không tốt. Để đạt được điều gì đó, việc đứng về phía tự mình thử sức thay vì phía chỉ trích là vô cùng quan trọng.\n\nVí dụ, một nhân viên trẻ mới vào chỗ làm của tôi đã được giao phụ trách kế hoạch thuộc một lĩnh vực còn ít kinh nghiệm. Anh ấy dù cảm thấy bất an do thiếu kinh nghiệm nhưng ngày nào cũng nhiệt tình đi hỏi ý kiến các tiền bối và chuyên gia. Kết quả là, xét trong một thời gian chuẩn bị ngắn, anh ấy đã hoàn thành một bản đề án cực kỳ cụ thể và có sức thuyết phục. Xét là đề xuất của một người mới thì độ hoàn thiện rất cao, và đã nhận được nhiều sự tán thành trong cuộc họp nội bộ. Thế nhưng, một vài tiền bối lại nói xấu sau lưng rằng \"nó vẫn chưa hiểu sự khắc nghiệt của thực tế đâu\". Những tiền bối đó, dù chẳng hề hiểu rõ bối cảnh của bản kế hoạch thế mà lại xem nhẹ nỗ lực thử sức đầy tích cực của người mới.\n\nNgười dám thử sức với những điều mới mẻ, dù còn non nớt nhưng từng bước tiến lên và tích lũy thực lực một cách vững chắc. Mặt khác, những người chỉ dùng lời nói đầu môi để đánh giá người khác thì sợ thất bại nên không chịu bước ra khỏi vùng an toàn của mình. Bất chấp hoàn cảnh khó khăn có khả năng thất bại cao, chính hình ảnh dũng cảm hành động mới tạo nên sự tin tưởng. Một chuyên gia thực thụ không phải là người khoe khoang sự hiểu biết nhiều, mà là người có sự khiêm tốn để tiếp tục học hỏi.\n\nKhông bị dao động bởi những ý kiến tiêu cực từ xung quanh và tiếp tục nỗ lực hướng tới mục tiêu của bản thân là điều không hề dễ dàng. Tuy nhiên, nếu chỉ bận tâm đến đánh giá của người khác mà dừng hành động thì sẽ đánh mất cơ hội trưởng thành. Chúng ta không nên chỉ nhìn vào bề nổi của sự việc để chỉ trích, mà cần phải tôn trọng nhiệt huyết của những người đang hành động. Và bản thân chúng ta cũng nên mong muốn có được lòng dũng cảm để vượt qua nỗi sợ thất bại và bước đi một bước nhỏ đầu tiên. Thay vì trở thành một nhà phê bình, việc kiên trì làm một người thực hành dù còn vụng về mới chính là điều mở ra một cuộc đời phong phú.",
+      "sentences": [
+        {
+          "jp": "現代はインターネットを使えば、誰でも簡単に知識や技術を手に入れられる時代である。",
+          "vi": "Thời nay là thời đại mà nếu sử dụng internet, ai cũng có thể dễ dàng có được kiến thức và kỹ thuật.",
+          "vocab": [
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "hiện đại, thời nay"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "技術",
+              "read": "ぎじゅつ",
+              "vi": "kỹ thuật"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "手に入れる",
+              "read": "てにいれる",
+              "vi": "có được, đạt được, thu thập được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば",
+              "vi": "【接続】V-ば / A-ければ / Na・N-なら。【Sắc thái】Điều kiện giả định thuận (nếu... thì...).【Đối chiếu】Khác với 〜たら (dùng rộng rãi trong khẩu ngữ) và 〜と (chỉ hệ quả tất yếu, tự nhiên)."
+            }
+          ]
+        },
+        {
+          "jp": "このように情報が豊富にある時代であるにもかかわらず、自ら深く学ぼうとする人は意外に少ない。",
+          "vi": "Bất chấp việc đang ở trong một thời đại thông tin phong phú như thế này, số người tự mình học hỏi sâu sắc lại ít một cách bất ngờ.",
+          "vocab": [
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "豊富",
+              "read": "ほうふ",
+              "vi": "phong phú, dồi dào"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại, thời kỳ"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "tự mình, đích thân"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "学ぶ",
+              "read": "まなぶ",
+              "vi": "học tập, tiếp thu"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "意外に",
+              "read": "いがいに",
+              "vi": "bất ngờ, ngoài dự kiến"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にもかかわらず",
+              "vi": "【接続】V/A/Na/N (thể thông thường, Na/N + である) + にもかかわらず。【Sắc thái】Mặc dù, bất chấp. Diễn tả kết quả vế sau trái ngược hoàn toàn với dự đoán/kỳ vọng thông thường từ vế trước; mang sắc thái bất ngờ, ngạc nhiên hoặc bất bình, trang trọng trong văn viết.【Đối chiếu】Khác với 〜のに (khẩu ngữ, bộc lộ cảm xúc tiếc nuối/bất mãn cá nhân) và 〜ものの (nhượng bộ thừa nhận một phần sự thật vế trước nhưng vế sau mang tính bổ sung/hạn chế, không tạo xung đột mạnh mẽ)."
+            }
+          ]
+        },
+        {
+          "jp": "むしろ、少しネットで調べただけで全てを理解した気になり、他人の努力を批判する人が増えている。",
+          "vi": "Trái lại, ngày càng có nhiều người chỉ mới tra cứu một chút trên mạng đã tưởng như mình hiểu hết mọi thứ và đi chỉ trích nỗ lực của người khác.",
+          "vocab": [
+            {
+              "w": "むしろ",
+              "read": "むしろ",
+              "vi": "trái lại, ngược lại, thà rằng"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "ネット",
+              "read": "ネット",
+              "vi": "mạng internet"
+            },
+            {
+              "w": "調べる",
+              "read": "しらべる",
+              "vi": "tra, tìm kiếm"
+            },
+            {
+              "w": "全て",
+              "read": "すべて",
+              "vi": "tất cả, toàn bộ"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "sự thấu hiểu, thông cảm"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "批判する",
+              "read": "ひはんする",
+              "vi": "phê phán, chỉ trích"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜気になり (〜気になる)",
+              "vi": "【接続】Vた / Nの + 気になる。【Sắc thái】Tự cho là, ngộ nhận hoặc có cảm giác rằng mình đã trở nên như vậy dù thực tế chưa hẳn.【Đối chiếu】Khác với 〜つもり (ý định hoặc tự đinh ninh trong đầu) ở chỗ 気になる nhấn mạnh tâm lý ngộ nhận, ảo tưởng cảm giác."
+            }
+          ]
+        },
+        {
+          "jp": "自分では何も行動を起こさないくせに、他人の失敗ばかりを厳しく指摘する態度は決して良くない。",
+          "vi": "Dù bản thân chẳng hề có hành động gì thế mà lại chỉ chăm chăm chỉ trích gay gắt thất bại của người khác, thái độ ấy tuyệt đối không tốt.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "起こす",
+              "read": "おこす",
+              "vi": "gây ra, đánh thức"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "厳しい",
+              "read": "きびしい",
+              "vi": "nghiêm khắc"
+            },
+            {
+              "w": "指摘する",
+              "read": "してきする",
+              "vi": "chỉ ra, vạch ra"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "決して〜ない",
+              "read": "けっして〜ない",
+              "vi": "tuyệt đối không, nhất quyết không"
+            },
+            {
+              "w": "良い",
+              "read": "よい",
+              "vi": "tốt, tốt đẹp"
+            },
+            {
+              "w": "行動を起こす",
+              "read": "こうどうをおこす",
+              "vi": "hành động, bắt tay thực hiện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "【接続】V/A/Naな/Nの (thể thông thường) + くせに。【Sắc thái】Dù là... thế mà. Diễn tả vế sau trái ngược hoàn toàn với điều đương nhiên từ vế trước, mang sắc thái mỉa mai, trách móc, khinh bỉ hoặc chỉ trích mạnh mẽ của người nói; hai vế PHẢI cùng chủ ngữ và KHÔNG dùng cho ngôi thứ nhất (trừ khi tự trách).【Đối chiếu】Khác với 〜のに (trung tính hơn, dùng được cho sự vật khách quan) và 〜わりに（は） (đánh giá mức độ lệch chuẩn thông thường, không nhất thiết mang ý coi thường/chỉ trích)."
+            },
+            {
+              "point": "〜ばかり",
+              "vi": "【接続】N + ばかり / Vて + ばかりいる。【Sắc thái】Toàn là, chỉ toàn; biểu thị tần suất nhiều hoặc chỉ tập trung vào một thứ, thường kèm sắc thái phàn nàn, phê phán của người nói.【Đối chiếu】Khác với 〜だけ (chỉ giới hạn trung tính) và 〜のみ (trang trọng)."
+            }
+          ]
+        },
+        {
+          "jp": "何かを成し遂げるためには、批判する側ではなく、自ら挑戦する側に立つことが大切だ。",
+          "vi": "Để đạt được điều gì đó, việc đứng về phía tự mình thử sức thay vì phía chỉ trích là vô cùng quan trọng.",
+          "vocab": [
+            {
+              "w": "成し遂げる",
+              "read": "なしとげる",
+              "vi": "hoàn thành, đạt được, làm trọn"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "sự phê phán, chỉ trích"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử sức, thách thức"
+            },
+            {
+              "w": "側",
+              "read": "がわ",
+              "vi": "phía, bên"
+            },
+            {
+              "w": "立つ",
+              "read": "たつ",
+              "vi": "đứng, ở vị trí"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ためには",
+              "vi": "【接続】V-る / Nの + ために(は)。【Sắc thái】Để, nhằm mục đích; vế sau thể hiện hành động có ý chí hướng tới mục đích ở vế trước.【Đối chiếu】Khác với 〜ように (hướng tới trạng thái không chủ ý hoặc mục tiêu tự nhiên)."
+            }
+          ]
+        },
+        {
+          "jp": "例えば、私の職場に新しく入ったある若手社員は、経験が浅い分野の企画を任された。",
+          "vi": "Ví dụ, một nhân viên trẻ mới vào chỗ làm của tôi đã được giao phụ trách kế hoạch thuộc một lĩnh vực còn ít kinh nghiệm.",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "vào, bước vào"
+            },
+            {
+              "w": "若手",
+              "read": "わかて",
+              "vi": "lớp trẻ, thế hệ trẻ"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "浅い",
+              "read": "あさい",
+              "vi": "nông cạn, cạn cợt"
+            },
+            {
+              "w": "分野",
+              "read": "ぶんや",
+              "vi": "lĩnh vực"
+            },
+            {
+              "w": "企画",
+              "read": "きかく",
+              "vi": "kế hoạch, dự án"
+            },
+            {
+              "w": "任される",
+              "read": "まかされる",
+              "vi": "được giao phó, được ủy thác (thể bị động của 任す/任せる)"
+            },
+            {
+              "w": "若手社員",
+              "read": "わかてしゃいん",
+              "vi": "nhân viên trẻ"
+            },
+            {
+              "w": "経験が浅い",
+              "read": "けいけんがあさい",
+              "vi": "ít kinh nghiệm, non kinh nghiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜れる／られる（受身）",
+              "vi": "【接続】V-れる/られる (động từ nhóm 1: 任す → 任される, hoặc nhóm 2: 任せる → 任せられる)。【Sắc thái】Thể bị động; ở đây biểu thị việc được cấp trên/tổ chức tin tưởng giao phó trọng trách công việc."
+            }
+          ]
+        },
+        {
+          "jp": "彼は経験不足による不安を感じながらも、毎日熱心に先輩や専門家に意見を聞いて回った。",
+          "vi": "Anh ấy dù cảm thấy bất an do thiếu kinh nghiệm nhưng ngày nào cũng nhiệt tình đi hỏi ý kiến các tiền bối và chuyên gia.",
+          "vocab": [
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "不足",
+              "read": "ふそく",
+              "vi": "sự thiếu hụt, điểm khiếm khuyết"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "熱心に",
+              "read": "ねっしんに",
+              "vi": "nhiệt tình, hăng hái"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, đàn anh/chị"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "経験不足",
+              "read": "けいけんぶそく",
+              "vi": "thiếu kinh nghiệm"
+            },
+            {
+              "w": "聞いて回る",
+              "read": "きいてまわる",
+              "vi": "đi hỏi quanh, hỏi thăm khắp nơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "【接続】V-ます (bỏ ます) / Aい / Naであり / Nであり + ながら(も)。【Sắc thái】Dù... nhưng. Thừa nhận một thực tế, cảm xúc hay trạng thái ở vế trước nhưng vế sau vẫn thực hiện hành động trái ngược hoặc nỗ lực vượt qua. Thường đi kèm với từ chỉ cảm xúc/tâm trạng (不安を感じながらも, 残念ながら).【Đối chiếu】Khác với 〜ながら đồng thời (V-ます + ながら: vừa làm A vừa làm B) và 〜つつも (văn phong trang trọng, mang nặng sự giằng xé nội tâm)."
+            },
+            {
+              "point": "〜による",
+              "vi": "【接続】N + による + N / N + によって。【Sắc thái】Chỉ nguyên nhân, lý do (do, bởi vì) trong văn phong trang trọng, khách quan."
+            }
+          ]
+        },
+        {
+          "jp": "その結果、短い準備期間にしては、非常に具体的で説得力のある提案書を完成させた。",
+          "vi": "Kết quả là, xét trong một thời gian chuẩn bị ngắn, anh ấy đã hoàn thành một bản đề án cực kỳ cụ thể và có sức thuyết phục.",
+          "vocab": [
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "短い",
+              "read": "みじかい",
+              "vi": "ngắn (tính từ い)"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "期間",
+              "read": "きかん",
+              "vi": "thời lượng, khoảng thời gian"
+            },
+            {
+              "w": "非常",
+              "read": "ひじょう",
+              "vi": "sự khẩn cấp, bất thường"
+            },
+            {
+              "w": "具体",
+              "read": "ぐたい",
+              "vi": "sự cụ thể"
+            },
+            {
+              "w": "説得",
+              "read": "せっとく",
+              "vi": "thuyết phục"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất, đề nghị"
+            },
+            {
+              "w": "完成",
+              "read": "かんせい",
+              "vi": "sự hoàn thành"
+            },
+            {
+              "w": "説得力",
+              "read": "せっとくりょく",
+              "vi": "sức thuyết phục"
+            },
+            {
+              "w": "提案書",
+              "read": "ていあんしょ",
+              "vi": "bản đề án, bản đề xuất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては",
+              "vi": "【接続】V/A/Na/N (thể thông thường, Na/N không だ) + にしては。【Sắc thái】So với, xét theo... thì. Đưa ra một tiêu chuẩn cụ thể ở vế trước và thể hiện sự ngạc nhiên vì kết quả ở vế sau vượt ra ngoài dự đoán đối với tiêu chuẩn đó.【Đối chiếu】Khác với 〜わりに（は） (わりに đi được với danh từ chỉ mức độ trừu tượng như 年齢, 値段; còn にしては đi với đối tượng cụ thể hơn và nhấn mạnh cảm xúc bất ngờ rõ rệt) và 〜だけあって (đúng như kỳ vọng, khen ngợi tương xứng tiêu chuẩn)."
+            }
+          ]
+        },
+        {
+          "jp": "新人の提案にしては完成度が高く、社内の会議でも多くの賛同を集めることができた。",
+          "vi": "Xét là đề xuất của một người mới thì độ hoàn thiện rất cao, và đã nhận được nhiều sự tán thành trong cuộc họp nội bộ.",
+          "vocab": [
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "提案",
+              "read": "ていあん",
+              "vi": "đề xuất, đề nghị"
+            },
+            {
+              "w": "完成",
+              "read": "かんせい",
+              "vi": "sự hoàn thành"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "社内",
+              "read": "しゃない",
+              "vi": "nội bộ công ty, trong công ty"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "多く",
+              "read": "おおく",
+              "vi": "nhiều, phần lớn"
+            },
+            {
+              "w": "賛同",
+              "read": "さんどう",
+              "vi": "sự tán thành, đồng thuận"
+            },
+            {
+              "w": "集める",
+              "read": "あつめる",
+              "vi": "thu thập, tập hợp"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "完成度",
+              "read": "かんせいど",
+              "vi": "độ hoàn thiện, mức độ chỉn chu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては",
+              "vi": "【接続】N + にしては。【Sắc thái】Xét theo tiêu chuẩn là người mới (新人) thì kết quả đạt được (độ hoàn thiện cao, nhận nhiều tán thành) là rất bất ngờ và ấn tượng.【Đối chiếu】Khác với 〜として（は） (chỉ tư cách/vai trò trung tính, không mang sắc thái kết quả bất ngờ trái tiêu chuẩn)."
+            }
+          ]
+        },
+        {
+          "jp": "ところが、一部の先輩は「まだ現実の厳しさを分かっていない」と陰で文句を言っていた。",
+          "vi": "Thế nhưng, một vài tiền bối lại nói xấu sau lưng rằng \"nó vẫn chưa hiểu sự khắc nghiệt của thực tế đâu\".",
+          "vocab": [
+            {
+              "w": "ところが",
+              "read": "ところが",
+              "vi": "thế nhưng, tuy nhiên (nối tiếp ý đối lập bất ngờ)"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            },
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, đàn anh/chị"
+            },
+            {
+              "w": "現実",
+              "read": "げんじつ",
+              "vi": "thực tế"
+            },
+            {
+              "w": "厳しい",
+              "read": "きびしい",
+              "vi": "nghiêm khắc"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "陰で",
+              "read": "かげで",
+              "vi": "sau lưng, lén lút, ngấm ngầm"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "文句を言う",
+              "read": "もんくをいう",
+              "vi": "phàn nàn, cằn nhằn, kêu ca"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていた (〜ている)",
+              "vi": "【接続】V-て + いた。【Sắc thái】Diễn tả một hành động đã diễn ra liên tục hoặc trạng thái kéo dài trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "その先輩たちは、企画の背景をよく知りもしないくせに、新人の前向きな挑戦を軽く見ていたのだ。",
+          "vi": "Những tiền bối đó, dù chẳng hề hiểu rõ bối cảnh của bản kế hoạch thế mà lại xem nhẹ nỗ lực thử sức đầy tích cực của người mới.",
+          "vocab": [
+            {
+              "w": "先輩",
+              "read": "せんぱい",
+              "vi": "tiền bối, đàn anh/chị"
+            },
+            {
+              "w": "企画",
+              "read": "きかく",
+              "vi": "kế hoạch, dự án"
+            },
+            {
+              "w": "背景",
+              "read": "はいけい",
+              "vi": "bối cảnh"
+            },
+            {
+              "w": "知る",
+              "read": "しる",
+              "vi": "biết"
+            },
+            {
+              "w": "新人",
+              "read": "しんじん",
+              "vi": "nhân viên mới, người mới"
+            },
+            {
+              "w": "前向きな",
+              "read": "まえむきな",
+              "vi": "tích cực, hướng về phía trước"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử thách"
+            },
+            {
+              "w": "軽い",
+              "read": "かるい",
+              "vi": "nhẹ"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "軽く見る",
+              "read": "かるくみる",
+              "vi": "xem nhẹ, coi thường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "【接続】V-ます (bỏ ます) + もしない + くせに。【Sắc thái】Chỉ trích gay gắt: dù bản thân chẳng thèm tìm hiểu (không có tư cách phán xét) thế mà lại đi coi thường nỗ lực của người khác.【Đối chiếu】Khác với 〜のに (mang tính trần thuật sự việc trái ngược nhẹ nhàng hơn, không chứa định kiến chê trách gay gắt như くせに)."
+            },
+            {
+              "point": "〜もしない",
+              "vi": "【接続】V-ます (bỏ ます) + もしない。【Sắc thái】Hoàn toàn không làm một hành động nào đó (nhấn mạnh sự phủ định mạnh mẽ, thường mang ý chê trách)."
+            }
+          ]
+        },
+        {
+          "jp": "新しいことに挑戦する人は、未熟ながらも一歩ずつ前進し、着実に実力を身につけていく。",
+          "vi": "Người dám thử sức với những điều mới mẻ, dù còn non nớt nhưng từng bước tiến lên và tích lũy thực lực một cách vững chắc.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều, việc"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử thách"
+            },
+            {
+              "w": "挑戦する",
+              "read": "ちょうせんする",
+              "vi": "đương đầu"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "未熟",
+              "read": "みじゅく",
+              "vi": "non nớt"
+            },
+            {
+              "w": "一歩",
+              "read": "いっぽ",
+              "vi": "một bước"
+            },
+            {
+              "w": "一歩ずつ",
+              "read": "いっぽずつ",
+              "vi": "từng bước một"
+            },
+            {
+              "w": "前進",
+              "read": "ぜんしん",
+              "vi": "tiến lên"
+            },
+            {
+              "w": "前進し",
+              "read": "ぜんしんし",
+              "vi": "tiến lên"
+            },
+            {
+              "w": "着実に",
+              "read": "ちゃくじつに",
+              "vi": "vững chắc, đều đặn"
+            },
+            {
+              "w": "実力",
+              "read": "じつりょく",
+              "vi": "thực lực"
+            },
+            {
+              "w": "身",
+              "read": "み",
+              "vi": "bản thân, cơ thể"
+            },
+            {
+              "w": "身につけて",
+              "read": "みにつけて",
+              "vi": "trau dồi, nắm vững"
+            },
+            {
+              "w": "つけて",
+              "read": "つけて",
+              "vi": "gắn, đeo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "【接続】Na (để nguyên hoặc である) / N / Aい / V-ます + ながら(も)。【Sắc thái】Dù là... nhưng. Thừa nhận trạng thái hiện tại còn non nớt (未熟) nhưng vẫn không ngừng nỗ lực tiến bước. Thể hiện sự nhượng bộ thực tế kèm ý chí tích cực.【Đối chiếu】Khác với 〜ものの (nhấn mạnh vào sự thật hiển nhiên nhưng vế sau mang tính hạn chế)."
+            },
+            {
+              "point": "〜ていく",
+              "vi": "【接続】V-て + いく。【Sắc thái】Diễn tả xu hướng hành động tiếp tục tiến triển từ hiện tại đến tương lai."
+            }
+          ]
+        },
+        {
+          "jp": "一方で、口先だけで他人を評価する人は、失敗を恐れて自分の安全な場所から出ようとしない。",
+          "vi": "Mặt khác, những người chỉ dùng lời nói đầu môi để đánh giá người khác thì sợ thất bại nên không chịu bước ra khỏi vùng an toàn của mình.",
+          "vocab": [
+            {
+              "w": "一方で",
+              "read": "いっぽうで",
+              "vi": "mặt khác, ngược lại"
+            },
+            {
+              "w": "口先だけ",
+              "read": "くちさきだけ",
+              "vi": "chỉ nói miệng, chót lưỡi đầu môi"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "恐れる",
+              "read": "おそれる",
+              "vi": "sợ hãi, lo ngại"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "安全",
+              "read": "あんぜん",
+              "vi": "an toàn, sự an toàn"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "出る",
+              "read": "でる",
+              "vi": "xuất hiện, hiện ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようとしない",
+              "vi": "【接続】V-よう (thể ý chí) + としない。【Sắc thái】Hoàn toàn không có ý định, không chịu làm việc gì đó (thể hiện sự ngoan cố hoặc thiếu thiện chí).【Đối chiếu】Khác với 〜ない (chỉ là phủ định sự việc trung tính)."
+            }
+          ]
+        },
+        {
+          "jp": "失敗する可能性が高い困難な状況にもかかわらず、勇気を出して行動する姿こそが信頼を生む。",
+          "vi": "Bất chấp hoàn cảnh khó khăn có khả năng thất bại cao, chính hình ảnh dũng cảm hành động mới tạo nên sự tin tưởng.",
+          "vocab": [
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "高い",
+              "read": "たかい",
+              "vi": "cao, đắt (tính từ い)"
+            },
+            {
+              "w": "困難な",
+              "read": "こんなんな",
+              "vi": "khó khăn, gian khổ"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "tình huống, tình trạng"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "勇気",
+              "read": "ゆうき",
+              "vi": "dũng khí"
+            },
+            {
+              "w": "出す",
+              "read": "だす",
+              "vi": "phát ra, đưa ra"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "姿",
+              "read": "すがた",
+              "vi": "vóc dáng, diện mạo, tác phong"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "生む",
+              "read": "うむ",
+              "vi": "sinh ra, tạo ra"
+            },
+            {
+              "w": "勇気を出す",
+              "read": "ゆうきをだす",
+              "vi": "lấy hết dũng cảm, can đảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にもかかわらず",
+              "vi": "【接続】N / Naである / V・A (thể thông thường) + にもかかわらず。【Sắc thái】Bất chấp, mặc dù. Nêu lên hoàn cảnh khó khăn ở vế trước nhưng vế sau vẫn hành động quả cảm, tạo nên sự tương phản mạnh mẽ và sự khâm phục của người nói.【Đối chiếu】Khác với 〜くせに (mang nghĩa tiêu cực/chỉ trích) ở chỗ にもかかわらず có thể dùng để ca ngợi, trân trọng nỗ lực vượt khó."
+            },
+            {
+              "point": "〜こそ",
+              "vi": "【接続】N / V-て + こそ。【Sắc thái】Chính... (nhấn mạnh mạnh mẽ chủ thể hoặc điều kiện tiên quyết cốt lõi)."
+            }
+          ]
+        },
+        {
+          "jp": "真の専門家とは、知識の多さを誇る人ではなく、学び続ける謙虚さを持つ人のことである。",
+          "vi": "Một chuyên gia thực thụ không phải là người khoe khoang sự hiểu biết nhiều, mà là người có sự khiêm tốn để tiếp tục học hỏi.",
+          "vocab": [
+            {
+              "w": "真",
+              "read": "しん",
+              "vi": "chân chính"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "専門家",
+              "read": "せんもんか",
+              "vi": "chuyên gia"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "多さ",
+              "read": "おおさ",
+              "vi": "sự phong phú"
+            },
+            {
+              "w": "誇る",
+              "read": "ほこる",
+              "vi": "tự hào, khoe"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "学び",
+              "read": "まなび",
+              "vi": "việc học"
+            },
+            {
+              "w": "学び続ける",
+              "read": "まなびつづける",
+              "vi": "tiếp tục học"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "謙虚",
+              "read": "けんきょ",
+              "vi": "khiêm tốn"
+            },
+            {
+              "w": "謙虚さ",
+              "read": "けんきょさ",
+              "vi": "sự khiêm tốn"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "có, mang"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは〜のことだ",
+              "vi": "【接続】N + とは 〜 (の)ことだ。【Sắc thái】Dùng để định nghĩa, giải thích bản chất thực sự của một khái niệm theo quan điểm sâu sắc."
+            }
+          ]
+        },
+        {
+          "jp": "周囲からの否定的な意見に惑わされず、自分の目標に向かって努力を続けるのは簡単ではない。",
+          "vi": "Không bị dao động bởi những ý kiến tiêu cực từ xung quanh và tiếp tục nỗ lực hướng tới mục tiêu của bản thân là điều không hề dễ dàng.",
+          "vocab": [
+            {
+              "w": "周囲",
+              "read": "しゅうい",
+              "vi": "xung quanh, mọi người xung quanh"
+            },
+            {
+              "w": "否定",
+              "read": "ひてい",
+              "vi": "sự phủ định, bác bỏ"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "惑わされる",
+              "read": "まどわされる",
+              "vi": "bị làm cho dao động, bị lung lay (thể bị động của 惑わす)"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "目標",
+              "read": "もくひょう",
+              "vi": "mục tiêu"
+            },
+            {
+              "w": "向かう",
+              "read": "むかう",
+              "vi": "hướng tới, đối mặt"
+            },
+            {
+              "w": "努力",
+              "read": "どりょく",
+              "vi": "nỗ lực"
+            },
+            {
+              "w": "続ける",
+              "read": "つづける",
+              "vi": "tiếp tục, duy trì"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ"
+            },
+            {
+              "w": "否定的",
+              "read": "ひていてき",
+              "vi": "tiêu cực, mang tính phủ định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜に向かって",
+              "vi": "【接続】N + に向かって。【Sắc thái】Hướng tới, nhắm tới (mục tiêu, phương hướng)."
+            },
+            {
+              "point": "〜ずに (〜ないで)",
+              "vi": "【接続】V-ない (bỏ ない) + ずに (する → せずに)。【Sắc thái】Mà không làm gì, văn viết trang trọng của 〜ないで."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、他人の評価ばかりを気にして行動をやめてしまえば、成長の機会を失ってしまう。",
+          "vi": "Tuy nhiên, nếu chỉ bận tâm đến đánh giá của người khác mà dừng hành động thì sẽ đánh mất cơ hội trưởng thành.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "評価",
+              "read": "ひょうか",
+              "vi": "sự đánh giá"
+            },
+            {
+              "w": "気にする",
+              "read": "きにする",
+              "vi": "bận tâm, để ý, lo lắng"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "やめる",
+              "read": "やめる",
+              "vi": "từ bỏ, dừng lại"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "失う",
+              "read": "うしなう",
+              "vi": "đánh mất, mất mát"
+            },
+            {
+              "w": "成長の機会",
+              "read": "せいちょうのきかい",
+              "vi": "cơ hội trưởng thành, cơ hội phát triển"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てしまえば",
+              "vi": "【接続】V-て + しまえば。【Sắc thái】Nếu lỡ làm... thì sẽ dẫn đến một kết cục đáng tiếc/tiêu cực ở vế sau."
+            },
+            {
+              "point": "〜てしまう",
+              "vi": "【接続】V-て + しまう。【Sắc thái】Lỡ làm, hoàn thành hoặc biểu thị sự tiếc nuối về một kết quả không mong muốn."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは、物事の表面だけを見て批判するのではなく、行動している人の熱意を尊重すべきだ。",
+          "vi": "Chúng ta không nên chỉ nhìn vào bề nổi của sự việc để chỉ trích, mà cần phải tôn trọng nhiệt huyết của những người đang hành động.",
+          "vocab": [
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "mọi sự vật sự việc, sự tình"
+            },
+            {
+              "w": "表面",
+              "read": "ひょうめん",
+              "vi": "bề mặt, bề nổi, bên ngoài"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "批判",
+              "read": "ひはん",
+              "vi": "sự phê phán, chỉ trích"
+            },
+            {
+              "w": "行動",
+              "read": "こうどう",
+              "vi": "hành động"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "熱意",
+              "read": "ねつい",
+              "vi": "nhiệt huyết, lòng nhiệt tình"
+            },
+            {
+              "w": "尊重する",
+              "read": "そんちょうする",
+              "vi": "tôn trọng, coi trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜べきだ",
+              "vi": "【接続】V-る + べきだ (する → すべきだ/するべきだ)。【Sắc thái】Nên, cần phải; thể hiện quan điểm đạo đức, trách nhiệm hoặc lẽ thường nên làm.【Đối chiếu】Khác với 〜なければならない (bắt buộc theo luật/nghĩa vụ pháp lý) và 〜たほうがいい (lời khuyên nhẹ nhàng mang tính lợi ích cá nhân)."
+            }
+          ]
+        },
+        {
+          "jp": "そして自らも、失敗を恐れる心を克服し、小さな一歩を踏み出す勇気を持ちたいものだ。",
+          "vi": "Và bản thân chúng ta cũng nên mong muốn có được lòng dũng cảm để vượt qua nỗi sợ thất bại và bước đi một bước nhỏ đầu tiên.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "自ら",
+              "read": "みずから",
+              "vi": "đích thân, tự mình"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "恐れる",
+              "read": "おそれる",
+              "vi": "lo sợ, e sợ"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "克服する",
+              "read": "こくふくする",
+              "vi": "khắc phục, vượt qua (khó khăn/nỗi sợ)"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "踏み出す",
+              "read": "ふみだす",
+              "vi": "bước ra, tiến bước"
+            },
+            {
+              "w": "勇気",
+              "read": "ゆうき",
+              "vi": "dũng khí"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "一歩を踏み出す",
+              "read": "いっぽをふみだす",
+              "vi": "bước một bước, bắt đầu dấn bước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たいものだ",
+              "vi": "【接続】V-ます (bỏ ます) + たいものだ。【Sắc thái】Rất muốn, thật mong ước; biểu thị nguyện vọng, khát vọng sâu sắc mang tính lý tưởng, bản chất của con người.【Đối chiếu】Khác với 〜たい (nguyện vọng nhất thời, cụ thể đời thường) ở chỗ たいものだ trang trọng, sâu sắc và hướng tới chân lý/lý tưởng sống."
+            }
+          ]
+        },
+        {
+          "jp": "批評家になるよりも、不器用でも実践者であり続けることこそが、豊かな人生を切り開くのである。",
+          "vi": "Thay vì trở thành một nhà phê bình, việc kiên trì làm một người thực hành dù còn vụng về mới chính là điều mở ra một cuộc đời phong phú.",
+          "vocab": [
+            {
+              "w": "批評",
+              "read": "ひひょう",
+              "vi": "sự phê bình, bình luận"
+            },
+            {
+              "w": "不器用",
+              "read": "ぶきよう",
+              "vi": "vụng về, lóng ngóng, không khéo léo"
+            },
+            {
+              "w": "実践",
+              "read": "じっせん",
+              "vi": "thực tiễn"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "giàu có, phong phú"
+            },
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "切り開く",
+              "read": "きりひらく",
+              "vi": "mở ra, khai phá (tương lai/con đường)"
+            },
+            {
+              "w": "批評家",
+              "read": "ひひょうか",
+              "vi": "nhà phê bình, người hay chỉ trích"
+            },
+            {
+              "w": "実践者",
+              "read": "じっせんしゃ",
+              "vi": "người thực hành, người hành động thực tế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜続ける",
+              "vi": "【接続】V-ます (bỏ ます) + 続ける。【Sắc thái】Tiếp tục duy trì hành động một cách bền bỉ, không ngừng nghỉ."
+            },
+            {
+              "point": "〜のである (〜のだ)",
+              "vi": "【接続】V/A/Naな/Nな + のである。【Sắc thái】Đưa ra kết luận mang tính đúc kết, khẳng định chân lý hoặc giải thích bản chất vấn đề trong văn viết nghị luận."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "情報が豊富にある時代であるにもかかわらず",
+          "label": "Mẫu にもかかわらず: Trái ngược kỳ vọng"
+        },
+        {
+          "excerpt": "自分では何も行動を起こさないくせに",
+          "label": "Mẫu くせに: Trách móc / Chỉ trích"
+        },
+        {
+          "excerpt": "短い準備期間にしては",
+          "label": "Mẫu にしては: Bất ngờ so với tiêu chuẩn"
+        },
+        {
+          "excerpt": "不安を感じながらも",
+          "label": "Mẫu ながらも: Nhượng bộ thực tế"
+        }
+      ],
+      "questions": [
+        {
+          "q": "筆者は、職場の若手社員の提案書についてどのように評価しているか。",
+          "options": [
+            "準備期間が短かったにもかかわらず、具体的で非常に完成度が高いと高く評価している。",
+            "現実の厳しさを理解していないため、社内会議で多くの反対意見を受けたと批判している。",
+            "専門家の意見を聞きすぎて、自分自身の独自のアイデアが失われてしまっていると考えている。",
+            "新人の提案にしては時間がかかりすぎており、内容も不十分であると感じている。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ câu 8 và 9 (chỉ số 7, 8): Tác giả nhận xét đề án của nhân viên trẻ dù trong thời gian chuẩn bị ngắn nhưng rất cụ thể, có sức thuyết phục, độ hoàn thiện cao so với một người mới và nhận được nhiều sự tán thành trong cuộc họp nội bộ.\n- Phương án B sai vì đây là lời xì xào tiêu cực của một số tiền bối sau lưng (câu 10), không phải đánh giá của tác giả.\n- Phương án C sai vì bài viết nói nhân viên này hỏi ý kiến để học hỏi chứ không hề nói mất đi ý tưởng riêng.\n- Phương án D sai vì ngược hoàn toàn với thông tin trong bài (chuẩn bị ngắn và độ hoàn thiện cao).",
+          "tip": "Tìm đúng câu trích dẫn mang góc nhìn của tác giả (câu 8, 9) thay vì nhầm sang lời phàn nàn của nhóm tiền bối (câu 10).",
+          "evi": [
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Tác giả đánh giá bản đề xuất của nhân viên trẻ ở nơi làm việc như thế nào?",
+            "o": [
+              "Đánh giá cao rằng dù thời gian chuẩn bị ngắn, bản đề xuất vẫn cụ thể và có mức độ hoàn thiện rất cao.",
+              "Chỉ trích rằng vì không hiểu sự khắc nghiệt của thực tế nên bản đề xuất đã nhận nhiều ý kiến phản đối trong cuộc họp nội bộ.",
+              "Cho rằng vì hỏi ý kiến chuyên gia quá nhiều nên những ý tưởng độc đáo của chính người đó đã bị mất đi.",
+              "Cảm thấy rằng bản đề xuất mất quá nhiều thời gian so với một người mới vào nghề, và nội dung cũng chưa đầy đủ."
+            ]
+          }
+        },
+        {
+          "q": "筆者が「企画の背景をよく知りもしないくせに」と述べた先輩たちの態度に対する批判として、最も適切なものはどれか。",
+          "options": [
+            "新人に仕事を丸投げして、自分たちの責任を果たそうとしない無責任さ。",
+            "内容を正しく理解しようともせず、安全な場所にいて他人の挑戦を軽視する姿勢。",
+            "自分の過去の成功体験にこだわりすぎて、新しいデジタル技術を受け入れない頑固さ。",
+            "新人に対して直接厳しいフィードバックを与えず、仕事の指導を怠っている点。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ câu 11 và 13 (chỉ số 10, 12): Mẫu 「〜くせに」 thể hiện sự chỉ trích gay gắt đối với những tiền bối dù không tìm hiểu rõ bối cảnh đề án mà vẫn coi thường nỗ lực của người mới, kết hợp với câu 13 tác giả phê phán những kẻ chỉ nói miệng mà trốn trong vùng an toàn, không dám hành động.\n- Phương án A sai vì bài không nhắc đến việc tiền bối 'đùn đẩy trách nhiệm/giao phó hết cho ma mới'.\n- Phương án C sai vì bài không đề cập đến việc 'bảo thủ bám víu thành công cũ hay không chịu học công nghệ số'.\n- Phương án D sai vì vấn đề tác giả chỉ trích không phải là 'không hướng dẫn/không feedback trực tiếp', mà là việc họ không hiểu rõ nhưng lại gièm pha sau lưng và coi nhẹ sự thử sức của người khác.",
+          "tip": "Mẫu 〜くせに luôn mang sắc thái mỉa mai, trách móc kẻ không có tư cách/không chịu làm mà lại đi phán xét người khác.",
+          "evi": [
+            10,
+            12
+          ],
+          "qt": {
+            "q": "Ý nào sau đây phù hợp nhất để phê phán thái độ của những người đi trước mà tác giả nhắc đến khi nói rằng họ “dù chẳng hiểu rõ bối cảnh của kế hoạch”?",
+            "o": [
+              "Sự vô trách nhiệm khi giao phó toàn bộ công việc cho người mới và không cố gắng làm tròn trách nhiệm của chính mình.",
+              "Thái độ không chịu tìm hiểu đúng nội dung mà lại đứng ở nơi an toàn và xem nhẹ thử thách của người khác.",
+              "Sự cố chấp vì quá bám víu vào những thành công trong quá khứ của bản thân và không chấp nhận công nghệ số mới.",
+              "Việc không đưa ra phản hồi nghiêm khắc trực tiếp cho người mới và sao nhãng việc hướng dẫn công việc."
+            ]
+          }
+        },
+        {
+          "q": "筆者の考える「真の専門家」および「学ぶ姿勢」についての説明として、本文の内容と合致するものはどれか。",
+          "options": [
+            "失敗のリスクを完全に排除できるまで綿密に調査し、批判されない完璧な計画を立てる人。",
+            "誰よりも多くの知識を持ち、ネットの情報を効率よく批判的に分析できる能力を持つ人。",
+            "知識の量を自慢するのではなく、未熟さを認めながらも謙虚に学び挑戦を続ける人。",
+            "他人の失敗から学び、自分自身は決して失敗しない安全な方法だけを選択する人。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ câu 12 và 15 (chỉ số 11, 14): Tác giả chỉ ra rằng người thực sự có năng lực là người dù còn non nớt nhưng vẫn nỗ lực tiến bước, và chuyên gia thực thụ là người có sự khiêm tốn để không ngừng học hỏi chứ không phải người tự phụ vào lượng kiến thức của mình.\n- Phương án A sai vì bài bác bỏ việc đứng ngoài chờ an toàn/sợ thất bại; người thành công phải dám chấp nhận rủi ro và thử sức.\n- Phương án B sai vì bài phê phán những người chỉ tra cứu mạng rồi tự phụ, khoe khoang kiến thức để đi phán xét người khác (câu 3, 15).\n- Phương án D sai vì tác giả chỉ trích những người chỉ muốn ở trong vùng an toàn mà không dám hành động (câu 13).",
+          "tip": "Chú ý cấu trúc đối lập 「〜ではなく、〜のことである」 ở câu 15 để nắm bắt chính xác định nghĩa của tác giả.",
+          "evi": [
+            11,
+            14
+          ],
+          "qt": {
+            "q": "Cách giải thích nào về “chuyên gia thực thụ” và “thái độ học hỏi” theo suy nghĩ của tác giả phù hợp với nội dung bài đọc?",
+            "o": [
+              "Người nghiên cứu kỹ lưỡng và lập kế hoạch hoàn hảo để không bị chỉ trích cho đến khi có thể loại bỏ hoàn toàn nguy cơ thất bại.",
+              "Người có nhiều kiến thức hơn bất kỳ ai và có khả năng phân tích thông tin trên mạng một cách hiệu quả, với tinh thần phản biện.",
+              "Người không khoe khoang lượng kiến thức của mình mà vừa thừa nhận sự non kém, vừa khiêm tốn học hỏi và tiếp tục thử thách bản thân.",
+              "Người học từ thất bại của người khác và chỉ chọn những cách an toàn để bản thân tuyệt đối không thất bại."
+            ]
+          }
+        },
+        {
+          "q": "この文章で筆者が最も主張したいことは何か。",
+          "options": [
+            "情報化社会では誤った情報が多いため、インターネットの利用を制限して本から学ぶべきだ。",
+            "批判を恐れて安全な場所にとどまるより、自ら行動し実践者として学び続けることが大切だ。",
+            "経験の浅い新人は、失敗を避けるために必ず経験豊富な先輩の指示に従って行動すべきだ。",
+            "職場での人間関係を円滑にするためには、他人の意見に対して反論せず同調すべきだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ toàn bộ đoạn cuối (câu 17-20 / chỉ số 16-19): Tác giả đúc kết thông điệp cốt lõi là nếu vì sợ bị đánh giá mà dừng lại thì sẽ mất cơ hội phát triển; thay vì chỉ là kẻ đứng ngoài bình phẩm phê phán, việc dũng cảm dấn thân làm người thực hành dù còn vụng về mới là điều giúp mở ra một cuộc sống ý nghĩa và trưởng thành.\n- Phương án A sai vì bài không hề khuyên 'hạn chế internet hay chỉ đọc sách'.\n- Phương án C sai vì bài cổ vũ tinh thần chủ động dấn thân, không phụ thuộc thụ động vào các tiền bối bảo thủ.\n- Phương án D sai vì bài không bàn về việc 'phải luôn đồng tình để giữ gìn quan hệ nơi công sở'.",
+          "tip": "Ý chính của bài nghị luận thường tập trung ở đoạn kết với các từ khóa khẳng định mạnh như 〜べきだ, 〜たいものだ, 〜ことこそが...切り開くのである.",
+          "evi": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Điều tác giả muốn nhấn mạnh nhất trong bài viết này là gì?",
+            "o": [
+              "Vì xã hội thông tin có nhiều thông tin sai lệch nên cần hạn chế sử dụng Internet và học từ sách.",
+              "Thay vì sợ bị chỉ trích rồi ở yên trong vùng an toàn, điều quan trọng là tự mình hành động và tiếp tục học hỏi với tư cách người thực hành.",
+              "Người mới vào nghề còn ít kinh nghiệm nhất định phải làm theo chỉ dẫn của những người đi trước giàu kinh nghiệm để tránh thất bại.",
+              "Để giữ cho các mối quan hệ ở nơi làm việc được suôn sẻ, nên đồng tình với ý kiến của người khác mà không phản bác."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "【会員制自習室・コワーキング】サクラワークス利用案内",
+      "titleVi": "【Phòng tự học & Co-working dạng hội viên】Hướng dẫn sử dụng Sakura Works",
+      "japanese": "【会員制自習室・コワーキング】サクラワークス利用案内\n当館は狭いスペースながら、高速Wi-Fiと個別ブースを完備した快適な自習室です。\n都心の駅前にしては料金が手頃で、静かな環境で集中して作業ができます。\n雨天にもかかわらず、駅から地下道直結のため濡れずに来館いただけます。\nプラン名｜月額料金｜利用可能時間｜利用可能エリア\nデイプラン｜8,000円｜平日9:00〜17:00｜オープンスペースのみ\nナイトプラン｜10,000円｜平日17:00〜23:00｜全エリア（個室含む）\nホリデープラン｜9,000円｜土日祝9:00〜23:00｜オープンスペースのみ\nフルタイムプラン｜15,000円｜全日9:00〜23:00｜全エリア（個室含む）\n【ご利用時の注意点および各種割引】\n※週末であるにもかかわらず、フルタイムプランは追加料金なしで利用できます。\n※「無料体験のくせにしつこく勧誘される」という心配は一切不要です。\n※「スタッフがいるくせに対応が遅い」との声を受け、夜間受付を改善しました。\n※初心者向けプランながらも、全プランで無料ドリンクバーが利用可能です。\n※自習室にしては設備が充実しており、個室プランは追加月額2,000円で専用ロッカーを使えます。\n※学生証を提示された学生の方は、どのプランでも月額料金から2,000円引きとなります。\n※2名以上で同時に新規入会される場合、初月の月額料金が各自1,000円引きとなります。",
+      "vietnamese": "【Phòng tự học & Co-working dạng hội viên】Hướng dẫn sử dụng Sakura Works\nTòa nhà chúng tôi tuy không gian hẹp nhưng là phòng tự học thoải mái được trang bị đầy đủ Wi-Fi tốc độ cao và ô học cá nhân.\nSo với vị trí trước ga trung tâm thành phố thì mức giá khá phải chăng, bạn có thể tập trung làm việc trong môi trường yên tĩnh.\nBất kể trời mưa, do nối liền trực tiếp với đường hầm từ ga nên quý khách có thể đến quán mà không bị ướt.\nTên gói｜Phí hàng tháng｜Thời gian sử dụng｜Khu vực được phép sử dụng\nGói Ban ngày (Day Plan)｜8.000 yên｜Ngày thường 9:00〜17:00｜Chỉ khu vực không gian mở\nGói Buổi tối (Night Plan)｜10.000 yên｜Ngày thường 17:00〜23:00｜Toàn bộ khu vực (bao gồm phòng riêng)\nGói Ngày nghỉ (Holiday Plan)｜9.000 yên｜Thứ Bảy, CN, Ngày lễ 9:00〜23:00｜Chỉ khu vực không gian mở\nGói Toàn thời gian (Full-time Plan)｜15.000 yên｜Mọi ngày 9:00〜23:00｜Toàn bộ khu vực (bao gồm phòng riêng)\n【Lưu ý khi sử dụng và các loại giảm giá】\n※Mặc dù là dịp cuối tuần, hội viên gói Full-time vẫn được sử dụng mà không phát sinh thêm phụ phí.\n※Quý khách hoàn toàn không cần lo lắng về việc 'dù mang tiếng trải nghiệm miễn phí thế mà lại bị chèo kéo dai dẳng'.\n※Tiếp thu ý kiến 'có nhân viên ở đó thế mà xử lý chậm chạp', chúng tôi đã cải thiện việc tiếp đón ca đêm.\n※Tuy là các gói dành cho người mới bắt đầu, tất cả các gói đều có thể sử dụng quầy đồ uống miễn phí.\n※Xét như một phòng tự học thì cơ sở vật chất rất tiện nghi, các gói có phòng riêng có thể dùng tủ đồ riêng với phí thêm 2.000 yên/tháng.\n※Học sinh, sinh viên xuất trình thẻ học sinh/sinh viên sẽ được giảm 2.000 yên vào phí hàng tháng cho bất kỳ gói nào.\n※Trường hợp từ 2 người trở lên cùng đăng ký mới đồng thời, phí tháng đầu tiên sẽ được giảm 1.000 yên cho mỗi người.",
+      "sentences": [
+        {
+          "jp": "【会員制自習室・コワーキング】サクラワークス利用案内",
+          "vi": "【Phòng tự học & Co-working dạng hội viên】Hướng dẫn sử dụng Sakura Works",
+          "vocab": [
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "会員制",
+              "read": "かいいんせい",
+              "vi": "hình thức hội viên"
+            },
+            {
+              "w": "会員制自習室",
+              "read": "かいいんせいじしゅうしつ",
+              "vi": "phòng tự học dành cho hội viên"
+            },
+            {
+              "w": "自習",
+              "read": "じしゅう",
+              "vi": "tự học"
+            },
+            {
+              "w": "自習室",
+              "read": "じしゅうしつ",
+              "vi": "phòng tự học"
+            },
+            {
+              "w": "コワーキング",
+              "read": "コワーキング",
+              "vi": "làm việc chung"
+            },
+            {
+              "w": "サクラ",
+              "read": "サクラ",
+              "vi": "Sakura"
+            },
+            {
+              "w": "サクラワークス",
+              "read": "サクラワークス",
+              "vi": "Sakura Works"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "利用案内",
+              "read": "りようあんない",
+              "vi": "hướng dẫn sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "会員制自習室",
+              "why": "Cho biết đây là dịch vụ phòng tự học dành cho hội viên có đăng ký."
+            }
+          ]
+        },
+        {
+          "jp": "当館は狭いスペースながら、高速Wi-Fiと個別ブースを完備した快適な自習室です。",
+          "vi": "Tòa nhà chúng tôi tuy không gian hẹp nhưng là phòng tự học thoải mái được trang bị đầy đủ Wi-Fi tốc độ cao và ô học cá nhân.",
+          "vocab": [
+            {
+              "w": "当館",
+              "read": "とうかん",
+              "vi": "tòa nhà / trung tâm này"
+            },
+            {
+              "w": "狭い",
+              "read": "せまい",
+              "vi": "hẹp, nhỏ"
+            },
+            {
+              "w": "スペース",
+              "read": "スペース",
+              "vi": "không gian, diện tích"
+            },
+            {
+              "w": "高速",
+              "read": "こうそく",
+              "vi": "tốc độ cao"
+            },
+            {
+              "w": "Wi",
+              "read": "Wi",
+              "vi": "tên riêng Wi"
+            },
+            {
+              "w": "Fi",
+              "read": "Fi",
+              "vi": "tên riêng Fi"
+            },
+            {
+              "w": "個別ブース",
+              "read": "こべつぶーす",
+              "vi": "gian/buồng cá nhân"
+            },
+            {
+              "w": "ブース",
+              "read": "ブース",
+              "vi": "buồng riêng, gian hàng"
+            },
+            {
+              "w": "完備",
+              "read": "かんび",
+              "vi": "trang bị đầy đủ"
+            },
+            {
+              "w": "快適",
+              "read": "かいてき",
+              "vi": "tiện nghi, thoải mái, dễ chịu"
+            },
+            {
+              "w": "自習",
+              "read": "じしゅう",
+              "vi": "sự tự học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "Tuy / dù ~ (thừa nhận thực tế diện tích nhỏ nhưng vẫn tiện nghi)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "狭いスペースながら",
+              "why": "Thừa nhận hạn chế diện tích nhưng bù lại có tiện ích cao."
+            },
+            {
+              "w": "個別ブースを完備",
+              "why": "Xác nhận có phòng/gian học cá nhân ngăn vách."
+            }
+          ]
+        },
+        {
+          "jp": "都心の駅前にしては料金が手頃で、静かな環境で集中して作業ができます。",
+          "vi": "So với vị trí trước ga trung tâm thành phố thì mức giá khá phải chăng, bạn có thể tập trung làm việc trong môi trường yên tĩnh.",
+          "vocab": [
+            {
+              "w": "都心",
+              "read": "としん",
+              "vi": "trung tâm thành phố"
+            },
+            {
+              "w": "駅前",
+              "read": "えきまえ",
+              "vi": "trước nhà ga"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "手頃",
+              "read": "てごろ",
+              "vi": "vừa túi tiền, phải chăng"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "環境",
+              "read": "かんきょう",
+              "vi": "môi trường"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては",
+              "vi": "So với / xét theo ~ thì (kết quả bất ngờ so với định kiến vị trí đắc địa đắt đỏ)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "都心の駅前にしては",
+              "why": "So sánh vị trí trước ga nhưng mức phí lại rẻ bất ngờ."
+            },
+            {
+              "w": "料金が手頃",
+              "why": "Điểm thu hút về mặt giá cả phải chăng."
+            }
+          ]
+        },
+        {
+          "jp": "雨天にもかかわらず、駅から地下道直結のため濡れずに来館いただけます。",
+          "vi": "Bất kể trời mưa, do nối liền trực tiếp với đường hầm từ ga nên quý khách có thể đến quán mà không bị ướt.",
+          "vocab": [
+            {
+              "w": "雨天",
+              "read": "うてん",
+              "vi": "trời mưa"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "地下道",
+              "read": "ちかどう",
+              "vi": "đường hầm đi bộ"
+            },
+            {
+              "w": "直結",
+              "read": "ちょっけつ",
+              "vi": "nối trực tiếp"
+            },
+            {
+              "w": "濡れる",
+              "read": "ぬれる",
+              "vi": "bị ướt"
+            },
+            {
+              "w": "来館",
+              "read": "らいかん",
+              "vi": "đến quán / tòa nhà"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にもかかわらず",
+              "vi": "Mặc dù / bất chấp ~ (kết quả không bị ảnh hưởng bởi thời tiết xấu)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "雨天にもかかわらず",
+              "why": "Nhấn mạnh ưu thế không bị ảnh hưởng bởi thời tiết."
+            },
+            {
+              "w": "地下道直結",
+              "why": "Đặc điểm vị trí kết nối hầm giao thông."
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜月額料金｜利用可能時間｜利用可能エリア",
+          "vi": "Tên gói｜Phí hàng tháng｜Thời gian sử dụng｜Khu vực được phép sử dụng",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "エリア",
+              "read": "エリア",
+              "vi": "khu vực"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "phí đóng hàng tháng"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "月額料金",
+              "why": "Tiêu chí giá cả theo từng tháng."
+            },
+            {
+              "w": "利用可能エリア",
+              "why": "Tiêu chí phân chia khu vực chung hay phòng riêng."
+            }
+          ]
+        },
+        {
+          "jp": "デイプラン｜8,000円｜平日9:00〜17:00｜オープンスペースのみ",
+          "vi": "Gói Ban ngày (Day Plan)｜8.000 yên｜Ngày thường 9:00〜17:00｜Chỉ khu vực không gian mở",
+          "vocab": [
+            {
+              "w": "デイ",
+              "read": "デイ",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "デイプラン",
+              "read": "デイプラン",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "8,000円",
+              "read": "はっせんえん",
+              "vi": "8.000 yên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày trong tuần"
+            },
+            {
+              "w": "オープン",
+              "read": "オープン",
+              "vi": "mở"
+            },
+            {
+              "w": "スペース",
+              "read": "スペース",
+              "vi": "không gian"
+            },
+            {
+              "w": "オープンスペース",
+              "read": "オープンスペース",
+              "vi": "không gian mở"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "平日9:00〜17:00",
+              "why": "Giới hạn thời gian ban ngày các ngày trong tuần."
+            },
+            {
+              "w": "オープンスペースのみ",
+              "why": "Chỉ được ngồi không gian mở, không được dùng buồng riêng."
+            }
+          ]
+        },
+        {
+          "jp": "ナイトプラン｜10,000円｜平日17:00〜23:00｜全エリア（個室含む）",
+          "vi": "Gói Buổi tối (Night Plan)｜10.000 yên｜Ngày thường 17:00〜23:00｜Toàn bộ khu vực (bao gồm phòng riêng)",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "ナイトプラン",
+              "read": "ナイトプラン",
+              "vi": "gói ban đêm"
+            },
+            {
+              "w": "10,000円",
+              "read": "いちまんえん",
+              "vi": "10.000 yên"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày trong tuần"
+            },
+            {
+              "w": "全",
+              "read": "ぜん",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "エリア",
+              "read": "エリア",
+              "vi": "khu vực"
+            },
+            {
+              "w": "全エリア",
+              "read": "ぜんエリア",
+              "vi": "toàn bộ khu vực"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "含む",
+              "read": "ふくむ",
+              "vi": "bao gồm"
+            },
+            {
+              "w": "個室含む",
+              "read": "こしつふくむ",
+              "vi": "bao gồm phòng riêng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ナイトプラン",
+              "why": "Gói phù hợp cho người học/làm việc buổi tối các ngày trong tuần."
+            },
+            {
+              "w": "平日17:00〜23:00",
+              "why": "Khung giờ tối 17h đến 23h ngày thường (căn cứ chọn gói của câu 1)."
+            },
+            {
+              "w": "全エリア（個室含む）",
+              "why": "Được phép sử dụng buồng/phòng riêng cá nhân (căn cứ câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "ホリデープラン｜9,000円｜土日祝9:00〜23:00｜オープンスペースのみ",
+          "vi": "Gói Ngày nghỉ (Holiday Plan)｜9.000 yên｜Thứ Bảy, CN, Ngày lễ 9:00〜23:00｜Chỉ khu vực không gian mở",
+          "vocab": [
+            {
+              "w": "ホリデー",
+              "read": "ホリデー",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "ホリデープラン",
+              "read": "ホリデープラン",
+              "vi": "gói ngày nghỉ"
+            },
+            {
+              "w": "9,000円",
+              "read": "きゅうせんえん",
+              "vi": "9.000 yên"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ bảy và chủ nhật"
+            },
+            {
+              "w": "土日祝",
+              "read": "どにちしゅく",
+              "vi": "cuối tuần và ngày lễ"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "オープン",
+              "read": "オープン",
+              "vi": "mở"
+            },
+            {
+              "w": "スペース",
+              "read": "スペース",
+              "vi": "không gian"
+            },
+            {
+              "w": "オープンスペース",
+              "read": "オープンスペース",
+              "vi": "không gian mở"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "土日祝9:00〜23:00",
+              "why": "Khung thời gian ngày nghỉ cuối tuần và lễ."
+            },
+            {
+              "w": "オープンスペースのみ",
+              "why": "Chỉ được dùng không gian mở, không có phòng riêng (căn cứ loại trừ ở câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "フルタイムプラン｜15,000円｜全日9:00〜23:00｜全エリア（個室含む）",
+          "vi": "Gói Toàn thời gian (Full-time Plan)｜15.000 yên｜Mọi ngày 9:00〜23:00｜Toàn bộ khu vực (bao gồm phòng riêng)",
+          "vocab": [
+            {
+              "w": "フル",
+              "read": "フル",
+              "vi": "đầy đủ"
+            },
+            {
+              "w": "タイム",
+              "read": "タイム",
+              "vi": "thời gian"
+            },
+            {
+              "w": "フルタイム",
+              "read": "フルタイム",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "フルタイムプラン",
+              "read": "フルタイムプラン",
+              "vi": "gói toàn thời gian"
+            },
+            {
+              "w": "15,000円",
+              "read": "いちまんごせんえん",
+              "vi": "15.000 yên"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "全",
+              "read": "ぜん",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "エリア",
+              "read": "エリア",
+              "vi": "khu vực"
+            },
+            {
+              "w": "全エリア",
+              "read": "ぜんエリア",
+              "vi": "toàn bộ khu vực"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "含む",
+              "read": "ふくむ",
+              "vi": "bao gồm"
+            },
+            {
+              "w": "個室含む",
+              "read": "こしつふくむ",
+              "vi": "bao gồm phòng riêng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "フルタイムプラン",
+              "why": "Gói cao cấp nhất dùng mọi ngày và mọi khu vực."
+            },
+            {
+              "w": "全エリア（個室含む）",
+              "why": "Cho phép dùng phòng riêng cả ngày cuối tuần (căn cứ chọn gói ở câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "【ご利用時の注意点および各種割引】",
+          "vi": "【Lưu ý khi sử dụng và các loại giảm giá】",
+          "vocab": [
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "注意",
+              "read": "ちゅうい",
+              "vi": "chú ý"
+            },
+            {
+              "w": "各種",
+              "read": "かくしゅ",
+              "vi": "các loại, nhiều loại khác nhau"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "注意点",
+              "read": "ちゅういてん",
+              "vi": "điểm cần lưu ý"
+            },
+            {
+              "w": "各種割引",
+              "read": "かくしゅわりびき",
+              "vi": "các hình thức giảm giá"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "各種割引",
+              "why": "Báo hiệu các điều khoản ưu đãi giảm tiền."
+            }
+          ]
+        },
+        {
+          "jp": "※週末であるにもかかわらず、フルタイムプランは追加料金なしで利用できます。",
+          "vi": "※Mặc dù là dịp cuối tuần, hội viên gói Full-time vẫn được sử dụng mà không phát sinh thêm phụ phí.",
+          "vocab": [
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "かかわる",
+              "read": "かかわる",
+              "vi": "liên quan, dính líu"
+            },
+            {
+              "w": "フルタイム",
+              "read": "フルタイム",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phí phụ thu, phí bổ sung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にもかかわらず",
+              "vi": "Mặc dù ~ (cuối tuần đông nhưng không bị thu thêm phí)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "週末であるにもかかわらず",
+              "why": "Quy định đối với ngày cuối tuần."
+            },
+            {
+              "w": "追加料金なし",
+              "why": "Không tốn thêm phụ phí."
+            }
+          ]
+        },
+        {
+          "jp": "※「無料体験のくせにしつこく勧誘される」という心配は一切不要です。",
+          "vi": "※Quý khách hoàn toàn không cần lo lắng về việc 'dù mang tiếng trải nghiệm miễn phí thế mà lại bị chèo kéo dai dẳng'.",
+          "vocab": [
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "勧誘",
+              "read": "かんゆう",
+              "vi": "chèo kéo, mời mọc"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "一切",
+              "read": "いっさい",
+              "vi": "hoàn toàn, tất cả"
+            },
+            {
+              "w": "不要",
+              "read": "ふよう",
+              "vi": "không cần thiết"
+            },
+            {
+              "w": "無料体験",
+              "read": "むりょうたいけん",
+              "vi": "trải nghiệm miễn phí"
+            },
+            {
+              "w": "一切不要",
+              "read": "いっさいふよう",
+              "vi": "hoàn toàn không cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "Dù là ~ thế mà (thể hiện sự phàn nàn/chỉ trích thường gặp)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "無料体験のくせにしつこく勧誘される",
+              "why": "Giải tỏa e ngại về việc chèo kéo khi dùng thử."
+            }
+          ]
+        },
+        {
+          "jp": "※「スタッフがいるくせに対応が遅い」との声を受け、夜間受付を改善しました。",
+          "vi": "※Tiếp thu ý kiến 'có nhân viên ở đó thế mà xử lý chậm chạp', chúng tôi đã cải thiện việc tiếp đón ca đêm.",
+          "vocab": [
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "対応",
+              "read": "たいおう",
+              "vi": "ứng đối, xử lý, phục vụ"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "tiếng nói, ý kiến"
+            },
+            {
+              "w": "受ける",
+              "read": "うける",
+              "vi": "nhận, tiếp nhận"
+            },
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "改善",
+              "read": "かいぜん",
+              "vi": "cải thiện"
+            },
+            {
+              "w": "夜間受付",
+              "read": "やかんうけつけ",
+              "vi": "quầy lễ tân ban đêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くせに",
+              "vi": "Dù là ~ thế mà (trích dẫn lời phàn nàn của khách hàng)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "スタッフがいるくせに対応が遅い",
+              "why": "Dẫn chứng phản hồi để nâng cao chất lượng phục vụ."
+            }
+          ]
+        },
+        {
+          "jp": "※初心者向けプランながらも、全プランで無料ドリンクバーが利用可能です。",
+          "vi": "※Tuy là các gói dành cho người mới bắt đầu, tất cả các gói đều có thể sử dụng quầy đồ uống miễn phí.",
+          "vocab": [
+            {
+              "w": "初心者",
+              "read": "しょしんしゃ",
+              "vi": "người mới bắt đầu"
+            },
+            {
+              "w": "初心者向け",
+              "read": "しょしんしゃむけ",
+              "vi": "dành cho người mới"
+            },
+            {
+              "w": "向け",
+              "read": "むけ",
+              "vi": "dành cho"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "初心者向けプラン",
+              "read": "しょしんしゃむけプラン",
+              "vi": "gói dành cho người mới"
+            },
+            {
+              "w": "全",
+              "read": "ぜん",
+              "vi": "toàn bộ"
+            },
+            {
+              "w": "全プラン",
+              "read": "ぜんプラン",
+              "vi": "tất cả các gói"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "ドリンク",
+              "read": "ドリンク",
+              "vi": "đồ uống"
+            },
+            {
+              "w": "バー",
+              "read": "バー",
+              "vi": "quầy bar"
+            },
+            {
+              "w": "ドリンクバー",
+              "read": "ドリンクバー",
+              "vi": "quầy đồ uống"
+            },
+            {
+              "w": "無料ドリンクバー",
+              "read": "むりょうドリンクバー",
+              "vi": "quầy đồ uống miễn phí"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ながら（も）",
+              "vi": "Tuy là ~ nhưng vẫn (dù gói cơ bản vẫn có đặc quyền nước uống)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "全プランで無料ドリンクバーが利用可能",
+              "why": "Quyền lợi nước uống miễn phí cho mọi gói."
+            }
+          ]
+        },
+        {
+          "jp": "※自習室にしては設備が充実しており、個室プランは追加月額2,000円で専用ロッカーを使えます。",
+          "vi": "※Xét như một phòng tự học thì cơ sở vật chất rất tiện nghi, các gói có phòng riêng có thể dùng tủ đồ riêng với phí thêm 2.000 yên/tháng.",
+          "vocab": [
+            {
+              "w": "自習",
+              "read": "じしゅう",
+              "vi": "sự tự học"
+            },
+            {
+              "w": "設備",
+              "read": "せつび",
+              "vi": "trang thiết bị"
+            },
+            {
+              "w": "充実",
+              "read": "じゅうじつ",
+              "vi": "đầy đủ, phong phú"
+            },
+            {
+              "w": "個室",
+              "read": "こしつ",
+              "vi": "phòng riêng"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "専用ロッカー",
+              "read": "せんようろっかー",
+              "vi": "tủ đồ có khóa riêng"
+            },
+            {
+              "w": "ロッカー",
+              "read": "ロッカー",
+              "vi": "tủ khóa"
+            },
+            {
+              "w": "使える",
+              "read": "つかえる",
+              "vi": "dùng được, sử dụng được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にしては",
+              "vi": "So với ~ (tiêu chuẩn phòng tự học thông thường thì tiện nghi hơn hẳn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "自習室にしては設備が充実",
+              "why": "Đánh giá chất lượng cơ sở vật chất."
+            },
+            {
+              "w": "追加月額2,000円で専用ロッカーを使えます",
+              "why": "Tùy chọn bổ sung tủ đồ có tính phí."
+            }
+          ]
+        },
+        {
+          "jp": "※学生証を提示された学生の方は、どのプランでも月額料金から2,000円引きとなります。",
+          "vi": "※Học sinh, sinh viên xuất trình thẻ học sinh/sinh viên sẽ được giảm 2.000 yên vào phí hàng tháng cho bất kỳ gói nào.",
+          "vocab": [
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên, học sinh"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ học sinh / sinh viên"
+            },
+            {
+              "w": "円引き",
+              "read": "えんびき",
+              "vi": "giảm ... yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "尊敬語（〜れる／られる）",
+              "vi": "Kết nối: Động từ nhóm 3「提示する」chuyển sang thể tôn kính「提示される」(dạng quá khứ「提示された」để bổ nghĩa cho「学生の方」). Ý nghĩa: Thể hiện sự tôn kính của bên cung cấp dịch vụ đối với hành động xuất trình thẻ của học sinh/khách hàng."
+            },
+            {
+              "point": "〜となる",
+              "vi": "Kết nối: N + となる (2,000円引き + となります). Ý nghĩa: Diễn tả một kết quả, mức giá hoặc quy định được thiết lập/áp dụng một cách trang trọng, mang tính thông báo chính thức."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生証を提示された学生の方",
+              "why": "Điều kiện đối tượng được hưởng ưu đãi học sinh/sinh viên (căn cứ câu 1)."
+            },
+            {
+              "w": "月額料金から2,000円引き",
+              "why": "Mức giảm cố định 2.000 yên mỗi tháng (căn cứ tính tiền câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "※2名以上で同時に新規入会される場合、初月の月額料金が各自1,000円引きとなります。",
+          "vi": "※Trường hợp từ 2 người trở lên cùng đăng ký mới đồng thời, phí tháng đầu tiên sẽ được giảm 1.000 yên cho mỗi người.",
+          "vocab": [
+            {
+              "w": "同時",
+              "read": "どうじ",
+              "vi": "đồng thời, cùng lúc"
+            },
+            {
+              "w": "新規",
+              "read": "しんき",
+              "vi": "sự mới mẻ, mới"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "nhập hội, gia nhập"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "各自",
+              "read": "かくじ",
+              "vi": "mỗi người"
+            },
+            {
+              "w": "2名以上",
+              "read": "にめいいじょう",
+              "vi": "từ 2 người trở lên"
+            },
+            {
+              "w": "新規入会",
+              "read": "しんきにゅうかい",
+              "vi": "đăng ký gia nhập mới"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜場合（は）",
+              "vi": "Kết nối: V (thể thông thường / kính ngữ) + 場合 (新規入会される + 場合). Ý nghĩa: Biểu thị điều kiện, giả định về một tình huống cụ thể xảy ra (\"trong trường hợp / khi...\")."
+            },
+            {
+              "point": "尊敬語（〜れる／られる）",
+              "vi": "Kết nối: Động từ nhóm 3「新規入会する」chia sang dạng tôn kính「新規入会される」. Ý nghĩa: Bày tỏ sự kính trọng đối với hành động đăng ký nhập hội của khách hàng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "2名以上で同時に新規入会される場合",
+              "why": "Điều kiện giảm giá nhóm khi đăng ký cùng nhau (căn cứ câu 2)."
+            },
+            {
+              "w": "初月の月額料金が各自1,000円引き",
+              "why": "Mức giảm 1.000 yên áp dụng riêng cho tháng đầu tiên của mỗi cá nhân (căn cứ câu 2)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "都心の駅前にしては",
+          "label": "〜にしては（So với vị trí trước nhà ga trung tâm thì giá cả phải chăng）"
+        },
+        {
+          "excerpt": "自習室にしては設備が充実",
+          "label": "〜にしては（Xét như một phòng tự học thì tiện nghi phong phú）"
+        },
+        {
+          "excerpt": "無料体験のくせにしつこく勧誘される",
+          "label": "〜くせに（Dù là trải nghiệm miễn phí thế mà lại chèo kéo）"
+        },
+        {
+          "excerpt": "スタッフがいるくせに対応が遅い",
+          "label": "〜くせに（Dù có nhân viên thế mà xử lý chậm）"
+        },
+        {
+          "excerpt": "雨天にもかかわらず",
+          "label": "〜にもかかわらず（Mặc dù trời mưa vẫn không bị ướt nhờ nối hầm）"
+        },
+        {
+          "excerpt": "週末であるにもかかわらず",
+          "label": "〜にもかかわらず（Mặc dù là cuối tuần nhưng không thêm phụ phí）"
+        },
+        {
+          "excerpt": "狭いスペースながら",
+          "label": "〜ながら（Tuy không gian hẹp nhưng trang bị đầy đủ）"
+        },
+        {
+          "excerpt": "初心者向けプランながらも",
+          "label": "〜ながら（Tuy là gói cơ bản nhưng vẫn có đồ uống miễn phí）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "施設の特徴・アクセス",
+          "topic": 0,
+          "note": "Giới thiệu không gian và vị trí thuận tiện của cơ sở",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 8,
+          "kind": "body",
+          "label": "利用プラン一覧表",
+          "topic": 4,
+          "note": "Bảng chi tiết các gói sử dụng, giá tiền, thời gian và khu vực cho phép",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 13,
+          "kind": "turn",
+          "label": "サービス品質・体験案内",
+          "topic": 9,
+          "note": "Giải đáp thắc mắc về chất lượng dịch vụ, đồ uống và trải nghiệm thử",
+          "qs": []
+        },
+        {
+          "from": 14,
+          "to": 16,
+          "kind": "point",
+          "label": "追加設備と割引条件",
+          "topic": 14,
+          "note": "Quy định về tủ đồ riêng và các mức giảm giá cho học sinh / đăng ký nhóm",
+          "qs": [
+            1,
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学生のタンさんは、大学の授業が終わる平日夜間（19:00〜22:00）に個別ブース（個室）を使って勉強したいと考えています。学生証を提示して1人で新規入会する場合、毎月の支払額はいくらになりますか。",
+          "options": [
+            "8,000円",
+            "10,000円",
+            "13,000円",
+            "15,000円"
+          ],
+          "answer": 0,
+          "explainVi": "Để sử dụng buồng cá nhân (個室) vào các buổi tối ngày thường (19:00〜22:00), gói phù hợp nhất và tiết kiệm nhất là 'ナイトプラン' (10.000 yên/tháng, áp dụng ngày thường từ 17:00〜23:00 cho toàn bộ khu vực gồm cả phòng riêng). Do là sinh viên có xuất trình thẻ sinh viên (dòng 15), bạn được giảm 2.000 yên mỗi tháng: 10.000 - 2.000 = 8.000 yên. Vì đăng ký 1 mình nên không có ưu đãi nhóm dòng 16.",
+          "tip": "Xác định khung giờ (ngày thường buổi tối) + khu vực (phòng riêng) → đối chiếu bảng lấy 'ナイトプラン' (10.000 yên). Sau đó tra cứu mục lưu ý giảm giá cho học sinh sinh viên (-2.000 yên).",
+          "evi": [
+            6,
+            15
+          ],
+          "qt": {
+            "q": "Anh Tan là sinh viên đại học, muốn dùng buồng học riêng (phòng riêng) để học vào buổi tối các ngày trong tuần (19:00–22:00), sau khi tan học. Nếu xuất trình thẻ sinh viên và đăng ký mới một mình, mỗi tháng anh ấy phải trả bao nhiêu?",
+            "o": [
+              "8.000 yên",
+              "10.000 yên",
+              "13.000 yên",
+              "15.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "会社員のリンさんは同僚と2人で今月から新規入会します。リンさんは『土日祝の昼間に個室で集中して作業したい』と考えています。このとき、リンさんの『初月』の支払額として最も適切なものはどれか。",
+          "options": [
+            "8,000円",
+            "9,000円",
+            "14,000円",
+            "15,000円"
+          ],
+          "answer": 2,
+          "explainVi": "Linh muốn dùng phòng riêng vào ban ngày các ngày cuối tuần/lễ (土日祝). Tra bảng: gói 'ホリデープラン' (9.000 yên) chỉ áp dụng cho 'オープンスペースのみ' (không có phòng riêng), do đó Linh bắt buộc phải chọn 'フルタイムプラン' (15.000 yên, 全エリア・個室含む). Linh không phải học sinh nên không được giảm học sinh; tuy nhiên Linh đăng ký mới cùng lúc với 1 đồng nghiệp (tổng 2 người, dòng 16) nên được giảm 1.000 yên vào tháng đầu tiên. Vậy số tiền tháng đầu là: 15.000 - 1.000 = 14.000 yên.",
+          "tip": "Chú ý bẫy khu vực: gói 'ホリデープラン' tuy dùng cuối tuần nhưng chỉ cho ngồi không gian mở, muốn có phòng riêng cuối tuần bắt buộc chọn 'フルタイムプラン' (15.000 yên). Sau đó áp dụng giảm giá đăng ký nhóm từ 2 người (-1.000 yên cho tháng đầu).",
+          "evi": [
+            7,
+            8,
+            16
+          ],
+          "qt": {
+            "q": "Chị Lin là nhân viên công ty, sẽ đăng ký mới cùng một đồng nghiệp, tổng cộng hai người, bắt đầu từ tháng này. Chị Lin muốn “tập trung làm việc trong phòng riêng vào ban ngày các ngày thứ Bảy, Chủ nhật và ngày lễ”. Trong trường hợp này, khoản nào phù hợp nhất với số tiền chị Lin phải trả trong “tháng đầu tiên”?",
+            "o": [
+              "8.000 yên",
+              "9.000 yên",
+              "14.000 yên",
+              "15.000 yên"
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

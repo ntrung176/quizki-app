@@ -1,0 +1,494 @@
+{
+  "id": "minna2.b29",
+  "bai": 29,
+  "titleVi": "Nhờ vả lịch sự, xin phép",
+  "know": [
+    {
+      "id": "minna2.b29.itadakemasenka",
+      "point": "itadakemasenka",
+      "jp": "〜ていただけませんか",
+      "vi": "Xin anh/chị có thể ~ cho tôi không? (nhờ lịch sự — đối với người trên)",
+      "en": "Could you please ~ for me? (a polite request to someone senior)",
+      "gloss": "Vて ＋ いただけませんか (丁寧[ていねい]な 依頼[いらい])",
+      "glossEn": "Vて ＋ いただけませんか (丁寧[ていねい]な 依頼[いらい])"
+    },
+    {
+      "id": "minna2.b29.kuremasenka",
+      "point": "kuremasenka",
+      "jp": "〜てくれませんか",
+      "vi": "~ cho tôi được không? (nhờ thân mật — ngang hàng / bạn bè)",
+      "en": "Could you ~ for me? (a casual request for peers / friends)",
+      "gloss": "Vて ＋ くれませんか (くれますか より 丁寧[ていねい])",
+      "glossEn": "Vて ＋ くれませんか (くれますか より 丁寧[ていねい])"
+    },
+    {
+      "id": "minna2.b29.sasete-kudasai",
+      "point": "sasete-kudasai",
+      "jp": "〜させてください",
+      "vi": "Xin cho tôi được ~ (chủ thể xin phép tự mình làm)",
+      "en": "Please let me ~ (a polite request for permission)",
+      "gloss": "V使役形[しえきけい] させて ＋ ください",
+      "glossEn": "私[わたし]に 説明[せつめい]させてください。 = Please let me explain."
+    },
+    {
+      "id": "minna2.b29.keigo-reply",
+      "point": "keigo-reply",
+      "jp": "承知[しょうち]しました ／ かしこまりました",
+      "vi": "Vâng ạ / Dạ vâng — xác nhận lịch sự, kính trọng",
+      "en": "Yes / Yes, certainly — a polite, respectful confirmation",
+      "gloss": "承知しました (lịch sự) ／ かしこまりました (kính trọng nhất)",
+      "glossEn": "承知しました (polite) ／ かしこまりました (most respectful)"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b29-idmk-setsumei",
+      "item": "minna2.b29.itadakemasenka",
+      "err": "itadake-form",
+      "vi": "Xin anh có thể giải thích điều này cho tôi không? (lịch sự với người trên)",
+      "t1": {
+        "stem": "これを 説明[せつめい]して ＿。",
+        "choices": [
+          "いただけませんか",
+          "いただきます",
+          "くれませんか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "これを",
+          "説明[せつめい]して",
+          "いただけませんか。"
+        ],
+        "traps": [
+          "いただきます。",
+          "もらえますか。"
+        ]
+      },
+      "t3": {
+        "target": "これを説明していただけませんか。",
+        "accept": [
+          "これをせつめいしていただけませんか。"
+        ]
+      },
+      "why": "Nhờ người trên một cách lịch sự: Vて ＋ いただけませんか. ✗ いただきます = khẳng định (\"tôi sẽ nhận ơn\"), không phải câu nhờ. ✗ くれませんか thiếu trang trọng khi nhờ cấp trên."
+    },
+    {
+      "id": "c-b29-idmk-honyaku",
+      "item": "minna2.b29.itadakemasenka",
+      "err": "itadake-form",
+      "vi": "Xin chị có thể dịch tài liệu này cho tôi không? (rất lịch sự)",
+      "t1": {
+        "stem": "この 書類[しょるい]を 翻訳[ほんやく]して ＿。",
+        "choices": [
+          "いただけませんか",
+          "くれませんか",
+          "ください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 書類[しょるい]を",
+          "翻訳[ほんやく]して",
+          "いただけませんか。"
+        ],
+        "traps": [
+          "いただきます。",
+          "もらえますか。"
+        ]
+      },
+      "t3": {
+        "target": "この書類を翻訳していただけませんか。",
+        "accept": [
+          "このしょるいをほんやくしていただけませんか。"
+        ]
+      },
+      "why": "Dùng いただけませんか với người trên (上司[じょうし]や 取引先[とりひきさき]). ✗ くれませんか thiếu trang trọng khi nhờ cấp trên. ✗ ください là yêu cầu thẳng, không phải hỏi-nhờ."
+    },
+    {
+      "id": "c-b29-idmk-kakunin",
+      "item": "minna2.b29.itadakemasenka",
+      "err": "itadake-form",
+      "vi": "Xin anh có thể xác nhận nội dung này cho tôi không?",
+      "t1": {
+        "stem": "この 内容[ないよう]を 確認[かくにん]して ＿。",
+        "choices": [
+          "いただけませんか",
+          "あげましょうか",
+          "もらえました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 内容[ないよう]を",
+          "確認[かくにん]して",
+          "いただけませんか。"
+        ],
+        "traps": [
+          "いただきます。",
+          "くれますか。"
+        ]
+      },
+      "t3": {
+        "target": "この内容を確認していただけませんか。",
+        "accept": [
+          "このないようをかくにんしていただけませんか。"
+        ]
+      },
+      "why": "Vて ＋ いただけませんか: nhờ lịch sự nhất trong B29. ✗ あげましょうか = đề nghị mình làm giúp người khác, ngược chiều. ✗ もらえました = quá khứ, không phải câu nhờ."
+    },
+    {
+      "id": "c-b29-krmk-tetsudai",
+      "item": "minna2.b29.kuremasenka",
+      "err": "kuremasenka-vs-itadake",
+      "vi": "Bạn có thể giúp mình một chút không? (nhờ bạn bè thân mật)",
+      "t1": {
+        "stem": "ちょっと 手伝[てつだ]って ＿。",
+        "choices": [
+          "くれませんか",
+          "いただけませんか",
+          "ください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ちょっと",
+          "手伝[てつだ]って",
+          "くれませんか。"
+        ],
+        "traps": [
+          "いただけませんか。",
+          "くれますよ。"
+        ]
+      },
+      "t3": {
+        "target": "ちょっと手伝ってくれませんか。",
+        "accept": [
+          "ちょっとてつだってくれませんか。"
+        ]
+      },
+      "why": "Nhờ bạn bè / đồng nghiệp ngang hàng: Vて ＋ くれませんか. Dùng いただけませんか khi nhờ người trên. ✗ ください = yêu cầu thẳng, không hỏi nhờ."
+    },
+    {
+      "id": "c-b29-krmk-kinyuu",
+      "item": "minna2.b29.kuremasenka",
+      "err": "kuremasenka-vs-itadake",
+      "vi": "Bạn có thể điền vào chỗ này giúp mình không? (nhờ đồng nghiệp ngang hàng)",
+      "t1": {
+        "stem": "ここに 記入[きにゅう]して ＿。",
+        "choices": [
+          "くれませんか",
+          "いただきます",
+          "させてください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ここに",
+          "記入[きにゅう]して",
+          "くれませんか。"
+        ],
+        "traps": [
+          "いただきます。",
+          "くれますよ。"
+        ]
+      },
+      "t3": {
+        "target": "ここに記入してくれませんか。",
+        "accept": [
+          "ここにきにゅうしてくれませんか。"
+        ]
+      },
+      "why": "〜てくれませんか nhờ người ngang hàng một cách lịch sự vừa phải. ✗ いただきます = phát ngôn biết ơn/khẳng định, không phải câu nhờ. ✗ させてください = chủ thể xin phép tự làm, sai chiều."
+    },
+    {
+      "id": "c-b29-stk-kaeru",
+      "item": "minna2.b29.sasete-kudasai",
+      "err": "sasete-form",
+      "vi": "Xin cho tôi được về sớm hôm nay. (xin phép cấp trên)",
+      "t1": {
+        "stem": "今日[きょう]は 早[はや]く 帰[かえ]ら ＿。",
+        "choices": [
+          "せてください",
+          "してください",
+          "れてください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今日[きょう]は",
+          "早[はや]く",
+          "帰[かえ]らせて",
+          "ください。"
+        ],
+        "traps": [
+          "帰[かえ]ってください。",
+          "帰[かえ]らせます。"
+        ]
+      },
+      "t3": {
+        "target": "今日は早く帰らせてください。",
+        "accept": [
+          "きょうははやくかえらせてください。"
+        ]
+      },
+      "why": "帰る (グループI) → 使役形[しえきけい]: 帰ら＋せる → 帰らせてください = xin phép chủ thể tự về. ✗ 帰ってください = ra lệnh người KHÁC về. ✗ 帰られてください = bị động, không phải xin phép."
+    },
+    {
+      "id": "c-b29-stk-setsumei",
+      "item": "minna2.b29.sasete-kudasai",
+      "err": "sasete-form",
+      "vi": "Xin cho tôi được giải thích về sản phẩm này.",
+      "t1": {
+        "stem": "この 商品[しょうひん]について 説明[せつめい] ＿。",
+        "choices": [
+          "させてください",
+          "してください",
+          "させます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 商品[しょうひん]について",
+          "説明[せつめい]させて",
+          "ください。"
+        ],
+        "traps": [
+          "説明[せつめい]してください。",
+          "説明[せつめい]させましょうか。"
+        ]
+      },
+      "t3": {
+        "target": "この商品について説明させてください。",
+        "accept": [
+          "このしょうひんについてせつめいさせてください。"
+        ]
+      },
+      "why": "する → させる (使役形[しえきけい]) + てください = xin phép tự làm. ✗ してください = yêu cầu người KHÁC giải thích cho mình. ✗ させます = bắt/cho người khác làm (chiều ngược). ✗ させましょうか = đề nghị — sai chiều."
+    },
+    {
+      "id": "c-b29-stk-kangaeru",
+      "item": "minna2.b29.sasete-kudasai",
+      "err": "sasete-form",
+      "vi": "Xin cho tôi được suy nghĩ thêm một chút.",
+      "t1": {
+        "stem": "もう 少[すこ]し 考[かんが]え ＿。",
+        "choices": [
+          "させてください",
+          "させてもらいますか",
+          "させます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "もう 少[すこ]し",
+          "考[かんが]えさせて",
+          "ください。"
+        ],
+        "traps": [
+          "考[かんが]えてください。",
+          "考[かんが]えさせます。"
+        ]
+      },
+      "t3": {
+        "target": "もう少し考えさせてください。",
+        "accept": [
+          "もうすこしかんがえさせてください。"
+        ]
+      },
+      "why": "考える (グループII) → 使役形: 考え＋させる → 考えさせてください = xin phép TÔI suy nghĩ. ✗ 考えてください = yêu cầu NGƯỜI KHÁC suy nghĩ (sai chiều). ✗ 考えさせます = tôi bắt người khác suy nghĩ."
+    },
+    {
+      "id": "c-b29-kg-shochi",
+      "item": "minna2.b29.keigo-reply",
+      "err": "keigo-wrong",
+      "vi": "Đồng nghiệp nhờ bạn gửi email này. Bạn trả lời xác nhận (lịch sự tiêu chuẩn, không cần kính trọng nhất).",
+      "t1": {
+        "stem": "「このメールを 送[おく]ってください。」「＿」",
+        "choices": [
+          "承知[しょうち]しました",
+          "わかりました",
+          "そうですね"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "承知[しょうち]しました。"
+        ],
+        "traps": [
+          "わかりました。",
+          "そうです。"
+        ]
+      },
+      "t3": {
+        "target": "承知しました。",
+        "accept": [
+          "しょうちしました。"
+        ]
+      },
+      "why": "承知しました = xác nhận lịch sự với đồng nghiệp/cấp trên. ✗ わかりました quá thông thường trong môi trường công việc. ✗ そうですね = đồng ý/suy nghĩ, không phải xác nhận chấp nhận."
+    },
+    {
+      "id": "c-b29-kg-kashiko",
+      "item": "minna2.b29.keigo-reply",
+      "err": "keigo-wrong",
+      "vi": "Giám đốc yêu cầu đặt phòng họp. Trợ lý dùng từ kính trọng nhất để xác nhận.",
+      "t1": {
+        "stem": "「会議室[かいぎしつ]を 予約[よやく]してください。」「＿」",
+        "choices": [
+          "かしこまりました",
+          "承知[しょうち]しました",
+          "わかりました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "かしこまりました。"
+        ],
+        "traps": [
+          "承知[しょうち]しました。",
+          "はい、そうします。"
+        ]
+      },
+      "t3": {
+        "target": "かしこまりました。",
+        "accept": [
+          "かしこまりました。"
+        ]
+      },
+      "why": "かしこまりました = kính trọng nhất (最[もっと]も 丁寧[ていねい])、dùng với 社長[しゃちょう]・VIP・お客様[きゃくさま]. 承知しました lịch sự nhưng kém trang trọng hơn một bậc khi trả lời giám đốc."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b29-idmk",
+      "item": "minna2.b29.itadakemasenka",
+      "err": "itadake-form",
+      "tts": "すみません、この しょるいに しょめいしていただけませんか。",
+      "script": "すみません、この 書類[しょるい]に 署名[しょめい]していただけませんか。",
+      "ask": "Người nói đang nhờ gì?",
+      "choices": [
+        "Ký vào tài liệu",
+        "Đọc tài liệu",
+        "Dịch tài liệu"
+      ],
+      "answer": 0,
+      "why": "署名[しょめい]していただけませんか = xin anh/chị ký giúp (lịch sự). 署名 = chữ ký."
+    },
+    {
+      "id": "l-b29-stk",
+      "item": "minna2.b29.sasete-kudasai",
+      "err": "sasete-form",
+      "tts": "かちょう、らいしゅう やすませてください。",
+      "script": "課長[かちょう]、来週[らいしゅう] 休[やす]ませてください。",
+      "ask": "Người nói đang xin điều gì?",
+      "choices": [
+        "Xin nghỉ tuần sau",
+        "Nhờ trưởng phòng nghỉ thay",
+        "Hỏi khi nào có thể nghỉ"
+      ],
+      "answer": 0,
+      "why": "休ませてください = xin cho tôi được nghỉ (させてください = chủ thể TỰ xin làm). Không phải lệnh hay câu hỏi."
+    },
+    {
+      "id": "l-b29-krmk",
+      "item": "minna2.b29.kuremasenka",
+      "err": "kuremasenka-vs-itadake",
+      "tts": "ちょっと まってくれませんか。いまたんとうの ひとを よんできます。",
+      "script": "ちょっと 待[ま]ってくれませんか。今[いま] 担当[たんとう]の 人[ひと]を 呼[よ]んできます。",
+      "ask": "Người nói đang làm gì?",
+      "choices": [
+        "Nhờ đợi trong khi đi gọi người phụ trách",
+        "Xin phép rời khỏi phòng",
+        "Ra lệnh người khác dừng lại"
+      ],
+      "answer": 0,
+      "why": "待ってくれませんか = nhờ đợi (thân mật / bình thường). 担当[たんとう]の 人[ひと]を 呼[よ]んできます = tôi sẽ đi gọi người phụ trách."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b29-te-form-kaku",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 29 ・ 〜ていただけませんか",
+      "vi": "Xin anh có thể viết địa chỉ vào đây giúp tôi không?",
+      "t1": {
+        "stem": "ここに 住所[じゅうしょ]を ＿ いただけませんか。",
+        "choices": [
+          "書[か]いて",
+          "書[か]きて",
+          "書[か]くて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ここに",
+          "住所[じゅうしょ]を",
+          "書[か]いて",
+          "いただけませんか。"
+        ],
+        "traps": [
+          "書[か]きて",
+          "書[か]くて"
+        ]
+      },
+      "t3": {
+        "target": "ここに住所を書いていただけませんか。",
+        "accept": [
+          "ここにじゅうしょをかいていただけませんか。"
+        ]
+      },
+      "why": "Dù câu dùng mẫu B29 (ていただけませんか), 書く vẫn cần chia te-form đúng: く→いて (lỗi B14). ✗ 書[か]きて = thêm て thẳng vào ます-stem — sai nhóm I."
+    },
+    {
+      "id": "a-b29-te-form-yomu",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 29 ・ 〜させてください",
+      "vi": "Xin cho tôi được đọc tài liệu này.",
+      "t1": {
+        "stem": "この 資料[しりょう]を ＿ ください。",
+        "choices": [
+          "読[よ]ませて",
+          "読[よ]みさせて",
+          "読[よ]ませます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 資料[しりょう]を",
+          "読[よ]ませて",
+          "ください。"
+        ],
+        "traps": [
+          "読[よ]みさせて",
+          "読[よ]んでください。"
+        ]
+      },
+      "t3": {
+        "target": "この資料を読ませてください。",
+        "accept": [
+          "このしりょうをよませてください。"
+        ]
+      },
+      "why": "読む (グループI) → 使役形: 読ま＋せる → 読ませてください. ✗ 読みさせて = không tồn tại (nhầm ます-stem + させて)."
+    }
+  ]
+}

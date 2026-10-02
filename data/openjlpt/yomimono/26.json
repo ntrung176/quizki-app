@@ -1,0 +1,3007 @@
+{
+  "bai": 26,
+  "level": "N4",
+  "strategy": {
+    "intro": "〜んです (=〜のです) là mẫu ngữ pháp quan trọng bậc nhất của Bài 26: dùng để GIẢI THÍCH lý do, bối cảnh, hoặc hỏi tìm hiểu tình huống. Bài đọc này đặt trong khung cảnh đi khám bệnh — ngữ cảnh hay gặp nhất của んです trong thực tế. Chiến lược: khi gặp〜んです, hỏi \"đây là giải thích CHO điều gì?\" rồi tìm câu/tình huống trước đó làm bối cảnh.",
+    "steps": [
+      "Đọc lướt toàn đoạn để nắm ai đang nói, nói với ai, và tình huống (bác sĩ–bệnh nhân, hay bạn bè hỏi thăm?).",
+      "Tìm〜んです /〜んですか: đó là câu GIẢI THÍCH hoặc YÊU CẦU GIẢI THÍCH. Vế trước の là nội dung giải thích.",
+      "Với câu hỏi〜んですか: người hỏi đã NHẬN THẤY điều gì đó bất thường, hỏi để hiểu lý do — khác với câu hỏi〜ですか thông thường.",
+      "Nhận biết Nなんです: danh từ + なんです = \"thực ra là N đó\" — dùng khi cung cấp thông tin/giải thích không phải đương nhiên.",
+      "Câu hỏi trắc nghiệm thường hỏi: lý do của ai/điều gì → tìm câu〜んです chứa thông tin đó.",
+      "Ôn lại ngữ pháp cũ: た形 (Bài 19), Vています (Bài 14-15), 〜から lý do (Bài 9), Vなければなりません (Bài 17), Vてください (Bài 14)."
+    ],
+    "tips": [
+      "〜んです = 〜のです (viết thông thường); trong văn nói/văn thân mật thường bỏ の → んです.",
+      "んですか KHÔNG phải câu hỏi trung lập — người hỏi đã CÓ CẢNH BÁO/NHẬN XÉT, đang muốn giải thích.",
+      "Danh từ/tính từ な: N/NA + なんです (KHÔNG phải のんです hay んです trực tiếp).",
+      "Tính từ い / Động từ: V普通形 + んです (普通形 đã học Bài 20).",
+      "Đừng nhầm 〜んです (giải thích) với 〜ません (phủ định): âm cuối khác nhau hoàn toàn.",
+      "Khi trả lời câu hỏi〜んですか, thường dùng〜んです trong câu trả lời để khép vòng giải thích."
+    ],
+    "grammarFocus": [
+      "〜んです",
+      "V・Aんですか（tìm giải thích）",
+      "Nなんです"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 25,
+        "items": [
+          "〜たら",
+          "〜ても",
+          "もし〜たら"
+        ]
+      },
+      {
+        "bai": 24,
+        "items": [
+          "Vてもらいます",
+          "Vてくれます"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき",
+          "〜と（điều kiện tự nhiên）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる/Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 20,
+        "items": [
+          "普通形（thể thông thường）"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "〜くなります・〜になります",
+          "Vたことがあります"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vないでください"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）",
+          "〜がわかります"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "病院で",
+      "titleVi": "Ở bệnh viện",
+      "japanese": "ミラーさんは今日会社を休みました。頭が痛いんです。昨日から熱もあります。\n病院へ行ったら、医者が「どうしたんですか」と聞きました。\n「頭が痛くて、熱があるんです」と言いました。\n医者は「薬を飲んで、ゆっくり休んでください」と言いました。\nミラーさんは「わかりました。明日も会社を休みますか」と聞きました。\n医者は「今日ゆっくり休んだら、たぶん明日は大丈夫だと思いますよ」と言いました。\nミラーさんは薬をもらって、家へ帰りました。",
+      "vietnamese": "Hôm nay anh Miller nghỉ làm. Vì đầu anh đau. Từ hôm qua anh cũng bị sốt.\nKhi đến bệnh viện, bác sĩ hỏi \"Anh làm sao vậy?\".\nAnh nói \"Thực ra đầu tôi đau và tôi bị sốt ạ\".\nBác sĩ nói \"Hãy uống thuốc và nghỉ ngơi từ từ nhé\".\nAnh Miller hỏi \"Vâng, ngày mai tôi cũng nghỉ làm không ạ?\".\nBác sĩ nói \"Nếu hôm nay anh nghỉ ngơi tốt thì tôi nghĩ ngày mai sẽ ổn thôi\".\nAnh Miller nhận thuốc rồi về nhà.",
+      "sentences": [
+        {
+          "jp": "ミラーさんは今日会社を休みました。頭が痛いんです。昨日から熱もあります。",
+          "vi": "Hôm nay anh Miller nghỉ làm. Vì đầu anh đau. Từ hôm qua anh cũng bị sốt.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "休みます",
+              "read": "やすみます",
+              "vi": "nghỉ"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "痛い",
+              "read": "いたい",
+              "vi": "đau"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "熱",
+              "read": "ねつ",
+              "vi": "sốt, nhiệt độ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "頭が痛いんです = giải thích lý do nghỉ làm. んです nối ý \"lý do/bối cảnh\" với sự kiện trước đó (nghỉ công ty)."
+            }
+          ]
+        },
+        {
+          "jp": "病院へ行ったら、医者が「どうしたんですか」と聞きました。",
+          "vi": "Khi đến bệnh viện, bác sĩ hỏi \"Anh làm sao vậy?\".",
+          "vocab": [
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "医者",
+              "read": "いしゃ",
+              "vi": "bác sĩ"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "どうしたんですか",
+              "read": "どうしたんですか",
+              "vi": "\"Anh làm sao vậy?\" (hỏi tình huống)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "行ったら = khi đến. Điều kiện thời gian dẫn đến sự kiện tiếp theo."
+            },
+            {
+              "point": "V・Aんですか",
+              "vi": "どうしたんですか = \"Có chuyện gì vậy?\". Bác sĩ thấy bệnh nhân đến → hỏi lý do/tình huống bằng んですか."
+            }
+          ]
+        },
+        {
+          "jp": "「頭が痛くて、熱があるんです」と言いました。",
+          "vi": "Anh nói \"Thực ra đầu tôi đau và tôi bị sốt ạ\".",
+          "vocab": [
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "痛い",
+              "read": "いたい",
+              "vi": "đau"
+            },
+            {
+              "w": "熱があります",
+              "read": "ねつがあります",
+              "vi": "bị sốt, có sốt"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "頭が痛い",
+              "read": "あたまがいたい",
+              "vi": "đau đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "熱があるんです = giải thích tình trạng. Đây là câu trả lời cho どうしたんですか — dùng んです để vừa giải thích vừa khép vòng."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "痛くて = đau và (nối tính từ い với vế sau): đau đầu VÀ lại còn bị sốt."
+            }
+          ]
+        },
+        {
+          "jp": "医者は「薬を飲んで、ゆっくり休んでください」と言いました。",
+          "vi": "Bác sĩ nói \"Hãy uống thuốc và nghỉ ngơi từ từ nhé\".",
+          "vocab": [
+            {
+              "w": "医者",
+              "read": "いしゃ",
+              "vi": "bác sĩ"
+            },
+            {
+              "w": "薬",
+              "read": "くすり",
+              "vi": "thuốc"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "từ từ, thoải mái"
+            },
+            {
+              "w": "休みます",
+              "read": "やすみます",
+              "vi": "nghỉ ngơi"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて〜てください（Bài 14）",
+              "vi": "飲んで、休んでください = uống rồi nghỉ ngơi đi. Nối nhiều hành động bằng て, lệnh cuối là yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは「わかりました。明日も会社を休みますか」と聞きました。",
+          "vi": "Anh Miller hỏi \"Vâng, ngày mai tôi cũng nghỉ làm không ạ?\".",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "休む",
+              "read": "やすむ",
+              "vi": "nghỉ ngơi, vắng mặt"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "わかりました",
+              "read": "わかりました",
+              "vi": "hiểu rồi, vâng ạ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vますか（xác nhận）",
+              "vi": "休みますか = nghỉ không ạ? Miller dùng câu hỏi〜ますか thông thường — không phải んですか. Đây là câu hỏi xác nhận đơn giản về tình huống ngày mai."
+            }
+          ]
+        },
+        {
+          "jp": "医者は「今日ゆっくり休んだら、たぶん明日は大丈夫だと思いますよ」と言いました。",
+          "vi": "Bác sĩ nói \"Nếu hôm nay anh nghỉ ngơi tốt thì tôi nghĩ ngày mai sẽ ổn thôi\".",
+          "vocab": [
+            {
+              "w": "医者",
+              "read": "いしゃ",
+              "vi": "bác sĩ"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "ゆっくり",
+              "read": "ゆっくり",
+              "vi": "từ từ, thoải mái"
+            },
+            {
+              "w": "休む",
+              "read": "やすむ",
+              "vi": "nghỉ ngơi, vắng mặt"
+            },
+            {
+              "w": "たぶん",
+              "read": "たぶん",
+              "vi": "có lẽ, chắc là"
+            },
+            {
+              "w": "明日",
+              "read": "あした",
+              "vi": "ngày mai"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "ổn, không sao"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "休んだら = nếu nghỉ ngơi. Điều kiện bác sĩ đặt ra trước khi đưa ra nhận định."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "大丈夫だと思います = tôi nghĩ sẽ ổn. Bác sĩ đưa ra nhận định/ý kiến."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは薬をもらって、家へ帰りました。",
+          "vi": "Anh Miller nhận thuốc rồi về nhà.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "薬",
+              "read": "くすり",
+              "vi": "thuốc"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về"
+            },
+            {
+              "w": "もらいます",
+              "read": "もらいます",
+              "vi": "nhận (từ ai đó)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて〜（Bài 16）",
+              "vi": "もらって、帰りました = nhận xong rồi về. Nối trình tự hai hành động bằng て形."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "頭が痛いんです",
+          "label": "〜んです（giải thích lý do）"
+        },
+        {
+          "excerpt": "どうしたんですか",
+          "label": "V・んですか（hỏi tình huống）"
+        },
+        {
+          "excerpt": "熱があるんです",
+          "label": "〜んです（trả lời giải thích）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんはどうして会社を休みましたか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "薬がなかったから、休みました",
+            "頭が痛くて、熱があるから、休みました",
+            "病院が遠いから、休みました",
+            "医者が「休んでください」と言いましたから、休みました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết:「頭が痛いんです。昨日から熱もあります」— câu んです đầu tiên chính là lời GIẢI THÍCH lý do nghỉ làm (hội tụ đúng chức năng cốt lõi của〜んです: giải thích tình huống/lý do cho người nghe). Đáp án 0 sai vì bài không đề cập thiếu thuốc. Đáp án 2 sai vì bài không nhắc bệnh viện xa; đáp án 3 sai vì bác sĩ dặn \"nghỉ ngơi\" SAU KHI Miller đã nghỉ rồi — không phải lý do ban đầu.",
+          "tip": "Câu hỏi \"どうして〜ましたか\" trong bài có〜んです → tìm câu〜んです ngay sau sự kiện: đó chính là lý do. Đây là công thức bất biến của んです.",
+          "qt": {
+            "q": "Vì sao anh Miller nghỉ làm?",
+            "o": [
+              "Vì không có thuốc nên anh ấy nghỉ làm",
+              "Vì đau đầu và bị sốt nên anh ấy nghỉ làm",
+              "Vì bệnh viện ở xa nên anh ấy nghỉ làm",
+              "Vì bác sĩ đã nói 「休んでください」(hãy nghỉ ngơi) nên anh ấy nghỉ làm"
+            ]
+          }
+        },
+        {
+          "q": "医者はミラーさんに何をするように言いましたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "「病院へ来てください」と言いました",
+            "「薬を飲んで、ゆっくり休んでください」と言いました",
+            "「明日も会社へ来てください」と言いました",
+            "「毎日薬を飲まなければなりません」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết nguyên văn:「薬を飲んで、ゆっくり休んでください」— bác sĩ yêu cầu hai việc: uống thuốc VÀ nghỉ ngơi, nối bằng て形 (Bài 16). Đáp án 0 sai vì Miller đã ở bệnh viện rồi, bác sĩ không bảo đến bệnh viện. Đáp án 2 sai vì bác sĩ không nói đến ngày mai đi làm. Đáp án 3 sai vì bài nói「薬を飲んで」(uống) không phải「飲まなければなりません」(buộc phải uống mỗi ngày) — nội dung và cấu trúc ngữ pháp đều khác.",
+          "tip": "Câu hỏi \"何をするように言いましたか\" → tìm câu〜てください trong bài. Đọc sát nguyên văn; đáp án bẫy thường thêm/bớt chi tiết hoặc dùng ngữ pháp khác (なければなりません vs てください).",
+          "qt": {
+            "q": "Bác sĩ đã bảo anh Miller làm gì?",
+            "o": [
+              "Bác sĩ đã nói 「病院へ来てください」(hãy đến bệnh viện)",
+              "Bác sĩ đã nói 「薬を飲んで、ゆっくり休んでください」(hãy uống thuốc và nghỉ ngơi thật thoải mái)",
+              "Bác sĩ đã nói 「明日も会社へ来てください」(ngày mai cũng hãy đến công ty)",
+              "Bác sĩ đã nói 「毎日薬を飲まなければなりません」(phải uống thuốc mỗi ngày)"
+            ]
+          }
+        },
+        {
+          "q": "医者の話から、明日のミラーさんはどうなると思いますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "今日より熱が上がると思います",
+            "今日ゆっくり休んだら、たぶん大丈夫だと思います",
+            "必ず明日も病院へ来なければなりません",
+            "薬を飲まなければ、治りません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Nguyên văn bác sĩ nói:「今日ゆっくり休んだら、たぶん明日は大丈夫だと思いますよ」— tổ hợp〜たら (điều kiện, Bài 25) + たぶん (có lẽ) +〜と思います (nhận định, Bài 21), thể hiện đây là dự đoán CÓ CĂN CỨ nhưng không chắc chắn 100%. Đáp án 0 sai vì bác sĩ không nói sốt sẽ tăng. Đáp án 2 sai vì bác sĩ không nói \"nhất định phải đến\" (必ず, なければなりません không có trong câu đó). Đáp án 3 sai vì bài không đặt điều kiện như vậy.",
+          "tip": "Khi bài có câu〜たら + たぶん +〜と思います, đây là dự đoán CÓ ĐIỀU KIỆN + KHÔNG CHẮC CHẮN TUYỆT ĐỐI. Đáp án đúng phải giữ nguyên cả ba yếu tố đó; loại ngay đáp án dùng \"必ず\" hay \"なければなりません\" vì chúng quá cứng nhắc so với nguyên văn.",
+          "qt": {
+            "q": "Theo lời bác sĩ, anh Miller có thể sẽ thế nào vào ngày mai?",
+            "o": [
+              "Tôi nghĩ ngày mai sốt sẽ cao hơn hôm nay",
+              "Tôi nghĩ nếu hôm nay nghỉ ngơi thật thoải mái thì có lẽ sẽ ổn",
+              "Nhất định ngày mai cũng phải đến bệnh viện",
+              "Nếu không uống thuốc thì sẽ không khỏi"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "山田さんの相談メール",
+      "titleVi": "Email hỏi thăm của anh Yamada",
+      "japanese": "カリナさん、お元気ですか。私は最近ちょっと体の調子が悪いんです。\n実は先週から、毎朝頭が重くて、仕事に集中できないんです。\nそれに、夜なかなか眠れないんです。ストレスがあるんだと思っています。\n先日、同僚のたなかさんが「山田さん、顔色が悪いんじゃないですか」と言いました。\n自分では気がつかなかったんですが、たしかに最近疲れているんです。\n病院へ行かなければならないと思って、昨日、会社の近くのクリニックへ行きました。\n先生が「どうしたんですか」と聞いたから、「頭が重くて、よく眠れないんです」と説明しました。\n先生は「最近、仕事が忙しいんですか」と聞きました。\n「ええ、来月大切な発表があるんです。それでとても緊張しているんです」と答えました。\n先生は「なるほど。ストレスなんですね。薬を出しますが、それより、毎日少し運動してください」と言いました。\n「運動ですか…」私はあまり運動が好きじゃないんです。でも、健康のために、やってみます。\n先生はまた「夜は仕事のことを考えないで、早く寝てください」とも言いました。\nクリニックを出てから、近くの公園を少し歩きました。気持ちよかったです。\n帰り道に薬局で薬を買って、家に帰りました。\nカリナさんも最近忙しいと聞きました。無理しないでくださいね。\nまた連絡します。山田",
+      "vietnamese": "Chào chị Karina, chị có khoẻ không? Gần đây sức khoẻ của tôi hơi có vấn đề.\nThực ra từ tuần trước, mỗi sáng đầu tôi nặng nề và không tập trung được vào việc.\nHơn nữa, ban đêm tôi ngủ mãi không được. Tôi đang nghĩ có lẽ do mình bị stress.\nHôm trước, đồng nghiệp Tanaka nói \"Anh Yamada, trông mặt anh tái nhợt vậy?\".\nBản thân tôi không để ý, nhưng thực ra gần đây tôi đang mệt mỏi thật.\nTôi nghĩ mình phải đi khám bệnh, nên hôm qua tôi đến một phòng khám gần công ty.\nVì bác sĩ hỏi \"Anh làm sao vậy?\", tôi giải thích \"Thưa bác sĩ, đầu tôi nặng và hay không ngủ được\".\nBác sĩ hỏi \"Gần đây anh bận việc không?\".\nTôi trả lời \"Vâng, tháng tới tôi có buổi thuyết trình quan trọng. Vì vậy tôi đang rất căng thẳng\".\nBác sĩ nói \"Tôi hiểu rồi. Là do stress đó. Tôi sẽ cho thuốc, nhưng hơn thế, hãy vận động một chút mỗi ngày nhé\".\n\"Vận động ạ…\" Thực ra tôi không thích vận động lắm. Nhưng vì sức khoẻ, tôi sẽ thử.\nBác sĩ còn nói \"Buổi tối đừng nghĩ đến chuyện công việc, hãy cố gắng đi ngủ sớm nhé\".\nSau khi ra khỏi phòng khám, tôi đi bộ một lúc trong công viên gần đó. Cảm thấy dễ chịu.\nTrên đường về tôi ghé nhà thuốc mua thuốc rồi về nhà.\nTôi nghe nói chị Karina cũng đang bận gần đây. Chị đừng cố quá nhé.\nTôi sẽ liên lạc lại sau. Yamada",
+      "sentences": [
+        {
+          "jp": "カリナさん、お元気ですか。私は最近ちょっと体の調子が悪いんです。",
+          "vi": "Chào chị Karina, chị có khoẻ không? Gần đây sức khoẻ của tôi hơi có vấn đề.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khỏe mạnh"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "một chút"
+            },
+            {
+              "w": "体",
+              "read": "からだ",
+              "vi": "cơ thể"
+            },
+            {
+              "w": "調子",
+              "read": "ちょうし",
+              "vi": "tình trạng"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu; không tốt"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "体の調子が悪いんです = giải thích tình trạng sức khoẻ. Mở đầu email bằng んです cho thấy đây là điều người viết MUỐN CHỦ ĐỘNG giải thích/chia sẻ."
+            }
+          ]
+        },
+        {
+          "jp": "実は先週から、毎朝頭が重くて、仕事に集中できないんです。",
+          "vi": "Thực ra từ tuần trước, mỗi sáng đầu tôi nặng nề và không tập trung được vào việc.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra, thực tế là"
+            },
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "毎朝",
+              "read": "まいあさ",
+              "vi": "mỗi sáng"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng (đầu nặng nề)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "集中します",
+              "read": "しゅうちゅうします",
+              "vi": "tập trung"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "集中できないんです = giải thích cụ thể hơn điều đã nói ở câu trên. Dùng んです để \"bổ sung thông tin giải thích\"."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "頭が重くて = đầu nặng VÀ (nối tính từ い với hệ quả)."
+            }
+          ]
+        },
+        {
+          "jp": "それに、夜なかなか眠れないんです。ストレスがあるんだと思っています。",
+          "vi": "Hơn nữa, ban đêm tôi ngủ mãi không được. Tôi đang nghĩ thực ra mình bị stress rồi.",
+          "vocab": [
+            {
+              "w": "それに",
+              "read": "それに",
+              "vi": "hơn nữa, ngoài ra"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi vẫn không (đi với phủ định)"
+            },
+            {
+              "w": "眠ります",
+              "read": "ねむります",
+              "vi": "ngủ"
+            },
+            {
+              "w": "ストレス",
+              "read": "ストレス",
+              "vi": "stress, căng thẳng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "眠れないんです = giải thích thêm một triệu chứng nữa. Chuỗi んです dùng để liệt kê các lý do/bằng chứng."
+            },
+            {
+              "point": "〜と思っています（Bài 21）",
+              "vi": "思っています = đang nghĩ (trạng thái liên tục). Khác 思います (suy nghĩ tại thời điểm nói)."
+            }
+          ]
+        },
+        {
+          "jp": "先日、同僚のたなかさんが「山田さん、顔色が悪いんじゃないですか」と言いました。",
+          "vi": "Hôm trước, đồng nghiệp Tanaka nói \"Anh Yamada, trông mặt anh tái nhợt vậy?\".",
+          "vocab": [
+            {
+              "w": "先日",
+              "read": "せんじつ",
+              "vi": "hôm trước, ngày trước"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "顔色",
+              "read": "かおいろ",
+              "vi": "sắc mặt, nước da"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んじゃないですか",
+              "vi": "顔色が悪いんじゃないですか = \"Có phải sắc mặt anh tệ không?\" — dạng nghi vấn của んです, thể hiện Tanaka ĐÃ NHẬN THẤY điều bất thường và hỏi để xác nhận."
+            },
+            {
+              "point": "〜と言いました（Bài 21）",
+              "vi": "Trích lời trực tiếp của Tanaka trong 「」."
+            }
+          ]
+        },
+        {
+          "jp": "自分では気がつかなかったんですが、たしかに最近疲れているんです。",
+          "vi": "Bản thân tôi không để ý, nhưng thực ra gần đây tôi đang mệt mỏi thật.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "気がつきます",
+              "read": "きがつきます",
+              "vi": "để ý, nhận ra"
+            },
+            {
+              "w": "たしかに",
+              "read": "たしかに",
+              "vi": "quả thực, đúng là"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "疲れます",
+              "read": "つかれます",
+              "vi": "mệt mỏi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んですが（đối lập）",
+              "vi": "気がつかなかったんですが = \"thực ra không để ý, nhưng…\". んですが dùng để đặt bối cảnh/thừa nhận rồi dẫn vào điều tiếp theo."
+            },
+            {
+              "point": "〜んです",
+              "vi": "疲れているんです = giải thích tình trạng hiện tại. Vています + んです = đang trong trạng thái mệt và đây là điều muốn nhấn mạnh."
+            }
+          ]
+        },
+        {
+          "jp": "病院へ行かなければならないと思って、昨日、会社の近くのクリニックへ行きました。",
+          "vi": "Tôi nghĩ mình phải đi khám bệnh, nên hôm qua tôi đến một phòng khám gần công ty.",
+          "vocab": [
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, gần đó"
+            },
+            {
+              "w": "クリニック",
+              "read": "クリニック",
+              "vi": "phòng khám (clinic)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vなければならない（Bài 17）",
+              "vi": "行かなければならない = phải đi. Đây là lý do Yamada đi khám."
+            },
+            {
+              "point": "〜と思って（Bài 21）",
+              "vi": "思って = vì/do nghĩ như vậy. Thể て của 思う nối lý do với hành động tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "先生が「どうしたんですか」と聞いたから、「頭が重くて、よく眠れないんです」と説明しました。",
+          "vi": "Vì bác sĩ hỏi \"Anh làm sao vậy?\", tôi giải thích \"Thưa bác sĩ, đầu tôi nặng và hay không ngủ được\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "bác sĩ (cách gọi tôn trọng)"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "眠れる",
+              "read": "ねむれる",
+              "vi": "có thể ngủ"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V・んですか",
+              "vi": "どうしたんですか = bác sĩ thấy bệnh nhân → hỏi tình huống. Dùng んですか để hỏi giải thích bối cảnh."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "先生が聞いたから = vì bác sĩ hỏi. から nêu lý do dẫn đến hành động giải thích."
+            },
+            {
+              "point": "〜んです（trả lời）",
+              "vi": "眠れないんです = câu trả lời dùng んです để khép vòng giải thích cho câu hỏi んですか."
+            }
+          ]
+        },
+        {
+          "jp": "先生は「最近、仕事が忙しいんですか」と聞きました。",
+          "vi": "Bác sĩ hỏi \"Gần đây anh bận việc không?\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V・Aんですか",
+              "vi": "仕事が忙しいんですか = bác sĩ ĐÃ CÓ NHẬN XÉT (bệnh nhân có vẻ stress) → hỏi để xác nhận nguyên nhân. Khác ですか trung lập."
+            }
+          ]
+        },
+        {
+          "jp": "「ええ、来月大切な発表があるんです。それでとても緊張しているんです」と答えました。",
+          "vi": "Tôi trả lời \"Vâng, tháng tới tôi có buổi thuyết trình quan trọng. Vì vậy tôi đang rất căng thẳng\".",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "発表",
+              "read": "はっぴょう",
+              "vi": "buổi thuyết trình, công bố"
+            },
+            {
+              "w": "それで",
+              "read": "それで",
+              "vi": "vì vậy, do đó"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "緊張します",
+              "read": "きんちょうします",
+              "vi": "căng thẳng, hồi hộp"
+            },
+            {
+              "w": "答える",
+              "read": "こたえる",
+              "vi": "trả lời, đáp lại"
+            },
+            {
+              "w": "ええ",
+              "read": "ええ",
+              "vi": "vâng, đúng (thân mật hơn はい)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです（hai lần）",
+              "vi": "発表があるんです → 緊張しているんです: liên tiếp dùng んです để vừa giải thích sự kiện (có buổi thuyết trình) vừa giải thích hệ quả (đang căng thẳng). Nなんです: 発表がある = N (sự kiện) + んです."
+            }
+          ]
+        },
+        {
+          "jp": "先生は「なるほど。ストレスなんですね。薬を出しますが、それより、毎日少し運動してください」と言いました。",
+          "vi": "Bác sĩ nói \"Tôi hiểu rồi. Là do stress đó. Tôi sẽ cho thuốc, nhưng hơn thế, hãy vận động một chút mỗi ngày nhé\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "なるほど",
+              "read": "なるほど",
+              "vi": "tôi hiểu rồi, ra vậy"
+            },
+            {
+              "w": "ストレス",
+              "read": "ストレス",
+              "vi": "stress, căng thẳng"
+            },
+            {
+              "w": "薬",
+              "read": "くすり",
+              "vi": "thuốc"
+            },
+            {
+              "w": "出します",
+              "read": "だします",
+              "vi": "kê (thuốc), đưa ra"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "運動します",
+              "read": "うんどうします",
+              "vi": "vận động, tập thể dục"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nなんですね",
+              "vi": "ストレスなんですね = \"Thì ra là stress\". Danh từ (ストレス) + なんです → Nなんです. ね cuối câu tìm sự đồng ý/xác nhận."
+            }
+          ]
+        },
+        {
+          "jp": "「運動ですか…」私はあまり運動が好きじゃないんです。でも、健康のために、やってみます。",
+          "vi": "\"Vận động ạ…\" Thực ra tôi không thích vận động lắm. Nhưng vì sức khoẻ, tôi sẽ thử.",
+          "vocab": [
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động; thể dục"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không…lắm"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "健康",
+              "read": "けんこう",
+              "vi": "sức khỏe"
+            },
+            {
+              "w": "ため",
+              "read": "ため",
+              "vi": "vì; cho mục đích"
+            },
+            {
+              "w": "やってみます",
+              "read": "やってみます",
+              "vi": "sẽ thử làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです（thú nhận）",
+              "vi": "好きじゃないんです = thú nhận thực lòng mình không thích. んです ở đây mang sắc thái \"nói thật ra nhé\"."
+            }
+          ]
+        },
+        {
+          "jp": "先生はまた「夜は仕事のことを考えないで、早く寝てください」とも言いました。",
+          "vi": "Bác sĩ còn nói \"Buổi tối đừng nghĩ đến chuyện công việc, hãy đi ngủ sớm nhé\".",
+          "vocab": [
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "考えます",
+              "read": "かんがえます",
+              "vi": "suy nghĩ, xem xét"
+            },
+            {
+              "w": "早く",
+              "read": "はやく",
+              "vi": "sớm"
+            },
+            {
+              "w": "寝ます",
+              "read": "ねます",
+              "vi": "ngủ"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないで（Bài 23）",
+              "vi": "考えないで = không nghĩ mà (đừng nghĩ). Vないで nối hai hành động: \"không làm A mà làm B\"."
+            }
+          ]
+        },
+        {
+          "jp": "クリニックを出てから、近くの公園を少し歩きました。気持ちよかったです。",
+          "vi": "Sau khi ra khỏi phòng khám, tôi đi bộ một lúc trong công viên gần đó. Cảm thấy dễ chịu.",
+          "vocab": [
+            {
+              "w": "クリニック",
+              "read": "クリニック",
+              "vi": "phòng khám (clinic)"
+            },
+            {
+              "w": "出ます",
+              "read": "でます",
+              "vi": "ra, ra ngoài"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "歩きます",
+              "read": "あるきます",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "気持ちよい",
+              "read": "きもちよい",
+              "vi": "dễ chịu, thoải mái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから（Bài 16）",
+              "vi": "出てから = sau khi ra. Hành động hoàn thành xong (出て) rồi mới làm việc tiếp theo (歩きました)."
+            }
+          ]
+        },
+        {
+          "jp": "帰り道に薬局で薬を買って、家に帰りました。",
+          "vi": "Trên đường về tôi ghé nhà thuốc mua thuốc rồi về nhà.",
+          "vocab": [
+            {
+              "w": "帰り道",
+              "read": "かえりみち",
+              "vi": "đường về"
+            },
+            {
+              "w": "薬局",
+              "read": "やっきょく",
+              "vi": "nhà thuốc"
+            },
+            {
+              "w": "薬",
+              "read": "くすり",
+              "vi": "thuốc"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて〜（Bài 16）",
+              "vi": "買って、帰りました = mua xong rồi về. Nối trình tự bằng て形."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんも最近忙しいと聞きました。無理しないでくださいね。",
+          "vi": "Tôi nghe nói chị Karina cũng đang bận gần đây. Chị đừng cố quá nhé.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "無理します",
+              "read": "むりします",
+              "vi": "cố quá sức, ép bản thân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と聞きました（Bài 21）",
+              "vi": "聞きました = (tôi) nghe nói. と là trợ từ trích dẫn nội dung nghe."
+            },
+            {
+              "point": "Vないでください（Bài 17）",
+              "vi": "無理しないでください = xin đừng cố quá sức. Lời khuyên/yêu cầu phủ định lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "また連絡します。山田",
+          "vi": "Tôi sẽ liên lạc lại sau. Yamada",
+          "vocab": [
+            {
+              "w": "連絡します",
+              "read": "れんらくします",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, lần nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vます（dự định）",
+              "vi": "連絡します = tôi sẽ liên lạc. Thể ます dùng cho hành động tương lai/dự định."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "体の調子が悪いんです",
+          "label": "〜んです（giải thích tình trạng）"
+        },
+        {
+          "excerpt": "夜なかなか眠れないんです",
+          "label": "〜んです（bổ sung giải thích）"
+        },
+        {
+          "excerpt": "どうしたんですか",
+          "label": "V・んですか（hỏi tình huống）"
+        },
+        {
+          "excerpt": "仕事が忙しいんですか",
+          "label": "A・んですか（hỏi nguyên nhân）"
+        },
+        {
+          "excerpt": "来月大切な発表があるんです",
+          "label": "〜んです（giải thích nguyên nhân）"
+        },
+        {
+          "excerpt": "ストレスなんですね",
+          "label": "Nなんです（xác nhận）"
+        },
+        {
+          "excerpt": "好きじゃないんです",
+          "label": "〜んです（thú nhận）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "山田さんはどうしてクリニックへ行きましたか。",
+          "evi": [
+            1,
+            2,
+            5
+          ],
+          "options": [
+            "医者が「来てください」と言いましたから、行きました",
+            "頭が重くて、よく眠れないから、行きました",
+            "カリナさんが「行ってください」と言いましたから、行きました",
+            "発表があるから、薬をもらいに行きました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Yamada dùng liên tiếp ba câu〜んです để mô tả triệu chứng:「毎朝頭が重くて、仕事に集中できないんです」「夜なかなか眠れないんです」— đây là những LÝ DO đi khám được giải thích trực tiếp qua んです. Sau đó bài xác nhận:「病院へ行かなければならないと思って…クリニックへ行きました」. Đáp án 0 sai vì bác sĩ không nói trước, Yamada chủ động đi; đáp án 2 sai vì Karina không nhắn gì về việc đi khám; đáp án 3 sai vì \"発表があるから\" là lý do CĂN THẲNG, không phải lý do đi khám (đi khám là vì triệu chứng thể chất).",
+          "tip": "Trong email/bài đọc, chuỗi〜んです liên tiếp = tác giả đang LIỆT KÊ lý do/bối cảnh. Câu hỏi \"どうして〜ましたか\" → tìm cụm đó, rồi ghép với hành động được giải thích.",
+          "qt": {
+            "q": "Tại sao anh Yamada đến phòng khám?",
+            "o": [
+              "Vì bác sĩ nói: 「来てください」(“hãy đến”), nên anh ấy đã đi",
+              "Vì đầu nặng nề và anh ấy không ngủ ngon, nên anh ấy đã đi",
+              "Vì chị Karina nói: 「行ってください」(“hãy đi”), nên anh ấy đã đi",
+              "Vì sắp có buổi thuyết trình nên anh ấy đến xin thuốc"
+            ]
+          }
+        },
+        {
+          "q": "山田さんが緊張している理由は何ですか。",
+          "evi": [
+            8
+          ],
+          "options": [
+            "友達が病気だから、緊張しています",
+            "来月大切な発表があるから、緊張しています",
+            "医者に怖いことを言われたから、緊張しています",
+            "薬を飲まなければならないから、緊張しています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Nguyên văn:「来月大切な発表があるんです。それでとても緊張しているんです」— hai câu んです liên tiếp theo cấu trúc NGUYÊN NHÂN → HỆ QUẢ: (1) có buổi thuyết trình quan trọng tháng tới (原因) → (2) đang căng thẳng (結果). それで nối hai câu làm rõ quan hệ nhân quả. Đáp án 0 sai vì bài không nói bạn bè bệnh. Đáp án 2 sai vì bác sĩ không nói điều đáng sợ — trái lại nói \"ストレスなんですね\" rồi đưa lời khuyên. Đáp án 3 sai vì thuốc không phải nguyên nhân căng thẳng.",
+          "tip": "Dấu hiệu nhân quả với んです: \"〜んです。それで〜んです\" = \"thực ra là A. Vì vậy B\". Đây là mẫu bắt buộc phải nhận ra trong Bài 26. それで (vì vậy) + んです = xác nhận quan hệ nhân quả hai chiều.",
+          "qt": {
+            "q": "Lý do anh Yamada căng thẳng là gì?",
+            "o": [
+              "Anh ấy căng thẳng vì bạn bè bị ốm",
+              "Anh ấy căng thẳng vì tháng sau có một buổi thuyết trình quan trọng",
+              "Anh ấy căng thẳng vì bác sĩ đã nói điều đáng sợ",
+              "Anh ấy căng thẳng vì phải uống thuốc"
+            ]
+          }
+        },
+        {
+          "q": "先生は山田さんに何とアドバイスしましたか。（すべてのアドバイスが含まれる選択肢を選んでください）",
+          "evi": [
+            9,
+            11
+          ],
+          "options": [
+            "「薬を飲んでください」だけ言いました",
+            "「毎日運動してください。夜は早く寝てください」と言いました",
+            "「毎日少し運動してください。夜は仕事のことを考えないで、早く寝てください」と言いました",
+            "「仕事を休んでください」と言いました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bác sĩ đưa ra HAI lời khuyên riêng biệt: (A)「毎日少し運動してください」(vận động một chút mỗi ngày) và (B)「夜は仕事のことを考えないで、早く寝てください」(tối đừng nghĩ đến công việc, ngủ sớm). Chỉ có đáp án 2 ghi đủ CẢ HAI với chi tiết chính xác. Đáp án 1 bỏ mất \"考えないで\" và \"少し\" — hai chi tiết quan trọng. Đáp án 0 chỉ nhắc thuốc, bỏ cả hai lời khuyên về vận động và ngủ. Đáp án 3 (nghỉ việc) không có trong bài.",
+          "tip": "Câu hỏi dạng \"すべて含まれる選択肢\" = phải đối chiếu từng chi tiết. Đánh dấu từng lời khuyên trong bài (A, B…) rồi kiểm tra đáp án nào giữ đủ TẤT CẢ, kể cả các từ bổ nghĩa quan trọng như \"少し\", \"考えないで\".",
+          "qt": {
+            "q": "Bác sĩ đã khuyên anh Yamada điều gì? (Hãy chọn phương án có đầy đủ tất cả lời khuyên.)",
+            "o": [
+              "Bác sĩ chỉ nói: 「薬を飲んでください」(“hãy uống thuốc”)",
+              "Bác sĩ nói: 「毎日運動してください。夜は早く寝てください」(“hãy tập thể dục mỗi ngày. Buổi tối hãy đi ngủ sớm”)",
+              "Bác sĩ nói: 「毎日少し運動してください。夜は仕事のことを考えないで、早く寝てください」(“mỗi ngày hãy tập thể dục một chút. Buổi tối đừng nghĩ đến công việc, hãy đi ngủ sớm”)",
+              "Bác sĩ nói: 「仕事を休んでください」(“hãy nghỉ làm”)"
+            ]
+          }
+        },
+        {
+          "q": "この文章から、山田さんの性格について何が分かりますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "山田さんはとても運動が好きな人です",
+            "山田さんはあまり運動が好きじゃないけど、健康のためにやってみると言っています",
+            "山田さんは運動しているから、体の調子がいいです",
+            "山田さんは運動が好きじゃないから、先生のアドバイスを断りました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Nguyên văn:「私はあまり運動が好きじゃないんです。でも、健康のために、やってみます」— んです ở đây mang sắc thái THÀNH THẬT THỪA NHẬN (\"nói thật ra là không thích\"), nhưng でも (nhưng mà) + やってみます (sẽ thử) cho thấy Yamada chấp nhận thử vì lý do tốt (sức khoẻ). Đáp án 0 trái ngược nguyên văn (あまり好きじゃない ≠ とても好き). Đáp án 2 sai vì bài nói đang bị đau đầu, không ngủ được — không phải sức khoẻ tốt. Đáp án 3 sai vì Yamada không từ chối — ngược lại nói「やってみます」.",
+          "tip": "Khi んです đi với でも → cấu trúc \"thú nhận sự thật + nhưng vẫn cố\". Đáp án đúng phải giữ CẢ HAI vế: không thích (んです) VÀ sẽ thử (でも+Vてみます). Loại ngay đáp án chỉ nói một vế.",
+          "qt": {
+            "q": "Từ bài đọc này, có thể biết được điều gì về tính cách của anh Yamada?",
+            "o": [
+              "Anh Yamada là người rất thích tập thể dục",
+              "Anh Yamada không thích tập thể dục lắm, nhưng nói rằng sẽ thử vì sức khỏe",
+              "Anh Yamada có thể trạng tốt vì anh ấy đang tập thể dục",
+              "Vì không thích tập thể dục nên anh Yamada đã từ chối lời khuyên của bác sĩ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Tuyển tình nguyện viên phiên dịch bệnh viện",
+      "japanese": "さくら市国際交流センター　病院で困っている外国人を助けるボランティア募集\n病院に来る外国人はことばが分からなくて、困っているんです。日本語と外国語ができる人を探しています。\n「病院で働いた経験がないんです」という人も、心配しなくてもいいです。だれでも参加できます。\nまず、説明会に来てください。説明会でボランティアの仕事についてよく説明しますから、安心です。\n説明会｜日にち｜時間｜場所\nAコース｜11月14日（土）｜10:00〜11:30｜センター２階　会議室\nBコース｜11月20日（金）｜19:00〜20:30｜センター１階　ロビー\n土曜日だけ都合がいい人はAコースへ、平日の夜のほうが都合がいい人はBコースへ来てください。\nボランティアの曜日｜火｜木｜土\n病院の仕事｜受付の手伝い｜説明の通訳｜薬局の案内\n※説明会に来るまえに、電話かEメールで申し込んでください。\n※国際交流センターが休みの日（日曜日と祝日）は説明会がありませんから、気をつけてください。\n電話：022-123-4567　Eメール：volunteer@sakura-kokusai.jp（月〜金　9:00〜17:00）",
+      "vietnamese": "Trung tâm Giao lưu Quốc tế thành phố Sakura — Tuyển tình nguyện viên giúp người nước ngoài đang gặp khó khăn ở bệnh viện\nNgười nước ngoài đến bệnh viện không hiểu tiếng, thực ra đang gặp khó khăn đấy. Chúng tôi đang tìm người biết cả tiếng Nhật và tiếng nước ngoài.\nKể cả người nghĩ \"Thực ra tôi chưa từng làm việc ở bệnh viện\" cũng không cần lo lắng. Ai cũng có thể tham gia.\nTrước tiên, hãy đến buổi giải thích. Tại buổi đó chúng tôi sẽ giải thích kỹ về công việc tình nguyện viên, nên rất yên tâm.\nBuổi giải thích｜Ngày｜Giờ｜Địa điểm\nKhóa A｜Ngày 14 tháng 11 (Thứ Bảy)｜10:00〜11:30｜Tầng 2 trung tâm, phòng họp\nKhóa B｜Ngày 20 tháng 11 (Thứ Sáu)｜19:00〜20:30｜Tầng 1 trung tâm, sảnh\nNgười chỉ tiện vào thứ Bảy hãy đến Khóa A, người tiện buổi tối ngày thường hơn hãy đến Khóa B.\nNgày làm tình nguyện｜Thứ Ba｜Thứ Năm｜Thứ Bảy\nCông việc ở bệnh viện｜Giúp lễ tân｜Thông dịch giải thích｜Hướng dẫn ở quầy thuốc\n※Trước khi đến buổi giải thích, hãy đăng ký qua điện thoại hoặc Email.\n※Những ngày trung tâm nghỉ (Chủ nhật và ngày lễ) sẽ không có buổi giải thích, xin lưu ý.\nĐiện thoại: 022-123-4567　Email: volunteer@sakura-kokusai.jp (Thứ Hai〜Thứ Sáu　9:00〜17:00)",
+      "sentences": [
+        {
+          "jp": "さくら市国際交流センター　病院で困っている外国人を助けるボランティア募集",
+          "vi": "Trung tâm Giao lưu Quốc tế thành phố Sakura — Tuyển tình nguyện viên giúp người nước ngoài đang gặp khó khăn ở bệnh viện",
+          "vocab": [
+            {
+              "w": "さくら市国際交流センター",
+              "read": "さくらしこくさいこうりゅうセンター",
+              "vi": "Trung tâm giao lưu quốc tế thành phố Sakura"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "国際交流",
+              "read": "こくさいこうりゅう",
+              "vi": "giao lưu quốc tế"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            },
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "困っている",
+              "read": "こまっている",
+              "vi": "đang gặp khó khăn"
+            },
+            {
+              "w": "外国",
+              "read": "がいこく",
+              "vi": "nước ngoài"
+            },
+            {
+              "w": "外国人",
+              "read": "がいこくじん",
+              "vi": "người nước ngoài"
+            },
+            {
+              "w": "助ける",
+              "read": "たすける",
+              "vi": "giúp đỡ"
+            },
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "tuyển; chiêu mộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "病院で困っている外国人 = \"người nước ngoài đang gặp khó khăn ở bệnh viện\" — Vている bổ nghĩa cho danh từ 外国人."
+            }
+          ]
+        },
+        {
+          "jp": "病院に来る外国人はことばが分からなくて、困っているんです。日本語と外国語ができる人を探しています。",
+          "vi": "Người nước ngoài đến bệnh viện không hiểu tiếng, thực ra đang gặp khó khăn đấy. Chúng tôi đang tìm người biết cả tiếng Nhật và tiếng nước ngoài.",
+          "vocab": [
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "外国",
+              "read": "がいこく",
+              "vi": "nước ngoài, ngoại quốc"
+            },
+            {
+              "w": "ことば",
+              "read": "ことば",
+              "vi": "ngôn ngữ, tiếng"
+            },
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "困る",
+              "read": "こまる",
+              "vi": "khó chịu, khốn khổ"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "探します",
+              "read": "さがします",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "外国語",
+              "read": "がいこくご",
+              "vi": "ngoại ngữ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "困っているんです = \"thực ra đang gặp khó khăn đấy\". んです giải thích lý do trung tâm tuyển tình nguyện viên."
+            },
+            {
+              "point": "〜くて（Bài 16）",
+              "vi": "分からなくて = không hiểu VÀ (nối để dẫn đến 困っている)."
+            },
+            {
+              "point": "Vています（Bài 14）",
+              "vi": "探しています = đang tìm kiếm (hành động đang diễn ra)."
+            }
+          ]
+        },
+        {
+          "jp": "「病院で働いた経験がないんです」という人も、心配しなくてもいいです。だれでも参加できます。",
+          "vi": "Kể cả người nghĩ \"Thực ra tôi chưa từng làm việc ở bệnh viện\" cũng không cần lo lắng. Ai cũng có thể tham gia.",
+          "vocab": [
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "働く",
+              "read": "はたらく",
+              "vi": "làm việc"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "心配します",
+              "read": "しんぱいします",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "経験がないんです = \"thực ra tôi không có kinh nghiệm\" — lời tự nhủ của người đang phân vân, đặt trong 「」như câu trích dẫn."
+            },
+            {
+              "point": "Vなくてもいいです（Bài 17）",
+              "vi": "心配しなくてもいいです = không cần lo lắng cũng được."
+            },
+            {
+              "point": "Vることができます（Bài 18）",
+              "vi": "参加できます = có thể tham gia (dạng rút gọn của 参加することができます)."
+            }
+          ]
+        },
+        {
+          "jp": "まず、説明会に来てください。説明会でボランティアの仕事についてよく説明しますから、安心です。",
+          "vi": "Trước tiên, hãy đến buổi giải thích. Tại buổi đó chúng tôi sẽ giải thích kỹ về công việc tình nguyện viên, nên rất yên tâm.",
+          "vocab": [
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên"
+            },
+            {
+              "w": "説明会",
+              "read": "せつめいかい",
+              "vi": "buổi giải thích, buổi họp giới thiệu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "来てください = hãy đến."
+            },
+            {
+              "point": "Nについて（Bài 21）",
+              "vi": "ボランティアの仕事について = về công việc tình nguyện viên."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "説明しますから = vì (chúng tôi) sẽ giải thích, nên..."
+            }
+          ]
+        },
+        {
+          "jp": "説明会｜日にち｜時間｜場所",
+          "vi": "Buổi giải thích | Ngày | Giờ | Địa điểm",
+          "vocab": [
+            {
+              "w": "説明会",
+              "read": "せつめいかい",
+              "vi": "buổi giới thiệu"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "日にち",
+              "read": "ひにち",
+              "vi": "ngày tháng"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng header bảng",
+              "vi": "Đây là hàng tiêu đề của bảng: Tên buổi | Ngày | Giờ | Địa điểm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "説明会",
+              "why": "Tên bảng — cột trái để tra \"Aコース/Bコース\" khi ghép điều kiện ngày+giờ ở câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "Aコース｜11月14日（土）｜10:00〜11:30｜センター２階　会議室",
+          "vi": "Khóa A | Ngày 14 tháng 11 (Thứ Bảy) | 10:00〜11:30 | Tầng 2 trung tâm, phòng họp",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa; chương trình"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "14日",
+              "read": "じゅうよっか",
+              "vi": "ngày 14"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ bảy"
+            },
+            {
+              "w": "10:00",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "11:30",
+              "read": "じゅういちじはん",
+              "vi": "11 giờ 30"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "２階",
+              "read": "にかい",
+              "vi": "tầng 2"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞（Bài 11）",
+              "vi": "２階 = tầng 2, dùng đơn vị đếm 階 đã học ở Bài 11."
+            }
+          ],
+          "keys": [
+            {
+              "w": "11月14日（土）",
+              "why": "Aコース rơi vào thứ Bảy — bị loại ở câu hỏi 1 vì Miller chỉ rảnh ngày thường (平日)."
+            }
+          ]
+        },
+        {
+          "jp": "Bコース｜11月20日（金）｜19:00〜20:30｜センター１階　ロビー",
+          "vi": "Khóa B | Ngày 20 tháng 11 (Thứ Sáu) | 19:00〜20:30 | Tầng 1 trung tâm, sảnh",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "khóa; chương trình"
+            },
+            {
+              "w": "11月",
+              "read": "じゅういちがつ",
+              "vi": "tháng 11"
+            },
+            {
+              "w": "20日",
+              "read": "はつか",
+              "vi": "ngày 20"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ sáu"
+            },
+            {
+              "w": "19:00",
+              "read": "じゅうきゅうじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "20:30",
+              "read": "にじゅうじはん",
+              "vi": "20 giờ 30"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "１階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "ロビー",
+              "read": "ロビー",
+              "vi": "sảnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng",
+              "vi": "Khóa B tổ chức tối Thứ Sáu (19:00〜20:30), khác hẳn giờ ban ngày của Khóa A."
+            }
+          ],
+          "keys": [
+            {
+              "w": "11月20日（金）｜19:00〜20:30",
+              "why": "Bコース là ngày thường (金＝thứ Sáu) buổi tối 19:00 — khớp đúng cả 2 điều kiện 平日+夜 của Miller ở câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "土曜日だけ都合がいい人はAコースへ、平日の夜のほうが都合がいい人はBコースへ来てください。",
+          "vi": "Người chỉ tiện vào thứ Bảy hãy đến Khóa A, người tiện buổi tối ngày thường hơn hãy đến Khóa B.",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "都合がいい",
+              "read": "つごうがいい",
+              "vi": "tiện, thuận tiện (về thời gian)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (không phải cuối tuần)"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "土曜日だけ = chỉ (có) thứ Bảy."
+            },
+            {
+              "point": "NのほうがA（Bài 12）",
+              "vi": "平日の夜のほうが都合がいい = buổi tối ngày thường thì tiện hơn — mẫu so sánh のほうが đã học ở Bài 12."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "来てください = hãy đến (nhắc lại yêu cầu lịch sự)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日の夜のほうが都合がいい人はBコースへ",
+              "why": "Câu chốt quy tắc chọn khóa — căn cứ trực tiếp trả lời câu hỏi 1 (Miller 平日の夜 → Bコース)."
+            }
+          ]
+        },
+        {
+          "jp": "ボランティアの曜日｜火｜木｜土",
+          "vi": "Ngày làm tình nguyện | Thứ Ba | Thứ Năm | Thứ Bảy",
+          "vocab": [
+            {
+              "w": "ボランティア",
+              "read": "ボランティア",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng header bảng",
+              "vi": "Đây là hàng tiêu đề của bảng thứ hai: liệt kê 3 ngày trong tuần có thể làm tình nguyện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "火｜木｜土",
+              "why": "Header cột ngày của bảng 2 — phải khớp cột với hàng công việc bên dưới để trả lời câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "病院の仕事｜受付の手伝い｜説明の通訳｜薬局の案内",
+          "vi": "Công việc ở bệnh viện | Giúp lễ tân | Thông dịch giải thích | Hướng dẫn ở quầy thuốc",
+          "vocab": [
+            {
+              "w": "病院",
+              "read": "びょういん",
+              "vi": "bệnh viện"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp tân"
+            },
+            {
+              "w": "手伝い",
+              "read": "てつだい",
+              "vi": "sự giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "通訳",
+              "read": "つうやく",
+              "vi": "phiên dịch, thông dịch"
+            },
+            {
+              "w": "薬局",
+              "read": "やっきょく",
+              "vi": "nhà thuốc, quầy thuốc"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng（map theo cột）",
+              "vi": "Ứng với cột phía trên: Thứ Ba = giúp lễ tân, Thứ Năm = thông dịch giải thích, Thứ Bảy = hướng dẫn ở quầy thuốc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "受付の手伝い｜説明の通訳",
+              "why": "Hai việc Watt muốn làm — ứng với 火 (受付の手伝い) và 木 (説明の通訳); cần loại 火 vì Watt bận thứ Ba → còn lại 木 ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "※説明会に来るまえに、電話かEメールで申し込んでください。",
+          "vi": "Trước khi đến buổi giải thích, hãy đăng ký qua điện thoại hoặc Email.",
+          "vocab": [
+            {
+              "w": "説明会",
+              "read": "せつめいかい",
+              "vi": "buổi giới thiệu"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến"
+            },
+            {
+              "w": "まえ",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "Eメール",
+              "read": "イーメール",
+              "vi": "email"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email"
+            },
+            {
+              "w": "申し込んで",
+              "read": "もうしこんで",
+              "vi": "đăng ký"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるまえに（Bài 18）",
+              "vi": "来るまえに = trước khi đến."
+            },
+            {
+              "point": "NかN（Bài 6）",
+              "vi": "電話かEメール = điện thoại hoặc Email (chọn 1 trong 2)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※説明会に来るまえに、電話かEメールで申し込んでください",
+              "why": "Bẫy ※: phải đăng ký trước bằng điện thoại/Email, không thể đến thẳng buổi giải thích."
+            }
+          ]
+        },
+        {
+          "jp": "※国際交流センターが休みの日（日曜日と祝日）は説明会がありませんから、気をつけてください。",
+          "vi": "Những ngày trung tâm nghỉ (Chủ nhật và ngày lễ) sẽ không có buổi giải thích, xin lưu ý.",
+          "vocab": [
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "ngày nghỉ"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ, ngày quốc lễ"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "ありませんから = vì không có, nên (hãy chú ý)."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "気をつけてください = xin hãy chú ý."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日曜日と祝日）は説明会がありません",
+              "why": "Bẫy ※: Chủ nhật/ngày lễ không có buổi giải thích — loại trừ 2 ngày này nếu đề bài hỏi lịch."
+            }
+          ]
+        },
+        {
+          "jp": "電話：022-123-4567　Eメール：volunteer@sakura-kokusai.jp（月〜金　9:00〜17:00）",
+          "vi": "Điện thoại: 022-123-4567　Email: volunteer@sakura-kokusai.jp (Thứ Hai〜Thứ Sáu　9:00〜17:00)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, tin nhắn"
+            },
+            {
+              "w": "volunteer",
+              "read": "volunteer",
+              "vi": "tình nguyện viên"
+            },
+            {
+              "w": "sakura",
+              "read": "sakura",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "kokusai",
+              "read": "kokusai",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "jp",
+              "read": "jp",
+              "vi": "tên miền Nhật Bản"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thông tin liên hệ",
+              "vi": "Dòng cuối ghi số điện thoại, Email và khung giờ có thể liên hệ (Thứ Hai đến Thứ Sáu, 9:00〜17:00)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "困っているんです",
+          "label": "〜んです（giải thích lý do tuyển người）"
+        },
+        {
+          "excerpt": "経験がないんです",
+          "label": "〜んです（lời tự nhủ trong 「」）"
+        },
+        {
+          "excerpt": "のほうが都合がいい",
+          "label": "NのほうがA（so sánh, ôn Bài 12）"
+        },
+        {
+          "excerpt": "なくてもいいです",
+          "label": "Vなくてもいいです（ôn Bài 17）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 3,
+          "kind": "intro",
+          "label": "Giới thiệu & lời mời",
+          "topic": 0,
+          "note": "Tiêu đề thông báo tuyển tình nguyện viên + lý do tuyển (んです) + trấn an người chưa có kinh nghiệm + hướng dẫn đến buổi giải thích trước. Không chứa căn cứ đáp án trực tiếp.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng lịch giải thích & quy tắc chọn khóa",
+          "topic": 7,
+          "note": "Bảng 2 khóa A/B (ngày, giờ, địa điểm) + câu quy tắc chọn theo điều kiện thứ/buổi — căn cứ chính cho câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "point",
+          "label": "Bảng lịch tình nguyện theo thứ & việc",
+          "topic": 9,
+          "note": "Bảng ánh xạ thứ (火木土) sang công việc cụ thể — căn cứ chính cho câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 12,
+          "kind": "turn",
+          "label": "Điều kiện ※ & liên hệ",
+          "topic": 10,
+          "note": "Hai dòng ※ nêu điều kiện bắt buộc (đăng ký trước, nghỉ Chủ nhật/lễ) và thông tin liên hệ — không trực tiếp trả lời 2 câu hỏi nhưng có thể gây nhiễu nếu bỏ qua.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは平日の夜だけ都合がいいです。ミラーさんはどちらの説明会に行きますか。",
+          "options": [
+            "Aコース（11月14日、10:00〜11:30）",
+            "Bコース（11月20日、19:00〜20:30）",
+            "AコースとBコースの両方",
+            "どちらの説明会にも行きません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng cho thấy Aコースは11月14日（土）の朝10:00〜 — thứ Bảy buổi sáng; còn Bコースは11月20日（金）の19:00〜 — ngày thường (平日) buổi tối. Câu「平日の夜のほうが都合がいい人はBコースへ来てください」khớp đúng điều kiện của Miller (平日の夜だけ都合がいい). Đáp án 0 sai vì Aコース là thứ Bảy, không phải ngày thường. Đáp án 2 sai vì thông báo không nói có thể đi cả hai. Đáp án 3 sai vì Miller có thể đi Bコース, không phải \"không đi cả hai\".",
+          "tip": "Ghép 2 điều kiện: (1) 平日 (ngày thường) loại 土曜日 của Aコース; (2) 夜 (buổi tối) khớp giờ 19:00 của Bコース. Dò đúng câu hướng dẫn ngay dưới bảng để chọn.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Miller chỉ thuận tiện vào các buổi tối ngày thường. Miller sẽ tham dự buổi giải thích nào?",
+            "o": [
+              "Khóa A (ngày 14 tháng 11, 10:00–11:30)",
+              "Khóa B (ngày 20 tháng 11, 19:00–20:30)",
+              "Cả khóa A và khóa B",
+              "Không tham dự buổi giải thích nào"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは受付の手伝いか説明の通訳をしたいですが、火曜日は仕事があります。ワットさんは何曜日にボランティアをしますか。",
+          "options": [
+            "火曜日",
+            "木曜日",
+            "土曜日",
+            "火曜日と木曜日"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng thứ hai cho thấy: 火＝受付の手伝い、木＝説明の通訳、土＝薬局の案内。Watt muốn làm 1 trong 2 việc「受付の手伝い」(火曜日) hoặc「説明の通訳」(木曜日), nhưng 火曜日 lại bận (仕事があります) nên loại 火曜日 → chỉ còn 木曜日 (説明の通訳) phù hợp cả 2 điều kiện. Đáp án 0 sai vì Watt bận đúng ngày đó. Đáp án 2 sai vì 土曜日 là 薬局の案内 — không nằm trong 2 việc Watt muốn làm. Đáp án 3 sai vì hôm 火曜日 Watt không thể tham gia.",
+          "tip": "Ghép 2 điều kiện: (1) muốn LÀM 1 trong 2 việc (受付の手伝い hoặc 説明の通訳) → dò hàng \"病院の仕事\" ra 2 ngày ứng viên (火・木); (2) NGÀY NÀO BẬN (火) → loại ngày đó trong 2 ứng viên. Chỉ còn 1 ngày vừa khớp việc vừa rảnh.",
+          "evi": [
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Wat sẽ làm công việc hỗ trợ tiếp đón hoặc phiên dịch phần giải thích, nhưng thứ Ba có việc. Wat sẽ làm tình nguyện vào thứ mấy?",
+            "o": [
+              "Thứ Ba",
+              "Thứ Năm",
+              "Thứ Bảy",
+              "Thứ Ba và thứ Năm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "クリニックの案内を読む",
+      "titleVi": "Đọc thông báo: Lịch khám của phòng khám Sakura",
+      "japanese": "さくらクリニック　診療案内\n「頭が痛いんです」「歯が痛いんです」という方へ。さくらクリニックは夜も開いているんです。\n仕事で忙しい人も、都合がいい時間に来てください。予約はいりません。\n科｜月｜火｜水｜木｜金｜土\n内科｜午前｜午前｜午前・午後｜午前｜午前・午後｜午前\n歯科｜午後｜午後｜｜午後｜午後・夜｜\n眼科｜｜午前｜午後｜｜午前｜午後\n午前は9:00〜12:00、午後は14:00〜17:00、夜は18:00〜20:00なんです。\n※歯科の夜の受付は金曜日だけなんです。夜遅く行っても、ほかの日は診てもらえません。\n※日曜日と祝日は休みですから、気をつけてください。\n※お金は受付で払ってください。現金だけじゃなくて、カードでも大丈夫なんです。\n電話：03-2222-6688　場所：さくら駅から歩いて3分",
+      "vietnamese": "Phòng khám Sakura — Thông báo lịch khám\nDành cho những vị \"đầu tôi đau\" hoặc \"răng tôi đau\". Phòng khám Sakura thực ra có mở cả buổi tối đấy.\nNgười bận công việc cũng hãy đến vào giờ thuận tiện. Không cần đặt hẹn trước.\nKhoa | Thứ Hai | Thứ Ba | Thứ Tư | Thứ Năm | Thứ Sáu | Thứ Bảy\nNội khoa | Sáng | Sáng | Sáng・Chiều | Sáng | Sáng・Chiều | Sáng\nNha khoa | Chiều | Chiều | | Chiều | Chiều・Tối | \nNhãn khoa | | Sáng | Chiều | | Sáng | Chiều\nBuổi sáng là 9:00〜12:00, buổi chiều là 14:00〜17:00, thực ra buổi tối là 18:00〜20:00 đấy.\n※Việc tiếp nhận buổi tối của nha khoa thực ra chỉ có vào thứ Sáu thôi. Dù có đến muộn vào tối các ngày khác cũng không được khám.\n※Chủ nhật và ngày lễ phòng khám nghỉ, xin lưu ý.\n※Xin hãy thanh toán tại quầy tiếp tân. Không chỉ tiền mặt, thực ra dùng thẻ cũng được đấy.\nĐiện thoại: 03-2222-6688　Địa điểm: đi bộ 3 phút từ ga Sakura",
+      "sentences": [
+        {
+          "jp": "さくらクリニック　診療案内",
+          "vi": "Phòng khám Sakura — Thông báo lịch khám",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "クリニック",
+              "read": "クリニック",
+              "vi": "phòng khám (clinic)"
+            },
+            {
+              "w": "診療",
+              "read": "しんりょう",
+              "vi": "khám chữa bệnh"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "thông báo, hướng dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng đầu ghi tên phòng khám và loại thông báo (lịch khám)."
+            }
+          ]
+        },
+        {
+          "jp": "「頭が痛いんです」「歯が痛いんです」という方へ。さくらクリニックは夜も開いているんです。",
+          "vi": "Dành cho những vị \"đầu tôi đau\" hoặc \"răng tôi đau\". Phòng khám Sakura thực ra có mở cả buổi tối đấy.",
+          "vocab": [
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "痛い",
+              "read": "いたい",
+              "vi": "đau"
+            },
+            {
+              "w": "歯",
+              "read": "は",
+              "vi": "răng"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "クリニック",
+              "read": "クリニック",
+              "vi": "phòng khám (clinic)"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "開きます",
+              "read": "あきます",
+              "vi": "mở cửa"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "vị, người (cách nói lịch sự)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです",
+              "vi": "頭が痛いんです／歯が痛いんです = câu tự nhủ của người bệnh, đặt trong「」làm tiêu đề nhóm đối tượng đọc thông báo."
+            },
+            {
+              "point": "〜んです（giới thiệu điểm đặc biệt）",
+              "vi": "夜も開いているんです = \"thực ra cũng mở cả buổi tối đấy\" — んです nhấn mạnh thông tin đặc biệt, không phải điều đương nhiên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜も開いているんです",
+              "why": "Xác nhận sớm phòng khám có khám buổi TỐI — tiền đề để câu hỏi 1 (Santos chỉ rảnh tối) không bị loại ngay từ đầu."
+            }
+          ]
+        },
+        {
+          "jp": "仕事で忙しい人も、都合がいい時間に来てください。予約はいりません。",
+          "vi": "Người bận công việc cũng hãy đến vào giờ thuận tiện. Không cần đặt hẹn trước.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "都合がいい",
+              "read": "つごうがいい",
+              "vi": "tiện, thuận tiện"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "はいる",
+              "read": "はいる",
+              "vi": "vào, đi vào, cần có"
+            },
+            {
+              "w": "いります",
+              "read": "いります",
+              "vi": "cần, cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "来てください = hãy đến."
+            },
+            {
+              "point": "〜も（Bài 1）",
+              "vi": "忙しい人も = người bận rộn cũng (vẫn có thể đến)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "予約はいりません",
+              "why": "Loại trừ bẫy \"phải đặt hẹn trước\" nếu đề bài đưa phương án có 予約 — thông báo xác nhận KHÔNG cần."
+            }
+          ]
+        },
+        {
+          "jp": "科｜月｜火｜水｜木｜金｜土",
+          "vi": "Khoa | Thứ Hai | Thứ Ba | Thứ Tư | Thứ Năm | Thứ Sáu | Thứ Bảy",
+          "vocab": [
+            {
+              "w": "科",
+              "read": "か",
+              "vi": "khoa (khám bệnh)"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "火",
+              "read": "ひ",
+              "vi": "lửa"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây, gỗ"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng header bảng",
+              "vi": "Hàng tiêu đề: cột đầu là tên khoa, các cột sau là 6 ngày trong tuần (trừ Chủ nhật)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月｜火｜水｜木｜金｜土",
+              "why": "Header cột thứ trong tuần — cần khớp cột đúng thứ khi dò 2 câu hỏi (thứ Sáu của Santos, thứ Bảy của Karina)."
+            }
+          ]
+        },
+        {
+          "jp": "内科｜午前｜午前｜午前・午後｜午前｜午前・午後｜午前",
+          "vi": "Nội khoa | Sáng | Sáng | Sáng・Chiều | Sáng | Sáng・Chiều | Sáng",
+          "vocab": [
+            {
+              "w": "内科",
+              "read": "ないか",
+              "vi": "nội khoa"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng",
+              "vi": "内科 khám sáng hầu hết các ngày, riêng thứ Tư và thứ Sáu khám cả sáng lẫn chiều."
+            }
+          ],
+          "keys": [
+            {
+              "w": "内科｜午前｜午前｜午前・午後｜午前｜午前・午後｜午前",
+              "why": "Hàng nhiễu: 内科 không có buổi tối ở bất kỳ ngày nào — loại ngay nếu đề bài hỏi khoa khám tối (câu hỏi 1 chỉ 歯科 mới có 夜)."
+            }
+          ]
+        },
+        {
+          "jp": "歯科｜午後｜午後｜｜午後｜午後・夜｜",
+          "vi": "Nha khoa | Chiều | Chiều | | Chiều | Chiều・Tối | ",
+          "vocab": [
+            {
+              "w": "歯科",
+              "read": "しか",
+              "vi": "nha khoa"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng（ô trống）",
+              "vi": "歯科 nghỉ thứ Tư và thứ Bảy (ô trống); chỉ thứ Sáu mới khám thêm buổi tối."
+            }
+          ],
+          "keys": [
+            {
+              "w": "歯科｜午後｜午後｜｜午後｜午後・夜｜",
+              "why": "Hàng 歯科: chỉ ô thứ Sáu (cột 5) có 夜 — căn cứ chính trả lời câu hỏi 1 (Santos đau răng, chỉ rảnh tối ngày thường)."
+            }
+          ]
+        },
+        {
+          "jp": "眼科｜｜午前｜午後｜｜午前｜午後",
+          "vi": "Nhãn khoa | | Sáng | Chiều | | Sáng | Chiều",
+          "vocab": [
+            {
+              "w": "眼科",
+              "read": "がんか",
+              "vi": "nhãn khoa (khoa mắt)"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng（ô trống）",
+              "vi": "眼科 nghỉ thứ Hai và thứ Năm; các ngày còn lại xen kẽ sáng/chiều."
+            }
+          ],
+          "keys": [
+            {
+              "w": "眼科｜｜午前｜午後｜｜午前｜午後",
+              "why": "Hàng 眼科: ô thứ Bảy (cột cuối) = 午後 — căn cứ chính trả lời câu hỏi 2 (Karina đau mắt, chỉ rảnh chiều thứ Bảy)."
+            }
+          ]
+        },
+        {
+          "jp": "午前は9:00〜12:00、午後は14:00〜17:00、夜は18:00〜20:00なんです。",
+          "vi": "Buổi sáng là 9:00〜12:00, buổi chiều là 14:00〜17:00, thực ra buổi tối là 18:00〜20:00 đấy.",
+          "vocab": [
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12 giờ)"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "時",
+              "read": "じ",
+              "vi": "giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nなんです",
+              "vi": "18:00〜20:00なんです = \"thực ra là 18:00〜20:00 đấy\" — danh từ (giờ giấc) + なんです để giải thích thông tin cụ thể ở bảng trên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜は18:00〜20:00なんです",
+              "why": "Số liệu khung giờ TỐI cụ thể — cần để xác nhận \"tối\" trong câu hỏi 1 là khung 18:00〜20:00, không phải giờ khác."
+            }
+          ]
+        },
+        {
+          "jp": "※歯科の夜の受付は金曜日だけなんです。夜遅く行っても、ほかの日は診てもらえません。",
+          "vi": "※Việc tiếp nhận buổi tối của nha khoa thực ra chỉ có vào thứ Sáu thôi. Dù có đến muộn vào tối các ngày khác cũng không được khám.",
+          "vocab": [
+            {
+              "w": "歯科",
+              "read": "しか",
+              "vi": "nha khoa"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "sự tiếp nhận, quầy tiếp tân"
+            },
+            {
+              "w": "金曜日",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "遅く",
+              "read": "おそく",
+              "vi": "muộn"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "診てもらいます",
+              "read": "みてもらいます",
+              "vi": "được khám (nhờ bác sĩ khám cho)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nなんです",
+              "vi": "金曜日だけなんです = \"thực ra chỉ có thứ Sáu thôi\" — nhấn mạnh thông tin ngoại lệ mà bảng dễ bị đọc nhầm."
+            },
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "金曜日だけ = chỉ (có) thứ Sáu thôi."
+            },
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "行っても = dù có đi (đến muộn) cũng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "歯科の夜の受付は金曜日だけなんです",
+              "why": "Bẫy ※ trọng yếu cho câu hỏi 1: xác nhận lại bằng chữ rằng 歯科 buổi tối CHỈ có thứ Sáu, loại các ngày khác dù bảng dễ đọc nhầm."
+            }
+          ]
+        },
+        {
+          "jp": "※日曜日と祝日は休みですから、気をつけてください。",
+          "vi": "※Chủ nhật và ngày lễ phòng khám nghỉ, xin lưu ý.",
+          "vocab": [
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ, ngày quốc lễ"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "気をつけます",
+              "read": "きをつけます",
+              "vi": "chú ý, cẩn thận"
+            },
+            {
+              "w": "つける",
+              "read": "つける",
+              "vi": "trau dồi, gắn vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "休みですから = vì (là ngày) nghỉ, nên..."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "気をつけてください = xin hãy chú ý."
+            }
+          ],
+          "keys": [
+            {
+              "w": "日曜日と祝日は休みですから",
+              "why": "Bẫy loại trừ: nếu đề bài đưa phương án Chủ nhật/ngày lễ thì luôn sai vì phòng khám nghỉ hẳn hai ngày này."
+            }
+          ]
+        },
+        {
+          "jp": "※お金は受付で払ってください。現金だけじゃなくて、カードでも大丈夫なんです。",
+          "vi": "※Xin hãy thanh toán tại quầy tiếp tân. Không chỉ tiền mặt, thực ra dùng thẻ cũng được đấy.",
+          "vocab": [
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "払います",
+              "read": "はらいます",
+              "vi": "thanh toán, trả tiền"
+            },
+            {
+              "w": "現金",
+              "read": "げんきん",
+              "vi": "tiền mặt"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "ổn, không sao"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "払ってください = xin hãy thanh toán."
+            },
+            {
+              "point": "Nなんです",
+              "vi": "大丈夫なんです = \"thực ra cũng được đấy\" — giải thích thêm điểm đặc biệt (có thể trả bằng thẻ) mà bệnh nhân có thể chưa biết."
+            }
+          ]
+        },
+        {
+          "jp": "電話：03-2222-6688　場所：さくら駅から歩いて3分",
+          "vi": "Điện thoại: 03-2222-6688　Địa điểm: đi bộ 3 phút từ ga Sakura",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            },
+            {
+              "w": "さくら駅",
+              "read": "さくらえき",
+              "vi": "ga Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "歩いて",
+              "read": "あるいて",
+              "vi": "đi bộ"
+            },
+            {
+              "w": "3分",
+              "read": "さんぷん",
+              "vi": "3 phút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（Bài 16）",
+              "vi": "歩いて3分 = đi bộ 3 phút — て形 nối cách thức với khoảng thời gian."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "夜も開いているんです",
+          "label": "〜んです（giới thiệu điểm đặc biệt）"
+        },
+        {
+          "excerpt": "18:00〜20:00なんです",
+          "label": "Nなんです（giải thích giờ giấc）"
+        },
+        {
+          "excerpt": "金曜日だけなんです",
+          "label": "Nなんです（nhấn mạnh ngoại lệ）"
+        },
+        {
+          "excerpt": "都合がいい時間に来てください",
+          "label": "Vてください（ôn Bài 14）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Giới thiệu phòng khám",
+          "topic": 1,
+          "note": "Tiêu đề + lời mời chung (mở cả buổi tối, không cần đặt hẹn) — chưa vào chi tiết bảng khám, không chứa căn cứ đáp án.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng khoa × thứ trong tuần",
+          "topic": 3,
+          "note": "Bảng 3 khoa (内科・歯科・眼科) theo 6 ngày, ô trống = nghỉ — căn cứ chính cho cả 2 câu hỏi (dò đúng hàng khoa rồi đúng cột thứ).",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "body",
+          "label": "Khung giờ sáng/chiều/tối",
+          "topic": 7,
+          "note": "Giải thích cụ thể khung giờ 午前/午後/夜 tương ứng với ký hiệu trong bảng — cần đọc để hiểu bảng nhưng không tự nó là căn cứ chọn ngày.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 8,
+          "kind": "turn",
+          "label": "Bẫy ※ nha khoa chỉ tối thứ Sáu",
+          "topic": 8,
+          "note": "Bẫy ※ trọng yếu: khẳng định lại 歯科 chỉ khám tối vào thứ Sáu, các tối khác dù đến cũng không được khám — căn cứ trực tiếp câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "body",
+          "label": "Ngày nghỉ, thanh toán, liên hệ",
+          "topic": 9,
+          "note": "Thông tin phụ (nghỉ Chủ nhật/lễ, cách thanh toán, điện thoại/địa chỉ) — không liên quan trực tiếp 2 câu hỏi hiện tại.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは歯が痛いんです。サントスさんは平日の夜だけ都合がいいです。サントスさんはいつクリニックへ行ったらいいですか。",
+          "options": [
+            "月曜日の夜",
+            "水曜日の夜",
+            "金曜日の夜",
+            "土曜日の夜"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bảng cho thấy 歯科 chỉ có 夜 vào 金曜日 (「歯科の夜の受付は金曜日だけなんです」). Santos đau răng (歯が痛い) và chỉ rảnh tối ngày thường (平日の夜) → chỉ có tối thứ Sáu khớp cả 2 điều kiện: đúng khoa VÀ đúng buổi. Đáp án 0 và 1 sai vì 歯科 không khám buổi tối vào thứ Hai/thứ Tư (ô trống trong bảng). Đáp án 3 sai vì thứ Bảy không phải \"平日\" (ngày thường) — không khớp điều kiện của Santos, hơn nữa 歯科 cũng nghỉ hẳn thứ Bảy.",
+          "tip": "Ghép 2 điều kiện: (1) khoa nào (歯科) → dò đúng hàng; (2) buổi nào (夜) → chỉ có 1 ô 夜 trong cả hàng đó, đối chiếu luôn với dòng ※ để không bị nhầm ngày khác.",
+          "evi": [
+            3,
+            5,
+            8
+          ],
+          "qt": {
+            "q": "Anh Santos bị đau răng. Anh ấy chỉ tiện đi vào buổi tối các ngày trong tuần. Anh Santos nên đến phòng khám khi nào?",
+            "o": [
+              "Tối thứ Hai",
+              "Tối thứ Tư",
+              "Tối thứ Sáu",
+              "Tối thứ Bảy"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは目が痛いんです。カリナさんは土曜日の午後だけ都合がいいです。カリナさんは何科へ行きますか。",
+          "options": [
+            "内科",
+            "歯科",
+            "眼科",
+            "どの科も行けません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Karina đau mắt (目が痛い) → cần khoa 眼科 (nhãn khoa). Bảng cho thấy 眼科 vào 土 khám 午後 (chiều) — đúng khớp với điều kiện \"土曜日の午後だけ都合がいい\" của Karina. Đáp án 0 sai vì 内科 là khoa cho triệu chứng khác (không phải mắt). Đáp án 1 sai vì 歯科 là nha khoa, không liên quan đến mắt, hơn nữa 歯科 cũng nghỉ hẳn thứ Bảy. Đáp án 3 sai vì thực ra 眼科 có khám đúng khung giờ Karina cần.",
+          "tip": "Trước tiên xác định khoa theo TRIỆU CHỨNG (mắt → 眼科), sau đó mới dò ngày+buổi trong đúng hàng đó — bẫy thường là chọn nhầm khoa gần giống (歯科/内科) dù ngày giờ đúng.",
+          "evi": [
+            3,
+            6
+          ],
+          "qt": {
+            "q": "Chị Karina bị đau mắt. Chị ấy chỉ tiện đi vào chiều thứ Bảy. Chị Karina sẽ đến khoa nào?",
+            "o": [
+              "Khoa nội",
+              "Khoa nha",
+              "Khoa mắt",
+              "Không thể đến khoa nào cả"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

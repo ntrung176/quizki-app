@@ -1,0 +1,504 @@
+{
+  "id": "minna2.b43",
+  "bai": 43,
+  "titleVi": "Mặc dù, dù thế mà",
+  "know": [
+    {
+      "id": "minna2.b43.noni-complaint",
+      "point": "noni-complaint",
+      "jp": "〜のに",
+      "vi": "Mặc dù ~ (bất như ý, bực bội)",
+      "en": "Although ~ (for an undesirable or frustrating situation)",
+      "gloss": "一生懸命[いっしょうけんめい]勉強[べんきょう]したのに、試験[しけん]に落[お]ちた。",
+      "glossEn": "一生懸命[いっしょうけんめい]勉強[べんきょう]したのに、試験[しけん]に落[お]ちた。 — Even though I studied hard, I failed the exam."
+    },
+    {
+      "id": "minna2.b43.noni-nadj",
+      "point": "noni-nadj",
+      "jp": "〜なのに",
+      "vi": "Mặc dù ~ (với な形容詞 / danh từ)",
+      "en": "Although ~ (used with な形容詞 / nouns)",
+      "gloss": "元気[げんき]なのに、学校[がっこう]を休[やす]んだ。",
+      "glossEn": "元気[げんき]なのに、学校[がっこう]を休[やす]んだ。 — Even though I was feeling well, I took the day off from school."
+    },
+    {
+      "id": "minna2.b43.kuseni",
+      "point": "kuseni",
+      "jp": "〜くせに",
+      "vi": "Mà lại ~, dù rõ ràng ~ nhưng lại ~ (chỉ trích)",
+      "en": "Strong reproach — same subject; informal and disparaging",
+      "gloss": "知[し]っているくせに、教[おし]えてくれなかった。",
+      "glossEn": "普通形[ふつうけい]＋くせに（な形容詞[けいようし]・名詞[めいし]→〜なくせに） ・ 例: 知[し]っているくせに、知[し]らないふりをしている。（They clearly know, yet they pretend not to — how shameful）"
+    },
+    {
+      "id": "minna2.b43.noni-purpose",
+      "point": "noni-purpose",
+      "jp": "〜のに (目的[もくてき])",
+      "vi": "Để ~ (cần/đòi hỏi, mục đích dùng cho)",
+      "en": "To ~ (when something is needed or required; used to express purpose)",
+      "gloss": "この仕事[しごと]をするのに、二時間[にじかん]かかります。",
+      "glossEn": "この仕事[しごと]をするのに、二時間[にじかん]かかります。 — It takes two hours to do this job."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b43-nc-benkyou",
+      "item": "minna2.b43.noni-complaint",
+      "err": "noni-vs-kedo",
+      "vi": "Mặc dù tôi đã cố gắng học, nhưng vẫn trượt kỳ thi.",
+      "t1": {
+        "stem": "一生懸命[いっしょうけんめい]勉強[べんきょう]した＿、試験[しけん]に落[お]ちてしまった。",
+        "choices": [
+          "のに",
+          "けど",
+          "から"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "一生懸命[いっしょうけんめい]",
+          "勉強[べんきょう]したのに、",
+          "試験[しけん]に",
+          "落[お]ちてしまった。"
+        ],
+        "traps": [
+          "勉強[べんきょう]したけど、",
+          "から"
+        ]
+      },
+      "t3": {
+        "target": "一生懸命勉強したのに、試験に落ちてしまった。",
+        "accept": [
+          "いっしょうけんめいべんきょうしたのに、しけんにおちてしまった。"
+        ]
+      },
+      "why": "のに = mặc dù (kèm sắc thái bực bội/thất vọng). ✗ けど chỉ nối hai vế trung lập, không diễn đạt sự bất như ý."
+    },
+    {
+      "id": "c-b43-nc-matta",
+      "item": "minna2.b43.noni-complaint",
+      "err": "noni-vs-kedo",
+      "vi": "Mặc dù tôi đã đợi mãi, anh ấy vẫn không đến.",
+      "t1": {
+        "stem": "ずっと待[ま]っていた＿、彼[かれ]は来[こ]なかった。",
+        "choices": [
+          "のに",
+          "から",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ずっと",
+          "待[ま]っていたのに、",
+          "彼[かれ]は",
+          "来[こ]なかった。"
+        ],
+        "traps": [
+          "待[ま]っていたから、",
+          "ために"
+        ]
+      },
+      "t3": {
+        "target": "ずっと待っていたのに、彼は来なかった。",
+        "accept": [
+          "ずっとまっていたのに、かれはこなかった。"
+        ]
+      },
+      "why": "のに bộc lộ sự thất vọng vì kỳ vọng bị phá vỡ. ✗ から nêu lý do khách quan, không có cảm xúc."
+    },
+    {
+      "id": "c-b43-nc-tanonda",
+      "item": "minna2.b43.noni-complaint",
+      "err": "noni-vs-kedo",
+      "vi": "Mặc dù tôi đã nhờ nhưng bạn ấy không giúp.",
+      "t1": {
+        "stem": "お願[ねが]いした＿、友達[ともだち]は手伝[てつだ]ってくれなかった。",
+        "choices": [
+          "のに",
+          "けど",
+          "ので"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "お願[ねが]いしたのに、",
+          "友達[ともだち]は",
+          "手伝[てつだ]って",
+          "くれなかった。"
+        ],
+        "traps": [
+          "お願[ねが]いしたけど、",
+          "ので"
+        ]
+      },
+      "t3": {
+        "target": "お願いしたのに、友達は手伝ってくれなかった。",
+        "accept": [
+          "おねがいしたのに、ともだちはてつだってくれなかった。"
+        ]
+      },
+      "why": "のに diễn đạt sự bực bội khi bị từ chối dù đã nhờ vả. ✗ のでdiễn đạt lý do, không có sắc thái tình cảm."
+    },
+    {
+      "id": "c-b43-nn-genki",
+      "item": "minna2.b43.noni-nadj",
+      "err": "noni-nadj-form",
+      "vi": "Mặc dù khoẻ mạnh, bạn ấy lại xin nghỉ học.",
+      "t1": {
+        "stem": "元気[げんき]＿のに、学校[がっこう]を休[やす]んだ。",
+        "choices": [
+          "な",
+          "で",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "元気[げんき]なのに、",
+          "学校[がっこう]を",
+          "休[やす]んだ。"
+        ],
+        "traps": [
+          "元気[げんき]だのに、",
+          "元気[げんき]のに、"
+        ]
+      },
+      "t3": {
+        "target": "元気なのに、学校を休んだ。",
+        "accept": [
+          "げんきなのに、がっこうをやすんだ。"
+        ]
+      },
+      "why": "な形容詞 + のに → な + のに (元気なのに). ✗ 元気だのに — sai, だ phải bỏ. ✗ 元気のに — thiếu な."
+    },
+    {
+      "id": "c-b43-nn-hima",
+      "item": "minna2.b43.noni-nadj",
+      "err": "noni-nadj-form",
+      "vi": "Mặc dù đang rảnh, anh ấy lại nói là bận.",
+      "t1": {
+        "stem": "暇[ひま]＿のに、忙[いそが]しいと言[い]った。",
+        "choices": [
+          "な",
+          "だ",
+          "で"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "暇[ひま]なのに、",
+          "忙[いそが]しいと",
+          "言[い]った。"
+        ],
+        "traps": [
+          "暇[ひま]だのに、",
+          "暇[ひま]のに、"
+        ]
+      },
+      "t3": {
+        "target": "暇なのに、忙しいと言った。",
+        "accept": [
+          "ひまなのに、いそがしいといった。"
+        ]
+      },
+      "why": "な形容詞/danh từ trước のに: bỏ だ, thêm な. ✗ 暇だのに — sai. ✓ 暇なのに."
+    },
+    {
+      "id": "c-b43-ks-shiran",
+      "item": "minna2.b43.kuseni",
+      "err": "kuseni-vs-noni",
+      "vi": "Rõ ràng biết mà lại giả vờ không biết.",
+      "t1": {
+        "stem": "知[し]っている＿、知[し]らないふりをした。",
+        "choices": [
+          "くせに",
+          "のに",
+          "けど"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "知[し]っているくせに、",
+          "知[し]らない",
+          "ふりをした。"
+        ],
+        "traps": [
+          "知[し]っているのに、",
+          "けど"
+        ]
+      },
+      "t3": {
+        "target": "知っているくせに、知らないふりをした。",
+        "accept": [
+          "しっているくせに、しらないふりをした。"
+        ]
+      },
+      "why": "くせに = chỉ trích mạnh, dùng khi đối tượng làm trái điều hiển nhiên. ✗ のに nhẹ hơn, không mang nghĩa chỉ trích trực tiếp."
+    },
+    {
+      "id": "c-b43-ks-heta",
+      "item": "minna2.b43.kuseni",
+      "err": "kuseni-vs-noni",
+      "vi": "Rõ ràng không giỏi mà lại còn chỉ người khác.",
+      "t1": {
+        "stem": "下手[へた]な＿、人[ひと]に教[おし]えようとする。",
+        "choices": [
+          "くせに",
+          "のに",
+          "ために"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "下手[へた]なくせに、",
+          "人[ひと]に",
+          "教[おし]えようとする。"
+        ],
+        "traps": [
+          "下手[へた]なのに、",
+          "ために"
+        ]
+      },
+      "t3": {
+        "target": "下手なくせに、人に教えようとする。",
+        "accept": [
+          "へたなくせに、ひとにおしえようとする。"
+        ]
+      },
+      "why": "な形容詞 + くせに → な + くせに (下手なくせに). くせに = chỉ trích (dù rõ ràng dở mà còn). ✗ のに không có sắc thái chỉ trích."
+    },
+    {
+      "id": "c-b43-np-jikan",
+      "item": "minna2.b43.noni-purpose",
+      "err": "noni-purpose-form",
+      "vi": "Để làm việc này mất hai tiếng đồng hồ.",
+      "t1": {
+        "stem": "この仕事[しごと]をする＿、二時間[にじかん]かかります。",
+        "choices": [
+          "のに",
+          "ために",
+          "ように"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この仕事[しごと]を",
+          "するのに、",
+          "二時間[にじかん]",
+          "かかります。"
+        ],
+        "traps": [
+          "するために、",
+          "するように、"
+        ]
+      },
+      "t3": {
+        "target": "この仕事をするのに、二時間かかります。",
+        "accept": [
+          "このしごとをするのに、にじかんかかります。"
+        ]
+      },
+      "why": "のに (mục đích) + かかります = cần/tốn (thời gian). ✗ ために không kết hợp tự nhiên với かかります — người Nhật nói するのにかかる, không nói するためにかかる."
+    },
+    {
+      "id": "c-b43-np-okane",
+      "item": "minna2.b43.noni-purpose",
+      "err": "noni-purpose-form",
+      "vi": "Để mua vé máy bay cần nhiều tiền.",
+      "t1": {
+        "stem": "飛行機[ひこうき]のチケットを買[か]う＿、お金[かね]がたくさん要[い]ります。",
+        "choices": [
+          "のに",
+          "ために",
+          "ように"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "飛行機[ひこうき]の",
+          "チケットを",
+          "買[か]うのに、",
+          "お金[かね]が",
+          "たくさん要[い]ります。"
+        ],
+        "traps": [
+          "買[か]うために、",
+          "買[か]うように、"
+        ]
+      },
+      "t3": {
+        "target": "飛行機のチケットを買うのに、お金がたくさん要ります。",
+        "accept": [
+          "ひこうきのちけっとをかうのに、おかねがたくさんいります。"
+        ]
+      },
+      "why": "のに (目的) + 要ります = cần (để làm việc gì). Với 要ります/かかります, のに tự nhiên hơn ために. のに ở đây là mục đích, không có sắc thái bực bội."
+    },
+    {
+      "id": "c-b43-np-tsukau",
+      "item": "minna2.b43.noni-purpose",
+      "err": "noni-purpose-form",
+      "vi": "Chìa khoá này dùng để mở cửa.",
+      "t1": {
+        "stem": "この鍵[かぎ]はドアを開[あ]けるのに＿。",
+        "choices": [
+          "使[つか]います",
+          "行[い]きます",
+          "かかります"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この鍵[かぎ]は",
+          "ドアを開[あ]けるのに",
+          "使[つか]います。"
+        ],
+        "traps": [
+          "するために使[つか]います。",
+          "開[あ]けることに使[つか]います。"
+        ]
+      },
+      "t3": {
+        "target": "この鍵はドアを開けるのに使います。",
+        "accept": [
+          "このかぎはどあをあけるのにつかいます。"
+        ]
+      },
+      "why": "Vる + のに + 使います = dùng để làm ~. のに ở đây là nominalizer (danh từ hóa) + に, chỉ mục đích. ✗ することに使います — sai kết hợp."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b43-sekka",
+      "item": "minna2.b43.noni-complaint",
+      "err": "noni-vs-kedo",
+      "tts": "せっかく りょうりをつくったのに、だれもたべてくれなかった。",
+      "script": "せっかく 料理[りょうり]を作[つく]ったのに、だれも食[た]べてくれなかった。",
+      "ask": "Người nói cảm thấy thế nào?",
+      "choices": [
+        "Bực bội vì đã nấu cơm mà không ai ăn",
+        "Vui vì mọi người khen ngon",
+        "Tiếc vì hết đồ ăn"
+      ],
+      "answer": 0,
+      "why": "のに = bất như ý; せっかく = cố công. Câu diễn đạt sự thất vọng khi nấu xong mà không ai ăn."
+    },
+    {
+      "id": "l-b43-kuseni",
+      "item": "minna2.b43.kuseni",
+      "err": "kuseni-vs-noni",
+      "tts": "あのひとはしっているくせに、おしえてくれないんです。",
+      "script": "あの人[ひと]は知[し]っているくせに、教[おし]えてくれないんです。",
+      "ask": "Người nói phàn nàn điều gì?",
+      "choices": [
+        "Người kia biết nhưng không chịu dạy",
+        "Người kia không biết mà còn dạy sai",
+        "Người kia không có thời gian dạy"
+      ],
+      "answer": 0,
+      "why": "くせに = chỉ trích vì đối tượng làm trái điều hiển nhiên — biết mà vẫn không chịu dạy."
+    },
+    {
+      "id": "l-b43-purpose",
+      "item": "minna2.b43.noni-purpose",
+      "err": "noni-purpose-form",
+      "tts": "にほんごをはなせるようになるのに、なんねんかかりますか。",
+      "script": "日本語[にほんご]を話[はな]せるようになるのに、何年[なんねん]かかりますか。",
+      "ask": "Câu hỏi này muốn hỏi điều gì?",
+      "choices": [
+        "Cần bao nhiêu năm để nói được tiếng Nhật",
+        "Mặc dù học tiếng Nhật mà vẫn không nói được",
+        "Có nên học tiếng Nhật không"
+      ],
+      "answer": 0,
+      "why": "のに + かかりますか = cần bao lâu để ~; のに ở đây là mục đích, không phải nhượng bộ."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b43-temoii-noni",
+      "item": "minna1.b15.temoii",
+      "err": "temoii-form",
+      "ambush": true,
+      "src": 15,
+      "context": "Bài 43 ・ 〜のに — cài lỗi てもいい của Bài 15",
+      "vi": "Mặc dù đã được phép vào, anh ấy vẫn không vào.",
+      "t1": {
+        "stem": "入[はい]っても＿のに、彼[かれ]は入[はい]らなかった。",
+        "choices": [
+          "いい",
+          "よかった",
+          "いいです"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "入[はい]っても",
+          "いいのに、",
+          "彼[かれ]は",
+          "入[はい]らなかった。"
+        ],
+        "traps": [
+          "入[はい]ってもよかったのに、",
+          "入[はい]っていいのに、"
+        ]
+      },
+      "t3": {
+        "target": "入ってもいいのに、彼は入らなかった。",
+        "accept": [
+          "はいってもいいのに、かれははいらなかった。"
+        ]
+      },
+      "why": "てもいい (Bài 15) + のに (Bài 43): dạng đúng là てもいい (không biến thành よかった ở đây). ✗ てもよかったのに = hối tiếc quá khứ, nghĩa khác hoàn toàn."
+    },
+    {
+      "id": "a-b43-to-omou-noni",
+      "item": "minna1.b21.futsuu-to",
+      "err": "to-omou-desu",
+      "ambush": true,
+      "src": 21,
+      "context": "Bài 43 ・ 〜のに — cài lỗi thể thường trước と của Bài 21",
+      "vi": "Mặc dù tôi nghĩ là ngon, nhưng bạn tôi lại không thích.",
+      "t1": {
+        "stem": "おいしい＿と思[おも]っていたのに、友達[ともだち]は気[き]に入[い]らなかった。",
+        "choices": [
+          "（何もつけない）",
+          "です",
+          "な"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "おいしいと",
+          "思[おも]っていたのに、",
+          "友達[ともだち]は",
+          "気[き]に入[い]らなかった。"
+        ],
+        "traps": [
+          "おいしいですと",
+          "おいしいなと"
+        ]
+      },
+      "t3": {
+        "target": "おいしいと思っていたのに、友達は気に入らなかった。",
+        "accept": [
+          "おいしいとおもっていたのに、ともだちはきにいらなかった。"
+        ]
+      },
+      "why": "Trước と思う: い形容詞 dùng thẳng thể thường (おいしい), KHÔNG thêm です (Bài 21). Lỗi cài trong câu のに Bài 43."
+    }
+  ]
+}

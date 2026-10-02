@@ -1,0 +1,534 @@
+{
+  "id": "minna1.b24",
+  "bai": 24,
+  "titleVi": "Cho & nhận mở rộng — くれます・〜てあげます",
+  "know": [
+    {
+      "id": "minna1.b24.kureru",
+      "point": "kureru",
+      "jp": "〜が (わたしに) くれます",
+      "vi": "Ai đó CHO TÔI (hoặc người nhà tôi) — hướng vào tôi",
+      "en": "Someone GIVES something TO ME (or to a member of my family) — directed toward me",
+      "gloss": "bạn/anh ấy → tôi (vật / hành động)",
+      "glossEn": "you/he → me (an object / an action)"
+    },
+    {
+      "id": "minna1.b24.te-ageru",
+      "point": "te-ageru",
+      "jp": "〜て あげます",
+      "vi": "Tôi / người ngoài LÀM GIÚP ai đó (hướng ra)",
+      "en": "I / an outsider DO SOMETHING FOR someone (directed outward)",
+      "gloss": "tôi → người khác (làm giúp)",
+      "glossEn": "me → someone else (do something as a favor)"
+    },
+    {
+      "id": "minna1.b24.te-morau",
+      "point": "te-morau",
+      "jp": "〜て もらいます",
+      "vi": "Tôi ĐƯỢC ai đó làm cho (chủ thể là người được nhận)",
+      "en": "I HAVE someone do something for me (the subject is the recipient)",
+      "gloss": "tôi ← ai đó (được làm cho)",
+      "glossEn": "me ← someone (have something done for me)"
+    },
+    {
+      "id": "minna1.b24.te-kureru",
+      "point": "te-kureru",
+      "jp": "〜て くれます",
+      "vi": "Ai đó LÀM GIÚP TÔI (chủ thể là người làm, hướng vào tôi)",
+      "en": "Someone DOES SOMETHING FOR ME (the subject is the doer, directed toward me)",
+      "gloss": "bạn/anh ấy → tôi (làm giúp)",
+      "glossEn": "you/he → me (do something as a favor)"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b24-kureru-hon",
+      "item": "minna1.b24.kureru",
+      "err": "kureru-ageru-dir",
+      "vi": "Bạn tôi tặng cho tôi quyển sách.",
+      "t1": {
+        "stem": "友[とも]だちは わたしに 本[ほん]を ＿。",
+        "choices": [
+          "くれました",
+          "あげました",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "友[とも]だちは",
+          "わたしに",
+          "本[ほん]を",
+          "くれました。"
+        ],
+        "traps": [
+          "あげました。",
+          "本[ほん]をもらいました。"
+        ]
+      },
+      "t3": {
+        "target": "友だちはわたしに本をくれました。",
+        "accept": [
+          "ともだちはわたしにほんをくれました。"
+        ]
+      },
+      "why": "友達 → わたし (hướng VÀO tôi) → くれます. ✗ あげます — あげます hướng RA ngoài (tôi → ai khác)."
+    },
+    {
+      "id": "c-b24-kureru-hana",
+      "item": "minna1.b24.kureru",
+      "err": "kureru-ageru-dir",
+      "vi": "Anh Tanaka tặng hoa cho mẹ tôi.",
+      "t1": {
+        "stem": "田中[たなか]さんは わたしの 母[はは]に 花[はな]を ＿。",
+        "choices": [
+          "くれました",
+          "あげました",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "わたしの 母[はは]に",
+          "花[はな]を",
+          "くれました。"
+        ],
+        "traps": [
+          "あげました。",
+          "もらいました。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんはわたしの母に花をくれました。",
+        "accept": [
+          "たなかさんはわたしのははにはなをくれました。"
+        ]
+      },
+      "why": "Mẹ tôi thuộc うち (trong) → người ngoài cho người nhà tôi → くれました. ✗ あげました — あげます dùng khi TÔI là người cho."
+    },
+    {
+      "id": "c-b24-teageru-nimotsu",
+      "item": "minna1.b24.te-ageru",
+      "err": "te-juju-dir",
+      "vi": "Tôi xách đồ giúp bạn.",
+      "t1": {
+        "stem": "友[とも]だちの 荷物[にもつ]を 持[も]って ＿。",
+        "choices": [
+          "あげます",
+          "くれます",
+          "もらいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "友[とも]だちの",
+          "荷物[にもつ]を",
+          "持[も]って",
+          "あげます。"
+        ],
+        "traps": [
+          "くれます。",
+          "持[も]ってもらいます。"
+        ]
+      },
+      "t3": {
+        "target": "友だちの荷物を持ってあげます。",
+        "accept": [
+          "ともだちのにもつをもってあげます。"
+        ]
+      },
+      "why": "Tôi làm giúp bạn (tôi → bạn, hướng RA) → てあげます. ✗ てくれます — くれます cần chủ thể là NGƯỜI KHÁC làm giúp TÔI."
+    },
+    {
+      "id": "c-b24-teageru-oshieru",
+      "item": "minna1.b24.te-ageru",
+      "err": "te-juju-dir",
+      "vi": "Anh Miller dạy tiếng Nhật cho chị Thảo.",
+      "t1": {
+        "stem": "ミラーさんは タオさんに 日本語[にほんご]を 教[おし]えて ＿。",
+        "choices": [
+          "あげました",
+          "くれました",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ミラーさんは",
+          "タオさんに",
+          "日本語[にほんご]を",
+          "教[おし]えて",
+          "あげました。"
+        ],
+        "traps": [
+          "くれました。",
+          "教[おし]えてもらいました。"
+        ]
+      },
+      "t3": {
+        "target": "ミラーさんはタオさんに日本語を教えてあげました。",
+        "accept": [
+          "みらーさんはたおさんににほんごをおしえてあげました。"
+        ]
+      },
+      "why": "Miller → Thảo (hướng RA, Miller làm giúp) → てあげました. Chủ ngữ là Miller, không phải tôi — nhưng vẫn là hướng RA với người nhận là Thảo."
+    },
+    {
+      "id": "c-b24-temorau-ryouri",
+      "item": "minna1.b24.te-morau",
+      "err": "te-juju-dir",
+      "vi": "Tôi được mẹ nấu cơm cho.",
+      "t1": {
+        "stem": "わたしは 母[はは]に ごはんを 作[つく]って ＿。",
+        "choices": [
+          "もらいました",
+          "あげました",
+          "くれました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "母[はは]に",
+          "ごはんを",
+          "作[つく]って",
+          "もらいました。"
+        ],
+        "traps": [
+          "あげました。",
+          "作[つく]ってくれました。"
+        ]
+      },
+      "t3": {
+        "target": "わたしは母にごはんを作ってもらいました。",
+        "accept": [
+          "わたしははははにごはんをつくってもらいました。"
+        ]
+      },
+      "why": "Chủ thể là わたし — TÔI ĐƯỢC mẹ làm cho → てもらいます. ✗ てくれます — くれます chủ thể là người làm (mẹ), không phải tôi."
+    },
+    {
+      "id": "c-b24-temorau-shashin",
+      "item": "minna1.b24.te-morau",
+      "err": "te-juju-dir",
+      "vi": "Tôi nhờ bạn chụp ảnh cho.",
+      "t1": {
+        "stem": "わたしは 友[とも]だちに 写真[しゃしん]を 撮[と]って ＿。",
+        "choices": [
+          "もらいました",
+          "くれました",
+          "あげました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "友[とも]だちに",
+          "写真[しゃしん]を",
+          "撮[と]って",
+          "もらいました。"
+        ],
+        "traps": [
+          "くれました。",
+          "あげました。"
+        ]
+      },
+      "t3": {
+        "target": "わたしは友だちに写真を撮ってもらいました。",
+        "accept": [
+          "わたしはともだちにしゃしんをとってもらいました。"
+        ]
+      },
+      "why": "Tôi nhờ (chủ thể わたし, được nhận hành động) → てもらいます. ✗ てくれました — くれます chủ thể là bạn, không phải tôi."
+    },
+    {
+      "id": "c-b24-tekureru-oshieru",
+      "item": "minna1.b24.te-kureru",
+      "err": "te-juju-dir",
+      "vi": "Bạn tôi dạy tiếng Nhật cho tôi.",
+      "t1": {
+        "stem": "友[とも]だちは わたしに 日本語[にほんご]を 教[おし]えて ＿。",
+        "choices": [
+          "くれます",
+          "あげます",
+          "もらいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "友[とも]だちは",
+          "わたしに",
+          "日本語[にほんご]を",
+          "教[おし]えて",
+          "くれます。"
+        ],
+        "traps": [
+          "あげます。",
+          "教[おし]えてもらいます。"
+        ]
+      },
+      "t3": {
+        "target": "友だちはわたしに日本語を教えてくれます。",
+        "accept": [
+          "ともだちはわたしににほんごをおしえてくれます。"
+        ]
+      },
+      "why": "Bạn (chủ thể) làm giúp TÔI (hướng vào tôi) → てくれます. ✗ てあげます — あげます hướng RA ngoài, không về phía tôi."
+    },
+    {
+      "id": "c-b24-tekureru-kasa",
+      "item": "minna1.b24.te-kureru",
+      "err": "kureru-watashi",
+      "vi": "Chị Yamada cho tôi mượn ô.",
+      "t1": {
+        "stem": "山田[やまだ]さんは かさを 貸[か]して ＿。",
+        "choices": [
+          "くれました",
+          "あげました",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "山田[やまだ]さんは",
+          "かさを",
+          "貸[か]して",
+          "くれました。"
+        ],
+        "traps": [
+          "あげました。",
+          "貸[か]してもらいました。"
+        ]
+      },
+      "t3": {
+        "target": "山田さんはかさを貸してくれました。",
+        "accept": [
+          "やまださんはかさをかしてくれました。"
+        ]
+      },
+      "why": "Yamada (chủ thể) làm giúp TÔI → てくれました. ✗ てあげました — あげます là TÔI hoặc người ngoài làm giúp NGƯỜI KHÁC."
+    },
+    {
+      "id": "c-b24-kureru-uchi",
+      "item": "minna1.b24.kureru",
+      "err": "kureru-ageru-dir",
+      "vi": "Bạn của bố tôi đến nhà chơi và tặng quà cho gia đình tôi.",
+      "t1": {
+        "stem": "父[ちち]の 友[とも]だちは 家族[かぞく]に プレゼントを ＿。",
+        "choices": [
+          "くれました",
+          "あげました",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "父[ちち]の 友[とも]だちは",
+          "家族[かぞく]に",
+          "プレゼントを",
+          "くれました。"
+        ],
+        "traps": [
+          "あげました。",
+          "プレゼントをもらいました。"
+        ]
+      },
+      "t3": {
+        "target": "父の友だちはかぞくにプレゼントをくれました。",
+        "accept": [
+          "ちちのともだちはかぞくにぷれぜんとをくれました。"
+        ]
+      },
+      "why": "家族 = うち (trong); người ngoài (友だち) cho gia đình tôi → くれました. ✗ あげました: あげる dùng khi chủ thể là TÔI/người trong nhà tôi cho NGƯỜI NGOÀI."
+    },
+    {
+      "id": "c-b24-teageru-te",
+      "item": "minna1.b24.te-ageru",
+      "err": "te-juju-dir",
+      "vi": "Tôi giúp em trai làm bài tập.",
+      "t1": {
+        "stem": "弟[おとうと]の 宿題[しゅくだい]を 手伝[てつだ]って ＿。",
+        "choices": [
+          "あげました",
+          "くれました",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "弟[おとうと]の",
+          "宿題[しゅくだい]を",
+          "手伝[てつだ]って",
+          "あげました。"
+        ],
+        "traps": [
+          "くれました。",
+          "手伝[てつだ]ってもらいました。"
+        ]
+      },
+      "t3": {
+        "target": "弟の宿題を手伝ってあげました。",
+        "accept": [
+          "おとうとのしゅくだいをてつだってあげました。"
+        ]
+      },
+      "why": "Tôi làm giúp em trai (hướng RA: tôi → em) → てあげました. ✗ てくれました — くれます cần NGƯỜI KHÁC làm giúp TÔI."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b24-kureru",
+      "item": "minna1.b24.kureru",
+      "err": "kureru-ageru-dir",
+      "tts": "せんせいは わたしに じしょを くれました。",
+      "script": "先生[せんせい]は わたしに 辞書[じしょ]を くれました。",
+      "ask": "Thầy giáo đã làm gì?",
+      "choices": [
+        "Tặng từ điển cho tôi",
+        "Nhận từ điển từ tôi",
+        "Nhờ tôi mua từ điển"
+      ],
+      "answer": 0,
+      "why": "くれました = ai đó cho tôi (hướng vào tôi). 先生 → わたし."
+    },
+    {
+      "id": "l-b24-tekureru",
+      "item": "minna1.b24.te-kureru",
+      "err": "te-juju-dir",
+      "tts": "ともだちは にほんごを おしえてくれました。",
+      "script": "友[とも]だちは 日本語[にほんご]を 教[おし]えて くれました。",
+      "ask": "Ai đã dạy tiếng Nhật?",
+      "choices": [
+        "Bạn tôi dạy cho tôi",
+        "Tôi dạy cho bạn tôi",
+        "Tôi nhờ thầy dạy"
+      ],
+      "answer": 0,
+      "why": "てくれました = người khác làm giúp tôi. 友だち (chủ thể) dạy → tôi."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b24-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 24 ・ 〜てあげます",
+      "vi": "Vì bạn ấy thích cà phê, tôi mua tặng bạn ấy.",
+      "t1": {
+        "stem": "あの人[ひと]は コーヒー＿ 好[す]きですから、 買[か]ってあげました。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "あの人[ひと]は",
+          "コーヒーが",
+          "好[す]きですから、",
+          "買[か]って",
+          "あげました。"
+        ],
+        "traps": [
+          "コーヒーを"
+        ]
+      },
+      "t3": {
+        "target": "あの人はコーヒーが好きですから、買ってあげました。",
+        "accept": [
+          "あのひとはこーひーがすきですから、かってあげました。"
+        ]
+      },
+      "why": "Dù câu có 〜てあげました của Bài 24, 好き vẫn bắt buộc dùng が (lỗi cổ điển từ Bài 9). ✗ コーヒーを好きです."
+    },
+    {
+      "id": "a-b24-ageru-dir",
+      "item": "minna1.b07.ageru",
+      "err": "age-morau-dir",
+      "ambush": true,
+      "src": 7,
+      "context": "Bài 24 ・ くれます — tái kích hoạt hướng あげ/もらい Bài 7",
+      "vi": "Tôi tặng hoa cho chị Yamada. (Bẫy: あげます hay くれます?)",
+      "t1": {
+        "stem": "わたしは 山田[やまだ]さんに 花[はな]を ＿。",
+        "choices": [
+          "あげました",
+          "くれました",
+          "もらいました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "山田[やまだ]さんに",
+          "花[はな]を",
+          "あげました。"
+        ],
+        "traps": [
+          "くれました。",
+          "もらいました。"
+        ]
+      },
+      "t3": {
+        "target": "わたしは山田さんに花をあげました。",
+        "accept": [
+          "わたしはやまださんにはなをあげました。"
+        ]
+      },
+      "why": "Chủ thể là わたし → TÔI tặng cho người khác → あげました (B7). ✗ くれました — くれる đòi chủ thể là NGƯỜI KHÁC cho TÔI. Câu này đặt trong ngữ cảnh Bài 24 để kiểm tra lại B7."
+    },
+    {
+      "id": "a-b24-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 24 ・ 〜てもらいます",
+      "vi": "Vì tôi không hiểu chữ Hán này, tôi nhờ thầy giải thích.",
+      "t1": {
+        "stem": "この 漢字[かんじ]＿ わかりませんから、先生[せんせい]に 説明[せつめい]して もらいました。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 漢字[かんじ]が",
+          "わかりませんから、",
+          "先生[せんせい]に",
+          "説明[せつめい]して",
+          "もらいました。"
+        ],
+        "traps": [
+          "漢字[かんじ]を"
+        ]
+      },
+      "t3": {
+        "target": "この漢字がわかりませんから、先生に説明してもらいました。",
+        "accept": [
+          "このかんじがわかりませんから、せんせいにせつめいしてもらいました。"
+        ]
+      },
+      "why": "わかります luôn dùng が cho đối tượng (lỗi Bài 9). Phần してもらいました là Bài 24 — bẫy kép."
+    }
+  ]
+}

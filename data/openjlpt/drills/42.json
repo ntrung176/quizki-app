@@ -1,0 +1,501 @@
+{
+  "id": "minna2.b42",
+  "bai": 42,
+  "titleVi": "Dù ~ đi nữa, mặc dù",
+  "know": [
+    {
+      "id": "minna2.b42.temo-verb",
+      "point": "temo-verb",
+      "jp": "〜ても",
+      "vi": "Dù ~ đi nữa (động từ — V-て + も)",
+      "en": "Even if ~ (verb — V-て + も)",
+      "gloss": "雨[あめ]が 降[ふ]っても、行[い]きます ／ 失敗[しっぱい]しても、諦[あきら]めません",
+      "glossEn": "雨[あめ]が 降[ふ]っても、行[い]きます ／ 失敗[しっぱい]しても、諦[あきら]めません"
+    },
+    {
+      "id": "minna2.b42.temo-adj",
+      "point": "temo-adj",
+      "jp": "〜くても ／ 〜でも",
+      "vi": "Dù ~ đi nữa (tính từ い → くても; tính từ な・danh từ → でも)",
+      "en": "Even if ~ (い-adjective → くても; な-adjective・noun → でも)",
+      "gloss": "忙[いそが]しくても、頑張[がんば]ります ／ 困難[こんなん]でも、挑戦[ちょうせん]します",
+      "glossEn": "忙[いそが]しくても、頑張[がんば]ります ／ 困難[こんなん]でも、挑戦[ちょうせん]します"
+    },
+    {
+      "id": "minna2.b42.nakutemo",
+      "point": "nakutemo",
+      "jp": "〜なくても",
+      "vi": "Dù không ~ đi nữa (phủ định nhượng bộ)",
+      "en": "Even if one does not ~ (concessive negation)",
+      "gloss": "無理[むり]しなくても、大丈夫[だいじょうぶ]です ／ 来[こ]なくても、構[かま]いません",
+      "glossEn": "無理[むり]しなくても、大丈夫[だいじょうぶ]です ／ 来[こ]なくても、構[かま]いません"
+    },
+    {
+      "id": "minna2.b42.temo-kamai",
+      "point": "temo-kamai",
+      "jp": "〜ても構[かま]いません",
+      "vi": "~ cũng được, không sao nếu ~ (cho phép)",
+      "en": "It is okay to ~; it is fine if ~ (permission)",
+      "gloss": "遅[おそ]くなっても 構[かま]いません ／ 帰[かえ]っても 構[かま]いません",
+      "glossEn": "遅[おそ]くなっても 構[かま]いません ／ 帰[かえ]っても 構[かま]いません"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b42-tv-ame",
+      "item": "minna2.b42.temo-verb",
+      "err": "temo-form-wrong",
+      "vi": "Dù trời có mưa đi nữa, tôi cũng đi.",
+      "t1": {
+        "stem": "雨[あめ]が ＿、行[い]きます。",
+        "choices": [
+          "降[ふ]っても",
+          "降[ふ]ってから",
+          "降[ふ]っては"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "雨[あめ]が",
+          "降[ふ]っても、",
+          "行[い]きます。"
+        ],
+        "traps": [
+          "降[ふ]ってから、",
+          "降[ふ]ったら、"
+        ]
+      },
+      "t3": {
+        "target": "雨が降っても、行きます。",
+        "accept": [
+          "あめがふっても、いきます。"
+        ]
+      },
+      "why": "て-form の 降[ふ]って + も → nhượng bộ. ✗ 降ってから = \"sau khi mưa\" (trình tự), nghĩa hoàn toàn khác."
+    },
+    {
+      "id": "c-b42-tv-shippai",
+      "item": "minna2.b42.temo-verb",
+      "err": "temo-form-wrong",
+      "vi": "Dù có thất bại đi nữa, tôi cũng không từ bỏ.",
+      "t1": {
+        "stem": "失敗[しっぱい]しても、＿。",
+        "choices": [
+          "諦[あきら]めません",
+          "諦[あきら]めます",
+          "諦[あきら]めてください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "失敗[しっぱい]しても、",
+          "諦[あきら]め",
+          "ません。"
+        ],
+        "traps": [
+          "諦[あきら]めます。",
+          "挑戦[ちょうせん]しません。"
+        ]
+      },
+      "t3": {
+        "target": "失敗しても、諦めません。",
+        "accept": [
+          "しっぱいしても、あきらめません。"
+        ]
+      },
+      "why": "する → して (nhóm III) + も = dù thất bại. 諦めません = phủ định \"không từ bỏ\". Bài 42 vocab: 失敗しても + 諦めません."
+    },
+    {
+      "id": "c-b42-tv-doryoku",
+      "item": "minna2.b42.temo-verb",
+      "err": "temo-form-wrong",
+      "vi": "Dù có nỗ lực đến đâu, kết quả cũng cần thời gian.",
+      "t1": {
+        "stem": "努力[どりょく]し＿、結果[けっか]には 時間[じかん]が 必要[ひつよう]です。",
+        "choices": [
+          "ても",
+          "てから",
+          "たら"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "努力[どりょく]しても、",
+          "結果[けっか]には",
+          "時間[じかん]が",
+          "必要[ひつよう]です。"
+        ],
+        "traps": [
+          "努力[どりょく]してから、",
+          "努力[どりょく]しながら、"
+        ]
+      },
+      "t3": {
+        "target": "努力しても、結果には時間が必要です。",
+        "accept": [
+          "どりょくしても、けっかにはじかんがひつようです。"
+        ]
+      },
+      "why": "する → して + も (nhượng bộ). ✗ してから = \"sau khi nỗ lực\" — đó là trình tự, không phải nhượng bộ."
+    },
+    {
+      "id": "c-b42-ta-isogashii",
+      "item": "minna2.b42.temo-adj",
+      "err": "temo-iadj-form",
+      "vi": "Dù bận rộn đi nữa, tôi cũng cố gắng.",
+      "t1": {
+        "stem": "忙[いそが]し＿、頑張[がんば]ります。",
+        "choices": [
+          "くても",
+          "ても",
+          "いても"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "忙[いそが]しくても、",
+          "頑張[がんば]ります。"
+        ],
+        "traps": [
+          "忙[いそが]しても、",
+          "忙[いそが]しいても、"
+        ]
+      },
+      "t3": {
+        "target": "忙しくても、頑張ります。",
+        "accept": [
+          "いそがしくても、がんばります。"
+        ]
+      },
+      "why": "Tính từ い: bỏ い cuối, thêm くても. 忙しい → 忙しく + ても. ✗ 忙しても — thiếu く. ✗ 忙しいても — không bỏ い."
+    },
+    {
+      "id": "c-b42-ta-muzukashii",
+      "item": "minna2.b42.temo-adj",
+      "err": "temo-iadj-form",
+      "vi": "Dù khó khăn đi nữa, tôi vẫn tiếp tục thử thách.",
+      "t1": {
+        "stem": "難[むずか]し＿、挑戦[ちょうせん]し続[つづ]けます。",
+        "choices": [
+          "くても",
+          "ても",
+          "なくても"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "難[むずか]しくても、",
+          "挑戦[ちょうせん]し",
+          "続[つづ]けます。"
+        ],
+        "traps": [
+          "難[むずか]しても、",
+          "難[むずか]しいても、"
+        ]
+      },
+      "t3": {
+        "target": "難しくても、挑戦し続けます。",
+        "accept": [
+          "むずかしくても、ちょうせんしつづけます。"
+        ]
+      },
+      "why": "難しい (tính từ い) → 難しく + ても. Bài 42 vocab: 挑戦します + くても pattern."
+    },
+    {
+      "id": "c-b42-ta-konnan",
+      "item": "minna2.b42.temo-adj",
+      "err": "temo-iadj-form",
+      "vi": "Dù khó khăn đến đâu, tôi cũng muốn vượt qua.",
+      "t1": {
+        "stem": "困難[こんなん]＿、乗[の]り越[こ]えたいです。",
+        "choices": [
+          "でも",
+          "ても",
+          "くても"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "困難[こんなん]でも、",
+          "乗[の]り越[こ]え",
+          "たいです。"
+        ],
+        "traps": [
+          "困難[こんなん]ても、",
+          "困難[こんなん]くても、"
+        ]
+      },
+      "t3": {
+        "target": "困難でも、乗り越えたいです。",
+        "accept": [
+          "こんなんでも、のりこえたいです。"
+        ]
+      },
+      "why": "困難 là danh từ/な形容詞 → でも (không phải くても hay ても trực tiếp). ✗ 困難くても — không dùng く với danh từ/na-adj."
+    },
+    {
+      "id": "c-b42-nkt-kona",
+      "item": "minna2.b42.nakutemo",
+      "err": "nakutemo-form",
+      "vi": "Dù không đến cũng được.",
+      "t1": {
+        "stem": "来[こ]な＿、大丈夫[だいじょうぶ]です。",
+        "choices": [
+          "くても",
+          "いでも",
+          "くてから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "来[こ]なくても、",
+          "大丈夫[だいじょうぶ]です。"
+        ],
+        "traps": [
+          "来[こ]なくてから、",
+          "来[こ]ないでも、"
+        ]
+      },
+      "t3": {
+        "target": "来なくても、大丈夫です。",
+        "accept": [
+          "こなくても、だいじょうぶです。"
+        ]
+      },
+      "why": "Phủ định nhượng bộ: V-ない → なくて + も = \"dù không V\". 来ない → 来なくても. ✗ 来ないでも — なくても mới chuẩn cho nhượng bộ."
+    },
+    {
+      "id": "c-b42-nkt-benkyou",
+      "item": "minna2.b42.nakutemo",
+      "err": "nakutemo-form",
+      "vi": "Dù không học cũng hiểu, anh ấy thật thông minh.",
+      "t1": {
+        "stem": "勉強[べんきょう]し＿、わかります。頭[あたま]がいいですね。",
+        "choices": [
+          "なくても",
+          "ないても",
+          "なくてから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "勉強[べんきょう]しなくても、",
+          "わかります。",
+          "頭[あたま]が",
+          "いいですね。"
+        ],
+        "traps": [
+          "勉強[べんきょう]しないでも、",
+          "勉強[べんきょう]しなくてから、"
+        ]
+      },
+      "t3": {
+        "target": "勉強しなくても、わかります。頭がいいですね。",
+        "accept": [
+          "べんきょうしなくても、わかります。あたまがいいですね。"
+        ]
+      },
+      "why": "する → しない → しなくて + も. ✗ しないても — sai; phải đổi ない → なくて trước khi thêm も."
+    },
+    {
+      "id": "c-b42-tk-kaeru",
+      "item": "minna2.b42.temo-kamai",
+      "err": "temo-form-wrong",
+      "vi": "Dù về sớm cũng được, không sao đâu.",
+      "t1": {
+        "stem": "早[はや]く 帰[かえ]っ＿ 構[かま]いませんよ。",
+        "choices": [
+          "ても",
+          "てから",
+          "ては"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "早[はや]く",
+          "帰[かえ]っても",
+          "構[かま]いません",
+          "よ。"
+        ],
+        "traps": [
+          "帰[かえ]ってから",
+          "帰[かえ]っては"
+        ]
+      },
+      "t3": {
+        "target": "早く帰っても構いませんよ。",
+        "accept": [
+          "はやくかえっても かまいませんよ。",
+          "はやくかえってもかまいませんよ。"
+        ]
+      },
+      "why": "V-て + も + 構いません = cho phép/không sao. 帰る → 帰って + も. ✗ 帰ってから構いません — \"sau khi về mới không sao\" — nghĩa sai."
+    },
+    {
+      "id": "c-b42-tk-osoi",
+      "item": "minna2.b42.temo-kamai",
+      "err": "temo-form-wrong",
+      "vi": "Dù có muộn một chút cũng không sao.",
+      "t1": {
+        "stem": "少[すこ]し 遅[おそ]くなっ＿ 構[かま]いません。",
+        "choices": [
+          "ても",
+          "てから",
+          "ては"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "少[すこ]し",
+          "遅[おそ]くなっても",
+          "構[かま]いません。"
+        ],
+        "traps": [
+          "遅[おそ]くなってから",
+          "遅[おそ]くなっては"
+        ]
+      },
+      "t3": {
+        "target": "少し遅くなっても構いません。",
+        "accept": [
+          "すこしおそくなってもかまいません。"
+        ]
+      },
+      "why": "なる → なって (っ) + も + 構いません. 「遅くなっても」= \"dù có trở nên muộn\". ✗ なってから構いません — sai nghĩa."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b42-ame",
+      "item": "minna2.b42.temo-verb",
+      "err": "temo-form-wrong",
+      "tts": "あしたあめがふっても、ぴくにっくにいきますか。— はい、いきます。たのしみにしています。",
+      "script": "明日[あした]雨[あめ]が降[ふ]っても、ピクニックに行[い]きますか。— はい、行[い]きます。楽[たの]しみにしています。",
+      "ask": "Nếu trời mưa ngày mai, hai người sẽ làm gì?",
+      "choices": [
+        "Vẫn đi picnic như kế hoạch",
+        "Huỷ picnic ở nhà",
+        "Chờ thời tiết đẹp rồi mới quyết định"
+      ],
+      "answer": 0,
+      "why": "雨が降っても = \"dù trời mưa\"; 行きます = vẫn đi. Nhượng bộ ても cho thấy kế hoạch không đổi."
+    },
+    {
+      "id": "l-b42-isogashii",
+      "item": "minna2.b42.temo-adj",
+      "err": "temo-iadj-form",
+      "tts": "どんなにいそがしくても、まいにちにほんごをべんきょうします。",
+      "script": "どんなに忙[いそが]しくても、毎日[まいにち]日本語[にほんご]を勉強[べんきょう]します。",
+      "ask": "Người nói nói gì về việc học tiếng Nhật?",
+      "choices": [
+        "Dù bận đến đâu cũng học tiếng Nhật mỗi ngày",
+        "Khi bận thì không học tiếng Nhật",
+        "Sẽ học tiếng Nhật sau khi hết bận"
+      ],
+      "answer": 0,
+      "why": "どんなに忙しくても = \"dù bận đến đâu\"; 毎日〜します = vẫn làm mỗi ngày. くても = nhượng bộ với tính từ い."
+    },
+    {
+      "id": "l-b42-nakutemo",
+      "item": "minna2.b42.nakutemo",
+      "err": "nakutemo-form",
+      "tts": "むりしなくてもいいですよ。げんきになってからきてください。",
+      "script": "無理[むり]しなくてもいいですよ。元気[げんき]になってから来[き]てください。",
+      "ask": "Người nói muốn nói điều gì với người nghe?",
+      "choices": [
+        "Không cần cố quá sức, hãy đến sau khi khoẻ lại",
+        "Hãy cố gắng và đến càng sớm càng tốt",
+        "Dù khoẻ hay không cũng phải đến"
+      ],
+      "answer": 0,
+      "why": "無理しなくてもいい = \"không cần cố quá\"; 元気になってから来て = \"sau khi khoẻ rồi đến\". なくてもいい = miễn trừ / không cần thiết."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b42-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 42 ・ 〜ても",
+      "vi": "Dù có viết nhật ký mỗi ngày, tôi vẫn chưa tiến bộ.",
+      "t1": {
+        "stem": "毎日[まいにち] 日記[にっき]を ＿ も、まだ 上達[じょうたつ]しません。",
+        "choices": [
+          "書[か]いて",
+          "書[か]きて",
+          "書[か]いては"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "日記[にっき]を",
+          "書[か]いても、",
+          "まだ",
+          "上達[じょうたつ]しません。"
+        ],
+        "traps": [
+          "書[か]きても、",
+          "書[か]くても、"
+        ]
+      },
+      "t3": {
+        "target": "毎日日記を書いても、まだ上達しません。",
+        "accept": [
+          "まいにちにっきをかいても、まだじょうたつしません。"
+        ]
+      },
+      "why": "書く (nhóm I: く→いて) → 書いて + も. ✗ 書きて — lỗi Bài 14: không thêm て trực tiếp vào ます-stem. Cả câu dùng ても của Bài 42 nhưng bẫy ở te-form."
+    },
+    {
+      "id": "a-b42-tara",
+      "item": "minna1.b25.temo",
+      "err": "temo-form",
+      "ambush": true,
+      "src": 25,
+      "context": "Bài 42 ・ 〜ても (mở rộng từ Bài 25)",
+      "vi": "Dù có giải thích bao nhiêu lần đi nữa, anh ấy cũng không hiểu.",
+      "t1": {
+        "stem": "何度[なんど]説明[せつめい]し＿、彼[かれ]は 理解[りかい]しません。",
+        "choices": [
+          "ても",
+          "たら",
+          "てから"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "何度[なんど]説明[せつめい]しても、",
+          "彼[かれ]は",
+          "理解[りかい]し",
+          "ません。"
+        ],
+        "traps": [
+          "説明[せつめい]したら、",
+          "説明[せつめい]してから、"
+        ]
+      },
+      "t3": {
+        "target": "何度説明しても、彼は理解しません。",
+        "accept": [
+          "なんどせつめいしても、かれはりかいしません。"
+        ]
+      },
+      "why": "ても = nhượng bộ \"dù làm bao nhiêu lần\". ✗ したら = điều kiện/giả định (Bài 25). ✗ してから = trình tự. Bài 42 mở rộng và làm sâu thêm ても từ Bài 25."
+    }
+  ]
+}

@@ -1,0 +1,3670 @@
+{
+  "bai": 3,
+  "level": "N5",
+  "intro": "ここ／そこ／あそこ · こちら／そちら／あちら · NはNにあります／います · NはAですか、Bですか. Có ÔN LẠI ngữ pháp đã học (bài 1-2) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "ここは学校の食堂です。",
+              "ul": "食堂",
+              "choices": [
+                "しょくどう",
+                "しょくたん",
+                "たべどう",
+                "じきどう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「食堂」là 'căn-tin/nhà ăn'. Cách đọc đúng là「しょくどう」(音読み: 食=しょく, 堂=どう). ① 「しょくどう」✓ — đọc đúng. ② 「しょくたん」— 堂 không đọc là たん, đây là bẫy đọc sai phần sau. ③ 「たべどう」— 食 trong tổ hợp âm đọc là しょく, không phải たべ (訓読み của 食べる); bẫy lẫn on/kun. ④ 「じきどう」— 食 có âm じき trong vài từ khác (食事→じきじゃない), nhưng 食堂 không đọc vậy; bẫy biến âm.",
+              "glosses": [
+                {
+                  "t": "ここ",
+                  "vi": "đây, chỗ này"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "食堂",
+                  "vi": "căn-tin, nhà ăn"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "prompt": "エレベーターは一階にあります。",
+              "ul": "一階",
+              "choices": [
+                "いっかい",
+                "いちかい",
+                "ひとかい",
+                "いっがい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「一階」là 'tầng một'. Đọc đúng:「いっかい」— 一 trước phụ âm か biến thành いっ (촉音便), 階=かい. ① 「いっかい」✓. ② 「いちかい」— いち là cách đọc thông thường của 一, nhưng trước か thì 促音便 xảy ra → いっ; đây là lỗi rất phổ biến. ③ 「ひとかい」— ひと là 訓読み của 一 (ひとつ), không dùng trong đếm tầng; bẫy on↔kun. ④ 「いっがい」— 階 đọc là かい (vô thanh), không phải がい (hữu thanh); bẫy trọc/vô thanh.",
+              "glosses": [
+                {
+                  "t": "エレベーター",
+                  "vi": "thang máy"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "一階",
+                  "vi": "tầng một"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "あそこに大きい建物があります。",
+              "ul": "建物",
+              "choices": [
+                "たてもの",
+                "けんもの",
+                "たてぶつ",
+                "けんぶつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「建物」là 'tòa nhà'. Đọc đúng:「たてもの」(訓読み: 建て=たて, 物=もの). ① 「たてもの」✓. ② 「けんもの」— 建 có âm けん nhưng ghép 建物 dùng 訓読みたて, không phải けん; bẫy on↔kun. ③ 「たてぶつ」— 物 có thể đọc ぶつ (物体ぶったい) nhưng 建物 đọc もの; bẫy biến thể 音読み. ④ 「けんぶつ」— vừa sai 建 (けん thay たて) vừa sai 物 (ぶつ thay もの); bẫy toàn âm on.",
+              "glosses": [
+                {
+                  "t": "あそこ",
+                  "vi": "đằng kia, chỗ kia (xa)"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "to, lớn"
+                },
+                {
+                  "t": "建物",
+                  "vi": "tòa nhà, công trình"
+                },
+                {
+                  "t": "が",
+                  "vi": "(trợ từ chủ ngữ)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "受付はどこにありますか。",
+              "ul": "受付",
+              "choices": [
+                "うけつけ",
+                "じゅふ",
+                "うけふ",
+                "じゅつけ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「受付」là 'quầy lễ tân'. Đọc đúng:「うけつけ」(訓読み: 受け=うけ, 付け=つけ). ① 「うけつけ」✓. ② 「じゅふ」— cả hai đều dùng 音読み (受=じゅ, 付=ふ) nhưng từ này không đọc theo on; bẫy on↔kun. ③ 「うけふ」— nửa đúng (うけ) nhưng 付 bị đọc ふ thay vì つけ; bẫy biến dạng phần sau. ④ 「じゅつけ」— 受 đọc nhầm じゅ + 付 đọc đúng つけ; bẫy nửa on nửa kun.",
+              "glosses": [
+                {
+                  "t": "受付",
+                  "vi": "quầy lễ tân, tiếp tân"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                },
+                {
+                  "t": "か",
+                  "vi": "(trợ từ nghi vấn)"
+                }
+              ]
+            },
+            {
+              "prompt": "そこは会社の入口です。",
+              "ul": "入口",
+              "choices": [
+                "いりぐち",
+                "にゅうぐち",
+                "いりくち",
+                "にゅうくち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「入口」là 'lối vào'. Đọc đúng:「いりぐち」(訓読み + 連濁: 入り=いり, 口→ぐち do 連濁). ① 「いりぐち」✓. ② 「にゅうぐち」— 入 đọc にゅう (音読み), nhưng 入口 dùng 訓読みいり; bẫy on↔kun. ③ 「いりくち」— 入り đúng nhưng 口 không có 連濁 → くち thay vì ぐち; bẫy trọc/vô thanh. ④ 「にゅうくち」— sai cả hai: on読みにゅう + thiếu 連濁くち; bẫy kép.",
+              "glosses": [
+                {
+                  "t": "そこ",
+                  "vi": "đó, chỗ đó"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "入口",
+                  "vi": "lối vào, cổng vào"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "prompt": "トイレは三階にあります。",
+              "ul": "三階",
+              "choices": [
+                "さんがい",
+                "さんかい",
+                "みかい",
+                "さんげ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「三階」là 'tầng ba'. Đọc đúng:「さんがい」— 三=さん, 階=かい nhưng sau さん có 連濁 → がい. ① 「さんがい」✓. ② 「さんかい」— 階 không 連濁 sau さん trong đếm tầng; bẫy trọc/vô thanh (lưu ý: 何階 → なんかい/なんがい tùy phương ngữ, nhưng 三階 chuẩn là さんがい). ③ 「みかい」— 三 đọc み (訓読みみっつ) không dùng đếm tầng; bẫy on↔kun. ④ 「さんげ」— 階 không đọc げ; bẫy biến âm sai.",
+              "glosses": [
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "三階",
+                  "vi": "tầng ba"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "出口はあちらです。",
+              "ul": "出口",
+              "choices": [
+                "でぐち",
+                "でくち",
+                "しゅつぐち",
+                "しゅつくち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「出口」là 'lối ra'. Đọc đúng:「でぐち」(訓読み: 出=で, 口→ぐち do 連濁). ① 「でぐち」✓. ② 「でくち」— 出 đúng (で) nhưng 口 thiếu 連濁 → くち; bẫy trọc/vô thanh. ③ 「しゅつぐち」— 出 dùng 音読みしゅつ, nhưng 出口 dùng 訓読み; bẫy on↔kun. ④ 「しゅつくち」— sai cả hai: on読みしゅつ + thiếu 連濁くち.",
+              "glosses": [
+                {
+                  "t": "出口",
+                  "vi": "lối ra, cổng ra"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "あちら",
+                  "vi": "phía kia, hướng kia (lịch sự)"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "prompt": "銀行はあの交差点の近くにあります。",
+              "ul": "近く",
+              "choices": [
+                "ちかく",
+                "きんく",
+                "ちかぐ",
+                "きんぐ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「近く」là 'gần, vùng lân cận'. Đọc đúng:「ちかく」(訓読み: 近=ちか, く hậu tố danh từ hóa). ① 「ちかく」✓. ② 「きんく」— 近 có 音読みきん (近所きんじょ) nhưng 近く dùng 訓読み; bẫy on↔kun. ③ 「ちかぐ」— く không 連濁 thành ぐ trong từ này; bẫy trọc sai. ④ 「きんぐ」— sai cả hai: on読みきん + 連濁 sai ぐ; bẫy kép.",
+              "glosses": [
+                {
+                  "t": "銀行",
+                  "read": "ぎんこう",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "あの",
+                  "vi": "cái kia, đó"
+                },
+                {
+                  "t": "交差点",
+                  "read": "こうさてん",
+                  "vi": "ngã tư"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "近く",
+                  "vi": "gần, phụ cận"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "図書館は学校の右にあります。",
+              "ul": "右",
+              "choices": [
+                "みぎ",
+                "ゆう",
+                "うち",
+                "みぎり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「右」là 'bên phải'. Đọc đúng:「みぎ」(訓読み thuần). ① 「みぎ」✓. ② 「ゆう」— 右 có 音読みゆう (右折ゆうせつ) nhưng đứng độc lập dùng 訓読みみぎ; bẫy on↔kun. ③ 「うち」— 右 đôi khi đọc う (右手うて) nhưng うち là 'trong nhà/bên trong', không liên quan; bẫy ngữ nghĩa+âm. ④ 「みぎり」— みぎり là dạng cổ/thơ, không dùng trong giao tiếp N5; bẫy dạng ngữ cổ.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "右",
+                  "vi": "bên phải"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "駅の左に郵便局があります。",
+              "ul": "左",
+              "choices": [
+                "ひだり",
+                "さゆう",
+                "ひだる",
+                "さ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「左」là 'bên trái'. Đọc đúng:「ひだり」(訓読み). ① 「ひだり」✓. ② 「さゆう」— 左右 đọc さゆう (trái phải cùng lúc) nhưng chỉ 左 đơn lẻ không đọc vậy; bẫy từ ghép. ③ 「ひだる」— không tồn tại; bẫy biến âm sai cuối từ (る thay り). ④ 「さ」— 左 có 音読みさ (左折させつ) nhưng đứng độc lập phải dùng 訓読みひだり; bẫy on読み đơn.",
+              "glosses": [
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "左",
+                  "vi": "bên trái"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "郵便局",
+                  "read": "ゆうびんきょく",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "が",
+                  "vi": "(trợ từ chủ ngữ)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "コンビニはホテルの前にあります。",
+              "ul": "前",
+              "choices": [
+                "まえ",
+                "ぜん",
+                "まい",
+                "ぜんご"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「前」là 'phía trước'. Đọc đúng:「まえ」(訓読み). ① 「まえ」✓. ② 「ぜん」— 前 có 音読みぜん (前半ぜんはん) nhưng 前 đứng độc lập chỉ hướng dùng 訓読みまえ; bẫy on↔kun. ③ 「まい」— không phải cách đọc của 前; bẫy biến âm sai phần sau (え→い). ④ 「ぜんご」— 前後 đọc ぜんご (trước sau) nhưng chỉ 前 đơn lẻ không đọc vậy; bẫy từ ghép on読み.",
+              "glosses": [
+                {
+                  "t": "コンビニ",
+                  "vi": "cửa hàng tiện lợi"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "前",
+                  "vi": "phía trước"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "電話は部屋の後ろにあります。",
+              "ul": "後ろ",
+              "choices": [
+                "うしろ",
+                "あとろ",
+                "ごろ",
+                "こうろ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「後ろ」là 'phía sau'. Đọc đúng:「うしろ」(訓読み đặc thù). ① 「うしろ」✓. ② 「あとろ」— 後 có cách đọc あと ('sau đó, sau này') nhưng 後ろ đọc うしろ; bẫy lẫn hai 訓読み của 後. ③ 「ごろ」— ごろ là 頃 (khoảng thời gian), không phải 後ろ; bẫy đồng âm on読み. ④ 「こうろ」— 後 có 音読みこう (後半こうはん) nhưng 後ろ dùng 訓読み; bẫy on↔kun.",
+              "glosses": [
+                {
+                  "t": "電話",
+                  "read": "でんわ",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "部屋",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "後ろ",
+                  "vi": "phía sau"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "百貨店は駅の近くにあります。",
+              "ul": "百貨店",
+              "choices": [
+                "ひゃっかてん",
+                "ひゃくかてん",
+                "もももかてん",
+                "びゃっかてん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「百貨店」là 'trung tâm thương mại/bách hóa'. Đọc đúng:「ひゃっかてん」— 百 trước か biến thành ひゃっ (促音便), 貨=か, 店=てん. ① 「ひゃっかてん」✓. ② 「ひゃくかてん」— 百 đọc thông thường là ひゃく nhưng trước か cần 促音便 → ひゃっ; bẫy thiếu 促音. ③ 「もももかてん」— 百 không đọc もも (もも là 桃 đào, hoặc 百 trong 百 đọc cổ); bẫy đọc sai hoàn toàn. ④ 「びゃっかてん」— 百 không có biến âm hữu thanh びゃっ; bẫy trọc hóa sai.",
+              "glosses": [
+                {
+                  "t": "百貨店",
+                  "vi": "cửa hàng bách hóa, trung tâm thương mại"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "の",
+                  "vi": "(trợ từ sở hữu)"
+                },
+                {
+                  "t": "近く",
+                  "read": "ちかく",
+                  "vi": "gần"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "スーパーは何階にありますか。",
+              "ul": "何階",
+              "choices": [
+                "なんかい",
+                "なにかい",
+                "なんがい",
+                "なにがい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何階」là 'tầng mấy'. Đọc đúng:「なんかい」— 何 trước か đọc なん (biến thể của なに), 階=かい. ① 「なんかい」✓. ② 「なにかい」— なに là cách đọc cơ bản của 何 nhưng trước か thường là なん; bẫy dùng なに thay なん. ③ 「なんがい」— 階 là かい vô thanh, không 連濁 thành がい sau なん; bẫy trọc hóa sai. ④ 「なにがい」— sai cả hai: なに thay なん + がい thay かい; bẫy kép.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "何階",
+                  "vi": "tầng mấy"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                },
+                {
+                  "t": "か",
+                  "vi": "(trợ từ nghi vấn)"
+                }
+              ]
+            },
+            {
+              "prompt": "本屋はどこにありますか。",
+              "ul": "本屋",
+              "choices": [
+                "ほんや",
+                "ほんおく",
+                "もとや",
+                "ぼんや"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「本屋」là 'hiệu sách'. Đọc đúng:「ほんや」(訓読み: 本=ほん, 屋=や). ① 「ほんや」✓. ② 「ほんおく」— 屋 có âm おく trong một số từ (屋上おくじょう) nhưng 本屋 đọc や; bẫy on読み của 屋. ③ 「もとや」— 本 có 訓読みもと ('nguồn gốc') nhưng trong 本屋 đọc ほん; bẫy nhầm hai 訓読み của 本. ④ 「ぼんや」— 本 không 連濁 thành ぼん đứng đầu từ; bẫy trọc hóa sai.",
+              "glosses": [
+                {
+                  "t": "本屋",
+                  "vi": "hiệu sách, nhà sách"
+                },
+                {
+                  "t": "は",
+                  "vi": "(trợ từ chủ đề)"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                },
+                {
+                  "t": "か",
+                  "vi": "(trợ từ nghi vấn)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "あのたてものはなんのたてものですか。あれはぎんこうです。",
+              "ul": "ぎんこう",
+              "choices": [
+                "銀行",
+                "銀河",
+                "金行",
+                "鉄行"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ぎんこう」は「銀行」と書きます。「銀」(ぎん) nghĩa là bạc, «行」(こう) nghĩa là hàng/ngành. Đáp án A đúng. «銀河」(ぎんが) nghĩa là dải ngân hà — đọc phần sau sai. «金行」không phải từ tồn tại trong tiếng Nhật. «鉄行」cũng không phải từ — «鉄」(てつ) là sắt/thép, không ghép với «行」theo nghĩa này.",
+              "glosses": [
+                {
+                  "t": "たてもの",
+                  "read": "たてもの",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "なんの",
+                  "read": "なんの",
+                  "vi": "là gì, của gì"
+                },
+                {
+                  "t": "ぎんこう",
+                  "read": "ぎんこう",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "あれは",
+                  "read": "あれは",
+                  "vi": "あれ = cái/tòa nhà đó (ở xa cả người nói và người nghe) + は (trợ từ chủ đề)"
+                }
+              ]
+            },
+            {
+              "prompt": "すみません、えきはどこですか。",
+              "ul": "えき",
+              "choices": [
+                "駅",
+                "訳",
+                "役",
+                "液"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「えき」は「駅」と書きます。Nghĩa là ga tàu. «訳」(やく/わけ) nghĩa là lý do hoặc bản dịch, đọc khác. «役」(やく) nghĩa là vai trò, nhiệm vụ — tuy có thể đọc là えき trong một số từ nhưng không dùng độc lập để chỉ ga tàu. «液」(えき) nghĩa là chất lỏng — đồng âm nhưng hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "vi": "xin lỗi, excuse me"
+                },
+                {
+                  "t": "えき",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                }
+              ]
+            },
+            {
+              "prompt": "デパートはなんかいですか。よんかいです。",
+              "ul": "よんかい",
+              "choices": [
+                "四階",
+                "四回",
+                "四会",
+                "四海"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「よんかい」は「四階」と書きます。「階」(かい) là tầng trong tòa nhà. «四回」(よんかい) đọc giống hệt nhưng nghĩa là «bốn lần» — đây là bẫy đồng âm quan trọng nhất. «四会」không phải từ tiêu chuẩn. «四海」(しかい) nghĩa là «bốn biển» — đọc phần đầu khác (し, không phải よん).",
+              "glosses": [
+                {
+                  "t": "デパート",
+                  "vi": "trung tâm thương mại, bách hóa"
+                },
+                {
+                  "t": "なんかい",
+                  "read": "なんかい",
+                  "vi": "tầng mấy"
+                },
+                {
+                  "t": "よんかい",
+                  "read": "よんかい",
+                  "vi": "tầng bốn"
+                }
+              ]
+            },
+            {
+              "prompt": "ほんやはあのビルのいっかいにあります。",
+              "ul": "ほんや",
+              "choices": [
+                "本屋",
+                "本家",
+                "木屋",
+                "文屋"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ほんや」は「本屋」と書きます。「本」(ほん) là sách, «屋」(や) là cửa hàng/tiệm. «本家」(ほんけ) nghĩa là nhà gốc, gia đình chính — đọc phần sau khác. «木屋」(きや/こや) nghĩa là nhà gỗ hoặc tiệm gỗ, «木» đọc là き/こ chứ không phải ほん. «文屋」không phải từ thông dụng trong tiếng Nhật chuẩn.",
+              "glosses": [
+                {
+                  "t": "ほんや",
+                  "read": "ほんや",
+                  "vi": "hiệu sách"
+                },
+                {
+                  "t": "ビル",
+                  "vi": "tòa nhà (building)"
+                },
+                {
+                  "t": "いっかい",
+                  "read": "いっかい",
+                  "vi": "tầng một"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại (dùng cho vật vô tri)"
+                }
+              ]
+            },
+            {
+              "prompt": "こうえんはえきのちかくにあります。",
+              "ul": "ちかく",
+              "choices": [
+                "近く",
+                "近国",
+                "通く",
+                "週く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ちかく」は「近く」と書きます。「近」(ちか) nghĩa là gần, «く» là hậu tố tạo danh từ chỉ nơi chốn. «近国」(きんごく) nghĩa là nước láng giềng — đọc hoàn toàn khác. «通く» không phải từ — «通» (とお/つう) không đọc là ちか. «週く» không tồn tại — «週» (しゅう) là tuần lễ.",
+              "glosses": [
+                {
+                  "t": "こうえん",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "えき",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "ちかく",
+                  "read": "ちかく",
+                  "vi": "gần, ở gần"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "prompt": "このみせはどこですか。あそこのかどにあります。",
+              "ul": "かど",
+              "choices": [
+                "角",
+                "門",
+                "窓",
+                "道"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かど」は「角」と書きます。Nghĩa là góc đường. «門」(もん/かど) — «門» có thể đọc là かど nhưng nghĩa là cổng/cổng vào, không phải góc đường. «窓」(まど) nghĩa là cửa sổ — đọc hoàn toàn khác. «道」(みち/どう) nghĩa là con đường — đọc khác và nghĩa không khớp.",
+              "glosses": [
+                {
+                  "t": "みせ",
+                  "read": "みせ",
+                  "vi": "cửa hàng"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "chỗ kia, ở đó (xa)"
+                },
+                {
+                  "t": "かど",
+                  "read": "かど",
+                  "vi": "góc đường"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                },
+                {
+                  "t": "どこですか",
+                  "read": "どこですか",
+                  "vi": "どこですか = ở đâu ạ? (hỏi vị trí)"
+                }
+              ]
+            },
+            {
+              "prompt": "トイレはこのたてもののにかいにあります。",
+              "ul": "にかい",
+              "choices": [
+                "二階",
+                "二回",
+                "二会",
+                "二開"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にかい」は「二階」と書きます。Nghĩa là tầng hai. «二回」(にかい) đọc giống hệt nhưng nghĩa là «hai lần» — đây là bẫy đồng âm phổ biến nhất với «階» và «回». «二会» không phải từ chuẩn. «二開» cũng không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "たてもの",
+                  "read": "たてもの",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "にかい",
+                  "read": "にかい",
+                  "vi": "tầng hai"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "prompt": "がっこうはえきからとおいですか。いいえ、ちかいです。",
+              "ul": "とおい",
+              "choices": [
+                "遠い",
+                "速い",
+                "遅い",
+                "通い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「とおい」は「遠い」と書きます。Nghĩa là xa. «速い»(はやい) nghĩa là nhanh — đọc và nghĩa khác. «遅い»(おそい) nghĩa là chậm/muộn — đọc và nghĩa khác. «通い»(かよい) nghĩa là đi lại thường xuyên (động từ) — đọc khác hoàn toàn, không phải tính từ chỉ khoảng cách.",
+              "glosses": [
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "とおい",
+                  "read": "とおい",
+                  "vi": "xa"
+                },
+                {
+                  "t": "ちかい",
+                  "read": "ちかい",
+                  "vi": "gần"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không (phủ định)"
+                },
+                {
+                  "t": "えきから",
+                  "read": "えきから",
+                  "vi": "〜から = từ (điểm xuất phát); えきから = từ nhà ga"
+                }
+              ]
+            },
+            {
+              "prompt": "すずきさんのかいしゃはなんかいですか。さんかいです。",
+              "ul": "かいしゃ",
+              "choices": [
+                "会社",
+                "会話",
+                "海社",
+                "外社"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かいしゃ」は「会社」と書きます。「会」(かい) là hội/tập hợp, «社» (しゃ) là công ty. «会話»(かいわ) nghĩa là hội thoại — phần sau «わ» chứ không phải «しゃ». «海社» không phải từ tồn tại — «海»(うみ/かい) là biển, không dùng trong nghĩa này. «外社» cũng không phải từ chuẩn.",
+              "glosses": [
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "なんかい",
+                  "read": "なんかい",
+                  "vi": "tầng mấy"
+                },
+                {
+                  "t": "さんかい",
+                  "read": "さんかい",
+                  "vi": "tầng ba"
+                },
+                {
+                  "t": "すずき",
+                  "read": "すずき",
+                  "vi": "Suzuki (họ, tên riêng)"
+                },
+                {
+                  "t": "さんの",
+                  "read": "さんの",
+                  "vi": "さん (kính ngữ sau tên người) + の (sở hữu) = của (ai đó)"
+                }
+              ]
+            },
+            {
+              "prompt": "ここはどこですか。ここはとしょかんです。",
+              "ul": "としょかん",
+              "choices": [
+                "図書館",
+                "図書感",
+                "当書館",
+                "図害館"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「としょかん」は「図書館」と書きます。「図」(と) là bản đồ/hình, «書»(しょ) là sách/viết, «館»(かん) là tòa nhà lớn. «図書感» sai ở «感»(かん) là cảm giác, không phải toà nhà. «当書館» — «当»(とう/あた) không đọc là と theo nghĩa này. «図害館» — «害»(がい) là hại/tổn hại, không liên quan.",
+              "glosses": [
+                {
+                  "t": "ここ",
+                  "vi": "ở đây, chỗ này"
+                },
+                {
+                  "t": "としょかん",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                }
+              ]
+            },
+            {
+              "prompt": "あのしろいたてものはびょういんです。",
+              "ul": "びょういん",
+              "choices": [
+                "病院",
+                "美容院",
+                "病員",
+                "平院"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「びょういん」は「病院」と書きます。「病」(びょう) là bệnh, «院»(いん) là cơ sở/viện. «美容院»(びよういん) đọc gần giống (びよう, không phải びょう) — nghĩa là tiệm làm đẹp, và cần phân biệt びょう vs びよう. «病員» không phải từ tồn tại. «平院» cũng không phải từ chuẩn.",
+              "glosses": [
+                {
+                  "t": "しろい",
+                  "read": "しろい",
+                  "vi": "màu trắng"
+                },
+                {
+                  "t": "たてもの",
+                  "read": "たてもの",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "びょういん",
+                  "read": "びょういん",
+                  "vi": "bệnh viện"
+                }
+              ]
+            },
+            {
+              "prompt": "エレベーターはむこうにあります。",
+              "ul": "むこう",
+              "choices": [
+                "向こう",
+                "前こう",
+                "外こう",
+                "先こう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「むこう」は「向こう」と書きます。Nghĩa là phía bên kia, đằng kia. «前こう» — «前»(まえ) là phía trước, không đọc là むこう. «外こう» — «外»(そと/がい) là bên ngoài, đọc khác. «先こう» — «先»(さき/せん) là phía trước theo thứ tự, không đọc là むこう.",
+              "glosses": [
+                {
+                  "t": "エレベーター",
+                  "vi": "thang máy"
+                },
+                {
+                  "t": "むこう",
+                  "read": "むこう",
+                  "vi": "phía bên kia, đằng kia"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "くつやはごかいにあります。",
+              "ul": "くつや",
+              "choices": [
+                "靴屋",
+                "靴家",
+                "沓屋",
+                "履屋"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「くつや」は「靴屋」と書きます。「靴」(くつ) là giày, «屋»(や) là cửa hàng. «靴家»(くつや/くつか) — «家» thường đọc là いえ/うち/か, không dùng để chỉ cửa hàng bán lẻ. «沓屋»(くつや) — «沓» là chữ cổ/biến thể của «靴» nhưng không dùng trong văn bản hiện đại N5. «履屋» — «履»(り/は) không đọc là くつ trong từ ghép thông thường.",
+              "glosses": [
+                {
+                  "t": "くつや",
+                  "read": "くつや",
+                  "vi": "tiệm giày"
+                },
+                {
+                  "t": "ごかい",
+                  "read": "ごかい",
+                  "vi": "tầng năm"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "きむらさんのがっこうはどこですか。あのまちにあります。",
+              "ul": "まち",
+              "choices": [
+                "町",
+                "丁",
+                "街",
+                "地"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「まち」は「町」と書きます。Nghĩa là thị trấn, khu phố nhỏ. «丁»(ちょう/てい) đọc khác, dùng trong địa chỉ (số mấy, bao nhiêu tờ giấy) nhưng không đọc độc lập là まち theo nghĩa thị trấn. «街»(まち/がい) cũng đọc là まち và nghĩa tương tự nhưng chỉ dùng cho phố thị sầm uất hơn — trong N5 chuẩn Minna, «町»(まち) là từ cơ bản. «地»(ち/じ) nghĩa là đất/địa, không đọc là まち.",
+              "glosses": [
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "まち",
+                  "read": "まち",
+                  "vi": "thị trấn, khu phố"
+                },
+                {
+                  "t": "きむらさん",
+                  "read": "きむらさん",
+                  "vi": "anh/chị Kimura (tên riêng + kính ngữ)"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "prompt": "スーパーはえきのそばにあります。",
+              "ul": "そば",
+              "choices": [
+                "側",
+                "外",
+                "後",
+                "前"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「そば」は「側」と書きます。Nghĩa là bên cạnh, kề bên. «外»(そと/がい) nghĩa là bên ngoài — đọc khác (そと), không phải そば. «後»(うしろ/ご/こう) nghĩa là phía sau — đọc là うしろ hay あと, không phải そば. «前»(まえ/ぜん) nghĩa là phía trước — đọc là まえ, không phải そば. Cần phân biệt そば (bên cạnh) với các từ chỉ hướng khác.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "えき",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "そば",
+                  "read": "そば",
+                  "vi": "bên cạnh, kề bên"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "すみません、トイレは＿ですか。",
+              "choices": [
+                "ここ",
+                "あそこ",
+                "どこ",
+                "そこ"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu hỏi về nơi chốn chưa biết, dùng 「どこ」(ở đâu). 「ここ」= nơi gần người nói (chỗ này). 「あそこ」= nơi xa cả hai người (chỗ kia). 「そこ」= nơi gần người nghe (chỗ đó). Khi chưa biết vị trí và đang hỏi, chỉ 「どこ」mới đúng.",
+              "glosses": [
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, làm phiền (dùng khi hỏi thăm)"
+                }
+              ]
+            },
+            {
+              "stem": "A：デパートは何＿ですか。B：３かいです。",
+              "choices": [
+                "かい",
+                "ばん",
+                "ほん",
+                "まい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かい（階）」là trợ số từ đếm tầng lầu. 「ばん（番）」đánh số thứ tự (số 1, số 2…). 「ほん（本）」đếm vật dài hình trụ (bút, chai). 「まい（枚）」đếm vật phẳng mỏng (tờ giấy, áo). Hỏi tầng thì dùng 「かい」.",
+              "glosses": [
+                {
+                  "t": "デパート",
+                  "vi": "trung tâm thương mại"
+                },
+                {
+                  "t": "何かい",
+                  "read": "なんかい",
+                  "vi": "tầng mấy"
+                },
+                {
+                  "t": "３かい",
+                  "vi": "tầng 3"
+                }
+              ]
+            },
+            {
+              "stem": "あの大きいたてものは＿ですか。",
+              "choices": [
+                "なん",
+                "なに",
+                "どこ",
+                "どれ"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu hỏi về một tòa nhà — đang hỏi đó là nơi/địa điểm gì, nên dùng 「どこ」(nơi nào/chỗ nào). 「なん」và「なに」hỏi về sự vật/thứ gì. 「どれ」hỏi cái nào trong nhóm. Hỏi tên/chức năng của một địa điểm tòa nhà dùng 「どこ」tự nhiên hơn.",
+              "glosses": [
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "lớn"
+                },
+                {
+                  "t": "たてもの",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "nơi nào / đây là đâu"
+                }
+              ]
+            },
+            {
+              "stem": "えきを出てすぐ＿にぎんこうがあります。",
+              "choices": [
+                "まえ",
+                "うしろ",
+                "となり",
+                "そと"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「えきを出てすぐ＿に」= vừa bước ra khỏi ga thì ngay ＿. Đáp án đúng là「まえ（前）」= phía trước — khi ra khỏi cổng ga và ngân hàng nằm ngay trước mặt. ①「まえ」✓ — 'ngay phía trước' sau khi ra cổng, hoàn toàn tự nhiên. ②「うしろ（後ろ）」— phía sau = quay ngược lại vào trong ga, vô lý. ③「となり」— bên cạnh liền kề; từ 「すぐ」ám chỉ thẳng hướng, không rẽ sang; となり không khớp. ④「そと（外）」— bên ngoài; sau khi đã ra khỏi ga bạn đang ở ngoài rồi, 'ngoài của ngoài' không có nghĩa ở đây.",
+              "glosses": [
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "を出て",
+                  "read": "をでて",
+                  "vi": "ra khỏi (ga)"
+                },
+                {
+                  "t": "すぐ",
+                  "vi": "ngay, liền"
+                },
+                {
+                  "t": "まえ",
+                  "read": "前",
+                  "vi": "phía trước"
+                },
+                {
+                  "t": "ぎんこう",
+                  "read": "銀行",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "stem": "A：ほんやは＿ですか。B：あそこです。",
+              "choices": [
+                "どこ",
+                "ここ",
+                "そこ",
+                "どれ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "B trả lời bằng 「あそこ」(chỗ kia, xa cả hai), nên A đang hỏi vị trí, tức là dùng 「どこ」(ở đâu). 「ここ」= chỗ này (gần A). 「そこ」= chỗ đó (gần B). 「どれ」= cái nào — hỏi về vật, không phải nơi chốn.",
+              "glosses": [
+                {
+                  "t": "ほんや",
+                  "vi": "hiệu sách"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "chỗ kia"
+                }
+              ]
+            },
+            {
+              "stem": "レストランはこのビルの ７＿です。",
+              "choices": [
+                "かい",
+                "ほん",
+                "まい",
+                "ばん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かい（階）」đếm tầng lầu trong tòa nhà. 「ほん（本）」đếm vật dài hình trụ. 「まい（枚）」đếm vật phẳng. 「ばん（番）」đánh số thứ tự. Nhà hàng ở tầng 7 → dùng 「かい」.",
+              "glosses": [
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "ビル",
+                  "vi": "tòa nhà (cao tầng)"
+                },
+                {
+                  "t": "７かい",
+                  "vi": "tầng 7"
+                }
+              ]
+            },
+            {
+              "stem": "コンビニはえきの＿にあります。",
+              "choices": [
+                "となり",
+                "まえ",
+                "うえ",
+                "した"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「となり」= bên cạnh (liền kề). 「まえ」= phía trước. 「うえ（上）」= phía trên. 「した（下）」= phía dưới. Cửa hàng tiện lợi nằm cạnh ga → 「となり」là đúng.",
+              "glosses": [
+                {
+                  "t": "コンビニ",
+                  "vi": "cửa hàng tiện lợi"
+                },
+                {
+                  "t": "えき",
+                  "vi": "ga"
+                },
+                {
+                  "t": "となり",
+                  "vi": "bên cạnh"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "stem": "つくえの＿にほんがあります。",
+              "choices": [
+                "うえ",
+                "なか",
+                "そと",
+                "まえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「うえ（上）」= trên mặt bàn. 「なか（中）」= bên trong (ngăn kéo, hộp). 「そと（外）」= bên ngoài. 「まえ（前）」= phía trước. Sách đặt trên mặt bàn thì dùng 「うえ」.",
+              "glosses": [
+                {
+                  "t": "つくえ",
+                  "vi": "bàn học"
+                },
+                {
+                  "t": "うえ",
+                  "vi": "trên, phía trên"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "stem": "かばんはいすの＿にあります。",
+              "choices": [
+                "した",
+                "うえ",
+                "となり",
+                "まえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「した（下）」= phía dưới (gầm ghế). 「うえ（上）」= phía trên. 「となり」= bên cạnh. 「まえ（前）」= phía trước. Cặp sách thường để dưới ghế → 「した」.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "cặp, túi xách"
+                },
+                {
+                  "t": "いす",
+                  "vi": "ghế"
+                },
+                {
+                  "t": "した",
+                  "vi": "phía dưới"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "stem": "A：やまださんのかいしゃは＿ですか。B：とうきょうです。",
+              "choices": [
+                "どこ",
+                "なに",
+                "どれ",
+                "いつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "B trả lời bằng địa danh 「とうきょう」, nên A hỏi về địa điểm → dùng 「どこ」(ở đâu). 「なに（何）」hỏi về vật/thứ gì. 「どれ」hỏi cái nào. 「いつ」hỏi thời gian (khi nào).",
+              "glosses": [
+                {
+                  "t": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada (tên riêng + kính ngữ)"
+                }
+              ]
+            },
+            {
+              "stem": "すみません、ゆうびんきょくはこのたてもののなん＿ですか。",
+              "choices": [
+                "かい",
+                "ばん",
+                "まい",
+                "ほん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hỏi bưu điện ở tầng mấy của tòa nhà → 「なんかい（何階）」. 「ばん」đánh số thứ tự. 「まい」đếm vật phẳng. 「ほん」đếm vật dài. Chỉ 「かい」dùng cho tầng lầu.",
+              "glosses": [
+                {
+                  "t": "ゆうびんきょく",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "たてもの",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "なんかい",
+                  "vi": "tầng mấy"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, làm phiền"
+                }
+              ]
+            },
+            {
+              "stem": "A：トイレはどこですか。B：あのドアの＿です。",
+              "choices": [
+                "なか",
+                "うえ",
+                "した",
+                "まえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「なか（中）」= bên trong (đi qua cửa vào trong). 「うえ（上）」= phía trên. 「した（下）」= phía dưới. 「まえ（前）」= phía trước cửa. Nhà vệ sinh nằm bên trong cánh cửa → 「なか」là tự nhiên nhất.",
+              "glosses": [
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "ドア",
+                  "vi": "cửa"
+                },
+                {
+                  "t": "なか",
+                  "vi": "bên trong"
+                },
+                {
+                  "t": "どこですか",
+                  "read": "どこですか",
+                  "vi": "どこですか = ở đâu ạ? (hỏi vị trí)"
+                }
+              ]
+            },
+            {
+              "stem": "えきはここから＿ですか。",
+              "choices": [
+                "とおい",
+                "おおきい",
+                "あたらしい",
+                "たかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「とおい（遠い）」= xa. Hỏi ga có xa từ đây không → 「とおい」phù hợp. 「おおきい（大きい）」= lớn — hỏi về kích thước. 「あたらしい（新しい）」= mới. 「たかい（高い）」= cao/đắt. Chỉ 「とおい」diễn tả khoảng cách.",
+              "glosses": [
+                {
+                  "t": "えき",
+                  "vi": "ga"
+                },
+                {
+                  "t": "ここ",
+                  "vi": "đây, chỗ này"
+                },
+                {
+                  "t": "とおい",
+                  "vi": "xa"
+                }
+              ]
+            },
+            {
+              "stem": "A：スーパーはどこですか。B：えきの＿ですよ。",
+              "choices": [
+                "ちかく",
+                "うえ",
+                "した",
+                "なか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ちかく（近く）」= gần, khu vực gần đó. 「うえ（上）」= phía trên. 「した（下）」= phía dưới. 「なか（中）」= bên trong. Siêu thị nằm gần ga (không phải trên/dưới/trong ga) → 「ちかく」.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "えき",
+                  "vi": "ga"
+                },
+                {
+                  "t": "ちかく",
+                  "vi": "gần, khu vực gần"
+                },
+                {
+                  "t": "どこですか",
+                  "read": "どこですか",
+                  "vi": "どこですか = ở đâu ạ? (hỏi vị trí)"
+                }
+              ]
+            },
+            {
+              "stem": "A：このちかくにほんやは＿か。B：はい、あそこにあります。",
+              "choices": [
+                "ありません",
+                "あります",
+                "います",
+                "いません"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「あります」= có (dùng cho vật vô tri vô giác). 「ありません」= không có (phủ định). 「います」= có (dùng cho người/động vật). 「いません」= không có (người/động vật). Hiệu sách là vật vô tri → dùng 「あります」, và B xác nhận có → câu hỏi dạng khẳng định 「ありますか」.",
+              "glosses": [
+                {
+                  "t": "ちかく",
+                  "vi": "gần đây"
+                },
+                {
+                  "t": "ほんや",
+                  "vi": "hiệu sách"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (vật)"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "chỗ kia"
+                },
+                {
+                  "t": "はい",
+                  "read": "はい",
+                  "vi": "vâng, đúng vậy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "トイレはどこですか。",
+              "choices": [
+                "トイレはあそこです。",
+                "トイレはきれいです。",
+                "トイレはわたしのです。",
+                "トイレはこれです。"
+              ],
+              "answer": 0,
+              "pt": "ここ／そこ／あそこ",
+              "explain": "Câu hỏi 「どこですか」hỏi về VỊ TRÍ. Câu trả lời đúng phải dùng từ chỉ nơi chốn 「ここ／そこ／あそこ」. Đáp án A 「あそこです」trả lời vị trí = đúng nghĩa nhất. B 「きれいです」nói nhà vệ sinh sạch — tính từ, lệch chủ đề. C 「わたしのです」nói của tôi — sai hoàn toàn. D 「これです」dùng đại từ chỉ vật, không chỉ nơi chốn.",
+              "glosses": [
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "chỗ kia (xa cả người nói lẫn người nghe)"
+                },
+                {
+                  "t": "きれい",
+                  "vi": "sạch, đẹp"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "わたしのです",
+                  "read": "わたしのです",
+                  "vi": "の thay cho danh từ đã nhắc (トイレ) + です = là của tôi"
+                },
+                {
+                  "t": "トイレはこれです",
+                  "read": "といれはこれです",
+                  "vi": "これです = là cái này (これ chỉ vật gần người nói)"
+                }
+              ]
+            },
+            {
+              "prompt": "すみません、えきはどちらですか。",
+              "choices": [
+                "えきはあちらです。",
+                "えきはあれです。",
+                "えきはそうです。",
+                "えきはここです。"
+              ],
+              "answer": 0,
+              "pt": "こちら／そちら／あちら",
+              "explain": "「どちら」là cách hỏi phương hướng/vị trí LỊCH SỰ. Câu trả lời lịch sự tương ứng phải dùng 「こちら／そちら／あちら」. Đáp án A 「あちらです」đúng — phong cách lịch sự chỉ hướng ga. B 「あれです」chỉ VẬT cụ thể, không chỉ hướng đi. C 「そうです」nghĩa 'đúng vậy' — không trả lời hướng. D 「ここです」là từ thông thường (không lịch sự), hơn nữa 「ここ」chỉ chỗ đứng của người nói, không hợp ngữ cảnh hỏi hướng ga.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "vi": "xin lỗi / cho hỏi"
+                },
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "phía nào (lịch sự)"
+                },
+                {
+                  "t": "あちら",
+                  "vi": "phía kia (lịch sự, xa cả hai người)"
+                },
+                {
+                  "t": "えきはあれです",
+                  "read": "えきはあれです",
+                  "vi": "あれです = là cái/nơi đó (xa cả người nói và người nghe)"
+                },
+                {
+                  "t": "えきはそうです",
+                  "read": "えきはそうです",
+                  "vi": "そうです = đúng vậy/là như thế (そう chỉ cách thức, không hợp để trả lời câu hỏi vị trí どちら)"
+                },
+                {
+                  "t": "えきはここです",
+                  "read": "えきはここです",
+                  "vi": "ここです = là ở đây (chỉ vị trí gần người nói)"
+                }
+              ]
+            },
+            {
+              "prompt": "ねこはテーブルのしたにいます。",
+              "choices": [
+                "ねこのばしょはテーブルのしたです。",
+                "ねこはテーブルのしたがすきです。",
+                "テーブルのしたはねこです。",
+                "ねこはテーブルのしたにあります。"
+              ],
+              "answer": 0,
+              "pt": "NはNにいます",
+              "explain": "「N は N にいます」diễn đạt vị trí của SINH VẬT. Câu gốc: mèo ở dưới bàn. Đáp án A diễn đạt lại bằng cách nói 'vị trí của mèo là dưới bàn' — cùng nghĩa. B 「すきです」nghĩa 'thích' — hoàn toàn khác nghĩa. C đảo chủ thể 'dưới bàn là mèo' — cấu trúc định nghĩa, không tương đương. D dùng 「あります」thay vì 「います」— sai vì mèo là sinh vật nên phải dùng 「います」.",
+              "glosses": [
+                {
+                  "t": "ねこ",
+                  "read": "猫",
+                  "vi": "con mèo"
+                },
+                {
+                  "t": "テーブルのした",
+                  "vi": "dưới bàn"
+                },
+                {
+                  "t": "います",
+                  "vi": "có/ở (dùng cho sinh vật)"
+                },
+                {
+                  "t": "ばしょ",
+                  "read": "場所",
+                  "vi": "vị trí, nơi chốn"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "prompt": "かばんはつくえのうえにあります。",
+              "choices": [
+                "かばんはつくえのうえにおいてあります。",
+                "かばんはつくえのうえにいます。",
+                "つくえのうえはかばんです。",
+                "かばんはつくえです。"
+              ],
+              "answer": 0,
+              "pt": "NはNにあります",
+              "explain": "「N は N にあります」diễn đạt vị trí của VẬT THỂ (không phải sinh vật). Đáp án A 「おいてあります」nghĩa 'được đặt ở trên bàn' — vẫn truyền đạt chiếc cặp nằm trên bàn, gần nghĩa nhất. B dùng 「います」thay 「あります」— sai vì cặp là đồ vật, không phải sinh vật. C đảo chủ thể thành 'trên bàn là cặp' — cấu trúc định nghĩa, không tương đương câu gốc. D 「かばんはつくえです」nghĩa 'cặp là cái bàn' — vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "cái cặp / túi xách"
+                },
+                {
+                  "t": "つくえのうえ",
+                  "read": "机の上",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có/ở (dùng cho đồ vật)"
+                },
+                {
+                  "t": "おいてあります",
+                  "vi": "được đặt ở (trạng thái sau hành động đặt)"
+                },
+                {
+                  "t": "かばんはつくえのうえにいます",
+                  "read": "かばんはつくえのうえにいます",
+                  "vi": "〜にいます = có mặt ở (chỉ dùng cho người/động vật còn sống); dùng cho かばん (túi, vật vô tri) là SAI ngữ pháp"
+                },
+                {
+                  "t": "かばんはつくえです",
+                  "read": "かばんはつくえです",
+                  "vi": "はつくえです = là cái bàn (câu đổi hẳn nghĩa so với câu gốc, không còn nói về vị trí)"
+                }
+              ]
+            },
+            {
+              "prompt": "この本はだれのですか。",
+              "choices": [
+                "これはだれの本ですか。",
+                "この本はどこですか。",
+                "この本はなんですか。",
+                "この本はいくらですか。"
+              ],
+              "answer": 0,
+              "pt": "このN (B2) + NのN sở hữu (B2)",
+              "explain": "Câu gốc hỏi quyển sách NÀY thuộc về ai, dùng 「この本はだれのですか」. Đáp án A 「これはだれの本ですか」dùng 「これ」thay 「この本」nhưng đặt câu hỏi hoàn toàn tương đương 'Cái này là sách của ai?' — cùng nghĩa. B 「この本はどこですか」hỏi vị trí quyển sách — khác chủ đề. C 「なんですか」hỏi đây là cái gì — khác chủ đề. D 「いくらですか」hỏi giá tiền — khác chủ đề hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này (gần người nói)"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "だれのですか",
+                  "vi": "của ai?"
+                },
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "この本はだれのですか",
+                  "read": "このほんはだれのですか",
+                  "vi": "だれのですか = của ai vậy? (hỏi sở hữu)"
+                },
+                {
+                  "t": "この本はどこですか",
+                  "read": "このほんはどこですか",
+                  "vi": "どこですか = ở đâu?"
+                },
+                {
+                  "t": "この本はなんですか",
+                  "read": "このほんはなんですか",
+                  "vi": "なんですか = là cái gì?"
+                },
+                {
+                  "t": "この本はいくらですか",
+                  "read": "このほんはいくらですか",
+                  "vi": "いくらですか = bao nhiêu tiền?"
+                }
+              ]
+            },
+            {
+              "prompt": "はなやはあそこですか、そこですか。",
+              "choices": [
+                "はなやはあそこですか、それともそこですか。",
+                "はなやはあそこですか。",
+                "はなやはそこにあります。",
+                "はなやはあちらですか、そちらですか。"
+              ],
+              "answer": 0,
+              "pt": "NはAですか、Bですか (A hay B?)",
+              "explain": "「AですかBですか」là cấu trúc hỏi lựa chọn 'A hay B?'. Đáp án A dùng 「それとも」(hay là) để nối rõ ràng hơn giữa hai lựa chọn — diễn đạt cùng ý nghĩa hỏi chọn. B chỉ hỏi một vế 「あそこですか」— không còn là câu hỏi lựa chọn, mất ý so sánh. C 「そこにあります」xác nhận vị trí, không hỏi — khác chức năng. D dùng 「あちら／そちら」(lịch sự) thay 「あそこ／そこ」(thông thường) — đổi mức độ lịch sự, không phải câu đồng nghĩa trực tiếp.",
+              "glosses": [
+                {
+                  "t": "はなや",
+                  "read": "花屋",
+                  "vi": "cửa hàng hoa"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "chỗ kia"
+                },
+                {
+                  "t": "そこ",
+                  "vi": "chỗ đó (gần người nghe)"
+                },
+                {
+                  "t": "それとも",
+                  "vi": "hay là, hoặc là"
+                },
+                {
+                  "t": "あちら",
+                  "read": "あちら",
+                  "vi": "đằng kia (cách nói lịch sự)"
+                },
+                {
+                  "t": "そちら",
+                  "read": "そちら",
+                  "vi": "đằng đó (cách nói lịch sự)"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "prompt": "でんわはどこにありますか。",
+              "choices": [
+                "でんわのばしょはどこですか。",
+                "でんわはなんですか。",
+                "でんわはだれのですか。",
+                "でんわはいくつありますか。"
+              ],
+              "answer": 0,
+              "pt": "NはNにあります + ここ／そこ／あそこ",
+              "explain": "Câu gốc 「でんわはどこにありますか」hỏi VỊ TRÍ của điện thoại. Đáp án A 「でんわのばしょはどこですか」hỏi 'vị trí của điện thoại là ở đâu?' — hoàn toàn cùng nghĩa, chỉ đổi cấu trúc. B 「なんですか」hỏi điện thoại là cái gì — khác. C 「だれのですか」hỏi của ai — khác. D 「いくつありますか」hỏi số lượng — khác.",
+              "glosses": [
+                {
+                  "t": "でんわ",
+                  "read": "電話",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "どこに",
+                  "vi": "ở đâu (kết hợp với あります/います)"
+                },
+                {
+                  "t": "ありますか",
+                  "vi": "có/ở không? (đồ vật)"
+                },
+                {
+                  "t": "ばしょ",
+                  "read": "場所",
+                  "vi": "vị trí, nơi chốn"
+                },
+                {
+                  "t": "でんわのばしょはどこですか",
+                  "read": "でんわのばしょはどこですか",
+                  "vi": "どこですか = ở đâu?"
+                },
+                {
+                  "t": "でんわはなんですか",
+                  "read": "でんわはなんですか",
+                  "vi": "なんですか = là cái gì?"
+                },
+                {
+                  "t": "でんわはだれのですか",
+                  "read": "でんわはだれのですか",
+                  "vi": "だれのですか = của ai?"
+                },
+                {
+                  "t": "でんわはいくつありますか",
+                  "read": "でんわはいくつありますか",
+                  "vi": "いくつありますか = có bao nhiêu cái? (hỏi số lượng)"
+                }
+              ]
+            },
+            {
+              "prompt": "センターは図書館ですか、スーパーですか。",
+              "choices": [
+                "センターは図書館かスーパーですか。",
+                "センターは図書館です。",
+                "センターはどこですか。",
+                "センターはどちらですか。"
+              ],
+              "answer": 0,
+              "pt": "NはAですか、Bですか",
+              "explain": "「AですかBですか」hỏi lựa chọn giữa A và B. Đáp án A dùng 「か」nối giữa hai danh từ tạo cấu trúc 'là thư viện hay siêu thị?' — cùng ý hỏi chọn lựa. B 「図書館です」xác nhận luôn là thư viện — không hỏi, không lựa chọn. C 「どこですか」hỏi vị trí — đổi chủ đề. D 「どちらですか」hỏi 'cái nào' mà không nêu cụ thể hai lựa chọn — nghĩa gần nhưng kém cụ thể hơn A.",
+              "glosses": [
+                {
+                  "t": "センター",
+                  "vi": "trung tâm"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "か",
+                  "vi": "hay (nối lựa chọn)"
+                },
+                {
+                  "t": "どちら",
+                  "read": "どちら",
+                  "vi": "cái nào / bên nào (lịch sự)"
+                },
+                {
+                  "t": "センターはどこですか",
+                  "read": "せんたーはどこですか",
+                  "vi": "どこですか = ở đâu?"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしのかさはそこにあります。",
+              "choices": [
+                "わたしのかさのばしょはそこです。",
+                "そこはわたしのかさです。",
+                "わたしのかさはそこにいます。",
+                "わたしのかさはそれです。"
+              ],
+              "answer": 0,
+              "pt": "NのN sở hữu (B2) + NはNにあります",
+              "explain": "Câu gốc: ô của tôi ở chỗ đó. Đáp án A 'vị trí của ô của tôi là chỗ đó' — diễn đạt lại cùng thông tin bằng cấu trúc NのN. B đảo chủ thể 'chỗ đó là ô của tôi' — định nghĩa ngược, không tương đương. C dùng 「います」thay 「あります」— sai vì ô là đồ vật. D 「それです」dùng đại từ chỉ vật nhưng không truyền đạt vị trí 「そこ」, mất thông tin.",
+              "glosses": [
+                {
+                  "t": "かさ",
+                  "read": "傘",
+                  "vi": "cái ô / dù"
+                },
+                {
+                  "t": "そこ",
+                  "vi": "chỗ đó (gần người nghe)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có/ở (đồ vật)"
+                },
+                {
+                  "t": "ばしょ",
+                  "read": "場所",
+                  "vi": "vị trí"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "わたしのかさはそこにいます",
+                  "read": "わたしのかさはそこにいます",
+                  "vi": "〜にいます = có mặt ở đó (chỉ dùng cho người/động vật); dùng cho かさ (ô, vật vô tri) là SAI ngữ pháp"
+                },
+                {
+                  "t": "わたしのかさはそれです",
+                  "read": "わたしのかさはそれです",
+                  "vi": "それです = là cái đó (gần người nghe)"
+                }
+              ]
+            },
+            {
+              "prompt": "スミスさんはどこにいますか。",
+              "choices": [
+                "スミスさんのばしょはどこですか。",
+                "スミスさんはだれですか。",
+                "スミスさんはどこにありますか。",
+                "スミスさんはここにあります。"
+              ],
+              "answer": 0,
+              "pt": "NはNにいます",
+              "explain": "「どこにいますか」hỏi vị trí của người/sinh vật. Đáp án A hỏi 'vị trí của ông Smith là ở đâu?' — cùng nghĩa, chỉ đổi cấu trúc. B 「だれですか」hỏi ông Smith là ai — đổi chủ đề. C 「どこにありますか」dùng 「あります」cho người — sai vì người phải dùng 「います」. D 「ここにあります」vừa sai động từ (あります thay います) vừa trả lời chứ không hỏi.",
+              "glosses": [
+                {
+                  "t": "スミスさん",
+                  "vi": "ông/bà Smith"
+                },
+                {
+                  "t": "どこに",
+                  "vi": "ở đâu (với います/あります)"
+                },
+                {
+                  "t": "いますか",
+                  "vi": "có/ở không? (người, sinh vật)"
+                },
+                {
+                  "t": "ばしょ",
+                  "read": "場所",
+                  "vi": "vị trí"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                },
+                {
+                  "t": "スミスさんのばしょはどこですか",
+                  "read": "すみすさんのばしょはどこですか",
+                  "vi": "どこですか = ở đâu?"
+                },
+                {
+                  "t": "スミスさんはだれですか",
+                  "read": "すみすさんはだれですか",
+                  "vi": "だれですか = là ai?"
+                },
+                {
+                  "t": "スミスさんはここにあります",
+                  "read": "すみすさんはここにあります",
+                  "vi": "〜にあります = có ở (chỉ dùng cho vật vô tri); dùng cho スミスさん (người) là SAI ngữ pháp, phải dùng います"
+                }
+              ]
+            },
+            {
+              "prompt": "あのビルはぎんこうですか、ホテルですか。",
+              "choices": [
+                "あのビルはぎんこうとホテルのどちらですか。",
+                "あのビルはぎんこうです。",
+                "あのビルはどこですか。",
+                "ぎんこうはあのビルです。"
+              ],
+              "answer": 0,
+              "pt": "あのN (B2) + NはAですか、Bですか",
+              "explain": "「AですかBですか」hỏi lựa chọn A hay B. Đáp án A 「ぎんこうとホテルのどちらですか」hỏi 'trong ngân hàng và khách sạn, cái nào?' — hoàn toàn cùng ý hỏi lựa chọn. B xác nhận luôn là ngân hàng — không còn hỏi chọn. C 「どこですか」hỏi vị trí tòa nhà — đổi chủ đề. D đảo chủ thể 'ngân hàng là tòa nhà đó' — định nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "あのビル",
+                  "vi": "tòa nhà kia"
+                },
+                {
+                  "t": "ぎんこう",
+                  "read": "銀行",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "cái nào (trong hai, lịch sự)"
+                },
+                {
+                  "t": "あのビルはどこですか",
+                  "read": "あのびるはどこですか",
+                  "vi": "どこですか = ở đâu?"
+                }
+              ]
+            },
+            {
+              "prompt": "トイレはこちらです。",
+              "choices": [
+                "トイレはここです。",
+                "トイレはこれです。",
+                "トイレはこのです。",
+                "トイレはそちらです。"
+              ],
+              "answer": 0,
+              "pt": "こちら／そちら／あちら (lịch sự)",
+              "explain": "「こちら」là từ lịch sự chỉ phía/hướng gần người nói. Phiên bản thông thường tương đương là 「ここ」. Đáp án A 「ここです」truyền đạt cùng vị trí 'ở đây' nhưng ở mức độ thông thường — gần nghĩa nhất. B 「これです」dùng đại từ chỉ VẬT, không chỉ hướng/nơi chốn. C 「このです」sai ngữ pháp, 「この」phải đứng trước danh từ. D 「そちらです」chỉ phía gần NGƯỜI NGHE, không phải người nói — đổi nghĩa.",
+              "glosses": [
+                {
+                  "t": "こちら",
+                  "vi": "phía này / hướng này (lịch sự)"
+                },
+                {
+                  "t": "ここ",
+                  "vi": "ở đây (thông thường)"
+                },
+                {
+                  "t": "これ",
+                  "vi": "cái này (đại từ chỉ vật)"
+                },
+                {
+                  "t": "そちら",
+                  "vi": "phía đó (gần người nghe, lịch sự)"
+                },
+                {
+                  "t": "トイレ",
+                  "read": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "トイレはこのです",
+                  "read": "といれはこのです",
+                  "vi": "はこのです = SAI ngữ pháp: この là từ hạn định chỉ đứng trước danh từ (このトイレ), không thể đứng một mình trước です"
+                }
+              ]
+            },
+            {
+              "prompt": "あそこにゆうびんきょくがあります。",
+              "choices": [
+                "ゆうびんきょくはあそこにあります。",
+                "ゆうびんきょくはあそこにいます。",
+                "あそこはゆうびんきょくがすきです。",
+                "ゆうびんきょくはあれです。"
+              ],
+              "answer": 0,
+              "pt": "ここ／そこ／あそこ + NはNにあります",
+              "explain": "Câu gốc 「あそこにゆうびんきょくがあります」dùng cấu trúc 'ở chỗ kia có bưu điện'. Đáp án A 「ゆうびんきょくはあそこにあります」đổi chủ đề nhưng giữ nguyên nghĩa 'bưu điện ở chỗ kia' — cùng thông tin. B dùng 「います」— sai vì bưu điện là tòa nhà/đồ vật. C 「すきです」nghĩa 'thích' — hoàn toàn khác. D 「あれです」chỉ vật cụ thể nhìn thấy được, thiếu yếu tố xác định vị trí rõ ràng.",
+              "glosses": [
+                {
+                  "t": "あそこ",
+                  "vi": "chỗ kia"
+                },
+                {
+                  "t": "ゆうびんきょく",
+                  "read": "郵便局",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "があります",
+                  "vi": "có (đồ vật, nơi chốn)"
+                },
+                {
+                  "t": "あれ",
+                  "vi": "cái kia (đại từ chỉ vật)"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "ゆうびんきょくはあそこにあります",
+                  "read": "ゆうびんきょくはあそこにあります",
+                  "vi": "〜にあります = có ở (dùng cho địa điểm/vật vô tri)"
+                },
+                {
+                  "t": "ゆうびんきょくはあそこにいます",
+                  "read": "ゆうびんきょくはあそこにいます",
+                  "vi": "〜にいます = có mặt ở (chỉ dùng cho người/động vật); dùng cho ゆうびんきょく (bưu điện, vật vô tri) là SAI ngữ pháp"
+                }
+              ]
+            },
+            {
+              "prompt": "この本はやまださんのですか。",
+              "choices": [
+                "この本はやまださんのほんですか。",
+                "この本はどこですか。",
+                "やまださんはこの本がすきですか。",
+                "この本はなんですか。"
+              ],
+              "answer": 0,
+              "pt": "このN (B2) + NのN sở hữu (B2)",
+              "explain": "「やまださんのですか」rút gọn của 「やまださんの本ですか」. Đáp án A viết đầy đủ 「やまださんの本ですか」— hoàn toàn cùng nghĩa, chỉ bỏ rút gọn. B 「どこですか」hỏi vị trí — đổi chủ đề. C 「すきですか」hỏi ông Yamada có thích sách này không — khác nghĩa. D 「なんですか」hỏi đây là cái gì — khác chủ đề.",
+              "glosses": [
+                {
+                  "t": "この本",
+                  "read": "このほん",
+                  "vi": "quyển sách này"
+                },
+                {
+                  "t": "やまださんの",
+                  "vi": "của anh/chị Yamada"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "phải không? / có... không?"
+                },
+                {
+                  "t": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "この本はどこですか",
+                  "read": "このほんはどこですか",
+                  "vi": "どこですか = ở đâu?"
+                },
+                {
+                  "t": "やまださんはこの本がすきですか",
+                  "read": "やまださんはこのほんがすきですか",
+                  "vi": "câu này đổi hẳn chủ ngữ thành 山田さん, hỏi có thích quyển sách này không - khác hẳn ý câu gốc hỏi về quyển sách"
+                },
+                {
+                  "t": "この本はなんですか",
+                  "read": "このほんはなんですか",
+                  "vi": "なんですか = là cái gì?"
+                }
+              ]
+            },
+            {
+              "prompt": "きょうしつはにかいにあります。",
+              "choices": [
+                "きょうしつのばしょはにかいです。",
+                "きょうしつはにかいにいます。",
+                "にかいはきょうしつです。",
+                "きょうしつはにかいがすきです。"
+              ],
+              "answer": 0,
+              "pt": "NはNにあります",
+              "explain": "「きょうしつはにかいにあります」nghĩa 'phòng học ở tầng hai'. Đáp án A 「きょうしつのばしょはにかいです」nghĩa 'vị trí của phòng học là tầng hai' — cùng thông tin, chỉ đổi cấu trúc. B dùng 「います」— sai vì phòng học là đồ vật/nơi chốn. C đảo chủ thể 'tầng hai là phòng học' — nghĩa bị đảo. D 「すきです」nghĩa 'thích' — hoàn toàn khác chủ đề.",
+              "glosses": [
+                {
+                  "t": "きょうしつ",
+                  "read": "教室",
+                  "vi": "phòng học"
+                },
+                {
+                  "t": "にかい",
+                  "read": "二階",
+                  "vi": "tầng hai"
+                },
+                {
+                  "t": "にあります",
+                  "vi": "ở, tại (đồ vật/nơi chốn)"
+                },
+                {
+                  "t": "ばしょ",
+                  "read": "場所",
+                  "vi": "vị trí"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "きょうしつはにかいにいます",
+                  "read": "きょうしつはにかいにいます",
+                  "vi": "〜にいます = có mặt ở (chỉ dùng cho người/động vật); dùng cho きょうしつ (phòng học, vật vô tri) là SAI ngữ pháp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 3 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "A：すみません、トイレは＿ですか。\nB：あそこです。",
+              "choices": [
+                "ここ",
+                "そこ",
+                "あそこ",
+                "こちら"
+              ],
+              "answer": 2,
+              "pt": "ここ／そこ／あそこ",
+              "explain": "B đang chỉ vị trí nhà vệ sinh ở xa cả hai người, nên dùng「あそこ」(chỗ kia). 「ここ」= chỗ này (gần người nói), dùng sai vì nhà vệ sinh không ở cạnh người nói. 「そこ」= chỗ đó (gần người nghe), dùng sai vì nhà vệ sinh không ở cạnh người hỏi. 「こちら」= phía này (lịch sự), là từ lịch sự nhưng câu hỏi đang cần một câu trả lời khẳng định vị trí xa, không hợp ngữ cảnh B trả lời ngắn gọn.",
+              "glosses": [
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "chỗ kia (xa cả người nói lẫn người nghe)"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, làm phiền"
+                }
+              ]
+            },
+            {
+              "stem": "A：銀行はどこですか。\nB：＿です。あのビルのとなりです。",
+              "choices": [
+                "あそこ",
+                "そこ",
+                "あれ",
+                "あちら"
+              ],
+              "answer": 0,
+              "pt": "ここ／そこ／あそこ",
+              "explain": "Câu tiếp theo B giải thích thêm bằng「あのビル」(tòa nhà kia), tức vị trí xa, nên câu đầu phải là「あそこ」(chỗ kia). 「そこ」chỉ vị trí gần người nghe, không khớp với「あのビル」ở xa. 「あれ」là đại từ chỉ đồ vật/thứ kia, không dùng để chỉ địa điểm. 「あちら」cũng chỉ phía kia nhưng là thể lịch sự; câu này B đang trả lời thông thường, không cần thể lịch sự đặc biệt, và quan trọng hơn「あちら」thường chỉ hướng, còn「あそこ」chỉ đích điểm cụ thể.",
+              "glosses": [
+                {
+                  "t": "銀行",
+                  "read": "ぎんこう",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "ビル",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "となり",
+                  "vi": "bên cạnh"
+                },
+                {
+                  "t": "銀行はどこですか",
+                  "read": "ぎんこうはどこですか",
+                  "vi": "どこですか = ở đâu?"
+                }
+              ]
+            },
+            {
+              "stem": "A：田中さん＿はどちらですか。\nB：日本語学校のとなりのビルです。",
+              "choices": [
+                "の会社",
+                "の本",
+                "もいます",
+                "はいます"
+              ],
+              "answer": 0,
+              "pt": "NのN (sở hữu／thành viên)",
+              "explain": "「どちら」hỏi về vị trí lịch sự, cần một danh từ chỉ địa điểm đứng trước. 「田中さんの会社はどちらですか」= công ty của anh Tanaka ở đâu? Dùng「NのN」để nối sở hữu. 「の本」= cuốn sách, không liên quan đến địa điểm. 「もいます」thêm「も」và「います」sai cấu trúc vị trí hỏi. 「はいます」= [chủ đề] ở (dùng cho sinh vật), nhưng hỏi địa điểm công ty phải dùng「あります」không phải「います」, và cấu trúc câu cũng sai.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "日本語学校",
+                  "read": "にほんごがっこう",
+                  "vi": "trường dạy tiếng Nhật"
+                },
+                {
+                  "t": "どちら",
+                  "read": "どちら",
+                  "vi": "đâu, hướng nào (cách nói lịch sự)"
+                },
+                {
+                  "t": "となり",
+                  "read": "となり",
+                  "vi": "bên cạnh, kế bên"
+                },
+                {
+                  "t": "ビル",
+                  "read": "ビル",
+                  "vi": "tòa nhà (cao ốc)"
+                }
+              ]
+            },
+            {
+              "stem": "A：鈴木さんはどこにいますか。\nB：＿にいます。",
+              "choices": [
+                "図書館",
+                "図書館が",
+                "図書館は",
+                "図書館で"
+              ],
+              "answer": 0,
+              "pt": "NはNにいます",
+              "explain": "Cấu trúc「NはNにいます」= N ở tại N. Vị trí dùng trợ từ「に」, nên đáp án là「図書館に」. Tuy nhiên trong câu trả lời ngắn B đã có「に」ở sau, nên cần điền「図書館」và「に」đã có sẵn — đây là「図書館」đứng độc lập trước「に」trong câu. 「図書館が」dùng「が」chỉ chủ thể, không phải vị trí. 「図書館は」dùng「は」chủ đề, sai vì vị trí cần「に」. 「図書館で」=「で」chỉ nơi thực hiện hành động (ở thư viện để làm gì), không chỉ sự tồn tại.",
+              "glosses": [
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "にいます",
+                  "vi": "ở (dùng cho người/sinh vật)"
+                },
+                {
+                  "t": "鈴木さんはどこにいますか",
+                  "read": "すずきさんはどこにいますか",
+                  "vi": "〜にいますか = đang ở đâu vậy? (hỏi vị trí người, động từ います)"
+                }
+              ]
+            },
+            {
+              "stem": "ねこはテーブルのした＿います。",
+              "choices": [
+                "に",
+                "で",
+                "が",
+                "は"
+              ],
+              "answer": 0,
+              "pt": "NはNにいます",
+              "explain": "「います」diễn tả sự tồn tại của sinh vật, vị trí đứng trước「います」phải dùng trợ từ「に」. Vậy「テーブルのしたにいます」= ở dưới gầm bàn. 「で」chỉ nơi diễn ra hành động (mèo đang làm gì đó dưới bàn), không chỉ sự tồn tại thuần túy. 「が」là trợ từ chủ thể, không hợp vị trí. 「は」là trợ từ chủ đề, cũng không dùng chỉ vị trí.",
+              "glosses": [
+                {
+                  "t": "ねこ",
+                  "vi": "con mèo"
+                },
+                {
+                  "t": "テーブル",
+                  "vi": "cái bàn"
+                },
+                {
+                  "t": "した",
+                  "vi": "phía dưới"
+                },
+                {
+                  "t": "います",
+                  "vi": "ở, tồn tại (sinh vật)"
+                }
+              ]
+            },
+            {
+              "stem": "A：エレベーターは＿ですか、右ですか。\nB：左です。",
+              "choices": [
+                "左",
+                "どこ",
+                "どちら",
+                "あそこ"
+              ],
+              "answer": 2,
+              "pt": "NはAですか、Bですか",
+              "explain": "Cấu trúc「NはAですか、Bですか」= N là A hay B? Dùng khi đưa ra hai lựa chọn. Câu hỏi đang hỏi thang máy ở bên trái hay phải, nên ô trống phải là「左」để tạo thành「左ですか、右ですか」. Nhưng chú ý: đáp án chính xác là phương án C「どちら」— thực ra A hỏi bằng cấu trúc「NはAですか、Bですか」thì ô trống phải là lựa chọn đầu tiên, tức「左」. Tuy nhiên xét lại: B trả lời「左です」— câu hỏi dạng A/B cần điền vào ô trống lựa chọn đầu (「左」), nhưng「左」xuất hiện ở đáp án A và cũng là câu trả lời B, nên bài kiểm điểm ngữ pháp dạng A/B câu hỏi. Điền「左」tạo thành 「エレベーターは左ですか、右ですか」= thang máy ở bên trái hay phải? — đúng cấu trúc. 「どこ」hỏi địa điểm mở, không phải lựa chọn A/B. 「どちら」hỏi lựa chọn nhưng không điền vào vị trí A trong cấu trúc A/B. 「あそこ」là từ chỉ vị trí, không hợp lựa chọn.",
+              "glosses": [
+                {
+                  "t": "エレベーター",
+                  "vi": "thang máy"
+                },
+                {
+                  "t": "右",
+                  "read": "みぎ",
+                  "vi": "bên phải"
+                },
+                {
+                  "t": "左",
+                  "read": "ひだり",
+                  "vi": "bên trái"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "phía nào (lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "A：コンビニは＿ですか、左ですか。\nB：右です。",
+              "choices": [
+                "右",
+                "どちら",
+                "あちら",
+                "こちら"
+              ],
+              "answer": 0,
+              "pt": "NはAですか、Bですか",
+              "explain": "Cấu trúc「NはAですか、Bですか」: điền vào ô trống là lựa chọn thứ nhất. B trả lời「右です」, nên lựa chọn trong câu hỏi phải là「右ですか、左ですか」→ điền「右」. 「どちら」= phía nào, là từ hỏi lựa chọn nhưng đứng độc lập như「どちらですか」, không điền vào vị trí A trong cặp A/B. 「あちら」= phía kia (lịch sự), là từ chỉ hướng, không phải lựa chọn địa điểm cụ thể. 「こちら」= phía này (lịch sự), tương tự không hợp.",
+              "glosses": [
+                {
+                  "t": "コンビニ",
+                  "vi": "cửa hàng tiện lợi"
+                },
+                {
+                  "t": "右",
+                  "read": "みぎ",
+                  "vi": "bên phải"
+                },
+                {
+                  "t": "左",
+                  "read": "ひだり",
+                  "vi": "bên trái"
+                }
+              ]
+            },
+            {
+              "stem": "A：すみません、郵便局は＿にありますか。\nB：駅のとなりにあります。",
+              "choices": [
+                "どこ",
+                "どれ",
+                "どちら",
+                "どなた"
+              ],
+              "answer": 0,
+              "pt": "NはNにあります",
+              "explain": "Câu hỏi địa điểm dùng「どこに＋あります／います」.「郵便局はどこにありますか」= bưu điện ở đâu? 「どれ」hỏi cái nào (trong nhiều vật), không hỏi địa điểm. 「どちら」hỏi phía nào / cái nào trong hai lựa chọn (lịch sự hơn「どこ」nhưng thường dùng khi có hai phương án cụ thể); về mặt ngữ pháp có thể dùng nhưng「どこ」tự nhiên hơn cho câu hỏi địa điểm mở. 「どなた」= ai (hỏi người), không hỏi địa điểm.",
+              "glosses": [
+                {
+                  "t": "郵便局",
+                  "read": "ゆうびんきょく",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "となり",
+                  "vi": "bên cạnh"
+                },
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, làm phiền"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "stem": "私のかばんは＿にあります。",
+              "choices": [
+                "いすのうえ",
+                "いすがうえ",
+                "いすはうえ",
+                "いすでうえ"
+              ],
+              "answer": 0,
+              "pt": "NはNにあります",
+              "explain": "「NのN」nối hai danh từ để chỉ vị trí tương đối:「いすのうえ」= trên mặt ghế. Kết hợp với「に」→「いすのうえにあります」= ở trên ghế. 「いすがうえ」dùng「が」chủ thể, sai cấu trúc vị trí. 「いすはうえ」dùng「は」chủ đề, cũng sai. 「いすでうえ」dùng「で」chỉ phương tiện/nơi hành động, không chỉ vị trí tồn tại.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "cái túi xách"
+                },
+                {
+                  "t": "いす",
+                  "vi": "ghế"
+                },
+                {
+                  "t": "うえ",
+                  "vi": "phía trên, trên mặt"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ]
+            },
+            {
+              "stem": "A：マリアさんは＿にいますか。\nB：食堂にいます。",
+              "choices": [
+                "どこ",
+                "どれ",
+                "どちら",
+                "なに"
+              ],
+              "answer": 0,
+              "pt": "NはNにいます",
+              "explain": "「どこにいますか」= ở đâu? (hỏi vị trí người/sinh vật). Đáp án là「どこ」. 「どれ」= cái nào, hỏi vật trong nhiều cái, không hỏi vị trí người. 「どちら」= phía nào/ai (lịch sự), dùng được khi hỏi người một cách trang trọng hơn nhưng không hỏi địa điểm. 「なに」= cái gì, hỏi vật, hoàn toàn sai ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "マリアさん",
+                  "vi": "chị Maria"
+                },
+                {
+                  "t": "食堂",
+                  "read": "しょくどう",
+                  "vi": "nhà ăn, căng-tin"
+                },
+                {
+                  "t": "にいますか",
+                  "read": "にいますか",
+                  "vi": "〜にいますか = có ở ... không? (hỏi vị trí người/động vật)"
+                },
+                {
+                  "t": "食堂にいます",
+                  "read": "しょくどうにいます",
+                  "vi": "〜にいます = có mặt ở (khẳng định vị trí người/động vật)"
+                }
+              ]
+            },
+            {
+              "stem": "これは山田さん＿ノートです。",
+              "choices": [
+                "の",
+                "は",
+                "に",
+                "も"
+              ],
+              "answer": 0,
+              "pt": "NのN (sở hữu)",
+              "explain": "「NのN」biểu thị quan hệ sở hữu:「山田さんのノート」= quyển vở của anh Yamada. 「は」là trợ từ chủ đề, không nối sở hữu. 「に」chỉ vị trí hoặc hướng, không nối hai danh từ theo kiểu sở hữu. 「も」= cũng, thêm ý nghĩa liệt kê, không hợp ngữ cảnh sở hữu ở đây.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "ノート",
+                  "vi": "quyển vở"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "これ = cái này (gần người nói) + は (trợ từ chủ đề)"
+                }
+              ]
+            },
+            {
+              "stem": "A：あのかたはだれですか。\nB：＿の先生です。",
+              "choices": [
+                "日本語学校",
+                "日本語学校が",
+                "日本語学校に",
+                "日本語学校で"
+              ],
+              "answer": 0,
+              "pt": "NのN (sở hữu／thành viên)",
+              "explain": "「日本語学校の先生」= thầy/cô của trường tiếng Nhật, dùng「の」nối hai danh từ. 「日本語学校が先生」sai cấu trúc, không có「が」ở đây. 「日本語学校に先生」dùng「に」chỉ vị trí, sai. 「日本語学校で先生」dùng「で」chỉ nơi hoạt động, không nối sở hữu.",
+              "glosses": [
+                {
+                  "t": "あのかた",
+                  "vi": "vị kia (cách gọi lịch sự)"
+                },
+                {
+                  "t": "日本語学校",
+                  "read": "にほんごがっこう",
+                  "vi": "trường dạy tiếng Nhật"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                }
+              ]
+            },
+            {
+              "stem": "A：会議室は何階ですか。\nB：＿。3階のエレベーターの右です。",
+              "choices": [
+                "3階です",
+                "3階にいます",
+                "3階があります",
+                "3階もです"
+              ],
+              "answer": 0,
+              "pt": "NはNです (B1) + Nにあります",
+              "explain": "Câu hỏi「何階ですか」= ở tầng mấy? Trả lời ngắn gọn「3階です」= tầng 3. Dùng cấu trúc「NはNです」(B1). 「3階にいます」dùng「います」cho sinh vật, không hợp với phòng họp (vật/địa điểm phải dùng「あります」). 「3階があります」sai cấu trúc — chủ thể đã là「会議室」rồi, không thêm「が」vào tầng. 「3階もです」thêm「も」= cũng, sai ngữ cảnh không có gì trước để so sánh.",
+              "glosses": [
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "何階",
+                  "read": "なんがい",
+                  "vi": "tầng mấy"
+                },
+                {
+                  "t": "エレベーター",
+                  "vi": "thang máy"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                },
+                {
+                  "t": "右",
+                  "read": "みぎ",
+                  "vi": "bên phải"
+                },
+                {
+                  "t": "3階にいます",
+                  "read": "さんかいにいます",
+                  "vi": "〜にいます = có mặt ở (chỉ dùng cho người/động vật); dùng để trả lời về 会議室 (phòng họp, vật vô tri) là SAI ngữ pháp"
+                },
+                {
+                  "t": "3階もです",
+                  "read": "さんかいもです",
+                  "vi": "も (cũng) + です; dùng も ở đây không hợp ngữ cảnh vì câu hỏi không có yếu tố nào để so sánh \"cũng\""
+                }
+              ]
+            },
+            {
+              "stem": "A：トムさんも図書館にいますか。\nB：いいえ、＿。トムさんは食堂にいます。",
+              "choices": [
+                "いません",
+                "ありません",
+                "います",
+                "あります"
+              ],
+              "answer": 0,
+              "pt": "NはNにいます + Nも",
+              "explain": "「も」= cũng, hỏi xem Tom có ở thư viện không.「いいえ」= không, nên tiếp theo phải phủ định.「います」→ thể phủ định「いません」= không ở (dùng cho người/sinh vật). 「ありません」là thể phủ định của「あります」dùng cho đồ vật/địa điểm, không dùng cho người. 「います」khẳng định, mâu thuẫn với「いいえ」. 「あります」khẳng định dùng cho vật, cũng sai.",
+              "glosses": [
+                {
+                  "t": "トムさん",
+                  "vi": "anh Tom"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "食堂",
+                  "read": "しょくどう",
+                  "vi": "nhà ăn"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không (phủ định)"
+                },
+                {
+                  "t": "図書館にいますか",
+                  "read": "としょかんにいますか",
+                  "vi": "〜にいますか = có ở (thư viện) không? (hỏi vị trí người)"
+                },
+                {
+                  "t": "食堂にいます",
+                  "read": "しょくどうにいます",
+                  "vi": "〜にいます = có mặt ở (căng tin), khẳng định vị trí"
+                }
+              ]
+            },
+            {
+              "stem": "A：このかばんはだれのですか。\nB：＿のです。",
+              "choices": [
+                "わたし",
+                "わたしが",
+                "わたしは",
+                "わたしに"
+              ],
+              "answer": 0,
+              "pt": "NのN (sở hữu) — rút gọn",
+              "explain": "「だれのですか」= của ai? Trả lời「わたしのです」= của tôi, dùng「NのN」rút gọn (bỏ danh từ đã biết). 「わたしがのです」sai — không thể chèn「が」trước「の」sở hữu. 「わたしはのです」tương tự, 「は」không đứng trước「の」sở hữu theo cách này. 「わたしにのです」dùng「に」chỉ hướng/vị trí, không chỉ sở hữu.",
+              "glosses": [
+                {
+                  "t": "このかばん",
+                  "vi": "cái túi này"
+                },
+                {
+                  "t": "だれの",
+                  "vi": "của ai"
+                },
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "のです",
+                  "read": "のです",
+                  "vi": "の thay cho danh từ đã nhắc (かばん) + です = là của (ai đó)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "NはNにあります",
+              "explain": "Câu đúng: 「あそこの事務所のトイレは二階の廊下にあります。」— Nhà vệ sinh của văn phòng đằng kia nằm ở hành lang tầng hai.\nSắp xếp: ô 1=「事務所の」, ô 2=「トイレは」, ô 3=「二階の」, ô 4=「廊下」★.\nKhung câu cho sẵn chỉ từ vị trí 「あそこの」 ở đầu và cụm vị ngữ tồn tại 「にあります。」 ở cuối câu. Cụm danh từ chủ thể 「事務所の」 kết hợp với 「トイレは」 ở ô 2 tạo thành chủ ngữ hoàn chỉnh 「あそこの事務所のトイレは」. Tiếp theo, định ngữ vị trí 「二階の」 đứng ở ô 3 để bổ nghĩa cho danh từ địa điểm 「廊下」 ở ô 4 (ô ★). Mảnh 「廊下」 bắt buộc đứng ở ô 4 để ghép với khung đuôi 「にあります。」 tạo thành cụm chỉ vị trí 「廊下にあります」 (có ở hành lang).",
+              "glosses": [
+                {
+                  "t": "あそこ",
+                  "read": "",
+                  "vi": "chỗ kia"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                },
+                {
+                  "t": "トイレ",
+                  "read": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "事務所",
+                  "read": "じむしょ",
+                  "vi": "văn phòng"
+                },
+                {
+                  "t": "廊下",
+                  "read": "ろうか",
+                  "vi": "hành lang"
+                },
+                {
+                  "t": "二階",
+                  "read": "にかい",
+                  "vi": "tầng hai"
+                }
+              ],
+              "frame": [
+                "あそこの",
+                "にあります。"
+              ],
+              "pieces": [
+                "トイレは",
+                "事務所の",
+                "廊下",
+                "二階の"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 3
+            },
+            {
+              "frame": [
+                "山田さんは",
+                "います。"
+              ],
+              "pieces": [
+                "図書館",
+                "に",
+                "あそこ",
+                "の"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "NはNにいます",
+              "explain": "Câu đúng: 「山田さんはあそこの図書館にいます。」— Anh Yamada ở thư viện đằng kia.\nSắp xếp: ô 1=「あそこ」, ô 2=「の」, ô 3=「図書館」★, ô 4=「に」\nKhung câu đã có chủ ngữ 「山田さんは」 ở đầu và động từ 「います。」 ở cuối, cho thấy khoảng trống giữa cần một cụm danh từ chỉ nơi chốn đi với trợ từ chỉ điểm tồn tại. Trợ từ 「の」 bắt buộc phải dính ngay sau đại từ chỉ vị trí 「あそこ」 thành cụm 「あそこの」 để bổ nghĩa cho danh từ, không thể tách ra hay đứng sau danh từ. Xếp cụm bổ nghĩa 「あそこの」 (ô 1, ô 2) đứng trước danh từ nơi chốn 「図書館」 (ô 3), rồi tiếp đến trợ từ 「に」 (ô 4) đứng ngay trước động từ 「います」 theo đúng trật tự từ tiếng Nhật. Do đó ô 3 mang dấu ★ chính là mảnh 「図書館」, và mảnh này không thể đứng ở ô 1 hay ô 2 vì đại từ 「あそこ」 kèm 「の」 phải làm từ bổ nghĩa đứng phía trước danh từ, cũng không thể đứng ô 4 vì sau danh từ nơi chốn bắt buộc phải là trợ từ 「に」.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "います",
+                  "vi": "có/ở (người, động vật)"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "kia (xa cả hai người)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この",
+                "ですか。"
+              ],
+              "pieces": [
+                "かばんは",
+                "田中さんの",
+                "ですか、",
+                "鈴木さんの"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NはAですか、Bですか",
+              "explain": "Câu đúng: 「このかばんは田中さんのですか、鈴木さんのですか。」— Chiếc cặp này là của anh Tanaka hay của anh Suzuki?\nSắp xếp: ô 1=「かばんは」, ô 2=「田中さんの」, ô 3=「ですか、」★, ô 4=「鈴木さんの」.\nKhung đầu cho sẵn từ chỉ thị 「この」 bắt buộc phải bổ nghĩa trực tiếp cho danh từ đứng liền sau, nên ô 1 phải là 「かばんは」. Điểm ngữ pháp câu hỏi lựa chọn đòi hỏi cấu trúc song song 「Aですか、Bですか。」, trong đó vế đầu phải kết thúc bằng 「ですか、」 nên mảnh 「ですか、」 bắt buộc nằm ở ô 3 để nối giữa hai lựa chọn 「田中さんの」 và 「鈴木さんの」. Mảnh 「鈴木さんの」 ở ô 4 kết hợp với khung cuối 「ですか。」 để hoàn thành vế hỏi thứ hai.",
+              "glosses": [
+                {
+                  "t": "このかばん",
+                  "vi": "cái túi này"
+                },
+                {
+                  "t": "田中さんの",
+                  "read": "たなかさんの",
+                  "vi": "của Tanaka"
+                },
+                {
+                  "t": "鈴木さんの",
+                  "read": "すずきさんの",
+                  "vi": "của Suzuki"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "郵便局は",
+                "か。"
+              ],
+              "pieces": [
+                "えきの",
+                "ちかく",
+                "に",
+                "あります"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "ここ／そこ／あそこ",
+              "explain": "Câu đúng: 「郵便局はえきのちかくにありますか。」— Bưu điện có ở gần nhà ga không?\nSắp xếp: ô 1=「えきの」, ô 2=「ちかく」★, ô 3=「に」, ô 4=「あります」\nKhung câu mở đầu bằng chủ ngữ 「郵便局は」 và kết thúc bằng trợ từ nghi vấn 「か。」, nên phần ô trống cần một cụm từ chỉ địa điểm kết hợp với động từ tồn tại. Danh từ chỉ khoảng cách 「ちかく」 bắt buộc phải dính liền ngay sau mảnh 「えきの」 thành cụm 「えきのちかく」 (gần nhà ga) vì trợ từ 「の」 luôn đòi hỏi một danh từ theo sau để tạo thành ý nghĩa hoàn chỉnh, không thể tách rời. Nối cụm địa điểm 「えきのちかく」 (ô 1, ô 2) với trợ từ chỉ vị trí 「に」 (ô 3), sau đó đặt động từ 「あります」 (ô 4) ở ngay trước nghi vấn từ 「か。」 ở cuối câu. Mảnh nằm ở ô 2 mang dấu ★ chính là 「ちかく」, và từ này không thể đứng ở ô 1 vì 「えきの」 phải nằm đầu để tiếp nối chủ ngữ, cũng không thể đổi sang ô 3 hay ô 4 do trợ từ 「に」 và động từ 「あります」 phải đứng sau danh từ vị trí để chỉ nơi tồn tại.",
+              "glosses": [
+                {
+                  "t": "郵便局",
+                  "read": "ゆうびんきょく",
+                  "vi": "bưu điện"
+                },
+                {
+                  "t": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "ちかく",
+                  "vi": "gần, vùng lân cận"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có/ở (vật vô tri)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "すみません、",
+                "ですか。"
+              ],
+              "pieces": [
+                "エレベーターは",
+                "こちら",
+                "ですか、",
+                "あちら"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "こちら／そちら／あちら",
+              "explain": "Câu đúng: 「すみません、エレベーターはこちらですか、あちらですか。」— Xin lỗi, thang máy ở đằng này hay đằng kia?\nSắp xếp: ô 1=「エレベーターは」, ô 2=「こちら」★, ô 3=「ですか、」, ô 4=「あちら」\nSau lời chào mở đầu 「すみません、」 ở khung trước, câu cần một chủ đề nên mảnh mang trợ từ 「エレベーターは」 phải đứng ở ô 1. Khung sau đã có sẵn đuôi câu nghi vấn 「ですか。」 nên ô 4 phải là từ chỉ phương hướng 「あちら」 để hoàn chỉnh vế hỏi sau. Mảnh 「ですか、」 có dấu phẩy ở cuối bắt buộc phải đi liền sau một từ chỉ phương hướng để ngắt vế hỏi trước, do đó từ chỉ phương hướng 「こちら」 phải đứng ở ô 2 để nối liền với 「ですか、」 ở ô 3. Mảnh 「こちら」 ở vị trí ngôi sao ★ không thể đứng ở ô 3 hay ô 4 vì sẽ làm xáo trộn các vế chỉ phương hướng và phá vỡ liên kết với khung câu.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "read": "すみません",
+                  "vi": "xin lỗi, làm phiền"
+                },
+                {
+                  "t": "エレベーター",
+                  "vi": "thang máy"
+                },
+                {
+                  "t": "こちら",
+                  "vi": "phía này (lịch sự)"
+                },
+                {
+                  "t": "あちら",
+                  "vi": "phía kia (lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ねこは",
+                "います。"
+              ],
+              "pieces": [
+                "テーブル",
+                "の",
+                "した",
+                "に"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NはNにいます",
+              "explain": "Câu đúng: 「ねこはテーブルのしたにいます。」— Con mèo ở dưới bàn.\nSắp xếp: ô 1=「テーブル」, ô 2=「の」, ô 3=「した」★, ô 4=「に」\nKhung câu cho sẵn chủ ngữ 「ねこは」 ở đầu và vị ngữ 「います。」 ở cuối, đòi hỏi phần khoảng trống phải là một cụm danh từ chỉ vị trí đi kèm trợ từ chỉ điểm tồn tại. Danh từ 「テーブル」 bắt buộc phải dính liền với trợ từ 「の」 thành 「テーブルの」 để làm từ bổ nghĩa cho danh từ chỉ vị trí đứng sau, hai mảnh này không thể tách rời hay đảo thứ tự. Ta xếp danh từ phương hướng 「した」 đứng sau cụm 「テーブルの」 (ô 1, ô 2) để tạo thành cụm địa điểm 「テーブルのした」 (ô 1, ô 2, ô 3), rồi ghép tiếp trợ từ 「に」 ở ô 4 ngay trước động từ 「います」. Mảnh rơi vào ô 3 mang dấu ★ là 「した」, từ này không thể nằm ở ô 1 hay ô 2 vì 「テーブルの」 cần đứng trước để chỉ rõ vị trí bên dưới của cái gì, cũng không thể đứng ô 4 vì trợ từ 「に」 bắt buộc phải đứng sau danh từ chỉ phương hướng.",
+              "glosses": [
+                {
+                  "t": "ねこ",
+                  "vi": "con mèo"
+                },
+                {
+                  "t": "います",
+                  "vi": "có/ở (động vật)"
+                },
+                {
+                  "t": "テーブル",
+                  "vi": "cái bàn"
+                },
+                {
+                  "t": "した",
+                  "vi": "phía dưới"
+                }
+              ]
+            },
+            {
+              "pt": "NはAですか、Bですか",
+              "explain": "Câu đúng: 「この店はカフェですか、レストランですか。」— Cửa hàng này là quán cà phê hay là nhà hàng?\nSắp xếp: ô 1=「店は」, ô 2=「カフェ」★, ô 3=「ですか、」, ô 4=「レストラン」。\nKhung cho sẵn đầu câu 「この」 đòi hỏi danh từ trung tâm kèm trợ từ chủ đề 「店は」 đứng ở ô 1 để hoàn thành chủ ngữ 「この店は」. Cấu trúc lựa chọn giữa hai danh từ đòi hỏi danh từ lựa chọn thứ nhất đứng trước đuôi hỏi 「ですか、」, nên danh từ 「カフェ」 bắt buộc nằm ở ô 2★. Theo sau là mảnh đuôi hỏi kết nối 「ですか、」 ở ô 3 để nối liền sang danh từ lựa chọn thứ hai 「レストラン」 ở ô 4 đứng trước khung cuối 「ですか。」. Mảnh 「カフェ」 ở ô 2★ không thể đứng ở ô 4 vì ô 4 gắn trực tiếp với khung đuôi của lựa chọn thứ hai.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "店",
+                  "read": "みせ",
+                  "vi": "cửa hàng"
+                },
+                {
+                  "t": "カフェ",
+                  "read": "",
+                  "vi": "quán cà phê"
+                },
+                {
+                  "t": "レストラン",
+                  "read": "レストラン",
+                  "vi": "nhà hàng"
+                }
+              ],
+              "frame": [
+                "この",
+                "ですか。"
+              ],
+              "pieces": [
+                "店は",
+                "カフェ",
+                "ですか、",
+                "レストラン"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "frame": [
+                "",
+                "にあります。"
+              ],
+              "pieces": [
+                "先生の",
+                "つくえ",
+                "の",
+                "うえ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "NはNにあります",
+              "explain": "Cấu trúc「NのNのうえにあります」nêu vị trí trên mặt vật. Câu đúng: 先生のつくえのうえにあります (ở trên mặt bàn của giáo viên). Thứ tự: 先生の(slot 0) → つくえ(slot 1) → の(slot 2) → うえ★(slot 3). Ô ★ là「うえ」(phía trên). Cấu trúc: NのN (danh từ sở hữu) + の + うえ/した/まえ/うしろ = vị trí tương đối.",
+              "glosses": [
+                {
+                  "t": "にあります",
+                  "vi": "ở/có (vật vô tri)"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "つくえ",
+                  "vi": "bàn học / bàn làm việc"
+                },
+                {
+                  "t": "うえ",
+                  "vi": "phía trên, mặt trên"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "はどこにありますか。"
+              ],
+              "pieces": [
+                "この",
+                "ちかく",
+                "の",
+                "こうえん"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "ここ／そこ／あそこ",
+              "explain": "Cấu trúc「このちかくのN」= N gần đây. Câu đúng: このちかくのこうえんはどこにありますか (công viên gần đây ở đâu?). Thứ tự: この(slot 0) → ちかく(slot 1) → の(slot 2) → こうえん★(slot 3). Ô ★ là「こうえん」(công viên). 「このちかく」= dùng 「この」(dạng liên kết của「ここ」) + ちかく để chỉ khu vực gần người nói.",
+              "glosses": [
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                },
+                {
+                  "t": "この",
+                  "vi": "này (gần người nói)"
+                },
+                {
+                  "t": "ちかく",
+                  "vi": "gần, vùng lân cận"
+                },
+                {
+                  "t": "こうえん",
+                  "vi": "công viên"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "受付は",
+                "あります。"
+              ],
+              "pieces": [
+                "あちら",
+                "の",
+                "そば",
+                "に"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "こちら／そちら／あちら",
+              "explain": "Câu đúng: 「受付はあちらのそばにあります。」— Quầy lễ tân ở gần phía kia.\nSắp xếp: ô 1=「あちら」★, ô 2=「の」, ô 3=「そば」, ô 4=「に」\nKhung câu đã có chủ ngữ 「受付は」 ở đầu và động từ tồn tại 「あります。」 ở cuối, cho thấy bốn ô trống giữa cần chứa một cụm từ chỉ địa điểm đi kèm trợ từ xác định vị trí. Từ chỉ phương hướng 「あちら」 bắt buộc dính liền với trợ từ 「の」 thành cụm 「あちらの」 để đóng vai trò thành phần bổ nghĩa cho danh từ chỉ khoảng cách phía sau, hai mảnh này không thể tách biệt. Đặt cụm bổ nghĩa 「あちらの」 (ô 1, ô 2) phía trước danh từ 「そば」 để thành cụm vị trí 「あちらのそば」 (ô 1, ô 2, ô 3), rồi thêm trợ từ 「に」 (ô 4) ngay trước động từ 「あります」. Mảnh nằm ở ô 1 mang dấu ★ chính là 「あちら」, từ này bắt buộc phải đứng đầu khoảng trống để đi cùng với trợ từ 「の」 ở ô 2, không thể đặt ở ô 3 vốn dành cho danh từ 「そば」 hay ô 4 vốn cần trợ từ 「に」 để nối với động từ.",
+              "glosses": [
+                {
+                  "t": "受付",
+                  "read": "うけつけ",
+                  "vi": "quầy lễ tân"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                },
+                {
+                  "t": "あちら",
+                  "vi": "phía kia (lịch sự)"
+                },
+                {
+                  "t": "そば",
+                  "vi": "cạnh, gần bên"
+                },
+                {
+                  "t": "に",
+                  "vi": "(trợ từ vị trí)"
+                }
+              ]
+            },
+            {
+              "pt": "NはNにあります",
+              "explain": "Câu đúng: 「マリアさんのかばんはここにあります。」— Cặp sách của bạn Maria ở đây.\nSắp xếp: ô 1=「さんの」, ô 2=「かばんは」, ô 3=「ここに」★, ô 4=「あります」。\nKhung đầu 「マリア」 cần ghép với 「さんの」 tạo thành 「マリアさんの」, tiếp theo phải đến danh từ 「かばんは」 làm chủ ngữ. Cấu trúc chỉ vị trí đồ vật 「NはNにあります」 đòi hỏi danh từ chỉ nơi chốn đi kèm trợ từ 「に」, do đó mảnh 「ここに」 bắt buộc phải đứng ở ô 3 ngay trước động từ 「あります」 cuối câu. Mảnh ở ô ★ 「ここに」 không thể đứng ở ô khác vì nó mang trợ từ 「に」 bổ nghĩa trực tiếp cho động từ 「あります」.",
+              "glosses": [
+                {
+                  "t": "マリアさん",
+                  "read": "マリアさん",
+                  "vi": "chị/cô Maria (tên riêng + kính ngữ)"
+                },
+                {
+                  "t": "はここにあります",
+                  "read": "はここにあります",
+                  "vi": "〜にあります = có ở đây (dùng cho vật vô tri)"
+                },
+                {
+                  "t": "かばん",
+                  "read": "",
+                  "vi": "cặp, túi xách"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại"
+                }
+              ],
+              "frame": [
+                "マリア",
+                "。"
+              ],
+              "pieces": [
+                "かばんは",
+                "ここに",
+                "さんの",
+                "あります"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "この／その／あのN",
+              "explain": "Câu đúng: 「あのかさはサントスさんのですか、わたしのですか。」— Cái ô kia là của ông Santos hay là của tôi?\nSắp xếp: ô 1=「かさは」★, ô 2=「サントスさんの」, ô 3=「ですか、」, ô 4=「わたしの」\nKhung câu có sẵn đầu 「あの」 và đuôi 「ですか。」. Chỉ từ chỉ định 「あの」 ở đầu khung bắt buộc phải đi liền với một danh từ phía sau, do đó mảnh 「かさは」 phải đứng ở ô 1 vị trí ★ để tạo thành cụm 「あのかさは」 làm chủ ngữ. Tiếp theo là thành phần sở hữu 「サントスさんの」 ở ô 2 và thắc mắc thứ nhất 「ですか、」 ở ô 3. Cuối cùng là phương án lựa chọn thứ hai 「わたしの」 ở ô 4 kết hợp với đuôi khung 「ですか。」 để hoàn thành câu hỏi lựa chọn.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "kia"
+                },
+                {
+                  "t": "のですか",
+                  "read": "のですか",
+                  "vi": "の thay cho danh từ đã nhắc + ですか = là của ai vậy? (hỏi sở hữu)"
+                },
+                {
+                  "t": "サントスさん",
+                  "read": "さんとすさん",
+                  "vi": "anh Santos"
+                },
+                {
+                  "t": "かさ",
+                  "read": "",
+                  "vi": "cái ô"
+                },
+                {
+                  "t": "わたし",
+                  "read": "",
+                  "vi": "tôi"
+                }
+              ],
+              "frame": [
+                "あの",
+                "ですか。"
+              ],
+              "pieces": [
+                "サントスさんの",
+                "かさは",
+                "わたしの",
+                "ですか、"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 0
+            },
+            {
+              "frame": [
+                "",
+                "ありますか。"
+              ],
+              "pieces": [
+                "スーパーは",
+                "えきの",
+                "ちかく",
+                "に"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NはNにあります",
+              "explain": "Cấu trúc「NはNのちかくにありますか」hỏi vị trí tương đối. Câu đúng: スーパーはえきのちかくにありますか (siêu thị có ở gần nhà ga không?). Thứ tự: スーパーは(slot 0) → えきの(slot 1) → ちかく★(slot 2) → に(slot 3). Ô ★ là「ちかく」. Lưu ý: dùng「あります」(không phải います) vì siêu thị là vật vô tri.",
+              "glosses": [
+                {
+                  "t": "あります",
+                  "vi": "có/ở (vật vô tri)"
+                },
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "ちかく",
+                  "vi": "gần, vùng lân cận"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "あの、",
+                "ですか。"
+              ],
+              "pieces": [
+                "会議室は",
+                "２階",
+                "ですか、",
+                "３階"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NはAですか、Bですか",
+              "explain": "Câu đúng: 「あの、会議室は２階ですか、３階ですか。」— Xin lỗi, phòng họp ở tầng 2 hay tầng 3 vậy ạ?\nSắp xếp: ô 1=「会議室は」, ô 2=「２階」, ô 3=「ですか、」★, ô 4=「３階」.\nKhung đầu mở lời bằng 「あの、」 đòi hỏi chủ ngữ nêu địa điểm được hỏi, nên mảnh 「会議室は」 phải đứng ở ô 1. Cấu trúc câu hỏi lựa chọn chuẩn bài 3 đòi hỏi mẫu song song 「Aですか、Bですか。」 theo thứ tự tầng tăng dần 「２階」 rồi đến 「３階」, trong đó mảnh liên kết quyết định cấu trúc 「ですか、」 bắt buộc phải nằm ở ô 3. Mảnh 「３階」 đứng ở ô 4 ghép trực tiếp với khung cuối 「ですか。」 để hoàn thành câu hỏi.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "read": "",
+                  "vi": "à, xin lỗi"
+                },
+                {
+                  "t": "会議室",
+                  "read": "かいぎしつ",
+                  "vi": "phòng họp"
+                },
+                {
+                  "t": "２階",
+                  "read": "にかい",
+                  "vi": "tầng 2"
+                },
+                {
+                  "t": "３階",
+                  "read": "さんがい",
+                  "vi": "tầng 3"
+                }
+              ]
+            },
+            {
+              "pt": "こちら／そちら／あちら",
+              "explain": "Câu đúng: 「すみません、あちらはわたしのせんせいのへやです。」— Xin lỗi, đằng kia là phòng của thầy giáo tôi.\nSắp xếp: ô 1=「あちらは」★, ô 2=「わたしの」, ô 3=「せんせいの」, ô 4=「へや」\nSau lời chào 「すみません、」 ở đầu khung, câu cần đại từ chỉ phương hướng/vị trí lịch sự đi kèm trợ từ 「は」 làm chủ đề, nên ô 1 phải là 「あちらは」. Hai cụm sở hữu 「わたしの」 ở ô 2 và 「せんせいの」 ở ô 3 nối tiếp nhau tạo thành cụm bổ nghĩa cho danh từ chỉ nơi chốn 「へや」 ở ô 4. Danh từ 「へや」 đứng ngay trước đuôi khung 「です。」 để hoàn chỉnh vị ngữ. Mảnh ở ô ★ 「あちらは」 thể hiện điểm ngữ pháp đại từ chỉ hướng lịch sự あちら đi với trợ từ は làm chủ ngữ đứng ở đầu câu nên không thể đặt ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "read": "",
+                  "vi": "xin lỗi"
+                },
+                {
+                  "t": "あちら",
+                  "read": "",
+                  "vi": "phía kia"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "へや",
+                  "read": "",
+                  "vi": "phòng"
+                }
+              ],
+              "frame": [
+                "すみません、",
+                "です。"
+              ],
+              "pieces": [
+                "あちらは",
+                "わたしの",
+                "せんせいの",
+                "へや"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "アンさん：すみません、トイレは",
+                "ですか。\nBさん：トイレはあそこ",
+                "。エレベーターのとなりです。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "ここ",
+                    "そこ",
+                    "どこ",
+                    "あそこ"
+                  ],
+                  "answer": 2,
+                  "explain": "Câu hỏi hỏi vị trí nhà vệ sinh, cần dùng từ để hỏi「どこ」(ở đâu?). 「ここ」= ở đây (gần người nói), không phải từ hỏi. 「そこ」= ở đó (gần người nghe), cũng không phải từ hỏi. 「あそこ」= ở kia (xa cả hai người), cũng không phải từ hỏi. Chỉ có「どこ」mới dùng để hỏi vị trí, đúng với ngữ cảnh Anh/chị đang hỏi đường."
+                },
+                {
+                  "choices": [
+                    "があります",
+                    "にあります",
+                    "はあります",
+                    "もあります"
+                  ],
+                  "answer": 1,
+                  "explain": "Mẫu câu「N は [場所]にあります」(N ở [địa điểm] nào đó). Trợ từ「に」chỉ vị trí tồn tại, bắt buộc dùng trước「あります」khi nói vật/đồ vật ở đâu. 「があります」dùng khi chủ ngữ chưa xác định (có cái gì đó), không hợp vì chủ ngữ トイレ đã xác định. 「はあります」thiếu trợ từ vị trí「に」nên câu không rõ nghĩa vị trí. 「もあります」nghĩa là 'cũng có', không phù hợp ở đây vì không có ý so sánh thêm."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "vi": "xin lỗi / cho hỏi"
+                },
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "どこ",
+                  "read": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あそこ",
+                  "vi": "ở kia (xa cả hai người)"
+                },
+                {
+                  "t": "エレベーター",
+                  "vi": "thang máy"
+                },
+                {
+                  "t": "となり",
+                  "read": "となり",
+                  "vi": "bên cạnh, kế bên"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền dạng 〜ます của động từ「ある」(tồn tại, dùng cho vật)",
+          "items": [
+            {
+              "stem": "トイレ＿どこにありますか。(「ある」→ 〜ます形 → ＿)",
+              "choices": [
+                "あります",
+                "います",
+                "ありです",
+                "いです"
+              ],
+              "answer": 0,
+              "explain": "「ある」là động từ nhóm 1, dạng 〜ます là「あります」, dùng cho vật vô tri (đồ vật, địa điểm). Đáp án B「います」sai vì「います」dùng cho người/động vật, không dùng cho vật. Đáp án C「ありです」và D「いです」không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "トイレ",
+                  "vi": "nhà vệ sinh"
+                },
+                {
+                  "t": "どこに",
+                  "read": "どこに",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có / ở (dùng cho vật)"
+                },
+                {
+                  "t": "形",
+                  "read": "けい",
+                  "vi": "hình thức, thể (dạng của động từ)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "すみません、エレベーター＿どこですか。",
+              "choices": [
+                "は",
+                "が",
+                "を",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "Câu hỏi「エレベーターはどこですか」dùng「は」để đánh dấu chủ đề (topic marker) — ta đang hỏi về thang máy. Chọn「は」là tự nhiên nhất khi hỏi vị trí của một vật cụ thể bằng cấu trúc「NはどこですかNにあります」. Đáp án B「が」nhấn mạnh đối tượng mới/chưa biết, không sai hoàn toàn nhưng ít tự nhiên hơn trong hội thoại hỏi đường. Đáp án C「を」đánh dấu tân ngữ, không dùng cho vật đứng yên. Đáp án D「で」chỉ địa điểm hành động, không phù hợp ở đây.",
+              "glosses": [
+                {
+                  "t": "すみません",
+                  "vi": "xin lỗi / xin phép"
+                },
+                {
+                  "t": "エレベーター",
+                  "vi": "thang máy"
+                },
+                {
+                  "t": "どこですか",
+                  "vi": "ở đâu vậy?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Ngân hàng ở đâu vậy? — Ngân hàng ở phía bên kia.",
+              "target": "ぎんこうはどこですか。—ぎんこうはあちらにあります。",
+              "model": "ぎんこう は どこ です か。 — ぎんこう は あちら に あります。",
+              "explain": "Câu hỏi dùng cấu trúc「NはどこですかNにあります」. Vì ngân hàng là vật/địa điểm ta dùng「あります」(không dùng「います」). Từ chỉ hướng lịch sự「あちら」(phía kia — xa cả người nói lẫn người nghe) phù hợp hơn「あそこ」(kia — thân mật hơn) trong bối cảnh hỏi đường lịch sự. Trợ từ「に」sau「あちら」đánh dấu vị trí tồn tại, bắt buộc trong cấu trúc「NはNにあります」.",
+              "glosses": [
+                {
+                  "t": "ぎんこう",
+                  "read": "銀行",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あちら",
+                  "vi": "phía kia (lịch sự)"
+                },
+                {
+                  "t": "に",
+                  "vi": "ở (trợ từ vị trí)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có / ở (dùng cho vật)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

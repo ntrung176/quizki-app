@@ -1,0 +1,367 @@
+{
+  "id": "minna1.b04",
+  "bai": 4,
+  "titleVi": "Giờ giấc & lịch — 〜時・〜から〜まで",
+  "know": [
+    {
+      "id": "minna1.b04.ji",
+      "point": "ji",
+      "jp": "今[いま]〜時[じ]〜分[ふん]です",
+      "vi": "Hỏi & nói giờ",
+      "gloss": "bây giờ là ～ giờ ～ phút"
+    },
+    {
+      "id": "minna1.b04.masu",
+      "point": "masu",
+      "jp": "Vます／ません／ました",
+      "vi": "Chia thì lịch sự cơ bản",
+      "gloss": "làm / không làm / đã làm"
+    },
+    {
+      "id": "minna1.b04.karamade",
+      "point": "karamade",
+      "jp": "〜から〜まで",
+      "vi": "Khoảng thời gian",
+      "gloss": "từ ～ đến ～ (giờ/ngày)"
+    },
+    {
+      "id": "minna1.b04.youbi",
+      "point": "youbi",
+      "jp": "〜曜日[ようび]",
+      "vi": "Thứ trong tuần",
+      "gloss": "thứ ～ / ngày nghỉ là thứ mấy"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b04-ji-ima",
+      "item": "minna1.b04.ji",
+      "err": "ji-fun-order",
+      "vi": "Bây giờ là 9 giờ 15 phút.",
+      "t1": {
+        "stem": "今[いま]＿です。",
+        "choices": [
+          "9時[じ]15分[ふん]",
+          "15分[ふん]9時[じ]",
+          "9分[ふん]15時[じ]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今[いま]",
+          "9時[じ]15分[ふん]",
+          "です。"
+        ],
+        "traps": [
+          "15分[ふん]9時[じ]",
+          "ます。"
+        ]
+      },
+      "t3": {
+        "target": "今9時15分です。",
+        "accept": [
+          "いま9じ15ふんです。",
+          "今九時十五分です。"
+        ]
+      },
+      "why": "Giờ TRƯỚC, phút SAU: 9時15分. Khung câu nói giờ: 今〜です."
+    },
+    {
+      "id": "c-b04-ji-han",
+      "item": "minna1.b04.ji",
+      "err": "ji-fun-order",
+      "vi": "Bây giờ là 7 giờ rưỡi.",
+      "t1": {
+        "stem": "今[いま] 7時[じ]＿です。",
+        "choices": [
+          "半[はん]",
+          "半分[はんぶん]",
+          "分[ふん]"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今[いま]",
+          "7時[じ]半[はん]",
+          "です。"
+        ],
+        "traps": [
+          "半分[はんぶん]",
+          "30時[じ]"
+        ]
+      },
+      "t3": {
+        "target": "今7時半です。",
+        "accept": [
+          "いま7じはんです。",
+          "今七時半です。"
+        ]
+      },
+      "why": "\"Rưỡi\" = 半 đặt ngay sau 〜時 (7時半). 半分 là \"một nửa (số lượng)\" — không dùng cho giờ."
+    },
+    {
+      "id": "c-b04-masu-okimasu",
+      "item": "minna1.b04.masu",
+      "err": "mashita-form",
+      "vi": "Mỗi sáng tôi dậy lúc 6 giờ.",
+      "t1": {
+        "stem": "毎朝[まいあさ] 6時[じ]に ＿。",
+        "choices": [
+          "起[お]きます",
+          "起[お]きました",
+          "起[お]きますでした"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎朝[まいあさ]",
+          "6時[じ]に",
+          "起[お]きます。"
+        ],
+        "traps": [
+          "起[お]きました。"
+        ]
+      },
+      "t3": {
+        "target": "毎朝6時に起きます。",
+        "accept": [
+          "まいあさ6じにおきます。",
+          "毎朝六時に起きます。"
+        ]
+      },
+      "why": "毎朝 = thói quen lặp lại → dạng ます (hiện tại/tương lai), không dùng ました (quá khứ)."
+    },
+    {
+      "id": "c-b04-masu-nemashita",
+      "item": "minna1.b04.masu",
+      "err": "mashita-form",
+      "vi": "Tối qua tôi đã ngủ lúc 11 giờ.",
+      "t1": {
+        "stem": "昨日[きのう]の夜[よる]、11時[じ]に ＿。",
+        "choices": [
+          "寝[ね]ました",
+          "寝[ね]ます",
+          "寝[ね]ましたでした"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]の夜[よる]",
+          "11時[じ]に",
+          "寝[ね]ました。"
+        ],
+        "traps": [
+          "寝[ね]ます。"
+        ]
+      },
+      "t3": {
+        "target": "昨日の夜11時に寝ました。",
+        "accept": [
+          "きのうのよる11じにねました。"
+        ]
+      },
+      "why": "昨日 = quá khứ → Vました. Dạng ます chỉ dùng cho hiện tại/tương lai."
+    },
+    {
+      "id": "c-b04-masu-benkyou",
+      "item": "minna1.b04.masu",
+      "err": "mashita-form",
+      "vi": "Hôm qua tôi đã không học.",
+      "t1": {
+        "stem": "昨日[きのう]、勉強[べんきょう]＿。",
+        "choices": [
+          "しませんでした",
+          "しませんです",
+          "しましたじゃありません"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]",
+          "勉強[べんきょう]しませんでした。"
+        ],
+        "traps": [
+          "勉強[べんきょう]しませんです。",
+          "勉強[べんきょう]しました。"
+        ]
+      },
+      "t3": {
+        "target": "昨日勉強しませんでした。",
+        "accept": [
+          "きのうべんきょうしませんでした。"
+        ]
+      },
+      "why": "Phủ định quá khứ là MỘT CỤM cố định ませんでした — không phải ません＋です."
+    },
+    {
+      "id": "c-b04-karamade-ginkou",
+      "item": "minna1.b04.karamade",
+      "err": "made-kara-swap",
+      "vi": "Ngân hàng mở từ 9 giờ đến 3 giờ.",
+      "t1": {
+        "stem": "銀行[ぎんこう]は 9時[じ]＿ 3時[じ]までです。",
+        "choices": [
+          "から",
+          "まで",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "銀行[ぎんこう]は",
+          "9時[じ]から",
+          "3時[じ]まで",
+          "です。"
+        ],
+        "traps": [
+          "9時[じ]まで",
+          "3時[じ]から"
+        ]
+      },
+      "t3": {
+        "target": "銀行は9時から3時までです。",
+        "accept": [
+          "ぎんこうは9じから3じまでです。",
+          "銀行は九時から三時までです。"
+        ]
+      },
+      "why": "から = mốc BẮT ĐẦU, まで = mốc KẾT THÚC. Giờ mở cửa: 9時から3時まで."
+    },
+    {
+      "id": "c-b04-karamade-hataraki",
+      "item": "minna1.b04.karamade",
+      "err": "made-kara-swap",
+      "vi": "Tôi làm việc từ 9 giờ.",
+      "t1": {
+        "stem": "9時[じ]＿ 働[はたら]きます。",
+        "choices": [
+          "から",
+          "まで",
+          "を"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "9時[じ]から",
+          "働[はたら]きます。"
+        ],
+        "traps": [
+          "9時[じ]まで"
+        ]
+      },
+      "t3": {
+        "target": "9時から働きます。",
+        "accept": [
+          "9じからはたらきます。",
+          "九時から働きます。"
+        ]
+      },
+      "why": "から ở đây là MỐC THỜI GIAN bắt đầu (đứng sau giờ). Khác hẳn から LÝ DO của Bài 9 (時間[じかん]がありませんから — đứng sau cả vế câu)."
+    },
+    {
+      "id": "c-b04-youbi-yasumi",
+      "item": "minna1.b04.youbi",
+      "err": "to-for-ya",
+      "vi": "Ngày nghỉ của ngân hàng là thứ Bảy và Chủ nhật.",
+      "t1": {
+        "stem": "銀行[ぎんこう]の休[やす]みは 土曜日[どようび]＿日曜日[にちようび]です。",
+        "choices": [
+          "と",
+          "や",
+          "まで"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "銀行[ぎんこう]の休[やす]みは",
+          "土曜日[どようび]と",
+          "日曜日[にちようび]です。"
+        ],
+        "traps": [
+          "土曜日[どようび]や"
+        ]
+      },
+      "t3": {
+        "target": "銀行の休みは土曜日と日曜日です。",
+        "accept": [
+          "ぎんこうのやすみはどようびとにちようびです。"
+        ]
+      },
+      "why": "Liệt kê ĐỦ (nghỉ đúng 2 ngày đó) → と. や ngụ ý \"còn nữa\" — sai nghĩa ở đây."
+    },
+    {
+      "id": "c-b04-youbi-toshokan",
+      "item": "minna1.b04.youbi",
+      "err": "made-kara-swap",
+      "vi": "Từ thứ Ba đến thứ Sáu, tôi học ở thư viện.",
+      "t1": {
+        "stem": "火曜日[かようび]から 金曜日[きんようび]＿、図書館[としょかん]で 勉強[べんきょう]します。",
+        "choices": [
+          "まで",
+          "から",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "火曜日[かようび]から",
+          "金曜日[きんようび]まで",
+          "図書館[としょかん]で",
+          "勉強[べんきょう]します。"
+        ],
+        "traps": [
+          "金曜日[きんようび]から",
+          "勉強[べんきょう]しました。"
+        ]
+      },
+      "t3": {
+        "target": "火曜日から金曜日まで図書館で勉強します。",
+        "accept": [
+          "かようびからきんようびまでとしょかんでべんきょうします。"
+        ]
+      },
+      "why": "Khoảng thời gian theo thứ cũng dùng から〜まで; điểm kết thúc luôn là まで."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b04-karamade",
+      "item": "minna1.b04.karamade",
+      "err": "made-kara-swap",
+      "tts": "ゆうびんきょくは くじから ごじまでです。",
+      "script": "郵便局[ゆうびんきょく]は 9時[じ]から 5時[じ]までです。",
+      "ask": "Bưu điện mở từ mấy giờ đến mấy giờ?",
+      "choices": [
+        "Từ 9 giờ đến 5 giờ",
+        "Từ 5 giờ đến 9 giờ",
+        "Từ 9 giờ đến 3 giờ"
+      ],
+      "answer": 0,
+      "why": "くじから = bắt đầu 9 giờ; ごじまで = kết thúc 5 giờ."
+    },
+    {
+      "id": "l-b04-youbi",
+      "item": "minna1.b04.youbi",
+      "err": "to-for-ya",
+      "tts": "としょかんの やすみは げつようびと もくようびです。",
+      "script": "図書館[としょかん]の休[やす]みは 月曜日[げつようび]と 木曜日[もくようび]です。",
+      "ask": "Thư viện nghỉ thứ mấy?",
+      "choices": [
+        "Thứ Hai và thứ Năm",
+        "Thứ Hai và thứ Ba",
+        "Thứ Năm và thứ Sáu"
+      ],
+      "answer": 0,
+      "why": "げつようび = thứ Hai, もくようび = thứ Năm; と nối đủ hai ngày nghỉ."
+    }
+  ]
+}

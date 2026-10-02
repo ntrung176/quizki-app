@@ -1,0 +1,1642 @@
+{
+  "bai": 20,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 20 giới thiệu 普通形 — thể thông thường (thân mật) của động từ, tính từ, danh từ. Khi đọc hội thoại giữa bạn bè, câu không kết thúc bằng です・ます mà dùng dạng gốc (食べる, 行く, いい, 好き...). Hai điểm bẫy hay gặp: (1) 〜ないと có nghĩa \"phải làm...\" (rút gọn từ 〜なければなりません); (2) 〜けど nối hai ý tương phản/mở đầu chủ đề.",
+    "steps": [
+      "Nhận diện ngữ cảnh: đây là hội thoại bạn bè (thân mật) hay đoạn văn → kỳ vọng 普通形 xuyên suốt.",
+      "Với động từ: thể từ điển (-る/-く/-す...) = hiện tại/tương lai; thể た = quá khứ; thể ない = phủ định; thể て = nối/yêu cầu nhẹ.",
+      "Với tính từ い: bỏ い + い = khẳng定 (おいしい), bỏ い + くない = phủ định, bỏ い + かった = quá khứ.",
+      "Với tính từ な / danh từ: (NA/N) + だ = khẳng định thân mật; (NA/N) + じゃない = phủ định thân mật; (NA/N) + だった = quá khứ.",
+      "〜ないと: tìm động từ thể ない ngay trước と → nghĩa \"phải ~\". Ví dụ: 行かないと = phải đi.",
+      "〜けど: nối hai vế, nghĩa \"nhưng / mà / tuy...nhưng\". Cũng dùng để mở đầu câu/chủ đề một cách mềm mại."
+    ],
+    "tips": [
+      "普通形 KHÔNG có nghĩa thô lỗ — chỉ là thân mật. Dùng với bạn bè cùng tuổi, gia đình.",
+      "〜ないと thường kết thúc câu (動詞ないと。) — phần \"いけない\" bị lược bỏ trong hội thoại thân mật.",
+      "Khi thấy だ cuối câu (例: 今日は暇だ。), đó là thể thông thường của danh từ/NA, tương đương です.",
+      "Câu hỏi thân mật: thêm の? hoặc lên giọng cuối câu (hành viết thêm？): 行くの？",
+      "Đừng nhầm けど (tương phản nhẹ) với から (lý do): \"〜けど、〜\" ≠ \"〜から、〜\".",
+      "〜ていた (quá khứ của đang-làm) = た形 của ている — xuất hiện trong hội thoại thân mật từ bài này."
+    ],
+    "grammarFocus": [
+      "普通形（V/A/NA/N）— thể thông thường",
+      "hội thoại thân mật (友達言葉)",
+      "〜ないと（〜なければならない rút gọn）",
+      "〜けど（tương phản / mở đầu chủ đề）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 19,
+        "items": [
+          "Vたことがあります",
+          "Vたりします",
+          "〜になります",
+          "た形"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "辞書形",
+          "Vることができます",
+          "Vるまえに"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "ない形",
+          "Vなければなりません",
+          "Vなくてもいいです"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vて〜（nối trình tự）",
+          "Vてから"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vています（đang diễn ra）"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "Vたいです",
+          "Vに行きます"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです",
+          "〜がわかります"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "Nをします",
+          "〜ましょう"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "週末の予定",
+      "titleVi": "Kế hoạch cuối tuần",
+      "japanese": "カリナ：ねえ、今週の土曜日、暇？\nミラー：うん、特に予定はないけど。\nカリナ：じゃ、いっしょに映画を見に行かない？\nミラー：いいね！何の映画？\nカリナ：新しい日本映画だよ。おもしろいから、見たい。\nミラー：わかった。何時に会う？",
+      "vietnamese": "Karina: Này, thứ Bảy tuần này, bạn rảnh không?\nMiller: Ừ, mình không có kế hoạch gì đặc biệt đâu.\nKarina: Vậy, cùng đi xem phim không?\nMiller: Hay đấy! Phim gì vậy?\nKarina: Phim Nhật mới ra. Mình muốn xem vì phim hay.\nMiller: Được rồi. Mấy giờ mình gặp nhau?",
+      "sentences": [
+        {
+          "jp": "カリナ：ねえ、今週の土曜日、暇？",
+          "vi": "Karina: Này, thứ Bảy tuần này, bạn rảnh không?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "暇",
+              "read": "ひま",
+              "vi": "rảnh rỗi, không có việc"
+            },
+            {
+              "w": "ねえ",
+              "read": "ねえ",
+              "vi": "này, ơi (gọi bạn thân mật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — tính từ な (câu hỏi)",
+              "vi": "暇？ = thể thông thường của 暇ですか？ Trong hội thoại thân mật, lược です và か, lên giọng cuối câu thành câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "ミラー：うん、特に予定はないけど。",
+          "vi": "Miller: Ừ, mình không có kế hoạch gì đặc biệt đâu.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "特に",
+              "read": "とくに",
+              "vi": "đặc biệt, nhất là"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            },
+            {
+              "w": "うん",
+              "read": "うん",
+              "vi": "ừ, vâng (thân mật, tương đương はい)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜けど (mở đầu/tương phản)",
+              "vi": "予定はないけど。 — けど nằm cuối câu, mở ra ý \"nhưng (bạn hỏi vì sao?)\", tạo cảm giác nhường lời cho đối phương."
+            },
+            {
+              "point": "普通形 — ない形",
+              "vi": "予定はない = phủ定 thân mật (thay cho ありません)."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：じゃ、いっしょに映画を見に行かない？",
+          "vi": "Karina: Vậy, cùng đi xem phim không?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim điện ảnh"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "じゃ",
+              "read": "じゃ",
+              "vi": "vậy thì (thân mật, tương đương では)"
+            },
+            {
+              "w": "見に行く",
+              "read": "みにいく",
+              "vi": "đi xem (di chuyển mục đích)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vに行きます (Bài 13)",
+              "vi": "見に行く = đi để xem — mục đích di chuyển, dùng thể từ điển của 見る + に + 行く."
+            },
+            {
+              "point": "普通形 — ない形 (câu hỏi mời)",
+              "vi": "行かない？ = thể thông thường phủ định dạng hỏi → lời mời thân mật \"đi... không?\", nhẹ hơn ませんか."
+            }
+          ]
+        },
+        {
+          "jp": "ミラー：いいね！何の映画？",
+          "vi": "Miller: Hay đấy! Phim gì vậy?",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim (điện ảnh)"
+            },
+            {
+              "w": "いいね",
+              "read": "いいね",
+              "vi": "hay đấy, được đó (thán từ tán đồng thân mật)"
+            },
+            {
+              "w": "何の",
+              "read": "なんの",
+              "vi": "loại gì, gì thế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — い tính từ",
+              "vi": "いいね = いいですね rút gọn thân mật. ね vẫn dùng để tìm đồng thuận."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：新しい日本映画だよ。おもしろいから、見たい。",
+          "vi": "Karina: Phim Nhật mới ra. Mình muốn xem vì phim hay.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "映画",
+              "read": "えいが",
+              "vi": "phim (điện ảnh)"
+            },
+            {
+              "w": "おもしろい",
+              "read": "おもしろい",
+              "vi": "thú vị, hay"
+            },
+            {
+              "w": "見たい",
+              "read": "みたい",
+              "vi": "muốn xem"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — N + だよ",
+              "vi": "日本映画だよ = thể thông thường của danh từ + よ (nhấn mạnh nhẹ). だ thay cho です."
+            },
+            {
+              "point": "Vたいです (Bài 13)",
+              "vi": "見たい = muốn xem — thể mong muốn thân mật (bỏ です)."
+            },
+            {
+              "point": "〜から (Bài 9)",
+              "vi": "おもしろいから = vì thú vị — から nêu lý do, dùng 普通形 い-tính từ trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "ミラー：わかった。何時に会う？",
+          "vi": "Miller: Được rồi. Mấy giờ mình gặp nhau?",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "会う",
+              "read": "あう",
+              "vi": "gặp, gặp mặt"
+            },
+            {
+              "w": "わかった",
+              "read": "わかった",
+              "vi": "hiểu rồi, được rồi (thể た thân mật của わかりました)"
+            },
+            {
+              "w": "何時",
+              "read": "なんじ",
+              "vi": "mấy giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — た形",
+              "vi": "わかった = thể quá khứ thân mật (わかりました → わかった). Dùng để xác nhận đồng ý."
+            },
+            {
+              "point": "普通形 — từ điển (câu hỏi)",
+              "vi": "会う？ = thể từ điển + lên giọng → câu hỏi thân mật."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "予定はないけど",
+          "label": "〜けど（mở đầu/tương phản）"
+        },
+        {
+          "excerpt": "行かない？",
+          "label": "普通形ない — lời mời thân mật"
+        },
+        {
+          "excerpt": "新しい日本映画だよ",
+          "label": "普通形 N+だ"
+        },
+        {
+          "excerpt": "わかった",
+          "label": "普通形た形 — xác nhận thân mật"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんはどうして映画を見たいですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "ミラーさんに勧められたから",
+            "おもしろいから",
+            "日本語の勉強のため",
+            "友達にもらったチケットがあるから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Karina nói thẳng:「おもしろいから、見たい」— \"vì phim hay nên muốn xem\". Từ から cho thấy lý do trực tiếp là おもしろい (hay/thú vị). Đáp án 0 sai vì không ai gợi ý Karina — chính cô ấy là người rủ Miller đi. Đáp án 2 sai vì bài không nhắc việc học tiếng Nhật. Đáp án 3 sai vì bài không nhắc đến vé tặng nào cả. Lưu ý: câu「おもしろいから」dùng thể thông thường (普通形) của い-tính từ — đây là cách nói thân mật, tương đương「おもしろいですから」ở dạng lịch sự.",
+          "tip": "Khi câu hỏi hỏi \"vì sao muốn làm gì\", hãy tìm から ngay trong bài — lý do sẽ nằm ngay trước から. Ví dụ: おもしろい**から**、見たい → lý do = おもしろい.",
+          "qt": {
+            "q": "Vì sao chị Karina muốn xem phim?",
+            "o": [
+              "Vì anh Miller đã giới thiệu cho cô ấy",
+              "Vì phim thú vị",
+              "Để học tiếng Nhật",
+              "Vì cô ấy có vé do một người bạn tặng"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんの土曜日はどうですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "仕事があります",
+            "特に予定はありません",
+            "友達と旅行します",
+            "映画を見ました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Miller nói「特に予定はないけど」— \"không có kế hoạch gì đặc biệt đâu\". Đây là thể thông thường (普通形): ない = không có, tương đương ありません ở dạng lịch sự. Đáp án 1 (特に予定はありません) chính là dạng lịch sự của câu Miller nói → đúng nghĩa. Đáp án 0 sai vì bài không nhắc đến 仕事 (công việc). Đáp án 2 sai vì không có kế hoạch du lịch nào được nhắc. Đáp án 3 sai vì Miller chưa xem phim — cả hai chỉ đang lên kế hoạch.",
+          "tip": "Câu hỏi về trạng thái/kế hoạch của nhân vật → tìm câu nhân vật đó nói. Chú ý chuyển đổi: 普通形「ない」trong hội thoại = lịch sự「ありません」trong đáp án — đây là bẫy thường gặp.",
+          "qt": {
+            "q": "Thứ Bảy của anh Miller thế nào?",
+            "o": [
+              "Anh ấy có công việc",
+              "Anh ấy không có kế hoạch gì đặc biệt",
+              "Anh ấy đi du lịch với bạn",
+              "Anh ấy đã xem phim"
+            ]
+          }
+        },
+        {
+          "q": "ふたりは何をしますか。",
+          "evi": [
+            2,
+            5
+          ],
+          "options": [
+            "いっしょに勉強します",
+            "映画を見に行きます",
+            "レストランで食事します",
+            "公園で散歩します"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Karina rủ:「いっしょに映画を見に行かない？」— \"cùng đi xem phim không?\" (lời mời thân mật dùng 普通形 phủ định). Miller đồng ý:「わかった」— \"được rồi\" (た形 thân mật của わかりました). Hai bằng chứng đó xác nhận hai người sẽ đi xem phim cùng nhau. Đáp án 0 sai vì không nhắc đến việc học. Đáp án 2 (レストラン) và đáp án 3 (công viên) đều không được đề cập trong bài.",
+          "tip": "Câu hỏi \"hai người sẽ làm gì\" → tìm lời RỦ (行かない？/ 〜ましょう / 〜よ) và lời ĐỒNG Ý (わかった / いいね / うん). Xác nhận cả hai thì câu trả lời chắc chắn hơn.",
+          "qt": {
+            "q": "Hai người sẽ làm gì?",
+            "o": [
+              "Cùng nhau học",
+              "Đi xem phim",
+              "Dùng bữa ở nhà hàng",
+              "Đi dạo trong công viên"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "友達との会話",
+      "titleVi": "Trò chuyện với bạn bè",
+      "japanese": "きのう、大学の食堂でカリナさんとワンさんに会った。ふたりはカレーを食べて、話していた。\nカリナ：ねえ、ワン、最近どう？\nワン：うん、まあまあだよ。でも試験があるから、ちょっと大変。毎日図書館で勉強してる。\nカリナ：そっか。いつ試験なの？\nワン：来週の金曜日。まだ全部わからないから、今夜も勉強しないと。\nカリナ：大変だね。わたしも昨日テストがあったけど、むずかしかった。\nワン：そうなの？カリナはよくできた？\nカリナ：うん、まあまあかな。でも、終わったから、今週末は少し休みたい。\nワン：いいな。じゃ、試験が終わってから、いっしょにどこか行こうよ。\nカリナ：いいね！どこに行く？\nワン：温泉はどう？日本に来てから、まだ一度も行ったことがない。\nカリナ：いいね。わたしも行きたい。じゃ、計画しよう！",
+      "vietnamese": "Hôm qua, tôi gặp Karina và Wang ở căng-tin trường đại học. Hai người ăn cà-ri rồi nói chuyện.\nKarina: Này, Wang, dạo này thế nào?\nWang: Ừ, tạm được. Nhưng mà có bài thi nên hơi vất vả. Ngày nào cũng học ở thư viện.\nKarina: Vậy à. Bao giờ thi?\nWang: Thứ Sáu tuần sau. Vẫn chưa hiểu hết nên tối nay cũng phải học.\nKarina: Vất vả nhỉ. Mình hôm qua cũng có bài kiểm tra, mà khó ghê.\nWang: Vậy sao? Karina làm được không?\nKarina: Ừ, tạm ổn thôi. Nhưng xong rồi nên cuối tuần này muốn nghỉ ngơi một chút.\nWang: Thích nhỉ. Vậy, sau khi thi xong, cùng đi đâu đó nhé.\nKarina: Hay đấy! Đi đâu?\nWang: Suối nước nóng thì sao? Từ khi đến Nhật đến giờ, mình chưa đi lần nào cả.\nKarina: Hay đó. Mình cũng muốn đi. Vậy cùng lên kế hoạch nhé!",
+      "sentences": [
+        {
+          "jp": "きのう、大学の食堂でカリナさんとワンさんに会った。",
+          "vi": "Hôm qua, tôi gặp Karina và Wang ở căng-tin trường đại học.",
+          "vocab": [
+            {
+              "w": "きのう",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "食堂",
+              "read": "しょくどう",
+              "vi": "căng-tin, nhà ăn"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "会った",
+              "read": "あった",
+              "vi": "đã gặp (た形 của 会う)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — た形",
+              "vi": "会った = thể quá khứ thông thường (thay cho 会いました). Đây là văn kể chuyện thân mật."
+            },
+            {
+              "point": "NでV (Bài 7)",
+              "vi": "食堂で = ở căng-tin — で chỉ nơi diễn ra hành động."
+            }
+          ]
+        },
+        {
+          "jp": "ふたりはカレーを食べて、話していた。",
+          "vi": "Hai người ăn cà-ri rồi nói chuyện.",
+          "vocab": [
+            {
+              "w": "ふたり",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "カレー",
+              "read": "カレー",
+              "vi": "cà-ri (món ăn)"
+            },
+            {
+              "w": "食べて",
+              "read": "たべて",
+              "vi": "ăn rồi... (て形 nối tiếp)"
+            },
+            {
+              "w": "話していた",
+              "read": "はなしていた",
+              "vi": "đang nói chuyện (た形 của 話している)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて〜（nối trình tự Bài 16）",
+              "vi": "食べて、話していた = ăn rồi nói chuyện — て形 nối hai hành động."
+            },
+            {
+              "point": "普通形 — た形 của ている",
+              "vi": "話していた = thể quá khứ của ている (đang nói chuyện) → \"đã đang nói chuyện\" (khi tôi nhìn thấy)."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：ねえ、ワン、最近どう？",
+          "vi": "Karina: Này, Wang, dạo này thế nào?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "どう",
+              "read": "どう",
+              "vi": "thế nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — câu hỏi thân mật",
+              "vi": "最近どう？ = thể thông thường thay cho 最近どうですか。Lược です và か."
+            }
+          ]
+        },
+        {
+          "jp": "ワン：うん、まあまあだよ。でも試験があるから、ちょっと大変。毎日図書館で勉強してる。",
+          "vi": "Wang: Ừ, tạm được. Nhưng mà có bài thi nên hơi vất vả. Ngày nào cũng học ở thư viện.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài thi"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "hơi, một chút"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khó khăn"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "勉強してる",
+              "read": "べんきょうしてる",
+              "vi": "đang học (rút gọn từ 勉強している)"
+            },
+            {
+              "w": "まあまあ",
+              "read": "まあまあ",
+              "vi": "tạm được, bình thường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — N + だよ",
+              "vi": "まあまあだよ = khẳng定 thân mật của danh từ/NA. だ thay cho です."
+            },
+            {
+              "point": "〜から (Bài 9)",
+              "vi": "試験があるから = vì có bài thi → lý do."
+            },
+            {
+              "point": "Vています rút gọn (Bài 14)",
+              "vi": "勉強してる = 勉強している rút gọn い trong hội thoại thân mật."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：そっか。いつ試験なの？",
+          "vi": "Karina: Vậy à. Bao giờ thi?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "そっか",
+              "read": "そっか",
+              "vi": "vậy à, à đúng rồi (thán từ thân mật = そうか)"
+            },
+            {
+              "w": "いつ",
+              "read": "いつ",
+              "vi": "bao giờ, khi nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — N + なの？",
+              "vi": "試験なの？ = 試験ですか？ ở dạng thân mật nhẹ nhàng. なの? dùng để hỏi nhẹ với ý tò mò."
+            }
+          ]
+        },
+        {
+          "jp": "ワン：来週の金曜日。まだ全部わからないから、今夜も勉強しないと。",
+          "vi": "Wang: Thứ Sáu tuần sau. Vẫn chưa hiểu hết nên tối nay cũng phải học.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "金曜日",
+              "read": "きんようび",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "全部",
+              "read": "ぜんぶ",
+              "vi": "tất cả, hết"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "今夜",
+              "read": "こんや",
+              "vi": "tối nay"
+            },
+            {
+              "w": "勉強しないと",
+              "read": "べんきょうしないと",
+              "vi": "phải học (không thì không được)"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn còn, chưa (Bài 7)"
+            },
+            {
+              "w": "わからない",
+              "read": "わからない",
+              "vi": "không hiểu, không biết (ない形 của わかる)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないと (Bài 20)",
+              "vi": "勉強しないと = phải học (nếu không thì không được). Rút gọn từ 勉強しないといけない / しなければなりません. Điểm ngữ pháp MỚI của bài 20."
+            },
+            {
+              "point": "まだ〜ない (Bài 7)",
+              "vi": "まだ全部わからない = vẫn chưa hiểu hết — まだ + thể ない."
+            },
+            {
+              "point": "〜から (Bài 9)",
+              "vi": "わからないから = vì chưa hiểu → lý do."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：大変だね。わたしも昨日テストがあったけど、むずかしかった。",
+          "vi": "Karina: Vất vả nhỉ. Mình hôm qua cũng có bài kiểm tra, mà khó ghê.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khó khăn"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "テスト",
+              "read": "テスト",
+              "vi": "bài kiểm tra"
+            },
+            {
+              "w": "むずかしい",
+              "read": "むずかしい",
+              "vi": "khó (tính từ い — Bài 8)"
+            },
+            {
+              "w": "あった",
+              "read": "あった",
+              "vi": "đã có (た形 của ある)"
+            },
+            {
+              "w": "むずかしかった",
+              "read": "むずかしかった",
+              "vi": "đã khó (quá khứ い-tính từ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜けど（tương phản）",
+              "vi": "テストがあったけど、むずかしかった = có bài kiểm tra (mà/nhưng) khó. けど nối hai ý."
+            },
+            {
+              "point": "普通形 — た形 い-tính từ",
+              "vi": "むずかしかった = thể quá khứ thông thường (むずかしかったです → むずかしかった)."
+            },
+            {
+              "point": "普通形 — N + だね",
+              "vi": "大変だね = thể thông thường + ね đồng cảm."
+            }
+          ]
+        },
+        {
+          "jp": "ワン：そうなの？カリナはよくできた？",
+          "vi": "Wang: Vậy sao? Karina làm được không?",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "tốt, giỏi"
+            },
+            {
+              "w": "できた",
+              "read": "できた",
+              "vi": "đã làm được (た形 của できる)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — câu hỏi (た形)",
+              "vi": "できた？ = できましたか？ Thể quá khứ thông thường + lên giọng thành câu hỏi thân mật."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：うん、まあまあかな。でも、終わったから、今週末は少し休みたい。",
+          "vi": "Karina: Ừ, tạm ổn thôi. Nhưng xong rồi nên cuối tuần này muốn nghỉ ngơi một chút.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "終わった",
+              "read": "おわった",
+              "vi": "đã xong (た形 của 終わる)"
+            },
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút, ít"
+            },
+            {
+              "w": "休みたい",
+              "read": "やすみたい",
+              "vi": "muốn nghỉ"
+            },
+            {
+              "w": "まあまあかな",
+              "read": "まあまあかな",
+              "vi": "tạm ổn thôi (かな = tự hỏi / nói mơ hồ)"
+            },
+            {
+              "w": "今週末",
+              "read": "こんしゅうまつ",
+              "vi": "cuối tuần này"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — た形",
+              "vi": "終わった = quá khứ thân mật. Cụm 終わったから = vì đã xong → lý do."
+            },
+            {
+              "point": "Vたいです (Bài 13)",
+              "vi": "休みたい = muốn nghỉ — thể mong muốn (bỏ です trong hội thoại thân mật)."
+            }
+          ]
+        },
+        {
+          "jp": "ワン：いいな。じゃ、試験が終わってから、いっしょにどこか行こうよ。",
+          "vi": "Wang: Thích nhỉ. Vậy, sau khi thi xong, cùng đi đâu đó nhé.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "終わってから",
+              "read": "おわってから",
+              "vi": "sau khi xong (Vてから = sau khi ~)"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "行こう",
+              "read": "いこう",
+              "vi": "hãy cùng đi (thể ý chí — ý tương đương 行きましょう thân mật)"
+            },
+            {
+              "w": "いいな",
+              "read": "いいな",
+              "vi": "thích nhỉ, ước gì (thán từ thân mật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてから (Bài 16)",
+              "vi": "試験が終わってから = sau khi thi xong. Vてから nêu hành động/sự việc hoàn thành trước, rồi mới làm việc tiếp theo."
+            },
+            {
+              "point": "普通形 — V意志形 + よ",
+              "vi": "行こうよ = 行きましょう ở thể thân mật + よ nhấn mạnh, tương đương \"cùng đi nhé\"."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：いいね！どこに行く？",
+          "vi": "Karina: Hay đấy! Đi đâu?",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi (thể từ điển)"
+            },
+            {
+              "w": "どこ",
+              "read": "どこ",
+              "vi": "ở đâu, đâu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — từ điển (câu hỏi)",
+              "vi": "行く？ = 行きますか？ thể thông thường + lên giọng thành câu hỏi thân mật."
+            }
+          ]
+        },
+        {
+          "jp": "ワン：温泉はどう？日本に来てから、まだ一度も行ったことがない。",
+          "vi": "Wang: Suối nước nóng thì sao? Từ khi đến Nhật đến giờ, mình chưa đi lần nào cả.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "温泉",
+              "read": "おんせん",
+              "vi": "suối nước nóng, onsen"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来てから",
+              "read": "きてから",
+              "vi": "từ khi đến (Vてから = sau khi ~)"
+            },
+            {
+              "w": "行ったことがない",
+              "read": "いったことがない",
+              "vi": "chưa từng đi (phủ định của たことがあります)"
+            },
+            {
+              "w": "一度も",
+              "read": "いちども",
+              "vi": "một lần cũng (chưa) — 一度も〜ない = chưa bao giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたことがあります (Bài 19)",
+              "vi": "行ったことがない = 行ったことがありません ở dạng thân mật phủ định. Diễn đạt kinh nghiệm chưa có."
+            },
+            {
+              "point": "Vてから (Bài 16)",
+              "vi": "来てから = từ khi đến / sau khi đến. Mốc thời gian bắt đầu."
+            }
+          ]
+        },
+        {
+          "jp": "カリナ：いいね。わたしも行きたい。じゃ、計画しよう！",
+          "vi": "Karina: Hay đó. Mình cũng muốn đi. Vậy cùng lên kế hoạch nhé!",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "行きたい",
+              "read": "いきたい",
+              "vi": "muốn đi"
+            },
+            {
+              "w": "計画しよう",
+              "read": "けいかくしよう",
+              "vi": "hãy cùng lên kế hoạch (thể ý chí thân mật)"
+            },
+            {
+              "w": "計画する",
+              "read": "けいかくする",
+              "vi": "lên kế hoạch"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたいです (Bài 13)",
+              "vi": "行きたい = muốn đi — bỏ です trong hội thoại thân mật."
+            },
+            {
+              "point": "普通形 — V意志形",
+              "vi": "計画しよう = 計画しましょう thân mật. Kết thúc bằng う/よう là thể ý chí (ý chí/rủ rê thân mật)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "勉強しないと",
+          "label": "〜ないと（phải học）"
+        },
+        {
+          "excerpt": "テストがあったけど、むずかしかった",
+          "label": "〜けど（tương phản）"
+        },
+        {
+          "excerpt": "行ったことがない",
+          "label": "Vたことがない（chưa từng — Bài 19）"
+        },
+        {
+          "excerpt": "来てから、まだ一度も",
+          "label": "Vてから / まだ〜ない"
+        },
+        {
+          "excerpt": "計画しよう",
+          "label": "普通形意志形（rủ rê thân mật）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワンさんはどうして毎日図書館で勉強しますか。",
+          "evi": [
+            3,
+            5
+          ],
+          "options": [
+            "映画が好きだから",
+            "来週試験があるから",
+            "友達に頼まれたから",
+            "図書館が好きだから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Wang nói hai điều liên quan:「でも試験があるから、ちょっと大変。毎日図書館で勉強してる」— \"vì có bài thi nên hơi vất vả, ngày nào cũng học ở thư viện\". Tiếp theo, khi Karina hỏi bao giờ thi, Wang trả lời「来週の金曜日」— \"thứ Sáu tuần sau\". Đây là CĂN CỨ TRỰC TIẾP: có thi → phải học chuẩn bị. Đáp án 1 (来週試験があるから) tóm gọn chính xác lý do đó. Đáp án 0 sai vì 映画 (phim) không liên quan đến việc học ở thư viện. Đáp án 2 sai vì không ai nhờ Wang học — đây là việc tự Wang phải làm. Đáp án 3 sai vì bài không nói Wang thích thư viện, chỉ nói Wang học ở đó vì chuẩn bị thi.",
+          "tip": "Câu hỏi \"vì sao làm X\" → tìm から trong lời nhân vật đó. Ở đây Wang nói「試験があるから」— từ から chỉ thẳng vào lý do.",
+          "qt": {
+            "q": "Vì sao anh Wang học ở thư viện mỗi ngày?",
+            "o": [
+              "Vì thích phim",
+              "Vì tuần sau có kỳ thi",
+              "Vì được bạn nhờ",
+              "Vì thích thư viện"
+            ]
+          }
+        },
+        {
+          "q": "「今夜も勉強しないと」はどんな意味ですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "今夜は勉強しなくてもいいです",
+            "今夜も勉強しなければなりません",
+            "今夜は勉強しないつもりです",
+            "今夜は勉強が好きです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Mẫu 〜ないと là cách nói thân mật rút gọn từ 〜なければなりません (phải làm). Cụ thể:「勉強しないと」= 勉強しないといけない (không học thì không được) → nghĩa là PHÁ I HỌC. Đây là điểm ngữ pháp MỚI của bài 20. Đáp án 1 (勉強しなければなりません) chính là dạng lịch sự đầy đủ của ないと → đúng nghĩa. Đáp án 0 sai vì 〜なくてもいいです nghĩa ngược lại: \"không cần phải làm cũng được\". Đáp án 2 sai vì 〜ないつもり có nghĩa \"định không làm\" — Wang rõ ràng định HỌC, không phải định bỏ. Đáp án 3 sai vì không liên quan đến việc Wang có thích học hay không.",
+          "tip": "Nhớ công thức: động từ **ない形** + と = \"phải làm\". Ví dụ: 行かないと = phải đi; 食べないと = phải ăn. Đây là dạng thân mật của なければなりません — hay gặp trong hội thoại bạn bè.",
+          "qt": {
+            "q": "「今夜も勉強しないと」 có nghĩa là gì?",
+            "o": [
+              "Tối nay không cần học cũng được",
+              "Tối nay cũng phải học",
+              "Tối nay không định học",
+              "Tối nay thích việc học"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんは温泉に行ったことがありますか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "はい、何度も行ったことがあります",
+            "いいえ、一度も行ったことがありません",
+            "はい、先週行きました",
+            "いいえ、温泉が嫌いです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Wang nói rõ:「日本に来てから、まだ一度も行ったことがない」— \"từ khi đến Nhật đến giờ, chưa đi lần nào cả\". Cụm 一度も〜ない nhấn mạnh \"không một lần nào\". Đây là dạng thân mật (普通形) của 行ったことがありません. Đáp án 1 (一度も行ったことがありません) chuyển sang dạng lịch sự, giữ nguyên nghĩa phủ định → đúng. Đáp án 0 sai hoàn toàn vì bài nói \"chưa từng đi\", không phải \"đã đi nhiều lần\". Đáp án 2 sai vì bài không nhắc Wang đi onsen tuần trước. Đáp án 3 sai vì Wang không nói ghét onsen — thực ra Wang MUỐN đi (đó là lý do Wang đề xuất).",
+          "tip": "Cụm 一度も〜ない = \"không một lần nào\" → đây là phủ định TUYỆT ĐỐI. Khi thấy cụm này, đáp án đúng phải là phủ định hoàn toàn (ありません / ない). Loại ngay đáp án khẳng định.",
+          "qt": {
+            "q": "Anh Wang đã từng đi suối nước nóng chưa?",
+            "o": [
+              "Vâng, đã từng đi nhiều lần",
+              "Không, chưa từng đi lần nào",
+              "Vâng, đã đi tuần trước",
+              "Không, vì không thích suối nước nóng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "クラスの連絡",
+      "titleVi": "Bảng tin lớp học (thông báo thân mật)",
+      "japanese": "クラスの連絡（カリナのメモ）\nみんな、見て！　今週のクラスの予定、ちょっと変わったよ。みんな、忘れないでね。\n曜日｜予定\n水｜テストはない。ワンさんの誕生日パーティーがある。\n木｜漢字のテストがある。今夜も勉強しないと。\n金｜授業のあと、いっしょに温泉に行こうよ。\n土｜みんな休みだけど、宿題は今日出さないと。\n※パーティーは図書館の前の部屋。5時からだけど、ちょっと遅れてもいい。\n質問はいつでもいいよ。カリナに聞いてね。",
+      "vietnamese": "Thông báo lớp học (mẩu ghi chú của Karina)\nMọi người, xem này! Lịch học tuần này thay đổi một chút đấy. Mọi người đừng quên nhé.\nThứ｜Lịch trình\nThứ Tư｜Không có kiểm tra. Có tiệc sinh nhật của Wang.\nThứ Năm｜Có bài kiểm tra kanji. Tối nay cũng phải học.\nThứ Sáu｜Sau giờ học, cùng đi suối nước nóng nhé.\nThứ Bảy｜Mọi người được nghỉ, nhưng bài tập thì phải nộp hôm nay.\n※ Tiệc ở phòng trước thư viện. Bắt đầu từ 5 giờ, nhưng đến trễ một chút cũng được.\nThắc mắc gì thì lúc nào cũng được. Cứ hỏi Karina nhé.",
+      "sentences": [
+        {
+          "jp": "クラスの連絡（カリナのメモ）",
+          "vi": "Thông báo lớp học (mẩu ghi chú của Karina)",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN (Bài 1)",
+              "vi": "クラスの連絡 = thông báo của lớp — の nối 2 danh từ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "クラスの連絡",
+              "why": "Tiêu đề cho biết đây là bảng tin việc của cả lớp, không phải chuyện riêng."
+            }
+          ]
+        },
+        {
+          "jp": "みんな、見て！　今週のクラスの予定、ちょっと変わったよ。みんな、忘れないでね。",
+          "vi": "Mọi người, xem này! Lịch học tuần này thay đổi một chút đấy. Mọi người đừng quên nhé.",
+          "vocab": [
+            {
+              "w": "見て",
+              "read": "みて",
+              "vi": "xem này (て形 ra lệnh nhẹ)"
+            },
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "lịch trình, kế hoạch"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "một chút"
+            },
+            {
+              "w": "変わった",
+              "read": "かわった",
+              "vi": "đã thay đổi (た形 của 変わる)"
+            },
+            {
+              "w": "忘れないで",
+              "read": "わすれないで",
+              "vi": "đừng quên (Vないでください rút gọn)"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — た形",
+              "vi": "変わったよ = 変わりましたよ ở dạng thân mật. だ/です bị lược, dùng thẳng た形 + よ."
+            },
+            {
+              "point": "Vないでください (Bài 15, rút gọn)",
+              "vi": "忘れないでね = đừng quên nhé — lược ください, chỉ cò lại Vないで + ね, rất thân mật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ちょっと変わったよ",
+              "why": "Báo hiệu lịch tuần này KHÁC bình thường — phải đọc kỹ bảng bên dưới, không được đoán theo lịch quen."
+            }
+          ]
+        },
+        {
+          "jp": "曜日｜予定",
+          "vi": "Thứ｜Lịch trình",
+          "vocab": [
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "lịch trình, kế hoạch"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "曜日｜予定",
+              "why": "Hàng tiêu đề bảng — 2 cột: thứ trong tuần và việc sẽ xảy ra ngày đó."
+            }
+          ]
+        },
+        {
+          "jp": "水｜テストはない。ワンさんの誕生日パーティーがある。",
+          "vi": "Thứ Tư｜Không có kiểm tra. Có tiệc sinh nhật của Wang.",
+          "vocab": [
+            {
+              "w": "水",
+              "read": "すい",
+              "vi": "thứ Tư (viết tắt của 水曜日)"
+            },
+            {
+              "w": "テスト",
+              "read": "テスト",
+              "vi": "bài kiểm tra"
+            },
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời, chào đời"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — ない形",
+              "vi": "テストはない = テストはありません ở dạng thân mật."
+            },
+            {
+              "point": "〜があります (Bài 9, thân mật)",
+              "vi": "パーティーがある = có tiệc — thể thông thường của があります."
+            }
+          ],
+          "keys": [
+            {
+              "w": "誕生日パーティーがある",
+              "why": "Ô nội dung của thứ Tư — căn cứ để trả lời câu hỏi \"thứ nào có tiệc sinh nhật\"."
+            },
+            {
+              "w": "テストはない",
+              "why": "Xác nhận thứ Tư KHÔNG có kiểm tra — dễ bị nhiễu nhầm với thứ Năm."
+            }
+          ]
+        },
+        {
+          "jp": "木｜漢字のテストがある。今夜も勉強しないと。",
+          "vi": "Thứ Năm｜Có bài kiểm tra kanji. Tối nay cũng phải học.",
+          "vocab": [
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm (viết tắt của 木曜日)"
+            },
+            {
+              "w": "漢字",
+              "read": "かんじ",
+              "vi": "chữ Hán, kanji"
+            },
+            {
+              "w": "テスト",
+              "read": "テスト",
+              "vi": "bài kiểm tra"
+            },
+            {
+              "w": "今夜",
+              "read": "こんや",
+              "vi": "tối nay"
+            },
+            {
+              "w": "勉強しないと",
+              "read": "べんきょうしないと",
+              "vi": "phải học (không thì không được)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないと (Bài 20)",
+              "vi": "勉強しないと = phải học. Rút gọn từ 勉強しないといけない/しなければなりません. Điểm ngữ pháp MỚI của bài 20, lần 1."
+            },
+            {
+              "point": "普通形 — N + がある",
+              "vi": "漢字のテストがある = có bài kiểm tra kanji, thể thông thường."
+            }
+          ],
+          "keys": [
+            {
+              "w": "漢字のテストがある",
+              "why": "Ô nội dung thứ Năm — chính là căn cứ trả lời câu hỏi \"thứ Năm có gì\"."
+            },
+            {
+              "w": "今夜も勉強しないと",
+              "why": "Bằng chứng \"phải làm gì\" cho thứ Năm — chứa mẫu 〜ないと trọng tâm của bài."
+            }
+          ]
+        },
+        {
+          "jp": "金｜授業のあと、いっしょに温泉に行こうよ。",
+          "vi": "Thứ Sáu｜Sau giờ học, cùng đi suối nước nóng nhé.",
+          "vocab": [
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu (viết tắt của 金曜日)"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "温泉",
+              "read": "おんせん",
+              "vi": "suối nước nóng"
+            },
+            {
+              "w": "行こう",
+              "read": "いこう",
+              "vi": "hãy cùng đi (thể ý chí thân mật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — V意志形 + よ",
+              "vi": "行こうよ = 行きましょうよ ở dạng thân mật, rủ rê."
+            }
+          ],
+          "keys": [
+            {
+              "w": "温泉に行こうよ",
+              "why": "Ô nội dung thứ Sáu — không phải kiểm tra, không phải tiệc, dễ bị chọn nhầm nếu đọc lướt."
+            }
+          ]
+        },
+        {
+          "jp": "土｜みんな休みだけど、宿題は今日出さないと。",
+          "vi": "Thứ Bảy｜Mọi người được nghỉ, nhưng bài tập thì phải nộp hôm nay.",
+          "vocab": [
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy (viết tắt của 土曜日)"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "nghỉ"
+            },
+            {
+              "w": "宿題",
+              "read": "しゅくだい",
+              "vi": "bài tập về nhà"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "出さないと",
+              "read": "ださないと",
+              "vi": "phải nộp (không thì không được)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜けど（tương phản, Bài 20）",
+              "vi": "休みだけど、宿題は出さないと = nghỉ nhưng bài tập vẫn phải nộp — けど nối 2 ý ngược nhau."
+            },
+            {
+              "point": "〜ないと (Bài 20, lần 2)",
+              "vi": "出さないと = phải nộp. Cùng mẫu với 勉強しないと ở dòng thứ Năm — điểm ngữ pháp trọng tâm xuất hiện lần thứ 2."
+            }
+          ],
+          "keys": [
+            {
+              "w": "宿題は今日出さないと",
+              "why": "Bẫy chính: tuy thứ Bảy \"nghỉ\" nhưng KHÔNG có nghĩa là được nghỉ hoàn toàn — bài tập vẫn phải nộp."
+            },
+            {
+              "w": "休みだけど",
+              "why": "けど báo hiệu vế sau sẽ ngược với \"nghỉ\" — phải đọc tiếp mới biết còn việc phải làm."
+            }
+          ]
+        },
+        {
+          "jp": "※パーティーは図書館の前の部屋。5時からだけど、ちょっと遅れてもいい。",
+          "vi": "Tiệc ở phòng trước thư viện. Bắt đầu từ 5 giờ, nhưng đến trễ một chút cũng được.",
+          "vocab": [
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc, party"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "phía trước (Bài 10)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "một chút, một chút thôi"
+            },
+            {
+              "w": "遅れて",
+              "read": "おくれて",
+              "vi": "trễ, muộn (て形)"
+            },
+            {
+              "w": "5時",
+              "read": "ごじ",
+              "vi": "5 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです (Bài 15)",
+              "vi": "遅れてもいい = trễ cũng được — cho phép, thể thông thường của てもいいです."
+            },
+            {
+              "point": "〜けど（tương phản, Bài 20）",
+              "vi": "5時からだけど = bắt đầu từ 5 giờ nhưng (trễ cũng ổn) — けど nối điều kiện với ngoại lệ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "図書館の前の部屋",
+              "why": "Địa điểm chính xác của tiệc — căn cứ nếu câu hỏi hỏi về nơi tổ chức."
+            },
+            {
+              "w": "ちょっと遅れてもいい",
+              "why": "Ngoại lệ ※ quan trọng: giờ 5時 không bắt buộc tuyệt đối, đến trễ chút vẫn được."
+            }
+          ]
+        },
+        {
+          "jp": "質問はいつでもいいよ。カリナに聞いてね。",
+          "vi": "Thắc mắc gì thì lúc nào cũng được. Cứ hỏi Karina nhé.",
+          "vocab": [
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "聞いて",
+              "read": "きいて",
+              "vi": "hãy hỏi (て形 nhờ vả thân mật)"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt, được, ổn (Bài 8)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "普通形 — い-tính từ + よ (Bài 8, Bài 20)",
+              "vi": "いつでもいいよ = lúc nào cũng được đấy — NはAいです ở thể thông thường, bỏ です."
+            },
+            {
+              "point": "Vてください rút gọn (Bài 14)",
+              "vi": "聞いてね = hãy hỏi nhé — lược ください, chỉ còn て形 + ね thân mật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "カリナに聞いてね",
+              "why": "Thông tin liên hệ cuối bảng tin — ai thắc mắc thì hỏi ai."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "今夜も勉強しないと",
+          "label": "〜ないと（phải học — Bài 20, lần 1）"
+        },
+        {
+          "excerpt": "宿題は今日出さないと",
+          "label": "〜ないと（phải nộp — Bài 20, lần 2）"
+        },
+        {
+          "excerpt": "休みだけど",
+          "label": "〜けど（tương phản — Bài 20）"
+        },
+        {
+          "excerpt": "遅れてもいい",
+          "label": "Vてもいいです（Bài 15, ôn lại）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề + lời dặn mở đầu",
+          "topic": 1,
+          "note": "Karina báo trước lịch tuần này có thay đổi — đọc kỹ, không đoán theo lịch quen.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 4,
+          "kind": "point",
+          "label": "Bảng: thứ Tư – thứ Năm",
+          "topic": 4,
+          "note": "Thứ Tư không kiểm tra (có tiệc); thứ Năm có kiểm tra kanji và phải học tối đó — đây là căn cứ trả lời câu hỏi.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "kind": "turn",
+          "label": "Bảng: thứ Sáu – thứ Bảy",
+          "topic": 6,
+          "note": "Thứ Bảy tuy nghỉ nhưng vẫn phải nộp bài tập — bẫy dễ nhầm với thứ Năm nếu đọc lướt.",
+          "qs": []
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "body",
+          "label": "Ghi chú ※ và liên hệ",
+          "topic": 7,
+          "note": "Ngoại lệ về giờ tiệc và thông tin liên hệ cuối bảng tin.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "木曜日、ワンさんは何をしないといけませんか。",
+          "options": [
+            "誕生日パーティーに行かないといけません",
+            "漢字のテストの勉強をしないといけません",
+            "温泉に行かないといけません",
+            "宿題を出さないといけません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Ở hàng \"木\" (thứ Năm) trong bảng, mẩu ghi chú viết:「漢字のテストがある。今夜も勉強しないと」— \"có bài kiểm tra kanji. Tối nay cũng phải học\". Mẫu 〜ないと (phải làm) chỉ thẳng việc cần làm là học kanji. Đáp án 0 sai vì tiệc sinh nhật nằm ở hàng \"水\" (thứ Tư), không phải thứ Năm. Đáp án 2 sai vì đi onsen là kế hoạch của hàng \"金\" (thứ Sáu). Đáp án 3 sai vì nộp bài tập là việc của hàng \"土\" (thứ Bảy), không phải thứ Năm — đây là bẫy ghép nhầm ô của thứ khác.",
+          "tip": "Đề hỏi \"thứ NÀO thì phải làm gì\" → trước tiên dò đúng HÀNG của thứ đó trong bảng, rồi mới đọc nội dung — đừng lấy nhầm việc ở hàng bên cạnh.",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Thứ Năm, anh Wang phải làm gì?",
+            "o": [
+              "Phải đi dự tiệc sinh nhật",
+              "Phải học cho bài kiểm tra chữ Hán",
+              "Phải đi suối nước nóng",
+              "Phải nộp bài tập về nhà"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3456 @@
+{
+  "bai": 51,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 51 luyện 〜はずだ và 〜はずがない: hai mẫu diễn đạt suy luận CÓ CĂN CỨ LOGIC — \"lẽ ra phải…/ chắc là… (theo lý)\" và \"không thể nào (xét theo lý)\". Phân biệt sắc thái: はず = suy luận khách quan dựa vào bằng chứng/lý luận ≠ と思う (ý kiến chủ quan Bài 21) ≠ かもしれない (chỉ là khả năng, Bài 32) ≠ でしょう (phán đoán chung, Bài 32). Lưu ý thêm: はずだった = kỳ vọng logic vấp phải thực tế bất ngờ (\"lẽ ra phải… nhưng\"); はずなのに = \"đáng lẽ phải… vậy mà\". Đọc hiểu: chú ý tại sao tác giả dùng はず chứ không dùng mẫu khác.",
+    "steps": [
+      "Nhận diện 接続 của はず: 普通形 + はず（だ）. なAdj → 〜なはず; N → 〜のはず. Quá khứ: Vた/Aかった + はずだった.",
+      "Phân biệt はずだ (có căn cứ, logic) với と思う (cảm tính): hỏi \"người viết có bằng chứng/lý luận không?\" — nếu có → はず.",
+      "Nhận ra はずがない: \"không thể nào (theo lý)\" — thường đi kèm lý do rõ ràng trước đó.",
+      "Chú ý はずなのに: kết hợp với のに (nghịch kỳ vọng, Bài 45) → \"đáng lẽ phải… vậy mà lại…\".",
+      "Câu hỏi suy luận: \"Vì sao tác giả dùng はず chứ không dùng と思う?\" → trả lời bằng căn cứ trong bài.",
+      "Ôn lại のに (Bài 45) khi thấy はずなのに — のに ở đây mang nghĩa \"vậy mà, đáng lẽ\"."
+    ],
+    "tips": [
+      "使い分け 1 — はず vs と思う: \"本は届いているはずだ\" (có căn cứ: đã gửi, đúng địa chỉ) ≠ \"届いていると思う\" (chỉ là cảm giác chủ quan). Bài thi hay hỏi chọn đúng mẫu theo ngữ cảnh.",
+      "使い分け 2 — はずがない vs かもしれない: \"間違えたはずがない\" (logic mạnh: tôi đã kiểm tra) ≠ \"間違えたかもしれない\" (chỉ là khả năng). はずがない = bác bỏ dứt khoát theo lý.",
+      "はずだった = dự kiến/kỳ vọng logic nhưng THỰC TẾ không như vậy. Dấu hiệu: thường có \"しかし/でも\" theo sau.",
+      "なはず (なAdj + はず): 例 → 簡単なはずだ. のはず (N + はず): 例 → 彼女のはずだ. Đừng viết 簡単なはず → 簡単のはず (sai).",
+      "Nhận dạng trong câu hỏi: \"なぜ〜はずだと思ったのですか\" hoặc \"〜はずがないのはなぜですか\" → tìm LÝ DO trong bài, không trích nguyên văn."
+    ],
+    "grammarFocus": [
+      "〜はずだ（普通形 + はず）— suy luận có căn cứ logic \"lẽ ra phải/chắc là\"",
+      "〜はずがない — \"không thể nào (theo lý)\"",
+      "〜はずだった — kỳ vọng logic vấp thực tế (\"lẽ ra phải… nhưng\")",
+      "〜はずなのに — \"đáng lẽ phải… vậy mà\"（はず + のに nghịch kỳ vọng）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接: vậy mà, đáng lẽ）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜かもしれません（khả năng）",
+          "〜でしょう（phán đoán）"
+        ]
+      },
+      {
+        "bai": 25,
+        "items": [
+          "〜たら（nếu/sau khi）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います（ý kiến chủ quan）"
+        ]
+      },
+      {
+        "bai": 20,
+        "items": [
+          "普通形（thể thông thường）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "届かない荷物",
+      "titleVi": "Bưu kiện không đến",
+      "japanese": "先週、友達のリンさんに借りた本を返すために、ポストに入れた。もう着いているはずだ。しかし、リンさんから「まだ届いていない」というメッセージが来た。おかしいと思った。住所を間違えたはずがない。送る前に何度も確認したのだから。もしかしたら、配達が遅れているのかもしれない。でも、三日も経っているのに届かないのはやはりおかしい。本当は昨日着いているはずだったのに、どこかで止まっているのだろう。とにかく、今日、配達会社に電話して確認するつもりだ。",
+      "vietnamese": "Tuần trước, để trả cuốn sách mượn của bạn Linh, tôi đã bỏ vào hộp thư. Đáng lẽ đến nơi rồi. Nhưng từ bạn Linh có tin nhắn \"vẫn chưa nhận được\". Tôi thấy lạ. Không thể nào tôi ghi sai địa chỉ. Vì trước khi gửi tôi đã kiểm tra nhiều lần. Biết đâu có thể giao hàng bị trễ. Nhưng đã ba ngày rồi mà vẫn không đến thì quả là lạ. Lẽ ra hôm qua phải đến rồi nhưng chắc đang bị kẹt ở đâu đó. Dù sao, hôm nay tôi định gọi điện cho công ty giao hàng để xác nhận.",
+      "sentences": [
+        {
+          "jp": "先週、友達のリンさんに借りた本を返すために、ポストに入れた。",
+          "vi": "Tuần trước, để trả cuốn sách mượn của bạn Linh, tôi đã bỏ vào hộp thư.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "リン",
+              "read": "リン",
+              "vi": "tên riêng Rin"
+            },
+            {
+              "w": "借ります",
+              "read": "かります",
+              "vi": "mượn"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "返します",
+              "read": "かえします",
+              "vi": "trả lại"
+            },
+            {
+              "w": "ポスト",
+              "read": "ポスト",
+              "vi": "hộp thư, bưu điện"
+            },
+            {
+              "w": "入れます",
+              "read": "いれます",
+              "vi": "bỏ vào, cho vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（Bài 42）",
+              "vi": "返すために = để trả. Vる + ために chỉ mục đích có ý chí (Bài 42)."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "借りた本 = cuốn sách (mà tôi đã) mượn. Vた bổ nghĩa cho 本."
+            }
+          ]
+        },
+        {
+          "jp": "もう着いているはずだ。",
+          "vi": "Đáng lẽ đến nơi rồi.",
+          "vocab": [
+            {
+              "w": "着きます",
+              "read": "つきます",
+              "vi": "đến nơi, tới nơi"
+            },
+            {
+              "w": "もう",
+              "read": "もう",
+              "vi": "rồi, đã"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずだ",
+              "vi": "接続: Vている（普通形）+ はず。 着いているはずだ = \"lẽ ra phải đến rồi / chắc là đã đến\" — suy luận CÓ CĂN CỨ LOGIC (đã gửi, thời gian đủ để đến). Sắc thái: はず khác với と思う（Bài 21 — chỉ là cảm giác chủ quan）và かもしれない（Bài 32 — chỉ là khả năng）. Ở đây người viết suy ra từ sự kiện cụ thể: đã bỏ vào hộp thư tuần trước."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、リンさんから「まだ届いていない」というメッセージが来た。",
+          "vi": "Nhưng từ bạn Linh có tin nhắn \"vẫn chưa nhận được\".",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "リン",
+              "read": "リン",
+              "vi": "tên riêng Rin"
+            },
+            {
+              "w": "届きます",
+              "read": "とどきます",
+              "vi": "đến nơi, được giao đến"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "まだ",
+              "read": "まだ",
+              "vi": "vẫn, chưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というN（Bài 33）",
+              "vi": "「まだ届いていない」というメッセージ = tin nhắn nói rằng \"vẫn chưa đến\". という nối nội dung với danh từ (Bài 33)."
+            }
+          ]
+        },
+        {
+          "jp": "おかしいと思った。",
+          "vi": "Tôi thấy lạ.",
+          "vocab": [
+            {
+              "w": "おかしい",
+              "read": "おかしい",
+              "vi": "lạ, kỳ lạ, không bình thường"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と思いました（Bài 21）",
+              "vi": "おかしいと思った = nghĩ là lạ. と思う diễn đạt cảm nhận chủ quan — đối chiếu với はず (căn cứ khách quan) ở câu trước."
+            }
+          ]
+        },
+        {
+          "jp": "住所を間違えたはずがない。送る前に何度も確認したのだから。",
+          "vi": "Không thể nào tôi ghi sai địa chỉ. Vì trước khi gửi tôi đã kiểm tra nhiều lần.",
+          "vocab": [
+            {
+              "w": "住所",
+              "read": "じゅうしょ",
+              "vi": "địa chỉ"
+            },
+            {
+              "w": "間違えます",
+              "read": "まちがえます",
+              "vi": "nhầm, sai"
+            },
+            {
+              "w": "送ります",
+              "read": "おくります",
+              "vi": "gửi"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "何度も",
+              "read": "なんども",
+              "vi": "nhiều lần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずがない",
+              "vi": "接続: Vた + はずがない。 間違えたはずがない = \"không thể nào đã ghi sai (theo lý)\" — bác bỏ dứt khoát dựa trên căn cứ logic: đã kiểm tra nhiều lần. Sắc thái: はずがない mạnh hơn かもしれない（chỉ là khả năng）vì đây là suy luận từ bằng chứng rõ ràng."
+            },
+            {
+              "point": "〜のだから（Bài 26 んです + から）",
+              "vi": "確認したのだから = vì đã kiểm tra rồi mà. のだ/んだ giải thích lý do, から nêu căn cứ."
+            }
+          ]
+        },
+        {
+          "jp": "もしかしたら、配達が遅れているのかもしれない。",
+          "vi": "Biết đâu có thể giao hàng bị trễ.",
+          "vocab": [
+            {
+              "w": "もしか",
+              "read": "もしか",
+              "vi": "có lẽ, có thể"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "遅れます",
+              "read": "おくれます",
+              "vi": "bị trễ, chậm trễ"
+            },
+            {
+              "w": "もしかしたら",
+              "read": "もしかしたら",
+              "vi": "biết đâu, có lẽ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "かもしれない = \"có thể… (không chắc)\". Ôn lại Bài 32. Đối chiếu: tác giả dùng かもしれない cho khả năng CHƯA chắc, còn はずがない (câu trước) cho điều tác giả CHẮC CHẮN bác bỏ theo lý."
+            }
+          ]
+        },
+        {
+          "jp": "でも、三日も経っているのに届かないのはやはりおかしい。",
+          "vi": "Nhưng đã ba ngày rồi mà vẫn không đến thì quả là lạ.",
+          "vocab": [
+            {
+              "w": "経ちます",
+              "read": "たちます",
+              "vi": "trôi qua (thời gian)"
+            },
+            {
+              "w": "届く",
+              "read": "とどく",
+              "vi": "đến, tới nơi"
+            },
+            {
+              "w": "やはり",
+              "read": "やはり",
+              "vi": "quả nhiên, vẫn, dù sao"
+            },
+            {
+              "w": "おかしい",
+              "read": "おかしい",
+              "vi": "lạ, kỳ lạ"
+            },
+            {
+              "w": "三日",
+              "read": "みっか",
+              "vi": "ba ngày"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接 Bài 45）",
+              "vi": "三日も経っているのに届かない = đã ba ngày rồi mà vẫn không đến. のに bày tỏ sự bất mãn/ngạc nhiên trước kết quả trái kỳ vọng (Bài 45)."
+            }
+          ]
+        },
+        {
+          "jp": "本当は昨日着いているはずだったのに、どこかで止まっているのだろう。",
+          "vi": "Lẽ ra hôm qua phải đến rồi nhưng chắc đang bị kẹt ở đâu đó.",
+          "vocab": [
+            {
+              "w": "本当は",
+              "read": "ほんとうは",
+              "vi": "thực ra, lẽ ra"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "着く",
+              "read": "つく",
+              "vi": "đến nơi, tới nơi"
+            },
+            {
+              "w": "止まります",
+              "read": "とまります",
+              "vi": "dừng lại, bị kẹt"
+            },
+            {
+              "w": "どこか",
+              "read": "どこか",
+              "vi": "ở đâu đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずだったのに",
+              "vi": "接続: Vている（普通形）+ はずだった + のに。 着いているはずだったのに = \"lẽ ra phải đến rồi nhưng…\" — kỳ vọng logic (はずだった = đã từng kỳ vọng) vấp thực tế bất ngờ (のに = vậy mà không như vậy). Đây là tổ hợp はずだった（quá khứ của kỳ vọng）+ のに（nghịch kỳ vọng Bài 45）."
+            },
+            {
+              "point": "〜のだろう（Bài 20 普通形 + のだ + だろう）",
+              "vi": "止まっているのだろう = chắc là đang bị kẹt ở đâu đó. のだ（giải thích tình huống）+ だろう（phán đoán, Bài 32）— suy đoán trong phạm vi đã học (ようだ để dành Bài 64)."
+            }
+          ]
+        },
+        {
+          "jp": "とにかく、今日、配達会社に電話して確認するつもりだ。",
+          "vi": "Dù sao, hôm nay tôi định gọi điện cho công ty giao hàng để xác nhận.",
+          "vocab": [
+            {
+              "w": "とにかく",
+              "read": "とにかく",
+              "vi": "dù sao, dù thế nào"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "電話します",
+              "read": "でんわします",
+              "vi": "gọi điện"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "sự xác nhận, kiểm tra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜つもりだ（Bài 31）",
+              "vi": "Vるつもりだ = định làm. 確認するつもりだ = định xác nhận. Ôn lại Bài 31."
+            },
+            {
+              "point": "Vて（nối trình tự, Bài 16）",
+              "vi": "電話して確認する = gọi điện rồi (mới) xác nhận. て形 nối các hành động theo trình tự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "もう着いているはずだ",
+          "label": "〜はずだ（suy luận có căn cứ）"
+        },
+        {
+          "excerpt": "住所を間違えたはずがない",
+          "label": "〜はずがない（bác bỏ theo lý）"
+        },
+        {
+          "excerpt": "昨日着いているはずだったのに",
+          "label": "Sắc thái: はずだった + のに（kỳ vọng vấp thực tế）"
+        },
+        {
+          "excerpt": "三日も経っているのに届かない",
+          "label": "〜のに（nghịch kỳ vọng）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「もう着いているはずだ」と書いた人が思った理由は何ですか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "リンさんから「着いた」というメッセージが来たからです",
+            "先週ポストに入れたので、届くのに十分な時間が経ったと考えたからです",
+            "配達会社から「届けた」という連絡があったからです",
+            "住所を間違えたかもしれないと思ったからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết mở đầu bằng「先週、ポストに入れた」(tuần trước đã bỏ vào hộp thư) — đây là CĂN CỨ LOGIC cụ thể: đã gửi + đủ thời gian trôi qua → suy ra「もう着いているはずだ」. Đây là đặc trưng của はず: suy luận dựa trên sự kiện thực tế, không phải cảm tính. Đáp án 0 sai vì tin nhắn của Linh nói ngược lại (「まだ届いていない」). Đáp án 2 sai vì bài không hề nhắc đến liên lạc từ công ty giao hàng. Đáp án 3 sai vì đó là điều người viết BÁC BỎ (はずがない), không phải lý do để nghĩ đã đến.",
+          "tip": "Câu hỏi dạng \"なぜ〜はずだと思ったのか\" → tìm SỰ KIỆN/BẰNG CHỨNG cụ thể trong bài làm căn cứ cho はず, không phải cảm giác. Loại ngay đáp án nào mâu thuẫn với nội dung bài.",
+          "qt": {
+            "q": "Người viết nghĩ “đáng lẽ đã đến rồi” vì lý do gì?",
+            "o": [
+              "Vì nhận được tin nhắn từ Lin nói rằng “đã đến rồi”",
+              "Vì đã bỏ vào hòm thư từ tuần trước nên nghĩ rằng đã đủ thời gian để thư đến",
+              "Vì nhận được thông báo từ công ty giao hàng rằng “đã giao rồi”",
+              "Vì nghĩ rằng có thể đã ghi nhầm địa chỉ"
+            ]
+          }
+        },
+        {
+          "q": "「住所を間違えたはずがない」の理由として、文章から分かることは何ですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "以前も同じ住所に送ったことがあるからです",
+            "送る前に何度も住所を確認したからです",
+            "リンさんが住所を教えてくれたからです",
+            "配達会社が住所を確認してくれたからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Ngay sau câu「住所を間違えたはずがない」có câu giải thích trực tiếp:「送る前に何度も確認したのだから」(vì trước khi gửi đã kiểm tra nhiều lần). Đây chính là CĂN CỨ LOGIC của はずがない — bác bỏ dứt khoát vì có bằng chứng rõ ràng. Đáp án 0 sai vì bài không nhắc đến việc đã từng gửi cùng địa chỉ. Đáp án 2 và 3 sai vì bài không đề cập Linh dạy địa chỉ hay công ty giao hàng kiểm tra.",
+          "tip": "はずがない luôn đi kèm LÝ DO ngay trước hoặc ngay sau. Khi gặp câu hỏi \"なぜ〜はずがないか\", hãy tìm câu giải thích ngay cạnh — thường có のだから / ので / だから làm dấu hiệu.",
+          "qt": {
+            "q": "Có thể biết được điều gì từ bài viết về lý do “chắc chắn không thể đã ghi nhầm địa chỉ”?",
+            "o": [
+              "Vì trước đây cũng đã từng gửi đến cùng địa chỉ đó",
+              "Vì đã kiểm tra địa chỉ nhiều lần trước khi gửi",
+              "Vì Lin đã cho biết địa chỉ",
+              "Vì công ty giao hàng đã kiểm tra địa chỉ giúp"
+            ]
+          }
+        },
+        {
+          "q": "この文章で「はずだ」と「かもしれない」の両方が使われています。なぜ使い分けていますか。",
+          "evi": [
+            1,
+            4,
+            5
+          ],
+          "options": [
+            "「はずだ」は書き言葉、「かもしれない」は話し言葉だからです",
+            "「はずだ」は確実な事実、「かもしれない」は不確かな推測を表すからです",
+            "「はずだ」は根拠のある論理的推測、「かもしれない」は根拠が弱い可能性を表すからです",
+            "意味は同じで、どちらを使っても問題ありません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài dùng はずだ ở hai chỗ có CĂN CỨ RÕ RÀNG:「もう着いているはずだ」(đã gửi tuần trước → đủ thời gian) và「住所を間違えたはずがない」(đã kiểm tra nhiều lần → bác bỏ logic). Còn「配達が遅れているのかもしれない」chỉ là GIẢ THUYẾT YẾU — người viết không có bằng chứng, chỉ đoán mò với もしかしたら. Đáp án 1 sai vì はずだ KHÔNG phải sự thật đã xác nhận (bằng chứng là bưu kiện thật sự chưa đến). Đáp án 0 và 3 sai hoàn toàn: đây là vấn đề ngữ nghĩa, không phải văn phong hay từ đồng nghĩa.",
+          "tip": "Phân biệt nhanh: はずだ = \"tôi suy ra vì có CĂN CỨ cụ thể (sự kiện đã xảy ra, hành động đã làm)\"; かもしれない = \"tôi đoán nhưng KHÔNG CÓ BẰNG CHỨNG\". Kiểm tra xem người viết có dẫn chứng/lý do không → nếu có → はず.",
+          "qt": {
+            "q": "Trong bài viết này, cả “はずだ” và “かもしれない” đều được sử dụng. Vì sao chúng được dùng khác nhau?",
+            "o": [
+              "Vì “はずだ” là văn viết, còn “かもしれない” là văn nói",
+              "Vì “はずだ” diễn tả sự thật chắc chắn, còn “かもしれない” diễn tả suy đoán không chắc chắn",
+              "Vì “はずだ” diễn tả suy đoán có căn cứ và mang tính logic, còn “かもしれない” diễn tả một khả năng có căn cứ yếu",
+              "Vì nghĩa của chúng giống nhau và dùng từ nào cũng được"
+            ]
+          }
+        },
+        {
+          "q": "「本当は昨日着いているはずだったのに」はどんな気持ちを表していますか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "昨日届いたことに感謝している気持ち",
+            "昨日届くと期待していたのに、現実はそうならなかったことへの驚きと不満",
+            "昨日は届かなくてもいいと思っていた気持ち",
+            "昨日の配達がキャンセルになったことを喜んでいる気持ち"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Tổ hợp「はずだった + のに」mang hai tầng ý nghĩa: (1)「はずだった」= kỳ vọng hợp lý trong quá khứ (\"lẽ ra đã phải đến từ hôm qua\"); (2)「のに」= nghịch kỳ vọng — thực tế không như vậy (\"vậy mà không đến\"). Kết hợp lại → người viết NGẠC NHIÊN và BẤT MÃN vì thực tế phá vỡ dự đoán logic của mình. Đáp án 0 sai vì bưu kiện CHƯA đến (cảm ơn không có lý). Đáp án 2 và 3 sai vì người viết rõ ràng MUỐN nó đến — のに thể hiện tiếc nuối/bất mãn, không phải vui mừng.",
+          "tip": "Thấy「はずだったのに」→ đây là công thức \"kỳ vọng logic vấp thực tế bất ngờ\". Tâm trạng luôn là NGẠC NHIÊN + TIẾC NUỐI/BẤT MÃN. Không bao giờ là vui hay biết ơn.",
+          "qt": {
+            "q": "“Thực ra, đáng lẽ hôm qua đã đến rồi” thể hiện cảm xúc như thế nào?",
+            "o": [
+              "Cảm giác biết ơn vì hàng đã đến hôm qua",
+              "Sự ngạc nhiên và không hài lòng vì đã mong hàng đến hôm qua nhưng thực tế lại không như vậy",
+              "Cảm giác nghĩ rằng hôm qua hàng không đến cũng không sao",
+              "Cảm giác vui mừng vì việc giao hàng hôm qua đã bị hủy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "メモの取り方と確認",
+      "titleVi": "Cách ghi chú và sự xác nhận",
+      "japanese": "仕事の失敗を防ぐには、メモを取ることが大切だと言われている。大切な指示を聞いたとき、しっかりメモを取っておけば、後で忘れるはずがないと思う人も多いだろう。しかし、実はメモを取るだけでは十分ではない。\nたとえば、ある社員は上司の話をすべてメモしていた。メモがあるのだから、正しい仕事ができるはずだった。しかし、後で見返したとき、自分が書いた文字が読めなかったり、重要な点が抜けていたりした。つまり、メモは「書くこと」よりも「後で正しく理解できること」が大切なのだ。\nそのため、メモを取った後は、必ずその場ですぐに内容を確認したほうがいい。相手に「これで合っていますか」と質問すれば、失敗するはずがない。自分の解釈だけで進めず、相手と意見を合わせることで、確実に仕事を進められるはずだ。",
+      "vietnamese": "Để phòng tránh thất bại trong công việc, người ta thường nói rằng việc ghi chú là rất quan trọng. Nhiều người chắc hẳn nghĩ rằng khi nghe những chỉ thị quan trọng, nếu ghi chú lại cẩn thận thì sau đó không thể nào quên được. Tuy nhiên, trên thực tế chỉ ghi chú thôi thì chưa đủ.\nChẳng hạn, có một nhân viên đã ghi chép lại toàn bộ lời của cấp trên. Vì đã có ghi chú nên lẽ ra người đó phải làm đúng công việc. Thế nhưng, khi xem lại sau đó, chữ do chính mình viết ra lại không đọc được, hoặc những điểm quan trọng lại bị bỏ sót. Tóm lại, đối với việc ghi chú, điều quan trọng không phải là \"việc viết\" mà là \"việc có thể hiểu đúng về sau\".\nVì vậy, sau khi ghi chú, nhất định nên xác nhận ngay nội dung tại chỗ. Nếu hỏi người đối diện \"Thế này đã đúng chưa ạ?\" thì không thể nào xảy ra thất bại được. Bằng cách không tiến hành chỉ theo giải thích chủ quan của bản thân mà trao đổi thống nhất ý kiến với đối phương, chắc chắn công việc sẽ tiến triển thuận lợi.",
+      "sentences": [
+        {
+          "jp": "仕事の失敗を防ぐには、メモを取ることが大切だと言われている。",
+          "vi": "Để phòng tránh thất bại trong công việc, người ta thường nói rằng việc ghi chú là rất quan trọng.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "防ぐ",
+              "read": "ふせぐ",
+              "vi": "phòng tránh, ngăn ngừa"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "ghi chú, sổ tay"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる + には（Bài 38）",
+              "vi": "接続: V辞書形 + には。防ぐには = để phòng tránh / đối với việc phòng tránh. Mẫu câu chỉ mục đích hoặc điều kiện cần thiết để đạt kết quả (Bài 38)."
+            },
+            {
+              "point": "〜と言われている（Bài 37）",
+              "vi": "接続: 普通形 + と言われている。言われている = được nói rằng / người ta bảo rằng. Dạng bị動 của 言う chỉ ý kiến, đánh giá chung của xã hội (Bài 37)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "言われている",
+              "why": "Dấu hiệu nêu quan điểm phổ biến (一般論), thường là tiền đề để tác giả lật lại vấn đề ở các câu sau."
+            }
+          ]
+        },
+        {
+          "jp": "大切な指示を聞いたとき、しっかりメモを取っておけば、後で忘れるはずがないと思う人も多いだろう。",
+          "vi": "Nhiều người chắc hẳn nghĩ rằng khi nghe những chỉ thị quan trọng, nếu ghi chú lại cẩn thận thì sau đó không thể nào quên được.",
+          "vocab": [
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "指示",
+              "read": "しじ",
+              "vi": "chỉ thị, hướng dẫn"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "nghe"
+            },
+            {
+              "w": "しっかり",
+              "read": "しっかり",
+              "vi": "cẩn thận, kỹ càng"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau đó, về sau"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておけば（Bài 30 / Bài 35）",
+              "vi": "接続: Vて形 + おく -> thể conditional ば (おけば)。メモを取っておけば = nếu làm sẵn ghi chú. Vておく (chuẩn bị trước, Bài 30) kết hợp thể conditional ば (Bài 35)."
+            },
+            {
+              "point": "〜はずがない（Bài 51 - Trọng tâm）",
+              "vi": "接続: 動詞普通形 + はずがない。忘れるはずがない = không thể nào quên (xét theo lý logic). Dùng để phủ định hoàn toàn một khả năng dựa trên lập luận/căn cứ logic."
+            }
+          ],
+          "keys": [
+            {
+              "w": "忘れるはずがないと思う",
+              "why": "Cụm từ thể hiện suy nghĩ chủ quan, kỳ vọng quá mức của số đông trước khi tác giả đưa ra phản đề."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、実はメモを取るだけでは十分ではない。",
+          "vi": "Tuy nhiên, trên thực tế chỉ ghi chú thôi thì chưa đủ.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra, trên thực tế"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đầy đủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでは（Bài 26）",
+              "vi": "接続: N / Vる + だけでは。メモを取るだけでは = nếu chỉ ghi chú thôi thì. Dùng だけ chỉ giới hạn kết hợp では tạo thành điều kiện phủ định."
+            }
+          ],
+          "keys": [
+            {
+              "w": "実はメモを取るだけでは十分ではない",
+              "why": "Cụm phủ định quan niệm thông thường bằng từ '実は', là câu chủ đề và căn cứ then chốt của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、ある社員は上司の話をすべてメモしていた。",
+          "vi": "Chẳng hạn, có một nhân viên đã ghi chép lại toàn bộ lời của cấp trên.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "社員",
+              "read": "しゃいん",
+              "vi": "nhân viên công ty"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, lời nói"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「たとえば」",
+              "vi": "Từ nối dùng để đưa ra ví dụ cụ thể minh họa cho luận điểm ở câu trước."
+            }
+          ]
+        },
+        {
+          "jp": "メモがあるのだから、正しい仕事ができるはずだった。",
+          "vi": "Vì đã có ghi chú nên lẽ ra người đó phải làm đúng công việc.",
+          "vocab": [
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng đắn, chính xác"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のだから（Bài 26）",
+              "vi": "接続: 普通形 + のだから。メモがあるのだから = vì đã có ghi chú nên (nhấn mạnh căn cứ thực tế mà cả hai đều biết)."
+            },
+            {
+              "point": "〜はずだった（Bài 51 - Trọng tâm）",
+              "vi": "接続: 動詞普通形 + はずだった。できるはずだった = lẽ ra phải làm được (nhưng thực tế đã không như kỳ vọng logic). Diễn tả dự đoán/kỳ vọng logic trong quá khứ bị vấp phải thực tế trái ngược."
+            }
+          ],
+          "keys": [
+            {
+              "w": "正しい仕事ができるはずだった",
+              "why": "Mẫu câu 'はずだった' thể hiện kỳ vọng chủ quan bị sụp đổ trong thực tế, là căn cứ trực tiếp cho câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、後で見返したとき、自分が書いた文字が読めなかったり、重要な点が抜けていたりした。",
+          "vi": "Thế nhưng, khi xem lại sau đó, chữ do chính mình viết ra lại không đọc được, hoặc những điểm quan trọng lại bị bỏ sót.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau khi, sau đó"
+            },
+            {
+              "w": "見返す",
+              "read": "みかえす",
+              "vi": "xem lại, đọc lại"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ viết, ký tự"
+            },
+            {
+              "w": "読める",
+              "read": "よめる",
+              "vi": "đọc được (thể khả năng)"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "抜ける",
+              "read": "ぬける",
+              "vi": "thiếu, sót, rơi rụng"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm, chi tiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たり〜たりする（Bài 19）",
+              "vi": "接続: Vた形 + り + Vた形 + りする。読めなかったり、抜けていたりした = lúc thì không đọc được, lúc thì bị sót. Liệt kê các hành動/trạng thái tiêu biểu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "文字が読めなかったり、重要な点が抜けていたりした",
+              "why": "Liệt kê cụ thể hai nguyên nhân dẫn đến thất bại khi làm việc, là căn cứ trả lời trọng tâm của câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、メモは「書くこと」よりも「後で正しく理解できること」が大切なのだ。",
+          "vi": "Tóm lại, đối với việc ghi chú, điều quan trọng không phải là \"việc viết\" mà là \"việc có thể hiểu đúng về sau\".",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau khi, sau đó"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng đắn, chính xác"
+            },
+            {
+              "w": "理解",
+              "read": "りかい",
+              "vi": "hiểu, nắm bắt"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜よりも（Bài 12）",
+              "vi": "接続: N / Vること + よりも。書くことよりも = so với việc viết. Dùng để so sánh và nhấn mạnh vế sau."
+            },
+            {
+              "point": "〜のだ（Bài 26）",
+              "vi": "接続: 普通形 + のだ。大切なのだ = chính là điều quan trọng. Dùng để kết luận, giải thích bản chất của vấn đề."
+            }
+          ],
+          "keys": [
+            {
+              "w": "「書くこと」よりも「後で正しく理解できること」が大切なのだ",
+              "why": "Đứng sau liên từ 'つまり' để đúc kết bản chất thực sự của memo, là đáp án then chốt cho câu hỏi 1 và 3."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、メモを取った後は、必ずその場ですぐに内容を確認したほうがいい。",
+          "vi": "Vì vậy, sau khi ghi chú, nhất định nên xác nhận ngay nội dung tại chỗ.",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "メモ",
+              "read": "めも",
+              "vi": "ghi chú"
+            },
+            {
+              "w": "取った",
+              "read": "とった",
+              "vi": "đã ghi chú"
+            },
+            {
+              "w": "後",
+              "read": "あと",
+              "vi": "sau khi"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất định"
+            },
+            {
+              "w": "その場",
+              "read": "そのば",
+              "vi": "ngay tại chỗ"
+            },
+            {
+              "w": "場",
+              "read": "ば",
+              "vi": "nơi, chỗ"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "確認した",
+              "read": "かくにんした",
+              "vi": "đã kiểm tra"
+            },
+            {
+              "w": "ほうがいい",
+              "read": "ほうがいい",
+              "vi": "nên, tốt hơn là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「そのため」",
+              "vi": "Từ nối chỉ quan hệ nguyên nhân - kết quả: \"do đó / vì lý do đó\" dẫn ra giải pháp."
+            },
+            {
+              "point": "Vたほうがいい（Bài 19）",
+              "vi": "接続: Vた形 + ほうがいい。確認したほうがいい = nên xác nhận. Dùng để đưa ra lời khuyên, khuyến nghị."
+            }
+          ],
+          "keys": [
+            {
+              "w": "必ずその場ですぐに内容を確認したほうがいい",
+              "why": "Lời khuyên hành động dứt khoát của tác giả sau liên từ kết quả 'そのため', là căn cứ quan trọng của câu hỏi 3."
+            }
+          ]
+        },
+        {
+          "jp": "相手に「これで合っていますか」と質問すれば、失敗するはずがない。",
+          "vi": "Nếu hỏi người đối diện \"Thế này đã đúng chưa ạ?\" thì không thể nào xảy ra thất bại được.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người đối diện"
+            },
+            {
+              "w": "合う",
+              "read": "あう",
+              "vi": "khớp, đúng, phù hợp"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, hỏi"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずがない（Bài 51 - Trọng tâm）",
+              "vi": "接続: 動詞普通形 + はずがない。失敗するはずがない = không thể nào thất bại (theo lý logic). Khẳng định tính chắc chắn của kết quả dựa trên hành động xác nhận."
+            }
+          ],
+          "keys": [
+            {
+              "w": "「これで合っていますか」と質問すれば",
+              "why": "Hành động mẫu cụ thể trong ngoặc kép nhằm hướng dẫn thao tác xác nhận thông tin với đối phương."
+            }
+          ]
+        },
+        {
+          "jp": "自分の解釈だけで進めず、相手と意見を合わせることで、確実に仕事を進められるはずだ。",
+          "vi": "Bằng cách không tiến hành chỉ theo giải thích chủ quan của bản thân mà trao đổi thống nhất ý kiến với đối phương, chắc chắn công việc sẽ tiến triển thuận lợi.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "解釈",
+              "read": "かいしゃく",
+              "vi": "giải thích, cách hiểu"
+            },
+            {
+              "w": "進める",
+              "read": "すすめる",
+              "vi": "tiến hành, đẩy mạnh"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "合わせる",
+              "read": "あわせる",
+              "vi": "thống nhất, khớp lại"
+            },
+            {
+              "w": "確実",
+              "read": "かくじつ",
+              "vi": "chắc chắn, bảo đảm"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vず（Bài 34）",
+              "vi": "接続: V-ナイ形 (bỏ ない) + ず。進めず = không tiến hành. Cách nói trang trọng tương đương Vないで (Bài 34)."
+            },
+            {
+              "point": "〜はずだ（Bài 51 - Trọng tâm）",
+              "vi": "接続: 動詞普通形 + はずだ。進められるはずだ = chắc chắn có thể tiến hành thuận lợi (theo lý). Đưa ra phán đoán/kết luận logic có căn cứ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "相手と意見を合わせることで",
+              "why": "Đưa ra giải pháp cốt lõi để đảm bảo công việc thành công chắc chắn, là căn cứ kết luận của câu hỏi 3."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "忘れるはずがない",
+          "label": "〜はずがない（bác bỏ theo lý）"
+        },
+        {
+          "excerpt": "正しい仕事ができるはずだった",
+          "label": "〜はずだった（kỳ vọng vấp thực tế）"
+        },
+        {
+          "excerpt": "失敗するはずがない",
+          "label": "〜はずがない（phủ định chắc chắn theo lý）"
+        },
+        {
+          "excerpt": "確実に仕事を進められるはずだ",
+          "label": "〜はずだ（suy luận có căn cứ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「メモを取るだけでは十分ではない」とあるが、どういうことですか。",
+          "options": [
+            "メモを取ること自体が間違った行動であるということ",
+            "メモを取っても後で正しく理解できなければ意味がないということ",
+            "メモを取るよりも上司の話をすべて暗記することが大切だということ",
+            "メモを取る時間を減らしてすぐに仕事を開始するほうがいいということ"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「メモを取っても後で正しく」 — Trong bài, tác giả nêu ví dụ nhân viên tuy có ghi chú (メモがある) nhưng sau đó chữ không đọc được hoặc bỏ sót điểm quan trọng (câu 5), rồi rút ra kết luận ở câu 6: つまり、メモは「書くこと」よりも「後で正しく理解できること」が大切なのだ (tóm lại điều quan trọng không phải là viết mà là sau đó hiểu đúng). Do đó, chỉ ghi chép suông mà sau này không hiểu đúng thì ghi chú cũng không có ý nghĩa.\n- 「メモを取ること自体が」 sai vì bài khẳng định メモを取る là quan trọng (câu 0), chứ không phải hành động sai.\n- 「メモを取るよりも上司の」 sai vì bài không hề bảo phải học thuộc lòng (暗記) thay vì ghi chú.\n- 「メモを取る時間を減らして」 sai vì bài không đề cập đến việc cắt giảm thời gian ghi chú để làm việc ngay.",
+          "tip": "Dạng câu hỏi 「〜とあるが、どういうことか」: Tìm câu kết luận chứa từ nối giải thích 「つまり」(câu 6) đứng ngay sau ví dụ để nắm bản chất ý tác giả.",
+          "evi": [
+            2,
+            5,
+            6
+          ],
+          "qt": {
+            "q": "Có câu nói rằng “chỉ ghi chép thôi thì chưa đủ”; điều đó có nghĩa là gì?",
+            "o": [
+              "Việc ghi chép tự nó là một hành động sai",
+              "Dù có ghi chép, nếu sau đó không thể hiểu đúng thì cũng vô ích",
+              "Điều quan trọng là ghi nhớ toàn bộ lời cấp trên nói thay vì ghi chép",
+              "Tốt hơn là giảm thời gian ghi chép và bắt đầu công việc ngay"
+            ]
+          }
+        },
+        {
+          "q": "なぜ「メモがあるのだから、正しい仕事ができるはずだった」のに失敗したのですか。",
+          "options": [
+            "メモの文字が読めなかったり、重要な点が抜けていたりしたからです",
+            "上司が正しい指示を教えてくれなかったからです",
+            "メモを取るのに時間がかかりすぎて遅刻したからです",
+            "メモを途中で失くしてしまったからです"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「メモの文字が読めなかったり」 — Căn cứ nằm trực tiếp ở câu 5 ngay sau câu 4: 「しかし、後で見返したとき、自分が書いた文字が読めなかったり、重要な点が抜けていたりした」(Thế nhưng khi xem lại, chữ mình viết không đọc được hoặc bị sót điểm quan trọng). Đây chính là nguyên nhân trực tiếp khiến kỳ vọng logic (できるはずだった) bị sụp đổ.\n- 「上司が正しい指示を」 sai vì bài nói nhân viên đã ghi lại toàn bộ lời cấp trên (câu 3), không phải do cấp trên chỉ đạo sai.\n- 「メモを取るのに時間が」 sai vì bài không nhắc tới việc đi trễ (遅刻).\n- 「メモを途中で失くして」 sai vì nhân viên vẫn có ghi chú để xem lại (見返したとき), không hề làm mất (失くした).",
+          "tip": "Dạng câu hỏi lý do 「なぜ〜のか」 đối với câu chứa 「〜はずだった」: Tìm ngay câu chứa từ nối nghịch ý 「しかし」(câu 5) ngay đằng sau để thấy thực tế trái ngược làm hỏng kỳ vọng.",
+          "evi": [
+            4,
+            5
+          ],
+          "qt": {
+            "q": "Vì sao người đó đã thất bại dù “đã có ghi chép nên lẽ ra có thể làm công việc đúng cách”?",
+            "o": [
+              "Vì chữ trong ghi chép không đọc được hoặc có những điểm quan trọng bị bỏ sót",
+              "Vì cấp trên không đưa ra chỉ dẫn chính xác",
+              "Vì mất quá nhiều thời gian ghi chép nên đã đến muộn",
+              "Vì đã làm mất ghi chép giữa chừng"
+            ]
+          }
+        },
+        {
+          "q": "メモを使った仕事の進め方について、筆者はどのように考えていますか。",
+          "options": [
+            "上司に質問せず、自分の解釈だけで仕事を進めることが大切だ",
+            "メモを書くだけでなく、その場で内容を相手と確認して進めることが大切だ",
+            "メモを後で見返す必要はなく、書く作業だけに集中するほうがいい",
+            "メモを取るよりも、他の人に仕事を手伝ってもらうことが必要だ"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「メモを書くだけでなく」 — Ở đoạn 3 (câu 7, 8, 9), tác giả đưa ra lời khuyên tổng kết: メモを取った後は、必ずその場ですぐに内容を確認したほうがいい (sau khi ghi chú nên xác nhận ngay tại chỗ) và 自分の解釈だけで進めず、相手と意見を合わせる (không làm theo suy đoán cá nhân mà thống nhất ý kiến với đối phương). Như vậy ý tác giả là cần kết hợp ghi chú với việc xác nhận thông tin.\n- 「上司に質問せず」 sai vì ngược hoàn toàn với câu 9 (自分の解釈だけで進めず).\n- 「メモを後で見返す必要はなく」 sai vì ngược với câu 6 (後で正しく理解できることが大切).\n- 「メモを取るよりも」 sai vì bài không đề cập đến việc nhờ người khác làm hộ.",
+          "tip": "Dạng câu hỏi ý kiến tác giả 「筆者はどう考えているか」 ở đoạn cuối: Chú ý các câu chứa từ nối chỉ giải pháp 「そのため」(câu 7) và cấu trúc lời khuyên 「〜したほうがいい」「〜はずだ」.",
+          "evi": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về cách tiến hành công việc khi sử dụng ghi chép?",
+            "o": [
+              "Điều quan trọng là tiến hành công việc chỉ dựa trên cách hiểu của mình mà không hỏi cấp trên",
+              "Điều quan trọng là không chỉ ghi chép mà còn xác nhận nội dung với đối phương ngay tại chỗ rồi mới tiến hành",
+              "Không cần xem lại ghi chép sau đó; tốt hơn là chỉ tập trung vào việc ghi chép",
+              "Thay vì ghi chép, cần nhờ người khác giúp đỡ công việc"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Phản biện quan niệm chung",
+          "topic": 2,
+          "note": "Nêu quan niệm thông thường rằng ghi chép memo sẽ không quên, rồi dùng 'しかし' để lật lại rằng chỉ ghi thôi là chưa đủ.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "turn",
+          "label": "Ví dụ thực tế・Nguyên nhân thất bại",
+          "topic": 5,
+          "note": "Kể ví dụ thực tế dù ghi chép đầy đủ nhưng vẫn thất bại do chữ xấu khó đọc và thiếu ý; bẫy người đọc tưởng ghi nhiều là đủ.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 9,
+          "kind": "point",
+          "label": "Kết luận của tác giả・Giải pháp hành động",
+          "topic": 6,
+          "note": "Khẳng định bản chất memo là để hiểu đúng và đưa ra giải pháp xác nhận ngay với đối phương để đảm bảo hiệu quả.",
+          "qs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "旅行の予算と友達の行動",
+      "titleVi": "Ngân sách chuyến đi và hành động của bạn",
+      "japanese": "来月、大学の友達と三人で京都へ旅行に行く予定だ。\n計画を立てるために、先週から費用を計算し始めた。\n電車代、宿泊費、食事代をすべて合わせると、一人あたり四万円ほどになるはずだ。\n三人とも毎月少しずつ貯金しているので、その金額で十分なはずだと思っていた。\nしかし、昨日、メンバーの一人であるタンさんが急に「旅行に行けなくなった」と言ってきた。\nそのため、残りの二人で費用をどうするか話し合わなければならなくなった。\n私はとても驚いた。タンさんは先月まで「楽しみにしている」と言っていたからだ。\nこんなに急に断るはずがないと思ったが、タンさんには何か事情があるのだろう。\nつまり、はずがないと感じても、現実は思いがけないことが起きる場合もある。\nまた、もう一人のメンバーであるミンさんから連絡が来て、「私も少し心配だ」と言っていた。\nミンさんは普段あまり心配しない人なので、何か理由があるはずだ。\nもしかしたら、タンさんの事情について何か知っているのかもしれない。\nその日の夜、三人でオンラインで話し合った。\nタンさんが「家族が急に体調を崩したので、旅行の時期にいなければならない」と説明してくれた。\nなるほど、だから急に断ったのか、と私は理解した。\nそういう大切な理由があるはずなのに、最初は私が誤解してしまったことを反省した。\n話し合いの結果、旅行は一か月延期することになった。\n延期した日程なら、タンさんも参加できるはずだ。\n四万円の予算は変わらないはずなので、計画をそのまま使えると思う。\nまた一緒に旅行できる日を、今からとても楽しみにしている。",
+      "vietnamese": "Tháng tới, tôi dự định đi du lịch Kyoto cùng ba người bạn đại học.\nĐể lên kế hoạch, từ tuần trước tôi bắt đầu tính chi phí.\nCộng tất cả tiền tàu, tiền lưu trú, tiền ăn lại thì tính ra mỗi người khoảng 40.000 yên.\nVì cả ba đều tiết kiệm một chút mỗi tháng nên tôi đã nghĩ số tiền đó lẽ ra là đủ.\nNhưng hôm qua, Thắng — một trong những thành viên — đột nhiên nhắn \"không đi được nữa rồi\".\nVì vậy, hai người còn lại phải bàn bạc xem xử lý chi phí thế nào.\nTôi rất ngạc nhiên. Vì tháng trước Thắng còn nói \"đang mong chờ lắm\".\nTôi nghĩ không thể nào lại từ chối đột ngột như vậy, nhưng chắc Thắng có lý do gì đó.\nTức là, dù cảm thấy \"không thể nào\", thực tế đôi khi vẫn xảy ra những điều bất ngờ.\nNgoài ra, Minh — thành viên còn lại — cũng liên lạc nói \"mình cũng hơi lo\".\nVì Minh thường không lo lắng nhiều nên chắc có lý do gì đó.\nBiết đâu Minh biết gì đó về lý do của Thắng.\nTối hôm đó, ba người nói chuyện online với nhau.\nThắng giải thích \"Gia đình đột nhiên bị bệnh nên vào đúng thời gian đi du lịch phải ở nhà\".\nÀ ra vậy, nên mới từ chối đột ngột thế, tôi hiểu ra.\nLẽ ra phải có lý do quan trọng như vậy, vậy mà lúc đầu tôi đã hiểu lầm, tôi thấy hối hận.\nKết quả thảo luận, chuyến du lịch quyết định hoãn lại một tháng.\nNếu đổi lịch như vậy thì chắc là Thắng có thể tham gia được.\nVì theo lý ngân sách 40.000 yên không đổi nên tôi nghĩ có thể dùng kế hoạch cũ.\nTôi đang rất mong chờ ngày có thể đi du lịch cùng nhau.",
+      "sentences": [
+        {
+          "jp": "来月、大学の友達と三人で京都へ旅行に行く予定だ。",
+          "vi": "Tháng tới, tôi dự định đi du lịch Kyoto cùng ba người bạn đại học.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "đại học"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "dự định, kế hoạch"
+            },
+            {
+              "w": "三人",
+              "read": "さんにん",
+              "vi": "ba người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる予定だ（Bài 31）",
+              "vi": "旅行に行く予定だ = dự định đi du lịch. Vる予定 diễn đạt kế hoạch cụ thể đã sắp xếp (Bài 31)."
+            }
+          ]
+        },
+        {
+          "jp": "計画を立てるために、先週から費用を計算し始めた。",
+          "vi": "Để lên kế hoạch, từ tuần trước tôi bắt đầu tính chi phí.",
+          "vocab": [
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "立てます",
+              "read": "たてます",
+              "vi": "lập (kế hoạch)"
+            },
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "費用",
+              "read": "ひよう",
+              "vi": "chi phí"
+            },
+            {
+              "w": "計算します",
+              "read": "けいさんします",
+              "vi": "tính toán"
+            },
+            {
+              "w": "始めます",
+              "read": "はじめます",
+              "vi": "bắt đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（Bài 42）",
+              "vi": "計画を立てるために = để lập kế hoạch. Mục đích có ý chí."
+            },
+            {
+              "point": "Vます＋始める（複合động từ）",
+              "vi": "計算し始めた = bắt đầu tính toán. Vます (bỏ ます) + 始める = bắt đầu làm V (động từ ghép)."
+            }
+          ]
+        },
+        {
+          "jp": "電車代、宿泊費、食事代をすべて合わせると、一人あたり四万円ほどになるはずだ。",
+          "vi": "Cộng tất cả tiền tàu, tiền lưu trú, tiền ăn lại thì tính ra mỗi người khoảng 40.000 yên.",
+          "vocab": [
+            {
+              "w": "電車",
+              "read": "でんしゃ",
+              "vi": "tàu điện, xe lửa"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú, chỗ ở (đêm)"
+            },
+            {
+              "w": "食事",
+              "read": "しょくじ",
+              "vi": "bữa ăn, dùng bữa"
+            },
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "tất cả"
+            },
+            {
+              "w": "合わせます",
+              "read": "あわせます",
+              "vi": "cộng lại, gộp lại"
+            },
+            {
+              "w": "電車代",
+              "read": "でんしゃだい",
+              "vi": "tiền tàu điện"
+            },
+            {
+              "w": "宿泊費",
+              "read": "しゅくはくひ",
+              "vi": "chi phí lưu trú"
+            },
+            {
+              "w": "食事代",
+              "read": "しょくじだい",
+              "vi": "tiền ăn"
+            },
+            {
+              "w": "一人あたり",
+              "read": "ひとりあたり",
+              "vi": "mỗi người"
+            },
+            {
+              "w": "四万円",
+              "read": "よんまんえん",
+              "vi": "40.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "合わせると = khi cộng lại thì (kết quả tất yếu). と = điều kiện/kết quả tự nhiên (Bài 23)."
+            },
+            {
+              "point": "〜はずだ",
+              "vi": "になるはずだ = \"lẽ ra sẽ ra khoảng đó / chắc là sẽ thành số tiền đó\". Suy luận logic từ phép tính cụ thể. 接続: Vる（普通形）+ はず."
+            }
+          ]
+        },
+        {
+          "jp": "三人とも毎月少しずつ貯金しているので、その金額で十分なはずだと思っていた。",
+          "vi": "Vì cả ba đều tiết kiệm một chút mỗi tháng nên tôi đã nghĩ số tiền đó lẽ ra là đủ.",
+          "vocab": [
+            {
+              "w": "毎月",
+              "read": "まいつき",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "貯金します",
+              "read": "ちょきんします",
+              "vi": "tiết kiệm tiền"
+            },
+            {
+              "w": "金額",
+              "read": "きんがく",
+              "vi": "số tiền"
+            },
+            {
+              "w": "十分",
+              "read": "じゅうぶん",
+              "vi": "đủ, đầy đủ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "三人とも",
+              "read": "さんにんとも",
+              "vi": "cả ba người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "貯金しているので = vì đang tiết kiệm. ので nêu lý do lịch sự."
+            },
+            {
+              "point": "〜なはずだ",
+              "vi": "十分なはずだ = \"lẽ ra đủ\". 接続: なAdj（十分な）+ はず — lưu ý なAdj kết nối với はず bằng な (không phải の hay bỏ な). Suy luận dựa trên sự kiện: cả ba đều đã tiết kiệm đủ thời gian."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、昨日、メンバーの一人であるタンさんが急に「旅行に行けなくなった」と言ってきた。",
+          "vi": "Nhưng hôm qua, Thắng — một trong những thành viên — đột nhiên nhắn \"không đi được nữa rồi\".",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "メンバー",
+              "read": "めんばー",
+              "vi": "thành viên"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một người"
+            },
+            {
+              "w": "タン",
+              "read": "たん",
+              "vi": "Tan, tên riêng"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột nhiên"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "chuyến du lịch"
+            },
+            {
+              "w": "行けなくなった",
+              "read": "いけなくなった",
+              "vi": "không thể đi được nữa"
+            },
+            {
+              "w": "言ってきた",
+              "read": "いってきた",
+              "vi": "đã nói, báo cho biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜くなった（Bài 19 〜くなります）",
+              "vi": "行けなくなった = đã trở nên không thể đi được. 可能形の否定（行けない）+ くなる = trở nên không thể."
+            },
+            {
+              "point": "〜と言ってきた（Bài 43）",
+              "vi": "言ってきた = đã nhắn đến (thông tin đến gần người nói). てくる Bài 43."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、残りの二人で費用をどうするか話し合わなければならなくなった。",
+          "vi": "Vì vậy, hai người còn lại phải bàn bạc xem xử lý chi phí thế nào.",
+          "vocab": [
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "残り",
+              "read": "のこり",
+              "vi": "phần còn lại"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "費用",
+              "read": "ひよう",
+              "vi": "chi phí"
+            },
+            {
+              "w": "どうする",
+              "read": "どうする",
+              "vi": "làm thế nào, giải quyết ra sao"
+            },
+            {
+              "w": "話し合わなければならなくなった",
+              "read": "はなしあわなければならなくなった",
+              "vi": "đã phải bàn bạc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "疑問詞 + か（Bài 40）",
+              "vi": "どうするか = \"xem làm thế nào\". 疑問詞 + か làm mệnh đề danh từ nhúng (Bài 40)."
+            },
+            {
+              "point": "〜なければならなくなった（Bài 17 + 19）",
+              "vi": "話し合わなければならなくなった = đã trở nên phải bàn bạc. Vなければならない（Bài 17）+ なる（thay đổi Bài 19）."
+            }
+          ]
+        },
+        {
+          "jp": "私はとても驚いた。タンさんは先月まで「楽しみにしている」と言っていたからだ。",
+          "vi": "Tôi rất ngạc nhiên. Vì tháng trước Thắng còn nói \"đang mong chờ lắm\".",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "驚いた",
+              "read": "おどろいた",
+              "vi": "đã ngạc nhiên"
+            },
+            {
+              "w": "タン",
+              "read": "たん",
+              "vi": "Tan, tên riêng"
+            },
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "楽しみにしている",
+              "read": "たのしみにしている",
+              "vi": "đang mong đợi"
+            },
+            {
+              "w": "言っていた",
+              "read": "いっていた",
+              "vi": "đã nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言っていた（Bài 21）",
+              "vi": "「楽しみにしている」と言っていた = đã nói là đang mong chờ. と言う trích lời + ていた（quá khứ kéo dài）."
+            },
+            {
+              "point": "〜からだ（Bài 9 〜から + 普通形）",
+              "vi": "言っていたからだ = vì (anh ấy) đã nói như vậy. から nêu lý do ở thể thông thường."
+            }
+          ]
+        },
+        {
+          "jp": "こんなに急に断るはずがないと思ったが、タンさんには何か事情があるのだろう。",
+          "vi": "Tôi nghĩ không thể nào lại từ chối đột ngột như vậy, nhưng chắc Thắng có lý do gì đó.",
+          "vocab": [
+            {
+              "w": "こんなに",
+              "read": "こんなに",
+              "vi": "đến mức này"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột nhiên"
+            },
+            {
+              "w": "断る",
+              "read": "ことわる",
+              "vi": "từ chối, hủy"
+            },
+            {
+              "w": "はずがない",
+              "read": "はずがない",
+              "vi": "không thể nào"
+            },
+            {
+              "w": "思った",
+              "read": "おもった",
+              "vi": "đã nghĩ"
+            },
+            {
+              "w": "タン",
+              "read": "たん",
+              "vi": "Tan, tên riêng"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "事情",
+              "read": "じじょう",
+              "vi": "tình hình, lý do riêng"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずがない",
+              "vi": "断るはずがない = \"không thể nào lại từ chối\". 接続: Vる（普通形）+ はずがない — bác bỏ logic dứt khoát. Sắc thái: người viết dựa vào điều đã biết (Thắng đang mong chờ) để suy luận \"không thể nào\"."
+            },
+            {
+              "point": "〜のだろう（Bài 20 普通形 + のだ応用）",
+              "vi": "あるのだろう = chắc là có (lý do). のだ giải thích + だろう phán đoán."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、はずがないと感じても、現実は思いがけないことが起きる場合もある。",
+          "vi": "Tức là, dù cảm thấy \"không thể nào\", thực tế đôi khi vẫn xảy ra những điều bất ngờ.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tức là, nói tóm lại"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "現実",
+              "read": "げんじつ",
+              "vi": "thực tế"
+            },
+            {
+              "w": "思いがけない",
+              "read": "おもいがけない",
+              "vi": "bất ngờ, không ngờ tới"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "xảy ra, xảy đến"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても（Bài 25）",
+              "vi": "感じても = dù cảm thấy đi nữa. ても = dù…vẫn (Bài 25)."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "思いがけないこと = điều bất ngờ. 思いがけない（形容詞）bổ nghĩa cho こと."
+            }
+          ]
+        },
+        {
+          "jp": "また、もう一人のメンバーであるミンさんから連絡が来て、「私も少し心配だ」と言っていた。",
+          "vi": "Ngoài ra, Minh — thành viên còn lại — cũng liên lạc nói \"mình cũng hơi lo\".",
+          "vocab": [
+            {
+              "w": "メンバー",
+              "read": "メンバー",
+              "vi": "thành viên"
+            },
+            {
+              "w": "ミン",
+              "read": "ミン",
+              "vi": "tên riêng Min"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "心配",
+              "read": "しんぱい",
+              "vi": "lo lắng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "ngoài ra, thêm nữa"
+            },
+            {
+              "w": "もう一人",
+              "read": "もうひとり",
+              "vi": "một người nữa, thêm một người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（nối mệnh đề Bài 16）",
+              "vi": "連絡が来て = liên lạc đến rồi (và). て nối hai sự kiện liên tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "ミンさんは普段あまり心配しない人なので、何か理由があるはずだ。",
+          "vi": "Vì Minh thường không lo lắng nhiều nên chắc có lý do gì đó.",
+          "vocab": [
+            {
+              "w": "ミン",
+              "read": "みん",
+              "vi": "Min, tên riêng"
+            },
+            {
+              "w": "普段",
+              "read": "ふだん",
+              "vi": "thường ngày"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không...lắm"
+            },
+            {
+              "w": "心配しない",
+              "read": "しんぱいしない",
+              "vi": "không lo lắng"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có"
+            },
+            {
+              "w": "はずだ",
+              "read": "はずだ",
+              "vi": "chắc là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "心配しない人なので = vì là người không lo lắng thường ngày. ので nêu lý do."
+            },
+            {
+              "point": "〜はずだ",
+              "vi": "あるはずだ = \"chắc là có (lý do)\". Suy luận từ tính cách đã biết của Minh: vì bình thường không lo, nên hôm nay lo thì PHẢI CÓ CĂN CỨ. 接続: Vる（普通形）+ はず."
+            }
+          ]
+        },
+        {
+          "jp": "もしかしたら、タンさんの事情について何か知っているのかもしれない。",
+          "vi": "Biết đâu Minh biết gì đó về lý do của Thắng.",
+          "vocab": [
+            {
+              "w": "もしか",
+              "read": "もしか",
+              "vi": "có lẽ"
+            },
+            {
+              "w": "もしかしたら",
+              "read": "もしかしたら",
+              "vi": "có thể, biết đâu"
+            },
+            {
+              "w": "タン",
+              "read": "たん",
+              "vi": "Tan, tên riêng"
+            },
+            {
+              "w": "事情",
+              "read": "じじょう",
+              "vi": "tình hình, lý do riêng"
+            },
+            {
+              "w": "について",
+              "read": "について",
+              "vi": "về, liên quan đến"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "知っている",
+              "read": "しっている",
+              "vi": "biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "知っているのかもしれない = có thể biết (không chắc). Đối chiếu với はずだ ở câu trước — はず có căn cứ hơn, かもしれない chỉ là suy đoán yếu."
+            },
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "タンさんの事情について = về lý do của Thắng. について = về (chủ đề). Ôn Bài 21."
+            }
+          ]
+        },
+        {
+          "jp": "その日の夜、三人でオンラインで話し合った。",
+          "vi": "Tối hôm đó, ba người nói chuyện online với nhau.",
+          "vocab": [
+            {
+              "w": "その日",
+              "read": "そのひ",
+              "vi": "ngày hôm đó"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối, đêm"
+            },
+            {
+              "w": "三人",
+              "read": "さんにん",
+              "vi": "ba người"
+            },
+            {
+              "w": "オンライン",
+              "read": "おんらいん",
+              "vi": "trực tuyến"
+            },
+            {
+              "w": "話し合った",
+              "read": "はなしあった",
+              "vi": "đã bàn bạc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで（công cụ/phương tiện Bài 6）",
+              "vi": "オンラインで = bằng hình thức online. で chỉ phương tiện."
+            }
+          ]
+        },
+        {
+          "jp": "タンさんが「家族が急に体調を崩したので、旅行の時期にいなければならない」と説明してくれた。",
+          "vi": "Thắng giải thích \"Gia đình đột nhiên bị bệnh nên vào đúng thời gian đi du lịch phải ở nhà\".",
+          "vocab": [
+            {
+              "w": "タン",
+              "read": "タン",
+              "vi": "tên riêng Tan"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "急",
+              "read": "きゅう",
+              "vi": "đột xuất, gấp"
+            },
+            {
+              "w": "体調",
+              "read": "たいちょう",
+              "vi": "tình trạng sức khoẻ"
+            },
+            {
+              "w": "崩す",
+              "read": "くずす",
+              "vi": "phá vỡ, từ bỏ (quyết tâm)"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời gian, giai đoạn"
+            },
+            {
+              "w": "説明します",
+              "read": "せつめいします",
+              "vi": "giải thích"
+            },
+            {
+              "w": "体調を崩します",
+              "read": "たいちょうをくずします",
+              "vi": "bị bệnh, sức khoẻ giảm sút"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "体調を崩したので = vì sức khoẻ giảm sút. ので lý do lịch sự."
+            },
+            {
+              "point": "〜なければならない（Bài 17）",
+              "vi": "いなければならない = phải ở (nhà). なければならない = bắt buộc phải (Bài 17)."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "説明してくれた = đã giải thích cho (tôi). てくれる = người khác làm gì vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "なるほど、だから急に断ったのか、と私は理解した。",
+          "vi": "À ra vậy, nên mới từ chối đột ngột thế, tôi hiểu ra.",
+          "vocab": [
+            {
+              "w": "なるほど",
+              "read": "なるほど",
+              "vi": "ra là vậy"
+            },
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột nhiên"
+            },
+            {
+              "w": "断った",
+              "read": "ことわった",
+              "vi": "đã từ chối, hủy"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "理解した",
+              "read": "りかいした",
+              "vi": "đã hiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のか（Bài 26 んですか応用）",
+              "vi": "断ったのか = à thì ra vì thế mà từ chối. のか trong thể thông thường diễn đạt sự nhận ra/thấu hiểu."
+            }
+          ]
+        },
+        {
+          "jp": "そういう大切な理由があるはずなのに、最初は私が誤解してしまったことを反省した。",
+          "vi": "Lẽ ra phải có lý do quan trọng như vậy, vậy mà lúc đầu tôi đã hiểu lầm, tôi thấy hối hận.",
+          "vocab": [
+            {
+              "w": "そういう",
+              "read": "そういう",
+              "vi": "như vậy, loại đó"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "最初",
+              "read": "さいしょ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "誤解します",
+              "read": "ごかいします",
+              "vi": "hiểu lầm, hiểu sai"
+            },
+            {
+              "w": "反省します",
+              "read": "はんせいします",
+              "vi": "hối hận, nhìn lại bản thân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずなのに",
+              "vi": "あるはずなのに = \"lẽ ra phải có (lý do)… vậy mà\". 接続: Vる（普通形）+ はずなのに — tổ hợp はず（kỳ vọng có căn cứ）+ なのに（nghịch kỳ vọng Bài 45）. Người viết nhận ra: đáng lẽ phải hiểu ngay là có lý do chính đáng, vậy mà mình lại hiểu lầm."
+            },
+            {
+              "point": "Vてしまった（Bài 29）",
+              "vi": "誤解してしまった = đã lỡ hiểu lầm (tiếc nuối). てしまう = hoàn thành với sắc thái tiếc/không cố ý (Bài 29)."
+            }
+          ]
+        },
+        {
+          "jp": "話し合いの結果、旅行は一か月延期することになった。",
+          "vi": "Kết quả thảo luận, chuyến du lịch quyết định hoãn lại một tháng.",
+          "vocab": [
+            {
+              "w": "話し合い",
+              "read": "はなしあい",
+              "vi": "buổi thảo luận, cuộc bàn bạc"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, đi chơi xa"
+            },
+            {
+              "w": "延期します",
+              "read": "えんきします",
+              "vi": "hoãn lại"
+            },
+            {
+              "w": "一か月",
+              "read": "いっかげつ",
+              "vi": "một tháng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることになった（Bài 36 〜ようになる応用）",
+              "vi": "延期することになった = đã trở thành sẽ hoãn (quyết định từ bên ngoài/tập thể). ことになる = được quyết định/trở thành (Bài 36)."
+            }
+          ]
+        },
+        {
+          "jp": "延期した日程なら、タンさんも参加できるはずだ。",
+          "vi": "Nếu đổi lịch như vậy thì chắc là Thắng có thể tham gia được.",
+          "vocab": [
+            {
+              "w": "延期",
+              "read": "えんき",
+              "vi": "hoãn lại, trì hoãn"
+            },
+            {
+              "w": "日程",
+              "read": "にってい",
+              "vi": "lịch, ngày tháng kế hoạch"
+            },
+            {
+              "w": "タン",
+              "read": "タン",
+              "vi": "tên riêng Tan"
+            },
+            {
+              "w": "参加します",
+              "read": "さんかします",
+              "vi": "tham gia"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なら（Bài 35）",
+              "vi": "日程なら = nếu là lịch đó. なら = giả thiết dựa trên thông tin đã biết (Bài 35)."
+            },
+            {
+              "point": "〜はずだ",
+              "vi": "参加できるはずだ = \"lẽ ra có thể tham gia được\". 接続: V可能形（参加できる 普通形）+ はず. Suy luận logic: lịch mới = thời gian đó Thắng đã hết bận → PHẢI có thể tham gia."
+            }
+          ]
+        },
+        {
+          "jp": "四万円の予算は変わらないはずなので、計画をそのまま使えると思う。",
+          "vi": "Vì theo lý ngân sách 40.000 yên không đổi nên tôi nghĩ có thể dùng kế hoạch cũ.",
+          "vocab": [
+            {
+              "w": "四万円",
+              "read": "よんまんえん",
+              "vi": "40.000 yên"
+            },
+            {
+              "w": "予算",
+              "read": "よさん",
+              "vi": "ngân sách"
+            },
+            {
+              "w": "変わらない",
+              "read": "かわらない",
+              "vi": "không thay đổi"
+            },
+            {
+              "w": "はずなので",
+              "read": "はずなので",
+              "vi": "vì chắc là"
+            },
+            {
+              "w": "計画",
+              "read": "けいかく",
+              "vi": "kế hoạch"
+            },
+            {
+              "w": "そのまま",
+              "read": "そのまま",
+              "vi": "giữ nguyên như vậy"
+            },
+            {
+              "w": "使える",
+              "read": "つかえる",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずなので",
+              "vi": "変わらないはずなので = vì lẽ ra không đổi. 接続: Vない（普通形）+ はずなので. はずなので dùng kết quả của suy luận logic làm nguyên nhân cho câu sau."
+            },
+            {
+              "point": "〜と思う（Bài 21）",
+              "vi": "使えると思う = tôi nghĩ có thể dùng. と思う = ý kiến chủ quan. Ở đây phối hợp: はず（căn cứ logic）dẫn đến kết luận → と思う（đánh giá của người viết）."
+            }
+          ]
+        },
+        {
+          "jp": "また一緒に旅行できる日を、今からとても楽しみにしている。",
+          "vi": "Tôi đang rất mong chờ ngày có thể đi du lịch cùng nhau.",
+          "vocab": [
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, nữa"
+            },
+            {
+              "w": "一緒に",
+              "read": "いっしょに",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "旅行",
+              "read": "りょこう",
+              "vi": "du lịch, chuyến đi"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "日",
+              "read": "ひ",
+              "vi": "ngày"
+            },
+            {
+              "w": "今から",
+              "read": "いまから",
+              "vi": "từ bây giờ"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "楽しみにしている",
+              "read": "たのしみにしている",
+              "vi": "đang mong đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "mệnh đề bổ nghĩa danh từ（Bài 22）",
+              "vi": "旅行できる日 = ngày (mà) có thể đi du lịch. Vる bổ nghĩa cho 日."
+            },
+            {
+              "point": "Vていきます応用（Bài 43）",
+              "vi": "楽しみにしている = đang mong chờ (trạng thái tiếp tục). Vている = trạng thái liên tục."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "一人あたり四万円ほどになるはずだ",
+          "label": "〜はずだ（suy luận từ phép tính）"
+        },
+        {
+          "excerpt": "十分なはずだと思っていた",
+          "label": "〜なはずだ（なAdj + はず）"
+        },
+        {
+          "excerpt": "こんなに急に断るはずがないと思った",
+          "label": "〜はずがない（bác bỏ logic）"
+        },
+        {
+          "excerpt": "ミンさんは普段あまり心配しない人なので、何か理由があるはずだ",
+          "label": "Sắc thái: はずだ suy luận từ tính cách đã biết"
+        },
+        {
+          "excerpt": "そういう大切な理由があるはずなのに",
+          "label": "Sắc thái: はずなのに（kỳ vọng vấp thực tế — hối hận）"
+        },
+        {
+          "excerpt": "延期した日程なら、タンさんも参加できるはずだ",
+          "label": "〜はずだ（suy luận có điều kiện）"
+        },
+        {
+          "excerpt": "変わらないはずなので",
+          "label": "はずなので（làm căn cứ cho kết luận）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「一人あたり四万円ほどになるはずだ」とあるが、なぜ「はずだ」を使っていますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "自分の気持ちを言いたかったからです",
+            "計算した結果から論理的に予測しているからです",
+            "他の人から聞いた情報を伝えているからです",
+            "四万円になることが既に確定したからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Ngay trước câu này, bài viết nêu rõ:「電車代、宿泊費、食事代をすべて合わせると」(cộng tất cả tiền tàu, tiền lưu trú, tiền ăn lại) — đây là PHÉP TÍNH CỤ THỂ làm căn cứ. Người viết dùng はずだ vì kết quả 4万円 là KẾT LUẬN LOGIC từ phép tính đó. Đáp án 0 sai vì「自分の気持ち」(cảm xúc cá nhân) tương ứng với と思う (Bài 21), không phải はずだ. Đáp án 2 sai vì đây là tính toán của chính người viết, không phải thông tin nghe từ người khác. Đáp án 3 sai vì はずだ là dự đoán logic, KHÔNG phải sự thật đã xác nhận (～になることが確定 sẽ dùng cách diễn đạt khác).",
+          "tip": "はずだ xuất hiện sau bằng chứng/dữ liệu cụ thể (phép tính, hành động, sự kiện đã xảy ra) → đó là dấu hiệu \"suy luận có căn cứ\". Nếu câu hỏi hỏi \"なぜ〜はずだを使うか\", hãy tìm CĂN CỨ ngay trước câu đó trong bài.",
+          "qt": {
+            "q": "Cụm “chắc sẽ vào khoảng 40.000 yên mỗi người” dùng “chắc” vì sao?",
+            "o": [
+              "Vì muốn nói lên cảm xúc của bản thân",
+              "Vì dự đoán một cách có căn cứ dựa trên kết quả tính toán",
+              "Vì đang truyền đạt thông tin nghe được từ người khác",
+              "Vì việc sẽ thành 40.000 yên đã được xác định"
+            ]
+          }
+        },
+        {
+          "q": "「こんなに急に断るはずがない」とあります。これはどんな根拠に基づいていますか。",
+          "evi": [
+            6,
+            7
+          ],
+          "options": [
+            "タンさんはいつも断る人だからです",
+            "タンさんは先月まで「楽しみにしている」と言っていたからです",
+            "タンさんが旅行の費用をすでに払っていたからです",
+            "旅行まで時間がたくさんあるからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết giải thích trực tiếp ngay trước câu này:「私はとても驚いた。タンさんは先月まで「楽しみにしている」と言っていたからだ」— Thắng còn nói \"đang mong chờ lắm\" vào tháng trước. Đây là CĂN CỨ LOGIC cho はずがない: người đang hào hứng chờ đợi thì KHÔNG THỂ NÀO đột ngột từ chối. Đáp án 0 sai và ngược lại — tính cách của Thắng theo bài là người MONG CHỜ, không phải hay từ chối. Đáp án 2 và 3 sai vì bài không nhắc đến việc Thắng đã trả tiền hay lịch trình còn nhiều thời gian.",
+          "tip": "はずがない dựa trên THÔNG TIN ĐÃ BIẾT VỀ CON NGƯỜI/SỰ VIỆC. Khi tìm căn cứ, hãy đọc 1–2 câu TRƯỚC câu「はずがない」— thường sẽ thấy「〜と言っていた / 〜からだ」làm lý do.",
+          "qt": {
+            "q": "Câu “Không thể nào lại từ chối đột ngột đến thế” dựa trên căn cứ nào?",
+            "o": [
+              "Vì anh Tan là người lúc nào cũng từ chối",
+              "Vì cho đến tháng trước, anh Tan vẫn nói “Tôi đang mong chờ chuyến đi”",
+              "Vì anh Tan đã trả chi phí chuyến đi rồi",
+              "Vì vẫn còn nhiều thời gian nữa mới đến chuyến đi"
+            ]
+          }
+        },
+        {
+          "q": "「そういう大切な理由があるはずなのに、最初は私が誤解してしまった」はどんな心境を表していますか。",
+          "evi": [
+            15
+          ],
+          "options": [
+            "大切な理由があって、それを早く知りたいと思っている",
+            "論理的には理由があると分かっていたのに、誤解した自分を反省している",
+            "タンさんに大切な理由がないと確信している",
+            "理由を知って、誤解が解けてうれしい気持ちのみを表している"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu này dùng tổ hợp「はずなのに」:「大切な理由があるはずなのに」= \"đáng lẽ phải có lý do quan trọng vậy mà (mình lại không hiểu)\". Người viết nhìn lại bản thân (回顧/反省) — đặc biệt từ chốt là「反省した」(hối hận, nhìn lại lỗi lầm của mình) ở cuối câu. Tức là: giờ đã biết lý do thật sự → nhận ra mình đáng lẽ KHÔNG NÊN hiểu lầm → tự trách bản thân. Đáp án 0 sai vì người viết ĐÃ biết lý do rồi (Thắng đã giải thích), không còn \"muốn biết nhanh\". Đáp án 2 sai hoàn toàn — はずなのに thừa nhận là LÝ DO CÓ THẬT. Đáp án 3 sai vì「うれしい気持ちのみ」không đúng — cảm xúc chủ đạo là hối hận, không phải vui.",
+          "tip": "はずなのに → tâm trạng chủ đạo là HỐI HẬN hoặc TIẾC NUỐI (thường đi kèm 反省・悔しい・申し訳ない). Khác với はずだったのに (ngạc nhiên + bất mãn vì sự kiện bên ngoài không như kỳ vọng).",
+          "qt": {
+            "q": "Câu “Lẽ ra phải có một lý do quan trọng như vậy, thế mà ban đầu tôi lại hiểu lầm” thể hiện tâm trạng nào?",
+            "o": [
+              "Có một lý do quan trọng và muốn sớm biết lý do đó",
+              "Dù về mặt logic đã biết là có lý do, nhưng đang tự nhìn nhận lại việc mình đã hiểu lầm",
+              "Tin chắc rằng anh Tan không có lý do quan trọng nào",
+              "Biết được lý do và chỉ thể hiện niềm vui vì hiểu lầm đã được giải tỏa"
+            ]
+          }
+        },
+        {
+          "q": "この文章で「はずだ」と「と思う」の両方が使われています。「はずだ」が使われる場合と「と思う」が使われる場合の違いは何ですか。",
+          "evi": [
+            2,
+            17,
+            18
+          ],
+          "options": [
+            "「はずだ」は過去のことに使い、「と思う」は未来のことに使います",
+            "意味は同じで、どちらでも使えます",
+            "「はずだ」は論理的・客観的な根拠に基づく推測、「と思う」は主観的な意見や感想を表します",
+            "「はずだ」は丁寧語で、「と思う」は普通語です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài dùng はずだ ở những chỗ có CĂN CỨ KHÁCH QUAN rõ ràng:「四万円ほどになるはずだ」(từ phép tính chi phí cụ thể) →「参加できるはずだ」(từ lịch mới đã hoãn — Thắng hết bận) →「変わらないはずなので」(chi phí không có lý do gì để thay đổi). Còn と思う dùng ở chỗ người viết đưa ra ĐÁNH GIÁ CÁ NHÂN:「計画をそのまま使えると思う」(ý kiến chủ quan của người viết). Đáp án 0 sai: cả hai đều có thể dùng cho quá khứ/tương lai. Đáp án 1 sai: はずだ không phải sự thật đã xác nhận — vẫn là suy đoán nhưng có căn cứ. Đáp án 3 sai hoàn toàn: đây là vấn đề ngữ nghĩa, không liên quan đến lịch sự.",
+          "tip": "Hỏi nhanh: \"Người viết có DỮ LIỆU/BẰNG CHỨNG không?\" → Có → はずだ; Không, chỉ là ý kiến của người viết → と思う. Hai mẫu này thường CÙNG xuất hiện trong một đoạn — はずだ (căn cứ) dẫn đến kết luận と思う (ý kiến).",
+          "qt": {
+            "q": "Trong bài này, cả “chắc hẳn” và “tôi nghĩ” đều được sử dụng. Khác nhau thế nào giữa trường hợp dùng “chắc hẳn” và trường hợp dùng “tôi nghĩ”?",
+            "o": [
+              "“Chắc hẳn” được dùng cho chuyện quá khứ, còn “tôi nghĩ” được dùng cho chuyện tương lai",
+              "Ý nghĩa giống nhau và có thể dùng cách nào cũng được",
+              "“Chắc hẳn” thể hiện suy đoán dựa trên căn cứ logic, khách quan; “tôi nghĩ” thể hiện ý kiến hoặc cảm nhận chủ quan",
+              "“Chắc hẳn” là cách nói lịch sự, còn “tôi nghĩ” là cách nói thông thường"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくらエクスプレス　配達サービスのご案内",
+      "titleVi": "Thông báo: Dịch vụ giao hàng Sakura Express",
+      "japanese": "さくらエクスプレス　配達サービスのご案内\n当社は住所と配達時間帯を正確に管理しているため、お申し込みいただいた荷物は時間どおりに届くはずです。市内・市外を問わず、全国どこにでも配達いたします。\nお客様がご住所を正しく入力してくだされば、配達員が道に迷うことはなく、配達が大きく遅れるはずがありません。\n配達時間帯｜対応地域｜追加料金\n午前便（9時〜12時）｜市内｜無料\n午後便（13時〜18時）｜市内｜無料\n夜間便（19時〜21時）｜市内｜300円\n午前便・午後便｜市外｜500円\n夜間便｜市外｜800円\n曜日｜通常配達｜祝日の配達\n月〜土｜通常どおり配達します｜―\n日曜日｜配達しません｜祝日料金で配達します\n※祝日は配達員が少ないため、通常より配達料金が400円高くなります。祝日に急ぐ荷物がなければ、翌日に届けてもらったほうがいいです。\n※会員登録をしたお客様は、市外の追加料金が半額になります。会員登録は無料で、当社のホームページからいつでも申し込めます。\n※前日の18時までにお申し込みいただくと、翌日の午前便で確実にお届けします。当日のお申し込みは、配達が翌々日になる場合がありますので、お急ぎの方はお早めにご連絡ください。\nお問い合わせ：さくらエクスプレス　電話0120-51-7788（月〜土　8時〜20時）",
+      "vietnamese": "Sakura Express — Thông báo dịch vụ giao hàng\nVì công ty quản lý chính xác địa chỉ và khung giờ giao hàng nên hàng quý khách đặt chắc chắn sẽ đến đúng giờ. Dù trong hay ngoài thành phố, chúng tôi đều giao hàng đến khắp cả nước.\nNếu quý khách nhập đúng địa chỉ thì nhân viên giao hàng sẽ không bị lạc đường, và việc giao hàng không thể nào bị trễ nhiều được.\nKhung giờ giao hàng｜Khu vực áp dụng｜Phí phụ thu.\nChuyến sáng (9 giờ〜12 giờ)｜Trong thành phố｜Miễn phí.\nChuyến chiều (13 giờ〜18 giờ)｜Trong thành phố｜Miễn phí.\nChuyến tối (19 giờ〜21 giờ)｜Trong thành phố｜300 yên.\nChuyến sáng・chiều｜Ngoài thành phố｜500 yên.\nChuyến tối｜Ngoài thành phố｜800 yên.\nThứ trong tuần｜Giao hàng thường｜Giao hàng ngày lễ.\nThứ Hai〜Thứ Bảy｜Giao hàng như bình thường｜―.\nChủ Nhật｜Không giao hàng｜Giao hàng với phí ngày lễ.\n※Vì ngày lễ ít nhân viên giao hàng nên phí giao hàng sẽ cao hơn bình thường 400 yên. Nếu không phải hàng gấp vào ngày lễ thì nên nhờ giao vào hôm sau sẽ tốt hơn.\n※Khách hàng đã đăng ký thành viên thì phí phụ thu ngoài thành phố giảm còn một nửa. Đăng ký thành viên miễn phí và có thể đăng ký bất cứ lúc nào trên trang web của công ty.\n※Nếu đặt trước 18 giờ hôm trước, chắc chắn sẽ giao vào chuyến sáng hôm sau. Đặt trong ngày thì có trường hợp phải đến hai ngày sau mới giao, nên quý khách có việc gấp xin vui lòng liên hệ sớm.\nLiên hệ: Sakura Express, điện thoại 0120-51-7788 (Thứ Hai〜Thứ Bảy, 8 giờ〜20 giờ).",
+      "sentences": [
+        {
+          "jp": "さくらエクスプレス　配達サービスのご案内",
+          "vi": "Sakura Express — Thông báo dịch vụ giao hàng.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "エクスプレス",
+              "read": "エクスプレス",
+              "vi": "tàu tốc hành, chuyển phát nhanh"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển (ôn Bài 51 短文)"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn (lịch sự)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "配達サービスのご案内",
+              "why": "tiêu đề — xác định chủ đề toàn bài là dịch vụ giao hàng, cần dò bảng giờ/vùng/phí bên dưới"
+            }
+          ]
+        },
+        {
+          "jp": "当社は住所と配達時間帯を正確に管理しているため、お申し込みいただいた荷物は時間どおりに届くはずです。市内・市外を問わず、全国どこにでも配達いたします。",
+          "vi": "Vì công ty quản lý chính xác địa chỉ và khung giờ giao hàng nên hàng quý khách đặt chắc chắn sẽ đến đúng giờ. Dù trong hay ngoài thành phố, chúng tôi đều giao hàng đến khắp cả nước.",
+          "vocab": [
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "住所",
+              "read": "じゅうしょ",
+              "vi": "địa chỉ (ôn Bài 51 短文)"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "時間どおりに",
+              "read": "じかんどおりに",
+              "vi": "đúng giờ, theo đúng giờ"
+            },
+            {
+              "w": "正確",
+              "read": "せいかく",
+              "vi": "chính xác"
+            },
+            {
+              "w": "管理します",
+              "read": "かんりします",
+              "vi": "quản lý"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, hàng hóa"
+            },
+            {
+              "w": "届く",
+              "read": "とどく",
+              "vi": "đến, tới nơi"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "問う",
+              "read": "とう",
+              "vi": "hỏi, chất vấn"
+            },
+            {
+              "w": "全国",
+              "read": "ぜんこく",
+              "vi": "toàn quốc, cả nước"
+            },
+            {
+              "w": "〜を問わず",
+              "read": "〜をとわず",
+              "vi": "không kể, bất kể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Nのとおりに（Bài 34）",
+              "vi": "時間どおりに = đúng theo giờ (đã định). Ôn lại Bài 34 とおりに."
+            },
+            {
+              "point": "〜はずだ",
+              "vi": "接続: Vる（普通形）+ はず。 届くはずです = \"chắc chắn/lẽ ra sẽ đến (đúng giờ)\" — suy luận CÓ CĂN CỨ LOGIC: công ty quản lý chính xác địa chỉ và giờ giấc. Mẫu TRỌNG TÂM bài 51, xuất hiện lần 1."
+            },
+            {
+              "point": "〜ため（Bài 39 ので nâng cao）",
+              "vi": "正確に管理しているため = vì quản lý chính xác. ため nêu lý do, văn phong trang trọng hơn ので."
+            }
+          ]
+        },
+        {
+          "jp": "お客様がご住所を正しく入力してくだされば、配達員が道に迷うことはなく、配達が大きく遅れるはずがありません。",
+          "vi": "Nếu quý khách nhập đúng địa chỉ thì nhân viên giao hàng sẽ không bị lạc đường, và việc giao hàng không thể nào bị trễ nhiều được.",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "住所",
+              "read": "じゅうしょ",
+              "vi": "địa chỉ"
+            },
+            {
+              "w": "正しく",
+              "read": "ただしく",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "入力します",
+              "read": "にゅうりょくします",
+              "vi": "nhập (dữ liệu)"
+            },
+            {
+              "w": "配達員",
+              "read": "はいたついん",
+              "vi": "nhân viên giao hàng"
+            },
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "con đường, đạo"
+            },
+            {
+              "w": "迷う",
+              "read": "まよう",
+              "vi": "phân vân, do dự"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "大きく",
+              "read": "おおきく",
+              "vi": "lớn, nhiều"
+            },
+            {
+              "w": "遅れます",
+              "read": "おくれます",
+              "vi": "bị trễ, chậm trễ (ôn Bài 51 短文)"
+            },
+            {
+              "w": "道に迷います",
+              "read": "みちにまよいます",
+              "vi": "bị lạc đường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vば（điều kiện, ôn từ Bài 51 scope N3）",
+              "vi": "入力してくだされば = nếu quý khách nhập cho (dạng ば của てくださる, kính ngữ nhẹ). Vế điều kiện dẫn tới kết luận はずがない."
+            },
+            {
+              "point": "〜はずがない",
+              "vi": "接続: Vる（普通形）+ はずがない。 遅れるはずがありません = \"không thể nào bị trễ (theo lý)\" — bác bỏ dứt khoát dựa trên căn cứ: địa chỉ đúng + hệ thống quản lý chính xác. Mẫu TRỌNG TÂM bài 51, xuất hiện lần 2."
+            }
+          ],
+          "keys": [
+            {
+              "w": "住所を正しく入力してくだされば",
+              "why": "điều kiện tiên quyết để giao đúng giờ — liên quan gián tiếp tới câu hỏi 1 (khách phải điền đúng địa chỉ ngoài thành phố)"
+            }
+          ]
+        },
+        {
+          "jp": "配達時間帯｜対応地域｜追加料金",
+          "vi": "Khung giờ giao hàng｜Khu vực áp dụng｜Phí phụ thu.",
+          "vocab": [
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "対応",
+              "read": "たいおう",
+              "vi": "phong thái xử lý, ứng phó"
+            },
+            {
+              "w": "地域",
+              "read": "ちいき",
+              "vi": "khu vực, địa phương"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "時間帯",
+              "read": "じかんたい",
+              "vi": "khung giờ"
+            },
+            {
+              "w": "対応地域",
+              "read": "たいおうちいき",
+              "vi": "khu vực áp dụng"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phí phụ thu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 3 cột của bảng 1: khung giờ, khu vực, phí phụ thu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "対応地域",
+              "why": "cột khu vực — dùng để dò 市外 (ngoài thành phố) cho câu hỏi 1"
+            },
+            {
+              "w": "追加料金",
+              "why": "cột phí phụ thu — chính là dữ kiện tính tiền của cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "午前便（9時〜12時）｜市内｜無料",
+          "vi": "Chuyến sáng (9 giờ〜12 giờ)｜Trong thành phố｜Miễn phí.",
+          "vocab": [
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "午前便",
+              "read": "ごぜんびん",
+              "vi": "chuyến buổi sáng"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "12時",
+              "read": "じゅうにじ",
+              "vi": "12 giờ"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "keys": [
+            {
+              "w": "午前便（9時〜12時）｜市内｜無料",
+              "why": "hàng chuyến sáng nội thành — nhiễu vì câu hỏi 1 hỏi khách ở NGOÀI thành phố, không phải trong thành phố"
+            }
+          ]
+        },
+        {
+          "jp": "午後便（13時〜18時）｜市内｜無料",
+          "vi": "Chuyến chiều (13 giờ〜18 giờ)｜Trong thành phố｜Miễn phí.",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "午後便",
+              "read": "ごごびん",
+              "vi": "chuyến buổi chiều"
+            },
+            {
+              "w": "13時",
+              "read": "じゅうさんじ",
+              "vi": "13 giờ"
+            },
+            {
+              "w": "18時",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ]
+        },
+        {
+          "jp": "夜間便（19時〜21時）｜市内｜300円",
+          "vi": "Chuyến tối (19 giờ〜21 giờ)｜Trong thành phố｜300 yên.",
+          "vocab": [
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "夜間便",
+              "read": "やかんびん",
+              "vi": "chuyến ban đêm"
+            },
+            {
+              "w": "19時",
+              "read": "じゅうくじ",
+              "vi": "19 giờ"
+            },
+            {
+              "w": "21時",
+              "read": "にじゅういちじ",
+              "vi": "21 giờ"
+            },
+            {
+              "w": "市内",
+              "read": "しない",
+              "vi": "trong thành phố"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜間便（19時〜21時）｜市内｜300円",
+              "why": "hàng chuyến tối nội thành — nhiễu vì đúng khung giờ tối của câu hỏi 1 nhưng sai vùng (市内 thay vì 市外)"
+            }
+          ]
+        },
+        {
+          "jp": "午前便・午後便｜市外｜500円",
+          "vi": "Chuyến sáng・chiều｜Ngoài thành phố｜500 yên.",
+          "vocab": [
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "午前便",
+              "read": "ごぜんびん",
+              "vi": "chuyến buổi sáng"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "午後便",
+              "read": "ごごびん",
+              "vi": "chuyến buổi chiều"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "午前便・午後便｜市外｜500円",
+              "why": "hàng ngoại thành sáng/chiều — nhiễu vì đúng vùng (市外) của câu hỏi 1 nhưng sai khung giờ (không phải tối)"
+            }
+          ]
+        },
+        {
+          "jp": "夜間便｜市外｜800円",
+          "vi": "Chuyến tối｜Ngoài thành phố｜800 yên.",
+          "vocab": [
+            {
+              "w": "夜間",
+              "read": "やかん",
+              "vi": "ban đêm"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố (ôn hàng trên)"
+            },
+            {
+              "w": "夜間便",
+              "read": "やかんびん",
+              "vi": "chuyến tối (ôn hàng trên)"
+            },
+            {
+              "w": "800円",
+              "read": "はっぴゃくえん",
+              "vi": "800 yên"
+            }
+          ],
+          "keys": [
+            {
+              "w": "夜間便｜市外｜800円",
+              "why": "khớp cả 2 điều kiện của câu hỏi 1 (夜間便 + 市外) → phí gốc 800円 trước khi trừ giảm hội viên"
+            }
+          ]
+        },
+        {
+          "jp": "曜日｜通常配達｜祝日の配達",
+          "vi": "Thứ trong tuần｜Giao hàng thường｜Giao hàng ngày lễ.",
+          "vocab": [
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề bảng 2: thứ trong tuần, giao hàng thường, giao hàng ngày lễ."
+            }
+          ]
+        },
+        {
+          "jp": "月〜土｜通常どおり配達します｜―",
+          "vi": "Thứ Hai〜Thứ Bảy｜Giao hàng như bình thường｜―.",
+          "vocab": [
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "月〜土",
+              "read": "げつ〜ど",
+              "vi": "thứ Hai đến thứ Bảy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V/Nのとおりに（Bài 34, dạng rút gọn どおり）",
+              "vi": "通常どおり配達します = giao hàng đúng như thông thường. Ôn lại どおり Bài 34."
+            }
+          ]
+        },
+        {
+          "jp": "日曜日｜配達しません｜祝日料金で配達します",
+          "vi": "Chủ Nhật｜Không giao hàng｜Giao hàng với phí ngày lễ.",
+          "vocab": [
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "chủ Nhật"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ, ngày quốc lễ"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            }
+          ],
+          "keys": [
+            {
+              "w": "日曜日｜配達しません｜祝日料金で配達します",
+              "why": "hàng Chủ Nhật — Chủ Nhật vẫn giao được nếu tính phí ngày lễ, liên quan câu hỏi 2 (khách muốn nhận Chủ Nhật)"
+            }
+          ]
+        },
+        {
+          "jp": "※祝日は配達員が少ないため、通常より配達料金が400円高くなります。祝日に急ぐ荷物がなければ、翌日に届けてもらったほうがいいです。",
+          "vi": "※Vì ngày lễ ít nhân viên giao hàng nên phí giao hàng sẽ cao hơn bình thường 400 yên. Nếu không phải hàng gấp vào ngày lễ thì nên nhờ giao vào hôm sau sẽ tốt hơn.",
+          "vocab": [
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ, ngày quốc lễ"
+            },
+            {
+              "w": "配達員",
+              "read": "はいたついん",
+              "vi": "nhân viên giao hàng"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "通常",
+              "read": "つうじょう",
+              "vi": "thông thường"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "高くなります",
+              "read": "たかくなります",
+              "vi": "trở nên cao hơn (giá)"
+            },
+            {
+              "w": "急ぐ",
+              "read": "いそぐ",
+              "vi": "gấp, khẩn cấp"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "翌日",
+              "read": "よくじつ",
+              "vi": "ngày hôm sau"
+            },
+            {
+              "w": "届ける",
+              "read": "とどける",
+              "vi": "gửi đến, chuyển đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ため（lý do, ôn cùng câu 2）",
+              "vi": "配達員が少ないため = vì ít nhân viên giao hàng. ため nêu lý do trang trọng."
+            },
+            {
+              "point": "〜ば〜ほうがいい（Bài 25 ば + Bài 32 ほうがいい）",
+              "vi": "急ぐ荷物がなければ〜ほうがいい = nếu không phải hàng gấp thì nên… Kết hợp điều kiện ば với lời khuyên ほうがいい."
+            }
+          ],
+          "keys": [
+            {
+              "w": "400円高くなります",
+              "why": "mức phụ thu ngày lễ — dữ kiện cộng thêm cho câu hỏi 2 khi khách muốn nhận đúng Chủ Nhật/ngày lễ"
+            }
+          ]
+        },
+        {
+          "jp": "※会員登録をしたお客様は、市外の追加料金が半額になります。会員登録は無料で、当社のホームページからいつでも申し込めます。",
+          "vi": "※Khách hàng đã đăng ký thành viên thì phí phụ thu ngoài thành phố giảm còn một nửa. Đăng ký thành viên miễn phí và có thể đăng ký bất cứ lúc nào trên trang web của công ty.",
+          "vocab": [
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "市外",
+              "read": "しがい",
+              "vi": "ngoài thành phố"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "nửa giá"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            },
+            {
+              "w": "当社",
+              "read": "とうしゃ",
+              "vi": "công ty chúng tôi"
+            },
+            {
+              "w": "ホームページ",
+              "read": "ホームページ",
+              "vi": "trang web"
+            },
+            {
+              "w": "申し込める",
+              "read": "もうしこめる",
+              "vi": "có thể đăng ký"
+            },
+            {
+              "w": "会員登録",
+              "read": "かいいんとうろく",
+              "vi": "đăng ký thành viên"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になります（Bài 19）",
+              "vi": "半額になります = trở thành nửa giá. Ôn lại になる Bài 19."
+            },
+            {
+              "point": "V可能形（申し込めます, Bài 27）",
+              "vi": "申し込めます = có thể đăng ký được. 可能形 của 申し込む. Ôn lại Bài 27."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員登録をしたお客様は、市外の追加料金が半額になります",
+              "why": "điều kiện giảm giá hội viên — dữ kiện trừ tiền bắt buộc phải ghép cho câu hỏi 1 nếu nhân vật là hội viên"
+            }
+          ]
+        },
+        {
+          "jp": "※前日の18時までにお申し込みいただくと、翌日の午前便で確実にお届けします。当日のお申し込みは、配達が翌々日になる場合がありますので、お急ぎの方はお早めにご連絡ください。",
+          "vi": "※Nếu đặt trước 18 giờ hôm trước, chắc chắn sẽ giao vào chuyến sáng hôm sau. Đặt trong ngày thì có trường hợp phải đến hai ngày sau mới giao, nên quý khách có việc gấp xin vui lòng liên hệ sớm.",
+          "vocab": [
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "翌日",
+              "read": "よくじつ",
+              "vi": "ngày hôm sau"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "確実に",
+              "read": "かくじつに",
+              "vi": "chắc chắn"
+            },
+            {
+              "w": "届け",
+              "read": "とどけ",
+              "vi": "sự giao hàng, đơn từ"
+            },
+            {
+              "w": "当日",
+              "read": "とうじつ",
+              "vi": "ngay trong ngày"
+            },
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "配達",
+              "read": "はいたつ",
+              "vi": "giao hàng, phát chuyển"
+            },
+            {
+              "w": "翌々日",
+              "read": "よくよくじつ",
+              "vi": "hai ngày sau"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp, hoàn cảnh"
+            },
+            {
+              "w": "急ぎ",
+              "read": "いそぎ",
+              "vi": "khẩn cấp, việc gấp"
+            },
+            {
+              "w": "早め",
+              "read": "はやめ",
+              "vi": "sớm hơn bình thường"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "お申し込み",
+              "read": "おもうしこみ",
+              "vi": "việc đăng ký, đặt hàng (lịch sự)"
+            },
+            {
+              "w": "お急ぎの方",
+              "read": "おいそぎのかた",
+              "vi": "quý khách có việc gấp"
+            },
+            {
+              "w": "お早めに",
+              "read": "おはやめに",
+              "vi": "sớm, kịp thời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NまでにV（Bài 17）",
+              "vi": "18時までにお申し込みいただくと = nếu đặt hàng trước 18 giờ thì. Ôn lại までに Bài 17."
+            },
+            {
+              "point": "〜と（điều kiện tự nhiên, Bài 23）",
+              "vi": "いただくと確実にお届けします = nếu đặt trước thì chắc chắn giao được. と = kết quả tất yếu."
+            },
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "翌々日になる場合がありますので = vì có trường hợp thành hai ngày sau nên. ので nêu lý do cho lời khuyên liên hệ sớm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "前日の18時までにお申し込み",
+              "why": "điều kiện thời hạn đặt hàng — liên quan câu hỏi 2 (khách đặt hàng lúc nào để kịp Chủ Nhật)"
+            },
+            {
+              "w": "当日のお申し込みは、配達が翌々日になる場合があります",
+              "why": "bẫy ※ — nếu đặt trong ngày sẽ giao trễ 2 ngày, dễ khiến chọn sai ngày giao cho câu hỏi 2"
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくらエクスプレス　電話0120-51-7788（月〜土　8時〜20時）",
+          "vi": "Liên hệ: Sakura Express, điện thoại 0120-51-7788 (Thứ Hai〜Thứ Bảy, 8 giờ〜20 giờ).",
+          "vocab": [
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, thắc mắc"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "hỏi, liên hệ"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "エクスプレス",
+              "read": "えくすぷれす",
+              "vi": "tốc hành"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "8時",
+              "read": "はちじ",
+              "vi": "8 giờ"
+            },
+            {
+              "w": "20時",
+              "read": "にじゅうじ",
+              "vi": "20 giờ"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "荷物は時間どおりに届くはずです",
+          "label": "〜はずだ（suy luận có căn cứ — mẫu trọng tâm）"
+        },
+        {
+          "excerpt": "配達が大きく遅れるはずがありません",
+          "label": "〜はずがない（bác bỏ theo lý — mẫu trọng tâm）"
+        },
+        {
+          "excerpt": "入力してくだされば",
+          "label": "Vば（điều kiện, ôn Bài 51 scope N3）"
+        },
+        {
+          "excerpt": "急ぐ荷物がなければ、翌日に届けてもらったほうがいいです",
+          "label": "Vば＋ほうがいい（ôn Bài 32）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & lời cam kết đúng giờ",
+          "topic": 1,
+          "note": "Giới thiệu dịch vụ và khẳng định はず/はずがない — chưa có số liệu cụ thể, chỉ định hướng độ tin cậy.",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 8,
+          "kind": "point",
+          "label": "Bảng khung giờ・khu vực・phí phụ thu",
+          "topic": 8,
+          "note": "Bảng chính trả lời câu hỏi 1: dò cột khu vực (市外) rồi cột khung giờ (夜間便) để ra phí gốc 800円.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 9,
+          "to": 11,
+          "kind": "point",
+          "label": "Bảng giao hàng theo thứ trong tuần",
+          "topic": 11,
+          "note": "Bảng phụ trả lời câu hỏi 2: Chủ Nhật vẫn giao được nếu chịu tính phí ngày lễ.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 14,
+          "kind": "turn",
+          "label": "Các dòng ※ điều kiện chồng nhau",
+          "topic": 12,
+          "note": "Ba dòng ※ chứa bẫy cộng/trừ phí (ngày lễ +400円, hội viên giảm nửa giá市外, hạn đặt trước 18時) — phải ghép đúng dòng cho từng câu hỏi, dễ nhầm nếu bỏ sót 1 điều kiện.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 15,
+          "to": 15,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 15,
+          "note": "Số điện thoại và giờ làm việc — không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワットさんは市外に住んでいて、会員登録をしています。夜間便（19時〜21時）で荷物を送りたいです。追加料金はいくらですか。",
+          "options": [
+            "400円",
+            "500円",
+            "800円",
+            "900円"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0（400円）。表「夜間便｜市外｜800円」から、市外・夜間便の追加料金は基本800円だとわかる（「夜間便｜市外｜800円」の行が根拠）。しかし※の注意書き「会員登録をしたお客様は、市外の追加料金が半額になります」から、会員のワットさんは半額の400円になる。よって800÷2＝400円。1（500円）は市外・午前便/午後便の料金で、夜間便ではないので条件に合わない。2（800円）は半額を適用する前の元の料金で、会員割引を忘れた間違い。3（900円）はどこにも根拠がない金額。",
+          "tip": "「市外」「夜間便」の2条件で表から料金を探したあと、必ず※の会員割引も確認する。「会員登録」という言葉が出たら、料金を半額にするのを忘れないこと。",
+          "evi": [
+            8,
+            13
+          ],
+          "qt": {
+            "q": "Anh Watt sống ở ngoài thành phố và đã đăng ký hội viên. Anh ấy muốn gửi hàng bằng chuyến giao ban đêm (19:00–21:00). Phụ phí là bao nhiêu?",
+            "o": [
+              "400 yên",
+              "500 yên",
+              "800 yên",
+              "900 yên"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんは日曜日にどうしても荷物を受け取りたいですが、追加料金はできるだけ払いたくありません。日曜日の配達について、正しいのはどれですか。",
+          "options": [
+            "はい、日曜日は無料で配達してもらえるはずです",
+            "いいえ、日曜日は配達がないので受け取れるはずがありません",
+            "はい、ただし祝日料金がかかるので、追加料金を払う必要があります",
+            "いいえ、日曜日は市外にしか配達しないので受け取れるはずがありません"
+          ],
+          "answer": 2,
+          "explainVi": "表「日曜日｜配達しません｜祝日料金で配達します」から、日曜日も配達自体は可能だが、祝日料金がかかることがわかる（※「祝日は…通常より配達料金が400円高くなります」も根拠）。つまり日曜日に荷物を受け取ることはできるが、無料ではなく追加料金（400円高い祝日料金）を払う必要がある。よって答えは2。0は「無料」の部分が誤り。1は「配達がない」という説明が「祝日料金で配達します」という記述と矛盾するので誤り。3は市内・市外を区別する記述が表のどこにもなく、根拠がない。",
+          "tip": "「配達しません」という言葉だけで即断せず、同じ行の隣の列「祝日料金で配達します」まで必ず読む。「はずだ／はずがない」を含む選択肢は、表の記述と矛盾しないかを最優先でチェックする。",
+          "evi": [
+            11,
+            12
+          ],
+          "qt": {
+            "q": "Cô Karina nhất định muốn nhận hàng vào Chủ nhật nhưng muốn trả phụ phí ít nhất có thể. Phát biểu nào sau đây là đúng về việc giao hàng vào Chủ nhật?",
+            "o": [
+              "Có, chắc là có thể được giao hàng miễn phí vào Chủ nhật",
+              "Không, vì Chủ nhật không giao hàng nên chắc là không thể nhận được",
+              "Có, nhưng sẽ bị tính phí ngày lễ nên cần phải trả phụ phí",
+              "Không, vì Chủ nhật chỉ giao hàng ngoài thành phố nên chắc là không thể nhận được"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

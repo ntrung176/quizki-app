@@ -1,0 +1,4034 @@
+{
+  "bai": 11,
+  "level": "N5",
+  "intro": "〜個／〜枚／〜本／〜回／〜杯 · 〜人／〜歳 · Nに〜回Vます · NとNとどちらが〜ですか. Có ÔN LẠI ngữ pháp đã học (bài 1-10) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "このクラスに学生が何人いますか。",
+              "ul": "何人",
+              "choices": [
+                "なんにん",
+                "なにじん",
+                "なんびと",
+                "いくにん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何人」là từ hỏi số lượng người, đọc là 「なんにん」. 「何」đứng trước lượng từ đọc là 「なん」(không phải 「なに」), và 「人」khi đếm số người đọc là 「にん」. ① 「なんにん」— ĐÚNG, đây là cách đọc chuẩn của 「何人」khi hỏi số lượng. ② 「なにじん」— SAI, 「なにじん」nghĩa là 「何人」= người nước nào (quốc tịch), không phải số lượng, và âm 「じん」chỉ quốc tịch/dân tộc. ③ 「なんびと」— SAI, 「なんびと」là cách đọc văn vẻ/cổ của 「何人」(= bất kỳ ai), không dùng trong hội thoại N5 hỏi số lượng. ④ 「いくにん」— SAI, không phải từ tiếng Nhật thông thường; cách hỏi số lượng người phải là 「なんにん」.",
+              "glosses": [
+                {
+                  "t": "このクラスに",
+                  "vi": "trong lớp học này"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "が",
+                  "vi": "trợ từ chủ ngữ"
+                },
+                {
+                  "t": "何人",
+                  "vi": "bao nhiêu người"
+                },
+                {
+                  "t": "いますか",
+                  "vi": "có ... không (đang tồn tại)"
+                }
+              ]
+            },
+            {
+              "prompt": "一日に何回ご飯を食べますか。",
+              "ul": "何回",
+              "choices": [
+                "なんかい",
+                "なにかい",
+                "いくかい",
+                "なんまい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何回」là từ hỏi số lần, đọc là 「なんかい」. 「何」trước lượng từ đọc là 「なん」, và 「回」(lần/vòng) đọc là 「かい」. ① 「なんかい」— ĐÚNG, cách đọc đúng khi hỏi số lần. ② 「なにかい」— SAI, 「なに」không kết hợp với lượng từ 「かい」theo cách này; 「何」trước lượng từ luôn đọc là 「なん」. ③ 「いくかい」— SAI, không phải dạng từ tồn tại trong tiếng Nhật chuẩn; không có cụm 「いく＋かい」. ④ 「なんまい」— SAI, 「まい」là lượng từ đếm vật phẳng mỏng (giấy, đĩa…), không phải số lần.",
+              "glosses": [
+                {
+                  "t": "一日に",
+                  "read": "いちにちに",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "何回",
+                  "vi": "bao nhiêu lần"
+                },
+                {
+                  "t": "ご飯",
+                  "read": "ごはん",
+                  "vi": "cơm, bữa ăn"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ tân ngữ"
+                },
+                {
+                  "t": "食べますか",
+                  "read": "たべますか",
+                  "vi": "ăn không (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは毎朝六時に起きます。",
+              "ul": "毎朝",
+              "choices": [
+                "まいあさ",
+                "まいちょう",
+                "まいそう",
+                "ごとあさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎朝」nghĩa là 'mỗi buổi sáng', đọc là 「まいあさ」. 「毎」(mỗi) đọc là 「まい」, và 「朝」(buổi sáng) đọc theo kun-reading là 「あさ」. ① 「まいあさ」— ĐÚNG, kết hợp chuẩn 「まい」+「あさ」. ② 「まいちょう」— SAI, 「ちょう」là on-reading của 「朝」, nhưng trong từ 「毎朝」không dùng on-reading; 「まいちょう」không phải từ tiếng Nhật thông thường. ③ 「まいそう」— SAI, 「そう」không phải cách đọc của 「朝」; hoàn toàn sai. ④ 「ごとあさ」— SAI, 「ごと」(~毎) là hậu tố, không đứng trước 「朝」theo cách này để tạo từ thông thường.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "毎朝",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "六時に",
+                  "read": "ろくじに",
+                  "vi": "lúc 6 giờ"
+                },
+                {
+                  "t": "起きます",
+                  "read": "おきます",
+                  "vi": "thức dậy"
+                }
+              ]
+            },
+            {
+              "prompt": "この本は何円ですか。",
+              "ul": "何円",
+              "choices": [
+                "なんえん",
+                "なにえん",
+                "いくえん",
+                "なんおく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何円」hỏi về giá tiền (bao nhiêu yên), đọc là 「なんえん」. 「何」trước đơn vị tiền tệ đọc là 「なん」. ① 「なんえん」— ĐÚNG, cách đọc chuẩn khi hỏi giá. ② 「なにえん」— SAI, 「なに」không dùng trước đơn vị số lượng/giá; phải là 「なん」. ③ 「いくえん」— SAI, 「いくら」mới là cách hỏi 'bao nhiêu tiền' trong văn nói, nhưng 「いくえん」không phải dạng từ đúng cú pháp; với 「円」phải dùng 「なんえん」. ④ 「なんおく」— SAI, 「おく」là đơn vị 'một trăm triệu', không liên quan đến cách đọc 「円」.",
+              "glosses": [
+                {
+                  "t": "この本",
+                  "read": "このほん",
+                  "vi": "cuốn sách này"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "何円",
+                  "vi": "bao nhiêu yên"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là ... phải không (câu hỏi lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "電車で何分かかりますか。",
+              "ul": "何分",
+              "choices": [
+                "なんぷん",
+                "なにふん",
+                "なんぶん",
+                "いくふん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何分」hỏi số phút, đọc là 「なんぷん」. 「分」sau từ hỏi 「何」xảy ra hiện tượng biến âm (rendaku): 「ふん」→「ぷん」. ① 「なんぷん」— ĐÚNG, biến âm đúng của 「なん」+「ふん」. ② 「なにふん」— SAI, 「なに」sai vị trí (phải là 「なん」), và 「ふん」không biến âm sau 「なん」. ③ 「なんぶん」— SAI, 「ぶん」là một biến âm nhưng sai cho trường hợp này; 「分」sau 「なん」chuyển thành 「ぷん」không phải 「ぶん」. ④ 「いくふん」— SAI, không có từ 「いくふん」trong tiếng Nhật thông thường.",
+              "glosses": [
+                {
+                  "t": "電車で",
+                  "read": "でんしゃで",
+                  "vi": "bằng tàu điện"
+                },
+                {
+                  "t": "何分",
+                  "vi": "bao nhiêu phút"
+                },
+                {
+                  "t": "かかりますか",
+                  "vi": "mất (bao lâu) không (câu hỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は何名いらっしゃいますか。",
+              "ul": "何名",
+              "choices": [
+                "なんめい",
+                "なにめい",
+                "なんみょう",
+                "いくめい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何名」là cách hỏi số người lịch sự hơn 「何人」, đọc là 「なんめい」. ① 「なんめい」— ĐÚNG, 「なん」+「めい」(on-reading của 名). ② 「なにめい」— SAI, 「なに」không đứng trước lượng từ số lượng; phải dùng 「なん」. ③ 「なんみょう」— SAI, 「みょう」là một on-reading khác của 「名」nhưng dùng trong nghĩa 'tên', không dùng làm lượng từ đếm người. ④ 「いくめい」— SAI, không có cụm từ 「いくめい」trong tiếng Nhật chuẩn.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "何名",
+                  "vi": "bao nhiêu người (lịch sự)"
+                },
+                {
+                  "t": "いらっしゃいますか",
+                  "vi": "có không (kính ngữ của いますか)"
+                }
+              ]
+            },
+            {
+              "prompt": "水を三本買いました。",
+              "ul": "三本",
+              "choices": [
+                "さんぼん",
+                "さんほん",
+                "みっぽん",
+                "さんぽん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「三本」đọc là 「さんぼん」, lượng từ 「本」dùng để đếm vật dài (chai, bút, que…). Khi đứng sau 「三」, 「ほん」biến thành 「ぼん」(biến âm hữu thanh). ① 「さんぼん」— ĐÚNG, biến âm đúng: 「さん」+「ぼん」. ② 「さんほん」— SAI, 「ほん」không xảy ra biến âm sau 「さん」; quy tắc biến âm với 「本」là: 1→いっぽん, 3→さんぼん, 6→ろっぽん, 8→はっぽん, 10→じゅっぽん. ③ 「みっぽん」— SAI, 「みっ」là cách đọc của 3 theo kiểu riêng nhưng không kết hợp với 「ぽん」; cũng không phải dạng tồn tại. ④ 「さんぽん」— SAI, 「ぽん」(vô thanh tắc) chỉ xuất hiện sau các số như 1, 6, 8, 10 chứ không phải sau 「さん」.",
+              "glosses": [
+                {
+                  "t": "水を",
+                  "read": "みずを",
+                  "vi": "nước (tân ngữ)"
+                },
+                {
+                  "t": "三本",
+                  "vi": "ba chai/cái (vật dài)"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                }
+              ]
+            },
+            {
+              "prompt": "今年は何年ですか。",
+              "ul": "何年",
+              "choices": [
+                "なんねん",
+                "なにねん",
+                "なんとし",
+                "いくねん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何年」hỏi về năm nào/năm bao nhiêu, đọc là 「なんねん」. ① 「なんねん」— ĐÚNG, 「なん」+「ねん」(on-reading của 年). ② 「なにねん」— SAI, trước lượng từ/đơn vị số lượng phải dùng 「なん」, không phải 「なに」. ③ 「なんとし」— SAI, 「とし」là kun-reading của 「年」(= một năm, tuổi…) nhưng trong từ hỏi 「何年」chuẩn phải đọc là 「なんねん」, không kết hợp với 「とし」. ④ 「いくねん」— SAI, không có từ 「いくねん」trong tiếng Nhật; 「いくつ」mới dùng hỏi số lượng chung chung.",
+              "glosses": [
+                {
+                  "t": "今年は",
+                  "read": "ことしは",
+                  "vi": "năm nay (chủ đề)"
+                },
+                {
+                  "t": "何年",
+                  "vi": "năm bao nhiêu / năm mấy"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là ... phải không"
+                }
+              ]
+            },
+            {
+              "prompt": "リンさんは大きい国から来ました。",
+              "ul": "大きい",
+              "choices": [
+                "おおきい",
+                "だいきい",
+                "おおぎい",
+                "たいきい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「大きい」là tính từ đuôi い nghĩa 'lớn/to', đọc là 「おおきい」. ① 「おおきい」— ĐÚNG, kun-reading chuẩn, cả hai 「お」đều ngắn trong phiên âm nhưng 「おお」biểu thị âm dài (大=おお). ② 「だいきい」— SAI, 「だい」là on-reading của 「大」(dùng trong từ ghép như 大学「だいがく」), nhưng tính từ い-form độc lập phải đọc theo kun-reading 「おおきい」. ③ 「おおぎい」— SAI, 「き」bị đổi thành 「ぎ」(hữu thanh hóa) là sai; không có biến âm ở đây. ④ 「たいきい」— SAI, 「たい」không phải on-reading của 「大」trong trường hợp tính từ này; hoàn toàn sai.",
+              "glosses": [
+                {
+                  "t": "リンさんは",
+                  "vi": "chị Lin (chủ đề)"
+                },
+                {
+                  "t": "大きい",
+                  "vi": "lớn, to"
+                },
+                {
+                  "t": "国から",
+                  "read": "くにから",
+                  "vi": "từ đất nước"
+                },
+                {
+                  "t": "来ました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                }
+              ]
+            },
+            {
+              "prompt": "きのう友だちと映画を三回見ました。",
+              "ul": "三回",
+              "choices": [
+                "さんかい",
+                "みかい",
+                "さんがい",
+                "みっかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「三回」nghĩa là 'ba lần', đọc là 「さんかい」. 「回」(lần/vòng) đọc là 「かい」và không biến âm sau 「さん」. ① 「さんかい」— ĐÚNG, cách đọc chuẩn. ② 「みかい」— SAI, 「み」là kun-reading của 「三」nhưng khi ghép với lượng từ 「かい」phải dùng on-reading 「さん」. ③ 「さんがい」— SAI, 「がい」(hữu thanh hóa của かい) không xảy ra với 「回」sau 「さん」; 「階」(tầng lầu) mới đọc là 「がい」sau 「さん」. ④ 「みっかい」— SAI, 「みっ」là dạng của 「三」trong 「三日」(みっか), nhưng không kết hợp với 「かい」.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "友だちと",
+                  "read": "ともだちと",
+                  "vi": "cùng với bạn bè"
+                },
+                {
+                  "t": "映画を",
+                  "read": "えいがを",
+                  "vi": "phim (tân ngữ)"
+                },
+                {
+                  "t": "三回",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "見ました",
+                  "read": "みました",
+                  "vi": "đã xem"
+                }
+              ]
+            },
+            {
+              "prompt": "この会社に社員が何人働いていますか。",
+              "ul": "会社",
+              "choices": [
+                "かいしゃ",
+                "えしゃ",
+                "かいさ",
+                "こうしゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会社」nghĩa là 'công ty', đọc là 「かいしゃ」. ① 「かいしゃ」— ĐÚNG, on-reading chuẩn: 「会」= かい, 「社」= しゃ. ② 「えしゃ」— SAI, 「え」không phải on-reading của 「会」; 「会」có hai on-reading: 「かい」và 「え」(chỉ dùng trong 「会釈えしゃく」), nhưng từ 「会社」luôn đọc là 「かいしゃ」. ③ 「かいさ」— SAI, 「さ」không phải on-reading của 「社」; 「社」đọc là 「しゃ」. ④ 「こうしゃ」— SAI, 「こう」là on-reading của 「校」(trường học) hoặc 「工」(công xưởng), không phải 「会」.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "này"
+                },
+                {
+                  "t": "会社に",
+                  "vi": "tại công ty (địa điểm)"
+                },
+                {
+                  "t": "社員が",
+                  "read": "しゃいんが",
+                  "vi": "nhân viên công ty"
+                },
+                {
+                  "t": "何人",
+                  "read": "なんにん",
+                  "vi": "bao nhiêu người"
+                },
+                {
+                  "t": "働いていますか",
+                  "read": "はたらいていますか",
+                  "vi": "đang làm việc không"
+                }
+              ]
+            },
+            {
+              "prompt": "新しい電車に乗りました。",
+              "ul": "新しい",
+              "choices": [
+                "あたらしい",
+                "にいしい",
+                "あたしい",
+                "しんしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「新しい」là tính từ nghĩa 'mới', đọc là 「あたらしい」. Đây là từ có cách đọc không theo quy tắc thông thường, cần ghi nhớ. ① 「あたらしい」— ĐÚNG, kun-reading chuẩn của 「新しい」. ② 「にいしい」— SAI, không có cách đọc nào của 「新」là 「にい」trong ngữ cảnh này; 「新」đọc là 「しん」(on) hoặc 「あたら」(kun). ③ 「あたしい」— SAI, thiếu âm 「ら」ở giữa; dễ nhầm vì nghe gần giống nhưng phải là 「あたら・しい」(4 mora rõ ràng). ④ 「しんしい」— SAI, 「しん」là on-reading của 「新」, nhưng tính từ い-form 「新しい」chỉ đọc theo kun-reading 「あたらしい」; 「しんしい」không phải từ tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "新しい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "電車に",
+                  "read": "でんしゃに",
+                  "vi": "lên tàu điện"
+                },
+                {
+                  "t": "乗りました",
+                  "read": "のりました",
+                  "vi": "đã lên/đi (phương tiện)"
+                }
+              ]
+            },
+            {
+              "prompt": "今月は何月ですか。",
+              "ul": "何月",
+              "choices": [
+                "なんがつ",
+                "なにがつ",
+                "なんつき",
+                "いくがつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何月」hỏi tháng mấy, đọc là 「なんがつ」. 「月」khi chỉ tháng trong năm đọc là 「がつ」(on-reading); sau 「なん」, 「かつ」biến âm thành 「がつ」. ① 「なんがつ」— ĐÚNG, biến âm đúng 「なん」+「がつ」. ② 「なにがつ」— SAI, trước đơn vị thời gian dùng 「なん」không phải 「なに」. ③ 「なんつき」— SAI, 「つき」là kun-reading của 「月」(= mặt trăng, tháng theo nghĩa chung) nhưng khi đếm tháng trong năm bắt buộc dùng 「がつ」. ④ 「いくがつ」— SAI, không có từ 「いくがつ」trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "今月は",
+                  "read": "こんげつは",
+                  "vi": "tháng này (chủ đề)"
+                },
+                {
+                  "t": "何月",
+                  "vi": "tháng mấy"
+                },
+                {
+                  "t": "ですか",
+                  "vi": "là ... phải không"
+                }
+              ]
+            },
+            {
+              "prompt": "小さい子どもが二人います。",
+              "ul": "二人",
+              "choices": [
+                "ふたり",
+                "ににん",
+                "にひと",
+                "ふたにん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「二人」nghĩa là 'hai người', đọc đặc biệt là 「ふたり」chứ không theo quy tắc on-reading thông thường. ① 「ふたり」— ĐÚNG, cách đọc đặc biệt (kun-reading thuần Nhật) của 「二人」. ② 「ににん」— SAI, đây là cách đọc theo on-reading (「に」+「にん」), nhưng 「二人」chỉ đọc là 「ふたり」; 「ににん」không phải từ tồn tại. ③ 「にひと」— SAI, 「ひと」là kun-reading của 「人」nhưng không kết hợp với 「に」để đếm người; dạng đúng là 「ふたり」(một từ thuần Nhật). ④ 「ふたにん」— SAI, pha trộn sai giữa kun-reading 「ふた」và 「にん」; 「二人」có hai cách: 「ふたり」(2 người) hoặc 「ふたつ」(2 vật), không có 「ふたにん」.",
+              "glosses": [
+                {
+                  "t": "小さい",
+                  "read": "ちいさい",
+                  "vi": "nhỏ, bé"
+                },
+                {
+                  "t": "子どもが",
+                  "read": "こどもが",
+                  "vi": "trẻ em (chủ ngữ)"
+                },
+                {
+                  "t": "二人",
+                  "vi": "hai người"
+                },
+                {
+                  "t": "います",
+                  "vi": "có, tồn tại (người/động vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "来年の四月に日本へ行きます。",
+              "ul": "来年",
+              "choices": [
+                "らいねん",
+                "きたねん",
+                "くるとし",
+                "らいとし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「来年」nghĩa là 'năm sau/sang năm', đọc là 「らいねん」. 「来」trong từ ghép chỉ thời gian tương lai đọc là 「らい」(on-reading), và 「年」đọc là 「ねん」. ① 「らいねん」— ĐÚNG, on-reading chuẩn của cả hai chữ. ② 「きたねん」— SAI, 「きた」là một dạng biến thể của 「来た」(đã đến) nhưng không phải cách đọc của 「来」trong từ ghép thời gian. ③ 「くるとし」— SAI, 「くる」là dạng từ điển của động từ 「来る」, không phải on-reading; 「とし」là kun-reading của 「年」nhưng không kết hợp với 「くる」để tạo từ thông thường. ④ 「らいとし」— SAI, mặc dù 「らい」đúng, nhưng 「とし」(kun-reading của 年) không dùng trong từ ghép này; phải là 「らいねん」.",
+              "glosses": [
+                {
+                  "t": "来年の",
+                  "vi": "của năm sau"
+                },
+                {
+                  "t": "四月に",
+                  "read": "しがつに",
+                  "vi": "vào tháng Tư"
+                },
+                {
+                  "t": "日本へ",
+                  "read": "にほんへ",
+                  "vi": "đến Nhật Bản"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "このクラスにがくせいがなんにんいますか。",
+              "ul": "なんにん",
+              "choices": [
+                "何人",
+                "何名",
+                "何回",
+                "何本"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「なんにん」là lượng từ đếm người, viết là 何人. Đáp án A (何人) đúng vì đây là lượng từ chỉ số người. B (何名・なんめい) cũng chỉ người nhưng trang trọng hơn, không phải từ đích của câu này; C (何回・なんかい) đếm số lần; D (何本・なんぼん) đếm đồ vật dài hình trụ như bút, chai — đều không phù hợp để đếm người trong ngữ cảnh N5 thông thường.",
+              "glosses": [
+                {
+                  "t": "このクラスに",
+                  "vi": "trong lớp này"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "何人",
+                  "read": "なんにん",
+                  "vi": "bao nhiêu người"
+                },
+                {
+                  "t": "いますか",
+                  "vi": "có … không?"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "がくせい",
+                  "vi": "học sinh, sinh viên"
+                },
+                {
+                  "t": "なんにん",
+                  "read": "なんにん",
+                  "vi": "bao nhiêu người"
+                }
+              ]
+            },
+            {
+              "prompt": "つくえのうえにほんがさんさつあります。",
+              "ul": "さんさつ",
+              "choices": [
+                "三冊",
+                "三枚",
+                "三本",
+                "三台"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「さんさつ」là lượng từ đếm sách/tập/quyển, viết là 三冊. A (三冊) đúng — lượng từ 「冊」dùng cho sách, tạp chí. B (三枚・さんまい) đếm vật mỏng phẳng như giấy, áo; C (三本・さんぼん) đếm vật dài hình trụ; D (三台・さんだい) đếm máy móc, xe cộ — đều không dùng cho sách.",
+              "glosses": [
+                {
+                  "t": "机",
+                  "read": "つくえ",
+                  "vi": "cái bàn"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "三冊",
+                  "read": "さんさつ",
+                  "vi": "ba quyển (sách)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (vật)"
+                },
+                {
+                  "t": "つくえ",
+                  "read": "つくえ",
+                  "vi": "cái bàn"
+                },
+                {
+                  "t": "うえ",
+                  "read": "うえ",
+                  "vi": "trên, phía trên"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "さんさつ",
+                  "read": "さんさつ",
+                  "vi": "ba quyển (lượng từ sách)"
+                }
+              ]
+            },
+            {
+              "prompt": "まいにちみずをはちはいのみます。",
+              "ul": "はちはい",
+              "choices": [
+                "八杯",
+                "八冊",
+                "八枚",
+                "八回"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「はちはい」là lượng từ đếm ly/cốc chất lỏng, viết là 八杯. A (八杯) đúng vì 「杯」đếm đồ uống theo ly/cốc/tô. B (八冊) đếm sách; C (八枚) đếm vật phẳng; D (八回・はちかい) đếm số lần — không dùng để đo lượng nước uống.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "水",
+                  "read": "みず",
+                  "vi": "nước"
+                },
+                {
+                  "t": "八杯",
+                  "read": "はちはい",
+                  "vi": "tám ly/cốc"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "まいにち",
+                  "vi": "hằng ngày"
+                },
+                {
+                  "t": "はちはい",
+                  "read": "はちはい",
+                  "vi": "tám ly/cốc"
+                },
+                {
+                  "t": "のみます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "みずを",
+                  "read": "みずを",
+                  "vi": "nước + を (trợ từ chỉ đối tượng, đi với のみます)"
+                }
+              ]
+            },
+            {
+              "prompt": "かのじょはいちねんにいっかいにほんへいきます。",
+              "ul": "いっかい",
+              "choices": [
+                "一回",
+                "一冊",
+                "一本",
+                "一杯"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「いっかい」là lượng từ đếm số lần, viết là 一回. A (一回) đúng vì 「回」đếm số lần của hành động. B (一冊) đếm sách; C (一本) đếm vật dài; D (一杯) đếm ly nước — không ai dùng để nói số lần đi Nhật.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "一年",
+                  "read": "いちねん",
+                  "vi": "một năm"
+                },
+                {
+                  "t": "一回",
+                  "read": "いっかい",
+                  "vi": "một lần"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "いちねん",
+                  "read": "いちねん",
+                  "vi": "một năm"
+                },
+                {
+                  "t": "いっかい",
+                  "read": "いっかい",
+                  "vi": "một lần"
+                },
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "かのじょは",
+                  "read": "かのじょは",
+                  "vi": "cô ấy + は (trợ từ chủ đề)"
+                }
+              ]
+            },
+            {
+              "prompt": "えきのまえにでんしゃがごだいとまっています。",
+              "ul": "ごだい",
+              "choices": [
+                "五台",
+                "五本",
+                "五枚",
+                "五冊"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ごだい」là lượng từ đếm máy móc, phương tiện, viết là 五台. A (五台) đúng vì 「台」dùng cho xe cộ, tàu, máy móc. B (五本) đếm vật dài hình trụ; C (五枚) đếm vật mỏng phẳng; D (五冊) đếm sách — đều không dùng cho tàu/xe.",
+              "glosses": [
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "五台",
+                  "read": "ごだい",
+                  "vi": "năm chiếc (tàu/xe)"
+                },
+                {
+                  "t": "止まっています",
+                  "read": "とまっています",
+                  "vi": "đang dừng"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "ごだい",
+                  "read": "ごだい",
+                  "vi": "năm chiếc (xe cộ, máy móc)"
+                },
+                {
+                  "t": "えきの",
+                  "read": "えきの",
+                  "vi": "của nhà ga (danh từ + の bổ nghĩa cho danh từ theo sau)"
+                },
+                {
+                  "t": "まえに",
+                  "read": "まえに",
+                  "vi": "ở phía trước + に (vị trí)"
+                },
+                {
+                  "t": "とまっています",
+                  "read": "とまっています",
+                  "vi": "〜ている (trạng thái đang diễn ra/kết quả) của とまる (dừng) = đang dừng/đang đỗ"
+                }
+              ]
+            },
+            {
+              "prompt": "はこのなかにかみがじゅうまいあります。",
+              "ul": "じゅうまい",
+              "choices": [
+                "十枚",
+                "十冊",
+                "十杯",
+                "十台"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「じゅうまい」là lượng từ đếm vật mỏng phẳng, viết là 十枚. A (十枚) đúng vì 「枚」dùng cho giấy, tờ, áo mỏng. B (十冊) đếm sách; C (十杯) đếm ly nước; D (十台) đếm máy móc — không dùng cho giấy tờ.",
+              "glosses": [
+                {
+                  "t": "箱",
+                  "read": "はこ",
+                  "vi": "cái hộp"
+                },
+                {
+                  "t": "紙",
+                  "read": "かみ",
+                  "vi": "tờ giấy"
+                },
+                {
+                  "t": "十枚",
+                  "read": "じゅうまい",
+                  "vi": "mười tờ"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (vật)"
+                },
+                {
+                  "t": "なか",
+                  "read": "なか",
+                  "vi": "bên trong"
+                },
+                {
+                  "t": "じゅうまい",
+                  "read": "じゅうまい",
+                  "vi": "mười tờ (lượng từ vật mỏng, phẳng)"
+                },
+                {
+                  "t": "はこの",
+                  "read": "はこの",
+                  "vi": "của cái hộp (danh từ + の)"
+                },
+                {
+                  "t": "かみが",
+                  "read": "かみが",
+                  "vi": "giấy + が (trợ từ chủ ngữ, đi với あります)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしのかいしゃにはしゃいんがひゃくにんいます。",
+              "ul": "ひゃくにん",
+              "choices": [
+                "百人",
+                "百名",
+                "百回",
+                "百冊"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ひゃくにん」là cách đếm một trăm người, viết là 百人. A (百人) đúng — 「人」là lượng từ phổ biến nhất để đếm người ở N5. B (百名・ひゃくめい) cũng đếm người nhưng mang sắc thái lịch sự/trang trọng, không phải từ đích ở câu này; C (百回) đếm số lần; D (百冊) đếm sách.",
+              "glosses": [
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "社員",
+                  "read": "しゃいん",
+                  "vi": "nhân viên công ty"
+                },
+                {
+                  "t": "百人",
+                  "read": "ひゃくにん",
+                  "vi": "một trăm người"
+                },
+                {
+                  "t": "います",
+                  "vi": "có (người/sinh vật)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "しゃいんが",
+                  "read": "しゃいんが",
+                  "vi": "nhân viên + が (chủ ngữ, đi với います)"
+                },
+                {
+                  "t": "ひゃくにん",
+                  "read": "ひゃくにん",
+                  "vi": "100 người (số đếm người, đuôi にん)"
+                }
+              ]
+            },
+            {
+              "prompt": "コーヒーをにはいのんだら、ねむれません。",
+              "ul": "にはい",
+              "choices": [
+                "二杯",
+                "二枚",
+                "二本",
+                "二回"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にはい」là lượng từ đếm hai cốc/tách, viết là 二杯. A (二杯) đúng vì 「杯」đếm đồ uống. B (二枚) đếm vật phẳng; C (二本・にほん) đếm vật dài — đây cũng có thể dùng cho chai nhưng 「杯」tự nhiên hơn với cà phê theo cốc; D (二回) đếm số lần — không phù hợp câu này.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "二杯",
+                  "read": "にはい",
+                  "vi": "hai tách/cốc"
+                },
+                {
+                  "t": "飲んだら",
+                  "read": "のんだら",
+                  "vi": "nếu uống"
+                },
+                {
+                  "t": "眠れません",
+                  "read": "ねむれません",
+                  "vi": "không thể ngủ được"
+                },
+                {
+                  "t": "にはい",
+                  "read": "にはい",
+                  "vi": "hai ly (cà phê)"
+                },
+                {
+                  "t": "のんだら",
+                  "read": "のんだら",
+                  "vi": "〜たら (nếu/khi đã ~) của のむ→のんだ = nếu/khi đã uống"
+                },
+                {
+                  "t": "ねむれません",
+                  "read": "ねむれません",
+                  "vi": "thể khả năng phủ định của ねむる (ngủ) = không ngủ được"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはまいしゅうさんかいおしえます。",
+              "ul": "さんかい",
+              "choices": [
+                "三回",
+                "三人",
+                "三冊",
+                "三枚"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「さんかい」là lượng từ đếm số lần, viết là 三回. A (三回) đúng — 「回」dùng để đếm số lần hành động lặp lại. B (三人) đếm người; C (三冊) đếm sách; D (三枚) đếม tờ/vật phẳng — không dùng để nói số lần dạy học.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "毎週",
+                  "read": "まいしゅう",
+                  "vi": "mỗi tuần"
+                },
+                {
+                  "t": "三回",
+                  "read": "さんかい",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "教えます",
+                  "read": "おしえます",
+                  "vi": "dạy"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "まいしゅう",
+                  "read": "まいしゅう",
+                  "vi": "hàng tuần"
+                },
+                {
+                  "t": "さんかい",
+                  "read": "さんかい",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "おしえます",
+                  "read": "おしえます",
+                  "vi": "dạy (thể ます của おしえる)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのみせでえんぴつをろっぽんかいました。",
+              "ul": "ろっぽん",
+              "choices": [
+                "六本",
+                "六枚",
+                "六冊",
+                "六台"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ろっぽん」là lượng từ đếm vật dài hình trụ (bút, chai…), viết là 六本. A (六本) đúng vì bút chì là vật dài — dùng 「本」. B (六枚) đếm vật mỏng phẳng; C (六冊) đếm sách; D (六台) đếm máy móc — đều không dùng cho bút chì.",
+              "glosses": [
+                {
+                  "t": "あの店",
+                  "read": "あのみせ",
+                  "vi": "cửa hàng kia"
+                },
+                {
+                  "t": "鉛筆",
+                  "read": "えんぴつ",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "六本",
+                  "read": "ろっぽん",
+                  "vi": "sáu cái (vật dài)"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                },
+                {
+                  "t": "えんぴつ",
+                  "read": "えんぴつ",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "ろっぽん",
+                  "read": "ろっぽん",
+                  "vi": "sáu cây (lượng từ vật dài)"
+                },
+                {
+                  "t": "みせで",
+                  "read": "みせで",
+                  "vi": "cửa hàng + で (trợ từ chỉ nơi diễn ra hành động)"
+                },
+                {
+                  "t": "かいました",
+                  "read": "かいました",
+                  "vi": "đã mua (thể quá khứ của かいます/かう)"
+                }
+              ]
+            },
+            {
+              "prompt": "クラスにおとこのひとがなんにんいますか。",
+              "ul": "なんにん",
+              "choices": [
+                "何人",
+                "何枚",
+                "何本",
+                "何台"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「なんにん」là lượng từ hỏi số người, viết là 何人. A (何人) đúng — đây là câu hỏi về số người trong lớp nên dùng 「人」. B (何枚) hỏi số vật phẳng; C (何本) hỏi số vật dài; D (何台) hỏi số máy/xe — đều không hỏi về số người.",
+              "glosses": [
+                {
+                  "t": "クラス",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "男の人",
+                  "read": "おとこのひと",
+                  "vi": "đàn ông / nam giới"
+                },
+                {
+                  "t": "何人",
+                  "read": "なんにん",
+                  "vi": "bao nhiêu người"
+                },
+                {
+                  "t": "いますか",
+                  "vi": "có … không?"
+                },
+                {
+                  "t": "おとこのひと",
+                  "read": "おとこのひと",
+                  "vi": "người đàn ông, con trai"
+                },
+                {
+                  "t": "なんにん",
+                  "read": "なんにん",
+                  "vi": "bao nhiêu người"
+                }
+              ]
+            },
+            {
+              "prompt": "やまださんはもういっかいえいがをみました。",
+              "ul": "いっかい",
+              "choices": [
+                "一回",
+                "一冊",
+                "一枚",
+                "一杯"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「いっかい」là lượng từ đếm số lần, viết là 一回. A (一回) đúng — xem phim thêm một lần nữa, dùng 「回」để đếm lần. B (一冊) đếm sách; C (一枚) đếm vật phẳng; D (一杯) đếm ly nước — đều không phù hợp ngữ nghĩa.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "もう",
+                  "vi": "thêm một lần nữa / rồi"
+                },
+                {
+                  "t": "一回",
+                  "read": "いっかい",
+                  "vi": "một lần"
+                },
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim (điện ảnh)"
+                },
+                {
+                  "t": "見ました",
+                  "read": "みました",
+                  "vi": "đã xem"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "いっかい",
+                  "read": "いっかい",
+                  "vi": "một lần (nữa)"
+                },
+                {
+                  "t": "えいが",
+                  "read": "えいが",
+                  "vi": "phim, điện ảnh"
+                },
+                {
+                  "t": "みました",
+                  "read": "みました",
+                  "vi": "đã xem (thể quá khứ của みます/みる)"
+                }
+              ]
+            },
+            {
+              "prompt": "そのふくやで Tシャツをよんまいかいました。",
+              "ul": "よんまい",
+              "choices": [
+                "四枚",
+                "四本",
+                "四冊",
+                "四台"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「よんまい」là lượng từ đếm bốn cái vật mỏng phẳng (giấy, áo), viết là 四枚. A (四枚) đúng vì áo là vật phẳng mỏng — dùng 「枚」. B (四本) đếm vật dài; C (四冊) đếm sách; D (四台) đếm máy móc — đều không hợp với chiếc áo.",
+              "glosses": [
+                {
+                  "t": "服屋",
+                  "read": "ふくや",
+                  "vi": "cửa hàng quần áo"
+                },
+                {
+                  "t": "Tシャツ",
+                  "vi": "áo phông"
+                },
+                {
+                  "t": "四枚",
+                  "read": "よんまい",
+                  "vi": "bốn cái (vật phẳng/áo)"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                },
+                {
+                  "t": "ふくや",
+                  "read": "ふくや",
+                  "vi": "cửa hàng quần áo"
+                },
+                {
+                  "t": "よんまい",
+                  "read": "よんまい",
+                  "vi": "bốn cái (lượng từ vật mỏng như áo)"
+                },
+                {
+                  "t": "かいました",
+                  "read": "かいました",
+                  "vi": "đã mua (thể quá khứ của かいます/かう)"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはいちにちにおちゃをごはいのみます。",
+              "ul": "ごはい",
+              "choices": [
+                "五杯",
+                "五本",
+                "五枚",
+                "五回"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ごはい」là lượng từ đếm năm tách/cốc, viết là 五杯. A (五杯) đúng vì trà uống theo cốc/tách — dùng 「杯」. B (五本) đếm vật dài (có thể dùng cho chai nhưng không dùng cho tách); C (五枚) đếm vật phẳng; D (五回) đếm số lần — không diễn đạt được lượng trà uống.",
+              "glosses": [
+                {
+                  "t": "彼",
+                  "read": "かれ",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "一日",
+                  "read": "いちにち",
+                  "vi": "một ngày"
+                },
+                {
+                  "t": "お茶",
+                  "read": "おちゃ",
+                  "vi": "trà"
+                },
+                {
+                  "t": "五杯",
+                  "read": "ごはい",
+                  "vi": "năm tách/cốc"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "いちにち",
+                  "read": "いちにち",
+                  "vi": "một ngày"
+                },
+                {
+                  "t": "おちゃ",
+                  "read": "おちゃ",
+                  "vi": "trà"
+                },
+                {
+                  "t": "ごはい",
+                  "read": "ごはい",
+                  "vi": "năm ly (trà)"
+                },
+                {
+                  "t": "のみます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "anh ấy + は (trợ từ chủ đề)"
+                }
+              ]
+            },
+            {
+              "prompt": "としょかんでほんをななさつかりました。",
+              "ul": "ななさつ",
+              "choices": [
+                "七冊",
+                "七枚",
+                "七本",
+                "七回"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ななさつ」là lượng từ đếm bảy quyển sách, viết là 七冊. A (七冊) đúng vì 「冊」là lượng từ chuyên dùng cho sách, tạp chí. B (七枚) đếm vật phẳng (tờ giấy, áo); C (七本) đếm vật dài hình trụ (bút, cây); D (七回) đếm số lần — không dùng để đếm sách.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "七冊",
+                  "read": "ななさつ",
+                  "vi": "bảy quyển (sách)"
+                },
+                {
+                  "t": "借りました",
+                  "read": "かりました",
+                  "vi": "đã mượn"
+                },
+                {
+                  "t": "としょかん",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "ほん",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "ななさつ",
+                  "read": "ななさつ",
+                  "vi": "7 cuốn (số đếm sách, đuôi さつ)"
+                },
+                {
+                  "t": "かりました",
+                  "read": "かりました",
+                  "vi": "đã mượn (thể quá khứ của かります/かりる)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "この学校に学生が＿います。",
+              "choices": [
+                "たくさん",
+                "すこし",
+                "いつも",
+                "もっと"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về số lượng người trong trường. 「たくさん」 nghĩa là 'nhiều', phù hợp để miêu tả số lượng học sinh đông. 「すこし」 nghĩa là 'một chút/ít' — sai vì câu nói về trường học thường hàm ý số lượng, và câu hỏi kiểm tra đúng nghĩa 'nhiều' chứ không phải 'ít'. 「いつも」 nghĩa là 'luôn luôn' — là trạng từ chỉ thời gian, không chỉ số lượng. 「もっと」 nghĩa là 'hơn nữa/thêm' — dùng để so sánh hoặc yêu cầu thêm, không miêu tả số lượng cụ thể.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "này"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "たくさん",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "います",
+                  "vi": "có (người/động vật)"
+                }
+              ]
+            },
+            {
+              "stem": "りんごを＿ください。",
+              "choices": [
+                "みっつ",
+                "さんぼん",
+                "にまい",
+                "よんさつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "りんご (táo) là vật thể tròn, đếm bằng lượng từ thuần Nhật 「ひとつ・ふたつ・みっつ…」. 「みっつ」 = 3 cái, đúng cho táo. 「さんぼん」(三本) dùng cho vật dài như bút, chai — sai. 「にまい」(二枚) dùng cho vật phẳng như giấy, áo — sai. 「よんさつ」(四冊) dùng cho sách, vở — sai.",
+              "glosses": [
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "みっつ",
+                  "vi": "ba cái (lượng từ tròn, nhỏ)"
+                },
+                {
+                  "t": "ください",
+                  "vi": "xin hãy cho (tôi)"
+                }
+              ]
+            },
+            {
+              "stem": "先生が黒板に字を＿かきました。",
+              "choices": [
+                "たくさん",
+                "すこし",
+                "ちょっと",
+                "あまり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Giáo viên viết nhiều chữ lên bảng là hành động tự nhiên trong lớp học. 「たくさん」 = nhiều, phù hợp. 「すこし」 = ít, không sai về ngữ pháp nhưng câu này hỏi đáp án 'nhiều'. 「ちょっと」 = một chút, tương tự 'ít', không đúng nghĩa cần điền. 「あまり」 = không mấy (dùng với phủ định 〜ない), không dùng với động từ khẳng định.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "黒板",
+                  "read": "こくばん",
+                  "vi": "bảng đen"
+                },
+                {
+                  "t": "字",
+                  "read": "じ",
+                  "vi": "chữ"
+                },
+                {
+                  "t": "かきました",
+                  "vi": "đã viết"
+                },
+                {
+                  "t": "たくさん",
+                  "vi": "nhiều"
+                }
+              ]
+            },
+            {
+              "stem": "朝のラッシュアワーで、この電車には乗客が＿乗っています。",
+              "choices": [
+                "おおぜい",
+                "みんな",
+                "いくつ",
+                "なんにん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おおぜい」(大勢) là từ chuyên dùng để miêu tả 'nhiều người', chỉ kết hợp với danh từ chỉ người — đây là đáp án duy nhất đúng. ①「おおぜい」— ĐÚNG: miêu tả số lượng hành khách đông trong giờ cao điểm buổi sáng, dùng riêng cho người. ②「みんな」= tất cả mọi người — không dùng để miêu tả số lượng đông; 「みんな乗っています」có nghĩa 'mọi người đều đang đi' (nói về một nhóm đã xác định), không diễn đạt được ý 'nhiều người'. ③「いくつ」= mấy cái — dùng để hỏi số lượng đồ vật, không miêu tả người và không đứng trước động từ 乗っています. ④「なんにん」(何人) = mấy người — là từ hỏi số lượng, không phải từ miêu tả số lượng; không dùng trong câu trần thuật.",
+              "glosses": [
+                {
+                  "t": "朝のラッシュアワーで",
+                  "vi": "trong giờ cao điểm buổi sáng"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "乗客が",
+                  "read": "じょうきゃくが",
+                  "vi": "hành khách (chủ ngữ)"
+                },
+                {
+                  "t": "おおぜい",
+                  "vi": "đông người (nhiều người)"
+                },
+                {
+                  "t": "乗っています",
+                  "read": "のっています",
+                  "vi": "đang lên (tàu/xe)"
+                }
+              ]
+            },
+            {
+              "stem": "コーヒーを＿飲みますか。",
+              "choices": [
+                "なんばい",
+                "なんまい",
+                "なんほん",
+                "なんさつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đồ uống như cà phê, trà đếm bằng 「〜杯(はい/ばい/ぱい)」. 「なんばい」(何杯) = mấy tách, đúng. 「なんまい」(何枚) = mấy tờ — dùng cho vật phẳng như giấy, sai. 「なんほん」(何本) = mấy cái/cây — dùng cho vật dài như chai, bút, sai. 「なんさつ」(何冊) = mấy quyển — dùng cho sách, vở, sai.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "なんばい",
+                  "read": "何杯",
+                  "vi": "mấy tách/ly"
+                },
+                {
+                  "t": "飲みますか",
+                  "read": "のみますか",
+                  "vi": "uống ... không?"
+                }
+              ]
+            },
+            {
+              "stem": "きょうは水を＿飲みました。",
+              "choices": [
+                "にはい",
+                "にほん",
+                "にまい",
+                "にだい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「水」(nước) uống bằng cốc/ly nên đếm bằng 「〜杯」. 「にはい」(二杯) = hai ly, đúng. 「にほん」(二本) = hai cái dài (bút, chai) — đây dùng cho chai nước nếu nói 'chai', nhưng câu hỏi đang đếm lần uống/ly, sai. 「にまい」(二枚) = hai tờ — vật phẳng, sai. 「にだい」(二台) = hai chiếc — dùng cho máy móc, xe, sai.",
+              "glosses": [
+                {
+                  "t": "水",
+                  "read": "みず",
+                  "vi": "nước"
+                },
+                {
+                  "t": "にはい",
+                  "read": "二杯",
+                  "vi": "hai tách/ly"
+                },
+                {
+                  "t": "飲みました",
+                  "read": "のみました",
+                  "vi": "đã uống"
+                },
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                }
+              ]
+            },
+            {
+              "stem": "えんぴつが＿あります。",
+              "choices": [
+                "さんぼん",
+                "さんまい",
+                "さんだい",
+                "さんさつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bút chì là vật dài, mảnh nên đếm bằng 「〜本(ほん/ぼん/ぽん)」. 「さんぼん」(三本) = ba cái (bút chì), đúng. 「さんまい」(三枚) = ba tờ — vật phẳng, sai. 「さんだい」(三台) = ba chiếc máy/xe, sai. 「さんさつ」(三冊) = ba quyển sách, sai.",
+              "glosses": [
+                {
+                  "t": "えんぴつ",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "さんぼん",
+                  "read": "三本",
+                  "vi": "ba cái (vật dài)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (đồ vật)"
+                }
+              ]
+            },
+            {
+              "stem": "この会社に社員が＿います。",
+              "choices": [
+                "ひゃくにん",
+                "ひゃくほん",
+                "ひゃくまい",
+                "ひゃくさつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đếm người dùng 「〜人(にん/り)」. 「ひゃくにん」(百人) = 100 người, đúng. 「ひゃくほん」(百本) = 100 cái dài — dùng cho bút, cây, sai. 「ひゃくまい」(百枚) = 100 tờ — vật phẳng, sai. 「ひゃくさつ」(百冊) = 100 quyển sách, sai.",
+              "glosses": [
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "社員",
+                  "read": "しゃいん",
+                  "vi": "nhân viên"
+                },
+                {
+                  "t": "ひゃくにん",
+                  "read": "百人",
+                  "vi": "một trăm người"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "có/đang ở (tồn tại - dùng cho người, động vật)"
+                }
+              ]
+            },
+            {
+              "stem": "本が＿あります。",
+              "choices": [
+                "ごさつ",
+                "ごほん",
+                "ごまい",
+                "ごにん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Sách, vở đếm bằng 「〜冊(さつ)」. 「ごさつ」(五冊) = năm quyển, đúng. 「ごほん」(五本) = năm cái dài — dùng cho bút chì, cây, sai. 「ごまい」(五枚) = năm tờ — vật phẳng, sai. 「ごにん」(五人) = năm người — đếm người, sai.",
+              "glosses": [
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "ごさつ",
+                  "read": "五冊",
+                  "vi": "năm quyển"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (đồ vật)"
+                }
+              ]
+            },
+            {
+              "stem": "かみが＿あります。",
+              "choices": [
+                "じゅうまい",
+                "じゅうさつ",
+                "じゅうにん",
+                "じゅうほん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Giấy là vật phẳng, mỏng nên đếm bằng 「〜枚(まい)」. 「じゅうまい」(十枚) = mười tờ, đúng. 「じゅうさつ」(十冊) = mười quyển — dùng cho sách, sai. 「じゅうにん」(十人) = mười người — đếm người, sai. 「じゅうほん」(十本) = mười cái dài — bút, chai, sai.",
+              "glosses": [
+                {
+                  "t": "かみ",
+                  "vi": "giấy"
+                },
+                {
+                  "t": "じゅうまい",
+                  "read": "十枚",
+                  "vi": "mười tờ"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (đồ vật)"
+                }
+              ]
+            },
+            {
+              "stem": "きのう映画を＿見ました。",
+              "choices": [
+                "いっかい",
+                "いっぽん",
+                "いちまい",
+                "いちにん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「〜回(かい)」 đếm số lần thực hiện hành động. 「いっかい」(一回) = một lần (xem phim), đúng. 「いっぽん」(一本) = một cái dài — dùng cho bút, cây; đôi khi dùng cho phim nhưng ít phổ biến ở N5 và câu này kiểm tra 「回」. 「いちまい」(一枚) = một tờ — vật phẳng, sai. 「いちにん」(一人) = một người — đếm người, sai.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "いっかい",
+                  "read": "一回",
+                  "vi": "một lần"
+                },
+                {
+                  "t": "見ました",
+                  "read": "みました",
+                  "vi": "đã xem"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                }
+              ]
+            },
+            {
+              "stem": "日本語のクラスに＿来ましたか。",
+              "choices": [
+                "なんかい",
+                "なんまい",
+                "なんさつ",
+                "なんだい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về số lần đến lớp dùng 「何回(なんかい)」 = mấy lần. 「なんまい」(何枚) = mấy tờ — vật phẳng, sai. 「なんさつ」(何冊) = mấy quyển sách, sai. 「なんだい」(何台) = mấy chiếc máy/xe, sai.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "クラス",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "なんかい",
+                  "read": "何回",
+                  "vi": "mấy lần"
+                },
+                {
+                  "t": "来ましたか",
+                  "read": "きましたか",
+                  "vi": "đã đến ... chưa/đã đến mấy lần?"
+                }
+              ]
+            },
+            {
+              "stem": "つくえの上にりんごが＿あります。",
+              "choices": [
+                "ふたつ",
+                "ふたまい",
+                "ふたほん",
+                "ふたさつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Táo (りんご) là vật thể tròn, nhỏ, đếm bằng lượng từ thuần Nhật 「ひとつ・ふたつ…」. 「ふたつ」 = hai cái, đúng. 「ふたまい」— không tồn tại dạng từ ghép này trong tiếng Nhật chuẩn (「枚」 dùng số Hán như 「にまい」). 「ふたほん」— tương tự, không tồn tại; đúng là 「にほん」. 「ふたさつ」— không tồn tại; đúng là 「にさつ」. Các lượng từ Hán không kết hợp với 「ふた〜」.",
+              "glosses": [
+                {
+                  "t": "つくえ",
+                  "vi": "bàn"
+                },
+                {
+                  "t": "上",
+                  "read": "うえ",
+                  "vi": "trên"
+                },
+                {
+                  "t": "ふたつ",
+                  "vi": "hai cái (lượng từ tròn)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (đồ vật)"
+                },
+                {
+                  "t": "りんご",
+                  "read": "りんご",
+                  "vi": "quả táo"
+                }
+              ]
+            },
+            {
+              "stem": "この国の人口は＿ですか。",
+              "choices": [
+                "どのくらい",
+                "どんな",
+                "どれ",
+                "どこ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Hỏi về số lượng/mức độ (dân số là con số) dùng 「どのくらい」 = khoảng bao nhiêu. 「どんな」 = như thế nào (hỏi tính chất/đặc điểm), không dùng để hỏi số lượng. 「どれ」 = cái nào (hỏi lựa chọn trong danh sách), không dùng để hỏi số lượng. 「どこ」 = ở đâu (hỏi địa điểm), không liên quan đến số lượng.",
+              "glosses": [
+                {
+                  "t": "国",
+                  "read": "くに",
+                  "vi": "đất nước"
+                },
+                {
+                  "t": "人口",
+                  "read": "じんこう",
+                  "vi": "dân số"
+                },
+                {
+                  "t": "どのくらい",
+                  "vi": "khoảng bao nhiêu/bao nhiêu"
+                }
+              ]
+            },
+            {
+              "stem": "スーパーで牛乳を＿買いました。",
+              "choices": [
+                "いっぽん",
+                "いっさつ",
+                "いちまい",
+                "いちだい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Chai/hộp sữa là vật dài, trụ tròn nên đếm bằng 「〜本(ほん/ぼん/ぽん)」. 「いっぽん」(一本) = một chai, đúng. 「いっさつ」(一冊) = một quyển sách — sai. 「いちまい」(一枚) = một tờ — vật phẳng, sai. 「いちだい」(一台) = một chiếc máy/xe — sai.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "牛乳",
+                  "read": "ぎゅうにゅう",
+                  "vi": "sữa (bò)"
+                },
+                {
+                  "t": "いっぽん",
+                  "read": "一本",
+                  "vi": "một chai/hộp (vật dài)"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "りんごを三個食べました。",
+              "choices": [
+                "りんごを三つ食べました。",
+                "りんごを三枚食べました。",
+                "りんごを三本食べました。",
+                "りんごを三杯食べました。"
+              ],
+              "answer": 0,
+              "pt": "〜個（lượng từ vật tròn）",
+              "explain": "「三個（さんこ）」là lượng từ 「個（こ）」đếm vật tròn nhỏ như táo, trứng, kẹo. Câu gốc có nghĩa 'ăn ba quả táo'. Đáp án A 「三つ（みっつ）」là cách đếm thuần Nhật cũng có nghĩa 'ba cái' – hoàn toàn đồng nghĩa khi dùng với vật tròn như táo. Đáp án B 「三枚（さんまい）」là lượng từ cho vật phẳng/mỏng (tờ giấy, áo) – sai. Đáp án C 「三本（さんぼん）」là lượng từ cho vật dài (bút, chai) – sai. Đáp án D 「三杯（さんばい）」là lượng từ cho đồ uống/cốc – sai.",
+              "glosses": [
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "三個",
+                  "read": "さんこ",
+                  "vi": "ba quả (lượng từ vật tròn)"
+                },
+                {
+                  "t": "食べました",
+                  "read": "たべました",
+                  "vi": "đã ăn"
+                },
+                {
+                  "t": "三つ",
+                  "read": "みっつ",
+                  "vi": "ba cái (cách đếm thuần Nhật)"
+                },
+                {
+                  "t": "三枚食べました",
+                  "read": "さんまいたべました",
+                  "vi": "đã ăn 3 tờ (lượng từ 枚 dùng cho vật mỏng dẹt, sai với táo)"
+                },
+                {
+                  "t": "三本食べました",
+                  "read": "さんぼんたべました",
+                  "vi": "đã ăn 3 cây/chai (lượng từ 本 dùng cho vật dài, sai với táo)"
+                },
+                {
+                  "t": "三杯食べました",
+                  "read": "さんばいたべました",
+                  "vi": "đã ăn 3 chén/cốc (lượng từ 杯 dùng cho đồ đựng, sai với táo)"
+                }
+              ]
+            },
+            {
+              "prompt": "このクラスに学生が二十人います。",
+              "choices": [
+                "このクラスの学生は二十人です。",
+                "このクラスに学生が二十本います。",
+                "このクラスに学生が二十枚います。",
+                "このクラスに学生が二十個います。"
+              ],
+              "answer": 0,
+              "pt": "〜人（đếm người）+ NがNにいます（ôn B10）",
+              "explain": "Câu gốc dùng 「NがNにいます」(B10) diễn tả 'trong lớp này có 20 học sinh'. Đáp án A 「このクラスの学生は二十人です」đổi cấu trúc sang 「NはNです」nhưng vẫn truyền đạt đúng số lượng học sinh – đồng nghĩa. Đáp án B dùng 「二十本」(vật dài) sai lượng từ cho người. Đáp án C dùng 「二十枚」(vật phẳng) sai. Đáp án D dùng 「二十個」(vật tròn) sai.",
+              "glosses": [
+                {
+                  "t": "このクラス",
+                  "vi": "lớp học này"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh / sinh viên"
+                },
+                {
+                  "t": "二十人",
+                  "read": "にじゅうにん",
+                  "vi": "hai mươi người"
+                },
+                {
+                  "t": "います",
+                  "vi": "có (người/động vật ở nơi đó)"
+                },
+                {
+                  "t": "二十本います",
+                  "read": "にじゅっぽんいます",
+                  "vi": "có 20 cây/chai (lượng từ 本, sai khi đếm người)"
+                },
+                {
+                  "t": "二十枚います",
+                  "read": "にじゅうまいいます",
+                  "vi": "có 20 tờ/tấm (lượng từ 枚, sai khi đếm người)"
+                },
+                {
+                  "t": "二十個います",
+                  "read": "にじゅっこいます",
+                  "vi": "có 20 cái/quả (lượng từ 個, sai khi đếm người)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは頭が痛いから、授業に出ません。",
+              "choices": [
+                "田中さんは頭が痛くて、授業に出ません。",
+                "田中さんは頭が痛いです。授業に出ません。",
+                "田中さんは頭が痛いので、授業に出ます。",
+                "田中さんは頭が痛くないから、授業に出ません。"
+              ],
+              "answer": 0,
+              "pt": "〜から（lý do, ôn B9）",
+              "explain": "Câu gốc: 'Vì Tanaka đau đầu nên không đến lớp' (B9 〜から). Đáp án A dùng 「〜くて」(dạng て của tính từ い) cũng nối nguyên nhân với kết quả – nghĩa tương đương. Đáp án B chỉ là hai câu riêng lẻ, không có từ nối rõ ràng – không đồng nghĩa hoàn toàn. Đáp án C dùng 「ので」nhưng vế sau là 「出ます」(đi học) – sai nghĩa. Đáp án D dùng 「痛くない」(không đau) – mâu thuẫn với câu gốc.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "頭が痛い",
+                  "read": "あたまがいたい",
+                  "vi": "đau đầu"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì… nên (nối nguyên nhân)"
+                },
+                {
+                  "t": "授業に出ません",
+                  "read": "じゅぎょうにでません",
+                  "vi": "không đến lớp"
+                },
+                {
+                  "t": "痛くない",
+                  "read": "いたくない",
+                  "vi": "〜くない = phủ định của tính từ đuôi い ở thể thường (không ~)"
+                }
+              ]
+            },
+            {
+              "prompt": "コーヒーを一日に三杯飲みます。",
+              "choices": [
+                "毎日コーヒーを三杯飲みます。",
+                "一日にコーヒーを三個飲みます。",
+                "一日にコーヒーを三本飲みます。",
+                "一日にコーヒーを三枚飲みます。"
+              ],
+              "answer": 0,
+              "pt": "Nに〜回Vます（mỗi N làm ~ lần）+ 〜杯（lượng từ cốc）",
+              "explain": "Câu gốc 「一日に三杯飲みます」dùng cấu trúc 「Nに〜杯Vます」= 'mỗi ngày uống ba tách'. Đáp án A 「毎日コーヒーを三杯飲みます」thay 「一日に」bằng 「毎日」– nghĩa hoàn toàn tương đương. Đáp án B dùng 「三個」(vật tròn) – không đúng lượng từ cho đồ uống. Đáp án C dùng 「三本」(vật dài, như lon/chai) – có thể dùng cho chai nhưng không đúng với tách cà phê trong văn cảnh này. Đáp án D dùng 「三枚」(vật phẳng) – hoàn toàn sai.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "一日に",
+                  "read": "いちにちに",
+                  "vi": "mỗi ngày / trong một ngày"
+                },
+                {
+                  "t": "三杯",
+                  "read": "さんばい",
+                  "vi": "ba cốc/tách"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "三杯飲みます",
+                  "read": "さんばいのみます",
+                  "vi": "uống 3 chén/cốc"
+                },
+                {
+                  "t": "三個飲みます",
+                  "read": "さんこのみます",
+                  "vi": "uống 3 cái/quả (lượng từ 個 sai khi đếm ly cà phê)"
+                },
+                {
+                  "t": "三本飲みます",
+                  "read": "さんぼんのみます",
+                  "vi": "uống 3 chai/cây (lượng từ 本)"
+                },
+                {
+                  "t": "三枚飲みます",
+                  "read": "さんまいのみます",
+                  "vi": "uống 3 tờ/miếng (lượng từ 枚 sai khi đếm ly cà phê)"
+                }
+              ]
+            },
+            {
+              "prompt": "山田さんは二十五歳です。",
+              "choices": [
+                "山田さんの年は二十五です。",
+                "山田さんは二十五人です。",
+                "山田さんは二十五本です。",
+                "山田さんは二十五個です。"
+              ],
+              "answer": 0,
+              "pt": "〜歳（tuổi）",
+              "explain": "「〜歳（さい）」là lượng từ chỉ tuổi. Câu gốc: 'Yamada 25 tuổi'. Đáp án A 「山田さんの年は二十五です」dùng 「年（とし）」= tuổi, bỏ 「歳」nhưng nghĩa vẫn là '25 tuổi' – đồng nghĩa. Đáp án B dùng 「二十五人」(25 người) – sai, đếm người không phải tuổi. Đáp án C dùng 「二十五本」– sai lượng từ. Đáp án D dùng 「二十個」– sai lượng từ.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "二十五歳",
+                  "read": "にじゅうごさい",
+                  "vi": "25 tuổi"
+                },
+                {
+                  "t": "年",
+                  "read": "とし",
+                  "vi": "tuổi / năm tuổi"
+                },
+                {
+                  "t": "二十五人です",
+                  "read": "にじゅうごにんです",
+                  "vi": "là 25 người (lượng từ đếm người, sai khi nói tuổi)"
+                },
+                {
+                  "t": "二十五本です",
+                  "read": "にじゅうごほんです",
+                  "vi": "là 25 cây/chai (lượng từ 本, sai khi nói tuổi)"
+                },
+                {
+                  "t": "二十五個です",
+                  "read": "にじゅうごこです",
+                  "vi": "là 25 cái/quả (lượng từ 個, sai khi nói tuổi)"
+                }
+              ]
+            },
+            {
+              "prompt": "机の上に本が三冊あります。",
+              "choices": [
+                "机の上の本は三冊です。",
+                "机の上に本が三枚あります。",
+                "机の上に本が三個あります。",
+                "机の上に本が三本あります。"
+              ],
+              "answer": 0,
+              "pt": "〜冊（ôn lượng từ sách）+ NがNにあります（ôn B10）",
+              "explain": "Câu gốc dùng B10 「NがNにあります」= 'trên bàn có ba quyển sách'. Đáp án A đổi sang 「机の上の本は三冊です」– vẫn diễn đạt đúng số lượng sách trên bàn, đồng nghĩa. Đáp án B 「三枚」dùng lượng từ vật phẳng (tờ giấy) – sai cho sách. Đáp án C 「三個」lượng từ vật tròn – sai. Đáp án D 「三本」lượng từ vật dài (bút, chai) – sai cho sách, sách dùng 「冊」.",
+              "glosses": [
+                {
+                  "t": "机の上",
+                  "read": "つくえのうえ",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "三冊",
+                  "read": "さんさつ",
+                  "vi": "ba quyển (lượng từ sách)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (vật ở nơi đó)"
+                },
+                {
+                  "t": "三枚あります",
+                  "read": "さんまいあります",
+                  "vi": "có 3 tờ/tấm (lượng từ 枚, sai với sách nên dùng 冊)"
+                },
+                {
+                  "t": "三個あります",
+                  "read": "さんこあります",
+                  "vi": "có 3 cái/quả (lượng từ 個, sai với sách)"
+                },
+                {
+                  "t": "三本あります",
+                  "read": "さんぼんあります",
+                  "vi": "có 3 cây/chai (lượng từ 本, sai với sách)"
+                }
+              ]
+            },
+            {
+              "prompt": "犬と猫とどちらが好きですか。",
+              "choices": [
+                "犬と猫では、どちらのほうが好きですか。",
+                "犬と猫はどちらも好きですか。",
+                "犬か猫か、どちらが好きですか。",
+                "犬と猫とどちらも好きですか。"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか（A và B, cái nào hơn）",
+              "explain": "Câu gốc 「犬と猫とどちらが好きですか」là mẫu so sánh 2 vế chuẩn N5 hỏi 'thích chó hay mèo hơn?'. Đáp án A 「犬と猫では、どちらのほうが好きですか」thêm 「では」và 「のほう」nhưng nghĩa so sánh hoàn toàn giống – đồng nghĩa. Đáp án B 「どちらも好きですか」hỏi 'cả hai có thích không?' – khác nghĩa, không phải so sánh. Đáp án C 「犬か猫か」dùng 「か…か」(hoặc) mang sắc thái khác, không phải mẫu so sánh chuẩn 「NとNとどちら」. Đáp án D 「どちらも好きですか」lại hỏi 'thích cả hai không?' – không phải so sánh.",
+              "glosses": [
+                {
+                  "t": "犬",
+                  "read": "いぬ",
+                  "vi": "chó"
+                },
+                {
+                  "t": "猫",
+                  "read": "ねこ",
+                  "vi": "mèo"
+                },
+                {
+                  "t": "どちらが好きですか",
+                  "read": "どちらがすきですか",
+                  "vi": "thích cái nào hơn?"
+                },
+                {
+                  "t": "どちらが",
+                  "vi": "cái nào hơn (nhấn mạnh so sánh)",
+                  "read": "どちらが"
+                },
+                {
+                  "t": "どちらのほうが",
+                  "read": "どちらのほうが",
+                  "vi": "AとBでは、どちらのほうが〜 = giữa A và B, cái/bên nào ~ hơn (mẫu so sánh khi hỏi 2 đối tượng)"
+                },
+                {
+                  "t": "はどちらも",
+                  "read": "はどちらも",
+                  "vi": "AとBはどちらも〜 = cả A và B đều ~ (khẳng định cả hai)"
+                },
+                {
+                  "t": "とどちらも",
+                  "read": "とどちらも",
+                  "vi": "AとBとどちらも〜 = cả A và B đều ~ (dùng nối 2 danh từ trước どちらも)"
+                }
+              ]
+            },
+            {
+              "prompt": "スミスさんは寿司が好きだから、よく食べます。",
+              "choices": [
+                "スミスさんは寿司が好きで、よく食べます。",
+                "スミスさんは寿司が嫌いだから、よく食べます。",
+                "スミスさんは寿司が好きだから、あまり食べません。",
+                "スミスさんは寿司が好きですから、食べません。"
+              ],
+              "answer": 0,
+              "pt": "NはNが好きです（ôn B9）+ 〜から（ôn B9）",
+              "explain": "Câu gốc: 'Vì Smith thích sushi nên thường ăn' (B9: 好きです + から). Đáp án A dùng 「好きで」(dạng て của な tính từ) nối hai vế, nghĩa tương đương – đồng nghĩa. Đáp án B dùng 「嫌いだから」(vì ghét) – mâu thuẫn nghĩa. Đáp án C dùng 「あまり食べません」(ít ăn) – trái ngược với 「よく食べます」. Đáp án D dùng 「好きですから」nhưng vế sau là 「食べません」(không ăn) – mâu thuẫn nghĩa.",
+              "glosses": [
+                {
+                  "t": "スミスさん",
+                  "vi": "anh/chị Smith"
+                },
+                {
+                  "t": "寿司",
+                  "read": "すし",
+                  "vi": "sushi"
+                },
+                {
+                  "t": "好きだから",
+                  "read": "すきだから",
+                  "vi": "vì thích nên"
+                },
+                {
+                  "t": "よく食べます",
+                  "read": "よくたべます",
+                  "vi": "thường xuyên ăn"
+                },
+                {
+                  "t": "嫌い",
+                  "read": "きらい",
+                  "vi": "ghét, không thích (tính từ, trái nghĩa của 好き)"
+                },
+                {
+                  "t": "あまり",
+                  "read": "あまり",
+                  "vi": "không ... lắm (phó từ đi kèm phủ định)"
+                },
+                {
+                  "t": "食べません",
+                  "read": "たべません",
+                  "vi": "không ăn (thể ます phủ định của 食べる)"
+                },
+                {
+                  "t": "好きですから",
+                  "read": "すきですから",
+                  "vi": "〜ですから = vì là ~ (nêu lý do, thể lịch sự trước から)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生の部屋に椅子が四つあります。",
+              "choices": [
+                "先生の部屋の椅子は四つです。",
+                "先生の部屋に椅子が四本あります。",
+                "先生の部屋に椅子が四枚あります。",
+                "先生の部屋に椅子が四杯あります。"
+              ],
+              "answer": 0,
+              "pt": "NがNにあります（ôn B10）+ đếm vật thuần Nhật",
+              "explain": "Câu gốc dùng B10 「NがNにあります」= 'trong phòng giáo viên có 4 chiếc ghế', đếm bằng 「四つ」(thuần Nhật). Đáp án A đổi sang 「先生の部屋の椅子は四つです」– cùng số lượng, đồng nghĩa. Đáp án B 「四本」lượng từ vật dài – không dùng cho ghế. Đáp án C 「四枚」lượng từ vật phẳng – sai. Đáp án D 「四杯」lượng từ đồ uống – sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "先生の部屋",
+                  "read": "せんせいのへや",
+                  "vi": "phòng của giáo viên"
+                },
+                {
+                  "t": "椅子",
+                  "read": "いす",
+                  "vi": "ghế"
+                },
+                {
+                  "t": "四つ",
+                  "read": "よっつ",
+                  "vi": "bốn cái (đếm thuần Nhật)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (vật ở nơi đó)"
+                },
+                {
+                  "t": "四本あります",
+                  "read": "よんほんあります",
+                  "vi": "có 4 cây/chai (lượng từ 本, sai với ghế)"
+                },
+                {
+                  "t": "四枚あります",
+                  "read": "よんまいあります",
+                  "vi": "có 4 tờ/tấm (lượng từ 枚, sai với ghế)"
+                },
+                {
+                  "t": "四杯あります",
+                  "read": "よんはいあります",
+                  "vi": "có 4 chén/cốc (lượng từ 杯, sai với ghế)"
+                }
+              ]
+            },
+            {
+              "prompt": "このセーターは安いです。",
+              "choices": [
+                "このセーターは高くないです。",
+                "このセーターは高いです。",
+                "このセーターは安くないです。",
+                "このセーターは高くて安いです。"
+              ],
+              "answer": 0,
+              "pt": "NはAいです（ôn B8） + NはAくないです（ôn B8）",
+              "explain": "B8: 「安い（やすい）」= rẻ; phủ định của 「高い（たかい）」= đắt là 「高くない」= không đắt. 'Rẻ' và 'không đắt' là đồng nghĩa trong văn cảnh này. Đáp án A 「高くないです」= không đắt – đồng nghĩa với 'rẻ'. Đáp án B 「高いです」= đắt – nghĩa trái ngược. Đáp án C 「安くないです」= không rẻ – cũng trái nghĩa. Đáp án D 「高くて安い」= vừa đắt vừa rẻ – mâu thuẫn logic.",
+              "glosses": [
+                {
+                  "t": "セーター",
+                  "vi": "áo len"
+                },
+                {
+                  "t": "安いです",
+                  "read": "やすいです",
+                  "vi": "rẻ"
+                },
+                {
+                  "t": "高くないです",
+                  "read": "たかくないです",
+                  "vi": "không đắt"
+                },
+                {
+                  "t": "高いです",
+                  "read": "たかいです",
+                  "vi": "đắt"
+                }
+              ]
+            },
+            {
+              "prompt": "一週間に三回運動します。",
+              "choices": [
+                "週に三回、運動します。",
+                "一週間に三枚運動します。",
+                "一週間に三個運動します。",
+                "一週間に三本運動します。"
+              ],
+              "answer": 0,
+              "pt": "Nに〜回Vます（mỗi N làm ~ lần）",
+              "explain": "Câu gốc 「一週間に三回運動します」= 'mỗi tuần tập thể dục 3 lần' dùng cấu trúc 「Nに〜回Vます」. Đáp án A 「週に三回、運動します」rút gọn 「一週間」thành 「週」– nghĩa giống hệt. Đáp án B 「三枚」lượng từ vật phẳng – không đếm 'lần'. Đáp án C 「三個」lượng từ vật tròn – sai. Đáp án D 「三本」lượng từ vật dài – sai.",
+              "glosses": [
+                {
+                  "t": "一週間に",
+                  "read": "いっしゅうかんに",
+                  "vi": "mỗi tuần / trong một tuần"
+                },
+                {
+                  "t": "三回",
+                  "read": "さんかい",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "運動します",
+                  "read": "うんどうします",
+                  "vi": "tập thể dục"
+                },
+                {
+                  "t": "週に",
+                  "read": "しゅうに",
+                  "vi": "mỗi tuần (rút gọn)"
+                },
+                {
+                  "t": "三枚運動します",
+                  "read": "さんまいうんどうします",
+                  "vi": "tập thể dục 3 tờ (lượng từ 枚 dùng sai, vô nghĩa)"
+                },
+                {
+                  "t": "三個運動します",
+                  "read": "さんこうんどうします",
+                  "vi": "tập thể dục 3 cái (lượng từ 個 dùng sai, vô nghĩa)"
+                },
+                {
+                  "t": "三本運動します",
+                  "read": "さんぼんうんどうします",
+                  "vi": "tập thể dục 3 cây/chai (lượng từ 本 dùng sai, vô nghĩa)"
+                }
+              ]
+            },
+            {
+              "prompt": "公園に子どもや犬などがいます。",
+              "choices": [
+                "公園には子どもと犬などがいます。",
+                "公園に子どもも犬もいません。",
+                "公園に子どもだけがいます。",
+                "公園に子どもや犬がありません。"
+              ],
+              "answer": 0,
+              "pt": "NやN（など）（ôn B10）+ NがNにいます（ôn B10）",
+              "explain": "Câu gốc dùng B10 「NやN（など）」liệt kê không đầy đủ + 「NがNにいます」. Đáp án A thay 「や」bằng 「と」(và – liệt kê đầy đủ hơn) nhưng vẫn giữ 「など」để ngụ ý còn nữa, nghĩa gần tương đương – đồng nghĩa nhất. Đáp án B dùng 「〜もいません」= cả hai đều không có – sai nghĩa. Đáp án C 「子どもだけ」= chỉ có trẻ em – thu hẹp nghĩa quá. Đáp án D dùng 「あります」cho người/động vật – sai ngữ pháp (phải dùng 「います」).",
+              "glosses": [
+                {
+                  "t": "公園",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "犬",
+                  "read": "いぬ",
+                  "vi": "chó"
+                },
+                {
+                  "t": "〜や〜など",
+                  "vi": "… và … v.v. (liệt kê không đầy đủ)"
+                },
+                {
+                  "t": "います",
+                  "vi": "có (người/động vật ở nơi đó)"
+                },
+                {
+                  "t": "などが",
+                  "read": "などが",
+                  "vi": "〜など = vân vân, những thứ tương tự + が (liệt kê không đầy đủ)"
+                },
+                {
+                  "t": "犬もいません",
+                  "read": "いぬもいません",
+                  "vi": "〜も〜もいません = cả ~ và ~ đều không có (dùng cho người/động vật, phủ định いる)"
+                },
+                {
+                  "t": "子どもだけが",
+                  "read": "こどもだけが",
+                  "vi": "〜だけが = chỉ có ~ (giới hạn, loại trừ những cái khác)"
+                },
+                {
+                  "t": "犬がありません",
+                  "read": "いぬがありません",
+                  "vi": "〜がありません = không có ~ (đúng ngữ pháp cho vật vô tri; dùng sai khi chủ ngữ là động vật/người vì phải là いません)"
+                }
+              ]
+            },
+            {
+              "prompt": "りんごとみかんとどちらが甘いですか。",
+              "choices": [
+                "りんごとみかんでは、どちらのほうが甘いですか。",
+                "りんごとみかんはどちらも甘いですか。",
+                "りんごかみかんか、甘いですか。",
+                "りんごとみかんとどちらも甘いですか。"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか（so sánh A và B）",
+              "explain": "Câu gốc hỏi 'táo hay quýt, cái nào ngọt hơn?' theo mẫu 「NとNとどちらが〜ですか」. Đáp án A 「りんごとみかんでは、どちらのほうが甘いですか」thêm 「では」và 「のほう」– câu hỏi so sánh hoàn toàn tương đương. Đáp án B 「どちらも甘いですか」hỏi 'cả hai có ngọt không?' – không phải so sánh. Đáp án C 「りんごかみかんか、甘いですか」hỏi 'táo hay quýt, ngọt không?' – nghĩa khác, không rõ so sánh. Đáp án D 「どちらも甘いですか」lại hỏi về cả hai chứ không so sánh.",
+              "glosses": [
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "みかん",
+                  "vi": "quýt"
+                },
+                {
+                  "t": "どちらが甘いですか",
+                  "read": "どちらがあまいですか",
+                  "vi": "cái nào ngọt hơn?"
+                },
+                {
+                  "t": "どちらのほうが",
+                  "read": "どちらのほうが",
+                  "vi": "AとBでは、どちらのほうが〜 = giữa A và B, cái nào ~ hơn (mẫu so sánh)"
+                },
+                {
+                  "t": "はどちらも",
+                  "read": "はどちらも",
+                  "vi": "AとBはどちらも〜 = cả A và B đều ~"
+                },
+                {
+                  "t": "とどちらも",
+                  "read": "とどちらも",
+                  "vi": "AとBとどちらも〜 = cả A và B đều ~ (nối 2 danh từ trước どちらも)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは背が高いです。",
+              "choices": [
+                "田中さんは背の高い人です。",
+                "田中さんは背が高くないです。",
+                "田中さんは背が低いです。",
+                "田中さんは背が高かったです。"
+              ],
+              "answer": 0,
+              "pt": "NはNがAいです（ôn B8 + B9）",
+              "explain": "Câu gốc 「背が高いです」= 'cao người' (B8: tính từ い). Đáp án A 「背の高い人です」= 'là người cao' – diễn đạt lại bằng danh từ hoá, nghĩa tương đương. Đáp án B 「背が高くないです」= 'không cao' – phủ định, trái nghĩa. Đáp án C 「背が低いです」= 'thấp người' – trái nghĩa hoàn toàn. Đáp án D 「高かったです」= 'đã cao (quá khứ)' – thay đổi thời gian, không đồng nghĩa.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "背が高いです",
+                  "read": "せがたかいです",
+                  "vi": "cao người"
+                },
+                {
+                  "t": "背の高い人",
+                  "read": "せのたかいひと",
+                  "vi": "người cao"
+                },
+                {
+                  "t": "低いです",
+                  "read": "ひくいです",
+                  "vi": "thấp (chiều cao, trái nghĩa của 高い)"
+                },
+                {
+                  "t": "高くないです",
+                  "read": "たかくないです",
+                  "vi": "〜くないです = không ~ (phủ định lịch sự tính từ đuôi い)"
+                },
+                {
+                  "t": "高かったです",
+                  "read": "たかかったです",
+                  "vi": "〜かったです = đã ~ (quá khứ của tính từ đuôi い)"
+                }
+              ]
+            },
+            {
+              "prompt": "この薬は一日に二回飲んでください。",
+              "choices": [
+                "この薬は毎日二回飲んでください。",
+                "この薬は一日に二杯飲んでください。",
+                "この薬は一日に二枚飲んでください。",
+                "この薬は一日に二個飲んでください。"
+              ],
+              "answer": 0,
+              "pt": "Nに〜回Vます（mỗi N làm ~ lần）",
+              "explain": "Câu gốc 「一日に二回飲んでください」= 'mỗi ngày uống 2 lần' dùng cấu trúc 「Nに〜回Vます」. Đáp án A 「毎日二回飲んでください」thay 「一日に」bằng 「毎日」– nghĩa hoàn toàn giống. Đáp án B 「二杯」= hai cốc/tách – đây là lượng từ cho đồ uống (thể tích), không đếm 'lần uống'. Đáp án C 「二枚」= lượng từ vật phẳng – sai hoàn toàn. Đáp án D 「二個」= lượng từ vật tròn – sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "一日に",
+                  "read": "いちにちに",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "二回",
+                  "read": "にかい",
+                  "vi": "hai lần"
+                },
+                {
+                  "t": "飲んでください",
+                  "read": "のんでください",
+                  "vi": "xin hãy uống"
+                },
+                {
+                  "t": "毎日二回",
+                  "read": "まいにちにかい",
+                  "vi": "mỗi ngày hai lần"
+                },
+                {
+                  "t": "毎日二回飲んでください",
+                  "read": "まいにちにかいのんでください",
+                  "vi": "hãy uống 2 lần mỗi ngày"
+                },
+                {
+                  "t": "二杯飲んでください",
+                  "read": "にはいのんでください",
+                  "vi": "hãy uống 2 chén/cốc (lượng từ 杯 dùng sai cho thuốc)"
+                },
+                {
+                  "t": "二枚飲んでください",
+                  "read": "にまいのんでください",
+                  "vi": "hãy uống 2 tờ/miếng (lượng từ 枚 dùng sai cho thuốc)"
+                },
+                {
+                  "t": "二個飲んでください",
+                  "read": "にこのんでください",
+                  "vi": "hãy uống 2 viên/cái (lượng từ 個 dùng sai văn cảnh)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 11 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "毎日＿回歯を磨きます。",
+              "choices": [
+                "2",
+                "2枚",
+                "2本",
+                "2個"
+              ],
+              "answer": 0,
+              "pt": "Nに〜回Vます (lượng từ 回)",
+              "explain": "「回（かい）」là lượng từ đếm số lần. Câu hỏi về hành động lặp lại bao nhiêu lần nên dùng 「〜回」. 「枚（まい）」đếm vật mỏng phẳng (tờ giấy, áo), 「本（ほん）」đếm vật dài (bút, chai), 「個（こ）」đếm vật tròn nhỏ — cả ba đều không phù hợp với việc đếm lần hành động.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "回",
+                  "read": "かい",
+                  "vi": "lần"
+                },
+                {
+                  "t": "歯を磨きます",
+                  "read": "はをみがきます",
+                  "vi": "đánh răng"
+                }
+              ]
+            },
+            {
+              "stem": "A「リンゴとミカンとどちらが好きですか。」B「＿が好きです。」",
+              "choices": [
+                "リンゴのほう",
+                "リンゴより",
+                "リンゴだから",
+                "リンゴや"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか",
+              "explain": "Khi trả lời câu hỏi 「どちらが〜ですか」(cái nào hơn?), ta dùng 「〜のほう」để chỉ phía được chọn. 「より」là trợ từ so sánh dùng trong câu có cấu trúc khác (AよりBのほうが), không dùng một mình để trả lời. 「だから」nghĩa là \"vì vậy\", không liên quan. 「や」là \"và v.v.\", không dùng khi chọn một phía.",
+              "glosses": [
+                {
+                  "t": "リンゴ",
+                  "vi": "táo"
+                },
+                {
+                  "t": "ミカン",
+                  "vi": "quýt"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "cái nào, bên nào"
+                },
+                {
+                  "t": "のほう",
+                  "vi": "(phía) ... hơn"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "stem": "このクラスに学生が＿います。",
+              "choices": [
+                "20人",
+                "20枚",
+                "20個",
+                "20本"
+              ],
+              "answer": 0,
+              "pt": "〜人 (lượng từ người) + NがNにいます",
+              "explain": "「人（にん・り）」là lượng từ đếm người. Câu dùng 「がいます」(người/động vật tồn tại) kết hợp lượng từ chỉ người. 「枚」đếm vật mỏng, 「個」đếm vật tròn nhỏ, 「本」đếm vật dài — tất cả đều không dùng để đếm người.",
+              "glosses": [
+                {
+                  "t": "このクラスに",
+                  "vi": "trong lớp này"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "20人",
+                  "read": "にじゅうにん",
+                  "vi": "20 người"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "có/đang ở (tồn tại - dùng cho người, động vật)"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは＿歳ですか。",
+              "choices": [
+                "何",
+                "どれ",
+                "どんな",
+                "どの"
+              ],
+              "answer": 0,
+              "pt": "〜歳 (lượng từ tuổi)",
+              "explain": "「何歳（なんさい）」là cách hỏi tuổi chuẩn trong tiếng Nhật. 「何」đi với lượng từ để tạo thành câu hỏi số lượng/tuổi/lần... 「どれ」hỏi \"cái nào\" (chọn từ nhiều thứ), 「どんな」hỏi \"loại gì\" (tính chất), 「どの」hỏi \"... nào\" (đứng trước danh từ, không kết hợp với 歳 để hỏi tuổi).",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "何歳",
+                  "read": "なんさい",
+                  "vi": "mấy tuổi"
+                }
+              ]
+            },
+            {
+              "stem": "コーヒーを＿飲みました。",
+              "choices": [
+                "3杯",
+                "3枚",
+                "3本",
+                "3回"
+              ],
+              "answer": 0,
+              "pt": "〜杯 (lượng từ cốc/ly)",
+              "explain": "「杯（はい）」là lượng từ đếm ly/cốc/bát đồ uống hoặc súp. Cà phê là đồ uống đựng trong cốc nên dùng 「杯」. 「枚」đếm vật mỏng phẳng, 「本」đếm vật dài (chai thì dùng 本 nhưng ở đây chủ thể là hành động uống theo ly), 「回」đếm số lần hành động — không dùng để đếm lượng đồ uống.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "3杯",
+                  "read": "さんばい",
+                  "vi": "3 cốc/ly"
+                },
+                {
+                  "t": "飲みました",
+                  "read": "のみました",
+                  "vi": "đã uống"
+                }
+              ]
+            },
+            {
+              "stem": "A「りんごとバナナとどちらが安いですか。」B「＿バナナのほうが安いです。」",
+              "choices": [
+                "そうですね、",
+                "だから、",
+                "でも、",
+                "から、"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか — cấu trúc trả lời",
+              "explain": "「そうですね」là cách mở đầu câu trả lời khi cần suy nghĩ một chút, rất tự nhiên trong hội thoại. 「だから」(vì vậy) và 「から」(vì) là liên từ chỉ nguyên nhân, không dùng để bắt đầu câu trả lời so sánh. 「でも」nghĩa là \"nhưng\" — không phù hợp ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "バナナ",
+                  "vi": "chuối"
+                },
+                {
+                  "t": "安い",
+                  "read": "やすい",
+                  "vi": "rẻ"
+                },
+                {
+                  "t": "そうですね",
+                  "vi": "để xem nào / ừ nhỉ"
+                },
+                {
+                  "t": "どちら",
+                  "read": "どちら",
+                  "vi": "cái nào (trong hai cái)"
+                },
+                {
+                  "t": "ほう",
+                  "read": "ほう",
+                  "vi": "phía, bên (dùng trong so sánh 〜のほうが)"
+                }
+              ]
+            },
+            {
+              "stem": "鉛筆が机の上に＿あります。",
+              "choices": [
+                "3本",
+                "3枚",
+                "3個",
+                "3杯"
+              ],
+              "answer": 0,
+              "pt": "〜本 (lượng từ vật dài) + NがNにあります",
+              "explain": "「本（ほん）」đếm vật dài, mảnh như bút chì, bút mực, chai, cây. Bút chì là vật dài nên dùng 「本」. 「枚」dùng cho vật mỏng phẳng (tờ giấy), 「個」dùng cho vật tròn nhỏ (kẹo, trứng), 「杯」dùng cho đồ uống/súp trong cốc bát.",
+              "glosses": [
+                {
+                  "t": "鉛筆",
+                  "read": "えんぴつ",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "机の上に",
+                  "read": "つくえのうえに",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "3本",
+                  "read": "さんぼん",
+                  "vi": "3 cây (bút)"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại (vật vô tri)"
+                }
+              ]
+            },
+            {
+              "stem": "この写真は＿きれいです。とても好きです。",
+              "choices": [
+                "とても",
+                "あまり",
+                "あまり〜ない",
+                "ぜんぜん"
+              ],
+              "answer": 0,
+              "pt": "ôn B8 NはAいです + B9 〜が好きです",
+              "explain": "「とても」nghĩa là \"rất\", dùng với tính từ ở thể khẳng định — hoàn toàn phù hợp với 「きれいです」. 「あまり」và 「あまり〜ない」dùng trong câu phủ định (あまり〜くないです), không dùng với thể khẳng định. 「ぜんぜん」(hoàn toàn không) cũng chỉ dùng với câu phủ định.",
+              "glosses": [
+                {
+                  "t": "この写真",
+                  "read": "このしゃしん",
+                  "vi": "bức ảnh này"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "きれいです",
+                  "vi": "đẹp"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "stem": "一週間に＿日本語を勉強しますか。",
+              "choices": [
+                "何回",
+                "何枚",
+                "何個",
+                "何本"
+              ],
+              "answer": 0,
+              "pt": "Nに〜回Vます (hỏi tần suất)",
+              "explain": "「何回（なんかい）」hỏi số lần thực hiện hành động trong một khoảng thời gian. Cấu trúc 「Nに〜回Vます」có nghĩa \"mỗi N làm ~ lần\". 「何枚」hỏi mấy tờ, 「何個」hỏi mấy cái/quả, 「何本」hỏi mấy cây/chai — không phù hợp khi hỏi về số lần học.",
+              "glosses": [
+                {
+                  "t": "一週間に",
+                  "read": "いっしゅうかんに",
+                  "vi": "mỗi tuần"
+                },
+                {
+                  "t": "何回",
+                  "read": "なんかい",
+                  "vi": "mấy lần"
+                },
+                {
+                  "t": "日本語を勉強します",
+                  "read": "にほんごをべんきょうします",
+                  "vi": "học tiếng Nhật"
+                }
+              ]
+            },
+            {
+              "stem": "机の上にノートや教科書＿あります。",
+              "choices": [
+                "などが",
+                "のが",
+                "からが",
+                "ではが"
+              ],
+              "answer": 0,
+              "pt": "ôn B10 NやN（など）",
+              "explain": "「やN（など）」là cấu trúc liệt kê không đầy đủ, nghĩa là \"... và v.v.\". Trợ từ 「が」đứng sau 「など」vì 「など」đóng vai trò chủ ngữ của 「あります」. 「のが」dùng để danh từ hóa, không phải liệt kê. 「からが」và 「ではが」không tồn tại như cụm trợ từ hợp lệ trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "机の上に",
+                  "read": "つくえのうえに",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "ノート",
+                  "vi": "vở"
+                },
+                {
+                  "t": "教科書",
+                  "read": "きょうかしょ",
+                  "vi": "sách giáo khoa"
+                },
+                {
+                  "t": "などが",
+                  "vi": "và v.v. (chủ ngữ)"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại (vật vô tri)"
+                }
+              ]
+            },
+            {
+              "stem": "A「山田さんはどこにいますか。」B「図書館＿います。」",
+              "choices": [
+                "に",
+                "で",
+                "が",
+                "は"
+              ],
+              "answer": 0,
+              "pt": "ôn B10 NがNにいます",
+              "explain": "「NにいますVいます」dùng trợ từ 「に」để chỉ vị trí tồn tại của người/động vật. Câu trả lời cho 「どこにいますか」phải dùng 「に」. 「で」chỉ nơi diễn ra hành động (học ở thư viện → 図書館で勉強します), không phải nơi tồn tại. 「が」là trợ từ chủ ngữ, không chỉ vị trí. 「は」là trợ từ chủ đề, không đứng sau danh từ chỉ nơi chốn để diễn tả vị trí tồn tại.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "います",
+                  "vi": "có (người/động vật) ở"
+                }
+              ]
+            },
+            {
+              "stem": "卵を＿買いました。",
+              "choices": [
+                "6個",
+                "6枚",
+                "6本",
+                "6回"
+              ],
+              "answer": 0,
+              "pt": "〜個 (lượng từ vật tròn)",
+              "explain": "「個（こ）」đếm vật tròn nhỏ như trứng, táo, kẹo. 「枚」dùng cho vật mỏng phẳng như giấy, vé. 「本」dùng cho vật dài như bút, chai. 「回」đếm số lần — không thể đếm trứng bằng 「回」.",
+              "glosses": [
+                {
+                  "t": "卵",
+                  "read": "たまご",
+                  "vi": "trứng"
+                },
+                {
+                  "t": "6個",
+                  "read": "ろっこ",
+                  "vi": "6 quả/cái"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                }
+              ]
+            },
+            {
+              "stem": "A「すしとてんぷらとどちらが好きですか。」B「＿すしのほうが好きです。」",
+              "choices": [
+                "わたしは",
+                "わたしが",
+                "わたしで",
+                "わたしに"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか + B9 NはNが好きです",
+              "explain": "Chủ đề của câu trả lời là \"tôi\" nên dùng 「は」làm trợ từ chủ đề. Câu hoàn chỉnh: 「わたしはすしのほうが好きです」— \"Tôi thích sushi hơn\". 「わたしが」nhấn mạnh chủ ngữ nhưng không tự nhiên khi trả lời câu hỏi sở thích trong giao tiếp thông thường. 「わたしで」và 「わたしに」sai về mặt ngữ pháp trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "すし",
+                  "vi": "sushi"
+                },
+                {
+                  "t": "てんぷら",
+                  "vi": "tempura"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "cái nào"
+                },
+                {
+                  "t": "のほうが好きです",
+                  "read": "のほうがすきです",
+                  "vi": "thích ... hơn"
+                },
+                {
+                  "t": "好きですか",
+                  "read": "すきですか",
+                  "vi": "thích ~ không? (好きです + か, câu hỏi thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんはスポーツが嫌いです。＿毎日テレビを見ます。",
+              "choices": [
+                "だから",
+                "でも",
+                "そして",
+                "から"
+              ],
+              "answer": 0,
+              "pt": "ôn B9 〜が嫌いです + B9 〜から (lý do)",
+              "explain": "「だから」là liên từ đứng đầu câu, nghĩa là \"vì vậy / do đó\", nối nguyên nhân ở câu trước với kết quả ở câu sau. Ghét thể thao → vì vậy mỗi ngày xem TV — logic nhân quả hợp lý. 「でも」nghĩa là \"nhưng\" — tương phản, không phù hợp. 「そして」nghĩa là \"và rồi\" — liệt kê tuần tự, không chỉ nguyên nhân-kết quả. 「から」(vì) đứng sau mệnh đề nguyên nhân, không đứng đầu câu kết quả như vị trí trong câu này.",
+              "glosses": [
+                {
+                  "t": "スポーツ",
+                  "vi": "thể thao"
+                },
+                {
+                  "t": "嫌いです",
+                  "read": "きらいです",
+                  "vi": "ghét"
+                },
+                {
+                  "t": "だから",
+                  "vi": "vì vậy"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "テレビを見ます",
+                  "read": "テレビをみます",
+                  "vi": "xem TV"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                }
+              ]
+            },
+            {
+              "stem": "この映画のチケットを＿買いましたか。",
+              "choices": [
+                "何枚",
+                "何個",
+                "何本",
+                "何回"
+              ],
+              "answer": 0,
+              "pt": "〜枚 (lượng từ vật mỏng/tờ/vé)",
+              "explain": "「枚（まい）」là lượng từ đếm vật mỏng phẳng: tờ giấy, vé, áo sơ mi, đĩa CD. Vé phim (チケット) là vật mỏng phẳng → dùng 「枚」. 「個」dùng cho vật tròn nhỏ. 「本」dùng cho vật dài. 「回」đếm số lần hành động, không đếm số lượng vé.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "チケット",
+                  "vi": "vé"
+                },
+                {
+                  "t": "何枚",
+                  "read": "なんまい",
+                  "vi": "mấy tờ/tấm"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "りんごを",
+                "食べました。"
+              ],
+              "pieces": [
+                "三個",
+                "と",
+                "みかんを",
+                "二個"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "〜個 (lượng từ vật tròn)",
+              "explain": "Câu đúng: 「りんごを三個とみかんを二個食べました。」— Đã ăn 3 quả táo và 2 quả quýt.\nSắp xếp: ô 1=「三個」★, ô 2=「と」, ô 3=「みかんを」, ô 4=「二個」\nKhung câu bắt đầu bằng 「りんごを」 và kết thúc bằng vị ngữ 「食べました」, nên khoảng trống ở giữa cần các lượng từ và danh từ chỉ đối tượng đồ ăn. Trợ từ 「と」 bắt buộc dính ngay sau lượng từ 「三個」 thành cụm 「三個と」 để nối hai vế, còn danh từ 「みかんを」 phải dính liền trước lượng từ 「二個」 thành cụm 「みかんを二個」. Theo trật tự danh từ + lượng từ trong tiếng Nhật, ta ghép cụm 「三個と」 vào ngay sau 「りんごを」, tiếp đến là cụm 「みかんを二個」 đứng trước vị ngữ 「食べました」. Do đó, mảnh 「三個」 nằm ở ô 1 (ô ★) và không thể đặt ở ô khác vì nó cần đứng ngay sau 「りんごを」 để chỉ số lượng cho táo và kết hợp với 「と」 ở ô 2.",
+              "glosses": [
+                {
+                  "t": "りんご",
+                  "vi": "quả táo"
+                },
+                {
+                  "t": "食べました",
+                  "read": "たべました",
+                  "vi": "đã ăn"
+                },
+                {
+                  "t": "三個",
+                  "read": "さんこ",
+                  "vi": "ba cái/quả"
+                },
+                {
+                  "t": "みかん",
+                  "vi": "quả quýt"
+                },
+                {
+                  "t": "二個",
+                  "read": "にこ",
+                  "vi": "hai cái/quả"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "ください。"
+              ],
+              "pieces": [
+                "この",
+                "紙を",
+                "三枚",
+                "コピーして"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "〜枚 (lượng từ tờ giấy)",
+              "explain": "Câu đúng: 「この紙を三枚コピーしてください。」— Hãy photo tờ giấy này 3 tờ. 「枚」dùng cho vật mỏng dẹt như giấy, tờ, tấm. Sắp thứ tự: ô0「この」→ ô1「紙を」→ ô2「三枚」→ ô3「コピーして」. Không thể nói 「三本」(dùng cho vật dài) hay 「三個」(vật tròn/nhỏ).",
+              "glosses": [
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn, xin hãy..."
+                },
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "紙",
+                  "read": "かみ",
+                  "vi": "tờ giấy"
+                },
+                {
+                  "t": "三枚",
+                  "read": "さんまい",
+                  "vi": "ba tờ"
+                },
+                {
+                  "t": "コピーして",
+                  "vi": "photo/sao chép"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "冷蔵庫に",
+                "あります。"
+              ],
+              "pieces": [
+                "ビールが",
+                "五本",
+                "と",
+                "ジュースが三本"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "〜本 (lượng từ vật dài) + NやN",
+              "explain": "Câu đúng: 「冷蔵庫にビールが五本とジュースが三本あります。」— Trong tủ lạnh có 5 chai bia và 3 chai nước.\nSắp xếp: ô 1=「ビールが」, ô 2=「五本」★, ô 3=「と」, ô 4=「ジュースが三本」\nKhung câu bắt đầu bằng địa điểm 「冷蔵庫に」 và kết thúc bằng vị ngữ 「あります」, cần sắp xếp các danh từ và lượng từ chỉ đồ uống vào khoảng trống ở giữa. Mảnh lượng từ 「五本」 bắt buộc phải dính ngay sau danh từ chủ thể 「ビールが」 thành cụm 「ビールが五本」, đồng thời trợ từ nối 「と」 phải dính ngay sau lượng từ này để kết nối với đồ uống thứ hai. Theo trật tự tiếng Nhật, vế thứ nhất 「ビールが五本と」 được đặt phía trước, rồi nối liền với khối mảnh 「ジュースが三本」 đứng ngay trước động từ 「あります」. Vì vậy, mảnh 「五本」 phải đứng ở ô 2 (ô ★) và không thể chuyển sang ô khác vì nó đi liền sau 「ビールが」 ở ô 1 để bổ nghĩa số lượng và làm tiền đề cho trợ từ 「と」 ở ô 3.",
+              "glosses": [
+                {
+                  "t": "冷蔵庫",
+                  "read": "れいぞうこ",
+                  "vi": "tủ lạnh"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại (vật vô tri)"
+                },
+                {
+                  "t": "ビール",
+                  "vi": "bia"
+                },
+                {
+                  "t": "五本",
+                  "read": "ごほん",
+                  "vi": "năm chai/cây"
+                },
+                {
+                  "t": "ジュース",
+                  "vi": "nước ép/juice"
+                },
+                {
+                  "t": "三本",
+                  "read": "さんぼん",
+                  "vi": "ba chai"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "私は",
+                "勉強します。"
+              ],
+              "pieces": [
+                "一週間に",
+                "三回",
+                "図書館で",
+                "日本語を"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NにN回Vます (mỗi N làm ~ lần)",
+              "explain": "Câu đúng: 「私は一週間に三回図書館で日本語を勉強します。」— Mỗi tuần tôi học tiếng Nhật ở thư viện 3 lần.\nSắp xếp: ô 1=「一週間に」, ô 2=「三回」★, ô 3=「図書館で」, ô 4=「日本語を」\nKhung câu bắt đầu bằng chủ ngữ 「私は」 và kết thúc bằng vị ngữ 「勉強します」, khoảng giữa cần điền thời gian, tần suất, địa điểm và tân ngữ của hành động. Mảnh thời gian 「一週間に」 và mảnh số lần 「三回」 bắt buộc phải dính liền với nhau thành cấu trúc chỉ tần suất 「一週間に三回」, không thể bị chia cắt bởi địa điểm hay tân ngữ. Ta đặt cụm tần suất 「一週間に三回」 ngay sau chủ ngữ 「私は」, tiếp theo đến trạng ngữ địa điểm 「図書館で」, rồi đến tân ngữ 「日本語を」 đứng trước động từ 「勉強します」. Do đó, ô ★ (ô 2) bắt buộc là mảnh 「三回」 và không thể đặt ở ô khác vì phải đi trực tiếp sau 「一週間に」 ở ô 1 để hoàn chỉnh cụm biểu thị tần suất.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "勉強します",
+                  "read": "べんきょうします",
+                  "vi": "học"
+                },
+                {
+                  "t": "一週間に",
+                  "read": "いっしゅうかんに",
+                  "vi": "mỗi tuần (trong một tuần)"
+                },
+                {
+                  "t": "三回",
+                  "read": "さんかい",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "図書館で",
+                  "read": "としょかんで",
+                  "vi": "ở thư viện"
+                },
+                {
+                  "t": "日本語を",
+                  "read": "にほんごを",
+                  "vi": "tiếng Nhật (tân ngữ)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "飲みました。"
+              ],
+              "pieces": [
+                "今朝",
+                "コーヒーを",
+                "二杯",
+                "だけ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "〜杯 (lượng từ cốc/ly)",
+              "explain": "Câu đúng: 「今朝コーヒーを二杯だけ飲みました。」— Sáng nay tôi chỉ uống 2 tách cà phê.\nSắp xếp: ô 1=「今朝」, ô 2=「コーヒーを」, ô 3=「二杯」★, ô 4=「だけ」\nKhung câu kết thúc bằng vị ngữ 「飲みました」, phía trước cần sắp xếp từ chỉ thời gian, tân ngữ, lượng từ và phó từ giới hạn. Mảnh lượng từ 「二杯」 bắt buộc phải dính liền trước phó từ giới hạn 「だけ」 thành cụm 「二杯だけ」 để bổ nghĩa cho động từ uống, còn tân ngữ 「コーヒーを」 phải đứng ngay trước lượng từ này. Ta sắp xếp từ chỉ thời gian 「今朝」 ở đầu câu, tiếp đến là tân ngữ 「コーヒーを」, rồi đặt cụm lượng từ giới hạn 「二杯だけ」 đứng ngay trước động từ 「飲みました」. Như vậy, mảnh 「二杯」 thuộc ô 3 (ô ★) và không thể đứng vị trí khác vì phải đặt sau 「コーヒー流」 (hoặc 「コーヒーを」) ở ô 2 và dính liền trước 「だけ」 ở ô 4 để khoanh vùng số lượng.",
+              "glosses": [
+                {
+                  "t": "飲みました",
+                  "read": "のみました",
+                  "vi": "đã uống"
+                },
+                {
+                  "t": "今朝",
+                  "read": "けさ",
+                  "vi": "sáng nay"
+                },
+                {
+                  "t": "コーヒーを",
+                  "vi": "cà phê (tân ngữ)"
+                },
+                {
+                  "t": "二杯",
+                  "read": "にはい",
+                  "vi": "hai tách/ly"
+                },
+                {
+                  "t": "だけ",
+                  "vi": "chỉ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "パーティーに",
+                "来ました。"
+              ],
+              "pieces": [
+                "日本人が",
+                "三人",
+                "と",
+                "外国人が五人"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "〜人 (lượng từ người)",
+              "explain": "Câu đúng: 「パーティーに日本人が三人と外国人が五人来ました。」— Có 3 người Nhật và 5 người nước ngoài đã đến bữa tiệc.\nSắp xếp: ô 1=「日本人が」, ô 2=「三人」★, ô 3=「と」, ô 4=「外国人が五人」\nKhung câu mở đầu bằng 「パーティーに」 và kết thúc bằng động từ 「来ました。」, cho thấy khoảng trống ở giữa cần các cụm chủ ngữ chỉ số lượng người. Danh từ kèm trợ từ 「日本人が」 bắt buộc dính liền với lượng từ chỉ số người 「三人」 ngay sau nó để chỉ số lượng người Nhật nên không thể tách rời. Trợ từ 「と」 nối cụm 「日本人が三人」 với cụm danh từ chỉ người còn lại là 「外国人が五人」 để đứng trước vị ngữ 「来ました。」. Mảnh 「三人」 rơi vào ô 2 (ô ★) và không thể đứng ô khác vì phải đi liền sau chủ ngữ 「日本人が」 để bổ nghĩa số lượng và đứng ngay trước trợ từ nối 「と」.",
+              "glosses": [
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "来ました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "日本人",
+                  "read": "にほんじん",
+                  "vi": "người Nhật"
+                },
+                {
+                  "t": "三人",
+                  "read": "さんにん",
+                  "vi": "ba người"
+                },
+                {
+                  "t": "外国人",
+                  "read": "がいこくじん",
+                  "vi": "người nước ngoài"
+                },
+                {
+                  "t": "五人",
+                  "read": "ごにん",
+                  "vi": "năm người"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "田中さんは",
+                "。"
+              ],
+              "pieces": [
+                "今年",
+                "三十五歳",
+                "に",
+                "なりました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "〜歳 (tuổi) + 〜になりました",
+              "explain": "Câu đúng: 「田中さんは今年三十五歳になりました。」— Anh Tanaka năm nay tròn 35 tuổi.\nSắp xếp: ô 1=「今年」, ô 2=「三十五歳」★, ô 3=「に」, ô 4=「なりました」\nKhung câu bắt đầu bằng chủ ngữ 「田中さんは」, cần điền vế vị ngữ diễn tả sự thay đổi độ tuổi của đối tượng. Danh từ chỉ tuổi 「三十五歳」 bắt buộc phải dính liền với trợ từ 「に」 ngay sau nó để đi với động từ 「なりました」 tạo thành cụm chỉ sự chuyển biến trạng thái 「三十五歳になりました」. Trạng từ thời gian 「今年」 đứng ở vị trí ô 1 ngay sau chủ ngữ để bổ nghĩa cho toàn bộ hành động biến đổi tuổi tác ở phía sau. Do đó mảnh 「三十五歳」 rơi vào ô 2 (ô ★) và không thể đứng ô khác vì nó phải nối liền đằng sau 「今年」 và làm bổ ngữ trực tiếp đứng ngay trước trợ từ 「に」 ở ô 3.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "今年",
+                  "read": "ことし",
+                  "vi": "năm nay"
+                },
+                {
+                  "t": "三十五歳",
+                  "read": "さんじゅうごさい",
+                  "vi": "35 tuổi"
+                },
+                {
+                  "t": "になりました",
+                  "vi": "đã trở thành, tròn (tuổi)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "おいしいですか。"
+              ],
+              "pieces": [
+                "すしと",
+                "ラーメンと",
+                "どちらが",
+                "では"
+              ],
+              "order": [
+                0,
+                1,
+                3,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "NとNとどちらが〜ですか (so sánh 2 thứ)",
+              "explain": "Câu đúng: 「すしとラーメンとではどちらがおいしいですか。」— Giữa sushi và ramen, món nào ngon hơn?\nSắp xếp: ô 1=「すしと」, ô 2=「ラーメンと」, ô 3=「では」★, ô 4=「どちらが」\nKhung câu kết thúc bằng câu hỏi tính từ 「おいしいですか。」, cho thấy các ô trống đằng trước phải thiết lập vế so sánh giữa hai đối tượng. Mảnh đối tượng thứ hai kèm trợ từ 「ラーメンと」 bắt buộc phải dính liền với trợ từ chỉ phạm vi 「では」 ngay sau nó để tạo thành vế chủ đề so sánh 「すしとラーメンとでは」. Tiếp theo, từ nghi vấn chọn lựa giữa hai thứ 「どちらが」 được ghép đứng ngay sau vế chủ đề để làm chủ ngữ cho tính từ vị ngữ 「おいしいですか。」 ở cuối câu. Như vậy mảnh 「では」 rơi vào ô 3 (ô ★) và không thể nằm ở vị trí nào khác vì nó phải nối liền sau 「ラーメンと」 để khép lại phần đưa ra đối tượng và đứng ngay trước đại từ hỏi 「どちらが」.",
+              "glosses": [
+                {
+                  "t": "おいしいですか",
+                  "vi": "ngon không?"
+                },
+                {
+                  "t": "すしと",
+                  "vi": "sushi và"
+                },
+                {
+                  "t": "ラーメンと",
+                  "vi": "ramen và"
+                },
+                {
+                  "t": "どちらが",
+                  "vi": "cái nào / bên nào (trong hai)"
+                },
+                {
+                  "t": "では",
+                  "vi": "thì, về phần (nhấn mạnh chủ đề)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "東京と大阪と",
+                "ですか。"
+              ],
+              "pieces": [
+                "では",
+                "どちらが",
+                "人口が",
+                "多い"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NとNとどちらが〜ですか + 〜いです",
+              "explain": "Câu đúng: 「東京と大阪とではどちらが人口が多いですか。」— Giữa Tokyo và Osaka, nơi nào có dân số đông hơn?\nSắp xếp: ô 1=「では」, ô 2=「どちらが」★, ô 3=「人口が」, ô 4=「多い」\nKhung câu bắt đầu bằng hai đối tượng so sánh 「東京と大阪と」 và kết thúc bằng trợ từ nghi vấn 「ですか。」, đòi hỏi phần ở giữa phải thể hiện cấu trúc hỏi lựa chọn và khía cạnh so sánh. Trợ từ phạm vi 「では」 ghép dính liền ngay sau khung đầu câu 「東京と大阪と」, còn danh từ chỉ khía cạnh 「人口が」 bắt buộc dính liền trước tính từ 「多い」 để tạo thành vế tiêu chí so sánh 「人口が多い」. Đại từ nghi vấn lựa chọn giữa hai đối tượng 「どちらが」 được chèn vào giữa vế phạm vi và vế tiêu chí để hoàn chỉnh trật tự ngữ pháp câu so sánh. Do đó mảnh 「どちらが」 rơi vào ô 2 (ô ★) và không thể đứng vị trí khác vì nó phải nhận mốc nối từ trợ từ 「では」 đằng trước và làm chủ ngữ hỏi cho vế 「人口が多い」 ngay phía sau.",
+              "glosses": [
+                {
+                  "t": "東京と大阪と",
+                  "read": "とうきょうとおおさかと",
+                  "vi": "Tokyo và Osaka"
+                },
+                {
+                  "t": "では",
+                  "vi": "thì, về phần"
+                },
+                {
+                  "t": "どちらが",
+                  "vi": "nơi nào / cái nào (trong hai)"
+                },
+                {
+                  "t": "人口が",
+                  "read": "じんこうが",
+                  "vi": "dân số (chủ ngữ)"
+                },
+                {
+                  "t": "多い",
+                  "read": "おおい",
+                  "vi": "nhiều, đông"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "山田さんは",
+                "読みます。"
+              ],
+              "pieces": [
+                "一日に",
+                "四回",
+                "も",
+                "本を"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NにN回Vます + 〜も (nhấn mạnh số lượng)",
+              "explain": "Câu đúng: 「山田さんは一日に四回も本を読みます。」— Anh Yamada đọc sách những 4 lần một ngày. Ô★ là 「も」— đứng sau số lượng nhấn mạnh sự nhiều/bất ngờ. 「一日に四回」= mỗi ngày 4 lần. Nếu bỏ 「も」thành câu trung tính, không mang hàm ý ngạc nhiên.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh Yamada"
+                },
+                {
+                  "t": "読みます",
+                  "read": "よみます",
+                  "vi": "đọc"
+                },
+                {
+                  "t": "一日に",
+                  "read": "いちにちに",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "四回",
+                  "read": "よんかい",
+                  "vi": "bốn lần"
+                },
+                {
+                  "t": "も",
+                  "vi": "(những) đến, nhấn mạnh số lượng bất ngờ"
+                },
+                {
+                  "t": "本を",
+                  "read": "ほんを",
+                  "vi": "sách (tân ngữ)"
+                }
+              ]
+            },
+            {
+              "pt": "〜が好きです + 〜から (lý do)",
+              "explain": "Câu đúng: 「私はスポーツが好きですから1週間に3回ジムへ行きます。」— Vì tôi thích thể thao nên mỗi tuần tôi đến phòng tập ba lần.\nSắp xếp: ô 1=「スポーツが」, ô 2=「好きですから」★, ô 3=「1週間に」, ô 4=「3回」.\nKhung câu có chủ ngữ 「私は」 ở đầu và vị ngữ chỉ điểm đến 「ジムへ行きます。」 ở cuối. Điểm ngữ pháp chỉ lý do với tính từ sở thích là 「〜が好きですから」, đòi hỏi danh từ chỉ môn thể thao đi kèm trợ từ が tạo thành vế nguyên nhân 「スポーツが好きですから」 ở ô 1 và ô 2. Ở vế kết quả, cấu trúc tần suất của bài 11 có trật tự cố định là 「[Khoảng thời gian] に [Số lần]」, nên 「1週間に」 đứng ở ô 3 và 「3回」 đứng ở ô 4 bổ nghĩa cho 「ジムへ行きます。」. Do đó, mảnh thể hiện mẫu ngữ pháp đang luyện 「好きですから」 bắt buộc đứng ở ô 2 ★.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ジム",
+                  "vi": "phòng tập gym"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "1週間",
+                  "read": "いっしゅうかん",
+                  "vi": "1 tuần"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì (lý do)"
+                },
+                {
+                  "t": "スポーツ",
+                  "read": "",
+                  "vi": "thể thao"
+                },
+                {
+                  "t": "3回",
+                  "read": "さんかい",
+                  "vi": "3 lần"
+                }
+              ],
+              "frame": [
+                "私は",
+                "ジムへ行きます。"
+              ],
+              "pieces": [
+                "1週間に",
+                "好きですから",
+                "スポーツが",
+                "3回"
+              ],
+              "order": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "frame": [
+                "机の上に",
+                "あります。"
+              ],
+              "pieces": [
+                "ノートが",
+                "三冊と",
+                "ボールペンが",
+                "二本"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NがNにあります + 〜本／〜冊",
+              "explain": "Câu đúng: 「机の上にノートが三冊とボールペンが二本あります。」— Trên bàn có 3 cuốn vở và 2 cây bút bi.\nSắp xếp: ô 1=「ノートが」, ô 2=「三冊と」★, ô 3=「ボールペンが」, ô 4=「二本」\nKhung câu mở đầu bằng địa điểm 「机の上に」 và kết thúc bằng động từ 「あります。」, nên khoảng giữa cần các bổ ngữ chỉ danh từ và số lượng đồ vật. Ta phải ghép dính danh từ 「ノートが」 ngay trước loại từ đếm sách vở 「三冊と」, tương tự 「ボールペンが」 dính liền trước loại từ đếm vật dài 「二本」. Theo trật tự tiếng Nhật, cụm liệt kê thứ nhất 「ノートが三冊と」 đặt trước để trợ từ 「と」 nối với cụm 「ボールペンが二本」 phía sau. Do đó mảnh 「三冊と」 rơi vào ô 2 (ô ★) và không thể đứng ở ô 4 vì trợ từ 「と」 bắt buộc phải nằm giữa hai cụm danh từ để đóng vai trò từ nối, không thể đứng sau 「二本」 ngay trước 「あります」.",
+              "glosses": [
+                {
+                  "t": "机の上",
+                  "read": "つくえのうえ",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, tồn tại (vật vô tri)"
+                },
+                {
+                  "t": "ノート",
+                  "vi": "vở/sổ tay"
+                },
+                {
+                  "t": "三冊",
+                  "read": "さんさつ",
+                  "vi": "ba cuốn"
+                },
+                {
+                  "t": "ボールペン",
+                  "vi": "bút bi"
+                },
+                {
+                  "t": "二本",
+                  "read": "にほん",
+                  "vi": "hai cây/chiếc"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "駅の近くに",
+                "います。"
+              ],
+              "pieces": [
+                "子どもが",
+                "五人",
+                "と",
+                "お年寄りが二人"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "〜人 + NがNにいます",
+              "explain": "Câu đúng: 「駅の近くに子どもが五人とお年寄りが二人います。」— Gần nhà ga có 5 đứa trẻ và 2 người già.\nSắp xếp: ô 1=「子どもが」, ô 2=「五人」★, ô 3=「と」, ô 4=「お年寄りが二人」\nKhung câu có địa điểm 「駅の近くに」 ở đầu và động từ 「います。」 ở cuối, đòi hỏi khoảng giữa phải chứa hai cụm danh từ chỉ người kèm số lượng. Danh từ 「子どもが」 bắt buộc dính liền ngay trước lượng từ 「五人」 để làm rõ số lượng trẻ em. Cụm 「子どもが五人」 được nối với cụm 「お年寄りが二人」 phía sau thông qua trợ từ 「と」. Vì vậy mảnh 「五人」 phải nằm ở ô 2 (ô ★) và không thể chuyển sang ô khác vì nó cần đứng ngay sau 「子どもが」 để bổ nghĩa số lượng và đứng trước 「と」 để hoàn chỉnh vế nối.",
+              "glosses": [
+                {
+                  "t": "駅の近く",
+                  "read": "えきのちかく",
+                  "vi": "gần nhà ga"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "có/đang ở (tồn tại - dùng cho người, động vật)"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "五人",
+                  "read": "ごにん",
+                  "vi": "năm người"
+                },
+                {
+                  "t": "お年寄り",
+                  "read": "おとしより",
+                  "vi": "người cao tuổi"
+                },
+                {
+                  "t": "二人",
+                  "read": "ふたり",
+                  "vi": "hai người"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "私の妹は",
+                "から、人気があります。"
+              ],
+              "pieces": [
+                "かわいくて",
+                "音楽や",
+                "ダンスが",
+                "好きだ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NはNが好きです + NやN（など）+ 〜から",
+              "explain": "Câu đúng: 「私の妹はかわいくて音楽やダンスが好きだから、人気があります。」— Em gái tôi dễ thương và thích âm nhạc, khiêu vũ v.v. nên được yêu thích.\nSắp xếp: ô 1=「かわいくて」, ô 2=「音楽や」★, ô 3=「ダンスが」, ô 4=「好きだ」\nKhung câu mở đầu bằng chủ thể 「私の妹は」 và nối với vế kết 「から、人気があります。」, nên phần ô trống cần một mệnh đề diễn tả đặc điểm và sở thích để làm lý do. Mảnh 「音楽や」 bắt buộc dính liền trước 「ダンスが」 để tạo cụm liệt kê danh từ, đồng thời 「ダンスが」 phải ghép dính trước 「好きだ」 theo cấu trúc chỉ sở thích. Tính từ thể -te 「かわいくて」 đặt ở ô 1 để nối tính cách, nối tiếp là cụm 「音楽やダンスが好きだ」 ghép liền trước trợ từ 「から」. Như vậy mảnh 「音楽や」 thuộc ô 2 (ô ★) và không thể xếp vào ô khác vì trợ từ 「や」 bắt buộc nằm giữa hai danh từ 「音楽」 và 「ダンス」, không thể đứng sau tính từ hay đứng ngay trước 「から」.",
+              "glosses": [
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "妹",
+                  "read": "いもうと",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "人気があります",
+                  "read": "にんきがあります",
+                  "vi": "được yêu thích"
+                },
+                {
+                  "t": "かわいくて",
+                  "vi": "dễ thương và (nối tính từ い)"
+                },
+                {
+                  "t": "音楽",
+                  "read": "おんがく",
+                  "vi": "âm nhạc"
+                },
+                {
+                  "t": "や",
+                  "vi": "và (v.v., liệt kê không đầy đủ)"
+                },
+                {
+                  "t": "ダンス",
+                  "vi": "khiêu vũ"
+                },
+                {
+                  "t": "好きだ",
+                  "read": "すきだ",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "若いですか。"
+              ],
+              "pieces": [
+                "田中さんと",
+                "鈴木さんと",
+                "では",
+                "どちらが"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "NとNとどちらが〜ですか + 〜いです",
+              "explain": "Câu đúng: 「田中さんと鈴木さんとではどちらが若いですか。」— Giữa anh Tanaka và anh Suzuki, ai trẻ hơn?\nSắp xếp: ô 1=「田中さんと」, ô 2=「鈴木さんと」, ô 3=「では」, ô 4=「どちらが」★\nKhung câu kết thúc bằng vị ngữ so sánh 「若いですか。」, yêu cầu khoảng ô trống phía trước phải thiết lập cấu trúc so sánh giữa hai đối tượng. Hai mảnh 「田中さんと」 và 「鈴木さんと」 đi liền nhau để liệt kê đối tượng, trong đó 「鈴木さんと」 phải ghép dính ngay trước 「では」 để tạo thành cụm chỉ phạm vi so sánh 「鈴木さんとでは」. Toàn bộ cụm phạm vi 「田中さんと鈴木さんとでは」 đứng ở đầu câu, làm nền cho từ hỏi 「どちらが」 đứng liền trước tính từ 「若い」. Vì vậy mảnh 「どちらが」 phải ở ô 4 (ô ★) và không thể đặt ở ô khác vì từ hỏi nghi vấn này bắt buộc làm chủ ngữ đứng trực tiếp trước vị ngữ 「若い」, không thể nằm ở vế liệt kê đối tượng.",
+              "glosses": [
+                {
+                  "t": "若い",
+                  "read": "わかい",
+                  "vi": "trẻ tuổi"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "鈴木さん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "では",
+                  "vi": "thì, về phần (nhấn mạnh chủ đề)"
+                },
+                {
+                  "t": "どちらが",
+                  "vi": "ai / cái nào (trong hai)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "マリアさんは毎日コーヒーを",
+                "飲みます。でも、今日は時間がありませんから、コーヒーを",
+                "だけ飲みました。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "三杯",
+                    "三枚",
+                    "三本",
+                    "三回"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 1 hỏi lượng từ đếm CỐC/LY cà phê. Đáp án đúng là「三杯」(さんばい) vì 〜杯 (はい/ばい/ぱい) là lượng từ dùng để đếm ly, cốc, chén — đúng với cà phê. Phân tích từng phương án sai: ①「三枚」(さんまい) dùng cho vật PHẲNG như tờ giấy, vé, áo — không đếm đồ uống. ②「三本」(さんぼん) dùng cho vật DÀI như bút, chai nước, bông hoa — không phù hợp với cốc cà phê. ③「三回」(さんかい) dùng để đếm SỐ LẦN hành động — không đếm đồ vật hay đồ uống."
+                },
+                {
+                  "choices": [
+                    "一杯",
+                    "一枚",
+                    "一回",
+                    "一本"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 2 nằm trong câu 'hôm nay không có thời gian nên chỉ uống __ cà phê'. Đáp án đúng là「一杯」(いっぱい) vì 〜杯 là lượng từ đếm cốc/ly đồ uống, phù hợp với コーヒーを〜飲む; hơn nữa cần một số lượng nhỏ (chỉ 1 ly) vì không có thời gian. Phân tích từng phương án sai: ①「一枚」(いちまい) đếm vật PHẲNG — không dùng cho đồ uống. ②「一回」(いっかい) đếm số LẦN hành động, không đếm số lượng đồ uống; nếu dùng「一回」thì câu thành 'uống một lần' nhưng không thể ghép với「だけ」để nhấn mạnh số lượng cốc. ③「一本」(いっぽん) đếm vật DÀI như chai, ống — không phù hợp với cốc cà phê."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "マリアさん",
+                  "vi": "chị Maria"
+                },
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "飲みます",
+                  "read": "のみます",
+                  "vi": "uống"
+                },
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "時間",
+                  "read": "じかん",
+                  "vi": "thời gian"
+                },
+                {
+                  "t": "ありません",
+                  "vi": "không có"
+                },
+                {
+                  "t": "から",
+                  "vi": "vì (lý do)"
+                },
+                {
+                  "t": "だけ",
+                  "vi": "chỉ, chỉ có"
+                },
+                {
+                  "t": "飲みました",
+                  "read": "のみました",
+                  "vi": "đã uống"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ 飲む sang thể ます rồi điền vào ＿.",
+          "items": [
+            {
+              "stem": "コーヒーを三杯＿ました。(飲む → ます形)",
+              "choices": [
+                "飲み",
+                "飲んで",
+                "飲め",
+                "飲む"
+              ],
+              "answer": 0,
+              "explain": "動詞「飲む」(のむ) thuộc nhóm I (godan). Để chuyển sang thể ます, bỏ đuôi「む」rồi thêm「み」trước「ます」→「飲みます」. Đáp án đúng là「飲み」(A). — (B)「飲んで」là thể て, dùng nối động tác, không phải ます形. (C)「飲め」là thể mệnh lệnh 命令形, không phù hợp. (D)「飲む」là nguyên dạng 辞書形, không thể đứng trước ます.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "三杯",
+                  "read": "さんばい",
+                  "vi": "ba cốc/ly"
+                },
+                {
+                  "t": "飲みました",
+                  "read": "のみました",
+                  "vi": "đã uống (thể ます, quá khứ)"
+                },
+                {
+                  "t": "ます形",
+                  "read": "ますけい",
+                  "vi": "thể ます (dạng lịch sự của động từ)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "わたしは一日＿三回歯を磨きます。",
+              "choices": [
+                "に",
+                "で",
+                "を",
+                "は"
+              ],
+              "answer": 0,
+              "explain": "Cấu trúc「N＋に＋〜回＋Vます」diễn đạt tần suất: *mỗi N làm ~ lần*. Trợ từ「に」đóng vai trò mốc thời gian/tần suất. Ví dụ:「一日に三回」= mỗi ngày ba lần. — (B)「で」chỉ phương tiện hoặc địa điểm hành động, không dùng cho tần suất thời gian. (C)「を」chỉ tân ngữ trực tiếp của hành động, không phù hợp ở đây. (D)「は」là trợ từ chủ đề, không tạo nghĩa tần suất khi đứng sau「一日」trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "一日",
+                  "read": "いちにち",
+                  "vi": "một ngày"
+                },
+                {
+                  "t": "三回",
+                  "read": "さんかい",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "歯を磨きます",
+                  "read": "はをみがきます",
+                  "vi": "đánh răng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Táo và cam, bạn thích cái nào hơn?",
+              "target": "りんごとオレンジとどちらがすきですか。",
+              "model": "りんご と オレンジ と どちらが すき です か。",
+              "explain": "Cấu trúc so sánh hai vật:「NとNとどちらが〜ですか」= *A và B, cái nào hơn?*. Ở đây「りんご」(táo) và「オレンジ」(cam) là hai vế so sánh, nối bằng「と…と」. Vị ngữ dùng「好きですか」(thích không?) từ mẫu B9「NはNが好きです」. — Lưu ý: KHÔNG dùng「どれ」vì「どれ」dùng khi so sánh ba vật trở lên; với hai vật phải dùng「どちら」. Không dùng「どっちのほうが」ở đây vì mẫu chuẩn N5 là「どちらが〜ですか」.",
+              "glosses": [
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "オレンジ",
+                  "vi": "cam"
+                },
+                {
+                  "t": "どちらが",
+                  "vi": "cái nào (trong hai)"
+                },
+                {
+                  "t": "すきですか",
+                  "read": "すきですか",
+                  "vi": "bạn thích không? / bạn thích cái nào?"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

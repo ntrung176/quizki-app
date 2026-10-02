@@ -1,0 +1,464 @@
+{
+  "id": "skm3.b53",
+  "bai": 53,
+  "titleVi": "Bổn phận / chân lý chung / lời khuyên đạo lý",
+  "know": [
+    {
+      "id": "skm3.b53.beki",
+      "point": "beki",
+      "jp": "〜べきだ ／ 〜べきではない",
+      "vi": "Bổn phận / lẽ ra phải làm — phán xét đạo lý CHỦ QUAN",
+      "en": "Duty / what one ought to do — a SUBJECTIVE moral judgment",
+      "gloss": "V辞書形[じしょけい]＋べきだ ／ する→すべき（注意[ちゅうい]！） ・ 例[れい]: 約束[やくそく]をしたら、守[まも]るべきだ。（Đã hứa thì phải giữ lời — phán xét bổn phận chủ quan）",
+      "glossEn": "V辞書形[じしょけい]＋べきだ ／ する→すべき（注意[ちゅうい]！） ・ 例[れい]: 約束[やくそく]をしたら、守[まも]るべきだ。（Once you have made a promise, you should keep it — a subjective judgment of duty）"
+    },
+    {
+      "id": "skm3.b53.mono-chantai",
+      "point": "mono-chantai",
+      "jp": "〜ものだ（一般真理[いっぱんしんり]・感慨[かんがい]）",
+      "vi": "Chân lý chung / lẽ thường KHÁCH QUAN; hoặc hồi tưởng cảm thán",
+      "en": "An OBJECTIVE general truth / common sense; or an emotional reminiscence",
+      "gloss": "V辞書形[じしょけい]／い形容詞[けいようし]／た形[けい]＋ものだ（一般真理[いっぱんしんり]・感慨[かんがい]） ・ 例[れい]: 冬[ふゆ]は寒[さむ]いものだ。（Mùa đông thì lạnh — chân lý tự nhiên）／ 昔[むかし]はあの川[かわ]でよく遊[あそ]んだものだ。（Ngày xưa hay chơi ở con sông đó — hồi tưởng cảm thán）",
+      "glossEn": "V辞書形[じしょけい]／い形容詞[けいようし]／た形[けい]＋ものだ（一般真理[いっぱんしんり]・感慨[かんがい]） ・ 例[れい]: 冬[ふゆ]は寒[さむ]いものだ。（Winter is cold — a natural truth）／ 昔[むかし]はあの川[かわ]でよく遊[あそ]んだものだ。（We often played by that river long ago — an emotional reminiscence）"
+    },
+    {
+      "id": "skm3.b53.mono-ja-nai",
+      "point": "mono-ja-nai",
+      "jp": "〜ものではない（〜ものじゃない）",
+      "vi": "Cấm / không nên — theo lẽ thường (nhẹ hơn べきではない)",
+      "en": "Prohibition / should not — based on common sense (milder than べきではない)",
+      "gloss": "V辞書形[じしょけい]＋ものではない（〜ものじゃない） ・ 例[れい]: 人[ひと]の陰口[かげぐち]を言[い]うものではない。（Người ta không nên nói xấu sau lưng người khác — cấm nhẹ theo lẽ thường）",
+      "glossEn": "V辞書形[じしょけい]＋ものではない（〜ものじゃない） ・ 例[れい]: 人[ひと]の陰口[かげぐち]を言[い]うものではない。（One should not speak ill of others behind their backs — a mild prohibition based on common sense）"
+    },
+    {
+      "id": "skm3.b53.suru-subeki",
+      "point": "suru-subeki",
+      "jp": "する → すべき（書[か]き言葉[ことば]の注意[ちゅうい]）",
+      "vi": "Dạng chuẩn: する→すべき (văn viết/thi JLPT); するべき cũng được nhưng ít chuẩn hơn",
+      "en": "Standard form: する→すべき (written language / JLPT exams); するべき is also acceptable, but less standard",
+      "gloss": "する＋べきだ → すべきだ（書[か]き言葉[ことば]の標準形[ひょうじゅんけい]） ・ 例[れい]: その状況[じょうきょう]では、すぐに対応[たいおう]すべきだ。（Trong tình huống đó nên xử lý ngay — する→すべき chuẩn văn viết）／ 努力[どりょく]すべきだ ✓ ／ 努力[どりょく]するべきだ △",
+      "glossEn": "する＋べきだ → すべきだ（書[か]き言葉[ことば]の標準形[ひょうじゅんけい]） ・ 例[れい]: その状況[じょうきょう]では、すぐに対応[たいおう]すべきだ。（In that situation, one should take action immediately — する→すべき, the standard written form）／ 努力[どりょく]すべきだ ✓ ／ 努力[どりょく]するべきだ △"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b53-disc-yakusoku",
+      "item": "skm3.b53.beki",
+      "err": "beki-cho-mono",
+      "vi": "Đã hứa thì phải giữ lời. (phán xét đạo đức cá nhân — người nói yêu cầu)",
+      "t1": {
+        "stem": "約束[やくそく]をしたら、守[まも]る＿。",
+        "choices": [
+          "べきだ",
+          "ものだ",
+          "はずだ"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "約束[やくそく]をしたら、",
+          "守[まも]る",
+          "べきだ。"
+        ],
+        "traps": [
+          "ものだ。",
+          "はずだ。"
+        ]
+      },
+      "t3": {
+        "target": "約束をしたら、守るべきだ。",
+        "accept": [
+          "やくそくをしたら、まもるべきだ。"
+        ]
+      },
+      "why": "べきだ = bổn phận đạo lý chủ quan (\"phải giữ\"). ✗ ものだ = chân lý chung/\"thói thường\" — không mang sắc thái phán xét cá nhân. ✗ はずだ = suy luận khách quan, không dùng nêu bổn phận."
+    },
+    {
+      "id": "c-b53-disc-kodomo-naku",
+      "item": "skm3.b53.mono-chantai",
+      "err": "mono-cho-beki",
+      "vi": "Trẻ em thì hay khóc — đó là lẽ thường. (chân lý chung, không trách ai)",
+      "t1": {
+        "stem": "子供[こども]は 泣[な]く＿。",
+        "choices": [
+          "ものだ",
+          "べきだ",
+          "はずがない"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "子供[こども]は",
+          "泣[な]く",
+          "ものだ。"
+        ],
+        "traps": [
+          "べきだ。",
+          "はずだ。"
+        ]
+      },
+      "t3": {
+        "target": "子供は泣くものだ。",
+        "accept": [
+          "こどもはなくものだ。"
+        ]
+      },
+      "why": "ものだ = lẽ thường/chân lý khách quan (ai cũng biết trẻ hay khóc). ✗ べきだ mang nghĩa \"trẻ có bổn phận phải khóc\" — vô lý."
+    },
+    {
+      "id": "c-b53-disc-machigai-ayamaru",
+      "item": "skm3.b53.beki",
+      "err": "beki-cho-mono",
+      "vi": "Khi mắc lỗi, anh ấy lẽ ra phải xin lỗi ngay. (người nói phán xét hành động sai của ai đó)",
+      "t1": {
+        "stem": "間違[まちが]えたとき、すぐに 謝[あやま]る＿だった。",
+        "choices": [
+          "べき",
+          "もの",
+          "はず"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "間違[まちが]えたとき、",
+          "すぐに 謝[あやま]る",
+          "べきだった。"
+        ],
+        "traps": [
+          "ものだった。",
+          "はずだった。"
+        ]
+      },
+      "t3": {
+        "target": "間違えたとき、すぐに謝るべきだった。",
+        "accept": [
+          "まちがえたとき、すぐにあやまるべきだった。"
+        ]
+      },
+      "why": "べきだった = lẽ ra phải làm (quá khứ, có trách cứ). ✗ ものだった = hồi tưởng cảm thán (ngày xưa hay làm vậy) — sắc thái hoàn toàn khác."
+    },
+    {
+      "id": "c-b53-disc-mukashi-asonda",
+      "item": "skm3.b53.mono-chantai",
+      "err": "mono-cho-beki",
+      "vi": "Ngày xưa chúng tôi hay chơi ở con sông đó. (hồi tưởng cảm thán)",
+      "t1": {
+        "stem": "昔[むかし]は あの 川[かわ]でよく 遊[あそ]んだ＿だ。",
+        "choices": [
+          "もの",
+          "べき",
+          "はず"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昔[むかし]は",
+          "あの 川[かわ]で",
+          "よく 遊[あそ]んだ",
+          "ものだ。"
+        ],
+        "traps": [
+          "べきだ。",
+          "はずだ。"
+        ]
+      },
+      "t3": {
+        "target": "昔はあの川でよく遊んだものだ。",
+        "accept": [
+          "むかしはあのかわでよくあそんだものだ。"
+        ]
+      },
+      "why": "た＋ものだ = hồi tưởng cảm thán \"ngày xưa hay làm vậy\". ✗ べきだ không dùng cho hồi tưởng. ✗ はずだ là suy luận, không hồi tưởng."
+    },
+    {
+      "id": "c-b53-disc-hito-warukuchi",
+      "item": "skm3.b53.mono-ja-nai",
+      "err": "mono-cho-beki",
+      "vi": "Người ta không được nói xấu sau lưng người khác. (lẽ thường đạo đức xã hội, nhẹ)",
+      "t1": {
+        "stem": "人[ひと]の 陰口[かげぐち]を 言[い]う＿ではない。",
+        "choices": [
+          "もの",
+          "べき",
+          "はず"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "人[ひと]の 陰口[かげぐち]を",
+          "言[い]う",
+          "ものではない。"
+        ],
+        "traps": [
+          "べきではない。",
+          "はずではない。"
+        ]
+      },
+      "t3": {
+        "target": "人の陰口を言うものではない。",
+        "accept": [
+          "ひとのかげぐちをいうものではない。"
+        ]
+      },
+      "why": "ものではない = \"người ta không làm vậy\" (lẽ thường xã hội, cấm nhẹ theo đạo lý chung). べきではない cũng đúng nhưng mang sắc thái phán xét cá nhân mạnh hơn. Câu này dùng ものではない để nêu chuẩn mực chung."
+    },
+    {
+      "id": "c-b53-suru-subeki",
+      "item": "skm3.b53.suru-subeki",
+      "err": "suru-subeki-form",
+      "vi": "Trong tình huống đó, anh nên xử lý ngay lập tức. (văn viết, する→すべき)",
+      "t1": {
+        "stem": "その 状況[じょうきょう]では、すぐに 対応[たいおう]＿だ。",
+        "choices": [
+          "すべき",
+          "するべき",
+          "したもの"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "その 状況[じょうきょう]では、",
+          "すぐに 対応[たいおう]",
+          "すべきだ。"
+        ],
+        "traps": [
+          "するべきだ。",
+          "対応[たいおう]ものだ。"
+        ]
+      },
+      "t3": {
+        "target": "その状況では、すぐに対応すべきだ。",
+        "accept": [
+          "そのじょうきょうでは、すぐにたいおうすべきだ。"
+        ]
+      },
+      "why": "する → すべき là dạng chuẩn trong văn viết / đề thi JLPT N3. するべき được chấp nhận trong hội thoại nhưng kém chuẩn hơn. Không bao giờ dùng すするべき."
+    },
+    {
+      "id": "c-b53-disc-3way-kansha",
+      "item": "skm3.b53.beki",
+      "err": "beki-cho-mono",
+      "vi": "Được giúp đỡ thì phải biết ơn. (đạo đức — phán xét, không phải suy luận)",
+      "t1": {
+        "stem": "助[たす]けてもらったら、感謝[かんしゃ]する＿だ。",
+        "choices": [
+          "べき",
+          "もの",
+          "はず"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "助[たす]けてもらったら、",
+          "感謝[かんしゃ]する",
+          "べきだ。"
+        ],
+        "traps": [
+          "ものだ。",
+          "はずだ。"
+        ]
+      },
+      "t3": {
+        "target": "助けてもらったら、感謝するべきだ。",
+        "accept": [
+          "たすけてもらったら、かんしゃするべきだ。"
+        ]
+      },
+      "why": "べきだ = phán xét đạo lý \"phải biết ơn\". ✗ ものだ = lẽ thường (có thể dùng, nhưng nghĩa thay đổi thành \"người được giúp thường biết ơn\"). ✗ はずだ = suy luận \"chắc chắn biết ơn\" — không phải đạo đức."
+    },
+    {
+      "id": "c-b53-disc-shizen-rules",
+      "item": "skm3.b53.mono-chantai",
+      "err": "mono-cho-beki",
+      "vi": "Mùa đông thì lạnh — đó là lẽ tự nhiên.",
+      "t1": {
+        "stem": "冬[ふゆ]は 寒[さむ]い＿だ。",
+        "choices": [
+          "もの",
+          "べき",
+          "はず"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "冬[ふゆ]は",
+          "寒[さむ]い",
+          "ものだ。"
+        ],
+        "traps": [
+          "べきだ。",
+          "はずだ。"
+        ]
+      },
+      "t3": {
+        "target": "冬は寒いものだ。",
+        "accept": [
+          "ふゆはさむいものだ。"
+        ]
+      },
+      "why": "ものだ = chân lý tự nhiên/lẽ thường (mùa đông tất nhiên lạnh). ✗ べきだ = vô nghĩa ở đây (mùa đông không có \"bổn phận\"). ✗ はずだ = suy luận từ bằng chứng, không phải lẽ thường."
+    },
+    {
+      "id": "c-b53-app-jibun-kangaeru",
+      "item": "skm3.b53.beki",
+      "err": "beki-cho-mono",
+      "vi": "Khi đưa ra quyết định quan trọng, bạn nên tự suy nghĩ thật kỹ.",
+      "t1": {
+        "stem": "大事[だいじ]な 決断[けつだん]をするときは、自分[じぶん]でよく考[かんが]える＿だ。",
+        "choices": [
+          "べき",
+          "もの",
+          "はず"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "大事[だいじ]な 決断[けつだん]をするときは、",
+          "自分[じぶん]でよく考[かんが]える",
+          "べきだ。"
+        ],
+        "traps": [
+          "ものだ。",
+          "はずだ。"
+        ]
+      },
+      "t3": {
+        "target": "大事な決断をするときは、自分でよく考えるべきだ。",
+        "accept": [
+          "だいじなけつだんをするときは、じぶんでよくかんがえるべきだ。"
+        ]
+      },
+      "why": "べきだ = lời khuyên đạo lý cá nhân \"nên tự suy nghĩ\". ✗ ものだ = nếu dùng, nghĩa đổi thành \"lẽ thường người ta tự nghĩ\" — mờ hơn và thiếu tính khuyến dụ."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b53-beki",
+      "item": "skm3.b53.beki",
+      "err": "beki-cho-mono",
+      "tts": "しごとのことで なやんでいるなら、まず じょうしに そうだんすべきだよ。",
+      "script": "仕事[しごと]のことで 悩[なや]んでいるなら、まず 上司[じょうし]に 相談[そうだん]すべきだよ。",
+      "ask": "Người nói khuyên điều gì?",
+      "choices": [
+        "Nên báo cáo với cấp trên trước tiên",
+        "Chuyện này xưa nay người ta vẫn hay gặp",
+        "Chắc chắn cấp trên đã biết rồi"
+      ],
+      "answer": 0,
+      "why": "すべきだ = khuyên bổn phận \"nên làm\". Câu hỏi thể hiện lời khuyên đạo lý, không phải lẽ thường (ものだ) hay suy luận (はずだ)."
+    },
+    {
+      "id": "l-b53-mono-chantai",
+      "item": "skm3.b53.mono-chantai",
+      "err": "mono-cho-beki",
+      "tts": "むかしは まいにち かわで あそんだ ものだなあ。なつかしい。",
+      "script": "昔[むかし]は 毎日[まいにち] 川[かわ]で 遊[あそ]んだ ものだなあ。懐[なつ]かしい。",
+      "ask": "Người nói đang nói về điều gì?",
+      "choices": [
+        "Hoài niệm về ngày xưa hay chơi ở sông",
+        "Phán xét rằng trẻ em phải chơi bên sông",
+        "Suy luận chắc chắn hồi xưa đã từng chơi"
+      ],
+      "answer": 0,
+      "why": "た＋ものだ (+なあ) = hồi tưởng cảm thán \"ngày xưa hay làm thế\". Từ 懐かしい xác nhận sắc thái hoài niệm."
+    },
+    {
+      "id": "l-b53-mono-ja-nai",
+      "item": "skm3.b53.mono-ja-nai",
+      "err": "mono-cho-beki",
+      "tts": "ひとの わるくちを いう ものじゃない よ。そういう ことは よくない。",
+      "script": "人[ひと]の 悪口[わるくち]を 言[い]う ものじゃないよ。そういうことは よくない。",
+      "ask": "Người nói muốn nói điều gì?",
+      "choices": [
+        "Nói xấu người khác là điều không nên theo lẽ thường",
+        "Theo suy luận, người kia chắc chắn không nói xấu",
+        "Người kia có bổn phận không được nói xấu"
+      ],
+      "answer": 0,
+      "why": "ものじゃない (= ものではない) = cấm nhẹ theo lẽ thường xã hội, giọng khuyên nhủ tự nhiên. Không phải phán xét cá nhân mạnh như べきではない."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b53-node-futsuu",
+      "item": "minna2.b49.node",
+      "err": "node-futsuu-form",
+      "ambush": true,
+      "src": 49,
+      "context": "Bài 53 ・ 〜べきだ",
+      "vi": "Vì sức khoẻ quan trọng, anh nên đi khám bác sĩ.",
+      "t1": {
+        "stem": "健康[けんこう]が 大切[たいせつ]な＿、病院[びょういん]に 行[い]くべきだ。",
+        "choices": [
+          "ので",
+          "から",
+          "のに"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "健康[けんこう]が 大切[たいせつ]な",
+          "ので、",
+          "病院[びょういん]に 行[い]くべきだ。"
+        ],
+        "traps": [
+          "から、",
+          "のに、"
+        ]
+      },
+      "t3": {
+        "target": "健康が大切なので、病院に行くべきだ。",
+        "accept": [
+          "けんこうがたいせつなので、びょういんにいくべきだ。"
+        ]
+      },
+      "why": "な形容詞[けいようし]+ので: 大切[たいせつ]な＋ので (KHÔNG 大切なから trong văn trang trọng). ✗ から thông thường hơn, thiếu lịch sự. ✗ のに = mặc dù (nghĩa ngược). Phần べきだ là N3 — bẫy ở ので."
+    },
+    {
+      "id": "a-b53-futsuu-to-omou",
+      "item": "minna1.b20.futsuu-nadj-noun",
+      "err": "futsuu-da",
+      "ambush": true,
+      "src": 20,
+      "context": "Bài 53 ・ 〜ものだ",
+      "vi": "Tôi nghĩ rằng sự trưởng thành là điều tự nhiên với người lớn.",
+      "t1": {
+        "stem": "大人[おとな]にとって、成長[せいちょう]は 当然[とうぜん]＿と 思[おも]う。",
+        "choices": [
+          "だ",
+          "（なし）",
+          "です"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "大人[おとな]にとって、",
+          "成長[せいちょう]は 当然[とうぜん]",
+          "だと 思[おも]う。"
+        ],
+        "traps": [
+          "当然[とうぜん]と 思[おも]う。",
+          "当然[とうぜん]ですと 思[おも]う。"
+        ]
+      },
+      "t3": {
+        "target": "大人にとって、成長は当然だと思う。",
+        "accept": [
+          "おとなにとって、せいちょうはとうぜんだとおもう。"
+        ]
+      },
+      "why": "Danh từ / な形容詞 trước と思う cần thể thường: 当然[とうぜん] + だ (không bỏ だ, không dùng です). Bẫy từ Bài 20 (futsuu-nadj-noun) nằm trong câu N3 văn phong ものだ."
+    }
+  ]
+}

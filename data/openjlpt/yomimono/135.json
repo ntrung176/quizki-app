@@ -1,0 +1,3723 @@
+{
+  "bai": 135,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng đọc hiểu các văn bản chứa mẫu câu điều kiện biến đổi và các cấp độ suy đoán, so sánh ví von trong tiếng Nhật N3. Trọng tâm là phân biệt sắc thái phán đoán dựa vào quan sát trực quan trước mắt (〜そうだ) với suy luận từ chứng cứ, thông tin khách quan (〜らしい), đồng thời nắm bắt mối quan hệ kết quả phụ thuộc vào điều kiện tiền đề (〜次第で). Ngoài ra, người học cần phân định rõ các tầng bậc ví von từ miêu tả mức độ cao (〜ほど), so sánh tương đồng (〜ように, まるで〜ようだ) cho tới cách diễn đạt giả định trái ngược với sự thật (〜かのように).",
+    "steps": [
+      "Bước 1: Xác định cấu trúc điều kiện biến đổi 'N + 次第で／次第では' để nhận diện tiền đề then chốt quyết định kết quả hoặc sự thay đổi ở vế sau của câu.",
+      "Bước 2: Phân tích hình thức kết nối của các mẫu phán đoán để xác định căn cứ của tác giả: trực giác nhìn thấy ngay trước mắt (Vます/A-stem + そうだ) hay suy đoán dựa trên chứng cứ/thông tin gián tiếp (普通形 + らしい).",
+      "Bước 3: Định vị phó từ đi kèm, đặc biệt khi thấy 'まるで' cần liên kết ngay với đuôi câu '〜ようだ／みたいだ' để hiểu trọn vẹn hình ảnh so sánh ẩn dụ mà tác giả muốn khắc họa.",
+      "Bước 4: Lưu ý mẫu '〜かのように／かのような' để nắm bắt hàm ý tác giả: hành động/trạng thái diễn ra như một sự việc nào đó nhưng thực tế ngầm hiểu không phải như vậy, tránh bẫy chọn đáp án hiểu theo nghĩa đen.",
+      "Bước 5: Bắt mạch mức độ diễn đạt với '〜ほど', xác định vế trước là chuẩn mực/thước đo được dùng để nhấn mạnh hoặc phóng đại mức độ cao của hành động, cảm xúc ở vế sau."
+    ],
+    "tips": [
+      "Mẹo phân biệt 次第で: Cấu trúc 'N + 次第で／次第では' mang nghĩa 'tùy thuộc vào N', cần chú ý danh từ đi kèm chỉ điều kiện quyết định, khác với cấu trúc chỉ thứ tự thời gian.",
+      "Mẹo 使い分け (そうだ vs らしい): '〜そうだ (ngoại quan)' gắn với thân từ chỉ phán đoán tức thì bằng mắt nhìn (trông có vẻ), trong khi '〜らしい' đi với thể thông thường chỉ suy luận dựa trên bằng chứng, dấu hiệu hoặc nguồn tin khách quan.",
+      "Mẹo 使い分け (ように vs かのように): '〜ように' là so sánh miêu tả sự tương đồng thực tế (làm giống như...), còn '〜かのように' chứa hàm ý ngầm định 'thực chất sự thật hoàn toàn trái ngược'.",
+      "Dấu hiệu nhận biết まるで: Khi xuất hiện 'まるで', đáp án đúng cho câu hỏi về ý đồ tác giả thường xoay quanh việc nhấn mạnh đặc điểm nổi bật thông qua hình ảnh so sánh ví von với '〜ようだ／みたいだ'.",
+      "Cảnh giác bẫy 〜ほど: '〜ほど' dùng để nhấn mạnh mức độ cao (đến mức...), cần phân biệt rõ với cấu trúc so sánh hơn kém mang đuôi phủ định 'AはBほど〜ない' (A không bằng B)."
+    ],
+    "grammarFocus": [
+      "～次第で／次第では — 接続: N + 次第で ／ 次第では. Sắc thái: Tùy theo, phụ thuộc vào; kết quả thay đổi linh hoạt theo điều kiện N phía trước (次第では nhấn mạnh khả năng có thể thay đổi). Đối chiếu: Gần nghĩa 〜によって (tùy theo), khác với N次第だ (hoàn toàn phụ thuộc vào N).",
+      "～らしい（推量・根拠） — 接続: 普通形 + らしい (なAdj/N không だ). Sắc thái: Có vẻ, dường như; suy đoán dựa trên thông tin, bằng chứng hoặc dấu hiệu khách quan. Đối chiếu: Khác 〜そうだ (ngoại quan nhìn trực tiếp) và 〜ようだ (cảm nhận, phán đoán chủ quan).",
+      "～そうだ（外観） — 接続: Vます bỏ ます ／ Aい bỏ い ／ Aな bỏ な + そうだ (Đặc biệt: よい → よさそう, ない → なさそう). Sắc thái: Trông có vẻ, nhìn có vẻ; phán đoán dựa vào quan sát trực tiếp bề ngoài ngay lúc đó. Đối chiếu: Khác 〜そうだ truyền ngôn (普通形 + そうだ) và 〜らしい (dựa vào thông tin/chứng cứ khách quan).",
+      "～ほど（程度） — 接続: 普通形 ／ N + ほど (なAdj giữ な). Sắc thái: Đến mức, đến nỗi; lấy một sự việc cụ thể để biểu thị hoặc phóng đại mức độ rất cao của vế sau. Đối chiếu: Tương tự 〜くらい/ぐらい nhưng ほど mang sắc thái mức độ cao và trang trọng hơn; phân biệt với cấu trúc so sánh AはBほど〜ない.",
+      "～ように（様態） — 接続: 普通形 + ように ／ N + のように. Sắc thái: Như thể là, giống như; so sánh cách thức hoặc trạng thái tương đồng với một sự vật, hiện tượng khác. Đối chiếu: Khác 〜ように chỉ mục đích (để mà) hoặc chỉ thị/yêu cầu; のように bổ nghĩa cho danh từ, ように bổ nghĩa cho động từ/tính từ.",
+      "まるで～ようだ／みたいだ — 接続: まるで + 普通形 + ようだ (なAdj+な / N+の) ／ みたいだ (なAdj/N bỏ だ). Sắc thái: Hoàn toàn như thể là, y chang như; phó từ まるで kết hợp để nhấn mạnh tính ẩn dụ, so sánh sống động. Đối chiếu: ようだ mang sắc thái văn viết/trang trọng, みたいだ dùng trong văn nói/thân mật.",
+      "かのように／かのような — 接続: 普通形 + かのように ／ かのような + N (なAdj/N thường dùng である + かのように). Sắc thái: Cứ như thể là; miêu tả hành động, trạng thái giống như một điều gì đó nhưng thực chất không phải như vậy. Đối chiếu: Khác 〜ように (so sánh tương đồng thông thường), かのように nhấn mạnh tính chất phi thực tế/trái với sự thật."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 63,
+        "items": [
+          "〜そうだ（様態）: Vます-stem / Aい（bỏ い）/ なAdj ＋ そう",
+          "例外: いい → よさそう / ない → なさそう（様態のみ）"
+        ]
+      },
+      {
+        "bai": 64,
+        "items": [
+          "〜ようだ（普通形 + ようだ; なAdj → なようだ; N → のようだ）",
+          "〜みたいだ（なAdj/N bỏ だ + みたいだ）",
+          "〜ように + V（ようだ bổ nghĩa động từ）"
+        ]
+      },
+      {
+        "bai": 65,
+        "items": [
+          "〜らしい（推量・伝聞）",
+          "Nらしい"
+        ]
+      },
+      {
+        "bai": 68,
+        "items": [
+          "〜によって（(a) tùy theo/khác nhau theo）",
+          "〜による＋N（bổ nghĩa danh từ）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "失敗を未来の力に変える心の持ち方",
+      "titleVi": "Tâm thế biến thất bại thành sức mạnh cho tương lai",
+      "japanese": "人生では、予期しない失敗や挫折を経験することが誰にでもある。一見すると解決が難しそうな問題に直面したとき、諦めてしまいそうになるほど強い不安を感じることもあるだろう。そのようなとき、すべてが終わってしまったかのように絶望して立ち止まる人もいる。しかし、最近の心理学の研究によると、前向きな人は困難を自己成長の絶好の機会と捉える傾向があるらしい。\n物事の結果やその後の人生は、起きた出来事そのものよりも、私たちの心の持ち方次第で大きく変わる。たとえ失敗しても、その原因を冷静に分析する姿勢次第では、次の成功を引き寄せる強力な武器になるはずだ。人生の困難は、まるで目的地へ向かう途中に現れる険しい山道のようだ。目の前の壁に惑わされず、自分を信じて一歩ずつ前進することが何よりも大切らしい。私たちは日々の挑戦を重ねることで、未来を自分の手で切り開いていくことができる。",
+      "vietnamese": "Trong cuộc đời, bất kỳ ai cũng từng trải qua những thất bại hay vấp ngã ngoài dự tính. Khi đối mặt với những vấn đề thoạt nhìn có vẻ khó giải quyết, ắt hẳn có lúc ta cảm thấy lo âu sâu sắc đến mức như muốn từ bỏ. Vào những lúc như thế, cũng có những người rơi vào tuyệt vọng rồi dừng bước như thể mọi thứ đã hoàn toàn kết thúc. Thế nhưng, theo các nghiên cứu tâm lý học gần đây, những người tích cực dường như có xu hướng xem khó khăn là cơ hội tuyệt vời để hoàn thiện bản thân.\nKết quả của sự việc cũng như cuộc sống sau này thay đổi rất lớn tùy thuộc vào tâm thế của chính chúng ta, hơn là bản thân sự việc xảy ra. Dù có thất bại, nhưng tùy vào thái độ bình tĩnh phân tích nguyên nhân, điều đó chắc chắn sẽ trở thành vũ khí đắc lực giúp thu hút thành công tiếp theo. Những gian nan trong đời hoàn toàn giống như con đường núi hiểm trở xuất hiện trên chặng đường hướng tới đích đến. Dường như điều cốt lõi hơn tất cả là không để những bức tường trước mắt làm hoang mang, mà hãy tin vào chính mình và tiến lên từng bước một. Bằng cách không ngừng đón nhận những thử thách mỗi ngày, chúng ta hoàn toàn có thể tự tay mở lối cho tương lai của chính mình.",
+      "sentences": [
+        {
+          "jp": "人生では、予期しない失敗や挫折を経験することが誰にでもある。",
+          "vi": "Trong cuộc đời, bất kỳ ai cũng có lúc trải qua những thất bại hay vấp ngã ngoài dự tính.",
+          "vocab": [
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "予期",
+              "read": "よき",
+              "vi": "dự đoán trước, dự kiến"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "挫折",
+              "read": "ざせつ",
+              "vi": "vấp ngã, chán nản, đứt gánh giữa đường"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことがある",
+              "vi": "【接続: V辞書形/Vない形 ＋ ことがある】Diễn tả thỉnh thoảng có lúc xảy ra sự việc gì đó (tần suất không thường xuyên). Khác với 『〜たことがある』dùng để kể về kinh nghiệm đã từng trải qua trong quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "一見すると解決が難しそうな問題に直面したとき、諦めてしまいそうになるほど強い不安を感じることもあるだろう。",
+          "vi": "Khi đối mặt với vấn đề thoạt nhìn có vẻ khó giải quyết, ắt hẳn có lúc ta cảm thấy lo âu sâu sắc đến mức như muốn bỏ cuộc.",
+          "vocab": [
+            {
+              "w": "一見",
+              "read": "いっけん",
+              "vi": "thoạt nhìn, nhìn qua một lần"
+            },
+            {
+              "w": "解決",
+              "read": "かいけつ",
+              "vi": "giải quyết, giải pháp"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "直面",
+              "read": "ちょくめん",
+              "vi": "đối mặt, đối diện trực tiếp"
+            },
+            {
+              "w": "諦める",
+              "read": "あきらめる",
+              "vi": "bỏ cuộc, từ bỏ"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（様態・外観）",
+              "vi": "【接続: Aい bỏ い / Aな bỏ な ＋ そうだ】Thể hiện phán đoán trực quan dựa trên vẻ bề ngoài nhìn thấy được ('trông có vẻ...'). Khác với 『〜らしい』(dựa trên nguồn tin/chứng cứ gián tiếp) và 『〜そうだ（伝聞）』(nghe nói theo lời người khác, đứng sau thể thông thường)."
+            },
+            {
+              "point": "〜ほど（程度）",
+              "vi": "【接続: V辞書形/Aい/Aな/N ＋ ほど】Nhấn mạnh mức độ cao của sự việc bằng cách đưa ra một ví dụ/trạng thái cực đoan ('đến mức...'). Khác với 『〜くらい／ぐらい』(chỉ mức độ thông thường, thân mật hơn) ở chỗ 『ほど』mang sắc thái biểu cảm và trang trọng hơn."
+            }
+          ]
+        },
+        {
+          "jp": "そのようなとき、すべてが終わってしまったかのように絶望して立ち止まる人もいる。",
+          "vi": "Vào những lúc như thế, cũng có những người rơi vào tuyệt vọng rồi dừng bước như thể mọi thứ đã hoàn toàn kết thúc.",
+          "vocab": [
+            {
+              "w": "すべて",
+              "read": "すべて",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "絶望",
+              "read": "ぜつぼう",
+              "vi": "tuyệt vọng, mất hết hy vọng"
+            },
+            {
+              "w": "立ち止まる",
+              "read": "たちどまる",
+              "vi": "dừng chân, dừng lại"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かのように／かのような",
+              "vi": "【接続: 動詞・形容詞・名詞の普通形（N/Naである） ＋ かのように】Diễn tả một so sánh ví von với điều thực tế không phải như vậy ('như thể là...'). Khác với 『〜ように』(so sánh tương đồng thông thường) ở chỗ 『かのように』nhấn mạnh sự đối lập với thực tế khách quan (thực tế chưa kết thúc nhưng cảm giác như đã kết thúc)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、最近の心理学の研究によると、前向きな人は困難を自己成長の絶好の機会と捉える傾向があるらしい。",
+          "vi": "Thế nhưng, theo các nghiên cứu tâm lý học gần đây, những người tích cực dường như có xu hướng xem khó khăn là cơ hội tuyệt vời để hoàn thiện bản thân.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "心理",
+              "read": "しんり",
+              "vi": "tâm lý"
+            },
+            {
+              "w": "研究",
+              "read": "けんきゅう",
+              "vi": "nghiên cứu"
+            },
+            {
+              "w": "前向き",
+              "read": "まえむき",
+              "vi": "tích cực, hướng về phía trước"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn"
+            },
+            {
+              "w": "自己",
+              "read": "じこ",
+              "vi": "bản thân, tự mình"
+            },
+            {
+              "w": "成長",
+              "read": "せいちょう",
+              "vi": "sự trưởng thành"
+            },
+            {
+              "w": "絶好",
+              "read": "ぜっこう",
+              "vi": "tuyệt hảo, cực kỳ thuận lợi"
+            },
+            {
+              "w": "機会",
+              "read": "きかい",
+              "vi": "cơ hội"
+            },
+            {
+              "w": "捉える",
+              "read": "とらえる",
+              "vi": "nắm bắt, nhìn nhận, hiểu theo hướng"
+            },
+            {
+              "w": "傾向",
+              "read": "けいこう",
+              "vi": "xu hướng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（推量・根拠）",
+              "vi": "【接続: 普通形（N/Na không だ） ＋ らしい】Biểu thị suy đoán có căn cứ khách quan hoặc dựa trên thông tin gián tiếp ('dường như / hình như'). Đi cùng 『〜によると』để trích dẫn cơ sở xác thực. Khác với 『〜そうだ（様態）』chỉ nhìn thoáng qua bề ngoài và 『〜ようだ』thiên về cảm nhận chủ quan."
+            }
+          ]
+        },
+        {
+          "jp": "物事の結果やその後の人生は、起きた出来事そのものよりも、私たちの心の持ち方次第で大きく変わる。",
+          "vi": "Kết quả của sự việc cũng như cuộc sống sau này thay đổi rất lớn tùy thuộc vào tâm thế của chính chúng ta, hơn là bản thân sự việc xảy ra.",
+          "vocab": [
+            {
+              "w": "物事",
+              "read": "ものごと",
+              "vi": "mọi việc, sự vật sự việc"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "その後",
+              "read": "そのご",
+              "vi": "sau đó"
+            },
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "起きる",
+              "read": "おきる",
+              "vi": "dậy, thức dậy"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự việc, sự kiện"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "ngay khi, tùy thuộc"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "持ち方",
+              "read": "もちかた",
+              "vi": "cách giữ, tâm thế, cách nhìn nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜次第で／次第では",
+              "vi": "【接続: 名詞 ＋ 次第で／次第では】Biểu đạt ý 'tùy thuộc vào N mà dẫn đến kết quả/thay đổi tương ứng'. Vế sau thường đi với các từ chỉ sự biến đổi như 変わる, 決まる. Khác với 『〜に応じて』(thay đổi linh hoạt tỉ lệ thuận theo quy chuẩn) và 『V-ます＋次第』(ngay sau khi - ngữ pháp N2)."
+            }
+          ]
+        },
+        {
+          "jp": "たとえ失敗しても、その原因を冷静に分析する姿勢次第では、次の成功を引き寄せる強力な武器になるはずだ。",
+          "vi": "Dù có thất bại, nhưng tùy vào thái độ bình tĩnh phân tích nguyên nhân, điều đó chắc chắn sẽ trở thành vũ khí đắc lực giúp thu hút thành công tiếp theo.",
+          "vocab": [
+            {
+              "w": "たとえ",
+              "read": "たとえ",
+              "vi": "dù cho, cho dù"
+            },
+            {
+              "w": "失敗",
+              "read": "しっぱい",
+              "vi": "thất bại, sai sót"
+            },
+            {
+              "w": "原因",
+              "read": "げんいん",
+              "vi": "nguyên nhân"
+            },
+            {
+              "w": "冷静",
+              "read": "れいせい",
+              "vi": "bình tĩnh, điềm đạm"
+            },
+            {
+              "w": "分析",
+              "read": "ぶんせき",
+              "vi": "phân tích"
+            },
+            {
+              "w": "姿勢",
+              "read": "しせい",
+              "vi": "tư thế, tâm thế, thái độ đối diện"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "ngay khi, tùy thuộc"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "成功",
+              "read": "せいこう",
+              "vi": "thành công"
+            },
+            {
+              "w": "引き寄せる",
+              "read": "ひきよせる",
+              "vi": "kéo lại gần, thu hút về phía mình"
+            },
+            {
+              "w": "強力",
+              "read": "きょうりょく",
+              "vi": "mạnh mẽ, uy lực lớn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "たとえ〜ても",
+              "vi": "【接続: たとえ ＋ Vて/Aくて/Na・Nでも】Giả định nhượng bộ: 'cho dù... thì vẫn...'. Nhấn mạnh tính kiên định ở vế sau bất chấp điều kiện bất lợi ở vế trước."
+            },
+            {
+              "point": "〜次第では",
+              "vi": "【接続: 名詞 ＋ 次第では】Thêm trợ từ 『は』để nhấn mạnh một trường hợp cụ thể có thể xảy ra ('nếu xét theo... thì có khả năng...'). Vế sau thường đi kèm khả năng hoặc phán đoán như 〜になる、〜こともある."
+            }
+          ]
+        },
+        {
+          "jp": "人生の困難は、まるで目的地へ向かう途中に現れる険しい山道のようだ。",
+          "vi": "Những gian nan trong đời hoàn toàn giống như con đường núi hiểm trở xuất hiện trên chặng đường hướng tới đích đến.",
+          "vocab": [
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "困難",
+              "read": "こんなん",
+              "vi": "khó khăn"
+            },
+            {
+              "w": "まるで",
+              "read": "まるで",
+              "vi": "cứ như là, giống hệt như"
+            },
+            {
+              "w": "目的",
+              "read": "もくてき",
+              "vi": "mục đích"
+            },
+            {
+              "w": "向かう",
+              "read": "むかう",
+              "vi": "hướng tới, đối mặt"
+            },
+            {
+              "w": "途中",
+              "read": "とちゅう",
+              "vi": "giữa chừng"
+            },
+            {
+              "w": "現れる",
+              "read": "あらわれる",
+              "vi": "xuất hiện, hiện ra"
+            },
+            {
+              "w": "険しい",
+              "read": "けわしい",
+              "vi": "hiểm trở, dốc đứng, gay go"
+            },
+            {
+              "w": "山道",
+              "read": "さんどう",
+              "vi": "đường núi"
+            },
+            {
+              "w": "目的地",
+              "read": "もくてきち",
+              "vi": "đích đến, nơi hướng tới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まるで〜ようだ／みたいだ",
+              "vi": "【接続: まるで ＋ Nの/V普通形 ＋ ようだ】Mẫu câu so sánh ví von hình ảnh ('y như là / hoàn toàn giống như'). 『まるで』đi kèm để nhấn mạnh tính tương đồng sinh động. Khác với 『かのように』(thường mang nghĩa thực tế không phải vậy), 『まるで〜ようだ』thiên về tạo hình ảnh ẩn dụ đẹp mắt, trực quan."
+            }
+          ]
+        },
+        {
+          "jp": "目の前の壁に惑わされず、自分を信じて一歩ずつ前進することが何よりも大切らしい。",
+          "vi": "Dường như điều cốt lõi hơn tất cả là không để những bức tường trước mắt làm hoang mang, mà hãy tin vào chính mình và tiến lên từng bước một.",
+          "vocab": [
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "phía trước"
+            },
+            {
+              "w": "目の前",
+              "read": "めのまえ",
+              "vi": "ngay trước mắt"
+            },
+            {
+              "w": "壁",
+              "read": "かべ",
+              "vi": "bức tường"
+            },
+            {
+              "w": "惑わされず",
+              "read": "まどわされず",
+              "vi": "không bị chi phối"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "信じて",
+              "read": "しんじて",
+              "vi": "tin tưởng"
+            },
+            {
+              "w": "一歩",
+              "read": "いっぽ",
+              "vi": "một bước"
+            },
+            {
+              "w": "一歩ずつ",
+              "read": "いっぽずつ",
+              "vi": "từng bước một"
+            },
+            {
+              "w": "前進する",
+              "read": "ぜんしんする",
+              "vi": "tiến lên"
+            },
+            {
+              "w": "何よりも",
+              "read": "なによりも",
+              "vi": "hơn bất cứ điều gì"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（推量・総括）",
+              "vi": "【接続: Aい/V普通形 ＋ らしい】Dùng để đúc kết nhận định mang tính đúc rút kinh nghiệm từ quy luật hoặc lẽ phải khách quan ('dường như / thực sự là...'). Giúp câu văn khách quan, tránh áp đặt ý kiến cá nhân tuyệt đối."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは日々の挑戦を重ねることで、未来を自分の手で切り開いていくことができる。",
+          "vi": "Bằng cách không ngừng đón nhận những thử thách mỗi ngày, chúng ta hoàn toàn có thể tự tay mở lối cho tương lai của chính mình.",
+          "vocab": [
+            {
+              "w": "日々",
+              "read": "ひび",
+              "vi": "những ngày tháng, từng ngày"
+            },
+            {
+              "w": "挑戦",
+              "read": "ちょうせん",
+              "vi": "thử thách"
+            },
+            {
+              "w": "重ねる",
+              "read": "かさねる",
+              "vi": "chồng chất, tích lũy, lặp đi lặp lại nhiều lần"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "切り開く",
+              "read": "きりひらく",
+              "vi": "mở đường, khai phá, vượt qua chông gai để tiến tới"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていく",
+              "vi": "【接続: Vて ＋ いく】Diễn tả một hành động tiếp tục phát triển hướng từ hiện tại đến tương lai. Thể hiện tiến trình tích lũy và vươn xa."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "心の持ち方次第で",
+          "label": "Tùy thuộc vào tâm thế (mẫu ngữ pháp 次第で)"
+        },
+        {
+          "excerpt": "すべてが終わってしまったかのように",
+          "label": "So sánh ví von với điều không có thực (かのように)"
+        },
+        {
+          "excerpt": "諦めてしまいそうになるほど強い不安",
+          "label": "Mức độ cực đoan gây cảm giác muốn từ bỏ (ほど)"
+        },
+        {
+          "excerpt": "まるで目的地へ向かう途中に現れる険しい山道のようだ",
+          "label": "Ẩn dụ so sánh cuộc sống với đường núi (まるで～ようだ)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "第1段落によると、解決が難しそうな問題に直面したとき、人々はどのような状態になることがあるか。",
+          "options": [
+            "誰もが常に冷静さを保ち、すぐに目標達成に向けた最適な解決策を見つけ出す。",
+            "諦めたくなるほどの強い不安を感じ、すべてが終わったかのように絶望して立ち止まってしまう。",
+            "大半の人が何ら解決策を試すこともなく、即座に挑戦そのものを放棄してしまう。",
+            "そのような困難を冗談のように受け止め、結果に対して全く気にも留めない。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu 1 và câu 2: 「一見すると解決が難しそうな問題に直面したとき、諦めてしまいそうになるほど強い不安を感じることもあるだろう。そのようなとき、すべてが終わってしまったかのように絶望して立ち止まる人もいる」(Khi đối mặt với vấn đề khó khăn, có lúc cảm thấy bất an đến mức muốn bỏ cuộc, và có người rơi vào tuyệt vọng dừng bước như thể mọi thứ đã kết thúc). Do đó, phương án 1 mô tả chính xác nội dung này.\n- Phương án 0 sai vì bài chỉ ra con người có lúc bất an, tuyệt vọng chứ không phải 'ai cũng luôn giữ bình tĩnh'.\n- Phương án 2 sai vì bài chỉ nói 'có người' (人もある/人もいる) chứ không khẳng định 'phần lớn mọi người lập tức từ bỏ không thử sức'.\n- Phương án 3 sai hoàn toàn so với nội dung văn bản.",
+          "tip": "Chú ý các từ chỉ phạm vi và mức độ như 「〜人もいる」 (cũng có người) để tránh bẫy tuyệt đối hóa trong các phương án gây nhiễu.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Theo đoạn 1, khi đối mặt với một vấn đề có vẻ khó giải quyết, người ta có thể rơi vào trạng thái như thế nào?",
+            "o": [
+              "Ai cũng luôn giữ được bình tĩnh và nhanh chóng tìm ra giải pháp tối ưu để đạt mục tiêu.",
+              "Cảm thấy lo lắng dữ dội đến mức muốn bỏ cuộc, rồi tuyệt vọng và dừng lại như thể mọi thứ đã kết thúc.",
+              "Phần lớn mọi người không thử bất kỳ giải pháp nào mà lập tức từ bỏ chính thử thách đó.",
+              "Đón nhận những khó khăn như vậy như chuyện đùa và hoàn toàn không bận tâm đến kết quả."
+            ]
+          }
+        },
+        {
+          "q": "第2段落において、物事の結果やその後の人生を最も大きく左右する要素として述べられているものはどれか。",
+          "options": [
+            "起きた出来事に対して、自分自身がどのような姿勢や心構えで向き合うかということ。",
+            "予期せず発生してしまった出来事そのものの重大さや規模の大きさ。",
+            "困難に陥った際に、周囲の友人や心理学の専門家から得られる支援の手厚さ。",
+            "それぞれの人が生まれつき持っている運の良さや巡り合わせのタイミング。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu 4: 「物事の結果やその後の人生は、起きた出来事そのものよりも、私たちの心の持ち方次第で大きく変わる」(Kết quả sự việc cũng như cuộc sống sau này thay đổi rất lớn tùy thuộc vào tâm thế của chúng ta hơn là bản thân sự việc xảy ra). Vì vậy, phương án 0 là đáp án chính xác.\n- Phương án 1 sai vì tác giả khẳng định tâm thế quan trọng hơn bản thân sự việc (「起きた出来事そのものよりも」).\n- Phương án 2 và 3 không được nêu trong bài như là yếu tố quyết định kết quả.",
+          "tip": "Bám sát mẫu câu so sánh hơn kém 『Aそのものよりも、B次第で...』để nắm bắt trọng tâm mà tác giả muốn khẳng định.",
+          "evi": [
+            4
+          ],
+          "qt": {
+            "q": "Trong đoạn 2, yếu tố nào được nêu là tác động lớn nhất đến kết quả sự việc và cuộc sống sau đó?",
+            "o": [
+              "Cách chính bản thân mình đối diện với sự việc, với thái độ và tâm thế như thế nào.",
+              "Mức độ nghiêm trọng và quy mô lớn của chính sự việc xảy ra ngoài dự kiến.",
+              "Mức độ hỗ trợ tận tình nhận được từ bạn bè xung quanh và các chuyên gia tâm lý khi gặp khó khăn.",
+              "Sự may mắn bẩm sinh và thời điểm gặp vận may của mỗi người."
+            ]
+          }
+        },
+        {
+          "q": "「まるで目的地へ向かう途中に現れる険しい山道のようだ」という比喩表現は、どのような意味を暗示しているか。",
+          "options": [
+            "危険な山道のような困難は極力避け、平坦で楽な道を選んで進むべきであるということ。",
+            "困難は成功へ至る過程で誰の身にも現れる通過点であり、信念を持って乗り越えるべきものだということ。",
+            "人生の最終目標を達成するためには、日頃から本格的な登山訓練を行う必要があるということ。",
+            "目の前に現れる壁があまりにも高いため、多くの人は途中で挫折してしまう運命にあるということ。"
+          ],
+          "answer": 1,
+          "explainVi": "Câu 6 dùng hình ảnh ví von con đường núi hiểm trở xuất hiện trên đường tới đích (「目的地へ向かう途中に現れる険しい山道」), kết hợp với câu 7 「目の前の壁に惑わされず、自分を信じて一歩ずつ前進することが何よりも大切らしい」 (không bị bức tường trước mắt làm hoang mang, tin vào mình và tiến lên từng bước). Tác giả ngụ ý khó khăn chỉ là thử thách tất yếu trên lộ trình tới đích, cần giữ vững niềm tin để vượt qua.\n- Phương án 0 sai vì bài khuyên tiến lên chứ không bảo né tránh chọn đường dễ.\n- Phương án 2 sai vì hiểu theo nghĩa đen cơ học của từ 'leo núi'.\n- Phương án 3 mang tính bi quan, đi ngược lại tư tưởng khuyến khích của bài.",
+          "tip": "Đối với câu hỏi giải thích hình ảnh ẩn dụ (まるで〜ようだ), hãy đọc tiếp câu liền sau để tìm kiếm thông điệp hành động mà tác giả gửi gắm.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Cách nói ẩn dụ 「まるで目的地へ向かう途中に現れる険しい山道のようだ」 (giống như con đường núi hiểm trở xuất hiện trên đường đi đến đích) hàm ý điều gì?",
+            "o": [
+              "Những khó khăn như con đường núi nguy hiểm nên được tránh hết mức có thể; ta nên chọn con đường bằng phẳng, dễ đi.",
+              "Khó khăn là chặng đường mà ai cũng gặp phải trên hành trình đi đến thành công, và là điều cần vượt qua với niềm tin vững chắc.",
+              "Để đạt được mục tiêu cuối cùng trong đời, cần thường xuyên luyện tập leo núi một cách nghiêm túc.",
+              "Bức tường xuất hiện trước mắt quá cao, nên nhiều người có số phận là sẽ bỏ cuộc giữa chừng."
+            ]
+          }
+        },
+        {
+          "q": "文章全体を通じて、筆者が読者に最も伝えたい主張はどれか。",
+          "options": [
+            "失敗はあらゆる可能性を閉ざすものであり、人間が運命に抗うことは不可能である。",
+            "心理学の理論を学ぶことこそが、人生におけるすべての失敗を未然に防ぐ唯一の方法である。",
+            "失敗を恐れず、その原因を冷静に捉えて一歩ずつ前進すれば、自らの手で未来を切り開くことができる。",
+            "生まれつき強い才能を持つ一部の人だけが、困難を自己成長の機会に変えることができる。"
+          ],
+          "answer": 2,
+          "explainVi": "Xuyên suốt toàn bài, tác giả thừa nhận vấp ngã là điều ai cũng gặp (câu 0), nhưng nếu biết nhìn nhận nó như cơ hội trưởng thành (câu 3), bình tĩnh phân tích nguyên nhân (câu 5) và kiên trì từng bước tiến lên thì ta sẽ tự tay mở lối cho tương lai (câu 8). Phương án 2 phản ánh đầy đủ và chuẩn xác nhất thông điệp này.\n- Phương án 0 sai vì mang tư tưởng tiêu cực, trái ngược với bài viết.\n- Phương án 1 sai do dùng từ tuyệt đối 'phương pháp duy nhất ngăn ngừa mọi thất bại'.\n- Phương án 3 sai vì bài nhấn mạnh vào tâm thế và sự nỗ lực rèn luyện (「心の持ち方」) chứ không phải 'tài năng bẩm sinh'.",
+          "tip": "Câu hỏi chủ đề toàn bài thường có đáp án mang tính tổng hợp, dung hòa giữa việc nhìn nhận thực tế khó khăn và thái độ hành động tích cực.",
+          "evi": [
+            0,
+            3,
+            5,
+            8
+          ],
+          "qt": {
+            "q": "Xuyên suốt toàn bài, luận điểm mà tác giả muốn truyền đạt nhất đến độc giả là gì?",
+            "o": [
+              "Thất bại khép lại mọi khả năng, và con người không thể chống lại số phận.",
+              "Học các lý thuyết tâm lý chính là cách duy nhất để ngăn ngừa mọi thất bại trong cuộc đời.",
+              "Nếu không sợ thất bại, bình tĩnh nhìn nhận nguyên nhân và từng bước tiến lên, ta có thể tự tay mở ra tương lai của mình.",
+              "Chỉ một số người có tài năng vượt trội bẩm sinh mới có thể biến khó khăn thành cơ hội để phát triển bản thân."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "本との対話と読書の深さ",
+      "titleVi": "Đối thoại với sách và chiều sâu của việc đọc",
+      "japanese": "私たちが本を開くとき、そこには日常とは異なる豊かな世界が広がっている。素晴らしい本を読む時間は、まるで別の時代や異国を一人で旅しているようだ。最近の統計調査によると、若い世代の活字離れが進んでいるというのは一部の面だけを捉えた見方らしい。実際には、電子書籍や音声メディアを利用して読書を楽しむ人が急速に増えているらしい。本の形がデジタルに変化しても、物語や知識に夢中になる読書体験そのものは、昔も今も変わっていないように思われる。\n図書館や書店の棚には、手に取るだけで知的好奇心を強く刺激してくれそうな本がたくさん並んでいる。表紙を見るだけでは少し難しそうな専門書でも、実際に読み進めると驚くほど分かりやすい解説に出会うことがある。時には、ページをめくる手が止まらなくなるほど魅力的な物語に夢中になり、時間を忘れてしまうこともある。心を揺さぶる一冊に出会ったとき、登場人物があたかも自分の昔からの友人であるかのように親しみを感じることがある。そして、過去の偉大な思想家が、今まさに目の前で息づいているかのような深い実感を抱くのだ。\n読書とは、単に文字を目で追う作業ではなく、著者との静かな対話である。著者がすぐそばで穏やかに語りかけているように、一言一言の言葉が心に深く染み込んでくる。悩みを抱えているときに読んだ一行が、まるで乾いた心に注がれる水のように温かい力を与えてくれることもある。暗闇の中で小さな光を見つけるように、私たちは読書を通じて自分自身の生き方や未来のヒントを探しているのだ。言葉の奥にある深い意味や著者の思いに気づいたとき、思わず胸が熱くなるほどの感動を覚える。\nこのように考えると、読書の価値や得られる喜びは、本そのものの内容だけで決まるのではない。同じ一冊の本であっても、それを受け取る読者の知識やこれまでの人生経験次第では、まったく異なる意味を持つようになる。どんな名著であっても、ただ漫然と読むだけでは表面的な知識を得るだけで終わってしまう。しかし、強い問題意識や真摯な態度を持って向き合えば、一冊の本が人生を大きく変える力強いきっかけになる。結局のところ、本がどれほど素晴らしい価値を持つかは、私たち自身の向き合い方や心構え次第でいくらでも変わるのである。",
+      "vietnamese": "Khi chúng ta mở một cuốn sách ra, ở đó mở ra một thế giới phong phú khác biệt với cuộc sống thường nhật. Khoảng thời gian đọc một cuốn sách tuyệt vời hoàn toàn như thể ta đang một mình du ngoạn tới một thời đại khác hay một vùng đất xa xôi. Theo các cuộc điều tra thống kê gần đây, việc cho rằng giới trẻ ngày càng xa rời văn hóa đọc sách in dường như là cách nhìn chỉ nắm bắt được một khía cạnh. Trên thực tế, có vẻ như số người thưởng thức việc đọc thông qua sách điện tử và phương tiện âm thanh đang tăng lên nhanh chóng. Dù hình thức của sách có chuyển đổi sang kỹ thuật số, thì bản thân trải nghiệm say mê với câu chuyện và tri thức dường như từ xưa đến nay vẫn không hề thay đổi.\nTrên các kệ ở thư viện hay hiệu sách, có rất nhiều cuốn sách được bày biện mà chỉ cần cầm lên tay thôi là trông có vẻ sẽ kích thích mạnh mẽ trí tò mò hiểu biết. Ngay cả những cuốn sách chuyên ngành thoạt nhìn qua bìa trông có vẻ hơi khó, nhưng khi thực sự đọc tiếp thì đôi khi lại bắt gặp những lời giải thích dễ hiểu đến mức đáng kinh ngạc. Đôi khi, ta say mê câu chuyện lôi cuốn đến mức bàn tay lật trang không thể dừng lại, và quên cả thời gian. Khi bắt gặp một cuốn sách lay động tâm can, ta có thể cảm thấy thân thuộc như thể các nhân vật chính là những người bạn lâu năm của chính mình. Và ta cảm nhận được một cảm xúc chân thực sâu sắc như thể những nhà tư tưởng vĩ đại trong quá khứ đang sống động ngay trước mắt mình lúc này.\nĐọc sách không đơn thuần là thao tác dùng mắt dõi theo con chữ, mà là một cuộc đối thoại tĩnh lặng với tác giả. Từng câu từng chữ thấm sâu vào tâm hồn dường như tác giả đang cất lời trò chuyện dịu dàng ngay bên cạnh. Một dòng chữ đọc được khi đang ôm nỗi muộn phiền đôi khi lại trao cho ta nguồn sức mạnh ấm áp, y chang như dòng nước được tưới vào một tâm hồn khô cằn. Giống như việc tìm kiếm một tia sáng nhỏ trong bóng tối, thông qua việc đọc sách, chúng ta đang tìm kiếm những gợi ý cho tương lai và cách sống của chính bản thân mình. Khi nhận ra ý nghĩa sâu xa phía sau ngôn từ cùng tâm tư của tác giả, ta cảm nhận được niềm xúc động đến mức bất giác lồng ngực nóng lên nghẹn ngào.\nKhi suy nghĩ như vậy, giá trị của việc đọc sách cùng niềm vui nhận được không chỉ do nội dung của bản thân cuốn sách quyết định. Ngay cả với cùng một cuốn sách, tùy theo vốn tri thức và trải nghiệm cuộc đời từ trước đến nay của người tiếp nhận, nó sẽ mang những ý nghĩa hoàn toàn khác biệt. Dù là danh tác thế nào đi chăng nữa, nếu chỉ đọc một cách hời hợt lan man thì cũng chỉ dừng lại ở việc thu nhận kiến thức bề mặt. Nhưng nếu ta đối diện với cuốn sách bằng thái độ chân thành và ý thức vấn đề sâu sắc, một cuốn sách sẽ trở thành bước ngoặt đầy sức mạnh làm thay đổi lớn lao cuộc đời. Rốt cuộc, việc một cuốn sách mang giá trị tuyệt vời đến mức nào sẽ biến đổi vô cùng tùy thuộc vào tâm thế và cách tiếp cận của chính bản thân chúng ta.",
+      "sentences": [
+        {
+          "jp": "私たちが本を開くとき、そこには日常とは異なる豊かな世界が広がっている。",
+          "vi": "Khi chúng ta mở một cuốn sách ra, ở đó mở ra một thế giới phong phú khác biệt với cuộc sống thường nhật.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "開く",
+              "read": "ひらく",
+              "vi": "mở ra, mở"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "thường nhật, cuộc sống hàng ngày"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác biệt"
+            },
+            {
+              "w": "豊か",
+              "read": "ゆたか",
+              "vi": "phong phú, giàu có"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは異なる",
+              "vi": "【接続】N ＋ とは異なる. 【Sắc thái】Diễn tả sự khác biệt rõ rệt so với một trạng thái hay tiêu chuẩn thông thường. 【Đối chiếu】Khác với「〜と違う」(thường dùng trong văn nói sinh hoạt),「〜とは異なる」mang tính văn viết trang trọng và nhấn mạnh độ tương phản."
+            }
+          ]
+        },
+        {
+          "jp": "素晴らしい本を読む時間は、まるで別の時代や異国を一人で旅しているようだ。",
+          "vi": "Khoảng thời gian đọc một cuốn sách tuyệt vời hoàn toàn như thể ta đang một mình du ngoạn tới một thời đại khác hay một vùng đất xa xôi.",
+          "vocab": [
+            {
+              "w": "素晴らしい",
+              "read": "すばらしい",
+              "vi": "tuyệt vời"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "まるで",
+              "read": "まるで",
+              "vi": "cứ như là"
+            },
+            {
+              "w": "別",
+              "read": "べつ",
+              "vi": "khác"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại"
+            },
+            {
+              "w": "異国",
+              "read": "いこく",
+              "vi": "xứ lạ"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "旅している",
+              "read": "たびしている",
+              "vi": "đang du hành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まるで〜ようだ",
+              "vi": "【接続】まるで ＋ 普通形 ＋ ようだ (Aな→な / N→の). 【Sắc thái】So sánh ví von hình ảnh mang tính tượng trưng cao ('hoàn toàn như thể là', 'y hệt như'). 【Đối chiếu】So với「〜みたいだ」(khẩu ngữ),「まるで〜ようだ」trang trọng, giàu chất văn chương; so với「かのように」(thường ngụ ý thực tế không phải vậy),「まるで〜ようだ」nhấn mạnh vào sự tương đồng sống động của cảm giác."
+            }
+          ]
+        },
+        {
+          "jp": "最近の統計調査によると、若い世代の活字離れが進んでいるというのは一部の面だけを捉えた見方らしい。",
+          "vi": "Theo các cuộc điều tra thống kê gần đây, việc cho rằng giới trẻ ngày càng xa rời văn hóa đọc sách in dường như là cách nhìn chỉ nắm bắt được một khía cạnh.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "統計",
+              "read": "とうけい",
+              "vi": "thống kê"
+            },
+            {
+              "w": "調査",
+              "read": "ちょうさ",
+              "vi": "điều tra"
+            },
+            {
+              "w": "若い",
+              "read": "わかい",
+              "vi": "trẻ (tuổi)"
+            },
+            {
+              "w": "世代",
+              "read": "せだい",
+              "vi": "thế hệ"
+            },
+            {
+              "w": "活字",
+              "read": "かつじ",
+              "vi": "chữ in"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến lên, tiến triển"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            },
+            {
+              "w": "面",
+              "read": "めん",
+              "vi": "mặt, khía cạnh"
+            },
+            {
+              "w": "捉える",
+              "read": "とらえる",
+              "vi": "nắm bắt, nhìn nhận"
+            },
+            {
+              "w": "見方",
+              "read": "みかた",
+              "vi": "cách xem, cách nhìn"
+            },
+            {
+              "w": "統計調査",
+              "read": "とうけいちょうさ",
+              "vi": "điều tra thống kê"
+            },
+            {
+              "w": "活字離れ",
+              "read": "かつじばなれ",
+              "vi": "hiện tượng xa rời việc đọc sách báo in"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（推量・根拠）",
+              "vi": "【接続】普通形 (Aな/N bỏ だ) ＋ らしい. 【Sắc thái】Phán đoán, suy luận dựa trên căn cứ khách quan (số liệu, thông tin thực tế từ bên ngoài: 'nghe nói là / dường như là'). 【Đối chiếu】Khác với「〜そうだ」(chỉ truyền đạt lại lời đồn mà không có phán đoán của người nói, hoặc quan sát bề ngoài) và「〜ようだ」(dựa trên cảm giác trực giác chủ quan)."
+            }
+          ]
+        },
+        {
+          "jp": "実際には、電子書籍や音声メディアを利用して読書を楽しむ人が急速に増えているらしい。",
+          "vi": "Trên thực tế, có vẻ như số người thưởng thức việc đọc thông qua sách điện tử và phương tiện âm thanh đang tăng lên nhanh chóng.",
+          "vocab": [
+            {
+              "w": "実際",
+              "read": "じっさい",
+              "vi": "trên thực tế"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "書籍",
+              "read": "しょせき",
+              "vi": "sách báo, ấn phẩm"
+            },
+            {
+              "w": "音声",
+              "read": "おんせい",
+              "vi": "âm thanh"
+            },
+            {
+              "w": "メディア",
+              "read": "メディア",
+              "vi": "phương tiện truyền thông"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "楽しむ",
+              "read": "たのしむ",
+              "vi": "thưởng thức, tận hưởng"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "急速に",
+              "read": "きゅうそくに",
+              "vi": "nhanh chóng, cấp tốc"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "電子書籍",
+              "read": "でんししょせき",
+              "vi": "sách điện tử (ebook)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜らしい（推量）",
+              "vi": "【接続】普通形 (Vている) ＋ らしい. 【Sắc thái】Thể hiện phán đoán dựa trên quan sát xu hướng thực tế hoặc nguồn thông tin đáng tin cậy. 【Đối chiếu】So với「〜だろう/〜かもしれない」(suy đoán thuần chủ quan),「〜らしい」nhấn mạnh vào việc người nói có căn cứ thực tế bên ngoài."
+            }
+          ]
+        },
+        {
+          "jp": "本の形がデジタルに変化しても、物語や知識に夢中になる読書体験そのものは、昔も今も変わっていないように思われる。",
+          "vi": "Dù hình thức của sách có chuyển đổi sang kỹ thuật số, thì bản thân trải nghiệm say mê với câu chuyện và tri thức dường như từ xưa đến nay vẫn không hề thay đổi.",
+          "vocab": [
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình dạng, hình thức"
+            },
+            {
+              "w": "デジタル",
+              "read": "デジタル",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "物語",
+              "read": "ものがたり",
+              "vi": "câu chuyện, truyện"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "夢中",
+              "read": "むちゅう",
+              "vi": "say mê, miệt mài"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa, xa xưa"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "読書体験",
+              "read": "どくしょたいけん",
+              "vi": "trải nghiệm đọc sách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（思われる）",
+              "vi": "【接続】普通形 (Vない) ＋ ように思われる. 【Sắc thái】Bày tỏ nhận định, cảm nghĩ một cách uyển chuyển, khách quan ('dường như, có cảm giác là'). 【Đối chiếu】So với lối nói trực tiếp「〜と思う」,「〜ように思われる」giúp văn phong mềm mại, mang tính nghị luận học thuật."
+            }
+          ]
+        },
+        {
+          "jp": "図書館や書店の棚には、手に取るだけで知的好奇心を強く刺激してくれそうな本がたくさん並んでいる。",
+          "vi": "Trên các kệ ở thư viện hay hiệu sách, có rất nhiều cuốn sách được bày biện mà chỉ cần cầm lên tay thôi là trông có vẻ sẽ kích thích mạnh mẽ trí tò mò hiểu biết.",
+          "vocab": [
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "書店",
+              "read": "しょてん",
+              "vi": "hiệu sách, nhà sách"
+            },
+            {
+              "w": "棚",
+              "read": "たな",
+              "vi": "kệ, giá sách"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "知的",
+              "read": "ちてき",
+              "vi": "tính trí tuệ, mang tính tri thức"
+            },
+            {
+              "w": "好奇",
+              "read": "こうき",
+              "vi": "hiếu kỳ, tính tò mò"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "刺激",
+              "read": "しげき",
+              "vi": "kích thích"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "並ぶ",
+              "read": "ならぶ",
+              "vi": "xếp hàng, sánh ngang"
+            },
+            {
+              "w": "知的好奇心",
+              "read": "ちてきこうきしん",
+              "vi": "trí tò mò tri thức"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（外観・予感）",
+              "vi": "【接続】Vます (bỏ ます) ＋ そうな ＋ N. 【Sắc thái】Phán đoán trạng thái hoặc khả năng xảy ra dựa trên ấn tượng trực quan bề ngoài ('trông có vẻ sẽ...'). 【Đối chiếu】Khác với「〜らしい」(dựa trên thông tin/suy luận gián tiếp) và「〜そうだ（伝聞）」(nối thể thông thường mang nghĩa 'nghe nói')."
+            }
+          ]
+        },
+        {
+          "jp": "表紙を見るだけでは少し難しそうな専門書でも、実際に読み進めると驚くほど分かりやすい解説に出会うことがある。",
+          "vi": "Ngay cả những cuốn sách chuyên ngành thoạt nhìn qua bìa trông có vẻ hơi khó, nhưng khi thực sự đọc tiếp thì đôi khi lại bắt gặp những lời giải thích dễ hiểu đến mức đáng kinh ngạc.",
+          "vocab": [
+            {
+              "w": "表紙",
+              "read": "ひょうし",
+              "vi": "bìa sách"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            },
+            {
+              "w": "専門",
+              "read": "せんもん",
+              "vi": "chuyên môn"
+            },
+            {
+              "w": "実際",
+              "read": "じっさい",
+              "vi": "trên thực tế"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "進める",
+              "read": "すすめる",
+              "vi": "tiến hành, đẩy mạnh"
+            },
+            {
+              "w": "驚く",
+              "read": "おどろく",
+              "vi": "ngạc nhiên, kinh ngạc"
+            },
+            {
+              "w": "分かる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "解説",
+              "read": "かいせつ",
+              "vi": "giải thích, chú giải"
+            },
+            {
+              "w": "出会う",
+              "read": "であう",
+              "vi": "gặp gỡ, bắt gặp"
+            },
+            {
+              "w": "専門書",
+              "read": "せんもんしょ",
+              "vi": "sách chuyên ngành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜そうだ（外観）＆ 〜ほど（程度）",
+              "vi": "【接続】Aい (bỏ い) ＋ そうだ ； Vる ＋ ほど. 【Sắc thái】「難しそう」chỉ ấn tượng trực quan khi nhìn bìa ('trông có vẻ khó');「驚くほど」chỉ mức độ rất cao ('đến mức ngạc nhiên'). 【Đối chiếu】「〜ほど」ở đây tương đương「〜くらい」nhưng mang tính văn viết và sắc thái biểu cảm mạnh mẽ hơn."
+            }
+          ]
+        },
+        {
+          "jp": "時には、ページをめくる手が止まらなくなるほど魅力的な物語に夢中になり、時間を忘れてしまうこともある。",
+          "vi": "Đôi khi, ta say mê câu chuyện lôi cuốn đến mức bàn tay lật trang không thể dừng lại, và quên cả thời gian.",
+          "vocab": [
+            {
+              "w": "時に",
+              "read": "ときに",
+              "vi": "đôi khi, đôi lúc"
+            },
+            {
+              "w": "ページ",
+              "read": "ページ",
+              "vi": "trang sách"
+            },
+            {
+              "w": "めくる",
+              "read": "めくる",
+              "vi": "lật, giở (trang sách)"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "止まる",
+              "read": "とまる",
+              "vi": "dừng lại, đứng yên"
+            },
+            {
+              "w": "魅力",
+              "read": "みりょく",
+              "vi": "sức hút, sức hấp dẫn"
+            },
+            {
+              "w": "物語",
+              "read": "ものがたり",
+              "vi": "câu chuyện, truyện"
+            },
+            {
+              "w": "夢中",
+              "read": "むちゅう",
+              "vi": "say mê, mải mê"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "魅力的",
+              "read": "みりょくてき",
+              "vi": "hấp dẫn, lôi cuốn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ほど（程度）",
+              "vi": "【接続】Vない (Vなくなる) ＋ ほど. 【Sắc thái】Diễn tả mức độ say mê cao đến mức dẫn tới trạng thái không dừng tay lật sách được. 【Đối chiếu】So với「〜くらい」,「〜ほど」được chuộng trong văn miêu tả để khắc họa chiều sâu cảm xúc."
+            }
+          ]
+        },
+        {
+          "jp": "心を揺さぶる一冊に出会ったとき、登場人物があたかも自分の昔からの友人であるかのように親しみを感じることがある。",
+          "vi": "Khi bắt gặp một cuốn sách lay động tâm can, ta có thể cảm thấy thân thuộc như thể các nhân vật chính là những người bạn lâu năm của chính mình.",
+          "vocab": [
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "tâm hồn"
+            },
+            {
+              "w": "揺さぶる",
+              "read": "ゆさぶる",
+              "vi": "lay động"
+            },
+            {
+              "w": "一冊",
+              "read": "いっさつ",
+              "vi": "một quyển"
+            },
+            {
+              "w": "出会った",
+              "read": "であった",
+              "vi": "đã gặp"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi/lúc"
+            },
+            {
+              "w": "登場",
+              "read": "とうじょう",
+              "vi": "xuất hiện"
+            },
+            {
+              "w": "人物",
+              "read": "じんぶつ",
+              "vi": "nhân vật"
+            },
+            {
+              "w": "登場人物",
+              "read": "とうじょうじんぶつ",
+              "vi": "nhân vật trong truyện"
+            },
+            {
+              "w": "あたかも",
+              "read": "あたかも",
+              "vi": "cứ như thể"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "昔",
+              "read": "むかし",
+              "vi": "ngày xưa"
+            },
+            {
+              "w": "昔から",
+              "read": "むかしから",
+              "vi": "từ xưa"
+            },
+            {
+              "w": "友人",
+              "read": "ゆうじん",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "親しみ",
+              "read": "したしみ",
+              "vi": "sự thân thuộc"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "あたかも〜かのように",
+              "vi": "【接続】あたかも ＋ 普通形 (Nである) ＋ かのように. 【Sắc thái】So sánh ví von giả định ('cứ như thể là'), thực tế nhân vật không phải bạn thật nhưng cảm giác đem lại vô cùng sống động. 【Đối chiếu】Khác với「〜ようだ」(so sánh tương đồng),「〜かのように」thường đi với「あたかも/まるで」nhấn mạnh vào sự giả định trái thực tế."
+            }
+          ]
+        },
+        {
+          "jp": "そして、過去の偉大な思想家が、今まさに目の前で息づいているかのような深い実感を抱くのだ。",
+          "vi": "Và ta cảm nhận được một cảm xúc chân thực sâu sắc như thể những nhà tư tưởng vĩ đại trong quá khứ đang sống động ngay trước mắt mình lúc này.",
+          "vocab": [
+            {
+              "w": "そして",
+              "read": "そして",
+              "vi": "và rồi, tiếp theo (ôn Bài 4)"
+            },
+            {
+              "w": "過去",
+              "read": "かこ",
+              "vi": "quá khứ"
+            },
+            {
+              "w": "偉大",
+              "read": "いだい",
+              "vi": "vĩ đại, to lớn"
+            },
+            {
+              "w": "思想家",
+              "read": "しそうか",
+              "vi": "nhà tư tưởng"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "まさに",
+              "read": "まさに",
+              "vi": "đúng là, quả thực"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "息づく",
+              "read": "いきづく",
+              "vi": "thở, sống động, còn tồn tại"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "実感",
+              "read": "じっかん",
+              "vi": "cảm giác chân thực"
+            },
+            {
+              "w": "抱く",
+              "read": "いだく",
+              "vi": "mang trong lòng, ấp ủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かのような ＋ N",
+              "vi": "【接続】普通形 (Vている) ＋ かのような ＋ N. 【Sắc thái】Bổ nghĩa cho danh từ phía sau (深い実感) với ý nghĩa so sánh giả định 'như thể là'. 【Đối chiếu】「〜かのように」dùng để bổ nghĩa cho động từ/tính từ, còn「〜かのような」dùng bổ nghĩa trực tiếp cho danh từ."
+            }
+          ]
+        },
+        {
+          "jp": "読書とは、単に文字を目で追う作業ではなく、著者との静かな対話である。",
+          "vi": "Đọc sách không đơn thuần là thao tác dùng mắt dõi theo con chữ, mà là một cuộc đối thoại tĩnh lặng với tác giả.",
+          "vocab": [
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "追う",
+              "read": "おう",
+              "vi": "đuổi theo, dõi theo"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "著者",
+              "read": "ちょしゃ",
+              "vi": "tác giả"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "対話",
+              "read": "たいわ",
+              "vi": "đối thoại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは",
+              "vi": "【接続】N ＋ とは. 【Sắc thái】Định nghĩa hoặc nêu bật bản chất của một khái niệm ('nói về... thì chính là...'). 【Đối chiếu】Trang trọng hơn「〜というのは」, thường dùng trong văn phong nghị luận giải thích triết lý."
+            }
+          ]
+        },
+        {
+          "jp": "著者がすぐそばで穏やかに語りかけているように、一言一言の言葉が心に深く染み込んでくる。",
+          "vi": "Từng câu từng chữ thấm sâu vào tâm hồn dường như tác giả đang cất lời trò chuyện dịu dàng ngay bên cạnh.",
+          "vocab": [
+            {
+              "w": "著者",
+              "read": "ちょしゃ",
+              "vi": "tác giả"
+            },
+            {
+              "w": "穏やか",
+              "read": "おだやか",
+              "vi": "ôn hòa, êm đềm, dịu dàng"
+            },
+            {
+              "w": "語りかける",
+              "read": "かたりかける",
+              "vi": "cất lời tâm sự, trò chuyện"
+            },
+            {
+              "w": "一言",
+              "read": "ひとこと",
+              "vi": "một câu, một lời"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "染み込む",
+              "read": "しみこむ",
+              "vi": "thấm vào, ngấm vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（様態・比喩）",
+              "vi": "【接続】普通形 (Vている) ＋ ように. 【Sắc thái】Dùng để so sánh tương đồng trạng thái hành động ('giống như thể, dường như'). 【Đối chiếu】「〜ように」ở giữa câu giúp nối vế miêu tả cảm giác tác động, tạo tính liên kết mượt mà hơn so với việc kết câu bằng「〜ようだ」."
+            }
+          ]
+        },
+        {
+          "jp": "悩みを抱えているときに読んだ一行が、まるで乾いた心に注がれる水のように温かい力を与えてくれることもある。",
+          "vi": "Một dòng chữ đọc được khi đang ôm nỗi muộn phiền đôi khi lại trao cho ta nguồn sức mạnh ấm áp, y chang như dòng nước được tưới vào một tâm hồn khô cằn.",
+          "vocab": [
+            {
+              "w": "悩み",
+              "read": "なやみ",
+              "vi": "sự phiền muộn, lo lắng"
+            },
+            {
+              "w": "抱える",
+              "read": "かかえる",
+              "vi": "ôm giữ, vướng phải (nỗi lo)"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "一行",
+              "read": "いちぎょう",
+              "vi": "một dòng chữ"
+            },
+            {
+              "w": "まるで",
+              "read": "まるで",
+              "vi": "cứ như là, giống hệt như"
+            },
+            {
+              "w": "乾く",
+              "read": "かわく",
+              "vi": "khô khan, cằn cỗi"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "注ぐ",
+              "read": "そそぐ",
+              "vi": "rót, tưới vào"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "温かい",
+              "read": "あたたかい",
+              "vi": "ấm, nóng (dễ chịu)"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "与える",
+              "read": "あたえる",
+              "vi": "trao tặng, gây ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まるで〜ように",
+              "vi": "【接続】まるで ＋ N ＋ のように. 【Sắc thái】Hình ảnh ẩn dụ ví von sinh động ('hoàn toàn y như...'). 【Đối chiếu】Phó từ「まるで」đi kèm「ように」làm tăng tính hình tượng, biểu đạt cảm xúc được xoa dịu sâu sắc."
+            }
+          ]
+        },
+        {
+          "jp": "暗闇の中で小さな光を見つけるように、私たちは読書を通じて自分自身の生き方や未来のヒントを探しているのだ。",
+          "vi": "Giống như việc tìm kiếm một tia sáng nhỏ trong bóng tối, thông qua việc đọc sách, chúng ta đang tìm kiếm những gợi ý cho tương lai và cách sống của chính bản thân mình.",
+          "vocab": [
+            {
+              "w": "暗闇",
+              "read": "くらやみ",
+              "vi": "bóng tối"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ bé"
+            },
+            {
+              "w": "光",
+              "read": "ひかり",
+              "vi": "ánh sáng"
+            },
+            {
+              "w": "見つける",
+              "read": "みつける",
+              "vi": "tìm thấy"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "việc đọc sách"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "thông qua"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "chính mình"
+            },
+            {
+              "w": "自分自身",
+              "read": "じぶんじしん",
+              "vi": "bản thân mình"
+            },
+            {
+              "w": "生き方",
+              "read": "いきかた",
+              "vi": "cách sống"
+            },
+            {
+              "w": "未来",
+              "read": "みらい",
+              "vi": "tương lai"
+            },
+            {
+              "w": "ヒント",
+              "read": "ひんと",
+              "vi": "gợi ý"
+            },
+            {
+              "w": "探している",
+              "read": "さがしている",
+              "vi": "đang tìm kiếm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ように（例示・比喩）",
+              "vi": "【接続】Vる ＋ ように. 【Sắc thái】Đưa ra một hình ảnh so sánh tương đồng cụ thể để làm sáng tỏ hành động tìm kiếm phương hướng sống. 【Đối chiếu】Khác với「〜ように」chỉ mục đích (để làm gì), ở đây mang nghĩa so sánh phương thức/trạng thái."
+            }
+          ]
+        },
+        {
+          "jp": "言葉の奥にある深い意味や著者の思いに気づいたとき、思わず胸が熱くなるほどの感動を覚える。",
+          "vi": "Khi nhận ra ý nghĩa sâu xa phía sau ngôn từ cùng tâm tư của tác giả, ta cảm nhận được niềm xúc động đến mức bất giác lồng ngực nóng lên nghẹn ngào.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "奥",
+              "read": "おく",
+              "vi": "bên trong, chiều sâu"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "著者",
+              "read": "ちょしゃ",
+              "vi": "tác giả"
+            },
+            {
+              "w": "思わず",
+              "read": "おもわず",
+              "vi": "bất giác, không kìm được"
+            },
+            {
+              "w": "気づく",
+              "read": "きづく",
+              "vi": "nhận ra, nhận thấy"
+            },
+            {
+              "w": "胸",
+              "read": "むね",
+              "vi": "lòng, ngực"
+            },
+            {
+              "w": "熱い",
+              "read": "あつい",
+              "vi": "nóng, xúc động"
+            },
+            {
+              "w": "感動",
+              "read": "かんどう",
+              "vi": "cảm động"
+            },
+            {
+              "w": "覚える",
+              "read": "おぼえる",
+              "vi": "nhớ, cảm thấy"
+            },
+            {
+              "w": "感動を覚える",
+              "read": "かんどうをおぼえる",
+              "vi": "cảm nhận niềm xúc động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ほどの ＋ N",
+              "vi": "【接続】Vる ＋ ほどの ＋ N. 【Sắc thái】Bổ nghĩa cho danh từ「感動」để nhấn mạnh mức độ cảm xúc đạt tới mức dâng trào thổn thức. 【Đối chiếu】「〜ほどの」dùng trước danh từ, tương đương「〜くらいの」nhưng văn phong sâu sắc và giàu tính biểu cảm hơn."
+            }
+          ]
+        },
+        {
+          "jp": "このように考えると、読書の価値や得られる喜びは、本そのものの内容だけで決まるのではない。",
+          "vi": "Khi suy nghĩ như vậy, giá trị của việc đọc sách cùng niềm vui nhận được không chỉ do nội dung của bản thân cuốn sách quyết định.",
+          "vocab": [
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "読書",
+              "read": "どくしょ",
+              "vi": "đọc sách"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "喜び",
+              "read": "よろこび",
+              "vi": "niềm vui"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "決まる",
+              "read": "きまる",
+              "vi": "được quyết định"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のではない",
+              "vi": "【接続】普通形 ＋ のではない. 【Sắc thái】Phủ định một phần quan điểm thông thường để chuẩn bị mở ra luận điểm mới ở các câu tiếp theo. 【Đối chiếu】Nhẹ nhàng và có tính thuyết phục, tính đối thoại cao hơn cách phủ định dứt khoát「〜ではない」."
+            }
+          ]
+        },
+        {
+          "jp": "同じ一冊の本であっても、それを受け取る読者の知識やこれまでの人生経験次第では、まったく異なる意味を持つようになる。",
+          "vi": "Ngay cả với cùng một cuốn sách, tùy theo vốn tri thức và trải nghiệm cuộc đời từ trước đến nay của người tiếp nhận, nó sẽ mang những ý nghĩa hoàn toàn khác biệt.",
+          "vocab": [
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "受け取る",
+              "read": "うけとる",
+              "vi": "tiếp nhận, đón nhận"
+            },
+            {
+              "w": "読者",
+              "read": "どくしゃ",
+              "vi": "độc giả, người đọc"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "ngay khi, tùy thuộc"
+            },
+            {
+              "w": "まったく",
+              "read": "まったく",
+              "vi": "hoàn toàn (đi với phủ định)"
+            },
+            {
+              "w": "異なる",
+              "read": "ことなる",
+              "vi": "khác nhau, bất đồng"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "人生経験",
+              "read": "じんせいけいけん",
+              "vi": "trải nghiệm cuộc đời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜次第では",
+              "vi": "【接続】N ＋ 次第では. 【Sắc thái】'Tùy vào N mà có trường hợp sẽ...'. Đưa ra một khả năng cụ thể có thể xảy ra tùy thuộc vào điều kiện N. 【Đối chiếu】So với「〜次第で」(tổng quát, kết quả biến đổi theo N),「〜次第では」nhấn mạnh vào một khả năng đặc biệt hoặc một trường hợp phát sinh cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "どんな名著であっても、ただ漫然と読むだけでは表面的な知識を得るだけで終わってしまう。",
+          "vi": "Dù là danh tác thế nào đi chăng nữa, nếu chỉ đọc một cách hời hợt lan man thì cũng chỉ dừng lại ở việc thu nhận kiến thức bề mặt.",
+          "vocab": [
+            {
+              "w": "どんな",
+              "read": "どんな",
+              "vi": "như thế nào (hỏi đặc điểm)"
+            },
+            {
+              "w": "名著",
+              "read": "めいちょう",
+              "vi": "danh tác, sách hay nổi tiếng"
+            },
+            {
+              "w": "漫然と",
+              "read": "まんぜんと",
+              "vi": "vô định, hời hợt, không tập trung"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "表面",
+              "read": "ひょうめん",
+              "vi": "bề mặt, bề nổi"
+            },
+            {
+              "w": "知識",
+              "read": "ちしき",
+              "vi": "kiến thức"
+            },
+            {
+              "w": "得る",
+              "read": "える",
+              "vi": "đạt được, nhận được"
+            },
+            {
+              "w": "終わる",
+              "read": "おわる",
+              "vi": "kết thúc (thể từ điển)"
+            },
+            {
+              "w": "表面的",
+              "read": "ひょうめんてき",
+              "vi": "bề nổi, nông cạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでは",
+              "vi": "【接続】Vる ＋ だけでは. 【Sắc thái】'Nếu chỉ làm... thì không đủ / chỉ dừng lại ở kết quả hạn chế'. 【Đối chiếu】Thường đi với kết quả tiêu cực hoặc chưa thỏa đáng ở vế sau."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、強い問題意識や真摯な態度を持って向き合えば、一冊の本が人生を大きく変える力強いきっかけになる。",
+          "vi": "Nhưng nếu ta đối diện với cuốn sách bằng thái độ chân thành và ý thức vấn đề sâu sắc, một cuốn sách sẽ trở thành bước ngoặt đầy sức mạnh làm thay đổi lớn lao cuộc đời.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "意識",
+              "read": "いしき",
+              "vi": "ý thức, sự chú ý"
+            },
+            {
+              "w": "真摯",
+              "read": "しんし",
+              "vi": "chân thành, nghiêm túc"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, nhìn thẳng vào"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "人生",
+              "read": "じんせい",
+              "vi": "cuộc đời"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "変える",
+              "read": "かえる",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "力強い",
+              "read": "ちからづよい",
+              "vi": "mạnh mẽ, có sức mạnh"
+            },
+            {
+              "w": "きっかけ",
+              "read": "きっかけ",
+              "vi": "động lực, cơ hội, bước ngoặt"
+            },
+            {
+              "w": "問題意識",
+              "read": "もんだいいしき",
+              "vi": "ý thức vấn đề, trăn trở"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ば（条件形）",
+              "vi": "【接続】V-ば (向き合えば). 【Sắc thái】Nêu điều kiện tích cực để đem lại bước chuyển biến lớn lao. 【Đối chiếu】Kết hợp tương phản với「〜だけでは」ở câu trước nhằm tạo lập luận chặt chẽ."
+            }
+          ]
+        },
+        {
+          "jp": "結局のところ、本がどれほど素晴らしい価値を持つかは、私たち自身の向き合い方や心構え次第でいくらでも変わるのである。",
+          "vi": "Rốt cuộc, việc một cuốn sách mang giá trị tuyệt vời đến mức nào sẽ biến đổi vô cùng tùy thuộc vào tâm thế và cách tiếp cận của chính bản thân chúng ta.",
+          "vocab": [
+            {
+              "w": "結局のところ",
+              "read": "けっきょくのところ",
+              "vi": "rốt cuộc là"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "どれほど",
+              "read": "どれほど",
+              "vi": "đến mức nào"
+            },
+            {
+              "w": "素晴らしい",
+              "read": "すばらしい",
+              "vi": "tuyệt vời"
+            },
+            {
+              "w": "価値",
+              "read": "かち",
+              "vi": "giá trị"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "có/sở hữu"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "chính mình"
+            },
+            {
+              "w": "私たち自身",
+              "read": "わたしたちじしん",
+              "vi": "chính chúng ta"
+            },
+            {
+              "w": "向き合い方",
+              "read": "むきあいかた",
+              "vi": "cách đối diện"
+            },
+            {
+              "w": "心構え",
+              "read": "こころがまえ",
+              "vi": "tâm thế"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "tùy vào"
+            },
+            {
+              "w": "いくらでも",
+              "read": "いくらでも",
+              "vi": "bao nhiêu cũng được"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜次第で ＆ どれほど〜か",
+              "vi": "【接続】N ＋ 次第で ； 疑問詞(どれほど) ＋ 普通形 ＋ か. 【Sắc thái】「〜次第で」diễn tả kết quả thay đổi phụ thuộc vào điều kiện N ('tùy thuộc vào...');「どれほど〜か」nhấn mạnh mức độ sâu rộng. 【Đối chiếu】So với「〜によって」(đa nghĩa: phương tiện, nguyên nhân, bị động),「〜次第で」chuyên dùng để chỉ sự định đoạt kết quả tương ứng theo một yếu tố quyết định."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "活字離れが進んでいるというのは一部の面だけを捉えた見方らしい",
+          "label": "Nhận định về xu hướng đọc sách hiện nay"
+        },
+        {
+          "excerpt": "あたかも自分の昔からの友人であるかのように親しみを感じることがある",
+          "label": "Trải nghiệm cảm xúc đồng điệu với nhân vật"
+        },
+        {
+          "excerpt": "私たち自身の向き合い方や心構え次第でいくらでも変わるのである",
+          "label": "Luận điểm cốt lõi về giá trị của việc đọc sách"
+        }
+      ],
+      "questions": [
+        {
+          "q": "第1段落によると、現代における読書の現状について筆者はどのように述べているか。",
+          "options": [
+            "若者が完全に本を読まなくなったため、読書という体験自体が失われつつある。",
+            "電子書籍などの普及によって、形は変わっても読書を楽しむ体験そのものは続いている。",
+            "紙の本を読む人が増えたため、活字離れという統計は完全に間違っている。",
+            "音声メディアの普及によって、物語を深く楽しむ人が以前より減ってしまった。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [3] và [4]: tác giả chỉ ra rằng số người đọc sách điện tử và nghe sách nói đang tăng nhanh ('電子書籍や音声メディアを利用して読書を楽しむ人が急速に増えているらしい'), và dù hình thức có đổi sang kỹ thuật số thì trải nghiệm say mê với tri thức vẫn không hề thay đổi ('読書体験そのものは、昔も今も変わっていないように思われる').\n- Phương án 0 sai vì trái với câu [2] và [4] (không hề bị mất đi).\n- Phương án 2 sai vì bài không khẳng định người đọc sách giấy tăng lên hay thống kê hoàn toàn sai, mà chỉ là cái nhìn phiến diện một mặt ('一部の面だけを捉えた見方').\n- Phương án 3 sai vì trái ngược với câu [3] (người thưởng thức bằng âm thanh đang tăng lên).",
+          "tip": "Chú ý liên kết giữa câu [2], [3] và [4] khi tác giả bàn về '活字離れ' và hình thức đọc mới.",
+          "evi": [
+            2,
+            3,
+            4
+          ],
+          "qt": {
+            "q": "Theo đoạn 1, tác giả nói thế nào về tình hình đọc sách trong thời hiện đại?",
+            "o": [
+              "Vì giới trẻ hoàn toàn không còn đọc sách nữa nên bản thân trải nghiệm đọc sách đang dần biến mất.",
+              "Nhờ sự phổ biến của sách điện tử và các phương tiện khác, hình thức có thay đổi nhưng bản thân trải nghiệm tận hưởng việc đọc sách vẫn tiếp diễn.",
+              "Vì số người đọc sách giấy tăng lên nên thống kê về việc rời xa chữ in hoàn toàn sai.",
+              "Do sự phổ biến của các phương tiện âm thanh, số người tận hưởng sâu sắc những câu chuyện đã giảm đi so với trước đây."
+            ]
+          }
+        },
+        {
+          "q": "筆者が「あたかも自分の昔からの友人であるかのように」や「著者がすぐそばで穏やかに語りかけているように」という表現を用いた理由として最も適切なものはどれか。",
+          "options": [
+            "読書を通じて、実生活で新しい友人を作ることが最も大切だと主張するため。",
+            "難解な専門書を理解するには、過去の思想家の知識を暗記する必要があることを示すため。",
+            "読書とは単なる文字の確認ではなく、心を通わせる深い対話や共感の体験であることを生き生きと伝えるため。",
+            "昔の作家が書いた本は、現代のどの本よりも優れていることを強調するため。"
+          ],
+          "answer": 2,
+          "explainVi": "Đây là câu hỏi suy luận về ý đồ diễn đạt nghệ thuật. Căn cứ vào các câu [8], [9], [10], [11]: tác giả dùng các hình ảnh so sánh như 'như bạn thân lâu năm', 'như tác giả đang dịu dàng trò chuyện bên cạnh' để làm nổi bật luận điểm ở câu [10] rằng đọc sách không phải là dùng mắt dò chữ đơn thuần mà là cuộc đối thoại tĩnh lặng, đem lại sự đồng điệu tâm hồn sâu sắc ('読書とは、単に文字を目で追う作業ではなく、著者との静かな対話である').\n- Phương án 0 sai vì không bàn tới việc kết bạn ngoài đời thực.\n- Phương án 1 sai vì bài không đề cập đến việc học vẹt/ghi nhớ kiến thức chuyên ngành.\n- Phương án 3 sai vì bài không so sánh xem sách thời nào hay hơn.",
+          "tip": "Liên kết các phép so sánh (かのように, ように) với câu chủ đề định nghĩa bản chất việc đọc ở câu [10].",
+          "evi": [
+            8,
+            9,
+            10,
+            11
+          ],
+          "qt": {
+            "q": "Lý do phù hợp nhất khiến tác giả dùng những cách diễn đạt như 「あたかも自分の昔からの友人であるかのように」(như thể là người bạn thân quen từ lâu của chính mình) và 「著者がすぐそばで穏やかに語りかけているように」(như thể tác giả đang nhẹ nhàng trò chuyện ngay bên cạnh) là gì?",
+            "o": [
+              "Để khẳng định rằng điều quan trọng nhất là kết bạn mới trong đời thực thông qua việc đọc sách.",
+              "Để cho thấy rằng muốn hiểu sách chuyên môn khó hiểu thì cần phải ghi nhớ kiến thức của các nhà tư tưởng trong quá khứ.",
+              "Để diễn tả sinh động rằng đọc sách không chỉ là nhìn nhận mặt chữ mà còn là trải nghiệm đối thoại sâu sắc và đồng cảm, nơi tâm hồn kết nối với nhau.",
+              "Để nhấn mạnh rằng sách do các nhà văn ngày xưa viết ra ưu việt hơn mọi cuốn sách hiện đại."
+            ]
+          }
+        },
+        {
+          "q": "第4段落において、同じ名著を読んでも人によって得られるものが異なる理由として、筆者が挙げているものは何か。",
+          "options": [
+            "読書にかける時間の長さや、読むスピードの速さの違い。",
+            "本を受け取る読者自身の知識や人生経験、そして向き合う心構えの違い。",
+            "紙の本で読んでいるか、電子書籍で読んでいるかという媒体の違い。",
+            "本が出版された時代と、現在との歴史的背景の違い。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [16], [17], [18], [19]: tác giả khẳng định cùng một cuốn sách nhưng ý nghĩa khác nhau là tùy vào vốn tri thức và trải nghiệm cuộc đời của người đọc ('読者の知識やこれまでの人生経験次第では、まったく異なる意味を持つ'), cũng như tâm thế và ý thức vấn đề khi đọc ('強い問題意識や真摯な態度を持って向き合えば', '私たち自身の向き合い方や心構え次第で').\n- Phương án 0 sai vì bài không nói về tốc độ đọc hay thời lượng đọc.\n- Phương án 2 sai vì bài đã khẳng định ở đoạn 1 hình thức sách không quyết định trải nghiệm.\n- Phương án 3 sai vì không nhắc tới bối cảnh lịch sử thời điểm xuất bản.",
+          "tip": "Tìm từ khóa '同じ一冊の本' và cấu trúc '〜次第では / 〜次第で' ở đoạn 4.",
+          "evi": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Trong đoạn 4, tác giả nêu điều gì là lý do khiến mỗi người nhận được những điều khác nhau dù cùng đọc một kiệt tác?",
+            "o": [
+              "Sự khác nhau về thời gian dành cho việc đọc và tốc độ đọc nhanh hay chậm.",
+              "Sự khác nhau về kiến thức, kinh nghiệm sống của chính độc giả tiếp nhận cuốn sách và thái độ, tâm thế khi họ đối diện với cuốn sách.",
+              "Sự khác nhau về phương tiện đọc, tức là đọc sách giấy hay sách điện tử.",
+              "Sự khác nhau về bối cảnh lịch sử giữa thời điểm cuốn sách được xuất bản và hiện tại."
+            ]
+          }
+        },
+        {
+          "q": "この文章全体を通して、筆者が最も伝えたいメッセージはどれか。",
+          "options": [
+            "本の真の価値は作品自体だけで決まるのではなく、読者がどのような問題意識や心構えで向き合うかによって決まる。",
+            "活字離れを防ぐためには、すべての本を電子書籍や音声メディアに移行させるべきである。",
+            "難しい専門書を読むことだけが人生を変える唯一の方法であり、小説などの物語を読む価値は低い。",
+            "読書で感動するためには、事前に著者の人生や過去の歴史について詳しく調べておかなければならない。"
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào toàn bộ lập luận từ đoạn 1 đến kết luận ở đoạn 4 (đặc biệt là câu [15], [18], [19]): giá trị của một cuốn sách không phải cố định ở bản thân cuốn sách, mà tùy thuộc vào tâm thế, ý thức vấn đề và sự chân thành của người đọc ('読書の価値や得られる喜びは、本そのものの内容だけで決まるのではない', '本がどれほど素晴らしい価値を持つかは、私たち自身の向き合い方や心構え次第でいくらでも変わるのである').\n- Phương án 1 sai vì bài chỉ nêu việc số hóa là xu hướng thực tế chứ không hô hào chuyển đổi toàn bộ sách.\n- Phương án 2 sai vì câu [7] đề cao cả những câu chuyện tiểu thuyết lôi cuốn ('魅力的な物語'), không hề hạ thấp loại nào.\n- Phương án 3 sai vì tác giả nhấn mạnh trải nghiệm trực tiếp và thái độ chân thành chứ không bắt buộc phải tra cứu lịch sử tác giả trước.",
+          "tip": "Tập trung vào câu kết luận mang tính tổng kết thông điệp ở cuối bài (câu [19]).",
+          "evi": [
+            15,
+            16,
+            18,
+            19
+          ],
+          "qt": {
+            "q": "Xuyên suốt toàn bài, thông điệp mà tác giả muốn truyền tải nhất là gì?",
+            "o": [
+              "Giá trị thực sự của một cuốn sách không chỉ do bản thân tác phẩm quyết định mà còn phụ thuộc vào việc độc giả tiếp cận nó với mối bận tâm và tâm thế như thế nào.",
+              "Để ngăn mọi người rời xa chữ in, cần chuyển tất cả sách sang sách điện tử và phương tiện âm thanh.",
+              "Chỉ đọc sách chuyên môn khó mới là cách duy nhất làm thay đổi cuộc đời; đọc truyện như tiểu thuyết có ít giá trị.",
+              "Muốn xúc động khi đọc sách thì phải tìm hiểu kỹ trước về cuộc đời tác giả và lịch sử quá khứ."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "星空グランピングリゾート星の丘 ご利用案内",
+      "titleVi": "Hướng dẫn sử dụng Khu nghỉ dưỡng Glamping Ngắm sao Hoshino-oka",
+      "japanese": "星空グランピングリゾート星の丘 ご利用案内\n大自然の中で、まるで絵本の世界に迷い込んだかのような贅沢な時間を過ごしませんか。\n夜には息をのむほど美しい満天の星が夜空いっぱいに広がり、日常の疲れを忘れさせてくれます。\n口コミでも「夕食の肉料理がとてもおいしそうだった」「スタッフが親切」と評判らしいです。\nお客様の利用人数やご希望の体験次第で、最適なお部屋をお選びいただけます。\n【宿泊プラン一覧】\nプラン名｜利用人数｜基本料金（1名1泊）｜特徴\nスタンダードドーム｜2〜4名｜12,000円｜森の景色が楽しめる標準ドーム\nプレミアムドーム｜2〜4名｜18,000円｜専用露天風呂付きの豪華ドーム\nファミリーキャビン｜4〜6名｜10,000円｜大人数でくつろげる大型ロッジ\n【割引制度および追加料金について】\n※予約時期次第で早期割引があり、宿泊日の30日前までの予約で1名につき2,000円引きとなります。\n※全員が学生証を提示できるグループは学生割引として1名1,000円引きとなり、早期割引と併用可能です。\n※金曜・土曜・祝前日のご宿泊は、週末追加料金として1名につき3,000円が加算されます。\n※天候次第ではバーベキューを室内鍋料理に変更しますが、料金の変更はありません。\n※星空観察ツアー（1名1,500円）は事前予約制で、天候次第で中止になった場合は全額返金されます。\n来月は連休を中心に予約がすぐに埋まるらしいので、お早めのご予約をお待ちしております。",
+      "vietnamese": "Hướng dẫn sử dụng Khu nghỉ dưỡng Glamping Ngắm sao Hoshino-oka\nBạn có muốn tận hưởng khoảng thời gian sang trọng giữa thiên nhiên hùng vĩ, y như lạc vào thế giới truyện tranh không?\nVào ban đêm, bầu trời đầy sao đẹp đến nghẹt thở trải rộng khắp không gian, khiến bạn quên đi mọi mệt mỏi thường ngày.\nTrên các bài đánh giá, khu nghỉ dưỡng cũng có tiếng tốt như \"món thịt bữa tối trông rất ngon miệng\" hay \"nhân viên rất thân thiện\".\nTùy thuộc vào số lượng khách và trải nghiệm mong muốn, quý khách có thể chọn căn phòng phù hợp nhất.\n【Danh sách các gói lưu trú】\nTên gói｜Số người sử dụng｜Giá cơ bản (1 người 1 đêm)｜Đặc điểm\nNhà vòm Tiêu chuẩn｜2〜4 người｜12.000 yên｜Nhà vòm tiêu chuẩn ngắm trọn cảnh rừng\nNhà vòm Cao cấp｜2〜4 người｜18.000 yên｜Nhà vòm sang trọng có bồn tắm lộ thiên riêng\nNhà gỗ Gia đình｜4〜6 người｜10.000 yên｜Nhà gỗ lớn thư giãn cho nhóm đông người\n【Về chế độ giảm giá và phụ phí】\n※ Tùy vào thời điểm đặt phòng sẽ có giảm giá sớm, đặt trước ngày lưu trú từ 30 ngày trở lên được giảm 2.000 yên/người.\n※ Nhóm mà tất cả thành viên đều xuất trình được thẻ sinh viên sẽ được giảm giá sinh viên 1.000 yên/người, có thể áp dụng cùng giảm giá sớm.\n※ Lưu trú vào thứ Sáu, thứ Bảy hoặc ngày trước ngày lễ sẽ tính thêm phụ phí cuối tuần là 3.000 yên/người.\n※ Tùy theo thời tiết, tiệc nướng ngoài trời có thể đổi sang món lẩu trong nhà, nhưng giá không thay đổi.\n※ Tour ngắm sao (1.500 yên/người) cần đặt trước, trường hợp bị hủy tùy theo thời tiết sẽ được hoàn tiền toàn bộ.\nNghe nói tháng tới quanh các ngày nghỉ lễ phòng sẽ nhanh chóng kín chỗ, nên chúng tôi rất mong quý khách sớm đặt chỗ.",
+      "sentences": [
+        {
+          "jp": "星空グランピングリゾート星の丘 ご利用案内",
+          "vi": "Hướng dẫn sử dụng Khu nghỉ dưỡng Glamping Ngắm sao Hoshino-oka",
+          "vocab": [
+            {
+              "w": "星空",
+              "read": "ほしぞら",
+              "vi": "bầu trời sao"
+            },
+            {
+              "w": "星",
+              "read": "ほし",
+              "vi": "ngôi sao"
+            },
+            {
+              "w": "グランピング",
+              "read": "ぐらんぴんぐ",
+              "vi": "glamping"
+            },
+            {
+              "w": "リゾート",
+              "read": "りぞーと",
+              "vi": "khu nghỉ dưỡng"
+            },
+            {
+              "w": "グランピングリゾート",
+              "read": "ぐらんぴんぐりぞーと",
+              "vi": "khu nghỉ dưỡng glamping"
+            },
+            {
+              "w": "星の丘",
+              "read": "ほしのおか",
+              "vi": "Đồi Sao"
+            },
+            {
+              "w": "丘",
+              "read": "おか",
+              "vi": "ngọn đồi"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "利用案内",
+              "read": "りようあんない",
+              "vi": "hướng dẫn sử dụng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "星空グランピングリゾート星の丘",
+              "why": "Tên cơ sở nghỉ dưỡng trong thông báo"
+            }
+          ]
+        },
+        {
+          "jp": "大自然の中で、まるで絵本の世界に迷い込んだかのような贅沢な時間を過ごしませんか。",
+          "vi": "Bạn có muốn tận hưởng khoảng thời gian sang trọng giữa thiên nhiên hùng vĩ, y như lạc vào thế giới truyện tranh không?",
+          "vocab": [
+            {
+              "w": "大自然",
+              "read": "だいしぜん",
+              "vi": "thiên nhiên hùng vĩ"
+            },
+            {
+              "w": "自然",
+              "read": "しぜん",
+              "vi": "tự nhiên"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "まるで",
+              "read": "まるで",
+              "vi": "cứ như là"
+            },
+            {
+              "w": "絵本",
+              "read": "えほん",
+              "vi": "sách tranh"
+            },
+            {
+              "w": "世界",
+              "read": "せかい",
+              "vi": "thế giới"
+            },
+            {
+              "w": "迷い込んだ",
+              "read": "まよいこんだ",
+              "vi": "lạc vào"
+            },
+            {
+              "w": "贅沢な",
+              "read": "ぜいたくな",
+              "vi": "xa hoa"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "過ごしませんか",
+              "read": "すごしませんか",
+              "vi": "có muốn trải qua không"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まるで～ようだ／みたいだ",
+              "vi": "Hoàn toàn như thể là, y chang như (so sánh ví von sinh động)"
+            },
+            {
+              "point": "かのように／かのような",
+              "vi": "Cứ như thể là (dù thực tế không phải như vậy)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "まるで絵本の世界に迷い込んだかのような",
+              "why": "Mô tả trải nghiệm cảm giác đặc biệt tại khu nghỉ dưỡng"
+            }
+          ]
+        },
+        {
+          "jp": "夜には息をのむほど美しい満天の星が夜空いっぱいに広がり、日常の疲れを忘れさせてくれます。",
+          "vi": "Vào ban đêm, bầu trời đầy sao đẹp đến nghẹt thở trải rộng khắp không gian, khiến bạn quên đi mọi mệt mỏi thường ngày.",
+          "vocab": [
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "息をのむ",
+              "read": "いきをのむ",
+              "vi": "nghẹt thở, nín thở vì kinh ngạc"
+            },
+            {
+              "w": "美しい",
+              "read": "うつくしい",
+              "vi": "đẹp, xinh đẹp"
+            },
+            {
+              "w": "満天",
+              "read": "まんてん",
+              "vi": "đầy trời, khắp trời"
+            },
+            {
+              "w": "星",
+              "read": "ほし",
+              "vi": "ngôi sao"
+            },
+            {
+              "w": "広がる",
+              "read": "ひろがる",
+              "vi": "lan rộng, mở rộng"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "thường ngày"
+            },
+            {
+              "w": "疲れ",
+              "read": "つかれ",
+              "vi": "sự mệt mỏi"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～ほど（程度）",
+              "vi": "Đến mức, đến nỗi (thể hiện mức độ cao của vẻ đẹp)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "息をのむほど美しい",
+              "why": "Mức độ đẹp nghẹt thở của bầu trời đêm"
+            }
+          ]
+        },
+        {
+          "jp": "口コミでも「夕食の肉料理がとてもおいしそうだった」「スタッフが親切」と評判らしいです。",
+          "vi": "Trên các bài đánh giá, khu nghỉ dưỡng cũng có tiếng tốt như \"món thịt bữa tối trông rất ngon miệng\" hay \"nhân viên rất thân thiện\".",
+          "vocab": [
+            {
+              "w": "口コミ",
+              "read": "くちこみ",
+              "vi": "đánh giá truyền miệng"
+            },
+            {
+              "w": "夕食",
+              "read": "ゆうしょく",
+              "vi": "bữa tối"
+            },
+            {
+              "w": "肉",
+              "read": "にく",
+              "vi": "thịt"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn"
+            },
+            {
+              "w": "肉料理",
+              "read": "にくりょうり",
+              "vi": "món thịt"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "おいしそうだった",
+              "read": "おいしそうだった",
+              "vi": "đã trông rất ngon"
+            },
+            {
+              "w": "スタッフ",
+              "read": "すたっふ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "親切",
+              "read": "しんせつ",
+              "vi": "tử tế"
+            },
+            {
+              "w": "評判",
+              "read": "ひょうばん",
+              "vi": "danh tiếng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～そうだ（外観）",
+              "vi": "Trông có vẻ (nhận xét vẻ bề ngoài ngon miệng)"
+            },
+            {
+              "point": "～らしい（推量・根拠）",
+              "vi": "Có vẻ, nghe nói (dựa trên nguồn tin đánh giá khách quan)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "評判らしい",
+              "why": "Đánh giá uy tín dựa trên phản hồi của khách hàng"
+            }
+          ]
+        },
+        {
+          "jp": "お客様の利用人数やご希望の体験次第で、最適なお部屋をお選びいただけます。",
+          "vi": "Tùy thuộc vào số lượng khách và trải nghiệm mong muốn, quý khách có thể chọn căn phòng phù hợp nhất.",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            },
+            {
+              "w": "希望",
+              "read": "きぼう",
+              "vi": "nguyện vọng, mong muốn"
+            },
+            {
+              "w": "体験",
+              "read": "たいけん",
+              "vi": "trải nghiệm"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "ngay khi, tùy thuộc"
+            },
+            {
+              "w": "最適",
+              "read": "さいてき",
+              "vi": "thích hợp nhất"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "選び",
+              "read": "えらび",
+              "vi": "sự lựa chọn, chọn lọc"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～次第で／次第では",
+              "vi": "Tùy thuộc vào số lượng khách và mong muốn"
+            }
+          ],
+          "keys": [
+            {
+              "w": "利用人数やご希望の体験次第で",
+              "why": "Căn cứ lựa chọn loại phòng theo nhu cầu khách"
+            }
+          ]
+        },
+        {
+          "jp": "【宿泊プラン一覧】",
+          "vi": "【Danh sách các gói lưu trú】",
+          "vocab": [
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú, trọ lại"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "一覧",
+              "read": "いちらん",
+              "vi": "danh sách, bảng kê"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "宿泊プラン一覧",
+              "why": "Tiêu đề phần bảng giá các gói lưu trú"
+            }
+          ]
+        },
+        {
+          "jp": "プラン名｜利用人数｜基本料金（1名1泊）｜特徴",
+          "vi": "Tên gói｜Số người sử dụng｜Giá cơ bản (1 người 1 đêm)｜Đặc điểm",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "ぷらん",
+              "vi": "gói/kế hoạch"
+            },
+            {
+              "w": "名",
+              "read": "めい",
+              "vi": "tên/người"
+            },
+            {
+              "w": "プラン名",
+              "read": "ぷらんめい",
+              "vi": "tên gói"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            },
+            {
+              "w": "利用人数",
+              "read": "りようにんずう",
+              "vi": "số người sử dụng"
+            },
+            {
+              "w": "基本",
+              "read": "きほん",
+              "vi": "cơ bản"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "chi phí"
+            },
+            {
+              "w": "基本料金",
+              "read": "きほんりょうきん",
+              "vi": "phí cơ bản"
+            },
+            {
+              "w": "1名",
+              "read": "いちめい",
+              "vi": "1 người"
+            },
+            {
+              "w": "1泊",
+              "read": "いっぱく",
+              "vi": "1 đêm"
+            },
+            {
+              "w": "1名1泊",
+              "read": "いちめいいっぱく",
+              "vi": "1 người 1 đêm"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "基本料金（1名1泊）",
+              "why": "Đơn vị tính giá chuẩn theo mỗi người trên 1 đêm"
+            }
+          ]
+        },
+        {
+          "jp": "スタンダードドーム｜2〜4名｜12,000円｜森の景色が楽しめる標準ドーム",
+          "vi": "Nhà vòm Tiêu chuẩn｜2〜4 người｜12.000 yên｜Nhà vòm tiêu chuẩn ngắm trọn cảnh rừng",
+          "vocab": [
+            {
+              "w": "スタンダード",
+              "read": "すたんだーど",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "ドーム",
+              "read": "どーむ",
+              "vi": "mái vòm"
+            },
+            {
+              "w": "スタンダードドーム",
+              "read": "すたんだーどどーむ",
+              "vi": "mái vòm tiêu chuẩn"
+            },
+            {
+              "w": "2〜4名",
+              "read": "にめいからよんめい",
+              "vi": "2–4 người"
+            },
+            {
+              "w": "12,000円",
+              "read": "いちまんにせんえん",
+              "vi": "12.000 yên"
+            },
+            {
+              "w": "森",
+              "read": "もり",
+              "vi": "rừng"
+            },
+            {
+              "w": "景色",
+              "read": "けしき",
+              "vi": "cảnh vật"
+            },
+            {
+              "w": "森の景色",
+              "read": "もりのけしき",
+              "vi": "cảnh rừng"
+            },
+            {
+              "w": "楽しめる",
+              "read": "たのしめる",
+              "vi": "có thể tận hưởng"
+            },
+            {
+              "w": "標準",
+              "read": "ひょうじゅん",
+              "vi": "tiêu chuẩn"
+            },
+            {
+              "w": "標準ドーム",
+              "read": "ひょうじゅんどーむ",
+              "vi": "mái vòm tiêu chuẩn"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "スタンダードドーム",
+              "why": "Tên gói phòng tiêu chuẩn trong câu hỏi 1"
+            },
+            {
+              "w": "2〜4名",
+              "why": "Sức chứa tối đa 4 người, loại trừ cho nhóm 5 người ở câu 2"
+            },
+            {
+              "w": "12,000円",
+              "why": "Mức giá cơ bản của gói tiêu chuẩn để tính toán ở câu 1"
+            }
+          ]
+        },
+        {
+          "jp": "プレミアムドーム｜2〜4名｜18,000円｜専用露天風呂付きの豪華ドーム",
+          "vi": "Nhà vòm Cao cấp｜2〜4 người｜18.000 yên｜Nhà vòm sang trọng có bồn tắm lộ thiên riêng",
+          "vocab": [
+            {
+              "w": "プレミアムドーム",
+              "read": "プレミアムドーム",
+              "vi": "khu dome cao cấp"
+            },
+            {
+              "w": "プレミアム",
+              "read": "プレミアム",
+              "vi": "cao cấp"
+            },
+            {
+              "w": "ドーム",
+              "read": "ドーム",
+              "vi": "mái vòm"
+            },
+            {
+              "w": "2〜4名",
+              "read": "にからよんめい",
+              "vi": "2–4 người"
+            },
+            {
+              "w": "18,000円",
+              "read": "いちまんはっせんえん",
+              "vi": "18.000 yên"
+            },
+            {
+              "w": "専用",
+              "read": "せんよう",
+              "vi": "dành riêng"
+            },
+            {
+              "w": "露天風呂",
+              "read": "ろてんぶろ",
+              "vi": "bồn tắm ngoài trời"
+            },
+            {
+              "w": "付き",
+              "read": "つき",
+              "vi": "kèm theo"
+            },
+            {
+              "w": "豪華",
+              "read": "ごうか",
+              "vi": "sang trọng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "プレミアムドーム",
+              "why": "Gói cao cấp có bồn tắm lộ thiên riêng"
+            },
+            {
+              "w": "2〜4名",
+              "why": "Sức chứa 2 đến 4 người, không đủ cho gia đình 5 người"
+            }
+          ]
+        },
+        {
+          "jp": "ファミリーキャビン｜4〜6名｜10,000円｜大人数でくつろげる大型ロッジ",
+          "vi": "Nhà gỗ Gia đình｜4〜6 người｜10.000 yên｜Nhà gỗ lớn thư giãn cho nhóm đông người",
+          "vocab": [
+            {
+              "w": "ファミリーキャビン",
+              "read": "ファミリーキャビン",
+              "vi": "cabin gia đình"
+            },
+            {
+              "w": "ファミリー",
+              "read": "ファミリー",
+              "vi": "gia đình"
+            },
+            {
+              "w": "キャビン",
+              "read": "キャビン",
+              "vi": "cabin"
+            },
+            {
+              "w": "4〜6名",
+              "read": "よんからろくめい",
+              "vi": "4–6 người"
+            },
+            {
+              "w": "10,000円",
+              "read": "いちまんえん",
+              "vi": "10.000 yên"
+            },
+            {
+              "w": "大人数",
+              "read": "おおにんずう",
+              "vi": "đông người"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số người"
+            },
+            {
+              "w": "くつろげる",
+              "read": "くつろげる",
+              "vi": "có thể thư giãn"
+            },
+            {
+              "w": "大型",
+              "read": "おおがた",
+              "vi": "cỡ lớn"
+            },
+            {
+              "w": "ロッジ",
+              "read": "ロッジ",
+              "vi": "nhà nghỉ lodge"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ファミリーキャビン",
+              "why": "Gói duy nhất chứa được nhóm 5 người"
+            },
+            {
+              "w": "4〜6名",
+              "why": "Sức chứa phù hợp cho gia đình 5 người"
+            }
+          ]
+        },
+        {
+          "jp": "【割引制度および追加料金について】",
+          "vi": "【Về chế độ giảm giá và phụ phí】",
+          "vocab": [
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "cộng thêm, thêm vào"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phụ phí, tiền tính thêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について",
+              "vi": "N + について. Biểu thị chủ đề, đối tượng đang được đề cập hoặc giải thích (\"về / liên quan đến...\"); trong tiêu đề này dùng để giới thiệu nội dung thông tin là \"về chế độ giảm giá và phụ phí\"."
+            },
+            {
+              "point": "〜および",
+              "vi": "N1 + および + N2. Liên từ nối trang trọng trong văn bản hành chính/thông báo mang nghĩa \"và / cùng với\", dùng để liên kết song song hai danh từ 「割引制度」(chế độ giảm giá) và 「追加料金」(phụ phí)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "割引制度および追加料金について",
+              "why": "Tiêu đề mục các điều kiện giảm trừ và phụ thu"
+            }
+          ]
+        },
+        {
+          "jp": "※予約時期次第で早期割引があり、宿泊日の30日前までの予約で1名につき2,000円引きとなります。",
+          "vi": "※ Tùy vào thời điểm đặt phòng sẽ có giảm giá sớm, đặt trước ngày lưu trú từ 30 ngày trở lên được giảm 2.000 yên/người.",
+          "vocab": [
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "時期",
+              "read": "じき",
+              "vi": "thời điểm"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "tùy thuộc vào"
+            },
+            {
+              "w": "早期割引",
+              "read": "そうきわりびき",
+              "vi": "giảm giá sớm"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "sớm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "あり",
+              "read": "あり",
+              "vi": "có"
+            },
+            {
+              "w": "宿泊日",
+              "read": "しゅくはくび",
+              "vi": "ngày lưu trú"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú"
+            },
+            {
+              "w": "30日前",
+              "read": "さんじゅうにちまえ",
+              "vi": "trước 30 ngày"
+            },
+            {
+              "w": "30日",
+              "read": "さんじゅうにち",
+              "vi": "30 ngày"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "1名につき",
+              "read": "いちめいにつき",
+              "vi": "mỗi người"
+            },
+            {
+              "w": "1名",
+              "read": "いちめい",
+              "vi": "1 người"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi"
+            },
+            {
+              "w": "2,000円引き",
+              "read": "にせんえんびき",
+              "vi": "giảm 2.000 yên"
+            },
+            {
+              "w": "2,000円",
+              "read": "にせんえん",
+              "vi": "2.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～次第で／次第では",
+              "vi": "Tùy thuộc vào thời điểm đặt phòng"
+            }
+          ],
+          "keys": [
+            {
+              "w": "予約時期次第で",
+              "why": "Mức giảm giá tùy thuộc vào thời điểm đặt sớm hay muộn"
+            },
+            {
+              "w": "30日前までの予約で1名につき2,000円引き",
+              "why": "Điều kiện đặt trước 30 ngày để giảm 2.000 yên (áp dụng cho 40 ngày ở câu 1, đúng ở câu 2)"
+            }
+          ]
+        },
+        {
+          "jp": "※全員が学生証を提示できるグループは学生割引として1名1,000円引きとなり、早期割引と併用可能です。",
+          "vi": "※ Nhóm mà tất cả thành viên đều xuất trình được thẻ sinh viên sẽ được giảm giá sinh viên 1.000 yên/người, có thể áp dụng cùng giảm giá sớm.",
+          "vocab": [
+            {
+              "w": "全員",
+              "read": "ぜんいん",
+              "vi": "tất cả mọi người"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ sinh viên"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "提示",
+              "read": "ていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "グループ",
+              "read": "グループ",
+              "vi": "nhóm"
+            },
+            {
+              "w": "学生割引",
+              "read": "がくせいわりびき",
+              "vi": "giảm giá sinh viên"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "1名",
+              "read": "いちめい",
+              "vi": "1 người"
+            },
+            {
+              "w": "1,000円引き",
+              "read": "せんえんびき",
+              "vi": "giảm 1.000 yên"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm"
+            },
+            {
+              "w": "早期割引",
+              "read": "そうきわりびき",
+              "vi": "giảm giá sớm"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "sớm"
+            },
+            {
+              "w": "併用可能",
+              "read": "へいようかのう",
+              "vi": "có thể dùng kết hợp"
+            },
+            {
+              "w": "併用",
+              "read": "へいよう",
+              "vi": "dùng kết hợp"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜として",
+              "vi": "N + として. Biểu thị tư cách, danh nghĩa, hình thức hoặc danh mục quy định (\"dưới tư cách/danh nghĩa là...\"); trong câu này「学生割引として」mang nghĩa là khoản tiền được giảm 1.000 yên dưới danh mục/hình thức giảm giá học sinh sinh viên."
+            },
+            {
+              "point": "〜となり（連用形・中止め）",
+              "vi": "N + となる -> bỏ ます thành となり. Cách ngắt vế câu mang tính trang trọng, văn viết (tương đương となって); biểu thị kết quả biến đổi trạng thái (\"trở thành/được tính là giảm 1.000 yên và...\")."
+            }
+          ],
+          "keys": [
+            {
+              "w": "学生割引として1名1,000円引き",
+              "why": "Mức giảm giá sinh viên 1.000 yên cần tính ở câu 1"
+            },
+            {
+              "w": "早期割引と併用可能",
+              "why": "Quy định cho phép gộp 2 loại giảm giá, dùng tính câu 1 và xác thực câu 2"
+            }
+          ]
+        },
+        {
+          "jp": "※金曜・土曜・祝前日のご宿泊は、週末追加料金として1名につき3,000円が加算されます。",
+          "vi": "※ Lưu trú vào thứ Sáu, thứ Bảy hoặc ngày trước ngày lễ sẽ tính thêm phụ phí cuối tuần là 3.000 yên/người.",
+          "vocab": [
+            {
+              "w": "金曜",
+              "read": "きんよう",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "土曜",
+              "read": "どよう",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "祝前日",
+              "read": "しゅくぜんじつ",
+              "vi": "ngày trước ngày lễ"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "ご宿泊",
+              "read": "ごしゅくはく",
+              "vi": "lưu trú"
+            },
+            {
+              "w": "宿泊",
+              "read": "しゅくはく",
+              "vi": "lưu trú"
+            },
+            {
+              "w": "週末追加料金",
+              "read": "しゅうまつついかりょうきん",
+              "vi": "phụ phí cuối tuần"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phụ phí"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "bổ sung"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "chi phí"
+            },
+            {
+              "w": "1名につき",
+              "read": "いちめいにつき",
+              "vi": "mỗi người"
+            },
+            {
+              "w": "1名",
+              "read": "いちめい",
+              "vi": "1 người"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "加算",
+              "read": "かさん",
+              "vi": "cộng thêm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜につき",
+              "vi": "N (số từ / đơn vị đếm) + につき. Biểu thị tỷ lệ, phân bổ theo từng đơn vị cụ thể (\"cứ mỗi / ứng với mỗi...\"); trong câu này「1名につき」nghĩa là cứ tính trên đầu mỗi 1 người sẽ cộng thêm 3.000 yên."
+            },
+            {
+              "point": "〜として",
+              "vi": "N + として. Biểu thị danh nghĩa, hình thức hoặc danh mục (\"dưới dạng / coi như là...\"); trong câu này「週末追加料金として」chỉ định khoản 3.000 yên được thu dưới danh mục là phụ phí cuối tuần."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜・祝前日のご宿泊",
+              "why": "Điều kiện ngày lưu trú cuối tuần của câu 1"
+            },
+            {
+              "w": "週末追加料金として1名につき3,000円が加算",
+              "why": "Phụ phí 3.000 yên vào thứ Bảy cần cộng vào câu 1"
+            }
+          ]
+        },
+        {
+          "jp": "※天候次第ではバーベキューを室内鍋料理に変更しますが、料金の変更はありません。",
+          "vi": "※ Tùy theo thời tiết, tiệc nướng ngoài trời có thể đổi sang món lẩu trong nhà, nhưng giá không thay đổi.",
+          "vocab": [
+            {
+              "w": "天候",
+              "read": "てんこう",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "ngay khi, tùy thuộc"
+            },
+            {
+              "w": "バーベキュー",
+              "read": "バーベキュー",
+              "vi": "tiệc nướng thịt (BBQ)"
+            },
+            {
+              "w": "室内",
+              "read": "しつない",
+              "vi": "trong phòng, trong nhà"
+            },
+            {
+              "w": "鍋",
+              "read": "なべ",
+              "vi": "cái nồi, món lẩu"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "sự thay đổi"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "鍋料理",
+              "read": "なべりょうり",
+              "vi": "món lẩu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～次第で／次第では",
+              "vi": "Tùy thuộc vào thời tiết xấu hay tốt"
+            }
+          ],
+          "keys": [
+            {
+              "w": "天候次第では",
+              "why": "Điều kiện thay đổi món ăn theo thời tiết"
+            },
+            {
+              "w": "料金の変更はありません",
+              "why": "Xác định không bị tính thêm tiền khi đổi món ăn để loại trừ đáp án câu 2"
+            }
+          ]
+        },
+        {
+          "jp": "※星空観察ツアー（1名1,500円）は事前予約制で、天候次第で中止になった場合は全額返金されます。",
+          "vi": "※ Tour ngắm sao (1.500 yên/người) cần đặt trước, trường hợp bị hủy tùy theo thời tiết sẽ được hoàn tiền toàn bộ.",
+          "vocab": [
+            {
+              "w": "星空観察ツアー",
+              "read": "ほしぞらかんさつツアー",
+              "vi": "tour ngắm sao"
+            },
+            {
+              "w": "星空観察",
+              "read": "ほしぞらかんさつ",
+              "vi": "quan sát bầu trời sao"
+            },
+            {
+              "w": "星空",
+              "read": "ほしぞら",
+              "vi": "bầu trời sao"
+            },
+            {
+              "w": "観察",
+              "read": "かんさつ",
+              "vi": "quan sát"
+            },
+            {
+              "w": "ツアー",
+              "read": "ツアー",
+              "vi": "tour"
+            },
+            {
+              "w": "1名1,500円",
+              "read": "いちめいいっせんごひゃくえん",
+              "vi": "1 người 1.500 yên"
+            },
+            {
+              "w": "1名",
+              "read": "いちめい",
+              "vi": "1 người"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            },
+            {
+              "w": "事前予約制",
+              "read": "じぜんよやくせい",
+              "vi": "yêu cầu đặt trước"
+            },
+            {
+              "w": "事前予約",
+              "read": "じぜんよやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "事前",
+              "read": "じぜん",
+              "vi": "trước"
+            },
+            {
+              "w": "予約制",
+              "read": "よやくせい",
+              "vi": "chế độ đặt trước"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt trước"
+            },
+            {
+              "w": "天候次第",
+              "read": "てんこうしだい",
+              "vi": "tùy thời tiết"
+            },
+            {
+              "w": "天候",
+              "read": "てんこう",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "次第",
+              "read": "しだい",
+              "vi": "tùy thuộc vào"
+            },
+            {
+              "w": "中止",
+              "read": "ちゅうし",
+              "vi": "hủy bỏ"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "全額返金",
+              "read": "ぜんがくへんきん",
+              "vi": "hoàn tiền toàn bộ"
+            },
+            {
+              "w": "全額",
+              "read": "ぜんがく",
+              "vi": "toàn bộ số tiền"
+            },
+            {
+              "w": "返金",
+              "read": "へんきん",
+              "vi": "hoàn tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～次第で／次第では",
+              "vi": "Tùy thuộc vào thời tiết"
+            }
+          ],
+          "keys": [
+            {
+              "w": "天候次第で中止になった場合",
+              "why": "Điều kiện hủy tour ngắm sao do thời tiết"
+            },
+            {
+              "w": "全額返金されます",
+              "why": "Xác nhận được hoàn tiền đầy đủ để loại trừ đáp án sai ở câu 2"
+            }
+          ]
+        },
+        {
+          "jp": "来月は連休を中心に予約がすぐに埋まるらしいので、お早めのご予約をお待ちしております。",
+          "vi": "Nghe nói tháng tới quanh các ngày nghỉ lễ phòng sẽ nhanh chóng kín chỗ, nên chúng tôi rất mong quý khách sớm đặt chỗ.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "連休",
+              "read": "れんきゅう",
+              "vi": "kỳ nghỉ liên tiếp"
+            },
+            {
+              "w": "中心",
+              "read": "ちゅうしん",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "埋まる",
+              "read": "うまる",
+              "vi": "bị lấp đầy, kín chỗ"
+            },
+            {
+              "w": "早め",
+              "read": "はやめ",
+              "vi": "sớm hơn bình thường"
+            },
+            {
+              "w": "お待ち",
+              "read": "おまち",
+              "vi": "sự chờ đợi, mong chờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～らしい（推量・根拠）",
+              "vi": "Nghe nói, có vẻ (dự đoán tình hình kín chỗ)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "予約がすぐに埋まるらしい",
+              "why": "Thông tin dự báo về việc phòng sớm kín chỗ"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "まるで絵本の世界に迷い込んだかのような",
+          "label": "まるで～ようだ／かのように"
+        },
+        {
+          "excerpt": "息をのむほど",
+          "label": "～ほど（程度）"
+        },
+        {
+          "excerpt": "おいしそうだった",
+          "label": "～そうだ（外観）"
+        },
+        {
+          "excerpt": "評判らしい",
+          "label": "～らしい（推量・根拠）"
+        },
+        {
+          "excerpt": "利用人数やご希望の体験次第で",
+          "label": "～次第で／次第では"
+        },
+        {
+          "excerpt": "予約時期次第で",
+          "label": "～次第で／次第では"
+        },
+        {
+          "excerpt": "天候次第では",
+          "label": "～次第で／次第では"
+        },
+        {
+          "excerpt": "天候次第で",
+          "label": "～次第で／次第では"
+        },
+        {
+          "excerpt": "予約がすぐに埋まるらしい",
+          "label": "～らしい（推量・根拠）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 4,
+          "kind": "intro",
+          "label": "リゾートの概要と評判",
+          "topic": 0,
+          "note": "Giới thiệu cảnh quan, đánh giá của khách và tổng quan lựa chọn phòng",
+          "qs": []
+        },
+        {
+          "from": 5,
+          "to": 9,
+          "kind": "body",
+          "label": "宿泊プラン一覧",
+          "topic": 6,
+          "note": "Bảng chi tiết các hạng phòng, số lượng người và giá cơ bản",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 10,
+          "to": 15,
+          "kind": "point",
+          "label": "割引条件と注意事項",
+          "topic": 10,
+          "note": "Các quy định về giảm giá sớm, giảm giá học sinh, phụ phí cuối tuần và tour",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 16,
+          "to": 16,
+          "kind": "turn",
+          "label": "予約案内",
+          "topic": 16,
+          "note": "Khuyến nghị khách đặt phòng sớm trong đợt nghỉ lễ",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学の友人3人（全員学生証あり）が、土曜日に「スタンダードドーム」に宿泊しようと考えている。40日前に予約した場合、1人あたりの宿泊料金はいくらになるか。",
+          "options": [
+            "10,000円",
+            "12,000円",
+            "13,000円",
+            "15,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Cách tính giá cho 1 người: Giá cơ bản của gói スタンダードドーム là 12.000 yên (dòng 7). Lưu trú vào thứ Bảy (土曜日) phải cộng thêm phụ phí cuối tuần 3.000 yên (dòng 13). Đặt trước 40 ngày (tức trước 30 ngày trở lên) được giảm giá sớm 2.000 yên (dòng 11). Nhóm cả 3 bạn đều là sinh viên có thẻ sinh viên nên được giảm tiếp 1.000 yên sinh viên (dòng 12, có thể dùng kết hợp). Tổng tiền cho 1 người = 12.000 + 3.000 - 2.000 - 1.000 = 12.000 yên.",
+          "tip": "Xác định giá gốc của loại phòng, sau đó cộng phụ phí thứ Bảy và trừ đồng thời 2 khoản giảm giá (đặt sớm + sinh viên).",
+          "evi": [
+            7,
+            11,
+            12,
+            13
+          ],
+          "qt": {
+            "q": "3 người bạn học đại học (cả 3 đều có thẻ sinh viên) đang dự định nghỉ tại 「スタンダードドーム」(lều mái vòm tiêu chuẩn) vào thứ Bảy. Nếu đặt trước 40 ngày, phí lưu trú tính cho mỗi người là bao nhiêu?",
+            "o": [
+              "10.000 yên",
+              "12.000 yên",
+              "13.000 yên",
+              "15.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "このリゾートの利用条件やプランについて、本文の説明と合っているものはどれか。",
+          "options": [
+            "家族5人で宿泊する場合、スタンダードドームとプレミアムドームのどちらも利用できる。",
+            "30日以上前に予約すれば早期割引が適用され、学生割引と重ねて割引を受けることができる。",
+            "天候次第で屋外バーベキューが室内鍋料理に変更になった場合、追加料金を支払う必要がある。",
+            "事前予約した星空観察ツアーが天候次第で中止になった場合、ツアー代金は戻ってこない。"
+          ],
+          "answer": 1,
+          "explainVi": "Lựa chọn 1 đúng vì dòng 11 và dòng 12 ghi rõ: đặt phòng trước từ 30 ngày trở lên được giảm 2.000 yên (早期割引) và có thể áp dụng đồng thời với giảm giá sinh viên (早期割引と併用可能). Các lựa chọn khác sai vì: Lựa chọn 0 sai vì nhà vòm chỉ nhận 2~4 người (dòng 7, 8), 5 người phải chọn ファミリーキャビン (dòng 9); Lựa chọn 2 sai vì đổi sang lẩu không thay đổi giá (dòng 14: 料金の変更はありません); Lựa chọn 3 sai vì tour ngắm sao nếu bị hủy do thời tiết sẽ được hoàn lại toàn bộ tiền (dòng 15: 全額返金されます)。",
+          "tip": "Đối chiếu từng phương án với các dòng lưu ý ※ ở phần ghi chú để loại trừ các phát biểu trái ngược với bài viết.",
+          "evi": [
+            7,
+            8,
+            9,
+            11,
+            12,
+            14,
+            15
+          ],
+          "qt": {
+            "q": "Trong các điều kiện sử dụng và kế hoạch lưu trú của khu nghỉ dưỡng này, nội dung nào phù hợp với phần giải thích trong bài?",
+            "o": [
+              "Nếu 5 người trong một gia đình lưu trú, họ có thể sử dụng cả 「スタンダードドーム」 (lều mái vòm tiêu chuẩn) lẫn 「プレミアムドーム」 (lều mái vòm cao cấp).",
+              "Nếu đặt trước từ 30 ngày trở lên, sẽ được áp dụng giảm giá đặt sớm và có thể nhận thêm giảm giá sinh viên.",
+              "Nếu tiệc nướng ngoài trời được đổi thành món lẩu trong nhà tùy theo thời tiết, cần phải trả thêm phí.",
+              "Nếu tour ngắm sao đã đặt trước bị hủy tùy theo thời tiết, phí tour sẽ không được hoàn lại."
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

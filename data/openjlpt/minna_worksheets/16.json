@@ -1,0 +1,375 @@
+{
+  "bai": 16,
+  "bunpou": [
+    {
+      "stem": "朝[あさ] 起[お]きて、シャワーを ＿、学校[がっこう]へ 行[い]きます。",
+      "choices": [
+        "浴[あ]びて",
+        "浴[あ]びてから後[あと]で",
+        "浴[あ]びる",
+        "浴[あ]びました"
+      ],
+      "answer": 0,
+      "explain": "Động từ nối chuỗi hành động dùng て-form (浴[あ]びて); 浴[あ]びる là từ điển, 浴[あ]びました là thể lịch sự quá khứ — đều sai văn cảnh nối câu."
+    },
+    {
+      "stem": "電車[でんしゃ]に ＿、会社[かいしゃ]へ 行[い]きます。",
+      "choices": [
+        "乗[の]って",
+        "乗[の]るて",
+        "乗[の]りますて",
+        "乗[の]ってから後[あと]で"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I: 乗[の]る → て-form là 乗[の]って (る→って); 乗[の]るて và 乗[の]りますて là sai hình thức chia."
+    },
+    {
+      "stem": "宿題[しゅくだい]を ＿、ゲームを します。",
+      "choices": [
+        "してから",
+        "するから",
+        "しますから",
+        "していから"
+      ],
+      "answer": 0,
+      "explain": "「〜てから」= て-form + から biểu thị trình tự \"sau khi...\"; するから là nguyên nhân (vì), không phải trình tự."
+    },
+    {
+      "stem": "朝[あさ]ごはんを 食[た]べ＿、歯[は]を 磨[みが]きます。",
+      "choices": [
+        "てから",
+        "るから",
+        "ますから",
+        "てで"
+      ],
+      "answer": 0,
+      "explain": "食べ + てから = 食べてから「sau khi ăn sáng」; るから là nguyên nhân, てで không tồn tại."
+    },
+    {
+      "stem": "この 店[みせ]は ＿、おいしいです。",
+      "choices": [
+        "安[やす]くて",
+        "安[やす]いて",
+        "安[やす]いで",
+        "安[やす]いくて"
+      ],
+      "answer": 0,
+      "explain": "い-adj nối câu đổi い → くて (安い→安くて); 安[やす]いで là cách nối của な-adj, sai loại từ."
+    },
+    {
+      "stem": "この 町[まち]は ＿、便利[べんり]です。",
+      "choices": [
+        "静[しず]かで",
+        "静[しず]かくて",
+        "静[しず]かにて",
+        "静[しず]かて"
+      ],
+      "answer": 0,
+      "explain": "な-adj nối câu thêm で (静[しず]か→静[しず]かで); 静[しず]かくて nhầm cách chia い-adj."
+    },
+    {
+      "stem": "駅[えき]まで ＿ 行[い]きますか。",
+      "choices": [
+        "どうやって",
+        "どんな",
+        "どの",
+        "なんで"
+      ],
+      "answer": 0,
+      "explain": "どうやって hỏi về phương tiện/cách thức di chuyển; どんな/どの hỏi về loại/loại cụ thể, không phù hợp."
+    },
+    {
+      "stem": "東京[とうきょう]は 物価[ぶっか]＿ 高[たか]いです。",
+      "choices": [
+        "が",
+        "を",
+        "で",
+        "に"
+      ],
+      "answer": 0,
+      "explain": "Mẫu 「NはNが〜」: chủ ngữ thứ hai của vị ngữ tính từ dùng が; を dùng cho tân ngữ, không hợp ở đây."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "を",
+      "に",
+      "で",
+      "が",
+      "は",
+      "と",
+      "から"
+    ],
+    "items": [
+      {
+        "stem": "電車[でんしゃ]＿ 乗[の]って、駅[えき]へ 行[い]きます。",
+        "answer": "に",
+        "explain": "乗[の]る đi kèm に chỉ phương tiện (電車に乗る); を dùng khi qua/vượt qua, không phù hợp với 乗る."
+      },
+      {
+        "stem": "シャワー＿ 浴[あ]びてから、寝[ね]ます。",
+        "answer": "を",
+        "explain": "浴[あ]びる là động từ ngoại động, cần を chỉ tân ngữ (シャワーを浴びる); に sẽ chỉ hướng, sai."
+      },
+      {
+        "stem": "この 部屋[へや]は 広[ひろ]くて、日当[ひあ]たり＿ いいです。",
+        "answer": "が",
+        "explain": "Mẫu 「NはNが〜」: chủ ngữ phụ (日当たり) của vị ngữ tính từ dùng が; は đổi nghĩa tương phản không phù hợp."
+      },
+      {
+        "stem": "バス＿ 学校[がっこう]まで 行[い]きます。",
+        "answer": "で",
+        "explain": "で chỉ phương tiện di chuyển (バスで); に dùng với 乗る không dùng trực tiếp với 行く khi có phương tiện."
+      },
+      {
+        "stem": "仕事[しごと]が 終[お]わってから、友[とも]だち＿ ご飯[はん]を 食[た]べます。",
+        "answer": "と",
+        "explain": "と chỉ \"cùng với\" ai đó (友だちと食べる); に chỉ hướng/đích, không phù hợp."
+      },
+      {
+        "stem": "駅[えき]＿ 歩[ある]いて、公園[こうえん]へ 行[い]きます。",
+        "answer": "から",
+        "explain": "から chỉ điểm xuất phát (駅から歩く); で chỉ địa điểm diễn ra hành động, không mang nghĩa \"từ\"."
+      },
+      {
+        "stem": "大阪[おおさか]は 食[た]べ物[もの]＿ おいしいです。",
+        "answer": "が",
+        "explain": "Mẫu 「NはNが〜」: 食べ物 là chủ ngữ phụ dùng が; は tạo tương phản, đổi nghĩa câu."
+      },
+      {
+        "stem": "宿題[しゅくだい]＿ してから、テレビを 見[み]ます。",
+        "answer": "を",
+        "explain": "する là ngoại động từ, 宿題を する cần を; が sẽ làm宿題 thành chủ ngữ, sai cấu trúc."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "安[やす]い",
+      "prompt": "Nối câu (い-adj): 安い→？",
+      "choices": [
+        "安[やす]くて",
+        "安[やす]いて",
+        "安[やす]いで",
+        "安[やす]いくて"
+      ],
+      "answer": 0,
+      "explain": "い-adj nối câu: bỏ い thêm くて (安い→安くて); 安[やす]いで nhầm cách chia な-adj."
+    },
+    {
+      "base": "静[しず]か",
+      "prompt": "Nối câu (な-adj): 静か→？",
+      "choices": [
+        "静[しず]かで",
+        "静[しず]かくて",
+        "静[しず]かにて",
+        "静[しず]かて"
+      ],
+      "answer": 0,
+      "explain": "な-adj nối câu thêm で (静か→静かで); 静[しず]かくて nhầm cách chia い-adj."
+    },
+    {
+      "base": "起[お]きます",
+      "prompt": "て-form để nối chuỗi: 起きます→？",
+      "choices": [
+        "起[お]きて",
+        "起[お]きるて",
+        "起[お]きてから",
+        "起[お]きまして"
+      ],
+      "answer": 0,
+      "explain": "Nhóm II (る-verb): bỏ ます thêm て (起きます→起きて); 起[お]きてから thêm から thành \"sau khi\", không phải chỉ て-form đơn."
+    },
+    {
+      "base": "食[た]べます",
+      "prompt": "\"Sau khi ăn\": 食べます＋から→？",
+      "choices": [
+        "食[た]べてから",
+        "食[た]べるから",
+        "食[た]べますから",
+        "食[た]べいてから"
+      ],
+      "answer": 0,
+      "explain": "「〜てから」dùng て-form của động từ (食べて + から); 食[た]べるから là nguyên nhân, không phải trình tự."
+    },
+    {
+      "base": "広[ひろ]い",
+      "prompt": "Nối câu (い-adj): 広い→？",
+      "choices": [
+        "広[ひろ]くて",
+        "広[ひろ]いて",
+        "広[ひろ]いで",
+        "広[ひろ]いくて"
+      ],
+      "answer": 0,
+      "explain": "い-adj: い → くて (広い→広くて); 広[ひろ]いくて thêm cả い lẫn くて là sai."
+    },
+    {
+      "base": "有名[ゆうめい]",
+      "prompt": "Nối câu (な-adj): 有名→？",
+      "choices": [
+        "有名[ゆうめい]で",
+        "有名[ゆうめい]くて",
+        "有名[ゆうめい]にて",
+        "有名[ゆうめい]て"
+      ],
+      "answer": 0,
+      "explain": "な-adj thêm で để nối (有名で); 有名[ゆうめい]くて nhầm sang quy tắc い-adj."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "宿題[しゅくだい]を してから、",
+        "ゲームを",
+        "します。"
+      ],
+      "vi": "Sau khi làm bài tập tôi mới chơi game.",
+      "explain": "「〜てから」đặt ở mệnh đề đầu; vị ngữ chính (ゲームをします) đứng cuối câu."
+    },
+    {
+      "chips": [
+        "この 店[みせ]は",
+        "安[やす]くて、",
+        "おいしいです。"
+      ],
+      "vi": "Quán này vừa rẻ vừa ngon.",
+      "explain": "い-adj nối bằng くて để liệt kê tính chất; thứ tự: chủ ngữ → tính từ くて → vị ngữ cuối."
+    },
+    {
+      "chips": [
+        "この 部屋[へや]は",
+        "静[しず]かで、",
+        "きれいです。"
+      ],
+      "vi": "Phòng này vừa yên tĩnh vừa đẹp.",
+      "explain": "な-adj nối bằng で để liệt kê; 静[しず]かで đứng giữa, vị ngữ chính (きれいです) đứng cuối."
+    },
+    {
+      "chips": [
+        "駅[えき]まで",
+        "どうやって",
+        "行[い]きますか。"
+      ],
+      "vi": "Đến ga đi như thế nào vậy?",
+      "explain": "Từ hỏi どうやって (bằng cách nào) đứng trước động từ; まで chỉ điểm đến."
+    },
+    {
+      "chips": [
+        "大阪[おおさか]は",
+        "食[た]べ物[もの]が",
+        "おいしいです。"
+      ],
+      "vi": "Osaka có đồ ăn ngon.",
+      "explain": "Mẫu NはNが〜: chủ đề (大阪は) + chủ ngữ phụ (食べ物が) + vị ngữ."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "シャワーを あびてから、ねます。",
+      "ask": "Người nói làm gì trước khi ngủ?",
+      "choices": [
+        "Tắm trước rồi ngủ",
+        "Ngủ trước rồi tắm",
+        "Ăn tối rồi ngủ"
+      ],
+      "answer": 0,
+      "script": "シャワーを 浴[あ]びてから、寝[ね]ます。",
+      "explain": "「シャワーを浴びてから」= tắm xong rồi mới ngủ; から sau て-form xác nhận trình tự."
+    },
+    {
+      "tts": "この へやは ひろくて、あかるいです。",
+      "ask": "Căn phòng được mô tả như thế nào?",
+      "choices": [
+        "Rộng và sáng",
+        "Hẹp và tối",
+        "Yên tĩnh và sạch"
+      ],
+      "answer": 0,
+      "script": "この 部屋[へや]は 広[ひろ]くて、明[あか]るいです。",
+      "explain": "広[ひろ]くて là い-adj nối, 明るい là vị ngữ; hai tính chất được ghép nối qua くて."
+    },
+    {
+      "tts": "えきまで どうやって いきますか。",
+      "ask": "Câu hỏi này hỏi về điều gì?",
+      "choices": [
+        "Cách đi đến ga",
+        "Thời gian đến ga",
+        "Giá vé tàu"
+      ],
+      "answer": 0,
+      "script": "駅[えき]まで どうやって 行[い]きますか。",
+      "explain": "どうやって hỏi phương tiện/cách thức; いつ hỏi thời gian, いくら hỏi giá — đều không đúng."
+    },
+    {
+      "tts": "しゅくだいを してから、テレビを みます。",
+      "ask": "Người nói làm gì trước?",
+      "choices": [
+        "Làm bài tập trước rồi xem TV",
+        "Xem TV trước rồi làm bài tập",
+        "Vừa làm bài vừa xem TV"
+      ],
+      "answer": 0,
+      "script": "宿題[しゅくだい]を してから、テレビを 見[み]ます。",
+      "explain": "「してから」xác nhận bài tập làm trước, TV xem sau; てから không thể đảo trình tự."
+    },
+    {
+      "tts": "おおさかは たべものが おいしいです。",
+      "ask": "Điền vào chỗ trống: 大阪は ___ おいしいです。",
+      "choices": [
+        "食[た]べ物[もの]が",
+        "物価[ぶっか]が",
+        "電車[でんしゃ]が"
+      ],
+      "answer": 0,
+      "script": "大阪[おおさか]は 食[た]べ物[もの]が おいしいです。",
+      "explain": "Nghe「たべものが」= 食べ物が; 物価[ぶっか] liên quan đến giá cả, không khớp với おいしい."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Sau khi tắm tôi mới ăn sáng.",
+      "target": "シャワーを浴びてから、朝ごはんを食べます。",
+      "accept": [
+        "しゃわーをあびてから、あさごはんをたべます。",
+        "シャワーをあびてから、朝ごはんをたべます。"
+      ],
+      "explain": "Dùng て-form + から (浴びてから) để diễn tả \"sau khi tắm\"; vị ngữ chính đặt cuối câu."
+    },
+    {
+      "vi": "Quán này vừa rẻ vừa ngon.",
+      "target": "この店は安くて、おいしいです。",
+      "accept": [
+        "このみせはやすくて、おいしいです。",
+        "このみせは安くて、おいしいです。"
+      ],
+      "explain": "い-adj 安い nối bằng くて để ghép hai tính chất; vị ngữ cuối おいしいです ở thể lịch sự."
+    },
+    {
+      "vi": "Phòng này vừa yên tĩnh vừa đẹp.",
+      "target": "この部屋は静かで、きれいです。",
+      "accept": [
+        "このへやはしずかで、きれいです。",
+        "このへやは静かで、きれいです。"
+      ],
+      "explain": "な-adj 静か nối bằng で (静かで); きれい cũng là な-adj nhưng đứng cuối dạng ですます."
+    },
+    {
+      "vi": "Đến ga đi bằng phương tiện gì vậy?",
+      "target": "駅までどうやって行きますか。",
+      "accept": [
+        "えきまでどうやっていきますか。"
+      ],
+      "explain": "どうやって hỏi cách/phương tiện; まで chỉ điểm đến; cấu trúc: N+まで+どうやって+行きますか。"
+    },
+    {
+      "vi": "Tôi đi tàu điện đến công ty.",
+      "target": "電車に乗って、会社へ行きます。",
+      "accept": [
+        "でんしゃにのって、かいしゃへいきます。",
+        "電車にのって、会社へいきます。"
+      ],
+      "explain": "乗る dùng に chỉ phương tiện (電車に乗る), て-form nối chuỗi; へ chỉ hướng đến đích."
+    }
+  ]
+}

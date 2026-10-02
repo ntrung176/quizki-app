@@ -1,0 +1,2576 @@
+{
+  "bai": 50,
+  "level": "N4",
+  "strategy": {
+    "intro": "謙譲語（けんじょうご）là kính ngữ KHIÊM NHƯỜNG — người nói HẠ THẤP hành động của chính mình (hoặc phía mình) để tôn trọng người nghe/khách hàng. Bài 50 là bài cuối của Minna no Nihongo, hoàn thiện hệ thống kính ngữ đã học ở Bài 49 (尊敬語 — tôn trọng hành động của đối phương). Nguyên tắc vàng: 謙譲語 dùng cho HÀNH ĐỘNG CỦA BẢN THÂN／PHÍA MÌNH; 尊敬語 dùng cho HÀNH ĐỘNG CỦA NGƯỜI ĐƯỢC TÔN TRỌNG (khách, cấp trên). Chủ đề bài đọc: nhân viên khách sạn/văn phòng phục vụ khách — ngữ cảnh dày đặc謙譲語 nhất trong thực tế.",
+    "steps": [
+      "Xác định người nói (nhân viên = phía mình) và người nghe (khách = người được tôn trọng). 謙譲語 xuất hiện khi nhân viên nói về HÀNH ĐỘNG CỦA MÌNH: dẫn đường, xem, nghe, mang đồ…",
+      "Nhận diện おV(ます形)します／いたします: tìm「お〜します」hay「ご〜します」— đây là dạng謙譲語 phổ thông. Ví dụ: お持ちします (mang thay cho)、ご案内します (hướng dẫn)、ご連絡いたします (liên lạc).",
+      "Nhận diện 7 động từ謙譲語 đặc biệt: まいります（行く/来る）、おります（いる）、いたします（する）、申します／申し上げます（言う）、いただきます（食べる/飲む/もらう）、拝見します（見る）、伺います（聞く/行く/訪ねる）、存じます（知る/思う）.",
+      "対比 với 尊敬語 (Bài 49): khi câu nói về KHÁCH dùng いらっしゃいます（いる/来る/行く）, おっしゃいます（言う）, ご覧になります（見る）; khi câu nói về NHÂN VIÊN dùng おります、まいります、拝見します。",
+      "Nhận diện Vていただけませんか: lịch sự nhờ vả KHÁCH làm điều gì đó. Cấu trúc: V-て形 + いただけませんか. Khác với Vてください (trực tiếp) hay Vてもらえませんか (thân mật hơn).",
+      "Câu hỏi trắc nghiệm bài cuối thường yêu cầu phân biệt 謙譲語 vs 尊敬語 và suy luận từ ngữ cảnh. Hỏi \"Ai làm gì?\" là mấu chốt: nếu NHÂN VIÊN làm → 謙譲語; nếu KHÁCH làm → 尊敬語."
+    ],
+    "tips": [
+      "謙譲語 LUÔN hạ phía MÌNH, KHÔNG BAOGIỜ dùng để mô tả hành động của khách/cấp trên. Ví dụ: お客様が拝見します ✗ (sai) → お客様がご覧になります ✓ (尊敬語).",
+      "いたします = する (khiêm nhường nhất). Dùng thay します khi muốn thêm lịch sự: ご案内いたします > ご案内します.",
+      "申します（もうします）= 言います khiêm nhường. Tự giới thiệu: 「山田と申します」(Tôi tên là Yamada). 申し上げます = lịch sự hơn 申します (dùng khi người nghe có địa vị rất cao).",
+      "伺います（うかがいます）có 3 nghĩa: nghe/hỏi (聞く), đến thăm (行く/訪ねる), đến/ghé (来る). Ngữ cảnh quyết định nghĩa.",
+      "Vていただけませんか = \"Bạn có thể làm ... cho tôi không?\" (nhờ khách). PHÂN BIỆT: Vていただけませんか (nhờ khách làm gì) ≠ Vていただきます (tôi nhận được việc khách làm cho).",
+      "拝見します（はいけんします）= 見ます khiêm nhường. Dùng khi xem tài liệu/thiếp/giấy tờ của khách: お名刺を拝見します.",
+      "存じます（ぞんじます）= 知っています/思います khiêm nhường. Phủ định: 存じません（= わかりません/知りません trang trọng）."
+    ],
+    "grammarFocus": [
+      "おV(ます形)します／いたします（謙譲語 phổ thông）",
+      "特別な謙譲語: まいります・おります・いたします・申します／申し上げます・いただきます・拝見します・伺います・存じます",
+      "Vていただけませんか（nhờ vả lịch sự）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 49,
+        "items": [
+          "V尊敬形（〜れます・〜られます）",
+          "おVますになります",
+          "いらっしゃいます・おっしゃいます・ご覧になります・召し上がります"
+        ]
+      },
+      {
+        "bai": 48,
+        "items": [
+          "Vさせていただきます（xin phép làm）",
+          "V使役形"
+        ]
+      },
+      {
+        "bai": 47,
+        "items": [
+          "〜そうです（伝聞）",
+          "〜らしいです"
+        ]
+      },
+      {
+        "bai": 46,
+        "items": [
+          "Vたところです",
+          "Vているところです"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接）",
+          "Nのばあいは"
+        ]
+      },
+      {
+        "bai": 41,
+        "items": [
+          "Vていただきます（Bài 41 — nhận được hành động）",
+          "Vてあげます・Vてもらいます"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）",
+          "Vるために"
+        ]
+      },
+      {
+        "bai": 37,
+        "items": [
+          "V受身形（られます）"
+        ]
+      },
+      {
+        "bai": 36,
+        "items": [
+          "Vるようにします・Vるようになります"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vる予定です（lịch trình）",
+          "まだVていません"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vてあります・Vておきます（chuẩn bị）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる・Vた＋N）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています"
+        ]
+      },
+      {
+        "bai": 7,
+        "items": [
+          "人にNをあげます／もらいます"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "フロントデスクにて",
+      "titleVi": "Tại quầy lễ tân",
+      "japanese": "お客様がフロントにいらっしゃいました。\n「田中と申します。チェックインをお願いしたいんですが。」\n「ようこそおいでくださいました。田中様、ご予約をお調べいたします。少々お待ちいただけませんか。」\n「お部屋の準備ができております。私がお部屋までご案内いたします。」\n「お荷物はこちらでお預かりします。お荷物をお持ちしてもよろしいでしょうか。」\n「ありがとうございます。よろしくお願いいたします。」\n「何かご不明な点がございましたら、いつでも伺います。どうぞよろしくお願い申し上げます。」",
+      "vietnamese": "Khách đã đến tại quầy lễ tân.\n\"Tôi tên là Tanaka. Tôi muốn làm thủ tục nhận phòng ạ.\"\n\"Xin chào mừng quý khách. Thưa ông Tanaka, tôi xin tra cứu thông tin đặt phòng. Xin ông vui lòng chờ một chút.\"\n\"Phòng của quý khách đã sẵn sàng. Tôi sẽ dẫn quý khách lên phòng.\"\n\"Hành lý của quý khách chúng tôi xin giữ giúp tại đây. Tôi có thể xách hành lý cho quý khách không ạ?\"\n\"Cảm ơn anh. Phiền anh nhé.\"\n\"Nếu quý khách có bất kỳ điều gì chưa rõ, xin hãy gọi cho chúng tôi bất cứ lúc nào. Trân trọng kính chào.\"",
+      "sentences": [
+        {
+          "jp": "お客様がフロントにいらっしゃいました。",
+          "vi": "Khách đã đến tại quầy lễ tân.",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách (kính ngữ cao)"
+            },
+            {
+              "w": "フロント",
+              "read": "フロント",
+              "vi": "quầy lễ tân (front desk)"
+            },
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "いらっしゃいました",
+              "read": "いらっしゃいました",
+              "vi": "đã đến (尊敬語 của 来ます/います)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いらっしゃいます（Bài 49 — 尊敬語）",
+              "vi": "尊敬語 của います/来ます/行きます. Dùng ở đây vì hành động \"đến\" là của KHÁCH — người được tôn trọng. KHÔNG dùng 謙譲語 ở đây."
+            }
+          ]
+        },
+        {
+          "jp": "「田中と申します。チェックインをお願いしたいんですが。」",
+          "vi": "\"Tôi tên là Tanaka. Tôi muốn làm thủ tục nhận phòng ạ.\"",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "申します",
+              "read": "もうします",
+              "vi": "tên là, thưa là (謙譲語 của 言います)"
+            },
+            {
+              "w": "チェックイン",
+              "read": "チェックイン",
+              "vi": "nhận phòng (check-in)"
+            },
+            {
+              "w": "お願いします",
+              "read": "おねがいします",
+              "vi": "nhờ, xin"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "申します（謙譲語 — 言います）",
+              "vi": "Khách tự giới thiệu dùng 申します — hạ thấp bản thân khi nói TÊN MÌNH. Là dạng 謙譲語 cố định cho tự giới thiệu: ～と申します = \"Tôi tên là ～\"."
+            },
+            {
+              "point": "〜んですが（Bài 26 — giải thích + đề nghị）",
+              "vi": "お願いしたいんですが = muốn nhờ... (đặt vấn đề lịch sự, chờ đối phương phản hồi). んですが mềm hóa yêu cầu."
+            }
+          ]
+        },
+        {
+          "jp": "「ようこそおいでくださいました。田中様、ご予約をお調べいたします。少々お待ちいただけませんか。」",
+          "vi": "\"Xin chào mừng quý khách. Thưa ông Tanaka, tôi xin tra cứu thông tin đặt phòng. Xin ông vui lòng chờ một chút.\"",
+          "vocab": [
+            {
+              "w": "ようこそ",
+              "read": "ようこそ",
+              "vi": "xin chào mừng, chào quý khách"
+            },
+            {
+              "w": "おいで",
+              "read": "おいで",
+              "vi": "sự đến, sự có mặt"
+            },
+            {
+              "w": "くださる",
+              "read": "くださる",
+              "vi": "cho, ban cho"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt hẹn, đặt chỗ"
+            },
+            {
+              "w": "調べ",
+              "read": "しらべ",
+              "vi": "sự kiểm tra, điều tra"
+            },
+            {
+              "w": "いたす",
+              "read": "いたす",
+              "vi": "làm, thực hiện"
+            },
+            {
+              "w": "少々",
+              "read": "しょうしょう",
+              "vi": "một chút, một lát (lịch sự hơn ちょっと)"
+            },
+            {
+              "w": "お待ちいただけませんか",
+              "read": "おまちいただけませんか",
+              "vi": "xin vui lòng chờ (nhờ khách chờ — 謙譲語 + いただけませんか)"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "おいでくださいました",
+              "read": "おいでくださいました",
+              "vi": "đã quang lâm (尊敬語 kép: おいで + くださる)"
+            },
+            {
+              "w": "〜様",
+              "read": "さま",
+              "vi": "quý ~ (hậu tố tôn kính cao nhất)"
+            },
+            {
+              "w": "ご予約",
+              "read": "ごよやく",
+              "vi": "thông tin đặt phòng, đặt trước (ご + 予約)"
+            },
+            {
+              "w": "お調べいたします",
+              "read": "おしらべいたします",
+              "vi": "xin tra cứu/kiểm tra (お調べします + いたします — 謙譲語)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お調べいたします（謙譲語 — 調べます）",
+              "vi": "NHÂN VIÊN tra cứu dữ liệu đặt phòng → dùng お調べいたします (おV(ます形)します + いたします). LƯU Ý: 拝見します (謙譲語 của 見る) chuẩn khi xem vật khách trao tận tay (danh thiếp, giấy tờ); với dữ liệu hệ thống như ご予約 nên dùng お調べいたします hoặc ご確認いたします cho tự nhiên hơn."
+            },
+            {
+              "point": "いたします（謙譲語 — します）",
+              "vi": "お調べいたします = お調べします + いたします. Gộp hai lớp khiêm nhường. いたします = hình thức cao nhất của します trong văn phong lịch sự."
+            },
+            {
+              "point": "Vていただけませんか（Bài 50）",
+              "vi": "お待ちいただけませんか = \"Xin ông vui lòng chờ cho.\" Cấu trúc: おV(ます形) + いただけませんか → nhờ khách làm điều gì đó rất lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "「お部屋の準備ができております。私がお部屋までご案内いたします。」",
+          "vi": "\"Phòng của quý khách đã sẵn sàng. Tôi sẽ dẫn quý khách lên phòng.\"",
+          "vocab": [
+            {
+              "w": "お部屋",
+              "read": "おへや",
+              "vi": "phòng"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "準備",
+              "read": "じゅんび",
+              "vi": "chuẩn bị"
+            },
+            {
+              "w": "できております",
+              "read": "できております",
+              "vi": "đã sẵn sàng"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "ご案内いたします",
+              "read": "ごあんないいたします",
+              "vi": "sẽ hướng dẫn"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おります（謙譲語 — います）",
+              "vi": "できております = ができています khiêm nhường. おります dùng khi nói về trạng thái tồn tại/ trạng thái hoàn thành của PHÍA MÌNH (nhân viên/khách sạn)."
+            },
+            {
+              "point": "ご〜いたします（謙譲語 phổ thông）",
+              "vi": "ご案内いたします: ご + 案内 (danh từ Hán-Nhật) + いたします. Công thức cho 謙譲語 của động từ gốc Hán: ご＋漢語動詞します→ご＋漢語＋いたします."
+            }
+          ]
+        },
+        {
+          "jp": "「お荷物はこちらでお預かりします。お荷物をお持ちしてもよろしいでしょうか。」",
+          "vi": "\"Hành lý của quý khách chúng tôi xin giữ giúp tại đây. Tôi có thể xách hành lý cho quý khách không ạ?\"",
+          "vocab": [
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "預かる",
+              "read": "あずかる",
+              "vi": "giữ hộ, trông coi"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "よろしい",
+              "read": "よろしい",
+              "vi": "tốt, được"
+            },
+            {
+              "w": "お荷物",
+              "read": "おにもつ",
+              "vi": "hành lý (お + 荷物)"
+            },
+            {
+              "w": "こちら",
+              "read": "こちら",
+              "vi": "phía này, tại đây (lịch sự)"
+            },
+            {
+              "w": "お預かりします",
+              "read": "おあずかりします",
+              "vi": "xin nhận giữ hộ (謙譲語 của 預かります)"
+            },
+            {
+              "w": "お持ちします",
+              "read": "おもちします",
+              "vi": "xin mang/xách hộ (謙譲語 của 持ちます)"
+            },
+            {
+              "w": "よろしいでしょうか",
+              "read": "よろしいでしょうか",
+              "vi": "có được không ạ (lịch sự của いいですか)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おV(ます形)します（謙譲語 phổ thông）",
+              "vi": "お預かりします / お持ちします = công thức お＋V(ます形)＋します. ĐÂY LÀ HÀNH ĐỘNG CỦA NHÂN VIÊN (giữ hành lý, xách hành lý) → phải dùng 謙譲語, không phải 尊敬語."
+            }
+          ]
+        },
+        {
+          "jp": "「ありがとうございます。よろしくお願いいたします。」",
+          "vi": "\"Cảm ơn anh. Phiền anh nhé.\"",
+          "vocab": [
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời yêu cầu, nhờ vả"
+            },
+            {
+              "w": "よろしくお願いいたします",
+              "read": "よろしくおねがいいたします",
+              "vi": "xin nhờ (lịch sự nhất — よろしく + お願い + いたします)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いたします（謙譲語 — します）",
+              "vi": "お願いいたします = お願いします ở mức khiêm nhường tối đa. Khách dùng khi nhờ nhân viên — cả hai bên đều dùng 謙譲語 khi nói về hành động của MÌNH."
+            }
+          ]
+        },
+        {
+          "jp": "「何かご不明な点がございましたら、いつでも伺います。どうぞよろしくお願い申し上げます。」",
+          "vi": "\"Nếu quý khách có bất kỳ điều gì chưa rõ, xin hãy gọi cho chúng tôi bất cứ lúc nào. Trân trọng kính chào.\"",
+          "vocab": [
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "ご不明な点",
+              "read": "ごふめいなてん",
+              "vi": "điểm chưa rõ"
+            },
+            {
+              "w": "不明",
+              "read": "ふめい",
+              "vi": "không rõ"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm, mục"
+            },
+            {
+              "w": "ございましたら",
+              "read": "ございましたら",
+              "vi": "nếu có"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "伺います",
+              "read": "うかがいます",
+              "vi": "sẽ đến, sẽ hỏi"
+            },
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin, vui lòng"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "mong được giúp đỡ"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời nhờ, yêu cầu"
+            },
+            {
+              "w": "申し上げます",
+              "read": "もうしあげます",
+              "vi": "kính thưa, xin nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "伺います（謙譲語 — 行く／聞く／訪ねる）",
+              "vi": "伺います có nhiều nghĩa theo ngữ cảnh: ở đây nghĩa là \"sẽ đến ngay / sẽ tiếp nhận\". Nhân viên nói \"tôi sẽ đến (phục vụ)\" → hành động của MÌNH → 謙譲語."
+            },
+            {
+              "point": "申し上げます（謙譲語 tối cao — 言います）",
+              "vi": "よろしくお願い申し上げます = cách nói lịch sự tuyệt đối khi kết thúc. 申し上げます lịch sự hơn 申します, dùng trong văn bản/kết thúc giao tiếp trang trọng nhất."
+            },
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "ございましたら = nếu có ạ. Điều kiện giả định kết hợp với ございます (謙譲語 của あります)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "お調べいたします",
+          "label": "お調べいたします（謙譲語 tra cứu đặt phòng）"
+        },
+        {
+          "excerpt": "お待ちいただけませんか",
+          "label": "Vていただけませんか（nhờ khách chờ）"
+        },
+        {
+          "excerpt": "できております",
+          "label": "おります（謙譲語 của います）"
+        },
+        {
+          "excerpt": "ご案内いたします",
+          "label": "ご〜いたします（謙譲語 dẫn đường）"
+        },
+        {
+          "excerpt": "お荷物をお持ちして",
+          "label": "おV(ます形)します（謙譲語 mang hộ）"
+        },
+        {
+          "excerpt": "伺います",
+          "label": "伺います（謙譲語 đến ngay）"
+        },
+        {
+          "excerpt": "申し上げます",
+          "label": "申し上げます（謙譲語 tối cao）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「ご予約をお調べいたします」という表現について正しいのはどれですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "「お客様が予約を調べる」という尊敬語の表現です",
+            "「私（フロントの係）が予約を調べる」という謙譲語の表現です",
+            "「お客様に予約を調べていただく」という表現です",
+            "「予約を調べてください」というお願いの表現です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「ご予約をお調べいたします」dùng công thức お＋V(ます形)＋いたします — đây là 謙譲語 phổ thông, nhân viên (= phía mình) HẠ THẤP hành động TRA CỨU đặt phòng của chính mình để tôn trọng khách. Đáp án 0 sai vì nếu KHÁCH tra cứu thì phải dùng 尊敬語「お調べになります」— 謙譲語 KHÔNG BAOGIỜ mô tả hành động của khách. Đáp án 2 sai vì「ていただく」(nhận được việc khách làm) là hướng ngược lại — ở đây nhân viên chủ động tra cứu. Đáp án 3 sai vì「調べてください」là mệnh lệnh thẳng, không phải biểu đạt hành động của nhân viên. Lưu ý thêm:「拝見します」(謙譲語 của 見る) phù hợp khi nhìn VẬT TRAO TAY (danh thiếp, giấy tờ); với dữ liệu hệ thống thì お調べいたします tự nhiên hơn.",
+          "tip": "Mẹo nhận biết: お＋V(ます形)＋います／いたします = 謙譲語 — chủ thể LUÔN là phía mình (nhân viên/người nói), không bao giờ là khách. Thấy「ご予約をお〜」thì hỏi ngay: \"Ai làm?\" — nhân viên làm → 謙譲語.",
+          "qt": {
+            "q": "Về cách diễn đạt 「ご予約をお調べいたします」 (tôi xin kiểm tra đặt chỗ), câu nào đúng?",
+            "o": [
+              "Đây là cách nói kính ngữ tôn kính với ý 「khách hàng kiểm tra đặt chỗ」.",
+              "Đây là cách nói khiêm nhường với ý 「tôi (nhân viên quầy lễ tân) kiểm tra đặt chỗ」.",
+              "Đây là cách diễn đạt với ý 「nhờ khách hàng kiểm tra đặt chỗ giúp」.",
+              "Đây là cách diễn đạt nhờ vả với ý 「xin hãy kiểm tra đặt chỗ」."
+            ]
+          }
+        },
+        {
+          "q": "「少々お待ちいただけませんか」はどういう意味ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "フロント係が少し待つ必要があると言っている",
+            "お客様に少し待ってもらえないかと丁寧にお願いしている",
+            "お客様が待てないかもしれないと心配している",
+            "お客様に少し待つよう命令している"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Cấu trúc「Vていただけませんか」= \"Xin quý khách vui lòng làm ～ cho tôi không ạ?\" — nhờ ĐỐI PHƯƠNG (khách) thực hiện hành động.「お待ちいただけませんか」= \"Xin ông vui lòng chờ một chút\" — nhân viên nhờ KHÁCH CHỜ. Đáp án 0 sai vì「フロント係が待つ」(nhân viên tự chờ) — nhưng bài không nói nhân viên chờ, mà nhờ KHÁCH chờ. Đáp án 2 sai vì không có chi tiết nào trong bài cho thấy lo khách không thể chờ. Đáp án 3 sai vì đây là nhờ vả rất lịch sự (lịch sự hơn cả「Vてください」), không phải mệnh lệnh.",
+          "tip": "Nhận biết nhanh: Vていただけませんか = \"Tôi nhờ BẠN làm ～\". Chủ thể thực hiện là ĐỐI PHƯƠNG (khách), không phải nhân viên. Phân biệt với「Vていただきます」= \"Tôi nhận được việc bạn làm cho tôi\".",
+          "qt": {
+            "q": "「少々お待ちいただけませんか」 có nghĩa là gì?",
+            "o": [
+              "Nhân viên quầy lễ tân nói rằng mình cần đợi một lát.",
+              "Lịch sự nhờ khách hàng đợi một lát được không.",
+              "Lo rằng khách hàng có thể không đợi được.",
+              "Ra lệnh cho khách hàng đợi một lát."
+            ]
+          }
+        },
+        {
+          "q": "次の中で謙譲語が正しく使われているのはどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "「お客様がご案内いたします」",
+            "「私がいらっしゃいます」",
+            "「私がお荷物をお持ちします」",
+            "「お客様が拝見します」"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2.「私がお荷物をお持ちします」— NHÂN VIÊN (= phía mình) xách hành lý → đúng khi dùng 謙譲語「お持ちします」(お＋V(ます形)＋します). Đáp án 0 sai:「お客様がご案内いたします」— 謙譲語 KHÔNG BAO GIỜ dùng khi お客様 là chủ thể; muốn nói khách hướng dẫn phải dùng 尊敬語「ご案内になります」. Đáp án 1 sai:「私がいらっしゃいます」— いらっしゃいます là 尊敬語 của います/来ます, không dùng cho「私」(phía mình); phải dùng 謙譲語「おります」hoặc「まいります」. Đáp án 3 sai:「お客様が拝見します」— 拝見します là 謙譲語 của 見ます, không thể dùng khi chủ thể là お客様; phải dùng「ご覧になります」(尊敬語).",
+          "tip": "Quy tắc vàng: 謙譲語 → chủ thể PHẢI là mình/phía mình; 尊敬語 → chủ thể PHẢI là khách/cấp trên. Bài thi hay đánh bẫy bằng cách hoán đổi chủ thể — chỉ cần hỏi \"Ai làm?\" là loại ngay được đáp án sai.",
+          "qt": {
+            "q": "Trong các câu sau, câu nào sử dụng đúng khiêm nhường ngữ?",
+            "o": [
+              "「お客様がご案内いたします」 (Khách hàng sẽ hướng dẫn).",
+              "「私がいらっしゃいます」 (Tôi sẽ đến).",
+              "「私がお荷物をお持ちします」 (Tôi sẽ mang hành lý).",
+              "「お客様が拝見します」 (Khách hàng sẽ xem)."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "さくらホテル・研修レポート",
+      "titleVi": "Báo cáo thực tập tại Khách sạn Sakura",
+      "japanese": "はじめまして。私は今月からさくらホテルでインターンとして働いております。田中リホと申します。\n先週、ベテランの松本さんに接客の研修をしていただきました。\n一番大切なことは、謙譲語を正しく使うことだと教えていただきました。\n「お客様がいらっしゃいましたら、すぐに伺います。笑顔でご挨拶することも忘れないようにします」と松本さんはおっしゃいました。\nお客様が荷物を持っているときは、「お荷物をお持ちしましょうか」と申し上げます。\n館内をご案内するときは、「こちらでございます。どうぞ」と言いながら、先にまいります。\nもしお客様が「ここはどこですか」とおっしゃったときは、「私が伺います」ではなく、「すぐにご案内いたします」と申し上げます。\nお客様のお名前を確認するときは、「お名刺を拝見してもよろしいでしょうか」と伺います。\nお客様に何かお願いするときは「〜していただけませんか」という表現を使います。\n例えば「こちらの用紙にご記入いただけませんか」のように申し上げます。\n電話で問い合わせがあったときは、「担当の者が折り返しご連絡いたします」と申し上げます。\nもし私が知らないことを聞かれたら、「申し訳ございません。存じません。すぐに確認いたします」と答えます。\n松本さんから「チェックアウトのお客様が三階においでになっています」と伺いました。\nすぐにまいりますと返事をして、三階へ向かいました。\nお客様は「大変お世話になりました」とおっしゃいました。\n「またのお越しを、心よりお待ち申し上げております。」とお伝えしました。\nこの研修を通じて、敬語は単なる言葉遣いではなく、相手への思いやりの表現だと思うようになりました。",
+      "vietnamese": "Xin chào. Tôi đang làm thực tập sinh tại Khách sạn Sakura từ tháng này. Tôi tên là Tanaka Riho.\nTuần trước, tôi đã được anh Matsumoto — nhân viên kỳ cựu — đào tạo về kỹ năng phục vụ khách.\nTôi được dạy rằng điều quan trọng nhất là sử dụng đúng kính ngữ khiêm nhường.\n\"Khi khách đến, tôi sẽ đến ngay. Tôi cũng sẽ không quên chào với nụ cười\" — anh Matsumoto đã nói vậy.\nKhi khách đang xách hành lý, tôi thưa \"Tôi có thể mang hành lý giúp quý khách không?\"\nKhi dẫn khách tham quan khách sạn, tôi nói \"Bên này ạ. Mời quý khách\" rồi đi trước.\nNếu khách hỏi \"Đây là đâu?\", thay vì nói \"私が伺います\", tôi sẽ thưa \"Tôi xin hướng dẫn ngay ạ\".\nKhi cần xác nhận tên khách, tôi hỏi \"Tôi có thể xem danh thiếp của quý khách không ạ?\"\nKhi cần nhờ khách làm gì, tôi dùng cách nói \"〜していただけませんか\".\nVí dụ, tôi thưa \"Xin quý khách vui lòng điền vào phiếu này.\"\nKhi có cuộc gọi hỏi thông tin, tôi thưa \"Nhân viên phụ trách sẽ gọi lại cho quý khách ạ.\"\nNếu khách hỏi điều tôi không biết, tôi trả lời \"Xin lỗi ạ. Tôi không rõ. Tôi sẽ xác nhận ngay.\"\nTôi nghe anh Matsumoto nói \"Có khách trả phòng đang ở tầng ba.\"\nTôi trả lời sẽ đến ngay và đi lên tầng ba.\nKhách nói \"Cảm ơn anh đã chăm sóc rất chu đáo.\"\nTôi thưa \"Chúng tôi thành tâm chờ đón quý khách lần sau.\"\nQua khóa đào tạo này, tôi đã dần nghĩ rằng kính ngữ không chỉ là cách dùng từ, mà là cách biểu đạt sự quan tâm với người khác.",
+      "sentences": [
+        {
+          "jp": "はじめまして。私は今月からさくらホテルでインターンとして働いております。田中リホと申します。",
+          "vi": "Xin chào. Tôi đang làm thực tập sinh tại Khách sạn Sakura từ tháng này. Tôi tên là Tanaka Riho.",
+          "vocab": [
+            {
+              "w": "はじめまして",
+              "read": "はじめまして",
+              "vi": "rất vui được gặp lần đầu"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "今月",
+              "read": "こんげつ",
+              "vi": "tháng này"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "ホテル",
+              "read": "ホテル",
+              "vi": "khách sạn"
+            },
+            {
+              "w": "インターン",
+              "read": "インターン",
+              "vi": "thực tập sinh"
+            },
+            {
+              "w": "働いております",
+              "read": "はたらいております",
+              "vi": "đang làm việc"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "リホ",
+              "read": "りほ",
+              "vi": "Riho"
+            },
+            {
+              "w": "申します",
+              "read": "もうします",
+              "vi": "tên là"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おります（謙譲語 — います）",
+              "vi": "働いております = 働いています khiêm nhường. Vています + おります → Vております. Người viết nói về TRẠNG THÁI HIỆN TẠI CỦA MÌNH → dùng おります."
+            },
+            {
+              "point": "申します（謙譲語 — 言います）",
+              "vi": "田中リホと申します = cách tự giới thiệu lịch sự nhất. ～と申します là mẫu cố định trong biên lai/giao tiếp trang trọng."
+            }
+          ]
+        },
+        {
+          "jp": "先週、ベテランの松本さんに接客の研修をしていただきました。",
+          "vi": "Tuần trước, tôi đã được anh Matsumoto — nhân viên kỳ cựu — đào tạo về kỹ năng phục vụ khách.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "ベテラン",
+              "read": "ベテラン",
+              "vi": "kỳ cựu, lão làng (veteran)"
+            },
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "接客",
+              "read": "せっきゃく",
+              "vi": "phục vụ khách hàng"
+            },
+            {
+              "w": "研修",
+              "read": "けんしゅう",
+              "vi": "đào tạo, thực tập nghề"
+            },
+            {
+              "w": "していただきました",
+              "read": "していただきました",
+              "vi": "đã được làm cho (謙譲語 của してもらいました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていただきます（Bài 41 — 謙譲語 của てもらいます）",
+              "vi": "していただきました = もらいました ở mức lịch sự cao. \"Tôi được anh Matsumoto làm cho (ơn huệ)\". Ôn từ Bài 41: Vていただく nhấn mạnh sự biết ơn và hạ thấp bản thân."
+            }
+          ]
+        },
+        {
+          "jp": "一番大切なことは、謙譲語を正しく使うことだと教えていただきました。",
+          "vi": "Tôi được dạy rằng điều quan trọng nhất là sử dụng đúng kính ngữ khiêm nhường.",
+          "vocab": [
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, quan trọng nhất"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "謙譲",
+              "read": "けんじょう",
+              "vi": "sự khiêm nhường"
+            },
+            {
+              "w": "正しく",
+              "read": "ただしく",
+              "vi": "đúng đắn, chính xác"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "謙譲語",
+              "read": "けんじょうご",
+              "vi": "kính ngữ khiêm nhường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることだ（Bài 38 — chủ ngữ mệnh đề）",
+              "vi": "謙譲語を正しく使うことだ = điều quan trọng nhất là \"việc dùng đúng 謙譲語\". こと biến V普通形 thành danh từ."
+            },
+            {
+              "point": "教えていただきました（Bài 41）",
+              "vi": "Được dạy cho. Lại dùng いただく để tôn trọng người đã dạy (anh Matsumoto)."
+            }
+          ]
+        },
+        {
+          "jp": "「お客様がいらっしゃいましたら、すぐに伺います。笑顔でご挨拶することも忘れないようにします」と松本さんはおっしゃいました。",
+          "vi": "\"Khi khách đến, tôi sẽ đến ngay. Tôi cũng sẽ không quên chào với nụ cười\" — anh Matsumoto đã nói vậy.",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "いらっしゃる",
+              "read": "いらっしゃる",
+              "vi": "ở, đi, đến"
+            },
+            {
+              "w": "伺います",
+              "read": "うかがいます",
+              "vi": "sẽ đến ngay (謙譲語 của 行きます)"
+            },
+            {
+              "w": "笑顔",
+              "read": "えがお",
+              "vi": "nụ cười"
+            },
+            {
+              "w": "挨拶",
+              "read": "あいさつ",
+              "vi": "chào hỏi"
+            },
+            {
+              "w": "忘れる",
+              "read": "わすれる",
+              "vi": "quên"
+            },
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "いらっしゃいましたら",
+              "read": "いらっしゃいましたら",
+              "vi": "khi đến (尊敬語 của 来ましたら)"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "ご挨拶",
+              "read": "ごあいさつ",
+              "vi": "lời chào hỏi (ご + 挨拶)"
+            },
+            {
+              "w": "おっしゃいました",
+              "read": "おっしゃいました",
+              "vi": "đã nói (尊敬語 của 言いました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "いらっしゃいましたら vs 伺います — 尊敬 vs 謙譲 trong cùng câu",
+              "vi": "Câu này thể hiện RÕ NHẤT sự đối lập: \"お客様が＋いらっしゃいましたら\" (khách đến → 尊敬語) / \"すぐに伺います\" (tôi đến → 謙譲語). Đây là nguyên tắc vàng của kính ngữ Nhật Bản."
+            },
+            {
+              "point": "Vないようにします（Bài 36）",
+              "vi": "忘れないようにします = cố gắng để không quên. Ôn từ Bài 36: ようにします = cố ý kiểm soát để đạt kết quả."
+            },
+            {
+              "point": "おっしゃいました（Bài 49 — 尊敬語 của 言いました）",
+              "vi": "Bài tường thuật lời Matsumoto bằng 尊敬語 (おっしゃる) vì tác giả tôn trọng senpai của mình."
+            }
+          ]
+        },
+        {
+          "jp": "お客様が荷物を持っているときは、「お荷物をお持ちしましょうか」と申し上げます。",
+          "vi": "Khi khách đang xách hành lý, tôi thưa \"Tôi có thể mang hành lý giúp quý khách không?\"",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "申し上げます",
+              "read": "もうしあげます",
+              "vi": "thưa (謙譲語 tối cao của 言います)"
+            },
+            {
+              "w": "お持ちしましょうか",
+              "read": "おもちしましょうか",
+              "vi": "để tôi mang giúp nhé? (謙譲語 + ましょうか)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "申し上げます（謙譲語 tối cao — 言います）",
+              "vi": "〜と申し上げます = \"thưa rằng...\". Dùng khi đối tượng có địa vị rất cao hoặc trong văn bản chính thức. LƯU Ý: 〜と申し上げるように存じます là cách diễn đạt gượng (thêm 存じます không cần thiết) — 〜と申し上げます đã đủ lịch sự và tự nhiên."
+            },
+            {
+              "point": "おV(ます形)しましょうか（謙譲語 + đề nghị）",
+              "vi": "お持ちしましょうか = \"Để tôi mang giúp nhé?\" — kết hợp謙譲語 (お持ちします) với ましょうか (đề nghị giúp đỡ, Bài 14)."
+            },
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "荷物を持っているときは = khi đang xách hành lý. Động từ ている + とき = \"lúc đang trong trạng thái/hành động đó\"."
+            }
+          ]
+        },
+        {
+          "jp": "館内をご案内するときは、「こちらでございます。どうぞ」と言いながら、先にまいります。",
+          "vi": "Khi dẫn khách tham quan khách sạn, tôi nói \"Bên này ạ. Mời quý khách\" rồi đi trước.",
+          "vocab": [
+            {
+              "w": "館内",
+              "read": "かんない",
+              "vi": "bên trong tòa nhà, nội khu khách sạn"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin mời, xin vui lòng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "先に",
+              "read": "さきに",
+              "vi": "trước, đi trước"
+            },
+            {
+              "w": "まいる",
+              "read": "まいる",
+              "vi": "đi, đến"
+            },
+            {
+              "w": "ご案内します",
+              "read": "ごあんないします",
+              "vi": "hướng dẫn, dẫn đường (謙譲語)"
+            },
+            {
+              "w": "こちらでございます",
+              "read": "こちらでございます",
+              "vi": "bên này ạ (ございます = 謙譲語 của あります/です)"
+            },
+            {
+              "w": "まいります",
+              "read": "まいります",
+              "vi": "đi (謙譲語 của 行きます/来ます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まいります（謙譲語 — 行きます/来ます）",
+              "vi": "先にまいります = tôi đi trước ạ. まいる là 謙譲語 của 行く và 来る. Dùng khi NÓI VỀ HÀNH ĐỘNG ĐI/ĐẾN CỦA MÌNH. PHÂN BIỆT: お客様がいらっしゃいます（尊敬語 — khách đến）vs 私がまいります（謙譲語 — tôi đến/đi）."
+            },
+            {
+              "point": "ございます（謙譲語 của です/あります）",
+              "vi": "こちらでございます = こちらです ở cấp trang trọng nhất. ございます = です/あります tối kính, dùng phổ biến trong dịch vụ."
+            },
+            {
+              "point": "Vながら（Bài 28）",
+              "vi": "言いながら = vừa nói vừa (làm việc khác). Hai hành động diễn ra đồng thời."
+            }
+          ]
+        },
+        {
+          "jp": "もしお客様が「ここはどこですか」とおっしゃったときは、「私が伺います」ではなく、「すぐにご案内いたします」と申し上げます。",
+          "vi": "Nếu khách hỏi \"Đây là đâu?\", thay vì nói \"私が伺います\", tôi sẽ thưa \"Tôi xin hướng dẫn ngay ạ\".",
+          "vocab": [
+            {
+              "w": "もし",
+              "read": "もし",
+              "vi": "nếu"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "ở đây"
+            },
+            {
+              "w": "どこ",
+              "read": "どこ",
+              "vi": "đâu"
+            },
+            {
+              "w": "おっしゃったときは",
+              "read": "おっしゃったときは",
+              "vi": "khi đã nói"
+            },
+            {
+              "w": "おっしゃった",
+              "read": "おっしゃった",
+              "vi": "đã nói, kính ngữ"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "伺います",
+              "read": "うかがいます",
+              "vi": "sẽ đến, sẽ hỏi"
+            },
+            {
+              "w": "ではなく",
+              "read": "ではなく",
+              "vi": "không phải là"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "ご案内いたします",
+              "read": "ごあんないいたします",
+              "vi": "sẽ hướng dẫn"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "申し上げます",
+              "read": "もうしあげます",
+              "vi": "kính thưa, xin nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "伺います — nhiều nghĩa, chọn theo ngữ cảnh",
+              "vi": "「私が伺います」ở đây sai KHÔNG vì sai 謙譲語, mà vì 伺う có nghĩa \"đến hỏi/đến thăm\" — dùng ở đây lại ám chỉ \"tôi đến thăm ông\" thay vì \"tôi hướng dẫn ông\". Câu đúng là ご案内いたします (tôi sẽ hướng dẫn) — mới đúng ý \"chỉ đường/dẫn đường\". Bài học: chọn từ 謙譲語 phù hợp ý nghĩa bối cảnh; 伺います không thể thay thế ご案内いたします trong trường hợp này."
+            },
+            {
+              "point": "もし〜たら（Bài 25）",
+              "vi": "もし〜おっしゃったときは = nếu khách hỏi. Kết hợp もし (Bài 25) với とき (Bài 23) để đặt điều kiện."
+            }
+          ]
+        },
+        {
+          "jp": "お客様のお名前を確認するときは、「お名刺を拝見してもよろしいでしょうか」と伺います。",
+          "vi": "Khi cần xác nhận tên khách, tôi hỏi \"Tôi có thể xem danh thiếp của quý khách không ạ?\"",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "名前",
+              "read": "なまえ",
+              "vi": "tên"
+            },
+            {
+              "w": "確認します",
+              "read": "かくにんします",
+              "vi": "xác nhận"
+            },
+            {
+              "w": "名刺",
+              "read": "めいし",
+              "vi": "danh thiếp"
+            },
+            {
+              "w": "拝見します",
+              "read": "はいけんします",
+              "vi": "xem (謙譲語 của 見ます)"
+            },
+            {
+              "w": "よろしい",
+              "read": "よろしい",
+              "vi": "tốt, được"
+            },
+            {
+              "w": "伺う",
+              "read": "うかがう",
+              "vi": "hỏi, thăm hỏi"
+            },
+            {
+              "w": "お名前",
+              "read": "おなまえ",
+              "vi": "tên quý khách (お + 名前)"
+            },
+            {
+              "w": "お名刺",
+              "read": "おめいし",
+              "vi": "danh thiếp (お + 名刺)"
+            },
+            {
+              "w": "よろしいでしょうか",
+              "read": "よろしいでしょうか",
+              "vi": "có được không ạ (lịch sự của いいですか)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "拝見します（謙譲語 — 見ます）",
+              "vi": "拝見してもよろしいでしょうか = tôi có thể xem không ạ. 拝見する dùng khi MÌNH xem tài liệu/danh thiếp/đồ của người được tôn trọng. KHÔNG dùng khi khách xem gì đó (→ ご覧になります)."
+            },
+            {
+              "point": "Vてもよろしいでしょうか（Bài 15 ôn）",
+              "vi": "Vてもいいですか → Vてもよろしいでしょうか là phiên bản trang trọng nhất của câu hỏi xin phép. よろしい > いい; でしょうか > ですか."
+            }
+          ]
+        },
+        {
+          "jp": "お客様に何かお願いするときは「〜していただけませんか」という表現を使います。",
+          "vi": "Khi cần nhờ khách làm gì, tôi dùng cách nói \"〜していただけませんか\".",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "お願い",
+              "read": "おねがい",
+              "vi": "lời nhờ, yêu cầu"
+            },
+            {
+              "w": "お願いする",
+              "read": "おねがいする",
+              "vi": "nhờ, yêu cầu"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi, lúc"
+            },
+            {
+              "w": "〜していただけませんか",
+              "read": "していただけませんか",
+              "vi": "có thể vui lòng làm… không?"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách diễn đạt"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていただけませんか（Bài 50 — nhờ vả lịch sự）",
+              "vi": "Cấu trúc nhờ đối phương (khách) làm điều gì đó: V-て形 + いただけませんか. Lịch sự hơn Vてもらえませんか và Vてください. Dùng khi nhân viên nhờ khách."
+            }
+          ]
+        },
+        {
+          "jp": "例えば「こちらの用紙にご記入いただけませんか」のように申し上げます。",
+          "vi": "Ví dụ, tôi thưa \"Xin quý khách vui lòng điền vào phiếu này.\"",
+          "vocab": [
+            {
+              "w": "例えば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "用紙",
+              "read": "ようし",
+              "vi": "phiếu mẫu, tờ giấy"
+            },
+            {
+              "w": "記入",
+              "read": "きにゅう",
+              "vi": "sự điền vào, ghi vào"
+            },
+            {
+              "w": "いただける",
+              "read": "いただける",
+              "vi": "nhận được, được làm giúp"
+            },
+            {
+              "w": "申し上げる",
+              "read": "もうしあげる",
+              "vi": "nói, thưa"
+            },
+            {
+              "w": "ご記入いただけませんか",
+              "read": "ごきにゅういただけませんか",
+              "vi": "xin điền vào (謙譲語 + いただけませんか)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜いただけませんか（nhờ vả lịch sự cao）",
+              "vi": "ご記入いただけませんか = \"Xin quý khách điền vào ạ.\" ご + 漢語名詞 + いただけませんか là công thức nhờ vả cực kỳ lịch sự. Thường thấy ở quầy lễ tân, bệnh viện, văn phòng."
+            },
+            {
+              "point": "〜のように（Bài 36 ôn）",
+              "vi": "〜のように申し上げます = thưa theo cách như vậy. のように so sánh/nêu cách thức."
+            }
+          ]
+        },
+        {
+          "jp": "電話で問い合わせがあったときは、「担当の者が折り返しご連絡いたします」と申し上げます。",
+          "vi": "Khi có cuộc gọi hỏi thông tin, tôi thưa \"Nhân viên phụ trách sẽ gọi lại cho quý khách ạ.\"",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "câu hỏi/yêu cầu thông tin"
+            },
+            {
+              "w": "担当",
+              "read": "たんとう",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "折り返し",
+              "read": "おりかえし",
+              "vi": "gọi lại, phản hồi ngay"
+            },
+            {
+              "w": "連絡",
+              "read": "れんらく",
+              "vi": "thông báo, liên lạc"
+            },
+            {
+              "w": "申し上げる",
+              "read": "もうしあげる",
+              "vi": "nói, thưa"
+            },
+            {
+              "w": "担当の者",
+              "read": "たんとうのもの",
+              "vi": "người phụ trách (謙譲語 của 担当者 — tự hạ thấp nhân viên mình)"
+            },
+            {
+              "w": "ご連絡いたします",
+              "read": "ごれんらくいたします",
+              "vi": "sẽ liên lạc (謙譲語 của 連絡します)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご〜いたします（謙譲語 phổ thông）",
+              "vi": "ご連絡いたします = 連絡します (謙譲語). 担당の者 (nhân viên phụ trách của \"phía chúng tôi\") gọi lại → hành động của phía mình → 謙譲語."
+            },
+            {
+              "point": "者（もの）— tự hạ thấp nhân viên",
+              "vi": "Gọi nhân viên bên mình là 者 (thay vì 人) là tập tục khiêm nhường trong tiếng Nhật văn phòng. Không dùng cho khách."
+            }
+          ]
+        },
+        {
+          "jp": "もし私が知らないことを聞かれたら、「申し訳ございません。存じません。すぐに確認いたします」と答えます。",
+          "vi": "Nếu khách hỏi điều tôi không biết, tôi trả lời \"Xin lỗi ạ. Tôi không rõ. Tôi sẽ xác nhận ngay.\"",
+          "vocab": [
+            {
+              "w": "もし",
+              "read": "もし",
+              "vi": "nếu"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "知らない",
+              "read": "しらない",
+              "vi": "không biết"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều, việc"
+            },
+            {
+              "w": "聞かれたら",
+              "read": "きかれたら",
+              "vi": "nếu bị hỏi"
+            },
+            {
+              "w": "申し訳ございません",
+              "read": "もうしわけございません",
+              "vi": "xin lỗi"
+            },
+            {
+              "w": "存じません",
+              "read": "ぞんじません",
+              "vi": "không biết, khiêm nhường"
+            },
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "確認いたします",
+              "read": "かくにんいたします",
+              "vi": "sẽ xác nhận, kiểm tra"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "xác nhận, kiểm tra"
+            },
+            {
+              "w": "答えます",
+              "read": "こたえます",
+              "vi": "trả lời"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "存じません（謙譲語 phủ định — 知りません）",
+              "vi": "存じません = 知りません/わかりません ở cấp lịch sự tối cao. Dùng khi không biết điều gì, phải thừa nhận với khách. Thường đi cùng 申し訳ございません (xin lỗi) để tránh vẻ thô lỗ."
+            },
+            {
+              "point": "V受身（Bài 37）",
+              "vi": "聞かれたら = nếu bị hỏi. 受身 thể hiện \"bị khách hỏi\" — nhân viên ở thế bị động nhận câu hỏi."
+            },
+            {
+              "point": "もし〜たら（Bài 25）",
+              "vi": "もし知らないことを聞かれたら = nếu bị hỏi điều không biết. Điều kiện giả định kết hợp với 受身."
+            }
+          ]
+        },
+        {
+          "jp": "松本さんから「チェックアウトのお客様が三階においでになっています」と伺いました。",
+          "vi": "Tôi nghe anh Matsumoto nói \"Có khách trả phòng đang ở tầng ba.\"",
+          "vocab": [
+            {
+              "w": "松本",
+              "read": "まつもと",
+              "vi": "Matsumoto (họ người)"
+            },
+            {
+              "w": "チェック",
+              "read": "チェック",
+              "vi": "sự kiểm tra"
+            },
+            {
+              "w": "アウト",
+              "read": "アウト",
+              "vi": "ra ngoài, việc trả phòng"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "おいで",
+              "read": "おいで",
+              "vi": "sự đến, sự có mặt"
+            },
+            {
+              "w": "伺いました",
+              "read": "うかがいました",
+              "vi": "đã nghe/được biết (謙譲語 của 聞きました)"
+            },
+            {
+              "w": "チェックアウト",
+              "read": "チェックアウト",
+              "vi": "trả phòng (check-out)"
+            },
+            {
+              "w": "三階",
+              "read": "さんがい",
+              "vi": "tầng ba"
+            },
+            {
+              "w": "においでになっています",
+              "read": "においでになっています",
+              "vi": "đang ở/hiện diện (尊敬語 của います/いらっしゃっています)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "伺いました（謙譲語 — 聞きました）",
+              "vi": "Ở đây 伺います nghĩa là \"nghe/được biết\". Người viết nghe thông tin TỪ senpai Matsumoto → hành động \"nghe\" là của mình → 謙譲語 伺います."
+            },
+            {
+              "point": "においでになっています（尊敬語 thuần — います）",
+              "vi": "おいでになります = いらっしゃいます (尊敬語 của います/来ます/行きます). お客様がいる → 尊敬語. ĐÚNG: においでになっています (尊敬語 + います). SAI: においでになっております — trộn 尊敬語 おいでになる với 謙譲語 おります là lỗi keigo (kính ngữ phải thuần một tầng). Câu này có cả 尊敬 (khách ở tầng ba) và 謙譲 (tôi nghe) — đây là đỉnh cao của 敬語."
+            }
+          ]
+        },
+        {
+          "jp": "すぐにまいりますと返事をして、三階へ向かいました。",
+          "vi": "Tôi trả lời sẽ đến ngay và đi lên tầng ba.",
+          "vocab": [
+            {
+              "w": "すぐに",
+              "read": "すぐに",
+              "vi": "ngay lập tức"
+            },
+            {
+              "w": "まいります",
+              "read": "まいります",
+              "vi": "sẽ đến, khiêm nhường"
+            },
+            {
+              "w": "返事",
+              "read": "へんじ",
+              "vi": "hồi đáp"
+            },
+            {
+              "w": "返事をして",
+              "read": "へんじをして",
+              "vi": "hồi đáp rồi"
+            },
+            {
+              "w": "三階",
+              "read": "さんがい",
+              "vi": "tầng ba"
+            },
+            {
+              "w": "向かいました",
+              "read": "むかいました",
+              "vi": "đã đi về hướng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まいります（謙譲語 — 行きます）",
+              "vi": "すぐにまいります = tôi đến ngay ạ. NHÂN VIÊN nói về việc TỰ MÌNH ĐI → 謙譲語. So sánh: お客様がいらっしゃいます（客が来る → 尊敬語）vs 私がまいります（私が行く → 謙譲語）."
+            }
+          ]
+        },
+        {
+          "jp": "お客様は「大変お世話になりました」とおっしゃいました。",
+          "vi": "Khách nói \"Cảm ơn anh đã chăm sóc rất chu đáo.\"",
+          "vocab": [
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "rất, vô cùng"
+            },
+            {
+              "w": "お世話になりました",
+              "read": "おせわになりました",
+              "vi": "đã được chăm sóc/giúp đỡ (thành ngữ cảm ơn)"
+            },
+            {
+              "w": "おっしゃる",
+              "read": "おっしゃる",
+              "vi": "nói (tôn kính ngữ của 言う)"
+            },
+            {
+              "w": "おっしゃいました",
+              "read": "おっしゃいました",
+              "vi": "đã nói (尊敬語 của 言いました)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "おっしゃいました（Bài 49 — 尊敬語 của 言いました）",
+              "vi": "Khách nói → dùng 尊敬語 おっしゃる để tôn trọng khách. PHÂN BIỆT: お客様がおっしゃいました（尊敬）vs 私が申しました（謙譲）."
+            }
+          ]
+        },
+        {
+          "jp": "「またのお越しを、心よりお待ち申し上げております。」とお伝えしました。",
+          "vi": "\"Chúng tôi thành tâm chờ đón quý khách lần sau.\" — tôi đã thưa như vậy.",
+          "vocab": [
+            {
+              "w": "お越し",
+              "read": "おこし",
+              "vi": "sự đến, lần đến (尊敬語 của 来ること)"
+            },
+            {
+              "w": "心より",
+              "read": "こころより",
+              "vi": "từ tận đáy lòng, thành tâm"
+            },
+            {
+              "w": "お待ち",
+              "read": "おまち",
+              "vi": "sự chờ đợi, mong chờ"
+            },
+            {
+              "w": "申し上げる",
+              "read": "もうしあげる",
+              "vi": "nói, thưa"
+            },
+            {
+              "w": "お伝えしました",
+              "read": "おつたえしました",
+              "vi": "đã thưa, đã truyền đạt (謙譲語 của 伝えました)"
+            },
+            {
+              "w": "またのお越し",
+              "read": "またのおこし",
+              "vi": "lần ghé thăm tiếp theo (お越し = 来ること trang trọng)"
+            },
+            {
+              "w": "お待ち申し上げております",
+              "read": "おまちもうしあげております",
+              "vi": "thành tâm chờ đón (謙譲語 + おります tối cao)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お待ち申し上げております（謙譲語 đa tầng）",
+              "vi": "お待ち（謙譲）+ 申し上げます（謙譲 tối cao của 言う/する）+ おります（謙譲 của います）= ba lớp 謙譲 chồng lên. Đây là mẫu câu tạm biệt khách chuẩn mực nhất trong khách sạn."
+            },
+            {
+              "point": "お〜します（謙譲語）",
+              "vi": "お伝えしました = 伝えました khiêm nhường. Công thức おV-ます形します áp dụng cho 伝えます → お伝えします."
+            }
+          ]
+        },
+        {
+          "jp": "この研修を通じて、敬語は単なる言葉遣いではなく、相手への思いやりの表現だと思うようになりました。",
+          "vi": "Qua khóa đào tạo này, tôi đã dần nghĩ rằng kính ngữ không chỉ là cách dùng từ, mà là cách biểu đạt sự quan tâm với người khác.",
+          "vocab": [
+            {
+              "w": "研修",
+              "read": "けんしゅう",
+              "vi": "đào tạo, khóa thực tập"
+            },
+            {
+              "w": "敬語",
+              "read": "けいご",
+              "vi": "kính ngữ (tổng thể)"
+            },
+            {
+              "w": "単なる",
+              "read": "たんなる",
+              "vi": "chỉ là, đơn thuần"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "思いやり",
+              "read": "おもいやり",
+              "vi": "sự quan tâm, thấu cảm"
+            },
+            {
+              "w": "表現",
+              "read": "ひょうげん",
+              "vi": "cách biểu đạt, diễn đạt"
+            },
+            {
+              "w": "通じて",
+              "read": "つうじて",
+              "vi": "qua, thông qua"
+            },
+            {
+              "w": "言葉遣い",
+              "read": "ことばづかい",
+              "vi": "cách dùng từ, văn phong"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるようになりました（Bài 36）",
+              "vi": "思うようになりました = đã dần (bắt đầu) nghĩ như vậy. ようになる + た = sự thay đổi hoàn thành. Bài cuối kết thúc bằng sự trưởng thành của nhân vật — đúng tinh thần bài học."
+            },
+            {
+              "point": "N1ではなく、N2（đối lập）",
+              "vi": "単なる言葉遣いではなく、思いやりの表現だ = không chỉ là cách dùng từ, mà là biểu đạt sự quan tâm. Cấu trúc ではなく nối hai ý tương phản."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "田中リホと申します",
+          "label": "申します（謙譲語 tự giới thiệu）"
+        },
+        {
+          "excerpt": "働いております",
+          "label": "おります（謙譲語 của います）"
+        },
+        {
+          "excerpt": "すぐに伺います",
+          "label": "伺います（謙譲語 đến ngay）"
+        },
+        {
+          "excerpt": "ご案内いたします",
+          "label": "ご〜いたします（謙譲語 hướng dẫn）"
+        },
+        {
+          "excerpt": "先にまいります",
+          "label": "まいります（謙譲語 của 行きます）"
+        },
+        {
+          "excerpt": "拝見してもよろしいでしょうか",
+          "label": "拝見します（謙譲語 của 見ます）"
+        },
+        {
+          "excerpt": "ご記入いただけませんか",
+          "label": "Vていただけませんか（nhờ vả lịch sự）"
+        },
+        {
+          "excerpt": "存じません",
+          "label": "存じません（謙譲語 của 知りません）"
+        },
+        {
+          "excerpt": "お待ち申し上げております",
+          "label": "謙譲語 đa tầng — tạm biệt khách"
+        },
+        {
+          "excerpt": "思うようになりました",
+          "label": "Vるようになりました（Bài 36 — sự thay đổi）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中リホさんはどこで何をしていますか。",
+          "evi": [
+            0
+          ],
+          "options": [
+            "さくらホテルで松本さんに謙譲語を教えています",
+            "今月からさくらホテルでインターンとして働いています",
+            "今月からさくらホテルのベテラン社員として働いています",
+            "さくらホテルで研修の先生をしています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Ngay đầu bài có câu:「私は今月からさくらホテルでインターンとして働いております」— Riho làm thực tập sinh (インターン) từ tháng này. Lưu ý「働いております」= 働いています khiêm nhường (おります = 謙譲語 của います). Đáp án 0 sai vì người dạy Riho là 松本さん, không phải Riho dạy. Đáp án 2 sai vì「ベテラン社員」(nhân viên kỳ cựu) là 松本さん, không phải Riho — bài nói rõ Riho là インターン (thực tập sinh). Đáp án 3 sai vì Riho là người được đào tạo, không phải giáo viên đào tạo.",
+          "tip": "Câu hỏi「どこで何をしていますか」→ tìm câu tự giới thiệu đầu bài (thường dùng「〜として働いております」/ 「〜と申します」). Chú ý phân biệt người dạy và người được dạy trong bài.",
+          "qt": {
+            "q": "Chị Tanaka Riho đang làm gì ở đâu?",
+            "o": [
+              "Đang dạy chị Matsumoto khiêm nhường ngữ tại khách sạn Sakura",
+              "Đang làm thực tập sinh tại khách sạn Sakura từ tháng này",
+              "Đang làm nhân viên kỳ cựu tại khách sạn Sakura từ tháng này",
+              "Đang làm giáo viên hướng dẫn đào tạo tại khách sạn Sakura"
+            ]
+          }
+        },
+        {
+          "q": "「私がまいります」と「私がいらっしゃいます」の違いについて正しいのはどれですか。",
+          "evi": [
+            3,
+            5
+          ],
+          "options": [
+            "「まいります」も「いらっしゃいます」も謙譲語として使える",
+            "「まいります」は謙譲語で自分の行動に使い、「いらっしゃいます」は尊敬語でお客様の行動に使う",
+            "「まいります」は丁寧語、「いらっしゃいます」は謙譲語",
+            "「まいります」はお客様の行動に使い、「いらっしゃいます」は自分の行動に使う"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài đọc thể hiện cặp đối lập chuẩn mực nhất trong kính ngữ:「お客様がいらっしゃいましたら」(khách đến → 尊敬語) vs「すぐに伺います」/「先にまいります」(nhân viên đi → 謙譲語). まいります = 謙譲語 của 行く/来る, dùng khi NÓI VỀ HÀNH ĐỘNG ĐI/ĐẾN CỦA PHÍA MÌNH. Đáp án 0 sai vì いらっしゃいます là 尊敬語, KHÔNG phải 謙譲語 — không thể hoán đổi. Đáp án 2 sai vì hoàn toàn ngược: まいります là 謙譲語, いらっしゃいます là 尊敬語. Đáp án 3 sai vì hoàn toàn đảo ngược vai trò chủ thể.",
+          "tip": "Cặp cần nhớ thuộc lòng: まいります (私/phía mình đi) ↔ いらっしゃいます (お客様/cấp trên đến). Hai từ này KHÔNG bao giờ hoán đổi được vì một là 謙譲語, một là 尊敬語.",
+          "qt": {
+            "q": "Đâu là nhận định đúng về sự khác biệt giữa 「私がまいります」(tôi sẽ đến) và 「私がいらっしゃいます」(tôi sẽ đến)?",
+            "o": [
+              "Cả 「まいります」 và 「いらっしゃいます」 đều có thể dùng làm khiêm nhường ngữ",
+              "「まいります」 là khiêm nhường ngữ, dùng cho hành động của mình; 「いらっしゃいます」 là tôn kính ngữ, dùng cho hành động của khách hàng",
+              "「まいります」 là kính ngữ lịch sự; 「いらっしゃいます」 là khiêm nhường ngữ",
+              "「まいります」 dùng cho hành động của khách hàng; 「いらっしゃいます」 dùng cho hành động của mình"
+            ]
+          }
+        },
+        {
+          "q": "「拝見します」はどんな場面で使いますか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "お客様に何かを見ていただくとき",
+            "自分がお客様のものを見るとき",
+            "お客様が何かを見ているところを説明するとき",
+            "お客様に「見てください」とお願いするとき"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. 拝見します = 謙譲語 của 見ます — dùng khi MÌNH (nhân viên) xem tài liệu/vật của khách. Bài đọc có ví dụ điển hình:「お名刺を拝見してもよろしいでしょうか」(tôi có thể xem danh thiếp của quý khách không ạ?) — NHÂN VIÊN xem danh thiếp CỦA KHÁCH. Đáp án 0 sai vì nếu muốn KHÁCH xem gì thì phải dùng 尊敬語「ご覧になります」, không phải 拝見します. Đáp án 2 sai vì 拝見します không phải câu mô tả (\"khách đang xem\"), mà là hành động của người nói. Đáp án 3 sai vì 拝見します không phải cách nhờ khách xem — đó phải dùng「ご覧いただけませんか」.",
+          "tip": "拝見します → MÌNH xem đồ của người trên (danh thiếp, tài liệu, giấy tờ). Thấy「お名刺を / 書類を / 〜を拝見します」thì chủ thể luôn là phía mình, đối tượng là vật của khách.",
+          "qt": {
+            "q": "「拝見します」(xin phép xem) được dùng trong tình huống nào?",
+            "o": [
+              "Khi nhờ khách hàng xem thứ gì đó",
+              "Khi mình xem đồ vật của khách hàng",
+              "Khi giải thích rằng khách hàng đang xem thứ gì đó",
+              "Khi nhờ khách hàng “hãy xem”"
+            ]
+          }
+        },
+        {
+          "q": "この研修レポートから、田中さんが敬語について学んだ一番大切なことは何ですか。",
+          "evi": [
+            16
+          ],
+          "options": [
+            "謙譲語はできるだけ多く使えばいいということ",
+            "尊敬語と謙譲語は同じ場面で使えるということ",
+            "敬語は言葉遣いだけでなく、相手への思いやりを表すものだということ",
+            "謙譲語が分からないときは存じませんと言えばいいということ"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu kết bài viết rõ:「敬語は単なる言葉遣いではなく、相手への思いやりの表現だと思うようになりました」— kính ngữ không chỉ là cách dùng từ (言葉遣い), mà là cách biểu đạt SỰ QUAN TÂM ĐẾN NGƯỜI KHÁC (思いやり). Đây là kết luận sâu sắc nhất của cả bài thực tập. Đáp án 0 sai vì bài KHÔNG khuyến khích dùng 謙譲語 càng nhiều càng tốt — quan trọng là dùng ĐÚNG ngữ cảnh (正しく使う). Đáp án 1 sai vì toàn bài phân biệt rõ 尊敬語 và 謙譲語 KHÔNG thể dùng lẫn nhau. Đáp án 3 sai vì「存じません」chỉ là một ví dụ cụ thể, không phải bài học tổng quát.",
+          "tip": "Câu hỏi về \"bài học lớn nhất / ý nghĩa trọng tâm\" → tìm câu kết luận cuối bài (thường có〜と思うようになりました / 〜と分かった / 〜ことを学んだ). Đây là câu hỏi suy luận tổng thể, không phải tìm chi tiết.",
+          "qt": {
+            "q": "Từ báo cáo đào tạo này, điều quan trọng nhất mà chị Tanaka đã học về kính ngữ là gì?",
+            "o": [
+              "Khiêm nhường ngữ thì cứ dùng càng nhiều càng tốt",
+              "Tôn kính ngữ và khiêm nhường ngữ có thể dùng trong cùng một tình huống",
+              "Kính ngữ không chỉ là cách dùng từ mà còn thể hiện sự quan tâm đến đối phương",
+              "Khi không hiểu khiêm nhường ngữ thì cứ nói 「存じません」 (tôi không biết)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Quầy dịch vụ khách hàng của さくらデパート",
+      "japanese": "さくらデパート　お客様サービスカウンターのご案内\nいつもさくらデパートをご利用いただき、ありがとうございます。お客様のお買い物を、係の者が心を込めてお手伝いいたします。\nサービス｜階｜受付時間\nお荷物お預かり｜1階｜9:30〜19:30\nラッピング（包装）｜2階｜10:00〜18:00\n配送のご相談｜1階｜9:30〜17:00\n館内のご案内｜各階｜9:30〜19:30\nラッピングの料金は、品物のお値段で変わります。\n品物のお値段｜包装料\n3,000円まで｜100円\n3,001円から｜200円\n※配送は、発送の前日までにお申し込みください。土曜と日曜はお休みです。\nご不明な点がございましたら、1階サービスカウンターで係の者がご案内いたします。お荷物は喜んでお預かりいたします。\nお電話：03-1234-5678（9:30〜19:30）",
+      "vietnamese": "Hướng dẫn Quầy dịch vụ khách hàng của Bách hóa Sakura\nCảm ơn quý khách đã luôn sử dụng Bách hóa Sakura. Nhân viên phụ trách xin hết lòng hỗ trợ việc mua sắm của quý khách.\nDịch vụ｜Tầng｜Giờ tiếp nhận\nGiữ hành lý｜Tầng 1｜9:30〜19:30\nGói quà (bao gói)｜Tầng 2｜10:00〜18:00\nTư vấn gửi hàng｜Tầng 1｜9:30〜17:00\nHướng dẫn trong tòa nhà｜Mọi tầng｜9:30〜19:30\nPhí gói quà thay đổi theo giá tiền món hàng.\nGiá tiền món hàng｜Phí gói quà\nĐến 3.000 yên｜100 yên\nTừ 3.001 yên trở lên｜200 yên\n※ Xin quý khách đăng ký gửi hàng trước ngày phát hàng một ngày. Thứ Bảy và Chủ Nhật quầy nghỉ.\nNếu quý khách có điều gì chưa rõ, nhân viên phụ trách tại quầy dịch vụ tầng 1 xin hướng dẫn ạ. Chúng tôi cũng xin vui lòng nhận giữ hành lý giúp quý khách.\nĐiện thoại: 03-1234-5678 (9:30〜19:30)",
+      "sentences": [
+        {
+          "jp": "さくらデパート　お客様サービスカウンターのご案内",
+          "vi": "Hướng dẫn Quầy dịch vụ khách hàng của Bách hóa Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hóa tổng hợp"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "カウンター",
+              "read": "カウンター",
+              "vi": "quầy"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "サービスカウンター",
+              "read": "サービスカウンター",
+              "vi": "quầy dịch vụ khách hàng"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "hướng dẫn, chỉ dẫn (ご + 案内)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご＋N（tôn kính hóa danh từ）",
+              "vi": "ご案内 = 案内 được tôn kính hóa bằng tiếp đầu ngữ ご (dùng cho từ Hán-Nhật), thường thấy trong tiêu đề thông báo trang trọng."
+            }
+          ]
+        },
+        {
+          "jp": "いつもさくらデパートをご利用いただき、ありがとうございます。お客様のお買い物を、係の者が心を込めてお手伝いいたします。",
+          "vi": "Cảm ơn quý khách đã luôn sử dụng Bách hóa Sakura. Nhân viên phụ trách xin hết lòng hỗ trợ việc mua sắm của quý khách.",
+          "vocab": [
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hóa tổng hợp"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            },
+            {
+              "w": "係",
+              "read": "かかり",
+              "vi": "người phụ trách, phận sự"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "込める",
+              "read": "こめる",
+              "vi": "dồn vào, gửi gắm"
+            },
+            {
+              "w": "お手伝いいたします",
+              "read": "おてつだいいたします",
+              "vi": "xin hỗ trợ, xin giúp đỡ (謙譲語 phổ thông — おV(ます形)いたします)"
+            },
+            {
+              "w": "ご利用いただき",
+              "read": "ごりよういただき",
+              "vi": "được quý khách sử dụng (謙譲語 — cảm ơn vì được dùng dịch vụ)"
+            },
+            {
+              "w": "お買い物",
+              "read": "おかいもの",
+              "vi": "việc mua sắm (お + 買い物)"
+            },
+            {
+              "w": "係の者",
+              "read": "かかりのもの",
+              "vi": "nhân viên phụ trách (謙譲語 — tự hạ thấp gọi nhân viên bên mình là 者)"
+            },
+            {
+              "w": "心を込めて",
+              "read": "こころをこめて",
+              "vi": "hết lòng, bằng cả tấm lòng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていただき（Bài 41 ôn）",
+              "vi": "ご利用いただき = được quý khách sử dụng cho. Vてもらう ở dạng khiêm nhường いただく, dùng để cảm ơn khách vì hành động của khách."
+            },
+            {
+              "point": "おV(ます形)いたします（Bài 50 — 謙譲語 phổ thông）",
+              "vi": "お手伝いいたします = お手伝いします ở mức khiêm nhường cao hơn (します → いたします). Nhân viên (phía mình) hạ thấp hành động HỖ TRỢ khách → đúng謙譲語."
+            }
+          ],
+          "keys": [
+            {
+              "w": "係の者",
+              "why": "chủ ngữ hành động: nhân viên (phía mình) — thiết lập ai sẽ hỗ trợ/hướng dẫn khách suốt tờ thông báo"
+            }
+          ]
+        },
+        {
+          "jp": "サービス｜階｜受付時間",
+          "vi": "Dịch vụ｜Tầng｜Giờ tiếp nhận",
+          "vocab": [
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "階",
+              "read": "かい",
+              "vi": "tầng"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "lễ tân, quầy tiếp đón"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "受付時間",
+              "read": "うけつけじかん",
+              "vi": "giờ tiếp nhận, giờ làm việc của quầy"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "サービス｜階｜受付時間",
+              "why": "header bảng 1: 3 cột dịch vụ/tầng/giờ — khung để dò câu hỏi 2 (配送 ở tầng mấy, giờ nào)"
+            }
+          ]
+        },
+        {
+          "jp": "お荷物お預かり｜1階｜9:30〜19:30",
+          "vi": "Giữ hành lý｜Tầng 1｜9:30〜19:30",
+          "vocab": [
+            {
+              "w": "お荷物",
+              "read": "おにもつ",
+              "vi": "hành lý"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý"
+            },
+            {
+              "w": "お預かり",
+              "read": "おあずかり",
+              "vi": "nhận giữ"
+            },
+            {
+              "w": "預かり",
+              "read": "あずかり",
+              "vi": "việc giữ hộ"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng một"
+            },
+            {
+              "w": "9:30",
+              "read": "くじはん",
+              "vi": "9 giờ 30"
+            },
+            {
+              "w": "19:30",
+              "read": "じゅうくじはん",
+              "vi": "19 giờ 30"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お＋V(ます形)（danh từ hóa 謙譲語）",
+              "vi": "お預かり (từ お預かりします) được dùng như tên dịch vụ trong bảng — danh từ hóa động từ khiêm nhường để đặt tên mục."
+            }
+          ]
+        },
+        {
+          "jp": "ラッピング（包装）｜2階｜10:00〜18:00",
+          "vi": "Gói quà (bao gói)｜Tầng 2｜10:00〜18:00",
+          "vocab": [
+            {
+              "w": "ラッピング",
+              "read": "ラッピング",
+              "vi": "gói quà"
+            },
+            {
+              "w": "包装",
+              "read": "ほうそう",
+              "vi": "đóng gói"
+            },
+            {
+              "w": "2階",
+              "read": "にかい",
+              "vi": "tầng hai"
+            },
+            {
+              "w": "10:00",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "18:00",
+              "read": "じゅうはちじ",
+              "vi": "18 giờ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ラッピング（包装）｜2階｜10:00〜18:00",
+              "why": "bẫy câu hỏi 2: ラッピング ở tầng 2 — dễ nhầm với 配送 (tầng 1) nếu đọc lướt"
+            }
+          ]
+        },
+        {
+          "jp": "配送のご相談｜1階｜9:30〜17:00",
+          "vi": "Tư vấn gửi hàng｜Tầng 1｜9:30〜17:00",
+          "vocab": [
+            {
+              "w": "配送",
+              "read": "はいそう",
+              "vi": "giao hàng"
+            },
+            {
+              "w": "ご相談",
+              "read": "ごそうだん",
+              "vi": "tư vấn"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, trao đổi"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng một"
+            },
+            {
+              "w": "9:30",
+              "read": "くじはん",
+              "vi": "9 giờ 30"
+            },
+            {
+              "w": "17:00",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "ご＋N（tôn kính hóa danh từ）",
+              "vi": "ご相談 = tôn kính hóa 相談, dùng trong tên dịch vụ hướng tới khách hàng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "配送のご相談｜1階｜9:30〜17:00",
+              "why": "căn cứ chính câu hỏi 2: dịch vụ 配送 ở tầng 1, giờ 9:30〜17:00 — phải ghép với dòng ※ ở dưới mới ra đáp án đủ"
+            }
+          ]
+        },
+        {
+          "jp": "館内のご案内｜各階｜9:30〜19:30",
+          "vi": "Hướng dẫn trong tòa nhà｜Mọi tầng｜9:30〜19:30",
+          "vocab": [
+            {
+              "w": "館内",
+              "read": "かんない",
+              "vi": "bên trong tòa nhà"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "各階",
+              "read": "かくかい",
+              "vi": "mỗi tầng, tất cả các tầng"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "ラッピングの料金は、品物のお値段で変わります。",
+          "vi": "Phí gói quà thay đổi theo giá tiền món hàng.",
+          "vocab": [
+            {
+              "w": "ラッピング",
+              "read": "ラッピング",
+              "vi": "gói quà (wrapping)"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, tiền dịch vụ"
+            },
+            {
+              "w": "品物",
+              "read": "しなもの",
+              "vi": "món hàng, sản phẩm"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi, biến đổi"
+            },
+            {
+              "w": "お値段",
+              "read": "おねだん",
+              "vi": "giá tiền (お + 値段)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nで変わります",
+              "vi": "お値段で変わります = thay đổi tùy theo giá tiền. で ở đây chỉ căn cứ/nguyên nhân của sự thay đổi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "品物のお値段で変わります",
+              "why": "câu chuyển mạch: báo trước phí gói quà PHỤ THUỘC giá món hàng — dẫn vào bảng giá ngay sau, chìa khóa cho câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "品物のお値段｜包装料",
+          "vi": "Giá tiền món hàng｜Phí gói quà",
+          "vocab": [
+            {
+              "w": "品物",
+              "read": "しなもの",
+              "vi": "món hàng, món đồ"
+            },
+            {
+              "w": "値段",
+              "read": "ねだん",
+              "vi": "giá tiền"
+            },
+            {
+              "w": "包装",
+              "read": "ほうそう",
+              "vi": "bao gói, đóng gói"
+            },
+            {
+              "w": "包装料",
+              "read": "ほうそうりょう",
+              "vi": "phí gói quà, phí đóng gói"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "品物のお値段｜包装料",
+              "why": "header bảng 2: 2 cột giá món hàng / phí gói quà — khung tra câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "3,000円まで｜100円",
+          "vi": "Đến 3.000 yên｜100 yên",
+          "vocab": [
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            },
+            {
+              "w": "まで",
+              "read": "まで",
+              "vi": "đến, cho đến"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "3,000円まで｜100円",
+              "why": "ô nhiễu sát cạnh câu hỏi 1: giới hạn まで (đến 3.000円) — 3.500円 KHÔNG rơi vào hàng này, dễ chọn nhầm 100円"
+            }
+          ]
+        },
+        {
+          "jp": "3,001円から｜200円",
+          "vi": "Từ 3.001 yên trở lên｜200 yên",
+          "vocab": [
+            {
+              "w": "3,001円",
+              "read": "さんぜんいちえん",
+              "vi": "3.001 yên"
+            },
+            {
+              "w": "から",
+              "read": "から",
+              "vi": "từ, kể từ"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "3,001円から｜200円",
+              "why": "căn cứ trực tiếp câu hỏi 1: 3.500円 ≥ 3.001円 → rơi vào hàng này, đáp án đúng là 200円"
+            }
+          ]
+        },
+        {
+          "jp": "※配送は、発送の前日までにお申し込みください。土曜と日曜はお休みです。",
+          "vi": "※ Xin quý khách đăng ký gửi hàng trước ngày phát hàng một ngày. Thứ Bảy và Chủ Nhật quầy nghỉ.",
+          "vocab": [
+            {
+              "w": "配送",
+              "read": "はいそう",
+              "vi": "gửi hàng, giao hàng"
+            },
+            {
+              "w": "発送",
+              "read": "はっそう",
+              "vi": "sự phát hàng, sự gửi đi"
+            },
+            {
+              "w": "前日",
+              "read": "ぜんじつ",
+              "vi": "ngày hôm trước"
+            },
+            {
+              "w": "申し込む",
+              "read": "もうしこむ",
+              "vi": "đăng ký, đăng ký tham gia"
+            },
+            {
+              "w": "土曜",
+              "read": "どよう",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "日曜",
+              "read": "にちよう",
+              "vi": "Chủ Nhật"
+            },
+            {
+              "w": "休み",
+              "read": "やすみ",
+              "vi": "kỳ nghỉ, ngày nghỉ"
+            },
+            {
+              "w": "お申し込みください",
+              "read": "おもうしこみください",
+              "vi": "xin đăng ký (お + V(ます形) + ください — kính ngữ nhẹ)"
+            },
+            {
+              "w": "お休み",
+              "read": "おやすみ",
+              "vi": "ngày nghỉ (お + 休み)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nまでに（Bài 17 ôn）",
+              "vi": "前日までに = trước (hạn) là ngày hôm trước. までに nhấn mạnh hạn chót phải hoàn thành trước đó."
+            },
+            {
+              "point": "お＋V(ます形)＋ください（kính ngữ nhẹ）",
+              "vi": "お申し込みください lịch sự hơn 申し込んでください (Vてください, Bài 14) một bậc — dùng お＋V(ます形)＋ください cho hướng dẫn khách trang trọng."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※配送は、発送の前日までにお申し込みください",
+              "why": "bẫy ※: giới hạn thời điểm đăng ký (phải trước ngày phát hàng 1 ngày) — nếu bỏ qua sẽ chọn sai giờ/ngày ở câu hỏi 2"
+            },
+            {
+              "w": "土曜と日曜はお休みです",
+              "why": "bẫy ※: quầy tư vấn gửi hàng NGHỈ thứ Bảy và Chủ Nhật — loại trực tiếp phương án \"đến quầy vào thứ Bảy\" của câu hỏi 2"
+            }
+          ]
+        },
+        {
+          "jp": "ご不明な点がございましたら、1階サービスカウンターで係の者がご案内いたします。お荷物は喜んでお預かりいたします。",
+          "vi": "Nếu quý khách có điều gì chưa rõ, nhân viên phụ trách tại quầy dịch vụ tầng 1 xin hướng dẫn ạ. Chúng tôi cũng xin vui lòng nhận giữ hành lý giúp quý khách.",
+          "vocab": [
+            {
+              "w": "ご不明な点",
+              "read": "ごふめいなてん",
+              "vi": "điểm chưa rõ"
+            },
+            {
+              "w": "不明",
+              "read": "ふめい",
+              "vi": "không rõ"
+            },
+            {
+              "w": "点",
+              "read": "てん",
+              "vi": "điểm; vấn đề"
+            },
+            {
+              "w": "ございましたら",
+              "read": "ございましたら",
+              "vi": "nếu có"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "サービスカウンター",
+              "read": "サービスカウンター",
+              "vi": "quầy dịch vụ"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "カウンター",
+              "read": "カウンター",
+              "vi": "quầy"
+            },
+            {
+              "w": "係の者",
+              "read": "かかりのもの",
+              "vi": "nhân viên phụ trách"
+            },
+            {
+              "w": "係",
+              "read": "かかり",
+              "vi": "người phụ trách"
+            },
+            {
+              "w": "者",
+              "read": "もの",
+              "vi": "người"
+            },
+            {
+              "w": "ご案内いたします",
+              "read": "ごあんないいたします",
+              "vi": "xin hướng dẫn"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn"
+            },
+            {
+              "w": "お荷物",
+              "read": "おにもつ",
+              "vi": "hành lý; đồ đạc"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý; đồ đạc"
+            },
+            {
+              "w": "喜んで",
+              "read": "よろこんで",
+              "vi": "vui lòng; sẵn lòng"
+            },
+            {
+              "w": "お預かりいたします",
+              "read": "おあずかりいたします",
+              "vi": "xin nhận giữ hộ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25 ôn）",
+              "vi": "ございましたら = nếu có ạ. Điều kiện giả định kết hợp với ございます."
+            },
+            {
+              "point": "ご＋N＋いたします（Bài 50 — 謙譲語 phổ thông）",
+              "vi": "ご案内いたします = nhân viên (phía mình) hạ thấp hành động HƯỚNG DẪN khách. Công thức ご＋漢語＋いたします cho động từ gốc Hán."
+            },
+            {
+              "point": "おV(ます形)いたします（Bài 50 — 謙譲語 phổ thông）",
+              "vi": "お預かりいたします = nhân viên hạ thấp hành động NHẬN GIỮ hành lý của khách. Đây là mẫu ngữ pháp trọng tâm bài 50, xuất hiện nổi bật ở dòng thông báo và dòng liên hệ cuối."
+            }
+          ]
+        },
+        {
+          "jp": "お電話：03-1234-5678（9:30〜19:30）",
+          "vi": "Điện thoại: 03-1234-5678 (9:30〜19:30)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "お電話",
+              "read": "おでんわ",
+              "vi": "điện thoại (お + 電話)"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "お手伝いいたします",
+          "label": "おV(ます形)いたします（謙譲語 phổ thông — Bài 50）"
+        },
+        {
+          "excerpt": "ご案内いたします",
+          "label": "ご＋N＋いたします（謙譲語 phổ thông — Bài 50）"
+        },
+        {
+          "excerpt": "お預かりいたします",
+          "label": "おV(ます形)いたします（謙譲語 phổ thông — Bài 50）"
+        },
+        {
+          "excerpt": "お申し込みください",
+          "label": "お＋V(ます形)＋ください（kính ngữ nhẹ）"
+        },
+        {
+          "excerpt": "発送の前日までに",
+          "label": "Nまでに（Bài 17 ôn）"
+        },
+        {
+          "excerpt": "ございましたら",
+          "label": "〜たら（Bài 25 ôn）＋ございます"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời chào",
+          "topic": 0,
+          "note": "Tiêu đề thông báo quầy dịch vụ + lời cảm ơn/giới thiệu nhân viên (係の者) sẽ hỗ trợ khách — thiết lập bối cảnh chung, chưa có căn cứ câu hỏi cụ thể.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "body",
+          "label": "Bảng dịch vụ theo tầng & giờ",
+          "topic": 2,
+          "note": "Bảng 1 (dịch vụ｜tầng｜giờ): dòng 配送のご相談 (tầng 1, 9:30〜17:00) là căn cứ đầu tiên của câu hỏi 2; dòng ラッピング (tầng 2) là ô nhiễu dễ nhầm tầng.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "kind": "point",
+          "label": "Bảng giá gói quà theo giá món hàng",
+          "topic": 8,
+          "note": "Bảng 2 (giá món hàng｜phí gói quà): 2 hàng まで/から là căn cứ trực tiếp câu hỏi 1 — 3.500円 rơi vào hàng \"3,001円から｜200円\", hàng \"3,000円まで｜100円\" là bẫy sát cạnh.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 11,
+          "to": 11,
+          "kind": "turn",
+          "label": "Điều kiện ※ đăng ký & ngày nghỉ",
+          "topic": 11,
+          "note": "Dòng ※ bẫy: phải đăng ký gửi hàng trước ngày phát hàng 1 ngày, và quầy 配送 nghỉ thứ Bảy + Chủ Nhật — ghép với bảng ở khối trên để trả lời đúng câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 13,
+          "kind": "body",
+          "label": "Liên hệ & lời mời hỏi thêm",
+          "topic": 13,
+          "note": "Câu kết mời khách hỏi thêm tại quầy tầng 1 + số điện thoại liên hệ — không phải căn cứ đáp án của 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは3,500円の品物を買いました。ラッピングをお願いすると、包装料はいくらですか。",
+          "options": [
+            "100円",
+            "200円",
+            "300円",
+            "ただ"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1 (200円). Bảng giá gói quà cho biết: 「3,000円まで｜100円」「3,001円から｜200円」. Món hàng của Tanaka giá 3,500円 — vượt quá 3,000円 nên rơi vào hàng \"3,001円から\", phí gói quà là 200円. Đáp án 0 (100円) sai vì đó là giá cho món hàng ≤3,000円 (ô sát cạnh, dễ nhầm). Đáp án 2 (300円) sai vì không có mức giá này trong bảng — đây là phép cộng nhầm 100+200. Đáp án 3 (ただ = miễn phí) sai vì thông báo không hề nói dịch vụ ラッピング miễn phí — bảng giá luôn có phí (100円 hoặc 200円 tùy giá món hàng), không có trường hợp nào bằng 0円.",
+          "tip": "Mẹo: câu hỏi cho SẴN số tiền cụ thể (3,500円) thì phải dò xem số đó rơi vào Ô NÀO trong bảng 2 cột giá — so sánh với ranh giới \"まで\" (đến) và \"から\" (từ) chứ không được đoán mò.",
+          "evi": [
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Ông/bà Tanaka đã mua một món hàng giá 3.500 yên. Nếu nhờ gói quà thì phí gói là bao nhiêu?",
+            "o": [
+              "100 yên",
+              "200 yên",
+              "300 yên",
+              "miễn phí"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは、今週の土曜日に荷物の配送を頼みたいです。ワットさんはどうすればいいですか。",
+          "options": [
+            "土曜日の9:30から17:00までに1階へ行けばいい",
+            "配送のご相談は土曜日がお休みなので、金曜日までに1階で申し込めばいい",
+            "配送のご相談は土曜日がお休みなので、日曜日に2階で申し込めばいい",
+            "電話で日曜日の朝までに申し込めばいい"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bảng cho biết「配送のご相談｜1階｜9:30〜17:00」và dòng ※ ghi rõ「配送は、発送の前日までにお申し込みください。土曜と日曜はお休みです。」— nghĩa là quầy tư vấn gửi hàng NGHỈ vào thứ Bảy và Chủ Nhật, nên Wattoさん không thể đến quầy vào chính thứ Bảy đó; phải đăng ký TRƯỚC (trước ngày phát hàng một ngày), tức là đến quầy tầng 1 vào một ngày trong tuần (ví dụ thứ Sáu). Đáp án 0 sai vì thứ Bảy quầy đã nghỉ, không thể đến giờ đó được — thiếu mất chi tiết ※ về ngày nghỉ. Đáp án 2 sai vì Chủ Nhật cũng nghỉ (giống thứ Bảy), và dịch vụ 配送 nằm ở tầng 1 chứ không phải tầng 2 (tầng 2 là ラッピング). Đáp án 3 sai vì bài không hề nói có thể đăng ký gửi hàng qua điện thoại vào Chủ Nhật — chi tiết bịa thêm ngoài bài.",
+          "tip": "Mẹo: câu hỏi ghép NGÀY (thứ Bảy) + DỊCH VỤ (配送) → phải dò CẢ bảng giờ tiếp nhận VÀ dòng ※ về ngày nghỉ mới ra đáp án đúng — chỉ nhìn bảng giờ mà bỏ qua ※ sẽ chọn nhầm phương án 0.",
+          "evi": [
+            5,
+            11
+          ],
+          "qt": {
+            "q": "Ông/bà Watt muốn yêu cầu giao hàng vào thứ Bảy tuần này. Ông/bà Watt nên làm thế nào?",
+            "o": [
+              "Chỉ cần đến tầng 1 trong khoảng từ 9:30 đến 17:00 thứ Bảy",
+              "Vì tư vấn giao hàng nghỉ vào thứ Bảy, chỉ cần đăng ký tại tầng 1 trước thứ Sáu",
+              "Vì tư vấn giao hàng nghỉ vào thứ Bảy, chỉ cần đăng ký tại tầng 2 vào Chủ nhật",
+              "Chỉ cần đăng ký qua điện thoại trước sáng Chủ nhật"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

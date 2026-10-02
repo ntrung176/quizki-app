@@ -1,0 +1,484 @@
+{
+  "id": "minna1.b14",
+  "bai": 14,
+  "titleVi": "Thể て — nhờ vả & đang diễn ra",
+  "know": [
+    {
+      "id": "minna1.b14.te-form",
+      "point": "te-form",
+      "jp": "て形[けい]の作[つく]り方[かた]",
+      "vi": "Chia động từ sang thể て (3 nhóm)",
+      "en": "Conjugate verbs into the て-form (3 groups)",
+      "gloss": "書[か]く→書[か]いて ／ 飲[の]む→飲[の]んで ／ 食[た]べる→食[た]べて",
+      "glossEn": "書[か]く→書[か]いて ／ 飲[の]む→飲[の]んで ／ 食[た]べる→食[た]べて"
+    },
+    {
+      "id": "minna1.b14.te-kudasai",
+      "point": "te-kudasai",
+      "jp": "〜てください",
+      "vi": "Yêu cầu lịch sự (xin hãy làm)",
+      "en": "Polite request (please do it)",
+      "gloss": "Vて ＋ ください",
+      "glossEn": "Vて ＋ ください"
+    },
+    {
+      "id": "minna1.b14.te-imasu",
+      "point": "te-imasu",
+      "jp": "〜ています",
+      "vi": "Đang làm (hành động tiến hành)",
+      "en": "Currently doing (an action in progress)",
+      "gloss": "Vて ＋ います",
+      "glossEn": "Vて ＋ います"
+    },
+    {
+      "id": "minna1.b14.mashouka",
+      "point": "mashouka",
+      "jp": "〜ましょうか",
+      "vi": "Đề nghị giúp đỡ (để tôi làm cho nhé?)",
+      "en": "Offer to help (shall I do it for you?)",
+      "gloss": "Vます-stem ＋ ましょうか",
+      "glossEn": "Vます-stem ＋ ましょうか"
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b14-tf-kaku",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "vi": "Động từ 書く chia sang thể て là gì?",
+      "t1": {
+        "stem": "書[か]く → ＿",
+        "choices": [
+          "書[か]いて",
+          "書[か]きて",
+          "書[か]って"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "書[か]いて"
+        ],
+        "traps": [
+          "書[か]きて",
+          "書[か]って"
+        ]
+      },
+      "t3": {
+        "target": "書いて",
+        "accept": [
+          "かいて"
+        ]
+      },
+      "why": "く → いて (nhóm I: く/ぐ đổi thành いて/いで). ✗ 書きて — không thêm て vào ます-stem trực tiếp."
+    },
+    {
+      "id": "c-b14-tf-nomu",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "vi": "Động từ 飲む chia sang thể て là gì?",
+      "t1": {
+        "stem": "飲[の]む → ＿",
+        "choices": [
+          "飲[の]んで",
+          "飲[の]みて",
+          "飲[の]って"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "飲[の]んで"
+        ],
+        "traps": [
+          "飲[の]みて",
+          "飲[の]って"
+        ]
+      },
+      "t3": {
+        "target": "飲んで",
+        "accept": [
+          "のんで"
+        ]
+      },
+      "why": "む/ぬ/ぶ → んで (nhóm I). ✗ 飲みて — sai khi thêm て vào ます-stem む."
+    },
+    {
+      "id": "c-b14-tf-matsu",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "vi": "Động từ 待つ chia sang thể て là gì?",
+      "t1": {
+        "stem": "待[ま]つ → ＿",
+        "choices": [
+          "待[ま]って",
+          "待[ま]ちて",
+          "待[ま]つて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "待[ま]って"
+        ],
+        "traps": [
+          "待[ま]ちて",
+          "待[ま]つて"
+        ]
+      },
+      "t3": {
+        "target": "待って",
+        "accept": [
+          "まって"
+        ]
+      },
+      "why": "つ/る/う → って (nhóm I). ✗ 待ちて — ます-stem ち + て trực tiếp là sai."
+    },
+    {
+      "id": "c-b14-tkd-namae",
+      "item": "minna1.b14.te-kudasai",
+      "err": "te-kudasai-form",
+      "vi": "Xin hãy viết tên vào đây.",
+      "t1": {
+        "stem": "ここに 名前[なまえ]を ＿。",
+        "choices": [
+          "書[か]いてください",
+          "書[か]くてください",
+          "書[か]いてくださいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ここに",
+          "名前[なまえ]を",
+          "書[か]いて",
+          "ください。"
+        ],
+        "traps": [
+          "書[か]くてください。",
+          "書[か]きてください。"
+        ]
+      },
+      "t3": {
+        "target": "ここに名前を書いてください。",
+        "accept": [
+          "ここになまえをかいてください。"
+        ]
+      },
+      "why": "書く (nhóm I: く→いて) + ください. ✗ 書くてください — てください cần て-form, không phải từ điển."
+    },
+    {
+      "id": "c-b14-tkd-matte",
+      "item": "minna1.b14.te-kudasai",
+      "err": "te-kudasai-form",
+      "vi": "Xin hãy đợi một chút.",
+      "t1": {
+        "stem": "ちょっと ＿。",
+        "choices": [
+          "待[ま]ってください",
+          "待[ま]ちてください",
+          "待[ま]ちましょうか"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "ちょっと",
+          "待[ま]って",
+          "ください。"
+        ],
+        "traps": [
+          "待[ま]ちてください。",
+          "急[いそ]いでください。"
+        ]
+      },
+      "t3": {
+        "target": "ちょっと待ってください。",
+        "accept": [
+          "ちょっとまってください。"
+        ]
+      },
+      "why": "待つ → 待って (つ→って). Câu mẫu N5 thực tế nhất."
+    },
+    {
+      "id": "c-b14-tim-kaku",
+      "item": "minna1.b14.te-imasu",
+      "err": "te-iru-vs-masu",
+      "vi": "Anh Tanaka đang viết thư.",
+      "t1": {
+        "stem": "田中[たなか]さんは 手紙[てがみ]を ＿。",
+        "choices": [
+          "書[か]いています",
+          "書[か]きます",
+          "書[か]いてください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "田中[たなか]さんは",
+          "手紙[てがみ]を",
+          "書[か]いて",
+          "います。"
+        ],
+        "traps": [
+          "書[か]きます。",
+          "書[か]いてください。"
+        ]
+      },
+      "t3": {
+        "target": "田中さんは手紙を書いています。",
+        "accept": [
+          "たなかさんはてがみをかいています。"
+        ]
+      },
+      "why": "「đang」viết = て-form + います. ✗ 書きます chỉ nói \"viết (thói quen / dự định)\", không phải \"đang viết\"."
+    },
+    {
+      "id": "c-b14-tim-taberu",
+      "item": "minna1.b14.te-imasu",
+      "err": "te-iru-vs-masu",
+      "vi": "Bây giờ mẹ đang nấu ăn.",
+      "t1": {
+        "stem": "今[いま]、お母[かあ]さんは 料理[りょうり]を ＿。",
+        "choices": [
+          "しています",
+          "します",
+          "してください"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "今[いま]",
+          "お母[かあ]さんは",
+          "料理[りょうり]を",
+          "して",
+          "います。"
+        ],
+        "traps": [
+          "します。",
+          "しません。"
+        ]
+      },
+      "t3": {
+        "target": "今、お母さんは料理をしています。",
+        "accept": [
+          "いまおかあさんはりょうりをしています。",
+          "いま、おかあさんはりょうりをしています。"
+        ]
+      },
+      "why": "する → して (nhóm III đặc biệt) + います = đang làm. ✗ します chỉ nói về tương lai/thói quen."
+    },
+    {
+      "id": "c-b14-msk-takushi",
+      "item": "minna1.b14.mashouka",
+      "err": "te-iru-vs-masu",
+      "vi": "Để tôi gọi taxi cho nhé?",
+      "t1": {
+        "stem": "タクシーを ＿。",
+        "choices": [
+          "呼[よ]びましょうか",
+          "呼[よ]んでください",
+          "呼[よ]んでいます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "タクシーを",
+          "呼[よ]び",
+          "ましょうか。"
+        ],
+        "traps": [
+          "呼[よ]んでください。",
+          "呼[よ]びます。"
+        ]
+      },
+      "t3": {
+        "target": "タクシーを呼びましょうか。",
+        "accept": [
+          "たくしーをよびましょうか。"
+        ]
+      },
+      "why": "ましょうか = đề nghị làm giúp; ます-stem + ましょうか. ✗ 呼んでください = lệnh người khác phải gọi."
+    },
+    {
+      "id": "c-b14-msk-nimotsu",
+      "item": "minna1.b14.mashouka",
+      "err": "te-iru-vs-masu",
+      "vi": "Để tôi xách đồ cho nhé?",
+      "t1": {
+        "stem": "荷物[にもつ]を ＿。",
+        "choices": [
+          "持[も]ちましょうか",
+          "持[も]ってください",
+          "持[も]っています"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "荷物[にもつ]を",
+          "持[も]ち",
+          "ましょうか。"
+        ],
+        "traps": [
+          "持[も]ってください。",
+          "持[も]っています。"
+        ]
+      },
+      "t3": {
+        "target": "荷物を持ちましょうか。",
+        "accept": [
+          "にもつをもちましょうか。"
+        ]
+      },
+      "why": "持つ (nhóm I) → ます-stem 持ち + ましょうか. Đề nghị giúp đỡ."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b14-tim",
+      "item": "minna1.b14.te-imasu",
+      "err": "te-iru-vs-masu",
+      "tts": "たなかさんは いま でんわを しています。",
+      "script": "田中[たなか]さんは 今[いま] 電話[でんわ]を しています。",
+      "ask": "Anh Tanaka đang làm gì?",
+      "choices": [
+        "Đang gọi điện thoại",
+        "Đang đợi",
+        "Đang viết thư"
+      ],
+      "answer": 0,
+      "why": "Vています = đang làm; 電話をしています = đang gọi điện."
+    },
+    {
+      "id": "l-b14-msk",
+      "item": "minna1.b14.mashouka",
+      "err": "te-iru-vs-masu",
+      "tts": "まどを あけましょうか。— はい、おねがいします。",
+      "script": "窓[まど]を 開[あ]けましょうか。— はい、お願[ねが]いします。",
+      "ask": "Người nói đề nghị làm gì?",
+      "choices": [
+        "Mở cửa sổ",
+        "Đóng cửa sổ",
+        "Đợi ở đây"
+      ],
+      "answer": 0,
+      "why": "〜ましょうか = đề nghị giúp; 開けましょうか = để tôi mở cửa sổ nhé?"
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b14-ga-suki",
+      "item": "minna1.b09.suki",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 14 ・ 〜てください",
+      "vi": "Vì tôi thích cà phê, hãy mua giúp tôi nhé.",
+      "t1": {
+        "stem": "コーヒー＿ 好[す]きですから、買[か]ってください。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "コーヒーが",
+          "好[す]きですから、",
+          "買[か]って",
+          "ください。"
+        ],
+        "traps": [
+          "コーヒーを"
+        ]
+      },
+      "t3": {
+        "target": "コーヒーが好きですから、買ってください。",
+        "accept": [
+          "こーひーがすきですから、かってください。"
+        ]
+      },
+      "why": "Dù câu có 〜てください của Bài 14, 好き vẫn cần が (lỗi #1 từ Bài 9). ✗ コーヒーを好きです."
+    },
+    {
+      "id": "a-b14-ga-wakaru",
+      "item": "minna1.b09.wakaru",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 14 ・ 〜ています",
+      "vi": "Tôi đang đọc nhưng không hiểu kanji này. Bạn giải thích giúp tôi nhé.",
+      "t1": {
+        "stem": "この 漢字[かんじ]＿ わかりませんから、説明[せつめい]してください。",
+        "choices": [
+          "が",
+          "を",
+          "は"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "この 漢字[かんじ]が",
+          "わかりませんから、",
+          "説明[せつめい]して",
+          "ください。"
+        ],
+        "traps": [
+          "漢字[かんじ]を"
+        ]
+      },
+      "t3": {
+        "target": "この漢字がわかりませんから、説明してください。",
+        "accept": [
+          "このかんじがわかりませんから、せつめいしてください。"
+        ]
+      },
+      "why": "わかります luôn dùng が cho đối tượng (lỗi Bài 9). Phần してください là Bài 14 — bẫy kép."
+    },
+    {
+      "id": "a-b14-ga-jouzu",
+      "item": "minna1.b09.jouzu",
+      "err": "wo-for-ga",
+      "ambush": true,
+      "src": 9,
+      "context": "Bài 14 ・ 〜てください ／ 〜ましょうか",
+      "vi": "Bạn giỏi tiếng Nhật, hãy đọc thư này giúp tôi nhé.",
+      "t1": {
+        "stem": "日本語[にほんご]＿ 上手[じょうず]ですから、この 手紙[てがみ]を 読[よ]んでください。",
+        "choices": [
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "日本語[にほんご]が",
+          "上手[じょうず]ですから、",
+          "この 手紙[てがみ]を",
+          "読[よ]んで",
+          "ください。"
+        ],
+        "traps": [
+          "日本語[にほんご]を"
+        ]
+      },
+      "t3": {
+        "target": "日本語が上手ですから、この手紙を読んでください。",
+        "accept": [
+          "にほんごがじょうずですから、このてがみをよんでください。"
+        ]
+      },
+      "why": "上手 cần が cho chủ thể/lĩnh vực (lỗi Bài 9). 読んでください = Bài 14. Câu bẫy mang cả hai."
+    }
+  ]
+}

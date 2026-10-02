@@ -1,0 +1,4505 @@
+{
+  "bai": 37,
+  "level": "N4",
+  "intro": "受身形 (bị động) · 〜に〜られる · 迷惑の受身 (bị động phiền). Có ÔN LẠI ngữ pháp đã học (bài 1-36) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "この建物は百年前に建てられました。",
+              "ul": "建物",
+              "choices": [
+                "たてもの",
+                "たてぶつ",
+                "けんぶつ",
+                "けんもの"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「建物」（たてもの）là danh từ ghép theo kun-yomi: 建（たて）＋物（もの）→「たてもの」, nghĩa là tòa nhà/công trình. Phương án「たてぶつ」sai vì 物 trong danh từ ghép này đọc là「もの」không phải「ぶつ」; 「ぶつ」là on-yomi dùng trong từ như 動物（どうぶつ）nhưng không áp dụng ở đây. 「けんぶつ」là cách đọc on-yomi 建物 theo nghĩa 「見物」(kenbutsu — xem tham quan), đây là từ khác hoàn toàn. 「けんもの」không phải cách đọc tồn tại của từ này.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "建物",
+                  "vi": "tòa nhà, công trình"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "百年前に",
+                  "read": "ひゃくねんまえに",
+                  "vi": "100 năm trước"
+                },
+                {
+                  "t": "建てられました",
+                  "read": "たてられました",
+                  "vi": "đã được xây dựng (bị động)"
+                }
+              ]
+            },
+            {
+              "prompt": "弟は友達に足を踏まれて、痛そうにしていた。",
+              "ul": "踏まれて",
+              "choices": [
+                "ふまれて",
+                "はまれて",
+                "おまれて",
+                "たまれて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「踏まれて」là dạng bị động của「踏む」（ふむ）— đạp lên, giẫm lên. Bị động「踏む→踏まれる」, te-form là「踏まれて」, đọc là「ふまれて」. Đây là bị động phiền (迷惑の受身) — em trai bị bạn giẫm lên chân, gây phiền/đau. 「はまれて」「おまれて」「たまれて」đều không phải từ Nhật có nghĩa; chỉ có「ふむ」mới tạo ra dạng bị động này.",
+              "glosses": [
+                {
+                  "t": "弟は",
+                  "read": "おとうとは",
+                  "vi": "em trai (chủ đề)"
+                },
+                {
+                  "t": "友達に",
+                  "read": "ともだちに",
+                  "vi": "bởi bạn bè"
+                },
+                {
+                  "t": "足を",
+                  "read": "あしを",
+                  "vi": "chân (tân ngữ)"
+                },
+                {
+                  "t": "踏まれて",
+                  "vi": "bị giẫm lên (bị động phiền)"
+                },
+                {
+                  "t": "痛そうにしていた",
+                  "read": "いたそうにしていた",
+                  "vi": "có vẻ đau"
+                }
+              ]
+            },
+            {
+              "prompt": "この歌は世界中の人々に愛されています。",
+              "ul": "愛されています",
+              "choices": [
+                "あいされています",
+                "めされています",
+                "こいされています",
+                "なされています"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「愛」là kanji đọc on-yomi là「あい」, kun-yomi là「いと（しい）」. Trong động từ「愛する」（あいする）— yêu thích, bị động là「愛される」（あいされる）, đọc là「あいされています」. 「めされています」là bị động của「召す」（めす）nghĩa khác hẳn. 「こいされています」không phải từ tồn tại. 「なされています」là bị động của「なす」(thực hiện) — khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "この歌は",
+                  "read": "このうたは",
+                  "vi": "bài hát này (chủ đề)"
+                },
+                {
+                  "t": "世界中の",
+                  "read": "せかいじゅうの",
+                  "vi": "của khắp thế giới"
+                },
+                {
+                  "t": "人々に",
+                  "read": "ひとびとに",
+                  "vi": "bởi mọi người"
+                },
+                {
+                  "t": "愛されています",
+                  "vi": "được yêu thích (bị động)"
+                },
+                {
+                  "t": "あいされています",
+                  "read": "あいされています",
+                  "vi": "bị động của 愛する/愛す (yêu) + ている = \"đang được yêu quý\""
+                },
+                {
+                  "t": "めされています",
+                  "read": "めされています",
+                  "vi": "cách đọc nhiễu, không phải cách đọc đúng của 愛される trong câu này"
+                },
+                {
+                  "t": "こいされています",
+                  "read": "こいされています",
+                  "vi": "từ 恋する (yêu đương) bị động - \"được yêu\" theo nghĩa tình yêu, không phải cách đọc đúng của 愛される ở đây"
+                },
+                {
+                  "t": "なされています",
+                  "read": "なされています",
+                  "vi": "bị động kính ngữ của する (なす) = \"được thực hiện/được làm\", không phải cách đọc đúng của 愛される ở đây"
+                }
+              ]
+            },
+            {
+              "prompt": "電車の中で隣の人に新聞を読まれて、困った。",
+              "ul": "隣",
+              "choices": [
+                "となり",
+                "よこり",
+                "なかり",
+                "ちかり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「隣」（となり）là danh từ kun-yomi, nghĩa là chỗ cạnh, người bên cạnh. 「よこり」không phải từ — 横（よこ）là phía bên nhưng không dùng dạng「よこり」như danh từ chỉ người. 「なかり」không phải từ tiêu chuẩn chỉ vị trí cạnh. 「ちかり」cũng không phải từ — 近（ちか）có nghĩa gần nhưng không dùng dạng này để chỉ người ngồi cạnh.",
+              "glosses": [
+                {
+                  "t": "電車の中で",
+                  "read": "でんしゃのなかで",
+                  "vi": "ở trong tàu điện"
+                },
+                {
+                  "t": "隣の人に",
+                  "vi": "bởi người ngồi cạnh"
+                },
+                {
+                  "t": "新聞を",
+                  "read": "しんぶんを",
+                  "vi": "tờ báo (tân ngữ)"
+                },
+                {
+                  "t": "読まれて",
+                  "read": "よまれて",
+                  "vi": "bị đọc (bị động phiền)"
+                },
+                {
+                  "t": "困った",
+                  "read": "こまった",
+                  "vi": "bị phiền/khó xử"
+                }
+              ]
+            },
+            {
+              "prompt": "この橋は明治時代に作られたと言われています。",
+              "ul": "橋",
+              "choices": [
+                "はし",
+                "みち",
+                "かわ",
+                "いわ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「橋」（はし）là cây cầu, đọc theo kun-yomi. 「みち」là đường đi (道) — danh từ khác. 「かわ」là sông (川) — cũng là danh từ liên quan tới nước nhưng không phải cầu. 「いわ」là tảng đá (岩) — hoàn toàn khác nghĩa. Chỉ「はし」mới là cách đọc đúng của「橋」.",
+              "glosses": [
+                {
+                  "t": "この橋は",
+                  "vi": "cây cầu này (chủ đề)"
+                },
+                {
+                  "t": "明治時代に",
+                  "read": "めいじじだいに",
+                  "vi": "vào thời Minh Trị"
+                },
+                {
+                  "t": "作られたと",
+                  "read": "つくられたと",
+                  "vi": "được xây dựng (bị động) — rằng"
+                },
+                {
+                  "t": "言われています",
+                  "read": "いわれています",
+                  "vi": "người ta nói rằng"
+                }
+              ]
+            },
+            {
+              "prompt": "昨日、雨に降られて、服が全部濡れてしまった。",
+              "ul": "濡れて",
+              "choices": [
+                "ぬれて",
+                "もれて",
+                "われて",
+                "くれて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「濡れる」（ぬれる）nghĩa là bị ướt, te-form là「濡れて」（ぬれて）. 「もれて」là te-form của「漏れる」（もれる）— rò rỉ, khác nghĩa. 「われて」là te-form của「割れる」（われる）— bị vỡ. 「くれて」là te-form của「くれる」— cho (ai đó cho mình), hoàn toàn khác nghĩa. Ngữ cảnh câu là bị ướt vì mưa nên chỉ「ぬれて」mới đúng.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "雨に降られて",
+                  "read": "あめにふられて",
+                  "vi": "bị mưa rơi (bị động phiền)"
+                },
+                {
+                  "t": "服が",
+                  "read": "ふくが",
+                  "vi": "quần áo"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "濡れて",
+                  "vi": "bị ướt"
+                },
+                {
+                  "t": "しまった",
+                  "vi": "đã... mất rồi (ý tiếc nuối)"
+                },
+                {
+                  "t": "濡れてしまった",
+                  "read": "ぬれてしまった",
+                  "vi": "đã bị ướt sũng mất rồi"
+                }
+              ]
+            },
+            {
+              "prompt": "この絵は有名な画家によって描かれました。",
+              "ul": "描かれました",
+              "choices": [
+                "えがかれました",
+                "かかれました",
+                "みがかれました",
+                "ひらかれました"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「描く」có hai cách đọc: kun-yomi「えがく」và「かく」. Trong văn bản viết tay/nghệ thuật, dạng phổ biến nhất là「かく」→ bị động「描かれる」（かかれる）, te-form trong câu là「描かれました」đọc là「かかれました」. 「えがかれました」cũng là cách đọc có thể của「描かれました」(từ「えがく」) nhưng trong ngữ cảnh N4 thông thường, 「かく」phổ biến hơn và đây là đáp án đúng mà đề hướng tới. 「みがかれました」là bị động của「磨く」（みがく）— đánh bóng. 「ひらかれました」là bị động của「開く」（ひらく）— được mở.",
+              "glosses": [
+                {
+                  "t": "この絵は",
+                  "read": "このえは",
+                  "vi": "bức tranh này (chủ đề)"
+                },
+                {
+                  "t": "有名な",
+                  "read": "ゆうめいな",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "画家によって",
+                  "read": "がかによって",
+                  "vi": "bởi họa sĩ"
+                },
+                {
+                  "t": "描かれました",
+                  "vi": "được vẽ (bị động khách quan)"
+                },
+                {
+                  "t": "えがかれました",
+                  "read": "えがかれました",
+                  "vi": "bị động quá khứ của 描く (vẽ) = \"đã được vẽ\""
+                },
+                {
+                  "t": "かかれました",
+                  "read": "かかれました",
+                  "vi": "bị động quá khứ của 書く/描く (viết/vẽ) = \"đã được viết/vẽ\""
+                },
+                {
+                  "t": "みがかれました",
+                  "read": "みがかれました",
+                  "vi": "bị động quá khứ của 磨く (đánh bóng, mài giũa) = \"đã được đánh bóng\""
+                },
+                {
+                  "t": "ひらかれました",
+                  "read": "ひらかれました",
+                  "vi": "bị động quá khứ của 開く (mở, tổ chức) = \"đã được mở/tổ chức\""
+                }
+              ]
+            },
+            {
+              "prompt": "子供のころ、よく母に叱られた。",
+              "ul": "叱られた",
+              "choices": [
+                "しかられた",
+                "おこられた",
+                "よばれた",
+                "こわされた"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「叱る」（しかる）nghĩa là mắng, quở trách. Bị động là「叱られる」（しかられる）, quá khứ là「叱られた」（しかられた）. 「おこられた」là bị động của「怒る」（おこる）— bị tức giận với; gần nghĩa nhưng「叱る」cụ thể hơn: người trên mắng người dưới có mục đích giáo dục. 「よばれた」là bị động của「呼ぶ」（よぶ）— được gọi/mời, nghĩa khác. 「こわされた」là bị động của「壊す」（こわす）— bị phá hỏng, nghĩa khác hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "子供のころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "よく",
+                  "vi": "thường xuyên"
+                },
+                {
+                  "t": "母に",
+                  "read": "ははに",
+                  "vi": "bởi mẹ"
+                },
+                {
+                  "t": "叱られた",
+                  "vi": "bị mắng (bị động phiền)"
+                }
+              ]
+            },
+            {
+              "prompt": "このコンピューターは世界中の会社で使われています。",
+              "ul": "会社",
+              "choices": [
+                "かいしゃ",
+                "かいじゃ",
+                "がいしゃ",
+                "かいさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会社」（かいしゃ）là từ on-yomi: 会（かい）＋社（しゃ）→「かいしゃ」, nghĩa là công ty. 「かいじゃ」sai vì「社」đọc là「しゃ」không phải「じゃ」— đây là bẫy thanh âm đục (濁音). 「がいしゃ」sai vì「会」đọc là「かい」không phải「がい」—「外車」（がいしゃ）là xe nước ngoài, từ khác. 「かいさ」sai vì bỏ mất âm「し」.",
+              "glosses": [
+                {
+                  "t": "このコンピューターは",
+                  "vi": "máy tính này (chủ đề)"
+                },
+                {
+                  "t": "世界中の",
+                  "read": "せかいじゅうの",
+                  "vi": "của khắp thế giới"
+                },
+                {
+                  "t": "会社で",
+                  "vi": "ở các công ty"
+                },
+                {
+                  "t": "使われています",
+                  "read": "つかわれています",
+                  "vi": "được sử dụng (bị động)"
+                }
+              ]
+            },
+            {
+              "prompt": "その小説は多くの言語に翻訳されています。",
+              "ul": "翻訳",
+              "choices": [
+                "ほんやく",
+                "ほにゃく",
+                "はんやく",
+                "ほんわく"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「翻訳」（ほんやく）là dịch thuật: 翻（ほん）＋訳（やく）→「ほんやく」. 「ほにゃく」sai vì「翻」đọc là「ほん」không phải「ほに」. 「はんやく」sai vì「翻」không có cách đọc「はん」—「反訳」không phải từ tiêu chuẩn. 「ほんわく」sai vì「訳」đọc là「やく」không phải「わく」.",
+              "glosses": [
+                {
+                  "t": "その小説は",
+                  "read": "そのしょうせつは",
+                  "vi": "cuốn tiểu thuyết đó (chủ đề)"
+                },
+                {
+                  "t": "多くの",
+                  "read": "おおくの",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "言語に",
+                  "read": "げんごに",
+                  "vi": "sang các ngôn ngữ"
+                },
+                {
+                  "t": "翻訳されています",
+                  "vi": "được dịch (bị động)"
+                }
+              ]
+            },
+            {
+              "prompt": "パーティーで知らない人に写真を撮られて、嫌な気持ちになった。",
+              "ul": "撮られて",
+              "choices": [
+                "とられて",
+                "きられて",
+                "はられて",
+                "てられて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「撮る」（とる）nghĩa là chụp ảnh/quay phim. Bị động「撮られる」（とられる）, te-form「撮られて」（とられて）. Lưu ý「とる」viết bằng chữ「撮」khác với「取る」（とる）— lấy đi; cả hai đọc giống nhau nhưng chữ khác, nghĩa khác. 「きられて」là bị động của「切る」（きる）— bị cắt. 「はられて」là bị động của「張る」（はる）— bị dán/trương. 「てられて」không phải từ tồn tại đúng nghĩa.",
+              "glosses": [
+                {
+                  "t": "パーティーで",
+                  "vi": "ở buổi tiệc"
+                },
+                {
+                  "t": "知らない人に",
+                  "read": "しらないひとに",
+                  "vi": "bởi người lạ"
+                },
+                {
+                  "t": "写真を",
+                  "read": "しゃしんを",
+                  "vi": "ảnh (tân ngữ)"
+                },
+                {
+                  "t": "撮られて",
+                  "vi": "bị chụp (bị động phiền)"
+                },
+                {
+                  "t": "嫌な気持ちになった",
+                  "read": "いやなきもちになった",
+                  "vi": "cảm thấy khó chịu"
+                }
+              ]
+            },
+            {
+              "prompt": "この道路は去年工事されました。",
+              "ul": "道路",
+              "choices": [
+                "どうろ",
+                "どうろう",
+                "とうろ",
+                "どろ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「道路」（どうろ）là con đường, đường lộ: 道（どう）＋路（ろ）→「どうろ」. 「どうろう」sai vì thêm âm「う」dài không cần thiết — đây là bẫy trường âm (長音). 「とうろ」sai vì「道」on-yomi là「どう」không phải「とう」. 「どろ」sai vì thiếu âm「う」ở giữa — bỏ mất một mora.",
+              "glosses": [
+                {
+                  "t": "この道路は",
+                  "vi": "con đường này (chủ đề)"
+                },
+                {
+                  "t": "去年",
+                  "read": "きょねん",
+                  "vi": "năm ngoái"
+                },
+                {
+                  "t": "工事されました",
+                  "read": "こうじされました",
+                  "vi": "được thi công (bị động)"
+                }
+              ]
+            },
+            {
+              "prompt": "試験中に隣の人に答えを見られてしまった。",
+              "ul": "試験",
+              "choices": [
+                "しけん",
+                "しごん",
+                "じけん",
+                "しかん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「試験」（しけん）là kỳ thi: 試（し）＋験（けん）→「しけん」. 「しごん」sai vì「験」on-yomi là「けん」không phải「ごん」. 「じけん」là cách đọc của「事件」（じけん）— vụ án/sự cố, từ khác hoàn toàn. 「しかん」là cách đọc của「士官」hay「弛緩」, không phải「試験」.",
+              "glosses": [
+                {
+                  "t": "試験中に",
+                  "vi": "trong lúc thi"
+                },
+                {
+                  "t": "隣の人に",
+                  "read": "となりのひとに",
+                  "vi": "bởi người ngồi cạnh"
+                },
+                {
+                  "t": "答えを",
+                  "read": "こたえを",
+                  "vi": "câu trả lời (tân ngữ)"
+                },
+                {
+                  "t": "見られてしまった",
+                  "read": "みられてしまった",
+                  "vi": "bị nhìn thấy mất rồi (bị động phiền)"
+                }
+              ]
+            },
+            {
+              "prompt": "この公園は市民に長く親しまれてきた場所です。",
+              "ul": "親しまれて",
+              "choices": [
+                "したしまれて",
+                "たのしまれて",
+                "くるしまれて",
+                "かなしまれて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「親しむ」（したしむ）nghĩa là gần gũi, thân thiết với. Bị động「親しまれる」（したしまれる）→「親しまれて」（したしまれて）. 「たのしまれて」là bị động của「楽しむ」（たのしむ）— được thưởng thức/vui chơi; gần nghĩa nhưng sắc thái khác (親しむ: gắn bó tình cảm lâu dài). 「くるしまれて」là bị động của「苦しむ」（くるしむ）— bị đau khổ. 「かなしまれて」là bị động của「悲しむ」（かなしむ）— được thương tiếc, nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "この公園は",
+                  "read": "このこうえんは",
+                  "vi": "công viên này (chủ đề)"
+                },
+                {
+                  "t": "市民に",
+                  "read": "しみんに",
+                  "vi": "bởi người dân thành phố"
+                },
+                {
+                  "t": "長く",
+                  "read": "ながく",
+                  "vi": "từ lâu"
+                },
+                {
+                  "t": "親しまれてきた",
+                  "vi": "được yêu mến (bị động, tiếp diễn đến nay)"
+                },
+                {
+                  "t": "場所です",
+                  "read": "ばしょです",
+                  "vi": "là nơi chốn"
+                }
+              ]
+            },
+            {
+              "prompt": "この製品は多くの国で販売されています。",
+              "ul": "販売",
+              "choices": [
+                "はんばい",
+                "はいばい",
+                "はんぱい",
+                "ばんはい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「販売」（はんばい）là bán hàng: 販（はん）＋売（ばい）→「はんばい」. 「はいばい」sai vì「販」đọc là「はん」không phải「はい」— đây là bẫy đổi thứ tự âm. 「はんぱい」sai vì「売」on-yomi là「ばい」không phải「ぱい」— bẫy phụ âm bán trọc（半濁音）. 「ばんはい」sai vì đảo ngược thứ tự「はん」và「ばい」— bẫy đổi vị trí.",
+              "glosses": [
+                {
+                  "t": "この製品は",
+                  "read": "このせいひんは",
+                  "vi": "sản phẩm này (chủ đề)"
+                },
+                {
+                  "t": "多くの国で",
+                  "read": "おおくのくにで",
+                  "vi": "ở nhiều quốc gia"
+                },
+                {
+                  "t": "販売されています",
+                  "vi": "được bán (bị động)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "このびじゅつかんは100ねんまえにたてられました。",
+              "ul": "たてられました",
+              "choices": [
+                "建てられました",
+                "立てられました",
+                "経てられました",
+                "健てられました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「建てられました」là thể bị động của 「建てる」(xây dựng), đây là bị động khách quan/lịch sử — tòa nhà được xây. ① 建てられました: ĐÚNG — 「建てる」(xây) → bị động「建てられる」, kanji 建 (kiến) nghĩa xây dựng. ② 立てられました: 「立てる」nghĩa là dựng đứng/lập kế hoạch, không dùng cho công trình xây mới. ③ 経てられました: không tồn tại dạng này (「経る」là trải qua, không ghép được vậy). ④ 健てられました: kanji 健 nghĩa khỏe mạnh, không có từ「健てる」trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "びじゅつかん",
+                  "read": "びじゅつかん",
+                  "vi": "bảo tàng mỹ thuật"
+                },
+                {
+                  "t": "100ねんまえ",
+                  "read": "ひゃくねんまえ",
+                  "vi": "100 năm trước"
+                },
+                {
+                  "t": "たてられました",
+                  "read": "たてられました",
+                  "vi": "được xây dựng (bị động của 建てる)"
+                },
+                {
+                  "t": "建てられました",
+                  "read": "たてられました",
+                  "vi": "được xây dựng (từ 建てる)"
+                },
+                {
+                  "t": "立てられました",
+                  "read": "たてられました",
+                  "vi": "được dựng lên/dựng đứng (từ 立てる)"
+                },
+                {
+                  "t": "経てられました",
+                  "read": "へてられました",
+                  "vi": "từ nhiễu, cách dùng không chuẩn (gốc 経る: trải qua)"
+                },
+                {
+                  "t": "健てられました",
+                  "read": "たてられました",
+                  "vi": "từ nhiễu, không có nghĩa (chữ 健 không dùng theo cách này)"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはせんせいにほめられてとてもうれしそうでした。",
+              "ul": "ほめられて",
+              "choices": [
+                "褒められて",
+                "誉められて",
+                "保められて",
+                "補められて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「褒められて」là thể bị động của「褒める」(khen ngợi) — được thầy giáo khen. ① 褒められて: ĐÚNG — kanji chuẩn của「ほめる」là 褒. ② 誉められて: 誉 (danh dự/vinh dự) là cách viết cũ/ít dùng, trong văn phòng chuẩn hiện đại dùng 褒; trong đề JLPT chính thức sẽ không chấp nhận. ③ 保められて: kanji 保 (bảo toàn, giữ gìn),「保める」không tồn tại. ④ 補められて: kanji 補 (bù đắp, bổ sung),「補める」không liên quan đến khen ngợi.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "ほめられて",
+                  "read": "ほめられて",
+                  "vi": "được khen (bị động của 褒める)"
+                },
+                {
+                  "t": "うれしそう",
+                  "read": "うれしそう",
+                  "vi": "có vẻ vui"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "かれ (anh ấy) + は (trợ từ chủ đề) = \"anh ấy thì...\""
+                },
+                {
+                  "t": "でした",
+                  "read": "でした",
+                  "vi": "quá khứ lịch sự của です = \"đã là ~\""
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはでんしゃのなかでとなりのひとにあしをふまれました。",
+              "ul": "ふまれました",
+              "choices": [
+                "踏まれました",
+                "歩まれました",
+                "踢まれました",
+                "跡まれました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đây là bị động phiền (迷惑受身) — tôi bị người bên cạnh giẫm lên chân, gây khó chịu. ① 踏まれました: ĐÚNG — 「踏む」(giẫm) kanji là 踏, bị động「踏まれる」. ② 歩まれました: 「歩む」(bước đi) có nghĩa rất khác — bước đi trong hành trình, không phải giẫm. ③ 踢まれました: 踢 không phải kanji tiếng Nhật (đây là chữ Hán tiếng Trung), trong tiếng Nhật không dùng. ④ 跡まれました: kanji 跡 (dấu vết),「跡まる」không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "でんしゃ",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "となりのひと",
+                  "read": "となりのひと",
+                  "vi": "người bên cạnh"
+                },
+                {
+                  "t": "あし",
+                  "read": "あし",
+                  "vi": "chân"
+                },
+                {
+                  "t": "ふまれました",
+                  "read": "ふまれました",
+                  "vi": "bị giẫm lên (bị động phiền của 踏む)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "なか",
+                  "read": "なか",
+                  "vi": "bên trong, ở giữa"
+                }
+              ]
+            },
+            {
+              "prompt": "このしょうせつはたくさんのひとによまれています。",
+              "ul": "よまれています",
+              "choices": [
+                "読まれています",
+                "詠まれています",
+                "呼まれています",
+                "読れています"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「読まれています」là bị động khách quan — cuốn tiểu thuyết được nhiều người đọc (trạng thái khách quan, không phiền). ① 読まれています: ĐÚNG — 「読む」(đọc) kanji 読, bị động「読まれる」. ② 詠まれています: 「詠む」(ngâm thơ, hát) — gần âm nhưng khác nghĩa và kanji khác, chuyên dùng cho thơ ca truyền thống. ③ 呼まれています: 「呼ぶ」(gọi) → bị động là「呼ばれる」, không phải「呼まれる」, và âm cũng khác (よぶ). ④ 読れています: sai ngữ pháp hoàn toàn — thiếu âm「ま」trong okurigana bị động.",
+              "glosses": [
+                {
+                  "t": "しょうせつ",
+                  "read": "しょうせつ",
+                  "vi": "tiểu thuyết"
+                },
+                {
+                  "t": "よまれています",
+                  "read": "よまれています",
+                  "vi": "được đọc (bị động khách quan của 読む)"
+                },
+                {
+                  "t": "読まれています",
+                  "read": "よまれています",
+                  "vi": "được đọc (từ 読む)"
+                },
+                {
+                  "t": "詠まれています",
+                  "read": "よまれています",
+                  "vi": "được ngâm vịnh (thơ ca) (từ 詠む)"
+                },
+                {
+                  "t": "呼まれています",
+                  "read": "よまれています",
+                  "vi": "từ nhiễu, sai chia động từ (呼ぶ đúng phải là 呼ばれています, nghĩa 'được gọi')"
+                },
+                {
+                  "t": "読れています",
+                  "read": "よまれています",
+                  "vi": "từ nhiễu, thiếu chữ 'ま', dạng đúng phải là 読まれています"
+                },
+                {
+                  "t": "たくさん",
+                  "read": "たくさん",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうのよる、あめにふられてかぜをひいてしまいました。",
+              "ul": "ふられて",
+              "choices": [
+                "降られて",
+                "振られて",
+                "触られて",
+                "降れられて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「雨に降られる」là bị động phiền điển hình — bị mưa làm phiền (ướt, lạnh). ① 降られて: ĐÚNG — 「降る」(rơi xuống — mưa/tuyết) kanji 降, bị động phiền「降られる」. ② 振られて: 「振る」(vẫy, lắc / bị từ chối tình cảm) — cùng âm「ふる」nhưng hoàn toàn khác nghĩa và kanji. ③ 触られて: 「触る」(chạm vào) — âm「さわる」, bị động「触られる」, không liên quan đến mưa. ④ 降れられて: dạng từ ghép sai, không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "きのうのよる",
+                  "read": "きのうのよる",
+                  "vi": "tối qua"
+                },
+                {
+                  "t": "あめにふられて",
+                  "read": "あめにふられて",
+                  "vi": "bị mưa (bị động phiền: bị mưa làm ướt)"
+                },
+                {
+                  "t": "かぜをひいて",
+                  "read": "かぜをひいて",
+                  "vi": "bị cảm"
+                },
+                {
+                  "t": "しまいました",
+                  "read": "しまいました",
+                  "vi": "〜てしまいました = lỡ/trót làm gì đó (thể hiện sự tiếc nuối, ngoài ý muốn), thể lịch sự quá khứ"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはしらないひとにかばんをぬすまれました。",
+              "ul": "ぬすまれました",
+              "choices": [
+                "盗まれました",
+                "逃まれました",
+                "掴まれました",
+                "悩まれました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「盗まれました」là bị động phiền — túi xách bị người lạ lấy trộm, gây thiệt hại cho tôi. ① 盗まれました: ĐÚNG — 「盗む」(trộm cắp) kanji 盗, bị động「盗まれる」. ② 逃まれました: 「逃げる」(chạy trốn) bị động là「逃げられる」, không phải「逃まれる」; kanji và okurigana sai. ③ 掴まれました: 「掴む」(nắm, chộp) — gần về hành động tay nhưng nghĩa là bị nắm lấy chứ không phải bị trộm. ④ 悩まれました: 「悩む」(khổ não, băn khoăn) — bị động「悩まれる」không dùng theo nghĩa này; nghĩa khác hẳn.",
+              "glosses": [
+                {
+                  "t": "しらないひと",
+                  "read": "しらないひと",
+                  "vi": "người lạ"
+                },
+                {
+                  "t": "ぬすまれました",
+                  "read": "ぬすまれました",
+                  "vi": "bị trộm (bị động phiền của 盗む)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "かばん",
+                  "read": "かばん",
+                  "vi": "cái cặp, túi xách"
+                }
+              ]
+            },
+            {
+              "prompt": "このきょうかいはえどじだいにたてられたとつたえられています。",
+              "ul": "つたえられています",
+              "choices": [
+                "伝えられています",
+                "傳えられています",
+                "伝えています",
+                "転えられています"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「伝えられています」là bị động khách quan/lịch sử — được truyền lại rằng... (thông tin từ thế hệ trước). ① 伝えられています: ĐÚNG — 「伝える」(truyền đạt) kanji 伝, bị động「伝えられる」. ② 傳えられています: 傳 là chữ phồn thể (Trung Hoa), trong tiếng Nhật hiện đại dùng 伝 (giản thể hóa theo Tōyō kanji). ③ 伝えています: đây là dạng chủ động「伝えている」— ai đó đang truyền đạt, không phải bị động. ④ 転えられています: kanji 転 (chuyển, lăn) — khác hoàn toàn; 「転えられる」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "きょうかい",
+                  "read": "きょうかい",
+                  "vi": "nhà thờ"
+                },
+                {
+                  "t": "えどじだい",
+                  "read": "えどじだい",
+                  "vi": "thời Edo"
+                },
+                {
+                  "t": "つたえられています",
+                  "read": "つたえられています",
+                  "vi": "được truyền lại/được cho là (bị động khách quan)"
+                },
+                {
+                  "t": "伝えられています",
+                  "read": "つたえられています",
+                  "vi": "được truyền lại/kể lại (từ 伝える)"
+                },
+                {
+                  "t": "傳えられています",
+                  "read": "つたえられています",
+                  "vi": "chữ Hán cũ (旧字体) của 伝える, cùng nghĩa 'được truyền lại'"
+                },
+                {
+                  "t": "伝えています",
+                  "read": "つたえています",
+                  "vi": "đang truyền đạt (thể chủ động, không phải bị động - từ nhiễu ngữ pháp)"
+                },
+                {
+                  "t": "転えられています",
+                  "read": "つたえられています",
+                  "vi": "từ nhiễu, không tồn tại (chữ 転 không ghép nghĩa này)"
+                },
+                {
+                  "t": "たてられたとつたえられています",
+                  "read": "たてられたとつたえられています",
+                  "vi": "建てられた (bị động quá khứ của 建てる, đã được xây) + と (rằng) + 伝えられています (đang được truyền lại) = \"được truyền lại rằng đã được xây dựng vào ~\""
+                }
+              ]
+            },
+            {
+              "prompt": "とうきょうタワーは1958ねんにかんこうしげんとしてつかわれはじめました。",
+              "ul": "つかわれ",
+              "choices": [
+                "使われ",
+                "仕われ",
+                "遣われ",
+                "付かわれ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「使われ始めました」— bắt đầu được sử dụng; đây là bị động khách quan với đồ vật làm chủ ngữ. ① 使われ: ĐÚNG — 「使う」(dùng/sử dụng) kanji 使, bị động「使われる」. ② 仕われ: kanji 仕 (phục vụ — trong「仕事」), không có「仕う」đọc là「つかう」. ③ 遣われ: 「遣う」cũng đọc là「つかう」(dùng — trong「気を遣う」/「お遣い」), nhưng trong ngữ cảnh sử dụng tài nguyên 使 là kanji chuẩn. ④ 付かわれ: kanji 付 (gắn, dính) — hoàn toàn sai nghĩa và không đọc là「つかう」.",
+              "glosses": [
+                {
+                  "t": "とうきょうタワー",
+                  "read": "とうきょうタワー",
+                  "vi": "Tháp Tokyo"
+                },
+                {
+                  "t": "かんこうしげん",
+                  "read": "かんこうしげん",
+                  "vi": "tài nguyên du lịch"
+                },
+                {
+                  "t": "つかわれ",
+                  "read": "つかわれ",
+                  "vi": "được sử dụng (bị động khách quan của 使う)"
+                },
+                {
+                  "t": "ねん",
+                  "read": "ねん",
+                  "vi": "năm"
+                },
+                {
+                  "t": "はじめました",
+                  "read": "はじめました",
+                  "vi": "đã bắt đầu (làm gì đó)"
+                },
+                {
+                  "t": "として",
+                  "read": "として",
+                  "vi": "mẫu 名詞+として = \"với tư cách là ~, dùng làm ~\""
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはねているあいだにこどもににっきをよまれてしまいました。",
+              "ul": "よまれて",
+              "choices": [
+                "読まれて",
+                "詠まれて",
+                "読めて",
+                "読ばれて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「日記を読まれてしまいました」là bị động phiền điển hình — nhật ký bị đọc trộm, gây khó chịu cho chủ nhân. ① 読まれて: ĐÚNG — 「読む」(đọc) kanji 読, bị động phiền「読まれる」. ② 詠まれて: 「詠む」(ngâm thơ) cùng âm「よむ」nhưng chuyên dùng cho thơ ca; nhật ký không dùng「詠む」. ③ 読めて: đây là dạng khả năng「読める」(đọc được), không phải bị động. ④ 読ばれて: sai chia bị động — 「読む」nhóm 1 bị động phải là「読まれる」, không phải「読ばれる」(nhầm với cách chia từ nhóm 1 kết thúc bằng ぶ).",
+              "glosses": [
+                {
+                  "t": "ねているあいだ",
+                  "read": "ねているあいだ",
+                  "vi": "trong lúc đang ngủ"
+                },
+                {
+                  "t": "にっき",
+                  "read": "にっき",
+                  "vi": "nhật ký"
+                },
+                {
+                  "t": "よまれて",
+                  "read": "よまれて",
+                  "vi": "bị đọc trộm (bị động phiền của 読む)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "こども",
+                  "read": "こども",
+                  "vi": "con, trẻ em"
+                },
+                {
+                  "t": "しまいました",
+                  "read": "しまいました",
+                  "vi": "〜てしまいました = lỡ/trót làm gì đó (tiếc nuối), thể lịch sự quá khứ"
+                }
+              ]
+            },
+            {
+              "prompt": "このはしはむかしのひとたちにとってたいせつなこうつうろとしてりようされていました。",
+              "ul": "りようされていました",
+              "choices": [
+                "利用されていました",
+                "利容されていました",
+                "里用されていました",
+                "利庸されていました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「利用されていました」— bị động khách quan của「利用する」(sử dụng, tận dụng), cây cầu được dùng như tuyến đường. ① 利用されていました: ĐÚNG — 利 (lợi) + 用 (dụng) = 利用, kanji chuẩn. ② 利容されていました: kanji 容 (dung mạo, chứa đựng) — sai, không có từ「利容」. ③ 里用されていました: kanji 里 (làng, dặm) — sai, 里 ≠ 利; đây là bẫy đánh lừa hình chữ giống. ④ 利庸されていました: kanji 庸 (tầm thường, dùng trong「凡庸」) — sai, không có từ「利庸」.",
+              "glosses": [
+                {
+                  "t": "はし",
+                  "read": "はし",
+                  "vi": "cây cầu"
+                },
+                {
+                  "t": "こうつうろ",
+                  "read": "こうつうろ",
+                  "vi": "tuyến đường giao thông"
+                },
+                {
+                  "t": "りようされていました",
+                  "read": "りようされていました",
+                  "vi": "được sử dụng (bị động khách quan của 利用する)"
+                },
+                {
+                  "t": "利用されていました",
+                  "read": "りようされていました",
+                  "vi": "đã được sử dụng (từ 利用する)"
+                },
+                {
+                  "t": "利容されていました",
+                  "read": "りようされていました",
+                  "vi": "từ nhiễu, không tồn tại (chữ 容 không ghép ở đây)"
+                },
+                {
+                  "t": "里用されていました",
+                  "read": "りようされていました",
+                  "vi": "từ nhiễu, không tồn tại (chữ 里 nghĩa 'làng' không phù hợp)"
+                },
+                {
+                  "t": "利庸されていました",
+                  "read": "りようされていました",
+                  "vi": "từ nhiễu, không tồn tại (chữ 庸 không phải cách viết chuẩn)"
+                },
+                {
+                  "t": "むかし",
+                  "read": "むかし",
+                  "vi": "ngày xưa"
+                },
+                {
+                  "t": "ひとたち",
+                  "read": "ひとたち",
+                  "vi": "những người, mọi người"
+                },
+                {
+                  "t": "にとって",
+                  "read": "にとって",
+                  "vi": "đối với"
+                },
+                {
+                  "t": "たいせつ",
+                  "read": "たいせつ",
+                  "vi": "quan trọng"
+                },
+                {
+                  "t": "として",
+                  "read": "として",
+                  "vi": "mẫu 名詞+として = \"với tư cách là ~, dùng làm ~\""
+                }
+              ]
+            },
+            {
+              "prompt": "かれはぶちょうにしごとをたのまれていつもこまっています。",
+              "ul": "たのまれて",
+              "choices": [
+                "頼まれて",
+                "賴まれて",
+                "類まれて",
+                "頼まれた"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「頼まれて困っています」— bị trưởng phòng nhờ việc liên tục, gây phiền; bị động phiền rõ ràng qua「困っています」. ① 頼まれて: ĐÚNG — 「頼む」(nhờ vả, yêu cầu) kanji 頼, bị động「頼まれる」. ② 賴まれて: 賴 là phồn thể của 頼 (dùng trong chữ Hán/Trung văn), tiếng Nhật hiện đại dùng 頼. ③ 類まれて: kanji 類 (loại, hạng) — không liên quan; 「類まれ」chỉ xuất hiện trong「類まれな才能」(tài năng hiếm có) với nghĩa khác. ④ 頼まれた: kanji đúng nhưng đây là thể た (quá khứ ngắn gọn), câu hỏi yêu cầu viết「たのまれて」dạng て-form.",
+              "glosses": [
+                {
+                  "t": "ぶちょう",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "たのまれて",
+                  "read": "たのまれて",
+                  "vi": "được/bị nhờ vả (bị động phiền của 頼む)"
+                },
+                {
+                  "t": "こまっています",
+                  "read": "こまっています",
+                  "vi": "đang khổ sở/gặp khó khăn"
+                },
+                {
+                  "t": "しごと",
+                  "read": "しごと",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "いつも",
+                  "read": "いつも",
+                  "vi": "luôn luôn"
+                },
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "かれ (anh ấy) + は (trợ từ chủ đề) = \"anh ấy thì...\""
+                }
+              ]
+            },
+            {
+              "prompt": "このくすりはびょうきのひとをたすけるためにはつめいされました。",
+              "ul": "はつめいされました",
+              "choices": [
+                "発明されました",
+                "発名されました",
+                "発鳴されました",
+                "初明されました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「発明されました」— bị động khách quan: thuốc được phát minh ra (không cần nêu ai phát minh). ① 発明されました: ĐÚNG — 発 (phát) + 明 (minh) = 発明 (phát minh), kanji chuẩn. ② 発名されました: kanji 名 (tên, danh) — sai; 「発名」không phải từ tiếng Nhật. ③ 発鳴されました: kanji 鳴 (kêu, vang) — âm「めい」nhưng nghĩa hoàn toàn khác; không có từ「発鳴」. ④ 初明されました: kanji 初 (đầu tiên) — âm「しょ」hoặc「はつ」nhưng「初明」không phải từ tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "くすり",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "びょうきのひと",
+                  "read": "びょうきのひと",
+                  "vi": "người bệnh"
+                },
+                {
+                  "t": "はつめいされました",
+                  "read": "はつめいされました",
+                  "vi": "được phát minh (bị động khách quan của 発明する)"
+                },
+                {
+                  "t": "発明されました",
+                  "read": "はつめいされました",
+                  "vi": "đã được phát minh (từ 発明する)"
+                },
+                {
+                  "t": "発名されました",
+                  "read": "はつめいされました",
+                  "vi": "từ nhiễu, không tồn tại (発名 không phải từ thật)"
+                },
+                {
+                  "t": "発鳴されました",
+                  "read": "はつめいされました",
+                  "vi": "từ nhiễu, không tồn tại (発鳴 không phải từ thật)"
+                },
+                {
+                  "t": "初明されました",
+                  "read": "はつめいされました",
+                  "vi": "từ nhiễu, không tồn tại (初明 không phải từ thật)"
+                },
+                {
+                  "t": "たすける",
+                  "read": "たすける",
+                  "vi": "giúp đỡ, cứu giúp"
+                },
+                {
+                  "t": "ために",
+                  "read": "ために",
+                  "vi": "mẫu mục đích 〜ために = \"để (làm gì đó)\""
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはりょこうちゅうにさいふをすられました。",
+              "ul": "すられました",
+              "choices": [
+                "掏られました",
+                "刷られました",
+                "摺られました",
+                "吸われました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「掏られました」— bị móc túi; bị động phiền gây thiệt hại trực tiếp cho người nói. ① 掏られました: ĐÚNG — 「掏る」(móc túi) kanji 掏, bị động phiền「掏られる」. ② 刷られました: 「刷る」(in ấn) — cùng âm「する」nhưng nghĩa hoàn toàn khác (in sách/báo). ③ 摺られました: 「摺る」(chà xát, xay nghiền) — cũng âm「する」nhưng nghĩa khác, dùng trong nấu ăn hay thủ công. ④ 吸われました: 「吸う」(hút vào) — bị động「吸われる」, nghĩa là bị hút mất; không dùng cho tình huống móc túi.",
+              "glosses": [
+                {
+                  "t": "りょこうちゅう",
+                  "read": "りょこうちゅう",
+                  "vi": "trong chuyến du lịch"
+                },
+                {
+                  "t": "さいふ",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "すられました",
+                  "read": "すられました",
+                  "vi": "bị móc túi (bị động phiền của 掏る)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "このかべにかかれているえはゆうめいなえかきによってさくられました。",
+              "ul": "かかれている",
+              "choices": [
+                "描かれている",
+                "書かれている",
+                "掛かれている",
+                "欠かれている"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「描かれている」— bị động khách quan: bức tranh được vẽ trên tường, 描く chuyên dùng cho vẽ tranh/hình ảnh. ① 描かれている: ĐÚNG — 「描く」(vẽ, khắc họa) kanji 描 (miêu), bị động「描かれる」. ② 書かれている: 「書く」(viết) cũng đọc「かく」, bị động「書かれる」— nhưng dùng cho chữ viết/văn bản, không phải tranh vẽ. ③ 掛かれている: 「掛かる」(treo, mắc) bị động「掛かられる」; dạng「掛かれる」là khả năng, không phải bị động đúng dạng ở đây. ④ 欠かれている: kanji 欠 (thiếu hụt) — 「欠く」bị động「欠かれる」nghĩa là bị thiếu; không liên quan đến tranh vẽ.",
+              "glosses": [
+                {
+                  "t": "かべ",
+                  "read": "かべ",
+                  "vi": "bức tường"
+                },
+                {
+                  "t": "かかれている",
+                  "read": "かかれている",
+                  "vi": "được vẽ/khắc họa (bị động khách quan của 描く)"
+                },
+                {
+                  "t": "ゆうめいなえかき",
+                  "read": "ゆうめいなえかき",
+                  "vi": "họa sĩ nổi tiếng"
+                },
+                {
+                  "t": "によってさくられました",
+                  "read": "によってさくられました",
+                  "vi": "によって (bị động chỉ tác nhân, \"bởi\") + 作られました (đã được làm) = \"đã được làm ra bởi ~\""
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはともだちにひみつをばらされてとてもはずかしかったです。",
+              "ul": "ばらされて",
+              "choices": [
+                "暴露されて",
+                "祓われて",
+                "剥がされて",
+                "散らされて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ばらされて」là dạng kana của「暴露する」(tiết lộ) hoặc「ばらす」(vạch trần) — bí mật bị bạn bè tiết lộ, bị động phiền gây xấu hổ. ① 暴露されて: ĐÚNG — 暴露 (bạo lộ) đọc là「ばくろ」trong Hán âm, nhưng「ばらす」là wago tương đương; kanji 暴露 là cách viết chính thức của「ばらす」. ② 祓われて: 「祓う」(thanh tẩy, trừ tà — nghi lễ Shinto) — âm「はらう」, không liên quan đến tiết lộ bí mật. ③ 剥がされて: 「剥がす」(bóc ra, lột ra) — bị động「剥がされる」nghĩa là bị bóc/lột; không dùng cho bí mật. ④ 散らされて: 「散らす」(rải rác, tung ra) — bị động「散らされる」, không dùng cho việc tiết lộ bí mật trong hội thoại thường ngày.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "ひみつ",
+                  "read": "ひみつ",
+                  "vi": "bí mật"
+                },
+                {
+                  "t": "ばらされて",
+                  "read": "ばらされて",
+                  "vi": "bị vạch trần/bị tiết lộ (bị động phiền của 暴露する/ばらす)"
+                },
+                {
+                  "t": "はずかしかった",
+                  "read": "はずかしかった",
+                  "vi": "đã rất xấu hổ"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "この神社は300年前に＿。",
+              "choices": [
+                "建てられました",
+                "壊されました",
+                "忘れられました",
+                "隠されました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về nghĩa của từ điền vào chỗ trống. Chủ thể là 「神社」(đền thần đạo) và ngữ cảnh 「300年前に」(300 năm trước) cho thấy đây là bị động khách quan về nguồn gốc của công trình. ① 「建てられました」(được xây dựng) — ĐÚNG, phù hợp hoàn toàn với ngữ cảnh một công trình kiến trúc có lịch sử lâu đời. ② 「壊されました」(bị phá hủy) — SAI, nếu đền bị phá hủy thì nó không còn tồn tại để nói đến. ③ 「忘れられました」(bị lãng quên) — SAI, đền thần đạo là vật thể không thể bị 'lãng quên' theo nghĩa vật lý, đây là từ dùng cho ký ức/thông tin. ④ 「隠されました」(bị che giấu/ẩn đi) — SAI, không hợp logic với công trình tôn giáo nổi tiếng được nhắc đến như một điểm tham quan.",
+              "glosses": [
+                {
+                  "t": "神社",
+                  "read": "じんじゃ",
+                  "vi": "đền thần đạo"
+                },
+                {
+                  "t": "300年前",
+                  "read": "さんびゃくねんまえ",
+                  "vi": "300 năm trước"
+                },
+                {
+                  "t": "建てられました",
+                  "read": "たてられました",
+                  "vi": "được xây dựng"
+                },
+                {
+                  "t": "壊されました",
+                  "read": "こわされました",
+                  "vi": "bị phá hủy/bị phá vỡ (từ 壊す, bị động)"
+                },
+                {
+                  "t": "忘れられました",
+                  "read": "わすれられました",
+                  "vi": "bị lãng quên (từ 忘れる, bị động)"
+                },
+                {
+                  "t": "隠されました",
+                  "read": "かくされました",
+                  "vi": "bị giấu đi/bị che giấu (từ 隠す, bị động)"
+                }
+              ]
+            },
+            {
+              "stem": "電車の中で知らない人に足を＿、とても痛かった。",
+              "choices": [
+                "踏まれて",
+                "触れられて",
+                "押さえられて",
+                "引っ張られて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đây là bị động phiền (迷惑受身) — người nói bị làm phiền/tổn hại bởi hành động của người khác. Kết quả 「とても痛かった」(rất đau) là gợi ý chính xác. ① 「踏まれて」(bị giẫm lên) — ĐÚNG, bị người lạ giẫm lên chân trong tàu đông người là ngữ cảnh hoàn toàn tự nhiên và giải thích được cơn đau. ② 「触れられて」(bị chạm/đụng vào) — SAI, chỉ bị chạm nhẹ thì không đủ gây ra cảm giác 「とても痛かった」như vậy. ③ 「押さえられて」(bị ấn/giữ chặt) — SAI, ấn chặt chân có thể đau nhưng không phải hành động ngẫu nhiên điển hình trên tàu đông người. ④ 「引っ張られて」(bị kéo) — SAI, kéo chân người lạ là hành động rất bất thường và không gây đau theo kiểu được mô tả.",
+              "glosses": [
+                {
+                  "t": "電車の中",
+                  "read": "でんしゃのなか",
+                  "vi": "trong tàu điện"
+                },
+                {
+                  "t": "知らない人",
+                  "read": "しらないひと",
+                  "vi": "người lạ"
+                },
+                {
+                  "t": "足",
+                  "read": "あし",
+                  "vi": "chân"
+                },
+                {
+                  "t": "踏まれて",
+                  "read": "ふまれて",
+                  "vi": "bị giẫm lên"
+                },
+                {
+                  "t": "痛かった",
+                  "read": "いたかった",
+                  "vi": "rất đau"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "昨日の大雨に＿、傘を持っていなかった。",
+              "choices": [
+                "降られて",
+                "吹かれて",
+                "流されて",
+                "濡らされて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động phiền (迷惑受身) kinh điển với hiện tượng thời tiết: người nói bị mưa làm phiền. Trong tiếng Nhật, 「雨に降られる」là cụm cố định nghĩa 'bị mưa'. ① 「降られて」(bị mưa) — ĐÚNG, 「大雨に降られる」là bị động phiền với chủ thể là thời tiết, hoàn toàn chuẩn ngữ pháp và tự nhiên với ngữ cảnh không có ô. ② 「吹かれて」(bị thổi/bị gió thổi) — SAI, 「風に吹かれる」mới tự nhiên, còn 「大雨に吹かれる」không phải cụm dùng với mưa lớn. ③ 「流されて」(bị cuốn trôi) — SAI, bị cuốn trôi là thiên tai nghiêm trọng hơn nhiều, không phải tình huống thông thường khi quên ô. ④ 「濡らされて」(bị làm ướt) — SAI, 「濡らす」là hành động của người/vật chủ động làm ướt vật khác, không dùng cho mưa tự nhiên rơi.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "大雨",
+                  "read": "おおあめ",
+                  "vi": "mưa lớn"
+                },
+                {
+                  "t": "降られて",
+                  "read": "ふられて",
+                  "vi": "bị (mưa) rơi xuống, bị mưa"
+                },
+                {
+                  "t": "傘",
+                  "read": "かさ",
+                  "vi": "ô/dù"
+                },
+                {
+                  "t": "持っていなかった",
+                  "read": "もっていなかった",
+                  "vi": "không mang theo"
+                }
+              ]
+            },
+            {
+              "stem": "この小説は世界中の人に＿ています。",
+              "choices": [
+                "読まれ",
+                "書かれ",
+                "売られ",
+                "借りられ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động khách quan mô tả tình trạng/danh tiếng của một tác phẩm văn học. ① 「読まれ」(đang được đọc) — ĐÚNG, tiểu thuyết nổi tiếng thì 「世界中の人に読まれる」(được người khắp thế giới đọc) là cách diễn đạt tự nhiên và phổ biến nhất. ② 「書かれ」(được viết) — SAI, tiểu thuyết đã hoàn thành rồi mới được bán/đọc, nói 'đang được viết' ở thì hiện tại tiếp diễn không hợp ngữ cảnh giới thiệu tác phẩm nổi tiếng. ③ 「売られ」(được bán) — SAI, dù sách cũng được bán, nhưng điểm nổi bật của tiểu thuyết nổi tiếng là được đọc bởi nhiều người, không phải được bán. ④ 「借りられ」(được mượn) — SAI, mượn sách là hành động hạn chế (thư viện), không diễn đạt được quy mô 'khắp thế giới'.",
+              "glosses": [
+                {
+                  "t": "小説",
+                  "read": "しょうせつ",
+                  "vi": "tiểu thuyết"
+                },
+                {
+                  "t": "世界中",
+                  "read": "せかいじゅう",
+                  "vi": "khắp thế giới"
+                },
+                {
+                  "t": "読まれ",
+                  "read": "よまれ",
+                  "vi": "được đọc"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "ています",
+                  "read": "ています",
+                  "vi": "bị động + ている = \"đang được ~\" (trạng thái tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "stem": "友達に秘密を＿、もう信頼できない。",
+              "choices": [
+                "話されて",
+                "聞かれて",
+                "知らされて",
+                "教えられて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động phiền (迷惑受身): người nói bị bạn bè tiết lộ bí mật của mình cho người khác, gây ra hậu quả mất tin tưởng. ① 「話されて」(bị nói ra) — ĐÚNG, bạn bè đã nói bí mật của mình cho người khác nghe, đây là hành động phản bội gây ra cảm xúc 「信頼できない」. ② 「聞かれて」(bị hỏi/bị nghe) — SAI, 「聞かれる」là bị ai đó hỏi mình, không phải mình bị ai tiết lộ bí mật cho người khác. ③ 「知らされて」(bị cho biết/được thông báo) — SAI, 「知らされる」nghĩa là được thông báo về điều gì đó, chiều thông tin ngược lại — bạn thông báo cho mình biết, không phải tiết lộ bí mật của mình. ④ 「教えられて」(được dạy/được chỉ cho) — SAI, 「教えられる」có hàm ý trung tính hoặc tích cực (được chỉ bảo), không phù hợp với cảm xúc tiêu cực và mất tin tưởng.",
+              "glosses": [
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "秘密",
+                  "read": "ひみつ",
+                  "vi": "bí mật"
+                },
+                {
+                  "t": "話されて",
+                  "read": "はなされて",
+                  "vi": "bị nói ra/bị tiết lộ (bởi bạn cho người khác)"
+                },
+                {
+                  "t": "信頼できない",
+                  "read": "しんらいできない",
+                  "vi": "không thể tin tưởng được"
+                }
+              ]
+            },
+            {
+              "stem": "このカメラは有名な技術者によって＿されました。",
+              "choices": [
+                "開発",
+                "発見",
+                "修理",
+                "紹介"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động khách quan: sản phẩm được tạo ra bởi ai đó. 「〜によって」chỉ tác nhân của bị động khách quan. ① 「開発」(phát triển/nghiên cứu chế tạo) — ĐÚNG, kỹ sư nổi tiếng 「開発する」(nghiên cứu chế tạo) ra sản phẩm công nghệ như máy ảnh là rất tự nhiên. ② 「発見」(phát hiện/khám phá) — SAI, 「発見」dùng cho việc tìm ra thứ đã tồn tại (ví dụ: ngôi sao, vi khuẩn), không dùng cho việc chế tạo sản phẩm mới. ③ 「修理」(sửa chữa) — SAI, 「修理」là sửa chữa thứ đã bị hỏng, không phải tạo ra sản phẩm mới. ④ 「紹介」(giới thiệu) — SAI, giới thiệu máy ảnh thì không cần 「有名な技術者によって」mà cần người dẫn chương trình hay nhân viên bán hàng.",
+              "glosses": [
+                {
+                  "t": "カメラ",
+                  "read": "カメラ",
+                  "vi": "máy ảnh"
+                },
+                {
+                  "t": "有名な",
+                  "read": "ゆうめいな",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "技術者",
+                  "read": "ぎじゅつしゃ",
+                  "vi": "kỹ sư/nhà kỹ thuật"
+                },
+                {
+                  "t": "開発",
+                  "read": "かいはつ",
+                  "vi": "phát triển/nghiên cứu chế tạo"
+                },
+                {
+                  "t": "によって",
+                  "read": "によって",
+                  "vi": "bởi ~ (chỉ tác nhân trong bị động)"
+                },
+                {
+                  "t": "されました",
+                  "read": "されました",
+                  "vi": "bị động quá khứ của する = \"đã được ~\""
+                }
+              ]
+            },
+            {
+              "stem": "子どものころ、よく先生に＿ました。",
+              "choices": [
+                "叱られ",
+                "教えられ",
+                "褒められ",
+                "呼ばれ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động phiền (迷惑受身) — đứa trẻ bị giáo viên mắng, một trải nghiệm không mong muốn. ① 「叱られ」(bị mắng) — ĐÚNG, 「よく〜ました」(thường xuyên...) kết hợp với 「子どものころ」(hồi nhỏ) và 「先生に」(bởi thầy/cô) tạo ra ngữ cảnh hoài niệm về việc hay bị mắng khi còn nhỏ — rất tự nhiên. ② 「教えられ」(được dạy) — SAI, mặc dù giáo viên dạy học trò là điều bình thường, nhưng 「よく教えられました」thiếu sắc thái cảm xúc đặc biệt, và câu này nghe bình thường quá, không khớp với ngữ điệu hoài niệm/hơi hối hận của 「子どものころ」. ③ 「褒められ」(được khen) — SAI, nếu thường xuyên được khen thì không có lý do để nhìn lại với giọng hối hận; hơn nữa đây là đáp án SAI gần nhất vì cũng là bị động có liên quan đến giáo viên nhưng nghĩa ngược lại. ④ 「呼ばれ」(bị gọi/được gọi) — SAI, bị gọi tên không có cảm xúc đặc biệt và không phải điều đáng nhớ khi nhìn lại tuổi thơ.",
+              "glosses": [
+                {
+                  "t": "子どものころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường xuyên"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "叱られ",
+                  "read": "しかられ",
+                  "vi": "bị mắng/bị la"
+                }
+              ]
+            },
+            {
+              "stem": "かばんの中の財布を＿しまった。",
+              "choices": [
+                "盗まれて",
+                "落とされて",
+                "取られて",
+                "壊されて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「〜てしまった」diễn đạt sự việc đáng tiếc đã xảy ra. Bị động phiền: người nói bị mất ví do trộm. ① 「盗まれて」(bị trộm) — ĐÚNG, ví trong túi xách bị 「盗む」(trộm) là ngữ cảnh hoàn toàn hợp lý và là loại bị động phiền điển hình. ② 「落とされて」(bị làm rơi) — SAI, 「落とす」là làm rơi vô ý, nhưng 「〜されて」hàm ý người khác cố ý làm, mà cố ý làm rơi ví của người khác không tự nhiên bằng trộm. Ngoài ra 「落とされる」thường nói về bị đánh rớt thi cử. ③ 「取られて」(bị lấy mất) — SAI, 「取られる」có nghĩa là bị lấy mất nhưng mang tính chung chung hơn, không đặc thù cho hành vi trộm cắp từ túi. 「盗まれる」chính xác và nặng nghĩa hơn cho ngữ cảnh này. ④ 「壊されて」(bị phá hủy/bị làm hỏng) — SAI, ví tiền bị phá hủy không liên quan đến việc mất tiền, và không phải tình huống điển hình.",
+              "glosses": [
+                {
+                  "t": "かばんの中",
+                  "read": "かばんのなか",
+                  "vi": "trong túi xách"
+                },
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "盗まれて",
+                  "read": "ぬすまれて",
+                  "vi": "bị trộm cắp"
+                },
+                {
+                  "t": "しまった",
+                  "read": "しまった",
+                  "vi": "đã ~ mất rồi (hối tiếc)"
+                }
+              ]
+            },
+            {
+              "stem": "この歌は1960年代に＿、今も歌われています。",
+              "choices": [
+                "作られ",
+                "歌われ",
+                "流され",
+                "集められ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động khách quan lịch sử: bài hát được sáng tác vào một thời điểm cụ thể trong quá khứ. Cấu trúc 「〜、今も〜ています」cho thấy cần điền hành động tạo ra bài hát. ① 「作られ」(được sáng tác/tạo ra) — ĐÚNG, bài hát được 「作る」(sáng tác) vào thập niên 1960 và vẫn được hát đến nay là luận lý hoàn toàn tự nhiên, đây là bị động khách quan lịch sử điển hình. ② 「歌われ」(được hát) — SAI, vế sau đã có 「今も歌われています」, nếu điền 「歌われ」vào vế trước sẽ bị lặp nghĩa 「1960年代に歌われ、今も歌われています」— câu mất đi sự tương phản thời gian/nguyên nhân-kết quả. ③ 「流され」(bị cuốn trôi / được phát sóng) — SAI, 「流される」nghĩa chính là bị cuốn trôi, nghĩa phát sóng ít phổ biến hơn và không phù hợp với mốc thời gian 1960 để giải thích tại sao bài hát vẫn còn đến nay. ④ 「集められ」(được thu thập) — SAI, 「集める」là thu thập nhiều thứ lại, không dùng cho việc sáng tác một bài hát cụ thể.",
+              "glosses": [
+                {
+                  "t": "歌",
+                  "read": "うた",
+                  "vi": "bài hát"
+                },
+                {
+                  "t": "1960年代",
+                  "read": "せんきゅうひゃくろくじゅうねんだい",
+                  "vi": "thập niên 1960"
+                },
+                {
+                  "t": "作られ",
+                  "read": "つくられ",
+                  "vi": "được sáng tác/được tạo ra"
+                },
+                {
+                  "t": "今も",
+                  "read": "いまも",
+                  "vi": "cho đến nay vẫn"
+                },
+                {
+                  "t": "歌われています",
+                  "read": "うたわれています",
+                  "vi": "vẫn được hát"
+                }
+              ]
+            },
+            {
+              "stem": "会議中に何度も携帯が＿、集中できなかった。",
+              "choices": [
+                "鳴らされて",
+                "止められて",
+                "使われて",
+                "壊されて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động phiền: điện thoại bị ai đó gọi liên tục trong giờ họp, làm người nói không tập trung được. ① 「鳴らされて」(bị (làm) reo/đổ chuông) — ĐÚNG, 「鳴らす」là làm cho kêu/reo, bị động 「鳴らされる」hàm ý điện thoại cứ bị người khác gọi liên tục, gây phiền toái trong cuộc họp. ② 「止められて」(bị dừng/bị tắt) — SAI, nếu điện thoại bị tắt thì ngược lại — sẽ không bị làm phiền trong họp, logic mâu thuẫn với 「集中できなかった」. ③ 「使われて」(bị sử dụng) — SAI, điện thoại 'bị sử dụng' trong họp không giải thích được tại sao người nói mất tập trung — thông thường chính người nói dùng điện thoại chứ không phải bị người khác dùng. ④ 「壊されて」(bị làm hỏng) — SAI, nếu điện thoại bị hỏng thì không thể đổ chuông, mâu thuẫn với 「何度も」(nhiều lần) và không liên quan đến việc không tập trung được.",
+              "glosses": [
+                {
+                  "t": "会議中",
+                  "read": "かいぎちゅう",
+                  "vi": "trong lúc họp"
+                },
+                {
+                  "t": "何度も",
+                  "read": "なんども",
+                  "vi": "nhiều lần"
+                },
+                {
+                  "t": "携帯",
+                  "read": "けいたい",
+                  "vi": "điện thoại di động"
+                },
+                {
+                  "t": "鳴らされて",
+                  "read": "なならされて",
+                  "vi": "bị (làm) reo lên"
+                },
+                {
+                  "t": "集中できなかった",
+                  "read": "しゅうちゅうできなかった",
+                  "vi": "không thể tập trung"
+                }
+              ]
+            },
+            {
+              "stem": "その橋は市民のために税金で＿たものです。",
+              "choices": [
+                "建てられ",
+                "修理され",
+                "使われ",
+                "知られ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động khách quan về công trình công cộng được xây dựng bằng tiền thuế. 「〜たものです」nhấn mạnh nguồn gốc/bản chất của sự vật. ① 「建てられ」(được xây dựng) — ĐÚNG, cây cầu được xây dựng cho người dân bằng tiền thuế là ngữ cảnh bị động khách quan hoàn toàn phù hợp, 「建てる」đúng với công trình hạ tầng như cầu. ② 「修理され」(được sửa chữa) — SAI, sửa chữa cầu bằng tiền thuế cũng có thể xảy ra, nhưng 「〜たものです」nhấn mạnh nguồn gốc — cầu được tạo ra (xây), không phải đang trong quá trình bảo trì. ③ 「使われ」(được sử dụng) — SAI, nói cầu 'được sử dụng bằng tiền thuế' không có nghĩa, tiền thuế 「で」chỉ phương tiện/nguyên liệu để xây, không phải phương tiện để dùng. ④ 「知られ」(được biết đến) — SAI, 「知られる」dùng cho danh tiếng/thông tin, không dùng với phương tiện vật chất như 「税金で」.",
+              "glosses": [
+                {
+                  "t": "橋",
+                  "read": "はし",
+                  "vi": "cầu"
+                },
+                {
+                  "t": "市民のために",
+                  "read": "しみんのために",
+                  "vi": "vì/cho người dân"
+                },
+                {
+                  "t": "税金",
+                  "read": "ぜいきん",
+                  "vi": "tiền thuế"
+                },
+                {
+                  "t": "建てられ",
+                  "read": "たてられ",
+                  "vi": "được xây dựng"
+                },
+                {
+                  "t": "たものです",
+                  "read": "たものです",
+                  "vi": "là thứ đã được ~ (nhấn mạnh nguồn gốc)"
+                }
+              ]
+            },
+            {
+              "stem": "隣の部屋がうるさくて、ずっと眠れなかった。騒音に一晩中＿しまった。",
+              "choices": [
+                "悩まされて",
+                "起こされて",
+                "怒られて",
+                "疲れさせられて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động phiền với tiếng ồn là tác nhân. 「〜に悩まされる」là cụm quen thuộc nghĩa bị thứ gì đó làm khó chịu/hành hạ dai dẳng. ① 「悩まされて」(bị làm khổ/bị hành hạ bởi) — ĐÚNG, 「騒音に悩まされる」là cụm rất tự nhiên chỉ trạng thái bị tiếng ồn làm phiền suốt đêm không ngủ được. ② 「起こされて」(bị đánh thức dậy) — SAI, 「起こす」là đánh thức ai đó, nhưng 「騒音に起こされる」có nghĩa bị tiếng ồn đánh thức — điều này hàm ý người đó có ngủ được một lúc rồi mới bị đánh thức, mâu thuẫn với 「ずっと眠れなかった」(hoàn toàn không ngủ được). ③ 「怒られて」(bị mắng) — SAI, 「怒る」là tức giận/la mắng, còn 「騒音」không thể la mắng ai — tiếng ồn là vật vô tri, không thể dùng làm chủ thể của 「怒る」. ④ 「疲れさせられて」(bị buộc phải mệt) — SAI, đây là hình thức sai động từ (使役受身 của 疲れる), cấu trúc phức tạp và không tự nhiên trong ngữ cảnh này; hơn nữa không phải từ vựng N4 chuẩn.",
+              "glosses": [
+                {
+                  "t": "隣の部屋",
+                  "read": "となりのへや",
+                  "vi": "phòng bên cạnh"
+                },
+                {
+                  "t": "騒音",
+                  "read": "そうおん",
+                  "vi": "tiếng ồn"
+                },
+                {
+                  "t": "一晩中",
+                  "read": "ひとばんじゅう",
+                  "vi": "suốt cả đêm"
+                },
+                {
+                  "t": "悩まされて",
+                  "read": "なやまされて",
+                  "vi": "bị làm khổ/bị hành hạ (bởi điều gì)"
+                },
+                {
+                  "t": "眠れなかった",
+                  "read": "ねむれなかった",
+                  "vi": "không ngủ được"
+                },
+                {
+                  "t": "起こされて",
+                  "read": "おこされて",
+                  "vi": "bị đánh thức/bị làm cho tỉnh giấc (từ 起こす, bị động)"
+                },
+                {
+                  "t": "怒られて",
+                  "read": "おこられて",
+                  "vi": "bị la mắng/bị nổi giận với (từ 怒る, bị động)"
+                },
+                {
+                  "t": "疲れさせられて",
+                  "read": "つかれさせられて",
+                  "vi": "bị làm cho mệt mỏi (thể sai khiến-bị động kép của 疲れる)"
+                },
+                {
+                  "t": "うるさくて",
+                  "read": "うるさくて",
+                  "vi": "ồn ào (nên...)"
+                },
+                {
+                  "t": "ずっと",
+                  "read": "ずっと",
+                  "vi": "mãi, suốt, luôn"
+                },
+                {
+                  "t": "しまった",
+                  "read": "しまった",
+                  "vi": "〜てしまった (thể thường) = lỡ/trót làm gì đó, thường mang sắc thái hối tiếc"
+                }
+              ]
+            },
+            {
+              "stem": "この薬は世界中の病院で＿ています。",
+              "choices": [
+                "使われ",
+                "作られ",
+                "売られ",
+                "認められ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động khách quan mô tả mức độ phổ biến/ứng dụng của một loại thuốc. ① 「使われ」(đang được sử dụng) — ĐÚNG, thuốc được dùng tại bệnh viện khắp thế giới là cách nói phổ biến nhất và tự nhiên nhất để mô tả sự phổ biến của thuốc trong thực tế lâm sàng. ② 「作られ」(đang được sản xuất) — SAI, thuốc được sản xuất ở bệnh viện là không đúng thực tế — bệnh viện là nơi dùng thuốc, không phải nơi sản xuất. ③ 「売られ」(đang được bán) — SAI, bệnh viện không phải nơi bán thuốc theo nghĩa thông thường — nếu muốn nói đến việc lưu hành thương mại thì phải nói 「薬局で売られています」. ④ 「認められ」(được công nhận) — SAI, dù thuốc cần được công nhận (cấp phép), nhưng 「世界中の病院で認められる」không tự nhiên — việc công nhận/phê duyệt thuốc là do cơ quan y tế, không phải 「病院で」.",
+              "glosses": [
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "世界中の病院",
+                  "read": "せかいじゅうのびょういん",
+                  "vi": "bệnh viện khắp thế giới"
+                },
+                {
+                  "t": "使われ",
+                  "read": "つかわれ",
+                  "vi": "được sử dụng"
+                },
+                {
+                  "t": "ています",
+                  "read": "ています",
+                  "vi": "bị động + ている = \"đang được ~\" (trạng thái tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "stem": "スピーチの途中で、後ろの人に話しかけ＿、困った。",
+              "choices": [
+                "られて",
+                "させられて",
+                "てもらって",
+                "ていただいて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Bị động phiền: đang phát biểu thì bị người ngồi sau bắt chuyện — rất bối rối. Ở đây từ vựng được hỏi là 「話しかける」(bắt chuyện với ai) và dạng bị động của nó. ① 「られて」— ĐÚNG, 「話しかけられる」là bị động của 「話しかける」(bắt chuyện/cất tiếng nói chuyện với), hoàn toàn phù hợp với ngữ cảnh bị làm phiền giữa chừng bài phát biểu. ② 「させられて」— SAI, 「〜させられる」là bị động sai khiến (使役受身), nghĩa là bị buộc phải làm gì. 「話しかけさせられる」nghĩa là bị buộc phải bắt chuyện với người khác — ngược chiều hành động, không phải người nói bị bắt chuyện mà là người nói bị buộc phải đi bắt chuyện người khác. ③ 「てもらって」— SAI, 「〜てもらう」nghĩa là được ai làm ơn làm giúp cho mình, mang hàm ý biết ơn, hoàn toàn không phù hợp với 「困った」(bối rối/khó xử). ④ 「ていただいて」— SAI, 「〜ていただく」là kính ngữ của 「〜てもらう」, cũng mang hàm ý lịch sự và biết ơn — mâu thuẫn với cảm xúc tiêu cực 「困った」.",
+              "glosses": [
+                {
+                  "t": "スピーチの途中",
+                  "read": "スピーチのとちゅう",
+                  "vi": "giữa chừng bài phát biểu"
+                },
+                {
+                  "t": "後ろの人",
+                  "read": "うしろのひと",
+                  "vi": "người phía sau"
+                },
+                {
+                  "t": "話しかけられて",
+                  "read": "はなしかけられて",
+                  "vi": "bị bắt chuyện (bởi ai đó)"
+                },
+                {
+                  "t": "困った",
+                  "read": "こまった",
+                  "vi": "bị bối rối/khó xử"
+                }
+              ]
+            },
+            {
+              "stem": "子どもが書いた手紙が、先生に＿、みんなの前で読み上げられた。",
+              "choices": [
+                "選ばれて",
+                "見られて",
+                "取られて",
+                "返されて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Chuỗi bị động: thư được chọn → rồi được đọc trước lớp. Vế sau 「みんなの前で読み上げられた」(được đọc to trước mọi người) cho biết cần một hành động tuyển chọn trước đó. ① 「選ばれて」(được chọn/được lựa ra) — ĐÚNG, giáo viên 「選ぶ」(chọn) bức thư để đọc trước lớp — chuỗi sự kiện hoàn toàn logic và tự nhiên trong ngữ cảnh lớp học. ② 「見られて」(bị nhìn thấy/được xem) — SAI, nếu chỉ đơn giản bị thầy nhìn thấy thì không đủ dẫn đến việc đọc trước lớp — thiếu bước trung gian về sự đánh giá/lựa chọn. ③ 「取られて」(bị lấy mất) — SAI, bị lấy mất thư thì thường là hành động tiêu cực/trộm cắp, không phù hợp với ngữ cảnh lớp học tích cực (thầy đọc thư cho cả lớp nghe). ④ 「返されて」(được trả lại) — SAI, nếu thư được trả lại thì nó đã ở tay đứa trẻ, không thể tiếp tục được đọc trước lớp bởi giáo viên.",
+              "glosses": [
+                {
+                  "t": "子どもが書いた手紙",
+                  "read": "こどもがかいたてがみ",
+                  "vi": "bức thư đứa trẻ đã viết"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "選ばれて",
+                  "read": "えらばれて",
+                  "vi": "được chọn"
+                },
+                {
+                  "t": "みんなの前で",
+                  "read": "みんなのまえで",
+                  "vi": "trước mặt mọi người"
+                },
+                {
+                  "t": "読み上げられた",
+                  "read": "よみあげられた",
+                  "vi": "được đọc to lên"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "この絵は100年前に有名な画家によって描かれました。",
+              "choices": [
+                "有名な画家が100年前にこの絵を描きました。",
+                "有名な画家は100年前にこの絵を見ました。",
+                "この絵は100年前に有名な画家が買いました。",
+                "有名な画家がこの絵を100年後に描くつもりです。"
+              ],
+              "answer": 0,
+              "pt": "NがVられます（被動客觀/歷史）",
+              "explain": "Câu gốc dùng 「〜によって描かれました」 là thể bị động khách quan diễn đạt sự kiện lịch sử: 'bức tranh này được vẽ bởi một hoạ sĩ nổi tiếng 100 năm trước'. Đáp án A dùng thể chủ động '画家が〜描きました' — chủ thể và hành động giống hệt, ý nghĩa tương đương. B sai vì 'みました (nhìn/xem)' khác hẳn 'かきました'. C sai vì 'かいました (mua)' không liên quan vẽ. D sai vì dùng 「つもりです」 (dự định) và 100年後 (100 năm sau), nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "絵",
+                  "read": "え",
+                  "vi": "bức tranh"
+                },
+                {
+                  "t": "有名な",
+                  "read": "ゆうめいな",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "画家",
+                  "read": "がか",
+                  "vi": "hoạ sĩ"
+                },
+                {
+                  "t": "によって",
+                  "vi": "bởi (chỉ tác nhân bị động)"
+                },
+                {
+                  "t": "描かれました",
+                  "read": "かかれました",
+                  "vi": "đã được vẽ"
+                },
+                {
+                  "t": "見ました",
+                  "read": "みました",
+                  "vi": "đã xem/đã nhìn thấy (từ 見る)"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua (từ 買う)"
+                },
+                {
+                  "t": "年前に",
+                  "read": "ねんまえに",
+                  "vi": "... năm trước (đây)"
+                },
+                {
+                  "t": "描くつもりです",
+                  "read": "かくつもりです",
+                  "vi": "〜つもりです = dự định làm ~ (ý định chưa chắc chắn xảy ra)"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんは電車の中で財布を盗まれました。",
+              "choices": [
+                "田中さんは電車の中で泥棒に財布を取られて困りました。",
+                "田中さんは電車の中で財布を落としました。",
+                "田中さんは電車の中で財布を見つけました。",
+                "田中さんは電車の中で財布を買いました。"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（被動phiền）",
+              "explain": "Câu gốc dùng 迷惑の受身「財布を盗まれました」 — Tanaka-san bị ăn cắp ví (chịu hậu quả không mong muốn). Đáp án A diễn đạt cùng ý bằng「泥棒に財布を取られて困りました」(bị tên trộm lấy ví và khó chịu/bực mình) — cùng hàm ý bị hại. B sai vì 'おとしました (đánh rơi)' là tự làm mất, không phải bị ai lấy. C sai vì 'みつけました (tìm thấy)' nghĩa ngược lại. D sai vì 'かいました (mua)' hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "財布",
+                  "read": "さいふ",
+                  "vi": "ví tiền"
+                },
+                {
+                  "t": "盗まれました",
+                  "read": "ぬすまれました",
+                  "vi": "bị ăn cắp"
+                },
+                {
+                  "t": "泥棒",
+                  "read": "どろぼう",
+                  "vi": "tên trộm"
+                },
+                {
+                  "t": "取られて困りました",
+                  "read": "とられてこまりました",
+                  "vi": "bị lấy và bực bội"
+                },
+                {
+                  "t": "落としました",
+                  "read": "おとしました",
+                  "vi": "đã làm rơi/đánh mất (từ 落とす)"
+                },
+                {
+                  "t": "見つけました",
+                  "read": "みつけました",
+                  "vi": "đã tìm thấy (từ 見つける)"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua (từ 買う)"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "中で",
+                  "read": "なかで",
+                  "vi": "ở trong, bên trong"
+                }
+              ]
+            },
+            {
+              "prompt": "この歌は世界中の人々に愛されています。",
+              "choices": [
+                "世界中の人々がこの歌を愛しています。",
+                "世界中の人々がこの歌を作りました。",
+                "この歌は世界中では知られていません。",
+                "世界中の人々がこの歌を忘れています。"
+              ],
+              "answer": 0,
+              "pt": "NがVられます（被動客觀）",
+              "explain": "「愛されています」là bị động của 「愛する」 — bài hát được mọi người trên thế giới yêu thích. Đáp án A dùng thể chủ động「世界中の人々が〜愛しています」 có cùng nghĩa. B sai vì 'つくりました (đã làm/sáng tác)' khác 'yêu thích'. C sai vì phủ định 'không được biết đến' — nghĩa ngược. D sai vì 'わすれています (đang quên)' trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "歌",
+                  "read": "うた",
+                  "vi": "bài hát"
+                },
+                {
+                  "t": "世界中",
+                  "read": "せかいじゅう",
+                  "vi": "khắp thế giới"
+                },
+                {
+                  "t": "人々",
+                  "read": "ひとびと",
+                  "vi": "mọi người"
+                },
+                {
+                  "t": "愛されています",
+                  "read": "あいされています",
+                  "vi": "được yêu thích"
+                },
+                {
+                  "t": "作りました",
+                  "read": "つくりました",
+                  "vi": "đã làm ra/sáng tác (từ 作る)"
+                },
+                {
+                  "t": "知られていません",
+                  "read": "しられていません",
+                  "vi": "không được biết đến (bị động phủ định của 知る)"
+                },
+                {
+                  "t": "忘れています",
+                  "read": "わすれています",
+                  "vi": "đang/đã quên (từ 忘れる)"
+                }
+              ]
+            },
+            {
+              "prompt": "母に日記を読まれてしまいました。",
+              "choices": [
+                "お母さんが私の日記を読んで、私は嫌な思いをしました。",
+                "お母さんが私の日記を書きました。",
+                "私はお母さんに日記を見せました。",
+                "私はお母さんの日記を読みました。"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（被動phiền）",
+              "explain": "「日記を読まれてしまいました」là 迷惑の受身: tôi bị mẹ đọc nhật ký (không muốn mà bị làm vậy, cảm thấy khó chịu). Đáp án A diễn đạt đúng ý bằng thể chủ động + thêm「嫌な思いをしました (có cảm giác khó chịu)」. B sai vì 'かきました (viết)' khác đọc. C sai vì 'みせました (cho xem)' — chủ động cho xem, không phải bị đọc trộm. D sai vì chủ thể ngược — 'tôi đọc nhật ký của mẹ'.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (của mình)"
+                },
+                {
+                  "t": "日記",
+                  "read": "にっき",
+                  "vi": "nhật ký"
+                },
+                {
+                  "t": "読まれてしまいました",
+                  "read": "よまれてしまいました",
+                  "vi": "bị đọc mất rồi (nuối tiếc/bực bội)"
+                },
+                {
+                  "t": "嫌な思いをしました",
+                  "read": "いやなおもいをしました",
+                  "vi": "có cảm giác khó chịu"
+                },
+                {
+                  "t": "書きました",
+                  "read": "かきました",
+                  "vi": "đã viết (từ 書く)"
+                },
+                {
+                  "t": "見せました",
+                  "read": "みせました",
+                  "vi": "đã cho xem (từ 見せる)"
+                }
+              ]
+            },
+            {
+              "prompt": "この小説は多くの国の言葉に翻訳されています。",
+              "choices": [
+                "多くの国でこの小説が翻訳されています。",
+                "この小説は多くの国で書かれています。",
+                "多くの国でこの小説が読まれていません。",
+                "この小説はまだ翻訳されていません。"
+              ],
+              "answer": 0,
+              "pt": "NがVられます（被動客觀）",
+              "explain": "「翻訳されています」là bị động khách quan: cuốn tiểu thuyết được dịch ra nhiều ngôn ngữ. Đáp án A dùng thể bị động không chỉ rõ chủ thể nhưng cùng nghĩa (nhiều nước đang dịch cuốn tiểu thuyết này). B sai vì 'かかれています (được viết)' khác dịch. C sai vì phủ định 'không được đọc'. D sai vì 'まだ翻訳されていません (chưa được dịch)' — nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "小説",
+                  "read": "しょうせつ",
+                  "vi": "tiểu thuyết"
+                },
+                {
+                  "t": "翻訳されています",
+                  "read": "ほんやくされています",
+                  "vi": "đang được dịch"
+                },
+                {
+                  "t": "言葉",
+                  "read": "ことば",
+                  "vi": "ngôn ngữ/tiếng"
+                },
+                {
+                  "t": "書かれています",
+                  "read": "かかれています",
+                  "vi": "được viết (bị động của 書く)"
+                },
+                {
+                  "t": "読まれていません",
+                  "read": "よまれていません",
+                  "vi": "không được đọc (bị động phủ định của 読む)"
+                },
+                {
+                  "t": "多くの",
+                  "read": "おおくの",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "国",
+                  "read": "くに",
+                  "vi": "nước, quốc gia"
+                },
+                {
+                  "t": "まだ翻訳されていません",
+                  "read": "まだほんやくされていません",
+                  "vi": "まだ〜されていません = vẫn chưa được ~ (bị động, phủ định tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "prompt": "弟に大切な本を破られてしまいました。",
+              "choices": [
+                "弟が大切な本を破ったので、私はとても困りました。",
+                "弟に大切な本を貸しました。",
+                "私は弟の大切な本を破りました。",
+                "弟が大切な本を買いました。"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（被動phiền）",
+              "explain": "「本を破られてしまいました」là 迷惑の受身: tôi bị em trai xé sách quý (chịu thiệt thòi). Đáp án A dùng thể chủ động kèm「〜ので困りました」diễn đạt cùng hàm ý: em xé sách và tôi bực bội. B sai vì 'かしました (cho mượn)' không liên quan xé. C sai vì chủ thể ngược — tôi xé sách của em. D sai vì 'かいました (mua)' hoàn toàn khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "弟",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "大切な",
+                  "read": "たいせつな",
+                  "vi": "quý giá"
+                },
+                {
+                  "t": "破られてしまいました",
+                  "read": "やぶられてしまいました",
+                  "vi": "bị xé mất rồi"
+                },
+                {
+                  "t": "困りました",
+                  "read": "こまりました",
+                  "vi": "bực bội, khó xử"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "貸しました",
+                  "read": "かしました",
+                  "vi": "đã cho mượn (từ 貸す)"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua (từ 買う)"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "破ったので",
+                  "read": "やぶったので",
+                  "vi": "động từ-た + ので = vì đã ~ (nguyên nhân khách quan, lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に褒められたので、もっと頑張ろうと思います。",
+              "choices": [
+                "先生が褒めてくれたから、もっと頑張るつもりです。",
+                "先生に叱られたので、もっと頑張ろうと思います。",
+                "先生に褒められたので、もう勉強しません。",
+                "先生が私を褒めなかったので、頑張るつもりです。"
+              ],
+              "answer": 0,
+              "pt": "V受身形 + Vる つもりです（B31）",
+              "explain": "「褒められた」là bị động của 「褒める」(khen): được thầy khen. Kết hợp「〜ので、もっと頑張ろうと思います」(nên muốn cố gắng hơn). Đáp án A thay bị động bằng「褒めてくれた (thầy khen cho mình)」+ 「つもりです (dự định B31)」— cùng nghĩa. B sai vì 'しかられた (bị mắng)' nghĩa ngược. C sai vì kết quả ngược — không học nữa. D sai vì điều kiện phủ định 'thầy không khen' mâu thuẫn với câu gốc.",
+              "glosses": [
+                {
+                  "t": "褒められた",
+                  "read": "ほめられた",
+                  "vi": "được khen"
+                },
+                {
+                  "t": "頑張ろうと思います",
+                  "read": "がんばろうとおもいます",
+                  "vi": "nghĩ sẽ cố gắng (thể ý chí)"
+                },
+                {
+                  "t": "つもりです",
+                  "vi": "dự định (B31)"
+                },
+                {
+                  "t": "叱られたので",
+                  "read": "しかられたので",
+                  "vi": "vì bị mắng (bị động của 叱る)"
+                },
+                {
+                  "t": "勉強しません",
+                  "read": "べんきょうしません",
+                  "vi": "không học (phủ định của 勉強する)"
+                },
+                {
+                  "t": "もっと",
+                  "read": "もっと",
+                  "vi": "hơn nữa, nhiều hơn"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "褒めてくれたから",
+                  "read": "ほめてくれたから",
+                  "vi": "〜てくれる+から = vì (ai đó) đã làm ~ cho mình nên"
+                },
+                {
+                  "t": "褒めなかったので",
+                  "read": "ほめなかったので",
+                  "vi": "động từ phủ định-た + ので = vì đã không ~"
+                }
+              ]
+            },
+            {
+              "prompt": "この橋は200年前に建てられたそうですが、まだ使われています。",
+              "choices": [
+                "200年前に建てられたと聞きましたが、この橋は今も使用されています。",
+                "200年前に建てられたので、もう使われていません。",
+                "この橋は200年後に建てられる予定です。",
+                "この橋は100年前に壊されて、今はありません。"
+              ],
+              "answer": 0,
+              "pt": "NがVられます（被動客觀/歷史）",
+              "explain": "Câu gốc: cây cầu được xây 200 năm trước (bị động lịch sử) + vẫn đang được sử dụng. Đáp án A diễn đạt lại cùng ý: 'nghe nói được xây 200 năm trước, cây cầu này vẫn đang được dùng'. B sai vì phủ định 'không còn được dùng' — mâu thuẫn với câu gốc. C sai vì '200年後に建てられる (sẽ được xây 200 năm sau)' khác hẳn. D sai vì '壊されて (bị phá)' và 'không còn nữa' trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "橋",
+                  "read": "はし",
+                  "vi": "cây cầu"
+                },
+                {
+                  "t": "建てられた",
+                  "read": "たてられた",
+                  "vi": "được xây dựng"
+                },
+                {
+                  "t": "使われています",
+                  "read": "つかわれています",
+                  "vi": "đang được sử dụng"
+                },
+                {
+                  "t": "使用されています",
+                  "read": "しようされています",
+                  "vi": "đang được sử dụng (văn viết)"
+                },
+                {
+                  "t": "聞きましたが",
+                  "read": "ききましたが",
+                  "vi": "đã nghe (nhưng...) (từ 聞く)"
+                },
+                {
+                  "t": "今も",
+                  "read": "いまも",
+                  "vi": "hiện vẫn, bây giờ cũng"
+                },
+                {
+                  "t": "予定です",
+                  "read": "よていです",
+                  "vi": "là dự định (từ 予定)"
+                },
+                {
+                  "t": "壊されて",
+                  "read": "こわされて",
+                  "vi": "bị phá hủy (bị động của 壊す)"
+                },
+                {
+                  "t": "今はありません",
+                  "read": "いまはありません",
+                  "vi": "hiện không còn, bây giờ không có"
+                },
+                {
+                  "t": "年前に",
+                  "read": "ねんまえに",
+                  "vi": "... năm trước (đây)"
+                },
+                {
+                  "t": "そうですが",
+                  "read": "そうですが",
+                  "vi": "nghe nói là... nhưng"
+                },
+                {
+                  "t": "もう使われていません",
+                  "read": "もうつかわれていません",
+                  "vi": "もう〜ていません = không còn được ~ nữa (bị động, phủ định tiếp diễn)"
+                },
+                {
+                  "t": "建てられる予定です",
+                  "read": "たてられるよていです",
+                  "vi": "〜予定です = có kế hoạch/dự định sẽ ~"
+                }
+              ]
+            },
+            {
+              "prompt": "電車の中で知らない人に足を踏まれました。",
+              "choices": [
+                "知らない人が電車の中で私の足を踏んで、嫌でした。",
+                "私は電車の中で知らない人の足を踏みました。",
+                "電車の中で知らない人に足をマッサージしてもらいました。",
+                "電車の中で知らない人に話しかけられて嬉しかったです。"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（被動phiền）",
+              "explain": "「足を踏まれました」là 迷惑の受身: bị người lạ giẫm lên chân (khó chịu). Đáp án A dùng thể chủ động + 「嫌でした」diễn đạt cùng hàm ý bị hại. B sai vì chủ thể ngược — tôi giẫm lên chân người khác. C sai vì 'マッサージしてもらいました (được massage)' là việc tốt, nghĩa khác. D sai vì 'được bắt chuyện và vui' không liên quan.",
+              "glosses": [
+                {
+                  "t": "知らない人",
+                  "read": "しらないひと",
+                  "vi": "người lạ"
+                },
+                {
+                  "t": "足を踏まれました",
+                  "read": "あしをふまれました",
+                  "vi": "bị giẫm lên chân"
+                },
+                {
+                  "t": "嫌でした",
+                  "read": "いやでした",
+                  "vi": "cảm thấy khó chịu"
+                },
+                {
+                  "t": "話しかけられて",
+                  "read": "はなしかけられて",
+                  "vi": "bị bắt chuyện/được bắt chuyện (bị động của 話しかける)"
+                },
+                {
+                  "t": "嬉しかったです",
+                  "read": "うれしかったです",
+                  "vi": "đã cảm thấy vui (từ 嬉しい)"
+                },
+                {
+                  "t": "マッサージ",
+                  "read": "マッサージ",
+                  "vi": "mát-xa"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "中で",
+                  "read": "なかで",
+                  "vi": "ở trong, bên trong"
+                },
+                {
+                  "t": "マッサージしてもらいました",
+                  "read": "まっさーじしてもらいました",
+                  "vi": "〜てもらう = được ai đó làm ~ cho mình (nhờ vả/nhận ơn)"
+                }
+              ]
+            },
+            {
+              "prompt": "薬を飲むようにしていますが、まだ全然よくなっていません。",
+              "choices": [
+                "薬を飲むことを心がけていますが、まだ回復していません。",
+                "薬を飲んだので、もうよくなりました。",
+                "薬を飲まないようにしていますが、よくなっています。",
+                "まだ薬を飲んでいませんが、もうよくなりました。"
+              ],
+              "answer": 0,
+              "pt": "Vるようにします（B36）+ まだVていません（B31）",
+              "explain": "「薬を飲むようにしています」= cố gắng uống thuốc (B36), 「まだ全然よくなっていません」= vẫn chưa khỏi chút nào (B31). Đáp án A dùng 「飲むことを心がけています (cố gắng/chú tâm uống thuốc)」và「まだ回復していません (chưa hồi phục)」— cùng nghĩa. B sai vì đã khỏi — mâu thuẫn với 'chưa khỏi'. C sai vì phủ định 「飲まないようにしています (cố không uống thuốc)」trái nghĩa. D sai vì 'chưa uống thuốc' khác với 'cố gắng uống thuốc'.",
+              "glosses": [
+                {
+                  "t": "薬を飲むようにしています",
+                  "read": "くすりをのむようにしています",
+                  "vi": "cố gắng uống thuốc (B36)"
+                },
+                {
+                  "t": "まだ全然よくなっていません",
+                  "read": "まだぜんぜんよくなっていません",
+                  "vi": "vẫn chưa khỏi chút nào (B31)"
+                },
+                {
+                  "t": "心がけています",
+                  "read": "こころがけています",
+                  "vi": "chú tâm thực hiện"
+                },
+                {
+                  "t": "回復していません",
+                  "read": "かいふくしていません",
+                  "vi": "chưa hồi phục"
+                },
+                {
+                  "t": "飲むことを心がけています",
+                  "read": "のむことをこころがけています",
+                  "vi": "〜ことを心がける = luôn chú ý/cố gắng làm ~"
+                },
+                {
+                  "t": "飲んだので",
+                  "read": "のんだので",
+                  "vi": "động từ-た + ので = vì đã ~"
+                },
+                {
+                  "t": "もうよくなりました",
+                  "read": "もうよくなりました",
+                  "vi": "もう〜なりました = đã trở nên ~ rồi (thay đổi trạng thái, hoàn tất)"
+                },
+                {
+                  "t": "飲まないようにしていますが",
+                  "read": "のまないようにしていますが",
+                  "vi": "〜ないようにする = cố gắng không làm ~"
+                },
+                {
+                  "t": "よくなっています",
+                  "read": "よくなっています",
+                  "vi": "〜なっています = đang/đã trở nên ~ (trạng thái tiếp diễn)"
+                },
+                {
+                  "t": "飲んでいませんが",
+                  "read": "のんでいませんが",
+                  "vi": "〜ていませんが = vẫn chưa ~ nhưng"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に言われたとおりに書いたのに、また間違えてしまいました。",
+              "choices": [
+                "先生の指示どおりに書きましたが、それでもまた誤ってしまいました。",
+                "先生に言われたとおりに書いたので、間違いはありませんでした。",
+                "先生に言われたとおりに書かなかったので、間違えました。",
+                "先生に言われなかったので、書き方がわかりませんでした。"
+              ],
+              "answer": 0,
+              "pt": "V受身形 + V／Nのとおりに（B34）",
+              "explain": "「先生に言われたとおりに」= đúng như thầy nói (B34, bị động + のとおりに), 「〜のに、また間違えてしまいました」= vậy mà lại sai nữa. Đáp án A dùng 「先生の指示どおりに (đúng theo chỉ dẫn của thầy)」và 「それでもまた誤ってしまいました (vậy mà vẫn sai)」— cùng nghĩa. B sai vì 'không có lỗi' mâu thuẫn với câu gốc. C sai vì 'không làm theo' — trái với câu gốc. D sai vì 'thầy không nói gì' mâu thuẫn với 'thầy đã nói'.",
+              "glosses": [
+                {
+                  "t": "言われたとおりに",
+                  "read": "いわれたとおりに",
+                  "vi": "đúng như (thầy) đã nói (B34)"
+                },
+                {
+                  "t": "また間違えてしまいました",
+                  "read": "またまちがえてしまいました",
+                  "vi": "lại sai mất rồi"
+                },
+                {
+                  "t": "指示どおりに",
+                  "read": "しじどおりに",
+                  "vi": "đúng theo chỉ dẫn"
+                },
+                {
+                  "t": "誤ってしまいました",
+                  "read": "あやまってしまいました",
+                  "vi": "đã phạm lỗi"
+                },
+                {
+                  "t": "書きましたが",
+                  "read": "かきましたが",
+                  "vi": "đã viết (nhưng...) (từ 書く)"
+                },
+                {
+                  "t": "書いたので",
+                  "read": "かいたので",
+                  "vi": "vì đã viết (từ 書く)"
+                },
+                {
+                  "t": "書かなかったので",
+                  "read": "かかなかったので",
+                  "vi": "vì đã không viết (phủ định quá khứ của 書く)"
+                },
+                {
+                  "t": "方がわかりませんでした",
+                  "read": "かたがわかりませんでした",
+                  "vi": "đã không biết cách (làm)"
+                },
+                {
+                  "t": "それでも",
+                  "read": "それでも",
+                  "vi": "dù vậy, tuy thế"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "書いたのに",
+                  "read": "かいたのに",
+                  "vi": "〜のに = mặc dù đã ~ (nhưng kết quả trái ngược)"
+                },
+                {
+                  "t": "間違いはありませんでした",
+                  "read": "まちがいはありませんでした",
+                  "vi": "không có sai sót/lỗi nào cả"
+                },
+                {
+                  "t": "言われなかったので",
+                  "read": "いわれなかったので",
+                  "vi": "bị động phủ định-た + ので = vì đã không được nói/bảo ~"
+                }
+              ]
+            },
+            {
+              "prompt": "宿題を忘れないように、メモしておきました。",
+              "choices": [
+                "宿題を忘れることがないために、前もってメモを取りました。",
+                "宿題を覚えるために、すでに全部やりました。",
+                "宿題のことを忘れたので、メモしませんでした。",
+                "宿題が終わったから、メモしておきました。"
+              ],
+              "answer": 0,
+              "pt": "Vないように（B36）+ Vておきます（B30）",
+              "explain": "「忘れないように」= để không quên (B36), 「メモしておきました」= đã ghi chú trước (B30 Vておきます). Đáp án A dùng「忘れることがないために (để không có việc quên)」+「前もってメモを取りました (ghi chú trước)」— cùng nghĩa. B sai vì 'đã làm hết bài tập' khác với 'ghi chú'. C sai vì phủ định ngược — quên rồi nên không ghi. D sai vì 'bài tập xong rồi' không phải lý do ghi chú để nhớ.",
+              "glosses": [
+                {
+                  "t": "忘れないように",
+                  "read": "わすれないように",
+                  "vi": "để không quên (B36)"
+                },
+                {
+                  "t": "メモしておきました",
+                  "vi": "đã ghi chú trước (B30)"
+                },
+                {
+                  "t": "前もって",
+                  "read": "まえもって",
+                  "vi": "trước, sớm"
+                },
+                {
+                  "t": "メモを取りました",
+                  "vi": "đã ghi chú"
+                },
+                {
+                  "t": "覚えるために",
+                  "read": "おぼえるために",
+                  "vi": "để ghi nhớ (từ 覚える)"
+                },
+                {
+                  "t": "全部やりました",
+                  "read": "ぜんぶやりました",
+                  "vi": "đã làm hết tất cả (từ やる)"
+                },
+                {
+                  "t": "終わったから",
+                  "read": "おわったから",
+                  "vi": "vì đã xong (từ 終わる)"
+                },
+                {
+                  "t": "すでに",
+                  "read": "すでに",
+                  "vi": "đã, rồi"
+                },
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập về nhà"
+                },
+                {
+                  "t": "忘れることがないために",
+                  "read": "わすれることがないために",
+                  "vi": "〜ことがないために = để không xảy ra việc ~ (biến thể của ため)"
+                },
+                {
+                  "t": "宿題のことを",
+                  "read": "しゅくだいのことを",
+                  "vi": "〜のことを = về việc/chuyện ~"
+                },
+                {
+                  "t": "忘れたので",
+                  "read": "わすれたので",
+                  "vi": "động từ-た + ので = vì đã quên ~ nên"
+                }
+              ]
+            },
+            {
+              "prompt": "熱があるなら、今日は家で休んだほうがいいですよ。",
+              "choices": [
+                "熱が出ているので、今日は無理せず家で安静にしてください。",
+                "熱があっても、今日は会社に行かなければなりません。",
+                "熱がなければ、今日は家で休まないほうがいいです。",
+                "熱があるのに、今日は学校に行くつもりです。"
+              ],
+              "answer": 0,
+              "pt": "Nなら（B35）+ Vたほうがいいです（B32）",
+              "explain": "「熱があるなら」= nếu nói về chuyện bạn đang có sốt (B35 Nなら), 「休んだほうがいいですよ」= nên nghỉ ngơi (B32). Đáp án A diễn đạt lại: 'vì đang sốt, hãy nghỉ ngơi ở nhà' — cùng lời khuyên. B sai vì 'phải đi làm' — ngược với lời khuyên nghỉ. C sai vì điều kiện phủ định 'nếu không sốt' và 'không nên nghỉ' — lệch nghĩa. D sai vì 'dự định đi học' — không nghe theo lời khuyên.",
+              "glosses": [
+                {
+                  "t": "熱があるなら",
+                  "read": "ねつがあるなら",
+                  "vi": "nếu bạn đang bị sốt (B35)"
+                },
+                {
+                  "t": "休んだほうがいいですよ",
+                  "read": "やすんだほうがいいですよ",
+                  "vi": "nên nghỉ ngơi (B32)"
+                },
+                {
+                  "t": "安静にしてください",
+                  "read": "あんせいにしてください",
+                  "vi": "hãy nghỉ ngơi yên tĩnh"
+                },
+                {
+                  "t": "出ているので",
+                  "read": "でているので",
+                  "vi": "vì đang bị/ra (sốt) (từ 出る)"
+                },
+                {
+                  "t": "無理せず",
+                  "read": "むりせず",
+                  "vi": "không gắng sức quá (từ 無理する, phủ định-tiếp diễn)"
+                },
+                {
+                  "t": "行かなければなりません",
+                  "read": "いかなければなりません",
+                  "vi": "phải đi (từ 行く)"
+                },
+                {
+                  "t": "行くつもりです",
+                  "read": "いくつもりです",
+                  "vi": "định đi, có ý định đi"
+                },
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "家",
+                  "read": "いえ",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "熱があっても",
+                  "read": "ねつがあっても",
+                  "vi": "〜ても = dù/cho dù có ~ đi nữa"
+                },
+                {
+                  "t": "熱がなければ",
+                  "read": "ねつがなければ",
+                  "vi": "〜なければ = nếu không có ~"
+                },
+                {
+                  "t": "休まないほうがいいです",
+                  "read": "やすまないほうがいいです",
+                  "vi": "〜ないほうがいい = không nên làm ~"
+                },
+                {
+                  "t": "熱があるのに",
+                  "read": "ねつがあるのに",
+                  "vi": "〜のに = mặc dù có ~ (nhưng)"
+                }
+              ]
+            },
+            {
+              "prompt": "子供のころ、よく親に叱られました。",
+              "choices": [
+                "子供のころ、親にしょっちゅう怒られていました。",
+                "子供のころ、親によく褒められました。",
+                "子供のころ、親をよく叱りました。",
+                "子供のころ、親はめったに叱りませんでした。"
+              ],
+              "answer": 0,
+              "pt": "V受身形（被動）",
+              "explain": "「親に叱られました」= bị bố mẹ mắng (bị động), 「よく」= thường xuyên. Đáp án A dùng 「しょっちゅう怒られていました (thường bị mắng)」— 「しょっちゅう」đồng nghĩa với「よく」, và「怒られる」cùng nghĩa với「叱られる」(bị mắng). B sai vì 「褒められました (được khen)」trái nghĩa với 「叱られました」. C sai vì chủ thể ngược — tôi mắng bố mẹ. D sai vì 「めったに〜ない (hiếm khi)」trái với 「よく (thường xuyên)」.",
+              "glosses": [
+                {
+                  "t": "子供のころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "親",
+                  "read": "おや",
+                  "vi": "bố mẹ"
+                },
+                {
+                  "t": "叱られました",
+                  "read": "しかられました",
+                  "vi": "bị mắng"
+                },
+                {
+                  "t": "しょっちゅう",
+                  "vi": "thường xuyên, luôn luôn"
+                },
+                {
+                  "t": "怒られていました",
+                  "read": "おこられていました",
+                  "vi": "liên tục bị mắng"
+                },
+                {
+                  "t": "褒められました",
+                  "read": "ほめられました",
+                  "vi": "được khen (bị động của 褒める)"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường xuyên, hay"
+                },
+                {
+                  "t": "めったに",
+                  "read": "めったに",
+                  "vi": "hiếm khi (thường đi với phủ định)"
+                },
+                {
+                  "t": "めったに叱りませんでした",
+                  "read": "めったにしかりませんでした",
+                  "vi": "めったに〜ません/ませんでした = hiếm khi ~"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語が話せるようになったら、日本で働くつもりです。",
+              "choices": [
+                "日本語が話せるようになれば、日本で仕事をする予定です。",
+                "日本語が話せるようになる前に、日本で働きました。",
+                "日本語が話せるようになったので、日本で働きたくないです。",
+                "日本語がまだ話せませんが、日本での仕事をやめるつもりです。"
+              ],
+              "answer": 0,
+              "pt": "Vるようになります（B36）+ Vるつもりです（B31）",
+              "explain": "「話せるようになったら」= khi trở nên có thể nói được (B36), 「日本で働くつもりです」= dự định làm việc ở Nhật (B31). Đáp án A dùng 「話せるようになれば (nếu trở nên có thể nói — B35)」+「仕事をする予定です (có kế hoạch làm việc)」— cùng nghĩa. B sai vì 「〜する前に (trước khi có thể nói)」và thì quá khứ — mâu thuẫn. C sai vì 「働きたくないです (không muốn làm việc)」trái với 「働くつもりです」. D sai vì 「仕事をやめるつもりです (dự định bỏ việc)」trái nghĩa.",
+              "glosses": [
+                {
+                  "t": "話せるようになったら",
+                  "read": "はなせるようになったら",
+                  "vi": "khi trở nên có thể nói được (B36)"
+                },
+                {
+                  "t": "働くつもりです",
+                  "read": "はたらくつもりです",
+                  "vi": "dự định làm việc (B31)"
+                },
+                {
+                  "t": "話せるようになれば",
+                  "read": "はなせるようになれば",
+                  "vi": "nếu trở nên có thể nói (B35)"
+                },
+                {
+                  "t": "仕事をする予定です",
+                  "read": "しごとをするよていです",
+                  "vi": "có kế hoạch làm việc"
+                },
+                {
+                  "t": "前に",
+                  "read": "まえに",
+                  "vi": "trước khi, trước đó"
+                },
+                {
+                  "t": "やめる",
+                  "read": "やめる",
+                  "vi": "từ bỏ, ngừng lại"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "話せるようになる",
+                  "read": "はなせるようになる",
+                  "vi": "〜ようになる = trở nên (có thể) ~ (thay đổi trạng thái/năng lực)"
+                },
+                {
+                  "t": "話せるようになったので",
+                  "read": "はなせるようになったので",
+                  "vi": "〜ようになった+ので = vì đã trở nên ~ nên"
+                },
+                {
+                  "t": "働きたくないです",
+                  "read": "はたらきたくないです",
+                  "vi": "〜たくない = không muốn làm ~"
+                },
+                {
+                  "t": "日本語がまだ話せませんが",
+                  "read": "にほんごがまだはなせませんが",
+                  "vi": "まだ〜ません = vẫn chưa ~"
+                },
+                {
+                  "t": "やめるつもりです",
+                  "read": "やめるつもりです",
+                  "vi": "〜つもりです = dự định làm ~"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 37 (N4) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "この絵は100年前に有名な画家に＿＿＿。",
+              "choices": [
+                "かかれました",
+                "かいてありました",
+                "かかせました",
+                "かいておきました"
+              ],
+              "answer": 0,
+              "pt": "NがVられます（被動客觀）",
+              "explain": "Câu hỏi về lịch sử/sự kiện khách quan: 'bức tranh này được vẽ bởi họa sĩ nổi tiếng 100 năm trước'. Dùng 「Vられます」bị động khách quan → 「かく」→ 「かかれました」(A) đúng. (B)「かいてありました」= trạng thái đã làm sẵn, không diễn đạt 'được vẽ bởi ai'. (C)「かかせました」= sai (使役/sai khiến, nghĩa 'bắt ai vẽ'). (D)「かいておきました」= làm trước để chuẩn bị, không hợp văn cảnh lịch sử.",
+              "glosses": [
+                {
+                  "t": "この絵",
+                  "read": "このえ",
+                  "vi": "bức tranh này"
+                },
+                {
+                  "t": "100年前",
+                  "read": "ひゃくねんまえ",
+                  "vi": "100 năm trước"
+                },
+                {
+                  "t": "有名な画家",
+                  "read": "ゆうめいなかか",
+                  "vi": "họa sĩ nổi tiếng"
+                },
+                {
+                  "t": "かかれました",
+                  "vi": "được vẽ (bị động khách quan)"
+                },
+                {
+                  "t": "かいてありました",
+                  "read": "かいてありました",
+                  "vi": "〜てありました (quá khứ của 〜てある) = trạng thái kết quả do ai đó làm sẵn từ trước - \"đã được viết sẵn\""
+                },
+                {
+                  "t": "かかせました",
+                  "read": "かかせました",
+                  "vi": "thể sai khiến (使役) của 書く = \"đã bắt/để ai đó viết\""
+                },
+                {
+                  "t": "かいておきました",
+                  "read": "かいておきました",
+                  "vi": "〜ておきました (quá khứ của 〜ておく) = \"đã viết sẵn để chuẩn bị trước\""
+                }
+              ]
+            },
+            {
+              "stem": "電車の中で子どもに足を＿＿＿、困りました。",
+              "choices": [
+                "ふまれて",
+                "ふんで",
+                "ふまないように",
+                "ふむな"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（bị động phiền）",
+              "explain": "'Tôi bị đứa trẻ giẫm lên chân trong tàu điện, thật khó chịu.' → 迷惑の受身 (bị động phiền): chủ thể chịu thiệt vì hành động của người khác. 「ふむ」→「ふまれる」→「ふまれて」(A) đúng. (B)「ふんで」= 'giẫm và...' — chủ ngữ tự làm, không phải bị. (C)「ふまないように」= 'để không giẫm' — cấu trúc mục đích B36, không hợp. (D)「ふむな」= mệnh lệnh cấm (B33), hoàn toàn sai văn cảnh.",
+              "glosses": [
+                {
+                  "t": "電車の中",
+                  "read": "でんしゃのなか",
+                  "vi": "trong tàu điện"
+                },
+                {
+                  "t": "子ども",
+                  "read": "こども",
+                  "vi": "đứa trẻ"
+                },
+                {
+                  "t": "足",
+                  "read": "あし",
+                  "vi": "chân"
+                },
+                {
+                  "t": "ふまれて",
+                  "vi": "bị giẫm lên (bị động phiền)"
+                },
+                {
+                  "t": "困りました",
+                  "read": "こまりました",
+                  "vi": "bị khó chịu / bối rối"
+                },
+                {
+                  "t": "ふんで",
+                  "read": "ふんで",
+                  "vi": "thể て của 踏む (giẫm, đạp) dùng để nối câu"
+                },
+                {
+                  "t": "ふまないように",
+                  "read": "ふまないように",
+                  "vi": "〜ないように = \"để không giẫm phải\" (mục đích phủ định)"
+                },
+                {
+                  "t": "ふむな",
+                  "read": "ふむな",
+                  "vi": "thể mệnh lệnh cấm đoán của 踏む = \"đừng giẫm!\""
+                }
+              ]
+            },
+            {
+              "stem": "この歌は世界中の人々に＿＿＿ています。",
+              "choices": [
+                "愛され",
+                "愛して",
+                "愛させ",
+                "愛するように"
+              ],
+              "answer": 0,
+              "pt": "NがVられます（被動客觀）",
+              "explain": "'Bài hát này được mọi người trên toàn thế giới yêu thích.' → Bị động khách quan diễn tả sự thật chung. 「愛する」→「愛される」→「愛され」(A) đúng. (B)「愛して」= chủ thể tự yêu, không phải bị động. (C)「愛させ」= 使役 'bắt yêu', sai nghĩa. (D)「愛するように」= 'để yêu / trở nên yêu' (B36), không hợp văn cảnh.",
+              "glosses": [
+                {
+                  "t": "この歌",
+                  "read": "このうた",
+                  "vi": "bài hát này"
+                },
+                {
+                  "t": "世界中の人々",
+                  "read": "せかいじゅうのひとびと",
+                  "vi": "mọi người trên toàn thế giới"
+                },
+                {
+                  "t": "愛されています",
+                  "read": "あいされています",
+                  "vi": "được yêu thích (bị động khách quan)"
+                }
+              ]
+            },
+            {
+              "stem": "昨日、雨に＿＿＿、かばんがぬれてしまいました。",
+              "choices": [
+                "ふられて",
+                "ふって",
+                "ふらないように",
+                "ふるな"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（bị động phiền）",
+              "explain": "'Hôm qua bị mưa ướt, cặp sách bị ướt mất.' → 迷惑の受身: mưa (thiên nhiên) làm hại chủ thể. 「ふる（降る）」→「ふられる」→「ふられて」(A) đúng. (B)「ふって」= 'mưa rơi và...' — chủ ngữ là mưa, không phải bị động người nói. (C)「ふらないように」= 'để mưa không rơi' — cấu trúc mục đích B36, sai. (D)「ふるな」= mệnh lệnh cấm (B33), vô lý.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "cặp sách"
+                },
+                {
+                  "t": "ぬれてしまいました",
+                  "vi": "đã bị ướt mất"
+                },
+                {
+                  "t": "ふられて",
+                  "read": "ふられて",
+                  "vi": "thể て của bị động 降られる (từ 降る, mưa rơi) - thụ động phiền toái (迷惑受身) = \"bị mưa rơi vào (gây phiền)\""
+                },
+                {
+                  "t": "ふって",
+                  "read": "ふって",
+                  "vi": "thể て thường của 降る (rơi, mưa rơi)"
+                },
+                {
+                  "t": "ふらないように",
+                  "read": "ふらないように",
+                  "vi": "〜ないように = \"để (trời) không mưa/không rơi\" (mục đích phủ định)"
+                },
+                {
+                  "t": "ふるな",
+                  "read": "ふるな",
+                  "vi": "thể mệnh lệnh cấm đoán của 降る = \"đừng rơi/đừng mưa!\""
+                }
+              ]
+            },
+            {
+              "stem": "先生に何度も同じ間違いを＿＿＿、恥ずかしかったです。",
+              "choices": [
+                "注意されて",
+                "注意して",
+                "注意させて",
+                "注意するように"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（bị động phiền）",
+              "explain": "'Bị giáo viên nhắc nhở nhiều lần về cùng một lỗi, thật xấu hổ.' → 迷惑の受身: người nói chịu cảm giác xấu hổ từ hành động của giáo viên. 「注意する」→「注意される」→「注意されて」(A) đúng. (B)「注意して」= 'nhắc nhở và...' — chủ ngữ tự làm, sai. (C)「注意させて」= 使役 'bắt nhắc nhở', sai. (D)「注意するように」= 'để nhắc nhở' (B36), sai văn cảnh.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "何度も",
+                  "read": "なんども",
+                  "vi": "nhiều lần"
+                },
+                {
+                  "t": "同じ間違い",
+                  "read": "おなじまちがい",
+                  "vi": "cùng lỗi sai"
+                },
+                {
+                  "t": "注意されて",
+                  "read": "ちゅういされて",
+                  "vi": "bị nhắc nhở"
+                },
+                {
+                  "t": "恥ずかしかった",
+                  "read": "はずかしかった",
+                  "vi": "xấu hổ"
+                },
+                {
+                  "t": "させて",
+                  "read": "させて",
+                  "vi": "thể て của sai khiến (使役) của する = \"bắt/khiến làm ~\""
+                },
+                {
+                  "t": "するように",
+                  "read": "するように",
+                  "vi": "〜するように = \"theo hướng làm ~, để mà làm ~\""
+                }
+              ]
+            },
+            {
+              "stem": "試験の日、隣の人にうるさく＿＿＿、集中できませんでした。",
+              "choices": [
+                "話しかけられて",
+                "話しかけて",
+                "話しかけないで",
+                "話しかけるように"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（bị động phiền）",
+              "explain": "'Ngày thi bị người ngồi cạnh liên tục bắt chuyện, không thể tập trung.' → 迷惑の受身: hành động của người khác gây phiền cho chủ thể. 「話しかける」→「話しかけられる」→「話しかけられて」(A) đúng. (B)「話しかけて」= chủ thể tự bắt chuyện, sai. (C)「話しかけないで」= yêu cầu không làm gì, sai văn cảnh. (D)「話しかけるように」= 'để bắt chuyện' (B36), sai.",
+              "glosses": [
+                {
+                  "t": "試験の日",
+                  "read": "しけんのひ",
+                  "vi": "ngày thi"
+                },
+                {
+                  "t": "隣の人",
+                  "read": "となりのひと",
+                  "vi": "người ngồi cạnh"
+                },
+                {
+                  "t": "話しかけられて",
+                  "read": "はなしかけられて",
+                  "vi": "bị bắt chuyện"
+                },
+                {
+                  "t": "集中できませんでした",
+                  "read": "しゅうちゅうできませんでした",
+                  "vi": "không thể tập trung"
+                },
+                {
+                  "t": "うるさく",
+                  "read": "うるさく",
+                  "vi": "ồn ào"
+                },
+                {
+                  "t": "しかけて",
+                  "read": "しかけて",
+                  "vi": "thể て của 話しかける (bắt chuyện, gợi chuyện)"
+                },
+                {
+                  "t": "しかけないで",
+                  "read": "しかけないで",
+                  "vi": "〜ないで = \"mà không bắt chuyện\""
+                },
+                {
+                  "t": "しかけるように",
+                  "read": "しかけるように",
+                  "vi": "〜するように (ở đây với 話しかける) = \"để mà bắt chuyện\""
+                }
+              ]
+            },
+            {
+              "stem": "明日の会議のために、資料はもう＿＿＿か。",
+              "choices": [
+                "準備してありますか",
+                "準備されましたか",
+                "準備するようにしますか",
+                "準備したあとですか"
+              ],
+              "answer": 0,
+              "pt": "B30 Vてあります",
+              "explain": "'Tài liệu cho cuộc họp ngày mai đã chuẩn bị sẵn chưa?' → 「Vてあります」(B30) diễn tả trạng thái đã làm sẵn với chủ ý. (A) đúng. (B)「準備されました」= bị động đơn thuần 'được chuẩn bị', không nhấn mạnh trạng thái sẵn sàng. (C)「準備するようにします」= 'cố gắng chuẩn bị' (B36), chưa làm, sai. (D)「準備したあとです」= 'sau khi chuẩn bị' (B34), không phải hỏi trạng thái.",
+              "glosses": [
+                {
+                  "t": "明日の会議",
+                  "read": "あしたのかいぎ",
+                  "vi": "cuộc họp ngày mai"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "準備してあります",
+                  "read": "じゅんびしてあります",
+                  "vi": "đã chuẩn bị sẵn rồi"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "mẫu mục đích 〜のために = \"vì/để cho ~\""
+                },
+                {
+                  "t": "はもう",
+                  "read": "はもう",
+                  "vi": "は (chủ đề) + もう (đã, rồi) = nhấn mạnh việc đã xong hay chưa"
+                },
+                {
+                  "t": "されましたか",
+                  "read": "されましたか",
+                  "vi": "bị động quá khứ nghi vấn = \"đã được ~ chưa?\""
+                },
+                {
+                  "t": "するようにしますか",
+                  "read": "するようにしますか",
+                  "vi": "〜するようにする = \"cố gắng làm cho được ~\", dạng nghi vấn"
+                },
+                {
+                  "t": "したあとですか",
+                  "read": "したあとですか",
+                  "vi": "〜した後ですか = \"là sau khi đã làm ~ phải không?\""
+                }
+              ]
+            },
+            {
+              "stem": "先生に褒め＿＿＿、もっと頑張ろうという気持ちになりました。",
+              "choices": [
+                "られて",
+                "させて",
+                "てもらって",
+                "るように"
+              ],
+              "answer": 0,
+              "pt": "V受身形（bị động thông thường）",
+              "explain": "'Được giáo viên khen, tôi nảy sinh cảm giác muốn cố gắng hơn.' → 「褒められて」= bị động thụ hưởng, thể hiện tác động tích cực từ người khác. (A) đúng. (B)「させて」= 使役 'bắt khen', sai. (C)「てもらって」= 'nhờ khen', ngữ pháp đúng nhưng không phải điểm kiểm tra của bài, và câu cần 「られ」để ghép với「褒め」. (D)「るように」= 'để khen' (B36), sai ý nghĩa.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "褒め",
+                  "read": "ほめ",
+                  "vi": "khen"
+                },
+                {
+                  "t": "褒められて",
+                  "vi": "được khen"
+                },
+                {
+                  "t": "頑張ろう",
+                  "read": "がんばろう",
+                  "vi": "cố gắng nào (ý chí)"
+                },
+                {
+                  "t": "気持ちになりました",
+                  "vi": "nảy sinh tâm trạng"
+                },
+                {
+                  "t": "もっと",
+                  "read": "もっと",
+                  "vi": "hơn nữa, nhiều hơn"
+                },
+                {
+                  "t": "という",
+                  "read": "という",
+                  "vi": "mẫu 〜という = \"gọi là ~, rằng là ~\""
+                }
+              ]
+            },
+            {
+              "stem": "このルールはまだよく知られて＿＿＿。",
+              "choices": [
+                "いません",
+                "ありません",
+                "います",
+                "ありました"
+              ],
+              "answer": 0,
+              "pt": "B31 まだVていません",
+              "explain": "'Quy tắc này vẫn chưa được biết đến rộng rãi.' → Kết hợp bị động 「知られる」với 「まだ〜ていません」(B31) = chưa hoàn thành. (A) đúng. (B)「ありません」= phủ định trạng thái vật thể, sai vì chủ ngữ là việc 'được biết đến'. (C)「います」= khẳng định hiện tại, trái nghĩa với「まだ」. (D)「ありました」= thì quá khứ khẳng định, hoàn toàn sai.",
+              "glosses": [
+                {
+                  "t": "このルール",
+                  "vi": "quy tắc này"
+                },
+                {
+                  "t": "知られて",
+                  "read": "しられて",
+                  "vi": "được biết đến (bị động)"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn chưa"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "rõ, kỹ, nhiều"
+                }
+              ]
+            },
+            {
+              "stem": "部長に急に出張を＿＿＿、計画が変わってしまいました。",
+              "choices": [
+                "命じられて",
+                "命じて",
+                "命じさせて",
+                "命じるように"
+              ],
+              "answer": 0,
+              "pt": "迷惑の受身（bị động phiền）",
+              "explain": "'Bị trưởng phòng đột ngột ra lệnh đi công tác, kế hoạch thay đổi mất.' → 迷惑の受身: hành động của trưởng phòng gây ảnh hưởng xấu cho người nói. 「命じる」→「命じられる」→「命じられて」(A) đúng. (B)「命じて」= chủ thể tự ra lệnh, sai. (C)「命じさせて」= 使役 kép, sai. (D)「命じるように」= 'để ra lệnh' (B36), không hợp.",
+              "glosses": [
+                {
+                  "t": "部長",
+                  "read": "ぶちょう",
+                  "vi": "trưởng phòng"
+                },
+                {
+                  "t": "急に",
+                  "read": "きゅうに",
+                  "vi": "đột ngột"
+                },
+                {
+                  "t": "出張",
+                  "read": "しゅっちょう",
+                  "vi": "công tác"
+                },
+                {
+                  "t": "命じられて",
+                  "read": "めいじられて",
+                  "vi": "bị ra lệnh"
+                },
+                {
+                  "t": "計画",
+                  "read": "けいかく",
+                  "vi": "kế hoạch"
+                },
+                {
+                  "t": "変わってしまいました",
+                  "read": "かわってしまいました",
+                  "vi": "đã bị thay đổi mất rồi"
+                }
+              ]
+            },
+            {
+              "stem": "もし明日雨が降れば、試合は＿＿＿かもしれません。",
+              "choices": [
+                "中止される",
+                "中止させる",
+                "中止してある",
+                "中止するな"
+              ],
+              "answer": 0,
+              "pt": "B35 V／Aば + B32 〜かもしれません",
+              "explain": "'Nếu ngày mai trời mưa, trận đấu có thể bị hủy.' → Kết hợp 「〜ば」(B35) + bị động khách quan 「中止される」+ 「かもしれません」(B32). (A) đúng. (B)「中止させる」= 使役 'bắt hủy', chủ thể tự hủy, sai. (C)「中止してある」= trạng thái đã hủy sẵn (B30), không dùng với「かもしれません」. (D)「中止するな」= mệnh lệnh cấm (B33), vô lý.",
+              "glosses": [
+                {
+                  "t": "もし",
+                  "vi": "nếu"
+                },
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "試合",
+                  "read": "しあい",
+                  "vi": "trận đấu"
+                },
+                {
+                  "t": "中止される",
+                  "read": "ちゅうしされる",
+                  "vi": "bị hủy (bị động)"
+                },
+                {
+                  "t": "かもしれません",
+                  "vi": "có thể ~"
+                },
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "降れば",
+                  "read": "ふれば",
+                  "vi": "nếu (mưa) rơi xuống"
+                }
+              ]
+            },
+            {
+              "stem": "子どものころ、よく父に叱ら＿＿＿。",
+              "choices": [
+                "れました",
+                "せました",
+                "れていました",
+                "させました"
+              ],
+              "answer": 2,
+              "pt": "V受身形（bị động thông thường）",
+              "explain": "'Hồi nhỏ tôi thường xuyên bị cha mắng.' → 「よく」chỉ hành động lặp đi lặp lại trong quá khứ, nên dùng 「〜ていました」diễn đạt trạng thái/thói quen. 「叱られていました」(C) đúng. (A)「れました」= bị động đơn một lần, không nắm được ý 'thường xuyên'. (B)「せました」= 使役 'bắt mắng', sai. (D)「させました」= 使役 past, sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "子どものころ",
+                  "read": "こどものころ",
+                  "vi": "hồi còn nhỏ"
+                },
+                {
+                  "t": "父",
+                  "read": "ちち",
+                  "vi": "cha"
+                },
+                {
+                  "t": "叱られていました",
+                  "read": "しかられていました",
+                  "vi": "thường bị mắng (trạng thái lặp lại quá khứ)"
+                },
+                {
+                  "t": "よく",
+                  "read": "よく",
+                  "vi": "thường, hay"
+                }
+              ]
+            },
+            {
+              "stem": "健康のためにもっと野菜を食べる＿＿＿しています。",
+              "choices": [
+                "ように",
+                "ためには",
+                "ままに",
+                "とおりに"
+              ],
+              "answer": 0,
+              "pt": "B36 Vるようにします",
+              "explain": "'Vì sức khỏe, tôi đang cố gắng ăn nhiều rau hơn.' → 「Vるようにします」(B36) = cố gắng/ý thức làm điều gì. (A) đúng. (B)「ためには」= 'để ~ thì cần...' — cấu trúc điều kiện mục đích, không ghép được với「しています」sau. (C)「まま」(B34) = 'để nguyên trạng thái', không hợp nghĩa. (D)「とおりに」(B34) = 'đúng như ~', không hợp.",
+              "glosses": [
+                {
+                  "t": "健康のため",
+                  "read": "けんこうのため",
+                  "vi": "vì sức khỏe"
+                },
+                {
+                  "t": "野菜",
+                  "read": "やさい",
+                  "vi": "rau"
+                },
+                {
+                  "t": "食べるようにしています",
+                  "vi": "đang cố gắng ăn"
+                },
+                {
+                  "t": "もっと",
+                  "read": "もっと",
+                  "vi": "nhiều hơn, hơn nữa"
+                }
+              ]
+            },
+            {
+              "stem": "この歌手は若者だけでなく、お年寄りにも愛さ＿＿＿ています。",
+              "choices": [
+                "れ",
+                "せ",
+                "させ",
+                "れさせ"
+              ],
+              "answer": 0,
+              "pt": "NがVられます（被動客觀）",
+              "explain": "'Ca sĩ này không chỉ được người trẻ mà cả người cao tuổi yêu thích.' → Bị động khách quan 「愛される」→「愛れています」→ phần ghép là「れ」(A). (B)「せ」= 使役 stem, sai. (C)「させ」= 使役 stem dài, sai. (D)「れさせ」= hình thức kỳ lạ không tồn tại, sai.",
+              "glosses": [
+                {
+                  "t": "この歌手",
+                  "read": "このかしゅ",
+                  "vi": "ca sĩ này"
+                },
+                {
+                  "t": "若者",
+                  "read": "わかもの",
+                  "vi": "người trẻ"
+                },
+                {
+                  "t": "お年寄り",
+                  "read": "おとしより",
+                  "vi": "người cao tuổi"
+                },
+                {
+                  "t": "愛されています",
+                  "read": "あいされています",
+                  "vi": "được yêu thích"
+                },
+                {
+                  "t": "だけでなく",
+                  "read": "だけでなく",
+                  "vi": "không chỉ... mà còn..."
+                }
+              ]
+            },
+            {
+              "stem": "先生の言葉の＿＿＿に、問題を解いてみました。",
+              "choices": [
+                "とおり",
+                "ように",
+                "まま",
+                "あとで"
+              ],
+              "answer": 0,
+              "pt": "B34 V／Nのとおりに",
+              "explain": "'Tôi đã thử giải bài toán đúng theo lời của giáo viên.' → 「Nのとおりに」(B34) = làm đúng y như cái gì đó. (A) đúng. (B)「ように」= 'để, như là' (B36), mang ý mục đích hoặc so sánh, không nhấn mạnh 'đúng y như'. (C)「まま」(B34) = 'để nguyên trạng thái', không hợp. (D)「あとで」(B34) = 'sau khi', thay đổi nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "先生の言葉",
+                  "read": "せんせいのことば",
+                  "vi": "lời của giáo viên"
+                },
+                {
+                  "t": "とおりに",
+                  "vi": "đúng như ~, theo ~"
+                },
+                {
+                  "t": "問題を解いてみました",
+                  "read": "もんだいをといてみました",
+                  "vi": "đã thử giải bài toán"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "この手紙は",
+                "書かれました。"
+              ],
+              "pieces": [
+                "に",
+                "有名な",
+                "よって",
+                "作家"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "NがVられます (受身形 – bị động khách quan)",
+              "explain": "Bị động khách quan「NはN²によってVられます」dùng để mô tả sự kiện khách quan. 「書かれました」là dạng bị động của「書く」. Ráp đúng: 「この手紙は有名な作家によって書かれました。」— thứ tự: 有名な→作家→に→よって. Ô ★ (slot 4) là「よって」— từ quan trọng trong「によって」(bởi). Sai nếu dùng「に」thay「によって」với tác nhân lịch sử/khách quan.",
+              "glosses": [
+                {
+                  "t": "によって",
+                  "vi": "bởi (tác nhân khách quan)"
+                },
+                {
+                  "t": "手紙",
+                  "read": "てがみ",
+                  "vi": "bức thư"
+                },
+                {
+                  "t": "書かれました",
+                  "read": "かかれました",
+                  "vi": "được viết (bị động)"
+                },
+                {
+                  "t": "有名な",
+                  "read": "ゆうめいな",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "作家",
+                  "read": "さっか",
+                  "vi": "nhà văn"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "弟に",
+                "ました。"
+              ],
+              "pieces": [
+                "壊され",
+                "て",
+                "しまい",
+                "ゲームを"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "迷惑の受身 (bị động phiền)",
+              "explain": "Câu đúng: 「弟にゲームを壊されてしまいました。」— Tôi bị em trai làm hỏng mất máy chơi game.\nSắp xếp: ô 1=「ゲームを」, ô 2=「壊され」★, ô 3=「て」, ô 4=「しまい」\nKhung câu có tác nhân gây ra hành động 「弟に」 ở đầu và đuôi câu 「ました。」, nên các ô trống cần tân ngữ bị tác động cùng vị ngữ dạng bị động. Mảnh 「壊され」, mảnh 「て」 và mảnh 「しまい」 bắt buộc dính liền nhau theo thứ tự thành chuỗi 「壊されてしまい」 để thể hiện hành động bị động đi kèm sự tiếc nuối. Ta đưa tân ngữ 「ゲームを」 vào ô 1 đứng sau tác nhân 「弟に」, rồi ghép tiếp khối động từ 「壊されてしまい」 vào các ô 2, 3, 4 để nối liền với 「ました。」. Đọc lại câu hoàn chỉnh, mảnh 「壊され」 rơi vào ô 2 ★; mảnh này không thể đứng ở vị trí khác vì đây là động từ bị động chính phải đứng ngay sau tân ngữ 「ゲームを」 (ô 1) và nối trực tiếp với trợ từ 「て」 (ô 3).",
+              "glosses": [
+                {
+                  "t": "〜てしまいました",
+                  "vi": "đã... mất (kết quả đáng tiếc)"
+                },
+                {
+                  "t": "弟",
+                  "read": "おとうと",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "壊され",
+                  "read": "こわされ",
+                  "vi": "bị phá hỏng (bị động phiền)"
+                },
+                {
+                  "t": "ゲーム",
+                  "vi": "trò chơi điện tử"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この寺は",
+                "建てられたそうです。"
+              ],
+              "pieces": [
+                "職人",
+                "約500年",
+                "前に",
+                "によって"
+              ],
+              "order": [
+                1,
+                2,
+                0,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "NがVられます (受身形 – bị động khách quan / lịch sử)",
+              "explain": "Câu mô tả sự kiện lịch sử: ngôi chùa được xây bởi thợ thủ công khoảng 500 năm trước. Ráp đúng: 「この寺は約500年前に職人によって建てられたそうです。」— thứ tự: 約500年→前に→職人→によって. Ô ★ (slot 4) là「によって」— trợ từ chỉ tác nhân khách quan. Sai nếu dùng「に」thay「によって」vì「職人」là tác nhân của sự kiện lịch sử.",
+              "glosses": [
+                {
+                  "t": "寺",
+                  "read": "てら",
+                  "vi": "ngôi chùa"
+                },
+                {
+                  "t": "建てられた",
+                  "read": "たてられた",
+                  "vi": "được xây dựng (bị động)"
+                },
+                {
+                  "t": "そうです",
+                  "read": "そうです",
+                  "vi": "mẫu truyền văn (伝聞) 〜そうです = \"nghe nói là ~\""
+                },
+                {
+                  "t": "職人",
+                  "read": "しょくにん",
+                  "vi": "thợ thủ công"
+                },
+                {
+                  "t": "約",
+                  "read": "やく",
+                  "vi": "khoảng, xấp xỉ"
+                },
+                {
+                  "t": "500年前",
+                  "read": "ごひゃくねんまえ",
+                  "vi": "500 năm trước"
+                },
+                {
+                  "t": "によって",
+                  "vi": "bởi (tác nhân khách quan)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "昨日、",
+                "泣いてしまいました。"
+              ],
+              "pieces": [
+                "秘密を",
+                "て",
+                "話され",
+                "友達に"
+              ],
+              "order": [
+                3,
+                0,
+                2,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "迷惑の受身 (bị động phiền)",
+              "explain": "Câu đúng: 「昨日、友達に秘密を話されて泣いてしまいました。」— Hôm qua, tôi bị bạn tiết lộ bí mật nên đã lỡ khóc mất.\nSắp xếp: ô 1=「友達に」, ô 2=「秘密を」, ô 3=「話され」★, ô 4=「て」\nKhung câu bắt đầu bằng mốc thời gian 「昨日、」 và kết thúc bằng vị ngữ 「泣いてしまいました。」, nên phần trống cần một mệnh đề phụ chỉ nguyên nhân nối qua thể て. Mảnh 「話され」 bắt buộc phải dính liền ngay trước mảnh 「て」 thành cụm 「話されて」 để chia động từ, còn tân ngữ 「秘密を」 phải đứng ngay trước động từ để làm đối tượng bị tiết lộ. Do tác nhân thực hiện hành động mang trợ từ 「に」 nên 「友達に」 đứng đầu khoảng trống, nối tiếp là cụm tân ngữ - động từ 「秘密を話され」 và đuôi 「て」. Mảnh 「話され」 rơi vào ô 3 ★ và không thể đứng ô khác vì vừa phải nhận trợ từ 「を」 của mảnh trước, vừa phải đứng ngay trước đuôi 「て」 để tạo dạng bị động chỉ nguyên nhân.",
+              "glosses": [
+                {
+                  "t": "昨日",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "泣いてしまいました",
+                  "read": "ないてしまいました",
+                  "vi": "đã khóc mất (không mong muốn)"
+                },
+                {
+                  "t": "秘密",
+                  "read": "ひみつ",
+                  "vi": "bí mật"
+                },
+                {
+                  "t": "話され",
+                  "read": "はなされ",
+                  "vi": "bị nói ra (bị động phiền)"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "người bạn"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "薬を",
+                "おきました。"
+              ],
+              "pieces": [
+                "ように",
+                "テーブルに",
+                "置いて",
+                "飲み忘れない"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "Vないように + Vておきます (B36 + B30)",
+              "explain": "Câu đúng: 「薬を飲み忘れないようにテーブルに置いておきました。」— Tôi đã đặt sẵn thuốc trên bàn để không quên uống.\nSắp xếp: ô 1=「飲み忘れない」, ô 2=「ように」★, ô 3=「テーブルに」, ô 4=「置いて」\nKhung câu mở đầu bằng tân ngữ 「薬を」 và kết thúc bằng đuôi 「おきました。」, đòi hỏi một mệnh đề chỉ mục đích ở trước và vị ngữ hành động phía sau. Mảnh 「飲み忘れない」 bắt buộc phải dính liền ngay trước mảnh 「ように」 để tạo thành cụm chỉ mục đích 「飲み忘れないように」, còn mảnh 「置いて」 phải dính liền trước đuôi 「おきました。」 ở cuối khung câu. Mảnh chỉ địa điểm 「テーブルに」 đứng ngay trước động từ 「置いて」 để bổ nghĩa cho hành động đặt. Mảnh 「ように」 rơi vào ô 2 ★ và không thể đứng ở ô khác vì nó bắt buộc phải theo sau động từ phủ định 「飲み忘れない」 để tạo ý nghĩa mục đích, không thể đứng sau danh từ 「テーブルに」 hay động từ 「置いて」.",
+              "glosses": [
+                {
+                  "t": "置いておきました",
+                  "read": "おいておきました",
+                  "vi": "đã đặt sẵn"
+                },
+                {
+                  "t": "薬",
+                  "read": "くすり",
+                  "vi": "thuốc"
+                },
+                {
+                  "t": "ように",
+                  "vi": "để (mục đích, B36)"
+                },
+                {
+                  "t": "テーブル",
+                  "vi": "bàn"
+                },
+                {
+                  "t": "飲み忘れない",
+                  "read": "のみわすれない",
+                  "vi": "không quên uống"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生に",
+                "かったです。"
+              ],
+              "pieces": [
+                "みんなの前で",
+                "とても",
+                "叱られて",
+                "恥ずかし"
+              ],
+              "order": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "迷惑の受身 (bị động phiền) + 感情表現",
+              "explain": "Câu đúng: 「先生にみんなの前で叱られてとても恥ずかしかったです。」— Tôi đã rất xấu hổ vì bị thầy giáo mắng trước mặt mọi người.\nSắp xếp: ô 1=「みんなの前で」, ô 2=「叱られて」★, ô 3=「とても」, ô 4=「恥ずかし」\nKhung câu mở đầu bằng tác nhân 「先生に」 và kết thúc bằng đuôi tính từ 「かったです。」, cho thấy giữa câu cần một mệnh đề chỉ nguyên nhân và tính từ chỉ cảm xúc. Mảnh 「恥ずかし」 bắt buộc phải dính liền ngay trước đuôi 「かったです。」 để ghép thành tính từ quá khứ 「恥ずかしかったです」, còn trạng từ 「とても」 dính liền ngay trước tính từ này để bổ nghĩa mức độ. Cụm bối cảnh 「みんなの前で」 đứng sau tác nhân 「先生に」 và ngay trước động từ bị động 「叱られて」 để làm rõ nơi chốn xảy ra việc bị mắng. Mảnh 「叱られて」 rơi vào ô 2 ★ và không thể đặt ở vị trí nào khác vì đây là động từ dạng thể て duy nhất đóng vai trò kết nối nguyên nhân bị thầy mắng với vế diễn tả cảm xúc ở sau.",
+              "glosses": [
+                {
+                  "t": "恥ずかしかった",
+                  "read": "はずかしかった",
+                  "vi": "đã xấu hổ"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "かったです",
+                  "read": "かったです",
+                  "vi": "đuôi quá khứ lịch sự của tính từ đuôi い = \"đã ~ (tính từ)\""
+                },
+                {
+                  "t": "みんなの前で",
+                  "read": "みんなのまえで",
+                  "vi": "trước mặt mọi người"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "叱られて",
+                  "read": "しかられて",
+                  "vi": "bị mắng (bị động phiền)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "彼女は",
+                "なります。"
+              ],
+              "pieces": [
+                "上手に",
+                "練習すれば",
+                "ように",
+                "歌える"
+              ],
+              "order": [
+                1,
+                0,
+                3,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "Vば + Vるようになります (B35 + B36)",
+              "explain": "Câu đúng: 「彼女は練習すれば上手に歌えるようになります。」— Nếu luyện tập thì cô ấy sẽ có thể hát hay.\nSắp xếp: ô 1=「練習すれば」, ô 2=「上手に」, ô 3=「歌える」, ô 4=「ように」★\nChủ ngữ 「彼女は」 ở khung trước đi liền với mệnh đề điều kiện giả định thể ば là 「練習すれば」 ở ô 1. Tiếp theo, phó từ 「上手に」 ở ô 2 bổ nghĩa cho động từ thể khả năng 「歌える」 ở ô 3 để tạo thành cụm chỉ năng lực 「上手に歌える」 (có thể hát hay). Động từ thể khả năng 「歌える」 kết hợp với mảnh mang ngôi sao ★ 「ように」 ở ô 4 rồi đi tiếp vào vị ngữ 「なります。」 ở khung sau để hoàn chỉnh mẫu ngữ pháp 「〜ようになります」 biểu thị sự biến đổi năng lực. Do đó, mảnh 「ように」 bắt buộc phải đứng ở ô 4 ngay trước khung sau và không thể hoán đổi.",
+              "glosses": [
+                {
+                  "t": "彼女",
+                  "read": "かのじょ",
+                  "vi": "cô ấy"
+                },
+                {
+                  "t": "なります",
+                  "read": "",
+                  "vi": "trở nên"
+                },
+                {
+                  "t": "上手に",
+                  "read": "じょうずに",
+                  "vi": "thành thạo, giỏi"
+                },
+                {
+                  "t": "練習すれば",
+                  "read": "れんしゅうすれば",
+                  "vi": "nếu luyện tập"
+                },
+                {
+                  "t": "ように",
+                  "read": "",
+                  "vi": "để"
+                },
+                {
+                  "t": "歌える",
+                  "read": "うたえる",
+                  "vi": "có thể hát"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "赤ちゃんに",
+                "でした。"
+              ],
+              "pieces": [
+                "とても",
+                "一晩中",
+                "大変",
+                "泣かれて"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "迷惑の受身 (bị động phiền – chủ thể không có tân ngữ trực tiếp)",
+              "explain": "Câu đúng: 「赤ちゃんに一晩中泣かれてとても大変でした。」— Bị em bé khóc suốt đêm nên tôi đã rất vất vả.\nSắp xếp: ô 1=「一晩中」, ô 2=「泣かれて」★, ô 3=「とても」, ô 4=「大変」\nKhung câu bắt đầu bằng 「赤ちゃんに」 (chỉ tác nhân gây phiền) và kết thúc bằng 「でした。」, đòi hỏi ở giữa một vế động từ bị động phiền và một vế tính từ đánh giá. Mảnh phó từ 「一晩中」 phải đứng ngay trước động từ 「泣かれて」 để bổ nghĩa thời gian khóc tạo thành cụm dính liền 「一晩中泣かれて」, còn phó từ 「とても」 phải dính liền trước tính từ 「大変」 thành cụm 「とても大変」. Ghép hai khối theo đúng trật tự nguyên nhân - kết quả ta được 「赤ちゃんに一晩中泣かれて」 đứng trước rồi mới đến 「とても大変でした」. Mảnh 「泣かれて」 rơi vào ô 2 (★) vì bắt buộc phải đứng sau phó từ 「一晩中」 và đứng trước vế kết quả, không thể nằm ở ô 1 (vì phó từ 「一晩中」 không thể đứng sau 「赤ちゃんに」 mà thiếu động từ) cũng như ô 3 hay 4 (vốn thuộc vế tính từ đứng sau).",
+              "glosses": [
+                {
+                  "t": "大変でした",
+                  "read": "たいへんでした",
+                  "vi": "thật vất vả"
+                },
+                {
+                  "t": "赤ちゃん",
+                  "read": "あかちゃん",
+                  "vi": "em bé"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "一晩中",
+                  "read": "ひとばんじゅう",
+                  "vi": "suốt cả đêm"
+                },
+                {
+                  "t": "泣かれて",
+                  "read": "なかれて",
+                  "vi": "bị (em bé) khóc (bị động phiền)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "毎日",
+                "ようになりました。"
+              ],
+              "pieces": [
+                "おかげで",
+                "日本語が",
+                "上手に話せる",
+                "練習した"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "Vるようになります (B36) + おかげで (B34)",
+              "explain": "Câu đúng: 「毎日練習したおかげで日本語が上手に話せるようになりました。」— Nhờ luyện tập mỗi ngày mà tôi đã có thể nói được tiếng Nhật một cách lưu loát.\nSắp xếp: ô 1=「練習した」, ô 2=「おかげで」★, ô 3=「日本語が」, ô 4=「上手に話せる」.\nKhung đầu 「毎日」 cần một động từ vị ngữ bổ nghĩa, nên chỉ có thể ghép với 「練習した」 để tạo thành cụm 「毎日練習した」. Tiếp theo, mẫu ngữ pháp chỉ nguyên nhân tích cực 「〜たおかげで」 đòi hỏi động từ thể quá khứ đứng trước nên ô 2 phải là 「おかげで」★. Sau đó, vị ngữ khả năng biến đổi 「上手に話せるようになりました」 cần bổ ngữ biểu thị bằng trợ từ が, do đó ô 3 là 「日本語が」 và ô 4 là 「上手に話せる」.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "ようになりました",
+                  "vi": "đã trở nên có thể ~"
+                },
+                {
+                  "t": "おかげで",
+                  "vi": "nhờ có ~"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "上手に",
+                  "read": "じょうずに",
+                  "vi": "thành thạo"
+                },
+                {
+                  "t": "話せる",
+                  "read": "はなせる",
+                  "vi": "có thể nói"
+                },
+                {
+                  "t": "練習した",
+                  "read": "れんしゅうした",
+                  "vi": "đã luyện tập"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このケーキは",
+                "作られています。"
+              ],
+              "pieces": [
+                "材料",
+                "地元の",
+                "だけで",
+                "新鮮な"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 3,
+              "pt": "V受身形 (bị động – mô tả đặc điểm sản phẩm)",
+              "explain": "Câu đúng: 「このケーキは地元の新鮮な材料だけで作られています。」— Bánh ngọt này được làm chỉ bằng những nguyên liệu tươi ngon của địa phương.\nSắp xếp: ô 1=「地元の」, ô 2=「新鮮な」, ô 3=「材料」, ô 4=「だけで」★\nKhung câu có chủ ngữ 「このケーキは」 ở đầu và vị ngữ bị động 「作られています。」 ở cuối, đòi hỏi phần trống phải là một cụm danh từ chỉ nguyên liệu đi kèm trợ từ giới hạn. Danh từ sở thuộc 「地元の」 đứng trước tính từ 「新鮮な」, và 「新鮮な」 bắt buộc phải dính liền trước danh từ 「材料」 để bổ nghĩa tính chất tạo thành cụm 「地元の新鮮な材料」, sau đó cụm này dính liền với trợ từ 「だけで」. Ráp toàn bộ khối bổ nghĩa nguyên liệu 「地元の新鮮な材料だけで」 đứng trước vị ngữ 「作られています」 theo trật tự từ bổ nghĩa luôn đứng trước từ/hành động được bổ nghĩa. Mảnh 「だけで」 rơi vào ô 4 (★) vì là trợ từ bắt buộc đứng ngay sau danh từ 「材料」 để bổ nghĩa phương thức cho động từ đứng sau, không thể đặt ở ô 1, 2 hay 3 vì sẽ làm ngắt quãng chuỗi từ bổ nghĩa cho danh từ.",
+              "glosses": [
+                {
+                  "t": "ケーキ",
+                  "read": "ケーキ",
+                  "vi": "bánh ngọt (cake)"
+                },
+                {
+                  "t": "作られています",
+                  "read": "つくられています",
+                  "vi": "được làm (bị động)"
+                },
+                {
+                  "t": "材料",
+                  "read": "ざいりょう",
+                  "vi": "nguyên liệu"
+                },
+                {
+                  "t": "地元の",
+                  "read": "じもとの",
+                  "vi": "địa phương"
+                },
+                {
+                  "t": "だけで",
+                  "vi": "chỉ bằng ~"
+                },
+                {
+                  "t": "新鮮な",
+                  "read": "しんせんな",
+                  "vi": "tươi"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "明日の会議の",
+                "おきました。"
+              ],
+              "pieces": [
+                "もう",
+                "全部",
+                "資料は",
+                "印刷して"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "Vておきます (B30)",
+              "explain": "Câu đúng: 「明日の会議の資料はもう全部印刷しておきました。」— Tài liệu cho cuộc họp ngày mai thì tôi đã in sẵn tất cả rồi.\nSắp xếp: ô 1=「資料は」, ô 2=「もう」, ô 3=「全部」, ô 4=「印刷して」★\nKhung câu mở đầu bằng cụm bổ nghĩa 「明日の会議の」 và kết thúc bằng trợ động từ 「おきました。」, cần bổ sung danh từ trung tâm, các phó từ và động từ thể て ở giữa. Mảnh 「資料は」 bắt buộc dính liền sau 「明日の会議の」 để làm chủ đề câu, còn động từ 「印刷して」 phải dính liền trước 「おきました」 để tạo thành mẫu câu chuẩn bị 「Vておきます」. Đặt hai phó từ 「もう」 và 「全部」 đứng liền sau chủ đề 「資料は」 và đứng trước động từ để bổ nghĩa cho hành động in ấn đã hoàn tất toàn bộ. Mảnh 「印刷して」 đứng ở ô 4 (★) vì là động từ duy nhất ở thể て bắt buộc phải ghép liền với 「おきました」 ở cuối khung, không thể đứng ở ô 1, 2, 3 (do các từ ở những vị trí này không thể đi trực tiếp với đuôi 「おきました」).",
+              "glosses": [
+                {
+                  "t": "明日",
+                  "read": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "おきました",
+                  "vi": "đã làm sẵn trước (B30)"
+                },
+                {
+                  "t": "もう",
+                  "read": "",
+                  "vi": "đã"
+                },
+                {
+                  "t": "全部",
+                  "read": "ぜんぶ",
+                  "vi": "tất cả"
+                },
+                {
+                  "t": "資料",
+                  "read": "しりょう",
+                  "vi": "tài liệu"
+                },
+                {
+                  "t": "印刷して",
+                  "read": "いんさつして",
+                  "vi": "in ra"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先輩に",
+                "落ち込んでいます。"
+              ],
+              "pieces": [
+                "認められなくて",
+                "ずっと",
+                "とても",
+                "努力を"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "V受身形 + 迷惑の受身 (bị động phiền – không được công nhận)",
+              "explain": "Câu đúng: 「先輩に努力をずっと認められなくてとても落ち込んでいます。」— Không được đàn anh công nhận nỗ lực trong suốt thời gian dài nên tôi đang rất chán nản.\nSắp xếp: ô 1=「努力を」, ô 2=「ずっと」, ô 3=「認められなくて」★, ô 4=「とても」\nKhung câu cho sẵn phía trước là 「先輩に」 (chỉ đối tượng tác động) và phía sau là 「落ち込んでいます」 (cần phó từ chỉ mức độ bổ nghĩa). Mảnh 「努力を」 mang trợ từ を bắt buộc dính liền trước phó từ 「ずっと」 và động từ bị động 「認められなくて」 tạo thành cụm vị ngữ 「努力をずっと認められなくて」, còn phó từ 「とても」 bắt buộc dính liền ngay trước động từ 「落ち込んでいます」 để bổ nghĩa cho trạng thái chán nản. Khi nối các khối theo trật tự câu chỉ nguyên nhân - kết quả trong tiếng Nhật, ta có thứ tự hoàn chỉnh từ ô 1 đến ô 4 là 「努力を」 -> 「ずっと」 -> 「認められなくて」 -> 「とても」. Mảnh ở ô ★ (ô 3) là 「認められなくて」 mang thể て dùng để nối câu chỉ lý do dẫn tới trạng thái phía sau, nên không thể đứng ở các ô khác vốn là vị trí của danh từ kèm trợ từ hoặc phó từ bổ nghĩa.",
+              "glosses": [
+                {
+                  "t": "先輩",
+                  "read": "せんぱい",
+                  "vi": "đàn anh/chị, người đi trước"
+                },
+                {
+                  "t": "落ち込んでいます",
+                  "read": "おちこんでいます",
+                  "vi": "đang chán nản, thất vọng"
+                },
+                {
+                  "t": "認められなくて",
+                  "read": "みとめられなくて",
+                  "vi": "không được công nhận (bị động)"
+                },
+                {
+                  "t": "ずっと",
+                  "read": "",
+                  "vi": "suốt"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "努力",
+                  "read": "どりょく",
+                  "vi": "nỗ lực"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "この道は",
+                "ください。"
+              ],
+              "pieces": [
+                "して",
+                "通らない",
+                "ように",
+                "工事中なので"
+              ],
+              "order": [
+                3,
+                1,
+                2,
+                0
+              ],
+              "starSlot": 2,
+              "pt": "Vないように (B36) + V命令形 派生 (B33)",
+              "explain": "Câu đúng: 「この道は工事中なので通らないようにしてください。」— Vì con đường này đang thi công nên xin vui lòng không đi qua.\nSắp xếp: ô 1=「工事中なので」, ô 2=「通らない」, ô 3=「ように」★, ô 4=「して」\nKhung câu cho sẵn bắt đầu bằng 「この道は」 và kết thúc bằng 「ください。」 (cần động từ dạng 「して」 đi kèm để tạo thành lời đề nghị). Mẫu ngữ pháp yêu cầu ai đó không làm gì 「〜ないようにしてください」 bị cắt rời, trong đó động từ thể phủ định 「通らない」 bắt buộc dính liền trước 「ように」 tạo thành cụm 「通らないように」, còn 「して」 bắt buộc dính liền ngay trước 「ください」 ở khung sau thành cụm 「してください」. Ráp các khối vào khung theo trật tự câu giải thích lý do trước rồi mới tới lời khuyên, ta được thứ tự từ ô 1 đến ô 4 là 「工事中なので」 -> 「通らない」 -> 「ように」 -> 「して」. Mảnh ở ô ★ (ô 3) là 「ように」 đứng làm cầu nối giữa 「通らない」 ở ô 2 và 「して」 ở ô 4 để hoàn chỉnh mẫu câu khuyên nhủ, nên không thể đặt ở ô 1 hay ô 4 vốn cần danh từ kèm trợ từ nối hoặc động từ chia thể て.",
+              "glosses": [
+                {
+                  "t": "道",
+                  "read": "みち",
+                  "vi": "con đường"
+                },
+                {
+                  "t": "ください",
+                  "read": "ください",
+                  "vi": "làm ơn, xin hãy"
+                },
+                {
+                  "t": "して",
+                  "read": "",
+                  "vi": "làm"
+                },
+                {
+                  "t": "通らない",
+                  "read": "とおらない",
+                  "vi": "không đi qua"
+                },
+                {
+                  "t": "ように",
+                  "vi": "để (mục đích / lời nhắn nhủ)"
+                },
+                {
+                  "t": "工事中",
+                  "read": "こうじちゅう",
+                  "vi": "đang thi công"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "先生の指示の",
+                "ました。"
+              ],
+              "pieces": [
+                "プロジェクトを",
+                "とおりに、",
+                "進め",
+                "チームで"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 0,
+              "pt": "NのとおりにV (B34)",
+              "explain": "Câu đúng: 「先生の指示のとおりに、チームでプロジェクトを進めました。」— Theo đúng chỉ thị của giáo viên, chúng tôi đã tiến hành dự án theo nhóm.\nSắp xếp: ô 1=「とおりに、」★, ô 2=「チームで」, ô 3=「プロジェクトを」, ô 4=「進め」\nKhung câu mở đầu bằng 「先生の指示の」 (cần danh từ hoặc từ nối thích hợp) và kết thúc bằng đuôi động từ 「ました。」 (cần thân động từ đi trước). Mảnh 「とおりに、」 bắt buộc dính liền ngay sau 「先生の指示の」 để tạo thành cụm trạng ngữ 「先生の指示のとおりに、」, trong khi mảnh 「プロジェクトを」 bắt buộc dính liền trước mảnh 「進め」 và đuôi 「ました。」 để hoàn thiện cụm động từ chỉ hành động 「プロジェクトを進めました。」. Ráp các cụm theo trật tự câu tiếng Nhật với trạng ngữ chỉ cách thức đứng trước, phương thức thực hiện ở giữa và vị ngữ ở cuối, ta có thứ tự từ ô 1 đến ô 4 là 「とおりに、」 -> 「チームで」 -> 「プロジェクトを」 -> 「進め」. Mảnh ở ô ★ (ô 1) là 「とおりに、」 bắt buộc phải đặt ở ô 1 vì đây là thành phần duy nhất dính liền được với trợ từ の phía trước để tạo nên mẫu câu 'theo đúng chỉ thị của...', đồng thời dấu phẩy 「、」 ngắt vế cũng không thể xuất hiện ở các ô 2, 3 hay 4.",
+              "glosses": [
+                {
+                  "t": "進めました",
+                  "read": "すすめました",
+                  "vi": "đã tiến hành"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "指示",
+                  "read": "しじ",
+                  "vi": "chỉ thị, hướng dẫn"
+                },
+                {
+                  "t": "プロジェクト",
+                  "vi": "dự án"
+                },
+                {
+                  "t": "とおりに",
+                  "read": "とおりに",
+                  "vi": "đúng theo ~"
+                },
+                {
+                  "t": "チーム",
+                  "vi": "nhóm, đội"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "隣の人に",
+                "困っています。"
+              ],
+              "pieces": [
+                "歌を",
+                "とても",
+                "毎晩",
+                "大きな声で歌われて"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "迷惑の受身 (bị động phiền – hàng xóm hát to)",
+              "explain": "Câu đúng: 「隣の人に毎晩歌を大きな声で歌われてとても困っています。」— Tôi rất khổ sở vì mỗi tối đều bị người hàng xóm hát to.\nSắp xếp: ô 1=「毎晩」, ô 2=「歌を」, ô 3=「大きな声で歌われて」★, ô 4=「とても」.\nKhung trước kết thúc bằng tác nhân gây phiền 「隣の人に」, cần một vị ngữ bị động ở thể て để nêu nguyên nhân dẫn đến tình trạng ở khung sau 「困っています。」. Danh từ 「歌を」 đóng vai trò tân ngữ bắt buộc phải đứng trước động từ để tạo thành cụm 「歌を大きな声で歌われて」. Trạng từ chỉ thời gian 「毎晩」 đứng ở ô 1 ngay sau tác nhân để xác định tần suất của hành động. Phó từ chỉ mức độ 「とても」 phải đứng ở ô 4 để bổ nghĩa trực tiếp cho 「困っています。」 ở khung sau. Do đó, vị ngữ bị động phiền 「大きな声で歌われて」 bắt buộc phải đứng ở ô 3 ★.",
+              "glosses": [
+                {
+                  "t": "隣の人",
+                  "read": "となりのひと",
+                  "vi": "người hàng xóm"
+                },
+                {
+                  "t": "困っています",
+                  "read": "こまっています",
+                  "vi": "đang khó chịu, bực bội"
+                },
+                {
+                  "t": "歌",
+                  "read": "うた",
+                  "vi": "bài hát"
+                },
+                {
+                  "t": "とても",
+                  "read": "",
+                  "vi": "rất"
+                },
+                {
+                  "t": "毎晩",
+                  "read": "まいばん",
+                  "vi": "mỗi tối"
+                },
+                {
+                  "t": "大きな声で",
+                  "read": "おおきなこえで",
+                  "vi": "với giọng to"
+                },
+                {
+                  "t": "歌われて",
+                  "read": "うたわれて",
+                  "vi": "bị hát (bị động phiền)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "きのうはついていませんでした。朝、ねぼうして母に",
+                "。帰りには雨に",
+                "、服がぜんぶぬれてしまいました。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "おこられました",
+                    "おこりました",
+                    "おこします",
+                    "おこっています"
+                  ],
+                  "answer": 0,
+                  "explain": "Người nói BỊ mẹ mắng → bị động 「怒られました」(怒る → 怒られる). 「おこりました」(tôi tức giận - chủ động), các đáp án kia sai dạng/nghĩa."
+                },
+                {
+                  "choices": [
+                    "降られて",
+                    "降って",
+                    "降らせて",
+                    "降ります"
+                  ],
+                  "answer": 0,
+                  "explain": "BỊ mưa (gây phiền, ướt hết đồ) → 迷惑の受身 「雨に降られて」. 「降って」(mô tả trung tính), 「降らせて」(sai khiến), 「降ります」(thì sai) đều không hợp sắc thái 'bị phiền'."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "ねぼうして",
+                  "vi": "ngủ quên dậy muộn"
+                },
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "怒られました",
+                  "read": "おこられました",
+                  "vi": "bị mắng (bị động)"
+                },
+                {
+                  "t": "雨に降られて",
+                  "read": "あめにふられて",
+                  "vi": "bị mưa (bị động phiền)"
+                },
+                {
+                  "t": "服",
+                  "read": "ふく",
+                  "vi": "quần áo"
+                },
+                {
+                  "t": "ぬれてしまいました",
+                  "vi": "ướt mất rồi (〜てしまう)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chia động từ về thể bị động (受身形).",
+          "items": [
+            {
+              "stem": "ほめます → 受身形 → ＿",
+              "choices": [
+                "ほめられます",
+                "ほまれます",
+                "ほめます",
+                "ほめさせます"
+              ],
+              "answer": 0,
+              "explain": "Nhóm 2: bỏ る + られる: ほめる → ほめられる (được khen). 「ほまれます」sai chia; 「ほめます」là chủ động; 「ほめさせます」là sai khiến (使役).",
+              "glosses": [
+                {
+                  "t": "ほめます",
+                  "vi": "khen (chủ động)"
+                },
+                {
+                  "t": "ほめられます",
+                  "vi": "được khen (bị động)"
+                },
+                {
+                  "t": "受身形",
+                  "read": "うけみけい",
+                  "vi": "thể bị động (dạng bị động)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "宿題をわすれて、先生＿しかられました。",
+              "choices": [
+                "に",
+                "が",
+                "を",
+                "で"
+              ],
+              "answer": 0,
+              "explain": "Trong câu bị động, người thực hiện hành động (tác nhân) đi với 「に」: 先生に叱られる (bị thầy mắng). 「が/を/で」không hợp.",
+              "glosses": [
+                {
+                  "t": "宿題",
+                  "read": "しゅくだい",
+                  "vi": "bài tập"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô"
+                },
+                {
+                  "t": "しかられました",
+                  "vi": "bị mắng (bị động)"
+                },
+                {
+                  "t": "わすれて",
+                  "read": "わすれて",
+                  "vi": "thể て của 忘れる (quên) dùng để nối câu, nêu nguyên nhân = \"vì quên mất nên...\""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi bị mưa (giữa đường).",
+              "target": "雨に降られました",
+              "model": "雨に 降られました。",
+              "explain": "迷惑の受身 (bị động phiền): 降る → 降られる. 「雨に降られる」= bị mưa rơi (gây bất tiện); tác nhân 雨 đi với に.",
+              "glosses": [
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "降られました",
+                  "read": "ふられました",
+                  "vi": "bị (mưa) rơi (bị động phiền)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

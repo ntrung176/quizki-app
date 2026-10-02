@@ -1,0 +1,3446 @@
+{
+  "bai": 64,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 64 luyện 〜ようだ và 〜みたいだ: hai mẫu diễn đạt suy đoán DỰA TRÊN CĂN CỨ TRỰC TIẾP — điều người nói tự quan sát bằng giác quan, chứng kiến hoặc kinh nghiệm của bản thân. Phân biệt sắc thái cốt lõi: ようだ (có căn cứ trực tiếp) ≠ そうだ伝聞（Bài 63 — nghe từ người khác/gián tiếp）≠ はず（Bài 51 — suy luận logic/lý tính）≠ らしい（Bài 65 — căn cứ bên ngoài, nghe đồn — CHƯA HỌC）. みたいだ = ようだ khẩu ngữ thân mật (cùng nghĩa, 接続 khác nhẹ). Ngoài ra ようだ/みたいだ còn dùng để ví von \"giống như\" (như trong \"như mơ\", \"như con mèo\"). Đọc hiểu: chú ý CĂN CỨ NÀO người viết đưa ra trước khi dùng ようだ/みたいだ — đó chính là điểm câu hỏi suy luận.",
+    "steps": [
+      "接続 ようだ: 普通形 + ようだ (なAdj → 〜なようだ; N → 〜のようだ). 接続 みたいだ: なAdj/N bỏ だ rồi + みたいだ.",
+      "Nhận diện CĂN CỨ: tìm những từ chỉ quan sát (見ると・見て・においがする・音がする・顔色が…) đứng TRƯỚC ようだ/みたいだ.",
+      "Phân biệt ようだ vs そうだ伝聞（Bài 63）: \"雨が降るようだ\"（tôi nhìn thấy mây đen — trực tiếp）≠ \"雨が降るそうだ\"（tôi nghe ai đó nói — gián tiếp）.",
+      "Phân biệt ようだ vs はず（Bài 51）: \"疲れているようだ\"（nhìn mặt mà đoán — giác quan）≠ \"疲れているはずだ\"（logic: suốt ngày làm việc thì phải mệt）.",
+      "ような + N（bổ nghĩa danh từ）và ように + V（bổ nghĩa động từ）là biến thể: 夢のような話, 彼女のように歌える.",
+      "Câu hỏi suy luận: \"なぜようだを使っているか\" → tìm căn cứ trực tiếp trong bài. Nếu là nghe người nói thì そうだ, không phải ようだ."
+    ],
+    "tips": [
+      "使い分け 1 — ようだ vs そうだ伝聞: \"彼は風邪を引いたようだ\"（tôi tự quan sát: hắt hơi, sổ mũi）≠ \"彼は風邪を引いたそうだ\"（nghe người khác nói）. Bài thi hay cho một tình huống rồi hỏi nên dùng mẫu nào.",
+      "使い分け 2 — ようだ vs はずだ: ようだ = cảm nhận từ bằng chứng trực tiếp bây giờ; はずだ = suy luận logic từ sự kiện/quy tắc. \"鍵がないようだ\"（tôi thấy chỗ để chìa khoá trống — giác quan）≠ \"鍵はあるはずだ\"（tôi biết mình để chìa khoá vào túi — logic）.",
+      "みたいだ khẩu ngữ: dùng trong văn nói, thư, nhật ký bạn bè. ようだ trang trọng hơn, dùng văn viết, báo cáo. Hai mẫu có thể thay nhau trong hầu hết trường hợp.",
+      "Ví von ようだ/みたいだ: \"まるで夢のようだ\"（như mơ vậy）, \"子供みたいに笑う\"（cười như trẻ con）— ở đây không phải suy đoán mà là so sánh hình ảnh.",
+      "Dấu hiệu nhận biết trong câu hỏi: từ khoá 「〜を見ると」「〜の様子から」「〜の顔色を見て」thường đi kèm ようだ. Nếu thấy 「〜によると」thì là そうだ伝聞/らしい."
+    ],
+    "grammarFocus": [
+      "〜ようだ（普通形 + ようだ; なAdj → なようだ; N → のようだ）— suy đoán có căn cứ trực tiếp / ví von",
+      "〜みたいだ（なAdj/N bỏ だ + みたいだ）— ようだ khẩu ngữ",
+      "〜ような + N（ようだ bổ nghĩa danh từ）",
+      "〜ように + V（ようだ bổ nghĩa động từ）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 63,
+        "items": [
+          "〜そうだ様態（trông có vẻ）",
+          "〜そうだ伝聞（nghe nói）— đối chiếu với ようだ"
+        ]
+      },
+      {
+        "bai": 62,
+        "items": [
+          "〜のに（nghịch kỳ vọng）",
+          "〜くせに（trách móc）"
+        ]
+      },
+      {
+        "bai": 61,
+        "items": [
+          "〜なら（giả thiết）",
+          "〜たら（nếu/sau khi）"
+        ]
+      },
+      {
+        "bai": 59,
+        "items": [
+          "〜おかげで（nhờ）",
+          "〜せいで（tại）"
+        ]
+      },
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ（suy luận logic）",
+          "〜はずがない（không thể nào theo lý）"
+        ]
+      },
+      {
+        "bai": 45,
+        "items": [
+          "〜のに（逆接）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "帰宅後の異変",
+      "titleVi": "Dấu hiệu bất thường khi về nhà",
+      "japanese": "仕事から帰ると、アパートの鍵が少し開いていた。誰かが入ったようだ。玄関には見慣れない靴があって、台所からいいにおいがしていた。料理をしている人がいるみたいだ。声を聞くと、妹のようだった。妹は今日来るとは言っていなかったのに、驚いた。部屋に入ると、テーブルの上にたくさんの料理が並んでいた。まるで誕生日パーティーのようだった。妹が私の誕生日を覚えていてくれたようで、とてもうれしかった。",
+      "vietnamese": "Khi về từ chỗ làm, ổ khóa căn hộ bị mở hé một chút. Có vẻ như ai đó đã vào. Ở lối vào có đôi giày lạ chưa từng thấy, và từ nhà bếp có mùi thơm dễ chịu. Có vẻ như có người đang nấu ăn. Nghe giọng nói, có vẻ là em gái. Em gái không nói sẽ đến hôm nay nên tôi rất ngạc nhiên. Vào phòng thì thấy trên bàn bày la liệt các món ăn. Đúng là như một buổi tiệc sinh nhật vậy. Có vẻ em gái đã nhớ đến sinh nhật của tôi nên tôi rất vui.",
+      "sentences": [
+        {
+          "jp": "仕事から帰ると、アパートの鍵が少し開いていた。",
+          "vi": "Khi về từ chỗ làm, ổ khóa căn hộ bị mở hé một chút.",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc, chỗ làm"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về nhà, trở về"
+            },
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "căn hộ chung cư"
+            },
+            {
+              "w": "鍵",
+              "read": "かぎ",
+              "vi": "chìa khóa, ổ khóa"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "開きます",
+              "read": "あきます",
+              "vi": "mở ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên Bài 23）",
+              "vi": "帰ると = khi về thì. と = điều kiện dẫn đến kết quả tất yếu/khám phá (Bài 23)."
+            },
+            {
+              "point": "Vています（trạng thái kết quả Bài 29）",
+              "vi": "開いていた = đang ở trạng thái mở (kết quả hành động mở). Bài 29."
+            }
+          ]
+        },
+        {
+          "jp": "誰かが入ったようだ。",
+          "vi": "Có vẻ như ai đó đã vào.",
+          "vocab": [
+            {
+              "w": "入ります",
+              "read": "はいります",
+              "vi": "vào, đi vào"
+            },
+            {
+              "w": "誰か",
+              "read": "だれか",
+              "vi": "ai đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64 — trọng tâm）",
+              "vi": "接続: Vた（普通形）+ ようだ。 入ったようだ = \"có vẻ như đã vào\" — suy đoán DỰA TRÊN CĂN CỨ TRỰC TIẾP: người viết tự nhìn thấy ổ khóa mở. Sắc thái: ようだ ≠ そうだ伝聞（Bài 63 — phải nghe ai nói, không tự quan sát được）; ≠ はずだ（Bài 51 — suy luận logic thuần túy, không cần giác quan）. Đây là ví dụ điển hình: căn cứ = ổ khóa mở → kết luận bằng ようだ."
+            }
+          ]
+        },
+        {
+          "jp": "玄関には見慣れない靴があって、台所からいいにおいがしていた。",
+          "vi": "Ở lối vào có đôi giày lạ chưa từng thấy, và từ nhà bếp có mùi thơm dễ chịu.",
+          "vocab": [
+            {
+              "w": "玄関",
+              "read": "げんかん",
+              "vi": "lối vào, cửa vào nhà"
+            },
+            {
+              "w": "見慣れない",
+              "read": "みなれない",
+              "vi": "chưa quen nhìn, lạ mắt"
+            },
+            {
+              "w": "靴",
+              "read": "くつ",
+              "vi": "giày dép"
+            },
+            {
+              "w": "台所",
+              "read": "だいどころ",
+              "vi": "nhà bếp"
+            },
+            {
+              "w": "におい",
+              "read": "におい",
+              "vi": "mùi hương"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（nối mệnh đề Bài 16）",
+              "vi": "あって = có và (rồi). て nối hai sự kiện liên tiếp."
+            },
+            {
+              "point": "Nがします（Bài 9 感覚）",
+              "vi": "においがしていた = có mùi. におい・音・声 + がする = cảm nhận bằng giác quan (Bài 9)."
+            }
+          ]
+        },
+        {
+          "jp": "料理をしている人がいるみたいだ。",
+          "vi": "Có vẻ như có người đang nấu ăn.",
+          "vocab": [
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜みたいだ（Bài 64 — trọng tâm）",
+              "vi": "接続: Vている（普通形）+ みたいだ。 みたいだ = ようだ khẩu ngữ, thân mật. いるみたいだ = \"có vẻ như có người\". Căn cứ: mùi thức ăn từ nhà bếp → suy đoán trực tiếp. Trong văn nhật ký/blog thân mật, みたいだ tự nhiên hơn ようだ. Hai mẫu cùng nghĩa suy đoán có căn cứ."
+            }
+          ]
+        },
+        {
+          "jp": "声を聞くと、妹のようだった。",
+          "vi": "Nghe giọng nói, có vẻ là em gái.",
+          "vocab": [
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "giọng nói"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "nghe"
+            },
+            {
+              "w": "妹",
+              "read": "いもうと",
+              "vi": "em gái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "声を聞くと = khi nghe giọng thì. と = khám phá tức thì."
+            },
+            {
+              "point": "N + のようだった",
+              "vi": "接続: N（妹）+ の + ようだった（quá khứ）。 妹のようだった = \"có vẻ là em gái\". Căn cứ trực tiếp: nghe giọng nói. N + のようだ — lưu ý danh từ cần の trước ようだ."
+            }
+          ]
+        },
+        {
+          "jp": "妹は今日来るとは言っていなかったのに、驚いた。",
+          "vi": "Em gái không nói sẽ đến hôm nay nên tôi rất ngạc nhiên.",
+          "vocab": [
+            {
+              "w": "妹",
+              "read": "いもうと",
+              "vi": "em gái"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "đến"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "驚きます",
+              "read": "おどろきます",
+              "vi": "ngạc nhiên, bất ngờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とは言っていなかった",
+              "vi": "Vると言う（Bài 21 — nói rằng sẽ）+ ていなかった（phủ định quá khứ Bài 15）= không nói rằng sẽ đến."
+            },
+            {
+              "point": "〜のに（逆接 Bài 45/Bài 62）",
+              "vi": "言っていなかったのに驚いた = không nói nhưng vẫn đến → ngạc nhiên. のに biểu đạt kết quả trái kỳ vọng."
+            }
+          ]
+        },
+        {
+          "jp": "部屋に入ると、テーブルの上にたくさんの料理が並んでいた。",
+          "vi": "Vào phòng thì thấy trên bàn bày la liệt các món ăn.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "入る",
+              "read": "はいる",
+              "vi": "đi vào"
+            },
+            {
+              "w": "テーブル",
+              "read": "テーブル",
+              "vi": "bàn"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "phía trên"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn"
+            },
+            {
+              "w": "並んでいた",
+              "read": "ならんでいた",
+              "vi": "được bày/sắp xếp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "部屋に入ると = vào phòng thì. Khám phá tức thì."
+            },
+            {
+              "point": "Nの上に（vị trí Bài 10）",
+              "vi": "テーブルの上に = trên bàn. Vị trí (Bài 10)."
+            },
+            {
+              "point": "Vています（trạng thái Bài 29）",
+              "vi": "並んでいた = đang xếp/bày sẵn. Trạng thái kết quả."
+            }
+          ]
+        },
+        {
+          "jp": "まるで誕生日パーティーのようだった。",
+          "vi": "Đúng là như một buổi tiệc sinh nhật vậy.",
+          "vocab": [
+            {
+              "w": "まるで",
+              "read": "まるで",
+              "vi": "đúng là, y như, hoàn toàn như"
+            },
+            {
+              "w": "誕生",
+              "read": "たんじょう",
+              "vi": "sự ra đời, chào đời"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "buổi tiệc"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まるで〜のようだ（ví von）",
+              "vi": "接続: まるで + N + のようだ。 誕生日パーティーのようだった = \"y như buổi tiệc sinh nhật vậy\". Đây là nghĩa VÍ VON (so sánh hình ảnh) của ようだ — khác với nghĩa suy đoán. まるで thường đi kèm ようだ/みたいだ khi ví von. N + のようだ (cùng 接続 với suy đoán)."
+            }
+          ]
+        },
+        {
+          "jp": "妹が私の誕生日を覚えていてくれたようで、とてもうれしかった。",
+          "vi": "Có vẻ em gái đã nhớ đến sinh nhật của tôi nên tôi rất vui.",
+          "vocab": [
+            {
+              "w": "妹",
+              "read": "いもうと",
+              "vi": "em gái"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "誕生日",
+              "read": "たんじょうび",
+              "vi": "sinh nhật"
+            },
+            {
+              "w": "覚えていてくれた",
+              "read": "おぼえていてくれた",
+              "vi": "đã nhớ giúp"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "うれしかった",
+              "read": "うれしかった",
+              "vi": "đã vui mừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようで（ようだ + て）",
+              "vi": "覚えていてくれたようで = \"có vẻ đã nhớ nên\". 接続: Vてくれた（普通形）+ ようで. ようで = dạng て của ようだ, nối hai mệnh đề: \"có vẻ… nên (tôi cảm thấy…)\". Căn cứ: thấy tiệc được chuẩn bị sẵn."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "覚えていてくれた = đã nhớ cho tôi (mang ý biết ơn). てくれる = người khác làm gì vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "誰かが入ったようだ",
+          "label": "〜ようだ（suy đoán căn cứ trực tiếp）"
+        },
+        {
+          "excerpt": "料理をしている人がいるみたいだ",
+          "label": "〜みたいだ（ようだ khẩu ngữ）"
+        },
+        {
+          "excerpt": "妹のようだった",
+          "label": "N + のようだ（suy đoán — N cần の）"
+        },
+        {
+          "excerpt": "まるで誕生日パーティーのようだった",
+          "label": "Sắc thái: まるで〜ようだ（ví von, không phải suy đoán）"
+        },
+        {
+          "excerpt": "覚えていてくれたようで",
+          "label": "〜ようで（ようだ nối mệnh đề）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「誰かが入ったようだ」と書いた人が、そう思った理由は何ですか。",
+          "evi": [
+            0,
+            1
+          ],
+          "options": [
+            "妹から「今日行く」というメッセージが届いたからです",
+            "アパートの鍵が少し開いていたからです",
+            "台所からいいにおいがしていたからです",
+            "友達が「誰かが入った」と言っていたからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: \"アパートの鍵が少し開いていた\" (ổ khóa bị mở hé) — đây chính là CĂN CỨ TRỰC TIẾP người viết tự nhìn thấy ngay khi về nhà, dẫn đến suy đoán \"誰かが入ったようだ\". ようだ được dùng vì người nói TỰ QUAN SÁT bằng mắt, không qua trung gian. Đáp án A sai: nếu nhận tin nhắn từ em gái thì đó là thông tin từ người khác → phải dùng そうだ伝聞 (Bài 63). Đáp án C (mùi thức ăn) là căn cứ cho câu sau \"料理をしている人がいるみたいだ\", không phải căn cứ của \"誰かが入った\". Đáp án D (bạn bè nói) là gián tiếp → そうだ伝聞, không phải ようだ.",
+          "tip": "Hỏi \"người nói TỰ quan sát hay nghe người khác nói?\" — nếu tự thấy/nghe/ngửi → ようだ/みたいだ; nếu ai đó kể lại → そうだ伝聞/らしい. Căn cứ luôn xuất hiện NGAY TRƯỚC hoặc NGAY SAU câu dùng ようだ trong đoạn văn.",
+          "qt": {
+            "q": "Người viết đã nghĩ “Có vẻ như ai đó đã vào” vì lý do gì?",
+            "o": [
+              "Vì nhận được tin nhắn từ em gái nói “Hôm nay em sẽ đến”",
+              "Vì chìa khóa căn hộ đang hé mở một chút",
+              "Vì có mùi thơm tỏa ra từ nhà bếp",
+              "Vì một người bạn đã nói “Ai đó đã vào”"
+            ]
+          }
+        },
+        {
+          "q": "「料理をしている人がいるみたいだ」と「誰かが入ったようだ」について、正しい説明はどれですか。",
+          "evi": [
+            1,
+            2,
+            3
+          ],
+          "options": [
+            "「みたいだ」は不確かな推測、「ようだ」は確実な事実を表します",
+            "「みたいだ」は聞いた情報、「ようだ」は直接観察した推測を表します",
+            "「みたいだ」は「ようだ」の口語体で、どちらも直接観察に基づく推測を表します",
+            "「みたいだ」は書き言葉、「ようだ」は話し言葉です"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: みたいだ là dạng khẩu ngữ (口語体) của ようだ — cùng nghĩa, cùng dùng để diễn đạt suy đoán dựa trên CĂN CỨ TRỰC TIẾP. \"料理をしている人がいるみたいだ\" có căn cứ là mùi thức ăn từ bếp (においがしていた), \"誰かが入ったようだ\" có căn cứ là ổ khóa mở — cả hai đều là quan sát của bản thân, không qua trung gian. Đáp án A sai: みたいだ không kém chắc hơn ようだ — cả hai đều mang cùng độ tin cậy và cùng yêu cầu căn cứ trực tiếp. Đáp án B sai hoàn toàn: みたいだ KHÔNG dùng cho thông tin nghe từ người khác (đó là そうだ伝聞). Đáp án D sai: trong thực tế みたいだ phổ biến trong văn nói/nhật ký, ようだ phổ biến trong văn viết trang trọng — không phải ngược lại.",
+          "tip": "みたいだ = ようだ khẩu ngữ (thân mật, nhật ký, hội thoại). Khi thấy bài thi cho cả hai trong cùng đoạn văn, đừng tìm sự khác biệt về ý nghĩa — hãy tìm sự khác biệt về VĂN PHONG (register). Cả hai đều đòi hỏi người nói TỰ quan sát.",
+          "qt": {
+            "q": "Đâu là lời giải thích đúng về “みたいだ” trong “Có vẻ như có người đang nấu ăn” và “ようだ” trong “Có vẻ như ai đó đã vào”?",
+            "o": [
+              "“みたいだ” biểu thị suy đoán không chắc chắn, còn “ようだ” biểu thị sự thật chắc chắn",
+              "“みたいだ” biểu thị thông tin nghe được, còn “ようだ” biểu thị suy đoán dựa trên quan sát trực tiếp",
+              "“みたいだ” là dạng khẩu ngữ của “ようだ”; cả hai đều biểu thị suy đoán dựa trên quan sát trực tiếp",
+              "“みたいだ” là văn viết, còn “ようだ” là lời nói"
+            ]
+          }
+        },
+        {
+          "q": "この文章の「まるで誕生日パーティーのようだった」で「ようだ」はどんな意味で使われていますか。",
+          "evi": [
+            6,
+            7
+          ],
+          "options": [
+            "誕生日パーティーかどうかを直接観察して推測しています",
+            "誰かから誕生日パーティーだと聞いて伝えています",
+            "誕生日パーティーのように見えるという比喩（ví von）として使われています",
+            "誕生日パーティーを論理的に推測しています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: \"まるで誕生日パーティーのようだった\" là dùng ようだ theo nghĩa VÍ VON (比喩) — bàn ăn bày đầy thức ăn giống hệt một bữa tiệc sinh nhật, không phải suy đoán \"đây có phải tiệc sinh nhật không\". Dấu hiệu nhận ra ví von: từ \"まるで\" đứng đầu câu (nhấn mạnh sự giống nhau hoàn toàn) + chủ ngữ rõ ràng không phải đang đặt câu hỏi sự thật. Đáp án A sai: đây không phải quan sát-suy đoán (người viết BIẾT đây là phòng nhà mình, không cần đoán). Đáp án B sai: không có ai nói cho người viết biết — đây là cảm nhận trực tiếp của người viết. Đáp án D sai: không có suy luận logic nào ở đây — đây là ví von hình ảnh.",
+          "tip": "Thấy \"まるで〜ようだ/みたいだ\" → GẦN CHẮC là ví von, không phải suy đoán. Ngược lại, khi thấy căn cứ quan sát (見ると・においがする・声を聞くと) đứng trước ようだ → đó là suy đoán có căn cứ.",
+          "qt": {
+            "q": "Trong câu “trông cứ như một bữa tiệc sinh nhật vậy”, “ようだ” được dùng với ý nghĩa nào?",
+            "o": [
+              "Đang suy đoán bằng cách quan sát trực tiếp xem đó có phải là tiệc sinh nhật hay không",
+              "Đang thuật lại lời nghe từ ai đó rằng đó là tiệc sinh nhật",
+              "Được dùng như một phép ví von rằng trông giống như tiệc sinh nhật",
+              "Đang suy đoán một cách logic rằng đó là tiệc sinh nhật"
+            ]
+          }
+        },
+        {
+          "q": "妹が来ることについて、筆者がそうだ伝聞ではなくようだ・みたいだを使った理由として最も適切なのはどれですか。",
+          "evi": [
+            0,
+            2,
+            4
+          ],
+          "options": [
+            "ニュースで妹の情報を知ったからです",
+            "妹から直接「行く」と聞いていたからです",
+            "鍵、靴、においなど自分で直接観察した証拠から推測しているからです",
+            "妹が来ることを論理的に計算したからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: người viết dùng ようだ/みたいだ vì toàn bộ căn cứ là những thứ TỰ THẤY/TỰ NGHE/TỰ NGỬI trực tiếp — \"鍵が少し開いていた\" (thấy ổ khóa mở), \"見慣れない靴があった\" (thấy đôi giày lạ), \"台所からいいにおいがしていた\" (ngửi mùi thức ăn), \"声を聞くと妹のようだった\" (nghe giọng). Không có thông tin nào đến từ người khác hay từ suy luận logic thuần túy. Đáp án A sai: nếu nghe từ tin tức/nguồn bên ngoài → そうだ伝聞 (Bài 63) hoặc らしい (Bài 65). Đáp án B sai: \"妹から直接「行く」と聞いた\" — nếu em gái đã báo trước thì người viết đã BIẾT, không cần đoán bằng ようだ. Đáp án D sai: \"論理的に計算した\" là kiểu suy luận của はずだ (Bài 51), không phải ようだ.",
+          "tip": "ようだ/みたいだ = người nói TỰ dùng giác quan (mắt/tai/mũi) quan sát ngay lúc đó. そうだ伝聞 = nghe qua người khác hoặc nguồn bên ngoài. はずだ = suy luận logic từ quy tắc/lịch trình/kiến thức. Ba mẫu này là \"bộ ba\" phân biệt cần thuộc lòng.",
+          "qt": {
+            "q": "Đâu là lý do phù hợp nhất khiến tác giả dùng “ようだ” hoặc “みたいだ” thay vì cách nói truyền đạt thông tin nghe được khi nói về việc em gái đến?",
+            "o": [
+              "Vì biết được thông tin về em gái qua tin tức",
+              "Vì đã nghe trực tiếp em gái nói “Em sẽ đến”",
+              "Vì đang suy đoán dựa trên những bằng chứng tự mình quan sát trực tiếp như chìa khóa, giày và mùi thơm",
+              "Vì đã tính toán một cách logic rằng em gái sẽ đến"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "手書きの力",
+      "titleVi": "Sức mạnh của chữ viết tay",
+      "japanese": "最近は、スマートフォンやパソコンを使ってメモを取る人が増えている。キーボードを使えば速く入力できるし、保存も簡単だ。しかし、手帳やノートに手で文字を書くことにも、すばらしい力があるように思う。\n文字を手で書くときは、頭の中にある考えが、まるで川の水が静かに流れるように紙の上に出てくる。画面で文字を打つときは言葉をただ集めているだけのように見えるが、手で書くときは、迷いや感情がそのまま文字の形や大きさに表れる。そのため、後でノートを見直すと、書いたときの気持ちまで生き生きと思い出すことができるのだ。\nつまり、手で文字を書くことは、単に情報を記録するだけでなく、自分の心と静かに会話をするような時間だと言える。便利な道具が多い現代だからこそ、ペンを持って自分の考えをじっくり深める時間を作ることが大切なようだ。",
+      "vietnamese": "Dạo gần đây, số người dùng điện thoại thông minh hoặc máy tính để ghi chép đang ngày càng tăng lên. Nếu dùng bàn phím thì vừa có thể nhập liệu nhanh, việc lưu trữ cũng rất đơn giản. Thế nhưng, tôi cảm thấy việc viết chữ bằng tay vào sổ tay hay cuốn vở dường như cũng có một sức mạnh tuyệt vời.\nKhi viết chữ bằng tay, những suy nghĩ trong đầu sẽ tuôn ra trên mặt giấy êm đềm như dòng nước sông đang chảy. Khi gõ chữ trên màn hình trông có vẻ như ta chỉ đang gom nhặt từ ngữ đơn thuần, nhưng khi viết tay, sự do dự và cảm xúc sẽ thể hiện nguyên vẹn qua hình dáng và kích cỡ của nét chữ. Chính vì thế, khi xem lại sổ sau này, ta có thể nhớ lại một cách sống động đến cả tâm trạng khi viết.\nNói cách khác, viết chữ bằng tay không chỉ đơn thuần là lưu lại thông tin, mà còn có thể coi là khoảng thời gian như đang trò chuyện thầm lặng với chính trái tim mình. Chính vì sống trong thời hiện đại với nhiều công cụ tiện lợi, việc cầm bút tạo ra khoảng thời gian để đào sâu suy nghĩ của bản thân một cách kỹ càng dường như mới là điều quan trọng.",
+      "sentences": [
+        {
+          "jp": "最近は、スマートフォンやパソコンを使ってメモを取る人が増えている。",
+          "vi": "Dạo gần đây, số người dùng điện thoại thông minh hoặc máy tính để ghi chép đang ngày càng tăng lên.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây, dạo này"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "メモ",
+              "read": "メモ",
+              "vi": "mẩu ghi chú"
+            },
+            {
+              "w": "取る",
+              "read": "とる",
+              "vi": "lấy, lấy ra"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            },
+            {
+              "w": "メモを取る",
+              "read": "メモをとる",
+              "vi": "ghi chép, ghi chú"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜を使って（Bài 14 Vて）",
+              "vi": "を使って = sử dụng... để (thể て chỉ phương thức hành động)."
+            },
+            {
+              "point": "Vています（Bài 29 xu hướng biến đổi）",
+              "vi": "増えている = đang tăng lên (thể hiện xu hướng biến đổi đang tiếp diễn)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "最近は",
+              "why": "Dấu hiệu nêu bối cảnh và hiện tượng phổ biến thời nay để dẫn dắt vào bài."
+            }
+          ]
+        },
+        {
+          "jp": "キーボードを使えば速く入力できるし、保存も簡単だ。",
+          "vi": "Nếu dùng bàn phím thì vừa có thể nhập liệu nhanh, việc lưu trữ cũng rất đơn giản.",
+          "vocab": [
+            {
+              "w": "キーボード",
+              "read": "キーボード",
+              "vi": "bàn phím"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "速い",
+              "read": "はやい",
+              "vi": "nhanh"
+            },
+            {
+              "w": "入力",
+              "read": "にゅうりょく",
+              "vi": "nhập dữ liệu"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "保存",
+              "read": "ほぞん",
+              "vi": "lưu trữ, bảo lưu"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ dàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vば（Bài 35 Thể điều kiện）",
+              "vi": "使えば = nếu sử dụng (điều kiện giả định thuận lợi)."
+            },
+            {
+              "point": "〜し、〜（Bài 28 Liệt kê lý do/ưu điểm）",
+              "vi": "速く入力できるし = vừa nhập nhanh được, lại còn... (liệt kê các vế song song)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、手帳やノートに手で文字を書くことにも、すばらしい力があるように思う。",
+          "vi": "Thế nhưng, tôi cảm thấy việc viết chữ bằng tay vào sổ tay hay cuốn vở dường như cũng có một sức mạnh tuyệt vời.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay cá nhân"
+            },
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ viết, ký tự"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "すばらしい",
+              "read": "すばらしい",
+              "vi": "tuyệt vời"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vこと（Bài 38 Danh từ hóa）",
+              "vi": "文字を書くこと = việc viết chữ (danh từ hóa hành động)."
+            },
+            {
+              "point": "〜ように思う（Bài 64 — trọng tâm）",
+              "vi": "接続: Vる + ように思う。Sắc thái: bày tỏ cảm nhận, suy đoán nhẹ nhàng và khiêm tốn dựa trên chiêm nghiệm của người viết (dường như/có cảm giác là)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý đối lập then chốt, bắt đầu mở ra quan điểm chính của tác giả về sức mạnh viết tay."
+            }
+          ]
+        },
+        {
+          "jp": "文字を手で書くときは、頭の中にある考えが、まるで川の水が静かに流れるように紙の上に出てくる。",
+          "vi": "Khi viết chữ bằng tay, những suy nghĩ trong đầu sẽ tuôn ra trên mặt giấy êm đềm như dòng nước sông đang chảy.",
+          "vocab": [
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ/ký tự"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "bàn tay"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết"
+            },
+            {
+              "w": "とき",
+              "read": "とき",
+              "vi": "khi/lúc"
+            },
+            {
+              "w": "頭",
+              "read": "あたま",
+              "vi": "đầu"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có/tồn tại"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ/ý tưởng"
+            },
+            {
+              "w": "まるで",
+              "read": "まるで",
+              "vi": "cứ như là"
+            },
+            {
+              "w": "川",
+              "read": "かわ",
+              "vi": "sông"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "静かに",
+              "read": "しずかに",
+              "vi": "lặng lẽ"
+            },
+            {
+              "w": "流れる",
+              "read": "ながれる",
+              "vi": "chảy"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "mặt trên"
+            },
+            {
+              "w": "出てくる",
+              "read": "でてくる",
+              "vi": "xuất hiện/đi ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まるで〜ように（Bài 64 — trọng tâm ví von）",
+              "vi": "接続: まるで + Vる + ように + V。流れるように出てくる = \"tuôn ra như thể đang chảy\". まるで...ようだ/ように dùng để ví von hình ảnh sinh động."
+            },
+            {
+              "point": "Vてくる（Bài 46 Hướng phát sinh）",
+              "vi": "出てくる = hiện ra, tuôn ra ngoài (hướng từ trong tâm trí xuất hiện ra mặt giấy)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "まるで川の水が静かに流れるように",
+              "why": "Hình ảnh so sánh ví von làm rõ trạng thái tư duy tự nhiên xuất hiện khi viết tay."
+            }
+          ]
+        },
+        {
+          "jp": "画面で文字を打つときは言葉をただ集めているだけのように見えるが、手で書くときは、迷いや感情がそのまま文字の形や大きさに表れる。",
+          "vi": "Khi gõ chữ trên màn hình trông có vẻ như ta chỉ đang gom nhặt từ ngữ đơn thuần, nhưng khi viết tay, sự do dự và cảm xúc sẽ thể hiện nguyên vẹn qua hình dáng và kích cỡ của nét chữ.",
+          "vocab": [
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "打ちます",
+              "read": "うちます",
+              "vi": "gõ (phím), đánh máy"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "集めます",
+              "read": "あつめます",
+              "vi": "thu thập, gom góp"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "迷い",
+              "read": "まよい",
+              "vi": "sự do dự, phân vân"
+            },
+            {
+              "w": "感情",
+              "read": "かんじょう",
+              "vi": "cảm xúc, tình cảm"
+            },
+            {
+              "w": "そのまま",
+              "read": "そのまま",
+              "vi": "nguyên như vậy, giữ nguyên"
+            },
+            {
+              "w": "形",
+              "read": "かたち",
+              "vi": "hình dạng, hình thức"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "表れます",
+              "read": "あらわれます",
+              "vi": "biểu hiện ra, lộ rõ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけのように見える（Bài 64 — trọng tâm）",
+              "vi": "接続: 普通形 + だけ + のようだ（bổ nghĩa động từ 見える chuyển thành ように）. 集めているだけのように見える = \"nhìn trông có vẻ chỉ như đang gom từ ngữ\" (suy đoán qua dáng vẻ quan sát trực tiếp)."
+            },
+            {
+              "point": "そのまま（Bài 30 Trạng thái nguyên vẹn）",
+              "vi": "そのまま = giữ nguyên như thế, nguyên vẹn không thay đổi."
+            }
+          ],
+          "keys": [
+            {
+              "w": "迷いや感情がそのまま文字の形や大きさに表れる",
+              "why": "Cụm phân tích bản chất đối lập giữa gõ phím và viết tay, giải thích lý do cảm xúc được lưu giữ."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、後でノートを見直すと、書いたときの気持ちまで生き生きと思い出すことができるのだ。",
+          "vi": "Chính vì thế, khi xem lại sổ sau này, ta có thể nhớ lại một cách sống động đến cả tâm trạng khi viết.",
+          "vocab": [
+            {
+              "w": "後で",
+              "read": "あとで",
+              "vi": "sau khi, sau đó"
+            },
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "見直します",
+              "read": "みなおします",
+              "vi": "xem lại, nhìn lại"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm xúc"
+            },
+            {
+              "w": "生き生き",
+              "read": "いきいき",
+              "vi": "sống động, tràn đầy sức sống"
+            },
+            {
+              "w": "思い出す",
+              "read": "おもいだす",
+              "vi": "nhớ lại, hồi tưởng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "そのため",
+              "read": "そのため",
+              "vi": "do đó, vì thế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vと（Bài 23 Điều kiện phát hiện kết quả）",
+              "vi": "見直すと = hễ xem lại thì (khi thực hiện hành động này thì nhận ra kết quả sau)."
+            },
+            {
+              "point": "〜まで（Bài 26/53 Mức độ mở rộng）",
+              "vi": "気持ちまで = đến cả tâm trạng (nhấn mạnh mức độ chi tiết vượt ngoài mong đợi)."
+            },
+            {
+              "point": "〜のだ（Bài 26 Giải thích bản chất）",
+              "vi": "思い出すことができるのだ = giải thích rõ nguyên do/kết luận cho người đọc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため",
+              "why": "Liên từ chỉ kết quả trực tiếp giải thích vì sao đọc lại sổ tay lại gợi nhớ được cảm xúc lúc viết."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、手で文字を書くことは、単に情報を記録するだけでなく、自分の心と静かに会話をするような時間だと言える。",
+          "vi": "Nói cách khác, viết chữ bằng tay không chỉ đơn thuần là lưu lại thông tin, mà còn có thể coi là khoảng thời gian như đang trò chuyện thầm lặng với chính trái tim mình.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "記録",
+              "read": "きろく",
+              "vi": "ghi chép, lưu lại dữ liệu"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh (tính từ な)"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "cuộc trò chuyện, đàm thoại"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "言える",
+              "read": "いえる",
+              "vi": "có thể nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけでなく（Bài 53）",
+              "vi": "記録するだけでなく = không chỉ ghi lại thông tin mà còn..."
+            },
+            {
+              "point": "〜ような＋N（Bài 64 — trọng tâm bổ nghĩa danh từ）",
+              "vi": "接続: Vる + ような + N。会話をするような時間 = \"khoảng thời gian giống như đang trò chuyện\". Dùng ような để ví von trừu tượng cho danh từ đứng sau."
+            },
+            {
+              "point": "〜と言える（Bài 27/21）",
+              "vi": "と言える = có thể nói là (đưa ra nhận định logic, khách quan)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tóm lược cốt lõi, đưa ra định nghĩa và bản chất sâu xa của việc viết tay."
+            },
+            {
+              "w": "自分の心と静かに会話をするような時間",
+              "why": "Cụm từ chủ đề then chốt chứa đựng câu trả lời trực tiếp cho câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "便利な道具が多い現代だからこそ、ペンを持って自分の考えをじっくり深める時間を作ることが大切なようだ。",
+          "vi": "Chính vì sống trong thời hiện đại với nhiều công cụ tiện lợi, việc cầm bút tạo ra khoảng thời gian để đào sâu suy nghĩ của bản thân một cách kỹ càng dường như mới là điều quan trọng.",
+          "vocab": [
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "dụng cụ, công cụ"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            },
+            {
+              "w": "現代",
+              "read": "げんだい",
+              "vi": "thời hiện đại, ngày nay"
+            },
+            {
+              "w": "ペン",
+              "read": "ペン",
+              "vi": "bút"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "kỹ càng, thong thả và sâu sắc"
+            },
+            {
+              "w": "深めます",
+              "read": "ふかめます",
+              "vi": "đào sâu, làm sâu sắc thêm"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からこそ（Bài 53 Nhấn mạnh lý do）",
+              "vi": "現代だからこそ = chính vì thời hiện đại nên mới..."
+            },
+            {
+              "point": "〜なようだ（Bài 64 — trọng tâm）",
+              "vi": "接続: なAdj + なようだ。大切なようだ = \"dường như là điều quan trọng\" — đưa ra kết luận, chiêm nghiệm thấu đáo của tác giả."
+            }
+          ],
+          "keys": [
+            {
+              "w": "だからこそ",
+              "why": "Cụm nhấn mạnh lý do thời đại để đưa ra kết luận và thông điệp khuyên nhủ quan trọng nhất của tác giả."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "まるで川の水が静かに流れるように",
+          "label": "まるで〜ように（ví von sinh động）"
+        },
+        {
+          "excerpt": "言葉をただ集めているだけのように見える",
+          "label": "〜ように＋V（trạng thái quan sát trực tiếp）"
+        },
+        {
+          "excerpt": "自分の心と静かに会話をするような時間",
+          "label": "〜ような＋N（bổ nghĩa danh từ）"
+        },
+        {
+          "excerpt": "時間を作ることが大切なようだ",
+          "label": "〜なようだ（suy đoán/đúc kết mang tính chiêm nghiệm）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「自分の心と静かに会話をするような時間だ」とあるが、どういうことか。",
+          "evi": [
+            3,
+            4,
+            6
+          ],
+          "options": [
+            "スマートフォンを使って、他の人とすばやくメッセージをやり取りすること。",
+            "手で書くことで、自分の迷いや感情をじっくり見つめて整理できるということ。",
+            "心の中の考えを声に出して、周りの人に分かりやすく説明すること。",
+            "ノートに書いた文字を忘れないように、毎日声に出して読み返すこと。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「手で書くことで、自分の迷いや」 — Trong đoạn 2 và đoạn 3, tác giả giải thích rằng khi viết tay, sự phân vân và cảm xúc sẽ lộ rõ qua nét chữ (迷いや感情がそのまま文字の形や大きさに表れる), giúp ta nhìn nhận lại tâm trạng và sắp xếp suy nghĩ của bản thân (自分の思いを整理する). Phương án 「スマートフォンを使って」 sai vì nói về việc dùng điện thoại nhắn tin với người khác (trái ngược với đối thoại nội tâm). Phương án 「心の中の考えを声に出して」 sai vì nói về việc phát âm thành tiếng giải thích cho người khác nghe. Phương án 「ノートに書いた文字を」 sai vì bài không hề nói đến việc đọc to sổ tay mỗi ngày để ghi nhớ.",
+          "tip": "Với câu hỏi dạng giải thích cụm từ ví von 「〜はどういうことか」, hãy tìm nội dung giải thích cụ thể ở các câu liền trước. Từ khóa \"心と会話\" (trò chuyện với tâm hồn) tương ứng với việc tự nhìn nhận cảm xúc (自分の迷いや感情を見つめて整理する).",
+          "qt": {
+            "q": "Cụm từ “「自分の心と静かに会話をするような時間だ」 (là khoảng thời gian như thể lặng lẽ trò chuyện với chính lòng mình)” có nghĩa là gì?",
+            "o": [
+              "Dùng điện thoại thông minh để nhanh chóng trao đổi tin nhắn với người khác.",
+              "Viết bằng tay giúp nhìn lại và sắp xếp những băn khoăn, cảm xúc của bản thân một cách thấu đáo.",
+              "Thể hiện những suy nghĩ trong lòng thành lời nói và giải thích sao cho những người xung quanh dễ hiểu.",
+              "Để không quên những chữ đã viết trong vở, mỗi ngày đọc lại thành tiếng."
+            ]
+          }
+        },
+        {
+          "q": "なぜ手で書いたノートを見直すと、書いたときの気持ちを思い出すことができるのか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "キーボードで打った文字よりも、手で書いた文字のほうが速く読めるから。",
+            "手で書いた文字の形や大きさに、当時の迷いや感情がそのまま表れているから。",
+            "ノートに書くときは、日記のように毎日の出来事をすべて記録しているから。",
+            "パソコンのデータと違って、紙のノートは絶対に消えることがないから。"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「手で書いた文字の形や大きさに」 — Căn cứ trực tiếp nằm ở câu 4 và 5: \"手で書くときは、迷いや感情がそのまま文字の形や大きさに表れる。そのため、後でノートを見直すと、書いたときの気持ちまで生き生きと思い出すことができるのだ\" (Khi viết tay, sự do dự và cảm xúc lộ rõ qua nét chữ. Vì thế khi xem lại sẽ nhớ lại trọn vẹn cảm xúc lúc viết). Phương án 「キーボードで打った文字よりも」 sai vì bài không đề cập chữ viết tay đọc nhanh hơn. Phương án 「ノートに書くときは」 sai vì bài không nói đến việc ghi nhật ký mọi sự kiện mỗi ngày. Phương án 「パソコンのデータと違って」 sai vì việc nhớ lại cảm xúc không xuất phát từ việc giấy không bị xóa dữ liệu.",
+          "tip": "Khi gặp câu hỏi tìm nguyên nhân 「なぜ〜のか」 mà trong bài có liên từ kết quả 「そのため」(Do đó), nguyên nhân chính xác luôn nằm ở NGAY CÂU TRƯỚC liên từ đó.",
+          "qt": {
+            "q": "Tại sao khi xem lại cuốn vở viết bằng tay, người ta có thể nhớ lại cảm xúc lúc viết?",
+            "o": [
+              "Vì chữ viết bằng tay dễ đọc nhanh hơn chữ được gõ bằng bàn phím.",
+              "Vì những băn khoăn và cảm xúc lúc đó được thể hiện nguyên vẹn qua hình dáng và kích thước của chữ viết tay.",
+              "Vì khi viết vào vở, người ta ghi lại mọi việc xảy ra mỗi ngày như viết nhật ký.",
+              "Vì khác với dữ liệu trên máy tính, vở giấy tuyệt đối không bao giờ biến mất."
+            ]
+          }
+        },
+        {
+          "q": "筆者は手で文字を書くことをどう考えているか。",
+          "evi": [
+            2,
+            6,
+            7
+          ],
+          "options": [
+            "スマートフォンは便利だが、手で書くことで自分の考えをじっくり深める時間を持つことが大切だ。",
+            "パソコンを使うと感情が消えてしまうので、すべての記録を手書きにするべきだ。",
+            "手で書くのは時間がかかるため、急いでいるときだけ使うほうがいい。",
+            "手帳に文字をきれいに書く練習をすれば、頭の回転が速くなる。"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「スマートフォンは便利だが」 — Đây là ý kiến cốt lõi được đúc kết ở câu cuối cùng của bài: \"便利な道具が多い現代だからこそ、ペンを持って自分の考えをじっくり深める時間を作ることが大切なようだ\" (Chính vì thời hiện đại có nhiều công cụ tiện lợi, việc cầm bút dành thời gian đào sâu suy nghĩ mới là điều quan trọng). Phương án 「パソコンを使うと感情が」 sai vì mang tính cực đoan (tác giả không yêu cầu bỏ hẳn máy tính để viết tay tất cả). Phương án 「手で書くのは時間がかかる」 sai vì viết tay cần thời gian chiêm nghiệm, không phải dùng khi vội. Phương án 「手帳に文字をきれいに書く」 sai vì bài không hề bàn đến việc luyện viết chữ đẹp để tăng tốc độ tư duy não bộ.",
+          "tip": "Câu hỏi ý kiến tác giả 「筆者はどう考えているか」 ở bài văn nghị luận thường nằm ở ĐOẠN CUỐI, đi kèm các từ khóa đúc kết như 「つまり」(tóm lại), 「〜大切だ」(quan trọng), 「〜ようだ」(dường như là). Cần cảnh giác loại bỏ các phương án có từ mang tính tuyệt đối hóa cực đoan như すべて, 絶対に.",
+          "qt": {
+            "q": "Người viết nghĩ thế nào về việc viết chữ bằng tay?",
+            "o": [
+              "Điện thoại thông minh tiện lợi, nhưng điều quan trọng là dành thời gian để viết bằng tay và suy nghĩ sâu hơn về những ý tưởng của mình.",
+              "Khi dùng máy tính, cảm xúc sẽ biến mất, vì vậy nên viết tay tất cả mọi thứ cần ghi lại.",
+              "Viết bằng tay mất thời gian, nên chỉ nên dùng khi đang vội.",
+              "Nếu luyện tập viết chữ đẹp vào sổ tay, tốc độ suy nghĩ sẽ nhanh hơn."
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Hiện tượng & Xu hướng công nghệ",
+          "topic": 0,
+          "note": "Nêu xu hướng dùng điện thoại/máy tính ghi chép; cảnh giác bẫy nghĩ tác giả phủ định sự tiện lợi của công nghệ.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 2,
+          "kind": "turn",
+          "label": "Bước ngoặt quan điểm",
+          "topic": 2,
+          "note": "Dùng「しかし」bẻ lái để khẳng định viết tay có sức mạnh tuyệt vời; là tiền đề cho chủ trương của bài.",
+          "qs": [
+            3
+          ]
+        },
+        {
+          "from": 3,
+          "to": 5,
+          "kind": "body",
+          "label": "Cơ chế & Lợi ích viết tay",
+          "topic": 4,
+          "note": "So sánh sự khác biệt khi gõ chữ và viết tay: dòng suy nghĩ tuôn chảy và cảm xúc in hằn trên từng nét chữ.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "point",
+          "label": "Đúc kết & Lời khuyên tác giả",
+          "topic": 7,
+          "note": "Tổng kết ý nghĩa viết tay là đối thoại với nội tâm và đưa ra lời khuyên dành thời gian viết để đào sâu tư duy.",
+          "qs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "同僚の様子と職場の変化",
+      "titleVi": "Dáng vẻ của đồng nghiệp và những thay đổi ở nơi làm việc",
+      "japanese": "先週から、同僚のキムさんの様子がいつもと違うようだ。\n表情が暗くて、あまり話さないみたいだし、仕事中もぼんやりしているようだった。\nランチタイムに一緒に食べようと誘ったが、「今日はいい」と断られた。\nキムさんはいつも明るくて、誘いを断ることはほとんどないのに、それがとても意外だった。\nもしかしたら、プライベートで何か問題があるのかもしれないと思った。\nでも、聞きたくても、聞くタイミングがなかなかつかめなかった。\nその日の夕方、上司の田中部長も様子がいつもと違うようだった。\n部長はいつも明るい人なので、今日の顔色を見ると、何か悩んでいるようだった。\nもしかしたら、会社全体に関係する問題があるのかもしれない。\nこういう雰囲気のとき、職場はまるで嵐の前のようだと感じることがある。\n翌日の朝、出社すると、会議室に幹部が集まっているようだった。\nドアが閉まっていて声は聞こえなかったが、雰囲気がいつもより緊張しているようだった。\nお昼ごろ、全体ミーティングが急に開かれた。\n田中部長が「来月から部署の一部が変わることになりました」と話してくれた。\nそのとき初めて、キムさんが暗かった理由がわかったような気がした。\nキムさんはもしかしたら、この変更について先に知っていたのかもしれない。\nせいで不安になったのか、それともおかげで何か準備できたのかはわからない。\nミーティングのあと、キムさんに話しかけてみると、少し表情が明るくなったようだった。\n「やっと話せて、ほっとしたみたい」とキムさん自身が言っていた。\nこうして、職場の雰囲気は嵐が過ぎたあとのように、少しずつ落ち着いてきたようだ。",
+      "vietnamese": "Từ tuần trước, dáng vẻ của đồng nghiệp Kim có vẻ khác so với mọi khi.\nNét mặt trông tối sầm, có vẻ ít nói hơn, và khi làm việc cũng có vẻ lơ đãng.\nGiờ ăn trưa tôi rủ cùng ăn nhưng bị từ chối với câu \"Hôm nay thôi nhé\".\nKim vốn luôn vui vẻ và hầu như không bao giờ từ chối lời mời, nên điều đó thật bất ngờ.\nTôi nghĩ biết đâu Kim có chuyện gì đó trong cuộc sống riêng.\nNhưng dù muốn hỏi, cũng không tìm được thời điểm thích hợp.\nChiều hôm đó, trưởng phòng Tanaka cũng có vẻ khác mọi khi.\nVì trưởng phòng vốn là người vui vẻ, khi nhìn sắc mặt hôm nay, có vẻ như đang lo lắng điều gì.\nBiết đâu có thể có vấn đề liên quan đến cả công ty.\nKhi không khí như thế này, đôi khi tôi cảm thấy nơi làm việc đúng là như trước cơn bão vậy.\nSáng ngày hôm sau khi đến chỗ làm, có vẻ như ban lãnh đạo đang tập trung trong phòng họp.\nCửa đóng không nghe thấy tiếng, nhưng không khí có vẻ căng thẳng hơn thường ngày.\nKhoảng buổi trưa, cuộc họp toàn thể được tổ chức đột ngột.\nTrưởng phòng Tanaka thông báo \"Từ tháng tới, một phần của phòng ban sẽ thay đổi\".\nLúc đó tôi lần đầu tiên cảm giác như mình đã hiểu ra lý do Kim trông tối sầm.\nBiết đâu Kim có thể đã biết trước về sự thay đổi này.\nKhông biết là vì thế mà lo lắng, hay là nhờ vậy mà chuẩn bị được gì đó.\nSau cuộc họp, khi thử nói chuyện với Kim, có vẻ nét mặt sáng lên một chút.\n\"Cuối cùng nói ra được rồi, có vẻ nhẹ nhõm\" — chính Kim đã nói vậy.\nNhư vậy, không khí nơi làm việc có vẻ dần dần lắng xuống, giống như sau khi cơn bão đã qua.",
+      "sentences": [
+        {
+          "jp": "先週から、同僚のキムさんの様子がいつもと違うようだ。",
+          "vi": "Từ tuần trước, dáng vẻ của đồng nghiệp Kim có vẻ khác so với mọi khi.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "同僚",
+              "read": "どうりょう",
+              "vi": "đồng nghiệp"
+            },
+            {
+              "w": "キム",
+              "read": "キム",
+              "vi": "tên riêng Kim"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "dáng vẻ, tình trạng"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "thường ngày, mọi khi"
+            },
+            {
+              "w": "違います",
+              "read": "ちがいます",
+              "vi": "khác, không giống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64 — trọng tâm）",
+              "vi": "接続: Vる/Aい/なAdj/N + ようだ。ここでは「様子が違う」という観察がそのまま根拠。 違うようだ = \"có vẻ khác\". Người viết tự quan sát thấy nên dùng ようだ. ≠ そうだ伝聞（nghe người khác nói）≠ はずだ（suy luận logic thuần túy）."
+            }
+          ]
+        },
+        {
+          "jp": "表情が暗くて、あまり話さないみたいだし、仕事中もぼんやりしているようだった。",
+          "vi": "Nét mặt trông tối sầm, có vẻ ít nói hơn, và khi làm việc cũng có vẻ lơ đãng.",
+          "vocab": [
+            {
+              "w": "表情",
+              "read": "ひょうじょう",
+              "vi": "nét mặt"
+            },
+            {
+              "w": "暗くて",
+              "read": "くらくて",
+              "vi": "u ám"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không...lắm"
+            },
+            {
+              "w": "話さない",
+              "read": "はなさない",
+              "vi": "không nói chuyện"
+            },
+            {
+              "w": "仕事中",
+              "read": "しごとちゅう",
+              "vi": "trong giờ làm"
+            },
+            {
+              "w": "ぼんやりしている",
+              "read": "ぼんやりしている",
+              "vi": "đang lơ đãng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜て（nối tính từ Bài 16）",
+              "vi": "表情が暗くて = nét mặt tối và. て形 nối tính từ い."
+            },
+            {
+              "point": "〜みたいだ（Bài 64 — trọng tâm）",
+              "vi": "接続: Vない（話さない）+ みたいだ。 話さないみたいだ = \"có vẻ ít nói\". みたいだ = ようだ khẩu ngữ. Câu này dùng xen cả みたいだ lẫn ようだ cho thấy hai mẫu đồng nghĩa, có thể thay nhau."
+            },
+            {
+              "point": "Vている + ようだった（quá khứ）",
+              "vi": "ぼんやりしているようだった = \"có vẻ đang lơ đãng\" (trong quá khứ). ようだった = quá khứ của ようだ."
+            }
+          ]
+        },
+        {
+          "jp": "ランチタイムに一緒に食べようと誘ったが、「今日はいい」と断られた。",
+          "vi": "Giờ ăn trưa tôi rủ cùng ăn nhưng bị từ chối với câu \"Hôm nay thôi nhé\".",
+          "vocab": [
+            {
+              "w": "ランチタイム",
+              "read": "ランチタイム",
+              "vi": "giờ ăn trưa"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "誘います",
+              "read": "さそいます",
+              "vi": "rủ, mời"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "断ります",
+              "read": "ことわります",
+              "vi": "từ chối"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V意向形 + と（Bài 31）",
+              "vi": "食べようと誘った = rủ (cùng) ăn. V意向形（よう）+ と + Vます = cố gắng/mời làm gì (Bài 31)."
+            },
+            {
+              "point": "V受身（Bài 37）",
+              "vi": "断られた = bị từ chối. Vられた = dạng bị động (Bài 37)."
+            }
+          ]
+        },
+        {
+          "jp": "キムさんはいつも明るくて、誘いを断ることはほとんどないのに、それがとても意外だった。",
+          "vi": "Kim vốn luôn vui vẻ và hầu như không bao giờ từ chối lời mời, nên điều đó thật bất ngờ.",
+          "vocab": [
+            {
+              "w": "キム",
+              "read": "キム",
+              "vi": "tên riêng Kim"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "明るい",
+              "read": "あかるい",
+              "vi": "vui vẻ, sáng sủa"
+            },
+            {
+              "w": "誘い",
+              "read": "さそい",
+              "vi": "lời mời, lời rủ"
+            },
+            {
+              "w": "断る",
+              "read": "ことわる",
+              "vi": "từ chối"
+            },
+            {
+              "w": "ほとんど",
+              "read": "ほとんど",
+              "vi": "hầu hết, gần như (+ phủ định = hầu như không)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "意外",
+              "read": "いがい",
+              "vi": "bất ngờ, ngoài dự đoán"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接 Bài 45/62）",
+              "vi": "ないのに = nhưng (không từ chối) vậy mà (đã từ chối). のに = sắc thái bất mãn/ngạc nhiên trước điều trái kỳ vọng."
+            }
+          ]
+        },
+        {
+          "jp": "もしかしたら、プライベートで何か問題があるのかもしれないと思った。",
+          "vi": "Tôi nghĩ biết đâu Kim có chuyện gì đó trong cuộc sống riêng.",
+          "vocab": [
+            {
+              "w": "もしかしたら",
+              "read": "もしかしたら",
+              "vi": "có lẽ"
+            },
+            {
+              "w": "プライベート",
+              "read": "プライベート",
+              "vi": "đời tư"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có/tồn tại"
+            },
+            {
+              "w": "思った",
+              "read": "おもった",
+              "vi": "đã nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "あるのかもしれない = có thể có (không chắc). かもしれない = khả năng yếu, không có căn cứ mạnh. Đối chiếu: nếu có căn cứ trực tiếp → dùng ようだ."
+            }
+          ]
+        },
+        {
+          "jp": "でも、聞きたくても、聞くタイミングがなかなかつかめなかった。",
+          "vi": "Nhưng dù muốn hỏi, cũng không tìm được thời điểm thích hợp.",
+          "vocab": [
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "タイミング",
+              "read": "タイミング",
+              "vi": "thời điểm, timing"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "không dễ dàng (+ phủ định), mãi vẫn không"
+            },
+            {
+              "w": "つかめる",
+              "read": "つかめる",
+              "vi": "có thể nắm bắt"
+            },
+            {
+              "w": "つかめません",
+              "read": "つかめません",
+              "vi": "không nắm được, không tìm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たくても（Bài 25 ても応用）",
+              "vi": "聞きたくても = dù muốn hỏi. Vたい（muốn）→ たくて（te形）+ も = dù muốn V vẫn… (Bài 25 ても)."
+            }
+          ]
+        },
+        {
+          "jp": "その日の夕方、上司の田中部長も様子がいつもと違うようだった。",
+          "vi": "Chiều hôm đó, trưởng phòng Tanaka cũng có vẻ khác mọi khi.",
+          "vocab": [
+            {
+              "w": "夕方",
+              "read": "ゆうがた",
+              "vi": "buổi chiều tối"
+            },
+            {
+              "w": "上司",
+              "read": "じょうし",
+              "vi": "cấp trên, sếp"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "tình hình, cảnh tượng"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだった（ようだ quá khứ）",
+              "vi": "様子が違うようだった = \"có vẻ khác (lúc ấy)\". ようだった = dạng quá khứ của ようだ. Người viết nhìn thấy trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "部長はいつも明るい人なので、今日の顔色を見ると、何か悩んでいるようだった。",
+          "vi": "Vì trưởng phòng vốn là người vui vẻ, khi nhìn sắc mặt hôm nay, có vẻ như đang lo lắng điều gì.",
+          "vocab": [
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "明るい",
+              "read": "あかるい",
+              "vi": "sáng, rạng rỡ"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "顔色",
+              "read": "かおいろ",
+              "vi": "sắc mặt, nét mặt"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "悩みます",
+              "read": "なやみます",
+              "vi": "lo lắng, băn khoăn, trăn trở"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（Bài 39）",
+              "vi": "明るい人なので = vì là người vui vẻ. ので nêu lý do."
+            },
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "見ると = khi nhìn thì. と = khám phá tức thì."
+            },
+            {
+              "point": "〜ようだった（Bài 64）",
+              "vi": "悩んでいるようだった = \"có vẻ đang lo lắng\". CĂN CỨ = tự nhìn thấy sắc mặt（顔色を見ると）→ ようだ phù hợp. Nếu nghe người khác kể → そうだ伝聞（Bài 63）. Nếu suy từ lịch làm việc → はずだ（Bài 51）."
+            }
+          ]
+        },
+        {
+          "jp": "もしかしたら、会社全体に関係する問題があるのかもしれない。",
+          "vi": "Biết đâu có thể có vấn đề liên quan đến cả công ty.",
+          "vocab": [
+            {
+              "w": "もしか",
+              "read": "もしか",
+              "vi": "có lẽ, có thể"
+            },
+            {
+              "w": "会社",
+              "read": "かいしゃ",
+              "vi": "công ty"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn bộ, tổng thể"
+            },
+            {
+              "w": "関係します",
+              "read": "かんけいします",
+              "vi": "liên quan"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "会社全体",
+              "read": "かいしゃぜんたい",
+              "vi": "toàn bộ công ty"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "あるのかもしれない = có thể có (chỉ là khả năng, chưa có căn cứ cụ thể). Đây là suy đoán yếu hơn ようだ."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa（Bài 22）",
+              "vi": "会社全体に関係する問題 = vấn đề liên quan đến cả công ty. Vる bổ nghĩa cho 問題."
+            }
+          ]
+        },
+        {
+          "jp": "こういう雰囲気のとき、職場はまるで嵐の前のようだと感じることがある。",
+          "vi": "Khi không khí như thế này, đôi khi tôi cảm thấy nơi làm việc đúng là như trước cơn bão vậy.",
+          "vocab": [
+            {
+              "w": "こういう",
+              "read": "こういう",
+              "vi": "loại như vậy, như thế này"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "không khí, bầu không khí"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc"
+            },
+            {
+              "w": "まるで",
+              "read": "まるで",
+              "vi": "cứ như là, giống hệt như"
+            },
+            {
+              "w": "嵐",
+              "read": "あらし",
+              "vi": "cơn bão"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy, cảm nhận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "まるで〜のようだ（ví von Bài 64）",
+              "vi": "嵐の前のようだ = \"như trước cơn bão\". Đây là dùng ようだ để VÍ VON (so sánh hình ảnh), không phải suy đoán. まるで nhấn mạnh sự tương đồng. N + のようだ = giống như N."
+            },
+            {
+              "point": "Vることがある（Bài 19）",
+              "vi": "感じることがある = đôi khi cảm thấy. Vることがある = đôi khi có/xảy ra (Bài 19)."
+            }
+          ]
+        },
+        {
+          "jp": "翌日の朝、出社すると、会議室に幹部が集まっているようだった。",
+          "vi": "Sáng ngày hôm sau khi đến chỗ làm, có vẻ như ban lãnh đạo đang tập trung trong phòng họp.",
+          "vocab": [
+            {
+              "w": "翌日",
+              "read": "よくじつ",
+              "vi": "ngày hôm sau"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "出社します",
+              "read": "しゅっしゃします",
+              "vi": "đến chỗ làm"
+            },
+            {
+              "w": "会議",
+              "read": "かいぎ",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "幹部",
+              "read": "かんぶ",
+              "vi": "ban lãnh đạo, cán bộ cấp cao"
+            },
+            {
+              "w": "集まります",
+              "read": "あつまります",
+              "vi": "tập hợp, tập trung"
+            },
+            {
+              "w": "会議室",
+              "read": "かいぎしつ",
+              "vi": "phòng họp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "出社すると = khi đến chỗ làm thì. Khám phá tức thì."
+            },
+            {
+              "point": "〜ようだった（Bài 64）",
+              "vi": "集まっているようだった = \"có vẻ đang tập trung\". Căn cứ: nhìn thấy ánh sáng phòng họp bật, bóng người qua cửa kính. Suy đoán trực tiếp → ようだ."
+            }
+          ]
+        },
+        {
+          "jp": "ドアが閉まっていて声は聞こえなかったが、雰囲気がいつもより緊張しているようだった。",
+          "vi": "Cửa đóng không nghe thấy tiếng, nhưng không khí có vẻ căng thẳng hơn thường ngày.",
+          "vocab": [
+            {
+              "w": "ドア",
+              "read": "ドア",
+              "vi": "cánh cửa"
+            },
+            {
+              "w": "閉まります",
+              "read": "しまります",
+              "vi": "đóng (tự đóng)"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "giọng nói, tiếng người"
+            },
+            {
+              "w": "聞こえます",
+              "read": "きこえます",
+              "vi": "nghe được, nghe thấy"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "bầu không khí"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "緊張します",
+              "read": "きんちょうします",
+              "vi": "căng thẳng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて（順接 Bài 16）",
+              "vi": "閉まっていて = cửa đóng và (rồi). て nối hai mệnh đề."
+            },
+            {
+              "point": "〜ようだった（Bài 64）",
+              "vi": "緊張しているようだった = \"có vẻ căng thẳng\". Người viết tự cảm nhận không khí → căn cứ trực tiếp. Đây là ví dụ ようだ dùng khi căn cứ là \"cảm nhận bầu không khí\" chứ không nhất thiết phải nhìn thấy vật cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "お昼ごろ、全体ミーティングが急に開かれた。",
+          "vi": "Khoảng buổi trưa, cuộc họp toàn thể được tổ chức đột ngột.",
+          "vocab": [
+            {
+              "w": "お昼ごろ",
+              "read": "おひるごろ",
+              "vi": "khoảng buổi trưa"
+            },
+            {
+              "w": "全体",
+              "read": "ぜんたい",
+              "vi": "toàn thể, toàn bộ"
+            },
+            {
+              "w": "ミーティング",
+              "read": "ミーティング",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột ngột, bất ngờ"
+            },
+            {
+              "w": "開かれます",
+              "read": "ひらかれます",
+              "vi": "được tổ chức, được mở"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "V受身（Bài 37）",
+              "vi": "開かれた = được tổ chức. Vられる = dạng bị động (Bài 37). Chủ ngữ không rõ ràng → bị động xã hội."
+            }
+          ]
+        },
+        {
+          "jp": "田中部長が「来月から部署の一部が変わることになりました」と話してくれた。",
+          "vi": "Trưởng phòng Tanaka thông báo \"Từ tháng tới, một phần của phòng ban sẽ thay đổi\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "部長",
+              "read": "ぶちょう",
+              "vi": "trưởng phòng"
+            },
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng tới"
+            },
+            {
+              "w": "部署",
+              "read": "ぶしょ",
+              "vi": "phòng ban, bộ phận"
+            },
+            {
+              "w": "一部",
+              "read": "いちぶ",
+              "vi": "một phần"
+            },
+            {
+              "w": "変わります",
+              "read": "かわります",
+              "vi": "thay đổi"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることになりました（Bài 36）",
+              "vi": "変わることになりました = đã được quyết định sẽ thay đổi. ことになる = kết quả được quyết định từ bên ngoài (Bài 36)."
+            },
+            {
+              "point": "Vてくれた（Bài 24）",
+              "vi": "話してくれた = đã nói cho (chúng tôi). てくれる = làm gì vì lợi ích người nói (Bài 24)."
+            }
+          ]
+        },
+        {
+          "jp": "そのとき初めて、キムさんが暗かった理由がわかったような気がした。",
+          "vi": "Lúc đó tôi lần đầu tiên cảm giác như mình đã hiểu ra lý do Kim trông tối sầm.",
+          "vocab": [
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu tiên"
+            },
+            {
+              "w": "キム",
+              "read": "キム",
+              "vi": "tên riêng Kim"
+            },
+            {
+              "w": "暗い",
+              "read": "くらい",
+              "vi": "tối tăm, tối"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "そのとき",
+              "read": "そのとき",
+              "vi": "lúc đó, lúc ấy"
+            },
+            {
+              "w": "気がします",
+              "read": "きがします",
+              "vi": "cảm giác, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ような気がした（ようだ応用）",
+              "vi": "わかったような気がした = \"có cảm giác như đã hiểu\". 接続: Vた + ような + 気がする. ような（ようだ の連体形）+ 気がする = cảm giác như thể. Sắc thái: chưa chắc chắn hoàn toàn, chỉ là cảm nhận mơ hồ."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa（Bài 22）",
+              "vi": "キムさんが暗かった理由 = lý do (mà) Kim trông tối. Vた bổ nghĩa cho 理由."
+            }
+          ]
+        },
+        {
+          "jp": "キムさんはもしかしたら、この変更について先に知っていたのかもしれない。",
+          "vi": "Biết đâu Kim có thể đã biết trước về sự thay đổi này.",
+          "vocab": [
+            {
+              "w": "キム",
+              "read": "キム",
+              "vi": "tên riêng Kim"
+            },
+            {
+              "w": "もしか",
+              "read": "もしか",
+              "vi": "có lẽ, có thể"
+            },
+            {
+              "w": "変更",
+              "read": "へんこう",
+              "vi": "sự thay đổi, biến động"
+            },
+            {
+              "w": "先に",
+              "read": "さきに",
+              "vi": "trước, trước tiên"
+            },
+            {
+              "w": "知ります",
+              "read": "しります",
+              "vi": "biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（Bài 21）",
+              "vi": "この変更について = về sự thay đổi này. について = về (chủ đề). Ôn lại Bài 21."
+            },
+            {
+              "point": "〜かもしれない（Bài 32）",
+              "vi": "知っていたのかもしれない = có thể đã biết trước. かもしれない = khả năng không chắc. Đây là suy đoán YẾU HƠN ようだ vì không có căn cứ trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "せいで不安になったのか、それともおかげで何か準備できたのかはわからない。",
+          "vi": "Không biết là vì thế mà lo lắng, hay là nhờ vậy mà chuẩn bị được gì đó.",
+          "vocab": [
+            {
+              "w": "せいで",
+              "read": "せいで",
+              "vi": "vì/do nguyên nhân xấu"
+            },
+            {
+              "w": "不安になった",
+              "read": "ふあんになった",
+              "vi": "đã trở nên lo lắng"
+            },
+            {
+              "w": "それとも",
+              "read": "それとも",
+              "vi": "hay là"
+            },
+            {
+              "w": "おかげで",
+              "read": "おかげで",
+              "vi": "nhờ vào"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "準備できた",
+              "read": "じゅんびできた",
+              "vi": "đã có thể chuẩn bị"
+            },
+            {
+              "w": "わからない",
+              "read": "わからない",
+              "vi": "không biết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜せいで（Bài 59）",
+              "vi": "せいで不安になった = vì vậy mà lo lắng. せいで = tại, đổ lỗi (kết quả tiêu cực Bài 59)."
+            },
+            {
+              "point": "〜おかげで（Bài 59）",
+              "vi": "おかげで準備できた = nhờ vậy chuẩn bị được. おかげで = nhờ (kết quả tích cực Bài 59). Ôn lại cặp đối lập せいで/おかげで."
+            },
+            {
+              "point": "〜のかはわからない（Bài 40）",
+              "vi": "わからない = không biết. 〜のか = nominalised question (Bài 40)."
+            }
+          ]
+        },
+        {
+          "jp": "ミーティングのあと、キムさんに話しかけてみると、少し表情が明るくなったようだった。",
+          "vi": "Sau cuộc họp, khi thử nói chuyện với Kim, có vẻ nét mặt sáng lên một chút.",
+          "vocab": [
+            {
+              "w": "ミーティング",
+              "read": "ミーティング",
+              "vi": "cuộc họp"
+            },
+            {
+              "w": "キム",
+              "read": "キム",
+              "vi": "tên riêng Kim"
+            },
+            {
+              "w": "話しかけます",
+              "read": "はなしかけます",
+              "vi": "nói chuyện với, bắt chuyện"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "表情",
+              "read": "ひょうじょう",
+              "vi": "nét mặt, biểu cảm"
+            },
+            {
+              "w": "明るい",
+              "read": "あかるい",
+              "vi": "sáng, rạng rỡ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてみる（Bài 40）",
+              "vi": "話しかけてみると = thử nói chuyện xem thì. Vてみる = thử làm V (Bài 40)."
+            },
+            {
+              "point": "〜くなった（Bài 19）",
+              "vi": "明るくなった = trở nên sáng lên. Aい + くなる = trở nên (Bài 19)."
+            },
+            {
+              "point": "〜ようだった（Bài 64）",
+              "vi": "明るくなったようだった = \"có vẻ sáng lên\". Căn cứ: tự nhìn thấy biểu cảm của Kim → ようだ phù hợp."
+            }
+          ]
+        },
+        {
+          "jp": "「やっと話せて、ほっとしたみたい」とキムさん自身が言っていた。",
+          "vi": "\"Cuối cùng nói ra được rồi, có vẻ nhẹ nhõm\" — chính Kim đã nói vậy.",
+          "vocab": [
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng, sau rốt"
+            },
+            {
+              "w": "話せる",
+              "read": "はなせる",
+              "vi": "có thể nói (V可能形)"
+            },
+            {
+              "w": "ほっと",
+              "read": "ほっと",
+              "vi": "nhẹ nhõm, yên tâm"
+            },
+            {
+              "w": "キム",
+              "read": "キム",
+              "vi": "tên riêng Kim"
+            },
+            {
+              "w": "自身",
+              "read": "じしん",
+              "vi": "bản thân, chính"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "ほっとします",
+              "read": "ほっとします",
+              "vi": "thở phào, nhẹ nhõm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜みたいだ（Bài 64 — tự nói về bản thân）",
+              "vi": "ほっとしたみたい = \"có vẻ nhẹ nhõm\". Thú vị: Kim dùng みたいだ để mô tả chính cảm xúc của bản thân — sắc thái khiêm tốn/dè dặt khi bày tỏ cảm giác. Cũng có thể là câu nói vui, nhẹ nhàng. みたいだ khẩu ngữ thân mật phù hợp ở đây."
+            },
+            {
+              "point": "Vて（nối Bài 16）",
+              "vi": "話せて = nói được rồi (và). て nối."
+            }
+          ]
+        },
+        {
+          "jp": "こうして、職場の雰囲気は嵐が過ぎたあとのように、少しずつ落ち着いてきたようだ。",
+          "vi": "Như vậy, không khí nơi làm việc có vẻ dần dần lắng xuống, giống như sau khi cơn bão đã qua.",
+          "vocab": [
+            {
+              "w": "こうして",
+              "read": "こうして",
+              "vi": "như vậy, theo cách này"
+            },
+            {
+              "w": "職場",
+              "read": "しょくば",
+              "vi": "nơi làm việc"
+            },
+            {
+              "w": "雰囲気",
+              "read": "ふんいき",
+              "vi": "bầu không khí"
+            },
+            {
+              "w": "嵐",
+              "read": "あらし",
+              "vi": "cơn bão"
+            },
+            {
+              "w": "過ぎます",
+              "read": "すぎます",
+              "vi": "qua, đi qua"
+            },
+            {
+              "w": "少しずつ",
+              "read": "すこしずつ",
+              "vi": "từng chút một"
+            },
+            {
+              "w": "落ち着きます",
+              "read": "おちつきます",
+              "vi": "lắng xuống, trở nên bình thường"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のように（ví von Bài 64）",
+              "vi": "嵐が過ぎたあとのように = \"giống như sau khi cơn bão đã qua\". 接続: N（のように）bổ nghĩa động từ. ように là dạng liên trạng từ của ようだ — dùng để ví von ở trước động từ: 〜のように + V."
+            },
+            {
+              "point": "Vてくる（Bài 43）",
+              "vi": "落ち着いてきた = đã dần dần lắng xuống (thay đổi theo chiều gần lại). てくる = thay đổi theo chiều đến gần (Bài 43)."
+            },
+            {
+              "point": "〜ようだ（Bài 64 — kết）",
+              "vi": "落ち着いてきたようだ = \"có vẻ đã dần lắng xuống\". Câu kết: người viết tự quan sát không khí → ようだ. Đây là lần cuối mẫu trọng tâm xuất hiện, tóm gọn cảm nhận."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "キムさんの様子がいつもと違うようだ",
+          "label": "〜ようだ（suy đoán từ quan sát trực tiếp）"
+        },
+        {
+          "excerpt": "話さないみたいだし、仕事中もぼんやりしているようだった",
+          "label": "〜みたいだ / ようだった（khẩu ngữ & quá khứ）"
+        },
+        {
+          "excerpt": "顔色を見ると、何か悩んでいるようだった",
+          "label": "Sắc thái: 見ると + ようだ（căn cứ = nhìn thấy）"
+        },
+        {
+          "excerpt": "まるで嵐の前のようだ",
+          "label": "Sắc thái: まるで〜のようだ（ví von không phải suy đoán）"
+        },
+        {
+          "excerpt": "わかったような気がした",
+          "label": "〜ような気がする（ようだ応用: cảm giác mơ hồ）"
+        },
+        {
+          "excerpt": "ほっとしたみたい",
+          "label": "〜みたいだ（khẩu ngữ thân mật）"
+        },
+        {
+          "excerpt": "嵐が過ぎたあとのように",
+          "label": "〜のように（ように + V = ví von động từ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「顔色を見ると、何か悩んでいるようだった」について、ここで「ようだ」を使う理由として最も適切なのはどれですか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "誰かから「部長が悩んでいる」と聞いたからです",
+            "部長の仕事の量から論理的に計算したからです",
+            "自分で直接部長の顔色を見て、そう判断したからです",
+            "新聞かニュースで部長の様子を知ったからです"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: câu văn ghi rõ \"今日の顔色を見ると\" — người viết NHÌN THẤY trực tiếp sắc mặt của trưởng phòng hôm nay. Đây chính là căn cứ trực tiếp qua giác quan (thị giác), dẫn đến suy đoán \"何か悩んでいるようだった\". ようだ là mẫu phù hợp cho suy đoán có căn cứ trực tiếp. Đáp án A sai: nếu \"ai đó nói với mình\" thì đó là gián tiếp → そうだ伝聞 (Bài 63), không phải ようだ. Đáp án B sai: \"tính toán từ khối lượng công việc\" là kiểu suy luận logic → はずだ (Bài 51), không phải ようだ. Đáp án D sai: báo/tin tức là thông tin từ bên ngoài → そうだ伝聞/らしい, không phải ようだ.",
+          "tip": "Khi thấy cụm \"〜を見ると\" hoặc \"〜の様子を見て\" ngay trước ようだ — đó là dấu hiệu 100% của căn cứ trực tiếp bằng thị giác → ようだ/みたいだ. Nếu thấy \"〜によると\" hoặc \"〜が言っていた\" → そうだ伝聞.",
+          "qt": {
+            "q": "Về câu 「顔色を見ると、何か悩んでいるようだった」(Nhìn sắc mặt thì có vẻ đang lo lắng điều gì đó), lý do thích hợp nhất để dùng 「ようだ」 ở đây là gì?",
+            "o": [
+              "Vì nghe ai đó nói rằng 「部長が悩んでいる」 (trưởng phòng đang lo lắng)",
+              "Vì đã tính toán một cách logic dựa trên khối lượng công việc của trưởng phòng",
+              "Vì tự mình nhìn sắc mặt của trưởng phòng và đưa ra nhận định như vậy",
+              "Vì biết được tình hình của trưởng phòng qua báo hoặc tin tức"
+            ]
+          }
+        },
+        {
+          "q": "「まるで嵐の前のようだ」と「キムさんの様子がいつもと違うようだ」の「ようだ」の使い方の違いは何ですか。",
+          "evi": [
+            0,
+            9
+          ],
+          "options": [
+            "前者は推測、後者は比喩（ví von）として使われています",
+            "前者は比喩（ví von）、後者は推測として使われています",
+            "両方とも推測として使われています",
+            "両方とも比喩（ví von）として使われています"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: \"まるで嵐の前のようだ\" là VÍ VON (比喩) — nơi làm việc KHÔNG phải thực sự là \"trước cơn bão\"; người viết đang so sánh bầu không khí căng thẳng với hình ảnh trước cơn bão để diễn đạt cảm xúc. Dấu hiệu: \"まるで\" + vật so sánh rõ ràng là ẩn dụ. \"キムさんの様子がいつもと違うようだ\" là SUY ĐOÁN CÓ CĂN CỨ — người viết quan sát trực tiếp dáng vẻ của Kim (nét mặt, ít nói, lơ đãng) và suy ra Kim đang khác thường. Đáp án A sai: đảo ngược — \"嵐の前\" là ví von, \"様子が違う\" là suy đoán, không phải ngược lại. Đáp án C và D sai: không thể cả hai cùng là suy đoán hoặc cùng là ví von — văn bản cho thấy hai mục đích dùng khác nhau.",
+          "tip": "ようだ ví von → chủ ngữ và vật so sánh KHÔNG thể cùng loại thực tế (nơi làm việc ≠ cơn bão). ようだ suy đoán → người viết đang đưa ra phán đoán về thực tế dựa trên bằng chứng quan sát được.",
+          "qt": {
+            "q": "Cách dùng 「ようだ」 trong 「まるで嵐の前のようだ」 và 「キムさんの様子がいつもと違うようだ」 khác nhau như thế nào?",
+            "o": [
+              "Câu trước được dùng để suy đoán, câu sau được dùng như phép ví von",
+              "Câu trước được dùng như phép ví von, câu sau được dùng để suy đoán",
+              "Cả hai đều được dùng để suy đoán",
+              "Cả hai đều được dùng như phép ví von"
+            ]
+          }
+        },
+        {
+          "q": "文章の中で「〜ようだ」と「〜みたいだ」が両方使われていますが、この2つの違いについて正しい説明はどれですか。",
+          "evi": [
+            1,
+            18
+          ],
+          "options": [
+            "「ようだ」は直接の観察に基づく推測、「みたいだ」は間接的に聞いた情報を伝えます",
+            "「ようだ」と「みたいだ」は同じ意味で、「みたいだ」はより口語的・親しい場面で使います",
+            "「ようだ」は過去のことにしか使えず、「みたいだ」は現在のことに使います",
+            "「みたいだ」は推測、「ようだ」は比喩としてしか使えません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng (chọn 2 — \"みたいだ là khẩu ngữ thân mật của ようだ, cả hai dùng trong cùng hoàn cảnh\"): ようだ và みたいだ đồng nghĩa hoàn toàn về loại suy đoán (căn cứ trực tiếp) và cả hai đều có thể dùng cho ví von. Sự khác biệt duy nhất là văn phong: みたいだ dùng trong văn nói, nhật ký, tin nhắn thân mật; ようだ dùng trong văn viết trang trọng hơn. Đáp án A sai: \"ようだ chỉ cho quan sát trực tiếp, みたいだ cho thông tin nghe\" — hoàn toàn sai; みたいだ KHÔNG dùng cho thông tin nghe gián tiếp (đó là そうだ伝聞). Đáp án C sai: cả ようだ lẫn みたいだ đều dùng được cho quá khứ (ようだった/みたいだった) và hiện tại. Đáp án D sai: cả hai đều có thể dùng cho suy đoán LẪN ví von.",
+          "tip": "Khi đề hỏi \"sự khác biệt giữa ようだ và みたいだ\" — câu trả lời LUÔN là về văn phong (trang trọng vs thân mật), KHÔNG phải về loại căn cứ hay độ chắc chắn. Đừng bị đánh lừa bởi đáp án phức tạp hóa sự khác biệt.",
+          "qt": {
+            "q": "Trong bài có dùng cả 「〜ようだ」 và 「〜みたいだ」. Cách giải thích đúng về sự khác nhau giữa hai cách nói này là gì?",
+            "o": [
+              "「ようだ」 là suy đoán dựa trên quan sát trực tiếp, còn 「みたいだ」 truyền đạt thông tin nghe được gián tiếp",
+              "「ようだ」 và 「みたいだ」 có cùng nghĩa, 「みたいだ」 được dùng trong tình huống thân mật, khẩu ngữ hơn",
+              "「ようだ」 chỉ dùng cho sự việc trong quá khứ, còn 「みたいだ」 dùng cho sự việc hiện tại",
+              "「みたいだ」 dùng để suy đoán, còn 「ようだ」 chỉ có thể dùng như phép ví von"
+            ]
+          }
+        },
+        {
+          "q": "文章全体を通じて、「ようだ・みたいだ」を使って推測している内容の根拠として最も多く使われているのはどれですか。",
+          "evi": [
+            1,
+            7,
+            11
+          ],
+          "options": [
+            "他の人から聞いた話",
+            "新聞やニュースの情報",
+            "自分が直接見たり感じたりした観察",
+            "論理的な計算や経験"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng: xuyên suốt đoạn văn, MỌI lần dùng ようだ/みたいだ đều có căn cứ là quan sát trực tiếp của bản thân người viết — nhìn thấy dáng vẻ của Kim (表情が暗い、ぼんやりしている), nhìn thấy sắc mặt của trưởng phòng (顔色を見ると), nhìn thấy ánh sáng/không khí phòng họp (会議室の雰囲気), nhìn thấy nét mặt Kim thay đổi sau họp (表情が明るくなった). Đây chính là đặc trưng cốt lõi của ようだ/みたいだ. Đáp án A sai: không có câu nào trong đoạn dùng ようだ kèm thông tin nghe từ người khác — đó sẽ là そうだ伝聞. Đáp án B sai: báo/tin tức không được nhắc đến trong đoạn văn. Đáp án D sai: suy luận logic/kinh nghiệm thuần túy không phải là căn cứ của ようだ — nếu chỉ suy từ logic (không quan sát gì), phải dùng はずだ (Bài 51).",
+          "tip": "Làm câu hỏi tổng hợp về ようだ → luôn trace ngược về CĂN CỨ. ようだ/みたいだ = giác quan trực tiếp. そうだ伝聞 = nguồn thông tin bên ngoài. はずだ = logic/quy tắc/kiến thức. Bộ ba này giải quyết 90% câu hỏi phân biệt mẫu ngữ pháp N3.",
+          "qt": {
+            "q": "Xét toàn bộ bài viết, căn cứ được dùng nhiều nhất để suy đoán bằng 「ようだ・みたいだ」 là gì?",
+            "o": [
+              "Chuyện nghe được từ người khác",
+              "Thông tin từ báo chí hoặc tin tức",
+              "Những điều bản thân trực tiếp nhìn thấy hoặc cảm nhận",
+              "Tính toán logic hoặc kinh nghiệm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "故障かな？と思ったら　家電修理センターのご案内",
+      "titleVi": "Nghi ngờ máy hỏng? — Thông báo Trung tâm sửa chữa đồ điện gia dụng",
+      "japanese": "故障かな？と思ったら　家電修理センターのご案内\n「音が変だ」「動かない」など、家電の様子がいつもと違うようだと感じたら、まず下の表でチェックしてください。ご自分で直そうとして、かえって症状が悪化するお客様が多いようです。\n症状｜考えられる原因｜出張修理料金\n洗濯機から変な音がする｜中に小さな物が入っているようだ｜3,000円\n洗濯機の水が止まらない｜部品が古くなっているみたいだ｜5,000円\nエアコンから水が漏れる｜排水管が詰まっているようだ｜4,000円\nエアコンの効きが悪い｜フィルターが汚れているみたいだ｜2,500円\n冷蔵庫の中があまり冷えない｜ドアがきちんと閉まっていないようだ｜3,500円\n※上の料金は診断と部品代を含みません。診断の結果、部品交換が必要なようであれば、別途部品代をいただきます。\n※お使いの製品が購入から3年以内で、保証書をお持ちのお客様は、出張修理料金が無料になります。\n※平日9時〜17時の受付で、ご予約から3日以内に伺うと料金から500円引きになります。ただし土日・祝日のご予約はこの割引の対象外です。\n※訪問後、故障ではなく使い方の問題だったようであれば、出張修理料金の半額のみを頂戴します。\nお問い合わせ：さくら家電修理センター　電話0120-64-9900（年中無休　9時〜19時）",
+      "vietnamese": "Nghi ngờ máy hỏng? — Thông báo Trung tâm sửa chữa đồ điện gia dụng\nNếu quý khách cảm thấy đồ điện gia dụng có tiếng động lạ, không hoạt động... nói chung là có vẻ khác thường so với mọi khi, trước tiên xin hãy kiểm tra bảng dưới đây. Có vẻ nhiều quý khách tự sửa lại khiến triệu chứng nặng thêm.\nTriệu chứng｜Nguyên nhân có thể xảy ra｜Phí sửa tại nhà.\nMáy giặt phát ra tiếng động lạ｜Có vẻ như có vật nhỏ lọt vào bên trong｜3.000 yên.\nNước máy giặt không dừng lại｜Có vẻ như linh kiện đã cũ｜5.000 yên.\nĐiều hòa bị rò nước｜Có vẻ như ống thoát nước bị tắc｜4.000 yên.\nĐiều hòa làm lạnh kém｜Có vẻ như bộ lọc bị bẩn｜2.500 yên.\nBên trong tủ lạnh không lạnh lắm｜Có vẻ như cửa không đóng kín｜3.500 yên.\n※Mức phí trên chưa bao gồm phí chẩn đoán và phí linh kiện. Nếu kết quả chẩn đoán cho thấy có vẻ cần thay linh kiện, sẽ tính thêm phí linh kiện riêng.\n※Quý khách có sản phẩm mua trong vòng 3 năm và có giấy bảo hành thì phí sửa tại nhà được miễn phí.\n※Nếu đặt hẹn trong giờ tiếp nhận ngày thường 9 giờ〜17 giờ và nhân viên đến trong vòng 3 ngày kể từ khi đặt hẹn thì được giảm 500 yên trên tổng phí. Tuy nhiên đặt hẹn vào thứ Bảy・Chủ Nhật・ngày lễ thì không thuộc diện giảm giá này.\n※Sau khi đến thăm khám, nếu có vẻ không phải do hỏng mà do cách sử dụng thì chỉ thu một nửa phí sửa tại nhà.\nLiên hệ: Trung tâm sửa chữa đồ điện Sakura, điện thoại 0120-64-9900 (làm việc quanh năm, 9 giờ〜19 giờ).",
+      "sentences": [
+        {
+          "jp": "故障かな？と思ったら　家電修理センターのご案内",
+          "vi": "Nghi ngờ máy hỏng? — Thông báo Trung tâm sửa chữa đồ điện gia dụng.",
+          "vocab": [
+            {
+              "w": "故障",
+              "read": "こしょう",
+              "vi": "hỏng hóc, trục trặc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "家電",
+              "read": "かでん",
+              "vi": "đồ điện gia dụng"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "sửa chữa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            },
+            {
+              "w": "ご案内",
+              "read": "ごあんない",
+              "vi": "thông báo, hướng dẫn (lịch sự)"
+            }
+          ],
+          "keys": [
+            {
+              "w": "故障かな？と思ったら",
+              "why": "tiêu đề — xác định chủ đề toàn bài là tra bảng triệu chứng máy hỏng để chọn dịch vụ sửa"
+            }
+          ]
+        },
+        {
+          "jp": "「音が変だ」「動かない」など、家電の様子がいつもと違うようだと感じたら、まず下の表でチェックしてください。ご自分で直そうとして、かえって症状が悪化するお客様が多いようです。",
+          "vi": "Nếu quý khách cảm thấy đồ điện gia dụng có tiếng động lạ, không hoạt động... nói chung là có vẻ khác thường so với mọi khi, trước tiên xin hãy kiểm tra bảng dưới đây. Có vẻ nhiều quý khách tự sửa lại khiến triệu chứng nặng thêm.",
+          "vocab": [
+            {
+              "w": "音",
+              "read": "おと",
+              "vi": "âm thanh, tiếng động"
+            },
+            {
+              "w": "変だ",
+              "read": "へんだ",
+              "vi": "lạ, kỳ quặc"
+            },
+            {
+              "w": "動きます",
+              "read": "うごきます",
+              "vi": "hoạt động, chuyển động"
+            },
+            {
+              "w": "家電",
+              "read": "かでん",
+              "vi": "đồ điện gia dụng"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "dáng vẻ, tình trạng (ôn Bài 64 短文)"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "違う",
+              "read": "ちがう",
+              "vi": "khác, sai"
+            },
+            {
+              "w": "感じます",
+              "read": "かんじます",
+              "vi": "cảm thấy"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng"
+            },
+            {
+              "w": "チェック",
+              "read": "チェック",
+              "vi": "sự kiểm tra"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "直す",
+              "read": "なおす",
+              "vi": "sửa chữa, chỉnh sửa"
+            },
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "trái lại, ngược lại"
+            },
+            {
+              "w": "症状",
+              "read": "しょうじょう",
+              "vi": "triệu chứng"
+            },
+            {
+              "w": "悪化します",
+              "read": "あっかします",
+              "vi": "trở nên tệ hơn, xấu đi"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64 — trọng tâm）",
+              "vi": "接続: Vる（普通形）+ ようだ。 家電の様子がいつもと違うようだと感じたら = \"nếu quý khách cảm thấy có vẻ khác mọi khi\" — suy đoán dựa trên căn cứ trực tiếp là chính người dùng tự cảm nhận (nghe/nhìn thấy). Mẫu TRỌNG TÂM bài 64, xuất hiện lần 1."
+            },
+            {
+              "point": "〜が多いようです（Bài 64）",
+              "vi": "症状が悪化するお客様が多いようです = \"có vẻ nhiều khách hàng làm triệu chứng nặng thêm\" — suy đoán dựa trên kinh nghiệm quan sát của trung tâm (nhiều ca sửa thất bại đã thấy). Mẫu TRỌNG TÂM bài 64, xuất hiện lần 2."
+            },
+            {
+              "point": "〜たら（Bài 25/61）",
+              "vi": "感じたら = nếu cảm thấy thì. たら nêu điều kiện, ôn lại Bài 25/61."
+            }
+          ]
+        },
+        {
+          "jp": "症状｜考えられる原因｜出張修理料金",
+          "vi": "Triệu chứng｜Nguyên nhân có thể xảy ra｜Phí sửa tại nhà.",
+          "vocab": [
+            {
+              "w": "症状",
+              "read": "しょうじょう",
+              "vi": "triệu chứng"
+            },
+            {
+              "w": "考えられる",
+              "read": "かんがえられる",
+              "vi": "có thể nghĩ ra, có thể xảy ra (khả năng thể của 考える)"
+            },
+            {
+              "w": "原因",
+              "read": "げんいん",
+              "vi": "nguyên nhân"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "đi công tác"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "việc sửa chữa"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "出張修理",
+              "read": "しゅっちょうしゅうり",
+              "vi": "sửa chữa tại nhà (nhân viên đến tận nơi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Bảng thông tin（header）",
+              "vi": "Hàng đầu tiên là tiêu đề 3 cột của bảng: triệu chứng, nguyên nhân có thể, phí sửa tại nhà."
+            },
+            {
+              "point": "V可能形（Bài 27, ôn lại）",
+              "vi": "考えられる = có thể nghĩ tới được. 可能形 của 考える, ôn lại Bài 27."
+            }
+          ],
+          "keys": [
+            {
+              "w": "考えられる原因",
+              "why": "cột nguyên nhân — nơi mẫu ようだ/みたいだ xuất hiện liên tục để chẩn đoán từng triệu chứng"
+            },
+            {
+              "w": "出張修理料金",
+              "why": "cột phí sửa — dữ kiện gốc để tính tiền cho cả 2 câu hỏi"
+            }
+          ]
+        },
+        {
+          "jp": "洗濯機から変な音がする｜中に小さな物が入っているようだ｜3,000円",
+          "vi": "Máy giặt phát ra tiếng động lạ｜Có vẻ như có vật nhỏ lọt vào bên trong｜3.000 yên.",
+          "vocab": [
+            {
+              "w": "洗濯機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "変な",
+              "read": "へんな",
+              "vi": "kỳ lạ"
+            },
+            {
+              "w": "音がする",
+              "read": "おとがする",
+              "vi": "phát ra tiếng"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ"
+            },
+            {
+              "w": "物",
+              "read": "もの",
+              "vi": "vật/đồ vật"
+            },
+            {
+              "w": "入っている",
+              "read": "はいっている",
+              "vi": "đang ở bên trong"
+            },
+            {
+              "w": "3,000円",
+              "read": "さんぜんえん",
+              "vi": "3.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64）",
+              "vi": "入っているようだ = \"có vẻ như đã lọt vào\". Đây là suy đoán nguyên nhân dựa trên triệu chứng (tiếng động lạ) — căn cứ gián tiếp qua kinh nghiệm kỹ thuật."
+            }
+          ],
+          "keys": [
+            {
+              "w": "洗濯機から変な音がする｜中に小さな物が入っているようだ｜3,000円",
+              "why": "hàng triệu chứng máy giặt kêu lạ — nhiễu cho câu hỏi 1 vì cùng là 洗濯機 nhưng khác triệu chứng cụ thể"
+            }
+          ]
+        },
+        {
+          "jp": "洗濯機の水が止まらない｜部品が古くなっているみたいだ｜5,000円",
+          "vi": "Nước máy giặt không dừng lại｜Có vẻ như linh kiện đã cũ｜5.000 yên.",
+          "vocab": [
+            {
+              "w": "洗濯機",
+              "read": "せんたくき",
+              "vi": "máy giặt"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "止まらない",
+              "read": "とまらない",
+              "vi": "không dừng"
+            },
+            {
+              "w": "部品",
+              "read": "ぶひん",
+              "vi": "bộ phận/linh kiện"
+            },
+            {
+              "w": "古くなっている",
+              "read": "ふるくなっている",
+              "vi": "đang trở nên cũ"
+            },
+            {
+              "w": "5,000円",
+              "read": "ごせんえん",
+              "vi": "5.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜みたいだ（Bài 64 — trọng tâm）",
+              "vi": "接続: Vている（普通形）+ みたいだ。 古くなっているみたいだ = \"có vẻ như đã cũ đi\". みたいだ = ようだ khẩu ngữ, dùng tự nhiên trong tờ hướng dẫn thân thiện với khách. Mẫu TRỌNG TÂM bài 64."
+            }
+          ],
+          "keys": [
+            {
+              "w": "洗濯機の水が止まらない｜部品が古くなっているみたいだ｜5,000円",
+              "why": "khớp đúng triệu chứng máy giặt nước không dừng của câu hỏi 1 → phí gốc 5,000円"
+            }
+          ]
+        },
+        {
+          "jp": "エアコンから水が漏れる｜排水管が詰まっているようだ｜4,000円",
+          "vi": "Điều hòa bị rò nước｜Có vẻ như ống thoát nước bị tắc｜4.000 yên.",
+          "vocab": [
+            {
+              "w": "エアコン",
+              "read": "エアコン",
+              "vi": "máy điều hòa"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "漏れる",
+              "read": "もれる",
+              "vi": "rò rỉ"
+            },
+            {
+              "w": "排水管",
+              "read": "はいすいかん",
+              "vi": "ống thoát nước"
+            },
+            {
+              "w": "詰まっている",
+              "read": "つまっている",
+              "vi": "đang bị tắc"
+            },
+            {
+              "w": "4,000円",
+              "read": "よんせんえん",
+              "vi": "4.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64）",
+              "vi": "詰まっているようだ = \"có vẻ như bị tắc\". Suy đoán nguyên nhân từ triệu chứng rò nước."
+            }
+          ],
+          "keys": [
+            {
+              "w": "エアコンから水が漏れる｜排水管が詰まっているようだ｜4,000円",
+              "why": "hàng điều hòa rò nước — nhiễu cho câu hỏi 2 vì cùng là エアコン nhưng khác triệu chứng (rò nước, không phải làm lạnh kém)"
+            }
+          ]
+        },
+        {
+          "jp": "エアコンの効きが悪い｜フィルターが汚れているみたいだ｜2,500円",
+          "vi": "Điều hòa làm lạnh kém｜Có vẻ như bộ lọc bị bẩn｜2.500 yên.",
+          "vocab": [
+            {
+              "w": "エアコン",
+              "read": "エアコン",
+              "vi": "máy điều hòa"
+            },
+            {
+              "w": "効き",
+              "read": "きき",
+              "vi": "hiệu quả hoạt động"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "kém"
+            },
+            {
+              "w": "フィルター",
+              "read": "フィルター",
+              "vi": "bộ lọc"
+            },
+            {
+              "w": "汚れている",
+              "read": "よごれている",
+              "vi": "đang bị bẩn"
+            },
+            {
+              "w": "2,500円",
+              "read": "にせんごひゃくえん",
+              "vi": "2.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜みたいだ（Bài 64）",
+              "vi": "汚れているみたいだ = \"có vẻ như bị bẩn\". みたいだ khẩu ngữ, ôn lại cùng câu 洗濯機 phía trên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "エアコンの効きが悪い｜フィルターが汚れているみたいだ｜2,500円",
+              "why": "khớp đúng triệu chứng điều hòa làm lạnh kém của câu hỏi 2 → phí gốc 2,500円"
+            }
+          ]
+        },
+        {
+          "jp": "冷蔵庫の中があまり冷えない｜ドアがきちんと閉まっていないようだ｜3,500円",
+          "vi": "Bên trong tủ lạnh không lạnh lắm｜Có vẻ như cửa không đóng kín｜3.500 yên.",
+          "vocab": [
+            {
+              "w": "冷蔵庫",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không ... lắm"
+            },
+            {
+              "w": "冷えない",
+              "read": "ひえない",
+              "vi": "không lạnh"
+            },
+            {
+              "w": "ドア",
+              "read": "ドア",
+              "vi": "cửa"
+            },
+            {
+              "w": "きちんと",
+              "read": "きちんと",
+              "vi": "đúng cách"
+            },
+            {
+              "w": "閉まって",
+              "read": "しまって",
+              "vi": "đóng lại"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようだ（Bài 64）",
+              "vi": "閉まっていないようだ = \"có vẻ như không đóng kín\". Suy đoán nguyên nhân tủ lạnh không lạnh."
+            }
+          ]
+        },
+        {
+          "jp": "※上の料金は診断と部品代を含みません。診断の結果、部品交換が必要なようであれば、別途部品代をいただきます。",
+          "vi": "※Mức phí trên chưa bao gồm phí chẩn đoán và phí linh kiện. Nếu kết quả chẩn đoán cho thấy có vẻ cần thay linh kiện, sẽ tính thêm phí linh kiện riêng.",
+          "vocab": [
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "trên, phía trên"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "診断",
+              "read": "しんだん",
+              "vi": "chẩn đoán"
+            },
+            {
+              "w": "部品",
+              "read": "ぶひん",
+              "vi": "linh kiện, bộ phận"
+            },
+            {
+              "w": "含みます",
+              "read": "ふくみます",
+              "vi": "bao gồm"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            },
+            {
+              "w": "交換",
+              "read": "こうかん",
+              "vi": "sự trao đổi"
+            },
+            {
+              "w": "必要だ",
+              "read": "ひつようだ",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "別途",
+              "read": "べっと",
+              "vi": "riêng, khác"
+            },
+            {
+              "w": "いただく",
+              "read": "いただく",
+              "vi": "nhận, xin nhận"
+            },
+            {
+              "w": "部品代",
+              "read": "ぶひんだい",
+              "vi": "phí linh kiện"
+            },
+            {
+              "w": "部品交換",
+              "read": "ぶひんこうかん",
+              "vi": "thay linh kiện"
+            },
+            {
+              "w": "いただきます",
+              "read": "いただきます",
+              "vi": "xin nhận, xin thu (khiêm nhường)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "なAdj + ようだ（Bài 64）",
+              "vi": "接続: なAdj（必要）+ な + ようだ。 必要なようであれば = \"nếu có vẻ là cần thiết thì\". Lưu ý 接続: tính từ な cần thêm な trước ようだ (khác Vる trực tiếp). Mẫu TRỌNG TÂM bài 64."
+            },
+            {
+              "point": "〜ば（điều kiện, ôn Bài 61）",
+              "vi": "必要なようであれば = nếu có vẻ cần thiết thì. あれば là dạng ば của ある, ôn lại Bài 61."
+            }
+          ],
+          "keys": [
+            {
+              "w": "部品交換が必要なようであれば、別途部品代をいただきます",
+              "why": "điều kiện phụ phí — dữ kiện CỘNG thêm khi phải thay linh kiện, liên quan câu hỏi 1"
+            }
+          ]
+        },
+        {
+          "jp": "※お使いの製品が購入から3年以内で、保証書をお持ちのお客様は、出張修理料金が無料になります。",
+          "vi": "※Quý khách có sản phẩm mua trong vòng 3 năm và có giấy bảo hành thì phí sửa tại nhà được miễn phí.",
+          "vocab": [
+            {
+              "w": "使い",
+              "read": "つかい",
+              "vi": "việc sử dụng, người hầu"
+            },
+            {
+              "w": "製品",
+              "read": "せいひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "購入",
+              "read": "こうにゅう",
+              "vi": "mua hàng"
+            },
+            {
+              "w": "保証書",
+              "read": "ほしょうしょ",
+              "vi": "giấy bảo hành"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "お客様",
+              "read": "おきゃくさま",
+              "vi": "quý khách"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "đi công tác"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "việc sửa chữa"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "無料になります",
+              "read": "むりょうになります",
+              "vi": "trở thành miễn phí"
+            },
+            {
+              "w": "以内",
+              "read": "いない",
+              "vi": "trong vòng, trong phạm vi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜になります（Bài 19, ôn lại）",
+              "vi": "無料になります = trở thành miễn phí. Ôn lại になる Bài 19."
+            }
+          ],
+          "keys": [
+            {
+              "w": "保証書をお持ちのお客様は、出張修理料金が無料になります",
+              "why": "điều kiện miễn phí hoàn toàn nếu có bảo hành — bẫy quan trọng cho câu hỏi 1, phải kiểm tra nhân vật có bảo hành hay không"
+            }
+          ]
+        },
+        {
+          "jp": "※平日9時〜17時の受付で、ご予約から3日以内に伺うと料金から500円引きになります。ただし土日・祝日のご予約はこの割引の対象外です。",
+          "vi": "※Nếu đặt hẹn trong giờ tiếp nhận ngày thường 9 giờ〜17 giờ và nhân viên đến trong vòng 3 ngày kể từ khi đặt hẹn thì được giảm 500 yên trên tổng phí. Tuy nhiên đặt hẹn vào thứ Bảy・Chủ Nhật・ngày lễ thì không thuộc diện giảm giá này.",
+          "vocab": [
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "17時",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "tiếp nhận"
+            },
+            {
+              "w": "予約",
+              "read": "よやく",
+              "vi": "đặt chỗ"
+            },
+            {
+              "w": "3日",
+              "read": "みっか",
+              "vi": "3 ngày"
+            },
+            {
+              "w": "以内",
+              "read": "いない",
+              "vi": "trong vòng"
+            },
+            {
+              "w": "伺う",
+              "read": "うかがう",
+              "vi": "ghé thăm"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            },
+            {
+              "w": "引き",
+              "read": "ひき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "ただし",
+              "read": "ただし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ bảy và chủ nhật"
+            },
+            {
+              "w": "祝日",
+              "read": "しゅくじつ",
+              "vi": "ngày lễ"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "対象",
+              "read": "たいしょう",
+              "vi": "đối tượng"
+            },
+            {
+              "w": "対象外",
+              "read": "たいしょうがい",
+              "vi": "ngoài đối tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện, Bài 23, ôn lại）",
+              "vi": "3日以内に伺うと500円引きになります = nếu đến trong vòng 3 ngày thì được giảm 500 yên. と = kết quả tất yếu."
+            },
+            {
+              "point": "〜ただし（liên từ nhượng bộ)",
+              "vi": "ただし土日・祝日は対象外 = tuy nhiên thứ Bảy/Chủ Nhật/ngày lễ thì ngoại lệ. Câu bẫy quan trọng đảo điều kiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ご予約から3日以内に伺うと料金から500円引きになります",
+              "why": "điều kiện giảm giá 500円 — dữ kiện TRỪ tiền, liên quan câu hỏi 1"
+            },
+            {
+              "w": "ただし土日・祝日のご予約はこの割引の対象外です",
+              "why": "bẫy ※ — nếu đặt hẹn cuối tuần thì KHÔNG được giảm giá, liên quan câu hỏi 1 nếu nhân vật hẹn thứ Bảy"
+            }
+          ]
+        },
+        {
+          "jp": "※訪問後、故障ではなく使い方の問題だったようであれば、出張修理料金の半額のみを頂戴します。",
+          "vi": "※Sau khi đến thăm khám, nếu có vẻ không phải do hỏng mà do cách sử dụng thì chỉ thu một nửa phí sửa tại nhà.",
+          "vocab": [
+            {
+              "w": "訪問",
+              "read": "ほうもん",
+              "vi": "đến thăm, ghé thăm"
+            },
+            {
+              "w": "故障",
+              "read": "こしょう",
+              "vi": "hỏng hóc, sự cố"
+            },
+            {
+              "w": "使い方",
+              "read": "つかいかた",
+              "vi": "cách sử dụng"
+            },
+            {
+              "w": "問題",
+              "read": "もんだい",
+              "vi": "vấn đề, câu hỏi"
+            },
+            {
+              "w": "出張",
+              "read": "しゅっちょう",
+              "vi": "đi công tác"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "việc sửa chữa"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "nửa giá (ôn Bài 51)"
+            },
+            {
+              "w": "頂戴します",
+              "read": "ちょうだいします",
+              "vi": "xin nhận (khiêm nhường)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vた + ようであれば（Bài 64）",
+              "vi": "接続: Vた（普通形）+ ようであれば。 問題だったようであれば = \"nếu có vẻ như (đó chỉ) là vấn đề cách dùng\". Suy đoán căn cứ vào việc kiểm tra thực tế tại nhà. Mẫu TRỌNG TÂM bài 64, kết hợp với ば điều kiện (Bài 61)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "故障ではなく使い方の問題だったようであれば、出張修理料金の半額のみを頂戴します",
+              "why": "điều kiện giảm còn nửa phí nếu hóa ra không phải hỏng thật — liên quan câu hỏi 2"
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくら家電修理センター　電話0120-64-9900（年中無休　9時〜19時）",
+          "vi": "Liên hệ: Trung tâm sửa chữa đồ điện Sakura, điện thoại 0120-64-9900 (làm việc quanh năm, 9 giờ〜19 giờ).",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "家電",
+              "read": "かでん",
+              "vi": "đồ điện gia dụng"
+            },
+            {
+              "w": "修理",
+              "read": "しゅうり",
+              "vi": "việc sửa chữa"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "年中",
+              "read": "ねんじゅう",
+              "vi": "quanh năm, suốt năm"
+            },
+            {
+              "w": "無休",
+              "read": "むきゅう",
+              "vi": "không nghỉ"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            },
+            {
+              "w": "年中無休",
+              "read": "ねんじゅうむきゅう",
+              "vi": "làm việc quanh năm, không nghỉ"
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "家電の様子がいつもと違うようだと感じたら",
+          "label": "〜ようだ（suy đoán từ cảm nhận trực tiếp — mẫu trọng tâm）"
+        },
+        {
+          "excerpt": "部品が古くなっているみたいだ",
+          "label": "〜みたいだ（ようだ khẩu ngữ — mẫu trọng tâm）"
+        },
+        {
+          "excerpt": "部品交換が必要なようであれば",
+          "label": "なAdj + ようだ（chú ý 接続 cần thêm な）"
+        },
+        {
+          "excerpt": "3日以内に伺うと料金から500円引きになります",
+          "label": "〜と（điều kiện, ôn Bài 23）"
+        },
+        {
+          "excerpt": "保証書をお持ちのお客様は、出張修理料金が無料になります",
+          "label": "〜になります（ôn Bài 19）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & lời giới thiệu chung",
+          "topic": 1,
+          "note": "Giới thiệu dịch vụ và mời khách tự tra bảng triệu chứng trước khi tự sửa — dùng ようだ/多いようです để mở đầu nhẹ nhàng.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 7,
+          "kind": "point",
+          "label": "Bảng triệu chứng・nguyên nhân・phí sửa",
+          "topic": 7,
+          "note": "Bảng chính: dò đúng hàng triệu chứng (máy giặt/điều hòa/tủ lạnh cụ thể) để lấy phí gốc, mọi nguyên nhân đều diễn đạt bằng ようだ/みたいだ.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện phụ phí & miễn phí bảo hành",
+          "topic": 9,
+          "note": "Dòng ※ đầu cộng phí linh kiện nếu cần thay; dòng ※ sau MIỄN PHÍ hoàn toàn nếu còn bảo hành — bẫy dễ bỏ sót cho câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 10,
+          "to": 11,
+          "kind": "turn",
+          "label": "Giảm giá đặt hẹn sớm & ngoại lệ cuối tuần",
+          "topic": 10,
+          "note": "Giảm 500円 nếu đặt hẹn ngày thường trong 3 ngày, nhưng NGOẠI LỆ không áp dụng cuối tuần/ngày lễ; dòng sau giảm nửa phí nếu hóa ra không phải hỏng thật — hai bẫy dễ nhầm cho câu hỏi 1 và 2.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 12,
+          "to": 12,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 12,
+          "note": "Số điện thoại và giờ làm việc — không phải căn cứ trả lời câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんの洗濯機は水が止まりません。製品は購入してから4年たっていて、保証書はありません。土曜日に予約をして、予約した日に来てもらいました。ミラーさんが払う金額はいくらですか。",
+          "options": [
+            "2,500円",
+            "5,000円",
+            "4,500円",
+            "2,750円"
+          ],
+          "answer": 1,
+          "explainVi": "正解は1（5,000円）。表「洗濯機の水が止まらない｜部品が古くなっているみたいだ｜5,000円」から、この症状の出張修理料金は5,000円だとわかる。保証書がないので※「保証書をお持ちのお客様は、出張修理料金が無料になります」は適用されない。また土曜日に予約しているので※「ただし土日・祝日のご予約はこの割引の対象外です」により500円引きも適用されない。よって料金はそのまま5,000円。0（2,500円）はエアコンの効きが悪い場合の料金で、症状が違う。2（4,500円）は500円引きを誤って適用した金額で、土曜日は割引対象外なので誤り。3（2,750円）はどこにも根拠のない金額。",
+          "tip": "「保証書はありません」「土曜日」という2つの条件を見たら、両方とも割引・免除の対象外になることを確認する。表の基本料金をそのまま適用するのが正解になる場合もある。",
+          "evi": [
+            4,
+            9,
+            10
+          ],
+          "qt": {
+            "q": "Máy giặt của ông/bà Miller không ngừng xả nước. Đã 4 năm kể từ khi mua sản phẩm và không có phiếu bảo hành. Ông/bà ấy đặt lịch vào thứ Bảy và được đến sửa đúng ngày đã hẹn. Ông/bà Miller phải trả bao nhiêu tiền?",
+            "o": [
+              "2.500 yên",
+              "5.000 yên",
+              "4.500 yên",
+              "2.750 yên"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんのエアコンは効きが悪いです。訪問してもらったところ、実は故障ではなく、カリナさんがフィルターを掃除していなかっただけでした。カリナさんが払う金額として正しいのはどれですか。",
+          "options": [
+            "2,500円",
+            "1,250円",
+            "4,000円",
+            "無料"
+          ],
+          "answer": 1,
+          "explainVi": "正解は1（1,250円）。表「エアコンの効きが悪い｜フィルターが汚れているみたいだ｜2,500円」から、基本料金は2,500円。しかし訪問の結果、※「訪問後、故障ではなく使い方の問題だったようであれば、出張修理料金の半額のみを頂戴します」に当てはまるため、2,500円の半額＝1,250円になる。0（2,500円）は半額にするのを忘れた金額。2（4,000円）はエアコンから水が漏れる場合の料金で、症状が違う。3（無料）は保証書がある場合の話で、この質問には保証書についての条件がなく根拠がない。",
+          "tip": "「実は故障ではなかった」という結果が出たら、必ず最後の※（使い方の問題は半額）を確認する。表の基本料金だけで即答せず、訪問後の結果に関する※も必ずチェックすること。",
+          "evi": [
+            6,
+            11
+          ],
+          "qt": {
+            "q": "Điều hòa của Karina làm lạnh kém. Khi nhân viên đến kiểm tra, hóa ra không phải bị hỏng mà chỉ là Karina chưa vệ sinh bộ lọc. Trong các mức dưới đây, mức nào là số tiền Karina phải trả?",
+            "o": [
+              "2.500 yên",
+              "1.250 yên",
+              "4.000 yên",
+              "Miễn phí"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

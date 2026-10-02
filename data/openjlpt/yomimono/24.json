@@ -1,0 +1,1672 @@
+{
+  "bai": 24,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 24 xoay quanh việc AI giúp đỡ AI trong chuyện chuyển nhà và sinh hoạt hàng ngày. Ba mẫu then chốt cần phân biệt: Vてあげます（tôi/người này làm cho người khác）, Vてもらいます（tôi/người này nhờ người khác làm）, Vてくれます（người khác tự nguyện làm cho tôi）. Chú ý hướng hành động và chủ thể — đó là chìa khoá đọc hiểu bài này.",
+    "steps": [
+      "Xác định CHỦ THỂ của câu (trước は hoặc が): đây là người THỰC HIỆN hành động.",
+      "Nhìn vào động từ cuối: あげます = chủ thể làm cho người khác (hướng RA); もらいます = chủ thể nhận/nhờ người khác làm (hướng VÀO); くれます = người khác tự nguyện làm cho tôi (hướng VÀO tôi).",
+      "Để ý trợ từ đi kèm: に cho biết người được hưởng lợi (あげます・くれます) hoặc người được nhờ (もらいます).",
+      "Khi gặp câu hỏi \"ai giúp ai làm gì\", trở lại bài tìm câu có cùng chủ thể + cùng động từ te-form.",
+      "Từ vựng liên quan chuyển nhà: 荷物（hàng/đồ）, 運ぶ（chuyển vác）, 手伝う（giúp đỡ）— xác định nghĩa trước khi đọc câu.",
+      "Với câu dài có nhiều mệnh đề, đọc từng đoạn có dấu句点（。）rồi tổng hợp."
+    ],
+    "tips": [
+      "Vてあげます: CHỦ THỂ = người làm, người nhận đứng sau に. \"Tôi làm cho anh ấy\" = 彼に〜てあげます.",
+      "Vてくれます: NGƯỜI KHÁC làm cho TÔI (hoặc người thân của tôi). Câu hay lược bỏ に私。",
+      "Vてもらいます: TÔI nhờ NGƯỜI KHÁC làm. Người được nhờ đứng sau に (hoặc から).",
+      "〜てあげます KHÔNG dùng để nói mình làm cho người bề trên (sếp, thầy) — sẽ mất lịch sự; nhưng ở N5 chưa cần nắm phân biệt này, chỉ cần biết hướng hành động.",
+      "くれます thường đi với \"もらった\" cùng nghĩa nhưng khác góc nhìn: 友達が教えてくれました = 友達に教えてもらいました.",
+      "Gặp \"〜てくれてありがとう\" là cảm ơn ai đó vì họ tự nguyện làm điều tốt cho mình."
+    ],
+    "grammarFocus": [
+      "Vてあげます（làm gì đó cho người khác）",
+      "Vてもらいます（nhờ/được người khác làm cho）",
+      "Vてくれます（người khác tự làm cho mình）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 7,
+        "items": [
+          "あげます / もらいます / くれます（cho/nhận vật — nay mở rộng thành hành động）",
+          "Nに〜をあげます / Nに〜をもらいます（trợ từ に chỉ người）"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形（hình thức nền tảng của Vてあげます/もらいます/くれます）",
+          "Vてください（nhờ ai làm gì）",
+          "Vています（đang làm）"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから（sau khi làm xong A thì B）",
+          "Vて…Vて（nối chuỗi hành động）"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ（Vる・Vた＋N: người/vật được miêu tả bằng mệnh đề）"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき（V/Aとき: \"khi…\"）",
+          "〜と（điều kiện tất yếu/kết quả tự nhiên）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "引っ越しの手伝い",
+      "titleVi": "Giúp chuyển nhà",
+      "japanese": "先週、ミラーさんは引っ越しました。田中さんは荷物を運んであげました。ワットさんも手伝ってくれました。ミラーさんは田中さんに新しい住所を教えてもらいました。みんなに助けてもらって、ミラーさんはとても助かりました。",
+      "vietnamese": "Tuần trước, anh Miller đã chuyển nhà. Anh Tanaka đã giúp chuyển đồ cho anh Miller. Anh Watt cũng đã giúp anh ấy. Anh Miller đã được anh Tanaka cho biết địa chỉ mới. Được mọi người giúp đỡ, anh Miller rất cảm thấy nhẹ lòng.",
+      "sentences": [
+        {
+          "jp": "先週、ミラーさんは引っ越しました。",
+          "vi": "Tuần trước, anh Miller đã chuyển nhà.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "引っ越しました",
+              "read": "ひっこしました",
+              "vi": "đã chuyển nhà (quá khứ của 引っ越します)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（quá khứ）",
+              "vi": "Dạng quá khứ lịch sự: 引っ越しました = đã chuyển nhà. Ôn từ Bài 4."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは荷物を運んであげました。",
+          "vi": "Anh Tanaka đã chuyển đồ giúp (cho anh Miller).",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "運んで",
+              "read": "はこんで",
+              "vi": "te-form của 運ぶ (chuyển, vác)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあげます",
+              "vi": "Tanaka（chủ thể）làm hành động vận chuyển đồ ĐỂ cho Miller. Hướng hành động: từ Tanaka ra ngoài cho người khác."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんも手伝ってくれました。",
+          "vi": "Anh Watt cũng đã giúp (anh Miller).",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "手伝って",
+              "read": "てつだって",
+              "vi": "te-form của 手伝う (giúp đỡ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれます",
+              "vi": "Watt TỰ NGUYỆN giúp đỡ (cho Miller = người nói/người thân). も = \"cũng\" ôn từ Bài 1."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは田中さんに新しい住所を教えてもらいました。",
+          "vi": "Anh Miller đã được anh Tanaka cho biết địa chỉ mới.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "住所",
+              "read": "じゅうしょ",
+              "vi": "địa chỉ"
+            },
+            {
+              "w": "教えて",
+              "read": "おしえて",
+              "vi": "te-form của 教える (dạy, cho biết)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらいます",
+              "vi": "Miller（chủ thể）NHẬN/NHỜ Tanaka（に）làm hành động: được Tanaka cho biết địa chỉ. Hướng hành động vào trong."
+            },
+            {
+              "point": "Nに〜てもらいます",
+              "vi": "Người được nhờ = に. Ôn cấu trúc Nに〜をもらいます từ Bài 7, nay áp dụng với hành động."
+            }
+          ]
+        },
+        {
+          "jp": "みんなに助けてもらって、ミラーさんはとても助かりました。",
+          "vi": "Được mọi người giúp đỡ, anh Miller rất cảm thấy nhẹ lòng.",
+          "vocab": [
+            {
+              "w": "助かりました",
+              "read": "たすかりました",
+              "vi": "được cứu nguy, nhẹ lòng (quá khứ)"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất (ôn Bài 8)"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            },
+            {
+              "w": "助けて",
+              "read": "たすけて",
+              "vi": "te-form của 助ける (giúp đỡ, cứu)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらって（nối）",
+              "vi": "て形 của もらいます nối vào kết quả: \"được giúp→ nhẹ lòng\". Vて…Vます nối hành động ôn Bài 16."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "荷物を運んであげました",
+          "label": "Vてあげます（làm cho người khác）"
+        },
+        {
+          "excerpt": "手伝ってくれました",
+          "label": "Vてくれます（người khác làm cho mình）"
+        },
+        {
+          "excerpt": "田中さんに新しい住所を教えてもらいました",
+          "label": "Vてもらいます（nhờ/được người khác làm）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "荷物を運んだのはだれですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "ミラーさんです",
+            "田中さんです",
+            "ワットさんです",
+            "みんなです"
+          ],
+          "answer": 1,
+          "explainVi": "「田中さんは荷物を運んであげました」— chủ thể đứng trước は là 田中さん, động từ cuối là 運んであげました. あげます = người này (Tanaka) làm hành động cho người khác (Miller) → Tanaka là người chuyển đồ. Sai: ミラーさん (người được giúp, không phải người làm); ワットさん (Watt chỉ 手伝って, không phải 運んで); みんな (không có câu nào nói \"mọi người vận chuyển đồ\").",
+          "tip": "Ai đứng trước は/が + Vてあげました → người đó là người THỰC HIỆN hành động, không phải người được giúp.",
+          "qt": {
+            "q": "Ai đã chuyển đồ đạc?",
+            "o": [
+              "Là anh Miller",
+              "Là anh Tanaka",
+              "Là anh Watt",
+              "Mọi người"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんはだれに住所を教えてもらいましたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "ワットさんです",
+            "みんなです",
+            "田中さんです",
+            "先生です"
+          ],
+          "answer": 2,
+          "explainVi": "「ミラーさんは田中さんに新しい住所を教えてもらいました」— cấu trúc: Miller (chủ thể) + 田中さんに + 教えてもらいました. もらいます = Miller nhờ/được người khác làm; に đứng sau 田中さん chỉ người được nhờ (người dạy/cho biết địa chỉ) → đáp án là Tanaka. Sai: ワットさん (Watt không nhắc đến địa chỉ ở đoạn ngắn này); みんな/先生 (không xuất hiện trong câu liên quan).",
+          "tip": "Vてもらいました → tìm に phía trước — người sau に chính là người đã làm hành động đó cho mình.",
+          "qt": {
+            "q": "Anh Miller được ai cho biết địa chỉ?",
+            "o": [
+              "Là anh Watt",
+              "Mọi người",
+              "Là anh Tanaka",
+              "Là giáo viên"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんはミラーさんのために何をしましたか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "住所を教えてあげました",
+            "荷物を買ってくれました",
+            "手伝ってくれました",
+            "引っ越しをしてもらいました"
+          ],
+          "answer": 2,
+          "explainVi": "「ワットさんも手伝ってくれました」— Watt (chủ thể/も) + 手伝ってくれました. くれます = người khác (Watt) tự nguyện làm cho tôi/Miller → Watt đã giúp đỡ. Sai: 住所を教えてあげました dùng sai あげます (đáng lẽ phải là くれました nếu Watt làm cho Miller); 荷物を買って không có trong bài; 引っ越しをしてもらいました sai hướng (Miller nhờ Watt, không phải Watt nhờ Miller).",
+          "tip": "くれます → người khác làm CHO MÌNH; あげます → mình/ai đó làm CHO người khác. Nhớ hướng mũi tên là chọn đúng ngay.",
+          "qt": {
+            "q": "Anh Watt đã làm gì cho anh Miller?",
+            "o": [
+              "Đã cho biết địa chỉ",
+              "Đã mua đồ đạc giúp",
+              "Đã giúp đỡ",
+              "Đã được giúp chuyển nhà"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "新しいアパートでの生活",
+      "titleVi": "Cuộc sống ở căn hộ mới",
+      "japanese": "先月、私は新しいアパートに引っ越しました。引っ越しのとき、友達のカリナさんがたくさん手伝ってくれました。\nカリナさんは重い箱を運んであげると言いましたが、私は大丈夫だと思いました。でも、カリナさんは荷物を運ぶのを手伝ってくれて、とても助かりました。\n新しいアパートの近くにコンビニがありますが、スーパーはちょっと遠いです。先週、田中さんは車でスーパーまで連れて行ってくれました。私はたくさん買い物をしました。\n昨日、ワットさんに電話で新しい住所を教えてもらいました。ワットさんはインターネットで調べてくれました。\n今日は母に電話して、引っ越しの様子を話しました。母は「困ったとき、また電話してね」と言ってくれました。\n友達や家族に助けてもらって、新しい生活がとても楽しくなりました。",
+      "vietnamese": "Tháng trước, tôi đã chuyển đến căn hộ mới. Khi chuyển nhà, bạn của tôi là Carina đã giúp đỡ rất nhiều.\nCarina nói sẽ chuyển thùng nặng giúp tôi, nhưng tôi nghĩ là không sao. Tuy nhiên, Carina đã giúp tôi chuyển đồ và tôi rất nhẹ lòng.\nGần căn hộ mới có cửa hàng tiện lợi, nhưng siêu thị hơi xa. Tuần trước, anh Tanaka đã đưa tôi đến siêu thị bằng ô tô. Tôi đã mua sắm nhiều thứ.\nHôm qua, tôi được anh Watt cho biết địa chỉ mới qua điện thoại. Anh Watt đã tra cứu trên mạng giúp tôi.\nHôm nay tôi đã gọi điện cho mẹ và kể về chuyện chuyển nhà. Mẹ nói: \"Khi có gì khó khăn thì gọi lại cho mẹ nhé\".\nĐược bạn bè và gia đình giúp đỡ, cuộc sống mới trở nên rất vui vẻ.",
+      "sentences": [
+        {
+          "jp": "先月、私は新しいアパートに引っ越しました。",
+          "vi": "Tháng trước, tôi đã chuyển đến căn hộ mới.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "アパート",
+              "read": "あぱーと",
+              "vi": "căn hộ"
+            },
+            {
+              "w": "引っ越しました",
+              "read": "ひっこしました",
+              "vi": "đã chuyển nhà"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nに引っ越しました",
+              "vi": "に chỉ điểm đến: chuyển đến nơi nào đó. Vました ôn Bài 4."
+            }
+          ]
+        },
+        {
+          "jp": "引っ越しのとき、友達のカリナさんがたくさん手伝ってくれました。",
+          "vi": "Khi chuyển nhà, bạn của tôi là Carina đã giúp đỡ rất nhiều.",
+          "vocab": [
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "việc chuyển nhà"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều, rất nhiều"
+            },
+            {
+              "w": "手伝って",
+              "read": "てつだって",
+              "vi": "te-form của 手伝う (giúp đỡ)"
+            },
+            {
+              "w": "〜のとき",
+              "read": "のとき",
+              "vi": "danh từ + とき: khi (đang)…"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとき",
+              "vi": "とき đứng sau danh từ: \"khi chuyển nhà\". Ôn 〜とき từ Bài 23."
+            },
+            {
+              "point": "Vてくれました",
+              "vi": "Carina（chủ thể/が）TỰ NGUYỆN giúp tôi — hướng hành động vào tôi."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは重い箱を運んであげると言いましたが、私は大丈夫だと思いました。",
+          "vi": "Carina nói sẽ chuyển thùng nặng giúp tôi, nhưng tôi nghĩ là không sao.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "かりな",
+              "vi": "Karina"
+            },
+            {
+              "w": "重い",
+              "read": "おもい",
+              "vi": "nặng"
+            },
+            {
+              "w": "箱",
+              "read": "はこ",
+              "vi": "cái hộp"
+            },
+            {
+              "w": "運んで",
+              "read": "はこんで",
+              "vi": "mang, vận chuyển"
+            },
+            {
+              "w": "あげる",
+              "read": "あげる",
+              "vi": "làm giúp"
+            },
+            {
+              "w": "言いました",
+              "read": "いいました",
+              "vi": "đã nói"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "ổn, không sao"
+            },
+            {
+              "w": "思いました",
+              "read": "おもいました",
+              "vi": "đã nghĩ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあげる（thể thông thường）と言いました",
+              "vi": "あげると言いました: trích lời nói — nói sẽ làm hộ. と言いました ôn Bài 21."
+            },
+            {
+              "point": "〜と思いました",
+              "vi": "〜と思います: nghĩ rằng… ôn Bài 21."
+            }
+          ]
+        },
+        {
+          "jp": "でも、カリナさんは荷物を運ぶのを手伝ってくれて、とても助かりました。",
+          "vi": "Tuy nhiên, Carina đã giúp tôi chuyển đồ và tôi rất nhẹ lòng.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "đồ đạc, hành lý"
+            },
+            {
+              "w": "運ぶ",
+              "read": "はこぶ",
+              "vi": "chuyển, vác (thể từ điển)"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "助かりました",
+              "read": "たすかりました",
+              "vi": "nhẹ lòng, thoát khỏi khó khăn"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるのを手伝ってくれます",
+              "vi": "手伝ってくれる: Carina giúp đỡ tôi. のを bổ nghĩa danh từ hóa động từ ôn Bài 22."
+            },
+            {
+              "point": "Vてくれて（nối）",
+              "vi": "te-form của くれます nối hành động: \"giúp→ nhẹ lòng\". Ôn Vて…Vます Bài 16."
+            }
+          ]
+        },
+        {
+          "jp": "新しいアパートの近くにコンビニがありますが、スーパーはちょっと遠いです。",
+          "vi": "Gần căn hộ mới có cửa hàng tiện lợi, nhưng siêu thị hơi xa.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "chung cư, căn hộ"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, khu vực gần"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "ちょっと",
+              "read": "ちょっと",
+              "vi": "hơi, một chút"
+            },
+            {
+              "w": "遠い",
+              "read": "とおい",
+              "vi": "xa (tính từ い)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNがあります",
+              "vi": "Diễn đạt \"ở đâu có gì\". ôn Bài 10."
+            },
+            {
+              "point": "〜が、〜（đối lập）",
+              "vi": "が nối hai vế tương phản. ôn Bài 9."
+            }
+          ]
+        },
+        {
+          "jp": "先週、田中さんは車でスーパーまで連れて行ってくれました。",
+          "vi": "Tuần trước, anh Tanaka đã đưa tôi đến siêu thị bằng ô tô.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "車",
+              "read": "くるま",
+              "vi": "ô tô, xe hơi"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "連れる",
+              "read": "つれる",
+              "vi": "dắt theo, dẫn theo"
+            },
+            {
+              "w": "〜で",
+              "read": "で",
+              "vi": "bằng (phương tiện) — ôn Bài 5"
+            },
+            {
+              "w": "連れて行って",
+              "read": "つれていって",
+              "vi": "te-form của 連れて行く (dẫn/đưa đi)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれました",
+              "vi": "Tanaka TỰ NGUYỆN đưa tôi đi siêu thị — hành động hướng vào tôi."
+            },
+            {
+              "point": "NでVます（phương tiện）",
+              "vi": "車で: bằng ô tô. ôn Bài 5."
+            }
+          ]
+        },
+        {
+          "jp": "私はたくさん買い物をしました。",
+          "vi": "Tôi đã mua sắm nhiều thứ.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            },
+            {
+              "w": "しました",
+              "read": "しました",
+              "vi": "đã làm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nをします（quá khứ）",
+              "vi": "買い物をしました: đã đi mua sắm. ôn Bài 6."
+            }
+          ]
+        },
+        {
+          "jp": "昨日、ワットさんに電話で新しい住所を教えてもらいました。",
+          "vi": "Hôm qua, tôi được anh Watt cho biết địa chỉ mới qua điện thoại.",
+          "vocab": [
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "住所",
+              "read": "じゅうしょ",
+              "vi": "địa chỉ"
+            },
+            {
+              "w": "教えて",
+              "read": "おしえて",
+              "vi": "te-form của 教える (dạy, cho biết)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nに〜てもらいました",
+              "vi": "Tôi（chủ thể ẩn）nhờ Watt（に）cho biết địa chỉ. Hành động hướng vào tôi từ Watt."
+            },
+            {
+              "point": "Nで（công cụ）",
+              "vi": "電話で: bằng điện thoại. ôn Bài 7."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんはインターネットで調べてくれました。",
+          "vi": "Anh Watt đã tra cứu trên mạng giúp tôi.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "インターネット",
+              "read": "インターネット",
+              "vi": "internet"
+            },
+            {
+              "w": "調べて",
+              "read": "しらべて",
+              "vi": "te-form của 調べる (tra cứu, tìm hiểu)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれました",
+              "vi": "Watt TỰ NGUYỆN tra cứu giúp tôi — hành động hướng vào tôi. ôn Bài 24."
+            }
+          ]
+        },
+        {
+          "jp": "今日は母に電話して、引っ越しの様子を話しました。",
+          "vi": "Hôm nay tôi đã gọi điện cho mẹ và kể về chuyện chuyển nhà.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (tôi)"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "việc chuyển nhà"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "tình hình, cảnh tượng"
+            },
+            {
+              "w": "話しました",
+              "read": "はなしました",
+              "vi": "đã kể, đã nói chuyện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて、Vました（nối hai hành động）",
+              "vi": "電話してから話した: gọi rồi kể. ôn Vて…Vます Bài 16."
+            },
+            {
+              "point": "Nに電話します",
+              "vi": "に chỉ người nhận hành động liên lạc. ôn Bài 7."
+            }
+          ]
+        },
+        {
+          "jp": "母は「困ったとき、また電話してね」と言ってくれました。",
+          "vi": "Mẹ nói: \"Khi có gì khó khăn thì gọi lại cho mẹ nhé\".",
+          "vocab": [
+            {
+              "w": "母",
+              "read": "はは",
+              "vi": "mẹ (tôi)"
+            },
+            {
+              "w": "困った",
+              "read": "こまった",
+              "vi": "thể た của 困る (gặp khó khăn)"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "〜とき",
+              "read": "とき",
+              "vi": "khi… (ôn Bài 23)"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言ってくれました",
+              "vi": "と言う（nói）+ てくれました: mẹ NÓI điều đó cho tôi (tự nguyện, thể hiện sự quan tâm). と言いました ôn Bài 21."
+            },
+            {
+              "point": "Vたとき（khi gặp tình huống）",
+              "vi": "困ったとき: khi gặp khó khăn. Thể た + とき diễn đạt \"sau khi/khi đã xảy ra\". ôn Bài 23."
+            }
+          ]
+        },
+        {
+          "jp": "友達や家族に助けてもらって、新しい生活がとても楽しくなりました。",
+          "vi": "Được bạn bè và gia đình giúp đỡ, cuộc sống mới trở nên rất vui vẻ.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "助けて",
+              "read": "たすけて",
+              "vi": "te-form của 助ける (giúp đỡ)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "楽しく",
+              "read": "たのしく",
+              "vi": "dạng く của 楽しい (vui)"
+            },
+            {
+              "w": "〜や〜",
+              "read": "や",
+              "vi": "và (liệt kê không đầy đủ) ôn Bài 10"
+            },
+            {
+              "w": "なりました",
+              "read": "なりました",
+              "vi": "trở nên (quá khứ của なります) ôn Bài 19"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nに〜てもらって（nối）",
+              "vi": "もらって = te-form của もらいます: được giúp đỡ → kết quả. ôn Vてから Bài 16."
+            },
+            {
+              "point": "〜くなりました",
+              "vi": "楽しくなりました: trở nên vui. ôn 〜くなります Bài 19."
+            },
+            {
+              "point": "NやN",
+              "vi": "友達や家族: bạn bè và gia đình (liệt kê không đầy đủ). ôn Bài 10."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "カリナさんがたくさん手伝ってくれました",
+          "label": "Vてくれます（người khác làm cho mình）"
+        },
+        {
+          "excerpt": "重い箱を運んであげると言いました",
+          "label": "Vてあげます（làm cho người khác）"
+        },
+        {
+          "excerpt": "スーパーまで連れて行ってくれました",
+          "label": "Vてくれます（tự nguyện giúp đỡ）"
+        },
+        {
+          "excerpt": "ワットさんに電話で新しい住所を教えてもらいました",
+          "label": "Nに〜てもらいます（nhờ người khác）"
+        },
+        {
+          "excerpt": "友達や家族に助けてもらって",
+          "label": "Vてもらって（được giúp → kết quả）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんはどうやって助けましたか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "電話で住所を教えてくれました",
+            "重い箱を運んでくれました",
+            "車でスーパーまで連れて行ってくれました",
+            "インターネットで調べてあげました"
+          ],
+          "answer": 2,
+          "explainVi": "「田中さんは車でスーパーまで連れて行ってくれました」— Tanaka (chủ thể は) + 車で (bằng ô tô) + スーパーまで連れて行ってくれました. くれました = Tanaka tự nguyện đưa người kể đến siêu thị. Sai: 電話で住所を教えてくれました (đây là việc của Watt, không phải Tanaka); 重い箱を運んでくれました (Carina mới vận chuyển hộp, Tanaka không làm việc này); インターネットで調べてあげました (cũng là Watt, không phải Tanaka, và dùng sai あげます).",
+          "tip": "Mỗi nhân vật (Carina / Tanaka / Watt) làm một việc khác nhau — ghi nhớ nhanh: Carina = vận chuyển đồ, Tanaka = đưa đi siêu thị bằng xe, Watt = tra cứu địa chỉ trên mạng.",
+          "qt": {
+            "q": "Ông Tanaka đã giúp như thế nào?",
+            "o": [
+              "Đã chỉ địa chỉ qua điện thoại",
+              "Đã giúp chuyển những chiếc thùng nặng",
+              "Đã chở đến siêu thị bằng ô tô",
+              "Đã tra cứu trên internet giúp"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは何をしてくれましたか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "荷物を運んでくれました",
+            "住所を教えてくれました",
+            "車で連れて行ってくれました",
+            "電話してくれました"
+          ],
+          "answer": 1,
+          "explainVi": "「昨日、ワットさんに電話で新しい住所を教えてもらいました」và「ワットさんはインターネットで調べてくれました」— hai câu này nói Watt đã tra địa chỉ và cho người kể biết địa chỉ mới. Câu hỏi đứng từ góc nhìn \"Watt làm gì cho tôi\" (くれました) → 住所を教えてくれました là đúng. Sai: 荷物を運んでくれました (Carina vận chuyển đồ, không phải Watt); 車で連れて行ってくれました (Tanaka đưa bằng xe, không phải Watt); 電話してくれました (không có câu nào nói Watt gọi điện cho người kể).",
+          "tip": "Khi câu hỏi dùng してくれましたか → tìm trong bài câu có Vてくれました hoặc Vてもらいました với cùng chủ thể, rồi đổi góc nhìn sang くれます.",
+          "qt": {
+            "q": "Ông Watt đã làm gì giúp?",
+            "o": [
+              "Đã giúp chuyển hành lý",
+              "Đã chỉ địa chỉ",
+              "Đã chở đi bằng ô tô",
+              "Đã gọi điện"
+            ]
+          }
+        },
+        {
+          "q": "新しい生活はどうなりましたか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "ちょっと大変になりました",
+            "友達が少なくなりました",
+            "とても楽しくなりました",
+            "スーパーが近くなりました"
+          ],
+          "answer": 2,
+          "explainVi": "「友達や家族に助けてもらって、新しい生活がとても楽しくなりました」— câu cuối bài nói rõ kết quả cuộc sống mới. 楽しくなりました = trở nên vui vẻ (〜くなります Bài 19). Sai: 大変になりました (bài không hề nói khó khăn — ngược lại, được giúp nhiều); 友達が少なくなりました (bài nói bạn bè giúp đỡ rất nhiều, không ít đi); スーパーが近くなりました (bài nói siêu thị \"ちょっと遠い\" — hơi xa, không gần hơn).",
+          "tip": "Câu kết bài thường chứa đáp án cho câu hỏi \"kết quả là gì\" — đọc câu cuối cùng trước khi chọn.",
+          "qt": {
+            "q": "Cuộc sống mới đã trở nên như thế nào?",
+            "o": [
+              "Đã trở nên hơi vất vả",
+              "Bạn bè đã ít đi",
+              "Đã trở nên rất vui",
+              "Siêu thị đã trở nên gần hơn"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくら町のそうじの日",
+      "titleVi": "Ngày dọn dẹp khu phố Sakura",
+      "japanese": "さくら町のそうじの日\n来週の日曜日、さくら町のみんなで公園や道をそうじします。\n来月、新しい人が引っ越してきます。手伝ってくれる人をぼしゅうします。\n仕事｜する人\n公園のそうじ｜田中さん\n道のごみ拾い｜ミラーさん\n荷物を運ぶ｜ワットさんとカリナさん\n田中さんは新しい人のために公園のそうじをしてあげます。\nワットさんとカリナさんは、新しい人の荷物を運んであげます。\n新しい人は、田中さんに公園のそうじを手伝ってもらいます。\nみんなに助けてもらって、新しい人は喜んでいます。手伝ってくれてありがとう。\n手伝う人は、朝九時に公園に来てください。質問がある人は、田中さんに聞いてください。",
+      "vietnamese": "Ngày dọn dẹp khu phố Sakura\nChủ nhật tuần sau, mọi người trong khu phố Sakura sẽ cùng dọn dẹp công viên và đường phố.\nTháng sau có người mới chuyển đến. Ban tổ chức đang tìm người sẽ giúp đỡ.\nViệc｜Người phụ trách\nDọn dẹp công viên｜Anh Tanaka\nNhặt rác trên đường｜Anh Miller\nChuyển đồ｜Anh Watt và chị Carina\nAnh Tanaka sẽ dọn dẹp công viên giúp người mới chuyển đến.\nAnh Watt và chị Carina sẽ chuyển đồ giúp người mới chuyển đến.\nNgười mới chuyển đến được anh Tanaka giúp dọn dẹp công viên.\nĐược mọi người giúp đỡ, người mới chuyển đến rất vui. Cảm ơn các bạn đã giúp đỡ.\nNgười tham gia giúp đỡ, xin hãy đến công viên lúc 9 giờ sáng. Người có câu hỏi, xin hỏi anh Tanaka.",
+      "sentences": [
+        {
+          "jp": "さくら町のそうじの日",
+          "vi": "Ngày dọn dẹp khu phố Sakura",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "さくら町",
+              "read": "さくらちょう",
+              "vi": "khu phố Sakura"
+            },
+            {
+              "w": "そうじ",
+              "read": "そうじ",
+              "vi": "việc dọn dẹp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（tiêu đề）",
+              "vi": "さくら町のそうじの日: danh từ nối danh từ. Ôn Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "さくら町のそうじの日",
+              "why": "Tiêu đề cho biết đây là thông báo về ngày dọn dẹp khu phố — xác định chủ đề chung."
+            }
+          ]
+        },
+        {
+          "jp": "来週の日曜日、さくら町のみんなで公園や道をそうじします。",
+          "vi": "Chủ nhật tuần sau, mọi người trong khu phố Sakura sẽ cùng dọn dẹp công viên và đường phố.",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ nhật"
+            },
+            {
+              "w": "さくら町",
+              "read": "さくらまち",
+              "vi": "thị trấn Sakura"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "con đường"
+            },
+            {
+              "w": "そうじします",
+              "read": "そうじします",
+              "vi": "dọn dẹp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NでVます（phạm vi người）",
+              "vi": "みんなで: mọi người cùng làm chung. Ôn Nと・人とVます Bài 4."
+            },
+            {
+              "point": "NやN",
+              "vi": "公園や道: công viên và đường (liệt kê không đầy đủ). Ôn Bài 10."
+            }
+          ],
+          "keys": [
+            {
+              "w": "来週の日曜日",
+              "why": "Mốc thời gian của sự kiện — cần nhớ khi nào diễn ra buổi dọn dẹp."
+            },
+            {
+              "w": "公園や道をそうじします",
+              "why": "Hành động chính của thông báo: cùng nhau dọn dẹp công viên và đường phố."
+            }
+          ]
+        },
+        {
+          "jp": "来月、新しい人が引っ越してきます。手伝ってくれる人をぼしゅうします。",
+          "vi": "Tháng sau có người mới chuyển đến. Ban tổ chức đang tìm người sẽ giúp đỡ.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "引っ越してきます",
+              "read": "ひっこしてきます",
+              "vi": "chuyển đến (て形＋来ます)"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "しゅう",
+              "read": "しゅう",
+              "vi": "luyện tập, tuần"
+            },
+            {
+              "w": "新しい人",
+              "read": "あたらしいひと",
+              "vi": "người mới (chuyển đến)"
+            },
+            {
+              "w": "ぼしゅうします",
+              "read": "ぼしゅうします",
+              "vi": "tuyển, tìm (người tham gia)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれる人（mệnh đề bổ nghĩa）",
+              "vi": "手伝ってくれる人: người (sẽ) tự nguyện giúp đỡ. Vてくれます kết hợp Vる＋N (Bài 22)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "新しい人が引っ越してきます",
+              "why": "Lý do có thêm việc chuyển đồ — liên quan đến bảng phân công bên dưới."
+            },
+            {
+              "w": "手伝ってくれる人をぼしゅうします",
+              "why": "Nêu trước rằng cần người tự nguyện giúp — mẫu Vてくれます lần đầu."
+            }
+          ]
+        },
+        {
+          "jp": "仕事｜する人",
+          "vi": "Việc｜Người phụ trách",
+          "vocab": [
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "する人",
+              "read": "するひと",
+              "vi": "người làm (việc đó)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる＋N（mệnh đề bổ nghĩa）",
+              "vi": "する人: người (sẽ) làm. Ôn Vる＋N Bài 22."
+            }
+          ],
+          "keys": [
+            {
+              "w": "仕事｜する人",
+              "why": "Header của bảng — cột trái là việc, cột phải là người phụ trách."
+            }
+          ]
+        },
+        {
+          "jp": "公園のそうじ｜田中さん",
+          "vi": "Dọn dẹp công viên｜Anh Tanaka",
+          "vocab": [
+            {
+              "w": "公園のそうじ",
+              "read": "こうえんのそうじ",
+              "vi": "việc dọn dẹp công viên"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "公園のそうじ: việc dọn dẹp CỦA công viên. Ôn Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "公園のそうじ｜田中さん",
+              "why": "Hàng bảng: Tanaka phụ trách dọn dẹp công viên."
+            }
+          ]
+        },
+        {
+          "jp": "道のごみ拾い｜ミラーさん",
+          "vi": "Nhặt rác trên đường｜Anh Miller",
+          "vocab": [
+            {
+              "w": "道",
+              "read": "みち",
+              "vi": "con đường, đạo"
+            },
+            {
+              "w": "拾う",
+              "read": "ひろう",
+              "vi": "nhặt, lượm"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "ごみ拾い",
+              "read": "ごみひろい",
+              "vi": "việc nhặt rác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "道のごみ拾い: việc nhặt rác CỦA đường. Ôn Bài 1."
+            }
+          ],
+          "keys": [
+            {
+              "w": "道のごみ拾い",
+              "why": "Cột trái của hàng bảng — việc cần làm: nhặt rác trên đường."
+            },
+            {
+              "w": "ミラーさん",
+              "why": "Cột phải của hàng bảng — người phụ trách việc này là Miller, căn cứ trực tiếp cho câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "荷物を運ぶ｜ワットさんとカリナさん",
+          "vi": "Chuyển đồ｜Anh Watt và chị Carina",
+          "vocab": [
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "運ぶ",
+              "read": "はこぶ",
+              "vi": "chuyển, vác (thể từ điển)"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "荷物を運ぶ",
+              "read": "にもつをはこぶ",
+              "vi": "việc chuyển đồ"
+            },
+            {
+              "w": "〜と〜",
+              "read": "と",
+              "vi": "và (liệt kê đầy đủ). Ôn Bài 4"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとN",
+              "vi": "ワットさんとカリナさん: Watt và Carina. Ôn Nと（cùng ai）Bài 4."
+            }
+          ],
+          "keys": [
+            {
+              "w": "荷物を運ぶ｜ワットさんとカリナさん",
+              "why": "Hàng bảng: Watt và Carina phụ trách chuyển đồ."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんは新しい人のために公園のそうじをしてあげます。",
+          "vi": "Anh Tanaka sẽ dọn dẹp công viên giúp người mới chuyển đến.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "新しい人のために",
+              "read": "あたらしいひとのために",
+              "vi": "vì/cho người mới (mục đích)"
+            },
+            {
+              "w": "して",
+              "read": "して",
+              "vi": "te-form của します (làm)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあげます",
+              "vi": "Tanaka（chủ thể）làm hành động dọn dẹp công viên ĐỂ cho người mới. Hướng hành động ra ngoài — khớp bảng: Tanaka phụ trách công viên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "田中さんは新しい人のために公園のそうじをしてあげます",
+              "why": "Xác nhận lại: Tanaka là người dọn dẹp công viên — khớp bảng ở trên. Mẫu てあげます lần đầu."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんとカリナさんは、新しい人の荷物を運んであげます。",
+          "vi": "Anh Watt và chị Carina sẽ chuyển đồ giúp người mới chuyển đến.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "運んで",
+              "read": "はこんで",
+              "vi": "te-form của 運ぶ (chuyển, vác)"
+            },
+            {
+              "w": "新しい人の荷物",
+              "read": "あたらしいひとのにもつ",
+              "vi": "đồ đạc của người mới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてあげます",
+              "vi": "Watt và Carina（chủ thể）làm hành động chuyển đồ ĐỂ cho người mới. Hướng hành động ra ngoài. Mẫu てあげます lần thứ hai."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ワットさんとカリナさんは、新しい人の荷物を運んであげます",
+              "why": "Xác nhận Watt và Carina là người chuyển đồ giúp — khớp bảng."
+            }
+          ]
+        },
+        {
+          "jp": "新しい人は、田中さんに公園のそうじを手伝ってもらいます。",
+          "vi": "Người mới chuyển đến được anh Tanaka giúp dọn dẹp công viên.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "手伝って",
+              "read": "てつだって",
+              "vi": "te-form của 手伝う (giúp đỡ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nに〜てもらいます",
+              "vi": "新しい人（chủ thể）nhờ/được Tanaka（に）giúp việc dọn dẹp công viên. Cùng nội dung câu trước nhưng đổi góc nhìn: chủ thể là người NHẬN giúp đỡ. Mẫu てもらいます lần đầu."
+            }
+          ],
+          "keys": [
+            {
+              "w": "新しい人は、田中さんに公園のそうじを手伝ってもらいます",
+              "why": "Diễn đạt lại việc Tanaka dọn công viên từ góc nhìn てもらいます — khớp bảng, không phải việc mới."
+            }
+          ]
+        },
+        {
+          "jp": "みんなに助けてもらって、新しい人は喜んでいます。手伝ってくれてありがとう。",
+          "vi": "Được mọi người giúp đỡ, người mới chuyển đến rất vui. Cảm ơn các bạn đã giúp đỡ.",
+          "vocab": [
+            {
+              "w": "助けて",
+              "read": "たすけて",
+              "vi": "te-form của 助ける (giúp đỡ)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "喜んでいます",
+              "read": "よろこんでいます",
+              "vi": "đang vui mừng (Vています của 喜ぶ)"
+            },
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "ありがとう",
+              "read": "ありがとう",
+              "vi": "cảm ơn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもらって（nối）",
+              "vi": "助けてもらって: được giúp đỡ → kết quả vui. Mẫu てもらいます lần thứ hai (nối Vて…Vます ôn Bài 16)."
+            },
+            {
+              "point": "Vてくれてありがとう",
+              "vi": "手伝ってくれてありがとう: cảm ơn vì đã tự nguyện giúp đỡ. Mẫu てくれます lần thứ hai."
+            },
+            {
+              "point": "Vています（trạng thái）",
+              "vi": "喜んでいます: đang trong trạng thái vui mừng. Ôn Vています Bài 15."
+            }
+          ],
+          "keys": [
+            {
+              "w": "みんなに助けてもらって",
+              "why": "Kết quả tốt của việc được giúp đỡ — mẫu てもらいます lần hai."
+            },
+            {
+              "w": "手伝ってくれてありがとう",
+              "why": "Lời cảm ơn vì được tự nguyện giúp — mẫu てくれます lần hai."
+            }
+          ]
+        },
+        {
+          "jp": "手伝う人は、朝九時に公園に来てください。質問がある人は、田中さんに聞いてください。",
+          "vi": "Người tham gia giúp đỡ, xin hãy đến công viên lúc 9 giờ sáng. Người có câu hỏi, xin hỏi anh Tanaka.",
+          "vocab": [
+            {
+              "w": "手伝う",
+              "read": "てつだう",
+              "vi": "giúp đỡ, phụ giúp"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "聞いて",
+              "read": "きいて",
+              "vi": "te-form của 聞く (hỏi, nghe)"
+            },
+            {
+              "w": "朝九時",
+              "read": "あさくじ",
+              "vi": "9 giờ sáng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてください",
+              "vi": "来てください／聞いてください: xin hãy làm gì. Ôn Vてください Bài 14."
+            },
+            {
+              "point": "Vる＋人（mệnh đề bổ nghĩa）",
+              "vi": "手伝う人／質問がある人: người (sẽ) giúp đỡ／người có câu hỏi. Ôn Vる＋N Bài 22."
+            }
+          ],
+          "keys": [
+            {
+              "w": "朝九時に公園に来てください",
+              "why": "Thông tin thực dụng: giờ và địa điểm tập trung để tham gia giúp đỡ."
+            },
+            {
+              "w": "田中さんに聞いてください",
+              "why": "Đầu mối liên hệ khi có thắc mắc."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "公園のそうじをしてあげます",
+          "label": "Vてあげます（làm cho người khác）"
+        },
+        {
+          "excerpt": "荷物を運んであげます",
+          "label": "Vてあげます（làm cho người khác）"
+        },
+        {
+          "excerpt": "公園のそうじを手伝ってもらいます",
+          "label": "Vてもらいます（nhờ/được người khác làm）"
+        },
+        {
+          "excerpt": "助けてもらって",
+          "label": "Vてもらいます（được người khác làm）"
+        },
+        {
+          "excerpt": "手伝ってくれる人",
+          "label": "Vてくれます（người khác tự nguyện làm cho mình）"
+        },
+        {
+          "excerpt": "手伝ってくれてありがとう",
+          "label": "Vてくれます（người khác tự nguyện làm cho mình）"
+        },
+        {
+          "excerpt": "来てください",
+          "label": "Vてください（ôn Bài 14）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Giới thiệu sự kiện",
+          "topic": 1,
+          "qs": [],
+          "note": "Tiêu đề + thời gian + lý do cần người giúp — chưa có căn cứ trả lời trực tiếp."
+        },
+        {
+          "from": 3,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng phân công việc",
+          "topic": 3,
+          "qs": [
+            1
+          ],
+          "note": "Bảng 2 cột việc｜người phụ trách — nơi chứa căn cứ chính để trả lời câu hỏi \"ai làm gì\"."
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "kind": "body",
+          "label": "Xác nhận bằng てあげます/てもらいます/てくれます",
+          "topic": 7,
+          "qs": [
+            1
+          ],
+          "note": "Diễn giải lại nội dung bảng bằng 3 mẫu Bài 24 (đổi góc nhìn cho cùng 1 việc) — củng cố câu hỏi, không phải bẫy."
+        },
+        {
+          "from": 11,
+          "to": 11,
+          "kind": "turn",
+          "label": "Giờ giấc & liên hệ",
+          "topic": 11,
+          "qs": [],
+          "note": "Thông tin thực dụng (giờ tập trung, người liên hệ) — không phải căn cứ câu hỏi chính nhưng dễ bị hỏi ở biến thể khác."
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは何をしますか。",
+          "options": [
+            "公園のそうじをします",
+            "道のごみ拾いをします",
+            "荷物を運びます",
+            "新しい人に住所を教えます"
+          ],
+          "answer": 1,
+          "explainVi": "Bảng phân công: 「道のごみ拾い｜ミラーさん」— cột trái là việc, cột phải là người phụ trách → Miller phụ trách nhặt rác trên đường. Đối chiếu các câu xác nhận: 「田中さんは...公園のそうじをしてあげます」và「新しい人は、田中さんに公園のそうじを手伝ってもらいます」đều nói việc dọn công viên là của Tanaka (không phải Miller); Miller không xuất hiện trong nhóm てあげます/てもらいます đó, khớp đúng với bảng. Sai: 公園のそうじ (đó là việc của 田中さん theo bảng và theo 2 câu xác nhận); 荷物を運びます (đó là việc của ワットさんとカリナさん); 新しい人に住所を教えます (bài không hề nhắc đến việc dạy địa chỉ).",
+          "tip": "Gặp câu hỏi \"ai làm gì\" → tìm ngay hàng bảng có tên người đó ở cột phải, đối chiếu cột trái là việc; các câu てあげます/てもらいます phía dưới chỉ diễn giải lại đúng bảng, không đổi người.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Anh/chị Miller sẽ làm gì?",
+            "o": [
+              "Dọn dẹp công viên",
+              "Nhặt rác trên đường",
+              "Vận chuyển hành lý",
+              "Cho người mới biết địa chỉ"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3632 @@
+{
+  "bai": 8,
+  "level": "N5",
+  "intro": "NはAいです／Aくないです · NAなN · NはNAです／NAじゃありません · どんなNですか · とても／あまり〜ない. Có ÔN LẠI ngữ pháp đã học (bài 1-7) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "この花はとても美しいです。",
+              "ul": "美しい",
+              "choices": [
+                "うつくしい",
+                "やさしい",
+                "たのしい",
+                "むずかしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「美しい」(うつくしい) nghĩa là \"đẹp, xinh đẹp\" – đây là tính từ -i thường gặp ở N5. ① うつくしい ✔ đúng cả âm lẫn nghĩa. ② やさしい là cách đọc của 「優しい」(dịu dàng, tốt bụng) – khác nghĩa và khác chữ hoàn toàn. ③ たのしい là 「楽しい」(vui vẻ) – bẫy vì cũng là tính từ -i tích cực nhưng nghĩa khác. ④ むずかしい là 「難しい」(khó) – âm dài tương tự nhưng nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "花",
+                  "read": "はな",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "美しい",
+                  "vi": "đẹp, xinh đẹp"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (đuôi lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "このりょうりはおいしいですね。新しいレストランです。",
+              "ul": "新しい",
+              "choices": [
+                "あたらしい",
+                "あかるい",
+                "やさしい",
+                "たのしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「新しい」(あたらしい) nghĩa là \"mới\". ① あたらしい ✔ đúng. ② あかるい là cách đọc của 「明るい」(sáng, vui vẻ) – âm bắt đầu bằng あ nên dễ nhầm. ③ やさしい là 「優しい/易しい」(dịu dàng / dễ) – khác nghĩa. ④ たのしい là 「楽しい」(vui) – cũng là tính từ -i phổ biến nhưng không liên quan đến nghĩa \"mới\".",
+              "glosses": [
+                {
+                  "t": "このりょうりは",
+                  "vi": "món ăn này"
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "ですね",
+                  "vi": "phải không (xác nhận)"
+                },
+                {
+                  "t": "新しい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                }
+              ]
+            },
+            {
+              "prompt": "あの古いたてものは有名な学校です。",
+              "ul": "古い",
+              "choices": [
+                "ふるい",
+                "おおきい",
+                "くろい",
+                "ひろい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「古い」(ふるい) nghĩa là \"cũ\". ① ふるい ✔ đúng. ② おおきい là 「大きい」(to, lớn) – cũng là tính từ -i N5 rất quen nhưng khác nghĩa. ③ くろい là 「黒い」(đen) – âm ngắn gọn, dễ nhầm khi nghe nhanh. ④ ひろい là 「広い」(rộng) – âm có ろ giống ふろい nên dễ bẫy.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "古い",
+                  "vi": "cũ"
+                },
+                {
+                  "t": "たてもの",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "有名な",
+                  "read": "ゆうめいな",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                }
+              ]
+            },
+            {
+              "prompt": "この水はとても冷たいです。",
+              "ul": "冷たい",
+              "choices": [
+                "つめたい",
+                "あたたかい",
+                "やわらかい",
+                "あつい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「冷たい」(つめたい) nghĩa là \"lạnh (khi chạm/uống)\". ① つめたい ✔ đúng. ② あたたかい là 「暖かい/温かい」(ấm áp) – nghĩa đối lập, dễ nhầm. ③ やわらかい là 「柔らかい」(mềm) – âm dài tương tự, nhưng nghĩa hoàn toàn khác. ④ あつい là 「熱い/暑い」(nóng) – cũng liên quan đến nhiệt độ nhưng nghĩa ngược.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "水",
+                  "read": "みず",
+                  "vi": "nước"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "冷たい",
+                  "vi": "lạnh (khi chạm vào)"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "prompt": "田中先生のへやはとても広いです。",
+              "ul": "広い",
+              "choices": [
+                "ひろい",
+                "ながい",
+                "おおきい",
+                "ふかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「広い」(ひろい) nghĩa là \"rộng\". ① ひろい ✔ đúng. ② ながい là 「長い」(dài) – cũng chỉ kích thước nhưng nghĩa khác. ③ おおきい là 「大きい」(to) – gần nghĩa nhưng không phải \"rộng\". ④ ふかい là 「深い」(sâu) – cũng là tính từ kích thước nhưng chỉ chiều sâu.",
+              "glosses": [
+                {
+                  "t": "田中先生",
+                  "read": "たなかせんせい",
+                  "vi": "thầy/cô Tanaka"
+                },
+                {
+                  "t": "のへやは",
+                  "vi": "phòng của (thầy/cô)"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "広い",
+                  "vi": "rộng"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "prompt": "このほんは少し難しいですが、おもしろいです。",
+              "ul": "難しい",
+              "choices": [
+                "むずかしい",
+                "やさしい",
+                "うれしい",
+                "こわい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「難しい」(むずかしい) nghĩa là \"khó\". ① むずかしい ✔ đúng. ② やさしい là 「易しい/優しい」(dễ / dịu dàng) – nghĩa đối lập của \"khó\", bẫy rất tự nhiên. ③ うれしい là 「嬉しい」(vui mừng) – là tính từ cảm xúc, không liên quan đến độ khó. ④ こわい là 「怖い」(đáng sợ) – âm ngắn gọn, khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "このほんは",
+                  "vi": "quyển sách này"
+                },
+                {
+                  "t": "少し",
+                  "read": "すこし",
+                  "vi": "một chút"
+                },
+                {
+                  "t": "難しい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "ですが",
+                  "vi": "nhưng"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị"
+                }
+              ]
+            },
+            {
+              "prompt": "あそこの山はとても高いですね。",
+              "ul": "高い",
+              "choices": [
+                "たかい",
+                "はやい",
+                "おおきい",
+                "ながい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「高い」(たかい) nghĩa là \"cao\" hoặc \"đắt\". ① たかい ✔ đúng. ② はやい là 「速い/早い」(nhanh/sớm) – âm 2 mora ngắn gọn giống たかい, dễ nhầm. ③ おおきい là 「大きい」(to) – cũng miêu tả kích thước nhưng không phải \"cao\". ④ ながい là 「長い」(dài) – cũng kích thước nhưng chỉ chiều dài.",
+              "glosses": [
+                {
+                  "t": "あそこの",
+                  "vi": "ở chỗ kia"
+                },
+                {
+                  "t": "山",
+                  "read": "やま",
+                  "vi": "núi"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "高い",
+                  "vi": "cao (hoặc đắt)"
+                },
+                {
+                  "t": "ですね",
+                  "vi": "phải không"
+                }
+              ]
+            },
+            {
+              "prompt": "このとけいはとても安いです。",
+              "ul": "安い",
+              "choices": [
+                "やすい",
+                "よわい",
+                "かるい",
+                "あおい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「安い」(やすい) nghĩa là \"rẻ\". ① やすい ✔ đúng. ② よわい là 「弱い」(yếu) – âm 2 mora, có よ gần với や khi nghe nhanh. ③ かるい là 「軽い」(nhẹ) – tính từ N5 phổ biến nhưng chỉ trọng lượng. ④ あおい là 「青い」(xanh lam) – tính từ màu sắc, khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "このとけいは",
+                  "vi": "chiếc đồng hồ này"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không lắm (dùng với phủ định)"
+                },
+                {
+                  "t": "安い",
+                  "vi": "rẻ"
+                },
+                {
+                  "t": "くない",
+                  "vi": "không... (phủ định tính từ -i)"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "prompt": "東京は人がとても多いです。",
+              "ul": "多い",
+              "choices": [
+                "おおい",
+                "おおきい",
+                "すくない",
+                "たかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「多い」(おおい) nghĩa là \"nhiều\". ① おおい ✔ đúng. ② おおきい là 「大きい」(to, lớn) – bắt đầu bằng おお nên cực kỳ dễ nhầm với おおい. ③ すくない là 「少ない」(ít) – nghĩa đối lập, bẫy cổ điển. ④ たかい là 「高い」(cao/đắt) – không liên quan đến số lượng.",
+              "glosses": [
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "は",
+                  "vi": "chủ đề"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "が",
+                  "vi": "chủ ngữ"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "多い",
+                  "vi": "nhiều"
+                }
+              ]
+            },
+            {
+              "prompt": "このコーヒーは熱いですから、気をつけてください。",
+              "ul": "熱い",
+              "choices": [
+                "あつい",
+                "つめたい",
+                "からい",
+                "にがい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「熱い」(あつい) nghĩa là \"nóng (đồ vật/đồ uống khi chạm)\". ① あつい ✔ đúng. ② つめたい là 「冷たい」(lạnh) – đối lập nhiệt độ, bẫy rất tự nhiên. ③ からい là 「辛い」(cay) – cũng miêu tả đồ ăn/uống nhưng về vị, không phải nhiệt độ. ④ にがい là 「苦い」(đắng) – cũng về vị của đồ uống như cà phê, bẫy ngữ cảnh cao.",
+              "glosses": [
+                {
+                  "t": "このコーヒーは",
+                  "vi": "cà phê này"
+                },
+                {
+                  "t": "熱い",
+                  "vi": "nóng (khi chạm/uống)"
+                },
+                {
+                  "t": "ですから",
+                  "vi": "vì... nên"
+                },
+                {
+                  "t": "気をつけてください",
+                  "read": "きをつけてください",
+                  "vi": "hãy cẩn thận"
+                }
+              ]
+            },
+            {
+              "prompt": "あの白いたてものは電車のえきです。",
+              "ul": "白い",
+              "choices": [
+                "しろい",
+                "あおい",
+                "くろい",
+                "あかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「白い」(しろい) nghĩa là \"trắng\". ① しろい ✔ đúng. ② あおい là 「青い」(xanh lam) – cũng là tính từ màu sắc 2 mora + い. ③ くろい là 「黒い」(đen) – màu đối lập, dễ nhầm. ④ あかい là 「赤い」(đỏ) – tính từ màu sắc phổ biến N5, cùng cấu trúc.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "白い",
+                  "vi": "trắng"
+                },
+                {
+                  "t": "たてものは",
+                  "vi": "tòa nhà"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "のえきです",
+                  "vi": "là ga (của)"
+                }
+              ]
+            },
+            {
+              "prompt": "きょうはとても暑いですね。",
+              "ul": "暑い",
+              "choices": [
+                "あつい",
+                "さむい",
+                "すずしい",
+                "あたたかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「暑い」(あつい) nghĩa là \"nóng (thời tiết)\". ① あつい ✔ đúng – lưu ý 「暑い」(thời tiết nóng) khác 「熱い」(đồ vật/thức ăn nóng), đọc cùng là あつい. ② さむい là 「寒い」(lạnh – thời tiết) – đối lập nhiệt độ, bẫy tự nhiên nhất. ③ すずしい là 「涼しい」(mát mẻ) – cũng về thời tiết, âm dài hơn. ④ あたたかい là 「暖かい」(ấm áp) – cũng thời tiết nhưng nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "きょうは",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "暑い",
+                  "vi": "nóng (thời tiết)"
+                },
+                {
+                  "t": "ですね",
+                  "vi": "phải không"
+                }
+              ]
+            },
+            {
+              "prompt": "この会社のビルはとても大きいです。",
+              "ul": "大きい",
+              "choices": [
+                "おおきい",
+                "おおい",
+                "ひろい",
+                "たかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「大きい」(おおきい) nghĩa là \"to, lớn\". ① おおきい ✔ đúng. ② おおい là 「多い」(nhiều) – bắt đầu bằng おお nên cực kỳ dễ nhầm, nhưng chỉ số lượng chứ không phải kích thước. ③ ひろい là 「広い」(rộng) – gần nghĩa nhưng không phải \"to\". ④ たかい là 「高い」(cao/đắt) – cũng kích thước nhưng chỉ chiều cao.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "のビルは",
+                  "vi": "tòa nhà (của)"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "大きい",
+                  "vi": "to, lớn"
+                }
+              ]
+            },
+            {
+              "prompt": "このりんごはとても甘いです。",
+              "ul": "甘い",
+              "choices": [
+                "あまい",
+                "からい",
+                "にがい",
+                "すっぱい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「甘い」(あまい) nghĩa là \"ngọt\". ① あまい ✔ đúng. ② からい là 「辛い」(cay) – vị khác, cùng ngữ cảnh thức ăn. ③ にがい là 「苦い」(đắng) – cũng là vị, bẫy tự nhiên khi nói về táo không ngon. ④ すっぱい là 「酸っぱい」(chua) – vị đối lập với ngọt trong ngữ cảnh trái cây, bẫy cao nhất.",
+              "glosses": [
+                {
+                  "t": "このりんごは",
+                  "vi": "quả táo này"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không lắm (dùng với phủ định)"
+                },
+                {
+                  "t": "甘い",
+                  "vi": "ngọt"
+                },
+                {
+                  "t": "くないです",
+                  "vi": "không... (phủ định lịch sự)"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "prompt": "その映画はとても長いです。",
+              "ul": "長い",
+              "choices": [
+                "ながい",
+                "はやい",
+                "みじかい",
+                "おそい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「長い」(ながい) nghĩa là \"dài\". ① ながい ✔ đúng. ② はやい là 「速い/早い」(nhanh/sớm) – không liên quan đến độ dài. ③ みじかい là 「短い」(ngắn) – nghĩa đối lập, bẫy cổ điển. ④ おそい là 「遅い」(chậm/muộn) – liên quan đến tốc độ/thời gian, không phải độ dài.",
+              "glosses": [
+                {
+                  "t": "その",
+                  "vi": "cái đó"
+                },
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "phim"
+                },
+                {
+                  "t": "は",
+                  "vi": "chủ đề"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không lắm"
+                },
+                {
+                  "t": "長い",
+                  "vi": "dài"
+                },
+                {
+                  "t": "くなかったです",
+                  "vi": "không... (phủ định quá khứ lịch sự)"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "このかばんはとてもあたらしいです。",
+              "ul": "あたらしい",
+              "choices": [
+                "新しい",
+                "古い",
+                "大きい",
+                "小さい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あたらしい」viết bằng chữ Hán là「新しい」, nghĩa là \"mới\". Đây là dạng câu hỏi yêu cầu chọn chữ Hán đúng cho từ hiragana gạch chân. ① 「新しい」(あたらしい) = mới ✔ — đúng cả cách đọc lẫn nghĩa. ② 「古い」(ふるい) = cũ — đọc là「ふるい」, nghĩa đối lập với \"mới\", hoàn toàn khác. ③ 「大きい」(おおきい) = to, lớn — cũng là tính từ -i N5 quen thuộc nhưng không có liên quan đến \"mới\". ④ 「小さい」(ちいさい) = nhỏ, bé — cũng là tính từ kích thước, đọc và nghĩa đều khác. Cần nhớ: tính từ \"mới\" trong tiếng Nhật viết là「新しい」, gốc chữ Hán là「新」(tân).",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "cái túi, cặp xách"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "新しい",
+                  "vi": "mới"
+                }
+              ]
+            },
+            {
+              "prompt": "あのみせのケーキはとてもおいしいです。",
+              "ul": "おいしい",
+              "choices": [
+                "美味しい",
+                "珍しい",
+                "忙しい",
+                "難しい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おいしい」は「美味しい」と書きます。文の意味は「あの店のケーキはとてもおいしい」。\n- 「美味しい」(おいしい)＝ngon ✔\n- 「珍しい」(めずらしい)＝hiếm, đọc khác (めずらしい) ✗\n- 「忙しい」(いそがしい)＝bận rộn, đọc khác và nghĩa khác ✗\n- 「難しい」(むずかしい)＝khó, đọc khác và nghĩa khác ✗\n\nCả bốn chữ đều kết thúc bằng 「しい」 nhưng chỉ 「美味しい」 mới đọc là「おいしい」và có nghĩa là ngon.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "kia, cái đó"
+                },
+                {
+                  "t": "みせ",
+                  "read": "店",
+                  "vi": "cửa hàng"
+                },
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh kem"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おいしい",
+                  "read": "美味しい",
+                  "vi": "ngon"
+                }
+              ]
+            },
+            {
+              "prompt": "このほんはあまりおもしろくないです。",
+              "ul": "おもしろくない",
+              "choices": [
+                "本",
+                "木",
+                "大",
+                "文"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ほん」は「本」と書きます。文の意味は「この本はあまり面白くない」（この本はあまり面白くない）。\n- 「本」(ほん)＝quyển sách ✔\n- 「木」(き)＝cây, đọc là「き」không phải「ほん」✗\n- 「大」(だい/おお)＝lớn, là tính từ/tiền tố, không đọc là「ほん」✗\n- 「文」(ぶん/もん)＝văn, câu văn, không đọc là「ほん」✗\n\nChữ「本」đọc là「ほん」có nghĩa là sách. Các chữ còn lại có hình dạng gần giống nhau nhưng âm đọc và nghĩa đều khác.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "あまりおもしろくない",
+                  "vi": "không... lắm",
+                  "read": "あまりおもしろくない"
+                },
+                {
+                  "t": "おもしろくない",
+                  "read": "面白くない",
+                  "vi": "không thú vị"
+                }
+              ]
+            },
+            {
+              "prompt": "そのくにはとてもおおきいです。",
+              "ul": "おおきい",
+              "choices": [
+                "大きい",
+                "多い",
+                "太い",
+                "広い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おおきい」は「大きい」と書きます。文の意味は「その国はとても大きい」（その国はとても大きい）。\n- 「大きい」(おおきい)＝lớn, to ✔\n- 「多い」(おおい)＝nhiều, đọc là「おおい」không phải「おおきい」✗\n- 「太い」(ふとい)＝to béo, dày, đọc là「ふとい」✗\n- 「広い」(ひろい)＝rộng, đọc là「ひろい」✗\n\n「大きい」và「多い」đều bắt đầu bằng「おお」nhưng「大きい」có 「き」ở giữa. Phải đọc đúng toàn bộ「おおきい」.",
+              "glosses": [
+                {
+                  "t": "その",
+                  "vi": "cái đó, cái ấy"
+                },
+                {
+                  "t": "くに",
+                  "read": "国",
+                  "vi": "đất nước"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おおきい",
+                  "read": "大きい",
+                  "vi": "lớn, to"
+                }
+              ]
+            },
+            {
+              "prompt": "あのじどうしゃはふるいです。",
+              "ul": "ふるい",
+              "choices": [
+                "古い",
+                "新しい",
+                "白い",
+                "黒い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ふるい」は「古い」と書きます。文の意味は「あの自動車は古い」（あの車は古い）。\n- 「古い」(ふるい)＝cũ ✔\n- 「新しい」(あたらしい)＝mới, đọc và nghĩa đều ngược lại ✗\n- 「白い」(しろい)＝trắng, đọc là「しろい」✗\n- 「黒い」(くろい)＝đen, đọc là「くろい」✗\n\nCác tính từ màu sắc「白い」「黒い」trông cũng giống tính từ đặc điểm nhưng âm đọc khác hoàn toàn. Chỉ「古い」mới đọc là「ふるい」.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "kia"
+                },
+                {
+                  "t": "じどうしゃ",
+                  "read": "自動車",
+                  "vi": "xe ô tô"
+                },
+                {
+                  "t": "ふるい",
+                  "read": "古い",
+                  "vi": "cũ, cổ"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいのなまえはむずかしいです。",
+              "ul": "なまえ",
+              "choices": [
+                "名前",
+                "名刺",
+                "名声",
+                "名人"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「なまえ」は「名前」と書きます。文の意味は「先生の名前は難しい」（tên của giáo viên khó đọc）。\n- 「名前」(なまえ)＝tên ✔\n- 「名刺」(めいし)＝danh thiếp, đọc là「めいし」✗\n- 「名声」(めいせい)＝danh tiếng, đọc là「めいせい」✗\n- 「名人」(めいじん)＝bậc thầy, người xuất sắc, đọc là「めいじん」✗\n\nCả bốn đều có chữ「名」nhưng chỉ「名前」mới đọc là「なまえ」trong ngữ cảnh nói về tên người.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "なまえ",
+                  "read": "名前",
+                  "vi": "tên"
+                },
+                {
+                  "t": "むずかしい",
+                  "read": "難しい",
+                  "vi": "khó"
+                }
+              ]
+            },
+            {
+              "prompt": "このみずはつめたくておいしいです。",
+              "ul": "みず",
+              "choices": [
+                "水",
+                "火",
+                "木",
+                "土"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「みず」は「水」と書きます。文の意味は「この水は冷たくておいしい」（nước này mát và ngon）。\n- 「水」(みず)＝nước ✔\n- 「火」(ひ)＝lửa, đọc là「ひ」✗\n- 「木」(き)＝cây, đọc là「き」✗\n- 「土」(つち)＝đất, đọc là「つち」✗\n\nĐây là bốn trong ngũ hành tiếng Nhật, hình dạng chữ rất khác nhau. Chữ「水」có hình như dòng nước chảy, đọc là「みず」.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "みず",
+                  "read": "水",
+                  "vi": "nước"
+                },
+                {
+                  "t": "つめたくて",
+                  "read": "冷たくて",
+                  "vi": "lạnh và..."
+                },
+                {
+                  "t": "おいしい",
+                  "read": "美味しい",
+                  "vi": "ngon"
+                }
+              ]
+            },
+            {
+              "prompt": "このでんしゃはあまりはやくないです。",
+              "ul": "でんしゃ",
+              "choices": [
+                "電車",
+                "電気",
+                "電話",
+                "電池"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「でんしゃ」は「電車」と書きます。文の意味は「この電車はあまり速くない」（tàu điện này không nhanh lắm）。\n- 「電車」(でんしゃ)＝tàu điện ✔\n- 「電気」(でんき)＝điện, đọc là「でんき」✗\n- 「電話」(でんわ)＝điện thoại, đọc là「でんわ」✗\n- 「電池」(でんち)＝pin điện, đọc là「でんち」✗\n\nCả bốn đều có「電」(でん) đứng trước, nhưng chữ thứ hai khác nhau:「車」(しゃ)=xe,「気」(き)=khí/điện,「話」(わ)=nói,「池」(ち)=ao/bình chứa.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "あまりはやくない",
+                  "vi": "không... lắm",
+                  "read": "あまりはやくない"
+                },
+                {
+                  "t": "はやくない",
+                  "read": "速くない",
+                  "vi": "không nhanh"
+                }
+              ]
+            },
+            {
+              "prompt": "このかいしゃはとてもゆうめいです。",
+              "ul": "かいしゃ",
+              "choices": [
+                "会社",
+                "会話",
+                "会議",
+                "会館"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かいしゃ」は「会社」と書きます。文の意味は「この会社はとても有名です」（công ty này rất nổi tiếng）。\n- 「会社」(かいしゃ)＝công ty ✔\n- 「会話」(かいわ)＝hội thoại, đọc là「かいわ」✗\n- 「会議」(かいぎ)＝cuộc họp, đọc là「かいぎ」✗\n- 「会館」(かいかん)＝hội quán, trung tâm, đọc là「かいかん」✗\n\nCả bốn đều bắt đầu bằng「会」(かい) nhưng chữ thứ hai quyết định nghĩa và âm đọc phần sau:「社」(しゃ),「話」(わ),「議」(ぎ),「館」(かん).",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "ゆうめい",
+                  "read": "有名",
+                  "vi": "nổi tiếng"
+                }
+              ]
+            },
+            {
+              "prompt": "あのがくせいはとてもわかいです。",
+              "ul": "がくせい",
+              "choices": [
+                "学生",
+                "先生",
+                "学校",
+                "先輩"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「がくせい」は「学生」と書きます。文の意味は「あの学生はとても若い」（học sinh kia rất trẻ）。\n- 「学生」(がくせい)＝học sinh/sinh viên ✔\n- 「先生」(せんせい)＝giáo viên, đọc là「せんせい」✗\n- 「学校」(がっこう)＝trường học, đọc là「がっこう」✗\n- 「先輩」(せんぱい)＝đàn anh/chị, đọc là「せんぱい」✗\n\n「学生」gồm「学」(がく=học) +「生」(せい=người/sống). Cần phân biệt với「先生」dùng chữ「先」khác hoàn toàn với「学」.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "kia"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "学生",
+                  "vi": "học sinh, sinh viên"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "わかい",
+                  "read": "若い",
+                  "vi": "trẻ tuổi"
+                }
+              ]
+            },
+            {
+              "prompt": "きょうはひがとてもおおきいです。",
+              "ul": "ひ",
+              "choices": [
+                "火",
+                "水",
+                "木",
+                "金"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ひ」は「火」と書きます。文の意味は「今日は火がとても大きい」（hôm nay lửa rất lớn）。\n- 「火」(ひ)＝lửa ✔\n- 「水」(みず/すい)＝nước, đọc là「みず」hoặc「すい」✗\n- 「木」(き/もく)＝cây, đọc là「き」hoặc「もく」✗\n- 「金」(かね/きん)＝vàng/tiền, đọc là「かね」hoặc「きん」✗\n\nĐây là bốn trong năm yếu tố (五行) thường dùng trong tên các ngày trong tuần. Chữ「火」có hình ngọn lửa, đọc là「ひ」khi đứng một mình.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "read": "今日",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "ひ",
+                  "read": "火",
+                  "vi": "lửa"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おおきい",
+                  "read": "大きい",
+                  "vi": "lớn, to"
+                }
+              ]
+            },
+            {
+              "prompt": "あのレストランのりょうりはあまりおいしくないです。",
+              "ul": "りょうり",
+              "choices": [
+                "料理",
+                "料金",
+                "理由",
+                "材料"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「りょうり」は「料理」と書きます。文の意味は「あのレストランの料理はあまりおいしくない」（món ăn của nhà hàng đó không ngon lắm）。\n- 「料理」(りょうり)＝món ăn, nấu ăn ✔\n- 「料金」(りょうきん)＝phí, tiền thu, đọc là「りょうきん」✗\n- 「理由」(りゆう)＝lý do, đọc là「りゆう」✗\n- 「材料」(ざいりょう)＝nguyên liệu, đọc là「ざいりょう」✗\n\n「料」xuất hiện trong cả「料理」và「料金」và「材料」nhưng thứ tự và chữ kết hợp khác nhau. Chỉ「料理」đọc là「りょうり」.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "kia"
+                },
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "料理",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "あまりおいしくない",
+                  "vi": "không... lắm",
+                  "read": "あまりおいしくない"
+                },
+                {
+                  "t": "おいしくない",
+                  "read": "美味しくない",
+                  "vi": "không ngon"
+                }
+              ]
+            },
+            {
+              "prompt": "このちいさいいぬはとてもかわいいです。",
+              "ul": "ちいさい",
+              "choices": [
+                "小さい",
+                "少ない",
+                "小さな",
+                "細い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ちいさい」は「小さい」と書きます。文の意味は「この小さい犬はとてもかわいい」（con chó nhỏ này rất đáng yêu）。\n- 「小さい」(ちいさい)＝nhỏ bé ✔\n- 「少ない」(すくない)＝ít, đọc là「すくない」✗\n- 「小さな」(ちいさな)＝nhỏ (thể liên thể), dùng trước danh từ nhưng không dùng sau「は〜です」, hơn nữa đây hỏi về chữ viết「ちいさい」✗\n- 「細い」(ほそい)＝mỏng, gầy, đọc là「ほそい」✗\n\n「小さい」và「少ない」đều có chữ「小/少」nhưng「少ない」dùng chữ「少」khác,「小さい」dùng chữ「小」. Cả âm đọc lẫn nghĩa đều khác.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "ちいさい",
+                  "read": "小さい",
+                  "vi": "nhỏ, bé"
+                },
+                {
+                  "t": "いぬ",
+                  "read": "犬",
+                  "vi": "con chó"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "かわいい",
+                  "vi": "đáng yêu"
+                }
+              ]
+            },
+            {
+              "prompt": "そのねんはとてもたいへんでした。",
+              "ul": "ねん",
+              "choices": [
+                "年",
+                "月",
+                "日",
+                "時"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ねん」は「年」と書きます。文の意味は「その年はとてもたいへんだった」（năm đó rất vất vả）。\n- 「年」(ねん/とし)＝năm ✔\n- 「月」(つき/げつ)＝tháng/mặt trăng, đọc là「つき」hoặc「げつ」✗\n- 「日」(ひ/にち)＝ngày/mặt trời, đọc là「ひ」hoặc「にち」✗\n- 「時」(とき/じ)＝giờ/thời, đọc là「とき」hoặc「じ」✗\n\nBốn chữ này đều là đơn vị thời gian. Cần nhớ:「年」=năm,「月」=tháng,「日」=ngày,「時」=giờ. Đọc là「ねん」khi đi sau số (二年=2 năm) hoặc đứng một mình trong văn.",
+              "glosses": [
+                {
+                  "t": "その",
+                  "vi": "đó, ấy"
+                },
+                {
+                  "t": "ねん",
+                  "read": "年",
+                  "vi": "năm"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "たいへん",
+                  "read": "大変",
+                  "vi": "vất vả, khó khăn"
+                },
+                {
+                  "t": "でした",
+                  "read": "でした",
+                  "vi": "đã là/từng là (thì quá khứ lịch sự của です)"
+                }
+              ]
+            },
+            {
+              "prompt": "このへやはあまりひろくないです。",
+              "ul": "へや",
+              "choices": [
+                "広",
+                "古",
+                "新",
+                "大"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ひろくない」の「ひろ」は「広」と書きます。文の意味は「この部屋はあまり広くない」（phòng này không rộng lắm）。\n- 「広」(ひろ)＝rộng →「広い」(ひろい) ✔\n- 「古」(ふる)＝cũ →「古い」(ふるい), đọc là「ふる」✗\n- 「新」(あたらし/しん)＝mới →「新しい」, đọc là「あたらし」✗\n- 「大」(おお/だい)＝lớn →「大きい」, đọc là「おお」✗\n\nCâu hỏi về gốc「ひろ」trong「ひろくない」. Chỉ có「広」đọc là「ひろ」, ba chữ còn lại đều cho ra tính từ khác nhau.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "へや",
+                  "read": "部屋",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "あまりひろくない",
+                  "vi": "không... lắm",
+                  "read": "あまりひろくない"
+                },
+                {
+                  "t": "ひろくない",
+                  "read": "広くない",
+                  "vi": "không rộng"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "この花はとても＿です。",
+              "choices": [
+                "きれい",
+                "おいしい",
+                "あたらしい",
+                "たのしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「きれい」nghĩa là đẹp/sạch, phù hợp để miêu tả hoa. 「おいしい」nghĩa là ngon, dùng cho thức ăn/đồ uống chứ không dùng cho hoa. 「あたらしい」nghĩa là mới, không mô tả vẻ đẹp của hoa. 「たのしい」nghĩa là vui/thú vị, là tính từ cảm xúc, không miêu tả ngoại hình.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "花",
+                  "read": "はな",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "きれい",
+                  "vi": "đẹp"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (đình ngữ lịch sự)"
+                }
+              ]
+            },
+            {
+              "stem": "このりょうりは＿ですね。もっと食べたいです。",
+              "choices": [
+                "おいしい",
+                "きれい",
+                "むずかしい",
+                "ひろい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おいしい」nghĩa là ngon, phù hợp với ngữ cảnh nói về món ăn và muốn ăn thêm. 「きれい」nghĩa là đẹp, không dùng cho vị giác. 「むずかしい」nghĩa là khó, không liên quan đến món ăn. 「ひろい」nghĩa là rộng, dùng cho không gian chứ không dùng cho thức ăn.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "りょうり",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                },
+                {
+                  "t": "もっと",
+                  "vi": "thêm nữa"
+                },
+                {
+                  "t": "食べたい",
+                  "read": "たべたい",
+                  "vi": "muốn ăn"
+                }
+              ]
+            },
+            {
+              "stem": "あのかばんは＿です。もう10年使っています。",
+              "choices": [
+                "ふるい",
+                "あたらしい",
+                "たかい",
+                "やすい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ふるい」nghĩa là cũ, phù hợp vì chiếc túi đã dùng 10 năm rồi. 「あたらしい」nghĩa là mới, mâu thuẫn với thông tin 10 năm. 「たかい」nghĩa là đắt/cao, không diễn tả độ cũ mới. 「やすい」nghĩa là rẻ/thấp, cũng không liên quan đến thời gian sử dụng.",
+              "glosses": [
+                {
+                  "t": "あの",
+                  "vi": "cái kia"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "ふるい",
+                  "vi": "cũ"
+                },
+                {
+                  "t": "もう",
+                  "vi": "đã, rồi"
+                },
+                {
+                  "t": "10年",
+                  "read": "じゅうねん",
+                  "vi": "10 năm"
+                },
+                {
+                  "t": "使っています",
+                  "read": "つかっています",
+                  "vi": "đang sử dụng"
+                }
+              ]
+            },
+            {
+              "stem": "この本はあまり＿くないです。よくわかります。",
+              "choices": [
+                "むずかし",
+                "たのし",
+                "おいし",
+                "やさし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「むずかしくない」nghĩa là không khó lắm, phù hợp vì vế sau nói 「よくわかります」(hiểu rõ). 「たのしくない」nghĩa là không vui, không liên quan đến việc hiểu sách. 「おいしくない」nghĩa là không ngon, dùng cho thức ăn. 「やさしくない」nghĩa là không dễ/không hiền, ngược nghĩa với đáp án đúng nhưng không tự nhiên với cấu trúc vế sau.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あまり〜くない",
+                  "vi": "không… lắm"
+                },
+                {
+                  "t": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "よくわかります",
+                  "vi": "hiểu rõ lắm"
+                },
+                {
+                  "t": "はあまり",
+                  "read": "はあまり",
+                  "vi": "は (trợ từ chủ đề) + あまり (không mấy, không lắm) - thường đi với phủ định để chỉ mức độ thấp"
+                },
+                {
+                  "t": "くないです",
+                  "read": "くないです",
+                  "vi": "~くない + です = dạng phủ định lịch sự của tính từ đuôi い (không ~)"
+                }
+              ]
+            },
+            {
+              "stem": "きのう＿くるまを買いました。",
+              "choices": [
+                "あたらし",
+                "ふるい",
+                "おおきい",
+                "ちいさい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あたらしい」nghĩa là mới, phù hợp khi vừa mua xe hôm qua. 「ふるい」nghĩa là cũ, thường không dùng khi vừa mua hàng. 「おおきい」nghĩa là to/lớn, mô tả kích thước chứ không mô tả độ mới. 「ちいさい」nghĩa là nhỏ, cũng chỉ mô tả kích thước.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "くるま",
+                  "vi": "xe hơi"
+                },
+                {
+                  "t": "買いました",
+                  "read": "かいました",
+                  "vi": "đã mua"
+                }
+              ]
+            },
+            {
+              "stem": "このみずは＿です。飲みたくないです。",
+              "choices": [
+                "まずい",
+                "おいしい",
+                "つめたい",
+                "あたたかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「まずい」nghĩa là không ngon/dở, phù hợp với vế sau 「飲みたくない」(không muốn uống). 「おいしい」nghĩa là ngon, mâu thuẫn với việc không muốn uống. 「つめたい」nghĩa là lạnh, không giải thích vì sao không muốn uống. 「あたたかい」nghĩa là ấm, cũng chỉ mô tả nhiệt độ, không liên quan đến việc không thích uống.",
+              "glosses": [
+                {
+                  "t": "このみず",
+                  "vi": "nước này"
+                },
+                {
+                  "t": "まずい",
+                  "vi": "dở/không ngon"
+                },
+                {
+                  "t": "飲みたくない",
+                  "read": "のみたくない",
+                  "vi": "không muốn uống"
+                }
+              ]
+            },
+            {
+              "stem": "先生のへやはとても＿です。本がたくさんあります。",
+              "choices": [
+                "ひろい",
+                "せまい",
+                "きれい",
+                "たのしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ひろい」nghĩa là rộng, phù hợp với phòng có nhiều sách (cần không gian). 「せまい」nghĩa là chật/hẹp, ngược nghĩa và mâu thuẫn với cảm giác có nhiều sách thoải mái. 「きれい」nghĩa là đẹp/sạch, mô tả ngoại hình chứ không liên quan đến việc có nhiều sách. 「たのしい」nghĩa là vui, là cảm xúc chủ quan chứ không mô tả không gian.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "ひろい",
+                  "vi": "rộng"
+                },
+                {
+                  "t": "本がたくさんあります",
+                  "read": "ほんがたくさんあります",
+                  "vi": "có rất nhiều sách"
+                }
+              ]
+            },
+            {
+              "stem": "このスーパーのやさいはあまり＿くないです。",
+              "choices": [
+                "あたらし",
+                "ふるい",
+                "おおき",
+                "やす"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あたらしくない」nghĩa là không tươi/không mới lắm, rất tự nhiên khi nói về rau củ ở siêu thị. 「ふるい」đã mang nghĩa phủ định (cũ) nên không dùng thêm 「〜くない」. 「おおきくない」nghĩa là không to, không liên quan đến chất lượng rau. 「やすくない」nghĩa là không rẻ, nói về giá chứ không nói về độ tươi.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "やさい",
+                  "vi": "rau củ"
+                },
+                {
+                  "t": "あまり〜くない",
+                  "vi": "không… lắm"
+                },
+                {
+                  "t": "あたらしい",
+                  "vi": "mới/tươi"
+                },
+                {
+                  "t": "はあまり",
+                  "read": "はあまり",
+                  "vi": "は (trợ từ chủ đề) + あまり (không mấy, không lắm) - thường đi với phủ định để chỉ mức độ thấp"
+                },
+                {
+                  "t": "くないです",
+                  "read": "くないです",
+                  "vi": "~くない + です = dạng phủ định lịch sự của tính từ đuôi い (không ~)"
+                }
+              ]
+            },
+            {
+              "stem": "この電車はとても＿です。いつも人が多いです。",
+              "choices": [
+                "にぎやか",
+                "しずか",
+                "きれい",
+                "あたらしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にぎやか」nghĩa là náo nhiệt/đông đúc, phù hợp với 「いつも人が多い」(luôn nhiều người). 「しずか」nghĩa là yên tĩnh, mâu thuẫn hoàn toàn với nhiều người. 「きれい」nghĩa là đẹp/sạch, không liên quan đến số lượng người. 「あたらしい」nghĩa là mới, nói về tuổi thọ/tình trạng, không liên quan đến sự đông đúc.",
+              "glosses": [
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "にぎやか",
+                  "vi": "náo nhiệt/đông vui"
+                },
+                {
+                  "t": "いつも",
+                  "vi": "luôn luôn"
+                },
+                {
+                  "t": "人が多い",
+                  "read": "ひとがおおい",
+                  "vi": "nhiều người"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんの会社はとても＿です。社員が5000人います。",
+              "choices": [
+                "おおきい",
+                "ちいさい",
+                "あたらしい",
+                "ふるい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おおきい」nghĩa là to/lớn, phù hợp với công ty có 5000 nhân viên. 「ちいさい」nghĩa là nhỏ, mâu thuẫn với số lượng 5000 người. 「あたらしい」nghĩa là mới, nói về thời gian thành lập, không liên quan đến quy mô. 「ふるい」nghĩa là cũ/lâu đời, cũng không diễn tả được kích thước của công ty.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おおきい",
+                  "vi": "to/lớn"
+                },
+                {
+                  "t": "社員",
+                  "read": "しゃいん",
+                  "vi": "nhân viên"
+                },
+                {
+                  "t": "5000人",
+                  "read": "ごせんにん",
+                  "vi": "5000 người"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "~がいます = có/tồn tại (dùng cho người, động vật - vật có sự sống)"
+                }
+              ]
+            },
+            {
+              "stem": "このへやはあまり＿くないです。ものがたくさんあります。",
+              "choices": [
+                "ひろ",
+                "せま",
+                "きれ",
+                "あたら"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ひろくない」nghĩa là không rộng lắm, phù hợp với phòng có nhiều đồ đạc thì tất nhiên chật. 「せまくない」nghĩa là không hẹp — nhưng vế sau nói có nhiều đồ, ngụ ý phòng chật, nên 「ひろくない」mới đúng. 「きれくない」không tự nhiên (thường nói 「きれいじゃない」). 「あたらしくない」nghĩa là không mới, không liên quan đến không gian.",
+              "glosses": [
+                {
+                  "t": "このへや",
+                  "vi": "phòng này"
+                },
+                {
+                  "t": "あまり〜くない",
+                  "vi": "không… lắm"
+                },
+                {
+                  "t": "ひろい",
+                  "vi": "rộng"
+                },
+                {
+                  "t": "ものがたくさんあります",
+                  "vi": "có nhiều đồ",
+                  "read": "ものがたくさんあります"
+                },
+                {
+                  "t": "はあまり",
+                  "read": "はあまり",
+                  "vi": "は (trợ từ chủ đề) + あまり (không mấy, không lắm) - thường đi với phủ định để chỉ mức độ thấp"
+                },
+                {
+                  "t": "くないです",
+                  "read": "くないです",
+                  "vi": "~くない + です = dạng phủ định lịch sự của tính từ đuôi い (không ~)"
+                }
+              ]
+            },
+            {
+              "stem": "きょうは＿ですね。コートを着てください。",
+              "choices": [
+                "さむい",
+                "あつい",
+                "すずしい",
+                "あたたかい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「さむい」nghĩa là lạnh, phù hợp với việc được bảo mặc áo khoác. 「あつい」nghĩa là nóng, mâu thuẫn vì trời nóng không cần mặc áo khoác. 「すずしい」nghĩa là mát mẻ, trời mát thường không cần mặc áo khoác dày. 「あたたかい」nghĩa là ấm áp, cũng không cần áo khoác khi trời ấm.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "さむい",
+                  "vi": "lạnh"
+                },
+                {
+                  "t": "コート",
+                  "vi": "áo khoác"
+                },
+                {
+                  "t": "着てください",
+                  "read": "きてください",
+                  "vi": "hãy mặc vào"
+                }
+              ]
+            },
+            {
+              "stem": "この学生はとても＿です。いつもしつもんします。",
+              "choices": [
+                "まじめ",
+                "にぎやか",
+                "しずか",
+                "きれい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「まじめ」nghĩa là chăm chỉ/nghiêm túc, phù hợp với học sinh luôn đặt câu hỏi. 「にぎやか」nghĩa là náo nhiệt, mô tả không khí chứ không phải tính cách học tập. 「しずか」nghĩa là yên tĩnh, mâu thuẫn với việc luôn đặt câu hỏi. 「きれい」nghĩa là đẹp/sạch, nói về ngoại hình, không liên quan đến thái độ học tập.",
+              "glosses": [
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh/sinh viên"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "まじめ",
+                  "vi": "chăm chỉ/nghiêm túc"
+                },
+                {
+                  "t": "いつも",
+                  "vi": "luôn luôn"
+                },
+                {
+                  "t": "しつもんします",
+                  "vi": "đặt câu hỏi"
+                }
+              ]
+            },
+            {
+              "stem": "このコーヒーは＿すぎます。さとうを入れてください。",
+              "choices": [
+                "にが",
+                "あま",
+                "から",
+                "すっぱ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にがすぎる」nghĩa là quá đắng, phù hợp vì người ta cho đường vào để bớt đắng. 「あまい」nghĩa là ngọt, không cần thêm đường khi đã ngọt. 「から」nghĩa là cay, không liên quan đến cà phê cần thêm đường. 「すっぱい」nghĩa là chua, cũng không liên quan đến việc thêm đường vào cà phê.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "にがい",
+                  "vi": "đắng"
+                },
+                {
+                  "t": "すぎます",
+                  "vi": "quá…",
+                  "read": "すぎます"
+                },
+                {
+                  "t": "さとう",
+                  "vi": "đường"
+                },
+                {
+                  "t": "入れてください",
+                  "read": "いれてください",
+                  "vi": "hãy cho vào"
+                }
+              ]
+            },
+            {
+              "stem": "あの国はとても＿です。いろいろな文化があります。",
+              "choices": [
+                "おもしろい",
+                "つまらない",
+                "むずかしい",
+                "やさしい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おもしろい」nghĩa là thú vị/hay, phù hợp với đất nước có nhiều nền văn hóa đa dạng. 「つまらない」nghĩa là chán, mâu thuẫn với việc có nhiều văn hóa phong phú. 「むずかしい」nghĩa là khó, không mô tả sự phong phú của văn hóa. 「やさしい」nghĩa là dễ/hiền lành, không liên quan đến sự đa dạng văn hóa của một quốc gia.",
+              "glosses": [
+                {
+                  "t": "国",
+                  "read": "くに",
+                  "vi": "đất nước"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị/hay"
+                },
+                {
+                  "t": "いろいろな",
+                  "vi": "nhiều loại/đa dạng"
+                },
+                {
+                  "t": "文化",
+                  "read": "ぶんか",
+                  "vi": "văn hóa"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "このりんごはあまいです。",
+              "choices": [
+                "このりんごはあまくないです。",
+                "このりんごはあまいりんごです。",
+                "このりんごはあまさです。",
+                "このりんごはあまくてすっぱいです。"
+              ],
+              "answer": 1,
+              "pt": "NはAいです (tính từ い khẳng định)",
+              "explain": "Câu gốc「このりんごはあまいです」nghĩa là 'quả táo này ngọt'. Đáp án B「このりんごはあまいりんごです」cũng xác nhận quả táo này ngọt (tính từ い bổ nghĩa trực tiếp cho danh từ). Tuy nhiên câu B thêm 'りんご' thừa và nhấn vào việc mô tả loại táo chứ không phải trạng thái. Xem lại: A「あまくない」= PHỦ định, ngược nghĩa. C「あまさ」= danh từ hoá 'độ ngọt', đổi từ loại. D「あまくてすっぱい」= 'ngọt VÀ chua', thêm thông tin không có. Đáp án gần nhất là B vì giữ nghĩa 'ngọt' về quả táo này.",
+              "glosses": [
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "あまい",
+                  "vi": "ngọt"
+                },
+                {
+                  "t": "すっぱい",
+                  "read": "すっぱい",
+                  "vi": "chua"
+                },
+                {
+                  "t": "はあまくないです",
+                  "read": "はあまくないです",
+                  "vi": "は + あまくない (không ngọt, phủ định くない của あまい) + です"
+                },
+                {
+                  "t": "はあまさです",
+                  "read": "はあまさです",
+                  "vi": "は + あまさ (độ ngọt, danh từ hóa từ あまい bằng đuôi さ) + です"
+                },
+                {
+                  "t": "はあまくて",
+                  "read": "はあまくて",
+                  "vi": "は + あまくて (thể て của あまい, dùng để nối/liệt kê tính chất)"
+                }
+              ]
+            },
+            {
+              "prompt": "このかばんはたかくないです。",
+              "choices": [
+                "このかばんはやすいです。",
+                "このかばんはたかいです。",
+                "このかばんはたかいかばんです。",
+                "このかばんはたかさがあります。"
+              ],
+              "answer": 0,
+              "pt": "NはAくないです (tính từ い phủ định)",
+              "explain": "「たかくないです」= 'không đắt' (phủ định tính từ い). Câu A「やすいです」= 'rẻ' — đây là nghĩa gần nhất vì 'không đắt' ≈ 'rẻ'. B「たかいです」= 'đắt' — ngược nghĩa hoàn toàn. C「たかいかばんです」= 'là chiếc túi đắt tiền' — khẳng định đắt, sai. D「たかさがあります」= 'có độ cao/đắt', dùng danh từ hoá, không tự nhiên và lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "たかくない",
+                  "read": "高くない",
+                  "vi": "không đắt"
+                },
+                {
+                  "t": "やすい",
+                  "read": "安い",
+                  "vi": "rẻ"
+                },
+                {
+                  "t": "たかい",
+                  "read": "たかい",
+                  "vi": "đắt, cao"
+                },
+                {
+                  "t": "はたかさがあります",
+                  "read": "はたかさがあります",
+                  "vi": "は + たかさ (độ cao, danh từ hóa từ たかい bằng さ) + があります (có/tồn tại)"
+                }
+              ]
+            },
+            {
+              "prompt": "あの山はとてもたかいです。",
+              "choices": [
+                "あの山はすこしたかいです。",
+                "あの山はたかくないです。",
+                "あの山はひじょうにたかいです。",
+                "あの山はたかいですか。"
+              ],
+              "answer": 2,
+              "pt": "とても〜Aいです (rất + tính từ い)",
+              "explain": "「とても」= 'rất'. Câu C「ひじょうにたかいです」dùng「非常に」cũng mang nghĩa 'rất/vô cùng cao' — đồng nghĩa nhất. A「すこしたかい」= 'hơi cao một chút' — mức độ khác, không đồng nghĩa. B「たかくない」= 'không cao' — phủ định, ngược nghĩa. D là câu hỏi, đổi chức năng câu.",
+              "glosses": [
+                {
+                  "t": "山",
+                  "read": "やま",
+                  "vi": "núi"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "たかい",
+                  "read": "高い",
+                  "vi": "cao"
+                },
+                {
+                  "t": "ひじょうに",
+                  "read": "非常に",
+                  "vi": "vô cùng, rất"
+                },
+                {
+                  "t": "すこし",
+                  "read": "すこし",
+                  "vi": "một chút, hơi"
+                },
+                {
+                  "t": "はたかくないです",
+                  "read": "はたかくないです",
+                  "vi": "は + たかくない (không cao, phủ định của たかい) + です"
+                }
+              ]
+            },
+            {
+              "prompt": "このへやはあまりきれいじゃありません。",
+              "choices": [
+                "このへやはきれいです。",
+                "このへやはとてもきれいじゃありません。",
+                "このへやはすこしきたないです。",
+                "このへやはきれいじゃありませんか。"
+              ],
+              "answer": 2,
+              "pt": "あまり〜NAじゃありません (không… lắm, tính từ な phủ định)",
+              "explain": "「あまりきれいじゃありません」= 'không sạch đẹp lắm' — hàm ý phòng hơi bẩn, không đẹp hẳn. C「すこしきたない」= 'hơi bẩn một chút' — ý nghĩa gần nhất (không sạch hẳn ≈ hơi bẩn). A「きれいです」= 'sạch đẹp' — khẳng định dương, ngược nghĩa. B「とてもきれいじゃありません」= 'không đẹp chút nào' — mạnh hơn nhiều so với 'あまり'. D là câu hỏi, đổi cấu trúc.",
+              "glosses": [
+                {
+                  "t": "へや",
+                  "read": "部屋",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không… lắm"
+                },
+                {
+                  "t": "きれい",
+                  "vi": "sạch đẹp"
+                },
+                {
+                  "t": "きたない",
+                  "vi": "bẩn"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "すこし",
+                  "read": "すこし",
+                  "vi": "một chút, hơi"
+                },
+                {
+                  "t": "じゃありません",
+                  "read": "じゃありません",
+                  "vi": "không phải là ~ (thể phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "ここはしずかなところです。",
+              "choices": [
+                "ここはしずかです。",
+                "ここはうるさいところです。",
+                "ここはしずかじゃないところです。",
+                "ここはしずかなところじゃありません。"
+              ],
+              "answer": 0,
+              "pt": "NAなN (tính từ な bổ nghĩa danh từ)",
+              "explain": "「しずかなところです」= 'là nơi yên tĩnh' — nhận xét nơi chốn. A「しずかです」= 'yên tĩnh' — cùng nội dung nhận xét về nơi đó, đồng nghĩa nhất khi chủ ngữ là「ここ」. B「うるさい」= 'ồn ào' — ngược nghĩa. C「しずかじゃないところ」= 'nơi không yên tĩnh' — phủ định. D cũng phủ định toàn câu.",
+              "glosses": [
+                {
+                  "t": "しずか",
+                  "read": "静か",
+                  "vi": "yên tĩnh"
+                },
+                {
+                  "t": "ところ",
+                  "vi": "nơi, chỗ"
+                },
+                {
+                  "t": "うるさい",
+                  "read": "うるさい",
+                  "vi": "ồn ào"
+                },
+                {
+                  "t": "ここは",
+                  "read": "ここは",
+                  "vi": "đây/ở đây (chủ đề, chỉ nơi chốn)"
+                },
+                {
+                  "t": "じゃない",
+                  "read": "じゃない",
+                  "vi": "~じゃない: dạng phủ định thông thường của danh từ/tính từ な (không phải là ~)"
+                },
+                {
+                  "t": "じゃありません",
+                  "read": "じゃありません",
+                  "vi": "~じゃありません: dạng phủ định lịch sự của danh từ/tính từ な (không phải là ~, trang trọng hơn じゃない)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはどんなひとですか。",
+              "choices": [
+                "あのひとはだれですか。",
+                "あのひとはどんなひとがすきですか。",
+                "あのひとはどういうひとですか。",
+                "あのひとはどこのひとですか。"
+              ],
+              "answer": 2,
+              "pt": "どんなNですか (người/vật như thế nào)",
+              "explain": "「どんなひとですか」= 'là người như thế nào?' hỏi tính cách/đặc điểm. C「どういうひとですか」= 'là người như thế nào?' — đồng nghĩa hoàn toàn,「どういう」≈「どんな」trong văn nói N5. A「だれ」= 'ai?' — hỏi danh tính, khác loại câu hỏi. B thêm「がすきですか」= hỏi sở thích, lệch nghĩa. D「どこのひと」= 'người từ đâu?' — hỏi xuất xứ, không phải tính cách.",
+              "glosses": [
+                {
+                  "t": "どんな",
+                  "vi": "như thế nào, loại nào"
+                },
+                {
+                  "t": "どういう",
+                  "vi": "loại nào, như thế nào (tương đương どんな)"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "はどこの",
+                  "read": "はどこの",
+                  "vi": "は + どこの (của nơi nào, hỏi xuất thân/nguồn gốc)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはにほんごでてがみをかきます。",
+              "choices": [
+                "わたしはにほんごのてがみをかきます。",
+                "わたしはにほんごをつかってかきます。",
+                "わたしはにほんごがてがみをかきます。",
+                "わたしはにほんごにてがみをかきます。"
+              ],
+              "answer": 1,
+              "pt": "Nで (bằng tiếng/ngôn ngữ) + NをVます",
+              "explain": "「にほんごで」= 'bằng tiếng Nhật' (Nで chỉ phương tiện/ngôn ngữ, B6/B7). B「にほんごをつかって」= 'dùng tiếng Nhật mà viết' — diễn đạt cùng ý bằng cụm động từ, nghĩa tương đương nhất. A「にほんごの」= 'thư của/về tiếng Nhật' — の chỉ sở hữu, lệch nghĩa. C「にほんごが」= が chỉ chủ thể, sai cấu trúc. D「にほんごに」= に chỉ hướng/đích, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ/ngôn ngữ)"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "手紙",
+                  "vi": "thư"
+                },
+                {
+                  "t": "かきます",
+                  "read": "書きます",
+                  "vi": "viết"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "をつかって",
+                  "read": "をつかって",
+                  "vi": "~を使って (thể て của 使う): dùng ~ để, bằng cách sử dụng ~"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはともだちにほんをあげました。",
+              "choices": [
+                "わたしはともだちからほんをもらいました。",
+                "ともだちはわたしにほんをあげました。",
+                "わたしはともだちのためにほんをかいました。",
+                "ともだちはわたしからほんをもらいました。"
+              ],
+              "answer": 3,
+              "pt": "NにNをあげます (cho ai cái gì)",
+              "explain": "「わたしはともだちにほんをあげました」= 'tôi đã cho bạn cuốn sách' (tôi→bạn). D「ともだちはわたしからほんをもらいました」= 'bạn đã nhận sách từ tôi' — cùng sự kiện nhìn từ góc bạn, đồng nghĩa nhất. A「わたしはともだちからもらいました」= tôi NHẬN từ bạn — hướng ngược lại. B「ともだちはわたしにあげました」= bạn cho tôi — hướng ngược. C「ともだちのためにかいました」= 'mua cho bạn', không nói đến việc tặng/đưa.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "のために",
+                  "read": "のために",
+                  "vi": "~のために: vì, để cho (mục đích/lợi ích của ai đó)"
+                },
+                {
+                  "t": "をかいました",
+                  "read": "をかいました",
+                  "vi": "~を買いました: đã mua ~ (quá khứ lịch sự của 買う)"
+                }
+              ]
+            },
+            {
+              "prompt": "このまちはにぎやかじゃありません。",
+              "choices": [
+                "このまちはしずかです。",
+                "このまちはにぎやかです。",
+                "このまちはにぎやかなまちです。",
+                "このまちはにぎやかじゃないですか。"
+              ],
+              "answer": 0,
+              "pt": "NはNAじゃありません (tính từ な phủ định)",
+              "explain": "「にぎやかじゃありません」= 'không náo nhiệt' — hàm ý yên tĩnh. A「しずかです」= 'yên tĩnh' — đồng nghĩa/hàm nghĩa tương đương nhất. B「にぎやかです」= 'náo nhiệt' — ngược nghĩa. C「にぎやかなまち」= khẳng định náo nhiệt — sai nghĩa. D là câu hỏi xác nhận, không phải câu khẳng định đồng nghĩa.",
+              "glosses": [
+                {
+                  "t": "まち",
+                  "read": "町",
+                  "vi": "thị trấn, phố"
+                },
+                {
+                  "t": "にぎやか",
+                  "vi": "náo nhiệt, sầm uất"
+                },
+                {
+                  "t": "しずか",
+                  "read": "静か",
+                  "vi": "yên tĩnh"
+                },
+                {
+                  "t": "じゃありません",
+                  "read": "じゃありません",
+                  "vi": "không phải là ~ (thể phủ định lịch sự)"
+                },
+                {
+                  "t": "じゃないですか",
+                  "read": "じゃないですか",
+                  "vi": "~じゃないですか: chẳng phải là ~ sao? (câu hỏi phủ định mang tính xác nhận)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはバスでかいしゃへいきます。",
+              "choices": [
+                "わたしはバスにのってかいしゃへいきます。",
+                "わたしはかいしゃのバスへいきます。",
+                "わたしはかいしゃでバスをつかいます。",
+                "わたしはバスがかいしゃへいきます。"
+              ],
+              "answer": 0,
+              "pt": "Nで (bằng phương tiện) + へVます",
+              "explain": "「バスで」= 'bằng xe buýt' (Nで phương tiện). A「バスにのって〜いきます」= 'lên xe buýt rồi đi' — diễn đạt cùng ý đi làm bằng xe buýt, đồng nghĩa nhất. B「かいしゃのバスへ」= 'đến xe buýt công ty' — sai, đổi đích đến. C「かいしゃでバスをつかいます」= 'dùng xe buýt tại công ty' — で ở đây là nơi chốn, lệch nghĩa. D「バスが」= が chủ thể cho inanimate không hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (phương tiện)"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "のって",
+                  "read": "乗って",
+                  "vi": "lên xe, đi bằng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "をつかいます",
+                  "read": "をつかいます",
+                  "vi": "~を使います: dùng/sử dụng ~ (thì hiện tại-tương lai lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "このスープはあまりおいしくないです。",
+              "choices": [
+                "このスープはまずいです。",
+                "このスープはとてもおいしいです。",
+                "このスープはすこしおいしいです。",
+                "このスープはおいしくないですか。"
+              ],
+              "answer": 2,
+              "pt": "あまり〜Aくないです (không… lắm, tính từ い phủ định)",
+              "explain": "「あまりおいしくない」= 'không ngon lắm' — hàm ý ngon ở mức thấp, không tệ hẳn. C「すこしおいしい」= 'hơi ngon một chút' — gần nghĩa nhất: cả hai mô tả mức ngon thấp. A「まずい」= 'dở' — phủ định mạnh, mạnh hơn ý câu gốc nhiều. B「とてもおいしい」= 'rất ngon' — ngược nghĩa. D là câu hỏi, đổi cấu trúc.",
+              "glosses": [
+                {
+                  "t": "スープ",
+                  "vi": "súp"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không… lắm"
+                },
+                {
+                  "t": "おいしくない",
+                  "vi": "ngon",
+                  "read": "おいしくない"
+                },
+                {
+                  "t": "まずい",
+                  "vi": "dở, không ngon"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おいしい",
+                  "read": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "すこし",
+                  "read": "すこし",
+                  "vi": "một chút, hơi"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはやさしいひとです。",
+              "choices": [
+                "せんせいはやさしいです。",
+                "せんせいはきびしいひとです。",
+                "せんせいはやさしくないひとです。",
+                "せんせいはやさしさがあります。"
+              ],
+              "answer": 0,
+              "pt": "NはAいNです (tính từ い bổ nghĩa danh từ)",
+              "explain": "「やさしいひとです」= 'là người hiền'. A「やさしいです」= 'hiền' — cùng nhận xét về thầy/cô giáo, đồng nghĩa nhất (chủ ngữ「せんせい」như nhau). B「きびしい」= 'nghiêm khắc' — ngược nghĩa. C「やさしくない」= phủ định 'không hiền' — ngược nghĩa. D「やさしさがあります」= 'có sự hiền lành' — diễn đạt khác biệt dùng danh từ hoá.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "やさしい",
+                  "read": "優しい",
+                  "vi": "hiền, tốt bụng"
+                },
+                {
+                  "t": "きびしい",
+                  "read": "きびしい",
+                  "vi": "nghiêm khắc"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "やさしさ",
+                  "read": "やさしさ",
+                  "vi": "sự dịu dàng, tử tế"
+                },
+                {
+                  "t": "はやさしくない",
+                  "read": "はやさしくない",
+                  "vi": "は + やさしくない (không hiền/không dễ, phủ định của やさしい)"
+                },
+                {
+                  "t": "があります",
+                  "read": "があります",
+                  "vi": "~があります: có ~ (tồn tại, dùng cho vật/tính chất trừu tượng)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはかのじょにチョコレートをもらいました。",
+              "choices": [
+                "かのじょはわたしにチョコレートをあげました。",
+                "わたしはかのじょにチョコレートをあげました。",
+                "かのじょはわたしからチョコレートをもらいました。",
+                "わたしはかのじょのチョコレートがほしいです。"
+              ],
+              "answer": 0,
+              "pt": "NにNをもらいます (nhận từ ai)",
+              "explain": "「わたしはかのじょにもらいました」= 'tôi đã nhận sô-cô-la từ cô ấy'. A「かのじょはわたしにあげました」= 'cô ấy đã cho tôi sô-cô-la' — cùng sự kiện nhìn từ góc cô ấy, đồng nghĩa nhất. B「わたしはあげました」= tôi CHO cô ấy — hướng ngược. C「かのじょはもらいました」= cô ấy nhận từ tôi — sai hướng. D「ほしいです」= 'muốn có' — chưa nhận, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "かのじょ",
+                  "read": "彼女",
+                  "vi": "cô ấy, bạn gái"
+                },
+                {
+                  "t": "チョコレート",
+                  "vi": "sô-cô-la"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ほしい",
+                  "read": "ほしい",
+                  "vi": "muốn"
+                }
+              ]
+            },
+            {
+              "prompt": "このもんだいはむずかしくないです。",
+              "choices": [
+                "このもんだいはかんたんです。",
+                "このもんだいはむずかしいです。",
+                "このもんだいはむずかしいもんだいです。",
+                "このもんだいはむずかしさがあります。"
+              ],
+              "answer": 0,
+              "pt": "NはAくないです (tính từ い phủ định)",
+              "explain": "「むずかしくないです」= 'không khó'. A「かんたんです」= 'dễ' — nghĩa gần nhất vì 'không khó' ≈ 'dễ'. B「むずかしいです」= 'khó' — khẳng định ngược nghĩa. C「むずかしいもんだいです」= 'là bài tập khó' — khẳng định khó. D「むずかしさがあります」= 'có độ khó' — danh từ hoá, lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "もんだい",
+                  "read": "問題",
+                  "vi": "bài tập, vấn đề"
+                },
+                {
+                  "t": "むずかしくない",
+                  "read": "むずかしくない",
+                  "vi": "khó"
+                },
+                {
+                  "t": "かんたん",
+                  "read": "簡単",
+                  "vi": "dễ"
+                },
+                {
+                  "t": "むずかしい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "はむずかしさがあります",
+                  "read": "はむずかしさがあります",
+                  "vi": "は + むずかしさ (độ khó, danh từ hóa từ むずかしい) + があります (có)"
+                }
+              ]
+            },
+            {
+              "prompt": "あのひとはどんなしごとをしていますか。",
+              "choices": [
+                "あのひとのしごとはなんですか。",
+                "あのひとはどこでしごとをしていますか。",
+                "あのひとはいつしごとをしていますか。",
+                "あのひとはしごとがすきですか。"
+              ],
+              "answer": 0,
+              "pt": "どんなNをVますか (hỏi loại/tính chất công việc)",
+              "explain": "「どんなしごとをしていますか」= 'đang làm công việc như thế nào/loại gì?' hỏi tính chất/loại hình công việc. A「しごとはなんですか」= 'công việc là gì?' — hỏi tên/loại công việc, đồng nghĩa nhất trong ngữ cảnh N5. B「どこで」= hỏi địa điểm làm việc, lệch nghĩa. C「いつ」= hỏi thời gian, lệch nghĩa. D「しごとがすき」= hỏi sở thích, hoàn toàn lệch nghĩa.",
+              "glosses": [
+                {
+                  "t": "どんな",
+                  "vi": "loại nào, như thế nào"
+                },
+                {
+                  "t": "しごと",
+                  "read": "仕事",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "なん",
+                  "read": "何",
+                  "vi": "gì, cái gì"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "いつ",
+                  "read": "いつ",
+                  "vi": "khi nào"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "しています",
+                  "read": "しています",
+                  "vi": "đang làm (thì tiếp diễn)"
+                },
+                {
+                  "t": "はどこで",
+                  "read": "はどこで",
+                  "vi": "は + どこで (ở đâu, địa điểm diễn ra hành động)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 8 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "このかばんは＿です。",
+              "choices": [
+                "たかい",
+                "たかな",
+                "たかく",
+                "たかに"
+              ],
+              "answer": 0,
+              "pt": "NはAいです (tính từ い khẳng định)",
+              "explain": "Tính từ い đứng vị ngữ cuối câu ở thể khẳng định dùng nguyên dạng 「たかい」. Chọn A đúng. B「たかな」sai vì 「な」chỉ dùng sau tính từ な để bổ nghĩa danh từ. C「たかく」là dạng く (biến thành trạng từ hoặc dùng trong phủ định ない), không dùng làm vị ngữ khẳng định độc lập. D「たかに」hoàn toàn không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "このかばん",
+                  "vi": "cái túi này"
+                },
+                {
+                  "t": "たかい",
+                  "read": "高い",
+                  "vi": "đắt, cao"
+                }
+              ]
+            },
+            {
+              "stem": "このスープは＿おいしくないです。",
+              "choices": [
+                "とても",
+                "あまり",
+                "すこし",
+                "もっと"
+              ],
+              "answer": 1,
+              "pt": "あまり〜ない (không… lắm)",
+              "explain": "Cặp cố định 「あまり〜ない」 diễn đạt ý 'không… lắm' (phủ định mức độ nhẹ). Chọn B đúng. A「とても」nghĩa 'rất', đi với khẳng định 「とてもおいしい」, không đi với phủ định. C「すこし」nghĩa 'một chút', không tạo cặp cố định với 「ない」theo ngữ pháp N5. D「もっと」nghĩa 'hơn nữa', không dùng để giảm nhẹ phủ định ở đây.",
+              "glosses": [
+                {
+                  "t": "このスープ",
+                  "vi": "món súp này"
+                },
+                {
+                  "t": "あまり〜ない",
+                  "vi": "không… lắm"
+                },
+                {
+                  "t": "おいしくないです",
+                  "vi": "không ngon"
+                }
+              ]
+            },
+            {
+              "stem": "あのレストランのりょうりは＿です。",
+              "choices": [
+                "ゆうめいな",
+                "ゆうめい",
+                "ゆうめいく",
+                "ゆうめいで"
+              ],
+              "answer": 1,
+              "pt": "NはNAです (tính từ な vị ngữ)",
+              "explain": "Tính từ な dùng làm vị ngữ cuối câu (trước 「です」) thì KHÔNG cần 「な」— chỉ dùng thân từ「ゆうめい」. Chọn B đúng. A「ゆうめいな」là dạng bổ nghĩa danh từ (「ゆうめいなレストラン」), không dùng trước 「です」. C「ゆうめいく」là cách biến hóa của tính từ い (く-form), tính từ な không biến thế này. D「ゆうめいで」là て-form của tính từ な, không dùng làm vị ngữ kết thúc câu.",
+              "glosses": [
+                {
+                  "t": "あのレストラン",
+                  "vi": "nhà hàng kia"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "料理",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "ゆうめい",
+                  "read": "有名",
+                  "vi": "nổi tiếng"
+                }
+              ]
+            },
+            {
+              "stem": "ミンさんは＿なひとです。",
+              "choices": [
+                "しんせつ",
+                "しんせつな",
+                "しんせつく",
+                "しんせつに"
+              ],
+              "answer": 1,
+              "pt": "NAなN (tính từ な bổ nghĩa danh từ)",
+              "explain": "Tính từ な đứng TRƯỚC danh từ phải có 「な」nối: 「しんせつなひと」. Chọn B đúng. A「しんせつ」thiếu 「な」, sai ngữ pháp khi đứng trước danh từ. C「しんせつく」là cách biến của tính từ い, tính từ な không dùng. D「しんせつに」là dạng trạng từ (副詞形) của tính từ な, bổ nghĩa động từ chứ không bổ nghĩa danh từ.",
+              "glosses": [
+                {
+                  "t": "しんせつ",
+                  "read": "親切",
+                  "vi": "tốt bụng, thân thiện"
+                },
+                {
+                  "t": "ひと",
+                  "read": "人",
+                  "vi": "người"
+                },
+                {
+                  "t": "ミンさん",
+                  "read": "ミンさん",
+                  "vi": "anh/chị Min"
+                }
+              ]
+            },
+            {
+              "stem": "A：このまちはどんなまちですか。 B：＿まちです。",
+              "choices": [
+                "しずかな",
+                "しずかく",
+                "しずかい",
+                "しずかで"
+              ],
+              "answer": 0,
+              "pt": "どんなNですか — trả lời bằng NAなN",
+              "explain": "「どんなN」hỏi đặc điểm; trả lời dùng tính từ na bổ nghĩa danh từ → 「しずかなまち」. Chọn A đúng. B「しずかく」không tồn tại. C「しずかい」sai hoàn toàn vì 「しずか」là tính từ な, không có dạng い. D「しずかで」là て-form, không dùng trực tiếp trước danh từ.",
+              "glosses": [
+                {
+                  "t": "このまち",
+                  "read": "この町",
+                  "vi": "thị trấn này"
+                },
+                {
+                  "t": "どんなまちですか",
+                  "vi": "là thị trấn như thế nào?",
+                  "read": "どんなまちですか"
+                },
+                {
+                  "t": "しずかな",
+                  "read": "静かな",
+                  "vi": "yên tĩnh (bổ nghĩa danh từ)"
+                }
+              ]
+            },
+            {
+              "stem": "このえいがは＿おもしろいです。",
+              "choices": [
+                "とても",
+                "あまり",
+                "ぜんぜん",
+                "もっと"
+              ],
+              "answer": 0,
+              "pt": "とても〜Aい (rất…)",
+              "explain": "「とても」nghĩa 'rất', đi với khẳng định 「おもしろいです」. Chọn A đúng. B「あまり」đi với phủ định 「〜ない」, không dùng trước khẳng định. C「ぜんぜん」(hoàn toàn không) cũng chỉ đi với phủ định. D「もっと」nghĩa 'hơn nữa', diễn đạt so sánh/tăng thêm, không mô tả mức độ đơn thuần.",
+              "glosses": [
+                {
+                  "t": "えいが",
+                  "read": "映画",
+                  "vi": "phim"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị, hay"
+                }
+              ]
+            },
+            {
+              "stem": "あのホテルは＿じゃありません。",
+              "choices": [
+                "きれいな",
+                "きれい",
+                "きれいく",
+                "きれいに"
+              ],
+              "answer": 1,
+              "pt": "NはNAじゃありません (phủ định tính từ な)",
+              "explain": "Phủ định tính từ な: 「きれい＋じゃありません」— thân từ không có 「な」trước 「じゃ」. Chọn B đúng. A「きれいな」có 「な」thừa, vì 「な」chỉ dùng trước danh từ. C「きれいく」và D「きれいに」sai về dạng từ.",
+              "glosses": [
+                {
+                  "t": "ホテル",
+                  "vi": "khách sạn"
+                },
+                {
+                  "t": "きれい",
+                  "vi": "sạch đẹp"
+                },
+                {
+                  "t": "じゃありません",
+                  "vi": "không phải là / không…"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはにほんごでてがみ＿かきます。",
+              "choices": [
+                "を",
+                "に",
+                "で",
+                "が"
+              ],
+              "answer": 0,
+              "pt": "NをVます (tân ngữ を — ôn B6)",
+              "explain": "「てがみをかきます」— 「を」đánh dấu tân ngữ trực tiếp của động từ 「かきます」. Chọn A đúng. B「に」đánh dấu đích đến hoặc người nhận, không phù hợp ở đây. C「で」là trợ từ chỉ phương tiện/địa điểm (đã dùng cho「にほんごで」). D「が」đánh dấu chủ ngữ, không phải tân ngữ.",
+              "glosses": [
+                {
+                  "t": "にほんごで",
+                  "read": "日本語で",
+                  "vi": "bằng tiếng Nhật"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "手紙",
+                  "vi": "thư"
+                },
+                {
+                  "t": "かきます",
+                  "read": "書きます",
+                  "vi": "viết"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "たなかさんはバスでがっこう＿きます。",
+              "choices": [
+                "が",
+                "に",
+                "を",
+                "で"
+              ],
+              "answer": 1,
+              "pt": "NでVます (phương tiện — ôn B5/B7)",
+              "explain": "Động từ chuyển động (きます) kết hợp với đích đến dùng 「に」: 「がっこうにきます」. Chọn B đúng. A「が」là chủ ngữ. C「を」là tân ngữ, không hợp với きます theo nghĩa này. D「で」đã được dùng cho phương tiện「バスで」, không lặp.",
+              "glosses": [
+                {
+                  "t": "バスで",
+                  "vi": "bằng xe buýt"
+                },
+                {
+                  "t": "がっこう",
+                  "read": "学校",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "きます",
+                  "read": "来ます",
+                  "vi": "đến"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはやまださんにほんを＿。",
+              "choices": [
+                "あげました",
+                "もらいました",
+                "かしました",
+                "かりました"
+              ],
+              "answer": 1,
+              "pt": "NにNをもらいます (nhận — ôn B7)",
+              "explain": "「わたしは〜にNをもらいます」= tôi nhận N từ ai đó; chủ ngữ là người nhận. Chọn B đúng. A「あげました」= tôi cho (ngược chiều: tôi → Yamada), sai chiều. C「かしました」= tôi cho mượn. D「かりました」= tôi mượn (không dùng 「に」cho người cho mượn theo mẫu B7 này).",
+              "glosses": [
+                {
+                  "t": "やまださんに",
+                  "vi": "từ anh/chị Yamada"
+                },
+                {
+                  "t": "ほんを",
+                  "read": "本を",
+                  "vi": "quyển sách (tân ngữ)"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "すずきさんはこどもにおもちゃを＿。",
+              "choices": [
+                "もらいました",
+                "かりました",
+                "あげました",
+                "かしました"
+              ],
+              "answer": 2,
+              "pt": "NにNをあげます (cho — ôn B7)",
+              "explain": "「〜はこどもにおもちゃをあげました」= Suzuki cho đứa trẻ đồ chơi; chủ ngữ là người cho. Chọn C đúng. A「もらいました」ngược chiều (nhận). B「かりました」= mượn. D「かしました」= cho mượn (tạm thời, người ta trả lại), không phù hợp với bối cảnh cho đồ chơi.",
+              "glosses": [
+                {
+                  "t": "こどもに",
+                  "read": "子どもに",
+                  "vi": "cho đứa trẻ"
+                },
+                {
+                  "t": "おもちゃを",
+                  "vi": "đồ chơi (tân ngữ)"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "すずきさん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                }
+              ]
+            },
+            {
+              "stem": "このかめらは＿くないです。",
+              "choices": [
+                "たかく",
+                "たかい",
+                "たかな",
+                "たかに"
+              ],
+              "answer": 0,
+              "pt": "Aくないです (phủ định tính từ い)",
+              "explain": "Phủ định tính từ い: bỏ 「い」cuối, thêm 「く」+ 「ないです」→「たかくないです」. Chọn A đúng. B「たかい」là dạng khẳng định, không thể ghép với 「ないです」. C「たかな」là sai dạng từ. D「たかに」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "このかめら",
+                  "vi": "máy ảnh này"
+                },
+                {
+                  "t": "たかくないです",
+                  "read": "高くないです",
+                  "vi": "không đắt"
+                }
+              ]
+            },
+            {
+              "stem": "ここは＿でんしゃをのります。",
+              "choices": [
+                "で",
+                "に",
+                "を",
+                "から"
+              ],
+              "answer": 0,
+              "pt": "NでVます (địa điểm で — ôn B5)",
+              "explain": "Hành động xảy ra tại một địa điểm dùng 「で」: 「ここで〜」. Chọn A đúng. B「に」chỉ đích đến hoặc thời điểm, không phải nơi thực hiện hành động. C「を」là tân ngữ. D「から」= từ (xuất phát điểm), không phù hợp nghĩa 'ở đây'.",
+              "glosses": [
+                {
+                  "t": "ここ",
+                  "vi": "ở đây"
+                },
+                {
+                  "t": "で",
+                  "vi": "ở (nơi hành động xảy ra)"
+                },
+                {
+                  "t": "でんしゃをのります",
+                  "read": "でんしゃをのります",
+                  "vi": "lên tàu điện"
+                }
+              ]
+            },
+            {
+              "stem": "A：あのこうえんはどんなこうえんですか。 B：とても＿こうえんです。",
+              "choices": [
+                "しずかな",
+                "しずかく",
+                "しずかに",
+                "しずかい"
+              ],
+              "answer": 0,
+              "pt": "どんなN — trả lời với とても＋NAなN",
+              "explain": "Trả lời 「どんなN」dùng tính từ na + 「な」trước danh từ: 「とてもしずかなこうえん」. Chọn A đúng. B「しずかく」không tồn tại. C「しずかに」là trạng từ bổ nghĩa động từ, không bổ nghĩa danh từ. D「しずかい」sai hoàn toàn vì 「しずか」là tính từ な.",
+              "glosses": [
+                {
+                  "t": "こうえん",
+                  "read": "公園",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "どんな",
+                  "vi": "như thế nào"
+                },
+                {
+                  "t": "しずかな",
+                  "read": "静かな",
+                  "vi": "yên tĩnh (bổ nghĩa danh từ)"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはえいごでともだちにメール＿おくります。",
+              "choices": [
+                "に",
+                "が",
+                "を",
+                "で"
+              ],
+              "answer": 2,
+              "pt": "NでNをVます — ôn B7 (dùng ngôn ngữ + tân ngữ)",
+              "explain": "「メール」là tân ngữ trực tiếp của「おくります」nên cần 「を」: 「メールをおくります」. Chọn C đúng. A「に」đã được dùng cho người nhận 「ともだちに」. B「が」đánh dấu chủ ngữ, không phải tân ngữ. D「で」đã được dùng cho phương tiện 「えいごで」.",
+              "glosses": [
+                {
+                  "t": "えいごで",
+                  "read": "英語で",
+                  "vi": "bằng tiếng Anh"
+                },
+                {
+                  "t": "ともだちに",
+                  "read": "友達に",
+                  "vi": "cho bạn (người nhận)"
+                },
+                {
+                  "t": "メールを",
+                  "vi": "email (tân ngữ)"
+                },
+                {
+                  "t": "おくります",
+                  "read": "送ります",
+                  "vi": "gửi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "このりんごは",
+                "。"
+              ],
+              "pieces": [
+                "すこし",
+                "あまくて",
+                "おいしい",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NはAいです (tính từ い bổ nghĩa + liên kết くて)",
+              "explain": "「このりんごはすこしあまくておいしいです」= Quả táo này hơi ngọt và ngon. Tính từ い liên kết bằng「くて」: あまい→あまくて. ★ là「あまくて」(ô 2) — dạng liên kết của tính từ いあまい. • すこし (một chút) đứng trước tính từ chỉ mức độ nhỏ. • おいしいです kết thúc chuỗi tính từ. • Nhớ: い-adj + くて để nối 2 tính từ, không dùng「と」hay「で」.",
+              "glosses": [
+                {
+                  "t": "このりんごは",
+                  "vi": "quả táo này"
+                },
+                {
+                  "t": "すこし",
+                  "vi": "một chút, hơi"
+                },
+                {
+                  "t": "あまくて",
+                  "read": "甘くて",
+                  "vi": "ngọt và..."
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (đuôi lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このスープは",
+                "。"
+              ],
+              "pieces": [
+                "あまり",
+                "あつく",
+                "ない",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "あまり〜Aくないです (không nóng lắm)",
+              "explain": "Câu đúng: 「このスープはあまりあつくないです。」— Món súp này không nóng lắm.\nSắp xếp: ô 1=「あまり」, ô 2=「あつく」★, ô 3=「ない」, ô 4=「です」\nKhung câu bắt đầu bằng chủ ngữ 「このスープは」 và cần kết hợp các mảnh phía sau thành vị ngữ phủ định mức độ của tính từ. Mảnh 「あつく」 bắt buộc dính liền trước mảnh 「ない」 để tạo dạng phủ định 「あつくない」 của tính từ あつい, rồi nối tiếp với mảnh 「です」 ở cuối câu. Trạng từ mức độ 「あまり」 đứng ở ô 1 để làm mốc bổ nghĩa cho toàn bộ cụm phủ định phía sau. Mảnh 「あつく」 phải nằm ở ô 2 (ô ★) và không thể đặt ở vị trí khác vì đuôi tính từ đuôi i phải biến đổi sang dạng く trước khi ghép trực tiếp với 「ない」.",
+              "glosses": [
+                {
+                  "t": "このスープは",
+                  "vi": "món súp này"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không…lắm (đi với phủ định)"
+                },
+                {
+                  "t": "あつく",
+                  "read": "熱く",
+                  "vi": "nóng (dạng gốc chia phủ định)"
+                },
+                {
+                  "t": "ないです",
+                  "vi": "không (phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "やまださんは",
+                "しんせつな",
+                "ひと",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NAなN (tính từ な bổ nghĩa danh từ)",
+              "explain": "Câu đúng: 「やまださんはしんせつなひとです。」— Anh/Chị Yamada là người tốt bụng.\nSắp xếp: ô 1=「やまださんは」, ô 2=「しんせつな」★, ô 3=「ひと」, ô 4=「です」\nKhung câu cần kết hợp 4 mảnh rời để hình thành một câu hoàn chỉnh miêu tả đặc điểm của đối tượng. Mảnh 「しんせつな」 bắt buộc dính liền trước mảnh danh từ 「ひと」 để bổ nghĩa cho danh từ này, và mảnh 「です」 dính liền sau 「ひと」 để làm vị ngữ. Mảnh chỉ chủ đề 「やまださんは」 đứng đầu câu ở ô 1, theo sau là cụm bổ nghĩa 「しんせつなひとです」. Mảnh 「しんせつな」 nằm ở ô 2 (ô ★) và không thể đứng ở ô khác vì từ có đuôi 「な」 bắt buộc phải đứng ngay trước danh từ 「ひと」 để bổ nghĩa, không thể đứng cuối câu hay đứng trước trợ từ 「は」.",
+              "glosses": [
+                {
+                  "t": "やまださんは",
+                  "vi": "anh/chị Yamada (chủ đề)"
+                },
+                {
+                  "t": "しんせつな",
+                  "read": "親切な",
+                  "vi": "tốt bụng (bổ nghĩa)"
+                },
+                {
+                  "t": "ひと",
+                  "read": "人",
+                  "vi": "người"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "きょうとは",
+                "きれい",
+                "じゃ",
+                "ありません"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NはNAじゃありません (tính từ な phủ định lịch sự)",
+              "explain": "Câu đúng: 「きょうとはきれいじゃありません。」— Kyoto không đẹp.\nSắp xếp: ô 1=「きょうとは」, ô 2=「きれい」★, ô 3=「じゃ」, ô 4=「ありません」\nKhung câu yêu cầu kết hợp các mảnh thành câu hoàn chỉnh mang vị ngữ phủ định của tính từ đuôi な. Mảnh 「じゃ」 và mảnh 「ありません」 bắt buộc dính liền nhau ở ô 3 và ô 4 tạo thành cụm phủ định 「じゃありません」, nối liền ngay sau thân tính từ 「きれい」. Mảnh chủ ngữ 「きょうとは」 đứng ở ô 1 đầu câu để làm chủ thể cho nhận xét. Mảnh 「きれい」 giữ vị trí ô 2 (ô ★) và không thể đặt ở vị trí khác vì thân tính từ đuôi な bắt buộc phải đứng sau chủ ngữ 「きょうとは」 và đứng ngay trước dạng phủ định 「じゃありません」.",
+              "glosses": [
+                {
+                  "t": "きょうとは",
+                  "read": "京都は",
+                  "vi": "Kyoto (chủ đề)"
+                },
+                {
+                  "t": "きれい",
+                  "vi": "đẹp (na-adj)"
+                },
+                {
+                  "t": "じゃ",
+                  "vi": "rút gọn của では"
+                },
+                {
+                  "t": "ありません",
+                  "vi": "không có/không phải (phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "このへやは",
+                "とても",
+                "ひろい",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "とても＋Aいです (rất + tính từ い)",
+              "explain": "Câu đúng: 「このへやはとてもひろいです。」— Căn phòng này rất rộng.\nSắp xếp: ô 1=「このへやは」, ô 2=「とても」, ô 3=「ひろい」★, ô 4=「です」\nKhung câu bắt đầu bằng chủ ngữ 「このへやは」 và kết thúc bằng trợ từ lịch sự 「です」, cho thấy các ô trống ở giữa cần một phó từ chỉ mức độ kết hợp với một tính từ làm vị ngữ. Mảnh 「とても」 bắt buộc dính liền ngay trước tính từ 「ひろい」 để bổ nghĩa mức độ, đồng thời 「ひろい」 phải đứng liền trước 「です」 để hoàn thiện vị ngữ. Đặt khối 「とてもひろい」 vào giữa chủ ngữ 「このへやは」 (ô 1) và 「です」 (ô 4) theo đúng trật tự phó từ đứng trước tính từ trong tiếng Nhật. Mảnh 「ひろい」 rơi vào ô 3 (ô ★) và không thể đứng ở ô khác vì nó bắt buộc phải nằm ngay sau phó từ 「とても」 ở ô 2 và ngay trước 「です」 ở ô 4 để đảm bảo cấu trúc vị ngữ.",
+              "glosses": [
+                {
+                  "t": "このへやは",
+                  "read": "この部屋は",
+                  "vi": "căn phòng này (chủ đề)"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "ひろい",
+                  "read": "広い",
+                  "vi": "rộng"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (đuôi lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このえいがは",
+                "。"
+              ],
+              "pieces": [
+                "あまり",
+                "おもしろく",
+                "ない",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "あまり〜Aくないです (không thú vị lắm)",
+              "explain": "Câu đúng: 「このえいがはあまりおもしろくないです。」— Bộ phim này không thú vị lắm.\nSắp xếp: ô 1=「あまり」, ô 2=「おもしろく」★, ô 3=「ない」, ô 4=「です」\nCấu trúc câu cần một vị ngữ phủ định đứng sau phó từ 「あまり」 ở ô 1 và kết thúc bằng đuôi lịch sự 「です」 ở ô 4. Thân tính từ 「おもしろく」 bắt buộc dính liền ngay trước mảnh 「ない」 tạo thành cụm phủ định 「おもしろくない」 không thể tách rời. Đặt cụm vị ngữ phủ định 「おもしろくない」 nối tiếp sau phó từ chỉ mức độ 「あまり」 ở ô 1 và đứng trước đuôi 「です」 ở ô 4 theo đúng quy tắc phó từ bổ nghĩa cho vị ngữ. Mảnh 「おもしろく」 rơi vào ô 2 (ô ★) và không thể đứng ở ô khác vì nó mang đuôi く nên bắt buộc phải đứng ngay trước 「ない」 ở ô 3 để tạo thành dạng phủ định đúng cú pháp.",
+              "glosses": [
+                {
+                  "t": "このえいがは",
+                  "read": "この映画は",
+                  "vi": "bộ phim này"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không…lắm (đi với phủ định)"
+                },
+                {
+                  "t": "おもしろく",
+                  "read": "面白く",
+                  "vi": "thú vị (gốc chia phủ định)"
+                },
+                {
+                  "t": "ないです",
+                  "vi": "không (phủ định lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "か。"
+              ],
+              "pieces": [
+                "おおさかは",
+                "どんな",
+                "まち",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "どんなNですか (N như thế nào?)",
+              "explain": "Câu đúng: 「おおさかはどんなまちですか。」— Osaka là thành phố như thế nào?\nSắp xếp: ô 1=「おおさかは」, ô 2=「どんな」★, ô 3=「まち」, ô 4=「です」\nKhung câu bắt đầu bằng chủ đề 「おおさかは」 và kết thúc bằng câu hỏi lịch sự 「です」 kèm trợ từ nghi vấn, đòi hỏi các ô trống ở giữa phải tạo thành một cụm danh từ nghi vấn. Từ nghi vấn 「どんな」 bắt buộc dính liền ngay trước danh từ 「まち」 để bổ nghĩa trực tiếp, tạo thành cụm 「どんなまち」 không thể tách rời. Đặt khối 「どんなまち」 vào giữa chủ ngữ 「おおさかは」 (ô 1) và đuôi 「です」 (ô 4) theo đúng quy tắc từ bổ nghĩa đứng trước danh từ. Mảnh 「どんな」 rơi vào ô 2 (ô ★) và không thể đặt ở ô khác vì nó mang tính chất bổ nghĩa, bắt buộc phải đứng ngay trước danh từ 「まち」 ở ô 3 chứ không thể đứng sau danh từ hay đứng ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "おおさかは",
+                  "read": "大阪は",
+                  "vi": "Osaka (chủ đề)"
+                },
+                {
+                  "t": "どんな",
+                  "vi": "như thế nào, loại gì (nghi vấn tính chất)"
+                },
+                {
+                  "t": "まち",
+                  "read": "町",
+                  "vi": "thành phố, thị trấn"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "たなかさんは",
+                "。"
+              ],
+              "pieces": [
+                "でんしゃで",
+                "ほんを",
+                "よみ",
+                "ました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "B7 NでNをVます (phương tiện + tân ngữ)",
+              "explain": "Câu đúng: 「たなかさんはでんしゃでほんをよみました。」— Anh Tanaka đã đọc sách trên tàu điện.\nSắp xếp: ô 1=「でんしゃで」, ô 2=「ほんを」★, ô 3=「よみ」, ô 4=「ました」\nSau chủ ngữ 「たなかさんは」, khung câu cần sắp xếp trạng ngữ chỉ phương tiện, tân ngữ và vị ngữ động từ chia thì quá khứ. Động từ bị tách đôi nên mảnh 「よみ」 bắt buộc dính liền ngay trước đuôi 「ました」 ở ô 4 để tạo thành vị ngữ 「よみました」 hoàn chỉnh. Đặt trạng ngữ phương tiện 「でんしゃで」 (ô 1) trước tân ngữ 「ほんを」, và toàn bộ hai bổ ngữ này đứng trước vị ngữ động từ 「よみました」 theo trật tự bổ ngữ đứng trước vị ngữ. Mảnh 「ほんを」 rơi vào ô 2 (ô ★) và không thể đứng ở ô khác vì tân ngữ đi với trợ từ を bắt buộc phải đứng ngay trước động từ 「よみ」 ở ô 3 chứ không thể đứng trước trạng ngữ phương tiện hay đứng sau động từ.",
+              "glosses": [
+                {
+                  "t": "たなかさんは",
+                  "vi": "anh/chị Tanaka (chủ đề)"
+                },
+                {
+                  "t": "でんしゃで",
+                  "read": "電車で",
+                  "vi": "bằng tàu điện (phương tiện)"
+                },
+                {
+                  "t": "ほんを",
+                  "read": "本を",
+                  "vi": "sách (tân ngữ)"
+                },
+                {
+                  "t": "よみました",
+                  "read": "読みました",
+                  "vi": "đã đọc"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "わたしは",
+                "。"
+              ],
+              "pieces": [
+                "ともだちに",
+                "かさを",
+                "あげ",
+                "ました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "B7 NにNをあげます (cho ai cái gì)",
+              "explain": "Câu đúng: 「わたしはともだちにかさをあげました。」— Tôi đã tặng ô cho bạn.\nSắp xếp: ô 1=「ともだちに」★, ô 2=「かさを」, ô 3=「あげ」, ô 4=「ました」\nBắt đầu bằng chủ ngữ 「わたしは」, câu cần bổ ngữ chỉ người nhận, vật được cho và vị ngữ hoàn chỉnh ở cuối. Hai mảnh 「あげ」 và 「ました」 bắt buộc dính liền nhau thành vị ngữ 「あげました」 đứng cuối câu, đồng thời tân ngữ 「かさを」 mang trợ từ 「を」 phải gắn ngay phía trước động từ này thành cụm 「かさをあげました」. Tiếp đó, đối tượng nhận 「ともだちに」 mang trợ từ 「に」 được đặt trước tân ngữ chỉ vật theo trật tự tự nhiên (Người nhận に + Vật を + Động từ). Do đó, mảnh 「ともだちに」 nằm ở ô 1 (vị trí ★) và không thể đứng sau 「かさを」 hay xen vào giữa cụm vị ngữ 「あげました」 vì trợ từ chỉ đối tượng nhận phải đứng trước tân ngữ chỉ vật và động từ luôn kết thúc câu.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "read": "私は",
+                  "vi": "tôi (chủ đề)"
+                },
+                {
+                  "t": "ともだちに",
+                  "read": "友達に",
+                  "vi": "cho bạn (người nhận)"
+                },
+                {
+                  "t": "かさを",
+                  "read": "傘を",
+                  "vi": "cái ô (tân ngữ)"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng, đã cho"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "せんせいは",
+                "。"
+              ],
+              "pieces": [
+                "えんぴつで",
+                "えを",
+                "かき",
+                "ました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "B7 NでNをVます (dùng công cụ)",
+              "explain": "Câu đúng: 「せんせいはえんぴつでえをかきました。」— Thầy giáo đã vẽ tranh bằng bút chì.\nSắp xếp: ô 1=「えんぴつで」★, ô 2=「えを」, ô 3=「かき」, ô 4=「ました」\nSau chủ ngữ 「せんせいは」, câu cần bổ ngữ chỉ phương tiện, tân ngữ bị tác động và vị ngữ hoàn chỉnh. Thân động từ 「かき」 bắt buộc dính liền với đuôi quá khứ 「ました」 thành vị ngữ 「かきました」 ở cuối câu, đồng thời tân ngữ 「えを」 mang trợ từ 「を」 phải đứng ngay trước 「かき」 tạo thành cụm 「えをかき」. Tiếp theo, thành phần chỉ công cụ 「えんぴつで」 mang trợ từ 「で」 được đặt trước tân ngữ chỉ vật theo trật tự tiếng Nhật (Công cụ で + Tân ngữ を + Động từ). Vì vậy, mảnh 「えんぴつで」 rơi vào ô 1 (vị trí ★) và không thể đứng sau 「えを」 hay chèn vào giữa cụm vị ngữ 「かきました」 do bổ ngữ chỉ công cụ phải đi trước tân ngữ và vị ngữ luôn kết câu.",
+              "glosses": [
+                {
+                  "t": "せんせいは",
+                  "read": "先生は",
+                  "vi": "thầy/cô giáo (chủ đề)"
+                },
+                {
+                  "t": "えんぴつで",
+                  "read": "鉛筆で",
+                  "vi": "bằng bút chì (công cụ)"
+                },
+                {
+                  "t": "えを",
+                  "read": "絵を",
+                  "vi": "tranh (tân ngữ)"
+                },
+                {
+                  "t": "かきました",
+                  "read": "描きました",
+                  "vi": "đã vẽ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "このかばんは",
+                "とても",
+                "たかい",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NはAいです (tính từ い khẳng định)",
+              "explain": "Câu đúng: 「このかばんはとてもたかいです。」— Cái túi xách này rất đắt.\nSắp xếp: ô 1=「このかばんは」, ô 2=「とても」, ô 3=「たかい」★, ô 4=「です」\nĐể hoàn thành câu miêu tả đặc tính của vật, ta cần chủ ngữ đứng đầu, phó từ mức độ và vị ngữ tính từ ở cuối. Tính từ đuôi i 「たかい」 bắt buộc phải dính liền trước 「です」 để tạo thành cụm vị ngữ lịch sự 「たかいです」, đồng thời phó từ 「とても」 phải đứng ngay trước tính từ 「たかい」 để bổ nghĩa mức độ cho nó (tạo thành 「とてもたかい」). Tiếp theo, ta ghép danh từ làm chủ ngữ 「このかばんは」 ở đầu câu rồi nối với cụm vị ngữ phía sau theo đúng trật tự (Chủ ngữ + Phó từ + Tính từ + です). Do đó, mảnh 「たかい」 nằm ở ô 3 (vị trí ★) và không thể đứng ở vị trí khác vì phó từ bổ nghĩa 「とても」 bắt buộc đứng trước nó còn trợ từ lịch sự 「です」 phải đứng ngay sau nó để kết thúc câu.",
+              "glosses": [
+                {
+                  "t": "このかばんは",
+                  "vi": "cái túi này (chủ đề)"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "たかい",
+                  "read": "高い",
+                  "vi": "đắt, cao"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (đuôi lịch sự)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "にほんごで",
+                "てがみを",
+                "かき",
+                "ました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "B7 Nで (bằng tiếng/ngôn ngữ) + NをVます",
+              "explain": "Câu đúng: 「にほんごでてがみをかきました。」— Tôi đã viết thư bằng tiếng Nhật.\nSắp xếp: ô 1=「にほんごで」★, ô 2=「てがみを」, ô 3=「かき」, ô 4=「ました」\nĐoạn trống cần thành phần chỉ phương tiện ngôn ngữ, tân ngữ bị tác động và vị ngữ kết thúc câu. Thân động từ 「かき」 bắt buộc dính liền với đuôi quá khứ 「ました」 thành vị ngữ 「かきました」 đứng ở cuối, kết hợp với tân ngữ 「てがみを」 mang trợ từ 「を」 đứng ngay trước nó thành cụm 「てがみをかき」. Tiếp theo, từ chỉ ngôn ngữ làm phương tiện giao tiếp 「にほんごで」 mang trợ từ 「で」 được đặt trước tân ngữ theo trật tự tiếng Nhật (Ngôn ngữ で + Tân ngữ を + Động từ). Do đó, mảnh 「にほんごで」 đứng ở ô 1 (vị trí ★) và không thể xếp sau 「てがみを」 hay chèn vào cụm vị ngữ 「かきました」 do phương tiện cách thức phải đứng trước tân ngữ và động từ luôn kết thúc câu.",
+              "glosses": [
+                {
+                  "t": "にほんごで",
+                  "read": "日本語で",
+                  "vi": "bằng tiếng Nhật (phương tiện)"
+                },
+                {
+                  "t": "てがみを",
+                  "read": "手紙を",
+                  "vi": "bức thư (tân ngữ)"
+                },
+                {
+                  "t": "かきました",
+                  "read": "書きました",
+                  "vi": "đã viết"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "このまちは",
+                "しずかな",
+                "まち",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NAなN (tính từ な bổ nghĩa danh từ + NはNAなNです)",
+              "explain": "Câu đúng: 「このまちはしずかなまちです。」— Thành phố này là thành phố yên tĩnh.\nSắp xếp: ô 1=「このまちは」, ô 2=「しずかな」★, ô 3=「まち」, ô 4=「です」\nKhung câu bắt đầu bằng chủ ngữ ở ô 1 và kết thúc bằng vị ngữ 「です」 ở ô 4. Mảnh tính từ 「しずかな」 bắt buộc phải dính liền ngay trước danh từ 「まち」 để tạo thành cụm bổ nghĩa 「しずかなまち」 (thành phố yên tĩnh) không thể tách rời. Do đó, ta xếp cụm này vào giữa câu để nối chủ ngữ 「このまちは」 với vị ngữ 「です」. Như vậy, mảnh 「しずかな」 nằm ở ô 2 (ô ★) và không thể chuyển sang ô khác vì tính từ đuôi な phải đứng trực tiếp trước danh từ mà nó bổ nghĩa chứ không thể đứng ở vị trí khác như trước 「です」 hay sau danh từ.",
+              "glosses": [
+                {
+                  "t": "このまちは",
+                  "read": "この町は",
+                  "vi": "thành phố này (chủ đề)"
+                },
+                {
+                  "t": "まち",
+                  "read": "町",
+                  "vi": "thành phố, thị trấn"
+                },
+                {
+                  "t": "しずかな",
+                  "read": "静かな",
+                  "vi": "yên tĩnh (bổ nghĩa)"
+                },
+                {
+                  "t": "です",
+                  "vi": "là"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "はなこさんは",
+                "。"
+              ],
+              "pieces": [
+                "かれから",
+                "はなを",
+                "もらい",
+                "ました"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "B7 NからNをもらいます (nhận vật gì từ ai)",
+              "explain": "Câu đúng: 「はなこさんはかれからはなをもらいました。」— Cô Hanako đã nhận hoa từ bạn trai.\nSắp xếp: ô 1=「かれから」, ô 2=「はなを」★, ô 3=「もらい」, ô 4=「ました」\nKhung câu đã có sẵn chủ ngữ 「はなこさんは」 ở đầu câu và cần các thành phần bổ ngữ cùng vị ngữ để hoàn thành. Mảnh 「もらい」 và 「ました」 bắt buộc dính liền nhau tạo thành động từ chia quá khứ 「もらいました」 ở vị trí cuối câu (ô 3 và ô 4). Mảnh chỉ nguồn tiếp nhận 「かれから」 đứng ở ô 1, tiếp theo là tân ngữ chỉ vật nhận kèm trợ từ 「はなを」 đứng ngay trước động từ. Do đó, mảnh ở ô 2 (ô ★) bắt buộc là 「はなを」, không thể đặt ở ô khác vì trợ từ 「を」 phải đi liền trước động từ 「もらい」 chứ không thể đứng trước trợ từ 「から」 hay sau động từ.",
+              "glosses": [
+                {
+                  "t": "はなこさんは",
+                  "vi": "cô Hanako (chủ đề)"
+                },
+                {
+                  "t": "かれから",
+                  "read": "彼から",
+                  "vi": "từ bạn trai (người cho)"
+                },
+                {
+                  "t": "はなを",
+                  "read": "花を",
+                  "vi": "hoa (tân ngữ)"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "このりょうりは",
+                "。"
+              ],
+              "pieces": [
+                "あまり",
+                "おいしく",
+                "ない",
+                "です"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "あまり〜Aくないです (không ngon lắm)",
+              "explain": "Câu đúng: 「このりょうりはあまりおいしくないです。」— Món ăn này không ngon lắm.\nSắp xếp: ô 1=「あまり」, ô 2=「おいしく」★, ô 3=「ない」, ô 4=「です」\nKhung câu có sẵn chủ ngữ 「このりょうりは」 ở đầu câu và cần một vị ngữ mang ý nghĩa phủ định ở phía sau. Hai mảnh 「おいしく」 và 「ない」 bắt buộc dính liền nhau để tạo thành dạng phủ định của tính từ đuôi い là 「おいしくない」. Phó từ 「あまり」 phải đứng trước tính từ để bổ nghĩa mức độ, tạo thành cụm 「あまりおいしくない」 (không... lắm). Nhờ đó, mảnh 「おいしく」 rơi vào ô 2 (ô ★) và không thể đứng ở ô khác vì gốc tính từ chia đuôi 「く」 bắt buộc phải đứng ngay sau phó từ 「あまり」 và nối trực tiếp với từ phủ định 「ない」.",
+              "glosses": [
+                {
+                  "t": "このりょうりは",
+                  "read": "この料理は",
+                  "vi": "món ăn này (chủ đề)"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không…lắm (đi với phủ định)"
+                },
+                {
+                  "t": "おいしく",
+                  "vi": "ngon (gốc chia phủ định)"
+                },
+                {
+                  "t": "ないです",
+                  "vi": "không (phủ định lịch sự)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "このレストランはとても",
+                "です。でも、そのりょうりはあまりおいしく",
+                "。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "しずかじゃありません",
+                    "にぎやか",
+                    "しずかくない",
+                    "しずかです"
+                  ],
+                  "answer": 3,
+                  "explain": "Chỗ trống 1 cần tính từ な bổ nghĩa cho レストラン qua 「は〜です」. Đây là dạng NはNAです (tính từ な dạng khẳng định), nên dùng「しずかです」(yên tĩnh). ▸ A「しずかじゃありません」là dạng PHỦ ĐỊNH của NA-adj, không hợp vì câu đang khẳng định tính chất. ▸ B「にぎやか」là từ trống không có「です」→ thiếu vị ngữ, không hoàn chỉnh trong vị trí sau「は〜」. ▸ C「しずかくない」SAI hoàn toàn: tính từ な KHÔNG chia theo kiểu này (「〜くない」chỉ dùng cho tính từ い). ▸ D「しずかです」ĐÚNG: NA + です = khẳng định."
+                },
+                {
+                  "choices": [
+                    "ないです",
+                    "くないです",
+                    "じゃないです",
+                    "ありません"
+                  ],
+                  "answer": 1,
+                  "explain": "Chỗ trống 2 đi liền sau「おいしく」— đây là dạng phủ định của tính từ い「おいしい」. Tính từ い phủ định = bỏ い, thêm「くない」, rồi thêm「です」→「おいしくないです」. ▸ A「ないです」thiếu âm「く」, không đúng hình thái chia của tính từ い. ▸ B「くないです」ĐÚNG: い-adj phủ định lịch sự = [gốc]くないです, ghép với「おいしく」sẵn ở cuối A để thành「おいしくないです」. ▸ C「じゃないです」là phủ định của NA-adj hoặc danh từ, KHÔNG dùng cho tính từ い. ▸ D「ありません」cũng là phủ định danh từ/NA (〜ではありません), không phải hình thức phủ định của い-adj."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "しずかです",
+                  "read": "しずかです",
+                  "vi": "yên tĩnh (dạng khẳng định lịch sự)"
+                },
+                {
+                  "t": "でも",
+                  "vi": "nhưng, tuy nhiên"
+                },
+                {
+                  "t": "その",
+                  "vi": "cái đó, đó"
+                },
+                {
+                  "t": "りょうり",
+                  "read": "料理",
+                  "vi": "món ăn"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không…lắm (dùng với phủ định)"
+                },
+                {
+                  "t": "おいしくないです",
+                  "vi": "không ngon lắm (phủ định lịch sự của tính từ い)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chuyển tính từ い「おいしい」sang thể PHỦ ĐỊNH đình thường (くない) để hoàn thành câu phủ định lịch sự kiểu bình thường.",
+          "items": [
+            {
+              "stem": "このケーキはおいしい　→　「おいしくない」→　このケーキはあまり＿。",
+              "choices": [
+                "おいしいです",
+                "おいしくないです",
+                "おいしじゃないです",
+                "おいしくありません"
+              ],
+              "answer": 1,
+              "explain": "Tính từ い muốn phủ định → bỏ「い」cuối, thêm「くない」(thể thường) hoặc「くないです」(thể lịch sự). Câu dùng「あまり〜ない」(không … lắm) nên cần thể phủ định.①「おいしいです」là khẳng định, sai nghĩa.②「おいしくないです」= phủ định lịch sự của tính từ い, ĐÚNG.③「おいしじゃないです」dùng cấu trúc của na-adj/danh từ (じゃない), KHÔNG dùng được với tính từ い.④「おいしくありません」cũng đúng ngữ pháp nhưng câu hỏi yêu cầu thể「くない」(thể thường+です), không phải「くありません」— trong ngữ cảnh dạng đề này chọn đáp án khớp đúng thể「くないです」là chuẩn nhất.",
+              "glosses": [
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh ngọt (cake)"
+                },
+                {
+                  "t": "おいしい",
+                  "read": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "おいしくない",
+                  "vi": "không ngon (phủ định lịch sự của tính từ い)",
+                  "read": "おいしくない"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không … lắm (dùng với phủ định)"
+                },
+                {
+                  "t": "おいしじゃないです",
+                  "read": "おいしじゃないです",
+                  "vi": "〜じゃないです = không phải ~ (mẫu phủ định dùng cho danh từ/tính từ đuôi な, KHÔNG áp dụng cho tính từ đuôi い như おいしい)"
+                },
+                {
+                  "t": "おいしくありません",
+                  "read": "おいしくありません",
+                  "vi": "〜くありません = không ~ (thể phủ định lịch sự trang trọng của tính từ đuôi い, tương đương 〜くないです)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "これはきれい＿花です。",
+              "choices": [
+                "が",
+                "を",
+                "な",
+                "は"
+              ],
+              "answer": 2,
+              "explain": "「きれい」là tính từ な (na-adj). Khi na-adj đứng TRƯỚC danh từ để bổ nghĩa, phải thêm「な」ở giữa →「きれいな花」(bông hoa đẹp). ①「が」là trợ từ chủ ngữ, không dùng để nối tính từ với danh từ → sai. ②「を」là trợ từ tân ngữ, không liên quan → sai. ③「な」đúng: na-adj + な + danh từ là cấu trúc chuẩn「NAなN」. ④「は」là trợ từ chủ đề, không dùng để nối tính từ với danh từ → sai.",
+              "glosses": [
+                {
+                  "t": "きれい",
+                  "vi": "đẹp (tính từ な)"
+                },
+                {
+                  "t": "きれいな",
+                  "vi": "đẹp (dạng bổ nghĩa cho danh từ)"
+                },
+                {
+                  "t": "花",
+                  "read": "はな",
+                  "vi": "bông hoa"
+                },
+                {
+                  "t": "な",
+                  "vi": "trợ từ nối na-adj với danh từ phía sau"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là (これ + は, trợ từ chủ đề giới thiệu vật đang nói tới)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Căn phòng đó không rộng lắm, nhưng rất yên tĩnh.",
+              "target": "へやはあまりひろくないですが、とてもしずかです。",
+              "model": "へやは あまり ひろくないです が、とても しずかです。",
+              "explain": "Câu gồm hai mệnh đề nối bằng「が」(nhưng): ①「へやはあまりひろくないです」— cấu trúc「NはAいくないです」phủ định tính từ い「ひろい」(rộng) kết hợp「あまり〜ない」(không…lắm); ②「とてもしずかです」— cấu trúc「NはNAです」khẳng định na-adj「しずか」(yên tĩnh) với「とても」(rất). Lưu ý: ①「ひろくないです」= bỏ「い」của「ひろい」rồi thêm「くないです」→ phủ định lịch sự tính từ い; ②「しずか」là na-adj nên vị ngữ là「しずかです」trực tiếp, KHÔNG dùng「しずかくないです」(đó là lỗi hay gặp khi nhầm loại tính từ); ③「あまり」luôn đi với phủ định; ④「とても」đi với khẳng định.",
+              "glosses": [
+                {
+                  "t": "へや",
+                  "read": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "は",
+                  "vi": "trợ từ chủ đề"
+                },
+                {
+                  "t": "あまり",
+                  "vi": "không … lắm (đi với phủ định)"
+                },
+                {
+                  "t": "ひろくないです",
+                  "read": "ひろくないです",
+                  "vi": "không rộng (phủ định lịch sự tính từ い「ひろい」)"
+                },
+                {
+                  "t": "が",
+                  "vi": "nhưng (nối hai mệnh đề tương phản)"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "しずかです",
+                  "read": "しずかです",
+                  "vi": "yên tĩnh (na-adj + です)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3042 @@
+{
+  "bai": 34,
+  "level": "N4",
+  "strategy": {
+    "intro": "Bài 34 tập trung vào ba mẫu ngữ pháp: とおりに (làm đúng theo), たあとで (sau khi làm xong), và まま (giữ nguyên trạng thái). Bài đọc đặt trong bối cảnh nấu ăn theo công thức và hướng dẫn sử dụng máy móc — môi trường hay gặp nhất ba mẫu này trong thực tế.",
+    "steps": [
+      "Đọc lướt toàn đoạn để nắm ai đang làm gì và kết quả ra sao.",
+      "Với とおりに: tìm xem \"đúng theo CÁI GÌ / AI chỉ dẫn\" — vế trước とおりに là nguồn hướng dẫn.",
+      "Với たあとで: hai hành động theo trình tự — hành động 1 hoàn TOÀN XONG mới làm hành động 2. Khác てから ở chỗ たあとで nhấn mạnh ý \"sau khi hoàn thành\".",
+      "Với まま: xác định TRẠNG THÁI nào đang được giữ nguyên. V/A/N + まま = \"trong khi vẫn còn ở trạng thái đó\".",
+      "Câu hỏi suy luận thường hỏi về lý do thành công/thất bại, hoặc phân biệt hai mẫu tưởng giống nhau.",
+      "Ôn lại: Vてから (Bài 16) vs たあとで (Bài 34); Vている trạng thái (Bài 15, 29); 〜と điều kiện tất yếu (Bài 23)."
+    ],
+    "tips": [
+      "とおりに đứng sau danh từ thì dùng の: レシピのとおりに. Đứng sau động từ từ điển hoặc た形: 読んだとおりに, 書くとおりに.",
+      "たあとで KHÁC てから: \"食べたあとで薬を飲みます\" nhấn mạnh ăn xong hẳn rồi mới uống; てから thiên về trình tự liên tiếp.",
+      "まま hay bị nhầm với ている: \"窓を開けたまま寝ました\" = ngủ trong khi cửa vẫn đang mở (trạng thái bất thường bị giữ). ている chỉ đơn giản là \"đang…\".",
+      "Vたまま (た形+まま): trạng thái đạt được sau hành động rồi GIỮ NGUYÊN. Vないまま: không làm mà vẫn giữ nguyên.",
+      "Câu hỏi có \"〜について\" thường hỏi về nguyên nhân; đừng chọn đáp án chỉ trích nguyên văn nếu câu hỏi là suy luận.",
+      "Phân biệt とおりに (theo đúng hướng dẫn) và ように (mục đích/kết quả mong muốn — Bài 36, CHƯA HỌC)."
+    ],
+    "grammarFocus": [
+      "V辞書形/Vた/Nのとおりに（làm đúng theo）",
+      "Vたあとで（sau khi hoàn thành）",
+      "V/Aいまま・Nのまま（giữ nguyên trạng thái）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 33,
+        "items": [
+          "〜というN",
+          "V命令形の用法（đọc hướng dẫn）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜かもしれません",
+          "〜でしょう"
+        ]
+      },
+      {
+        "bai": 31,
+        "items": [
+          "Vるつもりです",
+          "まだVていません"
+        ]
+      },
+      {
+        "bai": 30,
+        "items": [
+          "Vておきます",
+          "Vてあります"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "自動詞 vs 他動詞",
+          "Vてしまいました"
+        ]
+      },
+      {
+        "bai": 28,
+        "items": [
+          "Vやすい・Vにくい"
+        ]
+      },
+      {
+        "bai": 27,
+        "items": [
+          "V可能形（できます）"
+        ]
+      },
+      {
+        "bai": 26,
+        "items": [
+          "〜んです（giải thích）"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜と（điều kiện tự nhiên）",
+          "Vないで"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから（trình tự）",
+          "Vて〜（nối hành động）"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "Vてください",
+          "Vています（đang diễn ra）"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "レシピのとおりに",
+      "titleVi": "Làm đúng theo công thức",
+      "japanese": "カリナさんは料理が好きで、よく新しい料理に挑戦します。\n先週、日本の料理本を買って、その本に書いてあるとおりに親子丼を作ってみました。\n玉ねぎを切ったあとで、鶏肉と一緒にだしで煮ました。\n卵を入れたあとで、ふたをしたまま２分待ちました。\nできあがった親子丼はとてもおいしそうで、カリナさんは「本のとおりにやってよかった」と思いました。\n友達のサントスさんも食べて、「これ、お店みたいな味ですね」とほめてくれました。",
+      "vietnamese": "Chị Karina thích nấu ăn và thường xuyên thử các món mới.\nTuần trước, chị mua một cuốn sách nấu ăn Nhật và thử làm cơm thịt gà trứng đúng theo cách viết trong sách.\nSau khi cắt hành tây xong, chị hầm cùng thịt gà với nước dùng.\nSau khi cho trứng vào, chị đợi 2 phút trong khi vẫn đậy nắp.\nMón cơm thịt gà trứng hoàn thành trông rất ngon, chị Karina nghĩ \"Thật may vì đã làm đúng theo sách\".\nAnh Santos — bạn chị — cũng ăn và khen \"Cái này có vị giống đồ nhà hàng nhỉ\".",
+      "sentences": [
+        {
+          "jp": "カリナさんは料理が好きで、よく新しい料理に挑戦します。",
+          "vi": "Chị Karina thích nấu ăn và thường xuyên thử các món mới.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "挑戦します",
+              "read": "ちょうせんします",
+              "vi": "thử sức, thử làm điều mới"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が好きで（Bài 9 + Bài 16）",
+              "vi": "好きで = thích và (nối tính từ な với vế sau bằng で)."
+            }
+          ]
+        },
+        {
+          "jp": "先週、日本の料理本を買って、その本に書いてあるとおりに親子丼を作ってみました。",
+          "vi": "Tuần trước, chị mua một cuốn sách nấu ăn Nhật và thử làm cơm thịt gà trứng đúng theo cách viết trong sách.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "書いてあります",
+              "read": "かいてあります",
+              "vi": "được viết (sẵn)"
+            },
+            {
+              "w": "親子",
+              "read": "おやこ",
+              "vi": "cha mẹ và con"
+            },
+            {
+              "w": "丼",
+              "read": "どんぶり",
+              "vi": "bát tô, món cơm bát"
+            },
+            {
+              "w": "作ってみます",
+              "read": "つくってみます",
+              "vi": "thử làm"
+            },
+            {
+              "w": "料理本",
+              "read": "りょうりほん",
+              "vi": "sách nấu ăn"
+            },
+            {
+              "w": "親子丼",
+              "read": "おやこどん",
+              "vi": "cơm thịt gà trứng (món Nhật)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたとおりに",
+              "vi": "書いてあるとおりに = đúng theo những gì được viết trong sách. とおりに đứng sau mệnh đề bổ nghĩa (Bài 22) chỉ nguồn hướng dẫn."
+            },
+            {
+              "point": "Vてあります（Bài 30）",
+              "vi": "書いてあります = được viết sẵn (ai đó đã viết và trạng thái đó vẫn còn)."
+            }
+          ]
+        },
+        {
+          "jp": "玉ねぎを切ったあとで、鶏肉と一緒にだしで煮ました。",
+          "vi": "Sau khi cắt hành tây xong, chị hầm cùng thịt gà với nước dùng.",
+          "vocab": [
+            {
+              "w": "玉ねぎ",
+              "read": "たまねぎ",
+              "vi": "hành tây"
+            },
+            {
+              "w": "切ります",
+              "read": "きります",
+              "vi": "cắt"
+            },
+            {
+              "w": "鶏肉",
+              "read": "とりにく",
+              "vi": "thịt gà"
+            },
+            {
+              "w": "一緒に",
+              "read": "いっしょに",
+              "vi": "cùng nhau, cùng với"
+            },
+            {
+              "w": "煮ます",
+              "read": "にます",
+              "vi": "hầm, nấu sôi"
+            },
+            {
+              "w": "だし",
+              "read": "だし",
+              "vi": "nước dùng Nhật (từ tảo bẹ, cá bào)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで",
+              "vi": "切ったあとで = sau khi cắt xong. Nhấn mạnh hành động cắt hoàn tất HOÀN TOÀN rồi mới bắt đầu hầm. Khác てから ở sắc thái \"hoàn thành\"."
+            }
+          ]
+        },
+        {
+          "jp": "卵を入れたあとで、ふたをしたまま２分待ちました。",
+          "vi": "Sau khi cho trứng vào, chị đợi 2 phút trong khi vẫn đậy nắp.",
+          "vocab": [
+            {
+              "w": "卵",
+              "read": "たまご",
+              "vi": "trứng"
+            },
+            {
+              "w": "入れた",
+              "read": "いれた",
+              "vi": "đã cho vào"
+            },
+            {
+              "w": "あと",
+              "read": "あと",
+              "vi": "sau"
+            },
+            {
+              "w": "ふた",
+              "read": "ふた",
+              "vi": "nắp"
+            },
+            {
+              "w": "ふたをした",
+              "read": "ふたをした",
+              "vi": "đậy nắp"
+            },
+            {
+              "w": "まま",
+              "read": "まま",
+              "vi": "để nguyên trạng thái"
+            },
+            {
+              "w": "２分",
+              "read": "にふん",
+              "vi": "2 phút"
+            },
+            {
+              "w": "待ちました",
+              "read": "まちました",
+              "vi": "đã đợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで",
+              "vi": "入れたあとで = sau khi cho trứng vào xong. Hành động 1 (cho trứng) hoàn thành → hành động 2 (đợi)."
+            },
+            {
+              "point": "Vたまま",
+              "vi": "ふたをしたまま = trong khi vẫn đậy nắp (giữ nguyên trạng thái đậy nắp mà đợi). た形+まま = đạt trạng thái rồi giữ nguyên."
+            }
+          ]
+        },
+        {
+          "jp": "できあがった親子丼はとてもおいしそうで、カリナさんは「本のとおりにやってよかった」と思いました。",
+          "vi": "Món cơm thịt gà trứng hoàn thành trông rất ngon, chị Karina nghĩ \"Thật may vì đã làm đúng theo sách\".",
+          "vocab": [
+            {
+              "w": "できあがる",
+              "read": "できあがる",
+              "vi": "làm xong, nấu xong"
+            },
+            {
+              "w": "親子",
+              "read": "おやこ",
+              "vi": "cha mẹ và con"
+            },
+            {
+              "w": "丼",
+              "read": "どんぶり",
+              "vi": "bát tô, món cơm bát"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "できあがります",
+              "read": "できあがります",
+              "vi": "hoàn thành, làm xong"
+            },
+            {
+              "w": "おいしそう",
+              "read": "おいしそう",
+              "vi": "trông có vẻ ngon"
+            },
+            {
+              "w": "やります",
+              "read": "やります",
+              "vi": "làm"
+            },
+            {
+              "w": "よかった",
+              "read": "よかった",
+              "vi": "thật may, tốt quá"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに",
+              "vi": "本のとおりに = đúng theo sách. Danh từ + のとおりに."
+            },
+            {
+              "point": "〜と思いました（Bài 21）",
+              "vi": "やってよかった + と思いました = nghĩ rằng đã làm đúng là hay. Trích dẫn suy nghĩ của Karina."
+            },
+            {
+              "point": "mệnh đề bổ nghĩa N（Bài 22）",
+              "vi": "できあがった親子丼 = món cơm đã hoàn thành (mệnh đề Vた bổ nghĩa cho danh từ)."
+            }
+          ]
+        },
+        {
+          "jp": "友達のサントスさんも食べて、「これ、お店みたいな味ですね」とほめてくれました。",
+          "vi": "Anh Santos — bạn chị — cũng ăn và khen \"Cái này có vị giống đồ nhà hàng nhỉ\".",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "味",
+              "read": "あじ",
+              "vi": "hương vị, mùi vị"
+            },
+            {
+              "w": "ほめる",
+              "read": "ほめる",
+              "vi": "khen ngợi, ca tụng"
+            },
+            {
+              "w": "お店",
+              "read": "おみせ",
+              "vi": "cửa hàng, nhà hàng"
+            },
+            {
+              "w": "ほめます",
+              "read": "ほめます",
+              "vi": "khen ngợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてくれました（Bài 24）",
+              "vi": "ほめてくれました = khen (cho mình). くれる = ai đó làm gì đó cho người nói, mang ý biết ơn."
+            },
+            {
+              "point": "〜みたいな（Bài 22 mở rộng）",
+              "vi": "お店みたいな味 = vị giống như ở nhà hàng. みたいな bổ nghĩa cho danh từ 味."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "その本に書いてあるとおりに親子丼を作って",
+          "label": "Vたとおりに（làm đúng theo）"
+        },
+        {
+          "excerpt": "玉ねぎを切ったあとで",
+          "label": "Vたあとで（sau khi xong）"
+        },
+        {
+          "excerpt": "ふたをしたまま２分待ちました",
+          "label": "Vたまま（giữ nguyên trạng thái）"
+        },
+        {
+          "excerpt": "本のとおりにやってよかった",
+          "label": "Nのとおりに（đúng theo sách）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんはどうして親子丼がうまくできたと思いますか。",
+          "evi": [
+            1,
+            4
+          ],
+          "options": [
+            "料理の学校へ行ったから、上手にできました",
+            "本に書いてあるとおりに作ったから、うまくできたと思っています",
+            "サントスさんが手伝ってくれたから、できました",
+            "前にも同じ料理を作ったことがあるから、できました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết kết thúc bằng câu「本のとおりにやってよかった」と思いました — Karina tự nhận xét rằng làm đúng theo sách là lý do thành công. Đây là CĂN CỨ TRỰC TIẾP trong bài. Đáp án 0 sai vì không có chi tiết nào nhắc đến trường học nấu ăn. Đáp án 2 sai vì Santos chỉ ăn và khen — bài không nói anh ấy giúp nấu. Đáp án 3 sai vì bài nói chị \"挑戦します\" (thử mới) — lần đầu làm món này.",
+          "tip": "Câu hỏi \"どうして〜うまくできたか\" → tìm câu nhân vật TỰ ĐÁNH GIÁ (〜てよかった / 〜から) trong đoạn. Loại ngay các đáp án có chi tiết không xuất hiện trong bài.",
+          "qt": {
+            "q": "Cô Karina nghĩ vì sao món oyakodon lại làm thành công?",
+            "o": [
+              "Cô ấy đã học ở trường dạy nấu ăn nên làm rất khéo.",
+              "Cô ấy nghĩ món ăn làm thành công vì đã làm theo đúng những gì ghi trong sách.",
+              "Cô ấy làm được vì anh Santos đã giúp cô ấy.",
+              "Cô ấy làm được vì trước đây cũng từng nấu món ăn giống như vậy."
+            ]
+          }
+        },
+        {
+          "q": "カリナさんが「ふたをしたまま２分待ちました」という文で「まま」はどういう意味ですか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "ふたを外してから、2分待ったという意味です",
+            "ふたをしている状態を変えないで、そのまま２分待ったという意味です",
+            "ふたをした後で、すぐ食べたという意味です",
+            "２分後にふたをしたという意味です"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. まま = \"giữ nguyên trạng thái\". Vたまま có nghĩa là đạt trạng thái (đậy nắp) rồi KHÔNG THAY ĐỔI mà tiến hành hành động tiếp theo (đợi). Tức là nắp vẫn đậy suốt 2 phút — không mở ra. Đáp án 0 sai vì \"外してから\" nghĩa là MỞ nắp rồi mới đợi — ngược lại. Đáp án 2 sai vì nói \"ăn ngay\" — không liên quan đến まま. Đáp án 3 sai vì đảo ngược trình tự: đợi xong mới đậy nắp.",
+          "tip": "Vたまま = \"vẫn giữ nguyên trạng thái [động từ] mà làm việc khác\". Đáp án SAI thường đảo thứ tự hoặc nói hành động đối lập (mở nắp thay vì đậy nắp). Nhận ra đáp án đúng khi thấy \"状態を変えないで\" hoặc \"そのまま\".",
+          "qt": {
+            "q": "Trong câu 「ふたをしたまま２分待ちました」, 「まま」 có nghĩa là gì?",
+            "o": [
+              "Có nghĩa là đợi 2 phút sau khi mở nắp.",
+              "Có nghĩa là không thay đổi trạng thái đang đậy nắp và cứ thế đợi 2 phút.",
+              "Có nghĩa là ăn ngay sau khi đậy nắp.",
+              "Có nghĩa là đậy nắp sau 2 phút."
+            ]
+          }
+        },
+        {
+          "q": "「玉ねぎを切ったあとで、鶏肉と一緒にだしで煮ました」とはどういう意味ですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "玉ねぎを切りながら、同時に鶏肉を煮ました",
+            "玉ねぎを切る前に、鶏肉を煮ました",
+            "玉ねぎを切り終わってから、鶏肉と一緒に煮ました",
+            "鶏肉を煮た後で、玉ねぎを切りました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. たあとで = \"sau khi hoàn toàn kết thúc hành động trước\". Cắt hành tây (切った) XONG HẲN rồi mới hầm (煮ました) — đây là trình tự có thứ tự rõ ràng. Đáp án 0 sai vì ながら = cùng lúc, nhưng たあとで là TUẦN TỰ (không đồng thời). Đáp án 1 sai vì đảo ngược hoàn toàn — hầm trước cắt sau. Đáp án 3 sai tương tự: hầm thịt gà rồi mới cắt hành tây.",
+          "tip": "Vたあとで → hành động 1 KẾT THÚC HOÀN TOÀN rồi mới làm hành động 2. Đáp án sai hay dùng \"ながら\" (cùng lúc) hoặc đảo thứ tự — loại ngay khi thấy hai hành động bị hoán vị.",
+          "qt": {
+            "q": "「玉ねぎを切ったあとで、鶏肉と一緒にだしで煮ました」 có nghĩa là gì?",
+            "o": [
+              "Vừa cắt hành tây, vừa nấu thịt gà cùng lúc.",
+              "Nấu thịt gà trước khi cắt hành tây.",
+              "Sau khi cắt hành tây xong, nấu hành cùng với thịt gà.",
+              "Sau khi nấu thịt gà xong, cắt hành tây."
+            ]
+          }
+        },
+        {
+          "q": "サントスさんはこの料理を食べて、どう思いましたか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "あまりおいしくないと思いました",
+            "作り方が難しそうだと言いました",
+            "お店で食べる料理みたいでおいしいとほめました",
+            "次はもっと辛くしてほしいと言いました"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài ghi rõ:「これ、お店みたいな味ですね」とほめてくれました — Santos khen có vị như đồ nhà hàng, được ghi nhận bằng ほめてくれました (khen cho mình). Đáp án 0 sai vì nội dung ngược lại — bài không nói \"không ngon\". Đáp án 1 sai vì Santos không nhận xét về cách làm. Đáp án 3 sai vì không có chi tiết nào về việc muốn cay hơn — đây là thông tin bịa thêm.",
+          "tip": "Câu hỏi về phản ứng/ý kiến của nhân vật → trích nguyên văn từ bài (「〜とほめました / 〜と言いました」). Loại ngay đáp án có thông tin KHÔNG CÓ trong đoạn văn — đây là bẫy phổ biến nhất.",
+          "qt": {
+            "q": "Anh Santos đã nghĩ gì sau khi ăn món này?",
+            "o": [
+              "Anh ấy nghĩ món ăn không ngon lắm.",
+              "Anh ấy nói cách làm có vẻ khó.",
+              "Anh ấy khen món ăn ngon và giống như món ăn ở nhà hàng.",
+              "Anh ấy nói lần sau muốn món ăn cay hơn."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "新しい電子レンジの使い方",
+      "titleVi": "Cách sử dụng lò vi sóng mới",
+      "japanese": "ワンさんは先月、新しい電子レンジを買いました。\n箱を開けたあとで、まず説明書を全部読みました。\n説明書には「必ず説明書に書いてあるとおりに操作してください。説明書のとおりに使わないと、故障の原因になることがあります」と書いてありました。\nワンさんは「わかりました」と思って、説明書のとおりに設定を始めました。\nまず、電子レンジを台に置いたあとで、電源コードをコンセントに差し込みました。\nそれから、時計を合わせるために、ボタンを押して時間を設定しました。\n次に、食べ物を温めてみることにしました。昨日の残りのご飯を容器に入れたまま電子レンジに入れて、「温め」ボタンを押しました。\n２分後にご飯を取り出したら、中までちゃんと温かくなっていました。\nワンさんは「説明書のとおりにやれば、ちゃんとできるんですね」と感心しました。\nその後、友達のミラーさんが遊びに来たから、一緒に電子レンジで料理を作ることにしました。\nミラーさんはよく説明書を読まないで、自分が知っているとおりに操作しようとしました。\nしかし、説明書のとおりに操作しなかったから、エラーが出てしまいました。\nワンさんは「説明書に書いてあるとおりにしてください。説明書を読まないまま使うと、うまくいかないこともありますよ」と言いました。\nミラーさんは「そうですね。読まないままやってしまいました。これからはちゃんと読みます」と言いました。\nふたりは改めて説明書のとおりに操作したあとで、料理がうまくできました。\nワンさんは「新しい道具を使うときは、まず説明書を読むのが一番大切だと思いますよ」と言いました。",
+      "vietnamese": "Tháng trước anh Wang mua một cái lò vi sóng mới.\nSau khi mở hộp, anh đọc hết toàn bộ hướng dẫn sử dụng trước.\nTrong sách hướng dẫn có ghi \"Nhất thiết hãy thao tác đúng theo những gì ghi trong hướng dẫn sử dụng. Nếu không dùng đúng theo hướng dẫn, có thể trở thành nguyên nhân gây hỏng máy\".\nAnh Wang nghĩ \"Vâng, tôi hiểu rồi\" và bắt đầu cài đặt theo đúng hướng dẫn.\nTrước tiên, sau khi đặt lò vi sóng lên kệ, anh cắm dây nguồn vào ổ điện.\nSau đó, để chỉnh đồng hồ, anh nhấn nút và cài đặt thời gian.\nTiếp theo, anh quyết định thử hâm nóng thức ăn. Anh cho cơm còn lại từ hôm qua vào lò nguyên cả hộp đựng rồi nhấn nút \"Hâm nóng\".\n2 phút sau khi lấy cơm ra, bên trong đã nóng đều hoàn toàn.\nAnh Wang cảm thán \"Cứ làm đúng theo hướng dẫn thì được nhỉ\".\nSau đó, người bạn là anh Miller đến chơi, nên hai người quyết định cùng nhau nấu ăn bằng lò vi sóng.\nAnh Miller không đọc kỹ hướng dẫn, định thao tác theo cách mình biết.\nTuy nhiên, vì không thao tác đúng theo hướng dẫn, máy báo lỗi.\nAnh Wang nói \"Hãy làm theo đúng những gì ghi trong hướng dẫn. Nếu cứ dùng mà không đọc hướng dẫn thì cũng có lúc không thành công đấy\".\nAnh Miller nói \"Đúng nhỉ. Tôi đã làm mà không đọc. Từ bây giờ tôi sẽ đọc kỹ\".\nHai người làm lại đúng theo hướng dẫn, và sau đó nấu ăn thành công.\nAnh Wang nói \"Tôi nghĩ khi dùng đồ dùng mới, việc quan trọng nhất là đọc hướng dẫn trước đã\".",
+      "sentences": [
+        {
+          "jp": "ワンさんは先月、新しい電子レンジを買いました。",
+          "vi": "Tháng trước anh Wang mua một cái lò vi sóng mới.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "電子レンジ",
+              "read": "でんしレンジ",
+              "vi": "lò vi sóng"
+            },
+            {
+              "w": "レンジ",
+              "read": "レンジ",
+              "vi": "lò vi sóng, bếp"
+            },
+            {
+              "w": "買います",
+              "read": "かいます",
+              "vi": "mua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vました（Bài 4）",
+              "vi": "買いました = đã mua. Thể ます quá khứ khẳng định."
+            }
+          ]
+        },
+        {
+          "jp": "箱を開けたあとで、まず説明書を全部読みました。",
+          "vi": "Sau khi mở hộp, anh đọc hết toàn bộ hướng dẫn sử dụng trước.",
+          "vocab": [
+            {
+              "w": "箱",
+              "read": "はこ",
+              "vi": "hộp"
+            },
+            {
+              "w": "開けます",
+              "read": "あけます",
+              "vi": "mở"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "全部",
+              "read": "ぜんぶ",
+              "vi": "toàn bộ, tất cả"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "説明書",
+              "read": "せつめいしょ",
+              "vi": "sách hướng dẫn sử dụng"
+            },
+            {
+              "w": "まず",
+              "read": "まず",
+              "vi": "trước tiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで",
+              "vi": "開けたあとで = sau khi mở xong. Hành động mở hộp kết thúc hoàn toàn rồi mới đọc hướng dẫn."
+            }
+          ]
+        },
+        {
+          "jp": "説明書には「必ず説明書に書いてあるとおりに操作してください。説明書のとおりに使わないと、故障の原因になることがあります」と書いてありました。",
+          "vi": "Trong sách hướng dẫn có ghi \"Nhất thiết hãy thao tác đúng theo những gì ghi trong hướng dẫn sử dụng. Nếu không dùng đúng theo hướng dẫn, có thể trở thành nguyên nhân gây hỏng máy\".",
+          "vocab": [
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "必ず",
+              "read": "かならず",
+              "vi": "nhất thiết, chắc chắn"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "操作します",
+              "read": "そうさします",
+              "vi": "thao tác, vận hành"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "故障",
+              "read": "こしょう",
+              "vi": "hỏng hóc, sự cố"
+            },
+            {
+              "w": "原因",
+              "read": "げんいん",
+              "vi": "nguyên nhân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたとおりに / Nのとおりに",
+              "vi": "書いてあるとおりに = đúng theo những gì được viết. Mệnh đề bổ nghĩa danh từ とおり (Bài 22 + Bài 34 とおりに)."
+            },
+            {
+              "point": "Vてあります（Bài 30）",
+              "vi": "書いてありました = đã được viết (sẵn trong sách)."
+            },
+            {
+              "point": "〜ないと（Bài 17 なければなりません rút gọn）",
+              "vi": "とおりに使わないと = nếu không dùng theo (thì sẽ xảy ra vấn đề). ないと = 〜なければ điều kiện ngắn gọn."
+            },
+            {
+              "point": "〜ことがあります（Bài 19）",
+              "vi": "原因になることがあります = có lúc/có thể trở thành nguyên nhân. ことがある = thỉnh thoảng xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「わかりました」と思って、説明書のとおりに設定を始めました。",
+          "vi": "Anh Wang nghĩ \"Vâng, tôi hiểu rồi\" và bắt đầu cài đặt theo đúng hướng dẫn.",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "tên Wan"
+            },
+            {
+              "w": "わかりました",
+              "read": "わかりました",
+              "vi": "đã hiểu"
+            },
+            {
+              "w": "思って",
+              "read": "おもって",
+              "vi": "nghĩ rằng"
+            },
+            {
+              "w": "説明書",
+              "read": "せつめいしょ",
+              "vi": "sách hướng dẫn"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "とおり",
+              "read": "とおり",
+              "vi": "theo đúng như"
+            },
+            {
+              "w": "設定",
+              "read": "せってい",
+              "vi": "cài đặt"
+            },
+            {
+              "w": "始めました",
+              "read": "はじめました",
+              "vi": "đã bắt đầu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに",
+              "vi": "説明書のとおりに = đúng theo hướng dẫn sử dụng. Danh từ (説明書) + のとおりに."
+            },
+            {
+              "point": "〜と思って（Bài 21）",
+              "vi": "わかりましたと思って = nghĩ \"hiểu rồi\" và (→ hành động tiếp theo)."
+            }
+          ]
+        },
+        {
+          "jp": "まず、電子レンジを台に置いたあとで、電源コードをコンセントに差し込みました。",
+          "vi": "Trước tiên, sau khi đặt lò vi sóng lên kệ, anh cắm dây nguồn vào ổ điện.",
+          "vocab": [
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "レンジ",
+              "read": "レンジ",
+              "vi": "lò vi sóng, bếp"
+            },
+            {
+              "w": "台",
+              "read": "だい",
+              "vi": "kệ, giá đặt đồ"
+            },
+            {
+              "w": "置きます",
+              "read": "おきます",
+              "vi": "đặt, để"
+            },
+            {
+              "w": "電源コード",
+              "read": "でんげんコード",
+              "vi": "dây nguồn điện"
+            },
+            {
+              "w": "コード",
+              "read": "コード",
+              "vi": "dây cắm, dây cáp"
+            },
+            {
+              "w": "コンセント",
+              "read": "コンセント",
+              "vi": "ổ cắm điện"
+            },
+            {
+              "w": "差し込みます",
+              "read": "さしこみます",
+              "vi": "cắm vào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで",
+              "vi": "置いたあとで = sau khi đặt xong. Đặt máy vào vị trí hoàn toàn xong rồi mới cắm điện — trình tự quan trọng theo hướng dẫn."
+            }
+          ]
+        },
+        {
+          "jp": "それから、時計を合わせるために、ボタンを押して時間を設定しました。",
+          "vi": "Sau đó, để chỉnh đồng hồ, anh nhấn nút và cài đặt thời gian.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó, tiếp theo"
+            },
+            {
+              "w": "時計",
+              "read": "とけい",
+              "vi": "đồng hồ"
+            },
+            {
+              "w": "合わせます",
+              "read": "あわせます",
+              "vi": "chỉnh, điều chỉnh (cho khớp)"
+            },
+            {
+              "w": "ボタン",
+              "read": "ボタン",
+              "vi": "nút bấm"
+            },
+            {
+              "w": "押します",
+              "read": "おします",
+              "vi": "nhấn, ấn"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ"
+            },
+            {
+              "w": "設定",
+              "read": "せってい",
+              "vi": "cài đặt, thiết lập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるために（Bài 13 / Bài 18）",
+              "vi": "合わせるために = để chỉnh đồng hồ. ために chỉ mục đích của hành động nhấn nút."
+            }
+          ]
+        },
+        {
+          "jp": "次に、食べ物を温めてみることにしました。昨日の残りのご飯を容器に入れたまま電子レンジに入れて、「温め」ボタンを押しました。",
+          "vi": "Tiếp theo, anh quyết định thử hâm nóng thức ăn. Anh cho cơm còn lại từ hôm qua vào lò nguyên cả hộp đựng rồi nhấn nút \"Hâm nóng\".",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo, sau đó"
+            },
+            {
+              "w": "食べ物",
+              "read": "たべもの",
+              "vi": "thức ăn"
+            },
+            {
+              "w": "温めます",
+              "read": "あたためます",
+              "vi": "hâm nóng, làm ấm"
+            },
+            {
+              "w": "昨日",
+              "read": "きのう",
+              "vi": "hôm qua"
+            },
+            {
+              "w": "残り",
+              "read": "のこり",
+              "vi": "phần còn lại"
+            },
+            {
+              "w": "ご飯",
+              "read": "ごはん",
+              "vi": "cơm"
+            },
+            {
+              "w": "容器",
+              "read": "ようき",
+              "vi": "hộp đựng, vật đựng"
+            },
+            {
+              "w": "入れる",
+              "read": "いれる",
+              "vi": "cho vào, bỏ vào"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "レンジ",
+              "read": "レンジ",
+              "vi": "lò vi sóng, bếp"
+            },
+            {
+              "w": "ボタン",
+              "read": "ボタン",
+              "vi": "nút bấm"
+            },
+            {
+              "w": "押す",
+              "read": "おす",
+              "vi": "bấm, nhấn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことにしました（Bài 31）",
+              "vi": "温めてみることにしました = quyết định thử hâm nóng. ことにする = quyết định làm việc gì đó."
+            },
+            {
+              "point": "Vたまま",
+              "vi": "容器に入れたまま = trong khi vẫn để nguyên trong hộp (giữ nguyên trạng thái đã bỏ vào hộp mà cho vào lò)."
+            }
+          ]
+        },
+        {
+          "jp": "２分後にご飯を取り出したら、中までちゃんと温かくなっていました。",
+          "vi": "2 phút sau khi lấy cơm ra, bên trong đã nóng đều hoàn toàn.",
+          "vocab": [
+            {
+              "w": "２分後",
+              "read": "にふんご",
+              "vi": "sau 2 phút"
+            },
+            {
+              "w": "ご飯",
+              "read": "ごはん",
+              "vi": "cơm/bữa ăn"
+            },
+            {
+              "w": "取り出した",
+              "read": "とりだした",
+              "vi": "đã lấy ra"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "ちゃんと",
+              "read": "ちゃんと",
+              "vi": "đúng cách, đầy đủ"
+            },
+            {
+              "w": "温かく",
+              "read": "あたたかく",
+              "vi": "ấm"
+            },
+            {
+              "w": "なっていました",
+              "read": "なっていました",
+              "vi": "đã trở nên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（Bài 25）",
+              "vi": "取り出したら = khi lấy ra thì. Điều kiện thời gian dẫn đến phát hiện kết quả."
+            },
+            {
+              "point": "〜くなっていました（Bài 19）",
+              "vi": "温かくなっていました = đã trở nên ấm (và trạng thái đó vẫn giữ). くなる (thay đổi) + ている (trạng thái kết quả)."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「説明書のとおりにやれば、ちゃんとできるんですね」と感心しました。",
+          "vi": "Anh Wang cảm thán \"Cứ làm đúng theo hướng dẫn thì được nhỉ\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "tên Wan"
+            },
+            {
+              "w": "説明書",
+              "read": "せつめいしょ",
+              "vi": "sách hướng dẫn"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "とおり",
+              "read": "とおり",
+              "vi": "theo đúng như"
+            },
+            {
+              "w": "やれば",
+              "read": "やれば",
+              "vi": "nếu làm"
+            },
+            {
+              "w": "ちゃんと",
+              "read": "ちゃんと",
+              "vi": "đúng cách"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể làm được"
+            },
+            {
+              "w": "感心しました",
+              "read": "かんしんしました",
+              "vi": "đã thán phục"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに",
+              "vi": "説明書のとおりに = đúng theo hướng dẫn. Wang đúc kết bài học từ trải nghiệm vừa xong."
+            },
+            {
+              "point": "〜んです（Bài 26）",
+              "vi": "できるんですね = đúng là làm được nhỉ. んです xác nhận/chia sẻ nhận thức mới."
+            }
+          ]
+        },
+        {
+          "jp": "その後、友達のミラーさんが遊びに来たから、一緒に電子レンジで料理を作ることにしました。",
+          "vi": "Sau đó, người bạn là anh Miller đến chơi, nên hai người quyết định cùng nhau nấu ăn bằng lò vi sóng.",
+          "vocab": [
+            {
+              "w": "その後",
+              "read": "そのご",
+              "vi": "sau đó"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "遊び",
+              "read": "あそび",
+              "vi": "trò chơi, sự vui chơi"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "電子",
+              "read": "でんし",
+              "vi": "điện tử"
+            },
+            {
+              "w": "レンジ",
+              "read": "レンジ",
+              "vi": "lò vi sóng, bếp"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn, ẩm thực"
+            },
+            {
+              "w": "作る",
+              "read": "つくる",
+              "vi": "làm, nấu, chế tạo"
+            },
+            {
+              "w": "遊びに来ます",
+              "read": "あそびにきます",
+              "vi": "đến chơi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "ミラーさんが来たから = vì Miller đến. から nêu lý do dẫn đến quyết định."
+            },
+            {
+              "point": "Vることにしました（Bài 31）",
+              "vi": "作ることにしました = quyết định làm. ことにする = quyết định cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんはよく説明書を読まないで、自分が知っているとおりに操作しようとしました。",
+          "vi": "Anh Miller không đọc kỹ hướng dẫn, định thao tác theo cách mình biết.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "tên Miller"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "kỹ"
+            },
+            {
+              "w": "説明書",
+              "read": "せつめいしょ",
+              "vi": "sách hướng dẫn"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "読まないで",
+              "read": "よまないで",
+              "vi": "không đọc mà"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "知っている",
+              "read": "しっている",
+              "vi": "biết"
+            },
+            {
+              "w": "とおり",
+              "read": "とおり",
+              "vi": "theo đúng như"
+            },
+            {
+              "w": "操作しよう",
+              "read": "そうさしよう",
+              "vi": "định/cố thao tác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないで（Bài 23）",
+              "vi": "読まないで = không đọc mà (làm việc khác). Vないで nối hai hành động: không đọc mà vẫn thao tác."
+            },
+            {
+              "point": "Vているとおりに",
+              "vi": "知っているとおりに = đúng theo cái mình biết. Mệnh đề Vている + とおりに."
+            },
+            {
+              "point": "〜しようとしました（Bài 31 ý向形）",
+              "vi": "しようとしました = định làm, cố gắng làm. Ý định nhưng chưa thực hiện xong."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、説明書のとおりに操作しなかったから、エラーが出てしまいました。",
+          "vi": "Tuy nhiên, vì không thao tác đúng theo hướng dẫn, máy báo lỗi.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "説明書",
+              "read": "せつめいしょ",
+              "vi": "sách hướng dẫn"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "とおり",
+              "read": "とおり",
+              "vi": "theo đúng như"
+            },
+            {
+              "w": "操作しなかった",
+              "read": "そうさしなかった",
+              "vi": "đã không thao tác"
+            },
+            {
+              "w": "エラー",
+              "read": "エラー",
+              "vi": "lỗi"
+            },
+            {
+              "w": "出てしまいました",
+              "read": "でてしまいました",
+              "vi": "đã xảy ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに（phủ định）",
+              "vi": "説明書のとおりに操作しなかった = không thao tác đúng theo hướng dẫn → dẫn đến lỗi."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "操作しなかったから = vì không thao tác đúng. から nêu nguyên nhân của kết quả xấu."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "エラーが出てしまいました = máy bị lỗi mất rồi. てしまう biểu thị điều không mong muốn đã xảy ra (tiếc nuối)."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「説明書に書いてあるとおりにしてください。説明書を読まないまま使うと、うまくいかないこともありますよ」と言いました。",
+          "vi": "Anh Wang nói \"Hãy làm theo đúng những gì ghi trong hướng dẫn. Nếu cứ dùng mà không đọc hướng dẫn thì cũng có lúc không thành công đấy\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "うまい",
+              "read": "うまい",
+              "vi": "giỏi, ngon"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            },
+            {
+              "w": "うまくいきます",
+              "read": "うまくいきます",
+              "vi": "thành công, thuận lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vている＋とおりに",
+              "vi": "書いてあるとおりにしてください = hãy làm đúng theo những gì viết. Vている mệnh đề bổ nghĩa + とおりに."
+            },
+            {
+              "point": "Vないまま",
+              "vi": "説明書を読まないまま = giữ nguyên trạng thái \"không đọc hướng dẫn\" mà vẫn sử dụng. Vない + まま."
+            },
+            {
+              "point": "〜と（Bài 23）",
+              "vi": "読まないまま使うと = nếu cứ dùng mà không đọc hướng dẫn thì (điều kiện tự nhiên dẫn đến kết quả tất yếu)."
+            },
+            {
+              "point": "〜ことがあります（Bài 19）",
+              "vi": "うまくいかないこともあります = cũng có lúc không thành công. こともある = đôi khi xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんは「そうですね。読まないままやってしまいました。これからはちゃんと読みます」と言いました。",
+          "vi": "Anh Miller nói \"Đúng nhỉ. Tôi đã làm mà không đọc. Từ bây giờ tôi sẽ đọc kỹ\".",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "これから",
+              "read": "これから",
+              "vi": "từ bây giờ trở đi"
+            },
+            {
+              "w": "ちゃんと",
+              "read": "ちゃんと",
+              "vi": "đàng hoàng, kỹ càng"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないまま",
+              "vi": "読まないまま = không đọc mà vẫn (làm). Vない + まま = giữ nguyên trạng thái \"không đọc\" mà vẫn tiến hành hành động."
+            },
+            {
+              "point": "Vてしまいました（Bài 29）",
+              "vi": "やってしまいました = đã lỡ làm rồi. Miller thừa nhận hành động sai lầm đã xảy ra."
+            }
+          ]
+        },
+        {
+          "jp": "ふたりは改めて説明書のとおりに操作したあとで、料理がうまくできました。",
+          "vi": "Hai người làm lại đúng theo hướng dẫn, và sau đó nấu ăn thành công.",
+          "vocab": [
+            {
+              "w": "ふたり",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "改めて",
+              "read": "あらためて",
+              "vi": "một lần nữa"
+            },
+            {
+              "w": "説明書",
+              "read": "せつめいしょ",
+              "vi": "sách hướng dẫn"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích"
+            },
+            {
+              "w": "とおり",
+              "read": "とおり",
+              "vi": "theo đúng như"
+            },
+            {
+              "w": "操作した",
+              "read": "そうさした",
+              "vi": "đã thao tác"
+            },
+            {
+              "w": "あと",
+              "read": "あと",
+              "vi": "sau"
+            },
+            {
+              "w": "料理",
+              "read": "りょうり",
+              "vi": "món ăn/nấu ăn"
+            },
+            {
+              "w": "うまく",
+              "read": "うまく",
+              "vi": "khéo léo, tốt"
+            },
+            {
+              "w": "できました",
+              "read": "できました",
+              "vi": "đã làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに",
+              "vi": "説明書のとおりに = đúng theo hướng dẫn. Lần này cả hai cùng làm đúng."
+            },
+            {
+              "point": "Vたあとで",
+              "vi": "操作したあとで = sau khi thao tác xong. Thao tác hoàn tất rồi mới kết luận \"nấu ăn thành công\"."
+            }
+          ]
+        },
+        {
+          "jp": "ワンさんは「新しい道具を使うときは、まず説明書を読むのが一番大切だと思いますよ」と言いました。",
+          "vi": "Anh Wang nói \"Tôi nghĩ khi dùng đồ dùng mới, việc quan trọng nhất là đọc hướng dẫn trước đã\".",
+          "vocab": [
+            {
+              "w": "ワン",
+              "read": "ワン",
+              "vi": "Wang (tên người)"
+            },
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "dụng cụ, đồ dùng"
+            },
+            {
+              "w": "使います",
+              "read": "つかいます",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "読む",
+              "read": "よむ",
+              "vi": "đọc"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "使うとき = khi sử dụng. Vる + とき chỉ thời điểm/hoàn cảnh."
+            },
+            {
+              "point": "Vるのが一番〜（Bài 12 + Bài 18）",
+              "vi": "読むのが一番大切 = đọc là quan trọng nhất. の danh từ hóa (Bài 18) + 一番 (Bài 12)."
+            },
+            {
+              "point": "〜と思います（Bài 21）",
+              "vi": "大切だと思います = tôi nghĩ là quan trọng. Ý kiến cá nhân của Wang."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "箱を開けたあとで、まず説明書を全部読みました",
+          "label": "Vたあとで（sau khi xong）"
+        },
+        {
+          "excerpt": "説明書に書いてあるとおりに操作してください",
+          "label": "Vたとおりに（đúng theo）"
+        },
+        {
+          "excerpt": "説明書のとおりに設定を始めました",
+          "label": "Nのとおりに（đúng theo）"
+        },
+        {
+          "excerpt": "容器に入れたまま電子レンジに入れて",
+          "label": "Vたまま（giữ nguyên trạng thái）"
+        },
+        {
+          "excerpt": "読まないままやってしまいました",
+          "label": "Vないまま（không làm mà vẫn…）"
+        },
+        {
+          "excerpt": "説明書を読まないまま使うと",
+          "label": "Vないまま（không đọc mà vẫn dùng）"
+        },
+        {
+          "excerpt": "操作したあとで、料理がうまくできました",
+          "label": "Vたあとで（sau khi thao tác xong）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ワンさんはなぜ電子レンジを使う前に説明書を全部読みましたか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "日本語の勉強のために読みました",
+            "説明書のとおりに操作しないと故障の原因になることがあると書いてあったから、読みました",
+            "ミラーさんが「読んでください」と言ったから、読みました",
+            "電子レンジを買った店の人に「読んでください」と言われたから、読みました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Sách hướng dẫn cảnh báo rõ:「説明書のとおりに使わないと、故障の原因になることがあります」— không làm theo có thể gây hỏng máy. Đây là LÝ DO TRỰC TIẾP được ghi trong bài. Đáp án 0 sai vì không có chi tiết nào về việc học tiếng Nhật. Đáp án 2 sai vì Miller đến thăm SAU ĐÓ, không phải người bảo Wang đọc trước. Đáp án 3 sai vì không có người bán nào xuất hiện trong câu chuyện.",
+          "tip": "Câu hỏi \"なぜ〜しましたか\" về hành động của nhân vật → tìm câu ghi rõ lý do trong bài (thường có「〜と書いてあった / 〜から」). Loại ngay đáp án có nhân vật hoặc sự kiện KHÔNG XUẤT HIỆN trong bài.",
+          "qt": {
+            "q": "Vì sao anh Wang đọc toàn bộ sách hướng dẫn trước khi sử dụng lò vi sóng?",
+            "o": [
+              "Anh ấy đọc để học tiếng Nhật",
+              "Anh ấy đọc vì trong sách hướng dẫn có viết rằng nếu không thao tác theo hướng dẫn thì có thể gây hỏng hóc",
+              "Anh ấy đọc vì anh Miller nói: “Hãy đọc đi”",
+              "Anh ấy đọc vì nhân viên cửa hàng nơi anh ấy mua lò vi sóng nói: “Hãy đọc đi”"
+            ]
+          }
+        },
+        {
+          "q": "「容器に入れたまま電子レンジに入れて」とはどういう意味ですか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "容器から出してから、電子レンジに入れました",
+            "容器に入っている状態のまま、電子レンジに入れました",
+            "電子レンジに入れた後で、容器に入れました",
+            "容器を温めてから、ご飯を入れました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Vたまま = \"giữ nguyên trạng thái đã đạt được mà làm việc khác\".「容器に入れたまま」= cơm đã được đặt trong hộp (容器に入れた) và KHÔNG LẤY RA — giữ nguyên trạng thái đó mà cho cả hộp vào lò. Đáp án 0 sai vì \"容器から出してから\" nghĩa là LẤY CƠM RA KHỎI HỘP trước — ngược lại hoàn toàn với まま. Đáp án 2 sai vì đảo thứ tự: vào lò rồi mới bỏ vào hộp là vô nghĩa. Đáp án 3 sai vì hâm nóng hộp trước rồi cho cơm vào — không liên quan đến まま.",
+          "tip": "Vたまま → nhận ra đáp án đúng khi thấy \"〜状態のまま / そのまま / 変えないで\". Đáp án SAI hay nói hành động ĐỐI LẬP (lấy ra thay vì để trong) hoặc đảo thứ tự.",
+          "qt": {
+            "q": "Cụm 「容器に入れたまま電子レンジに入れて」 (cho vào lò vi sóng khi vẫn còn trong hộp đựng) có nghĩa là gì?",
+            "o": [
+              "Lấy ra khỏi hộp đựng rồi cho vào lò vi sóng",
+              "Cho vào lò vi sóng khi vẫn còn trong hộp đựng",
+              "Cho vào hộp đựng sau khi đã cho vào lò vi sóng",
+              "Làm nóng hộp đựng rồi cho cơm vào"
+            ]
+          }
+        },
+        {
+          "q": "ミラーさんが電子レンジでエラーを出してしまった理由は何ですか。",
+          "evi": [
+            10,
+            11
+          ],
+          "options": [
+            "電子レンジが古くて、壊れていたから、エラーが出ました",
+            "説明書のとおりに操作しないで、自分のやり方でしたから、エラーが出ました",
+            "容器をそのまま電子レンジに入れたから、エラーが出ました",
+            "電源コードを差し込まなかったから、エラーが出ました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài ghi rõ hai câu liên tiếp:「よく説明書を読まないで、自分が知っているとおりに操作しようとしました。しかし、説明書のとおりに操作しなかったから、エラーが出てしまいました」— Miller thao tác theo cách riêng của mình (知っているとおりに), không theo hướng dẫn → gây lỗi. Đáp án 0 sai vì máy là MỚI (Wang vừa mua tháng trước), không phải cũ hay hỏng. Đáp án 2 sai vì chính Wang cho cơm vào trong hộp để hâm nóng ĐÚNG CÁCH — đó không phải lỗi. Đáp án 3 sai vì Wang đã cắm điện thành công từ đầu, không có chi tiết nào nói Miller quên cắm.",
+          "tip": "Câu hỏi về nguyên nhân lỗi → tìm cặp \"〜から / 〜ので → エラーが出た\" trong bài. Loại đáp án mô tả sự kiện ĐÚNG (Wang làm thành công) vì câu hỏi hỏi về lỗi của MILLER.",
+          "qt": {
+            "q": "Lý do anh Miller khiến lò vi sóng báo lỗi là gì?",
+            "o": [
+              "Lò vi sóng đã cũ và bị hỏng nên báo lỗi",
+              "Anh ấy không thao tác theo hướng dẫn mà làm theo cách của mình nên lò báo lỗi",
+              "Anh ấy cho nguyên hộp đựng vào lò vi sóng nên lò báo lỗi",
+              "Anh ấy không cắm dây nguồn nên lò báo lỗi"
+            ]
+          }
+        },
+        {
+          "q": "ワンさんとミラーさんの違いから、どんなことが学べますか。",
+          "evi": [
+            14,
+            15
+          ],
+          "options": [
+            "新しい電子レンジは必ずふたりで使ったほうがいいです",
+            "説明書を読まないと、電子レンジはまったく使えません",
+            "説明書のとおりに操作すれば、うまくいく可能性が高いです",
+            "電子レンジはコンセントを差し込まなくても使えます"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu chuyện đối chiếu hai trường hợp: Wang làm đúng theo hướng dẫン → thành công; Miller không làm theo → lỗi; sau khi cả hai làm lại đúng theo hướng dẫn →「料理がうまくできました」. Kết luận logic: làm đúng theo hướng dẫn thì có khả năng cao thành công. Wang cũng đúc kết:「説明書を読むのが一番大切」. Đáp án 0 sai vì bài không khuyên dùng máy phải có hai người. Đáp án 1 sai vì quá tuyệt đối — bài nói \"có lúc không thành công\"（うまくいかないこともある）, không nói \"hoàn toàn không dùng được\". Đáp án 3 sai và ngược với sự thật — Wang ĐÃ PHẢI cắm điện theo hướng dẫn.",
+          "tip": "Câu hỏi suy luận từ toàn bài → chọn đáp án KHÔNG QUÁ TUYỆT ĐỐI (tránh まったく / 必ず khi bài không nói vậy) và phản ánh đúng bài học từ CẢ HAI nhân vật. Bài học hay nằm ở câu cuối của nhân vật chính.",
+          "qt": {
+            "q": "Qua sự khác biệt giữa anh Wang và anh Miller, có thể học được điều gì?",
+            "o": [
+              "Tốt hơn là hai người luôn sử dụng lò vi sóng mới cùng nhau",
+              "Nếu không đọc sách hướng dẫn thì hoàn toàn không thể sử dụng lò vi sóng",
+              "Nếu thao tác theo hướng dẫn thì khả năng thành công sẽ cao",
+              "Có thể sử dụng lò vi sóng mà không cần cắm phích vào ổ điện"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "お知らせを読む",
+      "titleVi": "Đọc thông báo: Lớp làm bánh của trung tâm giao lưu quốc tế",
+      "japanese": "さくら市国際交流センター　パン作り教室のお知らせ\nレシピのとおりに作れば、初めての人でもおいしいパンが作れます。作ったあとで、みんなで食べましょう。\nクラス｜曜日｜時間｜料金\nはじめてクラス｜火｜10:00〜12:00｜1,000円\nクロワッサンクラス｜木｜18:00〜20:30｜1,500円\n親子クラス｜土｜14:00〜16:00｜1,200円（子供1人500円）\n※エプロンは着けたまま帰ってもいいですが、洗って次の週に持ってきてください。\n※生地はボウルに入れたまま20分待ちます。レシピのとおりに時間を守ってください。\n※申し込んだあとで来られなくなった場合は、前の日までに電話してください。\n申し込み：電話 042-555-8181（月〜金 9:00〜17:00）",
+      "vietnamese": "Trung tâm giao lưu quốc tế thành phố Sakura　Thông báo lớp làm bánh mì\nNếu làm đúng theo công thức, người mới cũng có thể làm được bánh mì ngon. Sau khi làm xong, hãy cùng ăn nhé.\nLớp học｜Thứ｜Giờ｜Học phí\nLớp cho người mới｜Thứ Ba｜10:00〜12:00｜1.000 yên\nLớp bánh sừng bò｜Thứ Năm｜18:00〜20:30｜1.500 yên\nLớp cha mẹ và con｜Thứ Bảy｜14:00〜16:00｜1.200 yên (trẻ em 500 yên/người)\n※Có thể giữ nguyên tạp dề mà về, nhưng hãy giặt rồi mang đến vào tuần sau.\n※Bột nhào sẽ được để nguyên trong tô mà chờ 20 phút. Xin hãy tuân đúng thời gian theo công thức.\n※Nếu sau khi đăng ký mà không đến được, hãy gọi điện trước ngày hôm đó.\nĐăng ký: điện thoại 042-555-8181 (Thứ Hai〜Thứ Sáu 9:00〜17:00）",
+      "sentences": [
+        {
+          "jp": "さくら市国際交流センター　パン作り教室のお知らせ",
+          "vi": "Trung tâm giao lưu quốc tế thành phố Sakura — Thông báo lớp làm bánh mì.",
+          "vocab": [
+            {
+              "w": "さくら市国際交流センター",
+              "read": "さくらしこくさいこうりゅうセンター",
+              "vi": "Trung tâm giao lưu quốc tế thành phố Sakura"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "国際交流センター",
+              "read": "こくさいこうりゅうセンター",
+              "vi": "trung tâm giao lưu quốc tế"
+            },
+            {
+              "w": "国際",
+              "read": "こくさい",
+              "vi": "quốc tế"
+            },
+            {
+              "w": "交流",
+              "read": "こうりゅう",
+              "vi": "giao lưu"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "パン作り教室",
+              "read": "パンづくりきょうしつ",
+              "vi": "lớp làm bánh mì"
+            },
+            {
+              "w": "パン作り",
+              "read": "パンづくり",
+              "vi": "làm bánh mì"
+            },
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "作り",
+              "read": "づくり",
+              "vi": "việc làm"
+            },
+            {
+              "w": "教室",
+              "read": "きょうしつ",
+              "vi": "lớp học"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "レシピのとおりに作れば、初めての人でもおいしいパンが作れます。作ったあとで、みんなで食べましょう。",
+          "vi": "Nếu làm đúng theo công thức, người mới cũng có thể làm được bánh mì ngon. Sau khi làm xong, hãy cùng ăn nhé.",
+          "vocab": [
+            {
+              "w": "レシピ",
+              "read": "レシピ",
+              "vi": "công thức nấu ăn"
+            },
+            {
+              "w": "作れます",
+              "read": "つくれます",
+              "vi": "có thể làm (thể khả năng)"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu, mới"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "おいしい",
+              "read": "おいしい",
+              "vi": "ngon (tính từ い)"
+            },
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "みんなで",
+              "read": "みんなで",
+              "vi": "cùng nhau, mọi người cùng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに",
+              "vi": "レシピのとおりに = đúng theo công thức. Danh từ + のとおりに — mẫu MỚI của bài 34."
+            },
+            {
+              "point": "Vたあとで",
+              "vi": "作ったあとで = sau khi làm xong hẳn thì (mới ăn). Mẫu MỚI của bài 34, nhấn mạnh hoàn thành trước khi làm việc sau."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "作れます = có thể làm được. Thể khả năng của 作る."
+            }
+          ],
+          "keys": [
+            {
+              "w": "レシピのとおりに",
+              "why": "Mẫu ngữ pháp trọng tâm — mở đầu giới thiệu cách làm theo công thức, dẫn tới bảng lớp học phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "クラス｜曜日｜時間｜料金",
+          "vi": "Bảng: Lớp học｜Thứ｜Giờ｜Học phí.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí, học phí"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "曜日｜時間",
+              "why": "Header bảng — 2 cột then chốt để dò điều kiện \"thứ + giờ\" của câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "はじめてクラス｜火｜10:00〜12:00｜1,000円",
+          "vi": "Lớp cho người mới: Thứ Ba, 10:00〜12:00, 1.000 yên.",
+          "vocab": [
+            {
+              "w": "はじめて",
+              "read": "はじめて",
+              "vi": "lần đầu, mới bắt đầu"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "Thứ Ba (viết tắt 火曜日)"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên (đơn vị tiền)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "火｜10:00〜12:00",
+              "why": "Đúng thứ Ba nhưng giờ SÁNG — bẫy gần đúng cho câu hỏi 1 (Karina chỉ rảnh buổi tối)."
+            }
+          ]
+        },
+        {
+          "jp": "クロワッサンクラス｜木｜18:00〜20:30｜1,500円",
+          "vi": "Lớp bánh sừng bò: Thứ Năm, 18:00〜20:30, 1.500 yên.",
+          "vocab": [
+            {
+              "w": "クロワッサン",
+              "read": "クロワッサン",
+              "vi": "bánh sừng bò (croissant)"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "Thứ Năm (viết tắt 木曜日)"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "木｜18:00〜20:30",
+              "why": "Đúng cả 2 điều kiện của câu hỏi 1: thứ Năm và buổi tối — đây là ô đáp án chính."
+            }
+          ]
+        },
+        {
+          "jp": "親子クラス｜土｜14:00〜16:00｜1,200円（子供1人500円）",
+          "vi": "Lớp cha mẹ và con: Thứ Bảy, 14:00〜16:00, 1.200 yên (trẻ em 500 yên/người).",
+          "vocab": [
+            {
+              "w": "親子クラス",
+              "read": "おやこクラス",
+              "vi": "lớp cha mẹ và con"
+            },
+            {
+              "w": "親子",
+              "read": "おやこ",
+              "vi": "cha mẹ và con"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "14:00",
+              "read": "じゅうよじ",
+              "vi": "14 giờ"
+            },
+            {
+              "w": "16:00",
+              "read": "じゅうろくじ",
+              "vi": "16 giờ"
+            },
+            {
+              "w": "1,200円",
+              "read": "せんにひゃくえん",
+              "vi": "1.200 yên"
+            },
+            {
+              "w": "子供",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "1人",
+              "read": "ひとり",
+              "vi": "1 người"
+            },
+            {
+              "w": "500円",
+              "read": "ごひゃくえん",
+              "vi": "500 yên"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "土｜14:00〜16:00",
+              "why": "Thứ Bảy — không khớp điều kiện \"thứ Ba/Năm\" của câu hỏi 1, loại ngay."
+            }
+          ]
+        },
+        {
+          "jp": "※エプロンは着けたまま帰ってもいいですが、洗って次の週に持ってきてください。",
+          "vi": "Có thể giữ nguyên tạp dề mà về, nhưng hãy giặt rồi mang đến vào tuần sau.",
+          "vocab": [
+            {
+              "w": "エプロン",
+              "read": "エプロン",
+              "vi": "tạp dề"
+            },
+            {
+              "w": "着けます",
+              "read": "つけます",
+              "vi": "đeo, mặc vào"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "洗います",
+              "read": "あらいます",
+              "vi": "giặt, rửa"
+            },
+            {
+              "w": "次",
+              "read": "つぎ",
+              "vi": "tiếp theo, kế tiếp"
+            },
+            {
+              "w": "週",
+              "read": "しゅう",
+              "vi": "tuần"
+            },
+            {
+              "w": "持ってきます",
+              "read": "もってきます",
+              "vi": "mang đến"
+            },
+            {
+              "w": "次の週",
+              "read": "つぎのしゅう",
+              "vi": "tuần sau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたまま",
+              "vi": "着けたまま = giữ nguyên trạng thái đang đeo tạp dề mà về. Mẫu MỚI của bài 34."
+            },
+            {
+              "point": "〜てもいいです（Bài 15）",
+              "vi": "帰ってもいいです = về cũng được, cho phép làm vậy."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※エプロンは着けたまま帰ってもいいです",
+              "why": "Dòng ※ về tạp dề — không liên quan đến việc hủy lớp, dùng để loại đáp án 3 của câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "※生地はボウルに入れたまま20分待ちます。レシピのとおりに時間を守ってください。",
+          "vi": "Bột nhào sẽ được để nguyên trong tô mà chờ 20 phút. Xin hãy tuân đúng thời gian theo công thức.",
+          "vocab": [
+            {
+              "w": "生地",
+              "read": "きじ",
+              "vi": "bột nhào"
+            },
+            {
+              "w": "ボウル",
+              "read": "ボウル",
+              "vi": "bát tô"
+            },
+            {
+              "w": "入れた",
+              "read": "いれた",
+              "vi": "đã cho vào"
+            },
+            {
+              "w": "まま",
+              "read": "まま",
+              "vi": "để nguyên trạng thái"
+            },
+            {
+              "w": "20分",
+              "read": "にじゅっぷん",
+              "vi": "20 phút"
+            },
+            {
+              "w": "待ちます",
+              "read": "まちます",
+              "vi": "đợi"
+            },
+            {
+              "w": "レシピ",
+              "read": "レシピ",
+              "vi": "công thức nấu ăn"
+            },
+            {
+              "w": "とおり",
+              "read": "とおり",
+              "vi": "theo đúng như"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "守って",
+              "read": "まもって",
+              "vi": "tuân thủ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたまま",
+              "vi": "入れたまま = giữ nguyên trạng thái đã bỏ bột vào tô (không lấy ra) mà chờ đợi. Mẫu MỚI của bài 34."
+            },
+            {
+              "point": "Nのとおりに",
+              "vi": "レシピのとおりに = đúng theo công thức (giờ ủ bột). Danh từ + のとおりに."
+            }
+          ]
+        },
+        {
+          "jp": "※申し込んだあとで来られなくなった場合は、前の日までに電話してください。",
+          "vi": "Nếu sau khi đăng ký mà không đến được, hãy gọi điện trước ngày hôm đó.",
+          "vocab": [
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "来られます",
+              "read": "こられます",
+              "vi": "có thể đến (khả năng của 来る)"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "前の日",
+              "read": "まえのひ",
+              "vi": "ngày hôm trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで",
+              "vi": "申し込んだあとで = sau khi đã đăng ký xong (mà có việc phát sinh). Mẫu MỚI của bài 34."
+            },
+            {
+              "point": "Nまでに（Bài 13/17）",
+              "vi": "前の日までに = trước ngày hôm trước (hạn chót). までに chỉ mốc hạn."
+            },
+            {
+              "point": "V可能形（Bài 27）",
+              "vi": "来られなくなった = trở nên không thể đến được. Thể khả năng phủ định + なる."
+            }
+          ],
+          "keys": [
+            {
+              "w": "来られなくなった場合は",
+              "why": "Điều kiện kích hoạt quy tắc — chỉ áp dụng khi đã đăng ký rồi mà đột nhiên không đến được, đúng tình huống của Watt trong câu hỏi 2."
+            },
+            {
+              "w": "前の日までに電話してください",
+              "why": "Căn cứ chính của câu hỏi 2 — hạn chót là \"trước ngày hôm đó\", phải tự suy ra là hôm nay vì lớp là ngày mai."
+            }
+          ]
+        },
+        {
+          "jp": "申し込み：電話 042-555-8181（月〜金 9:00〜17:00）",
+          "vi": "Đăng ký: điện thoại 042-555-8181 (Thứ Hai〜Thứ Sáu 9:00〜17:00).",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "sự đăng ký (danh từ)"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "レシピのとおりに作れば",
+          "label": "Nのとおりに（đúng theo công thức）"
+        },
+        {
+          "excerpt": "作ったあとで、みんなで食べましょう",
+          "label": "Vたあとで（sau khi xong）"
+        },
+        {
+          "excerpt": "エプロンは着けたまま帰っても",
+          "label": "Vたまま（giữ nguyên trạng thái）"
+        },
+        {
+          "excerpt": "生地はボウルに入れたまま20分待ちます",
+          "label": "Vたまま（giữ nguyên trạng thái）"
+        },
+        {
+          "excerpt": "レシピのとおりに時間を守って",
+          "label": "Nのとおりに（đúng theo công thức）"
+        },
+        {
+          "excerpt": "申し込んだあとで来られなくなった",
+          "label": "Vたあとで（sau khi xong）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Tên trung tâm và lớp học, cùng lời mời làm bánh theo công thức — chưa có căn cứ trả lời trực tiếp.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng lớp học",
+          "topic": 2,
+          "note": "Bảng 3 lớp theo thứ/giờ/giá — căn cứ chính để ghép điều kiện \"thứ + buổi tối\" ở câu hỏi 1.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 7,
+          "kind": "body",
+          "label": "Quy định tạp dề & bột nhào",
+          "topic": 6,
+          "note": "Hai dòng ※ về vật dụng trong lớp học — không liên quan điều kiện hủy lớp, dùng để loại nhiễu câu hỏi 2.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "turn",
+          "label": "Điều kiện huỷ đăng ký ※",
+          "topic": 8,
+          "note": "Bẫy chính: hạn \"trước ngày hôm đó\" phải tự tính ra là hôm nay vì lớp học là ngày mai — căn cứ câu hỏi 2.",
+          "qs": [
+            2
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんは火曜日と木曜日の夜だけ時間があります。カリナさんはどのクラスに申し込むことができますか。",
+          "options": [
+            "はじめてクラス",
+            "クロワッサンクラス",
+            "親子クラス",
+            "はじめてクラスとクロワッサンクラスの両方"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Karina chỉ rảnh tối thứ Ba và thứ Năm. Tra bảng: はじめてクラス là 火 (Thứ Ba) nhưng giờ 10:00〜12:00 — buổi SÁNG, không phải buổi tối, nên không hợp. クロワッサンクラス là 木 (Thứ Năm) 18:00〜20:30 — đúng buổi TỐI thứ Năm, hợp điều kiện. Đáp án 0 sai vì đúng thứ nhưng SAI GIỜ (sáng, không phải tối). Đáp án 2 sai vì 親子クラス vào Thứ Bảy, không phải thứ Ba/Năm. Đáp án 3 sai vì はじめてクラス không khớp giờ tối.",
+          "tip": "Câu hỏi ghép 2 điều kiện (thứ + buổi tối) → dò cột 曜日 trước để lọc ứng viên, rồi dò tiếp cột 時間 để loại các lớp đúng thứ nhưng sai giờ.",
+          "evi": [
+            3,
+            4
+          ],
+          "qt": {
+            "q": "Karina chỉ có thời gian vào tối thứ Ba và thứ Năm. Karina có thể đăng ký lớp nào?",
+            "o": [
+              "Lớp dành cho người mới bắt đầu",
+              "Lớp bánh croissant",
+              "Lớp cha mẹ và con",
+              "Cả lớp dành cho người mới bắt đầu và lớp bánh croissant"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんは申し込んだあとで、急に来られなくなりました。クラスは明日です。ワットさんはどうしなければなりませんか。",
+          "options": [
+            "何もしなくてもいいです",
+            "今日中に電話しなければなりません",
+            "クラスの後で電話したらいいです",
+            "エプロンを郵便で送らなければなりません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Chú ý ※「申し込んだあとで来られなくなった場合は、前の日までに電話してください」— hạn chót là TRƯỚC NGÀY HÔM ĐÓ (前の日まで). Vì lớp học là ngày mai, nên \"trước ngày hôm đó\" chính là HÔM NAY — Watt phải gọi điện trong hôm nay. Đáp án 0 sai vì thông báo yêu cầu rõ phải báo trước, không được im lặng. Đáp án 2 sai vì gọi SAU buổi học là quá muộn, ngược với までに (trước hạn). Đáp án 3 sai vì thông báo chỉ nói về việc giặt và mang tạp dề đến tuần sau, không liên quan đến việc hủy lớp.",
+          "tip": "Câu hỏi ghép điều kiện thời gian (mốc までに + \"lớp là ngày mai\") → tự tính ra hạn chót cụ thể là hôm nay, đừng chỉ trích nguyên văn \"前の日\".",
+          "evi": [
+            8
+          ],
+          "qt": {
+            "q": "Sau khi đăng ký, anh Wat đột nhiên không thể đến được. Lớp học là ngày mai. Anh Wat phải làm gì?",
+            "o": [
+              "Không cần làm gì cả",
+              "Phải gọi điện trong hôm nay",
+              "Gọi điện sau buổi học là được",
+              "Phải gửi tạp dề qua đường bưu điện"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくらスーパー　ポイントカードキャンペーンのお知らせ",
+      "titleVi": "Đọc thông báo: Chương trình khuyến mãi thẻ điểm siêu thị Sakura",
+      "japanese": "さくらスーパー　ポイントカードキャンペーンのお知らせ\n説明のとおりに登録してください。カードを作ったあとで、買い物をすると、ポイントがたまります。\nポイント｜プレゼント\n100ポイント｜卵1パック\n300ポイント｜さくらスーパーのエコバッグ\n500ポイント｜1,000円の商品券\n1,000ポイント｜さくら市の米5キロ\n登録方法：まずレジでカードをもらいます。次に、カードのうらに書いてある説明のとおりにアプリで登録してください。\n買い物をしたあとで、レシートを見せてください。1回の買い物で100円ごとに1ポイントです。\n※プレゼントは店の入り口のカウンターでもらってください。カードは家に置いたままにしないで、いつも持ってきてください。\n※土曜日と日曜日は、説明のとおりに登録した人だけポイントが2倍になります。\nお問い合わせ：さくらスーパー　1階サービスカウンター　電話：03-4321-7788（10:00〜19:00）",
+      "vietnamese": "Siêu thị Sakura — Thông báo chương trình khuyến mãi thẻ điểm\nXin hãy đăng ký đúng theo hướng dẫn. Sau khi làm thẻ xong, hễ mua sắm là được tích điểm.\nĐiểm｜Quà tặng\n100 điểm｜1 hộp trứng\n300 điểm｜Túi vải sinh thái của siêu thị Sakura\n500 điểm｜Phiếu mua hàng 1.000 yên\n1.000 điểm｜5kg gạo của thành phố Sakura\nCách đăng ký: Trước tiên nhận thẻ tại quầy thu ngân. Sau đó, xin hãy đăng ký trên ứng dụng đúng theo hướng dẫn được ghi ở mặt sau thẻ.\nSau khi mua sắm xong, xin hãy đưa hóa đơn ra. Cứ 100 yên trong một lần mua sắm sẽ được 1 điểm.\n※Xin hãy nhận quà tại quầy ở lối vào cửa hàng. Đừng để thẻ ở nhà mà giữ nguyên như vậy, hãy luôn mang theo.\n※Vào thứ Bảy và Chủ Nhật, chỉ những người đăng ký đúng theo hướng dẫn mới được gấp đôi điểm.\nLiên hệ: Siêu thị Sakura — Quầy phục vụ tầng 1 — Điện thoại: 03-4321-7788 (10:00〜19:00)",
+      "sentences": [
+        {
+          "jp": "さくらスーパー　ポイントカードキャンペーンのお知らせ",
+          "vi": "Siêu thị Sakura — Thông báo chương trình khuyến mãi thẻ điểm.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "ポイントカードキャンペーン",
+              "read": "ポイントカードキャンペーン",
+              "vi": "chiến dịch thẻ tích điểm"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "ポイントカード",
+              "read": "ポイントカード",
+              "vi": "thẻ tích điểm"
+            },
+            {
+              "w": "キャンペーン",
+              "read": "キャンペーン",
+              "vi": "chương trình khuyến mãi"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "説明のとおりに登録してください。カードを作ったあとで、買い物をすると、ポイントがたまります。",
+          "vi": "Xin hãy đăng ký đúng theo hướng dẫn. Sau khi làm thẻ xong, hễ mua sắm là được tích điểm.",
+          "vocab": [
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "giải thích, hướng dẫn"
+            },
+            {
+              "w": "登録します",
+              "read": "とうろくします",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "作ります",
+              "read": "つくります",
+              "vi": "làm, tạo"
+            },
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "たまる",
+              "read": "たまる",
+              "vi": "tích lũy, đọng lại"
+            },
+            {
+              "w": "たまります",
+              "read": "たまります",
+              "vi": "tích lũy, dồn lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに",
+              "vi": "説明のとおりに = đúng theo hướng dẫn. Mẫu MỚI của bài 34, danh từ + のとおりに."
+            },
+            {
+              "point": "Vたあとで",
+              "vi": "カードを作ったあとで = sau khi làm thẻ xong (mới bắt đầu tích điểm). Mẫu MỚI của bài 34."
+            },
+            {
+              "point": "〜と（Bài 23 ôn）",
+              "vi": "買い物をすると、ポイントがたまります = hễ mua sắm là điểm tự động được tích — điều kiện tất yếu 〜と đã học ở Bài 23."
+            }
+          ],
+          "keys": [
+            {
+              "w": "カードを作ったあとで、買い物をすると、ポイントがたまります",
+              "why": "Xác nhận trình tự bắt buộc: phải LÀM THẺ XONG rồi mới bắt đầu tích điểm — mua sắm trước khi có thẻ sẽ không được tính."
+            }
+          ]
+        },
+        {
+          "jp": "ポイント｜プレゼント",
+          "vi": "Bảng: Điểm｜Quà tặng.",
+          "vocab": [
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "プレゼント",
+              "read": "プレゼント",
+              "vi": "quà tặng"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "100ポイント｜卵1パック",
+          "vi": "100 điểm: 1 hộp trứng.",
+          "vocab": [
+            {
+              "w": "100ポイント",
+              "read": "ひゃくポイント",
+              "vi": "100 điểm"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "卵",
+              "read": "たまご",
+              "vi": "trứng"
+            },
+            {
+              "w": "1パック",
+              "read": "いちパック",
+              "vi": "1 gói"
+            },
+            {
+              "w": "パック",
+              "read": "パック",
+              "vi": "gói"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "300ポイント｜さくらスーパーのエコバッグ",
+          "vi": "300 điểm: Túi vải sinh thái của siêu thị Sakura.",
+          "vocab": [
+            {
+              "w": "300ポイント",
+              "read": "さんびゃくポイント",
+              "vi": "300 điểm"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "さくらスーパー",
+              "read": "さくらスーパー",
+              "vi": "siêu thị Sakura"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "エコ",
+              "read": "エコ",
+              "vi": "thân thiện môi trường"
+            },
+            {
+              "w": "バッグ",
+              "read": "バッグ",
+              "vi": "túi"
+            },
+            {
+              "w": "エコバッグ",
+              "read": "エコバッグ",
+              "vi": "túi sinh thái"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "500ポイント｜1,000円の商品券",
+          "vi": "500 điểm: Phiếu mua hàng 1.000 yên.",
+          "vocab": [
+            {
+              "w": "500ポイント",
+              "read": "ごひゃくポイント",
+              "vi": "500 điểm"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            },
+            {
+              "w": "商品",
+              "read": "しょうひん",
+              "vi": "sản phẩm"
+            },
+            {
+              "w": "商品券",
+              "read": "しょうひんけん",
+              "vi": "phiếu quà tặng"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "1,000ポイント｜さくら市の米5キロ",
+          "vi": "1.000 điểm: 5kg gạo của thành phố Sakura.",
+          "vocab": [
+            {
+              "w": "1,000ポイント",
+              "read": "せんポイント",
+              "vi": "1.000 điểm"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "Sakura"
+            },
+            {
+              "w": "さくら市",
+              "read": "さくらし",
+              "vi": "thành phố Sakura"
+            },
+            {
+              "w": "市",
+              "read": "し",
+              "vi": "thành phố"
+            },
+            {
+              "w": "米",
+              "read": "こめ",
+              "vi": "gạo"
+            },
+            {
+              "w": "5キロ",
+              "read": "ごキロ",
+              "vi": "5 kg"
+            },
+            {
+              "w": "キロ",
+              "read": "キロ",
+              "vi": "kilôgam"
+            }
+          ],
+          "grammar": []
+        },
+        {
+          "jp": "登録方法：まずレジでカードをもらいます。次に、カードのうらに書いてある説明のとおりにアプリで登録してください。",
+          "vi": "Cách đăng ký: Trước tiên nhận thẻ tại quầy thu ngân. Sau đó, xin hãy đăng ký trên ứng dụng đúng theo hướng dẫn được ghi ở mặt sau thẻ.",
+          "vocab": [
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "方法",
+              "read": "ほうほう",
+              "vi": "phương pháp"
+            },
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo, sau đó"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng"
+            },
+            {
+              "w": "登録方法",
+              "read": "とうろくほうほう",
+              "vi": "cách đăng ký"
+            },
+            {
+              "w": "うら",
+              "read": "うら",
+              "vi": "mặt sau"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてある（Bài 30）",
+              "vi": "書いてある説明 = hướng dẫn được viết sẵn (ở mặt sau thẻ)."
+            },
+            {
+              "point": "Nのとおりに",
+              "vi": "説明のとおりに = đúng theo hướng dẫn (được viết ở mặt sau thẻ). Mẫu MỚI của bài 34."
+            }
+          ],
+          "keys": [
+            {
+              "w": "まずレジでカードをもらいます",
+              "why": "Bước 1 trong quy trình đăng ký — căn cứ trực tiếp cho câu hỏi 1 về thứ tự thao tác."
+            },
+            {
+              "w": "カードのうらに書いてある説明のとおりにアプリで登録してください",
+              "why": "Bước 2 — đúng theo hướng dẫn ở mặt sau thẻ, khớp đáp án đúng câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "買い物をしたあとで、レシートを見せてください。1回の買い物で100円ごとに1ポイントです。",
+          "vi": "Sau khi mua sắm xong, xin hãy đưa hóa đơn ra. Cứ 100 yên trong một lần mua sắm sẽ được 1 điểm.",
+          "vocab": [
+            {
+              "w": "買い物",
+              "read": "かいもの",
+              "vi": "mua sắm"
+            },
+            {
+              "w": "した",
+              "read": "した",
+              "vi": "đã làm"
+            },
+            {
+              "w": "あとで",
+              "read": "あとで",
+              "vi": "sau đó"
+            },
+            {
+              "w": "レシート",
+              "read": "レシート",
+              "vi": "biên lai"
+            },
+            {
+              "w": "見せて",
+              "read": "みせて",
+              "vi": "cho xem"
+            },
+            {
+              "w": "ください",
+              "read": "ください",
+              "vi": "xin hãy"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "1 lần"
+            },
+            {
+              "w": "回",
+              "read": "かい",
+              "vi": "lần"
+            },
+            {
+              "w": "100円",
+              "read": "ひゃくえん",
+              "vi": "100 yên"
+            },
+            {
+              "w": "円",
+              "read": "えん",
+              "vi": "yên"
+            },
+            {
+              "w": "ごとに",
+              "read": "ごとに",
+              "vi": "cứ mỗi"
+            },
+            {
+              "w": "1ポイント",
+              "read": "いちポイント",
+              "vi": "1 điểm"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたあとで",
+              "vi": "買い物をしたあとで = sau khi mua sắm xong (mới đưa hóa đơn). Mẫu MỚI của bài 34, xuất hiện lần thứ 3."
+            }
+          ],
+          "keys": [
+            {
+              "w": "レシートを見せてください",
+              "why": "Bước bắt buộc để được tính điểm sau khi mua sắm — thiếu bước này thì điểm không được ghi nhận dù đã có thẻ."
+            },
+            {
+              "w": "100円ごとに1ポイント",
+              "why": "Quy tắc tính điểm cơ bản — căn cứ để tính 3.000円 ÷ 100 = 30 điểm ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "※プレゼントは店の入り口のカウンターでもらってください。カードは家に置いたままにしないで、いつも持ってきてください。",
+          "vi": "Xin hãy nhận quà tại quầy ở lối vào cửa hàng. Đừng để thẻ ở nhà mà giữ nguyên như vậy, hãy luôn mang theo.",
+          "vocab": [
+            {
+              "w": "プレゼント",
+              "read": "プレゼント",
+              "vi": "quà tặng"
+            },
+            {
+              "w": "店",
+              "read": "みせ",
+              "vi": "quán, cửa hàng"
+            },
+            {
+              "w": "入り口",
+              "read": "いりぐち",
+              "vi": "lối vào"
+            },
+            {
+              "w": "カウンター",
+              "read": "カウンター",
+              "vi": "quầy"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "家",
+              "read": "いえ",
+              "vi": "nhà"
+            },
+            {
+              "w": "置きます",
+              "read": "おきます",
+              "vi": "đặt, để"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "持ってきます",
+              "read": "もってきます",
+              "vi": "mang đến, mang theo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたまま",
+              "vi": "家に置いたままにしないで = đừng để nguyên (thẻ) ở nhà. まま của bài 34, ở dạng phủ định \"đừng giữ nguyên trạng thái đó\"."
+            }
+          ],
+          "keys": [
+            {
+              "w": "プレゼントは店の入り口のカウンターでもらってください",
+              "why": "Xác định đúng địa điểm nhận quà (quầy lối vào) — khác với quầy phục vụ tầng 1 ở dòng liên hệ, dễ gây nhầm nếu đề bài hỏi \"đổi quà ở đâu\"."
+            }
+          ]
+        },
+        {
+          "jp": "※土曜日と日曜日は、説明のとおりに登録した人だけポイントが2倍になります。",
+          "vi": "Vào thứ Bảy và Chủ Nhật, chỉ những người đăng ký đúng theo hướng dẫn mới được gấp đôi điểm.",
+          "vocab": [
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "Thứ Bảy"
+            },
+            {
+              "w": "日曜日",
+              "read": "にちようび",
+              "vi": "Chủ Nhật"
+            },
+            {
+              "w": "説明",
+              "read": "せつめい",
+              "vi": "sự giải thích"
+            },
+            {
+              "w": "登録",
+              "read": "とうろく",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "ポイント",
+              "read": "ポイント",
+              "vi": "điểm"
+            },
+            {
+              "w": "〜だけ",
+              "read": "〜だけ",
+              "vi": "chỉ..."
+            },
+            {
+              "w": "2倍",
+              "read": "にばい",
+              "vi": "gấp đôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nのとおりに",
+              "vi": "説明のとおりに登録した人 = người đã đăng ký đúng theo hướng dẫn. Mẫu MỚI của bài 34, xuất hiện lần thứ 4 (kể cả trong dòng ※)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜日と日曜日は",
+              "why": "Điều kiện ngày áp dụng nhân đôi điểm — cần khớp với \"Santos mua vào thứ Bảy\" ở câu hỏi 2."
+            },
+            {
+              "w": "登録した人だけポイントが2倍になります",
+              "why": "Từ giới hạn だけ + số liệu 2倍 — vế thứ 2 phải ghép để tính đúng đáp án câu hỏi 2 (30×2=60)."
+            }
+          ]
+        },
+        {
+          "jp": "お問い合わせ：さくらスーパー　1階サービスカウンター　電話：03-4321-7788（10:00〜19:00）",
+          "vi": "Liên hệ: Siêu thị Sakura — Quầy phục vụ tầng 1 — Điện thoại: 03-4321-7788 (10:00〜19:00).",
+          "vocab": [
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "サービス",
+              "read": "サービス",
+              "vi": "dịch vụ"
+            },
+            {
+              "w": "カウンター",
+              "read": "カウンター",
+              "vi": "quầy"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "liên hệ, hỏi đáp"
+            },
+            {
+              "w": "1階",
+              "read": "いっかい",
+              "vi": "tầng 1"
+            },
+            {
+              "w": "サービスカウンター",
+              "read": "サービスカウンター",
+              "vi": "quầy phục vụ"
+            }
+          ],
+          "grammar": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "説明のとおりに登録してください",
+          "label": "Nのとおりに（đúng theo hướng dẫn）"
+        },
+        {
+          "excerpt": "カードを作ったあとで",
+          "label": "Vたあとで（sau khi xong）"
+        },
+        {
+          "excerpt": "書いてある説明のとおりにアプリで登録してください",
+          "label": "Nのとおりに（đúng theo hướng dẫn）"
+        },
+        {
+          "excerpt": "買い物をしたあとで、レシートを見せてください",
+          "label": "Vたあとで（sau khi xong）"
+        },
+        {
+          "excerpt": "家に置いたままにしないで",
+          "label": "Vたまま（giữ nguyên trạng thái）"
+        },
+        {
+          "excerpt": "説明のとおりに登録した人だけ",
+          "label": "Nのとおりに（đúng theo hướng dẫn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu chung",
+          "topic": 0,
+          "note": "Tên chương trình và quy tắc chung: đăng ký theo hướng dẫn rồi mua sắm là được tích điểm.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "body",
+          "label": "Bảng đổi quà",
+          "topic": 2,
+          "note": "Bảng mốc điểm và quà tặng tương ứng — không phải căn cứ trực tiếp của 2 câu hỏi (câu hỏi hỏi về quy trình và số điểm, không hỏi đổi quà).",
+          "qs": []
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "point",
+          "label": "Cách đăng ký & quy tắc tính điểm",
+          "topic": 7,
+          "note": "Thứ tự đăng ký (nhận thẻ rồi mới đăng ký app) — căn cứ câu hỏi 1; quy tắc 100円=1ポイント — căn cứ tính điểm cơ bản câu hỏi 2.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 9,
+          "to": 10,
+          "kind": "turn",
+          "label": "Điều kiện ※ nhận quà & nhân đôi điểm",
+          "topic": 10,
+          "note": "Bẫy chính: dòng ※ thứ Bảy/Chủ Nhật nhân đôi điểm — phải ghép với quy tắc 100円=1ポイント để ra đáp án đúng câu hỏi 2, dễ bỏ sót.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 11,
+          "kind": "body",
+          "label": "Thông tin liên hệ",
+          "topic": 11,
+          "note": "Địa chỉ liên hệ — không liên quan căn cứ 2 câu hỏi.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんは初めてポイントカードを作ります。ミラーさんはどうやって登録しますか。",
+          "options": [
+            "レジでカードをもらったあとで、カードのうらの説明のとおりにアプリで登録します",
+            "店のカウンターで名前と電話番号を紙に書きます",
+            "家でアプリを作ってから、レジでカードをもらいます",
+            "レシートを見せて、店の人に登録してもらいます"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng là 0. Bài ghi rõ:「まずレジでカードをもらいます。次に、カードのうらに書いてある説明のとおりにアプリで登録してください」— trình tự đúng là nhận thẻ tại quầy TRƯỚC, rồi mới đăng ký app đúng theo hướng dẫn ở mặt sau thẻ. Đáp án 1 sai vì bài không nhắc đến việc viết tên/số điện thoại ra giấy. Đáp án 2 sai vì đảo ngược thứ tự — bài yêu cầu nhận thẻ trước rồi mới đăng ký app, không phải ngược lại. Đáp án 3 sai vì đăng ký là việc khách tự làm theo hướng dẫn, không phải nhân viên làm hộ.",
+          "tip": "Câu hỏi \"どうやって〜しますか\" về quy trình → tìm đúng đoạn 登録方法 và giữ đúng THỨ TỰ ghi trong bài. Loại đáp án đảo thứ tự hoặc thêm chi tiết không có trong thông báo.",
+          "evi": [
+            7
+          ],
+          "qt": {
+            "q": "Anh Miller lần đầu làm thẻ tích điểm. Anh Miller đăng ký như thế nào?",
+            "o": [
+              "Sau khi nhận thẻ ở quầy tính tiền, đăng ký trên ứng dụng theo hướng dẫn ở mặt sau thẻ",
+              "Viết tên và số điện thoại lên giấy tại quầy của cửa hàng",
+              "Tạo ứng dụng ở nhà rồi nhận thẻ ở quầy tính tiền",
+              "Đưa hóa đơn cho nhân viên cửa hàng và nhờ họ đăng ký giúp"
+            ]
+          }
+        },
+        {
+          "q": "サントスさんは土曜日に3,000円の買い物をして、説明のとおりに登録しました。サントスさんは何ポイントもらいますか。",
+          "options": [
+            "15ポイント",
+            "30ポイント",
+            "60ポイント",
+            "3,000ポイント"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Cần ghép 2 điều kiện: (1) quy tắc thường「100円ごとに1ポイント」→ mua 3.000 yên = 3.000÷100 = 30 điểm; (2) ※ điều kiện thứ Bảy「説明のとおりに登録した人だけポイントが2倍になります」— vì Santos đăng ký đúng theo hướng dẫn và mua vào thứ Bảy nên được GẤP ĐÔI: 30×2 = 60 điểm. Đáp án 0 sai vì tính thiếu — chưa nhân đôi và còn tính sai phép chia. Đáp án 1 sai vì đó là số điểm bình thường (chưa nhân đôi cho thứ Bảy) — thiếu 1 vế điều kiện. Đáp án 3 sai vì nhầm lẫn lấy số tiền làm số điểm.",
+          "tip": "Câu hỏi ghép giá tiền + điều kiện ngày trong ※ → tính điểm thường trước (100円=1点), sau đó kiểm tra thêm điều kiện thứ Bảy/Chủ Nhật để nhân đôi. Đừng bỏ sót dòng ※ khi tính.",
+          "evi": [
+            8,
+            10
+          ],
+          "qt": {
+            "q": "Anh Santos đã mua hàng trị giá 3.000 yên vào thứ Bảy và đăng ký theo hướng dẫn. Anh Santos nhận được bao nhiêu điểm?",
+            "o": [
+              "15 điểm",
+              "30 điểm",
+              "60 điểm",
+              "3.000 điểm"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

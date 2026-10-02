@@ -1,0 +1,1555 @@
+{
+  "bai": 11,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài đọc Bài 11 tập trung vào TRỢ SỐ TỪ (助数詞) — cách đếm đồ vật, người, và đơn vị thời gian trong tiếng Nhật. Mỗi loại đồ vật cần một trợ số từ riêng (〜枚 cho tờ/tấm phẳng, 〜台 cho máy móc, 〜冊 cho sách, 〜回 cho số lần, 〜杯 cho ly/chén). Đọc hiểu ở đây = nhận diện đúng trợ số từ, số lượng mua/có, và câu trả lời cho どのくらい.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm chủ đề: đang nói về mua gì, bao nhiêu, ở đâu.",
+      "Với mỗi câu số lượng, tìm CẶP: số + trợ số từ (một つ, 〜枚, 〜台, 〜冊, 〜回, 〜杯) đứng ngay trước hoặc sau động từ.",
+      "Chú ý 数量詞＋Ｖます: số lượng đặt TRƯỚC động từ mà không cần trợ từ (りんごを三つ買います = mua 3 quả táo).",
+      "どのくらい hỏi \"bao lâu / bao nhiêu\" → tìm câu trả lời có số lượng hoặc thời gian gần đó.",
+      "〜だけ = \"chỉ, chỉ có\" → rất quan trọng khi câu hỏi hỏi về giới hạn số lượng.",
+      "Kiểm tra furigana số đặc biệt: 一つ→ひとつ, 二つ→ふたつ, 三つ→みっつ, 一人→ひとり, 二人→ふたり."
+    ],
+    "tips": [
+      "〜枚 (まい) đếm thứ PHẲNG: tờ giấy, tấm ảnh, áo sơ mi, vé — KHÔNG dùng cho sách hay máy.",
+      "〜台 (だい) đếm MÁY MÓC/xe: máy tính, tivi, xe đạp, ô tô.",
+      "〜冊 (さつ) đếm SÁCH/vở/tạp chí.",
+      "〜杯 (はい/ばい/ぱい) biến âm: いっぱい, にはい, さんばい — đếm ly/chén/bát.",
+      "一人/二人 đọc ひとり/ふたり (bất quy tắc); từ 三人 trở đi dùng さん・にん.",
+      "〜ぐらい gắn sau số lượng = \"khoảng, xấp xỉ\"; だけ gắn sau số lượng = \"chỉ, chỉ có thế thôi\"."
+    ],
+    "grammarFocus": [
+      "助数詞（一つ〜・〜枚・〜台・〜冊・〜回・〜杯）",
+      "〜人・〜歳・〜時間",
+      "数量詞＋Ｖます",
+      "〜ぐらい",
+      "どのくらい",
+      "〜だけ"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 6,
+        "items": [
+          "NをVます（tha động từ）",
+          "何をVますか",
+          "Nをします"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "NへVます（行きます／来ます）",
+          "NでVます（phương tiện）"
+        ]
+      },
+      {
+        "bai": 4,
+        "items": [
+          "〜時・〜分",
+          "Vます・Vません",
+          "NからNまで"
+        ]
+      },
+      {
+        "bai": 3,
+        "items": [
+          "NはNにあります／います",
+          "ここ・そこ・あそこ"
+        ]
+      },
+      {
+        "bai": 2,
+        "items": [
+          "これ・それ・あれ",
+          "NのN（sở hữu）"
+        ]
+      },
+      {
+        "bai": 7,
+        "items": [
+          "人にNをあげます",
+          "もう〜ました"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜から（lý do）",
+          "〜があります（có）"
+        ]
+      },
+      {
+        "bai": 10,
+        "items": [
+          "NがNにあります",
+          "位置từ（上・下・前・後ろ・中・隣・近く）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "スーパーで買い物",
+      "titleVi": "Mua sắm ở siêu thị",
+      "japanese": "きょう、私はスーパーへ行きました。りんごを三つとオレンジを二つ買いました。それから、牛乳を一本と卵を十個買いました。全部で五百円ぐらいでした。友だちへのプレゼントにケーキも一つ買いました。",
+      "vietnamese": "Hôm nay tôi đi siêu thị. Tôi mua ba quả táo và hai quả cam. Sau đó tôi mua một chai sữa và mười quả trứng. Tổng cộng khoảng năm trăm yên. Tôi cũng mua một cái bánh ngọt làm quà cho bạn.",
+      "sentences": [
+        {
+          "jp": "きょう、私はスーパーへ行きました。",
+          "vi": "Hôm nay tôi đã đi siêu thị.",
+          "vocab": [
+            {
+              "w": "きょう",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi (quá khứ của 行きます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます（Bài 5）",
+              "vi": "スーパーへ行きました = đi đến siêu thị. へ chỉ hướng di chuyển."
+            },
+            {
+              "point": "Vました（Bài 4）",
+              "vi": "Thể quá khứ lịch sự: 行きました."
+            }
+          ]
+        },
+        {
+          "jp": "りんごを三つとオレンジを二つ買いました。",
+          "vi": "Tôi mua ba quả táo và hai quả cam.",
+          "vocab": [
+            {
+              "w": "りんご",
+              "read": "りんご",
+              "vi": "táo"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái (đếm đồ vật nhỏ)"
+            },
+            {
+              "w": "オレンジ",
+              "read": "オレンジ",
+              "vi": "cam"
+            },
+            {
+              "w": "二つ",
+              "read": "ふたつ",
+              "vi": "hai cái"
+            },
+            {
+              "w": "買いました",
+              "read": "かいました",
+              "vi": "đã mua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "数量詞＋Vます（Bài 11）",
+              "vi": "りんごを三つ買う = mua BA quả táo. Số lượng đặt sau tân ngữ, trước động từ."
+            },
+            {
+              "point": "助数詞〜つ（Bài 11）",
+              "vi": "一つ〜十 dùng đếm đồ vật tròn/nhỏ chưa có trợ số từ riêng: ひとつ・ふたつ・みっつ…"
+            },
+            {
+              "point": "NをVます（Bài 6）",
+              "vi": "りんごを買う = mua táo. を đánh dấu tân ngữ trực tiếp."
+            }
+          ]
+        },
+        {
+          "jp": "それから、牛乳を一本と卵を十個買いました。",
+          "vi": "Sau đó tôi mua một chai sữa và mười quả trứng.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó"
+            },
+            {
+              "w": "牛乳",
+              "read": "ぎゅうにゅう",
+              "vi": "sữa bò"
+            },
+            {
+              "w": "卵",
+              "read": "たまご",
+              "vi": "trứng"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "一本",
+              "read": "いっぽん",
+              "vi": "một chai/cái dài (〜本 đếm vật dài)"
+            },
+            {
+              "w": "十個",
+              "read": "じゅっこ",
+              "vi": "mười cái (〜個 đếm vật tròn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "数量詞＋Vます（Bài 11）",
+              "vi": "牛乳を一本、卵を十個 — số lượng đặt ngay sau tân ngữ."
+            },
+            {
+              "point": "それから（Bài 4）",
+              "vi": "Nối các hành động tuần tự: \"và rồi, sau đó\"."
+            }
+          ]
+        },
+        {
+          "jp": "全部で五百円ぐらいでした。",
+          "vi": "Tổng cộng khoảng năm trăm yên.",
+          "vocab": [
+            {
+              "w": "全部で",
+              "read": "ぜんぶで",
+              "vi": "tổng cộng"
+            },
+            {
+              "w": "五百円",
+              "read": "ごひゃくえん",
+              "vi": "năm trăm yên"
+            },
+            {
+              "w": "ぐらい",
+              "read": "ぐらい",
+              "vi": "khoảng, xấp xỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ぐらい（Bài 11）",
+              "vi": "五百円ぐらい = khoảng năm trăm yên. Gắn sau số lượng để nói \"xấp xỉ\"."
+            }
+          ]
+        },
+        {
+          "jp": "友だちへのプレゼントにケーキも一つ買いました。",
+          "vi": "Tôi cũng mua một cái bánh ngọt làm quà cho bạn.",
+          "vocab": [
+            {
+              "w": "友だち",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "プレゼント",
+              "read": "プレゼント",
+              "vi": "quà tặng"
+            },
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh ngọt"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "数量詞＋Vます（Bài 11）",
+              "vi": "ケーキも一つ買いました = cũng mua một cái bánh."
+            },
+            {
+              "point": "Nも（Bài 1）",
+              "vi": "も = \"cũng\" — ngoài những thứ đã mua, cũng mua thêm bánh."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "りんごを三つとオレンジを二つ買いました",
+          "label": "数量詞＋Vます／〜つ"
+        },
+        {
+          "excerpt": "五百円ぐらいでした",
+          "label": "〜ぐらい"
+        },
+        {
+          "excerpt": "ケーキも一つ買いました",
+          "label": "数量詞＋Vます"
+        }
+      ],
+      "questions": [
+        {
+          "q": "私はスーパーでりんごをいくつ買いましたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "一つ買いました",
+            "二つ買いました",
+            "三つ買いました",
+            "十個買いました"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết có câu「りんごを三つとオレンジを二つ買いました」— \"mua ba quả táo và hai quả cam\". 三つ (みっつ) = ba. Đáp án đúng: \"三つ買いました\". Sai: \"二つ\" là số cam (オレンジ), không phải táo. \"十個\" là số trứng (卵), không liên quan táo. \"一つ\" không xuất hiện với りんご.",
+          "tip": "Câu hỏi hỏi \"いくつ\" → tìm ngay cặp「りんごを___つ」trong bài. 三つ = みっつ = 3; ふたつ = 2 (đó là cam). Đừng nhầm số của hai thứ khác nhau.",
+          "qt": {
+            "q": "Tôi đã mua bao nhiêu quả táo ở siêu thị?",
+            "o": [
+              "Tôi đã mua một quả",
+              "Tôi đã mua hai quả",
+              "Tôi đã mua ba quả",
+              "Tôi đã mua mười quả"
+            ]
+          }
+        },
+        {
+          "q": "全部でいくらぐらいでしたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "三百円ぐらいです",
+            "五百円ぐらいです",
+            "千円ぐらいです",
+            "百円ぐらいです"
+          ],
+          "answer": 1,
+          "explainVi": "Bài có câu「全部で五百円ぐらいでした」— \"tổng cộng khoảng năm trăm yên\". Đáp án đúng: \"五百円ぐらいです\". Sai: \"三百円\" và \"百円\" không xuất hiện. \"千円\" (một nghìn yên) lớn hơn và không có trong bài. ぐらい trong câu hỏi và câu trả lời đều giống nhau — dấu hiệu để tìm đáp án.",
+          "tip": "Câu hỏi \"いくらぐらい\" → tìm ngay「全部で〜円ぐらいでした」. Chỉ có MỘT con số tiền trong đoạn ngắn — đọc lướt là thấy ngay.",
+          "qt": {
+            "q": "Tổng cộng khoảng bao nhiêu tiền?",
+            "o": [
+              "Khoảng 300 yên",
+              "Khoảng 500 yên",
+              "Khoảng 1.000 yên",
+              "Khoảng 100 yên"
+            ]
+          }
+        },
+        {
+          "q": "ケーキは何のために買いましたか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "自分のためです",
+            "先生へのプレゼントのためです",
+            "友だちへのプレゼントのためです",
+            "家族へのプレゼントのためです"
+          ],
+          "answer": 2,
+          "explainVi": "Bài có câu「友だちへのプレゼントにケーキも一つ買いました」— \"tôi cũng mua một cái bánh làm quà cho bạn\". 友だち = bạn bè. Đáp án đúng: \"友だちへのプレゼントのためです\". Sai: \"先生\" (giáo viên) và \"家族\" (gia đình) không được nhắc đến. \"自分のため\" (cho bản thân) mâu thuẫn với từ プレゼント (quà tặng) trong bài.",
+          "tip": "Câu hỏi hỏi \"何のため\" → tìm từ「プレゼント」trong bài rồi đọc xem プレゼント \"cho ai\" (〜へ). Chỉ cần xác định đúng người nhận là xong.",
+          "qt": {
+            "q": "Bánh kem được mua để làm gì?",
+            "o": [
+              "Để dành cho bản thân",
+              "Để làm quà tặng thầy/cô giáo",
+              "Để làm quà tặng bạn bè",
+              "Để làm quà tặng gia đình"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "カリナさんの買い物",
+      "titleVi": "Chuyện mua sắm của Karina",
+      "japanese": "カリナさんはきょう、デパートへ行きました。\nはじめに、文房具売り場へ行きました。ノートを三冊と鉛筆を五本買いました。ノートは一冊二百円でした。\n次に、電気売り場へ行きました。パソコンが三台ありました。でも、カリナさんはパソコンを買いませんでした。カメラを一台だけ買いました。\nそれから、洋服売り場でシャツを二枚見ました。一枚は白いです。一枚は青いです。カリナさんは青いシャツを一枚買いました。\nカフェでコーヒーを一杯飲みました。カフェで三十分ぐらい休みました。\nカリナさんは今日、デパートには何回行きましたか。三回ぐらい行きました。\n全部でどのくらいでしたか。三万円ぐらいでした。",
+      "vietnamese": "Hôm nay Karina đi bách hoá.\nĐầu tiên cô đến quầy văn phòng phẩm. Cô mua ba quyển vở và năm cái bút chì. Mỗi quyển vở giá hai trăm yên.\nTiếp theo cô đến quầy điện tử. Có ba cái máy tính. Nhưng Karina không mua máy tính. Cô chỉ mua một cái máy ảnh.\nSau đó ở quầy quần áo, cô nhìn thấy hai cái áo sơ mi. Một cái màu trắng. Một cái màu xanh. Karina mua một cái áo sơ mi màu xanh.\nỞ quán cà phê cô uống một ly cà phê. Cô nghỉ ngơi ở quán cà phê khoảng ba mươi phút.\nHôm nay Karina đến bách hoá mấy lần? Cô đến khoảng ba lần.\nTổng cộng là bao nhiêu? Khoảng ba mươi nghìn yên.",
+      "sentences": [
+        {
+          "jp": "カリナさんはきょう、デパートへ行きました。",
+          "vi": "Hôm nay Karina đi bách hoá.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "きょう",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hoá, trung tâm thương mại"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます（Bài 5）",
+              "vi": "デパートへ行きました = đi đến bách hoá."
+            }
+          ]
+        },
+        {
+          "jp": "はじめに、文房具売り場へ行きました。",
+          "vi": "Đầu tiên cô đến quầy văn phòng phẩm.",
+          "vocab": [
+            {
+              "w": "はじめ",
+              "read": "はじめ",
+              "vi": "lúc đầu, ban đầu"
+            },
+            {
+              "w": "文房具",
+              "read": "ぶんぼうぐ",
+              "vi": "văn phòng phẩm"
+            },
+            {
+              "w": "売り場",
+              "read": "うりば",
+              "vi": "quầy bán, khu bán hàng"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "はじめに",
+              "read": "はじめに",
+              "vi": "đầu tiên, trước tiên"
+            },
+            {
+              "w": "文房具売り場",
+              "read": "ぶんぼうぐうりば",
+              "vi": "quầy văn phòng phẩm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます（Bài 5）",
+              "vi": "Chỉ hướng đi: 売り場へ行きました."
+            }
+          ]
+        },
+        {
+          "jp": "ノートを三冊と鉛筆を五本買いました。",
+          "vi": "Cô mua ba quyển vở và năm cái bút chì.",
+          "vocab": [
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "鉛筆",
+              "read": "えんぴつ",
+              "vi": "bút chì"
+            },
+            {
+              "w": "買いました",
+              "read": "かいました",
+              "vi": "đã mua"
+            },
+            {
+              "w": "三冊",
+              "read": "さんさつ",
+              "vi": "ba quyển (〜冊 đếm sách/vở)"
+            },
+            {
+              "w": "五本",
+              "read": "ごほん",
+              "vi": "năm cái (〜本 đếm vật dài)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞〜冊（Bài 11）",
+              "vi": "三冊 (さんさつ) = ba quyển. Dùng 冊 cho sách, vở, tạp chí."
+            },
+            {
+              "point": "数量詞＋Vます（Bài 11）",
+              "vi": "Số lượng đứng sau tân ngữ (を), trước động từ."
+            }
+          ]
+        },
+        {
+          "jp": "ノートは一冊二百円でした。",
+          "vi": "Mỗi quyển vở giá hai trăm yên.",
+          "vocab": [
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở, sổ tay"
+            },
+            {
+              "w": "一冊",
+              "read": "いっさつ",
+              "vi": "một quyển"
+            },
+            {
+              "w": "二百円",
+              "read": "にひゃくえん",
+              "vi": "hai trăm yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "数量詞＋Vます（Bài 11）",
+              "vi": "Dùng trợ số từ để nói đơn giá: một quyển hai trăm yên."
+            },
+            {
+              "point": "NはNでした（Bài 1 + Bài 4）",
+              "vi": "Câu định nghĩa/trạng thái quá khứ."
+            }
+          ]
+        },
+        {
+          "jp": "次に、電気売り場へ行きました。",
+          "vi": "Tiếp theo cô đến quầy điện tử.",
+          "vocab": [
+            {
+              "w": "次に",
+              "read": "つぎに",
+              "vi": "tiếp theo, sau đó"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "売り場",
+              "read": "うりば",
+              "vi": "quầy bán, khu bán hàng"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "電気売り場",
+              "read": "でんきうりば",
+              "vi": "quầy điện tử/đồ điện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NへVます（Bài 5）",
+              "vi": "Di chuyển đến quầy tiếp theo."
+            }
+          ]
+        },
+        {
+          "jp": "パソコンが三台ありました。",
+          "vi": "Có ba cái máy tính.",
+          "vocab": [
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính (PC)"
+            },
+            {
+              "w": "三台",
+              "read": "さんだい",
+              "vi": "ba cái (〜台 đếm máy móc/xe)"
+            },
+            {
+              "w": "ありました",
+              "read": "ありました",
+              "vi": "đã có (quá khứ của あります)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞〜台（Bài 11）",
+              "vi": "三台 (さんだい) = ba cái máy. 台 dùng cho máy móc, xe cộ."
+            },
+            {
+              "point": "〜があります（Bài 9）",
+              "vi": "パソコンがあります = có máy tính."
+            }
+          ]
+        },
+        {
+          "jp": "でも、カリナさんはパソコンを買いませんでした。カメラを一台だけ買いました。",
+          "vi": "Nhưng Karina không mua máy tính. Cô chỉ mua một cái máy ảnh.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "パソコン",
+              "read": "パソコン",
+              "vi": "máy tính cá nhân"
+            },
+            {
+              "w": "買いませんでした",
+              "read": "かいませんでした",
+              "vi": "đã không mua"
+            },
+            {
+              "w": "カメラ",
+              "read": "カメラ",
+              "vi": "máy ảnh"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "一台",
+              "read": "いちだい",
+              "vi": "một cái (máy)"
+            },
+            {
+              "w": "だけ",
+              "read": "だけ",
+              "vi": "chỉ, chỉ có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "一台だけ = chỉ một cái thôi. だけ gắn sau số lượng nhấn mạnh giới hạn."
+            },
+            {
+              "point": "助数詞〜台（Bài 11）",
+              "vi": "カメラを一台 = một cái máy ảnh."
+            },
+            {
+              "point": "Vませんでした（Bài 4）",
+              "vi": "Phủ định quá khứ: KHÔNG mua máy tính."
+            }
+          ]
+        },
+        {
+          "jp": "それから、洋服売り場でシャツを二枚見ました。",
+          "vi": "Sau đó ở quầy quần áo, cô nhìn thấy hai cái áo sơ mi.",
+          "vocab": [
+            {
+              "w": "それから",
+              "read": "それから",
+              "vi": "sau đó"
+            },
+            {
+              "w": "洋服",
+              "read": "ようふく",
+              "vi": "quần áo"
+            },
+            {
+              "w": "売り場",
+              "read": "うりば",
+              "vi": "quầy bán, khu bán hàng"
+            },
+            {
+              "w": "シャツ",
+              "read": "シャツ",
+              "vi": "áo sơ mi"
+            },
+            {
+              "w": "見ました",
+              "read": "みました",
+              "vi": "đã nhìn thấy"
+            },
+            {
+              "w": "洋服売り場",
+              "read": "ようふくうりば",
+              "vi": "quầy quần áo"
+            },
+            {
+              "w": "二枚",
+              "read": "にまい",
+              "vi": "hai cái (〜枚 đếm đồ phẳng/quần áo)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞〜枚（Bài 11）",
+              "vi": "二枚 (にまい) = hai cái. 枚 dùng cho thứ phẳng: áo, tờ giấy, đĩa CD, ảnh."
+            },
+            {
+              "point": "NでVます（Bài 6/7）",
+              "vi": "洋服売り場で = tại quầy quần áo. で chỉ địa điểm hành động."
+            }
+          ]
+        },
+        {
+          "jp": "一枚は白いです。一枚は青いです。カリナさんは青いシャツを一枚買いました。",
+          "vi": "Một cái màu trắng. Một cái màu xanh. Karina mua một cái áo màu xanh.",
+          "vocab": [
+            {
+              "w": "白い",
+              "read": "しろい",
+              "vi": "màu trắng (tính từ い)"
+            },
+            {
+              "w": "青い",
+              "read": "あおい",
+              "vi": "màu xanh (tính từ い)"
+            },
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "シャツ",
+              "read": "シャツ",
+              "vi": "áo sơ mi"
+            },
+            {
+              "w": "買う",
+              "read": "かう",
+              "vi": "mua"
+            },
+            {
+              "w": "一枚",
+              "read": "いちまい",
+              "vi": "một cái"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いAdjN（Bài 8）",
+              "vi": "青いシャツ = áo màu xanh. Tính từ い đứng trước danh từ."
+            },
+            {
+              "point": "数量詞＋Vます（Bài 11）",
+              "vi": "青いシャツを一枚買いました = mua một cái áo xanh."
+            }
+          ]
+        },
+        {
+          "jp": "カフェでコーヒーを一杯飲みました。",
+          "vi": "Ở quán cà phê cô uống một ly cà phê.",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "一杯",
+              "read": "いっぱい",
+              "vi": "một ly/chén (〜杯 đếm ly/bát chứa chất lỏng)"
+            },
+            {
+              "w": "飲みました",
+              "read": "のみました",
+              "vi": "đã uống"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞〜杯（Bài 11）",
+              "vi": "一杯 (いっぱい) = một ly. 杯 dùng cho ly, chén, bát (chứa chất lỏng)."
+            },
+            {
+              "point": "数量詞＋Vます（Bài 11）",
+              "vi": "コーヒーを一杯飲みました = uống một ly cà phê."
+            }
+          ]
+        },
+        {
+          "jp": "カフェで三十分ぐらい休みました。",
+          "vi": "Cô nghỉ ngơi ở quán cà phê khoảng ba mươi phút.",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "休みました",
+              "read": "やすみました",
+              "vi": "đã nghỉ ngơi"
+            },
+            {
+              "w": "三十分",
+              "read": "さんじゅっぷん",
+              "vi": "ba mươi phút"
+            },
+            {
+              "w": "ぐらい",
+              "read": "ぐらい",
+              "vi": "khoảng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜時間・〜分（Bài 11 / Bài 4）",
+              "vi": "三十分 = ba mươi phút. 時間 đếm số giờ, 分 đếm số phút."
+            },
+            {
+              "point": "〜ぐらい（Bài 11）",
+              "vi": "三十分ぐらい = khoảng ba mươi phút."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんは今日、デパートには何回行きましたか。三回ぐらい行きました。",
+          "vi": "Hôm nay Karina đến bách hoá mấy lần? Cô đến khoảng ba lần.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "デパート",
+              "read": "デパート",
+              "vi": "bách hoá, trung tâm thương mại"
+            },
+            {
+              "w": "行きました",
+              "read": "いきました",
+              "vi": "đã đến/đi (quá khứ của 行きます)"
+            },
+            {
+              "w": "何回",
+              "read": "なんかい",
+              "vi": "mấy lần, bao nhiêu lần"
+            },
+            {
+              "w": "三回",
+              "read": "さんかい",
+              "vi": "ba lần (〜回 đếm số lần)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞〜回（Bài 11）",
+              "vi": "何回／三回 — 〜回 (かい) đếm số lần thực hiện hành động."
+            },
+            {
+              "point": "〜ぐらい（Bài 11）",
+              "vi": "三回ぐらい = khoảng ba lần."
+            }
+          ]
+        },
+        {
+          "jp": "全部でどのくらいでしたか。三万円ぐらいでした。",
+          "vi": "Tổng cộng là bao nhiêu? Khoảng ba mươi nghìn yên.",
+          "vocab": [
+            {
+              "w": "全部で",
+              "read": "ぜんぶで",
+              "vi": "tổng cộng"
+            },
+            {
+              "w": "どのくらい",
+              "read": "どのくらい",
+              "vi": "bao nhiêu, bao lâu (hỏi mức độ/số lượng)"
+            },
+            {
+              "w": "三万円",
+              "read": "さんまんえん",
+              "vi": "ba mươi nghìn yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どのくらい（Bài 11）",
+              "vi": "Hỏi số lượng/mức độ: \"bao nhiêu, khoảng bao nhiêu\". Câu trả lời thường có 〜ぐらい."
+            },
+            {
+              "point": "〜ぐらい（Bài 11）",
+              "vi": "三万円ぐらい = khoảng ba mươi nghìn yên."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ノートを三冊と鉛筆を五本買いました",
+          "label": "助数詞〜冊・〜本 ／ 数量詞＋Vます"
+        },
+        {
+          "excerpt": "パソコンが三台ありました",
+          "label": "助数詞〜台"
+        },
+        {
+          "excerpt": "カメラを一台だけ買いました",
+          "label": "〜だけ"
+        },
+        {
+          "excerpt": "シャツを二枚見ました",
+          "label": "助数詞〜枚"
+        },
+        {
+          "excerpt": "コーヒーを一杯飲みました",
+          "label": "助数詞〜杯"
+        },
+        {
+          "excerpt": "三回ぐらい行きました",
+          "label": "助数詞〜回 ／ 〜ぐらい"
+        },
+        {
+          "excerpt": "全部でどのくらいでしたか",
+          "label": "どのくらい"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんはデパートで何を買いましたか。",
+          "evi": [
+            2,
+            6,
+            8
+          ],
+          "options": [
+            "パソコンとカメラを買いました",
+            "カメラとシャツと文房具を買いました",
+            "シャツとパソコンを買いました",
+            "ノートだけ買いました"
+          ],
+          "answer": 1,
+          "explainVi": "Bài kể Karina mua ở ba quầy: 文房具売り場 (quầy văn phòng phẩm) → mua ノート và 鉛筆 (= 文房具); 電気売り場 (quầy điện tử) →「カメラを一台だけ買いました」, không mua パソコン vì「パソコンを買いませんでした」; 洋服売り場 →「青いシャツを一枚買いました」. Đáp án đúng: \"カメラとシャツと文房具を買いました\". Sai: \"パソコンとカメラ\" — bài nói rõ không mua パソコン. \"シャツとパソコン\" — cùng lý do. \"ノートだけ\" — còn mua thêm nhiều thứ khác.",
+          "tip": "Câu hỏi hỏi \"何を買った\" → gạch nhanh TẤT CẢ động từ「買いました」trong bài (bỏ qua「買いませんでした」). Đáp án đúng phải khớp với mọi thứ đã mua.",
+          "qt": {
+            "q": "Karina đã mua gì ở cửa hàng bách hóa?",
+            "o": [
+              "Đã mua máy tính và máy ảnh",
+              "Đã mua máy ảnh, áo sơ mi và đồ dùng học tập",
+              "Đã mua áo sơ mi và máy tính",
+              "Chỉ mua vở"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはカフェでどのくらい休みましたか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "一時間ぐらい休みました",
+            "一時間半ぐらい休みました",
+            "三十分ぐらい休みました",
+            "十分ぐらい休みました"
+          ],
+          "answer": 2,
+          "explainVi": "Bài có câu「カフェで三十分ぐらい休みました」— \"nghỉ khoảng ba mươi phút ở quán cà phê\". 三十分 (さんじゅっぷん) = 30 phút. Đáp án đúng: \"三十分ぐらい休みました\". Sai: \"一時間\" (60 phút) và \"一時間半\" (90 phút) lớn hơn 30 phút, không có trong bài. \"十分\" (10 phút) nhỏ hơn, cũng không xuất hiện.",
+          "tip": "Câu hỏi \"どのくらい休んだ\" → tìm từ「休みました」kèm số thời gian. 三十分 = 30 phút, 一時間 = 60 phút — nhớ đơn vị để không bị nhầm.",
+          "qt": {
+            "q": "Karina đã nghỉ ở quán cà phê khoảng bao lâu?",
+            "o": [
+              "Đã nghỉ khoảng một tiếng",
+              "Đã nghỉ khoảng một tiếng rưỡi",
+              "Đã nghỉ khoảng ba mươi phút",
+              "Đã nghỉ khoảng mười phút"
+            ]
+          }
+        },
+        {
+          "q": "カリナさんはシャツを何枚買いましたか。",
+          "evi": [
+            7,
+            8
+          ],
+          "options": [
+            "一枚だけ買いました",
+            "二枚買いました",
+            "三枚買いました",
+            "買いませんでした"
+          ],
+          "answer": 0,
+          "explainVi": "Bài phân biệt rõ: \"nhìn thấy\" (見ました) ≠ \"mua\" (買いました). 「シャツを二枚見ました」— nhìn thấy hai cái (một trắng, một xanh). Nhưng「カリナさんは青いシャツを一枚買いました」— chỉ mua MỘT cái màu xanh. Đáp án đúng: \"一枚だけ買いました\". Sai: \"二枚\" là số áo nhìn thấy, không phải mua. \"三枚\" không xuất hiện. \"買いませんでした\" mâu thuẫn với câu cuối.",
+          "tip": "Câu hỏi hỏi số lượng MUA → chỉ đếm những câu có「買いました」, bỏ qua「見ました」. Đây là bẫy phổ biến: bài kể nhìn thấy 2 nhưng chỉ mua 1.",
+          "qt": {
+            "q": "Karina đã mua bao nhiêu chiếc áo sơ mi?",
+            "o": [
+              "Chỉ mua một chiếc",
+              "Đã mua hai chiếc",
+              "Đã mua ba chiếc",
+              "Đã không mua"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "にこにこ市場　しなものの注文用紙",
+      "titleVi": "Tờ đặt hàng của cửa hàng Nikoniko",
+      "japanese": "にこにこ市場　しなものの注文用紙\nにこにこ市場では、りんごとオレンジとチーズケーキを注文します。注文は電話でだけです。品物は一つからです。\nしなもの｜ねだん｜送料\nりんご｜一つ二百円｜三つまで三百円\nオレンジ｜一つ百五十円｜三つまで三百円\nチーズケーキ｜一つ千円｜一つだけ五百円\n※りんごとオレンジは、四つから六つまで送料は四百円です。\n注文は一日に六つぐらいまでです。\n電話：0120-55-8899（午前九時から午後六時まで）",
+      "vietnamese": "Tờ đặt hàng của cửa hàng Nikoniko\nỞ cửa hàng Nikoniko, bạn đặt táo, cam và bánh phô mai. Đặt hàng chỉ bằng điện thoại thôi. Món hàng là từ một cái trở lên.\nMón hàng｜Giá｜Phí gửi\nTáo｜Một quả hai trăm yên｜Đến ba quả ba trăm yên\nCam｜Một quả một trăm năm mươi yên｜Đến ba quả ba trăm yên\nBánh phô mai｜Một cái một nghìn yên｜Chỉ một cái năm trăm yên\n※Táo và cam, từ bốn đến sáu quả thì phí gửi thành bốn trăm yên.\nMỗi ngày chỉ đặt được khoảng sáu cái.\nĐiện thoại: 0120-55-8899 (từ chín giờ sáng đến sáu giờ chiều)",
+      "sentences": [
+        {
+          "jp": "にこにこ市場　しなものの注文用紙",
+          "vi": "Tờ đặt hàng của cửa hàng Nikoniko",
+          "vocab": [
+            {
+              "w": "にこにこ",
+              "read": "にこにこ",
+              "vi": "tươi cười, mỉm cười"
+            },
+            {
+              "w": "市場",
+              "read": "しじょう",
+              "vi": "thị trường"
+            },
+            {
+              "w": "注文",
+              "read": "ちゅうもん",
+              "vi": "đặt hàng"
+            },
+            {
+              "w": "用紙",
+              "read": "ようし",
+              "vi": "phiếu mẫu, tờ giấy"
+            },
+            {
+              "w": "にこにこ市場",
+              "read": "にこにこいちば",
+              "vi": "cửa hàng Nikoniko (tên riêng)"
+            },
+            {
+              "w": "しなもの",
+              "read": "しなもの",
+              "vi": "món hàng, sản phẩm"
+            },
+            {
+              "w": "注文用紙",
+              "read": "ちゅうもんようし",
+              "vi": "tờ đặt hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（Bài 1）",
+              "vi": "しなものの注文用紙 = tờ đặt hàng CỦA món hàng. Đây là tiêu đề tờ thông báo."
+            }
+          ],
+          "keys": [
+            {
+              "w": "注文用紙",
+              "why": "Từ khoá xác định đây là tờ đặt hàng, cần dò bảng chứ không đọc như câu chuyện."
+            }
+          ]
+        },
+        {
+          "jp": "にこにこ市場では、りんごとオレンジとチーズケーキを注文します。注文は電話でだけです。品物は一つからです。",
+          "vi": "Ở cửa hàng Nikoniko, bạn đặt táo, cam và bánh phô mai. Đặt hàng chỉ bằng điện thoại thôi. Món hàng là từ một cái trở lên.",
+          "vocab": [
+            {
+              "w": "にこにこ",
+              "read": "にこにこ",
+              "vi": "tươi cười, mỉm cười"
+            },
+            {
+              "w": "市場",
+              "read": "しじょう",
+              "vi": "thị trường"
+            },
+            {
+              "w": "りんご",
+              "read": "りんご",
+              "vi": "táo"
+            },
+            {
+              "w": "オレンジ",
+              "read": "オレンジ",
+              "vi": "cam"
+            },
+            {
+              "w": "チーズ",
+              "read": "チーズ",
+              "vi": "phô mai"
+            },
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh ngọt, bánh kem"
+            },
+            {
+              "w": "注文",
+              "read": "ちゅうもん",
+              "vi": "đặt hàng"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "品物",
+              "read": "しなもの",
+              "vi": "món hàng, món đồ"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "チーズケーキ",
+              "read": "チーズケーキ",
+              "vi": "bánh phô mai"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "電話で（Bài 7 ôn）",
+              "vi": "電話で = bằng điện thoại. で chỉ phương tiện/công cụ, giống 電話で話します đã học ở Bài 7."
+            },
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "電話でだけです = CHỈ bằng điện thoại thôi, không có cách khác để đặt hàng."
+            },
+            {
+              "point": "助数詞〜つ（Bài 11）",
+              "vi": "一つからです = từ một cái trở lên, dùng trợ số từ 〜つ như Bài 11 đã học."
+            }
+          ],
+          "keys": [
+            {
+              "w": "電話でだけです",
+              "why": "Điều kiện bắt buộc: chỉ được đặt hàng qua điện thoại, không phải cách khác."
+            },
+            {
+              "w": "一つからです",
+              "why": "Cho biết số lượng tối thiểu để đặt hàng."
+            }
+          ]
+        },
+        {
+          "jp": "しなもの｜ねだん｜送料",
+          "vi": "Món hàng｜Giá｜Phí gửi",
+          "vocab": [
+            {
+              "w": "ねだん",
+              "read": "ねだん",
+              "vi": "giá cả"
+            },
+            {
+              "w": "送料",
+              "read": "そうりょう",
+              "vi": "phí gửi hàng"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "ねだん",
+              "why": "Cột giá — dò để tính tổng tiền khi mua."
+            },
+            {
+              "w": "送料",
+              "why": "Cột phí gửi — dò để cộng thêm vào tổng tiền theo số lượng."
+            }
+          ]
+        },
+        {
+          "jp": "りんご｜一つ二百円｜三つまで三百円",
+          "vi": "Táo｜Một quả hai trăm yên｜Đến ba quả ba trăm yên",
+          "vocab": [
+            {
+              "w": "りんご",
+              "read": "りんご",
+              "vi": "táo"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái"
+            },
+            {
+              "w": "二百円",
+              "read": "にひゃくえん",
+              "vi": "hai trăm yên"
+            },
+            {
+              "w": "三百円",
+              "read": "さんびゃくえん",
+              "vi": "ba trăm yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞〜つ（Bài 11）",
+              "vi": "一つ二百円 = mỗi quả (táo) hai trăm yên, dùng trợ số từ 〜つ đếm đồ vật tròn."
+            },
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "三つまで = đến ba quả (ý ngầm: từ một quả), mượn cấu trúc までđã học ở Bài 4."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一つ二百円",
+              "why": "Đơn giá táo — căn cứ chính để tính tổng tiền khi mua táo."
+            },
+            {
+              "w": "三つまで三百円",
+              "why": "Phí gửi cơ bản của táo khi mua đến ba quả."
+            }
+          ]
+        },
+        {
+          "jp": "オレンジ｜一つ百五十円｜三つまで三百円",
+          "vi": "Cam｜Một quả một trăm năm mươi yên｜Đến ba quả ba trăm yên",
+          "vocab": [
+            {
+              "w": "オレンジ",
+              "read": "オレンジ",
+              "vi": "cam"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "三つ",
+              "read": "みっつ",
+              "vi": "ba cái (đếm đồ vật nhỏ)"
+            },
+            {
+              "w": "百五十円",
+              "read": "ひゃくごじゅうえん",
+              "vi": "một trăm năm mươi yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "助数詞〜つ（Bài 11）",
+              "vi": "一つ百五十円 = mỗi quả cam một trăm năm mươi yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一つ百五十円",
+              "why": "Đơn giá cam — ô sát cạnh đơn giá táo, dễ nhầm nếu đọc lướt."
+            }
+          ]
+        },
+        {
+          "jp": "チーズケーキ｜一つ千円｜一つだけ五百円",
+          "vi": "Bánh phô mai｜Một cái một nghìn yên｜Chỉ một cái năm trăm yên",
+          "vocab": [
+            {
+              "w": "チーズ",
+              "read": "チーズ",
+              "vi": "phô mai"
+            },
+            {
+              "w": "ケーキ",
+              "read": "ケーキ",
+              "vi": "bánh ngọt, bánh kem"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "千円",
+              "read": "せんえん",
+              "vi": "một nghìn yên"
+            },
+            {
+              "w": "五百円",
+              "read": "ごひゃくえん",
+              "vi": "năm trăm yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だけ（Bài 11）",
+              "vi": "一つだけ五百円 = CHỈ khi mua đúng một cái thì phí gửi mới là năm trăm yên (không áp dụng cho số lượng khác)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一つだけ五百円",
+              "why": "Phí gửi bánh phô mai chỉ áp dụng khi mua đúng 1 cái — bẫy nếu câu hỏi hỏi về số lượng khác."
+            }
+          ]
+        },
+        {
+          "jp": "※りんごとオレンジは、四つから六つまで送料は四百円です。",
+          "vi": "※Táo và cam, từ bốn đến sáu quả thì phí gửi là bốn trăm yên.",
+          "vocab": [
+            {
+              "w": "りんご",
+              "read": "りんご",
+              "vi": "táo"
+            },
+            {
+              "w": "オレンジ",
+              "read": "オレンジ",
+              "vi": "cam"
+            },
+            {
+              "w": "四つ",
+              "read": "よっつ",
+              "vi": "bốn cái"
+            },
+            {
+              "w": "六つ",
+              "read": "むっつ",
+              "vi": "sáu cái"
+            },
+            {
+              "w": "送料",
+              "read": "そうりょう",
+              "vi": "phí gửi hàng"
+            },
+            {
+              "w": "四百円",
+              "read": "よんひゃくえん",
+              "vi": "bốn trăm yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "四つから六つまで = từ bốn đến sáu quả, mức phí gửi thứ hai sau mốc \"đến ba quả\"."
+            },
+            {
+              "point": "助数詞〜つ（Bài 11）",
+              "vi": "四つ・六つ tiếp tục dùng trợ số từ 〜つ đếm số lượng táo/cam."
+            },
+            {
+              "point": "NはNです（Bài 1 ôn）",
+              "vi": "送料は四百円です = phí gửi LÀ bốn trăm yên. Câu định nghĩa cơ bản NはNです."
+            }
+          ],
+          "keys": [
+            {
+              "w": "四つから六つまで送料は四百円",
+              "why": "Mốc phí gửi thứ hai — bắt buộc phải dò dòng ※ này khi mua từ 4 đến 6 quả."
+            }
+          ]
+        },
+        {
+          "jp": "注文は一日に六つぐらいまでです。",
+          "vi": "Mỗi ngày chỉ đặt được khoảng sáu cái.",
+          "vocab": [
+            {
+              "w": "注文",
+              "read": "ちゅうもん",
+              "vi": "đặt hàng"
+            },
+            {
+              "w": "六つ",
+              "read": "むっつ",
+              "vi": "sáu cái"
+            },
+            {
+              "w": "一日に",
+              "read": "いちにちに",
+              "vi": "trong một ngày"
+            },
+            {
+              "w": "ぐらい",
+              "read": "ぐらい",
+              "vi": "khoảng, xấp xỉ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ぐらい（Bài 11）",
+              "vi": "六つぐらいまで = khoảng đến sáu cái là giới hạn đặt hàng mỗi ngày."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一日に六つぐらいまで",
+              "why": "Giới hạn số lượng đặt hàng mỗi ngày — không liên quan trực tiếp câu hỏi giá nhưng dễ gây nhiễu."
+            }
+          ]
+        },
+        {
+          "jp": "電話：0120-55-8899（午前九時から午後六時まで）",
+          "vi": "Điện thoại: 0120-55-8899 (từ chín giờ sáng đến sáu giờ chiều)",
+          "vocab": [
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "0120-55-8899",
+              "read": "ぜろいちにぜろ ごーごー はちはち きゅうきゅう",
+              "vi": "số điện thoại 0120-55-8899"
+            },
+            {
+              "w": "午前",
+              "read": "ごぜん",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "九時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "六時",
+              "read": "ろくじ",
+              "vi": "6 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで（Bài 4 ôn）",
+              "vi": "午前九時から午後六時まで = từ chín giờ sáng đến sáu giờ chiều, mẫu 〜から〜まで đã học ở Bài 4."
+            }
+          ],
+          "keys": [
+            {
+              "w": "午前九時から午後六時まで",
+              "why": "Giờ nhận điện thoại đặt hàng — không phải căn cứ câu hỏi giá nhưng cần biết để loại nhiễu về thời gian."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "注文は電話でだけです",
+          "label": "〜だけ"
+        },
+        {
+          "excerpt": "一つ二百円",
+          "label": "助数詞〜つ"
+        },
+        {
+          "excerpt": "四つから六つまで送料は四百円です",
+          "label": "助数詞〜つ／NからNまで（Bài 4 ôn）"
+        },
+        {
+          "excerpt": "六つぐらいまでです",
+          "label": "〜ぐらい"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & giới thiệu",
+          "topic": 0,
+          "note": "Tên cửa hàng, cách đặt hàng (chỉ qua điện thoại) và số lượng tối thiểu.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "kind": "body",
+          "label": "Bảng giá — Táo",
+          "topic": 3,
+          "note": "Header bảng và dòng giá/phí gửi của táo — căn cứ chính để tính tiền mua táo.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 4,
+          "to": 5,
+          "kind": "point",
+          "label": "Bảng giá — Cam & Bánh",
+          "topic": 4,
+          "note": "Giá cam và bánh phô mai; ô sát cạnh dễ nhầm với táo nếu đọc lướt.",
+          "qs": []
+        },
+        {
+          "from": 6,
+          "to": 6,
+          "kind": "turn",
+          "label": "Điều kiện ※ phí gửi",
+          "topic": 6,
+          "note": "Mốc phí gửi thứ hai (4–6 quả = 400円) — bẫy chính của câu hỏi, phải cộng đúng mốc.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "body",
+          "label": "Giới hạn & liên hệ",
+          "topic": 8,
+          "note": "Giới hạn số lượng/ngày và giờ liên hệ điện thoại — không phải căn cứ giá nhưng dùng để loại nhiễu.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんはりんごを五つ注文しました。全部でいくら払いますか。",
+          "options": [
+            "千円です",
+            "千三百円です",
+            "千四百円です",
+            "千五百円です"
+          ],
+          "answer": 2,
+          "explainVi": "Bảng cho biết「りんご｜一つ二百円」→ năm quả táo = 二百円×五＝千円 (1000円). Về phí gửi, dòng ※ ghi「りんごとオレンジは、四つから六つまで送料は四百円です」— năm quả táo nằm trong mốc 4〜6 quả nên phí gửi là 四百円 (400円), KHÔNG phải mốc「三つまで三百円」(chỉ áp dụng đến 3 quả). Tổng: 千円＋四百円＝千四百円 (1400円). Đáp án đúng: \"千四百円です\". Sai: \"千円\" chỉ tính giá táo, quên cộng phí gửi. \"千三百円\" nhầm dùng mốc phí gửi「三つまで三百円」cho 5 quả (mốc đó chỉ áp dụng đến 3 quả). \"千五百円\" cộng sai, không khớp bảng.",
+          "tip": "Câu hỏi hỏi \"mua N cái, hết bao nhiêu tiền?\" → làm 2 bước: (1) lấy đơn giá × số lượng ở bảng chính, (2) dò đúng MỐC phí gửi ở dòng ※ theo số lượng (đừng dùng nhầm mốc「đến 3」cho số lượng lớn hơn 3).",
+          "evi": [
+            3,
+            6
+          ],
+          "qt": {
+            "q": "Ông Miller đã đặt năm quả táo. Tổng cộng phải trả bao nhiêu tiền?",
+            "o": [
+              "1.000 yên",
+              "1.300 yên",
+              "1.400 yên",
+              "1.500 yên"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

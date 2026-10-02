@@ -1,0 +1,1474 @@
+{
+  "bai": 9,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 9 tập trung vào cách diễn đạt SỞ THÍCH (好き・嫌い), KHẢ NĂNG (上手・下手), SỰ HIỂU BIẾT (わかります), SỰ KIỆN (があります) và LÝ DO (〜から / どうして). Khi đọc, hãy chú ý trợ từ が — nó đánh dấu đối tượng của sở thích, khả năng, hoặc hiểu biết, khác với は dùng cho chủ đề chính.",
+    "steps": [
+      "Xác định CHỦ ĐỀ (trước は): ai đang được nói tới, hoặc ai đang phát biểu.",
+      "Tìm trợ từ が sau danh từ để biết ĐỐI TƯỢNG của sở thích/khả năng/hiểu biết (Nが好きです, Nが上手です, Nがわかります).",
+      "Khi gặp どうして, đọc phần đứng sau vì sẽ có từ から ở cuối câu lý do — đó là câu trả lời.",
+      "Câu có があります (sự kiện): danh từ trước が là sự kiện/thứ \"có/tồn tại/diễn ra\".",
+      "Ôn lại tính từ い và な (Bài 8): bài này dùng nhiều おもしろい、たのしい、にぎやか để bổ nghĩa.",
+      "Chú ý cấu trúc lý do: [câu chính]。どうして → [lý do]から。 hoặc [lý do]から、[kết quả]。"
+    ],
+    "tips": [
+      "が好きです / が嫌いです: đối tượng luôn đứng trước が, KHÔNG dùng を ở đây.",
+      "が上手です: khen người khác tài giỏi; 〜は上手じゃありません: tự nói mình không giỏi (lịch sự).",
+      "がわかります ≠ 知っています: わかります = hiểu/đọc được; 知る (Bài 15) = biết thông tin.",
+      "があります (sự kiện): khác với があります (Bài 10 — vị trí đồ vật); ở đây là \"có/diễn ra\" (パーティーがあります).",
+      "から kết thúc câu lý do — đặt CUỐI mệnh đề nguyên nhân, KHÔNG phải đầu.",
+      "Chọn đáp án trắc nghiệm: đọc kỹ đối tượng của が — nhầm が/を là bẫy phổ biến nhất."
+    ],
+    "grammarFocus": [
+      "NはNが好きです・嫌いです",
+      "〜が上手です・下手です",
+      "〜がわかります",
+      "〜があります（có/sự kiện）",
+      "〜から（lý do）",
+      "どうして"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 8,
+        "items": [
+          "Tính từ い: おもしろい、たのしい、むずかしい、やさしい",
+          "Tính từ な: にぎやか、しずか、きれい、じょうぶ",
+          "NはＡです / ＮＡです (miêu tả đặc điểm)",
+          "とても、あまり〜ない (mức độ)"
+        ]
+      },
+      {
+        "bai": 6,
+        "items": [
+          "NをＶます (Bài 6): たべます、のみます、みます",
+          "NかN (hoặc): コーヒーかおちゃ",
+          "いっしょにＶませんか (rủ rê)"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "Ｎへ行きます／来ます (đi/đến)",
+          "いつ (khi nào)"
+        ]
+      },
+      {
+        "bai": 4,
+        "items": [
+          "Ｖます / Ｖません (hiện tại)",
+          "〜から〜まで (từ...đến...)",
+          "そして (và rồi)"
+        ]
+      },
+      {
+        "bai": 1,
+        "items": [
+          "NはNです / NのN (giới thiệu, sở hữu)"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "カリナさんの趣味",
+      "titleVi": "Sở thích của Karina",
+      "japanese": "カリナさんは音楽が好きです。ピアノも好きです。でも、カラオケはあまり好きじゃありません。カリナさんはピアノが上手です。ピアノが好きですから、毎日れんしゅうします。今週末、さくら大学でコンサートがあります。カリナさんはとてもたのしみです。",
+      "vietnamese": "Karina thích âm nhạc. Cô ấy cũng thích piano. Nhưng karaoke thì cô ấy không thích lắm. Karina giỏi piano. Vì thích piano nên ngày nào cô ấy cũng luyện tập. Cuối tuần này có buổi hòa nhạc ở Đại học Sakura. Karina rất mong chờ.",
+      "sentences": [
+        {
+          "jp": "カリナさんは音楽が好きです。",
+          "vi": "Karina thích âm nhạc.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNが好きです",
+              "vi": "カリナさん là chủ đề (は), 音楽 là đối tượng được thích (が好きです). Trợ từ が là bắt buộc trước 好きです."
+            }
+          ]
+        },
+        {
+          "jp": "ピアノも好きです。",
+          "vi": "Cô ấy cũng thích piano.",
+          "vocab": [
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも（cũng）",
+              "vi": "も thay thế が ở đây để nói \"piano cũng thích\" (ôn Bài 1: も = cũng). Có thể hiểu đủ: ピアノも好きです."
+            }
+          ]
+        },
+        {
+          "jp": "でも、カラオケはあまり好きじゃありません。",
+          "vi": "Nhưng karaoke thì cô ấy không thích lắm.",
+          "vocab": [
+            {
+              "w": "カラオケ",
+              "read": "カラオケ",
+              "vi": "karaoke"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không...lắm (dùng với phủ định)"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng, tuy nhiên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "あまり〜ない（Bài 8）",
+              "vi": "あまり + 好きじゃありません = không thích lắm. あまり phải đi với phủ định."
+            },
+            {
+              "point": "NはNが好きじゃありません",
+              "vi": "カラオケ dùng は (tương phản với ピアノ好き ở câu trên) + 好きじゃありません = không thích."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはピアノが上手です。",
+          "vi": "Karina giỏi piano.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が上手です",
+              "vi": "ピアノ là đối tượng (が), 上手です là vị ngữ. Mẫu: NはNが上手です = ai đó giỏi cái gì."
+            }
+          ]
+        },
+        {
+          "jp": "ピアノが好きですから、毎日れんしゅうします。",
+          "vi": "Vì thích piano nên ngày nào cô ấy cũng luyện tập.",
+          "vocab": [
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày, hằng ngày"
+            },
+            {
+              "w": "しゅう",
+              "read": "しゅう",
+              "vi": "luyện tập, tuần"
+            },
+            {
+              "w": "れんしゅうします",
+              "read": "れんしゅうします",
+              "vi": "luyện tập"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（lý do）",
+              "vi": "ピアノが好きです → nguyên nhân, kết thúc bằng から. Phần sau là kết quả: 毎日れんしゅうします."
+            }
+          ]
+        },
+        {
+          "jp": "今週末、さくら大学でコンサートがあります。",
+          "vi": "Cuối tuần này có buổi hòa nhạc ở Đại học Sakura.",
+          "vocab": [
+            {
+              "w": "今週",
+              "read": "こんしゅう",
+              "vi": "tuần này"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "コンサート",
+              "read": "コンサート",
+              "vi": "buổi hòa nhạc, concert"
+            },
+            {
+              "w": "今週末",
+              "read": "こんしゅうまつ",
+              "vi": "cuối tuần này"
+            },
+            {
+              "w": "さくら大学",
+              "read": "さくらだいがく",
+              "vi": "Đại học Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（sự kiện）",
+              "vi": "コンサートがあります = có/diễn ra buổi hòa nhạc. があります dùng cho sự kiện/việc xảy ra."
+            },
+            {
+              "point": "NでＶます（địa điểm — Bài 6）",
+              "vi": "さくら大学で = tại Đại học Sakura. で chỉ địa điểm diễn ra hành động/sự kiện."
+            }
+          ]
+        },
+        {
+          "jp": "カリナさんはとてもたのしみです。",
+          "vi": "Karina rất mong chờ.",
+          "vocab": [
+            {
+              "w": "カリナ",
+              "read": "カリナ",
+              "vi": "Karina (tên người)"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "たのしみ",
+              "read": "たのしみ",
+              "vi": "sự mong chờ, điều thú vị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです（楽しみ là danh từ）",
+              "vi": "たのしみ là DANH TỪ (sự mong chờ/kỳ vọng), không phải tính từ な. Cấu trúc: とてもたのしみです = mong chờ lắm. とても tăng mức độ."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "音楽が好きです",
+          "label": "NはNが好きです"
+        },
+        {
+          "excerpt": "カラオケはあまり好きじゃありません",
+          "label": "あまり〜ない + 好きじゃない"
+        },
+        {
+          "excerpt": "ピアノが上手です",
+          "label": "〜が上手です"
+        },
+        {
+          "excerpt": "ピアノが好きですから",
+          "label": "〜から（lý do）"
+        },
+        {
+          "excerpt": "コンサートがあります",
+          "label": "〜があります（sự kiện）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "カリナさんはカラオケが好きですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "はい、とても好きです",
+            "はい、すこし好きです",
+            "いいえ、あまり好きじゃありません",
+            "いいえ、全然好きじゃありません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi rõ「カラオケはあまり好きじゃありません」— cụm あまり〜ない có nghĩa là \"không thích lắm\" (không thích hoàn toàn nhưng cũng không phải ghét hẳn). Đáp án 0 sai vì bài không nói とても好き. Đáp án 1 sai vì bài không dùng すこし. Đáp án 3 sai vì 全然〜ない = hoàn toàn không thích, mạnh hơn あまり〜ない — bài chỉ nói \"không lắm\", không phải \"hoàn toàn không\".",
+          "tip": "Thấy あまり〜ない → chọn \"không lắm\" (mức độ nhẹ). Thấy 全然〜ない → chọn \"hoàn toàn không\". Hai cụm này là bẫy hay gặp — đọc kỹ từ副詞 trong câu trước khi chọn đáp án.",
+          "qt": {
+            "q": "Karina có thích karaoke không?",
+            "o": [
+              "Vâng, rất thích",
+              "Vâng, hơi thích",
+              "Không, không thích lắm",
+              "Không, hoàn toàn không thích"
+            ]
+          }
+        },
+        {
+          "q": "どうしてカリナさんはピアノが上手ですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "コンサートがありますから",
+            "音楽が好きですから",
+            "毎日れんしゅうしますから",
+            "さくら大学の学生ですから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu hỏi dùng どうして (tại sao) → phải tìm câu trả lời có から (lý do). Bài viết ghi「ピアノが好きですから、毎日れんしゅうします」— cấu trúc [lý do]から、[kết quả]: vì thích piano nên luyện tập mỗi ngày → nhờ đó mới giỏi. Đáp án trực tiếp là「毎日れんしゅうしますから」. Đáp án 0 sai vì コンサート là sự kiện cuối tuần, không liên quan đến lý do giỏi. Đáp án 1 sai vì 音楽が好き là lý do thích âm nhạc nói chung, không phải lý do giỏi piano. Đáp án 3 sai vì bài không nói Karina là sinh viên Sakura.",
+          "tip": "Câu hỏi どうして → tìm から trong bài. Đọc câu có から và lấy phần TRƯỚC から làm đáp án. Cẩn thận: bài có thể có nhiều から — chọn から đúng với chủ đề câu hỏi.",
+          "qt": {
+            "q": "Tại sao Karina chơi piano giỏi?",
+            "o": [
+              "Vì có buổi hòa nhạc",
+              "Vì thích âm nhạc",
+              "Vì luyện tập mỗi ngày",
+              "Vì là sinh viên của Đại học Sakura"
+            ]
+          }
+        },
+        {
+          "q": "今週末、どこでコンサートがありますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "IMCの会社",
+            "カリナさんの家",
+            "さくら大学",
+            "田中さんのうち"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết ghi「さくら大学でコンサートがあります」— trợ từ で sau địa danh chỉ NƠI DIỄN RA sự kiện. Vì vậy địa điểm là さくら大学. Đáp án 0, 1, 3 không được nhắc đến trong bài — đây là các lựa chọn đánh lạc hướng bằng tên người/nơi đã xuất hiện trước đó trong bài.",
+          "tip": "Câu hỏi どこで + sự kiện → tìm「[địa điểm]でN/Vがあります」trong bài. Trợ từ で = nơi diễn ra. Đọc thẳng câu có があります để lấy địa điểm.",
+          "qt": {
+            "q": "Cuối tuần này, buổi hòa nhạc được tổ chức ở đâu?",
+            "o": [
+              "Công ty IMC",
+              "Nhà của Karina",
+              "Đại học Sakura",
+              "Nhà của anh Tanaka"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "さくらぶんかセンターのおしらせ",
+      "titleVi": "Thông báo: Trung tâm Văn hóa Sakura",
+      "japanese": "さくらぶんかセンター　クラスのおしらせ\nさくらぶんかセンターにいろいろなクラスがあります。みなさん、いっしょにべんきょうしませんか。\nサントスさんは音楽が好きですから、ギターかピアノがいいです。火曜日は都合がいいです。でも、ほかの日は都合がよくないです。\nクラス｜曜日｜お金\nピアノ｜月・水｜3,000円\nギター｜火・木｜2,500円\nりょうり｜土｜2,000円\n※りょうりのクラスはどうぐがいりませんから、やすいです。\nでんわ：022-333-4444（月〜金　9:00〜18:00）",
+      "vietnamese": "Trung tâm Văn hóa Sakura — Thông báo về các lớp học\nTrung tâm Văn hóa Sakura có nhiều lớp học khác nhau. Mọi người, cùng học nhé?\nAnh Santos thích âm nhạc nên Guitar hoặc Piano đều được. Thứ Ba thì anh tiện. Nhưng các ngày khác thì anh không tiện.\nLớp | Thứ | Học phí\nPiano | Thứ Hai・Thứ Tư | 3.000 yên\nGuitar | Thứ Ba・Thứ Năm | 2.500 yên\nNấu ăn | Thứ Bảy | 2.000 yên\n※Lớp nấu ăn không cần dụng cụ nên rẻ.\nĐiện thoại: 022-333-4444 (Thứ Hai〜Thứ Sáu 9:00〜18:00)",
+      "sentences": [
+        {
+          "jp": "さくらぶんかセンター　クラスのおしらせ",
+          "vi": "Trung tâm Văn hóa Sakura — Thông báo về các lớp học",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "おしらせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            },
+            {
+              "w": "ぶんかセンター",
+              "read": "ぶんかセンター",
+              "vi": "trung tâm văn hóa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng đầu là tên nơi tổ chức + nội dung thông báo: các lớp học của Trung tâm Văn hóa Sakura."
+            }
+          ],
+          "keys": [
+            {
+              "w": "クラスのおしらせ",
+              "why": "Tiêu đề cho biết đây là tờ thông báo về CÁC LỚP HỌC — cần dò bảng bên dưới để trả lời câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "さくらぶんかセンターにいろいろなクラスがあります。みなさん、いっしょにべんきょうしませんか。",
+          "vi": "Trung tâm Văn hóa Sakura có nhiều lớp học khác nhau. Mọi người, cùng học nhé?",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "センター",
+              "read": "センター",
+              "vi": "trung tâm"
+            },
+            {
+              "w": "いろいろ",
+              "read": "いろいろ",
+              "vi": "nhiều loại, đủ thứ"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "いっす",
+              "read": "いっす",
+              "vi": "ngồi, ở lại"
+            },
+            {
+              "w": "ょにべんきょうしませんか",
+              "read": "ょにべんきょうしませんか",
+              "vi": "cùng nhau học tập nhé"
+            },
+            {
+              "w": "いろいろな",
+              "read": "いろいろな",
+              "vi": "nhiều loại, đa dạng (tính từ な)"
+            },
+            {
+              "w": "みなさん",
+              "read": "みなさん",
+              "vi": "mọi người"
+            },
+            {
+              "w": "べんきょうします",
+              "read": "べんきょうします",
+              "vi": "học (Bài 4 — ôn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（Bài 9, ôn）",
+              "vi": "クラスがあります = có các lớp học (sự vật tồn tại tại trung tâm)."
+            },
+            {
+              "point": "いっしょにＶませんか（Bài 6 — ôn）",
+              "vi": "いっしょにべんきょうしませんか = cùng học nhé? Mẫu rủ rê đã học ở Bài 6."
+            }
+          ]
+        },
+        {
+          "jp": "サントスさんは音楽が好きですから、ギターかピアノがいいです。火曜日は都合がいいです。でも、ほかの日は都合がよくないです。",
+          "vi": "Anh Santos thích âm nhạc nên Guitar hoặc Piano đều được. Thứ Ba thì anh tiện. Nhưng các ngày khác thì anh không tiện.",
+          "vocab": [
+            {
+              "w": "サントス",
+              "read": "サントス",
+              "vi": "Santos (tên người)"
+            },
+            {
+              "w": "音楽",
+              "read": "おんがく",
+              "vi": "âm nhạc, nhạc"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            },
+            {
+              "w": "ギター",
+              "read": "ギター",
+              "vi": "đàn guitar"
+            },
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "火曜日",
+              "read": "かようび",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "都合がよくない",
+              "read": "つごうがよくない",
+              "vi": "không tiện (về thời gian)"
+            },
+            {
+              "w": "都合がいい",
+              "read": "つごうがいい",
+              "vi": "tiện, thuận tiện (về thời gian)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNが好きです",
+              "vi": "サントスさんは音楽が好きです = Santos thích âm nhạc. が đánh dấu đối tượng được thích."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "音楽が好きですから = vì thích âm nhạc → lý do dẫn đến việc Guitar hoặc Piano đều phù hợp (ギターかピアノがいいです)."
+            },
+            {
+              "point": "NかN（Bài 6 — ôn）",
+              "vi": "ギターかピアノ = Guitar hoặc Piano (chọn 1 trong 2 lớp nhạc)."
+            },
+            {
+              "point": "NはＡです（Bài 8 — ôn）",
+              "vi": "火曜日は都合がいいです／ほかの日は都合がよくないです = は đánh dấu chủ đề (ngày nào) để nêu đặc điểm tiện/không tiện, tương phản 2 câu với nhau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "音楽が好きですから",
+              "why": "Điều kiện 1 của câu hỏi: Santos thích âm nhạc → phải chọn trong 2 lớp nhạc (ピアノ／ギター), loại りょうり."
+            },
+            {
+              "w": "火曜日は都合がいいです",
+              "why": "Điều kiện 2 của câu hỏi: thứ Ba tiện → ghép với cột 曜日 trong bảng để chọn đúng 1 lớp."
+            }
+          ]
+        },
+        {
+          "jp": "クラス｜曜日｜お金",
+          "vi": "Lớp | Thứ | Học phí",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "曜日",
+              "read": "ようび",
+              "vi": "thứ (trong tuần)"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng header bảng",
+              "vi": "Đây là hàng tiêu đề của bảng: Tên lớp | Thứ trong tuần | Học phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "クラス｜曜日｜お金",
+              "why": "Header bảng — cần đọc đúng cột để ghép Lớp với Thứ khi trả lời câu hỏi."
+            }
+          ]
+        },
+        {
+          "jp": "ピアノ｜月・水｜3,000円",
+          "vi": "Piano | Thứ Hai・Thứ Tư | 3.000 yên",
+          "vocab": [
+            {
+              "w": "ピアノ",
+              "read": "ピアノ",
+              "vi": "đàn piano"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "水",
+              "read": "みず",
+              "vi": "nước"
+            },
+            {
+              "w": "〜円",
+              "read": "えん",
+              "vi": "đơn vị tiền yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng",
+              "vi": "Lớp Piano học vào Thứ Hai và Thứ Tư, học phí 3.000 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月・水",
+              "why": "Piano học Thứ Hai・Thứ Tư — không có thứ Ba nên bị loại khỏi câu hỏi (Santos chỉ rảnh 火曜日)."
+            }
+          ]
+        },
+        {
+          "jp": "ギター｜火・木｜2,500円",
+          "vi": "Guitar | Thứ Ba・Thứ Năm | 2.500 yên",
+          "vocab": [
+            {
+              "w": "ギター",
+              "read": "ぎたー",
+              "vi": "đàn ghi-ta"
+            },
+            {
+              "w": "火",
+              "read": "か",
+              "vi": "thứ Ba"
+            },
+            {
+              "w": "木",
+              "read": "もく",
+              "vi": "thứ Năm"
+            },
+            {
+              "w": "2,500円",
+              "read": "にせんごひゃくえん",
+              "vi": "2.500 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng",
+              "vi": "Lớp Guitar học vào Thứ Ba và Thứ Năm, học phí 2.500 yên."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ギター｜火・木",
+              "why": "Guitar là lớp NHẠC (khớp sở thích) và có ngày Thứ Ba (火) — khớp cả 2 điều kiện của Santos, là căn cứ đáp án đúng."
+            }
+          ]
+        },
+        {
+          "jp": "りょうり｜土｜2,000円",
+          "vi": "Nấu ăn | Thứ Bảy | 2.000 yên",
+          "vocab": [
+            {
+              "w": "りょうり",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            },
+            {
+              "w": "土",
+              "read": "ど",
+              "vi": "thứ Bảy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng dữ liệu bảng",
+              "vi": "Lớp Nấu ăn học vào Thứ Bảy, học phí 2.000 yên — rẻ nhất trong 3 lớp."
+            }
+          ],
+          "keys": [
+            {
+              "w": "りょうり｜土",
+              "why": "Lớp Nấu ăn không phải nhạc và học Thứ Bảy (không phải Thứ Ba) — bị loại vì cả 2 điều kiện đều không khớp."
+            }
+          ]
+        },
+        {
+          "jp": "※りょうりのクラスはどうぐがいりませんから、やすいです。",
+          "vi": "※Lớp nấu ăn không cần dụng cụ nên rẻ.",
+          "vocab": [
+            {
+              "w": "りょうる",
+              "read": "りょうる",
+              "vi": "nấu nướng, chế biến"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "ぐがいりませんから",
+              "read": "ぐがいりませんから",
+              "vi": "không cần dụng cụ"
+            },
+            {
+              "w": "やすい",
+              "read": "やすい",
+              "vi": "rẻ (tính từ い — Bài 8, ôn)"
+            },
+            {
+              "w": "どうぐ",
+              "read": "どうぐ",
+              "vi": "dụng cụ"
+            },
+            {
+              "w": "いります",
+              "read": "いります",
+              "vi": "cần thiết"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（lý do — ôn）",
+              "vi": "どうぐがいりませんから = vì không cần dụng cụ → lý do lớp nấu ăn rẻ hơn."
+            },
+            {
+              "point": "やすい（tính từ い — Bài 8, ôn）",
+              "vi": "やすいです = rẻ. Tính từ い đã học ở Bài 8, dùng để miêu tả học phí."
+            }
+          ],
+          "keys": [
+            {
+              "w": "※りょうりのクラスはどうぐがいりませんから、やすいです",
+              "why": "Bẫy ※: giải thích lý do りょうり rẻ — không liên quan đến điều kiện của Santos (sở thích âm nhạc + thứ Ba), dễ nhầm chọn りょうり vì thấy giá rẻ."
+            }
+          ]
+        },
+        {
+          "jp": "でんわ：022-333-4444（月〜金　9:00〜18:00）",
+          "vi": "Điện thoại: 022-333-4444 (Thứ Hai〜Thứ Sáu 9:00〜18:00)",
+          "vocab": [
+            {
+              "w": "でんわ",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thông tin liên hệ",
+              "vi": "Dòng cuối ghi số điện thoại và khung giờ liên hệ (Thứ Hai đến Thứ Sáu, 9:00〜18:00)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "音楽が好きですから",
+          "label": "NはNが好きです＋〜から（lý do）"
+        },
+        {
+          "excerpt": "ギターかピアノ",
+          "label": "NかN（Bài 6, ôn）"
+        },
+        {
+          "excerpt": "火曜日は都合がいいです",
+          "label": "NはＡです（Bài 8, ôn — tương phản 2 câu）"
+        },
+        {
+          "excerpt": "どうぐがいりませんから、やすいです",
+          "label": "〜から（lý do）＋tính từ い（Bài 8, ôn）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Tiêu đề & điều kiện của Santos",
+          "topic": 2,
+          "note": "Tiêu đề thông báo + lời mời chung (があります・ませんか) + giới thiệu Santos thích âm nhạc (好きですから) và chỉ thứ Ba mới tiện (火曜日は都合がいい／ほかの日はよくない) — 2 điều kiện cần ghép để trả lời câu hỏi.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 3,
+          "to": 3,
+          "kind": "body",
+          "label": "Header bảng",
+          "topic": 3,
+          "note": "Hàng tiêu đề bảng: Lớp | Thứ | Học phí — khung để dò các hàng dữ liệu bên dưới.",
+          "qs": []
+        },
+        {
+          "from": 4,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng 3 lớp học",
+          "topic": 5,
+          "note": "Ba hàng dữ liệu Piano/Guitar/Nấu ăn với thứ và học phí riêng — khối chứa căn cứ chính trả lời câu hỏi (ghép sở thích âm nhạc + thứ Ba).",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 8,
+          "kind": "turn",
+          "label": "Ghi chú ※ & liên hệ",
+          "topic": 7,
+          "note": "Dòng ※ giải thích lý do lớp nấu ăn rẻ (dễ gây nhiễu vì học phí thấp) + thông tin liên hệ cuối bài.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "サントスさんは音楽が好きです。火曜日は都合がいいです。ほかの日は都合がよくないです。サントスさんはどのクラスがいいですか。",
+          "options": [
+            "ピアノ",
+            "ギター",
+            "りょうり",
+            "ピアノとギターの両方"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Santos có 2 điều kiện: (1) 音楽が好きです → chỉ có thể chọn lớp NHẠC (ピアノ hoặc ギター), loại りょうり; (2) 火曜日は都合がいいです、ほかの日は都合がよくないです → trong bảng, ピアノ học 月・水 (không có Thứ Ba), còn ギター học 火・木 (có Thứ Ba). Vì vậy chỉ ギター khớp cả 2 điều kiện. Đáp án 0 (ピアノ) sai vì không có buổi Thứ Ba. Đáp án 2 (りょうり) sai vì không phải lớp nhạc, dù học phí rẻ (bẫy của dòng ※). Đáp án 3 sai vì Santos chỉ tiện thứ Ba, các ngày khác không tiện, nên không thể học cả 2 lớp cùng lúc.",
+          "tip": "Ghép 2 điều kiện: (1) sở thích (âm nhạc) → lọc còn ピアノ／ギター; (2) ngày rảnh (火曜日) → dò cột 曜日 của 2 lớp còn lại, chỉ ギター có 火. Đừng bị dòng ※ (giá rẻ của りょうり) đánh lạc hướng khỏi điều kiện thật của câu hỏi.",
+          "evi": [
+            2,
+            5
+          ],
+          "qt": {
+            "q": "Ông Santos thích âm nhạc. Thứ Ba thì thuận tiện. Những ngày khác thì không thuận tiện. Ông Santos nên chọn lớp nào?",
+            "o": [
+              "Piano",
+              "Ghi-ta",
+              "Nấu ăn",
+              "Cả piano và ghi-ta"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ミラーさんの日記",
+      "titleVi": "Nhật ký của Miller",
+      "japanese": "今日はさくら大学のにほんごのクラスがありました。\n私はにほんごがすこしわかります。でも、かんじはあまりわかりません。むずかしいですから。\nクラスに田中さんがいます。田中さんはにほんごが上手です。\nどうして上手ですか。毎日テレビをみますから、とてもじょうずです。\n私はえいごが好きです。でも、田中さんはえいごが下手です。\nだから、私は田中さんにえいごをおしえます。田中さんは私ににほんごをおしえます。\n午後、クラスのあとでパーティーがあります。\nパーティーはにぎやかです。たのしいですから、私はパーティーが好きです。\nワットさんもパーティーに来ます。ワットさんはりょうりが上手です。\nどうしてですか。りょうりのがっこうでべんきょうしましたから。\nたのしいパーティーです。",
+      "vietnamese": "Hôm nay có buổi học tiếng Nhật ở Đại học Sakura.\nTôi hiểu được tiếng Nhật một chút. Nhưng chữ kanji thì tôi không hiểu lắm. Vì nó khó.\nTrong lớp có anh Tanaka. Anh Tanaka giỏi tiếng Nhật.\nTại sao giỏi vậy? Vì anh ấy xem tivi mỗi ngày nên rất thành thạo.\nTôi thích tiếng Anh. Nhưng anh Tanaka kém tiếng Anh.\nVì vậy, tôi dạy tiếng Anh cho anh Tanaka. Anh Tanaka dạy tiếng Nhật cho tôi.\nBuổi chiều, sau giờ học có bữa tiệc.\nBữa tiệc náo nhiệt. Vì vui nên tôi thích tiệc.\nAnh Watt cũng đến bữa tiệc. Anh Watt giỏi nấu ăn.\nTại sao vậy? Vì anh ấy đã học ở trường nấu ăn.\nĐây là một bữa tiệc thật vui.",
+      "sentences": [
+        {
+          "jp": "今日はさくら大学のにほんごのクラスがありました。",
+          "vi": "Hôm nay có buổi học tiếng Nhật ở Đại học Sakura.",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "大学",
+              "read": "だいがく",
+              "vi": "trường đại học"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "にほんご",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（sự kiện, quá khứ）",
+              "vi": "クラスがありました = có buổi học (sự kiện đã xảy ra). がありました là quá khứ của があります."
+            },
+            {
+              "point": "NのN（Bài 1）",
+              "vi": "さくら大学のにほんごのクラス = lớp tiếng Nhật của Đại học Sakura."
+            }
+          ]
+        },
+        {
+          "jp": "私はにほんごがすこしわかります。",
+          "vi": "Tôi hiểu được tiếng Nhật một chút.",
+          "vocab": [
+            {
+              "w": "すこし",
+              "read": "すこし",
+              "vi": "một chút, một ít"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "わかります",
+              "read": "わかります",
+              "vi": "hiểu, biết (khả năng hiểu)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がわかります",
+              "vi": "にほんごが là đối tượng hiểu (が), わかります = hiểu/đọc được. Mẫu: NはNがわかります."
+            }
+          ]
+        },
+        {
+          "jp": "でも、かんじはあまりわかりません。むずかしいですから。",
+          "vi": "Nhưng chữ kanji thì không hiểu lắm. Vì nó khó.",
+          "vocab": [
+            {
+              "w": "かんじ",
+              "read": "かんじ",
+              "vi": "chữ Hán (kanji)"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "むずかしい",
+              "read": "むずかしい",
+              "vi": "khó (tính từ い — Bài 8)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "あまり〜ない（Bài 8）",
+              "vi": "あまりわかりません = không hiểu lắm. あまり luôn đi với phủ định."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "むずかしいですから = vì khó. から đứng cuối câu lý do — câu lý do có thể đứng sau kết quả."
+            }
+          ]
+        },
+        {
+          "jp": "クラスに田中さんがいます。",
+          "vi": "Trong lớp có anh Tanaka.",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにNがいます（Bài 3）",
+              "vi": "Ôn Bài 3: NはNにいます (người/vật có sự sống ở nơi nào). クラスに田中さんがいます = trong lớp có Tanaka."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんはにほんごが上手です。",
+          "vi": "Anh Tanaka giỏi tiếng Nhật.",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜が上手です",
+              "vi": "にほんご là đối tượng (が), 上手です = giỏi. Chú ý: khen người khác dùng 上手 hoặc じょうず."
+            }
+          ]
+        },
+        {
+          "jp": "どうして上手ですか。毎日テレビをみますから、とてもじょうずです。",
+          "vi": "Tại sao giỏi vậy? Vì xem tivi mỗi ngày nên rất thành thạo.",
+          "vocab": [
+            {
+              "w": "どうして",
+              "read": "どうして",
+              "vi": "tại sao, vì sao"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            },
+            {
+              "w": "毎日テレビ",
+              "read": "まいにちてれび",
+              "vi": "tên riêng Đài truyền hình Mainichi"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "じょうず",
+              "read": "じょうず",
+              "vi": "giỏi, khéo léo"
+            },
+            {
+              "w": "テレビ",
+              "read": "テレビ",
+              "vi": "tivi"
+            },
+            {
+              "w": "みます",
+              "read": "みます",
+              "vi": "xem (Bài 6)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どうして",
+              "vi": "Câu hỏi lý do: どうして上手ですか = tại sao giỏi vậy? Trả lời dùng 〜から."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "毎日テレビをみます → lý do, kết thúc bằng から. Kết quả: とてもじょうずです."
+            },
+            {
+              "point": "NをＶます（Bài 6）",
+              "vi": "テレビをみます = xem tivi. を chỉ đối tượng của động từ tha động."
+            }
+          ]
+        },
+        {
+          "jp": "私はえいごが好きです。でも、田中さんはえいごが下手です。",
+          "vi": "Tôi thích tiếng Anh. Nhưng anh Tanaka kém tiếng Anh.",
+          "vocab": [
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "えいご",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            },
+            {
+              "w": "でも",
+              "read": "でも",
+              "vi": "nhưng"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "下手",
+              "read": "へた",
+              "vi": "kém, dở"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNが好きです",
+              "vi": "私はえいごが好きです = tôi thích tiếng Anh. が đánh dấu đối tượng được thích."
+            },
+            {
+              "point": "〜が下手です",
+              "vi": "えいごが下手です = kém tiếng Anh. 下手 là từ đối nghĩa với 上手. Dùng để nói ai đó không giỏi việc gì."
+            }
+          ]
+        },
+        {
+          "jp": "だから、私は田中さんにえいごをおしえます。田中さんは私ににほんごをおしえます。",
+          "vi": "Vì vậy, tôi dạy tiếng Anh cho anh Tanaka. Anh Tanaka dạy tiếng Nhật cho tôi.",
+          "vocab": [
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka"
+            },
+            {
+              "w": "えいご",
+              "read": "えいご",
+              "vi": "tiếng Anh"
+            },
+            {
+              "w": "おしえます",
+              "read": "おしえます",
+              "vi": "dạy"
+            },
+            {
+              "w": "にほんご",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "人にNをおしえます（Bài 7）",
+              "vi": "田中さんに (cho Tanaka) + えいごを (tiếng Anh) + おしえます (dạy). に chỉ người nhận, を chỉ nội dung."
+            }
+          ]
+        },
+        {
+          "jp": "午後、クラスのあとでパーティーがあります。",
+          "vi": "Buổi chiều, sau giờ học có bữa tiệc.",
+          "vocab": [
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều (sau 12h trưa)"
+            },
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc, party"
+            },
+            {
+              "w": "あとで",
+              "read": "あとで",
+              "vi": "sau, sau khi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜があります（sự kiện）",
+              "vi": "パーティーがあります = có bữa tiệc (sự kiện sẽ diễn ra). がある dùng cho sự kiện/lịch trình."
+            }
+          ]
+        },
+        {
+          "jp": "パーティーはにぎやかです。たのしいですから、私はパーティーが好きです。",
+          "vi": "Bữa tiệc náo nhiệt. Vì vui nên tôi thích tiệc.",
+          "vocab": [
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc, party"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "náo nhiệt, đông vui (tính từ な — Bài 8)"
+            },
+            {
+              "w": "たのしい",
+              "read": "たのしい",
+              "vi": "vui, thú vị (tính từ い — Bài 8)"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNAです（Bài 8）",
+              "vi": "パーティーはにぎやかです = bữa tiệc náo nhiệt. にぎやか là tính từ な, dùng: にぎやかです."
+            },
+            {
+              "point": "〜から（lý do）",
+              "vi": "たのしいですから = vì vui → lý do đặt trước kết quả (私はパーティーが好き). Tách thành câu riêng để tránh dùng で nối tính từ な (Bài 16)."
+            },
+            {
+              "point": "NはNが好きです",
+              "vi": "パーティーが好きです = thích tiệc. が trước 好きです là bắt buộc."
+            }
+          ]
+        },
+        {
+          "jp": "ワットさんもパーティーに来ます。ワットさんはりょうりが上手です。",
+          "vi": "Anh Watt cũng đến bữa tiệc. Anh Watt giỏi nấu ăn.",
+          "vocab": [
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc, party"
+            },
+            {
+              "w": "来ます",
+              "read": "きます",
+              "vi": "đến (Bài 5)"
+            },
+            {
+              "w": "りょうり",
+              "read": "りょうり",
+              "vi": "nấu ăn, món ăn"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Nも（Bài 1）",
+              "vi": "ワットさんも = Watt cũng (cùng đến tiệc như những người khác). も thay は."
+            },
+            {
+              "point": "〜が上手です",
+              "vi": "りょうりが上手です = giỏi nấu ăn. Lại dùng mẫu が上手です cho đối tượng là りょうり."
+            }
+          ]
+        },
+        {
+          "jp": "どうしてですか。りょうりのがっこうでべんきょうしましたから。",
+          "vi": "Tại sao vậy? Vì đã học ở trường nấu ăn.",
+          "vocab": [
+            {
+              "w": "どうして",
+              "read": "どうして",
+              "vi": "tại sao, vì sao"
+            },
+            {
+              "w": "ょうりのがっこうでべんきょうしましたから",
+              "read": "ょうりのがっこうでべんきょうしましたから",
+              "vi": "đã học ở trường nấu ăn"
+            },
+            {
+              "w": "がっこう",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "べんきょうしました",
+              "read": "べんきょうしました",
+              "vi": "đã học (quá khứ thể ました — Bài 4)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "どうして + 〜から",
+              "vi": "Hỏi: どうしてですか → Đáp: 〜から. べんきょうしましたから = vì đã học. Lý do đứng trước から."
+            },
+            {
+              "point": "Ｖました（Bài 4）",
+              "vi": "べんきょうしました = đã học (quá khứ). から dùng được cả với thể ました lẫn thể ます."
+            }
+          ]
+        },
+        {
+          "jp": "たのしいパーティーです。",
+          "vi": "Đây là một bữa tiệc thật vui.",
+          "vocab": [
+            {
+              "w": "たのしい",
+              "read": "たのしい",
+              "vi": "vui, thú vị (tính từ い — Bài 8)"
+            },
+            {
+              "w": "パーティー",
+              "read": "パーティー",
+              "vi": "bữa tiệc, party"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いＮです（tính từ い bổ nghĩa danh từ — Bài 8）",
+              "vi": "たのしいパーティー = bữa tiệc vui. Tính từ い đứng trước danh từ để bổ nghĩa. です kết câu miêu tả."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "にほんごがすこしわかります",
+          "label": "〜がわかります"
+        },
+        {
+          "excerpt": "かんじはあまりわかりません",
+          "label": "あまり〜ない + わかりません"
+        },
+        {
+          "excerpt": "むずかしいですから",
+          "label": "〜から（lý do đứng sau）"
+        },
+        {
+          "excerpt": "どうして上手ですか",
+          "label": "どうして（câu hỏi lý do）"
+        },
+        {
+          "excerpt": "毎日テレビをみますから",
+          "label": "〜から（lý do đứng trước）"
+        },
+        {
+          "excerpt": "えいごが下手です",
+          "label": "〜が下手です"
+        },
+        {
+          "excerpt": "パーティーがあります",
+          "label": "〜があります（sự kiện）"
+        },
+        {
+          "excerpt": "パーティーが好きです",
+          "label": "NはNが好きです"
+        },
+        {
+          "excerpt": "りょうりが上手です",
+          "label": "〜が上手です"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんはにほんごがわかりますか。",
+          "evi": [
+            1,
+            2
+          ],
+          "options": [
+            "はい、とてもよくわかります",
+            "はい、すこしわかります",
+            "いいえ、全然わかりません",
+            "いいえ、にほんごが嫌いですから、わかりません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết ghi「私はにほんごがすこしわかります」— すこし = một chút, dùng với khẳng định. Đây là mẫu〜がわかります (hiểu được) + mức độ すこし. Đáp án 0 sai vì bài không nói とてもよく (rất rõ). Đáp án 2 sai vì đó là kanji (かんじはあまりわかりません), không phải tiếng Nhật nói chung — hơn nữa bài dùng あまり〜ない (không nhiều), không phải 全然〜ない (hoàn toàn không). Đáp án 3 sai vì bài không nói Miller ghét tiếng Nhật.",
+          "tip": "Phân biệt すこし (một chút, câu khẳng định) và あまり〜ない (không lắm, câu phủ định). Bài này dùng cả hai — đọc kỹ xem câu đang nói về tiếng Nhật hay kanji trước khi chọn đáp án.",
+          "qt": {
+            "q": "Ông Miller có hiểu tiếng Nhật không?",
+            "o": [
+              "Vâng, hiểu rất rõ",
+              "Vâng, hiểu một chút",
+              "Không, hoàn toàn không hiểu",
+              "Không, vì không thích tiếng Nhật nên không hiểu"
+            ]
+          }
+        },
+        {
+          "q": "どうして田中さんはにほんごが上手ですか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "りょうりのがっこうでべんきょうしましたから",
+            "えいごが好きですから",
+            "毎日テレビをみますから",
+            "クラスのせんせいですから"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Bài viết hỏi「どうして上手ですか」rồi trả lời ngay:「毎日テレビをみますから、とてもじょうずです」— cấu trúc [lý do]から、[kết quả]: vì xem tivi mỗi ngày nên rất thành thạo. Đáp án 0 sai vì「りょうりのがっこうでべんきょうしました」là lý do Watt giỏi nấu ăn, không phải Tanaka giỏi tiếng Nhật — bẫy nhầm người. Đáp án 1 sai vì えいごが好き là thông tin về Miller, không phải Tanaka. Đáp án 3 sai vì bài không nói Tanaka là giáo viên.",
+          "tip": "Bài có nhiều người và nhiều から — luôn kiểm tra \"câu hỏi đang hỏi về AI?\" rồi mới tìm から của người đó. Nhầm người là bẫy phổ biến nhất khi bài có nhiều nhân vật.",
+          "qt": {
+            "q": "Tại sao ông Tanaka giỏi tiếng Nhật?",
+            "o": [
+              "Vì đã học ở trường dạy nấu ăn",
+              "Vì thích tiếng Anh",
+              "Vì xem tivi mỗi ngày",
+              "Vì là giáo viên của lớp"
+            ]
+          }
+        },
+        {
+          "q": "ワットさんはどうしてりょうりが上手ですか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "毎日りょうりをしますから",
+            "りょうりのがっこうでべんきょうしましたから",
+            "りょうりが好きですから",
+            "パーティーがありますから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Bài viết hỏi「どうしてですか」(về việc Watt giỏi nấu ăn) rồi trả lời:「りょうりのがっこうでべんきょうしましたから」— vì đã học ở trường nấu ăn (べんきょうしました là quá khứ). Đáp án 0 sai vì bài không nói Watt nấu ăn mỗi ngày — đây là đáp án bịa hợp lý nhưng không có trong bài. Đáp án 2 sai vì bài không nhắc đến việc Watt thích nấu ăn. Đáp án 3 sai vì パーティーがあります là sự kiện buổi chiều, không phải lý do giỏi nấu ăn.",
+          "tip": "Câu hỏi どうして → đáp án phải có から. Loại ngay các đáp án không nhắc đến trong bài (dù nghe có vẻ hợp lý). Chỉ chọn đáp án mà BÀI ĐÃ NÓI RÕ.",
+          "qt": {
+            "q": "Tại sao ông Watt giỏi nấu ăn?",
+            "o": [
+              "Vì nấu ăn mỗi ngày",
+              "Vì đã học ở trường dạy nấu ăn",
+              "Vì thích nấu ăn",
+              "Vì có bữa tiệc"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

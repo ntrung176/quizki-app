@@ -1,0 +1,3914 @@
+{
+  "bai": 7,
+  "level": "N5",
+  "intro": "NでNをVます · NにNをあげます · NにNをもらいます · Nで. Có ÔN LẠI ngữ pháp đã học (bài 1-6) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "母はよく手紙を書きます。",
+              "ul": "手紙",
+              "choices": [
+                "てがみ",
+                "しゅし",
+                "てし",
+                "しゅがみ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「手紙」là từ ghép kun-yomi: 「手」đọc là「て」và「紙」đọc là「がみ」(biến âm hữu thanh), toàn bộ là「てがみ」. → Chọn A.\n• B「しゅし」ghép on-yomi 「手」(しゅ) + 「紙」(し) — không phải từ tiêu chuẩn, cũng không khớp nghĩa.\n• C「てし」chỉ lấy phần đầu 「て」+ 「し」nhưng bỏ biến âm hữu thanh ở「紙」nên sai.\n• D「しゅがみ」trộn on-yomi「しゅ」với kun-yomi có biến âm「がみ」— không phải cách đọc chuẩn.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "よく",
+                  "vi": "thường xuyên"
+                },
+                {
+                  "t": "手紙",
+                  "vi": "lá thư"
+                },
+                {
+                  "t": "書きます",
+                  "read": "かきます",
+                  "vi": "viết"
+                }
+              ]
+            },
+            {
+              "prompt": "これは日本語の辞書です。",
+              "ul": "辞書",
+              "choices": [
+                "じしょ",
+                "じしゅ",
+                "ちしょ",
+                "ちしゅ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「辞書」đọc on-yomi:「辞」→「じ」,「書」→「しょ」, ghép lại là「じしょ」. → Chọn A.\n• B「じしゅ」đổi「しょ」thành「しゅ」— âm lướt khác, không đúng.\n• C「ちしょ」đổi「じ」(hữu thanh) thành「ち」— sai phụ âm đầu.\n• D「ちしゅ」sai cả hai âm tiết: cả「ち」lẫn「しゅ」đều không đúng với chuẩn on-yomi của từ này.",
+              "glosses": [
+                {
+                  "t": "これ",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "電話で話します。",
+              "ul": "電話",
+              "choices": [
+                "でんわ",
+                "でんか",
+                "てんわ",
+                "てんか"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電話」là on-yomi:「電」→「でん」,「話」→「わ」, ghép thành「でんわ」. → Chọn A.\n• B「でんか」đổi「わ」thành「か」— nhớ nhầm sang từ「電化」(điện khí hoá).\n• C「てんわ」đổi「でん」thành「てん」— mất âm hữu thanh「で」thành「て」.\n• D「てんか」sai cả hai âm tiết thứ nhất (「て」) lẫn thứ hai (「か」).",
+              "glosses": [
+                {
+                  "t": "電話",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ)"
+                },
+                {
+                  "t": "話します",
+                  "read": "はなします",
+                  "vi": "nói chuyện"
+                }
+              ]
+            },
+            {
+              "prompt": "先生に本をもらいました。",
+              "ul": "先生",
+              "choices": [
+                "せんせい",
+                "せんせ",
+                "さんせい",
+                "さんせ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「先生」on-yomi:「先」→「せん」,「生」→「せい」, toàn từ là「せんせい」. → Chọn A.\n• B「せんせ」bỏ âm dài ở cuối — đây là thể rút gọn trong khẩu ngữ thân mật nhưng không phải cách đọc chuẩn trong bài thi.\n• C「さんせい」là từ khác —「賛成」(đồng ý), phụ âm đầu đổi thành「さ」.\n• D「さんせ」vừa sai phụ âm đầu vừa bỏ âm dài.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "に",
+                  "vi": "từ (người cho)"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận được"
+                }
+              ]
+            },
+            {
+              "prompt": "友だちに花をあげました。",
+              "ul": "花",
+              "choices": [
+                "はな",
+                "かな",
+                "はね",
+                "かね"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「花」kun-yomi là「はな」— hoa. → Chọn A.\n• B「かな」là một từ khác (仮名 — chữ kana, hoặc「かな」trợ từ nghi vấn mềm) — phụ âm đầu sai.\n• C「はね」là「羽根」(lông vũ, cánh) — cùng âm đầu「は」nhưng nguyên âm thứ hai sai.\n• D「かね」là「金/鐘」(tiền / chuông) — sai cả hai âm tiết so với「はな」.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (người nhận)"
+                },
+                {
+                  "t": "花",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng, đã cho"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語で名前を書いてください。",
+              "ul": "名前",
+              "choices": [
+                "なまえ",
+                "めいぜん",
+                "なまい",
+                "めいまえ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「名前」kun-yomi:「名」→「な」,「前」→「まえ」, toàn từ là「なまえ」. → Chọn A.\n• B「めいぜん」dùng on-yomi「名」→「めい」và đọc sai「前」→「ぜん」— là cách đọc on nhưng kết hợp này không phải từ chuẩn N5.\n• C「なまい」đúng phần「な」nhưng đổi「まえ」thành「まい」— sai nguyên âm cuối.\n• D「めいまえ」trộn on-yomi ở「名」(めい) với kun-yomi ở「前」(まえ) — không phải cách đọc chuẩn.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ)"
+                },
+                {
+                  "t": "名前",
+                  "vi": "tên"
+                },
+                {
+                  "t": "書いてください",
+                  "read": "かいてください",
+                  "vi": "hãy viết"
+                }
+              ]
+            },
+            {
+              "prompt": "バスで会社に行きます。",
+              "ul": "会社",
+              "choices": [
+                "かいしゃ",
+                "かいさ",
+                "がいしゃ",
+                "がいさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「会社」on-yomi:「会」→「かい」,「社」→「しゃ」, toàn từ là「かいしゃ」. → Chọn A.\n• B「かいさ」bỏ âm lướt「しゃ」→「し」rồi đổi nguyên âm, hoặc viết tắt không chuẩn — không phải từ này.\n• C「がいしゃ」đổi「か」hữu thanh thành「が」— nhầm với「外車」(xe ngoại) hay「外社」không tồn tại.\n• D「がいさ」sai cả hai điểm: hữu thanh ở âm đầu và mất âm lướt ở cuối.",
+              "glosses": [
+                {
+                  "t": "バスで",
+                  "vi": "bằng xe buýt"
+                },
+                {
+                  "t": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "に",
+                  "vi": "đến (điểm đến)"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "母に時計をもらいました。",
+              "ul": "時計",
+              "choices": [
+                "とけい",
+                "じけい",
+                "ときけい",
+                "じかん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「時計」là từ đặc biệt:「時」đọc kun「と」(dạng rút) và「計」đọc kun「けい」, ghép thành「とけい」— cách đọc phải học thuộc vì không hoàn toàn theo quy tắc. → Chọn A.\n• B「じけい」dùng on-yomi「時」→「じ」nhưng kết hợp「じけい」không phải từ này.\n• C「ときけい」thêm âm「き」giữa chừng — không tồn tại.\n• D「じかん」là「時間」(thời gian) — từ hoàn toàn khác, mặc dù cùng chứa「時」.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "に",
+                  "vi": "từ (người cho)"
+                },
+                {
+                  "t": "時計",
+                  "vi": "đồng hồ"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận được"
+                }
+              ]
+            },
+            {
+              "prompt": "兄はよく外国語を勉強します。",
+              "ul": "外国語",
+              "choices": [
+                "がいこくご",
+                "がいこくぎょ",
+                "そとくにご",
+                "がいこくこ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「外国語」on-yomi:「外」→「がい」,「国」→「こく」,「語」→「ご」, ghép thành「がいこくご」. → Chọn A.\n• B「がいこくぎょ」đổi「ご」thành「ぎょ」— nhầm với「語」khi đọc on một số từ như「漁」.\n• C「そとくにご」dùng toàn kun-yomi (「外」→「そと」,「国」→「くに」) — không phải cách đọc từ ghép Hán tự N5 này.\n• D「がいこくこ」bỏ hữu thanh của「語」→ đọc thành「こ」thay vì「ご」— sai về hữu thanh hoá.",
+              "glosses": [
+                {
+                  "t": "兄",
+                  "read": "あに",
+                  "vi": "anh trai"
+                },
+                {
+                  "t": "よく",
+                  "vi": "thường xuyên"
+                },
+                {
+                  "t": "外国語",
+                  "vi": "ngoại ngữ"
+                },
+                {
+                  "t": "を",
+                  "vi": "(trợ từ tân ngữ)"
+                },
+                {
+                  "t": "勉強します",
+                  "read": "べんきょうします",
+                  "vi": "học"
+                }
+              ]
+            },
+            {
+              "prompt": "友だちに誕生日プレゼントをあげました。",
+              "ul": "誕生日",
+              "choices": [
+                "たんじょうび",
+                "たんじょうにち",
+                "だんじょうび",
+                "たんせいび"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「誕生日」:「誕生」on-yomi「たんじょう」+「日」khi chỉ dịp đặc biệt đọc kun「び」, tổng hợp「たんじょうび」. → Chọn A.\n• B「たんじょうにち」đọc「日」bằng on-yomi「にち」— dùng cho ngày số cụ thể (何日「なんにち」), không dùng cho「誕生日」.\n• C「だんじょうび」hữu thanh hoá「た」→「だ」ở âm đầu — không phải cách phát âm chuẩn.\n• D「たんせいび」đổi「じょう」thành「せい」— nhầm với một âm khác, không tồn tại.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (người nhận)"
+                },
+                {
+                  "t": "誕生日",
+                  "vi": "sinh nhật"
+                },
+                {
+                  "t": "プレゼント",
+                  "vi": "quà tặng"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng"
+                },
+                {
+                  "t": "たんじょう",
+                  "read": "たんじょう",
+                  "vi": "sinh, ra đời (phần trong 誕生日 - sinh nhật)"
+                },
+                {
+                  "t": "だんじょうび",
+                  "read": "だんじょうび",
+                  "vi": "cách đọc SAI của 誕生日 (đáp án nhiễu, không phải từ thật)"
+                },
+                {
+                  "t": "たんせいび",
+                  "read": "たんせいび",
+                  "vi": "cách đọc SAI của 誕生日 (đáp án nhiễu, không phải từ thật)"
+                }
+              ]
+            },
+            {
+              "prompt": "鉛筆で手紙を書きました。",
+              "ul": "鉛筆",
+              "choices": [
+                "えんぴつ",
+                "えんひつ",
+                "なまりふで",
+                "えんぴて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「鉛筆」:「鉛」kun-yomi「えん」(chì) +「筆」kun-yomi「ぴつ」(biến âm bán trọc từ「ふで」), ghép thành「えんぴつ」. → Chọn A.\n• B「えんひつ」thiếu biến âm bán trọc:「ひ」→ phải là「ぴ」— sai về bán trọc (半濁音).\n• C「なまりふで」dùng thuần kun-yomi nghĩa gốc: 「鉛」→「なまり」(chì kim loại) +「筆」→「ふで」— không phải cách đọc tên đồ vật thông dụng này.\n• D「えんぴて」đổi âm cuối「つ」→「て」— không tồn tại.",
+              "glosses": [
+                {
+                  "t": "鉛筆",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ)"
+                },
+                {
+                  "t": "手紙",
+                  "read": "てがみ",
+                  "vi": "lá thư"
+                },
+                {
+                  "t": "書きました",
+                  "read": "かきました",
+                  "vi": "đã viết"
+                }
+              ]
+            },
+            {
+              "prompt": "毎朝、新聞を読みます。",
+              "ul": "新聞",
+              "choices": [
+                "しんぶん",
+                "しんもん",
+                "にいぶん",
+                "しんふん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「新聞」on-yomi:「新」→「しん」,「聞」→「ぶん」(biến âm hữu thanh từ「ふん」khi đứng sau), toàn từ「しんぶん」. → Chọn A.\n• B「しんもん」đọc「聞」→「もん」— không phải on-yomi của「聞」trong từ này (「もん」là on-yomi của「門」).\n• C「にいぶん」đọc「新」bằng kun-yomi「にい」(mới) — không dùng khi ghép với「聞」thành từ báo chí.\n• D「しんふん」không biến âm hữu thanh「ぶ」→「ふ」— vi phạm quy tắc hữu thanh hoá (連濁) thường gặp.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "新聞",
+                  "vi": "báo (tờ báo)"
+                },
+                {
+                  "t": "を",
+                  "vi": "(trợ từ tân ngữ)"
+                },
+                {
+                  "t": "読みます",
+                  "read": "よみます",
+                  "vi": "đọc"
+                }
+              ]
+            },
+            {
+              "prompt": "父はいつも電車で会社に行きます。",
+              "ul": "電車",
+              "choices": [
+                "でんしゃ",
+                "でんしゅ",
+                "てんしゃ",
+                "てんしゅ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電車」on-yomi:「電」→「でん」,「車」→「しゃ」, ghép「でんしゃ」. → Chọn A.\n• B「でんしゅ」đổi âm lướt「しゃ」→「しゅ」— khác âm lướt, không phải từ này.\n• C「てんしゃ」mất hữu thanh「で」→「て」— nhầm với「転車」hoặc từ khác.\n• D「てんしゅ」sai cả hai: vô thanh hoá âm đầu「て」và đổi âm lướt「しゅ」.",
+              "glosses": [
+                {
+                  "t": "父",
+                  "read": "ちち",
+                  "vi": "bố"
+                },
+                {
+                  "t": "いつも",
+                  "vi": "luôn luôn"
+                },
+                {
+                  "t": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (phương tiện)"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "田中さんに辞書を貸しました。",
+              "ul": "辞書",
+              "choices": [
+                "じしょ",
+                "じしゅ",
+                "じそ",
+                "ちしょ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「辞書」on-yomi:「辞」→「じ」,「書」→「しょ」, ghép「じしょ」. → Chọn A.\n• B「じしゅ」đổi「しょ」→「しゅ」— âm lướt khác (o→u), không đúng.\n• C「じそ」bỏ âm lướt, rút「しょ」→「そ」— sai âm tiết cuối hoàn toàn.\n• D「ちしょ」vô thanh hoá「じ」→「ち」— nhớ nhầm hay nhầm với「地所」.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (người nhận)"
+                },
+                {
+                  "t": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "を",
+                  "vi": "(trợ từ tân ngữ)"
+                },
+                {
+                  "t": "貸しました",
+                  "read": "かしました",
+                  "vi": "đã cho mượn"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語で話すのは難しいです。",
+              "ul": "日本語",
+              "choices": [
+                "にほんご",
+                "にほんぎょ",
+                "につぽんご",
+                "にほんこ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「日本語」:「日本」đọc là「にほん」(cách đọc thông dụng hơn「にっぽん」trong hầu hết ngữ cảnh) +「語」on-yomi「ご」, ghép「にほんご」. → Chọn A.\n• B「にほんぎょ」hữu thanh hoá「ご」→「ぎょ」— không đúng; 「語」đọc「ご」không đọc「ぎょ」.\n• C「につぽんご」dùng biến thể「にっぽん」(có tục âm「っ」) — dù tồn tại nhưng trong N5 cách đọc chuẩn được dạy là「にほん」.\n• D「にほんこ」bỏ hữu thanh「ご」→「こ」— sai quy tắc hữu thanh hoá khi「語」ghép thành từ phức.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ)"
+                },
+                {
+                  "t": "話すのは",
+                  "read": "はなすのは",
+                  "vi": "việc nói"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "です",
+                  "vi": "là (thể lịch sự)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "わたしはははははえんぴつでてがみをかきました。",
+              "ul": "えんぴつ",
+              "choices": [
+                "鉛筆",
+                "鉄筆",
+                "銅筆",
+                "硬筆"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「えんぴつ」(bút chì) viết Hán tự là 「鉛筆」. 「鉛」nghĩa là chì (kim loại), 「筆」nghĩa là bút. ① 鉛筆 = đúng. ② 鉄筆 (てつひつ) = bút sắt/bút stylus, không phải bút chì. ③ 銅筆 = không phải từ thực; 銅 là đồng (kim loại), không dùng cho bút chì. ④ 硬筆 (こうひつ) = bút cứng (thuật ngữ thư pháp), không phải bút chì thông thường.",
+              "glosses": [
+                {
+                  "t": "えんぴつ",
+                  "read": "えんぴつ",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ)"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "手紙",
+                  "vi": "lá thư"
+                },
+                {
+                  "t": "かきました",
+                  "read": "書きました",
+                  "vi": "đã viết"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはがくせいにほんをあげました。",
+              "ul": "あげました",
+              "choices": [
+                "上げました",
+                "挙げました",
+                "揚げました",
+                "明げました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あげる」(cho, tặng từ mình cho người khác) viết là 「上げる」. ① 上げました = đúng, nghĩa cho/tặng trong ngữ cảnh này. ② 挙げました (あげました) = giơ lên, liệt kê; không phải nghĩa cho/tặng. ③ 揚げました (あげました) = chiên (đồ ăn) hoặc kéo cờ lên; sai ngữ cảnh. ④ 明げました = không tồn tại từ này trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "学生",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (người nhận)"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "quyển sách"
+                },
+                {
+                  "t": "あげました",
+                  "read": "上げました",
+                  "vi": "đã tặng/cho"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはははにはなをもらいました。",
+              "ul": "はな",
+              "choices": [
+                "花",
+                "葉",
+                "草",
+                "木"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「はな」trong ngữ cảnh này là 「花」(hoa). ① 花 (はな) = hoa → đúng. ② 葉 (は) = lá cây; đọc là は không phải はな. ③ 草 (くさ) = cỏ; đọc là くさ, không phải はな. ④ 木 (き) = cây; đọc là き, không phải はな.",
+              "glosses": [
+                {
+                  "t": "はは",
+                  "read": "母",
+                  "vi": "mẹ (của mình)"
+                },
+                {
+                  "t": "に",
+                  "vi": "từ (người cho)"
+                },
+                {
+                  "t": "はな",
+                  "read": "花",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận được"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "ともだちはにほんごでてがみをかいてくれました。",
+              "ul": "にほんご",
+              "choices": [
+                "日本語",
+                "日本誤",
+                "日本後",
+                "日本五"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「にほんご」(tiếng Nhật) viết là 「日本語」. 「語」nghĩa là ngôn ngữ/lời. ① 日本語 = đúng. ② 日本誤 = 「誤」(ご) nghĩa là sai lầm, lỗi; không phải ngôn ngữ. ③ 日本後 = 「後」(ご/のち) nghĩa là sau, phía sau; không liên quan ngôn ngữ. ④ 日本五 = 「五」(ご) là số 5; vô nghĩa trong ngữ cảnh này.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ)"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "手紙",
+                  "vi": "thư"
+                },
+                {
+                  "t": "かいてくれました",
+                  "read": "書いてくれました",
+                  "vi": "đã viết cho mình"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはでんしゃでかいしゃへいきます。",
+              "ul": "でんしゃ",
+              "choices": [
+                "電車",
+                "電話",
+                "電気",
+                "電池"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「でんしゃ」(tàu điện) viết là 「電車」. 「電」= điện, 「車」= xe. ① 電車 = đúng. ② 電話 (でんわ) = điện thoại; đọc là でんわ, sai âm. ③ 電気 (でんき) = điện (năng lượng); đọc là でんき, sai âm. ④ 電池 (でんち) = pin điện; đọc là でんち, sai âm.",
+              "glosses": [
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (phương tiện)"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "へ",
+                  "vi": "đến (hướng)"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "おかあさんはこどもにおみずをあげました。",
+              "ul": "おみず",
+              "choices": [
+                "水",
+                "氷",
+                "雨",
+                "海"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「おみず」(nước) viết là 「水」(+ tiền tố lịch sự お). ① 水 (みず) = nước → đúng. ② 氷 (こおり) = nước đá; đọc là こおり, không phải みず. ③ 雨 (あめ) = mưa; đọc là あめ, là hiện tượng thời tiết không phải nước uống. ④ 海 (うみ) = biển; đọc là うみ, sai hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "おかあさん",
+                  "read": "お母さん",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "こどもに",
+                  "read": "子どもに",
+                  "vi": "cho đứa trẻ"
+                },
+                {
+                  "t": "おみず",
+                  "read": "お水",
+                  "vi": "nước (uống)"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはえいごでじこしょうかいをしました。",
+              "ul": "えいご",
+              "choices": [
+                "英語",
+                "英護",
+                "英後",
+                "英五"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「えいご」(tiếng Anh) viết là 「英語」. 「英」= Anh (quốc), 「語」= ngôn ngữ. ① 英語 = đúng. ② 英護 = 「護」(ご) nghĩa là bảo vệ; không phải ngôn ngữ. ③ 英後 = 「後」(ご) nghĩa là sau; vô nghĩa. ④ 英五 = 「五」(ご) là số 5; vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "えいご",
+                  "read": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ)"
+                },
+                {
+                  "t": "じこしょうかい",
+                  "read": "自己紹介",
+                  "vi": "tự giới thiệu"
+                },
+                {
+                  "t": "しました",
+                  "vi": "đã làm"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "おとうとははしでごはんをたべます。",
+              "ul": "はし",
+              "choices": [
+                "箸",
+                "橋",
+                "端",
+                "柱"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「はし」(đũa) viết là 「箸」. ① 箸 (はし) = đũa → đúng. ② 橋 (はし) = cây cầu; cùng âm はし nhưng nghĩa khác. ③ 端 (はし) = đầu mút, rìa; cùng âm nhưng nghĩa khác hoàn toàn. ④ 柱 (はしら) = cột nhà; đọc là はしら, không phải はし.",
+              "glosses": [
+                {
+                  "t": "おとうと",
+                  "read": "弟",
+                  "vi": "em trai"
+                },
+                {
+                  "t": "はし",
+                  "read": "箸",
+                  "vi": "đũa"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ)"
+                },
+                {
+                  "t": "ごはん",
+                  "read": "ご飯",
+                  "vi": "cơm"
+                },
+                {
+                  "t": "たべます",
+                  "read": "食べます",
+                  "vi": "ăn"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはわたしにじしょをかしてくれました。",
+              "ul": "じしょ",
+              "choices": [
+                "辞書",
+                "地書",
+                "次書",
+                "事書"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「じしょ」(từ điển) viết là 「辞書」. 「辞」= từ ngữ/lời từ chức, 「書」= sách/viết. ① 辞書 = đúng. ② 地書 = 「地」(ち/じ) nghĩa là đất; không tạo thành nghĩa từ điển. ③ 次書 = 「次」(じ) nghĩa là tiếp theo/thứ tự; không phải từ điển. ④ 事書 = 「事」(じ) nghĩa là việc, sự; không phải từ điển.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "わたしに",
+                  "vi": "cho tôi"
+                },
+                {
+                  "t": "じしょ",
+                  "read": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "かしてくれました",
+                  "read": "貸してくれました",
+                  "vi": "đã cho mượn"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはちゅうごくごででんわをかけました。",
+              "ul": "ちゅうごくご",
+              "choices": [
+                "中国語",
+                "中国誤",
+                "中国後",
+                "仲国語"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ちゅうごくご」(tiếng Trung) viết là 「中国語」. 「中国」= Trung Quốc, 「語」= ngôn ngữ. ① 中国語 = đúng. ② 中国誤 = 「誤」nghĩa là sai lầm; vô nghĩa. ③ 中国後 = 「後」nghĩa là sau; vô nghĩa trong ngữ cảnh ngôn ngữ. ④ 仲国語 = 「仲」(なか) nghĩa là mối quan hệ thân thiết; sai chữ 中 (trung tâm/giữa).",
+              "glosses": [
+                {
+                  "t": "ちゅうごくご",
+                  "read": "中国語",
+                  "vi": "tiếng Trung"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ)"
+                },
+                {
+                  "t": "でんわ",
+                  "read": "電話",
+                  "vi": "điện thoại"
+                },
+                {
+                  "t": "かけました",
+                  "vi": "đã gọi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはともだちからたんじょうびにとけいをもらいました。",
+              "ul": "とけい",
+              "choices": [
+                "時計",
+                "時系",
+                "時形",
+                "時経"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「とけい」(đồng hồ) viết là 「時計」. 「時」= giờ/thời gian, 「計」= đo lường/tính toán. ① 時計 = đúng. ② 時系 = 「系」(けい) nghĩa là hệ thống/dòng; không phải đồng hồ. ③ 時形 = 「形」(けい/かたち) nghĩa là hình dạng; vô nghĩa. ④ 時経 = 「経」(けい) nghĩa là kinh điển/trải qua; vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "ともだちから",
+                  "read": "友達から",
+                  "vi": "từ bạn bè"
+                },
+                {
+                  "t": "たんじょうびに",
+                  "read": "誕生日に",
+                  "vi": "vào ngày sinh nhật"
+                },
+                {
+                  "t": "とけい",
+                  "read": "時計",
+                  "vi": "đồng hồ"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận được"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "おにいさんはいもうとにあたらしいほんをかってあげました。",
+              "ul": "あたらしい",
+              "choices": [
+                "新しい",
+                "親しい",
+                "若しい",
+                "清しい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あたらしい」(mới) viết là 「新しい」. ① 新しい (あたらしい) = mới → đúng. ② 親しい (したしい) = thân thiết, thân quen; đọc là したしい không phải あたらしい. ③ 若しい = không phải từ thực dùng độc lập như vậy; 若い (わかい) = trẻ. ④ 清しい (きよしい) = trong sáng, thanh khiết; đọc là きよしい, sai âm.",
+              "glosses": [
+                {
+                  "t": "おにいさん",
+                  "read": "お兄さん",
+                  "vi": "anh trai"
+                },
+                {
+                  "t": "いもうとに",
+                  "read": "妹に",
+                  "vi": "cho em gái"
+                },
+                {
+                  "t": "あたらしい",
+                  "read": "新しい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "かってあげました",
+                  "read": "買ってあげました",
+                  "vi": "đã mua cho"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはおかあさんににほんごでてがみをかきます。",
+              "ul": "てがみ",
+              "choices": [
+                "手紙",
+                "手帋",
+                "手絙",
+                "手継"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「てがみ」(lá thư) viết là 「手紙」. 「手」= tay, 「紙」= giấy (thư viết tay). ① 手紙 = đúng. ② 手帋 = 「帋」không phải chữ Hán thông dụng trong từ này; là biến thể cổ của 紙 nhưng không dùng trong tiếng Nhật hiện đại. ③ 手絙 = 「絙」không phải từ thực liên quan đến thư. ④ 手継 = 「継」(つぎ) nghĩa là tiếp nối; không phải thư.",
+              "glosses": [
+                {
+                  "t": "おかあさんに",
+                  "read": "お母さんに",
+                  "vi": "cho mẹ"
+                },
+                {
+                  "t": "にほんごで",
+                  "read": "日本語で",
+                  "vi": "bằng tiếng Nhật"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "手紙",
+                  "vi": "thư"
+                },
+                {
+                  "t": "かきます",
+                  "read": "書きます",
+                  "vi": "viết"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "prompt": "やまださんはかいしゃでパソコンをつかいます。",
+              "ul": "かいしゃ",
+              "choices": [
+                "会社",
+                "回社",
+                "絵社",
+                "海社"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かいしゃ」(công ty) viết là 「会社」. 「会」= hội họp, 「社」= tổ chức/thần xã. ① 会社 = đúng. ② 回社 = 「回」(かい) nghĩa là vòng/lần; tạo thành từ vô nghĩa. ③ 絵社 = 「絵」(え) nghĩa là tranh vẽ; đọc là え, không phải かい. ④ 海社 = 「海」(かい/うみ) nghĩa là biển; không phải công ty.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "read": "山田さん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "で",
+                  "vi": "ở (nơi chốn/công cụ)"
+                },
+                {
+                  "t": "パソコン",
+                  "vi": "máy tính"
+                },
+                {
+                  "t": "つかいます",
+                  "read": "使います",
+                  "vi": "sử dụng"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはすきなひとにチョコレートをあげました。",
+              "ul": "すきな",
+              "choices": [
+                "好きな",
+                "好いな",
+                "好かな",
+                "好えな"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「すきな」(thích) viết là 「好きな」. 「好」= yêu thích, 「き」là okurigana (phần kana đi kèm). ① 好きな = đúng, đây là dạng na-tính từ chuẩn. ② 好いな = 「好い」đọc là よい (tốt, hay); không phải すき. ③ 好かな = không phải dạng từ chuẩn của すき trong tiếng Nhật hiện đại. ④ 好えな = không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "すきな",
+                  "read": "好きな",
+                  "vi": "yêu thích, thích"
+                },
+                {
+                  "t": "ひとに",
+                  "read": "人に",
+                  "vi": "cho người"
+                },
+                {
+                  "t": "チョコレート",
+                  "vi": "sô-cô-la"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng/cho"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "これは日本語の＿です。とても役に立ちます。",
+              "choices": [
+                "本",
+                "水",
+                "火",
+                "電車"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「本」（ほん）nghĩa là sách. Câu có nghĩa: 'Đây là một cuốn sách tiếng Nhật. Rất hữu ích.' Phù hợp hoàn toàn. ✗「水」（みず）= nước — không liên quan đến 'tiếng Nhật' và 'hữu ích' theo nghĩa này. ✗「火」（ひ）= lửa — không liên quan ngữ cảnh. ✗「電車」（でんしゃ）= tàu điện — không thể là sách.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "役に立ちます",
+                  "read": "やくにたちます",
+                  "vi": "hữu ích"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "これは",
+                  "read": "これは",
+                  "vi": "đây là ~ (これ + は, giới thiệu chủ đề)"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは友だちに花を＿ました。",
+              "choices": [
+                "あげ",
+                "もらい",
+                "くれ",
+                "もち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あげる」= cho (người nói/bên trong cho người ngoài). Chủ ngữ 田中さん → cho bạn bè → dùng「あげる」. ✗「もらう」= nhận — ngược chiều, là nhận từ ai đó. ✗「くれる」= cho (người khác cho mình/bên trong) — chủ ngữ phải là người khác cho người nói. ✗「もつ」= cầm, mang — không phải hành động cho/nhận.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "花",
+                  "read": "はな",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "stem": "先生は学生に日本語で話しました。学生は＿がわかりませんでした。",
+              "choices": [
+                "意味",
+                "名前",
+                "時間",
+                "電話"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「意味」（いみ）= ý nghĩa. Câu: thầy giáo nói bằng tiếng Nhật, học sinh không hiểu 'ý nghĩa' → rất tự nhiên. ✗「名前」（なまえ）= tên — 'không hiểu tên' không khớp ngữ cảnh nói chuyện bằng tiếng Nhật. ✗「時間」（じかん）= thời gian — không liên quan đến việc không hiểu lời nói. ✗「電話」（でんわ）= điện thoại — hoàn toàn lạc ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "日本語で",
+                  "read": "にほんごで",
+                  "vi": "bằng tiếng Nhật"
+                },
+                {
+                  "t": "意味",
+                  "read": "いみ",
+                  "vi": "ý nghĩa"
+                },
+                {
+                  "t": "わかりませんでした",
+                  "read": "わかりませんでした",
+                  "vi": "đã không hiểu"
+                },
+                {
+                  "t": "話しました",
+                  "read": "はなしました",
+                  "vi": "đã nói (giảng)"
+                }
+              ]
+            },
+            {
+              "stem": "スミスさんは日本語で手紙を＿ました。",
+              "choices": [
+                "書き",
+                "飲み",
+                "見",
+                "起き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書く」（かく）= viết. 'Viết thư bằng tiếng Nhật' rất tự nhiên — 手紙（てがみ）= thư, kết hợp với「書く」là cụm cố định. ✗「飲む」（のむ）= uống — không thể 'uống thư'. ✗「見る」（みる）= xem/nhìn — ý nghĩa khác, câu sẽ thành 'nhìn thư' không phải 'viết thư'. ✗「起きる」（おきる）= thức dậy — hoàn toàn không liên quan.",
+              "glosses": [
+                {
+                  "t": "手紙",
+                  "read": "てがみ",
+                  "vi": "thư (bức thư)"
+                },
+                {
+                  "t": "日本語で",
+                  "read": "にほんごで",
+                  "vi": "bằng tiếng Nhật"
+                },
+                {
+                  "t": "書きました",
+                  "read": "かきました",
+                  "vi": "đã viết"
+                },
+                {
+                  "t": "スミスさん",
+                  "read": "すみすさん",
+                  "vi": "anh/chị Smith"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんは先生から辞書を＿ました。",
+              "choices": [
+                "もらい",
+                "あげ",
+                "くれ",
+                "かし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「もらう」= nhận (mình nhận từ người khác). Chủ ngữ 山田さん nhận từ 先生 → dùng「もらう」, trợ từ「から」chỉ nguồn gốc. ✗「あげる」= cho — ngược chiều, nghĩa là 山田さん cho 先生. ✗「くれる」= cho (người khác cho mình) — trợ từ sẽ phải là「に」không phải「から」. ✗「かす」（貸す）= cho mượn — nghĩa khác, là cho mượn tạm thời không phải cho hẳn.",
+              "glosses": [
+                {
+                  "t": "先生から",
+                  "read": "せんせいから",
+                  "vi": "từ giáo viên"
+                },
+                {
+                  "t": "辞書",
+                  "read": "じしょ",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                }
+              ]
+            },
+            {
+              "stem": "バスで行きますか。いいえ、＿で行きます。",
+              "choices": [
+                "電車",
+                "映画",
+                "音楽",
+                "食べ物"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電車」（でんしゃ）= tàu điện. Câu hỏi về phương tiện đi lại (バス=xe buýt), nên câu trả lời phải là phương tiện khác → 「電車」phù hợp nhất. ✗「映画」（えいが）= phim ảnh — không phải phương tiện. ✗「音楽」（おんがく）= âm nhạc — không phải phương tiện. ✗「食べ物」（たべもの）= thức ăn — hoàn toàn không liên quan đến việc đi lại.",
+              "glosses": [
+                {
+                  "t": "バスで",
+                  "read": "バスで",
+                  "vi": "bằng xe buýt"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "いいえ",
+                  "read": "いいえ",
+                  "vi": "không"
+                }
+              ]
+            },
+            {
+              "stem": "先生はえんぴつで黒板に字を＿ました。",
+              "choices": [
+                "書き",
+                "聞き",
+                "飲み",
+                "来"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書く」（かく）= viết. 'Viết chữ lên bảng bằng bút chì' — 黒板（こくばん）=bảng đen, えんぴつ=bút chì, 字（じ）=chữ, tất cả kết hợp với「書く」rất tự nhiên. ✗「聞く」（きく）= nghe/hỏi — không 'nghe chữ lên bảng'. ✗「飲む」（のむ）= uống — không thể uống chữ. ✗「来る」（くる）= đến — không liên quan hành động viết.",
+              "glosses": [
+                {
+                  "t": "えんぴつで",
+                  "read": "えんぴつで",
+                  "vi": "bằng bút chì"
+                },
+                {
+                  "t": "黒板",
+                  "read": "こくばん",
+                  "vi": "bảng đen"
+                },
+                {
+                  "t": "字",
+                  "read": "じ",
+                  "vi": "chữ"
+                },
+                {
+                  "t": "書きました",
+                  "read": "かきました",
+                  "vi": "đã viết"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                }
+              ]
+            },
+            {
+              "stem": "母は私に新しい＿をかってくれました。",
+              "choices": [
+                "かばん",
+                "天気",
+                "病気",
+                "仕事"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「かばん」= túi xách. Mẹ mua cho mình một cái túi mới → rất tự nhiên, đây là vật có thể mua được. ✗「天気」（てんき）= thời tiết — không thể mua thời tiết. ✗「病気」（びょうき）= bệnh — không mua bệnh. ✗「仕事」（しごと）= công việc — mẹ không 'mua công việc' cho con.",
+              "glosses": [
+                {
+                  "t": "母",
+                  "read": "はは",
+                  "vi": "mẹ (của mình)"
+                },
+                {
+                  "t": "私に",
+                  "read": "わたしに",
+                  "vi": "cho tôi"
+                },
+                {
+                  "t": "新しい",
+                  "read": "あたらしい",
+                  "vi": "mới"
+                },
+                {
+                  "t": "かばん",
+                  "read": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "かってくれました",
+                  "read": "かってくれました",
+                  "vi": "đã mua cho"
+                }
+              ]
+            },
+            {
+              "stem": "この国の＿は何ですか。「にほんご」です。",
+              "choices": [
+                "言葉",
+                "電話",
+                "写真",
+                "新聞"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「言葉」（ことば）= ngôn ngữ/lời nói. Câu hỏi 'ngôn ngữ của nước này là gì?' → trả lời 'tiếng Nhật' rất logic. ✗「電話」（でんわ）= điện thoại — không hợp với câu trả lời là tên ngôn ngữ. ✗「写真」（しゃしん）= ảnh chụp — không liên quan. ✗「新聞」（しんぶん）= báo — không phải câu hỏi về báo.",
+              "glosses": [
+                {
+                  "t": "この国",
+                  "read": "このくに",
+                  "vi": "đất nước này"
+                },
+                {
+                  "t": "言葉",
+                  "read": "ことば",
+                  "vi": "ngôn ngữ, lời nói"
+                },
+                {
+                  "t": "何ですか",
+                  "read": "なんですか",
+                  "vi": "là gì?"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                }
+              ]
+            },
+            {
+              "stem": "友だちは私にチョコレートを＿ました。",
+              "choices": [
+                "くれ",
+                "あげ",
+                "もらい",
+                "かし"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「くれる」= cho (người khác cho mình). Chủ ngữ 友だち → cho 私（người nói） → dùng「くれる」. ✗「あげる」= cho — chủ ngữ phải là người nói cho người khác, không phải chiều ngược lại. ✗「もらう」= nhận — chủ ngữ sẽ là người nhận (私), không phải 友だち. ✗「かす」= cho mượn — ý nghĩa khác là cho mượn tạm thời.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "私に",
+                  "read": "わたしに",
+                  "vi": "cho tôi"
+                },
+                {
+                  "t": "くれました",
+                  "read": "くれました",
+                  "vi": "đã cho (mình nhận)"
+                },
+                {
+                  "t": "チョコレート",
+                  "read": "ちょこれーと",
+                  "vi": "sô cô la"
+                }
+              ]
+            },
+            {
+              "stem": "この手紙は英語で＿ました。",
+              "choices": [
+                "書き",
+                "読み",
+                "見",
+                "聞き"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「書く」（かく）= viết. 「手紙を書く」(viết thư) là cụm từ cố định N5. Câu có nghĩa: 'Bức thư này được viết bằng tiếng Anh.' → Chọn A.\n✗「読む」（よむ）= đọc — 'đọc thư' không tự nhiên theo nghĩa 'thư được tạo ra bằng tiếng Anh'; nếu viết「読みました」thì nghĩa là ai đó đã đọc thư, không khớp câu.\n✗「見る」（みる）= xem/nhìn — 'nhìn thư bằng tiếng Anh' không tự nhiên; 見る thường dùng cho phim ảnh, ảnh chụp, không dùng ghép trực tiếp với 手紙 như hành động tạo ra nó.\n✗「聞く」（きく）= nghe — hoàn toàn không hợp ngữ cảnh vì thư là văn bản viết, không phải âm thanh.",
+              "glosses": [
+                {
+                  "t": "手紙",
+                  "read": "てがみ",
+                  "vi": "thư"
+                },
+                {
+                  "t": "英語で",
+                  "read": "えいごで",
+                  "vi": "bằng tiếng Anh"
+                },
+                {
+                  "t": "書きました",
+                  "read": "かきました",
+                  "vi": "đã viết"
+                }
+              ]
+            },
+            {
+              "stem": "先生に＿で質問しました。メールではありません。",
+              "choices": [
+                "電話",
+                "電車",
+                "会社",
+                "学校"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電話」（でんわ）= điện thoại. Câu: 'hỏi thầy qua điện thoại, không phải qua email' — đây là phương tiện liên lạc, đối lập với メール（email）. ✗「電車」（でんしゃ）= tàu điện — phương tiện đi lại, không phải liên lạc. ✗「会社」（かいしゃ）= công ty — không phải công cụ liên lạc. ✗「学校」（がっこう）= trường học — địa điểm, không phải phương tiện liên lạc.",
+              "glosses": [
+                {
+                  "t": "先生に",
+                  "read": "せんせいに",
+                  "vi": "với giáo viên"
+                },
+                {
+                  "t": "電話で",
+                  "read": "でんわで",
+                  "vi": "bằng điện thoại"
+                },
+                {
+                  "t": "質問しました",
+                  "read": "しつもんしました",
+                  "vi": "đã hỏi"
+                },
+                {
+                  "t": "メールではありません",
+                  "read": "メールではありません",
+                  "vi": "không phải qua email"
+                }
+              ]
+            },
+            {
+              "stem": "私は弟に古い自転車を＿ました。",
+              "choices": [
+                "あげ",
+                "もらい",
+                "くれ",
+                "かり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「あげる」= cho (mình cho người khác). Chủ ngữ 私 → cho 弟（em trai） → dùng「あげる」. ✗「もらう」= nhận — ngược chiều, nghĩa là mình nhận từ em trai. ✗「くれる」= cho (người khác cho mình) — chủ ngữ phải là người khác, không phải mình. ✗「かりる」= mượn — ý nghĩa khác, là mượn từ người khác.",
+              "glosses": [
+                {
+                  "t": "弟に",
+                  "read": "おとうとに",
+                  "vi": "cho em trai"
+                },
+                {
+                  "t": "古い",
+                  "read": "ふるい",
+                  "vi": "cũ"
+                },
+                {
+                  "t": "自転車",
+                  "read": "じてんしゃ",
+                  "vi": "xe đạp"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "日本語がわかりません。英語で＿してください。",
+              "choices": [
+                "説明",
+                "料理",
+                "運動",
+                "買い物"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「説明」（せつめい）= giải thích. Câu: 'Tôi không hiểu tiếng Nhật. Xin hãy giải thích bằng tiếng Anh' — logic hoàn toàn. ✗「料理」（りょうり）= nấu ăn — không liên quan đến ngôn ngữ. ✗「運動」（うんどう）= vận động/tập thể dục — không liên quan. ✗「買い物」（かいもの）= mua sắm — không liên quan đến việc không hiểu ngôn ngữ.",
+              "glosses": [
+                {
+                  "t": "日本語がわかりません",
+                  "read": "にほんごがわかりません",
+                  "vi": "không hiểu tiếng Nhật"
+                },
+                {
+                  "t": "英語で",
+                  "read": "えいごで",
+                  "vi": "bằng tiếng Anh"
+                },
+                {
+                  "t": "説明",
+                  "read": "せつめい",
+                  "vi": "giải thích"
+                },
+                {
+                  "t": "してください",
+                  "read": "してください",
+                  "vi": "xin hãy làm"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは会社の人に英語で＿を送りました。",
+              "choices": [
+                "メール",
+                "映画",
+                "音楽",
+                "天気"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「メール」= email/thư điện tử. 'Gửi email bằng tiếng Anh cho người trong công ty' — phù hợp hoàn toàn về ngữ cảnh văn phòng và phương tiện liên lạc bằng ngôn ngữ. ✗「映画」（えいが）= phim ảnh — không 'gửi phim' trong ngữ cảnh này. ✗「音楽」（おんがく）= âm nhạc — không gửi nhạc cho người trong công ty theo nghĩa thông thường. ✗「天気」（てんき）= thời tiết — không thể gửi thời tiết.",
+              "glosses": [
+                {
+                  "t": "会社の人",
+                  "read": "かいしゃのひと",
+                  "vi": "người trong công ty"
+                },
+                {
+                  "t": "英語で",
+                  "read": "えいごで",
+                  "vi": "bằng tiếng Anh"
+                },
+                {
+                  "t": "メール",
+                  "read": "メール",
+                  "vi": "email"
+                },
+                {
+                  "t": "送りました",
+                  "read": "おくりました",
+                  "vi": "đã gửi"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "ははははしでごはんをたべます。",
+              "choices": [
+                "ははははしをつかってごはんをたべます。",
+                "ははははしにごはんをもらいます。",
+                "ははははしへごはんをもっていきます。",
+                "ははははしとごはんをたべます。"
+              ],
+              "answer": 0,
+              "pt": "NでNをVます（công cụ）",
+              "explain": "Câu gốc dùng 「で」 chỉ công cụ: dùng đũa để ăn cơm. Đáp án A dùng 「〜をつかって」 (dùng ~) — hoàn toàn đồng nghĩa. B dùng 「に〜をもらいます」 nghĩa là nhận cơm từ đũa (vô nghĩa). C dùng 「へ〜をもっていきます」 nghĩa là mang cơm đến đũa (vô nghĩa). D dùng 「と」 nghĩa là cùng với đũa ăn cơm (mang nghĩa đồng hành, không phải công cụ).",
+              "glosses": [
+                {
+                  "t": "はは",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "はし",
+                  "read": "箸",
+                  "vi": "đũa"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ)"
+                },
+                {
+                  "t": "ごはん",
+                  "read": "ご飯",
+                  "vi": "cơm"
+                },
+                {
+                  "t": "たべます",
+                  "read": "食べます",
+                  "vi": "ăn"
+                },
+                {
+                  "t": "つかって",
+                  "read": "使って",
+                  "vi": "dùng"
+                },
+                {
+                  "t": "をもらいます",
+                  "read": "をもらいます",
+                  "vi": "nhận được ~ (もらう thể lịch sự hiện tại)"
+                },
+                {
+                  "t": "をもっていきます",
+                  "read": "をもっていきます",
+                  "vi": "mang ~ đi (持っていく thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはやまださんにほんをあげました。",
+              "choices": [
+                "やまださんはたなかさんにほんをもらいました。",
+                "たなかさんはやまださんにほんをもらいました。",
+                "たなかさんはやまださんといっしょにほんをよみました。",
+                "たなかさんはやまださんのほんをかりました。"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます",
+              "explain": "Câu gốc nghĩa: Tanaka cho Yamada một cuốn sách (「あげます」= cho đi). Đáp án A đổi góc nhìn sang Yamada: Yamada nhận sách từ Tanaka (「もらいました」) — đồng nghĩa hoàn toàn về sự kiện. B sai vì chủ thể nhận sai: Tanaka nhận từ Yamada, ngược lại. C nghĩa là cùng đọc sách — khác hành động. D nghĩa là Tanaka mượn sách của Yamada — khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (đối tượng nhận)"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "いっしょ",
+                  "read": "いっしょ",
+                  "vi": "cùng nhau, cùng"
+                },
+                {
+                  "t": "よみ",
+                  "read": "よみ",
+                  "vi": "đọc (dạng ~masu gốc của 読む)"
+                },
+                {
+                  "t": "をかりました",
+                  "read": "をかりました",
+                  "vi": "đã mượn ~ (借りる thể quá khứ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはせんせいにはなをもらいました。",
+              "choices": [
+                "せんせいはわたしにはなをあげました。",
+                "わたしはせんせいにはなをあげました。",
+                "せんせいはわたしといっしょにはなをかいました。",
+                "わたしはせんせいのはなをみました。"
+              ],
+              "answer": 0,
+              "pt": "NにNをもらいます",
+              "explain": "Câu gốc: tôi nhận hoa từ thầy/cô (「もらいました」). Đáp án A đổi góc nhìn: thầy/cô cho tôi hoa (「あげました」) — cùng một sự kiện, đồng nghĩa. B sai: tôi cho thầy/cô hoa — ngược chiều. C sai: cùng nhau đi mua hoa — khác hành động. D sai: tôi nhìn hoa của thầy/cô — khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "に",
+                  "vi": "từ (nguồn nhận)"
+                },
+                {
+                  "t": "はな",
+                  "read": "花",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "いっしょ",
+                  "read": "いっしょ",
+                  "vi": "cùng nhau, cùng"
+                },
+                {
+                  "t": "をかいました",
+                  "read": "をかいました",
+                  "vi": "đã mua ~ (買う thể quá khứ lịch sự)"
+                },
+                {
+                  "t": "をみました",
+                  "read": "をみました",
+                  "vi": "đã xem/nhìn ~ (見る thể quá khứ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはにほんごでてがみをかきます。",
+              "choices": [
+                "かれはにほんごをつかっててがみをかきます。",
+                "かれはにほんごにてがみをかきます。",
+                "かれはにほんごのてがみをよみます。",
+                "かれはにほんごとてがみをかきます。"
+              ],
+              "answer": 0,
+              "pt": "Nで（bằng ngôn ngữ）",
+              "explain": "Câu gốc dùng 「で」 chỉ phương tiện/ngôn ngữ: viết thư bằng tiếng Nhật. Đáp án A dùng 「〜をつかって」 — đồng nghĩa. B dùng 「に」 thay cho 「で」 — 「に」 ở đây không chỉ phương tiện, sai ngữ pháp. C nghĩa là đọc thư tiếng Nhật — đổi hành động sang 「よみます」. D dùng 「と」 nghĩa là viết thư cùng với tiếng Nhật — vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "かれ",
+                  "read": "彼",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ/phương tiện)"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "手紙",
+                  "vi": "thư"
+                },
+                {
+                  "t": "かきます",
+                  "read": "書きます",
+                  "vi": "viết"
+                },
+                {
+                  "t": "よみ",
+                  "read": "よみ",
+                  "vi": "đọc (dạng ~masu gốc của 読む)"
+                },
+                {
+                  "t": "をつかって",
+                  "read": "をつかって",
+                  "vi": "dùng ~ để (làm gì) — 〜を使って"
+                }
+              ]
+            },
+            {
+              "prompt": "いもうとはともだちにチョコレートをあげました。",
+              "choices": [
+                "ともだちはいもうとにチョコレートをもらいました。",
+                "いもうとはともだちにチョコレートをもらいました。",
+                "いもうとはともだちとチョコレートをたべました。",
+                "いもうとはともだちのチョコレートをほしいです。"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます",
+              "explain": "Câu gốc: em gái cho bạn sôcôla (「あげました」). Đáp án A: bạn nhận sôcôla từ em gái (「もらいました」) — đồng nghĩa, đổi góc nhìn. B sai: em gái nhận từ bạn — ngược chiều. C sai: cùng nhau ăn sôcôla — hành động khác. D sai: em gái muốn sôcôla của bạn — khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "いもうと",
+                  "read": "妹",
+                  "vi": "em gái"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (đối tượng nhận)"
+                },
+                {
+                  "t": "チョコレート",
+                  "vi": "sôcôla"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "ほしい",
+                  "read": "ほしい",
+                  "vi": "muốn (có được)"
+                },
+                {
+                  "t": "をたべました",
+                  "read": "をたべました",
+                  "vi": "đã ăn ~ (食べる thể quá khứ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはえんぴつでこのもんだいをかきました。",
+              "choices": [
+                "わたしはえんぴつをつかってこのもんだいをかきました。",
+                "わたしはえんぴつにこのもんだいをかきました。",
+                "わたしはえんぴつとこのもんだいをかきました。",
+                "わたしはえんぴつのもんだいをかきました。"
+              ],
+              "answer": 0,
+              "pt": "NでNをVます（công cụ）",
+              "explain": "Câu gốc dùng 「えんぴつで」 = bằng bút chì. Đáp án A dùng 「えんぴつをつかって」 — đồng nghĩa. B dùng 「に」 — trợ từ chỉ điểm đến/đối tượng, không chỉ công cụ, sai. C dùng 「と」 — chỉ đồng hành (cùng với bút chì), vô nghĩa trong ngữ cảnh này. D bỏ mất tân ngữ và thêm 「の」 — câu mang nghĩa khác: câu hỏi (bài toán của bút chì).",
+              "glosses": [
+                {
+                  "t": "えんぴつ",
+                  "read": "鉛筆",
+                  "vi": "bút chì"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ)"
+                },
+                {
+                  "t": "もんだい",
+                  "read": "問題",
+                  "vi": "bài toán/câu hỏi"
+                },
+                {
+                  "t": "かきました",
+                  "read": "書きました",
+                  "vi": "đã viết"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "をつかってこの",
+                  "read": "をつかってこの",
+                  "vi": "dùng ~ để [làm] + cái này (を使って + この)"
+                },
+                {
+                  "t": "にこの",
+                  "read": "にこの",
+                  "vi": "vào/cho + cái này (に đứng trước danh từ chỉ định)"
+                },
+                {
+                  "t": "とこの",
+                  "read": "とこの",
+                  "vi": "cùng với + cái này (と đứng trước danh từ, chỉ đồng hành)"
+                }
+              ]
+            },
+            {
+              "prompt": "あねはわたしにセーターをくれました。",
+              "choices": [
+                "わたしはあねにセーターをもらいました。",
+                "あねはわたしにセーターをもらいました。",
+                "わたしはあねとセーターをかいました。",
+                "あねはわたしのセーターをほしいです。"
+              ],
+              "answer": 0,
+              "pt": "NにNをもらいます（くれる視点）",
+              "explain": "Câu gốc: chị tặng tôi áo len (「くれました」= ai đó cho tôi). Đáp án A đổi sang góc nhìn người nhận: tôi nhận áo len từ chị (「もらいました」) — đồng nghĩa. B sai: chị nhận áo len từ tôi — ngược chiều. C sai: cùng nhau mua áo — hành động khác. D sai: chị muốn áo len của tôi — nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "あね",
+                  "read": "姉",
+                  "vi": "chị gái"
+                },
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (đối tượng nhận)"
+                },
+                {
+                  "t": "セーター",
+                  "vi": "áo len"
+                },
+                {
+                  "t": "くれました",
+                  "vi": "đã cho (tôi)"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "ほしい",
+                  "read": "ほしい",
+                  "vi": "muốn (có được)"
+                },
+                {
+                  "t": "をかいました",
+                  "read": "をかいました",
+                  "vi": "đã mua ~ (買う thể quá khứ lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうわたしたちはでんしゃでうえのへいきました。",
+              "choices": [
+                "きのうわたしたちはでんしゃにのってうえのへいきました。",
+                "きのうわたしたちはうえのでんしゃをのりました。",
+                "きのうわたしたちはうえのへでんしゃをかいました。",
+                "きのうわたしたちはでんしゃとうえのへいきました。"
+              ],
+              "answer": 0,
+              "pt": "B5 NへVます ＋ NでVます（phương tiện）",
+              "explain": "Câu gốc: hôm qua chúng tôi đi tàu điện đến Ueno. Đáp án A: lên tàu điện đi đến Ueno (「でんしゃにのって」) — đồng nghĩa (乗って bổ sung cụ thể hơn nhưng nghĩa tương đương). B sai: đổi thứ tự và trợ từ sai — 「うえのでんしゃをのりました」 câu không tự nhiên, nghĩa lệch. C sai: đến Ueno mua tàu điện — vô nghĩa. D dùng 「と」 — đi cùng với tàu điện, không phải bằng phương tiện.",
+              "glosses": [
+                {
+                  "t": "わたしたち",
+                  "vi": "chúng tôi"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (phương tiện)"
+                },
+                {
+                  "t": "うえの",
+                  "read": "上野",
+                  "vi": "Ueno (địa danh)"
+                },
+                {
+                  "t": "へ",
+                  "vi": "hướng đến"
+                },
+                {
+                  "t": "いきました",
+                  "read": "行きました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "にのって",
+                  "vi": "lên (phương tiện)"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "をのりました",
+                  "read": "をのりました",
+                  "vi": "đã đi/lên (phương tiện) ~ (乗る quá khứ; thường đi với に chứ không phải を)"
+                },
+                {
+                  "t": "をかいました",
+                  "read": "をかいました",
+                  "vi": "đã mua ~"
+                }
+              ]
+            },
+            {
+              "prompt": "スミスさんはえいごでじゅぎょうをおしえます。",
+              "choices": [
+                "スミスさんはえいごをつかってじゅぎょうをおしえます。",
+                "スミスさんはえいごにじゅぎょうをおしえます。",
+                "スミスさんはえいごのじゅぎょうをならいます。",
+                "スミスさんはえいごとじゅぎょうをします。"
+              ],
+              "answer": 0,
+              "pt": "Nで（bằng ngôn ngữ）",
+              "explain": "Câu gốc: Smith dạy bài bằng tiếng Anh (「えいごで」= bằng tiếng Anh). Đáp án A dùng 「えいごをつかって」 — đồng nghĩa. B dùng 「に」 — trợ từ sai trong ngữ cảnh chỉ phương tiện ngôn ngữ. C đổi hành động thành 「ならいます」 (học) và đảo vai — nghĩa khác. D dùng 「と」 — làm bài cùng với tiếng Anh, vô nghĩa.",
+              "glosses": [
+                {
+                  "t": "スミスさん",
+                  "vi": "anh/chị Smith"
+                },
+                {
+                  "t": "えいご",
+                  "read": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ)"
+                },
+                {
+                  "t": "じゅぎょう",
+                  "read": "授業",
+                  "vi": "bài học/tiết học"
+                },
+                {
+                  "t": "おしえます",
+                  "read": "教えます",
+                  "vi": "dạy"
+                },
+                {
+                  "t": "をつかって",
+                  "read": "をつかって",
+                  "vi": "dùng ~ để (làm gì)"
+                },
+                {
+                  "t": "をならいます",
+                  "read": "をならいます",
+                  "vi": "học ~ (習う thể lịch sự hiện tại)"
+                },
+                {
+                  "t": "をします",
+                  "read": "をします",
+                  "vi": "làm ~ (する thể lịch sự hiện tại)"
+                }
+              ]
+            },
+            {
+              "prompt": "あしたみんなでこうえんへいきませんか。",
+              "choices": [
+                "あしたいっしょにこうえんへいきましょう。",
+                "あしたみんなでこうえんへいきました。",
+                "あしたひとりでこうえんへいきます。",
+                "あしたみんなはこうえんからきます。"
+              ],
+              "answer": 0,
+              "pt": "B6 いっしょにVませんか ＋ B5 NへVます",
+              "explain": "Câu gốc: ngày mai mọi người cùng đi công viên không? (lời mời/rủ rê bằng 「〜ませんか」). Đáp án A dùng 「〜ましょう」 — cũng là rủ rê/đề nghị cùng làm, đồng nghĩa trong ngữ cảnh rủ rê. B dùng 「いきました」 — thì quá khứ, khác nghĩa. C dùng 「ひとりで」 (một mình) — loại trừ ý cùng nhau. D dùng 「から」 (từ) thay 「へ」 (đến) — nghĩa ngược chiều.",
+              "glosses": [
+                {
+                  "t": "あした",
+                  "read": "明日",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "みんなで",
+                  "vi": "cùng mọi người"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "公園",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "へ",
+                  "vi": "đến (hướng)"
+                },
+                {
+                  "t": "いきませんか",
+                  "read": "行きませんか",
+                  "vi": "đi không?"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "いきましょう",
+                  "read": "行きましょう",
+                  "vi": "hãy cùng đi"
+                },
+                {
+                  "t": "ひとり",
+                  "read": "ひとり",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi (行く thể quá khứ lịch sự)"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "sẽ đi/đi (行く thể hiện tại/tương lai lịch sự)"
+                },
+                {
+                  "t": "みんなは",
+                  "read": "みんなは",
+                  "vi": "mọi người thì (みんな + は, chủ đề)"
+                },
+                {
+                  "t": "からきます",
+                  "read": "からきます",
+                  "vi": "từ ~ đến/tới (から + 来る, chỉ điểm xuất phát)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはははにかばんをもらいました。",
+              "choices": [
+                "はははわたしにかばんをあげました。",
+                "わたしはははにかばんをあげました。",
+                "わたしはははとかばんをかいました。",
+                "はははわたしのかばんをつかいます。"
+              ],
+              "answer": 0,
+              "pt": "NにNをもらいます",
+              "explain": "Câu gốc: tôi nhận túi từ mẹ (「ははにもらいました」). Đáp án A: mẹ cho tôi túi (「あげました」) — đồng nghĩa, đổi góc nhìn. B sai: tôi cho mẹ túi — ngược chiều. C sai: tôi và mẹ cùng mua túi — hành động khác. D sai: mẹ dùng túi của tôi — nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "はは",
+                  "read": "母",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "に",
+                  "vi": "từ (nguồn nhận)"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "かい",
+                  "read": "かい",
+                  "vi": "mua (dạng ~masu gốc của 買う)"
+                }
+              ]
+            },
+            {
+              "prompt": "まりさんはボールペンでかみにじゅうしょをかきました。",
+              "choices": [
+                "まりさんはボールペンをつかってかみにじゅうしょをかきました。",
+                "まりさんはかみでボールペンにじゅうしょをかきました。",
+                "まりさんはボールペンでじゅうしょをよみました。",
+                "まりさんはかみとボールペンをかいました。"
+              ],
+              "answer": 0,
+              "pt": "NでNをVます（công cụ）＋ NにVます（vị trí viết）",
+              "explain": "Câu gốc: Mari viết địa chỉ lên giấy bằng bút bi (「ボールペンで」= bằng bút bi, 「かみに」= lên giấy). Đáp án A dùng 「〜をつかって」 — đồng nghĩa. B đảo 「かみで」 và 「ボールペンに」 — trợ từ sai (giấy không phải công cụ). C đổi hành động thành 「よみました」 (đọc) — nghĩa khác. D nghĩa là mua giấy và bút bi — hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "まりさん",
+                  "vi": "chị Mari"
+                },
+                {
+                  "t": "ボールペン",
+                  "vi": "bút bi"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (công cụ)"
+                },
+                {
+                  "t": "かみ",
+                  "read": "紙",
+                  "vi": "giấy"
+                },
+                {
+                  "t": "に",
+                  "vi": "lên (bề mặt)"
+                },
+                {
+                  "t": "じゅうしょ",
+                  "read": "住所",
+                  "vi": "địa chỉ"
+                },
+                {
+                  "t": "かきました",
+                  "read": "書きました",
+                  "vi": "đã viết"
+                },
+                {
+                  "t": "よみ",
+                  "read": "よみ",
+                  "vi": "đọc (dạng ~masu gốc của 読む)"
+                },
+                {
+                  "t": "をつかって",
+                  "read": "をつかって",
+                  "vi": "dùng ~ để (làm gì)"
+                },
+                {
+                  "t": "をかいました",
+                  "read": "をかいました",
+                  "vi": "đã mua ~"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはよしださんにおかしをあげました。",
+              "choices": [
+                "よしださんはわたしにおかしをもらいました。",
+                "よしださんはわたしにおかしをあげました。",
+                "わたしはよしださんのおかしをたべました。",
+                "わたしはよしださんとおかしをかいました。"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます",
+              "explain": "Câu gốc: tôi cho Yoshida bánh kẹo. Đáp án A: Yoshida nhận bánh kẹo từ tôi — đồng nghĩa, đổi góc nhìn. B sai: Yoshida cho tôi bánh kẹo — ngược chiều (「あげました」nhưng chủ thể đảo). C sai: tôi ăn bánh kẹo của Yoshida — hành động khác. D sai: tôi cùng Yoshida mua bánh kẹo — hành động khác.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "よしださん",
+                  "vi": "anh/chị Yoshida"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (đối tượng nhận)"
+                },
+                {
+                  "t": "おかし",
+                  "read": "お菓子",
+                  "vi": "bánh kẹo"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "をたべました",
+                  "read": "をたべました",
+                  "vi": "đã ăn ~"
+                },
+                {
+                  "t": "をかいました",
+                  "read": "をかいました",
+                  "vi": "đã mua ~"
+                }
+              ]
+            },
+            {
+              "prompt": "かれはちゅうごくごでともだちにメールをおくります。",
+              "choices": [
+                "かれはちゅうごくごをつかってともだちにメールをおくります。",
+                "かれはちゅうごくごのともだちにメールをもらいます。",
+                "かれはちゅうごくごにともだちへメールをおくります。",
+                "かれはともだちとちゅうごくごでメールをよみます。"
+              ],
+              "answer": 0,
+              "pt": "Nで（bằng ngôn ngữ）＋ NにNをVます",
+              "explain": "Câu gốc: anh ấy gửi email cho bạn bằng tiếng Trung (「ちゅうごくごで」= bằng tiếng Trung). Đáp án A dùng 「〜をつかって」 — đồng nghĩa. B đổi hành động thành 「もらいます」 (nhận) — nghĩa khác. C dùng 「ちゅうごくごに」 — trợ từ 「に」 sai thay cho 「で」 chỉ phương tiện ngôn ngữ; ngoài ra đổi 「に」→「へ」 cho bạn — cấu trúc lộn xộn. D đổi thành cùng đọc email — hành động và đối tượng khác.",
+              "glosses": [
+                {
+                  "t": "かれ",
+                  "read": "彼",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "ちゅうごくご",
+                  "read": "中国語",
+                  "vi": "tiếng Trung"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ)"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (đối tượng nhận)"
+                },
+                {
+                  "t": "メール",
+                  "vi": "email"
+                },
+                {
+                  "t": "おくります",
+                  "read": "送ります",
+                  "vi": "gửi"
+                },
+                {
+                  "t": "よみ",
+                  "read": "よみ",
+                  "vi": "đọc (dạng ~masu gốc của 読む)"
+                },
+                {
+                  "t": "をつかって",
+                  "read": "をつかって",
+                  "vi": "dùng ~ để (làm gì)"
+                },
+                {
+                  "t": "をもらいます",
+                  "read": "をもらいます",
+                  "vi": "nhận được ~ (もらう thể lịch sự hiện tại)"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはがくせいにじしょをあげました。",
+              "choices": [
+                "がくせいはせんせいにじしょをもらいました。",
+                "がくせいはせんせいにじしょをあげました。",
+                "せんせいはがくせいのじしょをつかいました。",
+                "せんせいはがくせいとじしょをよみました。"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます",
+              "explain": "Câu gốc: thầy/cô cho học sinh từ điển (「あげました」). Đáp án A: học sinh nhận từ điển từ thầy/cô (「もらいました」) — đồng nghĩa, đổi góc nhìn. B sai: học sinh cho thầy/cô từ điển — ngược chiều (chủ thể đảo). C sai: thầy/cô dùng từ điển của học sinh — nghĩa khác. D sai: thầy/cô cùng học sinh đọc từ điển — hành động khác.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "学生",
+                  "vi": "học sinh"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho (đối tượng nhận)"
+                },
+                {
+                  "t": "じしょ",
+                  "read": "辞書",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "よみ",
+                  "read": "よみ",
+                  "vi": "đọc (dạng ~masu gốc của 読む)"
+                },
+                {
+                  "t": "をつかいました",
+                  "read": "をつかいました",
+                  "vi": "đã dùng ~ (使う thể quá khứ lịch sự)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 7 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "わたしははし＿＿ごはんをたべます。",
+              "choices": [
+                "で",
+                "に",
+                "を",
+                "へ"
+              ],
+              "answer": 0,
+              "pt": "NでNをVます（道具）",
+              "explain": "「で」は道具・手段を表します。「はしでごはんをたべます」= dùng đũa ăn cơm. ① 「で」→ ĐÚNG, đây là trợ từ chỉ công cụ/phương tiện dùng để thực hiện hành động. ② 「に」→ SAI, 「に」chỉ đích đến hoặc đối tượng nhận (cho/nhận), không chỉ công cụ. ③ 「を」→ SAI, 「を」chỉ tân ngữ (vật bị tác động), mà ở đây vật bị ăn là 「ごはん」đã dùng 「を」rồi. ④ 「へ」→ SAI, 「へ」chỉ hướng di chuyển, không liên quan đến công cụ.",
+              "glosses": [
+                {
+                  "t": "はし",
+                  "read": "箸",
+                  "vi": "đũa"
+                },
+                {
+                  "t": "ごはん",
+                  "read": "ご飯",
+                  "vi": "cơm"
+                },
+                {
+                  "t": "たべます",
+                  "read": "食べます",
+                  "vi": "ăn"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはともだち＿＿はなをあげました。",
+              "choices": [
+                "に",
+                "で",
+                "から",
+                "へ"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます",
+              "explain": "「あげます」（cho）dùng cấu trúc 「人にものをあげます」— 「に」chỉ người nhận. ① 「に」→ ĐÚNG, đây là trợ từ chỉ đối tượng được nhận (người nhận quà). ② 「で」→ SAI, 「で」chỉ công cụ/nơi chốn, không phải người nhận. ③ 「から」→ SAI, 「から」= từ/từ phía…, dùng với 「もらいます」(nhận từ ai), không phải 「あげます」. ④ 「へ」→ SAI, 「へ」chỉ hướng di chuyển, không dùng để chỉ người nhận quà.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "はな",
+                  "read": "花",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã cho, đã tặng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはせんせい＿＿ほんをもらいました。",
+              "choices": [
+                "に",
+                "で",
+                "を",
+                "が"
+              ],
+              "answer": 0,
+              "pt": "NにNをもらいます",
+              "explain": "「もらいます」（nhận）dùng cấu trúc 「人にものをもらいます」— 「に」chỉ người mà mình nhận từ đó. ① 「に」→ ĐÚNG, trợ từ chỉ nguồn gốc của vật nhận trong cấu trúc 「もらいます」. ② 「で」→ SAI, 「で」chỉ phương tiện hoặc địa điểm hành động. ③ 「を」→ SAI, 「を」đã được dùng cho 「ほん」(vật được nhận), không thể dùng hai lần cùng nghĩa đó. ④ 「が」→ SAI, 「が」chỉ chủ ngữ, không phù hợp với vai trò người cho quà ở đây.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "ほん",
+                  "read": "本",
+                  "vi": "sách"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "スミスさんはにほんご＿＿てがみをかきます。",
+              "choices": [
+                "で",
+                "を",
+                "に",
+                "が"
+              ],
+              "answer": 0,
+              "pt": "Nで（言語）",
+              "explain": "「で」có thể chỉ ngôn ngữ được sử dụng, tương tự chỉ công cụ. 「にほんごでてがみをかきます」= viết thư bằng tiếng Nhật. ① 「で」→ ĐÚNG, dùng để chỉ phương tiện ngôn ngữ. ② 「を」→ SAI, 「を」chỉ tân ngữ (vật bị tác động), không phải ngôn ngữ sử dụng. ③ 「に」→ SAI, 「に」chỉ đích/người nhận, không phù hợp để chỉ ngôn ngữ. ④ 「が」→ SAI, 「が」chỉ chủ ngữ, không liên quan đến ngôn ngữ dùng để viết.",
+              "glosses": [
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "手紙",
+                  "vi": "thư"
+                },
+                {
+                  "t": "かきます",
+                  "read": "書きます",
+                  "vi": "viết"
+                },
+                {
+                  "t": "スミスさん",
+                  "read": "すみすさん",
+                  "vi": "anh/chị Smith"
+                }
+              ]
+            },
+            {
+              "stem": "きのうわたしはおかあさん＿＿ケーキをもらいました。",
+              "choices": [
+                "に",
+                "へ",
+                "で",
+                "から"
+              ],
+              "answer": 0,
+              "pt": "NにNをもらいます",
+              "explain": "「もらいます」dùng trợ từ 「に」để chỉ người mà mình nhận vật từ đó. ① 「に」→ ĐÚNG, cấu trúc chuẩn 「人にものをもらいます」. ② 「へ」→ SAI, 「へ」chỉ hướng di chuyển, không dùng trong cấu trúc nhận quà. ③ 「で」→ SAI, 「で」chỉ công cụ, nơi chốn, không phải người cho. ④ 「から」→ SAI tuy nghe có vẻ hợp lý (「から」= từ), nhưng trong văn phạm N5 chuẩn Minna, cấu trúc 「もらいます」dùng 「に」không phải 「から」cho người cho.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "read": "昨日",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "おかあさん",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "ケーキ",
+                  "vi": "bánh ngọt (cake)"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "たなかさんはでんしゃ＿＿かいしゃへいきます。",
+              "choices": [
+                "で",
+                "に",
+                "を",
+                "と"
+              ],
+              "answer": 0,
+              "pt": "B5 NでVます（交通手段）",
+              "explain": "「で」ở đây chỉ phương tiện giao thông. 「でんしゃでいきます」= đi bằng tàu điện. ① 「で」→ ĐÚNG, trợ từ chỉ phương tiện di chuyển. ② 「に」→ SAI, 「に」chỉ đích đến hoặc người nhận, không dùng để chỉ phương tiện. ③ 「を」→ SAI, 「を」chỉ tân ngữ hoặc lộ trình (eg. みちをあるく), không phải phương tiện. ④ 「と」→ SAI, 「と」chỉ người đi cùng (eg. ともだちといきます).",
+              "glosses": [
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはこどもにおもちゃ＿＿あげました。",
+              "choices": [
+                "を",
+                "が",
+                "で",
+                "に"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます",
+              "explain": "Trong cấu trúc 「NにNをあげます」, trợ từ 「を」đứng sau vật được tặng. ① 「を」→ ĐÚNG, 「おもちゃをあげます」= tặng đồ chơi, 「を」chỉ tân ngữ (vật được cho). ② 「が」→ SAI, 「が」chỉ chủ ngữ, không phù hợp làm tân ngữ. ③ 「で」→ SAI, 「で」chỉ công cụ/nơi chốn, không phải vật được tặng. ④ 「に」→ SAI, 「に」đã được dùng cho người nhận 「こどもに」, không thể dùng lại cho vật.",
+              "glosses": [
+                {
+                  "t": "こども",
+                  "read": "子供",
+                  "vi": "trẻ em"
+                },
+                {
+                  "t": "おもちゃ",
+                  "vi": "đồ chơi"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "やまださんはえいご＿＿はなします。",
+              "choices": [
+                "で",
+                "を",
+                "に",
+                "へ"
+              ],
+              "answer": 0,
+              "pt": "Nで（言語）",
+              "explain": "「で」chỉ ngôn ngữ dùng để giao tiếp. 「えいごではなします」= nói chuyện bằng tiếng Anh. ① 「で」→ ĐÚNG, trợ từ chỉ phương tiện ngôn ngữ. ② 「を」→ SAI, tuy 「えいごをべんきょうします」(học tiếng Anh) là đúng, nhưng 「を」+ 「はなします」không phải là mẫu chỉ ngôn ngữ dùng để nói. ③ 「に」→ SAI, 「に」chỉ đích hoặc người nhận, không chỉ ngôn ngữ. ④ 「へ」→ SAI, 「へ」chỉ hướng di chuyển.",
+              "glosses": [
+                {
+                  "t": "えいご",
+                  "read": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "はなします",
+                  "read": "話します",
+                  "vi": "nói chuyện"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                }
+              ]
+            },
+            {
+              "stem": "A：「なに＿＿かいましたか。」 B：「くだものをかいました。」",
+              "choices": [
+                "を",
+                "が",
+                "で",
+                "に"
+              ],
+              "answer": 0,
+              "pt": "B6 何をVますか",
+              "explain": "「何をかいましたか」= Bạn đã mua gì? — dùng 「を」vì 「かいます」là động từ cần tân ngữ. ① 「を」→ ĐÚNG, 「何を」hỏi về tân ngữ (thứ được mua). ② 「が」→ SAI, 「何が」hỏi về chủ ngữ, không phù hợp ở đây. ③ 「で」→ SAI, 「何で」hỏi về phương tiện/lý do, không phải thứ được mua. ④ 「に」→ SAI, 「何に」hỏi về đích/người nhận, không phải tân ngữ mua.",
+              "glosses": [
+                {
+                  "t": "なに",
+                  "read": "何",
+                  "vi": "cái gì"
+                },
+                {
+                  "t": "かいました",
+                  "read": "買いました",
+                  "vi": "đã mua"
+                },
+                {
+                  "t": "くだもの",
+                  "read": "果物",
+                  "vi": "trái cây"
+                }
+              ]
+            },
+            {
+              "stem": "いっしょにえいが＿＿みませんか。",
+              "choices": [
+                "を",
+                "に",
+                "で",
+                "へ"
+              ],
+              "answer": 0,
+              "pt": "B6 いっしょにVませんか",
+              "explain": "「えいがをみます」= xem phim, 「を」là trợ từ tân ngữ. Dạng rủ rê 「〜ませんか」không thay đổi trợ từ tân ngữ. ① 「を」→ ĐÚNG, 「えいがをみませんか」= Cùng đi xem phim không? ② 「に」→ SAI, 「えいがに」nghe như đích đến, không phải tân ngữ của 「みます」. ③ 「で」→ SAI, 「で」chỉ công cụ/nơi chốn, không phải tân ngữ xem. ④ 「へ」→ SAI, 「へ」chỉ hướng di chuyển.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "えいが",
+                  "read": "映画",
+                  "vi": "phim"
+                },
+                {
+                  "t": "みませんか",
+                  "read": "見ませんか",
+                  "vi": "không xem … cùng nhau sao?"
+                }
+              ]
+            },
+            {
+              "stem": "はははわたし＿＿セーターをあげました。",
+              "choices": [
+                "に",
+                "が",
+                "で",
+                "を"
+              ],
+              "answer": 0,
+              "pt": "NにNをあげます",
+              "explain": "「あげます」với người nhận cần 「に」. 「わたしにセーターをあげました」= mẹ đã tặng tôi áo len. ① 「に」→ ĐÚNG, chỉ người nhận trong 「あげます」. ② 「が」→ SAI, 「が」chỉ chủ ngữ; ở đây chủ ngữ là 「はは」không phải 「わたし」. ③ 「で」→ SAI, 「で」chỉ công cụ, không phải người nhận. ④ 「を」→ SAI, 「を」đã dùng cho 「セーター」(vật được tặng), không dùng lại cho người nhận.",
+              "glosses": [
+                {
+                  "t": "はは",
+                  "read": "母",
+                  "vi": "mẹ (của mình)"
+                },
+                {
+                  "t": "セーター",
+                  "vi": "áo len (sweater)"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "わたしはペン＿＿かんじをかきます。",
+              "choices": [
+                "で",
+                "に",
+                "を",
+                "と"
+              ],
+              "answer": 0,
+              "pt": "NでNをVます（道具）",
+              "explain": "「ペンでかんじをかきます」= viết chữ Hán bằng bút. 「で」chỉ công cụ thực hiện hành động. ① 「で」→ ĐÚNG, trợ từ chỉ dụng cụ viết. ② 「に」→ SAI, 「に」chỉ đích/người nhận, không phải công cụ. ③ 「を」→ SAI, 「を」đã được dùng cho 「かんじ」(tân ngữ), không dùng lại cho công cụ. ④ 「と」→ SAI, 「と」chỉ người đi cùng hoặc liên kết danh từ, không chỉ công cụ.",
+              "glosses": [
+                {
+                  "t": "ペン",
+                  "vi": "bút (pen)"
+                },
+                {
+                  "t": "かんじ",
+                  "read": "漢字",
+                  "vi": "chữ Hán"
+                },
+                {
+                  "t": "かきます",
+                  "read": "書きます",
+                  "vi": "viết"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "A：「ともだちとどこ＿＿いきましたか。」 B：「こうえんへいきました。」",
+              "choices": [
+                "へ",
+                "で",
+                "に",
+                "を"
+              ],
+              "answer": 0,
+              "pt": "B5 NへVます",
+              "explain": "「どこへいきましたか」= Bạn đã đi đâu? — 「へ」chỉ hướng/đích của 「いきます」. ① 「へ」→ ĐÚNG, trợ từ chỉ hướng đến với 「いきます/きます/かえります」. ② 「で」→ SAI, 「どこで」hỏi nơi diễn ra hành động, không phải đích đến. ③ 「に」→ SAI tuy 「に」cũng có thể dùng với 「いきます」, nhưng câu hỏi 「どこに」ít tự nhiên hơn 「どこへ」trong bài N5 và câu hỏi hướng đến. ④ 「を」→ SAI, 「どこを」hỏi lộ trình đi qua, không phải điểm đến.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "公園",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "stem": "にほんごのじゅぎょうで、がくせいはにほんご＿＿はなします。",
+              "choices": [
+                "で",
+                "を",
+                "が",
+                "に"
+              ],
+              "answer": 0,
+              "pt": "Nで（言語）",
+              "explain": "「にほんごではなします」= nói chuyện bằng tiếng Nhật. 「で」chỉ ngôn ngữ dùng trong hành động nói. ① 「で」→ ĐÚNG, trợ từ chỉ phương tiện ngôn ngữ. ② 「を」→ SAI, 「にほんごをはなします」có nghĩa không tự nhiên (hầu như không dùng), 「はなします」cần chỉ ngôn ngữ dùng chứ không phải tân ngữ. ③ 「が」→ SAI, 「が」chỉ chủ ngữ, không phù hợp. ④ 「に」→ SAI, 「に」chỉ đích/người nhận, không phải ngôn ngữ.",
+              "glosses": [
+                {
+                  "t": "じゅぎょう",
+                  "read": "授業",
+                  "vi": "giờ học"
+                },
+                {
+                  "t": "がくせい",
+                  "read": "学生",
+                  "vi": "học sinh/sinh viên"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "日本語",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "はなします",
+                  "read": "話します",
+                  "vi": "nói chuyện"
+                }
+              ]
+            },
+            {
+              "stem": "マリアさんはたんじょうびにやまださん＿＿プレゼントをもらいました。",
+              "choices": [
+                "に",
+                "から",
+                "で",
+                "へ"
+              ],
+              "answer": 0,
+              "pt": "NにNをもらいます",
+              "explain": "Cấu trúc chuẩn Minna No Nihongo N5 là 「人にものをもらいます」với 「に」chỉ người mình nhận từ đó. ① 「に」→ ĐÚNG, trợ từ 「に」chỉ người cho trong 「もらいます」theo giáo trình Minna Bài 7. ② 「から」→ SAI theo phạm vi N5 Minna (「から」dùng trong ngữ cảnh khác như nguồn gốc vật chất, sẽ học sau); trong bài này 「に」là chuẩn. ③ 「で」→ SAI, 「で」chỉ phương tiện/địa điểm, không phải người cho. ④ 「へ」→ SAI, 「へ」chỉ hướng di chuyển, không liên quan đến người cho quà.",
+              "glosses": [
+                {
+                  "t": "たんじょうび",
+                  "read": "誕生日",
+                  "vi": "sinh nhật"
+                },
+                {
+                  "t": "プレゼント",
+                  "vi": "quà tặng (present)"
+                },
+                {
+                  "t": "もらいました",
+                  "vi": "đã nhận"
+                },
+                {
+                  "t": "マリアさん",
+                  "read": "まりあさん",
+                  "vi": "chị Maria"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "pt": "NでNをVます (bằng công cụ)",
+              "explain": "Câu đúng: 「わたしははさみでかみをきりました。」— Tôi đã cắt giấy bằng kéo.\nSắp xếp: ô 1=「わたしは　」, ô 2=「はさみで」★, ô 3=「かみを」, ô 4=「きりました」\nChủ ngữ 「わたしは　」 đứng ở đầu câu chỉ người thực hiện hành động. Động từ 「きりました」 diễn tả hành động cắt nên bắt buộc phải đứng ở cuối câu. Trợ từ 「を」 đi sau danh từ chỉ đối tượng chịu tác động 「かみを」 để làm tân ngữ trực tiếp đứng ngay trước động từ 「きりました」. Mảnh 「はさみで」 chứa trợ từ 「で」 chỉ phương tiện, dụng cụ thực hiện hành động cắt, nằm ở ô 2 giữa chủ ngữ và tân ngữ. Mảnh 「はさみで」 không thể đứng ở vị trí khác vì trợ từ 「で」 phải gắn liền sau danh từ chỉ dụng cụ 「はさみ」 và đứng trước vị ngữ để bổ nghĩa cho hành động 「きりました」.",
+              "glosses": [
+                {
+                  "t": "はさみ",
+                  "read": "はさみ",
+                  "vi": "cây kéo"
+                },
+                {
+                  "t": "かみ",
+                  "read": "",
+                  "vi": "giấy"
+                },
+                {
+                  "t": "きりました",
+                  "read": "きりました",
+                  "vi": "đã cắt"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "はさみで",
+                "かみを",
+                "きりました",
+                "わたしは"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NにNをあげます (cho ai)",
+              "explain": "Câu đúng: 「やまだはともだちにほんをあげました。」— Yamada đã tặng sách cho bạn.\nSắp xếp: ô 1=「やまだは　」, ô 2=「ともだちに」★, ô 3=「ほんを」, ô 4=「あげました。」\nKhung câu diễn tả hành động tặng quà theo trật tự tiếng Nhật [Chủ ngữ は + Đối tượng に + Tân ngữ を + Động từ]. Chủ ngữ 「やまだは　」 đứng ô 1 mở đầu câu, động từ 「あげました。」 mang dấu chấm câu bắt buộc đứng ô 4 ở vị trí kết câu. Mảnh tân ngữ 「ほんを」 phải dính liền ngay trước động từ ở ô 3 để bổ nghĩa trực tiếp cho hành động cho/tặng. Do đó, mảnh ở ô ★ 「ともだちに」 mang trợ từ 「に」 chỉ đối tượng nhận bắt buộc phải đứng ở ô 2, không thể đứng ở ô 4 vì vị trí đó dành cho động từ kết câu, cũng không thể đứng ở ô 3 do ô 3 đã thuộc về tân ngữ 「ほんを」.",
+              "glosses": [
+                {
+                  "t": "やまだ",
+                  "read": "やまだ",
+                  "vi": "(tên) Yamada"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "ほん",
+                  "read": "",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã tặng/cho ~ (あげる quá khứ lịch sự; chủ ngữ tặng cho người khác)"
+                }
+              ],
+              "frame": [
+                "",
+                ""
+              ],
+              "pieces": [
+                "やまだは",
+                "ともだちに",
+                "ほんを",
+                "あげました。"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NにNをもらいます (nhận từ ai)",
+              "explain": "Câu đúng: 「わたしはせんせいにじしょをもらいました。」— Tôi đã nhận từ điển từ thầy giáo.\nSắp xếp: ô 1=「わたしは　」, ô 2=「せんせいに」★, ô 3=「じしょを」, ô 4=「もらいました」\nChủ ngữ 「わたしは　」 đứng ở đầu câu chỉ người nhận. Động từ 「もらいました」 thể hiện hành động nhận nên bắt buộc đứng ở cuối câu. Danh từ 「じしょを」 kết hợp với trợ từ 「を」 làm tân ngữ chỉ vật được nhận, đặt ngay trước vị ngữ. Mảnh 「せんせいに」 đóng vai trò ô 2 mang trợ từ 「に」 biểu thị nguồn gốc/đối tượng mà từ đó chủ ngữ nhận được vật. Mảnh 「せんせいに」 không thể di chuyển sang vị trí khác vì trợ từ 「に」 phải gắn trực tiếp với danh từ chỉ đối tượng cho 「せんせい」 và đứng trước vật nhận cùng động từ 「もらいました」.",
+              "glosses": [
+                {
+                  "t": "じしょ",
+                  "read": "",
+                  "vi": "từ điển"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã nhận được ~ (もらう quá khứ lịch sự; chủ ngữ nhận từ người khác)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "じしょを",
+                "せんせいに",
+                "もらいました",
+                "わたしは"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Nで (bằng ngôn ngữ) + NをVます",
+              "explain": "Câu đúng: 「かれはにほんごでてがみをかきました。」— Anh ấy đã viết thư bằng tiếng Nhật.\nSắp xếp: ô 1=「かれは　」, ô 2=「にほんごで」, ô 3=「てがみを」★, ô 4=「かきました。」\nKhung câu diễn tả hành động thực hiện bằng ngôn ngữ theo cấu trúc [Chủ ngữ は + Phương tiện/Ngôn ngữ で + Tân ngữ を + Động từ]. Chủ ngữ 「かれは　」 ở ô 1 chỉ người thực hiện, theo sau là 「にほんごで」 ở ô 2 chỉ phương tiện ngôn ngữ. Động từ 「かきました。」 có dấu chấm câu nên bắt buộc đứng ở ô 4 để kết thúc câu. Mảnh tân ngữ 「てがみを」 mang trợ từ 「を」 phải dính liền ngay trước động từ 「かきました。」 ở ô 3 để làm đối tượng trực tiếp của hành động viết. Vì vậy, mảnh ở ô ★ 「てがみを」 không thể đứng ở ô 2 do vị trí đó cần phương tiện 「にほんごで」, cũng không thể đứng ở ô 4 vì ô này dành cho động từ kết câu.",
+              "glosses": [
+                {
+                  "t": "かれは",
+                  "read": "かれは",
+                  "vi": "anh ấy thì (chủ ngữ + は)"
+                },
+                {
+                  "t": "にほんご",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "てがみ",
+                  "read": "",
+                  "vi": "bức thư"
+                },
+                {
+                  "t": "かきました",
+                  "read": "かきました",
+                  "vi": "đã viết"
+                }
+              ],
+              "frame": [
+                "",
+                ""
+              ],
+              "pieces": [
+                "かれは",
+                "にほんごで",
+                "てがみを",
+                "かきました。"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NにNをあげます (cho ai)",
+              "explain": "Câu đúng: 「はなこはおかあさんにはなをあげました。」— Hanako đã tặng hoa cho mẹ.\nSắp xếp: ô 1=「はなこは」, ô 2=「おかあさんに」, ô 3=「はなを」★, ô 4=「あげました」\nChủ ngữ 「はなこは」 đứng ở ô 1 mở đầu câu. Cấu trúc cho tặng món gì cho ai đòi hỏi người nhận đi với trợ từ 「に」 (「おかあさんに」 ở ô 2) và vật được cho đi với trợ từ 「を」 (「はなを」 ở ô 3), theo sau là động từ 「あげました」 ở ô 4 kết thúc câu. Do đó cụm 「はなを」 bắt buộc phải gắn liền trước động từ 「あげました」 để làm tân ngữ chỉ vật bị tác động. Ô ★ phải là 「はなを」 vì không thể đặt trợ từ 「を」 đứng trước 「に」 hay đứng cuối câu thay cho vị ngữ động từ.",
+              "glosses": [
+                {
+                  "t": "おかあさん",
+                  "read": "おかあさん",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "はな",
+                  "read": "",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "はなこは",
+                  "read": "はなこは",
+                  "vi": "Hanako thì (chủ ngữ + は)"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã tặng/cho ~"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "おかあさんに",
+                "はなを",
+                "はなこは",
+                "あげました"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NでNをVます (bằng công cụ)",
+              "explain": "Câu đúng: 「わたしはペンでなまえをかきます。」— Tôi viết tên bằng bút mực.\nSắp xếp: ô 1=「わたしは　」, ô 2=「ペンで」, ô 3=「なまえを」★, ô 4=「かきます。」\nKhung câu diễn tả hành động thực hiện bằng công cụ theo cấu trúc [Chủ ngữ は + Công cụ で + Tân ngữ を + Động từ]. Chủ ngữ 「わたしは　」 ở ô 1 mở đầu câu, tiếp theo là mảnh chỉ dụng cụ thực hiện 「ペンで」 ở ô 2. Động từ 「かきます。」 mang dấu chấm câu bắt buộc đứng ở ô 4 để kết thúc câu. Cụm 「なまえを」 chứa trợ từ 「を」 chỉ đối tượng tác động bắt buộc phải dính liền ngay trước động từ 「かきます。」 ở ô 3. Do đó, mảnh ở ô ★ 「なまえを」 không thể đứng ở ô 2 vì vị trí đó là công cụ 「ペンで」, cũng không thể đứng ở ô 4 vì động từ phải đứng cuối câu.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ペン",
+                  "read": "ぺん",
+                  "vi": "cây bút"
+                },
+                {
+                  "t": "なまえ",
+                  "read": "",
+                  "vi": "tên"
+                },
+                {
+                  "t": "かきます",
+                  "read": "かきます",
+                  "vi": "viết"
+                }
+              ],
+              "frame": [
+                "",
+                ""
+              ],
+              "pieces": [
+                "わたしは",
+                "ペンで",
+                "なまえを",
+                "かきます。"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NにNをもらいます + so sánh NからNをもらいます",
+              "explain": "Câu đúng: 「いもうとはちちにおかねをもらいました。」— Em gái đã nhận tiền từ bố.\nSắp xếp: ô 1=「いもうとは　」, ô 2=「ちちに」★, ô 3=「おかねを」, ô 4=「もらいました」\nChủ ngữ 「いもうとは　」 đứng ở đầu câu chỉ người nhận. Động từ 「もらいました」 đứng cuối câu thể hiện hành động nhận tiền. Mảnh 「おかねを」 gắn trợ từ 「を」 chỉ đối tượng tiền bạc được nhận, đặt ngay trước động từ. Mảnh 「ちちに」 đặt tại ô 2 mang trợ từ 「に」 chỉ đối tượng trao tặng mà em gái nhận tiền từ đó (có thể thay bằng 「から」 trong mẫu ngữ pháp nhận từ ai). Mảnh 「ちちに」 không thể đứng vị trí khác vì trợ từ 「に」 phải đi liền sau danh từ người cho 「ちち」 để làm rõ nguồn nhận tiền trước động từ 「もらいました」.",
+              "glosses": [
+                {
+                  "t": "おかね",
+                  "read": "",
+                  "vi": "tiền"
+                },
+                {
+                  "t": "ちちに",
+                  "read": "ちちに",
+                  "vi": "cho bố (に đánh dấu người mà chủ ngữ nhận/cho)"
+                },
+                {
+                  "t": "もらいました",
+                  "read": "もらいました",
+                  "vi": "đã nhận được ~"
+                },
+                {
+                  "t": "いもうとは",
+                  "read": "いもうとは",
+                  "vi": "em gái thì (chủ ngữ + は)"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "おかねを",
+                "ちちに",
+                "もらいました",
+                "いもうとは"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NへVます + NでVます (ôn B5)",
+              "explain": "Câu đúng: 「わたしたちはバスでえきへいきます。」— Chúng tôi đi đến nhà ga bằng xe buýt.\nSắp xếp: ô 1=「わたしたちは　」, ô 2=「バスで」, ô 3=「えきへ」★, ô 4=「いきます。」\nCâu cần một cấu trúc hoàn chỉnh thể hiện hành động di chuyển có chủ ngữ, phương tiện, điểm đến và động từ đứng ở cuối. Trong tiếng Nhật, chủ ngữ 「わたしたちは　」 đứng ở ô 1, theo sau là phương tiện di chuyển 「バスで」 đi với trợ từ で đứng ở ô 2. Cụm chỉ điểm đến 「えきへ」 chứa trợ từ chỉ hướng へ bắt buộc phải gắn liền và đứng ở ô 3 ngay trước động từ chuyển động 「いきます。」 ở ô 4. Mảnh 「えきへ」 ở ô ★ không thể đứng ở ô 1 hay ô 2 vì trật tự tự nhiên yêu cầu chỉ phương tiện trước rồi mới đến điểm đến, đồng thời trợ từ へ phải liên kết trực tiếp với động từ di chuyển ở ô 4.",
+              "glosses": [
+                {
+                  "t": "わたしたち",
+                  "read": "わたしたち",
+                  "vi": "chúng tôi"
+                },
+                {
+                  "t": "バス",
+                  "read": "ばす",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "えき",
+                  "read": "",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ],
+              "frame": [
+                "",
+                ""
+              ],
+              "pieces": [
+                "わたしたちは",
+                "バスで",
+                "えきへ",
+                "いきます。"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Nで (bằng ngôn ngữ) + NをVます",
+              "explain": "Câu đúng: 「せんせいはえいごですうがくをおしえます。」— Giáo viên dạy môn toán bằng tiếng Anh.\nSắp xếp: ô 1=「せんせいは　」, ô 2=「えいごで」, ô 3=「すうがくを」★, ô 4=「おしえます」\nChủ ngữ 「せんせいは　」 đứng ở ô 1 làm đề tài của câu. Mảnh 「えいごで」 chỉ ngôn ngữ dùng để thực hiện hành động đứng ở ô 2. Mảnh 「すうがくを」 mang trợ từ 「を」 chỉ đối tượng tác động trực tiếp nên đi liền trước động từ 「おしえます」 ở ô 4. Vì vậy, ô ★ (ô 3) bắt buộc phải điền 「すうがくを」 và không thể đặt ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "すうがく",
+                  "read": "",
+                  "vi": "môn toán"
+                },
+                {
+                  "t": "えいご",
+                  "read": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "おしえます",
+                  "read": "おしえます",
+                  "vi": "dạy ~ (教える thể lịch sự hiện tại)"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "すうがくを",
+                "えいごで",
+                "おしえます",
+                "せんせいは"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NとVます (ôn B5) + NにNをあげます",
+              "explain": "Câu đúng: 「わたしはきのうともだちにたんじょうびのプレゼントをあげました。」— Hôm qua tôi đã tặng quà sinh nhật cho bạn.\nSắp xếp: ô 1=「きのう」, ô 2=「ともだちに」★, ô 3=「たんじょうびの」, ô 4=「プレゼントを」.\nKhung câu có chủ ngữ 「わたしは」 và vị ngữ hành động trao tặng 「あげました。」, phần giữa cần bổ ngữ thời gian, đối tượng nhận và vật phẩm tặng. Trạng từ chỉ thời gian 「きのう」 đứng đầu cụm vị ngữ để xác định mốc quá khứ, tiếp theo là đối tượng tiếp nhận hành động mang trợ từ 「に」 thành 「ともだちに」 ở ô 2. Cụm danh từ biểu thị món quà bắt buộc danh từ định ngữ 「たんじょうびの」 phải đứng trước bổ nghĩa cho 「プレゼントを」 mang trợ từ tân ngữ 「を」 đi liền trước vị ngữ 「あげました。」. Vì vậy, mảnh 「ともだちに」 chỉ người nhận của động từ 「あげます」 bắt buộc phải đứng ở ô 2, không thể thay bằng vị trí khác.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã tặng/cho ~"
+                },
+                {
+                  "t": "たんじょうび",
+                  "read": "",
+                  "vi": "sinh nhật"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "きのう",
+                  "read": "",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "プレゼント",
+                  "read": "",
+                  "vi": "món quà"
+                }
+              ],
+              "frame": [
+                "わたしは",
+                "あげました。"
+              ],
+              "pieces": [
+                "たんじょうびの",
+                "ともだちに",
+                "きのう",
+                "プレゼントを"
+              ],
+              "order": [
+                2,
+                1,
+                0,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NでNをVます + それとも (ôn B6)",
+              "explain": "Câu đúng: 「はしでたべますか、それともフォークでたべますか。」— Bạn ăn bằng đũa hay là ăn bằng nĩa?\nSắp xếp: ô 1=「はしで　」, ô 2=「たべますか、」, ô 3=「それとも」, ô 4=「フォークで」★\nVế đầu 「はしで　」 đứng ở ô 1 đi cùng với câu hỏi 「たべますか、」 ở ô 2. Liên từ 「それとも」 dùng để nối hai lựa chọn nên đứng ở ô 3. Mảnh 「フォークで」 mang trợ từ 「で」 chỉ dụng cụ ăn uống đi liền trước động từ 「たべますか。」 ở vế sau. Vì vậy, ô ★ (ô 4) bắt buộc phải là 「フォークで」.",
+              "glosses": [
+                {
+                  "t": "たべますか",
+                  "read": "たべますか",
+                  "vi": "có ăn không?/ăn à? (食べる thể nghi vấn lịch sự)"
+                },
+                {
+                  "t": "フォーク",
+                  "read": "",
+                  "vi": "dĩa (nĩa)"
+                },
+                {
+                  "t": "はしで",
+                  "read": "はしで",
+                  "vi": "bằng đũa (で chỉ phương tiện/công cụ)"
+                },
+                {
+                  "t": "それとも",
+                  "read": "それとも",
+                  "vi": "hay là"
+                }
+              ],
+              "frame": [
+                "",
+                "たべますか。"
+              ],
+              "pieces": [
+                "フォークで",
+                "はしで",
+                "たべますか、",
+                "それとも"
+              ],
+              "order": [
+                1,
+                2,
+                3,
+                0
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "いっしょにVませんか (ôn B6) + NでVます",
+              "explain": "Câu đúng: 「じてんしゃでこうえんへいっしょにいきませんか。」— Chúng ta cùng đi đến công viên bằng xe đạp không?\nSắp xếp: ô 1=「じてんしゃで　」, ô 2=「こうえんへ」, ô 3=「いっしょに」★, ô 4=「いきませんか」\nMảnh 「じてんしゃで　」 chỉ phương tiện đứng ở ô 1, tiếp theo là điểm đến 「こうえんへ」 ở ô 2. Phó từ rủ rê 「いっしょに」 đứng ở ô 3 để bổ nghĩa trực tiếp cho động từ rủ rê 「いきませんか」 ở ô 4. Do đó, mảnh 「いっしょに」 ở ô ★ (ô 3) phải đứng trước động từ và không thể đặt ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "いっしょに",
+                  "read": "",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "じてんしゃ",
+                  "read": "じてんしゃ",
+                  "vi": "xe đạp"
+                },
+                {
+                  "t": "いきませんか",
+                  "read": "いきませんか",
+                  "vi": "không đi à? (rủ rê)"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "いっしょに",
+                "じてんしゃで",
+                "いきませんか",
+                "こうえんへ"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NにNをもらいます + 何をVますか (ôn B6)",
+              "explain": "Câu đúng: 「あなたはたんじょうびになにをもらいましたか。」— Bạn đã nhận được cái gì vào ngày sinh nhật?\nSắp xếp: ô 1=「あなたは　」, ô 2=「たんじょうびに」, ô 3=「なにを」★, ô 4=「もらいましたか」\nChủ ngữ 「あなたは　」 đứng ở ô 1 để hỏi người đối thoại. Mảnh 「たんじょうびに」 chỉ thời điểm diễn ra sự việc đứng ở ô 2. Từ hỏi tân ngữ 「なにを」 mang trợ từ 「を」 phải đứng ngay trước động từ hỏi 「もらいましたか」 ở ô 4. Vì vậy, mảnh 「なにを」 ở ô ★ (ô 3) không thể chuyển sang vị trí khác.",
+              "glosses": [
+                {
+                  "t": "なにを",
+                  "read": "なにを",
+                  "vi": "cái gì (何を, hỏi vật được nhận)"
+                },
+                {
+                  "t": "たんじょう",
+                  "read": "たんじょう",
+                  "vi": "sinh, ra đời (phần trong 誕生日 - sinh nhật)"
+                },
+                {
+                  "t": "たんじょうび",
+                  "read": "",
+                  "vi": "ngày sinh nhật"
+                },
+                {
+                  "t": "もらいましたか",
+                  "read": "もらいましたか",
+                  "vi": "đã nhận được ~ chưa/à? (もらう quá khứ nghi vấn lịch sự)"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn (ngôi thứ hai, người nghe)"
+                }
+              ],
+              "frame": [
+                "",
+                "。"
+              ],
+              "pieces": [
+                "なにを",
+                "たんじょうびに",
+                "もらいましたか",
+                "あなたは"
+              ],
+              "order": [
+                3,
+                1,
+                0,
+                2
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NでNをVます (bằng công cụ) + ôn B6",
+              "explain": "Câu đúng: 「かれはけいたいでしゃしんをとりました。」— Anh ấy đã chụp ảnh bằng điện thoại di động.\nSắp xếp: ô 1=「かれは」, ô 2=「けいたいで　」★, ô 3=「しゃしんを　」, ô 4=「とりました。」\nKhung câu đòi hỏi đầy đủ các thành phần gồm chủ ngữ, phương tiện thực hiện, tân ngữ và động từ kết thúc. Mảnh 「かれは」 mang trợ từ は đóng vai trò chủ ngữ nên đứng ở ô 1. Mảnh tân ngữ 「しゃしんを　」 bắt buộc phải đi liền trước động từ 「とりました。」 để tạo thành cụm vị ngữ \"chụp ảnh\". Trợ từ で trong mảnh 「けいたいで　」 chỉ công cụ, phương tiện thực hiện hành động nên đứng ở ô 2 (vị trí ★), nằm giữa chủ ngữ và tân ngữ chứ không thể đặt ở vị trí khác.",
+              "glosses": [
+                {
+                  "t": "かれ",
+                  "read": "",
+                  "vi": "anh ấy"
+                },
+                {
+                  "t": "けいたい",
+                  "read": "けいたい",
+                  "vi": "điện thoại di động"
+                },
+                {
+                  "t": "しゃしん",
+                  "read": "しゃしん",
+                  "vi": "ảnh chụp"
+                },
+                {
+                  "t": "とりました",
+                  "read": "とりました",
+                  "vi": "đã chụp/đã lấy"
+                }
+              ],
+              "frame": [
+                "",
+                ""
+              ],
+              "pieces": [
+                "かれは",
+                "けいたいで",
+                "しゃしんを",
+                "とりました。"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NにNをあげます + NへVます (ôn B5)",
+              "explain": "Câu đúng: 「みきはせんしゅうせんせいにふくおかのおみやげをあげました。」— Tuần trước, Miki đã tặng quà lưu niệm Fukuoka cho giáo viên.\nSắp xếp: ô 1=「せんしゅう」, ô 2=「せんせいに」★, ô 3=「ふくおかの」, ô 4=「おみやげを」.\nKhung câu có chủ ngữ 「みきは」 và vị ngữ 「あげました。」, phần giữa cần thời gian, đối tượng tiếp nhận và vật tặng. Danh từ thời gian quá khứ 「せんしゅう」 đứng trước, theo sau là đối tượng nhận quà mang trợ từ 「に」 là 「せんせいに」 ở ô 2. Tiếp đó, xuất xứ của món quà lưu niệm đòi hỏi danh từ địa danh 「ふくおかの」 phải đứng trước bổ nghĩa trực tiếp cho 「おみやげを」 mang trợ từ tân ngữ 「を」 đứng ngay trước vị ngữ. Do đó, mảnh 「せんせいに」 thể hiện rõ nhất điểm ngữ pháp đối tượng tiếp nhận của 「あげます」 bắt buộc phải đứng ở ô 2, không thể đặt ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "みき",
+                  "read": "みき",
+                  "vi": "Miki (tên riêng)"
+                },
+                {
+                  "t": "あげました",
+                  "read": "あげました",
+                  "vi": "đã tặng/cho ~"
+                },
+                {
+                  "t": "ふくおか",
+                  "read": "ふくおか",
+                  "vi": "Fukuoka (tên địa danh, tỉnh ở Nhật)"
+                },
+                {
+                  "t": "せんしゅう",
+                  "read": "",
+                  "vi": "tuần trước"
+                },
+                {
+                  "t": "おみやげ",
+                  "read": "おみやげ",
+                  "vi": "quà lưu niệm, quà tặng"
+                },
+                {
+                  "t": "せんせい",
+                  "read": "",
+                  "vi": "giáo viên"
+                }
+              ],
+              "frame": [
+                "みきは",
+                "あげました。"
+              ],
+              "pieces": [
+                "ふくおかの",
+                "せんしゅう",
+                "おみやげを",
+                "せんせいに"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 1
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "マリアさんはボールペン",
+                "カードに名前を書きました。それから、田中さん",
+                "そのカードをあげました。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "でも",
+                    "で",
+                    "に",
+                    "を"
+                  ],
+                  "answer": 1,
+                  "explain": "Chỗ trống 1 cần trợ từ chỉ CÔNG CỤ/phương tiện dùng để thực hiện hành động viết. Trong tiếng Nhật, trợ từ 「で」đứng sau danh từ chỉ công cụ (bút bi, điện thoại, kéo…) để diễn đạt ý 'bằng cái gì'. Ở đây 'ボールペン（bút bi）' là công cụ dùng để 'カードに名前を書く（viết tên lên thiệp）', nên phải dùng 「ボールペンで」. Các phương án sai: (A) 「でも」là liên từ nghĩa 'nhưng/dù vậy', không thể làm trợ từ chỉ công cụ. (C) 「に」chỉ đích/nơi chốn/đối tượng nhận, không chỉ công cụ — viết 「ボールペンに」sẽ mang nghĩa 'viết LÊN cái bút bi', hoàn toàn sai. (D) 「を」đánh dấu tân ngữ trực tiếp, 'ボールペンを書きました' nghĩa là 'đã viết CÁI bút bi', vô nghĩa trong ngữ cảnh này."
+                },
+                {
+                  "choices": [
+                    "が",
+                    "も",
+                    "で",
+                    "に"
+                  ],
+                  "answer": 3,
+                  "explain": "Chỗ trống 2 cần trợ từ chỉ NGƯỜI NHẬN khi dùng động từ 「あげます（cho/tặng）」. Cấu trúc chuẩn là 「[người nhận]に　[vật]をあげます」— trợ từ 「に」đánh dấu đích nhận, tức là người được tặng. Ở đây 田中さん là người nhận tấm thiệp, nên phải dùng 「田中さんに」. Các phương án sai: (A) 「が」đánh dấu chủ ngữ, không phải đối tượng nhận — '田中さんがあげました' nghĩa là 'anh Tanaka là người tặng', lật ngược vai trò. (B) 「も」nghĩa 'cũng', làm thay đổi ý nghĩa câu thành 'cũng tặng cho Tanaka', không sai hoàn toàn về logic nhưng sai về cấu trúc kiểm tra vì bài muốn kiểm điểm 「にあげます」. (C) 「で」chỉ công cụ/phương tiện, '田中さんで' nghĩa là 'bằng anh Tanaka' — hoàn toàn sai ngữ pháp và ngữ nghĩa."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "ボールペン",
+                  "vi": "bút bi"
+                },
+                {
+                  "t": "カード",
+                  "vi": "tấm thiệp, card"
+                },
+                {
+                  "t": "名前",
+                  "read": "なまえ",
+                  "vi": "tên"
+                },
+                {
+                  "t": "書きました",
+                  "read": "かきました",
+                  "vi": "đã viết (quá khứ của 書きます)"
+                },
+                {
+                  "t": "それから",
+                  "vi": "sau đó, rồi thì"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng/cho (quá khứ của あげます)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chọn dạng đúng của động từ「あげます」để hoàn thành câu: Anh Tân tặng hoa cho mẹ.",
+          "items": [
+            {
+              "stem": "タンさんははは ____ に花をあげました。(あげます → 〜に → ＿)",
+              "choices": [
+                "あげました",
+                "もらいました",
+                "かいました",
+                "みせました"
+              ],
+              "answer": 0,
+              "explain": "「AはBにNをあげます」là mẫu câu diễn tả việc A CHO B vật gì đó. Trợ từ「に」đánh dấu người NHẬN. Ở đây Tân là người CHO, mẹ là người NHẬN hoa, nên dùng「あげます」(chia quá khứ:「あげました」). ❌「もらいました」= nhận (chiều ngược lại, chủ thể là người nhận). ❌「かいました」= đã mua (không diễn tả hành động cho). ❌「みせました」= đã cho xem (không phải tặng vật).",
+              "glosses": [
+                {
+                  "t": "タンさん",
+                  "vi": "anh Tân"
+                },
+                {
+                  "t": "はは",
+                  "read": "母",
+                  "vi": "mẹ (của mình)"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho / trợ từ chỉ người nhận"
+                },
+                {
+                  "t": "花",
+                  "read": "はな",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ tân ngữ"
+                },
+                {
+                  "t": "あげました",
+                  "vi": "đã tặng / đã cho"
+                },
+                {
+                  "t": "あげます",
+                  "read": "あげます",
+                  "vi": "tặng/cho (thể từ điển của あげる, gợi ý cách chia phù hợp câu: 〜にあげました)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "わたしは先生＿日本語＿ならいました。",
+              "choices": [
+                "に・を",
+                "で・を",
+                "に・が",
+                "へ・を"
+              ],
+              "answer": 0,
+              "explain": "「AはBにNをもらいます／ならいます」: trợ từ「に」đánh dấu NGUỒN (người mà mình nhận từ / học từ), trợ từ「を」đánh dấu TÂN NGỮ (thứ được học/nhận). ❌「で・を」:「で」chỉ phương tiện hoặc địa điểm, không dùng cho người-nguồn trong mẫu もらいます/ならいます. ❌「に・が」:「が」là chủ ngữ, không phải tân ngữ ở đây; 日本語 ở đây là đối tượng học, cần「を」. ❌「へ・を」:「へ」chỉ hướng đi, không dùng cho người-nguồn.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "に",
+                  "vi": "từ (người-nguồn) — trợ từ chỉ người mà mình nhận/học từ"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ tân ngữ"
+                },
+                {
+                  "t": "ならいました",
+                  "vi": "đã học"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi gửi thư cho bạn bằng tiếng Nhật.",
+              "target": "わたしはともだちに日本語でてがみをおくりました。",
+              "model": "わたしは ともだちに 日本語で てがみを おくりました。",
+              "explain": "Câu này dùng hai điểm ngữ pháp quan trọng của Bài 7: ①「BにNをおくります」— trợ từ「に」sau người nhận (ともだち = bạn bè); ②「Nで」chỉ phương tiện/ngôn ngữ dùng để thực hiện hành động (日本語で = bằng tiếng Nhật). Trật tự chuẩn: chủ thể は → người nhận に → phương tiện で → tân ngữ を → động từ. Nếu dùng「へ」thay「に」thì sai vì「へ」chỉ hướng đi đến nơi chốn, không dùng cho người nhận thư. Nếu bỏ「で」và viết「日本語を」thì sai vì tiếng Nhật ở đây không phải thứ được gửi đi mà là CÔNG CỤ/NGÔN NGỮ dùng để viết thư.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "に",
+                  "vi": "cho / trợ từ chỉ người nhận"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "で",
+                  "vi": "bằng (ngôn ngữ/phương tiện)"
+                },
+                {
+                  "t": "てがみ",
+                  "vi": "thư (bức thư)"
+                },
+                {
+                  "t": "を",
+                  "vi": "trợ từ tân ngữ"
+                },
+                {
+                  "t": "おくりました",
+                  "vi": "đã gửi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "bai": 17,
+  "bunpou": [
+    {
+      "stem": "ここで タバコを 吸[す]＿ ください。",
+      "choices": [
+        "わないで",
+        "いないで",
+        "わなくて",
+        "いなくて"
+      ],
+      "answer": 0,
+      "explain": "吸う là Nhóm I (う-verb), thể ない là 吸わない → 吸わないでください; 吸[す]いない nhầm vì う không biến thành い trước ない."
+    },
+    {
+      "stem": "明日[あした]は 試験[しけん]が ありますから、今夜[こんや] 勉強[べんきょう]し＿。",
+      "choices": [
+        "なければなりません",
+        "なくてもいいです",
+        "ないでください",
+        "なくてなりません"
+      ],
+      "answer": 0,
+      "explain": "Có kỳ thi → bắt buộc học → なければなりません; なくてもいいです là không cần, trái nghĩa; なくてなりません thiếu も, sai mẫu."
+    },
+    {
+      "stem": "日曜日[にちようび]ですから、早[はや]く 起[お]き＿。",
+      "choices": [
+        "なくてもいいです",
+        "なければなりません",
+        "ないでください",
+        "なくてもなりません"
+      ],
+      "answer": 0,
+      "explain": "Chủ nhật → không bắt buộc dậy sớm → なくてもいいです; なければなりません ngược nghĩa; なくてもなりません sai mẫu (phải là なくてはなりません)."
+    },
+    {
+      "stem": "図書館[としょかん]の 中[なか]で 話[はな]＿ ください。",
+      "choices": [
+        "さないで",
+        "しないで",
+        "せないで",
+        "さなくて"
+      ],
+      "answer": 0,
+      "explain": "話す là Nhóm I (す-verb), thể ない là 話さない → 話さないでください; 話しない nhầm vì す không biến thành し trước ない."
+    },
+    {
+      "stem": "パスポートを 持[も]って き＿。",
+      "choices": [
+        "なければなりません",
+        "なくてもいいです",
+        "ないでください",
+        "なくてなりません"
+      ],
+      "answer": 0,
+      "explain": "Phải mang hộ chiếu → bắt buộc → なければなりません; なくてもいいです (không cần) và ないでください (đừng mang) đều trái văn cảnh."
+    },
+    {
+      "stem": "この 書類[しょるい]は 今日[きょう]中[じゅう]に 出[だ]さ＿。",
+      "choices": [
+        "なければなりません",
+        "なくてもいいです",
+        "ないでください",
+        "なくてもなりません"
+      ],
+      "answer": 0,
+      "explain": "Phải nộp hồ sơ hôm nay → bắt buộc → なければなりません; 出さ là thể ない gốc của 出す (す→さ)."
+    },
+    {
+      "stem": "バスの 中[なか]で 電話[でんわ]を かけ＿ ください。",
+      "choices": [
+        "ないで",
+        "なくて",
+        "なければ",
+        "なくても"
+      ],
+      "answer": 0,
+      "explain": "「〜ないでください」= đừng làm; なくて dùng để nối hai mệnh đề, không phải yêu cầu lịch sự; なければ thiếu なりません."
+    },
+    {
+      "stem": "このフォームに 名前[なまえ]を 書[か]か＿ — サインだけで いいです。",
+      "choices": [
+        "なくてもいいです",
+        "なければなりません",
+        "ないでください",
+        "なくてなりません"
+      ],
+      "answer": 0,
+      "explain": "Chỉ cần ký tên → không bắt buộc viết tên → なくてもいいです; なければなりません ngược nghĩa với \"chỉ cần ký\"."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "を",
+      "に",
+      "で",
+      "が",
+      "は",
+      "と",
+      "へ"
+    ],
+    "items": [
+      {
+        "stem": "病院[びょういん]の 中[なか]＿ 走[はし]らないでください。",
+        "answer": "で",
+        "explain": "で chỉ địa điểm diễn ra hành động (病院の中で走る); に chỉ hướng/đích, không phù hợp ở đây."
+      },
+      {
+        "stem": "8時[じ]まで＿ 学校[がっこう]に 来[こ]なければなりません。",
+        "answer": "に",
+        "explain": "まで に ở đây là trợ từ chỉ thời hạn cụ thể \"trước 8 giờ\"; で sẽ chỉ phương tiện/địa điểm, sai."
+      },
+      {
+        "stem": "この 薬[くすり]＿ 毎朝[まいあさ] 飲[の]まなければなりません。",
+        "answer": "は",
+        "explain": "は nhấn mạnh chủ đề (loại thuốc này); が hoặc を cũng có thể nhưng は tạo tương phản/đặc tả phù hợp văn cảnh bắt buộc."
+      },
+      {
+        "stem": "試験[しけん]の 部屋[へや]＿ 辞書[じしょ]を 持[も]ち込[こ]まないでください。",
+        "answer": "に",
+        "explain": "持ち込む(mang vào) dùng に chỉ địa điểm đích; で chỉ nơi diễn ra hành động, nhưng với 持ち込む thì に mới đúng."
+      },
+      {
+        "stem": "先生[せんせい]＿ 報告[ほうこく]しなければなりません。",
+        "answer": "に",
+        "explain": "報告する đi kèm に chỉ đối tượng nhận báo cáo (先生に報告する); と dùng cho hành động cùng nhau, không phải gửi đến."
+      },
+      {
+        "stem": "今日[きょう]は 残業[ざんぎょう]しなくてもいい＿ いいですか。",
+        "answer": "で",
+        "explain": "Câu hỏi xác nhận: なくてもいいで→ いいですか (で nối); は ở đây sẽ tạo cấu trúc lạ không tự nhiên."
+      },
+      {
+        "stem": "友[とも]だち＿ 話[はな]すときは 敬語[けいご]を 使[つか]わなくてもいいです。",
+        "answer": "と",
+        "explain": "と chỉ \"nói chuyện cùng với\" bạn bè (友だちと話す); に dùng khi báo cáo/nhờ vả một chiều."
+      },
+      {
+        "stem": "展示物[てんじぶつ]＿ 触[さわ]らないでください。",
+        "answer": "を",
+        "explain": "触る là ngoại động từ, cần を cho tân ngữ (展示物を触る); に sai vì 触る không dùng に."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "書[か]きます",
+      "prompt": "Thể ない (từ điển)?",
+      "choices": [
+        "書[か]かない",
+        "書[か]きない",
+        "書[か]こない",
+        "書[か]けない"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I: き→か trước ない (書く→書かない); 書[か]きない nhầm giữ âm ます-stem trước ない."
+    },
+    {
+      "base": "飲[の]みます",
+      "prompt": "Thể ない (từ điển)?",
+      "choices": [
+        "飲[の]まない",
+        "飲[の]みない",
+        "飲[の]もない",
+        "飲[の]めない"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I: み→ま trước ない (飲む→飲まない); 飲[の]みない nhầm dùng ます-stem trực tiếp."
+    },
+    {
+      "base": "行[い]きます",
+      "prompt": "Thể ない (từ điển)?",
+      "choices": [
+        "行[い]かない",
+        "行[い]きない",
+        "行[い]こない",
+        "行[い]けない"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I: き→か trước ない (行く→行かない); 行[い]けない là dạng tiềm năng phủ định, khác nghĩa."
+    },
+    {
+      "base": "食[た]べます",
+      "prompt": "Thể ない (từ điển)?",
+      "choices": [
+        "食[た]べない",
+        "食[た]びない",
+        "食[た]まない",
+        "食[た]えない"
+      ],
+      "answer": 0,
+      "explain": "Nhóm II (る-verb): bỏ ます thêm ない (食べます→食べない); 食[た]びない nhầm biến âm như Nhóm I."
+    },
+    {
+      "base": "起[お]きます",
+      "prompt": "→ なくてもいいです dạng đầy đủ?",
+      "choices": [
+        "起[お]きなくてもいいです",
+        "起[お]かなくてもいいです",
+        "起[お]きないでください",
+        "起[お]かなければなりません"
+      ],
+      "answer": 0,
+      "explain": "起きる (Nhóm II) → ない-form là 起きない → なくてもいいです; 起[お]かない nhầm chia như Nhóm I."
+    },
+    {
+      "base": "来[き]ます",
+      "prompt": "→ なければなりません dạng đầy đủ?",
+      "choices": [
+        "来[こ]なければなりません",
+        "来[き]なければなりません",
+        "来[こ]なくてもいいです",
+        "来[き]なくてもなりません"
+      ],
+      "answer": 0,
+      "explain": "来る là bất quy tắc: thể ない là 来[こ]ない (đọc là こない); 来[き]なければ nhầm giữ âm ます-stem き."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "ここで",
+        "写真[しゃしん]を",
+        "撮[と]らないで",
+        "ください。"
+      ],
+      "vi": "Xin đừng chụp ảnh ở đây.",
+      "explain": "「〜ないでください」đặt sau ない-form của động từ; thứ tự: địa điểm → tân ngữ → ないで + ください."
+    },
+    {
+      "chips": [
+        "この 薬[くすり]を",
+        "毎朝[まいあさ]",
+        "飲[の]まなければ",
+        "なりません。"
+      ],
+      "vi": "Mỗi sáng phải uống thuốc này.",
+      "explain": "「なければなりません」tách thành hai chip (なければ + なりません); tân ngữ và trạng từ đứng trước."
+    },
+    {
+      "chips": [
+        "日曜日[にちようび]ですから、",
+        "早[はや]く",
+        "起[お]きなくても",
+        "いいです。"
+      ],
+      "vi": "Vì là Chủ nhật nên không cần dậy sớm.",
+      "explain": "「なくてもいいです」tách thành なくても + いいです; lý do (〜ですから) đặt đầu câu."
+    },
+    {
+      "chips": [
+        "心配[しんぱい]",
+        "しないで",
+        "ください。"
+      ],
+      "vi": "Xin đừng lo lắng.",
+      "explain": "する-verb: 心配する → 心配しない → しないでください; chủ ngữ ẩn (あなた) không cần nêu."
+    },
+    {
+      "chips": [
+        "明日[あした]までに",
+        "レポートを",
+        "出[だ]さなければ",
+        "なりません。"
+      ],
+      "vi": "Phải nộp báo cáo trước ngày mai.",
+      "explain": "までに chỉ thời hạn, đứng đầu; 出す (Nhóm I す→さ) → 出さなければ + なりません."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "あしたは しけんが ありますから、きょうは べんきょうしなければなりません。",
+      "ask": "Người nói phải làm gì hôm nay?",
+      "choices": [
+        "Phải học bài",
+        "Không cần học bài",
+        "Xin đừng học bài"
+      ],
+      "answer": 0,
+      "script": "明日[あした]は 試験[しけん]が ありますから、今日[きょう]は 勉強[べんきょう]しなければなりません。",
+      "explain": "「なければなりません」xác nhận nghĩa vụ phải học; から là nguyên nhân (vì có kỳ thi)."
+    },
+    {
+      "tts": "びょういんの なかで はなさないでください。",
+      "ask": "Họ yêu cầu bạn không làm gì trong bệnh viện?",
+      "choices": [
+        "Không được nói chuyện",
+        "Không cần nói chuyện",
+        "Phải nói chuyện"
+      ],
+      "answer": 0,
+      "script": "病院[びょういん]の 中[なか]で 話[はな]さないでください。",
+      "explain": "「ないでください」là cấm/yêu cầu không làm; 話す → 話さない (す→さ) trước でください."
+    },
+    {
+      "tts": "にちようびですから、はやく おきなくてもいいです。",
+      "ask": "Ngày Chủ nhật, bạn có cần dậy sớm không?",
+      "choices": [
+        "Không cần dậy sớm",
+        "Phải dậy sớm",
+        "Xin đừng dậy sớm"
+      ],
+      "answer": 0,
+      "script": "日曜日[にちようび]ですから、早[はや]く 起[お]きなくてもいいです。",
+      "explain": "「なくてもいいです」= không cần/không bắt buộc; から giải thích lý do (vì là Chủ nhật)."
+    },
+    {
+      "tts": "この くすりは まいあさ のまなければなりません。",
+      "ask": "Điền từ đúng: この薬は毎朝 ___ なりません。",
+      "choices": [
+        "飲[の]まなければ",
+        "飲[の]まなくても",
+        "飲[の]まないで"
+      ],
+      "answer": 0,
+      "script": "この 薬[くすり]は 毎朝[まいあさ] 飲[の]まなければなりません。",
+      "explain": "「なければなりません」= phải uống; のまなくても (không cần uống) và のまないで (đừng uống) trái nghĩa."
+    },
+    {
+      "tts": "ここで たばこを すわないでください。",
+      "ask": "Người nói yêu cầu gì?",
+      "choices": [
+        "Đừng hút thuốc ở đây",
+        "Không cần hút thuốc",
+        "Phải hút thuốc ở đây"
+      ],
+      "answer": 0,
+      "script": "ここで タバコを 吸[す]わないでください。",
+      "explain": "「ないでください」là yêu cầu lịch sự đừng làm; 吸う → 吸わない (う-verb: う→わ)."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Xin đừng chạy trong hành lang.",
+      "target": "廊下で走らないでください。",
+      "accept": [
+        "ろうかではしらないでください。",
+        "廊下では走らないでください。"
+      ],
+      "explain": "走る (Nhóm I) → 走らない (る→ら) → 走らないでください; で chỉ địa điểm (廊下で)."
+    },
+    {
+      "vi": "Tôi phải nộp báo cáo trước ngày mai.",
+      "target": "明日までにレポートを出さなければなりません。",
+      "accept": [
+        "あしたまでにれぽーとをださなければなりません。",
+        "明日までにレポートを提出しなければなりません。"
+      ],
+      "explain": "までに chỉ thời hạn; 出す (Nhóm I す→さ) → 出さなければなりません."
+    },
+    {
+      "vi": "Bạn không cần mặc đồng phục hôm nay.",
+      "target": "今日は制服を着なくてもいいです。",
+      "accept": [
+        "きょうはせいふくをきなくてもいいです。"
+      ],
+      "explain": "着る (Nhóm II) → 着ない → 着なくてもいいです; を chỉ tân ngữ (制服を着る)."
+    },
+    {
+      "vi": "Xin đừng lo lắng.",
+      "target": "心配しないでください。",
+      "accept": [
+        "しんぱいしないでください。",
+        "心配をしないでください。"
+      ],
+      "explain": "心配する là する-verb → しない → しないでください; cấu trúc ngắn gọn, chủ ngữ ẩn."
+    },
+    {
+      "vi": "Vì ngày mai có kỳ thi nên hôm nay phải học bài.",
+      "target": "明日は試験がありますから、今日は勉強しなければなりません。",
+      "accept": [
+        "あしたはしけんがありますから、きょうはべんきょうしなければなりません。"
+      ],
+      "explain": "〜から nêu nguyên nhân (有kỳ thi); mệnh đề kết quả dùng なければなりません diễn tả bắt buộc."
+    }
+  ]
+}

@@ -1,0 +1,3911 @@
+{
+  "bai": 12,
+  "level": "N5",
+  "intro": "NはNより〜です · NよりNのほうが〜です · Nの中で〜が一番〜です · NはNと同じです. Có ÔN LẠI ngữ pháp đã học (bài 1-11) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "きょうはくもりですが、あしたは天気がよくなるでしょう。",
+              "ul": "天気",
+              "choices": [
+                "てんき",
+                "てんぎ",
+                "でんき",
+                "てんけ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「てんき」. Chữ 天（てん）nghĩa là trời/bầu trời, chữ 気（き）nghĩa là khí/không khí — ghép lại thành 「天気」= thời tiết. Phương án 「てんぎ」sai vì đổi き thành ぎ (thêm dấu đục). Phương án 「でんき」là cách đọc của 「電気」(điện), hoàn toàn khác chữ. Phương án 「てんけ」không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "くもり",
+                  "vi": "trời âm u, có mây"
+                },
+                {
+                  "t": "あした",
+                  "vi": "ngày mai"
+                },
+                {
+                  "t": "天気",
+                  "vi": "thời tiết"
+                },
+                {
+                  "t": "よくなる",
+                  "vi": "trở nên tốt hơn"
+                },
+                {
+                  "t": "でしょう",
+                  "vi": "có lẽ, chắc là"
+                },
+                {
+                  "t": "ですが",
+                  "read": "ですが",
+                  "vi": "nhưng, tuy nhiên"
+                }
+              ]
+            },
+            {
+              "prompt": "お祭りでたくさんの人が踊りました。",
+              "ul": "祭り",
+              "choices": [
+                "まつり",
+                "まつら",
+                "まつて",
+                "まずり"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「まつり」. 「祭り」là từ N5 cơ bản nghĩa là lễ hội. Phương án 「まつら」và 「まつて」là những dạng đọc bịa đặt, không tồn tại. Phương án 「まずり」sai vì đổi つ thành ず (thêm dấu đục vào âm đầu của âm tiết thứ hai), làm thay đổi âm sai so với chữ gốc.",
+              "glosses": [
+                {
+                  "t": "お祭り",
+                  "vi": "lễ hội"
+                },
+                {
+                  "t": "たくさんの",
+                  "vi": "rất nhiều"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                },
+                {
+                  "t": "踊りました",
+                  "vi": "đã khiêu vũ, đã nhảy múa"
+                }
+              ]
+            },
+            {
+              "prompt": "日本の夏はベトナムより涼しいです。",
+              "ul": "夏",
+              "choices": [
+                "なつ",
+                "なつり",
+                "なた",
+                "ねつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「なつ」= mùa hè. Phương án 「なつり」là cách đọc sai, có thể nhầm với 「まつり」(lễ hội) vì bài đọc có nhắc đến lễ hội. Phương án 「なた」không phải cách đọc của bất kỳ chữ Hán nào liên quan. Phương án 「ねつ」là cách đọc của 「熱」(nhiệt/sốt), hoàn toàn khác chữ và khác nghĩa — đây là nhiễu phổ biến nhất cần tránh.",
+              "glosses": [
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "夏",
+                  "vi": "mùa hè"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn (so sánh)"
+                },
+                {
+                  "t": "涼しい",
+                  "vi": "mát mẻ"
+                },
+                {
+                  "t": "ベトナム",
+                  "read": "べとなむ",
+                  "vi": "Việt Nam"
+                }
+              ]
+            },
+            {
+              "prompt": "三人の中で、田中さんが一番若いです。",
+              "ul": "若い",
+              "choices": [
+                "わかい",
+                "わるい",
+                "はやい",
+                "かるい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「わかい」= trẻ (tuổi). Phương án 「わるい」là cách đọc của 「悪い」(xấu/tệ), nhìn chữ Hán hoàn toàn khác. Phương án 「はやい」là cách đọc của 「早い／速い」(sớm/nhanh). Phương án 「かるい」là cách đọc của 「軽い」(nhẹ). Cả ba nhiễu đều là tính từ N5 phổ biến nhưng không liên quan đến 「若い」.",
+              "glosses": [
+                {
+                  "t": "三人",
+                  "read": "さんにん",
+                  "vi": "ba người"
+                },
+                {
+                  "t": "中で",
+                  "read": "なかで",
+                  "vi": "trong số"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất, số một"
+                },
+                {
+                  "t": "若い",
+                  "vi": "trẻ (tuổi)"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka (tên riêng + さん)"
+                }
+              ]
+            },
+            {
+              "prompt": "冬は雪がふって、とても寒いです。",
+              "ul": "冬",
+              "choices": [
+                "ふゆ",
+                "はる",
+                "あき",
+                "なつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「ふゆ」= mùa đông. Câu nhắc đến tuyết rơi và trời lạnh, đúng với mùa đông. Phương án 「はる」là cách đọc của 「春」(mùa xuân). Phương án 「あき」là cách đọc của 「秋」(mùa thu). Phương án 「なつ」là cách đọc của 「夏」(mùa hè). Bài thi thường đưa cả bốn mùa làm đáp án nhiễu — phải nhớ chắc cách đọc của từng chữ.",
+              "glosses": [
+                {
+                  "t": "冬",
+                  "vi": "mùa đông"
+                },
+                {
+                  "t": "雪",
+                  "read": "ゆき",
+                  "vi": "tuyết"
+                },
+                {
+                  "t": "ふって",
+                  "vi": "rơi xuống (tuyết rơi)"
+                },
+                {
+                  "t": "寒い",
+                  "read": "さむい",
+                  "vi": "lạnh"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "prompt": "春は花見の季節で、公園に人が多いです。",
+              "ul": "季節",
+              "choices": [
+                "きせつ",
+                "きぜつ",
+                "けせつ",
+                "きさつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「きせつ」= mùa/thời tiết theo mùa. Chữ 季（き）+ 節（せつ）tạo thành từ này. Phương án 「きぜつ」sai vì đổi せ thành ぜ (thêm dấu đục). Phương án 「けせつ」sai vì đổi âm đầu き thành け. Phương án 「きさつ」sai vì đổi せ thành さ — dễ nhầm với 「警察（けいさつ）」nhưng đây là chữ hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "春",
+                  "read": "はる",
+                  "vi": "mùa xuân"
+                },
+                {
+                  "t": "花見",
+                  "read": "はなみ",
+                  "vi": "ngắm hoa (anh đào)"
+                },
+                {
+                  "t": "季節",
+                  "vi": "mùa, thời tiết theo mùa"
+                },
+                {
+                  "t": "公園",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "多い",
+                  "read": "おおい",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "人",
+                  "read": "ひと",
+                  "vi": "người"
+                }
+              ]
+            },
+            {
+              "prompt": "この映画とあの映画は同じ監督の作品です。",
+              "ul": "同じ",
+              "choices": [
+                "おなじ",
+                "おなず",
+                "おなし",
+                "おどじ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「おなじ」= giống nhau. Đây là từ đặc biệt: 「同じ」là tính từ không chia theo đuôi い/な thông thường, và cách đọc là おなじ (không phải おどうじ hay どうじ). Phương án 「おなず」sai vì đổi じ thành ず. Phương án 「おなし」sai vì đổi じ thành し — nhầm với âm sh trong tiếng Anh. Phương án 「おどじ」sai vì thêm dấu đục vào âm đầu của âm tiết thứ hai.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "bộ phim"
+                },
+                {
+                  "t": "同じ",
+                  "vi": "giống nhau, cùng"
+                },
+                {
+                  "t": "監督",
+                  "read": "かんとく",
+                  "vi": "đạo diễn"
+                },
+                {
+                  "t": "作品",
+                  "read": "さくひん",
+                  "vi": "tác phẩm"
+                }
+              ]
+            },
+            {
+              "prompt": "秋は一年で一番好きな季節です。",
+              "ul": "秋",
+              "choices": [
+                "あき",
+                "なつ",
+                "ふゆ",
+                "はる"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「あき」= mùa thu. Bài thi cố tình đưa cả bốn mùa vào đáp án: 「なつ」(夏 mùa hè), 「ふゆ」(冬 mùa đông), 「はる」(春 mùa xuân). Câu hỏi hỏi đọc từ 「秋」— chỉ có 「あき」mới đúng. Đây là dạng câu kiểm tra liệu học viên có phân biệt được chữ Hán của bốn mùa hay không.",
+              "glosses": [
+                {
+                  "t": "秋",
+                  "vi": "mùa thu"
+                },
+                {
+                  "t": "一年",
+                  "read": "いちねん",
+                  "vi": "một năm"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất, số một"
+                },
+                {
+                  "t": "好きな",
+                  "read": "すきな",
+                  "vi": "yêu thích"
+                },
+                {
+                  "t": "季節",
+                  "read": "きせつ",
+                  "vi": "mùa (trong năm)"
+                }
+              ]
+            },
+            {
+              "prompt": "東京より大阪のほうが人口が多いですか。",
+              "ul": "人口",
+              "choices": [
+                "じんこう",
+                "じんく",
+                "にんこう",
+                "じんごう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「じんこう」= dân số. Chữ 人 có hai âm on-yomi là 「じん」và 「にん」; trong từ 「人口」dùng 「じん」. Chữ 口（こう）= miệng/cửa/số lượng người. Phương án 「じんく」sai vì đọc sai 口 thành く. Phương án 「にんこう」sai vì dùng 「にん」thay cho 「じん」trong từ ghép này. Phương án 「じんごう」sai vì thêm dấu đục vào こう thành ごう.",
+              "glosses": [
+                {
+                  "t": "より",
+                  "vi": "hơn (so sánh)"
+                },
+                {
+                  "t": "ほうが",
+                  "vi": "phía ... hơn"
+                },
+                {
+                  "t": "人口",
+                  "vi": "dân số"
+                },
+                {
+                  "t": "多い",
+                  "read": "おおい",
+                  "vi": "nhiều"
+                },
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo (thủ đô Nhật Bản)"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka (thành phố Nhật Bản)"
+                }
+              ]
+            },
+            {
+              "prompt": "お正月は家族と一緒に食事をします。",
+              "ul": "正月",
+              "choices": [
+                "しょうがつ",
+                "しょうかつ",
+                "せいがつ",
+                "しょうごつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「しょうがつ」= Tết Nhật Bản (dịp đầu năm mới). Chữ 正 có hai âm on-yomi: 「しょう」và 「せい」— trong từ 「正月」phải dùng 「しょう」. Phương án 「しょうかつ」sai vì đọc 月 thành かつ thay vì がつ. Phương án 「せいがつ」sai vì dùng 「せい」thay cho 「しょう」cho chữ 正. Phương án 「しょうごつ」sai vì đọc 月 thành ごつ.",
+              "glosses": [
+                {
+                  "t": "お正月",
+                  "vi": "Tết Nhật Bản, dịp đầu năm mới"
+                },
+                {
+                  "t": "家族",
+                  "read": "かぞく",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "一緒に",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "食事",
+                  "read": "しょくじ",
+                  "vi": "bữa ăn"
+                },
+                {
+                  "t": "します",
+                  "read": "します",
+                  "vi": "làm/thực hiện (thể lịch sự của する, thì hiện tại/tương lai)"
+                }
+              ]
+            },
+            {
+              "prompt": "この国は日本より面積が広いです。",
+              "ul": "広い",
+              "choices": [
+                "ひろい",
+                "ひろく",
+                "せまい",
+                "おおきい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「ひろい」= rộng. Đây là câu hỏi yêu cầu đọc chữ Hán gạch chân là dạng từ điển (thể từ điển). Phương án 「ひろく」là dạng phó từ (「広く」= một cách rộng rãi), không phải cách đọc trong từ điển. Phương án 「せまい」là cách đọc của 「狭い」(hẹp) — nghĩa trái ngược. Phương án 「おおきい」là cách đọc của 「大きい」(lớn/to), khác chữ và khác nghĩa.",
+              "glosses": [
+                {
+                  "t": "国",
+                  "read": "くに",
+                  "vi": "đất nước, quốc gia"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn (so sánh)"
+                },
+                {
+                  "t": "面積",
+                  "read": "めんせき",
+                  "vi": "diện tích"
+                },
+                {
+                  "t": "広い",
+                  "vi": "rộng"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                }
+              ]
+            },
+            {
+              "prompt": "雨の日は電車で会社に行きます。",
+              "ul": "電車",
+              "choices": [
+                "でんしゃ",
+                "でんさ",
+                "てんしゃ",
+                "でんじゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「でんしゃ」= tàu điện. Chữ 電（でん）+ 車（しゃ）ghép lại. Phương án 「でんさ」sai vì đọc 車 thành さ, bỏ âm し. Phương án 「てんしゃ」sai vì đọc 電 thành てん thay vì でん — dễ nhầm vì 「天気」cũng có てん. Phương án 「でんじゃ」sai vì thêm dấu đục vào しゃ thành じゃ.",
+              "glosses": [
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "日",
+                  "read": "ひ",
+                  "vi": "ngày, hôm"
+                },
+                {
+                  "t": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "夏祭りで花火を見て、とても楽しかったです。",
+              "ul": "花火",
+              "choices": [
+                "はなび",
+                "はなか",
+                "かか",
+                "はかび"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「はなび」= pháo hoa. Từ ghép 花（はな）+ 火（び）— chú ý hiện tượng liên trọc (連濁): 火 đọc là 「ひ」khi đứng một mình, nhưng khi đứng sau trong từ ghép thành 「び」. Phương án 「はなか」sai vì đọc 火 thành か. Phương án 「かか」sai hoàn toàn, không có từ nào đọc như vậy. Phương án 「はかび」sai vì đọc 花 thành はか thay vì はな.",
+              "glosses": [
+                {
+                  "t": "夏祭り",
+                  "read": "なつまつり",
+                  "vi": "lễ hội mùa hè"
+                },
+                {
+                  "t": "花火",
+                  "vi": "pháo hoa"
+                },
+                {
+                  "t": "見て",
+                  "read": "みて",
+                  "vi": "xem, nhìn thấy"
+                },
+                {
+                  "t": "楽しかった",
+                  "read": "たのしかった",
+                  "vi": "đã vui vẻ"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "prompt": "山の上から見た景色はとても美しかったです。",
+              "ul": "山",
+              "choices": [
+                "やま",
+                "さん",
+                "かわ",
+                "しま"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「やま」= núi (kun-yomi). Khi chữ 山 đứng độc lập thì đọc là 「やま」. Phương án 「さん」là on-yomi, thường dùng khi 山 đứng sau tên núi như 「富士山（ふじさん）」— nhưng câu này viết 「山の上から」(từ trên núi) nên dùng kun-yomi 「やま」. Phương án 「かわ」là cách đọc của 「川」(sông). Phương án 「しま」là cách đọc của 「島」(đảo).",
+              "glosses": [
+                {
+                  "t": "山",
+                  "vi": "núi"
+                },
+                {
+                  "t": "上から",
+                  "read": "うえから",
+                  "vi": "từ trên xuống"
+                },
+                {
+                  "t": "見た",
+                  "read": "みた",
+                  "vi": "đã nhìn thấy"
+                },
+                {
+                  "t": "景色",
+                  "read": "けしき",
+                  "vi": "phong cảnh"
+                },
+                {
+                  "t": "美しかった",
+                  "read": "うつくしかった",
+                  "vi": "đã đẹp"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "きょうはきのうよりあついです。",
+              "ul": "あつい",
+              "choices": [
+                "熱い",
+                "暑い",
+                "厚い",
+                "篤い"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「暑い」 (あつい) = nóng về thời tiết, dùng cho nhiệt độ không khí.\n• 「熱い」(あつい) = nóng về vật thể (nước nóng, đồ ăn nóng), KHÔNG dùng cho thời tiết.\n• 「厚い」(あつい) = dày (quyển sách dày), nghĩa hoàn toàn khác.\n• 「篤い」(あつい) = bệnh nặng/thành tâm, rất hiếm dùng ở N5.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn (so sánh)"
+                },
+                {
+                  "t": "あつい",
+                  "vi": "nóng (thời tiết)"
+                }
+              ]
+            },
+            {
+              "prompt": "にほんのなつまつりはとてもにぎやかです。",
+              "ul": "なつ",
+              "choices": [
+                "夏",
+                "冬",
+                "春",
+                "秋"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「夏」(なつ) = mùa hè. Các lễ hội hanabi và bon-odori của Nhật thường diễn ra vào mùa hè.\n• 「冬」(ふゆ) = mùa đông, đọc là ふゆ, không phải なつ.\n• 「春」(はる) = mùa xuân, đọc là はる.\n• 「秋」(あき) = mùa thu, đọc là あき.",
+              "glosses": [
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "なつ",
+                  "vi": "mùa hè"
+                },
+                {
+                  "t": "まつり",
+                  "vi": "lễ hội"
+                },
+                {
+                  "t": "にぎやか",
+                  "vi": "náo nhiệt, sôi động"
+                },
+                {
+                  "t": "とても",
+                  "read": "とても",
+                  "vi": "rất"
+                }
+              ]
+            },
+            {
+              "prompt": "このえいがはあのえいがよりおもしろいです。",
+              "ul": "おもしろい",
+              "choices": [
+                "面白い",
+                "白い",
+                "丸い",
+                "正しい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「面白い」(おもしろい) = thú vị, hay.\n• 「白い」(しろい) = màu trắng, chỉ đọc là しろい, không phải おもしろい.\n• 「丸い」(まるい) = tròn, nghĩa và cách đọc khác hoàn toàn.\n• 「正しい」(ただしい) = đúng đắn, đọc là ただしい, không liên quan.",
+              "glosses": [
+                {
+                  "t": "えいが",
+                  "read": "えいが",
+                  "vi": "bộ phim"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị, hay"
+                }
+              ]
+            },
+            {
+              "prompt": "クラスのなかでたなかさんがいちばんせがたかいです。",
+              "ul": "たかい",
+              "choices": [
+                "高い",
+                "低い",
+                "遠い",
+                "近い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「高い」(たかい) = cao. 「せが高い」là thành ngữ chỉ người cao.\n• 「低い」(ひくい) = thấp, nghĩa trái ngược.\n• 「遠い」(とおい) = xa, không liên quan đến chiều cao.\n• 「近い」(ちかい) = gần, cũng không liên quan.",
+              "glosses": [
+                {
+                  "t": "クラス",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "なかで",
+                  "read": "なかで",
+                  "vi": "trong số, ở giữa"
+                },
+                {
+                  "t": "いちばん",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "せ",
+                  "vi": "chiều cao (cơ thể)"
+                },
+                {
+                  "t": "たかい",
+                  "vi": "cao"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "hậu tố xưng hô lịch sự (ông/bà/anh/chị)"
+                },
+                {
+                  "t": "たなかさんが",
+                  "read": "たなかさんが",
+                  "vi": "たなかさん = anh/chị Tanaka (tên riêng + さん kính ngữ) + が (trợ từ chủ ngữ)"
+                }
+              ]
+            },
+            {
+              "prompt": "はるはあきとおなじくらいすずしいです。",
+              "ul": "おなじ",
+              "choices": [
+                "同じ",
+                "違う",
+                "近い",
+                "似る"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「同じ」(おなじ) = giống nhau. Cấu trúc 「AはBと同じくらい」= A mát mẻ khoảng bằng B.\n• 「違う」(ちがう) = khác nhau, nghĩa trái ngược.\n• 「近い」(ちかい) = gần, không dùng trong cấu trúc so sánh ngang bằng này.\n• 「似る」(にる) = trông giống, nhưng không dùng kèm 「くらい」theo cách này ở N5.",
+              "glosses": [
+                {
+                  "t": "はる",
+                  "read": "はる",
+                  "vi": "mùa xuân"
+                },
+                {
+                  "t": "あき",
+                  "read": "あき",
+                  "vi": "mùa thu"
+                },
+                {
+                  "t": "おなじ",
+                  "vi": "giống nhau, như nhau"
+                },
+                {
+                  "t": "くらい",
+                  "vi": "khoảng, mức độ"
+                },
+                {
+                  "t": "すずしい",
+                  "vi": "mát mẻ"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうはゆきがふりました。",
+              "ul": "ゆき",
+              "choices": [
+                "雪",
+                "雨",
+                "雲",
+                "風"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「雪」(ゆき) = tuyết. 「雪が降る」= tuyết rơi.\n• 「雨」(あめ) = mưa, đọc là あめ, không phải ゆき.\n• 「雲」(くも) = mây, đọc là くも.\n• 「風」(かぜ) = gió, đọc là かぜ; gió thì dùng 「吹く」không dùng 「降る」.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ゆき",
+                  "vi": "tuyết"
+                },
+                {
+                  "t": "ふりました",
+                  "read": "ふりました",
+                  "vi": "đã rơi/đã đổ xuống"
+                }
+              ]
+            },
+            {
+              "prompt": "まつりのひにおおぜいのひとがきました。",
+              "ul": "まつり",
+              "choices": [
+                "祭り",
+                "祈り",
+                "飾り",
+                "踊り"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「祭り」(まつり) = lễ hội.\n• 「祈り」(いのり) = cầu nguyện, đọc là いのり, hình chữ bộ 示 khác.\n• 「飾り」(かざり) = trang trí, đọc là かざり.\n• 「踊り」(おどり) = điệu múa, đọc là おどり. Ba chữ kia đều có bộ giống nhau nhưng khác nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "ゆきの日",
+                  "read": "ひ",
+                  "vi": "ngày (lễ hội)"
+                },
+                {
+                  "t": "おおぜい",
+                  "read": "おおぜい",
+                  "vi": "đông người"
+                },
+                {
+                  "t": "まつり",
+                  "vi": "lễ hội"
+                },
+                {
+                  "t": "きました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "ひと",
+                  "read": "ひと",
+                  "vi": "người"
+                }
+              ]
+            },
+            {
+              "prompt": "にほんのふゆはかんこくよりさむくないです。",
+              "ul": "ふゆ",
+              "choices": [
+                "冬",
+                "夏",
+                "春",
+                "秋"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「冬」(ふゆ) = mùa đông. Câu nói mùa đông Nhật không lạnh bằng Hàn Quốc.\n• 「夏」(なつ) = mùa hè, đọc là なつ.\n• 「春」(はる) = mùa xuân.\n• 「秋」(あき) = mùa thu. Bốn mùa đều N5, phải nhớ cả âm đọc lẫn chữ Hán.",
+              "glosses": [
+                {
+                  "t": "にほん",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "かんこく",
+                  "read": "かんこく",
+                  "vi": "Hàn Quốc"
+                },
+                {
+                  "t": "ふゆ",
+                  "vi": "mùa đông"
+                },
+                {
+                  "t": "さむくない",
+                  "read": "さむくない",
+                  "vi": "không lạnh"
+                }
+              ]
+            },
+            {
+              "prompt": "おまつりでみんなではなびをみました。",
+              "ul": "はなび",
+              "choices": [
+                "花火",
+                "花見",
+                "火花",
+                "花水"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「花火」(はなび) = pháo hoa. 花(hoa)+火(lửa).\n• 「花見」(はなみ) = ngắm hoa anh đào, đọc là はなみ, thứ tự chữ tương tự nhưng chữ 見 thay cho 火.\n• 「火花」(ひばな) = tia lửa, chữ bị đảo ngược thứ tự, đọc là ひばな.\n• 「花水」không phải từ thông dụng trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "おまつり",
+                  "read": "おまつり",
+                  "vi": "lễ hội (lịch sự)"
+                },
+                {
+                  "t": "みんなで",
+                  "vi": "cùng nhau, mọi người",
+                  "read": "みんなで"
+                },
+                {
+                  "t": "はなび",
+                  "vi": "pháo hoa"
+                },
+                {
+                  "t": "みました",
+                  "read": "みました",
+                  "vi": "đã xem"
+                }
+              ]
+            },
+            {
+              "prompt": "このくにはせかいでいちばんおおきいです。",
+              "ul": "おおきい",
+              "choices": [
+                "大きい",
+                "多い",
+                "太い",
+                "広い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「大きい」(おおきい) = lớn/to về kích thước.\n• 「多い」(おおい) = nhiều (về số lượng), không dùng để mô tả kích thước đất nước.\n• 「太い」(ふとい) = to/dày (thường dùng cho vật hình trụ), đọc là ふとい.\n• 「広い」(ひろい) = rộng, dù gần nghĩa nhưng đọc là ひろい không phải おおきい.",
+              "glosses": [
+                {
+                  "t": "くに",
+                  "read": "くに",
+                  "vi": "đất nước"
+                },
+                {
+                  "t": "せかい",
+                  "read": "せかい",
+                  "vi": "thế giới"
+                },
+                {
+                  "t": "いちばん",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "おおきい",
+                  "vi": "lớn, to"
+                }
+              ]
+            },
+            {
+              "prompt": "きょうはくもっていて、あめがふりそうです。",
+              "ul": "くもって",
+              "choices": [
+                "曇って",
+                "晴れて",
+                "寒くて",
+                "暗くて"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「曇って」(くもって) = trời nhiều mây/u ám. 「曇る」là từ thời tiết cơ bản N5.\n• 「晴れて」(はれて) = trời đẹp/nắng, nghĩa trái ngược, không hợp với 「雨が降りそう」.\n• 「寒くて」(さむくて) = lạnh mà..., không miêu tả hiện tượng có mây.\n• 「暗くて」(くらくて) = tối mà..., tuy mây kéo có thể tối nhưng đây không phải từ thời tiết chuẩn.",
+              "glosses": [
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "くもって",
+                  "vi": "trời âm u, có mây"
+                },
+                {
+                  "t": "あめ",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "ふりそう",
+                  "read": "ふりそう",
+                  "vi": "có vẻ sắp đổ xuống"
+                }
+              ]
+            },
+            {
+              "prompt": "がっこうよりかいしゃのほうがちかいです。",
+              "ul": "ちかい",
+              "choices": [
+                "近い",
+                "遠い",
+                "低い",
+                "短い"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「近い」(ちかい) = gần. Cấu trúc 「BよりAの方が〜」= A ... hơn B.\n• 「遠い」(とおい) = xa, nghĩa trái ngược.\n• 「低い」(ひくい) = thấp, dùng cho độ cao, không dùng cho khoảng cách.\n• 「短い」(みじかい) = ngắn, cũng không dùng cho khoảng cách địa lý.",
+              "glosses": [
+                {
+                  "t": "がっこう",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "ほうが",
+                  "read": "ほうが",
+                  "vi": "... hơn (so sánh)"
+                },
+                {
+                  "t": "ちかい",
+                  "vi": "gần"
+                }
+              ]
+            },
+            {
+              "prompt": "はるになると、さくらがさきます。",
+              "ul": "さくら",
+              "choices": [
+                "桜",
+                "梅",
+                "松",
+                "竹"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「桜」(さくら) = hoa anh đào, biểu tượng mùa xuân Nhật Bản.\n• 「梅」(うめ) = hoa mơ, nở vào cuối đông – đầu xuân nhưng không nổi tiếng bằng 桜 trong ngữ cảnh này; đọc là うめ.\n• 「松」(まつ) = cây thông, đọc là まつ, thường gắn với năm mới chứ không phải hoa.\n• 「竹」(たけ) = cây tre, đọc là たけ, không liên quan đến hoa mùa xuân.",
+              "glosses": [
+                {
+                  "t": "はる",
+                  "read": "はる",
+                  "vi": "mùa xuân"
+                },
+                {
+                  "t": "なると",
+                  "vi": "khi đến (mùa)"
+                },
+                {
+                  "t": "さくら",
+                  "vi": "hoa anh đào"
+                },
+                {
+                  "t": "さきます",
+                  "read": "さきます",
+                  "vi": "nở hoa"
+                }
+              ]
+            },
+            {
+              "prompt": "あのふたりはとてもにています。",
+              "ul": "にて",
+              "choices": [
+                "似て",
+                "来て",
+                "見て",
+                "着て"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「似て」(にて), động từ 「似る」(にる) = giống nhau (ngoại hình). 「似ている」= đang/trông giống.\n• 「来て」(きて) = đến (động từ 来る), nghĩa hoàn toàn khác.\n• 「見て」(みて) = nhìn/xem (động từ 見る).\n• 「着て」(きて) = mặc (quần áo), cũng đọc là きて nhưng chữ Hán khác và nghĩa khác.",
+              "glosses": [
+                {
+                  "t": "ふたり",
+                  "vi": "hai người"
+                },
+                {
+                  "t": "とても",
+                  "vi": "rất"
+                },
+                {
+                  "t": "にて",
+                  "vi": "giống (nhau), trông giống"
+                },
+                {
+                  "t": "にています",
+                  "read": "にています",
+                  "vi": "似ている (にる+ている) = đang giống nhau (て-form + いる: trạng thái/kết quả tiếp diễn)"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはクラスでいちばんはやくはしります。",
+              "ul": "はやく",
+              "choices": [
+                "早く",
+                "遅く",
+                "長く",
+                "短く"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là 「早く」(はやく) = nhanh (phó từ của 早い/速い). Ở đây 「早く走る」= chạy nhanh.\n• 「遅く」(おそく) = chậm, nghĩa trái ngược.\n• 「長く」(ながく) = lâu/dài (về thời gian hay chiều dài), không phù hợp với ngữ cảnh chạy.\n• 「短く」(みじかく) = ngắn, cũng không dùng để mô tả tốc độ chạy.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "クラス",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "いちばん",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "はやく",
+                  "vi": "nhanh (phó từ)"
+                },
+                {
+                  "t": "はしります",
+                  "read": "はしります",
+                  "vi": "chạy"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "夏と冬と、どちらが＿ですか。",
+              "choices": [
+                "すきですか",
+                "あついですか",
+                "いいですか",
+                "おおきいですか"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu hỏi so sánh thời tiết giữa hai mùa, nên cần tính từ mô tả thời tiết. 「あつい」(nóng) phù hợp nhất khi nói về mùa hè và mùa đông. 「すきですか」(thích không?) hỏi cảm xúc chứ không mô tả thời tiết. 「いいですか」(tốt không?) quá mơ hồ không liên quan đến thời tiết. 「おおきい」(to/lớn) là tính từ kích thước, không dùng cho thời tiết.",
+              "glosses": [
+                {
+                  "t": "夏",
+                  "read": "なつ",
+                  "vi": "mùa hè"
+                },
+                {
+                  "t": "冬",
+                  "read": "ふゆ",
+                  "vi": "mùa đông"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "cái nào (trong hai)"
+                },
+                {
+                  "t": "あつい",
+                  "vi": "nóng"
+                },
+                {
+                  "t": "すき",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "おおきい",
+                  "read": "おおきい",
+                  "vi": "to, lớn"
+                },
+                {
+                  "t": "いいですか",
+                  "read": "いいですか",
+                  "vi": "いい = tốt/hay/được + ですか (câu hỏi lịch sự) — ở đây hỏi 'có tốt/hay hơn không?'"
+                }
+              ]
+            },
+            {
+              "stem": "きょうは雨が＿、どこへも行きませんでした。",
+              "choices": [
+                "ふって",
+                "でて",
+                "はいって",
+                "おわって"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「ふる」là động từ đặc trưng dùng cho mưa hoặc tuyết rơi (「雨がふる」「雪がふる」). 「でる」(ra ngoài) không kết hợp với 「雨が」. 「はいる」(vào bên trong) cũng không dùng với mưa. 「おわる」(kết thúc) cũng không phù hợp vì câu nói mưa đang xảy ra.",
+              "glosses": [
+                {
+                  "t": "雨",
+                  "read": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "ふって",
+                  "vi": "rơi xuống, đổ (dùng cho mưa/tuyết)"
+                },
+                {
+                  "t": "どこへも",
+                  "vi": "không đâu cả"
+                },
+                {
+                  "t": "行きませんでした",
+                  "read": "いきませんでした",
+                  "vi": "đã không đi"
+                },
+                {
+                  "t": "きょう",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                }
+              ]
+            },
+            {
+              "stem": "この国は日本より人口が＿です。",
+              "choices": [
+                "おおきい",
+                "おおい",
+                "たかい",
+                "とおい"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「人口」(dân số) là danh từ chỉ số lượng người, nên dùng 「おおい」(nhiều). 「おおきい」(to, lớn về kích thước) dùng cho vật thể chứ không dùng cho số lượng người. 「たかい」(cao/đắt) không liên quan đến dân số. 「とおい」(xa) là tính từ về khoảng cách.",
+              "glosses": [
+                {
+                  "t": "国",
+                  "read": "くに",
+                  "vi": "đất nước"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "人口",
+                  "read": "じんこう",
+                  "vi": "dân số"
+                },
+                {
+                  "t": "おおい",
+                  "vi": "nhiều (về số lượng)"
+                }
+              ]
+            },
+            {
+              "stem": "お祭りで、みんなが＿をおどっていました。",
+              "choices": [
+                "うた",
+                "おんがく",
+                "おどり",
+                "ゲーム"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Động từ 「おどる」(nhảy/múa) kết hợp tự nhiên với danh từ 「おどり」(điệu nhảy) → 「おどりをおどる」là cách diễn đạt chuẩn tiếng Nhật. 「うた」(bài hát) kết hợp với 「うたう」chứ không với 「おどる」. 「おんがく」(âm nhạc) là danh từ không kết hợp với 「おどる」theo nghĩa này. 「ゲーム」(trò chơi) hoàn toàn không phù hợp với ngữ cảnh lễ hội nhảy múa.",
+              "glosses": [
+                {
+                  "t": "お祭り",
+                  "read": "おまつり",
+                  "vi": "lễ hội"
+                },
+                {
+                  "t": "みんな",
+                  "vi": "mọi người"
+                },
+                {
+                  "t": "おどり",
+                  "vi": "điệu múa, điệu nhảy"
+                },
+                {
+                  "t": "おどっていました",
+                  "vi": "đã đang nhảy múa"
+                }
+              ]
+            },
+            {
+              "stem": "日本の夏は＿が多いです。",
+              "choices": [
+                "かぜ",
+                "たいふう",
+                "ゆき",
+                "くもり"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Mùa hè Nhật Bản nổi tiếng có nhiều 「たいふう」(bão). 「かぜ」(gió) thì không đặc trưng mùa hè Nhật. 「ゆき」(tuyết) là hiện tượng mùa đông, không phải mùa hè. 「くもり」(trời흐리) là danh từ/trạng từ chỉ trạng thái thời tiết nhưng không nói 「くもりが多い」—người ta nói 「くもりの日が多い」.",
+              "glosses": [
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "夏",
+                  "read": "なつ",
+                  "vi": "mùa hè"
+                },
+                {
+                  "t": "たいふう",
+                  "vi": "bão, typhoon"
+                },
+                {
+                  "t": "多い",
+                  "read": "おおい",
+                  "vi": "nhiều"
+                }
+              ]
+            },
+            {
+              "stem": "この映画はあの映画より＿おもしろいです。",
+              "choices": [
+                "すこし",
+                "もっと",
+                "たくさん",
+                "とても"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Trong câu so sánh với 「より」, trạng từ đi kèm để nhấn mạnh mức độ hơn là 「もっと」(hơn nữa). 「すこし」(một chút) không tự nhiên khi không có mốc so sánh rõ. 「たくさん」(nhiều) dùng cho số lượng, không dùng với tính từ trạng thái như 「おもしろい」. 「とても」(rất) không dùng trong câu so sánh 「より〜」vì nó biểu thị mức độ tuyệt đối chứ không tương đối.",
+              "glosses": [
+                {
+                  "t": "映画",
+                  "read": "えいが",
+                  "vi": "bộ phim"
+                },
+                {
+                  "t": "もっと",
+                  "vi": "hơn nữa, còn hơn (dùng trong câu so sánh)"
+                },
+                {
+                  "t": "おもしろい",
+                  "vi": "thú vị, hay"
+                },
+                {
+                  "t": "はあの",
+                  "read": "はあの",
+                  "vi": "は (trợ từ chủ đề, đánh dấu vế A) + あの (kia, chỉ vế B) — dùng trong mẫu so sánh 'AはBより〜'"
+                }
+              ]
+            },
+            {
+              "stem": "春になると、公園に桜の＿がさきます。",
+              "choices": [
+                "み",
+                "は",
+                "はな",
+                "き"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Động từ 「さく」(nở) chỉ dùng với 「はな」(hoa). 「み」(quả) không nở mà kết (「みがなる」). 「は」(lá) cũng không nở. 「き」(cây) thì 「きがそだつ」(cây lớn lên) chứ không 「さく」.",
+              "glosses": [
+                {
+                  "t": "春",
+                  "read": "はる",
+                  "vi": "mùa xuân"
+                },
+                {
+                  "t": "公園",
+                  "read": "こうえん",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "桜",
+                  "read": "さくら",
+                  "vi": "hoa anh đào"
+                },
+                {
+                  "t": "はな",
+                  "vi": "hoa"
+                },
+                {
+                  "t": "さきます",
+                  "vi": "nở (hoa)"
+                },
+                {
+                  "t": "になると",
+                  "read": "になると",
+                  "vi": "〜になると = khi đến/trở thành ~ thì... (mẫu điều kiện と, thường dùng cho quy luật tự nhiên/mùa)"
+                }
+              ]
+            },
+            {
+              "stem": "きのうの天気は＿でしたから、そとで遊びませんでした。",
+              "choices": [
+                "はれ",
+                "あめ",
+                "すずしい",
+                "あたたかい"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu nói vì thời tiết nên không ra ngoài chơi — phải là thời tiết xấu. 「あめ」(mưa) là lý do hợp lý để không ra ngoài. 「はれ」(nắng) là thời tiết đẹp, không có lý do ở trong nhà. 「すずしい」(mát mẻ) là tính từ (đuôi 〜い) không đứng trước 「でした」theo dạng này; hơn nữa trời mát không cản việc ra ngoài. 「あたたかい」(ấm áp) cũng là thời tiết tốt, không phải lý do ở nhà.",
+              "glosses": [
+                {
+                  "t": "天気",
+                  "read": "てんき",
+                  "vi": "thời tiết"
+                },
+                {
+                  "t": "あめ",
+                  "vi": "mưa"
+                },
+                {
+                  "t": "そと",
+                  "vi": "ngoài trời"
+                },
+                {
+                  "t": "遊びませんでした",
+                  "read": "あそびませんでした",
+                  "vi": "đã không chơi"
+                },
+                {
+                  "t": "きのう",
+                  "read": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "でしたから",
+                  "read": "でしたから",
+                  "vi": "でした (quá khứ lịch sự của です) + から (vì, nên) = vì đã là ~ nên..."
+                }
+              ]
+            },
+            {
+              "stem": "このクラスで、だれが一番＿が上手ですか。",
+              "choices": [
+                "りょうり",
+                "うた",
+                "え",
+                "にほんご"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Ngữ cảnh là lớp học tiếng Nhật, nên câu hỏi phù hợp nhất là 「にほんごが上手」(giỏi tiếng Nhật). 「りょうり」(nấu ăn), 「うた」(hát), 「え」(vẽ) đều có thể đi với 「上手」nhưng không liên quan đến ngữ cảnh lớp học tiếng Nhật. Đây là câu hỏi về từ vựng phù hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "クラス",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi, thành thạo"
+                },
+                {
+                  "t": "だれ",
+                  "read": "だれ",
+                  "vi": "ai"
+                }
+              ]
+            },
+            {
+              "stem": "お祭りのとき、みんなで＿をたべました。",
+              "choices": [
+                "くすり",
+                "やきそば",
+                "ノート",
+                "でんき"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「やきそば」(mì xào) là món ăn đường phố phổ biến tại lễ hội Nhật. Kết hợp 「たべる」hoàn toàn tự nhiên. 「くすり」(thuốc) không phải thức ăn tại lễ hội. 「ノート」(vở/sổ) là đồ dùng học tập, không thể ăn. 「でんき」(điện) hoàn toàn không thể ăn.",
+              "glosses": [
+                {
+                  "t": "お祭り",
+                  "read": "おまつり",
+                  "vi": "lễ hội"
+                },
+                {
+                  "t": "みんなで",
+                  "vi": "mọi người cùng nhau"
+                },
+                {
+                  "t": "やきそば",
+                  "vi": "mì xào (món ăn lễ hội Nhật)"
+                },
+                {
+                  "t": "たべました",
+                  "vi": "đã ăn"
+                },
+                {
+                  "t": "のとき",
+                  "read": "のとき",
+                  "vi": "Danh từ + のとき = khi/lúc ~"
+                }
+              ]
+            },
+            {
+              "stem": "冬は夏より空気が＿なります。",
+              "choices": [
+                "さむく",
+                "つめたく",
+                "すずしく",
+                "あつく"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「つめたい」mô tả cảm giác lạnh khi chạm vào, dùng cho không khí, nước, đồ vật. Câu 「空気がつめたくなる」(không khí trở nên lạnh) rất tự nhiên. 「さむい」(lạnh về nhiệt độ môi trường) thường dùng cho cơ thể người cảm thấy lạnh (「さむい日」「さむい冬」) nhưng không tự nhiên bằng 「つめたい」khi nói trực tiếp về không khí. 「すずしい」(mát mẻ) chỉ mức độ nhẹ, không đủ cho mùa đông. 「あつく」(nóng) là ngược nghĩa.",
+              "glosses": [
+                {
+                  "t": "冬",
+                  "read": "ふゆ",
+                  "vi": "mùa đông"
+                },
+                {
+                  "t": "夏",
+                  "read": "なつ",
+                  "vi": "mùa hè"
+                },
+                {
+                  "t": "空気",
+                  "read": "くうき",
+                  "vi": "không khí"
+                },
+                {
+                  "t": "つめたく",
+                  "vi": "lạnh (cảm giác chạm vào — dạng rút gọn của つめたい)"
+                },
+                {
+                  "t": "なります",
+                  "read": "なります",
+                  "vi": "trở nên, trở thành"
+                }
+              ]
+            },
+            {
+              "stem": "あのレストランは有名ですが、値段が一番＿です。",
+              "choices": [
+                "おいしい",
+                "たかい",
+                "にぎやか",
+                "ちかい"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「値段」(giá cả) + 「たかい」(đắt/cao) là kết hợp chuẩn tiếng Nhật. 「おいしい」(ngon) là tính từ của thức ăn, không của giá. 「にぎやか」(náo nhiệt, đông vui) mô tả không khí, không phải giá cả. 「ちかい」(gần) mô tả khoảng cách, không liên quan đến giá.",
+              "glosses": [
+                {
+                  "t": "レストラン",
+                  "vi": "nhà hàng"
+                },
+                {
+                  "t": "有名",
+                  "read": "ゆうめい",
+                  "vi": "nổi tiếng"
+                },
+                {
+                  "t": "値段",
+                  "read": "ねだん",
+                  "vi": "giá cả"
+                },
+                {
+                  "t": "たかい",
+                  "vi": "đắt (tiền) / cao"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất, hạng nhất"
+                },
+                {
+                  "t": "ですが",
+                  "read": "ですが",
+                  "vi": "nhưng, tuy nhiên"
+                }
+              ]
+            },
+            {
+              "stem": "夏祭りでは、きれいな＿があがって、みんな見ていました。",
+              "choices": [
+                "かみなり",
+                "はなび",
+                "にじ",
+                "かぜ"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「はなび」(pháo hoa) + 「あがる」(lên cao) là kết hợp tự nhiên và đặc trưng của lễ hội mùa hè Nhật. 「かみなり」(sấm sét) thì 「かみなりがなる」(sấm nổ) chứ không 「あがる」. 「にじ」(cầu vồng) không 「あがる」. 「かぜ」(gió) cũng không 「あがる」—người ta nói 「かぜがふく」(gió thổi).",
+              "glosses": [
+                {
+                  "t": "夏祭り",
+                  "read": "なつまつり",
+                  "vi": "lễ hội mùa hè"
+                },
+                {
+                  "t": "はなび",
+                  "vi": "pháo hoa"
+                },
+                {
+                  "t": "あがって",
+                  "vi": "bắn lên, bay lên"
+                },
+                {
+                  "t": "みんな",
+                  "vi": "mọi người"
+                },
+                {
+                  "t": "見ていました",
+                  "read": "みていました",
+                  "vi": "đã đang xem (thì tiếp diễn quá khứ)"
+                },
+                {
+                  "t": "きれい",
+                  "read": "きれい",
+                  "vi": "đẹp, xinh đẹp"
+                }
+              ]
+            },
+            {
+              "stem": "日本と韓国と、どちらの方が面積が＿ですか。",
+              "choices": [
+                "おおい",
+                "ひろい",
+                "たかい",
+                "ながい"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "「面積」(diện tích) + 「ひろい」(rộng) là kết hợp chuẩn. 「おおい」(nhiều) dùng cho số lượng đếm được, không dùng cho diện tích. 「たかい」(cao) mô tả chiều cao hoặc giá, không phải diện tích. 「ながい」(dài) mô tả chiều dài, không phải diện tích.",
+              "glosses": [
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "韓国",
+                  "read": "かんこく",
+                  "vi": "Hàn Quốc"
+                },
+                {
+                  "t": "面積",
+                  "read": "めんせき",
+                  "vi": "diện tích"
+                },
+                {
+                  "t": "ひろい",
+                  "vi": "rộng"
+                },
+                {
+                  "t": "方",
+                  "read": "ほう",
+                  "vi": "phía, bên (dùng để so sánh)"
+                },
+                {
+                  "t": "どちら",
+                  "read": "どちら",
+                  "vi": "cái nào, bên nào (trong hai)"
+                }
+              ]
+            },
+            {
+              "stem": "この二つのかばんは＿が同じですから、どちらでもいいです。",
+              "choices": [
+                "いろ",
+                "かたち",
+                "ねだん",
+                "おもさ"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu nói hai vật giống nhau về một tiêu chí nên chọn cái nào cũng được—ngữ cảnh mua sắm thì tiêu chí quyết định nhất là 「ねだん」(giá cả). 「いろ」(màu sắc) giống nhau thì chưa đủ để nói 「どちらでもいい」vì còn xét giá và kiểu. 「かたち」(hình dạng) tương tự—không phải tiêu chí đủ quyết định. 「おもさ」(trọng lượng) giống nhau cũng không phải lý do để nói cái nào cũng được trong ngữ cảnh mua túi xách.",
+              "glosses": [
+                {
+                  "t": "二つ",
+                  "read": "ふたつ",
+                  "vi": "hai cái"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "ねだん",
+                  "vi": "giá cả"
+                },
+                {
+                  "t": "同じ",
+                  "read": "おなじ",
+                  "vi": "giống nhau"
+                },
+                {
+                  "t": "どちらでもいい",
+                  "vi": "cái nào cũng được"
+                },
+                {
+                  "t": "ですから",
+                  "read": "ですから",
+                  "vi": "vì vậy, cho nên"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "東京は大阪より大きいです。",
+              "choices": [
+                "大阪のほうが東京より大きいです。",
+                "東京のほうが大阪より大きいです。",
+                "東京と大阪はどちらが大きいですか。",
+                "東京は大阪と同じくらい大きいです。"
+              ],
+              "answer": 1,
+              "pt": "NはNより〜です",
+              "explain": "Câu gốc dùng mẫu「NはNより〜です」nghĩa là \"Tokyo lớn hơn Osaka.\" Mẫu đồng nghĩa là「NのほうがNより〜です」— đổi trật tự nhưng vẫn khẳng định Tokyo lớn hơn Osaka, nên đáp án B đúng. A sai vì đổi chiều so sánh (Osaka lớn hơn Tokyo). C sai vì là câu hỏi, không phải khẳng định. D sai vì「と同じくらい」nghĩa là \"bằng nhau\", không phải \"hơn\".",
+              "glosses": [
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn (so sánh)"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "lớn, to"
+                },
+                {
+                  "t": "のほうが",
+                  "read": "のほうが",
+                  "vi": "〜のほうが〜より = so với cái kia thì cái này ~ hơn (chọn 1 trong 2 vế so sánh)"
+                },
+                {
+                  "t": "はどちらが",
+                  "read": "はどちらが",
+                  "vi": "AとBはどちらが〜ですか = giữa A và B, cái nào ~ hơn? (câu hỏi so sánh 2 vế)"
+                },
+                {
+                  "t": "同じくらい",
+                  "read": "おなじくらい",
+                  "vi": "〜と同じくらい = giống/ngang bằng khoảng chừng ~ (so sánh mức độ tương đương)"
+                }
+              ]
+            },
+            {
+              "prompt": "日本語のほうが英語より難しいです。",
+              "choices": [
+                "日本語は英語と同じです。",
+                "英語のほうが日本語より難しいです。",
+                "日本語は英語より難しいです。",
+                "日本語と英語とどちらが難しいですか。"
+              ],
+              "answer": 2,
+              "pt": "NよりNのほうが〜です",
+              "explain": "Câu gốc「NのほうがNより〜です」nhấn mạnh \"tiếng Nhật khó hơn tiếng Anh.\" Mẫu đảo lại「NはNより〜です」vẫn giữ nguyên nghĩa, nên C đúng. A sai vì「と同じ」là \"giống nhau\". B sai vì đổi chiều (tiếng Anh khó hơn). D là câu hỏi, không phải khẳng định.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "英語",
+                  "read": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "のほうが",
+                  "vi": "... thì hơn (nhấn mạnh)"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                },
+                {
+                  "t": "同じです",
+                  "read": "おなじです",
+                  "vi": "〜と同じです = giống với ~ (so sánh bằng nhau)"
+                },
+                {
+                  "t": "とどちらが",
+                  "read": "とどちらが",
+                  "vi": "AとBとどちらが〜ですか = A và B, cái nào ~ hơn?"
+                }
+              ]
+            },
+            {
+              "prompt": "スポーツの中でサッカーが一番好きです。",
+              "choices": [
+                "スポーツの中でサッカーより野球のほうが好きです。",
+                "サッカーはスポーツが一番好きです。",
+                "スポーツの中でサッカーが一番好きではありません。",
+                "スポーツで一番好きなのはサッカーです。"
+              ],
+              "answer": 3,
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu gốc「スポーツの中でサッカーが一番好きです」nghĩa là \"Trong các môn thể thao, tôi thích bóng đá nhất.\" Câu D diễn đạt lại bằng「〜で一番〜なのは〜です」cùng nghĩa, đúng. A sai vì so sánh bóng đá với bóng chày chứ không nói \"nhất\". B sai vì cấu trúc lộn xộn, nghĩa không rõ. C sai vì phủ định, đổi nghĩa hoàn toàn.",
+              "glosses": [
+                {
+                  "t": "スポーツ",
+                  "vi": "thể thao"
+                },
+                {
+                  "t": "の中で",
+                  "read": "のなかで",
+                  "vi": "trong số ~"
+                },
+                {
+                  "t": "サッカー",
+                  "vi": "bóng đá"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "野球",
+                  "read": "やきゅう",
+                  "vi": "bóng chày"
+                },
+                {
+                  "t": "のほうが",
+                  "read": "のほうが",
+                  "vi": "〜より〜のほうが好きです = so với cái kia thì thích cái này hơn"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "Danh từ/Na-tính từ + ではありません = không phải là ~ (phủ định lịch sự của です)"
+                },
+                {
+                  "t": "なのは",
+                  "read": "なのは",
+                  "vi": "Na-tính từ/Danh từ + なのは〜です = cái mà ~ là... (danh từ hóa bằng の để nhấn mạnh chủ đề)"
+                }
+              ]
+            },
+            {
+              "prompt": "このかばんはあのかばんと同じです。",
+              "choices": [
+                "このかばんはあのかばんより高いです。",
+                "このかばんとあのかばんはどちらが同じですか。",
+                "あのかばんはこのかばんと同じです。",
+                "このかばんはあのかばんとちがいます。"
+              ],
+              "answer": 2,
+              "pt": "NはNと同じです",
+              "explain": "Câu gốc「NはNと同じです」nghĩa là \"Cái túi này giống cái túi đó.\" Vì「同じ」(giống nhau) là quan hệ đối xứng, đổi chủ ngữ vẫn đúng: C đúng. A sai vì so sánh về giá, không nói giống nhau. B sai vì「どちらが同じ」không tự nhiên trong tiếng Nhật. D sai vì「ちがいます」nghĩa là \"khác nhau\", ngược nghĩa.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "cặp, túi xách"
+                },
+                {
+                  "t": "と同じ",
+                  "read": "とおなじ",
+                  "vi": "giống với ~"
+                },
+                {
+                  "t": "あの",
+                  "vi": "cái đó (xa hơn)"
+                },
+                {
+                  "t": "この",
+                  "vi": "cái này"
+                },
+                {
+                  "t": "高い",
+                  "read": "たかい",
+                  "vi": "đắt, cao"
+                },
+                {
+                  "t": "はどちらが",
+                  "read": "はどちらが",
+                  "vi": "AとBはどちらが〜ですか = giữa A và B, cái nào ~ hơn?"
+                },
+                {
+                  "t": "同じですか",
+                  "read": "おなじですか",
+                  "vi": "〜と同じですか = có giống với ~ không?"
+                },
+                {
+                  "t": "とちがいます",
+                  "read": "とちがいます",
+                  "vi": "Nとちがいます = khác với N"
+                }
+              ]
+            },
+            {
+              "prompt": "東京と大阪とどちらが大きいですか。――東京のほうが大きいです。",
+              "choices": [
+                "東京は大阪より大きいです。",
+                "東京は大阪と同じ大きさです。",
+                "東京は大阪ほど大きくないです。",
+                "大阪は東京より大きいです。"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか",
+              "explain": "Đáp án đúng là (A) vì câu trả lời「東京のほうが大きいです」xác nhận Tokyo lớn hơn Osaka, và mẫu đồng nghĩa để khẳng định điều đó là「〜は〜より大きいです」.\n(A) 「東京は大阪より大きいです。」— đúng: đúng nghĩa \"Tokyo lớn hơn Osaka\", khớp với câu trả lời gốc.\n(B) 「東京は大阪と同じ大きさです。」— sai: 「同じ大きさ」nghĩa là bằng nhau, không khớp ý so sánh hơn kém.\n(C) 「東京は大阪ほど大きくないです。」— sai: 「ほど〜ない」nghĩa là \"không bằng\", tức ngụ ý Osaka lớn hơn Tokyo, ngược nghĩa với câu gốc.\n(D) 「大阪は東京より大きいです。」— sai: đổi chiều so sánh, ngụ ý Osaka lớn hơn Tokyo.",
+              "glosses": [
+                {
+                  "t": "どちら",
+                  "vi": "cái nào (trong hai)"
+                },
+                {
+                  "t": "東京のほうが大きい",
+                  "read": "とうきょうのほうがおおきい",
+                  "vi": "Tokyo lớn hơn"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka (thành phố Nhật Bản)"
+                },
+                {
+                  "t": "大きいですか",
+                  "read": "おおきいですか",
+                  "vi": "大きいですか = có to/lớn hơn không? (tính từ đuôi い + ですか)"
+                },
+                {
+                  "t": "大きさです",
+                  "read": "おおきさです",
+                  "vi": "大きさ = kích thước/độ lớn (danh từ hóa tính từ 大きい bằng đuôi さ) + です"
+                },
+                {
+                  "t": "大きくないです",
+                  "read": "おおきくないです",
+                  "vi": "大きくないです = không to/lớn (phủ định lịch sự tính từ đuôi い: 大きい→大きくない)"
+                },
+                {
+                  "t": "より大きいです",
+                  "read": "よりおおきいです",
+                  "vi": "〜より〜 = so với ~, hơn ~ (mẫu so sánh hơn kém giữa hai đối tượng)"
+                }
+              ]
+            },
+            {
+              "prompt": "くだものの中でりんごが一番おいしいです。",
+              "choices": [
+                "くだものの中でりんごはみかんほどおいしくないです。",
+                "くだもので一番おいしいのはりんごです。",
+                "くだものの中でりんごよりみかんのほうがおいしいです。",
+                "りんごはくだものが一番おいしいです。"
+              ],
+              "answer": 1,
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu gốc「くだものの中でりんごが一番おいしい」nghĩa là \"Trong số hoa quả, táo ngon nhất.\" Câu B「くだもので一番おいしいのはりんごです」cũng nói điều đó bằng cấu trúc「〜で一番〜のは〜です」, đồng nghĩa hoàn toàn. A sai vì「ほど〜ない」là phủ định so sánh. C sai vì cho rằng quýt ngon hơn táo. D sai vì cấu trúc lộn xộn, chủ ngữ sai.",
+              "glosses": [
+                {
+                  "t": "くだもの",
+                  "vi": "hoa quả"
+                },
+                {
+                  "t": "の中で",
+                  "read": "のなかで",
+                  "vi": "trong số ~"
+                },
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "おいしい",
+                  "vi": "ngon"
+                },
+                {
+                  "t": "みかん",
+                  "read": "みかん",
+                  "vi": "quả quýt/quả cam"
+                },
+                {
+                  "t": "ほどおいしくないです",
+                  "read": "ほどおいしくないです",
+                  "vi": "AはBほど〜ない = A không ~ bằng B (so sánh mức độ kém hơn)"
+                },
+                {
+                  "t": "のほうが",
+                  "read": "のほうが",
+                  "vi": "〜より〜のほうが = so với cái kia thì cái này ~ hơn"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはねこよりいぬのほうが好きです。",
+              "choices": [
+                "わたしはいぬよりねこのほうが好きです。",
+                "わたしはいぬとねこが好きです。",
+                "わたしはねこよりいぬが好きです。",
+                "わたしはいぬもねこも好きではありません。"
+              ],
+              "answer": 2,
+              "pt": "NよりNのほうが〜です",
+              "explain": "Câu gốc nghĩa là \"Tôi thích chó hơn mèo.\" Mẫu đồng nghĩa「NはNよりNが好きです」cũng diễn đạt \"tôi thích chó hơn mèo\", nên C đúng. A sai vì đổi chiều (thích mèo hơn). B sai vì chỉ nói thích cả hai, không có so sánh. D sai vì phủ định.",
+              "glosses": [
+                {
+                  "t": "ねこ",
+                  "vi": "mèo"
+                },
+                {
+                  "t": "いぬ",
+                  "vi": "chó"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn"
+                },
+                {
+                  "t": "のほうが好き",
+                  "read": "のほうがすき",
+                  "vi": "thích ... hơn"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "Danh từ/Na-tính từ + ではありません = không phải là ~ (phủ định lịch sự của です)"
+                }
+              ]
+            },
+            {
+              "prompt": "かぞくの中でおとうさんがいちばん背が高いです。",
+              "choices": [
+                "かぞくの中でおとうさんより背が高い人はいません。",
+                "かぞくの中でおとうさんはあまり背が高くないです。",
+                "おとうさんはかぞくの中でいちばん背が低いです。",
+                "かぞくの中でおとうさんとおかあさんの背は同じです。"
+              ],
+              "answer": 0,
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu gốc \"Trong gia đình, bố cao nhất.\" Câu A「〜より〜い人はいません」nghĩa là \"không có ai cao hơn bố trong gia đình\" — tức bố cao nhất, đồng nghĩa. B sai vì「あまり〜ない」là phủ định. C sai vì「いちばん背が低い」là thấp nhất, ngược nghĩa. D sai vì nói bố và mẹ cao bằng nhau.",
+              "glosses": [
+                {
+                  "t": "かぞく",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "おとうさん",
+                  "vi": "bố"
+                },
+                {
+                  "t": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "背が高い",
+                  "read": "せがたかい",
+                  "vi": "cao (người)"
+                },
+                {
+                  "t": "おかあさん",
+                  "read": "おかあさん",
+                  "vi": "mẹ"
+                },
+                {
+                  "t": "低い",
+                  "read": "ひくい",
+                  "vi": "thấp"
+                },
+                {
+                  "t": "あまり",
+                  "read": "あまり",
+                  "vi": "không mấy, không lắm"
+                },
+                {
+                  "t": "はいません",
+                  "read": "はいません",
+                  "vi": "〜はいません = không có ~ (phủ định của います, dùng cho người/động vật)"
+                },
+                {
+                  "t": "高くないです",
+                  "read": "たかくないです",
+                  "vi": "高くないです = không cao (phủ định lịch sự tính từ đuôi い: 高い→高くない)"
+                },
+                {
+                  "t": "同じです",
+                  "read": "おなじです",
+                  "vi": "〜と同じです = giống với ~ (so sánh bằng nhau)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしのかばんはともだちのかばんと同じです。",
+              "choices": [
+                "わたしのかばんはともだちのかばんより大きいです。",
+                "わたしのかばんとともだちのかばんはちがいます。",
+                "ともだちのかばんはわたしのかばんと同じです。",
+                "わたしはともだちのかばんが好きです。"
+              ],
+              "answer": 2,
+              "pt": "NはNと同じです",
+              "explain": "「NはNと同じです」diễn tả hai vật giống nhau — quan hệ này đối xứng. C đổi chủ ngữ nhưng nội dung vẫn là \"cặp của bạn giống cặp của tôi\", đồng nghĩa hoàn toàn. A sai vì so sánh kích cỡ. B sai vì「ちがいます」là \"khác nhau\". D sai vì nói về sở thích, không liên quan.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "túi, cặp"
+                },
+                {
+                  "t": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "と同じ",
+                  "read": "とおなじ",
+                  "vi": "giống với ~"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "to, lớn"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "はちがいます",
+                  "read": "はちがいます",
+                  "vi": "AとBはちがいます = A và B thì khác nhau (違う thể lịch sự)"
+                }
+              ]
+            },
+            {
+              "prompt": "このクラスの中でマリアさんが一番日本語が上手です。",
+              "choices": [
+                "このクラスでマリアさんより日本語が上手な人はいません。",
+                "このクラスの中でマリアさんは日本語が上手ではありません。",
+                "このクラスの中でマリアさんはたなかさんより日本語が上手です。",
+                "このクラスの中でマリアさんと同じくらい日本語が上手な人がいます。"
+              ],
+              "answer": 0,
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu gốc \"Trong lớp, Maria giỏi tiếng Nhật nhất.\" Câu A nói \"không ai trong lớp giỏi hơn Maria\" — diễn đạt \"nhất\" theo cách khác, đồng nghĩa. B sai vì phủ định. C sai vì chỉ so sánh Maria với Tanaka, không nói \"nhất\". D sai vì nói có người khác giỏi bằng Maria.",
+              "glosses": [
+                {
+                  "t": "クラス",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "の中で",
+                  "read": "のなかで",
+                  "vi": "trong số ~"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "日本語が上手",
+                  "read": "にほんごがじょうず",
+                  "vi": "giỏi tiếng Nhật"
+                },
+                {
+                  "t": "マリアさん",
+                  "read": "マリアさん",
+                  "vi": "(tên riêng) chị/anh Maria"
+                },
+                {
+                  "t": "はいません",
+                  "read": "はいません",
+                  "vi": "〜はいません = không có ~ (phủ định của います, dùng cho người/động vật)"
+                },
+                {
+                  "t": "ではありません",
+                  "read": "ではありません",
+                  "vi": "Na-tính từ + ではありません = không phải là ~ (phủ định lịch sự của です)"
+                },
+                {
+                  "t": "はたなかさんより",
+                  "read": "はたなかさんより",
+                  "vi": "〜は たなかさん より〜 = so với anh/chị Tanaka thì ~ hơn"
+                },
+                {
+                  "t": "同じくらい",
+                  "read": "おなじくらい",
+                  "vi": "〜と同じくらい = giống/ngang bằng khoảng chừng ~"
+                },
+                {
+                  "t": "がいます",
+                  "read": "がいます",
+                  "vi": "〜がいます = có (người) ~ (biểu thị tồn tại của người/động vật)"
+                }
+              ]
+            },
+            {
+              "prompt": "ロンドンはパリより寒いです。",
+              "choices": [
+                "パリのほうがロンドンより寒いです。",
+                "ロンドンのほうがパリより寒いです。",
+                "ロンドンとパリはどちらが寒いですか。",
+                "ロンドンはパリと同じ寒さです。"
+              ],
+              "answer": 1,
+              "pt": "NはNより〜です",
+              "explain": "Câu gốc「ロンドンはパリより寒い」nghĩa là \"London lạnh hơn Paris.\" Mẫu đồng nghĩa「NのほうがNより〜です」giữ nguyên chiều so sánh: B đúng. A sai vì đổi chiều (Paris lạnh hơn). C là câu hỏi. D sai vì「同じ寒さ」là lạnh như nhau.",
+              "glosses": [
+                {
+                  "t": "ロンドン",
+                  "vi": "London"
+                },
+                {
+                  "t": "パリ",
+                  "vi": "Paris"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn"
+                },
+                {
+                  "t": "寒い",
+                  "read": "さむい",
+                  "vi": "lạnh"
+                },
+                {
+                  "t": "のほうが",
+                  "read": "のほうが",
+                  "vi": "〜より〜のほうが = so với cái kia thì cái này ~ hơn"
+                },
+                {
+                  "t": "はどちらが",
+                  "read": "はどちらが",
+                  "vi": "AとBはどちらが〜ですか = giữa A và B, cái nào ~ hơn?"
+                },
+                {
+                  "t": "寒さです",
+                  "read": "さむさです",
+                  "vi": "寒さ = độ lạnh (danh từ hóa tính từ 寒い bằng đuôi さ) + です"
+                }
+              ]
+            },
+            {
+              "prompt": "このへやには本が三冊あります。",
+              "choices": [
+                "このへやに本が三冊います。",
+                "このへやに三冊の本があります。",
+                "このへやに本が三本あります。",
+                "このへやで本が三冊あります。"
+              ],
+              "answer": 1,
+              "pt": "〜冊（lượng từ B11） + NがNにあります（B10）",
+              "explain": "Câu gốc dùng「Nが〜あります」và lượng từ「〜冊」cho sách. Câu B「三冊の本があります」đảo lượng từ lên trước danh từ theo dạng「〜のN」nhưng giữ nguyên nghĩa, đúng. A sai vì「います」dùng cho người/động vật. C sai vì「〜本」(ほん) là lượng từ cho vật dài (bút, chai), không dùng cho sách. D sai vì「で」chỉ địa điểm hành động, không dùng thay cho「に」khi nói vật ở đâu.",
+              "glosses": [
+                {
+                  "t": "へや",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "三冊",
+                  "read": "さんさつ",
+                  "vi": "ba quyển"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (vật không sống)"
+                },
+                {
+                  "t": "三本",
+                  "read": "さんぼん",
+                  "vi": "ba (đơn vị đếm vật dài, hình trụ)"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "〜がいます = có (dùng cho người/động vật còn sống; sách vở dùng あります mới đúng)"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはえいごやフランス語などが話せます。",
+              "choices": [
+                "たなかさんはえいごとフランス語だけが話せます。",
+                "たなかさんはえいごもフランス語も話せます。",
+                "たなかさんはえいごもフランス語なども話せます。",
+                "たなかさんはえいごかフランス語が話せます。"
+              ],
+              "answer": 2,
+              "pt": "NやN（など）— B10",
+              "explain": "「NやN（など）」liệt kê ví dụ không đầy đủ (còn ngôn ngữ khác). Câu C「〜も〜なども」cũng diễn đạt liệt kê không đầy đủ tương đương, đúng. A sai vì「だけ」có nghĩa \"chỉ\", hàm ý không có ngôn ngữ nào khác. B sai vì「〜も〜も」liệt kê đầy đủ, không hàm ý còn ngôn ngữ khác. D sai vì「か」là \"hoặc\", nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "フランス語",
+                  "read": "フランスご",
+                  "vi": "tiếng Pháp"
+                },
+                {
+                  "t": "や〜など",
+                  "vi": "... và ... (liệt kê không đầy đủ)"
+                },
+                {
+                  "t": "話せます",
+                  "read": "はなせます",
+                  "vi": "có thể nói"
+                },
+                {
+                  "t": "などが",
+                  "read": "などが",
+                  "vi": "〜や〜など = và những thứ tương tự như ~ (liệt kê ví dụ, không đầy đủ)"
+                },
+                {
+                  "t": "だけが",
+                  "read": "だけが",
+                  "vi": "〜だけ = chỉ ~ (mà thôi), giới hạn phạm vi"
+                },
+                {
+                  "t": "なども",
+                  "read": "なども",
+                  "vi": "〜なども = và những thứ như ~ cũng (kết hợp など + も)"
+                }
+              ]
+            },
+            {
+              "prompt": "この学校の中で山田先生が一番やさしいです。",
+              "choices": [
+                "この学校の中で山田先生より他の先生のほうがやさしいです。",
+                "この学校の中で山田先生はあまりやさしくないです。",
+                "山田先生はこの学校の中でいちばんやさしいです。",
+                "この学校の中で山田先生と同じくらいやさしい先生がいます。"
+              ],
+              "answer": 2,
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu gốc \"Trong trường, thầy Yamada hiền nhất.\" C chỉ đảo thứ tự của「学校の中で」và「山田先生は」nhưng nghĩa hoàn toàn giống, đúng. A sai vì nói các thầy khác hiền hơn. B sai vì「あまり〜ない」phủ định. D sai vì nói có người hiền bằng thầy Yamada — mâu thuẫn với \"nhất\".",
+              "glosses": [
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "の中で",
+                  "read": "のなかで",
+                  "vi": "trong số ~"
+                },
+                {
+                  "t": "山田先生",
+                  "read": "やまだせんせい",
+                  "vi": "thầy/cô Yamada"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "やさしい",
+                  "vi": "hiền, dịu dàng"
+                },
+                {
+                  "t": "他の",
+                  "read": "ほかの",
+                  "vi": "khác, cái khác"
+                },
+                {
+                  "t": "あまり",
+                  "read": "あまり",
+                  "vi": "không mấy, không lắm"
+                },
+                {
+                  "t": "のほうが",
+                  "read": "のほうが",
+                  "vi": "〜より〜のほうが = so với người kia thì ~ hơn"
+                },
+                {
+                  "t": "やさしくないです",
+                  "read": "やさしくないです",
+                  "vi": "やさしくないです = không hiền/không dễ (phủ định lịch sự tính từ đuôi い)"
+                },
+                {
+                  "t": "はこの",
+                  "read": "はこの",
+                  "vi": "は (trợ từ chủ đề) + この (này) — giới thiệu chủ ngữ rồi phạm vi so sánh 'trường này'"
+                },
+                {
+                  "t": "いちばん",
+                  "read": "いちばん",
+                  "vi": "いちばん (一番) = nhất, hơn cả (dùng để so sánh cực cấp trong nhóm/phạm vi)"
+                },
+                {
+                  "t": "同じくらい",
+                  "read": "おなじくらい",
+                  "vi": "〜と同じくらい = giống/ngang bằng khoảng chừng ~"
+                },
+                {
+                  "t": "がいます",
+                  "read": "がいます",
+                  "vi": "〜がいます = có (người) ~ (biểu thị tồn tại)"
+                }
+              ]
+            },
+            {
+              "prompt": "きのう三回シャワーをあびました。",
+              "choices": [
+                "きのうシャワーを三本あびました。",
+                "きのうシャワーを三枚あびました。",
+                "きのうシャワーを三度あびました。",
+                "きのうシャワーを三個あびました。"
+              ],
+              "answer": 2,
+              "pt": "〜回（lượng từ B11）",
+              "explain": "「〜回」là lượng từ đếm số lần. Câu C dùng「〜度」(ど) cũng có nghĩa là \"lần\" và hoán đổi được với「〜回」trong nhiều ngữ cảnh thông thường, đồng nghĩa nhất. A sai vì「〜本」dùng cho vật dài. B sai vì「〜枚」dùng cho vật phẳng. D sai vì「〜個」dùng cho vật thể nhỏ.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "三回",
+                  "read": "さんかい",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "シャワーをあびました",
+                  "vi": "tắm vòi hoa sen",
+                  "read": "しゃわーをあびました"
+                },
+                {
+                  "t": "〜度",
+                  "read": "〜ど",
+                  "vi": "lần, lượt (cũng dùng cho tần suất)"
+                },
+                {
+                  "t": "三本",
+                  "read": "さんぼん",
+                  "vi": "ba (đơn vị vật dài, hình trụ)"
+                },
+                {
+                  "t": "三枚",
+                  "read": "さんまい",
+                  "vi": "ba (đơn vị vật phẳng, mỏng)"
+                },
+                {
+                  "t": "三度",
+                  "read": "さんど",
+                  "vi": "ba lần"
+                },
+                {
+                  "t": "三個",
+                  "read": "さんこ",
+                  "vi": "ba cái/quả (đơn vị chung)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 12 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "東京は大阪＿大きいです。",
+              "choices": [
+                "より",
+                "ほど",
+                "ほうが",
+                "と同じ"
+              ],
+              "answer": 0,
+              "pt": "NはNより〜です",
+              "explain": "Cấu trúc「NはNより〜です」dùng「より」để so sánh, nghĩa \"N lớn hơn N\". Tokyo lớn hơn Osaka → điền「より」. ❌「ほど」dùng trong phủ định (AはBほど〜ない), không dùng khẳng định. ❌「ほうが」đặt sau danh từ thứ hai (Bのほうが), không đặt giữa A và B như vậy. ❌「と同じ」có nghĩa \"giống nhau\", không so sánh hơn kém.",
+              "glosses": [
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "lớn, rộng"
+                }
+              ]
+            },
+            {
+              "stem": "バスより電車＿速いです。",
+              "choices": [
+                "のほうが",
+                "のほどが",
+                "のほうは",
+                "のほうに"
+              ],
+              "answer": 0,
+              "pt": "NよりNのほうが〜です",
+              "explain": "Cấu trúc「NよりNのほうが〜です」: \"N2 hơn N1 về...\". Chỗ trống sau「電車」cần「のほうが」. ❌「のほどが」không phải cấu trúc chuẩn trong tiếng Nhật. ❌「のほうは」dùng「は」thay「が」làm mất vai trò chủ ngữ so sánh, không tự nhiên. ❌「のほうに」「に」là trợ từ chỉ hướng/nơi chốn, sai ngữ pháp ở đây.",
+              "glosses": [
+                {
+                  "t": "バス",
+                  "read": "",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "速い",
+                  "read": "はやい",
+                  "vi": "nhanh"
+                }
+              ]
+            },
+            {
+              "stem": "クラスの中で＿が一番上手です。",
+              "choices": [
+                "マリアさん",
+                "マリアさんより",
+                "マリアさんほど",
+                "マリアさんのほうが"
+              ],
+              "answer": 0,
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Cấu trúc「Nの中で〜が一番〜です」: \"trong N, ~ là ~ nhất\". Chủ ngữ đứng trước「が一番」chỉ cần là danh từ đơn giản → đáp án「マリアさん」. ❌「マリアさんより」thêm「より」tạo thành so sánh đôi, không dùng với「一番」. ❌「マリアさんほど」dùng trong phủ định, không hợp. ❌「マリアさんのほうが」dùng để so sánh hai vật, không dùng với「一番」.",
+              "glosses": [
+                {
+                  "t": "クラスの中で",
+                  "read": "なかで",
+                  "vi": "trong lớp học"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi, khéo"
+                },
+                {
+                  "t": "マリアさん",
+                  "read": "マリアさん",
+                  "vi": "(tên riêng) chị/anh Maria"
+                },
+                {
+                  "t": "のほうが",
+                  "read": "のほうが",
+                  "vi": "〜のほうが〜より = so với người/vật khác thì ~ hơn (cần đi kèm より ở phần khác của câu)"
+                }
+              ]
+            },
+            {
+              "stem": "この本はその本より＿高いです。",
+              "choices": [
+                "（空所なし）",
+                "もっと",
+                "ずっと",
+                "いちばん"
+              ],
+              "answer": 0,
+              "pt": "NはNより〜です",
+              "explain": "Câu「この本はその本より高いです」đã hoàn chỉnh. Trong cấu trúc「NはNより〜」,「より」tự nó đã mang nghĩa \"hơn\" nên không cần thêm từ nào. ❌「もっと」(hơn nữa) dùng khi so sánh với trạng thái trước đó, không phải với danh từ cụ thể khác. ❌「ずっと」(hơn nhiều, xa hơn) là trạng từ tăng cường, không điền vào vị trí này. ❌「いちばん」(nhất) dùng với cấu trúc「一番〜」, không phải so sánh đôi.",
+              "glosses": [
+                {
+                  "t": "この本",
+                  "read": "ほん",
+                  "vi": "cuốn sách này"
+                },
+                {
+                  "t": "その本",
+                  "read": "ほん",
+                  "vi": "cuốn sách đó"
+                },
+                {
+                  "t": "高い",
+                  "read": "たかい",
+                  "vi": "đắt, cao"
+                }
+              ]
+            },
+            {
+              "stem": "果物の中で＿が一番好きですか。",
+              "choices": [
+                "何",
+                "どれ",
+                "どちら",
+                "なに"
+              ],
+              "answer": 0,
+              "pt": "Nの中で〜が一番〜です + NはNが好きです",
+              "explain": "Hỏi về vật trong một nhóm chủng loại đã nêu (果物) → dùng「何」(cái gì). ❌「どれ」dùng khi có các lựa chọn cụ thể trước mắt (trong 2–3 vật chỉ tay được), không dùng cho nhóm chung chung. ❌「どちら」chỉ dùng khi so sánh đúng hai vật (A と B とどちら), không dùng cho nhóm nhiều. ❌「なに」là cách đọc khác của「何」nhưng ở đây「何」mới là cách viết/đọc tự nhiên và chuẩn trong câu này.",
+              "glosses": [
+                {
+                  "t": "果物",
+                  "read": "くだもの",
+                  "vi": "trái cây"
+                },
+                {
+                  "t": "の中で",
+                  "read": "なかで",
+                  "vi": "trong số"
+                },
+                {
+                  "t": "一番好き",
+                  "read": "いちばんすき",
+                  "vi": "thích nhất"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんのかばんとキムさんのかばん＿どちらが大きいですか。",
+              "choices": [
+                "と",
+                "より",
+                "や",
+                "が"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか",
+              "explain": "Cấu trúc「AとBとどちらが〜ですか」hỏi so sánh hai vật → cần「と」trước「どちら」. ❌「より」dùng sau vật được so sánh kém hơn (AよりBのほうが), không dùng ở đây. ❌「や」liệt kê không đầy đủ (A や B など), không dùng để hỏi so sánh. ❌「が」là trợ từ chủ ngữ, đặt ở đây làm câu mất cấu trúc so sánh chuẩn.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "read": "",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "どちら",
+                  "read": "",
+                  "vi": "cái nào (trong hai)"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "to, lớn"
+                },
+                {
+                  "t": "さん",
+                  "read": "さん",
+                  "vi": "hậu tố xưng hô lịch sự (ông/bà/anh/chị)"
+                },
+                {
+                  "t": "キム",
+                  "read": "きむ",
+                  "vi": "Kim (họ người Hàn Quốc)"
+                }
+              ]
+            },
+            {
+              "stem": "私のへやはともだちのへや＿きれいです。",
+              "choices": [
+                "より",
+                "ほど",
+                "と同じくらい",
+                "のほうが"
+              ],
+              "answer": 0,
+              "pt": "NはNより〜です",
+              "explain": "Cấu trúc「NはNより〜です」: phòng tôi đẹp hơn phòng bạn → điền「より」sau vật bị so sánh. ❌「ほど」dùng trong phủ định「AはBほど〜ない」, không dùng câu khẳng định. ❌「と同じくらい」nghĩa \"khoảng bằng nhau\", không biểu thị hơn kém. ❌「のほうが」đặt sau danh từ được kết luận là hơn (私のへやのほうが), không đặt giữa A và B như vậy.",
+              "glosses": [
+                {
+                  "t": "へや",
+                  "read": "部屋",
+                  "vi": "phòng"
+                },
+                {
+                  "t": "きれい",
+                  "read": "",
+                  "vi": "đẹp, sạch sẽ"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "山田さんはスポーツ＿サッカーが一番上手です。",
+              "choices": [
+                "の中で",
+                "の中に",
+                "の中が",
+                "の中より"
+              ],
+              "answer": 0,
+              "pt": "Nの中で〜が一番〜です + NはNが上手です",
+              "explain": "Cấu trúc「Nの中で〜が一番〜です」dùng「の中で」để chỉ phạm vi so sánh. ❌「の中に」「に」là trợ từ chỉ nơi tồn tại/vị trí, không dùng cho phạm vi so sánh. ❌「の中が」「が」ở đây tạo sai cấu trúc vì「スポーツの中が」làm「スポーツ」thành chủ ngữ, không đúng ý. ❌「の中より」ghép「の中」và「より」không phải cố định ngữ pháp, không tự nhiên.",
+              "glosses": [
+                {
+                  "t": "山田さん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "スポーツ",
+                  "read": "",
+                  "vi": "thể thao"
+                },
+                {
+                  "t": "サッカー",
+                  "read": "",
+                  "vi": "bóng đá"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi"
+                }
+              ]
+            },
+            {
+              "stem": "このかさはあのかさ＿値段が同じです。",
+              "choices": [
+                "と",
+                "より",
+                "が",
+                "の"
+              ],
+              "answer": 0,
+              "pt": "NはNと同じです",
+              "explain": "Cấu trúc「NはNと同じです」: \"N giống N\", dùng「と」để chỉ đối tượng so sánh ngang bằng. ❌「より」dùng để so sánh hơn kém, trái nghĩa với「同じ」. ❌「が」là trợ từ chủ ngữ, đặt ở đây làm mất cấu trúc so sánh bằng. ❌「の」là trợ từ sở hữu/liên kết, không tạo được nghĩa \"giống như\".",
+              "glosses": [
+                {
+                  "t": "かさ",
+                  "read": "傘",
+                  "vi": "ô, dù"
+                },
+                {
+                  "t": "値段",
+                  "read": "ねだん",
+                  "vi": "giá cả"
+                },
+                {
+                  "t": "同じ",
+                  "read": "おなじ",
+                  "vi": "giống, bằng"
+                },
+                {
+                  "t": "はあの",
+                  "read": "はあの",
+                  "vi": "は (trợ từ chủ đề, đánh dấu vế A) + あの (kia, chỉ vế B) — dùng trong mẫu so sánh 'AはBと同じ'"
+                }
+              ]
+            },
+            {
+              "stem": "A: ねこといぬと＿が好きですか。B: いぬのほうが好きです。",
+              "choices": [
+                "どちら",
+                "どれ",
+                "何",
+                "どんな"
+              ],
+              "answer": 0,
+              "pt": "NとNとどちらが〜ですか + NはNが好きです",
+              "explain": "Hỏi so sánh đúng hai vật (猫 và 犬) → dùng「どちら」. Câu trả lời「いぬのほうが好きです」xác nhận cấu trúc so sánh đôi. ❌「どれ」dùng khi có từ 3 lựa chọn trở lên hoặc các vật trước mắt. ❌「何」hỏi \"cái gì\" chung chung, không dùng khi đã nêu cụ thể hai vật. ❌「どんな」hỏi về tính chất/loại (どんなねこ = mèo như thế nào), sai mục đích câu.",
+              "glosses": [
+                {
+                  "t": "ねこ",
+                  "read": "猫",
+                  "vi": "mèo"
+                },
+                {
+                  "t": "いぬ",
+                  "read": "犬",
+                  "vi": "chó"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "ほう",
+                  "read": "ほう",
+                  "vi": "phía, hướng (dùng để so sánh, 〜のほうが)"
+                }
+              ]
+            },
+            {
+              "stem": "机の上に本が3＿あります。",
+              "choices": [
+                "さつ",
+                "まい",
+                "ほん",
+                "こ"
+              ],
+              "answer": 0,
+              "pt": "〜個／〜枚／〜本 (lượng từ) + NがNにあります",
+              "explain": "Đếm sách dùng lượng từ「〜冊（さつ）」. ❌「まい」đếm vật phẳng mỏng (giấy, đĩa, áo), không đếm sách. ❌「ほん」đếm vật dài/hình trụ (bút, chai, cây), mặc dù「本」(ほん) đọc trùng với \"sách\" nhưng lượng từ「〜本」không đếm sách. ❌「こ」đếm vật nhỏ tròn dạng cục (táo, kẹo), không đếm sách.",
+              "glosses": [
+                {
+                  "t": "机の上に",
+                  "read": "つくえのうえに",
+                  "vi": "trên bàn"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                },
+                {
+                  "t": "あります",
+                  "read": "",
+                  "vi": "có (vật vô tri)"
+                }
+              ]
+            },
+            {
+              "stem": "このクラスには学生が20＿います。",
+              "choices": [
+                "にん",
+                "まい",
+                "ほん",
+                "さい"
+              ],
+              "answer": 0,
+              "pt": "〜人 (lượng từ người)",
+              "explain": "Đếm người dùng「〜人（にん）」. ❌「まい」đếm vật phẳng mỏng, không đếm người. ❌「ほん」đếm vật dài hình trụ, không đếm người. ❌「さい」đếm tuổi (〜歳), không đếm số lượng người.",
+              "glosses": [
+                {
+                  "t": "クラス",
+                  "read": "",
+                  "vi": "lớp học"
+                },
+                {
+                  "t": "学生",
+                  "read": "がくせい",
+                  "vi": "học sinh, sinh viên"
+                },
+                {
+                  "t": "います",
+                  "read": "",
+                  "vi": "có (người/động vật)"
+                }
+              ]
+            },
+            {
+              "stem": "先生はえいごと日本語＿お上手です。",
+              "choices": [
+                "などが",
+                "とが",
+                "やが",
+                "もが"
+              ],
+              "answer": 0,
+              "pt": "NやN（など） ôn từ B10 + NはNが上手です",
+              "explain": "Liệt kê không đầy đủ (còn các ngôn ngữ khác) dùng「〜や〜など」rồi thêm trợ từ「が」→「などが」. ❌「とが」「と」liệt kê đầy đủ, ghép「とが」không phải cấu trúc chuẩn. ❌「やが」bỏ「など」tạo cảm giác dừng đột ngột, không tự nhiên khi không có「など」kèm theo. ❌「もが」「も」nghĩa \"cũng\", không dùng để liệt kê ví dụ không đầy đủ.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên, thầy/cô"
+                },
+                {
+                  "t": "えいご",
+                  "read": "英語",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "お上手",
+                  "read": "じょうず",
+                  "vi": "giỏi (kính ngữ)"
+                }
+              ]
+            },
+            {
+              "stem": "A: コーヒーと紅茶とどちらが好きですか。B: コーヒー＿好きです。",
+              "choices": [
+                "のほうが",
+                "のほうで",
+                "のほうに",
+                "のほうを"
+              ],
+              "answer": 0,
+              "pt": "NよりNのほうが〜です (trả lời so sánh) + NはNが好きです",
+              "explain": "Trả lời câu hỏi「どちらが〜ですか」dùng cấu trúc「〜のほうが〜です」→「コーヒーのほうが好きです」. ❌「のほうで」「で」là trợ từ chỉ phương tiện/nơi diễn ra hành động, không hợp ở đây. ❌「のほうに」「に」chỉ hướng/nơi chốn, không dùng trong cấu trúc so sánh yêu thích. ❌「のほうを」「を」chỉ tân ngữ, dùng được với động từ chọn lựa (コーヒーのほうを選ぶ) nhưng không dùng với tính từ「好き」.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "read": "",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "紅茶",
+                  "read": "こうちゃ",
+                  "vi": "trà đen"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                },
+                {
+                  "t": "どちら",
+                  "read": "どちら",
+                  "vi": "cái nào, bên nào (trong hai)"
+                }
+              ]
+            },
+            {
+              "stem": "A: 図書館に本は何冊ありますか。B: 5000＿あります。",
+              "choices": [
+                "さつ",
+                "こ",
+                "ほん",
+                "まい"
+              ],
+              "answer": 0,
+              "pt": "〜冊 (lượng từ sách) + NがNにあります",
+              "explain": "Hỏi「何冊」→ trả lời dùng「〜冊（さつ）」đếm sách/tạp chí. ❌「こ」đếm vật nhỏ tròn (táo, kẹo, trứng), không đếm sách. ❌「ほん」đếm vật dài hình trụ (bút, chai, cành cây), không đếm sách. ❌「まい」đếm vật phẳng mỏng (giấy, tờ, chiếc áo), không đếm sách.",
+              "glosses": [
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "何冊",
+                  "read": "なんさつ",
+                  "vi": "bao nhiêu quyển"
+                },
+                {
+                  "t": "あります",
+                  "read": "",
+                  "vi": "có (vật vô tri)"
+                },
+                {
+                  "t": "本",
+                  "read": "ほん",
+                  "vi": "sách"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "私はテニスより",
+                "です。"
+              ],
+              "pieces": [
+                "サッカーの",
+                "ずっと",
+                "ほうが",
+                "好き"
+              ],
+              "order": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NよりNのほうが〜です",
+              "explain": "Câu đúng: 「私はテニスよりサッカーのほうがずっと好きです。」— Tôi thích bóng đá hơn quần vợt nhiều.\nSắp xếp: ô 1=「サッカーの」, ô 2=「ほうが」★, ô 3=「ずっと」, ô 4=「好き」.\nKhung đầu câu đã cho sẵn vế đối chiếu 「私はテニスより」 và khung đuôi là 「です。」. Cấu trúc so sánh hơn hai đối tượng là 「AよりBのほうが〜」, do đó sau 「テニスより」 bắt buộc phải là cụm 「サッカーのほうが」 tương ứng với ô 1 và ô 2. Phó từ chỉ mức độ vượt trội 「ずっと」 đứng trước tính từ để bổ nghĩa, tạo thành cụm 「ずっと好き」 ở ô 3 và ô 4 kết hợp với 「です。」 ở cuối. Vì vậy, mảnh ngữ pháp then chốt 「ほうが」 của cấu trúc so sánh hơn bắt buộc phải đứng ở ô 2 ★.",
+              "glosses": [
+                {
+                  "t": "のほうが",
+                  "vi": "thì hơn (chỉ hướng so sánh)"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "テニス",
+                  "vi": "môn tennis"
+                },
+                {
+                  "t": "サッカー",
+                  "read": "",
+                  "vi": "bóng đá"
+                },
+                {
+                  "t": "ずっと",
+                  "read": "",
+                  "vi": "hơn hẳn"
+                },
+                {
+                  "t": "好き",
+                  "read": "すき",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "pt": "NはNより〜です",
+              "explain": "Câu đúng: 「日本では東京は大阪よりずっと大きいです。」— Ở Nhật Bản, Tokyo lớn hơn Osaka nhiều.\nSắp xếp: ô 1=「東京は」, ô 2=「大阪より」★, ô 3=「ずっと」, ô 4=「大きい」\nKhung đầu câu 「日本では」 xác định phạm vi so sánh, theo sau là chủ thể chính được đánh dấu bằng trợ từ 「は」 thành 「東京は」. Theo cấu trúc so sánh hơn 「AはBより〜」, đối tượng dùng làm mốc so sánh phải đi kèm trợ từ 「より」 tạo thành 「大阪より」. Phó từ 「ずっと」 đứng ngay trước tính từ 「大きい」 để bổ nghĩa nhấn mạnh mức độ chênh lệch trước vị ngữ 「です。」. Vì vậy, mảnh 「大阪より」 mang mẫu ngữ pháp đang học bắt buộc phải nằm ở vị trí ngôi sao.",
+              "glosses": [
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn (trợ từ so sánh)"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "lớn, to"
+                },
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "ずっと",
+                  "read": "",
+                  "vi": "hơn nhiều"
+                }
+              ],
+              "frame": [
+                "日本では",
+                "です。"
+              ],
+              "pieces": [
+                "大阪より",
+                "大きい",
+                "東京は",
+                "ずっと"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu đúng: 「マリアさんはクラスの中で日本語が一番上手です。」— Bạn Maria giỏi tiếng Nhật nhất trong lớp.\nSắp xếp: ô 1=「クラスの」, ô 2=「中で」★, ô 3=「日本語が」, ô 4=「一番」\nSau chủ ngữ 「マリアさんは」 ở khung đầu, ta cần phạm vi so sánh nên ô 1 ghép 「クラスの」 với ô 2 「中で」★ để tạo thành danh từ chỉ phạm vi 「クラスの中で」 theo cấu trúc Nの中で (trong số N). Tiếp đó, ô 3 「日本語が」 chỉ đối tượng được so sánh đi kèm phó từ 「一番」 ở ô 4 để bổ nghĩa cho tính từ 「上手です。」 ở khung cuối.",
+              "glosses": [
+                {
+                  "t": "一番上手",
+                  "read": "いちばんじょうず",
+                  "vi": "giỏi nhất"
+                },
+                {
+                  "t": "マリアさん",
+                  "vi": "chị Maria"
+                },
+                {
+                  "t": "クラスの中で",
+                  "read": "クラスのなかで",
+                  "vi": "trong lớp học"
+                },
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                }
+              ],
+              "frame": [
+                "マリアさんは",
+                "上手です。"
+              ],
+              "pieces": [
+                "クラスの",
+                "中で",
+                "日本語が",
+                "一番"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NはNと同じです",
+              "explain": "Câu đúng: 「このかばんはあのかばんと同じです。」— Cái cặp này giống với cái cặp kia.\nSắp xếp: ô 1=「かばんは」, ô 2=「あの」, ô 3=「かばんと」★, ô 4=「同じ」\nBắt đầu với 「この」 ở khung đầu, ô 1 phải là danh từ 「かばんは」 để tạo thành chủ ngữ 「このかばんは」. Tiếp theo, ô 2 「あの」 liên kết với danh từ và trợ từ so sánh ở ô 3★ 「かばんと」 để tạo thành vế đối chiếu 「あのかばんと」 theo mẫu N1はN2と同じです (N1 giống N2). Ô 4 「同じ」 đứng trước vị ngữ 「です。」 ở khung cuối để hoàn chỉnh câu.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "cái túi xách"
+                },
+                {
+                  "t": "はあの",
+                  "read": "はあの",
+                  "vi": "は (trợ từ chủ đề, đánh dấu vế A) + あの (kia, chỉ vế B) — dùng trong mẫu so sánh 'AはBと同じ'"
+                },
+                {
+                  "t": "と",
+                  "vi": "với, cùng (trợ từ so sánh ngang bằng)"
+                },
+                {
+                  "t": "同じ",
+                  "read": "おなじ",
+                  "vi": "giống nhau, như nhau"
+                }
+              ],
+              "frame": [
+                "この",
+                "です。"
+              ],
+              "pieces": [
+                "かばんは",
+                "あの",
+                "かばんと",
+                "同じ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu đúng: 「日本の果物の中でいちごが一番好きです。」— Trong các loại hoa quả của Nhật Bản, tôi thích dâu tây nhất.\nSắp xếp: ô 1=「果物の」, ô 2=「中で」★, ô 3=「いちごが」, ô 4=「一番」\nTừ định ngữ 「日本の」 ở khung đầu, ô 1 chọn 「果物の」 kết hợp với ô 2 「中で」★ để tạo thành phạm vi so sánh 「日本の果物の中で」 theo cấu trúc Nの中で (trong số N). Ô 3 「いちごが」 đóng vai trò chủ ngữ của vị ngữ chỉ sở thích, kết hợp phó từ 「一番」 ở ô 4 đứng trước tính từ 「好きです。」 ở khung cuối.",
+              "glosses": [
+                {
+                  "t": "一番好き",
+                  "read": "いちばんすき",
+                  "vi": "thích nhất"
+                },
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "果物",
+                  "read": "くだもの",
+                  "vi": "trái cây"
+                },
+                {
+                  "t": "の中で",
+                  "read": "のなかで",
+                  "vi": "trong số ~"
+                },
+                {
+                  "t": "いちご",
+                  "vi": "dâu tây"
+                }
+              ],
+              "frame": [
+                "日本の",
+                "好きです。"
+              ],
+              "pieces": [
+                "果物の",
+                "中で",
+                "いちごが",
+                "一番"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "frame": [
+                "",
+                "楽しいです。"
+              ],
+              "pieces": [
+                "テニスより",
+                "サッカーの",
+                "ほうが",
+                "ずっと"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NよりNのほうが〜です",
+              "explain": "Câu đúng: 「テニスよりサッカーのほうがずっと楽しいです。」— Bóng đá thú vị hơn quần vợt nhiều.\nSắp xếp: ô 1=「テニスより」, ô 2=「サッカーの」, ô 3=「ほうが」★, ô 4=「ずっと」\nKhung câu kết thúc bằng tính từ vị ngữ 「楽しいです。」, do đó các ô trống phía trước cần một vế so sánh hơn kèm trạng từ mức độ để bổ nghĩa cho vị ngữ này. Mảnh 「サッカーの」 bắt buộc phải dính liền ngay trước mảnh 「ほうが」 thành cụm 「サッカーのほうが」, vì trợ từ 「の」 không thể đứng lửng lơ mà phải nối danh từ 「サッカー」 với 「ほうが」. Nối mốc so sánh 「テニスより」 ở đầu câu, tiếp theo là cụm đối tượng được chọn 「サッカーのほうが」, rồi đến trạng từ 「ずっと」 đứng ngay trước tính từ vị ngữ 「楽しいです。」. Do mảnh 「ほうが」 bắt buộc phải đi liền sau mảnh 「サッカーの」 ở ô 2, mảnh này phải nằm ở ô 3 (ô ★) và không thể chuyển sang ô khác vì sẽ làm phá vỡ cụm ngữ pháp 「サッカーのほうが」.",
+              "glosses": [
+                {
+                  "t": "楽しい",
+                  "read": "たのしい",
+                  "vi": "vui, thú vị"
+                },
+                {
+                  "t": "テニスより",
+                  "vi": "hơn tennis"
+                },
+                {
+                  "t": "サッカーのほうが",
+                  "vi": "bóng đá thì hơn"
+                },
+                {
+                  "t": "ずっと",
+                  "vi": "hơn nhiều, vượt trội hơn hẳn"
+                }
+              ]
+            },
+            {
+              "pt": "NとNとどちらが〜ですか (ôn B11)",
+              "explain": "Câu đúng: 「日本語と英語とどちらが難しいですか。」— Tiếng Nhật và tiếng Anh thì cái nào khó hơn?\nSắp xếp: ô 1=「日本語と」, ô 2=「英語と」, ô 3=「どちらが」★, ô 4=「難しい」\nĐể đặt câu hỏi so sánh lựa chọn giữa hai đối tượng, ô 1 「日本語と」 và ô 2 「英語と」 nối liền nhau ở đầu câu theo mẫu N1とN2と (giữa N1 và N2). Tiếp theo, từ hỏi so sánh ở ô 3★ 「どちらが」 đứng ở vị trí ô ★ theo đúng cấu trúc N1とN2とどちらが (giữa N1 và N2 thì cái nào). Cuối cùng, ô 4 「難しい」 bổ nghĩa cho từ hỏi để đi vào khung cuối 「ですか。」 kết thúc câu hỏi.",
+              "glosses": [
+                {
+                  "t": "日本語",
+                  "read": "にほんご",
+                  "vi": "tiếng Nhật"
+                },
+                {
+                  "t": "英語",
+                  "read": "えいご",
+                  "vi": "tiếng Anh"
+                },
+                {
+                  "t": "どちらが",
+                  "vi": "cái nào (trong hai)"
+                },
+                {
+                  "t": "難しい",
+                  "read": "むずかしい",
+                  "vi": "khó"
+                }
+              ],
+              "frame": [
+                "",
+                "ですか。"
+              ],
+              "pieces": [
+                "日本語と",
+                "英語と",
+                "どちらが",
+                "難しい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "NはNより〜です",
+              "explain": "Câu đúng: 「田中さんのかばんはわたしのかばんより大きいです。」— Cặp của anh Tanaka lớn hơn cặp của tôi.\nSắp xếp: ô 1=「かばんは」, ô 2=「わたしの」, ô 3=「かばんより」★, ô 4=「大きい」\nĐi từ danh từ chỉ sở hữu 「田中さんの」 ở khung đầu, ô 1 ghép 「かばんは」 để hoàn chỉnh chủ ngữ 「田中さんのかばんは」. Đối tượng so sánh được tạo bởi định ngữ ở ô 2 「わたしの」 kết hợp danh từ và trợ từ so sánh ở ô 3★ 「かばんより」 theo mẫu N1はN2より (N1 lớn hơn N2). Cuối cùng, tính từ ô 4 「大きい」 đứng trước khung cuối 「です。」 để hoàn thành vị ngữ của câu.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn"
+                },
+                {
+                  "t": "大きい",
+                  "read": "おおきい",
+                  "vi": "lớn, to"
+                }
+              ],
+              "frame": [
+                "田中さんの",
+                "です。"
+              ],
+              "pieces": [
+                "かばんは",
+                "わたしの",
+                "かばんより",
+                "大きい"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2
+            },
+            {
+              "pt": "Nの中で〜が一番〜です",
+              "explain": "Câu đúng: 「クラスの中でキムさんが一番歌が上手です。」— Trong lớp, bạn Kim là người hát giỏi nhất.\nSắp xếp: ô 1=「の中で」★, ô 2=「キムさんが」, ô 3=「一番」, ô 4=「歌が」.\nKhung câu cho sẵn mở đầu bằng danh từ 「クラス」 và kết thúc bằng vị ngữ 「上手です。」. Mẫu ngữ pháp so sánh trong một tập hợp đòi hỏi danh từ 「クラス」 phải đi liền với trợ từ chỉ phạm vi 「の中で」 ở ô 1 để tạo thành cụm 「クラスの中で」. Tiếp theo, chủ ngữ 「キムさんが」 đặt ở ô 2, phó từ 「一番」 ở ô 3 để bổ nghĩa cho đối tượng 「歌が」 ở ô 4 đi với vị ngữ 「上手です。」. Mảnh 「の中で」 ở ô 1★ bắt buộc phải đi ngay sau danh từ 「クラス」 để xác định phạm vi so sánh, không thể đứng ở vị trí khác sau các danh từ hay phó từ khác.",
+              "glosses": [
+                {
+                  "t": "クラスの中で",
+                  "read": "クラスのなかで",
+                  "vi": "trong lớp học"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi, khéo"
+                },
+                {
+                  "t": "キムさん",
+                  "vi": "bạn Kim"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "歌",
+                  "read": "うた",
+                  "vi": "bài hát / ca hát"
+                }
+              ],
+              "frame": [
+                "クラス",
+                "上手です。"
+              ],
+              "pieces": [
+                "の中で",
+                "キムさんが",
+                "一番",
+                "歌が"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0
+            },
+            {
+              "pt": "NはNより〜です",
+              "explain": "Câu đúng: 「このりんごはあのりんごよりも甘いです。」— Quả táo này ngọt hơn quả táo kia.\nSắp xếp: ô 1=「りんごは」, ô 2=「あの」, ô 3=「りんご」, ô 4=「よりも」★.\nChỉ thị từ 「この」 ở khung đầu bắt buộc kết hợp với danh từ 「りんごは」 ở ô 1 để tạo thành chủ ngữ 「このりんごは」. Tiếp theo, chỉ thị từ 「あの」 ở ô 2 phải đi trước danh từ 「りんご」 ở ô 3 để tạo thành đối tượng so sánh 「あのりんご」. Trợ từ so sánh 「よりも」 ở ô 4 (vị trí ★) bắt buộc đứng sau danh từ so sánh 「あのりんご」 để kết nối với tính từ 「甘いです」 ở khung sau. Mảnh 「よりも」 không thể đứng ở vị trí khác vì nó cần đặt ngay sau đối tượng được dùng làm mốc so sánh.",
+              "glosses": [
+                {
+                  "t": "この",
+                  "read": "",
+                  "vi": "này"
+                },
+                {
+                  "t": "甘い",
+                  "read": "あまい",
+                  "vi": "ngọt"
+                },
+                {
+                  "t": "りんご",
+                  "vi": "quả táo"
+                },
+                {
+                  "t": "はあの",
+                  "read": "はあの",
+                  "vi": "は (trợ từ chủ đề, đánh dấu vế A) + あの (kia, chỉ vế B) — dùng trong mẫu so sánh 'AはBより〜'"
+                },
+                {
+                  "t": "よりも",
+                  "vi": "hơn (có nhấn mạnh)"
+                }
+              ],
+              "frame": [
+                "この",
+                "甘いです。"
+              ],
+              "pieces": [
+                "りんごは",
+                "あの",
+                "りんご",
+                "よりも"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "frame": [
+                "",
+                "と思います。"
+              ],
+              "pieces": [
+                "りんごより",
+                "みかんのほうが",
+                "あまくて",
+                "好きだ"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NよりNのほうが〜です",
+              "explain": "Câu đúng: 「りんごよりみかんのほうがあまくて好きだと思います。」 — Tôi nghĩ quýt ngọt hơn táo và tôi thích quýt hơn.\nSắp xếp: ô 1=「りんごより」, ô 2=「みかんのほうが」★, ô 3=「あまくて」, ô 4=「好きだ」\nMẫu ngữ pháp so sánh 「N1よりN2のほうが〜」kết hợp với tính từ dạng て (「あまくて好きだ」) để chỉ đối tượng được ưu thế hơn. Mảnh 「みかんのほうが」 phải đặt ở ô 2 (ô ★) ngay sau 「りんごより」 để hoàn chỉnh vế so sánh \"hơn táo thì quýt...\". Học viên hay mắc lỗi đảo 「りんごより」 sang ô 2 làm ngược nghĩa so sánh, hoặc chèn 「あまくて」 vào giữa hai vế làm sai cấu trúc ngữ pháp.",
+              "glosses": [
+                {
+                  "t": "思います",
+                  "read": "おもいます",
+                  "vi": "tôi nghĩ rằng..."
+                },
+                {
+                  "t": "りんご",
+                  "vi": "táo"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn"
+                },
+                {
+                  "t": "みかん",
+                  "vi": "quýt"
+                },
+                {
+                  "t": "のほうが",
+                  "vi": "thì hơn (chỉ hướng ưu thế)"
+                },
+                {
+                  "t": "あまくて",
+                  "vi": "ngọt và... (て-form của あまい)"
+                },
+                {
+                  "t": "好きだ",
+                  "read": "すきだ",
+                  "vi": "thích"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "私は",
+                "と思います。"
+              ],
+              "pieces": [
+                "花の中で",
+                "一番",
+                "バラが",
+                "きれいだ"
+              ],
+              "order": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "Nの中で〜が一番〜です / NよりNのほうが〜です",
+              "explain": "Câu đúng: 「私は花の中でバラが一番きれいだと思います。」— Tôi nghĩ trong các loài hoa thì hoa hồng là đẹp nhất.\nSắp xếp: ô 1=「花の中で」, ô 2=「バラが」, ô 3=「一番」★, ô 4=「きれいだ」.\nKhung câu bắt đầu bằng chủ ngữ 「私は」 và kết thúc bằng vị ngữ phỏng đoán 「と思います。」, đòi hỏi một mệnh đề ở thể thông thường đứng trước 「と」. Tính từ 「きれいだ」 là dạng thông thường duy nhất có thể đứng ở ô 4 để nối trực tiếp với 「と思います。」. Điểm ngữ pháp so sánh nhất bài 12 có cấu trúc chuẩn 「[Phạm vi]の中で [Đối tượng]が 一番 [Tính từ]」, do đó phạm vi so sánh 「花の中で」 phải đứng ở ô 1, theo sau là đối tượng được chọn 「バラが」 ở ô 2. Phó từ so sánh nhất 「一番」 bắt buộc đứng ở ô 3 mang ngôi sao ★ ngay trước tính từ 「きれいだ」 để bổ nghĩa cho mức độ cao nhất, không thể đứng ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "一番きれいだ",
+                  "read": "いちばんきれいだ",
+                  "vi": "đẹp nhất"
+                },
+                {
+                  "t": "私",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "と思います",
+                  "read": "とおもいます",
+                  "vi": "tôi nghĩ rằng"
+                },
+                {
+                  "t": "花の中で",
+                  "read": "はなのなかで",
+                  "vi": "trong số các loài hoa"
+                },
+                {
+                  "t": "バラ",
+                  "vi": "hoa hồng"
+                },
+                {
+                  "t": "が",
+                  "vi": "trợ từ chủ ngữ"
+                }
+              ]
+            },
+            {
+              "pt": "NはNと同じです",
+              "explain": "Câu đúng: 「わたしのへやはたなかさんのへやと同じです。」— Phòng của tôi giống với phòng của anh Tanaka.\nSắp xếp: ô 1=「のへやは」, ô 2=「たなか」, ô 3=「さんの」, ô 4=「へやと」★.\nĐại từ 「わたし」 ở khung đầu kết hợp với mảnh 「のへやは」 ở ô 1 để tạo thành chủ ngữ 「わたしのへやは」. Tên riêng 「たなか」 ở ô 2 ghép với 「さんの」 ở ô 3 tạo thành danh từ sở hữu 「たなかさんの」. Mảnh 「へやと」 ở ô 4 (vị trí ★) đứng sau danh từ sở hữu để tạo thành danh từ mốc 「へやと」 đi liền với tính từ 「同じです」 ở khung sau theo mẫu 「Nと同じです」. Do đó mảnh 「へやと」 bắt buộc nằm ở ô 4 ★ để hoàn thành cấu trúc so sánh bằng.",
+              "glosses": [
+                {
+                  "t": "と同じ",
+                  "read": "とおなじ",
+                  "vi": "giống với"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "へや",
+                  "vi": "căn phòng"
+                },
+                {
+                  "t": "たなかさんの",
+                  "vi": "của Tanaka san (sở hữu)"
+                }
+              ],
+              "frame": [
+                "わたし",
+                "同じです。"
+              ],
+              "pieces": [
+                "のへやは",
+                "たなか",
+                "さんの",
+                "へやと"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3
+            },
+            {
+              "pt": "NとNとどちらが〜ですか (ôn B11)",
+              "explain": "Câu đúng: 「コーヒーとおちゃと、どちらが好きですか。」— Cà phê và trà, bạn thích cái nào hơn?\nSắp xếp: ô 1=「おちゃと、」, ô 2=「どちらが」★, ô 3=「好き」, ô 4=「ですか。」\nKhung đầu câu đã cho sẵn danh từ thứ nhất kèm trợ từ 「コーヒーと」. Để hoàn thành cấu trúc so sánh lựa chọn giữa hai vật 「N1とN2と、どちらが〜ですか」, ô 1 phải là danh từ thứ hai kèm trợ từ liệt kê 「おちゃと、」. Từ hỏi so sánh lựa chọn 「どちらが」 ở ô 2★ đóng vai trò từ nghi vấn đứng ngay sau hai danh từ được so sánh, tiếp theo là tính từ chỉ sở thích 「好き」 và đuôi câu nghi vấn 「ですか。」. Mảnh 「どちらが」 ở ô 2★ là từ hỏi cốt lõi của mẫu so sánh giữa 2 đối tượng nên bắt buộc phải đứng ở ô 2.",
+              "glosses": [
+                {
+                  "t": "コーヒー",
+                  "vi": "cà phê"
+                },
+                {
+                  "t": "と",
+                  "vi": "và (nối 2 lựa chọn để so sánh)"
+                },
+                {
+                  "t": "おちゃ",
+                  "vi": "trà"
+                },
+                {
+                  "t": "どちらが好きですか",
+                  "read": "どちらがすきですか",
+                  "vi": "bạn thích cái nào?"
+                }
+              ],
+              "frame": [
+                "コーヒーと",
+                ""
+              ],
+              "pieces": [
+                "おちゃと、",
+                "どちらが",
+                "好き",
+                "ですか。"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1
+            },
+            {
+              "pt": "NとNとどちらが〜ですか (ôn B11)",
+              "explain": "Câu đúng: 「東京から大阪まで飛行機と新幹線とどちらが速いですか。」— Từ Tokyo đến Osaka thì máy bay và tàu Shinkansen cái nào nhanh hơn?\nSắp xếp: ô 1=「大阪まで」, ô 2=「飛行機と」, ô 3=「新幹線と」, ô 4=「どちらが」★\nMẫu ngữ pháp hỏi so sánh hai phương tiện là 「N1と N2と どちらが…ですか」. Sau điểm xuất phát 「東京から」 ở đầu khung, ta cần điểm đến 「大阪まで」 để hoàn thiện cụm phạm vi 「東京から大阪まで」. Hai phương tiện được liệt kê nối tiếp nhau bằng trợ từ 「と」 thành 「飛行機と新幹線と」. Mảnh từ hỏi 「どちらが」 phải nằm ở ô ★ đứng ngay trước tính từ 「速いですか。」 để hỏi cái nào nhanh hơn.",
+              "glosses": [
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "速い",
+                  "read": "はやい",
+                  "vi": "nhanh"
+                },
+                {
+                  "t": "飛行機",
+                  "read": "ひこうき",
+                  "vi": "máy bay"
+                },
+                {
+                  "t": "と",
+                  "vi": "và (nối 2 lựa chọn để so sánh)"
+                },
+                {
+                  "t": "どちら",
+                  "read": "",
+                  "vi": "cái nào"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka"
+                },
+                {
+                  "t": "新幹線",
+                  "read": "しんかんせん",
+                  "vi": "tàu Shinkansen"
+                }
+              ],
+              "frame": [
+                "東京から",
+                "速いですか。"
+              ],
+              "pieces": [
+                "飛行機と",
+                "どちらが",
+                "大阪まで",
+                "新幹線と"
+              ],
+              "order": [
+                2,
+                0,
+                3,
+                1
+              ],
+              "starSlot": 3
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "マリアさんとナタリアさんは料理が好きです。マリアさんはナタリアさん",
+                "料理が上手です。ふたりの中で、マリアさんが",
+                "料理が好きです。"
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "より",
+                    "ほど",
+                    "ごろ",
+                    "まで"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 1 cần điền trợ từ so sánh. Cấu trúc 「NはNより〜です」 dùng 「より」 đứng sau danh từ bị so sánh kém hơn — ở đây Maria giỏi hơn Nataria nên Nataria + 「より」. Sai 「ほど」: dùng trong so sánh ngang bằng hoặc mức độ (〜ほど〜ない = không bằng), không dùng để nói 'hơn' theo chiều tích cực. Sai 「ごろ」: chỉ thời điểm khoảng chừng (3時ごろ). Sai 「まで」: chỉ điểm kết thúc/giới hạn (駅まで)."
+                },
+                {
+                  "choices": [
+                    "一番",
+                    "もっと",
+                    "とても",
+                    "もう"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 2 cần điền từ chỉ mức độ 'nhất' trong cấu trúc 「〜の中で〜が一番〜」. 「ふたりの中で」 xác định tập hợp so sánh (trong hai người), và 「一番」 đứng trước vị ngữ để chỉ 'nhất'. Sai 「もっと」: nghĩa là 'hơn nữa / thêm một chút' khi so sánh tương đối (もっと大きい = lớn hơn một chút), không dùng để nói 'nhất trong nhóm'. Sai 「とても」: trạng từ chỉ mức độ 'rất', không có nghĩa 'nhất'. Sai 「もう」: nghĩa là 'rồi / thêm' (もう一度 = thêm một lần nữa), không liên quan đến so sánh nhất."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "料理",
+                  "read": "りょうり",
+                  "vi": "nấu ăn / món ăn"
+                },
+                {
+                  "t": "好きです",
+                  "read": "すきです",
+                  "vi": "thích"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn (trợ từ so sánh)"
+                },
+                {
+                  "t": "料理が上手です",
+                  "read": "りょうりがじょうずです",
+                  "vi": "giỏi nấu ăn"
+                },
+                {
+                  "t": "ふたりの中で",
+                  "read": "ふたりのなかで",
+                  "vi": "trong hai người"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Bài 12 dùng 「NはNより〜です」để so sánh. Chọn dạng đúng của tính từ 「高い」(đắt/cao) điền vào ＿ để hoàn thành câu so sánh.",
+          "items": [
+            {
+              "stem": "このかばんはあのかばんより＿です。(高い → 比較形)",
+              "choices": [
+                "高い",
+                "高く",
+                "高くて",
+                "高さ"
+              ],
+              "answer": 0,
+              "explain": "「NはNより〜です」là mẫu so sánh: N này hơn N kia về tính chất gì. Tính từ đuôi い (い-adjective) dùng NGUYÊN dạng 「高い」trước 「です」— KHÔNG biến đổi. ① 「高い」✓ đúng, dạng từ điển đứng trước です. ② 「高く」là dạng phó từ (adverb form), dùng trước động từ hoặc tính từ khác, không đứng trước です trong mẫu so sánh này. ③ 「高くて」là dạng て-form nối mệnh đề, không dùng kết câu. ④ 「高さ」là danh từ hóa (chiều cao/độ đắt), nghĩa khác, không điền vào đây được.",
+              "glosses": [
+                {
+                  "t": "かばん",
+                  "vi": "túi xách"
+                },
+                {
+                  "t": "より",
+                  "vi": "hơn (so sánh)"
+                },
+                {
+                  "t": "高い",
+                  "read": "たかい",
+                  "vi": "đắt / cao"
+                },
+                {
+                  "t": "比較形",
+                  "read": "ひかくけい",
+                  "vi": "dạng so sánh (hình thái so sánh)"
+                },
+                {
+                  "t": "はあの",
+                  "read": "はあの",
+                  "vi": "は (trợ từ chủ đề, đánh dấu vế A) + あの (kia, chỉ vế B) — dùng trong mẫu so sánh 'AはBより〜'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "クラスの中で田中さん＿一番歌が上手です。",
+              "choices": [
+                "が",
+                "は",
+                "も",
+                "を"
+              ],
+              "answer": 1,
+              "explain": "Mẫu 「Nの中で〜が一番〜です」dùng 「は」để đánh dấu chủ đề so sánh (ai/cái gì là nhất). Cấu trúc đầy đủ: 「クラスの中で田中さんは一番歌が上手です」— 「田中さんは」= về Tanaka-san (chủ đề), 「一番」= nhất, 「歌が上手」(từ B9) = giỏi hát. ① 「が」sai ở đây vì 「が」đánh dấu chủ ngữ nhấn mạnh, nhưng trong câu này 「歌が」đã dùng が cho bổ ngữ của 上手, nên chỗ 田中さん cần は (chủ đề). ③ 「も」nghĩa là 'cũng', không phù hợp ngữ cảnh so sánh nhất. ④ 「を」đánh dấu tân ngữ trực tiếp của ngoại động từ, 上手 không dùng を.",
+              "glosses": [
+                {
+                  "t": "クラスの中で",
+                  "read": "クラスのなかで",
+                  "vi": "trong lớp"
+                },
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "bạn Tanaka"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "歌",
+                  "read": "うた",
+                  "vi": "bài hát / hát"
+                },
+                {
+                  "t": "上手",
+                  "read": "じょうず",
+                  "vi": "giỏi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Trong các môn học, môn nào bạn thích nhất?",
+              "target": "べんきょうのなかでどのかもくがいちばんすきですか。",
+              "model": "べんきょう の なか で どの かもく が いちばん すき です か。",
+              "explain": "Dùng mẫu 「Nの中で〜が一番〜ですか」(nhất trong N) + 「NはNが好きです」từ B9. Phân tích: 「べんきょうの中で」= trong các môn học; 「どの」= môn nào (đặt trước danh từ thay vì 「何」vì cần chọn trong tập hợp cụ thể); 「かもくが」= môn học (が đánh dấu đối tượng của 好き); 「一番すきですか」= thích nhất không? — 「すき」là tính từ な dùng trong mẫu B9. Lưu ý: KHÔNG nói 「どのかもくをいちばんすきですか」vì 「すき」luôn đi với trợ từ 「が」, không dùng 「を」.",
+              "glosses": [
+                {
+                  "t": "べんきょう",
+                  "vi": "các môn học / việc học"
+                },
+                {
+                  "t": "の中で",
+                  "read": "のなかで",
+                  "vi": "trong số ~"
+                },
+                {
+                  "t": "どの",
+                  "vi": "nào (đặt trước danh từ)"
+                },
+                {
+                  "t": "かもく",
+                  "vi": "môn học"
+                },
+                {
+                  "t": "一番",
+                  "read": "いちばん",
+                  "vi": "nhất"
+                },
+                {
+                  "t": "すき",
+                  "vi": "thích"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

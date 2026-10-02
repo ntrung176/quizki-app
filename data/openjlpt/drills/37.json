@@ -1,0 +1,465 @@
+{
+  "id": "minna2.b37",
+  "bai": 37,
+  "titleVi": "Thể sai khiến bị động",
+  "know": [
+    {
+      "id": "minna2.b37.sase-rare",
+      "point": "sase-rare",
+      "jp": "〜させられます",
+      "vi": "Bị bắt phải ~ (thể sai khiến bị động cơ bản)",
+      "en": "Be forced to ~ (the basic causative-passive form)",
+      "gloss": "飲[の]む → 飲[の]まされます ／ 食[た]べる → 食[た]べさせられます",
+      "glossEn": "飲[の]む → 飲[の]まされます ／ 食[た]べる → 食[た]べさせられます = drink → be made to drink / eat → be made to eat"
+    },
+    {
+      "id": "minna2.b37.sase-rare-short",
+      "point": "sase-rare-short",
+      "jp": "〜される (rút gọn nhóm I)",
+      "vi": "Dạng rút gọn của させられる với động từ nhóm I (trừ す-động từ)",
+      "en": "The shortened form of させられる for Group I verbs (except す-verbs)",
+      "gloss": "待[ま]つ → 待[ま]たされます ／ 書[か]く → 書[か]かされます",
+      "glossEn": "待[ま]つ → 待[ま]たされます ／ 書[か]く → 書[か]かされます = wait → be made to wait / write → be made to write"
+    },
+    {
+      "id": "minna2.b37.sase-rare-context",
+      "point": "sase-rare-context",
+      "jp": "〜に〜させられます",
+      "vi": "Cấu trúc đầy đủ: N（người ra lệnh）に N（hành động）させられます",
+      "en": "Full structure: N（the person giving the order）に N（the action）させられます",
+      "gloss": "部長[ぶちょう]に 残業[ざんぎょう]させられました。",
+      "glossEn": "部長[ぶちょう]に 残業[ざんぎょう]させられました。 = I was made to work overtime by the department manager."
+    }
+  ],
+  "cards": [
+    {
+      "id": "c-b37-sr-nomu",
+      "item": "minna2.b37.sase-rare",
+      "err": "sase-rare-form",
+      "vi": "Tôi bị bắt uống thuốc đắng.",
+      "t1": {
+        "stem": "苦[にが]い 薬[くすり]を ＿。",
+        "choices": [
+          "飲[の]まされました",
+          "飲[の]まれました",
+          "飲[の]ませました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "苦[にが]い 薬[くすり]を",
+          "飲[の]ま",
+          "されました。"
+        ],
+        "traps": [
+          "飲[の]まれました。",
+          "飲[の]ませました。"
+        ]
+      },
+      "t3": {
+        "target": "苦い薬を飲まされました。",
+        "accept": [
+          "にがいくすりをのまされました。"
+        ]
+      },
+      "why": "飲む (nhóm I) → させられる rút gọn: 飲まされる. ✗ 飲まれる = bị động thường; ✗ 飲ませる = chủ động sai khiến."
+    },
+    {
+      "id": "c-b37-sr-taberu",
+      "item": "minna2.b37.sase-rare",
+      "err": "sase-rare-form",
+      "vi": "Hồi nhỏ tôi bị bắt ăn rau củ mà tôi ghét.",
+      "t1": {
+        "stem": "子[こ]どものころ、嫌[きら]いな 野菜[やさい]を ＿。",
+        "choices": [
+          "食[た]べさせられました",
+          "食[た]べられました",
+          "食[た]べさせました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "嫌[きら]いな 野菜[やさい]を",
+          "食[た]べ",
+          "させられました。"
+        ],
+        "traps": [
+          "食[た]べられました。",
+          "食[た]べさせました。"
+        ]
+      },
+      "t3": {
+        "target": "嫌いな野菜を食べさせられました。",
+        "accept": [
+          "きらいなやさいをたべさせられました。"
+        ]
+      },
+      "why": "食べる (nhóm II) → 食べさせられる (không rút gọn). ✗ 食べられる = bị động thường; ✗ 食べさせる = bắt người khác ăn."
+    },
+    {
+      "id": "c-b37-sr-matu",
+      "item": "minna2.b37.sase-rare",
+      "err": "sase-rare-form",
+      "vi": "Tôi bị bắt đợi suốt 2 tiếng đồng hồ.",
+      "t1": {
+        "stem": "２時間[じかん]も ＿。",
+        "choices": [
+          "待[ま]たされました",
+          "待[ま]たれました",
+          "待[ま]たせました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "２時間[じかん]も",
+          "待[ま]た",
+          "されました。"
+        ],
+        "traps": [
+          "待[ま]たれました。",
+          "待[ま]たせました。"
+        ]
+      },
+      "t3": {
+        "target": "２時間も待たされました。",
+        "accept": [
+          "にじかんもまたされました。"
+        ]
+      },
+      "why": "待つ (nhóm I, つ→た) → 待たされる (rút gọn させられ→され). ✗ 待たれる = bị động thường."
+    },
+    {
+      "id": "c-b37-srs-kaku",
+      "item": "minna2.b37.sase-rare-short",
+      "err": "sase-rare-form",
+      "vi": "Mỗi ngày tôi bị bắt viết nhật ký.",
+      "t1": {
+        "stem": "毎日[まいにち]、日記[にっき]を ＿。",
+        "choices": [
+          "書[か]かされます",
+          "書[か]かせられます",
+          "書[か]かれます"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "毎日[まいにち]",
+          "日記[にっき]を",
+          "書[か]か",
+          "されます。"
+        ],
+        "traps": [
+          "書[か]かれます。",
+          "書[か]かせられます。"
+        ]
+      },
+      "t3": {
+        "target": "毎日、日記を書かされます。",
+        "accept": [
+          "まいにちにっきをかかされます。",
+          "まいにち、にっきをかかされます。"
+        ]
+      },
+      "why": "書く (nhóm I: く→か) → 書かされる (dạng rút gọn phổ biến). 書かせられる cũng đúng nhưng rút gọn tự nhiên hơn."
+    },
+    {
+      "id": "c-b37-srs-hanasu",
+      "item": "minna2.b37.sase-rare-short",
+      "err": "sase-rare-form",
+      "vi": "Tôi bị bắt phát biểu trước mọi người.",
+      "t1": {
+        "stem": "みんなの 前[まえ]で ＿。",
+        "choices": [
+          "話[はな]させられました",
+          "話[はな]されました",
+          "話[はな]させました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "みんなの 前[まえ]で",
+          "話[はな]さ",
+          "せられました。"
+        ],
+        "traps": [
+          "話[はな]されました。",
+          "話[はな]させました。"
+        ]
+      },
+      "t3": {
+        "target": "みんなの前で話させられました。",
+        "accept": [
+          "みんなのまえではなさせられました。"
+        ]
+      },
+      "why": "話す (nhóm I, す): す → さ. Vì す-動詞 KHÔNG rút gọn → phải dùng 話させられる (✗ 話される là nghĩa hoàn toàn khác)."
+    },
+    {
+      "id": "c-b37-ctx-zangyo",
+      "item": "minna2.b37.sase-rare-context",
+      "err": "sase-rare-ni",
+      "vi": "Tôi bị trưởng phòng bắt làm thêm giờ hôm qua.",
+      "t1": {
+        "stem": "昨日[きのう]、部長[ぶちょう]＿ 残業[ざんぎょう]させられました。",
+        "choices": [
+          "に",
+          "を",
+          "が"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "昨日[きのう]、",
+          "部長[ぶちょう]に",
+          "残業[ざんぎょう]",
+          "させられました。"
+        ],
+        "traps": [
+          "部長[ぶちょう]を",
+          "部長[ぶちょう]が"
+        ]
+      },
+      "t3": {
+        "target": "昨日、部長に残業させられました。",
+        "accept": [
+          "きのうぶちょうにざんぎょうさせられました。",
+          "きのう、ぶちょうにざんぎょうさせられました。"
+        ]
+      },
+      "why": "Người ra lệnh dùng に: 部長に. ✗ 部長を / 部長が đều sai vai trò trợ từ trong câu sai khiến bị động."
+    },
+    {
+      "id": "c-b37-ctx-iku",
+      "item": "minna2.b37.sase-rare-context",
+      "err": "sase-rare-ni",
+      "vi": "Tôi bị công ty bắt đi công tác xa.",
+      "t1": {
+        "stem": "会社[かいしゃ]に 遠[とお]い 出張[しゅっちょう]に ＿。",
+        "choices": [
+          "行[い]かされました",
+          "行[い]きました",
+          "行[い]かれました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "会社[かいしゃ]に",
+          "遠[とお]い 出張[しゅっちょう]に",
+          "行[い]か",
+          "されました。"
+        ],
+        "traps": [
+          "行[い]きました。",
+          "行[い]かれました。"
+        ]
+      },
+      "t3": {
+        "target": "会社に遠い出張に行かされました。",
+        "accept": [
+          "かいしゃにとおいしゅっちょうにいかされました。"
+        ]
+      },
+      "why": "行く (nhóm I, く→か) → 行かされる. Cấu trúc: 会社（người ra lệnh）に…させられる. ✗ 行かれる = bị động thường."
+    },
+    {
+      "id": "c-b37-ctx-nomu-stress",
+      "item": "minna2.b37.sase-rare-context",
+      "err": "sase-rare-ni",
+      "vi": "Tôi bị sếp bắt uống rượu dù không muốn.",
+      "t1": {
+        "stem": "上司[じょうし]に 飲[の]みたくない お酒[さけ]を ＿。",
+        "choices": [
+          "飲[の]まされました",
+          "飲[の]まれました",
+          "飲[の]みました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "上司[じょうし]に",
+          "飲[の]みたくない お酒[さけ]を",
+          "飲[の]ま",
+          "されました。"
+        ],
+        "traps": [
+          "飲[の]まれました。",
+          "飲[の]みました。"
+        ]
+      },
+      "t3": {
+        "target": "上司に飲みたくないお酒を飲まされました。",
+        "accept": [
+          "じょうしにのみたくないおさけをのまされました。"
+        ]
+      },
+      "why": "飲む → 飲まされる (rút gọn). Bối cảnh stress, không hài lòng — đặc trưng của させられる."
+    },
+    {
+      "id": "c-b37-ctx-tenkin",
+      "item": "minna2.b37.sase-rare-context",
+      "err": "sase-rare-ni",
+      "vi": "Tôi bị công ty bắt chuyển công tác lên Osaka.",
+      "t1": {
+        "stem": "会社[かいしゃ]に 大阪[おおさか]に 転勤[てんきん]＿。",
+        "choices": [
+          "させられました",
+          "されました",
+          "させました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "会社[かいしゃ]に",
+          "大阪[おおさか]に",
+          "転勤[てんきん]",
+          "させられました。"
+        ],
+        "traps": [
+          "転勤[てんきん]されました。",
+          "転勤[てんきん]させました。"
+        ]
+      },
+      "t3": {
+        "target": "会社に大阪に転勤させられました。",
+        "accept": [
+          "かいしゃにおおさかにてんきんさせられました。"
+        ]
+      },
+      "why": "転勤する (nhóm III suru-verb) → させられる. ✗ されました = bị động thông thường (bị chuyển nhưng không hàm ý ép buộc)."
+    }
+  ],
+  "listen": [
+    {
+      "id": "l-b37-zangyo",
+      "item": "minna2.b37.sase-rare-context",
+      "err": "sase-rare-ni",
+      "tts": "きのう、ぶちょうに さんじかんも ざんぎょう させられました。ほんとうに つかれました。",
+      "script": "昨日[きのう]、部長[ぶちょう]に ３時間[じかん]も 残業[ざんぎょう] させられました。本当[ほんとう]に 疲[つか]れました。",
+      "ask": "Người nói cảm thấy thế nào và vì sao?",
+      "choices": [
+        "Mệt vì bị trưởng phòng bắt làm thêm giờ 3 tiếng",
+        "Vui vì tăng ca thêm được lương thưởng",
+        "Buồn vì bị trưởng phòng phê bình"
+      ],
+      "answer": 0,
+      "why": "「させられました」= bị bắt làm; 「疲れました」= mệt. Nội dung: bị sếp ép tăng ca 3 tiếng → mệt."
+    },
+    {
+      "id": "l-b37-yasai",
+      "item": "minna2.b37.sase-rare",
+      "err": "sase-rare-form",
+      "tts": "こどものころ、はははいつも にがい やさいを たべさせられました。いまでも きらいです。",
+      "script": "子[こ]どものころ、母[はは]は いつも 苦[にが]い 野菜[やさい]を 食[た]べさせられました。今[いま]でも 嫌[きら]いです。",
+      "ask": "Người nói bị bắt làm gì hồi nhỏ?",
+      "choices": [
+        "Bị mẹ bắt ăn rau củ đắng và vẫn ghét đến bây giờ",
+        "Bị mẹ bắt nấu rau củ mỗi ngày",
+        "Bị mẹ bắt mua rau củ ở chợ"
+      ],
+      "answer": 0,
+      "why": "食べさせられました = bị bắt ăn (nhóm II). 「今でも嫌い」= vẫn ghét → ám ảnh từ nhỏ."
+    },
+    {
+      "id": "l-b37-kaku",
+      "item": "minna2.b37.sase-rare-short",
+      "err": "sase-rare-form",
+      "tts": "にほんごの じゅぎょうで まいにち さくぶんを かかされます。むずかしいですが、べんきょうになります。",
+      "script": "日本語[にほんご]の 授業[じゅぎょう]で 毎日[まいにち] 作文[さくぶん]を 書[か]かされます。難[むずか]しいですが、勉強[べんきょう]になります。",
+      "ask": "Người nói bị bắt làm gì trong lớp tiếng Nhật?",
+      "choices": [
+        "Bị bắt viết bài luận mỗi ngày",
+        "Bị bắt đọc to bài văn mỗi ngày",
+        "Bị bắt dịch bài mỗi ngày"
+      ],
+      "answer": 0,
+      "why": "書かされます = bị bắt viết (書く → 書かされる, dạng rút gọn nhóm I). 作文 = bài luận/bài viết."
+    }
+  ],
+  "ambush": [
+    {
+      "id": "a-b37-te-form",
+      "item": "minna1.b14.te-form",
+      "err": "te-form-wrong",
+      "ambush": true,
+      "src": 14,
+      "context": "Bài 37 · させられる — cài lỗi て-form nhóm I từ Bài 14",
+      "vi": "Tôi bị bắt viết bài luận dài, thật mệt.",
+      "t1": {
+        "stem": "長[なが]い 作文[さくぶん]を 書[か]＿されて、疲[つか]れました。",
+        "choices": [
+          "か",
+          "き",
+          "いて"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "長[なが]い 作文[さくぶん]を",
+          "書[か]か",
+          "されて、",
+          "疲[つか]れました。"
+        ],
+        "traps": [
+          "書[か]きされて、",
+          "書[か]いてされて、"
+        ]
+      },
+      "t3": {
+        "target": "長い作文を書かされて、疲れました。",
+        "accept": [
+          "ながいさくぶんをかかされてつかれました。",
+          "ながいさくぶんをかかされて、つかれました。"
+        ]
+      },
+      "why": "書く (nhóm I: く→か) → 書かされる. ✗ 書きされて = thêm て vào ます-stem trực tiếp (lỗi Bài 14). Bài 37 ép thêm: phải rút gọn đúng."
+    },
+    {
+      "id": "a-b37-sase-form",
+      "item": "minna2.b36.sasemasu",
+      "err": "sase-vs-sase-rare",
+      "ambush": true,
+      "src": 36,
+      "context": "Bài 37 · させられる — cài lỗi nhầm させる (Bài 36) với させられる",
+      "vi": "Tôi (chứ không phải sếp) bị bắt đợi rất lâu.",
+      "t1": {
+        "stem": "わたしは 上司[じょうし]に ずっと ＿。",
+        "choices": [
+          "待[ま]たされました",
+          "待[ま]たせました",
+          "待[ま]ちました"
+        ],
+        "answer": 0
+      },
+      "t2": {
+        "chips": [
+          "わたしは",
+          "上司[じょうし]に",
+          "ずっと",
+          "待[ま]た",
+          "されました。"
+        ],
+        "traps": [
+          "待[ま]たせました。",
+          "待[ま]ちました。"
+        ]
+      },
+      "t3": {
+        "target": "わたしは上司にずっと待たされました。",
+        "accept": [
+          "わたしはじょうしにずっとまたされました。"
+        ]
+      },
+      "why": "私 = chủ thể bị ép → させられる (rút gọn: 待たされる). ✗ 待たせました (Bài 36) = tôi bắt người khác đợi — đảo ngược chủ thể."
+    }
+  ]
+}

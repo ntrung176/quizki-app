@@ -1,0 +1,1515 @@
+{
+  "bai": 25,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 25 giới thiệu hai mẫu điều kiện/nhượng bộ cốt lõi: 〜たら (nếu/khi...thì) và 〜ても (dù/dẫu...vẫn). Đây là bài CUỐI của 初級 I, nên bài đọc ôn lại nhiều mẫu ngữ pháp tiêu biểu của cả khóa. Chiến lược đọc: xác định vế ĐẶT ĐIỀU KIỆN (trước たら/ても) và vế KẾT QUẢ/PHẢN ỨNG (sau たら/ても), sau đó ghép nghĩa.",
+    "steps": [
+      "Đọc lướt toàn đoạn để nắm chủ đề (du lịch? chia tay? kế hoạch?).",
+      "Tìm các động từ ở thể た rồi có ら ngay sau → đó là mẫu 〜たら. Vế sau là hệ quả/kế hoạch.",
+      "Tìm て + も → đó là 〜ても \"dù...vẫn\". Vế sau thường có まだ・でも・やはり.",
+      "Với もし〜たら: もし làm nổi bật tính GIẢ ĐỊNH; có thể bỏ もし mà nghĩa không đổi.",
+      "Với たとえ〜ても: たとえ nhấn mạnh \"DÙ CÓ THẾ NÀO ĐI NỮA\". Mạnh hơn〜ても thường.",
+      "Câu hỏi trắc nghiệm thường hỏi: ai sẽ làm gì NẾU điều gì xảy ra, hoặc ai VẪN làm gì DÙ thế nào."
+    ],
+    "tips": [
+      "〜たら: động từ nhóm 1 → thay ます → た+ら; nhóm 2 → て→た+ら; bất quy tắc: した→したら, きた→きたら.",
+      "〜ても KHÔNG phải て＋も (liệt kê). Phân biệt: 「読んでも」（dù đọc）khác「読んで、書きます」（đọc rồi viết）.",
+      "もし thường đi với 〜たら hoặc 〜ば, không tự đứng một mình làm điều kiện.",
+      "たとえ〜ても: たとえ là phó từ, thường đi kèm 〜ても, KHÔNG kết hợp với〜たら.",
+      "Sau〜たら vế sau KHÔNG dùng ましょう khi chủ thể khác nhau — chú ý chủ thể hai vế.",
+      "Gặp từ もし hoặc たとえ đầu câu = tín hiệu bài có giả định/nhượng bộ → chuẩn bị tìm kết quả."
+    ],
+    "grammarFocus": [
+      "〜たら",
+      "もし〜たら",
+      "〜ても",
+      "たとえ〜ても"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 24,
+        "items": [
+          "Vてあげます",
+          "Vてもらいます",
+          "Vてくれます"
+        ]
+      },
+      {
+        "bai": 23,
+        "items": [
+          "〜とき",
+          "〜と（điều kiện tự nhiên）",
+          "Vないで"
+        ]
+      },
+      {
+        "bai": 22,
+        "items": [
+          "mệnh đề bổ nghĩa danh từ (Vる/Vた＋N)",
+          "形容詞＋N"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います",
+          "〜と言いました",
+          "Nについて"
+        ]
+      },
+      {
+        "bai": 20,
+        "items": [
+          "普通形",
+          "〜けど",
+          "〜ないと"
+        ]
+      },
+      {
+        "bai": 19,
+        "items": [
+          "Vたことがあります",
+          "〜くなります・〜になります",
+          "Vたりします"
+        ]
+      },
+      {
+        "bai": 18,
+        "items": [
+          "Vることができます",
+          "Vるまえに"
+        ]
+      },
+      {
+        "bai": 17,
+        "items": [
+          "Vなければなりません",
+          "Vなくてもいいです"
+        ]
+      },
+      {
+        "bai": 16,
+        "items": [
+          "Vてから",
+          "〜くて・〜で（nối tính từ）"
+        ]
+      },
+      {
+        "bai": 14,
+        "items": [
+          "て形",
+          "Vています"
+        ]
+      },
+      {
+        "bai": 13,
+        "items": [
+          "Vたいです",
+          "Vに行きます"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜が好きです",
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "旅行の計画",
+      "titleVi": "Kế hoạch du lịch",
+      "japanese": "もし来月お金があったら、京都へ旅行したいと思います。京都へ行ったら、お寺をたくさん見たいです。たとえ雨が降っても、傘を持って行きます。友達が「いっしょに行こう」と言ったから、行きたいです。二人で行けたら、もっと楽しいと思います。",
+      "vietnamese": "Nếu tháng sau có tiền, tôi muốn đi du lịch Kyoto. Nếu đến Kyoto, tôi muốn xem thật nhiều chùa. Dù trời có mưa, tôi vẫn sẽ mang ô đi. Vì bạn nói \"Cùng đi nào!\" nên tôi muốn đi. Nếu hai người cùng đi được thì tôi nghĩ sẽ vui hơn nữa.",
+      "sentences": [
+        {
+          "jp": "もし来月お金があったら、京都へ旅行したいと思います。",
+          "vi": "Nếu tháng sau có tiền, tôi muốn đi du lịch Kyoto.",
+          "vocab": [
+            {
+              "w": "来月",
+              "read": "らいげつ",
+              "vi": "tháng sau"
+            },
+            {
+              "w": "お金",
+              "read": "おかね",
+              "vi": "tiền"
+            },
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto"
+            },
+            {
+              "w": "旅行します",
+              "read": "りょこうします",
+              "vi": "đi du lịch"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "もし",
+              "read": "もし",
+              "vi": "nếu (nhấn mạnh tính giả định)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もし〜たら",
+              "vi": "もし + điều kiện giả định (あったら = nếu có). Nhấn mạnh tính chưa chắc xảy ra."
+            },
+            {
+              "point": "〜と思います",
+              "vi": "(Bài 21) diễn đạt ý kiến/dự định của người nói: 旅行したいと思います = tôi nghĩ muốn đi du lịch."
+            }
+          ]
+        },
+        {
+          "jp": "京都へ行ったら、お寺をたくさん見たいです。",
+          "vi": "Nếu đến Kyoto, tôi muốn xem thật nhiều chùa.",
+          "vocab": [
+            {
+              "w": "京都",
+              "read": "きょうと",
+              "vi": "Kyoto (tên thành phố)"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "お寺",
+              "read": "おてら",
+              "vi": "chùa, đền"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら",
+              "vi": "行ったら = nếu/khi đến. Điều kiện dẫn đến kế hoạch ở vế sau."
+            },
+            {
+              "point": "Vたいです",
+              "vi": "(Bài 13) muốn làm gì. 見たい = muốn xem."
+            }
+          ]
+        },
+        {
+          "jp": "たとえ雨が降っても、傘を持って行きます。",
+          "vi": "Dù trời có mưa, tôi vẫn sẽ mang ô đi.",
+          "vocab": [
+            {
+              "w": "たとえ",
+              "read": "たとえ",
+              "vi": "dù cho"
+            },
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降って",
+              "read": "ふって",
+              "vi": "rơi (mưa)"
+            },
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "持って",
+              "read": "もって",
+              "vi": "mang, cầm"
+            },
+            {
+              "w": "行きます",
+              "read": "いきます",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "たとえ〜ても",
+              "vi": "たとえ + điều kiện + ても = dù có thế nào đi nữa. Nhấn mạnh vế sau KHÔNG thay đổi."
+            },
+            {
+              "point": "Vて行きます",
+              "vi": "(Bài 14) 持って行く = mang đi (vừa cầm vừa đi)."
+            }
+          ]
+        },
+        {
+          "jp": "友達が「いっしょに行こう」と言ったから、行きたいです。",
+          "vi": "Vì bạn nói \"Cùng đi nào!\" nên tôi muốn đi.",
+          "vocab": [
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            },
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            },
+            {
+              "w": "言います",
+              "read": "いいます",
+              "vi": "nói"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言いました / 〜と言いました（Bài 21）",
+              "vi": "「いっしょに行こう」と言った = bạn đã nói \"cùng đi nào\". Trích lời trực tiếp dùng 「」と言いました."
+            },
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "言ったから、行きたいです = vì bạn nói...nên muốn đi. から nêu lý do."
+            }
+          ]
+        },
+        {
+          "jp": "二人で行けたら、もっと楽しいと思います。",
+          "vi": "Nếu hai người cùng đi được thì tôi nghĩ sẽ vui hơn nữa.",
+          "vocab": [
+            {
+              "w": "行けます",
+              "read": "いけます",
+              "vi": "có thể đi (thể khả năng của 行きます)"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "hơn nữa, càng thêm"
+            },
+            {
+              "w": "楽しい",
+              "read": "たのしい",
+              "vi": "vui, thú vị"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら",
+              "vi": "行けたら = nếu đi được. Điều kiện giả định từ thể khả năng (Bài 18: Vることができます → thể た khả năng)."
+            },
+            {
+              "point": "〜と思います",
+              "vi": "(Bài 21) diễn đạt ý kiến, suy nghĩ của người nói."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "もし来月お金があったら",
+          "label": "もし〜たら"
+        },
+        {
+          "excerpt": "京都へ行ったら、お寺をたくさん見たいです",
+          "label": "〜たら（kế hoạch）"
+        },
+        {
+          "excerpt": "たとえ雨が降っても",
+          "label": "たとえ〜ても"
+        },
+        {
+          "excerpt": "二人で行けたら",
+          "label": "〜たら（giả định）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "この人はどうして京都へ行きたいですか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "お金がたくさんあるから、行きたいです",
+            "お寺をたくさん見たいから、行きたいです",
+            "友達が「いっしょに行こう」と言ったから、行きたいです",
+            "雨が好きだから、行きたいです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「京都へ行ったら、お寺をたくさん見たいです」nói rõ: nếu đến Kyoto thì muốn xem nhiều chùa — đây là LÝ DO chọn Kyoto. Đáp án 0 sai vì câu đầu dùng もし〜たら (nếu có tiền), nghĩa là tiền chưa chắc có, không thể là lý do đang có. Đáp án 2 sai vì bạn rủ là lý do MUỐN ĐI CHUNG chứ không phải lý do chọn điểm đến Kyoto. Đáp án 3 không xuất hiện trong bài.",
+          "tip": "Câu hỏi dạng「どうして〜へ行きたいですか」→ tìm câu nói rõ điều muốn làm KHI ĐẾN nơi đó (thường dùng 〜たら hoặc 〜たいです). Loại đáp án nói về điều kiện chưa chắc (もし) hoặc lý do không liên quan đến điểm đến.",
+          "qt": {
+            "q": "Người này tại sao muốn đi Kyoto?",
+            "o": [
+              "Vì có nhiều tiền nên muốn đi",
+              "Vì muốn xem nhiều ngôi chùa nên muốn đi",
+              "Vì bạn đã nói 「いっしょに行こう」 (cùng đi nhé), nên muốn đi",
+              "Vì thích mưa nên muốn đi"
+            ]
+          }
+        },
+        {
+          "q": "雨が降ったら、この人はどうしますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "旅行をやめます",
+            "友達といっしょに行きません",
+            "傘を持って行きます",
+            "京都へ行きません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu「たとえ雨が降っても、傘を持って行きます」dùng たとえ〜ても (dù có thế nào đi nữa), nghĩa là DÙ mưa vẫn mang ô và đi — không huỷ kế hoạch. Đáp án 0 và 3 đều sai vì ても = \"dù...vẫn\", người viết KHÔNG dừng hay huỷ chuyến đi. Đáp án 1 sai vì bài không nói gì về việc không đi cùng bạn khi mưa.",
+          "tip": "Gặp たとえ〜ても trong bài → vế sau là hành động KHÔNG THAY ĐỔI dù gặp điều kiện khó. Câu hỏi về ても → loại ngay đáp án nào có ý \"dừng lại / huỷ bỏ\".",
+          "qt": {
+            "q": "Nếu trời mưa, người này sẽ làm gì?",
+            "o": [
+              "Ngừng chuyến đi",
+              "Không đi cùng bạn",
+              "Mang theo ô",
+              "Không đi Kyoto"
+            ]
+          }
+        },
+        {
+          "q": "友達は旅行について何と言いましたか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "「行きたくない」と言いました",
+            "「行きたい！」と言いました",
+            "「雨だから行きません」と言いました",
+            "「お金がありません」と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「友達が「いっしょに行こう」と言ったから、行きたいです」cho thấy bạn đã nói \"Cùng đi nào!\" — ý nghĩa là muốn đi cùng, tương đương「行きたい」. Đáp án 0 ngược nghĩa hoàn toàn (行きたくない = không muốn đi). Đáp án 2 và 3 không xuất hiện trong bài — bạn không nhắc đến mưa hay tiền.",
+          "tip": "Câu hỏi dạng「何と言いましたか」→ tìm dấu ngoặc「」trong bài để trích lời trực tiếp. Sau đó chọn đáp án có NGHĨA TƯƠNG ĐƯƠNG, không nhất thiết từng chữ phải giống nhau.",
+          "qt": {
+            "q": "Bạn của người này đã nói gì về chuyến đi?",
+            "o": [
+              "Đã nói 「行きたくない」 (không muốn đi)",
+              "Đã nói 「行きたい！」 (muốn đi!)",
+              "Đã nói 「雨だから行きません」 (Vì trời mưa nên tôi không đi)",
+              "Đã nói 「お金がありません」 (Tôi không có tiền)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "ミラーさんへのメッセージ",
+      "titleVi": "Thư nhắn gửi anh Miller",
+      "japanese": "ミラーさん、来週は帰国ですね。さびしくなります。\nミラーさんが来たとき、日本語があまり上手じゃなかったです。でも、毎日一生懸命勉強したから、今はとても上手になりましたね。\nもしまた日本へ来たら、ぜひ連絡してください。いっしょに食事をしたいです。\nたとえ遠くに住んでいても、私たちはいつも友達です。メールをしてもいいですよ。\nアメリカへ帰ったら、元気でいてください。家族にもよろしく伝えてください。\n日本語を忘れないでください。もし分からないことがあったら、いつでも聞いてください。\n田中さんとワットさんも「また会いたい」と言っていました。\nみんなミラーさんのことが大好きです。どうぞお元気で。",
+      "vietnamese": "Anh Miller, tuần sau anh về nước rồi nhỉ. Chúng tôi sẽ nhớ anh lắm.\nKhi anh mới đến, tiếng Nhật của anh chưa giỏi lắm. Nhưng vì anh học chăm chỉ mỗi ngày nên bây giờ anh giỏi lắm rồi nhỉ.\nNếu anh có dịp lại đến Nhật, nhất định liên lạc nhé. Tôi muốn cùng đi ăn.\nDù anh sống ở xa, chúng ta vẫn luôn là bạn. Gửi email cũng được nhé.\nKhi về Mỹ, hãy giữ gìn sức khoẻ. Và gửi lời hỏi thăm đến gia đình anh giùm.\nĐừng quên tiếng Nhật nhé. Nếu có điều gì không hiểu, hãy hỏi bất cứ lúc nào.\nAnh Tanaka và anh Watt cũng đã nói \"Muốn gặp lại\".\nMọi người ai cũng rất yêu quý anh Miller. Chúc anh mạnh khoẻ.",
+      "sentences": [
+        {
+          "jp": "ミラーさん、来週は帰国ですね。さびしくなります。",
+          "vi": "Anh Miller, tuần sau anh về nước rồi nhỉ. Chúng tôi sẽ nhớ anh lắm.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "帰国",
+              "read": "きこく",
+              "vi": "về nước"
+            },
+            {
+              "w": "さびしい",
+              "read": "さびしい",
+              "vi": "buồn, cô đơn, nhớ nhung"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ね（Bài 4）",
+              "vi": "Cuối câu, tìm kiếm sự đồng ý từ người nghe: \"…nhỉ, …phải không\"."
+            },
+            {
+              "point": "〜くなります（Bài 19）",
+              "vi": "さびしく＋なります = trở nên buồn (thay đổi trạng thái)."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんが来たとき、日本語があまり上手じゃなかったです。",
+          "vi": "Khi anh Miller mới đến, tiếng Nhật của anh chưa giỏi lắm.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "あまり",
+              "read": "あまり",
+              "vi": "không mấy, không lắm (dùng với phủ định)"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（Bài 23）",
+              "vi": "来たとき = khi đến (dùng thể た vì sự kiện đã hoàn thành trước thời điểm nhắc đến)."
+            },
+            {
+              "point": "ＮＡじゃなかったです（Bài 12）",
+              "vi": "Phủ định quá khứ của tính từ な: 上手じゃなかった = không giỏi."
+            }
+          ]
+        },
+        {
+          "jp": "でも、毎日一生懸命勉強したから、今はとても上手になりましたね。",
+          "vi": "Nhưng vì anh học chăm chỉ mỗi ngày nên bây giờ anh giỏi lắm rồi nhỉ.",
+          "vocab": [
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "一生懸命",
+              "read": "いっしょうけんめい",
+              "vi": "chăm chỉ, hết sức cố gắng"
+            },
+            {
+              "w": "勉強します",
+              "read": "べんきょうします",
+              "vi": "học"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "上手",
+              "read": "じょうず",
+              "vi": "giỏi, thành thạo (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜から（Bài 9）",
+              "vi": "Nêu lý do: vì học chăm chỉ cho nên bây giờ giỏi."
+            },
+            {
+              "point": "〜になりました（Bài 19）",
+              "vi": "上手になりました = đã trở nên giỏi (biến đổi trạng thái)."
+            }
+          ]
+        },
+        {
+          "jp": "もしまた日本へ来たら、ぜひ連絡してください。",
+          "vi": "Nếu anh có dịp lại đến Nhật, nhất định liên lạc nhé.",
+          "vocab": [
+            {
+              "w": "日本",
+              "read": "にっぽん",
+              "vi": "Nhật Bản"
+            },
+            {
+              "w": "来る",
+              "read": "くる",
+              "vi": "đến, tới"
+            },
+            {
+              "w": "連絡します",
+              "read": "れんらくします",
+              "vi": "liên lạc"
+            },
+            {
+              "w": "また",
+              "read": "また",
+              "vi": "lại, lần nữa"
+            },
+            {
+              "w": "ぜひ",
+              "read": "ぜひ",
+              "vi": "nhất định, nhớ nhé"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もし〜たら",
+              "vi": "もし + 来たら = nếu đến. Điều kiện giả định, kết quả là lời yêu cầu."
+            },
+            {
+              "point": "Vてください（Bài 14）",
+              "vi": "連絡してください = xin hãy liên lạc. Yêu cầu lịch sự."
+            }
+          ]
+        },
+        {
+          "jp": "いっしょに食事をしたいです。",
+          "vi": "Tôi muốn cùng đi ăn.",
+          "vocab": [
+            {
+              "w": "いっしょ",
+              "read": "いっしょ",
+              "vi": "cùng nhau"
+            },
+            {
+              "w": "食事",
+              "read": "しょくじ",
+              "vi": "bữa ăn, dùng bữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "食事をしたい = muốn dùng bữa. Diễn đạt mong muốn của người nói."
+            }
+          ]
+        },
+        {
+          "jp": "たとえ遠くに住んでいても、私たちはいつも友達です。",
+          "vi": "Dù anh sống ở xa, chúng ta vẫn luôn là bạn.",
+          "vocab": [
+            {
+              "w": "たとえ",
+              "read": "たとえ",
+              "vi": "dù cho"
+            },
+            {
+              "w": "遠く",
+              "read": "とおく",
+              "vi": "xa"
+            },
+            {
+              "w": "住んでいて",
+              "read": "すんでいて",
+              "vi": "đang sống, cư trú"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng tôi, chúng ta"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "友達",
+              "read": "ともだち",
+              "vi": "bạn bè"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "たとえ〜ても",
+              "vi": "たとえ + 遠くに住んでいても = dù sống ở xa. Nhấn mạnh kết bạn không thay đổi."
+            },
+            {
+              "point": "Vています（Bài 14）",
+              "vi": "住んでいる = đang ở (trạng thái cư trú liên tục)."
+            }
+          ]
+        },
+        {
+          "jp": "メールをしてもいいですよ。",
+          "vi": "Gửi email cũng được nhé.",
+          "vocab": [
+            {
+              "w": "メール",
+              "read": "メール",
+              "vi": "email, thư điện tử"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vてもいいです（Bài 15）",
+              "vi": "してもいいです = được phép làm. Ở đây dùng để cho phép/khuyến khích."
+            }
+          ]
+        },
+        {
+          "jp": "アメリカへ帰ったら、元気でいてください。",
+          "vi": "Khi về Mỹ, hãy giữ gìn sức khoẻ.",
+          "vocab": [
+            {
+              "w": "アメリカ",
+              "read": "アメリカ",
+              "vi": "nước Mỹ"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về (nhà/nước)"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh, vui vẻ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら",
+              "vi": "帰ったら = khi về. Điều kiện thời gian, kết quả là lời chúc/yêu cầu."
+            },
+            {
+              "point": "〜でいてください（Bài 14）",
+              "vi": "元気でいてください = hãy luôn khoẻ mạnh (duy trì trạng thái tốt)."
+            }
+          ]
+        },
+        {
+          "jp": "家族にもよろしく伝えてください。",
+          "vi": "Và gửi lời hỏi thăm đến gia đình anh giùm.",
+          "vocab": [
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "よろしく",
+              "read": "よろしく",
+              "vi": "lời chào hỏi thăm (nhờ chuyển lời)"
+            },
+            {
+              "w": "伝えます",
+              "read": "つたえます",
+              "vi": "truyền đạt, nhắn lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NにもVてください",
+              "vi": "も＝cũng; 家族にも = đến cả gia đình nữa. Mở rộng đối tượng bằng も."
+            }
+          ]
+        },
+        {
+          "jp": "日本語を忘れないでください。",
+          "vi": "Đừng quên tiếng Nhật nhé.",
+          "vocab": [
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vないでください（Bài 17）",
+              "vi": "忘れないでください = xin đừng quên. Yêu cầu không làm gì."
+            }
+          ]
+        },
+        {
+          "jp": "もし分からないことがあったら、いつでも聞いてください。",
+          "vi": "Nếu có điều gì không hiểu, hãy hỏi bất cứ lúc nào.",
+          "vocab": [
+            {
+              "w": "分かります",
+              "read": "わかります",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もし〜たら",
+              "vi": "もし + あったら = nếu có. Điều kiện giả định → lời mời hỏi."
+            },
+            {
+              "point": "分からないこと（Bài 22）",
+              "vi": "Vない＋こと = mệnh đề bổ nghĩa: \"điều mà không hiểu\" (nominalisation)."
+            }
+          ]
+        },
+        {
+          "jp": "田中さんとワットさんも「また会いたい」と言っていました。",
+          "vi": "Anh Tanaka và anh Watt cũng đã nói \"Muốn gặp lại\".",
+          "vocab": [
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "ワット",
+              "read": "ワット",
+              "vi": "Watt (tên người)"
+            },
+            {
+              "w": "会います",
+              "read": "あいます",
+              "vi": "gặp (người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言っていました（Bài 21）",
+              "vi": "Trích lời (間接話法): 〜と言っていた = đã nói rằng…"
+            },
+            {
+              "point": "Vたいです（Bài 13）",
+              "vi": "会いたい = muốn gặp. Trong câu trích dẫn, chủ thể là Tanaka/Watt."
+            }
+          ]
+        },
+        {
+          "jp": "みんなミラーさんのことが大好きです。どうぞお元気で。",
+          "vi": "Mọi người ai cũng rất yêu quý anh Miller. Chúc anh mạnh khoẻ.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "大好き",
+              "read": "だいすき",
+              "vi": "rất thích, yêu quý"
+            },
+            {
+              "w": "どうぞ",
+              "read": "どうぞ",
+              "vi": "xin mời, xin vui lòng"
+            },
+            {
+              "w": "元気",
+              "read": "げんき",
+              "vi": "khoẻ mạnh, vui vẻ"
+            },
+            {
+              "w": "みんな",
+              "read": "みんな",
+              "vi": "mọi người, tất cả"
+            },
+            {
+              "w": "どうぞお元気で",
+              "read": "どうぞおげんきで",
+              "vi": "chúc sức khoẻ, thành ngữ chia tay lịch sự"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のことが好きです（Bài 9）",
+              "vi": "ミラーさんのこと = chuyện về Miller, con người Miller. が好き = thích/yêu quý."
+            },
+            {
+              "point": "Thành ngữ chia tay",
+              "vi": "どうぞお元気で = câu chúc khi chia tay, dùng お〜で (thể trung lược) lịch sự."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "もしまた日本へ来たら、ぜひ連絡してください",
+          "label": "もし〜たら"
+        },
+        {
+          "excerpt": "たとえ遠くに住んでいても、私たちはいつも友達です",
+          "label": "たとえ〜ても"
+        },
+        {
+          "excerpt": "アメリカへ帰ったら、元気でいてください",
+          "label": "〜たら（lời dặn dò）"
+        },
+        {
+          "excerpt": "もし分からないことがあったら、いつでも聞いてください",
+          "label": "もし〜たら + Vないこと"
+        },
+        {
+          "excerpt": "メールをしてもいいですよ",
+          "label": "〜てもいいです"
+        }
+      ],
+      "questions": [
+        {
+          "q": "ミラーさんが日本に来たとき、日本語はどうでしたか。",
+          "evi": [
+            1
+          ],
+          "options": [
+            "とても上手でした",
+            "あまり上手じゃなかったです",
+            "全然分かりませんでした",
+            "毎日練習していました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「ミラーさんが来たとき、日本語があまり上手じゃなかったです」dùng あまり〜じゃなかった (phủ định quá khứ) = chưa giỏi lắm. Đây là tình trạng khi Miller mới đến. Đáp án 0 sai vì ngược nghĩa (とても上手 = rất giỏi, ngược với bài). Đáp án 2 sai vì bài nói あまり上手じゃない (không giỏi lắm), không phải \"hoàn toàn không hiểu gì\". Đáp án 3 là lý do tiến bộ (học chăm mỗi ngày), không phải tình trạng ban đầu.",
+          "tip": "Câu hỏi về tình trạng trong quá khứ → tìm cụm とき trong bài rồi đọc vế đi KÈM. Phân biệt あまり〜じゃない (không giỏi lắm) với 全然〜ない (hoàn toàn không) — hai mức độ khác nhau.",
+          "qt": {
+            "q": "Khi anh Miller đến Nhật, tiếng Nhật của anh ấy như thế nào?",
+            "o": [
+              "Rất giỏi",
+              "Không giỏi lắm",
+              "Hoàn toàn không hiểu",
+              "Đã luyện tập mỗi ngày"
+            ]
+          }
+        },
+        {
+          "q": "この手紙を書いた人は、ミラーさんに何とお願いしましたか。",
+          "evi": [
+            7
+          ],
+          "options": [
+            "日本語を忘れてください、と言いました",
+            "元気でいてください、と言いました",
+            "また日本へ来てください、と言いました",
+            "アメリカで日本語を教えてください、と言いました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「アメリカへ帰ったら、元気でいてください」dùng 〜てください (yêu cầu lịch sự) để dặn dò Miller giữ gìn sức khoẻ. Đây là lời dặn xuất hiện rõ ràng trong bài. Đáp án 0 ngược nghĩa — bài viết「日本語を忘れないでください」(đừng QUÊN), không phải \"hãy quên\". Đáp án 2 sai vì người viết nhắn「もしまた日本へ来たら、ぜひ連絡してください」— chỉ nhờ liên lạc NẾU đến, không phải yêu cầu đến. Đáp án 3 không xuất hiện trong bài.",
+          "tip": "Câu hỏi dạng「何とお願いしましたか」→ tìm mẫu 〜てください hoặc 〜ないでください trong bài (yêu cầu/dặn dò). Chú ý ないでください (đừng làm) ≠ てください (hãy làm) — đảo nghĩa là đáp án bẫy.",
+          "qt": {
+            "q": "Người viết bức thư này đã nhắn nhủ anh Miller điều gì?",
+            "o": [
+              "Hãy quên tiếng Nhật đi",
+              "Hãy luôn mạnh khỏe",
+              "Hãy trở lại Nhật một lần nữa",
+              "Hãy dạy tiếng Nhật ở Mỹ"
+            ]
+          }
+        },
+        {
+          "q": "田中さんとワットさんについて、何が分かりますか。",
+          "evi": [
+            11
+          ],
+          "options": [
+            "二人はミラーさんがきらいです",
+            "二人はミラーさんに会いたいと思っています",
+            "二人はミラーさんといっしょにアメリカへ行きます",
+            "二人はミラーさんに電話しました"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng là 1. Câu「田中さんとワットさんも「また会いたい」と言っていました」trích lời cả hai người: họ nói \"muốn gặp lại\" (会いたい). Trợ từ も (cũng) cho thấy họ có cùng tình cảm với người viết. Đáp án 0 ngược hoàn toàn — bài nói みんなミラーさんのことが大好きです. Đáp án 2 và 3 không có trong bài — không nhắc đến việc đi Mỹ hay gọi điện.",
+          "tip": "Câu hỏi dạng「〜について何が分かりますか」→ tìm câu có tên người đó trong bài, đọc nguyên văn. Chú ý も (cũng) = dấu hiệu hai người có cùng suy nghĩ/hành động.",
+          "qt": {
+            "q": "Có thể biết được điều gì về anh Tanaka và anh Watt?",
+            "o": [
+              "Hai người không thích anh Miller",
+              "Hai người muốn gặp anh Miller",
+              "Hai người sẽ đi Mỹ cùng anh Miller",
+              "Hai người đã gọi điện cho anh Miller"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "ピクニックのお知らせ",
+      "titleVi": "Thông báo về chuyến dã ngoại",
+      "japanese": "にほんごクラスのピクニックのお知らせ\n来週の土曜日、みんなでピクニックに行きます。\n晴れたら、公園でおべんとうを食べたり、写真をとったりします。\n雨が降っても、ピクニックはあります。雨だったら、学校の食堂で食べます。\n天気｜すること｜場所\n晴れの日｜おべんとう・しゃしん｜こうえん\n雨の日｜おべんとう｜しょくどう\n朝9時に学校の前に集まって、午後3時に帰ります。\n※たとえ寒くても、ピクニックは中止しません。傘とおべんとうを忘れないでください。\n質問があったら、田中先生に聞いてください。",
+      "vietnamese": "Thông báo về chuyến dã ngoại của lớp học tiếng Nhật\nThứ Bảy tuần sau, mọi người sẽ cùng đi dã ngoại.\nNếu trời nắng, chúng ta sẽ ăn cơm hộp và chụp thật nhiều ảnh ở công viên.\nDù trời có mưa, chuyến dã ngoại vẫn diễn ra. Nếu mưa, chúng ta sẽ ăn ở căng-tin trường.\nThời tiết｜Việc sẽ làm｜Địa điểm\nNgày nắng｜Ăn cơm hộp, chụp ảnh｜Công viên\nNgày mưa｜Ăn cơm hộp｜Căng-tin\nBuổi sáng tập trung trước trường lúc 9 giờ, chiều 3 giờ về.\n※ Dù trời có lạnh, chuyến dã ngoại cũng không huỷ. Đừng quên mang ô và cơm hộp.\nNếu có thắc mắc, hãy hỏi thầy Tanaka.",
+      "sentences": [
+        {
+          "jp": "にほんごクラスのピクニックのお知らせ",
+          "vi": "Thông báo về chuyến dã ngoại của lớp học tiếng Nhật",
+          "vocab": [
+            {
+              "w": "クラス",
+              "read": "クラス",
+              "vi": "lớp học"
+            },
+            {
+              "w": "ピクニック",
+              "read": "ピクニック",
+              "vi": "dã ngoại"
+            },
+            {
+              "w": "お知らせ",
+              "read": "おしらせ",
+              "vi": "thông báo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "NのNのお知らせ = thông báo về việc gì. Dòng đầu là tiêu đề, không phải câu hoàn chỉnh."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ピクニック",
+              "why": "Từ khoá chủ đề toàn bài — mọi câu hỏi đều xoay quanh chuyến dã ngoại này."
+            }
+          ]
+        },
+        {
+          "jp": "来週の土曜日、みんなでピクニックに行きます。",
+          "vi": "Thứ Bảy tuần sau, mọi người sẽ cùng đi dã ngoại.",
+          "vocab": [
+            {
+              "w": "来週",
+              "read": "らいしゅう",
+              "vi": "tuần sau"
+            },
+            {
+              "w": "土曜日",
+              "read": "どようび",
+              "vi": "thứ Bảy"
+            },
+            {
+              "w": "ピクニック",
+              "read": "ピクニック",
+              "vi": "dã ngoại"
+            },
+            {
+              "w": "行く",
+              "read": "いく",
+              "vi": "đi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです系の文（Bài 1〜4 ôn）",
+              "vi": "Câu nêu kế hoạch bằng Vます thông thường, chưa có điều kiện — mở đầu cho 2 trường hợp たら／ても ở các câu sau."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土曜日",
+              "why": "Mốc thời gian chính của sự kiện — nền để đối chiếu với các điều kiện thời tiết bên dưới."
+            }
+          ]
+        },
+        {
+          "jp": "晴れたら、公園でおべんとうを食べたり、写真をとったりします。",
+          "vi": "Nếu trời nắng, chúng ta sẽ ăn cơm hộp và chụp thật nhiều ảnh ở công viên.",
+          "vocab": [
+            {
+              "w": "晴れます",
+              "read": "はれます",
+              "vi": "(trời) nắng, quang đãng"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            },
+            {
+              "w": "写真をとります",
+              "read": "しゃしんをとります",
+              "vi": "chụp ảnh"
+            },
+            {
+              "w": "おべんとう",
+              "read": "おべんとう",
+              "vi": "cơm hộp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら",
+              "vi": "晴れたら = nếu/khi trời nắng. Điều kiện mở đầu trường hợp thứ NHẤT (晴れ)."
+            },
+            {
+              "point": "〜たり〜たりします（Bài 19 ôn）",
+              "vi": "食べたり、とったりします = liệt kê vài việc làm (ăn, chụp ảnh…) không theo thứ tự cố định."
+            }
+          ],
+          "keys": [
+            {
+              "w": "晴れたら",
+              "why": "Điều kiện của trường hợp NẮNG — khớp hàng \"晴れの日\" trong bảng."
+            },
+            {
+              "w": "公園",
+              "why": "Địa điểm khi trời nắng, đối chiếu với cột \"場所\" trong bảng."
+            }
+          ]
+        },
+        {
+          "jp": "雨が降っても、ピクニックはあります。雨だったら、学校の食堂で食べます。",
+          "vi": "Dù trời có mưa, chuyến dã ngoại vẫn diễn ra. Nếu mưa, chúng ta sẽ ăn ở căng-tin trường.",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "降ります",
+              "read": "ふります",
+              "vi": "(mưa) rơi, đổ xuống"
+            },
+            {
+              "w": "ピクニック",
+              "read": "ピクニック",
+              "vi": "dã ngoại"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "食堂",
+              "read": "しょくどう",
+              "vi": "căng-tin, nhà ăn"
+            },
+            {
+              "w": "食べる",
+              "read": "たべる",
+              "vi": "ăn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ても",
+              "vi": "雨が降っても = dù trời mưa (vẫn không huỷ). Nhấn mạnh kế hoạch KHÔNG THAY ĐỔI."
+            },
+            {
+              "point": "〜たら",
+              "vi": "雨だったら = nếu là (trường hợp) mưa. Điều kiện dẫn đến địa điểm ăn khác."
+            }
+          ],
+          "keys": [
+            {
+              "w": "雨が降っても",
+              "why": "Khẳng định chuyến đi KHÔNG huỷ dù mưa — bác bỏ nhiễu \"huỷ ピクニック\"."
+            },
+            {
+              "w": "雨だったら、学校の食堂で食べます",
+              "why": "Câu trả lời trực tiếp cho câu hỏi \"雨だったらどうしますか\" — căn cứ chính."
+            }
+          ]
+        },
+        {
+          "jp": "天気｜すること｜場所",
+          "vi": "Thời tiết｜Việc sẽ làm｜Địa điểm",
+          "vocab": [
+            {
+              "w": "天気",
+              "read": "てんき",
+              "vi": "thời tiết"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "địa điểm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Header bảng",
+              "vi": "Hàng tiêu đề của bảng, nêu tên 3 cột: thời tiết, việc làm, địa điểm."
+            }
+          ],
+          "keys": [
+            {
+              "w": "場所",
+              "why": "Tên cột địa điểm — cần dò đúng cột này khi trả lời câu hỏi về nơi ăn."
+            }
+          ]
+        },
+        {
+          "jp": "晴れの日｜おべんとう・しゃしん｜こうえん",
+          "vi": "Ngày nắng｜Ăn cơm hộp, chụp ảnh｜Công viên",
+          "vocab": [
+            {
+              "w": "晴れ",
+              "read": "はれ",
+              "vi": "trời nắng, trời đẹp"
+            },
+            {
+              "w": "しゃする",
+              "read": "しゃする",
+              "vi": "cảm tạ, chụp hình"
+            },
+            {
+              "w": "こうえん",
+              "read": "こうえん",
+              "vi": "công viên, bài diễn thuyết"
+            },
+            {
+              "w": "晴れの日",
+              "read": "はれのひ",
+              "vi": "ngày nắng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng — trường hợp NẮNG",
+              "vi": "Ứng với 〜たら ở câu 3: nắng → công viên, ăn cơm hộp + chụp ảnh."
+            }
+          ],
+          "keys": [
+            {
+              "w": "こうえん",
+              "why": "Ô địa điểm khi NẮNG — dòng nhiễu so với ô \"しょくどう\" ở hàng mưa."
+            }
+          ]
+        },
+        {
+          "jp": "雨の日｜おべんとう｜しょくどう",
+          "vi": "Ngày mưa｜Ăn cơm hộp｜Căng-tin",
+          "vocab": [
+            {
+              "w": "雨",
+              "read": "あめ",
+              "vi": "mưa"
+            },
+            {
+              "w": "しょく",
+              "read": "しょく",
+              "vi": "món ăn, nghề nghiệp"
+            },
+            {
+              "w": "雨の日",
+              "read": "あめのひ",
+              "vi": "ngày mưa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng — trường hợp MƯA",
+              "vi": "Ứng với 〜ても/〜たら ở câu 4: mưa → căng-tin trường, vẫn ăn cơm hộp."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しょくどう",
+              "why": "Ô địa điểm khi MƯA — đáp án đúng của câu hỏi duy nhất."
+            }
+          ]
+        },
+        {
+          "jp": "朝9時に学校の前に集まって、午後3時に帰ります。",
+          "vi": "Buổi sáng tập trung trước trường lúc 9 giờ, chiều 3 giờ về.",
+          "vocab": [
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "9時",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "phía trước"
+            },
+            {
+              "w": "集まって",
+              "read": "あつまって",
+              "vi": "tập trung, tụ họp"
+            },
+            {
+              "w": "午後",
+              "read": "ごご",
+              "vi": "buổi chiều"
+            },
+            {
+              "w": "3時",
+              "read": "さんじ",
+              "vi": "3 giờ"
+            },
+            {
+              "w": "帰ります",
+              "read": "かえります",
+              "vi": "về, trở về"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vて、Vます（Bài 16 ôn）",
+              "vi": "集まって、帰ります = tập trung rồi (sau đó) về — nối 2 hành động theo trình tự bằng て形."
+            }
+          ],
+          "keys": [
+            {
+              "w": "朝9時",
+              "why": "Giờ tập trung — chi tiết dò-bảng, không phải căn cứ câu hỏi chính nhưng hay bị hỏi ở biến thể khác."
+            }
+          ]
+        },
+        {
+          "jp": "※たとえ寒くても、ピクニックは中止しません。傘とおべんとうを忘れないでください。",
+          "vi": "※ Dù trời có lạnh, chuyến dã ngoại cũng không huỷ. Đừng quên mang ô và cơm hộp.",
+          "vocab": [
+            {
+              "w": "たとえ",
+              "read": "たとえ",
+              "vi": "dù cho, cho dù"
+            },
+            {
+              "w": "寒い",
+              "read": "さむい",
+              "vi": "lạnh"
+            },
+            {
+              "w": "ピクニック",
+              "read": "ピクニック",
+              "vi": "dã ngoại"
+            },
+            {
+              "w": "中止します",
+              "read": "ちゅうしします",
+              "vi": "huỷ, dừng lại"
+            },
+            {
+              "w": "傘",
+              "read": "かさ",
+              "vi": "ô, dù"
+            },
+            {
+              "w": "とおい",
+              "read": "とおい",
+              "vi": "xa xôi, xa xăm"
+            },
+            {
+              "w": "忘れます",
+              "read": "わすれます",
+              "vi": "quên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "たとえ〜ても",
+              "vi": "たとえ寒くても = dù có lạnh đến đâu (vẫn không huỷ). Nhấn mạnh mạnh hơn 〜ても thường."
+            },
+            {
+              "point": "Vないでください（Bài 17 ôn）",
+              "vi": "忘れないでください = xin đừng quên. Nhắc mang đồ cần thiết."
+            }
+          ],
+          "keys": [
+            {
+              "w": "中止しません",
+              "why": "Khẳng định lần 2 việc KHÔNG huỷ — loại nhiễu \"huỷ khi mưa/lạnh\"."
+            },
+            {
+              "w": "傘",
+              "why": "Đồ cần mang — liên quan gián tiếp đến trường hợp mưa."
+            }
+          ]
+        },
+        {
+          "jp": "質問があったら、田中先生に聞いてください。",
+          "vi": "Nếu có thắc mắc, hãy hỏi thầy Tanaka.",
+          "vocab": [
+            {
+              "w": "質問",
+              "read": "しつもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "田中",
+              "read": "たなか",
+              "vi": "Tanaka (họ người)"
+            },
+            {
+              "w": "先生",
+              "read": "せんせい",
+              "vi": "giáo viên"
+            },
+            {
+              "w": "聞きます",
+              "read": "ききます",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら",
+              "vi": "あったら = nếu có. Điều kiện dẫn đến hướng dẫn liên hệ."
+            },
+            {
+              "point": "Vてください（Bài 14 ôn）",
+              "vi": "聞いてください = xin hãy hỏi. Yêu cầu lịch sự."
+            }
+          ],
+          "keys": [
+            {
+              "w": "田中先生",
+              "why": "Người liên hệ khi cần hỏi thêm — chi tiết phụ, không phải căn cứ câu hỏi chính."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "晴れたら、公園でおべんとうを食べたり",
+          "label": "〜たら（trường hợp nắng）"
+        },
+        {
+          "excerpt": "雨が降っても、ピクニックはあります",
+          "label": "〜ても"
+        },
+        {
+          "excerpt": "雨だったら、学校の食堂で食べます",
+          "label": "〜たら（trường hợp mưa）"
+        },
+        {
+          "excerpt": "たとえ寒くても、ピクニックは中止しません",
+          "label": "たとえ〜ても"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề & mở đầu",
+          "topic": 1,
+          "note": "Giới thiệu chuyến dã ngoại và báo hiệu nội dung chia theo thời tiết (天気によって).",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "kind": "body",
+          "label": "Hai trường hợp たら／ても",
+          "topic": 3,
+          "note": "Nêu rõ 2 trường hợp: nắng (たら) và mưa (ても/たら) — chứa câu trả lời trực tiếp cho câu hỏi.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 4,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng thời tiết — việc làm — địa điểm",
+          "topic": 4,
+          "note": "Bảng đối chiếu: dò đúng hàng \"雨の日\" để lấy địa điểm ăn khi mưa, tránh nhầm hàng \"晴れの日\".",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "turn",
+          "label": "Giờ giấc & chú ý ※",
+          "topic": 8,
+          "note": "Chi tiết giờ giấc, cam kết không huỷ dù lạnh (bẫy dễ nhầm với \"huỷ khi mưa\"), và liên hệ.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "雨だったら、どうしますか。",
+          "options": [
+            "ピクニックを中止します",
+            "公園でおべんとうを食べます",
+            "学校の食堂で食べます",
+            "写真をとりに行きません"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án đúng là 2. Câu「雨が降っても、ピクニックはあります。雨だったら、学校の食堂で食べます」và hàng bảng「雨の日｜おべんとう｜しょくどう」đều xác nhận: nếu mưa thì ăn ở căng-tin trường (学校の食堂). Đáp án 0 sai vì〜ても khẳng định KHÔNG huỷ dù mưa. Đáp án 1 sai vì đó là địa điểm của trường hợp NẮNG (晴れの日｜こうえん), không phải mưa. Đáp án 3 không có căn cứ trong bài — bài không nói việc chụp ảnh bị huỷ khi mưa.",
+          "tip": "Câu hỏi dạng「〜だったら、どうしますか」→ tìm đúng câu/hàng bảng ứng với ĐIỀU KIỆN được hỏi (ở đây là 雨), tránh nhầm sang hàng của điều kiện khác (晴れ). Gặp 〜ても đầu đoạn → loại ngay đáp án \"huỷ/dừng\".",
+          "evi": [
+            3,
+            4,
+            6
+          ],
+          "qt": {
+            "q": "Nếu trời mưa thì sẽ làm gì?",
+            "o": [
+              "Hủy buổi dã ngoại",
+              "Ăn cơm hộp ở công viên",
+              "Ăn ở nhà ăn của trường",
+              "Không đi chụp ảnh"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

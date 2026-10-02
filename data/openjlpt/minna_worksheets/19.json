@@ -1,0 +1,362 @@
+{
+  "bai": 19,
+  "bunpou": [
+    {
+      "stem": "昨日[きのう] 友[とも]だちと 映画[えいが]を ＿。",
+      "choices": [
+        "見[み]た",
+        "見[み]るた",
+        "見[み]ました"
+      ],
+      "answer": 0,
+      "explain": "Thể た bình thường (普通形過去) của 見る là 見た; 見[み]ました là thể lịch sự, không dùng trong văn thể thường."
+    },
+    {
+      "stem": "先週[せんしゅう] 手紙[てがみ]を 書[か]＿。",
+      "choices": [
+        "いた",
+        "きた",
+        "った"
+      ],
+      "answer": 0,
+      "explain": "書く (Nhóm I く-verb): く→いた (書いた); きた nhầm sang た-form của 来る, った là biến đổi của う/つ/る-verb."
+    },
+    {
+      "stem": "富士山[ふじさん]に 登[のぼ]った ＿ が あります。",
+      "choices": [
+        "こと",
+        "もの",
+        "とき"
+      ],
+      "answer": 0,
+      "explain": "「たことがあります」= đã từng trải nghiệm; もの chỉ vật/người, とき chỉ thời điểm — không dùng để diễn tả kinh nghiệm."
+    },
+    {
+      "stem": "外国[がいこく]に 住[す]んだ ＿ が ありません。",
+      "choices": [
+        "こと",
+        "が",
+        "を"
+      ],
+      "answer": 0,
+      "explain": "「たことがありません」phủ định kinh nghiệm; が/を là trợ từ, không đứng sau た-form để thành mẫu này."
+    },
+    {
+      "stem": "週末[しゅうまつ]は 音楽[おんがく]を 聴[き]いたり、本[ほん]を 読[よ]＿ します。",
+      "choices": [
+        "んだり",
+        "むたり",
+        "みたり"
+      ],
+      "answer": 0,
+      "explain": "読む (Nhóm I む-verb): む→んだ → んだり (読んだり); むたり/みたり nhầm vì không áp dụng âm biến い-sound."
+    },
+    {
+      "stem": "毎晩[まいばん] テレビを 見[み]たり、日本語[にほんご]を 勉強[べんきょう]＿ します。",
+      "choices": [
+        "したり",
+        "するたり",
+        "しますたり"
+      ],
+      "answer": 0,
+      "explain": "する → した → したり; するたり nhầm dùng 辞書形 trước たり, しますたり thêm ます không đúng."
+    },
+    {
+      "stem": "最近[さいきん] 日本語[にほんご]が ＿ なりました。",
+      "choices": [
+        "上手[じょうず]に",
+        "上手[じょうず]く",
+        "上手[じょうず]いに"
+      ],
+      "answer": 0,
+      "explain": "上手 là な-adj → に + なります (上手になる); く + なる chỉ dùng cho い-adj (trừ đây là な-adj)."
+    },
+    {
+      "stem": "秋[あき]に なると、 だんだん 寒[さむ]＿ なります。",
+      "choices": [
+        "く",
+        "に",
+        "いに"
+      ],
+      "answer": 0,
+      "explain": "寒い là い-adj → い bỏ đi thêm く + なります (寒くなる); に + なる chỉ dùng cho な-adj/danh từ."
+    }
+  ],
+  "joshi": {
+    "bank": [
+      "が",
+      "を",
+      "に",
+      "で",
+      "は",
+      "と",
+      "も"
+    ],
+    "items": [
+      {
+        "stem": "日本[にほん]へ 行[い]ったことが あります＿、とても 楽[たの]しかったです。",
+        "answer": "が",
+        "explain": "が ở đây nối hai mệnh đề (có kinh nghiệm + cảm nhận); は tạo tương phản không phù hợp."
+      },
+      {
+        "stem": "温泉[おんせん]＿ 入[はい]ったことが ありますか。",
+        "answer": "に",
+        "explain": "入る dùng に chỉ nơi vào (温泉に入る); で chỉ địa điểm diễn ra, không dùng với 入る."
+      },
+      {
+        "stem": "週末[しゅうまつ]は 友[とも]だち＿ テニスを したりします。",
+        "answer": "と",
+        "explain": "と chỉ \"cùng với\" (友だちとする); に không dùng để chỉ người cùng thực hiện hành động."
+      },
+      {
+        "stem": "最近[さいきん] 部屋[へや]＿ きれいに なりました。",
+        "answer": "が",
+        "explain": "Chủ ngữ của なる dùng が (部屋がきれいになる); は chỉ tạo tương phản, không phải lỗi nghiêm trọng nhưng が tự nhiên hơn."
+      },
+      {
+        "stem": "寒[さむ]く なりました＿、コートを 買[か]いました。",
+        "answer": "が",
+        "explain": "が ở đây nối nguyên nhân kết quả nhẹ (trời lạnh nên mua áo); から cũng được nhưng không có trong bank."
+      },
+      {
+        "stem": "図書館[としょかん]＿ 本[ほん]を 読[よ]んだり、勉強[べんきょう]したりします。",
+        "answer": "で",
+        "explain": "で chỉ địa điểm diễn ra hành động (図書館で); に chỉ hướng/đích, không phù hợp."
+      },
+      {
+        "stem": "子[こ]どもの ころ、よく 川[かわ]＿ 泳[およ]いだことが あります。",
+        "answer": "で",
+        "explain": "泳ぐ diễn ra tại địa điểm → で (川で泳ぐ); に không dùng với 泳ぐ (không phải hướng đến)."
+      },
+      {
+        "stem": "わたし＿ 富士山[ふじさん]に 登[のぼ]ったことが あります。",
+        "answer": "は",
+        "explain": "は nhấn mạnh chủ đề/chủ ngữ (わたしは); が nhấn mạnh chủ ngữ mới trong hội thoại, は phổ biến hơn ở đây."
+      }
+    ]
+  },
+  "katsuyou": [
+    {
+      "base": "行[い]きます",
+      "prompt": "Chia sang thể た (bình thường quá khứ)?",
+      "choices": [
+        "行[い]った",
+        "行[い]きた",
+        "行[い]いた"
+      ],
+      "answer": 0,
+      "explain": "行く (Nhóm I く-verb đặc biệt): く→った (行った); 行[い]きた nhầm dùng ます-stem."
+    },
+    {
+      "base": "食[た]べます",
+      "prompt": "Chia sang thể た?",
+      "choices": [
+        "食[た]べた",
+        "食[た]べりた",
+        "食[た]べました"
+      ],
+      "answer": 0,
+      "explain": "Nhóm II: bỏ ます thêm た (食べます→食べた); 食[た]べました là thể lịch sự, không phải thể thường."
+    },
+    {
+      "base": "飲[の]みます",
+      "prompt": "Chia sang thể た?",
+      "choices": [
+        "飲[の]んだ",
+        "飲[の]みた",
+        "飲[の]った"
+      ],
+      "answer": 0,
+      "explain": "Nhóm I む-verb: む→んだ (飲んだ); 飲[の]みた nhầm dùng ます-stem trực tiếp."
+    },
+    {
+      "base": "大[おお]きい",
+      "prompt": "「trở nên to hơn」— dùng dạng nào?",
+      "choices": [
+        "大[おお]きくなります",
+        "大[おお]きいになります",
+        "大[おお]きになります"
+      ],
+      "answer": 0,
+      "explain": "い-adj: bỏ い thêm く + なります (大きくなる); 大[おお]きいになります nhầm giữ nguyên い trước に."
+    },
+    {
+      "base": "静[しず]か (な-adj)",
+      "prompt": "「trở nên yên tĩnh」— dùng dạng nào?",
+      "choices": [
+        "静[しず]かになります",
+        "静[しず]かくなります",
+        "静[しず]かいになります"
+      ],
+      "answer": 0,
+      "explain": "な-adj + に + なります (静かになる); く + なる chỉ dùng cho い-adj, không phải な-adj."
+    },
+    {
+      "base": "来[き]ます",
+      "prompt": "Chia sang thể た?",
+      "choices": [
+        "来[き]た",
+        "来[き]りた",
+        "来[き]ました"
+      ],
+      "answer": 0,
+      "explain": "来る bất quy tắc: thể た là 来[き]た (giữ âm き); 来[き]ました là thể lịch sự quá khứ."
+    }
+  ],
+  "narabe": [
+    {
+      "chips": [
+        "日本[にほん]へ",
+        "行[い]ったことが",
+        "あります。"
+      ],
+      "vi": "Tôi đã từng đến Nhật.",
+      "explain": "「たことがあります」: た-form + ことが + あります; へ chỉ hướng đến (日本へ)."
+    },
+    {
+      "chips": [
+        "週末[しゅうまつ]は",
+        "映画[えいが]を 見[み]たり、",
+        "音楽[おんがく]を 聴[き]いたり",
+        "します。"
+      ],
+      "vi": "Cuối tuần tôi lúc xem phim lúc nghe nhạc.",
+      "explain": "「〜たり〜たりします」: liệt kê hai hành động xen kẽ; します cuối câu là vị ngữ tổng kết."
+    },
+    {
+      "chips": [
+        "最近[さいきん]",
+        "日本語[にほんご]が",
+        "上手[じょうず]に",
+        "なりました。"
+      ],
+      "vi": "Gần đây tiếng Nhật của tôi giỏi hơn rồi.",
+      "explain": "な-adj + に + なりました; 上手に đứng liền trước なりました."
+    },
+    {
+      "chips": [
+        "富士山[ふじさん]に",
+        "登[のぼ]ったことが",
+        "ありません。"
+      ],
+      "vi": "Tôi chưa từng leo núi Phú Sĩ.",
+      "explain": "「たことがありません」phủ định kinh nghiệm; に chỉ đích đến của 登る."
+    },
+    {
+      "chips": [
+        "だんだん",
+        "寒[さむ]く",
+        "なって",
+        "きました。"
+      ],
+      "vi": "Dần dần trời trở lạnh hơn.",
+      "explain": "寒い → 寒く (い→く); なってきました = bắt đầu thay đổi dần (なる + てくる)."
+    }
+  ],
+  "choukai": [
+    {
+      "tts": "わたしは おんせんに はいったことが あります。",
+      "ask": "Người nói đã từng làm gì?",
+      "choices": [
+        "Đã từng tắm suối nước nóng",
+        "Chưa từng tắm suối nước nóng",
+        "Mới tắm suối hôm qua"
+      ],
+      "answer": 0,
+      "script": "わたしは 温泉[おんせん]に 入[はい]ったことが あります。",
+      "explain": "「たことがあります」= đã có kinh nghiệm; ありません (chưa từng) và mới tắm hôm qua đều trái với あります."
+    },
+    {
+      "tts": "しゅうまつは ほんを よんだり、おんがくを きいたりします。",
+      "ask": "Người nói thường làm gì cuối tuần?",
+      "choices": [
+        "Lúc đọc sách lúc nghe nhạc",
+        "Chỉ đọc sách",
+        "Chỉ nghe nhạc"
+      ],
+      "answer": 0,
+      "script": "週末[しゅうまつ]は 本[ほん]を 読[よ]んだり、音楽[おんがく]を 聴[き]いたりします。",
+      "explain": "「〜たり〜たり」liệt kê nhiều hành động; nghe hai hành động (よんだり + きいたり) xác nhận \"lúc này lúc kia\"."
+    },
+    {
+      "tts": "さいきん にほんごが すきに なりました。",
+      "ask": "Điều gì đã thay đổi?",
+      "choices": [
+        "Trở nên thích tiếng Nhật",
+        "Trở nên giỏi tiếng Nhật",
+        "Đã học xong tiếng Nhật"
+      ],
+      "answer": 0,
+      "script": "最近[さいきん] 日本語[にほんご]が 好[す]きに なりました。",
+      "explain": "好き là な-adj → 好きになる (thích); 上手になる (giỏi hơn) khác nghĩa với すき."
+    },
+    {
+      "tts": "ふじさんに のぼったことが ありますか。",
+      "ask": "Câu này hỏi về điều gì?",
+      "choices": [
+        "Hỏi có từng leo núi Phú Sĩ không",
+        "Hỏi về kế hoạch leo núi",
+        "Hỏi tên ngọn núi"
+      ],
+      "answer": 0,
+      "script": "富士山[ふじさん]に 登[のぼ]ったことが ありますか。",
+      "explain": "「たことがありますか」hỏi về kinh nghiệm quá khứ; ありますか ≠ hỏi kế hoạch (sẽ dùng つもりですか)."
+    },
+    {
+      "tts": "だんだん さむく なりました。",
+      "ask": "Điền vào chỗ trống: だんだん 寒___ なりました。",
+      "choices": [
+        "く",
+        "に",
+        "いに"
+      ],
+      "answer": 0,
+      "script": "だんだん 寒[さむ]く なりました。",
+      "explain": "寒い (い-adj) → 寒く + なる; に dùng cho な-adj/danh từ, không dùng cho い-adj."
+    }
+  ],
+  "honyaku": [
+    {
+      "vi": "Tôi đã từng đến Nhật một lần.",
+      "target": "日本へ一度行ったことがあります。",
+      "accept": [
+        "にほんへいちどいったことがあります。",
+        "日本に一度行ったことがあります。"
+      ],
+      "explain": "「たことがあります」diễn tả kinh nghiệm; へ/に đều được chỉ hướng/đích của 行く."
+    },
+    {
+      "vi": "Cuối tuần tôi lúc xem phim lúc đọc sách.",
+      "target": "週末は映画を見たり、本を読んだりします。",
+      "accept": [
+        "しゅうまつはえいがをみたり、ほんをよんだりします。"
+      ],
+      "explain": "「〜たり〜たりします」liệt kê; 読む→読んだり (む→んだ), 見る→見たり (Nhóm II: る bỏ thêm た)."
+    },
+    {
+      "vi": "Tiếng Nhật của tôi dần trở nên giỏi hơn.",
+      "target": "日本語がだんだん上手になりました。",
+      "accept": [
+        "にほんごがだんだんじょうずになりました。",
+        "日本語がだいぶ上手になりました。"
+      ],
+      "explain": "上手 là な-adj → 上手に + なりました; が chỉ chủ ngữ thay đổi (日本語が)."
+    },
+    {
+      "vi": "Tôi chưa từng ăn sushi.",
+      "target": "寿司を食べたことがありません。",
+      "accept": [
+        "すしをたべたことがありません。"
+      ],
+      "explain": "「たことがありません」phủ định kinh nghiệm; を chỉ tân ngữ của 食べる (寿司を食べる)."
+    },
+    {
+      "vi": "Trời dần trở lạnh hơn.",
+      "target": "だんだん寒くなりました。",
+      "accept": [
+        "だんだんさむくなりました。"
+      ],
+      "explain": "寒い (い-adj) → 寒く + なりました; だんだん = dần dần, đứng đầu câu làm trạng ngữ."
+    }
+  ]
+}

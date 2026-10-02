@@ -1,0 +1,1557 @@
+{
+  "bai": 10,
+  "level": "N5",
+  "strategy": {
+    "intro": "Bài 10 dạy cách diễn tả VỊ TRÍ: vật ở đâu, người/động vật ở đâu. Hai mẫu cốt lõi là「NがNにあります」(vật vô tri) và「NがNにいます」(người/sinh vật). Đọc hiểu ở đây = xác định đúng chủ thể (が) + nơi chốn (に) + あります hay います.",
+    "steps": [
+      "Đọc lướt toàn bài để nắm cảnh: đây là căn phòng, toà nhà, hay khu phố nào?",
+      "Tìm trợ từ が — danh từ trước が là VẬT/NGƯỜI/ĐỘNG VẬT đang được định vị.",
+      "Tìm trợ từ に — danh từ trước に là NƠI CHỐN hoặc VẬT MỐC (kết hợp với từ vị trí).",
+      "Phân biệt あります (vật không tự di chuyển) và います (người/động vật có sự sống).",
+      "Chú ý từ vị trí ghép sau danh từ: Nの上 (trên N), Nの下 (dưới N), Nの前 (trước N), v.v.",
+      "Gặp や…など → liệt kê một phần (không phải tất cả). Gặp câu hỏi どこ → tìm に trong bài."
+    ],
+    "tips": [
+      "あります ≠ います: nhầm 2 từ này là sai cơ bản — vật vô tri (bàn, sách, điện thoại) dùng あります; người và động vật dùng います.",
+      "Từ vị trí (上・下・前・後ろ・中・隣・近く・間) LUÔN đứng sau の: 机の上、部屋の中、駅の近く.",
+      "や…など nghĩa là \"... và ... v.v.\" — danh sách KHÔNG đầy đủ; と liệt kê đầy đủ (đã học Bài 4).",
+      "Câu hỏi「Nはどこにありますか／いますか」→ tìm câu trả lời có cùng chủ đề + に + あります/います.",
+      "Đừng nhầm に (vị trí/đích) với で (nơi xảy ra hành động) — Bài 10 chỉ có に.",
+      "Câu「NはNにあります」khác「NがNにあります」về sắc thái: は = đang nói về N đã biết; が = thông báo N tồn tại."
+    ],
+    "grammarFocus": [
+      "NがNにあります（vật vô tri tồn tại ở đâu）",
+      "NがNにいます（người/động vật tồn tại ở đâu）",
+      "NはNの位置にあります／います（vật/người ở vị trí nào so với mốc）",
+      "位置từ: 上・下・前・後ろ・中・隣・近く・間",
+      "NやN（など）（liệt kê không đầy đủ）"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 3,
+        "items": [
+          "NはNにあります／います（vị trí — Bài 3 giới thiệu mẫu gốc, Bài 10 mở rộng với が và từ vị trí）",
+          "ここ・そこ・あそこ（đại từ chỉ nơi chốn）"
+        ]
+      },
+      {
+        "bai": 5,
+        "items": [
+          "〜へ行きます（di chuyển đến nơi）",
+          "Nと（cùng ai）"
+        ]
+      },
+      {
+        "bai": 8,
+        "items": [
+          "Nは〜いです（tính từ い mô tả đồ vật/cảnh vật）",
+          "NはNAです（tính từ な mô tả）",
+          "どんなN（N như thế nào）"
+        ]
+      },
+      {
+        "bai": 9,
+        "items": [
+          "〜があります（có/tồn tại — sự kiện, Bài 9）",
+          "〜が好きです（sở thích）",
+          "〜から（lý do）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "わたしの部屋",
+      "titleVi": "Phòng của tôi",
+      "japanese": "私の部屋は小さいです。部屋の中にベッドや机などがあります。机の上に本とノートがあります。ベッドの下にかばんがあります。窓の近くに椅子があります。椅子の上にねこがいます。",
+      "vietnamese": "Phòng của tôi nhỏ. Trong phòng có giường, bàn và nhiều thứ khác. Trên bàn có sách và vở. Dưới gầm giường có túi xách. Gần cửa sổ có ghế. Trên ghế có một con mèo.",
+      "sentences": [
+        {
+          "jp": "私の部屋は小さいです。",
+          "vi": "Phòng của tôi nhỏ.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ (tính từ い)"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "私の部屋 = phòng của tôi (の nối sở hữu, ôn Bài 1)."
+            },
+            {
+              "point": "Nは〜いです",
+              "vi": "Miêu tả tính chất bằng tính từ い (ôn Bài 8)."
+            }
+          ]
+        },
+        {
+          "jp": "部屋の中にベッドや机などがあります。",
+          "vi": "Trong phòng có giường, bàn và nhiều thứ khác.",
+          "vocab": [
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "ベッド",
+              "read": "ベッド",
+              "vi": "giường (tiếng Anh: bed)"
+            },
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn học, bàn làm việc"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong, bên trong"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NやN（など）",
+              "vi": "ベッドや机など = giường, bàn... (liệt kê không đầy đủ — còn nhiều thứ khác)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "ベッドや机などが部屋の中にあります → vật vô tri tồn tại ở trong phòng."
+            },
+            {
+              "point": "NのN（位置）",
+              "vi": "部屋の中 = bên trong phòng (の + từ vị trí 中)."
+            }
+          ]
+        },
+        {
+          "jp": "机の上に本とノートがあります。",
+          "vi": "Trên bàn có sách và vở.",
+          "vocab": [
+            {
+              "w": "机",
+              "read": "つくえ",
+              "vi": "bàn học"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở (tiếng Anh: note)"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "trên, phía trên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置）",
+              "vi": "机の上 = phía trên bàn (の + 上)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "本とノートが机の上にあります → sách và vở tồn tại trên bàn."
+            }
+          ]
+        },
+        {
+          "jp": "ベッドの下にかばんがあります。",
+          "vi": "Dưới gầm giường có túi xách.",
+          "vocab": [
+            {
+              "w": "ベッド",
+              "read": "ベッド",
+              "vi": "giường"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "かばん",
+              "read": "かばん",
+              "vi": "túi xách, cặp sách"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置）",
+              "vi": "ベッドの下 = phía dưới giường (の + 下)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "かばんがベッドの下にあります → túi xách tồn tại dưới giường."
+            }
+          ]
+        },
+        {
+          "jp": "窓の近くに椅子があります。",
+          "vi": "Gần cửa sổ có ghế.",
+          "vocab": [
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận"
+            },
+            {
+              "w": "椅子",
+              "read": "いす",
+              "vi": "ghế"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置）",
+              "vi": "窓の近く = gần cửa sổ (の + 近く)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "椅子が窓の近くにあります → ghế tồn tại gần cửa sổ."
+            }
+          ]
+        },
+        {
+          "jp": "椅子の上にねこがいます。",
+          "vi": "Trên ghế có một con mèo.",
+          "vocab": [
+            {
+              "w": "椅子",
+              "read": "いす",
+              "vi": "ghế"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "trên"
+            },
+            {
+              "w": "ねこ",
+              "read": "ねこ",
+              "vi": "mèo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがNにいます",
+              "vi": "ねこが椅子の上にいます → mèo (động vật) tồn tại trên ghế. Dùng います vì mèo là sinh vật."
+            },
+            {
+              "point": "あります vs います",
+              "vi": "Vật vô tri → あります; người/động vật → います. So sánh câu này với các câu trước."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "ベッドや机などがあります",
+          "label": "NやN（など）"
+        },
+        {
+          "excerpt": "机の上に本とノートがあります",
+          "label": "NがNにあります（位置: 上）"
+        },
+        {
+          "excerpt": "ベッドの下にかばんがあります",
+          "label": "NがNにあります（位置: 下）"
+        },
+        {
+          "excerpt": "椅子の上にねこがいます",
+          "label": "NがNにいます（động vật）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "かばんはどこにありますか。",
+          "evi": [
+            3
+          ],
+          "options": [
+            "机の上にあります",
+            "窓の近くにあります",
+            "ベッドの下にあります",
+            "椅子の上にあります"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết rõ: 「ベッドの下にかばんがあります」→ túi xách ở dưới gầm giường, nên đáp án đúng là ③「ベッドの下にあります」. ① sai vì 机の上 có 本とノート, không có かばん. ② sai vì 窓の近く có 椅子, không có かばん. ④ sai vì 椅子の上 có ねこ (dùng います vì mèo là động vật), không phải かばん. Lưu ý: かばん là vật vô tri nên câu hỏi dùng あります, không phải います.",
+          "tip": "Gặp câu hỏi「どこにありますか」→ tìm từ chỉ vị trí (上・下・前・近く...) gắn với tên vật đó trong bài. Vật vô tri (túi, sách, bàn) = あります.",
+          "qt": {
+            "q": "Cặp sách ở đâu?",
+            "o": [
+              "Ở trên bàn",
+              "Ở gần cửa sổ",
+              "Ở dưới giường",
+              "Ở trên ghế"
+            ]
+          }
+        },
+        {
+          "q": "ねこはどこにいますか。",
+          "evi": [
+            5
+          ],
+          "options": [
+            "ベッドの上にいます",
+            "机の下にいます",
+            "窓の近くにいます",
+            "椅子の上にいます"
+          ],
+          "answer": 3,
+          "explainVi": "Bài viết: 「椅子の上にねこがいます」→ mèo ở trên ghế, nên đáp án đúng là ④「椅子の上にいます」. ① sai vì ベッドの下 có かばん (không đề cập ねこ ở đây). ② sai vì 机の下 không được nhắc đến. ③ sai vì 窓の近く có 椅子 (vật), không phải ねこ. Lưu ý quan trọng: ねこ là động vật nên dùng います, không phải あります — đây là phân biệt cốt lõi của Bài 10.",
+          "tip": "Gặp「どこにいますか」→ chủ thể là người hoặc động vật (có sự sống). Gặp「どこにありますか」→ chủ thể là vật vô tri. Nhìn động từ cuối câu: いる/います = sống; ある/あります = không sống.",
+          "qt": {
+            "q": "Con mèo ở đâu?",
+            "o": [
+              "Ở trên giường",
+              "Ở dưới bàn",
+              "Ở gần cửa sổ",
+              "Ở trên ghế"
+            ]
+          }
+        },
+        {
+          "q": "次の中で正しいのはどれですか。（Câu nào đúng với nội dung bài?）",
+          "evi": [
+            2
+          ],
+          "options": [
+            "部屋は大きいです",
+            "机の上に本とノートがあります",
+            "窓の近くにベッドがあります",
+            "ねこは部屋の外にいます"
+          ],
+          "answer": 1,
+          "explainVi": "② đúng: bài viết rõ「机の上に本とノートがあります」— trên bàn có sách và vở. ① sai: bài nói「部屋は小さいです」(nhỏ), không phải 大きい (to). ③ sai: 窓の近く có 椅子 (ghế), không phải ベッド. ベッド nằm trong 部屋の中. ④ sai: 「椅子の上にねこがいます」— mèo ở trên ghế trong phòng, không phải ở ngoài (部屋の外). Với dạng câu hỏi \"đúng/sai\", đọc từng lựa chọn rồi đối chiếu thẳng với câu trong bài.",
+          "tip": "Dạng câu hỏi \"câu nào đúng\" → loại trừ: tìm 1 chi tiết SAI trong mỗi lựa chọn (số lượng, vị trí, tính từ mô tả) để loại nhanh 3 đáp án sai.",
+          "qt": {
+            "q": "Trong các câu sau, câu nào đúng?",
+            "o": [
+              "Căn phòng rộng",
+              "Trên bàn có sách và vở",
+              "Gần cửa sổ có giường",
+              "Con mèo ở bên ngoài căn phòng"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "さくら町の案内",
+      "titleVi": "Giới thiệu khu phố Sakura",
+      "japanese": "ここはさくら町です。さくら町はにぎやかな町です。\n駅の前にスーパーとコンビニがあります。スーパーの隣に銀行があります。\n駅の近くに公園があります。公園の中に木や花などがあります。公園の前に小さいカフェがあります。\nカフェの中にミラーさんとマリアさんがいます。ミラーさんとマリアさんはコーヒーを飲みます。\n公園の後ろに図書館があります。図書館は静かです。今、図書館の中に学生が大勢います。\n駅と図書館の間に郵便局があります。郵便局の前に自転車がたくさんあります。\nさくら町はとてもいい町です。私はさくら町が好きです。",
+      "vietnamese": "Đây là khu Sakura. Khu Sakura là một khu phố sầm uất.\nTrước ga có siêu thị và cửa hàng tiện lợi. Bên cạnh siêu thị có ngân hàng.\nGần ga có công viên. Trong công viên có cây cối, hoa và nhiều thứ khác. Trước công viên có một quán cà phê nhỏ.\nTrong quán cà phê có anh Miller và chị Maria. Anh Miller và chị Maria uống cà phê.\nPhía sau công viên có thư viện. Thư viện yên tĩnh. Bây giờ trong thư viện có rất nhiều sinh viên.\nGiữa ga và thư viện có bưu điện. Trước bưu điện có rất nhiều xe đạp.\nKhu Sakura là khu phố rất tốt. Tôi thích khu Sakura.",
+      "sentences": [
+        {
+          "jp": "ここはさくら町です。さくら町はにぎやかな町です。",
+          "vi": "Đây là khu Sakura. Khu Sakura là một khu phố sầm uất.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "にぎやか",
+              "read": "にぎやか",
+              "vi": "sầm uất, náo nhiệt (tính từ な)"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "khu phố, thị trấn"
+            },
+            {
+              "w": "ここ",
+              "read": "ここ",
+              "vi": "đây, nơi này"
+            },
+            {
+              "w": "さくら町",
+              "read": "さくらまち",
+              "vi": "khu phố Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "Giới thiệu ここ là さくら町 (ôn Bài 1)."
+            },
+            {
+              "point": "NはNAなNです",
+              "vi": "にぎやかな町 = khu phố sầm uất (tính từ な + N, ôn Bài 8)."
+            }
+          ]
+        },
+        {
+          "jp": "駅の前にスーパーとコンビニがあります。",
+          "vi": "Trước ga có siêu thị và cửa hàng tiện lợi.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga tàu, ga điện"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi (convenience store)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 前）",
+              "vi": "駅の前 = phía trước ga (の + 前)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "スーパーとコンビニが駅の前にあります → hai vật vô tri tồn tại trước ga."
+            }
+          ]
+        },
+        {
+          "jp": "スーパーの隣に銀行があります。",
+          "vi": "Bên cạnh siêu thị có ngân hàng.",
+          "vocab": [
+            {
+              "w": "スーパー",
+              "read": "スーパー",
+              "vi": "siêu thị"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, kế bên"
+            },
+            {
+              "w": "銀行",
+              "read": "ぎんこう",
+              "vi": "ngân hàng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 隣）",
+              "vi": "スーパーの隣 = bên cạnh siêu thị (の + 隣)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "銀行がスーパーの隣にあります → ngân hàng tồn tại kế bên siêu thị."
+            }
+          ]
+        },
+        {
+          "jp": "駅の近くに公園があります。",
+          "vi": "Gần ga có công viên.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "nhà ga"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận"
+            },
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 近く）",
+              "vi": "駅の近く = gần ga (の + 近く)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "公園が駅の近くにあります → công viên tồn tại gần ga."
+            }
+          ]
+        },
+        {
+          "jp": "公園の中に木や花などがあります。",
+          "vi": "Trong công viên có cây cối, hoa và nhiều thứ khác.",
+          "vocab": [
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "木",
+              "read": "き",
+              "vi": "cây"
+            },
+            {
+              "w": "花",
+              "read": "はな",
+              "vi": "hoa"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong, bên trong"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 中）",
+              "vi": "公園の中 = bên trong công viên (の + 中)."
+            },
+            {
+              "point": "NやN（など）",
+              "vi": "木や花など = cây, hoa... (liệt kê không đầy đủ — công viên còn nhiều thứ khác)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "木や花などが公園の中にあります → vật vô tri tồn tại trong công viên."
+            }
+          ]
+        },
+        {
+          "jp": "公園の前に小さいカフェがあります。",
+          "vi": "Trước công viên có một quán cà phê nhỏ.",
+          "vocab": [
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "小さい",
+              "read": "ちいさい",
+              "vi": "nhỏ (tính từ い)"
+            },
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 前）",
+              "vi": "公園の前 = phía trước công viên."
+            },
+            {
+              "point": "〜いN",
+              "vi": "小さいカフェ = quán cà phê nhỏ (tính từ い trực tiếp bổ nghĩa danh từ, ôn Bài 8)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "小さいカフェが公園の前にあります → quán cà phê tồn tại trước công viên."
+            }
+          ]
+        },
+        {
+          "jp": "カフェの中にミラーさんとマリアさんがいます。",
+          "vi": "Trong quán cà phê có anh Miller và chị Maria.",
+          "vocab": [
+            {
+              "w": "カフェ",
+              "read": "カフェ",
+              "vi": "quán cà phê"
+            },
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "マリア",
+              "read": "マリア",
+              "vi": "Maria (tên người)"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがNにいます",
+              "vi": "ミラーさんとマリアさんがカフェの中にいます → NGƯỜI tồn tại trong quán. Dùng います vì là người."
+            },
+            {
+              "point": "あります vs います",
+              "vi": "Quán cà phê (vật) → あります; ミラーさん (người) → います."
+            }
+          ]
+        },
+        {
+          "jp": "ミラーさんとマリアさんはコーヒーを飲みます。",
+          "vi": "Anh Miller và chị Maria uống cà phê.",
+          "vocab": [
+            {
+              "w": "ミラー",
+              "read": "ミラー",
+              "vi": "Miller (tên người)"
+            },
+            {
+              "w": "マリア",
+              "read": "マリア",
+              "vi": "Maria (tên người)"
+            },
+            {
+              "w": "コーヒー",
+              "read": "コーヒー",
+              "vi": "cà phê"
+            },
+            {
+              "w": "飲みます",
+              "read": "のみます",
+              "vi": "uống (Vます)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NをVます",
+              "vi": "コーヒーを飲みます = uống cà phê (を + tha động từ, ôn Bài 6)."
+            }
+          ]
+        },
+        {
+          "jp": "公園の後ろに図書館があります。図書館は静かです。",
+          "vi": "Phía sau công viên có thư viện. Thư viện yên tĩnh.",
+          "vocab": [
+            {
+              "w": "公園",
+              "read": "こうえん",
+              "vi": "công viên"
+            },
+            {
+              "w": "後ろ",
+              "read": "うしろ",
+              "vi": "phía sau, sau lưng"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh, im lặng (tính từ な)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 後ろ）",
+              "vi": "公園の後ろ = phía sau công viên (の + 後ろ)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "図書館が公園の後ろにあります → thư viện tồn tại sau công viên."
+            },
+            {
+              "point": "NはNAです",
+              "vi": "図書館は静かです = thư viện yên tĩnh (tính từ な, ôn Bài 8)."
+            }
+          ]
+        },
+        {
+          "jp": "今、図書館の中に学生が大勢います。",
+          "vi": "Bây giờ trong thư viện có rất nhiều sinh viên.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "học sinh, sinh viên"
+            },
+            {
+              "w": "大勢",
+              "read": "おおぜい",
+              "vi": "đông người"
+            },
+            {
+              "w": "います",
+              "read": "います",
+              "vi": "có, ở (người)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがNにいます",
+              "vi": "学生が図書館の中にいます → NGƯỜI tồn tại trong thư viện. います vì là người."
+            }
+          ]
+        },
+        {
+          "jp": "駅と図書館の間に郵便局があります。",
+          "vi": "Giữa ga và thư viện có bưu điện.",
+          "vocab": [
+            {
+              "w": "駅",
+              "read": "えき",
+              "vi": "ga tàu"
+            },
+            {
+              "w": "図書館",
+              "read": "としょかん",
+              "vi": "thư viện"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "khoảng giữa, ở giữa"
+            },
+            {
+              "w": "郵便",
+              "read": "ゆうびん",
+              "vi": "bưu điện"
+            },
+            {
+              "w": "郵便局",
+              "read": "ゆうびんきょく",
+              "vi": "bưu điện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NとNのN（位置: 間）",
+              "vi": "駅と図書館の間 = ở giữa ga và thư viện (の + 間). 間 dùng cho 2 mốc."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "郵便局が駅と図書館の間にあります → bưu điện tồn tại giữa 2 địa điểm."
+            }
+          ]
+        },
+        {
+          "jp": "郵便局の前に自転車がたくさんあります。",
+          "vi": "Trước bưu điện có rất nhiều xe đạp.",
+          "vocab": [
+            {
+              "w": "郵便",
+              "read": "ゆうびん",
+              "vi": "bưu điện"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước"
+            },
+            {
+              "w": "自転車",
+              "read": "じてんしゃ",
+              "vi": "xe đạp"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "rất nhiều"
+            },
+            {
+              "w": "郵便局",
+              "read": "ゆうびんきょく",
+              "vi": "bưu điện"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがNにあります",
+              "vi": "自転車が郵便局の前にあります → xe đạp (vật) tồn tại trước bưu điện. あります vì xe đạp là vật vô tri."
+            }
+          ]
+        },
+        {
+          "jp": "さくら町はとてもいい町です。私はさくら町が好きです。",
+          "vi": "Khu Sakura là khu phố rất tốt. Tôi thích khu Sakura.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào"
+            },
+            {
+              "w": "町",
+              "read": "まち",
+              "vi": "thị trấn"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt, hay"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "好き",
+              "read": "すき",
+              "vi": "thích"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "とても + tính từ い (いい)",
+              "vi": "とてもいい町 = khu phố rất tốt (とても nhấn mạnh tính từ い bất quy tắc, ôn Bài 8)."
+            },
+            {
+              "point": "NはNが好きです",
+              "vi": "私はさくら町が好きです = tôi thích khu Sakura (ôn Bài 9)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "駅の前にスーパーとコンビニがあります",
+          "label": "NがNにあります（位置: 前）"
+        },
+        {
+          "excerpt": "スーパーの隣に銀行があります",
+          "label": "NがNにあります（位置: 隣）"
+        },
+        {
+          "excerpt": "木や花などがあります",
+          "label": "NやN（など）"
+        },
+        {
+          "excerpt": "カフェの中にミラーさんとマリアさんがいます",
+          "label": "NがNにいます（người）"
+        },
+        {
+          "excerpt": "駅と図書館の間に郵便局があります",
+          "label": "NがNにあります（位置: 間）"
+        },
+        {
+          "excerpt": "図書館の中に学生が大勢います",
+          "label": "NがNにいます（người）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "銀行はどこにありますか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "駅の前にあります",
+            "公園の近くにあります",
+            "スーパーの隣にあります",
+            "図書館の後ろにあります"
+          ],
+          "answer": 2,
+          "explainVi": "Bài viết rõ: 「スーパーの隣に銀行があります」→ ngân hàng ở kế bên siêu thị, nên đáp án đúng là ③「スーパーの隣にあります」. ① sai: 駅の前 có スーパーとコンビニ, không có 銀行. ② sai: 公園の近く không được nhắc đến trong ngữ cảnh 銀行. ④ sai: 図書館の後ろ không có thông tin nào về 銀行 trong bài. 銀行 là vật/tòa nhà (vô tri) nên dùng あります, không dùng います.",
+          "tip": "Gặp từ chỉ địa điểm (ngân hàng, thư viện, bưu điện...) → luôn là あります. Khi đọc bài, gạch chân ngay cụm「NのN（位置）に〜があります」để tra nhanh khi gặp câu hỏi.",
+          "qt": {
+            "q": "Ngân hàng ở đâu?",
+            "o": [
+              "Ở phía trước nhà ga",
+              "Ở gần công viên",
+              "Ở bên cạnh siêu thị",
+              "Ở phía sau thư viện"
+            ]
+          }
+        },
+        {
+          "q": "今、図書館の中にだれがいますか。",
+          "evi": [
+            9
+          ],
+          "options": [
+            "ミラーさんとマリアさんがいます",
+            "学生が大勢います",
+            "ミラーさんがいます",
+            "だれもいません"
+          ],
+          "answer": 1,
+          "explainVi": "Bài viết: 「今、図書館の中に学生が大勢います」→ hiện tại trong thư viện có rất nhiều sinh viên, nên đáp án đúng là ②「学生が大勢います」. ① sai: ミラーさんとマリアさん đang ở trong カフェ (「カフェの中にミラーさんとマリアさんがいます」), không phải 図書館. ③ sai: chỉ nhắc ミラーさん một mình, vừa sai người vừa sai địa điểm. ④ sai: bài nói 大勢います (có rất nhiều người), tức là有人. Người và 大勢 (đám đông) đều dùng います vì là người — chú ý phân biệt với カフェ (vật) dùng あります.",
+          "tip": "Câu hỏi「だれがいますか」→ tìm từ chỉ người (học sinh, tên riêng...) đi với います. Đừng nhầm với「何がありますか」(hỏi vật, dùng あります).",
+          "qt": {
+            "q": "Bây giờ, ai đang ở trong thư viện?",
+            "o": [
+              "Có ông Miller và cô Maria",
+              "Có rất nhiều học sinh",
+              "Có ông Miller",
+              "Không có ai"
+            ]
+          }
+        },
+        {
+          "q": "郵便局はどこにありますか。",
+          "evi": [
+            10
+          ],
+          "options": [
+            "公園の前にあります",
+            "駅の隣にあります",
+            "スーパーと銀行の間にあります",
+            "駅と図書館の間にあります"
+          ],
+          "answer": 3,
+          "explainVi": "Bài viết rõ: 「駅と図書館の間に郵便局があります」→ bưu điện nằm giữa ga và thư viện, nên đáp án đúng là ④「駅と図書館の間にあります」. ① sai: 公園の前 có 小さいカフェ, không có 郵便局. ② sai: 駅の隣 không được nhắc đến, và bài không nói 郵便局 kề ga. ③ sai: bài đề cập 銀行 ở 駅の前 (qua スーパーの隣), không liên quan đến 郵便局. Từ vị trí 間 dùng khi có HAI mốc: 「NとNの間」= giữa N và N — đây là điểm ngữ pháp đặc biệt của Bài 10.",
+          "tip": "Thấy「〜と〜の間」→ địa điểm đó nằm GIỮA hai nơi đã nêu. Từ vị trí 間 luôn cần 2 mốc, khác với 隣 (chỉ cần 1 mốc bên cạnh).",
+          "qt": {
+            "q": "Bưu điện ở đâu?",
+            "o": [
+              "Ở phía trước công viên",
+              "Ở bên cạnh nhà ga",
+              "Ở giữa siêu thị và ngân hàng",
+              "Ở giữa nhà ga và thư viện"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "コンビニの案内",
+      "titleVi": "Sơ đồ hướng dẫn cửa hàng tiện lợi",
+      "japanese": "コンビニの案内\nここはさくら町のコンビニです。パンやお茶などがあります。品物は下の表の場所にあります。\n品物｜場所｜近くにあるもの\nパン｜入り口の近く｜レジ\nお茶とジュース｜れいぞうこの中｜パン\nノートとペン｜レジの隣｜れいぞうこ\nかさ｜出口の近く｜れいぞうこ\n※新しいパンはレジの近くのたなの上にあります。\n店員はレジの後ろにいます。店員は親切な人です。子どもの本は入り口とレジの間にあります。\nこのコンビニの時間は朝七時から夜十一時までです。毎日、大勢の客がいます。",
+      "vietnamese": "Sơ đồ hướng dẫn cửa hàng tiện lợi\nĐây là cửa hàng tiện lợi ở khu Sakura. Có bánh mì, trà và nhiều thứ khác. Đồ vật ở vị trí như bảng dưới.\nĐồ vật｜Vị trí｜Vật gần đó\nBánh mì｜Gần cửa ra vào｜Quầy thu ngân\nTrà và nước ép｜Trong tủ lạnh｜Bánh mì\nVở và bút｜Bên cạnh quầy thu ngân｜Tủ lạnh\nÔ (dù)｜Gần cửa ra｜Tủ lạnh\n※Bánh mì mới ở trên kệ gần quầy thu ngân.\nNhân viên ở phía sau quầy thu ngân. Nhân viên là người tốt bụng. Sách trẻ em ở giữa cửa ra vào và quầy thu ngân.\nGiờ mở cửa của cửa hàng này là từ 7 giờ sáng đến 11 giờ đêm. Mỗi ngày có rất nhiều khách.",
+      "sentences": [
+        {
+          "jp": "コンビニの案内",
+          "vi": "Sơ đồ hướng dẫn cửa hàng tiện lợi",
+          "vocab": [
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN",
+              "vi": "コンビニの案内 = sơ đồ hướng dẫn của cửa hàng tiện lợi (ôn Bài 1)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "コンビニの案内",
+              "why": "Tiêu đề — cho biết đây là thông báo về sơ đồ trong một cửa hàng tiện lợi."
+            }
+          ]
+        },
+        {
+          "jp": "ここはさくら町のコンビニです。パンやお茶などがあります。品物は下の表の場所にあります。",
+          "vi": "Đây là cửa hàng tiện lợi ở khu Sakura. Có bánh mì, trà và nhiều thứ khác. Đồ vật ở vị trí như bảng dưới.",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi (convenience store)"
+            },
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà"
+            },
+            {
+              "w": "品物",
+              "read": "しなもの",
+              "vi": "đồ vật, hàng hóa"
+            },
+            {
+              "w": "下",
+              "read": "した",
+              "vi": "dưới, phía dưới"
+            },
+            {
+              "w": "表",
+              "read": "ひょう",
+              "vi": "bảng (biểu)"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "さくら町",
+              "read": "さくらまち",
+              "vi": "khu phố Sakura"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NはNです",
+              "vi": "ここはさくら町のコンビニです = đây là cửa hàng tiện lợi của khu Sakura (ôn Bài 1)."
+            },
+            {
+              "point": "NやN（など）",
+              "vi": "パンやお茶など = bánh mì, trà... (liệt kê không đầy đủ, ngữ pháp mới Bài 10)."
+            },
+            {
+              "point": "NはNにあります",
+              "vi": "品物は下の表の場所にあります = đồ vật ở vị trí như bảng dưới (mẫu vị trí, ôn/mở rộng Bài 3+10)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "パンやお茶など",
+              "why": "Cho biết cửa hàng có nhiều loại đồ, cần dò bảng để biết vị trí từng loại."
+            },
+            {
+              "w": "下の表の場所",
+              "why": "Báo hiệu: câu trả lời cho câu hỏi vị trí nằm trong bảng phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "品物｜場所｜近くにあるもの",
+          "vi": "Đồ vật｜Vị trí｜Vật gần đó",
+          "vocab": [
+            {
+              "w": "品物",
+              "read": "しなもの",
+              "vi": "đồ vật"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "表のNの見出し",
+              "vi": "Hàng đầu bảng: tên 3 cột — đồ vật / vị trí / vật gần đó."
+            }
+          ],
+          "keys": [
+            {
+              "w": "場所",
+              "why": "Cột này chứa câu trả lời trực tiếp cho câu hỏi「どこにありますか」."
+            }
+          ]
+        },
+        {
+          "jp": "パン｜入り口の近く｜レジ",
+          "vi": "Bánh mì｜Gần cửa ra vào｜Quầy thu ngân",
+          "vocab": [
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "入り口",
+              "read": "いりぐち",
+              "vi": "cửa ra vào, lối vào"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 近く）",
+              "vi": "入り口の近く = gần cửa ra vào (の + 近く, ngữ pháp mới Bài 10)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "パンが入り口の近くにあります → bánh mì (vật vô tri) tồn tại gần cửa ra vào."
+            }
+          ],
+          "keys": [
+            {
+              "w": "入り口の近く",
+              "why": "Vị trí của パン — nhiễu cho câu hỏi hỏi vị trí đồ vật khác."
+            }
+          ]
+        },
+        {
+          "jp": "お茶とジュース｜れいぞうこの中｜パン",
+          "vi": "Trà và nước ép｜Trong tủ lạnh｜Bánh mì",
+          "vocab": [
+            {
+              "w": "お茶",
+              "read": "おちゃ",
+              "vi": "trà"
+            },
+            {
+              "w": "ジュース",
+              "read": "ジュース",
+              "vi": "nước ép, nước ngọt"
+            },
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "れいぞうこ",
+              "read": "れいぞうこ",
+              "vi": "tủ lạnh"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 中）",
+              "vi": "れいぞうこの中 = bên trong tủ lạnh (の + 中, ôn Bài 10 phần trên)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "お茶とジュースがれいぞうこの中にあります → trà và nước ép tồn tại trong tủ lạnh."
+            }
+          ],
+          "keys": [
+            {
+              "w": "れいぞうこの中",
+              "why": "Vị trí của お茶とジュース — dễ nhầm với dòng ノートとペン vì cùng nhắc れいぞうこ."
+            }
+          ]
+        },
+        {
+          "jp": "ノートとペン｜レジの隣｜れいぞうこ",
+          "vi": "Vở và bút｜Bên cạnh quầy thu ngân｜Tủ lạnh",
+          "vocab": [
+            {
+              "w": "ノート",
+              "read": "ノート",
+              "vi": "vở"
+            },
+            {
+              "w": "ペン",
+              "read": "ペン",
+              "vi": "bút"
+            },
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, kế bên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 隣）",
+              "vi": "レジの隣 = bên cạnh quầy thu ngân (の + 隣, ngữ pháp mới Bài 10)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "ノートとペンがレジの隣にあります → vở và bút tồn tại bên cạnh quầy thu ngân."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ノートとペン",
+              "why": "Tên đồ vật ở cột đầu — phải khớp đúng với chủ thể ノートとペン trong câu hỏi trước khi đọc cột vị trí của hàng này."
+            },
+            {
+              "w": "レジの隣",
+              "why": "Căn cứ chính trả lời câu hỏi ノートとペンはどこにありますか."
+            }
+          ]
+        },
+        {
+          "jp": "かさ｜出口の近く｜れいぞうこ",
+          "vi": "Ô (dù)｜Gần cửa ra｜Tủ lạnh",
+          "vocab": [
+            {
+              "w": "出口",
+              "read": "でぐち",
+              "vi": "cửa ra, lối ra"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "かさ",
+              "read": "かさ",
+              "vi": "cái ô, cái dù"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NのN（位置: 近く）",
+              "vi": "出口の近く = gần cửa ra (の + 近く)."
+            },
+            {
+              "point": "NがNにあります",
+              "vi": "かさが出口の近くにあります → ô/dù tồn tại gần cửa ra."
+            }
+          ],
+          "keys": [
+            {
+              "w": "出口の近く",
+              "why": "Vị trí của かさ — nhiễu dễ lẫn với 入り口の近く của パン."
+            }
+          ]
+        },
+        {
+          "jp": "※新しいパンはレジの近くのたなの上にあります。",
+          "vi": "※Bánh mì mới ở trên kệ gần quầy thu ngân.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "パン",
+              "read": "パン",
+              "vi": "bánh mì"
+            },
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "近く",
+              "read": "ちかく",
+              "vi": "gần, vùng lân cận (近く = vị trí từ — học ở Bài 10)"
+            },
+            {
+              "w": "たな",
+              "read": "たな",
+              "vi": "kệ, giá để đồ"
+            },
+            {
+              "w": "上",
+              "read": "うえ",
+              "vi": "trên, phía trên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜いN",
+              "vi": "新しいパン = bánh mì mới (tính từ い trực tiếp bổ nghĩa danh từ, ôn Bài 8)."
+            },
+            {
+              "point": "NのN（位置: 近く／上）",
+              "vi": "レジの近くのたなの上 = trên kệ gần quầy thu ngân (ghép 2 lớp vị trí)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "新しいパンはレジの近くのたなの上にあります",
+              "why": "Chú ý ※ — ngoại lệ: bánh mì MỚI không nằm ở 入り口の近く như dòng bảng chính mà ở gần レジ."
+            }
+          ]
+        },
+        {
+          "jp": "店員はレジの後ろにいます。店員は親切な人です。子どもの本は入り口とレジの間にあります。",
+          "vi": "Nhân viên ở phía sau quầy thu ngân. Nhân viên là người tốt bụng. Sách trẻ em ở giữa cửa ra vào và quầy thu ngân.",
+          "vocab": [
+            {
+              "w": "店員",
+              "read": "てんいん",
+              "vi": "nhân viên cửa hàng"
+            },
+            {
+              "w": "レジ",
+              "read": "レジ",
+              "vi": "quầy thu ngân"
+            },
+            {
+              "w": "後ろ",
+              "read": "うしろ",
+              "vi": "phía sau"
+            },
+            {
+              "w": "親切",
+              "read": "しんせつ",
+              "vi": "tốt bụng, thân thiện (tính từ な)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "子ども",
+              "read": "こども",
+              "vi": "trẻ em"
+            },
+            {
+              "w": "本",
+              "read": "ほん",
+              "vi": "sách"
+            },
+            {
+              "w": "入り口",
+              "read": "いりくち",
+              "vi": "cửa vào, lối vào"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "khoảng giữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NがNにいます",
+              "vi": "店員がレジの後ろにいます → NGƯỜI (nhân viên) tồn tại sau quầy thu ngân, dùng います."
+            },
+            {
+              "point": "NはNAです",
+              "vi": "店員は親切な人です = nhân viên là người tốt bụng (tính từ な, ôn Bài 8)."
+            },
+            {
+              "point": "NとNのN（位置: 間）",
+              "vi": "入り口とレジの間 = giữa cửa ra vào và quầy thu ngân (の + 間, ngữ pháp mới Bài 10)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "店員はレジの後ろにいます",
+              "why": "Vị trí nhân viên — dùng います vì là người, phân biệt với đồ vật dùng あります."
+            },
+            {
+              "w": "入り口とレジの間",
+              "why": "Vị trí sách trẻ em — mẫu 間 cần đúng 2 mốc."
+            }
+          ]
+        },
+        {
+          "jp": "このコンビニの時間は朝七時から夜十一時までです。毎日、大勢の客がいます。",
+          "vi": "Giờ mở cửa của cửa hàng này là từ 7 giờ sáng đến 11 giờ đêm. Mỗi ngày có rất nhiều khách.",
+          "vocab": [
+            {
+              "w": "コンビニ",
+              "read": "コンビニ",
+              "vi": "cửa hàng tiện lợi (convenience store)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian, giờ giấc"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối, ban đêm"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày, hằng ngày"
+            },
+            {
+              "w": "大勢",
+              "read": "おおぜい",
+              "vi": "rất nhiều người"
+            },
+            {
+              "w": "客",
+              "read": "きゃく",
+              "vi": "khách hàng"
+            },
+            {
+              "w": "七時",
+              "read": "しちじ",
+              "vi": "7 giờ"
+            },
+            {
+              "w": "十一時",
+              "read": "じゅういちじ",
+              "vi": "11 giờ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "NからNまで",
+              "vi": "朝七時から夜十一時まで = từ 7 giờ sáng đến 11 giờ đêm (ôn Bài 4)."
+            },
+            {
+              "point": "NがNにいます",
+              "vi": "大勢の客がいます → nhiều khách (người) tồn tại, dùng います."
+            }
+          ],
+          "keys": [
+            {
+              "w": "朝七時から夜十一時まで",
+              "why": "Thông tin giờ mở cửa — chi tiết bổ sung của tờ thông báo, không phải căn cứ câu hỏi vị trí."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "パンやお茶などがあります",
+          "label": "NやN（など）"
+        },
+        {
+          "excerpt": "ノートとペン｜レジの隣",
+          "label": "NがNにあります（位置: 隣）"
+        },
+        {
+          "excerpt": "入り口とレジの間にあります",
+          "label": "NとNのN（位置: 間）"
+        },
+        {
+          "excerpt": "店員はレジの後ろにいます",
+          "label": "NがNにいます（người）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề + giới thiệu",
+          "topic": 1,
+          "note": "Xác định đây là sơ đồ đồ vật trong cửa hàng tiện lợi ở khu Sakura; câu 2 báo hiệu bảng dưới chứa vị trí.",
+          "qs": []
+        },
+        {
+          "from": 2,
+          "to": 6,
+          "kind": "point",
+          "label": "Bảng vị trí đồ vật",
+          "topic": 2,
+          "note": "Bảng 3 cột (đồ vật／vị trí／vật gần đó) — dò đúng hàng theo tên đồ vật để trả lời câu hỏi vị trí.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 7,
+          "kind": "turn",
+          "label": "Chú ý ※ về bánh mì mới",
+          "topic": 7,
+          "note": "Bẫy: bánh mì MỚI lại ở vị trí khác (gần レジ) so với パン thường trong bảng (gần 入り口) — không phải căn cứ của câu hỏi đang hỏi nhưng dễ đọc nhầm.",
+          "qs": []
+        },
+        {
+          "from": 8,
+          "to": 9,
+          "kind": "body",
+          "label": "Nhân viên + giờ mở cửa",
+          "topic": 8,
+          "note": "Thông tin bổ sung: vị trí nhân viên, sách trẻ em, và giờ hoạt động — không liên quan trực tiếp câu hỏi về ノートとペン.",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "ノートとペンはどこにありますか。",
+          "options": [
+            "入り口の近くにあります",
+            "れいぞうこの中にあります",
+            "レジの隣にあります",
+            "出口の近くにあります"
+          ],
+          "answer": 2,
+          "explainVi": "Bảng ghi rõ: 「ノートとペン｜レジの隣｜れいぞうこ」→ vở và bút ở bên cạnh quầy thu ngân, nên đáp án đúng là ③「レジの隣にあります」. ① sai: 入り口の近く là vị trí của パン, không phải ノートとペン. ② sai: れいぞうこの中 là vị trí của お茶とジュース. ④ sai: 出口の近く là vị trí của かさ. Cả 3 nhiễu đều là vị trí THẬT trong bảng nhưng của đồ vật KHÁC — phải khớp đúng tên đồ vật ở cột đầu trước khi đọc cột vị trí.",
+          "tip": "Gặp câu hỏi「Nはどこにありますか」dạng bảng → tìm đúng HÀNG có tên N ở cột đầu, rồi đọc cột 場所 của chính hàng đó, đừng lấy nhầm vị trí ở hàng bên cạnh.",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Vở và bút ở đâu?",
+            "o": [
+              "Ở gần lối vào",
+              "Ở bên trong tủ lạnh",
+              "Ở bên cạnh quầy thu ngân",
+              "Ở gần lối ra"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

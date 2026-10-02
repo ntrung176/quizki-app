@@ -1,0 +1,3363 @@
+{
+  "bai": 126,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài học này rèn luyện kỹ năng nắm bắt cảm xúc, thái độ và mục đích giao tiếp của nhân vật trong các đoạn văn hội thoại, nhật ký hoặc tản văn N3. Điểm mấu chốt là phân biệt rõ sắc thái giữa độc thoại tự vấn mông lung (～かな／かしら), áp đặt/thông báo thông tin mới (～よ) đối lập với tìm kiếm đồng thuận (～ね／よね), cũng như giữa suy đoán/xác nhận thông tin (～でしょ／でしょう, ～じゃないか) và diễn giải căn nguyên bối cảnh (～んだ／んです).",
+    "steps": [
+      "Xác định đối tượng tiếp nhận thông tin qua đuôi câu: phân biệt rõ độc thoại nội tâm (như かな／かしら) với lời nói hướng trực tiếp tới đối phương (như よ, ね, でしょ).",
+      "Khi xuất hiện 『～んだ／んです』, hãy liên kết ngay với câu trước hoặc câu sau để tìm ra lý do, nguyên cớ thực sự giải thích cho hành động của nhân vật.",
+      "Phân tích cấu trúc phủ định bề ngoài 『～じゃないか／じゃないですか』 để nhận diện đây là lời khẳng định ngầm, đề xuất hay sự nhắc nhở chứ không phải phủ định thực tế.",
+      "Nhận diện mức độ chắc chắn của thông tin: phân định ranh giới giữa việc người nói còn băn khoăn (かな／かしら) với việc đã biết rõ và muốn xác nhận lại (でしょ／よね).",
+      "Đối chiếu câu hỏi đọc hiểu (thường hỏi về tâm lý, ý đồ người nói) với các trợ từ tình thái cuối câu để loại trừ các phương án hiểu sai mức độ đồng thuận hoặc mục đích giao tiếp."
+    ],
+    "tips": [
+      "使い分け (よ vs ね vs よね): 『よ』 truyền đạt thông tin mới người nghe chưa biết; 『ね』 tìm sự đồng thuận về điều cả hai cùng biết; 『よね』 dùng khi người nói nghĩ mình đúng nhưng vẫn muốn hỏi lại để chắc chắn.",
+      "使い分け (かな／かしら vs でしょ／でしょう): 『かな／かしら』 là tự hỏi, thể hiện sự không chắc chắn và hướng vào nội tâm; 『でしょ／でしょう』 dùng để phỏng đoán có căn cứ hoặc hướng ra ngoài nhằm xác nhận với đối phương.",
+      "Bẫy phủ định 『～じゃないか／じゃないですか』: Dù có hình thức phủ định nhưng mang hàm ý khẳng định mạnh ('chẳng phải là... hay sao') hoặc rủ rê, tuyệt đối không chọn đáp án mang nghĩa phủ định.",
+      "Dấu hiệu nhận biết đáp án của 『～んだ／んです』: Với các câu hỏi 'Tại sao?', câu văn mang đuôi 『～んだ／んです』 chính là vị trí trọng tâm chứa lý do để chọn đáp án.",
+      "Lưu ý sắc thái 『かしら』: Thường xuất hiện trong lời nói/suy nghĩ của phái nữ, thể hiện sự e ấp, nhẹ nhàng hoặc phân vân tự hỏi."
+    ],
+    "grammarFocus": [
+      "～かな／かしら — 普通形 + かな（nam/nữ）／かしら（nữ）: Thể hiện sự tự hỏi thầm, băn khoăn hoặc nhờ vả nhẹ nhàng; đối chiếu với 〜かもしれない (suy đoán khách quan) thì かな／かしら thuần tính cảm xúc/độc thoại cá nhân.",
+      "～よね／ね／よ（終助詞） — 文末 + よ／ね／よね: Trợ từ tình thái biểu đạt mục đích: よ (nhấn mạnh/báo tin mới), ね (tìm đồng thuận), よね (vừa nhấn mạnh vừa tìm xác nhận); đối chiếu với câu trần thuật không trợ từ (mang tính trung lập, trang trọng).",
+      "でしょ／でしょう（確認・推量） — 普通形 + でしょう／でしょ: Dùng để suy đoán nhẹ hoặc lên giọng để xác nhận điều mình đã đoán; đối chiếu với 〜にちがいない (khẳng định chắc nịch, không có tính chất hỏi đối phương).",
+      "～じゃないか／じゃないですか — 普通形 + じゃないか／じゃないですか: Dùng để khẳng định quan điểm, đề xuất hoặc phản bác nhẹ; đối chiếu với câu hỏi nghi vấn phủ định thuần túy (không chứa hàm ý thúc ép hay gợi ý).",
+      "～んだ／んです（説明・強調） — 普通形 + んだ／んです: Giải thích lý do, bối cảnh ngầm hoặc nhấn mạnh thông tin; đối chiếu với 〜から／ので (chỉ nêu mối quan hệ nhân quả logic đơn thuần)."
+    ],
+    "reviewFrom": [
+      {
+        "bai": 52,
+        "items": [
+          "〜にちがいない（phán đoán chắc chắn không cần hỏi lại）",
+          "〜かもしれない（phán đoán không chắc chắn, gần với sắc thái かな）"
+        ]
+      },
+      {
+        "bai": 62,
+        "items": [
+          "〜のに（thể hiện sự bất mãn/tiếc nuối, thường đi kèm đuôi giải thích んだ／んです）"
+        ]
+      },
+      {
+        "bai": 64,
+        "items": [
+          "〜ようだ（suy đoán dựa trên quan sát trực tiếp, làm tiền đề đưa ra câu hỏi でしょ）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "title": "「これでいいのかな」から始まる共感",
+      "titleVi": "Sự đồng cảm bắt đầu từ câu hỏi «Liệu thế này có ổn không nhỉ»",
+      "japanese": "私たちは日常生活の中で、「これで本当にいいのかな」と一人でつぶやくことがよくあるのではないでしょうか。自分だけの疑問だと思っていても、周りの人に相談してみると、「私も同じことを考えていたよ」と共感されることが多いものです。他人に話しかけることで、自分の不安が相手にも伝わって、心が少し軽くなるんだと思います。人は誰でも、自分の考えが正しいかどうか誰かに確認してほしいと思う時があるでしょう。\nそのような時に「これで合っているよね」と声をかけ合える関係は、とても大切じゃないですか。もし一人だけで悩み続けていたら、いつまでも「本当に大丈夫かしら」と不安が消えないはずです。言葉にして相手に伝えるのは勇気が要りますが、思い切って話してみれば、案外簡単に解決するのではないでしょうか。誰かと気持ちを共有することこそが、人間関係を深める第一歩なんだと気づくはずです。だからこそ、迷った時には小さな疑問でも素直に周りの人に聞いてみるのがいいのですよ。",
+      "vietnamese": "Trong cuộc sống thường nhật, chẳng phải chúng ta rất hay tự lẩm bẩm một mình rằng «Liệu thế này có thực sự ổn không nhỉ» hay sao? Dù cứ ngỡ đó là nỗi băn khoăn của riêng mình, nhưng khi thử giãi bày với những người xung quanh, ta lại thường nhận được sự đồng cảm rằng «Tôi cũng từng nghĩ y như vậy đấy». Tôi nghĩ rằng chính nhờ mở lời trò chuyện với người khác mà nỗi bất an được san sẻ, giúp lòng mình nhẹ nhõm hơn phần nào. Con người ta, ắt hẳn ai cũng có những thời khắc mong muốn được ai đó xác nhận xem suy nghĩ của mình có đúng hay không.\n\nVào những thời điểm như vậy, một mối quan hệ mà đôi bên có thể cùng cất lời hỏi han «Làm thế này là đúng rồi nhỉ» chẳng phải là vô cùng đáng quý sao? Nếu cứ mãi ôm nỗi trăn trở một mình, ắt hẳn nỗi bất an kiểu «Không biết liệu có thực sự ổn không nhỉ» sẽ chẳng thể nào tiêu biến. Diễn đạt thành lời để bộc bạch với đối phương dẫu cần đến lòng dũng cảm, nhưng nếu quyết tâm mở lời, biết đâu mọi chuyện lại được giải quyết dễ dàng đến không ngờ. Chắc chắn ta sẽ nhận ra rằng chính việc chia sẻ tâm tư cùng ai đó mới là bước đi đầu tiên để thắt chặt mối quan hệ giữa người với người. Chính vì thế, những khi phân vân trăn trở, dẫu chỉ là khúc mắc nhỏ nhoi, ta cứ thẳng thắn thử hỏi ý kiến mọi người xung quanh thì tốt biết mấy đấy.",
+      "sentences": [
+        {
+          "jp": "私たちは日常生活の中で、「これで本当にいいのかな」と一人でつぶやくことがよくあるのではないでしょうか。",
+          "vi": "Trong cuộc sống thường nhật, chẳng phải chúng ta rất hay tự lẩm bẩm một mình rằng «Liệu thế này có thực sự ổn không nhỉ» hay sao?",
+          "vocab": [
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "日常生活",
+              "read": "にちじょうせいかつ",
+              "vi": "đời sống hằng ngày"
+            },
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "hằng ngày"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "bên trong"
+            },
+            {
+              "w": "これ",
+              "read": "これ",
+              "vi": "cái này"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thật sự"
+            },
+            {
+              "w": "いい",
+              "read": "いい",
+              "vi": "tốt, ổn"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "つぶやく",
+              "read": "つぶやく",
+              "vi": "lẩm bẩm"
+            },
+            {
+              "w": "よく",
+              "read": "よく",
+              "vi": "thường"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có, tồn tại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かな",
+              "vi": "【接続】V/A/N thể thông thường (なA/N bỏ だ hoặc giữ だ) + かな. 【Sắc thái】Dùng khi tự hỏi, phân vân trong nội tâm hoặc hỏi người đối diện một cách mềm mỏng, không tạo áp lực. 【Đối chiếu】〜かな (thông dụng) ≠ 〜かしら (thiên về nữ tính/nhẹ nhàng) ≠ 〜だろうか (trang trọng, dùng trong văn nghị luận)."
+            },
+            {
+              "point": "〜のではないでしょうか",
+              "vi": "【接続】Thể thông thường (なA/N + な) + のではないでしょうか. 【Sắc thái】Câu hỏi phản vấn lịch sự, dùng để bày tỏ ý kiến, quan điểm của người nói một cách gián tiếp và khiêm tốn nhằm tìm kiếm sự đồng tình. 【Đối chiếu】〜のではないでしょうか (lịch sự) ≠ 〜のではないか (thể ngắn) ≠ 〜でしょう (suy đoán thông thường)."
+            }
+          ]
+        },
+        {
+          "jp": "自分だけの疑問だと思っていても、周りの人に相談してみると、「私も同じことを考えていたよ」と共感されることが多いものです。",
+          "vi": "Dù cứ ngỡ đó là nỗi băn khoăn của riêng mình, nhưng khi thử giãi bày với những người xung quanh, ta lại thường nhận được sự đồng cảm rằng «Tôi cũng từng nghĩ y như vậy đấy».",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh, mọi người xung quanh"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "thảo luận, giãi bày, xin ý kiến"
+            },
+            {
+              "w": "同じ",
+              "read": "おなじ",
+              "vi": "giống nhau, cùng"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "共感",
+              "read": "きょうかん",
+              "vi": "sự đồng cảm"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜よ（終助詞）",
+              "vi": "【接続】Đứng ở cuối câu (thể thông thường/lịch sự + よ). 【Sắc thái】Nhấn mạnh thông tin mới, thông báo điều người nghe chưa biết hoặc khẳng định ý kiến cá nhân. 【Đối chiếu】〜よ (truyền tải thông tin mới một chiều) ≠ 〜ね (tìm kiếm đồng cảm khi cả hai cùng biết) ≠ 〜よね (người nói đoán người nghe cũng biết/đồng tình)."
+            },
+            {
+              "point": "〜ものだ（一般傾向）",
+              "vi": "【接続】V/A thể thông thường (なA + な) + ものだ. 【Sắc thái】Nêu lên quy luật tự nhiên, chân lý hoặc một xu hướng tâm lý/hành vi tất yếu trong cuộc sống («thường là / vốn dĩ là»). 【Đối chiếu】〜ものだ (xu hướng tự nhiên) ≠ 〜ことだ (lời khuyên nên làm) ≠ 〜わけだ (kết luận tất yếu dựa trên lý lẽ)."
+            }
+          ]
+        },
+        {
+          "jp": "他人に話しかけることで、自分の不安が相手にも伝わって、心が少し軽くなるんだと思います。",
+          "vi": "Tôi nghĩ rằng chính nhờ mở lời trò chuyện với người khác mà nỗi bất an được san sẻ, giúp lòng mình nhẹ nhõm hơn phần nào.",
+          "vocab": [
+            {
+              "w": "他人",
+              "read": "たにん",
+              "vi": "người khác, người ngoài"
+            },
+            {
+              "w": "話しかける",
+              "read": "はなしかける",
+              "vi": "bắt chuyện, mở lời"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự bất an, lo lắng"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "伝わる",
+              "read": "つたわる",
+              "vi": "được truyền tải, truyền đạt"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "軽い",
+              "read": "かるい",
+              "vi": "nhẹ"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んだ／んです",
+              "vi": "【接続】Thể thông thường (なA/N + な) + んだ/んです. 【Sắc thái】Dùng để giải thích nguyên nhân, nguồn cơn cảm xúc hoặc nhấn mạnh bản chất của sự việc («thực ra là.../chính là vì...»). 【Đối chiếu】〜んだ (giải thích tạo gắn kết, ấm áp) ≠ 〜だ (khẳng định khách quan, khô khan)."
+            }
+          ]
+        },
+        {
+          "jp": "人は誰でも、自分の考えが正しいかどうか誰かに確認してほしいと思う時があるでしょう。",
+          "vi": "Con người ta, ắt hẳn ai cũng có những thời khắc mong muốn được ai đó xác nhận xem suy nghĩ của mình có đúng hay không.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người"
+            },
+            {
+              "w": "誰でも",
+              "read": "だれでも",
+              "vi": "bất kỳ ai"
+            },
+            {
+              "w": "誰",
+              "read": "だれ",
+              "vi": "ai"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "考え",
+              "read": "かんがえ",
+              "vi": "suy nghĩ, quan điểm"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng"
+            },
+            {
+              "w": "誰か",
+              "read": "だれか",
+              "vi": "ai đó"
+            },
+            {
+              "w": "確認してほしい",
+              "read": "かくにんしてほしい",
+              "vi": "muốn xác nhận"
+            },
+            {
+              "w": "確認",
+              "read": "かくにん",
+              "vi": "xác nhận"
+            },
+            {
+              "w": "ほしい",
+              "read": "ほしい",
+              "vi": "muốn"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "lúc, khi"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜でしょう／でしょ",
+              "vi": "【接続】V/A/N thể thông thường (なA/N bỏ だ) + でしょう. 【Sắc thái】Phỏng đoán với độ tin cậy cao hoặc xác nhận nhẹ nhàng nhằm thu hút sự đồng cảm từ người nghe/người đọc («chắc là, hẳn là»). 【Đối chiếu】〜でしょう (lịch sự, trang trọng) ≠ 〜だろう (thân mật) ≠ 〜かもしれない (khả năng thấp hơn nhiều)."
+            },
+            {
+              "point": "〜てほしい",
+              "vi": "【接続】V-て + ほしい. 【Sắc thái】Bày tỏ mong muốn người khác thực hiện một hành động nào đó cho mình hoặc vì mình. 【Đối chiếu】〜てほしい (muốn người khác làm) ≠ 〜たい (bản thân muốn làm) ≠ 〜てあげたい (muốn làm cho người khác)."
+            }
+          ]
+        },
+        {
+          "jp": "そのような時に「これで合っているよね」と声をかけ合える関係は、とても大切じゃないですか。",
+          "vi": "Vào những thời điểm như vậy, một mối quan hệ mà đôi bên có thể cùng cất lời hỏi han «Làm thế này là đúng rồi nhỉ» chẳng phải là vô cùng đáng quý sao?",
+          "vocab": [
+            {
+              "w": "そのような",
+              "read": "そのような",
+              "vi": "như thế, như vậy"
+            },
+            {
+              "w": "時",
+              "read": "とき",
+              "vi": "lúc, khi"
+            },
+            {
+              "w": "これ",
+              "read": "これ",
+              "vi": "cái này"
+            },
+            {
+              "w": "合っている",
+              "read": "あっている",
+              "vi": "đúng, khớp"
+            },
+            {
+              "w": "声をかけ合える",
+              "read": "こえをかけあえる",
+              "vi": "có thể động viên nhau"
+            },
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "giọng nói"
+            },
+            {
+              "w": "声をかけ",
+              "read": "こえをかけ",
+              "vi": "lên tiếng, hỏi thăm"
+            },
+            {
+              "w": "かけ合える",
+              "read": "かけあえる",
+              "vi": "có thể cùng thực hiện"
+            },
+            {
+              "w": "合える",
+              "read": "あえる",
+              "vi": "có thể cùng nhau"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜よね（終助詞）",
+              "vi": "【接続】Đứng cuối câu (thể thông thường/lịch sự + よね). 【Sắc thái】Xác nhận lại thông tin mà người nói tin là đúng nhưng vẫn muốn hỏi để nhận được sự tán đồng, chia sẻ từ đối phương. 【Đối chiếu】〜よね (hỏi xác nhận đồng thuận) ≠ 〜ね (cảm thán/đồng tình đơn thuần) ≠ 〜よ (áp đặt thông tin một chiều)."
+            },
+            {
+              "point": "〜じゃないですか／じゃないか",
+              "vi": "【接続】Thể thông thường (なA/N bỏ だ) + じゃないですか/じゃないか. 【Sắc thái】Câu hỏi tu từ khẳng định quan điểm một cách mạnh mẽ nhưng thân thiện, nhằm gợi mở sự đồng tình từ đối phương («chẳng phải là... hay sao»). 【Đối chiếu】〜じゃないですか (khẳng định qua phản vấn) ≠ 〜ですか (câu hỏi thông tin trung tính)."
+            }
+          ]
+        },
+        {
+          "jp": "もし一人だけで悩み続けていたら、いつまでも「本当に大丈夫かしら」と不安が消えないはずです。",
+          "vi": "Nếu cứ mãi ôm nỗi trăn trở một mình, ắt hẳn nỗi bất an kiểu «Không biết liệu có thực sự ổn không nhỉ» sẽ chẳng thể nào tiêu biến.",
+          "vocab": [
+            {
+              "w": "もし",
+              "read": "もし",
+              "vi": "nếu"
+            },
+            {
+              "w": "一人",
+              "read": "ひとり",
+              "vi": "một mình"
+            },
+            {
+              "w": "悩み続けて",
+              "read": "なやみつづけて",
+              "vi": "cứ lo lắng mãi"
+            },
+            {
+              "w": "悩み",
+              "read": "なやみ",
+              "vi": "nỗi lo"
+            },
+            {
+              "w": "続けて",
+              "read": "つづけて",
+              "vi": "tiếp tục"
+            },
+            {
+              "w": "いつまでも",
+              "read": "いつまでも",
+              "vi": "mãi mãi"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thật sự"
+            },
+            {
+              "w": "大丈夫",
+              "read": "だいじょうぶ",
+              "vi": "ổn, không sao"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "bất an, lo lắng"
+            },
+            {
+              "w": "消えない",
+              "read": "きえない",
+              "vi": "không biến mất"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かしら",
+              "vi": "【接続】V/A/N thể thông thường (なA/N bỏ だ) + かしら. 【Sắc thái】Tự hỏi, băn khoăn nhẹ nhàng trong nội tâm (thường mang nét nữ tính hoặc ngữ điệu dịu dàng). 【Đối chiếu】〜かしら (nhẹ nhàng, độc thoại) ≈ 〜かな (phổ biến mọi đối tượng) ≠ 〜だろうか (văn viết trang trọng)."
+            },
+            {
+              "point": "〜はずだ／はずです",
+              "vi": "【接続】V/A/N (なA + な, N + の) thể thông thường + はずだ. 【Sắc thái】Diễn tả sự suy đoán có căn cứ logic vững chắc của người nói («chắc chắn là, lẽ ra phải»). 【Đối chiếu】〜はずだ (phán đoán logic) ≠ 〜にちがいない (khẳng định chắc chắn dựa trên trực giác/chứng cứ) ≠ 〜ようだ (suy đoán qua cảm quan bên ngoài)."
+            }
+          ]
+        },
+        {
+          "jp": "言葉にして相手に伝えるのは勇気が要りますが、思い切って話してみれば、案外簡単に解決するのではないでしょうか。",
+          "vi": "Diễn đạt thành lời để bộc bạch với đối phương dẫu cần đến lòng dũng cảm, nhưng nếu quyết tâm mở lời, biết đâu mọi chuyện lại được giải quyết dễ dàng đến không ngờ.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "勇気",
+              "read": "ゆうき",
+              "vi": "dũng khí"
+            },
+            {
+              "w": "要る",
+              "read": "いる",
+              "vi": "cần, cần thiết"
+            },
+            {
+              "w": "思い切って",
+              "read": "おもいきって",
+              "vi": "dứt khoát, mạnh dạn, hạ quyết tâm"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "案外",
+              "read": "あんがい",
+              "vi": "không ngờ, ngoài dự tính"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ"
+            },
+            {
+              "w": "解決",
+              "read": "かいけつ",
+              "vi": "giải quyết, giải pháp"
+            },
+            {
+              "w": "勇気が要る",
+              "read": "ゆうきがいる",
+              "vi": "cần có dũng khí, đòi hỏi sự can đảm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てみれば",
+              "vi": "【接続】V-て + みれば (thể điều kiện của 〜てみる). 【Sắc thái】Diễn tả kết quả hoặc phát hiện mới có được sau khi thử làm một hành động nào đó («nếu thử làm thì thấy...»). 【Đối chiếu】〜てみれば (phát hiện sau khi thử) ≠ 〜たら (điều kiện giả định chung)."
+            }
+          ]
+        },
+        {
+          "jp": "誰かと気持ちを共有することこそが、人間関係を深める第一歩なんだと気づくはずです。",
+          "vi": "Chắc chắn ta sẽ nhận ra rằng chính việc chia sẻ tâm tư cùng ai đó mới là bước đi đầu tiên để thắt chặt mối quan hệ giữa người với người.",
+          "vocab": [
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "共有",
+              "read": "きょうゆう",
+              "vi": "chia sẻ, cùng sở hữu"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "深める",
+              "read": "ふかめる",
+              "vi": "làm sâu sắc thêm, thắt chặt"
+            },
+            {
+              "w": "第一歩",
+              "read": "だいいっぽ",
+              "vi": "bước đi đầu tiên"
+            },
+            {
+              "w": "気づく",
+              "read": "きづく",
+              "vi": "nhận ra, nhận thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜こそ（強調）",
+              "vi": "【接続】N / V-て + こそ. 【Sắc thái】Nhấn mạnh đối tượng hoặc yếu tố duy nhất mang tính then chốt («chính là...»). 【Đối chiếu】〜こそ (nhấn mạnh yếu tố quyết định) ≠ 〜さえ (ngay cả, nhấn mạnh ví dụ cực đoan)."
+            },
+            {
+              "point": "〜なんだ（〜のだ）",
+              "vi": "【接続】N / なA + なんだ (thể thông thường của なんです). 【Sắc thái】Khẳng định bản chất, lý giải ý nghĩa sâu xa để làm sáng tỏ vấn đề. 【Đối chiếu】〜なんだ (nhấn mạnh lý giải/chân lý) ≠ 〜だ (khẳng định sự thật đơn thuần)."
+            }
+          ]
+        },
+        {
+          "jp": "だからこそ、迷った時には小さな疑問でも素直に周りの人に聞いてみるのがいいのですよ。",
+          "vi": "Chính vì thế, những khi phân vân trăn trở, dẫu chỉ là khúc mắc nhỏ nhoi, ta cứ thẳng thắn thử hỏi ý kiến mọi người xung quanh thì tốt biết mấy đấy.",
+          "vocab": [
+            {
+              "w": "だからこそ",
+              "read": "だからこそ",
+              "vi": "chính vì thế, chính vì vậy (nhấn mạnh)"
+            },
+            {
+              "w": "迷う",
+              "read": "まよう",
+              "vi": "phân vân, do dự, băn khoăn"
+            },
+            {
+              "w": "小さな",
+              "read": "ちいさな",
+              "vi": "nhỏ (dùng trước danh từ)"
+            },
+            {
+              "w": "疑問",
+              "read": "ぎもん",
+              "vi": "câu hỏi, thắc mắc"
+            },
+            {
+              "w": "素直",
+              "read": "すなお",
+              "vi": "thẳng thắn, cởi mở, thành thật"
+            },
+            {
+              "w": "周り",
+              "read": "まわり",
+              "vi": "xung quanh, mọi người xung quanh"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のですよ／〜のよ",
+              "vi": "【接続】Thể thông thường (なA/N + な) + のですよ/のよ. 【Sắc thái】Kết hợp giữa giải thích nhẹ nhàng (の) và nhấn mạnh/truyền đạt ân cần (よ), mang ngữ điệu khuyên nhủ tình cảm, thân tình. 【Đối chiếu】〜のですよ (khuyên nhủ chân thành, mềm mại) ≠ 〜べきだ (áp đặt nghĩa vụ bắt buộc)."
+            },
+            {
+              "point": "〜のがいい",
+              "vi": "【接続】V-る + のがいい. 【Sắc thái】Đưa ra lời khuyên hoặc gợi ý hành động tốt nhất một cách nhẹ nhàng. 【Đối chiếu】〜のがいい (khuyên nhẹ nhàng) ≠ 〜ほうがいい (so sánh lựa chọn hơn thiệt)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "「これで本当にいいのかな」",
+          "label": "Tự vấn một mình (かな)"
+        },
+        {
+          "excerpt": "「これで合っているよね」",
+          "label": "Tìm kiếm sự đồng thuận (よね)"
+        },
+        {
+          "excerpt": "大切じゃないですか",
+          "label": "Khẳng định qua câu hỏi tu từ (じゃないですか)"
+        },
+        {
+          "excerpt": "人間関係を深める第一歩なんだ",
+          "label": "Giải thích và khẳng định bản chất (なんだ)"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Theo tác giả, khi ta thử giãi bày nỗi băn khoăn của mình với người xung quanh thì điều gì thường xảy ra?",
+          "options": [
+            "Người khác cũng có thể đang có cùng băn khoăn đó và ta nhận được sự đồng cảm.",
+            "Mọi người sẽ chê cười vì đó là những thắc mắc quá nhỏ nhặt.",
+            "Người nghe sẽ lập tức đứng ra giải quyết toàn bộ vấn đề thay cho mình.",
+            "Ta sẽ nhận ra mình là người duy nhất trên đời trăn trở về chuyện đó."
+          ],
+          "answer": 0,
+          "explainVi": "Căn cứ vào câu [1]: «周りの人に相談してみると、「私も同じことを考えていたよ」と共感されることが多いものです» và câu [2], khi thử hỏi người khác, ta thường nhận ra họ cũng từng nghĩ như vậy và nỗi bất an được san sẻ nhẹ nhõm hơn. Các phương án khác sai vì: (1) bài không hề nói bị chê cười; (2) không nói người khác làm thay mình; (3) trái ngược hoàn toàn vì người xung quanh cũng có chung suy nghĩ.",
+          "tip": "Tìm từ khóa '相談してみると' và '共感される' trong đoạn 1.",
+          "evi": [
+            1,
+            2
+          ],
+          "qt": {
+            "q": "Theo tác giả, khi ta thử giãi bày nỗi băn khoăn của mình với người xung quanh thì điều gì thường xảy ra?",
+            "o": [
+              "Người khác cũng có thể đang có cùng băn khoăn đó và ta nhận được sự đồng cảm.",
+              "Mọi người sẽ chê cười vì đó là những thắc mắc quá nhỏ nhặt.",
+              "Người nghe sẽ lập tức đứng ra giải quyết toàn bộ vấn đề thay cho mình.",
+              "Ta sẽ nhận ra mình là người duy nhất trên đời trăn trở về chuyện đó."
+            ]
+          }
+        },
+        {
+          "q": "Trong câu [4], lời nói「これで合っているよね」thể hiện sắc thái tâm lý gì của người nói?",
+          "options": [
+            "Ra lệnh và bắt buộc đối phương phải tuân theo tuyệt đối suy nghĩ của mình.",
+            "Bày tỏ suy nghĩ của bản thân và mong muốn tìm kiếm sự xác nhận, đồng thuận từ đối phương.",
+            "Hoàn toàn không biết gì và phó mặc 100% vào phán đoán của người khác.",
+            "Chỉ trích đối phương vì đã làm sai lệch quy trình."
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [3] «自分の考えが正しいかどうか誰かに確認してほしい» và câu [4] «「これで合っているよね」と声をかけ合える関係», trợ từ cuối câu 'よね' dùng khi người nói muốn xác nhận lại điều mình nghĩ đúng và tìm kiếm sự đồng cảm/xác nhận từ người nghe. Các phương án (0), (2), (3) đều suy diễn sai lệch chức năng ngữ pháp của 'よね'.",
+          "tip": "Dựa vào chức năng của trợ từ kết thúc câu 'よね' kết hợp với nhu cầu muốn xác nhận ở câu [3].",
+          "evi": [
+            3,
+            4
+          ],
+          "qt": {
+            "q": "Trong câu [4], lời nói「これで合っているよね」(như vậy là đúng rồi nhỉ) thể hiện sắc thái tâm lý gì của người nói?",
+            "o": [
+              "Ra lệnh và bắt buộc đối phương phải tuân theo tuyệt đối suy nghĩ của mình.",
+              "Bày tỏ suy nghĩ của bản thân và mong muốn tìm kiếm sự xác nhận, đồng thuận từ đối phương.",
+              "Hoàn toàn không biết gì và phó mặc 100% vào phán đoán của người khác.",
+              "Chỉ trích đối phương vì đã làm sai lệch quy trình."
+            ]
+          }
+        },
+        {
+          "q": "Nếu một người cứ mãi ôm nỗi trăn trở một mình mà không chịu chia sẻ thì hậu quả là gì theo bài đọc?",
+          "options": [
+            "Vấn đề sẽ tự động biến mất hoàn toàn sau một khoảng thời gian ngắn.",
+            "Họ sẽ trở nên độc lập và tự tin hơn rất nhiều trong giao tiếp.",
+            "Nỗi lo lắng, bất an sẽ tiếp tục kéo dài và khó có thể tan biến.",
+            "Mối quan hệ với những người xung quanh sẽ tự nhiên trở nên sâu sắc hơn."
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [5]: «もし一人だけで悩み続けていたら、いつまでも「本当に大丈夫かしら」と不安が消えないはずです» (Nếu cứ ôm nỗi trăn trở một mình thì nỗi bất an sẽ chẳng thể nào tiêu biến). Do đó phương án (2) là chính xác. Phương án (0), (1), (3) mâu thuẫn trực tiếp với nội dung bài viết.",
+          "tip": "Đối chiếu vế câu điều kiện 'もし一人だけで悩み続けていたら' ở câu [5].",
+          "evi": [
+            5
+          ],
+          "qt": {
+            "q": "Theo bài đọc, nếu một người cứ mãi ôm nỗi trăn trở một mình mà không chịu chia sẻ thì hậu quả là gì?",
+            "o": [
+              "Vấn đề sẽ tự động biến mất hoàn toàn sau một khoảng thời gian ngắn.",
+              "Họ sẽ trở nên độc lập và tự tin hơn rất nhiều trong giao tiếp.",
+              "Nỗi lo lắng, bất an sẽ tiếp tục kéo dài và khó có thể tan biến.",
+              "Mối quan hệ với những người xung quanh sẽ tự nhiên trở nên sâu sắc hơn."
+            ]
+          }
+        },
+        {
+          "q": "Thông điệp chính mà tác giả muốn gửi gắm qua toàn bộ bài viết là gì?",
+          "options": [
+            "Nên giữ kín mọi khúc mắc trong lòng để tránh làm phiền đến mọi người xung quanh.",
+            "Đừng ngần ngại mở lời chia sẻ, hỏi han vì đó là cách giải tỏa âu lo và thắt chặt tình cảm.",
+            "Chỉ nên mở lời trò chuyện khi chắc chắn vấn đề đó cực kỳ to lớn và nghiêm trọng.",
+            "Tự độc thoại một mình là phương pháp tối ưu nhất để giải quyết mọi rắc rối."
+          ],
+          "answer": 1,
+          "explainVi": "Toàn bộ bài viết, đặc biệt là các câu kết [6], [7], [8] nhấn mạnh rằng dũng cảm mở lời («思い切って話してみれば»), chia sẻ cảm xúc («気持ちを共有すること») và cởi mở hỏi han dù là khúc mắc nhỏ («小さな疑問でも素直に周りの人に聞いてみる») sẽ giúp tháo gỡ vấn đề và làm sâu sắc mối quan hệ. Phương án (1) đúc kết trọn vẹn thông điệp này. Các phương án (0), (2), (3) đi ngược lại tư tưởng của bài viết.",
+          "tip": "Đọc kỹ các câu kết luận [7] và [8] để nắm bắt thông điệp cốt lõi của tác giả.",
+          "evi": [
+            6,
+            7,
+            8
+          ],
+          "qt": {
+            "q": "Thông điệp chính mà tác giả muốn gửi gắm qua toàn bộ bài viết là gì?",
+            "o": [
+              "Nên giữ kín mọi khúc mắc trong lòng để tránh làm phiền đến mọi người xung quanh.",
+              "Đừng ngần ngại mở lời chia sẻ, hỏi han vì đó là cách giải tỏa âu lo và thắt chặt tình cảm.",
+              "Chỉ nên mở lời trò chuyện khi chắc chắn vấn đề đó cực kỳ to lớn và nghiêm trọng.",
+              "Tự độc thoại một mình là phương pháp tối ưu nhất để giải quyết mọi rắc rối."
+            ]
+          }
+        }
+      ],
+      "kind": "short"
+    },
+    {
+      "title": "心を通わせる対話と「共感」の力",
+      "titleVi": "Cuộc đối thoại kết nối tâm hồn và sức mạnh của sự \"đồng cảm\"",
+      "japanese": "スマートフォンやSNSの普及によって、私たちはいつでも誰とでも簡単につながることができるようになりました。しかし、便利になった一方で、人との会話の中で孤独を感じる瞬間が増えているのではないかなと思うことがあります。画面上の文字だけでは、相手が本当に伝えたい細やかな気持ちまで読み取るのは難しいものですよね。皆さんも、メッセージのやり取りで誤解が生じて不安になった経験があるでしょう。\n悩みを相談されたとき、私たちはつい論理的な解決策を教えてあげたくなるものです。でも、相手が本当に求めているのは、正しい意見ではなく「ただ気持ちを受け止めてもらうこと」なんじゃないでしょうか。実は、話を聞いてうなずいてくれる相手がいるだけで、人は自分の力で前を向くことができるんです。「大変だったね」「よく頑張ったね」という共感の言葉には、心を癒やす不思議な力があります。正論で相手を説得しようとしても、かえって心を閉ざさせてしまう結果になるのかもしれません。\nでは、心地よい人間関係を築くためには、どのような態度で相手に向き合えばよいのかしらと考えさせられます。相手の話を途中で遮らずに最後までじっくり聞くことは、相手の存在そのものを尊重する行為なんですよ。忙しい毎日を送っていると、つい自分の話ばかりをしてしまったり、相手の話を急かしたりしがちですよね。しかし、それではお互いに深い信頼関係を育むことはできないでしょう。相手が言葉を探して沈黙しているとき、焦らずに待ってあげることも優しさの一つなんじゃないかと思います。相手のペースを尊重することこそが、安心感を与える一番の近道なんだと思います。\n言葉というのは、単に効率よく情報をやり取りするための道具ではありません。私たちは言葉を通して温もりを伝え合い、心をつなぎ合わせているんです。日常のちょっとした会話の中で「あなたの味方だよ」という気持ちを込めることが、何よりも大切なんじゃないですか。今日、身近な大切な人と話すとき、いつもより少しだけ心を傾けて耳を澄ませてみませんか。そのわずかな変化が、二人の絆をより確かなものにしてくれるはずですからね。",
+      "vietnamese": "Nhờ sự phổ biến của điện thoại thông minh và mạng xã hội, chúng ta đã có thể kết nối dễ dàng với bất kỳ ai vào bất kỳ lúc nào. Thế nhưng, mặt khác khi cuộc sống trở nên tiện lợi hơn, đôi khi tôi lại tự hỏi không biết có phải những khoảnh khắc cảm thấy cô đơn trong các cuộc trò chuyện đang ngày một nhiều lên hay không. Quả thật chỉ qua những con chữ trên màn hình thì rất khó để thấu hiểu được hết những tâm tư tinh tế mà đối phương thực sự muốn truyền tải nhỉ. Chắc hẳn các bạn cũng từng có trải nghiệm cảm thấy bất an khi xảy ra hiểu lầm trong lúc nhắn tin trao đổi qua lại đúng không.\nKhi được người khác tâm sự về nỗi phiền muộn, chúng ta thường có xu hướng muốn chỉ cho họ ngay giải pháp mang tính logic. Nhưng chẳng phải điều mà đối phương thực sự mong cầu không phải là một ý kiến đúng đắn, mà là \"chỉ muốn cảm xúc của mình được đón nhận\" hay sao? Thực ra, chỉ cần có một người chịu lắng nghe và gật đầu đồng cảm là con người ta đã có thể tự mình hướng về phía trước rồi đấy. Những lời đồng cảm như \"Cậu đã vất vả rồi nhỉ\" hay \"Cậu đã cố gắng nhiều rồi đấy\" chứa đựng một sức mạnh kỳ diệu giúp xoa dịu tâm hồn. Dù cố gắng thuyết phục đối phương bằng những lý lẽ hiển nhiên đúng đắn, nhưng có lẽ kết quả lại vô tình khiến họ khép kín lòng mình hơn.\nVậy thì, điều đó khiến tôi phải suy ngẫm không biết mình nên đối diện với đối phương bằng thái độ như thế nào để xây dựng được những mối quan hệ hòa hợp, dễ chịu nhỉ. Việc lắng nghe cẩn thận đến cùng mà không ngắt lời chính là một hành động tôn trọng chính sự hiện diện của đối phương đấy. Khi trải qua chuỗi ngày bận rộn, chúng ta rất dễ có xu hướng chỉ toàn nói chuyện của bản thân hoặc hối thúc câu chuyện của người khác đúng không nào. Thế nhưng, nếu như vậy thì chắc là hai bên sẽ không thể nào vun đắp được mối quan hệ tin cậy sâu sắc đâu. Khi đối phương đang ngập ngừng tìm từ mà im lặng, tôi nghĩ việc kiên nhẫn chờ đợi không chút vội vã chẳng phải cũng là một nét dịu dàng hay sao. Tôi nghĩ rằng chính việc tôn trọng nhịp điệu của đối phương mới là con đường ngắn nhất mang lại cảm giác an tâm.\nLời nói không đơn thuần chỉ là công cụ để trao đổi thông tin một cách hiệu quả. Chúng ta đang truyền tải hơi ấm cho nhau và kết nối những tâm hồn thông qua ngôn từ đấy. Chẳng phải việc gửi gắm tấm lòng \"tôi luôn đứng về phía bạn đấy\" vào trong những cuộc trò chuyện nhỏ nhặt hàng ngày mới là điều quan trọng hơn tất cả hay sao. Hôm nay, khi trò chuyện cùng người thân thiết bên cạnh mình, bạn có muốn thử lắng lòng nghe chăm chú hơn mọi ngày một chút không? Bởi vì chắc chắn rằng sự thay đổi nhỏ bé ấy sẽ khiến cho sợi dây gắn kết giữa hai người trở nên bền chặt hơn mà.",
+      "sentences": [
+        {
+          "jp": "スマートフォンやSNSの普及によって、私たちはいつでも誰とでも簡単につながることができるようになりました。",
+          "vi": "Nhờ sự phổ biến của điện thoại thông minh và mạng xã hội, chúng ta đã có thể kết nối dễ dàng với bất kỳ ai vào bất kỳ lúc nào.",
+          "vocab": [
+            {
+              "w": "スマートフォン",
+              "read": "スマートフォン",
+              "vi": "điện thoại thông minh"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, gọn"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "SNS",
+              "read": "エスエヌエス",
+              "vi": "mạng xã hội"
+            },
+            {
+              "w": "普及",
+              "read": "ふきゅう",
+              "vi": "sự phổ biến"
+            },
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "誰とでも",
+              "read": "だれとでも",
+              "vi": "với bất kỳ ai"
+            },
+            {
+              "w": "誰",
+              "read": "だれ",
+              "vi": "ai"
+            },
+            {
+              "w": "簡単",
+              "read": "かんたん",
+              "vi": "đơn giản, dễ dàng"
+            },
+            {
+              "w": "つながる",
+              "read": "つながる",
+              "vi": "kết nối"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể"
+            },
+            {
+              "w": "なりました",
+              "read": "なりました",
+              "vi": "đã trở nên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜によって（原因・手段）",
+              "vi": "接続: N ＋ によって. Sắc thái: Diễn tả phương tiện hoặc nguyên nhân dẫn đến sự biến chuyển lớn mang tính khách quan. Đối chiếu: Khác với 〜おかげで (hàm ý biết ơn chủ quan) và 〜せいで (quy trách nhiệm kết quả xấu), 〜によって mang tính trung lập, trang trọng."
+            },
+            {
+              "point": "〜ようになる",
+              "vi": "接続: V(可能形／辞書形) ＋ ようになる. Sắc thái: Biểu thị sự thay đổi trạng thái từ chưa thể sang có thể. Đối chiếu: Khác với 〜ことにする (quyết định chủ quan), 〜ようになる nhấn mạnh sự biến chuyển tự nhiên của hoàn cảnh."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、便利になった一方で、人との会話の中で孤独を感じる瞬間が増えているのではないかなと思うことがあります。",
+          "vi": "Thế nhưng, mặt khác khi cuộc sống trở nên tiện lợi hơn, đôi khi tôi lại tự hỏi không biết có phải những khoảnh khắc cảm thấy cô đơn trong các cuộc trò chuyện đang ngày một nhiều lên hay không.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "便利",
+              "read": "べんり",
+              "vi": "tiện lợi (tính từ な)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "孤独",
+              "read": "こどく",
+              "vi": "sự cô đơn, cô độc"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "瞬間",
+              "read": "しゅんかん",
+              "vi": "khoảnh khắc, giây phút"
+            },
+            {
+              "w": "増える",
+              "read": "ふえる",
+              "vi": "tăng lên, gia tăng"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "一方で",
+              "read": "いっぽうで",
+              "vi": "mặt khác, ngược lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜一方で（は）",
+              "vi": "接続: V/A/N(普) ＋ 一方で (Naな / Nである). Sắc thái: Thể hiện hai mặt đối lập hoặc hai chiều hướng diễn tiến song song trong một vấn đề. Đối chiếu: Khác với 〜反面 (thường nhấn mạnh hai mặt sáng/tối nội tại), 〜一方で có phạm vi rộng hơn cho cả sự kiện diễn tiến đồng thời."
+            },
+            {
+              "point": "〜のではないかな／〜かな（自問・推量）",
+              "vi": "接続: V/A/N(普) ＋ のではないかな (Naな / Nな). Sắc thái: Trợ từ cuối câu かな kết hợp dạng phủ định mềm のではない để tự vấn, suy ngẫm nhẹ nhàng, không áp đặt ý kiến lên người đọc. Đối chiếu: Khác với 〜に違いない (khẳng định chắc nịch), 〜のではないかな mang giọng điệu trăn trở khiêm tốn."
+            }
+          ]
+        },
+        {
+          "jp": "画面上の文字だけでは、相手が本当に伝えたい細やかな気持ちまで読み取るのは難しいものですよね。",
+          "vi": "Quả thật chỉ qua những con chữ trên màn hình thì rất khó để thấu hiểu được hết những tâm tư tinh tế mà đối phương thực sự muốn truyền tải nhỉ.",
+          "vocab": [
+            {
+              "w": "画面",
+              "read": "がめん",
+              "vi": "màn hình"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ, ký tự"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "伝える",
+              "read": "つたえる",
+              "vi": "truyền đạt, nói cho biết"
+            },
+            {
+              "w": "細やか",
+              "read": "こまやか",
+              "vi": "tinh tế, tỉ mỉ, sâu sắc"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "読み取る",
+              "read": "よみとる",
+              "vi": "đọc vị, thấu hiểu, cảm nhận được"
+            },
+            {
+              "w": "難しい",
+              "read": "むずかしい",
+              "vi": "khó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ものですよね／〜ものだ",
+              "vi": "接続: V/Aい/Naな ＋ ものですよね. Sắc thái: Mẫu 〜ものだ diễn tả chân lý, bản chất tự nhiên của sự vật, kết hợp 終助詞 〜よね để tìm kiếm sự đồng cảm sâu sắc từ người đọc ('thường là như thế, bạn có thấy vậy không'). Đối chiếu: Khác với 〜わけだ (kết luận logic khách quan), 〜ものだ dựa trên tâm lý/kinh nghiệm chung của con người."
+            }
+          ]
+        },
+        {
+          "jp": "皆さんも、メッセージのやり取りで誤解が生じて不安になった経験があるでしょう。",
+          "vi": "Chắc hẳn các bạn cũng từng có trải nghiệm cảm thấy bất an khi xảy ra hiểu lầm trong lúc nhắn tin trao đổi qua lại đúng không.",
+          "vocab": [
+            {
+              "w": "皆さん",
+              "read": "みなさん",
+              "vi": "mọi người"
+            },
+            {
+              "w": "メッセージ",
+              "read": "メッセージ",
+              "vi": "tin nhắn, thông điệp"
+            },
+            {
+              "w": "やり取り",
+              "read": "やりとり",
+              "vi": "sự trao đổi qua lại"
+            },
+            {
+              "w": "誤解",
+              "read": "ごかい",
+              "vi": "sự hiểu lầm"
+            },
+            {
+              "w": "生じる",
+              "read": "しょうじる",
+              "vi": "phát sinh, nảy sinh"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng, bất an"
+            },
+            {
+              "w": "経験",
+              "read": "けいけん",
+              "vi": "kinh nghiệm, trải nghiệm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜でしょう／〜でしょ（確認・推量）",
+              "vi": "接続: V/A/N(普) ＋ でしょう (bỏ だ sau Na/N). Sắc thái: Dùng để suy đoán lịch sự hoặc gợi mở xác nhận điều mà tác giả tin rằng độc giả hầu như ai cũng từng trải qua. Đối chiếu: Trang trọng và lịch thiệp hơn でしょ (vốn dùng trong văn nói thân mật)."
+            }
+          ]
+        },
+        {
+          "jp": "悩みを相談されたとき、私たちはつい論理的な解決策を教えてあげたくなるものです。",
+          "vi": "Khi được người khác tâm sự về nỗi phiền muộn, chúng ta thường có xu hướng muốn chỉ cho họ ngay giải pháp mang tính logic.",
+          "vocab": [
+            {
+              "w": "悩み",
+              "read": "なやみ",
+              "vi": "sự phiền muộn, lo lắng"
+            },
+            {
+              "w": "相談",
+              "read": "そうだん",
+              "vi": "tư vấn, hỏi ý kiến"
+            },
+            {
+              "w": "論理",
+              "read": "ろんり",
+              "vi": "logic, lập luận"
+            },
+            {
+              "w": "解決",
+              "read": "かいけつ",
+              "vi": "giải quyết, giải pháp"
+            },
+            {
+              "w": "教える",
+              "read": "おしえる",
+              "vi": "dạy"
+            },
+            {
+              "w": "論理的",
+              "read": "ろんりてき",
+              "vi": "mang tính logic, hợp lý"
+            },
+            {
+              "w": "解決策",
+              "read": "かいけつさく",
+              "vi": "giải pháp, phương án giải quyết"
+            },
+            {
+              "w": "つい",
+              "read": "つい",
+              "vi": "vô ý, buột miệng, lỡ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たくなるものだ",
+              "vi": "接続: V-ます-stem ＋ たくなる ＋ ものだ. Sắc thái: Diễn tả phản xạ tâm lý tự nhiên của con người ('người ta thường dễ sinh ra cảm giác muốn...'). Đối chiếu: Khác với 〜たい (mong muốn chủ quan nhất thời), 〜たくなるものだ mang tính quy luật tâm lý chung."
+            }
+          ]
+        },
+        {
+          "jp": "でも、相手が本当に求めているのは、正しい意見ではなく「ただ気持ちを受け止めてもらうこと」なんじゃないでしょうか。",
+          "vi": "Nhưng chẳng phải điều mà đối phương thực sự mong cầu không phải là một ý kiến đúng đắn, mà là \"chỉ muốn cảm xúc của mình được đón nhận\" hay sao?",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự, thật sự"
+            },
+            {
+              "w": "求める",
+              "read": "もとめる",
+              "vi": "tìm kiếm, mong cầu"
+            },
+            {
+              "w": "正しい",
+              "read": "ただしい",
+              "vi": "đúng, chính xác"
+            },
+            {
+              "w": "意見",
+              "read": "いけん",
+              "vi": "ý kiến"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "tâm trạng, cảm giác"
+            },
+            {
+              "w": "受け止める",
+              "read": "うけとめる",
+              "vi": "đón nhận, lắng nghe thấu hiểu"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なんじゃないでしょうか／〜じゃないか",
+              "vi": "接続: V/A/N(普) ＋ (な)んじゃないでしょうか. Sắc thái: Dạng nghi vấn phủ định kết hợp のだ/んだ để đưa ra chính kiến hoặc phản biện một cách lịch sự, nhã nhặn ('chẳng phải là... hay sao'). Đối chiếu: Khác với câu khẳng định trực diện 〜だと思う, dạng 〜じゃないでしょうか tạo khoảng trống để người nghe cùng suy ngẫm."
+            },
+            {
+              "point": "〜ではなく",
+              "vi": "接続: N ＋ ではなく / V(普)こと ＋ ではなく. Sắc thái: Phủ định vế trước để làm nổi bật vế sau ('không phải A mà là B'). Đối chiếu: Trang trọng hơn じゃなくて trong hội thoại thông thường."
+            }
+          ]
+        },
+        {
+          "jp": "実は、話を聞いてうなずいてくれる相手がいるだけで、人は自分の力で前を向くことができるんです。",
+          "vi": "Thực ra, chỉ cần có một người chịu lắng nghe và gật đầu đồng cảm là con người ta đã có thể tự mình hướng về phía trước rồi đấy.",
+          "vocab": [
+            {
+              "w": "実は",
+              "read": "じつは",
+              "vi": "thực ra, thực tế là"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "うなずく",
+              "read": "うなずく",
+              "vi": "gật đầu (đồng ý/lắng nghe)"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "向く",
+              "read": "むく",
+              "vi": "hướng về, quay về"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "前を向く",
+              "read": "まえをむく",
+              "vi": "hướng về phía trước, lấy lại tinh thần"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜んです／〜のだ（説明・強調）",
+              "vi": "接続: V/A/N(普) ＋ んです (Naな / Nな). Sắc thái: Đi kèm 実は để giải thích sâu xa, làm sáng tỏ bản chất của vấn đề và truyền tải sự thật cốt lõi tới độc giả. Đối chiếu: Khác với câu trần thuật thuần túy 〜ます, 〜んです tạo cảm giác tha thiết, gắn kết tâm lý và giải thích rõ nguyên do."
+            }
+          ]
+        },
+        {
+          "jp": "「大変だったね」「よく頑張ったね」という共感の言葉には、心を癒やす不思議な力があります。",
+          "vi": "Những lời đồng cảm như \"Cậu đã vất vả rồi nhỉ\" hay \"Cậu đã cố gắng nhiều rồi đấy\" chứa đựng một sức mạnh kỳ diệu giúp xoa dịu tâm hồn.",
+          "vocab": [
+            {
+              "w": "大変",
+              "read": "たいへん",
+              "vi": "vất vả, khó khăn"
+            },
+            {
+              "w": "頑張る",
+              "read": "がんばる",
+              "vi": "cố gắng, nỗ lực"
+            },
+            {
+              "w": "共感",
+              "read": "きょうかん",
+              "vi": "sự đồng cảm"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "癒やす",
+              "read": "いやす",
+              "vi": "chữa lành, xoa dịu"
+            },
+            {
+              "w": "不思議",
+              "read": "ふしぎ",
+              "vi": "kỳ diệu, huyền bí"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ね（終助詞）",
+              "vi": "接続: Thể thông thường / Lịch sự ＋ ね. Sắc thái: Đặt ở cuối lời trích dẫn để biểu thị sự sẻ chia, ấm áp, cùng chung cảm xúc với đối phương ('nhỉ / nhé'). Đối chiếu: Khác với 〜よ (hướng thông tin một chiều từ người nói), 〜ね tạo sự cộng hưởng tâm lý hai chiều."
+            }
+          ]
+        },
+        {
+          "jp": "正論で相手を説得しようとしても、かえって心を閉ざさせてしまう結果になるのかもしれません。",
+          "vi": "Dù cố gắng thuyết phục đối phương bằng những lý lẽ hiển nhiên đúng đắn, nhưng có lẽ kết quả lại vô tình khiến họ khép kín lòng mình hơn.",
+          "vocab": [
+            {
+              "w": "正論",
+              "read": "せいろん",
+              "vi": "lý lẽ đúng đắn, lập luận chuẩn mực"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "説得",
+              "read": "せっとく",
+              "vi": "sự thuyết phục"
+            },
+            {
+              "w": "かえって",
+              "read": "かえって",
+              "vi": "ngược lại, trái lại"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "閉ざす",
+              "read": "とざす",
+              "vi": "khép lại, đóng chặt"
+            },
+            {
+              "w": "結果",
+              "read": "けっか",
+              "vi": "kết quả"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ようとする",
+              "vi": "接続: V(意向形) ＋ とする. Sắc thái: Cố gắng, nỗ lực thực hiện một hành động. Kết hợp 〜ても tạo thành cấu trúc nhượng bộ 'dù có cố gắng... thì...'. Đối chiếu: Khác với 〜ことにする (quyết định), 〜ようとする nhấn mạnh quá trình đang dồn sức hành động."
+            }
+          ]
+        },
+        {
+          "jp": "では、心地よい人間関係を築くためには、どのような態度で相手に向き合えばよいのかしらと考えさせられます。",
+          "vi": "Vậy thì, điều đó khiến tôi phải suy ngẫm không biết mình nên đối diện với đối phương bằng thái độ như thế nào để xây dựng được những mối quan hệ hòa hợp, dễ chịu nhỉ.",
+          "vocab": [
+            {
+              "w": "心地よい",
+              "read": "ここちよい",
+              "vi": "dễ chịu, thoải mái, thanh thản"
+            },
+            {
+              "w": "人間",
+              "read": "にんげん",
+              "vi": "con người, loài người"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "築く",
+              "read": "きずく",
+              "vi": "xây dựng, gầy dựng"
+            },
+            {
+              "w": "態度",
+              "read": "たいど",
+              "vi": "thái độ"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, nhìn nhận thẳng thắn"
+            },
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かしら（自問・疑問）",
+              "vi": "接続: V/A/N(普) ＋ かしら (bỏ だ sau Na/N). Sắc thái: Trợ từ cuối câu biểu thị sự tự vấn, trăn trở trong nội tâm ('không biết là... nhỉ'). Đối chiếu: Tương đương về mặt tự vấn với 〜かな nhưng mang âm hưởng nhẹ nhàng, nữ tính hoặc trầm lắng hơn."
+            },
+            {
+              "point": "〜ばよい",
+              "vi": "接続: V-ば ＋ よい. Sắc thái: Dùng để hỏi phương hướng, cách thức xử lý tối ưu ('nên làm thế nào thì tốt')."
+            }
+          ]
+        },
+        {
+          "jp": "相手の話を途中で遮らずに最後までじっくり聞くことは、相手の存在そのものを尊重する行為なんですよ。",
+          "vi": "Việc lắng nghe cẩn thận đến cùng mà không ngắt lời chính là một hành động tôn trọng chính sự hiện diện của đối phương đấy.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "途中",
+              "read": "とちゅう",
+              "vi": "giữa chừng"
+            },
+            {
+              "w": "遮る",
+              "read": "さえぎる",
+              "vi": "ngắt lời, cản trở, chắn ngang"
+            },
+            {
+              "w": "最後",
+              "read": "さいご",
+              "vi": "cuối cùng"
+            },
+            {
+              "w": "じっくり",
+              "read": "じっくり",
+              "vi": "kỹ lưỡng, thong thả, cẩn thận"
+            },
+            {
+              "w": "聞く",
+              "read": "きく",
+              "vi": "hỏi, nghe"
+            },
+            {
+              "w": "存在",
+              "read": "そんざい",
+              "vi": "sự tồn tại"
+            },
+            {
+              "w": "そのもの",
+              "read": "そのもの",
+              "vi": "chính nó, bản thân nó"
+            },
+            {
+              "w": "尊重",
+              "read": "そんちょう",
+              "vi": "sự tôn trọng"
+            },
+            {
+              "w": "行為",
+              "read": "こうい",
+              "vi": "hành vi, hành động"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なんですよ／〜よ（終助詞）",
+              "vi": "接続: V/A/N(普) ＋ んですよ. Sắc thái: Trợ từ 〜よ dùng để khẳng định, truyền đạt một quan điểm dứt khoát và nhiệt thành tới người nghe ('đấy / nhé'). Kết hợp 〜んです để nhấn mạnh bản chất hành động. Đối chiếu: Khác với 〜ね (tìm kiếm sự đồng ý), 〜よ mang tính thông báo tri thức hoặc nhấn mạnh nhận định mới."
+            },
+            {
+              "point": "〜ずに",
+              "vi": "接続: V-ない-stem ＋ ずに (する → せずに). Sắc thái: Thực hiện vế sau mà không làm vế trước. Đối chiếu: Trang trọng hơn 〜ないで."
+            }
+          ]
+        },
+        {
+          "jp": "忙しい毎日を送っていると、つい自分の話ばかりをしてしまったり、相手の話を急かしたりしがちですよね。",
+          "vi": "Khi trải qua chuỗi ngày bận rộn, chúng ta rất dễ có xu hướng chỉ toàn nói chuyện của bản thân hoặc hối thúc câu chuyện của người khác đúng không nào.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "送る",
+              "read": "おくる",
+              "vi": "sống, trải qua (ngày tháng)"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "急かす",
+              "read": "せかす",
+              "vi": "hối thúc, giục giã"
+            },
+            {
+              "w": "〜がち",
+              "read": "がち",
+              "vi": "hay, có xu hướng, dễ bị (tật xấu)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜がちだ",
+              "vi": "接続: V-ます-stem / N ＋ がち. Sắc thái: Diễn tả một khuynh hướng, tần suất dễ xảy ra một trạng thái hay hành vi tiêu cực ngoài ý muốn ('thường hay, dễ bị...'). Đối chiếu: Khác với 〜っぽい (nghiêng về tính chất), 〜がち nhấn mạnh tần suất lặp lại của thói quen không tốt."
+            },
+            {
+              "point": "〜よね（終助詞）",
+              "vi": "接続: V/A/N(普) ＋ よね. Sắc thái: Kết hợp giữa nhấn mạnh (よ) và tìm kiếm sự đồng cảm (ね), dùng khi người nói cho rằng đối phương cũng có chung trải nghiệm này ('đúng không nhỉ')."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、それではお互いに深い信頼関係を育むことはできないでしょう。",
+          "vi": "Thế nhưng, nếu như vậy thì chắc là hai bên sẽ không thể nào vun đắp được mối quan hệ tin cậy sâu sắc đâu.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "それでは",
+              "read": "それでは",
+              "vi": "vậy thì, thế thì"
+            },
+            {
+              "w": "お互いに",
+              "read": "おたがいに",
+              "vi": "lẫn nhau, cùng nhau"
+            },
+            {
+              "w": "深い",
+              "read": "ふかい",
+              "vi": "sâu, sâu sắc"
+            },
+            {
+              "w": "信頼",
+              "read": "しんらい",
+              "vi": "sự tin tưởng, niềm tin"
+            },
+            {
+              "w": "関係",
+              "read": "かんけい",
+              "vi": "mối quan hệ, quan hệ"
+            },
+            {
+              "w": "育む",
+              "read": "はぐくむ",
+              "vi": "vun đắp, nuôi dưỡng"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "信頼関係",
+              "read": "しんらいかんけい",
+              "vi": "mối quan hệ tin cậy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ないでしょう（推量）",
+              "vi": "接続: V-ない ＋ でしょう. Sắc thái: Đưa ra nhận định phán đoán có căn cứ về một hệ quả tiêu cực nếu tiếp tục cách ứng xử sai lầm ('chắc là sẽ không thể...'). Đối chiếu: Khác với 〜ないはずだ (phán đoán dựa trên quy luật logic chắc chắn), 〜ないでしょう thể hiện nhận định khách quan, nhẹ nhàng."
+            }
+          ]
+        },
+        {
+          "jp": "相手が言葉を探して沈黙しているとき、焦らずに待ってあげることも優しさの一つなんじゃないかと思います。",
+          "vi": "Khi đối phương đang ngập ngừng tìm từ mà im lặng, tôi nghĩ việc kiên nhẫn chờ đợi không chút vội vã chẳng phải cũng là một nét dịu dàng hay sao.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "探す",
+              "read": "さがす",
+              "vi": "tìm kiếm"
+            },
+            {
+              "w": "沈黙",
+              "read": "ちんもく",
+              "vi": "sự im lặng, trầm mặc"
+            },
+            {
+              "w": "焦る",
+              "read": "あせる",
+              "vi": "sốt ruột, nôn nóng, vội vã"
+            },
+            {
+              "w": "待つ",
+              "read": "まつ",
+              "vi": "chờ đợi, đợi"
+            },
+            {
+              "w": "優しさ",
+              "read": "やさしさ",
+              "vi": "sự dịu dàng, ân cần, lòng tốt"
+            },
+            {
+              "w": "一つ",
+              "read": "ひとつ",
+              "vi": "một cái"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なんじゃないかと思う",
+              "vi": "接続: V/A/N(普) ＋ (な)んじゃないかと思う. Sắc thái: Khẳng định gián tiếp qua hình thức phản vấn phủ định kết hợp 〜と思う, giúp diễn đạt góc nhìn sâu sắc của tác giả một cách khiêm nhường nhưng thuyết phục. Đối chiếu: Tinh tế và giàu tính gợi mở hơn câu khẳng định tuyệt đối 〜に決まっている."
+            }
+          ]
+        },
+        {
+          "jp": "相手のペースを尊重することこそが、安心感を与える一番の近道なんだと思います。",
+          "vi": "Tôi nghĩ rằng chính việc tôn trọng nhịp điệu của đối phương mới là con đường ngắn nhất mang lại cảm giác an tâm.",
+          "vocab": [
+            {
+              "w": "相手",
+              "read": "あいて",
+              "vi": "đối phương, người kia"
+            },
+            {
+              "w": "ペース",
+              "read": "ぺーす",
+              "vi": "nhịp điệu, tốc độ"
+            },
+            {
+              "w": "尊重",
+              "read": "そんちょう",
+              "vi": "sự tôn trọng, coi trọng"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            },
+            {
+              "w": "与える",
+              "read": "あたえる",
+              "vi": "trao tặng, gây ra"
+            },
+            {
+              "w": "一番",
+              "read": "いちばん",
+              "vi": "nhất, số một"
+            },
+            {
+              "w": "近道",
+              "read": "ちかみち",
+              "vi": "đường tắt, con đường ngắn nhất"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "安心感",
+              "read": "あんしんかん",
+              "vi": "cảm giác an tâm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことこそ",
+              "vi": "接続: Vる-こと / N ＋ こそ. Sắc thái: Trợ từ nhấn mạnh tột bậc vào yếu tố tiên quyết ('chính điều này chứ không phải điều gì khác'). Đối chiếu: Mạnh mẽ và dứt khoát hơn trợ từ は."
+            },
+            {
+              "point": "〜なんだ（説明・断定）",
+              "vi": "接続: N / Na ＋ なんだ. Sắc thái: Thể thông thường của 〜なんです, dùng để khẳng định mạnh mẽ bản chất và kết luận của lập luận."
+            }
+          ]
+        },
+        {
+          "jp": "言葉というのは、単に効率よく情報をやり取りするための道具ではありません。",
+          "vi": "Lời nói không đơn thuần chỉ là công cụ để trao đổi thông tin một cách hiệu quả.",
+          "vocab": [
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "単に",
+              "read": "たんに",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "効率",
+              "read": "こうりつ",
+              "vi": "hiệu suất, hiệu quả"
+            },
+            {
+              "w": "情報",
+              "read": "じょうほう",
+              "vi": "thông tin"
+            },
+            {
+              "w": "やり取り",
+              "read": "やりとり",
+              "vi": "sự trao đổi qua lại"
+            },
+            {
+              "w": "道具",
+              "read": "どうぐ",
+              "vi": "công cụ, dụng cụ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜というのは",
+              "vi": "接続: N / Thể thông thường ＋ というのは. Sắc thái: Nêu lên một khái niệm để mở ra lời giải thích sâu sắc về bản chất của nó. Đối chiếu: Khác với 〜とは (định nghĩa từ điển ngắn gọn), 〜というのは thường dẫn đến lời giải thích dài, mang tính quan điểm cá nhân."
+            }
+          ]
+        },
+        {
+          "jp": "私たちは言葉を通して温もりを伝え合い、心をつなぎ合わせているんです。",
+          "vi": "Chúng ta đang truyền tải hơi ấm cho nhau và kết nối những tâm hồn thông qua ngôn từ đấy.",
+          "vocab": [
+            {
+              "w": "私たち",
+              "read": "わたしたち",
+              "vi": "chúng ta"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "lời nói, ngôn từ"
+            },
+            {
+              "w": "通して",
+              "read": "とおして",
+              "vi": "thông qua"
+            },
+            {
+              "w": "温もり",
+              "read": "ぬくもり",
+              "vi": "hơi ấm, sự ấm áp"
+            },
+            {
+              "w": "伝え合い",
+              "read": "つたえあい",
+              "vi": "truyền đạt cho nhau"
+            },
+            {
+              "w": "伝え",
+              "read": "つたえ",
+              "vi": "truyền đạt"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "trái tim, tấm lòng"
+            },
+            {
+              "w": "つなぎ合わせて",
+              "read": "つなぎあわせて",
+              "vi": "kết nối, gắn kết lại"
+            },
+            {
+              "w": "つなぎ",
+              "read": "つなぎ",
+              "vi": "kết nối"
+            },
+            {
+              "w": "合わせて",
+              "read": "あわせて",
+              "vi": "kết hợp, ghép lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜を通して（〜をとおして）",
+              "vi": "接続: N ＋ を通して. Sắc thái: Diễn tả phương tiện gián tiếp, cầu nối trung gian để đạt được mục đích ('thông qua...'). Đối chiếu: Khác với 〜によって (nhấn mạnh phương thức/nguyên nhân trực tiếp), 〜を通して nhấn mạnh vào vai trò cầu nối, môi trường trung gian."
+            },
+            {
+              "point": "〜んです（強調・総括）",
+              "vi": "接続: V-ている ＋ んです. Sắc thái: Khẳng định ý nghĩa cao đẹp của hành động để kết nối cảm xúc với người đọc."
+            }
+          ]
+        },
+        {
+          "jp": "日常のちょっとした会話の中で「あなたの味方だよ」という気持ちを込めることが、何よりも大切なんじゃないですか。",
+          "vi": "Chẳng phải việc gửi gắm tấm lòng \"tôi luôn đứng về phía bạn đấy\" vào trong những cuộc trò chuyện nhỏ nhặt hàng ngày mới là điều quan trọng hơn tất cả hay sao.",
+          "vocab": [
+            {
+              "w": "日常",
+              "read": "にちじょう",
+              "vi": "đời sống hằng ngày"
+            },
+            {
+              "w": "ちょっとした",
+              "read": "ちょっとした",
+              "vi": "nhỏ nhặt, đôi chút"
+            },
+            {
+              "w": "会話",
+              "read": "かいわ",
+              "vi": "hội thoại"
+            },
+            {
+              "w": "中",
+              "read": "なか",
+              "vi": "trong, bên trong"
+            },
+            {
+              "w": "あなたの味方",
+              "read": "あなたのみかた",
+              "vi": "người đứng về phía bạn"
+            },
+            {
+              "w": "あなた",
+              "read": "あなた",
+              "vi": "bạn"
+            },
+            {
+              "w": "味方",
+              "read": "みかた",
+              "vi": "người ủng hộ, phe mình"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm xúc, tấm lòng"
+            },
+            {
+              "w": "込める",
+              "read": "こめる",
+              "vi": "gửi gắm, dồn vào"
+            },
+            {
+              "w": "何よりも",
+              "read": "なによりも",
+              "vi": "hơn bất cứ điều gì"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜なんじゃないですか／〜じゃないですか",
+              "vi": "接続: V/A/N(普) ＋ (な)んじゃないですか. Sắc thái: Dạng phản vấn mềm mỏng hướng tới người nghe để gợi nhắc một chân lý giản dị nhưng sâu sắc ('chẳng phải là... sao'). Đối chiếu: Khác với 〜ではないか (giọng điệu nghị luận cứng), 〜んじゃないですか gần gũi, ấm áp và mang tính đối thoại thân mật hơn."
+            },
+            {
+              "point": "〜よ（引用内終助詞）",
+              "vi": "接続: N ＋ だよ. Sắc thái: Trong lời thoại trích dẫn 「あなたの味方だよ」, 〜よ khẳng định tình cảm chân thành để đem lại sự an tâm tuyệt đối cho người nghe."
+            }
+          ]
+        },
+        {
+          "jp": "今日、身近な大切な人と話すとき、いつもより少しだけ心を傾けて耳を澄ませてみませんか。",
+          "vi": "Hôm nay, khi trò chuyện cùng người thân thiết bên cạnh mình, bạn có muốn thử lắng lòng nghe chăm chú hơn mọi ngày một chút không?",
+          "vocab": [
+            {
+              "w": "今日",
+              "read": "きょう",
+              "vi": "hôm nay"
+            },
+            {
+              "w": "身近",
+              "read": "みぢか",
+              "vi": "gần gũi, thân cận"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "luôn luôn"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "lòng, tâm hồn"
+            },
+            {
+              "w": "傾ける",
+              "read": "かたむける",
+              "vi": "nghiêng, dốc lòng"
+            },
+            {
+              "w": "耳",
+              "read": "みみ",
+              "vi": "tai, thính giác"
+            },
+            {
+              "w": "澄む",
+              "read": "すむ",
+              "vi": "trong trẻo, lắng đọng"
+            },
+            {
+              "w": "心を傾ける",
+              "read": "こころをかたむける",
+              "vi": "lắng lòng, dồn hết tâm trí vào"
+            },
+            {
+              "w": "耳を澄ませる",
+              "read": "みみをすませる",
+              "vi": "lắng tai nghe, chăm chú lắng nghe"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜てみませんか（勧誘・提案）",
+              "vi": "接続: V-て ＋ みませんか. Sắc thái: Lời mời gọi, đề xuất một trải nghiệm mới một cách lịch sự, nhã nhặn ('bạn có muốn thử... không'). Đối chiếu: Mềm mại hơn 〜てください và gợi mở hơn 〜ましょう."
+            }
+          ]
+        },
+        {
+          "jp": "そのわずかな変化が、二人の絆をより確かなものにしてくれるはずですからね。",
+          "vi": "Bởi vì chắc chắn rằng sự thay đổi nhỏ bé ấy sẽ khiến cho sợi dây gắn kết giữa hai người trở nên bền chặt hơn mà.",
+          "vocab": [
+            {
+              "w": "その",
+              "read": "その",
+              "vi": "đó, ấy"
+            },
+            {
+              "w": "わずかな",
+              "read": "わずかな",
+              "vi": "nhỏ bé, ít ỏi"
+            },
+            {
+              "w": "わずか",
+              "read": "わずか",
+              "vi": "chỉ một chút"
+            },
+            {
+              "w": "変化",
+              "read": "へんか",
+              "vi": "sự thay đổi"
+            },
+            {
+              "w": "二人",
+              "read": "ふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "絆",
+              "read": "きずな",
+              "vi": "mối gắn kết"
+            },
+            {
+              "w": "より",
+              "read": "より",
+              "vi": "hơn, càng"
+            },
+            {
+              "w": "確かな",
+              "read": "たしかな",
+              "vi": "chắc chắn, vững chắc"
+            },
+            {
+              "w": "確か",
+              "read": "たしか",
+              "vi": "chắc chắn"
+            },
+            {
+              "w": "もの",
+              "read": "もの",
+              "vi": "thứ, điều"
+            },
+            {
+              "w": "してくれる",
+              "read": "してくれる",
+              "vi": "làm cho, giúp cho"
+            },
+            {
+              "w": "はず",
+              "read": "はず",
+              "vi": "chắc hẳn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずですからね／〜ね",
+              "vi": "接続: V(普) ＋ はずだ ＋ から ＋ ね. Sắc thái: 〜はずだ diễn tả niềm tin chắc chắn dựa trên lý lẽ xác đáng, kết hợp 〜から (lý do) và trợ từ cuối câu 〜ね để tạo lời kết thân tình, gieo niềm tin và sự ấm áp cho độc giả ('bởi vì chắc chắn... mà')."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "相手が本当に求めているのは、正しい意見ではなく「ただ気持ちを受け止めてもらうこと」なんじゃないでしょうか",
+          "label": "Bản chất của việc lắng nghe trong giao tiếp"
+        },
+        {
+          "excerpt": "相手の話を途中で遮らずに最後までじっくり聞くことは、相手の存在そのものを尊重する行為なんですよ",
+          "label": "Ý nghĩa của việc kiên nhẫn lắng nghe không ngắt lời"
+        },
+        {
+          "excerpt": "相手のペースを尊重することこそが、安心感を与える一番の近道なんだと思います",
+          "label": "Tôn trọng nhịp điệu của đối phương mang lại an tâm"
+        },
+        {
+          "excerpt": "私たちは言葉を通して温もりを伝え合い、心をつなぎ合わせているんです",
+          "label": "Sức mạnh kết nối tâm hồn của ngôn từ"
+        }
+      ],
+      "questions": [
+        {
+          "q": "文章によると、誰かから悩みを相談されたとき、本当に大切なことは何だと述べられていますか。",
+          "options": [
+            "すぐに論理的で正しい解決策を考えてアドバイスしてあげること。",
+            "相手のペースに合わせて、ただその気持ちを受け止めて聞くこと。",
+            "相手の話を急かして、問題の全体像を早く把握すること。",
+            "自分の過去の似た経験をたくさん話して励ましてあげること。"
+          ],
+          "answer": 1,
+          "explainVi": "Căn cứ vào câu [5]: 「でも、相手が本当に求めているのは、正しい意見ではなく『ただ気持ちを受け止めてもらうこと』なんじゃないでしょうか」 và câu [6]: 「話を聞いてうなずいてくれる相手がいるだけで、人は自分の力で前を向くことができるんです」. Tác giả nhấn mạnh điều người tâm sự cần nhất là được lắng nghe và đón nhận cảm xúc.\n- Phương án 0 sai vì câu [4] và [8] chỉ ra việc cố đưa ra giải pháp logic (正論) có thể khiến họ khép kín lòng lại.\n- Phương án 2 sai vì câu [11] phê phán việc hối thúc câu chuyện của người khác (急かす).\n- Phương án 3 sai vì bài viết không hề đề cập đến việc kể nhiều về kinh nghiệm bản thân, thậm chí câu [11] còn nhắc nhở tránh việc chỉ mải nói chuyện của mình (自分の話ばかりをしてしまう).",
+          "tip": "Tìm từ khóa '悩みを相談されたとき' ở đoạn 2 và đối chiếu với cấu trúc '〜ではなく...こと'.",
+          "evi": [
+            4,
+            5,
+            6
+          ],
+          "qt": {
+            "q": "Theo bài viết, khi ai đó chia sẻ nỗi lo với mình, điều gì được cho là thực sự quan trọng?",
+            "o": [
+              "Nhanh chóng nghĩ ra giải pháp hợp lý và đúng đắn rồi đưa ra lời khuyên.",
+              "Lắng nghe và đón nhận cảm xúc của đối phương, chỉ đơn giản là theo nhịp độ của họ.",
+              "Thúc giục đối phương kể để nhanh chóng nắm được toàn bộ sự việc.",
+              "Kể thật nhiều về những trải nghiệm tương tự trong quá khứ của mình để động viên đối phương."
+            ]
+          }
+        },
+        {
+          "q": "相手が言葉を探して沈黙しているとき、筆者はどのように対応することが望ましいと考えていますか。",
+          "options": [
+            "沈黙を埋めるために、こちらから別の話題を次々と振ること。",
+            "言葉につまっている理由を論理的に分析して教えてあげること。",
+            "焦ることなく静かに待って、相手のペースを尊重すること。",
+            "時間がもったいないので、相手の言いたい言葉を代わりに言ってあげること。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [13]: 「相手が言葉を探して沈黙しているとき、焦らずに待ってあげることも優しさの一つなんじゃないかと思います」 và câu [14]: 「相手のペースを尊重することこそが、安心感を与える一番の近道なんだと思います」.\n- Phương án 0 sai vì việc liên tục đổi chủ đề sẽ phá vỡ không gian suy nghĩ của đối phương.\n- Phương án 1 sai vì việc phân tích lý lẽ (正論) không mang lại sự an tâm.\n- Phương án 3 sai vì ngắt lời hay nói hộ đi ngược lại tinh thần 'không ngắt lời và tôn trọng nhịp điệu của đối phương' ở câu [10] và [14].",
+          "tip": "Quan sát các từ khóa '沈黙', '焦らずに', 'ペースを尊重' ở đoạn 3.",
+          "evi": [
+            13,
+            14
+          ],
+          "qt": {
+            "q": "Khi đối phương im lặng để tìm lời muốn nói, người viết cho rằng nên ứng xử như thế nào?",
+            "o": [
+              "Liên tục đưa ra chủ đề khác để lấp đầy khoảng lặng.",
+              "Phân tích một cách hợp lý và giải thích cho đối phương lý do họ đang lúng túng tìm lời.",
+              "Bình tĩnh chờ đợi trong im lặng và tôn trọng nhịp độ của đối phương.",
+              "Vì thời gian quý giá, hãy nói thay những lời mà đối phương muốn nói."
+            ]
+          }
+        },
+        {
+          "q": "筆者がこの文章全体を通して読者に最も伝えたい主張（ニュアンス）として、最も適切なものはどれですか。",
+          "options": [
+            "SNSなどの通信技術は人間関係を壊す有害なものなので、使うのをやめるべきだ。",
+            "言葉は単なる情報伝達手段ではなく、相手に寄り添い心を通わせるための温かい架け橋である。",
+            "悩みを抱えている人に対しては、感情的にならず客観的な正論だけで説得するのが最も効果的だ。",
+            "人間関係で失敗しないためには、自分の意見を主張せず常に相手の意見に全面的に従うべきだ。"
+          ],
+          "answer": 1,
+          "explainVi": "Câu hỏi suy luận chủ đề/sắc thái: Căn cứ vào đoạn 4 (câu [15], [16], [17]): 「言葉というのは、単に効率よく情報をやり取りするための道具ではありません。私たちは言葉を通して温もりを伝え合い、心をつなぎ合わせているんです」, tác giả khẳng định ngôn từ là cầu nối sưởi ấm và gắn kết tâm hồn khi ta biết lắng nghe và đồng hành cùng người khác.\n- Phương án 0 sai vì tác giả chỉ nêu hạn chế của tin nhắn văn bản ở câu [1], [2] chứ không bài trừ công nghệ hay khuyên ngừng dùng mạng xã hội.\n- Phương án 2 sai hoàn toàn vì câu [8] chỉ rõ việc dùng lý lẽ đúng đắn để thuyết phục (正論で説得) có thể phản tác dụng khiến người kia khép kín lòng mình.\n- Phương án 3 sai vì tác giả khuyên tôn trọng và lắng nghe (受け止める, 尊重する) chứ không khuyên phục tùng hay từ bỏ chính kiến của bản thân.",
+          "tip": "Chú ý luận điểm tổng kết ở đoạn 4 mang tính khái quát cao nhất về bản chất của ngôn từ.",
+          "evi": [
+            15,
+            16,
+            17,
+            19
+          ],
+          "qt": {
+            "q": "Ý nào phù hợp nhất với thông điệp (sắc thái) mà người viết muốn truyền tải nhất xuyên suốt bài viết?",
+            "o": [
+              "Các công nghệ liên lạc như SNS có hại và phá hủy các mối quan hệ, vì vậy nên ngừng sử dụng chúng.",
+              "Ngôn từ không chỉ là phương tiện truyền đạt thông tin đơn thuần, mà còn là nhịp cầu ấm áp giúp ta thấu hiểu và kết nối tâm hồn với người khác.",
+              "Khi đối diện với người đang có nỗi lo, cách hiệu quả nhất là thuyết phục họ chỉ bằng những lý lẽ đúng đắn, khách quan, không để cảm xúc chi phối.",
+              "Để không thất bại trong các mối quan hệ, nên không bày tỏ ý kiến của mình và luôn hoàn toàn làm theo ý kiến của đối phương."
+            ]
+          }
+        },
+        {
+          "q": "文章中の「共感の言葉」がもたらす効果について、本文の説明と合致しているものはどれですか。",
+          "options": [
+            "相手の抱えている困難や問題をその場ですぐに完全に解決してくれる。",
+            "相手が余計な悩みを忘れられるように、別の楽しいことに興味を向けさせる。",
+            "相手の心を癒やし、その人が自分の力で前を向いて歩き出すきっかけを与える。",
+            "相手に自分の考えの誤りを自覚させ、正しい行動へと導くことができる。"
+          ],
+          "answer": 2,
+          "explainVi": "Căn cứ vào câu [6]: 「実は、話を聞いてうなずいてくれる相手がいるだけで、人は自分の力で前を向くことができるんです」 và câu [7]: 「『大変だったね』『よく頑張ったね』という共感の言葉には、心を癒やす不思議な力があります」.\n- Phương án 0 sai vì lời đồng cảm xoa dịu tâm hồn và tiếp sức chứ không phải giải quyết triệt để vấn đề thay cho họ ngay lập tức.\n- Phương án 1 sai vì bài đọc không đề cập đến việc chuyển hướng sang trò vui khác.\n- Phương án 3 sai vì đây là mục đích của việc giáo huấn/thuyết phục bằng lý lẽ chuẩn mực (正論), điều mà tác giả cảnh báo ở câu [8].",
+          "tip": "Đối chiếu câu [6] và [7] với các cụm từ '前を向く' và '心を癒やす'.",
+          "evi": [
+            6,
+            7
+          ],
+          "qt": {
+            "q": "Điều nào phù hợp với phần giải thích trong bài về tác dụng của “共感の言葉” (những lời nói thể hiện sự đồng cảm)?",
+            "o": [
+              "Ngay lập tức giải quyết triệt để những khó khăn hoặc vấn đề mà đối phương đang gặp phải.",
+              "Khiến đối phương hướng sự quan tâm sang một điều vui vẻ khác để họ có thể quên đi những nỗi lo không cần thiết.",
+              "Chữa lành trái tim của đối phương và tạo cho họ cơ hội tự mình hướng về phía trước.",
+              "Giúp đối phương nhận ra suy nghĩ của mình sai lầm và dẫn dắt họ đến hành động đúng đắn."
+            ]
+          }
+        }
+      ],
+      "kind": "long"
+    },
+    {
+      "title": "さくらフィットネス・春の選べる会員プランのご案内",
+      "titleVi": "Thông báo về các gói hội viên tự chọn mùa xuân của Sakura Fitness",
+      "japanese": "さくらフィットネス・春の選べる会員プランのご案内\n運動を始めたいけれど、続けられるかしらと不安な方も多いのではないでしょうか。\n当クラブなら、生活リズムに合わせて選べるお得なプランがたくさんあるんですよ。\nプラン名｜利用可能時間｜月額料金｜特徴\nデイプラン｜平日10:00～17:00｜6,000円｜昼間に通いたい方におすすめ\nナイトプラン｜平日17:00～23:00｜7,500円｜お仕事帰りに運動したい方向け\nホリデープラン｜土日祝9:00～21:00｜7,000円｜週末に集中して通いたい方向け\nフルタイムプラン｜全日9:00～23:00｜9,500円｜いつでも自由に利用可能\n【各種オプションおよび割引制度のご案内】\n・個人ロッカー：月額1,000円（※フルタイムプランの方は無料なんですよ）。\n・タオルレンタル：1回300円、または月額1,500円で使い放題です。\n・学生割引：学生証のご提示で、全プランの月額料金から毎月1,000円引きとなります。\n・ペア入会割引：お二人で同時に入会すると、初月の月額料金が半額でお得ですよね。\n※割引制度の重複利用はできません（学生割引とペア入会割引はどちらか一方のみ適用）。\n※利用時間外に施設を利用される場合は、1回につき追加料金1,500円が必要になるんです。\n初めての方でもスタッフがサポートするので安心でしょう？気軽に見学に来てくださいね！",
+      "vietnamese": "Thông báo về các gói hội viên tự chọn mùa xuân của Sakura Fitness\nNhiều người muốn bắt đầu tập luyện nhưng lại lo lắng không biết liệu mình có duy trì được không đúng không nào.\nTại câu lạc bộ chúng tôi có rất nhiều gói ưu đãi để quý khách lựa chọn phù hợp với nhịp sống của mình đấy.\nTên gói｜Khung giờ có thể sử dụng｜Phí hàng tháng｜Đặc điểm\nGói Ban ngày｜Ngày thường 10:00～17:00｜6.000 yên｜Gợi ý cho người muốn đến tập vào ban ngày\nGói Buổi tối｜Ngày thường 17:00～23:00｜7.500 yên｜Dành cho người muốn tập luyện sau giờ làm việc\nGói Ngày nghỉ｜Thứ 7, CN, ngày lễ 9:00～21:00｜7.000 yên｜Dành cho người muốn tập trung đi tập vào cuối tuần\nGói Toàn thời gian｜Tất cả các ngày 9:00～23:00｜9.500 yên｜Có thể sử dụng tự do bất kỳ lúc nào\n【Thông báo về các dịch vụ tùy chọn và chế độ giảm giá】\n・Tủ đồ cá nhân: 1.000 yên/tháng (※Miễn phí đối với hội viên gói Toàn thời gian đấy nhé).\n・Thuê khăn tắm: 300 yên/lần, hoặc 1.500 yên/tháng dùng không giới hạn.\n・Giảm giá học sinh/sinh viên: Xuất trình thẻ học sinh/sinh viên sẽ được giảm 1.000 yên mỗi tháng trên phí gói.\n・Giảm giá đăng ký theo cặp: Đăng ký cùng lúc 2 người sẽ được giảm 50% tiền phí tháng đầu tiên, rất hời đúng không nào.\n※Không áp dụng đồng thời các chế độ giảm giá (giảm giá sinh viên và giảm giá theo cặp chỉ được áp dụng 1 trong 2).\n※Trường hợp sử dụng cơ sở vật chất ngoài khung giờ quy định của gói, sẽ phải trả thêm phụ phí 1.500 yên mỗi lần đấy.\nNgay cả người mới bắt đầu cũng có nhân viên hỗ trợ nên chắc chắn sẽ yên tâm đúng không nào? Hãy cứ thoải mái đến tham quan nhé!",
+      "sentences": [
+        {
+          "jp": "さくらフィットネス・春の選べる会員プランのご案内",
+          "vi": "Thông báo về các gói hội viên tự chọn mùa xuân của Sakura Fitness",
+          "vocab": [
+            {
+              "w": "さくら",
+              "read": "さくら",
+              "vi": "hoa anh đào; tên riêng Sakura"
+            },
+            {
+              "w": "フィット",
+              "read": "フィット",
+              "vi": "vừa vặn, phù hợp"
+            },
+            {
+              "w": "ネス",
+              "read": "ネス",
+              "vi": "hậu tố chỉ tính chất"
+            },
+            {
+              "w": "春",
+              "read": "はる",
+              "vi": "mùa xuân"
+            },
+            {
+              "w": "選べる",
+              "read": "えらべる",
+              "vi": "có thể lựa chọn"
+            },
+            {
+              "w": "会員",
+              "read": "かいいん",
+              "vi": "hội viên, thành viên"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, thông báo"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "運動を始めたいけれど、続けられるかしらと不安な方も多いのではないでしょうか。",
+          "vi": "Nhiều người muốn bắt đầu tập luyện nhưng lại lo lắng không biết liệu mình có duy trì được không đúng không nào.",
+          "vocab": [
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động, tập thể dục"
+            },
+            {
+              "w": "始めたい",
+              "read": "はじめたい",
+              "vi": "muốn bắt đầu"
+            },
+            {
+              "w": "続けられる",
+              "read": "つづけられる",
+              "vi": "có thể tiếp tục"
+            },
+            {
+              "w": "不安な",
+              "read": "ふあんな",
+              "vi": "lo lắng, bất an"
+            },
+            {
+              "w": "不安",
+              "read": "ふあん",
+              "vi": "sự lo lắng"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "多い",
+              "read": "おおい",
+              "vi": "nhiều"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～かしら",
+              "vi": "tự hỏi, phân vân xem có ~ hay không (thường dùng trong văn nói nhẹ nhàng)"
+            },
+            {
+              "point": "～のではないだろうか／ではないでしょうか",
+              "vi": "chẳng phải là ~ sao / đúng không nào (đưa ra suy đoán, ý kiến nhẹ nhàng)"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "当クラブなら、生活リズムに合わせて選べるお得なプランがたくさんあるんですよ。",
+          "vi": "Tại câu lạc bộ chúng tôi có rất nhiều gói ưu đãi để quý khách lựa chọn phù hợp với nhịp sống của mình đấy.",
+          "vocab": [
+            {
+              "w": "当クラブ",
+              "read": "とうクラブ",
+              "vi": "câu lạc bộ chúng tôi"
+            },
+            {
+              "w": "クラブ",
+              "read": "クラブ",
+              "vi": "câu lạc bộ"
+            },
+            {
+              "w": "生活リズム",
+              "read": "せいかつリズム",
+              "vi": "nhịp sinh hoạt"
+            },
+            {
+              "w": "生活",
+              "read": "せいかつ",
+              "vi": "đời sống, sinh hoạt"
+            },
+            {
+              "w": "リズム",
+              "read": "リズム",
+              "vi": "nhịp điệu"
+            },
+            {
+              "w": "合わせて",
+              "read": "あわせて",
+              "vi": "phù hợp với, điều chỉnh theo"
+            },
+            {
+              "w": "選べる",
+              "read": "えらべる",
+              "vi": "có thể lựa chọn"
+            },
+            {
+              "w": "お得な",
+              "read": "おとくな",
+              "vi": "có lợi, tiết kiệm"
+            },
+            {
+              "w": "お得",
+              "read": "おとく",
+              "vi": "có lợi, hời"
+            },
+            {
+              "w": "得",
+              "read": "とく",
+              "vi": "lợi ích"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, kế hoạch"
+            },
+            {
+              "w": "たくさん",
+              "read": "たくさん",
+              "vi": "nhiều"
+            },
+            {
+              "w": "ある",
+              "read": "ある",
+              "vi": "có"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～んだ／んです＋よ",
+              "vi": "giải thích, cung cấp thông tin mới mang tính nhấn mạnh và thân thiện"
+            }
+          ],
+          "keys": []
+        },
+        {
+          "jp": "プラン名｜利用可能時間｜月額料金｜特徴",
+          "vi": "Tên gói｜Khung giờ có thể sử dụng｜Phí hàng tháng｜Đặc điểm",
+          "vocab": [
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sự sử dụng, tận dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "khả năng, tính khả thi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "phí theo tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "giá cả, cước phí"
+            },
+            {
+              "w": "特徴",
+              "read": "とくちょう",
+              "vi": "đặc điểm, nét nổi bật"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "tiền phí hàng tháng"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "デイプラン｜平日10:00～17:00｜6,000円｜昼間に通いたい方におすすめ",
+          "vi": "Gói Ban ngày｜Ngày thường 10:00～17:00｜6.000 yên｜Gợi ý cho người muốn đến tập vào ban ngày",
+          "vocab": [
+            {
+              "w": "デイプラン",
+              "read": "デイプラン",
+              "vi": "gói ban ngày"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "10:00",
+              "read": "じゅうじ",
+              "vi": "10 giờ"
+            },
+            {
+              "w": "17:00",
+              "read": "じゅうしちじ",
+              "vi": "17 giờ"
+            },
+            {
+              "w": "6,000円",
+              "read": "ろくせんえん",
+              "vi": "6.000 yên"
+            },
+            {
+              "w": "昼間",
+              "read": "ひるま",
+              "vi": "ban ngày"
+            },
+            {
+              "w": "通いたい",
+              "read": "かよいたい",
+              "vi": "muốn đến học"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "おすすめ",
+              "read": "おすすめ",
+              "vi": "được khuyến nghị"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜におすすめ",
+              "vi": "Kết nối: N + におすすめ. Ý nghĩa: Đưa ra gợi ý, đề xuất phù hợp cho đối tượng N (trong câu: gói tập được gợi ý dành cho người muốn đi tập vào ban ngày)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日10:00～17:00",
+              "why": "Khung giờ quy định của gói Ban ngày vào các ngày trong tuần."
+            }
+          ]
+        },
+        {
+          "jp": "ナイトプラン｜平日17:00～23:00｜7,500円｜お仕事帰りに運動したい方向け",
+          "vi": "Gói Buổi tối｜Ngày thường 17:00～23:00｜7.500 yên｜Dành cho người muốn tập luyện sau giờ làm việc",
+          "vocab": [
+            {
+              "w": "ナイト",
+              "read": "ナイト",
+              "vi": "ban đêm, buổi tối"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường (thứ Hai đến thứ Sáu)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "運動",
+              "read": "うんどう",
+              "vi": "vận động"
+            },
+            {
+              "w": "方向",
+              "read": "ほうこう",
+              "vi": "phương hướng, chiều hướng"
+            },
+            {
+              "w": "仕事帰り",
+              "read": "しごとがえり",
+              "vi": "trên đường đi làm về"
+            },
+            {
+              "w": "〜向け",
+              "read": "むけ",
+              "vi": "dành cho, hướng tới đối tượng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "Kết nối: N + 向け. Ý nghĩa: Hướng tới hoặc dành riêng cho đối tượng N (trong câu: gói tập thiết kế dành cho đối tượng muốn tập luyện trên đường đi làm về)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "平日17:00～23:00",
+              "why": "Khung giờ áp dụng của gói Buổi tối, phù hợp với người đi tập sau 17:00 ngày thường."
+            },
+            {
+              "w": "7,500円",
+              "why": "Mức phí gốc hàng tháng của gói Buổi tối (căn cứ tính tiền câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "ホリデープラン｜土日祝9:00～21:00｜7,000円｜週末に集中して通いたい方向け",
+          "vi": "Gói Ngày nghỉ｜Thứ 7, CN, ngày lễ 9:00～21:00｜7.000 yên｜Dành cho người muốn tập trung đi tập vào cuối tuần",
+          "vocab": [
+            {
+              "w": "ホリデー",
+              "read": "ホリデー",
+              "vi": "ngày nghỉ, kỳ nghỉ"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói, loại (kế hoạch thuê)"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy・Chủ Nhật"
+            },
+            {
+              "w": "祝",
+              "read": "しゅく",
+              "vi": "chúc mừng, ngày lễ"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "通う",
+              "read": "かよう",
+              "vi": "đi đến (thường xuyên), theo học"
+            },
+            {
+              "w": "方向",
+              "read": "ほうこう",
+              "vi": "phương hướng, chiều hướng"
+            },
+            {
+              "w": "土日祝",
+              "read": "どにちしゅく",
+              "vi": "thứ bảy, chủ nhật và ngày lễ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜向け",
+              "vi": "Kết nối: N + 向け. Ý nghĩa: Hướng tới hoặc dành riêng cho đối tượng N (trong câu: gói tập dành cho người muốn tập trung đi tập vào dịp cuối tuần)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "土日祝9:00～21:00",
+              "why": "Khung giờ và ngày áp dụng của gói Ngày nghỉ."
+            }
+          ]
+        },
+        {
+          "jp": "フルタイムプラン｜全日9:00～23:00｜9,500円｜いつでも自由に利用可能",
+          "vi": "Gói Toàn thời gian｜Tất cả các ngày 9:00～23:00｜9.500 yên｜Có thể sử dụng tự do bất kỳ lúc nào",
+          "vocab": [
+            {
+              "w": "フルタイムプラン",
+              "read": "フルタイムプラン",
+              "vi": "gói toàn thời gian"
+            },
+            {
+              "w": "フルタイム",
+              "read": "フルタイム",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "全日",
+              "read": "ぜんじつ",
+              "vi": "cả ngày"
+            },
+            {
+              "w": "9:00",
+              "read": "くじ",
+              "vi": "9 giờ"
+            },
+            {
+              "w": "23:00",
+              "read": "にじゅうさんじ",
+              "vi": "23 giờ"
+            },
+            {
+              "w": "9,500円",
+              "read": "きゅうせんごひゃくえん",
+              "vi": "9.500 yên"
+            },
+            {
+              "w": "いつでも",
+              "read": "いつでも",
+              "vi": "bất cứ lúc nào"
+            },
+            {
+              "w": "自由",
+              "read": "じゆう",
+              "vi": "tự do"
+            },
+            {
+              "w": "利用可能",
+              "read": "りようかのう",
+              "vi": "có thể sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "可能",
+              "read": "かのう",
+              "vi": "có thể"
+            }
+          ],
+          "grammar": [],
+          "keys": [
+            {
+              "w": "9,500円",
+              "why": "Phí gốc của gói Toàn thời gian (căn cứ tính giảm giá câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "【各種オプションおよび割引制度のご案内】",
+          "vi": "【Thông báo về các dịch vụ tùy chọn và chế độ giảm giá】",
+          "vocab": [
+            {
+              "w": "各種",
+              "read": "かくしゅ",
+              "vi": "các loại, từng loại"
+            },
+            {
+              "w": "オプション",
+              "read": "オプション",
+              "vi": "tùy chọn, dịch vụ thêm"
+            },
+            {
+              "w": "および",
+              "read": "および",
+              "vi": "và, cùng với (văn trang trọng)"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá, chiết khấu"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ, quy chế"
+            },
+            {
+              "w": "案内",
+              "read": "あんない",
+              "vi": "hướng dẫn, chỉ dẫn"
+            }
+          ],
+          "grammar": [],
+          "keys": []
+        },
+        {
+          "jp": "・個人ロッカー：月額1,000円（※フルタイムプランの方は無料なんですよ）。",
+          "vi": "・Tủ đồ cá nhân: 1.000 yên/tháng (※Miễn phí đối với hội viên gói Toàn thời gian đấy nhé).",
+          "vocab": [
+            {
+              "w": "個人ロッカー",
+              "read": "こじんロッカー",
+              "vi": "tủ cá nhân"
+            },
+            {
+              "w": "個人",
+              "read": "こじん",
+              "vi": "cá nhân"
+            },
+            {
+              "w": "ロッカー",
+              "read": "ロッカー",
+              "vi": "tủ khóa"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức phí tháng"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "フルタイムプラン",
+              "read": "フルタイムプラン",
+              "vi": "gói toàn thời gian"
+            },
+            {
+              "w": "フルタイム",
+              "read": "フルタイム",
+              "vi": "toàn thời gian"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "無料",
+              "read": "むりょう",
+              "vi": "miễn phí"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～んだ／んです＋よ",
+              "vi": "nhấn mạnh và giải thích thông tin đặc quyền miễn phí cho người nghe"
+            }
+          ],
+          "keys": [
+            {
+              "w": "月額1,000円",
+              "why": "Phí thuê tủ đồ cá nhân mỗi tháng đối với các gói thông thường (căn cứ câu 1)."
+            },
+            {
+              "w": "フルタイムプランの方は無料",
+              "why": "Điều kiện miễn phí tủ đồ riêng chỉ dành cho hội viên gói Toàn thời gian (căn cứ câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "・タオルレンタル：1回300円、または月額1,500円で使い放題です。",
+          "vi": "・Thuê khăn tắm: 300 yên/lần, hoặc 1.500 yên/tháng dùng không giới hạn.",
+          "vocab": [
+            {
+              "w": "タオルレンタル",
+              "read": "タオルレンタル",
+              "vi": "thuê khăn"
+            },
+            {
+              "w": "タオル",
+              "read": "タオル",
+              "vi": "khăn"
+            },
+            {
+              "w": "レンタル",
+              "read": "レンタル",
+              "vi": "thuê"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "300円",
+              "read": "さんびゃくえん",
+              "vi": "300 yên"
+            },
+            {
+              "w": "または",
+              "read": "または",
+              "vi": "hoặc"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "mức phí tháng"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            },
+            {
+              "w": "使い",
+              "read": "つかい",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "使い放題",
+              "read": "つかいほうだい",
+              "vi": "dùng không giới hạn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜放題",
+              "vi": "Kết nối: Vます (bỏ ます) + 放題. Ý nghĩa: Tha hồ, thoải mái làm hành động V mà không bị giới hạn (trong câu: 「使い放題」 nghĩa là sử dụng khăn thoải mái không giới hạn số lần)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月額1,500円で使い放題",
+              "why": "Chi phí thuê khăn trọn gói hàng tháng (căn cứ cộng phí câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "・学生割引：学生証のご提示で、全プランの月額料金から毎月1,000円引きとなります。",
+          "vi": "・Giảm giá học sinh/sinh viên: Xuất trình thẻ học sinh/sinh viên sẽ được giảm 1.000 yên mỗi tháng trên phí gói.",
+          "vocab": [
+            {
+              "w": "学生割引",
+              "read": "がくせいわりびき",
+              "vi": "giảm giá sinh viên"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "学生証",
+              "read": "がくせいしょう",
+              "vi": "thẻ sinh viên"
+            },
+            {
+              "w": "ご提示",
+              "read": "ごていじ",
+              "vi": "xuất trình"
+            },
+            {
+              "w": "全プラン",
+              "read": "ぜんプラン",
+              "vi": "tất cả các gói"
+            },
+            {
+              "w": "プラン",
+              "read": "プラン",
+              "vi": "gói"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "毎月",
+              "read": "まいげつ",
+              "vi": "mỗi tháng"
+            },
+            {
+              "w": "1,000円引き",
+              "read": "せんえんびき",
+              "vi": "giảm 1.000 yên"
+            },
+            {
+              "w": "1,000円",
+              "read": "せんえん",
+              "vi": "1.000 yên"
+            },
+            {
+              "w": "引き",
+              "read": "びき",
+              "vi": "giảm trừ"
+            },
+            {
+              "w": "なります",
+              "read": "なります",
+              "vi": "trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜となる",
+              "vi": "Kết nối: N + となる (lịch sự: となります). Ý nghĩa: Cách diễn đạt trang trọng của 「になる」, dùng trong thông báo chính thức để biểu thị sự chuyển biến, kết quả hoặc mức quy định (trong câu: sẽ được giảm 1.000 yên)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "毎月1,000円引き",
+              "why": "Mức giảm học sinh sinh viên được trừ cố định hàng tháng (căn cứ câu 1)."
+            }
+          ]
+        },
+        {
+          "jp": "・ペア入会割引：お二人で同時に入会すると、初月の月額料金が半額でお得ですよね。",
+          "vi": "・Giảm giá đăng ký theo cặp: Đăng ký cùng lúc 2 người sẽ được giảm 50% tiền phí tháng đầu tiên, rất hời đúng không nào.",
+          "vocab": [
+            {
+              "w": "ペア入会割引",
+              "read": "ペアにゅうかいわりびき",
+              "vi": "giảm giá đăng ký theo cặp"
+            },
+            {
+              "w": "ペア",
+              "read": "ペア",
+              "vi": "cặp đôi"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "đăng ký tham gia"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "お二人",
+              "read": "おふたり",
+              "vi": "hai người"
+            },
+            {
+              "w": "同時",
+              "read": "どうじ",
+              "vi": "đồng thời"
+            },
+            {
+              "w": "初月",
+              "read": "しょげつ",
+              "vi": "tháng đầu"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "tháng"
+            },
+            {
+              "w": "月額料金",
+              "read": "げつがくりょうきん",
+              "vi": "phí hàng tháng"
+            },
+            {
+              "w": "月額",
+              "read": "げつがく",
+              "vi": "hàng tháng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "半額",
+              "read": "はんがく",
+              "vi": "một nửa giá"
+            },
+            {
+              "w": "お得",
+              "read": "おとく",
+              "vi": "có lợi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～よね",
+              "vi": "tìm kiếm sự đồng tình về lợi ích hấp dẫn của chương trình"
+            }
+          ],
+          "keys": [
+            {
+              "w": "初月の月額料金が半額",
+              "why": "Quy định giảm nửa giá tháng đầu khi đăng ký từ 2 người trở lên (căn cứ câu 2)."
+            }
+          ]
+        },
+        {
+          "jp": "※割引制度の重複利用はできません（学生割引とペア入会割引はどちらか一方のみ適用）。",
+          "vi": "※Không áp dụng đồng thời các chế độ giảm giá (giảm giá sinh viên và giảm giá theo cặp chỉ được áp dụng 1 trong 2).",
+          "vocab": [
+            {
+              "w": "割引制度",
+              "read": "わりびきせいど",
+              "vi": "chế độ giảm giá"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "制度",
+              "read": "せいど",
+              "vi": "chế độ"
+            },
+            {
+              "w": "重複利用",
+              "read": "ちょうふくりよう",
+              "vi": "sử dụng chồng lặp"
+            },
+            {
+              "w": "重複",
+              "read": "ちょうふく",
+              "vi": "trùng lặp"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "できません",
+              "read": "できません",
+              "vi": "không thể"
+            },
+            {
+              "w": "学生割引",
+              "read": "がくせいわりびき",
+              "vi": "giảm giá sinh viên"
+            },
+            {
+              "w": "学生",
+              "read": "がくせい",
+              "vi": "sinh viên"
+            },
+            {
+              "w": "ペア入会割引",
+              "read": "ペアにゅうかいわりびき",
+              "vi": "giảm giá đăng ký theo cặp"
+            },
+            {
+              "w": "ペア",
+              "read": "ペア",
+              "vi": "cặp đôi"
+            },
+            {
+              "w": "入会",
+              "read": "にゅうかい",
+              "vi": "đăng ký tham gia"
+            },
+            {
+              "w": "どちらか一方",
+              "read": "どちらかいっぽう",
+              "vi": "một trong hai"
+            },
+            {
+              "w": "どちらか",
+              "read": "どちらか",
+              "vi": "một trong hai"
+            },
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "một bên"
+            },
+            {
+              "w": "のみ",
+              "read": "のみ",
+              "vi": "chỉ"
+            },
+            {
+              "w": "適用",
+              "read": "てきよう",
+              "vi": "áp dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のみ",
+              "vi": "Kết nối: N + のみ. Ý nghĩa: Biểu thị giới hạn 'chỉ...', là hình thức văn viết trang trọng của 「だけ」 (trong câu: chỉ áp dụng một trong hai hình thức giảm giá)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "重複利用はできません",
+              "why": "Ràng buộc không được cộng dồn hai loại giảm giá cùng lúc."
+            }
+          ]
+        },
+        {
+          "jp": "※利用時間外に施設を利用される場合は、1回につき追加料金1,500円が必要になるんです。",
+          "vi": "※Trường hợp sử dụng cơ sở vật chất ngoài khung giờ quy định của gói, sẽ phải trả thêm phụ phí 1.500 yên mỗi lần đấy.",
+          "vocab": [
+            {
+              "w": "利用時間外",
+              "read": "りようじかんがい",
+              "vi": "ngoài giờ sử dụng"
+            },
+            {
+              "w": "利用",
+              "read": "りよう",
+              "vi": "sử dụng"
+            },
+            {
+              "w": "時間外",
+              "read": "じかんがい",
+              "vi": "ngoài giờ"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "施設",
+              "read": "しせつ",
+              "vi": "cơ sở"
+            },
+            {
+              "w": "場合",
+              "read": "ばあい",
+              "vi": "trường hợp"
+            },
+            {
+              "w": "1回につき",
+              "read": "いっかいにつき",
+              "vi": "mỗi lần"
+            },
+            {
+              "w": "1回",
+              "read": "いっかい",
+              "vi": "một lần"
+            },
+            {
+              "w": "につき",
+              "read": "につき",
+              "vi": "mỗi"
+            },
+            {
+              "w": "追加料金",
+              "read": "ついかりょうきん",
+              "vi": "phí phụ thu"
+            },
+            {
+              "w": "追加",
+              "read": "ついか",
+              "vi": "thêm"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "phí"
+            },
+            {
+              "w": "1,500円",
+              "read": "せんごひゃくえん",
+              "vi": "1.500 yên"
+            },
+            {
+              "w": "必要になる",
+              "read": "ひつようになる",
+              "vi": "trở nên cần thiết"
+            },
+            {
+              "w": "必要",
+              "read": "ひつよう",
+              "vi": "cần thiết"
+            },
+            {
+              "w": "なる",
+              "read": "なる",
+              "vi": "trở thành"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～んだ／んです",
+              "vi": "giải thích quy định và lý do phát sinh chi phí phụ thu"
+            }
+          ],
+          "keys": [
+            {
+              "w": "追加料金1,500円",
+              "why": "Mức phụ phí phát sinh khi đi tập trái khung giờ đã đăng ký."
+            }
+          ]
+        },
+        {
+          "jp": "初めての方でもスタッフがサポートするので安心でしょう？気軽に見学に来てくださいね！",
+          "vi": "Ngay cả người mới bắt đầu cũng có nhân viên hỗ trợ nên chắc chắn sẽ yên tâm đúng không nào? Hãy cứ thoải mái đến tham quan nhé!",
+          "vocab": [
+            {
+              "w": "初めての方",
+              "read": "はじめてのかた",
+              "vi": "người lần đầu"
+            },
+            {
+              "w": "初めて",
+              "read": "はじめて",
+              "vi": "lần đầu"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người"
+            },
+            {
+              "w": "スタッフ",
+              "read": "スタッフ",
+              "vi": "nhân viên"
+            },
+            {
+              "w": "サポート",
+              "read": "サポート",
+              "vi": "hỗ trợ"
+            },
+            {
+              "w": "安心",
+              "read": "あんしん",
+              "vi": "yên tâm"
+            },
+            {
+              "w": "気軽",
+              "read": "きがる",
+              "vi": "thoải mái"
+            },
+            {
+              "w": "見学",
+              "read": "けんがく",
+              "vi": "tham quan"
+            },
+            {
+              "w": "来て",
+              "read": "きて",
+              "vi": "đến"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "～でしょう",
+              "vi": "suy đoán hoặc tìm kiếm sự xác nhận, tạo cảm giác an tâm"
+            },
+            {
+              "point": "～ね",
+              "vi": "lời mời gọi thân thiện, nhẹ nhàng"
+            }
+          ],
+          "keys": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "続けられるかしら",
+          "label": "～かしら（自問・不安）"
+        },
+        {
+          "excerpt": "あるんですよ",
+          "label": "～んだ／んです＋よ（説明・強調）"
+        },
+        {
+          "excerpt": "お得ですよね",
+          "label": "～よね（共感・確認）"
+        },
+        {
+          "excerpt": "必要になるんです",
+          "label": "～んだ／んです（理由・説明）"
+        },
+        {
+          "excerpt": "安心でしょう",
+          "label": "～でしょう（推量・確認）"
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "案内導入・挨拶",
+          "topic": 0,
+          "note": "さくらフィットネスクラブの春の会員プラン紹介と利用者の不安への寄り添い。",
+          "qs": []
+        },
+        {
+          "from": 3,
+          "to": 7,
+          "kind": "body",
+          "label": "基本会員プラン一覧表",
+          "topic": 3,
+          "note": "利用可能時間や月額料金に応じた4つの会員プラン（デイ・ナイト・ホリデー・フルタイム）の提示。",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 8,
+          "to": 14,
+          "kind": "point",
+          "label": "オプションおよび割引・利用規約",
+          "topic": 8,
+          "note": "ロッカー・タオルのオプション料金、学割・ペア割の条件および時間外利用時の追加料金。",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 15,
+          "to": 15,
+          "kind": "turn",
+          "label": "見学・体験レッスンの呼びかけ",
+          "topic": 15,
+          "note": "初心者へのサポート強調と見学・体験への参加促進。",
+          "qs": []
+        }
+      ],
+      "questions": [
+        {
+          "q": "大学生のキムさんは、平日の19:00～21:00に通い、自分専用の個人ロッカーを使いたいと考えています。学生証を提示して1人で入会する場合、キムさんの毎月の支払額はいくらですか。",
+          "options": [
+            "6,500円",
+            "7,500円",
+            "8,500円",
+            "9,500円"
+          ],
+          "answer": 1,
+          "explainVi": "Kim là sinh viên, muốn tập vào tối ngày thường (19:00～21:00) nên gói phù hợp là 'ナイトプラン' (7.500 yên/tháng). Kim thuê thêm tủ đồ cá nhân (+1.000 yên/tháng) và được giảm giá sinh viên (-1.000 yên/tháng). Tổng số tiền hàng tháng phải trả là: 7.500 + 1.000 - 1.000 = 7.500 yên.",
+          "tip": "Xác định gói giờ phù hợp (Night Plan 7.500 yên), cộng phí tủ đồ cá nhân (+1.000 yên) và trừ giảm giá sinh viên (-1.000 yên).",
+          "evi": [
+            5,
+            9,
+            11
+          ],
+          "qt": {
+            "q": "Anh Kim là sinh viên đại học, muốn đến tập vào các ngày trong tuần từ 19:00 đến 21:00 và sử dụng tủ đồ cá nhân riêng. Nếu xuất trình thẻ sinh viên và đăng ký một mình, mỗi tháng anh Kim phải trả bao nhiêu?",
+            "o": [
+              "6.500 yên",
+              "7.500 yên",
+              "8.500 yên",
+              "9.500 yên"
+            ]
+          }
+        },
+        {
+          "q": "会社員の田中さんは、平日の夜も休日も自由に利用したいので「フルタイムプラン」を選び、個人ロッカーとタオルレンタル使い放題を申し込みます。友人と2人で同時に入会する場合、田中さんの【初月】の支払額はいくらですか。",
+          "options": [
+            "5,750円",
+            "6,250円",
+            "7,250円",
+            "11,000円"
+          ],
+          "answer": 1,
+          "explainVi": "Tanaka chọn 'フルタイムプラン' (9.500 yên/tháng). Vì đăng ký cùng lúc với bạn (2 người) nên được hưởng 'ペア入会割引' giảm nửa giá tháng đầu: 9.500 / 2 = 4.750 yên. Hội viên Full-time được miễn phí tủ đồ cá nhân (0 yên). Phí thuê khăn tắm trọn gói là +1.500 yên/tháng. Tổng số tiền tháng đầu tiên là: 4.750 + 0 + 1.500 = 6.250 yên.",
+          "tip": "Chú ý hội viên Full-time được miễn phí tủ cá nhân, tiền gói tháng đầu giảm 50% do đi 2 người, sau đó cộng thêm tiền thuê khăn tắm trọn gói.",
+          "evi": [
+            7,
+            9,
+            10,
+            12
+          ],
+          "qt": {
+            "q": "Anh Tanaka là nhân viên công ty, muốn sử dụng tự do cả buổi tối ngày thường lẫn ngày nghỉ nên chọn 「フルタイムプラン」 (gói toàn thời gian), đồng thời đăng ký tủ đồ cá nhân và dịch vụ thuê khăn không giới hạn. Nếu đăng ký cùng lúc với một người bạn, số tiền anh Tanaka phải trả trong 【tháng đầu tiên】 là bao nhiêu?",
+            "o": [
+              "5.750 yên",
+              "6.250 yên",
+              "7.250 yên",
+              "11.000 yên"
+            ]
+          }
+        }
+      ],
+      "kind": "info"
+    }
+  ]
+}

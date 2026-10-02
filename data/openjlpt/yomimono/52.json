@@ -1,0 +1,3452 @@
+{
+  "bai": 52,
+  "level": "N3",
+  "strategy": {
+    "intro": "Bài 52 tập trung vào THANG ĐỘ CHẮC CHẮN khi phán đoán: かもしれない（có thể, ~30%）< でしょう（chắc là, ~60%）< はず（lẽ ra phải vậy — suy luận có cơ sở logic, B51）< にちがいない（chắc chắn là — xác tín chủ quan mạnh, ~95%）. Đọc các bài đọc dưới đây, chú ý VÌ SAO người viết chọn にちがいない thay vì はず hay かもしれない — đó chính là cốt lõi bài thi N3.",
+    "steps": [
+      "Nhận diện mẫu: [普通形] + にちがいない; [普通形] + かもしれない. Với なAdj/N: bỏ だ trước にちがいない/かもしれない（例: 病気にちがいない, 静かかもしれない）.",
+      "Phân biệt にちがいない vs はず: にちがいない = người nói TIN CHẮC dựa vào linh cảm hoặc chứng cứ cụ thể, mang màu sắc CHỦ QUAN mạnh; はず = suy luận logic khách quan dựa vào quy tắc/lịch trình, không nhất thiết từ cảm nhận cá nhân.",
+      "Phân biệt にちがいない vs かもしれない: にちがいない = \"chắc chắn là, tôi tin điều này đúng\"; かもしれない = \"có thể, cũng không loại trừ khả năng\" — không cam kết.",
+      "Đọc ngữ cảnh: nếu người viết đưa ra nhiều bằng chứng cụ thể rồi kết luận → thường dùng にちがいない; nếu chỉ đoán mà thiếu chứng cứ → かもしれない.",
+      "Câu hỏi suy luận/sắc thái: hỏi \"vì sao dùng にちがいない mà không phải かもしれない?\" → tìm trong văn bản xem người viết có chứng cứ gì không."
+    ],
+    "tips": [
+      "使い分け 1: にちがいない KHÔNG thể thay thế bằng かもしれない khi người viết đã đưa ra nhiều bằng chứng và tin chắc; thay bằng かもしれない sẽ làm câu yếu đi, không còn thể hiện lòng tin mạnh của người viết.",
+      "使い分け 2: はず（B51）nói về kết quả suy luận TỪ QUY TẮC/LỊCH TRÌNH（vd: 約束したから来るはずだ = lẽ ra phải đến vì đã hẹn）; にちがいない nói từ CẢM NHẬN/CHỨNG CỨ CÁ NHÂN（vd: 顔色が悪いから病気にちがいない = nhìn mặt biết chắc là ốm）.",
+      "Tiếp đầu ngữ にちがいない không đi sau て形 hay ます形 — chỉ đi sau 普通形 (chú ý なAdj/N: bỏ だ).",
+      "Dấu hiệu nhận câu hỏi sắc thái trong đề: nếu câu hỏi dùng cụm \"なぜ〜を使いましたか\" hoặc \"どのくらい確信がありますか\" → đó là câu hỏi sắc thái, cần so sánh các mẫu phán đoán.",
+      "Bẫy thường gặp: nhầm にちがいない với はずがない — はずがない（B51）là \"không thể nào/không lẽ nào\", mang nghĩa PHỦ ĐỊNH suy luận logic, rất khác với にちがいない（KHẲNG ĐỊNH xác tín）."
+    ],
+    "grammarFocus": [
+      "〜にちがいない（普通形 + にちがいない; なAdj/N bỏ だ）— xác tín chủ quan mạnh",
+      "〜かもしれない（普通形 + かもしれない; なAdj/N bỏ だ）— chỉ khả năng, không cam kết"
+    ],
+    "reviewFrom": [
+      {
+        "bai": 51,
+        "items": [
+          "〜はずだ（suy luận có cơ sở logic）",
+          "〜はずがない（không thể nào）"
+        ]
+      },
+      {
+        "bai": 32,
+        "items": [
+          "〜でしょう（phán đoán nhẹ）",
+          "〜かもしれません（đã học, nay ôn lại ở mức cao hơn）"
+        ]
+      },
+      {
+        "bai": 21,
+        "items": [
+          "〜と思います（ý kiến cá nhân）",
+          "〜と言いました（trích dẫn）"
+        ]
+      },
+      {
+        "bai": 39,
+        "items": [
+          "〜ので（lý do lịch sự）"
+        ]
+      },
+      {
+        "bai": 29,
+        "items": [
+          "〜てしまいました（đã lỡ/hoàn toàn）"
+        ]
+      }
+    ]
+  },
+  "passages": [
+    {
+      "kind": "short",
+      "title": "隣の部屋の電気",
+      "titleVi": "Đèn phòng bên cạnh",
+      "japanese": "隣の部屋の電気が毎晩遅くまでついている。住んでいる人は、仕事が忙しいにちがいない。先週、深夜に廊下で会ったとき、顔色がとても悪かった。やはり、疲れているにちがいないと思った。一方、先月まではそんなことはなかったはずだ。何か事情が変わったのかもしれない。新しいプロジェクトが始まったのかもしれないし、家族に何かあったのかもしれない。でも、ドアをノックして声をかけることは、なかなかできないでいる。もし本当に困っているなら、いつか話しかけてみようと思っている。",
+      "vietnamese": "Đèn phòng bên cạnh sáng mãi đến khuya mỗi tối. Người sống trong đó chắc chắn công việc bận rộn lắm. Tuần trước, khi gặp nhau ngoài hành lang vào lúc nửa đêm, sắc mặt trông rất tệ. Tôi nghĩ chắc hẳn họ đang mệt mỏi. Mặt khác, cho đến tháng trước, lẽ ra không có chuyện như vậy. Có lẽ có gì đó đã thay đổi. Có thể một dự án mới vừa bắt đầu, hoặc cũng có thể có chuyện gì đó trong gia đình. Nhưng tôi không thể gõ cửa và lên tiếng được. Nếu họ thực sự đang gặp khó khăn, tôi nghĩ mình sẽ thử bắt chuyện vào lúc nào đó.",
+      "sentences": [
+        {
+          "jp": "隣の部屋の電気が毎晩遅くまでついている。",
+          "vi": "Đèn phòng bên cạnh sáng mãi đến khuya mỗi tối.",
+          "vocab": [
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, hàng xóm"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "phòng"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "đèn điện"
+            },
+            {
+              "w": "毎晩",
+              "read": "まいばん",
+              "vi": "mỗi tối"
+            },
+            {
+              "w": "遅くまで",
+              "read": "おそくまで",
+              "vi": "mãi đến khuya"
+            },
+            {
+              "w": "ついています",
+              "read": "ついています",
+              "vi": "đang bật (đèn)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（trạng thái）",
+              "vi": "ついている = đang bật sáng (trạng thái liên tục). Mở đầu bài bằng quan sát thực tế — căn cứ cho phán đoán phía sau."
+            }
+          ]
+        },
+        {
+          "jp": "住んでいる人は、仕事が忙しいにちがいない。",
+          "vi": "Người sống trong đó chắc chắn công việc bận rộn lắm.",
+          "vocab": [
+            {
+              "w": "住みます",
+              "read": "すみます",
+              "vi": "sống, cư trú"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にちがいない",
+              "vi": "接続: いAdj + にちがいない（忙しい + にちがいない）. Sắc thái: người viết CHẮC CHẮN tin điều này đúng dựa vào chứng cứ (đèn sáng khuya). Đối chiếu: かもしれない chỉ nói \"có thể bận\" — yếu hơn nhiều; はず（B51）sẽ cần một căn cứ quy tắc/lịch trình（vd: \"hẹn rồi mà\"）, còn ở đây là linh cảm + chứng cứ cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "先週、深夜に廊下で会ったとき、顔色がとても悪かった。",
+          "vi": "Tuần trước, khi gặp nhau ngoài hành lang vào lúc nửa đêm, sắc mặt trông rất tệ.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "深夜",
+              "read": "しんや",
+              "vi": "nửa đêm, khuya khoắt"
+            },
+            {
+              "w": "廊下",
+              "read": "ろうか",
+              "vi": "hành lang"
+            },
+            {
+              "w": "会う",
+              "read": "あう",
+              "vi": "gặp, gặp mặt"
+            },
+            {
+              "w": "顔色",
+              "read": "かおいろ",
+              "vi": "sắc mặt"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "悪い",
+              "read": "わるい",
+              "vi": "xấu, tệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜とき（B23）",
+              "vi": "会ったとき = khi gặp. V過去形 + とき = thời điểm sau khi hành động xảy ra xong. Đây là bằng chứng thứ hai bổ sung cho phán đoán."
+            }
+          ]
+        },
+        {
+          "jp": "やはり、疲れているにちがいないと思った。",
+          "vi": "Tôi nghĩ chắc hẳn họ đang mệt mỏi.",
+          "vocab": [
+            {
+              "w": "やはり",
+              "read": "やはり",
+              "vi": "đúng như dự đoán, chắc hẳn là vậy"
+            },
+            {
+              "w": "疲れます",
+              "read": "つかれます",
+              "vi": "mệt mỏi"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ているにちがいない",
+              "vi": "接続: Vている（疲れている）+ にちがいない = chắc chắn đang mệt. Vているにちがいない dùng khi suy đoán về trạng thái đang diễn ra. と思った（B21）nối phía sau: người viết diễn đạt xác tín của mình."
+            }
+          ]
+        },
+        {
+          "jp": "一方、先月まではそんなことはなかったはずだ。",
+          "vi": "Mặt khác, cho đến tháng trước, lẽ ra không có chuyện như vậy.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác, một mặt"
+            },
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "そんな",
+              "read": "そんな",
+              "vi": "như vậy, đó"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜はずだ（B51）",
+              "vi": "なかったはずだ = lẽ ra không có chuyện đó（suy luận từ ký ức/logic: trước kia bình thường nên không lẽ nào đã như vậy）. ĐỐI CHIẾU với にちがいない: はず ở đây nhấn vào suy luận logic dựa vào kinh nghiệm cá nhân, trong khi câu trước にちがいない nhấn vào chứng cứ trực tiếp（đèn sáng, sắc mặt）."
+            }
+          ]
+        },
+        {
+          "jp": "何か事情が変わったのかもしれない。",
+          "vi": "Có lẽ có gì đó đã thay đổi.",
+          "vocab": [
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "事情",
+              "read": "じじょう",
+              "vi": "hoàn cảnh"
+            },
+            {
+              "w": "変わった",
+              "read": "かわった",
+              "vi": "đã thay đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のかもしれない",
+              "vi": "接続: Vた（変わった）+ のかもしれない = có thể là đã thay đổi. のかもしれない = の danh từ hoá + かもしれない; nhấn nhẹ hơn にちがいない — người viết chỉ suy đoán, chưa chắc chắn về nguyên nhân."
+            }
+          ]
+        },
+        {
+          "jp": "新しいプロジェクトが始まったのかもしれないし、家族に何かあったのかもしれない。",
+          "vi": "Có thể một dự án mới vừa bắt đầu, hoặc cũng có thể có chuyện gì đó trong gia đình.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới"
+            },
+            {
+              "w": "プロジェクト",
+              "read": "ぷろじぇくと",
+              "vi": "dự án"
+            },
+            {
+              "w": "始まった",
+              "read": "はじまった",
+              "vi": "đã bắt đầu"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "あった",
+              "read": "あった",
+              "vi": "đã xảy ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれないし、〜かもしれない",
+              "vi": "Hai mệnh đề かもしれない song song (〜し = \"và cũng có thể / hoặc\"): liệt kê các khả năng mà không khẳng định cái nào. Sắc thái rõ ràng khác với にちがいない ở câu 2 và 4 — người viết không đủ căn cứ để chắc chắn về nguyên nhân cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "でも、ドアをノックして声をかけることは、なかなかできないでいる。",
+          "vi": "Nhưng tôi không thể gõ cửa và lên tiếng được.",
+          "vocab": [
+            {
+              "w": "ドア",
+              "read": "ドア",
+              "vi": "cánh cửa"
+            },
+            {
+              "w": "ノック",
+              "read": "ノック",
+              "vi": "tiếng gõ cửa, gõ cửa"
+            },
+            {
+              "w": "声をかけます",
+              "read": "こえをかけます",
+              "vi": "lên tiếng, bắt chuyện"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "なかなか",
+              "read": "なかなか",
+              "vi": "mãi không, khó mà (dùng với phủ định)"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "ノックします",
+              "read": "ノックします",
+              "vi": "gõ cửa"
+            },
+            {
+              "w": "なかなか〜ない",
+              "read": "なかなか〜ない",
+              "vi": "không thể dễ dàng, mãi không được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vることは〜できない（B18 + B38）",
+              "vi": "声をかけること = việc lên tiếng (danh từ hoá, B38). なかなかできない（B18 khả năng + なかなか〜ない B18）= không dễ làm được."
+            }
+          ]
+        },
+        {
+          "jp": "もし本当に困っているなら、いつか話しかけてみようと思っている。",
+          "vi": "Nếu họ thực sự đang gặp khó khăn, tôi nghĩ mình sẽ thử bắt chuyện vào lúc nào đó.",
+          "vocab": [
+            {
+              "w": "本当に",
+              "read": "ほんとうに",
+              "vi": "thực sự"
+            },
+            {
+              "w": "困ります",
+              "read": "こまります",
+              "vi": "gặp khó khăn, lúng túng"
+            },
+            {
+              "w": "いつか",
+              "read": "いつか",
+              "vi": "vào lúc nào đó"
+            },
+            {
+              "w": "話しかけます",
+              "read": "はなしかけます",
+              "vi": "bắt chuyện, lên tiếng trò chuyện"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "もし〜なら（B35）",
+              "vi": "困っているなら = nếu đang gặp khó khăn thì. もし〜なら = giả thiết điều kiện. Kết hợp V意向形（話しかけてみよう）+ と思っている（B21）= đang có ý định thử bắt chuyện."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "仕事が忙しいにちがいない",
+          "label": "にちがいない（xác tín chủ quan）"
+        },
+        {
+          "excerpt": "疲れているにちがいないと思った",
+          "label": "Vているにちがいない（Sắc thái: mạnh hơn かもしれない）"
+        },
+        {
+          "excerpt": "なかったはずだ",
+          "label": "はずだ（B51 — đối chiếu）"
+        },
+        {
+          "excerpt": "何か事情が変わったのかもしれない",
+          "label": "かもしれない（khả năng — yếu hơn にちがいない）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「仕事が忙しいにちがいない」と「仕事が忙しいかもしれない」の違いは何ですか。",
+          "evi": [
+            1,
+            5
+          ],
+          "options": [
+            "意味は同じで、どちらも使えます",
+            "「にちがいない」は話し手の強い確信を表し、「かもしれない」は可能性を示すだけです",
+            "「かもしれない」の方が「にちがいない」より確信が強いです",
+            "「にちがいない」は疑問を表し、「かもしれない」は確信を表します"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng: 「にちがいない」= xác tín chủ quan MẠNH (~95%) — người viết tin chắc dựa vào bằng chứng trực tiếp（đèn「毎晩遅くまでついている」+ sắc mặt「顔色がとても悪かった」）. 「かもしれない」= chỉ nêu khả năng (~30%), không cam kết. Đáp án A sai vì hai mẫu đối lập hoàn toàn về độ chắc chắn. Đáp án C ngược — にちがいない mạnh hơn かもしれない. Đáp án D sai: にちがいない là KHẲNG ĐỊNH, không phải nghi vấn.",
+          "tip": "So sánh nhanh: にちがいない = \"tôi CHẮC CHẮN\" (có bằng chứng); かもしれない = \"có THỂ thôi\". Câu hỏi hỏi \"mạnh hơn\" → chọn にちがいない.",
+          "qt": {
+            "q": "「仕事が忙しいにちがいない」 và 「仕事が忙しいかもしれない」 khác nhau như thế nào?",
+            "o": [
+              "Ý nghĩa giống nhau, cả hai đều có thể dùng được",
+              "「にちがいない」 thể hiện sự tin chắc mạnh mẽ của người nói, còn 「かもしれない」 chỉ cho biết khả năng",
+              "「かもしれない」 thể hiện sự tin chắc mạnh hơn 「にちがいない」",
+              "「にちがいない」 thể hiện sự nghi vấn, còn 「かもしれない」 thể hiện sự tin chắc"
+            ]
+          }
+        },
+        {
+          "q": "書いた人が「仕事が忙しいにちがいない」と強く思う理由として、文章に書かれているのは何ですか。",
+          "evi": [
+            0,
+            2
+          ],
+          "options": [
+            "隣の人が「忙しい」と直接言ったからです",
+            "毎晩遅くまで電気がついていて、深夜に廊下で会ったとき顔色が悪かったからです",
+            "先月から新しいプロジェクトが始まったと聞いたからです",
+            "家族に何かあったという話を聞いたからです"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng: văn bản nêu hai bằng chứng cụ thể là CĂN CỨ cho にちがいない — ① 「電気が毎晩遅くまでついている」(đèn sáng khuya mỗi tối) và ② 「深夜に廊下で会ったとき、顔色がとても悪かった」(gặp nửa đêm, sắc mặt rất tệ). Đáp án A sai: người hàng xóm không hề nói trực tiếp. Đáp án C và D sai: \"dự án mới / chuyện gia đình\" chỉ là các khả năng được nêu bằng かもしれない — không phải căn cứ cho にちがいない.",
+          "tip": "Câu hỏi \"vì sao dùng にちがいない?\" → tìm trong bài các BỐI CẢNH QUAN SÁT TRỰC TIẾP (đã thấy, đã gặp) chứ không phải suy đoán thêm.",
+          "qt": {
+            "q": "Trong bài viết, lý do nào được nêu khiến người viết tin chắc rằng 「仕事が忙しいにちがいない」?",
+            "o": [
+              "Vì người hàng xóm đã trực tiếp nói rằng mình “bận”",
+              "Vì đèn sáng đến tận khuya mỗi đêm, và khi gặp nhau ở hành lang lúc nửa đêm, sắc mặt người ấy trông kém",
+              "Vì người viết nghe nói rằng một dự án mới đã bắt đầu từ tháng trước",
+              "Vì người viết nghe nói rằng gia đình người ấy đã xảy ra chuyện gì đó"
+            ]
+          }
+        },
+        {
+          "q": "「先月まではそんなことはなかったはずだ」の「はずだ」について、正しい説明はどれですか。",
+          "evi": [
+            4
+          ],
+          "options": [
+            "はずだ = にちがいない と同じ意味で、どちらも確信を示します",
+            "はずだ = 「ルール・経験・記憶から論理的に推測すること」を表し、にちがいない より客観的な推論です",
+            "はずだ は未来のことだけに使われる表現です",
+            "はずだ は「〜すべきだ」という義務を表します"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng: 「はず」（B51）= suy luận logic/khách quan từ kinh nghiệm, ký ức. Ở đây: \"tôi nhớ trước kia bình thường → lẽ ra không có chuyện đó\" (「先月まではそんなことはなかったはずだ」). Đây là suy luận từ dữ kiện khách quan (thời gian, thói quen), không phải từ cảm nhận trực tiếp, nên はず phù hợp hơn にちがいない. Đáp án A sai: はず và にちがいない KHÁC nhau — はず có cơ sở logic/khách quan, にちがいない thiên về xác tín chủ quan. Đáp án C và D sai: はず dùng được cho cả quá khứ và hiện tại; không có nghĩa nghĩa vụ (đó là べきだ).",
+          "tip": "Phân biệt nhanh: はず = \"lẽ ra phải vậy vì tôi biết/nhớ/theo lịch\"; にちがいない = \"tôi chắc chắn vì tôi đã THẤY/CẢM NHẬN\". Câu hỏi về はず → đáp án nào nhắc đến \"suy luận logic / kinh nghiệm / quy tắc\" là đúng.",
+          "qt": {
+            "q": "Về 「はずだ」 trong câu 「先月まではそんなことはなかったはずだ」, cách giải thích nào đúng?",
+            "o": [
+              "はずだ có cùng nghĩa với にちがいない; cả hai đều thể hiện sự tin chắc",
+              "はずだ diễn tả “suy luận một cách logic từ quy tắc, kinh nghiệm hoặc ký ức” và là suy luận khách quan hơn にちがいない",
+              "はずだ chỉ được dùng cho những việc trong tương lai",
+              "はずだ diễn tả nghĩa vụ, tức là “nên/phải làm gì đó”"
+            ]
+          }
+        },
+        {
+          "q": "「新しいプロジェクトが始まったのかもしれないし、家族に何かあったのかもしれない」について、書いた人はどのくらい確信がありますか。",
+          "evi": [
+            6
+          ],
+          "options": [
+            "両方とも確実だと思っています",
+            "「はず」と同じ強さで確信しています",
+            "確信は弱く、可能性を複数挙げているだけです",
+            "絶対にないと思っています"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án C đúng: 「新しいプロジェクトが始まったのかもしれないし、家族に何かあったのかもしれない」— dùng hai lần かもしれない liên tiếp（〜かもしれないし、〜かもしれない）= người viết chỉ liệt kê các KHẢ NĂNG, không cam kết cái nào. Độ chắc chắn rất thấp (~30%). Đáp án A sai: nếu \"đều chắc chắn\" thì phải dùng にちがいない. Đáp án B sai: はず（B51）vẫn mang cơ sở logic rõ ràng, mạnh hơn かもしれない. Đáp án D sai: không phải phủ định, chỉ là đoán nhẹ.",
+          "tip": "Thang độ chắc chắn: かもしれない（~30%）< でしょう（~60%）< はず（~80%）< にちがいない（~95%）. Hễ thấy かもしれない → khả năng yếu; nhiều かもしれない liên tiếp → người viết đang đoán mò, không có bằng chứng.",
+          "qt": {
+            "q": "Về câu 「新しいプロジェクトが始まったのかもしれないし、家族に何かあったのかもしれない」, người viết chắc chắn đến mức nào?",
+            "o": [
+              "Người viết nghĩ rằng cả hai việc đều chắc chắn đã xảy ra",
+              "Người viết tin chắc với mức độ tương đương 「はず」",
+              "Người viết không chắc, chỉ nêu ra nhiều khả năng",
+              "Người viết nghĩ rằng điều đó chắc chắn không thể xảy ra"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "mid",
+      "title": "紙の手帳を使う理由",
+      "titleVi": "Lý do sử dụng sổ tay bằng giấy",
+      "japanese": "最近、スマートフォンのアプリで予定を管理する人が増えている。しかし、私は今でも紙の手帳を使っている。手で文字を書くことは、時間をかける作業にちがいないが、それには大きな意味があると思う。\nたとえば、スマートフォンに予定を入力するときは、ただ言葉を選ぶだけだ。そのため、記憶に残りにくいかもしれない。一方、手帳に自分の手で書くときは、その日の気持ちや状況も一緒に思い出すことができる。自分の手で書いた言葉は、脳に強い印象を与えるにちがいない。\nつまり、紙の手帳を使うことは、単に予定を記録するだけではないのだ。忙しい毎日の中で、自分の心と向き合う大切な時間になっているのかもしれない。デジタル化が進む時代だからこそ、この習慣を大切にしたい。",
+      "vietnamese": "Gần đây, ngày càng có nhiều người quản lý lịch trình bằng ứng dụng trên điện thoại thông minh. Tuy nhiên, cho đến tận bây giờ tôi vẫn sử dụng sổ tay bằng giấy. Việc viết chữ bằng tay chắc chắn là một công việc tốn thời gian, nhưng tôi nghĩ điều đó có ý nghĩa rất lớn.\nChẳng hạn, khi nhập lịch trình vào điện thoại thông minh, ta chỉ việc chọn từ ngữ. Do đó, có thể sẽ khó ghi nhớ hơn. Mặt khác, khi tự tay viết vào sổ tay, ta có thể nhớ lại cả cảm xúc và hoàn cảnh của ngày hôm đó. Những từ ngữ do chính tay mình viết ra chắc chắn sẽ tạo ấn tượng mạnh mẽ cho bộ脳.\nTóm lại, việc sử dụng sổ tay bằng giấy không chỉ đơn thuần là ghi chép lịch trình. Trong cuộc sống bận rộn hằng ngày, đó có thể đã trở thành thời gian quan trọng để ta đối diện với tâm hồn mình. Chính vì đang ở thời đại kỹ thuật số phát triển, tôi lại càng muốn coi trọng thói quen này.",
+      "sentences": [
+        {
+          "jp": "最近、スマートフォンのアプリで予定を管理する人が増えている。",
+          "vi": "Gần đây, số người quản lý lịch trình bằng ứng dụng trên điện thoại thông minh đang tăng lên.",
+          "vocab": [
+            {
+              "w": "最近",
+              "read": "さいきん",
+              "vi": "gần đây"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "アプリ",
+              "read": "アプリ",
+              "vi": "ứng dụng"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "lịch trình, kế hoạch"
+            },
+            {
+              "w": "管理します",
+              "read": "かんりします",
+              "vi": "quản lý"
+            },
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "増えます",
+              "read": "ふえます",
+              "vi": "tăng lên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vています（diễn tiến/xu hướng）",
+              "vi": "増えている = đang tăng lên (chỉ xu hướng xã hội hiện tại)."
+            }
+          ]
+        },
+        {
+          "jp": "しかし、私は今でも紙の手帳を使っている。",
+          "vi": "Tuy nhiên, cho đến tận bây giờ tôi vẫn sử dụng sổ tay bằng giấy.",
+          "vocab": [
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "tuy nhiên"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "今でも",
+              "read": "いまでも",
+              "vi": "vẫn còn bây giờ"
+            },
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay"
+            },
+            {
+              "w": "使っている",
+              "read": "つかっている",
+              "vi": "đang sử dụng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「しかし」",
+              "vi": "Dùng để chuyển ý đối lập giữa xu hướng chung của mọi người và thói quen riêng của tác giả."
+            }
+          ],
+          "keys": [
+            {
+              "w": "しかし",
+              "why": "Liên từ chuyển ý đối lập giữa xu hướng dùng điện thoại của số đông và thói quen dùng sổ giấy của tác giả."
+            }
+          ]
+        },
+        {
+          "jp": "手で文字を書くことは、時間をかける作業にちがいないが、それには大きな意味があると思う。",
+          "vi": "Việc viết chữ bằng tay chắc chắn là một công việc tốn thời gian, nhưng tôi nghĩ điều đó có ý nghĩa rất lớn.",
+          "vocab": [
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "文字",
+              "read": "もじ",
+              "vi": "chữ viết"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            },
+            {
+              "w": "かける",
+              "read": "かける",
+              "vi": "bỏ ra, dành ra"
+            },
+            {
+              "w": "作業",
+              "read": "さぎょう",
+              "vi": "công việc, thao tác"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "意味",
+              "read": "いみ",
+              "vi": "ý nghĩa"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にちがいない",
+              "vi": "接続: N + にちがいない（作業 + にちがいない）. Tác giả phán đoán với độ xác tín mạnh mẽ (~95%): viết tay chắc chắn tốn thời gian."
+            },
+            {
+              "point": "Vる + こと（danh từ hóa）",
+              "vi": "手で文字を書くこと = việc viết chữ bằng tay."
+            }
+          ],
+          "keys": [
+            {
+              "w": "それには大きな意味がある",
+              "why": "Chỉ thị từ kết hợp cụm nhận định mang tính định hướng, là từ khóa trực tiếp cần giải mã trong câu hỏi 1."
+            }
+          ]
+        },
+        {
+          "jp": "たとえば、スマートフォンに予定を入力するときは、ただ言葉を選ぶだけだ。",
+          "vi": "Chẳng hạn, khi nhập lịch trình vào điện thoại thông minh, ta chỉ việc chọn từ ngữ.",
+          "vocab": [
+            {
+              "w": "たとえば",
+              "read": "たとえば",
+              "vi": "ví dụ, chẳng hạn"
+            },
+            {
+              "w": "スマート",
+              "read": "スマート",
+              "vi": "thông minh, thanh lịch"
+            },
+            {
+              "w": "フォン",
+              "read": "フォン",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            },
+            {
+              "w": "入力します",
+              "read": "にゅうりょくします",
+              "vi": "nhập (dữ liệu)"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ"
+            },
+            {
+              "w": "選ぶ",
+              "read": "えらぶ",
+              "vi": "chọn"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「たとえば」",
+              "vi": "Mở đầu ví dụ minh họa cụ thể cho quan điểm ở đoạn 1."
+            },
+            {
+              "point": "ただ〜だけだ",
+              "vi": "CHỈ đơn thuần là... (nhấn mạnh sự đơn giản, thiếu chiều sâu)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "ただ言葉を選ぶだけだ",
+              "why": "Nêu bản chất thao tác đơn điệu trên smartphone, là mấu chốt nguyên nhân dẫn đến việc khó ghi nhớ ở câu hỏi 2."
+            }
+          ]
+        },
+        {
+          "jp": "そのため、記憶に残りにくいかもしれない。",
+          "vi": "Do đó, có thể sẽ khó ghi nhớ hơn.",
+          "vocab": [
+            {
+              "w": "記憶",
+              "read": "きおく",
+              "vi": "ký ức, trí nhớ"
+            },
+            {
+              "w": "残ります",
+              "read": "のこります",
+              "vi": "đọng lại, còn lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない",
+              "vi": "接続: Vます-stem + にくい + かもしれない（残りにくい + かもしれない）. Chỉ khả năng (~30%), tác giả phán đoán khiêm tốn, không khẳng định tuyệt đối."
+            },
+            {
+              "point": "Vます-stem + にくい",
+              "vi": "残りにくい = khó đọng lại trong trí nhớ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "そのため、記憶に残りにくい",
+              "why": "Liên từ chỉ kết quả kết hợp từ khóa chính của câu hỏi 2 giải thích hệ quả của việc chỉ chọn từ ngữ."
+            }
+          ]
+        },
+        {
+          "jp": "一方、手帳に自分の手で書くときは、その日の気持ちや状況も一緒に思い出すことができる。",
+          "vi": "Mặt khác, khi tự tay viết vào sổ tay, ta có thể nhớ lại cả cảm xúc và hoàn cảnh của ngày hôm đó.",
+          "vocab": [
+            {
+              "w": "一方",
+              "read": "いっぽう",
+              "vi": "mặt khác"
+            },
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay, nhật ký"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "気持ち",
+              "read": "きもち",
+              "vi": "cảm xúc, tâm trạng"
+            },
+            {
+              "w": "状況",
+              "read": "じょうきょう",
+              "vi": "hoàn cảnh, tình hình"
+            },
+            {
+              "w": "一緒",
+              "read": "いっしょ",
+              "vi": "cùng nhau, đi kèm"
+            },
+            {
+              "w": "思い出す",
+              "read": "おもいだす",
+              "vi": "nhớ lại"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「一方」",
+              "vi": "Dùng để so sánh hai mặt đối lập giữa việc dùng smartphone và viết sổ tay."
+            }
+          ],
+          "keys": [
+            {
+              "w": "一方",
+              "why": "Liên từ chuyển hướng đối chiếu, mở đầu phân tích về ưu thế gợi lại cảm xúc khi viết tay vào sổ."
+            }
+          ]
+        },
+        {
+          "jp": "自分の手で書いた言葉は、脳に強い印象を与えるにちがいない。",
+          "vi": "Những từ ngữ do chính tay mình viết ra chắc chắn sẽ tạo ấn tượng mạnh mẽ cho bộ脑.",
+          "vocab": [
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "手",
+              "read": "て",
+              "vi": "tay"
+            },
+            {
+              "w": "書く",
+              "read": "かく",
+              "vi": "viết, ghi"
+            },
+            {
+              "w": "言葉",
+              "read": "ことば",
+              "vi": "từ ngữ, lời nói"
+            },
+            {
+              "w": "脳",
+              "read": "のう",
+              "vi": "bộ脑"
+            },
+            {
+              "w": "強い",
+              "read": "つよい",
+              "vi": "mạnh mẽ"
+            },
+            {
+              "w": "印象",
+              "read": "いんしょう",
+              "vi": "ấn tượng"
+            },
+            {
+              "w": "与えます",
+              "read": "あたえます",
+              "vi": "gây ra, mang lại"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にちがいない",
+              "vi": "接続: V普通形 + にちがいない（与える + にちがいない）. Thể hiện sự tin tưởng tuyệt đối dựa trên trải nghiệm và lý lẽ cá nhân."
+            }
+          ],
+          "keys": [
+            {
+              "w": "脳に強い印象を与えるにちがいない",
+              "why": "Cụm biểu thị phán đoán khẳng định chắc chắn (にちがいない), làm rõ tác động sâu sắc của chữ viết tay lên não bộ."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、紙の手帳を使うことは、単に予定を記録するだけではないのだ。",
+          "vi": "Tóm lại, việc sử dụng sổ tay bằng giấy không chỉ đơn thuần là ghi chép lịch trình.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "tóm lại, nói cách khác"
+            },
+            {
+              "w": "紙",
+              "read": "かみ",
+              "vi": "giấy"
+            },
+            {
+              "w": "手帳",
+              "read": "てちょう",
+              "vi": "sổ tay, nhật ký"
+            },
+            {
+              "w": "使う",
+              "read": "つかう",
+              "vi": "sử dụng, dùng"
+            },
+            {
+              "w": "単に",
+              "read": "たん に",
+              "vi": "đơn thuần, chỉ là"
+            },
+            {
+              "w": "予定",
+              "read": "よてい",
+              "vi": "kế hoạch, lịch"
+            },
+            {
+              "w": "記録します",
+              "read": "きろくします",
+              "vi": "ghi chép, ghi lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "接続詞「つまり」",
+              "vi": "Dùng để tóm tắt và đưa ra kết luận cho toàn bộ lập luận."
+            }
+          ],
+          "keys": [
+            {
+              "w": "つまり",
+              "why": "Liên từ tóm lược luận điểm để nâng tầm ý nghĩa của sổ tay vượt khỏi việc ghi chép thông thường."
+            }
+          ]
+        },
+        {
+          "jp": "忙しい毎日の中で、自分の心と向き合う大切な時間になっているのかもしれない。",
+          "vi": "Trong cuộc sống bận rộn hằng ngày, đó có thể đã trở thành thời gian quan trọng để ta đối diện với tâm hồn mình.",
+          "vocab": [
+            {
+              "w": "忙しい",
+              "read": "いそがしい",
+              "vi": "bận rộn"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "hằng ngày"
+            },
+            {
+              "w": "自分",
+              "read": "じぶん",
+              "vi": "bản thân"
+            },
+            {
+              "w": "心",
+              "read": "こころ",
+              "vi": "tâm hồn, trái tim"
+            },
+            {
+              "w": "向き合う",
+              "read": "むきあう",
+              "vi": "đối diện, nhìn lại"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng (NA)"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "thời gian"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれない",
+              "vi": "接続: Vている + のかもしれない（な出ている → 時間になっている + のかもしれない）. Phán đoán mang tính suy ngẫm sâu sắc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "自分の心と向き合う大切な時間",
+              "why": "Cụm từ định nghĩa giá trị cốt lõi và ý nghĩa tinh thần của việc viết sổ tay giấy (căn cứ của câu hỏi 1 và 3)."
+            }
+          ]
+        },
+        {
+          "jp": "デジタル化が進む時代だからこそ、この習慣を大切にしたい。",
+          "vi": "Chính vì đang ở thời đại kỹ thuật số phát triển, tôi lại càng muốn coi trọng thói quen này.",
+          "vocab": [
+            {
+              "w": "デジタル化",
+              "read": "でじたるか",
+              "vi": "số hóa"
+            },
+            {
+              "w": "デジタル",
+              "read": "でじたる",
+              "vi": "kỹ thuật số"
+            },
+            {
+              "w": "進む",
+              "read": "すすむ",
+              "vi": "tiến triển"
+            },
+            {
+              "w": "時代",
+              "read": "じだい",
+              "vi": "thời đại"
+            },
+            {
+              "w": "この",
+              "read": "この",
+              "vi": "này"
+            },
+            {
+              "w": "習慣",
+              "read": "しゅうかん",
+              "vi": "thói quen"
+            },
+            {
+              "w": "大切",
+              "read": "たいせつ",
+              "vi": "quan trọng; trân trọng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜からこそ（B37）",
+              "vi": "CHÍNH VÌ... NÊN CÀNG... (nhấn mạnh lý do đặc biệt)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "だからこそ、この習慣を大切にしたい",
+              "why": "Cấu trúc nhấn mạnh lý do (からこそ) và mẫu câu bộc lộ chủ trương/nguyện vọng kết bài của tác giả (căn cứ câu hỏi 3)."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "時間をかける作業にちがいないが",
+          "label": "〜にちがいない（xác tín chủ quan mạnh）"
+        },
+        {
+          "excerpt": "記憶に残りにくいかもしれない",
+          "label": "〜かもしれない（phán đoán khả năng ~30%）"
+        },
+        {
+          "excerpt": "脳に強い印象を与えるにちがいない",
+          "label": "〜にちがいない（xác định chắc chắn dựa vào lý do）"
+        },
+        {
+          "excerpt": "大切な時間になっているのかもしれない",
+          "label": "〜かもしれない（suy đoán mang tính khả năng）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「それには大きな意味がある」とあるが、どういうことか。",
+          "evi": [
+            2,
+            5,
+            6,
+            8
+          ],
+          "options": [
+            "手で書くことで記憶に残り、自分の心と向き合う時間になるということ",
+            "スマートフォンより早く予定を入力できるということ",
+            "紙の手帳の方がスマートフォンより安く買えるということ",
+            "文字をきれいに書く練習ができるということ"
+          ],
+          "answer": 0,
+          "explainVi": "Đáp án đúng: 「手で書くことで記憶に残り」 — Tác giả giải thích ý nghĩa lớn của việc viết tay ở đoạn 2 và 3, đó là giúp ghi nhớ tốt hơn (記憶に残る), tác động mạnh đến não bộ (脳に強い印象を与える) và tạo thời gian đối diện với bản thân (自分の心と向き合う時間). Phương án 「スマートフォンより早く」 sai vì viết tay tốn thời gian hơn. Phương án 「紙の手帳の方が」 sai vì bài đọc không đề cập giá tiền. Phương án 「文字をきれいに書く」 sai vì bài đọc không nói đến việc luyện viết chữ đẹp.",
+          "tip": "Tìm các đoạn giải thích ngay sau cụm từ chỉ thị (đoạn 2 và 3) để xác định ý nghĩa thực sự của 「大きな意味」.",
+          "qt": {
+            "q": "「それには大きな意味がある」 (điều đó có ý nghĩa lớn) là ý nói điều gì?",
+            "o": [
+              "Việc viết bằng tay giúp ghi nhớ và trở thành khoảng thời gian để đối diện với lòng mình",
+              "Có thể nhập lịch nhanh hơn so với bằng điện thoại thông minh",
+              "Có thể mua sổ tay giấy với giá rẻ hơn điện thoại thông minh",
+              "Có thể luyện tập viết chữ đẹp"
+            ]
+          }
+        },
+        {
+          "q": "なぜスマートフォンで予定を管理すると「記憶に残りにくい」のか。",
+          "evi": [
+            3,
+            4
+          ],
+          "options": [
+            "画面が小さくて文字が見えにくいから",
+            "ただ言葉を選ぶだけで、自分の手で文字を書かないから",
+            "スマートフォンをよく失くしてしまうから",
+            "予定の種類が多すぎて覚えられないから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「ただ言葉を選ぶだけで」 — Câu 4 chỉ rõ nguyên nhân 「スマートフォンに予定を入力するときは、ただ言葉を選ぶだけだ。そのため、記憶に残りにくいかもしれない」 (khi nhập vào điện thoại chỉ chọn từ ngữ chứ không tự tay viết). Các phương án 「画面が小さくて」, 「スマートフォンをよく」 và 「予定の種類が多すぎて」 đều sai vì chứa thông tin không có trong bài.",
+          "tip": "Từ khóa 「記憶に残りにくい」 xuất hiện ở câu 5. Hãy tìm nguyên nhân ở câu 4 ngay trước đó có nối bằng từ chỉ nhân quả 「そのため」.",
+          "qt": {
+            "q": "Vì sao khi quản lý lịch bằng điện thoại thông minh, thông tin lại “khó lưu lại trong trí nhớ”?",
+            "o": [
+              "Vì màn hình nhỏ nên khó nhìn thấy chữ",
+              "Vì chỉ chọn từ ngữ mà không viết chữ bằng tay mình",
+              "Vì thường làm mất điện thoại thông minh",
+              "Vì có quá nhiều loại lịch hẹn nên không thể nhớ hết"
+            ]
+          }
+        },
+        {
+          "q": "紙の手帳を使うことについて、筆者はどう考えているか。",
+          "evi": [
+            2,
+            7,
+            8,
+            9
+          ],
+          "options": [
+            "時間がかかるので、スマートフォンのアプリだけを使う方が効率的だ",
+            "効率だけを求めず、自分の心と向き合える紙の手帳の習慣を大切にしたい",
+            "手帳とスマートフォンの両方を同じように使うことが一番大切だ",
+            "将来はすべての人が紙の手帳を再び使うようになると確信している"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án đúng: 「効率だけを求めず」 — Ở đoạn 3, tác giả kết luận rằng việc dùng sổ tay giúp ta đối diện với tâm hồn mình và muốn trân trọng thói quen này trong thời đại số (デジタル化が進む時代だからこそ、この習慣を大切にしたい). Phương án 「時間がかかるので」 sai vì đi ngược lại mong muốn của tác giả. Phương án 「手帳とスマートフォンの両方」 sai vì bài đọc không khuyên dùng cả hai như nhau. Phương án 「将来はすべての人が」 sai vì tác giả không đưa ra dự đoán về hành vi tương lai của người khác.",
+          "tip": "Câu hỏi ý kiến tác giả (筆者の考え) thường nằm ở đoạn cuối. Hãy tập trung vào các câu bày tỏ nguyện vọng 「〜たい」 hoặc nhận xét tổng kết ở câu kết.",
+          "qt": {
+            "q": "Tác giả nghĩ thế nào về việc sử dụng sổ tay giấy?",
+            "o": [
+              "Vì mất thời gian nên chỉ sử dụng ứng dụng trên điện thoại thông minh sẽ hiệu quả hơn",
+              "Không chỉ theo đuổi hiệu quả, mà còn muốn trân trọng thói quen dùng sổ tay giấy giúp mình đối diện với lòng mình",
+              "Điều quan trọng nhất là sử dụng sổ tay và điện thoại thông minh như nhau",
+              "Tin chắc rằng trong tương lai, tất cả mọi người sẽ lại sử dụng sổ tay giấy"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 2,
+          "kind": "intro",
+          "label": "Mở đề・Thói quen của tác giả",
+          "topic": 2,
+          "note": "Nêu hiện tượng số hóa phổ biến và bước ngoặt khẳng định dùng sổ tay giấy có ý nghĩa lớn.",
+          "qs": [
+            1,
+            3
+          ]
+        },
+        {
+          "from": 3,
+          "to": 4,
+          "kind": "body",
+          "label": "Hạn chế của smartphone",
+          "topic": 3,
+          "note": "Phân tích lý do vì sao thao tác trên điện thoại chỉ là chọn từ ngữ và dễ bị trôi khỏi trí nhớ.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 5,
+          "to": 6,
+          "kind": "body",
+          "label": "Lợi ích của việc viết tay",
+          "topic": 6,
+          "note": "Đối chiếu thao tác viết tay giúp gợi nhớ tâm trạng, hoàn cảnh và tạo ấn tượng mạnh mẽ cho não bộ.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 7,
+          "to": 9,
+          "kind": "point",
+          "label": "Ý nghĩa cốt lõi & Kết luận",
+          "topic": 9,
+          "note": "Tổng kết giá trị đối diện nội tâm của sổ tay và chốt lại thông điệp muốn gìn giữ thói quen trong thời đại số.",
+          "qs": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "info",
+      "title": "N3試験対策コース　受講生募集",
+      "titleVi": "Thông báo tuyển sinh khóa luyện thi N3",
+      "japanese": "つばさ日本語学校　N3試験対策コース　受講生募集\nN3試験に合格したい方のためのコースです。この講座で毎日真面目に勉強すれば、力がつくにちがいありません。\nコース｜期間｜授業料｜合格率\n週末コース｜8週間（土日）｜32,000円｜78％\n平日夜コース｜10週間（月〜金 夜）｜45,000円｜85％\n集中コース｜4週間（毎日）｜60,000円｜92％\n※どのコースも文法・読解・聴解をバランスよく練習しますので、力がつくにちがいありません。\n※開講日の3週間前までに申し込むと、授業料が5,000円引きになります。\n※会員カードをお持ちの方は、さらに2,000円引きになります（早期割引と合わせて使えます）。\n※テキスト代3,500円は別料金で、初回の授業日に集めます。\n※集中コースは人数が少ないかもしれませんので、定員になったら、受付を終了します。\nお申し込み・お問い合わせ：つばさ日本語学校（電話：03-4567-8901、月〜金 9時〜18時）\n東京都みどり区花山3-2-1",
+      "vietnamese": "Trường Nhật ngữ Tsubasa — Tuyển sinh khóa luyện thi N3\nĐây là khóa học dành cho những ai muốn đỗ kỳ thi N3. Nếu học nghiêm túc mỗi ngày ở khóa học này, chắc chắn thực lực sẽ được nâng lên.\nKhóa học｜Thời lượng｜Học phí｜Tỉ lệ đỗ\nKhóa cuối tuần｜8 tuần (thứ Bảy, Chủ nhật)｜32.000 yên｜78%\nKhóa tối ngày thường｜10 tuần (tối thứ Hai–thứ Sáu)｜45.000 yên｜85%\nKhóa tập trung｜4 tuần (mỗi ngày)｜60.000 yên｜92%\n※ Khóa nào cũng luyện đều ngữ pháp・đọc hiểu・nghe hiểu, nên chắc chắn thực lực sẽ được nâng lên.\n※ Nếu đăng ký trước ngày khai giảng 3 tuần, học phí được giảm 5.000 yên.\n※ Người có thẻ hội viên được giảm thêm 2.000 yên (có thể cộng dồn với giảm giá đăng ký sớm).\n※ Tiền giáo trình 3.500 yên tính riêng, thu vào buổi học đầu tiên.\n※ Khóa tập trung có thể số lượng học viên ít, nên nếu đủ chỉ tiêu thì sẽ ngừng nhận đăng ký.\nĐăng ký, liên hệ: Trường Nhật ngữ Tsubasa (điện thoại: 03-4567-8901, thứ Hai–thứ Sáu 9h–18h)\nMidori-ku, Hanayama 3-2-1, Tokyo",
+      "sentences": [
+        {
+          "jp": "つばさ日本語学校　N3試験対策コース　受講生募集",
+          "vi": "Trường Nhật ngữ Tsubasa — Tuyển sinh khóa luyện thi N3",
+          "vocab": [
+            {
+              "w": "つばさ",
+              "read": "つばさ",
+              "vi": "đôi cánh; tên riêng Tsubasa"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "対策",
+              "read": "たいさく",
+              "vi": "biện pháp đối phó"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "受講",
+              "read": "じゅこう",
+              "vi": "theo học, tham gia khóa học"
+            },
+            {
+              "w": "募集",
+              "read": "ぼしゅう",
+              "vi": "tuyển mộ, chiêu mộ"
+            },
+            {
+              "w": "日本語学校",
+              "read": "にほんごがっこう",
+              "vi": "trường Nhật ngữ"
+            },
+            {
+              "w": "試験対策コース",
+              "read": "しけんたいさくコース",
+              "vi": "khóa luyện thi"
+            },
+            {
+              "w": "受講生募集",
+              "read": "じゅこうせいぼしゅう",
+              "vi": "tuyển sinh viên học"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Tiêu đề thông báo",
+              "vi": "Dòng 1 = tên trường + tên khóa + mục đích (募集 = tuyển). Đây là tiêu đề đứng riêng, không phải câu văn hoàn chỉnh."
+            }
+          ],
+          "keys": [
+            {
+              "w": "N3試験対策コース",
+              "why": "Xác định đây là quảng cáo khóa luyện thi N3 — chủ đề chính của cả tờ thông báo."
+            },
+            {
+              "w": "受講生募集",
+              "why": "Từ khóa \"tuyển sinh\" báo hiệu đây là thông báo dịch vụ có điều kiện đăng ký phía dưới."
+            }
+          ]
+        },
+        {
+          "jp": "N3試験に合格したい方のためのコースです。この講座で毎日真面目に勉強すれば、力がつくにちがいありません。",
+          "vi": "Đây là khóa học dành cho những ai muốn đỗ kỳ thi N3. Nếu học nghiêm túc mỗi ngày ở khóa học này, chắc chắn thực lực sẽ được nâng lên.",
+          "vocab": [
+            {
+              "w": "試験",
+              "read": "しけん",
+              "vi": "kỳ thi, bài kiểm tra"
+            },
+            {
+              "w": "合格します",
+              "read": "ごうかくします",
+              "vi": "đỗ, đậu (kỳ thi)"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "講座",
+              "read": "こうざ",
+              "vi": "khóa học, buổi giảng"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "真面目に",
+              "read": "まじめに",
+              "vi": "một cách nghiêm túc"
+            },
+            {
+              "w": "勉強",
+              "read": "べんきょう",
+              "vi": "việc học, học tập"
+            },
+            {
+              "w": "力がつきます",
+              "read": "ちからがつきます",
+              "vi": "thực lực được nâng lên"
+            },
+            {
+              "w": "ちがう",
+              "read": "ちがう",
+              "vi": "khác biệt, sai lệch"
+            },
+            {
+              "w": "方",
+              "read": "かた",
+              "vi": "người, vị (kính trọng)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たい方のため（B18 + B42 ôn）",
+              "vi": "合格したい方のため = dành cho người muốn đỗ. Vたい（B18）+ 方（người）+ のため（vì, dành cho, N4 B42）."
+            },
+            {
+              "point": "〜ば（B35 ôn）",
+              "vi": "真面目に勉強すれば = nếu học nghiêm túc thì. 普通形＋ば nêu điều kiện dẫn đến kết quả phía sau (B35)."
+            },
+            {
+              "point": "〜にちがいありません",
+              "vi": "接続: Vる（力がつく）+ にちがいありません（dạng lịch sự của にちがいない）. Sắc thái: người viết quảng cáo TIN CHẮC mạnh mẽ vào hiệu quả khóa học — xác tín chủ quan để thuyết phục người đọc, khác với かもしれません (chỉ nêu khả năng, sẽ làm lời quảng cáo yếu đi)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "力がつくにちがいありません",
+              "why": "Mẫu ngữ pháp trọng tâm bài 52 lần 1 — xác tín chủ quan mạnh trong lời quảng cáo, dùng cho câu hỏi sắc thái."
+            }
+          ]
+        },
+        {
+          "jp": "コース｜期間｜授業料｜合格率",
+          "vi": "Khóa học｜Thời lượng｜Học phí｜Tỉ lệ đỗ",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "期間",
+              "read": "きかん",
+              "vi": "thời lượng, khoảng thời gian"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "合格",
+              "read": "ごうかく",
+              "vi": "thi đỗ, trúng tuyển"
+            },
+            {
+              "w": "授業料",
+              "read": "じゅぎょうりょう",
+              "vi": "học phí"
+            },
+            {
+              "w": "合格率",
+              "read": "ごうかくりつ",
+              "vi": "tỉ lệ đỗ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Header bảng",
+              "vi": "Dòng header của bảng 4 cột: tên khóa, thời lượng, học phí, tỉ lệ đỗ — cần đọc để so 3 gói khi trả lời câu hỏi ghép điều kiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "授業料",
+              "why": "Cột học phí — cần đối chiếu khi câu hỏi hỏi tổng tiền phải trả."
+            },
+            {
+              "w": "合格率",
+              "why": "Cột tỉ lệ đỗ — dùng để so sánh chất lượng các khóa, nhiễu hay đánh vào cột này."
+            }
+          ]
+        },
+        {
+          "jp": "週末コース｜8週間（土日）｜32,000円｜78％",
+          "vi": "Khóa cuối tuần｜8 tuần (thứ Bảy, Chủ nhật)｜32.000 yên｜78%",
+          "vocab": [
+            {
+              "w": "週末コース",
+              "read": "しゅうまつこーす",
+              "vi": "khóa cuối tuần"
+            },
+            {
+              "w": "週末",
+              "read": "しゅうまつ",
+              "vi": "cuối tuần"
+            },
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa học"
+            },
+            {
+              "w": "8週間",
+              "read": "はっしゅうかん",
+              "vi": "8 tuần"
+            },
+            {
+              "w": "週間",
+              "read": "しゅうかん",
+              "vi": "tuần"
+            },
+            {
+              "w": "土日",
+              "read": "どにち",
+              "vi": "thứ Bảy và Chủ nhật"
+            },
+            {
+              "w": "32,000円",
+              "read": "さんまんにせんえん",
+              "vi": "32.000 yên"
+            },
+            {
+              "w": "78％",
+              "read": "ななじゅうはちぱーせんと",
+              "vi": "78 phần trăm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng 1",
+              "vi": "Khóa cuối tuần: 8 tuần, học thứ Bảy Chủ nhật, học phí rẻ nhất (32.000円) nhưng tỉ lệ đỗ thấp nhất (78%) trong 3 khóa."
+            }
+          ],
+          "keys": [
+            {
+              "w": "32,000円",
+              "why": "Học phí rẻ nhất trong 3 khóa — dễ gây nhầm nếu câu hỏi hỏi khóa RẺ NHẤT nhưng đề bài lại cần khóa khác."
+            }
+          ]
+        },
+        {
+          "jp": "平日夜コース｜10週間（月〜金 夜）｜45,000円｜85％",
+          "vi": "Khóa tối ngày thường｜10 tuần (tối thứ Hai–thứ Sáu)｜45.000 yên｜85%",
+          "vocab": [
+            {
+              "w": "平日夜コース",
+              "read": "へいじつよるこーす",
+              "vi": "khóa tối ngày thường"
+            },
+            {
+              "w": "平日",
+              "read": "へいじつ",
+              "vi": "ngày thường"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa học"
+            },
+            {
+              "w": "10週間",
+              "read": "じゅっしゅうかん",
+              "vi": "10 tuần"
+            },
+            {
+              "w": "月〜金",
+              "read": "げつようびからきんようび",
+              "vi": "thứ Hai đến thứ Sáu"
+            },
+            {
+              "w": "月",
+              "read": "げつ",
+              "vi": "thứ Hai"
+            },
+            {
+              "w": "金",
+              "read": "きん",
+              "vi": "thứ Sáu"
+            },
+            {
+              "w": "45,000円",
+              "read": "よんまんごせんえん",
+              "vi": "45.000 yên"
+            },
+            {
+              "w": "85％",
+              "read": "はちじゅうごぱーせんと",
+              "vi": "85 phần trăm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng 2",
+              "vi": "Khóa tối ngày thường: 10 tuần, học tối các ngày trong tuần, học phí trung bình (45.000円), tỉ lệ đỗ 85%."
+            }
+          ],
+          "keys": [
+            {
+              "w": "45,000円",
+              "why": "Học phí khóa giữa — nhiễu nếu nhầm khóa cần tính là khóa này thay vì khóa tập trung."
+            }
+          ]
+        },
+        {
+          "jp": "集中コース｜4週間（毎日）｜60,000円｜92％",
+          "vi": "Khóa tập trung｜4 tuần (mỗi ngày)｜60.000 yên｜92%",
+          "vocab": [
+            {
+              "w": "集中コース",
+              "read": "しゅうちゅうこーす",
+              "vi": "khóa chuyên sâu"
+            },
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "コース",
+              "read": "こーす",
+              "vi": "khóa học"
+            },
+            {
+              "w": "4週間",
+              "read": "よんしゅうかん",
+              "vi": "4 tuần"
+            },
+            {
+              "w": "毎日",
+              "read": "まいにち",
+              "vi": "mỗi ngày"
+            },
+            {
+              "w": "60,000円",
+              "read": "ろくまんえん",
+              "vi": "60.000 yên"
+            },
+            {
+              "w": "92％",
+              "read": "きゅうじゅうにぱーせんと",
+              "vi": "92 phần trăm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Hàng bảng 3",
+              "vi": "Khóa tập trung: 4 tuần, học mỗi ngày, học phí cao nhất (60.000円) nhưng tỉ lệ đỗ cao nhất (92%) — đây là khóa dùng cho câu hỏi tính tổng tiền ghép điều kiện."
+            }
+          ],
+          "keys": [
+            {
+              "w": "60,000円",
+              "why": "Học phí gốc của khóa tập trung — điểm xuất phát để tính tổng tiền sau khi trừ/cộng các khoản ※."
+            },
+            {
+              "w": "92％",
+              "why": "Tỉ lệ đỗ cao nhất — căn cứ nếu câu hỏi hỏi khóa có tỉ lệ đỗ cao nhất."
+            }
+          ]
+        },
+        {
+          "jp": "※どのコースも文法・読解・聴解をバランスよく練習しますので、力がつくにちがいありません。",
+          "vi": "※ Khóa nào cũng luyện đều ngữ pháp・đọc hiểu・nghe hiểu, nên chắc chắn thực lực sẽ được nâng lên.",
+          "vocab": [
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "文法",
+              "read": "ぶんぽう",
+              "vi": "ngữ pháp"
+            },
+            {
+              "w": "読解",
+              "read": "どっかい",
+              "vi": "đọc hiểu"
+            },
+            {
+              "w": "聴",
+              "read": "聴",
+              "vi": "nghe, kỹ năng nghe"
+            },
+            {
+              "w": "解",
+              "read": "かい",
+              "vi": "lời giải, đáp án"
+            },
+            {
+              "w": "バランス",
+              "read": "バランス",
+              "vi": "sự cân bằng"
+            },
+            {
+              "w": "練習",
+              "read": "れんしゅう",
+              "vi": "luyện tập"
+            },
+            {
+              "w": "力",
+              "read": "ちから",
+              "vi": "sức mạnh, năng lực"
+            },
+            {
+              "w": "ちがう",
+              "read": "ちがう",
+              "vi": "khác biệt, sai lệch"
+            },
+            {
+              "w": "どの〜も",
+              "read": "どの〜も",
+              "vi": "bất kỳ… nào cũng"
+            },
+            {
+              "w": "聴解",
+              "read": "ちょうかい",
+              "vi": "nghe hiểu"
+            },
+            {
+              "w": "バランスよく",
+              "read": "バランスよく",
+              "vi": "một cách cân bằng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（B39 ôn）",
+              "vi": "練習しますので = vì luyện tập nên. ので nêu lý do lịch sự, khách quan (B39)."
+            },
+            {
+              "point": "〜にちがいありません",
+              "vi": "接続: Vる（力がつく）+ にちがいありません — lần 2 trong bài. Sắc thái: lần này người viết đưa CĂN CỨ CỤ THỂ（luyện đều 3 kỹ năng）rồi mới xác tín, khác với câu mở đầu chỉ nêu chung chung \"học nghiêm túc\". Đây là dấu hiệu cho câu hỏi sắc thái: vì sao dùng にちがいありません mà không phải かもしれません — vì trường có căn cứ rõ ràng (nội dung giảng dạy toàn diện) để cam kết mạnh, không phải chỉ đoán."
+            }
+          ],
+          "keys": [
+            {
+              "w": "力がつくにちがいありません",
+              "why": "Mẫu trọng tâm bài 52 lần 2 — có CĂN CỨ cụ thể (luyện đều 3 kỹ năng) đứng trước, dùng để trả lời câu hỏi sắc thái vì sao không dùng かもしれません."
+            }
+          ]
+        },
+        {
+          "jp": "※開講日の3週間前までに申し込むと、授業料が5,000円引きになります。",
+          "vi": "※ Nếu đăng ký trước ngày khai giảng 3 tuần, học phí được giảm 5.000 yên.",
+          "vocab": [
+            {
+              "w": "開講",
+              "read": "かいこう",
+              "vi": "sự khai giảng, mở lớp"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "申し込みます",
+              "read": "もうしこみます",
+              "vi": "đăng ký"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "giờ học, buổi học"
+            },
+            {
+              "w": "開講日",
+              "read": "かいこうび",
+              "vi": "ngày khai giảng"
+            },
+            {
+              "w": "3週間前",
+              "read": "さんしゅうかんまえ",
+              "vi": "trước 3 tuần"
+            },
+            {
+              "w": "5,000円引き",
+              "read": "ごせんえんびき",
+              "vi": "giảm 5.000 yên"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜までに（B17 ôn）+ 〜と（B23 ôn）",
+              "vi": "3週間前までに申し込むと = nếu đăng ký trước hạn 3 tuần thì. までに = trước hạn chót; と = điều kiện tự nhiên dẫn đến kết quả (giảm giá)."
+            }
+          ],
+          "keys": [
+            {
+              "w": "3週間前までに",
+              "why": "Điều kiện 1 để được giảm giá đăng ký sớm — phải ghép với điều kiện thẻ hội viên ở dòng dưới khi tính tổng tiền."
+            },
+            {
+              "w": "5,000円引き",
+              "why": "Số tiền giảm giá đăng ký sớm — cần trừ vào học phí gốc khi tính tổng."
+            }
+          ]
+        },
+        {
+          "jp": "※会員カードをお持ちの方は、さらに2,000円引きになります（早期割引と合わせて使えます）。",
+          "vi": "※ Người có thẻ hội viên được giảm thêm 2.000 yên (có thể cộng dồn với giảm giá đăng ký sớm).",
+          "vocab": [
+            {
+              "w": "会員カード",
+              "read": "かいいんカード",
+              "vi": "thẻ hội viên"
+            },
+            {
+              "w": "カード",
+              "read": "カード",
+              "vi": "thẻ (thanh toán)"
+            },
+            {
+              "w": "持つ",
+              "read": "もつ",
+              "vi": "cầm, có"
+            },
+            {
+              "w": "さらに",
+              "read": "さらに",
+              "vi": "thêm nữa, hơn nữa"
+            },
+            {
+              "w": "早期",
+              "read": "そうき",
+              "vi": "giai đoạn đầu, sớm"
+            },
+            {
+              "w": "割引",
+              "read": "わりびき",
+              "vi": "giảm giá"
+            },
+            {
+              "w": "合わせる",
+              "read": "あわせる",
+              "vi": "thống nhất, khớp lại"
+            },
+            {
+              "w": "使える",
+              "read": "つかえる",
+              "vi": "dùng được, sử dụng được"
+            },
+            {
+              "w": "お持ちの方",
+              "read": "おもちのかた",
+              "vi": "người đang có (kính ngữ)"
+            },
+            {
+              "w": "合わせて使えます",
+              "read": "あわせてつかえます",
+              "vi": "có thể dùng kết hợp"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "お〜の方（kính ngữ, ôn）",
+              "vi": "お持ちの方 = người đang sở hữu (kính ngữ của 持っている人). Cấu trúc thường gặp trong thông báo dịch vụ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "会員カード",
+              "why": "Điều kiện 2 để giảm giá — nhân vật câu hỏi phải CÓ thẻ hội viên mới áp dụng khoản giảm này."
+            },
+            {
+              "w": "2,000円引き",
+              "why": "Số tiền giảm thêm nếu có thẻ hội viên — cộng dồn với giảm giá đăng ký sớm khi tính tổng."
+            },
+            {
+              "w": "早期割引と合わせて使えます",
+              "why": "Xác nhận 2 khoản giảm giá CỘNG DỒN được — chi tiết quyết định phép tính đúng, bẫy nếu học viên tưởng chỉ chọn 1 trong 2."
+            }
+          ]
+        },
+        {
+          "jp": "※テキスト代3,500円は別料金で、初回の授業日に集めます。",
+          "vi": "※ Tiền giáo trình 3.500 yên tính riêng, thu vào buổi học đầu tiên.",
+          "vocab": [
+            {
+              "w": "テキスト代",
+              "read": "てきすとだい",
+              "vi": "phí giáo trình"
+            },
+            {
+              "w": "テキスト",
+              "read": "てきすと",
+              "vi": "giáo trình"
+            },
+            {
+              "w": "3,500円",
+              "read": "さんぜんごひゃくえん",
+              "vi": "3.500 yên"
+            },
+            {
+              "w": "別料金",
+              "read": "べつりょうきん",
+              "vi": "phí riêng"
+            },
+            {
+              "w": "料金",
+              "read": "りょうきん",
+              "vi": "chi phí"
+            },
+            {
+              "w": "初回",
+              "read": "しょかい",
+              "vi": "lần đầu"
+            },
+            {
+              "w": "授業日",
+              "read": "じゅぎょうび",
+              "vi": "ngày học"
+            },
+            {
+              "w": "授業",
+              "read": "じゅぎょう",
+              "vi": "buổi học"
+            },
+            {
+              "w": "集めます",
+              "read": "あつめます",
+              "vi": "thu; gom"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜で（lý do/phương tiện, ôn）",
+              "vi": "別料金で = với tư cách là phí tính riêng. Chú ý テキスト代 KHÔNG nằm trong học phí ở bảng — phải CỘNG THÊM khi tính tổng tiền, đây là bẫy dễ bỏ sót."
+            }
+          ],
+          "keys": [
+            {
+              "w": "テキスト代3,500円",
+              "why": "Khoản phí CỘNG THÊM ngoài học phí — nhiều học viên quên cộng khoản này khi tính tổng tiền phải trả."
+            },
+            {
+              "w": "別料金",
+              "why": "Xác nhận đây là khoản tách riêng khỏi học phí trong bảng, không được giảm giá."
+            }
+          ]
+        },
+        {
+          "jp": "※集中コースは人数が少ないかもしれませんので、定員になったら、受付を終了します。",
+          "vi": "※ Khóa tập trung có thể số lượng học viên ít, nên nếu đủ chỉ tiêu thì sẽ ngừng nhận đăng ký.",
+          "vocab": [
+            {
+              "w": "集中",
+              "read": "しゅうちゅう",
+              "vi": "tập trung"
+            },
+            {
+              "w": "コース",
+              "read": "コース",
+              "vi": "lộ trình, khóa (tour)"
+            },
+            {
+              "w": "人数",
+              "read": "にんずう",
+              "vi": "số lượng người"
+            },
+            {
+              "w": "少ない",
+              "read": "すくない",
+              "vi": "ít"
+            },
+            {
+              "w": "定員",
+              "read": "ていいん",
+              "vi": "chỉ tiêu, số lượng giới hạn"
+            },
+            {
+              "w": "受付",
+              "read": "うけつけ",
+              "vi": "tiếp nhận, quầy tiếp nhận"
+            },
+            {
+              "w": "終了します",
+              "read": "しゅうりょうします",
+              "vi": "kết thúc, ngừng"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜かもしれません（B32 ôn, đối chiếu にちがいありません）",
+              "vi": "人数が少ないかもしれません = số lượng học viên có thể ít. Ở đây trường KHÔNG có căn cứ chắc chắn về số lượng đăng ký thực tế, chỉ dự đoán — nên dùng かもしれません（khả năng nhẹ）chứ không dùng にちがいありません（xác tín mạnh）. Đối chiếu trực tiếp với 2 câu にちがいありません phía trên: cùng chủ đề khóa học nhưng khi THIẾU căn cứ cụ thể thì chuyển sang かもしれません."
+            },
+            {
+              "point": "〜たら（B25 ôn）",
+              "vi": "定員になったら = nếu/khi đủ chỉ tiêu thì. Vた + ら nêu điều kiện dẫn đến kết quả (ngừng nhận đăng ký) — mẫu đã học từ N5, dùng lại tự nhiên trong thông báo dịch vụ."
+            }
+          ],
+          "keys": [
+            {
+              "w": "人数が少ないかもしれません",
+              "why": "Đối chiếu trực tiếp với にちがいありません — vì THIẾU căn cứ chắc chắn nên chỉ dùng mẫu khả năng nhẹ, không xác tín mạnh."
+            },
+            {
+              "w": "定員になったら、受付を終了します",
+              "why": "Điều kiện ràng buộc về thời hạn đăng ký khóa tập trung — có thể là bẫy nếu câu hỏi hỏi về khả năng đăng ký muộn."
+            }
+          ]
+        },
+        {
+          "jp": "お申し込み・お問い合わせ：つばさ日本語学校（電話：03-4567-8901、月〜金 9時〜18時）",
+          "vi": "Đăng ký, liên hệ: Trường Nhật ngữ Tsubasa (điện thoại: 03-4567-8901, thứ Hai–thứ Sáu 9h–18h)",
+          "vocab": [
+            {
+              "w": "申し込み",
+              "read": "もうしこみ",
+              "vi": "việc đăng ký"
+            },
+            {
+              "w": "問い合わせ",
+              "read": "といあわせ",
+              "vi": "thắc mắc, liên hệ hỏi"
+            },
+            {
+              "w": "つばさ",
+              "read": "つばさ",
+              "vi": "đôi cánh; tên riêng Tsubasa"
+            },
+            {
+              "w": "日本語",
+              "read": "にほんご",
+              "vi": "tiếng Nhật"
+            },
+            {
+              "w": "学校",
+              "read": "がっこう",
+              "vi": "trường học"
+            },
+            {
+              "w": "電話",
+              "read": "でんわ",
+              "vi": "điện thoại"
+            },
+            {
+              "w": "月",
+              "read": "つき",
+              "vi": "mặt trăng, tháng"
+            },
+            {
+              "w": "金",
+              "read": "きむ",
+              "vi": "vàng"
+            },
+            {
+              "w": "お問い合わせ",
+              "read": "おといあわせ",
+              "vi": "hỏi đáp, liên hệ"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Thông tin liên hệ",
+              "vi": "Dòng liên hệ chuẩn của thông báo dịch vụ: tên tổ chức + số điện thoại + giờ làm việc."
+            }
+          ],
+          "keys": [
+            {
+              "w": "月〜金 9時〜18時",
+              "why": "Giờ làm việc của quầy liên hệ — có thể dùng cho câu hỏi hỏi thời điểm gọi điện được."
+            }
+          ]
+        },
+        {
+          "jp": "東京都みどり区花山3-2-1",
+          "vi": "Midori-ku, Hanayama 3-2-1, Tokyo",
+          "vocab": [
+            {
+              "w": "東京",
+              "read": "とうきょう",
+              "vi": "Tokyo (tên thành phố)"
+            },
+            {
+              "w": "みどり",
+              "read": "みどり",
+              "vi": "màu xanh lá; tên riêng Midori"
+            },
+            {
+              "w": "花山",
+              "read": "はなやま",
+              "vi": "tên riêng Hanayama"
+            },
+            {
+              "w": "東京都",
+              "read": "とうきょうと",
+              "vi": "thủ đô Tokyo"
+            },
+            {
+              "w": "区",
+              "read": "く",
+              "vi": "quận"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Địa chỉ",
+              "vi": "Dòng cuối = địa chỉ trường, theo chuẩn thông báo dịch vụ thật."
+            }
+          ],
+          "keys": []
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "力がつくにちがいありません",
+          "label": "にちがいありません（xác tín chủ quan mạnh trong lời quảng cáo）"
+        },
+        {
+          "excerpt": "バランスよく練習しますので、力がつくにちがいありません",
+          "label": "にちがいありません（có căn cứ cụ thể đứng trước）"
+        },
+        {
+          "excerpt": "人数が少ないかもしれません",
+          "label": "かもしれません（khả năng — đối chiếu, thiếu căn cứ chắc chắn）"
+        },
+        {
+          "excerpt": "3週間前までに申し込むと、授業料が5,000円引きになります",
+          "label": "〜と（B23 ôn — điều kiện giảm giá）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "田中さんは集中コースに申し込みたいと思っています。開講日の1か月前に申し込み、会員カードも持っています。田中さんはいくら払わなければなりませんか。",
+          "options": [
+            "53,000円",
+            "55,000円",
+            "56,500円",
+            "60,000円"
+          ],
+          "answer": 2,
+          "explainVi": "集中コースの授業料は60,000円。田中さんは開講日の1か月前（3週間より早い）に申し込むので「3週間前までに申し込む」条件を満たし、5,000円引き（60,000－5,000＝55,000円）。さらに会員カードを持っているので、さらに2,000円引き（55,000－2,000＝53,000円）。ただし「※テキスト代3,500円は別料金」なので、53,000＋3,500＝56,500円。答えはCの56,500円。Aの53,000円はテキスト代を足し忘れた金額、Bの55,000円は会員割引を忘れた金額、Dの60,000円は割引もテキスト代も考えていない金額で、いずれも計算ミス。",
+          "tip": "お知らせで金額を聞かれたら「①元の値段→②該当する割引をすべて引く→③別料金（テキスト代など）を足す」の順で計算する。「早期割引と合わせて使えます」のような文は、2つの割引が両方適用できるという意味なので見逃さないこと。",
+          "evi": [
+            5,
+            7,
+            8,
+            9
+          ],
+          "qt": {
+            "q": "Anh Tanaka muốn đăng ký khóa học cấp tốc. Anh ấy đăng ký trước ngày khai giảng 1 tháng và cũng có thẻ hội viên. Anh Tanaka phải trả bao nhiêu tiền?",
+            "o": [
+              "53.000 yên",
+              "55.000 yên",
+              "56.500 yên",
+              "60.000 yên"
+            ]
+          }
+        },
+        {
+          "q": "この案内で「力がつくにちがいありません」という文について、正しい説明はどれですか。",
+          "options": [
+            "学校側が合格を保証できないので、弱く言っています",
+            "学校側が「文法・読解・聴解をバランスよく練習する」という具体的な理由をもとに、強い確信を持って書いています",
+            "「かもしれません」と全く同じ意味で使われています",
+            "受講生がそう言ったのを引用しています"
+          ],
+          "answer": 1,
+          "explainVi": "正解はB。案内文には「どのコースも文法・読解・聴解をバランスよく練習しますので」という具体的な理由が示されており、それに基づいて学校側が「力がつくにちがいありません」と強く確信して書いています。にちがいない（B52目標文法）は根拠がある強い主観的確信を表す表現で、宣伝文としてより説得力を持たせる効果があります。Aは誤り：弱く言うなら「かもしれません」を使うはず（実際、最後の段落「人数が少ないかもしれません」がその例）。Cは誤り：かもしれませんは可能性を示すだけで、にちがいありませんより確信の度合いがずっと低い。Dは誤り：これは学校側の宣伝文であり、受講生の発言の引用ではない。",
+          "tip": "宣伝文でにちがいありませんが出たら「なぜそう言い切れるのか」の根拠を直前の文から探す。根拠が具体的（練習内容など）なら強い確信、根拠が薄い・不確かな情報（人数の見込みなど）ならかもしれませんに変わる——この案内文の中で両方が対比して使われている点に注目。",
+          "evi": [
+            1,
+            6,
+            10
+          ],
+          "qt": {
+            "q": "Trong thông báo này, cách giải thích nào đúng về câu 「力がつくにちがいありません」(chắc chắn sẽ tiến bộ)?",
+            "o": [
+              "Nhà trường nói giảm nhẹ vì không thể đảm bảo học viên sẽ đỗ",
+              "Nhà trường viết với niềm tin mạnh mẽ, dựa trên lý do cụ thể là “luyện tập cân bằng ngữ pháp, đọc hiểu và nghe hiểu”",
+              "「かもしれません」 được dùng với ý nghĩa hoàn toàn giống nhau",
+              "Đây là lời trích dẫn điều mà học viên đã nói"
+            ]
+          }
+        }
+      ],
+      "outline": [
+        {
+          "from": 0,
+          "to": 1,
+          "kind": "intro",
+          "label": "Tiêu đề + lời mời",
+          "topic": 1,
+          "note": "Tên khóa học và cam kết xác tín đầu tiên bằng にちがいありません — chưa có căn cứ cụ thể, chủ yếu để thu hút.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 2,
+          "to": 5,
+          "kind": "body",
+          "label": "Bảng 3 gói khóa học",
+          "topic": 5,
+          "note": "So sánh thời lượng/học phí/tỉ lệ đỗ của 3 khóa — nguồn số liệu chính cho câu hỏi tính tổng tiền.",
+          "qs": [
+            1
+          ]
+        },
+        {
+          "from": 6,
+          "to": 6,
+          "kind": "point",
+          "label": "Căn cứ cho cam kết mạnh",
+          "topic": 6,
+          "note": "にちがいありません lần 2 kèm căn cứ cụ thể (luyện đều 3 kỹ năng) — chìa khóa cho câu hỏi sắc thái.",
+          "qs": [
+            2
+          ]
+        },
+        {
+          "from": 7,
+          "to": 10,
+          "kind": "point",
+          "label": "Các khoản giảm/cộng phí + かもしれません đối chiếu",
+          "topic": 10,
+          "note": "Ba dòng ※ về giảm giá đăng ký sớm, thẻ hội viên, phí giáo trình cộng thêm (phải ghép đủ cả 3 khi tính tổng tiền); dòng ※ cuối chuyển sang かもしれません (thiếu căn cứ số lượng) — bẫy đối chiếu sắc thái với にちがいありません.",
+          "qs": [
+            1,
+            2
+          ]
+        },
+        {
+          "from": 11,
+          "to": 12,
+          "kind": "turn",
+          "label": "Thông tin liên hệ + địa chỉ",
+          "topic": 11,
+          "note": "Chuyển sang thông tin liên hệ/địa chỉ chuẩn cuối thông báo — không còn nội dung ngữ pháp trọng tâm.",
+          "qs": []
+        }
+      ]
+    },
+    {
+      "kind": "long",
+      "title": "引っ越した隣人のことが気になる",
+      "titleVi": "Băn khoăn về người hàng xóm đã chuyển đi",
+      "japanese": "先週の朝、目が覚めたら、隣のアパートの前に大きなトラックが止まっていた。窓から見ると、山田さんという隣人が荷物を次々と運び出していた。\n山田さんはここに三年以上住んでいたはずだ。だから、突然の引っ越しにとても驚いた。\n引っ越しの理由について、私にはわからないことばかりだった。しかし、いくつかの出来事を思い出した。\n先月、山田さんは珍しく夜遅くまで電話をしていた。声が少し大きかったので、内容はわからなかったが、深刻な話をしていたにちがいないと思った。\nまた、二週間前から、山田さんの部屋の電気がとても早い時間に消えるようになっていた。いつもは夜遅くまで起きていたのに、急に変わったのだ。\nきっと、何か重要なことを決めたにちがいない。新しい仕事が決まったのかもしれないし、遠い地方に転勤することになったのかもしれない。\nあるいは、家族の事情で実家に帰ることになったのかもしれない。しかし、それだけの理由でこんなに急いで引っ越すだろうか、と私は思った。\nそう考えると、もっと個人的な理由があったにちがいないという気がしてきた。\nトラックが出発する前に、山田さんと少しだけ話すことができた。\n「お世話になりました」と山田さんは言った。その顔は、どこか疲れている様子だったが、少し安心しているようにも見えた。\nつまり、長い間悩んでいたことが、ようやく解決したにちがいないと私は感じた。\n山田さんが去った後、隣の部屋は静かになった。あの電気が消えた部屋を見ると、山田さんのことを思い出す。\n新しい場所でうまくいっているといいと思っている。もしかしたら、またどこかで会うことができるかもしれない。\nでも、今思うと、もっと早く話しかけておけばよかったと少し後悔している。そんなに後悔しているということは、山田さんのことが気になっていたにちがいない。\n人との縁は、なくなってからやっと大切さに気づくのだと、今回のことで改めて感じた。",
+      "vietnamese": "Sáng tuần trước, khi tỉnh dậy, tôi thấy một chiếc xe tải lớn đậu trước căn hộ bên cạnh. Nhìn qua cửa sổ, tôi thấy người hàng xóm tên Yamada đang liên tục chuyển đồ ra ngoài.\nAnh Yamada lẽ ra đã sống ở đây hơn ba năm rồi. Vì vậy, việc chuyển nhà đột ngột khiến tôi rất bất ngờ.\nVề lý do chuyển nhà, tôi không biết gì cả. Nhưng tôi đã nhớ lại một số sự kiện.\nTháng trước, anh Yamada đã gọi điện đến tận đêm khuya — chuyện hiếm thấy ở anh. Vì giọng có vẻ hơi to nên tôi không hiểu nội dung, nhưng tôi nghĩ chắc chắn anh đang nói về điều gì đó nghiêm trọng.\nNgoài ra, từ hai tuần trước, đèn phòng anh Yamada bắt đầu tắt rất sớm. Mặc dù thường ngày anh thức đến khuya, nhưng đột nhiên thay đổi như vậy.\nChắc chắn anh đã quyết định điều gì đó quan trọng. Có thể anh vừa được nhận việc mới, hoặc cũng có thể anh bị điều chuyển đến tỉnh xa.\nHoặc có thể vì hoàn cảnh gia đình mà anh phải về quê. Nhưng tôi tự hỏi liệu chỉ bấy nhiêu lý do thôi có đủ để chuyển đi gấp vậy không.\nNghĩ như vậy, tôi cảm thấy chắc hẳn anh có lý do cá nhân hơn.\nTrước khi xe tải chuyển bánh, tôi đã có thể nói chuyện ít chút với anh Yamada.\nAnh nói \"Cảm ơn những ngày qua\". Gương mặt anh có vẻ mệt mỏi ở đâu đó, nhưng cũng trông có phần nhẹ nhõm hơn.\nTức là, tôi cảm nhận rằng điều anh đã băn khoăn lâu nay chắc chắn đã được giải quyết rồi.\nSau khi anh Yamada đi, căn phòng bên cạnh trở nên yên tĩnh. Mỗi khi nhìn vào căn phòng đã tắt đèn đó, tôi lại nhớ đến anh.\nTôi mong anh đang ổn ở nơi mới. Biết đâu chúng tôi có thể gặp lại nhau ở đâu đó.\nNhưng nghĩ lại bây giờ, tôi hơi hối tiếc vì không nói chuyện với anh sớm hơn. Lẽ ra tôi phải hiểu người hàng xóm hơn.\nQua việc lần này, tôi một lần nữa cảm nhận rằng sự kết nối với người khác, chỉ khi mất đi rồi mới nhận ra sự quý giá của nó.",
+      "sentences": [
+        {
+          "jp": "先週の朝、目が覚めたら、隣のアパートの前に大きなトラックが止まっていた。",
+          "vi": "Sáng tuần trước, khi tỉnh dậy, tôi thấy một chiếc xe tải lớn đậu trước căn hộ bên cạnh.",
+          "vocab": [
+            {
+              "w": "先週",
+              "read": "せんしゅう",
+              "vi": "tuần trước"
+            },
+            {
+              "w": "朝",
+              "read": "あさ",
+              "vi": "buổi sáng"
+            },
+            {
+              "w": "目",
+              "read": "め",
+              "vi": "mắt"
+            },
+            {
+              "w": "覚める",
+              "read": "さめる",
+              "vi": "tỉnh giấc, thức dậy"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh"
+            },
+            {
+              "w": "アパート",
+              "read": "アパート",
+              "vi": "căn hộ chung cư"
+            },
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "大きな",
+              "read": "おおきな",
+              "vi": "to lớn"
+            },
+            {
+              "w": "トラック",
+              "read": "トラック",
+              "vi": "xe tải"
+            },
+            {
+              "w": "止まります",
+              "read": "とまります",
+              "vi": "dừng, đậu lại"
+            },
+            {
+              "w": "目が覚めます",
+              "read": "めがさめます",
+              "vi": "tỉnh giấc"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たら（B25）",
+              "vi": "目が覚めたら = khi tỉnh dậy thì. Vた + ら = khi làm xong A thì phát hiện B (kết quả bất ngờ). Mở đầu tản văn bằng tình huống quan sát cụ thể."
+            }
+          ]
+        },
+        {
+          "jp": "窓から見ると、山田さんという隣人が荷物を次々と運び出していた。",
+          "vi": "Nhìn qua cửa sổ, tôi thấy người hàng xóm tên Yamada đang liên tục chuyển đồ ra ngoài.",
+          "vocab": [
+            {
+              "w": "窓",
+              "read": "まど",
+              "vi": "cửa sổ"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "隣人",
+              "read": "りんじん",
+              "vi": "người hàng xóm"
+            },
+            {
+              "w": "荷物",
+              "read": "にもつ",
+              "vi": "hành lý, đồ đạc"
+            },
+            {
+              "w": "次々と",
+              "read": "つぎつぎと",
+              "vi": "liên tiếp, lần lượt"
+            },
+            {
+              "w": "運び出します",
+              "read": "はこびだします",
+              "vi": "chuyển ra ngoài, khuân ra"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên, B23）",
+              "vi": "見ると = khi nhìn thì (nhận ra). 〜と dùng khi hành động A tự nhiên dẫn đến phát hiện B."
+            },
+            {
+              "point": "〜というN（B33）",
+              "vi": "山田さんという隣人 = người hàng xóm (có tên) là Yamada. 〜という giải thích danh tính."
+            }
+          ]
+        },
+        {
+          "jp": "山田さんはここに三年以上住んでいたはずだ。だから、突然の引っ越しにとても驚いた。",
+          "vi": "Anh Yamada lẽ ra đã sống ở đây hơn ba năm rồi. Vì vậy, việc chuyển nhà đột ngột khiến tôi rất bất ngờ.",
+          "vocab": [
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "住みます",
+              "read": "すみます",
+              "vi": "sống, cư trú"
+            },
+            {
+              "w": "だから",
+              "read": "だから",
+              "vi": "vì vậy, cho nên"
+            },
+            {
+              "w": "突然",
+              "read": "とつぜん",
+              "vi": "đột ngột"
+            },
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "chuyển nhà"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "驚きます",
+              "read": "おどろきます",
+              "vi": "ngạc nhiên, bất ngờ"
+            },
+            {
+              "w": "三年以上",
+              "read": "さんねんいじょう",
+              "vi": "hơn ba năm"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ていたはずだ（B51）",
+              "vi": "住んでいたはずだ = lẽ ra đã sống (ở đây). はず = suy luận logic từ ký ức/kinh nghiệm: \"tôi nhớ anh ấy sống ở đây lâu rồi\". ĐỐI CHIẾU: nếu dùng にちがいない thì sắc thái sẽ mạnh hơn, là xác tín chủ quan; はず ở đây hợp hơn vì dựa vào dữ liệu khách quan（thời gian）."
+            }
+          ]
+        },
+        {
+          "jp": "引っ越しの理由について、私にはわからないことばかりだった。しかし、いくつかの出来事を思い出した。",
+          "vi": "Về lý do chuyển nhà, tôi không biết gì cả. Nhưng tôi đã nhớ lại một số sự kiện.",
+          "vocab": [
+            {
+              "w": "引っ越し",
+              "read": "ひっこし",
+              "vi": "chuyển nhà"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "わからない",
+              "read": "わからない",
+              "vi": "không biết; không hiểu"
+            },
+            {
+              "w": "ことばかり",
+              "read": "ことばかり",
+              "vi": "toàn là những việc"
+            },
+            {
+              "w": "いくつか",
+              "read": "いくつか",
+              "vi": "một vài"
+            },
+            {
+              "w": "出来事",
+              "read": "できごと",
+              "vi": "sự việc"
+            },
+            {
+              "w": "思い出した",
+              "read": "おもいだした",
+              "vi": "đã nhớ lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜について（B21）",
+              "vi": "引っ越しの理由について = về lý do chuyển nhà. Nについて mở đầu chủ đề nghị luận."
+            },
+            {
+              "point": "Vことばかり（B46 ばかり）",
+              "vi": "わからないことばかり = toàn là điều không biết. ばかり nhấn tính độc chiếm."
+            }
+          ]
+        },
+        {
+          "jp": "先月、山田さんは珍しく夜遅くまで電話をしていた。",
+          "vi": "Tháng trước, anh Yamada đã gọi điện đến tận đêm khuya — chuyện hiếm thấy ở anh.",
+          "vocab": [
+            {
+              "w": "先月",
+              "read": "せんげつ",
+              "vi": "tháng trước"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "珍しく",
+              "read": "めずらしく",
+              "vi": "một cách hiếm thấy, khác thường (trạng từ)"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "電話をします",
+              "read": "でんわをします",
+              "vi": "gọi điện thoại"
+            },
+            {
+              "w": "夜遅くまで",
+              "read": "よるおそくまで",
+              "vi": "đến tận đêm khuya"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vていた（quá khứ tiếp diễn）",
+              "vi": "電話をしていた = đã đang gọi điện (tiếp diễn trong quá khứ). Cung cấp bằng chứng thứ nhất cho phán đoán にちがいない phía sau."
+            }
+          ]
+        },
+        {
+          "jp": "声が少し大きかったので、内容はわからなかったが、深刻な話をしていたにちがいないと思った。",
+          "vi": "Vì giọng có vẻ hơi to nên tôi không hiểu nội dung, nhưng tôi nghĩ chắc chắn anh đang nói về điều gì đó nghiêm trọng.",
+          "vocab": [
+            {
+              "w": "声",
+              "read": "こえ",
+              "vi": "giọng nói"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "大きい",
+              "read": "おおきい",
+              "vi": "lớn (tính từ い)"
+            },
+            {
+              "w": "内容",
+              "read": "ないよう",
+              "vi": "nội dung"
+            },
+            {
+              "w": "わかる",
+              "read": "わかる",
+              "vi": "hiểu, biết"
+            },
+            {
+              "w": "深刻",
+              "read": "しんこく",
+              "vi": "nghiêm trọng, trầm trọng"
+            },
+            {
+              "w": "話",
+              "read": "はなし",
+              "vi": "câu chuyện, chủ đề"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ので（B39）",
+              "vi": "声が大きかったので = vì giọng to. ので nêu lý do lịch sự/khách quan."
+            },
+            {
+              "point": "〜ていたにちがいない",
+              "vi": "接続: Vていた（深刻な話をしていた）+ にちがいない = chắc chắn đã đang nói điều nghiêm trọng. Sắc thái: người viết có bằng chứng cụ thể（giọng to, gọi đêm khuya bất thường）nên dùng にちがいない thay vì かもしれない. と思った（B21）theo sau diễn đạt suy nghĩ tại thời điểm đó."
+            }
+          ]
+        },
+        {
+          "jp": "また、二週間前から、山田さんの部屋の電気がとても早い時間に消えるようになっていた。",
+          "vi": "Ngoài ra, từ hai tuần trước, đèn phòng anh Yamada bắt đầu tắt rất sớm.",
+          "vocab": [
+            {
+              "w": "前",
+              "read": "まえ",
+              "vi": "trước, phía trước"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "とても",
+              "read": "とても",
+              "vi": "rất, lắm"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "時間",
+              "read": "じかん",
+              "vi": "giờ giấc, thời gian"
+            },
+            {
+              "w": "消えます",
+              "read": "きえます",
+              "vi": "tắt, biến mất"
+            },
+            {
+              "w": "二週間前",
+              "read": "にしゅうかんまえ",
+              "vi": "hai tuần trước"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vるようになっていた（B36）",
+              "vi": "消えるようになっていた = đã trở thành tình trạng tắt sớm (thay đổi tiệm tiến trong quá khứ). ようになる（B36）diễn đạt sự thay đổi."
+            }
+          ]
+        },
+        {
+          "jp": "いつもは夜遅くまで起きていたのに、急に変わったのだ。",
+          "vi": "Mặc dù thường ngày anh thức đến khuya, nhưng đột nhiên thay đổi như vậy.",
+          "vocab": [
+            {
+              "w": "いつも",
+              "read": "いつも",
+              "vi": "thường ngày, luôn luôn"
+            },
+            {
+              "w": "夜",
+              "read": "よる",
+              "vi": "buổi tối"
+            },
+            {
+              "w": "遅い",
+              "read": "おそい",
+              "vi": "muộn, chậm"
+            },
+            {
+              "w": "起きます",
+              "read": "おきます",
+              "vi": "thức, thức dậy"
+            },
+            {
+              "w": "急に",
+              "read": "きゅうに",
+              "vi": "đột nhiên, bỗng nhiên"
+            },
+            {
+              "w": "変わる",
+              "read": "かわる",
+              "vi": "thay đổi, biến đổi"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のに（逆接, B45）",
+              "vi": "起きていたのに = mặc dù vẫn hay thức đến khuya mà. のに diễn tả sự tương phản bất ngờ, hơi bất mãn/ngạc nhiên."
+            }
+          ]
+        },
+        {
+          "jp": "きっと、何か重要なことを決めたにちがいない。",
+          "vi": "Chắc chắn anh đã quyết định điều gì đó quan trọng.",
+          "vocab": [
+            {
+              "w": "きっと",
+              "read": "きっと",
+              "vi": "chắc chắn"
+            },
+            {
+              "w": "何か",
+              "read": "なにか",
+              "vi": "điều gì đó"
+            },
+            {
+              "w": "重要",
+              "read": "じゅうよう",
+              "vi": "quan trọng"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "điều; việc"
+            },
+            {
+              "w": "決めた",
+              "read": "きめた",
+              "vi": "đã quyết định"
+            },
+            {
+              "w": "にちがいない",
+              "read": "にちがいない",
+              "vi": "chắc chắn là"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "chắc chắn (trong にちがいない)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たにちがいない",
+              "vi": "接続: Vた（決めた）+ にちがいない = chắc chắn đã quyết định. きっと（phó từ）đi cùng にちがいない để nhấn mạnh thêm. Câu này tổng kết xác tín của người viết sau khi trình bày nhiều bằng chứng."
+            }
+          ]
+        },
+        {
+          "jp": "新しい仕事が決まったのかもしれないし、遠い地方に転勤することになったのかもしれない。",
+          "vi": "Có thể anh vừa được nhận việc mới, hoặc cũng có thể anh bị điều chuyển đến tỉnh xa.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "仕事",
+              "read": "しごと",
+              "vi": "công việc"
+            },
+            {
+              "w": "決まる",
+              "read": "きまる",
+              "vi": "được quyết định"
+            },
+            {
+              "w": "遠い",
+              "read": "とおい",
+              "vi": "xa (tính từ い)"
+            },
+            {
+              "w": "地方",
+              "read": "ちほう",
+              "vi": "địa phương, tỉnh xa"
+            },
+            {
+              "w": "転勤します",
+              "read": "てんきんします",
+              "vi": "chuyển công tác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜ことになった（B31）",
+              "vi": "転勤することになった = đã quyết định（bên ngoài）chuyển công tác. ことになる（B31）= kết quả/quyết định từ phía tổ chức."
+            },
+            {
+              "point": "〜かもしれない（hai khả năng）",
+              "vi": "Sau xác tín にちがいない về \"đã quyết định gì đó\", người viết chuyển sang liệt kê các khả năng cụ thể bằng かもしれない — thể hiện rõ THANG ĐỘ: chắc chắn có quyết định（にちがいない）, nhưng không chắc quyết định cụ thể là gì（かもしれない）."
+            }
+          ]
+        },
+        {
+          "jp": "あるいは、家族の事情で実家に帰ることになったのかもしれない。しかし、それだけの理由でこんなに急いで引っ越すだろうか、と私は思った。",
+          "vi": "Hoặc có thể vì hoàn cảnh gia đình mà anh phải về quê. Nhưng tôi tự hỏi liệu chỉ bấy nhiêu lý do thôi có đủ để chuyển đi gấp vậy không.",
+          "vocab": [
+            {
+              "w": "あるいは",
+              "read": "あるいは",
+              "vi": "hoặc là, hay là"
+            },
+            {
+              "w": "家族",
+              "read": "かぞく",
+              "vi": "gia đình"
+            },
+            {
+              "w": "事情",
+              "read": "じじょう",
+              "vi": "hoàn cảnh, lý do"
+            },
+            {
+              "w": "実家",
+              "read": "じっか",
+              "vi": "nhà của bố mẹ, quê nhà"
+            },
+            {
+              "w": "帰る",
+              "read": "かえる",
+              "vi": "về, trở về"
+            },
+            {
+              "w": "しかし",
+              "read": "しかし",
+              "vi": "nhưng, tuy nhiên"
+            },
+            {
+              "w": "それだけ",
+              "read": "それだけ",
+              "vi": "chỉ bấy nhiêu, đến mức đó"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "こんなに",
+              "read": "こんなに",
+              "vi": "như thế này, đến mức này"
+            },
+            {
+              "w": "急ぎます",
+              "read": "いそぎます",
+              "vi": "vội vàng, gấp"
+            },
+            {
+              "w": "引っ越す",
+              "read": "ひっこす",
+              "vi": "chuyển nhà"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜だろうか（B32 でしょう dạng thân mật）",
+              "vi": "急いで引っ越すだろうか = liệu có (đủ lý do để) chuyển đi gấp không? だろうか = でしょうか thân mật, bày tỏ sự nghi ngờ/tự hỏi. Sắc thái nhẹ hơn にちがいない nhiều."
+            }
+          ]
+        },
+        {
+          "jp": "そう考えると、もっと個人的な理由があったにちがいないという気がしてきた。",
+          "vi": "Nghĩ như vậy, tôi cảm thấy chắc hẳn anh có lý do cá nhân hơn.",
+          "vocab": [
+            {
+              "w": "考える",
+              "read": "かんがえる",
+              "vi": "suy nghĩ, suy xét"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "個人",
+              "read": "こじん",
+              "vi": "cá nhân"
+            },
+            {
+              "w": "理由",
+              "read": "りゆう",
+              "vi": "lý do"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            },
+            {
+              "w": "個人的",
+              "read": "こじんてき",
+              "vi": "có tính cá nhân, riêng tư"
+            },
+            {
+              "w": "気がします",
+              "read": "きがします",
+              "vi": "có cảm giác, cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜にちがいないという気がしてきた",
+              "vi": "にちがいないという気がしてきた = dần dần có cảm giác chắc chắn là... Cấu trúc: にちがいない + という（trích dẫn/danh từ hoá, B33）+ 気がする（có cảm giác）+ てきた（diễn biến dần）."
+            }
+          ]
+        },
+        {
+          "jp": "トラックが出発する前に、山田さんと少しだけ話すことができた。",
+          "vi": "Trước khi xe tải chuyển bánh, tôi đã có thể nói chuyện ít chút với anh Yamada.",
+          "vocab": [
+            {
+              "w": "トラック",
+              "read": "トラック",
+              "vi": "xe tải"
+            },
+            {
+              "w": "出発します",
+              "read": "しゅっぱつします",
+              "vi": "khởi hành, chuyển bánh"
+            },
+            {
+              "w": "前に",
+              "read": "まえに",
+              "vi": "trước khi"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "話す",
+              "read": "はなす",
+              "vi": "nói, nói chuyện"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vる前に（B18）",
+              "vi": "出発する前に = trước khi xuất phát. V辞書形 + 前に（B18）."
+            },
+            {
+              "point": "Vることができた（B18）",
+              "vi": "話すことができた = đã có thể nói chuyện. V辞書形 + ことができる（B18）."
+            }
+          ]
+        },
+        {
+          "jp": "「お世話になりました」と山田さんは言った。",
+          "vi": "Anh nói \"Cảm ơn những ngày qua\".",
+          "vocab": [
+            {
+              "w": "お世話になりました",
+              "read": "おせわになりました",
+              "vi": "cảm ơn vì sự chăm sóc/giúp đỡ (thành ngữ khi tạm biệt)"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "言う",
+              "read": "いう",
+              "vi": "nói, bảo"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と言った（B21）",
+              "vi": "Trích dẫn trực tiếp lời nói của Yamada trong 「」."
+            }
+          ]
+        },
+        {
+          "jp": "その顔は、どこか疲れている様子だったが、少し安心しているようにも見えた。",
+          "vi": "Gương mặt anh trông có dáng vẻ mệt mỏi ở đâu đó, nhưng cũng trông có phần nhẹ nhõm hơn.",
+          "vocab": [
+            {
+              "w": "顔",
+              "read": "かお",
+              "vi": "khuôn mặt, nét mặt"
+            },
+            {
+              "w": "疲れます",
+              "read": "つかれます",
+              "vi": "mệt mỏi"
+            },
+            {
+              "w": "様子",
+              "read": "ようす",
+              "vi": "dáng vẻ, vẻ ngoài"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "安心します",
+              "read": "あんしんします",
+              "vi": "yên tâm, nhẹ nhõm"
+            },
+            {
+              "w": "見える",
+              "read": "みえる",
+              "vi": "nhìn thấy, trông thấy"
+            },
+            {
+              "w": "どこか",
+              "read": "どこか",
+              "vi": "ở đâu đó, nơi nào đó (mơ hồ)"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "N様子だ / 〜ように見える",
+              "vi": "疲れている様子だった = trông có dáng vẻ mệt; 安心しているように見えた = trông có vẻ nhẹ nhõm. 様子（dáng vẻ — danh từ）＋ ように見える（ように manner Bài 36 + 見える Bài 27）— quan sát trực tiếp qua gương mặt, làm bằng chứng dẫn đến xác tín にちがいない ở câu sau (ようだ để dành Bài 64)."
+            }
+          ]
+        },
+        {
+          "jp": "つまり、長い間悩んでいたことが、ようやく解決したにちがいないと私は感じた。",
+          "vi": "Tức là, tôi cảm nhận rằng điều anh đã băn khoăn lâu nay chắc chắn đã được giải quyết rồi.",
+          "vocab": [
+            {
+              "w": "つまり",
+              "read": "つまり",
+              "vi": "nói cách khác; tóm lại"
+            },
+            {
+              "w": "長い間",
+              "read": "ながいあいだ",
+              "vi": "một thời gian dài"
+            },
+            {
+              "w": "長い",
+              "read": "ながい",
+              "vi": "dài; lâu"
+            },
+            {
+              "w": "間",
+              "read": "あいだ",
+              "vi": "khoảng thời gian"
+            },
+            {
+              "w": "悩んでいた",
+              "read": "なやんでいた",
+              "vi": "đã luôn trăn trở"
+            },
+            {
+              "w": "こと",
+              "read": "こと",
+              "vi": "việc; điều"
+            },
+            {
+              "w": "ようやく",
+              "read": "ようやく",
+              "vi": "cuối cùng; rốt cuộc"
+            },
+            {
+              "w": "解決した",
+              "read": "かいけつした",
+              "vi": "đã được giải quyết"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác biệt"
+            },
+            {
+              "w": "にちがいない",
+              "read": "にちがいない",
+              "vi": "chắc chắn là"
+            },
+            {
+              "w": "私",
+              "read": "わたし",
+              "vi": "tôi"
+            },
+            {
+              "w": "感じた",
+              "read": "かんじた",
+              "vi": "đã cảm thấy"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜たにちがいない（kết luận từ quan sát）",
+              "vi": "解決したにちがいない = chắc chắn đã được giải quyết. Đây là điểm nhấn của đoạn văn: người viết tổng hợp các quan sát（mặt mệt + vẻ nhẹ nhõm）→ xác tín mạnh bằng にちがいない. つまり（tức là）= 接続詞 tóm tắt kết luận."
+            }
+          ]
+        },
+        {
+          "jp": "山田さんが去った後、隣の部屋は静かになった。あの電気が消えた部屋を見ると、山田さんのことを思い出す。",
+          "vi": "Sau khi anh Yamada đi, căn phòng bên cạnh trở nên yên tĩnh. Khi nhìn vào căn phòng đã tắt đèn đó, tôi lại nhớ đến anh.",
+          "vocab": [
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "去ります",
+              "read": "さります",
+              "vi": "rời đi, ra đi"
+            },
+            {
+              "w": "隣",
+              "read": "となり",
+              "vi": "bên cạnh, kế bên"
+            },
+            {
+              "w": "部屋",
+              "read": "へや",
+              "vi": "căn phòng"
+            },
+            {
+              "w": "静か",
+              "read": "しずか",
+              "vi": "yên tĩnh"
+            },
+            {
+              "w": "電気",
+              "read": "でんき",
+              "vi": "điện, đèn điện"
+            },
+            {
+              "w": "消える",
+              "read": "きえる",
+              "vi": "tắt"
+            },
+            {
+              "w": "見る",
+              "read": "みる",
+              "vi": "nhìn, xem"
+            },
+            {
+              "w": "思い出します",
+              "read": "おもいだします",
+              "vi": "nhớ lại"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜と（điều kiện tự nhiên, B23）",
+              "vi": "見ると = khi nhìn thì（tự nhiên nhớ lại）. 〜と diễn tả kết quả tự nhiên/thường xuyên: \"hễ nhìn là nghĩ đến\"."
+            }
+          ]
+        },
+        {
+          "jp": "新しい場所でうまくいっているといいと思っている。もしかしたら、またどこかで会うことができるかもしれない。",
+          "vi": "Tôi mong anh đang ổn ở nơi mới. Biết đâu chúng tôi có thể gặp lại nhau ở đâu đó.",
+          "vocab": [
+            {
+              "w": "新しい",
+              "read": "あたらしい",
+              "vi": "mới (tính từ い)"
+            },
+            {
+              "w": "場所",
+              "read": "ばしょ",
+              "vi": "vị trí, nơi chốn"
+            },
+            {
+              "w": "うまい",
+              "read": "うまい",
+              "vi": "giỏi, ngon"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "もしか",
+              "read": "もしか",
+              "vi": "có lẽ, có thể"
+            },
+            {
+              "w": "会う",
+              "read": "あう",
+              "vi": "gặp, gặp mặt"
+            },
+            {
+              "w": "できる",
+              "read": "できる",
+              "vi": "có thể, làm được"
+            },
+            {
+              "w": "新しい場所",
+              "read": "あたらしいばしょ",
+              "vi": "nơi mới"
+            },
+            {
+              "w": "うまくいきます",
+              "read": "うまくいきます",
+              "vi": "thuận lợi, ổn"
+            },
+            {
+              "w": "もしかしたら",
+              "read": "もしかしたら",
+              "vi": "biết đâu, lỡ như"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜といいと思っています（B23 + B21）",
+              "vi": "うまくいっているといい = mong sao ổn. 〜といいなあ = mong ước（B23 と tự nhiên）. と思っています = đang nghĩ（B21）."
+            },
+            {
+              "point": "〜かもしれない（nhẹ nhõm, mong manh）",
+              "vi": "もしかしたら〜かもしれない = biết đâu có thể. Kết hợp もしかしたら + かもしれない = cực kỳ không chắc chắn, chỉ là hy vọng mơ hồ. Đối chiếu với にちがいない: đây là khả năng người viết CHỈ MONG, không có căn cứ nên dùng かもしれない."
+            }
+          ]
+        },
+        {
+          "jp": "でも、今思うと、もっと早く話しかけておけばよかったと少し後悔している。そんなに後悔しているということは、山田さんのことが気になっていたにちがいない。",
+          "vi": "Nhưng nghĩ lại bây giờ, tôi hơi hối tiếc vì không nói chuyện với anh sớm hơn. Việc tôi hối tiếc đến vậy chắc chắn là vì anh Yamada đã khiến tôi thực sự quan tâm.",
+          "vocab": [
+            {
+              "w": "今",
+              "read": "いま",
+              "vi": "bây giờ, hiện nay"
+            },
+            {
+              "w": "思う",
+              "read": "おもう",
+              "vi": "nghĩ, cảm thấy"
+            },
+            {
+              "w": "もっと",
+              "read": "もっと",
+              "vi": "nhiều hơn, hơn nữa"
+            },
+            {
+              "w": "早い",
+              "read": "はやい",
+              "vi": "sớm, nhanh"
+            },
+            {
+              "w": "話しかける",
+              "read": "はなしかける",
+              "vi": "bắt chuyện"
+            },
+            {
+              "w": "少し",
+              "read": "すこし",
+              "vi": "một chút"
+            },
+            {
+              "w": "後悔します",
+              "read": "こうかいします",
+              "vi": "hối tiếc, ân hận"
+            },
+            {
+              "w": "そんなに",
+              "read": "そんなに",
+              "vi": "vậy, đến vậy"
+            },
+            {
+              "w": "山田",
+              "read": "やまだ",
+              "vi": "Yamada (họ người)"
+            },
+            {
+              "w": "気になります",
+              "read": "きになります",
+              "vi": "thấy lo lắng về, quan tâm đến"
+            },
+            {
+              "w": "ちがい",
+              "read": "ちがい",
+              "vi": "sự khác nhau, sai khác"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "Vておけばよかった（B35 + B30）",
+              "vi": "話しかけておけばよかった = lẽ ra đã nên bắt chuyện trước. Vておく（B30）+ ば〜よかった（B35）= nuối tiếc về điều lẽ ra nên làm."
+            },
+            {
+              "point": "〜ていたにちがいない（kết luận từ chính cảm xúc）",
+              "vi": "気になっていたにちがいない = chắc chắn đã đang quan tâm. Người viết dùng にちがいない để suy ra lý do sâu xa của chính mình từ phản ứng cảm xúc（hối tiếc）— xác tín nhưng hướng vào nội tâm."
+            }
+          ]
+        },
+        {
+          "jp": "人との縁は、なくなってからやっと大切さに気づくのだと、今回のことで改めて感じた。",
+          "vi": "Qua việc lần này, tôi một lần nữa cảm nhận rằng sự kết nối với người khác, chỉ khi mất đi rồi mới nhận ra sự quý giá của nó.",
+          "vocab": [
+            {
+              "w": "人",
+              "read": "ひと",
+              "vi": "người, con người"
+            },
+            {
+              "w": "縁",
+              "read": "えん",
+              "vi": "duyên, sự kết nối"
+            },
+            {
+              "w": "なくなる",
+              "read": "なくなる",
+              "vi": "mất đi, hết"
+            },
+            {
+              "w": "やっと",
+              "read": "やっと",
+              "vi": "cuối cùng, lúc đó mới"
+            },
+            {
+              "w": "大切さ",
+              "read": "たいせつさ",
+              "vi": "sự quý giá, tầm quan trọng"
+            },
+            {
+              "w": "気づきます",
+              "read": "きづきます",
+              "vi": "nhận ra, chú ý đến"
+            },
+            {
+              "w": "今回",
+              "read": "こんかい",
+              "vi": "lần này, chuyến này"
+            },
+            {
+              "w": "改めて",
+              "read": "あらためて",
+              "vi": "một lần nữa, lại"
+            },
+            {
+              "w": "感じる",
+              "read": "かんじる",
+              "vi": "cảm thấy, cảm nhận"
+            },
+            {
+              "w": "なくなります",
+              "read": "なくなります",
+              "vi": "mất đi, không còn nữa"
+            }
+          ],
+          "grammar": [
+            {
+              "point": "〜のだ（giải thích/nhấn mạnh kết luận, Bài 26）",
+              "vi": "気づくのだと感じた = cảm nhận rằng (chính là) đến lúc mất mới nhận ra. のだ nhấn mạnh điều đúc kết. (Mẫu ものだ \"lẽ thường/chân lý\" để dành Bài 53.)"
+            },
+            {
+              "point": "〜てから（B16）",
+              "vi": "なくなってから = sau khi mất đi mới. てから = sau khi V xong thì（B16）."
+            }
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "excerpt": "深刻な話をしていたにちがいないと思った",
+          "label": "にちがいない（xác tín từ chứng cứ）"
+        },
+        {
+          "excerpt": "きっと、何か重要なことを決めたにちがいない",
+          "label": "にちがいない（Sắc thái: xác tín chủ quan mạnh）"
+        },
+        {
+          "excerpt": "解決したにちがいないと私は感じた",
+          "label": "にちがいない（kết luận sau quan sát）"
+        },
+        {
+          "excerpt": "新しい仕事が決まったのかもしれないし、遠い地方に転勤することになったのかもしれない",
+          "label": "かもしれない（liệt kê khả năng — yếu hơn にちがいない）"
+        },
+        {
+          "excerpt": "山田さんはここに三年以上住んでいたはずだ",
+          "label": "はずだ（B51 — đối chiếu: suy luận logic）"
+        },
+        {
+          "excerpt": "もしかしたら、またどこかで会うことができるかもしれない",
+          "label": "かもしれない（hy vọng mơ hồ）"
+        }
+      ],
+      "questions": [
+        {
+          "q": "「深刻な話をしていたにちがいない」と「深刻な話をしていたかもしれない」では、どちらが書いた人の確信が強いですか。",
+          "evi": [
+            4,
+            5
+          ],
+          "options": [
+            "「かもしれない」の方が確信が強いです",
+            "「にちがいない」の方が確信が強いです",
+            "どちらも同じ強さの確信です",
+            "「にちがいない」は否定を表すので確信がありません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng: 「にちがいない」mạnh hơn hẳn 「かもしれない」vì người viết có hai bằng chứng cụ thể — ①「珍しく夜遅くまで電話をしていた」(gọi điện khuya bất thường) và ②「声が少し大きかった」(giọng to hơn thường lệ). Các chứng cứ trực tiếp quan sát được này cho phép người viết dùng にちがいない. Đáp án A hoàn toàn ngược (かもしれない yếu hơn). Đáp án C sai: hai mẫu khác nhau rõ rệt. Đáp án D sai: にちがいない là KHẲNG ĐỊNH chắc chắn, không phải phủ định.",
+          "tip": "Nhớ cực nhanh: にちがいない = CHẮC CHẮN (có chứng cứ quan sát); かもしれない = CÓ THỂ (không cam kết). Câu hỏi hỏi \"cái nào mạnh hơn\" → luôn là にちがいない.",
+          "qt": {
+            "q": "Trong 「深刻な話をしていたにちがいない」 (chắc hẳn đã nói chuyện nghiêm trọng) và 「深刻な話をしていたかもしれない」 (có thể đã nói chuyện nghiêm trọng), cách nào thể hiện sự tin chắc của người viết mạnh hơn?",
+            "o": [
+              "「かもしれない」 thể hiện sự tin chắc mạnh hơn",
+              "「にちがいない」 thể hiện sự tin chắc mạnh hơn",
+              "Cả hai đều thể hiện mức độ tin chắc như nhau",
+              "「にちがいない」 biểu thị phủ định nên không thể hiện sự tin chắc"
+            ]
+          }
+        },
+        {
+          "q": "書いた人が「きっと、何か重要なことを決めたにちがいない」と強く確信している理由として、文章にあるものをすべて選んでください。最も適切なものはどれですか。",
+          "evi": [
+            4,
+            6
+          ],
+          "options": [
+            "山田さんが「重要なことを決めた」と直接言ったから",
+            "先月の深夜の電話と、二週間前からの電気が早く消えるという変化を見ていたから",
+            "引っ越し業者に理由を聞いたら教えてくれたから",
+            "近所の人から話を聞いたから"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng: văn bản nêu HAI thay đổi quan sát được làm căn cứ cho にちがいない — ①「先月、珍しく夜遅くまで電話をしていた」(tháng trước hiếm thấy gọi điện khuya) + 「声が少し大きかった」(giọng to) → đã kết luận 「深刻な話をしていたにちがいない」; ② 「二週間前から、電気がとても早い時間に消えるようになっていた」(đèn tắt sớm hơn từ hai tuần trước) — hai sự thay đổi bất thường cộng lại mới đủ để xác tín 「重要なことを決めたにちがいない」. Đáp án A sai: Yamada không nói trực tiếp. Đáp án C và D sai: không có bằng chứng trong bài về việc hỏi thợ chuyển nhà hay người lân cận.",
+          "tip": "Câu hỏi \"lý do nào khiến người viết dùng にちがいない?\" → quét bài tìm DẤU HIỆU QUAN SÁT TRỰC TIẾP (đã thấy/đã nghe) được nêu trước đó, loại bỏ các chi tiết chỉ xuất hiện sau かもしれない.",
+          "qt": {
+            "q": "Hãy chọn tất cả những lý do có trong bài cho thấy người viết tin chắc rằng 「きっと、何か重要なことを決めたにちがいない」 (chắc chắn đã quyết định chuyện gì đó quan trọng). Đâu là lựa chọn phù hợp nhất?",
+            "o": [
+              "Vì anh Yamada đã trực tiếp nói 「重要なことを決めた」 (đã quyết định chuyện quan trọng)",
+              "Vì người viết đã chứng kiến cuộc điện thoại đêm khuya hồi tháng trước và sự thay đổi khi đèn tắt sớm từ hai tuần trước",
+              "Vì người viết hỏi công ty chuyển nhà về lý do và họ đã nói cho biết",
+              "Vì người viết nghe chuyện từ một người hàng xóm"
+            ]
+          }
+        },
+        {
+          "q": "「山田さんはここに三年以上住んでいたはずだ」でなぜ「にちがいない」ではなく「はず」を使いましたか。最も適切な説明はどれですか。",
+          "evi": [
+            2
+          ],
+          "options": [
+            "「はず」と「にちがいない」は同じ意味なので、どちらを使っても同じです",
+            "「にちがいない」は過去形に使えないので、「はず」を使いました",
+            "「はず」は記憶・経験・ルールから論理的に推測するのに使い、ここでは「知っていた事実」を根拠にしているので「はず」が自然です",
+            "「はず」は未来のことだけに使うので、過去の記憶には「はず」を使います"
+          ],
+          "answer": 2,
+          "explainVi": "Đáp án C đúng: 「はず」（B51）= suy luận LOGIC từ sự thật/kinh nghiệm đã biết. Ở đây người viết dùng kiến thức sẵn có (\"tôi biết anh ấy sống ở đây từ lâu\") làm căn cứ → 「三年以上住んでいたはずだ」(lẽ ra đã sống hơn ba năm). Đây là suy luận từ DỮ LIỆU KHÁCH QUAN (thời gian), không phải từ cảm giác mạnh. Nếu dùng にちがいない thì sắc thái sẽ là \"tôi chắc chắn mạnh mẽ!\" — quá mức so với ngữ cảnh. Đáp án A sai: はず và にちがいない khác nhau về nguồn gốc và sắc thái. Đáp án B sai: cả hai mẫu đều dùng được với quá khứ. Đáp án D sai: はず không giới hạn chỉ tương lai.",
+          "tip": "Phân biệt trong 3 giây: \"tôi BIẾT điều này từ trước (quy tắc/lịch/ký ức)\" → はず; \"tôi THẤY/CẢM NHẬN rõ bằng chứng ngay lúc này\" → にちがいない.",
+          "qt": {
+            "q": "Trong câu 「山田さんはここに三年以上住んでいたはずだ」 (chắc hẳn anh Yamada đã sống ở đây hơn ba năm), tại sao lại dùng 「はず」 thay vì 「にちがいない」? Đâu là lời giải thích phù hợp nhất?",
+            "o": [
+              "「はず」 and 「にちがいない」 mean the same thing, so either can be used with the same meaning",
+              "「にちがいない」 cannot be used in the past tense, so 「はず」 was used",
+              "「はず」 is used to make a logical inference based on memory, experience, or rules; here it is natural because the basis is a fact the writer knew",
+              "「はず」 is used only for future events, so it is used for memories of the past"
+            ]
+          }
+        },
+        {
+          "q": "この文章で、「にちがいない」と「かもしれない」の使い分けについて、最もよく説明しているのはどれですか。",
+          "evi": [
+            5,
+            9
+          ],
+          "options": [
+            "「にちがいない」は嬉しい時に使い、「かもしれない」は悲しい時に使います",
+            "「にちがいない」は具体的な証拠や観察をもとにした強い確信を表し、「かもしれない」は証拠のない可能性を表します",
+            "「にちがいない」は他人について言う時だけ使い、「かもしれない」は自分について使います",
+            "「にちがいない」は過去のことにしか使えません"
+          ],
+          "answer": 1,
+          "explainVi": "Đáp án B đúng: bài đọc thể hiện rõ hai chiều đối lập — にちがいない dùng khi có bằng chứng cụ thể quan sát được（「珍しく夜遅くまで電話をしていた」「電気が早く消えるようになった」「顔色が悪かった」「少し安心しているように見えた」）→ xác tín mạnh; かもしれない dùng khi THIẾU bằng chứng, chỉ đoán khả năng（「新しい仕事が決まったのかもしれない」「転勤することになったのかもしれない」「またどこかで会えるかもしれない」）. Đáp án A sai: にちがいない/かもしれない không phân theo cảm xúc vui/buồn. Đáp án C sai: cả hai mẫu đều dùng được cho người khác hoặc chính mình (câu cuối「気になっていたにちがいない」nói về chính người viết). Đáp án D sai: にちがいない dùng được cho cả quá khứ, hiện tại, tương lai.",
+          "tip": "Câu hỏi tổng hợp về cách dùng → đáp án đúng LÀ đáp án đề cập ĐẾN BẰNG CHỨNG (証拠・観察) cho にちがいない và THIẾU BẰNG CHỨNG (可能性のみ) cho かもしれない. Loại ngay các đáp án gắn với cảm xúc, ngôi kể, hay thì tương lai.",
+          "qt": {
+            "q": "Trong bài này, cách giải thích nào mô tả rõ nhất sự khác nhau trong cách dùng 「にちがいない」 và 「かもしれない」?",
+            "o": [
+              "「にちがいない」 được dùng khi vui, còn 「かもしれない」 được dùng khi buồn",
+              "「にちがいない」 thể hiện sự tin chắc mạnh mẽ dựa trên bằng chứng cụ thể hoặc sự quan sát, còn 「かもしれない」 thể hiện một khả năng không có bằng chứng",
+              "「にちがいない」 chỉ được dùng khi nói về người khác, còn 「かもしれない」 được dùng khi nói về bản thân",
+              "「にちがいない」 chỉ có thể được dùng cho những việc trong quá khứ"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

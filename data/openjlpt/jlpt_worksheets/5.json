@@ -1,0 +1,3872 @@
+{
+  "bai": 5,
+  "level": "N5",
+  "intro": "NへVます · NでVます · NとVます · いつVますか. Có ÔN LẠI ngữ pháp đã học (bài 1-4) — sát đề JLPT tích lũy.",
+  "groups": [
+    {
+      "key": "goi",
+      "k": "語",
+      "jp": "文字・語彙[もじ・ごい]",
+      "vi": "Từ vựng",
+      "sections": [
+        {
+          "code": "問1 · 漢字読み",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn cách đọc đúng của từ gạch chân.",
+          "items": [
+            {
+              "prompt": "毎朝、電車で学校へ行きます。",
+              "ul": "電車",
+              "choices": [
+                "でんしゃ",
+                "でんざ",
+                "てんしゃ",
+                "でんさ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「電車」(tàu điện) đọc là「でんしゃ」. 「電」âm on là「でん」, 「車」âm on là「しゃ」. Phương án 「でんざ」sai vì「車」không đọc là「ざ」. Phương án「てんしゃ」sai vì「電」đọc là「でん」, không phải「てん」. Phương án「でんさ」sai vì「車」không đọc là「さ」.",
+              "glosses": [
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "駅まで自転車で来ました。",
+              "ul": "自転車",
+              "choices": [
+                "じてんしゃ",
+                "じどうしゃ",
+                "じてんさ",
+                "したんしゃ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「自転車」(xe đạp) đọc là「じてんしゃ」. 「自」=「じ」, 「転」=「てん」, 「車」=「しゃ」. Phương án「じどうしゃ」là từ khác, nghĩa là «ô tô»(自動車). Phương án「じてんさ」sai vì「車」phải đọc là「しゃ」. Phương án「したんしゃ」không tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "ga (tàu)"
+                },
+                {
+                  "t": "自転車",
+                  "vi": "xe đạp"
+                },
+                {
+                  "t": "来ました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                }
+              ]
+            },
+            {
+              "prompt": "友だちと一緒に飛行機で行きました。",
+              "ul": "飛行機",
+              "choices": [
+                "ひこうき",
+                "ひこうぎ",
+                "とびこうき",
+                "ひかつき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「飛行機」(máy bay) đọc là「ひこうき」. 「飛」=「ひ」, 「行」=「こう」, 「機」=「き」. Phương án「ひこうぎ」sai vì「機」đọc là「き」(vô thanh), không phải「ぎ」(hữu thanh). Phương án「とびこうき」là cách đọc kun sai áp vào kết hợp. Phương án「ひかつき」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "友だち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "一緒に",
+                  "read": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "飛行機",
+                  "vi": "máy bay"
+                },
+                {
+                  "t": "行きました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "prompt": "バスの乗り場はどこですか。",
+              "ul": "乗り場",
+              "choices": [
+                "のりば",
+                "のりじょう",
+                "じょうりば",
+                "のるば"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「乗り場」(bến xe, điểm lên xe) đọc là「のりば」. 「乗り」=「のり」(kun), 「場」=「ば」(kun). Phương án「のりじょう」sai vì「場」ở đây đọc là「ば」, không phải「じょう」. Phương án「じょうりば」đảo thứ tự âm sai hoàn toàn. Phương án「のるば」sai vì dạng liên kết phải là「のり」, không phải「のる」.",
+              "glosses": [
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "乗り場",
+                  "vi": "điểm đón xe, bến xe"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu"
+                }
+              ]
+            },
+            {
+              "prompt": "会社まで何分かかりますか。",
+              "ul": "何分",
+              "choices": [
+                "なんぷん",
+                "なにふん",
+                "なんふん",
+                "なにぷん"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何分」(bao nhiêu phút) đọc là「なんぷん」. 「何」kết hợp với「分」thì đọc là「なん」và「分」biến âm thành「ぷん」(do quy tắc đồng hóa âm thanh). Phương án「なにふん」sai vì「何」trước từ đếm thường là「なん」, và「分」không đọc là「ふん」ở đây. Phương án「なんふん」sai vì sau「なん」thì「分」biến thành「ぷん」. Phương án「なにぷん」sai vì「何」phải là「なん」.",
+              "glosses": [
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "何分",
+                  "vi": "mấy phút, bao nhiêu phút"
+                },
+                {
+                  "t": "かかります",
+                  "vi": "mất (thời gian)"
+                }
+              ]
+            },
+            {
+              "prompt": "地下鉄で新宿まで行きます。",
+              "ul": "地下鉄",
+              "choices": [
+                "ちかてつ",
+                "ちかつ",
+                "じかてつ",
+                "ちがてつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「地下鉄」(tàu điện ngầm) đọc là「ちかてつ」. 「地」=「ち」, 「下」=「か」, 「鉄」=「てつ」. Phương án「ちかつ」thiếu âm tiết「て」, đọc sót. Phương án「じかてつ」sai vì「地」đọc là「ち」, không phải「じ」. Phương án「ちがてつ」sai vì「下」đọc là「か」(vô thanh), không phải「が」(hữu thanh).",
+              "glosses": [
+                {
+                  "t": "地下鉄",
+                  "vi": "tàu điện ngầm, metro"
+                },
+                {
+                  "t": "新宿",
+                  "read": "しんじゅく",
+                  "vi": "Shinjuku (địa danh)"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "先生は毎日学校へ来ます。",
+              "ul": "毎日",
+              "choices": [
+                "まいにち",
+                "まいじつ",
+                "まいひ",
+                "ごとにち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「毎日」(mỗi ngày) đọc là「まいにち」. 「毎」=「まい」, 「日」trong từ ghép «ngày» đọc là「にち」. Phương án「まいじつ」sai vì「日」đọc là「にち」trong ngữ cảnh này, không phải「じつ」. Phương án「まいひ」sai vì「日」không đọc là「ひ」trong từ ghép này (「ひ」là kun độc lập). Phương án「ごとにち」không tồn tại.",
+              "glosses": [
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "毎日",
+                  "vi": "mỗi ngày, hằng ngày"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "来ます",
+                  "read": "きます",
+                  "vi": "đến"
+                }
+              ]
+            },
+            {
+              "prompt": "出口はどちらですか。",
+              "ul": "出口",
+              "choices": [
+                "でぐち",
+                "しゅつぐち",
+                "でくち",
+                "しゅつこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「出口」(lối ra) đọc là「でぐち」. 「出」=「で」(kun), 「口」=「ぐち」(kun, biến âm hữu thanh). Phương án「しゅつぐち」sai vì「出」ở đây dùng âm kun「で」, không phải on「しゅつ」. Phương án「でくち」sai vì「口」sau「で」biến âm hữu thanh thành「ぐち」. Phương án「しゅつこう」không tồn tại như từ thông thường.",
+              "glosses": [
+                {
+                  "t": "出口",
+                  "vi": "lối ra, cổng ra"
+                },
+                {
+                  "t": "どちら",
+                  "vi": "phía nào, hướng nào"
+                }
+              ]
+            },
+            {
+              "prompt": "入口の前で待ってください。",
+              "ul": "入口",
+              "choices": [
+                "いりぐち",
+                "にゅうぐち",
+                "いりくち",
+                "にゅうこう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「入口」(lối vào) đọc là「いりぐち」. 「入り」=「いり」(kun), 「口」=「ぐち」(biến âm hữu thanh). Phương án「にゅうぐち」sai vì「入」ở đây dùng kun「いり」, không phải on「にゅう」. Phương án「いりくち」sai vì「口」biến âm thành「ぐち」sau「いり」. Phương án「にゅうこう」không phải cách đọc của từ này.",
+              "glosses": [
+                {
+                  "t": "入口",
+                  "vi": "lối vào, cổng vào"
+                },
+                {
+                  "t": "前",
+                  "read": "まえ",
+                  "vi": "phía trước"
+                },
+                {
+                  "t": "待ってください",
+                  "read": "まってください",
+                  "vi": "xin hãy đợi"
+                }
+              ]
+            },
+            {
+              "prompt": "東京から大阪まで新幹線で行きます。",
+              "ul": "東京",
+              "choices": [
+                "とうきょう",
+                "とうけい",
+                "ひがしきょう",
+                "とうきょ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「東京」(Tokyo) đọc là「とうきょう」. 「東」=「とう」(on), 「京」=「きょう」(on). Phương án「とうけい」sai vì「京」đọc là「きょう」, không phải「けい」. Phương án「ひがしきょう」sai vì「東」đọc theo kun là「ひがし」nhưng trong địa danh này dùng on「とう」. Phương án「とうきょ」sai vì「京」phải đọc dài「きょう」.",
+              "glosses": [
+                {
+                  "t": "東京",
+                  "vi": "Tokyo (thủ đô Nhật Bản)"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka (thành phố)"
+                },
+                {
+                  "t": "新幹線",
+                  "read": "しんかんせん",
+                  "vi": "tàu cao tốc Shinkansen"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "今日は電車が来なかったので、歩いて帰りました。",
+              "ul": "歩いて",
+              "choices": [
+                "あるいて",
+                "あゆいて",
+                "ほいて",
+                "ふんで"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「歩いて」(đi bộ) đọc là「あるいて」. Động từ「歩く」đọc là「あるく」, dạng て-form là「あるいて」. Phương án「あゆいて」sai vì cách đọc kun khác của「歩」là「あゆ(む)」nhưng không dùng ở đây. Phương án「ほいて」không tồn tại. Phương án「ふんで」là động từ khác (「踏む」= giẫm lên).",
+              "glosses": [
+                {
+                  "t": "今日",
+                  "read": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "来なかった",
+                  "read": "こなかった",
+                  "vi": "đã không đến"
+                },
+                {
+                  "t": "歩いて",
+                  "vi": "đi bộ (dạng て)"
+                },
+                {
+                  "t": "帰りました",
+                  "read": "かえりました",
+                  "vi": "đã về"
+                }
+              ]
+            },
+            {
+              "prompt": "学生は電車で学校へ来ます。",
+              "ul": "学生",
+              "choices": [
+                "がくせい",
+                "がくしょう",
+                "まなびせい",
+                "がっせい"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「学生」(học sinh/sinh viên) đọc là「がくせい」. 「学」=「がく」(on), 「生」=「せい」(on). Phương án「がくしょう」sai vì「生」đọc là「せい」, không phải「しょう」. Phương án「まなびせい」sai vì「学」kun là「まな(ぶ)」nhưng trong từ ghép dùng on「がく」. Phương án「がっせい」sai vì「学」trong từ ghép này không bị geminative (không thành「がっ」).",
+              "glosses": [
+                {
+                  "t": "学生",
+                  "vi": "học sinh, sinh viên"
+                },
+                {
+                  "t": "電車",
+                  "read": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "来ます",
+                  "read": "きます",
+                  "vi": "đến"
+                }
+              ]
+            },
+            {
+              "prompt": "何時に駅に着きますか。",
+              "ul": "何時",
+              "choices": [
+                "なんじ",
+                "なにじ",
+                "なんとき",
+                "いくじ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「何時」(mấy giờ) đọc là「なんじ」. 「何」trước từ đếm đọc là「なん」, 「時」=「じ」(on). Phương án「なにじ」sai vì「何」trước đơn vị đếm phải là「なん」. Phương án「なんとき」sai vì「時」đọc là「じ」khi chỉ giờ đồng hồ, không phải「とき」. Phương án「いくじ」không phải cách hỏi giờ trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "何時",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "ga (tàu điện)"
+                },
+                {
+                  "t": "着きます",
+                  "read": "つきます",
+                  "vi": "đến nơi, tới"
+                }
+              ]
+            },
+            {
+              "prompt": "父は毎朝、車で会社へ行きます。",
+              "ul": "車",
+              "choices": [
+                "くるま",
+                "しゃ",
+                "くるまあ",
+                "のりもの"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「車」(xe hơi, ô tô) đọc là「くるま」(kun). Phương án「しゃ」là âm on, chỉ dùng khi kết hợp (như「電車」), không đọc độc lập. Phương án「くるまあ」không tồn tại. Phương án「のりもの」là từ khác nghĩa là «phương tiện giao thông» nói chung, không phải cách đọc của「車」.",
+              "glosses": [
+                {
+                  "t": "父",
+                  "read": "ちち",
+                  "vi": "bố (người nói)"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "車",
+                  "vi": "ô tô, xe hơi"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "空港まで一時間ぐらいかかります。",
+              "ul": "空港",
+              "choices": [
+                "くうこう",
+                "そらみなと",
+                "くうこ",
+                "こうくう"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "「空港」(sân bay) đọc là「くうこう」. 「空」=「くう」(on), 「港」=「こう」(on). Phương án「そらみなと」là cách đọc kun ghép nhưng không tồn tại trong tiếng Nhật hiện đại. Phương án「くうこ」sai vì「港」phải đọc đủ là「こう」, không thể rút ngắn. Phương án「こうくう」là đảo ngược của「空港」, là từ「航空」(hàng không) - từ khác.",
+              "glosses": [
+                {
+                  "t": "空港",
+                  "vi": "sân bay"
+                },
+                {
+                  "t": "一時間",
+                  "read": "いちじかん",
+                  "vi": "một tiếng đồng hồ"
+                },
+                {
+                  "t": "ぐらい",
+                  "vi": "khoảng, chừng"
+                },
+                {
+                  "t": "かかります",
+                  "vi": "mất (thời gian)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問2 · 表記",
+          "level": "N5–N2",
+          "type": "mcq",
+          "instr": "Chọn chữ Hán đúng cho từ hiragana (gạch chân).",
+          "items": [
+            {
+              "prompt": "まいにちでんしゃでがっこうへいきます。",
+              "ul": "でんしゃ",
+              "choices": [
+                "電車",
+                "電気",
+                "電話",
+                "転車"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「電車」(でんしゃ) — tàu điện/tàu điện ngầm, phương tiện di chuyển phổ biến ở Nhật. ❌「電気」(でんき) = điện/ánh sáng điện, không phải phương tiện. ❌「電話」(でんわ) = điện thoại, cùng bộ 電 nhưng nghĩa hoàn toàn khác. ❌「転車」không phải từ tồn tại trong tiếng Nhật chuẩn (bẫy hình tự).",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "read": "毎日",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "でんしゃで",
+                  "read": "電車で",
+                  "vi": "bằng tàu điện"
+                },
+                {
+                  "t": "がっこうへ",
+                  "read": "学校へ",
+                  "vi": "đến trường"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "はははくるまでかいしゃへきます。",
+              "ul": "くるま",
+              "choices": [
+                "車",
+                "木",
+                "本",
+                "東"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「車」(くるま) — xe ô tô. ❌「木」(き/もく) = cái cây, đọc là き hoặc もく, không đọc là くるま. ❌「本」(ほん) = cuốn sách, hoàn toàn khác nghĩa. ❌「東」(ひがし) = phương đông, không liên quan đến phương tiện.",
+              "glosses": [
+                {
+                  "t": "ははは",
+                  "read": "母は",
+                  "vi": "mẹ thì"
+                },
+                {
+                  "t": "くるまで",
+                  "read": "車で",
+                  "vi": "bằng xe ô tô"
+                },
+                {
+                  "t": "かいしゃへ",
+                  "read": "会社へ",
+                  "vi": "đến công ty"
+                },
+                {
+                  "t": "きます",
+                  "read": "来ます",
+                  "vi": "đến"
+                }
+              ]
+            },
+            {
+              "prompt": "えきからがっこうまであるいてじゅっぷんかかります。",
+              "ul": "えき",
+              "choices": [
+                "駅",
+                "役",
+                "訳",
+                "易"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「駅」(えき) — ga tàu. ❌「役」(やく/えき) — vai trò/nhiệm vụ; đọc えき chỉ xuất hiện trong từ ghép như「兵役」và không có nghĩa là ga. ❌「訳」(わけ) = lý do/phiên dịch, đọc là わけ hoặc やく. ❌「易」(えき/い) = dễ/bói dịch, không liên quan.",
+              "glosses": [
+                {
+                  "t": "えきから",
+                  "read": "駅から",
+                  "vi": "từ ga tàu"
+                },
+                {
+                  "t": "がっこうまで",
+                  "read": "学校まで",
+                  "vi": "đến trường"
+                },
+                {
+                  "t": "あるいて",
+                  "vi": "đi bộ"
+                },
+                {
+                  "t": "じゅっぷん",
+                  "read": "十分",
+                  "vi": "mười phút"
+                },
+                {
+                  "t": "かかります",
+                  "vi": "mất (thời gian)"
+                }
+              ]
+            },
+            {
+              "prompt": "ともだちといっしょにでんしゃにのります。",
+              "ul": "のります",
+              "choices": [
+                "乗ります",
+                "乘ります",
+                "来ます",
+                "飲みます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「乗ります」(のります) — lên/đi (phương tiện). ❌「乘ります」— chữ「乘」là dạng cổ/phồn thể không dùng trong tiếng Nhật hiện đại (bẫy hình tự rất gần). ❌「来ます」(きます) = đến, không dùng với trợ từ に sau phương tiện theo nghĩa này. ❌「飲みます」(のみます) = uống, đọc gần giống のります nhưng nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "ともだちと",
+                  "read": "友だちと",
+                  "vi": "cùng với bạn"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "でんしゃに",
+                  "read": "電車に",
+                  "vi": "lên tàu điện"
+                },
+                {
+                  "t": "のります",
+                  "read": "乗ります",
+                  "vi": "lên (phương tiện)"
+                }
+              ]
+            },
+            {
+              "prompt": "なんじにうちをでますか。",
+              "ul": "なんじ",
+              "choices": [
+                "何時",
+                "何日",
+                "何年",
+                "何分"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「何時」(なんじ) — mấy giờ. Câu hỏi về thời điểm xuất phát nên dùng từ chỉ giờ. ❌「何日」(なんにち) = ngày mấy — hỏi ngày chứ không hỏi giờ. ❌「何年」(なんねん) = năm nào — quá rộng, không hỏi giờ. ❌「何分」(なんぷん) = mấy phút — hỏi phút chứ không hỏi giờ; câu này cần đơn vị「時」.",
+              "glosses": [
+                {
+                  "t": "なんじに",
+                  "read": "何時に",
+                  "vi": "lúc mấy giờ"
+                },
+                {
+                  "t": "うちを",
+                  "read": "家を",
+                  "vi": "rời nhà"
+                },
+                {
+                  "t": "でますか",
+                  "read": "出ますか",
+                  "vi": "ra khỏi / xuất phát"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはじてんしゃでこうえんへいきます。",
+              "ul": "じてんしゃ",
+              "choices": [
+                "自転車",
+                "自動車",
+                "自転気",
+                "自道車"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「自転車」(じてんしゃ) — xe đạp. ❌「自動車」(じどうしゃ) = ô tô (xe chạy tự động), đọc khác (どう thay vì てん) và nghĩa khác. ❌「自転気」— chữ「気」thay cho「車」là sai, không tồn tại từ này. ❌「自道車」— chữ「道」(đường) thay cho「転」cũng không phải từ thực.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "read": "私は",
+                  "vi": "tôi thì"
+                },
+                {
+                  "t": "じてんしゃで",
+                  "read": "自転車で",
+                  "vi": "bằng xe đạp"
+                },
+                {
+                  "t": "こうえんへ",
+                  "read": "公園へ",
+                  "vi": "đến công viên"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "なんぷんでえきにつきますか。",
+              "ul": "なんぷん",
+              "choices": [
+                "何分",
+                "何文",
+                "何問",
+                "何聞"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「何分」(なんぷん) — mấy phút. ❌「何文」(なんもん/なにもん) = mấy mon (đơn vị tiền cổ), không liên quan thời gian. ❌「何問」(なんもん) = mấy câu hỏi, đọc là もん không phải ぷん. ❌「何聞」— không phải từ tồn tại trong tiếng Nhật chuẩn.",
+              "glosses": [
+                {
+                  "t": "なんぷんで",
+                  "read": "何分で",
+                  "vi": "mấy phút thì"
+                },
+                {
+                  "t": "えきに",
+                  "read": "駅に",
+                  "vi": "đến ga"
+                },
+                {
+                  "t": "つきますか",
+                  "vi": "đến nơi không?"
+                }
+              ]
+            },
+            {
+              "prompt": "せんせいはひこうきでとうきょうへいきました。",
+              "ul": "ひこうき",
+              "choices": [
+                "飛行機",
+                "飛航機",
+                "非行機",
+                "飛行気"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「飛行機」(ひこうき) — máy bay. ❌「飛航機」— chữ「航」thay cho「行」là sai, dù「航」có nghĩa gần (hàng không) nhưng từ chuẩn phải là「行」. ❌「非行機」—「非行」(ひこう) = hành vi lệch lạc/phạm pháp, hoàn toàn khác nghĩa. ❌「飛行気」— chữ「気」thay cho「機」là sai; 「機」mới có nghĩa máy/cơ.",
+              "glosses": [
+                {
+                  "t": "せんせいは",
+                  "read": "先生は",
+                  "vi": "thầy/cô giáo thì"
+                },
+                {
+                  "t": "ひこうきで",
+                  "read": "飛行機で",
+                  "vi": "bằng máy bay"
+                },
+                {
+                  "t": "とうきょうへ",
+                  "read": "東京へ",
+                  "vi": "đến Tokyo"
+                },
+                {
+                  "t": "いきました",
+                  "read": "行きました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはまいあさバスでかいしゃへきます。",
+              "ul": "まいあさ",
+              "choices": [
+                "毎朝",
+                "毎晩",
+                "毎月",
+                "毎年"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「毎朝」(まいあさ) — mỗi buổi sáng. ❌「毎晩」(まいばん) = mỗi buổi tối, thời điểm ngược lại. ❌「毎月」(まいつき) = mỗi tháng, không phải buổi sáng. ❌「毎年」(まいとし/まいねん) = mỗi năm, đơn vị thời gian quá lớn.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "read": "私は",
+                  "vi": "tôi thì"
+                },
+                {
+                  "t": "まいあさ",
+                  "read": "毎朝",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "バスで",
+                  "vi": "bằng xe buýt"
+                },
+                {
+                  "t": "かいしゃへ",
+                  "read": "会社へ",
+                  "vi": "đến công ty"
+                },
+                {
+                  "t": "きます",
+                  "read": "来ます",
+                  "vi": "đến"
+                }
+              ]
+            },
+            {
+              "prompt": "どこへいきますか。ゆうびんきょくへいきます。",
+              "ul": "どこ",
+              "choices": [
+                "何処",
+                "何時",
+                "何人",
+                "何日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「何処」(どこ) — ở đâu/nơi nào. ❌「何時」(なんじ/いつ) = lúc mấy giờ/khi nào — hỏi thời gian, không phải địa điểm. ❌「何人」(なんにん) = bao nhiêu người — hỏi số lượng người. ❌「何日」(なんにち) = ngày mấy — hỏi ngày tháng.",
+              "glosses": [
+                {
+                  "t": "どこへ",
+                  "read": "何処へ",
+                  "vi": "đi đâu"
+                },
+                {
+                  "t": "いきますか",
+                  "read": "行きますか",
+                  "vi": "đi không?"
+                },
+                {
+                  "t": "ゆうびんきょくへ",
+                  "read": "郵便局へ",
+                  "vi": "đến bưu điện"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんといっしょにえいがかんへいきます。",
+              "ul": "いっしょ",
+              "choices": [
+                "一緒",
+                "一所",
+                "一処",
+                "一助"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「一緒」(いっしょ) — cùng nhau, cùng với. ❌「一所」— dạng cổ, trong tiếng Nhật hiện đại không dùng cụm này với nghĩa 'cùng nhau'. ❌「一処」— không phải từ tồn tại trong từ điển hiện đại. ❌「一助」(いちじょ) = một phần trợ giúp, đọc là いちじょ và nghĩa hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "たなかさんと",
+                  "read": "田中さんと",
+                  "vi": "cùng với anh/chị Tanaka"
+                },
+                {
+                  "t": "いっしょに",
+                  "read": "一緒に",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "えいがかんへ",
+                  "read": "映画館へ",
+                  "vi": "đến rạp chiếu phim"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "かようびにとしょかんへいきました。",
+              "ul": "かようび",
+              "choices": [
+                "火曜日",
+                "水曜日",
+                "木曜日",
+                "土曜日"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「火曜日」(かようび) — thứ Ba. ❌「水曜日」(すいようび) = thứ Tư, đọc là すい không phải か. ❌「木曜日」(もくようび) = thứ Năm, đọc là もく. ❌「土曜日」(どようび) = thứ Bảy, đọc là ど. Mỗi thứ trong tuần dùng một chữ Hán khác nhau: 月火水木金土日.",
+              "glosses": [
+                {
+                  "t": "かようびに",
+                  "read": "火曜日に",
+                  "vi": "vào thứ Ba"
+                },
+                {
+                  "t": "としょかんへ",
+                  "read": "図書館へ",
+                  "vi": "đến thư viện"
+                },
+                {
+                  "t": "いきました",
+                  "read": "行きました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはちかてつでうちへかえります。",
+              "ul": "ちかてつ",
+              "choices": [
+                "地下鉄",
+                "地下道",
+                "地下車",
+                "地下電"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「地下鉄」(ちかてつ) — tàu điện ngầm (nghĩa đen: sắt dưới đất). ❌「地下道」(ちかどう) = đường hầm đi bộ, không phải tàu. ❌「地下車」— không phải từ tồn tại; 「鉄」(sắt/tàu sắt) mới đúng, không phải「車」. ❌「地下電」— không phải từ tồn tại trong tiếng Nhật.",
+              "glosses": [
+                {
+                  "t": "わたしは",
+                  "read": "私は",
+                  "vi": "tôi thì"
+                },
+                {
+                  "t": "ちかてつで",
+                  "read": "地下鉄で",
+                  "vi": "bằng tàu điện ngầm"
+                },
+                {
+                  "t": "うちへ",
+                  "read": "家へ",
+                  "vi": "về nhà"
+                },
+                {
+                  "t": "かえります",
+                  "read": "帰ります",
+                  "vi": "trở về"
+                }
+              ]
+            },
+            {
+              "prompt": "がくせいはふたりであのくにへいきます。",
+              "ul": "ふたり",
+              "choices": [
+                "二人",
+                "二入",
+                "二刀",
+                "二力"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「二人」(ふたり) — hai người. ❌「二入」— chữ「入」(にゅう/はいる) = vào, không đọc là り trong từ này; không phải từ tồn tại. ❌「二刀」(にとう) = hai kiếm, đọc là にとう, nghĩa khác hoàn toàn. ❌「二力」— không phải từ chuẩn để đếm người.",
+              "glosses": [
+                {
+                  "t": "がくせいは",
+                  "read": "学生は",
+                  "vi": "học sinh thì"
+                },
+                {
+                  "t": "ふたりで",
+                  "read": "二人で",
+                  "vi": "hai người cùng nhau"
+                },
+                {
+                  "t": "あのくにへ",
+                  "read": "あの国へ",
+                  "vi": "đến đất nước đó"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "prompt": "らいねんにほんへいきたいです。",
+              "ul": "らいねん",
+              "choices": [
+                "来年",
+                "来月",
+                "来日",
+                "来週"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Đáp án đúng là「来年」(らいねん) — năm sau. ❌「来月」(らいげつ) = tháng sau, đơn vị nhỏ hơn năm. ❌「来日」(らいにち) = đến Nhật Bản (từ nơi khác), đọc là らいにち và là động từ/danh từ chỉ hành động đến Nhật, không phải từ chỉ thời gian. ❌「来週」(らいしゅう) = tuần sau, đơn vị nhỏ hơn năm.",
+              "glosses": [
+                {
+                  "t": "らいねん",
+                  "read": "来年",
+                  "vi": "năm sau"
+                },
+                {
+                  "t": "にほんへ",
+                  "read": "日本へ",
+                  "vi": "đến Nhật Bản"
+                },
+                {
+                  "t": "いきたいです",
+                  "read": "行きたいです",
+                  "vi": "muốn đi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問3 · 文脈規定",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn từ hợp ngữ cảnh điền vào chỗ trống.",
+          "items": [
+            {
+              "stem": "まいにちでんしゃでがっこうへ＿＿＿。",
+              "choices": [
+                "いきます",
+                "たべます",
+                "ねます",
+                "よみます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi về động từ đi lại. 「いきます」(行きます) = đi (đến nơi nào đó), phù hợp với ngữ cảnh đi đến trường bằng tàu điện. 「たべます」= ăn — không liên quan đến đi lại. 「ねます」= ngủ — không hợp ngữ cảnh. 「よみます」= đọc — không có nghĩa đi đến đâu.",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "でんしゃで",
+                  "read": "でんしゃ",
+                  "vi": "bằng tàu điện"
+                },
+                {
+                  "t": "がっこうへ",
+                  "read": "がっこう",
+                  "vi": "đến trường"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "stem": "あねはちかてつでかいしゃへ＿＿＿。",
+              "choices": [
+                "きます",
+                "かえります",
+                "およぎます",
+                "いきます"
+              ],
+              "answer": 3,
+              "pt": "語彙",
+              "explain": "Câu nói về chị đi làm bằng tàu điện ngầm. 「いきます」(行きます) = đi (chiều đi từ nhà đến công ty). 「きます」= đến/lại (chiều về phía người nói, không hợp). 「かえります」= về nhà — chiều ngược lại. 「およぎます」= bơi — hoàn toàn không liên quan.",
+              "glosses": [
+                {
+                  "t": "あねは",
+                  "vi": "chị gái (của tôi)"
+                },
+                {
+                  "t": "ちかてつで",
+                  "read": "ちかてつ",
+                  "vi": "bằng tàu điện ngầm"
+                },
+                {
+                  "t": "かいしゃへ",
+                  "read": "かいしゃ",
+                  "vi": "đến công ty"
+                },
+                {
+                  "t": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "stem": "やまださんはなんじにうちへ＿＿＿か。",
+              "choices": [
+                "かえります",
+                "あそびます",
+                "はたらきます",
+                "おきます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi mấy giờ về nhà. 「かえります」(帰ります) = về (nhà) — duy nhất hợp với 「うちへ」(về nhà). 「あそびます」= chơi — không đi kèm chiều hướng về nhà. 「はたらきます」= làm việc — không hợp với うち. 「おきます」= thức dậy — không liên quan.",
+              "glosses": [
+                {
+                  "t": "なんじに",
+                  "read": "なんじ",
+                  "vi": "lúc mấy giờ"
+                },
+                {
+                  "t": "うちへ",
+                  "vi": "về nhà"
+                },
+                {
+                  "t": "かえります",
+                  "vi": "về"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                }
+              ]
+            },
+            {
+              "stem": "きのうともだちとえいがかんへ＿＿＿。",
+              "choices": [
+                "いきました",
+                "みました",
+                "きました",
+                "はなしました"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu về việc đi đến rạp chiếu phim với bạn. 「いきました」= đã đi (đến rạp) — hợp với 「えいがかんへ」. 「みました」= đã xem — ta xem phim trong rạp chứ không đi đến phim, không dùng với 「へ」chỉ điểm đến. 「きました」= đã đến (phía người nói) — không hợp hướng. 「はなしました」= đã nói chuyện — không hợp ngữ cảnh đi lại.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ともだちと",
+                  "vi": "cùng với bạn"
+                },
+                {
+                  "t": "えいがかんへ",
+                  "vi": "đến rạp chiếu phim"
+                },
+                {
+                  "t": "いきました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "stem": "がっこうからうちまで＿＿＿でかえります。",
+              "choices": [
+                "じてんしゃ",
+                "えいが",
+                "ざっし",
+                "でんき"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi phương tiện về nhà từ trường. 「じてんしゃ」= xe đạp — phương tiện đi lại, hợp với 「〜で」(bằng). 「えいが」= phim — không phải phương tiện. 「ざっし」= tạp chí — không phải phương tiện. 「でんき」= điện — không phải phương tiện đi lại.",
+              "glosses": [
+                {
+                  "t": "がっこうから",
+                  "read": "がっこう",
+                  "vi": "từ trường"
+                },
+                {
+                  "t": "うちまで",
+                  "vi": "đến nhà"
+                },
+                {
+                  "t": "じてんしゃで",
+                  "vi": "bằng xe đạp"
+                },
+                {
+                  "t": "かえります",
+                  "vi": "về"
+                }
+              ]
+            },
+            {
+              "stem": "スミスさんはひこうきで＿＿＿からにほんへきました。",
+              "choices": [
+                "アメリカ",
+                "レストラン",
+                "としょかん",
+                "プール"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu nói ông Smith đến Nhật bằng máy bay từ đâu. 「アメリカ」= Mỹ — quốc gia, hợp với ngữ cảnh bay quốc tế. 「レストラン」= nhà hàng — không phải nơi xuất phát máy bay. 「としょかん」= thư viện — không hợp. 「プール」= bể bơi — không hợp ngữ cảnh.",
+              "glosses": [
+                {
+                  "t": "ひこうきで",
+                  "vi": "bằng máy bay"
+                },
+                {
+                  "t": "アメリカから",
+                  "vi": "từ Mỹ"
+                },
+                {
+                  "t": "にほんへ",
+                  "read": "にほん",
+                  "vi": "đến Nhật Bản"
+                },
+                {
+                  "t": "きました",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "スミスさん",
+                  "read": "スミスさん",
+                  "vi": "anh/chị Smith"
+                }
+              ]
+            },
+            {
+              "stem": "ははは＿＿＿でスーパーへいきます。",
+              "choices": [
+                "バス",
+                "えいご",
+                "おちゃ",
+                "しごと"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu mẹ đi siêu thị bằng phương tiện gì. 「バス」= xe buýt — phương tiện giao thông, hợp với 「〜で行きます」. 「えいご」= tiếng Anh — không phải phương tiện. 「おちゃ」= trà — không phải phương tiện. 「しごと」= việc làm — không hợp.",
+              "glosses": [
+                {
+                  "t": "ははは",
+                  "vi": "mẹ (của tôi)"
+                },
+                {
+                  "t": "バスで",
+                  "vi": "bằng xe buýt"
+                },
+                {
+                  "t": "スーパーへ",
+                  "vi": "đến siêu thị"
+                },
+                {
+                  "t": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "stem": "せんしゅうかぞくとおおさかへ＿＿＿。",
+              "choices": [
+                "たびしました",
+                "りょこうしました",
+                "べんきょうしました",
+                "そうじしました"
+              ],
+              "answer": 1,
+              "pt": "語彙",
+              "explain": "Câu nói đi du lịch Osaka tuần trước cùng gia đình. 「りょこうしました」(旅行しました) = đã đi du lịch — hợp với điểm đến và đi cùng gia đình. 「たびしました」: 「たび」là danh từ (chuyến đi/lần) không ghép với します theo nghĩa du lịch. 「べんきょうしました」= đã học — không hợp. 「そうじしました」= đã dọn dẹp — không hợp.",
+              "glosses": [
+                {
+                  "t": "せんしゅう",
+                  "vi": "tuần trước"
+                },
+                {
+                  "t": "かぞくと",
+                  "vi": "cùng gia đình"
+                },
+                {
+                  "t": "おおさかへ",
+                  "vi": "đến Osaka"
+                },
+                {
+                  "t": "りょこうしました",
+                  "read": "りょこう",
+                  "vi": "đã đi du lịch"
+                },
+                {
+                  "t": "たび",
+                  "read": "たび",
+                  "vi": "chuyến đi, du lịch (danh từ, 旅)"
+                },
+                {
+                  "t": "べんきょうしました",
+                  "read": "べんきょうしました",
+                  "vi": "đã học, đã ôn tập (quá khứ của 勉強する)"
+                },
+                {
+                  "t": "そうじしました",
+                  "read": "そうじしました",
+                  "vi": "đã dọn dẹp, đã lau dọn (そうじする = dọn dẹp, quét dọn)"
+                }
+              ]
+            },
+            {
+              "stem": "えきまで＿＿＿でいきますか。あるいていきます。",
+              "choices": [
+                "なにか",
+                "どこか",
+                "なんで",
+                "いつか"
+              ],
+              "answer": 2,
+              "pt": "語彙",
+              "explain": "Câu hỏi đi đến ga bằng phương tiện gì. 「なんで」= bằng gì (phương tiện) — hỏi cách/phương tiện, hợp với câu trả lời 「あるいて」(đi bộ). 「なにか」= cái gì đó — không dùng để hỏi phương tiện. 「どこか」= nơi nào đó — hỏi địa điểm, không hỏi phương tiện. 「いつか」= lúc nào đó — hỏi thời gian, không phù hợp.",
+              "glosses": [
+                {
+                  "t": "えきまで",
+                  "read": "えき",
+                  "vi": "đến ga"
+                },
+                {
+                  "t": "なんで",
+                  "vi": "bằng gì"
+                },
+                {
+                  "t": "あるいていきます",
+                  "vi": "đi bộ đến"
+                },
+                {
+                  "t": "いきますか",
+                  "read": "いきますか",
+                  "vi": "〜で いきますか = đi bằng (phương tiện) gì? (hỏi phương tiện di chuyển)"
+                }
+              ]
+            },
+            {
+              "stem": "ちちはまいあさくじにかいしゃへ＿＿＿。",
+              "choices": [
+                "でかけます",
+                "あびます",
+                "かきます",
+                "ならいます"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu bố mỗi sáng lúc 9 giờ ra ngoài đi làm. 「でかけます」(出かけます) = ra ngoài, xuất phát — hợp với ngữ cảnh đi làm buổi sáng. 「あびます」= tắm (nước/nắng) — không hợp ngữ cảnh đi lại. 「かきます」= viết — không hợp. 「ならいます」= học (từ thầy) — không hợp.",
+              "glosses": [
+                {
+                  "t": "ちちは",
+                  "vi": "bố (của tôi)"
+                },
+                {
+                  "t": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "くじに",
+                  "read": "くじ",
+                  "vi": "lúc 9 giờ"
+                },
+                {
+                  "t": "でかけます",
+                  "vi": "ra ngoài, xuất phát"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                }
+              ]
+            },
+            {
+              "stem": "にほんごのクラスは＿＿＿にあります。",
+              "choices": [
+                "どこ",
+                "なに",
+                "だれ",
+                "いつ"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi lớp tiếng Nhật ở đâu. 「どこ」= ở đâu (hỏi địa điểm) — hợp với động từ 「あります」chỉ vị trí. 「なに」= cái gì — hỏi vật thể, không hỏi địa điểm. 「だれ」= ai — hỏi người, không hợp. 「いつ」= khi nào — hỏi thời gian, không hỏi nơi chốn.",
+              "glosses": [
+                {
+                  "t": "にほんごのクラス",
+                  "read": "にほんご",
+                  "vi": "lớp tiếng Nhật"
+                },
+                {
+                  "t": "どこに",
+                  "vi": "ở đâu"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có (tồn tại ở nơi nào đó)"
+                }
+              ]
+            },
+            {
+              "stem": "でんしゃの＿＿＿はなんじですか。",
+              "choices": [
+                "じかん",
+                "ねだん",
+                "いろ",
+                "かたち"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi giờ tàu điện (giờ khởi hành/đến nơi). 「じかん」(時間) = thời gian/giờ — hợp với câu trả lời 「なんじ」. 「ねだん」= giá tiền — câu hỏi sẽ là 「いくら」không phải 「なんじ」. 「いろ」= màu sắc — không liên quan đến giờ giấc. 「かたち」= hình dạng — không hỏi bằng 「なんじ」.",
+              "glosses": [
+                {
+                  "t": "でんしゃの",
+                  "read": "でんしゃ",
+                  "vi": "của tàu điện"
+                },
+                {
+                  "t": "じかん",
+                  "read": "じかん",
+                  "vi": "thời gian, giờ"
+                },
+                {
+                  "t": "なんじですか",
+                  "read": "なんじ",
+                  "vi": "là mấy giờ"
+                }
+              ]
+            },
+            {
+              "stem": "たなかさんはひとりでえきまで＿＿＿いきました。",
+              "choices": [
+                "あるいて",
+                "はしって",
+                "とんで",
+                "さんぽして"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu ông Tanaka một mình đi bộ đến ga. 「あるいて」(歩いて) = đi bộ (Te-form chỉ cách thức) — phổ biến và tự nhiên nhất với đoạn đường ngắn đến ga. 「はしって」= chạy bộ — khả năng nhưng ít tự nhiên hơn với ngữ cảnh bình thường. 「とんで」= bay (nhảy/bay) — không hợp thực tế đi đến ga. 「さんぽして」= dạo chơi — 「散歩」là đi dạo không mục tiêu cụ thể, không dùng kết hợp 「〜していきました」theo cách này trong N5.",
+              "glosses": [
+                {
+                  "t": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "えきまで",
+                  "read": "えき",
+                  "vi": "đến ga"
+                },
+                {
+                  "t": "あるいて",
+                  "vi": "đi bộ (bằng cách đi bộ)"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "stem": "らいしゅうともだちとうみへ＿＿＿つもりです。",
+              "choices": [
+                "いく",
+                "くる",
+                "でる",
+                "もどる"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu dự định tuần tới đi biển với bạn. 「いく」(行く) = đi (rời nơi hiện tại đến biển) — hợp với 「〜へ行くつもり」. 「くる」= đến (phía người nói) — chiều ngược lại, không hợp. 「でる」= ra (khỏi đâu đó) — không dùng với điểm đến 「〜へ」theo nghĩa này. 「もどる」= trở về — không hợp vì chưa từng ở biển.",
+              "glosses": [
+                {
+                  "t": "らいしゅう",
+                  "vi": "tuần sau"
+                },
+                {
+                  "t": "うみへ",
+                  "read": "うみ",
+                  "vi": "đến biển"
+                },
+                {
+                  "t": "いくつもりです",
+                  "vi": "dự định đi"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                }
+              ]
+            },
+            {
+              "stem": "このバスはとうきょうえきへ＿＿＿か。",
+              "choices": [
+                "いきます",
+                "きえます",
+                "おわります",
+                "とまります"
+              ],
+              "answer": 0,
+              "pt": "語彙",
+              "explain": "Câu hỏi xe buýt này có đi đến ga Tokyo không. 「いきます」(行きます) = đi đến — hợp với 「〜へ」chỉ điểm đến của tuyến xe buýt. 「きえます」= biến mất — hoàn toàn không hợp. 「おわります」= kết thúc — không dùng để hỏi tuyến đường xe buýt. 「とまります」= dừng lại (ở một điểm) — có thể hỏi xe có ghé qua không, nhưng 「行きます」tự nhiên hơn để hỏi tuyến đến đích.",
+              "glosses": [
+                {
+                  "t": "このバスは",
+                  "vi": "xe buýt này"
+                },
+                {
+                  "t": "とうきょうえきへ",
+                  "read": "とうきょうえき",
+                  "vi": "đến ga Tokyo"
+                },
+                {
+                  "t": "いきますか",
+                  "vi": "có đi không"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問4 · 言い換え・類義",
+          "level": "N5–N1",
+          "type": "mcq",
+          "instr": "Chọn câu có nghĩa gần nhất.",
+          "items": [
+            {
+              "prompt": "わたしはまいにちでんしゃでがっこうへいきます。",
+              "choices": [
+                "わたしはまいにちでんしゃをつかってがっこうにいきます。",
+                "わたしはまいにちあるいてがっこうへいきます。",
+                "わたしはまいにちでんしゃでがっこうにきます。",
+                "わたしはまいにちでんしゃでがっこうをでます。"
+              ],
+              "answer": 0,
+              "pt": "NへVます・NでVます",
+              "explain": "Câu gốc nghĩa 'Tôi đi đến trường bằng tàu điện mỗi ngày'. Đáp án A dùng 「でんしゃをつかって」(dùng tàu điện) + 「がっこうにいきます」—ý nghĩa hoàn toàn tương đương. B sai vì 「あるいて」là đi bộ, không phải tàu điện. C sai vì 「きます」(đến/đây) khác hướng với 「いきます」(đi/đó). D sai vì 「でます」nghĩa là 'ra khỏi', hoàn toàn khác.",
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "がっこう",
+                  "read": "学校",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "つかって",
+                  "read": "つかって",
+                  "vi": "dùng, sử dụng (て-form của 使う)"
+                },
+                {
+                  "t": "あるいて",
+                  "read": "あるいて",
+                  "vi": "đi bộ (thể て của あるく = đi bộ, dùng để chỉ phương tiện/cách thức di chuyển)"
+                },
+                {
+                  "t": "でます",
+                  "read": "でます",
+                  "vi": "ra, rời khỏi (thể ます của でる = ra khỏi, rời khỏi một nơi)"
+                }
+              ]
+            },
+            {
+              "prompt": "やまださんはともだちとこうえんへいきました。",
+              "choices": [
+                "やまださんはひとりでこうえんへいきました。",
+                "やまださんはともだちといっしょにこうえんにいきました。",
+                "やまださんとともだちはこうえんであいました。",
+                "やまださんはともだちにこうえんへいきました。"
+              ],
+              "answer": 1,
+              "pt": "NとVます・NへVます",
+              "explain": "Câu gốc nghĩa 'Yamada-san đã đi đến công viên cùng bạn'. Đáp án B dùng 「ともだちといっしょに」(cùng với bạn) + 「こうえんにいきました」—đồng nghĩa hoàn toàn. A sai vì 「ひとりで」là một mình, ngược nghĩa. C sai vì 「あいました」là 'gặp nhau', không phải 'đi cùng'. D sai vì 「ともだちに」dùng trợ từ 「に」sai ngữ pháp cho đối tượng đồng hành.",
+              "glosses": [
+                {
+                  "t": "ともだち",
+                  "read": "友だち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "公園",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "ひとり",
+                  "read": "ひとり",
+                  "vi": "một mình, một người"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi (quá khứ của 行く)"
+                },
+                {
+                  "t": "あいました",
+                  "read": "あいました",
+                  "vi": "đã gặp (quá khứ của 会う)"
+                }
+              ]
+            },
+            {
+              "prompt": "あなたはいつにほんへいきますか。",
+              "choices": [
+                "あなたはにほんへなんかいいきますか。",
+                "あなたはにほんへどうやっていきますか。",
+                "にほんへいくのはいつですか。",
+                "あなたはにほんへなぜいきますか。"
+              ],
+              "answer": 2,
+              "pt": "いつVますか・NへVます",
+              "explain": "Câu gốc hỏi 'Bạn đi Nhật khi nào?'. Đáp án C 「にほんへいくのはいつですか」đổi cấu trúc nhưng cùng hỏi thời điểm đi Nhật. A sai vì 「なんかい」hỏi số lần, không phải thời điểm. B sai vì 「どうやって」hỏi cách thức/phương tiện. D sai vì 「なぜ」hỏi lý do.",
+              "glosses": [
+                {
+                  "t": "いつ",
+                  "vi": "khi nào"
+                },
+                {
+                  "t": "にほん",
+                  "read": "日本",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "いきますか",
+                  "read": "行きますか",
+                  "vi": "có đi không?"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị (đại từ ngôi hai)"
+                },
+                {
+                  "t": "なんかい",
+                  "read": "なんかい",
+                  "vi": "mấy lần, bao nhiêu lần"
+                },
+                {
+                  "t": "どうやって",
+                  "read": "どうやって",
+                  "vi": "bằng cách nào, như thế nào"
+                },
+                {
+                  "t": "いく",
+                  "read": "いく",
+                  "vi": "đi (thể từ điển của 行く)"
+                },
+                {
+                  "t": "なぜ",
+                  "read": "なぜ",
+                  "vi": "tại sao, vì sao"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはバスでかいしゃへいきます。",
+              "choices": [
+                "わたしはバスにのってかいしゃにいきます。",
+                "わたしはバスでかいしゃにきます。",
+                "わたしはかいしゃからバスでいきます。",
+                "わたしはバスをつかってかいしゃをいきます。"
+              ],
+              "answer": 0,
+              "pt": "NでVます・NへVます",
+              "explain": "Câu gốc nghĩa 'Tôi đi đến công ty bằng xe buýt'. Đáp án A 「バスにのって」(lên xe buýt) + 「かいしゃにいきます」hoàn toàn đồng nghĩa. B sai vì 「きます」là 'đến (chỗ người nói)', hướng ngược lại. C sai vì 「かいしゃから」nghĩa là 'từ công ty'—điểm xuất phát đã thay đổi. D sai vì 「かいしゃをいきます」dùng 「を」sau danh từ địa điểm là sai ngữ pháp.",
+              "glosses": [
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "のって",
+                  "read": "乗って",
+                  "vi": "lên (xe)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi (hiện tại của 行く)"
+                },
+                {
+                  "t": "つかって",
+                  "read": "つかって",
+                  "vi": "dùng, sử dụng (て-form của 使う)"
+                }
+              ]
+            },
+            {
+              "prompt": "やまださんは 9じにうちへかえりました。",
+              "choices": [
+                "やまださんは 9じからうちにかえりました。",
+                "やまださんはうちにかえったのは 9じです。",
+                "やまださんがうちへかえったのは 9じでした。",
+                "やまださんは 9じまでうちへかえりました。"
+              ],
+              "answer": 2,
+              "pt": "〜時・NへVます",
+              "explain": "Câu gốc nghĩa 'Yamada-san đã về nhà lúc 9 giờ'. Đáp án C 「〜のは9じでした」là câu khẳng định quá khứ, hỏi/nhấn thời điểm, đồng nghĩa với câu gốc. A sai vì 「9じから」(từ 9 giờ) chỉ điểm xuất phát thời gian, không phải thời điểm về. B sai ở động từ chia 「かえった」(thể từ điển) nhưng phần cuối 「9じです」là thì hiện tại—không nhất quán với ngữ cảnh quá khứ. D sai vì 「9じまで」là 'đến 9 giờ', không phải 'lúc 9 giờ'.",
+              "glosses": [
+                {
+                  "t": "9じ",
+                  "read": "9時",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "うち",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "かえりました",
+                  "read": "帰りました",
+                  "vi": "đã về"
+                },
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "かえった",
+                  "read": "かえった",
+                  "vi": "đã về, đã trở về (quá khứ của 帰る)"
+                },
+                {
+                  "t": "でした",
+                  "read": "でした",
+                  "vi": "là ~ (thì quá khứ lịch sự của です, đặt sau danh từ, vd 9じでした = là 9 giờ)"
+                }
+              ]
+            },
+            {
+              "prompt": "たなかさんはかれしとえいがかんへいきました。",
+              "choices": [
+                "たなかさんはかれしとえいがかんであいました。",
+                "たなかさんはかれしをえいがかんへつれていきました。",
+                "たなかさんはかれしといっしょにえいがかんにいきました。",
+                "たなかさんはかれしにえいがかんへいきました。"
+              ],
+              "answer": 2,
+              "pt": "NとVます・NへVます",
+              "explain": "Câu gốc nghĩa 'Tanaka-san đã đi đến rạp chiếu phim cùng người yêu'. Đáp án C dùng 「〜といっしょに」diễn đạt 'cùng với', hoàn toàn tương đương 「〜と」trong câu gốc. A sai vì 「あいました」là 'gặp nhau', không phải 'cùng đi'. B sai vì 「〜をつれて」nghĩa là 'dẫn theo'—có hàm ý lệch quyền/chủ động hơn. D sai vì 「かれしに」dùng 「に」sai cho vai đồng hành.",
+              "glosses": [
+                {
+                  "t": "かれし",
+                  "vi": "người yêu (nam)"
+                },
+                {
+                  "t": "えいがかん",
+                  "read": "映画館",
+                  "vi": "rạp chiếu phim"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "あいました",
+                  "read": "あいました",
+                  "vi": "đã gặp (quá khứ của 会う)"
+                },
+                {
+                  "t": "つれて",
+                  "read": "つれて",
+                  "vi": "dẫn theo, đưa theo (て-form của 連れる)"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi (quá khứ của 行く)"
+                }
+              ]
+            },
+            {
+              "prompt": "としょかんはえきのとなりにあります。",
+              "choices": [
+                "えきのとなりにとしょかんがあります。",
+                "としょかんはえきのまえにあります。",
+                "えきはとしょかんのとなりにいます。",
+                "としょかんにえきがあります。"
+              ],
+              "answer": 0,
+              "pt": "NはNにあります (ôn B3)",
+              "explain": "Câu gốc nghĩa 'Thư viện ở cạnh nhà ga'. Đáp án A đảo chủ ngữ và 「が」nhưng cùng thông tin: thư viện ở cạnh ga. B sai vì 「まえ」là 'phía trước', không phải 'cạnh'. C sai vì dùng 「います」cho đồ vật/địa điểm (phải là 「あります」) và đảo vai trò chủ thể. D sai vì đảo ngược vị trí—câu này nói 'ở thư viện có nhà ga'.",
+              "glosses": [
+                {
+                  "t": "としょかん",
+                  "read": "図書館",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "nhà ga"
+                },
+                {
+                  "t": "となり",
+                  "vi": "bên cạnh"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, ở (vật vô sinh)"
+                },
+                {
+                  "t": "まえに",
+                  "read": "まえに",
+                  "vi": "danh từ+の+まえに = ở phía trước ~"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "có, tồn tại, ở (thể ます của いる, dùng cho người/động vật - vật có sự sống)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはじゅぎょうが 8じから 10じまであります。",
+              "choices": [
+                "わたしのじゅぎょうは 8じにはじまります。",
+                "わたしのじゅぎょうは 8じから 10じまでです。",
+                "わたしは 8じから 10じまでべんきょうします。",
+                "じゅぎょうは 8じまであります。"
+              ],
+              "answer": 1,
+              "pt": "NからNまで (ôn B4)",
+              "explain": "Câu gốc nghĩa 'Tôi có tiết học từ 8 giờ đến 10 giờ'. Đáp án B 「〜は8じから10じまでです」giữ nguyên khoảng thời gian từ 8 đến 10 giờ—đồng nghĩa. A sai vì chỉ nói 'bắt đầu lúc 8 giờ', không đề cập 10 giờ. C sai vì 「べんきょうします」là học bài chứ không phải có tiết học. D sai vì 「8じまで」(đến 8 giờ) đã mất điểm bắt đầu.",
+              "glosses": [
+                {
+                  "t": "じゅぎょう",
+                  "read": "授業",
+                  "vi": "tiết học"
+                },
+                {
+                  "t": "8じ",
+                  "read": "8時",
+                  "vi": "8 giờ"
+                },
+                {
+                  "t": "10じ",
+                  "read": "10時",
+                  "vi": "10 giờ"
+                },
+                {
+                  "t": "から〜まで",
+                  "vi": "từ … đến …"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "はじまります",
+                  "read": "はじまります",
+                  "vi": "bắt đầu (từ 始まる)"
+                },
+                {
+                  "t": "べんきょうします",
+                  "read": "べんきょうします",
+                  "vi": "học, ôn tập (từ 勉強する)"
+                },
+                {
+                  "t": "あります",
+                  "read": "あります",
+                  "vi": "có, diễn ra (từ ある)"
+                }
+              ]
+            },
+            {
+              "prompt": "きのうわたしはひとりでえきへいきました。",
+              "choices": [
+                "きのうわたしはともだちとえきへいきました。",
+                "きのうわたしはえきへひとりでいきませんでした。",
+                "きのうわたしはだれともいかずにえきにいきました。",
+                "きのうえきからわたしはひとりできました。"
+              ],
+              "answer": 2,
+              "pt": "NへVました (quá khứ)・NとVます (ôn đối lập)",
+              "explain": "Câu gốc nghĩa 'Hôm qua tôi đã một mình đi đến nhà ga'. Đáp án C 「だれともいかずに」(không đi cùng ai) + 「えきにいきました」diễn đạt lại ý 'một mình đến ga'—đồng nghĩa. A sai vì 「ともだちと」là 'cùng bạn'—ngược nghĩa với 'một mình'. B sai vì 「いきませんでした」phủ định—nghĩa là 'không đi'. D sai vì 「えきから」là 'từ ga' (xuất phát) và 「きました」là 'đến (chỗ nói)'—hoàn toàn đổi hướng.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "read": "昨日",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "だれとも〜ない",
+                  "vi": "không cùng ai"
+                },
+                {
+                  "t": "いかずに",
+                  "read": "行かずに",
+                  "vi": "không đi mà …"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi (quá khứ của 行く)"
+                },
+                {
+                  "t": "えきへ",
+                  "read": "えきへ",
+                  "vi": "đến ga (へ = trợ từ chỉ hướng đi đến)"
+                },
+                {
+                  "t": "いきませんでした",
+                  "read": "いきませんでした",
+                  "vi": "đã không đi (thể phủ định quá khứ lịch sự của いきます)"
+                },
+                {
+                  "t": "だれともいかずに",
+                  "read": "だれともいかずに",
+                  "vi": "だれとも+phủ định = không (đi) với ai cả; いかずに = thể ずに của いく, nghĩa 'không đi mà...'"
+                },
+                {
+                  "t": "えきに",
+                  "read": "えきに",
+                  "vi": "đến ga (に = trợ từ chỉ điểm đến, thay được cho へ)"
+                },
+                {
+                  "t": "えきから",
+                  "read": "えきから",
+                  "vi": "từ ga (から = trợ từ chỉ điểm xuất phát)"
+                }
+              ]
+            },
+            {
+              "prompt": "すずきさんはくるまでスーパーへいきました。",
+              "choices": [
+                "すずきさんはくるまでスーパーからいきました。",
+                "すずきさんはくるまをうんてんしてスーパーにいきました。",
+                "すずきさんはくるまでスーパーへきました。",
+                "すずきさんはくるまにのってスーパーをでました。"
+              ],
+              "answer": 1,
+              "pt": "NでVます・NへVます",
+              "explain": "Câu gốc nghĩa 'Suzuki-san đã đi đến siêu thị bằng ô tô'. Đáp án B 「くるまをうんてんして」(lái ô tô) + 「スーパーにいきました」đồng nghĩa hoàn toàn. A sai vì 「スーパーから」(từ siêu thị) đổi điểm xuất phát. C sai vì 「きました」là 'đến'—hướng ngược lại với 「いきました」. D sai vì 「スーパーをでました」nghĩa là 'ra khỏi siêu thị'.",
+              "glosses": [
+                {
+                  "t": "くるま",
+                  "read": "車",
+                  "vi": "ô tô"
+                },
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "うんてんして",
+                  "read": "運転して",
+                  "vi": "lái xe"
+                },
+                {
+                  "t": "すずきさん",
+                  "read": "すずきさん",
+                  "vi": "anh/chị Suzuki"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi (quá khứ của 行く)"
+                },
+                {
+                  "t": "のって",
+                  "read": "のって",
+                  "vi": "lên, đi bằng (て-form của 乗る)"
+                },
+                {
+                  "t": "でました",
+                  "read": "でました",
+                  "vi": "đã ra, đã rời khỏi (thể quá khứ lịch sự của でる)"
+                }
+              ]
+            },
+            {
+              "prompt": "みなさんはなんじにうちへかえりますか。",
+              "choices": [
+                "みなさんはいつうちへかえりますか。",
+                "みなさんはなんじまでうちにいます。",
+                "みなさんがうちへかえるじかんはなんじですか。",
+                "みなさんはうちからなんじにでますか。"
+              ],
+              "answer": 2,
+              "pt": "〜時・いつVますか・NへVます",
+              "explain": "Câu gốc hỏi 'Mọi người về nhà lúc mấy giờ?'. Đáp án C 「うちへかえるじかんはなんじですか」hỏi thời điểm về nhà—đồng nghĩa. A gần nhưng 「いつ」hỏi thời điểm rộng hơn (không chỉ giờ cụ thể) so với 「なんじ」. B sai vì 「〜まで」hỏi thời điểm kết thúc ở nhà, không phải giờ về. D sai vì 「うちからでます」là 'ra khỏi nhà'—hành động ngược lại.",
+              "glosses": [
+                {
+                  "t": "みなさん",
+                  "read": "皆さん",
+                  "vi": "mọi người"
+                },
+                {
+                  "t": "なんじ",
+                  "read": "何時",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "かえりますか",
+                  "read": "帰りますか",
+                  "vi": "có về không?"
+                },
+                {
+                  "t": "じかん",
+                  "read": "時間",
+                  "vi": "thời gian"
+                },
+                {
+                  "t": "いつ",
+                  "read": "いつ",
+                  "vi": "khi nào, lúc nào"
+                },
+                {
+                  "t": "うち",
+                  "read": "うち",
+                  "vi": "nhà (nhà riêng)"
+                },
+                {
+                  "t": "かえる",
+                  "read": "かえる",
+                  "vi": "về, trở về (từ 帰る)"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "ở, có mặt (thể ます của いる, dùng cho người)"
+                },
+                {
+                  "t": "でますか",
+                  "read": "でますか",
+                  "vi": "có ra/rời đi không? (thể nghi vấn của でます = ra khỏi)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはせんせいといっしょにほんやへいきます。",
+              "choices": [
+                "わたしはせんせいにほんやへいきます。",
+                "わたしはせんせいをほんやへつれていきます。",
+                "わたしとせんせいはほんやへいきます。",
+                "わたしはせんせいからほんやへいきます。"
+              ],
+              "answer": 2,
+              "pt": "NとVます・NへVます",
+              "explain": "Câu gốc nghĩa 'Tôi đi đến hiệu sách cùng với giáo viên'. Đáp án C 「わたしとせんせいは」dùng 「と」liệt kê chủ ngữ—cả hai cùng đi, đồng nghĩa. A sai vì 「せんせいに」sai trợ từ cho đồng hành. B sai vì 「〜をつれて」hàm ý 'dẫn đi'—giáo viên trở thành người bị dẫn, thay đổi quan hệ. D sai vì 「せんせいから」nghĩa là 'từ giáo viên'—không có nghĩa đồng hành.",
+              "glosses": [
+                {
+                  "t": "せんせい",
+                  "read": "先生",
+                  "vi": "giáo viên"
+                },
+                {
+                  "t": "ほんや",
+                  "read": "本屋",
+                  "vi": "hiệu sách"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi (hiện tại của 行く)"
+                },
+                {
+                  "t": "つれて",
+                  "read": "つれて",
+                  "vi": "dẫn theo, đưa theo (て-form của 連れる)"
+                }
+              ]
+            },
+            {
+              "prompt": "わたしはタクシーでびょういんへいきました。",
+              "choices": [
+                "わたしはタクシーにのってびょういんにいきました。",
+                "わたしはタクシーでびょういんをでました。",
+                "わたしはタクシーでびょういんへきました。",
+                "わたしはびょういんからタクシーできました。"
+              ],
+              "answer": 0,
+              "pt": "NでVます・NへVます",
+              "explain": "Câu gốc nghĩa 'Tôi đã đi đến bệnh viện bằng taxi'. Đáp án A 「タクシーにのって」(lên taxi) + 「びょういんにいきました」đồng nghĩa hoàn toàn—chỉ cách diễn đạt phương tiện khác nhau. B sai vì 「びょういんをでました」là 'ra khỏi bệnh viện'. C sai vì 「きました」hướng về phía người nói, không phải đi đến. D sai vì 「びょういんから」là 'từ bệnh viện' và 「きました」—hoàn toàn đảo hành trình.",
+              "glosses": [
+                {
+                  "t": "タクシー",
+                  "vi": "taxi"
+                },
+                {
+                  "t": "びょういん",
+                  "read": "病院",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "のって",
+                  "read": "乗って",
+                  "vi": "lên (xe)"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "いきました",
+                  "read": "いきました",
+                  "vi": "đã đi (quá khứ của 行く)"
+                },
+                {
+                  "t": "でました",
+                  "read": "でました",
+                  "vi": "đã ra, đã rời khỏi (thể quá khứ lịch sự của でる)"
+                }
+              ]
+            },
+            {
+              "prompt": "スミスさんはまだここにいます。",
+              "choices": [
+                "スミスさんはまだここをいます。",
+                "スミスさんはもうここにいません。",
+                "スミスさんはまだここをでていません。",
+                "スミスさんはここにいませんでした。"
+              ],
+              "answer": 2,
+              "pt": "NはNにいます (ôn B3)",
+              "explain": "Câu gốc nghĩa 'Smith-san vẫn còn ở đây'. Đáp án C 「まだここをでていません」(chưa ra khỏi đây) diễn đạt lại cùng ý—vẫn còn ở đây. A sai vì 「ここをいます」dùng trợ từ 「を」sai ngữ pháp với 「います」. B sai vì 「もういません」là 'đã không còn ở đây nữa'—ngược nghĩa. D sai vì 「いませんでした」phủ định quá khứ—'đã không ở đây'.",
+              "glosses": [
+                {
+                  "t": "スミスさん",
+                  "vi": "Smith-san"
+                },
+                {
+                  "t": "まだ",
+                  "vi": "vẫn còn"
+                },
+                {
+                  "t": "ここ",
+                  "vi": "ở đây"
+                },
+                {
+                  "t": "でていません",
+                  "read": "出ていません",
+                  "vi": "chưa ra khỏi"
+                },
+                {
+                  "t": "います",
+                  "read": "います",
+                  "vi": "có, ở, tồn tại (thể ます của いる, dùng cho người/động vật)"
+                },
+                {
+                  "t": "いませんでした",
+                  "read": "いませんでした",
+                  "vi": "đã không có, đã không ở (thể phủ định quá khứ của います)"
+                }
+              ]
+            },
+            {
+              "prompt": "あなたはいつともだちとパーティーへいきますか。",
+              "choices": [
+                "あなたはともだちとパーティーへいきますか。",
+                "ともだちとパーティーへいくのはいつですか。",
+                "あなたはともだちとパーティーへなんかいいきますか。",
+                "あなたはいつひとりでパーティーへいきますか。"
+              ],
+              "answer": 1,
+              "pt": "いつVますか・NとVます・NへVます",
+              "explain": "Câu gốc hỏi 'Bạn đi đến bữa tiệc cùng bạn bè khi nào?'. Đáp án B 「〜のはいつですか」là cách diễn đạt lại câu hỏi 「いつ〜」—hoàn toàn đồng nghĩa, giữ cả 「ともだちと」và điểm đến. A sai vì thiếu 「いつ」—chỉ hỏi có đi không, không hỏi thời điểm. C sai vì 「なんかい」hỏi số lần, không phải thời điểm. D sai vì 「ひとりで」là 'một mình'—mất yếu tố 'cùng bạn'.",
+              "glosses": [
+                {
+                  "t": "いつ",
+                  "vi": "khi nào"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "友だち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "パーティー",
+                  "vi": "bữa tiệc"
+                },
+                {
+                  "t": "〜のはいつですか",
+                  "vi": "… là khi nào?"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn, anh/chị (đại từ ngôi hai)"
+                },
+                {
+                  "t": "いきます",
+                  "read": "いきます",
+                  "vi": "đi (hiện tại của 行く)"
+                },
+                {
+                  "t": "いく",
+                  "read": "いく",
+                  "vi": "đi (thể từ điển của 行く)"
+                },
+                {
+                  "t": "なんかい",
+                  "read": "なんかい",
+                  "vi": "mấy lần, bao nhiêu lần"
+                },
+                {
+                  "t": "ひとり",
+                  "read": "ひとり",
+                  "vi": "một mình, một người"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "問5/6 · 用法",
+          "level": "Chỉ N3+",
+          "type": "locked",
+          "note": "Dạng 用法 chỉ xuất hiện từ N3. Bài 5 (N5) không có — hiển thị để đúng cấp."
+        }
+      ]
+    },
+    {
+      "key": "bunpou",
+      "k": "文",
+      "jp": "文法[ぶんぽう]",
+      "vi": "Ngữ pháp",
+      "sections": [
+        {
+          "code": "文法 問1 · 文法形式",
+          "level": "mọi cấp",
+          "type": "mcq",
+          "instr": "Chọn dạng đúng điền vào chỗ trống (có ôn ngữ pháp đã học).",
+          "items": [
+            {
+              "stem": "マリアさんは毎朝バス＿会社へ行きます。",
+              "choices": [
+                "に",
+                "で",
+                "と",
+                "から"
+              ],
+              "answer": 1,
+              "pt": "NでVます (bằng phương tiện)",
+              "explain": "Câu hỏi: đi làm bằng xe buýt → dùng trợ từ 「で」chỉ phương tiện di chuyển. ① 「に」chỉ địa điểm đến hoặc hướng, không chỉ phương tiện → sai. ② 「で」= bằng (phương tiện) → ĐÚNG. ③ 「と」= cùng với (ai đó), dùng cho người, không dùng cho xe → sai. ④ 「から」= từ (điểm xuất phát), không chỉ phương tiện → sai.",
+              "glosses": [
+                {
+                  "t": "マリアさん",
+                  "vi": "chị Maria"
+                },
+                {
+                  "t": "毎朝",
+                  "read": "まいあさ",
+                  "vi": "mỗi buổi sáng"
+                },
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "会社",
+                  "read": "かいしゃ",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "stem": "あなたは＿東京へ行きますか。",
+              "choices": [
+                "どこ",
+                "いつ",
+                "だれ",
+                "なに"
+              ],
+              "answer": 1,
+              "pt": "いつVますか (khi nào)",
+              "explain": "Câu hỏi hỏi về thời gian đi Tokyo → dùng 「いつ」= khi nào. ① 「どこ」= ở đâu, hỏi địa điểm → sai (đã có 東京). ② 「いつ」= khi nào → ĐÚNG. ③ 「だれ」= ai, hỏi người → sai. ④ 「なに」= cái gì, hỏi vật → sai.",
+              "glosses": [
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn (ngôi thứ hai)"
+                }
+              ]
+            },
+            {
+              "stem": "田中さんは友達＿映画館へ行きました。",
+              "choices": [
+                "で",
+                "に",
+                "と",
+                "まで"
+              ],
+              "answer": 2,
+              "pt": "NとVます (cùng với ai)",
+              "explain": "Câu hỏi: đi cùng với bạn → dùng 「と」chỉ người đồng hành. ① 「で」= bằng (phương tiện/địa điểm thực hiện hành động) → sai. ② 「に」= đến (địa điểm), không đi kèm người → sai. ③ 「と」= cùng với → ĐÚNG. ④ 「まで」= đến tận (thời gian/địa điểm kết thúc) → sai.",
+              "glosses": [
+                {
+                  "t": "田中さん",
+                  "read": "たなかさん",
+                  "vi": "anh Tanaka"
+                },
+                {
+                  "t": "友達",
+                  "read": "ともだち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "映画館",
+                  "read": "えいがかん",
+                  "vi": "rạp chiếu phim"
+                },
+                {
+                  "t": "行きました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "stem": "わたしは毎日地下鉄＿学校へ行きます。",
+              "choices": [
+                "と",
+                "を",
+                "で",
+                "へ"
+              ],
+              "answer": 2,
+              "pt": "NでVます (bằng phương tiện)",
+              "explain": "Đi đến trường bằng tàu điện ngầm → 「で」chỉ phương tiện. ① 「と」= cùng với người, không dùng cho phương tiện → sai. ② 「を」= trợ từ tân ngữ trực tiếp (tôi đi học không phải là tân ngữ của tàu điện ngầm) → sai. ③ 「で」= bằng (phương tiện) → ĐÚNG. ④ 「へ」= hướng đến, nhưng câu đã có 「学校へ」ở sau, không dùng cho phương tiện → sai.",
+              "glosses": [
+                {
+                  "t": "毎日",
+                  "read": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "地下鉄",
+                  "read": "ちかてつ",
+                  "vi": "tàu điện ngầm"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "スーパーは駅＿あります。",
+              "choices": [
+                "へ",
+                "で",
+                "と",
+                "に"
+              ],
+              "answer": 3,
+              "pt": "NはNにあります (ôn B3)",
+              "explain": "「あります」chỉ sự tồn tại của vật, cần trợ từ 「に」chỉ nơi chốn. ① 「へ」= hướng di chuyển, không dùng với 「あります」→ sai. ② 「で」= tại (nơi thực hiện hành động), không dùng với 「あります/います」→ sai. ③ 「と」= cùng với / và → sai. ④ 「に」= ở tại (vị trí tồn tại) → ĐÚNG.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "stem": "会議は9時＿5時まであります。",
+              "choices": [
+                "まで",
+                "に",
+                "から",
+                "で"
+              ],
+              "answer": 2,
+              "pt": "NからNまで (ôn B4)",
+              "explain": "Cấu trúc 「NからNまで」= từ N đến N. Ô trống đứng sau 「9時」và trước 「5時まで」→ cần 「から」. ① 「まで」= đến tận (điểm kết thúc), không phải điểm bắt đầu → sai. ② 「に」= vào lúc (thời điểm cụ thể), không ghép với 「まで」theo nghĩa phạm vi → sai. ③ 「から」= từ (điểm bắt đầu) → ĐÚNG. ④ 「で」= bằng/tại, không chỉ điểm bắt đầu thời gian → sai.",
+              "glosses": [
+                {
+                  "t": "会議",
+                  "read": "かいぎ",
+                  "vi": "cuộc họp"
+                },
+                {
+                  "t": "9時",
+                  "read": "くじ",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "5時",
+                  "read": "ごじ",
+                  "vi": "5 giờ"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, diễn ra"
+                }
+              ]
+            },
+            {
+              "stem": "やまださんは先生＿図書館へ行きました。",
+              "choices": [
+                "が",
+                "と",
+                "を",
+                "に"
+              ],
+              "answer": 1,
+              "pt": "NとVます (cùng với ai) / ôn Vました B4",
+              "explain": "Đi đến thư viện cùng thầy giáo → 「と」chỉ người đồng hành. ① 「が」= trợ từ chủ ngữ, dùng cho chủ thể hành động → sai (主語 đã là やまださんは). ② 「と」= cùng với (người) → ĐÚNG. ③ 「を」= tân ngữ trực tiếp → sai (先生 không phải tân ngữ của động từ đi). ④ 「に」= đến/ở tại → sai.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "先生",
+                  "read": "せんせい",
+                  "vi": "thầy/cô giáo"
+                },
+                {
+                  "t": "図書館",
+                  "read": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "行きました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                }
+              ]
+            },
+            {
+              "stem": "あなたはいつ日本＿来ましたか。",
+              "choices": [
+                "で",
+                "を",
+                "と",
+                "へ"
+              ],
+              "answer": 3,
+              "pt": "NへVます (đi đến) / ôn Vました B4",
+              "explain": "「日本へ来る」= đến Nhật Bản → 「へ」chỉ hướng đến của chuyển động. ① 「で」= bằng/tại, không chỉ hướng di chuyển → sai. ② 「を」= tân ngữ trực tiếp; 「来る」không mang tân ngữ trực tiếp là địa điểm → sai. ③ 「と」= cùng với (người), không chỉ hướng → sai. ④ 「へ」= hướng đến → ĐÚNG.",
+              "glosses": [
+                {
+                  "t": "日本",
+                  "read": "にほん",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "来ました",
+                  "read": "きました",
+                  "vi": "đã đến"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn (ngôi thứ hai)"
+                },
+                {
+                  "t": "いつ",
+                  "read": "いつ",
+                  "vi": "khi nào, bao giờ"
+                }
+              ]
+            },
+            {
+              "stem": "きのうわたしは何時＿ねましたか。— 11時にねました。",
+              "choices": [
+                "まで",
+                "から",
+                "に",
+                "で"
+              ],
+              "answer": 2,
+              "pt": "〜時に (thời điểm cụ thể, ôn B4)",
+              "explain": "Câu hỏi và đáp đều dùng 「〜時に」= vào lúc mấy giờ. ① 「まで」= đến tận, chỉ điểm kết thúc → sai. ② 「から」= từ lúc, chỉ điểm bắt đầu → sai. ③ 「に」= vào lúc (thời điểm) → ĐÚNG. ④ 「で」= bằng/tại → sai.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "何時",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "ねました",
+                  "read": "ねました",
+                  "vi": "đã ngủ"
+                },
+                {
+                  "t": "11時",
+                  "read": "じゅういちじ",
+                  "vi": "11 giờ"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "わたしは先週ひとりで東京＿行きました。",
+              "choices": [
+                "に",
+                "で",
+                "と",
+                "から"
+              ],
+              "answer": 0,
+              "pt": "NへVます / NにVます (đi đến)",
+              "explain": "Đi đến Tokyo → dùng 「に」(hoặc 「へ」) chỉ điểm đến với động từ chuyển động. ① 「に」= đến (điểm đến) → ĐÚNG. ② 「で」= tại (nơi thực hiện hành động) / bằng (phương tiện) → sai. ③ 「と」= cùng với người → sai (câu đã nói 「ひとりで」một mình). ④ 「から」= từ (điểm xuất phát) → sai.",
+              "glosses": [
+                {
+                  "t": "先週",
+                  "read": "せんしゅう",
+                  "vi": "tuần trước"
+                },
+                {
+                  "t": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "東京",
+                  "read": "とうきょう",
+                  "vi": "Tokyo"
+                },
+                {
+                  "t": "行きました",
+                  "read": "いきました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            },
+            {
+              "stem": "スミスさんは毎晩だれ＿ばんごはんを食べますか。",
+              "choices": [
+                "に",
+                "で",
+                "と",
+                "を"
+              ],
+              "answer": 2,
+              "pt": "NとVます (cùng với ai)",
+              "explain": "Hỏi ăn tối cùng với ai → 「だれと」= cùng với ai. ① 「に」= đến/cho, không chỉ đồng hành → sai. ② 「で」= bằng/tại → sai. ③ 「と」= cùng với → ĐÚNG. ④ 「を」= tân ngữ trực tiếp; 「だれ」không phải tân ngữ trực tiếp của 食べる → sai.",
+              "glosses": [
+                {
+                  "t": "スミスさん",
+                  "vi": "anh/chị Smith"
+                },
+                {
+                  "t": "毎晩",
+                  "read": "まいばん",
+                  "vi": "mỗi tối"
+                },
+                {
+                  "t": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "ばんごはん",
+                  "vi": "bữa tối"
+                },
+                {
+                  "t": "食べます",
+                  "read": "たべます",
+                  "vi": "ăn"
+                }
+              ]
+            },
+            {
+              "stem": "——「＿でんしゃで大阪へ行きますか。」「来月の土曜日に行きます。」",
+              "choices": [
+                "どこ",
+                "なに",
+                "いつ",
+                "だれ"
+              ],
+              "answer": 2,
+              "pt": "いつVますか (khi nào)",
+              "explain": "Câu trả lời nêu thời gian cụ thể (tháng sau thứ Bảy) → câu hỏi phải dùng 「いつ」= khi nào. ① 「どこ」= ở đâu → sai (đã có 大阪). ② 「なに」= cái gì → sai. ③ 「いつ」= khi nào → ĐÚNG. ④ 「だれ」= ai → sai.",
+              "glosses": [
+                {
+                  "t": "でんしゃ",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "大阪",
+                  "read": "おおさか",
+                  "vi": "Osaka"
+                },
+                {
+                  "t": "来月",
+                  "read": "らいげつ",
+                  "vi": "tháng sau"
+                },
+                {
+                  "t": "土曜日",
+                  "read": "どようび",
+                  "vi": "thứ Bảy"
+                },
+                {
+                  "t": "行きますか",
+                  "read": "いきますか",
+                  "vi": "có đi không?"
+                }
+              ]
+            },
+            {
+              "stem": "としょかんはえきの＿にあります。",
+              "choices": [
+                "で",
+                "へ",
+                "まで",
+                "ちかく"
+              ],
+              "answer": 3,
+              "pt": "NはNにあります (ôn B3) + vị trí",
+              "explain": "「〜のちかくにあります」= ở gần ~ → cần danh từ chỉ vị trí 「ちかく」trước 「に」. ① 「で」= bằng/tại (hành động) → không đi với 「あります」theo nghĩa này → sai. ② 「へ」= hướng di chuyển → sai. ③ 「まで」= đến tận → sai. ④ 「ちかく」= gần (danh từ vị trí), hoàn chỉnh cụm 「えきのちかくに」→ ĐÚNG.",
+              "glosses": [
+                {
+                  "t": "としょかん",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "ちかく",
+                  "vi": "gần, khu vực gần"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có, tồn tại (vật)"
+                }
+              ]
+            },
+            {
+              "stem": "あなたは何時から何時＿はたらきますか。",
+              "choices": [
+                "に",
+                "へ",
+                "まで",
+                "で"
+              ],
+              "answer": 2,
+              "pt": "NからNまで (ôn B4)",
+              "explain": "Cấu trúc 「NからNまで」= từ N đến N. Ô trống đứng sau「何時」thứ hai → cần 「まで」(điểm kết thúc). ① 「に」= vào lúc, không ghép với 「から」tạo phạm vi → sai. ② 「へ」= hướng đến, không chỉ thời gian kết thúc → sai. ③ 「まで」= đến tận (kết thúc) → ĐÚNG. ④ 「で」= bằng/tại → sai.",
+              "glosses": [
+                {
+                  "t": "何時",
+                  "read": "なんじ",
+                  "vi": "mấy giờ"
+                },
+                {
+                  "t": "はたらきます",
+                  "vi": "làm việc"
+                },
+                {
+                  "t": "あなた",
+                  "read": "あなた",
+                  "vi": "bạn (ngôi thứ hai)"
+                }
+              ]
+            },
+            {
+              "stem": "きむらさんはきのう車＿駅まで来ませんでした。",
+              "choices": [
+                "と",
+                "に",
+                "で",
+                "へ"
+              ],
+              "answer": 2,
+              "pt": "NでVます (bằng phương tiện) / ôn Vませんでした B4",
+              "explain": "Đến ga bằng xe ô tô (hoặc không đến) → 「で」chỉ phương tiện. ① 「と」= cùng với người → sai (車 là phương tiện). ② 「に」= đến/ở tại → không chỉ phương tiện → sai. ③ 「で」= bằng (phương tiện) → ĐÚNG. ④ 「へ」= hướng đến → không chỉ phương tiện → sai.",
+              "glosses": [
+                {
+                  "t": "きむらさん",
+                  "vi": "anh/chị Kimura"
+                },
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "車",
+                  "read": "くるま",
+                  "vi": "xe ô tô"
+                },
+                {
+                  "t": "駅",
+                  "read": "えき",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "来ませんでした",
+                  "read": "きませんでした",
+                  "vi": "đã không đến"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問2 · 文の組み立て ★",
+          "level": "mọi cấp",
+          "type": "star",
+          "instr": "Sắp 4 mảnh cho đúng câu, rồi xem mảnh nào ở ô ★.",
+          "items": [
+            {
+              "frame": [
+                "わたしは",
+                "。"
+              ],
+              "pieces": [
+                "うちに",
+                "かえり",
+                "バスで",
+                "ます"
+              ],
+              "order": [
+                2,
+                0,
+                1,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "NでVます (bằng phương tiện)",
+              "explain": "Câu đúng: 「わたしはバスでうちにかえります。」— Tôi về nhà bằng xe buýt.\nSắp xếp: ô 1=「バスで」, ô 2=「うちに」★, ô 3=「かえり」, ô 4=「ます」\nKhung câu mở đầu bằng chủ ngữ 「わたしは　」 và kết thúc bằng dấu chấm 「。」, cần sắp xếp các thành phần chỉ phương tiện, điểm đến và động từ. Mảnh thân động từ 「かえり」 bắt buộc dính liền với đuôi 「ます」 ở ô 4 để tạo thành vị ngữ 「かえります」, còn mảnh chỉ điểm đến 「うちに」 đứng ngay trước vị ngữ động từ này. Mảnh phương tiện 「バスで」 đặt trước cụm điểm đến và động từ để làm bổ ngữ cách thức di chuyển cho toàn câu. Do đó, mảnh 「うちに」 nằm ở ô 2 (ô ★) và không thể đặt ở vị trí khác vì ô 1 cần danh từ chỉ phương tiện 「バスで」 đứng sau chủ ngữ, còn ô 3 và ô 4 là vị ngữ 「かえります」 ở cuối câu.",
+              "glosses": [
+                {
+                  "t": "かえります",
+                  "read": "帰ります",
+                  "vi": "về nhà"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "うち",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "に",
+                  "vi": "(đến / hướng về — điểm đến)"
+                },
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "で",
+                  "vi": "(bằng / dùng phương tiện)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "やまださんは",
+                "いきました。"
+              ],
+              "pieces": [
+                "ともだちと",
+                "こうえん",
+                "に",
+                "あるいて"
+              ],
+              "order": [
+                0,
+                3,
+                1,
+                2
+              ],
+              "starSlot": 2,
+              "pt": "NとVます / NへVます (ôn B4)",
+              "explain": "Câu đúng: 「やまださんはともだちとあるいてこうえんにいきました。」— Anh Yamada đã đi bộ đến công viên cùng với bạn.\nSắp xếp: ô 1=「ともだちと」, ô 2=「あるいて」, ô 3=「こうえん」★, ô 4=「に」\nKhung câu có chủ ngữ 「やまださんは」 ở đầu và động từ di chuyển 「いきました」 ở cuối, khoảng giữa đang thiếu bổ ngữ người đi cùng, cách thức và địa điểm đến. Danh từ 「こうえん」 ở ô 3 bắt buộc dính liền với trợ từ chỉ điểm đến 「に」 ở ô 4 thành cụm 「こうえんに」 đứng liền trước vị ngữ 「いきました」. Trạng từ chỉ người đồng hành 「ともだちと」 và cách thức 「あるいて」 được xếp phía trước cụm địa điểm theo đúng trật tự câu tiếng Nhật. Do đó, mảnh 「こうえん」 phải đặt ở ô 3 (ô ★); mảnh này không thể đứng ở ô 4 vì trợ từ 「に」 phải đứng sau danh từ chỉ địa điểm, cũng không thể đặt ở ô 1 hay ô 2 vì sẽ làm ngắt đôi cấu trúc chỉ người và cách thức di chuyển.",
+              "glosses": [
+                {
+                  "t": "やまださん",
+                  "read": "やまださん",
+                  "vi": "anh/chị Yamada"
+                },
+                {
+                  "t": "いきました",
+                  "read": "行きました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "友だち",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "と",
+                  "vi": "(cùng với)"
+                },
+                {
+                  "t": "こうえん",
+                  "read": "公園",
+                  "vi": "công viên"
+                },
+                {
+                  "t": "に",
+                  "vi": "(đến / hướng đến)"
+                },
+                {
+                  "t": "あるいて",
+                  "read": "歩いて",
+                  "vi": "đi bộ"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "にほんへ",
+                "。"
+              ],
+              "pieces": [
+                "いつ",
+                "いき",
+                "ます",
+                "か"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "いつVますか (khi nào)",
+              "explain": "Câu đúng: 「にほんへいついきますか。」— Bạn sẽ đi Nhật khi nào?\n• 「いつ」★: từ hỏi thời điểm (khi nào) — trọng tâm B5; đứng trước động từ.\n• 「にほんへ」:「へ」chỉ hướng/điểm đến (B5).\n• 「いきますか」: thể hỏi lịch sự — 「いき」+「ます」+「か」.\nSai phổ biến: nhầm「いつ」với「なんじ」(mấy giờ cụ thể) hoặc「どこ」(ở đâu).",
+              "glosses": [
+                {
+                  "t": "にほん",
+                  "read": "日本",
+                  "vi": "Nhật Bản"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                },
+                {
+                  "t": "いつ",
+                  "vi": "khi nào"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "きのう",
+                "いきました。"
+              ],
+              "pieces": [
+                "かいしゃへ",
+                "でんしゃで",
+                "はは",
+                "と"
+              ],
+              "order": [
+                2,
+                3,
+                1,
+                0
+              ],
+              "starSlot": 2,
+              "pt": "NとVます + NでVます (ôn xoắn ốc)",
+              "explain": "Câu đúng: 「きのうははとでんしゃでかいしゃへいきました。」— Hôm qua tôi đã đi đến công ty bằng tàu điện cùng với mẹ.\nSắp xếp: ô 1=「はは」, ô 2=「と」, ô 3=「でんしゃで」★, ô 4=「かいしゃへ」\nKhung câu mở đầu bằng thời gian 「きのう」 và kết thúc bằng động từ di chuyển 「いきました」, khoảng giữa đang thiếu bổ ngữ người đi cùng, phương tiện và địa điểm. Danh từ chỉ người 「はは」 ở ô 1 bắt buộc dính liền với trợ từ 「と」 ở ô 2 thành cụm chỉ người đồng hành 「ははと」 không thể tách rời. Cụm điểm đến 「かいしゃへ」 ở ô 4 nối trực tiếp vào động từ 「いきました」 ở cuối khung, do đó mảnh chỉ phương tiện 「でんしゃで」 phải đứng phía trước điểm đến. Mảnh 「でんしゃで」 bắt buộc nằm ở ô 3 (ô ★); nó không thể đặt ở ô 4 vì sẽ chặn mất vị trí tiếp giáp động từ của 「かいしゃへ」, cũng không thể chen vào ô 1 hay ô 2 làm chia cắt cụm dính liền 「ははと」.",
+              "glosses": [
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "いきました",
+                  "read": "行きました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                },
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "で",
+                  "vi": "(bằng phương tiện)"
+                },
+                {
+                  "t": "はは",
+                  "read": "母",
+                  "vi": "mẹ (của tôi)"
+                },
+                {
+                  "t": "と",
+                  "vi": "(cùng với)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ぎんこうは",
+                "。"
+              ],
+              "pieces": [
+                "えきの",
+                "ちかくに",
+                "あり",
+                "ます"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 2,
+              "pt": "NはNにあります (ôn B3)",
+              "explain": "Câu đúng: 「ぎんこうはえきのちかくにあります。」— Ngân hàng ở gần ga.\nSắp xếp: ô 1=「えきの」, ô 2=「ちかくに」, ô 3=「あり」★, ô 4=「ます」\nKhung câu đã có chủ đề 「ぎんこうは」 ở đầu và kết thúc bằng dấu chấm, yêu cầu điền một vị ngữ hoàn chỉnh chỉ vị trí tồn tại. Hai mảnh 「あり」 ở ô 3 và 「ます」 ở ô 4 là hai phần của động từ bị cắt đôi nên bắt buộc dính liền thành 「あります」 ở cuối câu, đồng thời danh từ 「えきの」 ở ô 1 phải nối với 「ちかくに」 ở ô 2 thành cụm vị trí 「えきのちかくに」. Cụm địa điểm 「えきのちかくに」 được xếp đứng trước vị ngữ động từ 「あります」 theo trật tự câu thông thường. Mảnh 「あり」 bắt buộc nằm ở ô 3 (ô ★); mảnh này không thể đứng ở ô 4 vì đuôi lịch sự 「ます」 phải đứng cuối cùng kết câu, cũng không thể chuyển sang ô 1 hay ô 2 do động từ không thể đứng trước danh từ 「ちかくに」 hoặc bổ nghĩa cho trợ từ 「の」.",
+              "glosses": [
+                {
+                  "t": "ぎんこう",
+                  "read": "銀行",
+                  "vi": "ngân hàng"
+                },
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "ga (tàu điện)"
+                },
+                {
+                  "t": "の",
+                  "vi": "(của / nối danh từ)"
+                },
+                {
+                  "t": "ちかく",
+                  "read": "近く",
+                  "vi": "gần, khu vực lân cận"
+                },
+                {
+                  "t": "に",
+                  "vi": "(ở / tại — vị trí tồn tại)"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có / ở (vật vô tri)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "あにと",
+                "いきます。"
+              ],
+              "pieces": [
+                "ひこうきで",
+                "おきなわ",
+                "へ",
+                "あした"
+              ],
+              "order": [
+                3,
+                0,
+                1,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "NへVます + NでVます + NとVます",
+              "explain": "Câu đúng: 「あにとあしたひこうきでおきなわへいきます。」— Ngày mai tôi sẽ đi Okinawa bằng máy bay cùng với anh.\nSắp xếp: ô 1=「あした」, ô 2=「ひこうきで」★, ô 3=「おきなわ」, ô 4=「へ」\nKhung câu có sẵn cụm chỉ người đồng hành 「あにと」 ở đầu và động từ di chuyển 「いきます」 ở cuối, khoảng giữa thiếu các bổ ngữ thời gian, phương tiện và địa điểm đến. Danh từ địa danh 「おきなわ」 ở ô 3 bắt buộc dính liền với trợ từ chỉ hướng 「へ」 ở ô 4 thành cụm điểm đến 「おきなわへ」 đứng ngay trước 「いきます」. Trạng từ thời gian 「あした」 ở ô 1 được nối tiếp sau 「あにと」, kế đó là mảnh phương tiện 「ひこうきで」 ở ô 2 rồi mới đến địa điểm 「おきなわへ」. Mảnh 「ひこうきで」 bắt buộc nằm ở ô 2 (ô ★); mảnh này không thể chuyển sang ô 3 hay ô 4 vì cụm địa điểm 「おきなわへ」 phải đứng liền kề động từ 「いきます」, cũng không thể đặt ở ô 1 vì thời gian 「あした」 được xếp đứng trước phương tiện theo trật tự tự nhiên.",
+              "glosses": [
+                {
+                  "t": "あに",
+                  "read": "兄",
+                  "vi": "anh trai (của tôi)"
+                },
+                {
+                  "t": "と",
+                  "vi": "(cùng với)"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi (tương lai)"
+                },
+                {
+                  "t": "ひこうき",
+                  "read": "飛行機",
+                  "vi": "máy bay"
+                },
+                {
+                  "t": "で",
+                  "vi": "(bằng phương tiện)"
+                },
+                {
+                  "t": "おきなわ",
+                  "read": "沖縄",
+                  "vi": "Okinawa"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                },
+                {
+                  "t": "あした",
+                  "read": "明日",
+                  "vi": "ngày mai"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "か。"
+              ],
+              "pieces": [
+                "いつ",
+                "としょかんへ",
+                "いき",
+                "ます"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 1,
+              "pt": "いつVますか + NへVます",
+              "explain": "Câu đúng: 「いつとしょかんへいきますか。」— Bạn sẽ đến thư viện khi nào?\nSắp xếp: ô 1=「いつ」, ô 2=「としょかんへ」★, ô 3=「いき」, ô 4=「ます」\nKhung câu kết thúc bằng trợ từ nghi vấn 「か」, đòi hỏi một động từ chia thể lịch sự đứng trước và từ hỏi thời gian đứng ở đầu câu. Mảnh động từ 「いき」 BẮT BUỘC dính liền ngay trước đuôi 「ます」 thành cụm vị ngữ hoàn chỉnh 「いきます」, không thể bị tách rời. Cụm chỉ điểm đến 「としょかんへ」 phải đứng trước vị ngữ 「いきます」 để bổ nghĩa cho hành động đi, trong khi từ hỏi 「いつ」 nằm ở vị trí đầu câu. Do đó, mảnh 「としょかんへ」 chỉ có thể rơi vào ô 2 (ô ★); mảnh này không thể đứng ô 1 vì từ hỏi 「いつ」 đã giữ đầu câu, và cũng không thể ở ô 3 hay ô 4 vốn là vị trí cố định của cụm 「いきます」.",
+              "glosses": [
+                {
+                  "t": "いつ",
+                  "vi": "khi nào"
+                },
+                {
+                  "t": "としょかん",
+                  "read": "図書館",
+                  "vi": "thư viện"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi (tương lai)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "わたしは",
+                "います。"
+              ],
+              "pieces": [
+                "きのうから",
+                "きょうまで",
+                "ずっと",
+                "うちに"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "NはNにいます (ôn B3) + NからNまで (ôn B4)",
+              "explain": "Câu đúng: 「わたしはきのうからきょうまでずっとうちにいます。」— Tôi ở nhà liên tục từ hôm qua đến hôm nay.\nSắp xếp: ô 1=「きのうから」★, ô 2=「きょうまで」, ô 3=「ずっと」, ô 4=「うちに」\nKhung câu đã cho sẵn chủ ngữ 「わたしは」 ở đầu và vị ngữ 「います。」 ở cuối, đòi hỏi các ô giữa chứa thành phần thời gian, trạng từ và địa điểm. Mảnh 「きのうから」 BẮT BUỘC dính liền ngay trước 「きょうまで」 tạo thành cụm phạm vi thời gian cố định 「きのうからきょうまで」, không thể tách rời hay bị đảo vị trí. Trợ từ 「に」 trong mảnh 「うちに」 phải đứng liền trước động từ tồn tại 「います」 thành cụm vị trí 「うちにいます」, còn trạng từ 「ずっと」 đặt ngay trước cụm này để làm rõ tính liên tục. Do đó, mảnh 「きのうから」 chỉ có thể đứng ở ô 1 (ô ★); nó không thể chuyển sang ô 2 vì mốc bắt đầu phải đi trước mốc kết thúc 「きょうまで」, và cũng không thể đặt ở ô 3 hay ô 4 đã bị các thành phần bổ nghĩa khác chiếm chỗ.",
+              "glosses": [
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                },
+                {
+                  "t": "います",
+                  "vi": "có / ở (người / sinh vật)"
+                },
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "から",
+                  "vi": "từ (điểm bắt đầu)"
+                },
+                {
+                  "t": "きょう",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "まで",
+                  "vi": "đến (giới hạn)"
+                },
+                {
+                  "t": "ずっと",
+                  "vi": "liên tục, suốt"
+                },
+                {
+                  "t": "うち",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "に",
+                  "vi": "(ở / tại — vị trí tồn tại)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "でんしゃは",
+                "とまります。"
+              ],
+              "pieces": [
+                "じゅうじまで",
+                "きょうの",
+                "くじから",
+                "ごぜん"
+              ],
+              "order": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "starSlot": 2,
+              "pt": "NからNまで + 〜時に (ôn B4)",
+              "explain": "Câu đúng: 「でんしゃはきょうのごぜんくじからじゅうじまでとまります。」— Tàu điện sẽ ngừng chạy từ 9 giờ đến 10 giờ sáng hôm nay.\nSắp xếp: ô 1=「きょうの」, ô 2=「ごぜん」, ô 3=「くじから」★, ô 4=「じゅうじまで」.\nKhung câu bắt đầu bằng chủ ngữ 「でんしゃは」 và kết thúc bằng vị ngữ 「とまります。」, ở giữa cần các bổ ngữ chỉ thời gian diễn ra sự việc. Cụm danh từ 「きょうの」 bắt buộc phải bổ nghĩa cho danh từ thời gian 「ごぜん」 đứng liền sau thành 「きょうのごぜん」. Tiếp đó, trật tự thời gian tiếng Nhật diễn đạt mốc bắt đầu trước mốc kết thúc theo cấu trúc 〜から〜まで, nên 「くじから」 phải đứng ở ô 3 làm mốc xuất phát trước khi nối tới 「じゅうじまで」 ở ô 4. Do đó, mảnh 「くじから」 ở ô 3 mang trợ từ điểm ngữ pháp bắt buộc phải đứng trước mốc kết thúc, không thể đảo sang vị trí khác.",
+              "glosses": [
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "tàu điện"
+                },
+                {
+                  "t": "とまります",
+                  "read": "止まります",
+                  "vi": "dừng lại"
+                },
+                {
+                  "t": "じゅうじ",
+                  "read": "十時",
+                  "vi": "10 giờ"
+                },
+                {
+                  "t": "まで",
+                  "vi": "đến (giới hạn)"
+                },
+                {
+                  "t": "きょう",
+                  "read": "",
+                  "vi": "hôm nay"
+                },
+                {
+                  "t": "くじ",
+                  "read": "九時",
+                  "vi": "9 giờ"
+                },
+                {
+                  "t": "から",
+                  "vi": "từ (điểm bắt đầu)"
+                },
+                {
+                  "t": "ごぜん",
+                  "read": "",
+                  "vi": "buổi sáng"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "たなかさんは",
+                "いきます。"
+              ],
+              "pieces": [
+                "タクシーで",
+                "びょういんへ",
+                "いもうとと",
+                "まいあさ"
+              ],
+              "order": [
+                3,
+                2,
+                0,
+                1
+              ],
+              "starSlot": 1,
+              "pt": "NへVます + NでVます + NとVます",
+              "explain": "Câu đúng: 「たなかさんはまいあさいもうととタクシーでびょういんへいきます。」— Mỗi sáng Tanaka đi đến bệnh viện bằng xe taxi cùng em gái.\nSắp xếp: ô 1=「まいあさ」, ô 2=「いもうとと」★, ô 3=「タクシーで」, ô 4=「びょういんへ」\nKhung câu đã có chủ ngữ 「たなかさんは」 ở đầu và động từ di chuyển 「いきます。」 ở cuối, cần điền các thành phần thời gian, đối tượng đi cùng, phương tiện và điểm đến. Mảnh 「びょういんへ」 BẮT BUỘC phải dính liền ngay trước động từ vị ngữ 「いきます」 thành cụm chỉ hướng di chuyển 「びょういんへいきます」, không thể tách rời. Theo trật tự câu tiếng Nhật, trạng từ thời gian 「まいあさ」 đứng đầu phần bổ nghĩa ngay sau chủ ngữ, tiếp theo là đối tượng đồng hành 「いもうとと」, rồi tới phương tiện di chuyển 「タクシーで」. Vì thế, mảnh 「いもうとと」 bắt buộc phải rơi vào ô 2 (ô ★); mảnh này không thể đứng ô 1 vốn thuộc về thời gian 「まいあさ」, và cũng không thể xuống ô 3 hay ô 4 đã gắn chặt với phương tiện và đích đến trước động từ.",
+              "glosses": [
+                {
+                  "t": "たなかさん",
+                  "read": "たなかさん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi (tương lai/thói quen)"
+                },
+                {
+                  "t": "タクシー",
+                  "vi": "taxi"
+                },
+                {
+                  "t": "で",
+                  "vi": "(bằng phương tiện)"
+                },
+                {
+                  "t": "びょういん",
+                  "read": "病院",
+                  "vi": "bệnh viện"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                },
+                {
+                  "t": "いもうと",
+                  "read": "妹",
+                  "vi": "em gái (của tôi)"
+                },
+                {
+                  "t": "と",
+                  "vi": "(cùng với)"
+                },
+                {
+                  "t": "まいあさ",
+                  "read": "毎朝",
+                  "vi": "mỗi buổi sáng"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "",
+                "いきましたか。"
+              ],
+              "pieces": [
+                "だれと",
+                "うみへ",
+                "きのう",
+                "は"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 2,
+              "pt": "NとVます (hỏi ai cùng đi) + quá khứ B4",
+              "explain": "Câu đúng: 「きのうはだれとうみへいきましたか。」— Hôm qua bạn đã đi biển với ai?\nSắp xếp: ô 1=「きのう」, ô 2=「は」, ô 3=「だれと」★, ô 4=「うみへ」\nKhung câu kết thúc bằng động từ di chuyển 「いきましたか」 nên phần trống phía trước cần xếp theo trật tự thời gian, người đi cùng và điểm đến. Danh từ thời gian 「きのう」 bắt buộc dính liền với trợ từ chủ đề 「は」 tạo thành cụm 「きのうは」 để mở đầu câu. Mảnh 「うみへ」 chứa trợ từ chỉ phương hướng 「へ」 bắt buộc phải đứng ở ô 4 để dính liền ngay trước động từ di chuyển 「いきましたか」. Do đó, mảnh 「だれと」 rơi vào ô 3 ★ và không thể đặt ở vị trí khác vì ô 1-2 thuộc về cụm chủ đề 「きのうは」, còn ô 4 bắt buộc là điểm đến 「うみへ」.",
+              "glosses": [
+                {
+                  "t": "いきました",
+                  "read": "行きました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "だれ",
+                  "vi": "ai"
+                },
+                {
+                  "t": "と",
+                  "vi": "(cùng với)"
+                },
+                {
+                  "t": "うみ",
+                  "read": "海",
+                  "vi": "biển"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                },
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "スーパーは",
+                "あります。"
+              ],
+              "pieces": [
+                "ちょうど",
+                "あいだに",
+                "えきと",
+                "ゆうびんきょくの"
+              ],
+              "order": [
+                2,
+                3,
+                0,
+                1
+              ],
+              "starSlot": 3,
+              "pt": "NはNにあります (ôn B3) + AとBのあいだに (vị trí giữa hai mốc)",
+              "explain": "Câu đúng: 「スーパーはえきとゆうびんきょくのちょうどあいだにあります。」— Siêu thị nằm ở chính giữa nhà ga và bưu điện.\nSắp xếp: ô 1=「えきと」, ô 2=「ゆうびんきょくの」, ô 3=「ちょうど」, ô 4=「あいだに」★.\nKhung câu có chủ ngữ 「スーパーは」 và vị ngữ chỉ sự tồn tại 「あります。」, phần giữa cần bổ ngữ chỉ vị trí giữa hai mốc theo mẫu 「AとBのあいだに」. Trợ từ 「と」 dùng nối hai danh từ nên 「えきと」 phải đi trước 「ゆうびんきょくの」. Tiếp theo, phó từ 「ちょうど」 (chính giữa / ngay giữa) đứng ngay trước danh từ chỉ vị trí 「あいだに」 để tạo thành cụm tự nhiên 「ちょうどあいだに」. Vì 「あいだに」 ở ô 4 là trung tâm ngữ chỉ vị trí tiếp nhận trợ từ 「に」 đi trực tiếp với động từ tồn tại 「あります。」 ở cuối câu nên không thể đứng ở vị trí nào khác.",
+              "glosses": [
+                {
+                  "t": "スーパー",
+                  "vi": "siêu thị"
+                },
+                {
+                  "t": "あります",
+                  "vi": "có / ở (vật vô tri)"
+                },
+                {
+                  "t": "ちょうど",
+                  "read": "",
+                  "vi": "ngay"
+                },
+                {
+                  "t": "あいだ",
+                  "read": "間",
+                  "vi": "khoảng giữa"
+                },
+                {
+                  "t": "に",
+                  "vi": "(ở / tại — vị trí)"
+                },
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "ga tàu"
+                },
+                {
+                  "t": "と",
+                  "vi": "(và — nối danh từ)"
+                },
+                {
+                  "t": "ゆうびんきょく",
+                  "read": "郵便局",
+                  "vi": "bưu điện"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "にちようびに",
+                "ますか。"
+              ],
+              "pieces": [
+                "かぞくと",
+                "どこ",
+                "へ",
+                "いき"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 0,
+              "pt": "NとVます + NへVます + どこ hỏi điểm đến",
+              "explain": "Câu đúng: 「にちようびにかぞくとどこへいきますか。」— Chủ nhật bạn sẽ đi đâu cùng với gia đình?\nSắp xếp: ô 1=「かぞくと」★, ô 2=「どこ」, ô 3=「へ」, ô 4=「いき」\nKhung câu mở đầu bằng mốc thời gian 「にちようびに」 và kết thúc bằng đuôi hỏi 「ますか」, đòi hỏi các ô trống phải chứa thành phần đồng hành, điểm đến và động từ. Mảnh động từ 「いき」 bắt buộc đứng ở ô 4 để dính liền với đuôi 「ますか」 tạo thành động từ nghi vấn 「いきますか」. Mảnh 「どこ」 dính liền ngay trước trợ từ chỉ phương hướng 「へ」 ở ô 3 để tạo thành cụm từ hỏi điểm đến 「どこへ」. Mảnh 「かぞくと」 nằm ở ô 1 ★ và không thể đứng ở vị trí khác vì ô 2-3 đã bị cụm 「どこへ」 chiếm giữ, còn ô 4 bắt buộc là động từ 「いき」.",
+              "glosses": [
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "にちようび",
+                  "read": "日曜日",
+                  "vi": "Chủ nhật"
+                },
+                {
+                  "t": "に",
+                  "vi": "(vào — thời điểm cụ thể)"
+                },
+                {
+                  "t": "ますか",
+                  "read": "ますか",
+                  "vi": "đuôi ~ますか = câu hỏi lịch sự về hành động ở hiện tại/tương lai"
+                },
+                {
+                  "t": "かぞく",
+                  "read": "家族",
+                  "vi": "gia đình"
+                },
+                {
+                  "t": "と",
+                  "vi": "(cùng với)"
+                },
+                {
+                  "t": "どこ",
+                  "vi": "ở đâu / đi đâu"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "しごとは",
+                "までです。"
+              ],
+              "pieces": [
+                "ごご",
+                "ごぜん",
+                "ごじ",
+                "はちじから"
+              ],
+              "order": [
+                1,
+                3,
+                0,
+                2
+              ],
+              "starSlot": 1,
+              "pt": "NからNまで (ôn B4) + 〜時 (ôn B4)",
+              "explain": "Câu đúng: 「しごとはごぜんはちじからごごごじまでです。」— Công việc thì từ 8 giờ sáng đến 5 giờ chiều.\nSắp xếp: ô 1=「ごぜん」, ô 2=「はちじから」★, ô 3=「ごご」, ô 4=「ごじ」.\nKhung câu có chủ đề 「しごとは」 và đuôi kết thúc 「までです。」, phần ở giữa cần diễn đạt khoảng thời gian làm việc từ sáng đến chiều theo cấu trúc 「〜から〜まで」. Buổi sáng diễn ra trước nên danh từ 「ごぜん」 phải đi liền với mốc bắt đầu 「はちじから」 ở ô 2. Sau đó, mốc kết thúc vào buổi chiều đòi hỏi danh từ 「ごご」 phải bổ nghĩa trực tiếp cho số giờ 「ごじ」 đứng liền kề trước khung 「までです。」. Do mảnh 「はちじから」 mang trợ từ 「から」 biểu thị mốc thời gian bắt đầu nên bắt buộc phải đứng ở ô 2, không thể hoán đổi ra sau mốc kết thúc.",
+              "glosses": [
+                {
+                  "t": "しごと",
+                  "read": "仕事",
+                  "vi": "công việc"
+                },
+                {
+                  "t": "まで",
+                  "vi": "đến (giới hạn)"
+                },
+                {
+                  "t": "ごご",
+                  "read": "午後",
+                  "vi": "buổi chiều (PM)"
+                },
+                {
+                  "t": "ごぜん",
+                  "read": "",
+                  "vi": "buổi sáng"
+                },
+                {
+                  "t": "ごじ",
+                  "read": "五時",
+                  "vi": "5 giờ"
+                },
+                {
+                  "t": "はちじ",
+                  "read": "八時",
+                  "vi": "8 giờ"
+                },
+                {
+                  "t": "から",
+                  "vi": "từ (điểm bắt đầu)"
+                }
+              ]
+            },
+            {
+              "frame": [
+                "ちちは",
+                "いきます。"
+              ],
+              "pieces": [
+                "まいにち",
+                "ひとりで",
+                "かいしゃへ",
+                "くるまで"
+              ],
+              "order": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "starSlot": 3,
+              "pt": "NへVます + NでVます (tổng hợp B5)",
+              "explain": "Câu đúng: 「ちちはまいにちひとりでかいしゃへくるまでいきます。」— Bố tôi một mình đi đến công ty bằng ô tô mỗi ngày.\nSắp xếp: ô 1=「まいにち」, ô 2=「ひとりで」, ô 3=「かいしゃへ」, ô 4=「くるまで」★\nKhung câu có chủ ngữ 「ちちは」 ở đầu và động từ 「いきます」 ở cuối, nên các ô trống cần chứa trạng từ và các cụm bổ ngữ chỉ thời gian, cách thức, điểm đến, phương tiện. Mảnh 「かいしゃへ」 dính liền với trợ từ điểm đến 「へ」, còn mảnh 「くるまで」 dính liền với trợ từ phương tiện 「で」 để bổ nghĩa cho động từ di chuyển phía sau. Theo trật tự câu tiếng Nhật, trạng từ tần suất 「まいにち」 đứng ở ô 1, trạng từ cách thức 「ひとりで」 ở ô 2, điểm đến 「かいしゃへ」 ở ô 3 và phương tiện 「くるまで」 ở ô 4. Mảnh 「くるまで」 bắt buộc nằm ở ô 4 (ô ★) và không thể đứng ở ô khác vì trợ từ phương tiện 「で」 phải đặt ngay trước động từ 「いきます」 ở cuối câu để hoàn chỉnh ý nghĩa.",
+              "glosses": [
+                {
+                  "t": "ちち",
+                  "read": "父",
+                  "vi": "cha (của tôi)"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi (thói quen)"
+                },
+                {
+                  "t": "まいにち",
+                  "read": "毎日",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "ひとりで",
+                  "vi": "một mình"
+                },
+                {
+                  "t": "で",
+                  "vi": "(bằng phương tiện)"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "へ",
+                  "vi": "(đến / hướng tới)"
+                },
+                {
+                  "t": "くるま",
+                  "read": "車",
+                  "vi": "ô tô"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "文法 問3 · 文章の文法",
+          "level": "N5–N1",
+          "type": "passage",
+          "instr": "Đoạn văn nối mạch — chọn cho mỗi chỗ trống.",
+          "items": [
+            {
+              "parts": [
+                "アンさんはまいにちバスでがっこうにかよっています。きのうアンさんはともだちといっしょにえき",
+                "いきました。えきからうちまであるいてかえりました。",
+                ""
+              ],
+              "blanks": [
+                {
+                  "choices": [
+                    "と",
+                    "で",
+                    "に",
+                    "へ"
+                  ],
+                  "answer": 3,
+                  "explain": "Chỗ trống 1 cần chỉ hướng/đích đến (đi đến ga). Ngữ pháp「Nへ Vます」dùng trợ từ「へ」để chỉ hướng hoặc đích đến, nên đáp án đúng là **へ**. — Sai:「と」nghĩa là 'cùng với (ai)', đã được dùng ở「ともだちと」phía trước, không phù hợp ở đây. 「で」chỉ phương tiện hoặc địa điểm hành động, không chỉ đích đến. 「に」có thể chỉ đích đến nhưng thường dùng cho động từ di chuyển cụ thể như「行く・来る」; câu này dùng「へ」tự nhiên hơn vì nhấn mạnh phương hướng."
+                },
+                {
+                  "choices": [
+                    "から",
+                    "まで",
+                    "へ",
+                    "と"
+                  ],
+                  "answer": 0,
+                  "explain": "Chỗ trống 2 cần chỉ điểm xuất phát (từ ga về nhà). Ngữ pháp「NからNまで」dùng「から」để chỉ nơi bắt đầu, nên đáp án đúng là **から**. — Sai: 「まで」nghĩa là 'đến (giới hạn cuối)', chỉ điểm kết thúc chứ không phải điểm xuất phát. 「へ」chỉ hướng/đích đến, không dùng để chỉ nơi xuất phát. 「と」nghĩa là 'cùng với (ai)', hoàn toàn không liên quan đến điểm xuất phát."
+                }
+              ],
+              "glosses": [
+                {
+                  "t": "まいにち",
+                  "vi": "mỗi ngày"
+                },
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "がっこう",
+                  "read": "学校",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "かよっています",
+                  "read": "通っています",
+                  "vi": "đi lại (thường xuyên), theo học"
+                },
+                {
+                  "t": "きのう",
+                  "vi": "hôm qua"
+                },
+                {
+                  "t": "ともだち",
+                  "read": "友達",
+                  "vi": "bạn bè"
+                },
+                {
+                  "t": "いっしょに",
+                  "vi": "cùng nhau"
+                },
+                {
+                  "t": "えき",
+                  "read": "駅",
+                  "vi": "ga (tàu/xe)"
+                },
+                {
+                  "t": "いきました",
+                  "read": "行きました",
+                  "vi": "đã đi"
+                },
+                {
+                  "t": "うち",
+                  "vi": "nhà"
+                },
+                {
+                  "t": "あるいて",
+                  "read": "歩いて",
+                  "vi": "đi bộ"
+                },
+                {
+                  "t": "かえりました",
+                  "read": "帰りました",
+                  "vi": "đã về"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "base",
+      "k": "基",
+      "jp": "練習[れんしゅう]の 土台[どだい]",
+      "vi": "Luyện nền · không phải dạng thi JLPT",
+      "base": true,
+      "sections": [
+        {
+          "code": "活用",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Chọn dạng đúng của động từ「行く」khi ghép với trợ từ「へ」để nói 'đi đến trường'.",
+          "items": [
+            {
+              "stem": "学校＿行きます。(いく → 〜へ行きます → ＿)",
+              "choices": [
+                "学校へ行きます",
+                "学校に行きます",
+                "学校を行きます",
+                "学校で行きます"
+              ],
+              "answer": 0,
+              "explain": "「行く」chia dạng lịch sự thành「行きます」, dùng trợ từ「へ」để chỉ hướng/điểm đến → 「学校へ行きます」(đi đến trường). ❌「に」cũng có thể chỉ điểm đến trong một số trường hợp, nhưng câu này đang kiểm điểm ngữ pháp「NへVます」nên「へ」là đáp án đúng. ❌「を」là trợ từ chỉ tân ngữ trực tiếp, không dùng với「行く」theo nghĩa đi đến địa điểm. ❌「で」chỉ phương tiện hoặc địa điểm hành động, không chỉ hướng đi.",
+              "glosses": [
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "へ",
+                  "vi": "trợ từ chỉ hướng/điểm đến"
+                },
+                {
+                  "t": "いく",
+                  "read": "いく",
+                  "vi": "đi (thể từ điển)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "助詞",
+          "level": "giàn giáo",
+          "type": "mcq",
+          "base": true,
+          "instr": "Điền trợ từ.",
+          "items": [
+            {
+              "stem": "わたしはバス＿学校へ行きます。",
+              "choices": [
+                "で",
+                "に",
+                "へ",
+                "と"
+              ],
+              "answer": 0,
+              "explain": "「で」là trợ từ chỉ phương tiện di chuyển, tương ứng mẫu「NでVます」→「バスで学校へ行きます」(đi đến trường bằng xe buýt). ❌「に」chỉ điểm đến hoặc đối tượng, không chỉ phương tiện. ❌「へ」chỉ hướng/điểm đến, đã được dùng cho「学校へ」, không dùng để chỉ phương tiện. ❌「と」chỉ 'cùng với ai' (người), không dùng cho phương tiện giao thông.",
+              "glosses": [
+                {
+                  "t": "バス",
+                  "vi": "xe buýt"
+                },
+                {
+                  "t": "で",
+                  "vi": "trợ từ chỉ phương tiện"
+                },
+                {
+                  "t": "学校",
+                  "read": "がっこう",
+                  "vi": "trường học"
+                },
+                {
+                  "t": "へ",
+                  "vi": "trợ từ chỉ hướng/điểm đến"
+                },
+                {
+                  "t": "行きます",
+                  "read": "いきます",
+                  "vi": "đi"
+                },
+                {
+                  "t": "わたし",
+                  "read": "わたし",
+                  "vi": "tôi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "翻訳",
+          "level": "giàn giáo",
+          "type": "input",
+          "base": true,
+          "instr": "Dịch sang tiếng Nhật.",
+          "items": [
+            {
+              "vi": "Tôi đi đến công ty cùng với Tanaka-san bằng xe lửa.",
+              "target": "わたしはでんしゃでたなかさんとかいしゃへいきます。",
+              "model": "わたしは でんしゃで たなかさんと かいしゃへ いきます。",
+              "explain": "Câu này kết hợp 3 điểm ngữ pháp bài 5: ①「でんしゃで」(bằng xe lửa) dùng「で」chỉ phương tiện; ②「たなかさんと」(cùng với Tanaka-san) dùng「と」chỉ người đồng hành; ③「かいしゃへ」(đến công ty) dùng「へ」chỉ điểm đến; cuối cùng「いきます」là động từ chia lịch sự. Thứ tự chuẩn trong tiếng Nhật: chủ ngữ → phương tiện → người đồng hành → điểm đến → động từ.",
+              "glosses": [
+                {
+                  "t": "でんしゃ",
+                  "read": "電車",
+                  "vi": "xe lửa/tàu điện"
+                },
+                {
+                  "t": "で",
+                  "vi": "trợ từ chỉ phương tiện"
+                },
+                {
+                  "t": "たなかさん",
+                  "read": "田中さん",
+                  "vi": "anh/chị Tanaka"
+                },
+                {
+                  "t": "と",
+                  "vi": "trợ từ 'cùng với' (người đồng hành)"
+                },
+                {
+                  "t": "かいしゃ",
+                  "read": "会社",
+                  "vi": "công ty"
+                },
+                {
+                  "t": "へ",
+                  "vi": "trợ từ chỉ hướng/điểm đến"
+                },
+                {
+                  "t": "いきます",
+                  "read": "行きます",
+                  "vi": "đi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
